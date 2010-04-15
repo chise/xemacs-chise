@@ -3,7 +3,8 @@
 ;; Copyright (C) 1992 Free Software Foundation, Inc.
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1996 Sun Microsystems.
-;; Copyright (C) 1999,2000,2001,2002,2003,2004,2005,2007 MORIOKA Tomohiko
+;; Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2007, 2008,
+;;   2009 MORIOKA Tomohiko
 
 ;; Author: Unknown
 ;; Keywords: i18n, mule, internal
@@ -346,12 +347,16 @@ DESCRIPTION (string) is the description string of the charset."
 	  arabic-1-column
 	  arabic-2-column
 	  =cbeta
-	  ucs-bmp
 	  =jef-china3
 	  chinese-isoir165
 	  arabic-iso8859-6
 	  chinese-big5-1
 	  chinese-big5-2
+	  =>>jis-x0208
+	  =>>jis-x0213-1
+	  =>jis-x0208
+	  =>jis-x0213-1
+	  ucs-bmp
 	  ;; ucs-sip
 	  )))
 

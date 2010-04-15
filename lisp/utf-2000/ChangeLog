@@ -1,3 +1,2165 @@
+2010-04-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R210-Even.el (U+9F4E): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+2010-04-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R209-Nose.el (abstract J0-4921): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'; unify U+9F3B.
+
+	* Ideograph-R200-Hemp.el (U+9EBB): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(K0-582B): Unify GT-65256 and GT-K07879.
+	(J97-4B7B): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(M-47909): Unify JC3-6FC8.
+	(C7-4C7C): Map to U-0002A3A5.
+	(M-47910): Unify GT-65297.
+	(C7-4C7D): Map to U-0002A3A7.
+
+	* Ideograph-R196-Bird.el (U+9D08): Add `<-formed' for J0-3467.
+	(C7-2B71): Map to U-00029FD6.
+	(C7-2B7A): Map to U-00029FC4.
+	(U+9D09): Use `->denotational' and `->subsumptive'; unify abstract
+	J0-726D.
+	(M-46738): Separate C1-7029 and G1-513B; integrate GT-63596.
+	(G1-513B): Unify JX3-726D.
+	(J0-726D): Separate JX3-726D; add `<-simplified@JP/extra/design'
+	for JX3-726D; separate K0-643C.
+	(J78-3974): Unify JX3-3974.
+	(J90-3974): Separate JX3-3974; add `<-simplified@JP/extra/design'
+	for JX3-3974.
+	(U+9DD6): Use `->denotational' instead of `->subsumptive'.
+	(J97-322A): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+9D0E): Use `<-simplified@JP/extra' instead of
+	`<-simplified@JP/jis' for JX1-7E65.
+
+	* Ideograph-R172-Short-Tailed-Bird.el (J0-3467): Unify S1-8943.
+
+	* Ideograph-R086-Fire.el (J97-3975): Copied from
+	Ideograph-R203-Black.el.
+
+	* Ideograph-R203-Black.el (J97-3975): Use `=>jis-x0208@1997'
+	instead of `=jis-x0208@1997'; use
+	`ideographic-{radical|strokes}@jis/b' instead of
+	`ideographic-{radical|strokes}'; add `ideographic-radical@jis/a'.
+
+	* Ideograph-R201-Yellow.el (J97-322B): Use `=>jis-x0208@1997'
+	instead of `=jis-x0208@1997'.
+	(U+9EC3): Unify abstract JX1-7E71.
+	(C7-2C32): Map to U-0002A3B4.
+
+2010-04-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R199-Wheat.el (J97-396D): Use `=>jis-x0208@1997'
+	instead of `=jis-x0208@1997'.
+	(U+9EB4): Unify abstract JX1-7E6F.
+	(JX1-7E6F): Unify GT-65145.
+	(U+9EB9): Unify abstract JX1-396D.
+	(J90-396D): Unify JC3-6FC3.
+	(J97-4C4D): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+9EB5): Unify abstract JX1-7E70.
+	(JX1-7E70): Unify GT-65188.
+	(U+9EBA): Unify abstract JX1-4C4D.
+	(J90-4C4D): Unify JC3-6FC4.
+
+	* Ideograph-R197-Salt.el (J97-3834): Use `=>jis-x0208@1997'
+	instead of `=jis-x0208@1997'.
+	(J90-3834): Unify JC3-6FB5; use `<-simplified@JP/extra' instead of
+	`<-simplified@JP/jis' for U+9E7C.
+
+2010-04-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R195-Fish.el (U+9BAA): Use `->subsumptive'.
+	(U+9BAB): Use `->subsumptive'; unify abstract J0-3B2D.
+	(J0-3B2D): Separate JX3-3B2D.
+	(U+4C4D): Add `<-same' for U+4C6D.
+	(U+9BD6): Unify abstract J0-3B2A.
+	(J78-3B2A): Unify JX3-3B2A.
+	(J90-3B2A): Separate JX3-3B2A; add `<-simplified@JP/jis' for
+	JX3-3B2A.
+	(U+9C2F): Unify abstract J0-3073.
+	(JX1-3073): Add `<-simplified@JP/jis' for JX3-3073.
+	(M-46492): Separate J78-4B70 and GT-63238.
+	(J78-4B70): Unify JX3-4B70.
+	(J90-4B70): Separate JX3-4B70; add `<-simplified@JP/jis' for
+	JX3-4B70.
+	(C7-5D75): Map to U-00029EE1.
+	(U+4C8C): Use `->subsumptive'.
+
+	* Ideograph-R184-Eat.el (U+98EF): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+98F4): Likewise.
+	(JX3-303B): Add `=ucs@jis/2004' for J2004U+98F4.
+	(JX1-303B): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis' for J{1990|2000}U+98F4; unify JC3-6DC8; use
+	`<-simplified@JP/extra' instead of `<-simplified@JP/jis' for
+	JX3-303B.
+	(M-44108): Unify GT-59233 and S2-5617; add `<-original' for
+	U+79E3.
+	(S1-5617): New character.
+	(GT-59165): New character.
+	(U+98FD): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(K0-7869): Unify GT-59241.
+	(U+98FE): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(K0-635E): Unify JC3-6DB6.
+	(U+9905): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J78-4C5F): Unify JX3-4C5F; add `<-vulgar' for J0-7136.
+	(J90-4C5F): Separate JX3-4C5F; use `<-simplified@JP/extra' instead
+	of `<-simplified@JP/jis' for J78-4C5F.
+	(GT-59206): New character.
+	(U+9909): Use `->denotational'; integrate GT-59211.
+	(U+4B39): Use `->denotational' instead of `->subsumptive';
+	integrate GT-59217.
+	(U-000296CE): Use `->denotational' instead of `->subsumptive'.
+	(M-44142): Unify GT-59307.
+	(U+4B3A): Use `->denotational' instead of `->subsumptive';
+	integrate GT-59248.
+	(U+990A): Use `->subsumptive'.
+	(U+990B): Use `->denotational' and `->subsumptive'.
+	(U+990C): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(M-44146): Unify GT-59281.
+	(JX1-3142): Add `<-simplified@JP/extra' for JX1-3142.
+	(M-44147): Unify GT-59280.
+	(U-000296CF): Integrate GT-59201.
+	(U+9910): Use `->subsumptive'; unify abstract J0-3B41.
+	(K0-7349): Unify JX3-3B41 and S-9268.
+	(C1-7327): Unify GT-59369.
+	(J0-3B41): Separate JX3-3B41; separate S1-9268.
+	(U+4B3D): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+9957): Use `->denotational' and `->subsumptive'; unify abstract
+	J0-3642; unify JC3-6DCA.
+	(M-44431): Add `<-same@JP/extra/design' for JX3-3642.
+	(K0-7A44): Unify JX3-3642.
+	(J0-3642): Separate JX3-3642; add `<-simplified@JP/jis' for
+	JX3-3642.
+	(U-000297CA): Use `->denotational' instead of `->subsumptive'.
+	(U+9958): Use `->denotational' and `->subsumptive'.
+	(JX1-7E2A): Unify JC3-6DC7.
+
+	* Ideograph-R187-Horse.el (U+99C1): Use `->subsumptive'; unify
+	abstract J0-477D.
+	(J0-477D): Separate JX3-477D.
+	(C1-6B72): Unify JX3-477D.
+	(C7-4C2C): Unify U-0002991D.
+	(U+9A17): Use `->denotational'.
+	(U+9A19): Use `->denotational'; unify abstract J0-7159.
+	(C1-7952): Unify JX3-7159.
+	(J0-7159): Separate JX3-7159; add `<-simplified@JP/extra/design'
+	for JX3-7159.
+	(U+4B9E): Use `->subsumptive' to separate representative nodes.
+	(M-44851): Unify JC3-6DF0.
+	(U+9A1A): Use `->denotational' instead of `->subsumptive'.
+	(JX2-7C7D): Unify GT-60393.
+	(UU+9A1A): Unify GT-60396.
+	(C7-5A3B): Map to U-00029988.
+	(U-00029989): Use `->denotational'.
+	(M-44998): Unify GT-60594.
+	(IU-00029989): Separate C5-7233; unify GT-60595.
+	(M-44999): Unify GT-60559.
+	(M-45000): Unify GT-60582.
+	(C7-5A40): Map to U-0002998D; integrate GT-60583.
+	(J97-424D): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(J90-424D): Unify JC3-6DF8.
+
+2010-04-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R190-Hair.el (U+4C09): Use `->subsumptive' to separate
+	representative nodes.
+	(U+9B12): Use `->denotational'.
+	(JX2-7D39): Unify GT-61265; add `<-formed' and `<-same' for
+	U+3431.
+	(abstract GT-61266): New variant of U+9B12.
+	(M-45544): Add `<-denotational' for abstract GT-61266; unify
+	GT-61266.
+	(C7-517A): Add `<-denotational' for abstract GT-61266; unify
+	U-0002FA0A.
+	(C7-5177): Map to U-00029BA1.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>gt'.
+
+	* Oracle-Bones.el (abstract ZOB-0353): New abstract character.
+	(abstract ZOB-0559): New abstract character.
+	(abstract ZOB-0644): New abstract character.
+	(abstract ZOB-0909): New abstract character.
+	(abstract ZOB-1019): New abstract character.
+	(abstract ZOB-1395): New abstract character.
+	(ZOB-1397): Use `<-denotational' for abstract ZOB-1019.
+	(ZOB-1416): Use `<-denotational' for abstract ZOB-0644.
+	(abstract ZOB-1418): New abstract character.
+	(abstract ZOB-1429): New abstract character.
+	(abstract ZOB-1441): New abstract character.
+	(abstract ZOB-1511): New abstract character.
+	(ZOB-1530): Use `<-denotational' for abstract ZOB-1429.
+	(abstract ZOB-1532): New abstract character.
+	(abstract ZOB-1627): New abstract character.
+	(abstract ZOB-1648): New abstract character.
+	(ZOB-1667): Use `<-denotational' for abstract ZOB-0353.
+	(ZOB-1733): Use `<-denotational' for abstract ZOB-1648.
+	(ZOB-1848): Use `<-denotational' for abstract ZOB-1627.
+	(ZOB-1849): Use `<-denotational' for abstract ZOB-1441.
+	(ZOB-1850): Use `<-denotational' for abstract ZOB-1395.
+	(ZOB-1851): Use `<-denotational' for abstract ZOB-1511.
+	(ZOB-1854): Use `<-denotational' for abstract ZOB-0559.
+	(ZOB-1856): Use `<-denotational' for abstract ZOB-1532.
+	(ZOB-1908): Use `<-denotational' for abstract ZOB-0909.
+	(ZOB-1951): Use `<-denotational' for abstract ZOB-0644.
+	(ZOB-2041): Use `<-denotational' for abstract ZOB-1418.
+
+2010-04-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R189-Tall.el (abstract J0-3962): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+	* Ideograph-R181-Leaf.el (J97-4B4B): Use `=>jis-x0208@1997'
+	instead of `=jis-x0208@1997'.
+	(J97-453F): Ditto.
+	(U+985A): Unify abstract JX1-7E23.
+	(GT-58556): Use U+985B instead of U+985A as the parent.
+
+	* Ideograph-R180-Sound.el (C7-514A): Map to U-0002943A.
+	(U+97FF): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(C7-562E): Map to U-0002943F.
+	(abstract JX1-7D76): New abstract character.
+
+	* Oracle-Bones.el:
+	- Introduce abstract character as root of variants.
+	(ZOB-{02207 - 02230}): New characters.
+
+2010-04-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R177-Leather.el (U+9771): Use `->denotational' instead
+	of `->subsumptive'.
+	(J90-7057): Separate JX3-7057.
+	(J83-7057): Unify JX3-7057.
+	(J78-3373): Unify JX3-3373.
+	(J90-3373): Separate JX3-3373; add `<-simplified@JP/jis' for
+	JX3-3373.
+	(J78-3E64): Unify JX3-3E64.
+	(J90-3E64): Separate JX3-3E64; add `<-simplified@JP/jis' for
+	JX3-3E64.
+	(U-000292EF): Use `->denotational' instead of `->subsumptive'.
+	(U+97AD): Unify abstract J0-4A5C.
+	(J0-4A5C): Separate JX3-4A5C.
+	(G0-315E): Unify JX3-4A5C.
+	(C7-4471): Map to U-000292F0.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>zinbun-oracle'.
+	(char-db-insert-ccs-feature): Format `=>zinbun-oracle' as decimal.
+
+	* Ideograph-R173-Rain.el (U+9744): Unify abstract J0-704B.
+	(K0-6477): Separate J0-704B and JX1-704B.
+
+	* Ideograph-R169-Gate.el (abstract J0-313C): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(C3-3F6D): Use `=jis-x0208@1978/1pr*note' instead of
+	`=jis-x0208@1978*note'.
+	(J90-313C): Separate J78-313C; unify J78-313C_1er-pr.
+	(abstract J0-6F65): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'; unify U+95BB.
+	(J90-6F65): Separate J78-6F65; unify J78-6F65_1er-pr; don't use
+	`jisx0208-difference'.
+	(J78-6F65_1pr): Use `=jis-x0208@1978/1pr*note' instead of
+	`=jis-x0208@1978*note'.
+	(U+95C9): Use `->subsumptive' to separate representative nodes.
+	(U+95CA): Use `->subsumptive'.
+	(U+95CB): Use `->subsumptive' to separate representative nodes.
+	(C7-3D2D): Map to U-00028D6D.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-704B.
+
+2010-03-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el: (ideographic-radical):
+	- Add autoload cookie.
+	- Add DOC-string.
+
+2010-03-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R170-Mound.el (U+9686): Use `=>jis-x0208@1997' instead
+	of `=jis-x0208@1997'.
+	(U+9698): Use `->denotational' instead of `->subsumptive'.
+	(abstract J0-3764): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(G0-4F36): Unify JX3-3764.
+	(J90-3764): Unify J78-3764_-4X; separate JX3-3764.
+
+	* Ideograph-R009-Man.el (U-00020429): Add `ideographic-structure'.
+
+2010-03-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R167-Gold.el (U+91DC): Use `->subsumptive'; unify
+	abstract J0-3378.
+	(J0-3378): Separate JX3-3378.
+	(G0-382A): Unify JX3-3378.
+	(abstract J0-6E5F): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(J97-4F3F): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+9304): Unify abstract JX1-7D35.
+	(U+9332): Unify abstract JX1-4F3F.
+	(J78-3B2C): Unify JX3-3B2C.
+	(J90-3B2C): Separate JX3-3B2C.
+	(U+9375): Use `->subsumptive'; unify abstract J0-3830.
+	(J0-3830): Separate JX3-3830.
+	(C1-756F): Unify JX3-3830.
+	(J78-444A): Unify JX3-444A.
+	(J90-444A): Separate JX3-444A; use `<-simplified@JP/extra' for
+	JX3-444A.
+	(J78-4C7A): Unify JX3-4C7A.
+	(J90-4C7A): Separate JX3-4C7A; use `<-simplified@JP/extra' instead
+	of `<-simplified@JP/jis' for JX3-4C7A.
+
+2010-03-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R164-Wine.el (J78-3D36): Unify JX3-3D36.
+	(J90-3D36): Separate JX3-3D36; add `<-simplified@JP/jis' for
+	JX3-3D36.
+	(J97-3E5F): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+91AC): Unify abstract JX1-7C79.
+	(U+91A4): Unify abstract JX1-3E5F.
+	(J90-3E5F): Add `<-simplified@JP/extra' for JX1-7C79.
+	(J97-4830): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+91B1): Unify abstract JX1-7C7A.
+	(U+9197): Unify abstract JX1-4830; unify JC3-69A2.
+	(J90-4830): Add `<-simplified@JP/jis' for JX1-7C7A.
+
+	* Ideograph-R162-Walk.el (U+8FBB): Unify abstract J0-4454.
+	(M-38711): Use `=jis-x0208@1978/4-pr' instead of `jisx0208-type'
+	and `=jis-x0208@1978' for J78-4454_4-pr; unify JX3-4454.
+	(J90-4454): Use `=jis-x0208@1978/-4pr' instead of
+	`jisx0208-difference' for J78-4454_-4pr; separate JX3-4454; add
+	`<-simplified@JP/extra' for JX3-4454.
+	(J78-4329): Unify JX3-4329.
+	(J90-4329): Separate JX3-4329; add `<-simplified@JP/extra' for
+	JX3-4329.
+	(U+8FC2): Unify abstract J0-312A.
+	(J90-312A): Add `<-simplified@JP/extra' for JX3-312A.
+	(J90-4B78): Modify `=jis-x0208@1978*note'; rename
+	`=jis-x0208@1978*{note|sources}' to
+	{=jis-x0208@1978/-4pr*{note|sources}'; add `<-simplified@JP/extra'
+	for JX3-4B78.
+	(U+8FDA): Use `->denotational' instead of `->subsumptive'.
+	(U+8FE6): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J90-3260): Add `<-simplified@JP/extra' for JX3-3260.
+	(B-B06E): Unify abstract J0-6D7E.
+	(J78-3F60): Unify JX3-3F60.
+	(J90-3F60): Separate JX3-3F60; add `<-simplified@JP/extra' for
+	JX3-3F60.
+	(U+9019): Unify abstract J0-4767.
+	(J78-4767): Unify JX3-4767.
+	(J90-4767): Separate JX3-4767; add `<-simplified@JP/extra' for
+	JX3-4767.
+	(U+901F): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(K0-615C): Modify format of
+	`->Large-Seal*sources@daikanwa/fixed*note'.
+	(U+9022): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J90-3029): Omit `jisx0208-difference'; add
+	`<-simplified@JP/extra' for JX3-3029.
+	(J78-492F): Unify JX3-492F.
+	(J90-492F): Separate JX3-492F; add `<-simplified@JP/extra' for
+	JX3-492F.
+	(J78-465B): Unify JX3-465B.
+	(J90-465B): Separate JX3-465B; add `<-simplified@JP/extra' for
+	JX3-465B.
+	(B-B94C): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+9065): Delete `<-denotational' for J97-4D5A.
+	(U+9059): Delete `<-denotational' for J97-4D5A; unify abstract
+	J0-7423.
+	(J90-7423): Use `=shinjigen/+p@rev' instead of `=shinjigen@rev'
+	for S2-8352'.
+	(J97-4D5A): Abolished.
+	(J78-423D): Unify JX3-423D.
+	(J90-423D): Separate JX3-423D; add `<-simplified@JP/extra' for
+	JX3-423D.
+	(J78-414C): Unify JX3-414C.
+	(J90-414C): Separate JX3-414C; add `<-simplified@JP/extra' for
+	JX3-414C.
+	(M-39104): Map to U-000285A1.
+	(U+9082): Unify abstract JX1-6E30.
+	(M-39246): Map to U-00028646.
+
+	* Ideograph-R163-City.el (U+90A6): Use `->subsumptive'.
+	(J97-4F3A): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+90CE): Unify abstract JX1-4F3A.
+	(U+90D2): Delete `=>daikanwa' for M-39431; add `<-unknown' for
+	M-39431.
+	(U+90DE): Unify abstract JX1-7C67.
+	(J97-363F): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(J78-4522): Unify JX3-4522.
+	(J90-4522): Separate JX3-4522.
+
+	* Ideograph-R039-Child.el (U+3743): Add `ideographic-structure'.
+	(M-06988): Separate UU+3743 and C3-3054.
+
+2010-03-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R113-Spirit.el (U+798F): Unify J97-4A21.
+
+	* Ideograph-R009-Man.el (U-000203BB): Add `ideographic-structure'.
+
+2010-03-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R158-Body.el (J97-366D): Use `=>jis-x0208@1997'
+	instead of `=jis-x0208@1997'.
+	(U+8EC0): Unify abstract JX1-7C4A; use `->denotational' instead of
+	`->subsumptive'.
+	(U+8EAF): Unify abstract JX1-366D; use `->denotational' instead of
+	`->subsumptive'.
+
+	* Ideograph-R154-Shell.el (abstract J0-6C4C): Use `=>jis-x0208'
+	and `=>jis-x0213-1' instead of `=jis-x0208@1997'; unify U+8CC1.
+	(U+8CED): Unify abstract J0-4552.
+	(J78-4552): Unify JX3-4552.
+	(J90-4552): Separate JX3-4552.
+	(U+8D08): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(abstract JX1-7C3D): New abstract node of U+8D08.
+
+2010-03-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R125-Old.el (C1-5752): Add `=ucs@cns' for CU+8006.
+
+	* Ideograph-R046-Mountain.el (U-00021EB8): Add
+	`ideographic-structure'.
+
+	* Ideograph-R030-Mouth.el (U+55DC): Use `->subsumptive' to
+	separate representative nodes.
+	(U-00020E55): Use `->denotational'.
+
+2010-03-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R153-Badger.el (U+8C79): Unify abstract J0-493F.
+	(K0-787B): Unify JX3-493F.
+	(J0-493F): Separate JX3-493F; add `<-simplified@JP/extra/design'
+	for JX3-493F.
+
+	* Ideograph-R149-Speech.el (U+8A0A): Unify abstract J0-3F56.
+	(k0-6372): Unify JX3-3F56.
+	(J0-3F56): Separate JX3-3F56.
+	(U+8A1D): Unify abstract J0-6B43.
+	(M-35260): Unify JX3-6B43.
+	(J90-6B43): Separate JX3-6B43.
+	(J78-4370): Unify JX3-4370.
+	(J90-4370): Separate JX3-4370; add `<-simplified@JP/extra/design'
+	for JX3-4370.
+	(J78-4127): Unify JX3-4127.
+	(J90-4127): Separate JX3-4127; add `<-simplified@JP/jis' for
+	J78-4127.
+	(abstract J0-4062): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(C7-2871): Map to U-00027A2B.
+	(U+8AB9): Unify abstract J0-4870.
+	(J90-4870): Separate JX3-4870.
+	(J83-4870): Unify JX3-4870.
+	(U+8ACD): Unify abstract J0-6B5A.
+	(J97-3D74): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997';
+	unify U+8AF8.
+	(C7-287A): Map to U-00027A60.
+	(C7-2872): Map to U-00027A58.
+	(C7-333D): Map to U-00027A75.
+	(U+8AFA): Unify abstract J0-3841.
+	(J78-3841): Unify JX3-3841.
+	(J90-3841): Separate JX3-3841.
+	(C7-334E): Map to U-00027A78; integrate H10-E9B2.
+	(J78-4666): Unify JX3-4666.
+	(J90-4666): Separate JX3-4666; add `<-simplified@JP/extra' for
+	JX3-4666.
+	(J78-4935): Unify JX3-4935.
+	(J90-4935): Separate JX3-4935.
+
+2010-03-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R142-Insect.el (B-DBB2): Unify U+86E2.
+	(J78-427D): Unify JX3-427D.
+	(J90-427D): Separate JX3-427D; add `<-simplified@JP/jis' for
+	J78-427D.
+	(B-B8C0): Unify abstract J0-6968.
+	(U+8703): Unify abstract J0-6967.
+	(J0-6967): Separate K0-6371, JX3-6967, GT-44663, S1-7181 and
+	S2-7182.
+	(J78-3F2A): Unify JX3-3F2A.
+	(J90-3F2A): Separate JX3-3F2A.
+	(U+877F): Add JX3-6A24 into `<-simplified@JP/jis'.
+	(J97-4066): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(J90-4066): Unify JC3-63B3.
+	(U-00027453): Use `->subsumptive' to separate representative
+	nodes.
+	(U+87F9): Unify abstract JX1-332A.
+	(parent of J0-332A): Unify abstract J0-332A.
+	(U+880F): Unify abstract JX1-6A37.
+	(J0-6A37): Add `<-original' for J0-332A; add `<-same' for
+	JX3-332A.
+	(J90-6A24): Separate JX3-6A24.
+	(M-33700): Add `<-formed' and `<-same' for U+86D3.
+	(J97-4F39): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(J90-4F39): Unify JC3-63B5; use `<-simplified@JP/extra' instead of
+	`<-simplified@JP/jis' for JX3-7B67.
+
+	* maps-conf.el: Don't rename `=>jis-x0208@1997' to `=>jis-x0208'
+	and add `=>jis-x0213-1' for J97-332A.
+
+2010-03-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R146-West.el (abstract J0-4D57): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'; unify U+8981.
+	(M-34769): Map to U-000277E5.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-6967.
+
+	* Ideograph-R140-Grass.el (U+8292): Unify abstract J0-676A.
+	(J0-676A): Separate JX3-676A; add `<-simplified@JP/extra/design'
+	for JX3-676A.
+	(U+82A4): Use `->denotational'.
+	(U+82A5): Likewise.
+	(U+82A6): Add `sound@ja/on/p={hu4|lu2}'; unify abstract J0-3032.
+	(C3-2A6B): Add `<-same@p=hu4' for C2-2479; add `<-vulgar@p=lu2'
+	for M-32425.
+	(J90-3032): Use list instead of string as the value of
+	`=jis-x0208@1978*note'; add `<-simplified@JP/jis' for JX3-3032;
+	add `<-simplified@JP/misc' for M-32425.
+	(JX3-3032): Add `<-simplified@JP/extra' for J0-6943; add
+	`<-simplified@JP/misc' for M-32425.
+	(U+8327): Use `->denotational'.
+	(C2-3257): Unify JC3-61E1.
+	(U+8328): Unify abstract J0-3071.
+	(J0-3071): Add `<-simplified@JP/extra/design' for JX3-3071.
+	(abstract J0-3755): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(U+834A): Use `->denotational' instead of `->subsumptive'.
+	(J90-3755): Add `<-same@JP/jis' for J78-3755.
+	(C1-5774): Unify JC3-61EA.
+	(U+44BB): Use `->denotational' instead of `->subsumptive'.
+	(U+8347): Use `->denotational'.
+	(C2-3250): Unify JC3-61EB.
+	(U+8348): Use `->denotational' and `->subsumptive'.
+	(U+44BC): Use `->denotational' instead of `->subsumptive'.
+	(J97-4D69): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+840A): Use `->denotational' and `->subsumptive'.
+	(U+83B1): Unify JC3-63A2.
+	(U+845B): Unify abstract J0-336B.
+	(B-B8AF): Unify abstract glyph of JX3-336B; use `->denotational'
+	instead of `->subsumptive'.
+	(U+84EC): Unify abstract J0-4B29.
+	(J78-4B29): Unify JX3-4B29.
+	(J90-4B29): Separate JX3-4B29; unify JC3-63A4; use
+	`<-simplified@JP/extra' instead of `<-simplified@JP/jis'.
+	(U+8532): Unify abstract JX1-7B34.
+	(U+8511): Unify abstract J0-4A4E; use `->denotational' instead of
+	`->subsumptive'.
+	(J0-4A4E): Separate JX3-4A4E; add `<-simplified@JP/extra/design'
+	for JX3-4A4E.
+	(J97-3E55): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(J90-3E55): Unify JC3-61B9.
+	(U+853D): Unify JC3-62FD.
+	(J78-4A43): Unify JX3-4A43.
+	(J83-4A43): Add `<-simplified@JP/jis' for JX3-4A43.
+	(J90-4A43): Separate JX3-4A43; add `<-simplified@JP/jis' for
+	JX3-4A43.
+	(U+853F): Use `->denotational' and `->subsumptive'.
+	(U+848D): Likewise.
+	(J78-3B27): Unify JX3-3B27.
+	(J90-3B27): Separate JX3-3B27; add `<-simplified@JP/jis' for
+	JX3-3B27; add `<-simplified@JP/misc' for GT-43266.
+	(U+85AF): Unify abstract J0-3D72.
+	(J78-3D72): Unify JX3-3D72.
+	(J90-3D72): Separate JX3-3D72.
+	(U+85B0): Use `->denotational'.
+	(C1-7734): Unify JC3-62E5.
+	(U+85B1): Use `->denotational'.
+	(K0-6E4B): Unify J78-3D73 and JX3-3D73.
+	(J90-3D73): Separate JX3-3D73; unify JC3-61B8; add
+	`<-simplified@JP/jis' for JX3-3D73; add `<-simplified@JP/misc' for
+	M-32391.
+	(J0-4D76): Add `<-simplified' for M-32519.
+
+2010-02-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R141-Tiger.el (U+8654): Unify abstract J0-694A.
+	(J0-694A): Separate JX3-694A.
+	(GT-44188): Unify JX3-694A.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>>jis-x0213-1@{2000|2004}' and `=>>jis-x0208@1978'.
+
+	* Ideograph-R055-Two-Hands.el (U+8201): Add
+	`ideographic-structure'; use `=>jis-x0208' and `=>jis-x0213-1'
+	instead of `=jis-x0208@1997'.
+	(U-0002234D): Use `->subsumptive' to separate representative
+	nodes.
+	(U-0002234E): Use `->denotational' instead of `->subsumptive'.
+
+2010-02-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R134-Mortar.el (U+8201): Add `ideographic-structure';
+	use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+
+	* Ideograph-R137-Boat.el (U+8258): Use `->denotational' instead of
+	`->subsumptive'; unify abstract J0-675B.
+	(M-30511): Separate J0-675B, C1-717C, JX1-675B and GT-39430.
+
+	* Ideograph-R130-Meat.el (abstract J0-6726): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(B-B2E6): Unify abstract J0-4326.
+	(U+8171): Unify abstract J0-6727.
+	(J0-6727): Separate JX3-6727.
+	(G0-6B6C): Unify JX3-6727.
+	(J78-425C): Unify JX3-425C.
+	(J90-425C): Separate JX3-425C; add `<-simplified@JP/extra' for
+	J78-425C.
+	(U+818E): Use `->denotational' and `->subsumptive'.
+	(U-000267AD): Use `->subsumptive'.
+	(U+818F): Unify abstract J0-3951.
+	(K0-4D47): Separate J0-3951 and JX1-3951.
+	(abstract glyph of GT-38767): Use `=>>gt' instead of `<=>gt'.
+	(abstract glyph of GT-38769): Ditto.
+
+2010-02-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R133-Arrive.el (U+81F4): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+	* Ideograph-R124-Feather.el (GT-36835): Map to U-000263F3; unify
+	H9-B3E8.
+	(M-28761): Map to U-00026461.
+	(U+7FE9): Use `->denotational'.
+	(U+7FEB): Add `ideographic-structure'.
+	(J78-3465): Unify JX3-3465.
+	(J90-3465): Separate JX3-3465; add `<-simplified@JP/jis' for
+	J78-3465.
+	(J78-344D): Unify JX3-344D.
+	(J90-344D): Separate JX3-344D.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-3951.
+
+2010-02-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R118-Bamboo.el (U+7B08): Use `->denotational' instead
+	of `->subsumptive'; unify abstract J0-3568.
+	(C2-3166): Unify JX3-3568.
+	(J0-3568): Separate JX3-3568; add `<-simplified@JP/extra/design'
+	for JX3-3568.
+	(U+7B6D): Unify S-5822; add `<-original' for U+7B97.
+	(U+7B75): Unify abstract J0-6427.
+	(J0-6427): Separate JX3-6427.
+	(U-00025B6B): Integrate M-26091.
+	(U-00025B8D): Integrate M-26108.
+	(J0-4A4F): Add `<-vulgar' for J0-6444.
+	(U-00025B90): Integrate M-26115.
+	(U+4203): Unify M-26117.
+	(U+4204): Integrate M-26119.
+	(JSP-5235): Unify H8-BD47.
+	(U-00025B94): Integrate M-26134.
+	(U-00025B95): Integrate M-26138.
+	(U-00025B96): Integrate M-26141.
+	(U-00025B97): Integrate M-26144.
+	(U-00025B99): Integrate M-26155.
+	(U-00025B9A): Integrate M-26156.
+	(U+7B9F): Use `->subsumptive'.
+	(J0-6431): Add `<-ancient' for J0-6430; add `<-formed' for S-5815.
+	(U-00025B9B): Integrate M-26159.
+	(U-00025B9C): Integrate M-26160.
+	(U-00025B9E): Unify M-26166.
+	(U+420B): Integrate M-26167.
+	(U-00025BA2): Integrate M-26172.
+	(U+7BAD): Use `->denotational' instead of `->subsumptive'; unify
+	abstract J0-407D.
+	(M-26193): Unify JX3-407D.
+	(J0-407D): Separate JX3-407D; add `<-simplified@JP/extra/design'
+	for JX3-407D.
+	(U+7BB8): Use `->denotational' instead of `->subsumptive'.
+	(J78-4824): Unify JX3-4824.
+	(J90-4824): Separate JX3-4824; add `<-simplified@JP/jis' for
+	J78-4824.
+	(U+7BC7): Use `->denotational' instead of `->subsumptive'; unify
+	abstract J0-4A53.
+	(K0-7839): Unify JX3-4A53.
+	(J0-4A53): Separate JX3-4A53; add `<-simplified@JP/extra/design'
+	for JX3-4A53.
+	(U-00025BEE): Integrate M-26269.
+	(U+7BDD): Use `->denotational' instead of `->subsumptive'; unify
+	abstract J0-6440.
+	(GT-33916): Unify JX3-6440.
+	(J0-6440): Separate JX3-6440; add `<-simplified@JP/extra/design'
+	for JX3-6440.
+	(J97-433D): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+6440): Use `->denotational' instead of `->subsumptive'; unify
+	abstract J0-4E7C.
+	(GT-34334): Unify JX3-4E7C.
+	(J0-4E7C): Separate JX3-4E7C; add `<-simplified@JP/jis' for
+	JX3-4E7C.
+
+2010-02-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R127-Plow.el (C1-5755): Unify S-6357.
+	(J0-394C): Unify S-6356; add `<-same' for C1-5755.
+
+	* Ideograph-R009-Man.el (M-01272): Omit `ideographic-structure'.
+
+2010-02-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R122-Net.el (U+7F72): Use `=>jis-x0208@1997' instead
+	of `=jis-x0208@1997'.
+
+2010-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R120-Silk.el (U-0002604B): Integrate M-27553.
+	(U-0002604C): Integrate M-27561.
+	(U+7DAA): Use `->denotational' instead of `->subsumptive'.
+	(J97-3D6F): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U-00026096): Integrate M-27632'.
+
+	* Ideograph-R113-Spirit.el:
+	- Add some mappings for Daikanwa.
+	(M-24626): Unify S-5507; add `<-ancient' for J0-6339.
+	(J78-3737): Unify JX3-3737.
+	(J90-3737): Separate JX3-3737; add `<-simplified@JP/extra' for
+	J78-3737.
+	(U-0002560D): Use `->subsumptive' to separate representative
+	nodes.
+	(U-0002560F): Use `->denotational'.
+	(J78-3540): Unify JX3-3540.
+	(J90-3540): Separate JX3-3540; add `<-simplified@JP/extra' for
+	J78-3540.
+	(U+795F): Unify abstract J0-632E.
+	(G0-4B6E): Separate J0-632E; use `->subsumptive' to separate
+	J0-632E and JX3-632E.
+	(U-00021C07): Use `->subsumptive' to integrate M-24785; use
+	`ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns*sources' and
+	`ideographic-{radical|strokes}@ucs'.
+	(J0-4135): Unify S-5566.
+	(J78-4729): Unify JX3-4729.
+	(J90-4729): Separate JX3-4729; add `<-simplified@JP/extra' for
+	J78-4729.
+	(J97-4578): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(J90-4578): Use `<-simplified@JP/extra' instead of
+	`<-simplified@JP'.
+
+	* Ideograph-R102-Field.el:
+	- Add some mappings for Daikanwa.
+	(U-00022341): Use `->denotational' to integrate M-49332.
+	(C4-2741): Use `<-denotational' for U-00022341; unify H7-B4EB.
+	(U-00024C2B): Unify M-21769; add `<-ancient' for J0-4B2E.
+	(U+754A): Add `<-formed' for C1-5755.
+	(U+7552): Use `->subsumptive' to separate representative nodes.
+	(M-49332): Add `<-denotational' for U-00022341; add `<-original'
+	for C4-2741.
+	(JSP-4D3A): Add `<-formed' and `<-same' for J0-5436.
+	(H7-B770): Separate U-00024C67; add `<-unknown' for U-00024C67;
+	unify M-21833.
+	(U+7564): Use `->denotational' instead of `->subsumptive'.
+	(U+7567): Add `<-vulgar' for U+7565.
+	(abstract J0-305B): Unify U+7570.
+	(J0-305B): Move U+7570 to the parent; add `<-simplified@JP/misc'
+	and `<-wrong' for U-0002F938.
+	(U+7569): Use `->subsumptive' to separate representative nodes.
+	(U-00024C67): Separate H7-B770; add `<-unknown' for M-21833; use
+	`->subsumptive'.
+	(U-00024C83): Unify S-5059; add `<-original' for S-5058.
+
+	* Ideograph-R043-Lame.el (U-00021C07): Copied from
+	Ideograph-R113-Spirit.el.
+
+	* Ideograph-R115-Grain.el (J0-633E): Unify S1-5600.
+
+	* Ideograph-R085-Water.el:
+	- Add some mappings for Daikanwa.
+	(U+6C72): Unify abstract J0-3562.
+	(K0-5063): Unify JX3-3562.
+	(J0-3562): Separate JX3-3562; add `<-simplified@JP/extra/design'
+	for JX3-3562.
+	(U+6D69): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+6D78): Likewise.
+	(U+6DEB): Likewise.
+	(J90-307C): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for JX3-307C.
+	(abstract J0-4036): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(U+6E2E): Likewise.
+	(U+6E2F): Likewise.
+	(U+6E6E): Unify abstract J0-5E50.
+	(abstract J0-3C22): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'; unify U+6ECB.
+	(J0-3C22): Move U+6ECB to the parent.
+	(U+6EA2): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(JX3-306E): Add `=ucs@jis/2004' for J2004U+6EA2.
+	(JX1-306E): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis' for J{1990|2000}U+6EA2.
+	(J78-452E): Unify JX3-452E.
+	(J90-452E): Separate JX3-452E; use `<-simplified@JP/jis' instead
+	of `<-simplified@JP' for J78-452E.
+	(U+6F23): Unify abstract J0-4E7A.
+	(J78-4E7A): Unify JX3-4E7A.
+	(J90-4E7A): Separate JX3-4E7A; use `<-simplified@JP/extra' instead
+	of `<-simplified@JP'.
+	(U-00023F4A): Integrate M-18250 and S-4507.
+	(abstract J0-3442): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(U+6F97): Use `<-simplified@JP/jis' instead of `<-simplified@JP'.
+	(U+6F98): Integrate CB02958.
+	(U+3D71): Use `->subsumptive'; modify hierarchy of
+	`ideographic-structure'.
+	(J90-4654): Separate JX3-4654; use `<-simplified@JP/jis' instead
+	of `<-simplified@JP'.
+	(JSP-4927): Use `<-simplified@JP/jis' instead of
+	`<-simplified@JP'.
+	(J97-4642): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+6D9C): Use `->denotational' instead of `->subsumptive'; unify
+	abstract JX1-4642.
+	(J90-4642): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for JX1-773D.
+	(JX1-7739): Add `=ucs@jis/2004' for J2004U+6FF9.
+	(U+7015): Unify abstract J0-494E.
+	(J78-494E): Unify JX3-494E.
+	(J90-494E): Separate JX3-494E; use `<-simplified@JP/jis' instead
+	of `<-simplified@JP'.
+	(J78-4654): Unify JX3-4654.
+	(U+7026): Unify abstract J0-4375.
+	(J78-4375): Unify JX3-4375.
+	(J90-4375): Separate JX3-4375.
+	(U+7058): Unify abstract J0-4667.
+	(J78-4667): Unify JX3-4667.
+	(J90-4667): Separate JX1-4667; add `<-simplified@JP/jis' for
+	J78-4667.
+
+2010-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R119-Rice.el (U+7C7E): Use `->denotational' instead of
+	`->subsumptive'.
+	(J90-4C62): Separate JX3-4C62; add `<-simplified@JP/jis/1978' for
+	J78-4C62; add `<-simplified@JP/jis/2004' for JX3-4C62.
+	(J78-4C62): Integrate JX3-4C62.
+	(U+7C82): Use `->subsumptive' to separate representative nodes;
+	unify abstract J0-3729.
+	(J0-3729): Separate JX3-3729; separate GT-34606.
+	(JX3-3729): Unify GT-34606.
+	(J0-6463): Add `<-vulgar' for J0-633E.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-3729.
+
+2010-01-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R116-Cave.el (U+7A7F): Unify abstract J0-407C;
+	integrate JX3-407C.
+	(J0-407C): Separate JX3-407C; separate K0-743E and JC3-5DD7.
+	(U-00025A36): Use `->subsumptive'; integrate M-25701.
+	(U-00025A37): Integrate M-25702.
+	(J90-635E): Separate JX3-635E and GT-33163.
+
+	* Ideograph-R086-Fire.el (U+7075): Use `->denotational' instead of
+	`->subsumptive'.
+	(JX2-6F5A): Add `<-vulgar' for J90-635E.
+
+2009-12-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R115-Grain.el (U+79C6): Add `<-formed' and `<-same'
+	for U+7A08.
+	(U+79E4): Use `->denotational' instead of `->subsumptive'.
+	(J78-4769): Unify JX3-4769.
+	(J90-4769): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4769; add `<-simplified@JP/jis' for J78-4769.
+	(U+414E): Use `->subsumptive' to separate representative nodes.
+	(U+7A03): Use `->denotational' instead of `->subsumptive'.
+	(U+7A04): Use `->denotational' instead of `->subsumptive'.
+	(B-B57C): Unify abstract J0-4047.
+	(U+7A0E): Add `<-same' and `<-simplified@JP/misc' for K0-612A.
+	(U+7A06): Use `->denotational' instead of `->subsumptive'.
+	(U+7A07): Use `->subsumptive' to separate representative nodes.
+	(U+7A09): Likewise.
+	(J78-4923): Unify JX3-4923.
+	(J90-4923): Separate JX3-4923; add `<-simplified@JP/extra/design'
+	for J78-4923.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-635E.
+
+2009-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-632E.
+
+	* Ideograph-R112-Stone.el (U+409B): Unify M-24058.
+	(J97-3826): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(M-24475): Use `<-denotational' for U+40E3 instead of U-0002F951.
+	(C7-396D): Unify U-0002F951 and UU+40E3.
+
+	* Ideograph-R104-Sickness.el (U+75B8): Use `->subsumptive'.
+	(U+75B9): Likewise.
+	(U+75BA): Likewise.
+	(U+75BB): Likewise.
+	(U+75BC): Likewise.
+	(K0-5459): Move B-AF6B to the abstract node; unify JX3-6156.
+	(J0-6156): Separate JX3-6156.
+	(G0-4C5B): Separate C1-566E.
+	(U+75BD): Use `->subsumptive'.
+	(abstract J0-4169): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(J90-4169): Use `<-simplified@JP/jis' instead of
+	`<-simplified@JP'.
+
+	* Ideograph-R032-Earth.el (J0-5436): Separate S2-1384.
+	(S1-1384): Unify S2-1384.
+
+2009-12-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el:
+	- Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	  `=jis-x0208@1997' for common part of abstract JIS X 0208:1997
+	  and JIS X 0213.
+	(U-0002F8DC): Unify JX3-3C5D and J2004U+6753.
+	(J90-3C5D): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-3C5D; add `<-simplified@JP/extra/design' for U-0002F8DC.
+	(U+6754): Add `ideographic-structure'.
+	(JX2-2E40): Use GT-K00495 instead of U+6728 in
+	`ideographic-structure'.
+	(C3-2644): Add `ideographic-structure'.
+	(U+6756): Unify abstract J0-3E73.
+	(J0-3E73): Separate JX3-3E73.
+	(G0-5548): Unify JX3-3E73.
+	(U+6780): Use `->subsumptive'.
+	(U+677F): Likewise.
+	(abstract J0-5B47): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'; unify U+6785.
+	(J0-5B47): Move U+6785 to the abstract node.
+	(U+67C8): Use `->denotational'.
+	(U+67C9): Use `->subsumptive'.
+	(U+67D3): Likewise.
+	(U+67D5): Use `->subsumptive' to separate representative node.
+	(U+67D6): Use `->subsumptive'.
+	(U+67D7): Likewise.
+	(U+67FB): Add `ideographic-structure'.
+	(J0-3A3A): Omit `ideographic-structure'.
+	(G0-3269): Add `<-wrong' for J0-3A3A.
+	(U+67ED): Use `->denotational' to separate abstract glyph node.
+	(U+67F5): Use `->subsumptive' to separate representative nodes.
+	(U+681E): Add `ideographic-structure'.
+	(U+3B5C): Unify M-14720.
+	(U+6829): Use `->denotational'.
+	(U+3B5D): Integrate M-14725.
+	(U+3B5E): Integrate M-14730.
+	(U+6830): Add `ideographic-structure'.
+	(JSP-4353): Use GT-K00495 instead of U+6728 in
+	`ideographic-structure'.
+	(C3-3163): Likewise.
+	(U+3B5F): Integrate M-14733.
+	(U+6832): Use `->subsumptive' to separate representative nodes.
+	(U-00023465): Likewise.
+	(U+3B60): Unify M-14738; add `sound@ja/on'.
+	(U+3B61): Unify M-14740.
+	(U+6836): Use `->subsumptive' to separate representative nodes.
+	(U+6838): Use `->subsumptive'.
+	(U+3B62): Unify M-14756.
+	(U-0002346D): Use `->subsumptive' to separate representative node.
+	(U+685D): Add `ideographic-structure'; use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+6897): Use `->subsumptive'.
+	(J0-393C): Separate JX3-393C.
+	(G0-3923): Unify JX3-393C.
+	(U+3B6D): Use `->denotational' to separate abstract glyph nodes.
+	(U+6899): Use `->subsumptive' to separate representative node.
+	(U+689A): Use `->subsumptive' to separate representative nodes.
+	(U+68D7): Use `->subsumptive'.
+	(U+68D8): Use `->subsumptive' to separate representative nodes.
+	(J0-5B79): Separate JX3-5B79.
+	(K0-503E): Unify JX3-5B79.
+	(J78-466A): Unify JX3-466A.
+	(J90-466A): Separate JX3-466A; use `<-simplified@JP/jis' instead
+	of `<-simplified@JP/misc'.
+	(U+3B9B): Use `->subsumptive' to separate representative node.
+	(U+696E): Use `->denotational'.
+	(J90-3D5D): Separate JX3-3D5D.
+	(J83-3D5D): Unify JX3-3D5D.
+	(J78-4F31): Unify JX3-4F31.
+	(J90-4F31): Separate JX3-4F31; use `<-simplified@JP/jis' instead
+	of `<-simplified@JP/misc'.
+	(U+3BA9): Unify M-15255.
+	(U+69A6): Use `->subsumptive'.
+	(U+69A8): Use `->denotational' and `->subsumptive'.
+	(U+69B4): Add `<-vulgar' for U+6A4A.
+	(U+69B6): Use `->subsumptive'.
+	(U+69B7): Likewise.
+	(U+3BAE): Integrate M-15284.
+	(U+3BAF): Use `->subsumptive' to separate representative nodes.
+	(U+69B8): Use `->subsumptive' to separate representative node; add
+	`sound@ja/on'.
+	(U+69B9): Use `->denotational' to separate abstract glyph nodes.
+	(U+3BB0): Integrate M-15289.
+	(U+69BA): Use `->denotational' and `->subsumptive'.
+	(U+3BB1): Integrate M-15291.
+	(U+69BB): Use `->denotational'.
+	(U+3BB2): Integrate M-15293.
+	(U+69C0): Use `->subsumptive'.
+	(U+69C1): Likewise.
+	(U+3BB3): Integrate M-15301.
+	(U+3BB4): Integrate M-15315.
+	(J78-4448): Unify JX3-4448.
+	(J90-4448): Separate JX3-4448; use `<-simplified@JP/extra' instead
+	of `<-simplified@JP/misc' for J78-4448.
+	(U+3BB5): Integrate M-15322.
+	(U+69D1): Use `->subsumptive' to separate representative node.
+	(U+3BB7): Integrate M-15326.
+	(U+69D7): Unify S-3811; add `<-vulgar' for U+6A4B.
+	(J78-3A67): Unify JX3-3A67.
+	(J90-3A67): Separate JX3-3A67; use `<-simplified@JP/extra' instead
+	of `<-simplified@JP/misc' for J78-3A67.
+	(parent of M-15364): Integrate U-0002F8EA.
+	(J78-4875): Unify JX3-4875.
+	(J90-4875): Separate JX3-4875; use `<-simplified@JP/extra' instead
+	of `<-simplified@JP'.
+	(U+6A19): Use `->subsumptive'.
+	(U+6A1A): Add `ideographic-structure'.
+	(JX2-2F4C): Use GT-K00495 instead of U+6728 in
+	`ideographic-structure'.
+	(H4-B05B): Likewise.
+	(C3-4C4A): Likewise.
+	(U-00023629): Unify M-15444.
+	(U-00023630): Integrate M-15467.
+	(U-00023631): Integrate M-15468.
+	(U-00023632): Integrate M-15469.
+	(U-00023670): Integrate M-15473.
+	(U-00023671): Unify M-15476.
+	(U-00023673): Integrate M-15478.
+	(U-00023674): Integrate M-15479.
+	(U-00023675): Integrate M-15480.
+	(U-00023676): Integrate M-15481.
+	(U+3BE0): Add `ideographic-structure'.
+	(GT-19689): Use GT-K00495 instead of U+6728 in
+	`ideographic-structure'.
+	(C3-4C4B): Likewise.
+	(U-0002363A): New character; add `<-vulgar' for U+6A4B.
+	(J78-432E): Unify JX3-432E.
+	(J90-432E): Separate JX3-432E; use `<-simplified@JP/jis' instead
+	of `<-simplified@JP' for J78-432E.
+	(U+3BD3): Add `ideographic-structure'.
+	(M-15501): Use GT-K00495 instead of U+6728 in
+	`ideographic-structure'.
+	(C3-5142): Likewise.
+	(U+6A4A): Add `<-original' for U+69B4.
+	(U+6A59): Use `->subsumptive' to separate representative nodes.
+	(J0-5C74): Separate JX3-5C74.
+	(U+6A6E): Use `->subsumptive' to separate representative nodes.
+	(U+3BE2): Use `->subsumptive'.
+	(U+6A6F): Use `->subsumptive' to separate representative nodes.
+	(U-000236A3): Integrate M-15605.
+	(U+3BF0): Use `->denotational' to separate abstract glyph nodes.
+	(U+6A8C): Use `->subsumptive' to separate representative nodes.
+	(U+6A8D): Likewise.
+	(U+6A8F): Use `->subsumptive'.
+	(J78-367B): Unify JX3-367B.
+	(J90-367B): Separate JX3-367B; use `<-simplified@JP/jis' instead
+	of `<-simplified@JP'.
+	(U+6ADC): Use `->denotational'.
+	(U-00023799): Use `->denotational' and `->subsumptive'.
+	(U+6ADD): Use `->denotational'.
+	(U+6ADE): Use `->subsumptive'.
+	(U+6AE0): Likewise.
+	(U+3C05): Use `->denotational'.
+	(J90-3135): Use `<-simplified@JP/jis' instead of
+	`<-simplified@JP'.
+
+	* Ideograph-R030-Mouth.el (J0-527B): Use `=ucs@jis/1990' and
+	`=ucs@jis/2000' instead of `=ucs@jis'.
+	(JX3-527B): Add `=ucs@jis/2004' for J2004U+54AC.
+	(JX3-3E25): Add `=ucs@jis/2004' for J2004U+54E8.
+	(U+55B0): Add `ideographic-structure'.
+	(JX3-3674): Add `=ucs@jis/2004' for J2004U+55B0.
+	(J90-3674): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'.
+	(U+5632): Add `ideographic-structure'.
+	(JX3-535E): Add `=ucs@jis/2004' for J2004U+5632.
+	(J90-535E): Use J0-442B instead of U+671D in
+	`ideographic-structure'.
+	(JX3-4139): Add `=ucs@jis/2004' for J2004U+564C.
+	(J90-4139): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'.
+	(J0-5373): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'.
+
+	* Ideograph-R014-Cover.el (U+51A4): Add `ideographic-structure'.
+	(U-0002F818): Add `=ucs@jis/2004' for J2004U+51A4.
+	(abstract glyph of JX1-514D): Add `=>>jis-x0213-1@2000'.
+
+2009-12-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R109-Eye.el (U+773A): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+77A5): Use `->denotational' instead of `->subsumptive'.
+	(J78-4A4D): Use `<-subsumptive' to integrate JX3-4A4D.
+	(G0-4633): Separate J83-4A4D, J90-4A4D, JX1-4A4D and JC3-5BE3.
+
+	* Ideograph-R091-Slice.el (J90-4757): Use `=ucs@jis/1990' and
+	`=ucs@jis/2000' instead of `=ucs@jis'.
+
+	* Ideograph-R086-Fire.el (JX3-3C5E): Add `=ucs@jis/2004' for
+	J2004U+707C.
+	(J90-3C5E): Add `<-simplified@JP/extra/design' for JX3-3C5E.
+	(J90-4E7B): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'.
+	(JX3-4079): Add `=ucs@jis/2004' for J2004U+714E.
+	(JX3-407A): Add `=ucs@jis/2004' for J2004U+717D.
+	(J90-407A): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'.
+	(U+71A2): Add `ideographic-structure'.
+	(K0-5C6C): Use GT-K00405 instead of J0-3250 in
+	`ideographic-structure'.
+	(UU+71A2): Likewise.
+
+	* Ideograph-R064-Hand.el (J0-4472): Use `=ucs@jis/1990' and
+	`=ucs@jis/2000' instead of `=ucs@jis'.
+	(JX3-4854): Add `=ucs@jis/2004' for J2004U+633D.
+	(J90-4854): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'.
+	(JX3-443D): Add `=ucs@jis/2004' for J2004U+6357.
+	(JX3-377E): Add `=ucs@jis/2004' for J2004U+6372.
+	(JX3-4237): Add `=ucs@jis/2004' for J2004U+63C3.
+	(JX3-4022): Add `=ucs@jis/2004' for J2004U+647A.
+	(J90-4022): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'.
+	(JX3-4527): Add `=ucs@jis/2004' for J2004U+64E2.
+
+	* Ideograph-R063-Door.el (JX3-5928): Add `=ucs@jis/2004' for
+	J2004U+6241.
+	(J0-5928): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'; use `<-simplified@JP/extra/design' instead of
+	`<-simplified@JP/extra'.
+
+	* Ideograph-R061-Heart.el (M-10709): Unify U-000226BB and C5-2D59.
+	(M-10710): Unify U-000226AE.
+	(M-10711): Unify U-000226A8 and H6-DBDB.
+	(U+60A8): Use `->subsumptive' to separate representative nodes.
+	(M-10713): Map to U-000226AD.
+	(M-10714): Map to U-000226AA.
+	(M-10715): Unify U-000226AB.
+	(U+60D4): Use `->subsumptive' to separate representative nodes.
+	(M-10802): Map to U-000226DA; fix `ideographic-strokes'; add
+	`ideographic-strokes@daikanwa'.
+	(M-10804): Unify U+60D6, C3-3B55 and H6-DDF6.
+	(U+3952): Use `->denotational'.
+	(U+60D7): Use `->subsumptive' to separate representative nodes.
+	(JX3-4C7C): Add `=ucs@jis/2004' for J2004U+6108.
+
+	* Ideograph-R060-Step.el (JX3-5751): Add `=ucs@jis/2004' for
+	J2004U+5F98.
+	(J90-5751): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'.
+	(JX3-352B): Add `=ucs@jis/2004' for J2004U+5FBD.
+
+	* Ideograph-R053-Dotted-Cliff.el (JX3-4A79): Add `=ucs@jis/2004'
+	for J2004U+5E96.
+	(J90-4A79): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'.
+	(JX3-4940): Add `=ucs@jis/2004' for J2004U+5EDF.
+	(J90-4940): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'; use `<-simplified@JP/extra/design' instead of
+	`<-simplified@JP/extra'.
+
+	* Ideograph-R029-Again.el (J0-3A35): Use `=ucs@jis/1990' and
+	`=ucs@jis/2000' instead of `=ucs@jis'.
+	(U+53DB): Add `ideographic-structure'.
+	(JX3-4840): Add `=ucs@jis/2004' for J2004U+53DB.
+	(J0-4840): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'.
+	(U+53DF): Add `ideographic-structure'.
+	(JX3-5257): Add `=ucs@jis/2004' for J2004U+53DF.
+
+	* Ideograph-R010-Legs.el (JX3-4546): Add `=ucs@jis/2004' for
+	J2004U+514E.
+	(J0-4546): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'.
+
+	* Ideograph-R009-Man.el (JX3-3771): Add `=ucs@jis/2004' for
+	J2004U+5026.
+	(J90-3771): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'; add `<-simplified@JP/jis' for JX3-3771.
+	(U+504F): Add `ideographic-structure'.
+	(U-000202F1): Add `ideographic-structure'.
+	(U-000202F5): Likewise.
+	(U-00020422): Likewise.
+	(JX3-4C59): Add =ucs@jis/2004' for J2004U+5132.
+
+	* Ideograph-R038-Woman.el (JX3-4A5A): Unify J2004U+5A29.
+	(J90-4A5A): Use `<-simplified@JP/extra/design' instead of
+	`<-simplified@JP/extra'.
+
+2009-12-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R098-Tile.el (JX3-6131): Unify J2004U+7515.
+
+	* Ideograph-R076-Lack.el (JX3-4337): Unify J2004U+6B4E.
+
+	* Ideograph-R026-Seal.el (JX3-362A): Unify J2004U+537F.
+
+	* Ideograph-R044-Corpse.el (JX3-367D): Unify J2004U+5C51.
+	(JX3-454B): Unify J2004U+5C60.
+	(JX3-4F60): Unify J2004U+5C62.
+
+	* Ideograph-R032-Earth.el (JX3-4548): Unify J2004U+5835.
+
+	* maps-conf.el:
+	- Don't add `=gt-pj-1' for J90-4A4D.
+	- Remove `=ucs@jis' if JIS X0213:2000 and 2004 are different.
+	- Add `=ucs@jis/2004' to JIS X0213:2004 characters which are
+	  different from JIS X0213:2000.
+	- Use `=>jis-x0213-1' and `=>jis-x0208' instead of
+	  `<=>jis-x0213-1' and `<=>jis-x0208'.
+
+	* Ideograph-R100-Life.el (abstract J0-3B3A): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(J0-3B3A): Add `<-same' and `<-simplified@JP/misc' for M-21684.
+	(U+7526): Unify abstract J0-6134.
+	(J0-6134): Separate JX3-6134.
+	(EGB-2C75): Unify JX3-6134.
+	(M-21697): Add `<-same' for J0-6134.
+	(IU-00024BF3): Unify S-5013; add `<-formed' for J0-6134.
+
+2009-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R098-Tile.el (B-ED70): Use `->denotational' instead of
+	`->subsumptive'.
+	(J78-3979): Use `<-subsumptive' to integrate JX3-3979.
+	(J90-3979): Separate JX3-3979.
+	(M-21617): Separate J83-6131, K0-6838, J90-6131, JX1-6131,
+	GT-27757 and S-5002.
+	(K0-6838): Unify JX3-6131, GT-27757 and S-5002.
+
+	* Ideograph-R094-Dog.el (U+72E1): Use `->subsumptive'; unify
+	abstract J0-6044.
+	(J0-6044): Separate JX3-6044.
+	(J78-4D32): Use `<-subsumptive' to integrate JX3-4D32.
+	(J90-4D32): Separate JX3-4D32.
+
+	* Ideograph-R090-Half-Tree-Trunk.el (U-0002458F): Moved from
+	Ideograph-R089-Double-X.el.
+	(U-00024590): Likewise.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-6131.
+
+2009-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R096-Jade.el (U+73E5): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+	* Ideograph-R093-Cow.el (U+727D): Unify abstract J0-3823.
+	(K0-4C32): Separate J0-3823 and JX1-3823.
+
+	* Ideograph-R089-Double-X.el (JC3-41A4): Use `<-denotational' for
+	U+723E.
+	(U-0002039B): Use `ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-{radical|strokes}@cns*sources' instead of
+	`ideographic-'; omit `ideographic-structure'; add `<-same' for
+	U-00024564.
+	(U-0002458F): Integrate M-19793; moved to
+	Ideograph-R090-Half-Tree-Trunk.el.
+	(U-00024590): Integrate M-19794; moved to
+	Ideograph-R090-Half-Tree-Trunk.el.
+
+	* Ideograph-R009-Man.el (U-0002039B): Use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-{radical|strokes}@cns*sources' instead of
+	`ideographic-'; omit `ideographic-structure'; add `<-same' for
+	U-00024564.
+
+2009-12-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R088-Father.el (M-19729): Unify S-4712; add
+	`<-ancient' for J0-4C6C.
+	(U+3E19): Use `->denotational' instead of `->subsumptive'.
+	(U+723A): Unify abstract J0-4C6C.
+	(J0-4C6C): Separate JX3-4C6C.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-3823.
+
+	* Ideograph-R092-Fang.el (U+7259): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+	* Ideograph-R091-Slice.el (U+724C): Use `->denotational' instead
+	of `->subsumptive'.
+	(J78-4757): Unify JX3-4757; move B-B550 to the parent node.
+	(J90-4757): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4757.
+
+	* Ideograph-R086-Fire.el (U+7078): Unify abstract J0-3564.
+	(K0-4F36): Separate J0-3564 and JX1-3564; move B-A862 to U+7078.
+	(U+707C): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J78-3C5E): Unify JX3-3C5E.
+	(J90-3C5E): Use `=jis-x0213-1@2000' for JX1-3C5E.
+	(J97-316B): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(J90-316B): Use `<-simplified@JP/jis' instead of
+	`<-simplified@JP'.
+	(U+716E): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+7149): Unify abstract J0-4E7B.
+	(J78-4E7B): Unify JX3-4E7B; move B-B7D2 to the parent node.
+	(J90-4E7B): Use `=jis-x0213-1@2000' for JX1-4E7B; add
+	`<-simplified@JP/jis' for J78-4E7B.
+	(J78-4079): Unify JX3-4079.
+	(J90-4079): Use `=jis-x0213-1@2000' for JX1-4079; move B-B7CE to
+	the parent node; use `<-simplified@JP/extra/design' instead of
+	`<-simplified@JP/misc'.
+	(U+717D): Unify abstract J0-407A.
+	(K0-6043): Unify JX3-407A.
+	(J90-407A): Use `=jis-x0213-1@2000' for JX1-407A; use
+	`<-simplified@JP/extra/design' instead of `<-simplified@JP/misc'.
+	(abstract J0-5F73): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(U-0002446B): Add `ideographic-structure'.
+	(IU-0002446B): Use GT-K00405 instead of J0-3250 in
+	`ideographic-structure'.
+	(abstract glyph of GT-38767): Use `=>>gt' instead of `<=>gt'.
+	(abstract glyph of GT-38769): Likewise.
+	(CB02412): Use GT-K00405 instead of U+706B in
+	`ideographic-structure'.
+
+2009-11-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-3564.
+
+2009-11-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R031-Enclosure.el (U+5702): Use `->subsumptive' to
+	separate representative nodes.
+	(U+5704): Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-{vol|page|char}'.
+
+2009-10-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-5B5E.
+
+2009-10-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R082-Fur.el (U+6C08): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-5C27.
+
+2009-10-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R080-Do-Not.el (J97-4B68): Use `=>jis-x0208@1997'
+	instead of `=jis-x0208@1997'.
+
+	* Ideograph-R077-Stop.el (abstract J0-3A50): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-5B79 and J90-5C74.
+
+2009-10-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R076-Lack.el (U+6B21): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(J0-3C21): Add `<-same' for K0-732D.
+	(U+6B4E): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(C1-6D45): Unify JX3-4337.
+	(J0-4337): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4337; add `<-simplified@JP/jis' for JX3-4337.
+
+	* Ideograph-R064-Hand.el (U+62FD): Unify S-3407; add `<-formed'
+	for U+66F3.
+
+2009-10-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R074-Moon.el (U+670B): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(J0-4A7E): Add `<-same' for GT-18172.
+	(U+670D): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J0-497E): Add `<-same' for M-14345.
+	(U+671C): Use `->subsumptive'.
+	(U+671D): Use `->denotational'; use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(J0-442B): Add `<-same' for M-14374.
+	(U-00023379): Use `->denotational' and `->subsumptive'; integrate
+	M-14381.
+
+	* Ideograph-R072-Sun.el (abstract J0-3937): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(B-B1DF): Unify J97-4855.
+	(U+665A): Use `->subsumptive' to separate representative nodes;
+	unify abstract JX1-753C.
+	(U-000231B6): Use `->denotational' instead of `->subsumptive'.
+	(abstract J0-5A70): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(U+6666): Likewise.
+	(U+66D9): Likewise.
+	(J90-3D6C): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-3D6C.
+
+	* Ideograph-R073-Say.el (U+66F4): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+66F5): Add `<-wrong' for U+66F3.
+
+	* Ideograph-R066-Rap.el (U+6562): Use `->denotational' instead of
+	`->subsumptive'.
+	(M-13360): Map to U-00022FCE.
+	(M-13373): Map to U-00022FDA.
+	(U-00022FCE): Use `->subsumptive' to separate representative
+	nodes.
+	(U+657B): Omit `=>daikanwa' for M-13355.
+	(U-00022FD5): Use `->subsumptive' to separate representative
+	nodes.
+	(abstract J0-546B): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+
+2009-10-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R069-Axe.el (M-13537): Unify U-00023092 and H5-F67A;
+	add `sound@ja/on'.
+	(U+65A7): Use `->subsumptive'; unify abstract J0-4960.
+	(J0-4960): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4960.
+	(G0-382B): Unify JX3-4960.
+	(U+65A8): Use `->subsumptive' to separate representative nodes.
+	(U-00023094): Use `->subsumptive'.
+	(U-00023095): Add `sound@ja/on'; add `<-ancient' for U+65AF.
+	(M-13543): Unify U-00023096 and H5-F67C; add `sound@ja/on'.
+	(M-13544): Unify U-00023097 and H5-F67D; add `sound@ja/on'.
+
+	* Ideograph-R064-Hand.el (U+62CE): Use `->subsumptive'.
+	(U+62D0): Use `->denotational' instead of `->subsumptive'; use
+	`=>jis-x0208' and `=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U-00022AE6): Unify CB07882; add `<-original' for U+62CD.
+	(U+62F4): Use `->denotational' and `->subsumptive'.
+	(JC3-4FC0): Omit `=>daikanwa'.
+	(U+633A): Unify abstract J0-4472.
+	(J0-4472): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4472.
+	(G0-4D26): Unify JX3-4472.
+	(B-AEBE): Use `->subsumptive' to separate representative nodes.
+	(J78-4854): Unify JX3-4854; add `<-same' for JX1-6D4E.
+	(J90-4854): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4854; unify JC3-70BF; add `<-simplified@JP/extra/design' for
+	J78-4854.
+	(U+634A): Use `->denotational'.
+	(U+634B): Use `->denotational'.
+	(U+634C): Use `->denotational' instead of `->subsumptive'; use
+	`=>jis-x0208' and `=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+6357): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J78-443D): Move B-D1CA to the parent node; unify JX3-443D.
+	(J90-443D): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-443D; use `<-simplified@JP/jis' instead of `<-simplified@JP'.
+	(U+6369): Unify J97-5960.
+	(J90-5960): Add `<-simplified@JP/jis' for J78-5960.
+	(U-00022B87): Use `->denotational'.
+	(M-12202): Map to U-00022B87; unify H5-DBAC.
+	(U+636E): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+6372): Likewise.
+	(B-B1B2): Use `->denotational' instead of `->subsumptive'.
+	(J78-377E): Unify JX3-377E.
+	(J90-377E): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-377E.
+	(U+6383): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+6385): Use `->denotational' and `->subsumptive'.
+	(U+6387): Use `->subsumptive'.
+	(U+6388): Unify M-12242 and S1-2968.
+	(U+63BD): Use `->denotational'.
+	(U+63BE): Use `->subsumptive' to separate representative nodes.
+	(U+63BF): Use `->denotational'.
+	(U+63C0): Add `<-formed' for U+67EC.
+	(U+63C2): Use `->denotational' and `->subsumptive'.
+	(U+63C3): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(M-12319): Unify JX3-4237.
+	(J0-4237): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4237; unify JC3-50BA; add `<-simplified@JP/extra/design' for
+	JX3-4237.
+	(U+640F): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J97-415F): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+6414): Use `->denotational' instead of `->subsumptive'.
+	(U+63BB): Add `<-simplified@JP/extra' for JX1-7476.
+	(U+444F): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+647A): Use `->denotational' instead of `->subsumptive'; unify
+	abstract J0-4022.
+	(J78-4022): Unify JX3-4022; separate K0-6F49, GT-15936 and
+	GT-K11156.
+	(J90-4022): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1'; add
+	`<-simplified@JP/jis' for J78-4022.
+	(U+64B0): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J78-4071): Unify JX3-4071.
+	(J90-4071): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4071; add `<-simplified@JP/jis' for J78-4071.
+	(U+64E2): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'; use `->denotational' instead of
+	`->subsumptive'.
+	(J78-4527): Unify JX3-4527; separate K0-7677 and GT-16292.
+	(J90-4527): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4527; add `<-simplified@JP/jis' for J78-4527.
+	(J97-5A39): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(J90-5A39): Add `<-simplified@JP/jis' for U+6522.
+	(U+651D): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+
+2009-09-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el (U+6062): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+6108): Use `->denotational' instead of `->subsumptive'; unify
+	abstract J0-4C7C.
+	(J78-4C7C): Unify JX3-4C7C.
+	(J90-4C7C): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4C7C.
+	(U+6109): Use `->denotational' and `->subsumptive'.
+	(M-11180): Map to U-0002282B; integrate H6-E56E.
+	(M-11182): Map to U-0002282D; integrate H6-E5AC.
+	(U-0002282E): Use `->subsumptive' to separate representative
+	nodes.
+	(M-11184): Unify U-0002281B and H6-E3EF.
+	(U-00022821): Use `->subsumptive'.
+	(U-0002281E): Use `->subsumptive'.
+	(U+6187): Add `ideographic-structure'.
+	(U+618E): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(B-BCA8): Unify abstract JX1-745E.
+
+2009-09-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R063-Door.el (U+39C1): Use `->denotational' instead of
+	`->subsumptive'.
+	(U-00022A36): Likewise.
+	(U+6241): Likewise; unify abstract J0-5928.
+	(K0-7837): Unify JX3-5928; move B-ABF3 to U+6241.
+	(J0-5928): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-5928; add `<-simplified@JP/extra' for JX3-5928.
+	(U+6249): Use `->denotational' instead of `->subsumptive'; use
+	`=>jis-x0208' and `=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(B-B476): Moved to U+6249.
+	(U+624A): Use `->denotational' instead of `->subsumptive'.
+	(B-D951): Moved to U+624A.
+
+2009-09-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R046-Mountain.el (U+5CFB): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+5D46): Omit `ideographic-structure'; use `->subsumptive' to
+	separate representative nodes.
+	(U+5D47): Use `->subsumptive' to separate representative nodes.
+	(U+37E8): Likewise.
+	(U+5D48): Use `->denotational' and `->subsumptive'.
+	(U+5D49): Use `->subsumptive' to separate representative nodes.
+	(U-00021E73): Use `->subsumptive'.
+	(U+5D4B): Use `->subsumptive' to separate representative nodes.
+	(U+5D4C): Likewise.
+	(U+5D4E): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+5D87): Likewise; use `->denotational' instead of
+	`->subsumptive'.
+	(U+5DC9): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U-00021FB0): Add `ideographic-structure'.
+	(U+5DCA): Use `->subsumptive'.
+	(abstract J0-3460): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(U+5DD3): Likewise.
+
+2009-09-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R059-Bristle.el (M-09978): Unify U-0002248D and
+	H3-ABE2; add `sound@ja/on'.
+	(U-0002248A): Use `->subsumptive' to separate representative
+	nodes.
+	(abstract J0-4927): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(M-09980): Unify S-2313.
+	(J0-4927): Add `<-simplified@JP' and `<-vulgar' for M-09980.
+	(abstract J0-4426): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+
+2009-09-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R060-Step.el (U+5F98): Unify abstract J0-5751.
+	(J83-5751): Unify JX1-5751.
+	(J90-5751): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-5751.
+	(U+5FA7): Add `ideographic-structure'.
+	(J97-4427): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+5FB4): Unify abstract JX1-4427.
+	(U+5FB5): Unify abstract JX1-7444.
+	(U+5FBD): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'; add `sound@ja/on'.
+	(J78-352B): Move B-C0B2 to the parent node; unify JX3-352B; move
+	JC3-4DC1 to J90-352B.
+	(J90-352B): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis'; use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-352B; unify JC3-4DC1; use `<-simplified@JP/jis' instead of
+	`<-simplified@JP' for J78-352B.
+
+2009-09-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R054-Long-Stride.el (JX2-2C2B): Unify S-2240; add
+	`<-formed' for J0-3276.
+	(U+5EFB): Unify abstract J0-3276.
+	(JX2-2C2C): Unify S-2241; add `<-vulgar' for J0-3276.
+
+2009-09-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R056-Shoot.el (abstract J0-5736): Use `=>jis-x0208'
+	and `=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+	* Ideograph-R038-Woman.el (U+5989): Add `ideographic-structure'.
+	(J97-552B): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997';
+	unify abstract JX1-552B.
+	(U+598D): Unify abstract JX3-552B.
+	(J0-552B): Add `<-same' and `<-simplified@JP/jis' for JX3-7E7A.
+	(JSP-393D): Add `<-original' for J83-3B50.
+	(U+59C9): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+59D9): Add `sound@ja/on'; use `->subsumptive'.
+	(U-0002171F): Add `sound@ja/on'; use `->subsumptive'.
+	(U+59DA): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U-0002171D): Use `->subsumptive'.
+	(U+59F8): Unify abstract JX3-7E7A.
+	(K0-6641): Unify JX3-7E7A.
+	(U+59F9): Add `ideographic-structure'.
+	(abstract J0-3864): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(U-00021735): Use `->subsumptive'.
+	(U+5A29): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J78-4A5A): Unify JX3-4A5A.
+	(J90-4A5A): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4A5A; add `<-simplified@JP/extra' for J78-4A5A.
+	(U+5A2B): Use `->subsumptive'.
+	(U-00021736): Use `->subsumptive'.
+	(U-0002176A): Use `->subsumptive'.
+	(U+5A5B): Use `->subsumptive' to separate representative nodes.
+	(U+5A5C): Likewise.
+	(U+5A5D): Likewise.
+	(U+5A5E): Likewise.
+	(U+5A5F): Likewise; add `sound@ja/on/{kan|go}'.
+	(U+5A60): Use `->subsumptive'.
+	(U-0002176B): Use `->subsumptive'.
+	(U+5A61): Use `->subsumptive' to separate representative nodes.
+	(U+5A62): Likewise.
+	(U+5A63): Likewise.
+	(U+5A66): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+36EF): Use `->subsumptive'; add `sound@ja/on/pianhai' and
+	`sound@ja/on/zihui'.
+	(U+36F0): Use `->subsumptive'.
+	(U+5A88): Add `ideographic-structure'.
+	(U-0002179E): Use `->subsumptive'.
+	(U+5A8D): Use `->subsumptive'.
+	(U+5A8E): Use `->denotational' and `->subsumptive'.
+	(U+5A8F): Use `->subsumptive'; add `sound@ja/on'.
+	(U+36F6): Use `->subsumptive'; add `sound@ja/on'.
+	(U-0002179F): Use `->denotational' and `->subsumptive'.
+	(U+5A90): Use `->denotational' and `->subsumptive'.
+	(U+370E): Use `->denotational' instead of `->subsumptive'.
+	(U+5ACC): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J90-3779): Add `<-simplified@JP/jis' for J78-3779.
+	(U+5AFE): Use `->subsumptive'.
+	(UU+5AAF): Add `<-simplified' for JX2-2571.
+	(U+5B2A): Use `->subsumptive' to separate representative nodes.
+	(U+5B2B): Use `->subsumptive'.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-564B.
+
+	* Ideograph-R030-Mouth.el (GT-K01160): Use `<-original@component'
+	instead of `<-original' for U+5B50.
+	(GT-K01881): Use `<-original@component/connect-above' instead of
+	`<-original' for U+5B50.
+
+	* Ideograph-R053-Dotted-Cliff.el (U+5E96): Unify abstract J0-4A79.
+	(J78-4A79): Unify JX3-4A79.
+	(J90-4A79): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4A79; use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-4A79.
+	(U+5EAD): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J83-446D): Unify GT-11748 and GT-K06510.
+	(abstract glyph of GT-11749): New variant of U+5EAD to integrate
+	J90-446D, G0-4D25 and C1-553C.
+	(U+5EDD): Use `->subsumptive'.
+	(U+5EDE): Use `->subsumptive'.
+	(U+5EDF): Unify abstract J0-4940.
+	(J78-4940): Unify JX3-4940.
+	(B-BC71): Unify abstract glyph of JX1-4940.
+	(J90-4940): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4940; use `<-simplified@JP/extra' instead of `<-simplified@JP'
+	for J78-4940.
+
+2009-09-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R044-Corpse.el (abstract J0-5622): Use
+	`=>jis-x0208@1997' and `=>jis-x0213-1@2000' instead of
+	`=jis-x0208@1997'.
+	(J90-5622): Use `<-simplified@JP/extra' instead of
+	`<-simplified@JP' for JX3-7E7B.
+	(U+5C51): Use `=>jis-x0208@1997' and `=>jis-x0213-1@2000' instead
+	of `=jis-x0208@1997'.
+	(J78-367D): Unify JX3-367D.
+	(J90-367D): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-367D; use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-367D.
+	(U+5C5B): Unify abstract JX3-7E7B.
+	(J78-5622): Unify JX3-7E7B and S-1938.
+	(U+5C60): Use `=>jis-x0208@1997' and `=>jis-x0213-1@2000' instead
+	of `=jis-x0208@1997'.
+	(J78-454B): Unify JX3-454B.
+	(J90-454B): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-454B; use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-454B.
+	(U-00021CA3): Use `->subsumptive' to separate glyphs.
+	(J97-3C48): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+5C61): Unify abstract JX1-3C48.
+	(J90-3C48): Use `<-simplified@JP/jis' instead of
+	`<-simplified@JP'.
+	(U+5C62): Unify abstract JX3-4F60.
+	(J78-3C48): Move B-B9F0 to abstract UCS node; use `->subsumptive'
+	to separate JX1-4F60 and JX3-4F60.
+	(U+5C64): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(B-BC68): Use `->denotational' instead of `->subsumptive'; unify
+	abstract JX1-4F61.
+	(U+5C65): Use `->denotational' instead of `->subsumptive'.
+	(B-BC69): Moved to abstract node.
+	(U-00021CD0): Use `->denotational' instead of `->subsumptive'.
+	(U+379F): Likewise.
+
+2009-09-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-565A.
+
+	* Ideograph-R050-Turban.el (U+5E30): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+5E6D): Add `ideographic-structure'.
+
+2009-09-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R043-Lame.el (U+5C22): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+	* Ideograph-R042-Small.el (U+5C12): Use `->denotational' instead
+	of `->subsumptive'.
+	(abstract J0-5575): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(C4-2173): Add `<-same' for GT-09427.
+	(S-4715): New variant of U+5C13.
+	(abstract J0-3E30): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(U+5C1A): Add `<-same' and `<-simplified@JP' for K0-5F46.
+
+	* Ideograph-R039-Child.el (U-00021983): Use `->subsumptive' to
+	separate representative nodes.
+	(U-00021984): Use `->denotational'.
+	(U-00021985): Use `->subsumptive' to separate representative
+	nodes.
+	(abstract J0-555A): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `<=>jis-x0208' and `<=>jis-x0213-1'.
+
+2009-09-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R037-Big.el (abstract J0-4B5B): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'; unify U+5954.
+	(J0-4B5B): Move U+5954 to the abstract node.
+	(U-00021645): Use `->denotational'.
+	(U+5960): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+
+2009-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R032-Earth.el (U+580B): Use `->denotational' instead
+	of `->subsumptive'.
+	(U+5835): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J78-4548): Unify JX3-4548.
+	(J90-4548): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4548; use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-4548.
+	(B-D8AD): Moved to abstract node.
+	(U+5858): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+585A): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+FA10): Unify abstract JX1-2F57.
+	(JX1-2F57): Add S2-1441.
+	(U+FA7C): Unify abstract JX1-444D.
+	(U+585D): Use `->subsumptive'.
+	(J0-3A49): Unify S1-1462.
+	(U+5860): Add `ideographic-structure'.
+	(GT-06747): Use representative component in
+	`ideographic-structure'.
+	(C3-405C): Likewise.
+	(GT-06654): Likewise.
+	(J97-4536): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+5861): Unify abstract JX1-2F58.
+	(U+586B): Unify abstract JX1-4536.
+	(J90-4536): Add `<-simplified@JP/jis' for JX1-2F58.
+	(B-D8A7): Unify abstract JX2-252B.
+	(U+588D): Use `->denotational' instead of `->subsumptive';
+	integrate abstract glyph of JX2-252B.
+	(JC3-47D8): Use `<-denotational' for U+588D instead of B-D8A7;
+	omit `=>ucs' and `=>daikanwa'.
+	(U+58AB): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+
+	* Ideograph-R030-Mouth.el (U+53F2): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(B-A75D): Unify J97-465D.
+	(U+541E): Unify abstract JX3-4F7E; use `->subsumptive'.
+	(G0-4D4C): Unify JX3-4F7E.
+	(U+541F): Add `ideographic-structure'.
+	(abstract J0-3862): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(B-A764): Moved to abstract node.
+	(J0-3862): Add `<-simplified@JP' for K0-676F.
+	(abstract J0-3970): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(U+544A): Add `<-simplified@JP' for U+543F.
+	(U+5451): Add `<-simplified@JP/extra' for JX3-4F7E; add `<-wrong'
+	for JX3-4F7E.
+	(U+54AC): Add `ideographic-structure'; unify abstract J0-527B.
+	(J0-527B): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-527B.
+	(abstract glyph of JX3-527B): New variants of U+54AC; integrate
+	JX3-527B, G0-5227 and C1-5036.
+	(U+54D1): Omit `=>daikanwa' for M-03835; add `<-simplified@CN' for
+	U+555E.
+	(U+54E8): Add `ideographic-structure'; unify abstract J0-3E25.
+	(J78-3E25): Unify JX3-3E25.
+	(abstract glyph of GT-04609): New variant of U+54E8.
+	(J90-3E25): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-3E25.
+	(J97-3022): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+5533): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(B-B0E6): Moved to parent node.
+	(abstract glyph of JX1-533A): New variant of U+5533.
+	(J90-533A): Add `<-simplified@JP' for C1-594B; add
+	`<-simplified@JP/jis' for J78-533A.
+	(U+5539): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+5544): Likewise.
+	(B-B0D6): Add `ideographic-structure'.
+	(J78-426F): Add S2-1094.
+	(parent of J0-426F): Add abstract glyph of JX1-426F; add
+	`ideographic-structure'.
+	(J0-426F): Add `ideographic-structure'.
+	(JC3-70B9): Likewise.
+	(U+556E): Omit `=>daikanwa' for M-04516; add `<-simplified@CN' for
+	U+5699.
+	(abstract J0-5348): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(U+55A9): Use `->denotational' instead of `->subsumptive'.
+	(U+55BB): Likewise.
+	(U+55B0): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J78-3674): Unify JX3-3674.
+	(J90-3674): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-3674.
+	(U+5632): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J78-535E): Unify JX3-535E.
+	(J90-535E): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-535E.
+	(U+5642): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+564C): Unify abstract J0-4139.
+	(B-E4F8): Add `ideographic-structure'.
+	(J78-4139): Unify JX3-4139.
+	(J90-4139): Add `ideographic-structure'; use `=jis-x0213-1@2000'
+	instead of `=jis-x0213-1' for JX1-4139.
+	(J97-337A): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+5678): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J97-4739): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(abstract J0-536B): Use `=>jis-x0208' and `=>jis-x0213-1' instead
+	of `=jis-x0208@1997'.
+	(U+56A5): Use `->subsumptive' to separate representative nodes.
+	(U+56C0): Use `->denotational'.
+	(UU+56C0): Unify JX3-5373.
+	(J0-5373): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-5373.
+	(U+56C1): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+56CA): Omit `ideographic-structure'; unify JC3-70BA.
+
+	* char-db-util.el: (char-db-coded-charset-priority-list):
+	- Use `=>FOO' instead of `<=>FOO'.
+	- Add `=>>jis-x0213-2', `=>jis-x0213-2' and `=shinjigen'.
+
+2009-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R035-Go-Slowly.el (abstract J0-546B): Use
+	`=>jis-x0208' and `=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+5910): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R029-Again.el (U+53C9): Add abstract J0-3A35.
+	(J0-3A35): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-3A35.
+	(G0-3266): Unify JX3-3A35.
+	(abstract glyph of J0-483F): New variants of U+53CD.
+	(J0-483F): Use `<-subsumptive' for the abstract glyph of J0-483F.
+	(G0-3734): Introduce abstract glyph layer.
+	(U+53CE): Use `=>jis-x0208' instead of `<=>jis-x0208'; use
+	`=>jis-x0213-1' instead of `<=>jis-x0213-1'.
+	(C3-2160): Don't use abstract component in `ideographic-structure'
+	of representative character.
+	(U+53DB): Add abstract J0-4840; use `->denotational' instead of
+	`->subsumptive'.
+	(abstract glyph of JX3-4840): New variant of U+53DB.
+	(K0-5A64): Unify JX3-4840.
+	(abstract glyph of JX1-4840): New variant of U+53DB.
+	(J0-4840): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-4840.
+	(C1-5035): Omit `ideographic-structure'.
+	(C0-4551): Likewise.
+	(U+53DC): Add `ideographic-structure'.
+	(M-03167): Don't use abstract component in `ideographic-structure'
+	of representative character.
+	(CB00008): Likewise; separate BC-8AC4.
+	(UU+53DC): Omit `ideographic-structure'.
+	(C3-2B4E): Don't use abstract component in `ideographic-structure'
+	of representative character.
+	(U+53DF): Use `->denotational' and `->subsumptive'.
+
+2009-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>>gt'.
+
+2009-09-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R023-Hiding-Enclosure.el (U+5338): Use
+	`->subsumptive'.
+	(U+5339): Use `->denotational' and `->subsumptive'.
+	(U+533A): Use `->denotational' instead of `->subsumptive'.
+	(U-00020976): Use `->denotational' and `->subsumptive'.
+	(U+533E): Likewise.
+	(U+533F): Use `->denotational'.
+	(U+5340): Use `->denotational' and `->subsumptive'; use
+	`=>jis-x0208' and `=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+	* Ideograph-R018-Knife.el (J97-476D): Unify abstract JX1-476D.
+	(U+525D): Add `ideographic-structure'; unify abstract JX3-2F7E.
+	(M-02049): Separate J78-476D; delete duplicated S-0666.
+	(K0-5A4E): Unify J78-476D and JX3-2F7E.
+	(U+5265): Add `ideographic-structure'; unify abstract JX3-476D.
+	(U+5266): Add `ideographic-structure'.
+	(U+5275): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+
+	* Ideograph-R010-Legs.el (U+5146): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+514C): Add `ideographic-structure'.
+	(U-0002047D): Likewise.
+	(U+514D): Unify J97-4C48.
+	(parent of JX1-2E50): Add `=>jis-x0213-1' for abstract JX1-2E50.
+	(abstract JX1-4C48): New variant of U+514D.
+	(G0-4362): Use `<-subsumptive' for abstract JX1-4C48.
+	(J0-4C48): Likewise.
+	(U+514E): Unify J97-4546 and abstract JX1-4546.
+	(C3-2454): Separate K0-774D, S-0469 and H1-DDC9; omit
+	`ideographic-structure'; add `<-vulgar' for U-0002F80F.
+	(GT-01764): New variant of U+514E.
+	(S-0469): Unify JX3-4546.
+	(J0-4546): Unify K0-774D; use `=jis-x0213-1@2000' instead of
+	`=jis-x0213-1' for JX1-4546.
+	(U+5154): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+
+	* Ideograph-R009-Man.el (abstract J0-4662): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+4ED7): Likewise.
+	(U+3431): Add `sound@ja/on'; unify GT-00504 and GT-K01404; add
+	`->formed' for JX2-7D39.
+	(J97-4A3B): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U+4F7F): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(abstract J0-3666): Likewise; add `ideographic-structure'.
+	(U+4FF1): Modify a component in the `ideographic-structure'; use
+	`=jis-x0208@1978/-4X' instead of `jisx0208-1978/4X'; unify
+	JX3-2E21.
+	(U+5002): Add `=>jis-x0213-1' for abstract JX1-2E3C.
+	(U+5026): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(J78-3771): Unify JX3-3771.
+	(aJX1-3771): New abstract glyph of U+5026.
+	(J90-3771): Use `<-subsumptive' for aJX1-3771; modify a component
+	of the `ideographic-structure'; use `=jis-x0213-1@2000' instead of
+	`=jis-x0213-1' for JX1-3771.
+	(U+5049): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+5065): Likewise.
+	(abstract J0-5079): Likewise.
+	(U+5078): Add `ideographic-structure'.
+	(U+5077): Likewise.
+	(U+5085): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+5091): Likewise.
+	(U+50B4): Likewise; use `->denotational' instead of
+	`->subsumptive'.
+	(U+50C5): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+50E7): Use `=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	(U-0002F80A): Add `=>jis-x0213-1' for abstract glyph aJX1-414E.
+	(U+50CF): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+5132): Likewise.
+	(U+5137): Likewise.
+
+	* ideograph-util.el (int-list<): Support minus values.
+	(morohashi-daikanwa<): Support notation for abstract characters
+	and their children.
+	(char-daikanwa): New optional argument `depth'; return
+	`(nnnnn - depth)', `(nnnnn d -depth)' or `(ho nnnnn -depth)' for
+	abstract object.
+
+2009-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R049-Oneself.el (U+5DF7): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(J78-392B): Unify JX3-392B.
+	(J90-392B): Use `=ucs@jis/1990' and `=ucs@jis/2000' instead of
+	`=ucs@jis' for J90U+5DF7; use `=jis-x0213-1@2000' instead of
+	`=jis-x0213-1' for JX1-392B; add `<-simplified@JP/jis' for
+	J78-392B.
+	(U+5DFD): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(B-B453): Moved to the parent node.
+	(J90-4327): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-4327.
+
+	* Ideograph-R040-Roof.el (U+5BC1): Use `->subsumptive' to separate
+	representative nodes.
+	(U+5BC2): Use `->subsumptive'.
+	(U-00021A24): Use `->subsumptive'.
+	(U+5BC3): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+	(U+5BD0): Likewise.
+	(U+5BD2): Likewise.
+	(K0-794E): Unify GT-09091 and GT-K09013.
+	(abstract glyph of GT-09092): New variant of U+5BD2; use
+	`->subsumptive' to integrate J0-3428, G0-3A2E and C1-5E6D.
+
+	* Ideograph-R036-Evening.el (abstract J0-546C): Use `=>jis-x0208'
+	and `=>jis-x0213-1' instead of `=jis-x0208@1997'; unify U+591B.
+	(J0-546C): Move U+591B into the abstract node.
+	(U+5922): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+
+2009-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Check "../etc/char-data/JX3-JX1-rep-diff.txt".
+
+2009-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>>jis-x0208' and `=>>jis-x0213-1'.
+
+2009-08-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R027-Cliff.el, Ideograph-R026-Seal.el:
+	- Use `=>jis-x0208' instead of `<=>jis-x0208'.
+	- Use `=>jis-x0213-1' instead of `<=>jis-x0213-1'.
+
+	* Ideograph-R021-Spoon.el (B-A450): Moved to J97-5238.
+	(J97-5238): Use `=>jis-x0208' and `=>jis-x0213-1' instead of
+	`=jis-x0208@1997'.
+
+	* Ideograph-R020-Wrap.el, Ideograph-R015-Ice.el,
+	  Ideograph-R014-Cover.el:
+	- Use `=>jis-x0208' instead of `<=>jis-x0208'.
+	- Use `=>jis-x0213-1' instead of `<=>jis-x0213-1'.
+
+	* Ideograph-R013-Down-Box.el (J97-4662): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+5189): Likewise.
+	(J97-5A70): Likewise.
+
+	* Ideograph-R012-Eight.el (U+516C): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+	* Ideograph-R011-Enter.el (abstract J0-4662): Use `=>jis-x0208'
+	and `=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(GT-K05210): New variant of U+516A.
+
+	* Ideograph-R008-Lid.el (U+4EA4): Use `=>jis-x0208' and
+	`=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(J83-3872): Unify GT-00389 and GT-K01602.
+	(abstract glyph of GT-00390): New object to subsume J90-3872 and
+	G0-3D3B.
+
+	* Ideograph-R001-One.el:
+	- Use `=>jis-x0208' instead of `<=>jis-x0208'.
+	- Use `=>jis-x0213-1' instead of `<=>jis-x0213-1'.
+
+	* char-db-util.el (char-db-insert-ccs-feature): Use `=>gt' instead
+	of `<=>gt'; add setting for `=>>gt'.
+
+2009-08-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R039-Child.el (U+5B76): Use `<=>jis-x0208' instead of
+	`=jis-x0208@1997' in `<-denotational'.
+	(abstract J0-555A): Use `<=>jis-x0208' and `<=>jis-x0213-1'
+	instead of `=jis-x0208@1997'.
+	(U+5B73): Use `<=>jis-x0208' instead of `=jis-x0208@1997' in
+	`<-denotational'.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-552D.
+
+	* char-db-util.el: (char-db-coded-charset-priority-list):
+	- Add `=jis-x0213-1' and `=jis-x0213-1@2004'.
+	- Use `=jis-x0213-1@2000' instead of `=jis-x0213-1-2000'.
+	- Use `=jis-x0213-2' instead of `=jis-x0213-2-2000'.
+	- Add `<=>jis-x0208'.
+	- Use `<=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	- Add `<=>jis-x0213-1' and `<=>jis-x0213-1@{2000|2004}'.
+
+	* Ideograph-R015-Ice.el (U+51B4): Use `<=>jis-x0208' and
+	`<=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+	* Ideograph-R027-Cliff.el (U+53A9): Use `<=>jis-x0208' and
+	`<=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+2009-08-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R020-Wrap.el (U+52FA): Use `<=>jis-x0208' and
+	`<=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U+5305): Likewise.
+	(abstract J0-5232): Likewise.
+
+2009-08-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R029-Again.el (U+53CE): Use `<=>jis-x0208' and
+	`<=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+	* Ideograph-R026-Seal.el (U+537F): Use `<=>jis-x0208' and
+	`<=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(J90-362A): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-362A.
+	(J78-362A): Unify JX3-362A.
+
+	* Ideograph-R014-Cover.el (U+51A4): Use `<=>jis-x0208' and
+	`<=>jis-x0213-1' instead of `=jis-x0208@1997'.
+	(U-0002F818): Unify JX3-514D.
+	(J90-514D): Use `=jis-x0213-1@2000' instead of `=jis-x0213-1' for
+	JX1-514D.
+
+	* Ideograph-R001-One.el (U+4E08): Use `<=>jis-x0208' and
+	`<=>jis-x0213-1' instead of `=jis-x0208@1997'.
+
+2009-08-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Add `<=>jis-x0213-1' for each object of
+	`<=>jis-x0208'.
+
 2009-08-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R142-Insect.el: Add mappings between CJK Ext B and CNS

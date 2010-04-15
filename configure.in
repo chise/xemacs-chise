@@ -2747,7 +2747,7 @@ if test "$with_x11" != "no"; then
 
   if test "$x_libraries" = "NONE"; then
     for dir in "/usr/X11/lib" "/usr/X11R6/lib" "/usr/lib/X11R6"; do
-      if test -r "$dir/libX11.a"; then x_libraries="$dir"; break; fi
+      if test -r "$dir/libX11.a" -o -r "$dir/libX11.dylib"; then x_libraries="$dir"; break; fi
     done
   fi
 

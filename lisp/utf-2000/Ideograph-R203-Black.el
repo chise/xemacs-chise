@@ -1,7 +1,7 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((<-denotational
-     ((=jis-x0208@1997	  . #x3975)	; &J97-3975; [25-85]
+     ((=>jis-x0208@1997	  . #x3975)	; &J97-3975; [25-85]
       ))
     (ideographic-radical . 203)	; ⿊
     (ideographic-strokes . 0)
@@ -12,7 +12,7 @@
     (=cns11643-1	. #x6329)	; &I-C1-6329; [67-09]
     (=jis-x0213-1	. #x7E72)	; &I-JX1-7E72; [94-82]
     (=daikanwa		. 48038)	; &I-M-48038;
-    (=shinjigen@1ed	.  9818)	; 黑
+    (=shinjigen		.  9818)	; 黑
     (=jef-china3	. #x6FD6)	; &I-JC3-6FD6;
     ))
 (define-char
@@ -28,8 +28,14 @@
       ))
     ))
 (define-char
+  '((ideographic-radical@jis/a . 86)	; ⽕
+    (ideographic-radical@jis/b . 203)	; ⿊
+    (ideographic-strokes@jis/b . 0)
+    (=>jis-x0208@1997	. #x3975)	; &J97-3975; [25-85]
+    ))
+(define-char
   '((<-denotational
-     ((=jis-x0208@1997	  . #x3975)	; &J97-3975; [25-85]
+     ((=>jis-x0208@1997	  . #x3975)	; &J97-3975; [25-85]
       ))
     (ideographic-radical@ucs . 203)	; ⿊
     (ideographic-strokes@ucs . 0)
@@ -58,11 +64,6 @@
       (ideographic-strokes . 0)
       (=daikanwa	  . 48040)	; &M-48040;
       ))
-    ))
-(define-char
-  '((ideographic-radical . 203)	; ⿊
-    (ideographic-strokes . 0)
-    (=jis-x0208@1997	. #x3975)	; &J97-3975; [25-85]
     ))
 (define-char
   '((ideographic-radical . 203)	; ⿊

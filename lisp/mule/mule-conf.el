@@ -3,7 +3,7 @@
 ;; Copyright (C) 1995,1999 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1997, 1999, 2000, 2002, 2003, 2004, 2005, 2006, 2008,
-;;   2009 MORIOKA Tomohiko
+;;   2009, 2010 MORIOKA Tomohiko
 
 ;; Keywords: mule, multilingual, character set, coding system
 
@@ -61,12 +61,34 @@
 	    final ?@
 	    graphic 0))
   (make-charset
+   '=jis-x0208@1978/-4X
+   "JIS X 0208:1978, index before the 4th impression."
+   '(registry "jisx0208\\.1978"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0208@1978
+	      =>iso-ir 42
+              ;; final ?@
+	      graphic 0
+	      partial t))
+  (make-charset
+   '=jis-x0208@1978/1er-pr
+   "JIS X 0208:1978, fixed by errata [Nov 1978]."
+   '(registry "jisx0208\\.1978"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0208@1978
+              =>iso-ir 42
+	      ;; final ?@
+	      graphic 0
+	      partial t))
+  (make-charset
    '=jis-x0208@1978/4-pr
    "JIS X 0208:1978, 4th impression or later."
    '(registry "jisx0208\\.1978"
 	      dimension 2
 	      chars 94
-	      mother =jis-x0208@1978
+	      mother =jis-x0208@1978/1er-pr
               =>iso-ir 42
 	      ;; final ?@
 	      graphic 0
@@ -263,14 +285,147 @@
   (define-charset-alias 'ucs '=ucs)
   (define-charset-alias '=jis-x0208-1990 '=jis-x0208@1990)
   (define-charset-alias 'japanese-jisx0208-1990 '=jis-x0208@1990)
+
   (make-charset
-   '=jis-x0208@1997
-   "JIS X 0208 based on the unification rule of 1997 edition."
+   '=>>jis-x0208
+   "JIS X 0208 abstract glyphs (unchanged part)."
    '(registry "jisx0208\\.1990"
 	      dimension 2
 	      chars 94
 	      mother =jis-x0208
+	      =>iso-ir 168
 	      ;; final ?B
+	      graphic 0))
+  (make-charset
+   '=>>jis-x0208@1978
+   "JIS X 0208:1978 abstract glyphs (unchanged part)."
+   '(registry "jisx0208\\.1978"
+	      dimension 2
+	      chars 94
+	      mother =>>jis-x0208
+	      =>iso-ir 42
+	      ;; final ?@
+	      graphic 0))
+
+  (make-charset
+   '=>>jis-x0213-1
+   "JIS X 0213 Plain 1 abstract glyphs (unchanged part)"
+   '(registry "jisx0213\\(\\.[0-9]+\\)?-1"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0213-1
+	      =>iso-ir 228
+              ;; final ?O
+	      graphic 0
+              ;; partial t
+	      ))
+  (make-charset
+   '=>>jis-x0213-1@2000
+   "JIS X 0213:2000 Plain 1 abstract glyphs"
+   '(registry "jisx0213\\(\\.2000\\)-1"
+	      dimension 2
+	      chars 94
+	      mother =>>jis-x0213-1
+	      =>iso-ir 228
+              ;; final ?O
+	      graphic 0
+	      ;; partial t
+	      ))
+  (make-charset
+   '=>>jis-x0213-2
+   "JIS X 0213 Plain 2 abstract glyphs"
+   '(registry "jisx0213\\(\\.\\(2000\\|2004\\)\\)?-2"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0213-2
+	      =>iso-ir 229
+              ;; final ?P
+	      graphic 0))
+  (make-charset
+   '=>>jis-x0213-1@2004
+   "JIS X 0213:2004 Plain 1 abstract glyphs"
+   '(registry "jisx0213\\(\\.2004\\)-1"
+	      dimension 2
+	      chars 94
+	      mother =>>jis-x0213-1
+	      =>iso-ir 233
+              ;; final ?Q
+	      graphic 0
+              ;; partial t
+	      ))
+
+  (make-charset
+   '=>jis-x0208
+   "JIS X 0208 based on the unchanged unification rules."
+   '(registry "jisx0208\\.1990"
+	      dimension 2
+	      chars 94
+	      mother =>>jis-x0208
+	      =>iso-ir 168
+	      ;; final ?B
+	      graphic 0))
+  (define-charset-alias '<=>jis-x0208 '=>jis-x0208)
+  (make-charset
+   '=>jis-x0208@1997
+   "JIS X 0208 based on the unification rule of 1997 edition."
+   '(registry "jisx0208\\.1990"
+	      dimension 2
+	      chars 94
+	      mother =>jis-x0208
+	      =>iso-ir 168
+	      ;; final ?B
+	      graphic 0))
+  (define-charset-alias '<=>jis-x0208@1997 '=>jis-x0208@1997)
+  (define-charset-alias '  =jis-x0208@1997 '=>jis-x0208@1997)
+
+  (make-charset
+   '=>jis-x0213-1
+   "JIS X 0213 Plain 1 abstract characters (unchanged part)"
+   '(registry "jisx0213\\(\\.[0-9]+\\)?-1"
+	      dimension 2
+	      chars 94
+	      mother =>>jis-x0213-1
+	      =>iso-ir 228
+              ;; final ?O
+	      graphic 0
+              ;; partial t
+	      ))
+  (define-charset-alias '<=>jis-x0213-1 '=>jis-x0213-1)
+  (make-charset
+   '=>jis-x0213-1@2000
+   "JIS X 0213:2000 Plain 1 abstract characters"
+   '(registry "jisx0213\\(\\.2000\\)-1"
+	      dimension 2
+	      chars 94
+	      mother =>jis-x0213-1
+	      =>iso-ir 228
+              ;; final ?O
+	      graphic 0
+	      ;; partial t
+	      ))
+  (define-charset-alias '<=>jis-x0213-1@2000 '=>jis-x0213-1@2000)
+  (make-charset
+   '=>jis-x0213-1@2004
+   "JIS X 0213:2004 Plain 1 abstract characters"
+   '(registry "jisx0213\\(\\.2004\\)-1"
+	      dimension 2
+	      chars 94
+	      mother =>jis-x0213-1
+	      =>iso-ir 233
+              ;; final ?Q
+	      graphic 0
+              ;; partial t
+	      ))
+  (define-charset-alias '<=>jis-x0213-1@2004 '=>jis-x0213-1@2004)
+  (make-charset
+   '=>jis-x0213-2
+   "JIS X 0213 Plain 2 abstract characters"
+   '(registry "jisx0213\\(\\.\\(2000\\|2004\\)\\)?-2"
+	      dimension 2
+	      chars 94
+	      mother =>>jis-x0213-2
+	      =>iso-ir 229
+              ;; final ?P
 	      graphic 0))
 
   (make-charset '=big5-cdp
@@ -300,15 +455,26 @@
 		  max-code	,(+ (lsh #x6100 16) 67547)
 		  code-offset	,(lsh #x6100 16)))
   (define-charset-alias 'ideograph-gt '=gt)
-  (make-charset '<=>gt
-		"GT 2000 abstract characters"
-		`(long-name	"abstract GT"
+  (make-charset '=>>gt
+		"GT 2000 abstract glyphs"
+		`(long-name	"abstract GT glyphs"
 		  chars		256
 		  dimension	3
 		  columns	2
 		  graphic	2
 		  direction	l2r
 		  mother	=gt))
+  (define-charset-alias '<=>gt '=>>gt)
+  (define-charset-alias '<==>gt '=>>gt)
+  (make-charset '=>gt
+		"GT 2000 abstract characters"
+		`(long-name	"abstract GT characters"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=>>gt))
   (make-charset '=gt-k
 		"Ideographic components of GT"
 		`(long-name	"GT components"
@@ -556,6 +722,17 @@
 		  min-code	#xE70000
 		  max-code	,(+ #xE70000 8192)
 		  code-offset	#xE70000
+		  columns	2
+		  direction	l2r))
+
+  (make-charset '=>zinbun-oracle
+		"Abstract Oracle Bones"
+		'(long-name	"Abstract characters of Zinbun Oracle Bones."
+		  chars		256
+		  dimension	2
+		  mother	=zinbun-oracle
+		  registry	"zob1968-0"
+		  graphic	2
 		  columns	2
 		  direction	l2r))
 

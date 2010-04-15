@@ -1,7 +1,7 @@
 ;;; char-db-util.el --- Character Database utility -*- coding: utf-8-er; -*-
 
 ;; Copyright (C) 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006,
-;;   2007, 2008, 2009 MORIOKA Tomohiko.
+;;   2007, 2008, 2009, 2010 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Character Database, ISO/IEC 10646, UCS, Unicode, MULE.
@@ -70,7 +70,9 @@
       (setq i (1+ i)))
     v))
 
+;;;###autoload
 (defun ideographic-radical (number)
+  "Return character corresponding with Kangxi-radical number."
   (aref ideographic-radicals number))
 
 (defconst shuowen-radicals
@@ -209,8 +211,10 @@
     chinese-cns11643-5
     chinese-cns11643-6
     chinese-cns11643-7
-    =jis-x0213-1-2000
-    =jis-x0213-2-2000
+    =jis-x0213-1
+    =jis-x0213-1@2000
+    =jis-x0213-1@2004
+    =jis-x0213-2
     korean-ksc5601
     chinese-isoir165
     katakana-jisx0201
@@ -220,6 +224,8 @@
     ethiopic-ucs
     =big5-cdp
     =gt
+    =>>gt
+    =>gt
     ideograph-daikanwa-2
     ideograph-daikanwa
     =cbeta
@@ -238,12 +244,25 @@
     =gt-k
     =ucs@iso
     =ucs@unicode
+    =>>jis-x0208
+    =>>jis-x0213-1
+    =>>jis-x0213-1@2000
+    =>>jis-x0213-1@2004
+    =>>jis-x0213-2
+    =>>jis-x0208@1978
+    =>jis-x0208
+    =>jis-x0208@1997
+    =>jis-x0213-1
+    =>jis-x0213-1@2000
+    =>jis-x0213-1@2004
+    =>jis-x0213-2
     =big5
     =big5-eten
-    =jis-x0208@1997
     =zinbun-oracle
+    =>zinbun-oracle
     =ruimoku-v6
-    =jef-china3))
+    =jef-china3
+    =shinjigen))
 
 (defun char-db-make-char-spec (char)
   (let (ret char-spec)
@@ -488,7 +507,8 @@
 	   "(%-18s . %04d)\t; %c")
 	  ((or (memq name '(=daikanwa
 			    =daikanwa@rev1 =daikanwa@rev2
-			    =gt <=>gt =gt-k =cbeta =zinbun-oracle))
+			    =gt =>>gt =>gt =gt-k =cbeta
+			    =zinbun-oracle =>zinbun-oracle))
 	       (string-match "^=adobe-" (symbol-name name)))
 	   "(%-18s . %05d)\t; %c")
 	  ((eq name 'mojikyo)

@@ -39,6 +39,21 @@
     ))
 (define-char
   '((shuowen-radical	. 1)	; 一
+    (zinbun-oracle-page . 3)
+    (=>zinbun-oracle	. 00003)	; &A-ZOB-0003;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x4E00)	; 一
+	)
+       ((=ucs		    . #x725B)	; 牛
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00003)	; &A-ZOB-0003;
+      ))
+    (shuowen-radical	. 1)	; 一
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -50,17 +65,10 @@
     (sources		zob1968=1333 zob1968=1348 zob1968=3065)
     (zinbun-oracle-page . 3)
     (=zinbun-oracle	. 00003)	; &ZOB-0003;
-    (<-Oracle-Bones
-     ((ideographic-combination
-       ((=ucs		    . #x4E00)	; 一
-	)
-       ((=ucs		    . #x725B)	; 牛
-	))
-      ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00003)	; &ZOB-0003;
+     ((=>zinbun-oracle	  . 00003)	; &A-ZOB-0003;
       ))
     (shuowen-radical	. 1)	; 一
     (sources		zob1968=0049 zob1968=0722 zob1968=1256 zob1968=1544
@@ -229,6 +237,21 @@
     ))
 (define-char
   '((shuowen-radical	. 1)	; 一
+    (zinbun-oracle-page . 3)
+    (=>zinbun-oracle	. 00012)	; &A-ZOB-0012;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x4E00)	; 一
+	)
+       ((=ucs		    . #x6708)	; 月
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00012)	; &A-ZOB-0012;
+      ))
+    (shuowen-radical	. 1)	; 一
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -240,17 +263,10 @@
     (sources		zob1968=1192 zob1968=3001 zob1968=3002)
     (zinbun-oracle-page . 3)
     (=zinbun-oracle	. 00012)	; &ZOB-0012;
-    (<-Oracle-Bones
-     ((ideographic-combination
-       ((=ucs		    . #x4E00)	; 一
-	)
-       ((=ucs		    . #x6708)	; 月
-	))
-      ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00012)	; &ZOB-0012;
+     ((=>zinbun-oracle	  . 00012)	; &A-ZOB-0012;
       ))
     (shuowen-radical	. 1)	; 一
     (sources		zob1968=0004 zob1968=0037 zob1968=0068 zob1968=0084
@@ -530,13 +546,8 @@
     ))
 (define-char
   '((shuowen-radical	. 2)	; 上
-    (sources		zob1968=0008 zob1968=0009 zob1968=0010 zob1968=0011
-			zob1968=0716 zob1968=0717 zob1968=1780 zob1968=1781
-			zob1968=1783 zob1968=1784 zob1968=2263 zob1968=2264
-			zob1968=2265 zob1968=2266 zob1968=2267 zob1968=2268
-			zob1968=2285 zob1968=2363 zob1968=2979-2984)
     (zinbun-oracle-page . 4)
-    (=zinbun-oracle	. 00027)	; &ZOB-0027;
+    (=>zinbun-oracle	. 00027)	; &A-ZOB-0027;
     (<-Oracle-Bones
      ((ideographic-combination
        ((=ucs		    . #x4E0A)	; 上
@@ -547,7 +558,20 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00027)	; &ZOB-0027;
+     ((=>zinbun-oracle	  . 00027)	; &A-ZOB-0027;
+      ))
+    (shuowen-radical	. 2)	; 上
+    (sources		zob1968=0008 zob1968=0009 zob1968=0010 zob1968=0011
+			zob1968=0716 zob1968=0717 zob1968=1780 zob1968=1781
+			zob1968=1783 zob1968=1784 zob1968=2263 zob1968=2264
+			zob1968=2265 zob1968=2266 zob1968=2267 zob1968=2268
+			zob1968=2285 zob1968=2363 zob1968=2979-2984)
+    (zinbun-oracle-page . 4)
+    (=zinbun-oracle	. 00027)	; &ZOB-0027;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00027)	; &A-ZOB-0027;
       ))
     (shuowen-radical	. 2)	; 上
     (ideographic-structure
@@ -564,7 +588,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00027)	; &ZOB-0027;
+     ((=>zinbun-oracle	  . 00027)	; &A-ZOB-0027;
       ))
     (shuowen-radical	. 2)	; 上
     (ideographic-structure
@@ -649,19 +673,27 @@
     ))
 (define-char
   '((shuowen-radical	. 2)	; 上
-    (sources		zob1968=0062 zob1968=0063 zob1968=0069 zob1968=0137
-			zob1968=0156 zob1968=0157 zob1968=0710 zob1968=0802
-			zob1968=1156 zob1968=1556 zob1968=1940 zob1968=2982
-			zob1968=3221)
     (zinbun-oracle-page . 4)
-    (=zinbun-oracle	. 00033)	; &ZOB-0033;
+    (=>zinbun-oracle	. 00033)	; &A-ZOB-0033;
     (<-Oracle-Bones
      ((=ucs		  . #x5E1D)	; 帝
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00033)	; &ZOB-0033;
+     ((=>zinbun-oracle	  . 00033)	; &A-ZOB-0033;
+      ))
+    (shuowen-radical	. 2)	; 上
+    (sources		zob1968=0062 zob1968=0063 zob1968=0069 zob1968=0137
+			zob1968=0156 zob1968=0157 zob1968=0710 zob1968=0802
+			zob1968=1156 zob1968=1556 zob1968=1940 zob1968=2982
+			zob1968=3221)
+    (zinbun-oracle-page . 4)
+    (=zinbun-oracle	. 00033)	; &ZOB-0033;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00033)	; &A-ZOB-0033;
       ))
     (shuowen-radical	. 2)	; 上
     (sources		zob1968=0061 zob1968=0064 zob1968=3249)
@@ -670,7 +702,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00033)	; &ZOB-0033;
+     ((=>zinbun-oracle	  . 00033)	; &A-ZOB-0033;
       ))
     (shuowen-radical	. 2)	; 上
     (sources		zob1968=2142)
@@ -679,7 +711,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00033)	; &ZOB-0033;
+     ((=>zinbun-oracle	  . 00033)	; &A-ZOB-0033;
       ))
     (shuowen-radical	. 2)	; 上
     (sources		zob1968=2298 zob1968=3035)
@@ -688,7 +720,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00033)	; &ZOB-0033;
+     ((=>zinbun-oracle	  . 00033)	; &A-ZOB-0033;
       ))
     (shuowen-radical	. 2)	; 上
     (sources		zob1968=3032)
@@ -757,6 +789,14 @@
     ))
 (define-char
   '((shuowen-radical	. 2)	; 上
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8BEC)	; &CDP-8BEC;
+      )
+     ((=ucs		  . #x65B9)	; 方
+      ))
     (zinbun-oracle-page . 4)
     (=zinbun-oracle	. 00041)	; &ZOB-0041;
     (<-Oracle-Bones
@@ -841,6 +881,14 @@
     ))
 (define-char
   '((shuowen-radical	. 2)	; 上
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=zinbun-oracle	  . 00043)	; &ZOB-0043;
+      )
+     ((=ucs		  . #x6B73)	; 歳
+      ))
     (zinbun-oracle-page . 4)
     (=zinbun-oracle	. 00046)	; &ZOB-0046;
     (<-Oracle-Bones
@@ -853,6 +901,21 @@
     ))
 (define-char
   '((shuowen-radical	. 2)	; 上
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=zinbun-oracle	  . 00043)	; &ZOB-0043;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x5C38)	; 尸
+	)
+       ((=ucs		    . #x5216)	; 刖
+	))
+      ))
     (sources		zob1968=2363)
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00047)	; &ZOB-0047;
@@ -868,6 +931,14 @@
     ))
 (define-char
   '((shuowen-radical	. 2)	; 上
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E0B)	; 下
+      )
+     ((=ucs		  . #x65EC)	; 旬
+      ))
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00048)	; &ZOB-0048;
     (<-Oracle-Bones
@@ -880,6 +951,14 @@
     ))
 (define-char
   '((shuowen-radical	. 2)	; 上
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=zinbun-oracle	  . 00043)	; &ZOB-0043;
+      )
+     ((=ucs		  . #x5371)	; 危
+      ))
     (sources		zob1968=0331 zob1968=0887 zob1968=0913)
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00049)	; &ZOB-0049;
@@ -893,6 +972,21 @@
     ))
 (define-char
   '((shuowen-radical	. 2)	; 上
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=zinbun-oracle	  . 00043)	; &ZOB-0043;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x4FA2)	; 侢
+	)
+       ((=ucs		    . #x571F)	; 土
+	))
+      ))
     (sources		zob1968=1932)
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00050)	; &ZOB-0050;
@@ -913,6 +1007,14 @@
     ))
 (define-char
   '((shuowen-radical	. 2)	; 上
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=zinbun-oracle	  . 00043)	; &ZOB-0043;
+      )
+     ((=ucs		  . #x4E59)	; 乙
+      ))
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00051)	; &ZOB-0051;
     (<-Oracle-Bones
@@ -925,6 +1027,14 @@
     ))
 (define-char
   '((shuowen-radical	. 2)	; 上
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E0B)	; 下
+      )
+     ((=ucs		  . #x5DF1)	; 己
+      ))
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00052)	; &ZOB-0052;
     (<-Oracle-Bones
@@ -957,19 +1067,27 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
-    (sources		zob1968=0010 zob1968=0716 zob1968=1881 zob1968=2155
-			zob1968=2292 zob1968=2301 zob1968=2306 zob1968=2366
-			zob1968=2979 zob1968=3001 zob1968=3065 zob1968=3096
-			zob1968=3140)
     (zinbun-oracle-page . 5)
-    (=zinbun-oracle	. 00054)	; &ZOB-0054;
+    (=>zinbun-oracle	. 00054)	; &A-ZOB-0054;
     (<-Oracle-Bones
      ((=ucs		  . #x793A)	; 示
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00054)	; &ZOB-0054;
+     ((=>zinbun-oracle	  . 00054)	; &A-ZOB-0054;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (sources		zob1968=0010 zob1968=0716 zob1968=1881 zob1968=2155
+			zob1968=2292 zob1968=2301 zob1968=2306 zob1968=2366
+			zob1968=2979 zob1968=3001 zob1968=3065 zob1968=3096
+			zob1968=3140)
+    (zinbun-oracle-page . 5)
+    (=zinbun-oracle	. 00054)	; &ZOB-0054;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00054)	; &A-ZOB-0054;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=0011 zob1968=0036 zob1968=0511 zob1968=0939
@@ -981,6 +1099,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F48)	; 彈
+      )
+     ((=zinbun-oracle	  . 00054)	; &ZOB-0054;
+      ))
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00056)	; &ZOB-0056;
     (<-Oracle-Bones
@@ -993,6 +1119,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@iso		  . #x25605)	; &U-00025605;
+      )
+     ((=ucs		  . #x7532)	; 甲
+      ))
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00057)	; &ZOB-0057;
     (<-Oracle-Bones
@@ -1005,6 +1139,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=zinbun-oracle	  . 00055)	; &ZOB-0055;
+      )
+     ((=ucs		  . #x4E01)	; 丁
+      ))
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00058)	; &ZOB-0058;
     (<-Oracle-Bones
@@ -1017,6 +1159,15 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x58EC)	; 壬
+      )
+     ((=cns11643-1	  . #x467C)	; &M-24623; [38-92]
+      (=daikanwa	  . 24623)	; &I-M-24623;
+      ))
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00059)	; &ZOB-0059;
     (<-Oracle-Bones
@@ -1030,7 +1181,7 @@
 (define-char
   '((shuowen-radical	. 3)	; 示
     (zinbun-oracle-page . 5)
-    (=zinbun-oracle	. 00060)	; &ZOB-0060;
+    (=>zinbun-oracle	. 00060)	; &A-ZOB-0060;
     (<-Oracle-Bones
      ((ideographic-combination
        ((=ucs		    . #x793A)	; 示
@@ -1041,15 +1192,47 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00060)	; &ZOB-0060;
+     ((=>zinbun-oracle	  . 00060)	; &A-ZOB-0060;
       ))
     (shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=zinbun-oracle	  . 00054)	; &ZOB-0054;
+      )
+     ((=ucs		  . #x7678)	; 癸
+      ))
+    (zinbun-oracle-page . 5)
+    (=zinbun-oracle	. 00060)	; &ZOB-0060;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00060)	; &A-ZOB-0060;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=zinbun-oracle	  . 00054)	; &ZOB-0054;
+      )
+     ((=ucs		  . #x7678)	; 癸
+      ))
     (sources		zob1968=1826 zob1968=1827)
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00061)	; &ZOB-0061;
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=zinbun-oracle	  . 00054)	; &ZOB-0054;
+      )
+     ((=ucs		  . #x53E4)	; 古
+      ))
     (sources		zob1968=1826 zob1968=1827)
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00062)	; &ZOB-0062;
@@ -1079,6 +1262,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=zinbun-oracle	  . 00909)	; &ZOB-0909;
+      )
+     ((=ucs		  . #x793A)	; 示
+      ))
     (sources		zob1968=1800 zob1968=1806 zob1968=1811 zob1968=1861
 			zob1968=1883 zob1968=2947)
     (zinbun-oracle-page . 5)
@@ -1099,26 +1290,63 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
-    (sources		zob1968=1255 zob1968=1284 zob1968=1302 zob1968=1785
-			zob1968=1790 zob1968=2316 zob1968=2613)
     (zinbun-oracle-page . 5)
-    (=zinbun-oracle	. 00067)	; &ZOB-0067;
+    (=>zinbun-oracle	. 00067)	; &A-ZOB-0067;
     (<-Oracle-Bones
      ((=ucs		  . #x796D)	; 祭
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00067)	; &ZOB-0067;
+     ((=>zinbun-oracle	  . 00067)	; &A-ZOB-0067;
       ))
     (shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+      (=ucs		  . #x2FF2)	; ⿲
+      )
+     ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
+      )
+     ((=ucs@unicode	  . #x793A)	; &GT-31489;
+      (=jis-x0208	  . #x3C28)	; &GT-31489; [28-08]
+      (=gb2312		  . #x4A3E)	; &I-G0-4A3E; [42-30]
+      (=ks-x1001	  . #x6346)	; &I-K0-6346; [67-38]
+      (=jis-x0213-1	  . #x3C28)	; &I-JX1-3C28; [28-08]
+      )
+     ((=zinbun-oracle	  . 00909)	; &ZOB-0909;
+      ))
+    (sources		zob1968=1255 zob1968=1284 zob1968=1302 zob1968=1785
+			zob1968=1790 zob1968=2316 zob1968=2613)
+    (zinbun-oracle-page . 5)
+    (=zinbun-oracle	. 00067)	; &ZOB-0067;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00067)	; &A-ZOB-0067;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x5C0F)	; 小
+	)
+       ((=zinbun-oracle	    . 00055)	; &ZOB-0055;
+	))
+      )
+     ((=zinbun-oracle	  . 00909)	; &ZOB-0909;
+      ))
     (sources		zob1968=1817)
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00068)	; &ZOB-0068;
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00067)	; &ZOB-0067;
+     ((=>zinbun-oracle	  . 00067)	; &A-ZOB-0067;
       ))
     (shuowen-radical	. 3)	; 示
     (ideographic-structure
@@ -1136,9 +1364,17 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00067)	; &ZOB-0067;
+     ((=>zinbun-oracle	  . 00067)	; &A-ZOB-0067;
       ))
     (shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5C0F)	; 小
+      )
+     ((=zinbun-oracle	  . 00909)	; &ZOB-0909;
+      ))
     (sources		zob1968=2280)
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00070)	; &ZOB-0070;
@@ -1151,6 +1387,19 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (zinbun-oracle-page . 5)
+    (=>zinbun-oracle	. 00072)	; &A-ZOB-0072;
+    (<-Oracle-Bones
+     ((=ucs		  . #x7940)	; 祀
+      )
+     ((=ucs		  . #x5DF3)	; 巳
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00072)	; &A-ZOB-0072;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1168,7 +1417,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00072)	; &ZOB-0072;
+     ((=>zinbun-oracle	  . 00072)	; &A-ZOB-0072;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=1885 zob1968=1886)
@@ -1176,8 +1425,6 @@
     (=zinbun-oracle	. 00073)	; &ZOB-0073;
     (<-Oracle-Bones
      ((=ucs		  . #x5DF3)	; 巳
-      )
-     ((=ucs		  . #x7940)	; 祀
       ))
     ))
 (define-char
@@ -1220,6 +1467,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x77F3)	; 石
+      )
+     ((=zinbun-oracle	  . 00054)	; &ZOB-0054;
+      ))
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00077)	; &ZOB-0077;
     (<-Oracle-Bones
@@ -1238,6 +1493,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@iso		  . #x25605)	; &U-00025605;
+      )
+     ((=ucs		  . #x52FA)	; 勺
+      ))
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00079)	; &ZOB-0079;
     (<-Oracle-Bones
@@ -1256,6 +1519,19 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (zinbun-oracle-page . 6)
+    (=>zinbun-oracle	. 00081)	; &A-ZOB-0081;
+    (<-Oracle-Bones
+     ((=ucs		  . #x798F)	; 福
+      )
+     ((=ucs		  . #x797C)	; 祼
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
+      ))
+    (shuowen-radical	. 3)	; 示
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1268,15 +1544,10 @@
     (sources		zob1968=0117 zob1968=0454 zob1968=0737)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00081)	; &ZOB-0081;
-    (<-Oracle-Bones
-     ((=ucs		  . #x798F)	; 福
-      )
-     ((=ucs		  . #x797C)	; 祼
-      ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00081)	; &ZOB-0081;
+     ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=0043 zob1968=0118)
@@ -1285,7 +1556,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00081)	; &ZOB-0081;
+     ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=1274 zob1968=1280 zob1968=1282 zob1968=1286
@@ -1297,7 +1568,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00081)	; &ZOB-0081;
+     ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=1291 zob1968=1609 zob1968=1689)
@@ -1306,7 +1577,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00081)	; &ZOB-0081;
+     ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=1292 zob1968=1298 zob1968=1560)
@@ -1315,7 +1586,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00081)	; &ZOB-0081;
+     ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=1359)
@@ -1324,7 +1595,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00081)	; &ZOB-0081;
+     ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=1475 zob1968=1866)
@@ -1333,7 +1604,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00081)	; &ZOB-0081;
+     ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=1551 zob1968=2291)
@@ -1342,7 +1613,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00081)	; &ZOB-0081;
+     ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=1810)
@@ -1351,7 +1622,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00081)	; &ZOB-0081;
+     ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=2292)
@@ -1360,7 +1631,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00081)	; &ZOB-0081;
+     ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=2315)
@@ -1369,7 +1640,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00081)	; &ZOB-0081;
+     ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=2611)
@@ -1378,7 +1649,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00081)	; &ZOB-0081;
+     ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=2621)
@@ -1387,7 +1658,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00081)	; &ZOB-0081;
+     ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=2676)
@@ -1396,7 +1667,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00081)	; &ZOB-0081;
+     ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=3006)
@@ -1405,7 +1676,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00081)	; &ZOB-0081;
+     ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=3071)
@@ -1414,6 +1685,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=zinbun-oracle	  . 00054)	; &ZOB-0054;
+      )
+     ((=ucs		  . #x5144)	; 兄
+      ))
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00097)	; &ZOB-0097;
     (<-Oracle-Bones
@@ -1422,6 +1701,14 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x72AE)	; 犮
+      )
+     ((=zinbun-oracle	  . 00054)	; &ZOB-0054;
+      ))
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00098)	; &ZOB-0098;
     (<-Oracle-Bones
@@ -1438,6 +1725,17 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+      (=ucs		  . #x2FF2)	; ⿲
+      )
+     ((=cns11643-1	  . #x467C)	; &M-24623; [38-92]
+      (=daikanwa	  . 24623)	; &I-M-24623;
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=ucs		  . #x5369)	; 卩
+      ))
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00100)	; &ZOB-0100;
     (<-Oracle-Bones
@@ -1446,16 +1744,24 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
-    (sources		zob1968=0067 zob1968=0250 zob1968=2947)
     (zinbun-oracle-page . 6)
-    (=zinbun-oracle	. 00101)	; &ZOB-0101;
+    (=>zinbun-oracle	. 00101)	; &A-ZOB-0101;
     (<-Oracle-Bones
      ((=ucs		  . #x798D)	; 禍
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00101)	; &ZOB-0101;
+     ((=>zinbun-oracle	  . 00101)	; &A-ZOB-0101;
+      ))
+    (shuowen-radical	. 3)	; 示
+    (sources		zob1968=0067 zob1968=0250 zob1968=2947)
+    (zinbun-oracle-page . 6)
+    (=zinbun-oracle	. 00101)	; &ZOB-0101;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00101)	; &A-ZOB-0101;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=0207 zob1968=0260 zob1968=0448 zob1968=1162
@@ -1465,7 +1771,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00101)	; &ZOB-0101;
+     ((=>zinbun-oracle	  . 00101)	; &A-ZOB-0101;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=0259 zob1968=0443 zob1968=0444 zob1968=0446
@@ -1477,7 +1783,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00101)	; &ZOB-0101;
+     ((=>zinbun-oracle	  . 00101)	; &A-ZOB-0101;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=0452 zob1968=3124)
@@ -1486,7 +1792,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00101)	; &ZOB-0101;
+     ((=>zinbun-oracle	  . 00101)	; &A-ZOB-0101;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=2277 zob1968=2295 zob1968=2365 zob1968=2407
@@ -1497,7 +1803,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00101)	; &ZOB-0101;
+     ((=>zinbun-oracle	  . 00101)	; &A-ZOB-0101;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=2326)
@@ -1506,7 +1812,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00101)	; &ZOB-0101;
+     ((=>zinbun-oracle	  . 00101)	; &A-ZOB-0101;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=2399 zob1968=2475 zob1968=2477 zob1968=2480
@@ -1516,7 +1822,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00101)	; &ZOB-0101;
+     ((=>zinbun-oracle	  . 00101)	; &A-ZOB-0101;
       ))
     (shuowen-radical	. 3)	; 示
     (sources		zob1968=2481 zob1968=3016 zob1968=3048 zob1968=3107
@@ -1791,14 +2097,9 @@
       )
      ((=zinbun-oracle	  . 00121)	; &ZOB-0121;
       )
-     ((=ucs@unicode	  . #x516C)	; &GT-01893;
-      (=gb2312		  . #x392B)	; &GT-01893; [25-11]
-      (=jis-x0213-1	  . #x3878)	; &I-JX1-3878; [24-88]
+     ((=ucs		  . #x516C)	; 公
       )
-     ((=ucs@unicode	  . #x7236)	; &GT-25337;
-      (=gb2312		  . #x3838)	; &GT-25337; [24-24]
-      (=cns11643-1	  . #x4558)	; &I-C1-4558; [37-56]
-      (=jis-x0213-1	  . #x4963)	; &I-JX1-4963; [41-67]
+     ((=ucs		  . #x7236)	; 父
       ))
     (zinbun-oracle-page . 7)
     (=zinbun-oracle	. 00127)	; &ZOB-0127;
@@ -1806,10 +2107,9 @@
      ((ideographic-combination
        ((=ucs		    . #x4E09)	; 三
 	)
-       ((=gb2312	    . #x392B)	; &GT-01893; [25-11]
+       ((=ucs		    . #x516C)	; 公
 	)
-       ((=gb2312	    . #x3838)	; &GT-25337; [24-24]
-	(=cns11643-1	    . #x4558)	; &I-C1-4558; [37-56]
+       ((=ucs		    . #x7236)	; 父
 	))
       ))
     ))
@@ -2140,11 +2440,8 @@
       )
      ((=ucs		  . #x6708)	; 月
       ))
-    (sources		zob1968=0203 zob1968=0232 zob1968=0364 zob1968=0465
-			zob1968=0995 zob1968=1597 zob1968=1599 zob1968=1618
-			zob1968=3101 zob1968=3111 zob1968=3237)
     (zinbun-oracle-page . 8)
-    (=zinbun-oracle	. 00142)	; &ZOB-0142;
+    (=>zinbun-oracle	. 00142)	; &A-ZOB-0142;
     (<-Oracle-Bones
      ((ideographic-combination
        ((=ucs		    . #x4E09)	; 三
@@ -2155,7 +2452,26 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00142)	; &ZOB-0142;
+     ((=>zinbun-oracle	  . 00142)	; &A-ZOB-0142;
+      ))
+    (shuowen-radical	. 4)	; 三
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=zinbun-oracle	  . 00121)	; &ZOB-0121;
+      )
+     ((=ucs		  . #x6708)	; 月
+      ))
+    (sources		zob1968=0203 zob1968=0232 zob1968=0364 zob1968=0465
+			zob1968=0995 zob1968=1597 zob1968=1599 zob1968=1618
+			zob1968=3101 zob1968=3111 zob1968=3237)
+    (zinbun-oracle-page . 8)
+    (=zinbun-oracle	. 00142)	; &ZOB-0142;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00142)	; &A-ZOB-0142;
       ))
     (shuowen-radical	. 4)	; 三
     (ideographic-structure
@@ -2758,16 +3074,24 @@
     ))
 (define-char
   '((shuowen-radical	. 10)	; 丨
-    (sources		zob1968=0972)
     (zinbun-oracle-page . 9)
-    (=zinbun-oracle	. 00180)	; &ZOB-0180;
+    (=>zinbun-oracle	. 00180)	; &A-ZOB-0180;
     (<-Oracle-Bones
      ((=ucs		  . #x4E2D)	; 中
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00180)	; &ZOB-0180;
+     ((=>zinbun-oracle	  . 00180)	; &A-ZOB-0180;
+      ))
+    (shuowen-radical	. 10)	; 丨
+    (sources		zob1968=0972)
+    (zinbun-oracle-page . 9)
+    (=zinbun-oracle	. 00180)	; &ZOB-0180;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00180)	; &A-ZOB-0180;
       ))
     (shuowen-radical	. 10)	; 丨
     (sources		zob1968=0417 zob1968=0723 zob1968=1817)
@@ -2776,7 +3100,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00180)	; &ZOB-0180;
+     ((=>zinbun-oracle	  . 00180)	; &A-ZOB-0180;
       ))
     (shuowen-radical	. 10)	; 丨
     (sources		zob1968=1476 zob1968=1596)
@@ -2915,6 +3239,21 @@
     ))
 (define-char
   '((shuowen-radical	. 10)	; 丨
+    (zinbun-oracle-page . 10)
+    (=>zinbun-oracle	. 00189)	; &A-ZOB-0189;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x4E2D)	; 中
+	)
+       ((=ucs		    . #x4E01)	; 丁
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00189)	; &A-ZOB-0189;
+      ))
+    (shuowen-radical	. 10)	; 丨
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -2926,17 +3265,10 @@
     (sources		zob1968=3000)
     (zinbun-oracle-page . 10)
     (=zinbun-oracle	. 00189)	; &ZOB-0189;
-    (<-Oracle-Bones
-     ((ideographic-combination
-       ((=ucs		    . #x4E2D)	; 中
-	)
-       ((=ucs		    . #x4E01)	; 丁
-	))
-      ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00189)	; &ZOB-0189;
+     ((=>zinbun-oracle	  . 00189)	; &A-ZOB-0189;
       ))
     (shuowen-radical	. 10)	; 丨
     (ideographic-structure
@@ -2994,17 +3326,25 @@
     ))
 (define-char
   '((shuowen-radical	. 11)	; 屮
-    (sources		zob1968=2010 zob1968=2064 zob1968=2067 zob1968=2072
-			zob1968=2073 zob1968=2101 zob1968=2109 zob1968=2159)
     (zinbun-oracle-page . 10)
-    (=zinbun-oracle	. 00193)	; &ZOB-0193;
+    (=>zinbun-oracle	. 00193)	; &A-ZOB-0193;
     (<-Oracle-Bones
      ((=ucs		  . #x6BCE)	; 毎
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00193)	; &ZOB-0193;
+     ((=>zinbun-oracle	  . 00193)	; &A-ZOB-0193;
+      ))
+    (shuowen-radical	. 11)	; 屮
+    (sources		zob1968=2010 zob1968=2064 zob1968=2067 zob1968=2072
+			zob1968=2073 zob1968=2101 zob1968=2109 zob1968=2159)
+    (zinbun-oracle-page . 10)
+    (=zinbun-oracle	. 00193)	; &ZOB-0193;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00193)	; &A-ZOB-0193;
       ))
     (shuowen-radical	. 11)	; 屮
     (sources		zob1968=2003 zob1968=2033 zob1968=2043 zob1968=2045
@@ -3016,7 +3356,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00193)	; &ZOB-0193;
+     ((=>zinbun-oracle	  . 00193)	; &A-ZOB-0193;
       ))
     (shuowen-radical	. 11)	; 屮
     (sources		zob1968=1912)
@@ -3025,7 +3365,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00193)	; &ZOB-0193;
+     ((=>zinbun-oracle	  . 00193)	; &A-ZOB-0193;
       ))
     (shuowen-radical	. 11)	; 屮
     (sources		zob1968=1920)
@@ -3034,7 +3374,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00193)	; &ZOB-0193;
+     ((=>zinbun-oracle	  . 00193)	; &A-ZOB-0193;
       ))
     (shuowen-radical	. 11)	; 屮
     (sources		zob1968=2061)
@@ -3043,7 +3383,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00193)	; &ZOB-0193;
+     ((=>zinbun-oracle	  . 00193)	; &A-ZOB-0193;
       ))
     (shuowen-radical	. 11)	; 屮
     (sources		zob1968=2297)
@@ -3052,7 +3392,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00193)	; &ZOB-0193;
+     ((=>zinbun-oracle	  . 00193)	; &A-ZOB-0193;
       ))
     (shuowen-radical	. 11)	; 屮
     (sources		zob1968=2941)
@@ -4262,6 +4602,21 @@
     ))
 (define-char
   '((shuowen-radical	. 16)	; 八
+    (zinbun-oracle-page . 14)
+    (=>zinbun-oracle	. 00279)	; &A-ZOB-0279;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x516B)	; 八
+	)
+       ((=ucs		    . #x6708)	; 月
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00279)	; &A-ZOB-0279;
+      ))
+    (shuowen-radical	. 16)	; 八
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -4276,17 +4631,10 @@
 			zob1968=3250)
     (zinbun-oracle-page . 14)
     (=zinbun-oracle	. 00279)	; &ZOB-0279;
-    (<-Oracle-Bones
-     ((ideographic-combination
-       ((=ucs		    . #x516B)	; 八
-	)
-       ((=ucs		    . #x6708)	; 月
-	))
-      ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00279)	; &ZOB-0279;
+     ((=>zinbun-oracle	  . 00279)	; &A-ZOB-0279;
       ))
     (shuowen-radical	. 16)	; 八
     (sources		zob1968=0197 zob1968=0216 zob1968=1544 zob1968=1601
@@ -4404,6 +4752,17 @@
     ))
 (define-char
   '((shuowen-radical	. 16)	; 八
+    (zinbun-oracle-page . 15)
+    (=>zinbun-oracle	. 00288)	; &A-ZOB-0288;
+    (<-Oracle-Bones
+     ((=ucs		  . #x4F59)	; 余
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00288)	; &A-ZOB-0288;
+      ))
+    (shuowen-radical	. 16)	; 八
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -4418,13 +4777,10 @@
 			zob1968=3246)
     (zinbun-oracle-page . 15)
     (=zinbun-oracle	. 00288)	; &ZOB-0288;
-    (<-Oracle-Bones
-     ((=ucs		  . #x4F59)	; 余
-      ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00288)	; &ZOB-0288;
+     ((=>zinbun-oracle	  . 00288)	; &A-ZOB-0288;
       ))
     (shuowen-radical	. 16)	; 八
     (sources		zob1968=0335)
@@ -4557,6 +4913,17 @@
     ))
 (define-char
   '((shuowen-radical	. 19)	; 牛
+    (zinbun-oracle-page . 15)
+    (=>zinbun-oracle	. 00297)	; &A-ZOB-0297;
+    (<-Oracle-Bones
+     ((=ucs		  . #x725D)	; 牝
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00297)	; &A-ZOB-0297;
+      ))
+    (shuowen-radical	. 19)	; 牛
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -4568,13 +4935,10 @@
     (sources		zob1968=1547 zob1968=3022)
     (zinbun-oracle-page . 15)
     (=zinbun-oracle	. 00297)	; &ZOB-0297;
-    (<-Oracle-Bones
-     ((=ucs		  . #x725D)	; 牝
-      ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00297)	; &ZOB-0297;
+     ((=>zinbun-oracle	  . 00297)	; &A-ZOB-0297;
       ))
     (shuowen-radical	. 19)	; 牛
     (sources		zob1968=2996)
@@ -4793,6 +5157,25 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
+    (zinbun-oracle-page . 16)
+    (=>zinbun-oracle	. 00311)	; &A-ZOB-0311;
+    (<-Oracle-Bones
+     ((=ucs		  . #x544A)	; 告
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00311)	; &A-ZOB-0311;
+      ))
+    (shuowen-radical	. 21)	; 告
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x725B)	; 牛
+      )
+     ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
+      ))
     (sources		zob1968=0003 zob1968=0010 zob1968=0051 zob1968=0117
 			zob1968=0126 zob1968=0127 zob1968=0129 zob1968=0216
 			zob1968=0495 zob1968=0799 zob1968=0896 zob1968=0970
@@ -4803,13 +5186,10 @@
 			zob1968=3256)
     (zinbun-oracle-page . 16)
     (=zinbun-oracle	. 00311)	; &ZOB-0311;
-    (<-Oracle-Bones
-     ((=ucs		  . #x544A)	; 告
-      ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00311)	; &ZOB-0311;
+     ((=>zinbun-oracle	  . 00311)	; &A-ZOB-0311;
       ))
     (shuowen-radical	. 21)	; 告
     (ideographic-structure
@@ -4826,7 +5206,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00311)	; &ZOB-0311;
+     ((=>zinbun-oracle	  . 00311)	; &A-ZOB-0311;
       ))
     (shuowen-radical	. 21)	; 告
     (ideographic-structure
@@ -4979,14 +5359,22 @@
 (define-char
   '((shuowen-radical	. 22)	; 口
     (zinbun-oracle-page . 17)
-    (=zinbun-oracle	. 00324)	; &ZOB-0324;
+    (=>zinbun-oracle	. 00324)	; &A-ZOB-0324;
     (<-Oracle-Bones
      ((=ucs		  . #x53EC)	; 召
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00324)	; &ZOB-0324;
+     ((=>zinbun-oracle	  . 00324)	; &A-ZOB-0324;
+      ))
+    (shuowen-radical	. 22)	; 口
+    (zinbun-oracle-page . 17)
+    (=zinbun-oracle	. 00324)	; &ZOB-0324;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00324)	; &A-ZOB-0324;
       ))
     (shuowen-radical	. 22)	; 口
     (sources		zob1968=2932 zob1968=2934 zob1968=2937 zob1968=2940)
@@ -4995,7 +5383,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00324)	; &ZOB-0324;
+     ((=>zinbun-oracle	  . 00324)	; &A-ZOB-0324;
       ))
     (shuowen-radical	. 22)	; 口
     (ideographic-structure
@@ -5175,18 +5563,34 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
-    (sources		zob1968=0074 zob1968=0520 zob1968=1066 zob1968=1067
-			zob1968=1068 zob1968=1070 zob1968=1077 zob1968=1355
-			zob1968=1683 zob1968=1690 zob1968=1691)
     (zinbun-oracle-page . 17)
-    (=zinbun-oracle	. 00336)	; &ZOB-0336;
+    (=>zinbun-oracle	. 00336)	; &A-ZOB-0336;
     (<-Oracle-Bones
      ((=ucs		  . #x5409)	; 吉
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00336)	; &ZOB-0336;
+     ((=>zinbun-oracle	  . 00336)	; &A-ZOB-0336;
+      ))
+    (shuowen-radical	. 22)	; 口
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x58EB)	; 士
+      )
+     ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
+      ))
+    (sources		zob1968=0074 zob1968=0520 zob1968=1066 zob1968=1067
+			zob1968=1068 zob1968=1070 zob1968=1077 zob1968=1355
+			zob1968=1683 zob1968=1690 zob1968=1691)
+    (zinbun-oracle-page . 17)
+    (=zinbun-oracle	. 00336)	; &ZOB-0336;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00336)	; &A-ZOB-0336;
       ))
     (shuowen-radical	. 22)	; 口
     (ideographic-structure
@@ -5225,7 +5629,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00336)	; &ZOB-0336;
+     ((=>zinbun-oracle	  . 00336)	; &A-ZOB-0336;
       ))
     (shuowen-radical	. 22)	; 口
     (ideographic-structure
@@ -5255,7 +5659,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00336)	; &ZOB-0336;
+     ((=>zinbun-oracle	  . 00336)	; &A-ZOB-0336;
       ))
     (shuowen-radical	. 22)	; 口
     (ideographic-structure
@@ -5319,17 +5723,25 @@
     ))
 (define-char
   '((shuowen-radical	. 22)	; 口
-    (sources		zob1968=0012 zob1968=0013 zob1968=0015
-			zob1968=0718-0721 zob1968=1253 zob1968=1340)
     (zinbun-oracle-page . 18)
-    (=zinbun-oracle	. 00345)	; &ZOB-0345;
+    (=>zinbun-oracle	. 00345)	; &A-ZOB-0345;
     (<-Oracle-Bones
      ((=ucs		  . #x5510)	; 唐
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00345)	; &ZOB-0345;
+     ((=>zinbun-oracle	  . 00345)	; &A-ZOB-0345;
+      ))
+    (shuowen-radical	. 22)	; 口
+    (sources		zob1968=0012 zob1968=0013 zob1968=0015
+			zob1968=0718-0721 zob1968=1253 zob1968=1340)
+    (zinbun-oracle-page . 18)
+    (=zinbun-oracle	. 00345)	; &ZOB-0345;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00345)	; &A-ZOB-0345;
       ))
     (shuowen-radical	. 22)	; 口
     (sources		zob1968=2991 zob1968=2992)
@@ -5338,7 +5750,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00345)	; &ZOB-0345;
+     ((=>zinbun-oracle	  . 00345)	; &A-ZOB-0345;
       ))
     (shuowen-radical	. 22)	; 口
     (sources		zob1968=2993)
@@ -5459,7 +5871,18 @@
       ))
     ))
 (define-char
-  '((shuowen-radical	. 22)	; 口
+  '((=>zinbun-oracle	. 00353)	; &A-ZOB-0353;
+    (<-Oracle-Bones
+     ((=ucs		  . #x5404)	; 各
+      )
+     ((=ucs		  . #x683C)	; 格
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00353)	; &A-ZOB-0353;
+      ))
+    (shuowen-radical	. 22)	; 口
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -5776,6 +6199,14 @@
     ))
 (define-char
   '((shuowen-radical	. 22)	; 口
+    (zinbun-oracle-page . 19)
+    (=>zinbun-oracle	. 00368)	; &A-ZOB-0368;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00368)	; &A-ZOB-0368;
+      ))
+    (shuowen-radical	. 22)	; 口
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -5790,7 +6221,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00368)	; &ZOB-0368;
+     ((=>zinbun-oracle	  . 00368)	; &A-ZOB-0368;
       ))
     (shuowen-radical	. 22)	; 口
     (sources		zob1968=0564 zob1968=1456)
@@ -6900,6 +7331,17 @@
     ))
 (define-char
   '((shuowen-radical	. 28)	; 癶
+    (zinbun-oracle-page . 24)
+    (=>zinbun-oracle	. 00504)	; &A-ZOB-0504;
+    (<-Oracle-Bones
+     ((=ucs		  . #x767B)	; 登
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00504)	; &A-ZOB-0504;
+      ))
+    (shuowen-radical	. 28)	; 癶
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -6911,13 +7353,10 @@
     (sources		zob1968=0671)
     (zinbun-oracle-page . 24)
     (=zinbun-oracle	. 00504)	; &ZOB-0504;
-    (<-Oracle-Bones
-     ((=ucs		  . #x767B)	; 登
-      ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00504)	; &ZOB-0504;
+     ((=>zinbun-oracle	  . 00504)	; &A-ZOB-0504;
       ))
     (shuowen-radical	. 28)	; 癶
     (sources		zob1968=0921 zob1968=0922)
@@ -6926,7 +7365,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00504)	; &ZOB-0504;
+     ((=>zinbun-oracle	  . 00504)	; &A-ZOB-0504;
       ))
     (shuowen-radical	. 28)	; 癶
     (sources		zob1968=1275 zob1968=1832 zob1968=1901 zob1968=2314)
@@ -7171,6 +7610,17 @@
     ))
 (define-char
   '((shuowen-radical	. 29)	; 步
+    (zinbun-oracle-page . 25)
+    (=>zinbun-oracle	. 00524)	; &A-ZOB-0524;
+    (<-Oracle-Bones
+     ((=ucs		  . #x6B72)	; 歲
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00524)	; &A-ZOB-0524;
+      ))
+    (shuowen-radical	. 29)	; 步
     (sources		zob1968=0095 zob1968=0722 zob1968=1254 zob1968=1259
 			zob1968=1262 zob1968=1265 zob1968=1266 zob1968=1270
 			zob1968=1334-1340 zob1968=1541 zob1968=1544
@@ -7180,13 +7630,10 @@
 			zob1968=2295 zob1968=3253 zob1968=3254)
     (zinbun-oracle-page . 25)
     (=zinbun-oracle	. 00524)	; &ZOB-0524;
-    (<-Oracle-Bones
-     ((=ucs		  . #x6B72)	; 歲
-      ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00524)	; &ZOB-0524;
+     ((=>zinbun-oracle	  . 00524)	; &A-ZOB-0524;
       ))
     (shuowen-radical	. 29)	; 步
     (sources		zob1968=0304 zob1968=0801 zob1968=1341 zob1968=1549
@@ -7202,7 +7649,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00524)	; &ZOB-0524;
+     ((=>zinbun-oracle	  . 00524)	; &A-ZOB-0524;
       ))
     (shuowen-radical	. 29)	; 步
     (sources		zob1968=2589 zob1968=2590 zob1968=2596 zob1968=2598
@@ -7232,6 +7679,17 @@
     ))
 (define-char
   '((shuowen-radical	. 31)	; 正
+    (zinbun-oracle-page . 26)
+    (=>zinbun-oracle	. 00528)	; &A-ZOB-0528;
+    (<-Oracle-Bones
+     ((=ucs		  . #x6B63)	; 正
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00528)	; &A-ZOB-0528;
+      ))
+    (shuowen-radical	. 31)	; 正
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -7248,13 +7706,10 @@
 			zob1968=2951 zob1968=3001)
     (zinbun-oracle-page . 26)
     (=zinbun-oracle	. 00528)	; &ZOB-0528;
-    (<-Oracle-Bones
-     ((=ucs		  . #x6B63)	; 正
-      ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00528)	; &ZOB-0528;
+     ((=>zinbun-oracle	  . 00528)	; &A-ZOB-0528;
       ))
     (shuowen-radical	. 31)	; 正
     (ideographic-structure
@@ -7690,7 +8145,18 @@
       ))
     ))
 (define-char
-  '((shuowen-radical	. 33)	; 辵
+  '((=>zinbun-oracle	. 00559)	; &A-ZOB-0559;
+    (<-Oracle-Bones
+     ((=ucs		  . #x9014)	; 途
+      )
+     ((=ucs		  . #x48C4)	; 䣄
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00559)	; &A-ZOB-0559;
+      ))
+    (shuowen-radical	. 33)	; 辵
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -8027,6 +8493,24 @@
     ))
 (define-char
   '((shuowen-radical	. 34)	; 彳
+    (zinbun-oracle-page . 28)
+    (=>zinbun-oracle	. 00581)	; &A-ZOB-0581;
+    (<-Oracle-Bones
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+	(=ucs		    . #x2FFA)	; ⿺
+	)
+       ((=ucs		    . #x8FB6)	; 辶
+	)
+       ((=ucs		    . #x6214)	; 戔
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00581)	; &A-ZOB-0581;
+      ))
+    (shuowen-radical	. 34)	; 彳
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -8047,20 +8531,10 @@
 			zob1968=2944)
     (zinbun-oracle-page . 28)
     (=zinbun-oracle	. 00581)	; &ZOB-0581;
-    (<-Oracle-Bones
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
-	(=ucs		    . #x2FFA)	; ⿺
-	)
-       ((=ucs		    . #x8FB6)	; 辶
-	)
-       ((=ucs		    . #x6214)	; 戔
-	))
-      ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00581)	; &ZOB-0581;
+     ((=>zinbun-oracle	  . 00581)	; &A-ZOB-0581;
       ))
     (shuowen-radical	. 34)	; 彳
     (sources		zob1968=1958 zob1968=2027-2038)
@@ -8171,6 +8645,17 @@
     ))
 (define-char
   '((shuowen-radical	. 34)	; 彳
+    (zinbun-oracle-page . 28)
+    (=>zinbun-oracle	. 00588)	; &A-ZOB-0588;
+    (<-Oracle-Bones
+     ((=ucs		  . #x5FA1)	; 御
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00588)	; &A-ZOB-0588;
+      ))
+    (shuowen-radical	. 34)	; 彳
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -8185,13 +8670,10 @@
 			zob1968=2392)
     (zinbun-oracle-page . 28)
     (=zinbun-oracle	. 00588)	; &ZOB-0588;
-    (<-Oracle-Bones
-     ((=ucs		  . #x5FA1)	; 御
-      ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00588)	; &ZOB-0588;
+     ((=>zinbun-oracle	  . 00588)	; &A-ZOB-0588;
       ))
     (shuowen-radical	. 34)	; 彳
     (ideographic-structure
@@ -8209,7 +8691,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00588)	; &ZOB-0588;
+     ((=>zinbun-oracle	  . 00588)	; &A-ZOB-0588;
       ))
     (shuowen-radical	. 34)	; 彳
     (sources		zob1968=2284 zob1968=2307 zob1968=3010 zob1968=3020
@@ -8219,7 +8701,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00588)	; &ZOB-0588;
+     ((=>zinbun-oracle	  . 00588)	; &A-ZOB-0588;
       ))
     (shuowen-radical	. 34)	; 彳
     (sources		zob1968=2142)
@@ -8770,14 +9252,25 @@
     (=zinbun-oracle	. 00643)	; &ZOB-0643;
     ))
 (define-char
-  '((shuowen-radical	. 36)	; 㢟
+  '((=>zinbun-oracle	. 00644)	; &A-ZOB-0644;
+    (<-Oracle-Bones
+     ((=ucs		  . #x5363)	; 卣
+      )
+     ((=ucs		  . #x5EFC)	; 廼
+      )
+     ((=ucs		  . #x209EA)	; 𠧪
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00644)	; &A-ZOB-0644;
+      ))
+    (shuowen-radical	. 36)	; 㢟
     (sources		zob1968=1803 zob1968=1872 zob1968=1873 zob1968=1945
 			zob1968=2014 zob1968=2018)
     (zinbun-oracle-page . 31)
     (=zinbun-oracle	. 00644)	; &ZOB-0644;
     (<-Oracle-Bones
-     ((=ucs		  . #x5363)	; 卣
-      )
      ((=ucs		  . #x5EFC)	; 廼
       ))
     ))
@@ -9412,11 +9905,8 @@
     ))
 (define-char
   '((shuowen-radical	. 54)	; 十
-    (sources		zob1968=0107 zob1968=0157 zob1968=0269 zob1968=0401
-			zob1968=0549 zob1968=1177 zob1968=1428 zob1968=1719
-			zob1968=3055 zob1968=3118)
     (zinbun-oracle-page . 34)
-    (=zinbun-oracle	. 00715)	; &ZOB-0715;
+    (=>zinbun-oracle	. 00715)	; &A-ZOB-0715;
     (<-Oracle-Bones
      ((ideographic-combination
        ((=ucs		    . #x5341)	; 十
@@ -9429,7 +9919,18 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00715)	; &ZOB-0715;
+     ((=>zinbun-oracle	  . 00715)	; &A-ZOB-0715;
+      ))
+    (shuowen-radical	. 54)	; 十
+    (sources		zob1968=0107 zob1968=0157 zob1968=0269 zob1968=0401
+			zob1968=0549 zob1968=1177 zob1968=1428 zob1968=1719
+			zob1968=3055 zob1968=3118)
+    (zinbun-oracle-page . 34)
+    (=zinbun-oracle	. 00715)	; &ZOB-0715;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00715)	; &A-ZOB-0715;
       ))
     (shuowen-radical	. 54)	; 十
     (sources		zob1968=1277 zob1968=1319 zob1968=1470 zob1968=1527)
@@ -9438,10 +9939,8 @@
     ))
 (define-char
   '((shuowen-radical	. 54)	; 十
-    (sources		zob1968=0205 zob1968=0212 zob1968=0596 zob1968=0927
-			zob1968=1630 zob1968=1761 zob1968=3016)
     (zinbun-oracle-page . 34)
-    (=zinbun-oracle	. 00717)	; &ZOB-0717;
+    (=>zinbun-oracle	. 00717)	; &A-ZOB-0717;
     (<-Oracle-Bones
      ((ideographic-combination
        ((=ucs		    . #x5341)	; 十
@@ -9454,7 +9953,17 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00717)	; &ZOB-0717;
+     ((=>zinbun-oracle	  . 00717)	; &A-ZOB-0717;
+      ))
+    (shuowen-radical	. 54)	; 十
+    (sources		zob1968=0205 zob1968=0212 zob1968=0596 zob1968=0927
+			zob1968=1630 zob1968=1761 zob1968=3016)
+    (zinbun-oracle-page . 34)
+    (=zinbun-oracle	. 00717)	; &ZOB-0717;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00717)	; &A-ZOB-0717;
       ))
     (shuowen-radical	. 54)	; 十
     (sources		zob1968=1257 zob1968=1263 zob1968=1297 zob1968=1357
@@ -9464,10 +9973,8 @@
     ))
 (define-char
   '((shuowen-radical	. 54)	; 十
-    (sources		zob1968=0084 zob1968=0449 zob1968=0773 zob1968=0853
-			zob1968=0949 zob1968=1192 zob1968=1771)
     (zinbun-oracle-page . 34)
-    (=zinbun-oracle	. 00719)	; &ZOB-0719;
+    (=>zinbun-oracle	. 00719)	; &A-ZOB-0719;
     (<-Oracle-Bones
      ((ideographic-combination
        ((=ucs		    . #x5341)	; 十
@@ -9480,7 +9987,17 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00719)	; &ZOB-0719;
+     ((=>zinbun-oracle	  . 00719)	; &A-ZOB-0719;
+      ))
+    (shuowen-radical	. 54)	; 十
+    (sources		zob1968=0084 zob1968=0449 zob1968=0773 zob1968=0853
+			zob1968=0949 zob1968=1192 zob1968=1771)
+    (zinbun-oracle-page . 34)
+    (=zinbun-oracle	. 00719)	; &ZOB-0719;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00719)	; &A-ZOB-0719;
       ))
     (shuowen-radical	. 54)	; 十
     (sources		zob1968=0949 zob1968=1602)
@@ -10923,7 +11440,18 @@
     (=zinbun-oracle	. 00908)	; &ZOB-0908;
     ))
 (define-char
-  '((shuowen-radical	. 76)	; 又
+  '((=>zinbun-oracle	. 00909)	; &A-ZOB-0909;
+    (<-Oracle-Bones
+     ((=ucs		  . #x53C8)	; 又
+      )
+     ((=ucs		  . #x6709)	; 有
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00909)	; &A-ZOB-0909;
+      ))
+    (shuowen-radical	. 76)	; 又
     (sources		zob1968=0020 zob1968=0151 zob1968=0327 zob1968=0331
 			zob1968=0344 zob1968=0348 zob1968=0349 zob1968=0354
 			zob1968=0371 zob1968=0418 zob1968=0624 zob1968=0657
@@ -11062,9 +11590,8 @@
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=1683 zob1968=1823 zob1968=3254)
     (zinbun-oracle-page . 43)
-    (=zinbun-oracle	. 00917)	; &ZOB-0917;
+    (=>zinbun-oracle	. 00917)	; &A-ZOB-0917;
     (<-Oracle-Bones
      ((ideographic-combination
        ((=ucs		    . #x7236)	; 父
@@ -11075,7 +11602,16 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00917)	; &ZOB-0917;
+     ((=>zinbun-oracle	  . 00917)	; &A-ZOB-0917;
+      ))
+    (shuowen-radical	. 76)	; 又
+    (sources		zob1968=1683 zob1968=1823 zob1968=3254)
+    (zinbun-oracle-page . 43)
+    (=zinbun-oracle	. 00917)	; &ZOB-0917;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00917)	; &A-ZOB-0917;
       ))
     (shuowen-radical	. 76)	; 又
     (sources		zob1968=0032 zob1968=0033 zob1968=0034 zob1968=1812
@@ -11085,9 +11621,8 @@
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=3015)
     (zinbun-oracle-page . 43)
-    (=zinbun-oracle	. 00919)	; &ZOB-0919;
+    (=>zinbun-oracle	. 00919)	; &A-ZOB-0919;
     (<-Oracle-Bones
      ((ideographic-combination
        ((=ucs		    . #x7236)	; 父
@@ -11098,7 +11633,16 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00919)	; &ZOB-0919;
+     ((=>zinbun-oracle	  . 00919)	; &A-ZOB-0919;
+      ))
+    (shuowen-radical	. 76)	; 又
+    (sources		zob1968=3015)
+    (zinbun-oracle-page . 43)
+    (=zinbun-oracle	. 00919)	; &ZOB-0919;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00919)	; &A-ZOB-0919;
       ))
     (shuowen-radical	. 76)	; 又
     (sources		zob1968=0039 zob1968=0040-0044 zob1968=0729
@@ -11121,11 +11665,8 @@
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=1254 zob1968=1265 zob1968=1266 zob1968=1340
-			zob1968=1547 zob1968=1548 zob1968=1549 zob1968=1815
-			zob1968=3254)
     (zinbun-oracle-page . 43)
-    (=zinbun-oracle	. 00922)	; &ZOB-0922;
+    (=>zinbun-oracle	. 00922)	; &A-ZOB-0922;
     (<-Oracle-Bones
      ((ideographic-combination
        ((=ucs		    . #x7236)	; 父
@@ -11136,7 +11677,18 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00922)	; &ZOB-0922;
+     ((=>zinbun-oracle	  . 00922)	; &A-ZOB-0922;
+      ))
+    (shuowen-radical	. 76)	; 又
+    (sources		zob1968=1254 zob1968=1265 zob1968=1266 zob1968=1340
+			zob1968=1547 zob1968=1548 zob1968=1549 zob1968=1815
+			zob1968=3254)
+    (zinbun-oracle-page . 43)
+    (=zinbun-oracle	. 00922)	; &ZOB-0922;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00922)	; &A-ZOB-0922;
       ))
     (shuowen-radical	. 76)	; 又
     (sources		zob1968=2283 zob1968=2284 zob1968=2285
@@ -11162,7 +11714,7 @@
 (define-char
   '((shuowen-radical	. 76)	; 又
     (zinbun-oracle-page . 43)
-    (=zinbun-oracle	. 00925)	; &ZOB-0925;
+    (=>zinbun-oracle	. 00925)	; &A-ZOB-0925;
     (<-Oracle-Bones
      ((ideographic-combination
        ((=ucs		    . #x7236)	; 父
@@ -11173,7 +11725,15 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00925)	; &ZOB-0925;
+     ((=>zinbun-oracle	  . 00925)	; &A-ZOB-0925;
+      ))
+    (shuowen-radical	. 76)	; 又
+    (zinbun-oracle-page . 43)
+    (=zinbun-oracle	. 00925)	; &ZOB-0925;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00925)	; &A-ZOB-0925;
       ))
     (shuowen-radical	. 76)	; 又
     (sources		zob1968=1816 zob1968=1902)
@@ -11182,9 +11742,8 @@
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=1807 zob1968=1808 zob1968=1810 zob1968=1811)
     (zinbun-oracle-page . 43)
-    (=zinbun-oracle	. 00927)	; &ZOB-0927;
+    (=>zinbun-oracle	. 00927)	; &A-ZOB-0927;
     (<-Oracle-Bones
      ((ideographic-combination
        ((=ucs		    . #x7236)	; 父
@@ -11195,7 +11754,16 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00927)	; &ZOB-0927;
+     ((=>zinbun-oracle	  . 00927)	; &A-ZOB-0927;
+      ))
+    (shuowen-radical	. 76)	; 又
+    (sources		zob1968=1807 zob1968=1808 zob1968=1810 zob1968=1811)
+    (zinbun-oracle-page . 43)
+    (=zinbun-oracle	. 00927)	; &ZOB-0927;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00927)	; &A-ZOB-0927;
       ))
     (shuowen-radical	. 76)	; 又
     (sources		zob1968=1809)
@@ -11219,7 +11787,7 @@
 (define-char
   '((shuowen-radical	. 76)	; 又
     (zinbun-oracle-page . 43)
-    (=zinbun-oracle	. 00930)	; &ZOB-0930;
+    (=>zinbun-oracle	. 00930)	; &A-ZOB-0930;
     (<-Oracle-Bones
      ((ideographic-combination
        ((=ucs		    . #x7236)	; 父
@@ -11230,7 +11798,15 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00930)	; &ZOB-0930;
+     ((=>zinbun-oracle	  . 00930)	; &A-ZOB-0930;
+      ))
+    (shuowen-radical	. 76)	; 又
+    (zinbun-oracle-page . 43)
+    (=zinbun-oracle	. 00930)	; &ZOB-0930;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00930)	; &A-ZOB-0930;
       ))
     (shuowen-radical	. 76)	; 又
     (sources		zob1968=3014)
@@ -11437,16 +12013,8 @@
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=1251 zob1968=1258 zob1968=1275-1279
-			zob1968=1281 zob1968=1283 zob1968=1284 zob1968=1285
-			zob1968=1288 zob1968=1563 zob1968=1571 zob1968=1578
-			zob1968=1592 zob1968=1945 zob1968=2585 zob1968=2596
-			zob1968=2602 zob1968=2616-2620 zob1968=2622-2629
-			zob1968=2631 zob1968=2632 zob1968=2634 zob1968=2654
-			zob1968=2658-2664 zob1968=2667 zob1968=2672
-			zob1968=2683 zob1968=3254)
     (zinbun-oracle-page . 44)
-    (=zinbun-oracle	. 00952)	; &ZOB-0952;
+    (=>zinbun-oracle	. 00952)	; &A-ZOB-0952;
     (<-Oracle-Bones
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -11460,7 +12028,23 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00952)	; &ZOB-0952;
+     ((=>zinbun-oracle	  . 00952)	; &A-ZOB-0952;
+      ))
+    (shuowen-radical	. 76)	; 又
+    (sources		zob1968=1251 zob1968=1258 zob1968=1275-1279
+			zob1968=1281 zob1968=1283 zob1968=1284 zob1968=1285
+			zob1968=1288 zob1968=1563 zob1968=1571 zob1968=1578
+			zob1968=1592 zob1968=1945 zob1968=2585 zob1968=2596
+			zob1968=2602 zob1968=2616-2620 zob1968=2622-2629
+			zob1968=2631 zob1968=2632 zob1968=2634 zob1968=2654
+			zob1968=2658-2664 zob1968=2667 zob1968=2672
+			zob1968=2683 zob1968=3254)
+    (zinbun-oracle-page . 44)
+    (=zinbun-oracle	. 00952)	; &ZOB-0952;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00952)	; &A-ZOB-0952;
       ))
     (shuowen-radical	. 76)	; 又
     (sources		zob1968=1269)
@@ -11469,7 +12053,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00952)	; &ZOB-0952;
+     ((=>zinbun-oracle	  . 00952)	; &A-ZOB-0952;
       ))
     (shuowen-radical	. 76)	; 又
     (sources		zob1968=1943)
@@ -11495,11 +12079,8 @@
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=1899 zob1968=1927 zob1968=1933 zob1968=1958
-			zob1968=1972-1977 zob1968=2128 zob1968=2218
-			zob1968=2219 zob1968=2945)
     (zinbun-oracle-page . 44)
-    (=zinbun-oracle	. 00958)	; &ZOB-0958;
+    (=>zinbun-oracle	. 00958)	; &A-ZOB-0958;
     (<-Oracle-Bones
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -11513,7 +12094,18 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 00958)	; &ZOB-0958;
+     ((=>zinbun-oracle	  . 00958)	; &A-ZOB-0958;
+      ))
+    (shuowen-radical	. 76)	; 又
+    (sources		zob1968=1899 zob1968=1927 zob1968=1933 zob1968=1958
+			zob1968=1972-1977 zob1968=2128 zob1968=2218
+			zob1968=2219 zob1968=2945)
+    (zinbun-oracle-page . 44)
+    (=zinbun-oracle	. 00958)	; &ZOB-0958;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00958)	; &A-ZOB-0958;
       ))
     (shuowen-radical	. 76)	; 又
     (sources		zob1968=1790 zob1968=1811)
@@ -11871,7 +12463,18 @@
     (=zinbun-oracle	. 01018)	; &ZOB-1018;
     ))
 (define-char
-  '((shuowen-radical	. 77)	; 𠂇
+  '((=>zinbun-oracle	. 01019)	; &A-ZOB-1019;
+    (<-Oracle-Bones
+     ((=ucs		  . #x20087)	; 𠂇
+      )
+     ((=ucs		  . #x5DE6)	; 左
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01019)	; &A-ZOB-1019;
+      ))
+    (shuowen-radical	. 77)	; 𠂇
     (zinbun-oracle-page . 47)
     (=zinbun-oracle	. 01019)	; &ZOB-1019;
     (<-Oracle-Bones
@@ -11886,19 +12489,27 @@
     ))
 (define-char
   '((shuowen-radical	. 78)	; 㕜
-    (sources		zob1968=0174 zob1968=0213-0221 zob1968=0373
-			zob1968=0562 zob1968=0563 zob1968=0621 zob1968=1158
-			zob1968=1271 zob1968=1272 zob1968=1738 zob1968=1784
-			zob1968=1801 zob1968=2529 zob1968=3124)
     (zinbun-oracle-page . 47)
-    (=zinbun-oracle	. 01021)	; &ZOB-1021;
+    (=>zinbun-oracle	. 01021)	; &A-ZOB-1021;
     (<-Oracle-Bones
      ((=ucs		  . #x53F2)	; 史
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01021)	; &ZOB-1021;
+     ((=>zinbun-oracle	  . 01021)	; &A-ZOB-1021;
+      ))
+    (shuowen-radical	. 78)	; 㕜
+    (sources		zob1968=0174 zob1968=0213-0221 zob1968=0373
+			zob1968=0562 zob1968=0563 zob1968=0621 zob1968=1158
+			zob1968=1271 zob1968=1272 zob1968=1738 zob1968=1784
+			zob1968=1801 zob1968=2529 zob1968=3124)
+    (zinbun-oracle-page . 47)
+    (=zinbun-oracle	. 01021)	; &ZOB-1021;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01021)	; &A-ZOB-1021;
       ))
     (shuowen-radical	. 78)	; 㕜
     (sources		zob1968=3016)
@@ -11987,16 +12598,24 @@
     ))
 (define-char
   '((shuowen-radical	. 85)	; 臣
-    (sources		zob1968=0155 zob1968=0283 zob1968=0967)
     (zinbun-oracle-page . 48)
-    (=zinbun-oracle	. 01036)	; &ZOB-1036;
+    (=>zinbun-oracle	. 01036)	; &A-ZOB-1036;
     (<-Oracle-Bones
      ((=ucs		  . #x81E3)	; 臣
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01036)	; &ZOB-1036;
+     ((=>zinbun-oracle	  . 01036)	; &A-ZOB-1036;
+      ))
+    (shuowen-radical	. 85)	; 臣
+    (sources		zob1968=0155 zob1968=0283 zob1968=0967)
+    (zinbun-oracle-page . 48)
+    (=zinbun-oracle	. 01036)	; &ZOB-1036;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01036)	; &A-ZOB-1036;
       ))
     (shuowen-radical	. 85)	; 臣
     (sources		zob1968=1940)
@@ -12632,14 +13251,22 @@
 (define-char
   '((shuowen-radical	. 93)	; 敎
     (zinbun-oracle-page . 52)
-    (=zinbun-oracle	. 01126)	; &ZOB-1126;
+    (=>zinbun-oracle	. 01126)	; &A-ZOB-1126;
     (<-Oracle-Bones
      ((=ucs		  . #x5B78)	; 學
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01126)	; &ZOB-1126;
+     ((=>zinbun-oracle	  . 01126)	; &A-ZOB-1126;
+      ))
+    (shuowen-radical	. 93)	; 敎
+    (zinbun-oracle-page . 52)
+    (=zinbun-oracle	. 01126)	; &ZOB-1126;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01126)	; &A-ZOB-1126;
       ))
     (shuowen-radical	. 93)	; 敎
     (sources		zob1968=0060 zob1968=2374 zob1968=3250)
@@ -12684,7 +13311,7 @@
 (define-char
   '((shuowen-radical	. 94)	; 卜
     (zinbun-oracle-page . 52)
-    (=zinbun-oracle	. 01131)	; &ZOB-1131;
+    (=>zinbun-oracle	. 01131)	; &A-ZOB-1131;
     (<-Oracle-Bones
      ((=ucs		  . #x9F0E)	; 鼎
       )
@@ -12693,7 +13320,15 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01131)	; &ZOB-1131;
+     ((=>zinbun-oracle	  . 01131)	; &A-ZOB-1131;
+      ))
+    (shuowen-radical	. 94)	; 卜
+    (zinbun-oracle-page . 52)
+    (=zinbun-oracle	. 01131)	; &ZOB-1131;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01131)	; &A-ZOB-1131;
       ))
     (shuowen-radical	. 94)	; 卜
     (sources		zob1968=1226 zob1968=1267 zob1968=1270 zob1968=1278
@@ -12709,7 +13344,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01131)	; &ZOB-1131;
+     ((=>zinbun-oracle	  . 01131)	; &A-ZOB-1131;
       ))
     (shuowen-radical	. 94)	; 卜
     (sources		zob1968=1514)
@@ -12718,7 +13353,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01131)	; &ZOB-1131;
+     ((=>zinbun-oracle	  . 01131)	; &A-ZOB-1131;
       ))
     (shuowen-radical	. 94)	; 卜
     (sources		zob1968=1579)
@@ -12727,7 +13362,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01131)	; &ZOB-1131;
+     ((=>zinbun-oracle	  . 01131)	; &A-ZOB-1131;
       ))
     (shuowen-radical	. 94)	; 卜
     (sources		zob1968=1853)
@@ -12736,7 +13371,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01131)	; &ZOB-1131;
+     ((=>zinbun-oracle	  . 01131)	; &A-ZOB-1131;
       ))
     (shuowen-radical	. 94)	; 卜
     (sources		zob1968=2270 zob1968=2292)
@@ -12745,7 +13380,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01131)	; &ZOB-1131;
+     ((=>zinbun-oracle	  . 01131)	; &A-ZOB-1131;
       ))
     (shuowen-radical	. 94)	; 卜
     (sources		zob1968=2266 zob1968=2330 zob1968=2359 zob1968=2361
@@ -12759,7 +13394,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01131)	; &ZOB-1131;
+     ((=>zinbun-oracle	  . 01131)	; &A-ZOB-1131;
       ))
     (shuowen-radical	. 94)	; 卜
     (sources		zob1968=2329 zob1968=2482 zob1968=3241 zob1968=3246)
@@ -12768,7 +13403,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01131)	; &ZOB-1131;
+     ((=>zinbun-oracle	  . 01131)	; &A-ZOB-1131;
       ))
     (shuowen-radical	. 94)	; 卜
     (sources		zob1968=2481)
@@ -12777,7 +13412,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01131)	; &ZOB-1131;
+     ((=>zinbun-oracle	  . 01131)	; &A-ZOB-1131;
       ))
     (shuowen-radical	. 94)	; 卜
     (sources		zob1968=3105)
@@ -12821,6 +13456,16 @@
     ))
 (define-char
   '((shuowen-radical	. 95)	; 用
+    (=>zinbun-oracle	. 01147)	; &A-ZOB-1147;
+    (<-Oracle-Bones
+     ((=ucs		  . #x7528)	; 用
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01147)	; &A-ZOB-1147;
+      ))
+    (shuowen-radical	. 95)	; 用
     (sources		zob1968=0019 zob1968=0075 zob1968=0076 zob1968=0077
 			zob1968=0083 zob1968=0094 zob1968=0208 zob1968=0290
 			zob1968=0400 zob1968=0425 zob1968=0588 zob1968=0633
@@ -12847,13 +13492,10 @@
 			zob1968=3097)
     (zinbun-oracle-page . 52)
     (=zinbun-oracle	. 01147)	; &ZOB-1147;
-    (<-Oracle-Bones
-     ((=ucs		  . #x7528)	; 用
-      ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01147)	; &ZOB-1147;
+     ((=>zinbun-oracle	  . 01147)	; &A-ZOB-1147;
       ))
     (shuowen-radical	. 95)	; 用
     (sources		zob1968=2615 zob1968=2702)
@@ -13061,19 +13703,27 @@
     ))
 (define-char
   '((shuowen-radical	. 101)	; 眉
-    (sources		zob1968=0277 zob1968=0871 zob1968=1996 zob1968=2003
-			zob1968=2046 zob1968=2050 zob1968=2054 zob1968=2057
-			zob1968=2060 zob1968=2072-2075 zob1968=2080
-			zob1968=2081 zob1968=2084 zob1968=2094 zob1968=2105)
     (zinbun-oracle-page . 55)
-    (=zinbun-oracle	. 01176)	; &ZOB-1176;
+    (=>zinbun-oracle	. 01176)	; &A-ZOB-1176;
     (<-Oracle-Bones
      ((=ucs		  . #x7701)	; 省
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01176)	; &ZOB-1176;
+     ((=>zinbun-oracle	  . 01176)	; &A-ZOB-1176;
+      ))
+    (shuowen-radical	. 101)	; 眉
+    (sources		zob1968=0277 zob1968=0871 zob1968=1996 zob1968=2003
+			zob1968=2046 zob1968=2050 zob1968=2054 zob1968=2057
+			zob1968=2060 zob1968=2072-2075 zob1968=2080
+			zob1968=2081 zob1968=2084 zob1968=2094 zob1968=2105)
+    (zinbun-oracle-page . 55)
+    (=zinbun-oracle	. 01176)	; &ZOB-1176;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01176)	; &A-ZOB-1176;
       ))
     (shuowen-radical	. 101)	; 眉
     (sources		zob1968=3245)
@@ -13097,6 +13747,17 @@
     ))
 (define-char
   '((shuowen-radical	. 103)	; 自
+    (zinbun-oracle-page . 55)
+    (=>zinbun-oracle	. 01179)	; &A-ZOB-1179;
+    (<-Oracle-Bones
+     ((=ucs		  . #x81EA)	; 自
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01179)	; &A-ZOB-1179;
+      ))
+    (shuowen-radical	. 103)	; 自
     (sources		zob1968=0008-0011 zob1968=0083 zob1968=0090
 			zob1968=0119 zob1968=0235 zob1968=0276 zob1968=0347
 			zob1968=0425 zob1968=0544 zob1968=0558 zob1968=0600
@@ -13110,13 +13771,10 @@
 			zob1968=3099)
     (zinbun-oracle-page . 55)
     (=zinbun-oracle	. 01179)	; &ZOB-1179;
-    (<-Oracle-Bones
-     ((=ucs		  . #x81EA)	; 自
-      ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01179)	; &ZOB-1179;
+     ((=>zinbun-oracle	  . 01179)	; &A-ZOB-1179;
       ))
     (shuowen-radical	. 103)	; 自
     (sources		zob1968=1803 zob1968=1811 zob1968=1830 zob1968=1910
@@ -13126,7 +13784,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01179)	; &ZOB-1179;
+     ((=>zinbun-oracle	  . 01179)	; &A-ZOB-1179;
       ))
     (shuowen-radical	. 103)	; 自
     (sources		zob1968=0765 zob1968=2292 zob1968=2614 zob1968=3000
@@ -13287,6 +13945,16 @@
     ))
 (define-char
   '((shuowen-radical	. 108)	; 羽
+    (=>zinbun-oracle	. 01198)	; &A-ZOB-1198;
+    (<-Oracle-Bones
+     ((=ucs		  . #x7FCC)	; 翌
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01198)	; &A-ZOB-1198;
+      ))
+    (shuowen-radical	. 108)	; 羽
     (sources		zob1968=0016 zob1968=0049 zob1968=0053 zob1968=0073
 			zob1968=0078 zob1968=0079 zob1968=0081 zob1968=0085
 			zob1968=0086 zob1968=0101 zob1968=0133 zob1968=0144
@@ -13310,13 +13978,10 @@
 			zob1968=2982 zob1968=2983 zob1968=3115 zob1968=3250)
     (zinbun-oracle-page . 55)
     (=zinbun-oracle	. 01198)	; &ZOB-1198;
-    (<-Oracle-Bones
-     ((=ucs		  . #x7FCC)	; 翌
-      ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01198)	; &ZOB-1198;
+     ((=>zinbun-oracle	  . 01198)	; &A-ZOB-1198;
       ))
     (shuowen-radical	. 108)	; 羽
     (sources		zob1968=1774 zob1968=1808 zob1968=1863 zob1968=2951)
@@ -13325,10 +13990,8 @@
     ))
 (define-char
   '((shuowen-radical	. 108)	; 羽
-    (sources		zob1968=1681 zob1968=1818 zob1968=2024 zob1968=2040
-			zob1968=2284 zob1968=2398 zob1968=2617 zob1968=2683)
     (zinbun-oracle-page . 56)
-    (=zinbun-oracle	. 01200)	; &ZOB-1200;
+    (=>zinbun-oracle	. 01200)	; &A-ZOB-1200;
     (<-Oracle-Bones
      ((ideographic-combination
        ((=ucs		    . #x7FCC)	; 翌
@@ -13339,7 +14002,17 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01200)	; &ZOB-1200;
+     ((=>zinbun-oracle	  . 01200)	; &A-ZOB-1200;
+      ))
+    (shuowen-radical	. 108)	; 羽
+    (sources		zob1968=1681 zob1968=1818 zob1968=2024 zob1968=2040
+			zob1968=2284 zob1968=2398 zob1968=2617 zob1968=2683)
+    (zinbun-oracle-page . 56)
+    (=zinbun-oracle	. 01200)	; &ZOB-1200;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01200)	; &A-ZOB-1200;
       ))
     (shuowen-radical	. 108)	; 羽
     (sources		zob1968=2001 zob1968=2008 zob1968=2009 zob1968=2011
@@ -13416,6 +14089,17 @@
     ))
 (define-char
   '((shuowen-radical	. 109)	; 隹
+    (zinbun-oracle-page . 56)
+    (=>zinbun-oracle	. 01205)	; &A-ZOB-1205;
+    (<-Oracle-Bones
+     ((=ucs		  . #x96BB)	; 隻
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01205)	; &A-ZOB-1205;
+      ))
+    (shuowen-radical	. 109)	; 隹
     (sources		zob1968=0043 zob1968=0259 zob1968=0264 zob1968=0274
 			zob1968=0279 zob1968=0282 zob1968=0283
 			zob1968=0294-0298 zob1968=0302 zob1968=0345
@@ -13426,13 +14110,10 @@
 			zob1968=3250)
     (zinbun-oracle-page . 56)
     (=zinbun-oracle	. 01205)	; &ZOB-1205;
-    (<-Oracle-Bones
-     ((=ucs		  . #x96BB)	; 隻
-      ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01205)	; &ZOB-1205;
+     ((=>zinbun-oracle	  . 01205)	; &A-ZOB-1205;
       ))
     (shuowen-radical	. 109)	; 隹
     (sources		zob1968=0299)
@@ -13825,6 +14506,17 @@
     ))
 (define-char
   '((shuowen-radical	. 114)	; 羊
+    (zinbun-oracle-page . 58)
+    (=>zinbun-oracle	. 01252)	; &A-ZOB-1252;
+    (<-Oracle-Bones
+     ((=ucs		  . #x7F8C)	; 羌
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01252)	; &A-ZOB-1252;
+      ))
+    (shuowen-radical	. 114)	; 羊
     (sources		zob1968=0044 zob1968=0049 zob1968=0077 zob1968=0082
 			zob1968=0090 zob1968=0337 zob1968=0366 zob1968=0367
 			zob1968=0368 zob1968=0371 zob1968=0395 zob1968=0451
@@ -13835,13 +14527,10 @@
 			zob1968=3248)
     (zinbun-oracle-page . 58)
     (=zinbun-oracle	. 01252)	; &ZOB-1252;
-    (<-Oracle-Bones
-     ((=ucs		  . #x7F8C)	; 羌
-      ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01252)	; &ZOB-1252;
+     ((=>zinbun-oracle	  . 01252)	; &A-ZOB-1252;
       ))
     (shuowen-radical	. 114)	; 羊
     (sources		zob1968=1799 zob1968=1888 zob1968=1889 zob1968=1891
@@ -13851,7 +14540,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01252)	; &ZOB-1252;
+     ((=>zinbun-oracle	  . 01252)	; &A-ZOB-1252;
       ))
     (shuowen-radical	. 114)	; 羊
     (sources		zob1968=2265 zob1968=2277 zob1968=2279 zob1968=2313
@@ -13874,9 +14563,8 @@
     ))
 (define-char
   '((shuowen-radical	. 114)	; 羊
-    (sources		zob1968=1818 zob1968=2742)
     (zinbun-oracle-page . 58)
-    (=zinbun-oracle	. 01256)	; &ZOB-1256;
+    (=>zinbun-oracle	. 01256)	; &A-ZOB-1256;
     (<-Oracle-Bones
      ((ideographic-combination
        ((=ucs		    . #x7F8C)	; 羌
@@ -13887,7 +14575,16 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01256)	; &ZOB-1256;
+     ((=>zinbun-oracle	  . 01256)	; &A-ZOB-1256;
+      ))
+    (shuowen-radical	. 114)	; 羊
+    (sources		zob1968=1818 zob1968=2742)
+    (zinbun-oracle-page . 58)
+    (=zinbun-oracle	. 01256)	; &ZOB-1256;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01256)	; &A-ZOB-1256;
       ))
     (shuowen-radical	. 114)	; 羊
     (sources		zob1968=0022 zob1968=0023 zob1968=0024)
@@ -15191,7 +15888,18 @@
       ))
     ))
 (define-char
-  '((shuowen-radical	. 145)	; 丌
+  '((=>zinbun-oracle	. 01395)	; &A-ZOB-1395;
+    (<-Oracle-Bones
+     ((=ucs		  . #x5960)	; 奠
+      )
+     ((=ucs		  . #x912D)	; 鄭
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01395)	; &A-ZOB-1395;
+      ))
+    (shuowen-radical	. 145)	; 丌
     (sources		zob1968=0387 zob1968=0424 zob1968=0766 zob1968=1468
 			zob1968=2307 zob1968=2512 zob1968=2522 zob1968=2535)
     (zinbun-oracle-page . 66)
@@ -15206,27 +15914,36 @@
     (=zinbun-oracle	. 01396)	; &ZOB-1396;
     ))
 (define-char
-  '((shuowen-radical	. 146)	; 左
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01019)	; &A-ZOB-1019;
+      ))
+    (shuowen-radical	. 146)	; 左
     (zinbun-oracle-page . 66)
     (=zinbun-oracle	. 01397)	; &ZOB-1397;
     (<-Oracle-Bones
-     ((=ucs		  . #x20087)	; 𠂇
-      )
      ((=ucs		  . #x5DE6)	; 左
       ))
     ))
 (define-char
   '((shuowen-radical	. 147)	; 工
-    (sources		zob1968=0060)
     (zinbun-oracle-page . 66)
-    (=zinbun-oracle	. 01398)	; &ZOB-1398;
+    (=>zinbun-oracle	. 01398)	; &A-ZOB-1398;
     (<-Oracle-Bones
      ((=ucs		  . #x5DE5)	; 工
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01398)	; &ZOB-1398;
+     ((=>zinbun-oracle	  . 01398)	; &A-ZOB-1398;
+      ))
+    (shuowen-radical	. 147)	; 工
+    (sources		zob1968=0060)
+    (zinbun-oracle-page . 66)
+    (=zinbun-oracle	. 01398)	; &ZOB-1398;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01398)	; &A-ZOB-1398;
       ))
     (shuowen-radical	. 147)	; 工
     (sources		zob1968=1633 zob1968=3246)
@@ -15372,12 +16089,13 @@
       ))
     ))
 (define-char
-  '((shuowen-radical	. 152)	; 乃
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00644)	; &A-ZOB-0644;
+      ))
+    (shuowen-radical	. 152)	; 乃
     (zinbun-oracle-page . 67)
     (=zinbun-oracle	. 01416)	; &ZOB-1416;
     (<-Oracle-Bones
-     ((=ucs		  . #x5363)	; 卣
-      )
      ((=ucs		  . #x209EA)	; 𠧪
       ))
     ))
@@ -15390,7 +16108,18 @@
       ))
     ))
 (define-char
-  '((shuowen-radical	. 153)	; 丂
+  '((=>zinbun-oracle	. 01418)	; &A-ZOB-1418;
+    (<-Oracle-Bones
+     ((=ucs		  . #x5BE7)	; 寧
+      )
+     ((=ucs		  . #x5BCD)	; 寍
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01418)	; &A-ZOB-1418;
+      ))
+    (shuowen-radical	. 153)	; 丂
     (sources		zob1968=2370 zob1968=2868 zob1968=2914)
     (zinbun-oracle-page . 67)
     (=zinbun-oracle	. 01418)	; &ZOB-1418;
@@ -15409,14 +16138,22 @@
 (define-char
   '((shuowen-radical	. 155)	; 兮
     (zinbun-oracle-page . 67)
-    (=zinbun-oracle	. 01420)	; &ZOB-1420;
+    (=>zinbun-oracle	. 01420)	; &A-ZOB-1420;
     (<-Oracle-Bones
      ((=ucs		  . #x516E)	; 兮
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01420)	; &ZOB-1420;
+     ((=>zinbun-oracle	  . 01420)	; &A-ZOB-1420;
+      ))
+    (shuowen-radical	. 155)	; 兮
+    (zinbun-oracle-page . 67)
+    (=zinbun-oracle	. 01420)	; &ZOB-1420;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01420)	; &A-ZOB-1420;
       ))
     (shuowen-radical	. 155)	; 兮
     (sources		zob1968=2368)
@@ -15464,16 +16201,24 @@
     ))
 (define-char
   '((shuowen-radical	. 157)	; 亏
-    (sources		zob1968=0106)
     (zinbun-oracle-page . 67)
-    (=zinbun-oracle	. 01425)	; &ZOB-1425;
+    (=>zinbun-oracle	. 01425)	; &A-ZOB-1425;
     (<-Oracle-Bones
      ((=ucs		  . #x4E8E)	; 于
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01425)	; &ZOB-1425;
+     ((=>zinbun-oracle	  . 01425)	; &A-ZOB-1425;
+      ))
+    (shuowen-radical	. 157)	; 亏
+    (sources		zob1968=0106)
+    (zinbun-oracle-page . 67)
+    (=zinbun-oracle	. 01425)	; &ZOB-1425;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01425)	; &A-ZOB-1425;
       ))
     (shuowen-radical	. 157)	; 亏
     (sources		zob1968=3242)
@@ -15494,7 +16239,18 @@
     (=zinbun-oracle	. 01428)	; &ZOB-1428;
     ))
 (define-char
-  '((shuowen-radical	. 159)	; 喜
+  '((=>zinbun-oracle	. 01429)	; &A-ZOB-1429;
+    (<-Oracle-Bones
+     ((=ucs		  . #x559C)	; 喜
+      )
+     ((=ucs		  . #x994E)	; 饎
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01429)	; &A-ZOB-1429;
+      ))
+    (shuowen-radical	. 159)	; 喜
     (sources		zob1968=0404 zob1968=1098 zob1968=1299 zob1968=1311
 			zob1968=1430 zob1968=1431 zob1968=1560 zob1968=1563
 			zob1968=1572)
@@ -15586,7 +16342,18 @@
       ))
     ))
 (define-char
-  '((shuowen-radical	. 165)	; 豐
+  '((=>zinbun-oracle	. 01441)	; &A-ZOB-1441;
+    (<-Oracle-Bones
+     ((=ucs		  . #x8C50)	; 豐
+      )
+     ((=ucs		  . #x9146)	; 酆
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01441)	; &A-ZOB-1441;
+      ))
+    (shuowen-radical	. 165)	; 豐
     (sources		zob1968=0870 zob1968=1879 zob1968=1881 zob1968=1882
 			zob1968=2315 zob1968=3039)
     (zinbun-oracle-page . 68)
@@ -16154,7 +16921,18 @@
       ))
     ))
 (define-char
-  '((shuowen-radical	. 177)	; 井
+  '((=>zinbun-oracle	. 01511)	; &A-ZOB-1511;
+    (<-Oracle-Bones
+     ((=ucs		  . #x4E95)	; 井
+      )
+     ((=ucs		  . #x28677)	; 𨙷
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01511)	; &A-ZOB-1511;
+      ))
+    (shuowen-radical	. 177)	; 井
     (sources		zob1968=0278 zob1968=0460)
     (zinbun-oracle-page . 71)
     (=zinbun-oracle	. 01511)	; &ZOB-1511;
@@ -16215,17 +16993,25 @@
     ))
 (define-char
   '((shuowen-radical	. 178)	; 皀
-    (sources		zob1968=1943 zob1968=1945 zob1968=2268 zob1968=2285
-			zob1968=2305 zob1968=2307 zob1968=3074 zob1968=3077)
     (zinbun-oracle-page . 72)
-    (=zinbun-oracle	. 01518)	; &ZOB-1518;
+    (=>zinbun-oracle	. 01518)	; &A-ZOB-1518;
     (<-Oracle-Bones
      ((=ucs		  . #x537D)	; 卽
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01518)	; &ZOB-1518;
+     ((=>zinbun-oracle	  . 01518)	; &A-ZOB-1518;
+      ))
+    (shuowen-radical	. 178)	; 皀
+    (sources		zob1968=1943 zob1968=1945 zob1968=2268 zob1968=2285
+			zob1968=2305 zob1968=2307 zob1968=3074 zob1968=3077)
+    (zinbun-oracle-page . 72)
+    (=zinbun-oracle	. 01518)	; &ZOB-1518;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01518)	; &A-ZOB-1518;
       ))
     (shuowen-radical	. 178)	; 皀
     (sources		zob1968=1549 zob1968=1557 zob1968=1561 zob1968=1578
@@ -16315,12 +17101,13 @@
       ))
     ))
 (define-char
-  '((shuowen-radical	. 180)	; 食
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01429)	; &A-ZOB-1429;
+      ))
+    (shuowen-radical	. 180)	; 食
     (zinbun-oracle-page . 72)
     (=zinbun-oracle	. 01530)	; &ZOB-1530;
     (<-Oracle-Bones
-     ((=ucs		  . #x559C)	; 喜
-      )
      ((=ucs		  . #x994E)	; 饎
       ))
     ))
@@ -16333,12 +17120,23 @@
       ))
     ))
 (define-char
-  '((shuowen-radical	. 180)	; 食
-    (zinbun-oracle-page . 72)
-    (=zinbun-oracle	. 01532)	; &ZOB-1532;
+  '((=>zinbun-oracle	. 01532)	; &A-ZOB-1532;
     (<-Oracle-Bones
      ((=ucs		  . #x537F)	; 卿
       )
+     ((=ucs		  . #x9957)	; 饗
+      )
+     ((=ucs		  . #x90F7)	; 郷
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01532)	; &A-ZOB-1532;
+      ))
+    (shuowen-radical	. 180)	; 食
+    (zinbun-oracle-page . 72)
+    (=zinbun-oracle	. 01532)	; &ZOB-1532;
+    (<-Oracle-Bones
      ((=ucs		  . #x9957)	; 饗
       ))
     ))
@@ -17154,7 +17952,18 @@
     (=zinbun-oracle	. 01626)	; &ZOB-1626;
     ))
 (define-char
-  '((shuowen-radical	. 194)	; 㐭
+  '((=>zinbun-oracle	. 01627)	; &A-ZOB-1627;
+    (<-Oracle-Bones
+     ((=ucs		  . #x555A)	; 啚
+      )
+     ((=ucs		  . #x9119)	; 鄙
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01627)	; &A-ZOB-1627;
+      ))
+    (shuowen-radical	. 194)	; 㐭
     (sources		zob1968=0559 zob1968=0632)
     (zinbun-oracle-page . 77)
     (=zinbun-oracle	. 01627)	; &ZOB-1627;
@@ -17330,7 +18139,18 @@
     (=zinbun-oracle	. 01647)	; &ZOB-1647;
     ))
 (define-char
-  '((shuowen-radical	. 199)	; 舛
+  '((=>zinbun-oracle	. 01648)	; &A-ZOB-1648;
+    (<-Oracle-Bones
+     ((=ucs		  . #x821E)	; 舞
+      )
+     ((=ucs		  . #x7121)	; 無
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01648)	; &A-ZOB-1648;
+      ))
+    (shuowen-radical	. 199)	; 舛
     (sources		zob1968=0121 zob1968=1356 zob1968=1853 zob1968=1954
 			zob1968=1955 zob1968=2260 zob1968=3078 zob1968=3084
 			zob1968=3085 zob1968=3098 zob1968=3158)
@@ -17501,12 +18321,13 @@
       ))
     ))
 (define-char
-  '((shuowen-radical	. 206)	; 木
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00353)	; &A-ZOB-0353;
+      ))
+    (shuowen-radical	. 206)	; 木
     (zinbun-oracle-page . 79)
     (=zinbun-oracle	. 01667)	; &ZOB-1667;
     (<-Oracle-Bones
-     ((=ucs		  . #x5404)	; 各
-      )
      ((=ucs		  . #x683C)	; 格
       ))
     ))
@@ -17921,9 +18742,11 @@
      ((ideographic-combination
        ((=ucs		    . #x6771)	; 東
 	)
-       ((=jis-x0208	    . #x4B4C)	; &GT-03302; [43-44]
+       ((=ucs@unicode	    . #x5317)	; &GT-03302;
+	(=jis-x0208	    . #x4B4C)	; &GT-03302; [43-44]
 	(=gb2312	    . #x3131)	; &I-G0-3131; [17-17]
 	(=ks-x1001	    . #x5D41)	; &I-K0-5D41; [61-33]
+	(=jis-x0213-1	    . #x4B4C)	; &I-JX1-4B4C; [43-44]
 	(=daikanwa	    . 02574)	; &I-M-02574;
 	)
        ((=ucs		    . #x4EBA)	; 人
@@ -18043,12 +18866,13 @@
     (=zinbun-oracle	. 01732)	; &ZOB-1732;
     ))
 (define-char
-  '((shuowen-radical	. 208)	; 林
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01648)	; &A-ZOB-1648;
+      ))
+    (shuowen-radical	. 208)	; 林
     (zinbun-oracle-page . 82)
     (=zinbun-oracle	. 01733)	; &ZOB-1733;
     (<-Oracle-Bones
-     ((=ucs		  . #x821E)	; 舞
-      )
      ((=ucs		  . #x7121)	; 無
       ))
     ))
@@ -18315,6 +19139,13 @@
     ))
 (define-char
   '((shuowen-radical	. 211)	; 之
+    (=>zinbun-oracle	. 01765)	; &A-ZOB-1765;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01765)	; &A-ZOB-1765;
+      ))
+    (shuowen-radical	. 211)	; 之
     (sources		zob1968=0001 zob1968=0006 zob1968=0011 zob1968=0016
 			zob1968=0017 zob1968=0019 zob1968=0027
 			zob1968=0032-0035 zob1968=0038 zob1968=0039
@@ -18353,7 +19184,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01765)	; &ZOB-1765;
+     ((=>zinbun-oracle	  . 01765)	; &A-ZOB-1765;
       ))
     (shuowen-radical	. 211)	; 之
     (sources		zob1968=3010 zob1968=3012 zob1968=3014 zob1968=3016
@@ -18365,7 +19196,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01765)	; &ZOB-1765;
+     ((=>zinbun-oracle	  . 01765)	; &A-ZOB-1765;
       ))
     (shuowen-radical	. 211)	; 之
     (sources		zob1968=3247)
@@ -18914,6 +19745,17 @@
     ))
 (define-char
   '((shuowen-radical	. 228)	; 貝
+    (zinbun-oracle-page . 87)
+    (=>zinbun-oracle	. 01830)	; &A-ZOB-1830;
+    (<-Oracle-Bones
+     ((=ucs		  . #x8CD3)	; 賓
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01830)	; &A-ZOB-1830;
+      ))
+    (shuowen-radical	. 228)	; 貝
     (sources		zob1968=0001 zob1968=0003 zob1968=0053 zob1968=0077
 			zob1968=0079 zob1968=0083 zob1968=0085 zob1968=0089
 			zob1968=0090 zob1968=0127 zob1968=0133 zob1968=0143
@@ -18932,13 +19774,10 @@
 			zob1968=1150)
     (zinbun-oracle-page . 87)
     (=zinbun-oracle	. 01830)	; &ZOB-1830;
-    (<-Oracle-Bones
-     ((=ucs		  . #x8CD3)	; 賓
-      ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01830)	; &ZOB-1830;
+     ((=>zinbun-oracle	  . 01830)	; &A-ZOB-1830;
       ))
     (shuowen-radical	. 228)	; 貝
     (sources		zob1968=0711)
@@ -18947,7 +19786,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01830)	; &ZOB-1830;
+     ((=>zinbun-oracle	  . 01830)	; &A-ZOB-1830;
       ))
     (shuowen-radical	. 228)	; 貝
     (sources		zob1968=1251 zob1968=1252 zob1968=1258 zob1968=1262
@@ -19080,42 +19919,46 @@
     (=zinbun-oracle	. 01847)	; &ZOB-1847;
     ))
 (define-char
-  '((shuowen-radical	. 229)	; 邑
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01627)	; &A-ZOB-1627;
+      ))
+    (shuowen-radical	. 229)	; 邑
     (zinbun-oracle-page . 88)
     (=zinbun-oracle	. 01848)	; &ZOB-1848;
     (<-Oracle-Bones
-     ((=ucs		  . #x555A)	; 啚
-      )
      ((=ucs		  . #x9119)	; 鄙
       ))
     ))
 (define-char
-  '((shuowen-radical	. 229)	; 邑
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01441)	; &A-ZOB-1441;
+      ))
+    (shuowen-radical	. 229)	; 邑
     (zinbun-oracle-page . 88)
     (=zinbun-oracle	. 01849)	; &ZOB-1849;
     (<-Oracle-Bones
-     ((=ucs		  . #x8C50)	; 豐
-      )
      ((=ucs		  . #x9146)	; 酆
       ))
     ))
 (define-char
-  '((shuowen-radical	. 229)	; 邑
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01395)	; &A-ZOB-1395;
+      ))
+    (shuowen-radical	. 229)	; 邑
     (zinbun-oracle-page . 88)
     (=zinbun-oracle	. 01850)	; &ZOB-1850;
     (<-Oracle-Bones
-     ((=ucs		  . #x5960)	; 奠
-      )
      ((=ucs		  . #x912D)	; 鄭
       ))
     ))
 (define-char
-  '((shuowen-radical	. 229)	; 邑
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01511)	; &A-ZOB-1511;
+      ))
+    (shuowen-radical	. 229)	; 邑
     (zinbun-oracle-page . 88)
     (=zinbun-oracle	. 01851)	; &ZOB-1851;
     (<-Oracle-Bones
-     ((=ucs		  . #x4E95)	; 井
-      )
      ((=ucs		  . #x28677)	; 𨙷
       ))
     ))
@@ -19130,22 +19973,24 @@
       ))
     ))
 (define-char
-  '((shuowen-radical	. 229)	; 邑
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00559)	; &A-ZOB-0559;
+      ))
+    (shuowen-radical	. 229)	; 邑
     (zinbun-oracle-page . 88)
     (=zinbun-oracle	. 01854)	; &ZOB-1854;
     (<-Oracle-Bones
-     ((=ucs		  . #x9014)	; 途
-      )
      ((=ucs		  . #x48C4)	; 䣄
       ))
     ))
 (define-char
-  '((shuowen-radical	. 230)	; 𨛜
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01532)	; &A-ZOB-1532;
+      ))
+    (shuowen-radical	. 230)	; 𨛜
     (zinbun-oracle-page . 88)
     (=zinbun-oracle	. 01856)	; &ZOB-1856;
     (<-Oracle-Bones
-     ((=ucs		  . #x537F)	; 卿
-      )
      ((=ucs		  . #x90F7)	; 郷
       ))
     ))
@@ -19254,14 +20099,22 @@
 (define-char
   '((shuowen-radical	. 231)	; 日
     (zinbun-oracle-page . 89)
-    (=zinbun-oracle	. 01864)	; &ZOB-1864;
+    (=>zinbun-oracle	. 01864)	; &A-ZOB-1864;
     (<-Oracle-Bones
      ((=ucs		  . #x6675)	; 晵
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01864)	; &ZOB-1864;
+     ((=>zinbun-oracle	  . 01864)	; &A-ZOB-1864;
+      ))
+    (shuowen-radical	. 231)	; 日
+    (zinbun-oracle-page . 89)
+    (=zinbun-oracle	. 01864)	; &ZOB-1864;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01864)	; &A-ZOB-1864;
       ))
     (shuowen-radical	. 231)	; 日
     (sources		zob1968=0091 zob1968=0188 zob1968=0189 zob1968=0279
@@ -19275,7 +20128,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01864)	; &ZOB-1864;
+     ((=>zinbun-oracle	  . 01864)	; &A-ZOB-1864;
       ))
     (shuowen-radical	. 231)	; 日
     (sources		zob1968=0185)
@@ -19284,7 +20137,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01864)	; &ZOB-1864;
+     ((=>zinbun-oracle	  . 01864)	; &A-ZOB-1864;
       ))
     (shuowen-radical	. 231)	; 日
     (sources		zob1968=0186)
@@ -19684,12 +20537,13 @@
       ))
     ))
 (define-char
-  '((shuowen-radical	. 238)	; 有
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00909)	; &A-ZOB-0909;
+      ))
+    (shuowen-radical	. 238)	; 有
     (zinbun-oracle-page . 92)
     (=zinbun-oracle	. 01908)	; &ZOB-1908;
     (<-Oracle-Bones
-     ((=ucs		  . #x53C8)	; 又
-      )
      ((=ucs		  . #x6709)	; 有
       ))
     ))
@@ -19704,14 +20558,22 @@
 (define-char
   '((shuowen-radical	. 239)	; 明
     (zinbun-oracle-page . 92)
-    (=zinbun-oracle	. 01910)	; &ZOB-1910;
+    (=>zinbun-oracle	. 01910)	; &A-ZOB-1910;
     (<-Oracle-Bones
      ((=ucs		  . #x660E)	; 明
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01910)	; &ZOB-1910;
+     ((=>zinbun-oracle	  . 01910)	; &A-ZOB-1910;
+      ))
+    (shuowen-radical	. 239)	; 明
+    (zinbun-oracle-page . 92)
+    (=zinbun-oracle	. 01910)	; &ZOB-1910;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01910)	; &A-ZOB-1910;
       ))
     (shuowen-radical	. 239)	; 明
     (sources		zob1968=3016)
@@ -19720,7 +20582,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01910)	; &ZOB-1910;
+     ((=>zinbun-oracle	  . 01910)	; &A-ZOB-1910;
       ))
     (shuowen-radical	. 239)	; 明
     (sources		zob1968=3113)
@@ -19761,6 +20623,17 @@
     ))
 (define-char
   '((shuowen-radical	. 241)	; 夕
+    (zinbun-oracle-page . 92)
+    (=>zinbun-oracle	. 01918)	; &A-ZOB-1918;
+    (<-Oracle-Bones
+     ((=ucs		  . #x5915)	; 夕
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01918)	; &A-ZOB-1918;
+      ))
+    (shuowen-radical	. 241)	; 夕
     (sources		zob1968=0078 zob1968=0132 zob1968=0166 zob1968=0201
 			zob1968=0213 zob1968=0229 zob1968=0241 zob1968=0242
 			zob1968=0243 zob1968=0246 zob1968=0315 zob1968=0374
@@ -19780,13 +20653,10 @@
 			zob1968=1811 zob1968=1840 zob1968=3180)
     (zinbun-oracle-page . 92)
     (=zinbun-oracle	. 01918)	; &ZOB-1918;
-    (<-Oracle-Bones
-     ((=ucs		  . #x5915)	; 夕
-      ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01918)	; &ZOB-1918;
+     ((=>zinbun-oracle	  . 01918)	; &A-ZOB-1918;
       ))
     (shuowen-radical	. 241)	; 夕
     (sources		zob1968=0180 zob1968=0215 zob1968=0219 zob1968=0222
@@ -19813,7 +20683,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01918)	; &ZOB-1918;
+     ((=>zinbun-oracle	  . 01918)	; &A-ZOB-1918;
       ))
     (shuowen-radical	. 241)	; 夕
     (sources		zob1968=2891)
@@ -20145,14 +21015,15 @@
     (=zinbun-oracle	. 01950)	; &ZOB-1950;
     ))
 (define-char
-  '((shuowen-radical	. 246)	; 卣
+  '((<-denotational
+     ((=>zinbun-oracle	  . 00644)	; &A-ZOB-0644;
+      ))
+    (shuowen-radical	. 246)	; 卣
     (sources		zob1968=0131 zob1968=0282 zob1968=0525 zob1968=1765
 			zob1968=1857 zob1968=2091 zob1968=2998 zob1968=3014)
     (zinbun-oracle-page . 94)
     (=zinbun-oracle	. 01951)	; &ZOB-1951;
     (<-Oracle-Bones
-     ((=ucs		  . #x5EFC)	; 廼
-      )
      ((=ucs		  . #x5363)	; 卣
       ))
     ))
@@ -20487,16 +21358,24 @@
     ))
 (define-char
   '((shuowen-radical	. 253)	; 禾
-    (sources		zob1968=0304 zob1968=1988 zob1968=2362 zob1968=2367)
     (zinbun-oracle-page . 96)
-    (=zinbun-oracle	. 01996)	; &ZOB-1996;
+    (=>zinbun-oracle	. 01996)	; &A-ZOB-1996;
     (<-Oracle-Bones
      ((=ucs		  . #x79CB)	; 秋
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 01996)	; &ZOB-1996;
+     ((=>zinbun-oracle	  . 01996)	; &A-ZOB-1996;
+      ))
+    (shuowen-radical	. 253)	; 禾
+    (sources		zob1968=0304 zob1968=1988 zob1968=2362 zob1968=2367)
+    (zinbun-oracle-page . 96)
+    (=zinbun-oracle	. 01996)	; &ZOB-1996;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01996)	; &A-ZOB-1996;
       ))
     (shuowen-radical	. 253)	; 禾
     (sources		zob1968=2529)
@@ -20704,18 +21583,26 @@
     ))
 (define-char
   '((shuowen-radical	. 259)	; 臼
-    (sources		zob1968=0342 zob1968=0343 zob1968=0424 zob1968=0895
-			zob1968=0931 zob1968=2146 zob1968=2265 zob1968=2519
-			zob1968=2523 zob1968=2530 zob1968=2535 zob1968=2546)
     (zinbun-oracle-page . 97)
-    (=zinbun-oracle	. 02026)	; &ZOB-2026;
+    (=>zinbun-oracle	. 02026)	; &A-ZOB-2026;
     (<-Oracle-Bones
      ((=ucs		  . #x8202)	; 舂
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 02026)	; &ZOB-2026;
+     ((=>zinbun-oracle	  . 02026)	; &A-ZOB-2026;
+      ))
+    (shuowen-radical	. 259)	; 臼
+    (sources		zob1968=0342 zob1968=0343 zob1968=0424 zob1968=0895
+			zob1968=0931 zob1968=2146 zob1968=2265 zob1968=2519
+			zob1968=2523 zob1968=2530 zob1968=2535 zob1968=2546)
+    (zinbun-oracle-page . 97)
+    (=zinbun-oracle	. 02026)	; &ZOB-2026;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 02026)	; &A-ZOB-2026;
       ))
     (shuowen-radical	. 259)	; 臼
     (sources		zob1968=0940)
@@ -20822,12 +21709,13 @@
       ))
     ))
 (define-char
-  '((shuowen-radical	. 269)	; 宀
+  '((<-denotational
+     ((=>zinbun-oracle	  . 01418)	; &A-ZOB-1418;
+      ))
+    (shuowen-radical	. 269)	; 宀
     (zinbun-oracle-page . 98)
     (=zinbun-oracle	. 02041)	; &ZOB-2041;
     (<-Oracle-Bones
-     ((=ucs		  . #x5BE7)	; 寧
-      )
      ((=ucs		  . #x5BCD)	; 寍
       ))
     ))
@@ -20893,14 +21781,22 @@
 (define-char
   '((shuowen-radical	. 269)	; 宀
     (zinbun-oracle-page . 98)
-    (=zinbun-oracle	. 02050)	; &ZOB-2050;
+    (=>zinbun-oracle	. 02050)	; &A-ZOB-2050;
     (<-Oracle-Bones
      ((=ucs		  . #x5BA2)	; 客
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 02050)	; &ZOB-2050;
+     ((=>zinbun-oracle	  . 02050)	; &A-ZOB-2050;
+      ))
+    (shuowen-radical	. 269)	; 宀
+    (zinbun-oracle-page . 98)
+    (=zinbun-oracle	. 02050)	; &ZOB-2050;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 02050)	; &A-ZOB-2050;
       ))
     (shuowen-radical	. 269)	; 宀
     (sources		zob1968=0379)
@@ -20909,7 +21805,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 02050)	; &ZOB-2050;
+     ((=>zinbun-oracle	  . 02050)	; &A-ZOB-2050;
       ))
     (shuowen-radical	. 269)	; 宀
     (sources		zob1968=3099)
@@ -21653,18 +22549,26 @@
     ))
 (define-char
   '((shuowen-radical	. 274)	; 𤕫
-    (sources		zob1968=0438 zob1968=0439-0443 zob1968=0446
-			zob1968=0447 zob1968=0896 zob1968=1779 zob1968=3016
-			zob1968=3176 zob1968=3239)
     (zinbun-oracle-page . 102)
-    (=zinbun-oracle	. 02155)	; &ZOB-2155;
+    (=>zinbun-oracle	. 02155)	; &A-ZOB-2155;
     (<-Oracle-Bones
      ((=ucs		  . #x75BE)	; 疾
       ))
     ))
 (define-char
   '((<-denotational
-     ((=zinbun-oracle	  . 02155)	; &ZOB-2155;
+     ((=>zinbun-oracle	  . 02155)	; &A-ZOB-2155;
+      ))
+    (shuowen-radical	. 274)	; 𤕫
+    (sources		zob1968=0438 zob1968=0439-0443 zob1968=0446
+			zob1968=0447 zob1968=0896 zob1968=1779 zob1968=3016
+			zob1968=3176 zob1968=3239)
+    (zinbun-oracle-page . 102)
+    (=zinbun-oracle	. 02155)	; &ZOB-2155;
+    ))
+(define-char
+  '((<-denotational
+     ((=>zinbun-oracle	  . 02155)	; &A-ZOB-2155;
       ))
     (shuowen-radical	. 274)	; 𤕫
     (sources		zob1968=1641)
@@ -22024,6 +22928,341 @@
 	  )
 	 ((=ucs		      . #x5185)	; 内
 	  ))
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02207)	; &ZOB-2207;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((=ucs		      . #x5973)	; 女
+	  )
+	 ((=ucs		      . #x5EFE)	; 廾
+	  ))
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02208)	; &ZOB-2208;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((=ucs		      . #x81EA)	; 自
+	  )
+	 ((=gt-k	      . 00059)	; &GT-K00059;
+	  ))
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02209)	; &ZOB-2209;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((=ucs		    . #x7F8A)	; 羊
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02210)	; &ZOB-2210;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((=ucs		    . #x559C)	; 喜
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02211)	; &ZOB-2211;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((=ucs		    . #x58F4)	; 壴
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02212)	; &ZOB-2212;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((=ucs		    . #x9F13)	; 鼓
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02213)	; &ZOB-2213;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((=ucs		    . #x826F)	; 良
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02214)	; &ZOB-2214;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((=ucs		    . #x6851)	; 桑
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02215)	; &ZOB-2215;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((=ucs		    . #x5BF6)	; 寶
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02216)	; &ZOB-2216;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((=ucs		      . #x5B80)	; 宀
+	  )
+	 ((ideographic-structure
+	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	    (=ucs		. #x2FF0)	; ⿰
+	    )
+	   ((=ucs		. #x5973)	; 女
+	    )
+	   ((=ucs		. #x8840)	; 血
+	    ))
+	  ))
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02217)	; &ZOB-2217;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((=ucs		    . #x767D)	; 白
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((=ucs		      . #x5E7A)	; 幺
+	  )
+	 ((=ucs		      . #x5C39)	; 尹
+	  ))
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02218)	; &ZOB-2218;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((=ucs		    . #x8C55)	; 豕
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02219)	; &ZOB-2219;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((=ucs		    . #x9F20)	; 鼠
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02220)	; &ZOB-2220;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((=ucs		    . #x5973)	; 女
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (sources		zob1968=0053)
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02221)	; &ZOB-2221;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((=ucs		    . #x598A)	; 妊
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02222)	; &ZOB-2222;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((=ucs		    . #x59B9)	; 妹
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02223)	; &ZOB-2223;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((=ucs		    . #x59EA)	; 姪
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02224)	; &ZOB-2224;
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02225)	; &ZOB-2225;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((=ucs		    . #x59FC)	; 姼
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02226)	; &ZOB-2226;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((=ucs		      . #x5973)	; 女
+	  )
+	 ((ideographic-structure
+	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	    (=ucs		. #x2FF1)	; ⿱
+	    )
+	   ((=ucs		. #x6B62)	; 止
+	    )
+	   ((=ucs		. #x571F)	; 土
+	    ))
+	  ))
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (sources		zob1968=0463 zob1968=0465 zob1968=0989 zob1968=0992
+			zob1968=3251)
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02227)	; &ZOB-2227;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((=ucs		    . #x597D)	; 好
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02228)	; &ZOB-2228;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((=ucs		    . #x59CC)	; 姌
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02229)	; &ZOB-2229;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((=ucs		    . #x59C0)	; 姀
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 281)	; 巾
+    (zinbun-oracle-page . 105)
+    (=zinbun-oracle	. 02230)	; &ZOB-2230;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((=ucs		    . #x5A50)	; 婐
 	))
       ))
     ))

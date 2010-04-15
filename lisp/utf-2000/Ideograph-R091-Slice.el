@@ -802,29 +802,49 @@
 (define-char
   '((ideographic-radical . 91)	; ⽚
     (=ucs		. #x724C)	; 牌
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x724C)	; 牌
+      ))
+    (ideographic-radical . 91)	; ⽚
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (=big5		. #xB550)	; &B-B550;
     (->subsumptive
-     ((ideographic-strokes . 8)
-      (total-strokes	   . 12)
-      (=ucs@unicode	  . #x724C)	; &M-19854;
+     ((=ucs@unicode	  . #x724C)	; &M-19854;
       (=jis-x0208@1978	  . #x4757)	; &M-19854; [39-55]
       (=gb2312		  . #x4546)	; &I-G0-4546; [37-38]
       (=ks-x1001	  . #x782B)	; &I-K0-782B; [88-11]
-      (=big5		  . #xB550)	; &I-B-B550;
+      (=jis-x0213-1@2004  . #x4757)	; &I-JX3-4757; [39-55]
       (=daikanwa	  . 19854)	; &I-M-19854;
-      (=shinjigen@rev	  .  4725)	; &M-19854;
+      (=shinjigen	  .  4725)	; &M-19854;
       )
-     ((ideographic-strokes . 8)
-      (total-strokes	   . 12)
-      (=cns11643-1	  . #x6056)	; &C1-6056; [64-54]
-      )
-     ((ideographic-strokes . 9)
-      (total-strokes	   . 13)
-      (=ucs@jis		  . #x724C)	; &GT-25508;
-      (=jis-x0208@1983	  . #x4757)	; &GT-25508; [39-55]
-      (=jis-x0208@1990	  . #x4757)	; &I-J90-4757; [39-55]
-      (=jis-x0213-1	  . #x4757)	; &I-JX1-4757; [39-55]
-      (=gt		  . 25508)	; &I-GT-25508;
-      (=gt-pj-1		  . #x4757)	; &I-GT-25508; [39-55]
+     ((=cns11643-1	  . #x6056)	; &C1-6056; [64-54]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x724C)	; 牌
+      ))
+    (ideographic-radical . 91)	; ⽚
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (=ucs@jis/1990	. #x724C)	; &GT-25508;
+    (=ucs@jis/2000	. #x724C)	; &GT-25508;
+    (=jis-x0208@1983	. #x4757)	; &GT-25508; [39-55]
+    (=jis-x0208@1990	. #x4757)	; &I-J90-4757; [39-55]
+    (=jis-x0213-1@2000	. #x4757)	; &I-JX1-4757; [39-55]
+    (=gt		. 25508)	; &I-GT-25508;
+    (=gt-pj-1		. #x4757)	; &I-GT-25508; [39-55]
+    (=jef-china3	. #x58BF)	; &I-JC3-58BF;
+    (<-simplified@JP/extra/design
+     ((=ucs@unicode	  . #x724C)	; &M-19854;
+      (=jis-x0208@1978	  . #x4757)	; &M-19854; [39-55]
+      (=gb2312		  . #x4546)	; &I-G0-4546; [37-38]
+      (=ks-x1001	  . #x782B)	; &I-K0-782B; [88-11]
+      (=jis-x0213-1@2004  . #x4757)	; &I-JX3-4757; [39-55]
+      (=daikanwa	  . 19854)	; &I-M-19854;
       ))
     ))
 (define-char

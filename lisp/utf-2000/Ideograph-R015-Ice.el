@@ -230,7 +230,8 @@
 (define-char
   '((ideographic-radical . 15)	; ⼎
     (=ucs		. #x51B4)	; 冴
-    (=jis-x0208@1997	. #x3A63)	; 冴 [26-67]
+    (=>jis-x0208	. #x3A63)	; 冴 [26-67]
+    (=>jis-x0213-1	. #x3A63)	; 冴 [26-67]
     (->subsumptive
      ((ideographic-strokes . 4)
       (total-strokes	   . 6)
@@ -1284,8 +1285,7 @@
 	)
        ((=ucs		    . #x51AB)	; 冫
 	)
-       ((=ucs@big5	    . #x677E)	; &M-14516;
-	(=jis-x0208@1978    . #x3E3E)	; &M-14516; [30-30]
+       ((=jis-x0208@1978    . #x3E3E)	; &M-14516; [30-30]
 	(=jis-x0208@1983    . #x3E3E)	; &I-J83-3E3E; [30-30]
 	(=ks-x1001	    . #x6166)	; &I-K0-6166; [65-70]
 	(=daikanwa	    . 14516)	; &I-M-14516;

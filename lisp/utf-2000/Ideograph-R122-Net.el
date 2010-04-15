@@ -1591,8 +1591,8 @@
 (define-char
   '((ideographic-radical . 122)	; ⽹
     (=ucs		. #x7F72)	; 署
+    (=>jis-x0208@1997	. #x3D70)	; 署 [29-80]
     (=big5		. #xB870)	; &I-B-B870;
-    (=jis-x0208@1997	. #x3D70)	; 署 [29-80]
     ))
 (define-char
   '((<-denotational

@@ -4,7 +4,8 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=ucs		. #x5C22)	; 尢
-    (=jis-x0208@1997	. #x5577)	; 尢 [53-87]
+    (=>jis-x0208	. #x5577)	; 尢 [53-87]
+    (=>jis-x0213-1	. #x5577)	; 尢 [53-87]
     ))
 (define-char
   '((<-denotational
@@ -79,19 +80,6 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5C23)	; 尣
-      ))
-    (name		. "CJK RADICAL LAME TWO")
-    (general-category	symbol other) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (=ucs		. #x2E8F)	; ⺏
-    (<-identical@component
-     ((=ucs		  . #x5C23)	; 尣
-      ))
-    ))
-(define-char
-  '((<-denotational
      ((=ucs@unicode	  . #x5C23)	; &M-07540;
       (=jis-x0212	  . #x3A6D)	; &M-07540; [26-77]
       (=jis-x0213-1	  . #x4F5D)	; &I-JX1-4F5D; [47-61]
@@ -111,6 +99,19 @@
       (=jis-x0212	  . #x3A6D)	; &M-07540; [26-77]
       (=jis-x0213-1	  . #x4F5D)	; &I-JX1-4F5D; [47-61]
       (=daikanwa	  . 07540)	; &I-M-07540;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5C23)	; 尣
+      ))
+    (name		. "CJK RADICAL LAME TWO")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (=ucs		. #x2E8F)	; ⺏
+    (<-identical@component
+     ((=ucs		  . #x5C23)	; 尣
       ))
     ))
 (define-char
@@ -1144,6 +1145,26 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs@unicode	. #x5C33)	; &UU+5C33;
+    ))
+(define-char
+  '((ideographic-radical@ucs . 43)	; ⼪
+    (ideographic-strokes@ucs . 10)
+    (ideographic-radical@cns . 113)	; ⽰
+    (ideographic-strokes@cns . 9)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
+    (ideographic-strokes@cns*sources
+     daikanwa)
+    (total-strokes	 . 14)
+    (=ucs		. #x21C07)	; 𡰇
+    (->subsumptive
+     ((=ucs@iso		  . #x21C07)	; &M-24785;
+      (=daikanwa	  . 24785)	; &M-24785;
+      )
+     ((ideographic-radical . 113)	; ⽰
+      (ideographic-strokes . 9)
+      (=cns11643-5	  . #x4826)	; &C5-4826; [40-06]
+      ))
     ))
 (define-char
   '((=>ucs		. #x21C0A)	; 𡰊

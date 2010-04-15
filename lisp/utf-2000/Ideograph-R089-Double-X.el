@@ -184,60 +184,38 @@
     (=gt-k		. 11127)	; &I-GT-K11127;
     (=gt-pj-1		. #x3C24)	; &I-GT-25366; [28-04]
     (=daikanwa		. 19750)	; &I-M-19750;
-    (=shinjigen@rev	.  4714)	; 爾
+    (=shinjigen		.  4714)	; 爾
     ))
 (define-char
-  '((=>ucs		. #x723E)	; 爾
-    (morohashi-daikanwa	19750 0 9)
+  '((<-denotational
+     ((=ucs		  . #x723E)	; 爾
+      ))
     (ideographic-radical . 89)	; ⽘
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (=jef-china3	. #x41A4)	; &JC3-41A4;
     ))
 (define-char
-  '((ideographic-	(:radical	9 ; ⼈
-			 :strokes	12
-			 :sources	(ucs))
-			(:radical	89 ; ⽘
-			 :strokes	10
-			 :sources	(morohashi-daikanwa cns-11643)))
+  '((ideographic-radical@ucs . 9)	; ⼈
+    (ideographic-strokes@ucs . 12)
+    (ideographic-radical@cns . 89)	; ⽘
+    (ideographic-strokes@cns . 10)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
+    (ideographic-strokes@cns*sources
+     daikanwa)
     (total-strokes	 . 14)
     (hanyu-dazidian	1 216 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
-      )
-     ((=big5-cdp	  . #x8AFC)	; &CDP-8AFC;
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x723B)	; 爻
-	)
-       ((=ucs		    . #x723B)	; 爻
-	))
-      )
-     ((=ucs		  . #x5140)	; 兀
-      ))
     (=ucs		. #x2039B)	; 𠎛
     (=cns11643-6	. #x5E57)	; &I-C6-5E57; [62-55]
     (=daikanwa		. 19751)	; &I-M-19751;
     (=hanziku-1		. #xD2C7)	; &I-HZK01-D2C7;
-    ))
-(define-char
-  '((ideographic-radical . 89)	; ⽘
-    (ideographic-strokes . 10)
-    (total-strokes	 . 14)
-    (=ucs		. #x2458F)	; 𤖏
-    (=cns11643-6	. #x5E58)	; &I-C6-5E58; [62-56]
-    ))
-(define-char
-  '((ideographic-radical . 89)	; ⽘
-    (ideographic-strokes . 10)
-    (total-strokes	 . 14)
-    (=ucs		. #x24590)	; 𤖐
-    (=cns11643-6	. #x5E59)	; &I-C6-5E59; [62-57]
+    (<-same
+     ((=ucs		  . #x24564)	; 𤕤
+      (=daikanwa	  . 19748)	; &I-M-19748;
+      ))
+    (<-same*sources
+     ermuzi daikanwa)
     ))
 (define-char
   '((=>ucs		. #x24567)	; 𤕧

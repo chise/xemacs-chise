@@ -1,3 +1,140 @@
+2010-04-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>gt'.
+
+2010-04-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>gt): New abstract coded-charset for XEmacs
+	CHISE.
+
+2010-04-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>zinbun-oracle'.
+
+	* mule/mule-conf.el (=>zinbun-oracle): New abstract coded-charset
+	for XEmacs CHISE.
+
+2010-03-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=jis-x0208@1978/1er-pr): New coded-charset
+	for XEmacs CHISE.
+	(=jis-x0208@1978/4-pr): Use `=jis-x0208@1978/1er-pr' instead of
+	`=jis-x0208@1978' as the mother.
+
+2010-03-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el: (coded-charset-entity-reference-alist):
+	- Use `=gt' instead of `ideograph-gt'.
+	- Use `=gt-k' instead of `ideograph-gt-k'.
+	- Use `=jis-x0208@1990' instead of `japanese-jisx0208-1990'.
+	- Use `=jis-x0208@1983' instead of `japanese-jisx0208'.
+	- Use `=jis-x0213-1@2000' instead of `japanese-jisx0213-1'.
+	- Use `=jis-x0213-2' instead of `japanese-jisx0213-2'.
+	- Use `=jis-x0212' instead of `japanese-jisx0212'.
+	- Use `=jis-x0208@1978' instead of `japanese-jisx0208-1978'.
+	- Use `=>>gt' instead of `<=>gt'.
+	- Use &G-GT-ddddd; instead of &aGT-ddddd for `=>>gt'.
+	- Add setting for `=>>jis-x0208@1990'.
+	- Use &G-JX1-hhhh; instead of &aJX1-hhhh; for
+	  `=>>jis-x0213-1@2000'.
+	- Use &G-JX2-hhhh; instead of &aJX2-hhhh; for `=>>jis-x0213-2'.
+	- Use &G-JX3-hhhh; instead of &aJX3-hhhh; for
+	  `=>>jis-x0213-1@2004'.
+	- Add setting for `=>>jis-x0208@1978'.
+	- Decode &A-J0-hhhh; as `=>jis-x0208@1997'.
+
+2010-02-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>jis-x0208@1978): New coded-charset for
+	XEmacs CHISE.
+
+2009-11-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>>jis-x0213-2' and `=>jis-x0213-2'; use
+	`=>jis-x0208@1997', `=>jis-x0213-1@2000' and `=>jis-x0213-1@2004'
+	instead of `<=>jis-x0208@1997', `<=>jis-x0213-1@2000' and
+	`<=>jis-x0213-1@2004'.
+
+2009-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>jis-x0213-2): New coded-charset for XEmacs
+	CHISE.
+	(=>jis-x0213-2): Ditto.
+
+2009-09-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `=>>jis-x0213-1@2000' and `=>>jis-x0213-1@2004'.
+
+2009-08-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=>>jis-x0208', `=>>jis-x0213-1', `=>jis-x0208' and
+	`=>jis-x0213-1'.
+
+2009-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>jis-x0208): New coded-charset for XEmacs
+	CHISE.
+	(=>jis-x0208): Use `=>>jis-x0208' as the mother.
+
+2009-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>jis-x0213-1): Renamed from
+	`<==>jis-x0213-1'.
+	(=>>jis-x0213-1@2000): Renamed from `<==>jis-x0213-1@2000'.
+	(=>>jis-x0213-1@2004): Renamed from `<==>jis-x0213-1@2004'.
+	(=>jis-x0208): Renamed from `<=>jis-x0208'.
+	(<=>jis-x0208): New alias for `=>jis-x0208'.
+	(=>jis-x0208@1997): Renamed from `<=>jis-x0208@1997'.
+	(<=>jis-x0208@1997): New alias for `=>jis-x0208@1997'.
+	(=>jis-x0213-1): Renamed from `<=>jis-x0213-1'.
+	(<=>jis-x0213-1): New alias for `=>jis-x0213-1'.
+	(=>jis-x0213-1@2000): Renamed from `<=>jis-x0213-1@2000'.
+	(<=>jis-x0213-1@2000): New alias for `=>jis-x0213-1@2000'.
+	(=>jis-x0213-1@2004): Renamed from `<=>jis-x0213-1@2004'.
+	(<=>jis-x0213-1@2004): New alias for `=>jis-x0213-1@2004'.
+	(=>>gt): Renamed from `<==>gt'.
+	(<==>gt): New alias for `=>>gt'.
+
+2009-08-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el: (coded-charset-entity-reference-alist):
+	- Use `=jis-x0213-1@2000' instead of `japanese-jisx0213-1'
+	- Use `=jis-x0213-2' instead of `japanese-jisx0213-2'.
+	- Use `<=>jis-x0208@1997' instead of `=jis-x0208@1997'.
+	- Add settings for `<=>jis-x0213-1@2000' and
+	  `<=>jis-x0213-1@2004'.
+
+	* mule/mule-conf.el (=jis-x0208@1978/-4X): New coded-charset for
+	XEmacs CHISE.
+	(<==>jis-x0213-1): Likewise.
+	(<==>jis-x0213-1@2000): Likewise.
+	(<==>jis-x0213-1@2004): Likewise.
+	(<=>jis-x0208): Add property `=>iso-ir 168'.
+	(<=>jis-x0208@1997): Likewise.
+	(<=>jis-x0213-1): Use `<==>jis-x0213-1' instead of `=jis-x0213-1'
+	as the mother; add property `=>iso-ir 228'.
+	(<=>jis-x0213-1@2000): Modify DOC-string; fix `registry'; add
+	property `=>iso-ir 228'.
+	(<=>jis-x0213-1@2004): Modify DOC-string; fix `registry'; add
+	property `=>iso-ir 233'.
+	(<==>gt): Renamed from `<=>gt'.
+	(<=>gt): New alias for `<==>gt'.
+
+2009-08-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (<=>jis-x0208): New coded-charset for XEmacs
+	CHISE.
+	(<=>jis-x0208@1997): Renamed from `=jis-x0208@1997'; use
+	`<=>jis-x0208' as the mother.
+	(<=>jis-x0213-1): New coded-charset for XEmacs CHISE.
+	(<=>jis-x0213-1@2000): Ditto.
+	(<=>jis-x0213-1@2004): Ditto.
+
 2009-06-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add

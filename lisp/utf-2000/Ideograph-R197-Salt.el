@@ -509,8 +509,12 @@
     (=daikanwa		. 47575)	; &I-M-47575;
     ))
 (define-char
+  '((ideographic-radical . 197)	; ⿄
+    (=>jis-x0208@1997	. #x3834)	; &J97-3834; [24-20]
+    ))
+(define-char
   '((<-denotational
-     ((=jis-x0208@1997	  . #x3834)	; &J97-3834; [24-20]
+     ((=>jis-x0208@1997	  . #x3834)	; &J97-3834; [24-20]
       ))
     (ideographic-radical . 197)	; ⿄
     (ideographic-strokes . 13)
@@ -524,12 +528,8 @@
     (=daikanwa		. 47576)	; &I-M-47576;
     ))
 (define-char
-  '((ideographic-radical . 197)	; ⿄
-    (=jis-x0208@1997	. #x3834)	; &J97-3834; [24-20]
-    ))
-(define-char
   '((<-denotational
-     ((=jis-x0208@1997	  . #x3834)	; &J97-3834; [24-20]
+     ((=>jis-x0208@1997	  . #x3834)	; &J97-3834; [24-20]
       ))
     (ideographic-radical . 197)	; ⿄
     (ideographic-strokes . 8)
@@ -540,7 +540,8 @@
     (=jis-x0213-1	. #x3834)	; &I-JX1-3834; [24-20]
     (=gt		. 64711)	; &I-GT-64711;
     (=gt-pj-1		. #x3834)	; &I-GT-64711; [24-20]
-    (<-simplified@JP/jis
+    (=jef-china3	. #x6FB5)	; &I-JC3-6FB5;
+    (<-simplified@JP/extra
      ((=ucs		  . #x9E7C)	; 鹼
       (=jis-x0208@1978	  . #x3834)	; &I-J78-3834; [24-20]
       (=jis-x0212	  . #x6C5B)	; &I-JSP-6C5B; [76-59]

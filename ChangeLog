@@ -1,3 +1,8 @@
+2009-11-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* configure.in: Check libX11.dylib if libX11.a is not found in
+	each directory of X11 library path.
+
 2007-09-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* etc/CHISE-VERSIONS: New file.

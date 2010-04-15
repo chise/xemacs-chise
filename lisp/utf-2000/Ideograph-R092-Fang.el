@@ -3,8 +3,9 @@
   '((ideographic-radical . 92)	; ⽛
     (ideographic-strokes . 0)
     (=ucs		. #x7259)	; 牙
+    (=>jis-x0208	. #x3267)	; 牙 [18-71]
+    (=>jis-x0213-1	. #x3267)	; 牙 [18-71]
     (=big5		. #xA4FA)	; &I-B-A4FA;
-    (=jis-x0208@1997	. #x3267)	; 牙 [18-71]
     ))
 (define-char
   '((<-denotational

@@ -71,7 +71,8 @@
 (define-char
   '((ideographic-radical . 133)	; ⾄
     (=ucs		. #x81F4)	; 致
-    (=jis-x0208@1997	. #x4357)	; 致 [35-55]
+    (=>jis-x0208	. #x4357)	; 致 [35-55]
+    (=>jis-x0213-1	. #x4357)	; 致 [35-55]
     ))
 (define-char
   '((<-denotational

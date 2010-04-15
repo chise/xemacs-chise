@@ -20,8 +20,9 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (=ucs		. #x52FA)	; 勺
+    (=>jis-x0208	. #x3C5B)	; 勺 [28-59]
+    (=>jis-x0213-1	. #x3C5B)	; 勺 [28-59]
     (=big5		. #xA463)	; &I-B-A463;
-    (=jis-x0208@1997	. #x3C5B)	; 勺 [28-59]
     ))
 (define-char
   '((<-denotational
@@ -80,6 +81,13 @@
     (=shinjigen		.  0762)	; 勺
     ))
 (define-char
+  '((ideographic-radical . 20)	; ⼓
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (=ucs@big5		. #x52FB)	; &B-A4C3;
+    (=big5		. #xA4C3)	; &B-A4C3;
+    ))
+(define-char
   '((<-denotational
      ((=ucs@big5	  . #x52FB)	; &B-A4C3;
       (=big5		  . #xA4C3)	; &B-A4C3;
@@ -107,13 +115,6 @@
      ((=ks-x1001	  . #x5032)	; &C1-4524; [48-18]
       (=cns11643-1	  . #x4524)	; &I-C1-4524; [37-04]
       ))
-    ))
-(define-char
-  '((ideographic-radical . 20)	; ⼓
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (=ucs@big5		. #x52FB)	; &B-A4C3;
-    (=big5		. #xA4C3)	; &B-A4C3;
     ))
 (define-char
   '((<-denotational
@@ -368,7 +369,8 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (=ucs		. #x5305)	; 包
-    (=jis-x0208@1997	. #x4A71)	; 包 [42-81]
+    (=>jis-x0208	. #x4A71)	; 包 [42-81]
+    (=>jis-x0213-1	. #x4A71)	; 包 [42-81]
     ))
 (define-char
   '((<-denotational
@@ -478,8 +480,15 @@
     (=cns11643-5	. #x213D)	; &I-C5-213D; [01-29]
     ))
 (define-char
+  '((ideographic-radical . 20)	; ⼓
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (=>jis-x0208	. #x5232)	; &J97-5232; [50-18]
+    (=>jis-x0213-1	. #x5232)	; &J97-5232; [50-18]
+    ))
+(define-char
   '((<-denotational
-     ((=jis-x0208@1997	  . #x5232)	; &J97-5232; [50-18]
+     ((=>jis-x0208	  . #x5232)	; &J97-5232; [50-18]
       ))
     (=>ucs*		. #x5306)	; 匆
     (ideographic-radical . 20)	; ⼓
@@ -507,14 +516,8 @@
      shinjigen@1ed)
     ))
 (define-char
-  '((ideographic-radical . 20)	; ⼓
-    (ideographic-strokes . 3)
-    (total-strokes	 . 5)
-    (=jis-x0208@1997	. #x5232)	; &J97-5232; [50-18]
-    ))
-(define-char
   '((<-denotational
-     ((=jis-x0208@1997	  . #x5232)	; &J97-5232; [50-18]
+     ((=>jis-x0208	  . #x5232)	; &J97-5232; [50-18]
       ))
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 3)

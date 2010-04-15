@@ -2243,7 +2243,8 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs		. #x5E30)	; 帰
-    (=jis-x0208@1997	. #x3522)	; 帰 [21-02]
+    (=>jis-x0208	. #x3522)	; 帰 [21-02]
+    (=>jis-x0213-1	. #x3522)	; 帰 [21-02]
     ))
 (define-char
   '((<-denotational
@@ -5645,6 +5646,14 @@
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      )
+     ((=ucs		  . #x8511)	; 蔑
+      ))
     (=ucs		. #x5E6D)	; 幭
     (=big5		. #xEFC5)	; &I-B-EFC5;
     ))
@@ -5694,7 +5703,7 @@
       (=jis-x0208	  . #x4A4E)	; &GT-42131; [42-46]
       (=gb2312		  . #x436F)	; &I-G0-436F; [35-79]
       (=ks-x1001	  . #x5921)	; &I-K0-5921; [57-01]
-      (=jis-x0213-1	  . #x4A4E)	; &I-JX1-4A4E; [42-46]
+      (=jis-x0213-1@2000  . #x4A4E)	; &I-JX1-4A4E; [42-46]
       ))
     (=ucs@unicode	. #x5E6D)	; &JX2-287E;
     (=jis-x0212		. #x3C3F)	; &JX2-287E; [28-31]

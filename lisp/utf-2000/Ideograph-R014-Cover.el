@@ -604,9 +604,18 @@
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=ucs		  . #x5154)	; 兔
+      ))
     (=ucs		. #x51A4)	; 冤
+    (=>jis-x0208	. #x514D)	; 冤 [49-45]
+    (=>jis-x0213-1	. #x514D)	; 冤 [49-45]
     (=big5		. #xADDE)	; &I-B-ADDE;
-    (=jis-x0208@1997	. #x514D)	; 冤 [49-45]
     ))
 (define-char
   '((<-denotational
@@ -625,8 +634,10 @@
      ((=ucs		  . #x2F80F)	; 兔
       ))
     (=ucs		. #x2F818)	; 冤
+    (=ucs@jis/2004	. #x51A4)	; 冤
     (=jis-x0208@1978	. #x514D)	; &I-J78-514D; [49-45]
     (=cns11643-6	. #x3544)	; &I-C6-3544; [21-36]
+    (=jis-x0213-1@2004	. #x514D)	; &I-JX3-514D; [49-45]
     (=daikanwa		. 01587)	; &I-M-01587;
     (=shinjigen		.  0529)	; 冤
     ))
@@ -635,6 +646,7 @@
      ((=ucs		  . #x51A4)	; 冤
       ))
     (ideographic-radical . 14)	; ⼍
+    (=>>jis-x0213-1@2000 . #x514D)	; &G-JX1-514D; [49-45]
     (->subsumptive
      ((ideographic-strokes . 8)
       (total-strokes	   . 10)
@@ -656,7 +668,7 @@
       (=jis-x0208@1983	  . #x514D)	; &I-J83-514D; [49-45]
       (=jis-x0208@1990	  . #x514D)	; &I-J90-514D; [49-45]
       (=cns11643-1	  . #x5441)	; &I-C1-5441; [52-33]
-      (=jis-x0213-1	  . #x514D)	; &I-JX1-514D; [49-45]
+      (=jis-x0213-1@2000  . #x514D)	; &I-JX1-514D; [49-45]
       (=gt		  . 02089)	; &I-GT-02089;
       (=gt-k		  . 06575)	; &I-GT-K06575;
       (=gt-pj-1		  . #x514D)	; &I-GT-02089; [49-45]

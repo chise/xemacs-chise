@@ -787,6 +787,12 @@
     (=cns11643-6	. #x4158)	; &I-C6-4158; [33-56]
     ))
 (define-char
+  '((ideographic-radical@simplified . 86)	; ⽕
+    (ideographic-radical@traditional . 87)	; ⽖
+    (=ucs@big5		. #x70BA)	; &B-ACB0;
+    (=big5		. #xACB0)	; &B-ACB0;
+    ))
+(define-char
   '((<-denotational
      ((=ucs@big5	  . #x70BA)	; &B-ACB0;
       (=big5		  . #xACB0)	; &B-ACB0;
@@ -813,12 +819,6 @@
     (=gt-pj-1		. #x602A)	; &I-GT-25270; [64-10]
     (=daikanwa		. 19686)	; &I-M-19686;
     (=shinjigen		.  4703)	; &GT-25270;
-    ))
-(define-char
-  '((ideographic-radical@simplified . 86)	; ⽕
-    (ideographic-radical@traditional . 87)	; ⽖
-    (=ucs@big5		. #x70BA)	; &B-ACB0;
-    (=big5		. #xACB0)	; &B-ACB0;
     ))
 (define-char
   '((<-denotational

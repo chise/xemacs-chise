@@ -378,6 +378,11 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 152)	; ⾗
+    (=ucs@big5		. #x8C5C)	; &B-D7CF;
+    (=big5		. #xD7CF)	; &B-D7CF;
+    ))
+(define-char
   '((<-denotational
      ((=ucs@big5	  . #x8C5C)	; &B-D7CF;
       (=big5		  . #xD7CF)	; &B-D7CF;
@@ -395,11 +400,6 @@
       ))
     (<-vulgar*sources
      zhengzitong daikanwa)
-    ))
-(define-char
-  '((ideographic-radical . 152)	; ⾗
-    (=ucs@big5		. #x8C5C)	; &B-D7CF;
-    (=big5		. #xD7CF)	; &B-D7CF;
     ))
 (define-char
   '((ideographic-radical . 152)	; ⾗

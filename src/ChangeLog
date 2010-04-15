@@ -1,3 +1,18 @@
+2010-03-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (save_uint8_byte_table): Fixed problem when a property
+	is unloaded.
+	(save_uint16_byte_table): Likewise.
+
+2010-02-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fchar_feature_property): New function when LIBCHISE
+	is enabled.
+	(Fput_char_feature_property): Likewise.
+	(syms_of_chartab): Add new builtin functions
+	`char-feature-property' and `put-char-feature-property' when
+	LIBCHISE is enabled.
+
 2009-04-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Fmake_charset): Add DOC-string of 'iso-ir and
