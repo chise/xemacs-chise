@@ -5,6 +5,7 @@
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1995 Sun Microsystems.
+;; Copyright (C) 2003 MORIOKA Tomohiko
 
 ;; This file is part of XEmacs.
 
@@ -262,8 +263,10 @@ Each element is a list of a charset, a designator, and maybe a doc string.")
 
 ;;; Setting word boundary.
 
+(unless (featurep 'utf-2000)
 (setq word-combining-categories
       '((?l . ?l)))
+)
 
 (setq word-separating-categories	;  (2-byte character sets)
       '((?A . ?K)			; Alpha numeric - Katakana
@@ -276,6 +279,17 @@ Each element is a list of a charset, a designator, and maybe a doc string.")
 	(?C . ?A)			; Chinese - Alpha numeric
 	(?C . ?K)			; Chinese - Katakana
 	))
+
+(when (featurep 'utf-2000)
+  (setq word-separating-categories
+	(list*
+	 '(?l . ?K)			; Latin - Katakana
+	 '(?l . ?C)			; Latin - Chinese
+	 '(?H . ?l)			; Hiragana - Latin
+	 '(?K . ?l)			; Katakana - Latin
+	 '(?C . ?l)			; Chinese - Latin
+	 word-separating-categories)))
+
 
 ;;; At the present, I know Japanese and Chinese text can
 ;;; break line at any point under a restriction of 'kinsoku'.
