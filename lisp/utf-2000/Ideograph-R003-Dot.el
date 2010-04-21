@@ -170,19 +170,24 @@
     (mojikyo		. 000097)	; &MCS-60000061;
     ))
 (define-char
-  '((ideographic-radical . 3)	; ⼂
-    (ideographic-strokes . 2)
-    (total-strokes	 . 3)
-    (=daikanwa		. 00098)	; &M-00098;
-    (mojikyo		. 000098)	; &MCS-60000062;
-    ))
-(define-char
-  '((morohashi-daikanwa	98 0 0)
+  '((<-denotational
+     ((name		  . "BOPOMOFO LETTER E")
+      (=ucs		  . #x311C)	; ㄜ
+      ))
+    (script		Ideograph)
     (ideographic-radical . 3)	; ⼂
-    (ideographic-strokes . 4)
-    (total-strokes	 . 5)
+    (ideographic-strokes@daikanwa . 2)
+    (total-strokes@daikanwa	  . 3)
+    (ideographic-strokes@gt . 4)
+    (total-strokes@gt	    . 5)
     (=gt		. 00142)	; &GT-00142;
     (=gt-pj-2		. #x306D)	; &GT-00142; [16-77]
+    (=daikanwa		. 00098)	; &I-M-00098;
+    (mojikyo		. 000098)	; &MCS-60000062;
+    (<-original
+     ((=gt		  . 00038)	; &GT-00038;
+      (=daikanwa	  . 00005)	; &I-M-00005;
+      ))
     ))
 (define-char
   '((ideographic-radical@ucs . 3)	; ⼂
@@ -196,8 +201,9 @@
     (=daikanwa		. 02840)	; &I-M-02840;
     ))
 (define-char
-  '((=>ucs		. #x2007E)	; 𠁾
-    (=>daikanwa		. 02840)	; 𠁾
+  '((<-denotational
+     ((=ucs		  . #x2007E)	; 𠁾
+      ))
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
