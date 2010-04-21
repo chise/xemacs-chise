@@ -1,5 +1,11 @@
 2010-04-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R003-Dot.el (M-00098): Unify GT-00142; add
+	`<-denotational' for <BOPOMOFO LETTER E>; use
+	`{ideographic|total}-strokes@{daikanwa|gt}' instead of
+	`{ideographic|total}-strokes'; add `<-original' for GT-00038.
+	(BC-87D2): Use `<-denotational' for U-0002007E.
+
 	* Ideograph-R001-One.el (GT-00038): Use `<-denotational' for
 	<BOPOMOFO LETTER E>.
 	(GT-K00264): Moved to Ideograph-R012-Eight.el; delete `=>daikanwa'
