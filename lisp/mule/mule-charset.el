@@ -358,6 +358,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>jis-x0213-1
 	  ucs-bmp
 	  ;; ucs-sip
+	  =adobe-japan1-6
+	  =adobe-japan1-base
 	  )))
 
 ;;; mule-charset.el ends here
