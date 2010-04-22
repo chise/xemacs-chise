@@ -1,3 +1,22 @@
+2010-04-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for &I-AJ1-ddddd; and &AJ1-ddddd;.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=adobe-japan1-6' and `=adobe-japan1-base'.
+
+	* mule/mule-conf.el (=adobe-japan1-base): New coded-charset for
+	XEmacs CHISE.
+	(=adobe-japan1-0): Specify `=adobe-japan1-base' as the mother;
+	specify `min-code' and `max-code'.
+	(=adobe-japan1-1): Specify `min-code' and `max-code'.
+	(=adobe-japan1-2): Likewise.
+	(=adobe-japan1-3): Likewise.
+	(=adobe-japan1-4): Likewise.
+	(=adobe-japan1-5): Likewise.
+	(=adobe-japan1-6): Likewise.
+
 2010-04-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
