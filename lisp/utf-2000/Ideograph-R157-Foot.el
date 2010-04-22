@@ -1815,19 +1815,19 @@
       ))
     (=>ucs*		. #x8DBC)	; 趼
     (=>ucs@cns		. #x2F9DB)	; &C3-446D;
-    (=>ucs@jis		. #x8DBC)	; &GT-50128;
+    (=>ucs@jis		. #x8DBC)	; &AJ1-22613;
     (ideographic-radical . 157)	; ⾜
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
     (=ucs		. #x2F9DB)	; 趼
     (->subsumptive
-     ((=ucs@jis		  . #x8DBC)	; &GT-50128;
-      (=jis-x0212	  . #x5F6F)	; &GT-50128; [63-79]
+     ((=ucs@jis		  . #x8DBC)	; &AJ1-22613;
+      (=jis-x0212	  . #x5F6F)	; &AJ1-22613; [63-79]
       (=gt		  . 50128)	; &I-GT-50128;
       (=gt-pj-7		  . #x4933)	; &I-GT-50128; [41-19]
       (=daikanwa	  . 37527)	; &I-M-37527;
       (=jef-china3	  . #x99B6)	; &I-JC3-99B6;
-      (=adobe-japan1-6	  . 22613)	; &GT-50128;
+      (=adobe-japan1-6	  . 22613)	; &I-AJ1-22613;
       )
      ((=ucs@iso		  . #x2F9DB)	; &C3-446D;
       (=cns11643-3	  . #x446D)	; &C3-446D; [36-77]
