@@ -95,7 +95,7 @@
     (=gt-k		. 00548)	; &I-GT-K00548;
     (=gt-pj-2		. #x3D28)	; &I-GT-01984; [29-08]
     (=daikanwa		. 01508)	; &I-M-01508;
-    (=adobe-japan1-5	. 17301)	; 冃
+    (=adobe-japan1-5	. 17301)	; &I-AJ1-17301;
     ))
 (define-char
   '((<-denotational
@@ -142,7 +142,7 @@
     (=gt-pj-2		. #x3D29)	; &I-GT-01981; [29-09]
     (=daikanwa		. 01509)	; &I-M-01509;
     (=jef-china3	. #x9DE6)	; &I-JC3-9DE6;
-    (=adobe-japan1-5	. 19173)	; 冄
+    (=adobe-japan1-5	. 19173)	; &I-AJ1-19173;
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
@@ -449,7 +449,7 @@
     (=gt-pj-2		. #x3D2E)	; &I-GT-01986; [29-14]
     (=daikanwa		. 01517)	; &I-M-01517;
     (=jef-china3	. #x43EC)	; &I-JC3-43EC;
-    (=adobe-japan1-5	. 17302)	; 冋
+    (=adobe-japan1-5	. 17302)	; &I-AJ1-17302;
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
@@ -1518,13 +1518,13 @@
     (total-strokes	 . 11)
     (=ucs		. #x34BC)	; 㒼
     (->subsumptive
-     ((=ucs@jis		  . #x34BC)	; &GT-02035;
-      (=jis-x0213-2	  . #x232B)	; &GT-02035; [03-11]
+     ((=ucs@jis		  . #x34BC)	; &AJ1-17303;
+      (=jis-x0213-2	  . #x232B)	; &AJ1-17303; [03-11]
       (=gt		  . 02035)	; &I-GT-02035;
       (=gt-k		  . 08276)	; &I-GT-K08276;
       (=gt-pj-2		  . #x3D49)	; &I-GT-02035; [29-41]
       (=daikanwa	  . 01547)	; &I-M-01547;
-      (=adobe-japan1-5	  . 17303)	; &GT-02035;
+      (=adobe-japan1-5	  . 17303)	; &I-AJ1-17303;
       )
      ((hanyu-dazidian	  1 101 3)
       (ideographic-structure
