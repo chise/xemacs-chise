@@ -3306,11 +3306,11 @@
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=ucs@jis		. #x231B6)	; &GT-17719;
-    (=jis-x0213-2	. #x2E24)	; &GT-17719; [14-04]
+    (=ucs@jis		. #x231B6)	; &AJ1-17744;
+    (=jis-x0213-2	. #x2E24)	; &AJ1-17744; [14-04]
     (=gt		. 17719)	; &I-GT-17719;
     (=gt-pj-9		. #x5064)	; &I-GT-17719; [48-68]
-    (=adobe-japan1-5	. 17744)	; &GT-17719;
+    (=adobe-japan1-5	. 17744)	; &I-AJ1-17744;
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
