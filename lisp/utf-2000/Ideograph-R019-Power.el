@@ -888,8 +888,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x20509)	; &GT-01905;
-	(=jis-x0213-2	    . #x2327)	; &GT-01905; [03-07]
+       ((=ucs@jis	    . #x20509)	; &AJ1-17299;
+	(=jis-x0213-2	    . #x2327)	; &AJ1-17299; [03-07]
 	)
        ((=ucs		    . #x529B)	; 力
 	))
@@ -4109,12 +4109,12 @@
     (total-strokes	 . 17)
     (=ucs		. #x208B9)	; 𠢹
     (->subsumptive
-     ((=ucs@jis		  . #x208B9)	; &GT-03173;
-      (=jis-x0213-2	  . #x234A)	; &GT-03173; [03-42]
+     ((=ucs@jis		  . #x208B9)	; &AJ1-17327;
+      (=jis-x0213-2	  . #x234A)	; &AJ1-17327; [03-42]
       (=gt		  . 03173)	; &I-GT-03173;
       (=gt-pj-2		  . #x457E)	; &I-GT-03173; [37-94]
       (=daikanwa	  . 02473)	; &I-M-02473;
-      (=adobe-japan1-5	  . 17327)	; &GT-03173;
+      (=adobe-japan1-5	  . 17327)	; &I-AJ1-17327;
       )
      ((=ucs@iso		  . #x208B9)	; &C5-5A7B;
       (=cns11643-5	  . #x5A7B)	; &C5-5A7B; [58-91]
