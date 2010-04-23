@@ -716,12 +716,24 @@
     (=cns11643-6	. #x4339)	; &I-C6-4339; [35-25]
     ))
 (define-char
-  '((=>ucs		. #x517B)	; 养
-    (ideographic-radical . 123)	; ⽺
-    (ideographic-strokes . 4)
+  '((ideographic-radical@ucs . 12)	; ⼋
+    (ideographic-radical@jis . 123)	; ⽺
+    (ideographic-strokes@jis . 4)
+    (=ucs		. #x517B)	; 养
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x517B)	; 养
+      ))
+    (ideographic-radical@ucs . 12)	; ⼋
+    (ideographic-strokes@ucs . 8)
+    (ideographic-radical@jis . 123)	; ⽺
+    (ideographic-strokes@jis . 4)
     (total-strokes	 . 10)
-    (=ucs@jis		. #x517B)	; &JX2-7474;
-    (=jis-x0213-2	. #x7474)	; &JX2-7474; [84-84]
+    (=ucs@jis		. #x517B)	; &AJ1-18393;
+    (=jis-x0213-2	. #x7474)	; &AJ1-18393; [84-84]
+    (=jef-china3	. #x82AA)	; &I-JC3-82AA;
+    (=adobe-japan1-5	. 18393)	; &I-AJ1-18393;
     ))
 (define-char
   '((ideographic-radical@ucs . 85)	; ⽔
