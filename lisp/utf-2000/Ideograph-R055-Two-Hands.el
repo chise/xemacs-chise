@@ -89,7 +89,7 @@
     (=cns11643-4	. #x214D)	; &I-C4-214D; [01-45]
     (=jis-x0213-1	. #x7431)	; &I-JX1-7431; [84-17]
     (=big5-cdp		. #x8B6F)	; &I-CDP-8B6F;
-    (=adobe-japan1-5	. 16854)	; 开
+    (=adobe-japan1-5	. 16854)	; &I-AJ1-16854;
     ))
 (define-char
   '((ideographic-radical . 55)	; ⼶
@@ -168,13 +168,13 @@
     (ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (=ucs@jis		. #x5F02)	; &JX1-7432;
-    (=ucs@ks		. #x5F02)	; &JX1-7432;
-    (=jis-x0212		. #x3C5C)	; &JX1-7432; [28-60]
+    (=ucs@jis		. #x5F02)	; &AJ1-16855;
+    (=ucs@ks		. #x5F02)	; &AJ1-16855;
+    (=jis-x0212		. #x3C5C)	; &AJ1-16855; [28-60]
     (=cns11643-2	. #x223D)	; &I-C2-223D; [02-29]
     (=jis-x0213-1	. #x7432)	; &I-JX1-7432; [84-18]
     (=big5		. #xC9DD)	; &I-B-C9DD;
-    (=adobe-japan1-5	. 16855)	; &JX1-7432;
+    (=adobe-japan1-5	. 16855)	; &I-AJ1-16855;
     ))
 (define-char
   '((<-denotational
@@ -555,12 +555,12 @@
     (=ucs		. #x5F08)	; 弈
     (=big5		. #xABD9)	; &I-B-ABD9;
     (->subsumptive
-     ((=ucs@jis		  . #x5F08)	; &M-09611;
-      (=jis-x0212	  . #x3C5F)	; &M-09611; [28-63]
+     ((=ucs@jis		  . #x5F08)	; &AJ1-17607;
+      (=jis-x0212	  . #x3C5F)	; &AJ1-17607; [28-63]
       (=jis-x0213-2	  . #x2C2D)	; &I-JX2-2C2D; [12-13]
       (=daikanwa	  . 09611)	; &I-M-09611;
       (=jef-china3	  . #x4CDD)	; &I-JC3-4CDD;
-      (=adobe-japan1-5	  . 17607)	; &M-09611;
+      (=adobe-japan1-5	  . 17607)	; &I-AJ1-17607;
       )
      ((=ucs@unicode	  . #x5F08)	; &C1-507B;
       (=gb2312		  . #x5E44)	; &C1-507B; [62-36]
@@ -947,6 +947,14 @@
   '((ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C07)	; 將
+      )
+     ((=ucs		  . #x5EFE)	; 廾
+      ))
     (=ucs		. #x38A1)	; 㢡
     (->subsumptive
      ((ideographic-structure
@@ -966,10 +974,10 @@
 	(=jis-x0213-1	    . #x5730)	; &I-JX1-5730; [55-16]
 	(=daikanwa	    . 09583)	; &I-M-09583;
 	))
-      (=ucs@unicode	  . #x38A1)	; &M-09639;
-      (=daikanwa	  . 09639)	; &M-09639;
+      (=ucs@unicode	  . #x38A1)	; &AJ1-20171;
+      (=daikanwa	  . 09639)	; &AJ1-20171;
       (=cbeta		  . 00727)	; &I-CB00727;
-      (=adobe-japan1-5	  . 20171)	; &M-09639;
+      (=adobe-japan1-5	  . 20171)	; &I-AJ1-20171;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
