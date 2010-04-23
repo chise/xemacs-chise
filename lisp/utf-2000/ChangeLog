@@ -1,3 +1,13 @@
+2010-04-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R082-Fur.el (U+6C09): Move B-ED4D to connote C2-5D39.
+
+	* Ideograph-R055-Two-Hands.el (U+38A1): Add
+	`ideographic-structure'.
+
+	* Ideograph-R040-Roof.el (abstract glyph of JX2-2828): New
+	abstract glyph.
+
 2010-04-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R003-Dot.el (M-00098): Unify GT-00142; add
