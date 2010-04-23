@@ -77,7 +77,7 @@
     (=jis-x0213-2	. #x232C)	; &I-JX2-232C; [03-12]
     (=big5		. #xC955)	; &I-B-C955;
     (=daikanwa		. 01567)	; &I-M-01567;
-    (=adobe-japan1-5	. 17304)	; 冘
+    (=adobe-japan1-5	. 17304)	; &I-AJ1-17304;
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
@@ -558,6 +558,14 @@
   '((ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=ucs		  . #x53D6)	; 取
+      ))
     (=ucs		. #x51A3)	; 冣
     (->subsumptive
      ((ideographic-structure
@@ -567,21 +575,33 @@
        ((=ucs		    . #x5196)	; 冖
 	)
        ((=ucs@jis	    . #x53D6)	; &GT-03992;
-	(=ucs@big5	    . #x53D6)	; &GT-03992;
 	(=jis-x0208	    . #x3C68)	; &GT-03992; [28-72]
 	(=ks-x1001	    . #x7622)	; &I-K0-7622; [86-02]
 	(=cns11643-1	    . #x4C3D)	; &I-C1-4C3D; [44-29]
 	(=jis-x0213-1	    . #x3C68)	; &I-JX1-3C68; [28-72]
 	(=daikanwa	    . 03158)	; &I-M-03158;
 	))
-      (=ucs@cns		  . #x51A3)	; &M-01586;
-      (=ucs@jis		  . #x51A3)	; &M-01586;
-      (=jis-x0212	  . #x3277)	; &M-01586; [18-87]
+      (=ucs@cns		  . #x51A3)	; &AJ1-17305;
+      (=ucs@jis		  . #x51A3)	; &AJ1-17305;
+      (=jis-x0212	  . #x3277)	; &AJ1-17305; [18-87]
       (=cns11643-3	  . #x2F59)	; &I-C3-2F59; [15-57]
       (=jis-x0213-2	  . #x232D)	; &I-JX2-232D; [03-13]
       (=daikanwa	  . 01586)	; &I-M-01586;
-      (=shinjigen@rev	  .  0927)	; &M-01586;
-      (=adobe-japan1-5	  . 17305)	; &M-01586;
+      (=shinjigen	  .  0927)	; &AJ1-17305;
+      (=adobe-japan1-5	  . 17305)	; &I-AJ1-17305;
+      (<-formed
+       ((=ucs@iso	    . #x2F8D4)	; &GT-18101;
+	(=ucs@jis	    . #x6700)	; &GT-18101;
+	(=ucs@ks	    . #x6700)	; &GT-18101;
+	(=jis-x0208	    . #x3A47)	; &GT-18101; [26-39]
+	(=ks-x1001	    . #x754C)	; &I-K0-754C; [85-44]
+	(=cns11643-6	    . #x4978)	; &I-C6-4978; [41-88]
+	(=jis-x0213-1	    . #x3A47)	; &I-JX1-3A47; [26-39]
+	(=daikanwa	    . 14301)	; &I-M-14301;
+	(=shinjigen	    .  0925)	; &GT-18101;
+	))
+      (<-formed*sources
+       shinjigen)
       )
      ((hanyu-dazidian	  1 304 8)
       (ideographic-structure
