@@ -1,3 +1,51 @@
+2010-04-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el (U+6C42): Use `->subsumptive' to
+	separate representative nodes.
+
+	* Ideograph-R123-Sheep.el (U+517B): Copied from
+	Ideograph-R012-Eight.el.
+	(JX2-7474): Unify JC3-82AA and AJ1-18393; use `<-denotational' for
+	U+517B; use `ideographic-{radical|strokes}@jis' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+
+	* Ideograph-R075-Tree.el (U+6903): Add `ideographic-structure'.
+	(U+3B87): Likewise.
+	(U+3BCD): Likewise.
+
+	* Ideograph-R015-Ice.el (M-01618): Unify U-000205B5 and H1-E2DD.
+	(U+51B8): Add `ideographic-structure'.
+	(U+51C8): Likewise.
+	(abstract glyph of JX1-2E56): New abstract glyph for abstract
+	`ideographic-structure'.
+	(UU+51CA): Unify GT-02194.
+	(U+51D1): Add `ideographic-structure'.
+	(AJ1-19178): Unify GT-02207; omit `ideographic-structure'.
+
+	* Ideograph-R012-Eight.el (U+34B5): Use `->subsumptive' to
+	separate representative nodes.
+	(U+517B): Use `ideographic-radical@ucs' instead of
+	`ideographic-radical'; add `ideographic-{radical|strokes}@jis'.
+	(AJ1-18393): Unify JX2-7474; use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@jis'.
+
+	* Ideograph-R008-Lid.el (U+4EB6): Use `->denotational' instead of
+	`->subsumptive'.
+
+	* Ideograph-R002-Line.el (JX2-2125): Separate BC-8BA3, GT-00102
+	and GT-K00069.
+	(BC-8BF1): Omit `ideograph-cdp'.
+	(U+4E2E): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R001-One.el (U+4E12): Use `->denotational' and
+	`->subsumptive' to separate representative nodes.
+
+	* Ideograph-R014-Cover.el (U+51A3): Add `ideographic-structure'.
+	(JX2-232D): Add `<-formed' for J0-3A47.
+
 2010-04-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R082-Fur.el (U+6C09): Move B-ED4D to connote C2-5D39.
