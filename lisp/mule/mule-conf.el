@@ -978,7 +978,18 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=ucs@cns))
-  
+
+  (make-charset '=>>ucs@unicode
+		"Representative abstract glyphs of Unicode"
+		'(long-name	"Unicode abstract glyphs"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=ucs@unicode))
+
   (make-charset
    '=ucs-radicals
    "CJK Radicals of UCS"
