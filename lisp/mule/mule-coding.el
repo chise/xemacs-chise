@@ -335,6 +335,7 @@
 	  ( =ucs@cns	                    	  "CU-" 8 X)
 	  ( =ucs@ks	                    	  "KU+" 4 X)
 	  ( =ucs@ks	                    	  "KU-" 8 X)
+	  (=>>ucs@unicode                    	"G-UU+" 4 X)
 	  ( =jis-x0208@1978/i1                 "J78i1-" 4 X)
 	  ( =shinjigen@rev                      "SJG2-" 4 d)
 	  ( =shinjigen@1ed                      "SJG1-" 4 d)
