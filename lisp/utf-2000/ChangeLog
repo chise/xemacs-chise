@@ -1,4 +1,19 @@
+2010-04-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>>ucs@unicode'.
+
 2010-04-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R010-Legs.el (U-0002048B): Use `->subsumptive' to
+	separate representative node.
+	(U+5157): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R050-Turban.el (U+5E11): Separate representative
+	nodes.
+
+	* Ideograph-R037-Big.el (abstract glyph of UU+595A): New abstract
+	glyph.
 
 	* Ideograph-R085-Water.el (U+6C42): Use `->subsumptive' to
 	separate representative nodes.
