@@ -1,5 +1,31 @@
 2010-04-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R109-Eye.el (J0-6243): Unify UU+771E.
+	(U-0002F947): Add `->denotational' for U+771F.
+	(M-23237): Use `<-simplified@misc' instead of `<-simplified' for
+	J0-6243.
+
+	* Ideograph-R086-Fire.el (U+7133): Add `ideographic-structure'.
+
+	* Ideograph-R030-Mouth.el (U+356E): Add `ideographic-structure'.
+	(U+552E): Ditto.
+	(U+552F): Likewise.
+	(abstract glyph of JX1-5351): New abstract glyph.
+	(abstract glyph of UU+55D4): New abstract glyph.
+	(U+55D8): Add `ideographic-structure'.
+	(abstract glyph of UU+55D8): New abstract glyph.
+	(U+55DD): Add `ideographic-structure'.
+	(abstract glyph of JX2-2437): New abstract glyph.
+	(GT-05351): New character.
+	(C4-492D): Unify GT-05350.
+
+	* Ideograph-R019-Power.el (U+52EF): Use `->denotational' instead
+	of `->subsumptive'; add `ideographic-structure'.
+
+	* Ideograph-R015-Ice.el (U+51C6): Add `ideographic-structure'.
+
+	* Ideograph-R008-Lid.el (B-DCB3): Unify abstract glyph of UU+4EB6.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>>ucs@unicode'.
 
