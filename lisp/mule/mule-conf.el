@@ -947,27 +947,6 @@
 		  mother	=ucs@ks
 		  min-code	#x0000
 		  max-code	#xFFFF))
-  (make-charset '=ucs@big5
-		"ISO/IEC 10646 for Big5"
-		'(long-name	"UCS for Big5"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=ucs@unicode))
-  (define-charset-alias 'ucs-big5 '=ucs@big5)
-  (make-charset '=ucs@big5/cns11643
-		"ISO/IEC 10646 for Big5 based on www.cns11643.gov.tw"
-		'(long-name	"UCS for Big5@CNS11643"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=ucs@big5))
   (make-charset '=ucs@cns11643
 		"ISO/IEC 10646 for CNS based on www.cns11643.gov.tw"
 		'(long-name	"UCS for CNS11643"
@@ -989,6 +968,27 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=ucs@unicode))
+  (make-charset '=ucs@big5
+		"ISO/IEC 10646 for Big5"
+		'(long-name	"UCS for Big5"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@unicode))
+  (define-charset-alias 'ucs-big5 '=ucs@big5)
+  (make-charset '=ucs@big5/cns11643
+		"ISO/IEC 10646 for Big5 based on www.cns11643.gov.tw"
+		'(long-name	"UCS for Big5@CNS11643"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=ucs@big5))
 
   (make-charset
    '=ucs-radicals
