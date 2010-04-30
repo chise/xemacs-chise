@@ -1,4 +1,37 @@
+2010-04-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el:
+	- Add some abstract ideographic-structure.
+	(U+4F16): Add `<-same' for J0-5666.
+	(JSP-305C): Separate G0-3B6F and GT-00527.
+	(U+4FC5): Use `->subsumptive' to separate representative nodes.
+	(U+503A): Compact `ideographic-structure'; add `<-simplified@CN'
+	for U+552E.
+	(GT-01259): New character.
+	(CB01842): Compact `ideographic-structure'.
+	(C3-3974): Likewise.
+	(JX2-216F): Omit `ideographic-structure'.
+	(JX2-2175): Add `<-formed' for J0-5924.
+	(JSP-3251): Unify H12-EB6D.
+	(JX2-2E46): Separate H12-EB6D.
+	(JSP-3248): Unify GT-01498.
+	(U+5103): Use `->denotational' instead of `->subsumptive'.
+
+2010-04-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (U+96BD): Use
+	`->subsumptive'.
+
+	* Ideograph-R012-Eight.el (C7-4D3E): Map to U-0002F813.
+
 2010-04-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R005-Second.el (GT-00256): Add
+	`ideographic-structure'.
+	(U+4E79): Add `<-vulgar' for U+4E7E.
+	(U+341C): Use `->subsumptive' to separate representative nodes.
+	(U-000200F2): Use `->subsumptive'.
+	(GT-00263): Add `<-same' for J0-5923.
 
 	* Ideograph-R109-Eye.el (J0-6243): Unify UU+771E.
 	(U-0002F947): Add `->denotational' for U+771F.
