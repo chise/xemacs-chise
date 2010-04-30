@@ -2120,7 +2120,15 @@
     (=hanziku-1		. #xB3B9)	; &I-HZK01-B3B9;
     ))
 (define-char
-  '((=>ucs		. #x53A7)	; 厧
+  '((ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (=ucs		. #x53A7)	; 厧
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x53A7)	; 厧
+      ))
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
@@ -2130,16 +2138,31 @@
       )
      ((=ucs		  . #x5382)	; 厂
       )
-     ((=ucs@jis		  . #x771E)	; &GT-29751;
-      (=jis-x0208	  . #x6243)	; &GT-29751; [66-35]
-      (=ks-x1001	  . #x7258)	; &I-K0-7258; [82-56]
-      (=jis-x0213-1	  . #x6243)	; &I-JX1-6243; [66-35]
-      (=daikanwa	  . 23235)	; &I-M-23235;
+     ((=ucs		  . #x771E)	; 眞
       ))
-    (=daikanwa		. 02998)	; &M-02998;
+    (=>>gt		. 03801)	; &G-GT-03801;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x5382)	; 厂
+	)
+       ((=ucs@unicode	    . #x771E)	; &GT-29751;
+	(=jis-x0208	    . #x6243)	; &GT-29751; [66-35]
+	(=ks-x1001	    . #x7258)	; &I-K0-7258; [82-56]
+	(=jis-x0213-1	    . #x6243)	; &I-JX1-6243; [66-35]
+	(=daikanwa	    . 23235)	; &I-M-23235;
+	))
+      (=gt		  . 03801)	; &GT-03801;
+      (=gt-pj-2		  . #x4B23)	; &GT-03801; [43-03]
+      (=daikanwa	  . 02998)	; &I-M-02998;
+      ))
     ))
 (define-char
-  '((morohashi-daikanwa	2998 0 2)
+  '((<-denotational
+     ((=ucs		  . #x53A7)	; 厧
+      ))
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
@@ -2152,9 +2175,22 @@
       )
      ((=ucs		  . #x771F)	; 真
       ))
-    (=ucs		. #x53A7)	; 厧
-    (=cns11643-2	. #x3A49)	; &I-C2-3A49; [26-41]
-    (=big5		. #xD865)	; &I-B-D865;
+    (=>>ucs@unicode	. #x53A7)	; &G-UU+53A7;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x5382)	; 厂
+	)
+       ((=ucs@unicode	    . #x771F)	; &C1-5678;
+	(=gb2312	    . #x5566)	; &C1-5678; [53-70]
+	(=cns11643-1	    . #x5678)	; &I-C1-5678; [54-88]
+	))
+      (=ucs@unicode	  . #x53A7)	; &C2-3A49;
+      (=cns11643-2	  . #x3A49)	; &C2-3A49; [26-41]
+      (=big5		  . #xD865)	; &I-B-D865;
+      ))
     ))
 (define-char
   '((=>ucs		. #x20A8A)	; 𠪊
