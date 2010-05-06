@@ -1,5 +1,14 @@
 2010-04-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R124-Feather.el (U+7FCF): Use `->denotational' instead
+	of `->subsumptive'; add abstract ideographic-structure.
+	(U+7FD0): Use `->denotational'.
+	(U+7FD1): Use `->denotational'.
+	(U-0002641B): Use `->denotational' instead of `->subsumptive'.
+	(U-00026416): Likewise.
+	(U+4385): Use `->denotational'.
+	(U-0002641A): Use `->denotational' instead of `->subsumptive'.
+
 	* Ideograph-R009-Man.el:
 	- Add some abstract ideographic-structure.
 	(U+4F16): Add `<-same' for J0-5666.
@@ -18,6 +27,24 @@
 	(U+5103): Use `->denotational' instead of `->subsumptive'.
 
 2010-04-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R062-Halberd.el (U+622A): Use `->subsumptive'.
+	(U+622B): Use `->subsumptive' to separate representative nodes.
+	(U+622E): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R046-Mountain.el (U+5D60): Add
+	`ideographic-structure'.
+	(U+5DBB): Use `->subsumptive'.
+	(U+381A): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R029-Again.el (U+53D5): Use `->subsumptive' to
+	separate representative nodes.
+	(U+53D6): Add `ideographic-structure'.
+	(U-00020B90): Use `->denotational' and `->subsumptive'.
+	(U+53E2): Add `ideographic-structure'.
+
+	* Ideograph-R027-Cliff.el (U+53A7): Use `->denotational' and
+	`->subsumptive'.
 
 	* Ideograph-R172-Short-Tailed-Bird.el (U+96BD): Use
 	`->subsumptive'.
