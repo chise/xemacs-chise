@@ -4731,12 +4731,14 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (=>>jis-x0213-2	. #x2828)	; &G-GT-09170; [08-08]
+    (=>>gt		. 09170)	; &G-GT-09170;
     (->subsumptive
-     ((=ucs@jis		  . #x376C)	; &GT-09170;
-      (=jis-x0213-2	  . #x2828)	; &GT-09170; [08-08]
+     ((=ucs@jis		  . #x376C)	; &AJ1-17532;
+      (=jis-x0213-2	  . #x2828)	; &AJ1-17532; [08-08]
       (=gt		  . 09170)	; &I-GT-09170;
       (=gt-pj-9		  . #x4D63)	; &I-GT-09170; [45-67]
-      (=adobe-japan1-5	  . 17532)	; &GT-09170;
+      (=adobe-japan1-5	  . 17532)	; &I-AJ1-17532;
       )
      ((=ucs@unicode	  . #x376C)	; &UU+376C;
       ))

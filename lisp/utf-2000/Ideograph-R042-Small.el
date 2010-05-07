@@ -384,7 +384,7 @@
     (=ucs@big5		. #x5C1A)	; &J97-3E30;
     (=>jis-x0208	. #x3E30)	; &J97-3E30; [30-16]
     (=>jis-x0213-1	. #x3E30)	; &J97-3E30; [30-16]
-    (=big5		. #xA97C)	; &J97-3E30;
+    (=big5		. #xA97C)	; &I-B-A97C;
     ))
 (define-char
   '((<-denotational

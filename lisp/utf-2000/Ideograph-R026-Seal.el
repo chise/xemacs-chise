@@ -573,8 +573,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@jis		  . #x20509)	; &GT-01905;
-      (=jis-x0213-2	  . #x2327)	; &GT-01905; [03-07]
+     ((=ucs@jis		  . #x20509)	; &AJ1-17299;
+      (=jis-x0213-2	  . #x2327)	; &AJ1-17299; [03-07]
       )
      ((=ucs		  . #x353E)	; 㔾
       ))

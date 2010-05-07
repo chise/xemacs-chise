@@ -10506,7 +10506,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@jis		  . #x771E)	; &GT-29751;
+     ((=ucs@unicode	  . #x771E)	; &GT-29751;
       (=jis-x0208	  . #x6243)	; &GT-29751; [66-35]
       (=ks-x1001	  . #x7258)	; &I-K0-7258; [82-56]
       (=jis-x0213-1	  . #x6243)	; &I-JX1-6243; [66-35]

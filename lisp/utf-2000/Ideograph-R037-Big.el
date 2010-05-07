@@ -1677,7 +1677,6 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs@jis		. #x595A)	; &GT-07480;
-    (=ucs@big5		. #x595A)	; &GT-07480;
     (=jis-x0208		. #x5478)	; &GT-07480; [52-88]
     (=ks-x1001		. #x7A28)	; &I-K0-7A28; [90-08]
     (=jis-x0213-1	. #x5478)	; &I-JX1-5478; [52-88]
@@ -1685,7 +1684,7 @@
     (=gt-k		. 06583)	; &I-GT-K06583;
     (=gt-pj-1		. #x5478)	; &I-GT-07480; [52-88]
     (=daikanwa		. 05930)	; &I-M-05930;
-    (=shinjigen@rev	.  1583)	; &GT-07480;
+    (=shinjigen		.  1583)	; &GT-07480;
     ))
 (define-char
   '((<-denotational
@@ -1694,6 +1693,7 @@
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (=>>ucs@unicode	. #x595A)	; &G-UU+595A;
     (->subsumptive
      ((=ucs@unicode	  . #x595A)	; &G0-5E49;
       (=gb2312		  . #x5E49)	; &G0-5E49; [62-41]

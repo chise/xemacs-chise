@@ -35,7 +35,7 @@
     (=cns11643-4	. #x214D)	; &I-C4-214D; [01-45]
     (=jis-x0213-1	. #x7431)	; &I-JX1-7431; [84-17]
     (=big5-cdp		. #x8B6F)	; &I-CDP-8B6F;
-    (=adobe-japan1-5	. 16854)	; 开
+    (=adobe-japan1-5	. 16854)	; &I-AJ1-16854;
     (mojikyo		. 051106)	; &MCS-6000C7A2;
     ))
 (define-char

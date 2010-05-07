@@ -400,7 +400,7 @@
     (=cns11643-4	. #x214D)	; &I-C4-214D; [01-45]
     (=jis-x0213-1	. #x7431)	; &I-JX1-7431; [84-17]
     (=big5-cdp		. #x8B6F)	; &I-CDP-8B6F;
-    (=adobe-japan1-5	. 16854)	; 开
+    (=adobe-japan1-5	. 16854)	; &I-AJ1-16854;
     (mojikyo		. 051106)	; &MCS-6000C7A2;
     ))
 (define-char
@@ -783,7 +783,7 @@
     (=daikanwa		. 00273)	; &I-M-00273;
     (=hanziku-1		. #xF57D)	; &I-HZK01-F57D;
     (=jef-china3	. #x41D1)	; &I-JC3-41D1;
-    (=adobe-japan1-5	. 17245)	; 亝
+    (=adobe-japan1-5	. 17245)	; &I-AJ1-17245;
     (mojikyo		. 000273)	; &MCS-60000111;
     ))
 (define-char

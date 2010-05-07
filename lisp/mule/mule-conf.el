@@ -947,6 +947,27 @@
 		  mother	=ucs@ks
 		  min-code	#x0000
 		  max-code	#xFFFF))
+  (make-charset '=ucs@cns11643
+		"ISO/IEC 10646 for CNS based on www.cns11643.gov.tw"
+		'(long-name	"UCS for CNS11643"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=ucs@cns))
+
+  (make-charset '=>>ucs@unicode
+		"Representative abstract glyphs of Unicode"
+		'(long-name	"Unicode abstract glyphs"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=ucs@unicode))
   (make-charset '=ucs@big5
 		"ISO/IEC 10646 for Big5"
 		'(long-name	"UCS for Big5"
@@ -956,7 +977,7 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
-		  mother	=ucs@unicode))
+		  mother	=>>ucs@unicode))
   (define-charset-alias 'ucs-big5 '=ucs@big5)
   (make-charset '=ucs@big5/cns11643
 		"ISO/IEC 10646 for Big5 based on www.cns11643.gov.tw"
@@ -968,17 +989,7 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=ucs@big5))
-  (make-charset '=ucs@cns11643
-		"ISO/IEC 10646 for CNS based on www.cns11643.gov.tw"
-		'(long-name	"UCS for CNS11643"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=ucs@cns))
-  
+
   (make-charset
    '=ucs-radicals
    "CJK Radicals of UCS"
@@ -1073,6 +1084,19 @@
 	       code-offset #x20000))
 
   (make-charset
+   '=adobe-japan1-base
+   "Adobe-Japan1 Character Collection for CID-Keyed Fonts"
+   `(long-name "Adobe-Japan1"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "AdobeJapan1-[0-6]$"
+	       min-code	,(lsh #x6300 16)
+	       max-code	,(+ (lsh #x6300 16) 23057)
+	       code-offset	,(lsh #x6300 16)))
+  (make-charset
    '=adobe-japan1-0
    "Adobe-Japan1-0 Character Collection for CID-Keyed Fonts"
    '(long-name "Adobe-Japan1-0"
@@ -1081,6 +1105,9 @@
 	       columns 2
 	       graphic 2
 	       direction l2r
+	       mother =adobe-japan1-base
+	       min-code 0
+	       max-code 8283
 	       registry "AdobeJapan1-0$"))
   (make-charset
    '=adobe-japan1-1
@@ -1092,6 +1119,8 @@
 	       graphic 2
 	       direction l2r
 	       mother =adobe-japan1-0
+	       min-code 0
+	       max-code 8358
 	       registry "AdobeJapan1-1$"))
   (make-charset
    '=adobe-japan1-2
@@ -1103,6 +1132,8 @@
 	       graphic 2
 	       direction l2r
 	       mother =adobe-japan1-1
+	       min-code 0
+	       max-code 8719
 	       registry "AdobeJapan1-2$"))
   (make-charset
    '=adobe-japan1-3
@@ -1114,6 +1145,8 @@
 	       graphic 2
 	       direction l2r
 	       mother =adobe-japan1-2
+	       min-code 0
+	       max-code 9353
 	       registry "AdobeJapan1-3$"))
   (make-charset
    '=adobe-japan1-4
@@ -1125,6 +1158,8 @@
 	       graphic 2
 	       direction l2r
 	       mother =adobe-japan1-3
+	       min-code 0
+	       max-code 15443
 	       registry "AdobeJapan1-4$"))
   (make-charset
    '=adobe-japan1-5
@@ -1136,6 +1171,8 @@
 	       graphic 2
 	       direction l2r
 	       mother =adobe-japan1-4
+	       min-code 0
+	       max-code 20316
 	       registry "AdobeJapan1-5$"))
   (make-charset
    '=adobe-japan1-6
@@ -1147,6 +1184,8 @@
 	       graphic 2
 	       direction l2r
 	       mother =adobe-japan1-5
+	       min-code 0
+	       max-code 23057
 	       registry "AdobeJapan1-6$"))
   )
 

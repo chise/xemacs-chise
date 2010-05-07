@@ -164,7 +164,7 @@
     (=jis-x0213-1	. #x2E58)	; &I-JX1-2E58; [14-56]
     (=hanziku-1		. #xDEE9)	; &I-HZK01-DEE9;
     (=jef-china3	. #x41B8)	; &I-JC3-41B8;
-    (=adobe-japan1-5	. 16795)	; 凢
+    (=adobe-japan1-5	. 16795)	; &I-AJ1-16795;
     (<-vulgar
      ((=ucs@unicode	  . #x51E1)	; &GT-02286;
       (=jis-x0208	  . #x4B5E)	; &GT-02286; [43-62]
@@ -1316,7 +1316,7 @@
     (=big5		. #xB9B9)	; &I-B-B9B9;
     (=daikanwa		. 01797)	; &I-M-01797;
     (=jef-china3	. #x98DF)	; &I-JC3-98DF;
-    (=adobe-japan1-5	. 17309)	; 凳
+    (=adobe-japan1-5	. 17309)	; &I-AJ1-17309;
     (mojikyo		. 001797)	; &MCS-60000705;
     ))
 (define-char

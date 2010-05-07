@@ -244,6 +244,7 @@
     =gt-k
     =ucs@iso
     =ucs@unicode
+    =>>ucs@unicode
     =>>jis-x0208
     =>>jis-x0213-1
     =>>jis-x0213-1@2000

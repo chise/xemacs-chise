@@ -758,12 +758,12 @@
     (total-strokes	 . 11)
     (=ucs		. #x23A98)	; 𣪘
     (->subsumptive
-     ((=ucs@jis		  . #x23A98)	; &GT-21338;
-      (=jis-x0213-2	  . #x6E23)	; &GT-21338; [78-03]
+     ((=ucs@jis		  . #x23A98)	; &AJ1-17897;
+      (=jis-x0213-2	  . #x6E23)	; &AJ1-17897; [78-03]
       (=gt		  . 21338)	; &I-GT-21338;
       (=gt-pj-9		  . #x4D7E)	; &I-GT-21338; [45-94]
       (=jef-china3	  . #x93C9)	; &I-JC3-93C9;
-      (=adobe-japan1-5	  . 17897)	; &GT-21338;
+      (=adobe-japan1-5	  . 17897)	; &I-AJ1-17897;
       )
      ((=ucs@iso		  . #x23A98)	; &U-00023A98;
       ))

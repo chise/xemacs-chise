@@ -1814,10 +1814,10 @@
 	  )
 	 ((=ucs		      . #x200CA)	; 𠃊
 	  )
-	 ((=ucs		      . #x516B)	; 八
+	 ((=gt-k	      . 00059)	; &GT-K00059;
 	  ))
 	))
-      (=ucs@jis		  . #x771E)	; &GT-29751;
+      (=ucs@unicode	  . #x771E)	; &GT-29751;
       (=jis-x0208	  . #x6243)	; &GT-29751; [66-35]
       (=ks-x1001	  . #x7258)	; &I-K0-7258; [82-56]
       (=jis-x0213-1	  . #x6243)	; &I-JX1-6243; [66-35]
@@ -1826,9 +1826,7 @@
       (=gt-k		  . 06615)	; &I-GT-K06615;
       (=gt-pj-1		  . #x6243)	; &I-GT-29751; [66-35]
       (=daikanwa	  . 23235)	; &I-M-23235;
-      (=shinjigen@rev	  .  5293)	; &GT-29751;
-      )
-     ((=ucs@unicode	  . #x771E)	; &UU+771E;
+      (=shinjigen	  .  5293)	; &GT-29751;
       )
      ((=cns11643-3	  . #x3759)	; &C3-3759; [23-57]
       ))
@@ -1858,9 +1856,9 @@
       (=gt-k		  . 06478)	; &I-GT-K06478;
       (=gt-pj-1		  . #x3F3F)	; &I-GT-29752; [31-31]
       (=daikanwa	  . 23236)	; &I-M-23236;
-      (=shinjigen@rev	  .  5292)	; &GT-29752;
+      (=shinjigen	  .  5292)	; &GT-29752;
       (<-simplified@JP/Jouyou
-       ((=ucs@jis	    . #x771E)	; &GT-29751;
+       ((=ucs@unicode	    . #x771E)	; &GT-29751;
 	(=jis-x0208	    . #x6243)	; &GT-29751; [66-35]
 	(=ks-x1001	    . #x7258)	; &I-K0-7258; [82-56]
 	(=jis-x0213-1	    . #x6243)	; &I-JX1-6243; [66-35]
@@ -1884,7 +1882,10 @@
     (=big5		. #xAF75)	; &I-B-AF75;
     ))
 (define-char
-  '((=>ucs*		. #x771F)	; 真
+  '((<-denotational
+     ((=ucs		  . #x771F)	; 真
+      ))
+    (=>ucs*		. #x771F)	; 真
     (ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
@@ -1892,7 +1893,7 @@
     (->subsumptive
      ((=daikanwa	  . 23237)	; &M-23237;
       (<-original
-       ((=ucs@jis	    . #x771E)	; &GT-29751;
+       ((=ucs@unicode	    . #x771E)	; &GT-29751;
 	(=jis-x0208	    . #x6243)	; &GT-29751; [66-35]
 	(=ks-x1001	    . #x7258)	; &I-K0-7258; [82-56]
 	(=jis-x0213-1	    . #x6243)	; &I-JX1-6243; [66-35]
@@ -1900,14 +1901,14 @@
 	))
       (<-original*sources
        liushu-zongyao daikanwa)
-      (<-simplified
-       ((=ucs@jis	    . #x771E)	; &GT-29751;
+      (<-simplified@misc
+       ((=ucs@unicode	    . #x771E)	; &GT-29751;
 	(=jis-x0208	    . #x6243)	; &GT-29751; [66-35]
 	(=ks-x1001	    . #x7258)	; &I-K0-7258; [82-56]
 	(=jis-x0213-1	    . #x6243)	; &I-JX1-6243; [66-35]
 	(=daikanwa	    . 23235)	; &I-M-23235;
 	))
-      (<-simplified*sources
+      (<-simplified@misc*sources
        daikanwa)
       )
      ((=ucs@iso		  . #x2F947)	; &C6-3A2E;

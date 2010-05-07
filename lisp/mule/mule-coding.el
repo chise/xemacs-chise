@@ -182,7 +182,8 @@
 
 (when (featurep 'utf-2000)
   (setq coded-charset-entity-reference-alist
-	'(((=gt			. isolated)     "I-GT-" 5 d)
+	'(((=adobe-japan1-base	. isolated)    "I-AJ1-" 5 d)
+	  ((=gt			. isolated)     "I-GT-" 5 d)
 	  ((=ruimoku-v6		. isolated)   "I-RUI6-" 4 X)
 	  ((chinese-big5-cdp	. isolated)    "I-CDP-" 4 X)
 	  ((=gt-k		. isolated)    "I-GT-K" 5 d)
@@ -239,6 +240,8 @@
 	  ((arabic-digit	. isolated) "I-MULE-ARBD-" 2 X)
 	  ((ipa			. isolated) "I-MULE-IPA-" 2 X)
 	  ((china3-jef		. isolated)    "I-JC3-" 4 X)
+	  ( =adobe-japan1-6			 "AJ1-" 5 d)
+	  ( =adobe-japan1-base		       "I-AJ1-" 5 d)
 	  ( =gt					  "GT-" 5 d)
 	  (=>>gt				"G-GT-" 5 d)
 	  (=>>gt				 "aGT-" 5 d)
@@ -332,6 +335,7 @@
 	  ( =ucs@cns	                    	  "CU-" 8 X)
 	  ( =ucs@ks	                    	  "KU+" 4 X)
 	  ( =ucs@ks	                    	  "KU-" 8 X)
+	  (=>>ucs@unicode                    	"G-UU+" 4 X)
 	  ( =jis-x0208@1978/i1                 "J78i1-" 4 X)
 	  ( =shinjigen@rev                      "SJG2-" 4 d)
 	  ( =shinjigen@1ed                      "SJG1-" 4 d)

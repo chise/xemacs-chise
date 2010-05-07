@@ -2595,8 +2595,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@jis		  . #x20509)	; &GT-01905;
-      (=jis-x0213-2	  . #x2327)	; &GT-01905; [03-07]
+     ((=ucs@jis		  . #x20509)	; &AJ1-17299;
+      (=jis-x0213-2	  . #x2327)	; &AJ1-17299; [03-07]
       )
      ((=ucs		  . #x5200)	; 刀
       ))
@@ -6413,8 +6413,8 @@
     (total-strokes	 . 12)
     (=ucs		. #x202F4)	; 𠋴
     (<-same
-     ((=ucs@unicode	  . #x5013)	; &M-00768;
-      (=jis-x0212	  . #x3151)	; &M-00768; [17-49]
+     ((=ucs@unicode	  . #x5013)	; &AJ1-17271;
+      (=jis-x0212	  . #x3151)	; &AJ1-17271; [17-49]
       (=jis-x0213-2	  . #x215A)	; &I-JX2-215A; [01-58]
       (=daikanwa	  . 00768)	; &I-M-00768;
       ))

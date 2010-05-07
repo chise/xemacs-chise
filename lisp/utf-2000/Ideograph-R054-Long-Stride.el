@@ -147,14 +147,14 @@
     (total-strokes	 . 8)
     (=ucs		. #x2231E)	; 𢌞
     (->subsumptive
-     ((=ucs@jis		  . #x2231E)	; &GT-12059;
-      (=jis-x0213-2	  . #x2C2B)	; &GT-12059; [12-11]
+     ((=ucs@jis		  . #x2231E)	; &AJ1-17605;
+      (=jis-x0213-2	  . #x2C2B)	; &AJ1-17605; [12-11]
       (=gt		  . 12059)	; &I-GT-12059;
       (=gt-pj-3		  . #x465C)	; &I-GT-12059; [38-60]
       (=daikanwa	  . 09573)	; &I-M-09573;
-      (=shinjigen	  .  2240)	; &GT-12059;
+      (=shinjigen	  .  2240)	; &AJ1-17605;
       (=jef-china3	  . #x4CD7)	; &I-JC3-4CD7;
-      (=adobe-japan1-5	  . 17605)	; &GT-12059;
+      (=adobe-japan1-5	  . 17605)	; &I-AJ1-17605;
       (<-formed
        ((=ucs@jis/1990	    . #x5EFB)	; &GT-12063;
 	(=ucs@jis/2000	    . #x5EFB)	; &GT-12063;
