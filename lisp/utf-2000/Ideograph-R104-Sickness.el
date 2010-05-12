@@ -5341,23 +5341,25 @@
     ))
 (define-char
   '((ideographic-radical . 104)	; ⽧
-    (=>jis-x0208	. #x4169)	; &J97-4169; [33-73]
-    (=>jis-x0213-1	. #x4169)	; &J97-4169; [33-73]
+    (=>jis-x0208@1997	. #x4169)	; &J97-4169; [33-73]
+    (=>jis-x0213-1@2000 . #x4169)	; &J97-4169; [33-73]
     ))
 (define-char
   '((<-denotational
-     ((=>jis-x0208	  . #x4169)	; &J97-4169; [33-73]
+     ((=>jis-x0208@1997	  . #x4169)	; &J97-4169; [33-73]
       ))
     (ideographic-radical . 104)	; ⽧
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
     (=ucs		. #x7626)	; 瘦
+    (=>jis-x0213-1@2004 . #x7E7D)	; 瘦 [94-93]
     (=big5		. #xBD47)	; &I-B-BD47;
     (->subsumptive
      ((=ucs@jis		  . #x7626)	; &M-22415;
       (=jis-x0208@1978	  . #x4169)	; &M-22415; [33-73]
       (=ks-x1001	  . #x6231)	; &I-K0-6231; [66-17]
       (=jis-x0212	  . #x4D77)	; &I-JSP-4D77; [45-87]
+      (=jis-x0213-1@2004  . #x7E7D)	; &I-JX3-7E7D; [94-93]
       (=daikanwa	  . 22415)	; &I-M-22415;
       )
      ((=ucs@unicode	  . #x7626)	; &C1-6D70;
@@ -5367,12 +5369,13 @@
     ))
 (define-char
   '((<-denotational
-     ((=>jis-x0208	  . #x4169)	; &J97-4169; [33-73]
+     ((=>jis-x0208@1997	  . #x4169)	; &J97-4169; [33-73]
       ))
     (ideographic-radical . 104)	; ⽧
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (=ucs		. #x75E9)	; 痩
+    (=>jis-x0213-1@2004 . #x4169)	; 痩 [33-73]
     (->subsumptive
      ((=ucs@jis		  . #x75E9)	; &GT-28480;
       (=jis-x0208@1983	  . #x4169)	; &GT-28480; [33-73]
@@ -5381,11 +5384,12 @@
       (=gt		  . 28480)	; &I-GT-28480;
       (=gt-pj-1		  . #x4169)	; &I-GT-28480; [33-73]
       (=jef-china3	  . #x5AF5)	; &I-JC3-5AF5;
-      (<-simplified@JP/jis
+      (<-simplified@JP/extra/design
        ((=ucs@jis	    . #x7626)	; &M-22415;
 	(=jis-x0208@1978    . #x4169)	; &M-22415; [33-73]
 	(=ks-x1001	    . #x6231)	; &I-K0-6231; [66-17]
 	(=jis-x0212	    . #x4D77)	; &I-JSP-4D77; [45-87]
+	(=jis-x0213-1@2004  . #x7E7D)	; &I-JX3-7E7D; [94-93]
 	(=daikanwa	    . 22415)	; &I-M-22415;
 	))
       )
