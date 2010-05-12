@@ -1,3 +1,13 @@
+2010-05-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R104-Sickness.el (J97-4169): Separate abstract
+	JX3-4169.
+	(U+7626): Unify abstract JX3-7E7D.
+	(J78-4169): Unify JX3-7E7D.
+	(U+75E9): Unify abstract JX3-4169.
+	(J90-4169): Use `<-simplified@JP/extra/design' instead of
+	`<-simplified@JP/jis' for J78-4169.
+
 2010-04-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R124-Feather.el (U+7FCF): Use `->denotational' instead
