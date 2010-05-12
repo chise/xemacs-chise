@@ -83,12 +83,45 @@
 	      graphic 0
 	      partial t))
   (make-charset
+   '=jis-x0208@1978/2-pr
+   "JIS X 0208:1978, 2nd impression or later."
+   '(registry "jisx0208\\.1978"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0208@1978/1er-pr
+              =>iso-ir 42
+	      ;; final ?@
+	      graphic 0
+	      partial t))
+  (make-charset
+   '=jis-x0208@1978/4er
+   "JIS X 0208:1978, replaced by errata of 4th impression."
+   '(registry "jisx0208\\.1978"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0208@1978/2-pr
+              =>iso-ir 42
+	      ;; final ?@
+	      graphic 0
+	      partial t))
+  (make-charset
    '=jis-x0208@1978/4-pr
    "JIS X 0208:1978, 4th impression or later."
    '(registry "jisx0208\\.1978"
 	      dimension 2
 	      chars 94
-	      mother =jis-x0208@1978/1er-pr
+	      mother =jis-x0208@1978/2-pr
+              =>iso-ir 42
+	      ;; final ?@
+	      graphic 0
+	      partial t))
+  (make-charset
+   '=jis-x0208@1978/5pr
+   "JIS X 0208:1978, 5th impression."
+   '(registry "jisx0208\\.1978"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0208@1978/4-pr
               =>iso-ir 42
 	      ;; final ?@
 	      graphic 0
