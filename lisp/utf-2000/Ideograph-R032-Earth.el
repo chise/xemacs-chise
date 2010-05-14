@@ -7263,6 +7263,14 @@
   '((ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 00199)	; &GT-K00199;
+      )
+     ((=>jis-x0208@1997	  . #x5622)	; &J97-5622; [54-02]
+      ))
     (=ucs		. #x5840)	; 塀
     ))
 (define-char
@@ -7301,6 +7309,14 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 00199)	; &GT-K00199;
+      )
+     ((=ucs		  . #x5C5B)	; 屛
+      ))
     (=ucs		. #xFA39)	; 塀
     (->subsumptive
      ((ideographic-structure
@@ -7309,11 +7325,14 @@
 	)
        ((=gt-k		    . 00199)	; &GT-K00199;
 	)
-       ((=ks-x1001	    . #x5C34)	; &CDP-88EB; [60-20]
-	(=daikanwa	    . 09175)	; &I-M-09175;
+       ((=jis-x0208@1978    . #x5622)	; &M-07734; [54-02]
+	(=ks-x1001	    . #x5C33)	; &I-K0-5C33; [60-19]
+	(=jis-x0213-1@2004  . #x7E7B)	; &I-JX3-7E7B; [94-91]
+	(=daikanwa	    . 07734)	; &I-M-07734;
 	))
       (=ucs@unicode	  . #xFA39)	; &JX1-2F5A;
       (=jis-x0213-1	  . #x2F5A)	; &JX1-2F5A; [15-58]
+      (=shinjigen/+p@rev  .  1454)	; &JX1-2F5A;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
