@@ -1,5 +1,30 @@
 2010-05-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R051-Dry.el (J97-5675): New abstract character.
+	(U+5E76): Add `<-denotational' for J97-5675; add `<-vulgar' for
+	JX3-7E7C.
+	(U-0002218A): Use `->denotational' instead of `->subsumptive'; add
+	abstract ideographic-structure.
+	(U+5E77): Add `<-denotational' for J97-5675; unify abstract
+	JX3-7E7C.
+	(K0-5C34): Unify JX3-7E7C and S-2156.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-3C38.
+
+	* Ideograph-R120-Silk.el (J97-3752): New abstract character.
+	(U+7E4B): Add `<-denotational' for J97-3752; unify abstract
+	JX3-3752.
+	(J90-3752): Use `<-simplified@JP/extra' instead of
+	`<-simplified@JP/jis' for J78-3752.
+	(U+7E6B): Add `<-denotational' for J97-3752; unify abstract
+	JX3-7E7E.
+	(J78-3752): Unify JX3-7E7E.
+
+	* Ideograph-R032-Earth.el (U+5840): Add abstract
+	ideographic-structure.
+	(U+FA39): Likewise.
+	(JX1-2F5A): Fix `ideographic-structure'.
+
 	* Ideograph-R104-Sickness.el (J97-4169): Separate abstract
 	JX3-4169.
 	(U+7626): Unify abstract JX3-7E7D.
