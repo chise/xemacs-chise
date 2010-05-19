@@ -1,3 +1,25 @@
+2010-05-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (J97-3C38): New abstract character.
+	(U-00020B9F): Add `<-denotational' for J97-3C38; delete
+	`<-subsumptive' for U+53F1; separate J0-3C38, C1-4639,
+	JX{1|3}-3C38 and GT-04123; use `->subsumptive' to separate
+	representative node.
+	(M-03247): Unify J78/4er-3C38, J78/5pr-3C38 and JX3-4F54.
+	(U+53F1): Add `<-denotational' for J97-3C38; delete
+	`->subsumptive'.
+	(U-0002F83A): Add `<-denotational' for J97-3C38.
+	(C5-2160): Use `<-subsumptive' to integrate J78/1pr-3C38.
+	(C1-4639): Unify GT-04123.
+	(J90-3C38): Unify J78/2-pr-3C38, J83-3C38 and JX{1|3}-3C38.
+	(U+5617): Add abstract ideographic-structure.
+	(J97-3133): New abstract character.
+	(U+5653): Add `<-denotational' for J97-3133; unify abstract
+	JX3-7427.
+	(K0-7A46): Unify JX3-7427.
+	(U+5618): Add `<-denotational' for J97-3133; unify abstract
+	JX3-3133; add abstract ideographic-structure.
+
 2010-05-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R051-Dry.el (J97-5675): New abstract character.
