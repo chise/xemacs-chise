@@ -5948,7 +5948,8 @@
     (=daikanwa		. 00509)	; &I-M-00509;
     (=shinjigen		.  0188)	; 体
     (<-simplified@CN
-     ((=gb12345		  . #x4C65)	; 體 [44-69]
+     ((=ucs@unicode	  . #x9AD4)	; &UU+9AD4;
+      (=gb12345		  . #x4C65)	; &UU+9AD4; [44-69]
       ))
     (<-simplified@JP/Jouyou
      ((=ucs@jis		  . #x9AD4)	; &GT-60937;
