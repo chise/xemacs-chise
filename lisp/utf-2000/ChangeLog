@@ -1,3 +1,8 @@
+2010-05-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R188-Bone.el (U+9AD4): Use `->denotational' and
+	`->subsumptive'.
+
 2010-05-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el (J97-3C38): New abstract character.
