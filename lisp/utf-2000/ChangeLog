@@ -1,3 +1,13 @@
+2010-05-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R158-Body.el (U-0002822B): Use `->subsumptive'.
+	(U+4833): Use `->subsumptive' to separate representative nodes.
+	(U+4834): Likewise.
+	(U+4832): Likewise.
+	(U+8EB0): Use `->subsumptive'.
+	(J0-6D3C): Add `<-vulgar' for J0-7173.
+	(U-0002822C): Unify H10-C060 and CB02553.
+
 2010-05-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R188-Bone.el (U+9AD4): Use `->denotational' and
