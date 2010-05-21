@@ -263,64 +263,94 @@
     (=daikanwa		. 38060)	; &I-M-38060;
     ))
 (define-char
-  '((=>ucs		. #x2822B)	; 𨈫
-    (ideographic-radical . 158)	; ⾝
-    (ideographic-strokes . 5)
-    (total-strokes	 . 12)
-    (=daikanwa		. 38061)	; &M-38061;
-    ))
-(define-char
-  '((morohashi-daikanwa	38061 0 0)
-    (ideographic-radical . 158)	; ⾝
+  '((ideographic-radical . 158)	; ⾝
     (ideographic-strokes . 5)
     (total-strokes	 . 12)
     (=ucs		. #x2822B)	; 𨈫
-    (=cns11643-5	. #x3C64)	; &I-C5-3C64; [28-68]
+    (->subsumptive
+     ((=daikanwa	  . 38061)	; &M-38061;
+      )
+     ((=cns11643-5	  . #x3C64)	; &C5-3C64; [28-68]
+      )
+     ((=ucs@iso		  . #x2822B)	; &U-0002822B;
+      ))
     ))
 (define-char
   '((ideographic-radical . 158)	; ⾝
     (ideographic-strokes . 5)
     (total-strokes	 . 12)
     (=ucs		. #x4833)	; 䠳
-    (=cns11643-5	. #x3C67)	; &I-C5-3C67; [28-71]
-    (=daikanwa		. 38062)	; &I-M-38062;
+    (->subsumptive
+     ((=daikanwa	  . 38062)	; &M-38062;
+      )
+     ((=cns11643-5	  . #x3C67)	; &C5-3C67; [28-71]
+      )
+     ((=ucs@unicode	  . #x4833)	; &UU+4833;
+      ))
     ))
 (define-char
   '((ideographic-radical . 158)	; ⾝
     (ideographic-strokes . 5)
     (total-strokes	 . 12)
     (=ucs		. #x4834)	; 䠴
-    (=cns11643-4	. #x3B52)	; &I-C4-3B52; [27-50]
-    (=daikanwa		. 38063)	; &I-M-38063;
+    (->subsumptive
+     ((=daikanwa	  . 38063)	; &M-38063;
+      )
+     ((=cns11643-4	  . #x3B52)	; &C4-3B52; [27-50]
+      )
+     ((=ucs@unicode	  . #x4834)	; &UU+4834;
+      ))
     ))
 (define-char
   '((ideographic-radical . 158)	; ⾝
     (ideographic-strokes . 5)
     (total-strokes	 . 12)
     (=ucs		. #x4832)	; 䠲
-    (=cns11643-3	. #x3F42)	; &I-C3-3F42; [31-34]
-    (=daikanwa		. 38064)	; &I-M-38064;
+    (->subsumptive
+     ((=daikanwa	  . 38064)	; &M-38064;
+      )
+     ((=cns11643-3	  . #x3F42)	; &C3-3F42; [31-34]
+      )
+     ((=ucs@unicode	  . #x4832)	; &UU+4832;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x8EB0)	; 躰
-    (ideographic-radical . 158)	; ⾝
-    (ideographic-strokes . 5)
-    (total-strokes	 . 12)
-    (=ucs@jis		. #x8EB0)	; &GT-50841;
-    (=jis-x0208		. #x6D3C)	; &GT-50841; [77-28]
-    (=cns11643-3	. #x3F40)	; &I-C3-3F40; [31-32]
-    (=jis-x0213-1	. #x6D3C)	; &I-JX1-6D3C; [77-28]
-    (=gt		. 50841)	; &I-GT-50841;
-    (=gt-pj-1		. #x6D3C)	; &I-GT-50841; [77-28]
-    (=daikanwa		. 38065)	; &I-M-38065;
-    (=shinjigen@rev	.  0190)	; &GT-50841;
-    ))
-(define-char
-  '((morohashi-daikanwa	38065 0 0)
-    (ideographic-radical . 158)	; ⾝
+  '((ideographic-radical . 158)	; ⾝
     (ideographic-strokes . 5)
     (total-strokes	 . 12)
     (=ucs		. #x8EB0)	; 躰
+    (->subsumptive
+     ((=ucs@jis		  . #x8EB0)	; &GT-50841;
+      (=jis-x0208	  . #x6D3C)	; &GT-50841; [77-28]
+      (=cns11643-3	  . #x3F40)	; &I-C3-3F40; [31-32]
+      (=jis-x0213-1	  . #x6D3C)	; &I-JX1-6D3C; [77-28]
+      (=gt		  . 50841)	; &I-GT-50841;
+      (=gt-pj-1		  . #x6D3C)	; &I-GT-50841; [77-28]
+      (=daikanwa	  . 38065)	; &I-M-38065;
+      (<-vulgar
+       ((=ucs@jis	    . #x9AD4)	; &GT-60937;
+	(=jis-x0208	    . #x7173)	; &GT-60937; [81-83]
+	(=ks-x1001	    . #x7477)	; &I-K0-7477; [84-87]
+	(=jis-x0213-1	    . #x7173)	; &I-JX1-7173; [81-83]
+	(=daikanwa	    . 45291)	; &I-M-45291;
+	))
+      (<-vulgar*sources
+       yupian daikanwa)
+      )
+     ((=shinjigen	  .  0190)	; &SJG2-0190;
+      (<-vulgar
+       ((=ucs@jis	    . #x9AD4)	; &GT-60937;
+	(=jis-x0208	    . #x7173)	; &GT-60937; [81-83]
+	(=ks-x1001	    . #x7477)	; &I-K0-7477; [84-87]
+	(=jis-x0213-1	    . #x7173)	; &I-JX1-7173; [81-83]
+	(=daikanwa	    . 45291)	; &I-M-45291;
+	(=shinjigen	    .  0189)	; &GT-60937;
+	))
+      (<-vulgar*sources
+       shinjigen)
+      )
+     ((=ucs@unicode	  . #x8EB0)	; &UU+8EB0;
+      ))
     ))
 (define-char
   '((ideographic-radical . 158)	; ⾝
@@ -329,6 +359,8 @@
     (=ucs		. #x2822C)	; 𨈬
     (=cns11643-6	. #x4F41)	; &I-C6-4F41; [47-33]
     (=daikanwa		. 38066)	; &I-M-38066;
+    (=hanziku-10	. #xC060)	; &I-HZK10-C060;
+    (=cbeta		. 02553)	; &I-CB02553;
     ))
 (define-char
   '((ideographic-radical . 158)	; ⾝
