@@ -1,3 +1,16 @@
+2010-05-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-0330): Add `ideographic-structure'.
+	(ZOB-0602): Likewise.
+	(ZOB-0603): Likewise.
+	(ZOB-0604): Likewise.
+	(ZOB-0605): Likewise.
+	(ZOB-{2231 - 2261}): New characters.
+
+2010-05-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R050-Turban.el (U-0002215C): New character.
+
 2010-05-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R158-Body.el (U-0002822B): Use `->subsumptive'.
