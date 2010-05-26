@@ -5407,6 +5407,12 @@
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (=ucs		. #x2215C)	; 𢅜
+    ))
+(define-char
+  '((ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
     (=ucs		. #x3865)	; 㡥
