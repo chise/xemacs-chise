@@ -6169,7 +6169,8 @@
     (=shinjigen		.  0188)	; 体
     (mojikyo		. 000509)	; &MCS-600001FD;
     (<-simplified@CN
-     ((=gb12345		  . #x4C65)	; 體 [44-69]
+     ((=ucs@unicode	  . #x9AD4)	; &UU+9AD4;
+      (=gb12345		  . #x4C65)	; &UU+9AD4; [44-69]
       ))
     (<-simplified@JP/Jouyou
      ((=ucs@jis		  . #x9AD4)	; &GT-60937;
@@ -14346,6 +14347,7 @@
 	(=ucs		    . #x2E85)	; ⺅
 	)
        ((=ks-x1001	    . #x5C34)	; &CDP-88EB; [60-20]
+	(=jis-x0213-1@2004  . #x7E7C)	; &I-JX3-7E7C; [94-92]
 	(=daikanwa	    . 09175)	; &I-M-09175;
 	))
       (=ks-x1001	  . #x5C31)	; &M-00746; [60-17]

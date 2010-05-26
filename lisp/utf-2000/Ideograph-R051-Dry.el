@@ -110,6 +110,14 @@
     ))
 (define-char
   '((ideographic-radical . 51)	; ⼲
+    (=>jis-x0208@1997	. #x5675)	; &J97-5675; [54-85]
+    (=>jis-x0213-1@2000 . #x5675)	; &J97-5675; [54-85]
+    ))
+(define-char
+  '((<-denotational
+     ((=>jis-x0208@1997	  . #x5675)	; &J97-5675; [54-85]
+      ))
+    (ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=ucs		. #x5E76)	; 并
@@ -122,41 +130,70 @@
     (=gt-k		. 01721)	; &I-GT-K01721;
     (=gt-pj-1		. #x5675)	; &I-GT-11554; [54-85]
     (=daikanwa		. 09170)	; &I-M-09170;
-    (=shinjigen@rev	.  2157)	; 并
+    (=shinjigen		.  2157)	; 并
+    (<-vulgar
+     ((=ks-x1001	  . #x5C34)	; &CDP-88EB; [60-20]
+      (=jis-x0213-1@2004  . #x7E7C)	; &I-JX3-7E7C; [94-92]
+      (=daikanwa	  . 09175)	; &I-M-09175;
+      (=shinjigen	  .  2156)	; &CDP-88EB;
+      ))
+    (<-vulgar*sources
+     zhengzitong daikanwa shinjigen)
     ))
 (define-char
   '((ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (=ucs		. #x2218A)	; 𢆊
-    (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ks-x1001	    . #x7841)	; &GT-11550; [88-33]
-	(=daikanwa	    . 09167)	; &I-M-09167;
-	)
-       ((=ucs		    . #x4E01)	; 丁
-	))
-      (=daikanwa	  . 09171)	; &M-09171;
-      (=hanziku-1	  . #xA872)	; &I-HZK01-A872;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs@unicode	    . #x5E73)	; &GT-11551;
-	(=jis-x0208	    . #x4A3F)	; &GT-11551; [42-31]
-	(=gb2312	    . #x463D)	; &I-G0-463D; [38-29]
-	(=cns11643-1	    . #x464D)	; &I-C1-464D; [38-45]
-	(=jis-x0213-1	    . #x4A3F)	; &I-JX1-4A3F; [42-31]
-	)
-       ((=ucs		    . #x4E01)	; 丁
-	))
-      (=ucs@unicode	  . #x2218A)	; &C6-2742;
-      (=cns11643-6	  . #x2742)	; &C6-2742; [07-34]
+     ((=ucs		  . #x5E73)	; 平
+      )
+     ((=ucs		  . #x4E01)	; 丁
       ))
+    (=ucs		. #x2218A)	; 𢆊
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2218A)	; 𢆊
+      ))
+    (ideographic-radical . 51)	; ⼲
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ks-x1001	  . #x7841)	; &GT-11550; [88-33]
+      (=daikanwa	  . 09167)	; &I-M-09167;
+      )
+     ((=ucs		  . #x4E01)	; 丁
+      ))
+    (=daikanwa		. 09171)	; &M-09171;
+    (=hanziku-1		. #xA872)	; &I-HZK01-A872;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2218A)	; 𢆊
+      ))
+    (ideographic-radical . 51)	; ⼲
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x5E73)	; &GT-11551;
+      (=jis-x0208	  . #x4A3F)	; &GT-11551; [42-31]
+      (=gb2312		  . #x463D)	; &I-G0-463D; [38-29]
+      (=cns11643-1	  . #x464D)	; &I-C1-464D; [38-45]
+      (=jis-x0213-1	  . #x4A3F)	; &I-JX1-4A3F; [42-31]
+      )
+     ((=ucs		  . #x4E01)	; 丁
+      ))
+    (=ucs@iso		. #x2218A)	; &C6-2742;
+    (=cns11643-6	. #x2742)	; &C6-2742; [07-34]
     ))
 (define-char
   '((ideographic-radical . 51)	; ⼲
@@ -188,14 +225,20 @@
     (=daikanwa		. 09174)	; &I-M-09174;
     ))
 (define-char
-  '((ideographic-radical . 51)	; ⼲
+  '((<-denotational
+     ((=>jis-x0208@1997	  . #x5675)	; &J97-5675; [54-85]
+      ))
+    (ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (=ucs		. #x5E77)	; 幷
+    (=>jis-x0213-1@2004 . #x7E7C)	; 幷 [94-92]
     (->subsumptive
      ((=ks-x1001	  . #x5C34)	; &CDP-88EB; [60-20]
+      (=jis-x0213-1@2004  . #x7E7C)	; &I-JX3-7E7C; [94-92]
       (=big5-cdp	  . #x88EB)	; &I-CDP-88EB;
       (=daikanwa	  . 09175)	; &I-M-09175;
+      (=shinjigen	  .  2156)	; &CDP-88EB;
       (=jef-china3	  . #x4CB2)	; &I-JC3-4CB2;
       )
      ((=ucs@unicode	  . #x5E77)	; &C3-2863;

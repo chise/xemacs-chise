@@ -1,3 +1,12 @@
+2010-05-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=jis-x0208@1978/2-pr): New coded-charset for
+	XEmacs CHISE.
+	(=jis-x0208@1978/4er): New coded-charset for XEmacs CHISE.
+	(=jis-x0208@1978/4-pr): Use `=jis-x0208@1978/2-pr' instead of
+	`=jis-x0208@1978/1er-pr' as the mother.
+	(=jis-x0208@1978/5pr): New coded-charset for XEmacs CHISE.
+
 2010-04-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=ucs@big5): Use `=>>ucs@unicode' instead of
