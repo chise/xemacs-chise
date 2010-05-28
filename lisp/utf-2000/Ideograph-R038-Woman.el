@@ -1603,6 +1603,16 @@
     (non-morohashi	6119 9 3)
     (=ucs		. #x59AB)	; 妫
     (=gb2312		. #x6623)	; &I-G0-6623; [70-03]
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x5B00)	; &UU+5B00;
+      (=gb12345		  . #x6623)	; &UU+5B00; [70-03]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (=ucs		. #x216CF)	; 𡛏
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
