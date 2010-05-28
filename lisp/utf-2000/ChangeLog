@@ -1,3 +1,11 @@
+2010-05-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R094-Dog.el (U-0002472A): New character.
+
+	* Oracle-Bones.el (ZOB-2224): Add `<-Oracle-Bones'.
+	(ZOB-2251): Likewise.
+	(ZOB-{2262 - 2268}): New characters.
+
 2010-05-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R038-Woman.el (U+59AB): Add `<-simplified@CN' for
