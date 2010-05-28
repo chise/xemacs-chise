@@ -23231,6 +23231,13 @@
   '((shuowen-radical	. 281)	; 巾
     (zinbun-oracle-page . 105)
     (=zinbun-oracle	. 02224)	; &ZOB-2224;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x5E1A)	; 帚
+	)
+       ((=ucs		    . #x216CF)	; 𡛏
+	))
+      ))
     ))
 (define-char
   '((shuowen-radical	. 281)	; 巾
@@ -23593,6 +23600,9 @@
     (sources		zob1968=3245)
     (zinbun-oracle-page . 106)
     (=zinbun-oracle	. 02251)	; &ZOB-2251;
+    (<-Oracle-Bones
+     ((=ucs		  . #x2215C)	; 𢅜
+      ))
     ))
 (define-char
   '((shuowen-radical	. 281)	; 巾
@@ -23714,6 +23724,147 @@
        ((=ucs		    . #x767D)	; 白
 	)
        ((=ucs		    . #x6771)	; 東
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 284)	; 白
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=zinbun-oracle	  . 02258)	; &ZOB-2258;
+      )
+     ((=ucs		  . #x8C55)	; 豕
+      ))
+    (zinbun-oracle-page . 107)
+    (=zinbun-oracle	. 02262)	; &ZOB-2262;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x767D)	; 白
+	)
+       ((=ucs		    . #x8C55)	; 豕
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 284)	; 白
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=zinbun-oracle	  . 02258)	; &ZOB-2258;
+      )
+     ((=ucs		  . #x5155)	; 兕
+      ))
+    (zinbun-oracle-page . 107)
+    (=zinbun-oracle	. 02263)	; &ZOB-2263;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x767D)	; 白
+	)
+       ((=ucs		    . #x5155)	; 兕
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 284)	; 白
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=zinbun-oracle	  . 02258)	; &ZOB-2258;
+      )
+     ((=ucs		  . #x99AC)	; 馬
+      ))
+    (zinbun-oracle-page . 107)
+    (=zinbun-oracle	. 02264)	; &ZOB-2264;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x767D)	; 白
+	)
+       ((=ucs		    . #x99AC)	; 馬
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 284)	; 白
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=zinbun-oracle	  . 02258)	; &ZOB-2258;
+      )
+     ((=ucs		  . #x9E7F)	; 鹿
+      ))
+    (zinbun-oracle-page . 107)
+    (=zinbun-oracle	. 02265)	; &ZOB-2265;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x767D)	; 白
+	)
+       ((=ucs		    . #x9E7F)	; 鹿
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 284)	; 白
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=zinbun-oracle	  . 02258)	; &ZOB-2258;
+      )
+     ((=ucs		  . #x72AC)	; 犬
+      ))
+    (sources		zob1968=1860)
+    (zinbun-oracle-page . 107)
+    (=zinbun-oracle	. 02266)	; &ZOB-2266;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x767D)	; 白
+	)
+       ((=ucs		    . #x72AC)	; 犬
+	))
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 284)	; 白
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=zinbun-oracle	  . 02258)	; &ZOB-2258;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x4EA1)	; 亡
+	)
+       ((=ucs		    . #x72AC)	; 犬
+	))
+      ))
+    (zinbun-oracle-page . 107)
+    (=zinbun-oracle	. 02267)	; &ZOB-2267;
+    ))
+(define-char
+  '((shuowen-radical	. 284)	; 白
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=zinbun-oracle	  . 02258)	; &ZOB-2258;
+      )
+     ((=ucs		  . #x897F)	; 西
+      ))
+    (zinbun-oracle-page . 107)
+    (=zinbun-oracle	. 02268)	; &ZOB-2268;
+    (<-Oracle-Bones
+     ((ideographic-combination
+       ((=ucs		    . #x767D)	; 白
+	)
+       ((=ucs		    . #x897F)	; 西
 	))
       ))
     ))
