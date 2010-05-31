@@ -25,8 +25,8 @@
 
 ;;; Code:
 
-(require 'alist)
 (require 'chise-subr)
+(require 'ideograph-subr)
 
 (defconst unidata-normative-category-alist
   '(("Lu" letter	uppercase)
@@ -62,19 +62,6 @@
     ("Sk" symbol	modifier)
     ("So" symbol	other)
     ))
-
-(defconst ideographic-radicals
-  (let ((v (make-vector 215 nil))
-	(i 1))
-    (while (< i 215)
-      (aset v i (decode-char '=ucs (+ #x2EFF i)))
-      (setq i (1+ i)))
-    v))
-
-;;;###autoload
-(defun ideographic-radical (number)
-  "Return character corresponding with Kangxi-radical number."
-  (aref ideographic-radicals number))
 
 (defconst shuowen-radicals
   [?一 ?上 ?示 ?三 ?王 ?玉 ?玨 ?气 ?士 ?丨 ; 010
