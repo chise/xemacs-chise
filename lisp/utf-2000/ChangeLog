@@ -1,5 +1,15 @@
 2010-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* char-db-util.el:
+	- Don't require `alist'.
+	- Require `ideograph-subr'.
+	(ideographic-radicals): Moved to ideograph-subr.el.
+	(ideographic-radical): Ditto.
+
+	* ideograph-subr.el: New file.
+
+2010-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* chise-subr.el (char-attribute-name<): Add DOC-string.
 	(char-ucs): Ditto.
 
