@@ -1,5 +1,15 @@
 2010-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* ideograph-util.el: Require `ideograph-subr'.
+	(get-char-feature-from-domains): Moved to ideograph-subr.el.
+	(char-ideographic-radical): Ditto.
+
+	* ideograph-subr.el (get-char-feature-from-domains): New function
+	[moved from ideograph-util.el].
+	(char-ideographic-radical): Ditto.
+
+2010-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* char-db-util.el:
 	- Don't require `alist'.
 	- Require `ideograph-subr'.
