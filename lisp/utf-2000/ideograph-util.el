@@ -26,70 +26,12 @@
 ;;; Code:
 
 (require 'chise-subr)
+(require 'ideograph-subr)
 (require 'char-db-util)
-
-(defun get-char-feature-from-domains (char feature domains
-					   &optional tester arg
-					   ignore-sisters)
-  (map-char-family
-   (lambda (ch)
-     (let (ret)
-       (catch 'tag
-	 (dolist (domain domains)
-	   (if (and (or (null tester)
-			(equal (or (char-feature
-				    ch (expand-char-feature-name
-					tester domain))
-				   (char-feature ch tester))
-			       arg))
-		    (setq ret (or (char-feature
-				   ch (expand-char-feature-name
-				       feature domain))
-				  (char-feature ch feature))))
-	       (throw 'tag ret))))))
-   char ignore-sisters))
 
 
 (defvar ideograph-radical-chars-vector
   (make-vector 215 nil))
-
-(defun char-ideographic-radical (char &optional radical ignore-sisters)
-  (let (ret)
-    (or (if radical
-	    (get-char-feature-from-domains
-	     char 'ideographic-radical (cons nil char-db-feature-domains)
-	     'ideographic-radical radical ignore-sisters)
-	  (get-char-feature-from-domains
-	   char 'ideographic-radical (cons nil char-db-feature-domains)
-	   ignore-sisters))
-        ;; (catch 'tag
-        ;;   (dolist (domain char-db-feature-domains)
-        ;;     (if (and (setq ret (char-feature
-        ;;                         char
-        ;;                         (intern
-        ;;                          (format "%s@%s"
-        ;;                                  'ideographic-radical domain))))
-        ;;              (or (eq ret radical)
-        ;;                  (null radical)))
-        ;;         (throw 'tag ret))))
-	(catch 'tag
-	  (dolist (cell (get-char-attribute char 'ideographic-))
-	    (if (and (setq ret (plist-get cell :radical))
-		     (or (eq ret radical)
-			 (null radical)))
-		(throw 'tag ret))))
-	(get-char-feature-from-domains
-	 char 'ideographic-radical (cons nil char-db-feature-domains))
-        ;; (char-feature char 'ideographic-radical)
-	(progn
-	  (setq ret
-		(or (get-char-attribute char 'daikanwa-radical)
-		    (get-char-attribute char 'kangxi-radical)
-		    (get-char-attribute char 'japanese-radical)
-		    (get-char-attribute char 'korean-radical)))
-	  (when ret
-	    (put-char-attribute char 'ideographic-radical ret)
-	    ret)))))
 
 (defvar ideograph-radical-strokes-vector
   ;;0  1  2  3  4  5  6  7  8  9
