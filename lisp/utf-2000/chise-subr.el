@@ -1,7 +1,7 @@
 ;;; chise-subr.el --- basic lisp subroutines for XEmacs CHISE
 
-;; Copyright (C) 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006,
-;;   2007, 2008, 2009, 2010 MORIOKA Tomohiko.
+;; Copyright (C) 1999, 2001, 2002, 2003, 2004, 2005, 2008, 2009, 2010
+;;   MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Character Database, ISO/IEC 10646, UCS, Unicode, MULE.
@@ -36,6 +36,7 @@
 
 ;;;###autoload
 (defun char-attribute-name< (ka kb)
+  "Return t if symbol KA is less than KB in feature-name sorting order."
   (cond
    ((eq '->denotational kb)
     t)
@@ -109,6 +110,7 @@
 
 ;;;###autoload
 (defun char-ucs (char)
+  "Return code-point of UCS."
   (or (encode-char char '=ucs 'defined-only)
       (char-feature char '=>ucs)))
 
