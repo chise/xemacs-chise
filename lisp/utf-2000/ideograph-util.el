@@ -1,7 +1,7 @@
 ;;; ideograph-util.el --- Ideographic Character Database utility
 
 ;; Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2007, 2008,
-;;   2009 MORIOKA Tomohiko.
+;;   2009, 2010 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Chaon model, ISO/IEC 10646, Unicode, UCS-4, MULE.
@@ -25,33 +25,8 @@
 
 ;;; Code:
 
+(require 'chise-subr)
 (require 'char-db-util)
-
-;;;###autoload
-(defun expand-char-feature-name (feature domain)
-  (if domain
-      (intern (format "%s@%s" feature domain))
-    feature))
-
-;;;###autoload
-(defun map-char-family (function char &optional ignore-sisters)
-  (let ((rest (list char))
-	ret checked)
-    (catch 'tag
-      (while rest
-	(unless (memq (car rest) checked)
-	  (if (setq ret (funcall function (car rest)))
-	      (throw 'tag ret))
-	  (setq checked (cons (car rest) checked)
-		rest (append rest
-			     (get-char-attribute (car rest) '->subsumptive)
-			     (get-char-attribute (car rest) '->denotational)
-			     (get-char-attribute (car rest) '->identical)))
-	  (unless ignore-sisters
-	    (setq rest (append rest
-			       (get-char-attribute (car rest) '<-subsumptive)
-			       (get-char-attribute (car rest) '<-denotational)))))
-	(setq rest (cdr rest))))))
 
 (defun get-char-feature-from-domains (char feature domains
 					   &optional tester arg
@@ -496,15 +471,6 @@
 		    (setq checked (cons sc checked)
 			  rest (cdr rest))))))))))
 
-;;;###autoload
-(defun char-ucs (char)
-  (or (encode-char char '=ucs 'defined-only)
-      (char-feature char '=>ucs)))
-
-;;;###autoload
-(defun char-id (char)
-  (logand (char-int char) #x3FFFFFFF))
-
 (defun char-ideographic-strokes-diff (char &optional radical)
   (if (or (get-char-attribute char '<-subsumptive)
 	  (get-char-attribute char '<-denotational))
@@ -615,39 +581,6 @@
 			    (unless (or rest value)
 			      char)))
 			'ideographic-structure)))
-
-;;;###autoload
-(defun chise-string< (string1 string2 accessors)
-  (let ((len1 (length string1))
-	(len2 (length string2))
-	len
-	(i 0)
-	c1 c2
-	rest func
-	v1 v2)
-    (setq len (min len1 len2))
-    (catch 'tag
-      (while (< i len)
-	(setq c1 (aref string1 i)
-	      c2 (aref string2 i))
-	(setq rest accessors)
-	(while (and rest
-		    (setq func (car rest))
-		    (setq v1 (funcall func c1)
-			  v2 (funcall func c2))
-		    (eq v1 v2))
-	  (setq rest (cdr rest)))
-	(if v1
-	    (if v2
-		(cond ((< v1 v2)
-		       (throw 'tag t))
-		      ((> v1 v2)
-		       (throw 'tag nil)))
-	      (throw 'tag nil))
-	  (if v2
-	      (throw 'tag t)))
-	(setq i (1+ i)))
-      (< len1 len2))))
 
 
 (provide 'ideograph-util)
