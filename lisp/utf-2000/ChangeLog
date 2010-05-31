@@ -1,5 +1,10 @@
 2010-05-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* chise-subr.el: New file.
+
+	* char-db-util.el: Require `chise-subr'.
+	(char-attribute-name<): Moved to chise-subr.el.
+
 	* Ideograph-R094-Dog.el (U-0002472A): New character.
 
 	* Oracle-Bones.el (ZOB-2224): Add `<-Oracle-Bones'.
