@@ -26,6 +26,7 @@
 ;;; Code:
 
 (require 'alist)
+(require 'chise-subr)
 
 (defconst unidata-normative-category-alist
   '(("Lu" letter	uppercase)
@@ -118,74 +119,6 @@
 
 (defvar char-db-ignored-attributes '(ideographic-products))
 
-(defun char-attribute-name< (ka kb)
-  (cond
-   ((eq '->denotational kb)
-    t)
-   ((eq '->subsumptive kb)
-    (not (eq '->denotational ka)))
-   ((eq '->denotational ka)
-    nil)
-   ((eq '->subsumptive ka)
-    nil)
-   ((and (symbolp ka)
-	 (string-match "^->" (symbol-name ka)))
-    (cond ((and (symbolp kb)
-		(string-match "^->" (symbol-name kb)))
-	   (string< (symbol-name ka)
-		    (symbol-name kb))
-	   ))
-    )
-   ((and (symbolp kb)
-	 (string-match "^->" (symbol-name kb)))
-    t)
-   ((and (symbolp ka)
-	 (string-match "^<-" (symbol-name ka)))
-    (cond ((symbolp kb)
-	   (cond ((string-match "^<-" (symbol-name kb))
-		  (string< (symbol-name ka)
-			   (symbol-name kb))
-		  )
-                 ;; ((string-match "^->" (symbol-name kb))
-                 ;;  t)
-		 )))
-    )
-   ((and (symbolp kb)
-	 (string-match "^<-" (symbol-name kb)))
-    t
-    ;; (not (string-match "^->" (symbol-name ka)))
-    )
-   ((find-charset ka)
-    (if (find-charset kb)
-	(let (a-ir b-ir)
-	  (if (setq a-ir (charset-property ka 'iso-ir))
-	      (if (setq b-ir (charset-property kb 'iso-ir))
-		  (cond
-		   ((= a-ir b-ir)
-		    (< (charset-id ka)(charset-id kb))
-		    )
-		   ((= a-ir 177)
-		    t)
-		   ((= b-ir 177)
-		    nil)
-		   ((< a-ir
-		       b-ir)
-		    ))
-		t)
-	    (if (charset-property kb 'iso-ir)
-		nil
-	      (< (charset-id ka)(charset-id kb)))))
-      nil)
-    )
-   ((find-charset kb))
-   ((symbolp ka)
-    (cond ((symbolp kb)
-	   (string< (symbol-name ka)
-		    (symbol-name kb)))
-	  (t)))
-   ((symbolp kb)
-    nil)))
-
 (defvar char-db-coded-charset-priority-list
   '(ascii
     control-1
@@ -264,6 +197,10 @@
     =ruimoku-v6
     =jef-china3
     =shinjigen))
+
+
+;;; @ char-db formatters
+;;;
 
 (defun char-db-make-char-spec (char)
   (let (ret char-spec)
@@ -1345,6 +1282,10 @@
 	       (set-window-configuration
 		what-character-original-window-configuration)
 	       (signal (car err) (cdr err)))))))
+
+
+;;; @ end
+;;;
 
 (provide 'char-db-util)
 
