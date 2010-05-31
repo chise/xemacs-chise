@@ -1,5 +1,10 @@
 2010-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* chise-subr.el (char-attribute-name<): Add DOC-string.
+	(char-ucs): Ditto.
+
+2010-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* ideograph-util.el: Require `chise-subr'.
 	(expand-char-feature-name): Moved to chise-subr.el.
 	(map-char-family): Ditto.
