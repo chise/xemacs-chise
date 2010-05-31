@@ -25,6 +25,15 @@
 
 ;;; Code:
 
+;;; @ feature name
+;;;
+
+;;;###autoload
+(defun expand-char-feature-name (feature domain)
+  (if domain
+      (intern (format "%s@%s" feature domain))
+    feature))
+
 ;;;###autoload
 (defun char-attribute-name< (ka kb)
   (cond
@@ -93,6 +102,80 @@
 	  (t)))
    ((symbolp kb)
     nil)))
+
+
+;;; @ char feature
+;;;
+
+;;;###autoload
+(defun char-ucs (char)
+  (or (encode-char char '=ucs 'defined-only)
+      (char-feature char '=>ucs)))
+
+;;;###autoload
+(defun char-id (char)
+  (logand (char-int char) #x3FFFFFFF))
+
+
+;;; @ char hierarchy
+;;;
+
+;;;###autoload
+(defun map-char-family (function char &optional ignore-sisters)
+  (let ((rest (list char))
+	ret checked)
+    (catch 'tag
+      (while rest
+	(unless (memq (car rest) checked)
+	  (if (setq ret (funcall function (car rest)))
+	      (throw 'tag ret))
+	  (setq checked (cons (car rest) checked)
+		rest (append rest
+			     (get-char-attribute (car rest) '->subsumptive)
+			     (get-char-attribute (car rest) '->denotational)
+			     (get-char-attribute (car rest) '->identical)))
+	  (unless ignore-sisters
+	    (setq rest (append rest
+			       (get-char-attribute (car rest) '<-subsumptive)
+			       (get-char-attribute (car rest) '<-denotational)))))
+	(setq rest (cdr rest))))))
+
+
+;;; @ string
+;;;
+
+;;;###autoload
+(defun chise-string< (string1 string2 accessors)
+  (let ((len1 (length string1))
+	(len2 (length string2))
+	len
+	(i 0)
+	c1 c2
+	rest func
+	v1 v2)
+    (setq len (min len1 len2))
+    (catch 'tag
+      (while (< i len)
+	(setq c1 (aref string1 i)
+	      c2 (aref string2 i))
+	(setq rest accessors)
+	(while (and rest
+		    (setq func (car rest))
+		    (setq v1 (funcall func c1)
+			  v2 (funcall func c2))
+		    (eq v1 v2))
+	  (setq rest (cdr rest)))
+	(if v1
+	    (if v2
+		(cond ((< v1 v2)
+		       (throw 'tag t))
+		      ((> v1 v2)
+		       (throw 'tag nil)))
+	      (throw 'tag nil))
+	  (if v2
+	      (throw 'tag t)))
+	(setq i (1+ i)))
+      (< len1 len2))))
 
 
 ;;; @ end
