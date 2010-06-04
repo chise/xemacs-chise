@@ -1,7 +1,7 @@
 ;;; chise-subr.el --- basic lisp subroutines for XEmacs CHISE
 
-;; Copyright (C) 1999, 2001, 2002, 2003, 2004, 2005, 2008, 2009, 2010
-;;   MORIOKA Tomohiko.
+;; Copyright (C) 1999, 2001, 2002, 2003, 2004, 2005, 2007, 2008, 2009,
+;;   2010 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Character Database, ISO/IEC 10646, UCS, Unicode, MULE.
@@ -24,6 +24,11 @@
 ;; Boston, MA 02111-1307, USA.
 
 ;;; Code:
+
+(defvar char-db-feature-domains
+  '(ucs ucs/compat daikanwa cns gt jis jis/alt jis/a jis/b
+	jis-x0212 jis-x0213 cdp shinjigen misc unknown))
+
 
 ;;; @ feature name
 ;;;
