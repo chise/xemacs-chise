@@ -100,10 +100,6 @@
 
 (defvar char-db-file-coding-system 'utf-8-mcs-er)
 
-(defvar char-db-feature-domains
-  '(ucs ucs/compat daikanwa cns gt jis jis/alt jis/a jis/b
-	jis-x0212 jis-x0213 cdp shinjigen misc unknown))
-
 (defvar char-db-ignored-attributes '(ideographic-products))
 
 (defvar char-db-coded-charset-priority-list
