@@ -66,6 +66,7 @@
 	       (throw 'tag ret))))))
    char ignore-sisters))
 
+
 (defun char-ideographic-radical (char &optional radical ignore-sisters)
   (let (ret)
     (or (if radical
@@ -103,6 +104,15 @@
 	  (when ret
 	    (put-char-attribute char 'ideographic-radical ret)
 	    ret)))))
+
+
+;;;###autoload
+(defun char-ideographic-strokes-from-domains (char domains &optional radical)
+  (if radical
+      (get-char-feature-from-domains char 'ideographic-strokes domains
+				     'ideographic-radical radical)
+    (get-char-feature-from-domains char 'ideographic-strokes domains)))
+
 
 
 ;;; @ end
