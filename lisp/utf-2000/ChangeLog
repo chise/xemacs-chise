@@ -1,5 +1,19 @@
 2010-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* ideograph-util.el (char-ideographic-strokes-from-domains): Moved
+	to ideograph-subr.el.
+
+	* ideograph-subr.el (char-ideographic-strokes-from-domains): New
+	function [moved from ideograph-util.el].
+
+2010-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-0350): Add `ideographic-structure'.
+	(ZOB-2267): Add `<-Oracle-Bones'.
+	(ZOB-{2269 - 2275}): New characters.
+
+2010-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* ideograph-util.el: Require `ideograph-subr'.
 	(get-char-feature-from-domains): Moved to ideograph-subr.el.
 	(char-ideographic-radical): Ditto.
