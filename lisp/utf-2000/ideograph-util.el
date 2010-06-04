@@ -61,13 +61,6 @@
    14 15 16 16 17])
 
 ;;;###autoload
-(defun char-ideographic-strokes-from-domains (char domains &optional radical)
-  (if radical
-      (get-char-feature-from-domains char 'ideographic-strokes domains
-				     'ideographic-radical radical)
-    (get-char-feature-from-domains char 'ideographic-strokes domains)))
-
-;;;###autoload
 (defun char-ideographic-strokes (char &optional radical preferred-domains)
   (let (ret)
     (or (catch 'tag
