@@ -33,78 +33,6 @@
 (defvar ideograph-radical-chars-vector
   (make-vector 215 nil))
 
-(defvar ideograph-radical-strokes-vector
-  ;;0  1  2  3  4  5  6  7  8  9
-  [nil 1  1  1  1  1  1  2  2  2
-    2  2  2  2  2  2  2  2  2  2
-    2  2  2  2  2  2  2  2  2  2
-    3  3  3  3  3  3  3  3  3  3
-    3  3  3  3  3  3  3  3  3  3
-    3  3  3  3  3  3  3  3  3  3
-    3  4  4  4  3  4  4  4  4  4
-    4  4  4  4  4  4  4  4  4  4
-    4  4  4  4  4  3  4  4  4  4
-    4  4  4  4  3  5  4  5  5  5
-    ;; 100
-    5  5  5  5  5  5  5  5  5  5
-    5  5  5  5  5  5  5  5  6  6
-    6  6  6  6  6  6  6  6  6  6
-    4  6  6  6  6  6  6  6  6  6
-    4  6  6  6  6  6  6  7  7  7
-    7  7  7  7  7  7  7  7  7  7
-    7  7  4  3  7  7  7  8  7  8
-    3  8  8  8  8  8  9  9  9  9
-    9  9  9  9  8  9  9 10 10 10
-   10 10 10 10 10 11 11 11 11 11
-   ;; 200
-   11 12 12 12 12 13 13 13 13 14
-   14 15 16 16 17])
-
-;;;###autoload
-(defun char-ideographic-strokes (char &optional radical preferred-domains)
-  (let (ret)
-    (or (catch 'tag
-	  (dolist (cell (get-char-attribute char 'ideographic-))
-	    (if (and (setq ret (plist-get cell :radical))
-		     (or (eq ret radical)
-			 (null radical)))
-		(throw 'tag (plist-get cell :strokes)))))
-	(char-ideographic-strokes-from-domains
-	 char (append preferred-domains
-		      (cons nil
-			    char-db-feature-domains))
-	 radical)
-	(get-char-attribute char 'daikanwa-strokes)
-	(let ((strokes
-	       (or (get-char-attribute char 'kangxi-strokes)
-		   (get-char-attribute char 'japanese-strokes)
-		   (get-char-attribute char 'korean-strokes)
-		   (let ((r (char-ideographic-radical char))
-			 (ts (get-char-attribute char 'total-strokes)))
-		     (if (and r ts)
-			 (- ts (aref ideograph-radical-strokes-vector r))))
-		   )))
-	  (when strokes
-	    (put-char-attribute char 'ideographic-strokes strokes)
-	    strokes)))))
-
-;;;###autoload
-(defun char-total-strokes-from-domains (char domains)
-  (let (ret)
-    (catch 'tag
-      (dolist (domain domains)
-	(if (setq ret (char-feature
-		       char
-		       (intern
-			(format "%s@%s"
-				'total-strokes domain))))
-	    (throw 'tag ret))))))
-
-;;;###autoload
-(defun char-total-strokes (char &optional preferred-domains)
-  (or (char-total-strokes-from-domains char preferred-domains)
-      (char-feature char 'total-strokes)
-      (char-total-strokes-from-domains char char-db-feature-domains)))
 
 ;;;###autoload
 (defun update-ideograph-radical-table ()
@@ -185,6 +113,7 @@
 	     (aset ideograph-radical-chars-vector radical
 		   (cons char ret))))))
      'ideographic-)))
+
 
 (defun int-list< (a b)
   (if (numberp (car a))
