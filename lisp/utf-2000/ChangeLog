@@ -1,3 +1,25 @@
+2010-06-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (ideograph-radical-strokes-vector): Moved to
+	ideograph-subr.el.
+	(char-ideographic-strokes): Ditto.
+	(char-total-strokes-from-domains): Ditto.
+	(char-total-strokes): Ditto.
+
+	* ideograph-subr.el: Require `chise-subr'.
+	(ideograph-radical-strokes-vector): New variable [moved from
+	ideograph-util.el].
+	(char-ideographic-strokes): New function [moved from
+	ideograph-util.el].
+	(char-total-strokes-from-domains): Ditto.
+	(char-total-strokes): Ditto.
+
+	* char-db-util.el (char-db-feature-domains): Moved to
+	chise-subr.el.
+
+	* chise-subr.el (char-db-feature-domains): New variable [moved
+	from char-db-util.el].
+
 2010-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* ideograph-util.el (char-ideographic-strokes-from-domains): Moved
