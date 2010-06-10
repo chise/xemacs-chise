@@ -1,3 +1,7 @@
+2010-06-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* etc/CHISE-VERSIONS: Modify for XEmacs CHISE 0.25.
+
 2009-11-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* configure.in: Check libX11.dylib if libX11.a is not found in
