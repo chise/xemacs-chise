@@ -521,8 +521,9 @@
     (ideographic-strokes@gt . 2)
     (total-strokes@gt	    . 3)
     (hanyu-dazidian	1 5 3)
-    (=ucs@big5		. #x4E0E)	; &B-C94F;
-    (=big5		. #xC94F)	; &B-C94F;
+    (=ucs@big5		. #x4E0E)	; &G-GT-00023;
+    (=big5		. #xC94F)	; &G-GT-00023;
+    (=>>gt		. 00023)	; &G-GT-00023;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
