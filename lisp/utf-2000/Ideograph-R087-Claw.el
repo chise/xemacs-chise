@@ -45,6 +45,7 @@
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (=>>gt		. 25225)	; &G-GT-25225;
     (->subsumptive
      ((=ucs@jis		  . #x722B)	; &GT-25225;
       (=jis-x0212	  . #x4A48)	; &GT-25225; [42-40]
