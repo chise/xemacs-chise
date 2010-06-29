@@ -2721,7 +2721,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ks-x1001	    . #x683A)	; &M-28635; [72-26]
+       ((=ks-x1001	    . #x683A)	; &GT-36863; [72-26]
 	(=daikanwa	    . 28635)	; &I-M-28635;
 	)
        ((=ucs		    . #x529B)	; 力
