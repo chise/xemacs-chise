@@ -536,7 +536,10 @@
      ((=ks-x1001	  . #x6962)	; &GT-36832; [73-66]
       (=daikanwa	  . 28614)	; &I-M-28614;
       ))
-    (=ks-x1001		. #x683A)	; &M-28635; [72-26]
+    (=ks-x1001		. #x683A)	; &GT-36863; [72-26]
+    (=gt		. 36863)	; &I-GT-36863;
+    (=gt-k		. 06379)	; &I-GT-K06379;
+    (=gt-pj-6		. #x3323)	; &I-GT-36863; [19-03]
     (=daikanwa		. 28635)	; &I-M-28635;
     ))
 (define-char
@@ -546,6 +549,19 @@
     (ideographic-radical . 124)	; ⽻
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x516C)	; 公
+      )
+     ((=ucs@unicode	  . #x7FBD)	; &GT-36833;
+      (=jis-x0208	  . #x3129)	; &GT-36833; [17-09]
+      (=gb2312		  . #x5370)	; &I-G0-5370; [51-80]
+      (=cns11643-1	  . #x4851)	; &I-C1-4851; [40-49]
+      (=jis-x0213-1	  . #x3129)	; &I-JX1-3129; [17-09]
+      ))
+    (=>>jis-x0208	. #x3227)	; &G-J78-3227; [18-07]
     (->subsumptive
      ((morohashi-daikanwa	28635 1)
       (ideographic-structure
@@ -563,8 +579,11 @@
 	(=cns11643-1	    . #x4851)	; &I-C1-4851; [40-49]
 	(=jis-x0213-1	    . #x3129)	; &I-JX1-3129; [17-09]
 	))
-      (=jis-x0208@1978	  . #x3227)	; &J83-3227; [18-07]
+      (=jis-x0208@1978	  . #x3227)	; &GT-36864; [18-07]
       (=jis-x0208@1983	  . #x3227)	; &I-J83-3227; [18-07]
+      (=gt		  . 36864)	; &I-GT-36864;
+      (=gt-k		  . 06378)	; &I-GT-K06378;
+      (=gt-pj-6		  . #x3324)	; &I-GT-36864; [19-04]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
