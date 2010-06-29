@@ -1242,6 +1242,22 @@
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=>>gt		    . 25225)	; &G-GT-25225;
+	)
+       ((=ucs		    . #x53E3)	; 口
+	))
+      )
+     ((=ucs		  . #x4E5A)	; 乚
+      ))
+    (=>>gt		. 00253)	; &G-GT-00253;
     (->subsumptive
      ((=ucs@iso		  . #x200ED)	; &M-00193;
       (=cns11643-6	  . #x293F)	; &M-00193; [09-31]
@@ -1846,6 +1862,23 @@
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((name		    . "CJK RADICAL PAW ONE")
+	(=ucs		    . #x2EA4)	; ⺤
+	)
+       ((=ucs		    . #x7CF8)	; 糸
+	))
+      )
+     ((=ucs		  . #x4E5A)	; 乚
+      ))
+    (=>>gt		. 00277)	; &G-GT-00277;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1926,6 +1959,14 @@
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7FC1)	; 翁
+      )
+     ((=ucs		  . #x4E5A)	; 乚
+      ))
     (=ucs		. #x200FD)	; 𠃽
     ))
 (define-char
@@ -1935,12 +1976,13 @@
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
+    (=>>gt		. 00270)	; &G-GT-00270;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ks-x1001	    . #x683A)	; &M-28635; [72-26]
+       ((=ks-x1001	    . #x683A)	; &GT-36863; [72-26]
 	(=daikanwa	    . 28635)	; &I-M-28635;
 	)
        ((=ucs		    . #x4E5A)	; 乚
@@ -1976,12 +2018,21 @@
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>>jis-x0208	  . #x3227)	; &G-J78-3227; [18-07]
+      )
+     ((=ucs		  . #x4E5A)	; 乚
+      ))
+    (=>>gt		. 00271)	; &G-GT-00271;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=jis-x0208@1978    . #x3227)	; &J83-3227; [18-07]
+       ((=jis-x0208@1978    . #x3227)	; &GT-36864; [18-07]
 	(=jis-x0208@1983    . #x3227)	; &I-J83-3227; [18-07]
 	)
        ((=ucs		    . #x4E5A)	; 乚
@@ -2172,6 +2223,7 @@
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 11)
     (total-strokes	 . 12)
+    (=>>gt		. 00280)	; &G-GT-00280;
     (->subsumptive
      ((=gt		  . 00280)	; &GT-00280;
       (=gt-pj-2		  . #x316C)	; &GT-00280; [17-76]
@@ -2330,6 +2382,7 @@
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 12)
     (total-strokes	 . 13)
+    (=>>gt		. 00286)	; &G-GT-00286;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
