@@ -1,3 +1,9 @@
+2010-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el (abstract glyph of J0-3D74): Unify
+	Unicode's representative glyph of U+8AF8; use `=>>jis-x0213-1'
+	instead of `=>jis-x0213-1'.
+
 2010-06-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-6B26.
