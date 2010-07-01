@@ -9253,8 +9253,9 @@
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 8)
     (total-strokes	 . 15)
+    (=>>ucs@unicode	. #x8AF8)	; &G-GT-47831;
     (=>>jis-x0208	. #x3D74)	; &G-GT-47831; [29-84]
-    (=>jis-x0213-1	. #x3D74)	; &G-GT-47831; [29-84]
+    (=>>jis-x0213-1	. #x3D74)	; &G-GT-47831; [29-84]
     (=>>gt		. 47831)	; &G-GT-47831;
     (->subsumptive
      ((morohashi-daikanwa	35691 1)
