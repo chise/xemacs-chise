@@ -140,8 +140,6 @@
     ethiopic-ucs
     =big5-cdp
     =gt
-    =>>gt
-    =>gt
     ideograph-daikanwa-2
     ideograph-daikanwa
     =cbeta
@@ -161,6 +159,7 @@
     =ucs@iso
     =ucs@unicode
     =>>ucs@unicode
+    =>>gt
     =>>jis-x0208
     =>>jis-x0213-1
     =>>jis-x0213-1@2000
@@ -173,6 +172,7 @@
     =>jis-x0213-1@2000
     =>jis-x0213-1@2004
     =>jis-x0213-2
+    =>gt
     =big5
     =big5-eten
     =zinbun-oracle
