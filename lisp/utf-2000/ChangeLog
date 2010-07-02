@@ -1,3 +1,9 @@
+2010-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Prefer
+	`=>>ucs@unicode' to `=>>gt'; prefer abstract JIS X 0208/0213 to
+	=>gt.
+
 2010-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R145-Clothes.el:
