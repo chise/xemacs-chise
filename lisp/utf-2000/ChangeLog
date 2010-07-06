@@ -1,5 +1,14 @@
 2010-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R009-Man.el: Add `=>>gt' feature for some abstract
+	glyph nodes.
+	(U+5050): Add abstract ideographic-structure.
+	(GT-01566): Fixed.
+	(H1-D652): Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-{vol|page|char}'.
+	(U+349F): Add abstract ideographic-structure.
+	(U+5132): Add abstract ideographic-structure.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Prefer
 	`=>>ucs@unicode' to `=>>gt'; prefer abstract JIS X 0208/0213 to
 	=>gt.
