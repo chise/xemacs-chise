@@ -3771,7 +3771,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>>gt		  . 00433)	; &G-GT-00433;
+     ((=>>ucs@unicode	  . #x4EB6)	; &G-GT-00433;
       )
      ((=ucs		  . #x529B)	; 力
       ))
