@@ -62,6 +62,14 @@
   '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x531A)	; 匚
+      )
+     ((=ucs		  . #x4E5F)	; 也
+      ))
     (=ucs		. #x531C)	; 匜
     (=big5		. #xC96C)	; &I-B-C96C;
     (->subsumptive
@@ -79,13 +87,14 @@
 	(=jis-x0213-1	    . #x4C69)	; &I-JX1-4C69; [44-73]
 	(=daikanwa	    . 00171)	; &I-M-00171;
 	))
-      (=ucs@unicode	  . #x531C)	; &M-02598;
-      (=jis-x0212	  . #x3426)	; &M-02598; [20-06]
+      (=ucs@unicode	  . #x531C)	; &AJ1-16800;
+      (=jis-x0212	  . #x3426)	; &AJ1-16800; [20-06]
       (=iso-ir165	  . #x7A28)	; &I-EGB-7A28; [90-08]
       (=jis-x0213-1	  . #x2E6D)	; &I-JX1-2E6D; [14-77]
       (=daikanwa	  . 02598)	; &I-M-02598;
-      (=shinjigen	  .  0787)	; &M-02598;
+      (=shinjigen	  .  0787)	; &AJ1-16800;
       (=jef-china3	  . #x45B1)	; &I-JC3-45B1;
+      (=adobe-japan1-5	  . 16800)	; &I-AJ1-16800;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
@@ -183,6 +192,14 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 84 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x531A)	; 匚
+      )
+     ((=ucs		  . #x4EA2)	; 亢
+      ))
     (=ucs		. #x531F)	; 匟
     (=big5		. #xC9C2)	; &I-B-C9C2;
     (->subsumptive
@@ -198,9 +215,10 @@
 	(=jis-x0213-1	    . #x5036)	; &I-JX1-5036; [48-22]
 	(=daikanwa	    . 00288)	; &I-M-00288;
 	))
-      (=ucs@jis		  . #x531F)	; &M-02603;
-      (=jis-x0212	  . #x3428)	; &M-02603; [20-08]
+      (=ucs@jis		  . #x531F)	; &AJ1-19203;
+      (=jis-x0212	  . #x3428)	; &AJ1-19203; [20-08]
       (=daikanwa	  . 02603)	; &I-M-02603;
+      (=adobe-japan1-5	  . 19203)	; &I-AJ1-19203;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
@@ -221,17 +239,16 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (=ucs		. #x20930)	; 𠤰
-    (=daikanwa		. 02604)	; &I-M-02604;
-    ))
-(define-char
-  '((=>ucs		. #x20930)	; 𠤰
-    (morohashi-daikanwa	2604 0 0)
-    (ideographic-radical . 22)	; ⼕
-    (ideographic-strokes . 4)
-    (total-strokes	 . 6)
-    (hanyu-dazidian	1 84 2)
-    (=cns11643-4	. #x2243)	; &HZK01-B554; [02-35]
-    (=hanziku-1		. #xB554)	; &I-HZK01-B554;
+    (->subsumptive
+     ((=daikanwa	  . 02604)	; &M-02604;
+      )
+     ((=ucs@iso		  . #x20930)	; &U-00020930;
+      )
+     ((=cns11643-4	  . #x2243)	; &C4-2243; [02-35]
+      )
+     ((hanyu-dazidian	  1 84 2)
+      (=hanziku-1	  . #xB554)	; &HZK01-B554;
+      ))
     ))
 (define-char
   '((ideographic-radical . 22)	; ⼕
@@ -966,6 +983,7 @@
     (=daikanwa		. 02639)	; &I-M-02639;
     (=shinjigen@1ed	.  0792)	; 匭
     (=jef-china3	. #x97D2)	; &I-JC3-97D2;
+    (=adobe-japan1-5	. 19204)	; &I-AJ1-19204;
     ))
 (define-char
   '((ideographic-radical . 22)	; ⼕
@@ -1247,6 +1265,7 @@
     (=hanziku-1		. #xB662)	; &I-HZK01-B662;
     (=cbeta		. 02324)	; &I-CB02324;
     (=jef-china3	. #x45BC)	; &I-JC3-45BC;
+    (=adobe-japan1-5	. 19205)	; &I-AJ1-19205;
     (<-vulgar
      ((=ucs		  . #x5333)	; 匳
       (=jis-x0208	  . #x523D)	; &I-J90-523D; [50-29]
@@ -1426,20 +1445,31 @@
     (=hanziku-1		. #xB6A2)	; &I-HZK01-B6A2;
     ))
 (define-char
-  '((=>ucs		. #x5335)	; 匵
+  '((ideographic-radical . 22)	; ⼕
+    (ideographic-strokes . 15)
+    (total-strokes	 . 17)
+    (=ucs		. #x5335)	; 匵
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5335)	; 匵
+      ))
     (ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
     (hanyu-dazidian	1 90 13)
-    (=ucs@jis		. #x5335)	; &M-02662;
-    (=jis-x0212		. #x3432)	; &M-02662; [20-18]
+    (=ucs@jis		. #x5335)	; &AJ1-17329;
+    (=jis-x0212		. #x3432)	; &AJ1-17329; [20-18]
     (=jis-x0213-2	. #x234F)	; &I-JX2-234F; [03-47]
     (=daikanwa		. 02662)	; &I-M-02662;
     (=hanziku-1		. #xB6A4)	; &I-HZK01-B6A4;
     (=cbeta		. 05235)	; &I-CB05235;
+    (=adobe-japan1-5	. 17329)	; &I-AJ1-17329;
     ))
 (define-char
-  '((morohashi-daikanwa	2662 0 0)
+  '((<-denotational
+     ((=ucs		  . #x5335)	; 匵
+      ))
     (ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
@@ -1451,8 +1481,8 @@
       )
      ((=ucs		  . #x8CE3)	; 賣
       ))
-    (=ucs		. #x5335)	; 匵
-    (=cns11643-3	. #x5444)	; &I-C3-5444; [52-36]
+    (=ucs@unicode	. #x5335)	; &C3-5444;
+    (=cns11643-3	. #x5444)	; &C3-5444; [52-36]
     (=jef-china3	. #x45BD)	; &I-JC3-45BD;
     ))
 (define-char
