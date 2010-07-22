@@ -1,3 +1,28 @@
+2010-07-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R024-Ten.el (JX2-2351): Unify AJ1-17330.
+	(C4-2130): Modify `ideographic-structure'.
+	(GT-K0251): Use `<-denotational' directly for U+5342.
+	(GT-K0252): Likewise.
+
+	* Ideograph-R022-Right-Open-Box.el (U+531C): Add abstract
+	ideographic-structure.
+	(JX1-2E6D): Unify AJ1-16800.
+	(U+531F): Add abstract ideographic-structure.
+	(JSP-3428): Unify AJ1-19203.
+	(U-00020930): Use `->subsumptive'.
+	(JSP-342F): Unify AJ1-19204.
+	(JSP-3431): Unify AJ1-19205.
+	(U+5335): Use `->denotational'.
+	(JX2-234F): Unify AJ1-17329.
+
+	* Ideograph-R020-Wrap.el (JX1-2E6A): Unify AJ1-16799.
+	(U+5303): Use `->subsumptive' to separate representative node.
+	(JSP-337C): Unify AJ1-19201.
+	(U+5304): Add abstract ideographic-structure.
+	(U+5311): Likewise.
+	(JSP-3422): Unify AJ1-19202.
+
 2010-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R009-Man.el: Add `=>>gt' feature for some abstract
