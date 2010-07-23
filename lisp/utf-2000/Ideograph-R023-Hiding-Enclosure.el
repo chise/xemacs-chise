@@ -462,7 +462,9 @@
   '((ideographic-radical . 23)	; ⼖
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (hanyu-dazidian	1 85 19)
     (=ucs		. #x533D)	; 匽
+    (=big5		. #xCDF4)	; &I-B-CDF4;
     ))
 (define-char
   '((<-denotational
@@ -471,6 +473,15 @@
     (ideographic-radical . 23)	; ⼖
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x5338)	; 匸
+      )
+     ((=ucs		  . #x599F)	; 妟
+      ))
+    (=>>ucs@cns		. #x533D)	; &G-CU+533D;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
@@ -512,22 +523,32 @@
     (ideographic-radical . 23)	; ⼖
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (hanyu-dazidian	1 85 19)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (=ucs		  . #x2FF7)	; ⿷
       )
      ((=ucs		  . #x531A)	; 匚
       )
-     ((=ucs@unicode	  . #x599F)	; &CDP-8DD2;
-      (=jis-x0212	  . #x392E)	; &CDP-8DD2; [25-14]
-      (=jis-x0213-2	  . #x254B)	; &I-JX2-254B; [05-43]
-      (=daikanwa	  . 06099)	; &I-M-06099;
+     ((=ucs		  . #x599F)	; 妟
       ))
-    (=ucs@unicode	. #x533D)	; &JSP-3434;
-    (=jis-x0212		. #x3434)	; &JSP-3434; [20-20]
-    (=big5		. #xCDF4)	; &I-B-CDF4;
-    (=jef-china3	. #x45BA)	; &I-JC3-45BA;
+    (=>>ucs@unicode	. #x533D)	; &G-UU+533D;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+	(=ucs		    . #x2FF7)	; ⿷
+	)
+       ((=ucs		    . #x531A)	; 匚
+	)
+       ((=ucs@unicode	    . #x599F)	; &CDP-8DD2;
+	(=jis-x0212	    . #x392E)	; &CDP-8DD2; [25-14]
+	(=jis-x0213-2	    . #x254B)	; &I-JX2-254B; [05-43]
+	(=daikanwa	    . 06099)	; &I-M-06099;
+	))
+      (=ucs@unicode	  . #x533D)	; &AJ1-19206;
+      (=jis-x0212	  . #x3434)	; &AJ1-19206; [20-20]
+      (=jef-china3	  . #x45BA)	; &I-JC3-45BA;
+      (=adobe-japan1-5	  . 19206)	; &I-AJ1-19206;
+      ))
     ))
 (define-char
   '((ideographic-radical . 23)	; ⼖
