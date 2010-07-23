@@ -97,6 +97,7 @@
     (total-strokes	 . 2)
     (sound@ja/on/kan	"gai")
     (=ucs		. #x4E42)	; 乂
+    (=>>jis-x0208	. #x5029)	; 乂 [48-09]
     (->subsumptive
      ((=ucs@jis		  . #x4E42)	; &GT-00153;
       (=jis-x0208	  . #x5029)	; &GT-00153; [48-09]
@@ -527,6 +528,7 @@
     (sound@ja/kun/name	"yuki")
     (sound@ja/on	"si")
     (=ucs		. #x4E4B)	; 之
+    (=>>jis-x0208	. #x4737)	; 之 [39-23]
     (=big5		. #xA4A7)	; &I-B-A4A7;
     (->subsumptive
      ((ideographic-strokes@daikanwa . 3)
@@ -778,6 +780,7 @@
     (sound@ja/kun	"tobo+sii")
     (sound@ja/on/go	"bAHu")
     (=ucs		. #x4E4F)	; 乏
+    (=>>jis-x0208	. #x4B33)	; 乏 [43-19]
     (=big5		. #xA546)	; &I-B-A546;
     (->subsumptive
      ((ideographic-strokes@gt . 3)
@@ -1616,6 +1619,7 @@
     (sound@ja/kun	"no+r5" "no-s+eru")
     (sound@ja/on/go	"zyou")
     (=ucs		. #x4E57)	; 乗
+    (=>>jis-x0208	. #x3E68)	; 乗 [30-72]
     (->subsumptive
      ((=ucs@unicode	  . #x4E57)	; &GT-00208;
       (=jis-x0208	  . #x3E68)	; &GT-00208; [30-72]
