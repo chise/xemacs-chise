@@ -1,3 +1,7 @@
+2010-07-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R023-Hiding-Enclosure.el (JSP-3434): Unify AJ1-19206.
+
 2010-07-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R024-Ten.el (JX2-2351): Unify AJ1-17330.
