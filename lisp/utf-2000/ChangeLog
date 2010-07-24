@@ -1,3 +1,27 @@
+2010-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el (U+4E42): Unify abstract glyph of
+	J0-5029.
+	(U+4E4B): Unify abstract glyph of J0-4737.
+	(U+4E4F): Unify abstract glyph of J0-4B33.
+	(U+4E57): Unify abstract glyph of J0-3E68.
+
+	* Ideograph-R003-Dot.el (J0-345D): Add `=>>ucs@unicode'.
+	(U+4E3B): Unify abstract glyph of J0-3C67.
+
+	* Ideograph-R001-One.el (U+4E03): Unify abstract glyph of J0-3C37.
+	(U+4E0E): Unify abstract J0-4D3F.
+	(abstract glyph of GT-00023): Add `=>>ucs@unicode'.
+	(J0-4D3F): Add `=>>ucs@jis'.
+	(J0-312F): Ditto.
+	(U+4E17): Unify abstract J0-5242; use `->denotational' instead of
+	`->subsumptive'.
+	(J0-5242): Add `=>>ucs@unicode'.
+	(U+4E19): Add abstract ideographic-structure; unify abstract glyph
+	of J0-4A3A.
+	(J0-4A3A): Modify `ideographic-structure'.
+	(S-0028): Add `ideographic-structure'.
+
 2010-07-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R023-Hiding-Enclosure.el (JSP-3434): Unify AJ1-19206.
