@@ -1,5 +1,9 @@
 2010-07-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Prefer
+	`=gt-k' to `ideograph-hanziku-*'; prefer `=>>big5-cdp' to
+	`=>>gt-k'.
+
 	* Ideograph-R005-Second.el (U-000200CA): Use `->subsumptive'.
 	(U+4E5F): Unify abstract glyph of J0-4C69.
 	(U+4E73): Add abstract ideographic-structure; unify abstract
