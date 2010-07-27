@@ -475,6 +475,17 @@
 		  max-code	#x8DFE))
   (define-charset-alias 'chinese-big5-cdp '=big5-cdp)
 
+  (make-charset '=>>big5-cdp
+		"Abstract glyphs of Big5-CDP"
+		'(long-name	"Big5-CDP"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"big5\\.cdp-0"
+		  mother	=big5-cdp))
+
   (make-charset '=gt
 		"GT 2000"
 		`(long-name	"GT"
@@ -490,7 +501,7 @@
   (define-charset-alias 'ideograph-gt '=gt)
   (make-charset '=>>gt
 		"GT 2000 abstract glyphs"
-		`(long-name	"abstract GT glyphs"
+		'(long-name	"GT abstract glyphs"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -501,7 +512,7 @@
   (define-charset-alias '<==>gt '=>>gt)
   (make-charset '=>gt
 		"GT 2000 abstract characters"
-		`(long-name	"abstract GT characters"
+		'(long-name	"abstract GT characters"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -521,6 +532,15 @@
 		  max-code	,(+ (lsh #x6110 16) 17090)
 		  code-offset	,(lsh #x6110 16)))
   (define-charset-alias 'ideograph-gt-k '=gt-k)
+  (make-charset '=>>gt-k
+		"abstract glyphs of GT-K"
+		'(long-name	"GT-K abstract glyphs"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=gt-k))
   (let ((i 1))
     (while (<= i 11)
       (make-charset
@@ -797,6 +817,47 @@
 		  max-code	#xE908FF ; #xE8FF
 		  code-offset	,(- #xE90000 #xE000)))
 
+  (make-charset '=>>ucs@iso
+		"Representative abstract glyphs of ISO/IEC 10646"
+		'(long-name	"UCS glyphs for UCS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=ucs))
+  (make-charset '=>>ucs@unicode
+		"Representative abstract glyphs of Unicode"
+		'(long-name	"Unicode abstract glyphs"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@iso))
+  (make-charset '=>>ucs@jis
+		"UCS Representative glyphs for JIS X0208/0212/0213"
+		'(long-name	"UCS glyphs for JIS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@unicode))
+  (make-charset '=>>ucs@cns
+		"UCS Representative glyphs for CNS 11643 sources"
+		'(long-name	"UCS glyphs for CNS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@unicode))
+
   (make-charset '=ucs@iso
 		"ISO/IEC 10646 for its representative glyphs"
 		'(long-name	"UCS for ISO"
@@ -806,7 +867,7 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
-		  mother	=ucs))
+		  mother	=>>ucs@iso))
   (make-charset '=ucs@unicode
 		"Unicode for its representative glyphs"
 		'(long-name	"UCS for Unicode"
@@ -922,7 +983,7 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
-		  mother	ucs-jis))
+		  mother	=ucs@jis))
   (define-charset-alias '=ucs@jis-1990 '=ucs@jis/1990)
   (define-charset-alias '=ucs-jis-1990 '=ucs@jis/1990)
   (make-charset '=ucs@jis/2000
@@ -934,7 +995,7 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
-		  mother	ucs-jis))
+		  mother	=ucs@jis))
   (define-charset-alias '=ucs@jis-2000 '=ucs@jis/2000)
   (define-charset-alias '=ucs-jis-2000 '=ucs@jis/2000)
   (make-charset '=ucs@jis/2004
@@ -946,7 +1007,7 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
-		  mother	ucs-jis))
+		  mother	=ucs@jis))
   (make-charset '=ucs@JP
 		"UCS for common glyphs used in Japan"
 		'(long-name	"UCS for Japan"
@@ -990,17 +1051,6 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=ucs@cns))
-
-  (make-charset '=>>ucs@unicode
-		"Representative abstract glyphs of Unicode"
-		'(long-name	"Unicode abstract glyphs"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=ucs@unicode))
   (make-charset '=ucs@big5
 		"ISO/IEC 10646 for Big5"
 		'(long-name	"UCS for Big5"
