@@ -1,3 +1,14 @@
+2010-07-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R005-Second.el (U-000200CA): Use `->subsumptive'.
+	(U+4E5F): Unify abstract glyph of J0-4C69.
+	(U+4E73): Add abstract ideographic-structure; unify abstract
+	J0-467D.
+	(J0-467D): Add `=>>ucs@unicode'.
+	(U+4E82): Unify abstract J0-502C.
+	(J0-502C): Use `<-subsumptive' for abstract glyph node.
+	(abstract glyph og GT-00286): Add `=>>ucs@unicode'.
+
 2010-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R007-Two.el (U+51B5): Copied from
