@@ -143,6 +143,7 @@
     ideograph-daikanwa-2
     ideograph-daikanwa
     =cbeta
+    =gt-k
     ideograph-hanziku-1
     ideograph-hanziku-2
     ideograph-hanziku-3
@@ -155,7 +156,6 @@
     ideograph-hanziku-10
     ideograph-hanziku-11
     ideograph-hanziku-12
-    =gt-k
     =ucs@iso
     =ucs@unicode
     =>>ucs@unicode
@@ -166,8 +166,8 @@
     =>>jis-x0213-1@2004
     =>>jis-x0213-2
     =>>jis-x0208@1978
-    =>>gt-k
     =>>big5-cdp
+    =>>gt-k
     =>jis-x0208
     =>jis-x0208@1997
     =>jis-x0213-1
