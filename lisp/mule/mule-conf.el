@@ -847,6 +847,36 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=>>ucs@unicode))
+  (make-charset '=>>ucs@jis/1990
+		"UCS Representative glyphs for JIS X 0208/0212:1990"
+		'(long-name	"UCS glyphs for JIS:1990"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@jis))
+  (make-charset '=>>ucs@jis/2000
+		"UCS Representative glyphs for JIS X 0213:2000"
+		'(long-name	"UCS glyphs for JIS:2000"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@jis))
+  (make-charset '=>>ucs@jis/2004
+		"UCS Representative glyphs for JIS X 0213:2004"
+		'(long-name	"UCS glyphs for JIS:2004"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@jis))
   (make-charset '=>>ucs@cns
 		"UCS Representative glyphs for CNS 11643 sources"
 		'(long-name	"UCS glyphs for CNS"
