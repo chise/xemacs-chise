@@ -166,6 +166,8 @@
     =>>jis-x0213-1@2004
     =>>jis-x0213-2
     =>>jis-x0208@1978
+    =>>gt-k
+    =>>big5-cdp
     =>jis-x0208
     =>jis-x0208@1997
     =>jis-x0213-1
@@ -428,7 +430,7 @@
 	   "(%-18s . %04d)\t; %c")
 	  ((or (memq name '(=daikanwa
 			    =daikanwa@rev1 =daikanwa@rev2
-			    =gt =>>gt =>gt =gt-k =cbeta
+			    =gt =>>gt =>gt =gt-k =>>gt-k =cbeta
 			    =zinbun-oracle =>zinbun-oracle))
 	       (string-match "^=adobe-" (symbol-name name)))
 	   "(%-18s . %05d)\t; %c")
