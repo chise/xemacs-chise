@@ -1,3 +1,20 @@
+2010-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R007-Two.el (U+51B5): Copied from
+	Ideograph-R015-Ice.el.
+	(U-0002F81B): Add `<-denotational' for U+51B5; add
+	`ideographic-structure'.
+	(U+4E9B): Unify abstract glyph of J0-3A33; use `->subsumptive'
+	instead of `->denotational'.
+	(B-AB45): Use `->subsumptive' to separate representative node.
+
+2010-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>>gt-k' and `=>>big5-cdp'.
+	(char-db-insert-ccs-feature): Format `=>>gt-k' as the same as
+	`=gt-k'.
+
 2010-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R004-Slash.el (U+4E42): Unify abstract glyph of
