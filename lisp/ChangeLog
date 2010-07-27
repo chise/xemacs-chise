@@ -1,3 +1,20 @@
+2010-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `=>>big5-cdp', `=>>gt-k', `=>>ucs@jis' and
+	`=>>ucs@cns'.
+
+	* mule/mule-conf.el (=>>big5-cdp): New abstract glyph-set for
+	XEmacs CHISE.
+	(=>>gt): Use quote instead of backquote; modify DOC.
+	(=>gt): Use quote instead of backquote.
+	(=>>gt-k): New abstract glyph-set for XEmacs CHISE.
+	(=>>ucs@iso): New abstract glyph-set for XEmacs CHISE.
+	(=>>ucs@unicode): Use `=>>ucs@iso' as the mother.
+	(=>>ucs@jis): New abstract glyph-set for XEmacs CHISE.
+	(=>>ucs@cns): New abstract glyph-set for XEmacs CHISE.
+	(=ucs@iso): Use `=>>ucs@iso' as the mother.
+
 2010-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
