@@ -1,5 +1,67 @@
 2010-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R019-Power.el:
+	- Add abstract ideographic-structure for some abstract characters.
+	- Add `=>>jis-x0208' for JIS X 0208 abstract glyphs.
+	- Use <CJK RADICAL SUN> instead of <<ideographic component hood>>.
+	(U+52A4): Unify AJ1-17322.
+	(U+3515): Use `->denotational' to separate representative nodes.
+	(U+52B5): Use `->denotational' instead of `->subsumptive'.
+	(U+52BA): Unify AJ1-17323.
+	(U+52BB): Unify AJ1-17324.
+	(U+52C9): Unify J97-4A59.
+	(U+52CA): Unify AJ1-17325.
+	(U+52CC): Use `->denotational' instead of `->subsumptive'.
+	(JX1-2E64): Unify AJ1-16797.
+	(U+52D0): Use `->subsumptive' to separate representative node.
+	(U+52D1): Likewise.
+	(JX2-2349): Unify AJ1-17326.
+	(JX1-2E66): Unify AJ1-16798.
+	(C1-592E): Unify CU+52D8.
+	(U+52E4): Unify J97-3650.
+	(U+52DF): Use `->denotational' instead of `->subsumptive'.
+	(U+52E0): Likewise.
+	(U-00020894): Likewise.
+	(JSP-3370): Unify AJ1-19198.
+	(U-000208A4): Use `->subsumptive' to separate representative
+	nodes.
+	(U-000208AD): Likewise.
+	(U+52E9): Unify AJ1-19199.
+	(JSP-3377): Unify AJ1-19200.
+	(JX2-234B): Unify AJ1-17328.
+	(U+52F8): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R016-Table.el (U+51E1): Unify abstract J0-4B5E; use
+	`->denotational' instead of `->subsumptive'.
+	(J0-4B5E): Add `=>>ucs@unicode'.
+	(GT-K0368): Add `<-denotational' and `<-formed@component' for
+	J0-4B5E.
+	(GT-K0369): Add `<-denotational' and
+	`<-formed@component/surround-from-above' for S-0567.
+
+	* Ideograph-R015-Ice.el (U+51AC): Unify abstract J0-455F; use
+	`->denotational' instead of `->subsumptive'.
+	(J0-455F): Add `=>>ucs@unicode'.
+	(U+51B3): Add abstract ideographic-structure; unify abstract glyph
+	of J0-5153.
+	(U+51B5): Use `->denotational' to integrate U+FA71 and U-0002F81B.
+	(U+51B7): Add abstract ideographic-structure; unify abstract glyph
+	of J0-4E64.
+	(U+51C4): Add abstract ideographic-structure; unify abstract glyph
+	of J0-4028.
+	(U+51C6): Unify abstract glyph of J0-3D5A.
+	(U+51C9): Add abstract ideographic-structure; unify abstract glyph
+	of J0-515A.
+	(U+51CC): Add abstract ideographic-structure.
+	(parent of C1-5445): Add `=>>ucs@cns'.
+	(C1-5445): Unify CU+51CC.
+	(G0-4168): Add `=>>ucs@unicode'.
+	(J0-4E3F): Add `=>>ucs@jis'.
+	(U+51D6): Add abstract ideographic-structure; unify abstract glyph
+	of J0-5245.
+	(U+51DD): Add abstract ideographic-structure; unify abstract glyph
+	of J0-3645.
+
 	* Ideograph-R007-Two.el (U+51B5): Delete `=>>jis-x0208'.
 
 	* Ideograph-R020-Wrap.el (J0-3C5B): Add `=>>ucs@unicode'.
