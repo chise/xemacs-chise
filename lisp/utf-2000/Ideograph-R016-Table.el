@@ -63,50 +63,56 @@
   '((ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
-    (ideographic-radical*sources daikanwa shinjigen@1ed ucs)
     (sound@ja/kun	"oyo-so" "arayu-ru")
     (sound@ja/on/go	"bon")
     (sound@ja/on/kan	"han")
     (=ucs		. #x51E1)	; 凡
-    (->subsumptive
-     ((ideographic-radical@cns . 3)	; ⼂
-      (ideographic-strokes@cns . 2)
-      (hanyu-dazidian	  1 276 3)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-	(=ucs		    . #x2FF5)	; ⿵
-	)
-       ((=ucs		    . #x51E0)	; 几
-	)
-       ((=ucs		    . #x4E36)	; 丶
-	))
-      (=ucs@unicode	  . #x51E1)	; &GT-02286;
+    (=>jis-x0208	. #x4B5E)	; 凡 [43-62]
+    (=>jis-x0213-1	. #x4B5E)	; 凡 [43-62]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x51E1)	; 凡
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-radical@cns . 3)	; ⼂
+    (ideographic-strokes@cns . 2)
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (hanyu-dazidian	1 276 3)
+    (ideographic-radical*sources daikanwa shinjigen ucs)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x51E0)	; 几
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=>>ucs@unicode	. #x51E1)	; &GT-02286;
+    (=ucs@unicode	. #x51E1)	; &GT-02286;
+    (=jis-x0208		. #x4B5E)	; &GT-02286; [43-62]
+    (=gb2312		. #x3732)	; &I-G0-3732; [23-18]
+    (=ks-x1001		. #x5B6D)	; &I-K0-5B6D; [59-77]
+    (=cns11643-1	. #x443B)	; &I-C1-443B; [36-27]
+    (=jis-x0213-1	. #x4B5E)	; &I-JX1-4B5E; [43-62]
+    (=big5		. #xA45A)	; &I-B-A45A;
+    (=gt		. 02286)	; &I-GT-02286;
+    (=gt-k		. 00203)	; &I-GT-K00203;
+    (=gt-pj-1		. #x4B5E)	; &I-GT-02286; [43-62]
+    (=daikanwa		. 01739)	; &I-M-01739;
+    (=shinjigen		.  0566)	; &GT-02286;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs@unicode	  . #x51E1)	; &GT-02286;
       (=jis-x0208	  . #x4B5E)	; &GT-02286; [43-62]
       (=gb2312		  . #x3732)	; &I-G0-3732; [23-18]
       (=ks-x1001	  . #x5B6D)	; &I-K0-5B6D; [59-77]
       (=cns11643-1	  . #x443B)	; &I-C1-443B; [36-27]
       (=jis-x0213-1	  . #x4B5E)	; &I-JX1-4B5E; [43-62]
-      (=big5		  . #xA45A)	; &I-B-A45A;
-      (=gt		  . 02286)	; &I-GT-02286;
-      (=gt-k		  . 00203)	; &I-GT-K00203;
-      (=gt-pj-1		  . #x4B5E)	; &I-GT-02286; [43-62]
       (=daikanwa	  . 01739)	; &I-M-01739;
-      (=shinjigen	  .  0566)	; &GT-02286;
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-	(=ucs		    . #x2FF5)	; ⿵
-	)
-       ((=ucs		    . #x51E0)	; 几
-	)
-       ((=ucs		    . #x4E00)	; 一
-	))
-      (=shinjigen	  .  0567)	; &SJG2-0567;
       ))
-    ))
-(define-char
-  '((=>ucs		. #x51E1)	; 凡
-    (=>daikanwa		. 01739)	; &GT-02286;
     (ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
@@ -121,10 +127,37 @@
       ))
     (=gt-k		. 00368)	; &GT-K00368;
     (=gt-pj-k1		. #x403E)	; &GT-K00368; [32-30]
+    (<-formed@component
+     ((=ucs@unicode	  . #x51E1)	; &GT-02286;
+      (=jis-x0208	  . #x4B5E)	; &GT-02286; [43-62]
+      (=gb2312		  . #x3732)	; &I-G0-3732; [23-18]
+      (=ks-x1001	  . #x5B6D)	; &I-K0-5B6D; [59-77]
+      (=cns11643-1	  . #x443B)	; &I-C1-443B; [36-27]
+      (=jis-x0213-1	  . #x4B5E)	; &I-JX1-4B5E; [43-62]
+      (=daikanwa	  . 01739)	; &I-M-01739;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x51E1)	; 凡
-    (=>daikanwa		. 01739)	; &GT-02286;
+  '((<-denotational
+     ((=ucs		  . #x51E1)	; 凡
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x51E0)	; 几
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=shinjigen		.  0567)	; &SJG2-0567;
+    ))
+(define-char
+  '((<-denotational
+     ((=shinjigen	  .  0567)	; &SJG2-0567;
+      ))
     (ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
@@ -139,6 +172,9 @@
       ))
     (=gt-k		. 00369)	; &GT-K00369;
     (=gt-pj-k1		. #x692C)	; &GT-K00369; [73-12]
+    (<-formed@component/surround-from-above
+     ((=shinjigen	  .  0567)	; &SJG2-0567;
+      ))
     ))
 (define-char
   '((ideographic-radical@ucs . 16)	; ⼏
