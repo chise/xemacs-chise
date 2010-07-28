@@ -352,13 +352,14 @@ DESCRIPTION (string) is the description string of the charset."
 	  chinese-big5-1
 	  chinese-big5-2
 	  ;; ucs-sip
-	  =>>ucs@unicode
+	  =>>big5-cdp
 	  =>>jis-x0208
 	  =>>jis-x0213-1
 	  =>jis-x0208
 	  =>jis-x0213-1
-	  =>>gt
 	  ucs-bmp
+	  =>>ucs@unicode
+	  =>>gt
 	  =adobe-japan1-6
 	  =adobe-japan1-base
 	  =>jis-x0208@1997
