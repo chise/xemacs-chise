@@ -1,5 +1,29 @@
 2010-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R008-Lid.el:
+	- Add `=>>jis-x0208' for JIS X 0208 abstract glyphs.
+	- Add abstract ideographic-structure for some abstract characters.
+	(U+4EA1): Unify abstract J0-4B34; use `->denotational' instead of
+	`->subsumptive'.
+	(parent of BC-8BAA): Add `=>>big5-cdp'; separate GT-K1444.
+	(abstract glyph of GT-K1444): New abstract glyph; add
+	`<-denotational' for abstract glyph of BC-8BAA.
+	(GT-K1444): Use `<-subsumptive' for the abstract glyph of
+	GT-K1444; add `<-identical@component/connect-below' for BC-8BAA.
+	(J83-3872): Separate GT-00389 and GT-K1602; unify GT-K1603.
+	(GT-K1604): New character.
+	(U+4EA5): Use `->denotational' instead of `->subsumptive'.
+	(GT-K2128): New character.
+	(abstract glyph of BC-8C4D): New abstract glyph.
+	(BC-8C4D): Unify GT-K2791.
+	(abstract glyph of GT-K4733): New abstract glyph.
+	(GT-K4733): Use `<-subsumptive' for the abstract glyph of
+	GT-K4733.
+	(U+4EAE): Use `->denotational' instead of `->subsumptive'.
+	(JSP-3041): Add `<-ancient' and `<-original' for J0-357C.
+	(M-00336): Integrate U-00020190 and H1-E273.
+	(M-00337): Integrate U-00020191 and H1-E274.
+
 	* Ideograph-R019-Power.el:
 	- Add abstract ideographic-structure for some abstract characters.
 	- Add `=>>jis-x0208' for JIS X 0208 abstract glyphs.
