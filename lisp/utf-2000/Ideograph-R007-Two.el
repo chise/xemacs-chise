@@ -543,7 +543,6 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (=ucs		. #x51B5)	; 况
-    (=>>jis-x0208	. #x5157)	; 况 [49-55]
     ))
 (define-char
   '((<-denotational
