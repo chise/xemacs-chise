@@ -2370,8 +2370,8 @@
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 12)
     (total-strokes	 . 13)
-    (=>>ucs@jis		. #x4E82)	; &G-J78-502C;
-    (=>>jis-x0208	. #x502C)	; &G-J78-502C; [48-12]
+    (=>>ucs@jis		. #x4E82)	; &G-JU+4E82;
+    (=>>jis-x0208	. #x502C)	; &G-JU+4E82; [48-12]
     (->subsumptive
      ((=ucs@jis		  . #x4E82)	; &GT-00285;
       (=jis-x0208	  . #x502C)	; &GT-00285; [48-12]
