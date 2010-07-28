@@ -1,3 +1,38 @@
+2010-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R007-Two.el (U+51B5): Delete `=>>jis-x0208'.
+
+	* Ideograph-R020-Wrap.el (J0-3C5B): Add `=>>ucs@unicode'.
+	(G0-307C): Add `=>>ucs@unicode'.
+	(J0-4A71): Add `=>>ucs@jis'.
+
+	* Ideograph-R012-Eight.el (U+516B): Unify abstract glyph of
+	J0-482C.
+	(U+516D): Add abstract ideographic-structure; unify abstract glyph
+	of J0-4F3B.
+	(U+516E): Add abstract ideographic-structure; unify abstract glyph
+	of J0-5142.
+	(U+9FB9): Unify abstract glyph of BC-8BFA.
+	(U+5177): Unify abstract J0-3671.
+	(J0-3671): Add `=>>ucs@jis'.
+	(G0-3E5F): Modify `ideographic-structure'.
+	(U+517C): Unify abstract J0-3773.
+	(J0-3773): Add `=>>ucs@unicode'.
+
+	* Ideograph-R010-Legs.el (U+5145): Unify abstract J0-3D3C.
+	(parent of J0-3D3C): Unify abstract glyph of J0-3D3C, U+5145 and
+	CU-0002F80D.
+	(U+514C): Unify abstract glyph of J0-513C.
+	(G0-4362): Add `=>>ucs@unicode'.
+	(J0-4C48): Add `=>>ucs@jis'.
+	(abstract glyph of JX3-4546): Add `=>>ucs@unicode'.
+	(J0-4546): Add `=>>ucs@jis/1990' and `=>>ucs@jis/2000'.
+	(U-000204A8): Add abstract ideographic-structure.
+	(parent of GT-01824): Add `=>>gt'; add `ideographic-structure'.
+	(M-01397): Unify GT-01824; add `<-same' for J0-515A.
+	(parent of C6-5063): Add `=>>ucs@iso'.
+	(C6-5063): Unify CU-000204A8.
+
 2010-07-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Prefer
