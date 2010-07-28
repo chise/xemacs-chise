@@ -222,6 +222,8 @@
     (sound@ja/kun/name	"mituru" "mitu")
     (sound@ja/on	"zyuu")
     (=ucs		. #x5145)	; 充
+    (=>jis-x0208	. #x3D3C)	; 充 [29-28]
+    (=>jis-x0213-1	. #x3D3C)	; 充 [29-28]
     (=big5		. #xA552)	; &I-B-A552;
     ))
 (define-char
@@ -267,6 +269,9 @@
       ))
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (=>>ucs@unicode	. #x5145)	; &G-UU+5145;
+    (=>>ucs@cns		. #x2F80D)	; &G-UU+5145;
+    (=>>jis-x0208	. #x3D3C)	; &G-UU+5145; [29-28]
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -637,6 +642,7 @@
       ))
     (sound@ja/on	"da")
     (=ucs		. #x514C)	; 兌
+    (=>>jis-x0208	. #x513C)	; 兌 [49-28]
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -804,6 +810,7 @@
 	)
        ((=big5-cdp	    . #x8BCB)	; &CDP-8BCB;
 	))
+      (=>>ucs@unicode	  . #x514D)	; &C1-492D;
       (=ucs@unicode	  . #x514D)	; &C1-492D;
       (=gb2312		  . #x4362)	; &C1-492D; [35-66]
       (=ks-x1001	  . #x5873)	; &I-K0-5873; [56-83]
@@ -811,6 +818,7 @@
       )
      ((ideographic-strokes . 6)
       (total-strokes	   . 8)
+      (=>>ucs@jis	  . #x514D)	; &GT-01783;
       (=ucs@jis		  . #x514D)	; &GT-01783;
       (=jis-x0208	  . #x4C48)	; &GT-01783; [44-40]
       (=jis-x0213-1	  . #x4C48)	; &I-JX1-4C48; [44-40]
@@ -833,7 +841,8 @@
     (->subsumptive
      ((ideographic-strokes . 5)
       (total-strokes	   . 7)
-      (=>>jis-x0213-1@2004 . #x4546)	; &G-JX3-4546; [37-38]
+      (=>>ucs@unicode	  . #x514E)	; &G-UU+514E;
+      (=>>jis-x0213-1@2004 . #x4546)	; &G-UU+514E; [37-38]
       (->subsumptive
        ((=cns11643-3	    . #x2454)	; &M-01359; [04-52]
 	(=daikanwa	    . 01359)	; &I-M-01359;
@@ -858,6 +867,8 @@
       )
      ((ideographic-strokes . 6)
       (total-strokes	   . 8)
+      (=>>ucs@jis/1990	  . #x514E)	; &GT-01782;
+      (=>>ucs@jis/2000	  . #x514E)	; &GT-01782;
       (=ucs@jis/1990	  . #x514E)	; &GT-01782;
       (=ucs@jis/2000	  . #x514E)	; &GT-01782;
       (=jis-x0208	  . #x4546)	; &GT-01782; [37-38]
@@ -1418,8 +1429,8 @@
       )
      ((=ucs		  . #x514C)	; 兌
       ))
-    (=>>jis-x0213-1	. #x2E52)	; &G-JX1-2E52; [14-50]
-    (=big5		. #xAB5E)	; &G-JX1-2E52;
+    (=>>jis-x0213-1	. #x2E52)	; &B-AB5E; [14-50]
+    (=big5		. #xAB5E)	; &B-AB5E;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1991,6 +2002,14 @@
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x5145)	; 充
+      )
+     ((=ucs		  . #x4EAC)	; 京
+      ))
     (=ucs		. #x204A8)	; 𠒨
     ))
 (define-char
@@ -2000,6 +2019,15 @@
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=>>ucs@unicode	  . #x5145)	; &G-UU+5145;
+      )
+     ((=ucs		  . #x4EAC)	; 京
+      ))
+    (=>>gt		. 01824)	; &G-GT-01824;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
@@ -2012,13 +2040,23 @@
 	(=daikanwa	    . 01345)	; &I-M-01345;
 	)
        ((=ucs@jis	    . #x4EAC)	; &GT-00397;
-	(=ucs@big5	    . #x4EAC)	; &GT-00397;
 	(=jis-x0208	    . #x357E)	; &GT-00397; [21-94]
 	(=ks-x1001	    . #x4C48)	; &I-K0-4C48; [44-40]
 	(=jis-x0213-1	    . #x357E)	; &I-JX1-357E; [21-94]
 	(=daikanwa	    . 00299)	; &I-M-00299;
 	))
-      (=daikanwa	  . 01397)	; &M-01397;
+      (=gt		  . 01824)	; &GT-01824;
+      (=gt-pj-2		  . #x3C22)	; &GT-01824; [28-02]
+      (=daikanwa	  . 01397)	; &I-M-01397;
+      (<-same
+       ((=ucs@jis	    . #x51C9)	; &GT-02201;
+	(=jis-x0208	    . #x515A)	; &GT-02201; [49-58]
+	(=ks-x1001	    . #x5558)	; &I-K0-5558; [53-56]
+	(=jis-x0213-1	    . #x515A)	; &I-JX1-515A; [49-58]
+	(=daikanwa	    . 01665)	; &I-M-01665;
+	))
+      (<-same*sources
+       zihui-bu daikanwa)
       )
      ((hanyu-dazidian	  1 275 3)
       (ideographic-structure
@@ -2041,8 +2079,10 @@
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
+    (=>>ucs@iso		. #x204A8)	; &U-000204A8;
     (->subsumptive
-     ((=cns11643-6	  . #x5063)	; &C6-5063; [48-67]
+     ((=ucs@cns		  . #x204A8)	; &C6-5063;
+      (=cns11643-6	  . #x5063)	; &C6-5063; [48-67]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
