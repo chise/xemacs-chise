@@ -1,5 +1,15 @@
 2010-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R017-Open-Box.el (U+51F6): Add `=>>jis-x0208'.
+	(M-01823): Integrate U-00020689 and H1-E5C0.
+	(M-01824): Integrate U-0002068A and H1-E5C1.
+	(U-00020687): Use `->subsumptive' to separate representative
+	nodes.
+	(U+51FD): Use `->denotational' instead of `->subsumptive'.
+	(M-01828): Integrate U-0002068C and H1-E5C2.
+
+2010-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R014-Cover.el:
 	- Add abstract ideographic-structure for some abstract characters.
 	- Add `=>>jis-x0208' for JIS X 0208 abstract glyphs.
