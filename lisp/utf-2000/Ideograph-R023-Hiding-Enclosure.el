@@ -416,8 +416,8 @@
     (ideographic-radical . 23)	; ⼖
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (=ucs@unicode	. #x3530)	; &JC3-45B5;
-    (=jef-china3	. #x45B5)	; &JC3-45B5;
+    (=ucs@unicode	. #x3530)	; &UU+3530;
+    (=jef-china3	. #x45B5)	; &UU+3530;
     ))
 (define-char
   '((<-denotational

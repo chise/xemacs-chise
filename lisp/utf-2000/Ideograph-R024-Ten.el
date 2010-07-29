@@ -1439,8 +1439,8 @@
       )
      ((=ucs		  . #x5C03)	; 尃
       ))
-    (=>>ucs@unicode	. #x535A)	; &B-B3D5;
-    (=big5		. #xB3D5)	; &B-B3D5;
+    (=>>ucs@unicode	. #x535A)	; &G-UU+535A;
+    (=big5		. #xB3D5)	; &G-UU+535A;
     (->subsumptive
      ((hanyu-dazidian	  1 66 2)
       (ideographic-structure

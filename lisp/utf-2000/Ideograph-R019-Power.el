@@ -1701,8 +1701,8 @@
      ((=ucs		  . #x52C7)	; 勇
       ))
     (hanyu-dazidian	1 372 7)
-    (=>>ucs@unicode	. #x52C7)	; &B-AB69;
-    (=big5		. #xAB69)	; &B-AB69;
+    (=>>ucs@unicode	. #x52C7)	; &G-UU+52C7;
+    (=big5		. #xAB69)	; &G-UU+52C7;
     (->subsumptive
      ((=>ucs*		  . #x52C7)	; 勇
       (=ucs		  . #xFA76)	; 勇
@@ -4084,8 +4084,8 @@
       )
      ((=ucs		  . #x529B)	; 力
       ))
-    (=>>ucs@unicode	. #x52EF)	; &B-E4F5;
-    (=big5		. #xE4F5)	; &B-E4F5;
+    (=>>ucs@unicode	. #x52EF)	; &G-UU+52EF;
+    (=big5		. #xE4F5)	; &G-UU+52EF;
     (->subsumptive
      ((=daikanwa	  . 02455)	; &M-02455;
       )
