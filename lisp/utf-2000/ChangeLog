@@ -1,5 +1,63 @@
 2010-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R014-Cover.el:
+	- Add abstract ideographic-structure for some abstract characters.
+	- Add `=>>jis-x0208' for JIS X 0208 abstract glyphs.
+	(U+5199): Unify abstract J0-3C4C.
+	(J0-3C4C): Add `=>>ucs@jis' and `=>>ucs@cns'.
+	(G0-5034): Add `=>>ucs@unicode'.
+	(U+6700): Unify abstract J0-3A47.
+	(U-0002F8D4): Add `=>>ucs@unicode' for G-UU+6700; add `=>>ucs@cns'
+	for G-CU+2F8D4; omit `=>ucs@gb', `=>ucs@jis' and `=>ucs@ks'.
+	(U+51AA): Unify abstract J0-5151.
+	(J0-5151): Add `=>>ucs@unicode' for UU+51AA.
+
+	* Ideograph-R013-Down-Box.el:
+	- Add `=>>jis-x0208' for JIS X 0208 abstract glyphs.
+	- Add abstract ideographic-structure for some abstract characters.
+	- Use <CJK RADICAL SUN> instead of <<ideographic component hood>>.
+	(abstract J0-4662): Add `=>ucs@jis' for JU+5185.
+	(parent of GT-K0710): Unify abstract glyph of BC-8C58 and
+	GT-K0710.
+	(U+518D): Unify abstract J0-3A46.
+	(U+5190): Unify abstract J0-666E.
+	(U+5192): Unify abstract J0-4B41.
+	(U+6700): Unify abstract J0-3A47.
+	(U-0002F8D4): Add `=>>ucs@unicode' for G-UU+6700; add `=>>ucs@cns'
+	for G-CU+2F8D4; omit `=>ucs@gb', `=>ucs@jis' and `=>ucs@ks'.
+
+	* Ideograph-R018-Knife.el:
+	- Add `=>>jis-x0208' for JIS X 0208 abstract glyphs.
+	- Add abstract ideographic-structure for some abstract characters.
+	(U+5203): Unify abstract J0-3F4F.
+	(B-A462): Add `=>>ucs@unicode'; omit `=ucs@big5'; add `=>>gt'.
+	(J0-3F4F): Add `=>>ucs@jis'.
+	(J0-405A): Omit `ideographic-structure'.
+	(U+5224): Unify abstract J0-483D.
+	(J0-4A4C): Omit `ideographic-structure'.
+	(J0-516A): Omit `ideographic-structure'.
+	(U+5238): Unify abstract J0-3774.
+	(J0-516B): Add `=>>ucs@jis'.
+	(U+523B): Use `->denotational' instead of `->subsumptive'.
+	(U+524A): Unify abstract J0-3A6F.
+	(U+524D): Unify abstract J0-4130.
+	(U+524F): Unify abstract J0-516C.
+	(UU+524F): Add `=>>ucs@unicode'.
+	(U+5256): Use `->denotational' instead of `->subsumptive'.
+	(U+526A): Unify abstract J0-5172.
+	(J0-5172): Add `=>>ucs@jis'.
+	(parent of G0-3C74): Add `=>>ucs@unicode' for G-UU+526A.
+	(U+5271): Unify abstract J0-517B.
+	(parent of GT-02691): Add `=>>gt' and `=>>gt-k'.
+	(UU+5271): Add `=>>ucs@unicode'.
+	(J0-517B): Use `<-simplified@JP/jis' instead of `<-simplified' for
+	J0-5179.
+	(U+5272): Unify abstract J0-3364.
+	(U+5273): Unify abstract J0-5175.
+	(U+5289): Unify abstract J0-4E2D.
+	(J0-4E2D): Add `=>>ucs@unicode'.
+	(U+5292): Use `->denotational' instead of `->subsumptive'.
+
 	* Ideograph-R008-Lid.el:
 	- Add `=>>jis-x0208' for JIS X 0208 abstract glyphs.
 	- Add abstract ideographic-structure for some abstract characters.
