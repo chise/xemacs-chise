@@ -1,3 +1,9 @@
+2010-07-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	Prefer UCS and JIS X0208/0213 related features to `china3-jef' and
+	`chinese-big5'.
+
 2010-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list):
