@@ -1429,8 +1429,8 @@
       )
      ((=ucs		  . #x514C)	; 兌
       ))
-    (=>>jis-x0213-1	. #x2E52)	; &B-AB5E; [14-50]
-    (=big5		. #xAB5E)	; &B-AB5E;
+    (=>>jis-x0213-1	. #x2E52)	; &G-JX1-2E52; [14-50]
+    (=big5		. #xAB5E)	; &G-JX1-2E52;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
