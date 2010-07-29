@@ -1,3 +1,39 @@
+2010-07-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R029-Again.el (abstract glyph of BC-8D4C): New
+	abstract glyph.
+	(GT-K2778): Add `<-denotational' for the abstract glyph of
+	BC-8D4C; use `<-simplified@component' instead of
+	`->ideographic-variants' for BC-8D4C.
+	(BC-8D4C): Add `<-denotational' for the abstract glyph of BC-8D4C;
+	omit `->ideographic-variants' for GT-K2778.
+	(U+6700): Unify abstract J0-3A47.
+	(U-0002F8D4): Add `=>>ucs@unicode'; omit `=>ucs@gb', `=>ucs@jis'
+	and `=>ucs@ks'; add `=>>ucs@cns'; add `=>>jis-x0208'; add
+	`=>>ucs@cns'.
+
+	* Ideograph-R011-Enter.el:
+	- Add `=>>jis-x0208' for JIS X 0208 abstract glyphs.
+	- Add abstract ideographic-structure for some abstract characters.
+	- Add `=>>ucs@unicode' for some Unicode representative glyphs.
+	- Add `=>>ucs@jis' for some JIS X 0208 abstract glyphs.
+	(U+5166): Use `->subsumptive'.
+	(abstract J0-4662): Add `=>ucs@jis' for JU+5185.
+	(U+5168): Unify abstract J0-4134.
+	(C1-4740): Omit `ideographic-structure'; unify CU+5168.
+	(M-01428): Integrate U-000204E3 and H1-BBF1.
+	(M-01429): Integrate U-000201D2 and H1-BD73.
+	(U+34B3): Use `->subsumptive'.
+	(BC-8C62): New character.
+	(M-01435): Add `<-ancient' for J0-4A5C.
+	(C6-2579): Omit `ideographic-structure'.
+	(abstract J0-5141): New abstract character.
+	(U+516A): Use `<-denotational' for the abstract J0-5141.
+	(H1-C3C3): Omit `ideographic-structure'.
+	(U-000204F3): Use `->subsumptive'.
+	(M-01443): Add `<-ancient' for K0-6E6F.
+	(U-000204F4): Use `->denotational'.
+
 2010-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R017-Open-Box.el (U+51F6): Add `=>>jis-x0208'.
