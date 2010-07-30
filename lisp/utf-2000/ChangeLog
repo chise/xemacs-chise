@@ -1,3 +1,58 @@
+2010-07-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el:
+	- Add abstract ideographic-structure for some abstract characters.
+	- Add `=>>jis-x0208' for JIS X 0208 abstract glyphs.
+	- Add `=>>ucs@jis' for some JIS X 0208 abstract glyphs.
+	- Add `=>>ucs@unicode' for some Unicode representative glyphs.
+	(abstract J0-4662): Add `=>ucs@jis' for JU+5185.
+	(U+4EDE): Unify abstract J0-5040.
+	(abstract J0-4724): New abstract character.
+	(U+4EFB): Use `<-denotational' for the abstract J0-4724; use
+	`->denotational' instead of `->subsumptive'.
+	(U+4EFC): Use `<-denotational' for the abstract J0-4724; add
+	`<-wrong' for U+4FC7.
+	(U-000201D2): Integrate M-01429.
+	(U+4F34): Unify abstract J0-483C.
+	(U+4FAE): Unify abstract J0-496E.
+	(U+4FB5): Unify abstract J0-3F2F.
+	(C1-4F76): Unify CU+4FCA; add `=>>ucs@cns' to the parent.
+	(U+4FD8): Unify abstract J0-505A.
+	(abstract J0-5141): New abstract character.
+	(U+4FDE): Add `<-denotational' for the abstract J0-5141; use
+	`->denotational' instead of `->subsumptive'.
+	(J0-4B73): Omit `ideographic-structure'.
+	(BC-8BC7): New character.
+	(U+4FEE): Unify abstract J0-3D24.
+	(U+500D): Use `->denotational' instead of `->subsumptive'.
+	(U+500F): Unify abstract J0-6047.
+	(U+5025): Unify abstract J0-5065.
+	(U+5029): Unify abstract J0-506A.
+	(U+5043): Unify abstract J0-5070; use `->denotational' instead of
+	`->subsumptive'.
+	(U+504F): Unify abstract J0-4A50.
+	(U+5050): Unify abstract J0-5074.
+	(U+5056): Unify abstract J0-5077.
+	(U+3474): Use `->denotational' instead of `->subsumptive'.
+	(U+508D): Likewise.
+	(U-00020306): Use `->denotational' to separate representative
+	nodes; add `<-ancient' for U+5168; add `<-same' for U-000204F3.
+	(U+50CA): Unify abstract J0-5122.
+	(M-01055): Add `ideographic-structure'.
+	(J0-5122): Likewise.
+	(abstract JX1-414E): Separate U-0002F80A; add `=>ucs@cns' for
+	CU+2F80A; add `=>ucs@jis' for JU+50E7.
+	(M-01076): Add `<-vulgar' for JX1-2E49.
+	(J0-414E): Unify U-0002F80A.
+	(U+50ED): Unify abstract J0-5128.
+	(U+50EE): Use `->denotational' instead of `->subsumptive'.
+	(U+5104): Unify abstract J0-322F.
+	(U+5116): Use `->denotational' instead of `->subsumptive'.
+	(U+511A): Unify abstract J0-5133.
+	(U+512A): Unify abstract J0-4D25.
+	(U+513A): Use `->denotational' instead of `->subsumptive'.
+	(U-000204E3): Moved to Ideograph-R011-Enter.el.
+
 2010-07-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R029-Again.el (abstract glyph of BC-8D4C): New
