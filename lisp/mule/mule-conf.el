@@ -477,7 +477,7 @@
 
   (make-charset '=>>big5-cdp
 		"Abstract glyphs of Big5-CDP"
-		'(long-name	"Big5-CDP"
+		'(long-name	"Big5-CDP glyphs"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -485,6 +485,17 @@
 		  direction	l2r
 		  registry	"big5\\.cdp-0"
 		  mother	=big5-cdp))
+
+  (make-charset '=>big5-cdp
+		"Big5-CDP abstract characters"
+		'(long-name	"Big5-CDP abstract characters"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"big5\\.cdp-0"
+		  mother	=>>big5-cdp))
 
   (make-charset '=gt
 		"GT 2000"
