@@ -175,6 +175,7 @@
     =>jis-x0213-1@2004
     =>jis-x0213-2
     =>gt
+    =>big5-cdp
     =big5
     =big5-eten
     =zinbun-oracle
