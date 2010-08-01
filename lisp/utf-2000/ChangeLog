@@ -1,3 +1,12 @@
+2010-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R059-Bristle.el (U+4FEE): Unify abstract J0-3D24.
+	(J0-3D24): Add `=>>ucs@jis'.
+
+	* Ideograph-R050-Turban.el (U+5E1A): Add abstract
+	ideographic-structure; use `->denotational' instead of
+	`->subsumptive'.
+
 2010-07-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R032-Earth.el (U+5774): Use `->denotational' instead
@@ -9,6 +18,10 @@
 	(U+FA3A): Add `=>>ucs@unicode'.
 	(J0-4B4F): Add `=>>ucs@jis'.
 	(U+58A9): Use `->subsumptive'.
+
+	* Ideograph-R036-Evening.el, Ideograph-R008-Lid.el (U-00020199):
+	Add abstract ideographic-structure.
+	(H1-E2B7): Modify `ideographic-structure'.
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>big5-cdp'.
