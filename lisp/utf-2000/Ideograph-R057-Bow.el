@@ -700,8 +700,8 @@
       (=cns11643-3	  . #x286E)	; &I-C3-286E; [08-78]
       (=daikanwa	  . 09745)	; &I-M-09745;
       )
-     ((=ucs@unicode	  . #x5F21)	; &JC3-4CEB;
-      (=jef-china3	  . #x4CEB)	; &JC3-4CEB;
+     ((=ucs@unicode	  . #x5F21)	; &UU+5F21;
+      (=jef-china3	  . #x4CEB)	; &UU+5F21;
       ))
     ))
 (define-char
@@ -2220,8 +2220,8 @@
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=ucs@unicode	. #x5F43)	; &B-E1BF;
-    (=big5		. #xE1BF)	; &B-E1BF;
+    (=ucs@unicode	. #x5F43)	; &UU+5F43;
+    (=big5		. #xE1BF)	; &UU+5F43;
     ))
 (define-char
   '((=>ucs		. #x22412)	; 𢐒
