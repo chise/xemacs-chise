@@ -3727,6 +3727,14 @@
     (ideographic-strokes@daikanwa*sources
      daikanwa)
     (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EAD)	; 亭
+      )
+     ((=ucs		  . #x591C)	; 夜
+      ))
     (=ucs		. #x20199)	; 𠆙
     (->subsumptive
      ((ideographic-structure
@@ -3769,7 +3777,9 @@
 	(=gb2312	    . #x4D24)	; &C1-4F68; [45-04]
 	(=cns11643-1	    . #x4F68)	; &I-C1-4F68; [47-72]
 	)
-       ((=ucs		    . #x591C)	; 夜
+       ((=ucs@unicode	    . #x591C)	; &C1-4C5F;
+	(=gb2312	    . #x5239)	; &C1-4C5F; [50-25]
+	(=cns11643-1	    . #x4C5F)	; &I-C1-4C5F; [44-63]
 	))
       (=ucs@iso		  . #x20199)	; &HZK01-E2B7;
       (=hanziku-1	  . #xE2B7)	; &HZK01-E2B7;
