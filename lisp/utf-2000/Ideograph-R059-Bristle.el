@@ -318,16 +318,19 @@
     (ideographic-radical@shinjigen . 59)	; ⼺
     (hanyu-dazidian	1 159 2)
     (=ucs		. #x4FEE)	; 修
+    (=>jis-x0208	. #x3D24)	; 修 [29-04]
+    (=>jis-x0213-1	. #x3D24)	; 修 [29-04]
+    (=big5		. #xADD7)	; &I-B-ADD7;
     (->subsumptive
      ((ideographic-strokes@cns . 8)
       (ideographic-strokes@shinjigen . 7)
       (total-strokes	   . 10)
+      (=>>ucs@jis	  . #x4FEE)	; &GT-00982;
       (=ucs@jis		  . #x4FEE)	; &GT-00982;
       (=jis-x0208	  . #x3D24)	; &GT-00982; [29-04]
       (=ks-x1001	  . #x6173)	; &I-K0-6173; [65-83]
       (=cns11643-1	  . #x543A)	; &I-C1-543A; [52-26]
       (=jis-x0213-1	  . #x3D24)	; &I-JX1-3D24; [29-04]
-      (=big5		  . #xADD7)	; &I-B-ADD7;
       (=gt		  . 00982)	; &I-GT-00982;
       (=gt-k		  . 06456)	; &I-GT-K06456;
       (=gt-pj-1		  . #x3D24)	; &I-GT-00982; [29-04]
