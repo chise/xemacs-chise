@@ -1,5 +1,15 @@
 2010-07-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R032-Earth.el (U+5774): Use `->denotational' instead
+	of `->subsumptive'.
+	(JX2-2467): Unify GT-06313 and GT-K3985.
+	(GT-K3984): New component of U+5774.
+	(U+57F6): Use `->denotational' instead of `->subsumptive'.
+	(U+58A8): Unify J97-4B4F.
+	(U+FA3A): Add `=>>ucs@unicode'.
+	(J0-4B4F): Add `=>>ucs@jis'.
+	(U+58A9): Use `->subsumptive'.
+
 	* Ideograph-R009-Man.el:
 	- Add abstract ideographic-structure for some abstract characters.
 	- Add `=>>jis-x0208' for JIS X 0208 abstract glyphs.
