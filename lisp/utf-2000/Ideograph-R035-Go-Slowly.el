@@ -366,8 +366,8 @@
     (ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=ucs@unicode	. #x590E)	; &B-D159;
-    (=big5		. #xD159)	; &B-D159;
+    (=ucs@unicode	. #x590E)	; &UU+590E;
+    (=big5		. #xD159)	; &UU+590E;
     ))
 (define-char
   '((ideographic-radical . 35)	; ⼢
