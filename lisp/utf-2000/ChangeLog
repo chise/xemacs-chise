@@ -10,6 +10,9 @@
 	(J0-4B4F): Add `=>>ucs@jis'.
 	(U+58A9): Use `->subsumptive'.
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>big5-cdp'.
+
 	* Ideograph-R009-Man.el:
 	- Add abstract ideographic-structure for some abstract characters.
 	- Add `=>>jis-x0208' for JIS X 0208 abstract glyphs.
