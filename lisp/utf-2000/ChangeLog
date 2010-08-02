@@ -1,3 +1,13 @@
+2010-08-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R047-River.el (abstract glyph of GT-10942): New
+	abstract glyph; use `->subsumptive' to integrate GT-10942.
+
+	* Ideograph-R037-Big.el (GT-07490): New character.
+	(GT-K8042): New character.
+	(BC-8BD3): New character.
+	(GT-K8041): New character.
+
 2010-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R059-Bristle.el (U+4FEE): Unify abstract J0-3D24.
