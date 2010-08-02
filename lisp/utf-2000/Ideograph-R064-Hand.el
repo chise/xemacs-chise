@@ -17880,8 +17880,8 @@
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (=ucs@unicode	. #x64DB)	; &B-E9AC;
-    (=big5		. #xE9AC)	; &B-E9AC;
+    (=ucs@unicode	. #x64DB)	; &UU+64DB;
+    (=big5		. #xE9AC)	; &UU+64DB;
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
