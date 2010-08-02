@@ -1518,8 +1518,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=gt		    . 17371)	; &I-GT-17371;
-	(=daikanwa	    . 13739)	; &GT-17371;
+       ((=gt		    . 17371)	; &GT-17371;
+	(=daikanwa	    . 13739)	; &I-M-13739;
 	)
        ((=ucs		    . #x5C0F)	; 小
 	))
