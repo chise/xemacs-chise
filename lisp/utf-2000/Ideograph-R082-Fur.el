@@ -2335,9 +2335,9 @@
      ((=ucs@cns		  . #x6BFF)	; &C2-5140;
       (=cns11643-2	  . #x5140)	; &C2-5140; [49-32]
       )
-     ((=ucs@unicode	  . #x6BFF)	; &B-E5F7;
-      (=gb12345		  . #x6B27)	; &B-E5F7; [75-07]
-      (=big5		  . #xE5F7)	; &B-E5F7;
+     ((=ucs@unicode	  . #x6BFF)	; &UU+6BFF;
+      (=gb12345		  . #x6B27)	; &UU+6BFF; [75-07]
+      (=big5		  . #xE5F7)	; &UU+6BFF;
       ))
     ))
 (define-char

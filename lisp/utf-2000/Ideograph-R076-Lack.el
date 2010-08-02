@@ -1977,9 +1977,9 @@
       (=daikanwa	  . 16104)	; &I-M-16104;
       (=shinjigen	  .  3928)	; &GT-20698;
       )
-     ((=ucs@unicode	  . #x6B3D)	; &B-B4DC;
-      (=gb12345		  . #x4755)	; &B-B4DC; [39-53]
-      (=big5		  . #xB4DC)	; &B-B4DC;
+     ((=ucs@unicode	  . #x6B3D)	; &UU+6B3D;
+      (=gb12345		  . #x4755)	; &UU+6B3D; [39-53]
+      (=big5		  . #xB4DC)	; &UU+6B3D;
       ))
     ))
 (define-char
@@ -2306,8 +2306,8 @@
       (=cns11643-2	  . #x437E)	; &M-16127; [35-94]
       (=daikanwa	  . 16127)	; &I-M-16127;
       )
-     ((=ucs@unicode	  . #x6B42)	; &B-DDF8;
-      (=big5		  . #xDDF8)	; &B-DDF8;
+     ((=ucs@unicode	  . #x6B42)	; &UU+6B42;
+      (=big5		  . #xDDF8)	; &UU+6B42;
       ))
     ))
 (define-char
@@ -3800,8 +3800,8 @@
       (=daikanwa	  . 16200)	; &I-M-16200;
       (=jef-china3	  . #x54D6)	; &I-JC3-54D6;
       )
-     ((=ucs@unicode	  . #x6B56)	; &B-E9E0;
-      (=big5		  . #xE9E0)	; &B-E9E0;
+     ((=ucs@unicode	  . #x6B56)	; &UU+6B56;
+      (=big5		  . #xE9E0)	; &UU+6B56;
       ))
     ))
 (define-char
@@ -4289,9 +4289,9 @@
       )
      ((=cns11643-1	  . #x7656)	; &C1-7656; [86-54]
       )
-     ((=ucs@unicode	  . #x6B5F)	; &B-C26A;
-      (=gb12345		  . #x6C23)	; &B-C26A; [76-03]
-      (=big5		  . #xC26A)	; &B-C26A;
+     ((=ucs@unicode	  . #x6B5F)	; &UU+6B5F;
+      (=gb12345		  . #x6C23)	; &UU+6B5F; [76-03]
+      (=big5		  . #xC26A)	; &UU+6B5F;
       )
      ((=shinjigen	  .  3945)	; &SJG2-3945;
       ))
