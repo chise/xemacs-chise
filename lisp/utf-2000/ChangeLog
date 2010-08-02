@@ -1,4 +1,14 @@
+2010-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R039-Child.el (GT-K2694): New character.
+	(G0-665A): Unify GT-08749 and GT-K2695.
+
+	* Ideograph-R033-Scholar.el (U+58EC): Use `->denotational'.
+
 2010-08-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R070-Square.el (J0-5A55): Separate S2-3247.
+	(S1-3247): Unify S2-3247.
 
 	* Ideograph-R047-River.el (abstract glyph of GT-10942): New
 	abstract glyph; use `->subsumptive' to integrate GT-10942.
