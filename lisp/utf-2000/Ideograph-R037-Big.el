@@ -1195,9 +1195,9 @@
     (->subsumptive
      ((ideographic-strokes . 6)
       (total-strokes	   . 9)
-      (=ucs@unicode	  . #x594A)	; &B-D15A;
-      (=big5		  . #xD15A)	; &B-D15A;
-      (=daikanwa@rev1	  . 05897)	; &B-D15A;
+      (=ucs@unicode	  . #x594A)	; &UU+594A;
+      (=big5		  . #xD15A)	; &UU+594A;
+      (=daikanwa@rev1	  . 05897)	; &UU+594A;
       (=daikanwa@rev2	  . 05909)	; &M-05909;
       )
      ((ideographic-strokes . 7)
@@ -1789,6 +1789,28 @@
     (=daikanwa		. 49008)	; &I-M-49008;
     ))
 (define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8BD3)	; &MCS-000F02A7;
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (=>gt		. 07490)	; &A-GT-07490;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt		  . 07490)	; &A-GT-07490;
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (=>>gt		. 07490)	; &G-GT-07490;
+    (=>>gt-k		. 06722)	; &G-GT-07490;
+    (->subsumptive
+     ((=gt		  . 07490)	; &GT-07490;
+      (=gt-k		  . 06722)	; &I-GT-K06722;
+      (=gt-pj-9		  . #x4F48)	; &GT-07490; [47-40]
+      ))
+    ))
+(define-char
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
@@ -2204,6 +2226,45 @@
      ((=ucs		  . #x4E18)	; 丘
       ))
     (=hanziku-1		. #xACBB)	; &HZK01-ACBB;
+    ))
+(define-char
+  '((ideographic-radical . 37)	; ⼤
+    (=>big5-cdp		. #x8BD3)	; &MCS-000F02A7;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8BD3)	; &MCS-000F02A7;
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (=>>big5-cdp	. #x8BD3)	; &G-CDP-8BD3;
+    (=>>gt-k		. 08042)	; &G-CDP-8BD3;
+    (->subsumptive
+     ((=gt-k		  . 08042)	; &GT-K08042;
+      (=gt-pj-k1	  . #x444B)	; &GT-K08042; [36-43]
+      )
+     ((=big5-cdp	  . #x8BD3)	; &CDP-8BD3;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=big5-cdp	  . #x8BD3)	; &CDP-8BD3;
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (=>>gt-k		. 08041)	; &G-GT-K08041;
+    (<-formed@component/connect-right
+     ((=>>big5-cdp	  . #x8BD3)	; &G-CDP-8BD3;
+      ))
+    (->subsumptive
+     ((=gt-k		  . 08041)	; &GT-K08041;
+      (=gt-pj-k1	  . #x314B)	; &GT-K08041; [17-43]
+      (<-formed@component/connect-right
+       ((=big5-cdp	    . #x8BD3)	; &CDP-8BD3;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
