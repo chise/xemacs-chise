@@ -5000,6 +5000,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs		. #xFA3D)	; 悔
+    (=>>ucs@unicode	. #x6094)	; 悔
     (=ucs@unicode	. #x6094)	; 悔
     (=ucs@jis		. #xFA3D)	; 悔
     (=gb2312		. #x3B5A)	; &I-G0-3B5A; [27-58]
@@ -6017,9 +6018,13 @@
     (total-strokes	 . 11)
     (=ucs		. #x226F3)	; 𢛳
     (->subsumptive
-     ((=ucs@jis		  . #x226F3)	; &CDP-8BB3;
-      (=jis-x0213-2	  . #x2C50)	; &CDP-8BB3; [12-48]
+     ((=ucs@jis		  . #x226F3)	; &AJ1-17632;
+      (=jis-x0213-2	  . #x2C50)	; &AJ1-17632; [12-48]
       (=big5-cdp	  . #x8BB3)	; &I-CDP-8BB3;
+      (=gt		  . 13738)	; &I-GT-13738;
+      (=gt-k		  . 09311)	; &I-GT-K09311;
+      (=gt-pj-9		  . #x4D6C)	; &I-GT-13738; [45-76]
+      (=adobe-japan1-5	  . 17632)	; &I-AJ1-17632;
       )
      ((=ucs@iso		  . #x226F3)	; &U-000226F3;
       ))
@@ -7782,10 +7787,17 @@
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
+    (=ucs		. #x60EE)	; 惮
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x60EE)	; 惮
+      ))
+    (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=ucs		. #x60EE)	; 惮
-    (=gb2312		. #x352C)	; &I-G0-352C; [21-12]
+    (=ucs@unicode	. #x60EE)	; &C3-3574;
+    (=gb2312		. #x352C)	; &C3-3574; [21-12]
     (=cns11643-3	. #x3574)	; &I-C3-3574; [21-84]
     ))
 (define-char
@@ -9678,12 +9690,21 @@
     (=gb2312		. #x632B)	; &I-G0-632B; [67-11]
     ))
 (define-char
-  '((=>ucs		. #x60EE)	; 惮
+  '((<-denotational
+     ((=ucs		  . #x60EE)	; 惮
+      ))
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=ucs@jis		. #x60EE)	; &JX2-2C57;
-    (=jis-x0213-2	. #x2C57)	; &JX2-2C57; [12-55]
+    (=ucs@jis		. #x60EE)	; &AJ1-17637;
+    (=jis-x0213-2	. #x2C57)	; &AJ1-17637; [12-55]
+    (=gt		. 13717)	; &I-GT-13717;
+    (=gt-pj-9		. #x5B6D)	; &I-GT-13717; [59-77]
+    (=adobe-japan1-5	. 17637)	; &I-AJ1-17637;
+    (<-simplified@JP/jis
+     ((=ucs		  . #x619A)	; 憚
+      (=jis-x0208	  . #x585F)	; &I-J90-585F; [56-63]
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
