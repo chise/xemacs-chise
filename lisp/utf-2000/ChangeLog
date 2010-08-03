@@ -1,5 +1,10 @@
 2010-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R075-Tree.el (G0-4337): Add `=>>ucs@unicode'.
+	(U+6901): Add abstract ideographic-structure.
+	(U-0002352D): Add abstract ideographic-structure; use
+	`->denotational' instead of `->subsumptive'.
+
 	* Ideograph-R073-Say.el (J0-5228): Add `=>>ucs@unicode'.
 	(U+6700): Unify abstract J0-3A47.
 	(U-0002F8D4): Add `=>>ucs@unicode' and `=>>ucs@cns'; add
