@@ -1478,6 +1478,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=ucs		. #xFA41)	; 敏
+    (=>>ucs@unicode	. #x654F)	; 敏
     (=ucs@unicode	. #x654F)	; 敏
     (=ucs@jis		. #xFA41)	; 敏
     (=gb2312		. #x4374)	; &I-G0-4374; [35-84]
@@ -1493,10 +1494,15 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=ucs		. #x6550)	; 敐
-    (=jis-x0212		. #x414D)	; &I-JSP-414D; [33-45]
-    (=cns11643-4	. #x322B)	; &I-C4-322B; [18-11]
-    (=daikanwa		. 13218)	; &I-M-13218;
-    (=jef-china3	. #x50CB)	; &I-JC3-50CB;
+    (->subsumptive
+     ((=ucs@unicode	  . #x6550)	; &M-13218;
+      (=jis-x0212	  . #x414D)	; &M-13218; [33-45]
+      (=daikanwa	  . 13218)	; &I-M-13218;
+      )
+     ((=cns11643-4	  . #x322B)	; &C4-322B; [18-11]
+      )
+     ((=jef-china3	  . #x50CB)	; &JC3-50CB;
+      ))
     ))
 (define-char
   '((ideographic-radical . 66)	; ⽁
@@ -2565,6 +2571,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=ucs		. #x2F8C9)	; 敬
+    (=>>ucs@unicode	. #x656C)	; 敬
     (=ucs@unicode	. #x656C)	; 敬
     (=ucs@cns		. #x2F8C9)	; 敬
     (=jis-x0208		. #x3749)	; &I-J90-3749; [23-41]
