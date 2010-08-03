@@ -1790,7 +1790,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>big5-cdp	  . #x8BD3)	; &MCS-000F02A7;
+     ((=>big5-cdp	  . #x8BD3)	; &A-CDP-8BD3;
       ))
     (ideographic-radical . 37)	; ⼤
     (=>gt		. 07490)	; &A-GT-07490;
@@ -2229,11 +2229,11 @@
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
-    (=>big5-cdp		. #x8BD3)	; &MCS-000F02A7;
+    (=>big5-cdp		. #x8BD3)	; &A-CDP-8BD3;
     ))
 (define-char
   '((<-denotational
-     ((=>big5-cdp	  . #x8BD3)	; &MCS-000F02A7;
+     ((=>big5-cdp	  . #x8BD3)	; &A-CDP-8BD3;
       ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 8)
