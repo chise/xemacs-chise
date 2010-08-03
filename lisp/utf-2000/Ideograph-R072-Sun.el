@@ -76,13 +76,13 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=ucs		. #x65E8)	; 旨
+    (=big5		. #xA6AE)	; &I-B-A6AE;
     (->subsumptive
      ((=ucs@unicode	  . #x65E8)	; &GT-17370;
       (=jis-x0208	  . #x3B5D)	; &GT-17370; [27-61]
       (=gb2312		  . #x563C)	; &I-G0-563C; [54-28]
       (=ks-x1001	  . #x7229)	; &I-K0-7229; [82-09]
       (=jis-x0213-1	  . #x3B5D)	; &I-JX1-3B5D; [27-61]
-      (=big5		  . #xA6AE)	; &I-B-A6AE;
       (=gt		  . 17370)	; &I-GT-17370;
       (=gt-k		  . 01619)	; &I-GT-K01619;
       (=gt-pj-1		  . #x3B5D)	; &I-GT-17370; [27-61]
@@ -98,7 +98,10 @@
     (total-strokes	 . 6)
     (=ucs		. #x23140)	; 𣅀
     (->subsumptive
-     ((=daikanwa	  . 13739)	; &M-13739;
+     ((=gt		  . 17371)	; &GT-17371;
+      (=gt-k		  . 02303)	; &I-GT-K02303;
+      (=gt-pj-3		  . #x6E37)	; &GT-17371; [78-23]
+      (=daikanwa	  . 13739)	; &I-M-13739;
       )
      ((=ucs@iso		  . #x23140)	; &C6-247A;
       (=cns11643-6	  . #x247A)	; &C6-247A; [04-90]
@@ -981,8 +984,8 @@
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (=ucs@unicode	. #x6605)	; &B-CCCD;
-    (=big5		. #xCCCD)	; &B-CCCD;
+    (=ucs@unicode	. #x6605)	; &UU+6605;
+    (=big5		. #xCCCD)	; &UU+6605;
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
@@ -1526,6 +1529,8 @@
      jis-x0208 cns11643-6)
     (total-strokes	 . 9)
     (=ucs		. #x5192)	; 冒
+    (=>jis-x0208	. #x4B41)	; 冒 [43-33]
+    (=>jis-x0213-1	. #x4B41)	; 冒 [43-33]
     ))
 (define-char
   '((<-denotational
@@ -1536,6 +1541,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (=ucs		. #x2F8D2)	; 冒
+    (=>>ucs@jis		. #x5192)	; 冒
     (=ucs@jis		. #x5192)	; 冒
     (=jis-x0208		. #x4B41)	; &I-J90-4B41; [43-33]
     (=cns11643-6	. #x316D)	; &I-C6-316D; [17-77]
@@ -2618,6 +2624,14 @@
   '((ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((=ucs		  . #x4EA4)	; 交
+      ))
     (=ucs		. #x6648)	; 晈
     (->subsumptive
      ((ideographic-structure
@@ -2626,7 +2640,7 @@
 	)
        ((=ucs		    . #x65E5)	; 日
 	)
-       ((=jis-x0208@1978    . #x3872)	; &GT-00389; [24-82]
+       ((=jis-x0208@1978    . #x3872)	; &M-00291; [24-82]
 	(=jis-x0208@1983    . #x3872)	; &I-J83-3872; [24-82]
 	(=ks-x1001	    . #x4E5F)	; &I-K0-4E5F; [46-63]
 	(=daikanwa	    . 00291)	; &I-M-00291;
@@ -3055,8 +3069,8 @@
      ((morohashi-daikanwa	ho 234)
       (ideographic-strokes . 6)
       (total-strokes	   . 10)
-      (=ucs@unicode	  . #x66FB)	; &JC3-51FC;
-      (=jef-china3	  . #x51FC)	; &JC3-51FC;
+      (=ucs@unicode	  . #x66FB)	; &UU+66FB;
+      (=jef-china3	  . #x51FC)	; &UU+66FB;
       )
      ((ideographic-strokes . 7)
       (total-strokes	   . 11)
@@ -6420,8 +6434,8 @@
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (=ucs@unicode	. #x66AF)	; &B-E5C9;
-    (=big5		. #xE5C9)	; &B-E5C9;
+    (=ucs@unicode	. #x66AF)	; &UU+66AF;
+    (=big5		. #xE5C9)	; &UU+66AF;
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
@@ -6468,7 +6482,6 @@
      shuowen daikanwa)
     (->synonyms
      ((=ucs@jis		  . #x4E9F)	; &GT-00358;
-      (=ucs@big5	  . #x4E9F)	; &GT-00358;
       (=jis-x0208	  . #x5034)	; &GT-00358; [48-20]
       (=cns11643-1	  . #x4F67)	; &I-C1-4F67; [47-71]
       (=jis-x0213-1	  . #x5034)	; &I-JX1-5034; [48-20]
@@ -8304,8 +8317,8 @@
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
-    (=ucs@unicode	. #x66DE)	; &B-F24B;
-    (=big5		. #xF24B)	; &B-F24B;
+    (=ucs@unicode	. #x66DE)	; &UU+66DE;
+    (=big5		. #xF24B)	; &UU+66DE;
     ))
 (define-char
   '((=>ucs		. #x3B2A)	; 㬪
