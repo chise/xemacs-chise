@@ -377,6 +377,7 @@
       )
      ((=ucs		  . #x52A9)	; 助
       ))
+    (=>>ucs@unicode	. #x52D7)	; &GT-03066;
     (=ucs@unicode	. #x52D7)	; &GT-03066;
     (=jis-x0208		. #x5228)	; &GT-03066; [50-08]
     (=cns11643-1	. #x5B2B)	; &I-C1-5B2B; [59-11]
@@ -456,6 +457,8 @@
      shinjigen@1ed jisx0208/a jisx0208/b)
     (total-strokes	 . 12)
     (=ucs		. #x6700)	; 最
+    (=>jis-x0208	. #x3A47)	; 最 [26-39]
+    (=>jis-x0213-1	. #x3A47)	; 最 [26-39]
     (=big5		. #xB3CC)	; &I-B-B3CC;
     ))
 (define-char
@@ -474,7 +477,7 @@
     (hanyu-dazidian	2 1516 8)
     (=cns11643-1	. #x5E32)	; &M-01597; [62-18]
     (=daikanwa		. 01597)	; &I-M-01597;
-    (=shinjigen@1ed	.  0926)	; &M-01597;
+    (=shinjigen		.  0926)	; &M-01597;
     (<-original
      ((=ucs@iso		  . #x2F8D4)	; &GT-18101;
       (=ucs@jis		  . #x6700)	; &GT-18101;
@@ -487,7 +490,7 @@
       (=shinjigen	  .  0925)	; &GT-18101;
       ))
     (<-original*sources
-     zhengzitong daikanwa shinjigen@1ed)
+     zhengzitong daikanwa shinjigen)
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈
@@ -558,9 +561,6 @@
      ((=ucs		  . #x6700)	; 最
       ))
     (=>ucs*		. #x6700)	; 最
-    (=>ucs@gb		. #x6700)	; &G0-576E;
-    (=>ucs@jis		. #x6700)	; &GT-18101;
-    (=>ucs@ks		. #x6700)	; &GT-18101;
     (ideographic-radical@ucs . 73)	; ⽈
     (ideographic-strokes@ucs . 8)
     (ideographic-radical@ucs*sources
@@ -571,6 +571,9 @@
      shinjigen@1ed jisx0208/a jisx0208/b)
     (total-strokes	 . 12)
     (=ucs		. #x2F8D4)	; 最
+    (=>>ucs@unicode	. #x6700)	; 最
+    (=>>ucs@cns		. #x2F8D4)	; 最
+    (=>>jis-x0208	. #x3A47)	; 最 [26-39]
     (->subsumptive
      ((=ucs@iso		  . #x2F8D4)	; &GT-18101;
       (=ucs@jis		  . #x6700)	; &GT-18101;
@@ -602,6 +605,7 @@
     (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (=>>ucs@jis		. #x6701)	; &G-JU+6701;
     (->subsumptive
      ((=daikanwa	  . 14302)	; &M-14302;
       )
@@ -616,7 +620,8 @@
     (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=big5		. #xD9A9)	; &B-D9A9;
+    (=>>ucs@unicode	. #x6701)	; &G-UU+6701;
+    (=big5		. #xD9A9)	; &I-B-D9A9;
     (->subsumptive
      ((=ucs@unicode	  . #x6701)	; &UU+6701;
       )
