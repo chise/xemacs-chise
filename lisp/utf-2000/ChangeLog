@@ -1,5 +1,33 @@
 2010-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R073-Say.el (J0-5228): Add `=>>ucs@unicode'.
+	(U+6700): Unify abstract J0-3A47.
+	(U-0002F8D4): Add `=>>ucs@unicode' and `=>>ucs@cns'; add
+	`=>>jis-x0208'; omit `=>ucs@gb', `=>ucs@jis' and `=>ucs@ks'.
+	(parent of JX2-2E37): Add `=>>ucs@jis'.
+	(B-D9A9): Add `=>>ucs@unicode'.
+
+	* Ideograph-R072-Sun.el (M-13739): Unify GT-17371 and GT-K2303.
+	(U+5192): Unify abstract J0-4B41.
+	(J0-4B41): Add `=>>ucs@jis'.
+	(U+6648): Add abstract ideographic-structure.
+
+	* Ideograph-R066-Rap.el (G0-4374): Add `=>>ucs@unicode'.
+	(U+6550): Use `->subsumptive' to separate representative nodes.
+	(J0-3749): Add `=>>ucs@unicode'.
+
+	* Ideograph-R061-Heart.el (U+FA3D): Add `=>>ucs@unicode'.
+	(BC-8BB3): Unify GT-13738, GT-K9311 and AJ1-17632.
+	(U+60EE): Use `->denotational'.
+	(JX2-2C57): Unify GT-13717 and AJ1-17637; add
+	`<-simplified@JP/jis' for U+619A.
+
+	* Ideograph-R045-Sprout.el (U+5C6E): Unify B-C94B.
+	(C2-212B): Separate B-C94B.
+
+	* Ideograph-R043-Lame.el (U+5C22): Unify B-A471.
+	(U-0002F875): Separate B-A471.
+
 	* Ideograph-R039-Child.el (GT-K2694): New character.
 	(G0-665A): Unify GT-08749 and GT-K2695.
 
