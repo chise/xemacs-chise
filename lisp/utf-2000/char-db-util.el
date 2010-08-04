@@ -156,9 +156,11 @@
     ideograph-hanziku-10
     ideograph-hanziku-11
     ideograph-hanziku-12
+    =>ucs@iso
+    =>ucs@unicode
+    =>>ucs@unicode
     =ucs@iso
     =ucs@unicode
-    =>>ucs@unicode
     =>>gt
     =>>jis-x0208
     =>>jis-x0213-1
@@ -176,6 +178,7 @@
     =>jis-x0213-2
     =>gt
     =>big5-cdp
+    =>daikanwa
     =big5
     =big5-eten
     =zinbun-oracle
@@ -431,6 +434,7 @@
 	   "(%-18s . %04d)\t; %c")
 	  ((or (memq name '(=daikanwa
 			    =daikanwa@rev1 =daikanwa@rev2
+			    =>daikanwa
 			    =gt =>>gt =>gt =gt-k =>>gt-k =cbeta
 			    =zinbun-oracle =>zinbun-oracle))
 	       (string-match "^=adobe-" (symbol-name name)))
@@ -648,21 +652,21 @@
 			line-breaking))
 	(setq attributes (delq name attributes))
 	))
-    (dolist (name '(=>daikanwa))
-      (when (and (memq name attributes)
-		 (setq value (get-char-attribute char name)))
-	(insert
-	 (if (integerp value)
-	     (format "(%-18s . %05d)\t; %c%s"
-		     name value (decode-char '=daikanwa value)
-		     line-breaking)
-	   (format "(%-18s %s)\t; %c%s"
-		   name
-		   (mapconcat (function prin1-to-string)
-			      value " ")
-		   (char-representative-of-daikanwa char)
-		   line-breaking)))
-	(setq attributes (delq name attributes))))
+    ;; (dolist (name '(=>daikanwa))
+    ;;   (when (and (memq name attributes)
+    ;;              (setq value (get-char-attribute char name)))
+    ;;     (insert
+    ;;      (if (integerp value)
+    ;;          (format "(%-18s . %05d)\t; %c%s"
+    ;;                  name value (decode-char '=daikanwa value)
+    ;;                  line-breaking)
+    ;;        (format "(%-18s %s)\t; %c%s"
+    ;;                name
+    ;;                (mapconcat (function prin1-to-string)
+    ;;                           value " ")
+    ;;                (char-representative-of-daikanwa char)
+    ;;                line-breaking)))
+    ;;     (setq attributes (delq name attributes))))
     (when (and (memq 'general-category attributes)
 	       (setq value (get-char-attribute char 'general-category)))
       (insert (format
