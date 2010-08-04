@@ -373,7 +373,7 @@
     (ideographic-radical@ucs . 16)	; ⼏
     (ideographic-strokes@ucs . 1)
     (ideographic-radical@ucs*sources
-     daikanwa=01740 jis-x0213-2000 ucs)
+     daikanwa=01740 jis-x0213@2000 ucs)
     (ideographic-radical@cns . 4)	; ⼃
     (ideographic-strokes@cns . 2)
     (ideographic-radical@cns*sources
