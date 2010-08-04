@@ -1,5 +1,9 @@
 2010-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R014-Cover.el (U+5197): Use `->denotational' to
+	separate representative node.
+	(U-0002F817): Add `<-denotational' for U+5197.
+
 	* Ideograph-R006-Hook.el (U-00020116): Add abstract
 	ideographic-structure.
 
