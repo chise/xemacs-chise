@@ -1,3 +1,16 @@
+2010-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs@iso', `=>ucs@unicode' and `=>daikanwa'.
+	(char-db-insert-ccs-feature): Treat `=>daikanwa' as the same as
+	`=daikanwa'.
+	(insert-char-attributes): Delete special code for `=>daikanwa'.
+
+2010-08-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (char-daikanwa): Return '(num -10) instead of '
+	(num 0 8) when value of feature `=>daikanwa' is num.
+
 2010-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R075-Tree.el (G0-4337): Add `=>>ucs@unicode'.
