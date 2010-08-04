@@ -19,6 +19,15 @@
   '((ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (=ucs		. #x5197)	; 冗
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5197)	; 冗
+      ))
+    (ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
     (hanyu-dazidian	1 302 16)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -28,8 +37,8 @@
       )
      ((=ucs		  . #x51E0)	; 几
       ))
-    (=ucs		. #x5197)	; 冗
-    (=jis-x0208		. #x3E69)	; &I-J90-3E69; [30-73]
+    (=ucs@unicode	. #x5197)	; &GT-02065;
+    (=jis-x0208		. #x3E69)	; &GT-02065; [30-73]
     (=gb2312		. #x485F)	; &I-G0-485F; [40-63]
     (=ks-x1001		. #x6937)	; &I-K0-6937; [73-23]
     (=cns11643-1	. #x447D)	; &I-C1-447D; [36-93]
@@ -39,11 +48,13 @@
     (=gt-k		. 00447)	; &I-GT-K00447;
     (=gt-pj-1		. #x3E69)	; &I-GT-02065; [30-73]
     (=daikanwa		. 01566)	; &I-M-01566;
-    (=shinjigen		.  0525)	; 冗
+    (=shinjigen		.  0525)	; &GT-02065;
     ))
 (define-char
-  '((=>ucs*		. #x5197)	; 冗
-    (=>daikanwa		. 01566)	; 冗
+  '((<-denotational
+     ((=ucs		  . #x5197)	; 冗
+      ))
+    (=>ucs*		. #x5197)	; 冗
     (ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
@@ -59,12 +70,17 @@
     (=cns11643-3	. #x214F)	; &I-C3-214F; [01-47]
     (=shinjigen		.  0527)	; 冗
     (<-vulgar
-     ((=ucs		  . #x5197)	; 冗
-      (=jis-x0208	  . #x3E69)	; &I-J90-3E69; [30-73]
-      (=shinjigen	  .  0525)	; 冗
+     ((=ucs@unicode	  . #x5197)	; &GT-02065;
+      (=jis-x0208	  . #x3E69)	; &GT-02065; [30-73]
+      (=gb2312		  . #x485F)	; &I-G0-485F; [40-63]
+      (=ks-x1001	  . #x6937)	; &I-K0-6937; [73-23]
+      (=cns11643-1	  . #x447D)	; &I-C1-447D; [36-93]
+      (=jis-x0213-1	  . #x3E69)	; &I-JX1-3E69; [30-73]
+      (=daikanwa	  . 01566)	; &I-M-01566;
+      (=shinjigen	  .  0525)	; &GT-02065;
       ))
     (<-vulgar*sources
-     shinjigen@1ed)
+     shinjigen)
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
