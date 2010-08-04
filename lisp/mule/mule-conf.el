@@ -592,7 +592,7 @@
   (define-charset-alias 'ideograph-gt-pj-k2 '=gt-pj-k2)
 
   (make-charset '=daikanwa
-		"Daikanwa dictionary (revised version 2)"
+		"Daikanwa dictionary (unchanged part)"
 		`(long-name	"Daikanwa"
 		  chars		256
 		  dimension	2
@@ -636,6 +636,17 @@
                   ;; code-offset	#xE00000
 		  ))
   (define-charset-alias '=daikanwa-rev2 '=daikanwa@rev2)
+
+  (make-charset '=>daikanwa
+		"Daikanwa abstract characters"
+		'(long-name	"abstract Daikanwa"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"Daikanwa\\(\\.[0-9]+\\)?-3"
+		  mother	=daikanwa))
 
   (make-charset '=shinjigen
 		"Kadokawa ShinJigen dictionary (common parts)"
@@ -828,6 +839,27 @@
 		  max-code	#xE908FF ; #xE8FF
 		  code-offset	,(- #xE90000 #xE000)))
 
+  (make-charset '=>ucs@iso
+		"Abstract characters of ISO/IEC 10646 representatives"
+		'(long-name	"UCS characters for ISO"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=ucs))
+  (make-charset '=>ucs@unicode
+		"Abstract characters of Unicode representatives"
+		'(long-name	"UCS characters for Unicode"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>ucs@iso))
+
   (make-charset '=>>ucs@iso
 		"Representative abstract glyphs of ISO/IEC 10646"
 		'(long-name	"UCS glyphs for UCS"
@@ -837,7 +869,7 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
-		  mother	=ucs))
+		  mother	=>ucs@iso))
   (make-charset '=>>ucs@unicode
 		"Representative abstract glyphs of Unicode"
 		'(long-name	"Unicode abstract glyphs"
