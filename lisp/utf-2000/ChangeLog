@@ -1,5 +1,32 @@
 2010-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R031-Enclosure.el (U+56E2): Use `->denotational'.
+
+	* Ideograph-R028-Private.el (BC-8BD0): Don't use `=>daikanwa'; use
+	`<-denotational' for U+53C0.
+	(U-00020AFB): Don't use `=>daikanwa'; use `->denotational'.
+
+	* Ideograph-R019-Power.el (U+52E5): Use `->denotational' instead
+	of `->subsumptive'.
+
+	* Ideograph-R015-Ice.el (A-M-01662): New abstract character.
+	(M-01662): Use `<-denotational' for A-M-01662; add `sound@ja/on';
+	add `<-vulgar' for M-01691.
+	(U-000205D9): Use `<-denotational' for A-M-01662.
+	(U-000205F4): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R010-Legs.el (U+5140): Use `->denotational' to
+	separate representative node.
+	(U+FA0C): Don't use `=>daikanwa'; use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}@unicode'.
+	(<CJK RADICAL LAME ONE>): Copied from Ideograph-R043-Lame.el.
+
+	* Ideograph-R004-Slash.el (U+51E2): Use `jis-x0213@2000' instead
+	of `jis-x0213-2000' in `ideographic-radical@ucs*sources'.
+
+2010-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R016-Table.el (U-00020627): Use `->subsumptive'.
 	(A-M-01740): New abstract character.
 	(U+51E2): Add `<-denotational' for A-M-01740; use `jis-x0213@2000'
