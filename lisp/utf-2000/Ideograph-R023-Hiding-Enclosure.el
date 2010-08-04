@@ -817,12 +817,12 @@
       )
      ((=ucs		  . #x82E5)	; 若
       ))
-    (=>>jis-x0208	. #x463F)	; &G-JX1-463F; [38-31]
-    (=>>jis-x0213-1	. #x463F)	; &G-JX1-463F; [38-31]
+    (=>>jis-x0208	. #x463F)	; &G-J0-463F; [38-31]
+    (=>>jis-x0213-1	. #x463F)	; &G-J0-463F; [38-31]
     ))
 (define-char
   '((<-denotational
-     ((=>>jis-x0208	  . #x463F)	; &G-JX1-463F; [38-31]
+     ((=>>jis-x0208	  . #x463F)	; &G-J0-463F; [38-31]
       ))
     (ideographic-radical . 23)	; ⼖
     (ideographic-strokes . 8)

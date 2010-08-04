@@ -385,8 +385,8 @@
 	)
        ((=ucs		    . #x53C8)	; 又
 	))
-      (=>>jis-x0208	  . #x483F)	; &G-JX1-483F; [40-31]
-      (=>>jis-x0213-1	  . #x483F)	; &G-JX1-483F; [40-31]
+      (=>>jis-x0208	  . #x483F)	; &G-J0-483F; [40-31]
+      (=>>jis-x0213-1	  . #x483F)	; &G-J0-483F; [40-31]
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
