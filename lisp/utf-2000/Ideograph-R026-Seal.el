@@ -1024,7 +1024,6 @@
   '((<-denotational
      ((=ucs		  . #x537F)	; 卿
       ))
-    (=>daikanwa		. 02877)	; &M-02877;
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
