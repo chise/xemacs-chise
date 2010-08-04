@@ -289,8 +289,8 @@
 		  ret))
 	    (and (setq ret (get-char-attribute char '=>daikanwa))
 		 (if (numberp ret)
-		     (list ret 0 8)
-		   (append ret '(8))))
+		     (list ret -10)
+		   (append ret '(-10))))
 	    (unless (memq char checked)
 	      (unless depth
 		(setq depth 0))
