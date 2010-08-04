@@ -1,5 +1,24 @@
 2010-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R016-Table.el (U-00020627): Use `->subsumptive'.
+	(A-M-01740): New abstract character.
+	(U+51E2): Add `<-denotational' for A-M-01740; use `jis-x0213@2000'
+	instead of `jis-x0213-2000' in `ideographic-radical@ucs*sources'.
+	(U+51E3): Use `<-denotational' for A-M-01740.
+
+	* Ideograph-R017-Open-Box.el (U+51F5): Use `->denotational' to
+	separate representative node.
+	(U-0002F81D): Add `<-denotational' for U+51F5.
+
+	* Ideograph-R012-Eight.el (A-M-48931): New abstract character.
+	(U-00020509): Use `<-denotational' for A-M-48931; use
+	`->denotational' instead of `->subsumptive'.
+	(JX2-2327): Add `<-formed@component/connect-below' for C6-2357.
+	(U+9FB9): Use `<-denotational' for A-M-48931; use
+	`<-simplified@component/connect-below' instead of `<-same' for
+	U-00020509; omit `<-simplified' for JX2-2327.
+	(GT-K1769): Add `<-simplified@component' for JX2-2327.
+
 	* Ideograph-R014-Cover.el (U+5197): Use `->denotational' to
 	separate representative node.
 	(U-0002F817): Add `<-denotational' for U+5197.
@@ -19,6 +38,8 @@
 	(char-db-insert-ccs-feature): Treat `=>daikanwa' as the same as
 	`=daikanwa'.
 	(insert-char-attributes): Delete special code for `=>daikanwa'.
+
+	* Ideograph-R026-Seal.el (G0-4764): Don't use `=>daikanwa'.
 
 2010-08-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
