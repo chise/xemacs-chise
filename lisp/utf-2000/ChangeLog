@@ -1,5 +1,15 @@
 2010-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R006-Hook.el (U-00020116): Add abstract
+	ideographic-structure.
+
+	* Ideograph-R004-Slash.el (U+51E2): Add `<-denotational' for
+	A-M-01740.
+	(A-M-00140): New abstract character.
+	(U-000200A3): Add `<-denotational' for A-M-00140.
+	(U+3406): Likewise.
+	(UU+3406): Unify BC-8DDE.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>ucs@iso', `=>ucs@unicode' and `=>daikanwa'.
 	(char-db-insert-ccs-feature): Treat `=>daikanwa' as the same as
