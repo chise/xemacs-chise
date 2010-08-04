@@ -3,9 +3,18 @@
   '((ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (hanyu-dazidian	1 306 15)
     (=ucs		. #x51F5)	; 凵
-    (=jis-x0208		. #x5161)	; &I-J90-5161; [49-65]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x51F5)	; 凵
+      ))
+    (ideographic-radical . 17)	; ⼐
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (hanyu-dazidian	1 306 15)
+    (=ucs@unicode	. #x51F5)	; &GT-02355;
+    (=jis-x0208		. #x5161)	; &GT-02355; [49-65]
     (=gb2312		. #x5B49)	; &I-G0-5B49; [59-41]
     (=cns11643-2	. #x2123)	; &I-C2-2123; [01-03]
     (=jis-x0213-1	. #x5161)	; &I-JX1-5161; [49-65]
@@ -16,8 +25,10 @@
     (=daikanwa		. 01800)	; &I-M-01800;
     ))
 (define-char
-  '((=>ucs*		. #x51F5)	; 凵
-    (=>daikanwa		. 01800)	; 凵
+  '((<-denotational
+     ((=ucs		  . #x51F5)	; 凵
+      ))
+    (=>ucs*		. #x51F5)	; 凵
     (ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
