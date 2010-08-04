@@ -855,9 +855,9 @@
       )
      ((=ucs		  . #x53E3)	; 口
       ))
-    (=>>ucs@jis		. #x518F)	; &G-JU+518F;
-    (=>>ucs@cns		. #x518F)	; &G-JU+518F;
-    (=>>jis-x0208	. #x5148)	; &G-JU+518F; [49-40]
+    (=>>ucs@jis		. #x518F)	; &G-J0-5148;
+    (=>>ucs@cns		. #x518F)	; &G-J0-5148;
+    (=>>jis-x0208	. #x5148)	; &G-J0-5148; [49-40]
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
