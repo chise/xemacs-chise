@@ -579,39 +579,65 @@
   '((ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (=>daikanwa		. 48931)	; &A-M-48931;
+    ))
+(define-char
+  '((<-denotational
+     ((=>daikanwa	  . 48931)	; &A-M-48931;
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
     (=ucs		. #x20509)	; 𠔉
-    (->subsumptive
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20509)	; 𠔉
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=ucs@iso		. #x20509)	; &M-48931;
+    (=cns11643-6	. #x2357)	; &M-48931; [03-55]
+    (=daikanwa		. 48931)	; &I-M-48931;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20509)	; 𠔉
+      ))
+    (=ucs@jis		. #x20509)	; &AJ1-17299;
+    (=jis-x0213-2	. #x2327)	; &AJ1-17299; [03-07]
+    (=gt		. 01905)	; &I-GT-01905;
+    (=gt-k		. 01768)	; &I-GT-K01768;
+    (=gt-pj-9		. #x4F4B)	; &I-GT-01905; [47-43]
+    (=gt-pj-k1		. #x322C)	; &AJ1-17299; [18-12]
+    (=adobe-japan1-5	. 17299)	; &I-AJ1-17299;
+    (<-formed@component/connect-below
      ((=ucs@iso		  . #x20509)	; &M-48931;
       (=cns11643-6	  . #x2357)	; &M-48931; [03-55]
       (=daikanwa	  . 48931)	; &I-M-48931;
-      )
-     ((=ucs@jis		  . #x20509)	; &AJ1-17299;
-      (=jis-x0213-2	  . #x2327)	; &AJ1-17299; [03-07]
-      (=gt		  . 01905)	; &I-GT-01905;
-      (=gt-k		  . 01768)	; &I-GT-K01768;
-      (=gt-pj-9		  . #x4F4B)	; &I-GT-01905; [47-43]
-      (=gt-pj-k1	  . #x322C)	; &AJ1-17299; [18-12]
-      (=adobe-japan1-5	  . 17299)	; &I-AJ1-17299;
       ))
     ))
 (define-char
-  '((=>daikanwa		. 48931)	; &M-48931;
+  '((<-denotational
+     ((=>daikanwa	  . 48931)	; &A-M-48931;
+      ))
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (=ucs		. #x9FB9)	; 龹
     (=>>big5-cdp	. #x8BFA)	; 龹
-    (<-same
+    (<-simplified@component/connect-below
      ((=ucs		  . #x20509)	; 𠔉
-      ))
-    (<-simplified
-     ((=ucs@jis		  . #x20509)	; &AJ1-17299;
-      (=jis-x0213-2	  . #x2327)	; &AJ1-17299; [03-07]
       ))
     (->subsumptive
      ((=ucs@JP		  . #x9FB9)	; &GT-K01769;
       (=gt-k		  . 01769)	; &GT-K01769;
       (=gt-pj-k1	  . #x3238)	; &GT-K01769; [18-24]
+      (<-simplified@component
+       ((=ucs@jis	    . #x20509)	; &AJ1-17299;
+	(=jis-x0213-2	    . #x2327)	; &AJ1-17299; [03-07]
+	))
       )
      ((=ucs@unicode	  . #x9FB9)	; &CDP-8BFA;
       (=big5-cdp	  . #x8BFA)	; &CDP-8BFA;
