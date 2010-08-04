@@ -2032,7 +2032,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>>jis-x0208	  . #x3227)	; &G-J78-3227; [18-07]
+     ((=>>jis-x0208	  . #x3227)	; &G-J0-3227; [18-07]
       )
      ((=ucs		  . #x4E5A)	; 乚
       ))
@@ -2370,8 +2370,8 @@
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 12)
     (total-strokes	 . 13)
-    (=>>ucs@jis		. #x4E82)	; &G-JU+4E82;
-    (=>>jis-x0208	. #x502C)	; &G-JU+4E82; [48-12]
+    (=>>ucs@jis		. #x4E82)	; &G-J0-502C;
+    (=>>jis-x0208	. #x502C)	; &G-J0-502C; [48-12]
     (->subsumptive
      ((=ucs@jis		  . #x4E82)	; &GT-00285;
       (=jis-x0208	  . #x502C)	; &GT-00285; [48-12]
