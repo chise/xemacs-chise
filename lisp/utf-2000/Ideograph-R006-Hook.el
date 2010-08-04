@@ -313,11 +313,19 @@
       ))
     ))
 (define-char
-  '((=>daikanwa		. 00237)	; &M-00237;
-    (ideographic-radical . 6)	; ⼅
+  '((ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EE4)	; 令
+      )
+     ((=ucs		  . #x4E01)	; 丁
+      ))
     (=ucs		. #x20116)	; 𠄖
+    (=>daikanwa		. 00237)	; 𠄖
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -349,7 +357,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs		    . #x4EE4)	; 令
+       ((=ucs@unicode	    . #x4EE4)	; &GT-K01022;
+	(=gb2312	    . #x416E)	; &GT-K01022; [33-78]
 	)
        ((=ucs		    . #x4E01)	; 丁
 	))
