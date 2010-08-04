@@ -35,29 +35,26 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x20627)	; 𠘧
-    (ideographic-radical . 16)	; ⼏
-    (ideographic-strokes . 0)
-    (total-strokes	 . 2)
-    (=daikanwa		. 01738)	; &M-01738;
-    (->mistakable
-     ((=ucs		  . #x513F)	; 儿
-      (=daikanwa	  . 01336)	; &I-M-01336;
-      )
-     ((=ucs		  . #x51E0)	; 几
-      (=daikanwa	  . 01737)	; &I-M-01737;
-      ))
-    (->mistakable*sources
-     zihui daikanwa)
-    ))
-(define-char
-  '((=>daikanwa		. 01738)	; &M-01738;
-    (ideographic-radical . 16)	; ⼏
+  '((ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (=ucs		. #x20627)	; 𠘧
-    (=cns11643-4	. #x2129)	; &I-C4-2129; [01-09]
-    (=big5-cdp		. #x8AAE)	; &I-CDP-8AAE;
+    (->subsumptive
+     ((=daikanwa	  . 01738)	; &M-01738;
+      (->mistakable
+       ((=ucs		    . #x513F)	; 儿
+	(=daikanwa	    . 01336)	; &I-M-01336;
+	)
+       ((=ucs		    . #x51E0)	; 几
+	(=daikanwa	    . 01737)	; &I-M-01737;
+	))
+      (->mistakable*sources
+       zihui daikanwa)
+      )
+     ((=ucs@iso		  . #x20627)	; &CDP-8AAE;
+      (=cns11643-4	  . #x2129)	; &CDP-8AAE; [01-09]
+      (=big5-cdp	  . #x8AAE)	; &I-CDP-8AAE;
+      ))
     ))
 (define-char
   '((ideographic-radical . 16)	; ⼏
@@ -177,10 +174,19 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 16)	; ⼏
+  '((ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (=>daikanwa		. 01740)	; &A-M-01740;
+    ))
+(define-char
+  '((<-denotational
+     ((=>daikanwa	  . 01740)	; &A-M-01740;
+      ))
+    (ideographic-radical@ucs . 16)	; ⼏
     (ideographic-strokes@ucs . 1)
     (ideographic-radical@ucs*sources
-     daikanwa=01740 jis-x0213-2000 ucs)
+     daikanwa=01740 jis-x0213@2000 ucs)
     (ideographic-radical@cns . 4)	; ⼃
     (ideographic-strokes@cns . 2)
     (ideographic-radical@cns*sources
@@ -223,7 +229,9 @@
       ))
     ))
 (define-char
-  '((=>daikanwa		. 01740)	; &M-01740;
+  '((<-denotational
+     ((=>daikanwa	  . 01740)	; &A-M-01740;
+      ))
     (ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
