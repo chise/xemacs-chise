@@ -193,14 +193,24 @@
     (=daikanwa		. 09670)	; &I-M-09670;
     ))
 (define-char
-  '((=>ucs		. #x22385)	; 𢎅
+  '((ideographic-radical . 56)	; ⼷
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (=>daikanwa		. 09671)	; &A-M-09671;
+    ))
+(define-char
+  '((<-denotational
+     ((=>daikanwa	  . 09671)	; &A-M-09671;
+      ))
     (ideographic-radical . 56)	; ⼷
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (=daikanwa		. 09671)	; &M-09671;
     ))
 (define-char
-  '((=>daikanwa		. 09671)	; &M-09671;
+  '((<-denotational
+     ((=>daikanwa	  . 09671)	; &A-M-09671;
+      ))
     (ideographic-radical . 56)	; ⼷
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
