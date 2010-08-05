@@ -176,6 +176,15 @@
   '((ideographic-radical . 34)	; ⼡
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (=ucs		. #x5906)	; 夆
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5906)	; 夆
+      ))
+    (ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
     (hanyu-dazidian	2 868 7)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -185,8 +194,8 @@
       )
      ((=ucs		  . #x4E30)	; 丰
       ))
-    (=ucs		. #x5906)	; 夆
-    (=jis-x0212		. #x3860)	; &I-JSP-3860; [24-64]
+    (=ucs@unicode	. #x5906)	; &M-05698;
+    (=jis-x0212		. #x3860)	; &M-05698; [24-64]
     (=iso-ir165		. #x7B26)	; &I-EGB-7B26; [91-06]
     (=cns11643-2	. #x2350)	; &I-C2-2350; [03-48]
     (=jis-x0213-2	. #x2539)	; &I-JX2-2539; [05-25]
@@ -195,7 +204,23 @@
     (=jef-china3	. #x48CF)	; &I-JC3-48CF;
     ))
 (define-char
-  '((=>ucs		. #x2F85C)	; 夆
+  '((<-denotational
+     ((=ucs		  . #x5906)	; 夆
+      ))
+    (=>ucs*		. #x5906)	; 夆
+    (ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (=ucs		. #x2F85C)	; 夆
+    (=cns11643-5	. #x2362)	; &I-C5-2362; [03-66]
+    (<-unknown
+     ((=daikanwa	  . 05699)	; &M-05699;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5906)	; 夆
+      ))
     (ideographic-radical . 34)	; ⼡
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
@@ -207,23 +232,15 @@
      ((=ucs@unicode	  . #x5905)	; &M-05695;
       (=daikanwa	  . 05695)	; &M-05695;
       )
-     ((=ucs		  . #x5906)	; 夆
+     ((=ucs@unicode	  . #x5906)	; &M-05698;
+      (=jis-x0212	  . #x3860)	; &M-05698; [24-64]
+      (=iso-ir165	  . #x7B26)	; &I-EGB-7B26; [91-06]
+      (=cns11643-2	  . #x2350)	; &I-C2-2350; [03-48]
+      (=jis-x0213-2	  . #x2539)	; &I-JX2-2539; [05-25]
       (=daikanwa	  . 05698)	; &I-M-05698;
       ))
     (->mistakable*sources
      kangxi-biansi-3char daikanwa)
-    ))
-(define-char
-  '((=>ucs*		. #x5906)	; 夆
-    (=>daikanwa		. 05699)	; &M-05699;
-    (ideographic-radical . 34)	; ⼡
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (=ucs		. #x2F85C)	; 夆
-    (=cns11643-5	. #x2362)	; &I-C5-2362; [03-66]
-    (<-unknown
-     ((=daikanwa	  . 05699)	; &M-05699;
-      ))
     ))
 (define-char
   '((ideographic-radical . 34)	; ⼡
