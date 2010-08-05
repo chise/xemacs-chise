@@ -1,5 +1,71 @@
 2010-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R037-Big.el (U-00020AFB): Use `->denotational' to
+	separate representative node.
+
+	* Ideograph-R034-Go.el (U+5906): Use `->denotational'.
+	(U-0002F85C): Use `<-denotational' for U+5906.
+	(M-05699): Use `<-denotational' for U+5906.
+
+	* Ideograph-R030-Mouth.el (A-J0-5265): New abstract character;
+	unify B-A76F.
+	(U+5436): Add `<-denotational' for A-J0-5265; add abstract
+	ideographic-structure.
+	(U+5450): Use `<-denotational' for A-J0-5265; use `->subsumptive'
+	to separate representative node.
+	(A-M-03386): New abstract character.
+	(U+5442): Add `<-denotational' for A-M-03386.
+	(U+5415): Use `<-denotational' for A-M-03386.
+	(U+9EFE): Use `->denotational'.
+	(<CJK RADICAL C-SIMPLIFIED FROG>): Use G0-763C instead of U+9EFE
+	as the value of `<-identical@component'.
+	(U+559D): Unify J97-3365.
+	(U+FA36): Add `=>>ucs@unicode'.
+	(U+FA78): Add `=>>ucs@jis'.
+	(U+5606): Add abstract ideographic-structure; unify J97-4332.
+	(A-JX1-4332): Use it instead of U-0002F84C; move U-0002F84C to
+	C6-5136; add abstract ideographic-structure; add `=>ucs@cns' for
+	CU+2F84C; add `=>ucs@jis' for JU+5606.
+	(G-JU+5606): New abstract glyph; use `<-denotational' for
+	A-JX1-4332.
+	(J0-4332): Use `<-subsumptive' for G-JU+5606.
+	(C6-5136): Unify U-0002F84C; use A-JX1-4332 as the value of
+	`<-denotational'.
+	(A-IU+2F84A): Use it instead of U-0002F84A; add `<-denotational'
+	for U+55C2.
+	(M-48980): Use A-IU+2F84A instead of U-0002F84A as the value of
+	`<-denotational'; add `ideographic-structure'.
+	(C4-3C50): Likewise; add U-0002F84A.
+	(parent of JX1-2F2F): Add `=>>ucs@unicode', `=>>ucs@jis' and
+	`=>>jis-x0213-1'; add abstract ideographic-structure.
+	(U-0002018A): Add abstract ideographic-structure.
+	(U-000203E7): Likewise.
+	(U+56B2): Likewise.
+	(U+56B4): Likewise.
+	(CB03599): Integrate U-00021144.
+	(CB01238): Integrate U-0002114F.
+	(U-0002116D): Use `->subsumptive'.
+	(CB00771): Delete `=>daikanwa'.
+
+	* Ideograph-R018-Knife.el (U+5238): Add abstract
+	ideographic-structure.
+	(A-M-01992): New abstract character.
+	(U+5246): Add `<-denotational' for A-M-01992.
+	(A-CU+2F821): Move U-0002F821 to C6-2E76.
+	(B-CBD3): Add `=>>ucs@unicode'.
+	(U+34EA): Use `<-denotational' for A-M-01992; add abstract
+	ideographic-structure.
+	(G-UU+34EA): New abstract glyph.
+	(UU+34EA): Use `<-subsumptive' for G-UU+34EA.
+	(UU+524F): Separate G-UU+524F.
+	(U-0002075C): Use `->denotational'.
+	(A-M-02075): New abstract character.
+	(U-00020751): Add `<-denotational' for A-M-02075.
+	(U-0002074B): Add `<-denotational' for A-M-02075.
+	(UU+5271): Separate G-UU+5271.
+
+2010-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R031-Enclosure.el (U+56E2): Use `->denotational'.
 
 	* Ideograph-R028-Private.el (BC-8BD0): Don't use `=>daikanwa'; use
