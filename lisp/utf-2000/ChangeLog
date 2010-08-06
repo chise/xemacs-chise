@@ -1,5 +1,37 @@
 2010-08-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R060-Step.el (U-00022533): Use `->subsumptive' to
+	separate representative nodes.
+	(U+38EF): Use `->denotational' and `->subsumptive'.
+	(U+5FAC): Use `->subsumptive'.
+	(U+5FAD): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+
+	* Ideograph-R064-Hand.el (U+631F): Delete `=>daikanwa'.
+	(U+3A2E): Use `->denotational'.
+	(U-0002F8C2): Use `<-denotational' for U+3A2E.
+	(U+64B9): Delete `=>daikanwa'; use `<-simplified@JP/jis' instead
+	of `<-simplified@JP'.
+
+	* Ideograph-R063-Door.el (A-M-11696): New abstract character.
+	(U+6236): Add `<-denotational' for A-M-11696.
+	(U+6237): Use `<-denotational' for A-M-11696.
+	(U+6238): Likewise.
+	(U+6239): Use `->denotational' instead of `->subsumptive'; add
+	abstract ideographic-structure.
+
+	* Ideograph-R058-Snout.el (A-M-09910): New abstract character.
+	(M-09910): Add `<-denotational' for A-M-09910.
+	(U-00022452): Use `<-denotational' for A-M-09910.
+	(U+38C7): Use `->denotational' instead of `->subsumptive'.
+	(A-M-09918): New abstract character.
+	(U+5F54): Add `<-denotational' for A-M-09918.
+	(U+5F55): Use `<-denotational' for A-M-09918.
+	(U-0002F896): Add `<-denotational' for U+38C7.
+	(A-M-09948): New abstract character.
+	(U+5F5B): Add `<-denotational' for A-M-09948.
+	(U+5F5C): Use `<-denotational' for A-M-09948.
+
 	* Ideograph-R035-Go-Slowly.el (A-M-05717): New abstract character.
 	(U+3686): New character; add `<-denotational' for A-M-05717;
 	integrate M-05717 and JC3-48D2.
