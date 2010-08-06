@@ -156,26 +156,28 @@
     ideograph-hanziku-10
     ideograph-hanziku-11
     ideograph-hanziku-12
-    =>ucs@iso
-    =>ucs@unicode
-    =>>ucs@unicode
-    =ucs@iso
-    =ucs@unicode
-    =>>gt
     =>>jis-x0208
     =>>jis-x0213-1
     =>>jis-x0213-1@2000
     =>>jis-x0213-1@2004
     =>>jis-x0213-2
     =>>jis-x0208@1978
-    =>>big5-cdp
-    =>>gt-k
+    =>>gt
     =>jis-x0208
     =>jis-x0208@1997
     =>jis-x0213-1
     =>jis-x0213-1@2000
     =>jis-x0213-1@2004
     =>jis-x0213-2
+    =>ucs@iso
+    =>ucs@unicode
+    =>>ucs@unicode
+    =>>ucs@jis
+    =>>ucs@cns
+    =ucs@iso
+    =ucs@unicode
+    =>>big5-cdp
+    =>>gt-k
     =>gt
     =>big5-cdp
     =>daikanwa
