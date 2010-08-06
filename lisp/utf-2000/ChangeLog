@@ -1,5 +1,9 @@
 2010-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R056-Shoot.el (A-M-09671): New abstract character.
+	(M-09671): Add `<-denotational' for A-M-09671.
+	(U-00022385): Likewise.
+
 	* Ideograph-R037-Big.el (U-00020AFB): Use `->denotational' to
 	separate representative node.
 
@@ -135,6 +139,13 @@
 	* Ideograph-R026-Seal.el (G0-4764): Don't use `=>daikanwa'.
 
 2010-08-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R077-Stop.el (GT-K0439): Use `<-denotational' for
+	U+6B62.
+	(BC-8960): Likewise.
+	(BC-8B68): Use `<-denotational' for U+6B62 instead of
+	`<-subsumptive' for U+9FB0.
+	(GT-0440): Unify U+9FB0; use `<-denotational' for BC-8B68.
 
 	* ideograph-util.el (char-daikanwa): Return '(num -10) instead of '
 	(num 0 8) when value of feature `=>daikanwa' is num.
