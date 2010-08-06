@@ -2049,7 +2049,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (=ucs		  . #x2FFA)	; ⿺
       )
-     ((=>>ucs@unicode	  . #x5145)	; &G-J0-3D3C;
+     ((=>>jis-x0208	  . #x3D3C)	; &G-J0-3D3C; [29-28]
       )
      ((=ucs		  . #x4EAC)	; 京
       ))

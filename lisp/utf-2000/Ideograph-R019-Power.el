@@ -1248,7 +1248,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>>ucs@unicode	  . #x4EA5)	; &G-GT-00387;
+     ((=>>jis-x0208	  . #x3067)	; &G-GT-00387; [16-71]
       )
      ((=ucs		  . #x529B)	; 力
       ))
@@ -4089,7 +4089,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>>ucs@unicode	  . #x4EB6)	; &G-GT-00433;
+     ((=>>jis-x0208	  . #x5039)	; &G-GT-00433; [48-25]
       )
      ((=ucs		  . #x529B)	; 力
       ))
