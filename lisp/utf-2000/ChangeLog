@@ -1,5 +1,23 @@
 2010-08-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R040-Roof.el (U+5BA7): Use `->denotational'.
+	(U+5BAC): Use `->subsumptive'.
+	(U-00021A00): Use `->subsumptive'.
+	(U+3757): Use `->subsumptive' to separate representative nodes.
+	(U-00021A01): Use `->subsumptive'.
+	(U+5BAD): Use `->subsumptive'.
+	(A-M-07156): New abstract character.
+	(U+5BAE): Add `<-denotational' for A-M-07156.
+	(U+5BAB): Use `<-denotational' for A-M-07156.
+	(U+5BCB): Use `->denotational' instead of `->subsumptive'.
+	(CB06652): Use `<-denotational' for U+5BCB.
+	(U+5BF3): Use `->denotational' instead of `->subsumptive'.
+	(U-0002F870): Use `<-denotational' for U+5BF3.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Prefer
+	JIS X 0208/0213 related abstract-glyph/character features to UCS
+	related non-standard features.
+
 	* Ideograph-R060-Step.el (U-00022533): Use `->subsumptive' to
 	separate representative nodes.
 	(U+38EF): Use `->denotational' and `->subsumptive'.
