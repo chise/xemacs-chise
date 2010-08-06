@@ -1,5 +1,12 @@
 2010-08-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R035-Go-Slowly.el (A-M-05717): New abstract character.
+	(U+3686): New character; add `<-denotational' for A-M-05717;
+	integrate M-05717 and JC3-48D2.
+	(M-05717): Map to U+3686 instead of U+590D.
+	(JC3-48D2): Likewise.
+	(U+590D): Use `<-denotational' for A-M-05717.
+
 	* Ideograph-R061-Heart.el (U+38FF): Use `->denotational'.
 	(parent of C6-275C): Add `=>>ucs@cns' for G-CU+225BB.
 	(C6-275C): Add `=ucs@cns'.
