@@ -117,7 +117,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (=>>ucs@unicode	. #x5203)	; &G-GT-02406;
-    (=big5		. #xA462)	; &I-B-A462;
+    (=big5		. #xA462)	; &G-GT-02406;
     (=>>gt		. 02406)	; &G-GT-02406;
     (->subsumptive
      ((ideographic-structure
@@ -2792,7 +2792,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>>ucs@unicode	  . #x4EA5)	; &G-GT-00387;
+     ((=>>jis-x0208	  . #x3067)	; &G-GT-00387; [16-71]
       )
      ((name		  . "CJK RADICAL KNIFE TWO")
       (=ucs		  . #x2E89)	; ⺉
@@ -4059,7 +4059,7 @@
       )
      ((=ucs		  . #x5E76)	; 并
       )
-     ((=>>ucs@unicode	  . #x5203)	; &G-GT-02406;
+     ((=>>gt		  . 02406)	; &G-GT-02406;
       ))
     (=>>ucs@unicode	. #x524F)	; &G-UU+524F;
     (->subsumptive
@@ -5635,7 +5635,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>>ucs@unicode	  . #x524D)	; &G-J0-4130;
+     ((=>>jis-x0208	  . #x4130)	; &G-J0-4130; [33-16]
       )
      ((=ucs		  . #x5200)	; 刀
       ))
@@ -6066,7 +6066,7 @@
       )
      ((=gt-k		  . 03992)	; &GT-K03992;
       )
-     ((=>>ucs@unicode	  . #x5203)	; &G-GT-02406;
+     ((=>>gt		  . 02406)	; &G-GT-02406;
       ))
     (=>>ucs@unicode	. #x5271)	; &G-UU+5271;
     (<-simplified
@@ -8803,7 +8803,7 @@
       )
      ((=ucs		  . #x50C9)	; 僉
       )
-     ((=>>ucs@unicode	  . #x5203)	; &G-GT-02406;
+     ((=>>gt		  . 02406)	; &G-GT-02406;
       ))
     (=>>ucs@unicode	. #x5292)	; &G-J0-517A;
     (=>>jis-x0208	. #x517A)	; &G-J0-517A; [49-90]
