@@ -319,13 +319,32 @@
     ))
 (define-char
   '((ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (=ucs		. #x5C02)	; 専
+    (=jis-x0208		. #x406C)	; &I-J90-406C; [32-76]
+    (=jis-x0213-1	. #x406C)	; &I-JX1-406C; [32-76]
+    (=gt		. 09348)	; &I-GT-09348;
+    (=gt-k		. 05353)	; &I-GT-K05353;
+    (=gt-pj-1		. #x406C)	; &I-GT-09348; [32-76]
+    (<-simplified@JP/Jouyou
+     ((=ucs@unicode	  . #x5C08)	; &GT-09367;
+      (=jis-x0208	  . #x5573)	; &GT-09367; [53-83]
+      (=ks-x1001	  . #x6E76)	; &I-K0-6E76; [78-86]
+      (=cns11643-1	  . #x5971)	; &I-C1-5971; [57-81]
+      (=jis-x0213-1	  . #x5573)	; &I-JX1-5573; [53-83]
+      (=daikanwa	  . 07439)	; &I-M-07439;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs		. #x5C03)	; 尃
+    (=big5		. #xD169)	; &I-B-D169;
     (->subsumptive
      ((=ucs@unicode	  . #x5C03)	; &M-07433;
       (=jis-x0213-2	  . #x282D)	; &M-07433; [08-13]
-      (=big5		  . #xD169)	; &I-B-D169;
       (=daikanwa	  . 07433)	; &I-M-07433;
       )
      ((=ucs@cns		  . #x5C03)	; &C2-2E6B;
@@ -337,13 +356,13 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs		. #x5C04)	; 射
+    (=big5		. #xAE67)	; &I-B-AE67;
     (->subsumptive
      ((=ucs@jis		  . #x5C04)	; &GT-09353;
       (=jis-x0208	  . #x3C4D)	; &GT-09353; [28-45]
       (=ks-x1001	  . #x5E52)	; &I-K0-5E52; [62-50]
       (=cns11643-1	  . #x552B)	; &I-C1-552B; [53-11]
       (=jis-x0213-1	  . #x3C4D)	; &I-JX1-3C4D; [28-45]
-      (=big5		  . #xAE67)	; &I-B-AE67;
       (=gt		  . 09353)	; &I-GT-09353;
       (=gt-k		  . 06451)	; &I-GT-K06451;
       (=gt-pj-1		  . #x3C4D)	; &I-GT-09353; [28-45]
@@ -493,26 +512,6 @@
       (=shinjigen@rev	  .  1885)	; &GT-09367;
       )
      ((=jef-china3	  . #x4ACE)	; &JC3-4ACE;
-      ))
-    ))
-(define-char
-  '((=>daikanwa		. 07439)	; &GT-09367;
-    (ideographic-radical . 41)	; ⼨
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (=ucs		. #x5C02)	; 専
-    (=jis-x0208		. #x406C)	; &I-J90-406C; [32-76]
-    (=jis-x0213-1	. #x406C)	; &I-JX1-406C; [32-76]
-    (=gt		. 09348)	; &I-GT-09348;
-    (=gt-k		. 05353)	; &I-GT-K05353;
-    (=gt-pj-1		. #x406C)	; &I-GT-09348; [32-76]
-    (<-simplified@JP/Jouyou
-     ((=ucs@unicode	  . #x5C08)	; &GT-09367;
-      (=jis-x0208	  . #x5573)	; &GT-09367; [53-83]
-      (=ks-x1001	  . #x6E76)	; &I-K0-6E76; [78-86]
-      (=cns11643-1	  . #x5971)	; &I-C1-5971; [57-81]
-      (=jis-x0213-1	  . #x5573)	; &I-JX1-5573; [53-83]
-      (=daikanwa	  . 07439)	; &I-M-07439;
       ))
     ))
 (define-char
