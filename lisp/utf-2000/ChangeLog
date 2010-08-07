@@ -1,3 +1,46 @@
+2010-08-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R043-Lame.el (U+5140): Copied from
+	Ideograph-R010-Legs.el.
+	(M-07542): Use `<-denotational' for U+5140.
+	(U+FA0C): Delete `=>daikanwa'; use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}@unicode'.
+	(U+5C2D): Copied from Ideograph-R032-Earth.el.
+	(U-00021BDE): Use `->subsumptive'.
+	(U+3781): Use `->denotational' instead of `->subsumptive'.
+	(U-00021BE7): Use `->subsumptive'.
+	(U-00021BE5): Use `->subsumptive' to separate representative
+	nodes.
+	(U-00021BE6): Use `->subsumptive'.
+	(U-00021BEE): Use `->subsumptive' to separate representative
+	nodes.
+	(U+3782): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U-00021BE8): Use `->subsumptive' to separate representative
+	nodes.
+	(U-00021BE9): Use `->denotational' and `->subsumptive'.
+
+2010-08-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (U+6740): Delete `=>daikanwa'; add
+	`<-simplified@CN' for G1-4931.
+	(U+69D9): Delete `=>daikanwa'.
+	(J90-4B6A): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J90-7422.
+	(A-M-15808): New abstract character.
+	(M-15808): Use `->denotational' for A-M-15808; add `sound@ja/on'.
+	(U+3C08): Use `->denotational' for A-M-15808.
+	(U-0002379F): Use `->denotational'.
+
+	* Ideograph-R070-Square.el (A-M-13626): New abstract character.
+	(U-000230DA): New character; add `<-denotational' for A-M-13626.
+	(M-13626): Map to U-000230DA instead of U+65BB.
+	(U+65BB): Use `<-denotational' for A-M-13626.
+	(M-13634): Add `<-ancient' for J0-5A55.
+	(U-000230E2): Use `->denotational'.
+	(M-13635): Add `sound@ja/on'; add `<-same' for J0-5A57.
+
 2010-08-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R066-Rap.el (A-M-13128): New abstract character.
