@@ -1,5 +1,48 @@
 2010-08-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R066-Rap.el (A-M-13128): New abstract character.
+	(U-00022EF5): Add `<-denotational' for A-M-13128.
+	(U-00022F06): Use `<-denotational' for A-M-13128.
+	(U+3A81): Use `->denotational' and `->subsumptive'.
+	(A-M-13188): New abstract character.
+	(U-00022F26): Add `<-denotational' for A-M-13188.
+	(U-00022F2D): Use `<-denotational' for A-M-13188.
+	(A-M-13197): New abstract character.
+	(M-13197): Use `<-denotational' for A-M-13197.
+	(U-00022F32): Likewise.
+	(A-M-13203): New abstract character.
+	(M-13203): Use `<-denotational' for A-M-13203.
+	(U-00022F4F): Likewise.
+	(A-M-13250): New abstract character.
+	(U-00022F5E): Add `<-denotational' for A-M-13250.
+	(CB12039): Use `<-denotational' for A-M-13250.
+	(B-D974): Unify A-M-13251.
+	(A-M-13277): New abstract character.
+	(M-13277): Use `<-denotational' for A-M-13277.
+	(U+6568): Likewise.
+	(U+3A9A): Delete `=>daikanwa'.
+	(A-M-13390): New abstract character.
+	(U-00022FE8): Add `<-denotational' for A-M-13390.
+	(U-00022FF1): Use `<-denotational' for A-M-13390.
+	(A-M-13431): New abstract character.
+	(U+6585): Add `<-denotational' for A-M-13431.
+	(U+6586): Use `<-denotational' for A-M-13431.
+
+	* Ideograph-R072-Sun.el (A-M-13802): New abstract character.
+	(M-13802): Use `<-denotational' for A-M-13802.
+	(U-00023172): Likewise.
+	(U+6685): Delete `=>daikanwa'; add `<-same' for U-00023236.
+
+	* Ideograph-R069-Axe.el (A-M-13552): New abstract character.
+	(U-0002309C): Add `<-denotational' for A-M-13552; add
+	`sound@ja/on'.
+	(JC3-8FCF): Use `<-denotational' for A-M-13552.
+
+	* Ideograph-R067-Script.el (U+6593): Delete `=>daikanwa'; add
+	`<-simplified@CN' for G1-6C35.
+	(M-13485): Map to U-00023068.
+	(U+6596): Use `->denotational' instead of `->subsumptive'.
+
 	* Ideograph-R040-Roof.el (U+5BA7): Use `->denotational'.
 	(U+5BAC): Use `->subsumptive'.
 	(U-00021A00): Use `->subsumptive'.
