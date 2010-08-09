@@ -394,7 +394,14 @@
       ))
     ))
 (define-char
-  '((morohashi-daikanwa	ho 7)
+  '((ideographic-radical . 6)	; ⼅
+    (==>ucs@bucs	. #x4E8B)	; &BUCS+4E8B;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x4E8B)	; &BUCS+4E8B;
+      ))
+    (morohashi-daikanwa	ho 7)
     (ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
@@ -435,7 +442,10 @@
     (=jef-china3	. #x9DE5)	; &I-JC3-9DE5;
     ))
 (define-char
-  '((ideographic-radical . 6)	; ⼅
+  '((<-denotational
+     ((==>ucs@bucs	  . #x4E8B)	; &BUCS+4E8B;
+      ))
+    (ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 23 3)
