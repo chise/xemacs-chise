@@ -169,6 +169,7 @@
     =>jis-x0213-1@2000
     =>jis-x0213-1@2004
     =>jis-x0213-2
+    ==>ucs@bucs
     =>ucs@iso
     =>ucs@unicode
     =>>ucs@unicode
