@@ -1,5 +1,16 @@
 2010-08-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`==>ucs@bucs'.
+
+	* ideograph-util.el (char-daikanwa-strokes): Fix problem when
+	function `char-representative-of-daikanwa' returns nil.
+
+	* ideograph-subr.el (char-ideographic-radical): Add autoload
+	cookie.
+
+2010-08-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R043-Lame.el (U+5140): Copied from
 	Ideograph-R010-Legs.el.
 	(M-07542): Use `<-denotational' for U+5140.

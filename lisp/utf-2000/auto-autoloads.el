@@ -25,10 +25,12 @@ Return code-point of UCS." nil nil)
 
 ;;;***
 
-;;;### (autoloads (char-total-strokes char-total-strokes-from-domains char-ideographic-strokes char-ideographic-strokes-from-domains ideographic-radical) "ideograph-subr" "utf-2000/ideograph-subr.el")
+;;;### (autoloads (char-total-strokes char-total-strokes-from-domains char-ideographic-strokes char-ideographic-strokes-from-domains char-ideographic-radical ideographic-radical) "ideograph-subr" "utf-2000/ideograph-subr.el")
 
 (autoload 'ideographic-radical "ideograph-subr" "\
 Return character corresponding with Kangxi-radical number." nil nil)
+
+(autoload 'char-ideographic-radical "ideograph-subr" nil nil nil)
 
 (autoload 'char-ideographic-strokes-from-domains "ideograph-subr" nil nil nil)
 
