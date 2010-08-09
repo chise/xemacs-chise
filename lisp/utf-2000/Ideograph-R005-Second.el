@@ -941,6 +941,13 @@
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
+    (==>ucs@bucs	. #x4E82)	; &BUCS+4E82;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x4E82)	; &BUCS+4E82;
+      ))
+    (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 53 17)
@@ -1456,6 +1463,13 @@
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
+    (==>ucs@bucs	. #x4E7E)	; &BUCS+4E7E;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x4E7E)	; &BUCS+4E7E;
+      ))
+    (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 8)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 56 1)
@@ -1801,7 +1815,10 @@
     (=gt-pj-9		. #x3667)	; &GT-00269; [22-71]
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
+  '((<-denotational
+     ((==>ucs@bucs	  . #x4E7E)	; &BUCS+4E7E;
+      ))
+    (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 56 10)
@@ -2352,7 +2369,10 @@
     (=gt-pj-9		. #x3427)	; &GT-00282; [20-07]
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
+  '((<-denotational
+     ((==>ucs@bucs	  . #x4E82)	; &BUCS+4E82;
+      ))
+    (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 12)
     (total-strokes	 . 13)
     (hanyu-dazidian	1 57 10)
