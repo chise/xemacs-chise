@@ -76,7 +76,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 11)	; ⼊
+  '((<-denotational
+     ((==>ucs@bucs	  . #x4EA1)	; &BUCS+4EA1;
+      ))
+    (ideographic-radical . 11)	; ⼊
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (ideographic-structure
@@ -153,6 +156,7 @@
     (ideographic-radical@cns-3*sources
      cns11643-3 daikanwa=366-1)
     (total-strokes	 . 4)
+    (==>ucs@bucs	. #x5167)	; &J97-4662;
     (=ucs@big5		. #x5167)	; &J97-4662;
     (=>jis-x0208	. #x4662)	; &J97-4662; [38-66]
     (=>jis-x0213-1	. #x4662)	; &J97-4662; [38-66]
@@ -971,6 +975,13 @@
     ))
 (define-char
   '((ideographic-radical . 11)	; ⼊
+    (==>ucs@bucs	. #x5169)	; &BUCS+5169;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5169)	; &BUCS+5169;
+      ))
+    (ideographic-radical . 11)	; ⼊
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 24 2)
@@ -1014,6 +1025,7 @@
     (ideographic-radical@r011 . 11)	; ⼊
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (==>ucs@bucs	. #x516A)	; &J97-5141;
     (=>jis-x0208	. #x5141)	; &J97-5141; [49-33]
     (=>jis-x0213-1	. #x5141)	; &J97-5141; [49-33]
     ))
