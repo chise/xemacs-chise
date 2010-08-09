@@ -73,6 +73,7 @@
 ;;; @@ radical
 ;;;
 
+;;;###autoload
 (defun char-ideographic-radical (char &optional radical ignore-sisters)
   (let (ret)
     (or (if radical
