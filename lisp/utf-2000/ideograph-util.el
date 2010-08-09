@@ -265,8 +265,9 @@
     (setq radical ideographic-radical))
   (let ((drc (char-representative-of-daikanwa char radical))
 	(r (char-ideographic-radical char radical)))
-    (if (or (null r)
-	    (= (char-ideographic-radical drc radical) r))
+    (if (and drc
+	     (or (null r)
+		 (= (char-ideographic-radical drc radical) r)))
 	(setq char drc)))
   (char-ideographic-strokes char radical '(daikanwa)))
 
