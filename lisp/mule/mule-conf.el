@@ -839,6 +839,17 @@
 		  max-code	#xE908FF ; #xE8FF
 		  code-offset	,(- #xE90000 #xE000)))
 
+  (make-charset '==>ucs@bucs
+		"Basic Subset of Coded Character Sets (BUCS)"
+		'(long-name	"BUCS abstract characters"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=ucs))
+
   (make-charset '=>ucs@iso
 		"Abstract characters of ISO/IEC 10646 representatives"
 		'(long-name	"UCS characters for ISO"
