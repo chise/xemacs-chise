@@ -322,6 +322,7 @@
 	  ( =>jis-x0213-1@2004		       "A-JX3-" 4 X)
 	  ( =>gt				"A-GT-" 5 d)
 	  ( =>zinbun-oracle		       "A-ZOB-" 4 d)
+	  (==>ucs@bucs				"BUCS+" 4 X)
 	  ( =>ucs@iso				"A-IU+" 4 X)
 	  ( =>ucs@unicode			"A-UU+" 4 X)
 	  (=>>ucs@iso				"G-IU+" 4 X)
