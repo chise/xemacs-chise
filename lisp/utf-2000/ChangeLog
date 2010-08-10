@@ -1,3 +1,32 @@
+2010-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R007-Two.el (BUCS+4E8C): New abstract character.
+	(U+4E8C): Add `<-denotational' for BUCS+4E8C.
+	(BUCS+4E8E): New abstract character.
+	(U+4E8E): Add `<-denotational' for BUCS+4E8E.
+	(U+4E90): Ditto.
+	(U+4E8F): Ditto.
+	(BUCS+4E98): New abstract character.
+	(U+4E98): Add `<-denotational' for BUCS+4E98.
+	(U+4E99): Ditto.
+	(BUCS+4E9E): New abstract character.
+	(U+4E9C): Add `<-denotational' for BUCS+4E9E.
+	(U+4E9A): Ditto; add `<-simplified@CN' for U+4E9E.
+	(U+4E9E): Add `<-denotational' for BUCS+4E9E.
+
+2010-08-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R008-Lid.el (BUCS+4EA1): New abstract character.
+	(U+4EA1): Add `<-denotational' for BUCS+4EA1.
+	(BUCS+4EA8): New abstract character.
+	(U+4EA8): Add `<-denotational' for BUCS+4EA8.
+	(BUCS+4EAC): New abstract character.
+	(U+4EAC): Add `<-denotational' for BUCS+4EAC.
+	(U+4EAE): Unify BUCS+4EAE.
+	(U+4EAF): Add `<-denotational' for BUCS+4EA8.
+	(U+4EB0): Add `<-denotational' for BUCS+4EAC.
+	(U+7AD2): Add `<-denotational' for BUCS+5947.
+
 2010-08-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R011-Enter.el (U+5166): Add `<-denotational' for
