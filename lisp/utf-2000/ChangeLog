@@ -1,5 +1,28 @@
 2010-08-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R011-Enter.el (U+5166): Add `<-denotational' for
+	BUCS+4EA1.
+	(A-J0-4662): Unify BUCS+5167.
+	(BUCS+5169): New abstract character.
+	(U+5169): Add `<-denotational' for BUCS+5169.
+	(A-J0-5141): Unify BUCS+516A.
+
+	* Ideograph-R006-Hook.el (BUCS+4E8B): New abstract character.
+	(U+4E8A): Add `<-denotational' for BUCS+4E8B.
+	(U+4E8B): Ditto.
+
+	* Ideograph-R005-Second.el (BUCS+4E82): New abstract character.
+	(U+4E71): Add `<-denotational' for BUCS+4E82.
+	(BUCS+4E7E): New abstract character.
+	(U+4E79): Add `<-denotational' for BUCS+4E7E.
+	(U+4E7E): Ditto.
+	(U+4E82): Add `<-denotational' for BUCS+4E82.
+
+	* Ideograph-R002-Line.el (U+4E2A): Add `<-denotational' for
+	BUCS+500B.
+	(BUCS+4E31): New abstract character.
+	(U+4E31): Add `<-denotational' for BUCS+4E31.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`==>ucs@bucs'.
 
