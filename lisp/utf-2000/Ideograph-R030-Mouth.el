@@ -12088,7 +12088,7 @@
       )
      ((=big5-cdp	  . #x8C48)	; &CDP-8C48;
       )
-     ((=ucs@jis		  . #x382F)	; &CDP-8BAD;
+     ((=ucs@unicode	  . #x382F)	; &CDP-8BAD;
       (=jis-x0213-2	  . #x286F)	; &CDP-8BAD; [08-79]
       ))
     (=ucs		. #x20CCB)	; 𠳋
