@@ -26,6 +26,13 @@
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
+    (==>ucs@bucs	. #x4EA1)	; &BUCS+4EA1;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x4EA1)	; &BUCS+4EA1;
+      ))
+    (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (sound@ja/kun	"na+i" "horo+b5")
@@ -703,6 +710,13 @@
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
+    (==>ucs@bucs	. #x4EA8)	; &BUCS+4EA8;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x4EA8)	; &BUCS+4EA8;
+      ))
+    (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (ideographic-structure
@@ -996,6 +1010,13 @@
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
+    (==>ucs@bucs	. #x4EAC)	; &BUCS+4EAC;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x4EAC)	; &BUCS+4EAC;
+      ))
+    (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (ideographic-structure
@@ -1256,6 +1277,7 @@
     (sound@ja/kun/name	"makoto" "suke" "akira" "aki")
     (sound@ja/on	"ryAu")
     (=ucs		. #x4EAE)	; 亮
+    (==>ucs@bucs	. #x4EAE)	; 亮
     (=>jis-x0208	. #x4E3C)	; 亮 [46-28]
     (=>jis-x0213-1	. #x4E3C)	; 亮 [46-28]
     (=big5		. #xAB47)	; &I-B-AB47;
@@ -1381,7 +1403,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 8)	; ⼇
+  '((<-denotational
+     ((==>ucs@bucs	  . #x4EA8)	; &BUCS+4EA8;
+      ))
+    (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (ideographic-structure
@@ -1499,7 +1524,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 8)	; ⼇
+  '((<-denotational
+     ((==>ucs@bucs	  . #x4EAC)	; &BUCS+4EAC;
+      ))
+    (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (ideographic-structure
@@ -1642,7 +1670,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 117)	; ⽴
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5947)	; &BUCS+5947;
+      ))
+    (ideographic-radical@ucs . 117)	; ⽴
     (ideographic-strokes@ucs . 4)
     (ideographic-radical@ucs*sources
      daikanwa=25736 jis-x0208 cns11643 ucs)
