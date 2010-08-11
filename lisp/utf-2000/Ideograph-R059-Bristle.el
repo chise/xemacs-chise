@@ -312,36 +312,47 @@
     (=gb2312		. #x506B)	; &I-G0-506B; [48-75]
     ))
 (define-char
-  '((ideographic-radical@cns . 9)	; ⼈
-    (ideographic-radical@cns*sources
-     daikanwa cns11643 ucs)
+  '((ideographic-radical@ucs . 9)	; ⼈
+    (ideographic-radical@ucs*sources
+     daikanwa cns11643 ucs jis-x0208/a)
     (ideographic-radical@shinjigen . 59)	; ⼺
+    (ideographic-radical@shinjigen*sources
+     shinjigen jis-x0208/b)
     (hanyu-dazidian	1 159 2)
     (=ucs		. #x4FEE)	; 修
+    (==>ucs@bucs	. #x4FEE)	; 修
     (=>jis-x0208	. #x3D24)	; 修 [29-04]
     (=>jis-x0213-1	. #x3D24)	; 修 [29-04]
     (=big5		. #xADD7)	; &I-B-ADD7;
-    (->subsumptive
-     ((ideographic-strokes@cns . 8)
-      (ideographic-strokes@shinjigen . 7)
-      (total-strokes	   . 10)
-      (=>>ucs@jis	  . #x4FEE)	; &GT-00982;
-      (=ucs@jis		  . #x4FEE)	; &GT-00982;
-      (=jis-x0208	  . #x3D24)	; &GT-00982; [29-04]
-      (=ks-x1001	  . #x6173)	; &I-K0-6173; [65-83]
-      (=cns11643-1	  . #x543A)	; &I-C1-543A; [52-26]
-      (=jis-x0213-1	  . #x3D24)	; &I-JX1-3D24; [29-04]
-      (=gt		  . 00982)	; &I-GT-00982;
-      (=gt-k		  . 06456)	; &I-GT-K06456;
-      (=gt-pj-1		  . #x3D24)	; &I-GT-00982; [29-04]
-      (=daikanwa	  . 00721)	; &I-M-00721;
-      (=shinjigen	  .  2315)	; &GT-00982;
-      )
-     ((ideographic-strokes . 7)
-      (total-strokes	   . 9)
-      (=ucs@unicode	  . #x4FEE)	; &G0-505E;
-      (=gb2312		  . #x505E)	; &G0-505E; [48-62]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4FEE)	; 修
       ))
+    (ideographic-radical@cns . 9)	; ⼈
+    (ideographic-strokes@cns . 8)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643 jis-x0208/a)
+    (ideographic-strokes@cns*sources
+     daikanwa jis-x0208/a)
+    (ideographic-radical@shinjigen . 59)	; ⼺
+    (ideographic-strokes@shinjigen . 7)
+    (ideographic-radical@shinjigen*sources
+     shinjigen jis-x0208/b)
+    (ideographic-strokes@shinjigen*sources
+     shinjigen jis-x0208/b)
+    (total-strokes	 . 10)
+    (=>>ucs@jis		. #x4FEE)	; &GT-00982;
+    (=ucs@jis		. #x4FEE)	; &GT-00982;
+    (=jis-x0208		. #x3D24)	; &GT-00982; [29-04]
+    (=ks-x1001		. #x6173)	; &I-K0-6173; [65-83]
+    (=cns11643-1	. #x543A)	; &I-C1-543A; [52-26]
+    (=jis-x0213-1	. #x3D24)	; &I-JX1-3D24; [29-04]
+    (=gt		. 00982)	; &I-GT-00982;
+    (=gt-k		. 06456)	; &I-GT-K06456;
+    (=gt-pj-1		. #x3D24)	; &I-GT-00982; [29-04]
+    (=daikanwa		. 00721)	; &I-M-00721;
+    (=shinjigen		.  2315)	; &GT-00982;
     ))
 (define-char
   '((ideographic-radical . 59)	; ⼺
