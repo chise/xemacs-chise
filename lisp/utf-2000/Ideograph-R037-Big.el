@@ -460,7 +460,10 @@
     (=cns11643-6	. #x243D)	; &C6-243D; [04-29]
     ))
 (define-char
-  '((ideographic-radical@ucs . 4)	; ⼃
+  '((<-denotational
+     ((==>ucs@bucs	  . #x55AC)	; &BUCS+55AC;
+      ))
+    (ideographic-radical@ucs . 4)	; ⼃
     (ideographic-strokes@ucs . 5)
     (ideographic-radical@cns . 37)	; ⼤
     (ideographic-strokes@cns . 3)
@@ -468,26 +471,51 @@
      daikanwa cns11643)
     (total-strokes	 . 6)
     (=ucs		. #x4E54)	; 乔
-    (->subsumptive
-     ((=daikanwa	  . 05860)	; &M-05860;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E54)	; 乔
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((hanyu-dazidian	  1 38 1)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x592D)	; 夭
-	)
-       ((=big5-cdp	    . #x89AB)	; &CDP-89AB;
-	))
-      (=ucs@unicode	  . #x4E54)	; &HZK01-ABD7;
-      (=gb2312		  . #x4747)	; &HZK01-ABD7; [39-39]
-      (=cns11643-3	  . #x2345)	; &I-C3-2345; [03-37]
-      (=hanziku-1	  . #xABD7)	; &I-HZK01-ABD7;
-      (<-simplified@CN
-       ((=ucs		    . #x55AC)	; 喬
-	(=gb12345	    . #x4747)	; 喬 [39-39]
-	))
+     ((=ucs@unicode	  . #x5929)	; &GT-K00468;
+      (=gb2312		  . #x4C6C)	; &GT-K00468; [44-76]
+      (=cns11643-1	  . #x4532)	; &I-C1-4532; [37-18]
+      )
+     ((=big5-cdp	  . #x89AB)	; &CDP-89AB;
+      ))
+    (=daikanwa		. 05860)	; &M-05860;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E54)	; 乔
+      ))
+    (ideographic-radical@ucs . 4)	; ⼃
+    (ideographic-strokes@ucs . 5)
+    (ideographic-radical@cns . 37)	; ⼤
+    (ideographic-strokes@cns . 3)
+    (total-strokes	 . 6)
+    (hanyu-dazidian	1 38 1)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x592D)	; 夭
+      )
+     ((=big5-cdp	  . #x89AB)	; &CDP-89AB;
+      ))
+    (=ucs@unicode	. #x4E54)	; &HZK01-ABD7;
+    (=gb2312		. #x4747)	; &HZK01-ABD7; [39-39]
+    (=cns11643-3	. #x2345)	; &I-C3-2345; [03-37]
+    (=hanziku-1		. #xABD7)	; &I-HZK01-ABD7;
+    (<-simplified@CN
+     ((=ucs		  . #x55AC)	; 喬
+      (=gb12345		  . #x4747)	; 喬 [39-39]
       ))
     ))
 (define-char
