@@ -105,19 +105,16 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (=ucs		. #x382F)	; 㠯
-    (=cns11643-3	. #x2245)	; &I-C3-2245; [02-37]
-    (=daikanwa		. 08747)	; &I-M-08747;
-    ))
-(define-char
-  '((=>ucs		. #x382F)	; 㠯
-    (morohashi-daikanwa	8747 0 2)
-    (ideographic-radical . 49)	; ⼰
-    (ideographic-strokes . 2)
-    (total-strokes	 . 5)
-    (hanyu-dazidian	1 29 2)
-    (=ucs@jis		. #x382F)	; &CDP-8BAD;
-    (=jis-x0213-2	. #x286F)	; &CDP-8BAD; [08-79]
-    (=big5-cdp		. #x8BAD)	; &I-CDP-8BAD;
+    (->subsumptive
+     ((=daikanwa	  . 08747)	; &M-08747;
+      )
+     ((=cns11643-3	  . #x2245)	; &C3-2245; [02-37]
+      )
+     ((hanyu-dazidian	  1 29 2)
+      (=ucs@unicode	  . #x382F)	; &CDP-8BAD;
+      (=jis-x0213-2	  . #x286F)	; &CDP-8BAD; [08-79]
+      (=big5-cdp	  . #x8BAD)	; &I-CDP-8BAD;
+      ))
     ))
 (define-char
   '((ideographic-radical . 49)	; ⼰
