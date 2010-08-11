@@ -1,5 +1,50 @@
 2010-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R087-Claw.el (A-M-19676): New abstract character.
+	(M-19676): Add `<-denotational' for A-M-19676.
+	(U-00024507): Use `<-denotational' for A-M-19676.
+	(U-00024512): Use `->denotational'.
+	(U+7235): Delete `ideographic-strokes' and `total-strokes'.
+	(JC3-58AE): Delete `=>daikanwa'.
+	(A-M-19711): New abstract character; add `<-denotational' for
+	U+7235.
+	(K0-6D49): Use `<-denotational' for A-M-19711.
+	(U-0002F921): Likewise.
+
+	* Ideograph-R073-Say.el (U+3479): Use `->denotational' to separate
+	representative node.
+	(C6-497B): Add `<-vulgar' for U+6703.
+
+	* Ideograph-R059-Bristle.el (U+4FEE): Unify BUCS+4FEE; use
+	`ideographic-radical@ucs' instead of `ideographic-radical@cns';
+	add `jis-x0208/a' to `ideographic-radical@ucs*sources'; add
+	`ideographic-radical@shinjigen*sources'; use `->denotational'
+	instead of `->subsumptive'.
+	(G0-505E): Omitted [defined in Ideograph-R009-Man.el].
+
+	* Ideograph-R037-Big.el (U+4E54): Add `<-denotational' for
+	BUCS+55AC; use `->denotational' instead of `->subsumptive'.
+	(M-05860): Add `ideographic-structure'.
+
+	* Ideograph-R004-Slash.el (J0-5029): Fix Shinjigen number from JIS
+	X 0208:1997.
+	(J0-4735): Likewise.
+	(BUCS+4E45): New abstract character.
+	(U+4E45): Add `<-denotational' for BUCS+4E45; fix Shinjigen number
+	from JIS X 0208:1997.
+	(U+4E46): Add `<-denotational' for BUCS+4E45.
+	(J0-4737): Fix Shinjigen number from JIS X 0208:1997.
+	(U+4E22): Add `<-denotational' for BUCS+4E1F.
+	(U+4E54): Add `<-denotational' for BUCS+55AC; use `->denotational'
+	instead of `->subsumptive'.
+	(M-05860): Omitted [defined in Ideograph-R037-Big.el].
+	(U-000200A6): Use `->subsumptive' to separate representative
+	nodes.
+	(GT-00187): Unify U-0002A70C; add ideographic-structure.
+	(BUCS+4E58): New abstract character.
+	(U+4E57): Add `<-denotational' for BUCS+4E58.
+	(U+4E58): Ditto.
+
 	* Ideograph-R079-Weapon.el (A-M-16629): New abstract character;
 	new variant of U+6BBA.
 	(parent of J0-3B26): Add `=>>ucs@jis'; use `<-denotational' for
