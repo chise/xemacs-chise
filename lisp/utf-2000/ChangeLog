@@ -1,5 +1,10 @@
 2010-08-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R117-Stand.el (U+7AD2): Add `<-denotational' for
+	BUCS+5947; add `=>>jis-x0208'.
+
+2010-08-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R086-Fire.el (A-M-19166): New abstract character; add
 	`<-denotational' for U-00020525.
 	(M-19166): Use `<-denotational' for A-M-19166.
