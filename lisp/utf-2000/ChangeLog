@@ -1,3 +1,34 @@
+2010-08-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R086-Fire.el (A-M-19166): New abstract character; add
+	`<-denotational' for U-00020525.
+	(M-19166): Use `<-denotational' for A-M-19166.
+	(U-0002F91B): Likewise.
+	(U+7196): Add ideographic-structure; use `->denotational' instead
+	of `->subsumptive'.
+	(JX2-6F78): Unify AJ1-18032.
+
+	* Ideograph-R102-Field.el (BC-8553): New character.
+	(A-M-49335): New abstract character.
+	(M-49335): Use `<-denotational' for A-M-49335.
+	(U-00024C83): Likewise.
+
+	* Ideograph-R082-Fur.el (RUI6-E06D): New character.
+
+	* Ideograph-R062-Halberd.el (RUI6-E067): New character.
+	(BC-8866): New character.
+	(M-11575): Map to U-000229AC.
+	(M-11577): Unify U-000229B2 and H4-CBB9.
+	(M-11578): Map to U-000229B3.
+	(M-11579): Map to U-000229B4.
+	(M-11580): Unify U-000229B1.
+	(M-11581): Unify U-000229B0.
+	(U+6218): Use `->subsumptive' to separate representative nodes.
+	(RUI6-E005): Modify `ideographic-structure'.
+
+	* Ideograph-R012-Eight.el (U-00020525): Use `->denotational' and
+	`->subsumptive'.
+
 2010-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R087-Claw.el (A-M-19676): New abstract character.
