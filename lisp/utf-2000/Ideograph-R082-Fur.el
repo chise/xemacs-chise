@@ -38,6 +38,27 @@
     ))
 (define-char
   '((ideographic-radical . 82)	; ⽑
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs@unicode	  . #x6BDB)	; &GT-21495;
+      (=jis-x0208	  . #x4C53)	; &GT-21495; [44-51]
+      (=gb2312		  . #x432B)	; &I-G0-432B; [35-11]
+      (=ks-x1001	  . #x593E)	; &I-K0-593E; [57-30]
+      (=jis-x0213-1	  . #x4C53)	; &I-JX1-4C53; [44-51]
+      (=daikanwa	  . 16772)	; &I-M-16772;
+      )
+     ((=ucs@unicode	  . #x67BC)	; &M-14593;
+      (=jis-x0212	  . #x4336)	; &M-14593; [35-22]
+      (=daikanwa	  . 14593)	; &I-M-14593;
+      ))
+    (=ruimoku-v6	. #xE06D)	; &RUI6-E06D;
+    ))
+(define-char
+  '((ideographic-radical . 82)	; ⽑
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=ucs		. #x23B1C)	; 𣬜
