@@ -1958,6 +1958,20 @@
     ))
 (define-char
   '((ideographic-radical . 102)	; ⽥
+    (ideographic-strokes . 6)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x7532)	; 甲
+      )
+     ((=ucs		  . #x5405)	; 吅
+      ))
+    (=big5-cdp		. #x8553)	; &CDP-8553;
+    ))
+(define-char
+  '((ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (=ucs		. #x3F5F)	; 㽟
@@ -2218,14 +2232,24 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x24C83)	; 𤲃
+  '((ideographic-radical . 102)	; ⽥
+    (ideographic-strokes . 7)
+    (total-strokes	 . 12)
+    (=>daikanwa		. 49335)	; &A-M-49335;
+    ))
+(define-char
+  '((<-denotational
+     ((=>daikanwa	  . 49335)	; &A-M-49335;
+      ))
     (ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (=daikanwa		. 49335)	; &M-49335;
     ))
 (define-char
-  '((=>daikanwa		. 49335)	; &M-49335;
+  '((<-denotational
+     ((=>daikanwa	  . 49335)	; &A-M-49335;
+      ))
     (ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
