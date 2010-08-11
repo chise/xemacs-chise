@@ -1,5 +1,62 @@
 2010-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R079-Weapon.el (A-M-16629): New abstract character;
+	new variant of U+6BBA.
+	(parent of J0-3B26): Add `=>>ucs@jis'; use `<-denotational' for
+	A-M-16629.
+	(G1-4931): Use `<-denotational' for A-M-16629.
+	(U-0002F8F5): Likewise.
+	(A-M-16638): New abstract character; new variant of U+6BBA.
+	(U+F970): Use `<-denotational' for A-M-16638.
+	(C1-5B44): Likewise.
+	(U+6BBB): Delete `=>daikanwa'.
+	(J90-334C): Use `=ucs@jis/1990', `=ucs@jis/2000' and
+	`=ucs@jis/2004' instead of `=ucs@jis'.
+
+	* Ideograph-R051-Dry.el (J97-5675): Add `<-denotational' for
+	BUCS+5002.
+
+	* Ideograph-R049-Oneself.el (U+382F): Use `->subsumptive'.
+
+	* Ideograph-R010-Legs.el: Add abstract characters and relations
+	about BUCS.
+	(B-A749): Unify A-J0-513C.
+
+	* Ideograph-R009-Man.el: Add abstract characters and relations
+	about BUCS.
+	(U+4ECA): Use `->denotational' to separate representative node.
+	(GT-00487): Add `<-denotational' for U+4ECA.
+	(U+4F53): Use `->denotational' to separate representative node.
+	(M-00540): Add `<-denotational' for U+4F53; add `<-vulgar' for
+	J0-424E.
+	(U-000201DE): Use `->subsumptive' to separate representative
+	nodes.
+	(GT-00767): Delete `morohashi-daikanwa'; add
+	`<-simplified@component' for U+50C9.
+	(GT-K3992): Use `<-denotational' for GT-00767; add
+	`<-formed@component/connect-right' for GT-00767.
+
+	* Ideograph-R001-One.el (BUCS+4E00): New abstract character.
+	(U+4E00): Add `<-denotational' for BUCS+4E00.
+	(GT-K0002): Use `<-denotational' for BUCS+4E00; add
+	`<-formed@component' for U+4E00.
+	(BUCS+4E09): New abstract character.
+	(U+4E09): Add `<-denotational' for BUCS+4E09.
+	(U+4E11): Unify BUCS+4E11.
+	(BUCS+4E16): New abstract character.
+	(U+4E16): Add `<-denotational' for BUCS+4E16.
+	(U+4E17): Ditto.
+	(U+4E1B): Add `<-denotational' for BUCS+53E2.
+	(BUCS+4E1F): New abstract character.
+	(U+4E1F): Add `<-denotational' for BUCS+4E1F.
+	(U+4E21): Add `<-denotational' for BUCS+5169.
+	(U+4E22): Add `<-denotational' for BUCS+4E1F.
+	(U+4E24): Add `<-denotational' for BUCS+5169.
+	(U+4E25): Add `<-denotational' for BUCS+56B4.
+	(U+4E27): Add `<-denotational' for BUCS+55AA.
+
+	* Ideograph-R013-Down-Box.el (A-J0-4662): Unify BUCS+5167.
+
 	* Ideograph-R007-Two.el (BUCS+4E8C): New abstract character.
 	(U+4E8C): Add `<-denotational' for BUCS+4E8C.
 	(BUCS+4E8E): New abstract character.
