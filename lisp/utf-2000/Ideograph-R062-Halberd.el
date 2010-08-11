@@ -35,6 +35,30 @@
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	(=ucs		    . #x2FF3)	; ⿳
+	)
+       ((=ucs		    . #x268FB)	; 𦣻
+	)
+       ((name* . "ideographic component person as left roof")
+	(=gt-k		    . 00058)	; &GT-K00058;
+	)
+       ((=gt-k		    . 00439)	; &GT-K00439;
+	))
+      )
+     ((=ucs		  . #x6208)	; 戈
+      ))
+    (=ruimoku-v6	. #xE067)	; &RUI6-E067;
+    ))
+(define-char
+  '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (=ucs		. #x6209)	; 戉
@@ -99,6 +123,21 @@
      ((=ucs		  . #x6214)	; 戔
       (=gb12345		  . #x6A27)	; 戔 [74-07]
       ))
+    ))
+(define-char
+  '((ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=gt		  . 14544)	; &GT-14544;
+      (=daikanwa	  . 11530)	; &I-M-11530;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=big5-cdp		. #x8866)	; &CDP-8866;
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
@@ -585,7 +624,13 @@
   '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=daikanwa		. 11575)	; &M-11575;
+    (=ucs		. #x229AC)	; 𢦬
+    (->subsumptive
+     ((=ucs@iso		  . #x229AC)	; &M-11575;
+      (=daikanwa	  . 11575)	; &M-11575;
+      )
+     ((=cns11643-6	  . #x313F)	; &C6-313F; [17-31]
+      ))
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
@@ -599,47 +644,59 @@
   '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=daikanwa		. 11577)	; &M-11577;
+    (=ucs		. #x229B2)	; 𢦲
+    (=daikanwa		. 11577)	; &I-M-11577;
+    (=hanziku-4		. #xCBB9)	; &I-HZK04-CBB9;
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=daikanwa		. 11578)	; &M-11578;
+    (=ucs		. #x229B3)	; 𢦳
+    (->subsumptive
+     ((=daikanwa	  . 11578)	; &M-11578;
+      )
+     ((=ucs@iso		  . #x229B3)	; &U-000229B3;
+      ))
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=daikanwa		. 11579)	; &M-11579;
+    (=ucs		. #x229B4)	; 𢦴
+    (->subsumptive
+     ((=daikanwa	  . 11579)	; &M-11579;
+      )
+     ((=ucs@iso		  . #x229B4)	; &HZK04-CBBE;
+      (=hanziku-4	  . #xCBBE)	; &HZK04-CBBE;
+      ))
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=daikanwa		. 11580)	; &M-11580;
+    (=ucs		. #x229B1)	; 𢦱
+    (=daikanwa		. 11580)	; &I-M-11580;
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=daikanwa		. 11581)	; &M-11581;
+    (=ucs		. #x229B0)	; 𢦰
+    (=daikanwa		. 11581)	; &I-M-11581;
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x6218)	; 战
-    (=gb2312		. #x553D)	; &I-G0-553D; [53-29]
-    (=cns11643-3	. #x2C63)	; &I-C3-2C63; [12-67]
-    (=daikanwa		. 11582)	; &I-M-11582;
-    ))
-(define-char
-  '((ideographic-radical . 62)	; ⼽
-    (ideographic-strokes . 5)
-    (total-strokes	 . 9)
-    (=ucs		. #x229AC)	; 𢦬
-    (=cns11643-6	. #x313F)	; &I-C6-313F; [17-31]
+    (->subsumptive
+     ((=ucs@unicode	  . #x6218)	; &M-11582;
+      (=gb2312		  . #x553D)	; &M-11582; [53-29]
+      (=daikanwa	  . 11582)	; &I-M-11582;
+      )
+     ((=cns11643-3	  . #x2C63)	; &C3-2C63; [12-67]
+      ))
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
@@ -649,7 +706,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
       (=ucs		  . #x2FF9)	; ⿹
       )
-     ((=ucs		  . #x6208)	; 戈
+     ((=gt		  . 14544)	; &GT-14544;
+      (=daikanwa	  . 11530)	; &I-M-11530;
       )
      ((=ucs		  . #x51AC)	; 冬
       ))
@@ -657,11 +715,11 @@
     (=ruimoku-v6	. #xE005)	; &RUI6-E005;
     ))
 (define-char
-  '((=>daikanwa		. 11583)	; &M-11583;
-    (ideographic-radical . 62)	; ⼽
+  '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ucs		. #x39B4)	; 㦴
+    (=>daikanwa		. 11583)	; 㦴
     (->subsumptive
      ((=cns11643-4	  . #x2D2F)	; &M-11583; [13-15]
       (=daikanwa	  . 11583)	; &I-M-11583;
