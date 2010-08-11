@@ -13,6 +13,8 @@
 	of `->subsumptive'.
 	(JX2-6F78): Unify AJ1-18032.
 
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-4749.
+
 	* Ideograph-R102-Field.el (BC-8553): New character.
 	(A-M-49335): New abstract character.
 	(M-49335): Use `<-denotational' for A-M-49335.
