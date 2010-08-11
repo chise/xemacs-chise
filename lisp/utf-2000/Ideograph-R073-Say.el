@@ -662,8 +662,23 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=ucs		. #x3479)	; 㑹
-    (=cns11643-6	. #x497B)	; &I-C6-497B; [41-91]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3479)	; 㑹
+      ))
+    (ideographic-radical . 73)	; ⽈
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (=ucs@unicode	. #x3479)	; &M-14305;
+    (=cns11643-6	. #x497B)	; &M-14305; [41-91]
     (=daikanwa		. 14305)	; &I-M-14305;
+    (<-vulgar
+     ((=ucs		  . #x6703)	; 會
+      (=daikanwa	  . 14306)	; &I-M-14306;
+      ))
+    (<-vulgar*sources
+     zhengzitong daikanwa)
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈
