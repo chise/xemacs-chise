@@ -39103,29 +39103,6 @@
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
-    (ideographic-strokes . 19)
-    (total-strokes	 . 21)
-    (hanyu-dazidian	1 240 3)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x752C)	; 甬
-	)
-       ((=ucs		    . #x752C)	; 甬
-	))
-      )
-     ((=ucs		  . #x82B1)	; 花
-      ))
-    (=ucs		. #x24C0F)	; 𤰏
-    (=hanziku-1		. #xD7B5)	; &I-HZK01-D7B5;
-    ))
-(define-char
-  '((ideographic-radical . 9)	; ⼈
     (==>ucs@bucs	. #x513B)	; &BUCS+513B;
     ))
 (define-char
