@@ -1,5 +1,16 @@
 2010-08-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R120-Silk.el (U+7CF9): Use `<-denotational' for
+	U+7CF8.
+	(U+7D00): Use `->denotational' to integrate U-0002F96A.
+	(U-0002F96A): Use `<-denotational' for U+7D00.
+
+	* Ideograph-R113-Spirit.el (U-000256C5): Use `->denotational'.
+	(U-0002F955): Add `<-denotational' for U-000256C5.
+
+	* Ideograph-R108-Dish.el (U+76C7): Delete `=>daikanwa'; add
+	`<-unknown' for U-0002504B.
+
 	* Ideograph-R117-Stand.el (U+7AD2): Add `<-denotational' for
 	BUCS+5947; add `=>>jis-x0208'.
 
