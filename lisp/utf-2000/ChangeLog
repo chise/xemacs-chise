@@ -1,5 +1,72 @@
 2010-08-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R137-Boat.el (U-00026A32): Use `->denotational'.
+
+	* Ideograph-R114-Track.el (U-0002573E): Delete `=>daikanwa'; add
+	`<-unknown' for U+79BC.
+	(U-00025741): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R111-Arrow.el (BC-8BC7): New character.
+	(RUI6-E068): New character.
+	(U-000253DC): Unify M-23991.
+	(U-000253DD): Unify M-23992.
+	(U-000253DE): Integrate M-23993.
+	(U-000253DF): Use `->denotational'.
+	(U+4095): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R109-Eye.el (U-00021565): Delete `=>daikanwa'.
+	(parent of JSP-4E5F): Separate U-0002F944; add `=>>ucs@iso',
+	`=>>ucs@jis' and `=>>ucs@cns'.
+	(C5-2F26): Unify U-0002F944.
+
+	* Ideograph-R085-Water.el (U+6C67): Use `->denotational'.
+	(JX2-6E4C): Unify GT-22247 and AJ5-17927.
+	(U+6D27): Use `->subsumptive'.
+	(U+6D28): Likewise.
+	(G-JX2-6E4F): New abstract glyph; use `<-denotational' for U+6C67.
+	(JX2-6E4F): Use `<-subsumptive' for G-JX2-6E4F; unify GT-22196 and
+	AJ5-17930.
+	(U-0002F8FE): Use `<-subsumptive' for G-JX2-6E4F.
+	(U+6D34): Delete `ideographic-strokes' and `total-strokes'.
+	(A-M-17427): New abstract character; use `<-denotational' for
+	U+6D3E.
+	(G0-4549): Use `<-denotational' for A-M-17427.
+	(K0-776F): Likewise.
+	(A-M-17428): New abstract character; use `<-denotational' for
+	U+6D3E.
+	(J83-4749): Use `<-denotational' for A-M-17428.
+	(J90-4749): Likewise.
+	(U-0002F900): Delete `=>daikanwa'.
+	(U+FA45): Add `=>>ucs@unicode'.
+	(U-00023D40): Unify GT-22386 and AJ1-17942.
+	(parent of JX2-6E65): Separate U-0002F907; add `=>>ucs@jis',
+	`=>>ucs@cns', `=>>jis-x0213-2' and `=>>gt'.
+	(JX2-6E65): Unify GT-22656, GT-K8535 and AJ1-17950.
+	(C3-3675): Unify U-0002F907.
+	(U+3D11): Use `->subsumptive'.
+	(JX2-6E71): Unify GT-22809 and AJ1-17957.
+	(parent of C4-3E33): Separate U-0002F90A; add `=>>ucs@unicode' and
+	`=>>ucs@cns'.
+	(C4-3E33): Unify U-0002F90A.
+	(A-M-18014): New abstract character; use `<-denotational' for
+	U+3D33.
+	(M-18014): Use `<-denotational' for A-M-18014.
+	(C3-422F): Likewise.
+	(U-00024135): Integrate M-18772.
+	(U-00024128): Use `->subsumptive' to separate representative
+	nodes.
+	(U+3D96): Integrate M-18773.
+	(U+7051): Use `->subsumptive'.
+	(U-00024136): Integrate M-18778.
+	(U-00024137): Integrate M-18780.
+	(U-0002413A): Integrate M-18785.
+	(U-0002413B): Unify M-18786.
+	(U-0002413D): Unify M-18788.
+	(U-00024134): Unify M-18789.
+	(U-00024146): Use `->subsumptive' to separate representative
+	nodes.
+	(U+3D9A): Unify GT-24068 and AJ1-18008.
+
 	* Ideograph-R122-Net.el (U+7F53): Use `<-denotational' for U+5188.
 	(C3-2E5A): Delete `=>daikanwa'.
 	(A-M-28233): New abstract character.
