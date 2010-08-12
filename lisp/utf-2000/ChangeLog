@@ -1,4 +1,37 @@
+2010-08-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R122-Net.el (U+7F53): Use `<-denotational' for U+5188.
+	(C3-2E5A): Delete `=>daikanwa'.
+	(A-M-28233): New abstract character.
+	(M-28233): Use `<-denotational' for A-M-28233.
+	(U-000262B3): Likewise.
+	(A-M-28238): New abstract character.
+	(M-28238): Use `<-denotational' for A-M-28238.
+	(U+4355): Likewise; use `->denotational' instead of
+	`->subsumptive'.
+	(U-000262D9): Use `->denotational'.
+
+	* Ideograph-R121-Jar.el (GT-K1231): Delete `=>daikanwa'.
+	(JX2-7461): Unify GT-K7290.
+	(A-UU+4343): New abstract character; add `<-denotational' for
+	U+4343.
+	(GT-K7305): New character.
+	(UU+4343): Use `<-denotational' for A-UU+4343; unify GT-K7393.
+	(U+7F3C): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R009-Man.el (U-00024C0F): Moved to
+	Ideograph-R101-Use.el.
+
 2010-08-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R119-Rice.el (parent of G0-745D): Add `=>>ucs@unicode'
+	and `=>>ucs@cns'.
+	(U+7CE2): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R132-Self.el (U+FA5C): Add `=>>ucs@unicode'.
+
+	* Ideograph-R138-Stopping.el (U+826F): Use `->denotational'
+	instead of `->subsumptive'.
 
 	* Ideograph-R120-Silk.el (U+7CF9): Use `<-denotational' for
 	U+7CF8.
