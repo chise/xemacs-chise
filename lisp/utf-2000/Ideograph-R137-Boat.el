@@ -1007,18 +1007,26 @@
     (=daikanwa		. 30417)	; &I-M-30417;
     ))
 (define-char
-  '((=>ucs		. #x26A32)	; 𦨲
+  '((ideographic-radical . 137)	; ⾈
+    (=ucs		. #x26A32)	; 𦨲
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x26A32)	; 𦨲
+      ))
     (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
     (=daikanwa		. 30418)	; &M-30418;
     ))
 (define-char
-  '((=>daikanwa		. 30418)	; &M-30418;
+  '((<-denotational
+     ((=ucs		  . #x26A32)	; 𦨲
+      ))
     (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
-    (=ucs		. #x26A32)	; 𦨲
+    (=>>ucs@iso		. #x26A32)	; &G-IU+26A32;
     (->subsumptive
      ((=ucs@iso		  . #x26A32)	; &C4-345A;
       (=cns11643-4	  . #x345A)	; &C4-345A; [20-58]
