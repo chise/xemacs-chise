@@ -1224,6 +1224,21 @@
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
+   '==>ucs-bmp-cjk@bucs
+   "CJK Characters in BMP of BUCS"
+   '(long-name "BUCS-BMP-CJK"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-zh-.*-ucs-0"
+	       mother ==>ucs@bucs
+	       min-code #x2E00
+               max-code #x9FA5
+	       ;; max-code #xA4CF
+	       ))
+  (make-charset
    '=ucs-sip-ext-b
    "CJK Ideographs Extension B"
    '(long-name "UCS CJK Ext-B"
