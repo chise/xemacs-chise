@@ -513,6 +513,22 @@
     ))
 (define-char
   '((ideographic-radical . 109)	; ⽬
+    (=ucs		. #x21565)	; 𡕥
+    (<-unknown
+     ((=ucs		  . #x2510E)	; 𥄎
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21565)	; 𡕥
+      ))
+    (ideographic-radical . 109)	; ⽬
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (=ucs@iso		. #x21565)	; &U-00021565;
+    ))
+(define-char
+  '((ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
     (=big5-cdp		. #x8BB2)	; &CDP-8BB2;
@@ -881,32 +897,6 @@
     (=ucs		. #x2510E)	; 𥄎
     (=cns11643-4	. #x2A5B)	; &I-C4-2A5B; [10-59]
     (=daikanwa		. 23172)	; &I-M-23172;
-    ))
-(define-char
-  '((=>daikanwa		. 23172)	; 𥄎
-    (ideographic-radical . 109)	; ⽬
-    (=ucs		. #x21565)	; 𡕥
-    (<-unknown
-     ((=ucs		  . #x2510E)	; 𥄎
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x21565)	; 𡕥
-      ))
-    (ideographic-radical . 109)	; ⽬
-    (ideographic-strokes . 4)
-    (total-strokes	 . 9)
-    (=big5-cdp		. #x88FD)	; &CDP-88FD;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x21565)	; 𡕥
-      ))
-    (ideographic-radical . 109)	; ⽬
-    (ideographic-strokes . 3)
-    (total-strokes	 . 8)
-    (=ucs@iso		. #x21565)	; &U-00021565;
     ))
 (define-char
   '((ideographic-radical . 109)	; ⽬
@@ -1445,6 +1435,15 @@
     (=hanziku-7		. #xA949)	; &I-HZK07-A949;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x21565)	; 𡕥
+      ))
+    (ideographic-radical . 109)	; ⽬
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (=big5-cdp		. #x88FD)	; &CDP-88FD;
+    ))
+(define-char
   '((ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
@@ -1582,23 +1581,22 @@
   '((<-denotational
      ((=ucs		  . #x25133)	; 𥄳
       ))
-    (=>ucs*		. #x25133)	; 𥄳
-    (=>ucs@gb		. #x25133)	; &M-23221;
-    (=>ucs@cns		. #x2F944)	; &CDP-8CB2;
-    (=>ucs@jis		. #x7714)	; &M-23221;
     (ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
-    (=ucs		. #x2F944)	; 𥄳
+    (=>>ucs@iso		. #x25133)	; &G-IU+25133;
+    (=>>ucs@jis		. #x7714)	; &G-IU+25133;
+    (=>>ucs@cns		. #x2F944)	; &G-IU+25133;
     (->subsumptive
      ((=ucs@iso		  . #x25133)	; &M-23221;
       (=ucs@jis		  . #x7714)	; &M-23221;
       (=jis-x0212	  . #x4E5F)	; &M-23221; [46-63]
       (=daikanwa	  . 23221)	; &I-M-23221;
       )
-     ((hanyu-dazidian	  4 2915 12)
-      (=ucs@iso		  . #x2F944)	; &CDP-8CB2;
-      (=cns11643-5	  . #x2F26)	; &CDP-8CB2; [15-06]
+     ((=>ucs*		  . #x25133)	; 𥄳
+      (hanyu-dazidian	  4 2915 12)
+      (=ucs		  . #x2F944)	; 𥄳
+      (=cns11643-5	  . #x2F26)	; &I-C5-2F26; [15-06]
       (=big5-cdp	  . #x8CB2)	; &I-CDP-8CB2;
       ))
     ))
@@ -4951,8 +4949,8 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
     (->subsumptive
-     ((=ucs@unicode	  . #x776E)	; &B-E2E6;
-      (=big5		  . #xE2E6)	; &B-E2E6;
+     ((=ucs@unicode	  . #x776E)	; &UU+776E;
+      (=big5		  . #xE2E6)	; &UU+776E;
       )
      ((=ucs@cns		  . #x776E)	; &C2-4C2E;
       (=cns11643-2	  . #x4C2E)	; &C2-4C2E; [44-14]
@@ -6985,8 +6983,8 @@
     (ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
-    (=ucs@unicode	. #x7799)	; &B-EA7E;
-    (=big5		. #xEA7E)	; &B-EA7E;
+    (=ucs@unicode	. #x7799)	; &UU+7799;
+    (=big5		. #xEA7E)	; &UU+7799;
     ))
 (define-char
   '((ideographic-radical . 109)	; ⽬
@@ -8766,8 +8764,8 @@
     (total-strokes	 . 18)
     (=ucs		. #x77C2)	; 矂
     (->subsumptive
-     ((=ucs@unicode	  . #x77C2)	; &B-F054;
-      (=big5		  . #xF054)	; &B-F054;
+     ((=ucs@unicode	  . #x77C2)	; &UU+77C2;
+      (=big5		  . #xF054)	; &UU+77C2;
       )
      ((=ucs@cns		  . #x77C2)	; &C2-6241;
       (=cns11643-2	  . #x6241)	; &C2-6241; [66-33]
@@ -9324,8 +9322,8 @@
       (=cns11643-2	  . #x6944)	; &M-23794; [73-36]
       (=daikanwa	  . 23794)	; &I-M-23794;
       )
-     ((=ucs@unicode	  . #x77CE)	; &B-F475;
-      (=big5		  . #xF475)	; &B-F475;
+     ((=ucs@unicode	  . #x77CE)	; &UU+77CE;
+      (=big5		  . #xF475)	; &UU+77CE;
       ))
     ))
 (define-char
