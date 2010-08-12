@@ -28,7 +28,9 @@
       ))
     ))
 (define-char
-  '((=>daikanwa		. 27221)	; &GT-35079;
+  '((<-denotational
+     ((=ucs		  . #x7CF8)	; 糸
+      ))
     (ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
@@ -280,7 +282,17 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
     (=ucs		. #x7D00)	; 紀
-    (=big5		. #xACF6)	; &I-B-ACF6;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7D00)	; 紀
+      ))
+    (ideographic-radical . 120)	; ⽷
+    (ideographic-strokes . 3)
+    (total-strokes	 . 9)
+    (=>>ucs@unicode	. #x7D00)	; &G-GT-35098;
+    (=big5		. #xACF6)	; &G-GT-35098;
+    (=>>gt		. 35098)	; &G-GT-35098;
     (->subsumptive
      ((=ucs@jis		  . #x7D00)	; &GT-35098;
       (=jis-x0208	  . #x352A)	; &GT-35098; [21-10]
@@ -290,7 +302,7 @@
       (=gt-k		  . 05046)	; &I-GT-K05046;
       (=gt-pj-1		  . #x352A)	; &I-GT-35098; [21-10]
       (=daikanwa	  . 27234)	; &I-M-27234;
-      (=shinjigen@rev	  .  5964)	; &GT-35098;
+      (=shinjigen	  .  5964)	; &GT-35098;
       )
      ((=ucs@unicode	  . #x7D00)	; &C1-5279;
       (=cns11643-1	  . #x5279)	; &C1-5279; [50-89]
@@ -298,8 +310,10 @@
       ))
     ))
 (define-char
-  '((=>ucs*		. #x7D00)	; 紀
-    (=>daikanwa		. 27234)	; &GT-35098;
+  '((<-denotational
+     ((=ucs		  . #x7D00)	; 紀
+      ))
+    (=>ucs*		. #x7D00)	; 紀
     (ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
