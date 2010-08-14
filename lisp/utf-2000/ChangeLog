@@ -1,5 +1,30 @@
 2010-08-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R115-Grain.el (J0-634C): Add `<-formed' for J0-3946.
+	(U+7A40): Add `=>>ucs@jis'.
+	(U+7A48): Use `->denotational' instead of `->subsumptive'.
+	(U+7A4A): Likewise.
+	(U+7A4B): Likewise.
+
+	* Ideograph-R134-Mortar.el (U-0002F98C): Use `<-denotational' for
+	U+8204.
+
+	* Ideograph-R124-Feather.el (U+7FDE): Use `->denotational'.
+	(RUI6-E072): New character.
+	(U+7FFC): Add ideographic-structure.
+	(parent of G0-526D): Add `=>>ucs@unicode' and `=>>gt'.
+	(A-M-28818): New abstract character; use `<-denotational' for
+	U+7FFC.
+	(M-28818): Use `<-denotational' for A-M-28818.
+	(K0-6C4F): Likewise.
+
+	* Ideograph-R038-Woman.el:
+	- Separate representative nodes of some characters.
+	- Use `->subsumptive' and/or `->denotational' for some character
+	  definitions.
+	- Add abstract ideographic-structure for some characters.
+	(C1-444C): Unify CU+5973.
+
 	* Ideograph-R137-Boat.el (U-00026A32): Use `->denotational'.
 
 	* Ideograph-R114-Track.el (U-0002573E): Delete `=>daikanwa'; add
