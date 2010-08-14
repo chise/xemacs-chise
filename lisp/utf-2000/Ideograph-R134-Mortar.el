@@ -673,15 +673,14 @@
     (=jef-china3	. #x90A8)	; &I-JC3-90A8;
     ))
 (define-char
-  '((=>ucs*		. #x8204)	; 舄
-    (=>daikanwa		. 30206)	; 舄
+  '((<-denotational
+     ((=ucs		  . #x8204)	; 舄
+      ))
+    (=>ucs*		. #x8204)	; 舄
     (ideographic-radical . 134)	; ⾅
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
     (=ucs		. #x2F98C)	; 舄
-    (<-unknown
-     ((=ucs		  . #x8204)	; 舄
-      ))
     ))
 (define-char
   '((<-denotational
