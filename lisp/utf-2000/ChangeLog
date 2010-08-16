@@ -1,5 +1,77 @@
 2010-08-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R123-Sheep.el (<CJK RADICAL EWE>): Delete
+	`=>daikanwa'.
+	(U+7F95): Likewise.
+	(U-0002638D): Use `->denotational'.
+	(U+7FAE): Use `->subsumptive' to separate representative nodes.
+	(U+7FAF): Use `->subsumptive'.
+	(U+7FB0): Use `->denotational'.
+	(U-000263AB): Delete `=>daikanwa'; add ideographic-structure.
+	(U+7FB9): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R112-Stone.el (U+78CB): Use `->subsumptive'.
+	(U+78CC): Use `->denotational' instead of `->subsumptive'.
+	(U+78CD): Use `->denotational' and `->subsumptive'.
+	(U+78CE): Use `->denotational' and `->subsumptive'.
+	(U+78CF): Use `->denotational'.
+	(U+78D0): Use `->subsumptive'.
+
+	* Ideograph-R101-Use.el (U-00024C08): Use '->denotational' instead
+	`->subsumptive'.
+	(CB08880): Use `<-denotational' for U-00024C08.
+	(M-21718): Unify U-00024C0C and H1-B8C5.
+	(M-21719): Map to U-00024C0B.
+	(U-00024C0E): Use `->subsumptive'.
+	(U-00024C0F): New character.
+	(U-00024C00): Moved to Ideograph-R100-Life.el.
+
+	* Ideograph-R100-Life.el (U-00024BFB): New character.
+	(U-00024C00): New character [moved from Ideograph-R101-Use.el].
+
+	* Ideograph-R096-Jade.el (U+3ED4): Integrate M-21045.
+	(U+743D): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+3EDD): Unify M-21094.
+	(U+3EDE): Integrate M-21106.
+	(U-000249AF): Integrate M-21116.
+	(U-000249B0): Integrate M-21118.
+	(U-000249B1): Integrate M-21119.
+	(U+7456): Use `->subsumptive' to separate representative nodes.
+	(U+7457): Use `->denotational'.
+	(U-000249B2): Integrate M-21123.
+	(U+7458): Use `->subsumptive' to separate representative nodes.
+	(U+745A): Likewise.
+	(U+745B): Use `->denotational' and `->subsumptive'.
+	(U+3EDF): Integrate M-21128.
+	(U+745C): Use `->denotational' and `->subsumptive'.
+	(U+3EE0): Integrate M-21132.
+	(U-000249B3): Unify M-21134.
+	(U-000249B4): Integrate M-21135.
+	(U+3EE1): Integrate M-21136.
+	(U-000249BC): Unify M-21137.
+	(U+7476): Delete `=>daikanwa'.
+	(J90-7424): Unify S2-4940' instead of S2-4940; unify S1-4951.
+	(U+3EE7): Integrate M-21166.
+	(parent of JX2-7077): Use `=>>ucs@jis', `=>>ucs@cns' and
+	`=>>jis-x0213-2'.
+	(parent of C2-4B76): Add `=>>ucs@unicode'.
+
+	* Ideograph-R068-Dipper.el (RUI6-E06A): New character.
+	(U+6598): Use `->subsumptive' to separate representative nodes.
+	(U+3AB4): Integrate M-13493.
+	(U+3AB5): Integrate M-13496.
+	(U-00023071): Use `->subsumptive' to separate representative
+	nodes.
+	(M-13498): Map to U+3AB6; unify H6-D1F8.
+	(U-00023073): Use `->denotational' to separate representative
+	nodes.
+	(U-00023074): Use `->subsumptive' to separate representative
+	nodes.
+	(U+6599): Likewise.
+
+2010-08-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R115-Grain.el (J0-634C): Add `<-formed' for J0-3946.
 	(U+7A40): Add `=>>ucs@jis'.
 	(U+7A48): Use `->denotational' instead of `->subsumptive'.
