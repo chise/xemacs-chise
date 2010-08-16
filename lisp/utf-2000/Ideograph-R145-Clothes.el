@@ -4934,8 +4934,8 @@
     (ideographic-radical . 145)	; ⾐
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
-    (=>>ucs@unicode	. #x88FA)	; &B-E3F9;
-    (=big5		. #xE3F9)	; &B-E3F9;
+    (=>>ucs@unicode	. #x88FA)	; &G-UU+88FA;
+    (=big5		. #xE3F9)	; &G-UU+88FA;
     (->subsumptive
      ((=daikanwa	  . 34373)	; &M-34373;
       )
