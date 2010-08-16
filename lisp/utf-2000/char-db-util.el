@@ -437,7 +437,7 @@
 	   "(%-18s . %04d)\t; %c")
 	  ((or (memq name '(=daikanwa
 			    =daikanwa@rev1 =daikanwa@rev2
-			    =>daikanwa
+			    =>>daikanwa =>daikanwa
 			    =gt =>>gt =>gt =gt-k =>>gt-k =cbeta
 			    =zinbun-oracle =>zinbun-oracle))
 	       (string-match "^=adobe-" (symbol-name name)))
