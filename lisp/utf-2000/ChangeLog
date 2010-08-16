@@ -1,3 +1,31 @@
+2010-08-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R141-Tiger.el (U-0002F9B6): Use `<-denotational' for
+	U+8669.
+
+	* Ideograph-R140-Grass.el (U-0002F995): Don't integrate J78-326A,
+	J83-326A, K0-6434, J90-326A, JX1-326A and GT-39848.
+	(A-M-30919): New abstract character.
+	(M-30919): Use `<-denotational' for A-M-30919.
+	(U-00026B7E): Likewise.
+	(U-0002F9A2): Use `->subsumptive' to separate representative
+	nodes.
+	(U-00026C36): Use `->denotational'.
+	(U+83EE): Use `->denotational' and `->subsumptive'.
+	(A-M-31214): New abstract character; use `<-denotational' for
+	U+83EF.
+	(C1-615E): Use `<-denotational' for A-M-31214.
+	(JC3-62A8): Likewise.
+	(A-M-31527): New abstract character.
+	(M-31527): Use `<-denotational' for A-M-31527.
+	(U-00026D1C): Likewise.
+	(A-M-31532): New abstract character.
+	(M-31532): Use `<-denotational' for A-M-31532.
+	(U-00026D31): Likewise.
+	(A-M-32537): New abstract character.
+	(M-32537): Use `<-denotational' for A-M-32537.
+	(U-0002710B): Likewise.
+
 2010-08-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R123-Sheep.el (<CJK RADICAL EWE>): Delete
@@ -77,6 +105,9 @@
 	(U+7A48): Use `->denotational' instead of `->subsumptive'.
 	(U+7A4A): Likewise.
 	(U+7A4B): Likewise.
+
+	* char-db-util.el (char-db-insert-ccs-feature): Treat
+	`=>>daikanwa' like `=>daikanwa'.
 
 	* Ideograph-R134-Mortar.el (U-0002F98C): Use `<-denotational' for
 	U+8204.
