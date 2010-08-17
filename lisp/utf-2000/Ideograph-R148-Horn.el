@@ -3162,14 +3162,22 @@
     (=ucs@unicode	. #x46AD)	; &UU+46AD;
     ))
 (define-char
-  '((=>ucs		. #x27955)	; 𧥕
+  '((ideographic-radical . 148)	; ⾓
+    (=>daikanwa		. 35200)	; &A-M-35200;
+    ))
+(define-char
+  '((<-denotational
+     ((=>daikanwa	  . 35200)	; &A-M-35200;
+      ))
     (ideographic-radical . 148)	; ⾓
     (ideographic-strokes . 18)
     (total-strokes	 . 25)
     (=daikanwa		. 35200)	; &M-35200;
     ))
 (define-char
-  '((=>daikanwa		. 35200)	; &M-35200;
+  '((<-denotational
+     ((=>daikanwa	  . 35200)	; &A-M-35200;
+      ))
     (ideographic-radical . 148)	; ⾓
     (ideographic-strokes . 19)
     (total-strokes	 . 26)
