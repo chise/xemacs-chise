@@ -1,3 +1,30 @@
+2010-08-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R142-Insect.el (U+86CE): Delete `=>daikanwa'.
+	(A-M-33084): New abstract character.
+	(M-33084): Use `<-denotational' for A-M-33084.
+	(U+45B9): Likewise.
+	(U+8823): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R147-See.el: Add mappings between CJK Ext B and CNS
+	11643 plain 7.
+	(RUI6-E066): New character.
+	(U-0002784B): Use `->subsumptive' to separate representative
+	nodes.
+	(U-0002785A): New character.
+	(U-0002785C): New character.
+	(U-0002785F): New character.
+	(C7-3B67): Integrate U-00027867 and M-34903.
+	(U+4689): Use `->subsumptive' to separate representative nodes.
+	(U+468A): Use `->denotational' instead of `->subsumptive'.
+	(C7-3B6A): Unify U-0002787B and M-34939.
+	(U+468C): Use `->subsumptive' to separate representative nodes.
+	(U-00027882): Use `->denotational' instead of `->subsumptive'.
+	(U+4693): Use `->denotational' to separate representative nodes.
+	(U-0002789E): Use `->denotational' instead of `->subsumptive'.
+	(U-000278AA): New character.
+	(U-0002F9CB): Use `<-same@ucs*note' instead of `<-same@ucs*notes'.
+
 2010-08-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R141-Tiger.el (U-0002F9B6): Use `<-denotational' for
