@@ -637,6 +637,17 @@
 		  ))
   (define-charset-alias '=daikanwa-rev2 '=daikanwa@rev2)
 
+  (make-charset '=>>daikanwa
+		"Daikanwa abstract glyphs"
+		'(long-name	"Daikanwa glyphs"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"Daikanwa\\(\\.[0-9]+\\)?-3"
+		  mother	=daikanwa))
+
   (make-charset '=>daikanwa
 		"Daikanwa abstract characters"
 		'(long-name	"abstract Daikanwa"
@@ -646,7 +657,7 @@
 		  graphic	2
 		  direction	l2r
 		  registry	"Daikanwa\\(\\.[0-9]+\\)?-3"
-		  mother	=daikanwa))
+		  mother	=>>daikanwa))
 
   (make-charset '=shinjigen
 		"Kadokawa ShinJigen dictionary (common parts)"
