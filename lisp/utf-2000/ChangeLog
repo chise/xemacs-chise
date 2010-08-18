@@ -1,3 +1,7 @@
+2010-08-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R160-Bitter.el (U-0002840B): Use `->denotational'.
+
 2010-08-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R148-Horn.el (A-M-35200): New abstract character.
