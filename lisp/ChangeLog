@@ -1,3 +1,10 @@
+2010-08-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>daikanwa): New coded-charset for XEmacs
+	CHISE.
+	(=>daikanwa): Use `=>>daikanwa' instead of `=daikanwa' as the
+	mother.
+
 2010-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add

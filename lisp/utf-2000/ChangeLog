@@ -1,5 +1,11 @@
 2010-08-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R148-Horn.el (A-M-35200): New abstract character.
+	(M-35200): Use `<-denotational' for A-M-35200.
+	(U-00027955): Likewise.
+
+2010-08-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R142-Insect.el (U+86CE): Delete `=>daikanwa'.
 	(A-M-33084): New abstract character.
 	(M-33084): Use `<-denotational' for A-M-33084.
