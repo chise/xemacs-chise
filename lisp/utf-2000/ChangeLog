@@ -1,3 +1,8 @@
+2010-08-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el: Use `->denotational' instead of
+	`->subsumptive' as glyph-level definitions of some characters.
+
 2010-08-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R160-Bitter.el (U-0002840B): Use `->denotational'.
