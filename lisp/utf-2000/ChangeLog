@@ -1,3 +1,30 @@
+2010-08-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R130-Meat.el (A-M-29675): New abstract character.
+	(U-00026760): Add `<-denotational' for A-M-29675.
+	(U-00023386): Use `<-denotational' for A-M-29675; omit `<-same'
+	for U-00026760.
+	(CB12237): Use `<-denotational' for A-M-29675.
+
+	* Ideograph-R074-Moon.el (U-00023386): Use `<-denotational' for
+	A-M-29675; delete `<-same' for U-00026760.
+
+	* Ideograph-R165-Distinguish.el (U-0002891A): Use `->denotational'
+	instead of `->subsumptive'.
+	(U-00028921): Likewise.
+
+	* Ideograph-R163-City.el (RUI6-E06B): New character.
+	(U+48B3): Use `->subsumptive'.
+	(A-M-39306): New abstract character.
+	(U-0002867B): Add `<-denotational' for A-M-39306.
+	(U-00028689): Use `<-denotational' for A-M-39306.
+	(A-M-39352): New abstract character.
+	(M-39352): Use `<-denotational' for A-M-39352.
+	(U-0002869B): Likewise.
+	(A-M-39490): New abstract character.
+	(M-39490): Use `<-denotational' for A-M-39490.
+	(U-0002870B): Likewise.
+
 2010-08-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R162-Walk.el: Use `->denotational' instead of
