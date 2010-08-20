@@ -1292,15 +1292,14 @@
       ))
     ))
 (define-char
-  '((=>daikanwa		. 29675)	; &M-29675;
+  '((<-denotational
+     ((=>daikanwa	  . 29675)	; &A-M-29675;
+      ))
     (ideographic-radical@ucs . 74)	; ⽉
     (ideographic-radical@misc . 130)	; ⾁
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (=ucs		. #x23386)	; 𣎆
-    (<-same
-     ((=ucs		  . #x26760)	; 𦝠
-      ))
     ))
 (define-char
   '((ideographic-radical . 74)	; ⽉
