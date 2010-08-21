@@ -812,8 +812,8 @@
       )
      ((=cns11643-7	  . #x4477)	; &C7-4477; [36-87]
       )
-     ((=ucs@unicode	  . #x4A96)	; &JC3-99D9;
-      (=jef-china3	  . #x99D9)	; &JC3-99D9;
+     ((=ucs@unicode	  . #x4A96)	; &UU+4A96;
+      (=jef-china3	  . #x99D9)	; &UU+4A96;
       ))
     ))
 (define-char
