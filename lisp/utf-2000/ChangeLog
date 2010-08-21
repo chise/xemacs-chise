@@ -1,5 +1,12 @@
 2010-08-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R149-Speech.el (A-M-36095): New abstract character.
+	(U-00027B66): New character; add `<-denotational' for A-M-36095.
+	(M-27B66): Map to U-00027B66 instead of U+8B82.
+	(U+8B82): Use `<-denotational' for A-M-36095.
+
+2010-08-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R130-Meat.el (A-M-29675): New abstract character.
 	(U-00026760): Add `<-denotational' for A-M-29675.
 	(U-00023386): Use `<-denotational' for A-M-29675; omit `<-same'
