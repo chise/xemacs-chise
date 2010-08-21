@@ -9296,8 +9296,8 @@
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 8)
     (total-strokes	 . 15)
-    (=>>jis-x0208	. #x4342)	; &G-JX1-4342; [35-34]
-    (=>>jis-x0213-1	. #x4342)	; &G-JX1-4342; [35-34]
+    (=>>jis-x0208	. #x4342)	; &G-J0-4342; [35-34]
+    (=>>jis-x0213-1	. #x4342)	; &G-J0-4342; [35-34]
     (->subsumptive
      ((morohashi-daikanwa	35692 1)
       (=jis-x0208@1978	  . #x4342)	; &GT-47860; [35-34]
@@ -17111,14 +17111,29 @@
     (=cns11643-5	. #x743E)	; &C5-743E; [84-30]
     ))
 (define-char
-  '((=>ucs		. #x8B82)	; 讂
+  '((ideographic-radical . 149)	; ⾔
+    (ideographic-strokes . 15)
+    (total-strokes	 . 22)
+    (=>daikanwa		. 36095)	; &A-M-36095;
+    ))
+(define-char
+  '((<-denotational
+     ((=>daikanwa	  . 36095)	; &A-M-36095;
+      ))
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 15)
     (total-strokes	 . 22)
-    (=daikanwa		. 36095)	; &M-36095;
+    (=ucs		. #x27B66)	; 𧭦
+    (->subsumptive
+     ((=daikanwa	  . 36095)	; &M-36095;
+      )
+     ((=ucs@iso		  . #x27B66)	; &U-00027B66;
+      ))
     ))
 (define-char
-  '((=>daikanwa		. 36095)	; &M-36095;
+  '((<-denotational
+     ((=>daikanwa	  . 36095)	; &A-M-36095;
+      ))
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 15)
     (total-strokes	 . 22)
