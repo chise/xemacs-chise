@@ -1,3 +1,28 @@
+2010-08-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R184-Eat.el (A-M-44371): New abstract character.
+	(U-0002976B): Add `<-denotational' for A-M-44371.
+	(U-0002979F): Use `<-denotational' for A-M-44371.
+
+	* Ideograph-R164-Wine.el: Use `->denotational' and/or
+	`->subsumptive' to separate representative nodes of some
+	characters.
+	(U+917B): Use `->denotational'.
+	(U+9181): Use `->denotational' instead of `->subsumptive'.
+	(U-00028851): Likewise.
+	(U+4905): Likewise.
+	(U-00028874): Likewise.
+	(U-00028885): Likewise.
+	(U-00028888): Likewise.
+	(U+490B): Likewise.
+	(U+91A3): Use `->subsumptive'.
+	(U-000288A8): Use `->denotational' instead of `->subsumptive'.
+	(M-39998): Unify JC3-68F9.
+	(JSP-6271): Use `=ucs@jis' instead of `=ucs@jis/1990'.
+	(U+91A7): Use `->denotational' instead of `->subsumptive'.
+	(U-000288C1): Likewise.
+	(U+91B7): Use `->subsumptive'.
+
 2010-08-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R166-Village.el (M-40144): Unify U-00028931.
