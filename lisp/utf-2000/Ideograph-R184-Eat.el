@@ -3359,9 +3359,9 @@
 	  (=daikanwa	      . 44133)	; &I-M-44133;
 	  ))
 	)
-       ((=ucs@unicode	    . #x9905)	; &JC3-6DCD;
-	(=gb12345	    . #x317D)	; &JC3-6DCD; [17-93]
-	(=jef-china3	    . #x6DCD)	; &JC3-6DCD;
+       ((=ucs@unicode	    . #x9905)	; &UU+9905;
+	(=gb12345	    . #x317D)	; &UU+9905; [17-93]
+	(=jef-china3	    . #x6DCD)	; &UU+9905;
 	))
       ))
     ))
@@ -7416,6 +7416,15 @@
   '((ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
+    (=>daikanwa		. 44371)	; &A-M-44371;
+    ))
+(define-char
+  '((<-denotational
+     ((=>daikanwa	  . 44371)	; &A-M-44371;
+      ))
+    (ideographic-radical . 184)	; ⾷
+    (ideographic-strokes . 11)
+    (total-strokes	 . 20)
     (=ucs		. #x2976B)	; 𩝫
     (->subsumptive
      ((=daikanwa	  . 44371)	; &M-44371;
@@ -7424,7 +7433,9 @@
       ))
     ))
 (define-char
-  '((=>daikanwa		. 44371)	; &M-44371;
+  '((<-denotational
+     ((=>daikanwa	  . 44371)	; &A-M-44371;
+      ))
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
