@@ -1,4 +1,13 @@
+2010-08-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R166-Village.el (M-40144): Unify U-00028931.
+	(M-40145): Map to U-000218E2; integrate CB12084.
+	(U+91D0): Use `->subsumptive' to separate representative nodes.
+	(M-40149): Map to U-000258F7.
+
 2010-08-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R203-Black.el (U+FA3A): Add `=>>ucs@unicode'.
 
 	* Ideograph-R149-Speech.el (A-M-36095): New abstract character.
 	(U-00027B66): New character; add `<-denotational' for A-M-36095.
