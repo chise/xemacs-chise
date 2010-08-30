@@ -922,16 +922,24 @@
   '((ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 6)
     (total-strokes	 . 16)
-    (=daikanwa		. 49922)	; &M-49922;
-    (<-unknown
-     ((=ucs		  . #x4C23)	; 䰣
-      ))
+    (=ucs		. #x4C23)	; 䰣
     ))
 (define-char
-  '((=>daikanwa		. 49922)	; &M-49922;
+  '((<-denotational
+     ((=ucs		  . #x4C23)	; 䰣
+      ))
     (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 6)
-    (=ucs		. #x4C23)	; 䰣
+    (total-strokes	 . 16)
+    (=daikanwa		. 49922)	; &M-49922;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4C23)	; 䰣
+      ))
+    (ideographic-radical . 194)	; ⿁
+    (ideographic-strokes . 6)
+    (=>>ucs@unicode	. #x4C23)	; &G-UU+4C23;
     (->subsumptive
      ((total-strokes	   . 16)
       (=cns11643-3	  . #x5377)	; &C3-5377; [51-87]
