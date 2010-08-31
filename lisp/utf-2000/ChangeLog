@@ -12,6 +12,32 @@
 	(JX1-7D63): Unify U+FA68.
 	(M-42147): Map to U-00029032.
 
+	* Ideograph-R167-Gold.el:
+	- Use `->denotational' and/or `->subsumptive' to separate
+	representative nodes.
+	(U+924F): Unify S-8652; add `<-original' for U+92E4.
+	(U-00028982): Use `->denotational' instead of `->subsumptive'.
+	(U+92CE): Integrate JC3-6AB7.
+	(U+92D0): Integrate JC3-6AB8.
+	(U-000289AE): Use `->denotational' instead of `->subsumptive'.
+	(U+92D1): Integrate JC3-6AB9.
+	(U+4930): Integrate JC3-69B2.
+	(U-000289F5): Use `->denotational'.
+	(U+934B): Use `->denotational'.
+	(U+934D): Use `->subsumptive'.
+	(U-00028A3A): Use `->denotational' instead of `->subsumptive'.
+	(U-00028A87): Likewise.
+	(U-00028A97): Likewise.
+	(U+93D4): Integrate JC3-6AFE.
+	(U+494D): Integrate JC3-69B8.
+	(U+940E): Integrate JC3-93AB.
+	(U+940F): Integrate JC3-6BB7.
+	(U+9413): Use `->subsumptive'.
+	(U-00028B1A): Use `->denotational' instead of `->subsumptive'.
+	(U+945B): Use `->denotational'.
+	(U-00028C0F): Use `->denotational' instead of `->subsumptive'.
+	(U-00028C1D): Likewise.
+
 2010-08-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R194-Ghost.el (U+4C23): Use `->denotational' to
