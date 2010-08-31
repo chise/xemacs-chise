@@ -1,5 +1,20 @@
 2010-08-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R168-Long.el (U+4987): Use `->subsumptive' to separate
+	representative nodes; integrate JC3-6BD8.
+	(U-00028C8C): Use `->denotational' instead of `->subsumptive'.
+	(U-00028CA9): Likewise.
+	(U-00028CAC): New character.
+	(U-00028CAB): New character.
+	(U-00028CAA): New character.
+	(U-00028CAF): Use `->denotational' instead of `->subsumptive'.
+	(U-00028CB2): Use `->subsumptive' to separate representative
+	nodes.
+	(U-00028CB0): New character.
+	(U-00028CB1): New character.
+	(U-00028CC2): Use `->subsumptive' to separate representative
+	nodes.
+
 	* Ideograph-R172-Short-Tailed-Bird.el (U+96C3): Use
 	`->denotational' instead of `->subsumptive'.
 	(parent of GT-56439): Separate U-0002F9F3; add `=>>ucs@cns' and
@@ -37,6 +52,12 @@
 	(U+945B): Use `->denotational'.
 	(U-00028C0F): Use `->denotational' instead of `->subsumptive'.
 	(U-00028C1D): Likewise.
+
+	* Ideograph-R190-Hair.el (U+9B14): Use `->denotational'; integrate
+	CB05522.
+	(A-M-45587): New abstract character.
+	(U+9B1C): Add `<-denotational' for A-M-45587.
+	(U+9B1D): Use `<-denotational' for A-M-45587.
 
 2010-08-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
