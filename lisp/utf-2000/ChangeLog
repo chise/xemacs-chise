@@ -1,5 +1,11 @@
 2010-09-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R205-Frog.el (U+9EFE): Use `->denotational'.
+	(U-0002FA18): Add `<-denotational' for U+9EFE.
+
+	* Ideograph-R200-Hemp.el (U-0002A3A8): Use `->denotational' and
+	`->subsumptive'.
+
 	* ruimoku6.el (RUI6-E005): Modify `ideographic-structure'.
 	(RUI6-{E066..E072}): New characters.
 
