@@ -129,6 +129,7 @@
     (=gt-pj-2		. #x3056)	; &I-GT-00104; [16-54]
     (=daikanwa		. 00071)	; &I-M-00071;
     (=shinjigen		.  0032)	; 丫
+    (=jef-china3	. #x95EC)	; &I-JC3-95EC;
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁
