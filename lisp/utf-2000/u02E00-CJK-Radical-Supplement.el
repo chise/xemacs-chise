@@ -907,7 +907,6 @@
     ))
 (define-char
   '((name		. "CJK RADICAL EWE")
-    (=>daikanwa		. 28426)	; 𦍋
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -1705,7 +1704,9 @@
     (mirrored		. nil)
     (=ucs		. #x2EEA)	; ⻪
     (<-identical@component
-     ((=ucs		  . #x9EFE)	; 黾
+     ((=ucs@unicode	  . #x9EFE)	; &C3-2772;
+      (=gb2312		  . #x763C)	; &C3-2772; [86-28]
+      (=cns11643-3	  . #x2772)	; &I-C3-2772; [07-82]
       ))
     ))
 (define-char
