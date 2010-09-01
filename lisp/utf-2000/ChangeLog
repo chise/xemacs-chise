@@ -1,4 +1,16 @@
+2010-09-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ruimoku6.el (RUI6-E005): Modify `ideographic-structure'.
+	(RUI6-{E066..E072}): New characters.
+
 2010-08-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R181-Leaf.el (JX1-7E24): Unify JC3-6CF5.
+	(U-00029522): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R162-Walk.el (U-00028526): Use `->denotational'
+	instead of `->subsumptive'.
+	(K0-6A21): Unify JC3-67DC.
 
 	* Ideograph-R002-Line.el (U+4E2B): Unify JC3-95EC.
 
