@@ -3978,6 +3978,7 @@
     (=gt		. 58567)	; &I-GT-58567;
     (=gt-pj-8		. #x4237)	; &I-GT-58567; [34-23]
     (=daikanwa		. 43636)	; &I-M-43636;
+    (=jef-china3	. #x6CF5)	; &I-JC3-6CF5;
     (->subsumptive
      ((=ks-x1001	  . #x573E)	; &K0-573E; [55-30]
       )
@@ -3990,19 +3991,33 @@
 (define-char
   '((ideographic-radical . 181)	; ⾴
     (=ucs		. #x29522)	; 𩔢
-    (->subsumptive
-     ((ideographic-strokes . 10)
-      (total-strokes	   . 19)
-      (=daikanwa	  . 43637)	; &M-43637;
-      )
-     ((ideographic-strokes . 10)
-      (total-strokes	   . 19)
-      (=cns11643-5	  . #x6A5B)	; &C5-6A5B; [74-59]
-      )
-     ((ideographic-strokes . 9)
-      (total-strokes	   . 18)
-      (=ucs@iso		  . #x29522)	; &U-00029522;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x29522)	; 𩔢
       ))
+    (ideographic-radical . 181)	; ⾴
+    (ideographic-strokes . 10)
+    (total-strokes	 . 19)
+    (=daikanwa		. 43637)	; &M-43637;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x29522)	; 𩔢
+      ))
+    (ideographic-radical . 181)	; ⾴
+    (ideographic-strokes . 10)
+    (total-strokes	 . 19)
+    (=cns11643-5	. #x6A5B)	; &C5-6A5B; [74-59]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x29522)	; 𩔢
+      ))
+    (ideographic-radical . 181)	; ⾴
+    (ideographic-strokes . 9)
+    (total-strokes	 . 18)
+    (=ucs@iso		. #x29522)	; &U-00029522;
     ))
 (define-char
   '((ideographic-radical . 181)	; ⾴
