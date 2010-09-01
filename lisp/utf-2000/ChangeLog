@@ -1,3 +1,7 @@
+2010-08-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R002-Line.el (U+4E2B): Unify JC3-95EC.
+
 2010-08-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R168-Long.el (U+4987): Use `->subsumptive' to separate
@@ -95,6 +99,9 @@
 	(M-40149): Map to U-000258F7.
 
 2010-08-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL EWE>): Delete
+	`=>daikanwa'.
 
 	* Ideograph-R203-Black.el (U+FA3A): Add `=>>ucs@unicode'.
 
