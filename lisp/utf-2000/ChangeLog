@@ -1,5 +1,18 @@
 2010-09-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R196-Bird.el (U+9D67): Use `->denotational'.
+	(U-0002FA0F): Add `<-denotational' for U+9D67.
+	(RUI6-E06E): New character; copied from ruimoku6.el.
+	(U+4CE6): Use `->subsumptive' to separate representative nodes.
+	(A-M-47213): New abstract character.
+	(U+9DC6): Add `<-denotational' for A-M-47213.
+	(U+9DCF): Use `<-denotational' for A-M-47213.
+
+	* Ideograph-R195-Fish.el (U+9BF3): Use `->denotational'.
+	(U+9BF4): Likewise.
+	(U+9BF5): Delete `=>daikanwa'.
+	(U+4C81): Use `->subsumptive' to separate representative nodes.
+
 	* Ideograph-R205-Frog.el (U+9EFE): Use `->denotational'.
 	(U-0002FA18): Add `<-denotational' for U+9EFE.
 
