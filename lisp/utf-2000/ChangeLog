@@ -1,4 +1,50 @@
+2010-09-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R213-Turtle.el (U-0002A6AC): Use `->denotational'.
+	(U-0002A6AD): Likewise.
+
 2010-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R115-Grain.el (U-000258E6): Use `->denotational'
+	instead of `->subsumptive'.
+	(U-000258E5): Use `->subsumptive' to separate representative
+	nodes.
+	(U-000258E0): Integrate M-25358.
+	(U-000258E9): Integrate M-25359.
+	(U-000258EA): Integrate M-25360.
+	(U+4188): Use `->denotational' instead of `->subsumptive'.
+	(U+7A6C): Use `->denotational' instead of `->subsumptive'.
+	(U-000258EB): Unify M-25363.
+	(U-000258EC): Unify M-25365.
+	(U-000258ED): Unify M-25366.
+	(U-000258EE): Use `->denotational' instead of `->subsumptive'.
+	(U-000258EF): Integrate M-25369.
+	(U-000258F0): Integrate M-25370.
+	(U-000258F1): Integrate M-25372.
+	(U+7A6F): Don't integrate M-25372.
+	(U-000258F2): Unify M-25373.
+	(U-000258F7): Integrate M-40149.
+	(U-000258FE): Use `->subsumptive' to separate representative
+	nodes.
+	(U-00025906): Integrate M-25384.
+	(U+418E): Unify M-25385.
+	(U-00025907): Integrate M-25386 and H7-CDD5.
+	(U-00025905): Integrate M-25387.
+	(U-00025908): New character.
+	(U+418B): Use `->denotational' to separate representative nodes.
+	(U-0002590A): Integrate M-25389.
+	(U-0002590B): Integrate M-25390.
+	(U+418F): Integrate M-25391.
+	(U+7A71): Use `->denotational' instead of `->subsumptive'.
+	(U-0002590C): Integrate M-25393.
+	(U-0002590E): Integrate M-25394.
+	(U-00025911): Integrate M-25395.
+	(U-00025912): Integrate M-49411 and GT-32773.
+	(U+7A72): Use `->subsumptive' to separate representative nodes.
+	(U-00025913): Integrate M-25398.
+	(U-00025918): Integrate M-25400.
+	(U-0002591C): Integrate M-25402.
+	(U-0002591E): Integrate M-25403.
 
 	* Ideograph-R062-Halberd.el (U+6210): Use `->denotational' to
 	integrate U-0002F8B2.
