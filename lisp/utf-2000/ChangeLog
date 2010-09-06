@@ -1,3 +1,14 @@
+2010-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R062-Halberd.el (U+6210): Use `->denotational' to
+	integrate U-0002F8B2.
+	(U-0002F8B2): Use `<-denotational' for U+6210; unify GT-14567 and
+	GT-K2589.
+
+	* Ideograph-R207-Drum.el (A-M-48373): New abstract character.
+	(M-48373): Use `<-denotational' for A-M-48373.
+	(U-0002A52C): Likewise.
+
 2010-09-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R196-Bird.el (U+9D67): Use `->denotational'.
