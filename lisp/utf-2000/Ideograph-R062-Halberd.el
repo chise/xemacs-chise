@@ -272,12 +272,19 @@
       ))
     ))
 (define-char
-  '((morohashi-daikanwa	11542 1)
+  '((ideographic-radical . 62)	; ⼽
+    (=ucs		. #x6210)	; 成
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6210)	; 成
+      ))
+    (morohashi-daikanwa	11542 1)
     (ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
-    (=ucs		. #x6210)	; 成
-    (=jis-x0208		. #x402E)	; &I-J90-402E; [32-14]
+    (=ucs@unicode	. #x6210)	; &GT-14557;
+    (=jis-x0208		. #x402E)	; &GT-14557; [32-14]
     (=gb2312		. #x3349)	; &I-G0-3349; [19-41]
     (=ks-x1001		. #x6077)	; &I-K0-6077; [64-87]
     (=cns11643-1	. #x4829)	; &I-C1-4829; [40-09]
@@ -313,12 +320,18 @@
       ))
     ))
 (define-char
-  '((=>ucs*		. #x6210)	; 成
+  '((<-denotational
+     ((=ucs		  . #x6210)	; 成
+      ))
+    (=>ucs*		. #x6210)	; 成
     (ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x2F8B2)	; 成
     (=cns11643-3	. #x2627)	; &I-C3-2627; [06-07]
+    (=gt		. 14567)	; &I-GT-14567;
+    (=gt-k		. 02589)	; &I-GT-K02589;
+    (=gt-pj-3		. #x5957)	; &I-GT-14567; [57-55]
     (=daikanwa		. 11544)	; &I-M-11544;
     (=jef-china3	. #x4EEF)	; &I-JC3-4EEF;
     ))
@@ -337,7 +350,7 @@
     (=gt-k		. 02507)	; &I-GT-K02507;
     (=gt-pj-1		. #x3266)	; &I-GT-14561; [18-70]
     (=daikanwa		. 11545)	; &I-M-11545;
-    (=shinjigen@rev	.  2764)	; 我
+    (=shinjigen		.  2764)	; 我
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
