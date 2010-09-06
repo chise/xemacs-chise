@@ -196,10 +196,12 @@
     (ideographic-radical . 213)	; ⿔
     (ideographic-strokes . 3)
     (total-strokes	 . 19)
+    (=>>ucs@cns		. #x4DAF)	; &G-CU+4DAF;
     (->subsumptive
      ((=daikanwa	  . 48851)	; &M-48851;
       )
-     ((=cns11643-5	  . #x6B69)	; &C5-6B69; [75-73]
+     ((=ucs@cns		  . #x4DAF)	; &C5-6B69;
+      (=cns11643-5	  . #x6B69)	; &C5-6B69; [75-73]
       ))
     ))
 (define-char
@@ -212,34 +214,54 @@
     (=ucs@unicode	. #x4DAF)	; &UU+4DAF;
     ))
 (define-char
-  '((=>ucs		. #x2A6AC)	; 𪚬
+  '((ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 4)
+    (total-strokes	 . 20)
+    (=ucs		. #x2A6AC)	; 𪚬
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2A6AC)	; 𪚬
+      ))
     (ideographic-radical . 213)	; ⿔
     (ideographic-strokes . 4)
     (total-strokes	 . 20)
     (=daikanwa		. 48853)	; &M-48853;
     ))
 (define-char
-  '((=>daikanwa		. 48853)	; &M-48853;
+  '((<-denotational
+     ((=ucs		  . #x2A6AC)	; 𪚬
+      ))
     (ideographic-radical . 213)	; ⿔
     (ideographic-strokes . 4)
     (total-strokes	 . 20)
-    (=ucs		. #x2A6AC)	; 𪚬
-    (=cns11643-5	. #x6F65)	; &I-C5-6F65; [79-69]
+    (=ucs@iso		. #x2A6AC)	; &C5-6F65;
+    (=cns11643-5	. #x6F65)	; &C5-6F65; [79-69]
     ))
 (define-char
-  '((=>ucs		. #x2A6AD)	; 𪚭
+  '((ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 4)
+    (total-strokes	 . 20)
+    (=ucs		. #x2A6AD)	; 𪚭
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2A6AD)	; 𪚭
+      ))
     (ideographic-radical . 213)	; ⿔
     (ideographic-strokes . 4)
     (total-strokes	 . 20)
     (=daikanwa		. 48854)	; &M-48854;
     ))
 (define-char
-  '((=>daikanwa		. 48854)	; &M-48854;
+  '((<-denotational
+     ((=ucs		  . #x2A6AD)	; 𪚭
+      ))
     (ideographic-radical . 213)	; ⿔
     (ideographic-strokes . 4)
     (total-strokes	 . 20)
-    (=ucs		. #x2A6AD)	; 𪚭
-    (=cns11643-4	. #x662B)	; &I-C4-662B; [70-11]
+    (=ucs@iso		. #x2A6AD)	; &C4-662B;
+    (=cns11643-4	. #x662B)	; &C4-662B; [70-11]
     ))
 (define-char
   '((ideographic-radical . 213)	; ⿔
