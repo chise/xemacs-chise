@@ -428,14 +428,24 @@
     (=cns11643-7	. #x5B33)	; &C7-5B33; [59-19]
     ))
 (define-char
-  '((=>ucs		. #x2A52C)	; 𪔬
+  '((ideographic-radical . 207)	; ⿎
+    (ideographic-strokes . 9)
+    (total-strokes	 . 22)
+    (=>daikanwa		. 48373)	; &A-M-48373;
+    ))
+(define-char
+  '((<-denotational
+     ((=>daikanwa	  . 48373)	; &A-M-48373;
+      ))
     (ideographic-radical . 207)	; ⿎
     (ideographic-strokes . 9)
     (total-strokes	 . 22)
     (=daikanwa		. 48373)	; &M-48373;
     ))
 (define-char
-  '((=>daikanwa		. 48373)	; &M-48373;
+  '((<-denotational
+     ((=>daikanwa	  . 48373)	; &A-M-48373;
+      ))
     (ideographic-radical . 207)	; ⿎
     (ideographic-strokes . 9)
     (total-strokes	 . 22)
