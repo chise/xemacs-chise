@@ -1,4 +1,12 @@
+2010-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R010-Legs.el (A-JX1-2E50): Omit `=>ucs*'.
+
 2010-09-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs@cns'.
+	(insert-char-attributes): Treat `=>ucs@cns' as a coded-charset.
 
 	* Ideograph-R213-Turtle.el (U-0002A6AC): Use `->denotational'.
 	(U-0002A6AD): Likewise.
