@@ -828,8 +828,6 @@
   '((<-denotational
      ((=ucs		  . #x514D)	; 免
       ))
-    (=>ucs*		. #x514D)	; 免
-    (=>ucs@cns		. #x2F80E)	; 免
     (=>ucs@jis		. #xFA32)	; 免
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 5)
@@ -842,6 +840,7 @@
       )
      ((=big5-cdp	  . #x8BCB)	; &CDP-8BCB;
       ))
+    (=>ucs@cns		. #x2F80E)	; &A-JX1-2E50;
     (=>jis-x0213-1	. #x2E50)	; &A-JX1-2E50; [14-48]
     (->subsumptive
      ((=>ucs*		  . #x514D)	; 免
