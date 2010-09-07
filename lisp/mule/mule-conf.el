@@ -952,6 +952,16 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=>>ucs@jis))
+  (make-charset '=>>ucs@ks
+		"UCS Representative glyphs for Korean Standards"
+		'(long-name	"UCS glyphs for KS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@unicode))
   (make-charset '=>>ucs@cns
 		"UCS Representative glyphs for CNS 11643 sources"
 		'(long-name	"UCS glyphs for CNS"
