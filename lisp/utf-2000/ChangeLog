@@ -1,5 +1,8 @@
 2010-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R030-Mouth.el (U-0002F83F): Separate representative
+	nodes.
+
 	* Ideograph-R009-Man.el (B-B9AC): Separate U+FA31; unify A-UU+50E7
 	and A-JX1-2E49; add ideographic-structure.
 	(JX1-2E49): Unify U+FA31.
