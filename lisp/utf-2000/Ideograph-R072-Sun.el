@@ -4655,6 +4655,7 @@
 (define-char
   '((ideographic-radical . 72)	; ⽇
     (=ucs		. #x6691)	; 暑
+    (=>jis-x0208@1997	. #x3D6B)	; 暑 [29-75]
     (=big5		. #xB4BB)	; &I-B-B4BB;
     ))
 (define-char
@@ -5091,13 +5092,13 @@
   '((<-denotational
      ((=ucs		  . #x6691)	; 暑
       ))
-    (=>ucs*		. #x6691)	; 暑
-    (=>ucs@cns		. #x2F8CF)	; 暑
-    (=>ucs@jis		. #xFA43)	; 暑
-    (=>ucs@ks		. #x6691)	; 暑
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (=>>ucs@jis		. #xFA43)	; &G-JX1-7543;
+    (=>>ucs@ks		. #x6691)	; &G-JX1-7543;
+    (=>>ucs@cns		. #x2F8CF)	; &G-JX1-7543;
+    (=>>jis-x0213-1	. #x7543)	; &G-JX1-7543; [85-35]
     (->subsumptive
      ((=>ucs*		  . #x6691)	; 暑
       (=ucs		  . #xFA43)	; 暑
