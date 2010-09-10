@@ -1,3 +1,12 @@
+2010-09-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-4428.
+
+	* Ideograph-R038-Woman.el (A-J0-4931): New abstract character.
+	(U+59EB): Use `->subsumptive'; add `<-denotational' for A-J0-4931.
+	(U+59EC): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-J0-4931.
+
 2010-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el (U-0002F83F): Separate representative
