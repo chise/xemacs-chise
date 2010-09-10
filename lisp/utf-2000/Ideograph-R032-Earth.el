@@ -8235,29 +8235,27 @@
   '((<-denotational
      ((=ucs		  . #x585A)	; 塚
       ))
-    (=>ucs*		. #x585A)	; 塚
-    (=>ucs@gb		. #x585A)	; &EGB-2E32;
-    (=>ucs@cns		. #x585A)	; &C1-6356;
-    (=>ucs@ks		. #x585A)	; &GT-06756;
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (hanyu-dazidian	1 476 7)
-    (=ucs		. #xFA10)	; 塚
-    (=ucs@big5		. #x585A)	; 塚
-    (=>jis-x0213-1	. #x2F57)	; 塚 [15-55]
-    (=big5		. #xB6EF)	; &I-B-B6EF;
+    (=>>ucs@unicode	. #x585A)	; &G-GT-06756;
+    (=>>ucs@jis		. #xFA10)	; &G-GT-06756;
+    (=>>jis-x0213-1	. #x2F57)	; &G-GT-06756; [15-55]
+    (=big5		. #xB6EF)	; &G-GT-06756;
+    (=>>gt		. 06756)	; &G-GT-06756;
     (->subsumptive
-     ((=ucs@unicode	  . #xFA10)	; &GT-06756;
-      (=ucs@ks		  . #x585A)	; &GT-06756;
-      (=jis-x0208@1978	  . #x444D)	; &GT-06756; [36-45]
+     ((=>ucs*		  . #x585A)	; 塚
+      (=ucs		  . #xFA10)	; 塚
+      (=ucs@ks		  . #x585A)	; 塚
+      (=jis-x0208@1978	  . #x444D)	; &I-J78-444D; [36-45]
       (=ks-x1001	  . #x7540)	; &I-K0-7540; [85-32]
       (=jis-x0213-1	  . #x2F57)	; &I-JX1-2F57; [15-55]
       (=gt		  . 06756)	; &I-GT-06756;
       (=gt-pj-2		  . #x6166)	; &I-GT-06756; [65-70]
       (=daikanwa	  . 05345)	; &I-M-05345;
-      (=shinjigen@1ed	  .  1463)	; &GT-06756;
-      (=shinjigen@rev	  .  1441)	; &GT-06756;
+      (=shinjigen@1ed	  .  1463)	; 塚
+      (=shinjigen@rev	  .  1441)	; 塚
       )
      ((=ucs@unicode	  . #x585A)	; &EGB-2E32;
       (=iso-ir165	  . #x2E32)	; &EGB-2E32; [14-18]
@@ -8270,12 +8268,13 @@
   '((<-denotational
      ((=ucs		  . #x585A)	; 塚
       ))
-    (=>ucs*		. #x585A)	; 塚
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=ucs		. #xFA7C)	; 塚
-    (=>jis-x0213-1	. #x444D)	; 塚 [36-45]
+    (=>>ucs@unicode	. #xFA7C)	; &G-GT-06661;
+    (=>>ucs@jis		. #x585A)	; &G-GT-06661;
+    (=>>jis-x0213-1	. #x444D)	; &G-GT-06661; [36-45]
+    (=>>gt		. 06661)	; &G-GT-06661;
     (->subsumptive
      ((=ucs@jis		  . #x585A)	; &GT-06661;
       (=jis-x0208@1983	  . #x444D)	; &GT-06661; [36-45]
@@ -8285,15 +8284,12 @@
       (=gt-pj-1		  . #x444D)	; &I-GT-06661; [36-45]
       (=shinjigen@rev	  .  1440)	; &GT-06661;
       (<-simplified@JP/Jouyou
-       ((=ucs@unicode	    . #xFA10)	; &GT-06756;
-	(=ucs@ks	    . #x585A)	; &GT-06756;
-	(=jis-x0208@1978    . #x444D)	; &GT-06756; [36-45]
-	(=ks-x1001	    . #x7540)	; &I-K0-7540; [85-32]
-	(=jis-x0213-1	    . #x2F57)	; &I-JX1-2F57; [15-55]
-	(=daikanwa	    . 05345)	; &I-M-05345;
+       ((=ucs		    . #xFA10)	; 塚
+	(=jis-x0208@1978    . #x444D)	; &I-J78-444D; [36-45]
 	))
       )
-     ((=ucs@unicode	  . #xFA7C)	; &UU+FA7C;
+     ((=>ucs*		  . #x585A)	; 塚
+      (=ucs		  . #xFA7C)	; 塚
       )
      ((=jef-china3	  . #x47C9)	; &JC3-47C9;
       ))
