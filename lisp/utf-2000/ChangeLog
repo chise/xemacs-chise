@@ -1,4 +1,30 @@
+2010-09-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* README.en (Character Reference): Add `zengyun' as a source.
+
 2010-09-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R074-Moon.el (parent of JX1-754E): Separate
+	U-0002F8D8; add `=>>ucs@jis', `=>>ucs@ks' and `=>>ucs@cns'.
+	(C4-323E): Unify U-0002F8D8.
+	(U+671B): Unify A-J0-4B3E.
+	(A-CU+671B): New abstract character.
+	(M-14368): Use A-CU+671B instead of U+671B as the value of
+	`<-denotational'.
+	(C1-5B2C): Likewise; unify CU+671B.
+	(parent of G0-4D7B): Separate U-0002F8D9; add `=>ucs@unicode',
+	`=>ucs@cns' and `=>gt'.
+	(C6-4058): Unify U-0002F8D9.
+
+	* Ideograph-R072-Sun.el (U+6691): Unify J97-3D6B.
+	(parent of JX1-7543): Add `=>>ucs@jis', `=>>ucs@ks', `=>>ucs@cns'
+	and `=>>jis-x0213-1'.
+
+	* Ideograph-R032-Earth.el (B-B6EF): Separate U+FA10; add
+	`=>>ucs@unicode', `=>>ucs@jis', `=>>jis-x0213-1' and `=>>gt'.
+	(JX1-2F57): Unify U+FA10.
+	(parent of J90-444D): Separate U+FA7C; Add `=>>ucs@unicode',
+	`=>>ucs@jis', `=>>jis-x0213-1' and `=>>gt'.
 
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-4428.
 
@@ -6,6 +32,11 @@
 	(U+59EB): Use `->subsumptive'; add `<-denotational' for A-J0-4931.
 	(U+59EC): Use `->denotational' and `->subsumptive'; add
 	`<-denotational' for A-J0-4931.
+
+	* char-db-util.el (char-db-insert-relation-feature): Use
+	`=jis-x0213-1@2000', `=jis-x0213-1@2004' and `=jis-x0213-2'
+	instead of `=jis-x0213-1-2000' and `=jis-x0213-2-2000' as the
+	additional required-features for JP sources.
 
 2010-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
