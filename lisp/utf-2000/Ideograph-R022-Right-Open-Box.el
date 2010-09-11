@@ -132,13 +132,20 @@
     (=gt-pj-1		. #x4159)	; &I-GT-03333; [33-57]
     (=daikanwa		. 02599)	; &I-M-02599;
     (=shinjigen		.  2080)	; 匝
+    (<-same
+     ((=ucs		  . #x5E00)	; 帀
+      (=daikanwa	  . 08773)	; &I-M-08773;
+      ))
+    (<-same*sources
+     zengyun daikanwa)
     (<-vulgar
      ((=ucs		  . #x5E00)	; 帀
       (=jis-x0212	  . #x3C24)	; &I-JSP-3C24; [28-04]
-      (=shinjigen@1ed	  .  2079)	; 帀
+      (=jis-x0213-2	  . #x2870)	; &I-JX2-2870; [08-80]
+      (=shinjigen	  .  2079)	; 帀
       ))
     (<-vulgar*sources
-     shinjigen@1ed)
+     zengyun shinjigen)
     ))
 (define-char
   '((ideographic-radical . 22)	; ⼕
