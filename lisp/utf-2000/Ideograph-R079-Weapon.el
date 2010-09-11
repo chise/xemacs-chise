@@ -321,26 +321,31 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ucs		. #x6BBA)	; 殺
+    (=>jis-x0208@1997	. #x3B26)	; 殺 [27-06]
     (=big5		. #xB1FE)	; &I-B-B1FE;
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x6BBA)	; 殺
       ))
-    (=>ucs@cns		. #x2F8F5)	; 殺
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (=>daikanwa		. 16629)	; &A-M-16629;
+    (=>ucs@unicode	. #x6BBA)	; &A-JX1-3B26;
+    (=>ucs@cns		. #x2F8F5)	; &A-JX1-3B26;
+    (=>jis-x0213-1	. #x3B26)	; &A-JX1-3B26; [27-06]
+    (=>daikanwa		. 16629)	; &A-JX1-3B26;
     ))
 (define-char
   '((<-denotational
-     ((=>daikanwa	  . 16629)	; &A-M-16629;
+     ((=>jis-x0213-1	  . #x3B26)	; &A-JX1-3B26; [27-06]
       ))
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (=>>ucs@jis		. #x6BBA)	; &G-JU+6BBA;
+    (=>>ucs@jis		. #x6BBA)	; &G-J0-3B26;
+    (=>>jis-x0208	. #x3B26)	; &G-J0-3B26; [27-06]
+    (=>>jis-x0213-1	. #x3B26)	; &G-J0-3B26; [27-06]
     (->subsumptive
      ((=ucs@jis		  . #x6BBA)	; &GT-21319;
       (=jis-x0208	  . #x3B26)	; &GT-21319; [27-06]
@@ -363,7 +368,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>daikanwa	  . 16629)	; &A-M-16629;
+     ((=>jis-x0213-1	  . #x3B26)	; &A-JX1-3B26; [27-06]
       ))
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 6)
@@ -373,7 +378,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>daikanwa	  . 16629)	; &A-M-16629;
+     ((=>jis-x0213-1	  . #x3B26)	; &A-JX1-3B26; [27-06]
       ))
     (=>ucs*		. #x6BBA)	; 殺
     (ideographic-radical . 79)	; ⽎
@@ -554,16 +559,17 @@
   '((<-denotational
      ((=ucs		  . #x6BBA)	; 殺
       ))
-    (=>ucs@cns		. #x6BBA)	; &C1-5B44;
     (=>ucs@jis		. #xF970)	; 殺
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (=>daikanwa		. 16638)	; &A-M-16638;
+    (=>ucs@cns		. #x6BBA)	; &A-JX1-7649;
+    (=>jis-x0213-1	. #x7649)	; &A-JX1-7649; [86-41]
+    (=>daikanwa		. 16638)	; &A-JX1-7649;
     ))
 (define-char
   '((<-denotational
-     ((=>daikanwa	  . 16638)	; &A-M-16638;
+     ((=>jis-x0213-1	  . #x7649)	; &A-JX1-7649; [86-41]
       ))
     (=>ucs*		. #x6BBA)	; 殺
     (ideographic-radical . 79)	; ⽎
@@ -585,7 +591,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>daikanwa	  . 16638)	; &A-M-16638;
+     ((=>jis-x0213-1	  . #x7649)	; &A-JX1-7649; [86-41]
       ))
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 7)
