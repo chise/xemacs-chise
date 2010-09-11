@@ -61,13 +61,12 @@
      ((=ucs		  . #x6B21)	; 次
       ))
     (=>ucs*		. #x6B21)	; 次
-    (=>ucs@gb		. #x6B21)	; &G0-344E;
-    (=>ucs@cns		. #x2F8EF)	; &C6-2523;
-    (=>ucs@jis		. #x6B21)	; &J90-3C21;
     (ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=ucs		. #x2F8EF)	; 次
+    (=>>ucs@unicode	. #x6B21)	; 次
+    (=>>ucs@cns		. #x2F8EF)	; 次
     (->subsumptive
      ((morohashi-daikanwa	15992 1)
       (=ucs@jis		  . #x6B21)	; &J90-3C21;
@@ -3723,6 +3722,8 @@
 (define-char
   '((ideographic-radical . 76)	; ⽋
     (=ucs		. #x6B54)	; 歔
+    (=>jis-x0208	. #x5D41)	; 歔 [61-33]
+    (=>jis-x0213-1	. #x5D41)	; 歔 [61-33]
     ))
 (define-char
   '((<-denotational
@@ -3731,7 +3732,12 @@
     (ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (=big5		. #xE9DF)	; &B-E9DF;
+    (=>>ucs@jis		. #x6B54)	; &G-GT-20820;
+    (=>>ucs@cns		. #x6B54)	; &G-GT-20820;
+    (=>>jis-x0208	. #x5D41)	; &G-GT-20820; [61-33]
+    (=>>jis-x0213-1	. #x5D41)	; &G-GT-20820; [61-33]
+    (=big5		. #xE9DF)	; &G-GT-20820;
+    (=>>gt		. 20820)	; &G-GT-20820;
     (->subsumptive
      ((=ucs@jis		  . #x6B54)	; &GT-20820;
       (=jis-x0208	  . #x5D41)	; &GT-20820; [61-33]
@@ -3750,16 +3756,16 @@
      ((=ucs		  . #x6B54)	; 歔
       ))
     (=>ucs*		. #x6B54)	; 歔
-    (=>ucs@gb		. #x6B54)	; &EGB-2E55;
-    (=>ucs@cns		. #x2F8F1)	; &C7-2378;
     (ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (=ucs		. #x2F8F1)	; 歔
+    (=>>ucs@unicode	. #x6B54)	; 歔
+    (=>>ucs@cns		. #x2F8F1)	; 歔
     (->subsumptive
      ((=ucs@unicode	  . #x6B54)	; &EGB-2E55;
       (=iso-ir165	  . #x2E55)	; &EGB-2E55; [14-53]
-      (=shinjigen@1ed	  .  3944)	; &EGB-2E55;
+      (=shinjigen	  .  3944)	; &EGB-2E55;
       (<-wrong
        ((=ucs@jis	    . #x6B54)	; &GT-20820;
 	(=jis-x0208	    . #x5D41)	; &GT-20820; [61-33]
@@ -3768,9 +3774,11 @@
 	(=shinjigen	    .  3943)	; &GT-20820;
 	))
       (<-wrong*sources
-       shinjigen@1ed)
+       shinjigen)
       )
-     ((=ucs@iso		  . #x2F8F1)	; &C7-2378;
+     ((=ucs@iso		  . #x2F8F1)	; &U-0002F8F1;
+      )
+     ((=ucs@cns		  . #x2F8F1)	; &C7-2378;
       (=cns11643-7	  . #x2378)	; &C7-2378; [03-88]
       ))
     ))
