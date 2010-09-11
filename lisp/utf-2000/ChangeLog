@@ -1,5 +1,15 @@
 2010-09-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R076-Lack.el (U-0002F8EF): Unify G-UU+6B21 and
+	G-CU+2F8EF.
+	(U+6B54): Unify A-J0-5D41.
+	(B-E9DF): Unify G-JU+6B54, G-CU+6B54, G-J0-5D41 and G-GT-20820.
+	(U-0002F8F1): Unify G-UU+6B54 and G-CU+2F8F1.
+	(C7-2378): Separate IU+2F8F1.
+
+	* Ideograph-R050-Turban.el (U+5E00): Add `sound@ja/on'; use
+	`=shinjigen' instead of `=shinjigen@1ed' for S-2079.
+
 	* README.en (Character Reference): Add `zengyun' as a source.
 
 2010-09-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
