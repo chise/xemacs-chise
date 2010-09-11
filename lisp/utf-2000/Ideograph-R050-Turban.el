@@ -39,13 +39,14 @@
       )
      ((=ucs		  . #x5DFE)	; 巾
       ))
+    (sound@ja/on	"sAHu")
     (=ucs		. #x5E00)	; 帀
     (=jis-x0212		. #x3C24)	; &I-JSP-3C24; [28-04]
     (=cns11643-3	. #x2163)	; &I-C3-2163; [01-67]
     (=jis-x0213-2	. #x2870)	; &I-JX2-2870; [08-80]
     (=big5-cdp		. #x8BD7)	; &I-CDP-8BD7;
     (=daikanwa		. 08773)	; &I-M-08773;
-    (=shinjigen@1ed	.  2079)	; 帀
+    (=shinjigen		.  2079)	; 帀
     (=cbeta		. 00038)	; &I-CB00038;
     (=jef-china3	. #x4BF7)	; &I-JC3-4BF7;
     ))
