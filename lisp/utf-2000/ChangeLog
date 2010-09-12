@@ -1,4 +1,30 @@
+2010-09-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (U+3B8E): Add abstract
+	ideographic-structure.
+	(mother of JX1-7574): Separate U-0002F8E8; unify G-JU+6942 and
+	G-CU+2F8E8.
+	(C3-416E): Unify U-0002F8E8.
+	(B-DDD3): Unify G-UU+6942.
+
 2010-09-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R079-Weapon.el (U+6BBA): Unify J97-3B26.
+	(A-M-16629): Unify A-UU+6BBA and A-JX1-3B26.
+	(G-JU+6BBA): Unify G-J0-3B26.
+	(A-M-16638): Unify A-JX1-7649.
+
+	* Ideograph-R061-Heart.el (U-000228DD): Use `->subsumptive' to
+	separate representative nodes.
+	(U+61E7): Likewise.
+	(U-000228E0): Use `->subsumptive'.
+	(U-000228E1): Use `->subsumptive' to separate representative
+	nodes.
+	(M-11399): Map to U-000228F3.
+	(U+61F2): Unify J97-4428.
+
+	* Ideograph-R022-Right-Open-Box.el (U+531D): Add `<-same' for
+	U+5E00.
 
 	* Ideograph-R076-Lack.el (U-0002F8EF): Unify G-UU+6B21 and
 	G-CU+2F8EF.
