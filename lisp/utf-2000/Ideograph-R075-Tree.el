@@ -12799,6 +12799,14 @@
   '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6728)	; 木
+      )
+     ((=ucs		  . #x76C3)	; 盃
+      ))
     (=ucs		. #x3B8E)	; 㮎
     (->subsumptive
      ((ideographic-structure
@@ -12825,23 +12833,21 @@
   '((<-denotational
      ((=ucs		  . #x6942)	; 楂
       ))
-    (=>ucs*		. #x6942)	; 楂
-    (=>ucs@cns		. #x2F8E8)	; &C3-416E;
-    (=>ucs@jis		. #x6942)	; &M-15094;
     (ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=ucs		. #x2F8E8)	; 楂
+    (=>>ucs@jis		. #x6942)	; &G-JU+6942;
+    (=>>ucs@cns		. #x2F8E8)	; &G-JU+6942;
     (->subsumptive
-     ((=ucs@iso		  . #x2F8E8)	; &M-15094;
-      (=ucs@jis		  . #x6942)	; &M-15094;
+     ((=ucs@jis		  . #x6942)	; &M-15094;
       (=jis-x0212	  . #x4442)	; &M-15094; [36-34]
       (=jis-x0213-1	  . #x7574)	; &I-JX1-7574; [85-84]
       (=daikanwa	  . 15094)	; &I-M-15094;
       (=cbeta		  . 06667)	; &I-CB06667;
       )
-     ((=ucs@cns		  . #x2F8E8)	; &C3-416E;
-      (=cns11643-3	  . #x416E)	; &C3-416E; [33-78]
+     ((=>ucs*		  . #x6942)	; 楂
+      (=ucs		  . #x2F8E8)	; 楂
+      (=cns11643-3	  . #x416E)	; &I-C3-416E; [33-78]
       ))
     ))
 (define-char
@@ -12851,7 +12857,8 @@
     (ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=big5		. #xDDD3)	; &B-DDD3;
+    (=>>ucs@unicode	. #x6942)	; &G-UU+6942;
+    (=big5		. #xDDD3)	; &G-UU+6942;
     (->subsumptive
      ((=ucs@unicode	  . #x6942)	; &G0-692B;
       (=gb2312		  . #x692B)	; &G0-692B; [73-11]
