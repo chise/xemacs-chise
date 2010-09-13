@@ -1,3 +1,7 @@
+2010-09-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R014-Cover.el (J0-3E69): Add `=>>ucs@unicode'.
+
 2010-09-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R075-Tree.el (U+3B8E): Add abstract
