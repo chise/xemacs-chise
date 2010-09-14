@@ -388,6 +388,7 @@
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (=>>ucs@unicode	. #x534A)	; &GT-03470;
     (=ucs@unicode	. #x534A)	; &GT-03470;
     (=jis-x0208		. #x483E)	; &GT-03470; [40-30]
     (=gb2312		. #x306B)	; &I-G0-306B; [16-75]
@@ -899,10 +900,9 @@
      ((=ucs		  . #x5341)	; 十
       ))
     (=ucs		. #xFA35)	; 卑
-    (=ucs@gb		. #x5351)	; 卑
-    (=ucs@cns		. #x5351)	; 卑
-    (=ucs@ks		. #x5351)	; 卑
-    (=ucs@big5		. #x5351)	; 卑
+    (=>>ucs@unicode	. #x5351)	; 卑
+    (=ucs@unicode	. #x5351)	; 卑
+    (=ucs@jis		. #xFA35)	; 卑
     (=gb2312		. #x3130)	; &I-G0-3130; [17-16]
     (=ks-x1001		. #x5D64)	; &I-K0-5D64; [61-68]
     (=cns11643-1	. #x4C38)	; &I-C1-4C38; [44-24]
@@ -922,6 +922,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (=ucs		. #x2F82D)	; 卑
+    (=>>ucs@jis		. #x5351)	; 卑
     (=ucs@jis		. #x5351)	; 卑
     (=jis-x0208		. #x485C)	; &I-J90-485C; [40-60]
     (=cns11643-6	. #x2F38)	; &I-C6-2F38; [15-24]
@@ -991,7 +992,16 @@
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x20143)	; 𠅃
+      )
+     ((=ucs		  . #x5341)	; 十
+      ))
     (=ucs		. #x5352)	; 卒
+    (=>>jis-x0208	. #x4234)	; 卒 [34-20]
     (=big5		. #xA8F2)	; &I-B-A8F2;
     (->subsumptive
      ((hanyu-dazidian	  1 63 2)
@@ -1499,6 +1509,7 @@
       )
      ((=ucs		  . #x5C02)	; 専
       ))
+    (=>>ucs@jis		. #x535A)	; &GT-03527;
     (=ucs@jis		. #x535A)	; &GT-03527;
     (=jis-x0208		. #x476E)	; &GT-03527; [39-78]
     (=jis-x0213-1	. #x476E)	; &I-JX1-476E; [39-78]
