@@ -1,4 +1,46 @@
+2010-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el (mother of C1-4E58): Add `=>>ucs@jis',
+	`=>>ucs@cns', `=>>jis-x0208' and `=>>jis-x0213-1'.
+	(GI-J90-3168): New abstract glyph image to integrate J90-3168 and
+	S-4114.
+	(C1-4E58): Unify CU+6CBF.
+	(U-0002F8FC): Add `=>>ucs@unicode' and `=>>ucs@cns'; omit
+	`=>ucs@gb', `=>ucs@cns' and `=>ucs@ks'.
+	(U+6D41): Unify A-J0-4E2E.
+	(mother of C1-517C): Add `=>>ucs@cns' and `=>>daikanwa'.
+	(U-0002F902): Add `=>>ucs@unicode' and `=>>ucs@cns'; omit
+	`=>ucs@gb', `=>ucs@cns', `=>ucs@jis' and `=>ucs@ks'.
+	(mother of JX1-7721): Separate U-0002F90C; add `=>>ucs@jis',
+	`=>>ucs@ks' and `=>>ucs@cns'; omit `=>ucs@cns', `=>ucs@jis' and
+	`=>ucs@ks'.
+	(C6-544F): Unify U-0002F90C.
+	(U+6F22): Unify J97-3441.
+	(B-BA7E): Add `=>>ucs@unicode', `=>>ucs@jis' and `=>>jis-x0213-1';
+	omit `=>ucs@cns' and `=>ucs@jis'.
+	(U+701E): Unify A-J0-4654.
+	(A-CU+2F914): New abstract character to integrate M-18520 and
+	G-CU+2F914.
+	(mother of J90-4654): Separate U-0002F914; unify G-UU+701E and
+	G-CU+2F914.
+	(CU+565D): Unify U-0002F914.
+	(mother of JX3-4654): Add `=>ucs@jis/2004', `=>ucs@cns' and
+	`=>daikanwa'; use `->denotational' instead of `->subsumptive'.
+	(C3-5A52): Unify CU+701E.
+
+	* Ideograph-R021-Spoon.el (mother of G0-3B2F): Add
+	`=>>ucs@unicode' and `=>>daikanwa'.
+	(mother of J0-323D): Add `=>>ucs@jis', `=>>ucs@cns',
+	`=>>jis-x0208' and `=>>gt'.
+	(C1-4527): Unify CU+5316.
+
 2010-09-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R022-Right-Open-Box.el (G-J0-485B): New abstract glyph
+	to integrate J0-485B and K0-5D63.
+	(U+3533): Use `->denotational' instead of `->subsumptive'.
+	(U+532F): Add ideographic-structure; add `=>>jis-x0208'.
+	(M-02646): Unify U-00020958 and H1-B660.
 
 	* Ideograph-R024-Ten.el (J0-483E): Add `=>>ucs@unicode'.
 	(U+FA35): Add `=>>ucs@unicode'; use `=ucs@unicode' and `=ucs@jis'
