@@ -1,5 +1,16 @@
 2010-09-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R024-Ten.el (J0-483E): Add `=>>ucs@unicode'.
+	(U+FA35): Add `=>>ucs@unicode'; use `=ucs@unicode' and `=ucs@jis'
+	instead of `=ucs@gb', `=ucs@cns' and `=ucs@ks'.
+	(U-0002F82D): Add `=>>ucs@jis'.
+	(U+5352): Add ideographic-structure; add `=>>jis-x0208'.
+	(J0-476E): Add `=>>ucs@jis'.
+
+	* Ideograph-R025-Divination.el (U+535E): Use `->subsumptive'.
+
+	* Ideograph-R009-Man.el (J0-424E): Add `=>>ucs@unicode'.
+
 	* Ideograph-R014-Cover.el (J0-3E69): Add `=>>ucs@unicode'.
 
 2010-09-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
