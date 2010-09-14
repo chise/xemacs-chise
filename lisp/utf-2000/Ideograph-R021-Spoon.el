@@ -68,6 +68,7 @@
   '((ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (hanyu-dazidian	1 109 4)
     (=ucs		. #x5316)	; 化
     (=big5		. #xA4C6)	; &I-B-A4C6;
     ))
@@ -78,7 +79,8 @@
     (ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (hanyu-dazidian	1 109 4)
+    (=>>ucs@unicode	. #x5316)	; &G-UU+5316;
+    (=>>daikanwa	. 02572)	; &G-UU+5316;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -125,6 +127,10 @@
       )
      ((=ucs		  . #x5315)	; 匕
       ))
+    (=>>ucs@jis		. #x5316)	; &G-GT-03297;
+    (=>>ucs@cns		. #x5316)	; &G-GT-03297;
+    (=>>jis-x0208	. #x323D)	; &G-GT-03297; [18-29]
+    (=>>gt		. 03297)	; &G-GT-03297;
     (->subsumptive
      ((=ucs@jis		  . #x5316)	; &GT-03297;
       (=jis-x0208	  . #x323D)	; &GT-03297; [18-29]
@@ -135,7 +141,8 @@
       (=gt-pj-1		  . #x323D)	; &I-GT-03297; [18-29]
       (=shinjigen	  .  0114)	; &GT-03297;
       )
-     ((=cns11643-1	  . #x4527)	; &C1-4527; [37-07]
+     ((=ucs@cns		  . #x5316)	; &C1-4527;
+      (=cns11643-1	  . #x4527)	; &C1-4527; [37-07]
       ))
     ))
 (define-char
@@ -184,10 +191,11 @@
   '((ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (hanyu-dazidian	1 262 4)
     (=ucs		. #x5317)	; 北
+    (=big5		. #xA55F)	; &I-B-A55F;
     (->subsumptive
-     ((hanyu-dazidian	  1 262 4)
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
@@ -200,7 +208,6 @@
       (=gb2312		  . #x3131)	; &I-G0-3131; [17-17]
       (=ks-x1001	  . #x5D41)	; &I-K0-5D41; [61-33]
       (=jis-x0213-1	  . #x4B4C)	; &I-JX1-4B4C; [43-44]
-      (=big5		  . #xA55F)	; &I-B-A55F;
       (=gt		  . 03302)	; &I-GT-03302;
       (=gt-k		  . 01003)	; &I-GT-K01003;
       (=gt-pj-1		  . #x4B4C)	; &I-GT-03302; [43-44]
