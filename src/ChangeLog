@@ -1,5 +1,9 @@
 2010-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* chartab.c (allocate_character): Add `static'.
+
+2010-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* chartab.c (allocate_character): New function.
 	(Fdefine_char): Use allocate_character().
 
