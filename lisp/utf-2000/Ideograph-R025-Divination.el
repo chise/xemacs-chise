@@ -80,46 +80,43 @@
     (=cbeta		. 01453)	; &I-CB01453;
     ))
 (define-char
-  '((=>ucs		. #x535E)	; 卞
-    (ideographic-radical . 25)	; ⼘
+  '((ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x4E28)	; 丨
-      )
-     ((=ucs		  . #x4E0B)	; 下
-      ))
-    (=ucs@jis		. #x535E)	; &GT-03546;
-    (=jis-x0208		. #x5246)	; &GT-03546; [50-38]
-    (=ks-x1001		. #x5C26)	; &I-K0-5C26; [60-06]
-    (=jis-x0213-1	. #x5246)	; &I-JX1-5246; [50-38]
-    (=gt		. 03546)	; &I-GT-03546;
-    (=gt-k		. 00519)	; &I-GT-K00519;
-    (=gt-pj-1		. #x5246)	; &I-GT-03546; [50-38]
-    (=daikanwa		. 02778)	; &I-M-02778;
-    (=shinjigen		.  0835)	; &GT-03546;
-    ))
-(define-char
-  '((morohashi-daikanwa	2778 0 1)
-    (ideographic-radical . 25)	; ⼘
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (hanyu-dazidian	1 92 3)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x4E36)	; 丶
-      )
-     ((=ucs		  . #x4E0B)	; 下
-      ))
     (=ucs		. #x535E)	; 卞
-    (=gb2312		. #x3165)	; &I-G0-3165; [17-69]
-    (=cns11643-1	. #x452C)	; &I-C1-452C; [37-12]
-    (=big5		. #xA4CB)	; &I-B-A4CB;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x4E28)	; 丨
+	)
+       ((=ucs		    . #x4E0B)	; 下
+	))
+      (=ucs@jis		  . #x535E)	; &GT-03546;
+      (=jis-x0208	  . #x5246)	; &GT-03546; [50-38]
+      (=ks-x1001	  . #x5C26)	; &I-K0-5C26; [60-06]
+      (=jis-x0213-1	  . #x5246)	; &I-JX1-5246; [50-38]
+      (=gt		  . 03546)	; &I-GT-03546;
+      (=gt-k		  . 00519)	; &I-GT-K00519;
+      (=gt-pj-1		  . #x5246)	; &I-GT-03546; [50-38]
+      (=daikanwa	  . 02778)	; &I-M-02778;
+      (=shinjigen	  .  0835)	; &GT-03546;
+      )
+     ((hanyu-dazidian	  1 92 3)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x4E36)	; 丶
+	)
+       ((=ucs		    . #x4E0B)	; 下
+	))
+      (=ucs@unicode	  . #x535E)	; &C1-452C;
+      (=gb2312		  . #x3165)	; &C1-452C; [17-69]
+      (=cns11643-1	  . #x452C)	; &I-C1-452C; [37-12]
+      (=big5		  . #xA4CB)	; &I-B-A4CB;
+      ))
     ))
 (define-char
   '((ideographic-radical . 25)	; ⼘
