@@ -4233,7 +4233,7 @@ implementation does not coalesce ranges all of whose values are the same.
   return slarg.retval;
 }
 
-Lisp_Object
+static Lisp_Object
 allocate_character ()
 {
   int cid = XINT (Vnext_defined_char_id);
