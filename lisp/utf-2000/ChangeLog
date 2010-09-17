@@ -1,5 +1,11 @@
 2010-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R087-Claw.el (A-CU+2F921): Add `=>ucs@ks'.
+
+	* Ideograph-R031-Enclosure.el (U+56EE): Add ideographic-structure;
+	add `=>jis-x0208@usual'.
+	(A-J0-5379): New abstract glyph to integrate J0-5379 and C2-2347.
+
 	* Ideograph-R085-Water.el (mother of C1-4E58): Add `=>>ucs@jis',
 	`=>>ucs@cns', `=>>jis-x0208' and `=>>jis-x0213-1'.
 	(GI-J90-3168): New abstract glyph image to integrate J90-3168 and

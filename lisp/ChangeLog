@@ -1,3 +1,14 @@
+2010-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>jis-x0208@usual'.
+
+	* mule/mule-conf.el (=>jis-x0208@usual): New coded-charset for
+	XEmacs CHISE.
+	(=>jis-x0208): Use `=>jis-x0208@usual' as the mother.
+	(=>ucs@ks): New coded-charset for XEmacs CHISE.
+	(=ucs@big5): Use `=>>ucs@cns' as the mother.
+
 2010-09-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=>>>jis-x0208): New coded-charset for XEmacs
