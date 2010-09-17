@@ -421,12 +421,22 @@
 	      ))
 
   (make-charset
+   '=>jis-x0208@usual
+   "JIS X 0208 based on usual unification."
+   '(registry "jisx0208\\.1990"
+	      dimension 2
+	      chars 94
+	      mother =>>jis-x0208
+	      =>iso-ir 168
+	      ;; final ?B
+	      graphic 0))
+  (make-charset
    '=>jis-x0208
    "JIS X 0208 based on the unchanged unification rules."
    '(registry "jisx0208\\.1990"
 	      dimension 2
 	      chars 94
-	      mother =>>jis-x0208
+	      mother =>jis-x0208@usual
 	      =>iso-ir 168
 	      ;; final ?B
 	      graphic 0))
@@ -914,6 +924,16 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=>ucs@iso))
+  (make-charset '=>ucs@ks
+		"UCS Representative characters for Korean Standards"
+		'(long-name	"UCS characters for KS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>ucs@unicode))
   (make-charset '=>ucs@cns
 		"UCS representatives characters for CNS 11643 sources"
 		'(long-name	"UCS characters for CNS 11643"
@@ -1208,7 +1228,7 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
-		  mother	=>>ucs@unicode))
+		  mother	=>>ucs@cns))
   (define-charset-alias 'ucs-big5 '=ucs@big5)
   (make-charset '=ucs@big5/cns11643
 		"ISO/IEC 10646 for Big5 based on www.cns11643.gov.tw"
