@@ -1719,11 +1719,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@iso		  . #x2F946)	; &C6-3A2D;
-      (=cns11643-6	  . #x3A2D)	; &C6-3A2D; [26-13]
+     ((=ucs		  . #x2F946)	; 真
       )
-     ((=ucs@iso		  . #x2F946)	; &C6-3A2D;
-      (=cns11643-6	  . #x3A2D)	; &C6-3A2D; [26-13]
+     ((=ucs		  . #x2F946)	; 真
       ))
     (=cns11643-7	. #x4D3D)	; &GT-01973; [45-29]
     (=gt		. 01973)	; &I-GT-01973;
