@@ -1,4 +1,18 @@
+2010-09-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>jis-x0208@usual'.
+
 2010-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R109-Eye.el (parent of J0-3F3F): Separate U-0002F946;
+	add `=>>ucs@jis' and `=>>ucs@cns'.
+	(C6-3A2D): Unify U-0002F946.
+	(parent of C6-3A2E): Separate U-0002F947; add `=>>ucs@cns' and
+	`=>>daikanwa'.
+	(C6-3A2E): Unify U-0002F947.
+
+	* Ideograph-R086-Fire.el (M-19166): Add `<-vulgar' for K0-4C42.
 
 	* Ideograph-R087-Claw.el (A-CU+2F921): Add `=>ucs@ks'.
 
