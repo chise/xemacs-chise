@@ -1,5 +1,21 @@
 2010-09-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R023-Hiding-Enclosure.el (U+5338): Add `=>>jis-x0208'.
+	(B-A4C7): Add `=>>ucs@cns' and `=>>daikanwa'; omit `=ucs@big5'.
+	(J0-4924): Add `=>>ucs@unicode'.
+	(G-GT-03428): Add `=>>ucs@cns' and `=>>daikanwa'.
+	(C3-2157): Unify CU+533A.
+	(J0-3668): Add `=>>ucs@unicode'; use `<-simplified@JP/misc'
+	instead of `<-simplified' for C1-5934.
+	(G-CU+533B): New abstract glyph to integrate C3-2466.
+	(G-UU+533B): New abstract glyph to integrate J0-3065.
+	(A-CU+533F): New character.
+	(C1-5933): Unify CU+533F; use A-CU+533F instead of U+533F as the
+	value of `<-denotational'.
+	(A-UU+533F): New character.
+	(J0-463F): Use A-UU+533F instead of G-J0-463F as the value of
+	`<-denotational'.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>jis-x0208@usual'.
 
