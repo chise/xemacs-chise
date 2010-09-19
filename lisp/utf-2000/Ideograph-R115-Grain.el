@@ -5723,15 +5723,15 @@
   '((<-denotational
      ((=ucs		  . #x7A6C)	; 穬
       ))
-    (=>ucs@cns		. #x7A6C)	; &C2-6950;
     (ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 15)
     (total-strokes	 . 20)
-    (=big5		. #xF4A3)	; &B-F4A3;
+    (=>ucs@cns		. #x7A6C)	; &A-CU+7A6C;
+    (=big5		. #xF4A3)	; &A-CU+7A6C;
     ))
 (define-char
   '((<-denotational
-     ((=big5		  . #xF4A3)	; &B-F4A3;
+     ((=>ucs@cns	  . #x7A6C)	; &A-CU+7A6C;
       ))
     (ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 15)
@@ -5740,7 +5740,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=big5		  . #xF4A3)	; &B-F4A3;
+     ((=>ucs@cns	  . #x7A6C)	; &A-CU+7A6C;
       ))
     (ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 15)
