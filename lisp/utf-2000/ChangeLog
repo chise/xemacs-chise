@@ -1,3 +1,17 @@
+2010-09-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R023-Hiding-Enclosure.el (G-UU+533B): Add
+	`=>>jis-x0208'.
+	(J0-463F): Add `=>>ucs@unicode'.
+
+2010-09-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R112-Stone.el (B-B84C): Use `->subsumptive' to
+	separate representative nodes; add `=>>ucs@jis' and `=>>ucs@cns'.
+	(parent of G0-4235): Separate U-0002F94F; add `=>>ucs@unicode' and
+	`=>>ucs@cns'.
+	(C6-556B): Unify U-0002F94F.
+
 2010-09-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R023-Hiding-Enclosure.el (U+5338): Add `=>>jis-x0208'.
