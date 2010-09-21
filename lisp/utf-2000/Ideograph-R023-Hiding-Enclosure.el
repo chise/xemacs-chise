@@ -342,7 +342,8 @@
       )
      ((=ucs		  . #x77E2)	; 矢
       ))
-    (=>>ucs@unicode	. #x533B)	; &G-UU+533B;
+    (=>>ucs@unicode	. #x533B)	; &G-J0-3065;
+    (=>>jis-x0208	. #x3065)	; &G-J0-3065; [16-69]
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
@@ -883,6 +884,7 @@
       )
      ((=ucs		  . #x2F998)	; 若
       ))
+    (=>>ucs@unicode	. #x533F)	; &GT-03370;
     (=ucs@unicode	. #x533F)	; &GT-03370;
     (=jis-x0208		. #x463F)	; &GT-03370; [38-31]
     (=gb2312		. #x4464)	; &I-G0-4464; [36-68]
