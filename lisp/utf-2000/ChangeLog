@@ -1,3 +1,7 @@
+2010-09-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R026-Seal.el (U+5370): Use `->subsumptive'.
+
 2010-09-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R023-Hiding-Enclosure.el (G-UU+533B): Add
