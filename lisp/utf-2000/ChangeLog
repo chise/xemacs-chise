@@ -1,3 +1,23 @@
+2010-09-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R116-Cave.el (U+7A81): Unify J97-464D.
+	(U-0002592E): Unify G-JU+7A81 and G-J0-464D.
+	(B-ACF0): Unify A-UU+7A81 and A-JX1-7951.
+	(G-JU+FA55): New abstract glyph to integrate U+FA55 and C1-5273.
+
+2010-09-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R120-Silk.el (U+7DF4): Unify J97-4E7D.
+	(mother of JX1-7A2E): Separate U+FA57; unify G-UU+7DF4, G-JU+FA57
+	and G-JX1-7A2E.
+	(JX1-7A2E): Unify U+FA57.
+	(mother of C3-523E): Unify G-CU+430A.
+	(C3-523E): Unify CU+523E.
+	(U+7E41): Unify J97-484B.
+	(mother of JX1-7A33): Separate U+FA59; unify G-UU+7E41, G-JU+FA59,
+	G-JX1-7A33 and B-C163.
+	(JX1-7A33): Unify U+FA59; separate B-C163.
+
 2010-09-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R027-Cliff.el (U+5396): Add ideographic-structure.
