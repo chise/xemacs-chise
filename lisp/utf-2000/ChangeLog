@@ -1,3 +1,9 @@
+2010-09-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R027-Cliff.el (U+5396): Add ideographic-structure.
+	(G-JU+5396): New abstract glyph to integrate J0-524D.
+	(mother of UU+5396): Add `=>>ucs@unicode'.
+
 2010-09-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R026-Seal.el (U+5370): Use `->subsumptive'.
