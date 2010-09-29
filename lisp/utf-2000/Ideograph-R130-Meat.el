@@ -828,7 +828,7 @@
       (=gt		  . 37876)	; &I-GT-37876;
       (=gt-pj-1		  . #x344E)	; &I-GT-37876; [20-46]
       (=daikanwa	  . 29273)	; &I-M-29273;
-      (=shinjigen@rev	  .  6424)	; &GT-37876;
+      (=shinjigen	  .  6424)	; &GT-37876;
       )
      ((=cns11643-1	  . #x4B3B)	; &C1-4B3B; [43-27]
       ))
@@ -836,6 +836,8 @@
 (define-char
   '((ideographic-radical . 130)	; ⾁
     (=ucs		. #x80B2)	; 育
+    (=>jis-x0208	. #x3069)	; 育 [16-73]
+    (=>jis-x0213-1	. #x3069)	; 育 [16-73]
     (=big5		. #xA87C)	; &I-B-A87C;
     ))
 (define-char
@@ -845,13 +847,18 @@
     (ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
+    (=>>ucs@cns		. #x80B2)	; &G-GT-37872;
+    (=>>gt		. 37872)	; &G-GT-37872;
+    (=>>daikanwa	. 29274)	; &G-GT-37872;
     (->subsumptive
      ((=gt		  . 37872)	; &GT-37872;
       (=gt-k		  . 02503)	; &I-GT-K02503;
       (=gt-pj-6		  . #x3939)	; &GT-37872; [25-25]
       (=daikanwa	  . 29274)	; &I-M-29274;
+      (=shinjigen	  .  6432)	; &GT-37872;
       )
-     ((=cns11643-1	  . #x4B3F)	; &C1-4B3F; [43-31]
+     ((=ucs@cns		  . #x80B2)	; &C1-4B3F;
+      (=cns11643-1	  . #x4B3F)	; &C1-4B3F; [43-31]
       ))
     ))
 (define-char
@@ -1650,15 +1657,13 @@
   '((<-denotational
      ((=ucs		  . #x80B2)	; 育
       ))
-    (=>ucs*		. #x80B2)	; 育
-    (=>ucs@gb		. #x80B2)	; &G0-537D;
-    (=>ucs@cns		. #x2F982)	; &C6-2D69;
-    (=>ucs@jis		. #x80B2)	; &GT-37901;
-    (=>ucs@ks		. #x80B2)	; &GT-37901;
     (ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (=ucs		. #x2F982)	; 育
+    (=>>ucs@unicode	. #x80B2)	; &G-GT-37901;
+    (=>>ucs@cns		. #x2F982)	; &G-GT-37901;
+    (=>>gt		. 37901)	; &G-GT-37901;
+    (=>>daikanwa	. 29318)	; &G-GT-37901;
     (->subsumptive
      ((=ucs@jis		  . #x80B2)	; &GT-37901;
       (=ucs@ks		  . #x80B2)	; &GT-37901;
@@ -1669,13 +1674,14 @@
       (=gt-k		  . 03628)	; &I-GT-K03628;
       (=gt-pj-1		  . #x3069)	; &I-GT-37901; [16-73]
       (=daikanwa	  . 29318)	; &I-M-29318;
-      (=shinjigen@rev	  .  6431)	; &GT-37901;
+      (=shinjigen	  .  6431)	; &GT-37901;
       )
      ((=ucs@unicode	  . #x80B2)	; &G0-537D;
       (=gb2312		  . #x537D)	; &G0-537D; [51-93]
       )
-     ((=ucs@iso		  . #x2F982)	; &C6-2D69;
-      (=cns11643-6	  . #x2D69)	; &C6-2D69; [13-73]
+     ((=>ucs*		  . #x80B2)	; 育
+      (=ucs		  . #x2F982)	; 育
+      (=cns11643-6	  . #x2D69)	; &I-C6-2D69; [13-73]
       ))
     ))
 (define-char
