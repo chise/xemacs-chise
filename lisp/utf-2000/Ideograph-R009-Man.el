@@ -14193,8 +14193,7 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@iso	    . #x2F982)	; &C6-2D69;
-	(=cns11643-6	    . #x2D69)	; &C6-2D69; [13-73]
+       ((=ucs		    . #x2F982)	; 育
 	))
       (=ucs@cns		  . #x4FFC)	; &C3-2F4C;
       (=cns11643-3	  . #x2F4C)	; &C3-2F4C; [15-44]
