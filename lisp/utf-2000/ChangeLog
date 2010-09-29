@@ -1,5 +1,16 @@
 2010-09-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R130-Meat.el (U+80B2): Unify A-J0-3069.
+	(mother of GT-37872): Unify G-CU+80B2, G-GT-37872 and G-M-29274.
+	(C1-4B3F): Unify CU+80B2.
+	(mother of J0-3069): Separate U-0002F982; unify G-UU+80B2,
+	G-CU+2F982, G-GT-37901 and G-M-29318.
+	(C6-2D69): Unify U-0002F982.
+
+	* Ideograph-R080-Do-Not.el (U+6BD3): Unify A-J0-5D5A.
+	(G-UU+6BD3): New abstract glyph to integrate J0-5D5A and G0-5839.
+	(J0-5D5A): Add `<-ancient' for J0-3069.
+
 	* Ideograph-R116-Cave.el (U+7A81): Unify J97-464D.
 	(U-0002592E): Unify G-JU+7A81 and G-J0-464D.
 	(B-ACF0): Unify A-UU+7A81 and A-JX1-7951.
