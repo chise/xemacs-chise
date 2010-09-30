@@ -185,6 +185,7 @@
 (define-char
   '((ideographic-radical . 125)	; ⽼
     (=ucs		. #x8005)	; 者
+    (=>jis-x0208@1997	. #x3C54)	; 者 [28-52]
     (=big5		. #xAACC)	; &I-B-AACC;
     ))
 (define-char
@@ -212,13 +213,14 @@
   '((<-denotational
      ((=ucs		  . #x8005)	; 者
       ))
-    (=>ucs*		. #x8005)	; 者
-    (=>ucs@cns		. #x2F97A)	; 者
-    (=>ucs@jis		. #xFA5B)	; 者
-    (=>ucs@ks		. #x8005)	; 者
     (ideographic-radical . 125)	; ⽼
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
+    (=>>ucs@jis		. #xFA5B)	; &G-JX1-7A44;
+    (=>>ucs@ks		. #x8005)	; &G-JX1-7A44;
+    (=>>ucs@cns		. #x2F97A)	; &G-JX1-7A44;
+    (=>>jis-x0213-1	. #x7A44)	; &G-JX1-7A44; [90-36]
+    (=>>daikanwa	. 28853)	; &G-JX1-7A44;
     (->subsumptive
      ((=>ucs*		  . #x8005)	; 者
       (=ucs		  . #xFA5B)	; 者
@@ -226,7 +228,7 @@
       (=ks-x1001	  . #x6D3A)	; &I-K0-6D3A; [77-26]
       (=jis-x0213-1	  . #x7A44)	; &I-JX1-7A44; [90-36]
       (=daikanwa	  . 28853)	; &I-M-28853;
-      (=shinjigen@1ed	  .  6343)	; 者
+      (=shinjigen	  .  6343)	; 者
       (=jef-china3	  . #x60B5)	; &I-JC3-60B5;
       )
      ((=>ucs*		  . #x8005)	; 者
