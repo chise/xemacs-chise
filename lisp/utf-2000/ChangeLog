@@ -1,3 +1,11 @@
+2010-09-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R125-Old.el (U+8005): Unify J97-3C54.
+	(mother of JX1-7A44): Unify G-JU+FA5B, G-KU+8005, G-CU+2F97A,
+	G-JX1-7A44 and G-M-28853.
+
+	* Ideograph-R086-Fire.el (U+7134): Use `->subsumptive'.
+
 2010-09-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R130-Meat.el (U+80B2): Unify A-J0-3069.
