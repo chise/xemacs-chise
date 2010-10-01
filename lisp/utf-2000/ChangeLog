@@ -1,5 +1,11 @@
 2010-09-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R030-Mouth.el (U+5537): Add ideographic-structure.
+	(G-UU+5537): New abstract glyph to integrate M-03772 and G0-6021.
+	(G-CU+5537): New abstract glyph to integrate C1-5455.
+	(U+5538): Add ideographic-structure.
+	(J0-5339): Unify S1-1126.
+
 	* Ideograph-R125-Old.el (U+8005): Unify J97-3C54.
 	(mother of JX1-7A44): Unify G-JU+FA5B, G-KU+8005, G-CU+2F97A,
 	G-JX1-7A44 and G-M-28853.
