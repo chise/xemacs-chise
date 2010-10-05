@@ -1,3 +1,25 @@
+2010-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R019-Power.el (B-AB6A): Separate U+FA33.
+	(JX1-2E63): Unify U+FA33.
+
+	* Ideograph-R073-Say.el (mother of C6-4057): Separate U-0002F8D3;
+	unify G-KU+5195 and G-CU+2F8D3.
+	(C6-4057): Unify U-0002F8D3.
+
+	* Ideograph-R039-Child.el (mother of C3-3054): Unify G-UU+3743 and
+	G-M-06988; add ideographic-structure.
+
+	* Ideograph-R030-Mouth.el (B-ADF0): Unify G-UU+5510; add
+	ideographic-structure.
+	(mother of J0-4562): Separate U-0002F842; unify G-JU+5510 and
+	G-CU+2F842.
+	(C6-357E): Unify U-0002F842.
+
+	* Ideograph-R013-Down-Box.el (mother of C6-4057): Separate
+	U-0002F8D3; unify G-KU+5195 and G-CU+2F8D3.
+	(C6-4057): Unify U-0002F8D3.
+
 2010-10-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R038-Woman.el (mother of C1-5961): Unify G-KU+5A66 and
