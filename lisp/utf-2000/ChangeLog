@@ -1,5 +1,19 @@
 2010-10-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R038-Woman.el (mother of C1-5961): Unify G-KU+5A66 and
+	G-CU+5A66.
+	(K0-5C7E): Unify KU+5A66.
+	(C1-5961): Unify CU+5A66.
+	(mother of J0-4958): Separate U-0002F866; unify G-UU+5A66 and
+	G-CU+2F866.
+	(C6-3E50): Unify U-0002F866.
+
+	* Ideograph-R010-Legs.el (mother of JX1-2E50): Unify G-JU+FA32,
+	G-CU+2F80E and G-JX1-2E50.
+	(mother of G0-4362): New abstract glyph to integrate G0-4362 and
+	K0-5873; unify G-UU+514D.
+	(G0-4362): Separate G-UU+514D and K0-5873.
+
 	* Ideograph-R035-Go-Slowly.el (A-JU+8641): New character.
 	(M-05747): Use A-JU+8641 as the mother.
 	(JX1-2F68): Likewise.
