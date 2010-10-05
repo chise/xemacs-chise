@@ -11928,7 +11928,16 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (hanyu-dazidian	1 633 5)
-    (=big5		. #xADF0)	; &B-ADF0;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=big5-cdp	  . #x8CC1)	; &CDP-8CC1;
+      ))
+    (=>>ucs@unicode	. #x5510)	; &G-UU+5510;
+    (=big5		. #xADF0)	; &G-UU+5510;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -11944,6 +11953,7 @@
       (=ks-x1001	  . #x5350)	; &M-03709; [51-48]
       (=daikanwa	  . 03709)	; &I-M-03709;
       (=shinjigen@1ed	  .  1096)	; &M-03709;
+      (=shinjigen/+p@rev  .  1098)	; &M-03709;
       (=jef-china3	  . #x45FE)	; &I-JC3-45FE;
       )
      ((ideographic-structure
@@ -11965,12 +11975,11 @@
   '((<-denotational
      ((=ucs		  . #x5510)	; 唐
       ))
-    (=>ucs*		. #x5510)	; 唐
-    (=>ucs@jis		. #x5510)	; &GT-04641;
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=ucs		. #x2F842)	; 唐
+    (=>>ucs@jis		. #x5510)	; &G-JU+5510;
+    (=>>ucs@cns		. #x2F842)	; &G-JU+5510;
     (->subsumptive
      ((morohashi-daikanwa	3709 1)
       (=ucs@jis		  . #x5510)	; &GT-04641;
@@ -11982,8 +11991,9 @@
       (=shinjigen@1ed	  .  1095)	; &GT-04641;
       (=shinjigen@rev	  .  1098)	; &GT-04641;
       )
-     ((=ucs@iso		  . #x2F842)	; &C6-357E;
-      (=cns11643-6	  . #x357E)	; &C6-357E; [21-94]
+     ((=>ucs*		  . #x5510)	; 唐
+      (=ucs		  . #x2F842)	; 唐
+      (=cns11643-6	  . #x357E)	; &I-C6-357E; [21-94]
       ))
     ))
 (define-char
@@ -23883,7 +23893,6 @@
   '((<-denotational
      ((=ucs		  . #x5606)	; 嘆
       ))
-    (=>ucs@jis		. #x5606)	; &GT-05142;
     (ideographic-radical . 30)	; ⼝
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -23893,6 +23902,7 @@
       )
      ((=>gt		  . 07490)	; &A-GT-07490;
       ))
+    (=>ucs@jis		. #x5606)	; &A-JX1-4332;
     (=>ucs@cns		. #x2F84C)	; &A-JX1-4332;
     (=>jis-x0213-1	. #x4332)	; &A-JX1-4332; [35-18]
     ))
