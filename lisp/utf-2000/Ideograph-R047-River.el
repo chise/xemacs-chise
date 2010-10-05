@@ -202,13 +202,11 @@
   '((<-denotational
      ((=ucs		  . #x5DE1)	; 巡
       ))
-    (=>ucs*		. #x5DE1)	; 巡
-    (=>ucs@gb		. #x5DE1)	; &GT-10953;
-    (=>ucs@jis		. #x5DE1)	; &GT-10953;
     (ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (=ucs		. #x2F881)	; 巡
+    (=>>ucs@unicode	. #x5DE1)	; &G-UU+5DE1;
+    (=>>ucs@cns		. #x2F881)	; &G-UU+5DE1;
     (->subsumptive
      ((morohashi-daikanwa	8680 1)
       (=ucs@unicode	  . #x5DE1)	; &GT-10953;
@@ -218,8 +216,9 @@
       (=gt		  . 10953)	; &I-GT-10953;
       (=gt-pj-1		  . #x3D64)	; &I-GT-10953; [29-68]
       )
-     ((=ucs@iso		  . #x2F881)	; &C6-2736;
-      (=cns11643-6	  . #x2736)	; &C6-2736; [07-22]
+     ((=>ucs*		  . #x5DE1)	; 巡
+      (=ucs		  . #x2F881)	; 巡
+      (=cns11643-6	  . #x2736)	; &I-C6-2736; [07-22]
       ))
     ))
 (define-char
