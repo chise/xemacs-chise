@@ -173,8 +173,7 @@
     (=daikanwa		. 01511)	; &I-M-01511;
     ))
 (define-char
-  '((=>ucs@jis		. #x5185)	; &GT-01983;
-    (ideographic-radical@ucs . 13)	; ⼌
+  '((ideographic-radical@ucs . 13)	; ⼌
     (ideographic-strokes@ucs . 2)
     (ideographic-radical@ucs*sources
      daikanwa=01512 cns11643-6 ucs=0x5185)
@@ -188,6 +187,7 @@
      cns11643-3 daikanwa=366-1)
     (total-strokes	 . 4)
     (==>ucs@bucs	. #x5167)	; &J97-4662;
+    (=>ucs@jis		. #x5185)	; &J97-4662;
     (=ucs@big5		. #x5167)	; &J97-4662;
     (=>jis-x0208	. #x4662)	; &J97-4662; [38-66]
     (=>jis-x0213-1	. #x4662)	; &J97-4662; [38-66]
@@ -1478,7 +1478,6 @@
       )
      ((=ucs@unicode	  . #x514D)	; &C1-492D;
       (=gb2312		  . #x4362)	; &C1-492D; [35-66]
-      (=ks-x1001	  . #x5873)	; &I-K0-5873; [56-83]
       (=cns11643-1	  . #x492D)	; &I-C1-492D; [41-13]
       ))
     (=ucs@unicode	. #x5195)	; &GT-02032;
@@ -1497,20 +1496,20 @@
   '((<-denotational
      ((=ucs		  . #x5195)	; 冕
       ))
-    (=>ucs*		. #x5195)	; 冕
-    (=>ucs@ks		. #x5195)	; &C6-4057;
     (ideographic-radical@cns . 73)	; ⽈
     (ideographic-strokes@cns . 7)
     (ideographic-radical@jis . 13)	; ⼌
     (ideographic-strokes@jis . 9)
     (total-strokes	 . 11)
-    (=ucs		. #x2F8D3)	; 冕
+    (=>>ucs@ks		. #x5195)	; &G-KU+5195;
+    (=>>ucs@cns		. #x2F8D3)	; &G-KU+5195;
     (->subsumptive
      ((ideographic-radical . 13)	; ⼌
       (ideographic-strokes . 9)
       (=jis-x0208@1978	  . #x514B)	; &J78-514B; [49-43]
       )
-     ((ideographic-structure
+     ((=>ucs*		  . #x5195)	; 冕
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
@@ -1518,12 +1517,11 @@
 	)
        ((=ucs@unicode	    . #x514D)	; &C1-492D;
 	(=gb2312	    . #x4362)	; &C1-492D; [35-66]
-	(=ks-x1001	    . #x5873)	; &I-K0-5873; [56-83]
 	(=cns11643-1	    . #x492D)	; &I-C1-492D; [41-13]
 	))
-      (=ucs@iso		  . #x2F8D3)	; &C6-4057;
-      (=ucs@ks		  . #x5195)	; &C6-4057;
-      (=ks-x1001	  . #x5874)	; &C6-4057; [56-84]
+      (=ucs		  . #x2F8D3)	; 冕
+      (=ucs@ks		  . #x5195)	; 冕
+      (=ks-x1001	  . #x5874)	; &I-K0-5874; [56-84]
       (=cns11643-6	  . #x4057)	; &I-C6-4057; [32-55]
       ))
     ))
