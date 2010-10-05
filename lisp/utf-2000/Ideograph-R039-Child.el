@@ -928,6 +928,16 @@
     (->subsumptive
      ((ideographic-strokes . 7)
       (total-strokes	   . 10)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x5B50)	; 子
+	)
+       ((=>>ucs@unicode	    . #x514D)	; &G-UU+514D;
+	))
+      (=>>ucs@unicode	  . #x3743)	; &G-UU+3743;
+      (=>>daikanwa	  . 06988)	; &G-UU+3743;
       (->subsumptive
        ((=daikanwa	    . 06988)	; &M-06988;
 	)
@@ -939,7 +949,6 @@
 	  )
 	 ((=ucs@unicode	      . #x514D)	; &C1-492D;
 	  (=gb2312	      . #x4362)	; &C1-492D; [35-66]
-	  (=ks-x1001	      . #x5873)	; &I-K0-5873; [56-83]
 	  (=cns11643-1	      . #x492D)	; &I-C1-492D; [41-13]
 	  ))
 	(=ucs@unicode	    . #x3743)	; &C3-3054;
