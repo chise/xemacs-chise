@@ -817,6 +817,7 @@
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
+    (hanyu-dazidian	1 270 9)
     (sound@ja		"men-z+iru")
     (sound@ja/kun	"manuka-r+eru" "manuga-r+eru")
     (sound@ja/on/go	"men")
@@ -828,7 +829,6 @@
   '((<-denotational
      ((=ucs		  . #x514D)	; 免
       ))
-    (=>ucs@jis		. #xFA32)	; 免
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
@@ -840,8 +840,9 @@
       )
      ((=big5-cdp	  . #x8BCB)	; &CDP-8BCB;
       ))
-    (=>ucs@cns		. #x2F80E)	; &A-JX1-2E50;
-    (=>jis-x0213-1	. #x2E50)	; &A-JX1-2E50; [14-48]
+    (=>>ucs@jis		. #xFA32)	; &G-JX1-2E50;
+    (=>>ucs@cns		. #x2F80E)	; &G-JX1-2E50;
+    (=>>jis-x0213-1	. #x2E50)	; &G-JX1-2E50; [14-48]
     (->subsumptive
      ((=>ucs*		  . #x514D)	; 免
       (=ucs		  . #xFA32)	; 免
@@ -864,20 +865,22 @@
     (->subsumptive
      ((ideographic-strokes . 5)
       (total-strokes	   . 7)
-      (hanyu-dazidian	  1 270 9)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
+      (=>>ucs@unicode	  . #x514D)	; &G-UU+514D;
+      (->subsumptive
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((=big5-cdp	      . #x8B5B)	; &CDP-8B5B;
+	  )
+	 ((=big5-cdp	      . #x8BCB)	; &CDP-8BCB;
+	  ))
+	(=ucs@unicode	    . #x514D)	; &C1-492D;
+	(=gb2312	    . #x4362)	; &C1-492D; [35-66]
+	(=cns11643-1	    . #x492D)	; &I-C1-492D; [41-13]
 	)
-       ((=big5-cdp	    . #x8B5B)	; &CDP-8B5B;
-	)
-       ((=big5-cdp	    . #x8BCB)	; &CDP-8BCB;
+       ((=ks-x1001	    . #x5873)	; &K0-5873; [56-83]
 	))
-      (=>>ucs@unicode	  . #x514D)	; &C1-492D;
-      (=ucs@unicode	  . #x514D)	; &C1-492D;
-      (=gb2312		  . #x4362)	; &C1-492D; [35-66]
-      (=ks-x1001	  . #x5873)	; &I-K0-5873; [56-83]
-      (=cns11643-1	  . #x492D)	; &I-C1-492D; [41-13]
       )
      ((ideographic-strokes . 6)
       (total-strokes	   . 8)
@@ -1259,7 +1262,6 @@
 	)
        ((=ucs@unicode	    . #x514D)	; &C1-492D;
 	(=gb2312	    . #x4362)	; &C1-492D; [35-66]
-	(=ks-x1001	    . #x5873)	; &I-K0-5873; [56-83]
 	(=cns11643-1	    . #x492D)	; &I-C1-492D; [41-13]
 	)
        ((=ucs		    . #x4E36)	; 丶
