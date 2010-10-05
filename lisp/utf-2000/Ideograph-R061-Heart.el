@@ -16915,11 +16915,11 @@
   '((<-denotational
      ((=ucs		  . #x61F2)	; 懲
       ))
-    (=>ucs@jis		. #xFA40)	; 懲
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 15)
     (total-strokes	 . 19)
     (=>ucs@unicode	. #x61F2)	; &A-JX1-7461;
+    (=>ucs@jis		. #xFA40)	; &A-JX1-7461;
     (=>jis-x0213-1	. #x7461)	; &A-JX1-7461; [84-65]
     (=big5		. #xC367)	; &A-JX1-7461;
     ))
