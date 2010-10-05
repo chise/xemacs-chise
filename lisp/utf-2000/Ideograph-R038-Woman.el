@@ -7662,25 +7662,27 @@
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (=>>ucs@ks		. #x5A66)	; &G-KU+5A66;
+    (=>>ucs@cns		. #x5A66)	; &G-KU+5A66;
     (->subsumptive
-     ((=ks-x1001	  . #x5C7E)	; &M-06432; [60-94]
+     ((=ucs@ks		  . #x5A66)	; &M-06432;
+      (=ks-x1001	  . #x5C7E)	; &M-06432; [60-94]
       (=daikanwa	  . 06432)	; &I-M-06432;
       (=jef-china3	  . #x49C6)	; &I-JC3-49C6;
       )
-     ((=cns11643-1	  . #x5961)	; &C1-5961; [57-65]
+     ((=ucs@cns		  . #x5A66)	; &C1-5961;
+      (=cns11643-1	  . #x5961)	; &C1-5961; [57-65]
       ))
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x5A66)	; 婦
       ))
-    (=>ucs*		. #x5A66)	; 婦
-    (=>ucs@gb		. #x5A66)	; &GT-08090;
-    (=>ucs@jis		. #x5A66)	; &GT-08090;
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=ucs		. #x2F866)	; 婦
+    (=>>ucs@unicode	. #x5A66)	; &G-UU+5A66;
+    (=>>ucs@cns		. #x2F866)	; &G-UU+5A66;
     (->subsumptive
      ((morohashi-daikanwa	6432 1)
       (=ucs@unicode	  . #x5A66)	; &GT-08090;
@@ -7691,8 +7693,9 @@
       (=gt-k		  . 07866)	; &I-GT-K07866;
       (=gt-pj-1		  . #x4958)	; &I-GT-08090; [41-56]
       )
-     ((=ucs@iso		  . #x2F866)	; &C6-3E50;
-      (=cns11643-6	  . #x3E50)	; &C6-3E50; [30-48]
+     ((=>ucs*		  . #x5A66)	; 婦
+      (=ucs		  . #x2F866)	; 婦
+      (=cns11643-6	  . #x3E50)	; &I-C6-3E50; [30-48]
       ))
     ))
 (define-char
