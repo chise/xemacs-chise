@@ -359,6 +359,39 @@
     ))
 (define-char
   '((<-denotational
+     ((=ucs		  . #x5195)	; 冕
+      ))
+    (ideographic-radical@cns . 73)	; ⽈
+    (ideographic-strokes@cns . 7)
+    (ideographic-radical@jis . 13)	; ⼌
+    (ideographic-strokes@jis . 9)
+    (total-strokes	 . 11)
+    (=>>ucs@ks		. #x5195)	; &G-KU+5195;
+    (=>>ucs@cns		. #x2F8D3)	; &G-KU+5195;
+    (->subsumptive
+     ((ideographic-radical . 13)	; ⼌
+      (ideographic-strokes . 9)
+      (=jis-x0208@1978	  . #x514B)	; &J78-514B; [49-43]
+      )
+     ((=>ucs*		  . #x5195)	; 冕
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=cns11643-1	    . #x454B)	; &C1-454B; [37-43]
+	)
+       ((=ucs@unicode	    . #x514D)	; &C1-492D;
+	(=gb2312	    . #x4362)	; &C1-492D; [35-66]
+	(=cns11643-1	    . #x492D)	; &I-C1-492D; [41-13]
+	))
+      (=ucs		  . #x2F8D3)	; 冕
+      (=ucs@ks		  . #x5195)	; 冕
+      (=ks-x1001	  . #x5874)	; &I-K0-5874; [56-84]
+      (=cns11643-6	  . #x4057)	; &I-C6-4057; [32-55]
+      ))
+    ))
+(define-char
+  '((<-denotational
      ((=ucs		  . #x52D7)	; 勗
       ))
     (ideographic-radical@ucs . 19)	; ⼒
@@ -402,40 +435,6 @@
       (=ks-x1001	  . #x7174)	; &I-K0-7174; [81-84]
       (=jis-x0213-1	  . #x413D)	; &I-JX1-413D; [33-29]
       (=daikanwa	  . 14299)	; &I-M-14299;
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x5195)	; 冕
-      ))
-    (=>ucs*		. #x5195)	; 冕
-    (=>ucs@ks		. #x5195)	; &C6-4057;
-    (ideographic-radical@cns . 73)	; ⽈
-    (ideographic-strokes@cns . 7)
-    (ideographic-radical@jis . 13)	; ⼌
-    (ideographic-strokes@jis . 9)
-    (total-strokes	 . 11)
-    (=ucs		. #x2F8D3)	; 冕
-    (->subsumptive
-     ((ideographic-radical . 13)	; ⼌
-      (ideographic-strokes . 9)
-      (=jis-x0208@1978	  . #x514B)	; &J78-514B; [49-43]
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=cns11643-1	    . #x454B)	; &C1-454B; [37-43]
-	)
-       ((=ucs@unicode	    . #x514D)	; &C1-492D;
-	(=gb2312	    . #x4362)	; &C1-492D; [35-66]
-	(=ks-x1001	    . #x5873)	; &I-K0-5873; [56-83]
-	(=cns11643-1	    . #x492D)	; &I-C1-492D; [41-13]
-	))
-      (=ucs@iso		  . #x2F8D3)	; &C6-4057;
-      (=ucs@ks		  . #x5195)	; &C6-4057;
-      (=ks-x1001	  . #x5874)	; &C6-4057; [56-84]
-      (=cns11643-6	  . #x4057)	; &I-C6-4057; [32-55]
       ))
     ))
 (define-char
