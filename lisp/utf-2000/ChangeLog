@@ -1,3 +1,11 @@
+2010-10-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R035-Go-Slowly.el (A-JU+8641): New character.
+	(M-05747): Use A-JU+8641 as the mother.
+	(JX1-2F68): Likewise.
+	(JC3-48D3): Likewise.
+	(C3-602F): Likewise; unify CU+8641.
+
 2010-09-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el (U+5537): Add ideographic-structure.
