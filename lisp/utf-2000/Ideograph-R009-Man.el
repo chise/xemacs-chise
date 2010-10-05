@@ -911,8 +911,7 @@
     (=cbeta		. 04469)	; &I-CB04469;
     ))
 (define-char
-  '((=>ucs@jis		. #x5185)	; &GT-01983;
-    (ideographic-radical@ucs . 13)	; ⼌
+  '((ideographic-radical@ucs . 13)	; ⼌
     (ideographic-strokes@ucs . 2)
     (ideographic-radical@ucs*sources
      daikanwa=01512 cns11643-6 ucs=0x5185)
@@ -926,6 +925,7 @@
      cns11643-3 daikanwa=366-1)
     (total-strokes	 . 4)
     (==>ucs@bucs	. #x5167)	; &J97-4662;
+    (=>ucs@jis		. #x5185)	; &J97-4662;
     (=ucs@big5		. #x5167)	; &J97-4662;
     (=>jis-x0208	. #x4662)	; &J97-4662; [38-66]
     (=>jis-x0213-1	. #x4662)	; &J97-4662; [38-66]
@@ -28384,10 +28384,10 @@
   '((<-denotational
      ((=ucs		  . #x50E7)	; 僧
       ))
-    (=>ucs@jis		. #x50E7)	; 僧
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
+    (=>ucs@jis		. #x50E7)	; &A-JX1-414E;
     (=>ucs@cns		. #x2F80A)	; &A-JX1-414E;
     (=>jis-x0213-1	. #x414E)	; &A-JX1-414E; [33-46]
     ))
@@ -30129,7 +30129,6 @@
   '((<-denotational
      ((=ucs		  . #x50E7)	; 僧
       ))
-    (=>ucs@jis		. #xFA31)	; 僧
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
@@ -30144,6 +30143,7 @@
      ((=ucs		  . #x66FE)	; 曾
       ))
     (=>ucs@unicode	. #x50E7)	; &A-JX1-2E49;
+    (=>ucs@jis		. #xFA31)	; &A-JX1-2E49;
     (=>jis-x0213-1	. #x2E49)	; &A-JX1-2E49; [14-41]
     (=big5		. #xB9AC)	; &A-JX1-2E49;
     ))

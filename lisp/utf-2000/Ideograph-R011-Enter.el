@@ -142,8 +142,7 @@
       ))
     ))
 (define-char
-  '((=>ucs@jis		. #x5185)	; &GT-01983;
-    (ideographic-radical@ucs . 13)	; ⼌
+  '((ideographic-radical@ucs . 13)	; ⼌
     (ideographic-strokes@ucs . 2)
     (ideographic-radical@ucs*sources
      daikanwa=01512 cns11643-6 ucs=0x5185)
@@ -157,6 +156,7 @@
      cns11643-3 daikanwa=366-1)
     (total-strokes	 . 4)
     (==>ucs@bucs	. #x5167)	; &J97-4662;
+    (=>ucs@jis		. #x5185)	; &J97-4662;
     (=ucs@big5		. #x5167)	; &J97-4662;
     (=>jis-x0208	. #x4662)	; &J97-4662; [38-66]
     (=>jis-x0213-1	. #x4662)	; &J97-4662; [38-66]
