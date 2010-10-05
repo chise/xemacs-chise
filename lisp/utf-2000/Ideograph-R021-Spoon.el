@@ -1,9 +1,9 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((=>ucs@jis		. #x5315)	; 匕
-    (ideographic-radical . 21)	; ⼔
+  '((ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (=>ucs@jis		. #x5315)	; &J97-5238;
     (=ucs@big5		. #x5315)	; &J97-5238;
     (=>jis-x0208	. #x5238)	; &J97-5238; [50-24]
     (=>jis-x0213-1	. #x5238)	; &J97-5238; [50-24]
