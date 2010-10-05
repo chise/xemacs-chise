@@ -326,6 +326,7 @@
 	  (==>ucs@bucs				"BUCS+" 4 X)
 	  ( =>ucs@iso				"A-IU+" 4 X)
 	  ( =>ucs@unicode			"A-UU+" 4 X)
+	  ( =>ucs@jis				"A-JU+" 4 X)
 	  ( =>ucs@cns				"A-CU+" 4 X)
 	  (=>>ucs@iso				"G-IU+" 4 X)
 	  (=>>ucs@unicode			"G-UU+" 4 X)
