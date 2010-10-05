@@ -1787,21 +1787,20 @@
   '((<-denotational
      ((=ucs		  . #x52C9)	; 勉
       ))
-    (=>ucs*		. #x52C9)	; 勉
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 372 3)
-    (=ucs		. #xFA33)	; 勉
-    (=>>ucs@unicode	. #x52C9)	; 勉
-    (=>>ucs@jis		. #xFA33)	; 勉
-    (=>>jis-x0213-1	. #x2E63)	; 勉 [14-67]
-    (=big5		. #xAB6A)	; &I-B-AB6A;
+    (=>>ucs@unicode	. #x52C9)	; &G-JX1-2E63;
+    (=>>ucs@jis		. #xFA33)	; &G-JX1-2E63;
+    (=>>jis-x0213-1	. #x2E63)	; &G-JX1-2E63; [14-67]
+    (=big5		. #xAB6A)	; &G-JX1-2E63;
     (->subsumptive
-     ((=ucs@unicode	  . #xFA33)	; &M-02362;
-      (=jis-x0213-1	  . #x2E63)	; &M-02362; [14-67]
+     ((=>ucs*		  . #x52C9)	; 勉
+      (=ucs		  . #xFA33)	; 勉
+      (=jis-x0213-1	  . #x2E63)	; &I-JX1-2E63; [14-67]
       (=daikanwa	  . 02362)	; &I-M-02362;
-      (=shinjigen	  .  0736)	; &M-02362;
+      (=shinjigen	  .  0736)	; 勉
       (=jef-china3	  . #x44E7)	; &I-JC3-44E7;
       (<-same
        ((=ucs		    . #x2F826)	; 勉
@@ -1817,7 +1816,6 @@
 	)
        ((=ucs@unicode	    . #x514D)	; &C1-492D;
 	(=gb2312	    . #x4362)	; &C1-492D; [35-66]
-	(=ks-x1001	    . #x5873)	; &I-K0-5873; [56-83]
 	(=cns11643-1	    . #x492D)	; &I-C1-492D; [41-13]
 	)
        ((=ucs		    . #x529B)	; 力
@@ -2323,9 +2321,7 @@
     (=gt-pj-1		. #x4A59)	; &I-GT-03050; [42-57]
     (=shinjigen		.  0735)	; 勉
     (<-simplified@JP/Jouyou
-     ((=ucs@unicode	  . #xFA33)	; &M-02362;
-      (=jis-x0213-1	  . #x2E63)	; &M-02362; [14-67]
-      (=daikanwa	  . 02362)	; &I-M-02362;
+     ((=ucs		  . #xFA33)	; 勉
       ))
     ))
 (define-char
