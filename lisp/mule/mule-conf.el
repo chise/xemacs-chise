@@ -924,6 +924,16 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=>ucs@iso))
+  (make-charset '=>ucs@jis
+		"UCS Representative characters for JIS X0208/0212/0213"
+		'(long-name	"UCS characters for JIS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>ucs@unicode))
   (make-charset '=>ucs@ks
 		"UCS Representative characters for Korean Standards"
 		'(long-name	"UCS characters for KS"
