@@ -173,6 +173,7 @@
     ==>ucs@bucs
     =>ucs@iso
     =>ucs@unicode
+    =>ucs@jis
     =>ucs@cns
     =>>ucs@unicode
     =>>ucs@jis
@@ -645,7 +646,7 @@
 			name value (decode-char '=ucs value)
 			line-breaking))
 	(setq attributes (delq name attributes))))
-    (dolist (name '(=>ucs@gb =>ucs@jis =>ucs@ks =>ucs@big5))
+    (dolist (name '(=>ucs@gb =>ucs@ks =>ucs@big5))
       (when (and (memq name attributes)
 		 (setq value (get-char-attribute char name)))
 	(insert (format "(%-18s . #x%04X)\t; %c%s"
