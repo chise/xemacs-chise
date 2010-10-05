@@ -42,6 +42,10 @@
 	(JC3-48D3): Likewise.
 	(C3-602F): Likewise; unify CU+8641.
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs@jis'.
+	(insert-char-attributes): Treat `=>ucs@jis' as a coded-charset.
+
 2010-09-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el (U+5537): Add ideographic-structure.
