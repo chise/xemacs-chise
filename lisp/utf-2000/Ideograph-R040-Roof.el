@@ -4480,8 +4480,8 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=ucs@big5		. #x5BE7)	; &B-B9E7;
-    (=big5		. #xB9E7)	; &B-B9E7;
+    (=>>ucs@unicode	. #x5BE7)	; &G-UU+5BE7;
+    (=big5		. #xB9E7)	; &G-UU+5BE7;
     (->subsumptive
      ((=ks-x1001	  . #x523B)	; &M-07296; [50-27]
       (=daikanwa	  . 07296)	; &I-M-07296;
@@ -4496,12 +4496,11 @@
   '((<-denotational
      ((=ucs		  . #x5BE7)	; 寧
       ))
-    (=>ucs*		. #x5BE7)	; 寧
-    (=>ucs@jis		. #x5BE7)	; &GT-09189;
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=ucs		. #x2F86F)	; 寧
+    (=>>ucs@jis		. #x5BE7)	; &G-JU+5BE7;
+    (=>>ucs@cns		. #x2F86F)	; &G-JU+5BE7;
     (->subsumptive
      ((morohashi-daikanwa	7296 1)
       (=ucs@jis		  . #x5BE7)	; &GT-09189;
@@ -4511,8 +4510,9 @@
       (=gt-k		  . 11162)	; &I-GT-K11162;
       (=gt-pj-1		  . #x472B)	; &I-GT-09189; [39-11]
       )
-     ((=ucs@iso		  . #x2F86F)	; &C6-5C22;
-      (=cns11643-6	  . #x5C22)	; &C6-5C22; [60-02]
+     ((=>ucs*		  . #x5BE7)	; 寧
+      (=ucs		  . #x2F86F)	; 寧
+      (=cns11643-6	  . #x5C22)	; &I-C6-5C22; [60-02]
       ))
     ))
 (define-char
