@@ -559,10 +559,10 @@
   '((<-denotational
      ((=ucs		  . #x6BBA)	; 殺
       ))
-    (=>ucs@jis		. #xF970)	; 殺
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (=>ucs@jis		. #xF970)	; &A-JX1-7649;
     (=>ucs@cns		. #x6BBA)	; &A-JX1-7649;
     (=>jis-x0213-1	. #x7649)	; &A-JX1-7649; [86-41]
     (=>daikanwa		. 16638)	; &A-JX1-7649;
