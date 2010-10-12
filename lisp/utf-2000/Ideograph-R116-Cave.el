@@ -431,11 +431,11 @@
   '((<-denotational
      ((=ucs		  . #x7A81)	; 突
       ))
-    (=>ucs@jis		. #xFA55)	; 突
     (ideographic-radical . 116)	; ⽳
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (=>ucs@unicode	. #x7A81)	; &A-JX1-7951;
+    (=>ucs@jis		. #xFA55)	; &A-JX1-7951;
     (=>jis-x0213-1	. #x7951)	; &A-JX1-7951; [89-49]
     (=big5		. #xACF0)	; &A-JX1-7951;
     (->subsumptive
