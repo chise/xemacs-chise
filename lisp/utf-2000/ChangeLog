@@ -1,5 +1,18 @@
 2010-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R066-Rap.el (U+6577): Unify A-J0-495F.
+	(B-BCC5): Unify G-UU+6577.
+	(U-00022FBE): Unify G-JU+6577 and G-KU+6577.
+
+	* Ideograph-R047-River.el (mother of J0-3D64): Separate
+	U-0002F881; unify G-UU+5DE1 and G-CU+2F881.
+	(C6-2736): Unify U-0002F881.
+
+	* Ideograph-R040-Roof.el (B-B9E7): Unify G-UU+5BE7.
+	(mother of J0-472B): Separate U-0002F86F; unify G-JU+5BE7 and
+	G-CU+2F86F.
+	(C6-5C22): Unify U-0002F86F.
+
 	* Ideograph-R019-Power.el (B-AB6A): Separate U+FA33.
 	(JX1-2E63): Unify U+FA33.
 
@@ -45,6 +58,18 @@
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>ucs@jis'.
 	(insert-char-attributes): Treat `=>ucs@jis' as a coded-charset.
+
+2010-09-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R141-Tiger.el (B-AD68): Unify G-UU+8650.
+	(mother of J0-3554): Separate U-0002F9B3; unify G-JU+8650 and
+	G-CU+2F9B3.
+	(C6-3447): Unify U-0002F9B3.
+	(U+865C): Unify J97-4E3A.
+	(mother of JX1-7B4F): Separate U+F936; unify G-JU+F936, G-CU+865C
+	and G-JX1-7B4F.
+	(JX1-7B4F): Unify U+F936.
+	(U-0002F9B4): Unify G-UU+865C, G-CU+2F9B4 and G-J0-4E3A.
 
 2010-09-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
