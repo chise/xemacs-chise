@@ -174,6 +174,7 @@
     =>ucs@iso
     =>ucs@unicode
     =>ucs@jis
+    =>ucs@JP
     =>ucs@cns
     =>>ucs@unicode
     =>>ucs@jis
