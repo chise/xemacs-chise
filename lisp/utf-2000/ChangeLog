@@ -3,6 +3,16 @@
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>ucs@JP'.
 
+	* Ideograph-R115-Grain.el (U+7A40): Use `->denotational'; unify
+	J97-3972.
+	(mother of J0-3972): Separate U-0002F959; unify G-JU+7A40,
+	G-CU+2F959 and G-JX1-3972.
+	(J0-3972): Separate JC3-5CF4.
+	(C4-455F): Unify U-0002F959.
+	(B-BD5C): Separate U+7A40; use `<-denotational' for U+7A40; unify
+	G-UU+7A40, G-JU+FA54 and G-JX1-794D.
+	(JX1-794D): Unify JC3-5CF4.
+
 2010-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R066-Rap.el (U+6577): Unify A-J0-495F.
