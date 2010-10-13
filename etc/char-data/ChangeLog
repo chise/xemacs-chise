@@ -1,3 +1,9 @@
+2010-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JSP-to-UCS.txt (JSP-583E): Don't map to U-0002F9A0.
+
+	* JC3-to-UCS.txt (JC3-5CF4): Map to U+FA54 instead of U-0002F959.
+
 2010-09-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* JC3-to-UCS.txt (JC3-63AB): Map to U+865C instead of U+F936.
