@@ -3179,15 +3179,20 @@
     (=daikanwa		. 25188)	; &I-M-25188;
     ))
 (define-char
+  '((ideographic-radical . 115)	; ⽲
+    (=ucs		. #x7A40)	; 穀
+    (=>jis-x0208@1997	. #x3972)	; 穀 [25-82]
+    ))
+(define-char
   '((<-denotational
      ((=ucs		  . #x7A40)	; 穀
       ))
-    (=>ucs*		. #x7A40)	; 穀
-    (=>ucs@jis		. #x7A40)	; &GT-32448;
     (ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 9)
     (japanese-strokes	 . 14)
-    (=ucs		. #x2F959)	; 穀
+    (=>>ucs@jis		. #x7A40)	; &G-JX1-3972;
+    (=>>ucs@cns		. #x2F959)	; &G-JX1-3972;
+    (=>>jis-x0213-1	. #x3972)	; &G-JX1-3972; [25-82]
     (->subsumptive
      ((morohashi-daikanwa	25188 1)
       (=ucs@jis		  . #x7A40)	; &GT-32448;
@@ -3196,13 +3201,13 @@
       (=gt		  . 32448)	; &I-GT-32448;
       (=gt-k		  . 11664)	; &I-GT-K11664;
       (=gt-pj-1		  . #x3972)	; &I-GT-32448; [25-82]
-      (=jef-china3	  . #x5CF4)	; &I-JC3-5CF4;
       (<-simplified@JP/Jouyou
        ((=ucs		    . #xFA54)	; 穀
 	))
       )
-     ((=ucs@iso		  . #x2F959)	; &C4-455F;
-      (=cns11643-4	  . #x455F)	; &C4-455F; [37-63]
+     ((=>ucs*		  . #x7A40)	; 穀
+      (=ucs		  . #x2F959)	; 穀
+      (=cns11643-4	  . #x455F)	; &I-C4-455F; [37-63]
       ))
     ))
 (define-char
@@ -3845,12 +3850,16 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 115)	; ⽲
+  '((<-denotational
+     ((=ucs		  . #x7A40)	; 穀
+      ))
+    (ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
-    (=ucs		. #x7A40)	; 穀
-    (=>>ucs@jis		. #xFA54)	; 穀
-    (=big5		. #xBD5C)	; &I-B-BD5C;
+    (=>>ucs@unicode	. #x7A40)	; &G-JX1-794D;
+    (=>>ucs@jis		. #xFA54)	; &G-JX1-794D;
+    (=>>jis-x0213-1	. #x794D)	; &G-JX1-794D; [89-45]
+    (=big5		. #xBD5C)	; &G-JX1-794D;
     (->subsumptive
      ((=>ucs*		  . #x7A40)	; 穀
       (=ucs		  . #xFA54)	; 穀
@@ -3858,6 +3867,7 @@
       (=ks-x1001	  . #x4D5A)	; &I-K0-4D5A; [45-58]
       (=jis-x0213-1	  . #x794D)	; &I-JX1-794D; [89-45]
       (=daikanwa	  . 25221)	; &I-M-25221;
+      (=jef-china3	  . #x5CF4)	; &I-JC3-5CF4;
       )
      ((=ucs@unicode	  . #x7A40)	; &C1-6E27;
       (=cns11643-1	  . #x6E27)	; &C1-6E27; [78-07]
