@@ -1,3 +1,7 @@
+2010-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JSP-to-UCS.txt (JSP-5A6D): Don't map to U-0002F9B8.
+
 2010-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* JSP-to-UCS.txt (JSP-583E): Don't map to U-0002F9A0.
