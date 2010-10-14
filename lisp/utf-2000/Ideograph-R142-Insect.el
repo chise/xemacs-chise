@@ -511,12 +511,26 @@
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
+    (=ucs		. #x8688)	; 蚈
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8688)	; 蚈
+      ))
+    (ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
-    (=ucs		. #x8688)	; 蚈
-    (=cns11643-4	. #x2F6D)	; &I-C4-2F6D; [15-77]
+    (=ucs@unicode	. #x8688)	; &M-32847;
+    (=cns11643-4	. #x2F6D)	; &M-32847; [15-77]
     (=daikanwa		. 32847)	; &I-M-32847;
     (=jef-china3	. #x80E3)	; &I-JC3-80E3;
+    (<-vulgar
+     ((=ucs@jis		  . #x8688)	; &M-33049;
+      (=jis-x0212	  . #x5A6D)	; &M-33049; [58-77]
+      (=daikanwa	  . 33049)	; &I-M-33049;
+      ))
+    (<-vulgar*sources
+     zhengzitong daikanwa)
     ))
 (define-char
   '((=>ucs		. #x8689)	; 蚉
@@ -1284,13 +1298,13 @@
      ((=ucs		  . #x86A9)	; 蚩
       ))
     (=>ucs*		. #x86A9)	; 蚩
-    (=>ucs@cns		. #x2F9B7)	; &GT-44398;
-    (=>ucs@jis		. #x86A9)	; &M-32902;
-    (=>ucs@ks		. #x86A9)	; &M-32902;
     (ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (=ucs		. #x2F9B7)	; 蚩
+    (=>>ucs@jis		. #x86A9)	; 蚩
+    (=>>ucs@ks		. #x86A9)	; 蚩
+    (=>>ucs@cns		. #x2F9B7)	; 蚩
     (->subsumptive
      ((=ucs@iso		  . #x2F9B7)	; &M-32902;
       (=ucs@jis		  . #x86A9)	; &M-32902;
@@ -3168,23 +3182,23 @@
     (=shinjigen		.  7164)	; 蛭
     ))
 (define-char
-  '((=>ucs		. #x2F9B8)	; 蚈
+  '((<-denotational
+     ((=ucs		  . #x8688)	; 蚈
+      ))
     (ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
-    (=ucs@jis		. #x8688)	; &M-33049;
-    (=jis-x0212		. #x5A6D)	; &M-33049; [58-77]
-    (=daikanwa		. 33049)	; &I-M-33049;
-    ))
-(define-char
-  '((=>ucs*		. #x8688)	; 蚈
-    (=>ucs@jis		. #x8688)	; &M-33049;
-    (morohashi-daikanwa	33049 0 1)
-    (ideographic-radical . 142)	; ⾍
-    (ideographic-strokes . 6)
-    (total-strokes	 . 12)
-    (=ucs		. #x2F9B8)	; 蚈
-    (=cns11643-4	. #x3A75)	; &I-C4-3A75; [26-85]
+    (=>ucs@JP		. #x8688)	; &A-CU+2F9B8;
+    (=>ucs@cns		. #x2F9B8)	; &A-CU+2F9B8;
+    (->subsumptive
+     ((=ucs@jis		  . #x8688)	; &M-33049;
+      (=jis-x0212	  . #x5A6D)	; &M-33049; [58-77]
+      (=daikanwa	  . 33049)	; &I-M-33049;
+      )
+     ((=>ucs*		  . #x8688)	; 蚈
+      (=ucs		  . #x2F9B8)	; 蚈
+      (=cns11643-4	  . #x3A75)	; &I-C4-3A75; [26-85]
+      ))
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
