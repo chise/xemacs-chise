@@ -1,3 +1,17 @@
+2010-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>jis-x0213-2@usual'.
+
+	* Ideograph-R142-Insect.el (U+8688): Use `->denotational'.
+	(C4-2F6D): Add `<-denotational' for U+8688; add `<-vulgar' for
+	JSP-5A6D.
+	(U-0002F9B7): Unify G-JU+86A9, G-KU+86A9 and G-CU+2F9B7.
+	(o-JU+8688): New character; unify G-CU+2F9B8; use `<-denotational'
+	for U+8688.
+	(JSP-5A6D): Use `<-subsumptive' for o-JU+8688.
+	(C4-3A75): Likewise.
+
 2010-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
