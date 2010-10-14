@@ -1,3 +1,8 @@
+2010-10-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>jis-x0213-2@usual' and `=>ucs@JP'.
+
 2010-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=>jis-x0213-2@usual): New coded-charset for
