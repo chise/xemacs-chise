@@ -2214,24 +2214,22 @@
 (define-char
   '((ideographic-radical . 154)	; ⾙
     (=ucs		. #x8CD3)	; 賓
+    (=>jis-x0208@1997	. #x4950)	; 賓 [41-48]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x8CD3)	; 賓
       ))
-    (=>ucs*		. #x8CD3)	; 賓
-    (=>ucs@gb		. #x8CD3)	; &C1-6B33;
-    (=>ucs@cns		. #x8CD3)	; &C1-6B33;
-    (=>ucs@jis		. #xFA64)	; &M-36788;
-    (=>ucs@ks		. #x8CD3)	; &M-36788;
     (ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
-    (=ucs		. #xFA64)	; 賓
-    (=ucs@big5		. #x8CD3)	; 賓
-    (=big5		. #xBBAB)	; &I-B-BBAB;
+    (=>>ucs@unicode	. #x8CD3)	; &G-JX1-7C38;
+    (=>>ucs@jis		. #xFA64)	; &G-JX1-7C38;
+    (=>>jis-x0213-1	. #x7C38)	; &G-JX1-7C38; [92-24]
+    (=big5		. #xBBAB)	; &G-JX1-7C38;
     (->subsumptive
-     ((=ucs@unicode	  . #xFA64)	; &M-36788;
+     ((=>ucs*		  . #x8CD3)	; 賓
+      (=ucs		  . #xFA64)	; 賓
       (=ucs@ks		  . #x8CD3)	; &M-36788;
       (=ks-x1001	  . #x5E39)	; &M-36788; [62-25]
       (=jis-x0213-1	  . #x7C38)	; &I-JX1-7C38; [92-24]
@@ -4463,11 +4461,11 @@
   '((<-denotational
      ((=ucs		  . #x8D08)	; 贈
       ))
-    (=>ucs*		. #x8D08)	; 贈
-    (=>ucs@jis		. #xFA65)	; 贈
     (ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 12)
     (total-strokes	 . 19)
+    (=>ucs@unicode	. #x8D08)	; &A-JX1-7C3D;
+    (=>ucs@jis		. #xFA65)	; &A-JX1-7C3D;
     (=>jis-x0213-1	. #x7C3D)	; &A-JX1-7C3D; [92-29]
     ))
 (define-char
