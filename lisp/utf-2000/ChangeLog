@@ -1,5 +1,25 @@
 2010-10-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R154-Shell.el (U+8CD3): Unify J97-4950.
+	(B-BBAB): Separate U+FA64; unify G-UU+8CD3, G-JU+FA64 and
+	G-JX1-7C38.
+	(JX1-7C38): Unify U+FA64.
+	(A-7C3D): Unify A-UU+8D08 and G-JU+FA65.
+
+	* Ideograph-R149-Speech.el (U+8B01): Unify J97-315A.
+	(B-BFD6): Separate U+FA62; unify G-UU+8B01, G-JU+FA62 and
+	G-JX1-7C2F.
+	(JX1-7C2F): Unify U+FA62.
+	(U+8B39): Unify J97-3660.
+	(mother of UU+4700): Unify G-UU+4700.
+	(B-C2D4): Separate U+FA63; unify G-UU+8B39, G-JU+FA63 and
+	G-JX1-7C30.
+	(JX1-7C30): Unify U+FA63.
+
+	* Ideograph-R144-Walk-Enclosure.el (mother of JSP-5C32): Separate
+	U-0002F9C3; unify G-JU+8860 and G-CU+2F9C3.
+	(C4-534C): Unify U-0002F9C3.
+
 	* Ideograph-R145-Clothes.el (mother of C2-402A): Unify G-CU+88D7.
 	(C2-402A): Unify CU+88D7.
 	(mother of C6-582E): Separate U-0002F9C6; unify G-UU+88D7 and
