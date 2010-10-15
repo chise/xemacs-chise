@@ -594,20 +594,20 @@
   '((<-denotational
      ((=ucs		  . #x8860)	; 衠
       ))
-    (=>ucs*		. #x8860)	; 衠
-    (=>ucs@jis		. #x8860)	; &M-34076;
     (ideographic-radical . 144)	; ⾏
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
-    (=ucs		. #x2F9C3)	; 衠
+    (=>>ucs@jis		. #x8860)	; &G-JU+8860;
+    (=>>ucs@cns		. #x2F9C3)	; &G-JU+8860;
     (->subsumptive
      ((=ucs@jis		  . #x8860)	; &M-34076;
       (=jis-x0212	  . #x5C32)	; &M-34076; [60-18]
       (=daikanwa	  . 34076)	; &I-M-34076;
       (=jef-china3	  . #x63EC)	; &I-JC3-63EC;
       )
-     ((=ucs@iso		  . #x2F9C3)	; &C4-534C;
-      (=cns11643-4	  . #x534C)	; &C4-534C; [51-44]
+     ((=>ucs*		  . #x8860)	; 衠
+      (=ucs		  . #x2F9C3)	; 衠
+      (=cns11643-4	  . #x534C)	; &I-C4-534C; [51-44]
       ))
     ))
 (define-char
