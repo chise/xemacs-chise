@@ -1,3 +1,17 @@
+2010-10-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R145-Clothes.el (mother of C2-402A): Unify G-CU+88D7.
+	(C2-402A): Unify CU+88D7.
+	(mother of C6-582E): Separate U-0002F9C6; unify G-UU+88D7 and
+	G-CU+2F9C6.
+	(C6-582E): Unify U-0002F9C6.
+	(mother of C5-4269): Unify G-CU+27689.
+	(C5-4269): Unify CU-00027689.
+	(U+8910): Unify J97-336C.
+	(B-BDC5): Separate U+FA60 and JC3-63EE; unify G-UU+8910, G-JU+FA60
+	and G-JX1-7B6F.
+	(JX1-7B6F): Unify U+FA60 and JC3-63EE.
+
 2010-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
