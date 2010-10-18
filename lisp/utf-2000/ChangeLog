@@ -1,3 +1,36 @@
+2010-10-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R181-Leaf.el (U+983B): Unify J97-4951.
+	(mother of JX1-7D7B): Unify G-UU+983B, G-JU+FA6A and G-JX1-7D7B.
+
+	* Ideograph-R140-Grass.el:
+	- Use `->denotational' and/or `->subsumptive' for some characters.
+	(mother of C1-4F3E): Unify G-CU+829D and G-M-30699.
+	(C1-4F3E): Unify CU+829D.
+	(U-0002F991): Unify G-UU+829D and G-CU+2F991.
+	(A-UU+82B1): New character.
+	(M-30734): Use A-UU+82B1 instead of U+82B1 as the value of
+	`<-denotational'.
+	(G0-3B28): Likewise.
+	(o-JU+82B1): New character.
+	(mother of J0-3256): Unify G-JU+82B1, G-CU+2F993 and G-GT-39726.
+	(C6-2928): Unify U-0002F993.
+	(C1-4F44): Unify CU+82B1.
+	(C1-4F4C): Unify JC3-61CC.
+	(U+44A2): Use `->denotational' instead of `->subsumptive'.
+	(U+82BD): Unify A-J0-326A.
+	(G-JU+82BD): Unify G-J0-326A.
+	(U+83CA): Unify A-J0-3546.
+	(mother of C1-6168): Unify G-CU+83CA.
+	(C1-6168): Unify CU+83CA.
+	(mother of J0-3546): Separate U-0002F9A1; unify G-UU+83CA and
+	G-CU+2F9A1.
+	(C6-443E): Unify U-0002F9A1.
+	(J0-685A): Unify S-6716; add `<-vulgar' for U+82BB.
+	(A-J0-8641): New character.
+	(U-00027144): Unify A-UU+8641.
+	(mother of C5-7940): Unify G-IU+27144.
+
 2010-10-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R154-Shell.el (U+8CD3): Unify J97-4950.
