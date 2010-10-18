@@ -2397,19 +2397,20 @@
 (define-char
   '((ideographic-radical . 181)	; ⾴
     (=ucs		. #x983B)	; 頻
+    (=>jis-x0208@1997	. #x4951)	; 頻 [41-49]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x983B)	; 頻
       ))
-    (=>ucs@jis		. #xFA6A)	; 頻
     (ideographic-radical . 181)	; ⾴
     (ideographic-strokes . 7)
     (total-strokes	 . 16)
+    (=>>ucs@unicode	. #x983B)	; &G-JX1-7D7B;
+    (=>>ucs@jis		. #xFA6A)	; &G-JX1-7D7B;
+    (=>>jis-x0213-1	. #x7D7B)	; &G-JX1-7D7B; [93-91]
     (->subsumptive
      ((=>ucs*		  . #x983B)	; 頻
-      (=>ucs@gb		  . #x983B)	; &C1-7322;
-      (=>ucs@cns	  . #x983B)	; &C1-7322;
       (=ucs		  . #xFA6A)	; 頻
       (=ucs@ks		  . #x983B)	; 頻
       (=jis-x0208@1978	  . #x4951)	; &I-J78-4951; [41-49]
