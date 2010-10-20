@@ -1,3 +1,12 @@
+2010-10-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R184-Eat.el (U+9929): Use `->denotational' and
+	`->subsumptive'; integrate U-0002FA04.
+
+	* Ideograph-R157-Foot.el (mother of JSP-5F6F): Separate
+	U-0002F9DB; unify o-JU+8DBC and A-CU+2F9DB.
+	(C3-446D): Unify U-0002F9DB.
+
 2010-10-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R181-Leaf.el (U+983B): Unify J97-4951.
