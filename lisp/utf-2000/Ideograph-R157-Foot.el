@@ -1813,13 +1813,11 @@
   '((<-denotational
      ((=ucs		  . #x8DBC)	; 趼
       ))
-    (=>ucs*		. #x8DBC)	; 趼
-    (=>ucs@cns		. #x2F9DB)	; &C3-446D;
-    (=>ucs@jis		. #x8DBC)	; &AJ1-22613;
     (ideographic-radical . 157)	; ⾜
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
-    (=ucs		. #x2F9DB)	; 趼
+    (=>ucs@JP		. #x8DBC)	; &A-CU+2F9DB;
+    (=>ucs@cns		. #x2F9DB)	; &A-CU+2F9DB;
     (->subsumptive
      ((=ucs@jis		  . #x8DBC)	; &AJ1-22613;
       (=jis-x0212	  . #x5F6F)	; &AJ1-22613; [63-79]
@@ -1829,8 +1827,9 @@
       (=jef-china3	  . #x99B6)	; &I-JC3-99B6;
       (=adobe-japan1-6	  . 22613)	; &I-AJ1-22613;
       )
-     ((=ucs@iso		  . #x2F9DB)	; &C3-446D;
-      (=cns11643-3	  . #x446D)	; &C3-446D; [36-77]
+     ((=>ucs*		  . #x8DBC)	; 趼
+      (=ucs		  . #x2F9DB)	; 趼
+      (=cns11643-3	  . #x446D)	; &I-C3-446D; [36-77]
       ))
     ))
 (define-char
