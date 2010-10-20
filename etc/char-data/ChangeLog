@@ -1,3 +1,11 @@
+2010-10-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-99B6): Map to U+8DBC instead of U-0002F9DB.
+
+2010-10-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JSP-to-UCS.txt (JSP-5F6F): Delete mapping for U-0002F9DB.
+
 2010-10-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* JC3-to-UCS.txt (JC3-63EC): Map to U+8860 instead of U-0002F9C3.

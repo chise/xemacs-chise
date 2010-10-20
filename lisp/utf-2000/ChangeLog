@@ -1,3 +1,38 @@
+2010-10-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R102-Field.el (U-00024CAB): Integrate M-21908.
+	(U+3F65): Integrate M-21909.
+	(U-00024CAC): Integrate M-21910.
+	(U-00024CAE): Unify M-21912.
+	(U-00024CB6): Unify M-21915.
+	(U-00024CB5): Integrate M-21916.
+	(U+3F66): Integrate M-21917.
+	(U-00024CB7): Integrate M-21918.
+	(U-00024CB8): Integrate M-21919.
+	(U+3F67): Integrate M-21920.
+	(U-00024CB9): Integrate M-21921.
+	(U-00024CBA): Integrate M-21922.
+	(U-00024CBB): Unify M-21926.
+	(U-00024CBD): Unify M-21927.
+	(U-00024CC5): Unify M-21928.
+	(U-00024CBE): Integrate M-21931.
+	(U-00024CC3): Use `->denotational'.
+	(U+7588): Use `->subsumptive'.
+	(U+3F6E): Unify M-21974.
+	(U-00024CF6): Use `->denotational' and `->subsumptive'.
+	(U-00024CEC): Integrate M-21976.
+	(U-00024CF9): Unify M-21977.
+	(U-00024CFB): Integrate M-21978.
+	(U-00027215): Integrate M-21979.
+	(U+7589): Use `->denotational' to integrate U-00024D01.
+	(U-00024D01): Use `<-denotational' for U+7589; unify A-JU+7589;
+	use `->denotational'.
+	(G-JU+7589): New abstract glyph; use `<-denotational' for
+	U-00024D01; use `->subsumptive' to integrate J0-6149 and H7-BA40.
+	(C7-5378): Separate U-00024D01 and H7-BA40; use `<-denotational'
+	for U-00024D01.
+	(C3-5C62): Use `<-denotational' for U+7589.
+
 2010-10-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R184-Eat.el (U+9929): Use `->denotational' and
