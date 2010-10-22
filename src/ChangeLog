@@ -1,3 +1,17 @@
+2010-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (allocate_character): Add `static'.
+
+2010-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (allocate_character): New function.
+	(Fdefine_char): Use allocate_character().
+
+2010-06-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule.c (vars_of_mule): Update `xemacs-chise-version' to 0.25
+	(Ōkawara).
+
 2010-03-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (save_uint8_byte_table): Fixed problem when a property

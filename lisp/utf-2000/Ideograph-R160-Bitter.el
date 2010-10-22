@@ -38,7 +38,15 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x2840B)	; 𨐋
+  '((ideographic-radical . 160)	; ⾟
+    (ideographic-strokes . 0)
+    (total-strokes	 . 7)
+    (=ucs		. #x2840B)	; 𨐋
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2840B)	; 𨐋
+      ))
     (morohashi-daikanwa	38630 1)
     (ideographic-radical . 160)	; ⾟
     (ideographic-strokes . 0)
@@ -52,14 +60,19 @@
      jiyun daikanwa)
     ))
 (define-char
-  '((=>daikanwa		38630 1)	; 𨐋
+  '((<-denotational
+     ((=ucs		  . #x2840B)	; 𨐋
+      ))
     (ideographic-radical . 160)	; ⾟
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
-    (hanyu-dazidian	6 4036 2)
-    (=ucs		. #x2840B)	; 𨐋
-    (=cns11643-6	. #x292B)	; &I-C6-292B; [09-11]
-    (=hanziku-10	. #xF0FA)	; &I-HZK10-F0FA;
+    (=>>ucs@iso		. #x2840B)	; &G-IU+2840B;
+    (->subsumptive
+     ((hanyu-dazidian	  6 4036 2)
+      (=ucs@iso		  . #x2840B)	; &HZK10-F0FA;
+      (=cns11643-6	  . #x292B)	; &HZK10-F0FA; [09-11]
+      (=hanziku-10	  . #xF0FA)	; &I-HZK10-F0FA;
+      ))
     ))
 (define-char
   '((ideographic-radical . 160)	; ⾟

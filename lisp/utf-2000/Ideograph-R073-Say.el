@@ -364,6 +364,39 @@
     ))
 (define-char
   '((<-denotational
+     ((=ucs		  . #x5195)	; 冕
+      ))
+    (ideographic-radical@cns . 73)	; ⽈
+    (ideographic-strokes@cns . 7)
+    (ideographic-radical@jis . 13)	; ⼌
+    (ideographic-strokes@jis . 9)
+    (total-strokes	 . 11)
+    (=>>ucs@ks		. #x5195)	; &G-KU+5195;
+    (=>>ucs@cns		. #x2F8D3)	; &G-KU+5195;
+    (->subsumptive
+     ((ideographic-radical . 13)	; ⼌
+      (ideographic-strokes . 9)
+      (=jis-x0208@1978	  . #x514B)	; &J78-514B; [49-43]
+      )
+     ((=>ucs*		  . #x5195)	; 冕
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=cns11643-1	    . #x454B)	; &C1-454B; [37-43]
+	)
+       ((=ucs@unicode	    . #x514D)	; &C1-492D;
+	(=gb2312	    . #x4362)	; &C1-492D; [35-66]
+	(=cns11643-1	    . #x492D)	; &I-C1-492D; [41-13]
+	))
+      (=ucs		  . #x2F8D3)	; 冕
+      (=ucs@ks		  . #x5195)	; 冕
+      (=ks-x1001	  . #x5874)	; &I-K0-5874; [56-84]
+      (=cns11643-6	  . #x4057)	; &I-C6-4057; [32-55]
+      ))
+    ))
+(define-char
+  '((<-denotational
      ((=ucs		  . #x52D7)	; 勗
       ))
     (ideographic-radical@ucs . 19)	; ⼒
@@ -382,6 +415,7 @@
       )
      ((=ucs		  . #x52A9)	; 助
       ))
+    (=>>ucs@unicode	. #x52D7)	; &GT-03066;
     (=ucs@unicode	. #x52D7)	; &GT-03066;
     (=jis-x0208		. #x5228)	; &GT-03066; [50-08]
     (=cns11643-1	. #x5B2B)	; &I-C1-5B2B; [59-11]
@@ -409,40 +443,6 @@
       ))
     ))
 (define-char
-  '((<-denotational
-     ((=ucs		  . #x5195)	; 冕
-      ))
-    (=>ucs*		. #x5195)	; 冕
-    (=>ucs@ks		. #x5195)	; &C6-4057;
-    (ideographic-radical@cns . 73)	; ⽈
-    (ideographic-strokes@cns . 7)
-    (ideographic-radical@jis . 13)	; ⼌
-    (ideographic-strokes@jis . 9)
-    (total-strokes	 . 11)
-    (=ucs		. #x2F8D3)	; 冕
-    (->subsumptive
-     ((ideographic-radical . 13)	; ⼌
-      (ideographic-strokes . 9)
-      (=jis-x0208@1978	  . #x514B)	; &J78-514B; [49-43]
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=cns11643-1	    . #x454B)	; &C1-454B; [37-43]
-	)
-       ((=ucs@unicode	    . #x514D)	; &C1-492D;
-	(=gb2312	    . #x4362)	; &C1-492D; [35-66]
-	(=ks-x1001	    . #x5873)	; &I-K0-5873; [56-83]
-	(=cns11643-1	    . #x492D)	; &I-C1-492D; [41-13]
-	))
-      (=ucs@iso		  . #x2F8D3)	; &C6-4057;
-      (=ucs@ks		  . #x5195)	; &C6-4057;
-      (=ks-x1001	  . #x5874)	; &C6-4057; [56-84]
-      (=cns11643-6	  . #x4057)	; &I-C6-4057; [32-55]
-      ))
-    ))
-(define-char
   '((ideographic-radical@ucs . 73)	; ⽈
     (ideographic-strokes@ucs . 8)
     (ideographic-radical@ucs*sources
@@ -461,6 +461,8 @@
      shinjigen@1ed jisx0208/a jisx0208/b)
     (total-strokes	 . 12)
     (=ucs		. #x6700)	; 最
+    (=>jis-x0208	. #x3A47)	; 最 [26-39]
+    (=>jis-x0213-1	. #x3A47)	; 最 [26-39]
     (=big5		. #xB3CC)	; &I-B-B3CC;
     ))
 (define-char
@@ -479,7 +481,7 @@
     (hanyu-dazidian	2 1516 8)
     (=cns11643-1	. #x5E32)	; &M-01597; [62-18]
     (=daikanwa		. 01597)	; &I-M-01597;
-    (=shinjigen@1ed	.  0926)	; &M-01597;
+    (=shinjigen		.  0926)	; &M-01597;
     (<-original
      ((=ucs@iso		  . #x2F8D4)	; &GT-18101;
       (=ucs@jis		  . #x6700)	; &GT-18101;
@@ -492,7 +494,7 @@
       (=shinjigen	  .  0925)	; &GT-18101;
       ))
     (<-original*sources
-     zhengzitong daikanwa shinjigen@1ed)
+     zhengzitong daikanwa shinjigen)
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈
@@ -563,9 +565,6 @@
      ((=ucs		  . #x6700)	; 最
       ))
     (=>ucs*		. #x6700)	; 最
-    (=>ucs@gb		. #x6700)	; &G0-576E;
-    (=>ucs@jis		. #x6700)	; &GT-18101;
-    (=>ucs@ks		. #x6700)	; &GT-18101;
     (ideographic-radical@ucs . 73)	; ⽈
     (ideographic-strokes@ucs . 8)
     (ideographic-radical@ucs*sources
@@ -576,6 +575,9 @@
      shinjigen@1ed jisx0208/a jisx0208/b)
     (total-strokes	 . 12)
     (=ucs		. #x2F8D4)	; 最
+    (=>>ucs@unicode	. #x6700)	; 最
+    (=>>ucs@cns		. #x2F8D4)	; 最
+    (=>>jis-x0208	. #x3A47)	; 最 [26-39]
     (->subsumptive
      ((=ucs@iso		  . #x2F8D4)	; &GT-18101;
       (=ucs@jis		  . #x6700)	; &GT-18101;
@@ -607,6 +609,7 @@
     (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (=>>ucs@jis		. #x6701)	; &G-JU+6701;
     (->subsumptive
      ((=daikanwa	  . 14302)	; &M-14302;
       )
@@ -621,7 +624,8 @@
     (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=big5		. #xD9A9)	; &B-D9A9;
+    (=>>ucs@unicode	. #x6701)	; &G-UU+6701;
+    (=big5		. #xD9A9)	; &I-B-D9A9;
     (->subsumptive
      ((=ucs@unicode	  . #x6701)	; &UU+6701;
       )
@@ -662,8 +666,23 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=ucs		. #x3479)	; 㑹
-    (=cns11643-6	. #x497B)	; &I-C6-497B; [41-91]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3479)	; 㑹
+      ))
+    (ideographic-radical . 73)	; ⽈
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (=ucs@unicode	. #x3479)	; &M-14305;
+    (=cns11643-6	. #x497B)	; &M-14305; [41-91]
     (=daikanwa		. 14305)	; &I-M-14305;
+    (<-vulgar
+     ((=ucs		  . #x6703)	; 會
+      (=daikanwa	  . 14306)	; &I-M-14306;
+      ))
+    (<-vulgar*sources
+     zhengzitong daikanwa)
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈

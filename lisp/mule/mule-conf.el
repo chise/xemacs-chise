@@ -320,12 +320,45 @@
   (define-charset-alias 'japanese-jisx0208-1990 '=jis-x0208@1990)
 
   (make-charset
+   '=>>>jis-x0208
+   "JIS X 0208 abstract glyph-images (unchanged part)."
+   '(registry "jisx0208\\.1990"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0208
+	      =>iso-ir 168
+	      ;; final ?B
+	      graphic 0))
+  (make-charset
+   '=>>>jis-x0208@1990
+   "JIS X 0208:1990 abstract glyph-images."
+   '(registry "jisx0208\\.1990"
+	      dimension 2
+	      chars 94
+	      mother =>>>jis-x0208
+	      =>iso-ir 168
+	      ;; final ?B
+	      graphic 0))
+  (make-charset
+   '=>>>jis-x0213-1
+   "JIS X 0213 Plain 1 abstract glyph-images (unchanged part)"
+   '(registry "jisx0213\\(\\.[0-9]+\\)?-1"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0213-1
+	      =>iso-ir 228
+              ;; final ?O
+	      graphic 0
+              ;; partial t
+	      ))
+
+  (make-charset
    '=>>jis-x0208
    "JIS X 0208 abstract glyphs (unchanged part)."
    '(registry "jisx0208\\.1990"
 	      dimension 2
 	      chars 94
-	      mother =jis-x0208
+	      mother =>>>jis-x0208
 	      =>iso-ir 168
 	      ;; final ?B
 	      graphic 0))
@@ -346,7 +379,7 @@
    '(registry "jisx0213\\(\\.[0-9]+\\)?-1"
 	      dimension 2
 	      chars 94
-	      mother =jis-x0213-1
+	      mother =>>>jis-x0213-1
 	      =>iso-ir 228
               ;; final ?O
 	      graphic 0
@@ -388,12 +421,22 @@
 	      ))
 
   (make-charset
+   '=>jis-x0208@usual
+   "JIS X 0208 based on usual unification."
+   '(registry "jisx0208\\.1990"
+	      dimension 2
+	      chars 94
+	      mother =>>jis-x0208
+	      =>iso-ir 168
+	      ;; final ?B
+	      graphic 0))
+  (make-charset
    '=>jis-x0208
    "JIS X 0208 based on the unchanged unification rules."
    '(registry "jisx0208\\.1990"
 	      dimension 2
 	      chars 94
-	      mother =>>jis-x0208
+	      mother =>jis-x0208@usual
 	      =>iso-ir 168
 	      ;; final ?B
 	      graphic 0))
@@ -451,12 +494,22 @@
 	      ))
   (define-charset-alias '<=>jis-x0213-1@2004 '=>jis-x0213-1@2004)
   (make-charset
+   '=>jis-x0213-2@usual
+   "JIS X 0213 Plain 2 based on usual unification."
+   '(registry "jisx0213\\(\\.\\(2000\\|2004\\)\\)?-2"
+	      dimension 2
+	      chars 94
+	      mother =>>jis-x0213-2
+	      =>iso-ir 229
+              ;; final ?P
+	      graphic 0))
+  (make-charset
    '=>jis-x0213-2
    "JIS X 0213 Plain 2 abstract characters"
    '(registry "jisx0213\\(\\.\\(2000\\|2004\\)\\)?-2"
 	      dimension 2
 	      chars 94
-	      mother =>>jis-x0213-2
+	      mother =>jis-x0213-2@usual
 	      =>iso-ir 229
               ;; final ?P
 	      graphic 0))
@@ -475,6 +528,28 @@
 		  max-code	#x8DFE))
   (define-charset-alias 'chinese-big5-cdp '=big5-cdp)
 
+  (make-charset '=>>big5-cdp
+		"Abstract glyphs of Big5-CDP"
+		'(long-name	"Big5-CDP glyphs"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"big5\\.cdp-0"
+		  mother	=big5-cdp))
+
+  (make-charset '=>big5-cdp
+		"Big5-CDP abstract characters"
+		'(long-name	"Big5-CDP abstract characters"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"big5\\.cdp-0"
+		  mother	=>>big5-cdp))
+
   (make-charset '=gt
 		"GT 2000"
 		`(long-name	"GT"
@@ -490,7 +565,7 @@
   (define-charset-alias 'ideograph-gt '=gt)
   (make-charset '=>>gt
 		"GT 2000 abstract glyphs"
-		`(long-name	"abstract GT glyphs"
+		'(long-name	"GT abstract glyphs"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -501,7 +576,7 @@
   (define-charset-alias '<==>gt '=>>gt)
   (make-charset '=>gt
 		"GT 2000 abstract characters"
-		`(long-name	"abstract GT characters"
+		'(long-name	"abstract GT characters"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -521,6 +596,15 @@
 		  max-code	,(+ (lsh #x6110 16) 17090)
 		  code-offset	,(lsh #x6110 16)))
   (define-charset-alias 'ideograph-gt-k '=gt-k)
+  (make-charset '=>>gt-k
+		"abstract glyphs of GT-K"
+		'(long-name	"GT-K abstract glyphs"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=gt-k))
   (let ((i 1))
     (while (<= i 11)
       (make-charset
@@ -561,7 +645,7 @@
   (define-charset-alias 'ideograph-gt-pj-k2 '=gt-pj-k2)
 
   (make-charset '=daikanwa
-		"Daikanwa dictionary (revised version 2)"
+		"Daikanwa dictionary (unchanged part)"
 		`(long-name	"Daikanwa"
 		  chars		256
 		  dimension	2
@@ -605,6 +689,28 @@
                   ;; code-offset	#xE00000
 		  ))
   (define-charset-alias '=daikanwa-rev2 '=daikanwa@rev2)
+
+  (make-charset '=>>daikanwa
+		"Daikanwa abstract glyphs"
+		'(long-name	"Daikanwa glyphs"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"Daikanwa\\(\\.[0-9]+\\)?-3"
+		  mother	=daikanwa))
+
+  (make-charset '=>daikanwa
+		"Daikanwa abstract characters"
+		'(long-name	"abstract Daikanwa"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"Daikanwa\\(\\.[0-9]+\\)?-3"
+		  mother	=>>daikanwa))
 
   (make-charset '=shinjigen
 		"Kadokawa ShinJigen dictionary (common parts)"
@@ -797,6 +903,159 @@
 		  max-code	#xE908FF ; #xE8FF
 		  code-offset	,(- #xE90000 #xE000)))
 
+  (make-charset '==>ucs@bucs
+		"Basic Subset of Coded Character Sets (BUCS)"
+		'(long-name	"BUCS abstract characters"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=ucs))
+
+  (make-charset '=>ucs@iso
+		"Abstract characters of ISO/IEC 10646 representatives"
+		'(long-name	"UCS characters for ISO"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=ucs))
+  (make-charset '=>ucs@unicode
+		"Abstract characters of Unicode representatives"
+		'(long-name	"UCS characters for Unicode"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>ucs@iso))
+  (make-charset '=>ucs@jis
+		"UCS Representative characters for JIS X0208/0212/0213"
+		'(long-name	"UCS characters for JIS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>ucs@unicode))
+  (make-charset '=>ucs@JP
+		"UCS Representative characters for Japanese usual unification"
+		'(long-name	"UCS characters for JP"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>ucs@jis))
+  (make-charset '=>ucs@ks
+		"UCS Representative characters for Korean Standards"
+		'(long-name	"UCS characters for KS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>ucs@unicode))
+  (make-charset '=>ucs@cns
+		"UCS representatives characters for CNS 11643 sources"
+		'(long-name	"UCS characters for CNS 11643"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>ucs@unicode))
+
+  (make-charset '=>>ucs@iso
+		"Representative abstract glyphs of ISO/IEC 10646"
+		'(long-name	"UCS glyphs for UCS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>ucs@iso))
+  (make-charset '=>>ucs@unicode
+		"Representative abstract glyphs of Unicode"
+		'(long-name	"Unicode abstract glyphs"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@iso))
+  (make-charset '=>>ucs@jis
+		"UCS Representative glyphs for JIS X0208/0212/0213"
+		'(long-name	"UCS glyphs for JIS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@unicode))
+  (make-charset '=>>ucs@jis/1990
+		"UCS Representative glyphs for JIS X 0208/0212:1990"
+		'(long-name	"UCS glyphs for JIS:1990"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@jis))
+  (make-charset '=>>ucs@jis/2000
+		"UCS Representative glyphs for JIS X 0213:2000"
+		'(long-name	"UCS glyphs for JIS:2000"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@jis))
+  (make-charset '=>>ucs@jis/2004
+		"UCS Representative glyphs for JIS X 0213:2004"
+		'(long-name	"UCS glyphs for JIS:2004"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@jis))
+  (make-charset '=>>ucs@ks
+		"UCS Representative glyphs for Korean Standards"
+		'(long-name	"UCS glyphs for KS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@unicode))
+  (make-charset '=>>ucs@cns
+		"UCS Representative glyphs for CNS 11643 sources"
+		'(long-name	"UCS glyphs for CNS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@unicode))
+
   (make-charset '=ucs@iso
 		"ISO/IEC 10646 for its representative glyphs"
 		'(long-name	"UCS for ISO"
@@ -806,7 +1065,7 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
-		  mother	=ucs))
+		  mother	=>>ucs@iso))
   (make-charset '=ucs@unicode
 		"Unicode for its representative glyphs"
 		'(long-name	"UCS for Unicode"
@@ -922,7 +1181,7 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
-		  mother	ucs-jis))
+		  mother	=ucs@jis))
   (define-charset-alias '=ucs@jis-1990 '=ucs@jis/1990)
   (define-charset-alias '=ucs-jis-1990 '=ucs@jis/1990)
   (make-charset '=ucs@jis/2000
@@ -934,7 +1193,7 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
-		  mother	ucs-jis))
+		  mother	=ucs@jis))
   (define-charset-alias '=ucs@jis-2000 '=ucs@jis/2000)
   (define-charset-alias '=ucs-jis-2000 '=ucs@jis/2000)
   (make-charset '=ucs@jis/2004
@@ -946,7 +1205,7 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
-		  mother	ucs-jis))
+		  mother	=ucs@jis))
   (make-charset '=ucs@JP
 		"UCS for common glyphs used in Japan"
 		'(long-name	"UCS for Japan"
@@ -990,17 +1249,6 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=ucs@cns))
-
-  (make-charset '=>>ucs@unicode
-		"Representative abstract glyphs of Unicode"
-		'(long-name	"Unicode abstract glyphs"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=ucs@unicode))
   (make-charset '=ucs@big5
 		"ISO/IEC 10646 for Big5"
 		'(long-name	"UCS for Big5"
@@ -1010,7 +1258,7 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
-		  mother	=>>ucs@unicode))
+		  mother	=>>ucs@cns))
   (define-charset-alias 'ucs-big5 '=ucs@big5)
   (make-charset '=ucs@big5/cns11643
 		"ISO/IEC 10646 for Big5 based on www.cns11643.gov.tw"
@@ -1085,6 +1333,21 @@
 	       direction l2r
 	       registry "-zh-.*-ucs-0"
 	       mother =ucs@unicode
+	       min-code #x2E00
+               max-code #x9FA5
+	       ;; max-code #xA4CF
+	       ))
+  (make-charset
+   '==>ucs-bmp-cjk@bucs
+   "CJK Characters in BMP of BUCS"
+   '(long-name "BUCS-BMP-CJK"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-zh-.*-ucs-0"
+	       mother ==>ucs@bucs
 	       min-code #x2E00
                max-code #x9FA5
 	       ;; max-code #xA4CF

@@ -25,7 +25,8 @@
 
 ;;; Code:
 
-(require 'alist)
+(require 'chise-subr)
+(require 'ideograph-subr)
 
 (defconst unidata-normative-category-alist
   '(("Lu" letter	uppercase)
@@ -61,19 +62,6 @@
     ("Sk" symbol	modifier)
     ("So" symbol	other)
     ))
-
-(defconst ideographic-radicals
-  (let ((v (make-vector 215 nil))
-	(i 1))
-    (while (< i 215)
-      (aset v i (decode-char '=ucs (+ #x2EFF i)))
-      (setq i (1+ i)))
-    v))
-
-;;;###autoload
-(defun ideographic-radical (number)
-  "Return character corresponding with Kangxi-radical number."
-  (aref ideographic-radicals number))
 
 (defconst shuowen-radicals
   [?一 ?上 ?示 ?三 ?王 ?玉 ?玨 ?气 ?士 ?丨 ; 010
@@ -112,79 +100,7 @@
 
 (defvar char-db-file-coding-system 'utf-8-mcs-er)
 
-(defvar char-db-feature-domains
-  '(ucs ucs/compat daikanwa cns gt jis jis/alt jis/a jis/b
-	jis-x0212 jis-x0213 cdp shinjigen misc unknown))
-
 (defvar char-db-ignored-attributes '(ideographic-products))
-
-(defun char-attribute-name< (ka kb)
-  (cond
-   ((eq '->denotational kb)
-    t)
-   ((eq '->subsumptive kb)
-    (not (eq '->denotational ka)))
-   ((eq '->denotational ka)
-    nil)
-   ((eq '->subsumptive ka)
-    nil)
-   ((and (symbolp ka)
-	 (string-match "^->" (symbol-name ka)))
-    (cond ((and (symbolp kb)
-		(string-match "^->" (symbol-name kb)))
-	   (string< (symbol-name ka)
-		    (symbol-name kb))
-	   ))
-    )
-   ((and (symbolp kb)
-	 (string-match "^->" (symbol-name kb)))
-    t)
-   ((and (symbolp ka)
-	 (string-match "^<-" (symbol-name ka)))
-    (cond ((symbolp kb)
-	   (cond ((string-match "^<-" (symbol-name kb))
-		  (string< (symbol-name ka)
-			   (symbol-name kb))
-		  )
-                 ;; ((string-match "^->" (symbol-name kb))
-                 ;;  t)
-		 )))
-    )
-   ((and (symbolp kb)
-	 (string-match "^<-" (symbol-name kb)))
-    t
-    ;; (not (string-match "^->" (symbol-name ka)))
-    )
-   ((find-charset ka)
-    (if (find-charset kb)
-	(let (a-ir b-ir)
-	  (if (setq a-ir (charset-property ka 'iso-ir))
-	      (if (setq b-ir (charset-property kb 'iso-ir))
-		  (cond
-		   ((= a-ir b-ir)
-		    (< (charset-id ka)(charset-id kb))
-		    )
-		   ((= a-ir 177)
-		    t)
-		   ((= b-ir 177)
-		    nil)
-		   ((< a-ir
-		       b-ir)
-		    ))
-		t)
-	    (if (charset-property kb 'iso-ir)
-		nil
-	      (< (charset-id ka)(charset-id kb)))))
-      nil)
-    )
-   ((find-charset kb))
-   ((symbolp ka)
-    (cond ((symbolp kb)
-	   (string< (symbol-name ka)
-		    (symbol-name kb)))
-	  (t)))
-   ((symbolp kb)
-    nil)))
 
 (defvar char-db-coded-charset-priority-list
   '(ascii
@@ -224,11 +140,10 @@
     ethiopic-ucs
     =big5-cdp
     =gt
-    =>>gt
-    =>gt
     ideograph-daikanwa-2
     ideograph-daikanwa
     =cbeta
+    =gt-k
     ideograph-hanziku-1
     ideograph-hanziku-2
     ideograph-hanziku-3
@@ -241,22 +156,37 @@
     ideograph-hanziku-10
     ideograph-hanziku-11
     ideograph-hanziku-12
-    =gt-k
-    =ucs@iso
-    =ucs@unicode
-    =>>ucs@unicode
     =>>jis-x0208
     =>>jis-x0213-1
     =>>jis-x0213-1@2000
     =>>jis-x0213-1@2004
     =>>jis-x0213-2
     =>>jis-x0208@1978
+    =>>gt
+    =>jis-x0208@usual
     =>jis-x0208
     =>jis-x0208@1997
     =>jis-x0213-1
     =>jis-x0213-1@2000
     =>jis-x0213-1@2004
+    =>jis-x0213-2@usual
     =>jis-x0213-2
+    ==>ucs@bucs
+    =>ucs@iso
+    =>ucs@unicode
+    =>ucs@jis
+    =>ucs@JP
+    =>ucs@cns
+    =>>ucs@unicode
+    =>>ucs@jis
+    =>>ucs@cns
+    =ucs@iso
+    =ucs@unicode
+    =>>big5-cdp
+    =>>gt-k
+    =>gt
+    =>big5-cdp
+    =>daikanwa
     =big5
     =big5-eten
     =zinbun-oracle
@@ -264,6 +194,10 @@
     =ruimoku-v6
     =jef-china3
     =shinjigen))
+
+
+;;; @ char-db formatters
+;;;
 
 (defun char-db-make-char-spec (char)
   (let (ret char-spec)
@@ -508,7 +442,8 @@
 	   "(%-18s . %04d)\t; %c")
 	  ((or (memq name '(=daikanwa
 			    =daikanwa@rev1 =daikanwa@rev2
-			    =gt =>>gt =>gt =gt-k =cbeta
+			    =>>daikanwa =>daikanwa
+			    =gt =>>gt =>gt =gt-k =>>gt-k =cbeta
 			    =zinbun-oracle =>zinbun-oracle))
 	       (string-match "^=adobe-" (symbol-name name)))
 	   "(%-18s . %05d)\t; %c")
@@ -577,8 +512,9 @@
 		  (union required-features
 			 '(=jis-x0208
 			   =jis-x0208@1990
-			   =jis-x0213-1-2000
-			   =jis-x0213-2-2000
+			   =jis-x0213-1@2000
+			   =jis-x0213-1@2004
+			   =jis-x0213-2
 			   =jis-x0212
 			   =jis-x0208@1983
 			   =jis-x0208@1978
@@ -712,7 +648,7 @@
 			name value (decode-char '=ucs value)
 			line-breaking))
 	(setq attributes (delq name attributes))))
-    (dolist (name '(=>ucs@gb =>ucs@cns =>ucs@jis =>ucs@ks =>ucs@big5))
+    (dolist (name '(=>ucs@gb =>ucs@ks =>ucs@big5))
       (when (and (memq name attributes)
 		 (setq value (get-char-attribute char name)))
 	(insert (format "(%-18s . #x%04X)\t; %c%s"
@@ -725,21 +661,21 @@
 			line-breaking))
 	(setq attributes (delq name attributes))
 	))
-    (dolist (name '(=>daikanwa))
-      (when (and (memq name attributes)
-		 (setq value (get-char-attribute char name)))
-	(insert
-	 (if (integerp value)
-	     (format "(%-18s . %05d)\t; %c%s"
-		     name value (decode-char '=daikanwa value)
-		     line-breaking)
-	   (format "(%-18s %s)\t; %c%s"
-		   name
-		   (mapconcat (function prin1-to-string)
-			      value " ")
-		   (char-representative-of-daikanwa char)
-		   line-breaking)))
-	(setq attributes (delq name attributes))))
+    ;; (dolist (name '(=>daikanwa))
+    ;;   (when (and (memq name attributes)
+    ;;              (setq value (get-char-attribute char name)))
+    ;;     (insert
+    ;;      (if (integerp value)
+    ;;          (format "(%-18s . %05d)\t; %c%s"
+    ;;                  name value (decode-char '=daikanwa value)
+    ;;                  line-breaking)
+    ;;        (format "(%-18s %s)\t; %c%s"
+    ;;                name
+    ;;                (mapconcat (function prin1-to-string)
+    ;;                           value " ")
+    ;;                (char-representative-of-daikanwa char)
+    ;;                line-breaking)))
+    ;;     (setq attributes (delq name attributes))))
     (when (and (memq 'general-category attributes)
 	       (setq value (get-char-attribute char 'general-category)))
       (insert (format
@@ -1345,6 +1281,10 @@
 	       (set-window-configuration
 		what-character-original-window-configuration)
 	       (signal (car err) (cdr err)))))))
+
+
+;;; @ end
+;;;
 
 (provide 'char-db-util)
 

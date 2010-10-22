@@ -1,3 +1,166 @@
+2010-10-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>jis-x0213-2@usual' and `=>ucs@JP'.
+
+2010-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>jis-x0213-2@usual): New coded-charset for
+	XEmacs CHISE.
+	(=>jis-x0213-2): Use `=>jis-x0213-2@usual' as the mother.
+
+2010-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>ucs@JP): New coded-charset for XEmacs
+	CHISE.
+
+2010-09-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>ucs@jis): New coded-charset for XEmacs
+	CHISE.
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>ucs@jis'.
+
+2010-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>jis-x0208@usual'.
+
+	* mule/mule-conf.el (=>jis-x0208@usual): New coded-charset for
+	XEmacs CHISE.
+	(=>jis-x0208): Use `=>jis-x0208@usual' as the mother.
+	(=>ucs@ks): New coded-charset for XEmacs CHISE.
+	(=ucs@big5): Use `=>>ucs@cns' as the mother.
+
+2010-09-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>>jis-x0208): New coded-charset for XEmacs
+	CHISE.
+	(=>>>jis-x0208@1990): Ditto.
+	(=>>>jis-x0213-1): Ditto.
+	(=>>jis-x0208): Use `=>>>jis-x0208' instead of `=jis-x0208' as the
+	mother.
+	(=>>jis-x0213-1): Use `=>>>jis-x0213-1' instead of `=jis-x0213-1'
+	as the mother.
+
+2010-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>ucs@cns' and `=>>ucs@ks'.
+
+	* mule/mule-conf.el (=>>ucs@ks): New coded-charset for XEmacs
+	CHISE.
+
+2010-08-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>ucs@cns): New coded-charset for XEmacs
+	CHISE.
+
+2010-08-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>daikanwa): New coded-charset for XEmacs
+	CHISE.
+	(=>daikanwa): Use `=>>daikanwa' instead of `=daikanwa' as the
+	mother.
+
+2010-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`==>ucs-bmp-cjk@bucs'.
+
+	* mule/mule-conf.el (==>ucs-bmp-cjk@bucs): New coded-charset for
+	XEmacs CHISE.
+
+2010-08-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `==>ucs@bucs'.
+
+	* mule/mule-conf.el (==>ucs@bucs): New super abstract CCS for
+	XEmacs CHISE.
+
+2010-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el: (coded-charset-entity-reference-alist):
+	- Add setting for `=>>jis-x0208'.
+	- Omit setting for `=>>jis-x0208@1990'.
+	- Prefer `=>>gt', JIS X0208/0213, `=>>big5-cdp', `=>>gt-k', `=>gt'
+	  and `=>zinbun-oracle' to `=>ucs@FOO', `=>>ucs@FOO' and
+	  `=ucs@FOO'.
+
+2010-08-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>daikanwa'.
+
+2010-08-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=daikanwa): Fix DOC.
+	(=>daikanwa): New abstract character for XEmacs CHISE.
+	(=>ucs@iso): Likewise.
+	(=>ucs@unicode): Likewise.
+	(=>>ucs@iso): Use `=>ucs@iso' as the mother.
+
+2010-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el: (coded-charset-entity-reference-alist):
+	- Prefer representative features to `=>>gt', `=>>big5-cdp',
+	  `=>>gt-k', `=>gt' and `=>zinbun-oracle'.
+	- Prefer abstract glyph features to `=>gt', `=>zinbun-oracle'.
+	- Add `=>big5-cdp'.
+
+2010-07-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>big5-cdp): Fix long-name.
+	(=>big5-cdp): New abstract character.
+
+2010-07-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	Prefer UCS and JIS X0208/0213 related features to `china3-jef' and
+	`chinese-big5'.
+
+2010-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer `=>>big5-cdp' to `=>>ucs@unicode'.
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	Prefer `=>>ucs@{unicode|jis|cns' to `=>>ucs@jis/{2004|2000|1990',
+	`=>>jis-x0208@{1990|1978', `=>>jis-x0213-1@{2000|2004}',
+	`=>>jis-x0213-2', `=>jis-x0208@1997', `=>jis-x0213-1@{2000|2004}'
+	and `=>jis-x0213-2'.
+
+2010-07-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>ucs@jis/1990): New abstract glyph-set for
+	XEmacs CHISE.
+	(=>>ucs@jis/2000): Likewise.
+	(=>>ucs@jis/2004): Likewise.
+
+2010-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `=>>big5-cdp', `=>>gt-k', `=>>ucs@jis' and
+	`=>>ucs@cns'.
+
+	* mule/mule-conf.el (=>>big5-cdp): New abstract glyph-set for
+	XEmacs CHISE.
+	(=>>gt): Use quote instead of backquote; modify DOC.
+	(=>gt): Use quote instead of backquote.
+	(=>>gt-k): New abstract glyph-set for XEmacs CHISE.
+	(=>>ucs@iso): New abstract glyph-set for XEmacs CHISE.
+	(=>>ucs@unicode): Use `=>>ucs@iso' as the mother.
+	(=>>ucs@jis): New abstract glyph-set for XEmacs CHISE.
+	(=>>ucs@cns): New abstract glyph-set for XEmacs CHISE.
+	(=ucs@iso): Use `=>>ucs@iso' as the mother.
+
+2010-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=>>ucs@unicode' and `=>>gt'.
+
 2010-05-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=jis-x0208@1978/2-pr): New coded-charset for

@@ -4,6 +4,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=ucs		. #x5C6E)	; 屮
+    (=big5		. #xC94B)	; &I-B-C94B;
     ))
 (define-char
   '((<-denotational
@@ -19,7 +20,6 @@
     (=gb2312		. #x6578)	; &I-G0-6578; [69-88]
     (=cns11643-2	. #x212B)	; &I-C2-212B; [01-11]
     (=jis-x0213-1	. #x4F62)	; &I-JX1-4F62; [47-66]
-    (=big5		. #xC94B)	; &I-B-C94B;
     (=gt-k		. 00269)	; &I-GT-K00269;
     (=gt-pj-k1		. #x3A6F)	; 屮 [26-79]
     (=daikanwa		. 07825)	; &I-M-07825;
@@ -49,7 +49,8 @@
     (->mistakable*sources
      daikanwa)
     (->synonyms
-     ((=daikanwa	  . 08720)	; &I-M-08720;
+     ((=ucs		  . #x5DE6)	; 左
+      (=daikanwa	  . 08720)	; &I-M-08720;
       ))
     (->synonyms*sources
      shuowen daikanwa)

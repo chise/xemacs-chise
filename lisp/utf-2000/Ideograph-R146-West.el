@@ -435,8 +435,8 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
     (->subsumptive
-     ((=ucs@unicode	  . #x8985)	; &B-DFFA;
-      (=big5		  . #xDFFA)	; &B-DFFA;
+     ((=ucs@unicode	  . #x8985)	; &UU+8985;
+      (=big5		  . #xDFFA)	; &UU+8985;
       )
      ((=cns11643-2	  . #x4741)	; &C2-4741; [39-33]
       ))

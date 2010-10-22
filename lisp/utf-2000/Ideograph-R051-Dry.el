@@ -109,7 +109,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 51)	; ⼲
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5002)	; &BUCS+5002;
+      ))
+    (ideographic-radical . 51)	; ⼲
     (=>jis-x0208@1997	. #x5675)	; &J97-5675; [54-85]
     (=>jis-x0213-1@2000 . #x5675)	; &J97-5675; [54-85]
     ))

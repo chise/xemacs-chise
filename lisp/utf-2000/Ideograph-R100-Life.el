@@ -488,10 +488,49 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x24BF7)	; 𤯷
-    (morohashi-daikanwa	21699 0 2)
+  '((<-denotational
+     ((=ucs		  . #x24BF7)	; 𤯷
+      ))
     (ideographic-radical . 100)	; ⽣
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
     (mojikyo		. 021699)	; &MCS-600054C3;
+    ))
+(define-char
+  '((ideographic-radical . 100)	; ⽣
+    (ideographic-strokes . 14)
+    (total-strokes	 . 19)
+    (=ucs		. #x24BFB)	; 𤯻
+    (->subsumptive
+     ((=daikanwa	  . 21700)	; &M-21700;
+      )
+     ((=ucs@iso		  . #x24BFB)	; &HZK07-BEEB;
+      (=hanziku-7	  . #xBEEB)	; &HZK07-BEEB;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 100)	; ⽣
+    (ideographic-strokes . 16)
+    (total-strokes	 . 21)
+    (=ucs		. #x24C00)	; 𤰀
+    (->subsumptive
+     ((=ucs@iso		  . #x24C00)	; &M-21701;
+      (=daikanwa	  . 21701)	; &M-21701;
+      )
+     ((ideographic-radical@cns . 101)	; ⽤
+      (ideographic-radical@cns*note "bug?")
+      (=cns11643-7	  . #x5374)	; &C7-5374; [51-84]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 100)	; ⽣
+    (ideographic-strokes . 17)
+    (total-strokes	 . 22)
+    (=ucs		. #x24C02)	; 𤰂
+    (->subsumptive
+     ((=daikanwa	  . 21702)	; &M-21702;
+      )
+     ((=ucs@iso		  . #x24C02)	; &HZK07-BEEE;
+      (=hanziku-7	  . #xBEEE)	; &HZK07-BEEE;
+      ))
     ))

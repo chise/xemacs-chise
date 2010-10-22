@@ -80,7 +80,10 @@
     (=cns11643-6	. #x2122)	; &I-C6-2122; [01-02]
     ))
 (define-char
-  '((ideographic-radical . 2)	; ⼁
+  '((<-denotational
+     ((==>ucs@bucs	  . #x500B)	; &BUCS+500B;
+      ))
+    (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (hanyu-dazidian	1 103 1)
@@ -129,6 +132,7 @@
     (=gt-pj-2		. #x3056)	; &I-GT-00104; [16-54]
     (=daikanwa		. 00071)	; &I-M-00071;
     (=shinjigen		.  0032)	; 丫
+    (=jef-china3	. #x95EC)	; &I-JC3-95EC;
     (mojikyo		. 000071)	; &MCS-60000047;
     ))
 (define-char
@@ -281,6 +285,13 @@
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁
+    (==>ucs@bucs	. #x4E31)	; &BUCS+4E31;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x4E31)	; &BUCS+4E31;
+      ))
+    (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 52 12)

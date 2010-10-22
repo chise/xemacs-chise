@@ -233,7 +233,9 @@
       ))
     ))
 (define-char
-  '((morohashi-daikanwa	232 0 1)
+  '((<-denotational
+     ((=ucs		  . #x20112)	; 𠄒
+      ))
     (ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
@@ -244,7 +246,6 @@
      ((=ucs		  . #x4E3F)	; 丿
       )
      ((=ucs@jis		  . #x624D)	; &GT-14886;
-      (=ucs@big5	  . #x624D)	; &GT-14886;
       (=jis-x0208	  . #x3A4D)	; &GT-14886; [26-45]
       (=ks-x1001	  . #x6E26)	; &I-K0-6E26; [78-06]
       (=jis-x0213-1	  . #x3A4D)	; &I-JX1-3A4D; [26-45]
@@ -347,11 +348,19 @@
       ))
     ))
 (define-char
-  '((=>daikanwa		. 00237)	; &M-00237;
-    (ideographic-radical . 6)	; ⼅
+  '((ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EE4)	; 令
+      )
+     ((=ucs		  . #x4E01)	; 丁
+      ))
     (=ucs		. #x20116)	; 𠄖
+    (=>daikanwa		. 00237)	; 𠄖
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -384,7 +393,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs		    . #x4EE4)	; 令
+       ((=ucs@unicode	    . #x4EE4)	; &GT-K01022;
+	(=gb2312	    . #x416E)	; &GT-K01022; [33-78]
 	)
        ((=ucs		    . #x4E01)	; 丁
 	))
@@ -422,7 +432,14 @@
       ))
     ))
 (define-char
-  '((morohashi-daikanwa	ho 7)
+  '((ideographic-radical . 6)	; ⼅
+    (==>ucs@bucs	. #x4E8B)	; &BUCS+4E8B;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x4E8B)	; &BUCS+4E8B;
+      ))
+    (morohashi-daikanwa	ho 7)
     (ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
@@ -465,7 +482,10 @@
     (mojikyo		. 000240)	; &MCS-600000F0;
     ))
 (define-char
-  '((ideographic-radical . 6)	; ⼅
+  '((<-denotational
+     ((==>ucs@bucs	  . #x4E8B)	; &BUCS+4E8B;
+      ))
+    (ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 23 3)

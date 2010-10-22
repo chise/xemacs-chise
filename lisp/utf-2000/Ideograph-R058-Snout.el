@@ -140,14 +140,24 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x22452)	; 𢑒
+  '((ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (=>daikanwa		. 09910)	; &A-M-09910;
+    ))
+(define-char
+  '((<-denotational
+     ((=>daikanwa	  . 09910)	; &A-M-09910;
+      ))
     (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=daikanwa		. 09910)	; &M-09910;
     ))
 (define-char
-  '((=>daikanwa		. 09910)	; &M-09910;
+  '((<-denotational
+     ((=>daikanwa	  . 09910)	; &A-M-09910;
+      ))
     (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
@@ -231,17 +241,29 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (=ucs		. #x38C7)	; 㣇
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x38C7)	; 㣇
+      ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (=>>ucs@unicode	. #x38C7)	; &G-GT-12511;
+    (=>>big5-cdp	. #x8950)	; &G-GT-12511;
+    (=>>gt		. 12511)	; &G-GT-12511;
     (->subsumptive
-     ((=big5-cdp	  . #x8950)	; &CDP-8950;
-      (=daikanwa	  . 09915)	; &I-M-09915;
-      )
-     ((=ucs@unicode	  . #x38C7)	; &UU+38C7;
+     ((=daikanwa	  . 09915)	; &M-09915;
       )
      ((=cns11643-4	  . #x2642)	; &C4-2642; [06-34]
       )
      ((=gt		  . 12511)	; &GT-12511;
       (=gt-k		  . 04509)	; &I-GT-K04509;
       (=gt-pj-3		  . #x4A22)	; &GT-12511; [42-02]
+      )
+     ((=big5-cdp	  . #x8950)	; &CDP-8950;
+      )
+     ((=ucs@unicode	  . #x38C7)	; &UU+38C7;
       ))
     ))
 (define-char
@@ -270,12 +292,21 @@
   '((ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (=>daikanwa		. 09918)	; &A-M-09918;
+    ))
+(define-char
+  '((<-denotational
+     ((=>daikanwa	  . 09918)	; &A-M-09918;
+      ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
     (=ucs		. #x5F54)	; 彔
+    (=big5		. #xCC74)	; &I-B-CC74;
     (->subsumptive
      ((=ucs@unicode	  . #x5F54)	; &M-09918;
       (=jis-x0212	  . #x3C78)	; &M-09918; [28-88]
       (=jis-x0213-1	  . #x743B)	; &I-JX1-743B; [84-27]
-      (=big5		  . #xCC74)	; &I-B-CC74;
       (=daikanwa	  . 09918)	; &I-M-09918;
       (=jef-china3	  . #x4CFA)	; &I-JC3-4CFA;
       )
@@ -283,7 +314,9 @@
       ))
     ))
 (define-char
-  '((=>daikanwa		. 09918)	; &M-09918;
+  '((<-denotational
+     ((=>daikanwa	  . 09918)	; &A-M-09918;
+      ))
     (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
@@ -297,7 +330,10 @@
       ))
     ))
 (define-char
-  '((=>ucs*		. #x38C7)	; 㣇
+  '((<-denotational
+     ((=ucs		  . #x38C7)	; 㣇
+      ))
+    (=>ucs*		. #x38C7)	; 㣇
     (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
@@ -692,6 +728,15 @@
   '((ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
+    (=>daikanwa		. 09948)	; &A-M-09948;
+    ))
+(define-char
+  '((<-denotational
+     ((=>daikanwa	  . 09948)	; &A-M-09948;
+      ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
     (=ucs		. #x5F5B)	; 彛
     ))
 (define-char
@@ -701,6 +746,8 @@
     (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
+    (=>>ucs@jis		. #x5F5B)	; &G-JU+5F5B;
+    (=>>ucs@cns		. #x5F5B)	; &G-JU+5F5B;
     (->subsumptive
      ((=ucs@jis		  . #x5F5B)	; &M-09948;
       (=ks-x1001	  . #x6C2D)	; &M-09948; [76-13]
@@ -708,7 +755,8 @@
       (=daikanwa	  . 09948)	; &I-M-09948;
       (=cbeta		  . 01820)	; &I-CB01820;
       )
-     ((=cns11643-3	  . #x505E)	; &C3-505E; [48-62]
+     ((=ucs@cns		  . #x5F5B)	; &C3-505E;
+      (=cns11643-3	  . #x505E)	; &C3-505E; [48-62]
       ))
     ))
 (define-char
@@ -721,7 +769,9 @@
     (=ucs@unicode	. #x5F5B)	; &UU+5F5B;
     ))
 (define-char
-  '((=>daikanwa		. 09948)	; &M-09948;
+  '((<-denotational
+     ((=>daikanwa	  . 09948)	; &A-M-09948;
+      ))
     (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 13)
     (total-strokes	 . 16)

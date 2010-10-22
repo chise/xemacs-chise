@@ -1,7 +1,7 @@
 ;;; ideograph-util.el --- Ideographic Character Database utility
 
 ;; Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2007, 2008,
-;;   2009 MORIOKA Tomohiko.
+;;   2009, 2010 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Chaon model, ISO/IEC 10646, Unicode, UCS-4, MULE.
@@ -25,176 +25,14 @@
 
 ;;; Code:
 
+(require 'chise-subr)
+(require 'ideograph-subr)
 (require 'char-db-util)
-
-;;;###autoload
-(defun expand-char-feature-name (feature domain)
-  (if domain
-      (intern (format "%s@%s" feature domain))
-    feature))
-
-;;;###autoload
-(defun map-char-family (function char &optional ignore-sisters)
-  (let ((rest (list char))
-	ret checked)
-    (catch 'tag
-      (while rest
-	(unless (memq (car rest) checked)
-	  (if (setq ret (funcall function (car rest)))
-	      (throw 'tag ret))
-	  (setq checked (cons (car rest) checked)
-		rest (append rest
-			     (get-char-attribute (car rest) '->subsumptive)
-			     (get-char-attribute (car rest) '->denotational)
-			     (get-char-attribute (car rest) '->identical)))
-	  (unless ignore-sisters
-	    (setq rest (append rest
-			       (get-char-attribute (car rest) '<-subsumptive)
-			       (get-char-attribute (car rest) '<-denotational)))))
-	(setq rest (cdr rest))))))
-
-(defun get-char-feature-from-domains (char feature domains
-					   &optional tester arg
-					   ignore-sisters)
-  (map-char-family
-   (lambda (ch)
-     (let (ret)
-       (catch 'tag
-	 (dolist (domain domains)
-	   (if (and (or (null tester)
-			(equal (or (char-feature
-				    ch (expand-char-feature-name
-					tester domain))
-				   (char-feature ch tester))
-			       arg))
-		    (setq ret (or (char-feature
-				   ch (expand-char-feature-name
-				       feature domain))
-				  (char-feature ch feature))))
-	       (throw 'tag ret))))))
-   char ignore-sisters))
 
 
 (defvar ideograph-radical-chars-vector
   (make-vector 215 nil))
 
-(defun char-ideographic-radical (char &optional radical ignore-sisters)
-  (let (ret)
-    (or (if radical
-	    (get-char-feature-from-domains
-	     char 'ideographic-radical (cons nil char-db-feature-domains)
-	     'ideographic-radical radical ignore-sisters)
-	  (get-char-feature-from-domains
-	   char 'ideographic-radical (cons nil char-db-feature-domains)
-	   ignore-sisters))
-        ;; (catch 'tag
-        ;;   (dolist (domain char-db-feature-domains)
-        ;;     (if (and (setq ret (char-feature
-        ;;                         char
-        ;;                         (intern
-        ;;                          (format "%s@%s"
-        ;;                                  'ideographic-radical domain))))
-        ;;              (or (eq ret radical)
-        ;;                  (null radical)))
-        ;;         (throw 'tag ret))))
-	(catch 'tag
-	  (dolist (cell (get-char-attribute char 'ideographic-))
-	    (if (and (setq ret (plist-get cell :radical))
-		     (or (eq ret radical)
-			 (null radical)))
-		(throw 'tag ret))))
-	(get-char-feature-from-domains
-	 char 'ideographic-radical (cons nil char-db-feature-domains))
-        ;; (char-feature char 'ideographic-radical)
-	(progn
-	  (setq ret
-		(or (get-char-attribute char 'daikanwa-radical)
-		    (get-char-attribute char 'kangxi-radical)
-		    (get-char-attribute char 'japanese-radical)
-		    (get-char-attribute char 'korean-radical)))
-	  (when ret
-	    (put-char-attribute char 'ideographic-radical ret)
-	    ret)))))
-
-(defvar ideograph-radical-strokes-vector
-  ;;0  1  2  3  4  5  6  7  8  9
-  [nil 1  1  1  1  1  1  2  2  2
-    2  2  2  2  2  2  2  2  2  2
-    2  2  2  2  2  2  2  2  2  2
-    3  3  3  3  3  3  3  3  3  3
-    3  3  3  3  3  3  3  3  3  3
-    3  3  3  3  3  3  3  3  3  3
-    3  4  4  4  3  4  4  4  4  4
-    4  4  4  4  4  4  4  4  4  4
-    4  4  4  4  4  3  4  4  4  4
-    4  4  4  4  3  5  4  5  5  5
-    ;; 100
-    5  5  5  5  5  5  5  5  5  5
-    5  5  5  5  5  5  5  5  6  6
-    6  6  6  6  6  6  6  6  6  6
-    4  6  6  6  6  6  6  6  6  6
-    4  6  6  6  6  6  6  7  7  7
-    7  7  7  7  7  7  7  7  7  7
-    7  7  4  3  7  7  7  8  7  8
-    3  8  8  8  8  8  9  9  9  9
-    9  9  9  9  8  9  9 10 10 10
-   10 10 10 10 10 11 11 11 11 11
-   ;; 200
-   11 12 12 12 12 13 13 13 13 14
-   14 15 16 16 17])
-
-;;;###autoload
-(defun char-ideographic-strokes-from-domains (char domains &optional radical)
-  (if radical
-      (get-char-feature-from-domains char 'ideographic-strokes domains
-				     'ideographic-radical radical)
-    (get-char-feature-from-domains char 'ideographic-strokes domains)))
-
-;;;###autoload
-(defun char-ideographic-strokes (char &optional radical preferred-domains)
-  (let (ret)
-    (or (catch 'tag
-	  (dolist (cell (get-char-attribute char 'ideographic-))
-	    (if (and (setq ret (plist-get cell :radical))
-		     (or (eq ret radical)
-			 (null radical)))
-		(throw 'tag (plist-get cell :strokes)))))
-	(char-ideographic-strokes-from-domains
-	 char (append preferred-domains
-		      (cons nil
-			    char-db-feature-domains))
-	 radical)
-	(get-char-attribute char 'daikanwa-strokes)
-	(let ((strokes
-	       (or (get-char-attribute char 'kangxi-strokes)
-		   (get-char-attribute char 'japanese-strokes)
-		   (get-char-attribute char 'korean-strokes)
-		   (let ((r (char-ideographic-radical char))
-			 (ts (get-char-attribute char 'total-strokes)))
-		     (if (and r ts)
-			 (- ts (aref ideograph-radical-strokes-vector r))))
-		   )))
-	  (when strokes
-	    (put-char-attribute char 'ideographic-strokes strokes)
-	    strokes)))))
-
-;;;###autoload
-(defun char-total-strokes-from-domains (char domains)
-  (let (ret)
-    (catch 'tag
-      (dolist (domain domains)
-	(if (setq ret (char-feature
-		       char
-		       (intern
-			(format "%s@%s"
-				'total-strokes domain))))
-	    (throw 'tag ret))))))
-
-;;;###autoload
-(defun char-total-strokes (char &optional preferred-domains)
-  (or (char-total-strokes-from-domains char preferred-domains)
-      (char-feature char 'total-strokes)
-      (char-total-strokes-from-domains char char-db-feature-domains)))
 
 ;;;###autoload
 (defun update-ideograph-radical-table ()
@@ -275,6 +113,7 @@
 	     (aset ideograph-radical-chars-vector radical
 		   (cons char ret))))))
      'ideographic-)))
+
 
 (defun int-list< (a b)
   (if (numberp (car a))
@@ -426,8 +265,9 @@
     (setq radical ideographic-radical))
   (let ((drc (char-representative-of-daikanwa char radical))
 	(r (char-ideographic-radical char radical)))
-    (if (or (null r)
-	    (= (char-ideographic-radical drc radical) r))
+    (if (and drc
+	     (or (null r)
+		 (= (char-ideographic-radical drc radical) r)))
 	(setq char drc)))
   (char-ideographic-strokes char radical '(daikanwa)))
 
@@ -450,8 +290,8 @@
 		  ret))
 	    (and (setq ret (get-char-attribute char '=>daikanwa))
 		 (if (numberp ret)
-		     (list ret 0 8)
-		   (append ret '(8))))
+		     (list ret -10)
+		   (append ret '(-10))))
 	    (unless (memq char checked)
 	      (unless depth
 		(setq depth 0))
@@ -495,15 +335,6 @@
 					(list 0 (- lnum) i))))))
 		    (setq checked (cons sc checked)
 			  rest (cdr rest))))))))))
-
-;;;###autoload
-(defun char-ucs (char)
-  (or (encode-char char '=ucs 'defined-only)
-      (char-feature char '=>ucs)))
-
-;;;###autoload
-(defun char-id (char)
-  (logand (char-int char) #x3FFFFFFF))
 
 (defun char-ideographic-strokes-diff (char &optional radical)
   (if (or (get-char-attribute char '<-subsumptive)
@@ -611,39 +442,6 @@
 			    (unless (or rest value)
 			      char)))
 			'ideographic-structure)))
-
-;;;###autoload
-(defun chise-string< (string1 string2 accessors)
-  (let ((len1 (length string1))
-	(len2 (length string2))
-	len
-	(i 0)
-	c1 c2
-	rest func
-	v1 v2)
-    (setq len (min len1 len2))
-    (catch 'tag
-      (while (< i len)
-	(setq c1 (aref string1 i)
-	      c2 (aref string2 i))
-	(setq rest accessors)
-	(while (and rest
-		    (setq func (car rest))
-		    (setq v1 (funcall func c1)
-			  v2 (funcall func c2))
-		    (eq v1 v2))
-	  (setq rest (cdr rest)))
-	(if v1
-	    (if v2
-		(cond ((< v1 v2)
-		       (throw 'tag t))
-		      ((> v1 v2)
-		       (throw 'tag nil)))
-	      (throw 'tag nil))
-	  (if v2
-	      (throw 'tag t)))
-	(setq i (1+ i)))
-      (< len1 len2))))
 
 
 (provide 'ideograph-util)

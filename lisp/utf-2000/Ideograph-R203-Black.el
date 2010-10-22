@@ -150,6 +150,7 @@
     (total-strokes	 . 15)
     (hanyu-dazidian	1 487 3)
     (=ucs		. #xFA3A)	; 墨
+    (=>>ucs@unicode	. #x58A8)	; 墨
     (=ucs@unicode	. #x58A8)	; 墨
     (=ucs@jis		. #xFA3A)	; 墨
     (=gb2312		. #x442B)	; &I-G0-442B; [36-11]
@@ -158,7 +159,7 @@
     (=jis-x0213-1	. #x2F5E)	; &I-JX1-2F5E; [15-62]
     (=big5		. #xBEA5)	; &I-B-BEA5;
     (=daikanwa		. 05469)	; &I-M-05469;
-    (=shinjigen@1ed	.  1488)	; 墨
+    (=shinjigen		.  1488)	; 墨
     (=jef-china3	. #x47DC)	; &I-JC3-47DC;
     ))
 (define-char

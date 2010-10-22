@@ -2400,19 +2400,20 @@
 (define-char
   '((ideographic-radical . 181)	; ⾴
     (=ucs		. #x983B)	; 頻
+    (=>jis-x0208@1997	. #x4951)	; 頻 [41-49]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x983B)	; 頻
       ))
-    (=>ucs@jis		. #xFA6A)	; 頻
     (ideographic-radical . 181)	; ⾴
     (ideographic-strokes . 7)
     (total-strokes	 . 16)
+    (=>>ucs@unicode	. #x983B)	; &G-JX1-7D7B;
+    (=>>ucs@jis		. #xFA6A)	; &G-JX1-7D7B;
+    (=>>jis-x0213-1	. #x7D7B)	; &G-JX1-7D7B; [93-91]
     (->subsumptive
      ((=>ucs*		  . #x983B)	; 頻
-      (=>ucs@gb		  . #x983B)	; &C1-7322;
-      (=>ucs@cns	  . #x983B)	; &C1-7322;
       (=ucs		  . #xFA6A)	; 頻
       (=ucs@ks		  . #x983B)	; 頻
       (=jis-x0208@1978	  . #x4951)	; &I-J78-4951; [41-49]
@@ -3987,6 +3988,7 @@
     (=gt		. 58567)	; &I-GT-58567;
     (=gt-pj-8		. #x4237)	; &I-GT-58567; [34-23]
     (=daikanwa		. 43636)	; &I-M-43636;
+    (=jef-china3	. #x6CF5)	; &I-JC3-6CF5;
     (->subsumptive
      ((=ks-x1001	  . #x573E)	; &K0-573E; [55-30]
       )
@@ -3999,19 +4001,33 @@
 (define-char
   '((ideographic-radical . 181)	; ⾴
     (=ucs		. #x29522)	; 𩔢
-    (->subsumptive
-     ((ideographic-strokes . 10)
-      (total-strokes	   . 19)
-      (=daikanwa	  . 43637)	; &M-43637;
-      )
-     ((ideographic-strokes . 10)
-      (total-strokes	   . 19)
-      (=cns11643-5	  . #x6A5B)	; &C5-6A5B; [74-59]
-      )
-     ((ideographic-strokes . 9)
-      (total-strokes	   . 18)
-      (=ucs@iso		  . #x29522)	; &U-00029522;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x29522)	; 𩔢
       ))
+    (ideographic-radical . 181)	; ⾴
+    (ideographic-strokes . 10)
+    (total-strokes	 . 19)
+    (=daikanwa		. 43637)	; &M-43637;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x29522)	; 𩔢
+      ))
+    (ideographic-radical . 181)	; ⾴
+    (ideographic-strokes . 10)
+    (total-strokes	 . 19)
+    (=cns11643-5	. #x6A5B)	; &C5-6A5B; [74-59]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x29522)	; 𩔢
+      ))
+    (ideographic-radical . 181)	; ⾴
+    (ideographic-strokes . 9)
+    (total-strokes	 . 18)
+    (=ucs@iso		. #x29522)	; &U-00029522;
     ))
 (define-char
   '((ideographic-radical . 181)	; ⾴

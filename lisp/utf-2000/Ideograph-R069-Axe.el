@@ -258,16 +258,25 @@
     ))
 (define-char
   '((ideographic-radical . 69)	; ⽄
+    (=>daikanwa		. 13552)	; &A-M-13552;
+    ))
+(define-char
+  '((<-denotational
+     ((=>daikanwa	  . 13552)	; &A-M-13552;
+      ))
+    (ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (sound@ja/on	"kiN")
     (=ucs		. #x2309C)	; 𣂜
     (=daikanwa		. 13552)	; &I-M-13552;
     (=hanziku-5		. #xF6C2)	; &I-HZK05-F6C2;
     (mojikyo		. 013552)	; &MCS-600034F0;
     ))
 (define-char
-  '((=>ucs		. #x2309C)	; 𣂜
-    (=>daikanwa		. 13552)	; 𣂜
+  '((<-denotational
+     ((=>daikanwa	  . 13552)	; &A-M-13552;
+      ))
     (ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 7)
     (total-strokes	 . 11)

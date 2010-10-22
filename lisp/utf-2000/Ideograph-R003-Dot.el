@@ -96,6 +96,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (=ucs		. #x2F801)	; 丸
+    (=>>ucs@unicode	. #x4E38)	; 丸
     (=ucs@unicode	. #x4E38)	; 丸
     (=ucs@cns		. #x2F801)	; 丸
     (=jis-x0208		. #x345D)	; &I-J90-345D; [20-61]
@@ -279,14 +280,15 @@
       ))
     ))
 (define-char
-  '((=>daikanwa		. 00100)	; &GT-00137;
-    (ideographic-radical . 3)	; ⼂
+  '((ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
     (sound@ja/kun	"nusi" "aruzi" "omo-na")
     (sound@ja/on/go	"su")
     (sound@ja/on/kan	"syu")
     (=ucs		. #x4E3B)	; 主
+    (=>>jis-x0208	. #x3C67)	; 主 [28-71]
+    (=>daikanwa		. 00100)	; 主
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -301,6 +303,7 @@
       (=gt-pj-2		  . #x306E)	; &GT-00137; [16-78]
       (=daikanwa	  . 00100)	; &I-M-00100;
       (=shinjigen@1ed	  .  0043)	; &GT-00137;
+      (=shinjigen@rev	  .  0044)	; &GT-00137;
       (=jef-china3	  . #x41B3)	; &I-JC3-41B3;
       (mojikyo		  . 000100)	; &MCS-60000064;
       )
@@ -323,7 +326,8 @@
       (=gt		  . 00138)	; &I-GT-00138;
       (=gt-k		  . 00949)	; &I-GT-K00949;
       (=gt-pj-1		  . #x3C67)	; &I-GT-00138; [28-71]
-      (=shinjigen	  .  0042)	; &GT-00138;
+      (=shinjigen@1ed	  .  0042)	; &GT-00138;
+      (=shinjigen@rev	  .  0043)	; &GT-00138;
       ))
     ))
 (define-char

@@ -2617,8 +2617,8 @@
       (=cns11643-2	  . #x517C)	; &M-20144; [49-92]
       (=daikanwa	  . 20144)	; &I-M-20144;
       )
-     ((=ucs@unicode	  . #x729A)	; &B-E674;
-      (=big5		  . #xE674)	; &B-E674;
+     ((=ucs@unicode	  . #x729A)	; &UU+729A;
+      (=big5		  . #xE674)	; &UU+729A;
       ))
     ))
 (define-char
@@ -3494,8 +3494,8 @@
      ((=ucs@cns		  . #x72AA)	; &C2-7127;
       (=cns11643-2	  . #x7127)	; &C2-7127; [81-07]
       )
-     ((=ucs@unicode	  . #x72AA)	; &B-F8F7;
-      (=big5		  . #xF8F7)	; &B-F8F7;
+     ((=ucs@unicode	  . #x72AA)	; &UU+72AA;
+      (=big5		  . #xF8F7)	; &UU+72AA;
       ))
     ))
 (define-char

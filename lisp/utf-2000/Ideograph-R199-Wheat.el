@@ -492,10 +492,10 @@
     (ideographic-radical . 199)	; ⿆
     (ideographic-strokes . 4)
     (total-strokes	 . 15)
-    (=ucs@unicode	. #x9EA9)	; &JC3-6FBF;
-    (=gb12345		. #x746F)	; &JC3-6FBF; [84-79]
-    (=shinjigen		.  9795)	; &JC3-6FBF;
-    (=jef-china3	. #x6FBF)	; &JC3-6FBF;
+    (=ucs@unicode	. #x9EA9)	; &UU+9EA9;
+    (=gb12345		. #x746F)	; &UU+9EA9; [84-79]
+    (=shinjigen		.  9795)	; &UU+9EA9;
+    (=jef-china3	. #x6FBF)	; &UU+9EA9;
     ))
 (define-char
   '((<-denotational
@@ -708,8 +708,8 @@
     (=ucs@unicode	. #x9EB8)	; &G0-746F;
     (=gb2312		. #x746F)	; &G0-746F; [84-79]
     (<-simplified@CN
-     ((=ucs@unicode	  . #x9EA9)	; &JC3-6FBF;
-      (=gb12345		  . #x746F)	; &JC3-6FBF; [84-79]
+     ((=ucs@unicode	  . #x9EA9)	; &UU+9EA9;
+      (=gb12345		  . #x746F)	; &UU+9EA9; [84-79]
       ))
     ))
 (define-char

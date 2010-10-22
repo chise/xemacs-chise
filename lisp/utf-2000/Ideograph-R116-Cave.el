@@ -215,16 +215,19 @@
 (define-char
   '((ideographic-radical . 116)	; ⽳
     (=ucs		. #x7A81)	; 突
+    (=>jis-x0208@1997	. #x464D)	; 突 [38-45]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x7A81)	; 突
       ))
-    (=>ucs@jis		. #x7A81)	; &GT-32811;
     (ideographic-radical . 116)	; ⽳
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
     (=ucs		. #x2592E)	; 𥤮
+    (=>>ucs@jis		. #x7A81)	; 𥤮
+    (=>>jis-x0208	. #x464D)	; 𥤮 [38-45]
+    (=>>jis-x0213-1	. #x464D)	; 𥤮 [38-45]
     (->subsumptive
      ((=daikanwa	  . 25424)	; &M-25424;
       )
@@ -432,25 +435,31 @@
   '((<-denotational
      ((=ucs		  . #x7A81)	; 突
       ))
-    (=>ucs@jis		. #xFA55)	; 突
     (ideographic-radical . 116)	; ⽳
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
-    (=big5		. #xACF0)	; &B-ACF0;
+    (=>ucs@unicode	. #x7A81)	; &A-JX1-7951;
+    (=>ucs@jis		. #xFA55)	; &A-JX1-7951;
+    (=>jis-x0213-1	. #x7951)	; &A-JX1-7951; [89-49]
+    (=big5		. #xACF0)	; &A-JX1-7951;
     (->subsumptive
-     ((=>ucs*		  . #x7A81)	; 突
-      (=>ucs@gb		  . #x7A81)	; &G0-4D3B;
-      (=>ucs@cns	  . #x7A81)	; &C1-5273;
-      (=ucs		  . #xFA55)	; 突
-      (=ucs@ks		  . #x7A81)	; 突
-      (=ks-x1001	  . #x544D)	; &I-K0-544D; [52-45]
-      (=jis-x0213-1	  . #x7951)	; &I-JX1-7951; [89-49]
-      (=daikanwa	  . 25439)	; &I-M-25439;
-      (=shinjigen	  .  5684)	; 突
-      (=jef-china3	  . #x5DCD)	; &I-JC3-5DCD;
-      )
-     ((=ucs@cns		  . #x7A81)	; &C1-5273;
-      (=cns11643-1	  . #x5273)	; &C1-5273; [50-83]
+     ((=>>ucs@jis	  . #xFA55)	; &G-JX1-7951;
+      (=>>ucs@ks	  . #x7A81)	; &G-JX1-7951;
+      (=>>ucs@cns	  . #x7A81)	; &G-JX1-7951;
+      (=>>jis-x0213-1	  . #x7951)	; &G-JX1-7951; [89-49]
+      (->subsumptive
+       ((=>ucs*		    . #x7A81)	; 突
+	(=ucs		    . #xFA55)	; 突
+	(=ucs@ks	    . #x7A81)	; 突
+	(=ks-x1001	    . #x544D)	; &I-K0-544D; [52-45]
+	(=jis-x0213-1	    . #x7951)	; &I-JX1-7951; [89-49]
+	(=daikanwa	    . 25439)	; &I-M-25439;
+	(=shinjigen	    .  5684)	; 突
+	(=jef-china3	    . #x5DCD)	; &I-JC3-5DCD;
+	)
+       ((=ucs@cns	    . #x7A81)	; &C1-5273;
+	(=cns11643-1	    . #x5273)	; &C1-5273; [50-83]
+	))
       )
      ((=ucs@unicode	  . #x7A81)	; &G0-4D3B;
       (=gb2312		  . #x4D3B)	; &G0-4D3B; [45-27]

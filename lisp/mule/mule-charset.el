@@ -4,7 +4,7 @@
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1996 Sun Microsystems.
 ;; Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2007, 2008,
-;;   2009 MORIOKA Tomohiko
+;;   2009, 2010 MORIOKA Tomohiko
 
 ;; Author: Unknown
 ;; Keywords: i18n, mule, internal
@@ -310,7 +310,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  japanese-jisx0212
 	  ;; chinese-gb12345
 	  =gt-pj-1
-	  =jis-x0208@1997
 	  =ucs-radicals
 	  =ucs-bmp-cjk
 	  =ucs-sip-ext-b
@@ -352,14 +351,19 @@ DESCRIPTION (string) is the description string of the charset."
 	  arabic-iso8859-6
 	  chinese-big5-1
 	  chinese-big5-2
+	  ;; ucs-sip
+	  =>>big5-cdp
 	  =>>jis-x0208
 	  =>>jis-x0213-1
 	  =>jis-x0208
 	  =>jis-x0213-1
 	  ucs-bmp
-	  ;; ucs-sip
+	  ==>ucs-bmp-cjk@bucs
+	  =>>ucs@unicode
+	  =>>gt
 	  =adobe-japan1-6
 	  =adobe-japan1-base
+	  =>jis-x0208@1997
 	  )))
 
 ;;; mule-charset.el ends here

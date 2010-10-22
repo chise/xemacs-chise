@@ -59,11 +59,30 @@
     ))
 (define-char
   '((ideographic-radical . 163)	; ⾢
+    (ideographic-strokes . 0)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x81EC)	; 臬
+      )
+     ((name		  . "CJK RADICAL CITY")
+      (=ucs		  . #x2ECF)	; ⻏
+      ))
+    (=ruimoku-v6	. #xE06B)	; &RUI6-E06B;
+    ))
+(define-char
+  '((ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (=ucs		. #x48B3)	; 䢳
-    (=cns11643-3	. #x225F)	; &I-C3-225F; [02-63]
-    (=daikanwa		. 39271)	; &I-M-39271;
+    (->subsumptive
+     ((=daikanwa	  . 39271)	; &M-39271;
+      )
+     ((=ucs@unicode	  . #x48B3)	; &C3-225F;
+      (=cns11643-3	  . #x225F)	; &C3-225F; [02-63]
+      ))
     ))
 (define-char
   '((ideographic-radical . 163)	; ⾢
@@ -509,6 +528,14 @@
 (define-char
   '((ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 4)
+    (=>daikanwa		. 39306)	; &A-M-39306;
+    ))
+(define-char
+  '((<-denotational
+     ((=>daikanwa	  . 39306)	; &A-M-39306;
+      ))
+    (ideographic-radical . 163)	; ⾢
+    (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x2867B)	; 𨙻
     (->subsumptive
@@ -519,7 +546,9 @@
       ))
     ))
 (define-char
-  '((=>daikanwa		. 39306)	; &M-39306;
+  '((<-denotational
+     ((=>daikanwa	  . 39306)	; &A-M-39306;
+      ))
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
@@ -1088,14 +1117,24 @@
     (=daikanwa		. 39351)	; &I-M-39351;
     ))
 (define-char
-  '((=>ucs		. #x2869B)	; 𨚛
+  '((ideographic-radical . 163)	; ⾢
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (=>daikanwa		. 39352)	; &A-M-39352;
+    ))
+(define-char
+  '((<-denotational
+     ((=>daikanwa	  . 39352)	; &A-M-39352;
+      ))
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (=daikanwa		. 39352)	; &M-39352;
     ))
 (define-char
-  '((=>daikanwa		. 39352)	; &M-39352;
+  '((<-denotational
+     ((=>daikanwa	  . 39352)	; &A-M-39352;
+      ))
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
@@ -2976,14 +3015,24 @@
     (=cbeta		. 07051)	; &I-CB07051;
     ))
 (define-char
-  '((=>ucs		. #x2870B)	; 𨜋
+  '((ideographic-radical . 163)	; ⾢
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (=>daikanwa		. 39490)	; &A-M-39490;
+    ))
+(define-char
+  '((<-denotational
+     ((=>daikanwa	  . 39490)	; &A-M-39490;
+      ))
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (=daikanwa		. 39490)	; &M-39490;
     ))
 (define-char
-  '((=>daikanwa		. 39490)	; &M-39490;
+  '((<-denotational
+     ((=>daikanwa	  . 39490)	; &A-M-39490;
+      ))
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
@@ -5261,9 +5310,9 @@
       (=gt-k		  . 11926)	; &I-GT-K11926;
       (=gt-pj-1		  . #x4522)	; &I-GT-53325; [37-02]
       )
-     ((=ucs@unicode	  . #x912D)	; &JC3-68DE;
-      (=gb12345		  . #x5623)	; &JC3-68DE; [54-03]
-      (=jef-china3	  . #x68DE)	; &JC3-68DE;
+     ((=ucs@unicode	  . #x912D)	; &UU+912D;
+      (=gb12345		  . #x5623)	; &UU+912D; [54-03]
+      (=jef-china3	  . #x68DE)	; &UU+912D;
       ))
     ))
 (define-char

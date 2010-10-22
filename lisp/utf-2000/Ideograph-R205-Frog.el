@@ -15,13 +15,25 @@
       (=gt		  . 65951)	; &I-GT-65951;
       (=gt-k		  . 10369)	; &I-GT-K10369;
       (=gt-pj-1		  . #x7366)	; &I-GT-65951; [83-70]
-      (=shinjigen@rev	  .  9841)	; &GT-65951;
+      (=shinjigen	  .  9841)	; &GT-65951;
       )
      ((=cns11643-2	  . #x4875)	; &C2-4875; [40-85]
       ))
     ))
 (define-char
-  '((=>ucs*		. #x9EFE)	; 黾
+  '((ideographic-radical@ucs . 205)	; ⿌
+    (ideographic-strokes@ucs . 0)
+    (ideographic-radical@cns . 30)	; ⼝
+    (ideographic-strokes@cns . 5)
+    (total-strokes	 . 8)
+    (=ucs		. #x9EFE)	; 黾
+    (=>daikanwa		. 48258)	; 黾
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9EFE)	; 黾
+      ))
+    (=>ucs*		. #x9EFE)	; 黾
     (ideographic-radical . 205)	; ⿌
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
@@ -38,22 +50,6 @@
      zhengzitong daikanwa)
     ))
 (define-char
-  '((=>daikanwa		. 48258)	; 黾
-    (ideographic-radical@ucs . 205)	; ⿌
-    (ideographic-strokes@ucs . 0)
-    (ideographic-radical@cns . 30)	; ⼝
-    (ideographic-strokes@cns . 5)
-    (total-strokes	 . 8)
-    (=ucs		. #x9EFE)	; 黾
-    (=gb2312		. #x763C)	; &I-G0-763C; [86-28]
-    (=cns11643-3	. #x2772)	; &I-C3-2772; [07-82]
-    (mojikyo		. 051084)	; &MCS-6000C78C;
-    (<-simplified@CN
-     ((=ucs@unicode	  . #x9EFD)	; &GT-65951;
-      (=gb12345		  . #x763C)	; &GT-65951; [86-28]
-      ))
-    ))
-(define-char
   '((<-denotational
      ((=ucs		  . #x9EFE)	; 黾
       ))
@@ -63,7 +59,27 @@
     (mirrored		. nil)
     (=ucs		. #x2EEA)	; ⻪
     (<-identical@component
+     ((=ucs@unicode	  . #x9EFE)	; &C3-2772;
+      (=gb2312		  . #x763C)	; &C3-2772; [86-28]
+      (=cns11643-3	  . #x2772)	; &I-C3-2772; [07-82]
+      ))
+    ))
+(define-char
+  '((<-denotational
      ((=ucs		  . #x9EFE)	; 黾
+      ))
+    (ideographic-radical@ucs . 205)	; ⿌
+    (ideographic-strokes@ucs . 0)
+    (ideographic-radical@cns . 30)	; ⼝
+    (ideographic-strokes@cns . 5)
+    (total-strokes	 . 8)
+    (=ucs@unicode	. #x9EFE)	; &C3-2772;
+    (=gb2312		. #x763C)	; &C3-2772; [86-28]
+    (=cns11643-3	. #x2772)	; &I-C3-2772; [07-82]
+    (mojikyo		. 051084)	; &MCS-6000C78C;
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x9EFD)	; &GT-65951;
+      (=gb12345		  . #x763C)	; &GT-65951; [86-28]
       ))
     ))
 (define-char

@@ -229,11 +229,11 @@
     (=daikanwa		. 49796)	; &I-M-49796;
     ))
 (define-char
-  '((=>daikanwa		. 40126)	; &M-40126;
-    (ideographic-radical . 165)	; ⾤
+  '((ideographic-radical . 165)	; ⾤
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
     (=ucs		. #x28918)	; 𨤘
+    (=>daikanwa		. 40126)	; 𨤘
     (->subsumptive
      ((=ucs@iso		  . #x28918)	; &M-40126;
       (=daikanwa	  . 40126)	; &M-40126;
@@ -249,16 +249,33 @@
     (=daikanwa		. 49797)	; &I-M-49797;
     ))
 (define-char
-  '((=>daikanwa		. 40127)	; &M-40127;
-    (ideographic-radical . 165)	; ⾤
+  '((ideographic-radical . 165)	; ⾤
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
     (=ucs		. #x2891A)	; 𨤚
+    (=>daikanwa		. 40127)	; 𨤚
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2891A)	; 𨤚
+      ))
+    (ideographic-radical . 165)	; ⾤
+    (ideographic-strokes . 10)
+    (total-strokes	 . 17)
+    (=daikanwa		. 40127)	; &M-40127;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2891A)	; 𨤚
+      ))
+    (ideographic-radical . 165)	; ⾤
+    (ideographic-strokes . 10)
+    (total-strokes	 . 17)
+    (=>>ucs@iso		. #x2891A)	; &G-IU+2891A;
     (->subsumptive
-     ((=daikanwa	  . 40127)	; &M-40127;
+     ((=ucs@iso		  . #x2891A)	; &U-0002891A;
       )
-     ((=ucs@iso		  . #x2891A)	; &C5-5F45;
-      (=cns11643-5	  . #x5F45)	; &C5-5F45; [63-37]
+     ((=cns11643-5	  . #x5F45)	; &C5-5F45; [63-37]
       ))
     ))
 (define-char
@@ -305,15 +322,28 @@
     (=gb12345		. #x4A4D)	; 釋 [42-45]
     ))
 (define-char
-  '((=>daikanwa		. 40130)	; &M-40130;
-    (ideographic-radical . 165)	; ⾤
+  '((ideographic-radical . 165)	; ⾤
     (ideographic-strokes . 15)
     (total-strokes	 . 22)
     (=ucs		. #x28921)	; 𨤡
-    (->subsumptive
-     ((=daikanwa	  . 40130)	; &M-40130;
-      )
-     ((=ucs@iso		  . #x28921)	; &C5-7454;
-      (=cns11643-5	  . #x7454)	; &C5-7454; [84-52]
+    (=>daikanwa		. 40130)	; 𨤡
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x28921)	; 𨤡
       ))
+    (ideographic-radical . 165)	; ⾤
+    (ideographic-strokes . 15)
+    (total-strokes	 . 22)
+    (=daikanwa		. 40130)	; &M-40130;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x28921)	; 𨤡
+      ))
+    (ideographic-radical . 165)	; ⾤
+    (ideographic-strokes . 15)
+    (total-strokes	 . 22)
+    (=ucs@iso		. #x28921)	; &C5-7454;
+    (=cns11643-5	. #x7454)	; &C5-7454; [84-52]
     ))

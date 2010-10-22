@@ -288,7 +288,28 @@
     (=gt-k		. 02693)	; &I-GT-K02693;
     (=gt-pj-1		. #x5555)	; &I-GT-08748; [53-53]
     (=daikanwa		. 06948)	; &I-M-06948;
-    (=shinjigen@rev	.  1780)	; &GT-08748;
+    (=shinjigen		.  1780)	; &GT-08748;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs@jis		  . #x5B5A)	; &GT-08748;
+      (=jis-x0208	  . #x5555)	; &GT-08748; [53-53]
+      (=ks-x1001	  . #x5D21)	; &I-K0-5D21; [61-01]
+      (=jis-x0213-1	  . #x5555)	; &I-JX1-5555; [53-53]
+      (=daikanwa	  . 06948)	; &I-M-06948;
+      ))
+    (ideographic-radical . 39)	; ⼦
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (=gt-k		. 02694)	; &GT-K02694;
+    (=gt-pj-k1		. #x355E)	; &GT-K02694; [21-62]
+    (<-formed@component/connect-right
+     ((=ucs@jis		  . #x5B5A)	; &GT-08748;
+      (=jis-x0208	  . #x5555)	; &GT-08748; [53-53]
+      (=ks-x1001	  . #x5D21)	; &I-K0-5D21; [61-01]
+      (=jis-x0213-1	  . #x5555)	; &I-JX1-5555; [53-53]
+      (=daikanwa	  . 06948)	; &I-M-06948;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -297,9 +318,12 @@
     (ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (=ucs@unicode	. #x5B5A)	; &C1-4977;
-    (=gb2312		. #x665A)	; &C1-4977; [70-58]
+    (=ucs@unicode	. #x5B5A)	; &GT-08749;
+    (=gb2312		. #x665A)	; &GT-08749; [70-58]
     (=cns11643-1	. #x4977)	; &I-C1-4977; [41-87]
+    (=gt		. 08749)	; &I-GT-08749;
+    (=gt-k		. 02695)	; &I-GT-K02695;
+    (=gt-pj-9		. #x5744)	; &I-GT-08749; [55-36]
     ))
 (define-char
   '((ideographic-radical . 39)	; ⼦
@@ -912,6 +936,16 @@
     (->subsumptive
      ((ideographic-strokes . 7)
       (total-strokes	   . 10)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x5B50)	; 子
+	)
+       ((=>>ucs@unicode	    . #x514D)	; &G-UU+514D;
+	))
+      (=>>ucs@unicode	  . #x3743)	; &G-UU+3743;
+      (=>>daikanwa	  . 06988)	; &G-UU+3743;
       (->subsumptive
        ((=daikanwa	    . 06988)	; &M-06988;
 	)
@@ -923,7 +957,6 @@
 	  )
 	 ((=ucs@unicode	      . #x514D)	; &C1-492D;
 	  (=gb2312	      . #x4362)	; &C1-492D; [35-66]
-	  (=ks-x1001	      . #x5873)	; &I-K0-5873; [56-83]
 	  (=cns11643-1	      . #x492D)	; &I-C1-492D; [41-13]
 	  ))
 	(=ucs@unicode	    . #x3743)	; &C3-3054;

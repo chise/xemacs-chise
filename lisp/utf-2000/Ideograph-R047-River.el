@@ -85,19 +85,23 @@
   '((ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (=big5-cdp		. #x8BED)	; &GT-10942;
-    (=gt		. 10942)	; &I-GT-10942;
-    (=gt-pj-3		. #x3D75)	; &I-GT-10942; [29-85]
-    (=daikanwa		. 08674)	; &I-M-08674;
-    (<-simplified@JP/old
-     ((=ucs@jis		  . #x8A13)	; &GT-47374;
-      (=jis-x0208	  . #x3731)	; &GT-47374; [23-17]
-      (=ks-x1001	  . #x7D3A)	; &I-K0-7D3A; [93-26]
-      (=jis-x0213-1	  . #x3731)	; &I-JX1-3731; [23-17]
-      (=daikanwa	  . 35238)	; &I-M-35238;
+    (=>>big5-cdp	. #x8BED)	; &G-GT-10942;
+    (=>>gt		. 10942)	; &G-GT-10942;
+    (->subsumptive
+     ((=big5-cdp	  . #x8BED)	; &GT-10942;
+      (=gt		  . 10942)	; &I-GT-10942;
+      (=gt-pj-3		  . #x3D75)	; &I-GT-10942; [29-85]
+      (=daikanwa	  . 08674)	; &I-M-08674;
+      (<-simplified@JP/old
+       ((=ucs@jis	    . #x8A13)	; &GT-47374;
+	(=jis-x0208	    . #x3731)	; &GT-47374; [23-17]
+	(=ks-x1001	    . #x7D3A)	; &I-K0-7D3A; [93-26]
+	(=jis-x0213-1	    . #x3731)	; &I-JX1-3731; [23-17]
+	(=daikanwa	    . 35238)	; &I-M-35238;
+	))
+      (<-simplified@JP/old*sources
+       daikanwa)
       ))
-    (<-simplified@JP/old*sources
-     daikanwa)
     ))
 (define-char
   '((ideographic-radical . 47)	; ⼮
@@ -198,13 +202,11 @@
   '((<-denotational
      ((=ucs		  . #x5DE1)	; 巡
       ))
-    (=>ucs*		. #x5DE1)	; 巡
-    (=>ucs@gb		. #x5DE1)	; &GT-10953;
-    (=>ucs@jis		. #x5DE1)	; &GT-10953;
     (ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (=ucs		. #x2F881)	; 巡
+    (=>>ucs@unicode	. #x5DE1)	; &G-UU+5DE1;
+    (=>>ucs@cns		. #x2F881)	; &G-UU+5DE1;
     (->subsumptive
      ((morohashi-daikanwa	8680 1)
       (=ucs@unicode	  . #x5DE1)	; &GT-10953;
@@ -215,8 +217,9 @@
       (=gt-pj-1		  . #x3D64)	; &I-GT-10953; [29-68]
       (mojikyo		  . 050160)	; &MCS-6000C3F0;
       )
-     ((=ucs@iso		  . #x2F881)	; &C6-2736;
-      (=cns11643-6	  . #x2736)	; &C6-2736; [07-22]
+     ((=>ucs*		  . #x5DE1)	; 巡
+      (=ucs		  . #x2F881)	; 巡
+      (=cns11643-6	  . #x2736)	; &I-C6-2736; [07-22]
       ))
     ))
 (define-char

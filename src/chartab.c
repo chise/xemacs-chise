@@ -4233,6 +4233,20 @@ implementation does not coalesce ranges all of whose values are the same.
   return slarg.retval;
 }
 
+static Lisp_Object
+allocate_character ()
+{
+  int cid = XINT (Vnext_defined_char_id);
+
+  if (cid <= 0xE00000)
+    {
+      Vnext_defined_char_id = make_int (cid + 1);
+      return make_char (cid);
+    }
+  else
+    return Qnil;
+}
+
 DEFUN ("define-char", Fdefine_char, 1, 1, 0, /*
 Store character's ATTRIBUTES.
 */
@@ -4281,7 +4295,7 @@ Store character's ATTRIBUTES.
 	    }
 	  rest = Fcdr (rest);
 	}
-#if 1
+#if 0
       {
 	int cid = XINT (Vnext_defined_char_id);
 
@@ -4293,16 +4307,9 @@ Store character's ATTRIBUTES.
 	  }
       }
 #else
-      if ( (!NILP (code = Fcdr (Fassq (Qto_ucs, attributes)))) )
-	{
-	  if (!INTP (code))
-	    signal_simple_error ("Invalid argument", attributes);
-	  else
-	    character = make_char (XINT (code) + 0x100000);
-	  goto setup_attributes;
-	}
+      if ( NILP (character = allocate_character ()) )
 #endif
-      return Qnil;
+	return Qnil;
     }
   else if (!INTP (code))
     signal_simple_error ("Invalid argument", attributes);

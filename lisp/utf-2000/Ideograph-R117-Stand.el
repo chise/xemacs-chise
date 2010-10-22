@@ -233,7 +233,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 117)	; ⽴
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5947)	; &BUCS+5947;
+      ))
+    (ideographic-radical@ucs . 117)	; ⽴
     (ideographic-strokes@ucs . 4)
     (ideographic-radical@ucs*sources
      daikanwa=25736 jis-x0208 cns11643 ucs)
@@ -243,6 +246,7 @@
      daikanwa=00310 cbeta)
     (total-strokes	 . 9)
     (=ucs		. #x7AD2)	; 竒
+    (=>>jis-x0208	. #x5474)	; 竒 [52-84]
     (->subsumptive
      ((=ucs@jis		  . #x7AD2)	; &GT-00400;
       (=jis-x0208	  . #x5474)	; &GT-00400; [52-84]
