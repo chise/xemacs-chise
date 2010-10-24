@@ -12813,8 +12813,11 @@
     (ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 12)
     (total-strokes	 . 18)
-    (=ucs@unicode	. #x8801)	; &C2-6339;
-    (=cns11643-2	. #x6339)	; &C2-6339; [67-25]
+    (=>>ucs@unicode	. #x8801)	; &G-UU+8801;
+    (->subsumptive
+     ((=ucs@unicode	  . #x8801)	; &C2-6339;
+      (=cns11643-2	  . #x6339)	; &C2-6339; [67-25]
+      ))
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
