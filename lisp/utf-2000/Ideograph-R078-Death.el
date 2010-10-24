@@ -474,16 +474,19 @@
     (ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (=ucs@jis		. #x6B7F)	; &GT-21052;
-    (=jis-x0208		. #x5D47)	; &GT-21052; [61-39]
-    (=ks-x1001		. #x5951)	; &I-K0-5951; [57-49]
-    (=cns11643-1	. #x4E3F)	; &I-C1-4E3F; [46-31]
-    (=jis-x0213-1	. #x5D47)	; &I-JX1-5D47; [61-39]
-    (=big5		. #xAA5C)	; &I-B-AA5C;
-    (=gt		. 21052)	; &I-GT-21052;
-    (=gt-pj-1		. #x5D47)	; &I-GT-21052; [61-39]
-    (=daikanwa		. 16385)	; &I-M-16385;
-    (=shinjigen@rev	.  3964)	; &GT-21052;
+    (=>>ucs@jis		. #x6B7F)	; &G-JU+6B7F;
+    (->subsumptive
+     ((=ucs@jis		  . #x6B7F)	; &GT-21052;
+      (=jis-x0208	  . #x5D47)	; &GT-21052; [61-39]
+      (=ks-x1001	  . #x5951)	; &I-K0-5951; [57-49]
+      (=cns11643-1	  . #x4E3F)	; &I-C1-4E3F; [46-31]
+      (=jis-x0213-1	  . #x5D47)	; &I-JX1-5D47; [61-39]
+      (=big5		  . #xAA5C)	; &I-B-AA5C;
+      (=gt		  . 21052)	; &I-GT-21052;
+      (=gt-pj-1		  . #x5D47)	; &I-GT-21052; [61-39]
+      (=daikanwa	  . 16385)	; &I-M-16385;
+      (=shinjigen@rev	  .  3964)	; &GT-21052;
+      ))
     ))
 (define-char
   '((<-denotational
