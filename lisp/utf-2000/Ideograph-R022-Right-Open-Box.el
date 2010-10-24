@@ -1736,6 +1736,7 @@
     (ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 26)
     (total-strokes	 . 28)
+    (=>>ucs@cns		. #x2096C)	; &G-CU+2096C;
     (->subsumptive
      ((=daikanwa	  . 02671)	; &M-02671;
       (<-Zhouwen
@@ -1763,6 +1764,7 @@
        shuowen yupian jiyun daikanwa)
       )
      ((hanyu-dazidian	  1 91 10)
+      (=ucs@cns		  . #x2096C)	; &HZK01-B6C1;
       (=cns11643-7	  . #x6443)	; &HZK01-B6C1; [68-35]
       (=hanziku-1	  . #xB6C1)	; &I-HZK01-B6C1;
       ))
@@ -1774,7 +1776,10 @@
     (ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 26)
     (total-strokes	 . 28)
-    (=ucs@iso		. #x2096C)	; &U-0002096C;
+    (=>>ucs@iso		. #x2096C)	; &G-IU+2096C;
+    (->subsumptive
+     ((=ucs@iso		  . #x2096C)	; &U-0002096C;
+      ))
     ))
 (define-char
   '((ideographic-radical . 22)	; ⼕
