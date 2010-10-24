@@ -2415,7 +2415,10 @@
     (ideographic-radical . 122)	; ⽹
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
-    (=daikanwa		. 28373)	; &M-28373;
+    (=>>daikanwa	. 28373)	; &A-M-28373;
+    (->subsumptive
+     ((=daikanwa	  . 28373)	; &M-28373;
+      ))
     ))
 (define-char
   '((<-denotational
