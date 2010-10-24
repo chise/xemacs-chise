@@ -5495,15 +5495,18 @@
   '((<-denotational
      ((=ucs		  . #x5A2F)	; 娯
       ))
-    (morohashi-daikanwa	6307 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=ucs@unicode	. #x5A2F)	; &GT-07919;
-    (=jis-x0208		. #x3864)	; &GT-07919; [24-68]
-    (=jis-x0213-1	. #x3864)	; &I-JX1-3864; [24-68]
-    (=gt		. 07919)	; &I-GT-07919;
-    (=gt-pj-1		. #x3864)	; &I-GT-07919; [24-68]
+    (=>>ucs@unicode	. #x5A2F)	; &G-UU+5A2F;
+    (->subsumptive
+     ((morohashi-daikanwa	6307 1)
+      (=ucs@unicode	  . #x5A2F)	; &GT-07919;
+      (=jis-x0208	  . #x3864)	; &GT-07919; [24-68]
+      (=jis-x0213-1	  . #x3864)	; &I-JX1-3864; [24-68]
+      (=gt		  . 07919)	; &I-GT-07919;
+      (=gt-pj-1		  . #x3864)	; &I-GT-07919; [24-68]
+      ))
     ))
 (define-char
   '((<-denotational
@@ -9343,9 +9346,13 @@
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=jis-x0208@1978	. #x4932)	; &M-06516; [41-18]
-    (=ks-x1001		. #x6A30)	; &I-K0-6A30; [74-16]
-    (=daikanwa		. 06516)	; &I-M-06516;
+    (=>>ucs@ks		. #x5A9B)	; &G-KU+5A9B;
+    (->subsumptive
+     ((=ucs@ks		  . #x5A9B)	; &M-06516;
+      (=jis-x0208@1978	  . #x4932)	; &M-06516; [41-18]
+      (=ks-x1001	  . #x6A30)	; &I-K0-6A30; [74-16]
+      (=daikanwa	  . 06516)	; &I-M-06516;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -10780,10 +10787,14 @@
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=jis-x0208@1978	. #x553D)	; &GT-08278; [53-29]
-    (=gt		. 08278)	; &I-GT-08278;
-    (=gt-pj-2		. #x6D65)	; &I-GT-08278; [77-69]
-    (=daikanwa		. 06597)	; &I-M-06597;
+    (=>>gt		. 08278)	; &G-GT-08278;
+    (=>>daikanwa	. 06597)	; &G-GT-08278;
+    (->subsumptive
+     ((=jis-x0208@1978	  . #x553D)	; &GT-08278; [53-29]
+      (=gt		  . 08278)	; &I-GT-08278;
+      (=gt-pj-2		  . #x6D65)	; &I-GT-08278; [77-69]
+      (=daikanwa	  . 06597)	; &I-M-06597;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -10792,6 +10803,7 @@
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (=>>ucs@unicode	. #x5ABE)	; &G-UU+5ABE;
     (->subsumptive
      ((=jis-x0208@1983	  . #x553D)	; &J83-553D; [53-29]
       (=jef-china3	  . #x49EF)	; &I-JC3-49EF;
