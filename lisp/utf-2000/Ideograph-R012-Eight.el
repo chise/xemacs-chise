@@ -1123,23 +1123,27 @@
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
-      )
-     ((=ucs@jis		  . #x516B)	; &GT-01888;
-      (=jis-x0208	  . #x482C)	; &GT-01888; [40-12]
-      (=ks-x1001	  . #x7822)	; &I-K0-7822; [88-02]
-      (=jis-x0213-1	  . #x482C)	; &I-JX1-482C; [40-12]
-      (=daikanwa	  . 01450)	; &I-M-01450;
-      )
-     ((=ucs		  . #x4E00)	; 一
-      )
-     ((=big5-cdp	  . #x8CDE)	; &CDP-8CDE;
+    (=>>ucs@ks		. #x517C)	; &G-KU+517C;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	(=ucs		    . #x2FF3)	; ⿳
+	)
+       ((=ucs@jis	    . #x516B)	; &GT-01888;
+	(=jis-x0208	    . #x482C)	; &GT-01888; [40-12]
+	(=ks-x1001	    . #x7822)	; &I-K0-7822; [88-02]
+	(=jis-x0213-1	    . #x482C)	; &I-JX1-482C; [40-12]
+	(=daikanwa	    . 01450)	; &I-M-01450;
+	)
+       ((=ucs		    . #x4E00)	; 一
+	)
+       ((=big5-cdp	    . #x8CDE)	; &CDP-8CDE;
+	))
+      (=ucs@ks		  . #x517C)	; &M-01483;
+      (=ks-x1001	  . #x4C42)	; &M-01483; [44-34]
+      (=daikanwa	  . 01483)	; &I-M-01483;
+      (=jef-china3	  . #x43E6)	; &I-JC3-43E6;
       ))
-    (=ks-x1001		. #x4C42)	; &M-01483; [44-34]
-    (=daikanwa		. 01483)	; &I-M-01483;
-    (=jef-china3	. #x43E6)	; &I-JC3-43E6;
     ))
 (define-char
   '((<-denotational
