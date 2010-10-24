@@ -5948,7 +5948,8 @@
     (total-strokes	 . 12)
     (=daikanwa		. 19166)	; &M-19166;
     (<-vulgar
-     ((=ks-x1001	  . #x4C42)	; &M-01483; [44-34]
+     ((=ucs@ks		  . #x517C)	; &M-01483;
+      (=ks-x1001	  . #x4C42)	; &M-01483; [44-34]
       (=daikanwa	  . 01483)	; &I-M-01483;
       ))
     (<-vulgar*sources
