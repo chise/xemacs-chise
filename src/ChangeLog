@@ -1,3 +1,23 @@
+2010-09-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* concord.c: Include <chise.h> if HAVE_LIBCHISE is defined.
+	(Qcharacter): New variable when HAVE_LIBCHISE is defined.
+	(Qfeature): Ditto.
+	(Fconcord_object_genre): New function.
+	(syms_of_concord):
+	- Add new builtin symbols `character' and `feature' when
+	  HAVE_LIBCHISE is defined.
+	- Add Add new builtin function `concord-object-genre'.	
+	(complex_vars_of_concord): New function; assign genres `character'
+	and `feature' when HAVE_LIBCHISE is defined.
+
+2010-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* emacs.c (main_1): Call `complex_vars_of_concord' when
+	HAVE_CONCORD is defined.
+
+	* symsinit.h (complex_vars_of_concord): New prototype.
+
 2010-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (allocate_character): Add `static'.
