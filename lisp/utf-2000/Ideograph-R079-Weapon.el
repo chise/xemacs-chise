@@ -58,9 +58,13 @@
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (=gt		. 21306)	; &GT-21306;
-    (=gt-pj-4		. #x4460)	; &GT-21306; [36-64]
-    (=daikanwa		. 16616)	; &I-M-16616;
+    (=>>gt		. 21306)	; &G-GT-21306;
+    (=>>daikanwa	. 16616)	; &G-GT-21306;
+    (->subsumptive
+     ((=gt		  . 21306)	; &GT-21306;
+      (=gt-pj-4		  . #x4460)	; &GT-21306; [36-64]
+      (=daikanwa	  . 16616)	; &I-M-16616;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -380,12 +384,15 @@
   '((<-denotational
      ((=>jis-x0213-1	  . #x3B26)	; &A-JX1-3B26; [27-06]
       ))
-    (=>ucs*		. #x6BBA)	; 殺
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (=ucs		. #x2F8F5)	; 殺
-    (=cns11643-4	. #x2D65)	; &I-C4-2D65; [13-69]
+    (=>>ucs@cns		. #x2F8F5)	; &G-CU+2F8F5;
+    (->subsumptive
+     ((=>ucs*		  . #x6BBA)	; 殺
+      (=ucs		  . #x2F8F5)	; 殺
+      (=cns11643-4	  . #x2D65)	; &I-C4-2D65; [13-69]
+      ))
     ))
 (define-char
   '((ideographic-radical . 79)	; ⽎
@@ -1664,7 +1671,10 @@
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (=daikanwa		. 16688)	; &M-16688;
+    (=>>daikanwa	. 16688)	; &A-M-16688;
+    (->subsumptive
+     ((=daikanwa	  . 16688)	; &M-16688;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -1734,12 +1744,15 @@
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
-    (=daikanwa		. 16692)	; &M-16692;
-    (<-same
-     ((=daikanwa	  . 07012)	; &M-07012;
+    (=>>daikanwa	. 16692)	; &A-M-16692;
+    (->subsumptive
+     ((=daikanwa	  . 16692)	; &M-16692;
+      (<-same
+       ((=daikanwa	    . 07012)	; &M-07012;
+	))
+      (<-same*sources
+       zhengzitong daikanwa)
       ))
-    (<-same*sources
-     zhengzitong daikanwa)
     ))
 (define-char
   '((<-denotational
@@ -1831,12 +1844,15 @@
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
-    (=daikanwa		. 16697)	; &M-16697;
-    (<-same
-     ((=daikanwa	  . 47917)	; &M-47917;
+    (=>>daikanwa	. 16697)	; &A-M-16697;
+    (->subsumptive
+     ((=daikanwa	  . 16697)	; &M-16697;
+      (<-same
+       ((=daikanwa	    . 47917)	; &M-47917;
+	))
+      (<-same*sources
+       jiyun daikanwa)
       ))
-    (<-same*sources
-     jiyun daikanwa)
     ))
 (define-char
   '((<-denotational
