@@ -9691,18 +9691,21 @@
   '((<-denotational
      ((=ucs		  . #x9038)	; 逸
       ))
-    (morohashi-daikanwa	38951 1)
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=ucs@jis		. #x9038)	; &GT-52065;
-    (=jis-x0208		. #x306F)	; &GT-52065; [16-79]
-    (=jis-x0213-1	. #x306F)	; &I-JX1-306F; [16-79]
-    (=gt		. 52065)	; &I-GT-52065;
-    (=gt-pj-1		. #x306F)	; &I-GT-52065; [16-79]
-    (=shinjigen@1ed	.  8300)	; &GT-52065;
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #xFA67)	; 逸
+    (=>>ucs@jis		. #x9038)	; &G-JU+9038;
+    (->subsumptive
+     ((morohashi-daikanwa	38951 1)
+      (=ucs@jis		  . #x9038)	; &GT-52065;
+      (=jis-x0208	  . #x306F)	; &GT-52065; [16-79]
+      (=jis-x0213-1	  . #x306F)	; &I-JX1-306F; [16-79]
+      (=gt		  . 52065)	; &I-GT-52065;
+      (=gt-pj-1		  . #x306F)	; &I-GT-52065; [16-79]
+      (=shinjigen@1ed	  .  8300)	; &GT-52065;
+      (<-simplified@JP/Jouyou
+       ((=ucs		    . #xFA67)	; 逸
+	))
       ))
     ))
 (define-char
@@ -11882,6 +11885,7 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (=>>ucs@jis		. #x9052)	; &G-JU+9052;
     (->subsumptive
      ((=jis-x0208@1978	  . #x6E24)	; &M-39008; [78-04]
       (=jis-x0208@1983	  . #x6E24)	; &I-J83-6E24; [78-04]
@@ -11913,9 +11917,8 @@
       ))
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (=ucs@unicode	. #x9052)	; &G0-6559;
-    (=gb2312		. #x6559)	; &G0-6559; [69-57]
+    (total-strokes	 . 13)
+    (=cns11643-2	. #x4825)	; &C2-4825; [40-05]
     ))
 (define-char
   '((<-denotational
@@ -11923,8 +11926,12 @@
       ))
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 9)
-    (total-strokes	 . 13)
-    (=cns11643-2	. #x4825)	; &C2-4825; [40-05]
+    (total-strokes	 . 12)
+    (=>>ucs@unicode	. #x9052)	; &G-UU+9052;
+    (->subsumptive
+     ((=ucs@unicode	  . #x9052)	; &G0-6559;
+      (=gb2312		  . #x6559)	; &G0-6559; [69-57]
+      ))
     ))
 (define-char
   '((ideographic-radical . 162)	; ⾡
