@@ -2073,6 +2073,7 @@
     (ideographic-radical . 147)	; ⾒
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
+    (=>>ucs@iso		. #x27882)	; &G-IU+27882;
     (->subsumptive
      ((=daikanwa	  . 34944)	; &M-34944;
       )
@@ -2086,7 +2087,11 @@
     (ideographic-radical . 147)	; ⾒
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
-    (=cns11643-5	. #x6462)	; &C5-6462; [68-66]
+    (=>>ucs@cns		. #x27882)	; &G-CU+27882;
+    (->subsumptive
+     ((=ucs@cns		  . #x27882)	; &C5-6462;
+      (=cns11643-5	  . #x6462)	; &C5-6462; [68-66]
+      ))
     ))
 (define-char
   '((ideographic-radical . 147)	; ⾒
