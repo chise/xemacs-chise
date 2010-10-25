@@ -2009,7 +2009,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ks-x1001	    . #x683A)	; &GT-36863; [72-26]
+       ((=ucs@ks	    . #x7FC1)	; &GT-36863;
+	(=ks-x1001	    . #x683A)	; &GT-36863; [72-26]
 	(=daikanwa	    . 28635)	; &I-M-28635;
 	)
        ((=ucs		    . #x4E5A)	; 乚
@@ -2053,6 +2054,7 @@
       )
      ((=ucs		  . #x4E5A)	; 乚
       ))
+    (=>>ucs@iso		. #x200FD)	; &G-GT-00271;
     (=>>gt		. 00271)	; &G-GT-00271;
     (->subsumptive
      ((ideographic-structure
