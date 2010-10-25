@@ -6454,6 +6454,7 @@
 (define-char
   '((ideographic-radical . 94)	; ⽝
     (=ucs		. #x7366)	; 獦
+    (=big5		. #xEA5C)	; &I-B-EA5C;
     (=jef-china3	. #x8FBA)	; &I-JC3-8FBA;
     ))
 (define-char
@@ -6463,9 +6464,12 @@
     (ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (=ucs@cns		. #x7366)	; &M-20723;
-    (=cns11643-2	. #x5848)	; &M-20723; [56-40]
-    (=daikanwa		. 20723)	; &I-M-20723;
+    (=>>ucs@cns		. #x7366)	; &G-CU+7366;
+    (->subsumptive
+     ((=ucs@cns		  . #x7366)	; &M-20723;
+      (=cns11643-2	  . #x5848)	; &M-20723; [56-40]
+      (=daikanwa	  . 20723)	; &I-M-20723;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -6477,7 +6481,6 @@
     (=ucs@unicode	. #x7366)	; &JX1-7771;
     (=jis-x0212		. #x4B42)	; &JX1-7771; [43-34]
     (=jis-x0213-1	. #x7771)	; &I-JX1-7771; [87-81]
-    (=big5		. #xEA5C)	; &I-B-EA5C;
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
