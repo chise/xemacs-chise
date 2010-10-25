@@ -1,3 +1,32 @@
+2010-10-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (G-JU+9038): New abstract glyph.
+	(J0-306F): Use `<-subsumptive' for G-JU+9038.
+	(mother of J90-6E24): Unify G-JU+9052.
+	(G-UU+9052): New abstract glyph.
+	(G0-6559): Use `<-subsumptive' for G-UU+9052.
+
+	* Ideograph-R147-See.el (mother of IU+27882): Unify G-IU+27882.
+	(G-CU+27882): New abstract glyph.
+	(C5-6462): Unify CU+27882; use `<-subsumptive' for G-CU+27882.
+
+	* Ideograph-R124-Feather.el (U+7FC1): Add ideographic-structure.
+	(G-KU+7FC1): New abstract glyph.
+	(K0-683A): Use `<-subsumptive' for G-KU+7FC1.
+
+	* Ideograph-R094-Dog.el (G-CU+7366): New abstract glyph.
+	(C2-5848): Use `<-subsumptive' for G-CU+7366.
+
+	* Ideograph-R030-Mouth.el (U+55E1): Add ideographic-structure.
+	(B-B6E4): Unify G-UU+55E1; add ideographic-structure.
+	(G-JU+56B4): New abstract glyph.
+	(J0-536E): Use `<-subsumptive' for G-JU+56B4.
+
+	* Ideograph-R019-Power.el (U+52DC): Add ideographic-structure.
+	(mother of JSP-336F): Unify G-JU+52DC; add ideographic-structure.
+
+	* Ideograph-R005-Second.el (G-GT-00271): Unify G-IU+200FD.
+
 2010-10-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R200-Hemp.el (mother of J0-5677): Unify G-JU+9EBC and
