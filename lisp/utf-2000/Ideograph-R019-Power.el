@@ -2875,6 +2875,14 @@
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7FC1)	; 翁
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
     (=ucs		. #x52DC)	; 勜
     ))
 (define-char
@@ -2884,12 +2892,22 @@
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>>gt		  . 36863)	; &G-GT-36863;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=>>ucs@jis		. #x52DC)	; &G-JU+52DC;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ks-x1001	    . #x683A)	; &GT-36863; [72-26]
+       ((=ucs@ks	    . #x7FC1)	; &GT-36863;
+	(=ks-x1001	    . #x683A)	; &GT-36863; [72-26]
 	(=daikanwa	    . 28635)	; &I-M-28635;
 	)
        ((=ucs		    . #x529B)	; 力
