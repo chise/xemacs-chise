@@ -1,3 +1,124 @@
+2010-10-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el (U+5277): Add ideographic-structure.
+	(mother of JX2-233C): Unify G-JU+5277 and G-CU+5277; add
+	ideographic-structure.
+	(G-UU+5277): New abstract glyph.
+	(C3-4043): Use `<-subsumptive' for G-UU+5277.
+
+	* Ideograph-R009-Man.el (G-CU+5043): New abstract glyph.
+	(C1-5876): Use `<-subsumptive' for G-CU+5043; unify CU+5043.
+	(mother of JSP-3228): Unify G-JU+509F; add ideographic-structure.
+	(mother of C4-3639): Unify G-UU+509F; add ideographic-structure.
+	(U+50C8): Add ideographic-structure.
+	(G-CU+50C8): New abstract glyph.
+	(C2-4160): Use `<-subsumptive' for G-CU+50C8.
+	(U+3488): Add ideographic-structure.
+	(G-CU+3488): New abstract glyph.
+	(C4-422F): Use `<-subsumptive' for G-CU+3488.
+	(G-CU+348E): New abstract glyph.
+	(C4-4232): Use `<-subsumptive' for G-CU+348E.
+	(U+5123): Add ideographic-structure.
+	(JSP-3259): Use `<-denotational' for U+5123 instead of
+	`<-subsumptive' for intermediate node.
+	(C4-5565): Likewise.
+	(G-UU+5123): New abstract glyph.
+	(UU+5123): Use `<-subsumptive' for G-UU+5123.
+	(U-0002040E): Add ideographic-structure.
+	(G-IU+2040E): New abstract glyph.
+	(C7-3676): Use `<-subsumptive' for G-IU+2040E.
+	(G-JU+513C): Separate representative node.
+	(J0-5137): Separate G-JU+513C; use `<-subsumptive' for G-JU+513C.
+
+2010-10-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (G-JU+9038): New abstract glyph.
+	(J0-306F): Use `<-subsumptive' for G-JU+9038.
+	(mother of J90-6E24): Unify G-JU+9052.
+	(G-UU+9052): New abstract glyph.
+	(G0-6559): Use `<-subsumptive' for G-UU+9052.
+
+	* Ideograph-R147-See.el (mother of IU+27882): Unify G-IU+27882.
+	(G-CU+27882): New abstract glyph.
+	(C5-6462): Unify CU+27882; use `<-subsumptive' for G-CU+27882.
+
+	* Ideograph-R124-Feather.el (U+7FC1): Add ideographic-structure.
+	(G-KU+7FC1): New abstract glyph.
+	(K0-683A): Use `<-subsumptive' for G-KU+7FC1.
+
+	* Ideograph-R094-Dog.el (G-CU+7366): New abstract glyph.
+	(C2-5848): Use `<-subsumptive' for G-CU+7366.
+
+	* Ideograph-R030-Mouth.el (U+55E1): Add ideographic-structure.
+	(B-B6E4): Unify G-UU+55E1; add ideographic-structure.
+	(G-JU+56B4): New abstract glyph.
+	(J0-536E): Use `<-subsumptive' for G-JU+56B4.
+
+	* Ideograph-R019-Power.el (U+52DC): Add ideographic-structure.
+	(mother of JSP-336F): Unify G-JU+52DC; add ideographic-structure.
+
+	* Ideograph-R005-Second.el (G-GT-00271): Unify G-IU+200FD.
+
+2010-10-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R200-Hemp.el (mother of J0-5677): Unify G-JU+9EBC and
+	G-CU+9EBC.
+	(G-UU+9EBC): New abstract glyph.
+	(UU+9EBC): Use `<-subsumptive' for G-UU+9EBC.
+	(mother of JX2-7E59): Unify G-JU+9EBD and G-CU+9EBD.
+	(C3-4B22): Unify CU+9EBD.
+	(G-UU+9EBD): New abstract glyph.
+	(G0-7761): Use `<-subsumptive' for G-UU+9EBD.
+
+	* Ideograph-R184-Eat.el (G-KU+98EF): New abstract glyph.
+	(K0-5A79): Use `<-subsumptive' for G-KU+98EF.
+	(A-GT-59101): Unify A-UU+98EF.
+
+	* Ideograph-R142-Insect.el (G-UU+8801): New abstract glyph.
+	(C2-6339): Use `<-subsumptive' for G-UU+8801.
+
+	* Ideograph-R122-Net.el (G-M-28373): New abstract glyph.
+	(M-28373): Use `<-subsumptive' for G-M-28373.
+
+	* Ideograph-R079-Weapon.el (G-GT-21306): New abstract glyph.
+	(GT-21306): Use `<-subsumptive' for G-GT-21306.
+	(G-CU+2F8F5): New abstract glyph.
+	(C4-2D65): Use `<-subsumptive' for G-CU+2F8F5.
+	(G-M-16688): New abstract glyph.
+	(M-16688): Use `<-subsumptive' for G-M-16688.
+	(G-M-16692): New abstract glyph.
+	(M-16692): Use `<-subsumptive' for G-M-16692.
+	(G-M-16697): New abstract glyph.
+	(M-16697): Use `<-subsumptive' for G-M-16697.
+
+	* Ideograph-R078-Death.el (G-JU+6B7F): New abstract glyph.
+	(J0-5D47): Use `<-subsumptive' for G-JU+6B7F.
+
+	* Ideograph-R075-Tree.el (G-M-15667): New abstract glyph.
+	(M-15667): Use `<-subsumptive' for G-M-15667.
+	(G-UU+6B0E): New abstract glyph.
+	(UU+6B0E): Use `<-subsumptive' for G-UU+6B0E.
+
+	* Ideograph-R066-Rap.el (G-M-13267): New abstract glyph.
+	(M-13267): Use `<-subsumptive' for G-M-13267.
+
+	* Ideograph-R038-Woman.el (G-UU+5A2F): New abstract glyph.
+	(UU+5A2F): Use `<-subsumptive' for G-UU+5A2F.
+	(G-KU+5A9B): New abstract glyph.
+	(K0-6A30): Use `<-subsumptive' for G-KU+5A9B.
+	(G-GT-08278): New abstract glyph.
+	(J78-553D): Use `<-subsumptive' for G-GT-08278.
+	(mother of J90-553D): Unify G-UU+5ABE.
+
+	* Ideograph-R022-Right-Open-Box.el (mother of C7-6443): Unify
+	G-CU+2096C.
+	(C7-6443): Unify CU+2096C.
+	(G-IU+2096C): New abstract glyph.
+	(IU+2096C): Use `<-subsumptive' for G-IU+2096C.
+
+	* Ideograph-R012-Eight.el (G-KU+517C): New abstract glyph.
+	(K0-4C42): Use `<-subsumptive' for G-KU+517C; unify KU+517C.
+
 2010-10-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R102-Field.el (U-00024CAB): Integrate M-21908.

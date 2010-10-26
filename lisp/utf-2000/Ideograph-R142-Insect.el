@@ -12944,6 +12944,7 @@
     (ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 12)
     (total-strokes	 . 18)
+    (=>>ucs@unicode	. #x8801)	; &G-UU+8801;
     (->subsumptive
      ((mojikyo		  . 057318)	; &MCS-6000DFE6;
       )

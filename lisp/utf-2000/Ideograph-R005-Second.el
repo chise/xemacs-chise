@@ -2122,6 +2122,7 @@
       )
      ((=ucs		  . #x4E5A)	; 乚
       ))
+    (=>>ucs@iso		. #x200FD)	; &G-GT-00271;
     (=>>gt		. 00271)	; &G-GT-00271;
     (->subsumptive
      ((ideographic-structure

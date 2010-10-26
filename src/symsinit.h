@@ -428,6 +428,7 @@ void complex_vars_of_minibuf (void);
 void reinit_complex_vars_of_minibuf (void);
 void complex_vars_of_callproc (void);
 void complex_vars_of_keymap (void);
+void complex_vars_of_concord (void);
 
 /* Reset the Lisp engine (run-time only). */
 

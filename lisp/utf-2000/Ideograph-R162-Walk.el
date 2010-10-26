@@ -9681,7 +9681,7 @@
     (=ks-x1001		. #x6C6F)	; &I-K0-6C6F; [76-79]
     (=jis-x0213-1	. #x7C59)	; &I-JX1-7C59; [92-57]
     (=daikanwa		. 38951)	; &I-M-38951;
-    (=shinjigen@1ed	.  8301)	; 逸
+    (=shinjigen		.  8301)	; 逸
     (<-synonyms
      ((=ucs		  . #x8EFC)	; 軼
       (=daikanwa	  . 38275)	; &I-M-38275;
@@ -9730,6 +9730,7 @@
      ((=ucs		  . #x9038)	; 逸
       ))
     (ideographic-radical . 162)	; ⾡
+    (=>>ucs@jis		. #x9038)	; &G-JU+9038;
     (->subsumptive
      ((morohashi-daikanwa	38951 1)
       (ideographic-strokes . 8)
@@ -9739,7 +9740,7 @@
       (=jis-x0213-1	  . #x306F)	; &I-JX1-306F; [16-79]
       (=gt		  . 52065)	; &I-GT-52065;
       (=gt-pj-1		  . #x306F)	; &I-GT-52065; [16-79]
-      (=shinjigen@1ed	  .  8300)	; &GT-52065;
+      (=shinjigen	  .  8300)	; &GT-52065;
       (mojikyo		  . 050514)	; &MCS-6000C552;
       (<-simplified@JP/Jouyou
        ((=ucs		    . #xFA67)	; 逸
@@ -11936,6 +11937,8 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (=>>ucs@jis		. #x9052)	; &G-J0-6E24;
+    (=>>jis-x0208	. #x6E24)	; &G-J0-6E24; [78-04]
     (->subsumptive
      ((=jis-x0208@1978	  . #x6E24)	; &M-39008; [78-04]
       (=jis-x0208@1983	  . #x6E24)	; &I-J83-6E24; [78-04]
@@ -11977,6 +11980,7 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (=>>ucs@unicode	. #x9052)	; &G-UU+9052;
     (->subsumptive
      ((mojikyo		  . 055801)	; &MCS-6000D9F9;
       )

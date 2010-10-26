@@ -60,6 +60,8 @@
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
+    (=>>gt		. 21306)	; &G-GT-21306;
+    (=>>daikanwa	. 16616)	; &G-GT-21306;
     (->subsumptive
      ((=gt		  . 21306)	; &GT-21306;
       (=gt-pj-4		  . #x4460)	; &GT-21306; [36-64]

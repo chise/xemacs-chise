@@ -1,5 +1,5 @@
 /* XEmacs routines to deal with CONCORD.
-   Copyright (C) 2005,2006,2008 MORIOKA Tomohiko
+   Copyright (C) 2005,2006,2008,2010 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -28,6 +28,9 @@ Boston, MA 02111-1307, USA.  */
 #include "buffer.h"
 #include <errno.h>
 #include <concord.h>
+#ifdef HAVE_LIBCHISE
+#  include <chise.h>
+#endif
 
 
 EXFUN (Fread_from_string, 3);
@@ -40,6 +43,10 @@ EXFUN (Fconcord_object_get, 2);
 Lisp_Object Qconcord;
 Lisp_Object Qconcord_object;
 Lisp_Object Qgenre, Q_id;
+#ifdef HAVE_LIBCHISE
+Lisp_Object Qcharacter;
+Lisp_Object Qfeature;
+#endif
 
 Lisp_Object Vconcord_ds_hash_table;
 Lisp_Object Vconcord_genre_hash_table;
@@ -517,6 +524,15 @@ Return an id of Concord-object OBJECT.
 {
   CHECK_CONCORD_OBJECT (object);
   return XCONCORD_OBJECT_ID (object);
+}
+
+DEFUN ("concord-object-genre", Fconcord_object_genre, 1, 1, 0, /*
+Return genre of Concord-object OBJECT.
+*/
+       (object))
+{
+  CHECK_CONCORD_OBJECT (object);
+  return intern (concord_genre_get_name (XCONCORD_OBJECT_GENRE (object)));
 }
 
 DEFUN ("concord-decode-object", Fconcord_decode_object, 2, 4, 0, /*
@@ -1093,6 +1109,10 @@ syms_of_concord (void)
   defsymbol (&Qconcord_object, "concord-object");
   defsymbol (&Qgenre, "genre");
   defsymbol (&Q_id, "=id");
+#ifdef HAVE_LIBCHISE
+  defsymbol (&Qcharacter, "character");
+  defsymbol (&Qfeature, "feature");
+#endif
 
   DEFSUBR (Fconcord_open_ds);
   DEFSUBR (Fconcord_ds_p);
@@ -1107,6 +1127,7 @@ syms_of_concord (void)
   DEFSUBR (Fconcord_make_object);
   DEFSUBR (Fconcord_object_p);
   DEFSUBR (Fconcord_object_id);
+  DEFSUBR (Fconcord_object_genre);
   DEFSUBR (Fconcord_decode_object);
   DEFSUBR (Fconcord_object_get);
   DEFSUBR (Fconcord_object_put);
@@ -1144,4 +1165,15 @@ vars_of_concord (void)
   staticpro (&Vconcord_genre_object_hash_table);
   Vconcord_genre_object_hash_table
     = make_lisp_hash_table (16, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
+}
+
+void
+complex_vars_of_concord (void)
+{
+#ifdef HAVE_LIBCHISE
+  Lisp_Object dir = build_string(chise_system_db_dir);
+
+  Fconcord_assign_genre (Qcharacter, dir);
+  Fconcord_assign_genre (Qfeature, dir);
+#endif
 }

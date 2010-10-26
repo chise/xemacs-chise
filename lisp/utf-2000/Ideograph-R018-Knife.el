@@ -6875,6 +6875,15 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
     (hanyu-dazidian	1 354 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>jis-x0208	  . #x3B3A)	; &J97-3B3A; [27-26]
+      )
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
+      ))
     (=ucs		. #x5277)	; 剷
     (=big5		. #xB6D0)	; &I-B-B6D0;
     ))
@@ -6885,6 +6894,17 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7522)	; 產
+      )
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
+      ))
+    (=>>ucs@jis		. #x5277)	; &G-JU+5277;
+    (=>>ucs@cns		. #x5277)	; &G-JU+5277;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -6921,11 +6941,20 @@
   '((<-denotational
      ((=ucs		  . #x5277)	; 剷
       ))
-    (=>ucs*		. #x5277)	; 剷
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (=ucs		. #x2F823)	; 剷
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7523)	; 産
+      )
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
+      ))
+    (=>>ucs@unicode	. #x5277)	; &G-UU+5277;
+    (=>>ucs@cns		. #x2F823)	; &G-UU+5277;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -6941,7 +6970,8 @@
 	))
       (mojikyo		  . 057256)	; &MCS-6000DFA8;
       )
-     ((ideographic-structure
+     ((=>ucs*		  . #x5277)	; 剷
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
@@ -6951,10 +6981,10 @@
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@iso		  . #x2F823)	; &C3-4043;
-      (=ucs@unicode	  . #x5277)	; &C3-4043;
-      (=ucs@cns		  . #x2F823)	; &C3-4043;
-      (=cns11643-3	  . #x4043)	; &C3-4043; [32-35]
+      (=ucs		  . #x2F823)	; 剷
+      (=ucs@unicode	  . #x5277)	; 剷
+      (=ucs@cns		  . #x2F823)	; 剷
+      (=cns11643-3	  . #x4043)	; &I-C3-4043; [32-35]
       ))
     ))
 (define-char

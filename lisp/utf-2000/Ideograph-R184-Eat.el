@@ -1478,8 +1478,12 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
+    (=>>ucs@ks		. #x98EF)	; &G-GT-59166;
+    (=>>gt		. 59166)	; &G-GT-59166;
+    (=>>daikanwa	. 44064)	; &G-GT-59166;
     (->subsumptive
-     ((=ks-x1001	  . #x5A79)	; &GT-59166; [58-89]
+     ((=ucs@ks		  . #x98EF)	; &GT-59166;
+      (=ks-x1001	  . #x5A79)	; &GT-59166; [58-89]
       (=gt		  . 59166)	; &I-GT-59166;
       (=gt-pj-8		  . #x465E)	; &I-GT-59166; [38-62]
       (=daikanwa	  . 44064)	; &I-M-44064;
@@ -1495,6 +1499,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 4)
     (total-strokes	 . 12)
+    (=>ucs@unicode	. #x98EF)	; &A-GT-59101;
     (=>gt		. 59101)	; &A-GT-59101;
     (->subsumptive
      ((morohashi-daikanwa	44064 1)

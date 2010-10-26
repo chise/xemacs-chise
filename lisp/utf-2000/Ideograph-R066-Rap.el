@@ -2327,16 +2327,17 @@
     (ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x2F83F)	; 周
+      )
+     ((=ucs		  . #x6534)	; 攴
+      ))
+    (=>>daikanwa	. 13267)	; &A-M-13267;
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x2F83F)	; 周
-	)
-       ((=ucs		    . #x6534)	; 攴
-	))
-      (=daikanwa	  . 13267)	; &M-13267;
+     ((=daikanwa	  . 13267)	; &M-13267;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")

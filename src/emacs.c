@@ -3,7 +3,7 @@
    Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
    Copyright (C) 2000, 2002 Ben Wing.
-   Copyright (C) 2000,2002,2005,2006 MORIOKA Tomohiko.
+   Copyright (C) 2000,2002,2005,2006,2010 MORIOKA Tomohiko.
 
 This file is part of XEmacs.
 
@@ -2186,6 +2186,11 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
       /* Calls make_lisp_hash_table() and creates a keymap */
       complex_vars_of_event_stream ();
+
+      /* This initializes data-sources of built-in genres */
+#ifdef HAVE_CONCORD
+      complex_vars_of_concord ();
+#endif
 
 #ifdef ERROR_CHECK_GC
       {

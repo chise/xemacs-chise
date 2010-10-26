@@ -23696,9 +23696,9 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
     (=ucs		. #x6A95)	; 檕
+    (=big5		. #xED40)	; &I-B-ED40;
     (->subsumptive
-     ((=big5		  . #xED40)	; &M-15666;
-      (=daikanwa	  . 15666)	; &I-M-15666;
+     ((=daikanwa	  . 15666)	; &M-15666;
       )
      ((=ucs@unicode	  . #x6A95)	; &UU+6A95;
       )
@@ -23718,6 +23718,7 @@
     (ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
+    (=>>daikanwa	. 15667)	; &A-M-15667;
     (->subsumptive
      ((=daikanwa	  . 15667)	; &M-15667;
       (=jef-china3	  . #x98A5)	; &I-JC3-98A5;
@@ -28904,6 +28905,7 @@
     (ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 18)
     (total-strokes	 . 22)
+    (=>>ucs@unicode	. #x6B0E)	; &G-UU+6B0E;
     (->subsumptive
      ((=ucs@unicode	  . #x6B0E)	; &UU+6B0E;
       )

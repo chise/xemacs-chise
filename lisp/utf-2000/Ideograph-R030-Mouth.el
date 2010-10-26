@@ -23390,6 +23390,14 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (hanyu-dazidian	1 669 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs		  . #x7FC1)	; 翁
+      ))
     (=ucs		. #x55E1)	; 嗡
     ))
 (define-char
@@ -23418,7 +23426,16 @@
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=big5		. #xB6E4)	; &B-B6E4;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=>>jis-x0208	  . #x3227)	; &G-J0-3227; [18-07]
+      ))
+    (=>>ucs@unicode	. #x55E1)	; &G-UU+55E1;
+    (=big5		. #xB6E4)	; &G-UU+55E1;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -36245,6 +36262,7 @@
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 17)
     (total-strokes	 . 20)
+    (=>>ucs@jis		. #x56B4)	; &G-JU+56B4;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")

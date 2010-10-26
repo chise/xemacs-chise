@@ -519,6 +519,14 @@
   '((ideographic-radical . 124)	; ⽻
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x516C)	; 公
+      )
+     ((=ucs		  . #x7FBD)	; 羽
+      ))
     (=ucs		. #x7FC1)	; 翁
     (=big5		. #xAFCE)	; &I-B-AFCE;
     ))
@@ -529,6 +537,15 @@
     (ideographic-radical . 124)	; ⽻
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x516C)	; 公
+      )
+     ((=ks-x1001	  . #x6962)	; &GT-36832; [73-66]
+      (=daikanwa	  . 28614)	; &I-M-28614;
+      ))
     (=>>ucs@ks		. #x7FC1)	; &G-GT-36863;
     (=>>gt		. 36863)	; &G-GT-36863;
     (=>>daikanwa	. 28635)	; &G-GT-36863;

@@ -2095,6 +2095,7 @@
     (ideographic-radical . 147)	; ⾒
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
+    (=>>ucs@iso		. #x27882)	; &G-IU+27882;
     (->subsumptive
      ((=daikanwa	  . 34944)	; &M-34944;
       )

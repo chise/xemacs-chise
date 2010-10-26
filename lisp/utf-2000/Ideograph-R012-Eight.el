@@ -1127,6 +1127,7 @@
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (=>>ucs@ks		. #x517C)	; &G-KU+517C;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
@@ -1142,6 +1143,7 @@
 	)
        ((=big5-cdp	    . #x8CDE)	; &CDP-8CDE;
 	))
+      (=ucs@ks		  . #x517C)	; &M-01483;
       (=ks-x1001	  . #x4C42)	; &M-01483; [44-34]
       (=daikanwa	  . 01483)	; &I-M-01483;
       (=jef-china3	  . #x43E6)	; &I-JC3-43E6;
