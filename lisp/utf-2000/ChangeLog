@@ -1,3 +1,35 @@
+2010-10-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el (U+5277): Add ideographic-structure.
+	(mother of JX2-233C): Unify G-JU+5277 and G-CU+5277; add
+	ideographic-structure.
+	(G-UU+5277): New abstract glyph.
+	(C3-4043): Use `<-subsumptive' for G-UU+5277.
+
+	* Ideograph-R009-Man.el (G-CU+5043): New abstract glyph.
+	(C1-5876): Use `<-subsumptive' for G-CU+5043; unify CU+5043.
+	(mother of JSP-3228): Unify G-JU+509F; add ideographic-structure.
+	(mother of C4-3639): Unify G-UU+509F; add ideographic-structure.
+	(U+50C8): Add ideographic-structure.
+	(G-CU+50C8): New abstract glyph.
+	(C2-4160): Use `<-subsumptive' for G-CU+50C8.
+	(U+3488): Add ideographic-structure.
+	(G-CU+3488): New abstract glyph.
+	(C4-422F): Use `<-subsumptive' for G-CU+3488.
+	(G-CU+348E): New abstract glyph.
+	(C4-4232): Use `<-subsumptive' for G-CU+348E.
+	(U+5123): Add ideographic-structure.
+	(JSP-3259): Use `<-denotational' for U+5123 instead of
+	`<-subsumptive' for intermediate node.
+	(C4-5565): Likewise.
+	(G-UU+5123): New abstract glyph.
+	(UU+5123): Use `<-subsumptive' for G-UU+5123.
+	(U-0002040E): Add ideographic-structure.
+	(G-IU+2040E): New abstract glyph.
+	(C7-3676): Use `<-subsumptive' for G-IU+2040E.
+	(G-JU+513C): Separate representative node.
+	(J0-5137): Separate G-JU+513C; use `<-subsumptive' for G-JU+513C.
+
 2010-10-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R162-Walk.el (G-JU+9038): New abstract glyph.
