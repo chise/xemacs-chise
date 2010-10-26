@@ -31,7 +31,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include "lisp.h"
 #include "buffer.h"
-#include "mule-charset.h"
+#include "character.h"
 #include "mule-ccl.h"
 #include "file-coding.h"
 
@@ -1282,6 +1282,7 @@ ccl_driver (struct ccl_program *ccl,
 	case CCL_Extension:
 	  switch (EXCMD)
 	    {
+#ifndef UTF2000
 	    case CCL_ReadMultibyteChar2:
 	      if (!src)
 		CCL_INVALID_CMD;
@@ -1367,7 +1368,9 @@ ccl_driver (struct ccl_program *ccl,
 		CCL_SUSPEND (CCL_STAT_SUSPEND_BY_SRC);
 
 	      break;
+#endif
 
+#ifndef UTF2000
 	    case CCL_WriteMultibyteChar2:
 	      i = reg[RRR]; /* charset */
 	      if (i == LEADING_BYTE_ASCII) 
@@ -1397,6 +1400,7 @@ ccl_driver (struct ccl_program *ccl,
 	      CCL_WRITE_CHAR (i);
 
 	      break;
+#endif
 
 	    case CCL_TranslateCharacter:
 #if 0
