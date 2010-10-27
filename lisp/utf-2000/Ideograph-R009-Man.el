@@ -18358,6 +18358,15 @@
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL PERSON")
+      (=ucs		  . #x2E85)	; ⺅
+      )
+     ((=>>ucs@cns	  . #x533D)	; &G-CU+533D;
+      ))
     (=>>ucs@cns		. #x5043)	; &G-CU+5043;
     (->subsumptive
      ((ideographic-structure
