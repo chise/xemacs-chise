@@ -23472,9 +23472,9 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
     (=ucs		. #x6A95)	; 檕
+    (=big5		. #xED40)	; &I-B-ED40;
     (->subsumptive
-     ((=big5		  . #xED40)	; &M-15666;
-      (=daikanwa	  . 15666)	; &I-M-15666;
+     ((=daikanwa	  . 15666)	; &M-15666;
       )
      ((=ucs@unicode	  . #x6A95)	; &UU+6A95;
       )
