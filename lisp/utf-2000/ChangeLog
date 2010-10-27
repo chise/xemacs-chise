@@ -1,5 +1,13 @@
 2010-10-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R162-Walk.el (G-JU+9052): Unify G-J0-6E24.
+
+	* Ideograph-R078-Death.el (J0-5D47): Separate S2-3964.
+	(S1-3964): Unify S2-3964.
+
+	* Ideograph-R075-Tree.el (U+6A95): Unify B-ED40.
+	(M-15666): Separate B-ED40.
+
 	* Ideograph-R009-Man.el (G-CU+5043): Add ideographic-structure.
 
 2010-10-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
