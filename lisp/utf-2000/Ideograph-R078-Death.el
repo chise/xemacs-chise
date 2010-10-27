@@ -485,7 +485,6 @@
       (=gt		  . 21052)	; &I-GT-21052;
       (=gt-pj-1		  . #x5D47)	; &I-GT-21052; [61-39]
       (=daikanwa	  . 16385)	; &I-M-16385;
-      (=shinjigen@rev	  .  3964)	; &GT-21052;
       ))
     ))
 (define-char
@@ -495,7 +494,7 @@
     (ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (=shinjigen@1ed	.  3964)	; &SJG1-3964;
+    (=shinjigen		.  3964)	; &SJG2-3964;
     ))
 (define-char
   '((<-denotational
