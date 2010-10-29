@@ -1,3 +1,10 @@
+2010-10-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R066-Rap.el (U+6534): Use `->subsumptive' to separate
+	representative nodes.
+	(G-M-13267): Add ideographic-structure.
+	(M-13267): Modify ideographic-structure.
+
 2010-10-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R162-Walk.el (G-JU+9052): Unify G-J0-6E24.
