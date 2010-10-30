@@ -4,24 +4,22 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=ucs		. #x6534)	; 攴
-    (=jis-x0208		. #x5A3D)	; &I-J90-5A3D; [58-29]
-    (=gb2312		. #x6A37)	; &I-G0-6A37; [74-23]
-    (=cns11643-3	. #x2167)	; &I-C3-2167; [01-71]
-    (=jis-x0213-1	. #x5A3D)	; &I-JX1-5A3D; [58-29]
-    (=big5-cdp		. #x8DA2)	; &I-CDP-8DA2;
-    (=gt		. 16576)	; &I-GT-16576;
-    (=gt-k		. 00529)	; &I-GT-K00529;
-    (=gt-pj-1		. #x5A3D)	; &I-GT-16576; [58-29]
-    (=daikanwa		. 13108)	; &I-M-13108;
-    (=cbeta		. 03002)	; &I-CB03002;
-    ))
-(define-char
-  '((=>ucs		. #x6534)	; 攴
-    (morohashi-daikanwa	13108 0 0)
-    (ideographic-radical . 66)	; ⽁
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (mojikyo		. 013108)	; &MCS-60003334;
+    (->subsumptive
+     ((=daikanwa	  . 13108)	; &M-13108;
+      (=cbeta		  . 03002)	; &I-CB03002;
+      )
+     ((=ucs@unicode	  . #x6534)	; &GT-16576;
+      (=jis-x0208	  . #x5A3D)	; &GT-16576; [58-29]
+      (=gb2312		  . #x6A37)	; &I-G0-6A37; [74-23]
+      (=cns11643-3	  . #x2167)	; &I-C3-2167; [01-71]
+      (=jis-x0213-1	  . #x5A3D)	; &I-JX1-5A3D; [58-29]
+      (=big5-cdp	  . #x8DA2)	; &I-CDP-8DA2;
+      (=gt		  . 16576)	; &I-GT-16576;
+      (=gt-k		  . 00529)	; &I-GT-K00529;
+      (=gt-pj-1		  . #x5A3D)	; &I-GT-16576; [58-29]
+      )
+     ((mojikyo		  . 013108)	; &MCS-60003334;
+      ))
     ))
 (define-char
   '((ideographic-radical . 66)	; ⽁
@@ -38,8 +36,7 @@
     (=gt-pj-1		. #x5A3E)	; &I-GT-16577; [58-30]
     (=daikanwa		. 13109)	; &I-M-13109;
     (<-formed@component/connect-left
-     ((=ucs		  . #x6534)	; 攴
-      (=daikanwa	  . 13108)	; &I-M-13108;
+     ((=daikanwa	  . 13108)	; &M-13108;
       ))
     (<-formed@component/connect-left*sources
      zhengzitong daikanwa)
@@ -2337,7 +2334,15 @@
       ))
     (=>>daikanwa	. 13267)	; &A-M-13267;
     (->subsumptive
-     ((=daikanwa	  . 13267)	; &M-13267;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x2F83F)	; 周
+	)
+       ((=daikanwa	    . 13108)	; &M-13108;
+	))
+      (=daikanwa	  . 13267)	; &M-13267;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
