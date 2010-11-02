@@ -318,6 +318,7 @@
     (=daikanwa		. 02791)	; &I-M-02791;
     (=shinjigen		.  0839)	; 卣
     (=jef-china3	. #x97D3)	; &I-JC3-97D3;
+    (=adobe-japan1-5	. 16801)	; &I-AJ1-16801;
     ))
 (define-char
   '((ideographic-radical . 25)	; ⼘
@@ -606,6 +607,7 @@
     (=jis-x0213-2	. #x2354)	; &I-JX2-2354; [03-52]
     (=daikanwa		. 02808)	; &I-M-02808;
     (=hanziku-7		. #xEECB)	; &I-HZK07-EECB;
+    (=adobe-japan1-5	. 17333)	; &I-AJ1-17333;
     ))
 (define-char
   '((ideographic-radical . 25)	; ⼘
