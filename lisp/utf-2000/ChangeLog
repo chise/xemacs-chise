@@ -1,3 +1,8 @@
+2010-10-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R025-Divination.el (U+5363): Unify AJ1-16801.
+	(U+5367): Unify AJ1-17333.
+
 2010-10-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R066-Rap.el (U+6534): Use `->subsumptive' to separate
