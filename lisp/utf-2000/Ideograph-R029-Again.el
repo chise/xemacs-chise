@@ -934,6 +934,7 @@
     (sound@ja/kun/name	"koto")
     (=ucs		. #x355D)	; 㕝
     (=jis-x0213-2	. #x235D)	; &I-JX2-235D; [03-61]
+    (=adobe-japan1-5	. 17341)	; &I-AJ1-17341;
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
@@ -1048,6 +1049,7 @@
     (=jis-x0213-2	. #x235E)	; &I-JX2-235E; [03-62]
     (=big5-cdp		. #x8AC3)	; &I-CDP-8AC3;
     (=daikanwa		. 03156)	; &I-M-03156;
+    (=adobe-japan1-5	. 17342)	; &I-AJ1-17342;
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
@@ -1069,9 +1071,10 @@
       (=jef-china3	  . #x80CA)	; &I-JC3-80CA;
       )
      ((hanyu-dazidian	  1 397 4)
-      (=ucs@unicode	  . #x53D5)	; &HZK01-F7B6;
-      (=jis-x0213-2	  . #x235F)	; &HZK01-F7B6; [03-63]
+      (=ucs@unicode	  . #x53D5)	; &AJ1-17343;
+      (=jis-x0213-2	  . #x235F)	; &AJ1-17343; [03-63]
       (=hanziku-1	  . #xF7B6)	; &I-HZK01-F7B6;
+      (=adobe-japan1-5	  . 17343)	; &I-AJ1-17343;
       )
      ((=cns11643-3	  . #x276B)	; &C3-276B; [07-75]
       ))
