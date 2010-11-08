@@ -1,3 +1,12 @@
+2010-11-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R028-Private.el (U+53B7): Unify AJ1-17338.
+	(U+53BA): Unify AJ1-19215.
+
+	* Ideograph-R029-Again.el (U+355D): Unify AJ1-17341.
+	(U+355E): Unify AJ1-17342.
+	(JX2-235F): Unify AJ1-17343.
+
 2010-10-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R025-Divination.el (U+5363): Unify AJ1-16801.
