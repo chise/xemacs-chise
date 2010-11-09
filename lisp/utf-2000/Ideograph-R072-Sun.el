@@ -4288,6 +4288,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=ucs		. #x6677)	; 晷
+    (=big5		. #xB4BE)	; &I-B-B4BE;
     ))
 (define-char
   '((<-denotational
@@ -4317,10 +4318,8 @@
     (total-strokes	 . 12)
     (=ucs@cns		. #x6677)	; &JX1-7540;
     (=ucs@jis/2000	. #x6677)	; &JX1-7540;
-    (=ucs@big5		. #x6677)	; &JX1-7540;
     (=cns11643-1	. #x5F63)	; &JX1-7540; [63-67]
     (=jis-x0213-1	. #x7540)	; &I-JX1-7540; [85-32]
-    (=big5		. #xB4BE)	; &I-B-B4BE;
     (=jef-china3	. #x51A7)	; &I-JC3-51A7;
     ))
 (define-char
