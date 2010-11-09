@@ -1,3 +1,20 @@
+2010-11-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R072-Sun.el (U+6677): Unify B-B4BE.
+	(C1-5F63): Separate B-B4BE.
+
+	* Ideograph-R027-Cliff.el (U+5394): Unify AJ1-19211.
+	(U+5399): Unify AJ1-19212.
+	(U+539D): Unify AJ1-16802.
+	(U+53A4): Unify AJ1-17335.
+	(U+53AA): Unify AJ1-19213.
+	(U+53AF): Use `->subsumptive' to separate representative nodes.
+	(UU+53AF): Unify AJ1-19214.
+	(U+53AC): Use `->denotational' instead of `->subsumptive'.
+	(U+53AD): Add ideographic-structure.
+	(U+53B4): Likewise.
+	(JX2-2358): Unify AJ1-17336.
+
 2010-11-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R028-Private.el (U+53B7): Unify AJ1-17338.
