@@ -1633,6 +1633,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x661D)	; 昝
+    (=big5		. #xCEF5)	; &I-B-CEF5;
     ))
 (define-char
   '((<-denotational
@@ -1643,10 +1644,8 @@
     (total-strokes	 . 9)
     (=ucs@cns		. #x661D)	; &M-13834;
     (=ucs@jis		. #x661D)	; &M-13834;
-    (=ucs@big5		. #x661D)	; &M-13834;
     (=jis-x0212		. #x417E)	; &M-13834; [33-94]
     (=cns11643-2	. #x2A76)	; &I-C2-2A76; [10-86]
-    (=big5		. #xCEF5)	; &I-B-CEF5;
     (=daikanwa		. 13834)	; &I-M-13834;
     (=jef-china3	. #x91E2)	; &I-JC3-91E2;
     ))
