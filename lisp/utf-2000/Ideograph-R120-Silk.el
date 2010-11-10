@@ -9927,19 +9927,41 @@
     (total-strokes	 . 16)
     (=ucs		. #x7E1A)	; 縚
     (=big5		. #xEAD6)	; &I-B-EAD6;
-    (->subsumptive
-     ((=daikanwa	  . 27770)	; &M-27770;
-      )
-     ((=ucs@unicode	  . #x7E1A)	; &C2-5942;
-      (=cns11643-2	  . #x5942)	; &C2-5942; [57-34]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7E1A)	; 縚
       ))
+    (ideographic-radical . 120)	; ⽷
+    (ideographic-strokes . 10)
+    (total-strokes	 . 16)
+    (=daikanwa		. 27770)	; &M-27770;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7E1A)	; 縚
+      ))
+    (ideographic-radical . 120)	; ⽷
+    (ideographic-strokes . 10)
+    (total-strokes	 . 16)
+    (=ucs@unicode	. #x7E1A)	; &C2-5942;
+    (=cns11643-2	. #x5942)	; &C2-5942; [57-34]
     ))
 (define-char
   '((ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
     (=ucs		. #x7E1B)	; 縛
-    (=big5		. #xBFA3)	; &I-B-BFA3;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7E1B)	; 縛
+      ))
+    (ideographic-radical . 120)	; ⽷
+    (ideographic-strokes . 10)
+    (total-strokes	 . 16)
+    (=>>ucs@unicode	. #x7E1B)	; &G-UU+7E1B;
+    (=big5		. #xBFA3)	; &G-UU+7E1B;
     (->subsumptive
      ((=ks-x1001	  . #x5A5A)	; &GT-35788; [58-58]
       (=gt		  . 35788)	; &I-GT-35788;
@@ -9947,17 +9969,25 @@
       (=daikanwa	  . 27771)	; &I-M-27771;
       (=jef-china3	  . #x5FCD)	; &I-JC3-5FCD;
       )
-     ((=cns11643-1	  . #x716B)	; &C1-716B; [81-75]
-      )
      ((=ucs@unicode	  . #x7E1B)	; &UU+7E1B;
       (=gb12345		  . #x383F)	; &UU+7E1B; [24-31]
       )
-     ((=ucs@jis		  . #x7E1B)	; &GT-35789;
-      (=jis-x0208	  . #x477B)	; &GT-35789; [39-91]
-      (=jis-x0213-1	  . #x477B)	; &I-JX1-477B; [39-91]
-      (=gt		  . 35789)	; &I-GT-35789;
-      (=gt-pj-1		  . #x477B)	; &I-GT-35789; [39-91]
+     ((=ucs@cns		  . #x7E1B)	; &C1-716B;
+      (=cns11643-1	  . #x716B)	; &C1-716B; [81-75]
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7E1B)	; 縛
+      ))
+    (ideographic-radical . 120)	; ⽷
+    (ideographic-strokes . 10)
+    (total-strokes	 . 16)
+    (=ucs@jis		. #x7E1B)	; &GT-35789;
+    (=jis-x0208		. #x477B)	; &GT-35789; [39-91]
+    (=jis-x0213-1	. #x477B)	; &I-JX1-477B; [39-91]
+    (=gt		. 35789)	; &I-GT-35789;
+    (=gt-pj-1		. #x477B)	; &I-GT-35789; [39-91]
     ))
 (define-char
   '((ideographic-radical . 120)	; ⽷
