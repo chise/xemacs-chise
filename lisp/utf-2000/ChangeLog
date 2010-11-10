@@ -1,3 +1,40 @@
+2010-11-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R072-Sun.el (U+661D): Unify B-CEF5.
+	(C2-2A76): Separate B-CEF5.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-3A47.
+
+	* Ideograph-R149-Speech.el: Add mappings between CJK Ext B and CNS
+	11643 plain 7.
+	(U+46E9): Use `->subsumptive' to separate representative nodes.
+	(U+46EA): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+46EB): Use `->subsumptive' to separate representative nodes.
+	(U-00027A7C): Integrate M-35760.
+	(U+46FF): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+8B2B): Use `->denotational' instead of `->subsumptive'.
+	(M-35975): Map to U-00027B0F.
+	(U+471E): Use `->subsumptive' to separate representative nodes.
+	(U+471B): Likewise.
+	(U-00027B62): Use `->subsumptive'.
+	(U+8B81): Use `->denotational'.
+	(U+8B90): Use `->subsumptive'.
+	(U+8B8F): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R120-Silk.el (U+7E1A): Use `->denotational' instead of
+	`->subsumptive'.
+	(U+7E1B): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R049-Oneself.el (U+5DF9): Unify S2-2072.
+
+	* Ideograph-R024-Ten.el (M-02726): Map to U-0002098E.
+	(M-02727): Unify U-0002098A and H1-B06A.
+	(M-02728): Unify U-0002098F and BC-8849.
+	(M-02729): Unify U-00020990 and BC-855D.
+	(M-02730): Unify U-0002098B and H1-B06F.
+
 2010-11-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R026-Seal.el (U+536D): Unify AJ1-19208.
