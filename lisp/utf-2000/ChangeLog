@@ -1,4 +1,35 @@
+2010-11-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R026-Seal.el (U+536D): Unify AJ1-19208.
+	(U+5379): Unify AJ1-19209.
+	(U+537A): Unify AJ1-17334; use `<-formed' for U+5DF9 instead of
+	`variant-of-shinjigen-1' for S-2072.
+	(U+537E): Unify AJ1-19210.
+
 2010-11-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R131-Minister.el (U+5367): Unify AJ1-17333.
+
+	* Ideograph-R118-Bamboo.el (U+5284): Unify AJ1-17317.
+
+2010-11-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el: Add some Adobe-Japan1-5 code points.
+	(U+5235): Add ideographic-structure.
+	(mother of C3-275D): Unify G-JU+523C and G-CU+523C; add
+	ideographic-structure.
+	(C3-275D): Unify C3-523C.
+	(U+5255): Add ideographic-structure.
+	(G-JU+5255): New abstract glyph to integrate M-02033 and JX2-2339.
+	(U+525C): Add ideographic-structure.
+	(U+526E): Add ideographic-structure.
+	(C2-336F): Unify G-CU+526E.
+	(U+5279): Use `->denotational' instead of `->subsumptive'.
+	(U+5280): Add ideographic-structure.
+	(mother of C2-4928): Unify G-JU+5280 and G-CU+5280.
+	(U+528C): Add ideographic-structure.
+	(U+5298): Add ideographic-structure.
+	(mother of JX2-2340): Unify G-JU+5298 and G-CU+5298.
 
 	* Ideograph-R072-Sun.el (U+6677): Unify B-B4BE.
 	(C1-5F63): Separate B-B4BE.
