@@ -104,7 +104,7 @@
      ((=ucs		  . #x4E59)	; 乙
       ))
     (=ucs@unicode	. #x6239)	; &HZK06-D2F5;
-    (=hanziku-6		. #xD2F5)	; &I-HZK06-D2F5;
+    (=hanziku-6		. #xD2F5)	; &HZK06-D2F5;
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
