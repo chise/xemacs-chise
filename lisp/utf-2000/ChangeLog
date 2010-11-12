@@ -1,5 +1,125 @@
 2010-11-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R073-Say.el (C1-5E32): Use U-0002F8D4 instead of
+	J0-3A47 as the value of `<-original'; add `<-original@daikanwa'
+	for J0-3A47 and `<-original@shinjigen' for GT-18101.
+	(G-J0-3A47): Separate U-0002F8D4.
+	(U-0002F8D4): Moved to abstract glyph node; use `<-subsumptive'
+	for G-J0-3A47; use `->subsumptive' to integrate J0-3A47 and
+	GT-18101.
+	(J0-3A47): Separate IU+2F8D4, GT-18101, GT-K09052 and S-0925.
+
+	* Ideograph-R030-Mouth.el: Add some Adobe-Japan1-5 code points.
+	(mother of G0-3D50): Unify G-UU+53EB.
+	(U+5412): Use `->subsumptive' to separate representative nodes.
+	(U+5428): Add ideographic-structure.
+	(U+542A): Add ideographic-structure.
+	(U+545D): Use `->denotational'.
+	(U+5462): Use `->subsumptive' to separate representative nodes.
+	(U+54AA): Likewise.
+	(U+54B7): Likewise.
+	(U-00020C55): Use `->subsumptive'.
+	(C2-294B): Unify G-CU+54BC.
+	(B-AB75): Unify G-CU+54CE.
+	(C1-5039): Unify CU+54CE.
+	(G-UU+54CE): New abstract glyph; use `<-denotational' for U+54CE.
+	(JSP-353C): Separate G0-3025; use `->subsumptive' for G-UU+54CE.
+	(G0-3025): Use `->subsumptive' for G-UU+54CE.
+	(U+54EA): Add ideographic-structure.
+	(U+54FC): Use `->subsumptive' to separate representative nodes.
+	(U+5500): Likewise.
+	(U+5501): Add ideographic-structure.
+	(U+5505): Add ideographic-structure.
+	(U+5509): Add ideographic-structure.
+	(U+552A): Use `->subsumptive' to separate representative nodes.
+	(U+553C): Add ideographic-structure.
+	(U+5541): Use `->denotational' to separate representative nodes.
+	(U+5550): Add ideographic-structure.
+	(U+5561): Use `->subsumptive' to separate representative nodes.
+	(U+5566): Add ideographic-structure.
+	(U+558F): Add ideographic-structure.
+	(U+5591): Add ideographic-structure.
+	(U+5592): Add ideographic-structure.
+	(C2-3A57): Add ideographic-structure.
+	(U+35C5): Use `->subsumptive' to separate representative nodes.
+	(U+55AD): Add ideographic-structure.
+	(mother of JX1-2F2D): Unify G-JU+55AD and G-CU+55AD.
+	(G-UU+55AD): New abstract glyph.
+	(UU+55AD): Use `<-subsumptive' for G-UU+55AD.
+	(U-00020DD6): Add ideographic-structure.
+	(U+55B2): Add ideographic-structure.
+	(mother of C1-5E4F): Unify G-UU+55B2; add ideographic-structure.
+	(U+55BF): Add ideographic-structure; use `->subsumptive' to
+	separate representative nodes.
+	(U+55C3): Use `->subsumptive' to separate representative nodes.
+	(U+55C6): Add ideographic-structure.
+	(U+55C9): Use `->subsumptive' to separate representative nodes.
+	(U+55CC): Add ideographic-structure.
+	(U+55D2): Add ideographic-structure.
+	(U+55D3): Add ideographic-structure.
+	(U+55DB): Add ideographic-structure.
+	(U+55E2): Unify A-JX2-2439.
+	(U+55E9): Add ideographic-structure.
+	(JX2-243B): Modify ideographic-structure.
+	(U+55EC): Add ideographic-structure.
+	(mother of C3-4636): Unify G-JU+5605 and G-CU+5605.
+	(C3-4636): Unify CU+5605.
+	(U+5607): Add ideographic-structure.
+	(JX2-243E): Separate H2-DE4B and UU+5607.
+	(U+560D): Use `->subsumptive' to separate representative nodes.
+	(U+5610): Add ideographic-structure.
+	(mother of C1-6834): Unify G-UU+5610; add ideographic-structure.
+	(U+5611): Add ideographic-structure.
+	(U+5628): Use `->subsumptive'.
+	(U+562C): Use `->subsumptive' to separate representative nodes.
+	(U+5630): Add ideographic-structure.
+	(U+5640): Use `->subsumptive' to separate representative nodes.
+	(U+5647): Add ideographic-structure.
+	(mother of C2-4F63): Unify G-CU+564A.
+	(U+564D): Add ideographic-structure.
+	(U+5657): Add ideographic-structure.
+	(U+5660): Add ideographic-structure.
+	(U+566A): Add ideographic-structure.
+	(U+566D): Add ideographic-structure.
+	(U+567E): Add ideographic-structure.
+	(G-CU+567E): New abstract glyph to integrate M-04442 and C2-5C52.
+	(C2-5C52): Unify CU+567E.
+	(U+5684): Add ideographic-structure.
+	(mother of C2-5C50): Unify G-CU+5684.
+	(mother of JSP-3654): Unify G-UU+5684.
+	(U+5685): Use `->subsumptive' to separate representative nodes.
+	(U+5688): Use `->subsumptive'.
+	(U+568C): Use `->subsumptive' to separate representative nodes.
+	(B-EFBE): Unify o-JU+569D and A-CU+569D.
+	(U+569F): Use `->subsumptive' to separate representative nodes.
+	(U+56A6): Likewise.
+	(U+56A8): Use `->subsumptive'.
+	(U+56A9): Likewise.
+	(U+56B3): Add ideographic-structure.
+	(U+56B7): Add ideographic-structure.
+	(mother of C2-6B54): Unify G-JU+56BE and G-CU+56BE.
+	(mother of UU+56BE): Unify G-UU+56BE.
+	(U+56CC): Add ideographic-structure.
+	(U+361A): Add ideographic-structure; use `->denotational' instead
+	of `->subsumptive'.
+	(U+56CD): Use `->denotational'.
+	(JX2-2454): Unify JC3-95C5.
+
+	* Ideograph-R029-Again.el, Ideograph-R014-Cover.el,
+	Ideograph-R013-Down-Box.el (C1-5E32): Use U-0002F8D4 instead of
+	J0-3A47 as the value of `<-original'; add `<-original@daikanwa'
+	for J0-3A47 and `<-original@shinjigen' for GT-18101.
+	(G-J0-3A47): Separate U-0002F8D4.
+	(U-0002F8D4): Moved to abstract glyph node; use `<-subsumptive'
+	for G-J0-3A47; use `->subsumptive' to integrate J0-3A47 and
+	GT-18101.
+	(J0-3A47): Separate IU+2F8D4, GT-18101, GT-K09052 and S-0925.
+
+	* Ideograph-R010-Legs.el (U+5146): Unify G-J0-437B.
+	(K0-703C): Unify KU+5146.
+
+2010-11-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R072-Sun.el (U+661D): Unify B-CEF5.
 	(C2-2A76): Separate B-CEF5.
 
