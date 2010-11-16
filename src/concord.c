@@ -264,6 +264,8 @@ Return concord-ds of GENRE.
   CHECK_SYMBOL (genre);
 
   retval = Fgethash (genre, Vconcord_genre_hash_table, Qunbound);
+  if ( UNBOUNDP (retval) )
+    retval = Vchise_system_db_directory;
   if ( STRINGP (retval) )
     {
       retval = Fconcord_open_ds (retval, Qnil, Qnil, Qnil);
@@ -1171,9 +1173,7 @@ void
 complex_vars_of_concord (void)
 {
 #ifdef HAVE_LIBCHISE
-  Lisp_Object dir = build_string(chise_system_db_dir);
-
-  Fconcord_assign_genre (Qcharacter, dir);
-  Fconcord_assign_genre (Qfeature, dir);
+  Fconcord_assign_genre (Qcharacter, Vchise_system_db_directory);
+  Fconcord_assign_genre (Qfeature, Vchise_system_db_directory);
 #endif
 }
