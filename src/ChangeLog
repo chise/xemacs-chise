@@ -1,3 +1,13 @@
+2010-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* concord.c (Fconcord_genre_ds): Use Vchise_system_db_directory as
+	the default location of data-source.
+	(complex_vars_of_concord): Use Vchise_system_db_directory to
+	assign genre `character' and `feature'.
+
+	* chartab.h (Vchise_system_db_directory): New extern when
+	HAVE_CONCORD is defined.
+
 2010-09-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* concord.c: Include <chise.h> if HAVE_LIBCHISE is defined.
