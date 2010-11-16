@@ -187,12 +187,22 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
     (=ucs		. #x27D2A)	; 𧴪
-    (=cns11643-4	. #x3026)	; &I-C4-3026; [16-06]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x27D2A)	; 𧴪
+      ))
+    (ideographic-radical . 154)	; ⾙
+    (ideographic-strokes . 3)
+    (total-strokes	 . 10)
+    (=ucs@iso		. #x27D2A)	; &M-36663;
+    (=cns11643-4	. #x3026)	; &M-36663; [16-06]
     (=daikanwa		. 36663)	; &I-M-36663;
     ))
 (define-char
-  '((=>ucs		. #x27D2A)	; 𧴪
-    (morohashi-daikanwa	36663 0 2)
+  '((<-denotational
+     ((=ucs		  . #x27D2A)	; 𧴪
+      ))
     (ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
