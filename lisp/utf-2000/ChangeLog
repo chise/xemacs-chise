@@ -1,3 +1,7 @@
+2010-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R154-Shell.el (U-00027D2A): Use `->denotational'.
+
 2010-11-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R073-Say.el (C1-5E32): Use U-0002F8D4 instead of
