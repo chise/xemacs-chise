@@ -1,3 +1,14 @@
+2010-11-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R152-Pig.el: Add mappings between CJK Ext B and CNS
+	11643 plain 7.
+	(U+4750): Use `->subsumptive'.
+	(U+4751): Use `->subsumptive' to separate representative nodes.
+	(U-00027C8B): Use `->subsumptive'.
+	(U+4752): Use `->denotational' and `->subsumptive'.
+	(U+4753): Use `->denotational' and `->subsumptive'.
+	(U-00027C97): Use `->subsumptive'.
+
 2010-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R154-Shell.el (U-00027D2A): Use `->denotational'.
