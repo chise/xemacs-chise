@@ -1,3 +1,8 @@
+2010-11-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* concord.c (print_concord_object): Don't display location of
+	data-source when `print-readably' is nil.
+
 2010-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* concord.c (Fconcord_genre_ds): Use Vchise_system_db_directory as
