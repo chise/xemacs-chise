@@ -389,10 +389,6 @@ print_concord_object (Lisp_Object obj,
   else
     {
       write_c_string ("#<concord-object \"", printcharfun);
-      write_c_string (concord_ds_location
-		      (concord_genre_get_data_source (lcobj->genre)),
-		      printcharfun);
-      write_c_string (":", printcharfun);
       write_c_string (concord_genre_get_name (lcobj->genre), printcharfun);
       write_c_string (";", printcharfun);
       GCPRO2 (obj, printcharfun);
