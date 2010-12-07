@@ -375,8 +375,10 @@ print_concord_object (Lisp_Object obj,
   Lisp_CONCORD_Object* lcobj = XCONCORD_OBJECT (obj);
   struct gcpro gcpro1, gcpro2;
 
-  if (print_readably)
+#if 0
+  if ( print_readably )
     {
+#endif
       write_c_string ("#s(concord-object", printcharfun);
       write_c_string (" genre ", printcharfun);
       write_c_string (concord_genre_get_name (lcobj->genre), printcharfun);
@@ -385,6 +387,7 @@ print_concord_object (Lisp_Object obj,
       print_internal (lcobj->id, printcharfun, escapeflag);
       UNGCPRO;
       write_c_string (")", printcharfun);
+#if 0
     }
   else
     {
@@ -396,6 +399,7 @@ print_concord_object (Lisp_Object obj,
       UNGCPRO;
       write_c_string ("\">", printcharfun);
     }
+#endif
 }
 
 static void
