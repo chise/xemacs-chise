@@ -27,7 +27,7 @@ Boston, MA 02111-1307, USA.  */
 #include "sysfile.h"
 #include "buffer.h"
 #include <errno.h>
-#include <concord.h>
+#include "elconcord.h"
 #ifdef HAVE_LIBCHISE
 #  include <chise.h>
 #endif
@@ -35,10 +35,6 @@ Boston, MA 02111-1307, USA.  */
 
 EXFUN (Fread_from_string, 3);
 
-
-EXFUN (Fconcord_decode_object, 4);
-EXFUN (Fconcord_object_put, 3);
-EXFUN (Fconcord_object_get, 2);
 
 Lisp_Object Qconcord;
 Lisp_Object Qconcord_object;
@@ -53,22 +49,11 @@ Lisp_Object Vconcord_genre_hash_table;
 Lisp_Object Vconcord_genre_object_hash_table;
 
 
-typedef struct Lisp_CONCORD_DS Lisp_CONCORD_DS;
-DECLARE_LRECORD (concord_ds, Lisp_CONCORD_DS);
+/*
+ * data source
+ */
 
 Lisp_Object Qconcord_dsp;
-
-struct Lisp_CONCORD_DS
-{
-  struct lcrecord_header header;
-  CONCORD_DS ds;
-};
-
-#define XCONCORD_DS(x) XRECORD (x, concord_ds, Lisp_CONCORD_DS)
-#define XSET_CONCORD_DS(x, p) XSETRECORD (x, p, concord_ds)
-#define CONCORD_DS_P(x) RECORDP (x, concord_ds)
-#define CHECK_CONCORD_DS(x) CHECK_RECORD (x, concord_ds)
-#define CONCHECK_CONCORD_DS(x) CONCHECK_RECORD (x, concord_ds)
 
 static Lisp_CONCORD_DS*
 allocate_concord_ds (void)
@@ -328,27 +313,11 @@ Return the list of all existing features in GENRE.
 }
 
 
-typedef struct Lisp_CONCORD_Object Lisp_CONCORD_Object;
-DECLARE_LRECORD (concord_object, Lisp_CONCORD_Object);
+/*
+ * Concord-object
+ */
 
 Lisp_Object Qconcord_objectp;
-
-struct Lisp_CONCORD_Object
-{
-  struct lcrecord_header header;
-  CONCORD_Genre genre;
-  Lisp_Object id;
-};
-
-#define XCONCORD_OBJECT(x) XRECORD (x, concord_object, Lisp_CONCORD_Object)
-#define XSET_CONCORD_OBJECT(x, p) XSETRECORD (x, p, concord_object)
-#define CONCORD_OBJECT_P(x) RECORDP (x, concord_object)
-#define CHECK_CONCORD_OBJECT(x) CHECK_RECORD (x, concord_object)
-#define CONCHECK_CONCORD_OBJECT(x) CONCHECK_RECORD (x, concord_object)
-#define CONCORD_OBJECT_GENRE(x)	((x)->genre)
-#define CONCORD_OBJECT_ID(x)	((x)->id)
-#define XCONCORD_OBJECT_ID(x)	CONCORD_OBJECT_ID (XCONCORD_OBJECT(x))
-#define XCONCORD_OBJECT_GENRE(x) CONCORD_OBJECT_GENRE (XCONCORD_OBJECT(x))
 
 static Lisp_CONCORD_Object*
 allocate_concord_object (void)
@@ -417,6 +386,13 @@ finalize_concord_object (void *header, int for_disksave)
     }
 }
 
+static int
+concord_object_equal (Lisp_Object cobj1, Lisp_Object cobj2, int depth)
+{
+  return internal_equal ( XCONCORD_OBJECT_ID(cobj1),
+			  XCONCORD_OBJECT_ID(cobj2), depth);
+}
+
 static const struct lrecord_description concord_object_description[] = {
   { XD_LISP_OBJECT, offsetof (Lisp_CONCORD_Object, id) },
   { XD_END }
@@ -424,7 +400,8 @@ static const struct lrecord_description concord_object_description[] = {
 
 DEFINE_LRECORD_IMPLEMENTATION ("concord_object", concord_object,
                                mark_concord_object, print_concord_object,
-			       finalize_concord_object, 0, 0,
+			       finalize_concord_object,
+			       concord_object_equal, 0,
 			       concord_object_description,
 			       Lisp_CONCORD_Object);
 
