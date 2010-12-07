@@ -1,5 +1,35 @@
 2010-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* concord.c:
+	- Include "elconcord.h".
+	- Move EXFUNs for `Fconcord_decode_object', `Fconcord_object_put'
+	  and `Fconcord_object_get' to elconcord.h.
+	(Lisp_CONCORD_DS): Moved to elconcord.h.
+	(struct Lisp_CONCORD_DS): Ditto.
+	(XCONCORD_DS): Ditto.
+	(XSET_CONCORD_DS): Ditto.
+	(CONCORD_DS_P): Ditto.
+	(CHECK_CONCORD_DS): Ditto.
+	(CONCHECK_CONCORD_DS): Ditto.
+	(Lisp_CONCORD_Object): Ditto.
+	(struct Lisp_CONCORD_Object): Ditto.
+	(XCONCORD_OBJECT): Ditto.
+	(XSET_CONCORD_OBJECT): Ditto.
+	(CONCORD_OBJECT_P): Ditto.
+	(CHECK_CONCORD_OBJECT): Ditto.
+	(CONCHECK_CONCORD_OBJECT): Ditto.
+	(CONCORD_OBJECT_GENRE): Ditto.
+	(CONCORD_OBJECT_ID): Ditto.
+	(XCONCORD_OBJECT_ID): Ditto.
+	(XCONCORD_OBJECT_GENRE): Ditto.
+	(concord_object_equal): New function.
+	(LRECORD_IMPLEMENTATION of "concord_object"): Use
+	`concord_object_equal'.
+
+	* elconcord.h: New file.
+
+2010-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* concord.c (print_concord_object): Use readable form even if
 	`print-readably' is nil.
 
