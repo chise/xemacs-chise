@@ -771,7 +771,7 @@ Store a VALUE of OBJECT's FEATURE.
 	      ffv = Fconcord_object_get (ret, rev_feature);
 	      if (!CONSP (ffv))
 		concord_object_put (ret, rev_feature, list1 (object));
-	      else if (NILP (Fmemq (object, ffv)))
+	      else if (NILP (Fmember (object, ffv)))
 		concord_object_put
 		  (ret, rev_feature,
 		   nconc2 (Fcopy_sequence (ffv), list1 (object)));
@@ -782,6 +782,30 @@ Store a VALUE of OBJECT's FEATURE.
       UNGCPRO;
     }
   return Qt;
+}
+
+DEFUN ("concord-object-adjoin", Fconcord_object_adjoin, 3, 3, 0, /*
+Cons ITEM onto the front of FEATURE's value of OBJECT only if it's not already there.
+*/
+       (object, feature, item))
+{
+  Lisp_Object ret = Fconcord_object_get (object, feature);
+
+  if ( NILP (Fmember (item, ret)) )
+    return Fconcord_object_put (object, feature, Fcons (item, ret));
+  return Qnil;
+}
+
+DEFUN ("concord-object-adjoin*", Fconcord_object_adjoinX, 3, 3, 0, /*
+Append ITEM onto the end of FEATURE's value of OBJECT only if it's not already there.
+*/
+       (object, feature, item))
+{
+  Lisp_Object ret = Fconcord_object_get (object, feature);
+
+  if ( NILP (Fmember (item, ret)) )
+    return Fconcord_object_put (object, feature, nconc2 (ret, list1 (item)));
+  return Qnil;
 }
 
 struct closure_for_object_spec
@@ -1110,6 +1134,8 @@ syms_of_concord (void)
   DEFSUBR (Fconcord_decode_object);
   DEFSUBR (Fconcord_object_get);
   DEFSUBR (Fconcord_object_put);
+  DEFSUBR (Fconcord_object_adjoin);
+  DEFSUBR (Fconcord_object_adjoinX);
   DEFSUBR (Fconcord_define_object);
   DEFSUBR (Fconcord_object_spec);
   DEFSUBR (Fconcord_foreach_object_in_feature);
