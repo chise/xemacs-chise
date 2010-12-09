@@ -1,5 +1,13 @@
 2010-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* concord.c (Fconcord_object_put): Use `member' instead of `memq'.
+	(Fconcord_object_adjoin): New function.
+	(Fconcord_object_adjoinX): New function.
+	(syms_of_concord): Defsubred `Fconcord_object_adjoin' and
+	`Fconcord_object_adjoinX'.
+
+2010-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* concord.c:
 	- Include "elconcord.h".
 	- Move EXFUNs for `Fconcord_decode_object', `Fconcord_object_put'
