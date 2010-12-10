@@ -196,6 +196,7 @@
      ((=ucs@jis		  . #x9F91)	; &M-48827;
       (=jis-x0212	  . #x6D5A)	; &M-48827; [77-58]
       (=daikanwa	  . 48827)	; &I-M-48827;
+      (=jef-china3	  . #x70A6)	; &I-JC3-70A6;
       )
      ((=ucs@unicode	  . #x9F91)	; &UU+9F91;
       )
@@ -230,6 +231,15 @@
      ((=ucs@iso		  . #x2A698)	; &U-0002A698;
       )
      ((=cns11643-5	  . #x6F64)	; &C5-6F64; [79-68]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 212)	; ⿓
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (=ucs		. #x4DAE)	; 䶮
+    (<-simplified@CN
+     ((=ucs		  . #x9F91)	; 龑
       ))
     ))
 (define-char
