@@ -1,3 +1,43 @@
+2010-12-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R212-Dragon.el (JSP-6D5A): Unify JC3-70A6.
+	(U+4DAE): New character.
+
+	* Ideograph-R155-Red.el: Add mappings between CJK Ext B and CNS
+	11643 plain 7.
+	(M-37012): Unify U-00027E68.
+	(M-37013): Unify U-00027E69.
+	(U+8D6D): Use `->denotational'.
+	(U+8D6F): Use `->subsumptive'.
+	(M-37028): Map to U-00027E7A.
+	(U-00027E7E): New character.
+	(U-00027E85): New character.
+
+	* Ideograph-R130-Meat.el (mother of M-30041): Unify G-IU+268BD.
+	(U-000268BC): Integrate M-49740 and C7-553A; use
+	`ideographic-radical@ucs' instead of `ideographic-radical'; add
+	`ideographic-strokes@ucs' and `ideographic-{radical|strokes}@cns'.
+
+2010-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R153-Badger.el: Add mappings between CJK Ext B and CNS
+	11643 plain 7.
+	(U+8C7C): Use `->subsumptive'.
+	(U+475E): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U-00027CEB): Use `->subsumptive' and `->subsumptive'.
+	(U+4761): Use `->subsumptive'.
+	(mother of C2-635C): Unify G-CU+8C98.
+	(C2-635C): Unify CU+8C98.
+	(U-00027D07): Use `->denotational'.
+	(r1M-36626): Delete r2M-36626; add `morohashi-daikanwa@rev2' for
+	M-36628'; map to U-00027D06.
+	(U+4763): Use `->subsumptive'.
+	(U+4765): Use `->subsumptive' to separate representative nodes.
+	(U+4766): Use `->denotational' and `->subsumptive'.
+	(mother of JX2-792A): Unify G-JU+8C9B and G-CU+8C9B.
+	(C3-614D): Unify CU+8C9B.
+
 2010-11-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R152-Pig.el: Add mappings between CJK Ext B and CNS
