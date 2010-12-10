@@ -1223,9 +1223,9 @@
     (->subsumptive
      ((ideographic-strokes . 6)
       (total-strokes	   . 9)
-      (=ucs@unicode	  . #x594A)	; &UU+594A;
-      (=big5		  . #xD15A)	; &UU+594A;
-      (=daikanwa@rev1	  . 05897)	; &UU+594A;
+      (=ucs@unicode	  . #x594A)	; &r1M-05897;
+      (=big5		  . #xD15A)	; &r1M-05897;
+      (=daikanwa@rev1	  . 05897)	; &r1M-05897;
       (=daikanwa@rev2	  . 05909)	; &M-05909;
       )
      ((ideographic-strokes . 7)
