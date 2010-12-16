@@ -1,3 +1,19 @@
+2010-12-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R154-Shell.el: Add mappings between CJK Ext B and CNS
+	11643 plain 7.
+	(U-00027DA0): Use `->subsumptive' to separate representative
+	nodes.
+	(U-00027DB5): Use `->denotational'.
+	(mother of C4-5D69): Unify G-UU+8CFF.
+	(U+8D06): Use `->subsumptive' to separate representative nodes.
+	(U+8D17): Add `<-original' for J0-3466.
+	(mother of C2-6F53): Unify G-CU+8D19.
+	(C2-6F53): Unify CU+8D19.
+	(U+8D1B): Use `->denotational' to integrate A-CU+2F9D6.
+	(A-CU+2F9D6): New abstract character to integrate M-36985 and
+	U-0002F9D6.
+
 2010-12-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R212-Dragon.el (JSP-6D5A): Unify JC3-70A6.
