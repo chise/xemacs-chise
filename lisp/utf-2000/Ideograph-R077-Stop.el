@@ -1758,10 +1758,7 @@
     (->subsumptive
      ((=daikanwa	  . 16342)	; &M-16342;
       (<-same
-       ((=ucs@jis	    . #x8E72)	; &GT-50590;
-	(=jis-x0208	    . #x6D2D)	; &GT-50590; [77-13]
-	(=jis-x0213-1	    . #x6D2D)	; &I-JX1-6D2D; [77-13]
-	(=daikanwa	    . 37874)	; &I-M-37874;
+       ((=daikanwa	    . 37874)	; &M-37874;
 	))
       (<-same*sources
        yupian daikanwa)
