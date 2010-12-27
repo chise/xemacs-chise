@@ -1,3 +1,37 @@
+2010-12-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R096-Jade.el (U+73D0): Unify S1-4932, S2-4930 and
+	H12-ECE6; add `<-simplified@misc' for U+743A; add `<-vulgar' for
+	U+743A.
+	(U+3ED1): Integrate M-21033.
+	(U+3ED2): Integrate M-21034.
+	(U+3ED3): Integrate M-21035.
+	(U-0002497C): Integrate M-21036.
+	(U-0002497D): Integrate M-21037.
+	(U-0002497E): Integrate M-21038.
+	(U-0002497F): Integrate M-21039.
+	(U+7417): Use `->subsumptive' to separate representative nodes.
+	(U-00024992): Unify M-21044.
+	(U+3ED5): Unify M-21046.
+	(U-00024980): Integrate M-21048.
+	(U+741B): Use `->denotational'.
+	(U-00024983): Integrate M-21051.
+	(U+741D): Use `->subsumptive'.
+	(U+3ED6): Integrate M-21054.
+	(U+741F): Use `->subsumptive' to separate representative nodes.
+	(U-00024981): Unify M-21063.
+	(U+3ED7): Integrate M-21076.
+	(U+7437): Use `->subsumptive' to separate representative nodes.
+	(U-000249AE): Unify M-21085.
+	(U-000249A0): Integrate M-21086.
+	(U-000249A4): New character.
+	(U-00024991): Unify M-21089.
+	(U-000249A8): Unify M-21090.
+	(U+7447): Use `->denotational' to integrate A-CU+2F92E.
+	(A-CU+2F92E): New character to integrate U+2F92E.
+	(U+3EDB): New character.
+	(U+7448): Use `->subsumptive' to separate representative nodes.
+
 2010-12-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R156-Run.el: Add mappings between CJK Ext B and CNS
