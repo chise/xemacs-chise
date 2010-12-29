@@ -18807,7 +18807,10 @@
     (total-strokes	 . 19)
     (=daikanwa		. 39231)	; &M-39231;
     (<-same
-     ((=ucs		  . #x8F26)	; 輦
+     ((=ucs@unicode	  . #x8F26)	; &GT-51261;
+      (=jis-x0208	  . #x6D53)	; &GT-51261; [77-51]
+      (=ks-x1001	  . #x5626)	; &I-K0-5626; [54-06]
+      (=jis-x0213-1	  . #x6D53)	; &I-JX1-6D53; [77-51]
       (=daikanwa	  . 38393)	; &I-M-38393;
       ))
     (<-same*sources
