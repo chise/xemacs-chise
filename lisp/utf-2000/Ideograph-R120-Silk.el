@@ -13807,6 +13807,26 @@
       ))
     ))
 (define-char
+  '((ideographic-radical@ucs . 120)	; ⽷
+    (ideographic-strokes@ucs . 13)
+    (ideographic-radical@cns . 159)	; ⾞
+    (ideographic-strokes@cns . 12)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
+    (ideographic-strokes@cns*sources
+     daikanwa)
+    (total-strokes	 . 19)
+    (=ucs		. #x26195)	; 𦆕
+    (->subsumptive
+     ((hanyu-dazidian	  5 3457 1)
+      (=daikanwa	  . 49760)	; &M-49760;
+      (=hanziku-9	  . #xCE4E)	; &I-HZK09-CE4E;
+      )
+     ((=ucs@iso		  . #x26195)	; &C7-4A73;
+      (=cns11643-7	  . #x4A73)	; &C7-4A73; [42-83]
+      ))
+    ))
+(define-char
   '((ideographic-radical . 120)	; ⽷
     (=ucs		. #x7E84)	; 纄
     ))
@@ -16015,12 +16035,6 @@
     (hanyu-dazidian	5 3456 6)
     (=ucs		. #x26187)	; 𦆇
     (=hanziku-9		. #xCDF2)	; &I-HZK09-CDF2;
-    ))
-(define-char
-  '((ideographic-radical . 120)	; ⽷
-    (hanyu-dazidian	5 3457 1)
-    (=ucs		. #x26195)	; 𦆕
-    (=hanziku-9		. #xCE4E)	; &I-HZK09-CE4E;
     ))
 (define-char
   '((ideographic-radical . 120)	; ⽷
