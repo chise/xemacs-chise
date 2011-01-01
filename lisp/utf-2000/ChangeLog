@@ -1,3 +1,64 @@
+2010-12-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R159-Cart.el: Add mappings between CJK Ext B and CNS
+	11643 plain 7.
+	(U+8F16): Use `->denotational' to separate representative nodes.
+	(U+485E): Likewise.
+	(U+8F1E): Use `->subsumptive'.
+	(U+8F1F): Use `->subsumptive' to separate representative nodes.
+	(mother of M-38387): Unify G-IU+2832F.
+	(U+8F24): Use `->denotational' and `->subsumptive'.
+	(U+8F25): Use `->subsumptive' to separate representative nodes.
+	(U+8F26): Likewise.
+	(U-00028345): Use `->subsumptive'.
+	(U+8F87): Add `<-simplified@CN'.
+	(U+8F89): Likewise.
+	(U+8F2E): Use `->subsumptive' to separate representative nodes.
+	(U+4862): Use `->denotational' to separate representative nodes.
+	(U+8F33): Use `->denotational' and `->subsumptive'.
+	(U+8F36): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+8F37): Use `->subsumptive' to separate representative nodes.
+	(U+8F3A): Add `<-original' for U+8F1C.
+	(U-00028368): Use `->denotational' and `->subsumptive'.
+	(U+8F8F): Add `<-simplified@CN'.
+	(U+8F90): Likewise.
+	(U+8F44): Use `->denotational' and `->subsumptive'; unify
+	A-J0-336D.
+	(U+8F95): Add `<-simplified@CN'.
+	(U+8F96): Likewise.
+	(U+486D): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+486F): Likewise.
+	(U+8F46): Use `->subsumptive'.
+	(U+8F47): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+4870): Use `->subsumptive' to separate representative nodes.
+	(U+8F4B): Use `->denotational'.
+	(U+8F4D): Use `->subsumptive'.
+	(U+8F53): Use `->subsumptive' to separate representative nodes.
+	(U+8F54): Use `->subsumptive'.
+	(U+8F99): Add `<-simplified@CN'.
+	(U+8F9A): Likewise.
+	(U+8F55): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+4877): Use `->denotational' to separate representative nodes.
+	(U+4879): Likewise.
+	(U+487A): Use `->subsumptive' to separate representative nodes.
+	(U+8F62): Use `->subsumptive'.
+	(C7-5954): Map to U-000283D9; integrate M-49761.
+	(U+8F63): Add `<-formed' for J0-6D60.
+	(U+8F64): Use `->subsumptive'.
+	(C7-5C7B): Unify U-000283E1 and M-38598.
+	(U+487E): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+8F65): Use `->denotational' and `->subsumptive'.
+	(M-38622): Map to U-00028400; add `<-same' for U+8F63.
+	(U-000283FF): New character.
+	(U-000283F5): Use `->denotational'.
+	(U+487F): Use `->subsumptive'.
+	(U-00028403): New character.
+
 2010-12-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R120-Silk.el (U-00026195): Integrate C7-4A73 and
