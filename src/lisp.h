@@ -2757,6 +2757,7 @@ void close_load_descs (void);
 int locate_file (Lisp_Object, Lisp_Object, Lisp_Object, Lisp_Object *, int);
 EXFUN (Flocate_file_clear_hashing, 1);
 int isfloat_string (const char *);
+Lisp_Object read_from_c_string (const unsigned char* str, size_t size);
 
 /* Well, I've decided to enable this. -- ben */
 /* And I've decided to make it work right.  -- sb */
@@ -2960,6 +2961,7 @@ EXFUN (Fcar, 1);
 EXFUN (Fcar_safe, 1);
 EXFUN (Fcdr, 1);
 EXFUN (Fchar_after, 2);
+EXFUN (Fchar_ref_p, 1);
 EXFUN (Fchar_to_string, 1);
 EXFUN (Fcheck_valid_plist, 1);
 EXFUN (Fvalid_plist_p, 1);
@@ -3154,6 +3156,7 @@ EXFUN (Fspecifier_spec_list, 4);
 EXFUN (Fstring_equal, 2);
 EXFUN (Fstring_lessp, 2);
 EXFUN (Fstring_match, 4);
+EXFUN (Fstring_to_number, 2);
 EXFUN (Fsub1, 1);
 EXFUN (Fsubr_max_args, 1);
 EXFUN (Fsubr_min_args, 1);
@@ -3264,6 +3267,9 @@ extern Lisp_Object Qtext_image_instance_p;
 extern Lisp_Object Qtop_level;
 extern Lisp_Object Qtrue_list_p;
 extern Lisp_Object Qunbound, Qunderflow_error;
+#ifdef UTF2000
+extern Lisp_Object Qunloaded;
+#endif
 extern Lisp_Object Qunderline, Quser_files_and_directories;
 extern Lisp_Object Qvalues;
 extern Lisp_Object Qvariable_documentation, Qvariable_domain;
@@ -3288,6 +3294,9 @@ extern Lisp_Object Qgtk;
 extern Lisp_Object Vactivate_menubar_hook;
 extern Lisp_Object Vautoload_queue, Vblank_menubar;
 extern Lisp_Object Vcharset_ascii, Vcharset_composite, Vcharset_control_1;
+extern Lisp_Object Vcharset_latin_iso8859_1, Vcharset_greek_iso8859_7;
+extern Lisp_Object Vcharset_cyrillic_iso8859_5, Vcharset_hebrew_iso8859_8;
+extern Lisp_Object Vcharset_thai_tis620, Vcharset_katakana_jisx0201;
 extern Lisp_Object Vcoding_system_for_read, Vcoding_system_for_write;
 extern Lisp_Object Vcoding_system_hash_table, Vcommand_history;
 extern Lisp_Object Vcommand_line_args, Vconfigure_info_directory;

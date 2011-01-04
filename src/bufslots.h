@@ -1,5 +1,6 @@
 /* Definitions of marked slots in buffers
    Copyright (C) 1990, 1992, 1993 Free Software Foundation, Inc.
+   Copyright (C) 2001 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -98,8 +99,10 @@ Boston, MA 02111-1307, USA.  */
     MARKED_SLOT (abbrev_table);
     /* This buffer's syntax table.  */
     MARKED_SLOT (syntax_table);
+#ifndef UTF2000
     /* Massaged values from the syntax table, for faster lookup. */
     MARKED_SLOT (mirror_syntax_table);
+#endif
 
 #ifdef MULE
     /* This buffer's category table. */
