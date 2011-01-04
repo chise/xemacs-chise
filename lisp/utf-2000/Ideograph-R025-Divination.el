@@ -319,6 +319,7 @@
     (=daikanwa		. 02791)	; &I-M-02791;
     (=shinjigen		.  0839)	; 卣
     (=jef-china3	. #x97D3)	; &I-JC3-97D3;
+    (=adobe-japan1-5	. 16801)	; &I-AJ1-16801;
     (mojikyo		. 002791)	; &MCS-60000AE7;
     ))
 (define-char
@@ -609,6 +610,7 @@
     (=jis-x0213-2	. #x2354)	; &I-JX2-2354; [03-52]
     (=daikanwa		. 02808)	; &I-M-02808;
     (=hanziku-7		. #xEECB)	; &I-HZK07-EECB;
+    (=adobe-japan1-5	. 17333)	; &I-AJ1-17333;
     ))
 (define-char
   '((ideographic-radical . 25)	; ⼘
@@ -777,7 +779,6 @@
       )
      ((=ucs@cns		  . #x54BC)	; &GT-04428;
       (=ucs@jis		  . #x54BC)	; &GT-04428;
-      (=ucs@big5	  . #x54BC)	; &GT-04428;
       (=jis-x0208	  . #x5325)	; &GT-04428; [51-05]
       (=cns11643-2	  . #x294B)	; &I-C2-294B; [09-43]
       (=jis-x0213-1	  . #x5325)	; &I-JX1-5325; [51-05]

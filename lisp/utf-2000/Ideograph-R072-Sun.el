@@ -1634,6 +1634,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x661D)	; 昝
+    (=big5		. #xCEF5)	; &I-B-CEF5;
     ))
 (define-char
   '((<-denotational
@@ -1644,10 +1645,8 @@
     (total-strokes	 . 9)
     (=ucs@cns		. #x661D)	; &M-13834;
     (=ucs@jis		. #x661D)	; &M-13834;
-    (=ucs@big5		. #x661D)	; &M-13834;
     (=jis-x0212		. #x417E)	; &M-13834; [33-94]
     (=cns11643-2	. #x2A76)	; &I-C2-2A76; [10-86]
-    (=big5		. #xCEF5)	; &I-B-CEF5;
     (=daikanwa		. 13834)	; &I-M-13834;
     (=jef-china3	. #x91E2)	; &I-JC3-91E2;
     ))
@@ -4317,6 +4316,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=ucs		. #x6677)	; 晷
+    (=big5		. #xB4BE)	; &I-B-B4BE;
     ))
 (define-char
   '((<-denotational
@@ -4347,10 +4347,8 @@
     (total-strokes	 . 12)
     (=ucs@cns		. #x6677)	; &JX1-7540;
     (=ucs@jis/2000	. #x6677)	; &JX1-7540;
-    (=ucs@big5		. #x6677)	; &JX1-7540;
     (=cns11643-1	. #x5F63)	; &JX1-7540; [63-67]
     (=jis-x0213-1	. #x7540)	; &I-JX1-7540; [85-32]
-    (=big5		. #xB4BE)	; &I-B-B4BE;
     (=jef-china3	. #x51A7)	; &I-JC3-51A7;
     (mojikyo		. 014005)	; &MCS-600036B5;
     ))

@@ -27,7 +27,7 @@ Boston, MA 02111-1307, USA.  */
 #include "sysfile.h"
 #include "buffer.h"
 #include <errno.h>
-#include <concord.h>
+#include "elconcord.h"
 #ifdef HAVE_LIBCHISE
 #  include <chise.h>
 #endif
@@ -35,10 +35,6 @@ Boston, MA 02111-1307, USA.  */
 
 EXFUN (Fread_from_string, 3);
 
-
-EXFUN (Fconcord_decode_object, 4);
-EXFUN (Fconcord_object_put, 3);
-EXFUN (Fconcord_object_get, 2);
 
 Lisp_Object Qconcord;
 Lisp_Object Qconcord_object;
@@ -53,22 +49,11 @@ Lisp_Object Vconcord_genre_hash_table;
 Lisp_Object Vconcord_genre_object_hash_table;
 
 
-typedef struct Lisp_CONCORD_DS Lisp_CONCORD_DS;
-DECLARE_LRECORD (concord_ds, Lisp_CONCORD_DS);
+/*
+ * data source
+ */
 
 Lisp_Object Qconcord_dsp;
-
-struct Lisp_CONCORD_DS
-{
-  struct lcrecord_header header;
-  CONCORD_DS ds;
-};
-
-#define XCONCORD_DS(x) XRECORD (x, concord_ds, Lisp_CONCORD_DS)
-#define XSET_CONCORD_DS(x, p) XSETRECORD (x, p, concord_ds)
-#define CONCORD_DS_P(x) RECORDP (x, concord_ds)
-#define CHECK_CONCORD_DS(x) CHECK_RECORD (x, concord_ds)
-#define CONCHECK_CONCORD_DS(x) CONCHECK_RECORD (x, concord_ds)
 
 static Lisp_CONCORD_DS*
 allocate_concord_ds (void)
@@ -264,6 +249,10 @@ Return concord-ds of GENRE.
   CHECK_SYMBOL (genre);
 
   retval = Fgethash (genre, Vconcord_genre_hash_table, Qunbound);
+#ifdef HAVE_LIBCHISE
+  if ( UNBOUNDP (retval) )
+    retval = Vchise_system_db_directory;
+#endif
   if ( STRINGP (retval) )
     {
       retval = Fconcord_open_ds (retval, Qnil, Qnil, Qnil);
@@ -326,27 +315,11 @@ Return the list of all existing features in GENRE.
 }
 
 
-typedef struct Lisp_CONCORD_Object Lisp_CONCORD_Object;
-DECLARE_LRECORD (concord_object, Lisp_CONCORD_Object);
+/*
+ * Concord-object
+ */
 
 Lisp_Object Qconcord_objectp;
-
-struct Lisp_CONCORD_Object
-{
-  struct lcrecord_header header;
-  CONCORD_Genre genre;
-  Lisp_Object id;
-};
-
-#define XCONCORD_OBJECT(x) XRECORD (x, concord_object, Lisp_CONCORD_Object)
-#define XSET_CONCORD_OBJECT(x, p) XSETRECORD (x, p, concord_object)
-#define CONCORD_OBJECT_P(x) RECORDP (x, concord_object)
-#define CHECK_CONCORD_OBJECT(x) CHECK_RECORD (x, concord_object)
-#define CONCHECK_CONCORD_OBJECT(x) CONCHECK_RECORD (x, concord_object)
-#define CONCORD_OBJECT_GENRE(x)	((x)->genre)
-#define CONCORD_OBJECT_ID(x)	((x)->id)
-#define XCONCORD_OBJECT_ID(x)	CONCORD_OBJECT_ID (XCONCORD_OBJECT(x))
-#define XCONCORD_OBJECT_GENRE(x) CONCORD_OBJECT_GENRE (XCONCORD_OBJECT(x))
 
 static Lisp_CONCORD_Object*
 allocate_concord_object (void)
@@ -373,8 +346,10 @@ print_concord_object (Lisp_Object obj,
   Lisp_CONCORD_Object* lcobj = XCONCORD_OBJECT (obj);
   struct gcpro gcpro1, gcpro2;
 
-  if (print_readably)
+#if 0
+  if ( print_readably )
     {
+#endif
       write_c_string ("#s(concord-object", printcharfun);
       write_c_string (" genre ", printcharfun);
       write_c_string (concord_genre_get_name (lcobj->genre), printcharfun);
@@ -383,14 +358,11 @@ print_concord_object (Lisp_Object obj,
       print_internal (lcobj->id, printcharfun, escapeflag);
       UNGCPRO;
       write_c_string (")", printcharfun);
+#if 0
     }
   else
     {
       write_c_string ("#<concord-object \"", printcharfun);
-      write_c_string (concord_ds_location
-		      (concord_genre_get_data_source (lcobj->genre)),
-		      printcharfun);
-      write_c_string (":", printcharfun);
       write_c_string (concord_genre_get_name (lcobj->genre), printcharfun);
       write_c_string (";", printcharfun);
       GCPRO2 (obj, printcharfun);
@@ -398,6 +370,7 @@ print_concord_object (Lisp_Object obj,
       UNGCPRO;
       write_c_string ("\">", printcharfun);
     }
+#endif
 }
 
 static void
@@ -415,6 +388,13 @@ finalize_concord_object (void *header, int for_disksave)
     }
 }
 
+static int
+concord_object_equal (Lisp_Object cobj1, Lisp_Object cobj2, int depth)
+{
+  return internal_equal ( XCONCORD_OBJECT_ID(cobj1),
+			  XCONCORD_OBJECT_ID(cobj2), depth);
+}
+
 static const struct lrecord_description concord_object_description[] = {
   { XD_LISP_OBJECT, offsetof (Lisp_CONCORD_Object, id) },
   { XD_END }
@@ -422,7 +402,8 @@ static const struct lrecord_description concord_object_description[] = {
 
 DEFINE_LRECORD_IMPLEMENTATION ("concord_object", concord_object,
                                mark_concord_object, print_concord_object,
-			       finalize_concord_object, 0, 0,
+			       finalize_concord_object,
+			       concord_object_equal, 0,
 			       concord_object_description,
 			       Lisp_CONCORD_Object);
 
@@ -792,7 +773,7 @@ Store a VALUE of OBJECT's FEATURE.
 	      ffv = Fconcord_object_get (ret, rev_feature);
 	      if (!CONSP (ffv))
 		concord_object_put (ret, rev_feature, list1 (object));
-	      else if (NILP (Fmemq (object, ffv)))
+	      else if (NILP (Fmember (object, ffv)))
 		concord_object_put
 		  (ret, rev_feature,
 		   nconc2 (Fcopy_sequence (ffv), list1 (object)));
@@ -803,6 +784,30 @@ Store a VALUE of OBJECT's FEATURE.
       UNGCPRO;
     }
   return Qt;
+}
+
+DEFUN ("concord-object-adjoin", Fconcord_object_adjoin, 3, 3, 0, /*
+Cons ITEM onto the front of FEATURE's value of OBJECT only if it's not already there.
+*/
+       (object, feature, item))
+{
+  Lisp_Object ret = Fconcord_object_get (object, feature);
+
+  if ( NILP (Fmember (item, ret)) )
+    return Fconcord_object_put (object, feature, Fcons (item, ret));
+  return Qnil;
+}
+
+DEFUN ("concord-object-adjoin*", Fconcord_object_adjoinX, 3, 3, 0, /*
+Append ITEM onto the end of FEATURE's value of OBJECT only if it's not already there.
+*/
+       (object, feature, item))
+{
+  Lisp_Object ret = Fconcord_object_get (object, feature);
+
+  if ( NILP (Fmember (item, ret)) )
+    return Fconcord_object_put (object, feature, nconc2 (ret, list1 (item)));
+  return Qnil;
 }
 
 struct closure_for_object_spec
@@ -1131,6 +1136,8 @@ syms_of_concord (void)
   DEFSUBR (Fconcord_decode_object);
   DEFSUBR (Fconcord_object_get);
   DEFSUBR (Fconcord_object_put);
+  DEFSUBR (Fconcord_object_adjoin);
+  DEFSUBR (Fconcord_object_adjoinX);
   DEFSUBR (Fconcord_define_object);
   DEFSUBR (Fconcord_object_spec);
   DEFSUBR (Fconcord_foreach_object_in_feature);
@@ -1171,9 +1178,7 @@ void
 complex_vars_of_concord (void)
 {
 #ifdef HAVE_LIBCHISE
-  Lisp_Object dir = build_string(chise_system_db_dir);
-
-  Fconcord_assign_genre (Qcharacter, dir);
-  Fconcord_assign_genre (Qfeature, dir);
+  Fconcord_assign_genre (Qcharacter, Vchise_system_db_directory);
+  Fconcord_assign_genre (Qfeature, Vchise_system_db_directory);
 #endif
 }

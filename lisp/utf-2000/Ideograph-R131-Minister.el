@@ -58,6 +58,7 @@
     (=jis-x0213-2	. #x2354)	; &I-JX2-2354; [03-52]
     (=daikanwa		. 02808)	; &I-M-02808;
     (=hanziku-7		. #xEECB)	; &I-HZK07-EECB;
+    (=adobe-japan1-5	. 17333)	; &I-AJ1-17333;
     ))
 (define-char
   '((ideographic-radical . 131)	; ⾂

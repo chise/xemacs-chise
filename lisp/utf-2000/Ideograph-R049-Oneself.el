@@ -259,7 +259,7 @@
     (=cns11643-2	. #x2A30)	; &I-C2-2A30; [10-16]
     (=big5		. #xCEAF)	; &I-B-CEAF;
     (=daikanwa		. 08758)	; &I-M-08758;
-    (=shinjigen@1ed	.  2072)	; 巹
+    (=shinjigen		.  2072)	; 巹
     ))
 (define-char
   '((ideographic-radical . 49)	; ⼰

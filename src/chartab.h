@@ -1,7 +1,7 @@
 /* Declarations having to do with Mule char tables.
    Copyright (C) 1992 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2001,2002,2003,2004,2006 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003,2004,2006,2010 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -61,6 +61,10 @@ extern Lisp_Object Q_denotational;
 extern Lisp_Object Q_denotational_from;
 extern Lisp_Object Q_subsumptive;
 extern Lisp_Object Q_subsumptive_from;
+#endif
+
+#ifdef HAVE_CONCORD
+extern Lisp_Object Vchise_system_db_directory;
 #endif
 
 /************************************************************************/

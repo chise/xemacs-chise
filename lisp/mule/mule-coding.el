@@ -247,6 +247,7 @@
 	  ( =ruimoku-v6				"RUI6-" 4 X)
 	  ( =big5-cdp			         "CDP-" 4 X)
 	  ( =daikanwa				   "M-" 5 d)
+	  ( =daikanwa@rev1			 "r1M-" 5 d)
 	  ( =gt-k				 "GT-K" 5 d)
 	  ( ideograph-cbeta   		           "CB" 5 d)
 	  ( ideograph-hanziku-1                "HZK01-" 4 X)

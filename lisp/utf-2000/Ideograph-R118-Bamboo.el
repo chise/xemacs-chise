@@ -4438,6 +4438,7 @@
     (=jis-x0213-2	. #x233D)	; &I-JX2-233D; [03-29]
     (=big5		. #xE35A)	; &I-B-E35A;
     (=jef-china3	. #x5EC1)	; &I-JC3-5EC1;
+    (=adobe-japan1-5	. 17317)	; &I-AJ1-17317;
     (mojikyo		. 054893)	; &MCS-6000D66D;
     (<-same
      ((=ucs		  . #x7B9A)	; 箚
