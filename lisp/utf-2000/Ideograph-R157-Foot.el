@@ -6887,8 +6887,9 @@
       )
      ((=shinjigen	  .  8066)	; &SJG2-8066;
       )
+     ((=jef-china3	  . #x66C6)	; &JC3-66C6;
+      )
      ((=cns11643-3	  . #x5B3D)	; &C3-5B3D; [59-29]
-      (=jef-china3	  . #x66C6)	; &I-JC3-66C6;
       ))
     ))
 (define-char
