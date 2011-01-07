@@ -249,8 +249,10 @@ Return concord-ds of GENRE.
   CHECK_SYMBOL (genre);
 
   retval = Fgethash (genre, Vconcord_genre_hash_table, Qunbound);
+#ifdef HAVE_LIBCHISE
   if ( UNBOUNDP (retval) )
     retval = Vchise_system_db_directory;
+#endif
   if ( STRINGP (retval) )
     {
       retval = Fconcord_open_ds (retval, Qnil, Qnil, Qnil);
