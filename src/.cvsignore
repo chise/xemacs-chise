@@ -7,15 +7,5 @@ GNUmakefile
 puresize-adjust.h
 sheap-adjust.h
 temacs
-xemacs
-xemacs.dmp
 SATISFIED
 update-elc.stamp
-*.so.*
-gmon.out
-NEEDTODUMP
-Xpm.dll
-temacs.bsc
-temacs.pdb
-temacs.map
-xemacs.opt
