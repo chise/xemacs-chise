@@ -1,3 +1,8 @@
+2011-01-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* concord.c (Fconcord_genre_ds): Add "#ifdef HAVE_LIBCHISE" ...
+	"#endif" for code to refer Vchise_system_db_directory.
+
 2010-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* concord.c (Fconcord_object_put): Use `member' instead of `memq'.
