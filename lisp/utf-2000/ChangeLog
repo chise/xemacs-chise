@@ -1,3 +1,13 @@
+2011-01-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R161-Morning.el (U+8FB4): Use `->subsumptive' to
+	separate representative nodes.
+	(U-0002844A): Likewise.
+	(U+4888): Likewise.
+	(U+4889): Likewise.
+	(C7-554D): Map to U-0002844B.
+	(M-38699): Unify U-0002844C.
+
 2011-01-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R157-Foot.el (C3-5B3D): Separate JC3-66C6.
