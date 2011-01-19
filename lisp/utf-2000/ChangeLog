@@ -1,3 +1,16 @@
+2011-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R160-Bitter.el: Add mappings between CJK Ext B and CNS
+	11643 plain 7.
+	(U-0002841F): Use `->subsumptive'.
+	(M-38661): Map to U-00028426.
+	(M-38662): Map to U-00028423.
+	(M-38663): Map to U-00028425.
+	(U+8FA9): Add `<-simplified@CN' for G1-3167.
+	(U+8FAD): Use `->denotational' and `->subsumptive'.
+	(U+4884): Use `->subsumptive'.
+	(U+8FAF): Use `->subsumptive'.
+
 2011-01-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R161-Morning.el (U+8FB4): Use `->subsumptive' to
