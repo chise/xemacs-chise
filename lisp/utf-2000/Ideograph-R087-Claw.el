@@ -1328,10 +1328,10 @@
   '((<-denotational
      ((=ucs		  . #x7235)	; 爵
       ))
-    (=>ucs@ks		. #x7235)	; &M-19711;
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
+    (=>ucs@ks		. #x7235)	; &A-CU+2F921;
     (=>ucs@cns		. #x2F921)	; &A-CU+2F921;
     (=>daikanwa		. 19711)	; &A-CU+2F921;
     ))
