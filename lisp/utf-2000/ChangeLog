@@ -1,3 +1,10 @@
+2011-01-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs@ks'.
+	(insert-char-attributes): Delete special code for `=>ucs@ks';
+	treat it as a coded-charset.
+
 2011-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R160-Bitter.el: Add mappings between CJK Ext B and CNS
