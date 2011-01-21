@@ -1,5 +1,20 @@
 2011-01-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R140-Grass.el (U+8457): Unify J97-4378.
+	(A-JX1-4378): New character.
+	(J0-4378): Use A-JX1-4378 instead of U+8457 as the value of
+	`<-denotational'.
+	(C1-6161): Likewise.
+	(A-JX1-7B27): New character.
+	(mother of JX1-7B27): Separate U+FA5F; unify G-M-31410; use
+	A-JX1-7B27 instead of U+8457 as the value of `<-denotational';
+	separate JX1-7B27.
+	(JX1-7B27): Unify U+FA5F; use `<-denotational' for A-JX1-7B27
+	instead of `->subsumptive' for G-M-31410.
+	(U+44F4): Use `->denotational' instead of `->subsumptive'.
+
+2011-01-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>ucs@ks'.
 	(insert-char-attributes): Delete special code for `=>ucs@ks';
