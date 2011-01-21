@@ -1,3 +1,30 @@
+2011-01-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el: Add mappings between CJK Ext B and CNS
+	11643 plain 7.
+	(K0-775C): Integrate JC3-67BB.
+	(JSP-6154): Unify JC3-67CD.
+	(JX1-7C58): Unify JC3-67CE.
+	(K0-7475): Unify JC3-67CF.
+	(K0-6A40): Unify JC3-67E4.
+	(U+9069): Unify A-J0-452C.
+	(mother of K0-6E6A): Unify A-KU+9069, A-GT-52561 and A-M-39076.
+	(K0-6E6A): Unify KU+9069.
+	(mother of J0-452C): Unify G-UU+9069 and G-GT-52472.
+	(U-000285B3): Use `->denotational' instead of `->subsumptive'.
+	(JSP-6165): Separate M-39117; integrate JC3-67E8.
+	(K0-7165): Separate M-39118; unify JC3-67E9 and KU+9075.
+	(K0-6B36): Unify JC3-67EC.
+	(K0-7C3D): Unify JC3-67EE.
+	(M-39220): New character.
+	(U-00028633): New character.
+
+	* Ideograph-R038-Woman.el (U-000218EA): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R009-Man.el (U-0002041D): Use `->denotational' and
+	`->subsumptive' to separate representative node.
+
 2011-01-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R140-Grass.el (U+8457): Unify J97-4378.
