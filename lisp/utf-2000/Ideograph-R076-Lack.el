@@ -3952,9 +3952,7 @@
     (->subsumptive
      ((=daikanwa	  . 16207)	; &M-16207;
       (<-same
-       ((=ucs@jis	    . #x91C2)	; &M-40104;
-	(=jis-x0212	    . #x6321)	; &M-40104; [67-01]
-	(=daikanwa	    . 40104)	; &I-M-40104;
+       ((=daikanwa	    . 40104)	; &M-40104;
 	))
       (<-same*sources
        jiyun daikanwa)
