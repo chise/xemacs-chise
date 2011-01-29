@@ -922,7 +922,7 @@
       )
      ((=ucs		  . #x53B6)	; 厶
       ))
-    (sources		bos=A2003-10440-00005)
+    (sources		ruimoku=A2003-10440-00005)
     (=ruimoku-v6	. #xE01E)	; &RUI6-E01E;
     ))
 (define-char
