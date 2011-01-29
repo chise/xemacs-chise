@@ -2070,6 +2070,34 @@
     ))
 (define-char
   '((ideographic-radical . 154)	; ⾙
+    (ideographic-strokes . 6)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+	(=ucs		    . #x2FF5)	; ⿵
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+	  (=ucs		      . #x2FF6)	; ⿶
+	  )
+	 ((=big5-cdp	      . #x89CC)	; &CDP-89CC;
+	  )
+	 ((=ucs		      . #x4E28)	; 丨
+	  ))
+	)
+       ((=ucs		    . #x4E28)	; 丨
+	))
+      )
+     ((=ucs		  . #x8C9D)	; 貝
+      ))
+    (=ruimoku-v6	. #xE073)	; &RUI6-E073;
+    ))
+(define-char
+  '((ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
     (=ucs		. #x27D85)	; 𧶅
