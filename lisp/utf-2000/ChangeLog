@@ -1,3 +1,54 @@
+2011-01-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* additional-precomposed.el (RUI6-E00D): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-6E4E and J90-4269.
+
+	* Ideograph-R187-Horse.el (RUI6-E076): New character.
+
+	* Ideograph-R154-Shell.el (RUI6-E073): New character.
+
+	* Ideograph-R149-Speech.el (RUI6-E01F): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+	(RUI6-E065): New character.
+
+	* Ideograph-R141-Tiger.el (RUI6-E057): New character.
+
+	* Ideograph-R134-Mortar.el (RUI6-E017): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+
+	* Ideograph-R129-Brush.el (RUI6-E019): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+
+	* Ideograph-R104-Sickness.el (RUI6-E016): Use `ruimoku=' instead
+	of `bos=' in `sources'.
+
+	* Ideograph-R086-Fire.el (RUI6-E018): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+
+	* Ideograph-R079-Weapon.el (RUI6-E01E): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+
+	* Ideograph-R069-Axe.el (RUI6-E00B): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+
+	* Ideograph-R062-Halberd.el (RUI6-E005): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+
+	* Ideograph-R046-Mountain.el (RUI6-E008): Use `ruimoku=' instead
+	of `bos=' in `sources'.
+
+	* Ideograph-R037-Big.el (U+3694): Use `ruimoku=' instead of `bos='
+	in `sources'.
+	(RUI6-E006): Likewise.
+
+	* Ideograph-R027-Cliff.el (RUI6-E022): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+
+	* Ideograph-R024-Ten.el (RUI6-E00E): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+
 2011-01-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R162-Walk.el: Add mappings between CJK Ext B and CNS
