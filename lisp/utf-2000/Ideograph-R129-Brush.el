@@ -338,7 +338,7 @@
       )
      ((=ucs		  . #x807F)	; 聿
       ))
-    (sources		bos=A021708-00010)
+    (sources		ruimoku=A021708-00010)
     (=ruimoku-v6	. #xE019)	; &RUI6-E019;
     ))
 (define-char
