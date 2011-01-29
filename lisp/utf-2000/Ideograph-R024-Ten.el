@@ -506,7 +506,7 @@
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (sources		bos=A016219-00020)
+    (sources		ruimoku=A016219-00020)
     (=big5-cdp		. #x8B75)	; &RUI6-E00E;
     (=ruimoku-v6	. #xE00E)	; &I-RUI6-E00E;
     (<-simplified
