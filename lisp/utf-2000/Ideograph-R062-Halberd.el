@@ -724,7 +724,7 @@
       )
      ((=ucs		  . #x51AC)	; 冬
       ))
-    (sources		bos=A016481-00008)
+    (sources		ruimoku=A016481-00008)
     (=ruimoku-v6	. #xE005)	; &RUI6-E005;
     ))
 (define-char
