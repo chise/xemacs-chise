@@ -9953,7 +9953,7 @@
       (=jis-x0208	  . #x3123)	; &GT-56168; [17-03]
       (=jis-x0213-1	  . #x3123)	; &I-JX1-3123; [17-03]
       ))
-    (sources		bos=A015330-00006)
+    (sources		ruimoku=A015330-00006)
     (=ruimoku-v6	. #xE008)	; &RUI6-E008;
     ))
 (define-char
