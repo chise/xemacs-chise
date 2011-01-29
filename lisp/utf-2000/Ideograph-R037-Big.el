@@ -872,7 +872,7 @@
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (sources		bos=A2003-10837-00013)
+    (sources		ruimoku=A2003-10837-00013)
     (=ucs		. #x3694)	; 㚔
     (=cns11643-4	. #x2571)	; &I-C4-2571; [05-81]
     (=daikanwa		. 05884)	; &I-M-05884;
@@ -3860,8 +3860,8 @@
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
-    (sources		bos=A016462-00003 bos=A016430-00004
-			bos=A016594-00007)
+    (sources		ruimoku=A016462-00003 ruimoku=A016430-00004
+			ruimoku=A016594-00007)
     (=ruimoku-v6	. #xE006)	; &RUI6-E006;
     (<-unknown
      ((=ucs		  . #x215DB)	; 𡗛
