@@ -673,6 +673,22 @@
     ))
 (define-char
   '((ideographic-radical . 141)	; ⾌
+    (ideographic-strokes . 5)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((name		  . "CJK RADICAL TIGER")
+      (=ucs		  . #x2EC1)	; ⻁
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (sources		ruimoku=A2007-10507-00090)
+    (=ruimoku-v6	. #xE057)	; &RUI6-E057;
+    ))
+(define-char
+  '((ideographic-radical . 141)	; ⾌
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
     (=ucs		. #x865B)	; 虛
