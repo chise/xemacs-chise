@@ -8214,7 +8214,7 @@
       )
      ((=ucs		  . #x8208)	; 興
       ))
-    (sources		bos=A2003-10051-00005)
+    (sources		ruimoku=A2003-10051-00005)
     (=ucs		. #x24F08)	; 𤼈
     (=ruimoku-v6	. #xE016)	; &I-RUI6-E016;
     ))
