@@ -21,6 +21,6 @@
      ((name		  . "COMBINING ACUTE ACCENT")
       (=ucs		  . #x0301)	; ́
       ))
-    (sources		bos=C011091-00007)
+    (sources		ruimoku=C011091-00007)
     (=ruimoku-v6	. #xE00D)	; &RUI6-E00D;
     ))
