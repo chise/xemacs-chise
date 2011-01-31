@@ -1,5 +1,37 @@
 2011-01-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Oracle-Bones.el (ZOB-1038): Use U-0002B1C6 as the value of
+	`<-Oracle-Bones'.
+	(A-ZOB-2258): New abstract character.
+	(ZOB-2258): Add `<-denotational' for A-ZOB-2258.
+	(ZOB-{2276 - 2296}): New characters.
+
+	* Ideograph-R193-Cauldron.el (A-J0-722F): New abstract character.
+	(mother of J0-722F): Unify G-JU+9B32; use A-J0-722F instead of
+	U+9B32 as the mother.
+	(S-9507): New character.
+	(mother of C4-4224): Unify G-IU+29C2B.
+	(mother of C6-5A4E): Unify G-IU+29C2C.
+	(RUI6-E00A): Use `ruimoku=' instead of `bos=' in `sources'.
+	(mother of GT-61443): Unify G-GT-61443 and G-M-45675.
+	(M-45679): Unify S-9504; add `<-formed' for J0-9B32.
+	(M-45719): Unify S-9508; add `<-vulgar' for J0-722F.
+
+	* Ideograph-R177-Leather.el (U-0002931E): New character.
+
+	* Ideograph-R075-Tree.el (RUI6-E00C): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+	(U+698A): Unify A-J0-3A67.
+	(JX3-3A67): Unify RUI6-E086.
+	(mother of J90-3A67): Unify G-UU+698A.
+
+	* Ideograph-R026-Seal.el (RUI6-E00F): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+	(RUI6-E007): Use `<-error@ruimoku/2001' instead of
+	`<-error@abos/2001'.
+
+2011-01-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* additional-precomposed.el (RUI6-E00D): Use `ruimoku=' instead of
 	`bos=' in `sources'.
 
