@@ -261,7 +261,7 @@
       )
      ((=ucs		  . #x5369)	; 卩
       ))
-    (sources		bos=A016728-00002)
+    (sources		ruimoku=A016728-00002)
     (=ruimoku-v6	. #xE00F)	; &RUI6-E00F;
     ))
 (define-char
@@ -389,7 +389,7 @@
      ((=ucs		  . #x5369)	; 卩
       ))
     (=ruimoku-v6	. #xE007)	; &RUI6-E007;
-    (<-error@abos/2001
+    (<-error@ruimoku/2001
      ((=ruimoku-v6	  . #xE00F)	; &RUI6-E00F;
       ))
     ))
