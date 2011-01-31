@@ -2894,6 +2894,14 @@
   '((ideographic-radical . 177)	; ⾰
     (ideographic-strokes . 10)
     (total-strokes	 . 19)
+    (sources		ruimoku=A2009-10984-00015)
+    (=ucs		. #x2931E)	; 𩌞
+    (=ruimoku-v6	. #xE0A8)	; &I-RUI6-E0A8;
+    ))
+(define-char
+  '((ideographic-radical . 177)	; ⾰
+    (ideographic-strokes . 10)
+    (total-strokes	 . 19)
     (=cns11643-7	. #x4B60)	; &C7-4B60; [43-64]
     ))
 (define-char
