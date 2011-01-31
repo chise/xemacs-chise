@@ -12278,7 +12278,7 @@
       )
      ((=ucs		  . #x5CB8)	; 岸
       ))
-    (sources		bos=A016758-00009)
+    (sources		ruimoku=A016758-00009)
     (=ruimoku-v6	. #xE00C)	; &RUI6-E00C;
     ))
 (define-char
@@ -17519,6 +17519,8 @@
 (define-char
   '((ideographic-radical . 75)	; ⽊
     (=ucs		. #x698A)	; 榊
+    (=>jis-x0208	. #x3A67)	; 榊 [26-71]
+    (=>jis-x0213-1	. #x3A67)	; 榊 [26-71]
     ))
 (define-char
   '((<-denotational
@@ -17527,10 +17529,11 @@
     (ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (=ucs@jis/2004	. #x698A)	; &M-15352;
-    (=jis-x0208@1978	. #x3A67)	; &M-15352; [26-71]
+    (=ucs@jis/2004	. #x698A)	; &RUI6-E086;
+    (=jis-x0208@1978	. #x3A67)	; &RUI6-E086; [26-71]
     (=jis-x0213-1@2004	. #x3A67)	; &I-JX3-3A67; [26-71]
     (=daikanwa		. 15352)	; &I-M-15352;
+    (=ruimoku-v6	. #xE086)	; &I-RUI6-E086;
     ))
 (define-char
   '((<-denotational
@@ -17539,6 +17542,7 @@
     (ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (=>>ucs@unicode	. #x698A)	; &G-UU+698A;
     (->subsumptive
      ((=ucs@jis/1990	  . #x698A)	; &GT-19292;
       (=ucs@jis/2000	  . #x698A)	; &GT-19292;
@@ -17549,8 +17553,8 @@
       (=gt-pj-1		  . #x3A67)	; &I-GT-19292; [26-71]
       (=jef-china3	  . #x54C8)	; &I-JC3-54C8;
       (<-simplified@JP/extra
-       ((=ucs@jis/2004	    . #x698A)	; &M-15352;
-	(=jis-x0208@1978    . #x3A67)	; &M-15352; [26-71]
+       ((=ucs@jis/2004	    . #x698A)	; &RUI6-E086;
+	(=jis-x0208@1978    . #x3A67)	; &RUI6-E086; [26-71]
 	(=jis-x0213-1@2004  . #x3A67)	; &I-JX3-3A67; [26-71]
 	(=daikanwa	    . 15352)	; &I-M-15352;
 	))
