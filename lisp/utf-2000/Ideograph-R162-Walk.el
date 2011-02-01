@@ -1277,12 +1277,22 @@
     ))
 (define-char
   '((ideographic-radical . 162)	; ⾡
-    (ideographic-strokes . 3)
-    (total-strokes	 . 6)
     (=ucs		. #x8FC9)	; 迉
+    (=big5		. #xCBA5)	; &I-B-CBA5;
     ))
 (define-char
-  '((=>ucs		. #x8FC9)	; 迉
+  '((<-denotational
+     ((=ucs		  . #x8FC9)	; 迉
+      ))
+    (ideographic-radical . 162)	; ⾡
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (=ucs@unicode	. #x8FC9)	; &UU+8FC9;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8FC9)	; 迉
+      ))
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
@@ -1290,19 +1300,26 @@
     (=cns11643-2	. #x2525)	; &C2-2525; [05-05]
     ))
 (define-char
-  '((=>ucs		. #x8FC9)	; 迉
-    (ideographic-radical . 162)	; ⾡
-    (ideographic-strokes . 3)
-    (total-strokes	 . 7)
-    (=ucs@big5		. #x8FC9)	; &B-CBA5;
-    (=big5		. #xCBA5)	; &B-CBA5;
-    ))
-(define-char
   '((ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x28458)	; 𨑘
     (=cns11643-6	. #x292E)	; &I-C6-292E; [09-14]
+    ))
+(define-char
+  '((ideographic-radical . 162)	; ⾡
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((name		  . "CJK RADICAL SIMPLIFIED WALK")
+      (=ucs		  . #x2ECC)	; ⻌
+      )
+     ((=gt-k		  . 00233)	; &GT-K00233;
+      ))
+    (=ruimoku-v6	. #xE039)	; &RUI6-E039;
     ))
 (define-char
   '((ideographic-radical . 162)	; ⾡
@@ -14074,6 +14091,13 @@
     (total-strokes	 . 13)
     (=ucs@unicode	. #x9065)	; &G0-5223;
     (=gb2312		. #x5223)	; &G0-5223; [50-03]
+    ))
+(define-char
+  '((ideographic-radical . 162)	; ⾡
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (sources		ruimoku=A2003-00092-00012 ruimoku=A2003-11145-00003)
+    (=ruimoku-v6	. #xE021)	; &RUI6-E021;
     ))
 (define-char
   '((ideographic-radical . 162)	; ⾡
