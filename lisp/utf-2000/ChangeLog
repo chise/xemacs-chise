@@ -1,3 +1,11 @@
+2011-01-29  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R113-Spirit.el (U+795D): Unify J97-3D4B.
+	(mother of J0-3D4B): Unify G-UU+795D and G-J0-3D4B.
+	(U+795E): Unify J97-3F40.
+	(U+FA19): Unify RUI6-E085.
+	(mother of J0-3F40): Unify G-UU+795E and G-J0-3F40.
+
 2011-01-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Oracle-Bones.el (ZOB-1038): Use U-0002B1C6 as the value of
