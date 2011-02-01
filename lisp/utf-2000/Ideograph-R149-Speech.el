@@ -5858,6 +5858,51 @@
     ))
 (define-char
   '((ideographic-radical . 149)	; ⾔
+    (ideographic-strokes . 6)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8A00)	; 言
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x5348)	; 午
+	)
+       ((=ucs		    . #x53C8)	; 又
+	))
+      ))
+    (=>>ruimoku-v6	. #xE036)	; &G-RUI6-E036;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs@unicode	    . #x8A00)	; &C1-4B46;
+	(=gb2312	    . #x5154)	; &C1-4B46; [49-52]
+	(=cns11643-1	    . #x4B46)	; &I-C1-4B46; [43-38]
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((=ucs		      . #x5348)	; 午
+	  )
+	 ((=ucs@unicode	      . #x53C8)	; &GT-03944;
+	  (=jis-x0208	      . #x4B74)	; &GT-03944; [43-84]
+	  (=gb2312	      . #x5356)	; &I-G0-5356; [51-54]
+	  (=cns11643-1	      . #x4434)	; &I-C1-4434; [36-20]
+	  (=jis-x0213-1	      . #x4B74)	; &I-JX1-4B74; [43-84]
+	  ))
+	))
+      (=ruimoku-v6	  . #xE036)	; &RUI6-E036;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
     (=ucs		. #x279F4)	; 𧧴
@@ -18188,22 +18233,27 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-	(=ucs		    . #x2FF4)	; ⿴
-	)
-       ((=ucs		    . #x884C)	; 行
-	)
-       ((=ucs		    . #x6214)	; 戔
-	))
+     ((=ucs		  . #x275F8)	; 𧗸
       )
-     ((=ucs@jis		  . #x8A00)	; &GT-47348;
-      (=jis-x0208	  . #x3840)	; &GT-47348; [24-32]
-      (=ks-x1001	  . #x656B)	; &I-K0-656B; [69-75]
-      (=jis-x0213-1	  . #x3840)	; &I-JX1-3840; [24-32]
-      (=daikanwa	  . 35205)	; &I-M-35205;
+     ((=ucs		  . #x8A00)	; 言
       ))
-    (=ruimoku-v6	. #xE065)	; &RUI6-E065;
+    (=>>ruimoku-v6	. #xE065)	; &G-RUI6-E065;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs@iso	    . #x275F8)	; &M-34065;
+	(=daikanwa	    . 34065)	; &M-34065;
+	)
+       ((=ucs@jis	    . #x8A00)	; &GT-47348;
+	(=jis-x0208	    . #x3840)	; &GT-47348; [24-32]
+	(=ks-x1001	    . #x656B)	; &I-K0-656B; [69-75]
+	(=jis-x0213-1	    . #x3840)	; &I-JX1-3840; [24-32]
+	(=daikanwa	    . 35205)	; &I-M-35205;
+	))
+      (=ruimoku-v6	  . #xE065)	; &RUI6-E065;
+      ))
     ))
 (define-char
   '((ideographic-radical . 149)	; ⾔
