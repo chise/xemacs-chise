@@ -141,6 +141,9 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs		  . #x77E2)	; 矢
       )
      ((=ucs		  . #x5EFE)	; 廾
