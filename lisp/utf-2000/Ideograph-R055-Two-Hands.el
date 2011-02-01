@@ -327,6 +327,7 @@
     (ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (sound@ja/on	"kIyo")
     (=ucs@iso		. #x26B20)	; &M-09598;
     (=cns11643-6	. #x274C)	; &M-09598; [07-44]
     (=daikanwa		. 09598)	; &I-M-09598;
