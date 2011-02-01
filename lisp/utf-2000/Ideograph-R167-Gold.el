@@ -8730,43 +8730,60 @@
     (=gt-pj-1		. #x3A3F)	; &I-GT-54753; [26-31]
     ))
 (define-char
-  '((=>ucs		. #x9397)	; 鎗
-    (ideographic-radical . 167)	; ⾦
-    (ideographic-strokes . 10)
-    (total-strokes	 . 18)
-    (=ucs@jis		. #x9397)	; &GT-54772;
-    (=jis-x0208		. #x4179)	; &GT-54772; [33-89]
-    (=cns11643-1	. #x775D)	; &I-C1-775D; [87-61]
-    (=jis-x0213-1	. #x4179)	; &I-JX1-4179; [33-89]
-    (=gt		. 54772)	; &I-GT-54772;
-    (=gt-pj-1		. #x4179)	; &I-GT-54772; [33-89]
-    (=daikanwa		. 40709)	; &I-M-40709;
-    (=shinjigen@rev	.  8713)	; &GT-54772;
-    ))
-(define-char
-  '((morohashi-daikanwa	40709 0 0)
-    (ideographic-radical . 167)	; ⾦
+  '((ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 10)
     (total-strokes	 . 18)
     (=ucs		. #x9397)	; 鎗
+    (->subsumptive
+     ((=ucs@jis		  . #x9397)	; &GT-54772;
+      (=jis-x0208	  . #x4179)	; &GT-54772; [33-89]
+      (=cns11643-1	  . #x775D)	; &I-C1-775D; [87-61]
+      (=jis-x0213-1	  . #x4179)	; &I-JX1-4179; [33-89]
+      (=gt		  . 54772)	; &I-GT-54772;
+      (=gt-pj-1		  . #x4179)	; &I-GT-54772; [33-89]
+      (=daikanwa	  . 40709)	; &I-M-40709;
+      (=shinjigen	  .  8713)	; &GT-54772;
+      )
+     ((=ucs@unicode	  . #x9397)	; &UU+9397;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x9398)	; 鎘
+  '((ideographic-radical . 167)	; ⾦
+    (ideographic-strokes . 10)
+    (total-strokes	 . 18)
+    (=ucs		. #x9398)	; 鎘
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9398)	; 鎘
+      ))
     (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 10)
     (total-strokes	 . 18)
     (=ucs@jis		. #x9398)	; &M-40710;
     (=jis-x0212		. #x652E)	; &M-40710; [69-14]
     (=daikanwa		. 40710)	; &I-M-40710;
+    (=shinjigen		.  9506)	; &M-40710;
+    (<-formed
+     ((=ucs@jis		  . #x9B32)	; &M-45672;
+      (=jis-x0208	  . #x722F)	; &M-45672; [82-15]
+      (=jis-x0213-1	  . #x722F)	; &I-JX1-722F; [82-15]
+      (=daikanwa	  . 45672)	; &I-M-45672;
+      (=shinjigen	  .  9503)	; &M-45672;
+      ))
+    (<-formed*sources
+     shinjigen)
     ))
 (define-char
-  '((morohashi-daikanwa	40710 0 2)
+  '((<-denotational
+     ((=ucs		  . #x9398)	; 鎘
+      ))
     (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 10)
     (total-strokes	 . 18)
-    (=ucs		. #x9398)	; 鎘
-    (=cns11643-1	. #x775B)	; &I-C1-775B; [87-59]
-    (=gb12345		. #x6F53)	; 鎘 [79-51]
+    (=ucs@unicode	. #x9398)	; &C1-775B;
+    (=cns11643-1	. #x775B)	; &C1-775B; [87-59]
+    (=gb12345		. #x6F53)	; &C1-775B; [79-51]
     ))
 (define-char
   '((ideographic-radical . 167)	; ⾦
