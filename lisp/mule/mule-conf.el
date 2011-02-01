@@ -3,7 +3,7 @@
 ;; Copyright (C) 1995,1999 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1997, 1999, 2000, 2002, 2003, 2004, 2005, 2006, 2008,
-;;   2009, 2010 MORIOKA Tomohiko
+;;   2009, 2010, 2011 MORIOKA Tomohiko
 
 ;; Keywords: mule, multilingual, character set, coding system
 
@@ -902,6 +902,16 @@
 		  min-code	#xE90000 ; #xE000
 		  max-code	#xE908FF ; #xE8FF
 		  code-offset	,(- #xE90000 #xE000)))
+  (make-charset '=>>ruimoku-v6
+		"RUIMOKU Version.6 glyphs"
+		'(long-name	"RUI6 glyphs"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"rui6-0"
+		  mother	=ruimoku-v6))
 
   (make-charset '==>ucs@bucs
 		"Basic Subset of Coded Character Sets (BUCS)"
