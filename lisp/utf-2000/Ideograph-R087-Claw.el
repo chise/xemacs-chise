@@ -759,6 +759,35 @@
     ))
 (define-char
   '((ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL PAW ONE")
+      (=ucs		  . #x2EA4)	; ⺤
+      )
+     ((=ucs		  . #x8863)	; 衣
+      ))
+    (=>>ruimoku-v6	. #xE030)	; &G-RUI6-E030;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((name		    . "CJK RADICAL PAW ONE")
+	(=ucs		    . #x2EA4)	; ⺤
+	)
+       ((=ucs@unicode	    . #x8863)	; &C1-4868;
+	(=gb2312	    . #x5242)	; &C1-4868; [50-34]
+	(=cns11643-1	    . #x4868)	; &I-C1-4868; [40-72]
+	))
+      (=ruimoku-v6	  . #xE030)	; &RUI6-E030;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=ucs		. #x24510)	; 𤔐
