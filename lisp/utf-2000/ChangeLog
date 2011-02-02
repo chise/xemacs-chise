@@ -1,5 +1,32 @@
 2011-02-02  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-6E56.
+
+	* Ideograph-R163-City.el (G-RUI6-E03F): New character.
+
+	* Ideograph-R142-Insect.el (G-RUI6-E013): New character.
+	(U+86AD): Use `->subsumptive' to separate representative nodes.
+	(U+86AE): Likewise.
+	(U-00027287): Likewise.
+
+	* Ideograph-R061-Heart.el (U-0002F89F): Add `sound@ja/on'.
+	(U+5FFF): Use `->subsumptive'.
+	(U+390B): Likewise.
+	(U-000225D6): New character.
+	(M-10410): Add `<-denotational' for U-000225D6; unify H6-D741; add
+	`<-same' for J0-576C.
+	(C3-2623): Use U-000225D6 instead of U+5FF9 as the value of
+	`<-denotational'.
+	(M-10411): Unify U-000225D7 and C3-257E.
+	(M-10415): Unify U-000225F0.
+	(M-10417): Unify U-000225ED and H6-D66A; add `sound@ja/on'.
+	(M-10418): Unify U-000225EF and H6-D6A6; add `sound@ja/on'.
+	(M-10420): Map to U-000225F4; integrate H6-D746.
+	(M-10421): Unify U-000225EB and H6-D666.
+	(RUI6-E028): New character.
+	(RUI6-E015): New character.
+	(G-RUI6-E05F): New character.
+
 	* Ideograph-R189-Tall.el (G-RUI6-E033): New character.
 	(U+9ADD): Use `->subsumptive'.
 	(U-00029AE7): Add ideographic-structure.
