@@ -1452,28 +1452,67 @@
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
+    (ideographic-strokes . 4)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((=ucs		  . #x866B)	; 虫
+      ))
+    (=>>ruimoku-v6	. #xE013)	; &G-RUI6-E013;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=cns11643-1	    . #x454B)	; &C1-454B; [37-43]
+	)
+       ((=ucs		    . #x866B)	; 虫
+	))
+      (sources		  ruimoku=A021610-00006)
+      (=ruimoku-v6	  . #xE013)	; &RUI6-E013;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
     (=ucs		. #x86AD)	; 蚭
-    (=jis-x0212		. #x5A56)	; &I-JSP-5A56; [58-54]
-    (=cns11643-4	. #x347A)	; &I-C4-347A; [20-90]
-    (=daikanwa		. 32913)	; &I-M-32913;
+    (->subsumptive
+     ((=ucs@unicode	  . #x86AD)	; &M-32913;
+      (=jis-x0212	  . #x5A56)	; &M-32913; [58-54]
+      (=daikanwa	  . 32913)	; &I-M-32913;
+      )
+     ((=cns11643-4	  . #x347A)	; &C4-347A; [20-90]
+      ))
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
     (=ucs		. #x86AE)	; 蚮
-    (=cns11643-3	. #x3866)	; &I-C3-3866; [24-70]
-    (=daikanwa		. 32914)	; &I-M-32914;
+    (->subsumptive
+     ((=ucs@unicode	  . #x86AE)	; &M-32914;
+      (=daikanwa	  . 32914)	; &M-32914;
+      )
+     ((=cns11643-3	  . #x3866)	; &C3-3866; [24-70]
+      ))
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
     (=ucs		. #x27287)	; 𧊇
-    (=cns11643-4	. #x3525)	; &I-C4-3525; [21-05]
-    (=daikanwa		. 32915)	; &I-M-32915;
+    (->subsumptive
+     ((=daikanwa	  . 32915)	; &M-32915;
+      )
+     ((=cns11643-4	  . #x3525)	; &C4-3525; [21-05]
+      )
+     ((=ucs@iso		  . #x27287)	; &U-00027287;
+      ))
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
