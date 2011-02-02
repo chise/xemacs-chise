@@ -1359,8 +1359,11 @@
     (=daikanwa		. 14489)	; &I-M-14489;
     (=shinjigen		.  0240)	; 来
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x4F86)	; 來
-      (=jis-x0208	  . #x5054)	; &I-J90-5054; [48-52]
+     ((=ucs@unicode	  . #x4F86)	; &GT-00801;
+      (=jis-x0208	  . #x5054)	; &GT-00801; [48-52]
+      (=ks-x1001	  . #x554E)	; &I-K0-554E; [53-46]
+      (=jis-x0213-1	  . #x5054)	; &I-JX1-5054; [48-52]
+      (=daikanwa	  . 00581)	; &I-M-00581;
       ))
     ))
 (define-char
