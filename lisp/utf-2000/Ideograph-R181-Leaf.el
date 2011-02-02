@@ -4140,6 +4140,32 @@
     ))
 (define-char
   '((ideographic-radical . 181)	; ⾴
+    (ideographic-strokes . 10)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>>ruimoku-v6	  . #xE013)	; &G-RUI6-E013;
+      )
+     ((=ucs		  . #x9801)	; 頁
+      ))
+    (=>>ruimoku-v6	. #xE014)	; &G-RUI6-E014;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ruimoku-v6	    . #xE013)	; &RUI6-E013;
+	)
+       ((=ucs		    . #x9801)	; 頁
+	))
+      (sources		  ruimoku=A021610-00006)
+      (=ruimoku-v6	  . #xE014)	; &RUI6-E014;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 181)	; ⾴
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
     (=ucs		. #x29533)	; 𩔳
