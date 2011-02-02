@@ -5067,15 +5067,55 @@
     ))
 (define-char
   '((ideographic-radical . 170)	; ⾩
+    (ideographic-strokes . 14)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL MOUND TWO")
+      (=ucs		  . #x2ED6)	; ⻖
+      )
+     ((=>>ruimoku-v6	  . #xE05F)	; &G-RUI6-E05F;
+      ))
+    (=>>ruimoku-v6	. #xE027)	; &G-RUI6-E027;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL MOUND TWO")
+	(=ucs		    . #x2ED6)	; ⻖
+	)
+       ((=ruimoku-v6	    . #xE05F)	; &RUI6-E05F;
+	))
+      (=ruimoku-v6	  . #xE027)	; &RUI6-E027;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
     (=ucs		. #x28F4D)	; 𨽍
-    (->subsumptive
-     ((=daikanwa	  . 41894)	; &M-41894;
-      )
-     ((=ucs@iso		  . #x28F4D)	; &C5-6562;
-      (=cns11643-5	  . #x6562)	; &C5-6562; [69-66]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x28F4D)	; 𨽍
       ))
+    (ideographic-radical . 170)	; ⾩
+    (ideographic-strokes . 15)
+    (total-strokes	 . 18)
+    (=daikanwa		. 41894)	; &M-41894;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x28F4D)	; 𨽍
+      ))
+    (ideographic-radical . 170)	; ⾩
+    (ideographic-strokes . 15)
+    (total-strokes	 . 18)
+    (=ucs@iso		. #x28F4D)	; &C5-6562;
+    (=cns11643-5	. #x6562)	; &C5-6562; [69-66]
     ))
 (define-char
   '((ideographic-radical . 170)	; ⾩
