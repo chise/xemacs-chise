@@ -6065,6 +6065,34 @@
     ))
 (define-char
   '((ideographic-radical . 163)	; ⾢
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5ECC)	; 廌
+      )
+     ((name		  . "CJK RADICAL CITY")
+      (=ucs		  . #x2ECF)	; ⻏
+      ))
+    (=>>ruimoku-v6	. #xE03F)	; &G-RUI6-E03F;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs@unicode	    . #x5ECC)	; &C2-4264;
+	(=cns11643-2	    . #x4264)	; &C2-4264; [34-68]
+	)
+       ((name		    . "CJK RADICAL CITY")
+	(=ucs		    . #x2ECF)	; ⻏
+	))
+      (=ruimoku-v6	  . #xE03F)	; &RUI6-E03F;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
     (=ucs		. #x287A7)	; 𨞧
