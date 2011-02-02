@@ -1,4 +1,47 @@
+2011-02-02  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R189-Tall.el (G-RUI6-E033): New character.
+	(U+9ADD): Use `->subsumptive'.
+	(U-00029AE7): Add ideographic-structure.
+
+	* Ideograph-R169-Gate.el (U+95B3): Use `->subsumptive' to separate
+	representative nodes.
+	(U+499E): Likewise.
+	(U+499F): Likewise.
+	(U+95B4): Likewise.
+	(U-0002B522): Add ideographic-structure.
+	(RUI6-E01D): Use `ruimoku=' instead of `bos=' in `sources'.
+	(U+49A0): Use `->subsumptive' to separate representative nodes.
+	(U+49A1): Likewise.
+	(U+95B6): Likewise.
+	(U+49A2): Likewise.
+
+	* Ideograph-R140-Grass.el (M-30757): Add `<-denotational' for
+	U-00026B20; add `sound@ja/on'; add `<-same' for U+833B; delete
+	`<-unknown' for U-00026B20.
+	(G-RUI6-E03D): New character.
+	(RUI6-E03D): New character.
+	(A-UU+83E7): New abstract character.
+	(mother of C2-3F48): Use A-UU+83E7 instead of U+83E7 as the
+	mother; unify G-CU+83E7.
+	(C2-3F48): Unify CU+83E7.
+	(UU+83E7): Use A-UU+83E7 instead of U+83E7 as the mother.
+	(U-0002F99E): Add `<-denotational' for U+83E7.
+	(G-RUI6-E03E): New character.
+	(RUI6-E03E): New character.
+
 2011-02-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (GT-09094): Add `ideographic-structure'.
+	(U-00021A5C): Add ideographic-structure.
+	(RUI6-E009): Use `ruimoku=' instead of `bos=' in `sources'.
+	(U-00021A97): Use `->subsumptive' to separate representative
+	nodes.
+	(G-RUI6-E03B): New character.
+
+	* Ideograph-R018-Knife.el (RUI6-E02E): New character.
+	(G-RUI6-E03C): New character.
+	(RUI6-E02A): New character.
 
 	* Ideograph-R181-Leaf.el (G-RUI6-E014): New character.
 
