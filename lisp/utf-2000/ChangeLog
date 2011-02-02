@@ -1,5 +1,12 @@
 2011-02-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R181-Leaf.el (G-RUI6-E014): New character.
+
+	* Ideograph-R170-Mound.el (G-RUI6-E027): New character.
+	(U-00028F4D): Use `->denotational' instead of `->subsumptive'.
+
+2011-02-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-4043.
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
