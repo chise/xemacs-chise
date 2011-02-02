@@ -1,3 +1,78 @@
+2011-02-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-4043.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>>ruimoku-v6'.
+
+	* Ideograph-R131-Minister.el (U-0002458B): Use `->subsumptive' to
+	separate representative nodes.
+	(U-0002B1C6): New character.
+
+	* Ideograph-R172-Short-Tailed-Bird.el (G-RUI6-E037): New
+	character.
+
+	* Ideograph-R167-Gold.el (U+9397): Use `->subsumptive'.
+	(U+9398): Use `->denotational'.
+	(JSP-652E): Unify S-9506; add `<-formed' for J0-722F.
+
+	* Ideograph-R162-Walk.el (U+8FC9): Use `->denotational'.
+	(RUI6-E039): New character.
+	(RUI6-E021): New character.
+
+	* Ideograph-R149-Speech.el (G-RUI6-E036): New character.
+	(G-RUI6-E065): New character.
+	(RUI6-E065): Use `<-subsumptive' for G-RUI6-E065; compact
+	`ideographic-structure'.
+
+	* Ideograph-R087-Claw.el (G-RUI6-E030): New character.
+
+	* Ideograph-R086-Fire.el (G-RUI6-E02F): New character.
+
+	* Ideograph-R055-Two-Hands.el (C6-274C): Add `sound@ja/on'.
+
+2011-01-31  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el: Add mappings between CJK Ext B and CNS
+	11643 plain 7.
+	(U+9093): Add `sound@ja/on'; unify JC3-82C4; add `<-simplified@CN'
+	for G1-354B.
+	(U+90F0): Use `->subsumptive'.
+	(U+90F8): Add `<-simplified@CN' for U+9132.
+	(RUI6-E074): New character.
+	(U-0002874D): Use `->subsumptive' to separate representative
+	nodes.
+	(U+9127): Add `sound@ja/on/kan' and `sound@ja/on/go'; use
+	`->subsumptive' to separate representative nodes; integrate
+	JC3-68B0.
+	(U+9128): Use `->denotational'.
+	(U+9129): Use `->denotational'.
+	(U+912E): Use `->subsumptive' to separate representative nodes.
+	(U+48DF): Use `->denotational' to separate representative nodes.
+	(U-00028790): New character.
+	(U-00028793): Use `->subsumptive'.
+	(U+9133): Use `->subsumptive' to separate representative nodes.
+	(U-000287AB): Likewise.
+	(U+48E2): Likewise.
+	(U+9138): Use `->denotational'.
+	(U+9139): Likewise.
+	(U-000287A3): New character.
+	(U-000287B2): New character.
+	(U+913A): Use `->denotational'.
+	(U+913B): Use `->subsumptive'.
+	(U+913E): Use `->denotational' and `->subsumptive'.
+	(U+9142): Add `<-simplified@CN' for UU+9147.
+	(U+9147): Use `->subsumptive' to separate representative nodes.
+	(U+9148): Use `->subsumptive'.
+	(U-000287E5): New character.
+	(U+48E3): Use `->subsumptive' to separate representative nodes.
+	(U+48E4): Likewise.
+
+	* Ideograph-R111-Arrow.el (RUI6-E068): Fix
+	`ideographic-structure'.
+
+	* Ideograph-R020-Wrap.el (RUI6-E042): New character.
+
 2011-01-29  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R113-Spirit.el (U+795D): Unify J97-3D4B.
