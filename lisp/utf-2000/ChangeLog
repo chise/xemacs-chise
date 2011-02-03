@@ -1,5 +1,61 @@
 2011-02-02  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* ruimoku6.el: Use `ruimoku=' instead of `bos=' in `sources'.
+	(RUI6-E007): Use `<-error@ruimoku/2001' instead of
+	`<-error@abos/2001'.
+	(RUI6-E015): Add `ideographic-{radical|strokes}' and
+	`total-strokes'.
+	(RUI6-E021): Likewise.
+	(RUI6-E028): Likewise.
+	(RUI6-E02A): Likewise.
+	(RUI6-E02D): Likewise.
+	(RUI6-E02E): Likewise.
+	(RUI6-E033): Add `ideographic-structure'; add `sources'.
+	(RUI6-E038): Add `ideographic-{radical|strokes}' and
+	`total-strokes'.
+	(RUI6-E039): Add `<-denotational' for G-RUI6-E039; add
+	`ideographic-{radical|strokes}' and `total-strokes'; add
+	`sources'.
+	(RUI6-E03B): Modify `ideographic-structure'.
+	(RUI6-E03C): Likewise.
+	(RUI6-E03D): Add `<-denotational' for G-RUI6-E03D; add
+	`ideographic-{radical|strokes}' and `total-strokes'; add
+	`ideographic-structure'; add `<-unknown' for U-00026C86.
+	(RUI6-E03E): Add `<-denotational' for G-RUI6-E03E; add
+	`ideographic-{radical|strokes}' and `total-strokes'.
+	(RUI6-E03F): Modify `ideographic-structure'.
+	(RUI6-E041): Likewise; unify GU+2A894.
+	(RUI6-E042): Add `ideographic-{radical|strokes}' and
+	`total-strokes'.
+	(RUI6-E046): Modify `ideographic-structure'.
+	(RUI6-E057): Add `ideographic-{radical|strokes}' and
+	`total-strokes'; add `ideographic-structure'; add `sources'.
+	(RUI6-E065): New character.
+	(RUI6-E068): Fix `ideographic-structure'.
+	(RUI6-{E073 - E0AA}): New characters.
+
+	* Ideograph-R162-Walk.el (G-RUI6-E039): New character.
+	(RUI6-E039): Add `<-denotational' for G-RUI6-E039; add `sources'.
+	(RUI6-E021): Fix a source.
+
+	* Ideograph-R108-Dish.el (U-000250A4): Unify M-23057.
+	(U-000250A7): Integrate M-23061.
+	(U-000250B2): Unify M-23068.
+	(U-000250AF): New character.
+	(U-000250AC): Integrate M-23070.
+	(U-000250B1): Integrate M-23071.
+	(RUI6-E02D): New character.
+	(G-RUI6-E046): New character.
+
+2011-02-02  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (U+4F86): Use `->subsumptive' to separate
+	representative nodes.
+	(RUI6-E038): New character.
+	(U-00020399): Use `->subsumptive' to separate representative
+	nodes.
+	(G-RUI6-E01B): New character.
+
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-6E56.
 
 	* Ideograph-R163-City.el (G-RUI6-E03F): New character.
