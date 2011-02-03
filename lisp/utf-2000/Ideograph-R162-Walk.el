@@ -1308,6 +1308,21 @@
     ))
 (define-char
   '((ideographic-radical . 162)	; ⾡
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x8FB6)	; 辶
+      )
+     ((=ucs		  . #x5F0B)	; 弋
+      ))
+    (=>>ruimoku-v6	. #xE039)	; &G-RUI6-E039;
+    ))
+(define-char
+  '((<-denotational
+     ((=>>ruimoku-v6	  . #xE039)	; &G-RUI6-E039;
+      ))
+    (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (ideographic-structure
@@ -1319,6 +1334,7 @@
       )
      ((=gt-k		  . 00233)	; &GT-K00233;
       ))
+    (sources		ruimoku=2006-10304-00006)
     (=ruimoku-v6	. #xE039)	; &RUI6-E039;
     ))
 (define-char
@@ -14096,7 +14112,7 @@
   '((ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (sources		ruimoku=A2003-00092-00012 ruimoku=A2003-11145-00003)
+    (sources		ruimoku=A2003-10439-00012 ruimoku=A2003-11145-00003)
     (=ruimoku-v6	. #xE021)	; &RUI6-E021;
     ))
 (define-char
