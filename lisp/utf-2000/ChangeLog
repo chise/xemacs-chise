@@ -1,5 +1,29 @@
 2011-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R184-Eat.el (U+98F2): Use `->denotational' instead of
+	`->subsumptive'; unify A-J0-307B.
+
+	* Ideograph-R164-Wine.el:
+	- Add mappings between CJK Ext B and CNS 11643 plain 7.
+	- Separate some representative nodes.
+	(U-00028861): New character.
+	(U-00028864): New character.
+	(U+918F): Use `->denotational' and `->subsumptive'.
+	(U-00028872): Use `->subsumptive'.
+	(U-0002888C): Use `->denotational' and `->subsumptive'.
+	(U-000288D5): Integrate M-40013.
+	(U-000288CD): New character.
+	(U-000288E2): New character.
+	(U+91BD): Use `->subsumptive'.
+	(U+91BE): Likewise.
+	(U+91C0): Likewise.
+	(U+91C2): Likewise.
+	(U+91C5): Use `->denotational' instead of `->subsumptive'.
+	(C7-6379): Integrate M-49793.
+	(C7-637A): Integrate M-49794.
+	(C7-6465): Integrate M-49795.
+	(M-40114): Separate C7-6579.
+
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-6132.
 
 2011-02-02  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
