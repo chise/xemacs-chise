@@ -1,3 +1,7 @@
+2011-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-6132.
+
 2011-02-02  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* ruimoku6.el: Use `ruimoku=' instead of `bos=' in `sources'.
