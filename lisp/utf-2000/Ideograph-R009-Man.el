@@ -8686,17 +8686,22 @@
     (total-strokes	 . 8)
     (hanyu-dazidian	1 141 8)
     (=ucs		. #x4F86)	; 來
-    (=jis-x0208		. #x5054)	; &I-J90-5054; [48-52]
-    (=ks-x1001		. #x554E)	; &I-K0-554E; [53-46]
-    (=cns11643-1	. #x4B74)	; &I-C1-4B74; [43-84]
-    (=jis-x0213-1	. #x5054)	; &I-JX1-5054; [48-52]
-    (=gb12345		. #x4034)	; 來 [32-20]
     (=big5		. #xA8D3)	; &I-B-A8D3;
-    (=gt		. 00801)	; &I-GT-00801;
-    (=gt-k		. 03854)	; &I-GT-K03854;
-    (=gt-pj-1		. #x5054)	; &I-GT-00801; [48-52]
-    (=daikanwa		. 00581)	; &I-M-00581;
-    (=shinjigen		.  0241)	; 來
+    (->subsumptive
+     ((=ucs@unicode	  . #x4F86)	; &GT-00801;
+      (=jis-x0208	  . #x5054)	; &GT-00801; [48-52]
+      (=ks-x1001	  . #x554E)	; &I-K0-554E; [53-46]
+      (=jis-x0213-1	  . #x5054)	; &I-JX1-5054; [48-52]
+      (=gb12345		  . #x4034)	; &GT-00801; [32-20]
+      (=gt		  . 00801)	; &I-GT-00801;
+      (=gt-k		  . 03854)	; &I-GT-K03854;
+      (=gt-pj-1		  . #x5054)	; &I-GT-00801; [48-52]
+      (=daikanwa	  . 00581)	; &I-M-00581;
+      (=shinjigen	  .  0241)	; &GT-00801;
+      )
+     ((=ucs@cns		  . #x4F86)	; &C1-4B74;
+      (=cns11643-1	  . #x4B74)	; &C1-4B74; [43-84]
+      ))
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
@@ -25575,6 +25580,24 @@
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL PERSON")
+      (=ucs		  . #x2E85)	; ⺅
+      )
+     ((=ucs@unicode	  . #x6715)	; &GT-18207;
+      (=jis-x0208	  . #x443F)	; &GT-18207; [36-31]
+      (=gb2312		  . #x6B5E)	; &I-G0-6B5E; [75-62]
+      (=jis-x0213-1	  . #x443F)	; &I-JX1-443F; [36-31]
+      ))
+    (=ruimoku-v6	. #xE038)	; &RUI6-E038;
+    ))
+(define-char
+  '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
     (ideographic-structure
@@ -31715,7 +31738,6 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
-    (hanyu-dazidian	1 216 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -31725,8 +31747,62 @@
      ((=ucs		  . #x5408)	; 合
       ))
     (=ucs		. #x20399)	; 𠎙
-    (=cns11643-5	. #x4458)	; &I-C5-4458; [36-56]
-    (=hanziku-1		. #xD2C5)	; &I-HZK01-D2C5;
+    (->subsumptive
+     ((hanyu-dazidian	  1 216 2)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs@unicode	    . #x4F86)	; &GT-00801;
+	(=jis-x0208	    . #x5054)	; &GT-00801; [48-52]
+	(=ks-x1001	    . #x554E)	; &I-K0-554E; [53-46]
+	(=jis-x0213-1	    . #x5054)	; &I-JX1-5054; [48-52]
+	(=daikanwa	    . 00581)	; &I-M-00581;
+	)
+       ((=ucs		    . #x5408)	; 合
+	))
+      (=ucs@unicode	  . #x20399)	; &HZK01-D2C5;
+      (=hanziku-1	  . #xD2C5)	; &HZK01-D2C5;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs@cns	    . #x4F86)	; &C1-4B74;
+	(=cns11643-1	    . #x4B74)	; &C1-4B74; [43-84]
+	)
+       ((=ucs		    . #x5408)	; 合
+	))
+      (=cns11643-5	  . #x4458)	; &C5-4458; [36-56]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL PERSON")
+      (=ucs		  . #x2E85)	; ⺅
+      )
+     ((=ucs		  . #x26A36)	; 𦨶
+      ))
+    (=>>ruimoku-v6	. #xE01B)	; &G-RUI6-E01B;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL PERSON")
+	(=ucs		    . #x2E85)	; ⺅
+	)
+       ((=daikanwa	    . 30426)	; &M-30426;
+	))
+      (sources		  ruimoku=A021894-00009)
+      (=ruimoku-v6	  . #xE01B)	; &RUI6-E01B;
+      ))
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
