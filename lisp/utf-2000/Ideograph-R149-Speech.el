@@ -16335,19 +16335,31 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@jis		  . #x8A00)	; &GT-47348;
-      (=jis-x0208	  . #x3840)	; &GT-47348; [24-32]
-      (=ks-x1001	  . #x656B)	; &I-K0-656B; [69-75]
-      (=jis-x0213-1	  . #x3840)	; &I-JX1-3840; [24-32]
-      (=daikanwa	  . 35205)	; &I-M-35205;
+     ((=ucs		  . #x8A00)	; 言
       )
-     ((=ucs@unicode	  . #x83D0)	; &CDP-8D48;
-      (=jis-x0212	  . #x583A)	; &CDP-8D48; [56-26]
-      (=jis-x0213-2	  . #x763C)	; &I-JX2-763C; [86-28]
-      (=daikanwa	  . 31164)	; &I-M-31164;
+     ((=ucs		  . #x83D0)	; 菐
       ))
-    (sources		ruimoku=A2003-10165-00011 ruimoku=A2003-00594-00003)
-    (=ruimoku-v6	. #xE01F)	; &RUI6-E01F;
+    (=>>ruimoku-v6	. #xE01F)	; &G-RUI6-E01F;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs@jis	    . #x8A00)	; &GT-47348;
+	(=jis-x0208	    . #x3840)	; &GT-47348; [24-32]
+	(=ks-x1001	    . #x656B)	; &I-K0-656B; [69-75]
+	(=jis-x0213-1	    . #x3840)	; &I-JX1-3840; [24-32]
+	(=daikanwa	    . 35205)	; &I-M-35205;
+	)
+       ((=ucs@unicode	    . #x83D0)	; &CDP-8D48;
+	(=jis-x0212	    . #x583A)	; &CDP-8D48; [56-26]
+	(=jis-x0213-2	    . #x763C)	; &I-JX2-763C; [86-28]
+	(=daikanwa	    . 31164)	; &I-M-31164;
+	))
+      (sources		  ruimoku=A2003-10165-00011
+			  ruimoku=A2003-00594-00003)
+      (=ruimoku-v6	  . #xE01F)	; &RUI6-E01F;
+      ))
     ))
 (define-char
   '((ideographic-radical . 149)	; ⾔
