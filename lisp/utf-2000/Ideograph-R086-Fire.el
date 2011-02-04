@@ -14609,16 +14609,30 @@
       )
      ((=ucs		  . #x38C8)	; 㣈
       )
-     ((=cns11643-1	  . #x4556)	; &C1-4556; [37-54]
+     ((=ucs		  . #x706B)	; 火
       ))
-    (sources		ruimoku=A2003-10320-00001 ruimoku=A2003-10320-00002
-			ruimoku=A2003-10320-00004 ruimoku=A2003-10620-00005
-			ruimoku=A2003-10693-00007 ruimoku=A2003-11142-00007)
-    (=ruimoku-v6	. #xE018)	; &RUI6-E018;
-    (<-unknown
-     ((=ucs		  . #x8C73)	; 豳
-      )
-     ((=ucs		  . #x71F9)	; 燹
+    (=>>ruimoku-v6	. #xE018)	; &G-RUI6-E018;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=hanziku-3	    . #xC1EC)	; &HZK03-C1EC;
+	)
+       ((=cns11643-1	    . #x4556)	; &C1-4556; [37-54]
+	))
+      (sources		  ruimoku=A2003-10320-00001
+			  ruimoku=A2003-10320-00002
+			  ruimoku=A2003-10320-00004
+			  ruimoku=A2003-10620-00005
+			  ruimoku=A2003-10693-00007
+			  ruimoku=A2003-11142-00007)
+      (=ruimoku-v6	  . #xE018)	; &RUI6-E018;
+      (<-unknown
+       ((=ucs		    . #x8C73)	; 豳
+	)
+       ((=ucs		    . #x71F9)	; 燹
+	))
       ))
     ))
 (define-char
