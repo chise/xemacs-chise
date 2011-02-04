@@ -1,5 +1,26 @@
 2011-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R155-Red.el (U+8D67): Use `->denotational'.
+
+	* Ideograph-R030-Mouth.el (G-RUI6-E035): New character.
+	(U-0002F846): Add `<-denotational' for U+5584.
+	(U+35BB): Add ideographic-structure.
+	(mother of IU+20E04): Unify G-IU+20E04.
+	(RUI6-E01A): Use `ruimoku=' instead of `bos=' in `sources'.
+	(U+565D): Use `->denotational'.
+	(H2-DFBF): Unify CB03997.
+	(CB03323): Map to U-00020F36.
+	(U-00020F97): Use `->subsumptive' to separate representative
+	nodes.
+	(U-00020FEE): Use `->denotational' and `->subsumptive'.
+	(CB03520): Map to U-00020FF3.
+	(CB04000): Unify U-00020FFF.
+	(CB00080): Unify U-00021014 and H2-E077.
+	(CB00882): Map to U-00021031.
+	(U-0002A894): New character.
+
+2011-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R184-Eat.el (U+98F2): Use `->denotational' instead of
 	`->subsumptive'; unify A-J0-307B.
 
