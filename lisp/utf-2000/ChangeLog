@@ -1,3 +1,32 @@
+2011-02-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R098-Tile.el (U+3F3F): Use `->subsumptive'.
+	(U+750F): Use `->subsumptive' to separate representative nodes.
+	(U+3F40): Use `->denotational' and `->subsumptive'.
+	(U+3F41): Integrate M-21599.
+	(U-00024B8F): Integrate M-21600.
+	(U+3F42): Integrate M-21601.
+	(U+7511): Unify A-J0-3979.
+	(B-ED70): Unify A-UU+7511.
+	(mother of JX3-3979): Unify G-J2004U+7511, G-KU+7511 and
+	G-JX3-3979.
+	(K0-7177): Unify KU+7511.
+	(mother of C2-5D5C): Unify G-UU+7511.
+	(U+3F43): Integrate M-21603.
+	(U+7512): Use `->subsumptive' to separate representative nodes.
+	(U+3F44): Likewise.
+	(U-00024B95): New character.
+	(U-00024B86): Integrate M-21607'.
+	(U-00024B94): Use `->subsumptive' to separate representative
+	nodes.
+	(U+7513): Use `->subsumptive'.
+	(U+7514): Use `->denotational' and `->subsumptive'.
+	(U-00024B99): Use `->subsumptive'.
+	(U+3F46): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R086-Fire.el (G-RUI6-E018): New character.
+	(RUI6-E018): Use `<-subsumptive' for G-RUI6-E018.
+
 2011-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R155-Red.el (U+8D67): Use `->denotational'.
