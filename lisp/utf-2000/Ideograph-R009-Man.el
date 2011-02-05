@@ -25589,6 +25589,24 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
+     ((=ucs		  . #x6715)	; 朕
+      ))
+    (=>>ruimoku-v6	. #xE038)	; &G-RUI6-E038;
+    ))
+(define-char
+  '((<-denotational
+     ((=>>ruimoku-v6	  . #xE038)	; &G-RUI6-E038;
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL PERSON")
+      (=ucs		  . #x2E85)	; ⺅
+      )
      ((=ucs@unicode	  . #x6715)	; &GT-18207;
       (=jis-x0208	  . #x443F)	; &GT-18207; [36-31]
       (=gb2312		  . #x6B5E)	; &I-G0-6B5E; [75-62]
