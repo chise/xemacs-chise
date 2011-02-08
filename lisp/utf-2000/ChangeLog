@@ -1,4 +1,23 @@
+2011-02-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R007-Two.el (U+4E8D): Unify AJ1-14307.
+	(U+4E96): Unify AJ1-14308.
+
+	* Ideograph-R003-Dot.el (U+4E37): Unify AJ1-13981.
+
+2011-02-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el (G-RUI6-E048): New character.
+
+2011-02-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (G-RUI6-E038): New character.
+	(RUI6-E038): Add `<-denotational' for G-RUI6-E038.
+
 2011-02-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el (G-RUI6-E01F): New character.
+	(RUI6-E01F): Add `<-subsumptive' for G-RUI6-E01F.
 
 	* Ideograph-R098-Tile.el (U+3F3F): Use `->subsumptive'.
 	(U+750F): Use `->subsumptive' to separate representative nodes.
