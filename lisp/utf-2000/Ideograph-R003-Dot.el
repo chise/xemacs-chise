@@ -41,6 +41,7 @@
     (=ucs		. #x4E37)	; 丷
     (=gb12345		. #x7D65)	; 丷 [93-69]
     (=big5-cdp		. #x8B55)	; &I-CDP-8B55;
+    (=adobe-japan1-4	. 13981)	; &I-AJ1-13981;
     ))
 (define-char
   '((ideographic-radical . 3)	; ⼂
