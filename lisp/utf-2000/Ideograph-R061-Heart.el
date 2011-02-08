@@ -5900,6 +5900,32 @@
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x8EAB)	; 身
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (=>>ruimoku-v6	. #xE048)	; &G-RUI6-E048;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs@unicode	    . #x8EAB)	; &G0-496D;
+	(=gb2312	    . #x496D)	; &G0-496D; [41-77]
+	)
+       ((=ucs		    . #x5FC3)	; 心
+	))
+      (=ruimoku-v6	  . #xE048)	; &RUI6-E048;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (=ucs		. #x60B0)	; 悰
