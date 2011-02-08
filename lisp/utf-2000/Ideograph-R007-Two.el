@@ -118,6 +118,7 @@
     (=gt-pj-2		. #x322F)	; &I-GT-00334; [18-15]
     (=daikanwa		. 00251)	; &I-M-00251;
     (=jef-china3	. #x41CF)	; &I-JC3-41CF;
+    (=adobe-japan1-4	. 14307)	; &I-AJ1-14307;
     ))
 (define-char
   '((<-denotational
@@ -364,6 +365,7 @@
     (=daikanwa		. 00259)	; &I-M-00259;
     (=hanziku-1		. #xA647)	; &I-HZK01-A647;
     (=jef-china3	. #x41CE)	; &I-JC3-41CE;
+    (=adobe-japan1-4	. 14308)	; &I-AJ1-14308;
     ))
 (define-char
   '((ideographic-radical . 7)	; ⼆
