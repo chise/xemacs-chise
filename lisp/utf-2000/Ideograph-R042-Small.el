@@ -30,6 +30,7 @@
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
+    (=>>ucs@unicode	. #x5C10)	; &G-UU+5C10;
     (->subsumptive
      ((=daikanwa	  . 07474)	; &M-07474;
       )
@@ -51,18 +52,17 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (=ucs		. #x5C11)	; 少
+    (=big5		. #xA4D6)	; &I-B-A4D6;
     (->subsumptive
      ((=ucs@jis		  . #x5C11)	; &GT-09425;
-      (=ucs@big5	  . #x5C11)	; &GT-09425;
       (=jis-x0208	  . #x3E2F)	; &GT-09425; [30-15]
       (=ks-x1001	  . #x6134)	; &I-K0-6134; [65-20]
       (=jis-x0213-1	  . #x3E2F)	; &I-JX1-3E2F; [30-15]
-      (=big5		  . #xA4D6)	; &I-B-A4D6;
       (=gt		  . 09425)	; &I-GT-09425;
       (=gt-k		  . 00446)	; &I-GT-K00446;
       (=gt-pj-1		  . #x3E2F)	; &I-GT-09425; [30-15]
       (=daikanwa	  . 07475)	; &I-M-07475;
-      (=shinjigen@rev	  .  1902)	; &GT-09425;
+      (=shinjigen	  .  1902)	; &GT-09425;
       )
      ((=ucs@unicode	  . #x5C11)	; &C1-4537;
       (=gb2312		  . #x4959)	; &C1-4537; [41-57]
@@ -122,6 +122,7 @@
   '((ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (=>ucs@jis		. #x5C13)	; &J97-5575;
     (=>jis-x0208	. #x5575)	; &J97-5575; [53-85]
     (=>jis-x0213-1	. #x5575)	; &J97-5575; [53-85]
     ))
@@ -134,7 +135,8 @@
     (total-strokes	 . 5)
     (=ucs		. #x5C13)	; 尓
     (->subsumptive
-     ((=cns11643-4	  . #x2173)	; &GT-09428; [01-83]
+     ((=ucs@cns		  . #x5C13)	; &GT-09428;
+      (=cns11643-4	  . #x2173)	; &GT-09428; [01-83]
       (=gt		  . 09428)	; &I-GT-09428;
       (=gt-k		  . 01044)	; &I-GT-K01044;
       (=gt-pj-1		  . #x5575)	; &I-GT-09428; [53-85]
@@ -800,7 +802,23 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x5C20)	; 尠
+  '((ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x751A)	; 甚
+      )
+     ((=ucs		  . #x5C11)	; 少
+      ))
+    (=ucs		. #x5C20)	; 尠
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5C20)	; 尠
+      ))
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
@@ -815,7 +833,6 @@
       (=daikanwa	  . 21648)	; &I-M-21648;
       )
      ((=ucs@jis		  . #x5C11)	; &GT-09425;
-      (=ucs@big5	  . #x5C11)	; &GT-09425;
       (=jis-x0208	  . #x3E2F)	; &GT-09425; [30-15]
       (=ks-x1001	  . #x6134)	; &I-K0-6134; [65-20]
       (=jis-x0213-1	  . #x3E2F)	; &I-JX1-3E2F; [30-15]
@@ -827,11 +844,13 @@
     (=gt		. 09478)	; &I-GT-09478;
     (=gt-pj-1		. #x5576)	; &I-GT-09478; [53-86]
     (=daikanwa		. 07523)	; &I-M-07523;
-    (=shinjigen@rev	.  1906)	; &GT-09478;
+    (=shinjigen		.  1906)	; &GT-09478;
     (=cbeta		. 00458)	; &I-CB00458;
     ))
 (define-char
-  '((morohashi-daikanwa	7523 0 0)
+  '((<-denotational
+     ((=ucs		  . #x5C20)	; 尠
+      ))
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
@@ -839,15 +858,19 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x751A)	; 甚
+     ((=ucs@unicode	  . #x751A)	; &G0-4975;
+      (=gb2312		  . #x4975)	; &G0-4975; [41-85]
       )
-     ((=ucs		  . #x5C11)	; 少
+     ((=ucs@unicode	  . #x5C11)	; &C1-4537;
+      (=gb2312		  . #x4959)	; &C1-4537; [41-57]
+      (=cns11643-1	  . #x4537)	; &I-C1-4537; [37-23]
       ))
-    (=ucs		. #x5C20)	; 尠
+    (=ucs@unicode	. #x5C20)	; &UU+5C20;
     ))
 (define-char
-  '((=>ucs		. #x5C20)	; 尠
-    (morohashi-daikanwa	7523 0 1)
+  '((<-denotational
+     ((=ucs		  . #x5C20)	; 尠
+      ))
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
@@ -857,7 +880,9 @@
       )
      ((=cns11643-1	  . #x5249)	; &C1-5249; [50-41]
       )
-     ((=ucs		  . #x5C11)	; 少
+     ((=ucs@unicode	  . #x5C11)	; &C1-4537;
+      (=gb2312		  . #x4959)	; &C1-4537; [41-57]
+      (=cns11643-1	  . #x4537)	; &I-C1-4537; [37-23]
       ))
     (=cns11643-3	. #x4078)	; &C3-4078; [32-88]
     ))
