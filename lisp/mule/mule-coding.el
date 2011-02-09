@@ -183,6 +183,7 @@
 (when (featurep 'utf-2000)
   (setq coded-charset-entity-reference-alist
 	'(((=adobe-japan1-base	. isolated)    "I-AJ1-" 5 d)
+	  ((=adobe-japan1-6	. isolated)    "I-AJ1-" 5 d)
 	  ((=gt			. isolated)     "I-GT-" 5 d)
 	  ((=ruimoku-v6		. isolated)   "I-RUI6-" 4 X)
 	  ((chinese-big5-cdp	. isolated)    "I-CDP-" 4 X)
