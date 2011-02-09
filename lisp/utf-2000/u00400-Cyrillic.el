@@ -52,9 +52,9 @@
      ((name		  . "COMBINING DIAERESIS")
       (=ucs		  . #x0308)	; ̈
       ))
-    (=ucs@gb/fw		. #x0401)	; &J90-2727;
-    (=ucs@jis/fw	. #x0401)	; &J90-2727;
-    (=jis-x0208		. #x2727)	; &J90-2727; [07-07]
+    (=ucs@gb/fw		. #x0401)	; &J90-2726;̈
+    (=ucs@jis/fw	. #x0401)	; &J90-2726;̈
+    (=jis-x0208		. #x2727)	; &J90-2726;̈ [07-07]
     (=gb2312		. #x2727)	; &I-G0-2727; [07-07]
     (=ks-x1001		. #x2C27)	; &I-K0-2C27; [12-07]
     (=jis-x0213-1	. #x2727)	; &I-JX1-2727; [07-07]
@@ -64,9 +64,9 @@
       (=ucs		  . #x0401)	; Ё
       ))
     (->lowercase
-     ((=ucs@gb/fw	  . #x0451)	; &J90-2757;
-      (=ucs@jis/fw	  . #x0451)	; &J90-2757;
-      (=jis-x0208	  . #x2757)	; &J90-2757; [07-55]
+     ((=ucs@gb/fw	  . #x0451)	; &J90-2756;̈
+      (=ucs@jis/fw	  . #x0451)	; &J90-2756;̈
+      (=jis-x0208	  . #x2757)	; &J90-2756;̈ [07-55]
       (=gb2312		  . #x2757)	; &I-G0-2757; [07-55]
       (=ks-x1001	  . #x2C57)	; &I-K0-2C57; [12-55]
       (=jis-x0213-1	  . #x2757)	; &I-JX1-2757; [07-55]
@@ -136,15 +136,15 @@
      ((name		  . "COMBINING ACUTE ACCENT")
       (=ucs		  . #x0301)	; ́
       ))
-    (=ucs@jis/fw	. #x0403)	; &JSP-2743;
-    (=jis-x0212		. #x2743)	; &JSP-2743; [07-35]
+    (=ucs@jis/fw	. #x0403)	; &J90-2724;́
+    (=jis-x0212		. #x2743)	; &J90-2724;́ [07-35]
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER GJE")
       (=ucs		  . #x0403)	; Ѓ
       ))
     (->lowercase
-     ((=ucs@jis/fw	  . #x0453)	; &JSP-2773;
-      (=jis-x0212	  . #x2773)	; &JSP-2773; [07-83]
+     ((=ucs@jis/fw	  . #x0453)	; &J90-2754;́
+      (=jis-x0212	  . #x2773)	; &J90-2754;́ [07-83]
       ))
     ))
 (define-char
@@ -263,15 +263,15 @@
      ((name		  . "COMBINING DIAERESIS")
       (=ucs		  . #x0308)	; ̈
       ))
-    (=ucs@jis/fw	. #x0407)	; &JSP-2747;
-    (=jis-x0212		. #x2747)	; &JSP-2747; [07-39]
+    (=ucs@jis/fw	. #x0407)	; &JSP-2746;̈
+    (=jis-x0212		. #x2747)	; &JSP-2746;̈ [07-39]
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER YI")
       (=ucs		  . #x0407)	; Ї
       ))
     (->lowercase
-     ((=ucs@jis/fw	  . #x0457)	; &JSP-2777;
-      (=jis-x0212	  . #x2777)	; &JSP-2777; [07-87]
+     ((=ucs@jis/fw	  . #x0457)	; &JSP-2776;̈
+      (=jis-x0212	  . #x2777)	; &JSP-2776;̈ [07-87]
       ))
     ))
 (define-char
@@ -418,8 +418,8 @@
       (=ucs		  . #x040C)	; Ќ
       ))
     (->lowercase
-     ((=ucs@jis/fw	  . #x045C)	; &JSP-277C;
-      (=jis-x0212	  . #x277C)	; &JSP-277C; [07-92]
+     ((=ucs@jis/fw	  . #x045C)	; &J90-275C;́
+      (=jis-x0212	  . #x277C)	; &J90-275C;́ [07-92]
       ))
     ))
 (define-char
@@ -472,8 +472,8 @@
       (=ucs		  . #x040E)	; Ў
       ))
     (->lowercase
-     ((=ucs@jis/fw	  . #x045E)	; &JSP-277D;
-      (=jis-x0212	  . #x277D)	; &JSP-277D; [07-93]
+     ((=ucs@jis/fw	  . #x045E)	; &J90-2765;̆
+      (=jis-x0212	  . #x277D)	; &J90-2765;̆ [07-93]
       ))
     ))
 (define-char
@@ -873,9 +873,9 @@
       (=ucs		  . #x0419)	; Й
       ))
     (->lowercase
-     ((=ucs@gb/fw	  . #x0439)	; &J90-275B;
-      (=ucs@jis/fw	  . #x0439)	; &J90-275B;
-      (=jis-x0208	  . #x275B)	; &J90-275B; [07-59]
+     ((=ucs@gb/fw	  . #x0439)	; &J90-275A;̆
+      (=ucs@jis/fw	  . #x0439)	; &J90-275A;̆
+      (=jis-x0208	  . #x275B)	; &J90-275A;̆ [07-59]
       (=gb2312		  . #x275B)	; &I-G0-275B; [07-59]
       (=ks-x1001	  . #x2C5B)	; &I-K0-2C5B; [12-59]
       (=jis-x0213-1	  . #x275B)	; &I-JX1-275B; [07-59]
@@ -2063,9 +2063,9 @@
      ((name		  . "COMBINING BREVE")
       (=ucs		  . #x0306)	; ̆
       ))
-    (=ucs@gb/fw		. #x0439)	; &J90-275B;
-    (=ucs@jis/fw	. #x0439)	; &J90-275B;
-    (=jis-x0208		. #x275B)	; &J90-275B; [07-59]
+    (=ucs@gb/fw		. #x0439)	; &J90-275A;̆
+    (=ucs@jis/fw	. #x0439)	; &J90-275A;̆
+    (=jis-x0208		. #x275B)	; &J90-275A;̆ [07-59]
     (=gb2312		. #x275B)	; &I-G0-275B; [07-59]
     (=ks-x1001		. #x2C5B)	; &I-K0-2C5B; [12-59]
     (=jis-x0213-1	. #x275B)	; &I-JX1-275B; [07-59]
@@ -2950,9 +2950,9 @@
      ((name		  . "COMBINING DIAERESIS")
       (=ucs		  . #x0308)	; ̈
       ))
-    (=ucs@gb/fw		. #x0451)	; &J90-2757;
-    (=ucs@jis/fw	. #x0451)	; &J90-2757;
-    (=jis-x0208		. #x2757)	; &J90-2757; [07-55]
+    (=ucs@gb/fw		. #x0451)	; &J90-2756;̈
+    (=ucs@jis/fw	. #x0451)	; &J90-2756;̈
+    (=jis-x0208		. #x2757)	; &J90-2756;̈ [07-55]
     (=gb2312		. #x2757)	; &I-G0-2757; [07-55]
     (=ks-x1001		. #x2C57)	; &I-K0-2C57; [12-55]
     (=jis-x0213-1	. #x2757)	; &I-JX1-2757; [07-55]
@@ -2962,9 +2962,9 @@
       (=ucs		  . #x0451)	; ё
       ))
     (->uppercase
-     ((=ucs@gb/fw	  . #x0401)	; &J90-2727;
-      (=ucs@jis/fw	  . #x0401)	; &J90-2727;
-      (=jis-x0208	  . #x2727)	; &J90-2727; [07-07]
+     ((=ucs@gb/fw	  . #x0401)	; &J90-2726;̈
+      (=ucs@jis/fw	  . #x0401)	; &J90-2726;̈
+      (=jis-x0208	  . #x2727)	; &J90-2726;̈ [07-07]
       (=gb2312		  . #x2727)	; &I-G0-2727; [07-07]
       (=ks-x1001	  . #x2C27)	; &I-K0-2C27; [12-07]
       (=jis-x0213-1	  . #x2727)	; &I-JX1-2727; [07-07]
@@ -3034,15 +3034,15 @@
      ((name		  . "COMBINING ACUTE ACCENT")
       (=ucs		  . #x0301)	; ́
       ))
-    (=ucs@jis/fw	. #x0453)	; &JSP-2773;
-    (=jis-x0212		. #x2773)	; &JSP-2773; [07-83]
+    (=ucs@jis/fw	. #x0453)	; &J90-2754;́
+    (=jis-x0212		. #x2773)	; &J90-2754;́ [07-83]
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER GJE")
       (=ucs		  . #x0453)	; ѓ
       ))
     (->uppercase
-     ((=ucs@jis/fw	  . #x0403)	; &JSP-2743;
-      (=jis-x0212	  . #x2743)	; &JSP-2743; [07-35]
+     ((=ucs@jis/fw	  . #x0403)	; &J90-2724;́
+      (=jis-x0212	  . #x2743)	; &J90-2724;́ [07-35]
       ))
     ))
 (define-char
@@ -3161,15 +3161,15 @@
      ((name		  . "COMBINING DIAERESIS")
       (=ucs		  . #x0308)	; ̈
       ))
-    (=ucs@jis/fw	. #x0457)	; &JSP-2777;
-    (=jis-x0212		. #x2777)	; &JSP-2777; [07-87]
+    (=ucs@jis/fw	. #x0457)	; &JSP-2776;̈
+    (=jis-x0212		. #x2777)	; &JSP-2776;̈ [07-87]
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER YI")
       (=ucs		  . #x0457)	; ї
       ))
     (->uppercase
-     ((=ucs@jis/fw	  . #x0407)	; &JSP-2747;
-      (=jis-x0212	  . #x2747)	; &JSP-2747; [07-39]
+     ((=ucs@jis/fw	  . #x0407)	; &JSP-2746;̈
+      (=jis-x0212	  . #x2747)	; &JSP-2746;̈ [07-39]
       ))
     ))
 (define-char
@@ -3320,8 +3320,8 @@
      ((name		  . "COMBINING ACUTE ACCENT")
       (=ucs		  . #x0301)	; ́
       ))
-    (=ucs@jis/fw	. #x045C)	; &JSP-277C;
-    (=jis-x0212		. #x277C)	; &JSP-277C; [07-92]
+    (=ucs@jis/fw	. #x045C)	; &J90-275C;́
+    (=jis-x0212		. #x277C)	; &J90-275C;́ [07-92]
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER KJE")
       (=ucs		  . #x045C)	; ќ
@@ -3385,8 +3385,8 @@
      ((name		  . "COMBINING BREVE")
       (=ucs		  . #x0306)	; ̆
       ))
-    (=ucs@jis/fw	. #x045E)	; &JSP-277D;
-    (=jis-x0212		. #x277D)	; &JSP-277D; [07-93]
+    (=ucs@jis/fw	. #x045E)	; &J90-2765;̆
+    (=jis-x0212		. #x277D)	; &J90-2765;̆ [07-93]
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER SHORT U")
       (=ucs		  . #x045E)	; ў
