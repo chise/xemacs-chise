@@ -368,6 +368,11 @@
    '(mnemonic "MTF8r" use-entity-reference t))
 
   (make-coding-system
+   'utf-8-mcs-no-composition 'utf-8
+   "Coding-system of UTF-8 without composition."
+   '(mnemonic "MTF8-nc" disable-composition t))
+
+  (make-coding-system
    'utf-8-gb 'utf-8
    "Coding-system of UTF-8 using GB mapping."
    '(mnemonic "UTF8G"
