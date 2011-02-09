@@ -1,5 +1,20 @@
 2011-02-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R002-Line.el: Add some Adobe-Japan1-0 and
+	Adobe-Japan1-4 code points.
+	(U+4E31): Use `->subsumptive' to separate representative nodes.
+
+2011-02-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R012-Eight.el (U-00020503): Unify S2-0492.
+
+	* u03000-CJK-Symbols-and-Punctuation.el (U+3005): Unify AJ1-00657.
+
+	* Ideograph-R042-Small.el (mother of M-07474): Unify G-UU+5C10.
+	(A-J0-5575): Unify A-JU+5C13.
+	(C4-2173): Unify CU+5C13.
+	(U+5C20): Use `->denotational'.
+
 	* Ideograph-R166-Village.el (C7-2A35): Unify U-0002892D.
 	(C7-555B): Map to U-0002893A.
 
