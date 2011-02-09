@@ -1,3 +1,8 @@
+2011-02-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (Qrep_decomposition): New extern.
+	(char_encode_utf8): Try to encode as combing sequence (or IVS).
+
 2011-01-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* concord.c (Fconcord_genre_ds): Add "#ifdef HAVE_LIBCHISE" ...
