@@ -306,7 +306,7 @@
     (=ucs		. #x20503)	; 𠔃
     (=cns11643-6	. #x2141)	; &I-C6-2141; [01-33]
     (=daikanwa		. 48904)	; &I-M-48904;
-    (=shinjigen@1ed	.  0492)	; 𠔃
+    (=shinjigen		.  0492)	; 𠔃
     (=hanziku-1		. #xD7D7)	; &I-HZK01-D7D7;
     (<-vulgar
      ((=ucs@jis		  . #x516E)	; &GT-01891;
@@ -317,7 +317,7 @@
       (=shinjigen	  .  0491)	; &GT-01891;
       ))
     (<-vulgar*sources
-     daikanwa shinjigen@1ed)
+     daikanwa shinjigen)
     ))
 (define-char
   '((ideographic-radical . 12)	; ⼋
