@@ -201,7 +201,8 @@
   '((ideographic-radical . 166)	; ⾥
     (ideographic-strokes . 8)
     (total-strokes	 . 15)
-    (=cns11643-7	. #x2A35)	; &M-40143; [10-21]
+    (=ucs		. #x2892D)	; 𨤭
+    (=cns11643-7	. #x2A35)	; &I-C7-2A35; [10-21]
     (=daikanwa		. 40143)	; &I-M-40143;
     ))
 (define-char
@@ -304,6 +305,11 @@
   '((ideographic-radical . 166)	; ⾥
     (ideographic-strokes . 14)
     (total-strokes	 . 21)
-    (=cns11643-7	. #x555B)	; &M-40151; [53-59]
-    (=daikanwa		. 40151)	; &I-M-40151;
+    (=ucs		. #x2893A)	; 𨤺
+    (->subsumptive
+     ((=cns11643-7	  . #x555B)	; &M-40151; [53-59]
+      (=daikanwa	  . 40151)	; &I-M-40151;
+      )
+     ((=ucs@iso		  . #x2893A)	; &U-0002893A;
+      ))
     ))
