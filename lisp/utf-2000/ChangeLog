@@ -1,5 +1,20 @@
 2011-02-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R166-Village.el (C7-2A35): Unify U-0002892D.
+	(C7-555B): Map to U-0002893A.
+
+	* Ideograph-R029-Again.el (G-RUI6-E047): New character.
+
+	* Ideograph-R010-Legs.el (JX1-2E50): Unify AJ1-13389.
+	(U+515F): Use `->subsumptive' to separate representative node.
+
+	* ruimoku6.el (RUI6-E016): Use `<-subsumptive' for U-00024F08.
+	(RUI6-E018): Modify `ideographic-structure'.
+	(RUI6-E01F): Use `<-subsumptive' for G-RUI6-E01F.
+	(RUI6-E038): Use `<-denotational' for G-RUI6-E038.
+	(RUI6-E047): Modify `ideographic-structure'.
+	(RUI6-E04C): Add `ideographic-structure'.
+
 	* Ideograph-R137-Boat.el (U+821F): Use `->subsumptive' to separate
 	representative nodes.
 
