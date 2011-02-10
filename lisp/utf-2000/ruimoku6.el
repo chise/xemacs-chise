@@ -1492,6 +1492,7 @@
     (=daikanwa		. 24673)	; &I-M-24673;
     (=jef-china3	. #x5CDA)	; &I-JC3-5CDA;
     (=ruimoku-v6	. #xE085)	; &I-RUI6-E085;
+    (=adobe-japan1-2	. 08580)	; &I-AJ1-08580;
     ))
 (define-char
   '((<-denotational
@@ -1500,11 +1501,12 @@
     (ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (=ucs@jis/2004	. #x698A)	; &RUI6-E086;
-    (=jis-x0208@1978	. #x3A67)	; &RUI6-E086; [26-71]
+    (=ucs@jis/2004	. #x698A)	; &AJ1-07686;
+    (=jis-x0208@1978	. #x3A67)	; &AJ1-07686; [26-71]
     (=jis-x0213-1@2004	. #x3A67)	; &I-JX3-3A67; [26-71]
     (=daikanwa		. 15352)	; &I-M-15352;
     (=ruimoku-v6	. #xE086)	; &I-RUI6-E086;
+    (=adobe-japan1-0	. 07686)	; &I-AJ1-07686;
     ))
 (define-char
   '((=ruimoku-v6	. #xE087)	; &RUI6-E087;
