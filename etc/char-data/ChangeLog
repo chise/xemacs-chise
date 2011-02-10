@@ -1,3 +1,9 @@
+2011-02-10  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* JX2-to-UCS.txt (JX2-2523): Delete mapping for U-0002F856.
+
+	* JSP-to-UCS.txt (JSP-382A): Delete mapping for U-0002F856.
+
 2011-01-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* JC3-to-UCS.txt (JC3-82C4): Map to U+9093 instead of U+9127.
