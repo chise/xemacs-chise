@@ -1,5 +1,24 @@
 2011-02-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R031-Enclosure.el: Add some Adobe-Japan1-5 code
+	points.
+	(U+56DF): Add ideographic-structure.
+	(U+56E1): Use `->subsumptive' to separate representative nodes.
+	(U+56F6): Use `->denotational' and `->subsumptive'.
+	(U+56F7): Use `->subsumptive' to separate representative nodes.
+	(U+571D): Add ideographic-structure.
+
+	* Ideograph-R030-Mouth.el (U+5435): Add ideographic-structure.
+	(mother of C3-2472): Unify G-CU+356F.
+	(C3-2472): Unify CU+356F.
+	(U+552C): Add ideographic-structure.
+	(mother of C1-5949): Unify G-CU+552C.
+	(C1-5949): Unify CU+552C.
+
+	* Ideograph-R004-Slash.el: Add some Adobe-Japan1-4 code points.
+	(U+4E41): Use `->denotational' to integrate U-0002F802.
+	(U-000200B0): Use `->denotational' instead of `->subsumptive'.
+
 	* Ideograph-R002-Line.el: Add some Adobe-Japan1-0 and
 	Adobe-Japan1-4 code points.
 	(U+4E31): Use `->subsumptive' to separate representative nodes.
