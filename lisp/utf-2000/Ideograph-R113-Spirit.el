@@ -1761,6 +1761,7 @@
     (=daikanwa		. 24673)	; &I-M-24673;
     (=jef-china3	. #x5CDA)	; &I-JC3-5CDA;
     (=ruimoku-v6	. #xE085)	; &I-RUI6-E085;
+    (=adobe-japan1-2	. 08580)	; &I-AJ1-08580;
     ))
 (define-char
   '((<-denotational
