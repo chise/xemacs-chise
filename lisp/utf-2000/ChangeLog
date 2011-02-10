@@ -1,5 +1,18 @@
 2011-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R102-Field.el (U-00024CD6): Integrate M-21948.
+	(U-00024CD7): Integrate M-21949.
+	(U+3F6A): Integrate M-21950.
+	(U-00024CD8): Integrate M-36299; use `ideographic-radical@ucs'
+	instead of `ideographic-radical'; add `ideographic-strokes@ucs'
+	and `ideographic-{radical|strokes}@daikanwa'.
+
+	* Ideograph-R019-Power.el (M-02301): Unify U-000201AE and H1-BB48;
+	use `ideographic-radical@daikanwa' instead of
+	`ideographic-radical'; add `ideographic-radical@ucs'; add
+	`ideographic-structure'.
+	(U-0002A7D7): New character.
+
 	* Ideograph-R113-Spirit.el (U+FA19): Unify AJ1-08580.
 
 2011-02-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
