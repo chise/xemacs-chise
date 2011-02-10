@@ -81,7 +81,7 @@
     (=daikanwa		. 00097)	; &I-M-00097;
     (=big5-eten		. #xC6E0)	; &B-C6E0;
     (=cbeta		. 02728)	; &I-CB02728;
-    (=adobe-japan1-0	. 00657)	; &AJ1-00657;
+    (=adobe-japan1-0	. 00657)	; &I-AJ1-00657;
     ))
 (define-char
   '((name		. "IDEOGRAPHIC CLOSING MARK")
