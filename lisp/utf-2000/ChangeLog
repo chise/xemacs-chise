@@ -1,5 +1,10 @@
 2011-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* ruimoku6.el (U+FA19): Unify AJ1-08580.
+	(JX3-3A67): Unify AJ1-07686.
+
+2011-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R102-Field.el (U-00024CD6): Integrate M-21948.
 	(U-00024CD7): Integrate M-21949.
 	(U+3F6A): Integrate M-21950.
