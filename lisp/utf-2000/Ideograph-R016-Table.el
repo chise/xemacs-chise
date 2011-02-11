@@ -687,6 +687,7 @@
     (=daikanwa		. 01765)	; &I-M-01765;
     (=hanziku-1		. #xDF53)	; &I-HZK01-DF53;
     (=jef-china3	. #x44AC)	; &I-JC3-44AC;
+    (=adobe-japan1-2	. 08397)	; &I-AJ1-08397;
     (<-ancient
      ((=ucs@unicode	  . #x98A8)	; &GT-58717;
       (=jis-x0208	  . #x4977)	; &GT-58717; [41-87]
