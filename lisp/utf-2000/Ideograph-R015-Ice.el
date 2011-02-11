@@ -918,6 +918,7 @@
     (=big5		. #xCBCF)	; &I-B-CBCF;
     (=daikanwa		. 01639)	; &I-M-01639;
     (=jef-china3	. #x43F7)	; &I-JC3-43F7;
+    (=adobe-japan1-2	. 08396)	; &I-AJ1-08396;
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎
@@ -1610,6 +1611,7 @@
       )
      ((=ucs		  . #x9752)	; 青
       ))
+    (=>>ucs@unicode	. #x51CA)	; &G-GT-02194;
     (=>>gt		. 02194)	; &G-GT-02194;
     (->subsumptive
      ((ideographic-structure
