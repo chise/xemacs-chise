@@ -337,6 +337,7 @@
     (=hanziku-1		. #xE4A5)	; &I-HZK01-E4A5;
     (=cbeta		. 04833)	; &I-CB04833;
     (=jef-china3	. #x43F2)	; &I-JC3-43F2;
+    (=adobe-japan1-2	. 08395)	; &I-AJ1-08395;
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
