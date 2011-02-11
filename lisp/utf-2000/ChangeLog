@@ -1,5 +1,41 @@
 2011-02-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R029-Again.el (U+53DD): Unify AJ1-08409.
+
+	* Ideograph-R026-Seal.el (U+5372): Unify AJ1-08406.
+
+	* Ideograph-R022-Right-Open-Box.el (U+5324): Unify AJ1-08405.
+
+	* Ideograph-R018-Knife.el (U+5215): Unify AJ1-08398.
+
+	* Ideograph-R016-Table.el (U+51EC): Unify AJ1-08397.
+
+	* Ideograph-R014-Cover.el (U+519D): Unify AJ1-08395.
+
+	* Ideograph-R002-Line.el (U+4E28): Unify AJ1-08371.
+
+	* Ideograph-R075-Tree.el (mother of C3-3C34): Unify G-CU+6902; add
+	ideographic-structure.
+	(C3-3C34): Unify CU+6902.
+	(G-JX2-2F26): Add ideographic-structure.
+	(U+6967): Likewise.
+	(mother of C3-4176): Unify CU+6967; add ideographic-structure.
+	(C3-4176): Unify CU+6967.
+	(JX3-3A67): Unify AJ1-07686.
+	(J90-3A67): Unify AJ1-02135.
+
+	* Ideograph-R072-Sun.el (U+668E): Add ideographic-structure.
+	(G-CU+668E): Likewise.
+	(C3-415B): Unify CU+668E.
+
+	* Ideograph-R030-Mouth.el (G-CU+552C): Add ideographic-structure.
+	(U+35A0): Likewise.
+	(U+5563): Use `->denotational' to integrate U-0002F844.
+	(U-00020E04): Add ideographic-structure.
+	(G-IU+20E04): Likewise.
+
+2011-02-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R140-Grass.el (mother of C1-5341): Unify G-CU+82F1,
 	G-GT-40028 and G-M-30808.
 
