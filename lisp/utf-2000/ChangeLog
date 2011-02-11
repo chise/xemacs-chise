@@ -1,3 +1,161 @@
+2011-02-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (mother of C1-5341): Unify G-CU+82F1,
+	G-GT-40028 and G-M-30808.
+
+	* Ideograph-R104-Sickness.el (mother of JX1-785C): Unify
+	G-UU+7665.
+	(U-00024EFA): Integrate M-22612.
+	(U+3FD5): Integrate M-22613.
+	(U+3FD6): Integrate M-22614.
+	(U-00024F00): Integrate M-22616.
+	(U+7667): Use `->subsumptive'.
+	(U+7668): Likewise.
+	(U-00024F01): Integrate M-22619.
+	(U-00024F02): Integrate M-22620.
+	(U-00024F03): Integrate M-22621.
+	(U+7669): Use `->denotational' and `->subsumptive'.
+	(U-00024F04): Integrate M-22623.
+	(U-00024F05): Integrate M-22624.
+	(U-00024F06): Integrate M-22625.
+	(U+766A): Use `->subsumptive'.
+	(U-00024F08): Use `->subsumptive' to separate representative node.
+	(U+3FD8): Integrate M-22628.
+	(U+766E): Use `->denotational'.
+	(U-00024F0C): Integrate M-22632.
+
+	* Ideograph-R032-Earth.el:
+	- Add some Adobe-Japan1-5 code points.
+	- Add some abstract ideographic-structure.
+	(U-00021240): New character.
+	(U+5768): Use `->subsumptive'.
+	(U+576D): Use `->subsumptive' to separate representative nodes.
+	(U+577A): Use `->denotational'.
+	(U+577B): Use `->denotational' instead of `->subsumptive'.
+	(U+577C): Use `->denotational' to separate representative nodes.
+	(U+3636): Use `->subsumptive' to separate representative nodes.
+	(U+579D): Use `->denotational' instead of `->subsumptive'.
+	(U+57A8): Use `->subsumptive'.
+	(U+57AE): Unify JC3-93CF.
+	(U+57CF): Use `->denotational' instead of `->subsumptive'.
+	(U+57D0): Likewise.
+	(U+57D2): Use `->denotational'.
+	(U+57D3): Likewise.
+	(U-000212F3): Use `->subsumptive'.
+	(U+57D5): Use `->denotational' instead of `->subsumptive'.
+	(U+57D7): Use `->subsumptive'.
+	(U+57DE): Likewise.
+	(U+3648): Use `->denotational' and `->subsumptive'.
+	(U+57E2): Use `->denotational'.
+	(M-05168): Map to U-00021328.
+	(U+57E7): Use `->denotational'.
+	(mother of C2-344D): Unify I-UU+57F0.
+	(U+57F2): Use `->subsumptive' to separate representative nodes.
+	(U+57F3): Use `->subsumptive'.
+	(mother of C6-3E2C): Unify G-CU+2F853 instead of U-0002F853.
+	(C6-3E2C): Unify U-0002F853.
+	(mother of G0-5B7A): Unify G-UU+57F4.
+	(mother of J90-3E7D): Unify G-JU+57F4 and G-KU+57F4.
+	(J90-3E7D): Use `=ucs@jis/1990', `=ucs@jis/2000' and
+	`=ucs@jis/2004' instead of `=ucs@jis'.
+	(K0-6350): Unify K0-6350.
+	(U+57FB): Use `->subsumptive'.
+	(U+57FD): Use `->denotational' to separate representative nodes.
+	(U+580D): Use `->subsumptive' to separate representative nodes.
+	(U+5826): Use `->subsumptive'.
+	(U+5831): Use `->denotational' to integrate U-0002F857.
+	(mother of JX2-2523): Unify G-JU+5832 and G-CU+2F856 instead of
+	U-0002F856.
+	(C4-3676): Unify U-0002F856.
+	(U+5849): Use `->denotational' instead of `->subsumptive'.
+	(U+584C): Use `->denotational'.
+	(JX2-2527): Unify JC3-91BB.
+	(U+584D): Use `->denotational'.
+	(mother of C3-405E): Unify G-CU+585F.
+	(C3-405E): Unify CU+585F.
+	(U+5867): Use `->denotational' and `->subsumptive'.
+	(mother of C6-514A): Unify G-CU+2F857 instead of U-0002F857; add
+	`<-denotational' for U+5831.
+	(C6-514A): Unify U-0002F857.
+	(U+586D): Use `->denotational' to separate representative nodes.
+	(U+5871): Use `->subsumptive' to separate representative node.
+	(CB05673): Delete `morohashi-daikanwa'.
+	(U+5880): Use `->subsumptive'.
+	(U+5881): Use `->denotational' instead of `->subsumptive'.
+	(U+5888): Likewise.
+	(A-JX2-252B): Unify A-JU+588D.
+	(G-JX2-252B): Unify G-UU+588D.
+	(U+5890): Use `->denotational'.
+	(U+5894): Use `->subsumptive'.
+	(U+58AA): Likewise.
+	(U+58BC): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R023-Hiding-Enclosure.el (A-IU+20976): New character.
+	(mother of C6-3564): Unify G-IU+20976; use A-IU+20976 instead of
+	U-00020976.
+	(C6-3564): Unify CU+20976.
+	(CB02506): Modify a component in `ideographic-structure'.
+	(o-JU+533E): New character.
+	(G-GT-03448): Unify G-JU+533E; use o-JU+533E instead of U+533E as
+	the mother.
+	(A-UU+533E): New character.
+	(JC3-45BB): Use A-UU+533E instead of U+533E.
+	(G0-5852): Ditto.
+
+	* Ideograph-R009-Man.el:
+	- Add some Adobe-Japan1-4 code points.
+	- Add some abstract ideographic-structure.
+	(U-000201AE): Unify M-02301; compact `ideographic-structure'; use
+	`ideographic-radical@ucs' instead of `ideographic-radical'; add
+	`ideographic-radical@daikanwa'.
+	(U+4F60): Use `->denotational' to integrate U-0002F804.
+	(U-0002F804): Use `<-denotational' for U+4F60.
+	(C6-2572): Add `ideographic-structure'.
+	(JX1-2E34): Compact `ideographic-structure'.
+	(U+FA30): Unify G-UU+4FAE; use `=ucs@unicode' instead of
+	`=ucs@gb', `=ucs@cns' and `=ucs@ks' for UU+4FAE; unify JU+FA30.
+	(mother of G0-474E): Unify G-UU+4FCF.
+	(U+4FFD): Use `->subsumptive' to separate representative nodes.
+	(mother of C3-2F46): Unify G-JU+4FFF and G-CU+4FFF; add
+	ideographic-structure.
+	(mother of C2-3366): Unify G-CU+5040.
+	(mother of C3-343C): Unify G-UU+5042.
+	(mother of JX2-217B): Unify o-JU+50D9 and A-CU+50D9.
+	(A-JX2-217D): New character.
+	(U+50E9): Use `<-denotational' for A-JX2-217D.
+	(U+50F4): Ditto; unify S-0389; add `<-vulgar' for JX2-217D.
+	(mother of C2-487C): Unify G-CU+50EA.
+	(U+50F0): Use `->subsumptive' to separate representative nodes.
+	(U+510B): Use `->denotational' instead of `->subsumptive'.
+	(S-0429): New character.
+
+	* Ideograph-R001-One.el: Add some Adobe-Japan1-0 and
+	Adobe-Japan1-4 code points.
+	(G-GT-00014): New character.
+	(GT-00014): Use `<-subsumptive' for G-GT-00014; add
+	`ideographic-structure'.
+	(GT-00013): Add `ideographic-structure'.
+	(GT-00022): Likewise.
+	(U-0002000B): Add ideographic-structure.
+	(U+4E20): Likewise.
+	(U-00020022): Likewise.
+	(GT-00068): Unify U-0002A7D7; use
+	`ideographic-{radical|strokes}@gt' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'; add `ideographic-structure'.
+	(G-GT-00074): New character.
+	(GT-00074): Use `<-subsumptive' for G-GT-00074; add
+	`ideographic-structure'.
+	(U+4E26): Use `->denotational' to integrate U+FA70.
+	(mother of GT-00089): Unify G-GT-00089 and G-M-00053 instead of
+	U+FA70.
+	(GT-00089): Delete `=ucs@JP' for JU+FA70.
+	(U-00020030): Add ideographic-structure.
+	(M-00061): Map to U-00020038; unify H1-A957.
+	(U-0002003C): Use `->subsumptive'.
+	(U-0002002F): Compact ideographic-structure; use `->subsumptive'
+	to separate representative node.
+
 2011-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL MEAT>): Use
