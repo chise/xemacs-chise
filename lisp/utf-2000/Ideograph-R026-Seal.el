@@ -412,6 +412,7 @@
     (=big5		. #xCA73)	; &I-B-CA73;
     (=daikanwa		. 02854)	; &I-M-02854;
     (=jef-china3	. #x45D2)	; &I-JC3-45D2;
+    (=adobe-japan1-2	. 08406)	; &I-AJ1-08406;
     ))
 (define-char
   '((script		JP Jouyou Ideograph)
