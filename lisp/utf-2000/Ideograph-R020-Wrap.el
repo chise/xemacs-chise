@@ -127,34 +127,48 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (=ucs		. #x5300)	; 匀
-    (->subsumptive
-     ((=ucs@jis		  . #x5300)	; &M-02497;
-      (=jis-x0212	  . #x337B)	; &M-02497; [19-91]
-      (=jis-x0213-1	  . #x2E6B)	; &I-JX1-2E6B; [14-75]
-      (=daikanwa	  . 02497)	; &I-M-02497;
-      (=shinjigen	  .  0765)	; &M-02497;
-      (=jef-china3	  . #x45A3)	; &I-JC3-45A3;
-      (<-vulgar
-       ((=ucs@unicode	    . #x52FB)	; &AJ1-16799;
-	(=jis-x0213-1	    . #x2E6A)	; &AJ1-16799; [14-74]
-	(=daikanwa	    . 02496)	; &I-M-02496;
-	(=shinjigen	    .  0764)	; &AJ1-16799;
-	))
-      (<-vulgar*sources
-       zhengzitong daikanwa shinjigen@1ed)
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
-	(=ucs		    . #x2FF9)	; ⿹
-	)
-       ((=ucs		    . #x52F9)	; 勹
-	)
-       ((=ucs		    . #x51AB)	; 冫
-	))
-      (=ucs@unicode	  . #x5300)	; &C3-2156;
-      (=gb2312		  . #x5448)	; &C3-2156; [52-40]
-      (=cns11643-3	  . #x2156)	; &I-C3-2156; [01-54]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5300)	; 匀
       ))
+    (ideographic-radical . 20)	; ⼓
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (=ucs@jis		. #x5300)	; &AJ1-08403;
+    (=jis-x0212		. #x337B)	; &AJ1-08403; [19-91]
+    (=jis-x0213-1	. #x2E6B)	; &I-JX1-2E6B; [14-75]
+    (=daikanwa		. 02497)	; &I-M-02497;
+    (=shinjigen		.  0765)	; &AJ1-08403;
+    (=jef-china3	. #x45A3)	; &I-JC3-45A3;
+    (=adobe-japan1-2	. 08403)	; &I-AJ1-08403;
+    (<-vulgar
+     ((=ucs@unicode	  . #x52FB)	; &AJ1-16799;
+      (=jis-x0213-1	  . #x2E6A)	; &AJ1-16799; [14-74]
+      (=daikanwa	  . 02496)	; &I-M-02496;
+      (=shinjigen	  .  0764)	; &AJ1-16799;
+      ))
+    (<-vulgar*sources
+     zhengzitong daikanwa shinjigen)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5300)	; 匀
+      ))
+    (ideographic-radical . 20)	; ⼓
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x52F9)	; 勹
+      )
+     ((=ucs		  . #x51AB)	; 冫
+      ))
+    (=ucs@unicode	. #x5300)	; &C3-2156;
+    (=gb2312		. #x5448)	; &C3-2156; [52-40]
+    (=cns11643-3	. #x2156)	; &I-C3-2156; [01-54]
     ))
 (define-char
   '((ideographic-radical . 20)	; ⼓
