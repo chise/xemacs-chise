@@ -1218,6 +1218,7 @@
     (=hanziku-1		. #xE8D2)	; &I-HZK01-E8D2;
     (=cbeta		. 02094)	; &I-CB02094;
     (=jef-china3	. #x44B4)	; &I-JC3-44B4;
+    (=adobe-japan1-2	. 08398)	; &I-AJ1-08398;
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
