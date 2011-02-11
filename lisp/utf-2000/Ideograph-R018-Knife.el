@@ -3854,7 +3854,7 @@
     (total-strokes	 . 9)
     (=>>ucs@unicode	. #x524D)	; &G-J0-4130;
     (=>>jis-x0208	. #x4130)	; &G-J0-4130; [33-16]
-    (=big5		. #xAB65)	; &G-J0-4130;
+    (=big5		. #xAB65)	; &I-B-AB65;
     (->subsumptive
      ((=ucs@unicode	  . #x524D)	; &GT-02595;
       (=jis-x0208	  . #x4130)	; &GT-02595; [33-16]
