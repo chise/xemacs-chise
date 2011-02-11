@@ -4958,6 +4958,14 @@
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((=ucs		  . #x82F1)	; 英
+      ))
     (=ucs		. #x668E)	; 暎
     ))
 (define-char
@@ -4967,6 +4975,15 @@
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((=>>gt		  . 40028)	; &G-GT-40028;
+      ))
+    (=>>ucs@cns		. #x668E)	; &G-CU+668E;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -4985,8 +5002,10 @@
 	)
        ((=ucs		    . #x65E5)	; 日
 	)
-       ((=cns11643-1	    . #x5341)	; &C1-5341; [51-33]
+       ((=ucs@cns	    . #x82F1)	; &C1-5341;
+	(=cns11643-1	    . #x5341)	; &C1-5341; [51-33]
 	))
+      (=ucs@cns		  . #x668E)	; &C3-415B;
       (=cns11643-3	  . #x415B)	; &C3-415B; [33-59]
       ))
     ))
