@@ -23,6 +23,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
     (=ucs		. #x864E)	; 虎
+    (=big5		. #xAAEA)	; &I-B-AAEA;
     ))
 (define-char
   '((<-denotational
@@ -31,7 +32,8 @@
     (ideographic-radical . 141)	; ⾌
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
-    (=big5		. #xAAEA)	; &B-AAEA;
+    (=>>ucs@jis		. #x864E)	; &G-JU+864E;
+    (=>>ucs@cns		. #x864E)	; &G-JU+864E;
     (->subsumptive
      ((=ucs@jis		  . #x864E)	; &GT-44178;
       (=jis-x0208	  . #x3857)	; &GT-44178; [24-55]
@@ -43,7 +45,8 @@
       (=daikanwa	  . 32675)	; &I-M-32675;
       (=shinjigen	  .  7080)	; &GT-44178;
       )
-     ((=cns11643-1	  . #x4F4D)	; &C1-4F4D; [47-45]
+     ((=ucs@cns		  . #x864E)	; &C1-4F4D;
+      (=cns11643-1	  . #x4F4D)	; &C1-4F4D; [47-45]
       ))
     ))
 (define-char
