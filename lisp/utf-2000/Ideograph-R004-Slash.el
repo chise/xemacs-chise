@@ -264,6 +264,7 @@
     (=gt		. 00008)	; &I-GT-00008;
     (=gt-pj-9		. #x4D4A)	; &I-GT-00008; [45-42]
     (=jef-china3	. #x71FC)	; &I-JC3-71FC;
+    (=adobe-japan1-5	. 17233)	; &I-AJ1-17233;
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃
@@ -341,8 +342,8 @@
 	)
        ((=ucs		    . #x4E3F)	; 丿
 	)
-       ((=ucs@unicode	    . #x4E03)	; &AJ1-02275;
-	(=jis-x0208	    . #x3C37)	; &AJ1-02275; [28-23]
+       ((=ucs@unicode	    . #x4E03)	; 七󠄀
+	(=jis-x0208	    . #x3C37)	; 七󠄀 [28-23]
 	(=gb2312	    . #x465F)	; &I-G0-465F; [38-63]
 	(=ks-x1001	    . #x7652)	; &I-K0-7652; [86-50]
 	(=jis-x0213-1	    . #x3C37)	; &I-JX1-3C37; [28-23]
