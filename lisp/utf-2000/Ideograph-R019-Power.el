@@ -36,6 +36,7 @@
     (=daikanwa		. 02289)	; &I-M-02289;
     (=hanziku-1		. #xF140)	; &I-HZK01-F140;
     (=jef-china3	. #x44F7)	; &I-JC3-44F7;
+    (=adobe-japan1-2	. 08399)	; &I-AJ1-08399;
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
@@ -427,6 +428,7 @@
     (=big5		. #xC9C0)	; &I-B-C9C0;
     (=daikanwa		. 02307)	; &I-M-02307;
     (=jef-china3	. #x44D2)	; &I-JC3-44D2;
+    (=adobe-japan1-2	. 08400)	; &I-AJ1-08400;
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
@@ -721,6 +723,7 @@
     (=hanziku-1		. #xF1C5)	; &I-HZK01-F1C5;
     (=cbeta		. 03416)	; &I-CB03416;
     (=jef-china3	. #x44DC)	; &I-JC3-44DC;
+    (=adobe-japan1-2	. 08573)	; &I-AJ1-08573;
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
@@ -1436,11 +1439,15 @@
      ((=ucs		  . #x529B)	; 力
       ))
     (=ucs		. #x52C0)	; 勀
-    (=jis-x0212		. #x3365)	; &I-JSP-3365; [19-69]
-    (=cns11643-2	. #x2934)	; &I-C2-2934; [09-20]
-    (=big5		. #xCDF2)	; &I-B-CDF2;
-    (=daikanwa		. 02348)	; &I-M-02348;
-    (=jef-china3	. #x44FA)	; &I-JC3-44FA;
+    (->subsumptive
+     ((=ucs@unicode	  . #x52C0)	; &AJ1-08401;
+      (=jis-x0212	  . #x3365)	; &AJ1-08401; [19-69]
+      (=cns11643-2	  . #x2934)	; &I-C2-2934; [09-20]
+      (=big5		  . #xCDF2)	; &I-B-CDF2;
+      (=daikanwa	  . 02348)	; &I-M-02348;
+      (=jef-china3	  . #x44FA)	; &I-JC3-44FA;
+      (=adobe-japan1-2	  . 08401)	; &I-AJ1-08401;
+      ))
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
@@ -2841,6 +2848,7 @@
     (=daikanwa		. 02402)	; &I-M-02402;
     (=shinjigen		.  0759)	; 勛
     (=jef-china3	. #x44ED)	; &I-JC3-44ED;
+    (=adobe-japan1-2	. 08402)	; &I-AJ1-08402;
     (<-ancient
      ((=ucs		  . #x52F3)	; 勳
       (=daikanwa	  . 02465)	; &I-M-02465;
@@ -4475,8 +4483,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x53B2)	; &JX1-2E74;
-      (=jis-x0212	  . #x3450)	; &JX1-2E74; [20-48]
+     ((=ucs@unicode	  . #x53B2)	; &AJ1-08408;
+      (=jis-x0212	  . #x3450)	; &AJ1-08408; [20-48]
       (=jis-x0213-1	  . #x2E74)	; &I-JX1-2E74; [14-84]
       )
      ((=ucs		  . #x529B)	; 力
