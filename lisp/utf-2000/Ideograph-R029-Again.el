@@ -1531,6 +1531,7 @@
     (=daikanwa		. 03170)	; &I-M-03170;
     (=hanziku-1		. #xF7BA)	; &I-HZK01-F7BA;
     (=jef-china3	. #x45F3)	; &I-JC3-45F3;
+    (=adobe-japan1-2	. 08409)	; &I-AJ1-08409;
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
