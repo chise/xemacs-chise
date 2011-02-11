@@ -15,6 +15,7 @@
     (=gt-pj-2		. #x3053)	; &I-GT-00101; [16-51]
     (=daikanwa		. 00067)	; &I-M-00067;
     (=jef-china3	. #x41AC)	; &I-JC3-41AC;
+    (=adobe-japan1-2	. 08371)	; &I-AJ1-08371;
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁
