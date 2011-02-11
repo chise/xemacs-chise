@@ -646,12 +646,38 @@
     (=daikanwa		. 36298)	; &I-M-36298;
     ))
 (define-char
+  '((ideographic-radical@ucs . 102)	; ⽥
+    (ideographic-strokes@ucs . 12)
+    (ideographic-radical@ucs*sources
+     cns11643)
+    (ideographic-radical@daikanwa . 151)	; ⾖
+    (ideographic-strokes@daikanwa . 10)
+    (total-strokes	 . 17)
+    (hanyu-dazidian	4 2553 4)
+    (=ucs		. #x24CD8)	; 𤳘
+    (->subsumptive
+     ((ideographic-radical . 151)	; ⾖
+      (ideographic-strokes . 10)
+      (=daikanwa	  . 36299)	; &M-36299;
+      )
+     ((ideographic-radical . 102)	; ⽥
+      (ideographic-strokes . 12)
+      (=ucs@iso		  . #x24CD8)	; &HZK07-B9B6;
+      (=cns11643-5	  . #x5C34)	; &HZK07-B9B6; [60-20]
+      (=hanziku-7	  . #xB9B6)	; &I-HZK07-B9B6;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 151)	; ⾖
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
     (=ucs		. #x4742)	; 䝂
-    (=cns11643-3	. #x564E)	; &I-C3-564E; [54-46]
-    (=daikanwa		. 36300)	; &I-M-36300;
+    (->subsumptive
+     ((=daikanwa	  . 36300)	; &M-36300;
+      )
+     ((=ucs@unicode	  . #x4742)	; &C3-564E;
+      (=cns11643-3	  . #x564E)	; &C3-564E; [54-46]
+      ))
     ))
 (define-char
   '((ideographic-radical . 151)	; ⾖
