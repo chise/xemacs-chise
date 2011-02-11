@@ -4578,13 +4578,17 @@
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
+    (=>>ucs@cns		. #x82F1)	; &G-GT-40028;
+    (=>>gt		. 40028)	; &G-GT-40028;
+    (=>>daikanwa	. 30808)	; &G-GT-40028;
     (->subsumptive
      ((=gt		  . 40028)	; &GT-40028;
       (=gt-k		  . 05025)	; &I-GT-K05025;
       (=gt-pj-6		  . #x4851)	; &GT-40028; [40-49]
       (=daikanwa	  . 30808)	; &I-M-30808;
       )
-     ((=cns11643-1	  . #x5341)	; &C1-5341; [51-33]
+     ((=ucs@cns		  . #x82F1)	; &C1-5341;
+      (=cns11643-1	  . #x5341)	; &C1-5341; [51-33]
       ))
     ))
 (define-char
