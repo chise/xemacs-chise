@@ -1,5 +1,36 @@
 2011-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL MEAT>): Use
+	`<-denotational' for A-GT-37857; add
+	`<-identical@component/connect-right' for GT-37857.
+	(GT-K0758): Omitted.
+	(BC-88F0): Omitted.
+
+	* Ideograph-R151-Bean.el (U-00024CD8): New character [copied from
+	Ideograph-R102-Field.el].
+	(U+4742): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R141-Tiger.el (mother of J0-3857): Unify G-JU+864E and
+	G-CU+864E.
+	(C1-4F4D): Unify CU+864E.
+
+	* Ideograph-R130-Meat.el (mother of GT-37857): Unify A-GT-37857
+	and M-29237 instead of <CJK RADICAL MEAT>.
+	(<CJK RADICAL MEAT>): Use `<-denotational' for A-GT-37857.
+	(GT-K0417): Use `<-denotational' instead of `<-subsumptive' for
+	A-GT-37857.
+	(A-GT-K0758): New character.
+	(GT-K0758): Use A-GT-K0758 as the mother.
+	(BC-88F0): Likewise.
+	(U+43CC): Use `->denotational' to integrate CB13213.
+
+	* Ideograph-R040-Roof.el (U+3750): Use `->subsumptive'.
+	(U-000219CC): Likewise.
+	(U+5B8D): Likewise.
+	(J0-3C35): Add `<-wrong' for U+8089.
+	(U+5B8E): Use `->subsumptive'.
+	(U+5B8F): Likewise.
+
 	* ruimoku6.el (U+FA19): Unify AJ1-08580.
 	(JX3-3A67): Unify AJ1-07686.
 
