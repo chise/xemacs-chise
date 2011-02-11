@@ -760,6 +760,7 @@
     (=shinjigen		.  0877)	; 厓
     (=cbeta		. 00514)	; &I-CB00514;
     (=jef-china3	. #x45DB)	; &I-JC3-45DB;
+    (=adobe-japan1-2	. 08407)	; &I-AJ1-08407;
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
@@ -3180,6 +3181,14 @@
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs		  . #x842C)	; 萬
+      ))
     (=ucs		. #x53B2)	; 厲
     (=big5		. #xBC46)	; &I-B-BC46;
     ))
@@ -3223,10 +3232,11 @@
       (=ks-x1001	  . #x583F)	; &I-K0-583F; [56-31]
       (=jis-x0213-1	  . #x685F)	; &I-JX1-685F; [72-63]
       ))
-    (=ucs@unicode	. #x53B2)	; &JX1-2E74;
-    (=jis-x0212		. #x3450)	; &JX1-2E74; [20-48]
+    (=ucs@unicode	. #x53B2)	; &AJ1-08408;
+    (=jis-x0212		. #x3450)	; &AJ1-08408; [20-48]
     (=jis-x0213-1	. #x2E74)	; &I-JX1-2E74; [14-84]
-    (=gb12345		. #x4077)	; &JX1-2E74; [32-87]
+    (=gb12345		. #x4077)	; &AJ1-08408; [32-87]
+    (=adobe-japan1-2	. 08408)	; &I-AJ1-08408;
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
