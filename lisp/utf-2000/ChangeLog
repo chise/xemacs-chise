@@ -1,9 +1,41 @@
-2011-02-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+2011-02-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R015-Ice.el (U+51BE): Unify AJ1-08396.
-	(G-GT-02194): Unify G-UU+51CA.
+	* Ideograph-R040-Roof.el: Add some Adobe-Japan1-2 code points.
+	(mother of C2-3475): Unify G-UU+5BC0.
+	(U+5BD8): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R035-Go-Slowly.el (mother of C3-2546): Unify
+	G-CU+590B.
+	(C3-2546): Unify CU+590B.
+	(JX2-253A): Unify AJ1-08425.
+
+	* Ideograph-R032-Earth.el: Add some Adobe-Japan1-2 code points.
+	(U+5765): Use `->subsumptive' to separate representative node.
+	(U+57C8): Use `->denotational' and `->subsumptive'.
+	(U+FA0F): Use `->subsumptive' to separate representative node.
+
+	* Ideograph-R031-Enclosure.el (G-JU+570A): New character.
+	(JX1-2F41): Use `<-subsumptive' for G-JU+570A instead of
+	`<-denotational' for U+570A.
+	(mother of G0-6075): Unify G-UU+570A; add ideographic-structure.
+
+	* Ideograph-R015-Ice.el (G-JX1-2E56): Unify G-JU+51CA and
+	G-KU+51CA.
+
+	* Ideograph-R009-Man.el:
+	- Add some Adobe-Japan1-2 code points.
+	- Add some abstract ideographic-structure.
+	(U-00020089): Unify AJ1-17233.
+	(U-000201EE): Use `->subsumptive'.
+	(U+50F4): Use `->subsumptive' to separate representative node.
+
+	* Ideograph-R073-Say.el (U+66FA): Unify AJ1-08487.
+
+	* Ideograph-R062-Halberd.el (U+6213): Unify AJ1-08465.
 
 2011-02-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R059-Bristle.el (U+5F67): Unify AJ1-08451.
 
 	* Ideograph-R042-Small.el (U+5C1E): Unify AJ1-08437.
 
@@ -70,6 +102,9 @@
 	* Ideograph-R018-Knife.el (U+5215): Unify AJ1-08398.
 
 	* Ideograph-R016-Table.el (U+51EC): Unify AJ1-08397.
+
+	* Ideograph-R015-Ice.el (U+51BE): Unify AJ1-08396.
+	(G-GT-02194): Unify G-UU+51CA.
 
 	* Ideograph-R014-Cover.el (U+519D): Unify AJ1-08395.
 
