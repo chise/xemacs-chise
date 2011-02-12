@@ -277,6 +277,7 @@
     (=jis-x0212		. #x426D)	; &I-JSP-426D; [34-77]
     (=jis-x0213-1	. #x754C)	; &I-JX1-754C; [85-44]
     (=jef-china3	. #x52A2)	; &I-JC3-52A2;
+    (=adobe-japan1-2	. 08487)	; &I-AJ1-08487;
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈
