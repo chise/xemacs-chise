@@ -5,6 +5,10 @@
 
 2011-02-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R042-Small.el (U+5C1E): Unify AJ1-08437.
+
+	* Ideograph-R039-Child.el (U+5B56): Unify AJ1-08432.
+
 	* Ideograph-R021-Spoon.el (AJ1-13697): New character [copied from
 	Ideograph-R001-One.el].
 
