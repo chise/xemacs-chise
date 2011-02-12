@@ -5,6 +5,13 @@
 
 2011-02-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* mule/mule-conf.el (=daikanwa/+p): New coded-charset for XEmacs
+	CHISE.
+	(=daikanwa/+2p): Ditto.
+	(=daikanwa/ho): Ditto.
+
+2011-02-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* mule/mule-coding.el (utf-8-mcs-no-composition): New
 	coding-system for XEmacs CHISE.
 
