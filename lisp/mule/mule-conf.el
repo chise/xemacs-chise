@@ -690,6 +690,31 @@
 		  ))
   (define-charset-alias '=daikanwa-rev2 '=daikanwa@rev2)
 
+  (make-charset '=daikanwa/+p
+		"Daikanwa dictionary (ddddd')"
+		`(long-name	"Daikanwa ddddd'"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r))
+  (make-charset '=daikanwa/+2p
+		"Daikanwa dictionary (ddddd'')"
+		`(long-name	"Daikanwa ddddd''"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r))
+  (make-charset '=daikanwa/ho
+		"Daikanwa dictionary (Hokan)"
+		`(long-name	"Daikanwa-ho"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r))
+
   (make-charset '=>>daikanwa
 		"Daikanwa abstract glyphs"
 		'(long-name	"Daikanwa glyphs"
