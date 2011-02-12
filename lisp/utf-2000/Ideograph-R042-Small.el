@@ -756,6 +756,7 @@
     (=daikanwa		. 07517)	; &I-M-07517;
     (=cbeta		. 02500)	; &I-CB02500;
     (=jef-china3	. #x4AD4)	; &I-JC3-4AD4;
+    (=adobe-japan1-2	. 08437)	; &I-AJ1-08437;
     ))
 (define-char
   '((ideographic-radical . 42)	; ⼩
