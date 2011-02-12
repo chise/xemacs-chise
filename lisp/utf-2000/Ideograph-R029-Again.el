@@ -458,8 +458,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x4E29)	; &AJ1-17237;
-	(=jis-x0213-2	    . #x2125)	; &AJ1-17237; [01-05]
+       ((=ucs@unicode	    . #x4E29)	; 丩󠄀
+	(=jis-x0213-2	    . #x2125)	; 丩󠄀 [01-05]
 	(=daikanwa	    . 00068)	; &I-M-00068;
 	)
        ((=ucs@unicode	    . #x53C8)	; &GT-03944;
