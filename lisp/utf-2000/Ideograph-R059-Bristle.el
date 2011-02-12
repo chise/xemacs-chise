@@ -368,6 +368,7 @@
     (=daikanwa		. 09983)	; &I-M-09983;
     (=shinjigen@1ed	.  2314)	; 彧
     (=jef-china3	. #x4DA2)	; &I-JC3-4DA2;
+    (=adobe-japan1-2	. 08451)	; &I-AJ1-08451;
     ))
 (define-char
   '((ideographic-radical . 59)	; ⼺
