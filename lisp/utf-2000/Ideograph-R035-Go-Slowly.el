@@ -82,12 +82,14 @@
     (ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (=>>ucs@cns		. #x590B)	; &G-CU+590B;
     (->subsumptive
      ((=daikanwa	  . 05711)	; &M-05711;
       )
      ((=big5-cdp	  . #x8D64)	; &CDP-8D64;
       )
-     ((=cns11643-3	  . #x2546)	; &C3-2546; [05-38]
+     ((=ucs@cns		  . #x590B)	; &C3-2546;
+      (=cns11643-3	  . #x2546)	; &C3-2546; [05-38]
       ))
     ))
 (define-char
@@ -106,10 +108,11 @@
     (ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (=ucs@jis		. #x590B)	; &JX2-253A;
-    (=jis-x0212		. #x3861)	; &JX2-253A; [24-65]
+    (=ucs@jis		. #x590B)	; &AJ1-08425;
+    (=jis-x0212		. #x3861)	; &AJ1-08425; [24-65]
     (=jis-x0213-2	. #x253A)	; &I-JX2-253A; [05-26]
     (=jef-china3	. #x48D0)	; &I-JC3-48D0;
+    (=adobe-japan1-2	. 08425)	; &I-AJ1-08425;
     ))
 (define-char
   '((ideographic-radical . 35)	; ⼢
