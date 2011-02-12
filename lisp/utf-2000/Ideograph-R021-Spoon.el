@@ -244,6 +244,22 @@
     (=daikanwa		. 48945)	; &I-M-48945;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x3402)	; 㐂
+      ))
+    (ideographic-radical@ucs . 1)	; ⼀
+    (ideographic-strokes@ucs . 5)
+    (ideographic-radical@misc . 21)	; ⼔
+    (ideographic-strokes@misc . 4)
+    (total-strokes	 . 6)
+    (=decomposition
+     ((=ucs		  . #x3402)	; 㐂
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
+    (=adobe-japan1-4	. 13697)	; 㐂󠄁
+    ))
+(define-char
   '((=>ucs		. #x20911)	; 𠤑
     (ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 5)
