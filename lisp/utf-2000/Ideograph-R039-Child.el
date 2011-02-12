@@ -166,6 +166,7 @@
     (=big5		. #xC9D3)	; &I-B-C9D3;
     (=daikanwa		. 06941)	; &I-M-06941;
     (=jef-china3	. #x49F2)	; &I-JC3-49F2;
+    (=adobe-japan1-2	. 08432)	; &I-AJ1-08432;
     ))
 (define-char
   '((ideographic-radical . 39)	; ⼦
