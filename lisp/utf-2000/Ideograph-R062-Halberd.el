@@ -394,6 +394,7 @@
     (=cns11643-3	. #x2625)	; &I-C3-2625; [06-05]
     (=daikanwa		. 11549)	; &I-M-11549;
     (=jef-china3	. #x4EF7)	; &I-JC3-4EF7;
+    (=adobe-japan1-2	. 08465)	; &I-AJ1-08465;
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
