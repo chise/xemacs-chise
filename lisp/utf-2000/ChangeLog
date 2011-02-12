@@ -1,6 +1,63 @@
+2011-02-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R015-Ice.el (U+51BE): Unify AJ1-08396.
+	(G-GT-02194): Unify G-UU+51CA.
+
 2011-02-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R021-Spoon.el (AJ1-13697): New character [copied from
+	Ideograph-R001-One.el].
+
+	* Ideograph-R003-Dot.el: Add `=decomposition' for each Adobe
+	Japan1 code point if it is separated from the corresponding
+	abstract UCS object.
+	(G-GT-K0463): Use `<-formed@component' instead of
+	`<-ideographic-component-forms'.
+	(GT-K0463): Unify AJ1-13914.
+	(GT-00137): Unify AJ1-13812.
+
+	* Ideograph-R002-Line.el: Add `=decomposition' for each Adobe
+	Japan1 code point if it is separated from the corresponding
+	abstract UCS object.
+	(U+4E30): Use `->denotational' instead of `->subsumptive'.
+	(JSP-302E): Unify AJ1-21075.
+
+	* Ideograph-R001-One.el: Add `=decomposition' for each Adobe
+	Japan1 code point if it is separated from the corresponding
+	abstract UCS object.
+	(U-00020089): Unify AJ1-17233.
+	(J83-3E66): Unify AJ1-13463.
+	(G0-536B): Unify AJ1-20073.
+	(U+4E19): Use `->denotational' to integrate AJ1-14009.
+	(U+3402): Use `->denotational' to integrate AJ1-13697.
+	(GT-00057): Unify AJ1-13699.
+	(U+4E23): Unify AJ1-19141.
+	(U+4E24): Unify AJ1-19142.
+	(GT-00089): Unify AJ1-20074.
+
 	* Ideograph-R029-Again.el (U+53DD): Unify AJ1-08409.
+
+	* Ideograph-R010-Legs.el (JX1-2E4F): Unify AJ1-08393.
+	(U+5164): Add ideographic-structure.
+	(o-JU+5164): New character.
+	(mother of JSP-326D): Unify G-JU+5164; use o-JU+5164 instead of
+	U+5164 as the mother.
+	(JSP-326D): Unify AJ1-08394.
+	(C3-5E25): Use `<-denotational' for o-JU+5164 instead of
+	`<-subsumptive' for G-JU+5164.
+
+	* Ideograph-R004-Slash.el (U-00020089): Unify AJ1-17233.
+
+	* Ideograph-R020-Wrap.el (U+5300): Use `->denotational' instead of
+	`->subsumptive'.
+	(JX1-2E6B): Unify AJ1-08403.
+
+	* Ideograph-R027-Cliff.el (U+5393): Unify AJ1-08407.
+	(U+53B2): Add ideographic-structure.
+	(JX1-2E74): Unify AJ1-08408.
+
+	* Ideograph-R019-Power.el: Add some Adobe-Japan1-2 code points.
+	(U+52C0): Use `->subsumptive' to separate representative node.
 
 	* Ideograph-R026-Seal.el (U+5372): Unify AJ1-08406.
 
