@@ -675,6 +675,7 @@
     (=gt-pj-1		. #x4D3F)	; &I-GT-00024; [45-31]
     (=shinjigen		.  6625)	; 与󠄀
     (=adobe-japan1-0	. 03881)	; &I-AJ1-03881;
+    (=hanyo-denshi/ja	. #x4D3F)	; &I-HD-JA-4D3F; [45-31]
     (<-simplified@JP/Jouyou
      ((=ucs@unicode	  . #x8207)	; &GT-39084;
       (=jis-x0208	  . #x6750)	; &GT-39084; [71-48]
@@ -754,6 +755,7 @@
     (=daikanwa		. 00023)	; &I-M-00023;
     (=shinjigen		.  0016)	; 丑󠄀
     (=adobe-japan1-0	. 01233)	; &I-AJ1-01233;
+    (=hanyo-denshi/ja	. #x312F)	; &I-HD-JA-312F; [17-15]
     ))
 (define-char
   '((<-denotational
@@ -1394,6 +1396,7 @@
       (=daikanwa	  . 00035)	; &I-M-00035;
       (=shinjigen	  .  0027)	; 丙󠄀
       (=adobe-japan1-0	  . 03594)	; &I-AJ1-03594;
+      (=hanyo-denshi/ja	  . #x4A3A)	; &I-HD-JA-4A3A; [42-26]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -2481,6 +2484,7 @@
     (=daikanwa		. 00054)	; &I-M-00054;
     (=shinjigen		.  5732)	; 並󠄀
     (=adobe-japan1-0	. 03602)	; &I-AJ1-03602;
+    (=hanyo-denshi/ja	. #x4A42)	; &I-HD-JA-4A42; [42-34]
     (<-simplified@JP/Jouyou
      ((=ucs@jis		  . #x7ADD)	; &GT-33217;
       (=jis-x0208	  . #x636D)	; &GT-33217; [67-77]
