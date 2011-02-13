@@ -1532,6 +1532,19 @@
 	       min-code	,(lsh #x6400 16)
 	       max-code	,(+ (lsh #x6400 16) 8835)
 	       code-offset ,(lsh #x6400 16)))
+  (make-charset
+   '=hanyo-denshi/jb
+   "JB (JIS X0212) part of Han'you-Denshi characters"
+   `(long-name "Han'you-Denshi/JB"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JB-0$"
+	       min-code	   ,(+ (lsh #x6400 16) 8836)
+	       max-code	   ,(+ (lsh #x6400 16) 8836 8835)
+	       code-offset ,(+ (lsh #x6400 16) 8836)))
   )
 
 ;;; mule-conf.el ends here
