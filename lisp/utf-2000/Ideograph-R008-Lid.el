@@ -74,6 +74,7 @@
       (=gt-k		  . 00201)	; &I-GT-K00201;
       (=gt-pj-1		  . #x4B34)	; &I-GT-00378; [43-20]
       (=shinjigen	  .  0089)	; &GT-00378;
+      (=hanyo-denshi/ja	  . #x4B34)	; &I-HD-JA-4B34; [43-20]
       )
      ((=cns11643-1	  . #x4441)	; &C1-4441; [36-33]
       )
@@ -353,6 +354,7 @@
 	(=gt		    . 00390)	; &I-GT-00390;
 	(=gt-pj-1	    . #x3872)	; &I-GT-00390; [24-82]
 	(=shinjigen	    .  0096)	; &GT-00390;
+	(=hanyo-denshi/ja   . #x3872)	; &I-HD-JA-3872; [24-82]
 	)
        ((hanyu-dazidian	    1 282 1)
 	(ideographic-structure
@@ -470,6 +472,7 @@
       (=gt-k		  . 01560)	; &I-GT-K01560;
       (=gt-pj-1		  . #x3067)	; &I-GT-00387; [16-71]
       (=shinjigen	  .  0094)	; &GT-00387;
+      (=hanyo-denshi/ja	  . #x3067)	; &I-HD-JA-3067; [16-71]
       )
      ((=cns11643-1	  . #x472A)	; &C1-472A; [39-10]
       )
@@ -1319,6 +1322,7 @@
       (=gt-pj-1		  . #x4E3C)	; &I-GT-00408; [46-28]
       (=daikanwa	  . 00304)	; &I-M-00304;
       (=shinjigen	  .  0106)	; &GT-00408;
+      (=hanyo-denshi/ja	  . #x4E3C)	; &I-HD-JA-4E3C; [46-28]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -2753,7 +2757,7 @@
       (=gt-pj-1		  . #x5039)	; &I-GT-00433; [48-25]
       (=daikanwa	  . 00328)	; &I-M-00328;
       (=shinjigen	  .  0110)	; &GT-00433;
-      (=jef-china3	  . #x41DA)	; &I-JC3-41DA;
+      (=hanyo-denshi/ja	  . #x5039)	; &I-HD-JA-5039; [48-25]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -2786,6 +2790,7 @@
      ((=ucs		  . #x4E14)	; 且
       ))
     (=ks-x1001		. #x5322)	; &K0-5322; [51-02]
+    (=jef-china3	. #x41DA)	; &I-JC3-41DA;
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
