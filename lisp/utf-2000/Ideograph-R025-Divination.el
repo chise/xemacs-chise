@@ -102,6 +102,7 @@
       (=gt-pj-1		  . #x5246)	; &I-GT-03546; [50-38]
       (=daikanwa	  . 02778)	; &I-M-02778;
       (=shinjigen	  .  0835)	; &GT-03546;
+      (=hanyo-denshi/ja	  . #x5246)	; &I-HD-JA-5246; [50-38]
       )
      ((hanyu-dazidian	  1 92 3)
       (ideographic-structure
