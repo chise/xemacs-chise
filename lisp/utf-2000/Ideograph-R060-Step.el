@@ -3100,6 +3100,7 @@
     (ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (=>>ucs@unicode	. #x5FB6)	; &G-UU+5FB6;
     (->subsumptive
      ((=ucs@unicode	  . #x5FB6)	; &UU+5FB6;
       )
@@ -3119,6 +3120,7 @@
     (=daikanwa		. 10243)	; &I-M-10243;
     (=shinjigen@1ed	.  2385)	; 德
     (=jef-china3	. #x4DC0)	; &I-JC3-4DC0;
+    (=adobe-japan1-2	. 08452)	; &I-AJ1-08452;
     ))
 (define-char
   '((=>ucs		. #x5FB8)	; 徸
