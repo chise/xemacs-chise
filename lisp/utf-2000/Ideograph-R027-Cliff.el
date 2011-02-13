@@ -1012,6 +1012,7 @@
       (=gt-k		  . 05218)	; &I-GT-K05218;
       (=gt-pj-1		  . #x524D)	; &I-GT-03745; [50-45]
       (=daikanwa	  . 02942)	; &I-M-02942;
+      (=hanyo-denshi/ja	  . #x524D)	; &I-HD-JA-524D; [50-45]
       ))
     ))
 (define-char
@@ -2355,8 +2356,24 @@
      ((=ucs		  . #x53A9)	; 厩
       ))
     (ideographic-radical . 27)	; ⼚
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs		  . #x65E3)	; 旣
+      ))
+    (=>ucs@cns		. #x53A9)	; &A-CU+53A9;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cns	  . #x53A9)	; &A-CU+53A9;
+      ))
+    (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
+    (=>>ucs@cns		. #x53A9)	; &G-CU+53A9;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -2377,6 +2394,7 @@
 	)
        ((=cns11643-3	    . #x3641)	; &C3-3641; [22-33]
 	))
+      (=ucs@cns		  . #x53A9)	; &C3-404A;
       (=cns11643-3	  . #x404A)	; &C3-404A; [32-42]
       )
      ((ideographic-structure
@@ -2393,9 +2411,10 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x53A9)	; 厩
+     ((=>ucs@cns	  . #x53A9)	; &A-CU+53A9;
       ))
     (ideographic-radical . 27)	; ⼚
+    (=>>ucs@jis/2004	. #x53A9)	; &G-J04U+53A9;
     (->subsumptive
      ((ideographic-strokes . 11)
       (total-strokes	   . 13)
@@ -2431,6 +2450,15 @@
      ((=ucs		  . #x53A9)	; 厩
       ))
     (ideographic-radical . 27)	; ⼚
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs		  . #x65E2)	; 既
+      ))
+    (=>>ucs@unicode	. #x53A9)	; &G-UU+53A9;
     (->subsumptive
      ((ideographic-strokes . 9)
       (total-strokes	   . 11)
@@ -2457,6 +2485,7 @@
       (=gt		  . 03790)	; &I-GT-03790;
       (=gt-pj-1		  . #x3139)	; &I-GT-03790; [17-25]
       (=jef-china3	  . #x45E4)	; &I-JC3-45E4;
+      (=hanyo-denshi/ja	  . #x3139)	; &I-HD-JA-3139; [17-25]
       )
      ((ideographic-strokes . 10)
       (total-strokes	   . 12)
@@ -3237,6 +3266,7 @@
     (=jis-x0213-1	. #x2E74)	; &I-JX1-2E74; [14-84]
     (=gb12345		. #x4077)	; &AJ1-08408; [32-87]
     (=adobe-japan1-2	. 08408)	; &I-AJ1-08408;
+    (=hanyo-denshi/jb	. #x3450)	; &I-HD-JB-3450; [20-48]
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
