@@ -241,6 +241,7 @@
 	  ((arabic-digit	. isolated) "I-MULE-ARBD-" 2 X)
 	  ((ipa			. isolated) "I-MULE-IPA-" 2 X)
 	  ((china3-jef		. isolated)    "I-JC3-" 4 X)
+	  ((=hanyo-denshi/ja	. isolated)  "I-HD-JA-" 4 X)
 	  ( =adobe-japan1-6			 "AJ1-" 5 d)
 	  ( =adobe-japan1-base		       "I-AJ1-" 5 d)
 	  ( =gt					  "GT-" 5 d)
