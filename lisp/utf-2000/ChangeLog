@@ -1,5 +1,16 @@
 2011-02-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R074-Moon.el (mother of GT-K4876): Unify G-BC-8BB5 and
+	G-GT-K4876.
+	(JSP-4270): Unify AJ1-08488.
+
+	* Ideograph-R060-Step.el (mother of C2-4A28): Unify G-UU+5FB6.
+	(U+5FB7): Unify AJ1-08452.
+
+	* Ideograph-R038-Woman.el (U+59A4): Use `->subsumptive'.
+	(JX1-2F6D): Unify AJ1-08430.
+	(JSP-3937): Unify AJ1-08431.
+
 	* Ideograph-R040-Roof.el: Add some Adobe-Japan1-2 code points.
 	(mother of C2-3475): Unify G-UU+5BC0.
 	(U+5BD8): Use `->denotational' instead of `->subsumptive'.
