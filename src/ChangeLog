@@ -1,3 +1,8 @@
+2011-02-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fmake_charset): Fix problem for 94^n or 96^n
+	coded-charsets with builtin characters.
+
 2011-02-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* text-coding.c (Qrep_decomposition): New extern.
