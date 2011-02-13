@@ -486,6 +486,7 @@
     (=gt-k		. 01658)	; &I-GT-K01658;
     (=gt-pj-1		. #x4134)	; &I-GT-00565; [33-20]
     (=shinjigen		.  4875)	; 全
+    (=hanyo-denshi/ja	. #x4134)	; &I-HD-JA-4134; [33-20]
     ))
 (define-char
   '((ideographic-radical . 11)	; ⼊
