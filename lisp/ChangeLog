@@ -1,6 +1,17 @@
 2011-02-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for isolated characters of `=hanyo-denshi/jb'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=hanyo-denshi/jb'.
+
+	* mule/mule-conf.el (=hanyo-denshi/jb): New coded-charset for
+	XEmacs CHISE.
+
+2011-02-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
 	setting for isolated characters of `=hanyo-denshi/ja'.
 
 2011-02-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
