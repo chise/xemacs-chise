@@ -1987,6 +1987,7 @@
     (=shinjigen		.  0734)	; &AJ1-16797;
     (=cbeta		. 00377)	; &I-CB00377;
     (=adobe-japan1-5	. 16797)	; &I-AJ1-16797;
+    (=hanyo-denshi/jb	. #x3369)	; &I-HD-JB-3369; [19-73]
     ))
 (define-char
   '((<-denotational
@@ -2533,6 +2534,7 @@
     (=daikanwa		. 02391)	; &I-M-02391;
     (=shinjigen		.  0740)	; &AJ1-16798;
     (=adobe-japan1-5	. 16798)	; &I-AJ1-16798;
+    (=hanyo-denshi/jb	. #x336D)	; &I-HD-JB-336D; [19-77]
     ))
 (define-char
   '((<-denotational
