@@ -340,6 +340,7 @@
       (=shinjigen@1ed	  .  0042)	; 主󠄀
       (=shinjigen@rev	  .  0043)	; 主󠄀
       (=adobe-japan1-0	  . 02323)	; &I-AJ1-02323;
+      (=hanyo-denshi/ja	  . #x3C67)	; &I-HD-JA-3C67; [28-71]
       ))
     ))
 (define-char
