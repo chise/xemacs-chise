@@ -80,6 +80,7 @@
     (=gt-pj-1		. #x3C5B)	; &I-GT-03204; [28-59]
     (=daikanwa		. 02495)	; &I-M-02495;
     (=shinjigen		.  0762)	; 勺
+    (=hanyo-denshi/ja	. #x3C5B)	; &I-HD-JA-3C5B; [28-59]
     ))
 (define-char
   '((ideographic-radical . 20)	; ⼓
@@ -462,6 +463,7 @@
     (=gt-k		. 01001)	; &I-GT-K01001;
     (=gt-pj-1		. #x4A71)	; &I-GT-03223; [42-81]
     (=shinjigen		.  0775)	; 包
+    (=hanyo-denshi/ja	. #x4A71)	; &I-HD-JA-4A71; [42-81]
     ))
 (define-char
   '((ideographic-radical . 20)	; ⼓

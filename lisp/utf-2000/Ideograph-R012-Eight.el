@@ -17,6 +17,7 @@
       (=daikanwa	  . 01450)	; &I-M-01450;
       (=shinjigen	  .  0490)	; &GT-01888;
       (=jef-china3	  . #x43E4)	; &I-JC3-43E4;
+      (=hanyo-denshi/ja	  . #x482C)	; &I-HD-JA-482C; [40-12]
       )
      ((=cns11643-1	  . #x442C)	; &C1-442C; [36-12]
       (=shinjigen	  .  0489)	; &C1-442C;
@@ -130,6 +131,7 @@
       (=gt		  . 01893)	; &I-GT-01893;
       (=gt-pj-1		  . #x3878)	; &I-GT-01893; [24-88]
       (=shinjigen	  .  0493)	; &GT-01893;
+      (=hanyo-denshi/ja	  . #x3878)	; &I-HD-JA-3878; [24-88]
       ))
     ))
 (define-char
@@ -237,6 +239,7 @@
       (=gt-pj-1		  . #x5142)	; &I-GT-01891; [49-34]
       (=daikanwa	  . 01455)	; &I-M-01455;
       (=shinjigen	  .  0491)	; &GT-01891;
+      (=hanyo-denshi/ja	  . #x5142)	; &I-HD-JA-5142; [49-34]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -860,6 +863,7 @@
     (=gt-pj-1		. #x3671)	; &I-GT-01922; [22-81]
     (=daikanwa		. 01473)	; &I-M-01473;
     (=shinjigen		.  0499)	; 具
+    (=hanyo-denshi/ja	. #x3671)	; &I-HD-JA-3671; [22-81]
     ))
 (define-char
   '((<-denotational
@@ -1171,6 +1175,7 @@
     (=gt-k		. 06417)	; &I-GT-K06417;
     (=gt-pj-1		. #x3773)	; &I-GT-01935; [23-83]
     (=shinjigen		.  0502)	; &GT-01935;
+    (=hanyo-denshi/ja	. #x3773)	; &I-HD-JA-3773; [23-83]
     ))
 (define-char
   '((<-denotational

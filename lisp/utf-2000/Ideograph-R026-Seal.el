@@ -341,6 +341,7 @@
     (=gt-k		. 01585)	; &I-GT-K01585;
     (=gt-pj-1		. #x346D)	; &I-GT-03626; [20-77]
     (=shinjigen		.  0853)	; &GT-03626;
+    (=hanyo-denshi/ja	. #x346D)	; &I-HD-JA-346D; [20-77]
     ))
 (define-char
   '((ideographic-radical . 26)	; ⼙
@@ -439,6 +440,7 @@
     (=gt-pj-1		. #x4228)	; &I-GT-03633; [34-08]
     (=daikanwa		. 02855)	; &I-M-02855;
     (=shinjigen		.  0859)	; 即
+    (=hanyo-denshi/ja	. #x4228)	; &I-HD-JA-4228; [34-08]
     (<-simplified@JP/Jouyou
      ((=ucs@unicode	  . #x537D)	; &M-02872;
       (=ks-x1001	  . #x716D)	; &M-02872; [81-77]
@@ -571,6 +573,7 @@
     (=gt-pj-1		. #x524B)	; &I-GT-03636; [50-43]
     (=daikanwa		. 02860)	; &I-M-02860;
     (=shinjigen		.  0864)	; &GT-03636;
+    (=hanyo-denshi/ja	. #x524B)	; &I-HD-JA-524B; [50-43]
     ))
 (define-char
   '((<-denotational
@@ -1039,6 +1042,7 @@
     (=gt-pj-1		. #x362A)	; &I-GT-03656; [22-10]
     (=shinjigen		.  0870)	; &GT-03656;
     (=jef-china3	. #x45D5)	; &I-JC3-45D5;
+    (=hanyo-denshi/ja	. #x362A)	; &I-HD-JA-362A; [22-10]
     (<-simplified@JP/jis
      ((=ucs@jis/2004	  . #x537F)	; &M-02880;
       (=ucs@ks		  . #x537F)	; &M-02880;

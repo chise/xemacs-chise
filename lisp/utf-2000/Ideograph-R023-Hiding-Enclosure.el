@@ -123,6 +123,7 @@
     (=gt-k		. 00479)	; &I-GT-K00479;
     (=gt-pj-1		. #x4924)	; &I-GT-03328; [41-04]
     (=shinjigen		.  0803)	; &GT-03328;
+    (=hanyo-denshi/ja	. #x4924)	; &I-HD-JA-4924; [41-04]
     ))
 (define-char
   '((ideographic-radical . 23)	; ⼖
@@ -361,6 +362,7 @@
       (=gt-k		  . 02502)	; &I-GT-K02502;
       (=gt-pj-1		  . #x3065)	; &I-GT-03344; [16-69]
       (=shinjigen	  .  8537)	; &GT-03344;
+      (=hanyo-denshi/ja	  . #x3065)	; &I-HD-JA-3065; [16-69]
       (<-simplified@CN
        ((=gb12345	    . #x523D)	; 醫 [50-29]
 	))
@@ -950,6 +952,7 @@
     (=gt-k		. 06521)	; &I-GT-K06521;
     (=gt-pj-1		. #x463F)	; &I-GT-03370; [38-31]
     (=shinjigen		.  0806)	; &GT-03370;
+    (=hanyo-denshi/ja	. #x463F)	; &I-HD-JA-463F; [38-31]
     ))
 (define-char
   '((ideographic-radical . 23)	; ⼖
@@ -1028,6 +1031,7 @@
     (=gt		. 03378)	; &I-GT-03378;
     (=gt-k		. 07911)	; &I-GT-K07911;
     (=gt-pj-1		. #x523F)	; &I-GT-03378; [50-31]
+    (=hanyo-denshi/ja	. #x523F)	; &I-HD-JA-523F; [50-31]
     ))
 (define-char
   '((=>ucs		. #x3538)	; 㔸

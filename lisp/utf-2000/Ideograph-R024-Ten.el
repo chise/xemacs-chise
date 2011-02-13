@@ -398,6 +398,7 @@
     (=gt-k		. 00986)	; &I-GT-K00986;
     (=gt-pj-1		. #x483E)	; &I-GT-03470; [40-30]
     (=shinjigen		.  0819)	; &GT-03470;
+    (=hanyo-denshi/ja	. #x483E)	; &I-HD-JA-483E; [40-30]
     ))
 (define-char
   '((<-denotational
@@ -1520,6 +1521,7 @@
     (=gt-k		. 09124)	; &I-GT-K09124;
     (=gt-pj-1		. #x476E)	; &I-GT-03527; [39-78]
     (=shinjigen		.  0832)	; &GT-03527;
+    (=hanyo-denshi/ja	. #x476E)	; &I-HD-JA-476E; [39-78]
     ))
 (define-char
   '((=>ucs		. #x353C)	; 㔼

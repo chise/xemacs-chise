@@ -981,6 +981,7 @@
       (=gt-pj-1		  . #x5225)	; &I-GT-02996; [50-05]
       (=daikanwa	  . 02330)	; &I-M-02330;
       (=cbeta		  . 00374)	; &I-CB00374;
+      (=hanyo-denshi/ja	  . #x5225)	; &I-HD-JA-5225; [50-05]
       ))
     ))
 (define-char
@@ -1779,6 +1780,7 @@
     (=gt-k		. 05197)	; &I-GT-K05197;
     (=gt-pj-1		. #x4D26)	; &I-GT-03030; [45-06]
     (=shinjigen		.  0730)	; 勇
+    (=hanyo-denshi/ja	. #x4D26)	; &I-HD-JA-4D26; [45-06]
     (<-vulgar
      ((=ucs		  . #xFA76)	; 勇
       (=daikanwa	  . 02360)	; &I-M-02360;
@@ -2617,6 +2619,7 @@
     (=big5		. #xB1E5)	; &I-B-B1E5;
     (=gt		. 03066)	; &I-GT-03066;
     (=gt-pj-1		. #x5228)	; &I-GT-03066; [50-08]
+    (=hanyo-denshi/ja	. #x5228)	; &I-HD-JA-5228; [50-08]
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
@@ -3037,6 +3040,7 @@
       (=gt-k		  . 09249)	; &I-GT-K09249;
       (=gt-pj-1		  . #x3E21)	; &I-GT-03095; [30-01]
       (=shinjigen	  .  0745)	; &GT-03095;
+      (=hanyo-denshi/ja	  . #x3E21)	; &I-HD-JA-3E21; [30-01]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -3238,6 +3242,7 @@
       (=gt		  . 03100)	; &I-GT-03100;
       (=gt-pj-1		  . #x4A67)	; &I-GT-03100; [42-71]
       (=shinjigen	  .  0747)	; &GT-03100;
+      (=hanyo-denshi/ja	  . #x4A67)	; &I-HD-JA-4A67; [42-71]
       ))
     ))
 (define-char
@@ -3295,6 +3300,7 @@
       (=daikanwa	  . 02418)	; &I-M-02418;
       (=shinjigen	  .  0755)	; &GT-03127;
       (=cbeta		  . 01744)	; &I-CB01744;
+      (=hanyo-denshi/ja	  . #x522D)	; &I-HD-JA-522D; [50-13]
       ))
     ))
 (define-char
@@ -3645,6 +3651,7 @@
     (=gt-pj-1		. #x522B)	; &I-GT-03113; [50-11]
     (=daikanwa		. 02426)	; &I-M-02426;
     (=shinjigen		.  0753)	; 勦
+    (=hanyo-denshi/ja	. #x522B)	; &I-HD-JA-522B; [50-11]
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
@@ -4348,6 +4355,7 @@
     (=gt-pj-1		. #x522E)	; &I-GT-03168; [50-14]
     (=daikanwa		. 02465)	; &I-M-02465;
     (=shinjigen		.  0758)	; 勳
+    (=hanyo-denshi/ja	. #x522E)	; &I-HD-JA-522E; [50-14]
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
@@ -4497,6 +4505,7 @@
     (=gb12345		. #x4078)	; &GT-03172; [32-88]
     (=gt		. 03172)	; &I-GT-03172;
     (=gt-pj-1		. #x522F)	; &I-GT-03172; [50-15]
+    (=hanyo-denshi/ja	. #x522F)	; &I-HD-JA-522F; [50-15]
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
@@ -4794,6 +4803,7 @@
       (=jis-x0213-1	  . #x5230)	; &I-JX1-5230; [50-16]
       (=gt		  . 03191)	; &I-GT-03191;
       (=gt-pj-1		  . #x5230)	; &I-GT-03191; [50-16]
+      (=hanyo-denshi/ja	  . #x5230)	; &I-HD-JA-5230; [50-16]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")

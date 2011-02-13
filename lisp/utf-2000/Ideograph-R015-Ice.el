@@ -93,6 +93,7 @@
     (=gt-k		. 01056)	; &I-GT-K01056;
     (=gt-pj-1		. #x455F)	; &I-GT-07204; [37-63]
     (=shinjigen		.  0540)	; &GT-07204;
+    (=hanyo-denshi/ja	. #x455F)	; &I-HD-JA-455F; [37-63]
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎
@@ -295,6 +296,7 @@
 	(=gt		    . 02143)	; &I-GT-02143;
 	(=gt-pj-1	    . #x3A63)	; &I-GT-02143; [26-67]
 	(=jef-china3	    . #x44A5)	; &I-JC3-44A5;
+	(=hanyo-denshi/ja   . #x3A63)	; &I-HD-JA-3A63; [26-67]
 	)
        ((=cbeta		    . 06339)	; &CB06339;
 	))
@@ -474,6 +476,7 @@
     (=daikanwa		. 01620)	; &I-M-01620;
     (=shinjigen		.  4123)	; &GT-02141;
     (=hanziku-1		. #xE2E4)	; &I-HZK01-E2E4;
+    (=hanyo-denshi/ja	. #x5157)	; &I-HD-JA-5157; [49-55]
     (<-vulgar
      ((=ucs		  . #x6CC1)	; 況
       (=jis-x0208	  . #x3637)	; &I-J90-3637; [22-23]
@@ -1714,6 +1717,7 @@
     (=gt-k		. 06506)	; &I-GT-K06506;
     (=gt-pj-1		. #x437C)	; &I-GT-02197; [35-92]
     (=jef-china3	. #x44A6)	; &I-JC3-44A6;
+    (=hanyo-denshi/ja	. #x437C)	; &I-HD-JA-437C; [35-92]
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎
@@ -1807,6 +1811,7 @@
     (=gt		. 02202)	; &I-GT-02202;
     (=gt-pj-1		. #x4E3F)	; &I-GT-02202; [46-31]
     (=shinjigen		.  0555)	; &GT-02202;
+    (=hanyo-denshi/ja	. #x4E3F)	; &I-HD-JA-4E3F; [46-31]
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎
