@@ -3994,6 +3994,7 @@
       (=jis-x0213-2	  . #x2134)	; &I-JX2-2134; [01-20]
       (=daikanwa	  . 00342)	; &I-M-00342;
       (=adobe-japan1-4	  . 14309)	; &I-AJ1-14309;
+      (=hanyo-denshi/jb	  . #x3042)	; &I-HD-JB-3042; [16-34]
       )
      ((hanyu-dazidian	  1 294 12)
       (ideographic-structure
