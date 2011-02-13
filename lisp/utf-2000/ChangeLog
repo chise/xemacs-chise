@@ -1,5 +1,9 @@
 2011-02-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R008-Lid.el: Add Hanyo-Denshi/JA code points.
+	(J0-5039): Separate JC3-41DA.
+	(K0-5322): Unify JC3-41DA.
+
 	* Ideograph-R026-Seal.el: Add Hanyo-Denshi/JA code points.
 
 	* Ideograph-R025-Divination.el (J0-5246): Unify HD-JA5038.
