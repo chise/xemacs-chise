@@ -1518,6 +1518,20 @@
 	       min-code 0
 	       max-code 23057
 	       registry "AdobeJapan1-6$"))
+
+  (make-charset
+   '=hanyo-denshi/ja
+   "JA (JIS X0208) part of Han'you-Denshi characters"
+   `(long-name "Han'you-Denshi/JA"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JA-0$"
+	       min-code	,(lsh #x6400 16)
+	       max-code	,(+ (lsh #x6400 16) 8835)
+	       code-offset ,(lsh #x6400 16)))
   )
 
 ;;; mule-conf.el ends here
