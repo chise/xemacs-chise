@@ -277,6 +277,7 @@
     (=shinjigen		.  0035)	; 丰󠄀
     (=jef-china3	. #x81FE)	; &I-JC3-81FE;
     (=adobe-japan1-4	. 14301)	; &I-AJ1-14301;
+    (=hanyo-denshi/jb	. #x302D)	; &I-HD-JB-302D; [16-13]
     (<-simplified@CN
      ((=ucs		  . #x8C50)	; 豐
       (=gb12345		  . #x3761)	; 豐 [23-65]
