@@ -351,6 +351,8 @@
   '((ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
+    (=>>big5-cdp	. #x8BB5)	; &G-CDP-8BB5;
+    (=>>gt-k		. 04876)	; &G-CDP-8BB5;
     (->subsumptive
      ((=gt-k		  . 04876)	; &GT-K04876;
       (=gt-pj-k2	  . #x4141)	; &GT-K04876; [33-33]
@@ -366,9 +368,10 @@
     (->subsumptive
      ((=daikanwa	  . 14348)	; &M-14348;
       )
-     ((=ucs@jis		  . #x670E)	; &JSP-4270;
-      (=jis-x0212	  . #x4270)	; &JSP-4270; [34-80]
+     ((=ucs@jis		  . #x670E)	; &AJ1-08488;
+      (=jis-x0212	  . #x4270)	; &AJ1-08488; [34-80]
       (=jef-china3	  . #x52BC)	; &I-JC3-52BC;
+      (=adobe-japan1-2	  . 08488)	; &I-AJ1-08488;
       )
      ((=cns11643-3	  . #x2D27)	; &C3-2D27; [13-07]
       )
