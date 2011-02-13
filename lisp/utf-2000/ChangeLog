@@ -4,6 +4,9 @@
 	(J0-5039): Separate JC3-41DA.
 	(K0-5322): Unify JC3-41DA.
 
+	* Ideograph-R004-Slash.el: Add Hanyo-Denshi/JA code points.
+	(U+4E55): Use `->subsumptive' to separate representative nodes.
+
 	* Ideograph-R026-Seal.el: Add Hanyo-Denshi/JA code points.
 
 	* Ideograph-R025-Divination.el (J0-5246): Unify HD-JA5038.
