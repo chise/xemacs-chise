@@ -1060,6 +1060,14 @@
   '((ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E8C)	; 二
+      )
+     ((=ucs		  . #x570D)	; 圍
+      ))
     (=ucs		. #x2013F)	; 𠄿
     (->subsumptive
      ((hanyu-dazidian	  1 26 17)
@@ -1069,7 +1077,7 @@
 	)
        ((=ucs		    . #x4E8C)	; 二
 	)
-       ((=jis-x0208@1978    . #x5423)	; &GT-06038; [52-03]
+       ((=jis-x0208@1978    . #x5423)	; &M-04806; [52-03]
 	(=jis-x0208@1983    . #x5423)	; &I-J83-5423; [52-03]
 	(=ks-x1001	    . #x6A4C)	; &I-K0-6A4C; [74-44]
 	(=cns11643-1	    . #x5E58)	; &I-C1-5E58; [62-56]
