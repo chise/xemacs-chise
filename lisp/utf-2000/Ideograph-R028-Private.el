@@ -26,6 +26,7 @@
     (ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
+    (=>>ucs@iso		. #x20AD3)	; &G-IU+20AD3;
     (->subsumptive
      ((=ucs@iso		  . #x20AD3)	; &CDP-8B7E;
       (=big5-cdp	  . #x8B7E)	; &CDP-8B7E;
@@ -53,6 +54,7 @@
       ))
     (=ucs@jis		. #x20AD3)	; &JX2-2359;
     (=jis-x0213-2	. #x2359)	; &JX2-2359; [03-57]
+    (=hanyo-denshi/jd	. #x2359)	; &I-HD-JD-2359; [03-57]
     ))
 (define-char
   '((ideographic-radical . 28)	; ⼛
