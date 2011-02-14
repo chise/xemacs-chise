@@ -244,6 +244,7 @@
 	  ((=hanyo-denshi/ja	. isolated)  "I-HD-JA-" 4 X)
 	  ((=hanyo-denshi/jb	. isolated)  "I-HD-JB-" 4 X)
 	  ((=hanyo-denshi/jc	. isolated)  "I-HD-JC-" 4 X)
+	  ((=hanyo-denshi/jd	. isolated)  "I-HD-JD-" 4 X)
 	  ( =adobe-japan1-6			 "AJ1-" 5 d)
 	  ( =adobe-japan1-base		       "I-AJ1-" 5 d)
 	  ( =gt					  "GT-" 5 d)
