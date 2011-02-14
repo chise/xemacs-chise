@@ -3058,6 +3058,7 @@
     (=ucs@jis		. #x5FB5)	; &JX1-7444;
     (=cns11643-1	. #x6C62)	; &JX1-7444; [76-66]
     (=jis-x0213-1	. #x7444)	; &I-JX1-7444; [84-36]
+    (=hanyo-denshi/jc	. #x7444)	; &I-HD-JC-7444; [84-36]
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
