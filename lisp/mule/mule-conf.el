@@ -1545,6 +1545,19 @@
 	       min-code	   ,(+ (lsh #x6400 16) 8836)
 	       max-code	   ,(+ (lsh #x6400 16) 8836 8835)
 	       code-offset ,(+ (lsh #x6400 16) 8836)))
+  (make-charset
+   '=hanyo-denshi/jc
+   "JC (JIS X0213:2000 Plane 1) part of Han'you-Denshi characters"
+   `(long-name "Han'you-Denshi/JC"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JC-0$"
+	       min-code	   ,(+ (lsh #x6400 16) (* 8836 2))
+	       max-code	   ,(+ (lsh #x6400 16) (1- (* 8836 3)))
+	       code-offset ,(+ (lsh #x6400 16) (* 8836 2))))
   )
 
 ;;; mule-conf.el ends here
