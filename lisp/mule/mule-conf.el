@@ -1597,6 +1597,19 @@
 	       min-code	   ,(+ (lsh #x6400 16) (* 94 94 5))
 	       max-code	   ,(+ (lsh #x6400 16) (1- (* 94 94 6)))
 	       code-offset ,(+ (lsh #x6400 16) (* 94 94 5))))
+  (make-charset
+   '=hanyo-denshi/ib
+   "IB part of Han'you-Denshi characters"
+   `(long-name "Han'you-Denshi/IB"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.IB-0$"
+	       min-code	   ,(+ (lsh #x6400 16) (* 94 94 6))
+	       max-code	   ,(+ (lsh #x6400 16) (1- (* 94 94 7)))
+	       code-offset ,(+ (lsh #x6400 16) (* 94 94 6))))
   )
 
 ;;; mule-conf.el ends here
