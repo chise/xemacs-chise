@@ -367,6 +367,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =hanyo-denshi/ja
 	  =hanyo-denshi/jb
 	  =hanyo-denshi/jc
+	  =hanyo-denshi/jd
 	  )))
 
 ;;; mule-charset.el ends here
