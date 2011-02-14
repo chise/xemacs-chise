@@ -1599,6 +1599,7 @@
       (=daikanwa	  . 01666)	; &I-M-01666;
       (=jef-china3	  . #x43FB)	; &I-JC3-43FB;
       (=adobe-japan1-5	  . 16794)	; &I-AJ1-16794;
+      (=hanyo-denshi/jc	  . #x2E56)	; &I-HD-JC-2E56; [14-54]
       ))
     ))
 (define-char
@@ -2967,6 +2968,7 @@
     (=jis-x0213-1	. #x2E57)	; &I-JX1-2E57; [14-55]
     (=daikanwa		. 01721)	; &I-M-01721;
     (=adobe-japan1-5	. 20300)	; &I-AJ1-20300;
+    (=hanyo-denshi/jc	. #x2E57)	; &I-HD-JC-2E57; [14-55]
     ))
 (define-char
   '((<-denotational
@@ -3035,6 +3037,7 @@
       ))
     (=ucs@unicode	. #x51DE)	; &JSP-3328;
     (=jis-x0212		. #x3328)	; &JSP-3328; [19-08]
+    (=hanyo-denshi/jb	. #x3328)	; &I-HD-JB-3328; [19-08]
     ))
 (define-char
   '((=>ucs		. #x20617)	; 𠘗
