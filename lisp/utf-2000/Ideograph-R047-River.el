@@ -449,6 +449,7 @@
     (=big5		. #xB15F)	; &I-B-B15F;
     (=daikanwa		. 08696)	; &I-M-08696;
     (=jef-china3	. #x52F1)	; &I-JC3-52F1;
+    (=hanyo-denshi/jc	. #x7428)	; &I-HD-JC-7428; [84-08]
     ))
 (define-char
   '((morohashi-daikanwa	8696 1)
