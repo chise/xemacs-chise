@@ -1688,6 +1688,7 @@
     (=ks-x1001		. #x703D)	; &I-K0-703D; [80-29]
     (=daikanwa		. 01668)	; &I-M-01668;
     (=shinjigen		.  0553)	; &M-01668;
+    (=hanyo-denshi/ft	. #x325D)	; &I-HD-FT-325D; [18-61]
     ))
 (define-char
   '((<-denotational
