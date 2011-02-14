@@ -1691,39 +1691,42 @@
     (=cns11643-3	. #x5A34)	; &I-C3-5A34; [58-20]
     ))
 (define-char
-  '((=>ucs		. #x5B7D)	; 孽
-    (ideographic-radical . 39)	; ⼦
-    (ideographic-strokes . 17)
-    (total-strokes	 . 20)
-    (=daikanwa		. 07047)	; &M-07047;
-    ))
-(define-char
-  '((=>ucs		. #x5B7D)	; 孽
-    (morohashi-daikanwa	7047 0 0)
-    (ideographic-radical . 39)	; ⼦
-    (ideographic-strokes . 17)
-    (total-strokes	 . 20)
-    (=cns11643-1	. #x7969)	; &C1-7969; [89-73]
-    ))
-(define-char
-  '((=>ucs		. #x5B7D)	; 孽
-    (morohashi-daikanwa	7047 0 1)
-    (ideographic-radical . 39)	; ⼦
-    (ideographic-strokes . 16)
-    (total-strokes	 . 19)
-    (=ucs@jis		. #x5B7D)	; &JX1-4F57;
-    (=ucs@big5		. #x5B7D)	; &JX1-4F57;
-    (=jis-x0212		. #x3A44)	; &JX1-4F57; [26-36]
-    (=jis-x0213-1	. #x4F57)	; &I-JX1-4F57; [47-55]
+  '((ideographic-radical . 39)	; ⼦
+    (=ucs		. #x5B7D)	; 孽
     (=big5		. #xC45E)	; &I-B-C45E;
     ))
 (define-char
-  '((morohashi-daikanwa	7047 0 2)
+  '((<-denotational
+     ((=ucs		  . #x5B7D)	; 孽
+      ))
+    (ideographic-radical . 39)	; ⼦
+    (ideographic-strokes . 17)
+    (total-strokes	 . 20)
+    (=>>ucs@cns		. #x5B7D)	; &G-CU+5B7D;
+    (->subsumptive
+     ((=daikanwa	  . 07047)	; &M-07047;
+      )
+     ((=ucs@cns		  . #x5B7D)	; &C1-7969;
+      (=cns11643-1	  . #x7969)	; &C1-7969; [89-73]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5B7D)	; 孽
+      ))
     (ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
-    (=ucs		. #x5B7D)	; 孽
-    (=gb2312		. #x4475)	; &I-G0-4475; [36-85]
+    (=>>ucs@unicode	. #x5B7D)	; &G-UU+5B7D;
+    (->subsumptive
+     ((=ucs@jis		  . #x5B7D)	; &JX1-4F57;
+      (=jis-x0212	  . #x3A44)	; &JX1-4F57; [26-36]
+      (=jis-x0213-1	  . #x4F57)	; &I-JX1-4F57; [47-55]
+      (=hanyo-denshi/jb	  . #x3A44)	; &I-HD-JB-3A44; [26-36]
+      )
+     ((=ucs@unicode	  . #x5B7D)	; &G0-4475;
+      (=gb2312		  . #x4475)	; &G0-4475; [36-85]
+      ))
     ))
 (define-char
   '((ideographic-radical . 39)	; ⼦
