@@ -1072,6 +1072,7 @@
     (=gt-k		. 01780)	; &I-GT-K01780;
     (=gt-pj-9		. #x4D49)	; &I-GT-00198; [45-41]
     (=adobe-japan1-5	. 17240)	; &I-AJ1-17240;
+    (=hanyo-denshi/jd	. #x212B)	; &I-HD-JD-212B; [01-11]
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃
