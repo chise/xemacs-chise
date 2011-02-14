@@ -391,6 +391,7 @@
     (=gt-pj-2		. #x3D2D)	; &I-GT-01992; [29-13]
     (=daikanwa		. 01514)	; &I-M-01514;
     (=shinjigen		.  0514)	; &GT-01992;
+    (=hanyo-denshi/ft	. #x334B)	; &I-HD-FT-334B; [19-43]
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
@@ -600,6 +601,7 @@
     (=gt-k		. 01031)	; &I-GT-K01031;
     (=gt-pj-1		. #x5147)	; &I-GT-01993; [49-39]
     (=shinjigen		.  0512)	; &GT-01993;
+    (=hanyo-denshi/ja	. #x5147)	; &I-HD-JA-5147; [49-39]
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
@@ -821,6 +823,7 @@
     (=gt-pj-1		. #x3A46)	; &I-GT-02000; [26-38]
     (=daikanwa		. 48933)	; &I-M-48933;
     (=shinjigen		.  0517)	; &GT-02000;
+    (=hanyo-denshi/ja	. #x3A46)	; &I-HD-JA-3A46; [26-38]
     ))
 (define-char
   '((=>ucs*		. #x2054B)	; 𠕋
@@ -1317,6 +1320,7 @@
       (=gt-k		  . 06574)	; &I-GT-K06574;
       (=gt-pj-1		  . #x514A)	; &I-GT-02024; [49-42]
       (=shinjigen	  .  0523)	; &GT-02024;
+      (=hanyo-denshi/ja	  . #x514A)	; &I-HD-JA-514A; [49-42]
       )
      ((=jis-x0208@1978	  . #x514A)	; &J83-514A; [49-42]
       (=jis-x0208@1983	  . #x514A)	; &I-J83-514A; [49-42]
@@ -1491,6 +1495,7 @@
     (=daikanwa		. 01545)	; &I-M-01545;
     (=shinjigen		.  0524)	; &GT-02032;
     (=jef-china3	. #x43EE)	; &I-JC3-43EE;
+    (=hanyo-denshi/ja	. #x514B)	; &I-HD-JA-514B; [49-43]
     ))
 (define-char
   '((<-denotational
@@ -1711,7 +1716,8 @@
     (<-original*sources
      zhengzitong daikanwa shinjigen)
     (<-original@daikanwa
-     ((=ucs@jis		  . #x6700)	; &M-14301;
+     ((=ucs@cns		  . #x2F8D4)	; &M-14301;
+      (=ucs@jis		  . #x6700)	; &M-14301;
       (=ucs@ks		  . #x6700)	; &M-14301;
       (=jis-x0208	  . #x3A47)	; &M-14301; [26-39]
       (=ks-x1001	  . #x754C)	; &I-K0-754C; [85-44]
@@ -1749,13 +1755,15 @@
      ((=>ucs*		  . #x6700)	; 最
       (=ucs		  . #x2F8D4)	; 最
       (->subsumptive
-       ((=ucs@jis	    . #x6700)	; &M-14301;
+       ((=ucs@cns	    . #x2F8D4)	; &M-14301;
+	(=ucs@jis	    . #x6700)	; &M-14301;
 	(=ucs@ks	    . #x6700)	; &M-14301;
 	(=jis-x0208	    . #x3A47)	; &M-14301; [26-39]
 	(=ks-x1001	    . #x754C)	; &I-K0-754C; [85-44]
 	(=cns11643-6	    . #x4978)	; &I-C6-4978; [41-88]
 	(=jis-x0213-1	    . #x3A47)	; &I-JX1-3A47; [26-39]
 	(=daikanwa	    . 14301)	; &I-M-14301;
+	(=hanyo-denshi/ja   . #x3A47)	; &I-HD-JA-3A47; [26-39]
 	)
        ((=ucs@iso	    . #x2F8D4)	; &GT-18101;
 	(=gt		    . 18101)	; &GT-18101;
