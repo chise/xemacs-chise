@@ -612,6 +612,7 @@
     (=ucs@jis		. #x5307)	; &CB05526;
     (=jis-x0213-1	. #x2E6C)	; &CB05526; [14-76]
     (=cbeta		. 05526)	; &I-CB05526;
+    (=hanyo-denshi/jc	. #x2E6C)	; &I-HD-JC-2E6C; [14-76]
     ))
 (define-char
   '((ideographic-radical . 20)	; ⼓
