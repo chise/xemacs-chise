@@ -918,47 +918,57 @@
     (=ucs		. #x514E)	; 兎
     (=>jis-x0208	. #x4546)	; 兎 [37-38]
     (=>jis-x0213-1	. #x4546)	; 兎 [37-38]
-    (->subsumptive
-     ((ideographic-strokes . 5)
-      (total-strokes	   . 7)
-      (=>>ucs@unicode	  . #x514E)	; &G-JX3-4546;
-      (=>>jis-x0213-1@2004 . #x4546)	; &G-JX3-4546; [37-38]
-      (->subsumptive
-       ((=cns11643-3	    . #x2454)	; &M-01359; [04-52]
-	(=daikanwa	    . 01359)	; &I-M-01359;
-	(<-vulgar
-	 ((=ucs		      . #x2F80F)	; 兔
-	  (=daikanwa	      . 01368)	; &I-M-01368;
-	  ))
-	(<-vulgar*sources
-	 zhengzitong daikanwa)
-	)
-       ((=gt		    . 01764)	; &GT-01764;
-	(=gt-pj-2	    . #x3B5B)	; &GT-01764; [27-59]
-	)
-       ((=ucs@jis/2004	    . #x514E)	; &JX3-4546;
-	(=jis-x0213-1@2004  . #x4546)	; &JX3-4546; [37-38]
-	(=shinjigen	    .  0469)	; &JX3-4546;
-	)
-       ((hanyu-dazidian	    1 270 5)
-	(=ucs@unicode	    . #x514E)	; &HZK01-DDC9;
-	(=hanziku-1	    . #xDDC9)	; &HZK01-DDC9;
-	))
-      )
-     ((ideographic-strokes . 6)
-      (total-strokes	   . 8)
-      (=>>ucs@jis/1990	  . #x514E)	; &GT-01782;
-      (=>>ucs@jis/2000	  . #x514E)	; &GT-01782;
-      (=ucs@jis/1990	  . #x514E)	; &GT-01782;
-      (=ucs@jis/2000	  . #x514E)	; &GT-01782;
-      (=jis-x0208	  . #x4546)	; &GT-01782; [37-38]
-      (=ks-x1001	  . #x774D)	; &I-K0-774D; [87-45]
-      (=jis-x0213-1@2000  . #x4546)	; &I-JX1-4546; [37-38]
-      (=gt		  . 01782)	; &I-GT-01782;
-      (=gt-pj-1		  . #x4546)	; &I-GT-01782; [37-38]
-      (=jef-china3	  . #x43DA)	; &I-JC3-43DA;
-      (=hanyo-denshi/ja	  . #x4546)	; &I-HD-JA-4546; [37-38]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x514E)	; 兎
       ))
+    (ideographic-radical . 10)	; ⼉
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (=>>ucs@unicode	. #x514E)	; &G-JX3-4546;
+    (=>>jis-x0213-1@2004 . #x4546)	; &G-JX3-4546; [37-38]
+    (->subsumptive
+     ((=cns11643-3	  . #x2454)	; &M-01359; [04-52]
+      (=daikanwa	  . 01359)	; &I-M-01359;
+      (<-vulgar
+       ((=ucs		    . #x2F80F)	; 兔
+	(=daikanwa	    . 01368)	; &I-M-01368;
+	))
+      (<-vulgar*sources
+       zhengzitong daikanwa)
+      )
+     ((=gt		  . 01764)	; &GT-01764;
+      (=gt-pj-2		  . #x3B5B)	; &GT-01764; [27-59]
+      )
+     ((=ucs@jis/2004	  . #x514E)	; &JX3-4546;
+      (=jis-x0213-1@2004  . #x4546)	; &JX3-4546; [37-38]
+      (=shinjigen	  .  0469)	; &JX3-4546;
+      (=hanyo-denshi/ft	  . #x3D32)	; &I-HD-FT-3D32; [29-18]
+      )
+     ((hanyu-dazidian	  1 270 5)
+      (=ucs@unicode	  . #x514E)	; &HZK01-DDC9;
+      (=hanziku-1	  . #xDDC9)	; &HZK01-DDC9;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x514E)	; 兎
+      ))
+    (ideographic-radical . 10)	; ⼉
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (=>>ucs@jis/1990	. #x514E)	; &GT-01782;
+    (=>>ucs@jis/2000	. #x514E)	; &GT-01782;
+    (=ucs@jis/1990	. #x514E)	; &GT-01782;
+    (=ucs@jis/2000	. #x514E)	; &GT-01782;
+    (=jis-x0208		. #x4546)	; &GT-01782; [37-38]
+    (=ks-x1001		. #x774D)	; &I-K0-774D; [87-45]
+    (=jis-x0213-1@2000	. #x4546)	; &I-JX1-4546; [37-38]
+    (=gt		. 01782)	; &I-GT-01782;
+    (=gt-pj-1		. #x4546)	; &I-GT-01782; [37-38]
+    (=jef-china3	. #x43DA)	; &I-JC3-43DA;
+    (=hanyo-denshi/ja	. #x4546)	; &I-HD-JA-4546; [37-38]
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
@@ -1251,6 +1261,7 @@
     (=cns11643-3	. #x2753)	; &I-C3-2753; [07-51]
     (=daikanwa		. 01368)	; &I-M-01368;
     (=shinjigen		.  0468)	; 兔
+    (=hanyo-denshi/ft	. #x334A)	; &I-HD-FT-334A; [19-42]
     ))
 (define-char
   '((<-denotational
