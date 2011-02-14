@@ -1,5 +1,25 @@
 2011-02-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R027-Cliff.el: Add Hanyo-Denshi/JA code points.
+	(A-CU+53A9): New character.
+	(mother of C3-404A): Unify G-CU+53A9; use A-CU+53A9 instead of
+	U+53A9 as the mother.
+	(C3-404A): Unify CU+53A9.
+	(mother of JX3-3139): Unify G-J2004U+53A9; use A-CU+53A9 instead
+	of U+53A9 as the mother.
+	(mother of G0-3E47): Unify G-UU+53A9; add ideographic-structure.
+	(JSP-3450): Unify HD-JB2048.
+
+	* Ideograph-R023-Hiding-Enclosure.el (JSP-3435): Unify HD-JB2021.
+
+	* Ideograph-R019-Power.el: Add Hanyo-Denshi/JB code points.
+
+	* Ideograph-R008-Lid.el (JSP-3042): Unify HD-JB1634.
+
+	* Ideograph-R002-Line.el (JSP-302D): Unify HD-JB1613.
+
+2011-02-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R008-Lid.el: Add Hanyo-Denshi/JA code points.
 	(J0-5039): Separate JC3-41DA.
 	(K0-5322): Unify JC3-41DA.
