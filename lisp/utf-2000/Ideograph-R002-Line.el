@@ -251,6 +251,7 @@
   '((ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
+    (hanyu-dazidian	1 28 7)
     (=ucs		. #x4E30)	; 丰
     (=big5		. #xA4A5)	; &I-B-A4A5;
     ))
@@ -290,15 +291,19 @@
     (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (=decomposition
-     ((=ucs		  . #x4E30)	; 丰
+    (=>>ucs@cns		. #x4E30)	; &G-CU+4E30;
+    (->subsumptive
+     ((=decomposition
+       ((=ucs		    . #x4E30)	; 丰
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=adobe-japan1-4	  . 15386)	; 丰󠄁
+      (=hanyo-denshi/ib	  . #x2D26)	; &I-HD-IB-2D26; [13-06]
       )
-     ((=ucs		  . #xE0101)	; 󠄁
+     ((=ucs@cns		  . #x4E30)	; &C1-4464;
+      (=cns11643-1	  . #x4464)	; &C1-4464; [36-68]
       ))
-    (hanyu-dazidian	1 28 7)
-    (=ucs@cns		. #x4E30)	; 丰󠄁
-    (=cns11643-1	. #x4464)	; 丰󠄁 [36-68]
-    (=adobe-japan1-4	. 15386)	; &I-AJ1-15386;
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁
