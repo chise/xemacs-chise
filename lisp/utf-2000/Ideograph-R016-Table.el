@@ -1001,6 +1001,16 @@
      daikanwa=01783)
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((=ucs		  . #x821B)	; 舛
+      )
+     ((=ucs		  . #x51E0)	; 几
+      ))
     (=ucs		. #x2015E)	; 𠅞
     (->subsumptive
      ((ideographic-structure
