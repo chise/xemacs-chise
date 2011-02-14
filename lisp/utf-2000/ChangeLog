@@ -1,5 +1,26 @@
 2011-02-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R060-Step.el (JX1-7444): Unify HD-JC-8436.
+
+	* Ideograph-R039-Child.el (U+5B7D): Use `->denotational' and
+	`->subsumptive'.
+	(JSP-3A44): Unify HD-JB2636.
+
+	* Ideograph-R028-Private.el (mother of C5-212E): Unify G-IU+20AD3.
+	(JX2-2359): Unify HD-JD-0357.
+
+	* Ideograph-R015-Ice.el (J78-437C): Unify HD-FT1861.
+
+	* Ideograph-R013-Down-Box.el: Add Hanyo-Denshi/JA and FT code
+	points.
+
+	* Ideograph-R010-Legs.el: Add Hanyo-Denshi/FT code points.
+	(U+514E): Use `->denotational' instead of `->subsumptive'.
+
+2011-02-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R104-Sickness.el (JX1-7852): Unify HD-JC8850.
+
 	* Ideograph-R004-Slash.el (JX2-212B): Unify HD-JD0111.
 
 2011-02-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
