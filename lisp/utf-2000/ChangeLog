@@ -1,10 +1,26 @@
 2011-02-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R007-Two.el (U-0002013F): Add ideographic-structure.
+
+	* Ideograph-R032-Earth.el: Add Hanyo-Denshi/JB and JC code points.
+	(U+5734): Use `->denotational'.
+	(U-00021274): Unify HD-JD0467.
+	(U+58E0): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R016-Table.el (U-0002015E): Add ideographic-structure.
+
 	* Ideograph-R060-Step.el (JX1-7444): Unify HD-JC-8436.
 
 	* Ideograph-R039-Child.el (U+5B7D): Use `->denotational' and
 	`->subsumptive'.
 	(JSP-3A44): Unify HD-JB2636.
+
+	* Ideograph-R029-Again.el: Add Hanyo-Denshi/JA code points.
+	(G-JX1-5257): Unify G-UU+53DF.
+	(U+66FC): Use `->denotational' instead of `->subsumptive'.
+	(U-00020B63): Use `->denotational' to integrate U-0002F838.
+	(mother of C5-3131): Unify G-CU+2F838 instead of U-0002F838.
+	(C5-3131): Unify U-0002F838.
 
 	* Ideograph-R028-Private.el (mother of C5-212E): Unify G-IU+20AD3.
 	(JX2-2359): Unify HD-JD-0357.
