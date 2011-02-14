@@ -1610,6 +1610,18 @@
 	       min-code	   ,(+ (lsh #x6400 16) (* 94 94 6))
 	       max-code	   ,(+ (lsh #x6400 16) (1- (* 94 94 7)))
 	       code-offset ,(+ (lsh #x6400 16) (* 94 94 6))))
+
+  (make-charset
+   '=>>hanyo-denshi/ft
+   "Han'you-Denshi/FT abstract glyphs"
+   '(long-name "Han'you-Denshi/FT"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.FT-0$"
+	       mother =hanyo-denshi/ft))
   )
 
 ;;; mule-conf.el ends here
