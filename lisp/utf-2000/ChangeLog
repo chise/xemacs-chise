@@ -1,3 +1,21 @@
+2011-02-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el (JX2-212B): Unify HD-JD0111.
+
+2011-02-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R047-River.el (U+5DE2): Unify HD-JC8408.
+
+	* Ideograph-R020-Wrap.el (JX1-2E6C): Unify HD-JC1476.
+
+	* Ideograph-R015-Ice.el: Add Hanyo-Denshi/JC code points.
+	(JSP-3328): Unify HD-JB1908.
+
+	* Ideograph-R010-Legs.el: Add Hanyo-Denshi/JA code points.
+	(JSP-3266): Unify HD-JB1870.
+	(mother of J90-513D): Unify A-UU+5154; use `->denotational'
+	instead of `->subsumptive'.
+
 2011-02-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R027-Cliff.el: Add Hanyo-Denshi/JA code points.
