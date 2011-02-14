@@ -1,5 +1,15 @@
 2011-02-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R008-Lid.el: Add Hanyo-Denshi/IB code points.
+	(U-0002015E): Add ideographic-structure.
+	(G-KU+4EB6): New character.
+	(K0-5322): Use `<-subsumptive' for G-KU+4EB6.
+
+	* Ideograph-R002-Line.el (G-CU+4E30): New character.
+	(AJ1-15386): Separate C1-4464; use `<-denotational' for G-CU+4E30;
+	unify HD-IB1306.
+	(C1-4464): Use `<-denotational' for G-CU+4E30.
+
 	* Ideograph-R007-Two.el (U-0002013F): Add ideographic-structure.
 
 	* Ideograph-R032-Earth.el: Add Hanyo-Denshi/JB and JC code points.
