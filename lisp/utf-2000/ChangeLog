@@ -1,3 +1,11 @@
+2011-02-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R029-Again.el (J0-355A): Unify AJ1-01652.
+
+	* Ideograph-R022-Right-Open-Box.el: Reformatted.
+
+	* Ideograph-R006-Hook.el: Add some Adobe-Japan1-0 code points.
+
 2011-02-15  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R029-Again.el (JX3-5257): Unify HD-HG1640.
