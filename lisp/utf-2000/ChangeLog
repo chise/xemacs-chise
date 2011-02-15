@@ -1,5 +1,57 @@
 2011-02-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-3557.
+
+	* Ideograph-R053-Dotted-Cliff.el (U+5EDA): Use `->subsumptive'.
+	(U-000222AE): Use `->subsumptive' to separate representative
+	nodes.
+
+	* Ideograph-R049-Oneself.el (U+382F): Use `->denotational' instead
+	of `->subsumptive'.
+	(HD-IA0254): New character.
+	(JX2-286F): Unify HD-JD0879.
+
+	* Ideograph-R043-Lame.el (mother of M-07554): Unify G-UU+5C28.
+	(M-07554): Unify HD-IA1607.
+	(mother of J0-5578): Unify G-JU+5C28, G-CU+5C28 and G-GT09522.
+	(C2-235E): Unify CU+5C28.
+
+	* Ideograph-R037-Big.el: Add some Adobe-Japan1-2 code points.
+	(U+3691): Use `->denotational' instead of `->subsumptive'.
+	(JX2-253F): Unify HD-IA0204.
+	(U+5953): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+595D): Add ideographic-structure.
+
+	* Ideograph-R031-Enclosure.el: Add Hanyo-Denshi/JA code points.
+	(U+56F3): Use `->subsumptive' to separate representative nodes.
+	(JSP-3721): Unify HD-JB2301.
+	(U+56FF): Add ideographic-structure.
+	(U+5708): Use `->denotational'.
+	(U+5709): Add ideographic-structure.
+	(U+570D): Likewise.
+	(J78-5423): Separate GT-06038, GT-K9174 and S-1309.
+	(B-B9CF): Add ideographic-structure; unify G-JU+5716, G-KU+5716
+	and G-CU+5716.
+	(K0-5371): Unify KU+5716.
+	(C1-6837): Unify CU+5716.
+	(mother of C6-5B5B): Unify G-UU+5716 and G-CU+2F84B.
+	(U+5717): Use `->denotational' to integrate U-0002F84D.
+
+	* Ideograph-R012-Eight.el: Add Hanyo-Denshi/FT and IB code points.
+	(G-UU+516C): New character to integrate G0-392B and J90-3878.
+	(G0-392B): Separate J90-3878, JX1-3878, GT-01893, S-0493 and
+	HD-JA2488.
+	(JX2-2328): Unify HD-JD0308.
+	(G-KU+517C): Add ideographic-structure.
+
+	* Ideograph-R007-Two.el: Add some Adobe-Japan1-0 code points.
+	(U-00020124): Use `->subsumptive' to separate representative node.
+
+	* Ideograph-R002-Line.el (GT-00111): Add
+	`<-formed@component/connect-right' for JX1-2E26; add `<-unknown'
+	for JX1-2E26.
+
 	* Ideograph-R029-Again.el (J0-355A): Unify AJ1-01652.
 
 	* Ideograph-R022-Right-Open-Box.el: Reformatted.
