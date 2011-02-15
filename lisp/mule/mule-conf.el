@@ -1636,6 +1636,19 @@
 	       min-code	   ,(+ (lsh #x6402 16) #x4E00)
 	       max-code	   ,(+ (lsh #x6402 16) #x9FFF)
 	       code-offset ,(+ (lsh #x6402 16))))
+  (make-charset
+   '=hanyo-denshi/jt
+   "JT (Juuki Touitsu Moji) part of Han'you-Denshi characters"
+   `(long-name "Han'you-Denshi/JT"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JT-0$"
+	       min-code	   ,(+ (lsh #x6402 16) #xAC00)
+	       max-code	   ,(+ (lsh #x6402 16) #xD7AF)
+	       code-offset ,(+ (lsh #x6402 16))))
 
   (make-charset
    '=>>hanyo-denshi/ft
