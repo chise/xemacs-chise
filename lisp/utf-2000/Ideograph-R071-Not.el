@@ -100,8 +100,7 @@
       (=daikanwa	  . 13721)	; &I-M-13721;
       (=shinjigen@rev	  .  3260)	; &GT-17338;
       (<-simplified@JP/Jouyou
-       ((=ucs@unicode	    . #xFA42)	; &JX1-752B;
-	(=jis-x0213-1	    . #x752B)	; &JX1-752B; [85-11]
+       ((=ucs		    . #xFA42)	; 既
 	))
       (<-simplified@daikanwa
        ((=ucs@unicode	    . #x65E3)	; &M-13724;
@@ -168,16 +167,16 @@
   '((<-denotational
      ((=ucs		  . #x65E3)	; 旣
       ))
-    (=>ucs*		. #x65E2)	; 既
     (ideographic-radical . 71)	; ⽆
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (=ucs		. #xFA42)	; 既
+    (=>>ucs@jis		. #xFA42)	; &G-JU+FA42;
     (->subsumptive
      ((=daikanwa	  . 13725)	; &M-13725;
       )
-     ((=ucs@unicode	  . #xFA42)	; &JX1-752B;
-      (=jis-x0213-1	  . #x752B)	; &JX1-752B; [85-11]
+     ((=>ucs*		  . #x65E2)	; 既
+      (=ucs		  . #xFA42)	; 既
+      (=jis-x0213-1	  . #x752B)	; &I-JX1-752B; [85-11]
       ))
     ))
 (define-char
