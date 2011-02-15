@@ -156,6 +156,7 @@
     (=gt-k		. 00257)	; &I-GT-K00257;
     (=gt-pj-1		. #x355A)	; &I-GT-00163; [21-58]
     (=shinjigen		.  0900)	; 及
+    (=adobe-japan1-0	. 01652)	; &I-AJ1-01652;
     (=hanyo-denshi/ja	. #x355A)	; &I-HD-JA-355A; [21-58]
     ))
 (define-char
