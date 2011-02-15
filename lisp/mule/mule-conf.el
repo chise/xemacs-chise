@@ -1623,6 +1623,19 @@
 	       min-code	   ,(+ (lsh #x6400 16) (* 94 94 7))
 	       max-code	   ,(+ (lsh #x6400 16) (1- (* 94 94 8)))
 	       code-offset ,(+ (lsh #x6400 16) (* 94 94 7))))
+  (make-charset
+   '=hanyo-denshi/ip
+   "IP (for IPA) part of Han'you-Denshi characters"
+   `(long-name "Han'you-Denshi/IP"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.IP-0$"
+	       min-code	   ,(+ (lsh #x6402 16) #x4E00)
+	       max-code	   ,(+ (lsh #x6402 16) #x9FFF)
+	       code-offset ,(+ (lsh #x6402 16))))
 
   (make-charset
    '=>>hanyo-denshi/ft
