@@ -709,7 +709,6 @@
     (=gt-pj-1		. #x557A)	; &I-GT-09616; [53-90]
     (=daikanwa		. 07631)	; &I-M-07631;
     (=shinjigen		.  1919)	; 尹
-    (=shinjigen@rev	.  1919)	; 尹
     (=adobe-japan1-0	. 04649)	; &I-AJ1-04649;
     ))
 (define-char
