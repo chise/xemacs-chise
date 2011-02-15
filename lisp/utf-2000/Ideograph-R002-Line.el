@@ -319,6 +319,20 @@
     (total-strokes	 . 4)
     (=gt		. 00111)	; &GT-00111;
     (=gt-pj-9		. #x4A2C)	; &GT-00111; [42-12]
+    (<-formed@component/connect-right
+     ((=ucs@unicode	  . #x4E30)	; 丰󠄀
+      (=gb2312		  . #x3761)	; 丰󠄀 [23-65]
+      (=jis-x0212	  . #x302D)	; &I-JSP-302D; [16-13]
+      (=jis-x0213-1	  . #x2E26)	; &I-JX1-2E26; [14-06]
+      (=daikanwa	  . 00076)	; &I-M-00076;
+      ))
+    (<-unknown
+     ((=ucs@unicode	  . #x4E30)	; 丰󠄀
+      (=gb2312		  . #x3761)	; 丰󠄀 [23-65]
+      (=jis-x0212	  . #x302D)	; &I-JSP-302D; [16-13]
+      (=jis-x0213-1	  . #x2E26)	; &I-JX1-2E26; [14-06]
+      (=daikanwa	  . 00076)	; &I-M-00076;
+      ))
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁
