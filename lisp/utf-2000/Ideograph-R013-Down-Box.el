@@ -1451,16 +1451,16 @@
     (=cbeta		. 02605)	; &I-CB02605;
     ))
 (define-char
-  '((ideographic-radical@ucs/compat . 73)	; ⽈
+  '((ideographic-radical@ucs . 13)	; ⼌
+    (ideographic-strokes@ucs . 9)
+    (ideographic-radical@ucs*sources
+     daikanwa jis-x0208/1997 cns11643-1)
+    (ideographic-strokes@ucs*sources
+     daikanwa)
+    (ideographic-radical@ucs/compat . 73)	; ⽈
     (ideographic-strokes@ucs/compat . 7)
     (ideographic-radical@ucs/compat*sources
      cns11643-6)
-    (ideographic-radical@jis . 13)	; ⼌
-    (ideographic-strokes@jis . 9)
-    (ideographic-radical@jis*sources
-     daikanwa jis-x0208/1997 cns11643-1)
-    (ideographic-strokes@jis*sources
-     daikanwa)
     (total-strokes	 . 11)
     (=ucs		. #x5195)	; 冕
     (=big5		. #xB0C3)	; &I-B-B0C3;
@@ -1501,10 +1501,27 @@
   '((<-denotational
      ((=ucs		  . #x5195)	; 冕
       ))
+    (ideographic-radical@ucs . 13)	; ⼌
+    (ideographic-radical@cns . 73)	; ⽈
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=cns11643-1	  . #x454B)	; &C1-454B; [37-43]
+      )
+     ((=>jis-x0213-1	  . #x4C48)	; &A-JX1-4C48; [44-40]
+      ))
+    (=>ucs@ks		. #x5195)	; &A-CU+2F8D3;
+    (=>ucs@cns		. #x2F8D3)	; &A-CU+2F8D3;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cns	  . #x2F8D3)	; &A-CU+2F8D3;
+      ))
+    (ideographic-radical@ucs . 13)	; ⼌
+    (ideographic-strokes@ucs . 9)
     (ideographic-radical@cns . 73)	; ⽈
     (ideographic-strokes@cns . 7)
-    (ideographic-radical@jis . 13)	; ⼌
-    (ideographic-strokes@jis . 9)
     (total-strokes	 . 11)
     (=>>ucs@ks		. #x5195)	; &G-KU+5195;
     (=>>ucs@cns		. #x2F8D3)	; &G-KU+5195;
