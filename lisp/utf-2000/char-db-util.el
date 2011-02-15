@@ -438,12 +438,14 @@
    (format
     (cond ((memq name '(=shinjigen
 			=shinjigen@1ed
-			=shinjigen@rev =shinjigen/+p@rev))
+			=shinjigen@rev =shinjigen/+p@rev
+			=daikanwa/ho))
 	   "(%-18s .  %04d)\t; %c")
 	  ((eq name '=shinjigen@1ed/24pr)
 	   "(%-18s . %04d)\t; %c")
 	  ((or (memq name '(=daikanwa
 			    =daikanwa@rev1 =daikanwa@rev2
+			    =daikanwa/+p =daikanwa/+2p
 			    =>>daikanwa =>daikanwa
 			    =gt =>>gt =>gt =gt-k =>>gt-k =cbeta
 			    =zinbun-oracle =>zinbun-oracle))
