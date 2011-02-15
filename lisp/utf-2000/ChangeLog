@@ -550,6 +550,11 @@
 	* Ideograph-R137-Boat.el (U+821F): Use `->subsumptive' to separate
 	representative nodes.
 
+2011-02-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-insert-ccs-feature): Add settings for
+	`=daikanwa/ho', `=daikanwa/+p' and `=daikanwa/+2p'.
+
 2011-02-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R005-Second.el (U+4E5A): Unify AJ1-14305.
