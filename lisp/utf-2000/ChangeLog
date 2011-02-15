@@ -1,5 +1,50 @@
 2011-02-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R050-Turban.el: Add some abstract
+	`ideographic-structure's.
+	(U+5E2D): Use `->subsumptive'.
+	(mother of J90-3522): Unify G-UU+5E30.
+	(mother of C3-3067): Unify A-CU+5E30.
+	(C3-3067): Unify CU+5E30.
+	(C2-4262): Separate UU+5E4B.
+	(U+5E4D): Use `->denotational' instead of `->subsumptive'.
+	(U+5E50): Likewise.
+	(UU+5E4F): Separate C2-425E.
+	(U+5E5E): Use `->subsumptive'.
+	(U+5E5F): Use `->subsumptive' to separate representative nodes.
+	(U+5E61): Likewise.
+	(U+5E62): Use `->subsumptive'.
+	(U+5E68): Use `->denotational' instead of `->subsumptive'.
+	(mother of C2-5C68): Unify G-CU+5E6A.
+	(mother of JSP-3C3C): Unify G-UU+5E6A.
+	(U+5E6E): Use `->subsumptive'.
+
+	* Ideograph-R046-Mountain.el:
+	- Add some Adobe-Japan1-2 code points.
+	- Use `->subsumptive' for some characters.
+	- For some characters, use `->denotational' and/or `->subsumptive'
+	  to separate representative nodes.
+
+	* Ideograph-R038-Woman.el:
+	- Add Hanyo-Denshi/JB and JD code points.
+	- For some characters, use `->subsumptive' to separate
+	  representative nodes.
+	(U-00021706): Use `->denotational' and `->subsumptive'.
+	(U-00021762): Use `->denotational' and `->subsumptive'.
+	(mother of G0-6B74): Unify G-UU+5AB5.
+	(U+5ABA): Use `->denotational' instead of `->subsumptive'.
+	(mother of JSP-3A25): Unify G-J90U+5ADA and G-CU+5ADA.
+	(JSP-3A25): Separate JX2-256A.
+	(UU+5ADA): Unify JX2-256A.
+
+	* Ideograph-R013-Down-Box.el (U+5195): Use
+	`ideographic-{radical|strokes}@ucs' instead
+	`ideographic-{radical|strokes}@jis'.
+	(A-CU+2F8D3): New character.
+	(G-CU+2F8D3): Use A-CU+2F8D3 instead of U+5195 as the mother; use
+	`ideographic-{radical|strokes}@ucs' instead
+	`ideographic-{radical|strokes}@jis'.
+
 	* Ideograph-R004-Slash.el (U+5C39): Omit `=shinjigen@rev'.
 
 	* Ideograph-R073-Say.el (U+66FC): Use `->denotational' instead of
@@ -7,7 +52,7 @@
 	(U+5195): Use `ideographic-{radical|strokes}@ucs' instead
 	`ideographic-{radical|strokes}@jis'.
 	(A-CU+2F8D3): New character.
-	(G-CU+2F8D3): Use A-CU+2F8D3 instead of U+5195; use
+	(G-CU+2F8D3): Use A-CU+2F8D3 instead of U+5195 as the mother; use
 	`ideographic-{radical|strokes}@ucs' instead
 	`ideographic-{radical|strokes}@jis'.
 	(J0-5228): Unify HD-JA5008.
