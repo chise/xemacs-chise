@@ -58,6 +58,7 @@
     (=ucs		. #x459D)	; 䖝
     (=cns11643-3	. #x272E)	; &I-C3-272E; [07-14]
     (=jis-x0213-1	. #x7B51)	; &I-JX1-7B51; [91-49]
+    (=hanyo-denshi/jc	. #x7B51)	; &I-HD-JC-7B51; [91-49]
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
