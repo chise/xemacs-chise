@@ -1668,6 +1668,7 @@
       (=gt-k		  . 06578)	; &I-GT-K06578;
       (=gt-pj-2		  . #x4C6D)	; &I-GT-04022; [44-77]
       (=daikanwa	  . 03176)	; &I-M-03176;
+      (=hanyo-denshi/hg	  . #x3048)	; &I-HD-HG-3048; [16-40]
       ))
     ))
 (define-char
