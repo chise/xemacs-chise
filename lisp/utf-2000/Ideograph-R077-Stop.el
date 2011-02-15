@@ -138,9 +138,9 @@
     (=daikanwa		. 16257)	; &I-M-16257;
     (=hanziku-1		. #xA6EA)	; &I-HZK01-A6EA;
     (<-original
-     ((=ucs@jis		  . #x4E4F)	; &GT-00175;
-      (=ucs@ks		  . #x4E4F)	; &GT-00175;
-      (=jis-x0208	  . #x4B33)	; &GT-00175; [43-19]
+     ((=ucs@jis		  . #x4E4F)	; &AJ1-03681;
+      (=ucs@ks		  . #x4E4F)	; &AJ1-03681;
+      (=jis-x0208	  . #x4B33)	; &AJ1-03681; [43-19]
       (=ks-x1001	  . #x7939)	; &I-K0-7939; [89-25]
       (=jis-x0213-1	  . #x4B33)	; &I-JX1-4B33; [43-19]
       (=daikanwa	  . 00133)	; &I-M-00133;
