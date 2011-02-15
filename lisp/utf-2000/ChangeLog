@@ -1,4 +1,18 @@
+2011-02-15  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R029-Again.el (JX3-5257): Unify HD-HG1640.
+
 2011-02-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R014-Cover.el: Add Hanyo-Denshi/JA and IB code points.
+	(U+519D): Use `->denotational' to integrate HD-IB1434.
+	(JSP-3275): Unify HD-JB1885.
+	(U+51A2): Use `->denotational' to integrate HD-FT2081.
+	(JX3-514D): Unify HD-HG3023.
+	(A-UU+51A4): New character.
+	(JC3-43F0): Use `<-denotational' for A-UU+51A4 instead of
+	`<-subsumptive' for G-JX1-514D.
+	(G-JX1-514D): Unify G-UU+51A4; use A-UU+51A4 instead of U+51A4.
 
 	* Ideograph-R008-Lid.el: Add Hanyo-Denshi/IB code points.
 	(U-0002015E): Add ideographic-structure.
@@ -82,6 +96,10 @@
 	* Ideograph-R008-Lid.el (JSP-3042): Unify HD-JB1634.
 
 	* Ideograph-R002-Line.el (JSP-302D): Unify HD-JB1613.
+
+2011-02-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-5C54.
 
 2011-02-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
