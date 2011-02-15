@@ -105,16 +105,36 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (=ucs		. #x382F)	; 㠯
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x382F)	; 㠯
+      ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=>>ucs@cns		. #x382F)	; &G-CU+382F;
     (->subsumptive
      ((=daikanwa	  . 08747)	; &M-08747;
       )
-     ((=cns11643-3	  . #x2245)	; &C3-2245; [02-37]
+     ((=ucs@cns		  . #x382F)	; &C3-2245;
+      (=cns11643-3	  . #x2245)	; &C3-2245; [02-37]
       )
-     ((hanyu-dazidian	  1 29 2)
-      (=ucs@unicode	  . #x382F)	; &CDP-8BAD;
-      (=jis-x0213-2	  . #x286F)	; &CDP-8BAD; [08-79]
-      (=big5-cdp	  . #x8BAD)	; &I-CDP-8BAD;
+     ((=hanyo-denshi/ia	  . #x2256)	; &HD-IA-2256; [02-54]
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x382F)	; 㠯
+      ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (hanyu-dazidian	1 29 2)
+    (=ucs@unicode	. #x382F)	; &CDP-8BAD;
+    (=jis-x0213-2	. #x286F)	; &CDP-8BAD; [08-79]
+    (=big5-cdp		. #x8BAD)	; &I-CDP-8BAD;
+    (=hanyo-denshi/jd	. #x286F)	; &I-HD-JD-286F; [08-79]
     ))
 (define-char
   '((ideographic-radical . 49)	; ⼰
