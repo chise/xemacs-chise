@@ -1,5 +1,25 @@
 2011-02-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R004-Slash.el: Add some Adobe-Japan1-0 code points.
+	(U+4E45): Use `->subsumptive' to separate representative nodes.
+	(U+4E4F): Add ideographic-structure.
+
+	* Ideograph-R027-Cliff.el (G-JX3-53A9): Add ideographic-structure.
+	(G-GT-03811): New glyph to integrate GT-03811 and S-2208.
+	(JX3-3139): Unify HD-HG1614.
+
+2011-02-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R041-Inch.el (mother of K0-706E): Unify G-KU+5C0A and
+	G-GT-09378.
+	(K0-706E): Unify KU+5C0A.
+	(mother of J0-423A): Unify G-UU+5C0A.
+	(U-00021B33): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R040-Roof.el (U+5BDE): Use `->denotational' and
+	`->subsumptive'.
+	(U+5BDF): Use `->subsumptive'.
+
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-3557.
 
 	* Ideograph-R053-Dotted-Cliff.el (U+5EDA): Use `->subsumptive'.
