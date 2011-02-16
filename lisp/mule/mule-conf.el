@@ -1649,6 +1649,28 @@
 	       min-code	   ,(+ (lsh #x6402 16) #xAC00)
 	       max-code	   ,(+ (lsh #x6402 16) #xD7AF)
 	       code-offset ,(+ (lsh #x6402 16))))
+  (make-charset
+   '=hanyo-denshi/ks
+   "KS (KoSeki) part of Han'you-Denshi characters"
+   `(long-name "Han'you-Denshi/KS font encoding"
+	       chars 256
+	       dimension 3
+	       columns 2
+	       graphic 2
+	       direction l2r))
+  (make-charset
+   '=hanyo-denshi/ks/mf
+   "font encoding for KS (KoSeki) characters"
+   `(long-name "Han'you-Denshi/KS font encoding"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.KSMF-0$"
+	       min-code	      ,(lsh #x6403 16)
+	       max-code	   ,(+ (lsh #x6403 16) #xFFFF)
+	       code-offset    ,(lsh #x6403 16)))
 
   (make-charset
    '=>>hanyo-denshi/ft
