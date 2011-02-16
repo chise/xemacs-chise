@@ -2979,8 +2979,7 @@
     (->subsumptive
      ((=daikanwa	  . 16165)	; &M-16165;
       (<-same
-       ((=ucs		    . #x55C4)	; 嗄
-	(=daikanwa	    . 04047)	; &I-M-04047;
+       ((=daikanwa	    . 04047)	; &M-04047;
 	))
       (<-same*sources
        jiyun daikanwa)
@@ -3970,7 +3969,8 @@
     (->subsumptive
      ((=daikanwa	  . 16208)	; &M-16208;
       (<-ancient
-       ((=ucs@jis	    . #x6700)	; &M-14301;
+       ((=ucs@cns	    . #x2F8D4)	; &M-14301;
+	(=ucs@jis	    . #x6700)	; &M-14301;
 	(=ucs@ks	    . #x6700)	; &M-14301;
 	(=jis-x0208	    . #x3A47)	; &M-14301; [26-39]
 	(=ks-x1001	    . #x754C)	; &I-K0-754C; [85-44]
@@ -4031,7 +4031,10 @@
     (->subsumptive
      ((=daikanwa	  . 16212)	; &M-16212;
       (<-same
-       ((=ucs		    . #x5666)	; 噦
+       ((=ucs@unicode	    . #x5666)	; &M-04372;
+	(=jis-x0212	    . #x364D)	; &M-04372; [22-45]
+	(=cns11643-2	    . #x564B)	; &I-C2-564B; [54-43]
+	(=jis-x0213-1	    . #x2F35)	; &I-JX1-2F35; [15-21]
 	(=daikanwa	    . 04372)	; &I-M-04372;
 	))
       (<-same*sources
@@ -4169,7 +4172,8 @@
     (->subsumptive
      ((=daikanwa	  . 16219)	; &M-16219;
       (<-same
-       ((=daikanwa	    . 04370)	; &M-04370;
+       ((=ucs@unicode	    . #x35FC)	; &M-04370;
+	(=daikanwa	    . 04370)	; &M-04370;
 	))
       (<-same*sources
        jiyun daikanwa)
