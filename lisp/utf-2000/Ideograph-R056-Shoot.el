@@ -92,6 +92,7 @@
     (=jis-x0213-2	. #x2C2E)	; &I-JX2-2C2E; [12-14]
     (=daikanwa		. 09662)	; &I-M-09662;
     (=shinjigen@1ed	.  0007)	; 弎
+    (=hanyo-denshi/jb	. #x3C60)	; &I-HD-JB-3C60; [28-64]
     ))
 (define-char
   '((=>ucs		. #x5F0E)	; 弎
