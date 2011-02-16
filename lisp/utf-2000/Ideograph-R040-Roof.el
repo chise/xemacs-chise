@@ -2547,6 +2547,7 @@
     (=daikanwa		. 07198)	; &I-M-07198;
     (=jef-china3	. #x4AC9)	; &I-JC3-4AC9;
     (=adobe-japan1-2	. 08433)	; &I-AJ1-08433;
+    (=hanyo-denshi/jb	. #x3A5B)	; &I-HD-JB-3A5B; [26-59]
     ))
 (define-char
   '((<-denotational
