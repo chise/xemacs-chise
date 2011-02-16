@@ -1,5 +1,17 @@
 2011-02-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R057-Bow.el (JSP-3C74): Unify HD-JB2884.
+
+	* Ideograph-R056-Shoot.el (JSP-3C60): Unify HD-JB2864.
+
+	* Ideograph-R040-Roof.el (JSP-3A5B): Unify HD-JB2659.
+
+2011-02-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R066-Rap.el (U+654E): Use `->subsumptive'.
+	(K0-4E67): Unify AJ1-08471.
+	(U+6559): Use `->subsumptive' to separate representative nodes.
+
 	* Ideograph-R007-Two.el (U-0002F81B): Unify KS003220.
 
 	* Ideograph-R004-Slash.el: Add Hanyo-Denshi/KS code points.
