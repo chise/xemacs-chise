@@ -32,6 +32,9 @@
 	`->subsumptive'.
 	(AJ1-13812): Unify HD-JT-AD1E.
 
+	* char-db-util.el (char-db-insert-ccs-feature): Add code for
+	`=hanyo-denshi/ks'.
+
 2011-02-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R018-Knife.el: Add Hanyo-Denshi/JA and FT code points.
@@ -73,6 +76,8 @@
 	- Use `->subsumptive' for some characters.
 	- For some characters, use `->denotational' and/or `->subsumptive'
 	  to separate representative nodes.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-5827.
 
 	* Ideograph-R038-Woman.el:
 	- Add Hanyo-Denshi/JB and JD code points.
