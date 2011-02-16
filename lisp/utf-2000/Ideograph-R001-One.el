@@ -635,6 +635,8 @@
       (=daikanwa	  . 00020)	; &I-M-00020;
       (=jef-china3	  . #x82A6)	; &I-JC3-82A6;
       (=adobe-japan1-5	  . 20073)	; &I-AJ1-20073;
+      (=hanyo-denshi/ks	  . 000260)	; 与󠄁
+      (=hanyo-denshi/ks/mf . #x001A)	; &I-KSMF-00026;
       (<-simplified@CN
        ((=ucs@unicode	    . #x8207)	; &GT-39084;
 	(=jis-x0208	    . #x6750)	; &GT-39084; [71-48]
@@ -785,6 +787,15 @@
       ))
     (<-vulgar*sources
      shinjigen)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E11)	; 丑
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (=hanyo-denshi/jt	. #xAD08)	; &HD-JT-AD08;
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
@@ -1431,6 +1442,8 @@
      ((=ucs		  . #x5167)	; 內
       ))
     (=adobe-japan1-4	. 14009)	; 丙󠄁
+    (=hanyo-denshi/ks	. 000540)	; 丙󠄁
+    (=hanyo-denshi/ks/mf . #x0036)	; &I-KSMF-00054;
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
@@ -2433,6 +2446,8 @@
       (=daikanwa	  . 00053)	; &I-M-00053;
       (=shinjigen	  .  5734)	; 並󠄁
       (=adobe-japan1-5	  . 20074)	; &I-AJ1-20074;
+      (=hanyo-denshi/ks	  . 000820)	; 並󠄁
+      (=hanyo-denshi/ks/mf . #x0052)	; &I-KSMF-00082;
       (<-formed
        ((=ucs@unicode	    . #x4E26)	; 並󠄀
 	(=jis-x0208	    . #x4A42)	; 並󠄀 [42-34]
