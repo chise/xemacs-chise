@@ -54,6 +54,8 @@
     (=gt-pj-k1		. #x3343)	; &M-00287; [19-35]
     (=daikanwa		. 00287)	; &I-M-00287;
     (=shinjigen		.  0090)	; &M-00287;
+    (=hanyo-denshi/ks	. 003470)	; &M-00287;
+    (=hanyo-denshi/ks/mf . #x015B)	; &I-KSMF-00347;
     ))
 (define-char
   '((<-denotational
@@ -380,6 +382,15 @@
   '((<-denotational
      ((=ucs		  . #x4EA4)	; 交
       ))
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=hanyo-denshi/ks	. 003610)	; &HD-KS-003610;
+    (=hanyo-denshi/ks/mf . #x0169)	; &HD-KS-003610;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4EA4)	; 交
+      ))
     (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
@@ -428,6 +439,7 @@
     (=daikanwa		. 00292)	; &M-00292;
     (=shinjigen		.  0095)	; &M-00292;
     (=jef-china3	. #x41D5)	; &I-JC3-41D5;
+    (=hanyo-denshi/jt	. #xAD2B)	; &I-HD-JT-AD2B;
     ))
 (define-char
   '((<-denotational
@@ -2814,6 +2826,51 @@
       (=ks-x1001	  . #x5322)	; &HD-IB-2D36; [51-02]
       (=jef-china3	  . #x41DA)	; &I-JC3-41DA;
       (=hanyo-denshi/ib	  . #x2D36)	; &I-HD-IB-2D36; [13-22]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4EB6)	; 亶
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x4EA0)	; 亠
+	)
+       ((=ucs		    . #x56EC)	; 囬
+	))
+      )
+     ((=ucs		  . #x4E14)	; 且
+      ))
+    (=>>hanyo-denshi/ks . #x1004)	; &HD-KS-004100; [-16--28]
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((=ucs@jis	      . #x4EA0)	; &GT-00376;
+	  (=jis-x0208	      . #x5035)	; &GT-00376; [48-21]
+	  (=jis-x0213-1	      . #x5035)	; &I-JX1-5035; [48-21]
+	  )
+	 ((=ucs		      . #x56EC)	; 囬
+	  ))
+	)
+       ((=ucs		    . #x4E14)	; 且
+	))
+      (=hanyo-denshi/ks	  . 004100)	; &HD-KS-004100;
+      (=hanyo-denshi/ks/mf . #x019A)	; &HD-KS-004100;
       ))
     ))
 (define-char
