@@ -1088,6 +1088,8 @@
     (=gt-k		. 01779)	; &I-GT-K01779;
     (=gt-pj-2		. #x312C)	; &I-GT-00195; [17-12]
     (=daikanwa		. 00138)	; &I-M-00138;
+    (=hanyo-denshi/ks	. 001650)	; &GT-00195;
+    (=hanyo-denshi/ks/mf . #x00A5)	; &I-KSMF-00165;
     ))
 (define-char
   '((<-denotational
@@ -1454,6 +1456,8 @@
     (total-strokes	 . 7)
     (=daikanwa		. 00148)	; &AJ1-14209;
     (=adobe-japan1-4	. 14209)	; &I-AJ1-14209;
+    (=hanyo-denshi/ks	. 001760)	; &AJ1-14209;
+    (=hanyo-denshi/ks/mf . #x00B0)	; &I-KSMF-00176;
     (<-vulgar
      ((=ucs@jis		  . #x864E)	; &GT-44178;
       (=jis-x0208	  . #x3857)	; &GT-44178; [24-55]
