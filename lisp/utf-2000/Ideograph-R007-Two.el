@@ -608,6 +608,8 @@
     (=gt		. 00352)	; &I-GT-00352;
     (=gt-pj-2		. #x3238)	; &I-GT-00352; [18-24]
     (=daikanwa		. 00267)	; &I-M-00267;
+    (=hanyo-denshi/ks	. 003220)	; 况
+    (=hanyo-denshi/ks/mf . #x0142)	; &I-KSMF-00322;
     ))
 (define-char
   '((ideographic-radical . 7)	; ⼆
