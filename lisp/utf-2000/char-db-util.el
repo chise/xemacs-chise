@@ -467,7 +467,7 @@
 			    =zinbun-oracle =>zinbun-oracle))
 	       (string-match "^=adobe-" (symbol-name name)))
 	   "(%-18s . %05d)\t; %c")
-	  ((eq name 'mojikyo)
+	  ((memq name '(=hanyo-denshi/ks mojikyo))
 	   "(%-18s . %06d)\t; %c")
 	  ((>= (charset-dimension name) 2)
 	   "(%-18s . #x%04X)\t; %c")
