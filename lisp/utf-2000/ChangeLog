@@ -1,8 +1,10 @@
-2011-02-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+2011-02-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R003-Dot.el (U+4E3B): Use `->denotational' instead of
 	`->subsumptive'.
 	(AJ1-13812): Unify HD-JT-AD1E.
+
+2011-02-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R050-Turban.el: Add some abstract
 	`ideographic-structure's.
