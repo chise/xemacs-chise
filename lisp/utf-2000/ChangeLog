@@ -1,5 +1,14 @@
 2011-02-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R008-Lid.el: Add Hanyo-Denshi/KS code points.
+	(M-00292): Unify HD-JT-AD2B.
+
+	* Ideograph-R005-Second.el: Add some Adobe-Japan1-0 code points.
+	(U+4E62): Use `->subsumptive' to separate representative nodes.
+	(U+340C): Add ideographic-structure.
+	(U+4E75): Likewise.
+	(U+4E77): Likewise.
+
 	* Ideograph-R057-Bow.el (JSP-3C74): Unify HD-JB2884.
 
 	* Ideograph-R056-Shoot.el (JSP-3C60): Unify HD-JB2864.
