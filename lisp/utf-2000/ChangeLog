@@ -6,6 +6,21 @@
 
 2011-02-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R018-Knife.el: Add Hanyo-Denshi/JA and FT code points.
+	(U+5206): Add ideographic-structure.
+	(G0-3756): Separate J90-4A2C, JX1-4A2C, GT-02421 and S-0598.
+	(U+34DE): Use `->denotational'.
+	(U+5213): Add ideographic-structure.
+	(JSP-3334): Unify HD-JB1920.
+	(U+5275): Add ideographic-structure.
+
+	* Ideograph-R072-Sun.el: Add some Adobe-Japan1-2 code points.
+	(U+661E): Use `->subsumptive'.
+	(U+663A): Likewise.
+	(U+6620): Likewise.
+	(U+6621): Likewise.
+	(J78-5A70): Unify HD-FT1694.
+
 	* Ideograph-R050-Turban.el: Add some abstract
 	`ideographic-structure's.
 	(U+5E2D): Use `->subsumptive'.
