@@ -374,6 +374,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =hanyo-denshi/hg
 	  =hanyo-denshi/ip
 	  =hanyo-denshi/jt
+	  =hanyo-denshi/ks/mf
 	  =>>hanyo-denshi/ft
 	  )))
 
