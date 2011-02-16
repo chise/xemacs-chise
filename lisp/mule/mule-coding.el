@@ -343,6 +343,7 @@
 	  (=>>gt-k			       "G-GT-K" 5 d)
 	  (=>>ruimoku-v6		      "G-RUI6-" 4 X)
 	  (=>>hanyo-denshi/ft		     "G-HD-FT-" 4 X)
+	  (=>>hanyo-denshi/ks		     "G-HD-KS-" 4 X)
 	  ( =>jis-x0208@usual			"o-J0-" 4 X)
 	  ( =>jis-x0208@1997			 "J97-" 4 X)
 	  ( =>jis-x0208@1997			"A-J0-" 4 X)
