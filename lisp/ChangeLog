@@ -1,6 +1,14 @@
 2011-02-16  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>>hanyo-denshi/ks'.
+
+	* mule/mule-conf.el (=>>hanyo-denshi/ks): New coded-charset for
+	XEmacs CHISE.
+
+2011-02-16  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
 	settings for `=hanyo-denshi/ks' and `=hanyo-denshi/ks/mf'.
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
