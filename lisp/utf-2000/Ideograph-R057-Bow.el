@@ -2587,6 +2587,7 @@
     (=gt-pj-9		. #x4F34)	; &I-GT-12419; [47-20]
     (=jef-china3	. #x4CF6)	; &I-JC3-4CF6;
     (=adobe-japan1-2	. 08370)	; &I-AJ1-08370;
+    (=hanyo-denshi/jb	. #x3C74)	; &I-HD-JB-3C74; [28-84]
     ))
 (define-char
   '((<-denotational
