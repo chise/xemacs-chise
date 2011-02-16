@@ -1,5 +1,12 @@
 2011-02-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R007-Two.el (U-0002F81B): Unify KS003220.
+
+	* Ideograph-R004-Slash.el: Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R001-One.el: Add Hanyo-Denshi/KS code points.
+	(HD-JT-AD08): New character.
+
 	* Ideograph-R003-Dot.el (U+4E3B): Use `->denotational' instead of
 	`->subsumptive'.
 	(AJ1-13812): Unify HD-JT-AD1E.
