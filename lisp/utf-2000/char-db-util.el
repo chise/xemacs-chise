@@ -140,6 +140,21 @@
     ethiopic-ucs
     =big5-cdp
     =gt
+    =adobe-japan1-0
+    =adobe-japan1-1
+    =adobe-japan1-2
+    =adobe-japan1-3
+    =adobe-japan1-4
+    =adobe-japan1-5
+    =adobe-japan1-6
+    =hanyo-denshi/ja
+    =hanyo-denshi/jb
+    =hanyo-denshi/jc
+    =hanyo-denshi/jd
+    =hanyo-denshi/ft
+    =hanyo-denshi/ia
+    =hanyo-denshi/ib
+    =hanyo-denshi/hg
     ideograph-daikanwa-2
     ideograph-daikanwa
     =cbeta
@@ -162,6 +177,7 @@
     =>>jis-x0213-1@2004
     =>>jis-x0213-2
     =>>jis-x0208@1978
+    =>>hanyo-denshi/ft
     =>>gt
     =>jis-x0208@usual
     =>jis-x0208
