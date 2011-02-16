@@ -83,6 +83,10 @@
 	(U+38BE): Use `->denotational' instead of `->subsumptive'.
 	(U+5F45): Add ideographic-structure.
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=adobe-japan1-[0-6]', `=hanyo-denshi/{ja|jb|jc|jd|ft|ia|ib|hg}'
+	and `=>>hanyo-denshi/ft'.
+
 2011-02-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R004-Slash.el: Add some Adobe-Japan1-0 code points.
