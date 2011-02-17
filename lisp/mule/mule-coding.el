@@ -181,6 +181,11 @@
    ))
 
 (when (featurep 'utf-2000)
+  (setq decomposition-feature-list
+	'(=decomposition
+	  =decomposition@cid
+	  =decomposition@hanyo-denshi))
+
   (setq coded-charset-entity-reference-alist
 	'(((=adobe-japan1-base	. isolated)    "I-AJ1-" 5 d)
 	  ((=adobe-japan1-6	. isolated)    "I-AJ1-" 5 d)
