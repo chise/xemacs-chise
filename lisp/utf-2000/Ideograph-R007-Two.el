@@ -437,6 +437,7 @@
     (=daikanwa		. 00261)	; &I-M-00261;
     (=hanziku-2		. #xEE7D)	; &I-HZK02-EE7D;
     (=jef-china3	. #x41D0)	; &I-JC3-41D0;
+    (=adobe-japan1-6	. 21081)	; &I-AJ1-21081;
     ))
 (define-char
   '((ideographic-radical . 7)	; ⼆
@@ -630,6 +631,11 @@
     (->subsumptive
      ((ideographic-strokes . 5)
       (total-strokes	   . 7)
+      (=decomposition@cid
+       ((=ucs		    . #x4E9B)	; 些
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
@@ -643,8 +649,8 @@
 	)
        ((=ucs		    . #x4E8C)	; 二
 	))
-      (=ucs@unicode	  . #x4E9B)	; &AJ1-02083;
-      (=jis-x0208	  . #x3A33)	; &AJ1-02083; [26-19]
+      (=ucs@unicode	  . #x4E9B)	; 些󠄀
+      (=jis-x0208	  . #x3A33)	; 些󠄀 [26-19]
       (=gb2312		  . #x5029)	; &I-G0-5029; [48-09]
       (=ks-x1001	  . #x5E41)	; &I-K0-5E41; [62-33]
       (=jis-x0213-1	  . #x3A33)	; &I-JX1-3A33; [26-19]
@@ -652,7 +658,7 @@
       (=gt-k		  . 03713)	; &I-GT-K03713;
       (=gt-pj-1		  . #x3A33)	; &I-GT-00360; [26-19]
       (=daikanwa	  . 00268)	; &I-M-00268;
-      (=shinjigen	  .  0086)	; &AJ1-02083;
+      (=shinjigen	  .  0086)	; 些󠄀
       (=adobe-japan1-0	  . 02083)	; &I-AJ1-02083;
       )
      ((ideographic-strokes . 6)
@@ -949,16 +955,21 @@
     (=big5		. #xAB45)	; &G-GT-00358;
     (=>>gt		. 00358)	; &G-GT-00358;
     (->subsumptive
-     ((=ucs@cns		  . #x4E9F)	; &AJ1-04109;
-      (=ucs@jis		  . #x4E9F)	; &AJ1-04109;
-      (=jis-x0208	  . #x5034)	; &AJ1-04109; [48-20]
+     ((=decomposition@cid
+       ((=ucs		    . #x4E9F)	; 亟
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@cns		  . #x4E9F)	; 亟󠄀
+      (=ucs@jis		  . #x4E9F)	; 亟󠄀
+      (=jis-x0208	  . #x5034)	; 亟󠄀 [48-20]
       (=cns11643-1	  . #x4F67)	; &I-C1-4F67; [47-71]
       (=jis-x0213-1	  . #x5034)	; &I-JX1-5034; [48-20]
       (=gt		  . 00358)	; &I-GT-00358;
       (=gt-k		  . 03851)	; &I-GT-K03851;
       (=gt-pj-1		  . #x5034)	; &I-GT-00358; [48-20]
       (=daikanwa	  . 00279)	; &I-M-00279;
-      (=shinjigen	  .  0088)	; &AJ1-04109;
+      (=shinjigen	  .  0088)	; 亟󠄀
       (=adobe-japan1-0	  . 04109)	; &I-AJ1-04109;
       (->synonyms
        ((=daikanwa	    . 14132)	; &M-14132;
