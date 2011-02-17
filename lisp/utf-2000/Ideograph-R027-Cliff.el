@@ -2406,6 +2406,7 @@
 	))
       (=jis-x0208@1978	  . #x3139)	; &CB01085; [17-25]
       (=cbeta		  . 01085)	; &I-CB01085;
+      (=hanyo-denshi/ft	  . #x315A)	; &I-HD-FT-315A; [17-58]
       ))
     ))
 (define-char
