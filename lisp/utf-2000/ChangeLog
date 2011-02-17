@@ -21,6 +21,9 @@
 
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-4C68.
 
+	* Ideograph-R021-Spoon.el (AJ1-13697): Use `=decomposition@cid'
+	instead of `=decomposition'.
+
 	* Ideograph-R007-Two.el: Add some `=decomposition@cid' features.
 	(U+4E97): Unify AJ1-21081.
 
