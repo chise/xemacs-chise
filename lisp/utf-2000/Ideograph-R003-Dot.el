@@ -87,7 +87,7 @@
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (=decomposition
+    (=decomposition@cid
      ((=ucs		  . #x4E38)	; 丸
       )
      ((=ucs		  . #xE0100)	; 󠄀
@@ -258,7 +258,7 @@
      ((=gt-k		  . 00462)	; &GT-K00462;
       (=gt-pj-k2	  . #x436D)	; &GT-K00462; [35-77]
       )
-     ((=decomposition
+     ((=decomposition@cid
        ((=ucs		    . #x4E39)	; 丹
 	)
        ((=ucs		    . #xE0101)	; 󠄁
@@ -298,7 +298,7 @@
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
-    (=decomposition
+    (=decomposition@cid
      ((=ucs		  . #x4E3B)	; 主
       )
      ((=ucs		  . #xE0101)	; 󠄁
@@ -328,7 +328,7 @@
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
-    (=decomposition
+    (=decomposition@cid
      ((=ucs		  . #x4E3B)	; 主
       )
      ((=ucs		  . #xE0100)	; 󠄀

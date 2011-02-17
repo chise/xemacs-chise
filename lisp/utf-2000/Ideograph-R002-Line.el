@@ -27,7 +27,7 @@
      ((=>>jis-x0213-2	  . #x2125)	; &G-GT-00102; [01-05]
       (=>>gt		  . 00102)	; &G-GT-00102;
       (->subsumptive
-       ((=decomposition
+       ((=decomposition@cid
 	 ((=ucs		      . #x4E29)	; 丩
 	  )
 	 ((=ucs		      . #xE0100)	; 󠄀
@@ -197,7 +197,7 @@
     (=ucs		. #x4E2E)	; 丮
     (=big5		. #xC950)	; &I-B-C950;
     (->subsumptive
-     ((=decomposition
+     ((=decomposition@cid
        ((=ucs		    . #x4E2E)	; 丮
 	)
        ((=ucs		    . #xE0100)	; 󠄀
@@ -262,7 +262,7 @@
     (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (=decomposition
+    (=decomposition@cid
      ((=ucs		  . #x4E30)	; 丰
       )
      ((=ucs		  . #xE0100)	; 󠄀
@@ -293,7 +293,7 @@
     (total-strokes	 . 4)
     (=>>ucs@cns		. #x4E30)	; &G-CU+4E30;
     (->subsumptive
-     ((=decomposition
+     ((=decomposition@cid
        ((=ucs		    . #x4E30)	; 丰
 	)
        ((=ucs		    . #xE0101)	; 󠄁
@@ -350,7 +350,7 @@
     (=ucs		. #x4E31)	; 丱
     (=big5		. #xC963)	; &I-B-C963;
     (->subsumptive
-     ((=decomposition
+     ((=decomposition@cid
        ((=ucs		    . #x4E31)	; 丱
 	)
        ((=ucs		    . #xE0100)	; 󠄀
@@ -661,7 +661,7 @@
     (total-strokes	 . 10)
     (=ucs		. #x4E35)	; 丵
     (->subsumptive
-     ((=decomposition
+     ((=decomposition@cid
        ((=ucs		    . #x4E35)	; 丵
 	)
        ((=ucs		    . #xE0100)	; 󠄀
