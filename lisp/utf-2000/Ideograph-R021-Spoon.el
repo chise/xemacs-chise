@@ -252,7 +252,7 @@
     (ideographic-radical@misc . 21)	; ⼔
     (ideographic-strokes@misc . 4)
     (total-strokes	 . 6)
-    (=decomposition
+    (=decomposition@cid
      ((=ucs		  . #x3402)	; 㐂
       )
      ((=ucs		  . #xE0101)	; 󠄁
