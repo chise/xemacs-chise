@@ -465,17 +465,18 @@
       )
      ((=ucs		  . #x5144)	; 兄
       ))
-    (=>>ucs@unicode	. #x51B5)	; &GT-02141;
-    (=ucs@unicode	. #x51B5)	; &GT-02141;
-    (=jis-x0208		. #x5157)	; &GT-02141; [49-55]
+    (=>>ucs@unicode	. #x51B5)	; &AJ1-04238;
+    (=ucs@unicode	. #x51B5)	; &AJ1-04238;
+    (=jis-x0208		. #x5157)	; &AJ1-04238; [49-55]
     (=gb2312		. #x3F76)	; &I-G0-3F76; [31-86]
     (=cns11643-3	. #x2459)	; &I-C3-2459; [04-57]
     (=jis-x0213-1	. #x5157)	; &I-JX1-5157; [49-55]
     (=gt		. 02141)	; &I-GT-02141;
     (=gt-pj-1		. #x5157)	; &I-GT-02141; [49-55]
     (=daikanwa		. 01620)	; &I-M-01620;
-    (=shinjigen		.  4123)	; &GT-02141;
+    (=shinjigen		.  4123)	; &AJ1-04238;
     (=hanziku-1		. #xE2E4)	; &I-HZK01-E2E4;
+    (=adobe-japan1-0	. 04238)	; &I-AJ1-04238;
     (=hanyo-denshi/ja	. #x5157)	; &I-HD-JA-5157; [49-55]
     (<-vulgar
      ((=ucs		  . #x6CC1)	; 況
