@@ -1,4 +1,34 @@
+2011-02-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R008-Lid.el: Add some Adobe-Japan1-0 code points.
+	(G-GT-00389): Unify G-KU+4EA4.
+	(K0-4E5F): Unify KU+4EA4 and AJ1-13439.
+	(AJ1-17246): Add `=decomposition@cid'.
+	(U-00020158): Add ideographic-structure.
+	(M-00316): Unify AJ1-20075.
+	(AJ1-14216): Add `=decomposition@cid'.
+	(AJ1-14309): Likewise.
+
+	* Ideograph-R004-Slash.el: Add some `=decomposition@cid' features.
+	(U+5301): Copied from Ideograph-R020-Wrap.el; use `->subsumptive'.
+	(GT-00176): Use `<-subsumptive' for U+5301.
+
+	* Ideograph-R005-Second.el (AJ1-21076): Add `=decomposition@cid'.
+	(AJ1-22250): Likewise.
+	(AJ1-13968): Likewise.
+	(AJ1-21080): Likewise.
+
 2011-02-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R027-Cliff.el (J78-3139): Unify HD-FT1758.
+
+	* Ideograph-R026-Seal.el (G-UU+5377): New character; use
+	`->subsumptive' to integrate HD-FT2101 and UU+5377.
+	(U+537D): Use `->denotational' to integrate M-02873.
+	(o-JU+537F): New character.
+	(U-0002F833): Use o-JU+537F instead of U+537F as the mother.
+	(JX3-362A): Use o-JU+537F instead of U-0002F833 as the mother; add
+	`ideographic-structure'; unify HD-FT1778.
 
 	* Ideograph-R015-Ice.el (J0-5157): Unify AJ1-04238.
 
