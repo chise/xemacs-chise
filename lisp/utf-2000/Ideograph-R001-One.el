@@ -147,7 +147,7 @@
     (=>>jis-x0208	. #x3C37)	; 七 [28-23]
     (=big5		. #xA443)	; &I-B-A443;
     (->subsumptive
-     ((=decomposition
+     ((=decomposition@cid
        ((=ucs		    . #x4E03)	; 七
 	)
        ((=ucs		    . #xE0100)	; 󠄀
@@ -318,7 +318,7 @@
     (=>jis-x0213-1	. #x3E66)	; 丈 [30-70]
     (=big5		. #xA456)	; &I-B-A456;
     (->subsumptive
-     ((=decomposition
+     ((=decomposition@cid
        ((=ucs		    . #x4E08)	; 丈
 	)
        ((=ucs		    . #xE0101)	; 󠄁
@@ -334,7 +334,7 @@
       (=jef-china3	  . #x41A5)	; &I-JC3-41A5;
       (=adobe-japan1-4	  . 13463)	; &I-AJ1-13463;
       )
-     ((=decomposition
+     ((=decomposition@cid
        ((=ucs		    . #x4E08)	; 丈
 	)
        ((=ucs		    . #xE0100)	; 󠄀
@@ -613,7 +613,7 @@
     (=big5		. #xC94F)	; &G-GT-00023;
     (=>>gt		. 00023)	; &G-GT-00023;
     (->subsumptive
-     ((=decomposition
+     ((=decomposition@cid
        ((=ucs		    . #x4E0E)	; 与
 	)
        ((=ucs		    . #xE0101)	; 󠄁
@@ -663,7 +663,7 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (=decomposition
+    (=decomposition@cid
      ((=ucs		  . #x4E0E)	; 与
       )
      ((=ucs		  . #xE0100)	; 󠄀
@@ -740,7 +740,7 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (=decomposition
+    (=decomposition@cid
      ((=ucs		  . #x4E11)	; 丑
       )
      ((=ucs		  . #xE0100)	; 󠄀
@@ -864,7 +864,7 @@
       (<-vulgar*sources
        daikanwa)
       )
-     ((=decomposition
+     ((=decomposition@cid
        ((=ucs		    . #x2000B)	; 𠀋
 	)
        ((=ucs		    . #xE0100)	; 󠄀
@@ -938,7 +938,7 @@
       (<-vulgar*sources
        daikanwa)
       )
-     ((=decomposition
+     ((=decomposition@cid
        ((=ucs		    . #x4E12)	; 丒
 	)
        ((=ucs		    . #xE0100)	; 󠄀
@@ -1283,7 +1283,7 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
-    (=decomposition
+    (=decomposition@cid
      ((=ucs		  . #x4E17)	; 丗
       )
      ((=ucs		  . #xE0100)	; 󠄀
@@ -1378,7 +1378,7 @@
     (=>>ucs@unicode	. #x4E19)	; &G-J0-4A3A;
     (=>>jis-x0208	. #x4A3A)	; &G-J0-4A3A; [42-26]
     (->subsumptive
-     ((=decomposition
+     ((=decomposition@cid
        ((=ucs		    . #x4E19)	; 丙
 	)
        ((=ucs		    . #xE0100)	; 󠄀
@@ -1428,7 +1428,7 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
-    (=decomposition
+    (=decomposition@cid
      ((=ucs		  . #x4E19)	; 丙
       )
      ((=ucs		  . #xE0101)	; 󠄁
@@ -1992,7 +1992,7 @@
     (=>>ucs@unicode	. #x3402)	; &G-UU+3402;
     (->subsumptive
      ((morohashi-daikanwa	ho 1)
-      (=decomposition
+      (=decomposition@cid
        ((=ucs		    . #x3402)	; 㐂
 	)
        ((=ucs		    . #xE0102)	; 󠄂
@@ -2001,7 +2001,7 @@
       (=gt-pj-11	  . #x526E)	; 㐂󠄂 [50-78]
       (=adobe-japan1-4	  . 13699)	; &I-AJ1-13699;
       )
-     ((=decomposition
+     ((=decomposition@cid
        ((=ucs		    . #x3402)	; 㐂
 	)
        ((=ucs		    . #xE0100)	; 󠄀
@@ -2022,7 +2022,7 @@
     (ideographic-radical@misc . 21)	; ⼔
     (ideographic-strokes@misc . 4)
     (total-strokes	 . 6)
-    (=decomposition
+    (=decomposition@cid
      ((=ucs		  . #x3402)	; 㐂
       )
      ((=ucs		  . #xE0101)	; 󠄁
@@ -2435,7 +2435,7 @@
     (=>>gt		. 00089)	; &G-GT-00089;
     (=>>daikanwa	. 00053)	; &G-GT-00089;
     (->subsumptive
-     ((=decomposition
+     ((=decomposition@cid
        ((=ucs		    . #x4E26)	; 並
 	)
        ((=ucs		    . #xE0101)	; 󠄁
@@ -2471,7 +2471,7 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
-    (=decomposition
+    (=decomposition@cid
      ((=ucs		  . #x4E26)	; 並
       )
      ((=ucs		  . #xE0100)	; 󠄀
