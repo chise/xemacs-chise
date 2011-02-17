@@ -1,5 +1,24 @@
 2011-02-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R015-Ice.el (J0-5157): Unify AJ1-04238.
+
+	* Ideograph-R005-Second.el: Add some `=decomposition@cid'
+	features.
+	(JSP-3035): Unify AJ1-21076.
+	(U+9FB4): Unify AJ1-14048.
+	(U+4E63): Unify AJ1-21077.
+	(U+4E68): Unify AJ1-21078.
+	(U+8034): Use `->denotational' to separate GT-37568.
+	(JSP-555B): Unify AJ1-22250.
+	(K0-6A61): Unify AJ1-13968.
+	(U+4E74): Unify AJ1-21079.
+	(JSP-303A): Unify AJ1-21080.
+	(U-000200F5): Unify AJ1-20057.
+	(U-000200FC): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R001-One.el: Use `=decomposition@cid' instead of
+	`=decomposition'.
+
 	* Ideograph-R007-Two.el: Add some `=decomposition@cid' features.
 	(U+4E97): Unify AJ1-21081.
 
