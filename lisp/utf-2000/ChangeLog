@@ -1,3 +1,11 @@
+2011-02-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R007-Two.el: Add some `=decomposition@cid' features.
+	(U+4E97): Unify AJ1-21081.
+
+	* Ideograph-R003-Dot.el, Ideograph-R002-Line.el: Use
+	`=decomposition@cid' instead of `=decomposition'.
+
 2011-02-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R008-Lid.el: Add Hanyo-Denshi/KS code points.
