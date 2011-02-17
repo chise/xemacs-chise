@@ -19,6 +19,8 @@
 	* Ideograph-R001-One.el: Use `=decomposition@cid' instead of
 	`=decomposition'.
 
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-4C68.
+
 	* Ideograph-R007-Two.el: Add some `=decomposition@cid' features.
 	(U+4E97): Unify AJ1-21081.
 
@@ -26,6 +28,9 @@
 	`=decomposition@cid' instead of `=decomposition'.
 
 2011-02-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Treat
+	`=decomposition@FOO' as the same as `=decomposition'.
 
 	* Ideograph-R008-Lid.el: Add Hanyo-Denshi/KS code points.
 	(M-00292): Unify HD-JT-AD2B.
