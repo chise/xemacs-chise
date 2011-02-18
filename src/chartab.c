@@ -5,7 +5,7 @@
    Copyright (C) 1995, 1997, 1999 Electrotechnical Laboratory, JAPAN.
    Licensed to the Free Software Foundation.
    Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2008,
-     2010 MORIOKA Tomohiko
+     2010, 2011 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -3535,13 +3535,22 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       attribute = XCHARSET_NAME (ccs);
     }
   else if ( EQ (attribute, Qrep_decomposition) ||
-	    EQ (attribute, Q_decomposition) )
+	    EQ (attribute, Q_decomposition) ||
+	    !NILP (Fstring_match (build_string ("^=decomposition@[^*]+$"),
+				  Fsymbol_name (attribute),
+				  Qnil, Qnil))
+	    )
     {
+      Lisp_Object ret;
+
       value = Fcopy_sequence (Fchar_refs_simplify_char_specs (value));
-      attribute = put_char_composition (character, value);
-      if ( !EQ (attribute, Qrep_decomposition) &&
+      ret = put_char_composition (character, value);
+      if ( !EQ (ret, Qrep_decomposition) &&
 	   SYMBOLP (XCAR (value)) )
-	value = XCDR (value);
+	{
+	  attribute = ret;
+	  value = XCDR (value);
+	}
     }
   else if (EQ (attribute, Qto_ucs))
     {
