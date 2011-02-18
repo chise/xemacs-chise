@@ -1675,7 +1675,7 @@
   (make-charset
    '=>>hanyo-denshi/ft
    "Han'you-Denshi/FT abstract glyphs"
-   '(long-name "Han'you-Denshi/FT"
+   '(long-name "Han'you-Denshi/FT glyphs"
 	       chars 94
 	       dimension 2
 	       columns 2
@@ -1684,9 +1684,20 @@
 	       registry "HanyoDenshi\\.FT-0$"
 	       mother =hanyo-denshi/ft))
   (make-charset
+   '=>>hanyo-denshi/jt
+   "JT (Juuki Touitsu Moji) abstract glyphs"
+   '(long-name "Han'you-Denshi/JT glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JT-0$"
+	       mother =hanyo-denshi/jt))
+  (make-charset
    '=>>hanyo-denshi/ks
    "Han'you-Denshi/KS abstract glyphs"
-   '(long-name "Han'you-Denshi/KS"
+   '(long-name "Han'you-Denshi/KS glyphs"
 	       chars 94
 	       dimension 2
 	       columns 2
