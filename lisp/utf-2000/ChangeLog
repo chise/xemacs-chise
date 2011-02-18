@@ -20,6 +20,34 @@
 
 2011-02-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R020-Wrap.el (U-0002F828): Unify HD-JT-AE53.
+	(U+5301): Use `ideographic-{radical|strokes}@ucs'; add
+	`ideographic-{radical|strokes}@daikanwa=00129'; separate GT-03212
+	and M-02502; unify AJ1-03828; use `->subsumptive' to integrate
+	GT-00176 and GT-03212.
+	(C3-2224): Unify HD-JT-AFB6.
+
+	* Ideograph-R015-Ice.el (K0-544F): Unify HD-JT-ADF8.
+	(mother of M-01615): Unify G-UU+51B4.
+	(M-01615): Unify HD-JT-ADFC.
+	(mother of JX1-3A63): Unify G-UU+51B4.
+
+	* Ideograph-R014-Cover.el (HD-JT-ADF1): New character.
+
+	* Ideograph-R012-Eight.el (G0-3E5F): Unify HD-JT-ADD3.
+	(HD-JT-ADCC): New character.
+
+	* Ideograph-R011-Enter.el (JSP-326E): Unify AJ1-21181.
+	(K0-6E6F): Unify HD-JT-ADC5.
+
+	* Ideograph-R010-Legs.el (G-UU+514A): New node to integrate
+	UU+514A and HD-JT-ADB8.
+	(HD-JT-ADB8): New character.
+	(G-UU+514C): New node to integrate UU+514C and HD-JT-ADBC.
+	(GT-K05208): Unify HD-JT-ADC1.
+
+2011-02-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R027-Cliff.el (J78-3139): Unify HD-FT1758.
 
 	* Ideograph-R026-Seal.el (G-UU+5377): New character; use
