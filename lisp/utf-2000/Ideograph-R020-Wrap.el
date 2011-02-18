@@ -50,6 +50,7 @@
     (=daikanwa		. 02494)	; &I-M-02494;
     (=shinjigen		.  0763)	; 勺
     (=jef-china3	. #x45A1)	; &I-JC3-45A1;
+    (=hanyo-denshi/jt	. #xAE53)	; &I-HD-JT-AE53;
     ))
 (define-char
   '((<-denotational
@@ -275,8 +276,14 @@
     (=shinjigen		.  0767)	; 勿
     ))
 (define-char
-  '((ideographic-radical . 20)	; ⼓
-    (ideographic-strokes . 2)
+  '((ideographic-radical@ucs . 20)	; ⼓
+    (ideographic-strokes@ucs . 2)
+    (ideographic-radical@ucs*sources
+     daikanwa=02502)
+    (ideographic-strokes@ucs*sources
+     daikanwa=02502)
+    (ideographic-radical@daikanwa=00129 . 4)	; ⼃
+    (ideographic-strokes@daikanwa=00129 . 3)
     (total-strokes	 . 4)
     (ideographic-structure
      ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
@@ -289,13 +296,30 @@
     (=ucs		. #x5301)	; 匁
     (=jis-x0208		. #x4C68)	; &I-J90-4C68; [44-72]
     (=jis-x0213-1	. #x4C68)	; &I-JX1-4C68; [44-72]
-    (=gt		. 03212)	; &I-GT-03212;
-    (=gt-pj-1		. #x4C68)	; &I-GT-03212; [44-72]
-    (=daikanwa		. 02502)	; &I-M-02502;
     (=shinjigen		.  0769)	; 匁
-    (<-same
-     ((=gt		  . 00176)	; &GT-00176;
+    (=adobe-japan1-0	. 03828)	; &I-AJ1-03828;
+    (->subsumptive
+     ((ideographic-radical . 4)	; ⼃
+      (ideographic-strokes . 3)
+      (=gt		  . 00176)	; &GT-00176;
+      (=gt-pj-11	  . #x527B)	; &GT-00176; [50-91]
       (=daikanwa	  . 00129)	; &I-M-00129;
+      (<-same
+       ((=gt		    . 03212)	; &GT-03212;
+	(=daikanwa	    . 02502)	; &I-M-02502;
+	))
+      (<-same*sources
+       daikanwa)
+      )
+     ((ideographic-radical . 20)	; ⼓
+      (ideographic-strokes . 2)
+      (=gt		  . 03212)	; &GT-03212;
+      (=gt-pj-1		  . #x4C68)	; &GT-03212; [44-72]
+      (=daikanwa	  . 02502)	; &I-M-02502;
+      (<-same
+       ((=gt		    . 00176)	; &GT-00176;
+	(=daikanwa	    . 00129)	; &I-M-00129;
+	))
       ))
     ))
 (define-char
@@ -375,6 +399,7 @@
        ((=ucs		    . #x52F9)	; 勹
 	)
        ((=daikanwa	    . 00287)	; &I-M-00287;
+	(=adobe-japan1-4    . 14031)	; &I-AJ1-14031;
 	))
       (=daikanwa	  . 02505)	; &M-02505;
       )
@@ -598,9 +623,10 @@
       )
      ((=ucs		  . #x5915)	; 夕
       ))
-    (=ucs@unicode	. #x5307)	; &C3-2224;
-    (=cns11643-3	. #x2224)	; &C3-2224; [02-04]
+    (=ucs@unicode	. #x5307)	; &HD-JT-AFB6;
+    (=cns11643-3	. #x2224)	; &HD-JT-AFB6; [02-04]
     (=jef-china3	. #x45A8)	; &I-JC3-45A8;
+    (=hanyo-denshi/jt	. #xAFB6)	; &I-HD-JT-AFB6;
     ))
 (define-char
   '((<-denotational
