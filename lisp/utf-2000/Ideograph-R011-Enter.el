@@ -104,13 +104,15 @@
 	(=jis-x0213-1	    . #x467E)	; &I-JX1-467E; [38-94]
 	(=daikanwa	    . 01415)	; &I-M-01415;
 	))
-      (=ucs@jis		  . #x5166)	; &M-01417;
-      (=jis-x0212	  . #x326E)	; &M-01417; [18-78]
+      (=ucs@jis		  . #x5166)	; &AJ1-21181;
+      (=jis-x0212	  . #x326E)	; &AJ1-21181; [18-78]
       (=daikanwa	  . 01417)	; &I-M-01417;
-      (=shinjigen@1ed	  .  0091)	; &M-01417;
+      (=shinjigen@1ed	  .  0091)	; &AJ1-21181;
+      (=adobe-japan1-6	  . 21181)	; &I-AJ1-21181;
       (<-original
        ((=daikanwa	    . 00287)	; &I-M-00287;
-	(=shinjigen	    .  0090)	; &M-00287;
+	(=shinjigen	    .  0090)	; &AJ1-14031;
+	(=adobe-japan1-4    . 14031)	; &I-AJ1-14031;
 	))
       (<-original*sources
        zhengzitong daikanwa shinjigen@1ed)
@@ -454,6 +456,7 @@
       (=daikanwa	  . 01424)	; &I-M-01424;
       (=shinjigen	  .  4876)	; &GT-01862;
       (=jef-china3	  . #x43DF)	; &I-JC3-43DF;
+      (=hanyo-denshi/jt	  . #xADC5)	; &I-HD-JT-ADC5;
       )
      ((=ucs@cns		  . #x5168)	; &C1-4740;
       (=cns11643-1	  . #x4740)	; &C1-4740; [39-32]
