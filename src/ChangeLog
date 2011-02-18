@@ -1,3 +1,17 @@
+2011-02-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (Vdecomposition_feature_list): New variable when
+	UTF2000 is defined.
+	(char_encode_utf8): Refer variable `decomposition-feature-list'
+	instead of `=decomposition' feature.
+	(vars_of_file_coding): Add new variable
+	`decomposition-feature-list' when UTF2000 is defined.
+
+2011-02-16  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): Support `=decomposition@FOO' as
+	`=decomposition' feature.
+
 2011-02-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Fmake_charset): Fix problem for 94^n or 96^n
