@@ -620,6 +620,8 @@
       (=ucs@unicode	  . #x51A2)	; &G0-5A23;
       (=gb2312		  . #x5A23)	; &G0-5A23; [58-03]
       )
+     ((=hanyo-denshi/jt	  . #xADF1)	; &HD-JT-ADF1;
+      )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
