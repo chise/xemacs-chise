@@ -1,3 +1,12 @@
+2011-02-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `=>>hanyo-denshi/jt' and `=>gt-k'.
+
+2011-02-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>gt-k): New coded-charset for XEmacs CHISE.
+
 2011-02-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=>>hanyo-denshi/jt): New coded-charset for
