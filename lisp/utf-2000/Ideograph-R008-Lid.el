@@ -2000,6 +2000,7 @@
 	)
        ((=ucs		    . #x51E0)	; 几
 	))
+      (=ucs@cns		  . #x2015E)	; &C6-3531;
       (=cns11643-6	  . #x3531)	; &C6-3531; [21-17]
       ))
     ))
@@ -2696,6 +2697,23 @@
     (ideographic-radical@cns*sources
      daikanwa cns11643)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+	(=ucs		    . #x2FF2)	; ⿲
+	)
+       ((=ucs		    . #x571F)	; 土
+	)
+       ((=ucs		    . #x77E2)	; 矢
+	)
+       ((=ucs		    . #x5315)	; 匕
+	))
+      ))
     (=ucs		. #x20170)	; 𠅰
     (->subsumptive
      ((ideographic-radical . 111)	; ⽮
@@ -2748,6 +2766,7 @@
       )
      ((ideographic-radical . 111)	; ⽮
       (ideographic-strokes . 7)
+      (=ucs@cns		  . #x20170)	; &C6-4C2D;
       (=cns11643-6	  . #x4C2D)	; &C6-4C2D; [44-13]
       ))
     ))
@@ -2932,8 +2951,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
 	(=ucs		    . #x2FF3)	; ⿳
 	)
-       ((=ucs@jis	    . #x516D)	; &GT-01896;
-	(=jis-x0208	    . #x4F3B)	; &GT-01896; [47-27]
+       ((=ucs@jis	    . #x516D)	; &AJ1-04065;
+	(=jis-x0208	    . #x4F3B)	; &AJ1-04065; [47-27]
 	(=ks-x1001	    . #x573F)	; &I-K0-573F; [55-31]
 	(=jis-x0213-1	    . #x4F3B)	; &I-JX1-4F3B; [47-27]
 	(=daikanwa	    . 01453)	; &I-M-01453;
@@ -2964,7 +2983,8 @@
       (=ucs@unicode	  . #x342E)	; &HZK01-E1F8;
       (=hanziku-1	  . #xE1F8)	; &HZK01-E1F8;
       )
-     ((=cns11643-3	  . #x4034)	; &C3-4034; [32-20]
+     ((=ucs@cns		  . #x342E)	; &C3-4034;
+      (=cns11643-3	  . #x4034)	; &C3-4034; [32-20]
       ))
     ))
 (define-char
@@ -3554,6 +3574,7 @@
 	(=cns11643-1	    . #x4434)	; &I-C1-4434; [36-20]
 	(=jis-x0213-1	    . #x4B74)	; &I-JX1-4B74; [43-84]
 	))
+      (=ucs@cns		  . #x2018E)	; &C5-5353;
       (=cns11643-5	  . #x5353)	; &C5-5353; [51-51]
       )
      ((=ucs@iso		  . #x2018E)	; &U-0002018E;
