@@ -1,22 +1,11 @@
 2011-02-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R008-Lid.el: Add some Adobe-Japan1-0 code points.
-	(G-GT-00389): Unify G-KU+4EA4.
-	(K0-4E5F): Unify KU+4EA4 and AJ1-13439.
-	(AJ1-17246): Add `=decomposition@cid'.
-	(U-00020158): Add ideographic-structure.
-	(M-00316): Unify AJ1-20075.
-	(AJ1-14216): Add `=decomposition@cid'.
-	(AJ1-14309): Likewise.
+	* Ideograph-R029-Again.el: Add Hanyo-Denshi/JT code points.
+	(U-0002F836): Add `=decomposition@cid'.
 
-	* Ideograph-R004-Slash.el: Add some `=decomposition@cid' features.
-	(U+5301): Copied from Ideograph-R020-Wrap.el; use `->subsumptive'.
-	(GT-00176): Use `<-subsumptive' for U+5301.
+	* Ideograph-R027-Cliff.el (S-0879): Unify HD-JT-AE85.
 
-	* Ideograph-R005-Second.el (AJ1-21076): Add `=decomposition@cid'.
-	(AJ1-22250): Likewise.
-	(AJ1-13968): Likewise.
-	(AJ1-21080): Likewise.
+	* Ideograph-R026-Seal.el: Add Hanyo-Denshi/JT code points.
 
 2011-02-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
@@ -45,6 +34,26 @@
 	(HD-JT-ADB8): New character.
 	(G-UU+514C): New node to integrate UU+514C and HD-JT-ADBC.
 	(GT-K05208): Unify HD-JT-ADC1.
+
+2011-02-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R008-Lid.el: Add some Adobe-Japan1-0 code points.
+	(G-GT-00389): Unify G-KU+4EA4.
+	(K0-4E5F): Unify KU+4EA4 and AJ1-13439.
+	(AJ1-17246): Add `=decomposition@cid'.
+	(U-00020158): Add ideographic-structure.
+	(M-00316): Unify AJ1-20075.
+	(AJ1-14216): Add `=decomposition@cid'.
+	(AJ1-14309): Likewise.
+
+	* Ideograph-R004-Slash.el: Add some `=decomposition@cid' features.
+	(U+5301): Copied from Ideograph-R020-Wrap.el; use `->subsumptive'.
+	(GT-00176): Use `<-subsumptive' for U+5301.
+
+	* Ideograph-R005-Second.el (AJ1-21076): Add `=decomposition@cid'.
+	(AJ1-22250): Likewise.
+	(AJ1-13968): Likewise.
+	(AJ1-21080): Likewise.
 
 2011-02-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
@@ -108,7 +117,9 @@
 
 	* Ideograph-R040-Roof.el (JSP-3A5B): Unify HD-JB2659.
 
-2011-02-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+2011-02-16  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R146-West.el (G-J0-4D57): Unify G-UU+8981.
 
 	* Ideograph-R066-Rap.el (U+654E): Use `->subsumptive'.
 	(K0-4E67): Unify AJ1-08471.
