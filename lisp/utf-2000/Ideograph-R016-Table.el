@@ -881,6 +881,7 @@
     (=daikanwa		. 01776)	; &I-M-01776;
     (=hanziku-12	. #xEBA9)	; &I-HZK12-EBA9;
     (=jef-china3	. #x44A8)	; &I-JC3-44A8;
+    (=adobe-japan1-4	. 14353)	; &I-AJ1-14353;
     ))
 (define-char
   '((morohashi-daikanwa	ho 47)
@@ -1387,6 +1388,7 @@
     (=hanziku-1		. #xDF7B)	; &I-HZK01-DF7B;
     (=cbeta		. 06316)	; &I-CB06316;
     (=jef-china3	. #x44AB)	; &I-JC3-44AB;
+    (=adobe-japan1-4	. 14354)	; &I-AJ1-14354;
     ))
 (define-char
   '((ideographic-radical . 16)	; ⼏
