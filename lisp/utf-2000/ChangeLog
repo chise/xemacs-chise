@@ -1,3 +1,38 @@
+2011-02-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R016-Table.el: Add some Adobe-Japan1-4 code points.
+
+	* Ideograph-R073-Say.el (C1-5937): Unify HD-JT-AEA3.
+
+	* Ideograph-R064-Hand.el: Add some Adobe-Japan1-2 code points.
+	(U+62A6): Use `->subsumptive' to separate representative nodes.
+	(U+62A8): Use `->denotational'.
+	(U+62A9): Likewise.
+	(U+63A2): Likewise.
+	(U+63F5): Use `->subsumptive'.
+	(U+6460): Use `->denotational' instead of `->subsumptive'.
+	(U+6461): Use `->denotational' and `->subsumptive'.
+	(U-00022CBB): Use `->subsumptive' to separate representative
+	nodes.
+	(U+6462): Likewise.
+	(U+6463): Likewise.
+	(mother of JX2-2D50): Unify A-UU+649D and A-CU+2F8C5; use
+	`->denotational' instead of `->subsumptive'.
+	(U+649E): Use `->denotational' to separate S-3081.
+	(U+64CE): Use `->denotational'.
+	(U+64CF): Likewise.
+
+2011-02-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R059-Bristle.el (J0-3D24): Unify AJ1-02350.
+
+	* Ideograph-R010-Legs.el: Add some Adobe-Japan1-0 code points.
+	(U-0002047A): Use `->subsumptive'.
+	(A-JX1-4C48): Unify A-J2004U+514D; use `->denotational' instead of
+	`->subsumptive'.
+	(U+515E): Add ideographic-structure.
+	(U+5162): Use `->subsumptive' to separate representative nodes.
+
 2011-02-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R029-Again.el: Add Hanyo-Denshi/JT code points.
