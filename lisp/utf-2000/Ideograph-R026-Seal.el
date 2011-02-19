@@ -616,6 +616,8 @@
       (=ucs@unicode	  . #x5377)	; &C1-4C3A;
       (=gb2312		  . #x3E6D)	; &C1-4C3A; [30-77]
       (=cns11643-1	  . #x4C3A)	; &I-C1-4C3A; [44-26]
+      )
+     ((=hanyo-denshi/jt	  . #xAE76)	; &HD-JT-AE76;
       ))
     ))
 (define-char
@@ -1165,6 +1167,7 @@
     (=cns11643-3	. #x3A26)	; &I-C3-3A26; [26-06]
     (=daikanwa		. 02879)	; &I-M-02879;
     (=shinjigen		.  0869)	; 卿
+    (=hanyo-denshi/jt	. #xAE7E)	; &I-HD-JT-AE7E;
     (<-same
      ((=ucs@jis/2004	  . #x537F)	; &M-02880;
       (=ucs@ks		  . #x537F)	; &M-02880;
