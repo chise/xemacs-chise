@@ -209,7 +209,8 @@
       (=ucs@iso		  . #x20088)	; &CDP-87F5;
       (=big5-cdp	  . #x87F5)	; &CDP-87F5;
       )
-     ((=cns11643-6	  . #x2124)	; &GT-K00130; [01-04]
+     ((=ucs@cns		  . #x20088)	; &GT-K00130;
+      (=cns11643-6	  . #x2124)	; &GT-K00130; [01-04]
       (=gt-k		  . 00130)	; &I-GT-K00130;
       (=gt-pj-k2	  . #x322C)	; &GT-K00130; [18-12]
       ))
@@ -1045,6 +1046,7 @@
       )
      ((ideographic-strokes . 4)
       (total-strokes	   . 5)
+      (=ucs@cns		  . #x200A0)	; &C6-222E;
       (=cns11643-6	  . #x222E)	; &C6-222E; [02-14]
       )
      ((ideographic-strokes . 5)
@@ -1787,8 +1789,8 @@
        ((=big5-cdp	    . #x89DF)	; &CDP-89DF;
 	)
        ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
 	  )
 	 ((=ucs		      . #x4E00)	; 一
 	  )
@@ -1798,7 +1800,8 @@
       (=ucs@iso		  . #x200B6)	; &HZK01-ABFC;
       (=hanziku-1	  . #xABFC)	; &HZK01-ABFC;
       )
-     ((=cns11643-6	  . #x293D)	; &C6-293D; [09-29]
+     ((=ucs@cns		  . #x200B6)	; &C6-293D;
+      (=cns11643-6	  . #x293D)	; &C6-293D; [09-29]
       ))
     ))
 (define-char
