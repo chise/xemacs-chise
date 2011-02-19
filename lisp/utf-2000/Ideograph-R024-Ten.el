@@ -331,6 +331,7 @@
     (=gt-pj-1		. #x5042)	; &I-GT-00509; [48-34]
     (=daikanwa		. 00380)	; &I-M-00380;
     (=shinjigen		.  0138)	; 仟
+    (=adobe-japan1-0	. 04123)	; &I-AJ1-04123;
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
@@ -380,6 +381,7 @@
     (=daikanwa		. 02707)	; &I-M-02707;
     (=shinjigen		.  0820)	; &GT-03469;
     (=jef-china3	. #x45C7)	; &I-JC3-45C7;
+    (=hanyo-denshi/jt	. #xAE62)	; &I-HD-JT-AE62;
     ))
 (define-char
   '((<-denotational
@@ -407,6 +409,15 @@
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (=>gt-k		. 01097)	; &A-GT-K01097;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 01097)	; &A-GT-K01097;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
     (=gt-k		. 00987)	; &GT-K00987;
     (=gt-pj-k1		. #x3058)	; &GT-K00987; [16-56]
     (<-formed@component/connect-right
@@ -419,7 +430,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x534A)	; 半
+     ((=>gt-k		  . 01097)	; &A-GT-K01097;
       ))
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 3)
@@ -1472,6 +1483,7 @@
       (=ks-x1001	  . #x5A4F)	; &I-K0-5A4F; [58-47]
       (=daikanwa	  . 02761)	; &I-M-02761;
       (=jef-china3	  . #x45C6)	; &I-JC3-45C6;
+      (=hanyo-denshi/jt	  . #xAE73)	; &I-HD-JT-AE73;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1482,9 +1494,27 @@
        ((=ucs@cns	    . #x5C03)	; &C2-2E6B;
 	(=cns11643-2	    . #x2E6B)	; &C2-2E6B; [14-75]
 	))
-      (=cns11643-1	  . #x5E3B)	; &C1-5E3B; [62-27]
-      (=shinjigen	  .  0833)	; &C1-5E3B;
+      (=cns11643-1	  . #x5E3B)	; &HD-JT-AE6E; [62-27]
+      (=shinjigen	  .  0833)	; &HD-JT-AE6E;
+      (=hanyo-denshi/jt	  . #xAE6E)	; &I-HD-JT-AE6E;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x535A)	; 博
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5341)	; 十
+      )
+     ((=ucs		  . #x5C02)	; 専
+      ))
+    (=hanyo-denshi/jt	. #xAE6C)	; &HD-JT-AE6C;
     ))
 (define-char
   '((<-denotational
@@ -1496,6 +1526,7 @@
     (total-strokes	 . 12)
     (=ucs		. #x2F82E)	; 博
     (=cns11643-6	. #x4674)	; &I-C6-4674; [38-84]
+    (=hanyo-denshi/jt	. #xAE6D)	; &I-HD-JT-AE6D;
     ))
 (define-char
   '((<-denotational
@@ -1505,14 +1536,6 @@
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5341)	; 十
-      )
-     ((=ucs		  . #x5C02)	; 専
-      ))
     (=>>ucs@jis		. #x535A)	; &GT-03527;
     (=ucs@jis		. #x535A)	; &GT-03527;
     (=jis-x0208		. #x476E)	; &GT-03527; [39-78]
