@@ -206,6 +206,7 @@
     =>daikanwa
     =big5
     =big5-eten
+    =>gt-k
     =zinbun-oracle
     =>zinbun-oracle
     =ruimoku-v6
@@ -463,7 +464,7 @@
 			    =daikanwa@rev1 =daikanwa@rev2
 			    =daikanwa/+p =daikanwa/+2p
 			    =>>daikanwa =>daikanwa
-			    =gt =>>gt =>gt =gt-k =>>gt-k =cbeta
+			    =gt =>>gt =>gt =gt-k =>>gt-k =>gt-k =cbeta
 			    =zinbun-oracle =>zinbun-oracle))
 	       (string-match "^=adobe-" (symbol-name name)))
 	   "(%-18s . %05d)\t; %c")
