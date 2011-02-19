@@ -605,6 +605,15 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=gt-k))
+  (make-charset '=>gt-k
+		"GT-K abstract characters"
+		'(long-name	"GT-K abstract characters"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=>>gt-k))
   (let ((i 1))
     (while (<= i 11)
       (make-charset
