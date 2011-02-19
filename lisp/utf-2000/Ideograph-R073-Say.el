@@ -344,6 +344,7 @@
     (total-strokes	 . 11)
     (=cns11643-1	. #x5937)	; &M-14298; [57-23]
     (=daikanwa		. 14298)	; &I-M-14298;
+    (=hanyo-denshi/jt	. #xAEA3)	; &I-HD-JT-AEA3;
     ))
 (define-char
   '((<-denotational
@@ -747,8 +748,8 @@
       )
      ((=cns11643-1	  . #x454B)	; &C1-454B; [37-43]
       )
-     ((=ucs@jis		  . #x514D)	; &GT-01783;
-      (=jis-x0208	  . #x4C48)	; &GT-01783; [44-40]
+     ((=ucs@jis		  . #x514D)	; &AJ1-03796;
+      (=jis-x0208	  . #x4C48)	; &AJ1-03796; [44-40]
       (=jis-x0213-1	  . #x4C48)	; &I-JX1-4C48; [44-40]
       ))
     (=hanyo-denshi/ib	. #x2E40)	; &HD-IB-2E40; [14-32]
