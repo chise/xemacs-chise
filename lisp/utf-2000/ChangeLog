@@ -1,5 +1,10 @@
 2011-02-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R002-Line.el (C2-2130): Unify CU+4E2E.
+	(C2-2143): Unify CU+4E31.
+
+2011-02-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R016-Table.el: Add some Adobe-Japan1-4 code points.
 
 	* Ideograph-R073-Say.el (C1-5937): Unify HD-JT-AEA3.
