@@ -1,9 +1,78 @@
 2011-02-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R019-Power.el: Add Hanyo-Denshi/FT and JT code points.
+	(G-UU+52C7): Add ideographic-structure.
+	(C1-502D): Omit `ideographic-structure'.
+	(U+52DD): Add ideographic-structure.
+	(J0-3E21): Add `ideographic-structure'.
+	(U+52E6): Use `->denotational' and `->subsumptive' to integrate
+	HD-FT2090.
+	(U+52F3): Use `->denotational' and `->subsumptive' to integrate
+	HD-FT2093.
+
+	* Ideograph-R012-Eight.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add some abstract `ideographic-structure's.
+	(HD-FT2080): Add `ideographic-structure'.
+	(mother of M-01456): Unify G-M-01456.
+	(mother of C5-2137): Unify G-IU+20502.
+	(mother of C4-2234): Unify G-CU+5173.
+	(G-UU+5173): New character.
+	(UU+5173): Use `<-subsumptive' for G-UU+5173.
+	(G-M-01477): New character.
+	(M-01477): Use `<-subsumptive' for G-M-01477.
+	(mother of C3-2B38): Unify G-UU+34B8.
+	(mother of C3-403F): Unify G-JU+517E and G-CU+517E.
+	(JSP-326F): Modify a component in `ideographic-structure'.
+	(C3-403F): Likewise.
+	(H1-D9DB): Likewise.
+	(G-UU+517E): New character.
+	(UU+517E): Use `<-subsumptive' for G-UU+517E.
+	(U+5180): Use `->subsumptive'.
+	(mother of C7-4D3E): Unify G-CU+2F813 instead of U-0002F813.
+	(C7-4D3E): Unify U-0002F813.
+
+	* Ideograph-R005-Second.el: Add `=ucs@cns' for some CNS code
+	points.
+	(U-000200CF): Use `->denotational'.
+	(U-000200D5): Use `->denotational'.
+	(BC-87D1): Use `<-denotational' for U-00020114.
+	(U-000200E5): Add ideographic-structure.
+	(C6-2344): Omit `ideographic-structure'.
+	(U+4E82): Add ideographic-structure.
+	(J0-502C): Add `ideographic-structure'.
+
+	* Ideograph-R008-Lid.el (C6-3531): Unify CU+2015E.
+	(U-00020170): Add ideographic-structure.
+	(C6-4C2D): Unify CU+20170.
+	(C3-4034): Unify CU+342E.
+	(C5-5353): Unify CU+2018E.
+
+	* Ideograph-R006-Hook.el (U-00020112): Add ideographic-structure.
+	(C6-2147): Unify CU+20112.
+	(U-00020114): Use `->denotational'.
+	(C6-2149): Unify CU+20114.
+
+	* Ideograph-R004-Slash.el (C6-2124): Unify CU+20088.
+	(C6-222E): Unify CU+200A0.
+	(H1-ABFC): Modify an operator in `ideographic-structure'.
+	(C6-293D): Unify CU+200B6.
+
+	* Ideograph-R001-One.el (C6-233F): Unify CU+2001A.
+	(U-00020922): Use `->subsumptive'.
+	(C6-3524): Unify CU+20922.
+
 	* Ideograph-R002-Line.el (C2-2130): Unify CU+4E2E.
 	(C2-2143): Unify CU+4E31.
 
 2011-02-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R024-Ten.el: Add Hanyo-Denshi/JT code points.
+	(U+4EDF): Unify AJ1-04123.
+	(A-GT-K1097): New character.
+	(GT-0987): Use A-GT-K1097 instead of U+534A as the mother.
+	(GT-1097): Ditto.
+	(J0-476E): Delete `ideographic-structure'.
 
 	* Ideograph-R016-Table.el: Add some Adobe-Japan1-4 code points.
 
@@ -37,6 +106,10 @@
 	`->subsumptive'.
 	(U+515E): Add ideographic-structure.
 	(U+5162): Use `->subsumptive' to separate representative nodes.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>gt-k'.
+	(char-db-insert-ccs-feature): Add setting for `=>gt-k'.
 
 2011-02-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
