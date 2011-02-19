@@ -1032,7 +1032,8 @@
        ((=ks-x1001	    . #x5B2B)	; &M-07554; [59-11]
 	(=daikanwa	    . 07554)	; &I-M-07554;
 	))
-      (=shinjigen	  .  0879)	; &SJG2-0879;
+      (=shinjigen	  .  0879)	; &HD-JT-AE85;
+      (=hanyo-denshi/jt	  . #xAE85)	; &HD-JT-AE85;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
