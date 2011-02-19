@@ -163,9 +163,10 @@
     (ideographic-radical . 146)	; ⾑
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
+    (=>>ucs@unicode	. #x8981)	; &G-GT-46811;
     (=>>jis-x0208	. #x4D57)	; &G-GT-46811; [45-55]
     (=>>jis-x0213-1	. #x4D57)	; &G-GT-46811; [45-55]
-    (=big5		. #xAD6E)	; &G-GT-46811;
+    (=big5		. #xAD6E)	; &I-B-AD6E;
     (=>>gt		. 46811)	; &G-GT-46811;
     (->subsumptive
      ((morohashi-daikanwa	34768 1)
