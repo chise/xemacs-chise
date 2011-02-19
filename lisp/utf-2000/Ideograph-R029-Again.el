@@ -118,6 +118,7 @@
     (=daikanwa		. 03118)	; &I-M-03118;
     (=shinjigen@1ed	.  0901)	; &M-03118;
     (=jef-china3	. #x45EF)	; &I-JC3-45EF;
+    (=hanyo-denshi/jt	. #xAE9B)	; &I-HD-JT-AE9B;
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
@@ -144,6 +145,11 @@
     (ideographic-radical@gt . 4)	; ⼃
     (ideographic-strokes@gt . 2)
     (total-strokes@gt	    . 3)
+    (=decomposition@cid
+     ((=ucs		  . #x53CA)	; 及
+      )
+     ((=ucs		  . #xE0100)	; 󠄀
+      ))
     (hanyu-dazidian	1 35 1)
     (=ucs		. #x2F836)	; 及
     (=ucs@unicode	. #x53CA)	; 及
@@ -1348,6 +1354,7 @@
       (=ks-x1001	  . #x5A64)	; &M-03166; [58-68]
       (=jis-x0213-1@2004  . #x4840)	; &I-JX3-4840; [40-32]
       (=daikanwa	  . 03166)	; &I-M-03166;
+      (=hanyo-denshi/ft	  . #x3D34)	; &I-HD-FT-3D34; [29-20]
       ))
     ))
 (define-char
@@ -1921,6 +1928,7 @@
     (total-strokes	 . 11)
     (=cns11643-1	. #x5937)	; &M-14298; [57-23]
     (=daikanwa		. 14298)	; &I-M-14298;
+    (=hanyo-denshi/jt	. #xAEA3)	; &I-HD-JT-AEA3;
     ))
 (define-char
   '((<-denotational
