@@ -532,6 +532,11 @@
       )
      ((=ucs		  . #xE0100)	; 󠄀
       ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x53CA)	; 及
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (hanyu-dazidian	1 35 1)
     (=ucs		. #x2F836)	; 及
     (=ucs@unicode	. #x53CA)	; 及
@@ -1578,6 +1583,11 @@
        ((=ucs		    . #x4E55)	; 乕
 	)
        ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x4E55)	; 乕
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
 	))
       (=ucs@jis		  . #x4E55)	; 乕󠄀
       (=jis-x0208	  . #x6949)	; 乕󠄀 [73-41]
