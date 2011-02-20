@@ -268,6 +268,11 @@
       )
      ((=ucs		  . #xE0100)	; 󠄀
       ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x4E30)	; 丰
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=ucs@unicode	. #x4E30)	; 丰󠄀
     (=gb2312		. #x3761)	; 丰󠄀 [23-65]
     (=jis-x0212		. #x302D)	; &I-JSP-302D; [16-13]
