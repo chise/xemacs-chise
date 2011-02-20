@@ -1,5 +1,18 @@
 2011-02-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R008-Lid.el:
+	- Add `=decomposition@cid' for Adobe-Japan1 characters.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JB
+	  character.
+
+	* Ideograph-R001-One.el (J0-4D3F): Add
+	`=decomposition@hanyo-denshi'.
+	(J0-312F): Ditto.
+	(J0-4A3A): Ditto.
+	(J0-4A42): Ditto.
+
+2011-02-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R004-Slash.el (U-0002F836): Add
 	`=decomposition@hanyo-denshi'.
 	(J0-6949): Likewise.
