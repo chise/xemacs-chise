@@ -1,4 +1,16 @@
+2011-02-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el (U-0002F836): Add
+	`=decomposition@hanyo-denshi'.
+	(J0-6949): Likewise.
+
 2011-02-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R003-Dot.el (J0-3C67): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R002-Line.el (JSP-302D): Add
+	`=decomposition@hanyo-denshi'.
 
 	* Ideograph-R019-Power.el: Add Hanyo-Denshi/FT and JT code points.
 	(G-UU+52C7): Add ideographic-structure.
