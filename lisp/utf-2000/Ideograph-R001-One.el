@@ -668,6 +668,11 @@
       )
      ((=ucs		  . #xE0100)	; 󠄀
       ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x4E0E)	; 与
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=>>ucs@jis		. #x4E0E)	; 与󠄀
     (=ucs@jis		. #x4E0E)	; 与󠄀
     (=jis-x0208		. #x4D3F)	; 与󠄀 [45-31]
@@ -744,6 +749,11 @@
      ((=ucs		  . #x4E11)	; 丑
       )
      ((=ucs		  . #xE0100)	; 󠄀
+      ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x4E11)	; 丑
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
       ))
     (=>>ucs@jis		. #x4E11)	; 丑󠄀
     (=ucs@jis		. #x4E11)	; 丑󠄀
@@ -1001,12 +1011,12 @@
     (=shinjigen		.  0492)	; 𠔃
     (=hanziku-1		. #xD7D7)	; &I-HZK01-D7D7;
     (<-vulgar
-     ((=ucs@jis		  . #x516E)	; &AJ1-04217;
-      (=jis-x0208	  . #x5142)	; &AJ1-04217; [49-34]
+     ((=ucs@jis		  . #x516E)	; 兮󠄀
+      (=jis-x0208	  . #x5142)	; 兮󠄀 [49-34]
       (=ks-x1001	  . #x7B31)	; &I-K0-7B31; [91-17]
       (=jis-x0213-1	  . #x5142)	; &I-JX1-5142; [49-34]
       (=daikanwa	  . 01455)	; &I-M-01455;
-      (=shinjigen	  .  0491)	; &AJ1-04217;
+      (=shinjigen	  .  0491)	; 兮󠄀
       ))
     (<-vulgar*sources
      daikanwa shinjigen)
@@ -1384,14 +1394,19 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x4E19)	; 丙
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
        ((=ucs		    . #x4E00)	; 一
 	)
-       ((=ucs@unicode	    . #x5185)	; &GT-01983;
-	(=jis-x0208	    . #x4662)	; &GT-01983; [38-66]
+       ((=ucs@unicode	    . #x5185)	; &AJ1-03258;
+	(=jis-x0208	    . #x4662)	; &AJ1-03258; [38-66]
 	(=gb2312	    . #x445A)	; &I-G0-445A; [36-58]
 	(=jis-x0213-1	    . #x4662)	; &I-JX1-4662; [38-66]
 	))
@@ -1888,8 +1903,8 @@
     (=shinjigen		.  0483)	; 両
     (=adobe-japan1-0	. 03974)	; &I-AJ1-03974;
     (<-simplified@JP/Jouyou
-     ((=ucs@jis		  . #x5169)	; &AJ1-04215;
-      (=jis-x0208	  . #x5140)	; &AJ1-04215; [49-32]
+     ((=ucs@jis		  . #x5169)	; 兩󠄀
+      (=jis-x0208	  . #x5140)	; 兩󠄀 [49-32]
       (=ks-x1001	  . #x5557)	; &I-K0-5557; [53-55]
       (=jis-x0213-1	  . #x5140)	; &I-JX1-5140; [49-32]
       (=daikanwa	  . 01436)	; &I-M-01436;
@@ -2477,6 +2492,11 @@
      ((=ucs		  . #x4E26)	; 並
       )
      ((=ucs		  . #xE0100)	; 󠄀
+      ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x4E26)	; 並
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
       ))
     (hanyu-dazidian	1 246 2)
     (ideographic-structure
