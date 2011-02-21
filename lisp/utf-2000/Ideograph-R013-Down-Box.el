@@ -224,8 +224,8 @@
     (=gt-pj-2		. #x3D2C)	; &I-GT-01982; [29-12]
     (=daikanwa		. 01512)	; &I-M-01512;
     (<-vulgar
-     ((=ucs@JP		  . #x5167)	; &M-01418;
-      (=ks-x1001	  . #x522E)	; &M-01418; [50-14]
+     ((=ucs@JP		  . #x5167)	; &AJ1-13966;
+      (=ks-x1001	  . #x522E)	; &AJ1-13966; [50-14]
       (=daikanwa	  . 01418)	; &I-M-01418;
       ))
     (<-vulgar*sources
@@ -238,15 +238,16 @@
     (ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (=ucs@unicode	. #x5185)	; &GT-01983;
-    (=jis-x0208		. #x4662)	; &GT-01983; [38-66]
+    (=ucs@unicode	. #x5185)	; &AJ1-03258;
+    (=jis-x0208		. #x4662)	; &AJ1-03258; [38-66]
     (=gb2312		. #x445A)	; &I-G0-445A; [36-58]
     (=jis-x0213-1	. #x4662)	; &I-JX1-4662; [38-66]
     (=big5-cdp		. #x8C57)	; &I-CDP-8C57;
     (=gt		. 01983)	; &I-GT-01983;
     (=gt-k		. 00547)	; &I-GT-K00547;
     (=gt-pj-1		. #x4662)	; &I-GT-01983; [38-66]
-    (=shinjigen		.  0481)	; &GT-01983;
+    (=shinjigen		.  0481)	; &AJ1-03258;
+    (=adobe-japan1-0	. 03258)	; &I-AJ1-03258;
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
@@ -1586,6 +1587,14 @@
   '((ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5EFF)	; 廿
+      )
+     ((=>>big5-cdp	  . #x8C62)	; &G-CDP-8C62;
+      ))
     (=ucs		. #x34BC)	; 㒼
     (->subsumptive
      ((=ucs@jis		  . #x34BC)	; &AJ1-17303;
