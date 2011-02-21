@@ -1,5 +1,18 @@
 2011-02-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R029-Again.el (J0-355A): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R016-Table.el (C6-3531): Unify CU+2015E.
+
+	* Ideograph-R015-Ice.el: Add some Adobe-Japan1-4 code points.
+
+	* Ideograph-R013-Down-Box.el (J0-4662): Unify AJ1-03258.
+	(U+34BC): Add `ideographic-structure'.
+
+	* Ideograph-R005-Second.el (U+4E7C): Use `->subsumptive' to
+	separate representative node.
+
 	* Ideograph-R012-Eight.el:
 	- Add `=decomposition@cid' for Adobe-Japan1 characters.
 	- Add some Adobe-Japan1 code points.
