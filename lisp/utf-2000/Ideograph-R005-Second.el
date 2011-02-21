@@ -1814,7 +1814,23 @@
      ((=ucs		  . #x4E59)	; 乙
       ))
     (=ucs		. #x4E7C)	; 乼
-    (=gb12345		. #x7D5B)	; 乼 [93-59]
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs@unicode	    . #x6CE8)	; &GT-22115;
+	(=jis-x0208	    . #x436D)	; &GT-22115; [35-77]
+	(=gb2312	    . #x5722)	; &I-G0-5722; [55-02]
+	(=ks-x1001	    . #x713C)	; &I-K0-713C; [81-28]
+	(=cns11643-1	    . #x4E43)	; &I-C1-4E43; [46-35]
+	(=jis-x0213-1	    . #x436D)	; &I-JX1-436D; [35-77]
+	)
+       ((=ucs		    . #x4E59)	; 乙
+	))
+      (=ucs@unicode	  . #x4E7C)	; &UU+4E7C;
+      (=gb12345		  . #x7D5B)	; &UU+4E7C; [93-59]
+      ))
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
