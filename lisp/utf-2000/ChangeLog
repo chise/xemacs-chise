@@ -1,5 +1,38 @@
 2011-02-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R012-Eight.el:
+	- Add `=decomposition@cid' for Adobe-Japan1 characters.
+	- Add some Adobe-Japan1 code points.
+
+	* Ideograph-R011-Enter.el:
+	- Add `=decomposition@cid' for Adobe-Japan1 characters.
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA character.
+	(G-CU+5168): Unify G-KU+5168.
+	(K0-6E6F): Unify KU+5168.
+	(U-000204E0): Use `->subsumptive'.
+	(mother of C3-2B37): Unify G-UU+516A.
+	(U-000204FF): Add ideographic-structure.
+
+	* Ideograph-R010-Legs.el:
+	- Add `=decomposition@cid' for Adobe-Japan1 characters.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JB
+	  character.
+	(AJ1-21177): New character.
+	(AJ1-13477): New character.
+	(H1-DDC9): Unify AJ1-13949.
+	(JSP-3267): Unify AJ1-21178.
+	(U-00020486): Use `->subsumptive' to separate representative node.
+	(U+5153): Add ideographic-structure.
+	(JSP-3268): Unify AJ1-21179.
+	(J78-513D): Unify AJ1-07814.
+	(AJ1-14103): New character.
+	(U+5158): Unify AJ1-21180.
+	(M-01379): Map to U-0002048F.
+	(U-0002048F): Integrate M-01379.
+	(U-000204BF): Use `->subsumptive'.
+	(U-000204D6): Use `->subsumptive' to separate representative node.
+
 	* Ideograph-R008-Lid.el:
 	- Add `=decomposition@cid' for Adobe-Japan1 characters.
 	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JB
