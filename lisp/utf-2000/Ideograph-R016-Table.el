@@ -1018,8 +1018,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
 	(=ucs		    . #x2FF3)	; ⿳
 	)
-       ((=ucs@jis	    . #x4EA0)	; &AJ1-04110;
-	(=jis-x0208	    . #x5035)	; &AJ1-04110; [48-21]
+       ((=ucs@jis	    . #x4EA0)	; 亠󠄀
+	(=jis-x0208	    . #x5035)	; 亠󠄀 [48-21]
 	(=jis-x0213-1	    . #x5035)	; &I-JX1-5035; [48-21]
 	)
        ((=ucs@unicode	    . #x821B)	; &GT-39240;
@@ -1072,6 +1072,7 @@
 	)
        ((=ucs		    . #x51E0)	; 几
 	))
+      (=ucs@cns		  . #x2015E)	; &C6-3531;
       (=cns11643-6	  . #x3531)	; &C6-3531; [21-17]
       ))
     ))
