@@ -1,3 +1,35 @@
+2011-02-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R038-Woman.el: Add Hanyo-Denshi/JT code points.
+	(mother of J0-4245): Unify G-UU+59A5.
+	(mother of K0-6D2C): Unify A-KU+59FF and A-CU+59FF.
+	(K0-6D2C): Unify KU+59FF.
+	(C1-505C): Unify CU+59FF.
+	(mother of J0-3B51): Unify G-UU+59FF.
+	(U+5A1C): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+36D5): Use `->subsumptive' to separate representative nodes.
+	(U+36D6): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+5AE1): Use `->denotational' to separate JC3-49DC.
+	(A-UU+5B34): New character to integrate HD-JT-B003 and G0-5978.
+
+	* Ideograph-R037-Big.el: Add Hanyo-Denshi/JB and JT code points.
+	(G-UU+3691): New character to integrate HD-JT-AFBF and UU+3691.
+	(U+5946): Use `->subsumptive' to separate representative nodes.
+	(B-ABB4): Unify G-UU+5951.
+	(U+595F): Use `->denotational'.
+	(mother of J0-547B): Unify G-JU+5960 and G-KU+5960.
+	(K0-6E75): Unify KU+5960.
+	(mother of G0-356C): Unify G-UU+5960.
+
+	* Ideograph-R031-Enclosure.el: Add Hanyo-Denshi/JT code points.
+	(G-CU+56F6): New character to integrate HD-JT-AF38 and C3-2822.
+
+	* Ideograph-R018-Knife.el: Add Hanyo-Denshi/JT code points.
+	(U-00020807): Use `->denotational'.
+	(M-02257): Unify U-0002080C.
+
 2011-02-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R029-Again.el (J0-355A): Add
