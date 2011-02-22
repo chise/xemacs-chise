@@ -635,8 +635,13 @@
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (=ucs@jis		. #x5307)	; &CB05526;
-    (=jis-x0213-1	. #x2E6C)	; &CB05526; [14-76]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5307)	; 匇
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=ucs@jis		. #x5307)	; 匇󠄂
+    (=jis-x0213-1	. #x2E6C)	; 匇󠄂 [14-76]
     (=cbeta		. 05526)	; &I-CB05526;
     (=hanyo-denshi/jc	. #x2E6C)	; &I-HD-JC-2E6C; [14-76]
     ))
