@@ -1,5 +1,39 @@
 2011-02-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R040-Roof.el (mother of K0-4E30): Unify G-KU+5BEC and
+	G-CU+5BEC.
+	(K0-4E30): Unify KU+5BEC.
+	(C1-6C4F): Unify CU+5BEC.
+	(mother of JX1-4F5A): Unify G-UU+5BEC.
+	(JX1-4F5A): Unify JU+5BEC and HD-JC4758; add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R032-Earth.el:
+	- Add Hanyo-Denshi/JT code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JC
+	  characters.
+	- Add some abstract `ideographic-structure's.
+	(U-0002125F): Use `->subsumptive' to separate representative
+	nodes.
+	(U-00021489): Likewise.
+	(U-000214A4): Likewise.
+	(U+3678): Likewise.
+	(U-0002148B): Likewise.
+	(U+58CF): Use `->denotational' to separate representative nodes.
+
+	* Ideograph-R020-Wrap.el (JX1-2E6C): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R015-Ice.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/JC characters.
+
+	* Ideograph-R009-Man.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add Hanyo-Denshi/JA, JB, JC, FT and IB code points.
+	- Add some abstract `ideographic-structure's.
+
+2011-02-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R038-Woman.el: Add Hanyo-Denshi/JT code points.
 	(mother of J0-4245): Unify G-UU+59A5.
 	(mother of K0-6D2C): Unify A-KU+59FF and A-CU+59FF.
@@ -29,6 +63,11 @@
 	* Ideograph-R018-Knife.el: Add Hanyo-Denshi/JT code points.
 	(U-00020807): Use `->denotational'.
 	(M-02257): Unify U-0002080C.
+
+	* Ideograph-R048-Work.el (U+5DE9): Use `->denotational' and
+	`->subsumptive'.
+	(JSP-3C21): Unify HD-JB2801.
+	(GT-11004): Add `ideographic-structure'.
 
 2011-02-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
@@ -169,6 +208,12 @@
 	(C2-2143): Unify CU+4E31.
 
 2011-02-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R063-Door.el (U+623E): Use `->denotational' instead of
+	`->subsumptive'.
+	(U+39C0): Likewise.
+	(U+623F): Likewise.
+	(U+6240): Likewise.
 
 	* Ideograph-R024-Ten.el: Add Hanyo-Denshi/JT code points.
 	(U+4EDF): Unify AJ1-04123.
