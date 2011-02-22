@@ -3591,8 +3591,8 @@
       (=jis-x0213-1	  . #x555F)	; &I-JX1-555F; [53-63]
       (=daikanwa	  . 07054)	; &I-M-07054;
       )
-     ((=ucs@jis		  . #x7AD2)	; &AJ1-04549;
-      (=jis-x0208	  . #x5474)	; &AJ1-04549; [52-84]
+     ((=ucs@jis		  . #x7AD2)	; 竒󠄀
+      (=jis-x0208	  . #x5474)	; 竒󠄀 [52-84]
       (=jis-x0213-1	  . #x5474)	; &I-JX1-5474; [52-84]
       ))
     (=gt		. 09094)	; &GT-09094;
@@ -4034,8 +4034,8 @@
       (=daikanwa	  . 07276)	; &I-M-07276;
       (=shinjigen	  .  1854)	; &GT-09123;
       (<-simplified@JP/Jouyou
-       ((=ucs@jis	    . #x5BEC)	; &JX1-4F5A;
-	(=jis-x0213-1	    . #x4F5A)	; &JX1-4F5A; [47-58]
+       ((=ucs@jis	    . #x5BEC)	; 寬󠄁
+	(=jis-x0213-1	    . #x4F5A)	; 寬󠄁 [47-58]
 	))
       )
      ((=ucs@unicode	  . #x5BDB)	; &C3-4076;
@@ -5028,13 +5028,17 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (=>>ucs@ks		. #x5BEC)	; &G-KU+5BEC;
+    (=>>ucs@cns		. #x5BEC)	; &G-KU+5BEC;
     (->subsumptive
-     ((=ks-x1001	  . #x4E30)	; &M-07322; [46-16]
+     ((=ucs@ks		  . #x5BEC)	; &M-07322;
+      (=ks-x1001	  . #x4E30)	; &M-07322; [46-16]
       (=daikanwa	  . 07322)	; &I-M-07322;
       (=shinjigen@1ed	  .  1855)	; &M-07322;
       (=jef-china3	  . #x4AC6)	; &I-JC3-4AC6;
       )
-     ((=cns11643-1	  . #x6C4F)	; &C1-6C4F; [76-47]
+     ((=ucs@cns		  . #x5BEC)	; &C1-6C4F;
+      (=cns11643-1	  . #x6C4F)	; &C1-6C4F; [76-47]
       ))
     ))
 (define-char
@@ -5044,9 +5048,16 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (=>>ucs@unicode	. #x5BEC)	; &G-UU+5BEC;
     (->subsumptive
-     ((=ucs@jis		  . #x5BEC)	; &JX1-4F5A;
-      (=jis-x0213-1	  . #x4F5A)	; &JX1-4F5A; [47-58]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5BEC)	; 寬
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=ucs@jis		  . #x5BEC)	; 寬󠄁
+      (=jis-x0213-1	  . #x4F5A)	; 寬󠄁 [47-58]
+      (=hanyo-denshi/jc	  . #x4F5A)	; &I-HD-JC-4F5A; [47-58]
       )
      ((=ucs@unicode	  . #x5BEC)	; &UU+5BEC;
       (=gb12345		  . #x3F6D)	; &UU+5BEC; [31-77]
