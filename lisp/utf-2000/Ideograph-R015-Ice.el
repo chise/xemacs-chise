@@ -1589,7 +1589,12 @@
     (=>>jis-x0213-1	. #x2E56)	; &G-GT-02192; [14-54]
     (=>>gt		. 02192)	; &G-GT-02192;
     (->subsumptive
-     ((ideographic-structure
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x51CA)	; 凊
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
@@ -1599,9 +1604,9 @@
 	(=ks-x1001	    . #x746C)	; &M-42564; [84-76]
 	(=daikanwa	    . 42564)	; &I-M-42564;
 	))
-      (=ucs@jis		  . #x51CA)	; &AJ1-16794;
-      (=ucs@ks		  . #x51CA)	; &AJ1-16794;
-      (=jis-x0213-1	  . #x2E56)	; &AJ1-16794; [14-54]
+      (=ucs@jis		  . #x51CA)	; 凊󠄁
+      (=ucs@ks		  . #x51CA)	; 凊󠄁
+      (=jis-x0213-1	  . #x2E56)	; 凊󠄁 [14-54]
       (=gt		  . 02192)	; &I-GT-02192;
       (=gt-pj-2		  . #x3E4D)	; &I-GT-02192; [30-45]
       (=daikanwa	  . 01666)	; &I-M-01666;
@@ -2946,6 +2951,11 @@
     (ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x51DE)	; 凞
+      )
+     ((=ucs		  . #xE0107)	; 󠄇
+      ))
     (hanyu-dazidian	1 301 16)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -2971,9 +2981,9 @@
       )
      ((=ucs		  . #x706C)	; 灬
       ))
-    (=ucs@cns		. #x51DE)	; &AJ1-20300;
-    (=ucs@jis		. #x51DE)	; &AJ1-20300;
-    (=cns11643-2	. #x5644)	; &AJ1-20300; [54-36]
+    (=ucs@cns		. #x51DE)	; 凞󠄇
+    (=ucs@jis		. #x51DE)	; 凞󠄇
+    (=cns11643-2	. #x5644)	; 凞󠄇 [54-36]
     (=jis-x0213-1	. #x2E57)	; &I-JX1-2E57; [14-55]
     (=daikanwa		. 01721)	; &I-M-01721;
     (=adobe-japan1-5	. 20300)	; &I-AJ1-20300;
