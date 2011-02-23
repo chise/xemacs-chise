@@ -1,3 +1,11 @@
+2011-02-23  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R012-Eight.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+
+	* Ideograph-R011-Enter.el (AJ1-13966): Add `=decomposition@cid'.
+	(AJ1-13890): Ditto.
+
 2011-02-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R062-Halberd.el (U+6220): Use `->denotational' and
@@ -66,6 +74,8 @@
 	- Add some abstract `ideographic-structure's.
 
 2011-02-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-505B.
 
 	* Ideograph-R038-Woman.el: Add Hanyo-Denshi/JT code points.
 	(mother of J0-4245): Unify G-UU+59A5.
