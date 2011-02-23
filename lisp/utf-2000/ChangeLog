@@ -1,5 +1,15 @@
 2011-02-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R062-Halberd.el (U+6220): Use `->denotational' and
+	`->subsumptive'.
+	(U+6221): Use `->denotational' instead of `->subsumptive'.
+	(U+6222): Likewise.
+
+	* Ideograph-R059-Bristle.el (J0-3D24): Add `=decomposition@cid'.
+
+	* Ideograph-R051-Dry.el (U+5E76): Unify AJ1-04738.
+	(JX3-7E7C): Unify AJ1-19346.
+
 	* Ideograph-R061-Heart.el:
 	- Add some Adobe-Japan1-2 code points.
 	- Add Hanyo-Denshi/JD code points.
