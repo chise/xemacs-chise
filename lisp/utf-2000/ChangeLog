@@ -1,3 +1,26 @@
+2011-02-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el:
+	- Add some Adobe-Japan1-2 code points.
+	- Add Hanyo-Denshi/JD code points.
+	(U+3917): Use `->subsumptive' to separate representative nodes.
+	(JX2-2C46): Unify HD-IA0290.
+	(A-J0-3159): New character.
+	(U+6085): Use `->subsumptive'; add `<-denotational' for A-J0-3159.
+	(U+60A6): Add `<-denotational' for A-J0-3159.
+	(U+392F): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+608B): Use `->subsumptive' to separate representative nodes.
+	(U+60C7): Use `->denotational' to integrate U-0002F8A5.
+	(U+60DE): Use `->subsumptive' to separate representative nodes.
+	(U+6111): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(mother of C6-4878): Unify G-CU+2F8A5 and G-M-10955 instead of
+	U-0002F8A5; add `<-denotational' for U+60C7.
+	(C6-4878): Unify U-0002F8A5.
+	(U+396C): Use `->subsumptive' to separate representative nodes.
+	(U+396D): Likewise.
+
 2011-02-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R040-Roof.el (mother of K0-4E30): Unify G-KU+5BEC and
