@@ -342,9 +342,14 @@
     (ideographic-strokes@shinjigen*sources
      shinjigen jis-x0208/b)
     (total-strokes	 . 10)
-    (=>>ucs@jis		. #x4FEE)	; &AJ1-02350;
-    (=ucs@jis		. #x4FEE)	; &AJ1-02350;
-    (=jis-x0208		. #x3D24)	; &AJ1-02350; [29-04]
+    (=decomposition@cid
+     ((=ucs		  . #x4FEE)	; 修
+      )
+     ((=ucs		  . #xE0100)	; 󠄀
+      ))
+    (=>>ucs@jis		. #x4FEE)	; 修󠄀
+    (=ucs@jis		. #x4FEE)	; 修󠄀
+    (=jis-x0208		. #x3D24)	; 修󠄀 [29-04]
     (=ks-x1001		. #x6173)	; &I-K0-6173; [65-83]
     (=cns11643-1	. #x543A)	; &I-C1-543A; [52-26]
     (=jis-x0213-1	. #x3D24)	; &I-JX1-3D24; [29-04]
@@ -352,7 +357,7 @@
     (=gt-k		. 06456)	; &I-GT-K06456;
     (=gt-pj-1		. #x3D24)	; &I-GT-00982; [29-04]
     (=daikanwa		. 00721)	; &I-M-00721;
-    (=shinjigen		.  2315)	; &AJ1-02350;
+    (=shinjigen		.  2315)	; 修󠄀
     (=adobe-japan1-0	. 02350)	; &I-AJ1-02350;
     ))
 (define-char
@@ -1039,8 +1044,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@jis		  . #x4EA0)	; &AJ1-04110;
-      (=jis-x0208	  . #x5035)	; &AJ1-04110; [48-21]
+     ((=ucs@jis		  . #x4EA0)	; 亠󠄀
+      (=jis-x0208	  . #x5035)	; 亠󠄀 [48-21]
       (=jis-x0213-1	  . #x5035)	; &I-JX1-5035; [48-21]
       )
      ((ideographic-structure
