@@ -185,10 +185,15 @@
     (total-strokes	 . 4)
     (=ucs		. #x5167)	; 內
     (->subsumptive
-     ((=ucs@JP		  . #x5167)	; &AJ1-13966;
-      (=ks-x1001	  . #x522E)	; &AJ1-13966; [50-14]
+     ((=decomposition@cid
+       ((=ucs		    . #x5167)	; 內
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@JP		  . #x5167)	; 內󠄀
+      (=ks-x1001	  . #x522E)	; 內󠄀 [50-14]
       (=daikanwa	  . 01418)	; &I-M-01418;
-      (=shinjigen	  .  0482)	; &AJ1-13966;
+      (=shinjigen	  .  0482)	; 內󠄀
       (=jef-china3	  . #x43DE)	; &I-JC3-43DE;
       (=adobe-japan1-4	  . 13966)	; &I-AJ1-13966;
       )
@@ -450,7 +455,12 @@
     (=>>ucs@cns		. #x5168)	; &G-GT-01862;
     (=>>gt		. 01862)	; &G-GT-01862;
     (->subsumptive
-     ((ideographic-structure
+     ((=decomposition@cid
+       ((=ucs		    . #x5168)	; 全
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
@@ -462,13 +472,13 @@
 	)
        ((=ucs		    . #x738B)	; 王
 	))
-      (=ucs@ks		  . #x5168)	; &AJ1-13890;
-      (=ks-x1001	  . #x6E6F)	; &AJ1-13890; [78-79]
+      (=ucs@ks		  . #x5168)	; 全󠄁
+      (=ks-x1001	  . #x6E6F)	; 全󠄁 [78-79]
       (=gt		  . 01862)	; &I-GT-01862;
       (=gt-k		  . 01745)	; &I-GT-K01745;
       (=gt-pj-2		  . #x3C3E)	; &I-GT-01862; [28-30]
       (=daikanwa	  . 01424)	; &I-M-01424;
-      (=shinjigen	  .  4876)	; &AJ1-13890;
+      (=shinjigen	  .  4876)	; 全󠄁
       (=jef-china3	  . #x43DF)	; &I-JC3-43DF;
       (=adobe-japan1-4	  . 13890)	; &I-AJ1-13890;
       (=hanyo-denshi/jt	  . #xADC5)	; &I-HD-JT-ADC5;
@@ -1479,8 +1489,8 @@
      ((=ucs@iso		  . #x204F3)	; &M-01443;
       (=daikanwa	  . 01443)	; &M-01443;
       (<-ancient
-       ((=ucs@ks	    . #x5168)	; &AJ1-13890;
-	(=ks-x1001	    . #x6E6F)	; &AJ1-13890; [78-79]
+       ((=ucs@ks	    . #x5168)	; 全󠄁
+	(=ks-x1001	    . #x6E6F)	; 全󠄁 [78-79]
 	(=daikanwa	    . 01424)	; &I-M-01424;
 	))
       (<-ancient*sources
@@ -1525,8 +1535,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@ks	    . #x5168)	; &AJ1-13890;
-	(=ks-x1001	    . #x6E6F)	; &AJ1-13890; [78-79]
+       ((=ucs@ks	    . #x5168)	; 全󠄁
+	(=ks-x1001	    . #x6E6F)	; 全󠄁 [78-79]
 	(=daikanwa	    . 01424)	; &I-M-01424;
 	)
        ((=ucs		    . #x4E23)	; 丣
