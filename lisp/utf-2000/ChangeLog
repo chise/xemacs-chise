@@ -6,6 +6,15 @@
 	* Ideograph-R011-Enter.el (AJ1-13966): Add `=decomposition@cid'.
 	(AJ1-13890): Ditto.
 
+	* Ideograph-R074-Moon.el (mother of JX2-2E3B): Unify G-JU+6719 and
+	G-CU+6719.
+	(C3-3647): Unify CU+6719.
+	(U+671A): Add ideographic-structure.
+
+	* Ideograph-R060-Step.el (mother of G0-6167): Unify G-UU+5FB5.
+	(K0-7323): Unify HD-IP-5FB5.
+	(JX1-7444): Add `=decomposition@hanyo-denshi'.
+
 2011-02-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R062-Halberd.el (U+6220): Use `->denotational' and
