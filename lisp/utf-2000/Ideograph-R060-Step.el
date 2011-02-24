@@ -906,8 +906,8 @@
      ((=daikanwa	  . 10104)	; &M-10104;
       (=jef-china3	  . #x4DB3)	; &I-JC3-4DB3;
       (<-same
-       ((=ucs@jis	    . #x4F5F)	; &AJ1-16780;
-	(=jis-x0212	    . #x3070)	; &AJ1-16780; [16-80]
+       ((=ucs@jis	    . #x4F5F)	; 佟󠄀
+	(=jis-x0212	    . #x3070)	; 佟󠄀 [16-80]
 	(=jis-x0213-1	    . #x2E31)	; &I-JX1-2E31; [14-17]
 	(=daikanwa	    . 00522)	; &I-M-00522;
 	))
@@ -3013,8 +3013,8 @@
       (=gt-k		  . 11152)	; &I-GT-K11152;
       (=gt-pj-1		  . #x4427)	; &I-GT-12893; [36-07]
       (<-simplified@JP/Jouyou
-       ((=ucs@jis	    . #x5FB5)	; &JX1-7444;
-	(=cns11643-1	    . #x6C62)	; &JX1-7444; [76-66]
+       ((=ucs@jis	    . #x5FB5)	; 徵󠄂
+	(=cns11643-1	    . #x6C62)	; 徵󠄂 [76-66]
 	(=jis-x0213-1	    . #x7444)	; &I-JX1-7444; [84-36]
 	))
       )
@@ -3039,10 +3039,12 @@
     (ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (=>>ucs@unicode	. #x5FB5)	; &G-UU+5FB5;
     (->subsumptive
      ((=ks-x1001	  . #x7323)	; &M-10239; [83-03]
       (=daikanwa	  . 10239)	; &I-M-10239;
       (=jef-china3	  . #x4DBF)	; &I-JC3-4DBF;
+      (=hanyo-denshi/ip	  . #x5FB5)	; &I-HD-IP-5FB5;
       )
      ((=ucs@unicode	  . #x5FB5)	; &G0-6167;
       (=gb2312		  . #x6167)	; &G0-6167; [65-71]
@@ -3055,8 +3057,13 @@
     (ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (=ucs@jis		. #x5FB5)	; &JX1-7444;
-    (=cns11643-1	. #x6C62)	; &JX1-7444; [76-66]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5FB5)	; 徵
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=ucs@jis		. #x5FB5)	; 徵󠄂
+    (=cns11643-1	. #x6C62)	; 徵󠄂 [76-66]
     (=jis-x0213-1	. #x7444)	; &I-JX1-7444; [84-36]
     (=hanyo-denshi/jc	. #x7444)	; &I-HD-JC-7444; [84-36]
     ))
