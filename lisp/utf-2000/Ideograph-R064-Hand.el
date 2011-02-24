@@ -14596,7 +14596,14 @@
     (=gt-pj-1		. #x4C4E)	; &I-GT-15857; [44-46]
     ))
 (define-char
-  '((=>ucs		. #x6479)	; 摹
+  '((ideographic-radical . 64)	; ⼿
+    (=ucs		. #x6479)	; 摹
+    (=big5		. #xBCB1)	; &I-B-BCB1;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6479)	; 摹
+      ))
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
@@ -14604,15 +14611,23 @@
     (=daikanwa		. 12645)	; &I-M-12645;
     ))
 (define-char
-  '((morohashi-daikanwa	12645 0 2)
+  '((<-denotational
+     ((=ucs		  . #x6479)	; 摹
+      ))
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (=ucs		. #x6479)	; 摹
-    (=gb2312		. #x4421)	; &I-G0-4421; [36-01]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6479)	; 摹
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
+    (=ucs@unicode	. #x6479)	; 摹󠄁
+    (=gb2312		. #x4421)	; 摹󠄁 [36-01]
     (=ks-x1001		. #x5939)	; &I-K0-5939; [57-25]
     (=jis-x0213-1	. #x7478)	; &I-JX1-7478; [84-88]
-    (=big5		. #xBCB1)	; &I-B-BCB1;
+    (=jef-china3	. #x91DB)	; &I-JC3-91DB;
+    (=hanyo-denshi/jc	. #x7478)	; &I-HD-JC-7478; [84-88]
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
