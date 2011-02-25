@@ -1,3 +1,9 @@
+2011-02-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer `=jis-x0212' to `=gt-pj-*', `chinese-cns11643-*', `=big5*'
+	and `=jis-x0213-*-2000'.
+
 2011-02-24  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=>>>jis-x0213-1@2004): New coded-charset for

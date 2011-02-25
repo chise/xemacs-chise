@@ -1,4 +1,21 @@
-2011-02-25  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+2011-02-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R013-Down-Box.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.	
+	(U-0002F815): Unify AJ1-20061.
+	(JSP-3273): Unify AJ1-21183.
+	(U+5191): Use `->denotational' to separate J78-5149_-4.
+	(G-UU+5192): Separated from UU+5192 to integrate AJ1-14038.
+	(U+5193): Add ideographic-structure.
+	(J90-514A): Separate C2-2E23, GT-02024 and GT-K6574.
+	(J78-514A): Unify C2-2E23, GT-02024, GT-K6574 and AJ1-13521.
+	(A-UU+5195): New character.
+	(G0-4361): Use A-UU+5195 instead of U+5195 as the mother.
+	(AJ1-14104): New character.
+	(CU+2F8D3): Add ideographic-structure.
+	(GT-02031): Unify AJ1-14137.
+	(C1-5E32): Unify AJ1-20143.
 
 	* Ideograph-R072-Sun.el (U-0002F8D2): Unify AJ1-03695.
 	(M-13835): Unify JSP-4221 and J1990U+661E.
