@@ -351,6 +351,15 @@
 	      graphic 0
               ;; partial t
 	      ))
+  (make-charset
+   '=>>>jis-x0213-1@2004
+   "JIS X 0213:2004 Plain 1 abstract glyph-images"
+   '(mother =jis-x0213-1@2004
+	    =>iso-ir 233
+	    ;; registry "jisx0213\\(\\.2004\\)-1"
+	    dimension 2
+	    chars 94
+	    graphic 0))
 
   (make-charset
    '=>>jis-x0208
@@ -413,7 +422,7 @@
    '(registry "jisx0213\\(\\.2004\\)-1"
 	      dimension 2
 	      chars 94
-	      mother =>>jis-x0213-1
+	      mother =>>>jis-x0213-1@2004
 	      =>iso-ir 233
               ;; final ?Q
 	      graphic 0
