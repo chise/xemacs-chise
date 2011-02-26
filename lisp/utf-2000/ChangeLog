@@ -1,8 +1,58 @@
+2011-02-26  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	- Add some abstract `ideographic-structure's.
+	(U+4F33): Use `->denotational' instead of `->subsumptive'.
+	(U+4F35): Use `->subsumptive' to separate representative nodes.
+	(U+4F40): Use `->denotational' instead of `->subsumptive'.
+	(U+4F2B): Use `->subsumptive' to integrate AJ1-19147.
+	(U+4F73): Use `->denotational' to integrate AJ1-20076.
+	(M-00650): Separate JSP-3131 and JU+4FB9; unify C2-2930, JC3-42BF
+	and UU+4FB9.
+	(U+4FE2): Use `->denotational' to separate representative nodes.
+	(U+5036): Use `=jis-x0208@1978', `=jis-x0208@1983' and
+	`=jis-x0208@1990' instead of `=jis-x0208' for J0-3666; don't use
+	`jisx0208-difference'.
+	(U+5024): Use `->denotational' to integrate AJ1-13919.
+	(U+503C): Use `->subsumptive' to separate representative nodes.
+	(U+5051): Use `->denotational' instead of `->subsumptive'.
+	(J78-3766): Unify AJ1-13433 instead of AJ1-01852.
+	(J90-3766): Unify AJ1-01852.
+	(U+50A1): Use `->subsumptive' to separate representative nodes;
+	compact `ideographic-structure's.
+	(U-0002032B): Use `->subsumptive' to separate representative
+	nodes.
+	(U+50C0): Likewise.
+	(J78-417C): Separate M-01084.
+	(U+50DC): Use `->subsumptive' to separate representative nodes.
+	(U-000203D9): Use `->subsumptive' to separate representative node.
+	(G-UU+511A): Use `->subsumptive' to integrate AJ1-14102.
+	(JSP-325A): Separate H1-D5FA.
+	(C3-5441): Unify H1-D5FA.
+
 2011-02-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R029-Again.el (AJ1-20143): Add `=decomposition@cid'.
+
+	* Ideograph-R073-Say.el (G-CU+2F8D3): Add ideographic-structure.
+	(J78-514B): Unify AJ1-07816; add `=decomposition@cid'.
+	(AJ1-14136): New character.
+	(C1-5E32): Unify AJ1-20143; add `=decomposition@cid'.
+	(J0-3A47): Unify AJ1-02103; add `=decomposition@cid'.
+	(JX2-2E37): Unify HD-JD1423.
+
+	* Ideograph-R050-Turban.el (U+3836): Use `->subsumptive' to
+	separate representative nodes.
+	(JX2-2871): Unify HD-JD0881.
+	(U+3837): Use `->denotational' to separate representative nodes.
+	(J0-5670): Omit `ideographic-structure'.
+	(C1-6C57): Add `ideographic-structure'.
 
 	* Ideograph-R013-Down-Box.el:
 	- Add some Adobe-Japan1-0 code points.
-	- Add `=decomposition@cid' for some Adobe-Japan1 characters.	
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
 	(U-0002F815): Unify AJ1-20061.
 	(JSP-3273): Unify AJ1-21183.
 	(U+5191): Use `->denotational' to separate J78-5149_-4.
@@ -99,6 +149,8 @@
 	(GI-J0-5257): New node.
 	(C1-5E32): Unify AJ1-20143.
 	(J0-3A47): Add `=decomposition@cid'; unify AJ1-02103.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-514A.
 
 2011-02-23  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
