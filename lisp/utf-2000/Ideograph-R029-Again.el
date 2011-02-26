@@ -2081,10 +2081,15 @@
     (ideographic-radical@shinjigen*sources
      shinjigen@1ed jisx0208/a jisx0208/b)
     (total-strokes	 . 12)
+    (=decomposition@cid
+     ((=ucs		  . #x6700)	; 最
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (hanyu-dazidian	2 1516 8)
-    (=cns11643-1	. #x5E32)	; &AJ1-20143; [62-18]
+    (=cns11643-1	. #x5E32)	; 最󠄁 [62-18]
     (=daikanwa		. 01597)	; &I-M-01597;
-    (=shinjigen		.  0926)	; &AJ1-20143;
+    (=shinjigen		.  0926)	; 最󠄁
     (=adobe-japan1-5	. 20143)	; &I-AJ1-20143;
     (<-original
      ((=ucs		  . #x2F8D4)	; 最
