@@ -61,6 +61,11 @@
       )
      ((=ucs		  . #xE0101)	; 󠄁
       ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x4EA1)	; 亡
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=gt-k		. 00202)	; 亡󠄁
     (=gt-pj-k1		. #x3343)	; 亡󠄁 [19-35]
     (=daikanwa		. 00287)	; &I-M-00287;
@@ -432,8 +437,13 @@
       ))
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (=hanyo-denshi/ks	. 003610)	; &HD-KS-003610;
-    (=hanyo-denshi/ks/mf . #x0169)	; &HD-KS-003610;
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x4EA4)	; 交
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
+    (=hanyo-denshi/ks	. 003610)	; 交󠄃
+    (=hanyo-denshi/ks/mf . #x0169)	; 交󠄃
     ))
 (define-char
   '((<-denotational
@@ -3097,9 +3107,14 @@
       )
      ((=ucs		  . #x4E14)	; 且
       ))
-    (=>>hanyo-denshi/ks . #x1004)	; &HD-KS-004100; [-16--28]
+    (=>>hanyo-denshi/ks . #x1004)	; 亶󠄂 [-16--28]
     (->subsumptive
-     ((ideographic-structure
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x4EB6)	; 亶
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
@@ -3116,8 +3131,8 @@
 	)
        ((=ucs		    . #x4E14)	; 且
 	))
-      (=hanyo-denshi/ks	  . 004100)	; &HD-KS-004100;
-      (=hanyo-denshi/ks/mf . #x019A)	; &HD-KS-004100;
+      (=hanyo-denshi/ks	  . 004100)	; 亶󠄂
+      (=hanyo-denshi/ks/mf . #x019A)	; 亶󠄂
       ))
     ))
 (define-char
