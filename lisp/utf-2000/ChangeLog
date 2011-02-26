@@ -1,5 +1,14 @@
 2011-02-26  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R008-Lid.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/KS characters.
+
+	* Ideograph-R007-Two.el (U-0002F81B): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R004-Slash.el, Ideograph-R001-One.el: Add
+	`=decomposition@hanyo-denshi' for Hanyo-Denshi/KS characters.
+
 	* Ideograph-R031-Enclosure.el: Add Hanyo-Denshi/FT code points.
 
 	* Ideograph-R030-Mouth.el:
