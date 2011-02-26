@@ -467,8 +467,8 @@
     (=jef-china3	. #x41B8)	; &I-JC3-41B8;
     (=adobe-japan1-5	. 16795)	; &I-AJ1-16795;
     (<-vulgar
-     ((=ucs@unicode	  . #x51E1)	; &GT-02286;
-      (=jis-x0208	  . #x4B5E)	; &GT-02286; [43-62]
+     ((=ucs@unicode	  . #x51E1)	; &AJ1-03724;
+      (=jis-x0208	  . #x4B5E)	; &AJ1-03724; [43-62]
       (=gb2312		  . #x3732)	; &I-G0-3732; [23-18]
       (=ks-x1001	  . #x5B6D)	; &I-K0-5B6D; [59-77]
       (=cns11643-1	  . #x443B)	; &I-C1-443B; [36-27]
@@ -1176,6 +1176,11 @@
      ((=ucs		  . #x200A2)	; 𠂢
       )
      ((=ucs		  . #xE0100)	; 󠄀
+      ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x200A2)	; 𠂢
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
       ))
     (=ucs@jis		. #x200A2)	; 𠂢󠄀
     (=jis-x0213-2	. #x212B)	; 𠂢󠄀 [01-11]
