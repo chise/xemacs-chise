@@ -805,7 +805,12 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (=hanyo-denshi/jt	. #xAD08)	; &HD-JT-AD08;
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x4E11)	; 丑
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=hanyo-denshi/jt	. #xAD08)	; 丑󠄂
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
@@ -1405,8 +1410,8 @@
 	)
        ((=ucs		    . #x4E00)	; 一
 	)
-       ((=ucs@unicode	    . #x5185)	; &AJ1-03258;
-	(=jis-x0208	    . #x4662)	; &AJ1-03258; [38-66]
+       ((=ucs@unicode	    . #x5185)	; 内󠄀
+	(=jis-x0208	    . #x4662)	; 内󠄀 [38-66]
 	(=gb2312	    . #x445A)	; &I-G0-445A; [36-58]
 	(=jis-x0213-1	    . #x4662)	; &I-JX1-4662; [38-66]
 	))
