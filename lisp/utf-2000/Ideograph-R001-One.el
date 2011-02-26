@@ -618,6 +618,11 @@
 	)
        ((=ucs		    . #xE0101)	; 󠄁
 	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x4E0E)	; 与
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
 	(=ucs		    . #x2FF9)	; ⿹
@@ -1453,6 +1458,11 @@
      ((=ucs		  . #x4E19)	; 丙
       )
      ((=ucs		  . #xE0101)	; 󠄁
+      ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x4E19)	; 丙
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
       ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -2461,6 +2471,11 @@
        ((=ucs		    . #x4E26)	; 並
 	)
        ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x4E26)	; 並
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
 	))
       (=gt		  . 00089)	; 並󠄁
       (=gt-k		  . 06059)	; &I-GT-K06059;

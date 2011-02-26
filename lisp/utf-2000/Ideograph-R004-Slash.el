@@ -1146,6 +1146,11 @@
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x200A2)	; 𠂢
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (hanyu-dazidian	1 69 19)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -1155,14 +1160,14 @@
       )
      ((=big5-cdp	  . #x8C66)	; &CDP-8C66;
       ))
-    (=ucs@iso		. #x200A2)	; &GT-00195;
-    (=cns11643-4	. #x2226)	; &GT-00195; [02-06]
+    (=ucs@iso		. #x200A2)	; 𠂢󠄂
+    (=cns11643-4	. #x2226)	; 𠂢󠄂 [02-06]
     (=big5-cdp		. #x8CB4)	; &I-CDP-8CB4;
     (=gt		. 00195)	; &I-GT-00195;
     (=gt-k		. 01779)	; &I-GT-K01779;
     (=gt-pj-2		. #x312C)	; &I-GT-00195; [17-12]
     (=daikanwa		. 00138)	; &I-M-00138;
-    (=hanyo-denshi/ks	. 001650)	; &GT-00195;
+    (=hanyo-denshi/ks	. 001650)	; 𠂢󠄂
     (=hanyo-denshi/ks/mf . #x00A5)	; &I-KSMF-00165;
     ))
 (define-char
@@ -1553,6 +1558,11 @@
      ((=ucs		  . #x200B0)	; 𠂰
       )
      ((=ucs		  . #xE0100)	; 󠄀
+      ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x4E55)	; 乕
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
       ))
     (=daikanwa		. 00148)	; 𠂰󠄀
     (=adobe-japan1-4	. 14209)	; &I-AJ1-14209;
