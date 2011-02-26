@@ -1,5 +1,71 @@
 2011-02-26  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R031-Enclosure.el: Add Hanyo-Denshi/FT code points.
+
+	* Ideograph-R030-Mouth.el:
+	- Add Hanyo-Denshi/JA, JB and FT code points.
+	- Add some Adobe-Japan1-2 code points.
+	- Add some abstract `ideographic-structure's.
+	(U+3569): Use `->denotational' and `->subsumptive'.
+	(JX2-2364): Unify HD-JD0368; add `<-simplified@CN' for G1-453B;
+	add `<-vulgar' for J0-5352.
+	(J0-526B): Fix an operator of `ideographic-structure'.
+	(CB04799): Likewise.
+	(G0-3E4C): Unify S-1019; add `<-vulgar' for J0-526B.
+	(U+54FD): Use `->subsumptive' to separate representative nodes.
+	(U+54FE): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+554F): Use `->subsumptive' to separate representative nodes.
+	(U+5556): Likewise.
+	(U+555C): Likewise.
+	(U+555D): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+5589): Use `->subsumptive' to separate representative nodes.
+	(U+35CB): Use `->subsumptive'.
+	(A-J0-5348): Unify A-JU+55A9.
+	(U+55C4): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+55E4): Use `->denotational' instead of `->subsumptive'.
+	(U+55FD): Use `->subsumptive' to separate representative nodes.
+	(U+55FE): Likewise.
+	(U+5614): Use `->denotational'.
+	(CB02520): Map to U-00020F26.
+	(CB03320): Map to U-00020F41.
+	(CB03295): Map to U-00020F44.
+	(U+5643): Use `->subsumptive' to separate representative nodes.
+	(U+5664): Likewise.
+	(U+35FC): Use `->subsumptive'.
+	(U+35FD): Use `->denotational'.
+	(U+5666): Use `->subsumptive' to separate representative node.
+	(M-04373): Map to U-00020FD2.
+	(U+566B): Use `->denotational' instead of `->subsumptive'.
+	(U-00020FE2): Use `->subsumptive' to separate representative
+	nodes.
+	(JX1-2F34): Unify HD-JC1520; add `=decomposition@hanyo-denshi'.
+	(U+5694): Compact ideographic-structure.
+	(U+56AC): Use `->subsumptive' to separate representative nodes.
+	(U+56B1): Likewise.
+	(U+56D0): Use `->denotational' and `->subsumptive'.
+	(U-00021170): Use `->subsumptive'.
+	(U+56D1): Use `->denotational' instead of `->subsumptive'.
+	(U+56D5): Use `->denotational'.
+
+	* Ideograph-R016-Table.el: Add some Adobe-Japan1-0 code points.
+	(U+51E9): Use `->subsumptive' to separate representative node.
+	(U+51ED): Use `->denotational'.
+	(U-0002015E): Use `->denotational' instead of `->subsumptive'.
+	(U+51F1): Use `->subsumptive' to separate representative node.
+
+	* Ideograph-R014-Cover.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+	(JSP-3276): Unify AJ1-14350.
+	(U-0002F818): Use `->subsumptive' to separate representative
+	nodes.
+	(J78-514D): Unify AJ1-07817.
+
+	* Ideograph-R004-Slash.el (JX2-212B): Add
+	`=decomposition@hanyo-denshi'.
+
 	* Ideograph-R008-Lid.el (HD-JT-AD2B): Add
 	`=decomposition@hanyo-denshi'.
 	(U+342B): Add ideographic-structure.
