@@ -1139,6 +1139,16 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=>>>ucs@unicode))
+  (make-charset '=>>>ucs@cns
+		"UCS Representative glyphs for CNS 11643 sources"
+		'(long-name	"UCS glyphs for CNS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>>ucs@unicode))
 
   (make-charset '=ucs@iso
 		"ISO/IEC 10646 for its representative glyphs"
