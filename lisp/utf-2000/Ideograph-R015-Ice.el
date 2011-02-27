@@ -1802,6 +1802,7 @@
       (=ucs@unicode	  . #x51CA)	; &GT-02194;
       (=gt		  . 02194)	; &GT-02194;
       (=gt-pj-9		  . #x403F)	; &GT-02194; [32-31]
+      (=hanyo-denshi/ib	  . #x2E4A)	; &I-HD-IB-2E4A; [14-42]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1852,6 +1853,11 @@
     (ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x51CB)	; 凋
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1860,10 +1866,10 @@
       )
      ((=ucs		  . #x2F83F)	; 周
       ))
-    (=jis-x0208@1978	. #x437C)	; &AJ1-07742; [35-92]
+    (=jis-x0208@1978	. #x437C)	; 凋󠄃 [35-92]
     (=ks-x1001		. #x703D)	; &I-K0-703D; [80-29]
     (=daikanwa		. 01668)	; &I-M-01668;
-    (=shinjigen		.  0553)	; &AJ1-07742;
+    (=shinjigen		.  0553)	; 凋󠄃
     (=adobe-japan1-0	. 07742)	; &I-AJ1-07742;
     (=hanyo-denshi/ft	. #x325D)	; &I-HD-FT-325D; [18-61]
     ))
