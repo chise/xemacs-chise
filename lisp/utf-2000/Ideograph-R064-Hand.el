@@ -13892,6 +13892,15 @@
     (=cns11643-2	. #x4A52)	; &C2-4A52; [42-50]
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x6460)	; 摠
+      ))
+    (ideographic-radical . 64)	; ⼿
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (=hanyo-denshi/ib	. #x334E)	; &HD-IB-334E; [19-46]
+    ))
+(define-char
   '((ideographic-radical . 64)	; ⼿
     (=ucs		. #x6461)	; 摡
     ))
@@ -19517,7 +19526,12 @@
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
-    (=ucs@unicode	. #x64FF)	; &UU+64FF;
+    (=>>>ucs@unicode	. #x64FF)	; &GI-UU+64FF;
+    (->subsumptive
+     ((=hanyo-denshi/ib	  . #x267E)	; &HD-IB-267E; [06-94]
+      )
+     ((=ucs@unicode	  . #x64FF)	; &UU+64FF;
+      ))
     ))
 (define-char
   '((=>ucs		. #x22DFF)	; 𢷿
