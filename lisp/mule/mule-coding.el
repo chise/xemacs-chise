@@ -380,6 +380,7 @@
 	  (=>>>ucs@iso			       "GI-IU+" 4 X)
 	  (=>>>ucs@unicode		       "GI-UU+" 4 X)
 	  (=>>>ucs@jis			       "GI-JU+" 4 X)
+	  (=>>>ucs@cns			       "GI-CU+" 4 X)
 	  ( =ucs@iso				   "U-" 8 X)
 	  ( =ucs@unicode			  "UU+" 4 X)
 	  ( =ucs@unicode			  "UU-" 8 X)
