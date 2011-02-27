@@ -1,3 +1,77 @@
+2011-02-27  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R064-Hand.el: Add Hanyo-Denshi/IB code points.
+
+	* Ideograph-R063-Door.el (G0-4B79): Unify HD-IB0315.
+
+	* Ideograph-R057-Bow.el (GT-12420): Unify HD-IB1818.
+
+	* Ideograph-R054-Long-Stride.el (U+5EF6): Use `->denotational'
+	instead of `->subsumptive'.
+	(HD-IB0312): New character.
+
+	* Ideograph-R051-Dry.el: Add Hanyo-Denshi/IB code points.
+
+	* Ideograph-R038-Woman.el (G0-663A): Unify HD-IB0655.
+
+	* Ideograph-R037-Big.el: Add Hanyo-Denshi/IB code points.
+
+	* Ideograph-R032-Earth.el (C2-222A): Unify HD-IB1573.
+
+	* Ideograph-R030-Mouth.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/FT characters.
+	(U+550C): Use `->denotational' instead of `->subsumptive'.
+	(J78-426F): Unify HD-IB1535.
+
+	* Ideograph-R019-Power.el: Add some Adobe-Japan1-0 code points.
+	(U+52AA): Use `->subsumptive' to separate representative nodes.
+	(U+52C6): Add ideographic-structure; use `->denotational' instead
+	of `->subsumptive'.
+	(JC-44EC): Unify HD-IB0303.
+	(U+52D8): Add ideographic-structure.
+	(U-00020895): Use `->denotational' instead of `->subsumptive'.
+	(U+52ED): Add ideographic-structure.
+	(U+52F6): Likewise.
+	(U-000208BA): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R013-Down-Box.el (J78-5147): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R031-Enclosure.el: Add `=decomposition@hanyo-denshi'
+	for Hanyo-Denshi/FT characters.
+
+	* Ideograph-R029-Again.el (JX3-4840): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R027-Cliff.el (HD-FT1758): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R026-Seal.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/FT characters.
+
+	* Ideograph-R015-Ice.el (GT-02194): Unify HD-IB1442.
+	(HD-FT1861): Add `=decomposition@hanyo-denshi'.
+
+	* Ideograph-R014-Cover.el (HD-FT2081): Add
+	`=decomposition@hanyo-denshi'.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>>hanyo-denshi/ks'.
+	(char-db-insert-ccs-feature): Add setting for
+	`=>>hanyo-denshi/ks'.
+
+2011-02-26  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R073-Say.el (J0-52D7): Unify AJ1-04285.
+
+	* Ideograph-R006-Hook.el (mother of C5-2127): Unify G-CU+2010D.
+	(U-0002011D): Use `ideographic-radical@{ucs|cns}' and
+	`ideographic-strokes' instead of `ideographic-'.
+
+	* Ideograph-R002-Line.el (U-0002011D): Use
+	`ideographic-radical@{ucs|cns}' and `ideographic-strokes' instead
+	of `ideographic-'.
+
 2011-02-26  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R008-Lid.el: Add `=decomposition@hanyo-denshi' for
@@ -58,6 +132,10 @@
 	(U-00021170): Use `->subsumptive'.
 	(U+56D1): Use `->denotational' instead of `->subsumptive'.
 	(U+56D5): Use `->denotational'.
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	New variable; add #x5D27; use it to avoid to add `=gt-pj-1' for
+	JIS X0208:1990 characters.
 
 	* Ideograph-R016-Table.el: Add some Adobe-Japan1-0 code points.
 	(U+51E9): Use `->subsumptive' to separate representative node.
