@@ -2397,7 +2397,12 @@
       (=ucs@cns		  . #x53A9)	; &C3-404A;
       (=cns11643-3	  . #x404A)	; &C3-404A; [32-42]
       )
-     ((ideographic-structure
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x53A9)	; 厩
+	)
+       ((=ucs		    . #xE010A)	; 󠄊
+	))
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
 	(=ucs		    . #x2FF8)	; ⿸
 	)
@@ -2405,7 +2410,7 @@
 	)
        ((=ks-x1001	    . #x507E)	; &K0-507E; [48-94]
 	))
-      (=jis-x0208@1978	  . #x3139)	; &CB01085; [17-25]
+      (=jis-x0208@1978	  . #x3139)	; 厩󠄊 [17-25]
       (=cbeta		  . 01085)	; &I-CB01085;
       (=hanyo-denshi/ft	  . #x315A)	; &I-HD-FT-315A; [17-58]
       ))
@@ -2770,9 +2775,10 @@
       )
      ((=ucs		  . #x5382)	; 厂
       )
-     ((=ucs@cns		  . #x6677)	; &JX1-7540;
-      (=ucs@jis/2000	  . #x6677)	; &JX1-7540;
-      (=cns11643-1	  . #x5F63)	; &JX1-7540; [63-67]
+     ((=ucs@cns		  . #x6677)	; 晷󠄃
+      (=ucs@jis/2000	  . #x6677)	; 晷󠄃
+      (=ucs@jis/2004	  . #x6677)	; 晷󠄃
+      (=cns11643-1	  . #x5F63)	; 晷󠄃 [63-67]
       (=jis-x0213-1	  . #x7540)	; &I-JX1-7540; [85-32]
       ))
     (=ucs@cns		. #x53AC)	; &M-03020;
