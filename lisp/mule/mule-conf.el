@@ -422,7 +422,7 @@
    '(registry "jisx0213\\(\\.2004\\)-1"
 	      dimension 2
 	      chars 94
-	      mother =>>>jis-x0213-1@2004
+	      mother =>>jis-x0213-1
 	      =>iso-ir 233
               ;; final ?Q
 	      graphic 0
@@ -1029,8 +1029,8 @@
 		  mother	=>ucs@unicode))
 
   (make-charset '=>>ucs@iso
-		"Representative abstract glyphs of ISO/IEC 10646"
-		'(long-name	"UCS glyphs for UCS"
+		"Representative abstract-glyphs of ISO/IEC 10646"
+		'(long-name	"UCS abstract glyphs for UCS"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -1039,7 +1039,7 @@
 		  =>iso-ir	177
 		  mother	=>ucs@iso))
   (make-charset '=>>ucs@unicode
-		"Representative abstract glyphs of Unicode"
+		"Representative abstract-glyphs of Unicode"
 		'(long-name	"Unicode abstract glyphs"
 		  chars		256
 		  dimension	3
@@ -1049,8 +1049,8 @@
 		  =>iso-ir	177
 		  mother	=>>ucs@iso))
   (make-charset '=>>ucs@jis
-		"UCS Representative glyphs for JIS X0208/0212/0213"
-		'(long-name	"UCS glyphs for JIS"
+		"UCS Representative abstract-glyphs for JIS X0208/0212/0213"
+		'(long-name	"UCS abstract glyphs for JIS"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -1109,6 +1109,37 @@
 		  =>iso-ir	177
 		  mother	=>>ucs@unicode))
 
+  (make-charset '=>>>ucs@iso
+		"Representative glyphs of ISO/IEC 10646"
+		'(long-name	"UCS glyphs for UCS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@iso))
+  (make-charset '=>>>ucs@unicode
+		"Representative glyphs of Unicode"
+		'(long-name	"UCS glyphs for Unicode"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>>ucs@iso))
+  (make-charset '=>>>ucs@jis
+		"UCS Representative glyphs for JIS X0208/0212/0213"
+		'(long-name	"UCS glyphs for JIS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>>ucs@unicode))
+
   (make-charset '=ucs@iso
 		"ISO/IEC 10646 for its representative glyphs"
 		'(long-name	"UCS for ISO"
@@ -1118,7 +1149,7 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
-		  mother	=>>ucs@iso))
+		  mother	=>>>ucs@iso))
   (make-charset '=ucs@unicode
 		"Unicode for its representative glyphs"
 		'(long-name	"UCS for Unicode"
@@ -1716,8 +1747,8 @@
    '=>>hanyo-denshi/ks
    "Han'you-Denshi/KS abstract glyphs"
    '(long-name "Han'you-Denshi/KS glyphs"
-	       chars 94
-	       dimension 2
+	       chars 256
+	       dimension 3
 	       columns 2
 	       graphic 2
 	       direction l2r
