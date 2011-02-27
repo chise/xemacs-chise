@@ -686,7 +686,12 @@
       ))
     (=>>hanyo-denshi/ft . #x3471)	; &G-HD-FT-3471; [20-81]
     (->subsumptive
-     ((ideographic-structure
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x51A2)	; 冢
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
@@ -698,7 +703,7 @@
 	(=jis-x0213-1	    . #x6C35)	; &I-JX1-6C35; [76-21]
 	(=daikanwa	    . 36334)	; &I-M-36334;
 	))
-      (=hanyo-denshi/ft	  . #x3471)	; &HD-FT-3471; [20-81]
+      (=hanyo-denshi/ft	  . #x3471)	; 冢󠄂 [20-81]
       ))
     ))
 (define-char
