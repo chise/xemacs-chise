@@ -1350,7 +1350,12 @@
       ))
     (=>>jis-x0213-1@2004 . #x4840)	; &G-JX3-4840; [40-32]
     (->subsumptive
-     ((ideographic-structure
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x53DB)	; 叛
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
@@ -1363,8 +1368,8 @@
 	(=jis-x0213-1	    . #x483F)	; &I-JX1-483F; [40-31]
 	(=daikanwa	    . 03127)	; &I-M-03127;
 	))
-      (=ucs@jis/2004	  . #x53DB)	; &M-03166;
-      (=ks-x1001	  . #x5A64)	; &M-03166; [58-68]
+      (=ucs@jis/2004	  . #x53DB)	; 叛󠄃
+      (=ks-x1001	  . #x5A64)	; 叛󠄃 [58-68]
       (=jis-x0213-1@2004  . #x4840)	; &I-JX3-4840; [40-32]
       (=daikanwa	  . 03166)	; &I-M-03166;
       (=hanyo-denshi/ft	  . #x3D34)	; &I-HD-FT-3D34; [29-20]
@@ -1683,7 +1688,7 @@
 	(=cns11643-1	    . #x4434)	; &I-C1-4434; [36-20]
 	(=jis-x0213-1	    . #x4B74)	; &I-JX1-4B74; [43-84]
 	))
-      (=>>>jis-x0213-1@2004 . #x5257)	; &G-JX3-5257; [50-55]
+      (=>>>jis-x0213-1@2004 . #x5257)	; &GI-JX3-5257; [50-55]
       (->subsumptive
        ((=ucs@jis/2004	    . #x53DF)	; &GT-04022;
 	(=jis-x0213-1@2004  . #x5257)	; &GT-04022; [50-55]
@@ -1708,7 +1713,7 @@
     (=>>jis-x0208	. #x5257)	; &G-J0-5257; [50-55]
     (=>>jis-x0213-1@2000 . #x5257)	; &G-J0-5257; [50-55]
     (->subsumptive
-     ((=>>>jis-x0208	  . #x5257)	; &G-J0-5257; [50-55]
+     ((=>>>jis-x0208	  . #x5257)	; &GI-J0-5257; [50-55]
       (->subsumptive
        ((=ucs@jis/1990	    . #x53DF)	; &GT-04009;
 	(=ucs@jis/2000	    . #x53DF)	; &GT-04009;
