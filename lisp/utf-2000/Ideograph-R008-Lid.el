@@ -3107,7 +3107,7 @@
       )
      ((=ucs		  . #x4E14)	; 且
       ))
-    (=>>hanyo-denshi/ks . #x1004)	; 亶󠄂 [-16--28]
+    (=>>hanyo-denshi/ks . 004100)	; &G-HD-KS-1004;
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x4EB6)	; 亶
