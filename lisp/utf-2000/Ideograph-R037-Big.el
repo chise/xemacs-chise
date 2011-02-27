@@ -947,8 +947,9 @@
       (=hanziku-2	  . #xBCD6)	; &I-HZK02-BCD6;
       (=hanyo-denshi/jb	  . #x3873)	; &I-HD-JB-3873; [24-83]
       )
-     ((=ucs@unicode	  . #x5946)	; &UU+5946;
-      (=jef-china3	  . #x48E1)	; &UU+5946;
+     ((=ucs@unicode	  . #x5946)	; &HD-IB-3036;
+      (=jef-china3	  . #x48E1)	; &HD-IB-3036;
+      (=hanyo-denshi/ib	  . #x3036)	; &I-HD-IB-3036; [16-22]
       ))
     ))
 (define-char
@@ -2192,6 +2193,7 @@
     (=ucs@unicode	. #x595F)	; &HZK02-BFD7;
     (=cns11643-4	. #x3126)	; &HZK02-BFD7; [17-06]
     (=hanziku-2		. #xBFD7)	; &I-HZK02-BFD7;
+    (=hanyo-denshi/ib	. #x303D)	; &I-HD-IB-303D; [16-29]
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
