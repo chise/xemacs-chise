@@ -463,14 +463,15 @@
       )
      ((=ucs		  . #x52A9)	; 助
       ))
-    (=>>ucs@unicode	. #x52D7)	; &GT-03066;
-    (=ucs@unicode	. #x52D7)	; &GT-03066;
-    (=jis-x0208		. #x5228)	; &GT-03066; [50-08]
+    (=>>ucs@unicode	. #x52D7)	; &AJ1-04285;
+    (=ucs@unicode	. #x52D7)	; &AJ1-04285;
+    (=jis-x0208		. #x5228)	; &AJ1-04285; [50-08]
     (=cns11643-1	. #x5B2B)	; &I-C1-5B2B; [59-11]
     (=jis-x0213-1	. #x5228)	; &I-JX1-5228; [50-08]
     (=big5		. #xB1E5)	; &I-B-B1E5;
     (=gt		. 03066)	; &I-GT-03066;
     (=gt-pj-1		. #x5228)	; &I-GT-03066; [50-08]
+    (=adobe-japan1-0	. 04285)	; &I-AJ1-04285;
     (=hanyo-denshi/ja	. #x5228)	; &I-HD-JA-5228; [50-08]
     ))
 (define-char
