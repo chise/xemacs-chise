@@ -799,12 +799,11 @@
     (=hanziku-1		. #xAA72)	; &I-HZK01-AA72;
     ))
 (define-char
-  '((ideographic-	(:radical	2 ; ⼁
-			 :strokes	15
-			 :sources	(cns-11643))
-			(:radical	6 ; ⼅
-			 :strokes	15
-			 :sources	(morohashi-daikanwa ucs)))
+  '((ideographic-radical@ucs . 6)	; ⼅
+    (ideographic-radical@ucs*sources
+     daikanwa)
+    (ideographic-radical@cns . 2)	; ⼁
+    (ideographic-strokes . 15)
     (total-strokes	 . 16)
     (hanyu-dazidian	1 360 8)
     (=ucs		. #x2011D)	; 𠄝
