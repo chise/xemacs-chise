@@ -593,7 +593,12 @@
       ))
     (=>>ucs@unicode	. #x5377)	; &G-UU+5377;
     (->subsumptive
-     ((ideographic-structure
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5377)	; 卷
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
@@ -602,7 +607,7 @@
 	)
        ((=ucs		    . #x353E)	; 㔾
 	))
-      (=hanyo-denshi/ft	  . #x3521)	; &HD-FT-3521; [21-01]
+      (=hanyo-denshi/ft	  . #x3521)	; 卷󠄃 [21-01]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1087,21 +1092,21 @@
     (=jef-china3	. #x45D5)	; &I-JC3-45D5;
     (=hanyo-denshi/ja	. #x362A)	; &I-HD-JA-362A; [22-10]
     (<-simplified@JP/jis
-     ((=ucs@jis/2004	  . #x537F)	; &M-02880;
-      (=ucs@ks		  . #x537F)	; &M-02880;
-      (=jis-x0208@1978	  . #x362A)	; &M-02880; [22-10]
+     ((=ucs@jis/2004	  . #x537F)	; 卿󠄄
+      (=ucs@ks		  . #x537F)	; 卿󠄄
+      (=jis-x0208@1978	  . #x362A)	; 卿󠄄 [22-10]
       (=ks-x1001	  . #x4C4F)	; &I-K0-4C4F; [44-47]
       (=jis-x0213-1@2004  . #x362A)	; &I-JX3-362A; [22-10]
       (=daikanwa	  . 02880)	; &I-M-02880;
       ))
     (<-vulgar
-     ((=ucs@jis/2004	  . #x537F)	; &M-02880;
-      (=ucs@ks		  . #x537F)	; &M-02880;
-      (=jis-x0208@1978	  . #x362A)	; &M-02880; [22-10]
+     ((=ucs@jis/2004	  . #x537F)	; 卿󠄄
+      (=ucs@ks		  . #x537F)	; 卿󠄄
+      (=jis-x0208@1978	  . #x362A)	; 卿󠄄 [22-10]
       (=ks-x1001	  . #x4C4F)	; &I-K0-4C4F; [44-47]
       (=jis-x0213-1@2004  . #x362A)	; &I-JX3-362A; [22-10]
       (=daikanwa	  . 02880)	; &I-M-02880;
-      (=shinjigen	  .  0868)	; &M-02880;
+      (=shinjigen	  .  0868)	; 卿󠄄
       ))
     (<-vulgar*sources
      shinjigen@1ed)
@@ -1169,13 +1174,13 @@
     (=shinjigen		.  0869)	; 卿
     (=hanyo-denshi/jt	. #xAE7E)	; &I-HD-JT-AE7E;
     (<-same
-     ((=ucs@jis/2004	  . #x537F)	; &M-02880;
-      (=ucs@ks		  . #x537F)	; &M-02880;
-      (=jis-x0208@1978	  . #x362A)	; &M-02880; [22-10]
+     ((=ucs@jis/2004	  . #x537F)	; 卿󠄄
+      (=ucs@ks		  . #x537F)	; 卿󠄄
+      (=jis-x0208@1978	  . #x362A)	; 卿󠄄 [22-10]
       (=ks-x1001	  . #x4C4F)	; &I-K0-4C4F; [44-47]
       (=jis-x0213-1@2004  . #x362A)	; &I-JX3-362A; [22-10]
       (=daikanwa	  . 02880)	; &I-M-02880;
-      (=shinjigen	  .  0868)	; &M-02880;
+      (=shinjigen	  .  0868)	; 卿󠄄
       ))
     (<-same*sources
      shinjigen@1ed)
@@ -1187,6 +1192,11 @@
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x537F)	; 卿
+      )
+     ((=ucs		  . #xE0104)	; 󠄄
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1195,13 +1205,13 @@
       )
      ((=daikanwa	  . 02873)	; &M-02873;
       ))
-    (=ucs@jis/2004	. #x537F)	; &M-02880;
-    (=ucs@ks		. #x537F)	; &M-02880;
-    (=jis-x0208@1978	. #x362A)	; &M-02880; [22-10]
+    (=ucs@jis/2004	. #x537F)	; 卿󠄄
+    (=ucs@ks		. #x537F)	; 卿󠄄
+    (=jis-x0208@1978	. #x362A)	; 卿󠄄 [22-10]
     (=ks-x1001		. #x4C4F)	; &I-K0-4C4F; [44-47]
     (=jis-x0213-1@2004	. #x362A)	; &I-JX3-362A; [22-10]
     (=daikanwa		. 02880)	; &I-M-02880;
-    (=shinjigen		.  0868)	; &M-02880;
+    (=shinjigen		.  0868)	; 卿󠄄
     (=hanyo-denshi/ft	. #x316E)	; &I-HD-FT-316E; [17-78]
     (<-same
      ((=ucs		  . #x2F833)	; 卿
