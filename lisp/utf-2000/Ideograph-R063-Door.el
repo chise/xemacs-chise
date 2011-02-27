@@ -482,6 +482,7 @@
     (=gt-pj-3		. #x5B3C)	; &I-GT-14778; [59-28]
     (=daikanwa		. 11715)	; &I-M-11715;
     (=jef-china3	. #x50E2)	; &I-JC3-50E2;
+    (=hanyo-denshi/ib	. #x232F)	; &I-HD-IB-232F; [03-15]
     ))
 (define-char
   '((<-denotational
