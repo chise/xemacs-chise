@@ -77,6 +77,7 @@
     (ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
+    (=>>ucs@cns		. #x2010D)	; &G-CU+2010D;
     (->subsumptive
      ((=daikanwa	  . 00227)	; &M-00227;
       )
@@ -355,8 +356,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@jis	    . #x4EE4)	; &AJ1-04009;
-	(=jis-x0208	    . #x4E61)	; &AJ1-04009; [46-65]
+       ((=ucs@jis	    . #x4EE4)	; 令󠄀
+	(=jis-x0208	    . #x4E61)	; 令󠄀 [46-65]
 	(=ks-x1001	    . #x5635)	; &I-K0-5635; [54-21]
 	(=jis-x0213-1	    . #x4E61)	; &I-JX1-4E61; [46-65]
 	(=daikanwa	    . 00387)	; &I-M-00387;
@@ -531,12 +532,11 @@
     (=hanziku-2		. #xEC53)	; &I-HZK02-EC53;
     ))
 (define-char
-  '((ideographic-	(:radical	2 ; ⼁
-			 :strokes	15
-			 :sources	(cns-11643))
-			(:radical	6 ; ⼅
-			 :strokes	15
-			 :sources	(morohashi-daikanwa ucs)))
+  '((ideographic-radical@ucs . 6)	; ⼅
+    (ideographic-radical@ucs*sources
+     daikanwa)
+    (ideographic-radical@cns . 2)	; ⼁
+    (ideographic-strokes . 15)
     (total-strokes	 . 16)
     (hanyu-dazidian	1 360 8)
     (=ucs		. #x2011D)	; 𠄝
