@@ -441,8 +441,9 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (=ucs@unicode	. #x5734)	; &C2-222A;
-    (=cns11643-2	. #x222A)	; &C2-222A; [02-10]
+    (=ucs@unicode	. #x5734)	; &HD-IB-2F69;
+    (=cns11643-2	. #x222A)	; &HD-IB-2F69; [02-10]
+    (=hanyo-denshi/ib	. #x2F69)	; &I-HD-IB-2F69; [15-73]
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
