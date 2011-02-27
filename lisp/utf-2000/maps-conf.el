@@ -26,49 +26,52 @@
     (setq ucs (1+ ucs))))
 
 
+(setq gt-pj-1-and-jis-x0208-1990-different-code-points
+      '(#x5C37 #x5C52 #x3521 #x5D62 #x5F4A
+	#x5F5B #x6062 #x4849 #x6173 #x306B
+	#x6328 #x6352 #x6362 #x6471 #x6524
+	#x6530 #x6549 #x6628 #x4356 #x665C
+	#x665D #x6661 #x6660 #x6663 #x4F38
+	#x666B #x4C2E #x6724 #x3D58 #x682B
+	#x427B #x4978 #x694A #x303A #x6A44
+	#x6B43 #x6B78 #x6C2E #x6C57 #x6D36
+	#x6D3A #x3D34 #x4A56 #x3063 #x3D3F
+	#x6E60 #x6F52 #x6F5C #x3458 #x4262
+	#x4E59 #x6F58 #x7051 #x7056 #x375B
+	#x7123 #x712A #x3142 #x3B41 #x7149
+	#x7165 #x7227 #x7233 #x733B #x4E6F
+	#x7366 #x7367 #x7368 #x736C #x5423
+	#x342A #x3476 #x5877 #x592D #x5A61
+	#x3522 #x334C #x657D #x657E #x6621
+	#x335C #x6D7D #x507C #x417C #x5371
+	#x3766 #x3E7D #x555D #x5739 #x5831
+	#x3F78 #x5973 #x5A33 #x5970 #x5A49
+	#x3F22 #x6026 #x4D32 #x612E #x4D63
+	#x4E57 #x316A #x4A43 #x723C #x6A64
+	#x6B36 #x6E43 #x3D36 #x6E44 #x3C60
+	#x6E45 #x6E46 #x6E48 #x6E4B #x6E4A
+	#x6E4F #x6E52 #x6E51 #x4830 #x6E54
+	#x6E55 #x395A #x724D #x737D #x3973
+	#x5379 #x5879 #x3D5D #x3C21 #x4C60
+	#x5267 #x722F #x3C39 #x3848 #x5578
+	#x4742 #x6950 #x697C #x6A24 #x5350
+	#x3326 #x5575 #x5A4B #x3647 #x343F
+	#x4337 #x492D #x3F6C #x6E4D #x4F3F
+	#x353D #x4324 #x475B #x6E47 #x4371
+	#x3F5D #x6E49 #x4D6F #x3C72 #x3D37
+	#x6E4C #x3B44 #x734E #x5567 #x545A
+	#x3071 #x332A #x516A #x476D #x3675
+	#x5734 #x552D #x565A #x564B #x5B79
+	#x5C74 #x5C27 #x5B5E #x3564 #x3823
+	#x6131 #x4A4D #x632E #x635E #x3729
+	#x3951 #x6967 #x704B #x3C38 #x6B26
+	#x4749 #x4428 #x3A47 #x6E4E #x4269
+	#x4043 #x6E56 #x6132 #x5C54 #x3557
+	#x5827 #x4C68 #x505B #x514A #x5D27))
+
 (map-char-attribute
  (lambda (c v)
-   (unless (memq v '(#x5C37 #x5C52 #x3521 #x5D62 #x5F4A
-		     #x5F5B #x6062 #x4849 #x6173 #x306B
-		     #x6328 #x6352 #x6362 #x6471 #x6524
-		     #x6530 #x6549 #x6628 #x4356 #x665C
-		     #x665D #x6661 #x6660 #x6663 #x4F38
-		     #x666B #x4C2E #x6724 #x3D58 #x682B
-		     #x427B #x4978 #x694A #x303A #x6A44
-		     #x6B43 #x6B78 #x6C2E #x6C57 #x6D36
-		     #x6D3A #x3D34 #x4A56 #x3063 #x3D3F
-		     #x6E60 #x6F52 #x6F5C #x3458 #x4262
-		     #x4E59 #x6F58 #x7051 #x7056 #x375B
-		     #x7123 #x712A #x3142 #x3B41 #x7149
-		     #x7165 #x7227 #x7233 #x733B #x4E6F
-		     #x7366 #x7367 #x7368 #x736C #x5423
-		     #x342A #x3476 #x5877 #x592D #x5A61
-		     #x3522 #x334C #x657D #x657E #x6621
-		     #x335C #x6D7D #x507C #x417C #x5371
-		     #x3766 #x3E7D #x555D #x5739 #x5831
-		     #x3F78 #x5973 #x5A33 #x5970 #x5A49
-		     #x3F22 #x6026 #x4D32 #x612E #x4D63
-		     #x4E57 #x316A #x4A43 #x723C #x6A64
-		     #x6B36 #x6E43 #x3D36 #x6E44 #x3C60
-		     #x6E45 #x6E46 #x6E48 #x6E4B #x6E4A
-		     #x6E4F #x6E52 #x6E51 #x4830 #x6E54
-		     #x6E55 #x395A #x724D #x737D #x3973
-		     #x5379 #x5879 #x3D5D #x3C21 #x4C60
-		     #x5267 #x722F #x3C39 #x3848 #x5578
-		     #x4742 #x6950 #x697C #x6A24 #x5350
-		     #x3326 #x5575 #x5A4B #x3647 #x343F
-		     #x4337 #x492D #x3F6C #x6E4D #x4F3F
-		     #x353D #x4324 #x475B #x6E47 #x4371
-		     #x3F5D #x6E49 #x4D6F #x3C72 #x3D37
-		     #x6E4C #x3B44 #x734E #x5567 #x545A
-		     #x3071 #x332A #x516A #x476D #x3675
-		     #x5734 #x552D #x565A #x564B #x5B79
-		     #x5C74 #x5C27 #x5B5E #x3564 #x3823
-		     #x6131 #x4A4D #x632E #x635E #x3729
-		     #x3951 #x6967 #x704B #x3C38 #x6B26
-		     #x4749 #x4428 #x3A47 #x6E4E #x4269
-		     #x4043 #x6E56 #x6132 #x5C54 #x3557
-		     #x5827 #x4C68 #x505B #x514A))
+   (unless (memq v gt-pj-1-and-jis-x0208-1990-different-code-points)
      (put-char-attribute (decode-char 'japanese-jisx0208-1990 v)
 			 '=gt-pj-1 v))
    nil)
