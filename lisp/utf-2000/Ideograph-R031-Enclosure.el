@@ -2627,15 +2627,20 @@
       ))
     (=>>ucs@unicode	. #x5708)	; &G-UU+5708;
     (->subsumptive
-     ((ideographic-structure
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5708)	; 圈
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
 	(=ucs		    . #x2FF4)	; ⿴
 	)
        ((=ucs		    . #x56D7)	; 囗
 	)
-       ((=hanyo-denshi/ft   . #x3521)	; &HD-FT-3521; [21-01]
+       ((=hanyo-denshi/ft   . #x3521)	; 卷󠄃 [21-01]
 	))
-      (=hanyo-denshi/ft	  . #x353A)	; &HD-FT-353A; [21-26]
+      (=hanyo-denshi/ft	  . #x353A)	; 圈󠄂 [21-26]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
@@ -3023,7 +3028,12 @@
 	(=hanyo-denshi/ja   . #x5423)	; &I-HD-JA-5423; [52-03]
 	))
       )
-     ((ideographic-structure
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x570D)	; 圍
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
 	(=ucs		    . #x2FF4)	; ⿴
 	)
@@ -3034,7 +3044,7 @@
 	(=ks-x1001	    . #x6A5F)	; &I-K0-6A5F; [74-63]
 	(=jis-x0213-1	    . #x706A)	; &I-JX1-706A; [80-74]
 	))
-      (=hanyo-denshi/ft	  . #x3C6A)	; &HD-FT-3C6A; [28-74]
+      (=hanyo-denshi/ft	  . #x3C6A)	; 圍󠄃 [28-74]
       ))
     ))
 (define-char
