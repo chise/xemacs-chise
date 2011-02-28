@@ -4819,6 +4819,14 @@
     (->subsumptive
      ((ideographic-strokes . 15)
       (total-strokes	   . 17)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=>>>ucs@unicode    . #x5FB9)	; &GI-UU+5FB9;
+	)
+       ((=ucs		    . #x529B)	; 力
+	))
       (=>>>ucs@unicode	  . #x52F6)	; &GI-UU+52F6;
       (->subsumptive
        ((ideographic-structure
@@ -4844,6 +4852,7 @@
 	  (=ucs		      . #x2FF1)	; ⿱
 	  )
 	 ((=ucs@unicode	      . #x5FB9)	; &UU+5FB9;
+	  (=gb12345	      . #x3339)	; &UU+5FB9; [19-25]
 	  )
 	 ((=ucs		      . #x529B)	; 力
 	  ))
