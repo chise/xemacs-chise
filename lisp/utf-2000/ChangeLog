@@ -1,5 +1,10 @@
 2011-02-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R078-Death.el (U+6BA9): Use `->denotational' and
+	`->subsumptive'.
+	(JSP-462B): Separate JX1-7647.
+	(JX1-7647): Unify HD-JC8639.
+
 	* Ideograph-R081-Compare.el (JSP-4638): Unify AJ1-08509; separate
 	G0-3151.
 	(U+6BD7): Use `->subsumptive'.
