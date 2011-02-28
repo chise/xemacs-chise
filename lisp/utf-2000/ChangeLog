@@ -1,3 +1,39 @@
+2011-02-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R060-Step.el (U+5F8F): Use `->denotational' and
+	`->subsumptive'.
+	(HD-IB1837): New character.
+	(U+5FB9): Use `->subsumptive'.
+
+	* Ideograph-R056-Shoot.el (M-09660): Map to U-0002237C.
+	(U+5F0E): Use `->subsumptive'.
+	(JC3-41A7): Unify HD-IB1803.
+
+	* Ideograph-R018-Knife.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/FT
+	  characters.
+	- Add some abstract `ideographic-structure's.
+	(G0-4850): Unify HD-IB0302.
+	(U+5275): Use `->denotational' instead of `->subsumptive'.
+	(U+527E): Likewise.
+	(U+529A): Likewise.
+
+	* Ideograph-R017-Open-Box.el: Add some Adobe-Japan1-0 code points.
+	(M-01819): Unify U-00020684 and H1-E5A4.
+	(M-01820): Map to U-00020683.
+	(M-01821): Unify U-00020685 and H1-E5BD.
+	(M-01822): Don't map to U+342B; add `ideographic-structure'; add
+	`<-vulgar' for J0-3627.
+	(U+342B): Add ideographic-structure.
+	(BC-8C5E): Add `<-vulgar' for J0-3627.
+
+	* Ideograph-R010-Legs.el:
+	- Add Hanyo-Denshi/KS code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/FT
+	  characters.
+	(M-01344): Separate U+FA74 and C1-4572.
+
 2011-02-27  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R053-Dotted-Cliff.el: Add Hanyo-Denshi/IB code points.
