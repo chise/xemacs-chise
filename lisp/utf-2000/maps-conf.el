@@ -67,7 +67,8 @@
 	#x3951 #x6967 #x704B #x3C38 #x6B26
 	#x4749 #x4428 #x3A47 #x6E4E #x4269
 	#x4043 #x6E56 #x6132 #x5C54 #x3557
-	#x5827 #x4C68 #x505B #x514A #x5D27))
+	#x5827 #x4C68 #x505B #x514A #x5D27
+	#x5563))
 
 (map-char-attribute
  (lambda (c v)
