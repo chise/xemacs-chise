@@ -1,5 +1,19 @@
 2011-02-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R081-Compare.el (JSP-4638): Unify AJ1-08509; separate
+	G0-3151.
+	(U+6BD7): Use `->subsumptive'.
+
+	* Ideograph-R019-Power.el (GI-UU+52F6): Add ideographic-structure.
+
+	* Ideograph-R009-Man.el:
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/FT
+	  characters.
+	- Add Hanyo-Denshi/KS code points.
+	(U-00020230): Use `->denotational' instead of `->subsumptive'.
+	(U+5099): Likewise.
+	(U+50CF): Use `->denotational' to ingrate HD-KS013380.
+
 	* Ideograph-R060-Step.el (U+5F8F): Use `->denotational' and
 	`->subsumptive'.
 	(HD-IB1837): New character.
