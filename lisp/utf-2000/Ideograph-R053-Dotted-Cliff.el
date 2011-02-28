@@ -1798,9 +1798,10 @@
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=>>ucs@cns		. #x5EAC)	; &G-CU+5EAC;
+    (=>>>ucs@cns	. #x5EAC)	; &GI-CU+5EAC;
     (->subsumptive
-     ((=shinjigen	  .  0880)	; &SJG2-0880;
+     ((=shinjigen	  .  0880)	; &HD-IB-3170;
+      (=hanyo-denshi/ib	  . #x3170)	; &HD-IB-3170; [17-80]
       (<-formed
        ((=shinjigen	    .  0879)	; &HD-JT-AE85;
 	))
@@ -3909,6 +3910,9 @@
   '((<-denotational
      ((=ucs		  . #x5ED0)	; 廐
       ))
+    (=>>ucs@jis		. #x5ED0)	; &G-JU+5ED0;
+    (=>>ucs@ks		. #x5ED0)	; &G-JU+5ED0;
+    (=>>ucs@cns		. #x5ED0)	; &G-JU+5ED0;
     (->subsumptive
      ((ideographic-strokes . 11)
       (total-strokes	   . 14)
@@ -3929,10 +3933,12 @@
       )
      ((ideographic-strokes . 11)
       (total-strokes	   . 14)
+      (=ucs@cns		  . #x5ED0)	; &C3-4660;
       (=cns11643-3	  . #x4660)	; &C3-4660; [38-64]
       )
      ((ideographic-strokes . 12)
       (total-strokes	   . 14)
+      (=ucs@ks		  . #x5ED0)	; &K0-4F2A;
       (=ks-x1001	  . #x4F2A)	; &K0-4F2A; [47-10]
       ))
     ))
@@ -3948,6 +3954,7 @@
   '((<-denotational
      ((=ucs		  . #x5ED0)	; 廐
       ))
+    (=>>gt		. 11901)	; &G-GT-11901;
     (->subsumptive
      ((ideographic-strokes . 11)
       (total-strokes	   . 14)
@@ -3967,6 +3974,7 @@
      ((ideographic-strokes . 12)
       (total-strokes	   . 15)
       (=cbeta		  . 00636)	; &CB00636;
+      (=hanyo-denshi/ib	  . #x266D)	; &I-HD-IB-266D; [06-77]
       ))
     ))
 (define-char
