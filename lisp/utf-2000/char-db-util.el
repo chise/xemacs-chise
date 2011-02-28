@@ -195,9 +195,12 @@
     =>ucs@JP
     =>ucs@cns
     =>ucs@ks
+    =>>ucs@iso
     =>>ucs@unicode
     =>>ucs@jis
     =>>ucs@cns
+    =>>>ucs@iso
+    =>>>ucs@unicode
     =ucs@iso
     =ucs@unicode
     =>>big5-cdp
