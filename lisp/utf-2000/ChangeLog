@@ -14,6 +14,12 @@
 	(U+5099): Likewise.
 	(U+50CF): Use `->denotational' to ingrate HD-KS013380.
 
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x5563.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>>ucs@iso', `=>>>ucs@iso' and `=>>>ucs@unicode'.
+
 	* Ideograph-R060-Step.el (U+5F8F): Use `->denotational' and
 	`->subsumptive'.
 	(HD-IB1837): New character.
