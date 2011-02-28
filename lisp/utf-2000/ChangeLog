@@ -1,5 +1,10 @@
 2011-02-27  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R048-Work.el (U+5DE6): Use `->denotational' to
+	integrate HD-IB0665.
+
+2011-02-27  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R064-Hand.el: Add Hanyo-Denshi/IB code points.
 
 	* Ideograph-R063-Door.el (G0-4B79): Unify HD-IB0315.
@@ -11,6 +16,9 @@
 	(HD-IB0312): New character.
 
 	* Ideograph-R051-Dry.el: Add Hanyo-Denshi/IB code points.
+
+	* Ideograph-R046-Mountain.el: Add Hanyo-Denshi/IB code points.
+	(U+5C76): Unify AJ1-04660.
 
 	* Ideograph-R038-Woman.el (G0-663A): Unify HD-IB0655.
 
