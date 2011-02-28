@@ -205,6 +205,7 @@
     (=gt		. 09918)	; &I-GT-09918;
     (=gt-k		. 01046)	; &I-GT-K01046;
     (=gt-pj-1		. #x5627)	; &I-GT-09918; [54-07]
+    (=adobe-japan1-0	. 04660)	; &I-AJ1-04660;
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
@@ -1056,7 +1057,7 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
-     ((=jis-x0208@1978	  . #x4A2C)	; &GT-02420; [42-12]
+     ((=jis-x0208@1978	  . #x4A2C)	; 分󠄃 [42-12]
       (=jis-x0208@1983	  . #x4A2C)	; &I-J83-4A2C; [42-12]
       (=ks-x1001	  . #x5D42)	; &I-K0-5D42; [61-34]
       (=daikanwa	  . 01853)	; &I-M-01853;
@@ -4317,6 +4318,8 @@
     (total-strokes	 . 11)
     (=>>ucs@unicode	. #x5D1D)	; &G-UU+5D1D;
     (->subsumptive
+     ((=hanyo-denshi/ib	  . #x2660)	; &HD-IB-2660; [06-64]
+      )
      ((=ucs@unicode	  . #x5D1D)	; &UU+5D1D;
       )
      ((=ucs@cns		  . #x5D1D)	; &C2-3479;
@@ -4528,6 +4531,8 @@
      ((=ucs@unicode	  . #x5D27)	; &C1-5A23;
       (=gb2312		  . #x6142)	; &C1-5A23; [65-34]
       (=cns11643-1	  . #x5A23)	; &I-C1-5A23; [58-03]
+      )
+     ((=hanyo-denshi/ib	  . #x313F)	; &HD-IB-313F; [17-31]
       ))
     ))
 (define-char
@@ -8345,14 +8350,21 @@
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
-    (ideographic-strokes . 12)
-    (total-strokes	 . 15)
     (=ucs		. #x5D92)	; 嶒
-    (=big5		. #xE565)	; &I-B-E565;
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x5D92)	; 嶒
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (=>ucs@unicode	. #x5D92)	; &A-UU+5D92;
+    (=big5		. #xE565)	; &A-UU+5D92;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x5D92)	; &A-UU+5D92;
       ))
     (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 12)
@@ -8366,7 +8378,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5D92)	; 嶒
+     ((=>ucs@unicode	  . #x5D92)	; &A-UU+5D92;
       ))
     (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 12)
@@ -8378,6 +8390,15 @@
      ((=ucs@unicode	  . #x5D92)	; &EGB-7B21;
       (=iso-ir165	  . #x7B21)	; &EGB-7B21; [91-01]
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5D92)	; 嶒
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (=hanyo-denshi/ib	. #x3151)	; &HD-IB-3151; [17-49]
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
