@@ -1082,8 +1082,8 @@
 	)
        ((=ucs		    . #x6B79)	; 歹
 	)
-       ((=ucs@unicode	    . #x51AC)	; &GT-07204;
-	(=jis-x0208	    . #x455F)	; &GT-07204; [37-63]
+       ((=ucs@unicode	    . #x51AC)	; 冬󠄁
+	(=jis-x0208	    . #x455F)	; 冬󠄁 [37-63]
 	(=gb2312	    . #x362C)	; &I-G0-362C; [22-12]
 	(=cns11643-1	    . #x4576)	; &I-C1-4576; [37-86]
 	(=jis-x0213-1	    . #x455F)	; &I-JX1-455F; [37-63]
@@ -3003,8 +3003,8 @@
     (->subsumptive
      ((=daikanwa	  . 16543)	; &M-16543;
       (<-same
-       ((=ucs@jis	    . #x51A5)	; &GT-02095;
-	(=jis-x0208	    . #x4C3D)	; &GT-02095; [44-29]
+       ((=ucs@jis	    . #x51A5)	; 冥󠄀
+	(=jis-x0208	    . #x4C3D)	; 冥󠄀 [44-29]
 	(=ks-x1001	    . #x5922)	; &I-K0-5922; [57-02]
 	(=jis-x0213-1	    . #x4C3D)	; &I-JX1-4C3D; [44-29]
 	(=daikanwa	    . 01588)	; &I-M-01588;
@@ -3573,20 +3573,37 @@
     ))
 (define-char
   '((ideographic-radical . 78)	; ⽍
-    (ideographic-strokes . 12)
-    (total-strokes	 . 17)
     (=ucs		. #x6BA9)	; 殩
-    (=jis-x0212		. #x462B)	; &I-JSP-462B; [38-11]
-    (=jis-x0213-1	. #x7647)	; &I-JX1-7647; [86-39]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6BA9)	; 殩
+      ))
+    (ideographic-radical . 78)	; ⽍
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (=ucs@jis/1990	. #x6BA9)	; &M-16577;
+    (=jis-x0212		. #x462B)	; &M-16577; [38-11]
     (=daikanwa		. 16577)	; &I-M-16577;
     ))
 (define-char
-  '((=>ucs		. #x6BA9)	; 殩
-    (morohashi-daikanwa	16577 0 1)
+  '((<-denotational
+     ((=ucs		  . #x6BA9)	; 殩
+      ))
     (ideographic-radical . 78)	; ⽍
-    (ideographic-strokes . 12)
+    (ideographic-strokes . 13)
     (total-strokes	 . 17)
-    (=cns11643-5	. #x5B72)	; &C5-5B72; [59-82]
+    (=>>ucs@unicode	. #x6BA9)	; &G-UU+6BA9;
+    (->subsumptive
+     ((=ucs@jis/2000	  . #x6BA9)	; &JX1-7647;
+      (=ucs@jis/2004	  . #x6BA9)	; &JX1-7647;
+      (=jis-x0213-1	  . #x7647)	; &JX1-7647; [86-39]
+      (=hanyo-denshi/jc	  . #x7647)	; &I-HD-JC-7647; [86-39]
+      )
+     ((=ucs@unicode	  . #x6BA9)	; &UU+6BA9;
+      )
+     ((=cns11643-5	  . #x5B72)	; &C5-5B72; [59-82]
+      ))
     ))
 (define-char
   '((ideographic-radical . 78)	; ⽍
@@ -3601,7 +3618,7 @@
     (=gt		. 21240)	; &I-GT-21240;
     (=gt-pj-1		. #x5D50)	; &I-GT-21240; [61-48]
     (=daikanwa		. 16578)	; &I-M-16578;
-    (=shinjigen@rev	.  3984)	; 殪
+    (=shinjigen		.  3984)	; 殪
     ))
 (define-char
   '((ideographic-radical . 78)	; ⽍
