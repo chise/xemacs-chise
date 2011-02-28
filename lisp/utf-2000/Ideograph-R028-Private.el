@@ -42,18 +42,23 @@
     (ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x20AD3)	; 𠫓
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@jis		  . #x4EA0)	; &AJ1-04110;
-      (=jis-x0208	  . #x5035)	; &AJ1-04110; [48-21]
+     ((=ucs@jis		  . #x4EA0)	; 亠󠄀
+      (=jis-x0208	  . #x5035)	; 亠󠄀 [48-21]
       (=jis-x0213-1	  . #x5035)	; &I-JX1-5035; [48-21]
       )
      ((=ucs		  . #x53B6)	; 厶
       ))
-    (=ucs@jis		. #x20AD3)	; &JX2-2359;
-    (=jis-x0213-2	. #x2359)	; &JX2-2359; [03-57]
+    (=ucs@jis		. #x20AD3)	; 𠫓󠄁
+    (=jis-x0213-2	. #x2359)	; 𠫓󠄁 [03-57]
     (=hanyo-denshi/jd	. #x2359)	; &I-HD-JD-2359; [03-57]
     ))
 (define-char
