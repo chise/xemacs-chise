@@ -37,6 +37,11 @@
 	)
        ((=ucs		    . #xE0101)	; 󠄁
 	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x516B)	; 八
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
       (=adobe-japan1-5	  . 20079)	; 八󠄁
       (=hanyo-denshi/ft	  . #x3452)	; &I-HD-FT-3452; [20-50]
       ))
@@ -101,6 +106,11 @@
        ((=ucs		    . #x516C)	; 公
 	)
        ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x516C)	; 公
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
 	))
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -317,7 +327,12 @@
       (=ucs@unicode	  . #x516E)	; &G0-5962;
       (=gb2312		  . #x5962)	; &G0-5962; [57-66]
       )
-     ((ideographic-structure
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x516E)	; 兮
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
@@ -325,7 +340,7 @@
 	)
        ((=ucs		    . #x4E02)	; 丂
 	))
-      (=hanyo-denshi/ft	  . #x3470)	; &HD-FT-3470; [20-80]
+      (=hanyo-denshi/ft	  . #x3470)	; 兮󠄂 [20-80]
       ))
     ))
 (define-char
@@ -560,6 +575,8 @@
 	(=cns11643-1	    . #x4532)	; &I-C1-4532; [37-18]
 	))
       (=daikanwa	  . 01459)	; &M-01459;
+      (=hanyo-denshi/ks	  . 017040)	; &M-01459;
+      (=hanyo-denshi/ks/mf . #x06A8)	; &I-KSMF-01704;
       )
      ((=ucs@cns		  . #x5173)	; &C4-2234;
       (=cns11643-4	  . #x2234)	; &C4-2234; [02-20]
