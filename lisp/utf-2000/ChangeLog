@@ -1,5 +1,22 @@
 2011-02-27  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R053-Dotted-Cliff.el: Add Hanyo-Denshi/IB code points.
+
+	* Ideograph-R050-Turban.el (U-000220EC): Use `->denotational'
+	instead of `->subsumptive'.
+	(U+3850): Likewise.
+	(U+5E3E): Likewise; add ideographic-structure.
+
+	* Ideograph-R020-Wrap.el: Add some Adobe-Japan1-0 code points.
+	(G0-307C): Unify HD-IB1488.
+	(U+5309): Add ideographic-structure.
+	(U+530F): Use `->subsumptive' to separate representative node.
+	(U+5312): Add ideographic-structure.
+
+	* Ideograph-R012-Eight.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/FT characters.
+	(M-01459): Unify HD-KS017040.
+
 	* Ideograph-R048-Work.el (U+5DE6): Use `->denotational' to
 	integrate HD-IB0665.
 
