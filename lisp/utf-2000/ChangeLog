@@ -1,3 +1,21 @@
+2011-03-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R073-Say.el (J0-5258): Add
+	`=decomposition@hanyo-denshi'.
+	(J0-3A47): Ditto.
+
+	* Ideograph-R061-Heart.el: Add Hanyo-Denshi/IB code points.
+	(JX3-327A): Unify HD-HG1608.
+	(U+60E0): Use `->denotational' and `->subsumptive'.
+	(U+6166): Use `->subsumptive' to separate representative nodes.
+	(U+6167): Use `->denotational' instead of `->subsumptive'.
+	(U-000227E9): Likewise.
+
+	* Ideograph-R036-Evening.el: Add some Adobe-Japan1-0 code points.
+	(U-00020199): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R034-Go.el: Add some Adobe-Japan1-0 code points.
+
 2011-02-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R029-Again.el: Add `=decomposition@hanyo-denshi' for
