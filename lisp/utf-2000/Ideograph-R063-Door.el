@@ -629,6 +629,7 @@
     (=gt-k		. 05246)	; &I-GT-K05246;
     (=gt-pj-3		. #x5B46)	; &I-GT-14816; [59-38]
     (=daikanwa		. 11724)	; &I-M-11724;
+    (=hanyo-denshi/hg	. #x305D)	; &I-HD-HG-305D; [16-61]
     ))
 (define-char
   '((<-denotational
