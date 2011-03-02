@@ -1,9 +1,33 @@
 2011-02-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R029-Again.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/JA characters.
+
+	* Ideograph-R014-Cover.el, Ideograph-R013-Down-Box.el (J0-3A47):
+	Add `=decomposition@hanyo-denshi'.
+
+	* Ideograph-R009-Man.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/JA and JB characters.
+
+	* Ideograph-R008-Lid.el (U-00020199): Use `->denotational' instead
+	of `->subsumptive'.
+
 	* Ideograph-R028-Private.el (JX2-2359): Add
 	`=decomposition@hanyo-denshi'.
 
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x5D7A.
+
+	* Ideograph-R064-Hand.el (JX3-4237): Unify HD-HG1637.
+
+	* Ideograph-R063-Door.el (JX3-5928): Unify HD-HG1661.
+
 2011-02-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (GT-09035): Separate J83-5563, J90-5563,
+	JX1-5563 and JC3-4AC8.
+	(mother of C4-3130): Unify CU+2F86D instead of U-0002F86D.
+	(C4-3130): Unify U-0002F86D.
 
 	* Ideograph-R078-Death.el (U+6BA9): Use `->denotational' and
 	`->subsumptive'.
