@@ -14,6 +14,7 @@
     (=gt-k		. 00217)	; &I-GT-K00217;
     (=gt-pj-1		. #x5469)	; &I-GT-07201; [52-73]
     (=daikanwa		. 05691)	; &I-M-05691;
+    (=adobe-japan1-0	. 04538)	; &I-AJ1-04538;
     ))
 (define-char
   '((ideographic-radical . 34)	; ⼡
@@ -313,26 +314,36 @@
     (ideographic-radical . 34)	; ⼡
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA6)	; 亦
+      )
+     ((=ucs		  . #x5902)	; 夂
+      ))
+    (=>>ucs@unicode	. #x5909)	; &G-UU+5909;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x4EA6)	; &AJ1-03744;
-	(=jis-x0208	    . #x4B72)	; &AJ1-03744; [43-82]
+       ((=ucs@jis	    . #x4EA6)	; 亦󠄀
+	(=jis-x0208	    . #x4B72)	; 亦󠄀 [43-82]
 	(=ks-x1001	    . #x6632)	; &I-K0-6632; [70-18]
 	(=jis-x0213-1	    . #x4B72)	; &I-JX1-4B72; [43-82]
 	(=daikanwa	    . 00293)	; &I-M-00293;
 	)
        ((=ucs		    . #x5902)	; 夂
 	))
-      (=ucs@jis		  . #x5909)	; &GT-07215;
-      (=jis-x0208	  . #x4A51)	; &GT-07215; [42-49]
+      (=ucs@jis		  . #x5909)	; &AJ1-03617;
+      (=jis-x0208	  . #x4A51)	; &AJ1-03617; [42-49]
       (=jis-x0213-1	  . #x4A51)	; &I-JX1-4A51; [42-49]
       (=gt		  . 07215)	; &I-GT-07215;
       (=gt-pj-1		  . #x4A51)	; &I-GT-07215; [42-49]
       (=daikanwa	  . 05703)	; &I-M-05703;
-      (=shinjigen	  .  3201)	; &GT-07215;
+      (=shinjigen	  .  3201)	; &AJ1-03617;
+      (=adobe-japan1-0	  . 03617)	; &I-AJ1-03617;
       (<-simplified@JP/Jouyou
        ((=ucs@jis	    . #x8B8A)	; &GT-48488;
 	(=jis-x0208	    . #x5A4E)	; &GT-48488; [58-46]
@@ -351,6 +362,15 @@
     (ideographic-radical . 34)	; ⼡
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA6)	; 亦
+      )
+     ((=ucs		  . #x590A)	; 夊
+      ))
+    (=>>ucs@cns		. #x5909)	; &G-CU+5909;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -363,6 +383,7 @@
        ((=ucs@unicode	    . #x590A)	; &CDP-8A71;
 	(=cns11643-3	    . #x213A)	; &CDP-8A71; [01-26]
 	))
+      (=ucs@cns		  . #x5909)	; &C3-2B79;
       (=cns11643-3	  . #x2B79)	; &C3-2B79; [11-89]
       )
      ((hanyu-dazidian	  2 869 8)
