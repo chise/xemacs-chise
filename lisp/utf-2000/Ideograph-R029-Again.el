@@ -1396,7 +1396,12 @@
       ))
     (=>>jis-x0213-1@2000 . #x4840)	; &G-JX1-4840; [40-32]
     (->subsumptive
-     ((ideographic-structure
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x53DB)	; 叛
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
@@ -1409,9 +1414,9 @@
 	(=jis-x0213-1	    . #x483F)	; &I-JX1-483F; [40-31]
 	(=daikanwa	    . 03127)	; &I-M-03127;
 	))
-      (=ucs@jis/1990	  . #x53DB)	; &GT-04013;
-      (=ucs@jis/2000	  . #x53DB)	; &GT-04013;
-      (=jis-x0208	  . #x4840)	; &GT-04013; [40-32]
+      (=ucs@jis/1990	  . #x53DB)	; 叛󠄂
+      (=ucs@jis/2000	  . #x53DB)	; 叛󠄂
+      (=jis-x0208	  . #x4840)	; 叛󠄂 [40-32]
       (=jis-x0213-1@2000  . #x4840)	; &I-JX1-4840; [40-32]
       (=gt		  . 04013)	; &I-GT-04013;
       (=gt-pj-1		  . #x4840)	; &I-GT-04013; [40-32]
@@ -1715,9 +1720,14 @@
     (->subsumptive
      ((=>>>jis-x0208	  . #x5257)	; &GI-J0-5257; [50-55]
       (->subsumptive
-       ((=ucs@jis/1990	    . #x53DF)	; &GT-04009;
-	(=ucs@jis/2000	    . #x53DF)	; &GT-04009;
-	(=jis-x0208	    . #x5257)	; &GT-04009; [50-55]
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x53DF)	; 叟
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(=ucs@jis/1990	    . #x53DF)	; 叟󠄂
+	(=ucs@jis/2000	    . #x53DF)	; 叟󠄂
+	(=jis-x0208	    . #x5257)	; 叟󠄂 [50-55]
 	(=jis-x0213-1@2000  . #x5257)	; &I-JX1-5257; [50-55]
 	(=gt		    . 04009)	; &I-GT-04009;
 	(=gt-k		    . 05219)	; &I-GT-K05219;
@@ -1966,8 +1976,13 @@
     (ideographic-radical@cns . 29)	; ⼜
     (ideographic-strokes@cns . 9)
     (total-strokes	 . 11)
-    (=ucs@unicode	. #x66FC)	; &GT-18098;
-    (=jis-x0208		. #x5258)	; &GT-18098; [50-56]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x66FC)	; 曼
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=ucs@unicode	. #x66FC)	; 曼󠄂
+    (=jis-x0208		. #x5258)	; 曼󠄂 [50-56]
     (=gb2312		. #x427C)	; &I-G0-427C; [34-92]
     (=ks-x1001		. #x583A)	; &I-K0-583A; [56-26]
     (=jis-x0213-1	. #x5258)	; &I-JX1-5258; [50-56]
@@ -2216,6 +2231,11 @@
 	 ((=ucs		      . #x6700)	; 最
 	  )
 	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(=decomposition@hanyo-denshi
+	 ((=ucs		      . #x6700)	; 最
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
 	  ))
 	(=ucs@cns	    . #x2F8D4)	; 最󠄀
 	(=ucs@jis	    . #x6700)	; 最󠄀
