@@ -9110,6 +9110,7 @@
     (=ucs@jis/2004	. #x63C3)	; &M-12319;
     (=jis-x0213-1@2004	. #x4237)	; &M-12319; [34-23]
     (=daikanwa		. 12319)	; &I-M-12319;
+    (=hanyo-denshi/hg	. #x3045)	; &I-HD-HG-3045; [16-37]
     ))
 (define-char
   '((<-denotational
