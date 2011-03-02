@@ -1243,6 +1243,11 @@
 	  )
 	 ((=ucs		      . #xE0100)	; 󠄀
 	  ))
+	(=decomposition@hanyo-denshi
+	 ((=ucs		      . #x6700)	; 最
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
 	(=ucs@cns	    . #x2F8D4)	; 最󠄀
 	(=ucs@jis	    . #x6700)	; 最󠄀
 	(=ucs@ks	    . #x6700)	; 最󠄀
