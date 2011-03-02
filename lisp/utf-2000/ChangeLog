@@ -1,5 +1,10 @@
 2011-02-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R028-Private.el (JX2-2359): Add
+	`=decomposition@hanyo-denshi'.
+
+2011-02-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R078-Death.el (U+6BA9): Use `->denotational' and
 	`->subsumptive'.
 	(JSP-462B): Separate JX1-7647.
