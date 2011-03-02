@@ -355,8 +355,13 @@
     (ideographic-radical@cns . 29)	; ⼜
     (ideographic-strokes@cns . 9)
     (total-strokes	 . 11)
-    (=ucs@unicode	. #x66FC)	; &GT-18098;
-    (=jis-x0208		. #x5258)	; &GT-18098; [50-56]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x66FC)	; 曼
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=ucs@unicode	. #x66FC)	; 曼󠄂
+    (=jis-x0208		. #x5258)	; 曼󠄂 [50-56]
     (=gb2312		. #x427C)	; &I-G0-427C; [34-92]
     (=ks-x1001		. #x583A)	; &I-K0-583A; [56-26]
     (=jis-x0213-1	. #x5258)	; &I-JX1-5258; [50-56]
@@ -665,6 +670,11 @@
 	 ((=ucs		      . #x6700)	; 最
 	  )
 	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(=decomposition@hanyo-denshi
+	 ((=ucs		      . #x6700)	; 最
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
 	  ))
 	(=ucs@cns	    . #x2F8D4)	; 最󠄀
 	(=ucs@jis	    . #x6700)	; 最󠄀
