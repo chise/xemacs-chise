@@ -1,5 +1,45 @@
 2011-03-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R085-Water.el:
+	- Add some Adobe-Japan1-2 code points.
+	- Use `->denotational' and/or `->subsumptive' for some characters.
+	(U+6C8A): Use `->subsumptive' to separate representative nodes.
+	(U+6C8B): Likewise.
+	(U+6C91): Use `->denotational' to separate representative nodes.
+	(U+6C92): Use `->subsumptive' to separate representative nodes.
+	(U+6CC5): Likewise.
+	(U+6CD7): Likewise.
+	(U+6CEA): Add `<-formed' for JX1-7673.
+	(U+6D12): Use `->subsumptive' to separate representative nodes.
+	(mother of C6-392D): Unify G-KU+6D69 and G-CU+2F903 instead of
+	U-0002F903.
+	(C6-392D): Unify U-0002F903.
+	(U+6D8F): Use `->subsumptive' to separate representative node.
+	(B-D258): Separate JSP-474C, M-17545 and JC3-56A8.
+	(U+6D97): Use `<-denotational' for B-D258.
+	(U+6D9A): Likewise.
+	(U+6DCE): Use `->subsumptive' to separate representative nodes.
+	(U+6DD4): Use `->denotational' instead of `->subsumptive'.
+	(U+6DD5): Likewise.
+	(U+6DE7): Use `->subsumptive' to separate representative nodes.
+	(U+6DE9): Use `->denotational' instead of `->subsumptive'.
+	(U+6E23): Use `->denotational' instead of `->subsumptive'.
+	(U+6E8C): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-482E.
+	(U-00023E6C): Use `->subsumptive' to separate representative
+	nodes.
+	(K0-7C41): Unify KU+6ED1.
+	(C1-646C): Unify CU+6ED1.
+	(U+6F00): Use `->subsumptive' to separate representative nodes.
+	(U+6F31): Likewise.
+	(U+6F52): Likewise.
+	(U+6F58): Likewise.
+	(K0-7C52): Unify KU+6F62.
+	(C1-6D52): Unify CU+6F78.
+	(U+6F84): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R053-Dotted-Cliff.el (U+5E9A): Use `->subsumptive'.
+
 	* Ideograph-R073-Say.el (J0-5258): Add
 	`=decomposition@hanyo-denshi'.
 	(J0-3A47): Ditto.
