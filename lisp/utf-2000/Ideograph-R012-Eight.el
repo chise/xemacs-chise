@@ -1734,7 +1734,8 @@
 	(=jis-x0213-1	    . #x305B)	; &I-JX1-305B; [16-59]
 	(=daikanwa	    . 21854)	; &I-M-21854;
 	))
-      (=ucs@unicode	  . #x517E)	; &UU+517E;
+      (=ucs@unicode	  . #x517E)	; &CB01005;
+      (=cbeta		  . 01005)	; &CB01005;
       ))
     ))
 (define-char
