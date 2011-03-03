@@ -1,3 +1,51 @@
+2011-03-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el:
+	- Add some Adobe-Japan1-2 code points.
+	- Add Hanyo-Denshi/JD and HG code points.
+	- Use `->subsumptive'. for some characters.
+	- Add some abstract `ideographic-structure's.
+	(K0-526E): Unify KU+677B.
+	(U+3B4B): Use `->denotational'.
+	(U+67BF): Use `->subsumptive' to separate representative node.
+	(U+67E2): Use `->denotational'.
+	(U+6852): Use `->denotational' instead of `->subsumptive'.
+	(U+6813): Likewise.
+	(U+6838): Likewise.
+	(U+6845): Use `->subsumptive' to separate representative nodes.
+	(U+6867): Unify S-3848; add `<-vulgar' for U+6A9C.
+	(U-00023455): Use `->denotational' instead of `->subsumptive'.
+	(U-0002347F): Integrate M-14809.
+	(U-00023481): Integrate M-14836.
+	(U+68A6): Unify AJ1-04542.
+	(A-JX1-7568): New abstract character.
+	(U+68B2): Add `<-denotational' for A-JX1-7568.
+	(U+68C1): Likewise.
+	(U+68B4): Use `->denotational' instead of `->subsumptive'.
+	(U-000234B6): Integrate M-14894.
+	(U+68B7): Use `->subsumptive' to separate representative nodes.
+	(U-000234AC): Integrate M-14903.
+	(U-000234AB): Integrate M-14905.
+	(U-000234A9): Unify M-14906.
+	(U+68B9): Unify S-3869; add `<-vulgar' for J0-5D27.
+	(U+68CE): Use `->denotational' instead of `->subsumptive'.
+	(U+68F1): Likewise.
+	(U-000234D5): Integrate M-14997.
+	(U+68FE): Use `->subsumptive' to separate representative nodes.
+	(U+6908): Likewise.
+	(U+FA13): Use `->denotational' to separate representative node.
+	(U+6939): Use `->denotational' instead of `->subsumptive'.
+	(U+695A): Use `->subsumptive' to separate representative nodes.
+	(U+698E): Use `->denotational' instead of `->subsumptive'.
+	(U-00023641): Use `->subsumptive' to separate representative
+	nodes.
+	(CB02608): Separate M-15424; add `<-unknown' for M-15424.
+	(U+6A89): Use `->denotational' instead of `->subsumptive'.
+	(U+6A8A): Use `->subsumptive' to separate representative node.
+	(U+6A9A): Use `->subsumptive' to separate representative nodes.
+	(U+6A9D): Use `->denotational' instead of `->subsumptive'.
+	(U+6AA1): Use `->subsumptive' to separate representative nodes.
+
 2011-03-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R085-Water.el:
