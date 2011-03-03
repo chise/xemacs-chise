@@ -15,6 +15,8 @@
 	(U-00020199): Use `->denotational' instead of `->subsumptive'.
 
 	* Ideograph-R034-Go.el: Add some Adobe-Japan1-0 code points.
+	
+	* Ideograph-R012-Eight.el (UU+517E): Unify CB01005.
 
 2011-02-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
@@ -772,6 +774,12 @@
 	(U+649E): Use `->denotational' to separate S-3081.
 	(U+64CE): Use `->denotational'.
 	(U+64CF): Likewise.
+
+2011-02-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R128-Ear.el (U+8034): Use `->denotational' instead of
+	`->subsumptive'.
+	(JSP-555B): Add `=decomposition@cid'; unify AJ1-22250.
 
 2011-02-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
