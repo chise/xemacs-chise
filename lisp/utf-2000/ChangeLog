@@ -1,4 +1,13 @@
+2011-03-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R120-Silk.el (JSP-5368): Separate JX1-7A24.
+	(JX1-7A24): Unify HD-JC9004.
+
 2011-03-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R133-Arrive.el (U+5230): Unify AJ1-03192.
+	(U-00026934): Use `->subsumptive' to separate representative
+	nodes.
 
 	* Ideograph-R030-Mouth.el: Add Hanyo-Denshi/HG code points.
 	(U+55B0): Unify G-J0-3674 instead of A-J0-3674.
