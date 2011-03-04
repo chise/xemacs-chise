@@ -1088,6 +1088,16 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=>>ucs@jis))
+  (make-charset '=>>ucs@JP
+		"UCS abstract-glyphs based on Japanese style glyphs"
+		'(long-name	"UCS glyphs for JP"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@jis/2004))
   (make-charset '=>>ucs@ks
 		"UCS Representative glyphs for Korean Standards"
 		'(long-name	"UCS glyphs for KS"
@@ -1266,6 +1276,16 @@
 		  mother	=ucs@jis
 		  min-code	#x0000
 		  max-code	#xFFFF))
+  ;; (make-charset '=ucs@jis/1983
+  ;;               "ISO/IEC 10646 for JIS X 0208:1983"
+  ;;               '(long-name     "UCS for JIS:1983"
+  ;;                 chars         256
+  ;;                 dimension     3
+  ;;                 columns       2
+  ;;                 graphic       2
+  ;;                 direction     l2r
+  ;;                 =>iso-ir      177
+  ;;                 mother        =ucs@jis))
   (make-charset '=ucs@jis/1990
 		"ISO/IEC 10646 for JIS X 0208/0212:1990"
 		'(long-name	"UCS for JIS:1990"
