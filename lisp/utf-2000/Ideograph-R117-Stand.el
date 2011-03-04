@@ -247,13 +247,19 @@
     (=ucs		. #x7AD2)	; 竒
     (=>>jis-x0208	. #x5474)	; 竒 [52-84]
     (->subsumptive
-     ((=ucs@jis		  . #x7AD2)	; &GT-00400;
-      (=jis-x0208	  . #x5474)	; &GT-00400; [52-84]
+     ((=decomposition@cid
+       ((=ucs		    . #x7AD2)	; 竒
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@jis		  . #x7AD2)	; 竒󠄀
+      (=jis-x0208	  . #x5474)	; 竒󠄀 [52-84]
       (=jis-x0213-1	  . #x5474)	; &I-JX1-5474; [52-84]
       (=gt		  . 00400)	; &I-GT-00400;
       (=gt-k		  . 05227)	; &I-GT-K05227;
       (=gt-pj-1		  . #x5474)	; &I-GT-00400; [52-84]
       (=cbeta		  . 00282)	; &I-CB00282;
+      (=adobe-japan1-0	  . 04549)	; &I-AJ1-04549;
       (->subsumptive
        ((ideographic-radical . 117)	; ⽴
 	(ideographic-strokes . 4)
