@@ -720,8 +720,13 @@
     (ideographic-radical@jis . 123)	; ⽺
     (ideographic-strokes@jis . 4)
     (total-strokes	 . 10)
-    (=ucs@jis		. #x517B)	; &AJ1-18393;
-    (=jis-x0213-2	. #x7474)	; &AJ1-18393; [84-84]
+    (=decomposition@cid
+     ((=ucs		  . #x517B)	; 养
+      )
+     ((=ucs		  . #xE0100)	; 󠄀
+      ))
+    (=ucs@jis		. #x517B)	; 养󠄀
+    (=jis-x0213-2	. #x7474)	; 养󠄀 [84-84]
     (=jef-china3	. #x82AA)	; &I-JC3-82AA;
     (=adobe-japan1-5	. 18393)	; &I-AJ1-18393;
     ))
@@ -2240,8 +2245,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x4EAF)	; &CDP-8AA5;
-	(=jis-x0212	    . #x3041)	; &CDP-8AA5; [16-33]
+       ((=ucs@jis	    . #x4EAF)	; 亯󠄀
+	(=jis-x0212	    . #x3041)	; 亯󠄀 [16-33]
 	(=daikanwa	    . 00305)	; &I-M-00305;
 	)
        ((=ucs		    . #x7F8A)	; 羊
