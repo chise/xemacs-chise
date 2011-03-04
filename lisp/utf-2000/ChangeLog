@@ -1,5 +1,13 @@
 2011-03-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R030-Mouth.el: Add Hanyo-Denshi/HG code points.
+	(U+55B0): Unify G-J0-3674 instead of A-J0-3674.
+
+	* maps-conf.el: For each JIS X 0208:1997 abstract character which
+	the corresponding JIS X 0213:2000 representative glyph image is
+	changed in the 2004 edition, don't add `=>jis-x0208' feature if
+	`=>>jis-x0208' feature is defined.
+
 	* Ideograph-R075-Tree.el:
 	- Add some Adobe-Japan1-2 code points.
 	- Add Hanyo-Denshi/JD and HG code points.
@@ -87,6 +95,19 @@
 	(U+6F84): Use `->subsumptive' to separate representative nodes.
 
 	* Ideograph-R053-Dotted-Cliff.el (U+5E9A): Use `->subsumptive'.
+
+	* Ideograph-R124-Feather.el (G0-4E4C): Separate J90-3227, JX1-3227
+	and GT-36866.
+
+	* Ideograph-R123-Sheep.el (JX2-7474): Add `=decomposition@cid'.
+
+	* Ideograph-R122-Net.el (JSP-5475): Unify AJ1-15000.
+
+	* Ideograph-R117-Stand.el (J0-5474): Add `=decomposition@cid';
+	unify AJ1-04549.
+
+	* Ideograph-R111-Arrow.el (U-00020170): Add ideographic-structure.
+	(C6-4C2D): Unify CU+20170.
 
 	* Ideograph-R073-Say.el (J0-5258): Add
 	`=decomposition@hanyo-denshi'.
