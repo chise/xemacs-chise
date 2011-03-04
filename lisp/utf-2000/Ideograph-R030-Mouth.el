@@ -14510,8 +14510,8 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs@jis		  . #x591C)	; &GT-07291;
-      (=jis-x0208	  . #x4C6B)	; &GT-07291; [44-75]
+     ((=ucs@jis		  . #x591C)	; &AJ1-03831;
+      (=jis-x0208	  . #x4C6B)	; &AJ1-03831; [44-75]
       (=ks-x1001	  . #x6528)	; &I-K0-6528; [69-08]
       (=jis-x0213-1	  . #x4C6B)	; &I-JX1-4C6B; [44-75]
       ))
@@ -21372,8 +21372,8 @@
      ((=ucs		  . #x98DF)	; 食
       ))
     (=ucs		. #x55B0)	; 喰
-    (=>jis-x0208	. #x3674)	; 喰 [22-84]
-    (=>jis-x0213-1	. #x3674)	; 喰 [22-84]
+    (=>>jis-x0208	. #x3674)	; 喰 [22-84]
+    (=>>jis-x0213-1	. #x3674)	; 喰 [22-84]
     ))
 (define-char
   '((<-denotational
@@ -21400,6 +21400,7 @@
     (=daikanwa		. 04015)	; &I-M-04015;
     (=shinjigen		.  1180)	; &GT-04938;
     (=cbeta		. 00068)	; &I-CB00068;
+    (=hanyo-denshi/hg	. #x3032)	; &I-HD-HG-3032; [16-18]
     ))
 (define-char
   '((<-denotational
@@ -21408,7 +21409,7 @@
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=>>ucs@unicode	. #x55B0)	; &G-UU+55B0;
+    (=>>>ucs@unicode	. #x55B0)	; &GI-UU+55B0;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -28577,8 +28578,8 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs@unicode	  . #x66FC)	; &GT-18098;
-      (=jis-x0208	  . #x5258)	; &GT-18098; [50-56]
+     ((=ucs@unicode	  . #x66FC)	; 曼󠄂
+      (=jis-x0208	  . #x5258)	; 曼󠄂 [50-56]
       (=gb2312		  . #x427C)	; &I-G0-427C; [34-92]
       (=ks-x1001	  . #x583A)	; &I-K0-583A; [56-26]
       (=jis-x0213-1	  . #x5258)	; &I-JX1-5258; [50-56]
@@ -30066,6 +30067,7 @@
       (=jis-x0213-1@2004  . #x313D)	; &I-JX3-313D; [17-29]
       (=gt		  . 05417)	; &I-GT-05417;
       (=gt-pj-2		  . #x5751)	; &I-GT-05417; [55-49]
+      (=hanyo-denshi/hg	  . #x304E)	; &I-HD-HG-304E; [16-46]
       ))
     ))
 (define-char
@@ -30735,6 +30737,7 @@
     (=jis-x0208@1978	. #x4139)	; &M-04303; [33-25]
     (=jis-x0213-1@2004	. #x4139)	; &I-JX3-4139; [33-25]
     (=daikanwa		. 04303)	; &I-M-04303;
+    (=hanyo-denshi/hg	. #x3049)	; &I-HD-HG-3049; [16-41]
     ))
 (define-char
   '((<-denotational
@@ -39457,6 +39460,7 @@
     (=gb12345		. #x5F79)	; &M-04614; [63-89]
     (=big5		. #xC4DA)	; &I-B-C4DA;
     (=daikanwa		. 04614)	; &I-M-04614;
+    (=hanyo-denshi/hg	. #x3052)	; &I-HD-HG-3052; [16-50]
     ))
 (define-char
   '((<-denotational
