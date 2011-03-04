@@ -3484,10 +3484,14 @@
     (=ucs		. #x7D5C)	; 絜
     (=big5		. #xDAF4)	; &I-B-DAF4;
     (->subsumptive
-     ((=ucs@jis		  . #x7D5C)	; &M-27419;
+     ((=ucs@jis/1990	  . #x7D5C)	; &M-27419;
       (=jis-x0212	  . #x5368)	; &M-27419; [51-72]
-      (=jis-x0213-1	  . #x7A24)	; &I-JX1-7A24; [90-04]
       (=daikanwa	  . 27419)	; &I-M-27419;
+      )
+     ((=ucs@jis/2000	  . #x7D5C)	; &JX1-7A24;
+      (=ucs@jis/2004	  . #x7D5C)	; &JX1-7A24;
+      (=jis-x0213-1	  . #x7A24)	; &JX1-7A24; [90-04]
+      (=hanyo-denshi/jc	  . #x7A24)	; &I-HD-JC-7A24; [90-04]
       )
      ((=cns11643-2	  . #x3E78)	; &C2-3E78; [30-88]
       )
