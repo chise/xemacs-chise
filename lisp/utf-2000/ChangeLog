@@ -1,5 +1,39 @@
 2011-03-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R163-City.el (B-B66D): Unify A-J2000U+9115,
+	A-J2004U+9115 and A-JX1-7C6C.
+	(K0-7A41): Unify HD-IP-9115.
+	(JX1-7C6C): Unify HD-JC9276.
+
+	* Ideograph-R162-Walk.el (U+8FBC): Use `->denotational' and
+	`->subsumptive'.
+	(M-38712): Unify JC3-67A6.
+	(U-000284A6): Use `->denotational' instead of `->subsumptive'.
+	(U+9027): Use `->denotational'.
+	(U+9056): Likewise.
+
+	* Ideograph-R149-Speech.el (U-00027A62): Fixed typo.
+	(U+8ADA): Use `->subsumptive'.
+	(J0-427A): Add `<-same' for M-35753.
+	(G-CU+8AFE): New character to integrate M-35753 and C1-723F.
+	(M-35753): New character.
+	(C1-723F): Unify CU+8AFE.
+	(U+8B69): Use `->subsumptive'.
+	(JX1-7C34): Unify HD-JC9220.
+
+	* Ideograph-R094-Dog.el: Add some Adobe-Japan1-2 code points.
+	(U+7323): Use `->denotational' instead of `->subsumptive'.
+	(U-000247DC): Use `->subsumptive'.
+	(U+7324): Likewise.
+	(U-000247DD): Use `->subsumptive' to separate representative
+	nodes.
+	(mother of JX1-776F): Unify G-JU+FA16, G-KU+732A and G-CU+732A
+	instead of U+FA16.
+	(JX1-776F): Unify U+FA16.
+	(U+7377): Unify A-JX2-7057.
+	(B-C278): Unify o-JU+7377 and A-CU+7377.
+	(C1-7664): Unify CU+7377.
+
 	* Ideograph-R120-Silk.el (JSP-5368): Separate JX1-7A24.
 	(JX1-7A24): Unify HD-JC9004.
 
