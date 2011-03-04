@@ -138,10 +138,11 @@
     (ideographic-radical . 122)	; ⽹
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (=ucs@jis		. #x7F53)	; &GT-K00882;
-    (=jis-x0212		. #x5475)	; &GT-K00882; [52-85]
+    (=ucs@jis		. #x7F53)	; &AJ1-15000;
+    (=jis-x0212		. #x5475)	; &AJ1-15000; [52-85]
     (=gt-k		. 00882)	; &I-GT-K00882;
-    (=gt-pj-k1		. #x6174)	; &GT-K00882; [65-84]
+    (=gt-pj-k1		. #x6174)	; &AJ1-15000; [65-84]
+    (=adobe-japan1-4	. 15000)	; &I-AJ1-15000;
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
