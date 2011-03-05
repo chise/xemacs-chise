@@ -1040,7 +1040,12 @@
       ))
     (=>>big5-cdp	. #x8C75)	; &G-CDP-8C75;
     (->subsumptive
-     ((ideographic-structure
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x52B5)	; 劵
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
@@ -1049,7 +1054,7 @@
 	)
        ((=ucs		    . #x529B)	; 力
 	))
-      (=hanyo-denshi/ft	  . #x3479)	; &HD-FT-3479; [20-89]
+      (=hanyo-denshi/ft	  . #x3479)	; 劵󠄂 [20-89]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -3190,7 +3195,7 @@
 	)
        ((=ucs		    . #x6708)	; 月
 	)
-       ((=hanyo-denshi/ft   . #x3479)	; &HD-FT-3479; [20-89]
+       ((=hanyo-denshi/ft   . #x3479)	; 劵󠄂 [20-89]
 	))
       (=ucs@jis		  . #x52DD)	; &AJ1-02441;
       (=jis-x0208	  . #x3E21)	; &AJ1-02441; [30-01]
@@ -3488,9 +3493,14 @@
       ))
     (=>>ucs@unicode	. #x52E0)	; &G-UU+52E0;
     (->subsumptive
-     ((hanyu-dazidian	  1 379 12)
-      (=ucs@unicode	  . #x52E0)	; &HZK01-F3F2;
-      (=hanziku-1	  . #xF3F2)	; &HZK01-F3F2;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x52E0)	; 勠
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (hanyu-dazidian	  1 379 12)
+      (=ucs@unicode	  . #x52E0)	; 勠󠄂
+      (=hanziku-1	  . #xF3F2)	; 勠󠄂
       (=hanyo-denshi/ft	  . #x347C)	; &I-HD-FT-347C; [20-92]
       )
      ((=cns11643-3	  . #x4045)	; &C3-4045; [32-37]
@@ -3867,7 +3877,12 @@
       ))
     (=>>hanyo-denshi/ft . #x347A)	; &G-HD-FT-347A; [20-90]
     (->subsumptive
-     ((=hanyo-denshi/ft	  . #x347A)	; &HD-FT-347A; [20-90]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x52E6)	; 勦
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/ft	  . #x347A)	; 勦󠄂 [20-90]
       ))
     ))
 (define-char
@@ -4617,7 +4632,12 @@
       ))
     (=>>hanyo-denshi/ft . #x347D)	; &G-HD-FT-347D; [20-93]
     (->subsumptive
-     ((=hanyo-denshi/ft	  . #x347D)	; &HD-FT-347D; [20-93]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x52F3)	; 勳
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/ft	  . #x347D)	; 勳󠄂 [20-93]
       ))
     ))
 (define-char
