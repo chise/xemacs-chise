@@ -196,6 +196,7 @@
     (=daikanwa		. 14340)	; &I-M-14340;
     (=shinjigen		.  3431)	; &GT-18172;
     (=jef-china3	. #x52A5)	; &I-JC3-52A5;
+    (=hanyo-denshi/ib	. #x3450)	; &I-HD-IB-3450; [20-48]
     ))
 (define-char
   '((<-denotational
