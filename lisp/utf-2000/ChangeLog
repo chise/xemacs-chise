@@ -1,5 +1,12 @@
 2011-03-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R108-Dish.el (JX1-786A): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R074-Moon.el (GT-18172): Unify HD-IB2048.
+
+	* Ideograph-R073-Say.el (G0-5478): Unify HD-IB0710.
+
 	* Ideograph-R044-Corpse.el, Ideograph-R040-Roof.el: Add
 	Hanyo-Denshi/FT code points.
 
