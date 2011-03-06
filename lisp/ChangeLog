@@ -1,5 +1,15 @@
 2011-03-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* mule/mule-conf.el (=>>jis-x0208@1978): Fix DOC.
+	(=>>jis-x0208@1983): New coded-charset for XEmacs CHISE.
+	(=>>jis-x0208@1990): Ditto.
+	(=>>hanyo-denshi/ib): Ditto.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer `=hanziku-*' to `=hanyo-denshi/*'.
+
+2011-03-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* mule/mule-coding.el (coded-charset-entity-reference-alist):
 	Prefer `=>jis-x0213-2@usual' to `=>jis-x0208@1997' and
 	`=>jis-x0213-1@2000'; add settings for `=>>>ucs@ks' and
