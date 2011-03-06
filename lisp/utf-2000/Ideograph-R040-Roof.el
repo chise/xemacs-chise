@@ -2022,15 +2022,24 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (=>>ucs@unicode	. #x5BB5)	; &G-GT-09012;
+    (=>>jis-x0208	. #x3E2C)	; &G-GT-09012; [30-12]
+    (=>>jis-x0213-1	. #x3E2C)	; &G-GT-09012; [30-12]
+    (=>>gt		. 09012)	; &G-GT-09012;
     (->subsumptive
-     ((=ucs@jis		  . #x5BB5)	; &GT-09012;
-      (=jis-x0208	  . #x3E2C)	; &GT-09012; [30-12]
-      (=jis-x0213-1	  . #x3E2C)	; &I-JX1-3E2C; [30-12]
-      (=gt		  . 09012)	; &I-GT-09012;
-      (=gt-pj-1		  . #x3E2C)	; &I-GT-09012; [30-12]
-      )
-     ((=ucs@unicode	  . #x5BB5)	; &G0-4F7C;
-      (=gb2312		  . #x4F7C)	; &G0-4F7C; [47-92]
+     ((=>>>ucs@unicode	  . #x5BB5)	; &GI-J0-3E2C;
+      (=>>>jis-x0208	  . #x3E2C)	; &GI-J0-3E2C; [30-12]
+      (=>>>jis-x0213-1	  . #x3E2C)	; &GI-J0-3E2C; [30-12]
+      (->subsumptive
+       ((=ucs@jis	    . #x5BB5)	; &GT-09012;
+	(=jis-x0208	    . #x3E2C)	; &GT-09012; [30-12]
+	(=jis-x0213-1	    . #x3E2C)	; &I-JX1-3E2C; [30-12]
+	(=gt		    . 09012)	; &I-GT-09012;
+	(=gt-pj-1	    . #x3E2C)	; &I-GT-09012; [30-12]
+	)
+       ((=ucs@unicode	    . #x5BB5)	; &G0-4F7C;
+	(=gb2312	    . #x4F7C)	; &G0-4F7C; [47-92]
+	))
       )
      ((=cns11643-1	  . #x5528)	; &C1-5528; [53-08]
       ))
@@ -2055,7 +2064,13 @@
      ((=ucs@unicode	  . #x5BB6)	; &G0-3C52;
       (=gb2312		  . #x3C52)	; &G0-3C52; [28-50]
       )
-     ((=cns11643-1	  . #x5525)	; &C1-5525; [53-05]
+     ((=>>>ucs@cns	  . #x5BB6)	; &GI-CU+5BB6;
+      (->subsumptive
+       ((=hanyo-denshi/ft   . #x3431)	; &HD-FT-3431; [20-17]
+	)
+       ((=ucs@cns	    . #x5BB6)	; &C1-5525;
+	(=cns11643-1	    . #x5525)	; &C1-5525; [53-05]
+	))
       ))
     ))
 (define-char
@@ -4419,9 +4434,15 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (=>>ucs@unicode	. #x5BE5)	; &G-UU+5BE5;
     (->subsumptive
-     ((=ucs@unicode	  . #x5BE5)	; &G0-4148;
-      (=gb2312		  . #x4148)	; &G0-4148; [33-40]
+     ((=>>>ucs@unicode	  . #x5BE5)	; &GI-UU+5BE5;
+      (->subsumptive
+       ((=hanyo-denshi/ft   . #x3557)	; &HD-FT-3557; [21-55]
+	)
+       ((=ucs@unicode	    . #x5BE5)	; &G0-4148;
+	(=gb2312	    . #x4148)	; &G0-4148; [33-40]
+	))
       )
      ((=cns11643-1	  . #x6851)	; &C1-6851; [72-49]
       ))
@@ -4439,6 +4460,7 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (=>>>ucs@iso	. #x21A7E)	; &GI-IU+21A7E;
     (->subsumptive
      ((=daikanwa	  . 07293)	; &M-07293;
       )

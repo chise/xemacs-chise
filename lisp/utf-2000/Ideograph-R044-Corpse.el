@@ -1082,6 +1082,7 @@
     (=ks-x1001		. #x605A)	; &I-K0-605A; [64-58]
     (=jis-x0213-1@2004	. #x367D)	; &I-JX3-367D; [22-93]
     (=daikanwa		. 07709)	; &I-M-07709;
+    (=hanyo-denshi/ft	. #x3172)	; &I-HD-FT-3172; [17-82]
     ))
 (define-char
   '((<-denotational
@@ -1090,6 +1091,9 @@
     (ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (=>>ucs@unicode	. #x5C51)	; &G-GT-09717;
+    (=>>jis-x0213-1@2000 . #x367D)	; &G-GT-09717; [22-93]
+    (=>>gt		. 09717)	; &G-GT-09717;
     (->subsumptive
      ((=ucs@unicode	  . #x5C51)	; &GT-09717;
       (=gb2312		  . #x503C)	; &GT-09717; [48-28]
@@ -1711,11 +1715,13 @@
   '((<-denotational
      ((=ucs		  . #x5C60)	; 屠
       ))
-    (=>ucs*		. #x5C60)	; 屠
     (ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=ucs		. #x2F877)	; 屠
+    (=>>>ucs@jis/2004	. #x5C60)	; &GI-JX3-454B;
+    (=>>>ucs@ks		. #x5C60)	; &GI-JX3-454B;
+    (=>>>ucs@cns	. #x2F877)	; &GI-JX3-454B;
+    (=>>>jis-x0213-1@2004 . #x454B)	; &GI-JX3-454B; [37-43]
     (->subsumptive
      ((=ucs@jis/2004	  . #x5C60)	; &M-07761;
       (=ucs@ks		  . #x5C60)	; &M-07761;
@@ -1723,9 +1729,11 @@
       (=ks-x1001	  . #x5375)	; &I-K0-5375; [51-85]
       (=jis-x0213-1@2004  . #x454B)	; &I-JX3-454B; [37-43]
       (=daikanwa	  . 07761)	; &I-M-07761;
+      (=hanyo-denshi/ft	  . #x326A)	; &I-HD-FT-326A; [18-74]
       )
-     ((=ucs@iso		  . #x2F877)	; &C6-477B;
-      (=cns11643-6	  . #x477B)	; &C6-477B; [39-91]
+     ((=>ucs*		  . #x5C60)	; 屠
+      (=ucs		  . #x2F877)	; 屠
+      (=cns11643-6	  . #x477B)	; &I-C6-477B; [39-91]
       ))
     ))
 (define-char
