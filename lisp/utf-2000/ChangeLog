@@ -1,9 +1,35 @@
+2011-03-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R060-Step.el (J78-352B): Unify HD-FT1775.
+
+	* Ideograph-R050-Turban.el: Add Hanyo-Denshi/FT code points.
+	(U+5E64): Use `->denotational'.
+
+	* Ideograph-R049-Oneself.el: Add Hanyo-Denshi/FT code points.
+
+	* Ideograph-R046-Mountain.el: Add Hanyo-Denshi/FT code points.
+	(U+5CBC): Use `->denotational' and `->subsumptive'.
+	(U+5CED): Use `->denotational' and `->subsumptive'.
+	(U+5D90): Use `->denotational' to integrate HD-FT2163.
+
+	* Ideograph-R037-Big.el (GI-UU+5960): New character to integrate
+	G0-356C and HD-FT2139.
+	(HD-FT2139): New character.
+
 2011-03-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R019-Power.el: Add `=decomposition@hanyo-denshi' for
 	Hanyo-Denshi/FT characters.
 
 2011-03-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R108-Dish.el (JX1-786A): Unify HD-JC8874.
+	(U-00025060): Use `->denotational' instead of `->subsumptive'.
+	(U-000250B4): Add ideographic-structure.
+	(IU+250B4): Add `ideographic-structure'.
+	(G-dJU+250B4): New character.
+	(H12-EEF2): Use `<-subsumptive' for G-dJU+250B4 instead of
+	`<-denotational' for U-000250B4.
 
 	* Ideograph-R163-City.el (B-B66D): Unify A-J2000U+9115,
 	A-J2004U+9115 and A-JX1-7C6C.
