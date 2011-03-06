@@ -3490,7 +3490,8 @@
     (ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
-    (=big5		. #xC0B2)	; &B-C0B2;
+    (=>>ucs@unicode	. #x5FBD)	; &G-UU+5FBD;
+    (=big5		. #xC0B2)	; &G-UU+5FBD;
     (->subsumptive
      ((=ucs@jis/2004	  . #x5FBD)	; &M-10267;
       (=jis-x0208@1978	  . #x352B)	; &M-10267; [21-11]
@@ -3498,6 +3499,7 @@
       (=cns11643-1	  . #x735B)	; &I-C1-735B; [83-59]
       (=jis-x0213-1@2004  . #x352B)	; &I-JX3-352B; [21-11]
       (=daikanwa	  . 10267)	; &I-M-10267;
+      (=hanyo-denshi/ft	  . #x316B)	; &I-HD-FT-316B; [17-75]
       )
      ((=ucs@unicode	  . #x5FBD)	; &G0-3B55;
       (=gb2312		  . #x3B55)	; &G0-3B55; [27-53]
