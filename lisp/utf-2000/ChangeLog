@@ -1,3 +1,8 @@
+2011-03-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R044-Corpse.el, Ideograph-R040-Roof.el: Add
+	Hanyo-Denshi/FT code points.
+
 2011-03-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R058-Snout.el: Add Hanyo-Denshi/FT code points.
