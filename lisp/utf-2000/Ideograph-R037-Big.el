@@ -2426,10 +2426,15 @@
     (total-strokes	 . 12)
     (=>>ucs@unicode	. #x5960)	; &G-UU+5960;
     (->subsumptive
-     ((=ucs@unicode	  . #x5960)	; &G0-356C;
-      (=gb2312		  . #x356C)	; &G0-356C; [21-76]
-      )
      ((=cns11643-1	  . #x5E64)	; &C1-5E64; [62-68]
+      )
+     ((=>>>ucs@unicode	  . #x5960)	; &GI-UU+5960;
+      (->subsumptive
+       ((=ucs@unicode	    . #x5960)	; &G0-356C;
+	(=gb2312	    . #x356C)	; &G0-356C; [21-76]
+	)
+       ((=hanyo-denshi/ft   . #x3547)	; &HD-FT-3547; [21-39]
+	))
       ))
     ))
 (define-char
