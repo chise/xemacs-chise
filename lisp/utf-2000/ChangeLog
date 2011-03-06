@@ -1,5 +1,14 @@
 2011-03-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R058-Snout.el: Add Hanyo-Denshi/FT code points.
+	(G-UU+5F57): New character to integrate HD-FT2178 and G0-6567.
+	(M-09928): Unify U-0002245F.
+	(M-09929): Unify U-00022460.
+	(GI-UU+5F5C): New character to integrate GT-12550, UU+5F5C and
+	HD-FT2176.
+
+	* Ideograph-R038-Woman.el: Add Hanyo-Denshi/FT code points.
+
 	* Ideograph-R060-Step.el (J78-352B): Unify HD-FT1775.
 
 	* Ideograph-R050-Turban.el: Add Hanyo-Denshi/FT code points.
