@@ -313,6 +313,17 @@ DESCRIPTION (string) is the description string of the charset."
 	  =ucs-radicals
 	  =ucs-bmp-cjk
 	  =ucs-sip-ext-b
+	  =hanyo-denshi/ja
+	  =hanyo-denshi/jb
+	  =hanyo-denshi/jc
+	  =hanyo-denshi/jd
+	  =hanyo-denshi/ft
+	  =hanyo-denshi/ia
+	  =hanyo-denshi/ib
+	  =hanyo-denshi/hg
+	  =hanyo-denshi/ip
+	  =hanyo-denshi/jt
+	  =hanyo-denshi/ks/mf
 	  =ruimoku-v6
 	  =zinbun-oracle
 	  =hanziku-1
@@ -364,17 +375,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  =adobe-japan1-6
 	  =adobe-japan1-base
 	  =>jis-x0208@1997
-	  =hanyo-denshi/ja
-	  =hanyo-denshi/jb
-	  =hanyo-denshi/jc
-	  =hanyo-denshi/jd
-	  =hanyo-denshi/ft
-	  =hanyo-denshi/ia
-	  =hanyo-denshi/ib
-	  =hanyo-denshi/hg
-	  =hanyo-denshi/ip
-	  =hanyo-denshi/jt
-	  =hanyo-denshi/ks/mf
 	  =>>hanyo-denshi/ft
 	  )))
 
