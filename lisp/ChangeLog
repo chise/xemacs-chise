@@ -1,3 +1,15 @@
+2011-03-05  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>>jis-x0213-1@2000): New coded-charset for
+	XEmacs CHISE.
+	(=>>>jis-x0213-1@2004): Use `=>>>jis-x0213-1' instead of
+	`=jis-x0213-1@2004' as the mother.
+	(=>>>ucs@jis/2004): New coded-charset for XEmacs CHISE.
+	(=>>>ucs@ks): Ditto.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Modify priority of `=hanyo-denshi/*'.
+
 2011-03-04  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
