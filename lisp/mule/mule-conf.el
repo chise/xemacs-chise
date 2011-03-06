@@ -352,9 +352,21 @@
               ;; partial t
 	      ))
   (make-charset
+   '=>>>jis-x0213-1@2000
+   "JIS X 0213:2000 Plain 1 abstract glyph-images"
+   '(registry "jisx0213\\(\\.2000\\)-1"
+	      dimension 2
+	      chars 94
+	      mother =>>>jis-x0213-1
+	      =>iso-ir 228
+              ;; final ?O
+	      graphic 0
+	      ;; partial t
+	      ))
+  (make-charset
    '=>>>jis-x0213-1@2004
    "JIS X 0213:2004 Plain 1 abstract glyph-images"
-   '(mother =jis-x0213-1@2004
+   '(mother =>>>jis-x0213-1
 	    =>iso-ir 233
 	    ;; registry "jisx0213\\(\\.2004\\)-1"
 	    dimension 2
@@ -1142,6 +1154,26 @@
   (make-charset '=>>>ucs@jis
 		"UCS Representative glyphs for JIS X0208/0212/0213"
 		'(long-name	"UCS glyphs for JIS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>>ucs@unicode))
+  (make-charset '=>>>ucs@jis/2004
+		"UCS Representative glyphs for JIS X 0213:2004"
+		'(long-name	"UCS glyphs for JIS:2004"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>>ucs@jis))
+  (make-charset '=>>>ucs@ks
+		"UCS Representative glyphs for Korean Standards"
+		'(long-name	"UCS glyphs for KS"
 		  chars		256
 		  dimension	3
 		  columns	2
