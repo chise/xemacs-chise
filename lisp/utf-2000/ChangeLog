@@ -1,5 +1,10 @@
 2011-03-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R019-Power.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/FT characters.
+
+2011-03-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R163-City.el (B-B66D): Unify A-J2000U+9115,
 	A-J2004U+9115 and A-JX1-7C6C.
 	(K0-7A41): Unify HD-IP-9115.
@@ -1068,6 +1073,10 @@
 	* Ideograph-R040-Roof.el (JSP-3A5B): Unify HD-JB2659.
 
 2011-02-16  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R174-Blue.el (G-M-42566): New node.
+	(M-42566): Use `<-subsumptive' for G-M-42566.
+	(mother of C6-5034): Unify G-IU+291D7.
 
 	* Ideograph-R146-West.el (G-J0-4D57): Unify G-UU+8981.
 
