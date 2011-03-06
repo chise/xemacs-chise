@@ -385,13 +385,31 @@
 	      graphic 0))
   (make-charset
    '=>>jis-x0208@1978
-   "JIS X 0208:1978 abstract glyphs (unchanged part)."
+   "JIS X 0208:1978 abstract glyphs."
    '(registry "jisx0208\\.1978"
 	      dimension 2
 	      chars 94
 	      mother =>>jis-x0208
 	      =>iso-ir 42
 	      ;; final ?@
+	      graphic 0))
+  (make-charset
+   '=>>jis-x0208@1983
+   "JIS X 0208:1983 abstract glyphs."
+   '(registry "jisx0208\\.1983"
+	      dimension 2
+	      chars 94
+	      mother =>>jis-x0208
+	      =>iso-ir 87
+	      graphic 0))
+  (make-charset
+   '=>>jis-x0208@1990
+   "JIS X 0208:1990 abstract glyphs."
+   '(registry "jisx0208\\.1990"
+	      dimension 2
+	      chars 94
+	      mother =>>jis-x0208
+	      =>iso-ir 168
 	      graphic 0))
 
   (make-charset
@@ -1794,6 +1812,17 @@
 	       direction l2r
 	       registry "HanyoDenshi\\.FT-0$"
 	       mother =hanyo-denshi/ft))
+  (make-charset
+   '=>>hanyo-denshi/ib
+   "Han'you-Denshi/IB abstract glyphs"
+   '(long-name "Han'you-Denshi/IB abstract glyphs"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.IB-0$"
+	       mother =hanyo-denshi/ib))
   (make-charset
    '=>>hanyo-denshi/jt
    "JT (Juuki Touitsu Moji) abstract glyphs"
