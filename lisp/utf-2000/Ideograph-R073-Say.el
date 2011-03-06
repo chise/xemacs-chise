@@ -613,10 +613,11 @@
     (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=ucs@unicode	. #x66FE)	; &C1-5F64;
-    (=gb2312		. #x5478)	; &C1-5F64; [52-88]
+    (=ucs@unicode	. #x66FE)	; &HD-IB-272A;
+    (=gb2312		. #x5478)	; &HD-IB-272A; [52-88]
     (=cns11643-1	. #x5F64)	; &I-C1-5F64; [63-68]
-    (=shinjigen@1ed	.  3418)	; &C1-5F64;
+    (=shinjigen@1ed	.  3418)	; &HD-IB-272A;
+    (=hanyo-denshi/ib	. #x272A)	; &I-HD-IB-272A; [07-10]
     (<-vulgar
      ((=ucs@jis		  . #x66FE)	; &GT-18103;
       (=jis-x0208	  . #x413D)	; &GT-18103; [33-29]
