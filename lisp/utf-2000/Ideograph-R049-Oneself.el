@@ -225,6 +225,7 @@
     (=gt		. 11040)	; &I-GT-11040;
     (=gt-pj-3		. #x3E61)	; &I-GT-11040; [30-65]
     (=daikanwa		. 08756)	; &I-M-08756;
+    (=hanyo-denshi/ft	. #x3221)	; &I-HD-FT-3221; [18-01]
     ))
 (define-char
   '((<-denotational
@@ -411,7 +412,8 @@
     (ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=big5		. #xB453)	; &B-B453;
+    (=>>ucs@unicode	. #x5DFD)	; &G-UU+5DFD;
+    (=big5		. #xB453)	; &G-UU+5DFD;
     (->subsumptive
      ((=>ucs*		  . #x5DFD)	; 巽
       (=ucs		  . #x2F884)	; 巽
@@ -424,6 +426,7 @@
       (=gt		  . 11052)	; &I-GT-11052;
       (=gt-pj-3		  . #x3E6B)	; &I-GT-11052; [30-75]
       (=daikanwa	  . 08765)	; &I-M-08765;
+      (=hanyo-denshi/ft	  . #x3256)	; &I-HD-FT-3256; [18-54]
       )
      ((=ucs@cns		  . #x5DFD)	; &C1-5E78;
       (=cns11643-1	  . #x5E78)	; &C1-5E78; [62-88]
