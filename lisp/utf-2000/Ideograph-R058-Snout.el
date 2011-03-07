@@ -798,7 +798,7 @@
 	(=daikanwa	    . 09948)	; &I-M-09948;
 	))
       )
-     ((=>>>ucs@unicode	  . #x5F5C)	; &GI-UU+5F5C;
+     ((=>>>ucs@unicode	  . #x5F5C)	; &g2-UU+5F5C;
       (->subsumptive
        ((=gt		    . 12550)	; &GT-12550;
 	(=gt-pj-1	    . #x5734)	; &GT-12550; [55-20]
