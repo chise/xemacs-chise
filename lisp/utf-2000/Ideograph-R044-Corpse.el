@@ -1718,10 +1718,10 @@
     (ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=>>>ucs@jis/2004	. #x5C60)	; &GI-JX3-454B;
-    (=>>>ucs@ks		. #x5C60)	; &GI-JX3-454B;
-    (=>>>ucs@cns	. #x2F877)	; &GI-JX3-454B;
-    (=>>>jis-x0213-1@2004 . #x454B)	; &GI-JX3-454B; [37-43]
+    (=>>ucs@jis/2004	. #x5C60)	; &g2-JX3-454B;
+    (=>>ucs@ks		. #x5C60)	; &g2-JX3-454B;
+    (=>>ucs@cns		. #x2F877)	; &g2-JX3-454B;
+    (=>>>jis-x0213-1@2004 . #x454B)	; &g2-JX3-454B; [37-43]
     (->subsumptive
      ((=ucs@jis/2004	  . #x5C60)	; &M-07761;
       (=ucs@ks		  . #x5C60)	; &M-07761;
