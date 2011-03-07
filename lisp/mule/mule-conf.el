@@ -372,6 +372,15 @@
 	    dimension 2
 	    chars 94
 	    graphic 0))
+  (make-charset
+   '=>>>jis-x0213-2
+   "JIS X 0213 Plain 2 abstract glyph-forms"
+   '(mother =jis-x0213-2
+	    =>iso-ir 229
+	    registry "jisx0213\\(\\.\\(2000\\|2004\\)\\)?-2"
+	    dimension 2
+	    chars 94
+	    graphic 0))
 
   (make-charset
    '=>>jis-x0208
@@ -442,7 +451,7 @@
    '(registry "jisx0213\\(\\.\\(2000\\|2004\\)\\)?-2"
 	      dimension 2
 	      chars 94
-	      mother =jis-x0213-2
+	      mother =>>>jis-x0213-2
 	      =>iso-ir 229
               ;; final ?P
 	      graphic 0))
