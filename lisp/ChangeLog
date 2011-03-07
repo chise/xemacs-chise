@@ -1,3 +1,14 @@
+2011-03-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el: (coded-charset-entity-reference-alist):
+	- Use "&g2-*;" as entity-references for `=>>>*'.
+	- Omit "&a{GT|JX1|JX2|JX3}-*;".
+
+	* mule/mule-conf.el (=>>>jis-x0213-2): New coded-charset for
+	XEmacs CHISE.
+	(=>>jis-x0213-2): Use `=>>>jis-x0213-2' instead of `=jis-x0213-2'
+	as the mother.
+
 2011-03-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
