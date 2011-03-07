@@ -803,6 +803,7 @@
     (total-strokes	 . 11)
     (=cns11643-6	. #x4545)	; &M-38234; [37-37]
     (=daikanwa		. 38234)	; &I-M-38234;
+    (=hanyo-denshi/ia	. #x272F)	; &I-HD-IA-272F; [07-15]
     ))
 (define-char
   '((<-denotational
@@ -822,6 +823,7 @@
     (total-strokes	 . 11)
     (=ucs@jis		. #x484E)	; &JX2-795C;
     (=jis-x0213-2	. #x795C)	; &JX2-795C; [89-60]
+    (=hanyo-denshi/jd	. #x795C)	; &I-HD-JD-795C; [89-60]
     ))
 (define-char
   '((morohashi-daikanwa	38234 1)
