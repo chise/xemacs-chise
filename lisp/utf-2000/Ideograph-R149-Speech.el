@@ -16854,8 +16854,13 @@
     (total-strokes	 . 20)
     (=ucs		. #x8B69)	; 譩
     (->subsumptive
-     ((=ucs@jis		  . #x8B69)	; &M-36013;
-      (=jis-x0213-1	  . #x7C34)	; &M-36013; [92-20]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8B69)	; 譩
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=ucs@jis		  . #x8B69)	; 譩󠄁
+      (=jis-x0213-1	  . #x7C34)	; 譩󠄁 [92-20]
       (=daikanwa	  . 36013)	; &I-M-36013;
       (=hanyo-denshi/jc	  . #x7C34)	; &I-HD-JC-7C34; [92-20]
       )
