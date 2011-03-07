@@ -3267,6 +3267,11 @@
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x53B2)	; 厲
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
@@ -3278,10 +3283,10 @@
       (=ks-x1001	  . #x583F)	; &I-K0-583F; [56-31]
       (=jis-x0213-1	  . #x685F)	; &I-JX1-685F; [72-63]
       ))
-    (=ucs@unicode	. #x53B2)	; &AJ1-08408;
-    (=jis-x0212		. #x3450)	; &AJ1-08408; [20-48]
+    (=ucs@unicode	. #x53B2)	; 厲󠄁
+    (=jis-x0212		. #x3450)	; 厲󠄁 [20-48]
     (=jis-x0213-1	. #x2E74)	; &I-JX1-2E74; [14-84]
-    (=gb12345		. #x4077)	; &AJ1-08408; [32-87]
+    (=gb12345		. #x4077)	; 厲󠄁 [32-87]
     (=adobe-japan1-2	. 08408)	; &I-AJ1-08408;
     (=hanyo-denshi/jb	. #x3450)	; &I-HD-JB-3450; [20-48]
     ))
