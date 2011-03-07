@@ -1,3 +1,25 @@
+2011-03-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R027-Cliff.el (JSP-3450): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R015-Ice.el: Add abstract characters and relations
+	about BUCS.
+	(JSP-3328): Add `=decomposition@hanyo-denshi'.
+
+	* Ideograph-R014-Cover.el: Add abstract characters and relations
+	about BUCS.
+	(JSP-3275): Add `=decomposition@hanyo-denshi'.
+
+	* Ideograph-R012-Eight.el (JX2-2328): Add
+	`=decomposition@hanyo-denshi'.
+
+2011-03-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R044-Corpse.el (g2-JX3-454B): Unify G-J04U+5C60,
+	G-KU+5C60 and G-CU+2F877 instead of g2-J04U+5C60, g2-KU+5C60 and
+	g2-CU+2F877.
+
 2011-03-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R017-Open-Box.el (BUCS+51FD): New character.
