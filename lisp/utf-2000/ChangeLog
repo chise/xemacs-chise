@@ -1,6 +1,25 @@
 2011-03-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R012-Eight.el (BUCS+5180): New character.
+	(U+517E): Add `<-denotational' for BUCS+5180.
+	(U+5180): Likewise.
+	(U+5181): Add `<-denotational' for BUCS+56C5.
+
+	* Ideograph-R159-Cart.el (C6-4545): Unify HD-IA0715.
+	(JX2-795C): Unify HD-JD8960.
+
+	* Ideograph-R149-Speech.el (JX1-7C34): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R120-Silk.el (JX1-7A24): Add
+	`=decomposition@hanyo-denshi'.
+
+2011-03-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R108-Dish.el (JX1-786A): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R104-Sickness.el (JX1-7852): Add
 	`=decomposition@hanyo-denshi'.
 
 	* Ideograph-R074-Moon.el (GT-18172): Unify HD-IB2048.
@@ -1120,6 +1139,8 @@
 	* Ideograph-R040-Roof.el (JSP-3A5B): Unify HD-JB2659.
 
 2011-02-16  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R213-Turtle.el (U+4E80): Unify AJ1-01615.
 
 	* Ideograph-R174-Blue.el (G-M-42566): New node.
 	(M-42566): Use `<-subsumptive' for G-M-42566.
