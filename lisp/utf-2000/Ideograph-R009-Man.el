@@ -20605,7 +20605,7 @@
     (->subsumptive
      ((ideographic-strokes . 9)
       (total-strokes	   . 11)
-      (=>>>ucs@unicode	  . #x5049)	; &GI-UU+5049;
+      (=>>>ucs@unicode	  . #x5049)	; &g2-UU+5049;
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -33610,8 +33610,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@unicode	  . #x66FE)	; &C1-5F64;
-      (=gb2312		  . #x5478)	; &C1-5F64; [52-88]
+     ((=ucs@unicode	  . #x66FE)	; &HD-IB-272A;
+      (=gb2312		  . #x5478)	; &HD-IB-272A; [52-88]
       (=cns11643-1	  . #x5F64)	; &I-C1-5F64; [63-68]
       ))
     (=ucs@unicode	. #x50E7)	; &C1-6772;
@@ -41691,7 +41691,7 @@
       (=ucs		  . #x2E85)	; ⺅
       )
      ((=ucs@cns		  . #x77A2)	; &M-23653;
-      (=ucs@jis		  . #x77A2)	; &M-23653;
+      (=ucs@jis/1990	  . #x77A2)	; &M-23653;
       (=jis-x0212	  . #x4F34)	; &M-23653; [47-20]
       (=cns11643-2	  . #x5867)	; &I-C2-5867; [56-71]
       (=daikanwa	  . 23653)	; &I-M-23653;
