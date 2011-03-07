@@ -604,6 +604,11 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x5173)	; 关
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
       (hanyu-dazidian	  1 242 7)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
