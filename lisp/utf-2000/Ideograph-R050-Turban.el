@@ -1830,6 +1830,7 @@
       (=jis-x0213-2	  . #x2876)	; &I-JX2-2876; [08-86]
       (=daikanwa	  . 08900)	; &I-M-08900;
       (=hanziku-2	  . #xE9B0)	; &I-HZK02-E9B0;
+      (=hanyo-denshi/jb	  . #x3C2D)	; &I-HD-JB-3C2D; [28-13]
       )
      ((=cns11643-3	  . #x3068)	; &C3-3068; [16-72]
       (=jef-china3	  . #x82BD)	; &I-JC3-82BD;
@@ -3169,6 +3170,7 @@
     (=jis-x0213-2	. #x2877)	; &I-JX2-2877; [08-87]
     (=daikanwa		. 08975)	; &I-M-08975;
     (=jef-china3	. #x4CA7)	; &I-JC3-4CA7;
+    (=hanyo-denshi/jb	. #x3C31)	; &I-HD-JB-3C31; [28-17]
     ))
 (define-char
   '((<-denotational
@@ -3643,7 +3645,10 @@
     (=jis-x0213-2	. #x2878)	; &I-JX2-2878; [08-88]
     ))
 (define-char
-  '((ideographic-radical@ucs . 50)	; ⼱
+  '((<-denotational
+     ((==>ucs@bucs	  . #x51AA)	; &BUCS+51AA;
+      ))
+    (ideographic-radical@ucs . 50)	; ⼱
     (ideographic-strokes@ucs . 9)
     (ideographic-radical@cns . 14)	; ⼍
     (ideographic-strokes@cns . 10)
@@ -6050,6 +6055,7 @@
     (=ucs@unicode	. #x5E6D)	; &JX2-287E;
     (=jis-x0212		. #x3C3F)	; &JX2-287E; [28-31]
     (=jis-x0213-2	. #x287E)	; &I-JX2-287E; [08-94]
+    (=hanyo-denshi/jb	. #x3C3F)	; &I-HD-JB-3C3F; [28-31]
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
