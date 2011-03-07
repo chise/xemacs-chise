@@ -4150,9 +4150,9 @@
       )
      ((=ucs		  . #x4EAD)	; 亭
       )
-     ((=>>>ucs@unicode	  . #x591C)	; &GI-UU+591C;
+     ((=>>>ucs@unicode	  . #x591C)	; &g2-UU+591C;
       ))
-    (=>>>ucs@iso	. #x20199)	; &GI-IU+20199;
+    (=>>>ucs@iso	. #x20199)	; &g2-IU+20199;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
