@@ -774,9 +774,15 @@
       (=daikanwa	  . 11724)	; &I-M-11724;
       ))
     (=>>ucs@jis		. #x533E)	; &G-GT-03448;
+    (=>>jis-x0213-2	. #x2350)	; &G-GT-03448; [03-48]
     (=>>gt		. 03448)	; &G-GT-03448;
     (->subsumptive
-     ((ideographic-structure
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x533E)	; 匾
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
 	(=ucs		    . #x2FF7)	; ⿷
 	)
@@ -792,8 +798,8 @@
 	(=jis-x0213-1@2004  . #x5928)	; &I-JX3-5928; [57-08]
 	(=daikanwa	    . 11724)	; &I-M-11724;
 	))
-      (=ucs@jis		  . #x533E)	; &M-02689;
-      (=jis-x0212	  . #x3435)	; &M-02689; [20-21]
+      (=ucs@jis		  . #x533E)	; 匾󠄁
+      (=jis-x0212	  . #x3435)	; 匾󠄁 [20-21]
       (=cns11643-1	  . #x5935)	; &I-C1-5935; [57-21]
       (=jis-x0213-2	  . #x2350)	; &I-JX2-2350; [03-48]
       (=daikanwa	  . 02689)	; &I-M-02689;
