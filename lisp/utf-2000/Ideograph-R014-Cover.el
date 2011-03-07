@@ -18,6 +18,13 @@
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
+    (==>ucs@bucs	. #x5197)	; &BUCS+5197;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5197)	; &BUCS+5197;
+      ))
+    (ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (=ucs		. #x5197)	; 冗
@@ -349,6 +356,11 @@
      ((=ucs		  . #x519D)	; 冝
       )
      ((=ucs		  . #xE0100)	; 󠄀
+      ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x519D)	; 冝
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
       ))
     (hanyu-dazidian	1 303 12)
     (ideographic-structure
@@ -771,6 +783,13 @@
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
+    (==>ucs@bucs	. #x51A4)	; &BUCS+51A4;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x51A4)	; &BUCS+51A4;
+      ))
+    (ideographic-radical . 14)	; ⼍
     (hanyu-dazidian	1 305 1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1024,7 +1043,10 @@
     (=cbeta		. 01318)	; &I-CB01318;
     ))
 (define-char
-  '((ideographic-radical . 14)	; ⼍
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5BCC)	; &BUCS+5BCC;
+      ))
+    (ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 305 3)
@@ -1101,7 +1123,14 @@
     (=hanziku-1		. #xE4FA)	; &I-HZK01-E4FA;
     ))
 (define-char
-  '((ideographic-radical@ucs . 50)	; ⼱
+  '((ideographic-radical . 14)	; ⼍
+    (==>ucs@bucs	. #x51AA)	; &BUCS+51AA;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x51AA)	; &BUCS+51AA;
+      ))
+    (ideographic-radical@ucs . 50)	; ⼱
     (ideographic-strokes@ucs . 9)
     (ideographic-radical@cns . 14)	; ⼍
     (ideographic-strokes@cns . 10)
@@ -1340,7 +1369,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 14)	; ⼍
+  '((<-denotational
+     ((==>ucs@bucs	  . #x51AA)	; &BUCS+51AA;
+      ))
+    (ideographic-radical . 14)	; ⼍
     (hanyu-dazidian	1 306 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
