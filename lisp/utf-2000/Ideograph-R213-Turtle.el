@@ -31,6 +31,7 @@
     (=shinjigen@1ed	.  9917)	; 亀
     (=shinjigen@rev	.  9916)	; 亀
     (=hanziku-12	. #xEBBD)	; &I-HZK12-EBBD;
+    (=adobe-japan1-0	. 01615)	; &I-AJ1-01615;
     (<-vulgar
      ((=ucs@jis		  . #x9F9C)	; &M-48847;
       (=jis-x0208@1983	  . #x737D)	; &M-48847; [83-93]
