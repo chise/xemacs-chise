@@ -565,6 +565,13 @@
     ))
 (define-char
   '((ideographic-radical . 17)	; ⼐
+    (==>ucs@bucs	. #x51FD)	; &BUCS+51FD;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x51FD)	; &BUCS+51FD;
+      ))
+    (ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 309 9)
@@ -655,7 +662,10 @@
     (=daikanwa		. 01829)	; &I-M-01829;
     ))
 (define-char
-  '((ideographic-radical . 17)	; ⼐
+  '((<-denotational
+     ((==>ucs@bucs	  . #x51FD)	; &BUCS+51FD;
+      ))
+    (ideographic-radical . 17)	; ⼐
     (ideographic-strokes@cns . 6)
     (total-strokes@cns	     . 8)
     (ideographic-strokes@jis . 7)
