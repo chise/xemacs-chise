@@ -1535,7 +1535,10 @@
     (=daikanwa		. 49150)	; &I-M-49150;
     ))
 (define-char
-  '((ideographic-radical@ucs . 13)	; ⼌
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5192)	; &BUCS+5192;
+      ))
+    (ideographic-radical@ucs . 13)	; ⼌
     (ideographic-strokes@ucs . 7)
     (ideographic-radical@ucs*sources
      daikanwa cns11643-1 ucs)
