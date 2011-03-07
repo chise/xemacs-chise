@@ -1,5 +1,12 @@
 2011-03-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R017-Open-Box.el (BUCS+51FD): New character.
+	(U+51FD): Add `<-denotational' for BUCS+51FD.
+	(U+51FE): Ditto.
+
+	* Ideograph-R013-Down-Box.el: Add abstract characters and
+	relations about BUCS.
+
 	* Ideograph-R012-Eight.el (BUCS+5180): New character.
 	(U+517E): Add `<-denotational' for BUCS+5180.
 	(U+5180): Likewise.
