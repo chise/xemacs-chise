@@ -2998,7 +2998,7 @@
     (=ucs		. #x570D)	; 圍
     (=big5		. #xB3F2)	; &I-B-B3F2;
     (->subsumptive
-     ((=>>>ucs@unicode	  . #x570D)	; &GI-UU+570D;
+     ((=>>>ucs@unicode	  . #x570D)	; &g2-UU+570D;
       (->subsumptive
        ((=jis-x0208@1978    . #x5423)	; &M-04806; [52-03]
 	(=jis-x0208@1983    . #x5423)	; &I-J83-5423; [52-03]

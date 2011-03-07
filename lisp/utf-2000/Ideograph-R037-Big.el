@@ -2428,7 +2428,7 @@
     (->subsumptive
      ((=cns11643-1	  . #x5E64)	; &C1-5E64; [62-68]
       )
-     ((=>>>ucs@unicode	  . #x5960)	; &GI-UU+5960;
+     ((=>>>ucs@unicode	  . #x5960)	; &g2-UU+5960;
       (->subsumptive
        ((=ucs@unicode	    . #x5960)	; &G0-356C;
 	(=gb2312	    . #x356C)	; &G0-356C; [21-76]

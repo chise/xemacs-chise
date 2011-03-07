@@ -331,7 +331,7 @@
     (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=>>>ucs@unicode	. #x591C)	; &GI-UU+591C;
+    (=>>>ucs@unicode	. #x591C)	; &g2-UU+591C;
     (=big5		. #xA95D)	; &I-B-A95D;
     (->subsumptive
      ((=ucs@jis		  . #x591C)	; &AJ1-03831;
