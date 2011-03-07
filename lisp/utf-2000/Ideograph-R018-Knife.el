@@ -374,8 +374,8 @@
 	))
       (=cns11643-1	  . #x4521)	; &C1-4521; [37-01]
       )
-     ((=>>>jis-x0208@1990 . #x4A2C)	; &GI-JX1-4A2C; [42-12]
-      (=>>>jis-x0213-1	  . #x4A2C)	; &GI-JX1-4A2C; [42-12]
+     ((=>>>jis-x0208@1990 . #x4A2C)	; &g2-JX1-4A2C; [42-12]
+      (=>>>jis-x0213-1	  . #x4A2C)	; &g2-JX1-4A2C; [42-12]
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1222,8 +1222,13 @@
       ))
     (=ucs		. #x5213)	; 刓
     (->subsumptive
-     ((=ucs@unicode	  . #x5213)	; &M-01895;
-      (=jis-x0212	  . #x3334)	; &M-01895; [19-20]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5213)	; 刓
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=ucs@unicode	  . #x5213)	; 刓󠄁
+      (=jis-x0212	  . #x3334)	; 刓󠄁 [19-20]
       (=cns11643-2	  . #x217C)	; &I-C2-217C; [01-92]
       (=jis-x0213-1	  . #x2E5C)	; &I-JX1-2E5C; [14-60]
       (=big5		  . #xC9BD)	; &I-B-C9BD;
@@ -6831,7 +6836,7 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (=>>>ucs@unicode	. #x5275)	; &GI-UU+5275;
+    (=>>>ucs@unicode	. #x5275)	; &g2-UU+5275;
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x5275)	; 創
@@ -9533,8 +9538,13 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
-    (=ucs@jis		. #x20807)	; &JX2-233F;
-    (=jis-x0213-2	. #x233F)	; &JX2-233F; [03-31]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x20807)	; 𠠇
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
+    (=ucs@jis		. #x20807)	; 𠠇󠄁
+    (=jis-x0213-2	. #x233F)	; 𠠇󠄁 [03-31]
     (=hanyo-denshi/jd	. #x233F)	; &I-HD-JD-233F; [03-31]
     ))
 (define-char
