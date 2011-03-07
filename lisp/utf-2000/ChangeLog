@@ -63,6 +63,9 @@
 
 2011-03-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x4575, #x5F7C and #x3B38.
+
 	* Ideograph-R108-Dish.el (JX1-786A): Unify HD-JC8874.
 	(U-00025060): Use `->denotational' instead of `->subsumptive'.
 	(U-000250B4): Add ideographic-structure.
