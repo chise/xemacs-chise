@@ -330,6 +330,16 @@
 	      ;; final ?B
 	      graphic 0))
   (make-charset
+   '=>>>jis-x0208@1978
+   "JIS X 0208:1978 abstract glyphs."
+   '(registry "jisx0208\\.1978"
+	      dimension 2
+	      chars 94
+	      mother =>>>jis-x0208
+	      =>iso-ir 42
+	      ;; final ?@
+	      graphic 0))
+  (make-charset
    '=>>>jis-x0208@1990
    "JIS X 0208:1990 abstract glyph-images."
    '(registry "jisx0208\\.1990"
