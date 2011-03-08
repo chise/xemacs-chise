@@ -3214,8 +3214,8 @@
     (=gt-k		. 07750)	; &I-GT-K07750;
     (=gt-pj-1		. #x363F)	; &I-GT-53083; [22-31]
     (<-simplified@JP/Jouyou
-     ((=ucs@jis		  . #x9115)	; &JX1-7C6C;
-      (=jis-x0213-1	  . #x7C6C)	; &JX1-7C6C; [92-76]
+     ((=ucs@jis		  . #x9115)	; 鄕󠄁
+      (=jis-x0213-1	  . #x7C6C)	; 鄕󠄁 [92-76]
       ))
     ))
 (define-char
@@ -4301,8 +4301,13 @@
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=ucs@jis		. #x9115)	; &JX1-7C6C;
-    (=jis-x0213-1	. #x7C6C)	; &JX1-7C6C; [92-76]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x9115)	; 鄕
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
+    (=ucs@jis		. #x9115)	; 鄕󠄁
+    (=jis-x0213-1	. #x7C6C)	; 鄕󠄁 [92-76]
     (=hanyo-denshi/jc	. #x7C6C)	; &I-HD-JC-7C6C; [92-76]
     ))
 (define-char
@@ -4314,7 +4319,6 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x9109)	; 鄉
-    (=ucs@unicode	. #x9109)	; 鄉
     (=cns11643-1	. #x6254)	; &I-C1-6254; [66-52]
     (=gb12345		. #x4F67)	; 鄉 [47-71]
     ))
