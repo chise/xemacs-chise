@@ -1,5 +1,8 @@
 2011-03-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R019-Power.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/JB characters.
+
 	* Ideograph-R016-Table.el:
 	- Add some Adobe-Japan1 code points.
 	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
