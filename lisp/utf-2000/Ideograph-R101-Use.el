@@ -341,14 +341,18 @@
     (=ucs		. #x752F)	; 甯
     (=big5		. #xDAAC)	; &I-B-DAAC;
     (->subsumptive
-     ((=ucs@jis		  . #x752F)	; &M-21717;
-      (=jis-x0212	  . #x4D2A)	; &M-21717; [45-10]
-      (=jis-x0213-1	  . #x7849)	; &I-JX1-7849; [88-41]
-      (=daikanwa	  . 21717)	; &I-M-21717;
-      (=jef-china3	  . #x4ABD)	; &I-JC3-4ABD;
-      )
-     ((=ucs@unicode	  . #x752F)	; &G0-6538;
-      (=gb2312		  . #x6538)	; &G0-6538; [69-24]
+     ((=>>>ucs@unicode	  . #x752F)	; &g2-UU+752F;
+      (->subsumptive
+       ((=ucs@jis	    . #x752F)	; &AJ1-08434;
+	(=jis-x0212	    . #x4D2A)	; &AJ1-08434; [45-10]
+	(=jis-x0213-1	    . #x7849)	; &I-JX1-7849; [88-41]
+	(=daikanwa	    . 21717)	; &I-M-21717;
+	(=jef-china3	    . #x4ABD)	; &I-JC3-4ABD;
+	(=adobe-japan1-2    . 08434)	; &I-AJ1-08434;
+	)
+       ((=ucs@unicode	    . #x752F)	; &G0-6538;
+	(=gb2312	    . #x6538)	; &G0-6538; [69-24]
+	))
       )
      ((=ucs@cns		  . #x752F)	; &C2-3E30;
       (=cns11643-2	  . #x3E30)	; &C2-3E30; [30-16]
@@ -419,8 +423,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@jis	    . #x4EAB)	; &GT-00396;
-	(=jis-x0208	    . #x357D)	; &GT-00396; [21-93]
+       ((=ucs@jis	    . #x4EAB)	; 享󠄀
+	(=jis-x0208	    . #x357D)	; 享󠄀 [21-93]
 	(=ks-x1001	    . #x7A3D)	; &I-K0-7A3D; [90-29]
 	(=jis-x0213-1	    . #x357D)	; &I-JX1-357D; [21-93]
 	(=daikanwa	    . 00298)	; &I-M-00298;
