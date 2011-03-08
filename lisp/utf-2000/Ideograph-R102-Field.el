@@ -1555,8 +1555,8 @@
       (=jis-x0212	  . #x4D3A)	; &M-21828; [45-26]
       (=daikanwa	  . 21828)	; &I-M-21828;
       (<-formed
-       ((=ucs@jis	    . #x5793)	; &GT-06323;
-	(=jis-x0208	    . #x5436)	; &GT-06323; [52-22]
+       ((=ucs@jis	    . #x5793)	; 垓󠄁
+	(=jis-x0208	    . #x5436)	; 垓󠄁 [52-22]
 	(=ks-x1001	    . #x7A27)	; &I-K0-7A27; [90-07]
 	(=jis-x0213-1	    . #x5436)	; &I-JX1-5436; [52-22]
 	(=daikanwa	    . 05040)	; &I-M-05040;
@@ -1564,8 +1564,8 @@
       (<-formed*sources
        jiyun)
       (<-same
-       ((=ucs@jis	    . #x5793)	; &GT-06323;
-	(=jis-x0208	    . #x5436)	; &GT-06323; [52-22]
+       ((=ucs@jis	    . #x5793)	; 垓󠄁
+	(=jis-x0208	    . #x5436)	; 垓󠄁 [52-22]
 	(=ks-x1001	    . #x7A27)	; &I-K0-7A27; [90-07]
 	(=jis-x0213-1	    . #x5436)	; &I-JX1-5436; [52-22]
 	(=daikanwa	    . 05040)	; &I-M-05040;
@@ -2086,6 +2086,7 @@
     (ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
+    (=>>ucs@cns		. #x756F)	; &G-CU+756F;
     (->subsumptive
      ((=daikanwa	  . 21865)	; &M-21865;
       )
@@ -2100,11 +2101,12 @@
     (ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (=ucs@jis		. #x756F)	; &JX1-784A;
-    (=ks-x1001		. #x7161)	; &JX1-784A; [81-65]
+    (=ucs@jis		. #x756F)	; &AJ1-08565;
+    (=ks-x1001		. #x7161)	; &AJ1-08565; [81-65]
     (=jis-x0212		. #x4D3B)	; &I-JSP-4D3B; [45-27]
     (=jis-x0213-1	. #x784A)	; &I-JX1-784A; [88-42]
     (=jef-china3	. #x5AD0)	; &I-JC3-5AD0;
+    (=adobe-japan1-2	. 08565)	; &I-AJ1-08565;
     ))
 (define-char
   '((<-denotational
