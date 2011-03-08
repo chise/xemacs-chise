@@ -4,23 +4,20 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 13)
     (=ucs		. #x9F20)	; 鼠
-    (=jis-x0208		. #x414D)	; &I-J90-414D; [33-45]
-    (=gb2312		. #x4A73)	; &I-G0-4A73; [42-83]
-    (=ks-x1001		. #x6029)	; &I-K0-6029; [64-09]
-    (=jis-x0213-1	. #x414D)	; &I-JX1-414D; [33-45]
-    (=gt		. 66099)	; &I-GT-66099;
-    (=gt-k		. 10236)	; &I-GT-K10236;
-    (=gt-pj-1		. #x414D)	; &I-GT-66099; [33-45]
-    (=daikanwa		. 48390)	; &I-M-48390;
-    (=shinjigen@rev	.  9866)	; 鼠
-    ))
-(define-char
-  '((=>ucs		. #x9F20)	; 鼠
-    (morohashi-daikanwa	48390 0 1)
-    (ideographic-radical . 208)	; ⿏
-    (ideographic-strokes . 0)
-    (total-strokes	 . 13)
-    (=cns11643-1	. #x6771)	; &C1-6771; [71-81]
+    (->subsumptive
+     ((=ucs@unicode	  . #x9F20)	; &GT-66099;
+      (=jis-x0208	  . #x414D)	; &GT-66099; [33-45]
+      (=gb2312		  . #x4A73)	; &I-G0-4A73; [42-83]
+      (=ks-x1001	  . #x6029)	; &I-K0-6029; [64-09]
+      (=jis-x0213-1	  . #x414D)	; &I-JX1-414D; [33-45]
+      (=gt		  . 66099)	; &I-GT-66099;
+      (=gt-k		  . 10236)	; &I-GT-K10236;
+      (=gt-pj-1		  . #x414D)	; &I-GT-66099; [33-45]
+      (=daikanwa	  . 48390)	; &I-M-48390;
+      (=shinjigen	  .  9866)	; &GT-66099;
+      )
+     ((=cns11643-1	  . #x6771)	; &C1-6771; [71-81]
+      ))
     ))
 (define-char
   '((morohashi-daikanwa	ho 47)
@@ -35,6 +32,7 @@
     (=gt		. 12984)	; &I-GT-12984;
     (=gt-k		. 03927)	; &I-GT-K03927;
     (=gt-pj-1		. #x736B)	; &I-GT-12984; [83-75]
+    (=adobe-japan1-0	. 07454)	; &I-AJ1-07454;
     ))
 (define-char
   '((ideographic-radical . 208)	; ⿏
