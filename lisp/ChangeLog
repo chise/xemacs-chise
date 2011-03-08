@@ -1,5 +1,10 @@
 2011-03-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* mule/mule-conf.el (=>>>jis-x0208@1978): New coded-charset for
+	XEmacs CHISE.
+
+2011-03-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* mule/mule-coding.el: (coded-charset-entity-reference-alist):
 	- Use "&g2-*;" as entity-references for `=>>>*'.
 	- Omit "&a{GT|JX1|JX2|JX3}-*;".
