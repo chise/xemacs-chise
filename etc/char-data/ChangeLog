@@ -1,3 +1,7 @@
+2011-03-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-72FA): Map to U+8279 instead of U+2EBE.
+
 2011-03-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* C3-to-UCS.txt (C3-3D29): Delete mapping for U+FA16.
