@@ -1,5 +1,8 @@
 2011-03-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>>>jis-x0208' and `=>>>jis-x0213-1'.
+
 	* Ideograph-R050-Turban.el: Add Hanyo-Denshi/JB code points.
 	(U+5E42): Add `<-denotational' for BUCS+51AA.
 
