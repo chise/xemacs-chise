@@ -445,6 +445,11 @@
     (total-strokes	 . 6)
     (=ucs		. #x5C82)	; 岂
     (=gb2312		. #x4671)	; &I-G0-4671; [38-81]
+    (=hanziku-2		. #xEEDC)	; &I-HZK02-EEDC;
+    (<-simplified@CN
+     ((=ucs		  . #x8C48)	; 豈
+      (=gb12345		  . #x4671)	; 豈 [38-81]
+      ))
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
