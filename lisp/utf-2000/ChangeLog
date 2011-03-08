@@ -1,5 +1,17 @@
 2011-03-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R016-Table.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	(BUCS+51F1): New character.
+	(U+51F1): Add `<-denotational' for BUCS+51F1.
+	(U+51EF): Ditto; use `->subsumptive' to separate representative
+	node.
+	(U+51F2): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R015-Ice.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+
 	* Ideograph-R113-Spirit.el: Add some Adobe-Japan1-2 code points.
 	(GT-K0945): New character.
 	(U+7963): Use `->denotational' instead of `->subsumptive'.
