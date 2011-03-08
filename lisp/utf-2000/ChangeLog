@@ -1,7 +1,43 @@
+2011-03-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R113-Spirit.el: Add some Adobe-Japan1-2 code points.
+	(GT-K0945): New character.
+	(U+7963): Use `->denotational' instead of `->subsumptive'.
+	(U+7964): Likewise.
+	(U+7965): Add ideographic-structure.
+	(J0-3E4D): Add `ideographic-structure'.
+	(G0-4F69): Likewise.
+	(U+4104): Use `->denotational' instead of `->subsumptive'.
+	(U+4105): Likewise.
+	(JC3-5CD2): Unify HD-IA0523.
+	(JX2-7264): Unify HD-JD8268; separate UU+4105.
+	(U+7966): Use `->denotational' instead of `->subsumptive'.
+	(U+7967): Likewise.
+	(U+7969): Likewise.
+	(U+796A): Likewise.
+	(U+796B): Likewise.
+	(U+796C): Likewise.
+	(U+796E): Likewise.
+	(U+798F): Add ideographic-structure.
+	(U+FA1B): Add `ideographic-structure'.
+	(J0-4A21): Likewise.
+	(G0-3823): Likewise.
+
+	* Ideograph-R208-Rat.el (U+9F20): Use `->subsumptive'.
+	(U+9F21): Unify AJ1-07454.
+
 2011-03-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>>>jis-x0208' and `=>>>jis-x0213-1'.
+
+	* Ideograph-R017-Open-Box.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+	(U+51F7): Unify AJ1-21190.
+	(C1-4C2A): Unify AJ1-20082.
+
+	* Ideograph-R046-Mountain.el (U+5C82): Unify H2-EEDC; add
+	`<-simplified@CN' for U+8C48.
 
 	* Ideograph-R050-Turban.el: Add Hanyo-Denshi/JB code points.
 	(U+5E42): Add `<-denotational' for BUCS+51AA.
