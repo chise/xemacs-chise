@@ -1822,10 +1822,12 @@
     (ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=>>ucs@unicode	. #x622E)	; &G-UU+622E;
+    (=>>ucs@unicode	. #x622E)	; &G-HD-FT-3621;
+    (=>>hanyo-denshi/ft . #x3621)	; &G-HD-FT-3621; [22-01]
     (->subsumptive
-     ((=ucs@unicode	  . #x622E)	; &G0-423E;
-      (=gb2312		  . #x423E)	; &G0-423E; [34-30]
+     ((=ucs@unicode	  . #x622E)	; &HD-FT-3621;
+      (=gb2312		  . #x423E)	; &HD-FT-3621; [34-30]
+      (=hanyo-denshi/ft	  . #x3621)	; &I-HD-FT-3621; [22-01]
       )
      ((=cns11643-1	  . #x6C76)	; &C1-6C76; [76-86]
       ))
