@@ -880,6 +880,7 @@
     (=big5		. #xE1F9)	; &I-B-E1F9;
     (=daikanwa		. 14311)	; &I-M-14311;
     (=jef-china3	. #x51AD)	; &I-JC3-51AD;
+    (=adobe-japan1-4	. 14613)	; &I-AJ1-14613;
     ))
 (define-char
   '((=>ucs*		. #x669C)	; 暜
