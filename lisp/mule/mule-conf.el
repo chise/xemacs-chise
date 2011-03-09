@@ -630,6 +630,15 @@
 		  max-code	,(+ (lsh #x6100 16) 67547)
 		  code-offset	,(lsh #x6100 16)))
   (define-charset-alias 'ideograph-gt '=gt)
+  (make-charset '=>>>gt
+		"GT 2000 abstract glyph-forms"
+		'(long-name	"GT abstract glyph-forms"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=gt))
   (make-charset '=>>gt
 		"GT 2000 abstract glyphs"
 		'(long-name	"GT abstract glyphs"
@@ -638,7 +647,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  mother	=gt))
+		  mother	=>>>gt))
   (define-charset-alias '<=>gt '=>>gt)
   (define-charset-alias '<==>gt '=>>gt)
   (make-charset '=>gt
@@ -1210,6 +1219,16 @@
   (make-charset '=>>>ucs@jis/1990
 		"UCS Representative glyph-forms for JIS X 0208/0212:1990"
 		'(long-name	"UCS glyph-forms for JIS:1990"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>>ucs@jis))
+  (make-charset '=>>>ucs@jis/2000
+		"UCS Representative glyph-forms for JIS X 0213:2000"
+		'(long-name	"UCS glyph-forms for JIS:2000"
 		  chars		256
 		  dimension	3
 		  columns	2
