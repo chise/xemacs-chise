@@ -366,6 +366,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>>big5-cdp
 	  =>>jis-x0208
 	  =>>jis-x0213-1
+	  =>>jis-x0213-1@2004
 	  =>jis-x0208
 	  =>jis-x0213-1
 	  ucs-bmp
