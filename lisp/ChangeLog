@@ -1,5 +1,14 @@
 2011-03-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>>>jis-x0213-2'.
+
+	* mule/mule-conf.el (=>>>gt): New coded-charset for XEmacs CHISE.
+	(=>>gt): Use `=>>>gt' instead of `=gt' as the mother.
+	(=>>>ucs@jis/2000): New coded-charset for XEmacs CHISE.
+
+2011-03-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* mule/mule-conf.el (=>>>ucs@jis/1990): New coded-charset for
 	XEmacs CHISE.
 
