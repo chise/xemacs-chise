@@ -1,5 +1,38 @@
 2011-03-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R037-Big.el (HD-FT2139): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R031-Enclosure.el: Add some Adobe-Japan1-4 code
+	points.
+	(U+56E4): Use `->subsumptive'.
+
+	* Ideograph-R026-Seal.el, Ideograph-R020-Wrap.el: Add some
+	Adobe-Japan1-4 code points.
+
+	* Ideograph-R073-Say.el (U+6705): Unify AJ1-14613.
+
+2011-03-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R169-Gate.el (U+95CC): Use `->subsumptive'.
+	(U+95CD): Unify A-J0-6F6B.
+
+	* Ideograph-R212-Dragon.el (U+9F95): Use `->subsumptive'.
+
+	* Ideograph-R191-Fight.el: Add Hanyo-Denshi/JC code points.
+	(U+9B2D): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R170-Mound.el (U+968A): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R086-Fire.el:
+	- Add Hanyo-Denshi/IA and IB code points.
+	- Add some Adobe-Japan1-2 code points.
+
+	* Ideograph-R061-Heart.el: Add Hanyo-Denshi/JB code points.
+	(U+60DD): Use `->denotational' and `->subsumptive'.
+	(U+61D5): Use `->subsumptive'.
+
 	* Ideograph-R019-Power.el: Add `=decomposition@hanyo-denshi' for
 	Hanyo-Denshi/JB characters.
 
