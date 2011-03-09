@@ -535,15 +535,16 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ucs		. #x6713)	; 朓
+    (=big5		. #xD1D8)	; &I-B-D1D8;
     (->subsumptive
-     ((=daikanwa	  . 14358)	; &M-14358;
+     ((=daikanwa	  . 14358)	; &AJ1-14614;
+      (=adobe-japan1-4	  . 14614)	; &I-AJ1-14614;
       )
      ((=ucs@unicode	  . #x6713)	; &JX1-754D;
       (=jis-x0212	  . #x4271)	; &JX1-754D; [34-81]
       (=iso-ir165	  . #x7C53)	; &I-EGB-7C53; [92-51]
       (=cns11643-2	  . #x2F5A)	; &I-C2-2F5A; [15-58]
       (=jis-x0213-1	  . #x754D)	; &I-JX1-754D; [85-45]
-      (=big5		  . #xD1D8)	; &I-B-D1D8;
       (=jef-china3	  . #x52C0)	; &I-JC3-52C0;
       ))
     ))
