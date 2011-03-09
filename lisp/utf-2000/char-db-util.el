@@ -182,6 +182,7 @@
     =>>hanyo-denshi/ft
     =>>hanyo-denshi/ks
     =>>gt
+    =>>daikanwa
     =>jis-x0208@usual
     =>jis-x0208
     =>jis-x0208@1997
