@@ -17,6 +17,19 @@
     (=shinjigen@rev	.  2059)	; 工
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x5DE5)	; 工
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=gt-k		. 00173)	; &GT-K00173;
+    (=gt-pj-k1		. #x3474)	; &GT-K00173; [20-84]
+    (<-formed@component/connect-right
+     ((=ucs		  . #x5DE5)	; 工
+      ))
+    ))
+(define-char
   '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
