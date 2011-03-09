@@ -1002,24 +1002,20 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x8279)	; 艹
+     ((=ucs@unicode	  . #x8279)	; &GT-39639;
+      (=gb2312		  . #x5C33)	; &GT-39639; [60-19]
+      (=jis-x0213-2	  . #x7576)	; &I-JX2-7576; [85-86]
       ))
     (name		. "CJK RADICAL GRASS ONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (ideographic-radical . 140)	; ⾋
-    (ideographic-strokes . 0)
-    (total-strokes	 . 3)
     (=ucs		. #x2EBE)	; ⺾
-    (=ucs@unicode	. #x8279)	; ⺾
-    (=gb2312		. #x5C33)	; &I-G0-5C33; [60-19]
-    (=jis-x0213-2	. #x7576)	; &I-JX2-7576; [85-86]
-    (=big5-cdp		. #x8957)	; &I-CDP-8957;
-    (=gt		. 39639)	; &I-GT-39639;
-    (=gt-k		. 00279)	; &I-GT-K00279;
-    (=gt-pj-9		. #x4F47)	; &I-GT-39639; [47-39]
-    (=jef-china3	. #x72FA)	; &I-JC3-72FA;
+    (<-identical@component
+     ((=ucs@unicode	  . #x8279)	; &GT-39639;
+      (=gb2312		  . #x5C33)	; &GT-39639; [60-19]
+      (=jis-x0213-2	  . #x7576)	; &I-JX2-7576; [85-86]
+      ))
     ))
 (define-char
   '((<-denotational
