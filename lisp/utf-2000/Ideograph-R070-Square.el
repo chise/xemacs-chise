@@ -379,11 +379,12 @@
     (=ucs		. #x65C2)	; 旂
     (=big5		. #xD1D2)	; &I-B-D1D2;
     (->subsumptive
-     ((=ucs@jis		  . #x65C2)	; &M-13638;
-      (=jis-x0212	  . #x4165)	; &M-13638; [33-69]
+     ((=ucs@jis		  . #x65C2)	; &AJ1-14600;
+      (=jis-x0212	  . #x4165)	; &AJ1-14600; [33-69]
       (=jis-x0213-2	  . #x2D6E)	; &I-JX2-2D6E; [13-78]
       (=daikanwa	  . 13638)	; &I-M-13638;
       (=jef-china3	  . #x50EB)	; &I-JC3-50EB;
+      (=adobe-japan1-4	  . 14600)	; &I-AJ1-14600;
       )
      ((=ucs@unicode	  . #x65C2)	; &C2-2F54;
       (=iso-ir165	  . #x2D7E)	; &C2-2F54; [13-94]
