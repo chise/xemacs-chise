@@ -6835,24 +6835,50 @@
     (=jis-x0213-2	. #x7E3E)	; &I-JX2-7E3E; [94-30]
     ))
 (define-char
-  '((=>ucs		. #x9DC0)	; 鷀
+  '((ideographic-radical . 196)	; ⿃
+    (ideographic-strokes . 10)
+    (total-strokes	 . 21)
+    (=ucs		. #x9DC0)	; 鷀
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9DC0)	; 鷀
+      ))
     (ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 10)
     (total-strokes	 . 21)
     (=cns11643-4	. #x6843)	; &M-47204; [72-35]
     (=daikanwa		. 47204)	; &I-M-47204;
+    (=jef-china3	. #x90C1)	; &I-JC3-90C1;
     ))
 (define-char
-  '((morohashi-daikanwa	47204 0 2)
+  '((<-denotational
+     ((=ucs		  . #x9DC0)	; 鷀
+      ))
     (ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 9)
     (total-strokes	 . 20)
-    (=ucs		. #x9DC0)	; 鷀
-    (=jis-x0213-1	. #x7E62)	; &I-JX1-7E62; [94-66]
-    (=gb12345		. #x704B)	; 鷀 [80-43]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x9DC0)	; 鷀
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=ucs@unicode	. #x9DC0)	; 鷀󠄂
+    (=jis-x0213-1	. #x7E62)	; 鷀󠄂 [94-66]
+    (=gb12345		. #x704B)	; 鷀󠄂 [80-43]
+    (=jef-china3	. #x93BF)	; &I-JC3-93BF;
+    (=hanyo-denshi/jc	. #x7E62)	; &I-HD-JC-7E62; [94-66]
     ))
 (define-char
-  '((=>ucs		. #x9DC1)	; 鷁
+  '((ideographic-radical . 196)	; ⿃
+    (ideographic-strokes . 10)
+    (total-strokes	 . 21)
+    (=ucs		. #x9DC1)	; 鷁
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9DC1)	; 鷁
+      ))
     (ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 10)
     (total-strokes	 . 21)
@@ -6862,15 +6888,17 @@
     (=gt		. 64224)	; &I-GT-64224;
     (=gt-pj-1		. #x7332)	; &I-GT-64224; [83-18]
     (=daikanwa		. 47206)	; &I-M-47206;
-    (=shinjigen@rev	.  9730)	; &GT-64224;
+    (=shinjigen		.  9730)	; &GT-64224;
     ))
 (define-char
-  '((morohashi-daikanwa	47206 0 2)
+  '((<-denotational
+     ((=ucs		  . #x9DC1)	; 鷁
+      ))
     (ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 10)
     (total-strokes	 . 21)
-    (=ucs		. #x9DC1)	; 鷁
-    (=cns11643-2	. #x6D23)	; &I-C2-6D23; [77-03]
+    (=ucs@unicode	. #x9DC1)	; &C2-6D23;
+    (=cns11643-2	. #x6D23)	; &C2-6D23; [77-03]
     ))
 (define-char
   '((=>ucs		. #x9DC2)	; 鷂
