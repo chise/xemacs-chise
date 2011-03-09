@@ -1000,25 +1000,45 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=ucs		. #x6248)	; 扈
-    (->subsumptive
-     ((=ucs@big5	  . #x6248)	; &M-11746;
-      (=jis-x0208@1978	  . #x6E3D)	; &M-11746; [78-29]
-      (=ks-x1001	  . #x7B43)	; &I-K0-7B43; [91-35]
-      (=cns11643-1	  . #x5A53)	; &I-C1-5A53; [58-51]
-      (=big5		  . #xB1AF)	; &I-B-B1AF;
-      (=daikanwa	  . 11746)	; &I-M-11746;
-      )
-     ((=ucs@jis		  . #x6248)	; &GT-14843;
-      (=jis-x0208@1983	  . #x6E3D)	; &GT-14843; [78-29]
-      (=jis-x0208@1990	  . #x6E3D)	; &I-J90-6E3D; [78-29]
-      (=jis-x0213-1	  . #x6E3D)	; &I-JX1-6E3D; [78-29]
-      (=gt		  . 14843)	; &I-GT-14843;
-      (=gt-k		  . 07983)	; &I-GT-K07983;
-      (=gt-pj-1		  . #x6E3D)	; &I-GT-14843; [78-29]
-      )
-     ((=ucs@unicode	  . #x6248)	; &G0-6C68;
-      (=gb2312		  . #x6C68)	; &G0-6C68; [76-72]
+    (=big5		. #xB1AF)	; &I-B-B1AF;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6248)	; 扈
       ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (=jis-x0208@1978	. #x6E3D)	; &M-11746; [78-29]
+    (=ks-x1001		. #x7B43)	; &I-K0-7B43; [91-35]
+    (=cns11643-1	. #x5A53)	; &I-C1-5A53; [58-51]
+    (=daikanwa		. 11746)	; &I-M-11746;
+    (=hanyo-denshi/ft	. #x3423)	; &I-HD-FT-3423; [20-03]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6248)	; 扈
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (=ucs@unicode	. #x6248)	; &G0-6C68;
+    (=gb2312		. #x6C68)	; &G0-6C68; [76-72]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6248)	; 扈
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (=ucs@jis		. #x6248)	; &GT-14843;
+    (=jis-x0208@1983	. #x6E3D)	; &GT-14843; [78-29]
+    (=jis-x0208@1990	. #x6E3D)	; &I-J90-6E3D; [78-29]
+    (=jis-x0213-1	. #x6E3D)	; &I-JX1-6E3D; [78-29]
+    (=gt		. 14843)	; &I-GT-14843;
+    (=gt-k		. 07983)	; &I-GT-K07983;
+    (=gt-pj-1		. #x6E3D)	; &I-GT-14843; [78-29]
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
