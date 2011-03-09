@@ -2433,7 +2433,12 @@
        ((=ucs@unicode	    . #x5960)	; &G0-356C;
 	(=gb2312	    . #x356C)	; &G0-356C; [21-76]
 	)
-       ((=hanyo-denshi/ft   . #x3547)	; &HD-FT-3547; [21-39]
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x5960)	; 奠
+	  )
+	 ((=ucs		      . #xE0103)	; 󠄃
+	  ))
+	(=hanyo-denshi/ft   . #x3547)	; 奠󠄃 [21-39]
 	))
       ))
     ))
