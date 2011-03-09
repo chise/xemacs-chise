@@ -51,6 +51,7 @@
     (=daikanwa		. 02494)	; &I-M-02494;
     (=shinjigen		.  0763)	; 勺
     (=jef-china3	. #x45A1)	; &I-JC3-45A1;
+    (=adobe-japan1-4	. 13807)	; &I-AJ1-13807;
     (=hanyo-denshi/jt	. #xAE53)	; &I-HD-JT-AE53;
     ))
 (define-char
@@ -834,15 +835,16 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (=ucs		. #x530A)	; 匊
+    (=big5		. #xCBD6)	; &I-B-CBD6;
     (->subsumptive
      ((hanyu-dazidian	  1 259 1)
-      (=ucs@unicode	  . #x530A)	; &M-02523;
-      (=jis-x0212	  . #x337D)	; &M-02523; [19-93]
+      (=ucs@unicode	  . #x530A)	; &AJ1-14364;
+      (=jis-x0212	  . #x337D)	; &AJ1-14364; [19-93]
       (=iso-ir165	  . #x2E29)	; &I-EGB-2E29; [14-09]
       (=jis-x0213-2	  . #x234C)	; &I-JX2-234C; [03-44]
-      (=big5		  . #xCBD6)	; &I-B-CBD6;
       (=daikanwa	  . 02523)	; &I-M-02523;
       (=jef-china3	  . #x45A6)	; &I-JC3-45A6;
+      (=adobe-japan1-4	  . 14364)	; &I-AJ1-14364;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
@@ -877,6 +879,7 @@
     (=daikanwa		. 02524)	; &I-M-02524;
     (=shinjigen		.  6226)	; 匋
     (=jef-china3	. #x5FE5)	; &I-JC3-5FE5;
+    (=adobe-japan1-4	. 14365)	; &I-AJ1-14365;
     ))
 (define-char
   '((ideographic-radical . 20)	; ⼓
