@@ -3610,7 +3610,7 @@
     (total-strokes	 . 12)
     (=ucs		. #x7324)	; 猤
     (->subsumptive
-     ((=>>>ucs@jis	  . #x7324)	; &GI-JU+7324;
+     ((=>>>ucs@jis	  . #x7324)	; &g2-JU+7324;
       (->subsumptive
        ((=daikanwa	    . 20517)	; &M-20517;
 	)
@@ -3619,7 +3619,7 @@
 	(=adobe-japan1-2    . 08547)	; &I-AJ1-08547;
 	))
       )
-     ((=>>>ucs@unicode	  . #x7324)	; &GI-UU+7324;
+     ((=>>>ucs@unicode	  . #x7324)	; &g2-UU+7324;
       (->subsumptive
        ((=ucs@unicode	    . #x7324)	; &UU+7324;
 	(=jef-china3	    . #x58ED)	; &UU+7324;
