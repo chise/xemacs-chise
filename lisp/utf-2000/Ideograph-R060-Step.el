@@ -987,6 +987,7 @@
 (define-char
   '((ideographic-radical . 60)	; ⼻
     (=ucs		. #x5F8F)	; 徏
+    (=>jis-x0213-2	. #x2C36)	; 徏 [12-22]
     ))
 (define-char
   '((<-denotational
@@ -995,14 +996,19 @@
     (ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=>>ucs@unicode	. #x5F8F)	; &G-UU+5F8F;
+    (=>>ucs@unicode	. #x5F8F)	; &G-JX2-2C36;
+    (=>>jis-x0213-2	. #x2C36)	; &G-JX2-2C36; [12-22]
+    (=>>daikanwa	. 10109)	; &G-JX2-2C36;
     (->subsumptive
-     ((=ucs@jis		  . #x5F8F)	; &M-10109;
+     ((=>>>ucs@jis	  . #x5F8F)	; &M-10109;
+      (=ucs@jis		  . #x5F8F)	; &M-10109;
       (=jis-x0212	  . #x3D2B)	; &M-10109; [29-11]
       (=jis-x0213-2	  . #x2C36)	; &I-JX2-2C36; [12-22]
       (=daikanwa	  . 10109)	; &I-M-10109;
+      (=hanyo-denshi/jb	  . #x3D2B)	; &I-HD-JB-3D2B; [29-11]
       )
-     ((=ucs@unicode	  . #x5F8F)	; &C3-3072;
+     ((=>>>ucs@unicode	  . #x5F8F)	; &C3-3072;
+      (=ucs@unicode	  . #x5F8F)	; &C3-3072;
       (=cns11643-3	  . #x3072)	; &C3-3072; [16-82]
       ))
     ))
@@ -3172,11 +3178,13 @@
 (define-char
   '((ideographic-radical . 60)	; ⼻
     (=ucs		. #x5FB9)	; 徹
+    (=big5		. #xB9FD)	; &I-B-B9FD;
     (->subsumptive
      ((ideographic-strokes . 12)
       (total-strokes	   . 15)
-      (=>>>ucs@unicode	  . #x5FB9)	; &GI-UU+5FB9;
-      (=big5		  . #xB9FD)	; &I-B-B9FD;
+      (=>>>ucs@unicode	  . #x5FB9)	; &g2-J0-4530;
+      (=>>>jis-x0208	  . #x4530)	; &g2-J0-4530; [37-16]
+      (=>>>jis-x0213-1	  . #x4530)	; &g2-J0-4530; [37-16]
       (->subsumptive
        ((=ucs@jis	    . #x5FB9)	; &GT-12920;
 	(=jis-x0208	    . #x4530)	; &GT-12920; [37-16]
