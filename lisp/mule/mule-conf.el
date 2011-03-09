@@ -321,7 +321,7 @@
 
   (make-charset
    '=>>>jis-x0208
-   "JIS X 0208 abstract glyph-images (unchanged part)."
+   "JIS X 0208 abstract glyph-forms (unchanged part)."
    '(registry "jisx0208\\.1990"
 	      dimension 2
 	      chars 94
@@ -331,7 +331,7 @@
 	      graphic 0))
   (make-charset
    '=>>>jis-x0208@1978
-   "JIS X 0208:1978 abstract glyphs."
+   "JIS X 0208:1978 abstract glyph-forms."
    '(registry "jisx0208\\.1978"
 	      dimension 2
 	      chars 94
@@ -340,8 +340,17 @@
 	      ;; final ?@
 	      graphic 0))
   (make-charset
+   '=>>>jis-x0208@1983
+   "JIS X 0208:1983 abstract glyph-forms."
+   '(registry "jisx0208\\.1983"
+	      dimension 2
+	      chars 94
+	      mother =>>>jis-x0208
+	      =>iso-ir 87
+	      graphic 0))
+  (make-charset
    '=>>>jis-x0208@1990
-   "JIS X 0208:1990 abstract glyph-images."
+   "JIS X 0208:1990 abstract glyph-forms."
    '(registry "jisx0208\\.1990"
 	      dimension 2
 	      chars 94
@@ -351,7 +360,7 @@
 	      graphic 0))
   (make-charset
    '=>>>jis-x0213-1
-   "JIS X 0213 Plain 1 abstract glyph-images (unchanged part)"
+   "JIS X 0213 Plain 1 abstract glyph-forms (unchanged part)"
    '(registry "jisx0213\\(\\.[0-9]+\\)?-1"
 	      dimension 2
 	      chars 94
@@ -363,7 +372,7 @@
 	      ))
   (make-charset
    '=>>>jis-x0213-1@2000
-   "JIS X 0213:2000 Plain 1 abstract glyph-images"
+   "JIS X 0213:2000 Plain 1 abstract glyph-forms"
    '(registry "jisx0213\\(\\.2000\\)-1"
 	      dimension 2
 	      chars 94
@@ -375,7 +384,7 @@
 	      ))
   (make-charset
    '=>>>jis-x0213-1@2004
-   "JIS X 0213:2004 Plain 1 abstract glyph-images"
+   "JIS X 0213:2004 Plain 1 abstract glyph-forms"
    '(mother =>>>jis-x0213-1
 	    =>iso-ir 233
 	    ;; registry "jisx0213\\(\\.2004\\)-1"
