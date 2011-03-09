@@ -2066,7 +2066,12 @@
       )
      ((=>>>ucs@cns	  . #x5BB6)	; &g2-CU+5BB6;
       (->subsumptive
-       ((=hanyo-denshi/ft   . #x3431)	; &HD-FT-3431; [20-17]
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x5BB6)	; 家
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(=hanyo-denshi/ft   . #x3431)	; 家󠄂 [20-17]
 	)
        ((=ucs@cns	    . #x5BB6)	; &C1-5525;
 	(=cns11643-1	    . #x5525)	; &C1-5525; [53-05]
@@ -2649,9 +2654,9 @@
       (=gt-pj-1		  . #x5563)	; &GT-09035; [53-67]
       (=daikanwa	  . 07202)	; &I-M-07202;
       (<-vulgar
-       ((=ucs@iso	    . #x2F818)	; &AJ1-07817;
-	(=ucs@jis/2004	    . #x51A4)	; &AJ1-07817;
-	(=jis-x0208@1978    . #x514D)	; &AJ1-07817; [49-45]
+       ((=ucs@iso	    . #x2F818)	; 冤󠄁
+	(=ucs@jis/2004	    . #x51A4)	; 冤󠄁
+	(=jis-x0208@1978    . #x514D)	; 冤󠄁 [49-45]
 	(=jis-x0213-1@2004  . #x514D)	; &I-JX3-514D; [49-45]
 	(=daikanwa	    . 01587)	; &I-M-01587;
 	))
@@ -4434,11 +4439,17 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=>>ucs@unicode	. #x5BE5)	; &G-UU+5BE5;
+    (=>>ucs@unicode	. #x5BE5)	; &G-HD-FT-3557;
+    (=>>hanyo-denshi/ft . #x3557)	; &G-HD-FT-3557; [21-55]
     (->subsumptive
      ((=>>>ucs@unicode	  . #x5BE5)	; &g2-UU+5BE5;
       (->subsumptive
-       ((=hanyo-denshi/ft   . #x3557)	; &HD-FT-3557; [21-55]
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x5BE5)	; 寥
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(=hanyo-denshi/ft   . #x3557)	; 寥󠄂 [21-55]
 	)
        ((=ucs@unicode	    . #x5BE5)	; &G0-4148;
 	(=gb2312	    . #x4148)	; &G0-4148; [33-40]
