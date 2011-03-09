@@ -3831,32 +3831,70 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (=ucs		. #x6579)	; 敹
-    (->subsumptive
-     ((=big5		  . #xE5BF)	; &B-E5BF;
-      (->subsumptive
-       ((=daikanwa	    . 13366)	; &M-13366;
-	)
-       ((=ucs@cns	    . #x6579)	; &C2-5066;
-	(=cns11643-2	    . #x5066)	; &C2-5066; [48-70]
-	))
-      )
-     ((=ucs@unicode	  . #x6579)	; &UU+6579;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6579)	; 敹
       ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (=>>ucs@cns		. #x6579)	; &G-CU+6579;
+    (=big5		. #xE5BF)	; &G-CU+6579;
+    (->subsumptive
+     ((=daikanwa	  . 13366)	; &M-13366;
+      )
+     ((=ucs@cns		  . #x6579)	; &C2-5066;
+      (=cns11643-2	  . #x5066)	; &C2-5066; [48-70]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6579)	; 敹
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (=ucs@unicode	. #x6579)	; &UU+6579;
     ))
 (define-char
   '((ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (=ucs		. #x657A)	; 敺
+    (=big5		. #xE5BE)	; &I-B-E5BE;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x657A)	; 敺
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (=>>ucs@unicode	. #x657A)	; &G-JX2-2D65;
+    (=>>jis-x0213-2	. #x2D65)	; &G-JX2-2D65; [13-69]
+    (=>>daikanwa	. 13367)	; &G-JX2-2D65;
     (->subsumptive
-     ((=ucs@unicode	  . #x657A)	; &M-13367;
+     ((=>>>ucs@unicode	  . #x657A)	; &M-13367;
+      (=ucs@unicode	  . #x657A)	; &M-13367;
       (=jis-x0212	  . #x4154)	; &M-13367; [33-52]
       (=jis-x0213-2	  . #x2D65)	; &I-JX2-2D65; [13-69]
-      (=big5		  . #xE5BE)	; &I-B-E5BE;
       (=daikanwa	  . 13367)	; &I-M-13367;
       (=jef-china3	  . #x50C4)	; &I-JC3-50C4;
-      )
-     ((=ucs@cns		  . #x657A)	; &C2-5065;
+      (=hanyo-denshi/jb	  . #x4154)	; &I-HD-JB-4154; [33-52]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x657A)	; 敺
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (=>>ucs@cns		. #x657A)	; &G-CU+657A;
+    (->subsumptive
+     ((=>>>ucs@cns	  . #x657A)	; &C2-5065;
+      (=ucs@cns		  . #x657A)	; &C2-5065;
       (=cns11643-2	  . #x5065)	; &C2-5065; [48-69]
       ))
     ))
