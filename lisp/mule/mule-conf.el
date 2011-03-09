@@ -1178,8 +1178,8 @@
 		  mother	=>>ucs@unicode))
 
   (make-charset '=>>>ucs@iso
-		"Representative glyphs of ISO/IEC 10646"
-		'(long-name	"UCS glyphs for UCS"
+		"Representative glyph-forms of ISO/IEC 10646"
+		'(long-name	"UCS glyph-forms for UCS"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -1188,8 +1188,8 @@
 		  =>iso-ir	177
 		  mother	=>>ucs@iso))
   (make-charset '=>>>ucs@unicode
-		"Representative glyphs of Unicode"
-		'(long-name	"UCS glyphs for Unicode"
+		"Representative glyph-forms of Unicode"
+		'(long-name	"UCS glyph-forms for Unicode"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -1198,8 +1198,8 @@
 		  =>iso-ir	177
 		  mother	=>>>ucs@iso))
   (make-charset '=>>>ucs@jis
-		"UCS Representative glyphs for JIS X0208/0212/0213"
-		'(long-name	"UCS glyphs for JIS"
+		"UCS Representative glyph-forms for JIS X0208/0212/0213"
+		'(long-name	"UCS glyph-forms for JIS"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -1207,9 +1207,19 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=>>>ucs@unicode))
+  (make-charset '=>>>ucs@jis/1990
+		"UCS Representative glyph-forms for JIS X 0208/0212:1990"
+		'(long-name	"UCS glyph-forms for JIS:1990"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>>ucs@jis))
   (make-charset '=>>>ucs@jis/2004
-		"UCS Representative glyphs for JIS X 0213:2004"
-		'(long-name	"UCS glyphs for JIS:2004"
+		"UCS Representative glyph-forms for JIS X 0213:2004"
+		'(long-name	"UCS glyph-forms for JIS:2004"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -1218,8 +1228,8 @@
 		  =>iso-ir	177
 		  mother	=>>>ucs@jis))
   (make-charset '=>>>ucs@ks
-		"UCS Representative glyphs for Korean Standards"
-		'(long-name	"UCS glyphs for KS"
+		"UCS Representative glyph-forms for Korean Standards"
+		'(long-name	"UCS glyph-forms for KS"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -1228,8 +1238,8 @@
 		  =>iso-ir	177
 		  mother	=>>>ucs@unicode))
   (make-charset '=>>>ucs@cns
-		"UCS Representative glyphs for CNS 11643 sources"
-		'(long-name	"UCS glyphs for CNS"
+		"UCS Representative glyph-forms for CNS 11643 sources"
+		'(long-name	"UCS glyph-forms for CNS"
 		  chars		256
 		  dimension	3
 		  columns	2
