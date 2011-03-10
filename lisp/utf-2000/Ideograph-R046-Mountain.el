@@ -1851,7 +1851,12 @@
     (total-strokes	 . 8)
     (=>>ucs@unicode	. #x5CBC)	; &G-UU+5CBC;
     (->subsumptive
-     ((=hanyo-denshi/ft	  . #x355A)	; &HD-FT-355A; [21-58]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5CBC)	; 岼
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/ft	  . #x355A)	; 岼󠄂 [21-58]
       )
      ((=ucs@unicode	  . #x5CBC)	; &UU+5CBC;
       ))
@@ -2729,7 +2734,12 @@
     (total-strokes	 . 10)
     (=>>ucs@unicode	. #x5CED)	; &G-UU+5CED;
     (->subsumptive
-     ((=hanyo-denshi/ft	  . #x355C)	; &HD-FT-355C; [21-60]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5CED)	; 峭
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/ft	  . #x355C)	; 峭󠄂 [21-60]
       )
      ((=ucs@unicode	  . #x5CED)	; &G0-474D;
       (=gb2312		  . #x474D)	; &G0-474D; [39-45]
@@ -8279,31 +8289,50 @@
     (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=hanyo-denshi/ft	. #x355F)	; &HD-FT-355F; [21-63]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5D90)	; 嶐
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=hanyo-denshi/ft	. #x355F)	; 嶐󠄂 [21-63]
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (=ucs		. #x5D91)	; 嶑
-    (=cns11643-3	. #x4B63)	; &I-C3-4B63; [43-67]
-    (=daikanwa		. 08448)	; &I-M-08448;
+    (->subsumptive
+     ((=daikanwa	  . 08448)	; &M-08448;
+      )
+     ((=ucs@unicode	  . #x5D91)	; &UU+5D91;
+      )
+     ((=cns11643-3	  . #x4B63)	; &C3-4B63; [43-67]
+      ))
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (=ucs		. #x21F0B)	; 𡼋
-    (=cns11643-7	. #x2249)	; &I-C7-2249; [02-41]
-    (=daikanwa		. 08449)	; &I-M-08449;
+    (->subsumptive
+     ((=daikanwa	  . 08449)	; &M-08449;
+      )
+     ((=ucs@unicode	  . #x21F0B)	; &C7-2249;
+      (=cns11643-7	  . #x2249)	; &C7-2249; [02-41]
+      ))
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (=ucs		. #x3807)	; 㠇
-    (=cns11643-5	. #x4C6C)	; &I-C5-4C6C; [44-76]
-    (=daikanwa		. 08450)	; &I-M-08450;
+    (->subsumptive
+     ((=daikanwa	  . 08450)	; &M-08450;
+      )
+     ((=cns11643-5	  . #x4C6C)	; &C5-4C6C; [44-76]
+      )
+     ((=ucs@unicode	  . #x3807)	; &UU+3807;
+      ))
     ))
 (define-char
   '((=>ucs		. #x21F0C)	; 𡼌
