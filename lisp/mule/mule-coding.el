@@ -341,6 +341,8 @@
 	  (=>>>jis-x0213-2		      "g2-JX2-" 4 X)
 	  (=>>>jis-x0213-1@2004		      "g2-JX3-" 4 X)
 	  (=>>>jis-x0213-1@2004		      "GI-JX3-" 4 X)
+	  (=>>>hanyo-denshi/jt		    "g2-HD-JT-" 4 X)
+	  (=>>>gt			       "g2-GT-" 5 d)
 	  (=>>gt				"G-GT-" 5 d)
 	  (=>>jis-x0208				"G-J0-" 4 X)
 	  (=>>jis-x0213-1@2000		       "G-JX1-" 4 X)
