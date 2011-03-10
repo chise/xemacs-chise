@@ -620,7 +620,8 @@
 	)
        ((=ucs		    . #x513F)	; 儿
 	))
-      (=>>ucs@unicode	  . #x514A)	; &G-UU+514A;
+      (=>>>ucs@unicode	  . #x514A)	; &g2-HD-JT-ADB8;
+      (=>>>hanyo-denshi/jt . #xADB8)	; &g2-HD-JT-ADB8;
       (->subsumptive
        ((hanyu-dazidian	    1 269 1)
 	(ideographic-structure
@@ -635,7 +636,12 @@
 	(=ucs@unicode	    . #x514A)	; &HZK01-DDA5;
 	(=hanziku-1	    . #xDDA5)	; &HZK01-DDA5;
 	)
-       ((ideographic-structure
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x514A)	; 兊
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (=ucs		      . #x2FF1)	; ⿱
 	  )
@@ -645,7 +651,7 @@
 	  )
 	 ((=ucs		      . #x513F)	; 儿
 	  ))
-	(=hanyo-denshi/jt   . #xADB8)	; &HD-JT-ADB8;
+	(=hanyo-denshi/jt   . #xADB8)	; 兊󠄂
 	))
       ))
     ))
@@ -864,7 +870,8 @@
 	))
       (=cns11643-1	  . #x492B)	; &C1-492B; [41-11]
       )
-     ((=>>ucs@unicode	  . #x514C)	; &G-UU+514C;
+     ((=>>>ucs@unicode	  . #x514C)	; &g2-HD-JT-ADBC;
+      (=>>>hanyo-denshi/jt . #xADBC)	; &g2-HD-JT-ADBC;
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -877,7 +884,12 @@
 	  ))
 	(=ucs@unicode	    . #x514C)	; &UU+514C;
 	)
-       ((ideographic-structure
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x514C)	; 兌
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (=ucs		      . #x2FF1)	; ⿱
 	  )
@@ -885,7 +897,7 @@
 	  )
 	 ((=ucs		      . #x5144)	; 兄
 	  ))
-	(=hanyo-denshi/jt   . #xADBC)	; &HD-JT-ADBC;
+	(=hanyo-denshi/jt   . #xADBC)	; 兌󠄂
 	))
       ))
     ))
@@ -1496,11 +1508,15 @@
     (ideographic-radical . 10)	; ⼉
     (sound@ja/kun	"usagi")
     (sound@ja/on/kan	"to")
-    (=>ucs@unicode	. #x5154)	; &A-UU+5154;
+    (=>>ucs@unicode	. #x5154)	; &G-JX1-513D;
+    (=>>jis-x0208@1983	. #x513D)	; &G-JX1-513D; [49-29]
+    (=>>jis-x0208@1990	. #x513D)	; &G-JX1-513D; [49-29]
+    (=>>jis-x0213-1	. #x513D)	; &G-JX1-513D; [49-29]
+    (=>>hanyo-denshi/jt . #xADC1)	; &G-JX1-513D;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x5154)	; &A-UU+5154;
+     ((=>>jis-x0213-1	  . #x513D)	; &G-JX1-513D; [49-29]
       ))
     (morohashi-daikanwa	1368 1)
     (ideographic-radical . 10)	; ⼉
@@ -1543,7 +1559,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x5154)	; &A-UU+5154;
+     ((=>>jis-x0213-1	  . #x513D)	; &G-JX1-513D; [49-29]
       ))
     (=decomposition@cid
      ((=ucs		  . #x5154)	; 兔
@@ -1554,11 +1570,16 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x5154)	; &A-UU+5154;
+     ((=>>jis-x0213-1	  . #x513D)	; &G-JX1-513D; [49-29]
       ))
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5154)	; 兔
+      )
+     ((=ucs		  . #xE0104)	; 󠄄
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (=ucs		  . #x2FF7)	; ⿷
@@ -1569,8 +1590,8 @@
       )
      ((=ucs		  . #x4E36)	; 丶
       ))
-    (=gt-k		. 05208)	; &GT-K05208;
-    (=gt-pj-k2		. #x304F)	; &GT-K05208; [16-47]
+    (=gt-k		. 05208)	; 兔󠄄
+    (=gt-pj-k2		. #x304F)	; 兔󠄄 [16-47]
     (=hanyo-denshi/jt	. #xADC1)	; &I-HD-JT-ADC1;
     ))
 (define-char
