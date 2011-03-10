@@ -1,5 +1,21 @@
 2011-03-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R164-Wine.el (U+91AB): Use `->denotational' and
+	`->subsumptive'.
+
+2011-03-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R027-Cliff.el (G-CU+53A9): Unify G-J78-3139, G-M-03006
+	and G-HD-FT1758.
+	(G-J04U+53A9): Unify G-JX3-3139 and G-GT-03811.
+	(mother of GT-03811): Unify g2-GT-03811 instead of G-GT-03811.
+
+	* Ideograph-R016-Table.el (AJ1-14041): Add `=decomposition@cid'.
+	(AJ1-21189): Likewise.
+
+	* Ideograph-R010-Legs.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/JT characters.
+
 	* Ideograph-R085-Water.el: Add Hanyo-Denshi/JC, JD and IB code
 	points.
 	(BUCS+6F01): New character.
