@@ -19606,8 +19606,8 @@
     (=>>jis-x0213-2	. #x2D59)	; &G-JX2-2D59; [13-57]
     (=>>daikanwa	. 12922)	; &G-JX2-2D59;
     (->subsumptive
-     ((=>>>ucs@jis	  . #x64FF)	; &G-JX2-2D59;
-      (=>>>jis-x0213-2	  . #x2D59)	; &G-JX2-2D59; [13-57]
+     ((=>>>ucs@jis	  . #x64FF)	; &g2-JX2-2D59;
+      (=>>>jis-x0213-2	  . #x2D59)	; &g2-JX2-2D59; [13-57]
       (->subsumptive
        ((=ucs@jis	    . #x64FF)	; &M-12922;
 	(=jis-x0212	    . #x4134)	; &M-12922; [33-20]
@@ -20381,8 +20381,8 @@
       (=>>jis-x0213-2	  . #x2D5C)	; &G-JX2-2D5C; [13-60]
       (=>>daikanwa	  . 12967)	; &G-JX2-2D5C;
       (->subsumptive
-       ((=>>>ucs@unicode    . #x650F)	; &G-JX2-2D5C;
-	(=>>>jis-x0213-2    . #x2D5C)	; &G-JX2-2D5C; [13-60]
+       ((=>>>ucs@unicode    . #x650F)	; &g2-JX2-2D5C;
+	(=>>>jis-x0213-2    . #x2D5C)	; &g2-JX2-2D5C; [13-60]
 	(->subsumptive
 	 ((=ucs@jis	      . #x650F)	; &M-12967;
 	  (=jis-x0212	      . #x413A)	; &M-12967; [33-26]
