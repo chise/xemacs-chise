@@ -36,7 +36,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>>ucs@unicode	  . #x8279)	; &G-UU+8279;
+     ((=>>daikanwa	  . 30639)	; &G-UU+8279;
       ))
     (name		. "CJK COMPATIBILITY IDEOGRAPH-FA5E")
     (=>ucs*		. #x8279)	; 艹
@@ -82,7 +82,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>>ucs@unicode	  . #x8279)	; &G-UU+8279;
+     ((=>>daikanwa	  . 30639)	; &G-UU+8279;
       ))
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 0)
@@ -21625,8 +21625,8 @@
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=>>>ucs@unicode	. #x8497)	; &G-JX2-7656;
-    (=>>>jis-x0213-2	. #x7656)	; &G-JX2-7656; [86-54]
+    (=>>>ucs@unicode	. #x8497)	; &g2-JX2-7656;
+    (=>>>jis-x0213-2	. #x7656)	; &g2-JX2-7656; [86-54]
     (->subsumptive
      ((=ucs@jis		  . #x8497)	; &JX2-7656;
       (=jis-x0213-2	  . #x7656)	; &JX2-7656; [86-54]
@@ -23974,8 +23974,8 @@
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=>>>ucs@unicode	. #x84CE)	; &G-JX2-765A;
-    (=>>>jis-x0213-2	. #x765A)	; &G-JX2-765A; [86-58]
+    (=>>>ucs@unicode	. #x84CE)	; &g2-JX2-765A;
+    (=>>>jis-x0213-2	. #x765A)	; &g2-JX2-765A; [86-58]
     (->subsumptive
      ((=ucs@jis		  . #x84CE)	; &JX2-765A;
       (=jis-x0213-2	  . #x765A)	; &JX2-765A; [86-58]
