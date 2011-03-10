@@ -2098,8 +2098,8 @@
     (ideographic-radical . 153)	; ⾘
     (ideographic-strokes . 17)
     (total-strokes	 . 24)
-    (=>>>ucs@unicode	. #x8C9B)	; &G-JX2-792A;
-    (=>>>jis-x0213-2	. #x792A)	; &G-JX2-792A; [89-10]
+    (=>>>ucs@unicode	. #x8C9B)	; &g2-JX2-792A;
+    (=>>>jis-x0213-2	. #x792A)	; &g2-JX2-792A; [89-10]
     (->subsumptive
      ((=ucs@jis/2000	  . #x8C9B)	; &JX2-792A;
       (=ucs@jis/2004	  . #x8C9B)	; &JX2-792A;
