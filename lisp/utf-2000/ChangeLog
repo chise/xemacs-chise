@@ -1,5 +1,40 @@
 2011-03-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R085-Water.el: Add Hanyo-Denshi/JC, JD and IB code
+	points.
+	(BUCS+6F01): New character.
+	(U+6F01): Add `<-denotational' for BUCS+6F01; add
+	ideographic-structure.
+	(U+6E14): Add `<-denotational' for BUCS+6F01.
+
+	* Ideograph-R076-Lack.el: Add some Adobe-Japan1-4 code points.
+
+	* Ideograph-R075-Tree.el: Add Hanyo-Denshi/JC and IB code points.
+	(U+3BD4): Integrate M-15516.
+	(U+3BD8): Integrate M-15536.
+	(U+3BDC): Integrate M-15547.
+	(U+3BDF): Integrate M-15577.
+	(U+3BE3): Integrate M-15610.
+
+	* Ideograph-R073-Say.el (J0-5258): Unify AJ1-04333.
+
+	* Ideograph-R072-Sun.el: Add some Adobe-Japan1-4 code points.
+
+	* Ideograph-R046-Mountain.el: Add `=decomposition@hanyo-denshi'
+	for Hanyo-Denshi/FT characters.
+	(U+5D91): Use `->subsumptive' to separate representative nodes.
+	(U-00021F0B): Likewise.
+	(U+3807): Likewise.
+
+	* Ideograph-R038-Woman.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/FT characters.
+
+	* Ideograph-R026-Seal.el (BC-8A60): Use `<-denotational' for
+	U+5369.
+
+	* Ideograph-R025-Divination.el (U+5361): Use `->subsumptive' to
+	separate representative nodes; integrate AJ1-14369.
+
 	* Ideograph-R028-Private.el: Add some Adobe-Japan1-0 code points.
 
 	* Ideograph-R167-Gold.el:
@@ -9,6 +44,9 @@
 
 	* Ideograph-R078-Death.el (JX1-7647): Add
 	`=decomposition@hanyo-denshi'.
+
+	* char-db-util.el (char-db-insert-ccs-feature): Add setting for
+	`=>>>gt'.
 
 2011-03-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
