@@ -4139,31 +4139,48 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x91AB)	; 醫
-    (ideographic-radical . 164)	; ⾣
-    (ideographic-strokes . 11)
-    (total-strokes	 . 18)
-    (=ucs@jis		. #x91AB)	; &GT-53782;
-    (=ucs@ks		. #x91AB)	; &GT-53782;
-    (=jis-x0208		. #x6E50)	; &GT-53782; [78-48]
-    (=ks-x1001		. #x6C22)	; &I-K0-6C22; [76-02]
-    (=jis-x0213-1	. #x6E50)	; &I-JX1-6E50; [78-48]
-    (=gt		. 53782)	; &I-GT-53782;
-    (=gt-pj-1		. #x6E50)	; &I-GT-53782; [78-48]
-    (=daikanwa		. 40006)	; &I-M-40006;
-    (=shinjigen@rev	.  8538)	; &GT-53782;
-    ))
-(define-char
-  '((morohashi-daikanwa	40006 0 0)
-    (ideographic-radical . 164)	; ⾣
+  '((ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
     (=ucs		. #x91AB)	; 醫
-    (=gb12345		. #x523D)	; 醫 [50-29]
     ))
 (define-char
-  '((=>ucs		. #x91AB)	; 醫
-    (morohashi-daikanwa	40006 0 1)
+  '((<-denotational
+     ((=ucs		  . #x91AB)	; 醫
+      ))
+    (ideographic-radical . 164)	; ⾣
+    (ideographic-strokes . 11)
+    (total-strokes	 . 18)
+    (=>>ucs@unicode	. #x91AB)	; &G-GT-53782;
+    (=>>jis-x0208	. #x6E50)	; &G-GT-53782; [78-48]
+    (=>>jis-x0213-1	. #x6E50)	; &G-GT-53782; [78-48]
+    (=>>gt		. 53782)	; &G-GT-53782;
+    (=>>daikanwa	. 40006)	; &G-GT-53782;
+    (->subsumptive
+     ((=>>>ucs@jis	  . #x91AB)	; &g2-GT-53782;
+      (=>>>ucs@ks	  . #x91AB)	; &g2-GT-53782;
+      (=>>>gt		  . 53782)	; &g2-GT-53782;
+      (->subsumptive
+       ((=daikanwa	    . 40006)	; &M-40006;
+	)
+       ((=ucs@jis	    . #x91AB)	; &GT-53782;
+	(=ucs@ks	    . #x91AB)	; &GT-53782;
+	(=jis-x0208	    . #x6E50)	; &GT-53782; [78-48]
+	(=ks-x1001	    . #x6C22)	; &I-K0-6C22; [76-02]
+	(=jis-x0213-1	    . #x6E50)	; &I-JX1-6E50; [78-48]
+	(=gt		    . 53782)	; &I-GT-53782;
+	(=gt-pj-1	    . #x6E50)	; &I-GT-53782; [78-48]
+	(=shinjigen	    .  8538)	; &GT-53782;
+	))
+      )
+     ((=ucs@unicode	  . #x91AB)	; &UU+91AB;
+      (=gb12345		  . #x523D)	; &UU+91AB; [50-29]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x91AB)	; 醫
+      ))
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
