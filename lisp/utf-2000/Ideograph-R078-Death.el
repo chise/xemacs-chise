@@ -3593,11 +3593,17 @@
     (ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
-    (=>>ucs@unicode	. #x6BA9)	; &G-UU+6BA9;
+    (=>>ucs@unicode	. #x6BA9)	; &G-JX1-7647;
+    (=>>jis-x0213-1	. #x7647)	; &G-JX1-7647; [86-39]
     (->subsumptive
-     ((=ucs@jis/2000	  . #x6BA9)	; &JX1-7647;
-      (=ucs@jis/2004	  . #x6BA9)	; &JX1-7647;
-      (=jis-x0213-1	  . #x7647)	; &JX1-7647; [86-39]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x6BA9)	; 殩
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=ucs@jis/2000	  . #x6BA9)	; 殩󠄂
+      (=ucs@jis/2004	  . #x6BA9)	; 殩󠄂
+      (=jis-x0213-1	  . #x7647)	; 殩󠄂 [86-39]
       (=hanyo-denshi/jc	  . #x7647)	; &I-HD-JC-7647; [86-39]
       )
      ((=ucs@unicode	  . #x6BA9)	; &UU+6BA9;
