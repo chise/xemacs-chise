@@ -1,5 +1,39 @@
 2011-03-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R012-Eight.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/JT characters.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>>daikanwa'.
+
+2011-03-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R142-Insect.el (U+459D): Use `->denotational' to
+	integrate HD-IA0655.
+	(HD-IA0655): New character.
+	(U-000273FE): Use `->denotational'.
+	(JX2-776B): Unify HD-JD8775.
+
+	* Ideograph-R109-Eye.el: Add Hanyo-Denshi/JD code points.
+	(JX1-7872): Unify AJ1-08572.
+	(U+7746): Use `->subsumptive'.
+	(U+405B): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+778D): Use `->subsumptive' to separate representative nodes.
+	(U-0002524C): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R032-Earth.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some Hanyo-Denshi/JA, JB
+	  and JD characters.
+
+	* Ideograph-R023-Hiding-Enclosure.el: Add some Adobe-Japan1-0 code
+	points.
+
+	* Ideograph-R022-Right-Open-Box.el: Add some Adobe-Japan1-0 code
+	points.
+	(U+5337): Add ideographic-structure.
+
 	* Ideograph-R064-Hand.el: Add Hanyo-Denshi/JB code points.
 	(U+6510): Use `->subsumptive' to separate representative nodes.
 
