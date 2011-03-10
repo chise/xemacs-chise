@@ -829,13 +829,13 @@
       )
      ((=ucs		  . #x2F829)	; 包
       ))
-    (=>>ucs@jis/1990	. #x5E96)	; &G-GT-11697;
-    (=>>ucs@jis/2000	. #x5E96)	; &G-GT-11697;
-    (=>>>jis-x0208@1983 . #x4A79)	; &G-GT-11697; [42-89]
-    (=>>>jis-x0208@1990 . #x4A79)	; &G-GT-11697; [42-89]
-    (=>>>jis-x0213-1@2000 . #x4A79)	; &G-GT-11697; [42-89]
-    (=>>>gt		. 11697)	; &G-GT-11697;
-    (=>>gt-k		. 03820)	; &G-GT-11697;
+    (=>>ucs@jis/1990	. #x5E96)	; &g2-GT-11697;
+    (=>>ucs@jis/2000	. #x5E96)	; &g2-GT-11697;
+    (=>>>jis-x0208@1983 . #x4A79)	; &g2-GT-11697; [42-89]
+    (=>>>jis-x0208@1990 . #x4A79)	; &g2-GT-11697; [42-89]
+    (=>>>jis-x0213-1@2000 . #x4A79)	; &g2-GT-11697; [42-89]
+    (=>>>gt		. 11697)	; &g2-GT-11697;
+    (=>>gt-k		. 03820)	; &g2-GT-11697;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
