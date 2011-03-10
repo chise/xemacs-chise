@@ -454,11 +454,18 @@
     (=>>ucs@ks		. #x5168)	; &G-GT-01862;
     (=>>ucs@cns		. #x5168)	; &G-GT-01862;
     (=>>gt		. 01862)	; &G-GT-01862;
+    (=>>daikanwa	. 01424)	; &G-GT-01862;
+    (=>>hanyo-denshi/jt . #xADC5)	; &G-GT-01862;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5168)	; 全
 	)
        ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x5168)	; 全
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
 	))
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1779,8 +1786,9 @@
 	(=jis-x0213-1	    . #x4873)	; &I-JX1-4873; [40-83]
 	(=daikanwa	    . 42585)	; &I-M-42585;
 	)
-       ((=ucs@jis	    . #x532A)	; &GT-03371;
-	(=jis-x0208	    . #x485B)	; &GT-03371; [40-59]
+       ((=ucs@cns	    . #x532A)	; &AJ1-03439;
+	(=ucs@jis	    . #x532A)	; &AJ1-03439;
+	(=jis-x0208	    . #x485B)	; &AJ1-03439; [40-59]
 	(=cns11643-1	    . #x544D)	; &I-C1-544D; [52-45]
 	(=jis-x0213-1	    . #x485B)	; &I-JX1-485B; [40-59]
 	(=daikanwa	    . 02629)	; &I-M-02629;
