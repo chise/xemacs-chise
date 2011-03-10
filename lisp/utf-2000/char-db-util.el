@@ -467,12 +467,12 @@
 	   "(%-18s .  %04d)\t; %c")
 	  ((eq name '=shinjigen@1ed/24pr)
 	   "(%-18s . %04d)\t; %c")
-	  ((or (memq name '(=daikanwa
+	  ((or (memq name '(=daikanwa =>>daikanwa =>daikanwa
 			    =daikanwa@rev1 =daikanwa@rev2
 			    =daikanwa/+p =daikanwa/+2p
-			    =>>daikanwa =>daikanwa
-			    =gt =>>gt =>gt =gt-k =>>gt-k =>gt-k =cbeta
-			    =zinbun-oracle =>zinbun-oracle))
+			    =gt =>>>gt =>>gt =>gt
+			    =gt-k =>>gt-k =>gt-k
+			    =cbeta =zinbun-oracle =>zinbun-oracle))
 	       (string-match "^=adobe-" (symbol-name name)))
 	   "(%-18s . %05d)\t; %c")
 	  ((memq name '(=hanyo-denshi/ks =>>hanyo-denshi/ks mojikyo))
