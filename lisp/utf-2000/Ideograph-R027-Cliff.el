@@ -2373,7 +2373,10 @@
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (=>>ucs@cns		. #x53A9)	; &G-CU+53A9;
+    (=>>ucs@cns		. #x53A9)	; &G-J78-3139;
+    (=>>jis-x0208@1978	. #x3139)	; &G-J78-3139; [17-25]
+    (=>>daikanwa	. 03006)	; &G-J78-3139;
+    (=>>hanyo-denshi/ft . #x315A)	; &G-J78-3139; [17-58]
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -2408,7 +2411,8 @@
 	)
        ((=ucs		    . #x5382)	; 厂
 	)
-       ((=ks-x1001	    . #x507E)	; &K0-507E; [48-94]
+       ((=ucs@ks	    . #x65E3)	; &K0-507E;
+	(=ks-x1001	    . #x507E)	; &K0-507E; [48-94]
 	))
       (=jis-x0208@1978	  . #x3139)	; 厩󠄊 [17-25]
       (=cbeta		  . 01085)	; &I-CB01085;
@@ -2426,13 +2430,15 @@
       )
      ((=ucs		  . #x5382)	; 厂
       )
-     ((=>>ucs@jis	  . #xFA42)	; &G-JU+FA42;
+     ((=>>jis-x0213-1	  . #x752B)	; &G-JX1-752B; [85-11]
       ))
-    (=>>ucs@jis/2004	. #x53A9)	; &G-J04U+53A9;
+    (=>>ucs@jis/2004	. #x53A9)	; &G-GT-03811;
+    (=>>jis-x0213-1@2004 . #x3139)	; &G-GT-03811; [17-25]
+    (=>>gt		. 03811)	; &G-GT-03811;
     (->subsumptive
      ((ideographic-strokes . 11)
       (total-strokes	   . 13)
-      (=>>gt		  . 03811)	; &G-GT-03811;
+      (=>>>gt		  . 03811)	; &g2-GT-03811;
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
