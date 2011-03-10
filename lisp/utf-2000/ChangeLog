@@ -1,3 +1,15 @@
+2011-03-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R028-Private.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R167-Gold.el:
+	- Add mappings between CJK Ext B and CNS 11643 plain 7.
+	- Add Hanyo-Denshi/JC and JD code points.
+	(U-00028BF2): New character.
+
+	* Ideograph-R078-Death.el (JX1-7647): Add
+	`=decomposition@hanyo-denshi'.
+
 2011-03-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R211-Tooth.el (U+9F66): Use `->subsumptive' to
@@ -66,6 +78,15 @@
 
 	* Ideograph-R064-Hand.el: Add Hanyo-Denshi/JB code points.
 	(U+6510): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R053-Dotted-Cliff.el: Add Hanyo-Denshi/FT code points.
+	(U+5E96): Add ideographic-structure.
+	(U+5ED4): Use `->subsumptive'.
+	(U+5ED5): Use `->subsumptive'.
+	(U+5ED6): Use `->denotational' and `->subsumptive'.
+	(U+5ED7): Use `->subsumptive' to separate representative nodes.
+	(U+5ED8): Likewise.
+	(U-00022299): Likewise.
 
 	* Ideograph-R044-Corpse.el: Add `=decomposition@hanyo-denshi' for
 	Hanyo-Denshi/FT characters.
