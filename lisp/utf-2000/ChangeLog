@@ -1,5 +1,35 @@
 2011-03-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R211-Tooth.el (U+9F66): Use `->subsumptive' to
+	separate representative nodes.
+	(U-0002A5FE): Likewise.
+	(U+9F67): Likewise.
+	(U+9F68): Likewise.
+	(U+9F69): Likewise.
+
+	* Ideograph-R118-Bamboo.el (U+7BC0): Use `->denotational' to
+	integrate U+FA56.
+	(U+4210): Integrate M-26203.
+	(U+4211): Integrate M-26207.
+	(U+4213): Integrate M-26215.
+	(U+4216): Integrate M-26220.
+	(U+4217): Integrate M-26225.
+	(U+7BBE): Use `->denotational' instead of `->subsumptive'.
+	(U+7BBF): Use `->subsumptive' to separate representative nodes.
+	(U+421C): Integrate M-26254.
+	(U+421D): Integrate M-26263.
+
+	* Ideograph-R096-Jade.el:
+	- Add some Adobe-Japan1-2 code points.
+	- Add Hanyo-Denshi/JD code points.
+
+	* Ideograph-R039-Child.el: Add some Adobe-Japan1-4 code points.
+	(U+5B51): Add `<-formed@component/connect-right'.
+	(U-000219B7): New character.
+
+	* Ideograph-R011-Enter.el (K0-6E6F): Add
+	`=decomposition@hanyo-denshi'.
+
 	* Ideograph-R012-Eight.el: Add `=decomposition@hanyo-denshi' for
 	some Hanyo-Denshi/JT characters.
 
