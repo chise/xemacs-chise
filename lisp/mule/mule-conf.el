@@ -1859,6 +1859,18 @@
 	       code-offset    ,(lsh #x6403 16)))
 
   (make-charset
+   '=>>>hanyo-denshi/jt
+   "JT (Juuki Touitsu Moji) abstract glyph-forms"
+   '(long-name "Han'you-Denshi/JT glyph-forms"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JT-0$"
+	       mother =hanyo-denshi/jt))
+
+  (make-charset
    '=>>hanyo-denshi/ft
    "Han'you-Denshi/FT abstract glyphs"
    '(long-name "Han'you-Denshi/FT glyphs"
@@ -1890,7 +1902,7 @@
 	       graphic 2
 	       direction l2r
 	       registry "HanyoDenshi\\.JT-0$"
-	       mother =hanyo-denshi/jt))
+	       mother =>>>hanyo-denshi/jt))
   (make-charset
    '=>>hanyo-denshi/ks
    "Han'you-Denshi/KS abstract glyphs"
