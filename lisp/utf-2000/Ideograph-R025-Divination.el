@@ -179,17 +179,20 @@
      ((=ucs		  . #x535C)	; 卜
       ))
     (=ucs		. #x5361)	; 卡
-    (=gb2312		. #x3F28)	; &I-G0-3F28; [31-08]
-    (=jis-x0212		. #x343B)	; &I-JSP-343B; [20-27]
-    (=cns11643-1	. #x4626)	; &I-C1-4626; [38-06]
-    (=jis-x0213-1	. #x2E6F)	; &I-JX1-2E6F; [14-79]
     (=big5		. #xA564)	; &I-B-A564;
-    (=daikanwa		. 02781)	; &I-M-02781;
-    (=shinjigen		.  0838)	; 卡
     (->subsumptive
-     ((=jef-china3	  . #x45CB)	; &JC3-45CB;
+     ((=ucs@unicode	  . #x5361)	; &M-02781;
+      (=gb2312		  . #x3F28)	; &M-02781; [31-08]
+      (=jis-x0212	  . #x343B)	; &I-JSP-343B; [20-27]
+      (=jis-x0213-1	  . #x2E6F)	; &I-JX1-2E6F; [14-79]
+      (=daikanwa	  . 02781)	; &I-M-02781;
+      (=jef-china3	  . #x45CB)	; &I-JC3-45CB;
       )
-     ((=jef-china3	  . #x82B5)	; &JC3-82B5;
+     ((=adobe-japan1-4	  . 14369)	; &AJ1-14369;
+      )
+     ((=cns11643-1	  . #x4626)	; &C1-4626; [38-06]
+      (=shinjigen	  .  0838)	; &C1-4626;
+      (=jef-china3	  . #x82B5)	; &I-JC3-82B5;
       ))
     ))
 (define-char
