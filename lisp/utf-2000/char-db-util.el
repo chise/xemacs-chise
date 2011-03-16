@@ -1110,8 +1110,10 @@
 		     (eq name 'ideographic-combination)
 		     (eq name 'ideographic-)
 		     (eq name '=decomposition)
-		     (string-match "^=>*decomposition\\(@[^*]+\\)?$"
-				   (symbol-name name))
+		     (char-feature-base-name= '=decomposition name)
+                     (char-feature-base-name= '=>decomposition name)
+                     ;; (string-match "^=>*decomposition\\(@[^*]+\\)?$"
+                     ;;               (symbol-name name))
 		     (string-match "^\\(->\\|<-\\)[^*]*$" (symbol-name name))
 		     (string-match "^\\(->\\|<-\\)[^*]*\\*sources$"
 				   (symbol-name name))
