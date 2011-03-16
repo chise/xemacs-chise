@@ -1,4 +1,68 @@
+2011-03-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R013-Down-Box.el:
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA
+	  characters.
+	- Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R018-Knife.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JT
+	  characters.
+	- Add some abstract `ideographic-structure's.
+	(BUCS+528D): New character.
+	(U+528D): Use `<-denotational' for BUCS+528D.
+
+	* char-db-util.el (insert-char-attributes): Use
+	`char-feature-base-name=' for `=decomposition' and
+	`=>decomposition'.
+
+2011-03-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R020-Wrap.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/JA and JT characters.
+
+	* Ideograph-R019-Power.el:
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JT
+	  characters.
+	- Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R012-Eight.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/JA and KS characters.
+
+	* Ideograph-R009-Man.el:
+	- Add Hanyo-Denshi/JT code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JT and KS
+	  characters.
+	- Add some abstract `ideographic-structure's.
+	(U+4F0A): Use `->denotational' to integrate HD-JT-AD4D.
+	(J0-304B): Add `=decomposition@cid' and
+	`=decomposition@hanyo-denshi'.
+	(U+50B3): Use `->denotational' to integrate HD-JT-AD95.
+	(J0-5123): Add `=decomposition@cid' and
+	`=decomposition@hanyo-denshi'.
+
+2011-03-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R015-Ice.el:
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JT
+	  characters.
+	- Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R014-Cover.el:
+	- Add Hanyo-Denshi/JT code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JT
+	  characters.
+	(C1-5E32): Unify HD-KS019090.
+
 2011-03-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R010-Legs.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/KS characters.
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x3237.
 
 	* Ideograph-R164-Wine.el (U+91AB): Use `->denotational' and
 	`->subsumptive'.
