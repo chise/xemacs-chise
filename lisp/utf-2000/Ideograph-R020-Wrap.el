@@ -33,6 +33,11 @@
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x52FA)	; 勺
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
       (=ucs		  . #x2FF9)	; ⿹
@@ -62,6 +67,11 @@
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x52FA)	; 勺
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (hanyu-dazidian	1 254 14)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
@@ -477,6 +487,11 @@
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5305)	; 包
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (ideographic-structure
      ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
       (=ucs		  . #x2FFB)	; ⿻
@@ -624,6 +639,11 @@
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5307)	; 匇
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
       (=ucs		  . #x2FF9)	; ⿹
@@ -632,8 +652,8 @@
       )
      ((=ucs		  . #x5915)	; 夕
       ))
-    (=ucs@unicode	. #x5307)	; &HD-JT-AFB6;
-    (=cns11643-3	. #x2224)	; &HD-JT-AFB6; [02-04]
+    (=ucs@unicode	. #x5307)	; 匇󠄃
+    (=cns11643-3	. #x2224)	; 匇󠄃 [02-04]
     (=jef-china3	. #x45A8)	; &I-JC3-45A8;
     (=hanyo-denshi/jt	. #xAFB6)	; &I-HD-JT-AFB6;
     ))
