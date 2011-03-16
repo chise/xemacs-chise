@@ -1,3 +1,11 @@
+2011-03-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fchar_feature_base_name_eq): New function when
+	UTF2000 is enabled.
+	(Fput_char_attribute): Use `Fchar_feature_base_name_eq'.
+	(syms_of_chartab): Add new builtin function
+	`char-feature-base-name=' when UTF2000 is enabled.
+
 2011-02-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* text-coding.c (Vdecomposition_feature_list): New variable when
