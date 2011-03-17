@@ -129,26 +129,27 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (hanyu-dazidian	2 868 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5902)	; 夂
+      )
+     ((=ucs		  . #x3404)	; 㐄
+      ))
     (=ucs		. #x5905)	; 夅
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x5902)	; 夂
-	)
-       ((=ucs		    . #x3404)	; 㐄
-	))
-      (=ucs@unicode	  . #x5905)	; &M-05695;
+     ((=ucs@unicode	  . #x5905)	; &M-05695;
       (=daikanwa	  . 05695)	; &M-05695;
       (=jef-china3	  . #x48CE)	; &I-JC3-48CE;
       )
      ((=cns11643-3	  . #x2344)	; &CDP-8D5F; [03-36]
       (=big5-cdp	  . #x8D5F)	; &I-CDP-8D5F;
       )
-     ((=ucs@jis		  . #x5905)	; &JX2-2538;
-      (=jis-x0212	  . #x385F)	; &JX2-2538; [24-63]
+     ((=ucs@jis		  . #x5905)	; &AJ1-17468;
+      (=jis-x0212	  . #x385F)	; &AJ1-17468; [24-63]
       (=jis-x0213-2	  . #x2538)	; &I-JX2-2538; [05-24]
+      (=adobe-japan1-5	  . 17468)	; &I-AJ1-17468;
       )
      ((ideographic-strokes . 4)
       (total-strokes	   . 7)
