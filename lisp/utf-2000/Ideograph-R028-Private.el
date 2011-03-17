@@ -27,11 +27,14 @@
     (ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
-    (=>>ucs@iso		. #x20AD3)	; &G-IU+20AD3;
+    (=>>ucs@iso		. #x20AD3)	; &G-HD-KS-8A20;
+    (=>>hanyo-denshi/ks . 035360)	; &G-HD-KS-8A20;
     (->subsumptive
      ((=ucs@iso		  . #x20AD3)	; &CDP-8B7E;
       (=big5-cdp	  . #x8B7E)	; &CDP-8B7E;
       (=daikanwa	  . 03058)	; &I-M-03058;
+      (=hanyo-denshi/ks	  . 035360)	; &CDP-8B7E;
+      (=hanyo-denshi/ks/mf . #x0DD0)	; &I-KSMF-03536;
       )
      ((=cns11643-5	  . #x212E)	; &C5-212E; [01-14]
       ))
@@ -588,9 +591,14 @@
      ((=ucs@unicode	  . #x53C0)	; &C4-2559;
       (=cns11643-4	  . #x2559)	; &C4-2559; [05-57]
       )
-     ((=ucs@jis		  . #x53C0)	; &JX2-235B;
-      (=jis-x0212	  . #x3457)	; &JX2-235B; [20-55]
-      (=jis-x0213-2	  . #x235B)	; &I-JX2-235B; [03-59]
+     ((=>>>ucs@jis	  . #x53C0)	; &g2-JU+53C0;
+      (->subsumptive
+       ((=ucs@jis	    . #x53C0)	; &JX2-235B;
+	(=jis-x0212	    . #x3457)	; &JX2-235B; [20-55]
+	(=jis-x0213-2	    . #x235B)	; &I-JX2-235B; [03-59]
+	)
+       ((=adobe-japan1-5    . 17339)	; &AJ1-17339;
+	))
       ))
     ))
 (define-char
