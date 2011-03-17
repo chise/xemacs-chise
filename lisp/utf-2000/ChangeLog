@@ -1,9 +1,41 @@
+2011-03-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el:
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JB
+	  characters.
+	- Add Hanyo-Denshi/JT code points.
+	- Add some abstract `ideographic-structure's.
+	(JX1-5350): Separate J78/1pr-5350; don't use `jisx0208-difference'
+	for 78err.
+	(CB06695): Unify J78/1pr-5350 and HD-JT-AEF2.
+	(U+35ED): Use `->subsumptive' to separate representative nodes.
+
 2011-03-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R028-Private.el (BC-8B7E): Unify HD-KS035360.
+	(AJ1-17339): New character.
+
+	* Ideograph-R027-Cliff.el:
+	- Add some abstract `ideographic-structure's.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JT
+	  characters.
+	- Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R024-Ten.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JT
+	  characters.
 
 	* Ideograph-R013-Down-Box.el:
 	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA
 	  characters.
 	- Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R029-Again.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JT
+	  characters.
+	(C1-5E32): Unify HD-KS019090.
 
 	* Ideograph-R018-Knife.el:
 	- Add some Adobe-Japan1 code points.
@@ -19,6 +51,11 @@
 	`=>decomposition'.
 
 2011-03-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R023-Hiding-Enclosure.el:
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA
+	  characters.
+	- Add Hanyo-Denshi/KS code points.
 
 	* Ideograph-R020-Wrap.el: Add `=decomposition@hanyo-denshi' for
 	Hanyo-Denshi/JA and JT characters.
@@ -45,6 +82,8 @@
 
 2011-03-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R033-Scholar.el: Add some Adobe-Japan1-5 code points.
+
 	* Ideograph-R015-Ice.el:
 	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JT
 	  characters.
@@ -55,6 +94,18 @@
 	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JT
 	  characters.
 	(C1-5E32): Unify HD-KS019090.
+
+2011-03-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R026-Seal.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA
+	  characters.
+
+	* Ideograph-R025-Divination.el: Add some Adobe-Japan1-0 code
+	points.
+	(J0-5246): Add `=decomposition@hanyo-denshi'.
+	(U+5368): Add ideographic-structure.
 
 2011-03-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
