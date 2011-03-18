@@ -564,7 +564,8 @@
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (=>>ucs@unicode	. #x3691)	; &G-UU+3691;
+    (=>>>ucs@unicode	. #x3691)	; &g2-HD-JT-AFBF;
+    (=>>>hanyo-denshi/jt . #xAFBF)	; &g2-HD-JT-AFBF;
     (->subsumptive
      ((=hanyo-denshi/jt	  . #xAFBF)	; &HD-JT-AFBF;
       )
@@ -578,8 +579,9 @@
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (=ucs@jis		. #x3691)	; &JX2-253F;
-    (=jis-x0213-2	. #x253F)	; &JX2-253F; [05-31]
+    (=ucs@jis		. #x3691)	; &AJ1-17473;
+    (=jis-x0213-2	. #x253F)	; &AJ1-17473; [05-31]
+    (=adobe-japan1-5	. 17473)	; &I-AJ1-17473;
     (=hanyo-denshi/ia	. #x2224)	; &I-HD-IA-2224; [02-04]
     ))
 (define-char
@@ -617,6 +619,7 @@
     (=jis-x0213-2	. #x2540)	; &I-JX2-2540; [05-32]
     (=daikanwa		. 05863)	; &I-M-05863;
     (=hanziku-2		. #xBCD2)	; &I-HZK02-BCD2;
+    (=adobe-japan1-5	. 17474)	; &I-AJ1-17474;
     ))
 (define-char
   '((=>ucs		. #x215E5)	; 𡗥
@@ -939,12 +942,13 @@
     (=ucs		. #x5946)	; 奆
     (->subsumptive
      ((hanyu-dazidian	  1 529 10)
-      (=ucs@jis		  . #x5946)	; &M-05888;
-      (=jis-x0212	  . #x3873)	; &M-05888; [24-83]
+      (=ucs@jis		  . #x5946)	; &AJ1-17476;
+      (=jis-x0212	  . #x3873)	; &AJ1-17476; [24-83]
       (=cns11643-4	  . #x2572)	; &I-C4-2572; [05-82]
       (=jis-x0213-2	  . #x2542)	; &I-JX2-2542; [05-34]
       (=daikanwa	  . 05888)	; &I-M-05888;
       (=hanziku-2	  . #xBCD6)	; &I-HZK02-BCD6;
+      (=adobe-japan1-5	  . 17476)	; &I-AJ1-17476;
       (=hanyo-denshi/jb	  . #x3873)	; &I-HD-JB-3873; [24-83]
       )
      ((=ucs@unicode	  . #x5946)	; &HD-IB-3036;
@@ -960,6 +964,7 @@
     (=cns11643-4	. #x2577)	; &I-C4-2577; [05-87]
     (=jis-x0213-2	. #x2543)	; &I-JX2-2543; [05-35]
     (=daikanwa		. 05889)	; &I-M-05889;
+    (=adobe-japan1-5	. 17477)	; &I-AJ1-17477;
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
@@ -1206,6 +1211,7 @@
     (=jis-x0213-2	. #x2541)	; &I-JX2-2541; [05-33]
     (=daikanwa@rev1	. 05907)	; 㚙
     (=daikanwa@rev2	. 05906)	; &M-05906;
+    (=adobe-japan1-5	. 17475)	; &I-AJ1-17475;
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
@@ -1424,7 +1430,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (=>>ucs@unicode	. #x5951)	; &G-UU+5951;
-    (=big5		. #xABB4)	; &G-UU+5951;
+    (=big5		. #xABB4)	; &I-B-ABB4;
     (->subsumptive
      ((=gt		  . 07464)	; &GT-07464;
       (=gt-k		  . 05057)	; &I-GT-K05057;
@@ -1718,10 +1724,11 @@
     (=ucs		. #x5959)	; 奙
     (->subsumptive
      ((hanyu-dazidian	  1 387 14)
-      (=ucs@unicode	  . #x5959)	; &M-05929;
-      (=jis-x0212	  . #x3876)	; &M-05929; [24-86]
+      (=ucs@unicode	  . #x5959)	; &AJ1-19305;
+      (=jis-x0212	  . #x3876)	; &AJ1-19305; [24-86]
       (=daikanwa	  . 05929)	; &I-M-05929;
       (=hanziku-1	  . #xF5BA)	; &I-HZK01-F5BA;
+      (=adobe-japan1-5	  . 19305)	; &I-AJ1-19305;
       )
      ((=cns11643-4	  . #x2C38)	; &C4-2C38; [12-24]
       ))
@@ -2040,8 +2047,8 @@
       )
      ((=ucs		  . #x5927)	; 大
       )
-     ((=ucs@unicode	  . #x5468)	; &GT-04362;
-      (=jis-x0208	  . #x3C7E)	; &GT-04362; [28-94]
+     ((=ucs@unicode	  . #x5468)	; 周󠄂
+      (=jis-x0208	  . #x3C7E)	; 周󠄂 [28-94]
       (=gb2312		  . #x565C)	; &I-G0-565C; [54-60]
       (=cns11643-1	  . #x4C52)	; &I-C1-4C52; [44-50]
       (=jis-x0213-1	  . #x3C7E)	; &I-JX1-3C7E; [28-94]
@@ -2174,11 +2181,12 @@
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=ucs@jis		. #x595F)	; &M-05951;
-    (=jis-x0212		. #x387A)	; &M-05951; [24-90]
+    (=ucs@jis		. #x595F)	; &AJ1-17479;
+    (=jis-x0212		. #x387A)	; &AJ1-17479; [24-90]
     (=jis-x0213-2	. #x2546)	; &I-JX2-2546; [05-38]
     (=daikanwa		. 05951)	; &I-M-05951;
     (=jef-china3	. #x48E7)	; &I-JC3-48E7;
+    (=adobe-japan1-5	. 17479)	; &I-AJ1-17479;
     (=hanyo-denshi/jb	. #x387A)	; &I-HD-JB-387A; [24-90]
     ))
 (define-char
@@ -2187,7 +2195,6 @@
       ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 8)
-    (kangxi-strokes	 . 9)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 544 2)
     (=ucs@unicode	. #x595F)	; &HZK02-BFD7;
