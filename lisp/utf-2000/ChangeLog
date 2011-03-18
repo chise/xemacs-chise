@@ -1,3 +1,29 @@
+2011-03-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R082-Fur.el, Ideograph-R079-Weapon.el, Ideograph-R078-Death.el, Ideograph-R077-Stop.el:
+	Reformatted.
+
+	* Ideograph-R073-Say.el (HD-JT-AEA3):
+	Add `=decomposition@hanyo-denshi'.
+	(J0-5228): Likewise.
+	(C1-5E32): Unify HD-KS019090.
+
+	* Ideograph-R066-Rap.el: Reformatted.
+
+	* Ideograph-R064-Hand.el (U+6469):
+	Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R061-Heart.el (U+6025): Use `->denotational'.
+
+	* Ideograph-R057-Bow.el, Ideograph-R055-Two-Hands.el, Ideograph-R053-Dotted-Cliff.el, Ideograph-R050-Turban.el, Ideograph-R049-Oneself.el, Ideograph-R041-Inch.el:
+	Reformatted.
+
+	* Ideograph-R037-Big.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R036-Evening.el: - Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA characters.
+	- Add some Adobe-Japan1-5 code points.
+
 2011-03-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el:
@@ -9,6 +35,11 @@
 	for 78err.
 	(CB06695): Unify J78/1pr-5350 and HD-JT-AEF2.
 	(U+35ED): Use `->subsumptive' to separate representative nodes.
+
+2011-03-16  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R034-Go.el (U+5905): Add ideographic-structure.
+	(JSP-385F): Unify AJ1-17468.
 
 2011-03-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
