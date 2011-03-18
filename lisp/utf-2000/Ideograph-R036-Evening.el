@@ -234,9 +234,14 @@
     (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x591B)	; 夛
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (hanyu-dazidian	2 863 1)
-    (=ucs@unicode	. #x591B)	; &AJ1-04541;
-    (=jis-x0208		. #x546C)	; &AJ1-04541; [52-76]
+    (=ucs@unicode	. #x591B)	; 夛󠄂
+    (=jis-x0208		. #x546C)	; 夛󠄂 [52-76]
     (=cns11643-4	. #x2252)	; &I-C4-2252; [02-50]
     (=jis-x0213-1	. #x546C)	; &I-JX1-546C; [52-76]
     (=gt		. 07281)	; &I-GT-07281;
@@ -244,6 +249,7 @@
     (=daikanwa		. 05759)	; &I-M-05759;
     (=hanziku-3		. #xADC3)	; &I-HZK03-ADC3;
     (=adobe-japan1-0	. 04541)	; &I-AJ1-04541;
+    (=hanyo-denshi/ja	. #x546C)	; &I-HD-JA-546C; [52-76]
     (<-vulgar
      ((=ucs		  . #x591A)	; 多
       (=daikanwa	  . 05756)	; &I-M-05756;
@@ -635,6 +641,7 @@
     (=daikanwa		. 05778)	; &I-M-05778;
     (=hanziku-3		. #xADD5)	; &I-HZK03-ADD5;
     (=jef-china3	. #x91BE)	; &I-JC3-91BE;
+    (=adobe-japan1-5	. 19303)	; &I-AJ1-19303;
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
@@ -935,6 +942,11 @@
     (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5922)	; 夢
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=ucs		. #x2F85E)	; 夢
     (=ucs@unicode	. #x5922)	; 夢
     (=ucs@cns		. #x2F85E)	; 夢
@@ -948,6 +960,7 @@
     (=gt-pj-1		. #x4C34)	; &I-GT-07332; [44-20]
     (=shinjigen		.  1549)	; 夢
     (=adobe-japan1-0	. 03776)	; &I-AJ1-03776;
+    (=hanyo-denshi/ja	. #x4C34)	; &I-HD-JA-4C34; [44-20]
     (<-simplified
      ((=cns11643-1	  . #x6842)	; &M-05802; [72-34]
       (=daikanwa	  . 05802)	; &I-M-05802;
@@ -974,22 +987,24 @@
     (->subsumptive
      ((ideographic-strokes . 11)
       (total-strokes	   . 14)
-      (=ucs@jis		  . #x5923)	; &M-05803;
-      (=jis-x0212	  . #x3869)	; &M-05803; [24-73]
-      (=daikanwa	  . 05803)	; &I-M-05803;
-      (=shinjigen	  .  1553)	; &M-05803;
-      (<-vulgar
-       ((=cns11643-1	    . #x6842)	; &M-05802; [72-34]
-	(=daikanwa	    . 05802)	; &I-M-05802;
-	(=shinjigen	    .  1550)	; &M-05802;
+      (=>>>ucs@unicode	  . #x5923)	; &g2-UU+5923;
+      (->subsumptive
+       ((=ucs@jis	    . #x5923)	; &AJ1-19304;
+	(=jis-x0212	    . #x3869)	; &AJ1-19304; [24-73]
+	(=daikanwa	    . 05803)	; &I-M-05803;
+	(=shinjigen	    .  1553)	; &AJ1-19304;
+	(=adobe-japan1-5    . 19304)	; &I-AJ1-19304;
+	(<-vulgar
+	 ((=cns11643-1	      . #x6842)	; &M-05802; [72-34]
+	  (=daikanwa	      . 05802)	; &I-M-05802;
+	  (=shinjigen	      .	 1550)	; &M-05802;
+	  ))
+	(<-vulgar*sources
+	 shinjigen)
+	)
+       ((=ucs@unicode	    . #x5923)	; &HZK03-AE6B;
+	(=hanziku-3	    . #xAE6B)	; &HZK03-AE6B;
 	))
-      (<-vulgar*sources
-       shinjigen)
-      )
-     ((ideographic-strokes . 11)
-      (total-strokes	   . 14)
-      (=ucs@unicode	  . #x5923)	; &HZK03-AE6B;
-      (=hanziku-3	  . #xAE6B)	; &HZK03-AE6B;
       )
      ((ideographic-strokes . 10)
       (total-strokes	   . 13)
