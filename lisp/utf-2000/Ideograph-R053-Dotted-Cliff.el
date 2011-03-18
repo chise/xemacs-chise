@@ -1851,8 +1851,9 @@
     (->subsumptive
      ((=daikanwa	  . 09333)	; &M-09333;
       (<-vulgar
-       ((=ucs@jis	    . #x5396)	; &GT-03745;
-	(=jis-x0208	    . #x524D)	; &GT-03745; [50-45]
+       ((=ucs@cns	    . #x5396)	; 厖󠄁
+	(=ucs@jis	    . #x5396)	; 厖󠄁
+	(=jis-x0208	    . #x524D)	; 厖󠄁 [50-45]
 	(=cns11643-2	    . #x2939)	; &I-C2-2939; [09-25]
 	(=jis-x0213-1	    . #x524D)	; &I-JX1-524D; [50-45]
 	(=daikanwa	    . 02942)	; &I-M-02942;
@@ -1882,7 +1883,7 @@
      ((=shinjigen	  .  0880)	; &HD-IB-3170;
       (=hanyo-denshi/ib	  . #x3170)	; &HD-IB-3170; [17-80]
       (<-formed
-       ((=shinjigen	    .  0879)	; &HD-JT-AE85;
+       ((=shinjigen	    .  0879)	; 厖󠄂
 	))
       (<-formed*sources
        shinjigen)

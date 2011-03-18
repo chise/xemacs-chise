@@ -149,8 +149,8 @@
     (=daikanwa		. 07417)	; &I-M-07417;
     (=shinjigen		.  0602)	; 㝴
     (<-formed
-     ((=shinjigen	  .  0601)	; &HD-JT-AE13;
-      (=jef-china3	  . #x44BC)	; &HD-JT-AE13;
+     ((=shinjigen	  .  0601)	; 刓󠄂
+      (=jef-china3	  . #x44BC)	; 刓󠄂
       ))
     (<-formed*sources
      shinjigen)
