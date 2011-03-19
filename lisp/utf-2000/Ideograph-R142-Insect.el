@@ -1326,6 +1326,15 @@
   '((<-denotational
      ((=ucs		  . #x86A9)	; 蚩
       ))
+    (ideographic-radical . 142)	; ⾍
+    (ideographic-strokes . 4)
+    (total-strokes	 . 10)
+    (=>ucs@unicode	. #x86A9)	; &A-UU+86A9;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x86A9)	; &A-UU+86A9;
+      ))
     (=>ucs*		. #x86A9)	; 蚩
     (ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 4)
@@ -1353,7 +1362,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x86A9)	; 蚩
+     ((=>ucs@unicode	  . #x86A9)	; &A-UU+86A9;
       ))
     (ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 4)
@@ -1361,6 +1370,15 @@
     (=ucs@unicode	. #x86A9)	; &C1-582A;
     (=gb2312		. #x723F)	; &C1-582A; [82-31]
     (=cns11643-1	. #x582A)	; &I-C1-582A; [56-10]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x86A9)	; 蚩
+      ))
+    (ideographic-radical . 142)	; ⾍
+    (ideographic-strokes . 4)
+    (total-strokes	 . 10)
+    (=cbeta		. 07416)	; &CB07416;
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
