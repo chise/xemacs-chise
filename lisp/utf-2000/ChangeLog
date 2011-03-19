@@ -1,5 +1,12 @@
 2011-03-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R142-Insect.el (CB07416): New character.
+
+	* Ideograph-R124-Feather.el (U+7FE6): Use `->denotational' and
+	`->subsumptive'.
+
+2011-03-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R073-Say.el (HD-JT-AEA3): Add
 	`=decomposition@hanyo-denshi'.
 	(J0-5228): Likewise.
