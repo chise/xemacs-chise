@@ -903,8 +903,8 @@
     (=gt-pj-4		. #x624B)	; &GT-25281; [66-43]
     (=daikanwa		. 19687)	; &I-M-19687;
     (<-same
-     ((=ucs@jis		  . #x4E82)	; &AJ1-04101;
-      (=jis-x0208	  . #x502C)	; &AJ1-04101; [48-12]
+     ((=ucs@jis		  . #x4E82)	; 亂󠄀
+      (=jis-x0208	  . #x502C)	; 亂󠄀 [48-12]
       (=jis-x0213-1	  . #x502C)	; &I-JX1-502C; [48-12]
       (=daikanwa	  . 00214)	; &I-M-00214;
       ))
@@ -945,12 +945,14 @@
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (=>>ucs@iso		. #x24514)	; &G-IU+24514;
     (->subsumptive
      ((=ucs@iso		  . #x24514)	; &GT-K09372;
       (=gt-k		  . 09372)	; &GT-K09372;
       (=gt-pj-k2	  . #x363B)	; &GT-K09372; [22-27]
       )
-     ((=cns11643-4	  . #x386A)	; &CDP-8C7D; [24-74]
+     ((=ucs@cns		  . #x24514)	; &CDP-8C7D;
+      (=cns11643-4	  . #x386A)	; &CDP-8C7D; [24-74]
       (=big5-cdp	  . #x8C7D)	; &I-CDP-8C7D;
       ))
     ))
