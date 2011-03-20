@@ -1,3 +1,17 @@
+2011-03-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R123-Sheep.el (U+7FA1): Use `->denotational' and
+	`->subsumptive'.
+	(JSP-552E): Unify AJ1-08598.
+
+	* Ideograph-R118-Bamboo.el (U+7B9E): Use `->denotational'.
+	(JSP-523B): Unify AJ1-08589.
+
+	* Ideograph-R117-Stand.el: Add some Adobe-Japan1-2 code points.
+
+	* Ideograph-R087-Claw.el (mother of C4-386A): Unify G-IU+24514.
+	(C4-386A): Unify CU+24514.
+
 2011-03-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R142-Insect.el (CB07416): New character.
