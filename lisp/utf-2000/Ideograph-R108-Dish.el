@@ -1667,7 +1667,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>>ucs@jis	  . #x5960)	; &G-JU+5960;
+     ((=>>jis-x0208	  . #x547B)	; &G-GT-07540; [52-91]
       )
      ((=ucs		  . #x76BF)	; 皿
       ))
