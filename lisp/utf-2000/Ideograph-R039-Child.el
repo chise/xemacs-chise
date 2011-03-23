@@ -938,12 +938,11 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs		    . #x5B50)	; 子
+       ((=ucs		    . #x5B51)	; 孑
 	)
-       ((=>>ucs@unicode	    . #x514D)	; &G-UU+514D;
+       ((=>>>ucs@unicode    . #x514D)	; &g2-UU+514D;
 	))
-      (=>>ucs@unicode	  . #x3743)	; &G-UU+3743;
-      (=>>daikanwa	  . 06988)	; &G-UU+3743;
+      (=>>>ucs@unicode	  . #x3743)	; &g2-UU+3743;
       (->subsumptive
        ((=daikanwa	    . 06988)	; &M-06988;
 	)
@@ -951,7 +950,7 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	  (=ucs		      . #x2FF0)	; ⿰
 	  )
-	 ((=ucs		      . #x5B50)	; 子
+	 ((=ucs		      . #x5B51)	; 孑
 	  )
 	 ((=ucs@unicode	      . #x514D)	; &C1-492D;
 	  (=gb2312	      . #x4362)	; &C1-492D; [35-66]
@@ -967,7 +966,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs		    . #x5B50)	; 子
+       ((=ucs		    . #x5B51)	; 孑
 	)
        ((=ucs@jis	    . #x514D)	; 免󠄀
 	(=jis-x0208	    . #x4C48)	; 免󠄀 [44-40]
