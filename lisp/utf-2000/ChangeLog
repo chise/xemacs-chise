@@ -1,3 +1,30 @@
+2011-03-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R042-Small.el: Add some Adobe-Japan1-5 code points.
+
+2011-03-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x3B51.
+
+	* Ideograph-R031-Enclosure.el: Add `=decomposition@hanyo-denshi'
+	for Hanyo-Denshi/JA and JB characters.
+	(BUCS+5716): New character.
+	(U+5716): Add `<-denotational' for BUCS+5716; add
+	ideographic-structure.
+	(HD-JT-AF43): Use BUCS+5716 instead of U+5716 as the mother.
+	(U+5717): Add `<-denotational' for BUCS+5716.
+
+	* Ideograph-R039-Child.el (mother of C3-3054): Unify g2-UU+3743
+	instead of G-UU+3743; modify ideographic-structure.
+	(C3-3054): Modify `ideographic-structure'.
+	(CB01661): Likewise.
+
+	* Ideograph-R037-Big.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JB
+	  characters.
+
 2011-03-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R123-Sheep.el (U+7FA1): Use `->denotational' and
