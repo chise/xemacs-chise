@@ -1,3 +1,9 @@
+2011-03-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R120-Silk.el: Add some Adobe-Japan1-2 code points.
+
+	* Ideograph-R041-Inch.el: Add some Adobe-Japan1-5 code points.
+
 2011-03-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R042-Small.el: Add some Adobe-Japan1-5 code points.
