@@ -231,8 +231,8 @@
       (<-vulgar@tongwen-tongkao*sources
        tongwen-tongkao daikanwa)
       )
-     ((=ucs@unicode	  . #x9771)	; &J83-7057;
-      (=jis-x0208@1983	  . #x7057)	; &J83-7057; [80-55]
+     ((=ucs@unicode	  . #x9771)	; &JX3-7057;
+      (=jis-x0208@1983	  . #x7057)	; &JX3-7057; [80-55]
       (=jis-x0213-1@2004  . #x7057)	; &I-JX3-7057; [80-55]
       ))
     ))
