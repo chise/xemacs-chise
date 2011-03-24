@@ -1,3 +1,8 @@
+2011-03-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (K0-663D): Unify JC3-67BF.
+	(U+901E): Unify A-J0-6D77.
+
 2011-03-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R120-Silk.el: Add some Adobe-Japan1-2 code points.
