@@ -1,3 +1,26 @@
+2011-03-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R035-Go-Slowly.el: Add some Adobe-Japan1-5 code
+	points.
+	(G0-3834): Separate JX2-253B.
+	(JX2-253B): Add `<-formed@component' for G0-3834.
+	(mother of C1-546E): Unify G-CU+590F and G-M-05720.
+	(C1-546E): Unify CU+590F.
+	(J0-3246): Add `=decomposition@hanyo-denshi'; unify HD-JA1838.
+
+	* Ideograph-R121-Jar.el (U+7F47): Use `->denotational' instead of
+	`->subsumptive'.
+	(M-28175): Separate JSP-5472, JX1-7A39 and JC3-5FE8.
+	(JSP-5472): Unify AJ1-08597.
+	(C3-585C): Unify CU+7F47.
+
+	* Ideograph-R038-Woman.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA, JB and JD
+	  characters.
+
 2011-03-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R162-Walk.el (K0-663D): Unify JC3-67BF.
