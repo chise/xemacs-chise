@@ -696,7 +696,7 @@
      ((=ks-x1001	  . #x6962)	; &GT-36832; [73-66]
       (=daikanwa	  . 28614)	; &I-M-28614;
       )
-     ((=jis-x0208@1978	  . #x4A2C)	; 分󠄃 [42-12]
+     ((=jis-x0208@1978	  . #x4A2C)	; 分󠄁 [42-12]
       (=jis-x0208@1983	  . #x4A2C)	; &I-J83-4A2C; [42-12]
       (=ks-x1001	  . #x5D42)	; &I-K0-5D42; [61-34]
       (=daikanwa	  . 01853)	; &I-M-01853;
@@ -3543,7 +3543,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=daikanwa	  . 02011)	; 前󠄃
+     ((=daikanwa	  . 02011)	; 前󠄁
       (=adobe-japan1-4	  . 13889)	; &I-AJ1-13889;
       )
      ((=ks-x1001	  . #x6962)	; &GT-36832; [73-66]
