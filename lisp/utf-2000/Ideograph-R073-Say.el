@@ -465,6 +465,11 @@
     (ideographic-radical@cns . 73)	; ⽈
     (ideographic-strokes@cns . 7)
     (total-strokes	 . 11)
+    (=decomposition@cid
+     ((=ucs		  . #x52D7)	; 勗
+      )
+     ((=ucs		  . #xE0100)	; 󠄀
+      ))
     (=decomposition@hanyo-denshi
      ((=ucs		  . #x52D7)	; 勗
       )
@@ -479,9 +484,9 @@
       )
      ((=ucs		  . #x52A9)	; 助
       ))
-    (=>>ucs@unicode	. #x52D7)	; 勗󠄂
-    (=ucs@unicode	. #x52D7)	; 勗󠄂
-    (=jis-x0208		. #x5228)	; 勗󠄂 [50-08]
+    (=>>ucs@unicode	. #x52D7)	; 勗󠄀
+    (=ucs@unicode	. #x52D7)	; 勗󠄀
+    (=jis-x0208		. #x5228)	; 勗󠄀 [50-08]
     (=cns11643-1	. #x5B2B)	; &I-C1-5B2B; [59-11]
     (=jis-x0213-1	. #x5228)	; &I-JX1-5228; [50-08]
     (=big5		. #xB1E5)	; &I-B-B1E5;
