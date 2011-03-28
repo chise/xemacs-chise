@@ -380,7 +380,7 @@
     (=daikanwa		. 16272)	; &I-M-16272;
     (=hanziku-4		. #xD2F0)	; &I-HZK04-D2F0;
     (<-original
-     ((=daikanwa	  . 02011)	; 前󠄃
+     ((=daikanwa	  . 02011)	; 前󠄁
       (=adobe-japan1-4	  . 13889)	; &I-AJ1-13889;
       ))
     (<-original*sources
@@ -699,7 +699,7 @@
       (=jis-x0213-2	  . #x2F7B)	; &M-16291; [15-91]
       (=daikanwa	  . 16291)	; &I-M-16291;
       (<-ancient
-       ((=daikanwa	    . 02011)	; 前󠄃
+       ((=daikanwa	    . 02011)	; 前󠄁
 	(=adobe-japan1-4    . 13889)	; &I-AJ1-13889;
 	))
       (<-ancient*sources
@@ -1220,7 +1220,7 @@
     (->subsumptive
      ((=daikanwa	  . 16320)	; &M-16320;
       (<-ancient
-       ((=daikanwa	    . 02011)	; 前󠄃
+       ((=daikanwa	    . 02011)	; 前󠄁
 	(=adobe-japan1-4    . 13889)	; &I-AJ1-13889;
 	))
       (<-ancient*sources
