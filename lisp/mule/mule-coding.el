@@ -353,6 +353,7 @@
 	  (=>>gt-k			       "G-GT-K" 5 d)
 	  (=>>ruimoku-v6		      "G-RUI6-" 4 X)
 	  (=>>hanyo-denshi/ft		     "G-HD-FT-" 4 X)
+	  (=>>hanyo-denshi/ia		     "G-HD-IA-" 4 X)
 	  (=>>hanyo-denshi/ib		     "G-HD-IB-" 4 X)
 	  (=>>hanyo-denshi/jt		     "G-HD-JT-" 4 X)
 	  (=>>hanyo-denshi/ks		     "G-HD-KS-" 4 X)
