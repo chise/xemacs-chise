@@ -1,5 +1,7 @@
 2011-03-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R073-Say.el (J0-5228): Add `=decomposition@cid'.
+
 	* Ideograph-R040-Roof.el: Add some Adobe-Japan1-5 code points.
 
 	* Ideograph-R035-Go-Slowly.el: Add some Adobe-Japan1-5 code
