@@ -6108,7 +6108,11 @@
     (ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
+    (=>>ucs@unicode	. #x7DAA)	; &G-HD-IB-284E;
+    (=>>hanyo-denshi/ib . #x284E)	; &G-HD-IB-284E; [08-46]
     (->subsumptive
+     ((=hanyo-denshi/ib	  . #x284E)	; &HD-IB-284E; [08-46]
+      )
      ((=ucs@unicode	  . #x7DAA)	; &UU+7DAA;
       )
      ((=cns11643-2	  . #x4C6D)	; &C2-4C6D; [44-77]
