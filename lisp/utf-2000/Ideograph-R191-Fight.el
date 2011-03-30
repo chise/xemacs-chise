@@ -264,11 +264,13 @@
     (ideographic-radical . 191)	; ⾾
     (ideographic-strokes . 10)
     (total-strokes	 . 20)
-    (=>>ucs@unicode	. #x4C17)	; &G-UU+4C17;
+    (=>>ucs@unicode	. #x4C17)	; &G-HD-IA-2822;
+    (=>>hanyo-denshi/ia . #x2822)	; &G-HD-IA-2822; [08-02]
     (->subsumptive
      ((=daikanwa	  . 45648)	; &M-45648;
       )
-     ((=ucs@unicode	  . #x4C17)	; &UU+4C17;
+     ((=ucs@unicode	  . #x4C17)	; &HD-IA-2822;
+      (=hanyo-denshi/ia	  . #x2822)	; &HD-IA-2822; [08-02]
       )
      ((=cns11643-7	  . #x517D)	; &C7-517D; [49-93]
       ))
