@@ -1,3 +1,27 @@
+2011-03-28  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* ruimoku6.el (RUI6-E04C): Add `ideographic-{radical|strokes}' and
+	`total-strokes'.
+
+2011-03-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R191-Fight.el (UU+4C17): Unify HD-IA0802.
+
+	* Ideograph-R184-Eat.el (U+4B3B): Use `->denotational' and
+	`->subsumptive'.
+	(M-44156): Unify HD-IA0782.
+
+	* Ideograph-R136-Oppose.el (K0-743F): Unify HD-IB0352.
+
+	* Ideograph-R120-Silk.el (HD-IB0846): New character.
+
+	* Ideograph-R112-Stone.el (U+78B0): Use `->denotational'.
+	(C1-6550): Unify HD-IB2523.
+
+	* Ideograph-R018-Knife.el:
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	- Add some abstract `ideographic-structure's.
+
 2011-03-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R073-Say.el (J0-5228): Add `=decomposition@cid'.
