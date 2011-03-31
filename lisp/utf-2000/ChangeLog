@@ -1,3 +1,14 @@
+2011-03-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R119-Rice.el (U+7CD9): Use `->denotational' instead of
+	`->subsumptive'.
+	(HD-IB0845): New character.
+	(U-00025EFF): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R115-Grain.el (U+7A5F): Use `->denotational' instead
+	of `->subsumptive'.
+	(JSP-5149): Unify HD-IB0833.
+
 2011-03-29  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R170-Mound.el (RUI6-E04C): New character; copied from
