@@ -822,26 +822,43 @@
     (=cns11643-5	. #x573E)	; &I-C5-573E; [55-30]
     ))
 (define-char
-  '((=>ucs		. #x8218)	; 舘
-    (ideographic-radical . 135)	; ⾆
-    (ideographic-strokes . 10)
-    (total-strokes	 . 16)
-    (=ucs@jis		. #x8218)	; &GT-39223;
-    (=jis-x0208		. #x345C)	; &GT-39223; [20-60]
-    (=jis-x0213-1	. #x345C)	; &I-JX1-345C; [20-60]
-    (=gt		. 39223)	; &I-GT-39223;
-    (=gt-pj-1		. #x345C)	; &I-GT-39223; [20-60]
-    (=daikanwa		. 30326)	; &I-M-30326;
-    (=shinjigen@rev	.  9276)	; &GT-39223;
+  '((ideographic-radical@r135 . 135)	; ⾆
+    (ideographic-radical@r184 . 184)	; ⾷
+    (==>ucs@bucs	. #x9928)	; &BUCS+9928;
     ))
 (define-char
-  '((morohashi-daikanwa	30326 0 0)
+  '((<-denotational
+     ((==>ucs@bucs	  . #x9928)	; &BUCS+9928;
+      ))
     (ideographic-radical . 135)	; ⾆
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
     (=ucs		. #x8218)	; 舘
-    (=iso-ir165		. #x2F75)	; &I-EGB-2F75; [15-85]
-    (=cns11643-3	. #x524A)	; &I-C3-524A; [50-42]
+    (=>>>jis-x0208	. #x345C)	; 舘 [20-60]
+    (=>>>jis-x0213-1	. #x345C)	; 舘 [20-60]
+    (=>>>gt		. 39223)	; 舘
+    (->subsumptive
+     ((=ucs@jis		  . #x8218)	; &GT-39223;
+      (=jis-x0208	  . #x345C)	; &GT-39223; [20-60]
+      (=jis-x0213-1	  . #x345C)	; &I-JX1-345C; [20-60]
+      (=gt		  . 39223)	; &I-GT-39223;
+      (=gt-pj-1		  . #x345C)	; &I-GT-39223; [20-60]
+      (=daikanwa	  . 30326)	; &I-M-30326;
+      (=shinjigen@rev	  .  9276)	; &GT-39223;
+      )
+     ((=ucs@unicode	  . #x8218)	; &C3-524A;
+      (=iso-ir165	  . #x2F75)	; &C3-524A; [15-85]
+      (=cns11643-3	  . #x524A)	; &I-C3-524A; [50-42]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x9928)	; &BUCS+9928;
+      ))
+    (ideographic-radical . 135)	; ⾆
+    (ideographic-strokes . 10)
+    (total-strokes	 . 16)
+    (=hanyo-denshi/ib	. #x2A63)	; &HD-IB-2A63; [10-67]
     ))
 (define-char
   '((=>ucs		. #x269F0)	; 𦧰
