@@ -1,3 +1,19 @@
+2011-03-29  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R170-Mound.el (RUI6-E04C): New character; copied from
+	ruimoku6.el.
+
+	* Ideograph-R135-Tongue.el (BUCS+9928): New character.
+	(U+8218): Use `->denotational'; add `<-denotational' for
+	BUCS+9928.
+	(HD-IB1067): New character.
+
+	* Ideograph-R113-Spirit.el: Add Hanyo-Denshi/IB code points.
+
+2011-03-29  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R065-Branch.el (U+652F): Use `->subsumptive'.
+
 2011-03-28  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* ruimoku6.el (RUI6-E04C): Add `ideographic-{radical|strokes}' and
