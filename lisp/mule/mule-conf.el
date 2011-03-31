@@ -1704,6 +1704,17 @@
 	       min-code 0
 	       max-code 23057
 	       registry "AdobeJapan1-6$"))
+  (make-charset
+   '=>>adobe-japan1
+   "Adobe-Japan1 abstract glyphs"
+   '(long-name "Adobe-Japan1 abstract glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-6
+	       registry "AdobeJapan1-6$"))
 
   (make-charset
    '=hanyo-denshi/ja
