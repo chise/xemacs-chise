@@ -1,9 +1,29 @@
+2011-04-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R053-Dotted-Cliff.el (J0-567C): Unify S2-2199.
+	(J78-3E33): Unify S2-2214.
+
+2011-03-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R184-Eat.el (U+9927): Use `->denotational' and
+	`->subsumptive'.
+	(JSP-685D): Unify JC3-6DBD.
+	(BUCS+9928): New character.
+	(U+9928): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for BUCS+9928.
+	(U+9986): Add `<-denotational' for BUCS+9928.
+
+	* Ideograph-R096-Jade.el: Add Hanyo-Denshi/IB code points.
+
 2011-03-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R118-Bamboo.el: Add Hanyo-Denshi/IB code points.
 	(U-00025DF8): Unify M-49453.
 
 	* Ideograph-R109-Eye.el (HD-IB2489): New character.
+
+	* char-db-util.el (char-db-insert-ccs-feature): Add setting for
+	`=>>adobe-japan1'.
 
 2011-03-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
