@@ -348,6 +348,7 @@
 	  (=>>jis-x0213-1@2000		       "G-JX1-" 4 X)
 	  (=>>jis-x0213-2		       "G-JX2-" 4 X)
 	  (=>>jis-x0213-1@2004		       "G-JX3-" 4 X)
+	  (=>>adobe-japan1		       "G-AJ1-" 5 d)
 	  (=>>jis-x0208@1978		       "G-J78-" 4 X)
 	  (=>>big5-cdp			       "G-CDP-" 4 X)
 	  (=>>gt-k			       "G-GT-K" 5 d)
