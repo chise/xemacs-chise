@@ -8682,8 +8682,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@jis	    . #x53A5)	; &GT-03792;
-	(=jis-x0208	    . #x5250)	; &GT-03792; [50-48]
+       ((=ucs@jis	    . #x53A5)	; &AJ1-04325;
+	(=jis-x0208	    . #x5250)	; &AJ1-04325; [50-48]
 	(=ks-x1001	    . #x4F70)	; &I-K0-4F70; [47-80]
 	(=cns11643-1	    . #x5E3C)	; &I-C1-5E3C; [62-28]
 	(=jis-x0213-1	    . #x5250)	; &I-JX1-5250; [50-48]
