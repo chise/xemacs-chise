@@ -472,6 +472,7 @@
 			    =daikanwa/+p =daikanwa/+2p
 			    =gt =>>>gt =>>gt =>gt
 			    =gt-k =>>gt-k =>gt-k
+			    =>>adobe-japan1
 			    =cbeta =zinbun-oracle =>zinbun-oracle))
 	       (string-match "^=adobe-" (symbol-name name)))
 	   "(%-18s . %05d)\t; %c")
