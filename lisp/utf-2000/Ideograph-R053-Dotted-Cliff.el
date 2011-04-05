@@ -3592,7 +3592,7 @@
       (=jis-x0213-1	  . #x567C)	; &I-JX1-567C; [54-92]
       (=gt		  . 11869)	; &I-GT-11869;
       (=gt-pj-1		  . #x567C)	; &I-GT-11869; [54-92]
-      (=shinjigen@1ed	  .  2199)	; &GT-11869;
+      (=shinjigen	  .  2199)	; &GT-11869;
       )
      ((=ucs@unicode	  . #x5EC8)	; &EGB-2D5B;
       (=iso-ir165	  . #x2D5B)	; &EGB-2D5B; [13-59]
@@ -4756,7 +4756,7 @@
     (=gt		. 11941)	; &I-GT-11941;
     (=gt-pj-3		. #x4570)	; &I-GT-11941; [37-80]
     (=daikanwa		. 09490)	; &I-M-09490;
-    (=shinjigen@1ed	.  2214)	; &GT-11941;
+    (=shinjigen		.  2214)	; &GT-11941;
     (=hanyo-denshi/ft	. #x3239)	; &I-HD-FT-3239; [18-25]
     ))
 (define-char
