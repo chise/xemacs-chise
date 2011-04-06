@@ -1,3 +1,14 @@
+2011-04-05  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R019-Power.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	- Add some abstract `ideographic-structure's.
+	(BUCS+52E2): New character.
+	(U+52BF): Add `<-denotational' for BUCS+52E2; compact
+	`ideographic-structure'; add `<-simplified@CN' for G1-4A46.
+	(U+52E2): Use `<-denotational' for BUCS+52E2.
+
 2011-04-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R027-Cliff.el:
