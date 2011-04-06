@@ -1,5 +1,13 @@
 2011-04-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R027-Cliff.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add some abstract `ideographic-structure's.
+	(U+53A8): Omit `ideographic-structure'.
+	(U+53AB): Use `->denotational'.
+	(U-00020A9A): Use `->subsumptive'.
+	(U+3551): Use `->denotational' instead of `->subsumptive'.
+
 	* Ideograph-R053-Dotted-Cliff.el (J0-567C): Unify S2-2199.
 	(J78-3E33): Unify S2-2214.
 
