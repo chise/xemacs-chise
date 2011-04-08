@@ -1,3 +1,7 @@
+2011-04-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{2297 - 2317}): New characters.
+
 2011-04-05  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R019-Power.el:
