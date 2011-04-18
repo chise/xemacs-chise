@@ -146,7 +146,9 @@
       (=ucs@jis		  . #x5142)	; &JSP-3265;
       (=jis-x0212	  . #x3265)	; &JSP-3265; [18-69]
       )
-     ((=decomposition@cid
+     ((ideographic-strokes . 3)
+      (total-strokes	   . 5)
+      (=decomposition@cid
        ((=ucs		    . #x5142)	; 兂
 	)
        ((=ucs		    . #xE0100)	; 󠄀
