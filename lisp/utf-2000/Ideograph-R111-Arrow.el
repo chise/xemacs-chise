@@ -141,6 +141,9 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs		  . #x77E2)	; 矢
       )
      ((=ucs		  . #x5EFE)	; 廾
@@ -656,6 +659,23 @@
     (ideographic-radical@cns*sources
      daikanwa cns11643)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+	(=ucs		    . #x2FF2)	; ⿲
+	)
+       ((=ucs		    . #x571F)	; 土
+	)
+       ((=ucs		    . #x77E2)	; 矢
+	)
+       ((=ucs		    . #x5315)	; 匕
+	))
+      ))
     (=ucs		. #x20170)	; 𠅰
     (->subsumptive
      ((ideographic-radical . 111)	; ⽮
@@ -664,8 +684,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x4EA0)	; &GT-00376;
-	(=jis-x0208	    . #x5035)	; &GT-00376; [48-21]
+       ((=ucs@jis	    . #x4EA0)	; 亠󠄀
+	(=jis-x0208	    . #x5035)	; 亠󠄀 [48-21]
 	(=jis-x0213-1	    . #x5035)	; &I-JX1-5035; [48-21]
 	)
        ((ideographic-structure
@@ -708,6 +728,7 @@
       )
      ((ideographic-radical . 111)	; ⽮
       (ideographic-strokes . 7)
+      (=ucs@cns		  . #x20170)	; &C6-4C2D;
       (=cns11643-6	  . #x4C2D)	; &C6-4C2D; [44-13]
       ))
     ))

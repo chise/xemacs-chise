@@ -1,3 +1,339 @@
+2011-04-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>>adobe-japan1'.
+
+2011-03-30  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>adobe-japan1): New coded-charset for
+	XEmacs CHISE.
+
+2011-03-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>>hanyo-denshi/ia'.
+
+	* mule/mule-conf.el (=>>hanyo-denshi/ia): New coded-charset for
+	XEmacs CHISE.
+
+2011-03-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `=>>>hanyo-denshi/jt' and `=>>>gt'.
+
+	* mule/mule-conf.el (=>>>hanyo-denshi/jt): New coded-charset for
+	XEmacs CHISE.
+	(=>>hanyo-denshi/jt): Use `=>>>hanyo-denshi/jt' instead of
+	`=hanyo-denshi/jt' as the mother.
+
+2011-03-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>>>jis-x0213-2'.
+
+	* mule/mule-conf.el (=>>>gt): New coded-charset for XEmacs CHISE.
+	(=>>gt): Use `=>>>gt' instead of `=gt' as the mother.
+	(=>>>ucs@jis/2000): New coded-charset for XEmacs CHISE.
+
+2011-03-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>>ucs@jis/1990): New coded-charset for
+	XEmacs CHISE.
+
+2011-03-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>>jis-x0208@1983): New coded-charset for
+	XEmacs CHISE.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=>>jis-x0213-1@2004'.
+
+2011-03-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>>jis-x0208@1978): New coded-charset for
+	XEmacs CHISE.
+
+2011-03-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el: (coded-charset-entity-reference-alist):
+	- Use "&g2-*;" as entity-references for `=>>>*'.
+	- Omit "&a{GT|JX1|JX2|JX3}-*;".
+
+	* mule/mule-conf.el (=>>>jis-x0213-2): New coded-charset for
+	XEmacs CHISE.
+	(=>>jis-x0213-2): Use `=>>>jis-x0213-2' instead of `=jis-x0213-2'
+	as the mother.
+
+2011-03-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>>hanyo-denshi/ib'.
+
+	* mule/mule-conf.el (=>>jis-x0208@1978): Fix DOC.
+	(=>>jis-x0208@1983): New coded-charset for XEmacs CHISE.
+	(=>>jis-x0208@1990): Ditto.
+	(=>>hanyo-denshi/ib): Ditto.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer `=hanziku-*' to `=hanyo-denshi/*'.
+
+2011-03-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	Prefer `=>jis-x0213-2@usual' to `=>jis-x0208@1997' and
+	`=>jis-x0213-1@2000'; add settings for `=>>>ucs@ks' and
+	`=>>>ucs@jis/2004'.
+
+2011-03-05  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>>jis-x0213-1@2000): New coded-charset for
+	XEmacs CHISE.
+	(=>>>jis-x0213-1@2004): Use `=>>>jis-x0213-1' instead of
+	`=jis-x0213-1@2004' as the mother.
+	(=>>>ucs@jis/2004): New coded-charset for XEmacs CHISE.
+	(=>>>ucs@ks): Ditto.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Modify priority of `=hanyo-denshi/*'.
+
+2011-03-04  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `=>>ucs@JP' and `=ucs@JP'.
+
+2011-03-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>ucs@JP): New coded-charset for XEmacs
+	CHISE.
+
+2011-02-27  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>>>ucs@cns'.
+
+	* mule/mule-conf.el (=>>>ucs@cns): New coded-charset for XEmacs
+	CHISE.
+
+2011-02-27  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>jis-x0213-1@2004): Use `=>>jis-x0213-1'
+	instead of `=>>>jis-x0213-1@2004' as the mother.
+	(=>>>ucs@iso): New coded-charset for XEmacs CHISE.
+	(=>>>ucs@unicode): Likewise.
+	(=>>>ucs@jis): Likewise.
+	(=ucs@iso): Use `=>>>ucs@iso' instead of `=>>ucs@iso' as the
+	mother.
+	(=>>hanyo-denshi/ks): Fix `chars' and `dimension'.
+
+2011-02-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `=>>>jis-x0208', `=>>>jis-x0213-1',
+	`=>>>jis-x0213-1@2004', `=>>>ucs@iso', `=>>>ucs@unicode' and
+	`=>>>ucs@jis'.
+
+2011-02-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer `=jis-x0212' to `=gt-pj-*', `chinese-cns11643-*', `=big5*'
+	and `=jis-x0213-*-2000'.
+
+2011-02-24  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>>jis-x0213-1@2004): New coded-charset for
+	XEmacs CHISE.
+	(=>>jis-x0213-1@2004): Use `=>>>jis-x0213-1@2004' instead of
+	`=>>jis-x0213-1' as the mother.
+
+2011-02-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `=>>hanyo-denshi/jt' and `=>gt-k'.
+
+2011-02-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>gt-k): New coded-charset for XEmacs CHISE.
+
+2011-02-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>hanyo-denshi/jt): New coded-charset for
+	XEmacs CHISE.
+
+2011-02-16  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (decomposition-feature-list): Set
+	`=decomposition', `=decomposition@cid' and
+	`=decomposition@hanyo-denshi'.
+
+2011-02-16  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>>hanyo-denshi/ks'.
+
+	* mule/mule-conf.el (=>>hanyo-denshi/ks): New coded-charset for
+	XEmacs CHISE.
+
+2011-02-16  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `=hanyo-denshi/ks' and `=hanyo-denshi/ks/mf'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=hanyo-denshi/ks/mf'.
+
+	* mule/mule-conf.el (=hanyo-denshi/ks): New coded-charset for
+	XEmacs CHISE.
+	(=hanyo-denshi/ks/mf): Ditto.
+
+2011-02-15  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for P=hanyo-denshi/jt'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=hanyo-denshi/jt'.
+
+	* mule/mule-conf.el (=hanyo-denshi/jt): New coded-charset for
+	XEmacs CHISE.
+
+2011-02-15  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `=hanyo-denshi/ip'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=hanyo-denshi/ip'.
+
+	* mule/mule-conf.el (=hanyo-denshi/ip): New coded-charset for
+	XEmacs CHISE.
+
+2011-02-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `=hanyo-denshi/hg'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=hanyo-denshi/hg'.
+
+	* mule/mule-conf.el (=hanyo-denshi/hg): New coded-charset for
+	XEmacs CHISE.
+
+2011-02-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>>hanyo-denshi/ft'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=>>hanyo-denshi/ft'.
+
+	* mule/mule-conf.el (=>>hanyo-denshi/ft): New coded-charset for
+	XEmacs CHISE.
+
+2011-02-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `=hanyo-denshi/ib'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=hanyo-denshi/ib'.
+
+	* mule/mule-conf.el (=hanyo-denshi/ib): New coded-charset for
+	XEmacs CHISE.
+
+2011-02-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for isolated characters of `=hanyo-denshi/ia' and
+	non-isolated characters of `=hanyo-denshi/*'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=hanyo-denshi/ia'.
+
+	* mule/mule-conf.el (=hanyo-denshi/ia): New coded-charset for
+	XEmacs CHISE.
+
+2011-02-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for isolated characters of `=hanyo-denshi/ft'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=hanyo-denshi/ft'.
+
+	* mule/mule-conf.el (=hanyo-denshi/ft): New coded-charset for
+	XEmacs CHISE.
+
+2011-02-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for isolated characters of `=hanyo-denshi/jd'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=hanyo-denshi/jd'.
+
+	* mule/mule-conf.el (=hanyo-denshi/jd): New coded-charset for
+	XEmacs CHISE.
+
+2011-02-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for isolated characters of `=hanyo-denshi/jc'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=hanyo-denshi/jc'.
+
+	* mule/mule-conf.el (=hanyo-denshi/jc): New coded-charset for
+	XEmacs CHISE.
+
+2011-02-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for isolated characters of `=hanyo-denshi/jb'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=hanyo-denshi/jb'.
+
+	* mule/mule-conf.el (=hanyo-denshi/jb): New coded-charset for
+	XEmacs CHISE.
+
+2011-02-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for isolated characters of `=hanyo-denshi/ja'.
+
+2011-02-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=hanyo-denshi/ja'.
+
+	* mule/mule-conf.el (=hanyo-denshi/ja): New coded-charset for
+	XEmacs CHISE.
+
+2011-02-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for isolated characters of `=adobe-japan1-6'.
+
+2011-02-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=daikanwa/+p): New coded-charset for XEmacs
+	CHISE.
+	(=daikanwa/+2p): Ditto.
+	(=daikanwa/ho): Ditto.
+
+2011-02-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (utf-8-mcs-no-composition): New
+	coding-system for XEmacs CHISE.
+
+2011-02-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>>ruimoku-v6'.
+
+	* mule/mule-conf.el (=>>ruimoku-v6): New coded-charset for XEmacs
+	CHISE.
+
 2010-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add

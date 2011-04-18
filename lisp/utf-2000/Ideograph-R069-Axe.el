@@ -237,7 +237,7 @@
       )
      ((=ucs		  . #x65A4)	; 斤
       ))
-    (sources		bos=A2001-16138-00013)
+    (sources		ruimoku=A2001-16138-00013)
     (=ruimoku-v6	. #xE00B)	; &RUI6-E00B;
     ))
 (define-char

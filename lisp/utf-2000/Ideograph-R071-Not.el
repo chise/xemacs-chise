@@ -100,8 +100,7 @@
       (=daikanwa	  . 13721)	; &I-M-13721;
       (=shinjigen@rev	  .  3260)	; &GT-17338;
       (<-simplified@JP/Jouyou
-       ((=ucs@unicode	    . #xFA42)	; &JX1-752B;
-	(=jis-x0213-1	    . #x752B)	; &JX1-752B; [85-11]
+       ((=ucs		    . #xFA42)	; 既
 	))
       (<-simplified@daikanwa
        ((=ucs@unicode	    . #x65E3)	; &M-13724;
@@ -146,17 +145,28 @@
       ))
     (ideographic-radical . 71)	; ⽆
     (ideographic-strokes . 7)
+    (=>>ucs@unicode	. #x65E3)	; &G-UU+65E3;
+    (=>>ucs@cns		. #x2F8CB)	; &G-UU+65E3;
+    (=>>daikanwa	. 13724)	; &G-UU+65E3;
     (->subsumptive
      ((total-strokes	   . 11)
-      (=ucs@unicode	  . #x65E3)	; &M-13724;
-      (=daikanwa	  . 13724)	; &M-13724;
-      (=jef-china3	  . #x50F4)	; &I-JC3-50F4;
-      )
-     ((total-strokes	   . 11)
-      (=cns11643-3	  . #x3641)	; &C3-3641; [22-33]
+      (=>>>ucs@unicode	  . #x65E3)	; &g2-UU+65E3;
+      (->subsumptive
+       ((=ucs@unicode	    . #x65E3)	; &M-13724;
+	(=daikanwa	    . 13724)	; &M-13724;
+	(=jef-china3	    . #x50F4)	; &I-JC3-50F4;
+	)
+       ((=cns11643-3	    . #x3641)	; &C3-3641; [22-33]
+	))
       )
      ((total-strokes	   . 12)
-      (=ks-x1001	  . #x507E)	; &K0-507E; [48-94]
+      (=>>>ucs@ks	  . #x65E3)	; &g2-KU+65E3;
+      (->subsumptive
+       ((=adobe-japan1-4    . 13701)	; &AJ1-13701;
+	)
+       ((=ucs@ks	    . #x65E3)	; &K0-507E;
+	(=ks-x1001	    . #x507E)	; &K0-507E; [48-94]
+	))
       )
      ((=>ucs*		  . #x65E3)	; 旣
       (total-strokes	   . 11)
@@ -168,16 +178,19 @@
   '((<-denotational
      ((=ucs		  . #x65E3)	; 旣
       ))
-    (=>ucs*		. #x65E2)	; 既
     (ideographic-radical . 71)	; ⽆
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (=ucs		. #xFA42)	; 既
+    (=>>ucs@jis		. #xFA42)	; &G-JX1-752B;
+    (=>>jis-x0213-1	. #x752B)	; &G-JX1-752B; [85-11]
+    (=>>daikanwa	. 13725)	; &G-JX1-752B;
     (->subsumptive
      ((=daikanwa	  . 13725)	; &M-13725;
       )
-     ((=ucs@unicode	  . #xFA42)	; &JX1-752B;
-      (=jis-x0213-1	  . #x752B)	; &JX1-752B; [85-11]
+     ((=>ucs*		  . #x65E2)	; 既
+      (=ucs		  . #xFA42)	; 既
+      (=jis-x0213-1	  . #x752B)	; &I-JX1-752B; [85-11]
+      (=adobe-japan1-4	  . 13334)	; &I-AJ1-13334;
       ))
     ))
 (define-char

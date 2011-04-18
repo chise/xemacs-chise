@@ -231,8 +231,8 @@
       (<-vulgar@tongwen-tongkao*sources
        tongwen-tongkao daikanwa)
       )
-     ((=ucs@unicode	  . #x9771)	; &J83-7057;
-      (=jis-x0208@1983	  . #x7057)	; &J83-7057; [80-55]
+     ((=ucs@unicode	  . #x9771)	; &JX3-7057;
+      (=jis-x0208@1983	  . #x7057)	; &JX3-7057; [80-55]
       (=jis-x0213-1@2004  . #x7057)	; &I-JX3-7057; [80-55]
       ))
     ))
@@ -2890,6 +2890,14 @@
     (total-strokes	 . 19)
     (=ucs		. #x97B7)	; 鞷
     (=cns11643-2	. #x676D)	; &I-C2-676D; [71-77]
+    ))
+(define-char
+  '((ideographic-radical . 177)	; ⾰
+    (ideographic-strokes . 10)
+    (total-strokes	 . 19)
+    (sources		ruimoku=A2009-10984-00015)
+    (=ucs		. #x2931E)	; 𩌞
+    (=ruimoku-v6	. #xE0A8)	; &I-RUI6-E0A8;
     ))
 (define-char
   '((ideographic-radical . 177)	; ⾰

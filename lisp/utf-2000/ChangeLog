@@ -1,3 +1,3103 @@
+2011-04-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{2297 - 2317}): New characters.
+
+2011-04-05  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R019-Power.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	- Add some abstract `ideographic-structure's.
+	(BUCS+52E2): New character.
+	(U+52BF): Add `<-denotational' for BUCS+52E2; compact
+	`ideographic-structure'; add `<-simplified@CN' for G1-4A46.
+	(U+52E2): Use `<-denotational' for BUCS+52E2.
+
+2011-04-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R027-Cliff.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add some abstract `ideographic-structure's.
+	(U+53A8): Omit `ideographic-structure'.
+	(U+53AB): Use `->denotational'.
+	(U-00020A9A): Use `->subsumptive'.
+	(U+3551): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R053-Dotted-Cliff.el (J0-567C): Unify S2-2199.
+	(J78-3E33): Unify S2-2214.
+
+2011-03-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R184-Eat.el (U+9927): Use `->denotational' and
+	`->subsumptive'.
+	(JSP-685D): Unify JC3-6DBD.
+	(BUCS+9928): New character.
+	(U+9928): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for BUCS+9928.
+	(U+9986): Add `<-denotational' for BUCS+9928.
+
+	* Ideograph-R096-Jade.el: Add Hanyo-Denshi/IB code points.
+
+2011-03-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R118-Bamboo.el: Add Hanyo-Denshi/IB code points.
+	(U-00025DF8): Unify M-49453.
+
+	* Ideograph-R109-Eye.el (HD-IB2489): New character.
+
+	* char-db-util.el (char-db-insert-ccs-feature): Add setting for
+	`=>>adobe-japan1'.
+
+2011-03-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R119-Rice.el (U+7CD9): Use `->denotational' instead of
+	`->subsumptive'.
+	(HD-IB0845): New character.
+	(U-00025EFF): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R115-Grain.el (U+7A5F): Use `->denotational' instead
+	of `->subsumptive'.
+	(JSP-5149): Unify HD-IB0833.
+
+2011-03-29  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R170-Mound.el (RUI6-E04C): New character; copied from
+	ruimoku6.el.
+
+	* Ideograph-R135-Tongue.el (BUCS+9928): New character.
+	(U+8218): Use `->denotational'; add `<-denotational' for
+	BUCS+9928.
+	(HD-IB1067): New character.
+
+	* Ideograph-R113-Spirit.el: Add Hanyo-Denshi/IB code points.
+
+2011-03-29  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R065-Branch.el (U+652F): Use `->subsumptive'.
+
+2011-03-28  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* ruimoku6.el (RUI6-E04C): Add `ideographic-{radical|strokes}' and
+	`total-strokes'.
+
+2011-03-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R191-Fight.el (UU+4C17): Unify HD-IA0802.
+
+	* Ideograph-R184-Eat.el (U+4B3B): Use `->denotational' and
+	`->subsumptive'.
+	(M-44156): Unify HD-IA0782.
+
+	* Ideograph-R136-Oppose.el (K0-743F): Unify HD-IB0352.
+
+	* Ideograph-R120-Silk.el (HD-IB0846): New character.
+
+	* Ideograph-R112-Stone.el (U+78B0): Use `->denotational'.
+	(C1-6550): Unify HD-IB2523.
+
+	* Ideograph-R018-Knife.el:
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	- Add some abstract `ideographic-structure's.
+
+2011-03-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R073-Say.el (J0-5228): Add `=decomposition@cid'.
+
+	* Ideograph-R040-Roof.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R035-Go-Slowly.el: Add some Adobe-Japan1-5 code
+	points.
+	(G0-3834): Separate JX2-253B.
+	(JX2-253B): Add `<-formed@component' for G0-3834.
+	(mother of C1-546E): Unify G-CU+590F and G-M-05720.
+	(C1-546E): Unify CU+590F.
+	(J0-3246): Add `=decomposition@hanyo-denshi'; unify HD-JA1838.
+
+	* Ideograph-R121-Jar.el (U+7F47): Use `->denotational' instead of
+	`->subsumptive'.
+	(M-28175): Separate JSP-5472, JX1-7A39 and JC3-5FE8.
+	(JSP-5472): Unify AJ1-08597.
+	(C3-585C): Unify CU+7F47.
+
+	* Ideograph-R038-Woman.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA, JB and JD
+	  characters.
+
+2011-03-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (K0-663D): Unify JC3-67BF.
+	(U+901E): Unify A-J0-6D77.
+
+2011-03-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R120-Silk.el: Add some Adobe-Japan1-2 code points.
+
+	* Ideograph-R041-Inch.el: Add some Adobe-Japan1-5 code points.
+
+2011-03-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R042-Small.el: Add some Adobe-Japan1-5 code points.
+
+2011-03-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x3B51.
+
+	* Ideograph-R031-Enclosure.el: Add `=decomposition@hanyo-denshi'
+	for Hanyo-Denshi/JA and JB characters.
+	(BUCS+5716): New character.
+	(U+5716): Add `<-denotational' for BUCS+5716; add
+	ideographic-structure.
+	(HD-JT-AF43): Use BUCS+5716 instead of U+5716 as the mother.
+	(U+5717): Add `<-denotational' for BUCS+5716.
+
+	* Ideograph-R039-Child.el (mother of C3-3054): Unify g2-UU+3743
+	instead of G-UU+3743; modify ideographic-structure.
+	(C3-3054): Modify `ideographic-structure'.
+	(CB01661): Likewise.
+
+	* Ideograph-R037-Big.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JB
+	  characters.
+
+2011-03-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R123-Sheep.el (U+7FA1): Use `->denotational' and
+	`->subsumptive'.
+	(JSP-552E): Unify AJ1-08598.
+
+	* Ideograph-R118-Bamboo.el (U+7B9E): Use `->denotational'.
+	(JSP-523B): Unify AJ1-08589.
+
+	* Ideograph-R117-Stand.el: Add some Adobe-Japan1-2 code points.
+
+	* Ideograph-R087-Claw.el (mother of C4-386A): Unify G-IU+24514.
+	(C4-386A): Unify CU+24514.
+
+2011-03-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R142-Insect.el (CB07416): New character.
+
+	* Ideograph-R124-Feather.el (U+7FE6): Use `->denotational' and
+	`->subsumptive'.
+
+2011-03-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R073-Say.el (HD-JT-AEA3): Add
+	`=decomposition@hanyo-denshi'.
+	(J0-5228): Likewise.
+	(C1-5E32): Unify HD-KS019090.
+
+	* Ideograph-R064-Hand.el (U+6469): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R061-Heart.el (U+6025): Use `->denotational'.
+
+	* Ideograph-R037-Big.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R036-Evening.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA
+	  characters.
+	- Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R030-Mouth.el:
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JB
+	  characters.
+	- Add Hanyo-Denshi/JT code points.
+	- Add some abstract `ideographic-structure's.
+	(JX1-5350): Separate J78/1pr-5350; don't use `jisx0208-difference'
+	for 78err.
+	(CB06695): Unify J78/1pr-5350 and HD-JT-AEF2.
+	(U+35ED): Use `->subsumptive' to separate representative nodes.
+
+2011-03-16  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R034-Go.el (U+5905): Add ideographic-structure.
+	(JSP-385F): Unify AJ1-17468.
+
+2011-03-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R028-Private.el (BC-8B7E): Unify HD-KS035360.
+	(AJ1-17339): New character.
+
+	* Ideograph-R027-Cliff.el:
+	- Add some abstract `ideographic-structure's.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JT
+	  characters.
+	- Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R024-Ten.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JT
+	  characters.
+
+	* Ideograph-R013-Down-Box.el:
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA
+	  characters.
+	- Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R029-Again.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JT
+	  characters.
+	(C1-5E32): Unify HD-KS019090.
+
+	* Ideograph-R018-Knife.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JT
+	  characters.
+	- Add some abstract `ideographic-structure's.
+	(BUCS+528D): New character.
+	(U+528D): Use `<-denotational' for BUCS+528D.
+
+	* char-db-util.el (insert-char-attributes): Use
+	`char-feature-base-name=' for `=decomposition' and
+	`=>decomposition'.
+
+2011-03-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R023-Hiding-Enclosure.el:
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA
+	  characters.
+	- Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R020-Wrap.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/JA and JT characters.
+
+	* Ideograph-R019-Power.el:
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JT
+	  characters.
+	- Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R012-Eight.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/JA and KS characters.
+
+	* Ideograph-R009-Man.el:
+	- Add Hanyo-Denshi/JT code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JT and KS
+	  characters.
+	- Add some abstract `ideographic-structure's.
+	(U+4F0A): Use `->denotational' to integrate HD-JT-AD4D.
+	(J0-304B): Add `=decomposition@cid' and
+	`=decomposition@hanyo-denshi'.
+	(U+50B3): Use `->denotational' to integrate HD-JT-AD95.
+	(J0-5123): Add `=decomposition@cid' and
+	`=decomposition@hanyo-denshi'.
+
+2011-03-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R033-Scholar.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R015-Ice.el:
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JT
+	  characters.
+	- Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R014-Cover.el:
+	- Add Hanyo-Denshi/JT code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JT
+	  characters.
+	(C1-5E32): Unify HD-KS019090.
+
+2011-03-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R026-Seal.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA
+	  characters.
+
+	* Ideograph-R025-Divination.el: Add some Adobe-Japan1-0 code
+	points.
+	(J0-5246): Add `=decomposition@hanyo-denshi'.
+	(U+5368): Add ideographic-structure.
+
+2011-03-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R010-Legs.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/KS characters.
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x3237.
+
+	* Ideograph-R164-Wine.el (U+91AB): Use `->denotational' and
+	`->subsumptive'.
+
+2011-03-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R027-Cliff.el (G-CU+53A9): Unify G-J78-3139, G-M-03006
+	and G-HD-FT1758.
+	(G-J04U+53A9): Unify G-JX3-3139 and G-GT-03811.
+	(mother of GT-03811): Unify g2-GT-03811 instead of G-GT-03811.
+
+	* Ideograph-R016-Table.el (AJ1-14041): Add `=decomposition@cid'.
+	(AJ1-21189): Likewise.
+
+	* Ideograph-R010-Legs.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/JT characters.
+
+	* Ideograph-R085-Water.el: Add Hanyo-Denshi/JC, JD and IB code
+	points.
+	(BUCS+6F01): New character.
+	(U+6F01): Add `<-denotational' for BUCS+6F01; add
+	ideographic-structure.
+	(U+6E14): Add `<-denotational' for BUCS+6F01.
+
+	* Ideograph-R076-Lack.el: Add some Adobe-Japan1-4 code points.
+
+	* Ideograph-R075-Tree.el: Add Hanyo-Denshi/JC and IB code points.
+	(U+3BD4): Integrate M-15516.
+	(U+3BD8): Integrate M-15536.
+	(U+3BDC): Integrate M-15547.
+	(U+3BDF): Integrate M-15577.
+	(U+3BE3): Integrate M-15610.
+
+	* Ideograph-R073-Say.el (J0-5258): Unify AJ1-04333.
+
+	* Ideograph-R072-Sun.el: Add some Adobe-Japan1-4 code points.
+
+	* Ideograph-R046-Mountain.el: Add `=decomposition@hanyo-denshi'
+	for Hanyo-Denshi/FT characters.
+	(U+5D91): Use `->subsumptive' to separate representative nodes.
+	(U-00021F0B): Likewise.
+	(U+3807): Likewise.
+
+	* Ideograph-R038-Woman.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/FT characters.
+
+	* Ideograph-R026-Seal.el (BC-8A60): Use `<-denotational' for
+	U+5369.
+
+	* Ideograph-R025-Divination.el (U+5361): Use `->subsumptive' to
+	separate representative nodes; integrate AJ1-14369.
+
+	* Ideograph-R028-Private.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R167-Gold.el:
+	- Add mappings between CJK Ext B and CNS 11643 plain 7.
+	- Add Hanyo-Denshi/JC and JD code points.
+	(U-00028BF2): New character.
+
+	* Ideograph-R078-Death.el (JX1-7647): Add
+	`=decomposition@hanyo-denshi'.
+
+	* char-db-util.el (char-db-insert-ccs-feature): Add setting for
+	`=>>>gt'.
+
+2011-03-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R211-Tooth.el (U+9F66): Use `->subsumptive' to
+	separate representative nodes.
+	(U-0002A5FE): Likewise.
+	(U+9F67): Likewise.
+	(U+9F68): Likewise.
+	(U+9F69): Likewise.
+
+	* Ideograph-R118-Bamboo.el (U+7BC0): Use `->denotational' to
+	integrate U+FA56.
+	(U+4210): Integrate M-26203.
+	(U+4211): Integrate M-26207.
+	(U+4213): Integrate M-26215.
+	(U+4216): Integrate M-26220.
+	(U+4217): Integrate M-26225.
+	(U+7BBE): Use `->denotational' instead of `->subsumptive'.
+	(U+7BBF): Use `->subsumptive' to separate representative nodes.
+	(U+421C): Integrate M-26254.
+	(U+421D): Integrate M-26263.
+
+	* Ideograph-R096-Jade.el:
+	- Add some Adobe-Japan1-2 code points.
+	- Add Hanyo-Denshi/JD code points.
+
+	* Ideograph-R039-Child.el: Add some Adobe-Japan1-4 code points.
+	(U+5B51): Add `<-formed@component/connect-right'.
+	(U-000219B7): New character.
+
+	* Ideograph-R011-Enter.el (K0-6E6F): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R012-Eight.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/JT characters.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>>daikanwa'.
+
+2011-03-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R142-Insect.el (U+459D): Use `->denotational' to
+	integrate HD-IA0655.
+	(HD-IA0655): New character.
+	(U-000273FE): Use `->denotational'.
+	(JX2-776B): Unify HD-JD8775.
+
+	* Ideograph-R109-Eye.el: Add Hanyo-Denshi/JD code points.
+	(JX1-7872): Unify AJ1-08572.
+	(U+7746): Use `->subsumptive'.
+	(U+405B): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+778D): Use `->subsumptive' to separate representative nodes.
+	(U-0002524C): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R032-Earth.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some Hanyo-Denshi/JA, JB
+	  and JD characters.
+
+	* Ideograph-R023-Hiding-Enclosure.el: Add some Adobe-Japan1-0 code
+	points.
+
+	* Ideograph-R022-Right-Open-Box.el: Add some Adobe-Japan1-0 code
+	points.
+	(U+5337): Add ideographic-structure.
+
+	* Ideograph-R064-Hand.el: Add Hanyo-Denshi/JB code points.
+	(U+6510): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R053-Dotted-Cliff.el: Add Hanyo-Denshi/FT code points.
+	(U+5E96): Add ideographic-structure.
+	(U+5ED4): Use `->subsumptive'.
+	(U+5ED5): Use `->subsumptive'.
+	(U+5ED6): Use `->denotational' and `->subsumptive'.
+	(U+5ED7): Use `->subsumptive' to separate representative nodes.
+	(U+5ED8): Likewise.
+	(U-00022299): Likewise.
+
+	* Ideograph-R044-Corpse.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/FT characters.
+
+	* Ideograph-R014-Cover.el (JSP-3276): Add `=decomposition@cid'.
+	(G-JX3-514D): New character.
+	(U-0002F818): Use `<-subsumptive' for G-JX3-514D.
+	(J78-514D): Add `=decomposition@cid'.
+	(mother of JC3-43F0): Unify G-UU+51A4, G-J83-514D, G-J90-514D and
+	G-JX1-514D instead of A-UU+51A4.
+	(mother of J90-514D): Unify g2-UU+51A4, g2-J83-514D, g2-J90-514D
+	and g2-JX1-514D instead of G-UU+51A4 and G-JX1-514D.
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL GRASS ONE>):
+	Separate G0-5C33, JX2-7576, BC-8957, GT-39639, GT-K0279 and
+	JC3-72FA; add `<-identical@component' for JX2-7576.
+
+2011-03-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el: Add Hanyo-Denshi/JC, JD and IA code
+	points.
+	(G-UU+8279): New character.
+	(U+FA5E): Use G-UU+8279 instead of U+8279 as the mother; omit
+	`->canonical'.
+	(G0-5C33): Separate <CJK RADICAL GRASS ONE>; use G-UU+8279 instead
+	of U+8279 as the mother.
+	(U+FA5D): Omit `->canonical'.
+	(U-00026AFF): Use `->denotational' to separate representative
+	nodes.
+	(G-GT-K1418): New character.
+	(GT-K1418): Use `<-subsumptive' for G-GT-K1418.
+
+	* Ideograph-R112-Stone.el:
+	- Add some Adobe-Japan1-2 code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JC
+	characters.
+	(U+7879): Use `->subsumptive'.
+	(U+787A): Use `->subsumptive' to separate representative nodes.
+	(U+787B): Likewise.
+
+	* Ideograph-R077-Stop.el: Add some Adobe-Japan1-4 code points.
+
+	* Ideograph-R074-Moon.el (M-14358): Unify AJ1-14614.
+
+	* Ideograph-R071-Not.el: Add some Adobe-Japan1-4 code points.
+
+	* Ideograph-R070-Square.el (JX2-2D6E): Unify AJ1-14600.
+
+	* Ideograph-R066-Rap.el (U+6579): Use `->denotational' instead of
+	`->subsumptive'.
+	(U+657A): Likewise.
+	(JSP-4154): Unify HD-JB3352.
+
+	* Ideograph-R063-Door.el (U+6248): Use `->denotational' instead of
+	`->subsumptive'.
+	(J78-6E3D): Unify HD-FT2003.
+
+	* Ideograph-R062-Halberd.el (G0-423E): Unify HD-FT2201.
+
+	* Ideograph-R060-Step.el (U+5F8F): Unify A-JX2-2C36.
+	(JSP-3D2B): Unify HD-JB2911.
+
+	* Ideograph-R048-Work.el (GT-K0173): New character.
+
+	* Ideograph-R040-Roof.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/FT characters.
+
+	* Ideograph-R021-Spoon.el: Add some Adobe-Japan1-0 code points.
+	(U+5317): Use `->denotational' to integrate U-0002F82B.
+	(J0-4B4C): Modify `ideographic-structure'.
+
+	* Ideograph-R037-Big.el (HD-FT2139): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R031-Enclosure.el: Add some Adobe-Japan1-4 code
+	points.
+	(U+56E4): Use `->subsumptive'.
+
+	* Ideograph-R026-Seal.el, Ideograph-R020-Wrap.el: Add some
+	Adobe-Japan1-4 code points.
+
+	* Ideograph-R073-Say.el (U+6705): Unify AJ1-14613.
+
+2011-03-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R169-Gate.el (U+95CC): Use `->subsumptive'.
+	(U+95CD): Unify A-J0-6F6B.
+
+	* Ideograph-R153-Badger.el (U+8C9B): Unify A-JX2-792A.
+	(JSP-5F27): Separate JX2-792A.
+	(JX2-792A): Unify HD-JD8910.
+
+	* Ideograph-R212-Dragon.el (U+9F95): Use `->subsumptive'.
+
+	* Ideograph-R196-Bird.el (U+9DC0): Use `->denotational'.
+	(M-47204): Unify JC3-90C1.
+	(JX1-7E62): Unify HD-JC9466 and JC3-93BF; add
+	`=decomposition@hanyo-denshi'.
+	(U+9DC1): Use `->denotational'.
+
+	* Ideograph-R191-Fight.el: Add Hanyo-Denshi/JC code points.
+	(U+9B2D): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R172-Short-Tailed-Bird.el (mother of JSP-6674): Unify
+	G-J90U+5DB2 and CU+2F9F4 instead of U-0002F9F4; delete
+	`=>ucs@jis-1990'.
+	(C7-3535): Unify U-0002F9F4.
+
+	* Ideograph-R170-Mound.el (U+968A): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R086-Fire.el:
+	- Add Hanyo-Denshi/IA and IB code points.
+	- Add some Adobe-Japan1-2 code points.
+
+	* Ideograph-R061-Heart.el: Add Hanyo-Denshi/JB code points.
+	(U+60DD): Use `->denotational' and `->subsumptive'.
+	(U+61D5): Use `->subsumptive'.
+
+	* Ideograph-R019-Power.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/JB characters.
+
+	* Ideograph-R016-Table.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	(BUCS+51F1): New character.
+	(U+51F1): Add `<-denotational' for BUCS+51F1.
+	(U+51EF): Ditto; use `->subsumptive' to separate representative
+	node.
+	(U+51F2): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R015-Ice.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+
+	* Ideograph-R113-Spirit.el: Add some Adobe-Japan1-2 code points.
+	(GT-K0945): New character.
+	(U+7963): Use `->denotational' instead of `->subsumptive'.
+	(U+7964): Likewise.
+	(U+7965): Add ideographic-structure.
+	(J0-3E4D): Add `ideographic-structure'.
+	(G0-4F69): Likewise.
+	(U+4104): Use `->denotational' instead of `->subsumptive'.
+	(U+4105): Likewise.
+	(JC3-5CD2): Unify HD-IA0523.
+	(JX2-7264): Unify HD-JD8268; separate UU+4105.
+	(U+7966): Use `->denotational' instead of `->subsumptive'.
+	(U+7967): Likewise.
+	(U+7969): Likewise.
+	(U+796A): Likewise.
+	(U+796B): Likewise.
+	(U+796C): Likewise.
+	(U+796E): Likewise.
+	(U+798F): Add ideographic-structure.
+	(U+FA1B): Add `ideographic-structure'.
+	(J0-4A21): Likewise.
+	(G0-3823): Likewise.
+
+	* Ideograph-R208-Rat.el (U+9F20): Use `->subsumptive'.
+	(U+9F21): Unify AJ1-07454.
+
+2011-03-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>>>jis-x0208' and `=>>>jis-x0213-1'.
+
+	* Ideograph-R017-Open-Box.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+	(U+51F7): Unify AJ1-21190.
+	(C1-4C2A): Unify AJ1-20082.
+
+	* Ideograph-R046-Mountain.el (U+5C82): Unify H2-EEDC; add
+	`<-simplified@CN' for U+8C48.
+
+	* Ideograph-R050-Turban.el: Add Hanyo-Denshi/JB code points.
+	(U+5E42): Add `<-denotational' for BUCS+51AA.
+
+	* Ideograph-R030-Mouth.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/JB characters.
+	(U+5677): Add ideographic-structure.
+
+	* Ideograph-R023-Hiding-Enclosure.el (G-JU+533E): Unify
+	G-JX2-2350.
+	(JSP-3435): Add `=decomposition@hanyo-denshi'.
+
+	* Ideograph-R018-Knife.el (JSP-3334): Add
+	`=decomposition@hanyo-denshi'.
+	(JX2-233F): Ditto.
+
+	* Ideograph-R027-Cliff.el (JSP-3450): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R015-Ice.el: Add abstract characters and relations
+	about BUCS.
+	(JSP-3328): Add `=decomposition@hanyo-denshi'.
+
+	* Ideograph-R014-Cover.el: Add abstract characters and relations
+	about BUCS.
+	(JSP-3275): Add `=decomposition@hanyo-denshi'.
+
+	* Ideograph-R012-Eight.el (JX2-2328): Add
+	`=decomposition@hanyo-denshi'.
+
+2011-03-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R101-Use.el (JSP-4D2A): Unify AJ1-08434.
+
+	* Ideograph-R098-Tile.el (JSP-4C78): Use `=ucs@jis/1990' instead
+	of `=ucs@jis' for J90U+74EF.
+	(JX2-712C): Unify HD-JD8112.
+	(U+7501): Use `->denotational' and `->subsumptive'.
+	(JX1-7847): Unify AJ1-08564.
+
+	* Ideograph-R044-Corpse.el (g2-JX3-454B): Unify G-J04U+5C60,
+	G-KU+5C60 and G-CU+2F877 instead of g2-J04U+5C60, g2-KU+5C60 and
+	g2-CU+2F877.
+
+	* Ideograph-R163-City.el (JX1-7C6C): Add
+	`=decomposition@hanyo-denshi'.
+	(U+9109): Omit `=ucs@unicode'.
+
+2011-03-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R106-White.el: Add some Adobe-Japan1-2 code points.
+	(U+76A7): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R102-Field.el (JSP-4D3B): Unify AJ1-08565.
+
+	* Ideograph-R072-Sun.el (U+5192): Add `<-denotational' for
+	BUCS+5192.
+
+	* Ideograph-R017-Open-Box.el (BUCS+51FD): New character.
+	(U+51FD): Add `<-denotational' for BUCS+51FD.
+	(U+51FE): Ditto.
+
+	* Ideograph-R013-Down-Box.el: Add abstract characters and
+	relations about BUCS.
+
+	* Ideograph-R012-Eight.el (BUCS+5180): New character.
+	(U+517E): Add `<-denotational' for BUCS+5180.
+	(U+5180): Likewise.
+	(U+5181): Add `<-denotational' for BUCS+56C5.
+
+	* Ideograph-R149-Speech.el (JX1-7C34): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R120-Silk.el (JX1-7A24): Add
+	`=decomposition@hanyo-denshi'.
+
+2011-03-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R108-Dish.el (JX1-786A): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R104-Sickness.el (JX1-7852): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R074-Moon.el (GT-18172): Unify HD-IB2048.
+
+	* Ideograph-R073-Say.el (G0-5478): Unify HD-IB0710.
+
+	* Ideograph-R044-Corpse.el, Ideograph-R040-Roof.el: Add
+	Hanyo-Denshi/FT code points.
+
+2011-03-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R159-Cart.el (C6-4545): Unify HD-IA0715.
+	(JX2-795C): Unify HD-JD8960.
+
+	* Ideograph-R058-Snout.el: Add Hanyo-Denshi/FT code points.
+	(G-UU+5F57): New character to integrate HD-FT2178 and G0-6567.
+	(M-09928): Unify U-0002245F.
+	(M-09929): Unify U-00022460.
+	(GI-UU+5F5C): New character to integrate GT-12550, UU+5F5C and
+	HD-FT2176.
+
+	* Ideograph-R038-Woman.el: Add Hanyo-Denshi/FT code points.
+
+	* Ideograph-R060-Step.el (J78-352B): Unify HD-FT1775.
+
+	* Ideograph-R050-Turban.el: Add Hanyo-Denshi/FT code points.
+	(U+5E64): Use `->denotational'.
+
+	* Ideograph-R049-Oneself.el: Add Hanyo-Denshi/FT code points.
+
+	* Ideograph-R046-Mountain.el: Add Hanyo-Denshi/FT code points.
+	(U+5CBC): Use `->denotational' and `->subsumptive'.
+	(U+5CED): Use `->denotational' and `->subsumptive'.
+	(U+5D90): Use `->denotational' to integrate HD-FT2163.
+
+	* Ideograph-R037-Big.el (GI-UU+5960): New character to integrate
+	G0-356C and HD-FT2139.
+	(HD-FT2139): New character.
+
+2011-03-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R019-Power.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/FT characters.
+
+2011-03-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x4575, #x5F7C and #x3B38.
+
+	* Ideograph-R108-Dish.el (JX1-786A): Unify HD-JC8874.
+	(U-00025060): Use `->denotational' instead of `->subsumptive'.
+	(U-000250B4): Add ideographic-structure.
+	(IU+250B4): Add `ideographic-structure'.
+	(G-dJU+250B4): New character.
+	(H12-EEF2): Use `<-subsumptive' for G-dJU+250B4 instead of
+	`<-denotational' for U-000250B4.
+
+	* Ideograph-R163-City.el (B-B66D): Unify A-J2000U+9115,
+	A-J2004U+9115 and A-JX1-7C6C.
+	(K0-7A41): Unify HD-IP-9115.
+	(JX1-7C6C): Unify HD-JC9276.
+
+	* Ideograph-R162-Walk.el (U+8FBC): Use `->denotational' and
+	`->subsumptive'.
+	(M-38712): Unify JC3-67A6.
+	(U-000284A6): Use `->denotational' instead of `->subsumptive'.
+	(U+9027): Use `->denotational'.
+	(U+9056): Likewise.
+
+	* Ideograph-R149-Speech.el (U-00027A62): Fixed typo.
+	(U+8ADA): Use `->subsumptive'.
+	(J0-427A): Add `<-same' for M-35753.
+	(G-CU+8AFE): New character to integrate M-35753 and C1-723F.
+	(M-35753): New character.
+	(C1-723F): Unify CU+8AFE.
+	(U+8B69): Use `->subsumptive'.
+	(JX1-7C34): Unify HD-JC9220.
+
+	* Ideograph-R094-Dog.el: Add some Adobe-Japan1-2 code points.
+	(U+7323): Use `->denotational' instead of `->subsumptive'.
+	(U-000247DC): Use `->subsumptive'.
+	(U+7324): Likewise.
+	(U-000247DD): Use `->subsumptive' to separate representative
+	nodes.
+	(mother of JX1-776F): Unify G-JU+FA16, G-KU+732A and G-CU+732A
+	instead of U+FA16.
+	(JX1-776F): Unify U+FA16.
+	(U+7377): Unify A-JX2-7057.
+	(B-C278): Unify o-JU+7377 and A-CU+7377.
+	(C1-7664): Unify CU+7377.
+
+	* Ideograph-R120-Silk.el (JSP-5368): Separate JX1-7A24.
+	(JX1-7A24): Unify HD-JC9004.
+
+2011-03-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R133-Arrive.el (U+5230): Unify AJ1-03192.
+	(U-00026934): Use `->subsumptive' to separate representative
+	nodes.
+
+	* Ideograph-R030-Mouth.el: Add Hanyo-Denshi/HG code points.
+	(U+55B0): Unify G-J0-3674 instead of A-J0-3674.
+
+	* maps-conf.el: For each JIS X 0208:1997 abstract character which
+	the corresponding JIS X 0213:2000 representative glyph image is
+	changed in the 2004 edition, don't add `=>jis-x0208' feature if
+	`=>>jis-x0208' feature is defined.
+
+	* Ideograph-R075-Tree.el:
+	- Add some Adobe-Japan1-2 code points.
+	- Add Hanyo-Denshi/JD and HG code points.
+	- Use `->subsumptive'. for some characters.
+	- Add some abstract `ideographic-structure's.
+	(K0-526E): Unify KU+677B.
+	(U+3B4B): Use `->denotational'.
+	(U+67BF): Use `->subsumptive' to separate representative node.
+	(U+67E2): Use `->denotational'.
+	(U+6852): Use `->denotational' instead of `->subsumptive'.
+	(U+6813): Likewise.
+	(U+6838): Likewise.
+	(U+6845): Use `->subsumptive' to separate representative nodes.
+	(U+6867): Unify S-3848; add `<-vulgar' for U+6A9C.
+	(U-00023455): Use `->denotational' instead of `->subsumptive'.
+	(U-0002347F): Integrate M-14809.
+	(U-00023481): Integrate M-14836.
+	(U+68A6): Unify AJ1-04542.
+	(A-JX1-7568): New abstract character.
+	(U+68B2): Add `<-denotational' for A-JX1-7568.
+	(U+68C1): Likewise.
+	(U+68B4): Use `->denotational' instead of `->subsumptive'.
+	(U-000234B6): Integrate M-14894.
+	(U+68B7): Use `->subsumptive' to separate representative nodes.
+	(U-000234AC): Integrate M-14903.
+	(U-000234AB): Integrate M-14905.
+	(U-000234A9): Unify M-14906.
+	(U+68B9): Unify S-3869; add `<-vulgar' for J0-5D27.
+	(U+68CE): Use `->denotational' instead of `->subsumptive'.
+	(U+68F1): Likewise.
+	(U-000234D5): Integrate M-14997.
+	(U+68FE): Use `->subsumptive' to separate representative nodes.
+	(U+6908): Likewise.
+	(U+FA13): Use `->denotational' to separate representative node.
+	(U+6939): Use `->denotational' instead of `->subsumptive'.
+	(U+695A): Use `->subsumptive' to separate representative nodes.
+	(U+698E): Use `->denotational' instead of `->subsumptive'.
+	(U-00023641): Use `->subsumptive' to separate representative
+	nodes.
+	(CB02608): Separate M-15424; add `<-unknown' for M-15424.
+	(U+6A89): Use `->denotational' instead of `->subsumptive'.
+	(U+6A8A): Use `->subsumptive' to separate representative node.
+	(U+6A9A): Use `->subsumptive' to separate representative nodes.
+	(U+6A9D): Use `->denotational' instead of `->subsumptive'.
+	(U+6AA1): Use `->subsumptive' to separate representative nodes.
+
+2011-03-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el:
+	- Add some Adobe-Japan1-2 code points.
+	- Use `->denotational' and/or `->subsumptive' for some characters.
+	(U+6C8A): Use `->subsumptive' to separate representative nodes.
+	(U+6C8B): Likewise.
+	(U+6C91): Use `->denotational' to separate representative nodes.
+	(U+6C92): Use `->subsumptive' to separate representative nodes.
+	(U+6CC5): Likewise.
+	(U+6CD7): Likewise.
+	(U+6CEA): Add `<-formed' for JX1-7673.
+	(U+6D12): Use `->subsumptive' to separate representative nodes.
+	(mother of C6-392D): Unify G-KU+6D69 and G-CU+2F903 instead of
+	U-0002F903.
+	(C6-392D): Unify U-0002F903.
+	(U+6D8F): Use `->subsumptive' to separate representative node.
+	(B-D258): Separate JSP-474C, M-17545 and JC3-56A8.
+	(U+6D97): Use `<-denotational' for B-D258.
+	(U+6D9A): Likewise.
+	(U+6DCE): Use `->subsumptive' to separate representative nodes.
+	(U+6DD4): Use `->denotational' instead of `->subsumptive'.
+	(U+6DD5): Likewise.
+	(U+6DE7): Use `->subsumptive' to separate representative nodes.
+	(U+6DE9): Use `->denotational' instead of `->subsumptive'.
+	(U+6E23): Use `->denotational' instead of `->subsumptive'.
+	(U+6E8C): Use `<-simplified@JP/jis' instead of `<-simplified@JP'
+	for J78-482E.
+	(U-00023E6C): Use `->subsumptive' to separate representative
+	nodes.
+	(K0-7C41): Unify KU+6ED1.
+	(C1-646C): Unify CU+6ED1.
+	(U+6F00): Use `->subsumptive' to separate representative nodes.
+	(U+6F31): Likewise.
+	(U+6F52): Likewise.
+	(U+6F58): Likewise.
+	(K0-7C52): Unify KU+6F62.
+	(C1-6D52): Unify CU+6F78.
+	(U+6F84): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R053-Dotted-Cliff.el (U+5E9A): Use `->subsumptive'.
+
+	* Ideograph-R124-Feather.el (G0-4E4C): Separate J90-3227, JX1-3227
+	and GT-36866.
+
+	* Ideograph-R123-Sheep.el (JX2-7474): Add `=decomposition@cid'.
+
+	* Ideograph-R122-Net.el (JSP-5475): Unify AJ1-15000.
+
+	* Ideograph-R117-Stand.el (J0-5474): Add `=decomposition@cid';
+	unify AJ1-04549.
+
+	* Ideograph-R111-Arrow.el (U-00020170): Add ideographic-structure.
+	(C6-4C2D): Unify CU+20170.
+
+	* Ideograph-R073-Say.el (J0-5258): Add
+	`=decomposition@hanyo-denshi'.
+	(J0-3A47): Ditto.
+
+	* Ideograph-R061-Heart.el: Add Hanyo-Denshi/IB code points.
+	(JX3-327A): Unify HD-HG1608.
+	(U+60E0): Use `->denotational' and `->subsumptive'.
+	(U+6166): Use `->subsumptive' to separate representative nodes.
+	(U+6167): Use `->denotational' instead of `->subsumptive'.
+	(U-000227E9): Likewise.
+
+	* Ideograph-R036-Evening.el: Add some Adobe-Japan1-0 code points.
+	(U-00020199): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R034-Go.el: Add some Adobe-Japan1-0 code points.
+	
+	* Ideograph-R012-Eight.el (UU+517E): Unify CB01005.
+
+2011-02-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R029-Again.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/JA characters.
+
+	* Ideograph-R014-Cover.el, Ideograph-R013-Down-Box.el (J0-3A47):
+	Add `=decomposition@hanyo-denshi'.
+
+	* Ideograph-R009-Man.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/JA and JB characters.
+
+	* Ideograph-R008-Lid.el (U-00020199): Use `->denotational' instead
+	of `->subsumptive'.
+
+	* Ideograph-R028-Private.el (JX2-2359): Add
+	`=decomposition@hanyo-denshi'.
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x5D7A.
+
+	* Ideograph-R064-Hand.el (JX3-4237): Unify HD-HG1637.
+
+	* Ideograph-R063-Door.el (JX3-5928): Unify HD-HG1661.
+
+2011-02-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (GT-09035): Separate J83-5563, J90-5563,
+	JX1-5563 and JC3-4AC8.
+	(mother of C4-3130): Unify CU+2F86D instead of U-0002F86D.
+	(C4-3130): Unify U-0002F86D.
+
+	* Ideograph-R078-Death.el (U+6BA9): Use `->denotational' and
+	`->subsumptive'.
+	(JSP-462B): Separate JX1-7647.
+	(JX1-7647): Unify HD-JC8639.
+
+	* Ideograph-R081-Compare.el (JSP-4638): Unify AJ1-08509; separate
+	G0-3151.
+	(U+6BD7): Use `->subsumptive'.
+
+	* Ideograph-R019-Power.el (GI-UU+52F6): Add ideographic-structure.
+
+	* Ideograph-R009-Man.el:
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/FT
+	  characters.
+	- Add Hanyo-Denshi/KS code points.
+	(U-00020230): Use `->denotational' instead of `->subsumptive'.
+	(U+5099): Likewise.
+	(U+50CF): Use `->denotational' to ingrate HD-KS013380.
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x5563.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>>ucs@iso', `=>>>ucs@iso' and `=>>>ucs@unicode'.
+
+	* Ideograph-R060-Step.el (U+5F8F): Use `->denotational' and
+	`->subsumptive'.
+	(HD-IB1837): New character.
+	(U+5FB9): Use `->subsumptive'.
+
+	* Ideograph-R056-Shoot.el (M-09660): Map to U-0002237C.
+	(U+5F0E): Use `->subsumptive'.
+	(JC3-41A7): Unify HD-IB1803.
+
+	* Ideograph-R018-Knife.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/FT
+	  characters.
+	- Add some abstract `ideographic-structure's.
+	(G0-4850): Unify HD-IB0302.
+	(U+5275): Use `->denotational' instead of `->subsumptive'.
+	(U+527E): Likewise.
+	(U+529A): Likewise.
+
+	* Ideograph-R017-Open-Box.el: Add some Adobe-Japan1-0 code points.
+	(M-01819): Unify U-00020684 and H1-E5A4.
+	(M-01820): Map to U-00020683.
+	(M-01821): Unify U-00020685 and H1-E5BD.
+	(M-01822): Don't map to U+342B; add `ideographic-structure'; add
+	`<-vulgar' for J0-3627.
+	(U+342B): Add ideographic-structure.
+	(BC-8C5E): Add `<-vulgar' for J0-3627.
+
+	* Ideograph-R010-Legs.el:
+	- Add Hanyo-Denshi/KS code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/FT
+	  characters.
+	(M-01344): Separate U+FA74 and C1-4572.
+
+2011-02-27  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R053-Dotted-Cliff.el: Add Hanyo-Denshi/IB code points.
+
+	* Ideograph-R050-Turban.el (U-000220EC): Use `->denotational'
+	instead of `->subsumptive'.
+	(U+3850): Likewise.
+	(U+5E3E): Likewise; add ideographic-structure.
+
+	* Ideograph-R020-Wrap.el: Add some Adobe-Japan1-0 code points.
+	(G0-307C): Unify HD-IB1488.
+	(U+5309): Add ideographic-structure.
+	(U+530F): Use `->subsumptive' to separate representative node.
+	(U+5312): Add ideographic-structure.
+
+	* Ideograph-R012-Eight.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/FT characters.
+	(M-01459): Unify HD-KS017040.
+
+	* Ideograph-R048-Work.el (U+5DE6): Use `->denotational' to
+	integrate HD-IB0665.
+
+2011-02-27  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R064-Hand.el: Add Hanyo-Denshi/IB code points.
+
+	* Ideograph-R063-Door.el (G0-4B79): Unify HD-IB0315.
+
+	* Ideograph-R057-Bow.el (GT-12420): Unify HD-IB1818.
+
+	* Ideograph-R054-Long-Stride.el (U+5EF6): Use `->denotational'
+	instead of `->subsumptive'.
+	(HD-IB0312): New character.
+
+	* Ideograph-R051-Dry.el: Add Hanyo-Denshi/IB code points.
+
+	* Ideograph-R046-Mountain.el: Add Hanyo-Denshi/IB code points.
+	(U+5C76): Unify AJ1-04660.
+
+	* Ideograph-R038-Woman.el (G0-663A): Unify HD-IB0655.
+
+	* Ideograph-R037-Big.el: Add Hanyo-Denshi/IB code points.
+
+	* Ideograph-R032-Earth.el (C2-222A): Unify HD-IB1573.
+
+	* Ideograph-R030-Mouth.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/FT characters.
+	(U+550C): Use `->denotational' instead of `->subsumptive'.
+	(J78-426F): Unify HD-IB1535.
+
+	* Ideograph-R019-Power.el: Add some Adobe-Japan1-0 code points.
+	(U+52AA): Use `->subsumptive' to separate representative nodes.
+	(U+52C6): Add ideographic-structure; use `->denotational' instead
+	of `->subsumptive'.
+	(JC-44EC): Unify HD-IB0303.
+	(U+52D8): Add ideographic-structure.
+	(U-00020895): Use `->denotational' instead of `->subsumptive'.
+	(U+52ED): Add ideographic-structure.
+	(U+52F6): Likewise.
+	(U-000208BA): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R013-Down-Box.el (J78-5147): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R031-Enclosure.el: Add `=decomposition@hanyo-denshi'
+	for Hanyo-Denshi/FT characters.
+
+	* Ideograph-R029-Again.el (JX3-4840): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R027-Cliff.el (HD-FT1758): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R026-Seal.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/FT characters.
+
+	* Ideograph-R015-Ice.el (GT-02194): Unify HD-IB1442.
+	(HD-FT1861): Add `=decomposition@hanyo-denshi'.
+
+	* Ideograph-R014-Cover.el (HD-FT2081): Add
+	`=decomposition@hanyo-denshi'.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>>hanyo-denshi/ks'.
+	(char-db-insert-ccs-feature): Add setting for
+	`=>>hanyo-denshi/ks'.
+
+2011-02-26  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R073-Say.el (J0-52D7): Unify AJ1-04285.
+
+	* Ideograph-R006-Hook.el (mother of C5-2127): Unify G-CU+2010D.
+	(U-0002011D): Use `ideographic-radical@{ucs|cns}' and
+	`ideographic-strokes' instead of `ideographic-'.
+
+	* Ideograph-R002-Line.el (U-0002011D): Use
+	`ideographic-radical@{ucs|cns}' and `ideographic-strokes' instead
+	of `ideographic-'.
+
+2011-02-26  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R008-Lid.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/KS characters.
+
+	* Ideograph-R007-Two.el (U-0002F81B): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R004-Slash.el, Ideograph-R001-One.el: Add
+	`=decomposition@hanyo-denshi' for Hanyo-Denshi/KS characters.
+
+	* Ideograph-R031-Enclosure.el: Add Hanyo-Denshi/FT code points.
+
+	* Ideograph-R030-Mouth.el:
+	- Add Hanyo-Denshi/JA, JB and FT code points.
+	- Add some Adobe-Japan1-2 code points.
+	- Add some abstract `ideographic-structure's.
+	(U+3569): Use `->denotational' and `->subsumptive'.
+	(JX2-2364): Unify HD-JD0368; add `<-simplified@CN' for G1-453B;
+	add `<-vulgar' for J0-5352.
+	(J0-526B): Fix an operator of `ideographic-structure'.
+	(CB04799): Likewise.
+	(G0-3E4C): Unify S-1019; add `<-vulgar' for J0-526B.
+	(U+54FD): Use `->subsumptive' to separate representative nodes.
+	(U+54FE): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+554F): Use `->subsumptive' to separate representative nodes.
+	(U+5556): Likewise.
+	(U+555C): Likewise.
+	(U+555D): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+5589): Use `->subsumptive' to separate representative nodes.
+	(U+35CB): Use `->subsumptive'.
+	(A-J0-5348): Unify A-JU+55A9.
+	(U+55C4): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+55E4): Use `->denotational' instead of `->subsumptive'.
+	(U+55FD): Use `->subsumptive' to separate representative nodes.
+	(U+55FE): Likewise.
+	(U+5614): Use `->denotational'.
+	(CB02520): Map to U-00020F26.
+	(CB03320): Map to U-00020F41.
+	(CB03295): Map to U-00020F44.
+	(U+5643): Use `->subsumptive' to separate representative nodes.
+	(U+5664): Likewise.
+	(U+35FC): Use `->subsumptive'.
+	(U+35FD): Use `->denotational'.
+	(U+5666): Use `->subsumptive' to separate representative node.
+	(M-04373): Map to U-00020FD2.
+	(U+566B): Use `->denotational' instead of `->subsumptive'.
+	(U-00020FE2): Use `->subsumptive' to separate representative
+	nodes.
+	(JX1-2F34): Unify HD-JC1520; add `=decomposition@hanyo-denshi'.
+	(U+5694): Compact ideographic-structure.
+	(U+56AC): Use `->subsumptive' to separate representative nodes.
+	(U+56B1): Likewise.
+	(U+56D0): Use `->denotational' and `->subsumptive'.
+	(U-00021170): Use `->subsumptive'.
+	(U+56D1): Use `->denotational' instead of `->subsumptive'.
+	(U+56D5): Use `->denotational'.
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	New variable; add #x5D27; use it to avoid to add `=gt-pj-1' for
+	JIS X0208:1990 characters.
+
+	* Ideograph-R016-Table.el: Add some Adobe-Japan1-0 code points.
+	(U+51E9): Use `->subsumptive' to separate representative node.
+	(U+51ED): Use `->denotational'.
+	(U-0002015E): Use `->denotational' instead of `->subsumptive'.
+	(U+51F1): Use `->subsumptive' to separate representative node.
+
+	* Ideograph-R014-Cover.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+	(JSP-3276): Unify AJ1-14350.
+	(U-0002F818): Use `->subsumptive' to separate representative
+	nodes.
+	(J78-514D): Unify AJ1-07817.
+
+	* Ideograph-R004-Slash.el (JX2-212B): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R008-Lid.el (HD-JT-AD2B): Add
+	`=decomposition@hanyo-denshi'.
+	(U+342B): Add ideographic-structure.
+	(BC-8C5E): Add `<-vulgar' for J0-3627.
+	(U-0002015E): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R003-Dot.el (HD-JT-AD1E): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R001-One.el (HD-JT-AD08): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R072-Sun.el (JX2-2E2A): Unify J2004U+6680 and
+	HD-JD1410.
+	(mother of C3-3C21): Unify G-CU+3AFD.
+	(C3-3C21): Unify CU+3AFD.
+
+	* Ideograph-R009-Man.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	- Add some abstract `ideographic-structure's.
+	(U+4F33): Use `->denotational' instead of `->subsumptive'.
+	(U+4F35): Use `->subsumptive' to separate representative nodes.
+	(U+4F40): Use `->denotational' instead of `->subsumptive'.
+	(U+4F2B): Use `->subsumptive' to integrate AJ1-19147.
+	(U+4F73): Use `->denotational' to integrate AJ1-20076.
+	(M-00650): Separate JSP-3131 and JU+4FB9; unify C2-2930, JC3-42BF
+	and UU+4FB9.
+	(U+4FE2): Use `->denotational' to separate representative nodes.
+	(U+5036): Use `=jis-x0208@1978', `=jis-x0208@1983' and
+	`=jis-x0208@1990' instead of `=jis-x0208' for J0-3666; don't use
+	`jisx0208-difference'.
+	(U+5024): Use `->denotational' to integrate AJ1-13919.
+	(U+503C): Use `->subsumptive' to separate representative nodes.
+	(U+5051): Use `->denotational' instead of `->subsumptive'.
+	(J78-3766): Unify AJ1-13433 instead of AJ1-01852.
+	(J90-3766): Unify AJ1-01852.
+	(U+50A1): Use `->subsumptive' to separate representative nodes;
+	compact `ideographic-structure's.
+	(U-0002032B): Use `->subsumptive' to separate representative
+	nodes.
+	(U+50C0): Likewise.
+	(J78-417C): Separate M-01084.
+	(U+50DC): Use `->subsumptive' to separate representative nodes.
+	(U-000203D9): Use `->subsumptive' to separate representative node.
+	(G-UU+511A): Use `->subsumptive' to integrate AJ1-14102.
+	(JSP-325A): Separate H1-D5FA.
+	(C3-5441): Unify H1-D5FA.
+
+2011-02-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R015-Ice.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	(U-000205B1): Use `->subsumptive' to separate representative
+	nodes.
+	(U+34CF): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(M-01653): Map to U-000205CF.
+	(U+51C2): Use `->subsumptive' to separate representative nodes.
+	(U+34D4): Likewise.
+	(U+51D3): Use `->subsumptive'.
+	(U+51D4): Use `->subsumptive' to separate representative nodes.
+	(U+51D5): Use `->subsumptive'.
+	(U+51DF): Use `->denotational' to integrate AJ1-19182.
+	(U-0002061D): Use `->denotational' to separate representative
+	nodes.
+	(U-0002061E): Use `->subsumptive' to separate representative
+	nodes.
+	(U-0002061F): Likewise.
+
+	* Ideograph-R029-Again.el (AJ1-20143): Add `=decomposition@cid'.
+
+	* Ideograph-R073-Say.el (G-CU+2F8D3): Add ideographic-structure.
+	(J78-514B): Unify AJ1-07816; add `=decomposition@cid'.
+	(AJ1-14136): New character.
+	(C1-5E32): Unify AJ1-20143; add `=decomposition@cid'.
+	(J0-3A47): Unify AJ1-02103; add `=decomposition@cid'.
+	(JX2-2E37): Unify HD-JD1423.
+
+	* Ideograph-R050-Turban.el (U+3836): Use `->subsumptive' to
+	separate representative nodes.
+	(JX2-2871): Unify HD-JD0881.
+	(U+3837): Use `->denotational' to separate representative nodes.
+	(J0-5670): Omit `ideographic-structure'.
+	(C1-6C57): Add `ideographic-structure'.
+
+	* Ideograph-R013-Down-Box.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	(U-0002F815): Unify AJ1-20061.
+	(JSP-3273): Unify AJ1-21183.
+	(U+5191): Use `->denotational' to separate J78-5149_-4.
+	(G-UU+5192): Separated from UU+5192 to integrate AJ1-14038.
+	(U+5193): Add ideographic-structure.
+	(J90-514A): Separate C2-2E23, GT-02024 and GT-K6574.
+	(J78-514A): Unify C2-2E23, GT-02024, GT-K6574 and AJ1-13521.
+	(A-UU+5195): New character.
+	(G0-4361): Use A-UU+5195 instead of U+5195 as the mother.
+	(AJ1-14104): New character.
+	(CU+2F8D3): Add ideographic-structure.
+	(GT-02031): Unify AJ1-14137.
+	(C1-5E32): Unify AJ1-20143.
+
+	* Ideograph-R072-Sun.el (U-0002F8D2): Unify AJ1-03695.
+	(M-13835): Unify JSP-4221 and J1990U+661E.
+	(JX1-752F): Separate JSP-4221 and J1990U+661E; unify HD-JC8515;
+	add `=decomposition@hanyo-denshi'.
+	(J78-5A70): Unify AJ1-13548.
+	(J90-5A70): Unify AJ1-05109.
+	(JX1-7540): Unify J2004U+6677 and HD-JC8532; add
+	`=decomposition@hanyo-denshi'.
+	(U+66D5): Add ideographic-structure; use `->denotational' instead
+	of `->subsumptive'.
+
+	* Ideograph-R015-Ice.el: Add some Adobe-Japan1-0 code points.
+	(U+51B4): Add ideographic-structure.
+	(U+51C7): Ditto.
+	(U+51CB): Ditto.
+	(U+51D7): Ditto.
+	(U+51DC): Ditto.
+	(U+51DB): Ditto.
+
+	* Ideograph-R014-Cover.el: Add some Adobe-Japan1-0 code points.
+	(U+51A1): Add ideographic-structure.
+	(U+51A6): Use `->subsumptive' to separate representative nodes.
+	(C1-5E32): Unify AJ1-20143.
+	(J0-3A47): Add `=decomposition@cid'.
+
+2011-02-24  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R053-Dotted-Cliff.el: Add Hanyo-Denshi/JB code points.
+	(mother of JSP-3C4A): Unify G-UU+5EAC.
+	(mother of C2-2E7A): Unify G-CU+5EAC.
+	(C2-2E7A): Unify CU+5EAC.
+	(U-0002225F): Use `->subsumptive' to separate representative
+	nodes.
+	(U+5EBF): Use `->denotational' and `->subsumptive'.
+	(U-00022260): Use `->subsumptive' to separate representative
+	nodes.
+	(U-00022261): Use `->subsumptive'.
+	(U+388D): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+5ECB): Use `->denotational' instead of `->subsumptive'.
+	(JX1-742F): Separate JSP-3C52 and J1990U+5ECB; unify HD-JC8415.
+	(C2-4266): Separate GIR-7B2B and UU+5ECB.
+	(U+5ED9): Use `->denotational' and `->subsumptive'.
+	(JX2-2C2A): Unify HD-JD1210.
+
+	* Ideograph-R046-Mountain.el: Add Hanyo-Denshi/JB and JD code
+	points.
+	(U+5C88): Use `->subsumptive'.
+	(U+5C89): Use `->subsumptive' to separate representative nodes.
+	(U+5D06): Use `->denotational' and `->subsumptive'.
+	(U+37D7): Use `->subsumptive' to separate representative nodes.
+	(U+37D8): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(mother of C2-3479): Unify G-UU+5D1D.
+	(U+5D1E): Use `->subsumptive'.
+	(U+5D25): Use `->subsumptive' to separate representative nodes.
+	(U+5D26): Likewise.
+	(U+5D28): Likewise.
+	(U+5D73): Likewise.
+	(U+5D70): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+5D71): Use `->subsumptive' to separate representative nodes.
+	(U+5D72): Likewise.
+	(U+3808): Likewise.
+	(U+3809): Likewise.
+	(U+5D92): Use `->denotational' and `->subsumptive'.
+	(JX2-2864): Unify J2004U+5DB2.
+
+	* Ideograph-R064-Hand.el (U+6479): Use `->denotational'.
+	(JX1-7478): Unify JC3-91DB and HD-JC8488; add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R029-Again.el (U+53DF): Use `->denotational' to
+	integrate U-0002F837; unify A-J0-5257.
+	(mother of C6-2643): Unify A-CU+2F837 instead of U-0002F837.
+	(C6-2643): Unify U-0002F837.
+	(GI-JX3-5257): New node.
+	(JX3-5257): Separate C1-5451; use `<-subsumptive' for GI-JX3-5257.
+	(C1-5451): Use `<-subsumptive' for GI-JX3-5257.
+	(GI-J0-5257): New node.
+	(C1-5E32): Unify AJ1-20143.
+	(J0-3A47): Add `=decomposition@cid'; unify AJ1-02103.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-514A.
+
+2011-02-23  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R012-Eight.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+
+	* Ideograph-R011-Enter.el (AJ1-13966): Add `=decomposition@cid'.
+	(AJ1-13890): Ditto.
+
+	* Ideograph-R074-Moon.el (mother of JX2-2E3B): Unify G-JU+6719 and
+	G-CU+6719.
+	(C3-3647): Unify CU+6719.
+	(U+671A): Add ideographic-structure.
+
+	* Ideograph-R060-Step.el (mother of G0-6167): Unify G-UU+5FB5.
+	(K0-7323): Unify HD-IP-5FB5.
+	(JX1-7444): Add `=decomposition@hanyo-denshi'.
+
+2011-02-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R062-Halberd.el (U+6220): Use `->denotational' and
+	`->subsumptive'.
+	(U+6221): Use `->denotational' instead of `->subsumptive'.
+	(U+6222): Likewise.
+
+	* Ideograph-R059-Bristle.el (J0-3D24): Add `=decomposition@cid'.
+
+	* Ideograph-R051-Dry.el (U+5E76): Unify AJ1-04738.
+	(JX3-7E7C): Unify AJ1-19346.
+
+	* Ideograph-R061-Heart.el:
+	- Add some Adobe-Japan1-2 code points.
+	- Add Hanyo-Denshi/JD code points.
+	(U+3917): Use `->subsumptive' to separate representative nodes.
+	(JX2-2C46): Unify HD-IA0290.
+	(A-J0-3159): New character.
+	(U+6085): Use `->subsumptive'; add `<-denotational' for A-J0-3159.
+	(U+60A6): Add `<-denotational' for A-J0-3159.
+	(U+392F): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+608B): Use `->subsumptive' to separate representative nodes.
+	(U+60C7): Use `->denotational' to integrate U-0002F8A5.
+	(U+60DE): Use `->subsumptive' to separate representative nodes.
+	(U+6111): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(mother of C6-4878): Unify G-CU+2F8A5 and G-M-10955 instead of
+	U-0002F8A5; add `<-denotational' for U+60C7.
+	(C6-4878): Unify U-0002F8A5.
+	(U+396C): Use `->subsumptive' to separate representative nodes.
+	(U+396D): Likewise.
+
+2011-02-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (mother of K0-4E30): Unify G-KU+5BEC and
+	G-CU+5BEC.
+	(K0-4E30): Unify KU+5BEC.
+	(C1-6C4F): Unify CU+5BEC.
+	(mother of JX1-4F5A): Unify G-UU+5BEC.
+	(JX1-4F5A): Unify JU+5BEC and HD-JC4758; add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R032-Earth.el:
+	- Add Hanyo-Denshi/JT code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JC
+	  characters.
+	- Add some abstract `ideographic-structure's.
+	(U-0002125F): Use `->subsumptive' to separate representative
+	nodes.
+	(U-00021489): Likewise.
+	(U-000214A4): Likewise.
+	(U+3678): Likewise.
+	(U-0002148B): Likewise.
+	(U+58CF): Use `->denotational' to separate representative nodes.
+
+	* Ideograph-R020-Wrap.el (JX1-2E6C): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R015-Ice.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/JC characters.
+
+	* Ideograph-R009-Man.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add Hanyo-Denshi/JA, JB, JC, FT and IB code points.
+	- Add some abstract `ideographic-structure's.
+
+2011-02-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-505B.
+
+	* Ideograph-R038-Woman.el: Add Hanyo-Denshi/JT code points.
+	(mother of J0-4245): Unify G-UU+59A5.
+	(mother of K0-6D2C): Unify A-KU+59FF and A-CU+59FF.
+	(K0-6D2C): Unify KU+59FF.
+	(C1-505C): Unify CU+59FF.
+	(mother of J0-3B51): Unify G-UU+59FF.
+	(U+5A1C): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+36D5): Use `->subsumptive' to separate representative nodes.
+	(U+36D6): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+5AE1): Use `->denotational' to separate JC3-49DC.
+	(A-UU+5B34): New character to integrate HD-JT-B003 and G0-5978.
+
+	* Ideograph-R037-Big.el: Add Hanyo-Denshi/JB and JT code points.
+	(G-UU+3691): New character to integrate HD-JT-AFBF and UU+3691.
+	(U+5946): Use `->subsumptive' to separate representative nodes.
+	(B-ABB4): Unify G-UU+5951.
+	(U+595F): Use `->denotational'.
+	(mother of J0-547B): Unify G-JU+5960 and G-KU+5960.
+	(K0-6E75): Unify KU+5960.
+	(mother of G0-356C): Unify G-UU+5960.
+
+	* Ideograph-R031-Enclosure.el: Add Hanyo-Denshi/JT code points.
+	(G-CU+56F6): New character to integrate HD-JT-AF38 and C3-2822.
+
+	* Ideograph-R018-Knife.el: Add Hanyo-Denshi/JT code points.
+	(U-00020807): Use `->denotational'.
+	(M-02257): Unify U-0002080C.
+
+	* Ideograph-R048-Work.el (U+5DE9): Use `->denotational' and
+	`->subsumptive'.
+	(JSP-3C21): Unify HD-JB2801.
+	(GT-11004): Add `ideographic-structure'.
+
+2011-02-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R029-Again.el (J0-355A): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R016-Table.el (C6-3531): Unify CU+2015E.
+
+	* Ideograph-R015-Ice.el: Add some Adobe-Japan1-4 code points.
+
+	* Ideograph-R013-Down-Box.el (J0-4662): Unify AJ1-03258.
+	(U+34BC): Add `ideographic-structure'.
+
+	* Ideograph-R005-Second.el (U+4E7C): Use `->subsumptive' to
+	separate representative node.
+
+	* Ideograph-R012-Eight.el:
+	- Add `=decomposition@cid' for Adobe-Japan1 characters.
+	- Add some Adobe-Japan1 code points.
+
+	* Ideograph-R011-Enter.el:
+	- Add `=decomposition@cid' for Adobe-Japan1 characters.
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA character.
+	(G-CU+5168): Unify G-KU+5168.
+	(K0-6E6F): Unify KU+5168.
+	(U-000204E0): Use `->subsumptive'.
+	(mother of C3-2B37): Unify G-UU+516A.
+	(U-000204FF): Add ideographic-structure.
+
+	* Ideograph-R010-Legs.el:
+	- Add `=decomposition@cid' for Adobe-Japan1 characters.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JB
+	  character.
+	(AJ1-21177): New character.
+	(AJ1-13477): New character.
+	(H1-DDC9): Unify AJ1-13949.
+	(JSP-3267): Unify AJ1-21178.
+	(U-00020486): Use `->subsumptive' to separate representative node.
+	(U+5153): Add ideographic-structure.
+	(JSP-3268): Unify AJ1-21179.
+	(J78-513D): Unify AJ1-07814.
+	(AJ1-14103): New character.
+	(U+5158): Unify AJ1-21180.
+	(M-01379): Map to U-0002048F.
+	(U-0002048F): Integrate M-01379.
+	(U-000204BF): Use `->subsumptive'.
+	(U-000204D6): Use `->subsumptive' to separate representative node.
+
+	* Ideograph-R008-Lid.el:
+	- Add `=decomposition@cid' for Adobe-Japan1 characters.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JB
+	  character.
+
+	* Ideograph-R001-One.el (J0-4D3F): Add
+	`=decomposition@hanyo-denshi'.
+	(J0-312F): Ditto.
+	(J0-4A3A): Ditto.
+	(J0-4A42): Ditto.
+
+2011-02-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el (U-0002F836): Add
+	`=decomposition@hanyo-denshi'.
+	(J0-6949): Likewise.
+
+2011-02-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R003-Dot.el (J0-3C67): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R002-Line.el (JSP-302D): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R019-Power.el: Add Hanyo-Denshi/FT and JT code points.
+	(G-UU+52C7): Add ideographic-structure.
+	(C1-502D): Omit `ideographic-structure'.
+	(U+52DD): Add ideographic-structure.
+	(J0-3E21): Add `ideographic-structure'.
+	(U+52E6): Use `->denotational' and `->subsumptive' to integrate
+	HD-FT2090.
+	(U+52F3): Use `->denotational' and `->subsumptive' to integrate
+	HD-FT2093.
+
+	* Ideograph-R012-Eight.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add some abstract `ideographic-structure's.
+	(HD-FT2080): Add `ideographic-structure'.
+	(mother of M-01456): Unify G-M-01456.
+	(mother of C5-2137): Unify G-IU+20502.
+	(mother of C4-2234): Unify G-CU+5173.
+	(G-UU+5173): New character.
+	(UU+5173): Use `<-subsumptive' for G-UU+5173.
+	(G-M-01477): New character.
+	(M-01477): Use `<-subsumptive' for G-M-01477.
+	(mother of C3-2B38): Unify G-UU+34B8.
+	(mother of C3-403F): Unify G-JU+517E and G-CU+517E.
+	(JSP-326F): Modify a component in `ideographic-structure'.
+	(C3-403F): Likewise.
+	(H1-D9DB): Likewise.
+	(G-UU+517E): New character.
+	(UU+517E): Use `<-subsumptive' for G-UU+517E.
+	(U+5180): Use `->subsumptive'.
+	(mother of C7-4D3E): Unify G-CU+2F813 instead of U-0002F813.
+	(C7-4D3E): Unify U-0002F813.
+
+	* Ideograph-R005-Second.el: Add `=ucs@cns' for some CNS code
+	points.
+	(U-000200CF): Use `->denotational'.
+	(U-000200D5): Use `->denotational'.
+	(BC-87D1): Use `<-denotational' for U-00020114.
+	(U-000200E5): Add ideographic-structure.
+	(C6-2344): Omit `ideographic-structure'.
+	(U+4E82): Add ideographic-structure.
+	(J0-502C): Add `ideographic-structure'.
+
+	* Ideograph-R008-Lid.el (C6-3531): Unify CU+2015E.
+	(U-00020170): Add ideographic-structure.
+	(C6-4C2D): Unify CU+20170.
+	(C3-4034): Unify CU+342E.
+	(C5-5353): Unify CU+2018E.
+
+	* Ideograph-R006-Hook.el (U-00020112): Add ideographic-structure.
+	(C6-2147): Unify CU+20112.
+	(U-00020114): Use `->denotational'.
+	(C6-2149): Unify CU+20114.
+
+	* Ideograph-R004-Slash.el (C6-2124): Unify CU+20088.
+	(C6-222E): Unify CU+200A0.
+	(H1-ABFC): Modify an operator in `ideographic-structure'.
+	(C6-293D): Unify CU+200B6.
+
+	* Ideograph-R001-One.el (C6-233F): Unify CU+2001A.
+	(U-00020922): Use `->subsumptive'.
+	(C6-3524): Unify CU+20922.
+
+	* Ideograph-R002-Line.el (C2-2130): Unify CU+4E2E.
+	(C2-2143): Unify CU+4E31.
+
+2011-02-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R063-Door.el (U+623E): Use `->denotational' instead of
+	`->subsumptive'.
+	(U+39C0): Likewise.
+	(U+623F): Likewise.
+	(U+6240): Likewise.
+
+	* Ideograph-R024-Ten.el: Add Hanyo-Denshi/JT code points.
+	(U+4EDF): Unify AJ1-04123.
+	(A-GT-K1097): New character.
+	(GT-0987): Use A-GT-K1097 instead of U+534A as the mother.
+	(GT-1097): Ditto.
+	(J0-476E): Delete `ideographic-structure'.
+
+	* Ideograph-R016-Table.el: Add some Adobe-Japan1-4 code points.
+
+	* Ideograph-R073-Say.el (C1-5937): Unify HD-JT-AEA3.
+
+	* Ideograph-R064-Hand.el: Add some Adobe-Japan1-2 code points.
+	(U+62A6): Use `->subsumptive' to separate representative nodes.
+	(U+62A8): Use `->denotational'.
+	(U+62A9): Likewise.
+	(U+63A2): Likewise.
+	(U+63F5): Use `->subsumptive'.
+	(U+6460): Use `->denotational' instead of `->subsumptive'.
+	(U+6461): Use `->denotational' and `->subsumptive'.
+	(U-00022CBB): Use `->subsumptive' to separate representative
+	nodes.
+	(U+6462): Likewise.
+	(U+6463): Likewise.
+	(mother of JX2-2D50): Unify A-UU+649D and A-CU+2F8C5; use
+	`->denotational' instead of `->subsumptive'.
+	(U+649E): Use `->denotational' to separate S-3081.
+	(U+64CE): Use `->denotational'.
+	(U+64CF): Likewise.
+
+2011-02-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R128-Ear.el (U+8034): Use `->denotational' instead of
+	`->subsumptive'.
+	(JSP-555B): Add `=decomposition@cid'; unify AJ1-22250.
+
+2011-02-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R059-Bristle.el (J0-3D24): Unify AJ1-02350.
+
+	* Ideograph-R010-Legs.el: Add some Adobe-Japan1-0 code points.
+	(U-0002047A): Use `->subsumptive'.
+	(A-JX1-4C48): Unify A-J2004U+514D; use `->denotational' instead of
+	`->subsumptive'.
+	(U+515E): Add ideographic-structure.
+	(U+5162): Use `->subsumptive' to separate representative nodes.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>gt-k'.
+	(char-db-insert-ccs-feature): Add setting for `=>gt-k'.
+
+2011-02-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R029-Again.el: Add Hanyo-Denshi/JT code points.
+	(U-0002F836): Add `=decomposition@cid'.
+
+	* Ideograph-R027-Cliff.el (S-0879): Unify HD-JT-AE85.
+
+	* Ideograph-R026-Seal.el: Add Hanyo-Denshi/JT code points.
+
+2011-02-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R020-Wrap.el (U-0002F828): Unify HD-JT-AE53.
+	(U+5301): Use `ideographic-{radical|strokes}@ucs'; add
+	`ideographic-{radical|strokes}@daikanwa=00129'; separate GT-03212
+	and M-02502; unify AJ1-03828; use `->subsumptive' to integrate
+	GT-00176 and GT-03212.
+	(C3-2224): Unify HD-JT-AFB6.
+
+	* Ideograph-R015-Ice.el (K0-544F): Unify HD-JT-ADF8.
+	(mother of M-01615): Unify G-UU+51B4.
+	(M-01615): Unify HD-JT-ADFC.
+	(mother of JX1-3A63): Unify G-UU+51B4.
+
+	* Ideograph-R014-Cover.el (HD-JT-ADF1): New character.
+
+	* Ideograph-R012-Eight.el (G0-3E5F): Unify HD-JT-ADD3.
+	(HD-JT-ADCC): New character.
+
+	* Ideograph-R011-Enter.el (JSP-326E): Unify AJ1-21181.
+	(K0-6E6F): Unify HD-JT-ADC5.
+
+	* Ideograph-R010-Legs.el (G-UU+514A): New node to integrate
+	UU+514A and HD-JT-ADB8.
+	(HD-JT-ADB8): New character.
+	(G-UU+514C): New node to integrate UU+514C and HD-JT-ADBC.
+	(GT-K05208): Unify HD-JT-ADC1.
+
+2011-02-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R008-Lid.el: Add some Adobe-Japan1-0 code points.
+	(G-GT-00389): Unify G-KU+4EA4.
+	(K0-4E5F): Unify KU+4EA4 and AJ1-13439.
+	(AJ1-17246): Add `=decomposition@cid'.
+	(U-00020158): Add ideographic-structure.
+	(M-00316): Unify AJ1-20075.
+	(AJ1-14216): Add `=decomposition@cid'.
+	(AJ1-14309): Likewise.
+
+	* Ideograph-R004-Slash.el: Add some `=decomposition@cid' features.
+	(U+5301): Copied from Ideograph-R020-Wrap.el; use `->subsumptive'.
+	(GT-00176): Use `<-subsumptive' for U+5301.
+
+	* Ideograph-R005-Second.el (AJ1-21076): Add `=decomposition@cid'.
+	(AJ1-22250): Likewise.
+	(AJ1-13968): Likewise.
+	(AJ1-21080): Likewise.
+
+2011-02-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R027-Cliff.el (J78-3139): Unify HD-FT1758.
+
+	* Ideograph-R026-Seal.el (G-UU+5377): New character; use
+	`->subsumptive' to integrate HD-FT2101 and UU+5377.
+	(U+537D): Use `->denotational' to integrate M-02873.
+	(o-JU+537F): New character.
+	(U-0002F833): Use o-JU+537F instead of U+537F as the mother.
+	(JX3-362A): Use o-JU+537F instead of U-0002F833 as the mother; add
+	`ideographic-structure'; unify HD-FT1778.
+
+	* Ideograph-R015-Ice.el (J0-5157): Unify AJ1-04238.
+
+	* Ideograph-R005-Second.el: Add some `=decomposition@cid'
+	features.
+	(JSP-3035): Unify AJ1-21076.
+	(U+9FB4): Unify AJ1-14048.
+	(U+4E63): Unify AJ1-21077.
+	(U+4E68): Unify AJ1-21078.
+	(U+8034): Use `->denotational' to separate GT-37568.
+	(JSP-555B): Unify AJ1-22250.
+	(K0-6A61): Unify AJ1-13968.
+	(U+4E74): Unify AJ1-21079.
+	(JSP-303A): Unify AJ1-21080.
+	(U-000200F5): Unify AJ1-20057.
+	(U-000200FC): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R001-One.el: Use `=decomposition@cid' instead of
+	`=decomposition'.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-4C68.
+
+	* Ideograph-R021-Spoon.el (AJ1-13697): Use `=decomposition@cid'
+	instead of `=decomposition'.
+
+	* Ideograph-R007-Two.el: Add some `=decomposition@cid' features.
+	(U+4E97): Unify AJ1-21081.
+
+	* Ideograph-R003-Dot.el, Ideograph-R002-Line.el: Use
+	`=decomposition@cid' instead of `=decomposition'.
+
+2011-02-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Treat
+	`=decomposition@FOO' as the same as `=decomposition'.
+
+	* Ideograph-R008-Lid.el: Add Hanyo-Denshi/KS code points.
+	(M-00292): Unify HD-JT-AD2B.
+
+	* Ideograph-R005-Second.el: Add some Adobe-Japan1-0 code points.
+	(U+4E62): Use `->subsumptive' to separate representative nodes.
+	(U+340C): Add ideographic-structure.
+	(U+4E75): Likewise.
+	(U+4E77): Likewise.
+
+	* Ideograph-R057-Bow.el (JSP-3C74): Unify HD-JB2884.
+
+	* Ideograph-R056-Shoot.el (JSP-3C60): Unify HD-JB2864.
+
+	* Ideograph-R040-Roof.el (JSP-3A5B): Unify HD-JB2659.
+
+2011-02-16  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R213-Turtle.el (U+4E80): Unify AJ1-01615.
+
+	* Ideograph-R174-Blue.el (G-M-42566): New node.
+	(M-42566): Use `<-subsumptive' for G-M-42566.
+	(mother of C6-5034): Unify G-IU+291D7.
+
+	* Ideograph-R146-West.el (G-J0-4D57): Unify G-UU+8981.
+
+	* Ideograph-R066-Rap.el (U+654E): Use `->subsumptive'.
+	(K0-4E67): Unify AJ1-08471.
+	(U+6559): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R007-Two.el (U-0002F81B): Unify KS003220.
+
+	* Ideograph-R004-Slash.el: Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R001-One.el: Add Hanyo-Denshi/KS code points.
+	(HD-JT-AD08): New character.
+
+	* Ideograph-R003-Dot.el (U+4E3B): Use `->denotational' instead of
+	`->subsumptive'.
+	(AJ1-13812): Unify HD-JT-AD1E.
+
+	* char-db-util.el (char-db-insert-ccs-feature): Add code for
+	`=hanyo-denshi/ks'.
+
+2011-02-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el: Add Hanyo-Denshi/JA and FT code points.
+	(U+5206): Add ideographic-structure.
+	(G0-3756): Separate J90-4A2C, JX1-4A2C, GT-02421 and S-0598.
+	(U+34DE): Use `->denotational'.
+	(U+5213): Add ideographic-structure.
+	(JSP-3334): Unify HD-JB1920.
+	(U+5275): Add ideographic-structure.
+
+	* Ideograph-R072-Sun.el: Add some Adobe-Japan1-2 code points.
+	(U+661E): Use `->subsumptive'.
+	(U+663A): Likewise.
+	(U+6620): Likewise.
+	(U+6621): Likewise.
+	(J78-5A70): Unify HD-FT1694.
+
+	* Ideograph-R050-Turban.el: Add some abstract
+	`ideographic-structure's.
+	(U+5E2D): Use `->subsumptive'.
+	(mother of J90-3522): Unify G-UU+5E30.
+	(mother of C3-3067): Unify A-CU+5E30.
+	(C3-3067): Unify CU+5E30.
+	(C2-4262): Separate UU+5E4B.
+	(U+5E4D): Use `->denotational' instead of `->subsumptive'.
+	(U+5E50): Likewise.
+	(UU+5E4F): Separate C2-425E.
+	(U+5E5E): Use `->subsumptive'.
+	(U+5E5F): Use `->subsumptive' to separate representative nodes.
+	(U+5E61): Likewise.
+	(U+5E62): Use `->subsumptive'.
+	(U+5E68): Use `->denotational' instead of `->subsumptive'.
+	(mother of C2-5C68): Unify G-CU+5E6A.
+	(mother of JSP-3C3C): Unify G-UU+5E6A.
+	(U+5E6E): Use `->subsumptive'.
+
+	* Ideograph-R046-Mountain.el:
+	- Add some Adobe-Japan1-2 code points.
+	- Use `->subsumptive' for some characters.
+	- For some characters, use `->denotational' and/or `->subsumptive'
+	  to separate representative nodes.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-5827.
+
+	* Ideograph-R038-Woman.el:
+	- Add Hanyo-Denshi/JB and JD code points.
+	- For some characters, use `->subsumptive' to separate
+	  representative nodes.
+	(U-00021706): Use `->denotational' and `->subsumptive'.
+	(U-00021762): Use `->denotational' and `->subsumptive'.
+	(mother of G0-6B74): Unify G-UU+5AB5.
+	(U+5ABA): Use `->denotational' instead of `->subsumptive'.
+	(mother of JSP-3A25): Unify G-J90U+5ADA and G-CU+5ADA.
+	(JSP-3A25): Separate JX2-256A.
+	(UU+5ADA): Unify JX2-256A.
+
+	* Ideograph-R013-Down-Box.el (U+5195): Use
+	`ideographic-{radical|strokes}@ucs' instead
+	`ideographic-{radical|strokes}@jis'.
+	(A-CU+2F8D3): New character.
+	(G-CU+2F8D3): Use A-CU+2F8D3 instead of U+5195 as the mother; use
+	`ideographic-{radical|strokes}@ucs' instead
+	`ideographic-{radical|strokes}@jis'.
+
+	* Ideograph-R004-Slash.el (U+5C39): Omit `=shinjigen@rev'.
+
+	* Ideograph-R073-Say.el (U+66FC): Use `->denotational' instead of
+	`->subsumptive'.
+	(U+5195): Use `ideographic-{radical|strokes}@ucs' instead
+	`ideographic-{radical|strokes}@jis'.
+	(A-CU+2F8D3): New character.
+	(G-CU+2F8D3): Use A-CU+2F8D3 instead of U+5195 as the mother; use
+	`ideographic-{radical|strokes}@ucs' instead
+	`ideographic-{radical|strokes}@jis'.
+	(J0-5228): Unify HD-JA5008.
+	(J0-3A47): Unify HD-JA2639.
+	(HD-IB1432): New character.
+
+	* Ideograph-R071-Not.el (mother of JX1-752B): Unify G-JU+FA42
+	instead of U+FA42.
+	(JX1-752B): Unify U+FA42.
+
+	* Ideograph-R070-Square.el (U+65CF): Use `->subsumptive'.
+
+	* Ideograph-R057-Bow.el:
+	- Add some Adobe-Japan1-2 code points.
+	- For some character, use `->denotational' and/or `->subsumptive'
+	  to separate representative nodes.	
+	(G-BC-8B7D): New character.
+	(BC-8B7D): Add `<-subsumptive' for G-BC-8B7D.
+	(mother of M-09807): Unify G-IU+223F3.
+	(U+5F34): Use `->subsumptive'.
+	(U-000223F4): Use `->denotational' instead of `->subsumptive'.
+	(U+5F36): Use `->subsumptive'.
+	(A-J0-362F): New character.
+	(U+5F37): Add `<-denotational' for A-J0-362F; unify CB08110.
+	(U+5F38): Use `->denotational' instead of `->subsumptive'.
+	(U+5F3A): Add `<-denotational' for A-J0-362F.
+	(U-00022401): Use `->subsumptive'.
+	(U+38BE): Use `->denotational' instead of `->subsumptive'.
+	(U+5F45): Add ideographic-structure.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=adobe-japan1-[0-6]', `=hanyo-denshi/{ja|jb|jc|jd|ft|ia|ib|hg}'
+	and `=>>hanyo-denshi/ft'.
+
+2011-02-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el: Add some Adobe-Japan1-0 code points.
+	(U+4E45): Use `->subsumptive' to separate representative nodes.
+	(U+4E4F): Add ideographic-structure.
+
+	* Ideograph-R027-Cliff.el (G-JX3-53A9): Add ideographic-structure.
+	(G-GT-03811): New glyph to integrate GT-03811 and S-2208.
+	(JX3-3139): Unify HD-HG1614.
+
+2011-02-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R058-Snout.el (U+5F57): Use `->denotational'.
+
+	* Ideograph-R044-Corpse.el (U+5C39): Unify AJ1-04649.
+
+	* Ideograph-R041-Inch.el (mother of K0-706E): Unify G-KU+5C0A and
+	G-GT-09378.
+	(K0-706E): Unify KU+5C0A.
+	(mother of J0-423A): Unify G-UU+5C0A.
+	(U-00021B33): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R040-Roof.el (U+5BDE): Use `->denotational' and
+	`->subsumptive'.
+	(U+5BDF): Use `->subsumptive'.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-3557.
+
+	* Ideograph-R053-Dotted-Cliff.el (U+5EDA): Use `->subsumptive'.
+	(U-000222AE): Use `->subsumptive' to separate representative
+	nodes.
+
+	* Ideograph-R049-Oneself.el (U+382F): Use `->denotational' instead
+	of `->subsumptive'.
+	(HD-IA0254): New character.
+	(JX2-286F): Unify HD-JD0879.
+
+	* Ideograph-R043-Lame.el (mother of M-07554): Unify G-UU+5C28.
+	(M-07554): Unify HD-IA1607.
+	(mother of J0-5578): Unify G-JU+5C28, G-CU+5C28 and G-GT09522.
+	(C2-235E): Unify CU+5C28.
+
+	* Ideograph-R037-Big.el: Add some Adobe-Japan1-2 code points.
+	(U+3691): Use `->denotational' instead of `->subsumptive'.
+	(JX2-253F): Unify HD-IA0204.
+	(U+5953): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+595D): Add ideographic-structure.
+
+	* Ideograph-R031-Enclosure.el: Add Hanyo-Denshi/JA code points.
+	(U+56F3): Use `->subsumptive' to separate representative nodes.
+	(JSP-3721): Unify HD-JB2301.
+	(U+56FF): Add ideographic-structure.
+	(U+5708): Use `->denotational'.
+	(U+5709): Add ideographic-structure.
+	(U+570D): Likewise.
+	(J78-5423): Separate GT-06038, GT-K9174 and S-1309.
+	(B-B9CF): Add ideographic-structure; unify G-JU+5716, G-KU+5716
+	and G-CU+5716.
+	(K0-5371): Unify KU+5716.
+	(C1-6837): Unify CU+5716.
+	(mother of C6-5B5B): Unify G-UU+5716 and G-CU+2F84B.
+	(U+5717): Use `->denotational' to integrate U-0002F84D.
+
+	* Ideograph-R012-Eight.el: Add Hanyo-Denshi/FT and IB code points.
+	(G-UU+516C): New character to integrate G0-392B and J90-3878.
+	(G0-392B): Separate J90-3878, JX1-3878, GT-01893, S-0493 and
+	HD-JA2488.
+	(JX2-2328): Unify HD-JD0308.
+	(G-KU+517C): Add ideographic-structure.
+
+	* Ideograph-R007-Two.el: Add some Adobe-Japan1-0 code points.
+	(U-00020124): Use `->subsumptive' to separate representative node.
+
+	* Ideograph-R002-Line.el (GT-00111): Add
+	`<-formed@component/connect-right' for JX1-2E26; add `<-unknown'
+	for JX1-2E26.
+
+	* Ideograph-R029-Again.el (J0-355A): Unify AJ1-01652.
+
+	* Ideograph-R022-Right-Open-Box.el: Reformatted.
+
+	* Ideograph-R006-Hook.el: Add some Adobe-Japan1-0 code points.
+
+2011-02-15  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R029-Again.el (JX3-5257): Unify HD-HG1640.
+
+2011-02-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R014-Cover.el: Add Hanyo-Denshi/JA and IB code points.
+	(U+519D): Use `->denotational' to integrate HD-IB1434.
+	(JSP-3275): Unify HD-JB1885.
+	(U+51A2): Use `->denotational' to integrate HD-FT2081.
+	(JX3-514D): Unify HD-HG3023.
+	(A-UU+51A4): New character.
+	(JC3-43F0): Use `<-denotational' for A-UU+51A4 instead of
+	`<-subsumptive' for G-JX1-514D.
+	(G-JX1-514D): Unify G-UU+51A4; use A-UU+51A4 instead of U+51A4.
+
+	* Ideograph-R008-Lid.el: Add Hanyo-Denshi/IB code points.
+	(U-0002015E): Add ideographic-structure.
+	(G-KU+4EB6): New character.
+	(K0-5322): Use `<-subsumptive' for G-KU+4EB6.
+
+	* Ideograph-R002-Line.el (G-CU+4E30): New character.
+	(AJ1-15386): Separate C1-4464; use `<-denotational' for G-CU+4E30;
+	unify HD-IB1306.
+	(C1-4464): Use `<-denotational' for G-CU+4E30.
+
+	* Ideograph-R007-Two.el (U-0002013F): Add ideographic-structure.
+
+	* Ideograph-R112-Stone.el: Add Hanyo-Denshi/JB and JC code points.
+	(U+7934): Use `->denotational'.
+
+	* Ideograph-R096-Jade.el (U+7462): Use `->subsumptive'.
+	(JX1-7833): Unify HD-JC8819.
+	(U+7463): Use `->denotational'.
+
+	* Ideograph-R032-Earth.el: Add Hanyo-Denshi/JB and JC code points.
+	(U+5734): Use `->denotational'.
+	(U-00021274): Unify HD-JD0467.
+	(U+58E0): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R016-Table.el (U-0002015E): Add ideographic-structure.
+
+	* Ideograph-R060-Step.el (JX1-7444): Unify HD-JC-8436.
+
+	* Ideograph-R039-Child.el (U+5B7D): Use `->denotational' and
+	`->subsumptive'.
+	(JSP-3A44): Unify HD-JB2636.
+
+	* Ideograph-R029-Again.el: Add Hanyo-Denshi/JA code points.
+	(G-JX1-5257): Unify G-UU+53DF.
+	(U+66FC): Use `->denotational' instead of `->subsumptive'.
+	(U-00020B63): Use `->denotational' to integrate U-0002F838.
+	(mother of C5-3131): Unify G-CU+2F838 instead of U-0002F838.
+	(C5-3131): Unify U-0002F838.
+
+	* Ideograph-R028-Private.el (mother of C5-212E): Unify G-IU+20AD3.
+	(JX2-2359): Unify HD-JD-0357.
+
+	* Ideograph-R015-Ice.el (J78-437C): Unify HD-FT1861.
+
+	* Ideograph-R013-Down-Box.el: Add Hanyo-Denshi/JA and FT code
+	points.
+
+	* Ideograph-R010-Legs.el: Add Hanyo-Denshi/FT code points.
+	(U+514E): Use `->denotational' instead of `->subsumptive'.
+
+2011-02-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R104-Sickness.el (JX1-7852): Unify HD-JC8850.
+
+	* Ideograph-R004-Slash.el (JX2-212B): Unify HD-JD0111.
+
+2011-02-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R142-Insect.el (U+459D): Unify HD-JC9149.
+
+	* Ideograph-R047-River.el (U+5DE2): Unify HD-JC8408.
+
+	* Ideograph-R020-Wrap.el (JX1-2E6C): Unify HD-JC1476.
+
+	* Ideograph-R015-Ice.el: Add Hanyo-Denshi/JC code points.
+	(JSP-3328): Unify HD-JB1908.
+
+	* Ideograph-R010-Legs.el: Add Hanyo-Denshi/JA code points.
+	(JSP-3266): Unify HD-JB1870.
+	(mother of J90-513D): Unify A-UU+5154; use `->denotational'
+	instead of `->subsumptive'.
+
+2011-02-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R027-Cliff.el: Add Hanyo-Denshi/JA code points.
+	(A-CU+53A9): New character.
+	(mother of C3-404A): Unify G-CU+53A9; use A-CU+53A9 instead of
+	U+53A9 as the mother.
+	(C3-404A): Unify CU+53A9.
+	(mother of JX3-3139): Unify G-J2004U+53A9; use A-CU+53A9 instead
+	of U+53A9 as the mother.
+	(mother of G0-3E47): Unify G-UU+53A9; add ideographic-structure.
+	(JSP-3450): Unify HD-JB2048.
+
+	* Ideograph-R023-Hiding-Enclosure.el (JSP-3435): Unify HD-JB2021.
+
+	* Ideograph-R019-Power.el: Add Hanyo-Denshi/JB code points.
+
+	* Ideograph-R008-Lid.el (JSP-3042): Unify HD-JB1634.
+
+	* Ideograph-R002-Line.el (JSP-302D): Unify HD-JB1613.
+
+2011-02-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-5C54.
+
+2011-02-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R008-Lid.el: Add Hanyo-Denshi/JA code points.
+	(J0-5039): Separate JC3-41DA.
+	(K0-5322): Unify JC3-41DA.
+
+	* Ideograph-R004-Slash.el: Add Hanyo-Denshi/JA code points.
+	(U+4E55): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R026-Seal.el: Add Hanyo-Denshi/JA code points.
+
+	* Ideograph-R025-Divination.el (J0-5246): Unify HD-JA5038.
+
+	* Ideograph-R024-Ten.el, Ideograph-R023-Hiding-Enclosure.el,
+	Ideograph-R020-Wrap.el, Ideograph-R019-Power.el,
+	Ideograph-R015-Ice.el, Ideograph-R012-Eight.el: Add
+	Hanyo-Denshi/JA code points.
+
+	* Ideograph-R011-Enter.el (J0-4134): Unify HD-JA3320.
+
+	* Ideograph-R003-Dot.el (J0-3C67): Unify HD-JA2871.
+
+	* Ideograph-R001-One.el: Add Hanyo-Denshi/JA code points.
+
+2011-02-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R074-Moon.el (mother of GT-K4876): Unify G-BC-8BB5 and
+	G-GT-K4876.
+	(JSP-4270): Unify AJ1-08488.
+
+	* Ideograph-R060-Step.el (mother of C2-4A28): Unify G-UU+5FB6.
+	(U+5FB7): Unify AJ1-08452.
+
+	* Ideograph-R038-Woman.el (U+59A4): Use `->subsumptive'.
+	(JX1-2F6D): Unify AJ1-08430.
+	(JSP-3937): Unify AJ1-08431.
+
+	* Ideograph-R040-Roof.el: Add some Adobe-Japan1-2 code points.
+	(mother of C2-3475): Unify G-UU+5BC0.
+	(U+5BD8): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R035-Go-Slowly.el (mother of C3-2546): Unify
+	G-CU+590B.
+	(C3-2546): Unify CU+590B.
+	(JX2-253A): Unify AJ1-08425.
+
+	* Ideograph-R032-Earth.el: Add some Adobe-Japan1-2 code points.
+	(U+5765): Use `->subsumptive' to separate representative node.
+	(U+57C8): Use `->denotational' and `->subsumptive'.
+	(U+FA0F): Use `->subsumptive' to separate representative node.
+
+	* Ideograph-R031-Enclosure.el (G-JU+570A): New character.
+	(JX1-2F41): Use `<-subsumptive' for G-JU+570A instead of
+	`<-denotational' for U+570A.
+	(mother of G0-6075): Unify G-UU+570A; add ideographic-structure.
+
+	* Ideograph-R015-Ice.el (G-JX1-2E56): Unify G-JU+51CA and
+	G-KU+51CA.
+
+	* Ideograph-R009-Man.el:
+	- Add some Adobe-Japan1-2 code points.
+	- Add some abstract ideographic-structure.
+	(U-00020089): Unify AJ1-17233.
+	(U-000201EE): Use `->subsumptive'.
+	(U+50F4): Use `->subsumptive' to separate representative node.
+
+	* Ideograph-R073-Say.el (U+66FA): Unify AJ1-08487.
+
+	* Ideograph-R062-Halberd.el (U+6213): Unify AJ1-08465.
+
+2011-02-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R059-Bristle.el (U+5F67): Unify AJ1-08451.
+
+	* Ideograph-R042-Small.el (U+5C1E): Unify AJ1-08437.
+
+	* Ideograph-R039-Child.el (U+5B56): Unify AJ1-08432.
+
+	* Ideograph-R021-Spoon.el (AJ1-13697): New character [copied from
+	Ideograph-R001-One.el].
+
+	* Ideograph-R003-Dot.el: Add `=decomposition' for each Adobe
+	Japan1 code point if it is separated from the corresponding
+	abstract UCS object.
+	(G-GT-K0463): Use `<-formed@component' instead of
+	`<-ideographic-component-forms'.
+	(GT-K0463): Unify AJ1-13914.
+	(GT-00137): Unify AJ1-13812.
+
+	* Ideograph-R002-Line.el: Add `=decomposition' for each Adobe
+	Japan1 code point if it is separated from the corresponding
+	abstract UCS object.
+	(U+4E30): Use `->denotational' instead of `->subsumptive'.
+	(JSP-302E): Unify AJ1-21075.
+
+	* Ideograph-R001-One.el: Add `=decomposition' for each Adobe
+	Japan1 code point if it is separated from the corresponding
+	abstract UCS object.
+	(U-00020089): Unify AJ1-17233.
+	(J83-3E66): Unify AJ1-13463.
+	(G0-536B): Unify AJ1-20073.
+	(U+4E19): Use `->denotational' to integrate AJ1-14009.
+	(U+3402): Use `->denotational' to integrate AJ1-13697.
+	(GT-00057): Unify AJ1-13699.
+	(U+4E23): Unify AJ1-19141.
+	(U+4E24): Unify AJ1-19142.
+	(GT-00089): Unify AJ1-20074.
+
+	* Ideograph-R029-Again.el (U+53DD): Unify AJ1-08409.
+
+	* Ideograph-R010-Legs.el (JX1-2E4F): Unify AJ1-08393.
+	(U+5164): Add ideographic-structure.
+	(o-JU+5164): New character.
+	(mother of JSP-326D): Unify G-JU+5164; use o-JU+5164 instead of
+	U+5164 as the mother.
+	(JSP-326D): Unify AJ1-08394.
+	(C3-5E25): Use `<-denotational' for o-JU+5164 instead of
+	`<-subsumptive' for G-JU+5164.
+
+	* Ideograph-R004-Slash.el (U-00020089): Unify AJ1-17233.
+
+	* Ideograph-R020-Wrap.el (U+5300): Use `->denotational' instead of
+	`->subsumptive'.
+	(JX1-2E6B): Unify AJ1-08403.
+
+	* Ideograph-R027-Cliff.el (U+5393): Unify AJ1-08407.
+	(U+53B2): Add ideographic-structure.
+	(JX1-2E74): Unify AJ1-08408.
+
+	* Ideograph-R019-Power.el: Add some Adobe-Japan1-2 code points.
+	(U+52C0): Use `->subsumptive' to separate representative node.
+
+	* Ideograph-R026-Seal.el (U+5372): Unify AJ1-08406.
+
+	* Ideograph-R022-Right-Open-Box.el (U+5324): Unify AJ1-08405.
+
+	* Ideograph-R018-Knife.el (U+5215): Unify AJ1-08398.
+
+	* Ideograph-R016-Table.el (U+51EC): Unify AJ1-08397.
+
+	* Ideograph-R015-Ice.el (U+51BE): Unify AJ1-08396.
+	(G-GT-02194): Unify G-UU+51CA.
+
+	* Ideograph-R014-Cover.el (U+519D): Unify AJ1-08395.
+
+	* Ideograph-R002-Line.el (U+4E28): Unify AJ1-08371.
+
+	* Ideograph-R075-Tree.el (mother of C3-3C34): Unify G-CU+6902; add
+	ideographic-structure.
+	(C3-3C34): Unify CU+6902.
+	(G-JX2-2F26): Add ideographic-structure.
+	(U+6967): Likewise.
+	(mother of C3-4176): Unify CU+6967; add ideographic-structure.
+	(C3-4176): Unify CU+6967.
+	(JX3-3A67): Unify AJ1-07686.
+	(J90-3A67): Unify AJ1-02135.
+
+	* Ideograph-R072-Sun.el (U+668E): Add ideographic-structure.
+	(G-CU+668E): Likewise.
+	(C3-415B): Unify CU+668E.
+
+	* Ideograph-R030-Mouth.el (G-CU+552C): Add ideographic-structure.
+	(U+35A0): Likewise.
+	(U+5563): Use `->denotational' to integrate U-0002F844.
+	(U-00020E04): Add ideographic-structure.
+	(G-IU+20E04): Likewise.
+
+2011-02-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (mother of C1-5341): Unify G-CU+82F1,
+	G-GT-40028 and G-M-30808.
+
+	* Ideograph-R104-Sickness.el (mother of JX1-785C): Unify
+	G-UU+7665.
+	(U-00024EFA): Integrate M-22612.
+	(U+3FD5): Integrate M-22613.
+	(U+3FD6): Integrate M-22614.
+	(U-00024F00): Integrate M-22616.
+	(U+7667): Use `->subsumptive'.
+	(U+7668): Likewise.
+	(U-00024F01): Integrate M-22619.
+	(U-00024F02): Integrate M-22620.
+	(U-00024F03): Integrate M-22621.
+	(U+7669): Use `->denotational' and `->subsumptive'.
+	(U-00024F04): Integrate M-22623.
+	(U-00024F05): Integrate M-22624.
+	(U-00024F06): Integrate M-22625.
+	(U+766A): Use `->subsumptive'.
+	(U-00024F08): Use `->subsumptive' to separate representative node.
+	(U+3FD8): Integrate M-22628.
+	(U+766E): Use `->denotational'.
+	(U-00024F0C): Integrate M-22632.
+
+	* Ideograph-R032-Earth.el:
+	- Add some Adobe-Japan1-5 code points.
+	- Add some abstract ideographic-structure.
+	(U-00021240): New character.
+	(U+5768): Use `->subsumptive'.
+	(U+576D): Use `->subsumptive' to separate representative nodes.
+	(U+577A): Use `->denotational'.
+	(U+577B): Use `->denotational' instead of `->subsumptive'.
+	(U+577C): Use `->denotational' to separate representative nodes.
+	(U+3636): Use `->subsumptive' to separate representative nodes.
+	(U+579D): Use `->denotational' instead of `->subsumptive'.
+	(U+57A8): Use `->subsumptive'.
+	(U+57AE): Unify JC3-93CF.
+	(U+57CF): Use `->denotational' instead of `->subsumptive'.
+	(U+57D0): Likewise.
+	(U+57D2): Use `->denotational'.
+	(U+57D3): Likewise.
+	(U-000212F3): Use `->subsumptive'.
+	(U+57D5): Use `->denotational' instead of `->subsumptive'.
+	(U+57D7): Use `->subsumptive'.
+	(U+57DE): Likewise.
+	(U+3648): Use `->denotational' and `->subsumptive'.
+	(U+57E2): Use `->denotational'.
+	(M-05168): Map to U-00021328.
+	(U+57E7): Use `->denotational'.
+	(mother of C2-344D): Unify I-UU+57F0.
+	(U+57F2): Use `->subsumptive' to separate representative nodes.
+	(U+57F3): Use `->subsumptive'.
+	(mother of C6-3E2C): Unify G-CU+2F853 instead of U-0002F853.
+	(C6-3E2C): Unify U-0002F853.
+	(mother of G0-5B7A): Unify G-UU+57F4.
+	(mother of J90-3E7D): Unify G-JU+57F4 and G-KU+57F4.
+	(J90-3E7D): Use `=ucs@jis/1990', `=ucs@jis/2000' and
+	`=ucs@jis/2004' instead of `=ucs@jis'.
+	(K0-6350): Unify K0-6350.
+	(U+57FB): Use `->subsumptive'.
+	(U+57FD): Use `->denotational' to separate representative nodes.
+	(U+580D): Use `->subsumptive' to separate representative nodes.
+	(U+5826): Use `->subsumptive'.
+	(U+5831): Use `->denotational' to integrate U-0002F857.
+	(mother of JX2-2523): Unify G-JU+5832 and G-CU+2F856 instead of
+	U-0002F856.
+	(C4-3676): Unify U-0002F856.
+	(U+5849): Use `->denotational' instead of `->subsumptive'.
+	(U+584C): Use `->denotational'.
+	(JX2-2527): Unify JC3-91BB.
+	(U+584D): Use `->denotational'.
+	(mother of C3-405E): Unify G-CU+585F.
+	(C3-405E): Unify CU+585F.
+	(U+5867): Use `->denotational' and `->subsumptive'.
+	(mother of C6-514A): Unify G-CU+2F857 instead of U-0002F857; add
+	`<-denotational' for U+5831.
+	(C6-514A): Unify U-0002F857.
+	(U+586D): Use `->denotational' to separate representative nodes.
+	(U+5871): Use `->subsumptive' to separate representative node.
+	(CB05673): Delete `morohashi-daikanwa'.
+	(U+5880): Use `->subsumptive'.
+	(U+5881): Use `->denotational' instead of `->subsumptive'.
+	(U+5888): Likewise.
+	(A-JX2-252B): Unify A-JU+588D.
+	(G-JX2-252B): Unify G-UU+588D.
+	(U+5890): Use `->denotational'.
+	(U+5894): Use `->subsumptive'.
+	(U+58AA): Likewise.
+	(U+58BC): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R023-Hiding-Enclosure.el (A-IU+20976): New character.
+	(mother of C6-3564): Unify G-IU+20976; use A-IU+20976 instead of
+	U-00020976.
+	(C6-3564): Unify CU+20976.
+	(CB02506): Modify a component in `ideographic-structure'.
+	(o-JU+533E): New character.
+	(G-GT-03448): Unify G-JU+533E; use o-JU+533E instead of U+533E as
+	the mother.
+	(A-UU+533E): New character.
+	(JC3-45BB): Use A-UU+533E instead of U+533E.
+	(G0-5852): Ditto.
+
+	* Ideograph-R009-Man.el:
+	- Add some Adobe-Japan1-4 code points.
+	- Add some abstract ideographic-structure.
+	(U-000201AE): Unify M-02301; compact `ideographic-structure'; use
+	`ideographic-radical@ucs' instead of `ideographic-radical'; add
+	`ideographic-radical@daikanwa'.
+	(U+4F60): Use `->denotational' to integrate U-0002F804.
+	(U-0002F804): Use `<-denotational' for U+4F60.
+	(C6-2572): Add `ideographic-structure'.
+	(JX1-2E34): Compact `ideographic-structure'.
+	(U+FA30): Unify G-UU+4FAE; use `=ucs@unicode' instead of
+	`=ucs@gb', `=ucs@cns' and `=ucs@ks' for UU+4FAE; unify JU+FA30.
+	(mother of G0-474E): Unify G-UU+4FCF.
+	(U+4FFD): Use `->subsumptive' to separate representative nodes.
+	(mother of C3-2F46): Unify G-JU+4FFF and G-CU+4FFF; add
+	ideographic-structure.
+	(mother of C2-3366): Unify G-CU+5040.
+	(mother of C3-343C): Unify G-UU+5042.
+	(mother of JX2-217B): Unify o-JU+50D9 and A-CU+50D9.
+	(A-JX2-217D): New character.
+	(U+50E9): Use `<-denotational' for A-JX2-217D.
+	(U+50F4): Ditto; unify S-0389; add `<-vulgar' for JX2-217D.
+	(mother of C2-487C): Unify G-CU+50EA.
+	(U+50F0): Use `->subsumptive' to separate representative nodes.
+	(U+510B): Use `->denotational' instead of `->subsumptive'.
+	(S-0429): New character.
+
+	* Ideograph-R001-One.el: Add some Adobe-Japan1-0 and
+	Adobe-Japan1-4 code points.
+	(G-GT-00014): New character.
+	(GT-00014): Use `<-subsumptive' for G-GT-00014; add
+	`ideographic-structure'.
+	(GT-00013): Add `ideographic-structure'.
+	(GT-00022): Likewise.
+	(U-0002000B): Add ideographic-structure.
+	(U+4E20): Likewise.
+	(U-00020022): Likewise.
+	(GT-00068): Unify U-0002A7D7; use
+	`ideographic-{radical|strokes}@gt' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'; add `ideographic-structure'.
+	(G-GT-00074): New character.
+	(GT-00074): Use `<-subsumptive' for G-GT-00074; add
+	`ideographic-structure'.
+	(U+4E26): Use `->denotational' to integrate U+FA70.
+	(mother of GT-00089): Unify G-GT-00089 and G-M-00053 instead of
+	U+FA70.
+	(GT-00089): Delete `=ucs@JP' for JU+FA70.
+	(U-00020030): Add ideographic-structure.
+	(M-00061): Map to U-00020038; unify H1-A957.
+	(U-0002003C): Use `->subsumptive'.
+	(U-0002002F): Compact ideographic-structure; use `->subsumptive'
+	to separate representative node.
+
+2011-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL MEAT>): Use
+	`<-denotational' for A-GT-37857; add
+	`<-identical@component/connect-right' for GT-37857.
+	(GT-K0758): Omitted.
+	(BC-88F0): Omitted.
+
+	* Ideograph-R151-Bean.el (U-00024CD8): New character [copied from
+	Ideograph-R102-Field.el].
+	(U+4742): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R141-Tiger.el (mother of J0-3857): Unify G-JU+864E and
+	G-CU+864E.
+	(C1-4F4D): Unify CU+864E.
+
+	* Ideograph-R130-Meat.el (mother of GT-37857): Unify A-GT-37857
+	and M-29237 instead of <CJK RADICAL MEAT>.
+	(<CJK RADICAL MEAT>): Use `<-denotational' for A-GT-37857.
+	(GT-K0417): Use `<-denotational' instead of `<-subsumptive' for
+	A-GT-37857.
+	(A-GT-K0758): New character.
+	(GT-K0758): Use A-GT-K0758 as the mother.
+	(BC-88F0): Likewise.
+	(U+43CC): Use `->denotational' to integrate CB13213.
+
+	* Ideograph-R040-Roof.el (U+3750): Use `->subsumptive'.
+	(U-000219CC): Likewise.
+	(U+5B8D): Likewise.
+	(J0-3C35): Add `<-wrong' for U+8089.
+	(U+5B8E): Use `->subsumptive'.
+	(U+5B8F): Likewise.
+
+	* ruimoku6.el (U+FA19): Unify AJ1-08580.
+	(JX3-3A67): Unify AJ1-07686.
+
+2011-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R102-Field.el (U-00024CD6): Integrate M-21948.
+	(U-00024CD7): Integrate M-21949.
+	(U+3F6A): Integrate M-21950.
+	(U-00024CD8): Integrate M-36299; use `ideographic-radical@ucs'
+	instead of `ideographic-radical'; add `ideographic-strokes@ucs'
+	and `ideographic-{radical|strokes}@daikanwa'.
+
+	* Ideograph-R019-Power.el (M-02301): Unify U-000201AE and H1-BB48;
+	use `ideographic-radical@daikanwa' instead of
+	`ideographic-radical'; add `ideographic-radical@ucs'; add
+	`ideographic-structure'.
+	(U-0002A7D7): New character.
+
+	* Ideograph-R113-Spirit.el (U+FA19): Unify AJ1-08580.
+
+2011-02-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R008-Lid.el (U+342E): Add ideographic-structure.
+	(JX2-2133): Unify AJ1-14216.
+	(H1-E1F8): Separate C3-4034.
+	(U+4EB9): Add ideographic-structure.
+	(mother of JX2-2134): Unify G-UU+4EB9; add ideographic-structure.
+	(JX2-2134): Unify AJ1-14309.
+
+	* Ideograph-R003-Dot.el: Add some Adobe-Japan1-0 code points.
+	(mother of GT-K0462): Unify G-GT-K0463.
+	(U-00020084): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(GT-00146): Map to U-00020084.
+
+	* Ideograph-R165-Distinguish.el: Add mappings between CJK Ext B
+	and CNS 11643 plain 7.
+	(U+91CB): Use `->subsumptive'.
+
+	* Ideograph-R031-Enclosure.el: Add some Adobe-Japan1-5 code
+	points.
+	(U+56DF): Add ideographic-structure.
+	(U+56E1): Use `->subsumptive' to separate representative nodes.
+	(U+56F6): Use `->denotational' and `->subsumptive'.
+	(U+56F7): Use `->subsumptive' to separate representative nodes.
+	(U+571D): Add ideographic-structure.
+
+	* Ideograph-R030-Mouth.el (U+5435): Add ideographic-structure.
+	(mother of C3-2472): Unify G-CU+356F.
+	(C3-2472): Unify CU+356F.
+	(U+552C): Add ideographic-structure.
+	(mother of C1-5949): Unify G-CU+552C.
+	(C1-5949): Unify CU+552C.
+
+	* Ideograph-R004-Slash.el: Add some Adobe-Japan1-4 code points.
+	(U+4E41): Use `->denotational' to integrate U-0002F802.
+	(U-000200B0): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R002-Line.el: Add some Adobe-Japan1-0 and
+	Adobe-Japan1-4 code points.
+	(U+4E31): Use `->subsumptive' to separate representative nodes.
+
+2011-02-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R012-Eight.el (U-00020503): Unify S2-0492.
+
+	* u03000-CJK-Symbols-and-Punctuation.el (U+3005): Unify AJ1-00657.
+
+	* Ideograph-R042-Small.el (mother of M-07474): Unify G-UU+5C10.
+	(A-J0-5575): Unify A-JU+5C13.
+	(C4-2173): Unify CU+5C13.
+	(U+5C20): Use `->denotational'.
+
+	* Ideograph-R166-Village.el (C7-2A35): Unify U-0002892D.
+	(C7-555B): Map to U-0002893A.
+
+	* Ideograph-R029-Again.el (G-RUI6-E047): New character.
+
+	* Ideograph-R010-Legs.el (JX1-2E50): Unify AJ1-13389.
+	(U+515F): Use `->subsumptive' to separate representative node.
+
+	* ruimoku6.el (RUI6-E016): Use `<-subsumptive' for U-00024F08.
+	(RUI6-E018): Modify `ideographic-structure'.
+	(RUI6-E01F): Use `<-subsumptive' for G-RUI6-E01F.
+	(RUI6-E038): Use `<-denotational' for G-RUI6-E038.
+	(RUI6-E047): Modify `ideographic-structure'.
+	(RUI6-E04C): Add `ideographic-structure'.
+
+	* Ideograph-R137-Boat.el (U+821F): Use `->subsumptive' to separate
+	representative nodes.
+
+2011-02-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-insert-ccs-feature): Add settings for
+	`=daikanwa/ho', `=daikanwa/+p' and `=daikanwa/+2p'.
+
+2011-02-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R005-Second.el (U+4E5A): Unify AJ1-14305.
+	(U+4E7F): Add ideographic-structure.
+	(JSP-303C): Unify AJ1-14306.
+
+	* Ideograph-R007-Two.el (U+4E8D): Unify AJ1-14307.
+	(U+4E96): Unify AJ1-14308.
+
+	* Ideograph-R003-Dot.el (U+4E37): Unify AJ1-13981.
+
+2011-02-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el (G-RUI6-E048): New character.
+
+2011-02-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (G-RUI6-E038): New character.
+	(RUI6-E038): Add `<-denotational' for G-RUI6-E038.
+
+2011-02-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el (G-RUI6-E01F): New character.
+	(RUI6-E01F): Add `<-subsumptive' for G-RUI6-E01F.
+
+	* Ideograph-R098-Tile.el (U+3F3F): Use `->subsumptive'.
+	(U+750F): Use `->subsumptive' to separate representative nodes.
+	(U+3F40): Use `->denotational' and `->subsumptive'.
+	(U+3F41): Integrate M-21599.
+	(U-00024B8F): Integrate M-21600.
+	(U+3F42): Integrate M-21601.
+	(U+7511): Unify A-J0-3979.
+	(B-ED70): Unify A-UU+7511.
+	(mother of JX3-3979): Unify G-J2004U+7511, G-KU+7511 and
+	G-JX3-3979.
+	(K0-7177): Unify KU+7511.
+	(mother of C2-5D5C): Unify G-UU+7511.
+	(U+3F43): Integrate M-21603.
+	(U+7512): Use `->subsumptive' to separate representative nodes.
+	(U+3F44): Likewise.
+	(U-00024B95): New character.
+	(U-00024B86): Integrate M-21607'.
+	(U-00024B94): Use `->subsumptive' to separate representative
+	nodes.
+	(U+7513): Use `->subsumptive'.
+	(U+7514): Use `->denotational' and `->subsumptive'.
+	(U-00024B99): Use `->subsumptive'.
+	(U+3F46): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R086-Fire.el (G-RUI6-E018): New character.
+	(RUI6-E018): Use `<-subsumptive' for G-RUI6-E018.
+
+2011-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R155-Red.el (U+8D67): Use `->denotational'.
+
+	* Ideograph-R030-Mouth.el (G-RUI6-E035): New character.
+	(U-0002F846): Add `<-denotational' for U+5584.
+	(U+35BB): Add ideographic-structure.
+	(mother of IU+20E04): Unify G-IU+20E04.
+	(RUI6-E01A): Use `ruimoku=' instead of `bos=' in `sources'.
+	(U+565D): Use `->denotational'.
+	(H2-DFBF): Unify CB03997.
+	(CB03323): Map to U-00020F36.
+	(U-00020F97): Use `->subsumptive' to separate representative
+	nodes.
+	(U-00020FEE): Use `->denotational' and `->subsumptive'.
+	(CB03520): Map to U-00020FF3.
+	(CB04000): Unify U-00020FFF.
+	(CB00080): Unify U-00021014 and H2-E077.
+	(CB00882): Map to U-00021031.
+	(U-0002A894): New character.
+
+2011-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R184-Eat.el (U+98F2): Use `->denotational' instead of
+	`->subsumptive'; unify A-J0-307B.
+
+	* Ideograph-R164-Wine.el:
+	- Add mappings between CJK Ext B and CNS 11643 plain 7.
+	- Separate some representative nodes.
+	(U-00028861): New character.
+	(U-00028864): New character.
+	(U+918F): Use `->denotational' and `->subsumptive'.
+	(U-00028872): Use `->subsumptive'.
+	(U-0002888C): Use `->denotational' and `->subsumptive'.
+	(U-000288D5): Integrate M-40013.
+	(U-000288CD): New character.
+	(U-000288E2): New character.
+	(U+91BD): Use `->subsumptive'.
+	(U+91BE): Likewise.
+	(U+91C0): Likewise.
+	(U+91C2): Likewise.
+	(U+91C5): Use `->denotational' instead of `->subsumptive'.
+	(C7-6379): Integrate M-49793.
+	(C7-637A): Integrate M-49794.
+	(C7-6465): Integrate M-49795.
+	(M-40114): Separate C7-6579.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-6132.
+
+2011-02-02  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* ruimoku6.el: Use `ruimoku=' instead of `bos=' in `sources'.
+	(RUI6-E007): Use `<-error@ruimoku/2001' instead of
+	`<-error@abos/2001'.
+	(RUI6-E015): Add `ideographic-{radical|strokes}' and
+	`total-strokes'.
+	(RUI6-E021): Likewise.
+	(RUI6-E028): Likewise.
+	(RUI6-E02A): Likewise.
+	(RUI6-E02D): Likewise.
+	(RUI6-E02E): Likewise.
+	(RUI6-E033): Add `ideographic-structure'; add `sources'.
+	(RUI6-E038): Add `ideographic-{radical|strokes}' and
+	`total-strokes'.
+	(RUI6-E039): Add `<-denotational' for G-RUI6-E039; add
+	`ideographic-{radical|strokes}' and `total-strokes'; add
+	`sources'.
+	(RUI6-E03B): Modify `ideographic-structure'.
+	(RUI6-E03C): Likewise.
+	(RUI6-E03D): Add `<-denotational' for G-RUI6-E03D; add
+	`ideographic-{radical|strokes}' and `total-strokes'; add
+	`ideographic-structure'; add `<-unknown' for U-00026C86.
+	(RUI6-E03E): Add `<-denotational' for G-RUI6-E03E; add
+	`ideographic-{radical|strokes}' and `total-strokes'.
+	(RUI6-E03F): Modify `ideographic-structure'.
+	(RUI6-E041): Likewise; unify GU+2A894.
+	(RUI6-E042): Add `ideographic-{radical|strokes}' and
+	`total-strokes'.
+	(RUI6-E046): Modify `ideographic-structure'.
+	(RUI6-E057): Add `ideographic-{radical|strokes}' and
+	`total-strokes'; add `ideographic-structure'; add `sources'.
+	(RUI6-E065): New character.
+	(RUI6-E068): Fix `ideographic-structure'.
+	(RUI6-{E073 - E0AA}): New characters.
+
+	* Ideograph-R162-Walk.el (G-RUI6-E039): New character.
+	(RUI6-E039): Add `<-denotational' for G-RUI6-E039; add `sources'.
+	(RUI6-E021): Fix a source.
+
+	* Ideograph-R108-Dish.el (U-000250A4): Unify M-23057.
+	(U-000250A7): Integrate M-23061.
+	(U-000250B2): Unify M-23068.
+	(U-000250AF): New character.
+	(U-000250AC): Integrate M-23070.
+	(U-000250B1): Integrate M-23071.
+	(RUI6-E02D): New character.
+	(G-RUI6-E046): New character.
+
+2011-02-02  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (U+4F86): Use `->subsumptive' to separate
+	representative nodes.
+	(RUI6-E038): New character.
+	(U-00020399): Use `->subsumptive' to separate representative
+	nodes.
+	(G-RUI6-E01B): New character.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-6E56.
+
+	* Ideograph-R163-City.el (G-RUI6-E03F): New character.
+
+	* Ideograph-R142-Insect.el (G-RUI6-E013): New character.
+	(U+86AD): Use `->subsumptive' to separate representative nodes.
+	(U+86AE): Likewise.
+	(U-00027287): Likewise.
+
+	* Ideograph-R061-Heart.el (U-0002F89F): Add `sound@ja/on'.
+	(U+5FFF): Use `->subsumptive'.
+	(U+390B): Likewise.
+	(U-000225D6): New character.
+	(M-10410): Add `<-denotational' for U-000225D6; unify H6-D741; add
+	`<-same' for J0-576C.
+	(C3-2623): Use U-000225D6 instead of U+5FF9 as the value of
+	`<-denotational'.
+	(M-10411): Unify U-000225D7 and C3-257E.
+	(M-10415): Unify U-000225F0.
+	(M-10417): Unify U-000225ED and H6-D66A; add `sound@ja/on'.
+	(M-10418): Unify U-000225EF and H6-D6A6; add `sound@ja/on'.
+	(M-10420): Map to U-000225F4; integrate H6-D746.
+	(M-10421): Unify U-000225EB and H6-D666.
+	(RUI6-E028): New character.
+	(RUI6-E015): New character.
+	(G-RUI6-E05F): New character.
+
+	* Ideograph-R189-Tall.el (G-RUI6-E033): New character.
+	(U+9ADD): Use `->subsumptive'.
+	(U-00029AE7): Add ideographic-structure.
+
+	* Ideograph-R169-Gate.el (U+95B3): Use `->subsumptive' to separate
+	representative nodes.
+	(U+499E): Likewise.
+	(U+499F): Likewise.
+	(U+95B4): Likewise.
+	(U-0002B522): Add ideographic-structure.
+	(RUI6-E01D): Use `ruimoku=' instead of `bos=' in `sources'.
+	(U+49A0): Use `->subsumptive' to separate representative nodes.
+	(U+49A1): Likewise.
+	(U+95B6): Likewise.
+	(U+49A2): Likewise.
+
+	* Ideograph-R140-Grass.el (M-30757): Add `<-denotational' for
+	U-00026B20; add `sound@ja/on'; add `<-same' for U+833B; delete
+	`<-unknown' for U-00026B20.
+	(G-RUI6-E03D): New character.
+	(RUI6-E03D): New character.
+	(A-UU+83E7): New abstract character.
+	(mother of C2-3F48): Use A-UU+83E7 instead of U+83E7 as the
+	mother; unify G-CU+83E7.
+	(C2-3F48): Unify CU+83E7.
+	(UU+83E7): Use A-UU+83E7 instead of U+83E7 as the mother.
+	(U-0002F99E): Add `<-denotational' for U+83E7.
+	(G-RUI6-E03E): New character.
+	(RUI6-E03E): New character.
+
+2011-02-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (GT-09094): Add `ideographic-structure'.
+	(U-00021A5C): Add ideographic-structure.
+	(RUI6-E009): Use `ruimoku=' instead of `bos=' in `sources'.
+	(U-00021A97): Use `->subsumptive' to separate representative
+	nodes.
+	(G-RUI6-E03B): New character.
+
+	* Ideograph-R018-Knife.el (RUI6-E02E): New character.
+	(G-RUI6-E03C): New character.
+	(RUI6-E02A): New character.
+
+	* Ideograph-R181-Leaf.el (G-RUI6-E014): New character.
+
+	* Ideograph-R170-Mound.el (G-RUI6-E027): New character.
+	(U-00028F4D): Use `->denotational' instead of `->subsumptive'.
+
+2011-02-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-4043.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>>ruimoku-v6'.
+
+	* Ideograph-R131-Minister.el (U-0002458B): Use `->subsumptive' to
+	separate representative nodes.
+	(U-0002B1C6): New character.
+
+	* Ideograph-R172-Short-Tailed-Bird.el (G-RUI6-E037): New
+	character.
+
+	* Ideograph-R167-Gold.el (U+9397): Use `->subsumptive'.
+	(U+9398): Use `->denotational'.
+	(JSP-652E): Unify S-9506; add `<-formed' for J0-722F.
+
+	* Ideograph-R162-Walk.el (U+8FC9): Use `->denotational'.
+	(RUI6-E039): New character.
+	(RUI6-E021): New character.
+
+	* Ideograph-R149-Speech.el (G-RUI6-E036): New character.
+	(G-RUI6-E065): New character.
+	(RUI6-E065): Use `<-subsumptive' for G-RUI6-E065; compact
+	`ideographic-structure'.
+
+	* Ideograph-R087-Claw.el (G-RUI6-E030): New character.
+
+	* Ideograph-R086-Fire.el (G-RUI6-E02F): New character.
+
+	* Ideograph-R055-Two-Hands.el (C6-274C): Add `sound@ja/on'.
+
+2011-01-31  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el: Add mappings between CJK Ext B and CNS
+	11643 plain 7.
+	(U+9093): Add `sound@ja/on'; unify JC3-82C4; add `<-simplified@CN'
+	for G1-354B.
+	(U+90F0): Use `->subsumptive'.
+	(U+90F8): Add `<-simplified@CN' for U+9132.
+	(RUI6-E074): New character.
+	(U-0002874D): Use `->subsumptive' to separate representative
+	nodes.
+	(U+9127): Add `sound@ja/on/kan' and `sound@ja/on/go'; use
+	`->subsumptive' to separate representative nodes; integrate
+	JC3-68B0.
+	(U+9128): Use `->denotational'.
+	(U+9129): Use `->denotational'.
+	(U+912E): Use `->subsumptive' to separate representative nodes.
+	(U+48DF): Use `->denotational' to separate representative nodes.
+	(U-00028790): New character.
+	(U-00028793): Use `->subsumptive'.
+	(U+9133): Use `->subsumptive' to separate representative nodes.
+	(U-000287AB): Likewise.
+	(U+48E2): Likewise.
+	(U+9138): Use `->denotational'.
+	(U+9139): Likewise.
+	(U-000287A3): New character.
+	(U-000287B2): New character.
+	(U+913A): Use `->denotational'.
+	(U+913B): Use `->subsumptive'.
+	(U+913E): Use `->denotational' and `->subsumptive'.
+	(U+9142): Add `<-simplified@CN' for UU+9147.
+	(U+9147): Use `->subsumptive' to separate representative nodes.
+	(U+9148): Use `->subsumptive'.
+	(U-000287E5): New character.
+	(U+48E3): Use `->subsumptive' to separate representative nodes.
+	(U+48E4): Likewise.
+
+	* Ideograph-R111-Arrow.el (RUI6-E068): Fix
+	`ideographic-structure'.
+
+	* Ideograph-R020-Wrap.el (RUI6-E042): New character.
+
+2011-01-29  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R113-Spirit.el (U+795D): Unify J97-3D4B.
+	(mother of J0-3D4B): Unify G-UU+795D and G-J0-3D4B.
+	(U+795E): Unify J97-3F40.
+	(U+FA19): Unify RUI6-E085.
+	(mother of J0-3F40): Unify G-UU+795E and G-J0-3F40.
+
+2011-01-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-1038): Use U-0002B1C6 as the value of
+	`<-Oracle-Bones'.
+	(A-ZOB-2258): New abstract character.
+	(ZOB-2258): Add `<-denotational' for A-ZOB-2258.
+	(ZOB-{2276 - 2296}): New characters.
+
+	* Ideograph-R193-Cauldron.el (A-J0-722F): New abstract character.
+	(mother of J0-722F): Unify G-JU+9B32; use A-J0-722F instead of
+	U+9B32 as the mother.
+	(S-9507): New character.
+	(mother of C4-4224): Unify G-IU+29C2B.
+	(mother of C6-5A4E): Unify G-IU+29C2C.
+	(RUI6-E00A): Use `ruimoku=' instead of `bos=' in `sources'.
+	(mother of GT-61443): Unify G-GT-61443 and G-M-45675.
+	(M-45679): Unify S-9504; add `<-formed' for J0-9B32.
+	(M-45719): Unify S-9508; add `<-vulgar' for J0-722F.
+
+	* Ideograph-R177-Leather.el (U-0002931E): New character.
+
+	* Ideograph-R075-Tree.el (RUI6-E00C): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+	(U+698A): Unify A-J0-3A67.
+	(JX3-3A67): Unify RUI6-E086.
+	(mother of J90-3A67): Unify G-UU+698A.
+
+	* Ideograph-R026-Seal.el (RUI6-E00F): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+	(RUI6-E007): Use `<-error@ruimoku/2001' instead of
+	`<-error@abos/2001'.
+
+2011-01-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* additional-precomposed.el (RUI6-E00D): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-6E4E and J90-4269.
+
+	* Ideograph-R187-Horse.el (RUI6-E076): New character.
+
+	* Ideograph-R154-Shell.el (RUI6-E073): New character.
+
+	* Ideograph-R149-Speech.el (RUI6-E01F): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+	(RUI6-E065): New character.
+
+	* Ideograph-R141-Tiger.el (RUI6-E057): New character.
+
+	* Ideograph-R134-Mortar.el (RUI6-E017): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+
+	* Ideograph-R129-Brush.el (RUI6-E019): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+
+	* Ideograph-R104-Sickness.el (RUI6-E016): Use `ruimoku=' instead
+	of `bos=' in `sources'.
+
+	* Ideograph-R086-Fire.el (RUI6-E018): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+
+	* Ideograph-R079-Weapon.el (RUI6-E01E): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+
+	* Ideograph-R069-Axe.el (RUI6-E00B): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+
+	* Ideograph-R062-Halberd.el (RUI6-E005): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+
+	* Ideograph-R046-Mountain.el (RUI6-E008): Use `ruimoku=' instead
+	of `bos=' in `sources'.
+
+	* Ideograph-R037-Big.el (U+3694): Use `ruimoku=' instead of `bos='
+	in `sources'.
+	(RUI6-E006): Likewise.
+
+	* Ideograph-R027-Cliff.el (RUI6-E022): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+
+	* Ideograph-R024-Ten.el (RUI6-E00E): Use `ruimoku=' instead of
+	`bos=' in `sources'.
+
+2011-01-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el: Add mappings between CJK Ext B and CNS
+	11643 plain 7.
+	(K0-775C): Integrate JC3-67BB.
+	(JSP-6154): Unify JC3-67CD.
+	(JX1-7C58): Unify JC3-67CE.
+	(K0-7475): Unify JC3-67CF.
+	(K0-6A40): Unify JC3-67E4.
+	(U+9069): Unify A-J0-452C.
+	(mother of K0-6E6A): Unify A-KU+9069, A-GT-52561 and A-M-39076.
+	(K0-6E6A): Unify KU+9069.
+	(mother of J0-452C): Unify G-UU+9069 and G-GT-52472.
+	(U-000285B3): Use `->denotational' instead of `->subsumptive'.
+	(JSP-6165): Separate M-39117; integrate JC3-67E8.
+	(K0-7165): Separate M-39118; unify JC3-67E9 and KU+9075.
+	(K0-6B36): Unify JC3-67EC.
+	(K0-7C3D): Unify JC3-67EE.
+	(M-39220): New character.
+	(U-00028633): New character.
+
+	* Ideograph-R038-Woman.el (U-000218EA): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R009-Man.el (U-0002041D): Use `->denotational' and
+	`->subsumptive' to separate representative node.
+
+2011-01-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (U+8457): Unify J97-4378.
+	(A-JX1-4378): New character.
+	(J0-4378): Use A-JX1-4378 instead of U+8457 as the value of
+	`<-denotational'.
+	(C1-6161): Likewise.
+	(A-JX1-7B27): New character.
+	(mother of JX1-7B27): Separate U+FA5F; unify G-M-31410; use
+	A-JX1-7B27 instead of U+8457 as the value of `<-denotational';
+	separate JX1-7B27.
+	(JX1-7B27): Unify U+FA5F; use `<-denotational' for A-JX1-7B27
+	instead of `->subsumptive' for G-M-31410.
+	(U+44F4): Use `->denotational' instead of `->subsumptive'.
+
+2011-01-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs@ks'.
+	(insert-char-attributes): Delete special code for `=>ucs@ks';
+	treat it as a coded-charset.
+
+2011-01-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R160-Bitter.el: Add mappings between CJK Ext B and CNS
+	11643 plain 7.
+	(U-0002841F): Use `->subsumptive'.
+	(M-38661): Map to U-00028426.
+	(M-38662): Map to U-00028423.
+	(M-38663): Map to U-00028425.
+	(U+8FA9): Add `<-simplified@CN' for G1-3167.
+	(U+8FAD): Use `->denotational' and `->subsumptive'.
+	(U+4884): Use `->subsumptive'.
+	(U+8FAF): Use `->subsumptive'.
+
+2011-01-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R161-Morning.el (U+8FB4): Use `->subsumptive' to
+	separate representative nodes.
+	(U-0002844A): Likewise.
+	(U+4888): Likewise.
+	(U+4889): Likewise.
+	(C7-554D): Map to U-0002844B.
+	(M-38699): Unify U-0002844C.
+
 2011-01-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R157-Foot.el (C3-5B3D): Separate JC3-66C6.

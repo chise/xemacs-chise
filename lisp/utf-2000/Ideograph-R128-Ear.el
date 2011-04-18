@@ -46,26 +46,56 @@
     (ideographic-strokes@gt . 6)
     (total-strokes	 . 7)
     (=ucs		. #x8034)	; 耴
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8034)	; 耴
+      ))
+    (ideographic-radical@ucs . 128)	; ⽿
+    (ideographic-strokes@ucs . 1)
+    (ideographic-radical@ucs*sources
+     daikanwa cns11643 ucs)
+    (ideographic-radical@gt . 5)	; ⼄
+    (ideographic-strokes@gt . 6)
+    (total-strokes	 . 7)
+    (=>>ucs@unicode	. #x8034)	; &G-UU+8034;
+    (=big5		. #xCB73)	; &G-UU+8034;
     (->subsumptive
-     ((=ucs@cns		  . #x8034)	; &GT-37567;
-      (=ucs@jis		  . #x8034)	; &GT-37567;
-      (=jis-x0212	  . #x555B)	; &GT-37567; [53-59]
+     ((=decomposition@cid
+       ((=ucs		    . #x8034)	; 耴
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@cns		  . #x8034)	; 耴󠄀
+      (=ucs@jis		  . #x8034)	; 耴󠄀
+      (=jis-x0212	  . #x555B)	; 耴󠄀 [53-59]
       (=cns11643-2	  . #x2473)	; &I-C2-2473; [04-83]
-      (=big5		  . #xCB73)	; &I-B-CB73;
       (=gt		  . 37567)	; &I-GT-37567;
       (=gt-k		  . 02775)	; &I-GT-K02775;
       (=gt-pj-6		  . #x3662)	; &I-GT-37567; [22-66]
       (=daikanwa	  . 29001)	; &I-M-29001;
-      (=shinjigen@1ed	  .  6375)	; &GT-37567;
+      (=shinjigen@1ed	  .  6375)	; 耴󠄀
+      (=adobe-japan1-6	  . 22250)	; &I-AJ1-22250;
       )
      ((=ucs@unicode	  . #x8034)	; &GT-00250;
       (=gt		  . 00250)	; &GT-00250;
       (=gt-pj-11	  . #x4B66)	; &GT-00250; [43-70]
-      )
-     ((=gt		  . 37568)	; &GT-37568;
-      (=gt-k		  . 02776)	; &I-GT-K02776;
-      (=gt-pj-9		  . #x4B7D)	; &GT-37568; [43-93]
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8034)	; 耴
+      ))
+    (ideographic-radical@ucs . 128)	; ⽿
+    (ideographic-strokes@ucs . 1)
+    (ideographic-radical@ucs*sources
+     daikanwa cns11643 ucs)
+    (ideographic-radical@gt . 5)	; ⼄
+    (ideographic-strokes@gt . 6)
+    (total-strokes	 . 7)
+    (=gt		. 37568)	; &GT-37568;
+    (=gt-k		. 02776)	; &I-GT-K02776;
+    (=gt-pj-9		. #x4B7D)	; &GT-37568; [43-93]
     ))
 (define-char
   '((ideographic-radical . 128)	; ⽿

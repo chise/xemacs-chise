@@ -23,6 +23,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
     (=ucs		. #x864E)	; 虎
+    (=big5		. #xAAEA)	; &I-B-AAEA;
     ))
 (define-char
   '((<-denotational
@@ -31,7 +32,8 @@
     (ideographic-radical . 141)	; ⾌
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
-    (=big5		. #xAAEA)	; &B-AAEA;
+    (=>>ucs@jis		. #x864E)	; &G-JU+864E;
+    (=>>ucs@cns		. #x864E)	; &G-JU+864E;
     (->subsumptive
      ((=ucs@jis		  . #x864E)	; &GT-44178;
       (=jis-x0208	  . #x3857)	; &GT-44178; [24-55]
@@ -43,7 +45,8 @@
       (=daikanwa	  . 32675)	; &I-M-32675;
       (=shinjigen	  .  7080)	; &GT-44178;
       )
-     ((=cns11643-1	  . #x4F4D)	; &C1-4F4D; [47-45]
+     ((=ucs@cns		  . #x864E)	; &C1-4F4D;
+      (=cns11643-1	  . #x4F4D)	; &C1-4F4D; [47-45]
       ))
     ))
 (define-char
@@ -671,6 +674,22 @@
       )
      ((=cns11643-3	  . #x3861)	; &C3-3861; [24-65]
       ))
+    ))
+(define-char
+  '((ideographic-radical . 141)	; ⾌
+    (ideographic-strokes . 5)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((name		  . "CJK RADICAL TIGER")
+      (=ucs		  . #x2EC1)	; ⻁
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (sources		ruimoku=A2007-10507-00090)
+    (=ruimoku-v6	. #xE057)	; &RUI6-E057;
     ))
 (define-char
   '((ideographic-radical . 141)	; ⾌

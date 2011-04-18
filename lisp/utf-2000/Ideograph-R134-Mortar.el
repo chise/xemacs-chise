@@ -1691,7 +1691,7 @@
      ((=ucs		  . #x6614)	; 昔
       ))
     (sound@ja/on	"saku")
-    (sources		bos=A021003-00010 bos=A2003-10164-00008)
+    (sources		ruimoku=A021003-00010 ruimoku=A2003-10164-00008)
     (=ruimoku-v6	. #xE017)	; &RUI6-E017;
     ))
 (define-char

@@ -357,8 +357,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@jis		  . #x4EE4)	; &GT-00521;
-      (=jis-x0208	  . #x4E61)	; &GT-00521; [46-65]
+     ((=ucs@jis		  . #x4EE4)	; 令󠄀
+      (=jis-x0208	  . #x4E61)	; 令󠄀 [46-65]
       (=ks-x1001	  . #x5635)	; &I-K0-5635; [54-21]
       (=jis-x0213-1	  . #x4E61)	; &I-JX1-4E61; [46-65]
       (=daikanwa	  . 00387)	; &I-M-00387;

@@ -118,12 +118,13 @@
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (=ucs@jis		. #x5BFD)	; &M-07416;
-    (=jis-x0212		. #x3A68)	; &M-07416; [26-72]
+    (=ucs@jis		. #x5BFD)	; &AJ1-17535;
+    (=jis-x0212		. #x3A68)	; &AJ1-17535; [26-72]
     (=jis-x0213-2	. #x282B)	; &I-JX2-282B; [08-11]
     (=daikanwa		. 07416)	; &I-M-07416;
     (=cbeta		. 04953)	; &I-CB04953;
     (=jef-china3	. #x91CC)	; &I-JC3-91CC;
+    (=adobe-japan1-5	. 17535)	; &I-AJ1-17535;
     ))
 (define-char
   '((<-denotational
@@ -132,6 +133,7 @@
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (=>>ucs@unicode	. #x5BFD)	; &G-UU+5BFD;
     (->subsumptive
      ((=ucs@unicode	  . #x5BFD)	; &HZK02-B7C4;
       (=hanziku-2	  . #xB7C4)	; &HZK02-B7C4;
@@ -150,8 +152,8 @@
     (=daikanwa		. 07417)	; &I-M-07417;
     (=shinjigen		.  0602)	; 㝴
     (<-formed
-     ((=shinjigen	  .  0601)	; &JC3-44BC;
-      (=jef-china3	  . #x44BC)	; &JC3-44BC;
+     ((=shinjigen	  .  0601)	; 刓󠄂
+      (=jef-china3	  . #x44BC)	; 刓󠄂
       ))
     (<-formed*sources
      shinjigen)
@@ -231,6 +233,7 @@
     (=jis-x0213-2	. #x282C)	; &I-JX2-282C; [08-12]
     (=daikanwa		. 07421)	; &I-M-07421;
     (=cbeta		. 01002)	; &I-CB01002;
+    (=adobe-japan1-5	. 17536)	; &I-AJ1-17536;
     ))
 (define-char
   '((ideographic-radical . 41)	; ⼨
@@ -345,9 +348,10 @@
     (=ucs		. #x5C03)	; 尃
     (=big5		. #xD169)	; &I-B-D169;
     (->subsumptive
-     ((=ucs@unicode	  . #x5C03)	; &M-07433;
-      (=jis-x0213-2	  . #x282D)	; &M-07433; [08-13]
+     ((=ucs@unicode	  . #x5C03)	; &AJ1-17537;
+      (=jis-x0213-2	  . #x282D)	; &AJ1-17537; [08-13]
       (=daikanwa	  . 07433)	; &I-M-07433;
+      (=adobe-japan1-5	  . 17537)	; &I-AJ1-17537;
       )
      ((=ucs@cns		  . #x5C03)	; &C2-2E6B;
       (=cns11643-2	  . #x2E6B)	; &C2-2E6B; [14-75]
@@ -587,12 +591,15 @@
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (=>>ucs@ks		. #x5C0A)	; &G-GT-09378;
+    (=>>gt		. 09378)	; &G-GT-09378;
     (->subsumptive
      ((=daikanwa	  . 07445)	; &M-07445;
       )
      ((mojikyo		  . 007445)	; &MCS-60001D15;
       )
-     ((=ks-x1001	  . #x706E)	; &GT-09378; [80-78]
+     ((=ucs@ks		  . #x5C0A)	; &GT-09378;
+      (=ks-x1001	  . #x706E)	; &GT-09378; [80-78]
       (=gt		  . 09378)	; &I-GT-09378;
       (=gt-k		  . 09091)	; &I-GT-K09091;
       (=gt-pj-3		  . #x315D)	; &I-GT-09378; [17-61]
@@ -606,6 +613,7 @@
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (=>>ucs@unicode	. #x5C0A)	; &G-UU+5C0A;
     (->subsumptive
      ((=cns11643-1	  . #x5E71)	; &C1-5E71; [62-81]
       )
@@ -625,18 +633,32 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x21B33)	; 𡬳
-    (->subsumptive
-     ((=daikanwa	  . 07446)	; &M-07446;
-      )
-     ((=ucs@iso		  . #x21B33)	; &C4-3727;
-      (=cns11643-4	  . #x3727)	; &C4-3727; [23-07]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21B33)	; 𡬳
       ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (=daikanwa		. 07446)	; &M-07446;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21B33)	; 𡬳
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (=ucs@iso		. #x21B33)	; &C4-3727;
+    (=cns11643-4	. #x3727)	; &C4-3727; [23-07]
     ))
 (define-char
   '((ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x5C0B)	; 尋
+    (=big5		. #xB44D)	; &I-B-B44D;
     ))
 (define-char
   '((<-denotational
@@ -645,10 +667,8 @@
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=ucs@big5		. #x5C0B)	; &GT-09374;
     (=ks-x1001		. #x637C)	; &GT-09374; [67-92]
     (=cns11643-1	. #x5E72)	; &I-C1-5E72; [62-82]
-    (=big5		. #xB44D)	; &I-B-B44D;
     (=gt		. 09374)	; &I-GT-09374;
     (=gt-k		. 09077)	; &I-GT-K09077;
     (=gt-pj-3		. #x315F)	; &I-GT-09374; [17-63]

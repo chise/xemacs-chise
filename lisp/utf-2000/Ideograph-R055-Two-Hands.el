@@ -243,8 +243,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x4EA0)	; &GT-00376;
-	(=jis-x0208	    . #x5035)	; &GT-00376; [48-21]
+       ((=ucs@jis	    . #x4EA0)	; 亠󠄀
+	(=jis-x0208	    . #x5035)	; 亠󠄀 [48-21]
 	(=jis-x0213-1	    . #x5035)	; &I-JX1-5035; [48-21]
 	)
        ((=ucs		    . #x5F01)	; 弁
@@ -329,6 +329,7 @@
     (ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (sound@ja/on	"kIyo")
     (=ucs@iso		. #x26B20)	; &M-09598;
     (=cns11643-6	. #x274C)	; &M-09598; [07-44]
     (=daikanwa		. 09598)	; &I-M-09598;

@@ -51,14 +51,20 @@
     (=gt-pj-1		. #x457E)	; &I-GT-02558; [37-94]
     (=daikanwa		. 01950)	; &I-M-01950;
     (=shinjigen		.  6602)	; 到
+    (=adobe-japan1-0	. 03192)	; &I-AJ1-03192;
     ))
 (define-char
   '((ideographic-radical . 133)	; ⾄
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
     (=ucs		. #x26934)	; 𦤴
-    (=cns11643-6	. #x2D71)	; &I-C6-2D71; [13-81]
-    (=daikanwa		. 30144)	; &I-M-30144;
+    (->subsumptive
+     ((=daikanwa	  . 30144)	; &M-30144;
+      )
+     ((=cns11643-6	  . #x2D71)	; &C6-2D71; [13-81]
+      )
+     ((=ucs@iso		  . #x26934)	; &U-00026934;
+      ))
     ))
 (define-char
   '((ideographic-radical . 133)	; ⾄

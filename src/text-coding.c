@@ -1,7 +1,8 @@
 /* Code conversion functions.
    Copyright (C) 1991, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2001,2002,2003,2004,2005,2008 MORIOKA Tomohiko
+   Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2008, 2011
+     MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -110,6 +111,7 @@ Lisp_Object Qdisable_composition;
 Lisp_Object Qccs_priority_list;
 Lisp_Object Quse_entity_reference;
 Lisp_Object Qd, Qx, QX;
+Lisp_Object Vdecomposition_feature_list;
 #endif
 Lisp_Object Qencode, Qdecode;
 
@@ -3476,7 +3478,7 @@ char_encode_as_entity_reference (Emchar ch, char* buf)
 /************************************************************************/
 /*                          character composition                       */
 /************************************************************************/
-extern Lisp_Object Qcomposition;
+extern Lisp_Object Qcomposition, Qrep_decomposition;
 
 INLINE_HEADER void
 COMPOSE_FLUSH_CHARS (struct decoding_stream *str, unsigned_char_dynarr* dst);
@@ -4657,10 +4659,43 @@ char_encode_utf8 (struct encoding_stream *str, Emchar ch,
 
       if ( (code_point < 0) || (code_point > 0xEFFFF) )
 	{
-	  Lisp_Object map
-	    = CODING_SYSTEM_ISO2022_INITIAL_CHARSET (str->codesys, 1);
-	  Lisp_Object ret;
+	  Lisp_Object rest = Vdecomposition_feature_list;
+	  Lisp_Object decomp_f;
+	  Lisp_Object seq = Qnil;
+	  Lisp_Object map, ret;
+	  struct gcpro gcpro1;
 
+	  while ( CONSP (rest) )
+	    {
+	      decomp_f = XCAR (rest);
+	      GCPRO1 (rest);
+	      seq = Fchar_feature (make_char (ch), decomp_f, Qnil,
+				   Qnil, Qnil);
+	      UNGCPRO;
+	      if ( !NILP (seq) )
+		break;
+	      rest = XCDR (rest);
+	    }
+
+	  if ( CONSP (seq) )
+	    {
+	      Lisp_Object base = Fcar (seq);
+
+	      seq = Fcdr (seq);
+	      if ( CHARP (base) && CONSP (seq) )
+		{
+		  Lisp_Object comb = Fcar (seq);
+
+		  if ( CHARP (comb) )
+		    {
+		      char_encode_utf8 (str, XCHAR (base), dst, flags);
+		      char_encode_utf8 (str, XCHAR (comb), dst, flags);
+		      return;
+		    }
+		}
+	    }
+
+	  map = CODING_SYSTEM_ISO2022_INITIAL_CHARSET (str->codesys, 1);
 	  if ( !NILP (map)
 	       && INTP (ret = Fchar_feature (make_char (ch),
 					     map, Qnil,
@@ -6534,6 +6569,14 @@ and behaviors of various editing commands.
 Setting this to nil does not do anything.
 */ );
   enable_multibyte_characters = 1;
+
+#ifdef UTF2000
+  DEFVAR_LISP ("decomposition-feature-list",
+	       &Vdecomposition_feature_list /*
+List of `=decomposition@FOO' feature to encode characters as IVS.
+*/ );
+  Vdecomposition_feature_list = Qnil;
+#endif
 }
 
 void

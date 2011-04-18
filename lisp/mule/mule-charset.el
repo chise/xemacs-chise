@@ -4,7 +4,7 @@
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1996 Sun Microsystems.
 ;; Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2007, 2008,
-;;   2009, 2010 MORIOKA Tomohiko
+;;   2009, 2010, 2011 MORIOKA Tomohiko
 
 ;; Author: Unknown
 ;; Keywords: i18n, mule, internal
@@ -282,6 +282,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  japanese-jisx0208
 	  =jis-x0208-1990
 	  japanese-jisx0208-1978
+	  =jis-x0212
 	  =gt-pj-2
 	  =gt-pj-3
 	  =gt-pj-4
@@ -307,7 +308,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  chinese-big5
 	  =jis-x0213-1-2000
 	  =jis-x0213-2-2000
-	  japanese-jisx0212
 	  ;; chinese-gb12345
 	  =gt-pj-1
 	  =ucs-radicals
@@ -327,6 +327,17 @@ DESCRIPTION (string) is the description string of the charset."
 	  =hanziku-10
 	  =hanziku-11
 	  =hanziku-12
+	  =hanyo-denshi/ja
+	  =hanyo-denshi/jb
+	  =hanyo-denshi/jc
+	  =hanyo-denshi/jd
+	  =hanyo-denshi/ft
+	  =hanyo-denshi/ia
+	  =hanyo-denshi/ib
+	  =hanyo-denshi/hg
+	  =hanyo-denshi/ip
+	  =hanyo-denshi/jt
+	  =hanyo-denshi/ks/mf
 	  =ucs-radicals@unicode
 	  =ucs-sip-ext-b@iso
 	  =ucs-bmp-cjk@unicode
@@ -355,6 +366,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>>big5-cdp
 	  =>>jis-x0208
 	  =>>jis-x0213-1
+	  =>>jis-x0213-1@2004
 	  =>jis-x0208
 	  =>jis-x0213-1
 	  ucs-bmp
@@ -364,6 +376,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =adobe-japan1-6
 	  =adobe-japan1-base
 	  =>jis-x0208@1997
+	  =>>hanyo-denshi/ft
 	  )))
 
 ;;; mule-charset.el ends here

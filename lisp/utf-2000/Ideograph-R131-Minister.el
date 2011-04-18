@@ -205,25 +205,44 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
     (=ucs		. #x2458B)	; 𤖋
-    (=cns11643-6	. #x4D58)	; &I-C6-4D58; [45-56]
+    (->subsumptive
+     ((=ucs@iso		  . #x2458B)	; &U-0002458B;
+      )
+     ((=cns11643-6	  . #x4D58)	; &C6-4D58; [45-56]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 131)	; ⾂
+    (ideographic-strokes . 6)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x81E3)	; 臣
+      )
+     ((=ucs		  . #x81E3)	; 臣
+      ))
+    (=ucs		. #x2B1C6)	; 𫇆
+    (=ruimoku-v6	. #xE088)	; &I-RUI6-E088;
     ))
 (define-char
   '((ideographic-radical . 131)	; ⾂
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
     (=ucs		. #x81E7)	; 臧
+    (=big5		. #xBB4E)	; &I-B-BB4E;
     (->subsumptive
      ((=ucs@unicode	  . #x81E7)	; &GT-38924;
       (=jis-x0208	  . #x6749)	; &GT-38924; [71-41]
       (=gb2312		  . #x6A30)	; &I-G0-6A30; [74-16]
       (=ks-x1001	  . #x6D75)	; &I-K0-6D75; [77-85]
       (=jis-x0213-1	  . #x6749)	; &I-JX1-6749; [71-41]
-      (=big5		  . #xBB4E)	; &I-B-BB4E;
       (=gt		  . 38924)	; &I-GT-38924;
       (=gt-k		  . 11233)	; &I-GT-K11233;
       (=gt-pj-1		  . #x6749)	; &I-GT-38924; [71-41]
       (=daikanwa	  . 30083)	; &I-M-30083;
-      (=shinjigen@rev	  .  6596)	; &GT-38924;
+      (=shinjigen	  .  6596)	; &GT-38924;
       )
      ((=cns11643-1	  . #x6A56)	; &C1-6A56; [74-54]
       ))

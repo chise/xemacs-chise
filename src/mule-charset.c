@@ -1,7 +1,8 @@
 /* Functions to handle multilingual characters.
    Copyright (C) 1992, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2001,2002,2003,2004,2008,2009 MORIOKA Tomohiko
+   Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2008, 2009, 2011
+     MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -1872,6 +1873,47 @@ character set.  Recognized properties are:
 	byte_offset = 32;
       else
 	byte_offset = 0;
+    }
+
+  if ( (conversion == 0) && NILP (mother) && (min_code > 0) )
+    {
+      switch (chars)
+	{
+	case 94:
+	  switch (dimension)
+	    {
+	    case 1:
+	      conversion = CONVERSION_94;
+	      break;
+	    case 2:
+	      conversion = CONVERSION_94x94;
+	      break;
+	    case 3:
+	      conversion = CONVERSION_94x94x94;
+	      break;
+	    case 4:
+	      conversion = CONVERSION_94x94x94x94;
+	      break;
+	    }
+	  break;
+	case 96:
+	  switch (dimension)
+	    {
+	    case 1:
+	      conversion = CONVERSION_96;
+	      break;
+	    case 2:
+	      conversion = CONVERSION_96x96;
+	      break;
+	    case 3:
+	      conversion = CONVERSION_96x96x96;
+	      break;
+	    case 4:
+	      conversion = CONVERSION_96x96x96x96;
+	      break;
+	    }
+	  break;
+	}
     }
 
   charset = make_charset (id, name, chars, dimension, columns, graphic,

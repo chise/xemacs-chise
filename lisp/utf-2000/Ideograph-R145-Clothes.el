@@ -99,12 +99,12 @@
      ((=daikanwa	  . 34094)	; &M-34094;
       (=shinjigen	  .  0824)	; &M-34094;
       (<-original
-       ((=ucs@jis	    . #x5352)	; &GT-03504;
-	(=jis-x0208	    . #x4234)	; &GT-03504; [34-20]
+       ((=ucs@jis	    . #x5352)	; &AJ1-02836;
+	(=jis-x0208	    . #x4234)	; &AJ1-02836; [34-20]
 	(=ks-x1001	    . #x706F)	; &I-K0-706F; [80-79]
 	(=jis-x0213-1	    . #x4234)	; &I-JX1-4234; [34-20]
 	(=daikanwa	    . 02740)	; &I-M-02740;
-	(=shinjigen	    .  0823)	; &GT-03504;
+	(=shinjigen	    .  0823)	; &AJ1-02836;
 	))
       (<-original*sources
        zhengzitong daikanwa shinjigen)

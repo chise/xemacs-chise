@@ -5,7 +5,7 @@
    Copyright (C) 1995, 1997, 1999 Electrotechnical Laboratory, JAPAN.
    Licensed to the Free Software Foundation.
    Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2008,
-     2010 MORIOKA Tomohiko
+     2010, 2011 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -3270,6 +3270,43 @@ Return the alist of attributes of CHARACTER.
   return alist;
 }
 
+DEFUN ("char-feature-base-name=", Fchar_feature_base_name_eq, 2, 2, 0, /*
+Return the alist of attributes of CHARACTER.
+*/
+       (base_name, feature_name))
+{
+  Lisp_String *bn, *fn;
+  Bytecount len_bn, len_fn, i;
+  Bufbyte *ptr_bn, *ptr_fn;
+
+  CHECK_SYMBOL (base_name);
+  CHECK_SYMBOL (feature_name);
+
+  bn = XSYMBOL (base_name)->name;
+  fn = XSYMBOL (feature_name)->name;
+  len_bn = string_length (bn);
+  len_fn = string_length (fn);
+
+  if ( len_bn > len_fn )
+    return Qnil;
+
+  ptr_bn = string_data (bn);
+  ptr_fn = string_data (fn);
+  for ( i = len_fn - 1; i >= 0; i-- )
+    {
+      if ( ptr_fn[i] == '*' )
+	return Qnil;
+      if ( ptr_fn[i] == '@' )
+	break;
+    }
+  if ( i < 0 )
+    i = len_fn;
+  if ( (len_bn == i) && (memcmp (ptr_bn, ptr_fn, len_bn) == 0) )
+    return Qt;
+  else
+    return Qnil;
+}
+
 DEFUN ("get-char-attribute", Fget_char_attribute, 2, 3, 0, /*
 Return the value of CHARACTER's ATTRIBUTE.
 Return DEFAULT-VALUE if the value is not exist.
@@ -3534,14 +3571,31 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       value = put_char_ccs_code_point (character, ccs, value);
       attribute = XCHARSET_NAME (ccs);
     }
-  else if ( EQ (attribute, Qrep_decomposition) ||
-	    EQ (attribute, Q_decomposition) )
+  else if (
+#if 0
+	    EQ (attribute, Qrep_decomposition) ||
+#else
+	    !NILP (Fchar_feature_base_name_eq (Qrep_decomposition,
+					       attribute)) ||
+#endif
+	    EQ (attribute, Q_decomposition) /* || */
+#if 0
+	    !NILP (Fstring_match (build_string ("^=decomposition@[^*]+$"),
+				  Fsymbol_name (attribute),
+				  Qnil, Qnil))
+#endif
+	    )
     {
+      Lisp_Object ret;
+
       value = Fcopy_sequence (Fchar_refs_simplify_char_specs (value));
-      attribute = put_char_composition (character, value);
-      if ( !EQ (attribute, Qrep_decomposition) &&
+      ret = put_char_composition (character, value);
+      if ( !EQ (ret, Qrep_decomposition) &&
 	   SYMBOLP (XCAR (value)) )
-	value = XCDR (value);
+	{
+	  attribute = ret;
+	  value = XCDR (value);
+	}
     }
   else if (EQ (attribute, Qto_ucs))
     {
@@ -4825,6 +4879,7 @@ syms_of_chartab (void)
 #endif
   DEFSUBR (Fload_char_attribute_table);
 #endif
+  DEFSUBR (Fchar_feature_base_name_eq);
   DEFSUBR (Fchar_feature);
   DEFSUBR (Fchar_attribute_alist);
   DEFSUBR (Fget_char_attribute);

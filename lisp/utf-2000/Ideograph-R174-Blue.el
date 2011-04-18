@@ -133,19 +133,30 @@
     (ideographic-radical@daikanwa . 174)	; ⾭
     (ideographic-strokes@daikanwa . 3)
     (total-strokes	 . 11)
-    (hanyu-dazidian	1 635 13)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs@unicode	  . #x9751)	; &M-42564;
-      (=ks-x1001	  . #x746C)	; &M-42564; [84-76]
-      (=daikanwa	  . 42564)	; &I-M-42564;
+     ((=ucs		  . #x9751)	; 靑
       ))
-    (=daikanwa		. 42566)	; &M-42566;
-    (=hanziku-2		. #xD4F9)	; &I-HZK02-D4F9;
+    (=>>daikanwa	. 42566)	; &A-M-42566;
+    (->subsumptive
+     ((hanyu-dazidian	  1 635 13)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x53E3)	; 口
+	)
+       ((=ucs@unicode	    . #x9751)	; &M-42564;
+	(=ks-x1001	    . #x746C)	; &M-42564; [84-76]
+	(=daikanwa	    . 42564)	; &I-M-42564;
+	))
+      (=daikanwa	  . 42566)	; &M-42566;
+      (=hanziku-2	  . #xD4F9)	; &I-HZK02-D4F9;
+      ))
     ))
 (define-char
   '((ideographic-radical . 174)	; ⾭
@@ -169,6 +180,7 @@
     (ideographic-radical . 174)	; ⾭
     (ideographic-strokes . 4)
     (total-strokes	 . 12)
+    (=>>ucs@iso		. #x291D7)	; &G-IU+291D7;
     (->subsumptive
      ((=ucs@iso		  . #x291D7)	; &U-000291D7;
       )

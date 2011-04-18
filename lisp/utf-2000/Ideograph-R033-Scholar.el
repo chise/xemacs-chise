@@ -330,11 +330,12 @@
        ((=ucs		    . #x51E0)	; 几
 	))
       ))
-    (=ucs@jis		. #x58F3)	; &M-05648;
-    (=jis-x0212		. #x385E)	; &M-05648; [24-62]
+    (=ucs@jis		. #x58F3)	; &AJ1-17466;
+    (=jis-x0212		. #x385E)	; &AJ1-17466; [24-62]
     (=cns11643-3	. #x282D)	; &I-C3-282D; [08-13]
     (=jis-x0213-2	. #x2536)	; &I-JX2-2536; [05-22]
     (=daikanwa		. 05648)	; &I-M-05648;
+    (=adobe-japan1-5	. 17466)	; &I-AJ1-17466;
     ))
 (define-char
   '((<-denotational
@@ -386,6 +387,7 @@
     (=gt-k		. 05308)	; &I-GT-K05308;
     (=gt-pj-2		. #x6465)	; &I-GT-07150; [68-69]
     (=daikanwa		. 05649)	; &I-M-05649;
+    (=adobe-japan1-5	. 17467)	; &I-AJ1-17467;
     ))
 (define-char
   '((<-denotational

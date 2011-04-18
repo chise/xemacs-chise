@@ -17,6 +17,19 @@
     (=shinjigen@rev	.  2059)	; 工
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x5DE5)	; 工
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=gt-k		. 00173)	; &GT-K00173;
+    (=gt-pj-k1		. #x3474)	; &GT-K00173; [20-84]
+    (<-formed@component/connect-right
+     ((=ucs		  . #x5DE5)	; 工
+      ))
+    ))
+(define-char
   '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
@@ -60,7 +73,16 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (=ucs		. #x5DE6)	; 左
-    (=jis-x0208		. #x3A38)	; &I-J90-3A38; [26-24]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5DE6)	; 左
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=ucs@unicode	. #x5DE6)	; &GT-11000;
+    (=jis-x0208		. #x3A38)	; &GT-11000; [26-24]
     (=gb2312		. #x5773)	; &I-G0-5773; [55-83]
     (=ks-x1001		. #x7127)	; &I-K0-7127; [81-07]
     (=cns11643-1	. #x464A)	; &I-C1-464A; [38-42]
@@ -70,7 +92,16 @@
     (=gt-k		. 00933)	; &I-GT-K00933;
     (=gt-pj-1		. #x3A38)	; &I-GT-11000; [26-24]
     (=daikanwa		. 08720)	; &I-M-08720;
-    (=shinjigen@rev	.  2063)	; 左
+    (=shinjigen@rev	.  2063)	; &GT-11000;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5DE6)	; 左
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (=hanyo-denshi/ib	. #x2661)	; &HD-IB-2661; [06-65]
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
@@ -94,9 +125,9 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (=ucs		. #x5DE8)	; 巨
+    (=big5		. #xA5A8)	; &I-B-A5A8;
     (->subsumptive
      ((=cns11643-1	  . #x4648)	; &M-08722; [38-40]
-      (=big5		  . #xA5A8)	; &I-B-A5A8;
       (=daikanwa	  . 08722)	; &I-M-08722;
       )
      ((=ucs@unicode	  . #x5DE8)	; &GT-03331;
@@ -139,37 +170,55 @@
     (=daikanwa		. 08725)	; &I-M-08725;
     ))
 (define-char
-  '((=>ucs		. #x5DE9)	; 巩
-    (ideographic-radical . 48)	; ⼯
-    (ideographic-strokes . 3)
-    (total-strokes	 . 6)
-    (=ucs@jis		. #x5DE9)	; &M-08726;
-    (=jis-x0212		. #x3C21)	; &M-08726; [28-01]
-    (=jis-x0213-2	. #x286E)	; &I-JX2-286E; [08-78]
-    (=daikanwa		. 08726)	; &I-M-08726;
-    ))
-(define-char
-  '((=>ucs		. #x5DE9)	; 巩
-    (morohashi-daikanwa	8726 0 2)
-    (ideographic-radical . 48)	; ⼯
-    (ideographic-strokes . 3)
-    (total-strokes	 . 6)
-    (=cns11643-4	. #x2263)	; &CDP-8C6F; [02-67]
-    (=big5-cdp		. #x8C6F)	; &I-CDP-8C6F;
-    ))
-(define-char
-  '((morohashi-daikanwa	8726 0 3)
-    (ideographic-radical . 48)	; ⼯
+  '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=ucs		. #x5DE9)	; 巩
-    (=gb2312		. #x392E)	; &I-G0-392E; [25-14]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5DE9)	; 巩
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (=>ucs@JP		. #x5DE9)	; &A-CU+5DE9;
+    (=>ucs@cns		. #x5DE9)	; &A-CU+5DE9;
+    (->subsumptive
+     ((=ucs@jis		  . #x5DE9)	; &M-08726;
+      (=jis-x0212	  . #x3C21)	; &M-08726; [28-01]
+      (=jis-x0213-2	  . #x286E)	; &I-JX2-286E; [08-78]
+      (=daikanwa	  . 08726)	; &I-M-08726;
+      (=hanyo-denshi/jb	  . #x3C21)	; &I-HD-JB-3C21; [28-01]
+      )
+     ((=ucs@cns		  . #x5DE9)	; &CDP-8C6F;
+      (=cns11643-4	  . #x2263)	; &CDP-8C6F; [02-67]
+      (=big5-cdp	  . #x8C6F)	; &I-CDP-8C6F;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5DE9)	; 巩
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (=ucs@unicode	. #x5DE9)	; &G0-392E;
+    (=gb2312		. #x392E)	; &G0-392E; [25-14]
     ))
 (define-char
   '((morohashi-daikanwa	ho 158)
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x2F81E)	; 刃
+      )
+     ((=ucs		  . #x5DE5)	; 工
+      ))
     (=gt		. 11004)	; &GT-11004;
     (=gt-pj-11		. #x4335)	; &GT-11004; [35-21]
     (mojikyo		. 085206)	; &MCS-60014CD6;
@@ -264,7 +313,6 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs@jis		. #x5DEE)	; &GT-11011;
-    (=ucs@big5		. #x5DEE)	; &GT-11011;
     (=jis-x0208		. #x3A39)	; &GT-11011; [26-25]
     (=ks-x1001		. #x732C)	; &I-K0-732C; [83-12]
     (=cns11643-1	. #x5538)	; &I-C1-5538; [53-24]

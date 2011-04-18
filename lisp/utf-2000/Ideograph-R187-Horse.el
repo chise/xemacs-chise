@@ -3892,6 +3892,20 @@
     ))
 (define-char
   '((ideographic-radical . 187)	; ⾺
+    (ideographic-strokes . 9)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x99AC)	; 馬
+      )
+     ((=ucs		  . #x754F)	; 畏
+      ))
+    (=ruimoku-v6	. #xE076)	; &RUI6-E076;
+    ))
+(define-char
+  '((ideographic-radical . 187)	; ⾺
     (=ucs		. #x9A29)	; 騩
     (->subsumptive
      ((ideographic-strokes . 10)

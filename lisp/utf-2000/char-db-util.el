@@ -1,7 +1,7 @@
 ;;; char-db-util.el --- Character Database utility -*- coding: utf-8-er; -*-
 
 ;; Copyright (C) 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006,
-;;   2007, 2008, 2009, 2010 MORIOKA Tomohiko.
+;;   2007, 2008, 2009, 2010, 2011 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Character Database, ISO/IEC 10646, UCS, Unicode, MULE.
@@ -140,6 +140,21 @@
     ethiopic-ucs
     =big5-cdp
     =gt
+    =adobe-japan1-0
+    =adobe-japan1-1
+    =adobe-japan1-2
+    =adobe-japan1-3
+    =adobe-japan1-4
+    =adobe-japan1-5
+    =adobe-japan1-6
+    =hanyo-denshi/ja
+    =hanyo-denshi/jb
+    =hanyo-denshi/jc
+    =hanyo-denshi/jd
+    =hanyo-denshi/ft
+    =hanyo-denshi/ia
+    =hanyo-denshi/ib
+    =hanyo-denshi/hg
     ideograph-daikanwa-2
     ideograph-daikanwa
     =cbeta
@@ -156,13 +171,18 @@
     ideograph-hanziku-10
     ideograph-hanziku-11
     ideograph-hanziku-12
+    =>>>jis-x0208
+    =>>>jis-x0213-1
     =>>jis-x0208
     =>>jis-x0213-1
     =>>jis-x0213-1@2000
     =>>jis-x0213-1@2004
     =>>jis-x0213-2
     =>>jis-x0208@1978
+    =>>hanyo-denshi/ft
+    =>>hanyo-denshi/ks
     =>>gt
+    =>>daikanwa
     =>jis-x0208@usual
     =>jis-x0208
     =>jis-x0208@1997
@@ -177,9 +197,13 @@
     =>ucs@jis
     =>ucs@JP
     =>ucs@cns
+    =>ucs@ks
+    =>>ucs@iso
     =>>ucs@unicode
     =>>ucs@jis
     =>>ucs@cns
+    =>>>ucs@iso
+    =>>>ucs@unicode
     =ucs@iso
     =ucs@unicode
     =>>big5-cdp
@@ -189,9 +213,11 @@
     =>daikanwa
     =big5
     =big5-eten
+    =>gt-k
     =zinbun-oracle
     =>zinbun-oracle
     =ruimoku-v6
+    =>>ruimoku-v6
     =jef-china3
     =shinjigen))
 
@@ -436,18 +462,21 @@
    (format
     (cond ((memq name '(=shinjigen
 			=shinjigen@1ed
-			=shinjigen@rev =shinjigen/+p@rev))
+			=shinjigen@rev =shinjigen/+p@rev
+			=daikanwa/ho))
 	   "(%-18s .  %04d)\t; %c")
 	  ((eq name '=shinjigen@1ed/24pr)
 	   "(%-18s . %04d)\t; %c")
-	  ((or (memq name '(=daikanwa
+	  ((or (memq name '(=daikanwa =>>daikanwa =>daikanwa
 			    =daikanwa@rev1 =daikanwa@rev2
-			    =>>daikanwa =>daikanwa
-			    =gt =>>gt =>gt =gt-k =>>gt-k =cbeta
-			    =zinbun-oracle =>zinbun-oracle))
+			    =daikanwa/+p =daikanwa/+2p
+			    =gt =>>>gt =>>gt =>gt
+			    =gt-k =>>gt-k =>gt-k
+			    =>>adobe-japan1
+			    =cbeta =zinbun-oracle =>zinbun-oracle))
 	       (string-match "^=adobe-" (symbol-name name)))
 	   "(%-18s . %05d)\t; %c")
-	  ((eq name 'mojikyo)
+	  ((memq name '(=hanyo-denshi/ks =>>hanyo-denshi/ks mojikyo))
 	   "(%-18s . %06d)\t; %c")
 	  ((>= (charset-dimension name) 2)
 	   "(%-18s . #x%04X)\t; %c")
@@ -648,7 +677,7 @@
 			name value (decode-char '=ucs value)
 			line-breaking))
 	(setq attributes (delq name attributes))))
-    (dolist (name '(=>ucs@gb =>ucs@ks =>ucs@big5))
+    (dolist (name '(=>ucs@gb =>ucs@big5))
       (when (and (memq name attributes)
 		 (setq value (get-char-attribute char name)))
 	(insert (format "(%-18s . #x%04X)\t; %c%s"
@@ -1082,7 +1111,10 @@
 		     (eq name 'ideographic-combination)
 		     (eq name 'ideographic-)
 		     (eq name '=decomposition)
-		     (string-match "^=>decomposition" (symbol-name name))
+		     (char-feature-base-name= '=decomposition name)
+                     (char-feature-base-name= '=>decomposition name)
+                     ;; (string-match "^=>*decomposition\\(@[^*]+\\)?$"
+                     ;;               (symbol-name name))
 		     (string-match "^\\(->\\|<-\\)[^*]*$" (symbol-name name))
 		     (string-match "^\\(->\\|<-\\)[^*]*\\*sources$"
 				   (symbol-name name))

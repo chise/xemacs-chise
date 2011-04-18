@@ -5,7 +5,7 @@
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1995 Sun Microsystems.
 ;; Copyright (C) 1997, 1999, 2002, 2003, 2004, 2005, 2006, 2008, 2009,
-;;   2010 MORIOKA Tomohiko
+;;   2010, 2011 MORIOKA Tomohiko
 
 ;; This file is part of XEmacs.
 
@@ -181,8 +181,14 @@
    ))
 
 (when (featurep 'utf-2000)
+  (setq decomposition-feature-list
+	'(=decomposition
+	  =decomposition@cid
+	  =decomposition@hanyo-denshi))
+
   (setq coded-charset-entity-reference-alist
 	'(((=adobe-japan1-base	. isolated)    "I-AJ1-" 5 d)
+	  ((=adobe-japan1-6	. isolated)    "I-AJ1-" 5 d)
 	  ((=gt			. isolated)     "I-GT-" 5 d)
 	  ((=ruimoku-v6		. isolated)   "I-RUI6-" 4 X)
 	  ((chinese-big5-cdp	. isolated)    "I-CDP-" 4 X)
@@ -240,6 +246,18 @@
 	  ((arabic-digit	. isolated) "I-MULE-ARBD-" 2 X)
 	  ((ipa			. isolated) "I-MULE-IPA-" 2 X)
 	  ((china3-jef		. isolated)    "I-JC3-" 4 X)
+	  ((=hanyo-denshi/ja	. isolated)  "I-HD-JA-" 4 X)
+	  ((=hanyo-denshi/jb	. isolated)  "I-HD-JB-" 4 X)
+	  ((=hanyo-denshi/jc	. isolated)  "I-HD-JC-" 4 X)
+	  ((=hanyo-denshi/jd	. isolated)  "I-HD-JD-" 4 X)
+	  ((=hanyo-denshi/ft	. isolated)  "I-HD-FT-" 4 X)
+	  ((=hanyo-denshi/ia	. isolated)  "I-HD-IA-" 4 X)
+	  ((=hanyo-denshi/ib	. isolated)  "I-HD-IB-" 4 X)
+	  ((=hanyo-denshi/hg	. isolated)  "I-HD-HG-" 4 X)
+	  ((=hanyo-denshi/ip	. isolated)  "I-HD-IP-" 4 X)
+	  ((=hanyo-denshi/jt	. isolated)  "I-HD-JT-" 4 X)
+	  ((=hanyo-denshi/ks	. isolated)  "I-HD-KS-" 6 d)
+	  ((=hanyo-denshi/ks/mf	. isolated)   "I-KSMF-" 5 d)
 	  ( =adobe-japan1-6			 "AJ1-" 5 d)
 	  ( =adobe-japan1-base		       "I-AJ1-" 5 d)
 	  ( =gt					  "GT-" 5 d)
@@ -267,11 +285,23 @@
 	  ((ideograph-hanziku-2 . isolated)   "I-HZK2-" 4 X)
 	  ( ideograph-hanziku-2                 "HZK2-" 4 X)
 	  ( =jis-x0208@1990			 "J90-" 4 X)
-	  ( =jis-x0208@1983			 "J83-" 4 X)
 	  ( =jis-x0213-1@2000   		 "JX1-" 4 X)
 	  ( =jis-x0213-2	   		 "JX2-" 4 X)
 	  ( =jis-x0213-1@2004			 "JX3-" 4 X)
 	  ( =jis-x0212				 "JSP-" 4 X)
+	  ( =hanyo-denshi/ja		       "HD-JA-" 4 X)
+	  ( =hanyo-denshi/jb		       "HD-JB-" 4 X)
+	  ( =hanyo-denshi/jc		       "HD-JC-" 4 X)
+	  ( =hanyo-denshi/jd		       "HD-JD-" 4 X)
+	  ( =hanyo-denshi/ft		       "HD-FT-" 4 X)
+	  ( =hanyo-denshi/ia		       "HD-IA-" 4 X)
+	  ( =hanyo-denshi/ib		       "HD-IB-" 4 X)
+	  ( =hanyo-denshi/hg		       "HD-HG-" 4 X)
+	  ( =hanyo-denshi/ip		       "HD-IP-" 4 X)
+	  ( =hanyo-denshi/jt		       "HD-JT-" 4 X)
+	  ( =hanyo-denshi/ks		       "HD-KS-" 6 d)
+	  ( =hanyo-denshi/ks/mf                 "KSMF-" 5 d)
+	  ( =jis-x0208@1983			 "J83-" 4 X)
 	  ( =jis-x0208@1978			 "J78-" 4 X)
 	  ( chinese-cns11643-1                    "C1-" 4 X)
 	  ( chinese-cns11643-2                    "C2-" 4 X)
@@ -304,26 +334,39 @@
 	  ( arabic-2-column                "MULE-ARB2-" 2 X)
 	  ( arabic-digit		   "MULE-ARBD-" 2 X)
 	  ( ipa                             "MULE-IPA-" 2 X)
+	  (=>>>jis-x0208		       "g2-J0-" 4 X)
+	  (=>>>jis-x0208		       "GI-J0-" 4 X)
+	  (=>>>jis-x0213-1		      "g2-JX1-" 4 X)
+	  (=>>>jis-x0213-1		      "GI-JX1-" 4 X)
+	  (=>>>jis-x0213-2		      "g2-JX2-" 4 X)
+	  (=>>>jis-x0213-1@2004		      "g2-JX3-" 4 X)
+	  (=>>>jis-x0213-1@2004		      "GI-JX3-" 4 X)
+	  (=>>>hanyo-denshi/jt		    "g2-HD-JT-" 4 X)
+	  (=>>>gt			       "g2-GT-" 5 d)
 	  (=>>gt				"G-GT-" 5 d)
-	  (=>>gt				 "aGT-" 5 d)
 	  (=>>jis-x0208				"G-J0-" 4 X)
 	  (=>>jis-x0213-1@2000		       "G-JX1-" 4 X)
-	  (=>>jis-x0213-2	   	       "G-JX2-" 4 X)
+	  (=>>jis-x0213-2		       "G-JX2-" 4 X)
 	  (=>>jis-x0213-1@2004		       "G-JX3-" 4 X)
-	  (=>>jis-x0213-1@2000		        "aJX1-" 4 X)
-	  (=>>jis-x0213-2	   		"aJX2-" 4 X)
-	  (=>>jis-x0213-1@2004		        "aJX3-" 4 X)
+	  (=>>adobe-japan1		       "G-AJ1-" 5 d)
 	  (=>>jis-x0208@1978		       "G-J78-" 4 X)
 	  (=>>big5-cdp			       "G-CDP-" 4 X)
 	  (=>>gt-k			       "G-GT-K" 5 d)
+	  (=>>ruimoku-v6		      "G-RUI6-" 4 X)
+	  (=>>hanyo-denshi/ft		     "G-HD-FT-" 4 X)
+	  (=>>hanyo-denshi/ia		     "G-HD-IA-" 4 X)
+	  (=>>hanyo-denshi/ib		     "G-HD-IB-" 4 X)
+	  (=>>hanyo-denshi/jt		     "G-HD-JT-" 4 X)
+	  (=>>hanyo-denshi/ks		     "G-HD-KS-" 4 X)
 	  ( =>jis-x0208@usual			"o-J0-" 4 X)
+	  ( =>jis-x0213-2@usual		       "o-JX2-" 4 X)
 	  ( =>jis-x0208@1997			 "J97-" 4 X)
 	  ( =>jis-x0208@1997			"A-J0-" 4 X)
 	  ( =>jis-x0213-1@2000		       "A-JX1-" 4 X)
-	  ( =>jis-x0213-2@usual		       "o-JX2-" 4 X)
 	  ( =>jis-x0213-2		       "A-JX2-" 4 X)
 	  ( =>jis-x0213-1@2004		       "A-JX3-" 4 X)
 	  ( =>gt				"A-GT-" 5 d)
+	  ( =>gt-k			       "A-GT-K" 5 d)
 	  ( =>zinbun-oracle		       "A-ZOB-" 4 d)
 	  (==>ucs@bucs				"BUCS+" 4 X)
 	  ( =>ucs@iso				"A-IU+" 4 X)
@@ -339,6 +382,19 @@
 	  (=>>ucs@jis/2004		      "G-J04U+" 4 X)
 	  (=>>ucs@jis/2000		      "G-J00U+" 4 X)
 	  (=>>ucs@jis/1990		      "G-J90U+" 4 X)
+	  (=>>ucs@JP			       "G-dJU+" 4 X)
+	  (=>>>ucs@iso			       "g2-IU+" 4 X)
+	  (=>>>ucs@iso			       "GI-IU+" 4 X)
+	  (=>>>ucs@unicode		       "g2-UU+" 4 X)
+	  (=>>>ucs@unicode		       "GI-UU+" 4 X)
+	  (=>>>ucs@jis			       "g2-JU+" 4 X)
+	  (=>>>ucs@jis			       "GI-JU+" 4 X)
+	  (=>>>ucs@ks			       "g2-KU+" 4 X)
+	  (=>>>ucs@ks			       "GI-KU+" 4 X)
+	  (=>>>ucs@cns			       "g2-CU+" 4 X)
+	  (=>>>ucs@cns			       "GI-CU+" 4 X)
+	  (=>>>ucs@jis/2004		     "g2-J04U+" 4 X)
+	  (=>>>ucs@jis/2004		     "GI-J04U+" 4 X)
 	  ( =ucs@iso				   "U-" 8 X)
 	  ( =ucs@unicode			  "UU+" 4 X)
 	  ( =ucs@unicode			  "UU-" 8 X)
@@ -351,6 +407,7 @@
 	  ( =ucs@cns				  "CU-" 8 X)
 	  ( =ucs@ks				  "KU+" 4 X)
 	  ( =ucs@ks				  "KU-" 8 X)
+	  ( =ucs@JP				 "dJU+" 4 X)
 	  ( china3-jef				 "JC3-" 4 X)
 	  ( chinese-big5			   "B-" 4 X)
 	  ( chinese-big5			  "C0-" 4 X)
@@ -365,6 +422,11 @@
    'utf-8-mcs-er 'utf-8
    "Coding-system of UTF-8 with entity-reference."
    '(mnemonic "MTF8r" use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-mcs-no-composition 'utf-8
+   "Coding-system of UTF-8 without composition."
+   '(mnemonic "MTF8-nc" disable-composition t))
 
   (make-coding-system
    'utf-8-gb 'utf-8

@@ -764,8 +764,13 @@
     (ideographic-radical@jis . 123)	; ⽺
     (ideographic-strokes@jis . 4)
     (total-strokes	 . 10)
-    (=ucs@jis		. #x517B)	; &AJ1-18393;
-    (=jis-x0213-2	. #x7474)	; &AJ1-18393; [84-84]
+    (=decomposition@cid
+     ((=ucs		  . #x517B)	; 养
+      )
+     ((=ucs		  . #xE0100)	; 󠄀
+      ))
+    (=ucs@jis		. #x517B)	; 养󠄀
+    (=jis-x0213-2	. #x7474)	; 养󠄀 [84-84]
     (=jef-china3	. #x82AA)	; &I-JC3-82AA;
     (=adobe-japan1-5	. 18393)	; &I-AJ1-18393;
     ))
@@ -1328,31 +1333,47 @@
     (=cns11643-6	. #x4C7C)	; &C6-4C7C; [44-92]
     ))
 (define-char
-  '((=>ucs		. #x7FA1)	; 羡
+  '((ideographic-radical . 123)	; ⽺
+    (ideographic-strokes . 6)
+    (total-strokes	 . 12)
+    (=ucs		. #x7FA1)	; 羡
+    (=big5		. #xDB43)	; &I-B-DB43;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7FA1)	; 羡
+      ))
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
-    (=ucs@jis		. #x7FA1)	; &M-28493;
-    (=jis-x0212		. #x552E)	; &M-28493; [53-14]
+    (=ucs@jis		. #x7FA1)	; &AJ1-08598;
+    (=jis-x0212		. #x552E)	; &AJ1-08598; [53-14]
     (=daikanwa		. 28493)	; &I-M-28493;
+    (=adobe-japan1-2	. 08598)	; &I-AJ1-08598;
     ))
 (define-char
-  '((=>ucs		. #x7FA1)	; 羡
-    (morohashi-daikanwa	28493 0 0)
+  '((<-denotational
+     ((=ucs		  . #x7FA1)	; 羡
+      ))
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
     (=cns11643-2	. #x3F28)	; &C2-3F28; [31-08]
     ))
 (define-char
-  '((morohashi-daikanwa	28493 0 2)
+  '((<-denotational
+     ((=ucs		  . #x7FA1)	; 羡
+      ))
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
-    (=ucs		. #x7FA1)	; 羡
-    (=gb2312		. #x4F5B)	; &I-G0-4F5B; [47-59]
-    (=big5		. #xDB43)	; &I-B-DB43;
-    (=jef-china3	. #x5FF7)	; &I-JC3-5FF7;
+    (=>>ucs@unicode	. #x7FA1)	; &G-UU+7FA1;
+    (->subsumptive
+     ((=jef-china3	  . #x5FF7)	; &JC3-5FF7;
+      )
+     ((=ucs@unicode	  . #x7FA1)	; &G0-4F5B;
+      (=gb2312		  . #x4F5B)	; &G0-4F5B; [47-59]
+      ))
     ))
 (define-char
   '((=>ucs		. #x7FA2)	; 羢
@@ -2293,8 +2314,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x4EAF)	; &CDP-8AA5;
-	(=jis-x0212	    . #x3041)	; &CDP-8AA5; [16-33]
+       ((=ucs@jis	    . #x4EAF)	; 亯󠄀
+	(=jis-x0212	    . #x3041)	; 亯󠄀 [16-33]
 	(=daikanwa	    . 00305)	; &I-M-00305;
 	)
        ((=ucs		    . #x7F8A)	; 羊

@@ -972,7 +972,7 @@
       )
      ((=ucs		  . #x53B6)	; 厶
       ))
-    (sources		bos=A2003-10440-00005)
+    (sources		ruimoku=A2003-10440-00005)
     (=ruimoku-v6	. #xE01E)	; &RUI6-E01E;
     ))
 (define-char
@@ -1288,8 +1288,8 @@
     (->subsumptive
      ((=daikanwa	  . 16664)	; &M-16664;
       (<-same
-       ((=ucs@jis	    . #x525C)	; &AJ1-17314;
-	(=jis-x0212	    . #x3344)	; &AJ1-17314; [19-36]
+       ((=ucs@jis	    . #x525C)	; 剜󠄀
+	(=jis-x0212	    . #x3344)	; 剜󠄀 [19-36]
 	(=jis-x0213-2	    . #x233A)	; &I-JX2-233A; [03-26]
 	(=daikanwa	    . 02044)	; &I-M-02044;
 	))
