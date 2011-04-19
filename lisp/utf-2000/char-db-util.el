@@ -155,8 +155,9 @@
     =hanyo-denshi/ia
     =hanyo-denshi/ib
     =hanyo-denshi/hg
-    ideograph-daikanwa-2
-    ideograph-daikanwa
+    =daikanwa
+    =daikanwa@rev2
+    =daikanwa@rev1
     =cbeta
     =gt-k
     ideograph-hanziku-1
@@ -302,7 +303,8 @@
     (insert-char-attributes char
 			    readable
                             (union (mapcar #'car char-spec)
-				   required-features))
+				   required-features)
+			    nil 'for-sub-node)
     (when temp-char
       ;; undefine temporary character
       ;;   Current implementation is dirty.
@@ -343,7 +345,7 @@
 		   (insert-char-attributes ret
 					   readable
 					   (or al 'none) ; cal
-					   ))
+					   nil 'for-sub-node))
 	       (insert (prin1-to-string value)))
 	     (insert ")")
 	     (insert line-breaking))
@@ -375,7 +377,7 @@
 		     (insert-char-attributes ret
 					     readable
 					     al ; cal
-					     )
+					     nil 'for-sub-node)
 		     (setq separator lbs))
 		 (if separator
 		     (insert separator))
@@ -524,7 +526,7 @@
 	  (let ((char-db-ignored-attributes
 		 (cons '<-subsumptive
 		       char-db-ignored-attributes)))
-	    (insert-char-attributes cell readable))
+	    (insert-char-attributes cell readable nil nil 'for-sub-node))
 	  (setq separator lbs))
 	)
        ((characterp cell)
@@ -600,7 +602,8 @@
     (insert ")")
     (insert line-breaking)))
 
-(defun insert-char-attributes (char &optional readable attributes column)
+(defun insert-char-attributes (char &optional readable attributes column
+				    for-sub-node)
   (unless column
     (setq column (current-column)))
   (let (name value ; has-long-ccs-name
@@ -632,7 +635,7 @@
 		  #'char-attribute-name<)))
     (insert "(")
     (when (memq '<-subsumptive attributes)
-      (when readable
+      (when (or readable (not for-sub-node))
 	(when (setq value (get-char-attribute char '<-subsumptive))
 	  (char-db-insert-relation-feature char '<-subsumptive value
 					   line-breaking
@@ -1175,7 +1178,8 @@
 			     (insert lbs))
 			 (insert-char-attributes ret
 						 readable
-						 al cal)
+						 al ; cal
+						 nil 'for-sub-node)
 			 (setq separator lbs))
 		     (setq ret (prin1-to-string cell))
 		     (if separator
