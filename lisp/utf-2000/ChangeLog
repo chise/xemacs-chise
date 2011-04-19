@@ -1,3 +1,20 @@
+2011-04-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* ruimoku6.el: Don't omit `<-subsumptive' features of
+	`=ruimoku-v6' characters.
+
+2011-04-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Use
+	`=daikanwa' and `=daikanwa@rev1' instead of `ideograph-daikanwa'
+	and `ideograph-daikanwa-2'; add `=daikanwa@rev2'.
+	(char-db-insert-char-spec): Modify for `insert-char-attributes' to
+	specify optional argument `for-sub-node'.
+	(char-db-insert-alist): Likewise.
+	(char-db-insert-relation-feature): Likewise.
+	(insert-char-attributes): Add optional argument `for-sub-node';
+	insert `<-subsumptive' feature if `for-sub-node' is nil.
+
 2011-04-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R010-Legs.el (AJ1-21177): Add `ideographic-strokes'
