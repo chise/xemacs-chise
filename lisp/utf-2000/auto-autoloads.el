@@ -7,7 +7,7 @@
 
 ;;;***
 
-;;;### (autoloads (chise-string< map-char-family char-id char-ucs char-attribute-name< expand-char-feature-name) "chise-subr" "utf-2000/chise-subr.el")
+;;;### (autoloads (chise-string< define-char-after define-char-before map-char-family char-id char-ucs char-attribute-name< expand-char-feature-name) "chise-subr" "utf-2000/chise-subr.el")
 
 (autoload 'expand-char-feature-name "chise-subr" nil nil nil)
 
@@ -20,6 +20,12 @@ Return code-point of UCS." nil nil)
 (autoload 'char-id "chise-subr" nil nil nil)
 
 (autoload 'map-char-family "chise-subr" nil nil nil)
+
+(autoload 'define-char-before "chise-subr" "\
+Define CHAR-SPEC and insert it before NEXT-CHAR." nil nil)
+
+(autoload 'define-char-after "chise-subr" "\
+Define CHAR-SPEC and insert it after PREV-CHAR." nil nil)
 
 (autoload 'chise-string< "chise-subr" nil nil nil)
 

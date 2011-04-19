@@ -1,5 +1,10 @@
 2011-04-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* chise-subr.el (define-char-before): New function.
+	(define-char-after): New function.
+
+2011-04-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* ruimoku6.el: Don't omit `<-subsumptive' features of
 	`=ruimoku-v6' characters.
 
