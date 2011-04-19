@@ -1,7 +1,7 @@
 ;;; chise-subr.el --- basic lisp subroutines for XEmacs CHISE
 
 ;; Copyright (C) 1999, 2001, 2002, 2003, 2004, 2005, 2007, 2008, 2009,
-;;   2010 MORIOKA Tomohiko.
+;;   2010, 2011 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Character Database, ISO/IEC 10646, UCS, Unicode, MULE.
@@ -146,6 +146,45 @@
 			       (get-char-attribute (car rest) '<-subsumptive)
 			       (get-char-attribute (car rest) '<-denotational)))))
 	(setq rest (cdr rest))))))
+
+
+;;;###autoload
+(defun define-char-before (char-spec next-char)
+  "Define CHAR-SPEC and insert it before NEXT-CHAR." 
+  (let (mother sisters rest)
+    (when (and (or (characterp next-char)
+		   (setq next-char (find-char next-char)))
+	       (setq mother (get-char-attribute next-char '<-subsumptive))
+	       (setq mother (car mother))
+	       (setq sisters (get-char-attribute mother '->subsumptive)))
+      (if (eq (car sisters) next-char)
+	  (setq sisters (cons (define-char char-spec) sisters))
+	(setq rest sisters)
+	(while (and (cdr rest)
+		    (not (eq (nth 1 rest) next-char)))
+	  (setq rest (cdr rest)))
+	(if (null rest)
+	    (setq sisters (cons (define-char char-spec) sisters))
+	  (setcdr rest (cons (define-char char-spec) (cdr rest)))))
+      (put-char-attribute mother '->subsumptive sisters))))
+
+;;;###autoload
+(defun define-char-after (prev-char char-spec)
+  "Define CHAR-SPEC and insert it after PREV-CHAR." 
+  (let (mother sisters rest)
+    (when (and (or (characterp prev-char)
+		   (setq prev-char (find-char prev-char)))
+	       (setq mother (get-char-attribute prev-char '<-subsumptive))
+	       (setq mother (car mother))
+	       (setq sisters (get-char-attribute mother '->subsumptive)))
+      (setq rest sisters)
+      (while (and rest
+		  (not (eq (car rest) prev-char)))
+	(setq rest (cdr rest)))
+      (if (null rest)
+	  (setq sisters (cons (define-char char-spec) sisters))
+	(setcdr rest (cons (define-char char-spec) (cdr rest))))
+      (put-char-attribute mother '->subsumptive sisters))))
 
 
 ;;; @ string
