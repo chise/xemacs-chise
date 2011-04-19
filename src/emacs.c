@@ -3,6 +3,7 @@
    Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
    Copyright (C) 2000, 2002 Ben Wing.
+   Copyright (C) 2000,2002,2005,2006,2010 MORIOKA Tomohiko.
 
 This file is part of XEmacs.
 
@@ -292,6 +293,7 @@ Lisp_Object Vexec_path;
 Lisp_Object Vexec_directory, Vconfigure_exec_directory;
 Lisp_Object Vlisp_directory, Vconfigure_lisp_directory;
 Lisp_Object Vmule_lisp_directory, Vconfigure_mule_lisp_directory;
+Lisp_Object Vutf_2000_lisp_directory, Vconfigure_utf_2000_lisp_directory;
 Lisp_Object Vmodule_directory, Vconfigure_module_directory;
 Lisp_Object Vsite_module_directory, Vconfigure_site_module_directory;
 Lisp_Object Vconfigure_package_path;
@@ -1587,6 +1589,10 @@ main_1 (int argc, char **argv, char **envp, int restart)
       syms_of_postgresql ();
 #endif
 
+#ifdef HAVE_CONCORD
+      syms_of_concord ();
+#endif
+
       /* Now create the subtypes for the types that have them.
 	 We do this before the vars_*() because more symbols
 	 may get initialized here. */
@@ -1713,6 +1719,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
       structure_type_create_faces ();
       structure_type_create_rangetab ();
       structure_type_create_hash_table ();
+#ifdef HAVE_CONCORD
+      structure_type_create_concord ();
+#endif
 
       /* Now initialize the image instantiator formats and associated symbols.
          Other than the first function below, the functions may
@@ -2042,6 +2051,10 @@ main_1 (int argc, char **argv, char **envp, int restart)
       vars_of_postgresql();
 #endif
 
+#ifdef HAVE_CONCORD
+      vars_of_concord ();
+#endif
+
 #ifdef HAVE_GPM
       vars_of_gpmevent ();
 #endif
@@ -2174,6 +2187,11 @@ main_1 (int argc, char **argv, char **envp, int restart)
       /* Calls make_lisp_hash_table() and creates a keymap */
       complex_vars_of_event_stream ();
 
+      /* This initializes data-sources of built-in genres */
+#ifdef HAVE_CONCORD
+      complex_vars_of_concord ();
+#endif
+
 #ifdef ERROR_CHECK_GC
       {
 	extern int always_gc;
@@ -2216,6 +2234,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
       structure_type_create_faces ();
       structure_type_create_rangetab ();
       structure_type_create_hash_table ();
+#ifdef HAVE_CONCORD
+      structure_type_create_concord ();
+#endif
 
       lstream_type_create ();
 #ifdef FILE_CODING
@@ -3613,7 +3634,34 @@ Codename of this version of Emacs (a string).
 #ifndef XEMACS_CODENAME
 #define XEMACS_CODENAME "Noname"
 #endif
+#ifdef MULE
+  {
+    char dest[129];
+    char src[64] = XEMACS_CODENAME;
+    unsigned char* sp = (unsigned char*)src;
+    int i = 0, chr;
+
+    while ( (chr = *sp++) && (i < 128) )
+      {
+	if (chr <= 0x7F)
+	  dest[i++] = chr;
+	else
+	  {
+#ifdef UTF2000
+	    dest[i++] = (chr >> 6) | 0xC0;
+	    dest[i++] = (chr & 0x3F) | 0x80;
+#else
+	    dest[i++] = LEADING_BYTE_LATIN_ISO8859_1;
+	    dest[i++] = chr;
+#endif
+	  }
+      }
+    dest[i] = 0;
+    Vxemacs_codename = build_string (dest);
+  }
+#else  
   Vxemacs_codename = build_string (XEMACS_CODENAME);
+#endif
 
   /* Lisp variables which contain command line flags.
 
@@ -3820,6 +3868,23 @@ configure's idea of what `mule-lisp-directory' will be.
     (build_string ((char *) PATH_MULELOADSEARCH));
 #else
   Vconfigure_mule_lisp_directory = Qnil;
+#endif
+
+  DEFVAR_LISP ("utf-2000-lisp-directory", &Vutf_2000_lisp_directory /*
+*Directory of UTF-2000 Lisp files that come with XEmacs.
+*/ );
+  Vutf_2000_lisp_directory = Qnil;
+
+  DEFVAR_LISP ("configure-utf-2000-lisp-directory",
+	       &Vconfigure_utf_2000_lisp_directory /*
+For internal use by the build procedure only.
+configure's idea of what `utf-2000-lisp-directory' will be.
+*/ );
+#ifdef PATH_UTF2000LOADSEARCH
+  Vconfigure_utf_2000_lisp_directory = Ffile_name_as_directory
+    (build_string ((char *) PATH_UTF2000LOADSEARCH));
+#else
+  Vconfigure_utf_2000_lisp_directory = Qnil;
 #endif
 
   DEFVAR_LISP ("module-directory", &Vmodule_directory /*
