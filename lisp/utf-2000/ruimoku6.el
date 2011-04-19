@@ -84,7 +84,10 @@
     (=ruimoku-v6	. #xE008)	; &RUI6-E008;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=ucs		  . #x21A5C)	; 𡩜
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
       )
@@ -101,7 +104,10 @@
     (=ruimoku-v6	. #xE009)	; &RUI6-E009;
     ))
 (define-char
-  '((sources		ruimoku=A016374-00004)
+  '((<-subsumptive
+     ((=>>ucs@iso	  . #x29C2C)	; &G-IU+29C2C;
+      ))
+    (sources		ruimoku=A016374-00004)
     (=ucs@iso		. #x29C2C)	; &RUI6-E00A;
     (=ruimoku-v6	. #xE00A)	; &RUI6-E00A;
     ))
@@ -195,7 +201,10 @@
     (=ruimoku-v6	. #xE012)	; &RUI6-E012;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=>>ruimoku-v6	  . #xE013)	; &G-RUI6-E013;
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -207,7 +216,10 @@
     (=ruimoku-v6	. #xE013)	; &RUI6-E013;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=>>ruimoku-v6	  . #xE014)	; &G-RUI6-E014;
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
@@ -234,7 +246,10 @@
     (=ruimoku-v6	. #xE015)	; &RUI6-E015;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=ucs		  . #x24F08)	; 𤼈
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
@@ -272,7 +287,10 @@
     (=ruimoku-v6	. #xE017)	; &RUI6-E017;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=>>ruimoku-v6	  . #xE018)	; &G-RUI6-E018;
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -306,7 +324,10 @@
     (=ruimoku-v6	. #xE019)	; &RUI6-E019;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=>>ucs@iso	  . #x20E04)	; &G-IU+20E04;
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
@@ -319,7 +340,10 @@
     (=ruimoku-v6	. #xE01A)	; &RUI6-E01A;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=>>ruimoku-v6	  . #xE01B)	; &G-RUI6-E01B;
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
@@ -342,7 +366,10 @@
     (=ruimoku-v6	. #xE01C)	; &I-RUI6-E01C;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=ucs		  . #x2B522)	; 𫔢
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
       (=ucs		  . #x2FF5)	; ⿵
       )
@@ -381,7 +408,10 @@
     (=ruimoku-v6	. #xE01E)	; &RUI6-E01E;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=>>ruimoku-v6	  . #xE01F)	; &G-RUI6-E01F;
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
@@ -440,7 +470,10 @@
   '((=ruimoku-v6	. #xE026)	; &RUI6-E026;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=>>ruimoku-v6	  . #xE027)	; &G-RUI6-E027;
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
@@ -518,7 +551,10 @@
     (=ruimoku-v6	. #xE02E)	; &RUI6-E02E;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=>>ruimoku-v6	  . #xE02F)	; &G-RUI6-E02F;
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
@@ -529,7 +565,10 @@
     (=ruimoku-v6	. #xE02F)	; &RUI6-E02F;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=>>ruimoku-v6	  . #xE030)	; &G-RUI6-E030;
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -549,7 +588,10 @@
   '((=ruimoku-v6	. #xE032)	; &RUI6-E032;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=>>ruimoku-v6	  . #xE033)	; &G-RUI6-E033;
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
@@ -598,7 +640,10 @@
     (=ruimoku-v6	. #xE034)	; &RUI6-E034;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=>>ruimoku-v6	  . #xE035)	; &G-RUI6-E035;
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -611,7 +656,10 @@
     (=ruimoku-v6	. #xE035)	; &RUI6-E035;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=>>ruimoku-v6	  . #xE036)	; &G-RUI6-E036;
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
@@ -635,7 +683,10 @@
     (=ruimoku-v6	. #xE036)	; &RUI6-E036;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=>>ruimoku-v6	  . #xE037)	; &G-RUI6-E037;
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
@@ -692,7 +743,10 @@
   '((=ruimoku-v6	. #xE03A)	; &RUI6-E03A;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=>>ruimoku-v6	  . #xE03B)	; &G-RUI6-E03B;
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -705,7 +759,10 @@
     (=ruimoku-v6	. #xE03B)	; &RUI6-E03B;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=>>ruimoku-v6	  . #xE03C)	; &G-RUI6-E03C;
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
@@ -791,7 +848,10 @@
     (=ruimoku-v6	. #xE03E)	; &RUI6-E03E;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=>>ruimoku-v6	  . #xE03F)	; &G-RUI6-E03F;
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
@@ -807,7 +867,10 @@
   '((=ruimoku-v6	. #xE040)	; &RUI6-E040;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=ucs		  . #x2A894)	; 𪢔
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
@@ -843,7 +906,10 @@
   '((=ruimoku-v6	. #xE045)	; &RUI6-E045;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=>>ruimoku-v6	  . #xE046)	; &G-RUI6-E046;
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -877,7 +943,10 @@
     (=ruimoku-v6	. #xE046)	; &RUI6-E046;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=>>ruimoku-v6	  . #xE047)	; &G-RUI6-E047;
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -906,7 +975,10 @@
     (=ruimoku-v6	. #xE047)	; &RUI6-E047;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=>>ruimoku-v6	  . #xE048)	; &G-RUI6-E048;
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -1115,7 +1187,10 @@
     (=ruimoku-v6	. #xE05E)	; &RUI6-E05E;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=>>ruimoku-v6	  . #xE05F)	; &G-RUI6-E05F;
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
       )
@@ -1193,7 +1268,10 @@
     (=ruimoku-v6	. #xE064)	; &I-RUI6-E064;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=>>ruimoku-v6	  . #xE065)	; &G-RUI6-E065;
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
