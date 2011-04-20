@@ -961,6 +961,16 @@
 		  direction	l2r))
   (define-charset-alias 'ideograph-cbeta '=cbeta)
 
+  (make-charset '=>>cbeta "CBETA abstract glyphs"
+		'(long-name	"CBETA glyphs"
+		  chars		256
+		  dimension	2
+		  registry	"cbeta-0"
+		  graphic	2
+		  columns	2
+		  direction	l2r
+		  mother	=cbeta))
+
   (make-charset '=zinbun-oracle
 		"Oracle Bones Script"
 		`(long-name	"Oracle Bones Script in Zinbun, Kyoto Univ."
