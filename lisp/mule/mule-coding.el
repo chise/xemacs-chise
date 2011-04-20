@@ -358,6 +358,7 @@
 	  (=>>hanyo-denshi/ib		     "G-HD-IB-" 4 X)
 	  (=>>hanyo-denshi/jt		     "G-HD-JT-" 4 X)
 	  (=>>hanyo-denshi/ks		     "G-HD-KS-" 4 X)
+	  (=>>cbeta   		           	 "G-CB" 5 d)
 	  ( =>jis-x0208@usual			"o-J0-" 4 X)
 	  ( =>jis-x0213-2@usual		       "o-JX2-" 4 X)
 	  ( =>jis-x0208@1997			 "J97-" 4 X)
