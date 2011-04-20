@@ -4296,6 +4296,7 @@
       (<-simplified
        ((=daikanwa	    . 02486)	; &M-02486;
 	(=shinjigen	    .  0751)	; &M-02486;
+	(=hanyo-denshi/ks   . 028870)	; &M-02486;
 	))
       (<-simplified*sources
        songyuan-yilai-suzipu daikanwa shinjigen@1ed)
