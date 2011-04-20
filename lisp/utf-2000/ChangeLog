@@ -1,3 +1,8 @@
+2011-04-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=hanyo-denshi/ks'.
+
 2011-04-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* chise-subr.el (define-char-before): New function.

@@ -1,3 +1,11 @@
+2011-04-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>>cbeta'.
+
+	* mule/mule-conf.el (=>>cbeta): New coded-charset for XEmacs
+	CHISE.
+
 2011-04-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
