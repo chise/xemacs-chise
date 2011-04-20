@@ -809,6 +809,7 @@
     (=shinjigen		.  0016)	; 丑󠄀
     (=adobe-japan1-0	. 01233)	; &I-AJ1-01233;
     (=hanyo-denshi/ja	. #x312F)	; &I-HD-JA-312F; [17-15]
+    (mojikyo		. 000023)	; &MCS-60000017;
     ))
 (define-char
   '((<-denotational
