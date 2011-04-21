@@ -1,5 +1,10 @@
 2011-04-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R009-Man.el (mother of M-00626): Unify G-M-00626; add
+	ideographic-structure.
+
+2011-04-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=hanyo-denshi/ks'.
 
