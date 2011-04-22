@@ -1,3 +1,11 @@
+2011-04-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (J0-5525): Unify M054539.
+
+2011-04-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R073-Say.el (mother of CB04456): Unify G-CB04456.
+
 2011-04-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el (G-HD-JT-AEC5): Unify G-CB01170.
