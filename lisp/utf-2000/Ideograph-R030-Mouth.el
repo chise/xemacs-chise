@@ -8514,6 +8514,7 @@
      ((=>>ucs@cns	  . #x5173)	; &G-CU+5173;
       ))
     (=>>daikanwa	. 03554)	; &G-HD-JT-AEC5;
+    (=>>cbeta		. 01170)	; &G-HD-JT-AEC5;
     (=>>hanyo-denshi/jt . #xAEC5)	; &G-HD-JT-AEC5;
     (->subsumptive
      ((ideographic-structure
@@ -8523,6 +8524,7 @@
        ((=ucs		    . #x53E3)	; 口
 	)
        ((=daikanwa	    . 01459)	; 关󠄂
+	(=hanyo-denshi/ks   . 017040)	; 关󠄂
 	))
       (=daikanwa	  . 03554)	; &M-03554;
       (=shinjigen@1ed	  .  1072)	; &M-03554;

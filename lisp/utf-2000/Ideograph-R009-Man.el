@@ -11443,6 +11443,16 @@
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL PERSON")
+      (=ucs		  . #x2E85)	; ⺅
+      )
+     ((=>>ucs@cns	  . #x5173)	; &G-CU+5173;
+      ))
+    (=>>daikanwa	. 00626)	; &A-M-00626;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -11452,6 +11462,7 @@
 	(=ucs		    . #x2E85)	; ⺅
 	)
        ((=daikanwa	    . 01459)	; 关󠄂
+	(=hanyo-denshi/ks   . 017040)	; 关󠄂
 	))
       (=daikanwa	  . 00626)	; &M-00626;
       )
