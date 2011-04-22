@@ -11751,6 +11751,7 @@
       (=shinjigen	  .  1614)	; 侫󠄀
       (=cbeta		  . 00126)	; &I-CB00126;
       (=adobe-japan1-0	  . 04564)	; &I-AJ1-04564;
+      (mojikyo		  . 054539)	; &MCS-6000D50B;
       (<-vulgar
        ((=ucs@unicode	    . #x4F5E)	; 佞󠄀
 	(=jis-x0208	    . #x5524)	; 佞󠄀 [53-04]
@@ -11761,11 +11762,8 @@
 	))
       (<-vulgar*sources
        shinjigen)
-      (->subsumptive
-       ((mojikyo	    . 055195)	; &MCS-6000D79B;
-	)
-       ((mojikyo	    . 054539)	; &MCS-6000D50B;
-	))
+      )
+     ((mojikyo		  . 055195)	; &MCS-6000D79B;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
