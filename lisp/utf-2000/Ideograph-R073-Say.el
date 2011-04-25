@@ -87,7 +87,10 @@
   '((ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
-    (=cbeta		. 04456)	; &CB04456;
+    (=>>cbeta		. 04456)	; &G-CB04456;
+    (->subsumptive
+     ((=cbeta		  . 04456)	; &CB04456;
+      ))
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈
