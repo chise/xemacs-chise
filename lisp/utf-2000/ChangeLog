@@ -1,3 +1,18 @@
+2011-04-23  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Oracle-Bones.el (ZOB-{01411 .. 01428}): Fix `shuowen-radical'.
+
+2011-04-23  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el: (shuowen-radicals):
+	- Fix radical of No.63.
+	- Move "旨".
+
+2011-04-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R073-Say.el (G-CB04456): New character.
+	(CB04456): Add `<-subsumptive' for G-CB04456.
+
 2011-04-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el (G-HD-JT-AEC5): Unify G-CB01170.
