@@ -1,3 +1,10 @@
+2011-05-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R079-Weapon.el (U+6BBF): Use `->subsumptive'.
+
+	* Ideograph-R032-Earth.el (U-0002136E): Use `->subsumptive'.
+	(U+5830): Use `->denotational' and `->subsumptive'.
+
 2011-05-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el (U+5683): Add ideographic-structure;
