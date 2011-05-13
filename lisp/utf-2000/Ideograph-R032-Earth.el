@@ -7104,15 +7104,13 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x2136E)	; 𡍮
-    (=daikanwa		. 05273)	; &I-M-05273;
-    ))
-(define-char
-  '((=>ucs		. #x2136E)	; 𡍮
-    (morohashi-daikanwa	5273 0 1)
-    (ideographic-radical . 32)	; ⼟
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (=cns11643-4	. #x3675)	; &C4-3675; [22-85]
+    (->subsumptive
+     ((=daikanwa	  . 05273)	; &M-05273;
+      )
+     ((=ucs@iso		  . #x2136E)	; &U-0002136E;
+      )
+     ((=cns11643-4	  . #x3675)	; &C4-3675; [22-85]
+      ))
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
@@ -7120,23 +7118,40 @@
     (total-strokes	 . 12)
     (hanyu-dazidian	1 461 5)
     (=ucs		. #x5830)	; 堰
-    (=jis-x0208		. #x3161)	; &I-J90-3161; [17-65]
-    (=gb2312		. #x515F)	; &I-G0-515F; [49-63]
-    (=ks-x1001		. #x6568)	; &I-K0-6568; [69-72]
-    (=jis-x0213-1	. #x3161)	; &I-JX1-3161; [17-65]
     (=big5		. #xB3F7)	; &I-B-B3F7;
-    (=gt		. 06601)	; &I-GT-06601;
-    (=gt-pj-1		. #x3161)	; &I-GT-06601; [17-65]
-    (=daikanwa		. 05274)	; &I-M-05274;
-    (=shinjigen@rev	.  1424)	; 堰
     ))
 (define-char
-  '((=>ucs		. #x5830)	; 堰
-    (morohashi-daikanwa	5274 0 1)
+  '((<-denotational
+     ((=ucs		  . #x5830)	; 堰
+      ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=cns11643-1	. #x5E5D)	; &C1-5E5D; [62-61]
+    (hanyu-dazidian	1 461 5)
+    (=ucs@unicode	. #x5830)	; &GT-06601;
+    (=jis-x0208		. #x3161)	; &GT-06601; [17-65]
+    (=gb2312		. #x515F)	; &I-G0-515F; [49-63]
+    (=ks-x1001		. #x6568)	; &I-K0-6568; [69-72]
+    (=jis-x0213-1	. #x3161)	; &I-JX1-3161; [17-65]
+    (=gt		. 06601)	; &I-GT-06601;
+    (=gt-pj-1		. #x3161)	; &I-GT-06601; [17-65]
+    (=daikanwa		. 05274)	; &I-M-05274;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5830)	; 堰
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (=>>ucs@cns		. #x5830)	; &G-CU+5830;
+    (->subsumptive
+     ((=shinjigen@1ed	  .  1425)	; &SJG2-1424;
+      (=shinjigen@rev	  .  1424)	; &SJG2-1424;
+      )
+     ((=ucs@cns		  . #x5830)	; &C1-5E5D;
+      (=cns11643-1	  . #x5E5D)	; &C1-5E5D; [62-61]
+      ))
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
