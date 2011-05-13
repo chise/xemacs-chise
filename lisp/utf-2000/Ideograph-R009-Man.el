@@ -32006,7 +32006,7 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=daikanwa	    . 05273)	; &I-M-05273;
+       ((=daikanwa	    . 05273)	; &M-05273;
 	))
       (=daikanwa	  . 01081)	; &M-01081;
       )

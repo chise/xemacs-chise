@@ -292,7 +292,9 @@
       (=daikanwa	  . 16376)	; &M-16376;
       (=hanziku-4	  . #xC453)	; &I-HZK04-C453;
       (<-same
-       ((=daikanwa	    . 16584)	; &I-M-16584;
+       ((=ucs@jis	    . #x6BAC)	; &M-16584;
+	(=jis-x0212	    . #x462C)	; &M-16584; [38-12]
+	(=daikanwa	    . 16584)	; &I-M-16584;
 	))
       (<-same*sources
        jiyun daikanwa)
