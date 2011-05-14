@@ -2252,13 +2252,12 @@
       (=ucs@jis		  . #x5E2D)	; &GT-11229;
       (=jis-x0208	  . #x404A)	; &GT-11229; [32-42]
       (=ks-x1001	  . #x602C)	; &I-K0-602C; [64-12]
-      (=iso-ir165	  . #x4F2F)	; &I-EGB-4F2F; [47-15]
       (=jis-x0213-1	  . #x404A)	; &I-JX1-404A; [32-42]
       (=gt		  . 11229)	; &I-GT-11229;
       (=gt-k		  . 06484)	; &I-GT-K06484;
       (=gt-pj-1		  . #x404A)	; &I-GT-11229; [32-42]
       (=daikanwa	  . 08926)	; &I-M-08926;
-      (=shinjigen@rev	  .  2107)	; &GT-11229;
+      (=shinjigen	  .  2107)	; &GT-11229;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -2270,8 +2269,8 @@
 	)
        ((=big5-cdp	    . #x8D40)	; &CDP-8D40;
 	))
-      (=ucs@unicode	  . #x5E2D)	; &I-EGB-4F2F;
-      (=gb2312		  . #x4F2F)	; &I-EGB-4F2F; [47-15]
+      (=ucs@unicode	  . #x5E2D)	; &C1-5539;
+      (=gb2312		  . #x4F2F)	; &C1-5539; [47-15]
       (=cns11643-1	  . #x5539)	; &I-C1-5539; [53-25]
       ))
     ))
