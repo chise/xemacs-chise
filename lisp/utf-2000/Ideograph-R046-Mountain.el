@@ -4106,11 +4106,12 @@
       (=shinjigen	  .  1994)	; &GT-10265;
       (=cbeta		  . 00114)	; &I-CB00114;
       (<-formed
-       ((=jis-x0208	    . #x3333)	; &I-J90-3333; [19-19]
-	(=jis-x0213-1	    . #x3333)	; &I-JX1-3333; [19-19]
+       ((=ucs		    . #x5D16)	; 崖
+	(=jis-x0208	    . #x3333)	; &I-J90-3333; [19-19]
+	(=shinjigen	    .  1993)	; 崖
 	))
       (<-formed*sources
-       shinjigen@1ed)
+       shinjigen)
       )
      ((=ucs@unicode	  . #x5D15)	; &UU+5D15;
       ))
