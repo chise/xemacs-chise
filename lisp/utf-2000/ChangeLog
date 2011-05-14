@@ -1,5 +1,13 @@
 2011-05-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R170-Mound.el (U+9681): Use `->denotational' instead
+	of `->subsumptive'.
+
+	* Ideograph-R046-Mountain.el (J0-563D): Use `shinjigen' instead of
+	`shinjigen@1ed' in `<-formed*sources'.
+
+	* Ideograph-R043-Lame.el (U-00021BEA): Use `->denotational'.
+
 	* Ideograph-R079-Weapon.el (U+6BBF): Use `->subsumptive'.
 
 	* Ideograph-R032-Earth.el (U-0002136E): Use `->subsumptive'.
