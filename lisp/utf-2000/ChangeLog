@@ -1,3 +1,7 @@
+2011-05-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R050-Turban.el (J0-404A): Separate EGB-4F2F.
+
 2011-05-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R170-Mound.el (U+9681): Use `->denotational' instead
