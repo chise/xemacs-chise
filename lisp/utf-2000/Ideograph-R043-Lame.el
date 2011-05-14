@@ -70,7 +70,8 @@
       (<-same*sources
        zihui daikanwa)
       (->formed
-       ((=daikanwa	    . 07583)	; &I-M-07583;
+       ((=cns11643-6	    . #x366A)	; &M-07583; [22-74]
+	(=daikanwa	    . 07583)	; &I-M-07583;
 	))
       (->formed*sources
        daikanwa)
@@ -870,19 +871,35 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x21BEA)	; 𡯪
+  '((ideographic-radical . 43)	; ⼪
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (=ucs		. #x21BEA)	; 𡯪
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21BEA)	; 𡯪
+      ))
     (ideographic-radical . 43)	; ⼪
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=cns11643-6	. #x366A)	; &M-07583; [22-74]
     (=daikanwa		. 07583)	; &I-M-07583;
+    (<-formed
+     ((=ucs@unicode	  . #x5C23)	; &M-07540;
+      (=jis-x0212	  . #x3A6D)	; &M-07540; [26-77]
+      (=jis-x0213-1	  . #x4F5D)	; &I-JX1-4F5D; [47-61]
+      (=daikanwa	  . 07540)	; &I-M-07540;
+      ))
     ))
 (define-char
-  '((morohashi-daikanwa	7583 0 9)
+  '((<-denotational
+     ((=ucs		  . #x21BEA)	; 𡯪
+      ))
     (ideographic-radical . 43)	; ⼪
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=ucs		. #x21BEA)	; 𡯪
+    (=ucs@iso		. #x21BEA)	; &U-00021BEA;
     ))
 (define-char
   '((=>ucs		. #x21BEC)	; 𡯬
