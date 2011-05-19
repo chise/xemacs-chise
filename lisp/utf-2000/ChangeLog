@@ -1,3 +1,13 @@
+2011-05-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (J0-7033): Delete
+	`=iso-ir165'.
+
+	* Ideograph-R142-Insect.el (G-J0-6A39): New character to integrate
+	J0-6A39 and C1-7875.
+	(J0-6A39): Delete `=iso-ir165'.
+	(G0-7338): Omit `=iso-ir165'.
+
 2011-05-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R149-Speech.el (J0-6B4A): Delete `=iso-ir165'.
