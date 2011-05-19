@@ -1,3 +1,9 @@
+2011-05-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el (J0-6B4A): Delete `=iso-ir165'.
+
+	* Ideograph-R145-Clothes.el (J0-3F6A): Delete `=iso-ir165'.
+
 2011-05-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R050-Turban.el (J0-404A): Separate EGB-4F2F.
