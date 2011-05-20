@@ -1139,7 +1139,7 @@
     (=ucs		. #x215FF)	; 𡗿
     (=cns11643-6	. #x2A59)	; &I-C6-2A59; [10-57]
     (=daikanwa@rev1	. 05900)	; 𡗿
-    (=daikanwa@rev2	. 05899)	; &M-05899;
+    (=daikanwa@rev2	. 05899)	; &I-M-05899;
     (=hanziku-2		. #xBDB2)	; &I-HZK02-BDB2;
     ))
 (define-char
@@ -1151,7 +1151,7 @@
     (=gb2312		. #x375C)	; &I-G0-375C; [23-60]
     (=cns11643-3	. #x282E)	; &I-C3-282E; [08-14]
     (=daikanwa@rev1	. 05901)	; 奋
-    (=daikanwa@rev2	. 05900)	; &M-05900;
+    (=daikanwa@rev2	. 05900)	; &I-M-05900;
     (=hanziku-2		. #xBDF0)	; &I-HZK02-BDF0;
     ))
 (define-char
@@ -1162,7 +1162,7 @@
     (=ucs		. #x21604)	; 𡘄
     (=cns11643-6	. #x2A5B)	; &I-C6-2A5B; [10-59]
     (=daikanwa@rev1	. 05902)	; 𡘄
-    (=daikanwa@rev2	. 05901)	; &M-05901;
+    (=daikanwa@rev2	. 05901)	; &I-M-05901;
     (=hanziku-2		. #xBDF4)	; &I-HZK02-BDF4;
     ))
 (define-char
@@ -1172,7 +1172,7 @@
     (hanyu-dazidian	1 536 1)
     (=ucs		. #x21605)	; 𡘅
     (=daikanwa@rev1	. 05903)	; 𡘅
-    (=daikanwa@rev2	. 05902)	; &M-05902;
+    (=daikanwa@rev2	. 05902)	; &I-M-05902;
     (=hanziku-2		. #xBE51)	; &I-HZK02-BE51;
     ))
 (define-char
@@ -1205,7 +1205,7 @@
     (=ucs		. #x21602)	; 𡘂
     (=cns11643-6	. #x2A5A)	; &I-C6-2A5A; [10-58]
     (=daikanwa@rev1	. 05906)	; 𡘂
-    (=daikanwa@rev2	. 05905)	; &M-05905;
+    (=daikanwa@rev2	. 05905)	; &I-M-05905;
     (=hanziku-2		. #xBDD0)	; &I-HZK02-BDD0;
     ))
 (define-char
@@ -1215,7 +1215,7 @@
     (=ucs		. #x3699)	; 㚙
     (=jis-x0213-2	. #x2541)	; &I-JX2-2541; [05-33]
     (=daikanwa@rev1	. 05907)	; 㚙
-    (=daikanwa@rev2	. 05906)	; &M-05906;
+    (=daikanwa@rev2	. 05906)	; &I-M-05906;
     (=adobe-japan1-5	. 17475)	; &I-AJ1-17475;
     ))
 (define-char
@@ -1226,7 +1226,7 @@
     (=ucs		. #x21606)	; 𡘆
     (=cns11643-4	. #x2579)	; &I-C4-2579; [05-89]
     (=daikanwa@rev1	. 05908)	; 𡘆
-    (=daikanwa@rev2	. 05907)	; &M-05907;
+    (=daikanwa@rev2	. 05907)	; &I-M-05907;
     (=hanziku-2		. #xBE54)	; &I-HZK02-BE54;
     ))
 (define-char
@@ -1237,7 +1237,7 @@
     (=gt		. 07438)	; &I-GT-07438;
     (=gt-pj-2		. #x672F)	; &I-GT-07438; [71-15]
     (=daikanwa@rev1	. 05909)	; 奌
-    (=daikanwa@rev2	. 05908)	; &M-05908;
+    (=daikanwa@rev2	. 05908)	; &I-M-05908;
     (=jef-china3	. #x48E9)	; &I-JC3-48E9;
     ))
 (define-char
@@ -1260,10 +1260,10 @@
     (->subsumptive
      ((ideographic-strokes . 6)
       (total-strokes	   . 9)
-      (=ucs@unicode	  . #x594A)	; &r1M-05897;
-      (=big5		  . #xD15A)	; &r1M-05897;
-      (=daikanwa@rev1	  . 05897)	; &r1M-05897;
-      (=daikanwa@rev2	  . 05909)	; &M-05909;
+      (=ucs@unicode	  . #x594A)	; &r2M-05909;
+      (=big5		  . #xD15A)	; &r2M-05909;
+      (=daikanwa@rev1	  . 05897)	; &r2M-05909;
+      (=daikanwa@rev2	  . 05909)	; &I-M-05909;
       )
      ((ideographic-strokes . 7)
       (total-strokes	   . 10)

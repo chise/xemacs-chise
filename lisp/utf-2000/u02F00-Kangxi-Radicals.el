@@ -34,7 +34,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F02)	; ⼂
     (=cns11643-1	. #x2723)	; &I-C1-2723; [07-03]
-    (=big5-eten		. #xC6BF)	; &B-C6BF;
+    (=big5-eten		. #xC6BF)	; &I-B-C6BF;
     (<-compat
      ((=ucs		  . #x4E36)	; 丶
       ))
@@ -49,7 +49,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F03)	; ⼃
     (=cns11643-1	. #x2724)	; &I-C1-2724; [07-04]
-    (=big5-eten		. #xC6C0)	; &B-C6C0;
+    (=big5-eten		. #xC6C0)	; &I-B-C6C0;
     (<-compat
      ((=ucs		  . #x4E3F)	; 丿
       ))
@@ -78,7 +78,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F05)	; ⼅
     (=cns11643-1	. #x2726)	; &I-C1-2726; [07-06]
-    (=big5-eten		. #xC6C1)	; &B-C6C1;
+    (=big5-eten		. #xC6C1)	; &I-B-C6C1;
     (<-compat
      ((=ucs		  . #x4E85)	; 亅
       ))
@@ -107,7 +107,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F07)	; ⼇
     (=cns11643-1	. #x2728)	; &I-C1-2728; [07-08]
-    (=big5-eten		. #xC6C2)	; &B-C6C2;
+    (=big5-eten		. #xC6C2)	; &I-B-C6C2;
     (<-compat
      ((=ucs		  . #x4EA0)	; 亠
       ))
@@ -178,7 +178,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F0C)	; ⼌
     (=cns11643-1	. #x272D)	; &I-C1-272D; [07-13]
-    (=big5-eten		. #xC6C3)	; &B-C6C3;
+    (=big5-eten		. #xC6C3)	; &I-B-C6C3;
     (<-compat
      ((=ucs		  . #x5182)	; 冂
       ))
@@ -193,7 +193,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F0D)	; ⼍
     (=cns11643-1	. #x272E)	; &I-C1-272E; [07-14]
-    (=big5-eten		. #xC6C4)	; &B-C6C4;
+    (=big5-eten		. #xC6C4)	; &I-B-C6C4;
     (<-compat
      ((=ucs		  . #x5196)	; 冖
       ))
@@ -208,7 +208,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F0E)	; ⼎
     (=cns11643-1	. #x272F)	; &I-C1-272F; [07-15]
-    (=big5-eten		. #xC6C5)	; &B-C6C5;
+    (=big5-eten		. #xC6C5)	; &I-B-C6C5;
     (<-compat
      ((=ucs		  . #x51AB)	; 冫
       ))
@@ -279,7 +279,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F13)	; ⼓
     (=cns11643-1	. #x2734)	; &I-C1-2734; [07-20]
-    (=big5-eten		. #xC6C6)	; &B-C6C6;
+    (=big5-eten		. #xC6C6)	; &I-B-C6C6;
     (<-compat
      ((=ucs		  . #x52F9)	; 勹
       ))
@@ -322,7 +322,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F16)	; ⼖
     (=cns11643-1	. #x2737)	; &I-C1-2737; [07-23]
-    (=big5-eten		. #xC6C7)	; &B-C6C7;
+    (=big5-eten		. #xC6C7)	; &I-B-C6C7;
     (<-compat
      ((=ucs		  . #x5338)	; 匸
       ))
@@ -365,7 +365,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F19)	; ⼙
     (=cns11643-1	. #x273A)	; &I-C1-273A; [07-26]
-    (=big5-eten		. #xC6C8)	; &B-C6C8;
+    (=big5-eten		. #xC6C8)	; &I-B-C6C8;
     (<-compat
      ((=ucs		  . #x5369)	; 卩
       ))
@@ -394,7 +394,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F1B)	; ⼛
     (=cns11643-1	. #x273C)	; &I-C1-273C; [07-28]
-    (=big5-eten		. #xC6C9)	; &B-C6C9;
+    (=big5-eten		. #xC6C9)	; &I-B-C6C9;
     (<-compat
      ((=ucs		  . #x53B6)	; 厶
       ))
@@ -492,7 +492,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F22)	; ⼢
     (=cns11643-1	. #x2742)	; &I-C1-2742; [07-34]
-    (=big5-eten		. #xC6CA)	; &B-C6CA;
+    (=big5-eten		. #xC6CA)	; &I-B-C6CA;
     (<-compat
      ((=ucs		  . #x590A)	; 夊
       ))
@@ -563,7 +563,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F27)	; ⼧
     (=cns11643-1	. #x2747)	; &I-C1-2747; [07-39]
-    (=big5-eten		. #xC6CB)	; &B-C6CB;
+    (=big5-eten		. #xC6CB)	; &I-B-C6CB;
     (<-compat
      ((=ucs		  . #x5B80)	; 宀
       ))
@@ -662,7 +662,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F2E)	; ⼮
     (=cns11643-1	. #x274E)	; &I-C1-274E; [07-46]
-    (=big5-eten		. #xC6CC)	; &B-C6CC;
+    (=big5-eten		. #xC6CC)	; &I-B-C6CC;
     (<-compat
      ((=ucs		  . #x5DDB)	; 巛
       ))
@@ -733,7 +733,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F33)	; ⼳
     (=cns11643-1	. #x2753)	; &I-C1-2753; [07-51]
-    (=big5-eten		. #xC6CD)	; &B-C6CD;
+    (=big5-eten		. #xC6CD)	; &I-B-C6CD;
     (<-compat
      ((=ucs		  . #x5E7A)	; 幺
       ))
@@ -748,7 +748,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F34)	; ⼴
     (=cns11643-1	. #x2754)	; &I-C1-2754; [07-52]
-    (=big5-eten		. #xC6CE)	; &B-C6CE;
+    (=big5-eten		. #xC6CE)	; &I-B-C6CE;
     (<-compat
      ((=ucs		  . #x5E7F)	; 广
       ))
@@ -763,7 +763,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F35)	; ⼵
     (=cns11643-1	. #x2755)	; &I-C1-2755; [07-53]
-    (=big5-eten		. #xC6CF)	; &B-C6CF;
+    (=big5-eten		. #xC6CF)	; &I-B-C6CF;
     (<-compat
      ((=ucs		  . #x5EF4)	; 廴
       ))
@@ -820,7 +820,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F39)	; ⼹
     (=cns11643-1	. #x2759)	; &I-C1-2759; [07-57]
-    (=big5-eten		. #xC6D0)	; &B-C6D0;
+    (=big5-eten		. #xC6D0)	; &I-B-C6D0;
     (<-compat
      ((=ucs		  . #x5F50)	; 彐
       ))
@@ -835,7 +835,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F3A)	; ⼺
     (=cns11643-1	. #x275A)	; &I-C1-275A; [07-58]
-    (=big5-eten		. #xC6D1)	; &B-C6D1;
+    (=big5-eten		. #xC6D1)	; &I-B-C6D1;
     (<-compat
      ((=ucs		  . #x5F61)	; 彡
       ))
@@ -934,7 +934,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F41)	; ⽁
     (=cns11643-1	. #x2761)	; &I-C1-2761; [07-65]
-    (=big5-eten		. #xC6D2)	; &B-C6D2;
+    (=big5-eten		. #xC6D2)	; &I-B-C6D2;
     (<-compat
      ((=ucs		  . #x6534)	; 攴
       ))
@@ -1005,7 +1005,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F46)	; ⽆
     (=cns11643-1	. #x2766)	; &I-C1-2766; [07-70]
-    (=big5-eten		. #xC6D3)	; &B-C6D3;
+    (=big5-eten		. #xC6D3)	; &I-B-C6D3;
     (<-compat
      ((=ucs		  . #x65E0)	; 无
       ))
@@ -1468,7 +1468,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F67)	; ⽧
     (=cns11643-1	. #x2829)	; &I-C1-2829; [08-09]
-    (=big5-eten		. #xC6D4)	; &B-C6D4;
+    (=big5-eten		. #xC6D4)	; &I-B-C6D4;
     (<-compat
      ((=ucs		  . #x7592)	; 疒
       ))
@@ -1483,7 +1483,7 @@
     (mirrored		. nil)
     (=ucs		. #x2F68)	; ⽨
     (=cns11643-1	. #x282A)	; &I-C1-282A; [08-10]
-    (=big5-eten		. #xC6D5)	; &B-C6D5;
+    (=big5-eten		. #xC6D5)	; &I-B-C6D5;
     (<-compat
      ((=ucs		  . #x7676)	; 癶
       ))
@@ -2295,7 +2295,7 @@
     (mirrored		. nil)
     (=ucs		. #x2FA1)	; ⾡
     (=cns11643-1	. #x2863)	; &I-C1-2863; [08-67]
-    (=big5-eten		. #xC6D6)	; &B-C6D6;
+    (=big5-eten		. #xC6D6)	; &I-B-C6D6;
     (<-compat
      ((=ucs		  . #x8FB5)	; 辵
       ))
@@ -2422,7 +2422,7 @@
     (mirrored		. nil)
     (=ucs		. #x2FAA)	; ⾪
     (=cns11643-1	. #x286C)	; &I-C1-286C; [08-76]
-    (=big5-eten		. #xC6D7)	; &B-C6D7;
+    (=big5-eten		. #xC6D7)	; &I-B-C6D7;
     (<-compat
      ((=ucs		  . #x96B6)	; 隶
       ))

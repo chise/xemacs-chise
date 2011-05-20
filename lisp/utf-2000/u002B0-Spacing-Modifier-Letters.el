@@ -197,7 +197,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x02C6)	; ˆ
-    (=big5-eten		. #xC6D9)	; &B-C6D9;
+    (=big5-eten		. #xC6D9)	; &I-B-C6D9;
     ))
 (define-char
   '((name		. "CARON")

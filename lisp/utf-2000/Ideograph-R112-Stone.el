@@ -3263,7 +3263,7 @@
     (=gt-pj-1		. #x386B)	; &I-GT-31020; [24-75]
     (=daikanwa		. 24261)	; &I-M-24261;
     (=shinjigen@rev	.  5447)	; 碁
-    (=big5-eten		. #xF9D6)	; &B-F9D6;
+    (=big5-eten		. #xF9D6)	; &I-B-F9D6;
     ))
 (define-char
   '((ideographic-radical . 112)	; ⽯

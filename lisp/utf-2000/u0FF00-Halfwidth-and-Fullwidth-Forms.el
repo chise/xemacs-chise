@@ -25,7 +25,7 @@
     (=gb2312		. #x2322)	; &I-G0-2322; [03-02]
     (=ks-x1001		. #x2322)	; &I-K0-2322; [03-02]
     (=jis-x0213-1	. #x2230)	; &I-JX1-2230; [02-16]
-    (=big5-eten		. #xC8D0)	; &B-C8D0;
+    (=big5-eten		. #xC8D0)	; &I-B-C8D0;
     (<-fullwidth
      ((name		  . "QUOTATION MARK")
       (=ucs		  . #x0022)	; "
@@ -108,7 +108,7 @@
     (=gb2312		. #x2327)	; &I-G0-2327; [03-07]
     (=ks-x1001		. #x2327)	; &I-K0-2327; [03-07]
     (=jis-x0213-1	. #x222F)	; &I-JX1-222F; [02-15]
-    (=big5-eten		. #xC8CF)	; &B-C8CF;
+    (=big5-eten		. #xC8CF)	; &I-B-C8CF;
     (<-fullwidth
      ((name		  . "APOSTROPHE")
       (=ucs		  . #x0027)	; '
@@ -1124,7 +1124,7 @@
     (=gb2312		. #x235B)	; &I-G0-235B; [03-59]
     (=ks-x1001		. #x235B)	; &I-K0-235B; [03-59]
     (=jis-x0213-1	. #x214E)	; &I-JX1-214E; [01-46]
-    (=big5-eten		. #xC6E4)	; &B-C6E4;
+    (=big5-eten		. #xC6E4)	; &I-B-C6E4;
     (<-fullwidth
      ((name		  . "LEFT SQUARE BRACKET")
       (=ucs		  . #x005B)	; [
@@ -1157,7 +1157,7 @@
     (=gb2312		. #x235D)	; &I-G0-235D; [03-61]
     (=ks-x1001		. #x235D)	; &I-K0-235D; [03-61]
     (=jis-x0213-1	. #x214F)	; &I-JX1-214F; [01-47]
-    (=big5-eten		. #xC6E5)	; &B-C6E5;
+    (=big5-eten		. #xC6E5)	; &I-B-C6E5;
     (<-fullwidth
      ((name		  . "RIGHT SQUARE BRACKET")
       (=ucs		  . #x005D)	; ]
@@ -3227,7 +3227,7 @@
     (=ks-x1001		. #x217E)	; &I-K0-217E; [01-94]
     (=jis-x0208@1990	. #x224C)	; &I-J90-224C; [02-44]
     (=jis-x0213-1	. #x224C)	; &I-JX1-224C; [02-44]
-    (=big5-eten		. #xC8CD)	; &B-C8CD;
+    (=big5-eten		. #xC8CD)	; &I-B-C8CD;
     (<-fullwidth
      ((name		  . "NOT SIGN")
       (=ucs		  . #x00AC)	; ¬
@@ -3257,7 +3257,7 @@
     (=ucs		. #xFFE4)	; ￤
     (=jis-x0212		. #x2243)	; &I-JSP-2243; [02-35]
     (=jis-x0213-1	. #x2925)	; &I-JX1-2925; [09-05]
-    (=big5-eten		. #xC8CE)	; &B-C8CE;
+    (=big5-eten		. #xC8CE)	; &I-B-C8CE;
     (<-fullwidth
      ((name		  . "BROKEN BAR")
       (=ucs		  . #x00A6)	; ¦

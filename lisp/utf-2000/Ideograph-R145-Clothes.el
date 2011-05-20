@@ -3524,7 +3524,7 @@
     (=ucs		. #x88CF)	; 裏
     (=cns11643-3	. #x444E)	; &I-C3-444E; [36-46]
     (=gb12345		. #x406F)	; 裏 [32-79]
-    (=big5-eten		. #xF9D8)	; &B-F9D8;
+    (=big5-eten		. #xF9D8)	; &I-B-F9D8;
     ))
 (define-char
   '((=>ucs		. #x88E1)	; 裡

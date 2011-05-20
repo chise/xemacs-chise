@@ -934,7 +934,7 @@
     (=ucs@jis		. #x21E7)	; &JX1-232C;
     (=ucs@big5		. #x21E7)	; &JX1-232C;
     (=jis-x0213-1	. #x232C)	; &JX1-232C; [03-12]
-    (=big5-eten		. #xC876)	; &B-C876;
+    (=big5-eten		. #xC876)	; &I-B-C876;
     (=jef-china3	. #x76B1)	; &I-JC3-76B1;
     (<-fullwidth
      ((name		  . "UPWARDS WHITE ARROW")

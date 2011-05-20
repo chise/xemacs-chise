@@ -372,7 +372,7 @@
     (=ks-x1001		. #x2260)	; &I-K0-2260; [02-64]
     (=jis-x0212		. #x2271)	; &I-JSP-2271; [02-81]
     (=jis-x0213-1	. #x2D62)	; &I-JX1-2D62; [13-66]
-    (=big5-eten		. #xC8D2)	; &B-C8D2;
+    (=big5-eten		. #xC8D2)	; &I-B-C8D2;
     (<-fullwidth
      ((name		  . "NUMERO SIGN")
       (=ucs		  . #x2116)	; №
@@ -500,7 +500,7 @@
     (=ucs@unicode	. #x2121)	; &JX1-2D64;
     (=ks-x1001		. #x2265)	; &JX1-2D64; [02-69]
     (=jis-x0213-1	. #x2D64)	; &I-JX1-2D64; [13-68]
-    (=big5-eten		. #xC8D3)	; &B-C8D3;
+    (=big5-eten		. #xC8D3)	; &I-B-C8D3;
     (<-fullwidth
      ((name		  . "TELEPHONE SIGN")
       (=ucs		  . #x2121)	; ℡

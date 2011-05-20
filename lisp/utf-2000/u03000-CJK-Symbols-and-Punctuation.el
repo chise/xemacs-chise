@@ -79,7 +79,7 @@
     (=gt-k		. 00282)	; &I-GT-K00282;
     (=gt-pj-2		. #x306C)	; &I-GT-00135; [16-76]
     (=daikanwa		. 00097)	; &I-M-00097;
-    (=big5-eten		. #xC6E0)	; &B-C6E0;
+    (=big5-eten		. #xC6E0)	; &I-B-C6E0;
     (=cbeta		. 02728)	; &I-CB02728;
     (=adobe-japan1-0	. 00657)	; &I-AJ1-00657;
     ))
@@ -91,7 +91,7 @@
     (=ucs		. #x3006)	; 〆
     (=jis-x0208		. #x213A)	; &I-J90-213A; [01-26]
     (=jis-x0213-1	. #x213A)	; &I-JX1-213A; [01-26]
-    (=big5-eten		. #xC6E1)	; &B-C6E1;
+    (=big5-eten		. #xC6E1)	; &I-B-C6E1;
     ))
 (define-char
   '((name		. "IDEOGRAPHIC NUMBER ZERO")
@@ -102,7 +102,7 @@
     (=ucs		. #x3007)	; 〇
     (=jis-x0208		. #x213B)	; &I-J90-213B; [01-27]
     (=jis-x0213-1	. #x213B)	; &I-JX1-213B; [01-27]
-    (=big5-eten		. #xC6E2)	; &B-C6E2;
+    (=big5-eten		. #xC6E2)	; &I-B-C6E2;
     ))
 (define-char
   '((name		. "LEFT ANGLE BRACKET")

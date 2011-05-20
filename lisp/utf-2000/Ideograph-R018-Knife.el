@@ -57,7 +57,7 @@
     (=gt-k		. 00110)	; &I-GT-K00110;
     (=gt-pj-2		. #x402D)	; &I-GT-02405; [32-13]
     (=daikanwa		. 01847)	; &I-M-01847;
-    (=big5-eten		. #xC87D)	; &B-C87D;
+    (=big5-eten		. #xC87D)	; &I-B-C87D;
     (=jef-china3	. #x44B2)	; &I-JC3-44B2;
     (=adobe-japan1-4	. 14356)	; &I-AJ1-14356;
     (<-formed@component/connect-left

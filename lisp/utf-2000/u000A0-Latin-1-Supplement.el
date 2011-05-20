@@ -208,7 +208,7 @@
     (=gb2312		. #x2127)	; &I-G0-2127; [01-07]
     (=ks-x1001		. #x2127)	; &I-K0-2127; [01-07]
     (=jis-x0213-1	. #x212F)	; &I-JX1-212F; [01-15]
-    (=big5-eten		. #xC6D8)	; &B-C6D8;
+    (=big5-eten		. #xC6D8)	; &I-B-C6D8;
     (=jef-china3	. #x81AA)	; &I-JC3-81AA;
     (<-fullwidth
      ((name		  . "DIAERESIS")
