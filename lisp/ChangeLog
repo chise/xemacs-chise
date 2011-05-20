@@ -1,3 +1,8 @@
+2011-05-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	Modify order of settings; add settings for `=daikanwa@rev2'.
+
 2011-04-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
