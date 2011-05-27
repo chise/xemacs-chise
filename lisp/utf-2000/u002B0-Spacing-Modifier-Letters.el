@@ -261,8 +261,8 @@
      ((name		  . "MODIFIER LETTER MACRON")
       (=ucs		  . #x02C9)	; ˉ
       ))
-    (=ucs@gb/fw		. #x02C9)	; &I-C1-256D;
-    (=gb2312		. #x2125)	; &I-C1-256D; [01-05]
+    (=ucs@gb/fw		. #x02C9)	; &C1-256D;
+    (=gb2312		. #x2125)	; &C1-256D; [01-05]
     (=cns11643-1	. #x256D)	; &I-C1-256D; [05-77]
     (=big5		. #xA3BC)	; &I-B-A3BC;
     (<-fullwidth
