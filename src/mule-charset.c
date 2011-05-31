@@ -1140,35 +1140,40 @@ decode_builtin_char (Lisp_Object charset, int code_point)
 }
 
 int
-charset_code_point (Lisp_Object charset, Emchar ch, int defined_only)
+charset_code_point (Lisp_Object charset, Emchar ch, int accepted_mode)
 {
-  Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (charset);
   Lisp_Object ret;
 
-  if ( CHAR_TABLEP (encoding_table)
-       && INTP (ret = get_char_id_table (XCHAR_TABLE(encoding_table),
-					 ch)) )
-    return XINT (ret);
-  else
+  if ( accepted_mode >= 0 )
+    {
+      Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (charset);
+
+      if ( CHAR_TABLEP (encoding_table)
+	   && INTP (ret = get_char_id_table (XCHAR_TABLE(encoding_table),
+					     ch)) )
+	return XINT (ret);
+    }
     {
       Lisp_Object mother = XCHARSET_MOTHER (charset);
       int min = XCHARSET_MIN_CODE (charset);
       int max = XCHARSET_MAX_CODE (charset);
       int code = -1;
 
-      if ( CHARSETP (mother) )
-	{
-	  if (XCHARSET_FINAL (charset) >= '0')
-	    code = charset_code_point (mother, ch, 1);
-	  else
-	    code = charset_code_point (mother, ch, defined_only);
-	}
-      else if (defined_only)
+      if ( CHARSETP (mother) && ( accepted_mode >= 0)
+	   && ( XCHARSET_FINAL (charset) >= '0' )
+	   )
+	code = charset_code_point (mother, ch, CHAR_DEFINED_ONLY);
+      else if ( CHARSETP (mother)
+		&& ( XCHARSET_FINAL (charset) < '0' )
+		)
+	code = charset_code_point (mother, ch, accepted_mode);
+      else if ( accepted_mode == CHAR_DEFINED_ONLY )
 	return -1;
       else if ( ((max == 0) && CHARSETP (mother)
 		 && (XCHARSET_FINAL (charset) == 0))
 		|| ((min <= ch) && (ch <= max)) )
 	code = ch;
+
       if ( ((max == 0) && CHARSETP (mother) && (code >= 0))
 	   || ((min <= code) && (code <= max)) )
 	{
@@ -1261,7 +1266,7 @@ charset_code_point (Lisp_Object charset, Emchar ch, int defined_only)
 	      exit (-1);
 	    }
 	}
-      else if (defined_only)
+      else if ( accepted_mode == CHAR_DEFINED_ONLY )
 	return -1;
       else if ( ( XCHARSET_FINAL (charset) >= '0' ) &&
 		( XCHARSET_MIN_CODE (charset) == 0 )
