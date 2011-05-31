@@ -2,6 +2,10 @@
 
 	* isolated-char.el: Don't add `=gt' for isolated GT characters.
 
+2011-05-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt' for isolated GT characters.
+
 2011-05-25  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* u02000-General-Punctuation.el (<EM SPACE>): Delete C1-256D.
