@@ -3,6 +3,10 @@
 	* text-coding.c (char_encode_as_entity_reference): Don't use
 	`DECODE_CHAR' to detect isolated characters.
 
+	* char-ucs.h (CHAR_ISOLATED_ONLY): New macro.
+	(CHAR_ALL): New macro.
+	(CHAR_DEFINED_ONLY): New macro.
+
 2011-03-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Fchar_feature_base_name_eq): New function when
