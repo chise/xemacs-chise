@@ -3,6 +3,10 @@
 	* text-coding.c (char_encode_as_entity_reference): Don't use
 	`DECODE_CHAR' to detect isolated characters.
 
+	* mule-charset.c (charset_code_point): Change the third argument
+	`defined_only' to `accepted_mode'; `accepted_mode' can be
+	CHAR_ISOLATED_ONLY, CHAR_ALL or CHAR_DEFINED_ONLY.
+
 	* char-ucs.h (CHAR_ISOLATED_ONLY): New macro.
 	(CHAR_ALL): New macro.
 	(CHAR_DEFINED_ONLY): New macro.
