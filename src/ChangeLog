@@ -1,3 +1,8 @@
+2011-05-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (char_encode_as_entity_reference): Don't use
+	`DECODE_CHAR' to detect isolated characters.
+
 2011-03-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Fchar_feature_base_name_eq): New function when
