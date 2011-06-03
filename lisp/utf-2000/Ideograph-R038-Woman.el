@@ -4984,6 +4984,12 @@
   '((ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (=ucs		. #x36C7)	; 㛇
+    ))
+(define-char
+  '((ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
     (=ucs		. #x36CA)	; 㛊
     ))
 (define-char
