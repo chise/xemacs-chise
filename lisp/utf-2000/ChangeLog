@@ -1,3 +1,7 @@
+2011-06-03  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R038-Woman.el (U+36C7): New character.
+
 2011-05-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* isolated-char.el: Don't add `=gt' for isolated GT characters.
