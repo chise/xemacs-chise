@@ -1,5 +1,15 @@
 2011-06-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R086-Fire.el (U+7228): Unify A-J0-6026.
+	(G-J90-6026): New abstract node to integrate GT-25215 and
+	J90-6026.
+	(G-J78-6026): New abstract node to integrate J78-6026 and C5-7B7B.
+	(mother of C1-7D46): Unify G-CU+7228 and G-M-49272.
+	(M-49272): Add `<-original' for GT-25215.
+	(C1-7D46): Unify CU+7228.
+	(U-000244ED): Use `->denotational' instead of `->subsumptive'.
+	(U-00028F75): Use `->denotational'.
+
 	* Ideograph-R170-Mound.el: Add mappings between CJK Ext B and CNS
 	11643 plain 7.
 	(U-00028EF4): Use `->denotational' instead of `->subsumptive'.
