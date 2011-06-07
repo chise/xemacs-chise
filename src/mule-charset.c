@@ -3493,7 +3493,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("JIS X0208"),
 		  build_string ("JIS X0208 Common"),
 		  build_string ("JIS X0208 Common part"),
-		  build_string ("jisx0208\\.1990"),
+		  build_string ("jisx0208"),
 		  - LEADING_BYTE_JAPANESE_JISX0208_1978,
 		  Qnil,
 		  MIN_CHAR_JIS_X0208_1990,
