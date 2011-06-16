@@ -9759,6 +9759,7 @@
     (=jis-x0213-1	. #x7C59)	; &I-JX1-7C59; [92-57]
     (=daikanwa		. 38951)	; &I-M-38951;
     (=shinjigen		.  8301)	; 逸
+    (=jef-china3	. #x67D5)	; &I-JC3-67D5;
     (<-synonyms
      ((=ucs		  . #x8EFC)	; 軼
       (=daikanwa	  . 38275)	; &I-M-38275;
@@ -9791,6 +9792,16 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=cns11643-1	. #x624F)	; &C1-624F; [66-47]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9038)	; 逸
+      ))
+    (=>ucs*		. #x9038)	; 逸
+    (ideographic-radical . 162)	; ⾡
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (=ucs		. #xFA25)	; 逸
     ))
 (define-char
   '((<-denotational
