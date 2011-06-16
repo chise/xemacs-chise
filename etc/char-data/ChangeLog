@@ -1,3 +1,7 @@
+2011-06-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-67D5): Map to U+FA67 instead of U+9038.
+
 2011-05-23  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* GT-RS.txt: Add information about GT-66774 .. 67547.
