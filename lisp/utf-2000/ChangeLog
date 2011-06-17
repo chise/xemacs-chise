@@ -1,3 +1,8 @@
+2011-06-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (U+FA67): Unify JC3-67D5.
+	(U+FA25): New character.
+
 2011-06-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R171-Slave.el: Add mappings between CJK Ext B and CNS
