@@ -1822,22 +1822,42 @@
     (=jef-china3	. #x6FC3)	; &I-JC3-6FC3;
     ))
 (define-char
-  '((=>ucs		. #x2A347)	; 𪍇
-    (ideographic-radical . 199)	; ⿆
-    (ideographic-strokes . 8)
-    (total-strokes	 . 19)
-    (=daikanwa		. 47819)	; &M-47819;
-    ))
-(define-char
-  '((morohashi-daikanwa	47819 0 1)
-    (ideographic-radical . 199)	; ⿆
-    (ideographic-strokes . 8)
+  '((ideographic-radical@ucs . 199)	; ⿆
+    (ideographic-strokes@ucs . 8)
+    (ideographic-radical@ucs*sources
+     daikanwa=47819 cns11643)
+    (ideographic-radical@r172 . 172)	; ⾫
+    (ideographic-strokes@r172 . 11)
+    (ideographic-radical@r172*sources
+     daikanwa=42129)
     (total-strokes	 . 19)
     (=ucs		. #x2A347)	; 𪍇
     ))
 (define-char
-  '((=>ucs		. #x2A347)	; 𪍇
-    (morohashi-daikanwa	47819 0 5)
+  '((<-denotational
+     ((=ucs		  . #x2A347)	; 𪍇
+      ))
+    (ideographic-radical . 199)	; ⿆
+    (ideographic-strokes . 8)
+    (total-strokes	 . 19)
+    (sound@ja/on	"sEu")
+    (=>>ucs@iso		. #x2A347)	; &G-IU+2A347;
+    (=>>daikanwa	. 47819)	; &G-IU+2A347;
+    (->subsumptive
+     ((=daikanwa	  . 47819)	; &M-47819;
+      (->mistakable
+       ((=daikanwa	    . 42129)	; &M-42129;
+	))
+      (->mistakable*sources
+       daikanwa)
+      )
+     ((=ucs@iso		  . #x2A347)	; &U-0002A347;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2A347)	; 𪍇
+      ))
     (ideographic-radical . 199)	; ⿆
     (ideographic-strokes . 8)
     (total-strokes	 . 19)
