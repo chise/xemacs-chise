@@ -1,3 +1,14 @@
+2011-06-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R199-Wheat.el (U-0002A347): Use `->denotational' and
+	`->subsumptive'; use `ideographic-{radical|strokes}@ucs' instead
+	of `ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@r172'.
+
+2011-06-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (U+56C4): Add ideographic-structure.
+
 2011-06-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R162-Walk.el (U+FA67): Unify JC3-67D5.
