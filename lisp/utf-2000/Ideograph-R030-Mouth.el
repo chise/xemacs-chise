@@ -40428,6 +40428,14 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 18)
     (total-strokes	 . 21)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs		  . #x96E2)	; 離
+      ))
     (=ucs		. #x56C4)	; 囄
     (->subsumptive
      ((ideographic-structure
@@ -40437,10 +40445,10 @@
        ((=ucs		    . #x53E3)	; 口
 	)
        ((=ucs@jis	    . #x96E2)	; &GT-56604;
+	(=ucs@ks	    . #x96E2)	; &GT-56604;
 	(=jis-x0208	    . #x4E25)	; &GT-56604; [46-05]
 	(=ks-x1001	    . #x576E)	; &I-K0-576E; [55-78]
 	(=jis-x0213-1	    . #x4E25)	; &I-JX1-4E25; [46-05]
-	(=daikanwa	    . 42140)	; &I-M-42140;
 	))
       (=cbeta		  . 01024)	; &CB01024;
       )
