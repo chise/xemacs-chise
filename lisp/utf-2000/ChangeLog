@@ -1,4 +1,8 @@
-2011-06-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+2011-06-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R046-Mountain.el (U+5DC2): Unify B-F172.
+	(mother of C2-643E): Move B-F172 to the mother; unify G-CU+5DC2
+	and G-M-08595.
 
 	* Ideograph-R009-Man.el (G-UU+34A7): Add ideographic-structure;
 	unify G-M-01312.
