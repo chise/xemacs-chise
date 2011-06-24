@@ -10394,13 +10394,15 @@
     (ideographic-strokes@cns . 10)
     (total-strokes	 . 18)
     (=ucs		. #x5DC2)	; 巂
+    (=big5		. #xF172)	; &I-B-F172;
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x5DC2)	; 巂
       ))
     (total-strokes	 . 18)
-    (=big5		. #xF172)	; &B-F172;
+    (=>>ucs@cns		. #x5DC2)	; &G-CU+5DC2;
+    (=>>daikanwa	. 08595)	; &G-CU+5DC2;
     (->subsumptive
      ((ideographic-radical . 46)	; ⼭
       (ideographic-strokes . 15)
