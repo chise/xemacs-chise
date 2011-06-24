@@ -1,3 +1,9 @@
+2011-06-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (G-UU+34A7): Add ideographic-structure;
+	unify G-M-01312.
+	(M-01312): Separate CB04184.
+
 2011-06-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R199-Wheat.el (U-0002A347): Use `->denotational' and
