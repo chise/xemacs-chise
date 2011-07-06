@@ -1,3 +1,33 @@
+2011-07-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R196-Bird.el (U+9DF9): Use `->subsumptive'.
+
+	* Ideograph-R172-Short-Tailed-Bird.el: Add mappings between CJK
+	Ext-B and CNS 11643 plain 7.
+	(U-00028FD0): Use `->denotational' instead of `->subsumptive'.
+	(M-42049): Map to U-00028FDB.
+	(M-42056): Map to U-00024E30.
+	(U-00028FE0): Use `->denotational' instead of `->subsumptive'.
+	(U+96D5): Use `->denotational' and `->subsumptive'.
+	(M-42081): Map to U-00028FF3; integrate M-49854 and C7-2A59.
+	(M-42085): Map to U-00028FFB.
+	(M-42128): Map to U-00029023.
+	(U+4A03): Use `->subsumptive'.
+	(M-42129): Map to U-0002A347; add `sound@ja/on'; add `<-same' for
+	M-47248.
+	(U+96E1): Use `->denotational' instead of `->subsumptive'.
+	(U-0002902B): Likewise.
+	(U+96E2): Likewise.
+	(U-0002903F): Use `->denotational' instead of `->subsumptive'.
+	(M-42165): Map to U-00029043.
+	(M-42166): Map to U-00029044.
+	(U+4A07): Use `->subsumptive'.
+	(U+4A09): Use `->subsumptive'.
+	(M-42203): Map to U-0002906F.
+	(U+96E7): Use `->subsumptive'.
+	(M-49865): Map to U-00029073.
+	(M-42208): Map to U-00029074.
+
 2011-06-24  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R196-Bird.el (U+9D70): Use `->denotational'.
