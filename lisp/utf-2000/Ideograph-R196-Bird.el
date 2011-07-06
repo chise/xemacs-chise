@@ -9256,27 +9256,24 @@
     (=cns11643-7	. #x5E2D)	; &C7-5E2D; [62-13]
     ))
 (define-char
-  '((=>ucs		. #x9DF9)	; 鷹
-    (ideographic-radical . 196)	; ⿃
-    (ideographic-strokes . 13)
-    (total-strokes	 . 24)
-    (=ucs@jis		. #x9DF9)	; &GT-64483;
-    (=jis-x0208		. #x426B)	; &GT-64483; [34-75]
-    (=ks-x1001		. #x6B6D)	; &I-K0-6B6D; [75-77]
-    (=jis-x0213-1	. #x426B)	; &I-JX1-426B; [34-75]
-    (=gt		. 64483)	; &I-GT-64483;
-    (=gt-pj-1		. #x426B)	; &I-GT-64483; [34-75]
-    (=daikanwa		. 47377)	; &I-M-47377;
-    (=shinjigen@rev	.  9756)	; &GT-64483;
-    ))
-(define-char
-  '((morohashi-daikanwa	47377 0 1)
-    (ideographic-radical . 196)	; ⿃
+  '((ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 13)
     (total-strokes	 . 24)
     (=ucs		. #x9DF9)	; 鷹
-    (=cns11643-1	. #x7C79)	; &I-C1-7C79; [92-89]
-    (=gb12345		. #x5325)	; 鷹 [51-05]
+    (->subsumptive
+     ((=ucs@jis		  . #x9DF9)	; &GT-64483;
+      (=jis-x0208	  . #x426B)	; &GT-64483; [34-75]
+      (=ks-x1001	  . #x6B6D)	; &I-K0-6B6D; [75-77]
+      (=jis-x0213-1	  . #x426B)	; &I-JX1-426B; [34-75]
+      (=gt		  . 64483)	; &I-GT-64483;
+      (=gt-pj-1		  . #x426B)	; &I-GT-64483; [34-75]
+      (=daikanwa	  . 47377)	; &I-M-47377;
+      (=shinjigen	  .  9756)	; &GT-64483;
+      )
+     ((=ucs@unicode	  . #x9DF9)	; &C1-7C79;
+      (=cns11643-1	  . #x7C79)	; &C1-7C79; [92-89]
+      (=gb12345		  . #x5325)	; &C1-7C79; [51-05]
+      ))
     ))
 (define-char
   '((ideographic-radical . 196)	; ⿃
