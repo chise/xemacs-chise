@@ -17634,8 +17634,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x5C19)	; &M-07493;
-	(=ks-x1001	    . #x5F46)	; &M-07493; [63-38]
+       ((=ucs@unicode	    . #x5C19)	; &AJ1-13835;
+	(=ks-x1001	    . #x5F46)	; &AJ1-13835; [63-38]
 	(=daikanwa	    . 07493)	; &I-M-07493;
 	))
       (=ucs@jis		  . #x5018)	; 倘󠄀
