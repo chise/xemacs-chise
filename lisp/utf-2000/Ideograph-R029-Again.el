@@ -1329,6 +1329,7 @@
     (=shinjigen		.  0913)	; 叚
     (=cbeta		. 00556)	; &I-CB00556;
     (=jef-china3	. #x45F1)	; &I-JC3-45F1;
+    (=adobe-japan1-4	. 14372)	; &I-AJ1-14372;
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
