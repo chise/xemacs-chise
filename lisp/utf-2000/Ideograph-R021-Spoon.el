@@ -54,13 +54,19 @@
     (hanyu-dazidian	1 262 1)
     (=ucs		. #x2090E)	; 𠤎
     (->subsumptive
-     ((=ucs@iso		  . #x2090E)	; &CDP-8BBA;
-      (=big5-cdp	  . #x8BBA)	; &CDP-8BBA;
-      (=daikanwa	  . 02571)	; &I-M-02571;
-      (=jef-china3	  . #x45AB)	; &I-JC3-45AB;
-      )
-     ((=jis-x0208@1978	  . #x5238)	; &J83-5238; [50-24]
-      (=jis-x0208@1983	  . #x5238)	; &I-J83-5238; [50-24]
+     ((=>>>ucs@iso	  . #x2090E)	; &g2-IU+2090E;
+      (=>>>jis-x0208@1978 . #x5238)	; &g2-IU+2090E; [50-24]
+      (=>>>jis-x0208@1983 . #x5238)	; &g2-IU+2090E; [50-24]
+      (->subsumptive
+       ((=ucs@iso	    . #x2090E)	; &AJ1-13523;
+	(=big5-cdp	    . #x8BBA)	; &AJ1-13523;
+	(=daikanwa	    . 02571)	; &I-M-02571;
+	(=jef-china3	    . #x45AB)	; &I-JC3-45AB;
+	(=adobe-japan1-4    . 13523)	; &I-AJ1-13523;
+	)
+       ((=jis-x0208@1978    . #x5238)	; &J83-5238; [50-24]
+	(=jis-x0208@1983    . #x5238)	; &I-J83-5238; [50-24]
+	))
       )
      ((=cns11643-6	  . #x212A)	; &C6-212A; [01-10]
       ))
@@ -104,8 +110,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@iso	    . #x2090E)	; &CDP-8BBA;
-	(=big5-cdp	    . #x8BBA)	; &CDP-8BBA;
+       ((=ucs@iso	    . #x2090E)	; &AJ1-13523;
+	(=big5-cdp	    . #x8BBA)	; &AJ1-13523;
 	(=daikanwa	    . 02571)	; &I-M-02571;
 	))
       (=ucs@unicode	  . #x5316)	; &G0-3B2F;
