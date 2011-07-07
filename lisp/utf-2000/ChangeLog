@@ -1,3 +1,17 @@
+2011-07-05  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R042-Small.el (K0-5F46): Unify AJ1-13835.
+	(U+5C1A): Use `<-simplified@JP/misc' instead of `<-simplified@JP'
+	for K0-5F46.
+
+	* Ideograph-R163-City.el (JX1-7C67): Unify AJ1-08635.
+
+2011-07-05  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el (K0-6063): Unify AJ1-13880.
+
+	* Ideograph-R112-Stone.el (JX1-7923): Unify AJ1-13342.
+
 2011-07-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R196-Bird.el (U+9DF9): Use `->subsumptive'.
