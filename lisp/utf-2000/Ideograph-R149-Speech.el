@@ -7006,14 +7006,15 @@
     (total-strokes	 . 14)
     (=ucs		. #x8AAA)	; 說
     (->subsumptive
-     ((=ucs@JP		  . #x8AAA)	; &GT-47736;
-      (=ucs@ks		  . #x8AAA)	; &GT-47736;
-      (=ks-x1001	  . #x6063)	; &GT-47736; [64-67]
+     ((=ucs@JP		  . #x8AAA)	; &AJ1-13880;
+      (=ucs@ks		  . #x8AAA)	; &AJ1-13880;
+      (=ks-x1001	  . #x6063)	; &AJ1-13880; [64-67]
       (=gt		  . 47736)	; &I-GT-47736;
       (=gt-k		  . 11141)	; &I-GT-K11141;
       (=gt-pj-7		  . #x356E)	; &I-GT-47736; [21-78]
       (=daikanwa	  . 35556)	; &I-M-35556;
       (=jef-china3	  . #x65A8)	; &I-JC3-65A8;
+      (=adobe-japan1-4	  . 13880)	; &I-AJ1-13880;
       )
      ((=cns11643-1	  . #x6B29)	; &C1-6B29; [75-09]
       )
@@ -7038,9 +7039,9 @@
       (=gt-k		  . 11142)	; &I-GT-K11142;
       (=gt-pj-1		  . #x4062)	; &I-GT-47737; [32-66]
       (<-same
-       ((=ucs@JP	    . #x8AAA)	; &GT-47736;
-	(=ucs@ks	    . #x8AAA)	; &GT-47736;
-	(=ks-x1001	    . #x6063)	; &GT-47736; [64-67]
+       ((=ucs@JP	    . #x8AAA)	; &AJ1-13880;
+	(=ucs@ks	    . #x8AAA)	; &AJ1-13880;
+	(=ks-x1001	    . #x6063)	; &AJ1-13880; [64-67]
 	(=daikanwa	    . 35556)	; &I-M-35556;
 	))
       (<-same*sources
