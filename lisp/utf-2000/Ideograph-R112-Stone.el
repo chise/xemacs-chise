@@ -2101,6 +2101,7 @@
     (=gt-pj-5		. #x4B2C)	; &I-GT-30890; [43-12]
     (=daikanwa		. 24177)	; &I-M-24177;
     (=jef-china3	. #x5CA8)	; &I-JC3-5CA8;
+    (=adobe-japan1-4	. 13342)	; &I-AJ1-13342;
     (=hanyo-denshi/jc	. #x7923)	; &I-HD-JC-7923; [89-03]
     ))
 (define-char
