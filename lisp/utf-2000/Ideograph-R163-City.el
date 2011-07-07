@@ -1770,8 +1770,8 @@
       (=gt-k		  . 05204)	; &I-GT-K05204;
       (=gt-pj-1		  . #x4F3A)	; &I-GT-53018; [47-26]
       (<-simplified@JP/Jouyou
-       ((=ucs@jis	    . #x90DE)	; &M-39431;
-	(=ks-x1001	    . #x554D)	; &M-39431; [53-45]
+       ((=ucs@jis	    . #x90DE)	; &AJ1-08635;
+	(=ks-x1001	    . #x554D)	; &AJ1-08635; [53-45]
 	(=jis-x0213-1	    . #x7C67)	; &I-JX1-7C67; [92-71]
 	(=daikanwa	    . 39431)	; &I-M-39431;
 	))
@@ -1814,8 +1814,8 @@
   '((ideographic-radical . 163)	; ⾢
     (=ucs		. #x90D2)	; 郒
     (<-unknown
-     ((=ucs@jis		  . #x90DE)	; &M-39431;
-      (=ks-x1001	  . #x554D)	; &M-39431; [53-45]
+     ((=ucs@jis		  . #x90DE)	; &AJ1-08635;
+      (=ks-x1001	  . #x554D)	; &AJ1-08635; [53-45]
       (=jis-x0213-1	  . #x7C67)	; &I-JX1-7C67; [92-71]
       (=daikanwa	  . 39431)	; &I-M-39431;
       ))
@@ -2154,13 +2154,16 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs		. #x90DE)	; 郞
-    (=>jis-x0213-1	. #x7C67)	; 郞 [92-71]
+    (=>>jis-x0213-1	. #x7C67)	; 郞 [92-71]
+    (=>>daikanwa	. 39431)	; 郞
+    (=>>adobe-japan1	. 08635)	; 郞
     (->subsumptive
-     ((=ucs@jis		  . #x90DE)	; &M-39431;
-      (=ks-x1001	  . #x554D)	; &M-39431; [53-45]
+     ((=ucs@jis		  . #x90DE)	; &AJ1-08635;
+      (=ks-x1001	  . #x554D)	; &AJ1-08635; [53-45]
       (=jis-x0213-1	  . #x7C67)	; &I-JX1-7C67; [92-71]
       (=daikanwa	  . 39431)	; &I-M-39431;
       (=jef-china3	  . #x68A6)	; &I-JC3-68A6;
+      (=adobe-japan1-2	  . 08635)	; &I-AJ1-08635;
       )
      ((=ucs@unicode	  . #x90DE)	; &C3-3429;
       (=cns11643-3	  . #x3429)	; &C3-3429; [20-09]
