@@ -16985,10 +16985,13 @@
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=>>ucs@unicode	. #x6F22)	; &G-JX1-7725;
-    (=>>ucs@jis		. #xFA47)	; &G-JX1-7725;
-    (=>>jis-x0213-1	. #x7725)	; &G-JX1-7725; [87-05]
-    (=big5		. #xBA7E)	; &G-JX1-7725;
+    (=>>ucs@unicode	. #x6F22)	; &G-GT-23116;
+    (=>>ucs@jis		. #xFA47)	; &G-GT-23116;
+    (=>>jis-x0213-1	. #x7725)	; &G-GT-23116; [87-05]
+    (=big5		. #xBA7E)	; &G-GT-23116;
+    (=>>gt		. 23116)	; &G-GT-23116;
+    (=>>daikanwa	. 18153)	; &G-GT-23116;
+    (=>>adobe-japan1	. 13332)	; &G-GT-23116;
     (->subsumptive
      ((=>ucs*		  . #x6F22)	; 漢
       (=ucs		  . #xFA47)	; 漢
@@ -17001,6 +17004,7 @@
       (=gt-pj-4		  . #x5338)	; &I-GT-23116; [51-24]
       (=daikanwa	  . 18153)	; &I-M-18153;
       (=jef-china3	  . #x56E6)	; &I-JC3-56E6;
+      (=adobe-japan1-4	  . 13332)	; &I-AJ1-13332;
       )
      ((=ucs@cns		  . #x6F22)	; &C1-6947;
       (=cns11643-1	  . #x6947)	; &C1-6947; [73-39]
