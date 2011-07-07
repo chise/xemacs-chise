@@ -9194,8 +9194,8 @@
     (=ks-x1001		. #x714E)	; &M-38937; [81-46]
     (=daikanwa		. 38937)	; &I-M-38937;
     (<-vulgar
-     ((=ucs@ks		  . #x5468)	; &GT-04361;
-      (=ks-x1001	  . #x7132)	; &GT-04361; [81-18]
+     ((=ucs@ks		  . #x5468)	; &AJ1-13815;
+      (=ks-x1001	  . #x7132)	; &AJ1-13815; [81-18]
       (=daikanwa	  . 03441)	; &I-M-03441;
       ))
     (<-vulgar*sources
@@ -11662,8 +11662,10 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=ks-x1001		. #x783C)	; &M-39001; [88-28]
+    (=ks-x1001		. #x783C)	; &AJ1-14017; [88-28]
     (=daikanwa		. 39001)	; &I-M-39001;
+    (=jef-china3	. #x67DD)	; &I-JC3-67DD;
+    (=adobe-japan1-4	. 14017)	; &I-AJ1-14017;
     (<-same
      ((=ucs@jis		  . #x5FA7)	; &M-10174;
       (=jis-x0212	  . #x3D30)	; &M-10174; [29-16]
@@ -11680,8 +11682,9 @@
       ))
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 9)
-    (total-strokes	 . 13)
-    (=cns11643-1	. #x6735)	; &C1-6735; [71-21]
+    (total-strokes	 . 12)
+    (=ucs@unicode	. #x904D)	; &G0-3169;
+    (=gb2312		. #x3169)	; &G0-3169; [17-73]
     ))
 (define-char
   '((<-denotational
@@ -11689,18 +11692,22 @@
       ))
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (->subsumptive
-     ((morohashi-daikanwa	39001 1)
-      (=ucs@jis		  . #x904D)	; &GT-52283;
-      (=jis-x0208	  . #x4A57)	; &GT-52283; [42-55]
-      (=jis-x0213-1	  . #x4A57)	; &I-JX1-4A57; [42-55]
-      (=gt		  . 52283)	; &I-GT-52283;
-      (=gt-pj-1		  . #x4A57)	; &I-GT-52283; [42-55]
-      )
-     ((=ucs@unicode	  . #x904D)	; &G0-3169;
-      (=gb2312		  . #x3169)	; &G0-3169; [17-73]
+    (total-strokes	 . 13)
+    (=cns11643-1	. #x6735)	; &C1-6735; [71-21]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x904D)	; 遍
       ))
+    (morohashi-daikanwa	39001 1)
+    (ideographic-radical . 162)	; ⾡
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (=ucs@jis		. #x904D)	; &GT-52283;
+    (=jis-x0208		. #x4A57)	; &GT-52283; [42-55]
+    (=jis-x0213-1	. #x4A57)	; &I-JX1-4A57; [42-55]
+    (=gt		. 52283)	; &I-GT-52283;
+    (=gt-pj-1		. #x4A57)	; &I-GT-52283; [42-55]
     ))
 (define-char
   '((ideographic-radical . 162)	; ⾡
