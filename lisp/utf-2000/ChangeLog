@@ -1,3 +1,13 @@
+2011-07-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R029-Again.el (U+53DA): Unify AJ1-14372.
+
+2011-07-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (K0-783C): Unify JC3-67DD and AJ1-14017.
+	(G0-3169): Use `<-denotational' for U+904D.
+	(J0-4A57): Likewise.
+
 2011-07-05  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R042-Small.el (K0-5F46): Unify AJ1-13835.
