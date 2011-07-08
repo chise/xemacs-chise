@@ -252,6 +252,19 @@
     (=cns11643-3	. #x2229)	; &I-C3-2229; [02-09]
     (=daikanwa		. 02902)	; &I-M-02902;
     (=hanziku-1		. #xB1F0)	; &I-HZK01-B1F0;
+    (=adobe-japan1-4	. 14288)	; &I-AJ1-14288;
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x53B2)	; 厲󠄁
+      (=jis-x0212	  . #x3450)	; 厲󠄁 [20-48]
+      (=jis-x0213-1	  . #x2E74)	; &I-JX1-2E74; [14-84]
+      (=gb12345		  . #x4077)	; 厲󠄁 [32-87]
+      ))
+    (<-simplified@misc
+     ((=cns11643-1	  . #x6C30)	; &M-03041; [76-16]
+      (=daikanwa	  . 03041)	; &I-M-03041;
+      ))
+    (<-simplified@misc*sources
+     daikanwa)
     ))
 (define-char
   '((morohashi-daikanwa	ho 59)
@@ -1379,6 +1392,7 @@
     (=cns11643-4	. #x2855)	; &I-C4-2855; [08-53]
     (=daikanwa		. 02959)	; &I-M-02959;
     (=hanziku-1		. #xB2D0)	; &I-HZK01-B2D0;
+    (=adobe-japan1-4	. 13755)	; &I-AJ1-13755;
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
@@ -2652,10 +2666,11 @@
       (=jis-x0213-1	  . #x5A44)	; &I-JX1-5A44; [58-36]
       (=daikanwa	  . 13226)	; &I-M-13226;
       ))
-    (=ucs@jis		. #x53AB)	; &M-03008;
-    (=jis-x0212		. #x344E)	; &M-03008; [20-46]
+    (=ucs@jis		. #x53AB)	; &AJ1-14371;
+    (=jis-x0212		. #x344E)	; &AJ1-14371; [20-46]
     (=daikanwa		. 03008)	; &I-M-03008;
     (=jef-china3	. #x45E1)	; &I-JC3-45E1;
+    (=adobe-japan1-4	. 14371)	; &I-AJ1-14371;
     ))
 (define-char
   '((<-denotational
