@@ -1,5 +1,14 @@
 2011-07-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R085-Water.el (G-JX1-7725): Unify G-GT-23116,
+	G-M-18153 and G-AJ1-13332.
+	(JX1-7725): Unify AJ1-13332.
+
+	* Ideograph-R021-Spoon.el (g2-IU-0002090E): New abstract glyph
+	shape to integrate BC-8BBA and J83-5238; unify g2-J78-5238 and
+	G2-J83-5238.
+	(BC-8BBA): Unify AJ1-13523.
+
 	* Ideograph-R029-Again.el (U+53DA): Unify AJ1-14372.
 
 2011-07-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
