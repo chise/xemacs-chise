@@ -1,5 +1,17 @@
 2011-07-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R027-Cliff.el (U+5389): Unify AJ1-14288; add
+	`<-simplified@CN' for G1-4077; add `<-simplified@misc' for
+	C1-6C30.
+	(U-00020A64): Unify AJ1-13755.
+	(JSP-344E): Unify AJ1-14371.
+
+	* Ideograph-R023-Hiding-Enclosure.el (G-JX2-2350): Unify
+	G-AJ1-14366.
+	(JX2-2350): Unify AJ1-14366.
+
+2011-07-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R085-Water.el (G-JX1-7725): Unify G-GT-23116,
 	G-M-18153 and G-AJ1-13332.
 	(JX1-7725): Unify AJ1-13332.
