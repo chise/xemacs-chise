@@ -819,6 +819,7 @@
     (=>>ucs@jis		. #x533E)	; &G-GT-03448;
     (=>>jis-x0213-2	. #x2350)	; &G-GT-03448; [03-48]
     (=>>gt		. 03448)	; &G-GT-03448;
+    (=>>adobe-japan1	. 14366)	; &G-GT-03448;
     (=>>hanyo-denshi/ks . 030840)	; &G-GT-03448;
     (->subsumptive
      ((=decomposition@hanyo-denshi
@@ -847,6 +848,7 @@
       (=cns11643-1	  . #x5935)	; &I-C1-5935; [57-21]
       (=jis-x0213-2	  . #x2350)	; &I-JX2-2350; [03-48]
       (=daikanwa	  . 02689)	; &I-M-02689;
+      (=adobe-japan1-4	  . 14366)	; &I-AJ1-14366;
       (=hanyo-denshi/jb	  . #x3435)	; &I-HD-JB-3435; [20-21]
       )
      ((=gt		  . 03448)	; &GT-03448;
