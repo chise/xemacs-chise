@@ -1410,16 +1410,7 @@
       (=jis-x0212	  . #x5738)	; &M-30685; [55-24]
       (=cns11643-2	  . #x2D2D)	; &I-C2-2D2D; [13-13]
       (=daikanwa	  . 30685)	; &I-M-30685;
-      (=shinjigen@1ed	  .  0817)	; &M-30685;
       (=jef-china3	  . #x45C1)	; &I-JC3-45C1;
-      (<-original
-       ((=ucs		    . #x5349)	; 卉
-	(=jis-x0208	    . #x5243)	; &I-J90-5243; [50-35]
-	(=daikanwa	    . 02706)	; &I-M-02706;
-	(=shinjigen	    .  0816)	; 卉
-	))
-      (<-original*sources
-       daikanwa shinjigen@1ed)
       (<-same
        ((=ucs		    . #x2F82C)	; 卉
 	(=daikanwa	    . 02720)	; &I-M-02720;
@@ -1428,6 +1419,19 @@
        shuowen zihui daikanwa)
       )
      ((=ucs@unicode	  . #x8294)	; &UU+8294;
+      (=shinjigen	  .  0817)	; &UU+8294;
+      (<-original
+       ((=ucs@unicode	    . #x5349)	; &AJ1-04312;
+	(=jis-x0208	    . #x5243)	; &AJ1-04312; [50-35]
+	(=gb2312	    . #x3B5C)	; &I-G0-3B5C; [27-60]
+	(=ks-x1001	    . #x7D41)	; &I-K0-7D41; [93-33]
+	(=cns11643-1	    . #x4625)	; &I-C1-4625; [38-05]
+	(=jis-x0213-1	    . #x5243)	; &I-JX1-5243; [50-35]
+	(=daikanwa	    . 02706)	; &I-M-02706;
+	(=shinjigen	    .  0816)	; &AJ1-04312;
+	))
+      (<-original*sources
+       daikanwa shinjigen)
       ))
     ))
 (define-char
