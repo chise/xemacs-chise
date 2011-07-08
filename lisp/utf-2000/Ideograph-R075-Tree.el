@@ -3459,7 +3459,13 @@
 	)
        ((=gt-k		    . 00495)	; &GT-K00495;
 	)
-       ((=ucs		    . #x5349)	; 卉
+       ((=ucs@unicode	    . #x5349)	; &AJ1-04312;
+	(=jis-x0208	    . #x5243)	; &AJ1-04312; [50-35]
+	(=gb2312	    . #x3B5C)	; &I-G0-3B5C; [27-60]
+	(=ks-x1001	    . #x7D41)	; &I-K0-7D41; [93-33]
+	(=cns11643-1	    . #x4625)	; &I-C1-4625; [38-05]
+	(=jis-x0213-1	    . #x5243)	; &I-JX1-5243; [50-35]
+	(=daikanwa	    . 02706)	; &I-M-02706;
 	))
       (=ucs@unicode	  . #x67BF)	; &M-14597;
       (=cns11643-3	  . #x2D30)	; &M-14597; [13-16]
@@ -15027,8 +15033,8 @@
       (total-strokes	   . 13)
       (=jis-x0208@1978	  . #x3335)	; &J78-3335; [19-21]
       (<-simplified
-       ((=ucs@unicode	    . #x69EA)	; &GT-19655;
-	(=gt		    . 19655)	; &GT-19655;
+       ((=ucs@unicode	    . #x69EA)	; &AJ1-13679;
+	(=gt		    . 19655)	; &AJ1-13679;
 	(=daikanwa	    . 15364)	; &I-M-15364;
 	))
       (<-simplified*sources
@@ -18725,11 +18731,13 @@
     (=>>ucs@unicode	. #x69EA)	; &G-GT-19655;
     (=>>gt		. 19655)	; &G-GT-19655;
     (=>>daikanwa	. 15364)	; &G-GT-19655;
+    (=>>adobe-japan1	. 13679)	; &G-GT-19655;
     (->subsumptive
-     ((=ucs@unicode	  . #x69EA)	; &GT-19655;
-      (=gt		  . 19655)	; &GT-19655;
-      (=gt-pj-4		  . #x3844)	; &GT-19655; [24-36]
+     ((=ucs@unicode	  . #x69EA)	; &AJ1-13679;
+      (=gt		  . 19655)	; &AJ1-13679;
+      (=gt-pj-4		  . #x3844)	; &AJ1-13679; [24-36]
       (=daikanwa	  . 15364)	; &I-M-15364;
+      (=adobe-japan1-4	  . 13679)	; &I-AJ1-13679;
       )
      ((=>ucs*		  . #x69EA)	; 槪
       (=ucs		  . #x2F8EA)	; 槪
@@ -18745,9 +18753,10 @@
      ((=ucs		  . #x69EA)	; 槪
       ))
     (ideographic-radical . 75)	; ⽊
-    (=>>ucs@jis		. #x69EA)	; &G-JX1-7624;
-    (=>>ucs@ks		. #x69EA)	; &G-JX1-7624;
-    (=>>jis-x0213-1	. #x7624)	; &G-JX1-7624; [86-04]
+    (=>>ucs@jis		. #x69EA)	; &G-GT-19656;
+    (=>>ucs@ks		. #x69EA)	; &G-GT-19656;
+    (=>>jis-x0213-1	. #x7624)	; &G-GT-19656; [86-04]
+    (=>>gt		. 19656)	; &G-GT-19656;
     (->subsumptive
      ((morohashi-daikanwa	15364 1)
       (ideographic-strokes . 11)
