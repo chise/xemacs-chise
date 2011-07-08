@@ -281,6 +281,10 @@ DESCRIPTION (string) is the description string of the charset."
 	  chinese-gb2312
 	  japanese-jisx0208
 	  =jis-x0208-1990
+	  =ucs-radicals
+	  =ucs-radicals@unicode
+	  =ucs-bmp-cjk@unicode
+	  =ucs-bmp-cjk@JP
 	  japanese-jisx0208-1978
 	  =jis-x0212
 	  =gt-pj-2
@@ -310,7 +314,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  =jis-x0213-2-2000
 	  ;; chinese-gb12345
 	  =gt-pj-1
-	  =ucs-radicals
 	  =ucs-bmp-cjk
 	  =ucs-sip-ext-b
 	  =ruimoku-v6
@@ -338,9 +341,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =hanyo-denshi/ip
 	  =hanyo-denshi/jt
 	  =hanyo-denshi/ks/mf
-	  =ucs-radicals@unicode
 	  =ucs-sip-ext-b@iso
-	  =ucs-bmp-cjk@unicode
 	  ideograph-daikanwa-2
 	  ideograph-daikanwa
 	  korean-ksc5601
