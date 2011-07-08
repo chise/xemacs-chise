@@ -1,4 +1,15 @@
+2011-07-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (JSP-5738): Separate S1-0817.
+	(UU+8294): Unify S-0817.
+
 2011-07-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (C3-2D30): Modify
+	`ideographic-structure'.
+	(G-GT-19655): Unify G-AJ1-13679.
+	(GT-19655): Unify AJ1-13679.
+	(G-JX1-7624): Unify G-GT-19656.
 
 	* Ideograph-R027-Cliff.el (U+5389): Unify AJ1-14288; add
 	`<-simplified@CN' for G1-4077; add `<-simplified@misc' for
