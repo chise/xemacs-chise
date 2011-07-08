@@ -1,5 +1,19 @@
 2011-07-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R055-Two-Hands.el (U+5F06): Use `->denotational' to
+	separate representative node.
+	(U+5F09): Likewise.
+
+	* Ideograph-R024-Ten.el (U+5349): Use `->denotational' to
+	integrate U-0002F82C.
+	(JSP-3437): Unify AJ1-14367.
+	(U+534B): Delete `kangxi-radical' and `kangxi-strokes'; unify
+	AJ1-14368.
+	(G-CU+2F82C): New abstract glyph to integrate U+2F82C and S-0818;
+	unify G-M-02720 and G-AJ1-14109; add `<-denotational' for U+5349.
+	(U+2F82C): Separate S-0818; unify AJ1-14109.
+	(JX1-2E6E): Unify AJ1-13378.
+
 	* Ideograph-R140-Grass.el (JSP-5738): Separate S1-0817.
 	(UU+8294): Unify S-0817.
 
