@@ -1,5 +1,42 @@
 2011-07-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R070-Square.el (JSP-4167): Unify HD-JB3371.
+
+	* Ideograph-R030-Mouth.el: Add some Adobe-Japan1-4 code points.
+	(U-00020B9F): Unify G-JX3-4F54 instead of A-JX3-4F54.
+	(U+53F1): Unify A-JX3-3C38; add ideographic-structure; modify
+	hierarchy.
+	(U+541E): Unify G-JX3-4F7E instead of A-JX3-4F7E.
+	(JX3-4F7E): Separate M-03329.
+	(J0-3970): Use `<-simplified@JP/misc' instead of `<-simplified@JP'
+	for U+543F.
+	(U+544D): Add `sound@ja/on'.
+	(g2-GT-04361): Unify G-M-03441, G-AJ1-13815 and g2-HD-JT-AEBA.
+	(U+546C): Use `->subsumptive' to separate representative nodes.
+	(U+3579): Use `->denotational' to separate representative nodes.
+	(JX1-2E7E): Unify UU+54A1 instead of JU+54A1.
+	(U+54B9): Use `->subsumptive'.
+	(U+54BE): Use `->subsumptive' to separate representative nodes.
+	(U+550D): Add ideographic-structure.
+	(U+554B): Likewise.
+	(M-03872): Unify U-00020D73 and H2-D6B6.
+	(U+5560): Compact `ideographic-structure'.
+	(G-JU+5561): Unify G-AJ1-14393.
+	(U+5588): Use `->subsumptive' to separate representative nodes.
+	(G-JX1-2F2F): Unify G-AJ1-13366.
+	(JX1-2F2F): Add `ideographic-structure'.
+	(U+5609): Add `sound@ja/on'.
+	(U+35E6): Use `->subsumptive' to separate representative nodes.
+	(U+560E): Likewise.
+	(U+5637): Use `->denotational'.
+	(U+5649): Add ideographic-structure.
+	(U+564B): Add ideographic-structure.
+	(U+FA38): Unify UU+5668 instead of GU+5668; unify JU+FA38; unify
+	G-UU+5668.
+	(U-00020FD4): Use `->subsumptive' to separate representative
+	nodes.
+	(U+568F): Add `<-vulgar' for U+5694.
+
 	* Ideograph-R055-Two-Hands.el (U+5F06): Use `->denotational' to
 	separate representative node.
 	(U+5F09): Likewise.
