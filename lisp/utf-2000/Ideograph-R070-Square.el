@@ -674,6 +674,7 @@
       (=jis-x0213-2	  . #x2D6F)	; &I-JX2-2D6F; [13-79]
       (=daikanwa	  . 13654)	; &I-M-13654;
       (=jef-china3	  . #x50E9)	; &I-JC3-50E9;
+      (=hanyo-denshi/jb	  . #x4167)	; &I-HD-JB-4167; [33-71]
       )
      ((=ucs@unicode	  . #x65C9)	; &UU+65C9;
       )
