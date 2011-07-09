@@ -1,3 +1,42 @@
+2011-07-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R082-Fur.el (mother of B-C0D6): Unify G-UU+6C08,
+	G-J90-5D61, G-JX1-5D61, G-GT-21755 and G-M-16982.
+	(J78-5D61): Unify HD-FT1706.
+
+	* Ideograph-R080-Do-Not.el (U+6BD3): Use `->denotational' to
+	integrate HD-FT2273.
+	(G-UU+6BD3): Unify G-J0-5D5A, G-JX1-5D5A, G-GT-21457 and G-16740.
+	(HD-FT2273): New character.
+
+	* Ideograph-R077-Stop.el (U+6B78): Use `->denotational'.
+	(G1-3969): Unify HD-FT2270.
+
+	* Ideograph-R073-Say.el (U+66F7): Use `->denotational' to
+	integrate HD-FT2237.
+	(HD-FT2237): New character.
+	(G-J0-413D): New abstract glyph to integrate J0-413D and
+	HD-FT2040.
+	(HD-FT2040): New character.
+
+	* Ideograph-R071-Not.el (U+65E1): Unify G-HD-FT2227.
+	(HD-FT2227): New character.
+
+	* Ideograph-R058-Snout.el (G-UU+5F57): Unify G-HD-FT2178.
+	(HD-FT2178): Add `=decomposition@hanyo-denshi'.
+	(A-M-09948): Unify A-J0-5734.
+	(U+5F5C): Unify G-HD-FT2176.
+	(g2-UU+5F5C): Unify g2-GT-12550.
+	(HD-FT2176): Add `=decomposition@hanyo-denshi'.
+
+2011-07-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R049-Oneself.el (J78-392B): Add
+	`=decomposition@hanyo-denshi'.
+	(G-UU+5DFD): Unify G-J78-4327, G-GT-11052, G-M-08765 and
+	G-HD-FT1854.
+	(J78-4327): Add `=decomposition@hanyo-denshi'.
+
 2011-07-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R053-Dotted-Cliff.el (J78-4A79): Add
