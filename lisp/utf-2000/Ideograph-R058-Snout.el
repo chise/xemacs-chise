@@ -132,8 +132,8 @@
      ((=ucs@unicode	  . #x5F52)	; &G0-3969;
       (=gb2312		  . #x3969)	; &G0-3969; [25-73]
       (<-simplified@CN
-       ((=ucs@unicode	    . #x6B78)	; &UU+6B78;
-	(=gb12345	    . #x3969)	; 歸 [25-73]
+       ((=ucs@unicode	    . #x6B78)	; &HD-FT-3666;
+	(=gb12345	    . #x3969)	; &HD-FT-3666; [25-73]
 	))
       ))
     ))
@@ -508,9 +508,15 @@
     (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=>>ucs@unicode	. #x5F57)	; &G-UU+5F57;
+    (=>>ucs@unicode	. #x5F57)	; &G-HD-FT-356E;
+    (=>>hanyo-denshi/ft . #x356E)	; &G-HD-FT-356E; [21-78]
     (->subsumptive
-     ((=hanyo-denshi/ft	  . #x356E)	; &HD-FT-356E; [21-78]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5F57)	; 彗
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/ft	  . #x356E)	; 彗󠄂 [21-78]
       )
      ((=ucs@unicode	  . #x5F57)	; &G0-6567;
       (=gb2312		  . #x6567)	; &G0-6567; [69-71]
@@ -738,11 +744,13 @@
   '((ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (=>daikanwa		. 09948)	; &A-M-09948;
+    (=>jis-x0208	. #x5734)	; &J97-5734; [55-20]
+    (=>jis-x0213-1	. #x5734)	; &J97-5734; [55-20]
+    (=>daikanwa		. 09948)	; &J97-5734;
     ))
 (define-char
   '((<-denotational
-     ((=>daikanwa	  . 09948)	; &A-M-09948;
+     ((=>jis-x0208	  . #x5734)	; &J97-5734; [55-20]
       ))
     (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 13)
@@ -780,12 +788,13 @@
     ))
 (define-char
   '((<-denotational
-     ((=>daikanwa	  . 09948)	; &A-M-09948;
+     ((=>jis-x0208	  . #x5734)	; &J97-5734; [55-20]
       ))
     (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
     (=ucs		. #x5F5C)	; 彜
+    (=>>hanyo-denshi/ft . #x356C)	; 彜 [21-76]
     (->subsumptive
      ((=ucs@jis		  . #x5F5C)	; &CB02362;
       (=jis-x0208	  . #x5734)	; &CB02362; [55-20]
@@ -798,14 +807,20 @@
 	(=daikanwa	    . 09948)	; &I-M-09948;
 	))
       )
-     ((=>>>ucs@unicode	  . #x5F5C)	; &g2-UU+5F5C;
+     ((=>>>ucs@unicode	  . #x5F5C)	; &g2-GT-12550;
+      (=>>>gt		  . 12550)	; &g2-GT-12550;
       (->subsumptive
        ((=gt		    . 12550)	; &GT-12550;
 	(=gt-pj-1	    . #x5734)	; &GT-12550; [55-20]
 	)
        ((=ucs@unicode	    . #x5F5C)	; &UU+5F5C;
 	)
-       ((=hanyo-denshi/ft   . #x356C)	; &HD-FT-356C; [21-76]
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x5F5C)	; 彜
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(=hanyo-denshi/ft   . #x356C)	; 彜󠄂 [21-76]
 	))
       ))
     ))
