@@ -2800,6 +2800,11 @@
     (ideographic-radical . 82)	; ⽑
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
+    (=>>ucs@unicode	. #x6C08)	; &G-GT-21755;
+    (=>>jis-x0208@1990	. #x5D61)	; &G-GT-21755; [61-65]
+    (=>>jis-x0213-1	. #x5D61)	; &G-GT-21755; [61-65]
+    (=>>gt		. 21755)	; &G-GT-21755;
+    (=>>daikanwa	. 16982)	; &G-GT-21755;
     (->subsumptive
      ((=big5		  . #xC0D6)	; &B-C0D6;
       (->subsumptive
@@ -2829,6 +2834,7 @@
     (total-strokes	 . 17)
     (=jis-x0208@1978	. #x5D61)	; &J83-5D61; [61-65]
     (=jis-x0208@1983	. #x5D61)	; &I-J83-5D61; [61-65]
+    (=hanyo-denshi/ft	. #x3126)	; &I-HD-FT-3126; [17-06]
     ))
 (define-char
   '((ideographic-radical . 82)	; ⽑
