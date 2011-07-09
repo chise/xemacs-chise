@@ -3250,10 +3250,10 @@
     (=cbeta		. 01927)	; &I-CB01927;
     (=adobe-japan1-0	. 04327)	; &I-AJ1-04327;
     (<-vulgar
-     ((=jis-x0208@1978	  . #x3E33)	; &GT-11941; [30-19]
+     ((=jis-x0208@1978	  . #x3E33)	; 廠󠄃 [30-19]
       (=ks-x1001	  . #x735F)	; &I-K0-735F; [83-63]
       (=daikanwa	  . 09490)	; &I-M-09490;
-      (=shinjigen	  .  2214)	; &GT-11941;
+      (=shinjigen	  .  2214)	; 廠󠄃
       ))
     (<-vulgar*sources
      zhonghua-dazidian daikanwa shinjigen)
