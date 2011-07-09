@@ -1,5 +1,36 @@
 2011-07-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R053-Dotted-Cliff.el (J78-4A79): Add
+	`=decomposition@hanyo-denshi'.
+	(G-UU+5ED6): Unify G-HD-FT2171.
+	(HD-FT2171): Add `=decomposition@hanyo-denshi'.
+	(J78-4940): Ditto.
+	(J78-3E33): Ditto.
+
+	* Ideograph-R050-Turban.el (G-UU+5E30): Unify G-J0-3522,
+	G-JX1-3522, G-GT-11209, G-M-08930 and G-HD-FT1615.
+	(J78-3522): Add `=decomposition@hanyo-denshi'.
+	(HD-FT2167): Ditto.
+
+	* Ideograph-R072-Sun.el: Add Hanyo-Denshi/JB code points.
+	(U+65FE): Use `->subsumptive'.
+	(U+6677): Unify A-JX1-7540.
+	(mother of K0-4F7C): Unify G-UU+6677 and G-M-14005.
+	(G-CU+3AFD): Unify G-M-14015.
+	(G-CU+668E): Unify G-M-14048.
+
+	* Ideograph-R060-Step.el (G-UU+5FBD): Unify G-J78-352B,
+	G-J2004-352B, G-M-10267 and G-HD-FT1775.
+	(J78-352B): Add `=decomposition@hanyo-denshi'.
+
+	* Ideograph-R063-Door.el (J78-6E3D): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R062-Halberd.el (HD-FT2201): Add
+	`=decomposition@hanyo-denshi'.
+
+2011-07-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R070-Square.el (JSP-4167): Unify HD-JB3371.
 
 	* Ideograph-R030-Mouth.el: Add some Adobe-Japan1-4 code points.
