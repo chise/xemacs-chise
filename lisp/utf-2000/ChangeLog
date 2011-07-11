@@ -1,5 +1,11 @@
 2011-07-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R074-Moon.el (mother of C1-764D): Unify G-CU+6726 and
+	G-M-14409.
+	(mother of J0-5B2F): Unify G-UU+6726, G-J0-5B2F, G-GT-18322 and
+	G-HD-FT2238.
+	(HD-FT2238): New character.
+
 	* Ideograph-R082-Fur.el (mother of B-C0D6): Unify G-UU+6C08,
 	G-J90-5D61, G-JX1-5D61, G-GT-21755 and G-M-16982.
 	(J78-5D61): Unify HD-FT1706.
