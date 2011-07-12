@@ -1,3 +1,21 @@
+2011-07-11  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el (G-UU+6062): Unify G-J78-327A,
+	G-J2004-327A, G-M-10577, G-HD-FT1765 and G-HD-HG1608.
+	(J78-327A): Add `=decomposition@hanyo-denshi'; unify HD-FT1765.
+	(J78-4C7C): Add `=decomposition@hanyo-denshi'; unify HD-FT1930.
+	(B-B755): Unify G-UU+6108, G-J83-4C7C, G-J90-4C7C, J2000-4C7C and
+	G-GT-13912.
+	(U+613D): Use `->denotational' to integrate HD-FT2188.
+	(HD-FT2188): New character.
+	(G0-633B): Add `=decomposition@hanyo-denshi'; unify HD-FT2187.
+	(EGB-2C2E): Add `=decomposition@hanyo-denshi'; unify HD-FT2191.
+	(J78-3745): Separate C1-6C64; add `=decomposition@hanyo-denshi';
+	unify HD-FT1785.
+	(G-UU+6167): Unify G-J83-3745, G-J90-3745, G-JX1-3745 and
+	G-GT-14060.
+	(HD-FT2193): New character.
+
 2011-07-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R074-Moon.el (mother of C1-764D): Unify G-CU+6726 and
