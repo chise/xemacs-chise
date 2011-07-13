@@ -3587,6 +3587,7 @@
     (=ucs@jis/1990	. #x6BA9)	; &M-16577;
     (=jis-x0212		. #x462B)	; &M-16577; [38-11]
     (=daikanwa		. 16577)	; &I-M-16577;
+    (=hanyo-denshi/jb	. #x462B)	; &I-HD-JB-462B; [38-11]
     ))
 (define-char
   '((<-denotational
