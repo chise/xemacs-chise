@@ -1252,6 +1252,7 @@
       (=jis-x0213-2	  . #x7030)	; &I-JX2-7030; [80-16]
       (=daikanwa	  . 19876)	; &I-M-19876;
       (=jef-china3	  . #x58C0)	; &I-JC3-58C0;
+      (=hanyo-denshi/jb	  . #x4A54)	; &I-HD-JB-4A54; [42-52]
       )
      ((=ucs@unicode	  . #x7253)	; &UU+7253;
       )
