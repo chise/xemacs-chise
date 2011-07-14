@@ -5849,7 +5849,7 @@
     (total-strokes	 . 10)
     (=daikanwa		. 38850)	; &M-38850;
     (<-same
-     ((=jis-x0208@1978	  . #x327A)	; &M-10577; [18-90]
+     ((=jis-x0208@1978	  . #x327A)	; 恢󠄅 [18-90]
       (=daikanwa	  . 10577)	; &I-M-10577;
       ))
     (<-same*sources
