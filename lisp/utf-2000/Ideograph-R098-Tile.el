@@ -229,6 +229,7 @@
     (=jis-x0212		. #x4C78)	; &M-21464; [44-88]
     (=cns11643-3	. #x2E24)	; &I-C3-2E24; [14-04]
     (=daikanwa		. 21464)	; &I-M-21464;
+    (=hanyo-denshi/jb	. #x4C78)	; &I-HD-JB-4C78; [44-88]
     ))
 (define-char
   '((<-denotational
