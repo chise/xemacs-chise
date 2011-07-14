@@ -1,3 +1,18 @@
+2011-07-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x596E and #x5B5B.
+
+	* Ideograph-R078-Death.el (JSP-462B): Unify HD-JB3811.
+
+	* Ideograph-R069-Axe.el (M-13584): Map to U+3AC1.
+	(U+65B2): Use `->denotational' to separate representative nodes.
+	(JSP-4161): Unify HD-JB3365.
+
+	* Ideograph-R032-Earth.el: Add Hanyo-Denshi/FT code points.
+	(U+5747): Use `->denotational' instead of `->subsumptive'.
+	(U+5843): Use `->denotational'.
+
 2011-07-11  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R061-Heart.el (G-UU+6062): Unify G-J78-327A,
@@ -15,6 +30,8 @@
 	(G-UU+6167): Unify G-J83-3745, G-J90-3745, G-JX1-3745 and
 	G-GT-14060.
 	(HD-FT2193): New character.
+
+	* Ideograph-R091-Slice.el (JSP-4A54): Unify HD-JB4252.
 
 2011-07-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
