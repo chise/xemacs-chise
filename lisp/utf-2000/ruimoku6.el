@@ -1588,6 +1588,7 @@
     (=daikanwa		. 15352)	; &I-M-15352;
     (=ruimoku-v6	. #xE086)	; &I-RUI6-E086;
     (=adobe-japan1-0	. 07686)	; &I-AJ1-07686;
+    (=hanyo-denshi/ft	. #x3228)	; &I-HD-FT-3228; [18-08]
     ))
 (define-char
   '((=ruimoku-v6	. #xE087)	; &RUI6-E087;
