@@ -300,11 +300,12 @@
     (=ucs		. #x5F54)	; 彔
     (=big5		. #xCC74)	; &I-B-CC74;
     (->subsumptive
-     ((=ucs@unicode	  . #x5F54)	; &M-09918;
-      (=jis-x0212	  . #x3C78)	; &M-09918; [28-88]
+     ((=ucs@unicode	  . #x5F54)	; &AJ1-16858;
+      (=jis-x0212	  . #x3C78)	; &AJ1-16858; [28-88]
       (=jis-x0213-1	  . #x743B)	; &I-JX1-743B; [84-27]
       (=daikanwa	  . 09918)	; &I-M-09918;
       (=jef-china3	  . #x4CFA)	; &I-JC3-4CFA;
+      (=adobe-japan1-5	  . 16858)	; &I-AJ1-16858;
       )
      ((=cns11643-2	  . #x2655)	; &C2-2655; [06-53]
       ))
