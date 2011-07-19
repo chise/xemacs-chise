@@ -7244,6 +7244,7 @@
     (=cns11643-2	. #x5867)	; &I-C2-5867; [56-71]
     (=daikanwa		. 23653)	; &I-M-23653;
     (=jef-china3	. #x5BBE)	; &I-JC3-5BBE;
+    (=hanyo-denshi/jb	. #x4F34)	; &I-HD-JB-4F34; [47-20]
     ))
 (define-char
   '((<-denotational
