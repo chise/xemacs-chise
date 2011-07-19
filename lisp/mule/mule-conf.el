@@ -1907,6 +1907,17 @@
 	       mother =hanyo-denshi/jt))
 
   (make-charset
+   '=>>hanyo-denshi/jb
+   "Han'you-Denshi/JB abstract glyphs"
+   `(long-name "Han'you-Denshi/JB glyphs"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JB-0$"
+	       mother =hanyo-denshi/jb))
+  (make-charset
    '=>>hanyo-denshi/ft
    "Han'you-Denshi/FT abstract glyphs"
    '(long-name "Han'you-Denshi/FT glyphs"
