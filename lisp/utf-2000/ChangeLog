@@ -1,4 +1,39 @@
+2011-07-15  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R058-Snout.el (JX1-743B): Unify AJ1-16858.
+
+	* Ideograph-R048-Work.el (JX2-286E): Unify AJ1-17587.
+
+	* Ideograph-R045-Sprout.el (U+5C70): Unify AJ1-17543.
+
+2011-07-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R064-Hand.el: Add Hanyo-Denshi/FT code points.
+
+	* Ideograph-R094-Dog.el: Add Hanyo-Denshi/JB and JD code points.
+
+	* Ideograph-R085-Water.el: Add Hanyo-Denshi/FT code points.
+
+	* Ideograph-R083-Clan.el (K0-586C): Separate J78-5D62 and
+	J83-5D62.
+	(J78-5D62): Unify HD-FT2275.
+
+	* Ideograph-R076-Lack.el (C1-6939): Unify HD-FT2267.
+	(JX3-4337): Unify HD-FT2916.
+
 2011-07-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* ruimoku6.el (J78-3A67): Unify HD-FT1808.
+
+	* Ideograph-R098-Tile.el (JSP-4C78): Unify HD-JB4488.
+
+	* Ideograph-R086-Fire.el: Add Hanyo-Denshi/JB code points.
+
+	* Ideograph-R039-Child.el: Add some Adobe-Japan1-5 code points.
+	(U+5B69): Use `->subsumptive' to separate representative nodes.
+	(U+5C58): Likewise.
+	(M-06993): Separate JSP-3A41.
+	(JSP-3A41): Unify JC3-49FA.
 
 	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
 	Add #x596E and #x5B5B.
