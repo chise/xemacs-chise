@@ -6254,8 +6254,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@unicode	  . #x382F)	; &CDP-8BAD;
-      (=jis-x0213-2	  . #x286F)	; &CDP-8BAD; [08-79]
+     ((=ucs@unicode	  . #x382F)	; &AJ1-17588;
+      (=jis-x0213-2	  . #x286F)	; &AJ1-17588; [08-79]
       ))
     (=ucs@unicode	. #x4F40)	; 佀󠄀
     (=jis-x0212		. #x3066)	; 佀󠄀 [16-70]
