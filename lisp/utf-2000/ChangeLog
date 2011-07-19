@@ -1,3 +1,7 @@
+2011-07-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R038-Woman.el: Add some Adobe-Japan1-5 code points.
+
 2011-07-15  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R058-Snout.el (JX1-743B): Unify AJ1-16858.
