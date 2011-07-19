@@ -1,6 +1,15 @@
 2011-07-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R049-Oneself.el (G-CU+382F): Unify G-M-08747 and
+	G-HD-IA0254.
+	(JX2-286F): Unify AJ1-17588.
+	(U+5DF9): Unify AJ1-19339.
+
 	* Ideograph-R038-Woman.el: Add some Adobe-Japan1-5 code points.
+
+2011-07-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R109-Eye.el (JSP-4F34): Unify HD-JB4720.
 
 2011-07-15  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
