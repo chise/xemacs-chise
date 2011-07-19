@@ -113,7 +113,9 @@
     (ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (=>>ucs@cns		. #x382F)	; &G-CU+382F;
+    (=>>ucs@cns		. #x382F)	; &G-HD-IA-2256;
+    (=>>daikanwa	. 08747)	; &G-HD-IA-2256;
+    (=>>hanyo-denshi/ia . #x2256)	; &G-HD-IA-2256; [02-54]
     (->subsumptive
      ((=daikanwa	  . 08747)	; &M-08747;
       )
@@ -131,9 +133,10 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 29 2)
-    (=ucs@unicode	. #x382F)	; &CDP-8BAD;
-    (=jis-x0213-2	. #x286F)	; &CDP-8BAD; [08-79]
+    (=ucs@unicode	. #x382F)	; &AJ1-17588;
+    (=jis-x0213-2	. #x286F)	; &AJ1-17588; [08-79]
     (=big5-cdp		. #x8BAD)	; &I-CDP-8BAD;
+    (=adobe-japan1-5	. 17588)	; &I-AJ1-17588;
     (=hanyo-denshi/jd	. #x286F)	; &I-HD-JD-286F; [08-79]
     ))
 (define-char
@@ -286,6 +289,7 @@
     (=big5		. #xCEAF)	; &I-B-CEAF;
     (=daikanwa		. 08758)	; &I-M-08758;
     (=shinjigen		.  2072)	; 巹
+    (=adobe-japan1-5	. 19339)	; &I-AJ1-19339;
     ))
 (define-char
   '((ideographic-radical . 49)	; ⼰
