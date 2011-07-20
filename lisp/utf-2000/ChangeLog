@@ -1,5 +1,22 @@
 2011-07-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R113-Spirit.el: Add Hanyo-Denshi/JB code points.
+
+	* Ideograph-R059-Bristle.el (JX2-2C33): Unify AJ1-17611.
+	(U+5F72): Use `->subsumptive' to separate representative nodes.
+	(JX2-2C34): Unify AJ1-17612.
+
+	* Ideograph-R054-Long-Stride.el (JX1-7430): Unify AJ1-16853.
+	(JX2-2C2C): Unify AJ1-17606.
+
+	* Ideograph-R047-River.el (U-00022002): Use `->subsumptive' to
+	separate representative nodes.
+	(U+5DE4): Use `->denotational'.
+	(JX2-286D): Unify AJ1-17586.
+
+	* Ideograph-R044-Corpse.el: Add some Adobe-Japan1-5 code points.
+	(U-00021CFB): New character.
+
 	* Ideograph-R049-Oneself.el (G-CU+382F): Unify G-M-08747 and
 	G-HD-IA0254.
 	(JX2-286F): Unify AJ1-17588.
@@ -8,6 +25,8 @@
 	* Ideograph-R038-Woman.el: Add some Adobe-Japan1-5 code points.
 
 2011-07-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R117-Stand.el (JSP-516C): Unify HD-JB4976.
 
 	* Ideograph-R109-Eye.el (JSP-4F34): Unify HD-JB4720.
 
