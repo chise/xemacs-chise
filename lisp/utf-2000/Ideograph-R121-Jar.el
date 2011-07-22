@@ -519,11 +519,16 @@
     (ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
+    (=>>ucs@unicode	. #x7F3E)	; &G-JX2-7464;
+    (=>>jis-x0213-2	. #x7464)	; &G-JX2-7464; [84-68]
+    (=>>daikanwa	. 28143)	; &G-JX2-7464;
+    (=>>hanyo-denshi/jb . #x546E)	; &G-JX2-7464; [52-78]
     (->subsumptive
      ((=ucs@jis		  . #x7F3E)	; &M-28143;
       (=jis-x0212	  . #x546E)	; &M-28143; [52-78]
       (=jis-x0213-2	  . #x7464)	; &I-JX2-7464; [84-68]
       (=daikanwa	  . 28143)	; &I-M-28143;
+      (=hanyo-denshi/jb	  . #x546E)	; &I-HD-JB-546E; [52-78]
       )
      ((=cns11643-2	  . #x3F22)	; &C2-3F22; [31-02]
       )
@@ -551,12 +556,25 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
     (=ucs		. #x26234)	; 𦈴
-    (->subsumptive
-     ((=daikanwa	  . 28146)	; &M-28146;
-      )
-     ((=ucs@iso		  . #x26234)	; &C6-5650;
-      (=cns11643-6	  . #x5650)	; &C6-5650; [54-48]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x26234)	; 𦈴
       ))
+    (ideographic-radical . 121)	; ⽸
+    (ideographic-strokes . 7)
+    (total-strokes	 . 13)
+    (=daikanwa		. 28146)	; &M-28146;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x26234)	; 𦈴
+      ))
+    (ideographic-radical . 121)	; ⽸
+    (ideographic-strokes . 7)
+    (total-strokes	 . 13)
+    (=ucs@iso		. #x26234)	; &C6-5650;
+    (=cns11643-6	. #x5650)	; &C6-5650; [54-48]
     ))
 (define-char
   '((ideographic-radical . 121)	; ⽸
