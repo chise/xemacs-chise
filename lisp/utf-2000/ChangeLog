@@ -1,5 +1,7 @@
 2011-07-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R060-Step.el: Add some Adobe-Japan1-5 code points.
+
 	* Ideograph-R113-Spirit.el: Add Hanyo-Denshi/JB code points.
 
 	* Ideograph-R059-Bristle.el (JX2-2C33): Unify AJ1-17611.
