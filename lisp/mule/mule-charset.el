@@ -284,7 +284,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  =ucs-radicals
 	  =ucs-radicals@unicode
 	  =ucs-bmp-cjk@unicode
-	  =ucs-bmp-cjk@JP
+          ;; =ucs-bmp-cjk@JP
+	  =ucs-bmp-cjk@JP/hanazono
 	  japanese-jisx0208-1978
 	  =jis-x0212
 	  =gt-pj-2
