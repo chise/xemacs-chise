@@ -3568,7 +3568,8 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 
   if (!NILP (ccs))
     {
-      value = put_char_ccs_code_point (character, ccs, value);
+      if ( !NILP (value) )
+	value = put_char_ccs_code_point (character, ccs, value);
       attribute = XCHARSET_NAME (ccs);
     }
   else if (
