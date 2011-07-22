@@ -1,3 +1,9 @@
+2011-07-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): Accept nil as a value of
+	CCS-feature [it means that specified object does not have
+	code-point of the CCS-feature].
+
 2011-06-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (complex_vars_of_mule_charset): Use "jisx0208"
