@@ -18984,9 +18984,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x677E)	; &JX1-3E3E;
-	(=gb2312	    . #x4B49)	; &JX1-3E3E; [43-41]
-	(=jis-x0213-1	    . #x3E3E)	; &I-JX1-3E3E; [30-30]
+       ((=ucs@unicode	    . #x677E)	; &G0-4B49;
+	(=gb2312	    . #x4B49)	; &G0-4B49; [43-41]
 	))
       (=ucs@unicode	  . #x502F)	; &UU+502F;
       ))
