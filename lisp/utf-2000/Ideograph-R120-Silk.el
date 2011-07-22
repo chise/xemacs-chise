@@ -3484,10 +3484,13 @@
     (total-strokes	 . 12)
     (=ucs		. #x7D5C)	; 絜
     (=big5		. #xDAF4)	; &I-B-DAF4;
+    (=>>hanyo-denshi/jb . #x5368)	; 絜 [51-72]
+    (=>>hanyo-denshi/jc . #x7A24)	; 絜 [90-04]
     (->subsumptive
      ((=ucs@jis/1990	  . #x7D5C)	; &M-27419;
       (=jis-x0212	  . #x5368)	; &M-27419; [51-72]
       (=daikanwa	  . 27419)	; &I-M-27419;
+      (=hanyo-denshi/jb	  . #x5368)	; &I-HD-JB-5368; [51-72]
       )
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x7D5C)	; 絜
@@ -6100,6 +6103,7 @@
     (=jis-x0213-2	. #x7445)	; &I-JX2-7445; [84-37]
     (=daikanwa		. 27562)	; &I-M-27562;
     (=jef-china3	. #x9BF8)	; &I-JC3-9BF8;
+    (=hanyo-denshi/jb	. #x5424)	; &I-HD-JB-5424; [52-04]
     ))
 (define-char
   '((<-denotational
@@ -14626,6 +14630,7 @@
       (=daikanwa	  . 28033)	; &I-M-28033;
       (=jef-china3	  . #x5FDC)	; &I-JC3-5FDC;
       (=adobe-japan1-2	  . 08359)	; &I-AJ1-08359;
+      (=hanyo-denshi/jb	  . #x5463)	; &I-HD-JB-5463; [52-67]
       )
      ((=ucs@cns		  . #x7E8A)	; &C2-6B75;
       (=cns11643-2	  . #x6B75)	; &C2-6B75; [75-85]
