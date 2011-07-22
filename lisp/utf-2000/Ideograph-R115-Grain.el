@@ -1818,13 +1818,27 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (=ucs		. #x257B4)	; 𥞴
-    (->subsumptive
-     ((=daikanwa	  . 25064)	; &M-25064;
-      )
-     ((=ucs@unicode	  . #x257B4)	; &JX2-7276;
-      (=cns11643-4	  . #x3960)	; &JX2-7276; [25-64]
-      (=jis-x0213-2	  . #x7276)	; &I-JX2-7276; [82-86]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x257B4)	; 𥞴
       ))
+    (ideographic-radical . 115)	; ⽲
+    (ideographic-strokes . 7)
+    (total-strokes	 . 12)
+    (=daikanwa		. 25064)	; &M-25064;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x257B4)	; 𥞴
+      ))
+    (ideographic-radical . 115)	; ⽲
+    (ideographic-strokes . 7)
+    (total-strokes	 . 12)
+    (=ucs@unicode	. #x257B4)	; &JX2-7276;
+    (=cns11643-4	. #x3960)	; &JX2-7276; [25-64]
+    (=jis-x0213-2	. #x7276)	; &I-JX2-7276; [82-86]
+    (=hanyo-denshi/jd	. #x7276)	; &I-HD-JD-7276; [82-86]
     ))
 (define-char
   '((ideographic-radical . 115)	; ⽲
@@ -2638,17 +2652,27 @@
 (define-char
   '((ideographic-radical . 115)	; ⽲
     (=ucs		. #x257A9)	; 𥞩
-    (->subsumptive
-     ((ideographic-strokes . 8)
-      (total-strokes	   . 13)
-      (=daikanwa	  . 25135)	; &M-25135;
-      )
-     ((ideographic-strokes . 6)
-      (total-strokes	   . 11)
-      (=ucs@iso		  . #x257A9)	; &JX2-7275;
-      (=cns11643-4	  . #x336C)	; &JX2-7275; [19-76]
-      (=jis-x0213-2	  . #x7275)	; &I-JX2-7275; [82-85]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x257A9)	; 𥞩
       ))
+    (ideographic-radical . 115)	; ⽲
+    (ideographic-strokes . 8)
+    (total-strokes	 . 13)
+    (=daikanwa		. 25135)	; &M-25135;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x257A9)	; 𥞩
+      ))
+    (ideographic-radical . 115)	; ⽲
+    (ideographic-strokes . 6)
+    (total-strokes	 . 11)
+    (=ucs@iso		. #x257A9)	; &JX2-7275;
+    (=cns11643-4	. #x336C)	; &JX2-7275; [19-76]
+    (=jis-x0213-2	. #x7275)	; &I-JX2-7275; [82-85]
+    (=hanyo-denshi/jd	. #x7275)	; &I-HD-JD-7275; [82-85]
     ))
 (define-char
   '((ideographic-radical . 115)	; ⽲
@@ -5074,7 +5098,16 @@
     (=jis-x0213-2	. #x7327)	; &I-JX2-7327; [83-07]
     (=daikanwa		. 25315)	; &I-M-25315;
     (=jef-china3	. #x5DC0)	; &I-JC3-5DC0;
-    (=hanyo-denshi/ib	. #x2841)	; &I-HD-IB-2841; [08-33]
+    (=hanyo-denshi/jb	. #x5149)	; &I-HD-JB-5149; [49-41]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7A5F)	; 穟
+      ))
+    (ideographic-radical . 115)	; ⽲
+    (ideographic-strokes . 12)
+    (total-strokes	 . 17)
+    (=hanyo-denshi/ib	. #x2841)	; &HD-IB-2841; [08-33]
     ))
 (define-char
   '((<-denotational
