@@ -411,6 +411,7 @@
 	  ( =ucs@ks				  "KU+" 4 X)
 	  ( =ucs@ks				  "KU-" 8 X)
 	  ( =ucs@JP				 "dJU+" 4 X)
+	  ( =ucs@JP/hanazono		      "hanaJU+" 4 X)
 	  ( china3-jef				 "JC3-" 4 X)
 	  ( =big5				   "B-" 4 X)
 	  ( =big5				  "C0-" 4 X)
