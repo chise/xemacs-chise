@@ -2062,7 +2062,15 @@
     (=hanziku-8		. #xDFE7)	; &I-HZK08-DFE7;
     ))
 (define-char
-  '((=>ucs		. #x7FAD)	; 羭
+  '((ideographic-radical . 123)	; ⽺
+    (ideographic-strokes . 9)
+    (total-strokes	 . 15)
+    (=ucs		. #x7FAD)	; 羭
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7FAD)	; 羭
+      ))
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
@@ -2071,29 +2079,22 @@
     (=jis-x0213-2	. #x7478)	; &I-JX2-7478; [84-88]
     (=daikanwa		. 28533)	; &I-M-28533;
     (=jef-china3	. #x5FFA)	; &I-JC3-5FFA;
+    (=hanyo-denshi/jb	. #x5532)	; &I-HD-JB-5532; [53-18]
     ))
 (define-char
-  '((=>ucs		. #x7FAD)	; 羭
-    (morohashi-daikanwa	28533 0 1)
+  '((<-denotational
+     ((=ucs		  . #x7FAD)	; 羭
+      ))
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
-    (=big5		. #xE6F4)	; &B-E6F4;
-    ))
-(define-char
-  '((morohashi-daikanwa	28533 0 2)
-    (ideographic-radical . 123)	; ⽺
-    (ideographic-strokes . 9)
-    (total-strokes	 . 15)
-    (=ucs		. #x7FAD)	; 羭
-    ))
-(define-char
-  '((=>ucs		. #x7FAD)	; 羭
-    (morohashi-daikanwa	28533 0 3)
-    (ideographic-radical . 123)	; ⽺
-    (ideographic-strokes . 9)
-    (total-strokes	 . 15)
-    (=cns11643-2	. #x527C)	; &C2-527C; [50-92]
+    (=>>ucs@unicode	. #x7FAD)	; &G-UU+7FAD;
+    (=big5		. #xE6F4)	; &G-UU+7FAD;
+    (->subsumptive
+     ((=ucs@unicode	  . #x7FAD)	; &UU+7FAD;
+      )
+     ((=cns11643-2	  . #x527C)	; &C2-527C; [50-92]
+      ))
     ))
 (define-char
   '((ideographic-radical . 123)	; ⽺
