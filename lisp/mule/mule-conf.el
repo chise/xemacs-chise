@@ -1074,6 +1074,16 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=>ucs@unicode))
+  (make-charset '=>ucs@jis/1990
+		"UCS Representative characters for JIS X0208/0212:1990"
+		'(long-name	"UCS characters for JIS:1990"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>ucs@jis))
   (make-charset '=>ucs@JP
 		"UCS Representative characters for Japanese usual unification"
 		'(long-name	"UCS characters for JP"
@@ -1448,6 +1458,16 @@
 		  =>iso-ir	177
 		  mother	=ucs@jis/2004))
   (define-charset-alias '=ucs@jp '=ucs@JP)
+  (make-charset '=ucs@JP/hanazono
+		"Japanese glyph-images of Hanazono Mincho"
+		'(long-name	"UCS for Hana-Min"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=ucs@JP))
   (make-charset '=ucs@ks
 		"ISO/IEC 10646 for Korean Standards"
 		'(long-name	"UCS for KS"
@@ -1579,6 +1599,21 @@
 	       direction l2r
 	       registry "-ja-.*-ucs-0"
 	       mother =ucs@JP
+	       min-code #x2E00
+               max-code #x9FA5
+	       ;; max-code #xA4CF
+	       ))
+  (make-charset
+   '=ucs-bmp-cjk@JP/hanazono
+   "CJK Characters in BMP with Hanazono font"
+   '(long-name "CJK in BMP@JP/Hanazono"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-ja-.*-ucs-0"
+	       mother =ucs@JP/hanazono
 	       min-code #x2E00
                max-code #x9FA5
 	       ;; max-code #xA4CF
@@ -1909,7 +1944,7 @@
   (make-charset
    '=>>hanyo-denshi/jb
    "Han'you-Denshi/JB abstract glyphs"
-   `(long-name "Han'you-Denshi/JB glyphs"
+   '(long-name "Han'you-Denshi/JB glyphs"
 	       chars 94
 	       dimension 2
 	       columns 2
@@ -1917,6 +1952,28 @@
 	       direction l2r
 	       registry "HanyoDenshi\\.JB-0$"
 	       mother =hanyo-denshi/jb))
+  (make-charset
+   '=>>hanyo-denshi/jc
+   "Han'you-Denshi/JC abstract glyphs"
+   '(long-name "Han'you-Denshi/JC glyphs"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JC-0$"
+	       mother =hanyo-denshi/jc))
+  (make-charset
+   '=>>hanyo-denshi/jd
+   "Han'you-Denshi/JD abstract glyphs"
+   '(long-name "Han'you-Denshi/JD glyphs"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JD-0$"
+	       mother =hanyo-denshi/jd))
   (make-charset
    '=>>hanyo-denshi/ft
    "Han'you-Denshi/FT abstract glyphs"
@@ -1953,7 +2010,7 @@
   (make-charset
    '=>>hanyo-denshi/hg
    "Han'you-Denshi/HG abstract glyphs"
-   `(long-name "Han'you-Denshi/HG abstract glyphs"
+   '(long-name "Han'you-Denshi/HG abstract glyphs"
 	       chars 94
 	       dimension 2
 	       columns 2
