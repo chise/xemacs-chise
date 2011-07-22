@@ -1,5 +1,16 @@
 2011-07-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R123-Sheep.el (U+7FAD): Use `->denotational' and
+	`->subsumptive'.
+	(JSP-5532): Unify HD-JB5318.
+
+	* Ideograph-R121-Jar.el (JSP-546E): Unify HD-JB5278.
+	(U-00026234): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R120-Silk.el: Add Hanyo-Denshi/JB code points.
+
+	* Ideograph-R057-Bow.el: Add some Adobe-Japan1-5 code points.
+
 	* Ideograph-R046-Mountain.el: Add some Adobe-Japan1-5 code points.
 	(MH-0145): Add `<-same' for J0-542C.
 	(JSP-3B42): Set `=ucs@JP/hanazono' to nil; unify JC3-93DB.
@@ -25,6 +36,8 @@
 	(insert-char-attributes): Accept nil as value.
 
 2011-07-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R115-Grain.el: Add Hanyo-Denshi/JB and JD code points.
 
 	* Ideograph-R060-Step.el: Add some Adobe-Japan1-5 code points.
 
