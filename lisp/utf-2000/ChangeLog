@@ -1,3 +1,29 @@
+2011-07-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R046-Mountain.el: Add some Adobe-Japan1-5 code points.
+	(MH-0145): Add `<-same' for J0-542C.
+	(JSP-3B42): Set `=ucs@JP/hanazono' to nil; unify JC3-93DB.
+	(U+5D17): Add `<-vulgar' for U+5CA1.
+	(U+5D3E): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+5D61): Use `->denotational' instead of `->subsumptive'.
+	(JX2-2857): Set `=ucs@JP/hanazono' to nil.
+	(U-00021EE8): Use `->subsumptive' to separate representative
+	nodes.
+	(U+5DA6): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+3813): Likewise.
+	(U+5DD5): Use `->subsumptive' to separate representative nodes.
+	(U+5DD6): Use `->denotational' to separate representative nodes.
+	(U+5DD8): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+
+2011-07-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-insert-ccs-feature): Accept non-integer
+	value.
+	(insert-char-attributes): Accept nil as value.
+
 2011-07-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R060-Step.el: Add some Adobe-Japan1-5 code points.
