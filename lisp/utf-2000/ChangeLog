@@ -1,5 +1,44 @@
 2011-07-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R119-Rice.el: Add Hanyo-Denshi/JB code points.
+
+	* Ideograph-R108-Dish.el (JSP-4E4F): Set `=ucs@JP/hanazono' to
+	nil; unify HD-JB4647.
+	(hanaJU+76D4): New character.
+
+2011-07-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el: Add Hanyo-Denshi/JB code points.
+
+	* Ideograph-R076-Lack.el (JSP-4571): Set `=ucs@JP/hanazono' to
+	nil; unify HD-JB3781.
+	(hanaJU+6B46): New character.
+
+	* Ideograph-R053-Dotted-Cliff.el: Add some Adobe-Japan1-5 code
+	points.
+	(U-000221E3): Use `->subsumptive' to separate representative
+	nodes.
+	(U-000221E4): Likewise.
+	(U+5E8B): Use `->subsumptive'.
+	(JSP-3C4C): Set `=ucs@JP/hanazono' to nil.
+	(hanaJU+5EB3): New character.
+	(U+5EBD): Use `->subsumptive'.
+	(U-0002225D): Use `->subsumptive' to separate representative
+	nodes.
+	(U-0002225E): Likewise.
+	(U+5ED1): Use `->subsumptive'.
+	(U+3894): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R043-Lame.el: Add some Adobe-Japan1-5 code points.
+	(U-00021C17): Use `->subsumptive'.
+	(U-00021C18): Use `->subsumptive' to separate representative
+	nodes.
+	(U-00021C1A): New character.
+	(U+5C36): Use `->denotational'.
+	(U-00021C1C): Use `->subsumptive'; fix `ideographic-strokes' and
+	`total-strokes'.
+	(U+5C37): Use `->denotational'.
+
 	* Ideograph-R123-Sheep.el (U+7FAD): Use `->denotational' and
 	`->subsumptive'.
 	(JSP-5532): Unify HD-JB5318.
