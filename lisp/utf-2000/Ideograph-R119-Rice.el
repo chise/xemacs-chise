@@ -3246,6 +3246,7 @@
     (=jis-x0213-1	. #x7977)	; &I-JX1-7977; [89-87]
     (=daikanwa		. 27087)	; &I-M-27087;
     (=jef-china3	. #x5ED8)	; &I-JC3-5ED8;
+    (=hanyo-denshi/jb	. #x5344)	; &I-HD-JB-5344; [51-36]
     ))
 (define-char
   '((<-denotational
@@ -4751,25 +4752,45 @@
 (define-char
   '((ideographic-radical . 119)	; ⽶
     (=ucs		. #x7CF5)	; 糵
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7CF5)	; 糵
+      ))
+    (ideographic-radical . 119)	; ⽶
+    (ideographic-strokes . 17)
+    (total-strokes	 . 23)
+    (=daikanwa		. 27198)	; &M-27198;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7CF5)	; 糵
+      ))
+    (ideographic-radical . 119)	; ⽶
+    (ideographic-strokes . 17)
+    (total-strokes	 . 23)
+    (=ucs@cns		. #x7CF5)	; &C3-6040;
+    (=cns11643-3	. #x6040)	; &C3-6040; [64-32]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7CF5)	; 糵
+      ))
+    (ideographic-radical . 119)	; ⽶
+    (ideographic-strokes . 16)
+    (total-strokes	 . 22)
+    (=>>ucs@unicode	. #x7CF5)	; &g2-JX2-7428;
+    (=>>>ucs@unicode	. #x7CF5)	; &g2-JX2-7428;
+    (=>>>jis-x0213-2	. #x7428)	; &g2-JX2-7428; [84-08]
+    (=>>hanyo-denshi/jb . #x534A)	; &g2-JX2-7428; [51-42]
     (->subsumptive
-     ((ideographic-strokes . 17)
-      (total-strokes	   . 23)
-      (->subsumptive
-       ((=daikanwa	    . 27198)	; &M-27198;
-	)
-       ((=cns11643-3	    . #x6040)	; &C3-6040; [64-32]
-	))
+     ((=ucs@jis		  . #x7CF5)	; &JX2-7428;
+      (=jis-x0212	  . #x534A)	; &JX2-7428; [51-42]
+      (=jis-x0213-2	  . #x7428)	; &I-JX2-7428; [84-08]
+      (=hanyo-denshi/jb	  . #x534A)	; &I-HD-JB-534A; [51-42]
       )
-     ((ideographic-strokes . 16)
-      (total-strokes	   . 22)
-      (->subsumptive
-       ((=ucs@jis	    . #x7CF5)	; &JX2-7428;
-	(=jis-x0212	    . #x534A)	; &JX2-7428; [51-42]
-	(=jis-x0213-2	    . #x7428)	; &I-JX2-7428; [84-08]
-	)
-       ((=ucs@unicode	    . #x7CF5)	; &EGB-2C33;
-	(=iso-ir165	    . #x2C33)	; &EGB-2C33; [12-19]
-	))
+     ((=ucs@unicode	  . #x7CF5)	; &EGB-2C33;
+      (=iso-ir165	  . #x2C33)	; &EGB-2C33; [12-19]
       ))
     ))
 (define-char
