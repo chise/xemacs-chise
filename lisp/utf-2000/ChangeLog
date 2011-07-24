@@ -1,4 +1,24 @@
+2011-07-23  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs@jis/1990'.
+
+	* Ideograph-R096-Jade.el: Add Hanyo-Denshi/JB code points.
+
 2011-07-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R130-Meat.el (U+81D7): Unify A-JX1-7A57.
+	(JSP-565C): Unify HD-JB5460.
+
+	* Ideograph-R118-Bamboo.el: Add Hanyo-Denshi/JB and JD code
+	points.
+	(JSP-5324): Separate JX2-736F; fix `{ideographic|total}-strokes';
+	add `{ideographic|total}-strokes@daikanwa'.
+
+	* Ideograph-R072-Sun.el (J0-374A): Unify S1-3344.
+
+	* Ideograph-R050-Turban.el: Add some Adobe-Japan1-5 code points.
+	(GT-11416): Map to U-0002212E.
 
 	* Ideograph-R119-Rice.el: Add Hanyo-Denshi/JB code points.
 
