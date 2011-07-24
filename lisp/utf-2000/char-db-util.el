@@ -198,6 +198,7 @@
     =>ucs@unicode
     =>ucs@jis
     =>ucs@JP
+    =>ucs@jis/1990
     =>ucs@cns
     =>ucs@ks
     =>>ucs@iso
