@@ -4098,7 +4098,7 @@
       (=gt-k		  . 09043)	; &I-GT-K09043;
       (=gt-pj-1		  . #x374A)	; &I-GT-17673; [23-42]
       (=daikanwa	  . 13983)	; &I-M-13983;
-      (=shinjigen@rev	  .  3344)	; &GT-17673;
+      (=shinjigen	  .  3344)	; &GT-17673;
       )
      ((=ucs@unicode	  . #x666F)	; &C1-5F5F;
       (=gb2312		  . #x3E30)	; &C1-5F5F; [30-16]
