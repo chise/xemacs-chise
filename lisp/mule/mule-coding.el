@@ -377,6 +377,7 @@
 	  ( =>ucs@jis				"A-JU+" 4 X)
 	  ( =>ucs@cns				"A-CU+" 4 X)
 	  ( =>ucs@JP				"o-JU+" 4 X)
+	  ( =>ucs@jis/1990		      "o-J90U+" 4 X)
 	  (=>>ucs@iso				"G-IU+" 4 X)
 	  (=>>ucs@unicode			"G-UU+" 4 X)
 	  (=>>ucs@jis				"G-JU+" 4 X)
