@@ -1,5 +1,11 @@
 2011-07-23  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R112-Stone.el: Add Hanyo-Denshi/JB code points.
+
+	* Ideograph-R075-Tree.el: Add Hanyo-Denshi/FT code points.
+
+2011-07-23  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>ucs@jis/1990'.
 
