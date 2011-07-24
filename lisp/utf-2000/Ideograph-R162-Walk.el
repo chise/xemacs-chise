@@ -19119,9 +19119,8 @@
     (total-strokes	 . 18)
     (=daikanwa		. 39201)	; &M-39201;
     (<-same
-     ((=ucs@jis		  . #x7C69)	; &M-26801;
+     ((=ucs@jis/1990	  . #x7C69)	; &M-26801;
       (=jis-x0212	  . #x5324)	; &M-26801; [51-04]
-      (=jis-x0213-2	  . #x736F)	; &I-JX2-736F; [83-79]
       (=daikanwa	  . 26801)	; &I-M-26801;
       ))
     (<-same*sources
