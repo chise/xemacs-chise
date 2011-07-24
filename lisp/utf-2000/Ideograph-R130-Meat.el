@@ -15097,6 +15097,7 @@
 (define-char
   '((ideographic-radical . 130)	; ⾁
     (=ucs		. #x81D7)	; 臗
+    (=>jis-x0213-1	. #x7A57)	; 臗 [90-55]
     (=big5		. #xF2C1)	; &I-B-F2C1;
     ))
 (define-char
@@ -15106,11 +15107,17 @@
     (ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 15)
     (total-strokes	 . 19)
-    (->subsumptive
-     ((=daikanwa	  . 30006)	; &M-30006;
-      )
-     ((=cns11643-2	  . #x664B)	; &C2-664B; [70-43]
+    (=daikanwa		. 30006)	; &M-30006;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x81D7)	; 臗
       ))
+    (ideographic-radical . 130)	; ⾁
+    (ideographic-strokes . 15)
+    (total-strokes	 . 19)
+    (=ucs@cns		. #x81D7)	; &C2-664B;
+    (=cns11643-2	. #x664B)	; &C2-664B; [70-43]
     ))
 (define-char
   '((<-denotational
@@ -15119,10 +15126,15 @@
     (ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
+    (=>>ucs@unicode	. #x81D7)	; &g2-JX1-7A57;
+    (=>>>ucs@unicode	. #x81D7)	; &g2-JX1-7A57;
+    (=>>>jis-x0213-1	. #x7A57)	; &g2-JX1-7A57; [90-55]
+    (=>>hanyo-denshi/jb . #x565C)	; &g2-JX1-7A57; [54-60]
     (->subsumptive
      ((=ucs@jis		  . #x81D7)	; &JX1-7A57;
       (=jis-x0212	  . #x565C)	; &JX1-7A57; [54-60]
       (=jis-x0213-1	  . #x7A57)	; &I-JX1-7A57; [90-55]
+      (=hanyo-denshi/jb	  . #x565C)	; &I-HD-JB-565C; [54-60]
       )
      ((=ucs@unicode	  . #x81D7)	; &UU+81D7;
       ))
