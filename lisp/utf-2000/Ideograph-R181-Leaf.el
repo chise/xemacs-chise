@@ -3534,9 +3534,9 @@
     (=gt		. 58526)	; &I-GT-58526;
     (=gt-pj-1		. #x4E60)	; &I-GT-58526; [46-64]
     (<-simplified@JP/Jouyou
-     ((=ucs@unicode	  . #x985E)	; &GT-58567;
-      (=ucs@jis		  . #xF9D0)	; &GT-58567;
-      (=cns11643-1	  . #x794B)	; &GT-58567; [89-43]
+     ((=ucs@unicode	  . #x985E)	; &AJ1-13396;
+      (=ucs@jis		  . #xF9D0)	; &AJ1-13396;
+      (=cns11643-1	  . #x794B)	; &AJ1-13396; [89-43]
       (=jis-x0213-1	  . #x7E24)	; &I-JX1-7E24; [94-04]
       (=daikanwa	  . 43636)	; &I-M-43636;
       ))
@@ -3971,15 +3971,16 @@
     (ideographic-radical . 181)	; ⾴
     (ideographic-strokes . 10)
     (total-strokes	 . 19)
-    (=ucs@unicode	. #x985E)	; &GT-58567;
-    (=ucs@jis		. #xF9D0)	; &GT-58567;
-    (=cns11643-1	. #x794B)	; &GT-58567; [89-43]
+    (=ucs@unicode	. #x985E)	; &AJ1-13396;
+    (=ucs@jis		. #xF9D0)	; &AJ1-13396;
+    (=cns11643-1	. #x794B)	; &AJ1-13396; [89-43]
     (=jis-x0213-1	. #x7E24)	; &I-JX1-7E24; [94-04]
-    (=gb12345		. #x4060)	; &GT-58567; [32-64]
+    (=gb12345		. #x4060)	; &AJ1-13396; [32-64]
     (=gt		. 58567)	; &I-GT-58567;
     (=gt-pj-8		. #x4237)	; &I-GT-58567; [34-23]
     (=daikanwa		. 43636)	; &I-M-43636;
     (=jef-china3	. #x6CF5)	; &I-JC3-6CF5;
+    (=adobe-japan1-4	. 13396)	; &I-AJ1-13396;
     (->subsumptive
      ((=ks-x1001	  . #x573E)	; &K0-573E; [55-30]
       )
