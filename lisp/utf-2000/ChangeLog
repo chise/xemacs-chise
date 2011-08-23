@@ -1,3 +1,7 @@
+2011-08-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el: Add Hanyo-Denshi/JB code points.
+
 2011-07-29  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R181-Leaf.el (JX1-7E24): Unify AJ1-13396.
