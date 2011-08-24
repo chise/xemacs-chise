@@ -175,6 +175,7 @@
     ideograph-hanziku-12
     =>>>jis-x0208
     =>>>jis-x0213-1
+    =>>>jis-x0213-2
     =>>jis-x0208
     =>>jis-x0213-1
     =>>jis-x0213-1@2000
