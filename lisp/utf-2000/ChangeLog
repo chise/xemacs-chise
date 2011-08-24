@@ -1,3 +1,8 @@
+2011-08-23  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>>>jis-x0213-2'.
+
 2011-08-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R140-Grass.el: Add Hanyo-Denshi/JB code points.
