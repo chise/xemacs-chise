@@ -35985,7 +35985,7 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=>>>ucs@unicode	  . #x84A6)	; &g2-UU+84A6;
+     ((=>>>jis-x0213-2	  . #x7657)	; &g2-JX2-7657; [86-55]
       ))
     (=>>>ucs@unicode	. #x5684)	; &g2-UU+5684;
     (->subsumptive
