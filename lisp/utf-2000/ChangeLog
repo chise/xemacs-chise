@@ -1,3 +1,19 @@
+2011-08-31  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R150-Valley.el (JSP-5E66): Unify HD-JB6270.
+
+	* Ideograph-R149-Speech.el, Ideograph-R145-Clothes.el: Add
+	Hanyo-Denshi/JB code points.
+
+	* Ideograph-R143-Blood.el (JSP-5C28): Unify HD-JB6008.
+
+	* Ideograph-R142-Insect.el: Add Hanyo-Denshi/JB code points.
+
+2011-08-25  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el, Ideograph-R157-Foot.el: Add
+	Hanyo-Denshi/JB code points.
+
 2011-08-23  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
