@@ -5017,6 +5017,7 @@
     (=jis-x0212		. #x602D)	; &M-37750; [64-13]
     (=jis-x0213-2	. #x794C)	; &I-JX2-794C; [89-44]
     (=daikanwa		. 37750)	; &I-M-37750;
+    (=hanyo-denshi/jb	. #x602D)	; &I-HD-JB-602D; [64-13]
     ))
 (define-char
   '((<-denotational
@@ -6045,6 +6046,7 @@
       (=jis-x0213-2	  . #x794E)	; &I-JX2-794E; [89-46]
       (=daikanwa	  . 37821)	; &I-M-37821;
       (=jef-china3	  . #x66DC)	; &I-JC3-66DC;
+      (=hanyo-denshi/jb	  . #x6037)	; &I-HD-JB-6037; [64-23]
       )
      ((=ucs@unicode	  . #x8E62)	; &C2-6363;
       (=iso-ir165	  . #x2C6F)	; &C2-6363; [12-79]
