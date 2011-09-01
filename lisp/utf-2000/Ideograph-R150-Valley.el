@@ -799,13 +799,17 @@
     (=ucs		. #x8C45)	; 豅
     (=big5		. #xF844)	; &I-B-F844;
     (->subsumptive
-     ((=ucs@jis		  . #x8C45)	; &M-36241;
-      (=jis-x0212	  . #x5E66)	; &M-36241; [62-70]
-      (=jis-x0213-2	  . #x787B)	; &I-JX2-787B; [88-91]
-      (=daikanwa	  . 36241)	; &I-M-36241;
-      (=jef-china3	  . #x65DA)	; &I-JC3-65DA;
-      )
-     ((=ucs@unicode	  . #x8C45)	; &UU+8C45;
+     ((=>>>ucs@unicode	  . #x8C45)	; &g2-UU+8C45;
+      (->subsumptive
+       ((=ucs@jis	    . #x8C45)	; &M-36241;
+	(=jis-x0212	    . #x5E66)	; &M-36241; [62-70]
+	(=jis-x0213-2	    . #x787B)	; &I-JX2-787B; [88-91]
+	(=daikanwa	    . 36241)	; &I-M-36241;
+	(=jef-china3	    . #x65DA)	; &I-JC3-65DA;
+	(=hanyo-denshi/jb   . #x5E66)	; &I-HD-JB-5E66; [62-70]
+	)
+       ((=ucs@unicode	    . #x8C45)	; &UU+8C45;
+	))
       )
      ((=cns11643-2	  . #x6F52)	; &C2-6F52; [79-50]
       ))
