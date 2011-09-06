@@ -1,5 +1,62 @@
 2011-08-31  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R158-Body.el (JSP-6054): Unify HD-JB6452.
+
+	* Ideograph-R154-Shell.el (JSP-5F42): Unify HD-JB6334.
+	(JX2-7934): Unify HD-JD8920.
+
+	* Ideograph-R153-Badger.el: Add Hanyo-Denshi/JB code points.
+
+2011-08-31  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el: Add Hanyo-Denshi/JB code points.
+	(U-0002367C): Integrate M-15493.
+	(U-0002367E): Integrate M-15503.
+	(U-00023682): Integrate M-15515.
+	(U+3BD5): Unify M-15519.
+	(U-00023684): Integrate M-15520.
+	(U+3BD6): Integrate M-15522.
+	(U+3BD7): Integrate M-15528.
+	(U-00023687): Integrate M-15535.
+	(U-0002368C): Integrate M-15553.
+	(U-0002368D): Integrate M-15554.
+	(U-0002368E): Integrate M-15559.
+	(U+6A60): Use `->subsumptive'.
+	(U-0002368F): Integrate M-15563.
+	(U+6A63): Use `->subsumptive'.
+	(U-00023692): Integrate M-15573.
+	(U-00023695): Integrate M-15579.
+	(U-00023698): Integrate M-15582.
+	(U-00023699): Integrate M-15584.
+	(U+6A67): Use `->denotational'.
+	(U-0002369B): Integrate M-15590.
+	(U-0002369C): Integrate M-15591.
+	(U+6A6D): Use `->subsumptive'.
+	(U+3BE1): Integrate M-15599.
+	(U-000236A1): Integrate M-15602.
+	(U-000236A2): Integrate M-15604.
+	(U-000236A5): Integrate M-15607.
+	(U-000236A8): Integrate M-15611.
+	(U+3BE4): Unify M-15612.
+	(U-000236A9): Integrate M-15614.
+	(U-000236AA): Integrate M-15615.
+	(U+3BE6): Integrate M-15617.
+	(U+6A76): Use `->subsumptive' to separate representative nodes.
+	(U-00023794): Likewise.
+	(U+6AD4): Use `->denotational'.
+	(U+6AD5): Use `->subsumptive' to separate representative nodes.
+	(U-00023795): Likewise.
+
+	* Ideograph-R031-Enclosure.el: Add some Adobe-Japan1-0 code
+	points.
+	(U+56D9): Unify S-1301; add `<-vulgar' for J0-3078.
+	(M-48986): Don't map to U-000211E1.
+	(U-000211E1): Use `->denotational'; integrate M-04771.
+	(U+5701): Use `->subsumptive'.
+	(M-04853): Unify U-0002122F and H2-E7C8.
+	(M-04854): Map to U-00021230.
+	(U+571E): Add ideographic-structure.
+
 	* Ideograph-R150-Valley.el (JSP-5E66): Unify HD-JB6270.
 
 	* Ideograph-R149-Speech.el, Ideograph-R145-Clothes.el: Add
@@ -10,6 +67,10 @@
 	* Ideograph-R142-Insect.el: Add Hanyo-Denshi/JB code points.
 
 2011-08-25  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R173-Rain.el (JX2-7B79): Unify HD-JD9189.
+
+	* Ideograph-R169-Gate.el (JSP-6635): Unify HD-JB7021.
 
 	* Ideograph-R162-Walk.el, Ideograph-R157-Foot.el: Add
 	Hanyo-Denshi/JB code points.
