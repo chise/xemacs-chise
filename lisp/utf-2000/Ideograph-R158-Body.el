@@ -1117,13 +1117,20 @@
     (ideographic-radical . 158)	; ⾝
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
+    (=>>ucs@unicode	. #x8EC0)	; &G-JX1-7C4A;
+    (=>>jis-x0208@1978	. #x366D)	; &G-JX1-7C4A; [22-77]
+    (=>>jis-x0213-1	. #x7C4A)	; &G-JX1-7C4A; [92-42]
+    (=>>daikanwa	. 38137)	; &G-JX1-7C4A;
+    (=>>hanyo-denshi/jb . #x6054)	; &G-JX1-7C4A; [64-52]
     (->subsumptive
      ((=ucs@jis		  . #x8EC0)	; &M-38137;
+      (=ucs@ks		  . #x8EC0)	; &M-38137;
       (=jis-x0208@1978	  . #x366D)	; &M-38137; [22-77]
       (=ks-x1001	  . #x4F46)	; &I-K0-4F46; [47-38]
       (=jis-x0212	  . #x6054)	; &I-JSP-6054; [64-52]
       (=jis-x0213-1	  . #x7C4A)	; &I-JX1-7C4A; [92-42]
       (=daikanwa	  . 38137)	; &I-M-38137;
+      (=hanyo-denshi/jb	  . #x6054)	; &I-HD-JB-6054; [64-52]
       )
      ((=ucs@unicode	  . #x8EC0)	; &UU+8EC0;
       (=gb12345		  . #x477B)	; &UU+8EC0; [39-91]
