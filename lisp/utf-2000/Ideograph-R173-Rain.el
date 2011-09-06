@@ -4014,6 +4014,7 @@
      ((=ucs@jis		  . #x9736)	; &M-42487;
       (=jis-x0213-2	  . #x7B79)	; &M-42487; [91-89]
       (=daikanwa	  . 42487)	; &I-M-42487;
+      (=hanyo-denshi/jd	  . #x7B79)	; &I-HD-JD-7B79; [91-89]
       )
      ((=ucs@unicode	  . #x9736)	; &UU+9736;
       )
