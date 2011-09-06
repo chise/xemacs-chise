@@ -3399,6 +3399,7 @@
       (=ucs@jis		  . #x95C8)	; &JX2-7B5B;
       (=jis-x0212	  . #x6635)	; &JX2-7B5B; [70-21]
       (=jis-x0213-2	  . #x7B5B)	; &I-JX2-7B5B; [91-59]
+      (=hanyo-denshi/jb	  . #x6635)	; &I-HD-JB-6635; [70-21]
       ))
     ))
 (define-char
