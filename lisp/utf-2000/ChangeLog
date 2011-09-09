@@ -1,3 +1,11 @@
+2011-09-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R159-Cart.el (U+8ED4): Use `->denotational' and
+	`->subsumptive'.
+	(C1-5847): Unify JC3-92F4.
+	(JSP-605B): Unify HD-JB6459.
+	(U-0002F9DE): Use `<-denotational' for U+8ED4.
+
 2011-08-31  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R158-Body.el (JSP-6054): Unify HD-JB6452.
