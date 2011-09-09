@@ -1,3 +1,107 @@
+2011-09-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R172-Short-Tailed-Bird.el: Add Hanyo-Denshi/JB code
+	points.
+	(U+96D7): Use `->denotational' and `->subsumptive'.
+	(JX2-7B73): Unify HD-JD9183.
+
+	* Ideograph-R167-Gold.el: Add Hanyo-Denshi/JB code points.
+	(U+93FA): Use `->subsumptive' to separate representative nodes.
+	(U+9405): Use `->denotational' and `->subsumptive'.
+	(U+9449): Use `->denotational' to separate representative nodes.
+
+2011-09-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el (U+48D0): Use `->denotational' to
+	separate representative nodes.
+	(C4-3B5E): Unify JC3-68A9.
+	(U+9100): Use `->denotational'.
+	(JSP-6235): Unify JC3-99BF and HD-JB6621.
+
+	* Ideograph-R104-Sickness.el (U+3F93): Integrate M-22183.
+	(U+3F94): Integrate M-22187.
+	(U-00024D95): Integrate M-22191.
+	(U-00024D96): Integrate M-22193.
+	(U-00024D97): Integrate M-22194.
+	(U-00024D98): Integrate M-22197.
+	(U+3F98): Integrate M-22200.
+	(U-00024D9C): Integrate M-22204.
+	(U+3F9A): Integrate M-22205.
+	(U-00024D9D): Integrate M-22207.
+	(U+3F9B): Integrate M-22209.
+	(U-00024DC2): Integrate M-22253.
+	(U-00024DC3): Integrate M-22256.
+	(U-00024DC4): Integrate M-22259.
+	(U+3FA4): Integrate M-22262.
+	(U-00024DC8): Integrate M-22264.
+	(U-00024DC9): Integrate M-22265.
+	(U-00024DCA): Integrate M-22266.
+	(U-00024DCB): Integrate M-22267.
+	(U-00024DCC): Integrate M-22270.
+	(U-00024DCF): Integrate M-22274.
+	(U-00024DD0): Integrate M-22275.
+	(U+3FA5): Integrate M-22276.
+	(U-00024DD1): Integrate M-22277.
+	(U-00024DD3): Integrate M-22281.
+	(U+3FA8): Integrate M-22286.
+	(U-00024DD5): Integrate M-22288.
+	(U-00024DFC): Integrate M-22319.
+	(U-00024DFD): Integrate M-22321.
+	(U-00024E01): Integrate M-22331.
+	(U-00024E02): Integrate M-22332.
+	(U-00024E03): Integrate M-22333.
+	(U-00024E04): Integrate M-22334.
+	(U+3FAC): Integrate M-22335.
+	(U-0002F93A): Use `<-denotational' for U+7610.
+	(U+3FAE): Use `->subsumptive' to separate representative nodes.
+	(U-00024E0C): Integrate M-22347.
+	(U+7612): Use `->subsumptive' to separate representative nodes.
+	(U-00024E0D): Integrate M-22349.
+	(U+7613): Use `->denotational' instead of `->subsumptive'.
+	(U-00024E0F): Integrate M-22352.
+	(U+7615): Use `->subsumptive'.
+	(U-00024E20): Integrate M-22370.
+	(U-00024E1F): Integrate M-22371.
+	(U-00024E3B): Integrate M-22372.
+	(U-00024E22): Integrate M-22377.
+	(U+7618): Use `->subsumptive'.
+	(U-00024E2A): Integrate M-22380.
+	(U-00024E2B): Integrate M-22381.
+	(U-00024E2C): Integrate M-22384.
+	(U-00024E2D): Integrate M-22387.
+	(U+3FBA): Integrate M-22393.
+	(U+761D): Use `->denotational' instead of `->subsumptive'.
+	(U-00024E31): Integrate M-22397.
+	(U-00024E32): Integrate M-22398.
+	(U-00024E33): Integrate M-22399.
+	(U-00024E34): Integrate M-22400.
+	(U+7620): Use `->denotational' and `->subsumptive'.
+	(U-00024E35): Integrate M-22402.
+	(U-00024E36): Integrate M-22403.
+	(U+7621): Use `->subsumptive'.
+	(U+7622): Likewise.
+	(U+3FBB): Integrate M-22409.
+	(U-00024E38): Integrate M-22410.
+	(U-00024E39): Integrate M-22413.
+	(U-00024E3A): Integrate M-22414.
+	(U+7626): Use `->denotational' instead of `->subsumptive'.
+	(U+3FBE): Integrate M-22417.
+	(U-00024E3C): Integrate M-22418.
+	(U+3FBF): Integrate M-22421.
+	(U-00024E3D): Integrate M-22422.
+	(U-00024E3E): Integrate M-22423.
+	(U-00024E3F): Integrate M-22424.
+	(U-00024E5C): Integrate M-22425.
+	(U-00024E5B): Integrate M-22426.
+	(U-00024E49): Integrate M-22428.
+	(U-00024E4D): Integrate M-22429.
+	(U-00024E81): Integrate M-22430.
+	(U-00024E4F): Integrate M-22432.
+	(U-00024E30): Integrate M-42056; use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@daikanwa'.
+
 2011-09-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R159-Cart.el (U+8ED4): Use `->denotational' and
