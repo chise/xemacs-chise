@@ -538,8 +538,19 @@
     (ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (=>>ucs@jis		. #x65B0)	; &g2-J0-3F37;
+    (=>>ucs@ks		. #x65B0)	; &g2-J0-3F37;
+    (=>>ucs@cns		. #x65B0)	; &g2-J0-3F37;
+    (=>>>ucs@jis	. #x65B0)	; &g2-J0-3F37;
+    (=>>>ucs@ks		. #x65B0)	; &g2-J0-3F37;
+    (=>>>ucs@cns	. #x65B0)	; &g2-J0-3F37;
+    (=>>>jis-x0208	. #x3F37)	; &g2-J0-3F37; [31-23]
+    (=>>>jis-x0213-1	. #x3F37)	; &g2-J0-3F37; [31-23]
+    (=>>>gt		. 17156)	; &g2-J0-3F37;
+    (=>>daikanwa	. 13572)	; &g2-J0-3F37;
     (->subsumptive
      ((=ucs@jis		  . #x65B0)	; &GT-17156;
+      (=ucs@ks		  . #x65B0)	; &GT-17156;
       (=jis-x0208	  . #x3F37)	; &GT-17156; [31-23]
       (=ks-x1001	  . #x6366)	; &I-K0-6366; [67-70]
       (=jis-x0213-1	  . #x3F37)	; &I-JX1-3F37; [31-23]
@@ -549,7 +560,8 @@
       (=daikanwa	  . 13572)	; &I-M-13572;
       (=shinjigen	  .  3233)	; &GT-17156;
       )
-     ((=cns11643-1	  . #x643B)	; &C1-643B; [68-27]
+     ((=ucs@cns		  . #x65B0)	; &C1-643B;
+      (=cns11643-1	  . #x643B)	; &C1-643B; [68-27]
       ))
     ))
 (define-char
