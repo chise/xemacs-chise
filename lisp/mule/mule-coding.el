@@ -399,6 +399,7 @@
 	  (=>>>ucs@cns			       "GI-CU+" 4 X)
 	  (=>>>ucs@jis/2004		     "g2-J04U+" 4 X)
 	  (=>>>ucs@jis/2004		     "GI-J04U+" 4 X)
+	  (=>>>ucs@jis/1990		     "g2-J90U+" 4 X)
 	  ( =ucs@iso				   "U-" 8 X)
 	  ( =ucs@unicode			  "UU+" 4 X)
 	  ( =ucs@unicode			  "UU-" 8 X)
