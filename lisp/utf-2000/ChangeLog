@@ -1,3 +1,11 @@
+2011-09-10  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R069-Axe.el (parent of J0-3F37): Unify G-JU+65B0,
+	G-KU+65B0, G-CU+65B0, g2-JU+65B0, g2-KU+65B0, g2-CU+65B0,
+	g2-J0-3F37, g2-GT-17156 and G-M-13572.
+	(K0-6366): Unify KU+65B0.
+	(C1-643B): Unify CU+65B0.
+
 2011-09-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R178-Tanned-Leather.el: Add Hanyo-Denshi/JB code
