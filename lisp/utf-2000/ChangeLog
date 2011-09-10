@@ -1,5 +1,8 @@
 2011-09-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R184-Eat.el: Add Hanyo-Denshi/JB code points.
+	(JX2-7C55): Unify HD-JD9253.
+
 	* Ideograph-R172-Short-Tailed-Bird.el: Add Hanyo-Denshi/JB code
 	points.
 	(U+96D7): Use `->denotational' and `->subsumptive'.
