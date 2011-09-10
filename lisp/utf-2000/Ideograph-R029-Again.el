@@ -742,12 +742,12 @@
       (=shinjigen	  .  0945)	; &HZK01-F6F2;
       (=hanziku-1	  . #xF6F2)	; &HZK01-F6F2;
       (<-original
-       ((=ucs@unicode	    . #x53F2)	; &GT-04122;
-	(=gb2312	    . #x4A37)	; &GT-04122; [42-23]
+       ((=ucs@unicode	    . #x53F2)	; &AJ1-02201;
+	(=gb2312	    . #x4A37)	; &AJ1-02201; [42-23]
 	(=jis-x0208@1990    . #x3B4B)	; &I-J90-3B4B; [27-43]
 	(=cns11643-1	    . #x4638)	; &I-C1-4638; [38-24]
 	(=jis-x0213-1	    . #x3B4B)	; &I-JX1-3B4B; [27-43]
-	(=shinjigen	    .  0943)	; &GT-04122;
+	(=shinjigen	    .  0943)	; &AJ1-02201;
 	))
       (<-original*sources
        shinjigen)
