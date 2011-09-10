@@ -1,5 +1,11 @@
 2011-09-10  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R019-Power.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+	(U+52E5): Add ideographic-structure.
+
+2011-09-10  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R069-Axe.el (parent of J0-3F37): Unify G-JU+65B0,
 	G-KU+65B0, G-CU+65B0, g2-JU+65B0, g2-KU+65B0, g2-CU+65B0,
 	g2-J0-3F37, g2-GT-17156 and G-M-13572.
