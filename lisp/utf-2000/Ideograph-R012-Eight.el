@@ -1924,8 +1924,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x5317)	; &AJ1-03706;
-	(=jis-x0208	    . #x4B4C)	; &AJ1-03706; [43-44]
+       ((=ucs@unicode	    . #x5317)	; 北󠄀
+	(=jis-x0208	    . #x4B4C)	; 北󠄀 [43-44]
 	(=gb2312	    . #x3131)	; &I-G0-3131; [17-17]
 	(=ks-x1001	    . #x5D41)	; &I-K0-5D41; [61-33]
 	(=jis-x0213-1	    . #x4B4C)	; &I-JX1-4B4C; [43-44]
