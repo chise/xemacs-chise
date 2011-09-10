@@ -286,6 +286,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=ucs		. #x659B)	; 斛
+    (=big5		. #xB1D8)	; &I-B-B1D8;
     ))
 (define-char
   '((<-denotational
@@ -294,26 +295,32 @@
     (ideographic-radical . 68)	; ⽃
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@jis		  . #x89D2)	; &GT-47107;
+      (=jis-x0208	  . #x3351)	; &GT-47107; [19-49]
+      (=ks-x1001	  . #x4A47)	; &I-K0-4A47; [42-39]
+      (=cns11643-1	  . #x4B45)	; &I-C1-4B45; [43-37]
+      (=jis-x0213-1	  . #x3351)	; &I-JX1-3351; [19-49]
+      (=daikanwa	  . 35003)	; &I-M-35003;
+      )
+     ((=ucs		  . #x6597)	; 斗
+      ))
+    (=>>ucs@jis		. #x659B)	; &G-GT-17074;
+    (=>>ucs@ks		. #x659B)	; &G-GT-17074;
+    (=>>ucs@cns		. #x659B)	; &G-GT-17074;
+    (=>>jis-x0208	. #x5A4F)	; &G-GT-17074; [58-47]
+    (=>>jis-x0213-1	. #x5A4F)	; &G-GT-17074; [58-47]
+    (=>>gt		. 17074)	; &G-GT-17074;
+    (=>>daikanwa	. 13508)	; &G-GT-17074;
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs@jis	    . #x89D2)	; &GT-47107;
-	(=jis-x0208	    . #x3351)	; &GT-47107; [19-49]
-	(=ks-x1001	    . #x4A47)	; &I-K0-4A47; [42-39]
-	(=cns11643-1	    . #x4B45)	; &I-C1-4B45; [43-37]
-	(=jis-x0213-1	    . #x3351)	; &I-JX1-3351; [19-49]
-	(=daikanwa	    . 35003)	; &I-M-35003;
-	)
-       ((=ucs		    . #x6597)	; 斗
-	))
-      (=ucs@jis		  . #x659B)	; &GT-17074;
-      (=ucs@big5	  . #x659B)	; &GT-17074;
+     ((=ucs@jis		  . #x659B)	; &GT-17074;
+      (=ucs@ks		  . #x659B)	; &GT-17074;
       (=jis-x0208	  . #x5A4F)	; &GT-17074; [58-47]
       (=ks-x1001	  . #x4D57)	; &I-K0-4D57; [45-55]
       (=jis-x0213-1	  . #x5A4F)	; &I-JX1-5A4F; [58-47]
-      (=big5		  . #xB1D8)	; &I-B-B1D8;
       (=gt		  . 17074)	; &I-GT-17074;
       (=gt-k		  . 07937)	; &I-GT-K07937;
       (=gt-pj-1		  . #x5A4F)	; &I-GT-17074; [58-47]
