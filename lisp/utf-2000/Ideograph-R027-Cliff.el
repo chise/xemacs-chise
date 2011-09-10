@@ -3627,13 +3627,14 @@
     (=shinjigen		.  1285)	; &AJ1-01899;
     (=adobe-japan1-0	. 01899)	; &I-AJ1-01899;
     (<-simplified@JP/Jouyou
-     ((=ucs@jis		  . #x56B4)	; &GT-05771;
-      (=jis-x0208	  . #x536E)	; &GT-05771; [51-78]
+     ((=ucs@jis		  . #x56B4)	; &AJ1-04449;
+      (=ucs@ks		  . #x56B4)	; &AJ1-04449;
+      (=jis-x0208	  . #x536E)	; &AJ1-04449; [51-78]
       (=ks-x1001	  . #x6571)	; &I-K0-6571; [69-81]
       (=cns11643-1	  . #x7964)	; &I-C1-7964; [89-68]
       (=jis-x0213-1	  . #x536E)	; &I-JX1-536E; [51-78]
       (=daikanwa	  . 04589)	; &I-M-04589;
-      (=shinjigen	  .  1286)	; &GT-05771;
+      (=shinjigen	  .  1286)	; &AJ1-04449;
       ))
     (<-simplified@JP/Jouyou*sources
      daikanwa shinjigen JP/Jouyou)
