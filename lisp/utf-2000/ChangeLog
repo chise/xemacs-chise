@@ -1,5 +1,14 @@
 2011-09-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R178-Tanned-Leather.el: Add Hanyo-Denshi/JB code
+	points.
+	(U+97E0): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R177-Leather.el: Add Hanyo-Denshi/JB code points.
+	(U+4A83): Use `->subsumptive' to separate representative nodes.
+
+2011-09-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R184-Eat.el: Add Hanyo-Denshi/JB code points.
 	(JX2-7C55): Unify HD-JD9253.
 
