@@ -3513,7 +3513,7 @@
       (=adobe-japan1-4	  . 13548)	; &I-AJ1-13548;
       (=hanyo-denshi/ft	  . #x307E)	; &I-HD-FT-307E; [16-94]
       (<-unknown
-       ((=gt		    . 02031)	; &AJ1-14137;
+       ((=gt		    . 02031)	; 晟󠄃
 	(=daikanwa	    . 01546)	; &I-M-01546;
 	))
       )
