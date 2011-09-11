@@ -310,8 +310,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@iso	    . #x20AD3)	; &CDP-8B7E;
-	(=big5-cdp	    . #x8B7E)	; &CDP-8B7E;
+       ((=ucs@iso	    . #x20AD3)	; 𠫓󠄂
+	(=big5-cdp	    . #x8B7E)	; 𠫓󠄂
 	(=daikanwa	    . 03058)	; &I-M-03058;
 	)
        ((=ucs		    . #x513F)	; 儿

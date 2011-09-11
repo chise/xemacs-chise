@@ -4599,8 +4599,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@unicode	  . #x533A)	; &AJ1-01760;
-      (=jis-x0208	  . #x3668)	; &AJ1-01760; [22-72]
+     ((=ucs@unicode	  . #x533A)	; 区󠄀
+      (=jis-x0208	  . #x3668)	; 区󠄀 [22-72]
       (=gb2312		  . #x4778)	; &I-G0-4778; [39-88]
       (=jis-x0213-1	  . #x3668)	; &I-JX1-3668; [22-72]
       ))
@@ -4907,8 +4907,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x5300)	; &AJ1-14287;
-	(=gb2312	    . #x5448)	; &AJ1-14287; [52-40]
+       ((=ucs@unicode	    . #x5300)	; 匀󠄁
+	(=gb2312	    . #x5448)	; 匀󠄁 [52-40]
 	(=cns11643-3	    . #x2156)	; &I-C3-2156; [01-54]
 	))
       (=ucs@unicode	  . #x4F28)	; &HZK01-BD7A;
@@ -20470,8 +20470,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@unicode	  . #x533D)	; &AJ1-19206;
-      (=jis-x0212	  . #x3434)	; &AJ1-19206; [20-20]
+     ((=ucs@unicode	  . #x533D)	; 匽󠄀
+      (=jis-x0212	  . #x3434)	; 匽󠄀 [20-20]
       ))
     (=>>ucs@unicode	. #x5043)	; 偃󠄀
     (=ucs@unicode	. #x5043)	; 偃󠄀
@@ -20500,7 +20500,7 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=>>ucs@cns	  . #x533D)	; &G-CU+533D;
+     ((=>>daikanwa	  . 02684)	; &G-CU+533D;
       ))
     (=>>ucs@cns		. #x5043)	; &G-CU+5043;
     (->subsumptive
@@ -29491,8 +29491,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@unicode	  . #x5340)	; 區󠄂
-      (=ks-x1001	  . #x4F21)	; 區󠄂 [47-01]
+     ((=ucs@unicode	  . #x5340)	; 區󠄀
+      (=ks-x1001	  . #x4F21)	; 區󠄀 [47-01]
       (=jis-x0208@1990	  . #x523F)	; &I-J90-523F; [50-31]
       (=jis-x0213-1	  . #x523F)	; &I-JX1-523F; [50-31]
       ))
@@ -36011,8 +36011,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@jis	    . #x532F)	; &AJ1-04304;
-	(=jis-x0208	    . #x523B)	; &AJ1-04304; [50-27]
+       ((=ucs@jis	    . #x532F)	; 匯󠄀
+	(=jis-x0208	    . #x523B)	; 匯󠄀 [50-27]
 	(=ks-x1001	    . #x7C5D)	; &I-K0-7C5D; [92-61]
 	(=jis-x0213-1	    . #x523B)	; &I-JX1-523B; [50-27]
 	(=daikanwa	    . 02644)	; &I-M-02644;
