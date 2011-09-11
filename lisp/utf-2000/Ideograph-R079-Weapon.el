@@ -249,7 +249,28 @@
   '((ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=big5-cdp		. #x8AD4)	; &CDP-8AD4;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=big5-cdp	  . #x8B7C)	; &CDP-8B7C;
+      )
+     ((=ucs		  . #x6BB3)	; 殳
+      ))
+    (=>>big5-cdp	. #x8AD4)	; &G-CDP-8AD4;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=big5-cdp	    . #x8B7C)	; &CDP-8B7C;
+	)
+       ((=ucs@unicode	    . #x6BB3)	; &C2-213F;
+	(=gb2312	    . #x6C2F)	; &C2-213F; [76-15]
+	(=cns11643-2	    . #x213F)	; &I-C2-213F; [01-31]
+	))
+      (=big5-cdp	  . #x8AD4)	; &CDP-8AD4;
+      ))
     ))
 (define-char
   '((ideographic-radical . 79)	; ⽎
