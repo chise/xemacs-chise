@@ -120,10 +120,12 @@
 	)
        ((=ucs		    . #x4E0B)	; 下
 	))
-      (=ucs@unicode	  . #x535E)	; &C1-452C;
-      (=gb2312		  . #x3165)	; &C1-452C; [17-69]
+      (=ucs@unicode	  . #x535E)	; &HD-KS-032260;
+      (=gb2312		  . #x3165)	; &HD-KS-032260; [17-69]
       (=cns11643-1	  . #x452C)	; &I-C1-452C; [37-12]
       (=big5		  . #xA4CB)	; &I-B-A4CB;
+      (=hanyo-denshi/ks	  . 032260)	; &HD-KS-032260;
+      (=hanyo-denshi/ks/mf . #x0C9A)	; &I-KSMF-03226;
       ))
     ))
 (define-char
