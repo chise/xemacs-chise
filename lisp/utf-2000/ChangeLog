@@ -1,10 +1,35 @@
 2011-09-10  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R160-Bitter.el (U+8F9C): Use `->subsumptive'.
+
+	* Ideograph-R068-Dipper.el (mother of J0-5A4F): Unify G-JU+659B,
+	G-KU+659B, G-CU+659B, G-J0-5A4F, G-GT-17074 and G-M-13508; add
+	ideographic-structure.
+	(J0-5A4F): Omit `ideographic-structure'; unify KU+659B.
+
+	* Ideograph-R020-Wrap.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	(U+530A): Add ideographic-structure.
+
 	* Ideograph-R019-Power.el: Add `=decomposition@cid' for some
 	Adobe-Japan1 characters.
 	(U+52E5): Add ideographic-structure.
 
 2011-09-10  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R187-Horse.el: Add Hanyo-Denshi/JB code points.
+	(U+99C6): Use `->denotational' instead of `->subsumptive'.
+	(U+9A43): Use `->subsumptive'.
+	(U+9A45): Use `->denotational' instead of `->subsumptive'.
+	(J83-715C): Separate G1-477D and UU+9A45.
+	(J90-715C): Unify G1-477D and UU+9A45.
+	(JX2-7D25): Unify HD-JD9305.
+
+	* Ideograph-R174-Blue.el: Add Hanyo-Denshi/JB code points.
+	(JX2-7B7C): Unify HD-JD9192.
+	(U+9758): Use `->denotational' instead of `->subsumptive'.
+	(U+975C): Likewise.
 
 	* Ideograph-R069-Axe.el (parent of J0-3F37): Unify G-JU+65B0,
 	G-KU+65B0, G-CU+65B0, g2-JU+65B0, g2-KU+65B0, g2-CU+65B0,
