@@ -1,5 +1,13 @@
 2011-09-10  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R173-Rain.el (U+970D): Use `->subsumptive'.
+
+	* Ideograph-R112-Stone.el (U+78E8): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R079-Weapon.el (G-BC-8AD4): New character.
+	(BC-8AD4): Use `<-subsumptive' for G-BC-8AD4.
+
 	* Ideograph-R160-Bitter.el (U+8F9C): Use `->subsumptive'.
 
 	* Ideograph-R068-Dipper.el (mother of J0-5A4F): Unify G-JU+659B,
