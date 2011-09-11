@@ -260,7 +260,7 @@
       (=gb12345		  . #x4077)	; 厲󠄁 [32-87]
       ))
     (<-simplified@misc
-     ((=cns11643-1	  . #x6C30)	; &M-03041; [76-16]
+     ((=cns11643-1	  . #x6C30)	; 厲󠄂 [76-16]
       (=daikanwa	  . 03041)	; &I-M-03041;
       ))
     (<-simplified@misc*sources
@@ -2466,7 +2466,12 @@
     (=>>hanyo-denshi/ft . #x315A)	; &G-J78-3139; [17-58]
     (=>>hanyo-denshi/ks . 034790)	; &G-J78-3139;
     (->subsumptive
-     ((ideographic-structure
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x53A9)	; 厩
+	)
+       ((=ucs		    . #xE0109)	; 󠄉
+	))
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
 	(=ucs		    . #x2FF8)	; ⿸
 	)
@@ -2475,8 +2480,8 @@
        ((=ucs@unicode	    . #x65E3)	; &M-13724;
 	(=daikanwa	    . 13724)	; &M-13724;
 	))
-      (=daikanwa	  . 03006)	; &M-03006;
-      (=hanyo-denshi/ks	  . 034790)	; &M-03006;
+      (=daikanwa	  . 03006)	; 厩󠄉
+      (=hanyo-denshi/ks	  . 034790)	; 厩󠄉
       (=hanyo-denshi/ks/mf . #x0D97)	; &I-KSMF-03479;
       )
      ((ideographic-structure
@@ -2531,7 +2536,12 @@
       (total-strokes	   . 13)
       (=>>>gt		  . 03811)	; &g2-GT-03811;
       (->subsumptive
-       ((ideographic-structure
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x53A9)	; 厩
+	  )
+	 ((=ucs		      . #xE0108)	; 󠄈
+	  ))
+	(ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
 	  (=ucs		      . #x2FF8)	; ⿸
 	  )
@@ -2539,9 +2549,9 @@
 	  )
 	 ((=daikanwa	      . 13725)	; &M-13725;
 	  ))
-	(=gt		    . 03811)	; &GT-03811;
-	(=gt-pj-11	    . #x3B44)	; &GT-03811; [27-36]
-	(=hanyo-denshi/ks   . 034890)	; &GT-03811;
+	(=gt		    . 03811)	; 厩󠄈
+	(=gt-pj-11	    . #x3B44)	; 厩󠄈 [27-36]
+	(=hanyo-denshi/ks   . 034890)	; 厩󠄈
 	(=hanyo-denshi/ks/mf . #x0DA1)	; &I-KSMF-03489;
 	)
        ((=shinjigen	    .  2208)	; &SJG2-2208;
@@ -3404,6 +3414,11 @@
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x53B2)	; 厲
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (hanyu-dazidian	1 77 17)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -3414,11 +3429,11 @@
      ((=cns11643-1	  . #x655C)	; &M-31339; [69-60]
       (=daikanwa	  . 31339)	; &I-M-31339;
       ))
-    (=cns11643-1	. #x6C30)	; &M-03041; [76-16]
+    (=cns11643-1	. #x6C30)	; 厲󠄂 [76-16]
     (=daikanwa		. 03041)	; &I-M-03041;
-    (=shinjigen		.  0887)	; &M-03041;
+    (=shinjigen		.  0887)	; 厲󠄂
     (=jef-china3	. #x45E2)	; &I-JC3-45E2;
-    (=hanyo-denshi/ks	. 035150)	; &M-03041;
+    (=hanyo-denshi/ks	. 035150)	; 厲󠄂
     (=hanyo-denshi/ks/mf . #x0DBB)	; &I-KSMF-03515;
     ))
 (define-char
