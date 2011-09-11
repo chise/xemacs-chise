@@ -1034,7 +1034,7 @@
 	)
        ((=ucs		    . #x56D7)	; 囗
 	)
-       ((=daikanwa	    . 02572)	; &AJ1-13665;
+       ((=daikanwa	    . 02572)	; 化󠄁
 	(=adobe-japan1-4    . 13665)	; &I-AJ1-13665;
 	))
       (=ucs@unicode	  . #x56EE)	; &GT-05931;
