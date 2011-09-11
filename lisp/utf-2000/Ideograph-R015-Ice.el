@@ -2000,8 +2000,13 @@
       )
      ((=>>>ucs@cns	  . #x51CC)	; &g2-CU+51CC;
       (->subsumptive
-       ((=hanyo-denshi/ks   . 019870)	; &HD-KS-019870;
-	(=hanyo-denshi/ks/mf . #x07C3)	; &HD-KS-019870;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x51CC)	; 凌
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(=hanyo-denshi/ks   . 019870)	; 凌󠄂
+	(=hanyo-denshi/ks/mf . #x07C3)	; 凌󠄂
 	)
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
