@@ -30,10 +30,15 @@
     (=>>ucs@iso		. #x20AD3)	; &G-HD-KS-8A20;
     (=>>hanyo-denshi/ks . 035360)	; &G-HD-KS-8A20;
     (->subsumptive
-     ((=ucs@iso		  . #x20AD3)	; &CDP-8B7E;
-      (=big5-cdp	  . #x8B7E)	; &CDP-8B7E;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x20AD3)	; 𠫓
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=ucs@iso		  . #x20AD3)	; 𠫓󠄂
+      (=big5-cdp	  . #x8B7E)	; 𠫓󠄂
       (=daikanwa	  . 03058)	; &I-M-03058;
-      (=hanyo-denshi/ks	  . 035360)	; &CDP-8B7E;
+      (=hanyo-denshi/ks	  . 035360)	; 𠫓󠄂
       (=hanyo-denshi/ks/mf . #x0DD0)	; &I-KSMF-03536;
       )
      ((=cns11643-5	  . #x212E)	; &C5-212E; [01-14]
