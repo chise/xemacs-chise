@@ -856,9 +856,9 @@
     (=hanziku-1		. #xF1C4)	; &I-HZK01-F1C4;
     (=adobe-japan1-0	. 04013)	; &I-AJ1-04013;
     (<-simplified
-     ((=cns11643-1	  . #x7344)	; &M-02472; [83-36]
+     ((=cns11643-1	  . #x7344)	; 勵󠄂 [83-36]
       (=daikanwa	  . 02472)	; &I-M-02472;
-      (=shinjigen	  .  0716)	; &M-02472;
+      (=shinjigen	  .  0716)	; 勵󠄂
       ))
     (<-simplified*sources
      songyuan-yilai-suzipu daikanwa shinjigen@1ed)
@@ -2961,6 +2961,11 @@
       )
      ((=ucs		  . #xE0101)	; 󠄁
       ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x52D7)	; 勗
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -3696,6 +3701,11 @@
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x52DF)	; 募
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -3704,11 +3714,11 @@
       )
      ((=ucs		  . #x529B)	; 力
       ))
-    (=ucs@cns		. #x52DF)	; &M-02416;
-    (=cns11643-1	. #x6339)	; &M-02416; [67-25]
+    (=ucs@cns		. #x52DF)	; 募󠄂
+    (=cns11643-1	. #x6339)	; 募󠄂 [67-25]
     (=daikanwa		. 02416)	; &I-M-02416;
-    (=shinjigen		.  0748)	; &M-02416;
-    (=hanyo-denshi/ks	. 028100)	; &M-02416;
+    (=shinjigen		.  0748)	; 募󠄂
+    (=hanyo-denshi/ks	. 028100)	; 募󠄂
     (=hanyo-denshi/ks/mf . #x0AFA)	; &I-KSMF-02810;
     ))
 (define-char
@@ -4376,9 +4386,9 @@
       (=shinjigen	  .  0750)	; 勧󠄀
       (=adobe-japan1-0	  . 01511)	; &I-AJ1-01511;
       (<-simplified
-       ((=daikanwa	    . 02486)	; &M-02486;
-	(=shinjigen	    .  0751)	; &M-02486;
-	(=hanyo-denshi/ks   . 028870)	; &M-02486;
+       ((=daikanwa	    . 02486)	; 勸󠄂
+	(=shinjigen	    .  0751)	; 勸󠄂
+	(=hanyo-denshi/ks   . 028870)	; 勸󠄂
 	))
       (<-simplified*sources
        songyuan-yilai-suzipu daikanwa shinjigen@1ed)
@@ -5243,19 +5253,24 @@
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x52F5)	; 勵
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-1	  . #x6C30)	; &M-03041; [76-16]
+     ((=cns11643-1	  . #x6C30)	; 厲󠄂 [76-16]
       (=daikanwa	  . 03041)	; &I-M-03041;
       )
      ((=ucs		  . #x529B)	; 力
       ))
-    (=cns11643-1	. #x7344)	; &M-02472; [83-36]
+    (=cns11643-1	. #x7344)	; 勵󠄂 [83-36]
     (=daikanwa		. 02472)	; &I-M-02472;
-    (=shinjigen		.  0716)	; &M-02472;
-    (=hanyo-denshi/ks	. 028720)	; &M-02472;
+    (=shinjigen		.  0716)	; 勵󠄂
+    (=hanyo-denshi/ks	. 028720)	; 勵󠄂
     (=hanyo-denshi/ks/mf . #x0B38)	; &I-KSMF-02872;
     ))
 (define-char
@@ -5592,11 +5607,17 @@
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 18)
     (total-strokes	 . 20)
+    (=>>ucs@cns		. #x52F8)	; &G-HD-KS-70C6;
     (=>>>ucs@cns	. #x52F8)	; &G-HD-KS-70C6;
     (=>>daikanwa	. 02486)	; &G-HD-KS-70C6;
     (=>>hanyo-denshi/ks . 028870)	; &G-HD-KS-70C6;
     (->subsumptive
-     ((ideographic-structure
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x52F8)	; 勸
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
@@ -5606,9 +5627,9 @@
 	)
        ((=ucs		    . #x529B)	; 力
 	))
-      (=daikanwa	  . 02486)	; &M-02486;
-      (=shinjigen	  .  0751)	; &M-02486;
-      (=hanyo-denshi/ks	  . 028870)	; &M-02486;
+      (=daikanwa	  . 02486)	; 勸󠄂
+      (=shinjigen	  .  0751)	; 勸󠄂
+      (=hanyo-denshi/ks	  . 028870)	; 勸󠄂
       (=hanyo-denshi/ks/mf . #x0B47)	; &I-KSMF-02887;
       )
      ((ideographic-structure
@@ -5635,6 +5656,7 @@
     (=>>>jis-x0208	. #x5230)	; &g2-J0-5230; [50-16]
     (=>>>jis-x0213-1	. #x5230)	; &g2-J0-5230; [50-16]
     (=>>>gt		. 03191)	; &g2-J0-5230;
+    (=>>adobe-japan1	. 04293)	; &g2-J0-5230;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x52F8)	; 勸
