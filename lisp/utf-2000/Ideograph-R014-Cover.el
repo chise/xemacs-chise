@@ -1265,6 +1265,11 @@
       )
      ((=ucs		  . #xE0101)	; 󠄁
       ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6700)	; 最
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (hanyu-dazidian	2 1516 8)
     (=cns11643-1	. #x5E32)	; 最󠄁 [62-18]
     (=daikanwa		. 01597)	; &I-M-01597;
@@ -1456,6 +1461,8 @@
     (=cns11643-1	. #x7036)	; &M-01601; [80-22]
     (=daikanwa		. 01601)	; &I-M-01601;
     (=shinjigen		.  0536)	; &M-01601;
+    (=hanyo-denshi/ks	. 019150)	; &M-01601;
+    (=hanyo-denshi/ks/mf . #x077B)	; &I-KSMF-01915;
     ))
 (define-char
   '((<-denotational
