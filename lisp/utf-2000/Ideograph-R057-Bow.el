@@ -1773,7 +1773,7 @@
     (=ucs@big5		. #x5F37)	; &J97-362F;
     (=>jis-x0208	. #x362F)	; &J97-362F; [22-15]
     (=>jis-x0213-1	. #x362F)	; &J97-362F; [22-15]
-    (=big5		. #xB16A)	; &J97-362F;
+    (=big5		. #xB16A)	; &I-B-B16A;
     ))
 (define-char
   '((<-denotational
