@@ -1,3 +1,31 @@
+2011-09-11  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R025-Divination.el (G0-3165): Unify HD-KS032260.
+
+	* Ideograph-R023-Hiding-Enclosure.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+
+	* Ideograph-R019-Power.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/KS characters.
+
+	* Ideograph-R014-Cover.el (HD-KS019090): Add
+	`=decomposition@hanyo-denshi'.
+	(C1-7036): Unify HD-KS019150.
+
+	* Ideograph-R028-Private.el (HD-KS035360): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R027-Cliff.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/KS characters.
+
+	* Ideograph-R015-Ice.el (HD-KS019870): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R013-Down-Box.el: Add `=decomposition@hanyo-denshi'
+	for some Hanyo-Denshi/KS characters.
+	(AJ1-14137): Add `=decomposition@cid'.
+
 2011-09-10  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R173-Rain.el (U+970D): Use `->subsumptive'.
