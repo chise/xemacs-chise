@@ -1,4 +1,27 @@
+2011-09-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R191-Fight.el (JSP-6A32): Unify HD-JB7418.
+
 2011-09-11  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R073-Say.el (HD-KS019090): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R029-Again.el (HD-KS036510): New character.
+	(HD-KS019090): Add `=decomposition@hanyo-denshi'.
+
+	* Ideograph-R022-Right-Open-Box.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	(U+3535): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R020-Wrap.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+
+	* Ideograph-R017-Open-Box.el (U-0002067C): Unify M-03266; use
+	`ideographic-radical@ucs' instead of `ideographic-radical'; add
+	`ideographic-strokes@ucs',
+	`ideographic-{radical|strokes}@daikanwa' and `total-strokes'.
 
 	* Ideograph-R025-Divination.el (G0-3165): Unify HD-KS032260.
 
