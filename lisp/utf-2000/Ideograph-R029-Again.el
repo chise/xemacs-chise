@@ -943,7 +943,8 @@
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (=>ucs@cns		. #x2F837)	; &A-CU+2F837;
+    (=>ucs@cns		. #x2F837)	; &G-HD-KS-8E9E;
+    (=>>hanyo-denshi/ks . 036510)	; &G-HD-KS-8E9E;
     (->subsumptive
      ((=daikanwa	  . 03151)	; &M-03151;
       (<-vulgar
@@ -954,9 +955,15 @@
       (<-vulgar*sources
        zihui daikanwa)
       )
-     ((=>ucs*		  . #x53DF)	; 叟
-      (=ucs		  . #x2F837)	; 叟
-      (=cns11643-6	  . #x2643)	; &I-C6-2643; [06-35]
+     ((=>>>ucs@cns	  . #x2F837)	; &g2-CU+2F837;
+      (->subsumptive
+       ((=>ucs*		    . #x53DF)	; 叟
+	(=ucs		    . #x2F837)	; 叟
+	(=cns11643-6	    . #x2643)	; &I-C6-2643; [06-35]
+	)
+       ((=hanyo-denshi/ks   . 036510)	; &HD-KS-036510;
+	(=hanyo-denshi/ks/mf . #x0E43)	; &HD-KS-036510;
+	))
       ))
     ))
 (define-char
@@ -2132,6 +2139,11 @@
      ((=ucs		  . #x6700)	; 最
       )
      ((=ucs		  . #xE0101)	; 󠄁
+      ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6700)	; 最
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
       ))
     (hanyu-dazidian	2 1516 8)
     (=cns11643-1	. #x5E32)	; 最󠄁 [62-18]
