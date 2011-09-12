@@ -593,6 +593,11 @@
       )
      ((=ucs		  . #xE0101)	; 󠄁
       ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6700)	; 最
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (hanyu-dazidian	2 1516 8)
     (=cns11643-1	. #x5E32)	; 最󠄁 [62-18]
     (=daikanwa		. 01597)	; &I-M-01597;
