@@ -1,3 +1,10 @@
+2011-09-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R196-Bird.el: Add Hanyo-Denshi/JB and JD code points.
+	(U+9D7D): Use `->subsumptive' to separate representative nodes.
+	(U+9D7E): Likewise.
+	(U+9DB5): Unify S-8979; add `<-formed' for J0-3F77.
+
 2011-09-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R195-Fish.el: Add Hanyo-Denshi/JB code points.
