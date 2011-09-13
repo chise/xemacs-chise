@@ -1,5 +1,54 @@
 2011-09-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R195-Fish.el: Add Hanyo-Denshi/JB code points.
+	(U+4C8A): Use `->subsumptive' to separate representative nodes.
+	(U-00029EDB): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(JX2-7D70): Unify HD-JD9380.
+	(U+4C8B): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R188-Bone.el: Add Hanyo-Denshi/JB code points.
+	(U+4BE4): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R030-Mouth.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add some abstract ideographic-structures.
+	(U+53ED): Add ideographic-structure.
+	(U+53F9): Use `->subsumptive' to separate representative nodes.
+	(M-03266): Unify U-0002067C and H1-E561; use
+	`ideographic-{radical|strokes}@daikanwa' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+	(G-CB00087): New character.
+	(CB00087): Use `<-subsumptive' for G-CB00087.
+	(M-21139): Map to U-00020E98.
+	(M-04225): Unify U-00020F1D and H2-DDAD.
+	(M-04226): Unify U-00020F20 and H2-DDC9.
+	(G-CB03989): New character.
+	(CB03989): Use `<-subsumptive' for G-CB03989.
+	(G-CB03993): New character.
+	(CB03993): Use `<-subsumptive' for G-CB03993.
+	(U-00020F7F): Use `->subsumptive'.
+	(U+35FE): Use `->subsumptive' to separate representative nodes.
+	(U-00020FD8): Use `->subsumptive'.
+	(U+567B): Likewise.
+	(U+5682): Use `->denotational' instead of `->subsumptive'.
+	(U-000210E7): Use `->denotational' and `->subsumptive'.
+	(M-04574): Map to U-00021107.
+	(U+56AF): Use `->subsumptive'.
+	(M-04576): Add `<-unknown' for U-000210F8.
+	(U+56B0): Use `->denotational' to separate representative node.
+	(U-00021113): Use `->subsumptive'.
+	(U-00021139): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R021-Spoon.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+
+	* Ideograph-R018-Knife.el: Add Hanyo-Denshi/KS code points.
+
+2011-09-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R191-Fight.el (JSP-6A32): Unify HD-JB7418.
 
 2011-09-11  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
