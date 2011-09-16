@@ -809,7 +809,12 @@
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=big5		. #xB550)	; &B-B550;
+    (=>>ucs@unicode	. #x724C)	; &G-JX3-4757;
+    (=>>jis-x0208@1978	. #x4757)	; &G-JX3-4757; [39-55]
+    (=>>jis-x0213-1@2004 . #x4757)	; &G-JX3-4757; [39-55]
+    (=big5		. #xB550)	; &G-JX3-4757;
+    (=>>daikanwa	. 19854)	; &G-JX3-4757;
+    (=>>hanyo-denshi/ft . #x327C)	; &G-JX3-4757; [18-92]
     (->subsumptive
      ((=ucs@unicode	  . #x724C)	; &M-19854;
       (=jis-x0208@1978	  . #x4757)	; &M-19854; [39-55]
@@ -818,6 +823,7 @@
       (=jis-x0213-1@2004  . #x4757)	; &I-JX3-4757; [39-55]
       (=daikanwa	  . 19854)	; &I-M-19854;
       (=shinjigen	  .  4725)	; &M-19854;
+      (=hanyo-denshi/ft	  . #x327C)	; &I-HD-FT-327C; [18-92]
       )
      ((=cns11643-1	  . #x6056)	; &C1-6056; [64-54]
       ))
