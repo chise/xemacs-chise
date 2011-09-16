@@ -352,13 +352,17 @@
     (ideographic-radical . 199)	; ⿆
     (ideographic-strokes . 4)
     (total-strokes	 . 15)
+    (=>ucs@JP		. #x9EA8)	; &A-CU+9EA8;
+    (=>ucs@cns		. #x9EA8)	; &A-CU+9EA8;
     (->subsumptive
      ((=ucs@jis		  . #x9EA8)	; &M-47733;
       (=jis-x0212	  . #x6C69)	; &M-47733; [76-73]
       (=jis-x0213-2	  . #x7E57)	; &I-JX2-7E57; [94-55]
       (=daikanwa	  . 47733)	; &I-M-47733;
+      (=hanyo-denshi/jb	  . #x6C69)	; &I-HD-JB-6C69; [76-73]
       )
-     ((=cns11643-4	  . #x4F4C)	; &C4-4F4C; [47-44]
+     ((=ucs@cns		  . #x9EA8)	; &C4-4F4C;
+      (=cns11643-4	  . #x4F4C)	; &C4-4F4C; [47-44]
       ))
     ))
 (define-char
