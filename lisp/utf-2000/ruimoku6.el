@@ -1582,8 +1582,13 @@
     (ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (=ucs@jis/2004	. #x698A)	; &AJ1-07686;
-    (=jis-x0208@1978	. #x3A67)	; &AJ1-07686; [26-71]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x698A)	; 榊
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
+    (=ucs@jis/2004	. #x698A)	; 榊󠄃
+    (=jis-x0208@1978	. #x3A67)	; 榊󠄃 [26-71]
     (=jis-x0213-1@2004	. #x3A67)	; &I-JX3-3A67; [26-71]
     (=daikanwa		. 15352)	; &I-M-15352;
     (=ruimoku-v6	. #xE086)	; &I-RUI6-E086;
