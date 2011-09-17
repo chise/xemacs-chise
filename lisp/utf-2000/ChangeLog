@@ -1,3 +1,27 @@
+2011-09-16  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R104-Sickness.el: Add Hanyo-Denshi/JB code points.
+
+	* Ideograph-R075-Tree.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/FT characters.
+
+2011-09-15  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* ruimoku6.el (HD-FT1808): Add `=decomposition@hanyo-denshi'.
+
+2011-09-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R199-Wheat.el (JSP-6C69): Unify HD-JB7673.
+
+	* Ideograph-R091-Slice.el (J78-4757): Unify HD-FT1892.
+
+	* Ideograph-R072-Sun.el: Add Hanyo-Denshi/FT code points.
+	(HD-FT1694): Add `=decomposition@hanyo-denshi'.
+
+2011-09-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R212-Dragon.el: Add Hanyo-Denshi/JB code points.
+
 2011-09-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R196-Bird.el: Add Hanyo-Denshi/JB and JD code points.
