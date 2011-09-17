@@ -1,5 +1,17 @@
 2011-09-16  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R205-Frog.el (U+9F03): Use `->denotational' and
+	`->subsumptive' to separate representative nodes.
+	(JSP-6D24): Unify HD-JB7704.
+
+2011-09-16  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R198-Deer.el: Add Hanyo-Denshi/JB code points.
+
+	* Ideograph-R086-Fire.el: Add Hanyo-Denshi/FT code points.
+
+	* Ideograph-R026-Seal.el: Add Hanyo-Denshi/KS code points.
+
 	* Ideograph-R104-Sickness.el: Add Hanyo-Denshi/JB code points.
 
 	* Ideograph-R075-Tree.el: Add `=decomposition@hanyo-denshi' for
