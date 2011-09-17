@@ -850,7 +850,10 @@
     (=hanziku-2		. #xE542)	; &I-HZK02-E542;
     ))
 (define-char
-  '((ideographic-radical@ucs . 31)	; ⼞
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5306)	; &BUCS+5306;
+      ))
+    (ideographic-radical@ucs . 31)	; ⼞
     (ideographic-radical@ucs*sources
      daikanwa ucs)
     (ideographic-radical@cns . 36)	; ⼣
