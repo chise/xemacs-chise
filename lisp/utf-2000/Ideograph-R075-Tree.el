@@ -24519,7 +24519,7 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
     (=ucs		. #x6A91)	; 檑
-    (=big5		  . #xED44)	; &I-B-ED44;
+    (=big5		. #xED44)	; &I-B-ED44;
     (->subsumptive
      ((=ucs@unicode	  . #x6A91)	; &M-15660;
       (=gb2312		  . #x695B)	; &M-15660; [73-59]
