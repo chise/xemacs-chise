@@ -110,13 +110,14 @@
   '((ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (=ucs@big5		. #x52FB)	; &B-A4C3;
-    (=big5		. #xA4C3)	; &B-A4C3;
+    (==>ucs@bucs	. #x52FB)	; &BUCS+52FB;
+    (=ucs@big5		. #x52FB)	; &BUCS+52FB;
+    (=big5		. #xA4C3)	; &BUCS+52FB;
     ))
 (define-char
   '((<-denotational
-     ((=ucs@big5	  . #x52FB)	; &B-A4C3;
-      (=big5		  . #xA4C3)	; &B-A4C3;
+     ((==>ucs@bucs	  . #x52FB)	; &BUCS+52FB;
+      (=ucs@big5	  . #x52FB)	; &BUCS+52FB;
       ))
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 2)
@@ -150,8 +151,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs@big5	  . #x52FB)	; &B-A4C3;
-      (=big5		  . #xA4C3)	; &B-A4C3;
+     ((==>ucs@bucs	  . #x52FB)	; &BUCS+52FB;
+      (=ucs@big5	  . #x52FB)	; &BUCS+52FB;
       ))
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 2)
@@ -604,6 +605,13 @@
     ))
 (define-char
   '((ideographic-radical . 20)	; ⼓
+    (==>ucs@bucs	. #x5306)	; &BUCS+5306;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5306)	; &BUCS+5306;
+      ))
+    (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (=>jis-x0208	. #x5232)	; &J97-5232; [50-18]
@@ -664,6 +672,18 @@
     (=gt-pj-1		. #x5232)	; &I-GT-03219; [50-18]
     (=shinjigen		.  0772)	; 匆
     (=adobe-japan1-0	. 04295)	; &I-AJ1-04295;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5306)	; &BUCS+5306;
+      ))
+    (ideographic-radical@ucs . 31)	; ⼞
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 36)	; ⼣
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (=ucs		. #x56F1)	; 囱
     ))
 (define-char
   '((ideographic-radical . 20)	; ⼓
