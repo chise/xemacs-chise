@@ -1919,8 +1919,13 @@
     (ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
-    (=ucs@unicode	. #x6B78)	; &HD-FT-3666;
-    (=gb12345		. #x3969)	; &HD-FT-3666; [25-73]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6B78)	; 歸
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=ucs@unicode	. #x6B78)	; 歸󠄂
+    (=gb12345		. #x3969)	; 歸󠄂 [25-73]
     (=hanyo-denshi/ft	. #x3666)	; &I-HD-FT-3666; [22-70]
     ))
 (define-char
