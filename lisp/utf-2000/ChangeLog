@@ -1,4 +1,15 @@
+2011-09-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R091-Slice.el (HD-FT1892): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R077-Stop.el (HD-FT2270): Add
+	`=decomposition@hanyo-denshi'.
+
 2011-09-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R020-Wrap.el: Add abstract characters and relations
+	about BUCS.
 
 	* Ideograph-R036-Evening.el, Ideograph-R031-Enclosure.el (U+56F1):
 	Add `<-denotational' for BUCS+5306.
