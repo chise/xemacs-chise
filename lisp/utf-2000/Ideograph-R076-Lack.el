@@ -2909,7 +2909,12 @@
     (=>>ucs@unicode	. #x6B49)	; &G-HD-FT-3663;
     (=>>hanyo-denshi/ft . #x3663)	; &G-HD-FT-3663; [22-67]
     (->subsumptive
-     ((=cns11643-1	  . #x6939)	; &HD-FT-3663; [73-25]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x6B49)	; 歉
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=cns11643-1	  . #x6939)	; 歉󠄂 [73-25]
       (=hanyo-denshi/ft	  . #x3663)	; &I-HD-FT-3663; [22-67]
       )
      ((=ucs@unicode	  . #x6B49)	; &G0-4738;
@@ -3365,8 +3370,14 @@
     (=>>daikanwa	. 16182)	; &G-JX3-4337;
     (=>>hanyo-denshi/ft . #x3D30)	; &G-JX3-4337; [29-16]
     (->subsumptive
-     ((=ucs@jis/2004	  . #x6B4E)	; &M-16182;
-      (=ks-x1001	  . #x7727)	; &M-16182; [87-07]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x6B4E)	; 歎
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=ucs@jis/2004	  . #x6B4E)	; 歎󠄃
+      (=ucs@JP/hanazono	  . nil)
+      (=ks-x1001	  . #x7727)	; 歎󠄃 [87-07]
       (=cns11643-1	  . #x6D45)	; &I-C1-6D45; [77-37]
       (=jis-x0213-1@2004  . #x4337)	; &I-JX3-4337; [35-23]
       (=daikanwa	  . 16182)	; &I-M-16182;
@@ -3398,8 +3409,9 @@
       (=jis-x0208	  . #x4337)	; &J90-4337; [35-23]
       (=jis-x0213-1@2000  . #x4337)	; &I-JX1-4337; [35-23]
       (<-simplified@JP/jis
-       ((=ucs@jis/2004	    . #x6B4E)	; &M-16182;
-	(=ks-x1001	    . #x7727)	; &M-16182; [87-07]
+       ((=ucs@jis/2004	    . #x6B4E)	; 歎󠄃
+	(=ucs@JP/hanazono   . nil)
+	(=ks-x1001	    . #x7727)	; 歎󠄃 [87-07]
 	(=cns11643-1	    . #x6D45)	; &I-C1-6D45; [77-37]
 	(=jis-x0213-1@2004  . #x4337)	; &I-JX3-4337; [35-23]
 	(=daikanwa	    . 16182)	; &I-M-16182;
@@ -4762,8 +4774,9 @@
      ((=cns11643-4	  . #x6D56)	; &M-16252; [77-54]
       (=daikanwa	  . 16252)	; &I-M-16252;
       (<-Large-Seal
-       ((=ucs@jis/2004	    . #x6B4E)	; &M-16182;
-	(=ks-x1001	    . #x7727)	; &M-16182; [87-07]
+       ((=ucs@jis/2004	    . #x6B4E)	; 歎󠄃
+	(=ucs@JP/hanazono   . nil)
+	(=ks-x1001	    . #x7727)	; 歎󠄃 [87-07]
 	(=cns11643-1	    . #x6D45)	; &I-C1-6D45; [77-37]
 	(=jis-x0213-1@2004  . #x4337)	; &I-JX3-4337; [35-23]
 	(=daikanwa	    . 16182)	; &I-M-16182;
