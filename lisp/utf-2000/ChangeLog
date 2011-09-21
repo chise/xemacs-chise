@@ -1,3 +1,30 @@
+2011-09-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R167-Gold.el (U+493D): Use `->denotational' to
+	separate representative nodes.
+	(U+9394): Use `->subsumptive'.
+	(U+493E): Use `->denotational' to separate representative nodes.
+	(U+9395): Use `->subsumptive' to separate representative nodes.
+	(U+493F): Use `->subsumptive' to separate representative nodes.
+
+2011-09-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R094-Dog.el: Add Hanyo-Denshi/FT code points.
+
+	* Ideograph-R086-Fire.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/FT characters.
+	(U-00024382): Unify C7-2A71 and M-42651; use
+	`ideographic-radical@ucs' instead of `ideographic-radical'; add
+	`ideographic-strokes@ucs', `ideographic-{radical|strokes}@cns' and
+	`total-strokes'.
+
+	* Ideograph-R018-Knife.el: Add abstract characters and relations
+	about BUCS.
+	(CB03567): Add `<-denotational' for U+523C.
+	(CB04913): Unify U-0002A7C4.
+	(U-00020718): Use `->subsumptive' to separate representative
+	nodes.
+
 2011-09-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R174-Blue.el: Add mappings between CJK Ext-B and CNS
