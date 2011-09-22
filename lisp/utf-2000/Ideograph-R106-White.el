@@ -645,6 +645,7 @@
     (=gt-k		. 09216)	; &I-GT-K09216;
     (=gt-pj-5		. #x3C52)	; &I-GT-29136; [28-50]
     (=daikanwa		. 22732)	; &I-M-22732;
+    (=hanyo-denshi/ft	. #x3365)	; &I-HD-FT-3365; [19-69]
     ))
 (define-char
   '((<-denotational
@@ -663,7 +664,7 @@
     (=gt-k		. 09217)	; &I-GT-K09217;
     (=gt-pj-1		. #x622B)	; &I-GT-29137; [66-11]
     (=jef-china3	. #x5BAC)	; &I-JC3-5BAC;
-    (<-simplified@JP
+    (<-simplified@JP/jis
      ((=jis-x0208@1978	  . #x622B)	; &GT-29136; [66-11]
       (=ks-x1001	  . #x7B53)	; &I-K0-7B53; [91-51]
       (=daikanwa	  . 22732)	; &I-M-22732;
