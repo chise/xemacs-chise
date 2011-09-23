@@ -2795,6 +2795,7 @@
 	(=jis-x0208@1990    . #x6268)	; &I-J90-6268; [66-72]
 	(=jis-x0213-1	    . #x6268)	; &I-JX1-6268; [66-72]
 	(=daikanwa	    . 24564)	; &I-M-24564;
+	(=shinjigen	    .  8607)	; &GT-31404;
 	))
       (<-simplified@JP/Jouyou*sources
        JP/Jouyou daikanwa)
