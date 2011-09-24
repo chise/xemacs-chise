@@ -1,3 +1,68 @@
+2011-09-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R176-Face.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+	(M-42652): Map to U-0002921E.
+	(U-00029226): Use `->subsumptive' to separate representative
+	nodes.
+	(U+4A4A): Likewise.
+	(M-42681): Separate C7-513A; add `<-formed' and `<-same' for
+	M-06805.
+	(U-0002923E): Add `<-unknown' for M-42681.
+	(M-42692): Separate C7-597B; add `<-formed' and `<-same' for
+	U+5E22.
+	(U-00029246): New character.
+	(U-00029249): Add `<-unknown' for M-42692.
+	(U-0002924F): New character.
+	(U+4A4F): Use `->denotational' instead of `->subsumptive'.
+	(U-00029252): New character.
+	(U-00029255): New character.
+	(U-00029257): New character.
+
+	* Ideograph-R173-Rain.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+	(M-42343): Unify U-000290EF.
+	(M-42414): Map to U-0002912A.
+	(U+4A2B): Use `->denotational' instead of `->subsumptive'.
+	(U+9727): Use `->subsumptive'.
+	(U-00029156): New character.
+	(U-0002914C): New character.
+	(U-00029193): Use `->denotational' instead of `->subsumptive'.
+	(M-42514): Map to U-000291A3.
+	(U+4A35): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R113-Spirit.el: Add Hanyo-Denshi/FT code points.
+
+	* Ideograph-R109-Eye.el: Add Hanyo-Denshi/FT code points.
+	(U+775C): Use `->denotational'.
+
+	* Ideograph-R104-Sickness.el: Add Hanyo-Denshi/FT code points.
+	(U+7627): Use `->denotational' instead of `->subsumptive'.
+	(J90-4C7E): Use `<-simplified@JP/jis' instead of
+	`<-simplified@JP'.
+
+2011-09-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R106-White.el (J78-622B): Unify HD-FT1969.
+	(J90-622B): Use `<-simplified@JP/jis' instead of
+	`<-simplified@JP'.
+
+	* Ideograph-R098-Tile.el (HD-FT1966): Add
+	`=decomposition@hanyo-denshi'.
+
+2011-09-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R175-Wrong.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+	(U-000291F8): Use `->denotational' instead of `->subsumptive'.
+	(U+4A40): Use `->subsumptive' to separate representative nodes.
+	(M-42609): Map to U-000291FB; integrate H11-A5E4.
+	(U-000291FD): New character.
+	(U+9761): Use `->denotational' instead of `->subsumptive'.
+	(U+4A41): Use `->subsumptive' to separate representative nodes.
+	(U-00029200): New character.
+	(U-00029201): New character.
+
 2011-09-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R167-Gold.el (U+493D): Use `->denotational' to
