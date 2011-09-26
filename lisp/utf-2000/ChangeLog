@@ -1,5 +1,12 @@
 2011-09-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R115-Grain.el: Add Hanyo-Denshi/FT code points.
+	(U+4168): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R112-Stone.el: Add Hanyo-Denshi/FT code points.
+
+2011-09-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R176-Face.el: Add mappings between CJK Ext-B and CNS
 	11643 plain 7.
 	(M-42652): Map to U-0002921E.
