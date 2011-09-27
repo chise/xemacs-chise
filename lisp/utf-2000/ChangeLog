@@ -1,3 +1,58 @@
+2011-09-24  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R177-Leather.el: Add mappings between CJK Ext-B and
+	CNS 11643 plain 7.
+	(U+4A65): Integrate M-42841.
+	(U+979A): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U-000292C7): Integrate M-42874.
+	(U+4A6C): Use `->subsumptive' to separate representative nodes.
+	(U+979B): Likewise.
+	(U+979D): Use `->denotational' to separate representative nodes.
+	(U+4A6E): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U-000292D2): Use `->denotational' instead of `->subsumptive'.
+	(U-000292D9): Likewise.
+	(U-000292D1): Integrate M-42902.
+	(U+4A71): Use `->denotational' instead of `->subsumptive'.
+	(U+4A73): Use `->subsumptive' to separate representative nodes.
+	(U+97AC): Likewise.
+	(U+4A76): Use `->denotational' instead of `->subsumptive'.
+	(U-000292F5): Use `->denotational' instead of `->subsumptive'.
+	(U+97A9): Likewise.
+	(U+97B5): Use `->denotational' instead of `->subsumptive'.
+	(U+4A7A): Likewise.
+	(U+97B0): Likewise.
+	(U+97B9): Use `->subsumptive' to separate representative nodes.
+	(U-00029327): Use `->denotational' instead of `->subsumptive'.
+	(U+4A7C): Use `->denotational' instead of `->subsumptive'.
+	(U+4A7D): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+4A7E): Use `->subsumptive' to separate representative nodes.
+	(U+4A80): Likewise.
+	(U+4A81): Likewise.
+	(U+97BF): Likewise.
+	(U+4A84): Use `->denotational' instead of `->subsumptive'.
+	(U+97C2): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+97C3): Use `->denotational' instead of `->subsumptive'.
+	(U-00029367): Likewise.
+	(U+4A87): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+4A88): Use `->denotational' instead of `->subsumptive'.
+	(U+97C4): Likewise.
+	(U-0002936A): Likewise.
+	(U+97C6): Likewise.
+	(U+4A89): Likewise.
+	(U+97C8): Likewise.
+	(U-00029373): Integrate M-43080.
+	(U+4A8B): Use `->denotational' instead of `->subsumptive'.
+	(U+4A8C): Use `->subsumptive' to separate representative nodes.
+	(U+4A8D): Likewise.
+	(U+4A8E): Use `->denotational' instead of `->subsumptive'.
+	(U-00029387): Fix `ideographic-strokes'.
+	(U+97CA): Use `->denotational' instead of `->subsumptive'.
+
 2011-09-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R115-Grain.el: Add Hanyo-Denshi/FT code points.
