@@ -1925,6 +1925,51 @@
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+	(=ucs		    . #x2FF2)	; ⿲
+	)
+       ((=ucs		    . #x5200)	; 刀
+	)
+       ((=ucs		    . #x4E2B)	; 丫
+	)
+       ((=big5-cdp	    . #x89CA)	; &CDP-89CA;
+	))
+      ))
+    (=>>big5-cdp	. #x8DEB)	; &G-CDP-8DEB;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs@jis	    . #x4EA0)	; 亠󠄀
+	(=jis-x0208	    . #x5035)	; 亠󠄀 [48-21]
+	(=jis-x0213-1	    . #x5035)	; &I-JX1-5035; [48-21]
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+	  (=ucs		      . #x2FF2)	; ⿲
+	  )
+	 ((=ucs		      . #x5200)	; 刀
+	  )
+	 ((=ucs		      . #x4E2B)	; 丫
+	  )
+	 ((=big5-cdp	      . #x89CA)	; &CDP-89CA;
+	  ))
+	))
+      (=big5-cdp	  . #x8DEB)	; &CDP-8DEB;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (ideographic-structure
