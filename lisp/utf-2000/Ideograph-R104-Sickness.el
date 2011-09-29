@@ -7926,7 +7926,12 @@
     (ideographic-radical . 104)	; ⽧
     (ideographic-strokes . 13)
     (total-strokes	 . 18)
-    (=jis-x0208@1978	. #x4C7E)	; &M-22545; [44-94]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x7652)	; 癒
+      )
+     ((=ucs		  . #xE0104)	; 󠄄
+      ))
+    (=jis-x0208@1978	. #x4C7E)	; 癒󠄄 [44-94]
     (=ks-x1001		. #x6B28)	; &I-K0-6B28; [75-08]
     (=daikanwa		. 22545)	; &I-M-22545;
     (=hanyo-denshi/ft	. #x333F)	; &I-HD-FT-333F; [19-31]
@@ -7959,7 +7964,7 @@
 	(=gt-pj-1	    . #x4C7E)	; &I-GT-28920; [44-94]
 	(=jef-china3	    . #x5AF4)	; &I-JC3-5AF4;
 	(<-simplified@JP/jis
-	 ((=jis-x0208@1978    . #x4C7E)	; &M-22545; [44-94]
+	 ((=jis-x0208@1978    . #x4C7E)	; 癒󠄄 [44-94]
 	  (=ks-x1001	      . #x6B28)	; &I-K0-6B28; [75-08]
 	  (=daikanwa	      . 22545)	; &I-M-22545;
 	  ))
