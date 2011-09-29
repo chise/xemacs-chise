@@ -1,3 +1,12 @@
+2011-09-29  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R019-Power.el: Add abstract characters and relations
+	about BUCS.
+	(U+52AE): Use `->subsumptive' to separate representative node.
+	(M-02324): Unify U-0002084B and H1-F1C9.
+	(U+52C2): Use `->denotational' instead of `->subsumptive'.
+	(U+52C3): Use `->subsumptive' to separate representative node.
+
 2011-09-28  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R115-Grain.el, Ideograph-R113-Spirit.el,
