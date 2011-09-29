@@ -1,3 +1,20 @@
+2011-09-28  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R115-Grain.el, Ideograph-R113-Spirit.el,
+	Ideograph-R112-Stone.el, Ideograph-R109-Eye.el: Add
+	`=decomposition@hanyo-denshi' for some Hanyo-Denshi/FT characters.
+
+	* Ideograph-R106-White.el (HD-FT1969): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R104-Sickness.el (HD-FT1931): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R028-Private.el (U-00020B18): Integrate M-43254; use
+	`ideographic-radical@ucs' instead of `ideographic-radical'; add
+	`ideographic-strokes@ucs', `ideographic-{radical|strokes}@cns' and
+	`total-strokes'.
+
 2011-09-27  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R008-Lid.el (G-BC-8DEB): New character.
