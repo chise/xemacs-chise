@@ -3559,8 +3559,13 @@
     (=>>ucs@cns		. #x2F94F)	; &G-HD-FT-375C;
     (=>>hanyo-denshi/ft . #x375C)	; &G-HD-FT-375C; [23-60]
     (->subsumptive
-     ((=ucs@unicode	  . #x788C)	; &HD-FT-375C;
-      (=gb2312		  . #x4235)	; &HD-FT-375C; [34-21]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x788C)	; 碌
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=ucs@unicode	  . #x788C)	; 碌󠄂
+      (=gb2312		  . #x4235)	; 碌󠄂 [34-21]
       (=hanyo-denshi/ft	  . #x375C)	; &I-HD-FT-375C; [23-60]
       )
      ((=>ucs*		  . #x788C)	; 碌
@@ -4183,7 +4188,12 @@
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
-    (=hanyo-denshi/ft	. #x375D)	; &HD-FT-375D; [23-61]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x78A3)	; 碣
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=hanyo-denshi/ft	. #x375D)	; 碣󠄂 [23-61]
     ))
 (define-char
   '((=>ucs		. #x25500)	; 𥔀
@@ -7777,7 +7787,12 @@
     (=>>>ucs@unicode	. #x7926)	; &G-HD-FT-375B;
     (=>>hanyo-denshi/ft . #x375B)	; &G-HD-FT-375B; [23-59]
     (->subsumptive
-     ((=hanyo-denshi/ft	  . #x375B)	; &HD-FT-375B; [23-59]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7926)	; 礦
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/ft	  . #x375B)	; 礦󠄂 [23-59]
       )
      ((=ucs@unicode	  . #x7926)	; &UU+7926;
       (=gb12345		  . #x3F73)	; &UU+7926; [31-83]
