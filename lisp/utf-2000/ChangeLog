@@ -1,5 +1,56 @@
 2011-09-29  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R118-Bamboo.el: Add Hanyo-Denshi/FT code points.
+	(U+7B4B): Use `->subsumptive'.
+	(U+4266): Use `->denotational'.
+	(U+4267): Use `->subsumptive'.
+	(U-00025D86): Use `->subsumptive' to separate representative
+	nodes.
+
+	* Ideograph-R116-Cave.el: Add Hanyo-Denshi/FT code points.
+
+	* Ideograph-R148-Horn.el (JSP-5D34): Unify S-5779; add `<-formed'
+	for J0-365A.
+
+2011-09-29  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R180-Sound.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+	(U+4AAB): Use `->subsumptive' to separate representative nodes.
+	(U+4AAC): Likewise.
+	(U-00029430): Use `->denotational' instead of `->subsumptive'.
+	(M-43310): Map to U-00029438.
+	(U+97FC): Use `->denotational' instead of `->subsumptive'.
+	(U+97FD): Use `->subsumptive' to separate representative nodes.
+	(U+97FE): Likewise.
+
+	* Ideograph-R178-Tanned-Leather.el: Add mappings between CJK Ext-B
+	and CNS 11643 plain 7.
+	(U+97D2): Use `->denotational' instead of `->subsumptive'.
+	(U-000293B8): Likewise.
+	(U+4A96): Likewise.
+	(U+4A97): Use `->subsumptive' to separate representative nodes.
+	(U+97DA): Likewise.
+	(U+4A9A): Use `->denotational' instead of `->subsumptive'.
+	(U+97DC): Likewise.
+	(U+97DD): Likewise.
+	(U-000293D7): Likewise.
+	(U+97DF): Use `->subsumptive'.
+	(U+97E4): Use `->denotational' instead of `->subsumptive'.
+	(U+97E5): Likewise.
+
+	* Ideograph-R179-Leek.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+	(U+4AA0): Use `->subsumptive' to separate representative nodes.
+	(U+4AA1): Use `->denotational' instead of `->subsumptive'.
+	(U+4AA2): Use `->denotational' to separate representative nodes.
+	(U-0002940B): Use `->subsumptive' to separate representative
+	nodes.
+	(U+4AA3): Use `->denotational' instead of `->subsumptive'.
+	(U-0002940C): Likewise.
+	(U+4AA4): Use `->subsumptive' to separate representative nodes.
+	(M-49882): Map to U-00029410.
+
 	* Ideograph-R019-Power.el: Add abstract characters and relations
 	about BUCS.
 	(U+52AE): Use `->subsumptive' to separate representative node.
