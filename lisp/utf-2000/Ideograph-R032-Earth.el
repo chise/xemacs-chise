@@ -1349,7 +1349,12 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (=hanyo-denshi/jt	. #xAF4A)	; &HD-JT-AF4A;
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x21274)	; 𡉴
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=hanyo-denshi/jt	. #xAF4A)	; 𡉴󠄂
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
@@ -1788,9 +1793,14 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=ks-x1001		. #x7840)	; &M-04976; [88-32]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x576A)	; 坪
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
+    (=ks-x1001		. #x7840)	; 坪󠄃 [88-32]
     (=daikanwa		. 04976)	; &I-M-04976;
-    (=shinjigen@1ed	.  1382)	; &M-04976;
+    (=shinjigen@1ed	.  1382)	; 坪󠄃
     (=jef-china3	. #x47E8)	; &I-JC3-47E8;
     (=hanyo-denshi/jt	. #xAF52)	; &I-HD-JT-AF52;
     ))
@@ -4262,6 +4272,11 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x57CE)	; 城
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=ucs		. #x2F852)	; 城
     (=cns11643-6	. #x3635)	; &I-C6-3635; [22-21]
     (=daikanwa		. 05120)	; &I-M-05120;
@@ -4395,8 +4410,13 @@
     (total-strokes	 . 10)
     (=>>ucs@cns		. #x57D3)	; &G-CU+57D3;
     (->subsumptive
-     ((=daikanwa	  . 05124)	; &M-05124;
-      (=shinjigen	  .  1404)	; &M-05124;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x57D3)	; 埓
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=daikanwa	  . 05124)	; 埓󠄂
+      (=shinjigen	  .  1404)	; 埓󠄂
       (=hanyo-denshi/jt	  . #xAF5D)	; &I-HD-JT-AF5D;
       (<-vulgar
        ((=ucs@jis	    . #x57D2)	; 埒󠄁
@@ -7319,7 +7339,12 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=hanyo-denshi/jt	. #xAF68)	; &HD-JT-AF68;
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5834)	; 場
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=hanyo-denshi/jt	. #xAF68)	; 場󠄂
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
@@ -8794,7 +8819,12 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=hanyo-denshi/jt	. #xAF7E)	; &HD-JT-AF7E;
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5859)	; 塙
+      )
+     ((=ucs		  . #xE0104)	; 󠄄
+      ))
+    (=hanyo-denshi/jt	. #xAF7E)	; 塙󠄄
     ))
 (define-char
   '((<-denotational
@@ -8803,7 +8833,12 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=hanyo-denshi/jt	. #xAF7F)	; &HD-JT-AF7F;
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5859)	; 塙
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
+    (=hanyo-denshi/jt	. #xAF7F)	; 塙󠄃
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
@@ -11388,9 +11423,14 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x589E)	; 增
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (hanyu-dazidian	1 489 6)
-    (=ucs@unicode	. #x589E)	; &HD-JT-AF8A;
-    (=gb2312		. #x5476)	; &HD-JT-AF8A; [52-86]
+    (=ucs@unicode	. #x589E)	; 增󠄂
+    (=gb2312		. #x5476)	; 增󠄂 [52-86]
     (=cns11643-1	. #x6C41)	; &I-C1-6C41; [76-33]
     (=hanyo-denshi/jt	. #xAF8A)	; &I-HD-JT-AF8A;
     ))
@@ -11806,7 +11846,12 @@
       (=gt-pj-1		  . #x5453)	; &I-GT-06908; [52-51]
       (=hanyo-denshi/ja	  . #x5453)	; &I-HD-JA-5453; [52-51]
       )
-     ((=hanyo-denshi/jt	  . #xAF8F)	; &HD-JT-AF8F;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x58AB)	; 墫
+	)
+       ((=ucs		    . #xE0104)	; 󠄄
+	))
+      (=hanyo-denshi/jt	  . #xAF8F)	; 墫󠄄
       ))
     ))
 (define-char
@@ -12953,7 +12998,12 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (=hanyo-denshi/jt	. #xAF92)	; &HD-JT-AF92;
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x58C7)	; 壇
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=hanyo-denshi/jt	. #xAF92)	; 壇󠄂
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
@@ -13334,7 +13384,12 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (=hanyo-denshi/jt	. #xAF94)	; &HD-JT-AF94;
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x58CE)	; 壎
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=hanyo-denshi/jt	. #xAF94)	; 壎󠄂
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
