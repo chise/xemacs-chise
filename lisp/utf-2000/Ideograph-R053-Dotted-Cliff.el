@@ -1904,6 +1904,7 @@
       (=hanyo-denshi/ib	  . #x3170)	; &HD-IB-3170; [17-80]
       (<-formed
        ((=shinjigen	    .  0879)	; 厖󠄂
+	(=hanyo-denshi/jt   . #xAE85)	; 厖󠄂
 	))
       (<-formed*sources
        shinjigen)
