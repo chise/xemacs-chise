@@ -663,7 +663,9 @@
       )
      ((=ucs		  . #x353E)	; 㔾
       ))
-    (=>>ucs@unicode	. #x5377)	; &G-UU+5377;
+    (=>>ucs@unicode	. #x5377)	; &G-HD-FT-3521;
+    (=>>hanyo-denshi/ft . #x3521)	; &G-HD-FT-3521; [21-01]
+    (=>>hanyo-denshi/jt . #xAE76)	; &G-HD-FT-3521;
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x5377)	; 卷
@@ -694,7 +696,12 @@
       (=gb2312		  . #x3E6D)	; &C1-4C3A; [30-77]
       (=cns11643-1	  . #x4C3A)	; &I-C1-4C3A; [44-26]
       )
-     ((=hanyo-denshi/jt	  . #xAE76)	; &HD-JT-AE76;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5377)	; 卷
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/jt	  . #xAE76)	; 卷󠄂
       ))
     ))
 (define-char
@@ -1270,6 +1277,11 @@
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x537F)	; 卿
+      )
+     ((=ucs		  . #xE0106)	; 󠄆
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
