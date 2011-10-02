@@ -1146,6 +1146,7 @@
     (=cns11643-1	. #x4A77)	; &I-C1-4A77; [42-87]
     (=jis-x0213-1@2004	. #x3562)	; &I-JX3-3562; [21-66]
     (=daikanwa		. 17163)	; &I-M-17163;
+    (=hanyo-denshi/hg	. #x302B)	; &I-HD-HG-302B; [16-11]
     ))
 (define-char
   '((<-denotational
@@ -14351,6 +14352,7 @@
     (=gt		. 23029)	; &I-GT-23029;
     (=gt-pj-4		. #x5167)	; &I-GT-23029; [49-71]
     (=daikanwa		. 17990)	; &I-M-17990;
+    (=hanyo-denshi/hg	. #x3051)	; &I-HD-HG-3051; [16-49]
     ))
 (define-char
   '((<-denotational
