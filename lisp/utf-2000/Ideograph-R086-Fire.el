@@ -8342,6 +8342,7 @@
     (=ks-x1001		. #x6043)	; &M-19272; [64-35]
     (=jis-x0213-1@2004	. #x407A)	; &I-JX3-407A; [32-90]
     (=daikanwa		. 19272)	; &I-M-19272;
+    (=hanyo-denshi/hg	. #x3046)	; &I-HD-HG-3046; [16-38]
     ))
 (define-char
   '((<-denotational
