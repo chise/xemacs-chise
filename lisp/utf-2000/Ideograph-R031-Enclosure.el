@@ -1558,7 +1558,12 @@
       ))
     (=>>ucs@cns		. #x56F6)	; &G-CU+56F6;
     (->subsumptive
-     ((=hanyo-denshi/jt	  . #xAF38)	; &HD-JT-AF38;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x56F6)	; 囶
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/jt	  . #xAF38)	; 囶󠄂
       )
      ((=ucs@cns		  . #x56F6)	; &C3-2822;
       (=cns11643-3	  . #x2822)	; &C3-2822; [08-02]
@@ -2702,7 +2707,7 @@
       )
      ((=ucs		  . #x56D7)	; 囗
       )
-     ((=>>ucs@unicode	  . #x5377)	; &G-UU+5377;
+     ((=>>hanyo-denshi/ft . #x3521)	; &G-HD-FT-3521; [21-01]
       ))
     (=>>ucs@unicode	. #x5708)	; &G-HD-FT-353A;
     (=>>hanyo-denshi/ft . #x353A)	; &G-HD-FT-353A; [21-26]
@@ -3853,6 +3858,11 @@
     (ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5716)	; 圖
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (=ucs		  . #x2FF4)	; ⿴
@@ -3868,7 +3878,7 @@
        ((=ucs		    . #x9762)	; 面
 	))
       ))
-    (=hanyo-denshi/jt	. #xAF43)	; &HD-JT-AF43;
+    (=hanyo-denshi/jt	. #xAF43)	; 圖󠄂
     ))
 (define-char
   '((<-denotational
