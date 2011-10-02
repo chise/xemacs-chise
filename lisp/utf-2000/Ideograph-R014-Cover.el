@@ -896,7 +896,7 @@
       )
      ((=ucs		  . #x5196)	; 冖
       )
-     ((=gt-k		  . 05208)	; 兔󠄄
+     ((=hanyo-denshi/jt	  . #xADC1)	; &I-HD-JT-ADC1;
       ))
     (=jef-china3	. #x43F0)	; &JC3-43F0;
     ))

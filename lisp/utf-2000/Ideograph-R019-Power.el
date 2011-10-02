@@ -1536,6 +1536,7 @@
       (=ucs		  . #x2FF0)	; ⿰
       )
      ((=daikanwa	  . 00292)	; 亥󠄂
+      (=hanyo-denshi/jt	  . #xAD2B)	; &I-HD-JT-AD2B;
       )
      ((=ucs		  . #x529B)	; 力
       ))
