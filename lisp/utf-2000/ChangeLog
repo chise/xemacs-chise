@@ -1,5 +1,18 @@
 2011-10-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R098-Tile.el (JX3-3979): Unify HD-HG1644.
+
+	* Ideograph-R092-Fang.el (JX3-3267): Unify HD-HG1606.
+
+	* Ideograph-R038-Woman.el, Ideograph-R030-Mouth.el: Add
+	`=decomposition@hanyo-denshi' for Hanyo-Denshi/JT characters.
+
+	* Ideograph-R009-Man.el (B-D44C): Unify A-UU+5070 instead of
+	G-UU+5070, G-JX2-2167 and G-M-00893; use `->denotational' instead
+	of `->subsumptive'.
+
+2011-10-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R086-Fire.el (JX3-407A): Unify HD-HG1638.
 
 	* Ideograph-R085-Water.el: Add Hanyo-Denshi/HG code points.
@@ -7,6 +20,11 @@
 	* Ideograph-R037-Big.el, Ideograph-R031-Enclosure.el,
 	Ideograph-R026-Seal.el: Add `=decomposition@hanyo-denshi' for
 	Hanyo-Denshi/JT characters.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=hanyo-denshi/jt'.
+
+	* Ideograph-R039-Child.el (HD-JT-B011): New character.
 
 	* Ideograph-R032-Earth.el: Add `=decomposition@hanyo-denshi' for
 	Hanyo-Denshi/JT characters.
