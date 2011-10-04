@@ -1149,9 +1149,12 @@ charset_code_point (Lisp_Object charset, Emchar ch, int accepted_mode)
       Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (charset);
 
       if ( CHAR_TABLEP (encoding_table)
-	   && INTP (ret = get_char_id_table (XCHAR_TABLE(encoding_table),
-					     ch)) )
-	return XINT (ret);
+	   && !UNBOUNDP (ret = get_char_id_table (XCHAR_TABLE(encoding_table),
+						  ch)) )
+	if ( INTP (ret) )
+	  return XINT (ret);
+	else
+	  return -1;
     }
     {
       Lisp_Object mother = XCHARSET_MOTHER (charset);
