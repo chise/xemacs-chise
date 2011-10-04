@@ -7699,8 +7699,8 @@
       (=ks-x1001	  . #x5641)	; &M-38896; [54-33]
       (=daikanwa	  . 38896)	; &I-M-38896;
       (<-original
-       ((=ucs@cns	    . #x5448)	; &M-03363;
-	(=cns11643-1	    . #x4947)	; &M-03363; [41-39]
+       ((=ucs@cns	    . #x5448)	; 呈󠄄
+	(=cns11643-1	    . #x4947)	; 呈󠄄 [41-39]
 	(=daikanwa	    . 03363)	; &I-M-03363;
 	))
       (<-synonyms
@@ -7709,8 +7709,8 @@
       (<-synonyms*sources
        shuowen-tongxundingsheng fangyan zuoshi-zhuan zuoshi-zhu daikanwa)
       (->formed
-       ((=ucs@cns	    . #x5448)	; &M-03363;
-	(=cns11643-1	    . #x4947)	; &M-03363; [41-39]
+       ((=ucs@cns	    . #x5448)	; 呈󠄄
+	(=cns11643-1	    . #x4947)	; 呈󠄄 [41-39]
 	(=daikanwa	    . 03363)	; &I-M-03363;
 	))
       (->formed*sources
