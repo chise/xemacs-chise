@@ -155,6 +155,7 @@
     =hanyo-denshi/ia
     =hanyo-denshi/ib
     =hanyo-denshi/hg
+    =hanyo-denshi/jt
     =hanyo-denshi/ks
     =daikanwa
     =daikanwa@rev2
