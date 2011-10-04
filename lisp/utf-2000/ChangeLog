@@ -1,3 +1,16 @@
+2011-10-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R086-Fire.el (JX3-407A): Unify HD-HG1638.
+
+	* Ideograph-R085-Water.el: Add Hanyo-Denshi/HG code points.
+
+	* Ideograph-R037-Big.el, Ideograph-R031-Enclosure.el,
+	Ideograph-R026-Seal.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/JT characters.
+
+	* Ideograph-R032-Earth.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/JT characters.
+
 2011-09-29  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R118-Bamboo.el: Add Hanyo-Denshi/FT code points.
