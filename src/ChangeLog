@@ -1,3 +1,8 @@
+2011-07-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (charset_code_point): If nil is specified as a
+	feature-value, don't find in mother and return -1.
+
 2011-07-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Fput_char_attribute): Accept nil as a value of
