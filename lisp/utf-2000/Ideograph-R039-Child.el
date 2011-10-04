@@ -1335,6 +1335,17 @@
     (=gt-pj-1		. #x555A)	; &I-GT-08799; [53-58]
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x5B73)	; 孳
+      ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5B73)	; 孳
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
+    (=hanyo-denshi/jt	. #xB011)	; 孳󠄃
+    ))
+(define-char
   '((ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
