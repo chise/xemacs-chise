@@ -6092,7 +6092,7 @@
 	(=shinjigen	    .  5659)	; &GT-32559;
 	))
       (<-vulgar*sources
-       shinjigen@1ed)
+       shinjigen)
       ))
     ))
 (define-char
