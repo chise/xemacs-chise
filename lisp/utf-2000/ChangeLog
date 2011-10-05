@@ -1,3 +1,12 @@
+2011-10-04  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R157-Foot.el (U-00029548): Use
+	`ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+	(M-49890): Add `ideographic-radical' and `ideographic-strokes'.
+	(C7-504C): Likewise.
+
 2011-10-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R098-Tile.el (JX3-3979): Unify HD-HG1644.
