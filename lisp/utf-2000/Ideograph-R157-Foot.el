@@ -7759,16 +7759,24 @@
     (=cns11643-7	. #x5045)	; &C7-5045; [48-37]
     ))
 (define-char
-  '((ideographic-radical . 157)	; ⾜
-    (ideographic-strokes . 13)
+  '((ideographic-radical@ucs . 181)	; ⾴
+    (ideographic-strokes@ucs . 11)
+    (ideographic-radical@ucs*sources
+     daikanwa)
+    (ideographic-radical@cns . 157)	; ⾜
+    (ideographic-strokes@cns . 13)
     (total-strokes	 . 20)
     (=ucs		. #x29548)	; 𩕈
     (->subsumptive
-     ((=daikanwa	  . 49890)	; &M-49890;
+     ((ideographic-radical . 181)	; ⾴
+      (ideographic-strokes . 11)
+      (=daikanwa	  . 49890)	; &M-49890;
       )
      ((=ucs@iso		  . #x29548)	; &U-00029548;
       )
-     ((=cns11643-7	  . #x504C)	; &C7-504C; [48-44]
+     ((ideographic-radical . 157)	; ⾜
+      (ideographic-strokes . 13)
+      (=cns11643-7	  . #x504C)	; &C7-504C; [48-44]
       ))
     ))
 (define-char
