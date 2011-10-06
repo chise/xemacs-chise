@@ -77,7 +77,7 @@
     (=gt-k		. 07884)	; &I-GT-K07884;
     (=gt-pj-1		. #x4C6E)	; &I-GT-53973; [44-78]
     (=daikanwa		. 40133)	; &I-M-40133;
-    (=shinjigen@rev	.  8565)	; 野
+    (=shinjigen		.  8565)	; 野
     ))
 (define-char
   '((ideographic-radical . 166)	; ⾥
