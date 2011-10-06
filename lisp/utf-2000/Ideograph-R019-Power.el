@@ -1640,8 +1640,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x57F7)	; &J90-3C39;
-	(=jis-x0208	    . #x3C39)	; &J90-3C39; [28-25]
+       ((=ucs@jis	    . #x57F7)	; &AJ1-02277;
+	(=jis-x0208	    . #x3C39)	; &AJ1-02277; [28-25]
 	(=ks-x1001	    . #x727B)	; &I-K0-727B; [82-91]
 	(=jis-x0213-1	    . #x3C39)	; &I-JX1-3C39; [28-25]
 	)
