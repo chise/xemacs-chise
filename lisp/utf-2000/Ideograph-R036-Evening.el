@@ -264,7 +264,8 @@
     (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (=shinjigen		.  1547)	; &SJG2-1547;
+    (=shinjigen		.  1547)	; &HD-JT-AFB7;
+    (=hanyo-denshi/jt	. #xAFB7)	; &HD-JT-AFB7;
     (<-vulgar
      ((=ucs		  . #x591A)	; 多
       (=jis-x0208	  . #x423F)	; &I-J90-423F; [34-31]
