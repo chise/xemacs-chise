@@ -111,7 +111,12 @@
       (=adobe-japan1-0	  . 04315)	; &I-AJ1-04315;
       (=hanyo-denshi/ja	  . #x5246)	; &I-HD-JA-5246; [50-38]
       )
-     ((hanyu-dazidian	  1 92 3)
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x535E)	; 卞
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (hanyu-dazidian	  1 92 3)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
@@ -120,11 +125,11 @@
 	)
        ((=ucs		    . #x4E0B)	; 下
 	))
-      (=ucs@unicode	  . #x535E)	; &HD-KS-032260;
-      (=gb2312		  . #x3165)	; &HD-KS-032260; [17-69]
+      (=ucs@unicode	  . #x535E)	; 卞󠄂
+      (=gb2312		  . #x3165)	; 卞󠄂 [17-69]
       (=cns11643-1	  . #x452C)	; &I-C1-452C; [37-12]
       (=big5		  . #xA4CB)	; &I-B-A4CB;
-      (=hanyo-denshi/ks	  . 032260)	; &HD-KS-032260;
+      (=hanyo-denshi/ks	  . 032260)	; 卞󠄂
       (=hanyo-denshi/ks/mf . #x0C9A)	; &I-KSMF-03226;
       ))
     ))
