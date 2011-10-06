@@ -4308,13 +4308,21 @@
     (ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (=>>ucs@jis/2004	. #x7337)	; &G-JX3-4D32;
+    (=>>ucs@ks		. #x7337)	; &G-JX3-4D32;
+    (=>>jis-x0208@1978	. #x4D32)	; &G-JX3-4D32; [45-18]
+    (=>>jis-x0213-1@2004 . #x4D32)	; &G-JX3-4D32; [45-18]
+    (=>>daikanwa	. 20558)	; &G-JX3-4D32;
+    (=>>hanyo-denshi/hg . #x3063)	; &G-JX3-4D32; [16-67]
     (->subsumptive
-     ((=jis-x0208@1978	  . #x4D32)	; &M-20558; [45-18]
+     ((=ucs@ks		  . #x7337)	; &M-20558;
+      (=jis-x0208@1978	  . #x4D32)	; &M-20558; [45-18]
       (=ks-x1001	  . #x6B23)	; &I-K0-6B23; [75-03]
       (=daikanwa	  . 20558)	; &I-M-20558;
       )
      ((=ucs@jis/2004	  . #x7337)	; &JX3-4D32;
       (=jis-x0213-1@2004  . #x4D32)	; &JX3-4D32; [45-18]
+      (=hanyo-denshi/hg	  . #x3063)	; &I-HD-HG-3063; [16-67]
       ))
     ))
 (define-char
@@ -4324,6 +4332,11 @@
     (ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (=>>ucs@unicode	. #x7337)	; &G-GT-26390;
+    (=>>jis-x0208@1983	. #x4D32)	; &G-GT-26390; [45-18]
+    (=>>jis-x0208@1990	. #x4D32)	; &G-GT-26390; [45-18]
+    (=>>jis-x0213-1@2000 . #x4D32)	; &G-GT-26390; [45-18]
+    (=>>gt		. 26390)	; &G-GT-26390;
     (->subsumptive
      ((=cns11643-1	  . #x6527)	; &C1-6527; [69-07]
       )
