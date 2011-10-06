@@ -1,4 +1,19 @@
+2011-10-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R166-Village.el (U+91CE): Unify S1-8565.
+
 2011-10-05  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R157-Foot.el (g2-IU+29548): New node to integrate
+	IU+29548 and C7-504C.
+
+	* Ideograph-R094-Dog.el (JX3-4D32): Unify HD-HG1667.
+
+	* Ideograph-R029-Again.el (HD-KS036510): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R023-Hiding-Enclosure.el, Ideograph-R018-Knife.el: Add
+	`=decomposition@hanyo-denshi' for some Hanyo-Denshi/KS characters.
 
 	* Ideograph-R026-Seal.el (HD-KS033360): Add
 	`=decomposition@hanyo-denshi'.
