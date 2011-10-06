@@ -1,3 +1,19 @@
+2011-10-05  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R026-Seal.el (HD-KS033360): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R025-Divination.el (HD-KS032260): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R014-Cover.el (HD-KS019150): Add
+	`=decomposition@hanyo-denshi'.
+
+2011-10-04  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R072-Sun.el (U+3B0E): Unify S-9187; add `<-vulgar' for
+	U+986F.
+
 2011-10-04  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R157-Foot.el (U-00029548): Use
