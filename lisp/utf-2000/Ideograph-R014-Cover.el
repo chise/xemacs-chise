@@ -1449,6 +1449,11 @@
     (ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x51AA)	; 冪
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -1458,10 +1463,10 @@
      ((=cns11643-1	  . #x685D)	; &M-09051; [72-61]
       (=daikanwa	  . 09051)	; &I-M-09051;
       ))
-    (=cns11643-1	. #x7036)	; &M-01601; [80-22]
+    (=cns11643-1	. #x7036)	; 冪󠄂 [80-22]
     (=daikanwa		. 01601)	; &I-M-01601;
-    (=shinjigen		.  0536)	; &M-01601;
-    (=hanyo-denshi/ks	. 019150)	; &M-01601;
+    (=shinjigen		.  0536)	; 冪󠄂
+    (=hanyo-denshi/ks	. 019150)	; 冪󠄂
     (=hanyo-denshi/ks/mf . #x077B)	; &I-KSMF-01915;
     ))
 (define-char
