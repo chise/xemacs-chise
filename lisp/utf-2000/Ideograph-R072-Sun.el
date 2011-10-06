@@ -6012,6 +6012,14 @@
     (=cns11643-4	. #x436E)	; &I-C4-436E; [35-78]
     (=jis-x0213-2	. #x2E2E)	; &I-JX2-2E2E; [14-14]
     (=daikanwa		. 14099)	; &I-M-14099;
+    (=shinjigen		.  9187)	; 㬎
+    (<-vulgar
+     ((=ucs		  . #x986F)	; 顯
+      (=jis-x0208	  . #x707D)	; &I-J90-707D; [80-93]
+      (=shinjigen	  .  9186)	; 顯
+      ))
+    (<-vulgar*sources
+     shinjigen)
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
