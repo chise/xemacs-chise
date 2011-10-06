@@ -7772,11 +7772,14 @@
       (ideographic-strokes . 11)
       (=daikanwa	  . 49890)	; &M-49890;
       )
-     ((=ucs@iso		  . #x29548)	; &U-00029548;
-      )
-     ((ideographic-radical . 157)	; ⾜
-      (ideographic-strokes . 13)
-      (=cns11643-7	  . #x504C)	; &C7-504C; [48-44]
+     ((=>>>ucs@iso	  . #x29548)	; &g2-IU+29548;
+      (->subsumptive
+       ((=ucs@iso	    . #x29548)	; &U-00029548;
+	)
+       ((ideographic-radical . 157)	; ⾜
+	(ideographic-strokes . 13)
+	(=cns11643-7	    . #x504C)	; &C7-504C; [48-44]
+	))
       ))
     ))
 (define-char
