@@ -943,7 +943,8 @@
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (=>ucs@cns		. #x2F837)	; &G-HD-KS-8E9E;
+    (=>>ucs@cns		. #x2F837)	; &G-HD-KS-8E9E;
+    (=>>daikanwa	. 03151)	; &G-HD-KS-8E9E;
     (=>>hanyo-denshi/ks . 036510)	; &G-HD-KS-8E9E;
     (->subsumptive
      ((=daikanwa	  . 03151)	; &M-03151;
@@ -961,8 +962,13 @@
 	(=ucs		    . #x2F837)	; 叟
 	(=cns11643-6	    . #x2643)	; &I-C6-2643; [06-35]
 	)
-       ((=hanyo-denshi/ks   . 036510)	; &HD-KS-036510;
-	(=hanyo-denshi/ks/mf . #x0E43)	; &HD-KS-036510;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x53DF)	; 叟
+	  )
+	 ((=ucs		      . #xE0104)	; 󠄄
+	  ))
+	(=hanyo-denshi/ks   . 036510)	; 叟󠄄
+	(=hanyo-denshi/ks/mf . #x0E43)	; 叟󠄄
 	))
       ))
     ))
