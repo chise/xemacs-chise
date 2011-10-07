@@ -2261,10 +2261,13 @@
     (ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
-    (=>>ucs@unicode	. #x8CD3)	; &G-JX1-7C38;
-    (=>>ucs@jis		. #xFA64)	; &G-JX1-7C38;
-    (=>>jis-x0213-1	. #x7C38)	; &G-JX1-7C38; [92-24]
-    (=big5		. #xBBAB)	; &G-JX1-7C38;
+    (=>>ucs@unicode	. #x8CD3)	; &g2-JX1-7C38;
+    (=>>ucs@jis		. #xFA64)	; &g2-JX1-7C38;
+    (=>>>ucs@unicode	. #x8CD3)	; &g2-JX1-7C38;
+    (=>>>ucs@jis	. #xFA64)	; &g2-JX1-7C38;
+    (=>>>jis-x0213-1	. #x7C38)	; &g2-JX1-7C38; [92-24]
+    (=big5		. #xBBAB)	; &g2-JX1-7C38;
+    (=>>daikanwa	. 36788)	; &g2-JX1-7C38;
     (->subsumptive
      ((=>ucs*		  . #x8CD3)	; 賓
       (=ucs		  . #xFA64)	; 賓
