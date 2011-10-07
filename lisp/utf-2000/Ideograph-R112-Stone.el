@@ -2760,7 +2760,16 @@
     (=cns11643-6	. #x4C31)	; &I-C6-4C31; [44-17]
     ))
 (define-char
-  '((=>ucs		. #x786E)	; 确
+  '((ideographic-radical . 112)	; ⽯
+    (ideographic-strokes . 7)
+    (total-strokes	 . 12)
+    (=ucs		. #x786E)	; 确
+    (=big5		. #xDACC)	; &I-B-DACC;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x786E)	; 确
+      ))
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
@@ -2768,17 +2777,19 @@
     (=jis-x0212		. #x4F6C)	; &M-24232; [47-76]
     (=cns11643-2	. #x3E50)	; &I-C2-3E50; [30-48]
     (=jis-x0213-1	. #x7926)	; &I-JX1-7926; [89-06]
-    (=big5		. #xDACC)	; &I-B-DACC;
     (=daikanwa		. 24232)	; &I-M-24232;
+    (=shinjigen		.  5429)	; &M-24232;
     (=jef-china3	. #x5CB1)	; &I-JC3-5CB1;
     ))
 (define-char
-  '((morohashi-daikanwa	24232 0 4)
+  '((<-denotational
+     ((=ucs		  . #x786E)	; 确
+      ))
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (=ucs		. #x786E)	; 确
-    (=gb2312		. #x4837)	; &I-G0-4837; [40-23]
+    (=ucs@unicode	. #x786E)	; &G0-4837;
+    (=gb2312		. #x4837)	; &G0-4837; [40-23]
     ))
 (define-char
   '((ideographic-radical . 112)	; ⽯
@@ -2794,23 +2805,20 @@
     (=gt		. 30951)	; &I-GT-30951;
     (=gt-pj-1		. #x3827)	; &I-GT-30951; [24-07]
     (=daikanwa		. 24233)	; &I-M-24233;
-    (=shinjigen@rev	.  5432)	; 硯
+    (=shinjigen		.  5432)	; 硯
     ))
 (define-char
-  '((=>ucs		. #x7870)	; 硰
-    (ideographic-radical . 112)	; ⽯
-    (ideographic-strokes . 7)
-    (total-strokes	 . 12)
-    (=big5		. #xDACD)	; &M-24234;
-    (=daikanwa		. 24234)	; &I-M-24234;
-    ))
-(define-char
-  '((morohashi-daikanwa	24234 0 0)
-    (ideographic-radical . 112)	; ⽯
+  '((ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (=ucs		. #x7870)	; 硰
-    (=cns11643-2	. #x3E51)	; &I-C2-3E51; [30-49]
+    (=big5		. #xDACD)	; &I-B-DACD;
+    (->subsumptive
+     ((=daikanwa	  . 24234)	; &M-24234;
+      )
+     ((=ucs@unicode	  . #x7870)	; &C2-3E51;
+      (=cns11643-2	  . #x3E51)	; &C2-3E51; [30-49]
+      ))
     ))
 (define-char
   '((ideographic-radical . 112)	; ⽯
