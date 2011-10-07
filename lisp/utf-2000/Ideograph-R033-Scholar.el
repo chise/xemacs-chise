@@ -91,7 +91,15 @@
     (=daikanwa		. 05641)	; &I-M-05641;
     ))
 (define-char
-  '((ideographic-radical . 33)	; ⼠
+  '((ideographic-radical@ucs . 33)	; ⼠
+    (ideographic-radical@r032 . 32)	; ⼟
+    (=ucs		. #x58EE)	; 壮
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x58EE)	; 壮
+      ))
+    (ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 420 6)
@@ -103,8 +111,8 @@
       )
      ((=ucs		  . #x58EB)	; 士
       ))
-    (=ucs		. #x58EE)	; 壮
-    (=jis-x0208		. #x4154)	; &I-J90-4154; [33-52]
+    (=ucs@unicode	. #x58EE)	; &GT-07139;
+    (=jis-x0208		. #x4154)	; &GT-07139; [33-52]
     (=gb2312		. #x5733)	; &I-G0-5733; [55-19]
     (=cns11643-3	. #x2343)	; &I-C3-2343; [03-35]
     (=jis-x0213-1	. #x4154)	; &I-JX1-4154; [33-52]
@@ -112,7 +120,7 @@
     (=gt-k		. 01660)	; &I-GT-K01660;
     (=gt-pj-1		. #x4154)	; &I-GT-07139; [33-52]
     (=daikanwa		. 05642)	; &I-M-05642;
-    (=shinjigen		.  1526)	; 壮
+    (=shinjigen		.  1526)	; &GT-07139;
     (=hanziku-2		. #xA6B0)	; &I-HZK02-A6B0;
     (<-simplified@CN
      ((=gb12345		  . #x5733)	; &GT-07142; [55-19]
@@ -132,10 +140,19 @@
   '((ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (hanyu-dazidian	1 428 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x723F)	; 爿
+      )
+     ((=ucs		  . #x58EB)	; 士
+      ))
     (=ucs		. #x58EF)	; 壯
+    (=big5		. #xA7A7)	; &I-B-A7A7;
     (->subsumptive
-     ((hanyu-dazidian	  1 428 7)
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
@@ -152,7 +169,6 @@
       (=ks-x1001	  . #x6D60)	; &I-K0-6D60; [77-64]
       (=jis-x0213-1	  . #x5463)	; &I-JX1-5463; [52-67]
       (=gb12345		  . #x5733)	; &GT-07142; [55-19]
-      (=big5		  . #xA7A7)	; &I-B-A7A7;
       (=gt		  . 07142)	; &I-GT-07142;
       (=gt-k		  . 02691)	; &I-GT-K02691;
       (=gt-pj-1		  . #x5463)	; &I-GT-07142; [52-67]
