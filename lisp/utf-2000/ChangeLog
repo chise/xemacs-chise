@@ -1,4 +1,70 @@
+2011-10-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R124-Feather.el (U+7FFB): Add ideographic-structure.
+	(GT-37249): Unify S-6333.
+	(J0-4B5D): Unify S-6332.
+
+	* Ideograph-R030-Mouth.el: Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R022-Right-Open-Box.el: Add `=decomposition@cid' for
+	some Adobe-Japan1 characters.
+
 2011-10-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R181-Leaf.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+	(U-0002947D): Integrate M-43413.
+	(U+9829): Use `->denotational' to integrate U-0002FA00.
+	(U-0002949B): Unify M-43466.
+	(U-0002949E): Integrate M-43469.
+	(M-43471): Add `<-same' for U+4AB6.
+	(U+982F): Use `->subsumptive' to separate representative nodes.
+	(U-000294D6): Use `->denotational' instead of `->subsumptive'.
+	(U-000294E1): Integrate M-43547.
+	(U+9845): Use `->denotational' instead of `->subsumptive'.
+	(U-00029500): Likewise.
+	(U+4ADA): Likewise.
+	(U-0002950B): Likewise.
+	(U+4AE2): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+4AE7): Use `->subsumptive' to separate representative nodes.
+	(U+985F): Use `->denotational' and `->subsumptive'.
+	(U-00029548): Copied from Ideograph-R157-Foot.el; integrate
+	M-49890.
+	(U-0002954A): Use `->denotational' instead of `->subsumptive'.
+	(U-0002954E): Integrate M-43676.
+	(U-0002954F): Use `->subsumptive' to separate representative
+	nodes.
+	(U+4AEC): Likewise.
+	(U+4AEE): Use `->denotational' to separate representative nodes.
+	(U+9865): Use `->subsumptive' to separate representative nodes.
+	(U-00029555): Use `->denotational' instead of `->subsumptive'.
+	(U-00029556): Likewise.
+	(U-0002955C): New character.
+	(U-00029574): Integrate M-43727.
+	(U-00029578): Use `->denotational' instead of `->subsumptive'.
+	(U-00029587): Likewise.
+	(U-00029592): New character.
+
+	* Ideograph-R154-Shell.el (G-UU+8CD3): Unify g2-UU+8CD3,
+	g2-JU+FA64, g2-JX1-7C38 and G-M-36788.
+
+	* Ideograph-R033-Scholar.el (U+58EE): Use `->denotational' to
+	integrate U-0002F851; use `ideographic-radical@ucs' instead of
+	`ideographic-radical'; add `ideographic-radical@r032'.
+	(U+58EF): Add ideographic-structure.
+
+	* Ideograph-R183-Fly.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+	(M-44007): Unify U-00029678.
+	(U+98DC): Add `<-formed' and `<-same' for GT-37249.
+
+	* Ideograph-R120-Silk.el, Ideograph-R119-Rice.el: Add
+	Hanyo-Denshi/FT code points.
+
+2011-10-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R036-Evening.el (S-1547): Unify HD-JT-AFB7.
 
 	* Ideograph-R166-Village.el (U+91CE): Unify S1-8565.
 
