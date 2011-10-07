@@ -2468,16 +2468,16 @@
     (->subsumptive
      ((=daikanwa	  . 21624)	; &M-21624;
       (<-formed
-       ((=ucs@unicode	    . #x58DC)	; &GT-07082;
-	(=jis-x0208	    . #x5460)	; &GT-07082; [52-64]
+       ((=ucs@unicode	    . #x58DC)	; &AJ1-04529;
+	(=jis-x0208	    . #x5460)	; &AJ1-04529; [52-64]
 	(=jis-x0213-1	    . #x5460)	; &I-JX1-5460; [52-64]
 	(=daikanwa	    . 05588)	; &I-M-05588;
 	))
       (<-formed*sources
        jiyun)
       (<-same
-       ((=ucs@unicode	    . #x58DC)	; &GT-07082;
-	(=jis-x0208	    . #x5460)	; &GT-07082; [52-64]
+       ((=ucs@unicode	    . #x58DC)	; &AJ1-04529;
+	(=jis-x0208	    . #x5460)	; &AJ1-04529; [52-64]
 	(=jis-x0213-1	    . #x5460)	; &I-JX1-5460; [52-64]
 	(=daikanwa	    . 05588)	; &I-M-05588;
 	))
