@@ -1,10 +1,29 @@
 2011-10-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R028-Private.el: Add some Adobe-Japan1-0 code points.
+
 	* Ideograph-R124-Feather.el (U+7FFB): Add ideographic-structure.
 	(GT-37249): Unify S-6333.
 	(J0-4B5D): Unify S-6332.
 
+	* Ideograph-R112-Stone.el (U+786E): Use `->subsumptive'.
+	(JX1-7926): Unify S-5429.
+	(U+7870): Use `->subsumptive'.
+
+	* Ideograph-R075-Tree.el (U+68B5): Add `<-formed' for UU+6A92.
+	(U+6A92): Use `ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@r182'; integrate M-43880.
+
 	* Ideograph-R030-Mouth.el: Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R027-Cliff.el, Ideograph-R026-Seal.el,
+	Ideograph-R025-Divination.el, Ideograph-R024-Ten.el:	
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	- Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R023-Hiding-Enclosure.el, Ideograph-R019-Power.el: Add
+	`=decomposition@cid' for some Adobe-Japan1 characters.
 
 	* Ideograph-R022-Right-Open-Box.el: Add `=decomposition@cid' for
 	some Adobe-Japan1 characters.
