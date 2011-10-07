@@ -5425,6 +5425,14 @@
   '((ideographic-radical . 124)	; ⽻
     (ideographic-strokes . 12)
     (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x756A)	; 番
+      )
+     ((=ucs		  . #x7FBD)	; 羽
+      ))
     (=ucs		. #x7FFB)	; 翻
     (=big5		. #xC2BD)	; &I-B-C2BD;
     ))
@@ -5447,6 +5455,7 @@
     (=gt		. 37249)	; &GT-37249;
     (=gt-pj-6		. #x3472)	; &GT-37249; [20-82]
     (=daikanwa		. 28814)	; &I-M-28814;
+    (=shinjigen		.  6333)	; &GT-37249;
     ))
 (define-char
   '((<-denotational
@@ -5474,6 +5483,7 @@
     (=jis-x0213-1	. #x4B5D)	; &I-JX1-4B5D; [43-61]
     (=gt		. 37250)	; &I-GT-37250;
     (=gt-pj-1		. #x4B5D)	; &I-GT-37250; [43-61]
+    (=shinjigen		.  6332)	; &GT-37250;
     (<-simplified@JP/Jouyou
      ((=ucs		  . #x98DC)	; 飜
       (=jis-x0208	  . #x664C)	; &I-J90-664C; [70-44]
