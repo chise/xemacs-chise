@@ -48,8 +48,13 @@
       ))
     (=ucs		. #x531B)	; 匛
     (->subsumptive
-     ((=ucs@jis		  . #x531B)	; &AJ1-21223;
-      (=jis-x0212	  . #x3425)	; &AJ1-21223; [20-05]
+     ((=decomposition@cid
+       ((=ucs		    . #x531B)	; 匛
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@jis		  . #x531B)	; 匛󠄀
+      (=jis-x0212	  . #x3425)	; 匛󠄀 [20-05]
       (=cns11643-4	  . #x2165)	; &I-C4-2165; [01-69]
       (=daikanwa	  . 02597)	; &I-M-02597;
       (=jef-china3	  . #x45B0)	; &I-JC3-45B0;
@@ -606,8 +611,13 @@
       ))
     (=ucs		. #x5327)	; 匧
     (->subsumptive
-     ((=ucs@jis		  . #x5327)	; &AJ1-21226;
-      (=jis-x0212	  . #x342A)	; &AJ1-21226; [20-10]
+     ((=decomposition@cid
+       ((=ucs		    . #x5327)	; 匧
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@jis		  . #x5327)	; 匧󠄀
+      (=jis-x0212	  . #x342A)	; 匧󠄀 [20-10]
       (=cns11643-3	  . #x2B49)	; &I-C3-2B49; [11-41]
       (=daikanwa	  . 02621)	; &I-M-02621;
       (=jef-china3	  . #x45B7)	; &I-JC3-45B7;
@@ -666,7 +676,12 @@
       ))
     (=ucs		. #x5328)	; 匨
     (->subsumptive
-     ((hanyu-dazidian	  1 86 10)
+     ((=decomposition@cid
+       ((=ucs		    . #x5328)	; 匨
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (hanyu-dazidian	  1 86 10)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
 	(=ucs		    . #x2FF7)	; ⿷
@@ -679,8 +694,8 @@
 	(=jis-x0213-1	    . #x5463)	; &I-JX1-5463; [52-67]
 	(=daikanwa	    . 05643)	; &I-M-05643;
 	))
-      (=ucs@unicode	  . #x5328)	; &AJ1-21227;
-      (=jis-x0212	  . #x342B)	; &AJ1-21227; [20-11]
+      (=ucs@unicode	  . #x5328)	; 匨󠄀
+      (=jis-x0212	  . #x342B)	; 匨󠄀 [20-11]
       (=daikanwa	  . 02624)	; &I-M-02624;
       (=hanziku-1	  . #xB5BE)	; &I-HZK01-B5BE;
       (=jef-china3	  . #x45B8)	; &I-JC3-45B8;
@@ -983,6 +998,11 @@
     (ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
+    (=decomposition@cid
+     ((=ucs		  . #x532C)	; 匬
+      )
+     ((=ucs		  . #xE0100)	; 󠄀
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (=ucs		  . #x2FF7)	; ⿷
@@ -995,8 +1015,8 @@
       (=jis-x0213-1	  . #x5141)	; &I-JX1-5141; [49-33]
       (=daikanwa	  . 01437)	; &I-M-01437;
       ))
-    (=ucs@jis		. #x532C)	; &AJ1-21230;
-    (=jis-x0212		. #x342E)	; &AJ1-21230; [20-14]
+    (=ucs@jis		. #x532C)	; 匬󠄀
+    (=jis-x0212		. #x342E)	; 匬󠄀 [20-14]
     (=daikanwa		. 02637)	; &I-M-02637;
     (=adobe-japan1-6	. 21230)	; &I-AJ1-21230;
     ))
@@ -1864,8 +1884,8 @@
     (->subsumptive
      ((=daikanwa	  . 02671)	; &M-02671;
       (<-Zhouwen
-       ((=ucs@jis	    . #x531B)	; &AJ1-21223;
-	(=jis-x0212	    . #x3425)	; &AJ1-21223; [20-05]
+       ((=ucs@jis	    . #x531B)	; 匛󠄀
+	(=jis-x0212	    . #x3425)	; 匛󠄀 [20-05]
 	(=cns11643-4	    . #x2165)	; &I-C4-2165; [01-69]
 	(=daikanwa	    . 02597)	; &I-M-02597;
 	)
@@ -1879,8 +1899,8 @@
       (<-Zhouwen*sources
        jiyun daikanwa)
       (<-Zhouwen@shuowen
-       ((=ucs@jis	    . #x531B)	; &AJ1-21223;
-	(=jis-x0212	    . #x3425)	; &AJ1-21223; [20-05]
+       ((=ucs@jis	    . #x531B)	; 匛󠄀
+	(=jis-x0212	    . #x3425)	; 匛󠄀 [20-05]
 	(=cns11643-4	    . #x2165)	; &I-C4-2165; [01-69]
 	(=daikanwa	    . 02597)	; &I-M-02597;
 	))
