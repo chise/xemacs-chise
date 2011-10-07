@@ -2036,8 +2036,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x534A)	; 半󠄂
-	(=jis-x0208	    . #x483E)	; 半󠄂 [40-30]
+       ((=ucs@unicode	    . #x534A)	; 半󠄀
+	(=jis-x0208	    . #x483E)	; 半󠄀 [40-30]
 	(=gb2312	    . #x306B)	; &I-G0-306B; [16-75]
 	(=cns11643-1	    . #x4624)	; &I-C1-4624; [38-04]
 	(=jis-x0213-1	    . #x483E)	; &I-JX1-483E; [40-30]
@@ -9113,8 +9113,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@jis	    . #x53A5)	; &AJ1-04325;
-	(=jis-x0208	    . #x5250)	; &AJ1-04325; [50-48]
+       ((=ucs@jis	    . #x53A5)	; 厥󠄀
+	(=jis-x0208	    . #x5250)	; 厥󠄀 [50-48]
 	(=ks-x1001	    . #x4F70)	; &I-K0-4F70; [47-80]
 	(=cns11643-1	    . #x5E3C)	; &I-C1-5E3C; [62-28]
 	(=jis-x0213-1	    . #x5250)	; &I-JX1-5250; [50-48]
