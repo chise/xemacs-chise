@@ -525,14 +525,19 @@
     (=big5		. #xAFBB)	; &I-B-AFBB;
     (=>>hanyo-denshi/ft . #x3065)	; 粉 [16-69]
     (->subsumptive
-     ((=jis-x0208@1978	  . #x4A34)	; &GT-34640; [42-20]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7C89)	; 粉
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=jis-x0208@1978	  . #x4A34)	; 粉󠄃 [42-20]
       (=jis-x0208@1983	  . #x4A34)	; &I-J83-4A34; [42-20]
       (=ks-x1001	  . #x5D4F)	; &I-K0-5D4F; [61-47]
       (=gt		  . 34640)	; &I-GT-34640;
       (=gt-k		  . 06543)	; &I-GT-K06543;
       (=gt-pj-5		  . #x662E)	; &I-GT-34640; [70-14]
       (=daikanwa	  . 26872)	; &I-M-26872;
-      (=shinjigen	  .  5905)	; &GT-34640;
+      (=shinjigen	  .  5905)	; 粉󠄃
       (=hanyo-denshi/ft	  . #x3065)	; &I-HD-FT-3065; [16-69]
       )
      ((=>>>ucs@unicode	  . #x7C89)	; &g2-JX1-4A34;
@@ -1542,7 +1547,12 @@
 	(=cns11643-3	    . #x4358)	; &I-C3-4358; [35-56]
 	))
       )
-     ((=jis-x0208@1978	  . #x646E)	; &HD-FT-336B; [68-78]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7CAE)	; 粮
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=jis-x0208@1978	  . #x646E)	; 粮󠄃 [68-78]
       (=hanyo-denshi/ft	  . #x336B)	; &I-HD-FT-336B; [19-75]
       ))
     ))
