@@ -1,3 +1,8 @@
+2011-10-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=+>jis-x0208@1978): New coded-charset for
+	XEmacs CHISE.
+
 2011-09-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
