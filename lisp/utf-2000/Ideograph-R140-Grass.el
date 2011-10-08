@@ -1456,14 +1456,14 @@
      ((=ucs@unicode	  . #x8294)	; &UU+8294;
       (=shinjigen	  .  0817)	; &UU+8294;
       (<-original
-       ((=ucs@unicode	    . #x5349)	; &AJ1-04312;
-	(=jis-x0208	    . #x5243)	; &AJ1-04312; [50-35]
+       ((=ucs@unicode	    . #x5349)	; 卉󠄀
+	(=jis-x0208	    . #x5243)	; 卉󠄀 [50-35]
 	(=gb2312	    . #x3B5C)	; &I-G0-3B5C; [27-60]
 	(=ks-x1001	    . #x7D41)	; &I-K0-7D41; [93-33]
 	(=cns11643-1	    . #x4625)	; &I-C1-4625; [38-05]
 	(=jis-x0213-1	    . #x5243)	; &I-JX1-5243; [50-35]
 	(=daikanwa	    . 02706)	; &I-M-02706;
-	(=shinjigen	    .  0816)	; &AJ1-04312;
+	(=shinjigen	    .  0816)	; 卉󠄀
 	))
       (<-original*sources
        daikanwa shinjigen)
