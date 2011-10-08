@@ -1,6 +1,39 @@
 2011-10-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R119-Rice.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/FT characters.
+
+	* Ideograph-R170-Mound.el (U+962C): Use `->subsumptive' to
+	separate representative nodes.
+	(U+9642): Add `<-formed' for U+5761.
+
+2011-10-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R028-Private.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R182-Wind.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+	(U+98B5): Use `->denotational' and `->subsumptive'.
+	(U-000295E5): New character.
+	(U-000295E4): New character.
+	(U+4B0B): Use `->denotational' instead of `->subsumptive'.
+	(U+4B0C): Use `->denotational'.
+	(U-000295F8): Integrate M-43856.
+	(U-000295EC): Integrate M-43862 instead of M-43863.
+	(U-00029601): Integrate M-43863 instead of M-43862.
+	(U+6A92): Copied from Ideograph-R075-Tree.el; integrate M-43880.
+	(U+4B12): Use `->subsumptive'.
+	(U+4B14): Use `->denotational' and `->subsumptive'.
+	(U+98C0): Use `->subsumptive'.
+	(U-00029639): Use `->subsumptive'.
+	(U+4B1D): Use `->denotational' and `->subsumptive'.
+	(U-00029647): New character.
+	(U+98CB): Use `->subsumptive'.
+	(U-00029650): New character.
+	(U-0002964F): New character.
+	(U-00029660): New character.
+	(U-00029662): New character.
+	(U-00029663): New character.
 
 	* Ideograph-R124-Feather.el (U+7FFB): Add ideographic-structure.
 	(GT-37249): Unify S-6333.
