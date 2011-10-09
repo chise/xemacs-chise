@@ -1,3 +1,8 @@
+2011-10-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x6640.
+
 2011-10-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R119-Rice.el: Add `=decomposition@hanyo-denshi' for
