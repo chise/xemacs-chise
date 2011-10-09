@@ -5,6 +5,9 @@
 
 2011-10-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R120-Silk.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/FT characters.
+
 	* Ideograph-R119-Rice.el: Add `=decomposition@hanyo-denshi' for
 	some Hanyo-Denshi/FT characters.
 
