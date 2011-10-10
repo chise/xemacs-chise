@@ -11103,7 +11103,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=cns11643-1	    . #x7B26)	; &C1-7B26; [91-06]
+       ((=cns11643-1	    . #x7B26)	; 蠡󠄂 [91-06]
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
