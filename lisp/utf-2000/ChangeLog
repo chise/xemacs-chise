@@ -1,5 +1,15 @@
 2011-10-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R137-Boat.el, Ideograph-R130-Meat.el,
+	Ideograph-R127-Plow.el: Add Hanyo-Denshi/FT code points.
+
+	* Ideograph-R125-Old.el (J78-394D): Unify HD-FT1628.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=+>jis-x0208@1978'.
+
+2011-10-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
 	Add #x6640.
 
