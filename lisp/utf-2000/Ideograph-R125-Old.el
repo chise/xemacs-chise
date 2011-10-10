@@ -52,14 +52,21 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=ucs		. #x8003)	; 考
+    (=>>hanyo-denshi/ft . #x303C)	; 考 [16-28]
     (->subsumptive
-     ((=ucs@unicode	  . #x8003)	; &M-28843;
-      (=jis-x0208@1978	  . #x394D)	; &M-28843; [25-45]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8003)	; 考
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=ucs@unicode	  . #x8003)	; 考󠄃
+      (=jis-x0208@1978	  . #x394D)	; 考󠄃 [25-45]
       (=gb2312		  . #x3F3C)	; &I-G0-3F3C; [31-28]
       (=jis-x0208@1983	  . #x394D)	; &I-J83-394D; [25-45]
       (=cns11643-1	  . #x4853)	; &I-C1-4853; [40-51]
       (=big5		  . #xA6D2)	; &I-B-A6D2;
       (=daikanwa	  . 28843)	; &I-M-28843;
+      (=hanyo-denshi/ft	  . #x303C)	; &I-HD-FT-303C; [16-28]
       )
      ((=ucs@jis		  . #x8003)	; &GT-37305;
       (=ks-x1001	  . #x4D45)	; &GT-37305; [45-37]
