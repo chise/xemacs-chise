@@ -362,6 +362,7 @@
 	  (=>>hanyo-denshi/ks		     "G-HD-KS-" 4 X)
 	  (=>>cbeta   		           	 "G-CB" 5 d)
 	  ( =>jis-x0208@usual			"o-J0-" 4 X)
+	  (=+>jis-x0208@1978		       "o-J78-" 4 X)
 	  ( =>jis-x0213-2@usual		       "o-JX2-" 4 X)
 	  ( =>jis-x0208@1997			 "J97-" 4 X)
 	  ( =>jis-x0208@1997			"A-J0-" 4 X)
