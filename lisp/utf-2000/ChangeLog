@@ -1,3 +1,12 @@
+2011-10-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el: Add Hanyo-Denshi/FT code points.
+	(U+44D8): Use `->denotational' to separate representative nodes.
+
+	* Ideograph-R043-Lame.el (U+5C2D): Use `->subsumptive' to separate
+	representative nodes.
+	(J90-3646): Unify AJ1-01726.
+
 2011-10-10  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R145-Clothes.el, Ideograph-R142-Insect.el,
