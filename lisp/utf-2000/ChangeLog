@@ -1,3 +1,8 @@
+2011-10-10  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R145-Clothes.el, Ideograph-R142-Insect.el,
+	Ideograph-R123-Sheep.el: Add Hanyo-Denshi/FT code points.
+
 2011-10-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R137-Boat.el, Ideograph-R130-Meat.el,
