@@ -2956,7 +2956,7 @@
     (=gt		. 36587)	; &I-GT-36587;
     (=gt-pj-1		. #x6633)	; &I-GT-36587; [70-19]
     (=daikanwa		. 28417)	; &I-M-28417;
-    (=shinjigen@rev	.  6264)	; 羈
+    (=shinjigen		.  6264)	; 羈
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
