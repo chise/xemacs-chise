@@ -1,5 +1,28 @@
 2011-10-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R124-Feather.el: Add Hanyo-Denshi/FT code points.
+	(U-00026403): Integrate M-28628.
+	(U+437E): Use `->denotational'; integrate M-28630 instead of
+	M-28628.
+	(U-0002640E): Use `->subsumptive' to separate representative
+	nodes.
+	(U+7FC7): Use `->denotational'.
+
+	* Ideograph-R122-Net.el (U+7F88): Unify S1-6264.
+
+2011-10-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R090-Half-Tree-Trunk.el (U-0002459B): Integrate
+	M-19801.
+	(U-00024599): Use `->subsumptive' to separate representative
+	nodes.
+	(U-0002459C): Integrate M-19803.
+	(U-0002459D): Integrate M-19804.
+	(U-0002459E): Integrate M-19805.
+	(U+7246): Use `->subsumptive'.
+
+	* Ideograph-R032-Earth.el: Add some Adobe-Japan1-0 code points.
+
 	* Ideograph-R140-Grass.el: Add Hanyo-Denshi/FT code points.
 	(U+44D8): Use `->denotational' to separate representative nodes.
 
