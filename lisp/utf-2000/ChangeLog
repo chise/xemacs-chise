@@ -1,5 +1,9 @@
 2011-10-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R146-West.el: Add Hanyo-Denshi/FT code points.
+
+2011-10-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R124-Feather.el: Add Hanyo-Denshi/FT code points.
 	(U-00026403): Integrate M-28628.
 	(U+437E): Use `->denotational'; integrate M-28630 instead of
