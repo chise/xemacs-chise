@@ -1,3 +1,21 @@
+2011-10-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el: Add Hanyo-Denshi/FT code points.
+
+	* Ideograph-R073-Say.el (C1-5937): Unify AJ1-14112.
+	(J0-5258): Add `=decomposition@cid'.
+
+	* Ideograph-R028-Private.el, Ideograph-R027-Cliff.el,
+	Ideograph-R025-Divination.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+
+	* Ideograph-R026-Seal.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+
+2011-10-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R147-See.el (C3-4E64): Unify HD-FT2538.
+
 2011-10-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R146-West.el: Add Hanyo-Denshi/FT code points.
