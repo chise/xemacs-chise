@@ -21758,13 +21758,13 @@
       (=daikanwa	  . 15492)	; &I-M-15492;
       (=shinjigen	  .  0933)	; &M-15492;
       (<-vulgar
-       ((=ucs@jis	    . #x53E2)	; &AJ1-02771;
-	(=jis-x0208	    . #x4151)	; &AJ1-02771; [33-49]
+       ((=ucs@jis	    . #x53E2)	; 叢󠄀
+	(=jis-x0208	    . #x4151)	; 叢󠄀 [33-49]
 	(=ks-x1001	    . #x753F)	; &I-K0-753F; [85-31]
 	(=cns11643-1	    . #x763B)	; &I-C1-763B; [86-27]
 	(=jis-x0213-1	    . #x4151)	; &I-JX1-4151; [33-49]
 	(=daikanwa	    . 03220)	; &I-M-03220;
-	(=shinjigen	    .  0932)	; &AJ1-02771;
+	(=shinjigen	    .  0932)	; 叢󠄀
 	))
       (<-vulgar*sources
        shinjigen)
@@ -21775,8 +21775,8 @@
       (->synonyms@jiyun*sources
        jiyun daikanwa)
       (->synonyms@zhengzitong
-       ((=ucs@jis	    . #x53E2)	; &AJ1-02771;
-	(=jis-x0208	    . #x4151)	; &AJ1-02771; [33-49]
+       ((=ucs@jis	    . #x53E2)	; 叢󠄀
+	(=jis-x0208	    . #x4151)	; 叢󠄀 [33-49]
 	(=ks-x1001	    . #x753F)	; &I-K0-753F; [85-31]
 	(=cns11643-1	    . #x763B)	; &I-C1-763B; [86-27]
 	(=jis-x0213-1	    . #x4151)	; &I-JX1-4151; [33-49]
