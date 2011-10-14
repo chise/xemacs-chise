@@ -694,7 +694,10 @@
   '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=big5-cdp		. #x8D70)	; &CDP-8D70;
+    (=>>big5-cdp	. #x8D70)	; &G-CDP-8D70;
+    (->subsumptive
+     ((=big5-cdp	  . #x8D70)	; &CDP-8D70;
+      ))
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
