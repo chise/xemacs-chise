@@ -374,8 +374,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x20AD3)	; 𠫓󠄁
-	(=jis-x0213-2	    . #x2359)	; 𠫓󠄁 [03-57]
+       ((=ucs@jis	    . #x20AD3)	; 𠫓󠄀
+	(=jis-x0213-2	    . #x2359)	; 𠫓󠄀 [03-57]
 	)
        ((=ucs		    . #x513F)	; 儿
 	))

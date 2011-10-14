@@ -503,8 +503,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x53C8)	; &AJ1-03746;
-	(=jis-x0208	    . #x4B74)	; &AJ1-03746; [43-84]
+       ((=ucs@unicode	    . #x53C8)	; 又󠄀
+	(=jis-x0208	    . #x4B74)	; 又󠄀 [43-84]
 	(=gb2312	    . #x5356)	; &I-G0-5356; [51-54]
 	(=cns11643-1	    . #x4434)	; &I-C1-4434; [36-20]
 	(=jis-x0213-1	    . #x4B74)	; &I-JX1-4B74; [43-84]
