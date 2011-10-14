@@ -373,6 +373,7 @@
       ))
     (=cns11643-1	. #x5937)	; 曼󠄃 [57-23]
     (=daikanwa		. 14298)	; &I-M-14298;
+    (=adobe-japan1-4	. 14112)	; &I-AJ1-14112;
     (=hanyo-denshi/jt	. #xAEA3)	; &I-HD-JT-AEA3;
     ))
 (define-char
@@ -384,13 +385,18 @@
     (ideographic-radical@cns . 29)	; ⼜
     (ideographic-strokes@cns . 9)
     (total-strokes	 . 11)
+    (=decomposition@cid
+     ((=ucs		  . #x66FC)	; 曼
+      )
+     ((=ucs		  . #xE0100)	; 󠄀
+      ))
     (=decomposition@hanyo-denshi
      ((=ucs		  . #x66FC)	; 曼
       )
      ((=ucs		  . #xE0102)	; 󠄂
       ))
-    (=ucs@unicode	. #x66FC)	; 曼󠄂
-    (=jis-x0208		. #x5258)	; 曼󠄂 [50-56]
+    (=ucs@unicode	. #x66FC)	; 曼󠄀
+    (=jis-x0208		. #x5258)	; 曼󠄀 [50-56]
     (=gb2312		. #x427C)	; &I-G0-427C; [34-92]
     (=ks-x1001		. #x583A)	; &I-K0-583A; [56-26]
     (=jis-x0213-1	. #x5258)	; &I-JX1-5258; [50-56]
