@@ -488,7 +488,7 @@
 	      ))
 
   (make-charset
-   '=>jis-x0208@usual
+   '=+>jis-x0208
    "JIS X 0208 based on usual unification."
    '(registry "jisx0208\\.1990"
 	      dimension 2
@@ -497,13 +497,14 @@
 	      =>iso-ir 168
 	      ;; final ?B
 	      graphic 0))
+  (define-charset-alias '=>jis-x0208@usual '=+>jis-x0208)
   (make-charset
    '=+>jis-x0208@1978
    "JIS X 0208:1978 unified abstract glyphs."
    '(registry "jisx0208\\.1978"
 	      dimension 2
 	      chars 94
-	      mother =>jis-x0208@usual
+	      mother =+>jis-x0208
 	      =>iso-ir 42
 	      ;; final ?@
 	      graphic 0))
@@ -514,7 +515,7 @@
    '(registry "jisx0208\\.1990"
 	      dimension 2
 	      chars 94
-	      mother =>jis-x0208@usual
+	      mother =+>jis-x0208
 	      =>iso-ir 168
 	      ;; final ?B
 	      graphic 0))
