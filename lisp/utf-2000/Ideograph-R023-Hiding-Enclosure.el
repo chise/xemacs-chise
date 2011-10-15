@@ -1076,11 +1076,11 @@
      ((=ucs		  . #x82E5)	; 若
       ))
     (=>ucs@unicode	. #x533F)	; &o-J0-463F;
-    (=>jis-x0208@usual	. #x463F)	; &o-J0-463F; [38-31]
+    (=+>jis-x0208	. #x463F)	; &o-J0-463F; [38-31]
     ))
 (define-char
   '((<-denotational
-     ((=>jis-x0208@usual  . #x463F)	; &o-J0-463F; [38-31]
+     ((=+>jis-x0208	  . #x463F)	; &o-J0-463F; [38-31]
       ))
     (ideographic-radical . 23)	; ⼖
     (ideographic-strokes . 8)

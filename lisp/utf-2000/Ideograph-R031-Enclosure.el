@@ -984,7 +984,7 @@
      ((=ucs		  . #x5316)	; 化
       ))
     (=ucs		. #x56EE)	; 囮
-    (=>jis-x0208@usual	. #x5379)	; 囮 [51-89]
+    (=+>jis-x0208	. #x5379)	; 囮 [51-89]
     (=big5		. #xCAA7)	; &I-B-CAA7;
     (->subsumptive
      ((ideographic-structure
