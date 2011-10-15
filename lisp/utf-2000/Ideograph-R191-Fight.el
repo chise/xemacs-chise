@@ -452,11 +452,13 @@
     (=>>ucs@jis/1990	. #x9B2D)	; &G-CU+9B2D;
     (=>>ucs@cns		. #x9B2D)	; &G-CU+9B2D;
     (=>>daikanwa	. 45657)	; &G-CU+9B2D;
+    (=>>hanyo-denshi/jb . #x6A32)	; &G-CU+9B2D; [74-18]
     (->subsumptive
      ((=daikanwa	  . 45657)	; &M-45657;
       )
      ((=ucs@jis/1990	  . #x9B2D)	; &JSP-6A32;
       (=jis-x0212	  . #x6A32)	; &JSP-6A32; [74-18]
+      (=hanyo-denshi/jb	  . #x6A32)	; &I-HD-JB-6A32; [74-18]
       )
      ((ideographic-strokes . 15)
       (total-strokes	   . 25)
@@ -473,6 +475,7 @@
     (total-strokes	 . 24)
     (=>>ucs@unicode	. #x9B2D)	; &G-JX1-7E3F;
     (=>>jis-x0213-1	. #x7E3F)	; &G-JX1-7E3F; [94-31]
+    (=>>hanyo-denshi/jc . #x7E3F)	; &G-JX1-7E3F; [94-31]
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x9B2D)	; 鬭

@@ -174,7 +174,7 @@
     (=gt-k		. 00282)	; &I-GT-K00282;
     (=gt-pj-2		. #x306C)	; &I-GT-00135; [16-76]
     (=daikanwa		. 00097)	; &I-M-00097;
-    (=big5-eten		. #xC6E0)	; &B-C6E0;
+    (=big5-eten		. #xC6E0)	; &I-B-C6E0;
     (=cbeta		. 02728)	; &I-CB02728;
     (=adobe-japan1-0	. 00657)	; &I-AJ1-00657;
     (mojikyo		. 000097)	; &MCS-60000061;

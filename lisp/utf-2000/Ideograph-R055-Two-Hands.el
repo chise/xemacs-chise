@@ -438,6 +438,22 @@
 (define-char
   '((ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53BB)	; 去
+      )
+     ((=ucs		  . #x5EFE)	; 廾
+      ))
+    (=ucs		. #x5F06)	; 弆
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5F06)	; 弆
+      ))
+    (ideographic-radical . 55)	; ⼶
+    (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -452,8 +468,8 @@
       (=jis-x0213-1	  . #x5730)	; &I-JX1-5730; [55-16]
       (=daikanwa	  . 09583)	; &I-M-09583;
       ))
-    (=ucs		. #x5F06)	; 弆
-    (=jis-x0212		. #x3C5D)	; &I-JSP-3C5D; [28-61]
+    (=ucs@unicode	. #x5F06)	; &M-09605;
+    (=jis-x0212		. #x3C5D)	; &M-09605; [28-61]
     (=cns11643-3	. #x286D)	; &I-C3-286D; [08-77]
     (=daikanwa		. 09605)	; &I-M-09605;
     (=cbeta		. 01765)	; &I-CB01765;
@@ -799,12 +815,32 @@
 (define-char
   '((ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 7)
-    (total-strokes	 . 10)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
      ((=ucs		  . #x58EF)	; 壯
+      )
+     ((=ucs		  . #x5EFE)	; 廾
+      ))
+    (=ucs		. #x5F09)	; 弉
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5F09)	; 弉
+      ))
+    (ideographic-radical . 55)	; ⼶
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x58EF)	; &GT-07142;
+      (=jis-x0208	  . #x5463)	; &GT-07142; [52-67]
+      (=ks-x1001	  . #x6D60)	; &I-K0-6D60; [77-64]
+      (=jis-x0213-1	  . #x5463)	; &I-JX1-5463; [52-67]
+      (=daikanwa	  . 05643)	; &I-M-05643;
       )
      ((=ucs@unicode	  . #x5EFE)	; &GT-12077;
       (=jis-x0208	  . #x5730)	; &GT-12077; [55-16]
@@ -813,8 +849,8 @@
       (=jis-x0213-1	  . #x5730)	; &I-JX1-5730; [55-16]
       (=daikanwa	  . 09583)	; &I-M-09583;
       ))
-    (=ucs		. #x5F09)	; 弉
-    (=jis-x0208		. #x5732)	; &I-J90-5732; [55-18]
+    (=ucs@unicode	. #x5F09)	; &GT-12125;
+    (=jis-x0208		. #x5732)	; &GT-12125; [55-18]
     (=jis-x0213-1	. #x5732)	; &I-JX1-5732; [55-18]
     (=gt		. 12125)	; &I-GT-12125;
     (=gt-pj-1		. #x5732)	; &I-GT-12125; [55-18]

@@ -4,20 +4,26 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
     (=ucs		. #x8012)	; 耒
+    (=big5		. #xA6D4)	; &I-B-A6D4;
     (->subsumptive
      ((=ucs@jis		  . #x8012)	; &GT-37363;
       (=jis-x0208	  . #x6650)	; &GT-37363; [70-48]
       (=cns11643-1	  . #x4855)	; &I-C1-4855; [40-53]
       (=jis-x0213-1	  . #x6650)	; &I-JX1-6650; [70-48]
-      (=big5		  . #xA6D4)	; &I-B-A6D4;
       (=gt		  . 37363)	; &I-GT-37363;
       (=gt-k		  . 01732)	; &I-GT-K01732;
       (=gt-pj-1		  . #x6650)	; &I-GT-37363; [70-48]
       (=daikanwa	  . 28898)	; &I-M-28898;
       (=shinjigen@rev	  .  6352)	; &GT-37363;
       )
-     ((=ucs@unicode	  . #x8012)	; &G0-7167;
-      (=gb2312		  . #x7167)	; &G0-7167; [81-71]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8012)	; 耒
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=ucs@unicode	  . #x8012)	; 耒󠄃
+      (=gb2312		  . #x7167)	; 耒󠄃 [81-71]
+      (=hanyo-denshi/ft	  . #x384C)	; &I-HD-FT-384C; [24-44]
       ))
     ))
 (define-char
@@ -213,21 +219,27 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (=ucs		. #x8018)	; 耘
+    (=big5		. #xAFD0)	; &I-B-AFD0;
     (->subsumptive
      ((=ucs@jis		  . #x8018)	; &GT-37378;
       (=jis-x0208	  . #x6651)	; &GT-37378; [70-49]
       (=ks-x1001	  . #x697C)	; &I-K0-697C; [73-92]
       (=cns11643-1	  . #x5754)	; &I-C1-5754; [55-52]
       (=jis-x0213-1	  . #x6651)	; &I-JX1-6651; [70-49]
-      (=big5		  . #xAFD0)	; &I-B-AFD0;
       (=gt		  . 37378)	; &I-GT-37378;
       (=gt-k		  . 06629)	; &I-GT-K06629;
       (=gt-pj-1		  . #x6651)	; &I-GT-37378; [70-49]
       (=daikanwa	  . 28910)	; &I-M-28910;
       (=shinjigen@rev	  .  6355)	; &GT-37378;
       )
-     ((=ucs@unicode	  . #x8018)	; &G0-5445;
-      (=gb2312		  . #x5445)	; &G0-5445; [52-37]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8018)	; 耘
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=ucs@unicode	  . #x8018)	; 耘󠄂
+      (=gb2312		  . #x5445)	; 耘󠄂 [52-37]
+      (=hanyo-denshi/ft	  . #x384D)	; &I-HD-FT-384D; [24-45]
       ))
     ))
 (define-char

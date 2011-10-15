@@ -611,7 +611,7 @@
     (=ks-x1001		. #x2521)	; &I-K0-2521; [05-01]
     (=cns11643-1	. #x2635)	; &I-C1-2635; [06-21]
     (=jis-x0213-1	. #x2C35)	; &I-JX1-2C35; [12-21]
-    (=big5-eten		. #xC6B5)	; &B-C6B5;
+    (=big5-eten		. #xC6B5)	; &I-B-C6B5;
     (=jef-china3	. #x77EB)	; &I-JC3-77EB;
     (<-compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER I")
@@ -639,7 +639,7 @@
     (=ks-x1001		. #x2522)	; &I-K0-2522; [05-02]
     (=cns11643-1	. #x2636)	; &I-C1-2636; [06-22]
     (=jis-x0213-1	. #x2C36)	; &I-JX1-2C36; [12-22]
-    (=big5-eten		. #xC6B6)	; &B-C6B6;
+    (=big5-eten		. #xC6B6)	; &I-B-C6B6;
     (=jef-china3	. #x77EC)	; &I-JC3-77EC;
     (->uppercase
      ((name		  . "ROMAN NUMERAL TWO")
@@ -666,7 +666,7 @@
     (=ks-x1001		. #x2523)	; &I-K0-2523; [05-03]
     (=cns11643-1	. #x2637)	; &I-C1-2637; [06-23]
     (=jis-x0213-1	. #x2C37)	; &I-JX1-2C37; [12-23]
-    (=big5-eten		. #xC6B7)	; &B-C6B7;
+    (=big5-eten		. #xC6B7)	; &I-B-C6B7;
     (=jef-china3	. #x77ED)	; &I-JC3-77ED;
     (->uppercase
      ((name		  . "ROMAN NUMERAL THREE")
@@ -690,7 +690,7 @@
     (=ks-x1001		. #x2524)	; &I-K0-2524; [05-04]
     (=cns11643-1	. #x2638)	; &I-C1-2638; [06-24]
     (=jis-x0213-1	. #x2C38)	; &I-JX1-2C38; [12-24]
-    (=big5-eten		. #xC6B8)	; &B-C6B8;
+    (=big5-eten		. #xC6B8)	; &I-B-C6B8;
     (=jef-china3	. #x77EE)	; &I-JC3-77EE;
     (->uppercase
      ((name		  . "ROMAN NUMERAL FOUR")
@@ -707,7 +707,7 @@
     (=ks-x1001		. #x2525)	; &I-K0-2525; [05-05]
     (=cns11643-1	. #x2639)	; &I-C1-2639; [06-25]
     (=jis-x0213-1	. #x2C39)	; &I-JX1-2C39; [12-25]
-    (=big5-eten		. #xC6B9)	; &B-C6B9;
+    (=big5-eten		. #xC6B9)	; &I-B-C6B9;
     (=jef-china3	. #x77EF)	; &I-JC3-77EF;
     (<-compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER V")
@@ -735,7 +735,7 @@
     (=ks-x1001		. #x2526)	; &I-K0-2526; [05-06]
     (=cns11643-1	. #x263A)	; &I-C1-263A; [06-26]
     (=jis-x0213-1	. #x2C3A)	; &I-JX1-2C3A; [12-26]
-    (=big5-eten		. #xC6BA)	; &B-C6BA;
+    (=big5-eten		. #xC6BA)	; &I-B-C6BA;
     (=jef-china3	. #x77F0)	; &I-JC3-77F0;
     (->uppercase
      ((name		  . "ROMAN NUMERAL SIX")
@@ -762,7 +762,7 @@
     (=ks-x1001		. #x2527)	; &I-K0-2527; [05-07]
     (=cns11643-1	. #x263B)	; &I-C1-263B; [06-27]
     (=jis-x0213-1	. #x2C3B)	; &I-JX1-2C3B; [12-27]
-    (=big5-eten		. #xC6BB)	; &B-C6BB;
+    (=big5-eten		. #xC6BB)	; &I-B-C6BB;
     (=jef-china3	. #x77F1)	; &I-JC3-77F1;
     (->uppercase
      ((name		  . "ROMAN NUMERAL SEVEN")
@@ -792,7 +792,7 @@
     (=ks-x1001		. #x2528)	; &I-K0-2528; [05-08]
     (=cns11643-1	. #x263C)	; &I-C1-263C; [06-28]
     (=jis-x0213-1	. #x2C3C)	; &I-JX1-2C3C; [12-28]
-    (=big5-eten		. #xC6BC)	; &B-C6BC;
+    (=big5-eten		. #xC6BC)	; &I-B-C6BC;
     (=jef-china3	. #x77F2)	; &I-JC3-77F2;
     (->uppercase
      ((name		  . "ROMAN NUMERAL EIGHT")
@@ -816,7 +816,7 @@
     (=ks-x1001		. #x2529)	; &I-K0-2529; [05-09]
     (=cns11643-1	. #x263D)	; &I-C1-263D; [06-29]
     (=jis-x0213-1	. #x2C3D)	; &I-JX1-2C3D; [12-29]
-    (=big5-eten		. #xC6BD)	; &B-C6BD;
+    (=big5-eten		. #xC6BD)	; &I-B-C6BD;
     (=jef-china3	. #x77F3)	; &I-JC3-77F3;
     (->uppercase
      ((name		  . "ROMAN NUMERAL NINE")
@@ -833,7 +833,7 @@
     (=ks-x1001		. #x252A)	; &I-K0-252A; [05-10]
     (=cns11643-1	. #x263E)	; &I-C1-263E; [06-30]
     (=jis-x0213-1	. #x2C3E)	; &I-JX1-2C3E; [12-30]
-    (=big5-eten		. #xC6BE)	; &B-C6BE;
+    (=big5-eten		. #xC6BE)	; &I-B-C6BE;
     (=jef-china3	. #x77F4)	; &I-JC3-77F4;
     (<-compat/Roman-Numeral
      ((name		  . "LATIN SMALL LETTER X")

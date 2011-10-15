@@ -70,7 +70,7 @@
    ?正 ?是 ?辵 ?彳 ?廴 ?㢟 ?行 ?齒 ?牙 ?足 ; 040
    ?疋 ?品 ?龠 ?冊 ?㗊 ?舌 ?干 ?谷 ?只 ?㕯 ; 050
    ?句 ?丩 ?古 ?十 ?卅 ?言 ?誩 ?音 ?䇂 ?丵 ; 060
-   ?菐 ?𠬞 ?廾 ?共 ?異 ?舁 ?𦥑 ?䢅 ?爨 ?革 ; 070
+   ?菐 ?𠬞 ?𠬜 ?共 ?異 ?舁 ?𦥑 ?䢅 ?爨 ?革 ; 070
    ?鬲 ?䰜 ?爪 ?𠃨 ?鬥 ?又 ?𠂇 ?㕜 ?支 ?𦘒 ; 080
    ?聿 ?畫 ?隶 ?臤 ?臣 ?殳 ?殺 ?𠘧 ?寸 ?皮 ; 090
    ?㼱 ?攴 ?敎 ?卜 ?用 ?爻 ?㸚 ?𥄎 ?目 ?䀠 ; 100
@@ -79,7 +79,7 @@
    ?𠦒 ?冓 ?幺 ?𢆶 ?叀 ?玄 ?予 ?放 ?𠬪 ?𣦼 ; 130
    ?歺 ?死 ?冎 ?骨 ?肉 ?筋 ?刀 ?刃 ?㓞 ?丰 ; 140
    ?耒 ?𧢲 ?竹 ?箕 ?丌 ?左 ?工 ?㠭 ?巫 ?甘 ; 150
-   ?曰 ?乃 ?丂 ?可 ?兮 ?号 ?亏 ?旨 ?喜 ?壴 ; 160
+   ?旨 ?曰 ?乃 ?丂 ?可 ?兮 ?号 ?亏 ?喜 ?壴 ; 160
    ?鼓 ?豈 ?豆 ?豊 ?豐 ?䖒 ?虍 ?虎 ?虤 ?皿 ; 170
    ?𠙴 ?去 ?血 ?丶 ?丹 ?青 ?井 ?皀 ?鬯 ?食 ; 180
    ?亼 ?會 ?倉 ?入 ?缶 ?矢 ?高 ?冂 ?𩫏 ?京 ; 190
@@ -155,6 +155,7 @@
     =hanyo-denshi/ia
     =hanyo-denshi/ib
     =hanyo-denshi/hg
+    =hanyo-denshi/jt
     =hanyo-denshi/ks
     =daikanwa
     =daikanwa@rev2
@@ -175,6 +176,7 @@
     ideograph-hanziku-12
     =>>>jis-x0208
     =>>>jis-x0213-1
+    =>>>jis-x0213-2
     =>>jis-x0208
     =>>jis-x0213-1
     =>>jis-x0213-1@2000
@@ -186,6 +188,7 @@
     =>>gt
     =>>daikanwa
     =>jis-x0208@usual
+    =+>jis-x0208@1978
     =>jis-x0208
     =>jis-x0208@1997
     =>jis-x0213-1
@@ -198,6 +201,7 @@
     =>ucs@unicode
     =>ucs@jis
     =>ucs@JP
+    =>ucs@jis/1990
     =>ucs@cns
     =>ucs@ks
     =>>ucs@iso
@@ -461,48 +465,55 @@
 (defvar char-db-convert-obsolete-format t)
 
 (defun char-db-insert-ccs-feature (name value line-breaking)
-  (insert
-   (format
-    (cond ((memq name '(=shinjigen
-			=shinjigen@1ed
-			=shinjigen@rev =shinjigen/+p@rev
-			=daikanwa/ho))
-	   "(%-18s .  %04d)\t; %c")
-	  ((eq name '=shinjigen@1ed/24pr)
-	   "(%-18s . %04d)\t; %c")
-	  ((or (memq name '(=daikanwa =>>daikanwa =>daikanwa
-			    =daikanwa@rev1 =daikanwa@rev2
-			    =daikanwa/+p =daikanwa/+2p
-			    =gt =>>>gt =>>gt =>gt
-			    =gt-k =>>gt-k =>gt-k
-			    =>>adobe-japan1
-			    =cbeta =>>cbeta
-			    =zinbun-oracle =>zinbun-oracle))
-	       (string-match "^=adobe-" (symbol-name name)))
-	   "(%-18s . %05d)\t; %c")
-	  ((memq name '(=hanyo-denshi/ks =>>hanyo-denshi/ks mojikyo))
-	   "(%-18s . %06d)\t; %c")
-	  ((>= (charset-dimension name) 2)
-	   "(%-18s . #x%04X)\t; %c")
-	  (t
-	   "(%-18s . #x%02X)\t; %c"))
-    name
-    (if (= (charset-iso-graphic-plane name) 1)
-	(logior value
-		(cond ((= (charset-dimension name) 1)
-		       #x80)
-		      ((= (charset-dimension name) 2)
-		       #x8080)
-		      ((= (charset-dimension name) 3)
-		       #x808080)
-		      (t 0)))
-      value)
-    (char-db-decode-isolated-char name value)))
-  (if (and (= (charset-chars name) 94)
-	   (= (charset-dimension name) 2))
-      (insert (format " [%02d-%02d]"
-		      (- (lsh value -8) 32)
-		      (- (logand value 255) 32))))
+  (cond
+   ((integerp value)
+    (insert
+     (format
+      (cond
+       ((memq name '(=shinjigen
+		     =shinjigen@1ed
+		     =shinjigen@rev =shinjigen/+p@rev
+		     =daikanwa/ho))
+	"(%-18s .  %04d)\t; %c")
+       ((eq name '=shinjigen@1ed/24pr)
+	"(%-18s . %04d)\t; %c")
+       ((or (memq name '(=daikanwa =>>daikanwa =>daikanwa
+			 =daikanwa@rev1 =daikanwa@rev2
+			 =daikanwa/+p =daikanwa/+2p
+			 =gt =>>>gt =>>gt =>gt
+			 =gt-k =>>gt-k =>gt-k
+			 =>>adobe-japan1
+			 =cbeta =>>cbeta
+			 =zinbun-oracle =>zinbun-oracle))
+	    (string-match "^=adobe-" (symbol-name name)))
+	"(%-18s . %05d)\t; %c")
+       ((memq name '(=hanyo-denshi/ks =>>hanyo-denshi/ks mojikyo))
+	"(%-18s . %06d)\t; %c")
+       ((>= (charset-dimension name) 2)
+	"(%-18s . #x%04X)\t; %c")
+       (t
+	"(%-18s . #x%02X)\t; %c"))
+      name
+      (if (= (charset-iso-graphic-plane name) 1)
+	  (logior value
+		  (cond ((= (charset-dimension name) 1)
+			 #x80)
+			((= (charset-dimension name) 2)
+			 #x8080)
+			((= (charset-dimension name) 3)
+			 #x808080)
+			(t 0)))
+	value)
+      (char-db-decode-isolated-char name value)))
+    (if (and (= (charset-chars name) 94)
+	     (= (charset-dimension name) 2))
+	(insert (format " [%02d-%02d]"
+			(- (lsh value -8) 32)
+			(- (logand value 255) 32))))
+    )
+   (t
+    (insert (format "(%-18s . %s)" name value))
+    ))
   (insert line-breaking))
 
 (defun char-db-insert-relation-feature (char name value line-breaking
@@ -1057,159 +1068,158 @@
 	(setq attributes (delq ignored attributes))))
     (while attributes
       (setq name (car attributes))
-      (if (setq value (get-char-attribute char name))
-	  (cond ((setq ret (find-charset name))
-		 (setq name (charset-name ret))
-		 (if (and (not (memq name dest-ccss))
-			  (prog1
-			      (setq value (get-char-attribute char name))
-			    (setq dest-ccss (cons name dest-ccss))))
-		     (char-db-insert-ccs-feature name value line-breaking))
-		 )
-		((string-match "^=>ucs@" (symbol-name name))
-		 (insert (format "(%-18s . #x%04X)\t; %c%s"
-				 name value (decode-char '=ucs value)
-				 line-breaking))
-		 )
-		((eq name 'jisx0208-1978/4X)
-		 (insert (format "(%-18s . #x%04X)%s"
-				 name value
-				 line-breaking))
-		 )
-		((and
-		  (not readable)
-		  (not (eq name '->subsumptive))
-		  (not (eq name '->uppercase))
-		  (not (eq name '->lowercase))
-		  (not (eq name '->titlecase))
-		  (not (eq name '->canonical))
-		  (not (eq name '->Bopomofo))
-		  (not (eq name '->mistakable))
-		  (not (eq name '->ideographic-variants))
-		  (null (get-char-attribute
-			 char (intern (format "%s*sources" name))))
-		  (not (string-match "\\*sources$" (symbol-name name)))
-		  (null (get-char-attribute
-			 char (intern (format "%s*note" name))))
-		  (not (string-match "\\*note$" (symbol-name name)))
-		  (or (eq name '<-identical)
-		      (eq name '<-uppercase)
-		      (eq name '<-lowercase)
-		      (eq name '<-titlecase)
-		      (eq name '<-canonical)
-		      (eq name '<-ideographic-variants)
-                      ;; (eq name '<-synonyms)
-		      (string-match "^<-synonyms" (symbol-name name))
-		      (eq name '<-mistakable)
-		      (when (string-match "^->" (symbol-name name))
-			(cond
-			 ((string-match "^->fullwidth" (symbol-name name))
-			  (not (and (consp value)
-				    (characterp (car value))
-				    (encode-char
-				     (car value) '=ucs 'defined-only)))
-			  )
-			 (t)))
-		      ))
-		 )
-		((or (eq name 'ideographic-structure)
-		     (eq name 'ideographic-combination)
-		     (eq name 'ideographic-)
-		     (eq name '=decomposition)
-		     (char-feature-base-name= '=decomposition name)
-                     (char-feature-base-name= '=>decomposition name)
-                     ;; (string-match "^=>*decomposition\\(@[^*]+\\)?$"
-                     ;;               (symbol-name name))
-		     (string-match "^\\(->\\|<-\\)[^*]*$" (symbol-name name))
-		     (string-match "^\\(->\\|<-\\)[^*]*\\*sources$"
-				   (symbol-name name))
-		     )
-		 (char-db-insert-relation-feature char name value
-						  line-breaking
-						  ccss readable))
-		((memq name '(ideograph=
-			      original-ideograph-of
-			      ancient-ideograph-of
-			      vulgar-ideograph-of
-			      wrong-ideograph-of
-                              ;; simplified-ideograph-of
-			      ideographic-variants
-                              ;; ideographic-different-form-of
-			      ))
-		 (insert (format "(%-18s%s " name line-breaking))
-		 (setq lbs (concat "\n" (make-string (current-column) ?\ ))
-		       separator nil)
-		 (while (consp value)
-		   (setq cell (car value))
-		   (if (and (consp cell)
-			    (consp (car cell)))
-		       (progn
-			 (if separator
-			     (insert lbs))
-			 (char-db-insert-alist cell readable)
-			 (setq separator lbs))
-		     (if separator
-			 (insert separator))
-		     (insert (prin1-to-string cell))
-		     (setq separator " "))
-		   (setq value (cdr value)))
-		 (insert ")")
+      (unless (eq (setq value (get-char-attribute char name 'value-is-empty))
+		  'value-is-empty)
+	(cond ((setq ret (find-charset name))
+	       (setq name (charset-name ret))
+	       (when (not (memq name dest-ccss))
+		 (setq dest-ccss (cons name dest-ccss))
+		 (char-db-insert-ccs-feature name value line-breaking))
+	       )
+	      ((string-match "^=>ucs@" (symbol-name name))
+	       (insert (format "(%-18s . #x%04X)\t; %c%s"
+			       name value (decode-char '=ucs value)
+			       line-breaking))
+	       )
+	      ((eq name 'jisx0208-1978/4X)
+	       (insert (format "(%-18s . #x%04X)%s"
+			       name value
+			       line-breaking))
+	       )
+	      ((and
+		(not readable)
+		(not (eq name '->subsumptive))
+		(not (eq name '->uppercase))
+		(not (eq name '->lowercase))
+		(not (eq name '->titlecase))
+		(not (eq name '->canonical))
+		(not (eq name '->Bopomofo))
+		(not (eq name '->mistakable))
+		(not (eq name '->ideographic-variants))
+		(null (get-char-attribute
+		       char (intern (format "%s*sources" name))))
+		(not (string-match "\\*sources$" (symbol-name name)))
+		(null (get-char-attribute
+		       char (intern (format "%s*note" name))))
+		(not (string-match "\\*note$" (symbol-name name)))
+		(or (eq name '<-identical)
+		    (eq name '<-uppercase)
+		    (eq name '<-lowercase)
+		    (eq name '<-titlecase)
+		    (eq name '<-canonical)
+		    (eq name '<-ideographic-variants)
+		    ;; (eq name '<-synonyms)
+		    (string-match "^<-synonyms" (symbol-name name))
+		    (eq name '<-mistakable)
+		    (when (string-match "^->" (symbol-name name))
+		      (cond
+		       ((string-match "^->fullwidth" (symbol-name name))
+			(not (and (consp value)
+				  (characterp (car value))
+				  (encode-char
+				   (car value) '=ucs 'defined-only)))
+			)
+		       (t)))
+		    ))
+	       )
+	      ((or (eq name 'ideographic-structure)
+		   (eq name 'ideographic-combination)
+		   (eq name 'ideographic-)
+		   (eq name '=decomposition)
+		   (char-feature-base-name= '=decomposition name)
+		   (char-feature-base-name= '=>decomposition name)
+		   ;; (string-match "^=>*decomposition\\(@[^*]+\\)?$"
+		   ;;               (symbol-name name))
+		   (string-match "^\\(->\\|<-\\)[^*]*$" (symbol-name name))
+		   (string-match "^\\(->\\|<-\\)[^*]*\\*sources$"
+				 (symbol-name name))
+		   )
+	       (char-db-insert-relation-feature char name value
+						line-breaking
+						ccss readable))
+	      ((memq name '(ideograph=
+			    original-ideograph-of
+			    ancient-ideograph-of
+			    vulgar-ideograph-of
+			    wrong-ideograph-of
+			    ;; simplified-ideograph-of
+			    ideographic-variants
+			    ;; ideographic-different-form-of
+			    ))
+	       (insert (format "(%-18s%s " name line-breaking))
+	       (setq lbs (concat "\n" (make-string (current-column) ?\ ))
+		     separator nil)
+	       (while (consp value)
+		 (setq cell (car value))
+		 (if (and (consp cell)
+			  (consp (car cell)))
+		     (progn
+		       (if separator
+			   (insert lbs))
+		       (char-db-insert-alist cell readable)
+		       (setq separator lbs))
+		   (if separator
+		       (insert separator))
+		   (insert (prin1-to-string cell))
+		   (setq separator " "))
+		 (setq value (cdr value)))
+	       (insert ")")
+	       (insert line-breaking))
+	      ((consp value)
+	       (insert (format "(%-18s " name))
+	       (setq lbs (concat "\n" (make-string (current-column) ?\ ))
+		     separator nil)
+	       (while (consp value)
+		 (setq cell (car value))
+		 (if (and (consp cell)
+			  (consp (car cell))
+			  (setq ret (condition-case nil
+					(find-char cell)
+				      (error nil))))
+		     (progn
+		       (setq rest cell
+			     al nil
+			     cal nil)
+		       (while rest
+			 (setq key (car (car rest)))
+			 (if (find-charset key)
+			     (setq cal (cons key cal))
+			   (setq al (cons key al)))
+			 (setq rest (cdr rest)))
+		       (if separator
+			   (insert lbs))
+		       (insert-char-attributes ret
+					       readable
+					       al ; cal
+					       nil 'for-sub-node)
+		       (setq separator lbs))
+		   (setq ret (prin1-to-string cell))
+		   (if separator
+		       (if (< (+ (current-column)
+				 (length ret)
+				 (length separator))
+			      76)
+			   (insert separator)
+			 (insert lbs)))
+		   (insert ret)
+		   (setq separator " "))
+		 (setq value (cdr value)))
+	       (insert ")")
+	       (insert line-breaking))
+	      (t
+	       (insert (format "(%-18s" name))
+	       (setq ret (prin1-to-string value))
+	       (unless (< (+ (current-column)
+			     (length ret)
+			     3)
+			  76)
 		 (insert line-breaking))
-                ((consp value)
-		 (insert (format "(%-18s " name))
-		 (setq lbs (concat "\n" (make-string (current-column) ?\ ))
-		       separator nil)
-		 (while (consp value)
-		   (setq cell (car value))
-		   (if (and (consp cell)
-			    (consp (car cell))
-			    (setq ret (condition-case nil
-					  (find-char cell)
-					(error nil))))
-		       (progn
-			 (setq rest cell
-			       al nil
-			       cal nil)
-			 (while rest
-			   (setq key (car (car rest)))
-			   (if (find-charset key)
-			       (setq cal (cons key cal))
-			     (setq al (cons key al)))
-			   (setq rest (cdr rest)))
-			 (if separator
-			     (insert lbs))
-			 (insert-char-attributes ret
-						 readable
-						 al ; cal
-						 nil 'for-sub-node)
-			 (setq separator lbs))
-		     (setq ret (prin1-to-string cell))
-		     (if separator
-			 (if (< (+ (current-column)
-				   (length ret)
-				   (length separator))
-				76)
-			     (insert separator)
-			   (insert lbs)))
-		     (insert ret)
-		     (setq separator " "))
-		   (setq value (cdr value)))
-		 (insert ")")
-		 (insert line-breaking))
-		(t
-                 (insert (format "(%-18s" name))
-		 (setq ret (prin1-to-string value))
-		 (unless (< (+ (current-column)
-			       (length ret)
-			       3)
-			    76)
-		   (insert line-breaking))
-		 (insert " . " ret ")" line-breaking)
-		 ;; (insert (format "(%-18s . %S)%s"
-                 ;;                 name value
-                 ;;                 line-breaking))
-		 )
-		))
+	       (insert " . " ret ")" line-breaking)
+	       ;; (insert (format "(%-18s . %S)%s"
+	       ;;                 name value
+	       ;;                 line-breaking))
+	       )
+	      ))
       (setq attributes (cdr attributes)))
     (insert ")")))
 

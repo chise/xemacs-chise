@@ -650,6 +650,7 @@
 (define-char
   '((ideographic-radical . 143)	; ⾎
     (=ucs		. #x884A)	; 衊
+    (=big5		. #xF647)	; &I-B-F647;
     ))
 (define-char
   '((<-denotational
@@ -669,12 +670,15 @@
     (ideographic-radical . 143)	; ⾎
     (ideographic-strokes . 14)
     (total-strokes	 . 20)
-    (=big5		. #xF647)	; &B-F647;
+    (=>>ucs@unicode	. #x884A)	; &G-JX2-7825;
+    (=>>jis-x0213-2	. #x7825)	; &G-JX2-7825; [88-05]
+    (=>>hanyo-denshi/jb . #x5C28)	; &G-JX2-7825; [60-08]
     (->subsumptive
      ((=ucs@unicode	  . #x884A)	; &JX2-7825;
       (=jis-x0212	  . #x5C28)	; &JX2-7825; [60-08]
       (=jis-x0213-2	  . #x7825)	; &I-JX2-7825; [88-05]
       (=gb12345		  . #x785A)	; &JX2-7825; [88-58]
+      (=hanyo-denshi/jb	  . #x5C28)	; &I-HD-JB-5C28; [60-08]
       ))
     ))
 (define-char

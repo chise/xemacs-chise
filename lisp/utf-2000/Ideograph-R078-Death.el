@@ -309,7 +309,9 @@
       (=daikanwa	  . 16376)	; &M-16376;
       (=hanziku-4	  . #xC453)	; &I-HZK04-C453;
       (<-same
-       ((=daikanwa	    . 16584)	; &I-M-16584;
+       ((=ucs@jis	    . #x6BAC)	; &M-16584;
+	(=jis-x0212	    . #x462C)	; &M-16584; [38-12]
+	(=daikanwa	    . 16584)	; &I-M-16584;
 	))
       (<-same*sources
        jiyun daikanwa)
@@ -2168,8 +2170,8 @@
       )
      ((=ucs		  . #x6B79)	; 歹
       )
-     ((=ucs@jis		  . #x5352)	; &AJ1-02836;
-      (=jis-x0208	  . #x4234)	; &AJ1-02836; [34-20]
+     ((=ucs@jis		  . #x5352)	; 卒󠄀
+      (=jis-x0208	  . #x4234)	; 卒󠄀 [34-20]
       (=ks-x1001	  . #x706F)	; &I-K0-706F; [80-79]
       (=jis-x0213-1	  . #x4234)	; &I-JX1-4234; [34-20]
       (=daikanwa	  . 02740)	; &I-M-02740;
@@ -3666,6 +3668,7 @@
     (=ucs@jis/1990	. #x6BA9)	; &M-16577;
     (=jis-x0212		. #x462B)	; &M-16577; [38-11]
     (=daikanwa		. 16577)	; &I-M-16577;
+    (=hanyo-denshi/jb	. #x462B)	; &I-HD-JB-462B; [38-11]
     ))
 (define-char
   '((<-denotational

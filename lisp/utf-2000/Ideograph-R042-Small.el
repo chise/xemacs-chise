@@ -399,10 +399,11 @@
     (total-strokes	 . 8)
     (=ucs		. #x5C19)	; 尙
     (->subsumptive
-     ((=ucs@unicode	  . #x5C19)	; &M-07493;
-      (=ks-x1001	  . #x5F46)	; &M-07493; [63-38]
+     ((=ucs@unicode	  . #x5C19)	; &AJ1-13835;
+      (=ks-x1001	  . #x5F46)	; &AJ1-13835; [63-38]
       (=daikanwa	  . 07493)	; &I-M-07493;
       (=jef-china3	  . #x4AD3)	; &I-JC3-4AD3;
+      (=adobe-japan1-4	  . 13835)	; &I-AJ1-13835;
       (mojikyo		  . 007493)	; &MCS-60001D45;
       )
      ((=cns11643-3	  . #x2851)	; &C3-2851; [08-49]
@@ -427,15 +428,15 @@
     (=gt-pj-1		. #x3E30)	; &I-GT-09446; [30-16]
     (mojikyo		. 050154)	; &MCS-6000C3EA;
     (<-same
-     ((=ucs@unicode	  . #x5C19)	; &M-07493;
-      (=ks-x1001	  . #x5F46)	; &M-07493; [63-38]
+     ((=ucs@unicode	  . #x5C19)	; &AJ1-13835;
+      (=ks-x1001	  . #x5F46)	; &AJ1-13835; [63-38]
       (=daikanwa	  . 07493)	; &I-M-07493;
       ))
     (<-same*sources
      daikanwa)
-    (<-simplified@JP
-     ((=ucs@unicode	  . #x5C19)	; &M-07493;
-      (=ks-x1001	  . #x5F46)	; &M-07493; [63-38]
+    (<-simplified@JP/misc
+     ((=ucs@unicode	  . #x5C19)	; &AJ1-13835;
+      (=ks-x1001	  . #x5F46)	; &AJ1-13835; [63-38]
       (=daikanwa	  . 07493)	; &I-M-07493;
       ))
     ))

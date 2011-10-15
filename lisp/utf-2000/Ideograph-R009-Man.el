@@ -478,8 +478,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x53C8)	; &AJ1-03746;
-	(=jis-x0208	    . #x4B74)	; &AJ1-03746; [43-84]
+       ((=ucs@unicode	    . #x53C8)	; 又󠄀
+	(=jis-x0208	    . #x4B74)	; 又󠄀 [43-84]
 	(=gb2312	    . #x5356)	; &I-G0-5356; [51-54]
 	(=cns11643-1	    . #x4434)	; &I-C1-4434; [36-20]
 	(=jis-x0213-1	    . #x4B74)	; &I-JX1-4B74; [43-84]
@@ -2285,8 +2285,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@jis		  . #x53CD)	; &AJ1-03411;
-      (=jis-x0208	  . #x483F)	; &AJ1-03411; [40-31]
+     ((=ucs@jis		  . #x53CD)	; 反󠄀
+      (=jis-x0208	  . #x483F)	; 反󠄀 [40-31]
       (=ks-x1001	  . #x5A63)	; &I-K0-5A63; [58-67]
       (=cns11643-1	  . #x4530)	; &I-C1-4530; [37-16]
       (=jis-x0213-1	  . #x483F)	; &I-JX1-483F; [40-31]
@@ -4750,8 +4750,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@unicode	  . #x533A)	; &AJ1-01760;
-      (=jis-x0208	  . #x3668)	; &AJ1-01760; [22-72]
+     ((=ucs@unicode	  . #x533A)	; 区󠄀
+      (=jis-x0208	  . #x3668)	; 区󠄀 [22-72]
       (=gb2312		  . #x4778)	; &I-G0-4778; [39-88]
       (=jis-x0213-1	  . #x3668)	; &I-JX1-3668; [22-72]
       ))
@@ -5016,8 +5016,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x52FB)	; &AJ1-16799;
-	(=jis-x0213-1	    . #x2E6A)	; &AJ1-16799; [14-74]
+       ((=ucs@unicode	    . #x52FB)	; 勻󠄀
+	(=jis-x0213-1	    . #x2E6A)	; 勻󠄀 [14-74]
 	(=daikanwa	    . 02496)	; &I-M-02496;
 	))
       (=daikanwa	  . 48916)	; &M-48916;
@@ -5062,8 +5062,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x5300)	; &C3-2156;
-	(=gb2312	    . #x5448)	; &C3-2156; [52-40]
+       ((=ucs@unicode	    . #x5300)	; 匀󠄁
+	(=gb2312	    . #x5448)	; 匀󠄁 [52-40]
 	(=cns11643-3	    . #x2156)	; &I-C3-2156; [01-54]
 	))
       (=ucs@unicode	  . #x4F28)	; &HZK01-BD7A;
@@ -5875,8 +5875,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@unicode	  . #x534A)	; 半󠄂
-      (=jis-x0208	  . #x483E)	; 半󠄂 [40-30]
+     ((=ucs@unicode	  . #x534A)	; 半󠄀
+      (=jis-x0208	  . #x483E)	; 半󠄀 [40-30]
       (=gb2312		  . #x306B)	; &I-G0-306B; [16-75]
       (=cns11643-1	  . #x4624)	; &I-C1-4624; [38-04]
       (=jis-x0213-1	  . #x483E)	; &I-JX1-483E; [40-30]
@@ -5968,8 +5968,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@jis	    . #x56DB)	; &GT-05901;
-	(=jis-x0208	    . #x3B4D)	; &GT-05901; [27-45]
+       ((=ucs@jis	    . #x56DB)	; &AJ1-02203;
+	(=jis-x0208	    . #x3B4D)	; &AJ1-02203; [27-45]
 	(=ks-x1001	    . #x5E4C)	; &I-K0-5E4C; [62-44]
 	(=jis-x0213-1	    . #x3B4D)	; &I-JX1-3B4D; [27-45]
 	(=daikanwa	    . 04682)	; &I-M-04682;
@@ -6455,8 +6455,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@unicode	  . #x382F)	; &CDP-8BAD;
-      (=jis-x0213-2	  . #x286F)	; &CDP-8BAD; [08-79]
+     ((=ucs@unicode	  . #x382F)	; &AJ1-17588;
+      (=jis-x0213-2	  . #x286F)	; &AJ1-17588; [08-79]
       ))
     (=ucs@unicode	. #x4F40)	; 佀󠄀
     (=jis-x0212		. #x3066)	; 佀󠄀 [16-70]
@@ -9185,8 +9185,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x5371)	; 危󠄂
-	(=jis-x0208	    . #x346D)	; 危󠄂 [20-77]
+       ((=ucs@unicode	    . #x5371)	; 危󠄀
+	(=jis-x0208	    . #x346D)	; 危󠄀 [20-77]
 	(=gb2312	    . #x4E23)	; &I-G0-4E23; [46-03]
 	(=cns11643-1	    . #x474E)	; &I-C1-474E; [39-46]
 	(=jis-x0213-1	    . #x346D)	; &I-JX1-346D; [20-77]
@@ -9679,8 +9679,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x540F)	; &GT-04190;
-	(=gb2312	    . #x4074)	; &GT-04190; [32-84]
+       ((=ucs@unicode	    . #x540F)	; &AJ1-03939;
+	(=gb2312	    . #x4074)	; &AJ1-03939; [32-84]
 	(=jis-x0213-1	    . #x4D79)	; &I-JX1-4D79; [45-89]
 	))
       (=ucs@unicode	  . #x4F7F)	; 使󠄀
@@ -12125,8 +12125,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@cns		  . #x5448)	; &M-03363;
-      (=cns11643-1	  . #x4947)	; &M-03363; [41-39]
+     ((=ucs@cns		  . #x5448)	; 呈󠄄
+      (=cns11643-1	  . #x4947)	; 呈󠄄 [41-39]
       (=daikanwa	  . 03363)	; &I-M-03363;
       ))
     (=ucs@cns		. #x4FB1)	; &M-00637;
@@ -13118,7 +13118,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=daikanwa	  . 06107)	; &M-06107;
+     ((=daikanwa	  . 06107)	; 妥󠄃
+      (=hanyo-denshi/jt	  . #xAFDF)	; &I-HD-JT-AFDF;
       ))
     (=ucs@jis		. #x4FC0)	; 俀󠄀
     (=jis-x0212		. #x3136)	; 俀󠄀 [17-22]
@@ -13279,8 +13280,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x5433)	; &M-03365;
-	(=ks-x1001	    . #x676F)	; &M-03365; [71-79]
+       ((=ucs@unicode	    . #x5433)	; &AJ1-13760;
+	(=ks-x1001	    . #x676F)	; &AJ1-13760; [71-79]
 	(=daikanwa	    . 03365)	; &I-M-03365;
 	))
       (=ucs@unicode	  . #x4FC1)	; 俁󠄀
@@ -14757,8 +14758,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x5446)	; &GT-04295;
-	(=jis-x0208	    . #x4A72)	; &GT-04295; [42-82]
+       ((=ucs@unicode	    . #x5446)	; &AJ1-03650;
+	(=jis-x0208	    . #x4A72)	; &AJ1-03650; [42-82]
 	(=gb2312	    . #x3474)	; &I-G0-3474; [20-84]
 	(=jis-x0213-1	    . #x4A72)	; &I-JX1-4A72; [42-82]
 	(=daikanwa	    . 03395)	; &I-M-03395;
@@ -15330,8 +15331,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x53D3)	; &HZK01-F6F9;
-	(=jis-x0212	    . #x345B)	; &HZK01-F6F9; [20-59]
+       ((=ucs@unicode	    . #x53D3)	; &AJ1-21246;
+	(=jis-x0212	    . #x345B)	; &AJ1-21246; [20-59]
 	(=cns11643-4	    . #x234F)	; &I-C4-234F; [03-47]
 	))
       (=ucs@iso		  . #x20255)	; &HZK01-C460;
@@ -16719,8 +16720,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@jis		  . #x548E)	; &GT-04331;
-      (=jis-x0208	  . #x526B)	; &GT-04331; [50-75]
+     ((=ucs@jis		  . #x548E)	; &AJ1-04352;
+      (=jis-x0208	  . #x526B)	; &AJ1-04352; [50-75]
       (=ks-x1001	  . #x4F24)	; &I-K0-4F24; [47-04]
       (=cns11643-1	  . #x4C55)	; &I-C1-4C55; [44-53]
       (=jis-x0213-1	  . #x526B)	; &I-JX1-526B; [50-75]
@@ -16861,8 +16862,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@jis	    . #x5352)	; &AJ1-02836;
-	(=jis-x0208	    . #x4234)	; &AJ1-02836; [34-20]
+       ((=ucs@jis	    . #x5352)	; 卒󠄀
+	(=jis-x0208	    . #x4234)	; 卒󠄀 [34-20]
 	(=ks-x1001	    . #x706F)	; &I-K0-706F; [80-79]
 	(=jis-x0213-1	    . #x4234)	; &I-JX1-4234; [34-20]
 	(=daikanwa	    . 02740)	; &I-M-02740;
@@ -17002,8 +17003,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@jis	    . #x53D6)	; &AJ1-02324;
-	(=jis-x0208	    . #x3C68)	; &AJ1-02324; [28-72]
+       ((=ucs@jis	    . #x53D6)	; 取󠄀
+	(=jis-x0208	    . #x3C68)	; 取󠄀 [28-72]
 	(=ks-x1001	    . #x7622)	; &I-K0-7622; [86-02]
 	(=cns11643-1	    . #x4C3D)	; &I-C1-4C3D; [44-29]
 	(=jis-x0213-1	    . #x3C68)	; &I-JX1-3C68; [28-72]
@@ -17975,8 +17976,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@unicode	  . #x5782)	; &GT-06266;
-      (=jis-x0208	  . #x3F62)	; &GT-06266; [31-66]
+     ((=ucs@unicode	  . #x5782)	; &AJ1-02600;
+      (=jis-x0208	  . #x3F62)	; &AJ1-02600; [31-66]
       (=gb2312		  . #x3439)	; &I-G0-3439; [20-25]
       (=ks-x1001	  . #x6177)	; &I-K0-6177; [65-87]
       (=jis-x0213-1	  . #x3F62)	; &I-JX1-3F62; [31-66]
@@ -18240,8 +18241,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x5C19)	; &M-07493;
-	(=ks-x1001	    . #x5F46)	; &M-07493; [63-38]
+       ((=ucs@unicode	    . #x5C19)	; &AJ1-13835;
+	(=ks-x1001	    . #x5F46)	; &AJ1-13835; [63-38]
 	(=daikanwa	    . 07493)	; &I-M-07493;
 	))
       (=ucs@jis		  . #x5018)	; 倘󠄀
@@ -19003,8 +19004,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@jis		  . #x5377)	; 卷󠄁
-      (=jis-x0208	  . #x524B)	; 卷󠄁 [50-43]
+     ((=ucs@jis		  . #x5377)	; 卷󠄀
+      (=jis-x0208	  . #x524B)	; 卷󠄀 [50-43]
       (=ks-x1001	  . #x4F69)	; &I-K0-4F69; [47-73]
       (=jis-x0213-1	  . #x524B)	; &I-JX1-524B; [50-43]
       (=daikanwa	  . 02860)	; &I-M-02860;
@@ -19613,7 +19614,7 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=jis-x0208@1978    . #x3E3E)	; &M-14516; [30-30]
+       ((=jis-x0208@1978    . #x3E3E)	; 松󠄃 [30-30]
 	(=jis-x0208@1983    . #x3E3E)	; &I-J83-3E3E; [30-30]
 	(=ks-x1001	    . #x6166)	; &I-K0-6166; [65-70]
 	(=daikanwa	    . 14516)	; &I-M-14516;
@@ -19640,9 +19641,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x677E)	; &GT-18480;
-	(=gb2312	    . #x4B49)	; &GT-18480; [43-41]
-	(=jis-x0213-1	    . #x3E3E)	; &I-JX1-3E3E; [30-30]
+       ((=ucs@unicode	    . #x677E)	; &G0-4B49;
+	(=gb2312	    . #x4B49)	; &G0-4B49; [43-41]
 	))
       (=ucs@unicode	  . #x502F)	; &UU+502F;
       ))
@@ -21162,8 +21162,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@unicode	  . #x533D)	; &AJ1-19206;
-      (=jis-x0212	  . #x3434)	; &AJ1-19206; [20-20]
+     ((=ucs@unicode	  . #x533D)	; 匽󠄀
+      (=jis-x0212	  . #x3434)	; 匽󠄀 [20-20]
       ))
     (=>>ucs@unicode	. #x5043)	; 偃󠄀
     (=ucs@unicode	. #x5043)	; 偃󠄀
@@ -21192,7 +21192,7 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=>>ucs@cns	  . #x533D)	; &G-CU+533D;
+     ((=>>daikanwa	  . 02684)	; &G-CU+533D;
       ))
     (=>>ucs@cns		. #x5043)	; &G-CU+5043;
     (->subsumptive
@@ -22772,9 +22772,9 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@cns		  . #x54BC)	; &GT-04428;
-      (=ucs@jis		  . #x54BC)	; &GT-04428;
-      (=jis-x0208	  . #x5325)	; &GT-04428; [51-05]
+     ((=ucs@cns		  . #x54BC)	; &AJ1-04376;
+      (=ucs@jis		  . #x54BC)	; &AJ1-04376;
+      (=jis-x0208	  . #x5325)	; &AJ1-04376; [51-05]
       (=cns11643-2	  . #x294B)	; &I-C2-294B; [09-43]
       (=jis-x0213-1	  . #x5325)	; &I-JX1-5325; [51-05]
       (=daikanwa	  . 03573)	; &I-M-03573;
@@ -23881,8 +23881,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@jis	    . #x54C0)	; &GT-04416;
-	(=jis-x0208	    . #x3025)	; &GT-04416; [16-05]
+       ((=ucs@jis	    . #x54C0)	; &AJ1-01129;
+	(=jis-x0208	    . #x3025)	; &AJ1-01129; [16-05]
 	(=ks-x1001	    . #x646E)	; &I-K0-646E; [68-78]
 	(=jis-x0213-1	    . #x3025)	; &I-JX1-3025; [16-05]
 	(=daikanwa	    . 03580)	; &I-M-03580;
@@ -23929,64 +23929,83 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 186 7)
-    (=>>ucs@unicode	. #x5070)	; &G-JX2-2167;
-    (=>>jis-x0213-2	. #x2167)	; &G-JX2-2167; [01-71]
-    (=big5		. #xD44C)	; &G-JX2-2167;
-    (=>>daikanwa	. 00893)	; &G-JX2-2167;
-    (->subsumptive
-     ((=decomposition@cid
-       ((=ucs		    . #x5070)	; 偰
-	)
-       ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (=decomposition@hanyo-denshi
-       ((=ucs		    . #x5070)	; 偰
-	)
-       ((=ucs		    . #xE0101)	; 󠄁
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((name		    . "CJK RADICAL PERSON")
-	(=ucs		    . #x2E85)	; ⺅
-	)
-       ((=gt		    . 07464)	; &GT-07464;
-	(=daikanwa	    . 05917)	; &I-M-05917;
-	))
-      (=ucs@jis		  . #x5070)	; 偰󠄀
-      (=jis-x0212	  . #x3174)	; 偰󠄀 [17-84]
-      (=jis-x0213-2	  . #x2167)	; &I-JX2-2167; [01-71]
-      (=daikanwa	  . 00893)	; &I-M-00893;
-      (=jef-china3	  . #x42F5)	; &I-JC3-42F5;
-      (=adobe-japan1-2	  . 08388)	; &I-AJ1-08388;
-      (=hanyo-denshi/jb	  . #x3174)	; &I-HD-JB-3174; [17-84]
-      (mojikyo		  . 000893)	; &MCS-6000037D;
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((name		    . "CJK RADICAL PERSON")
-	(=ucs		    . #x2E85)	; ⺅
-	)
-       ((=ucs@unicode	    . #x5951)	; &G0-4675;
-	(=gb2312	    . #x4675)	; &G0-4675; [38-85]
-	))
-      (=ucs@unicode	  . #x5070)	; &UU+5070;
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((name		    . "CJK RADICAL PERSON")
-	(=ucs		    . #x2E85)	; ⺅
-	)
-       ((=cns11643-1	    . #x5056)	; &C1-5056; [48-54]
-	))
-      (=ucs@cns		  . #x5070)	; &C2-334F;
-      (=cns11643-2	  . #x334F)	; &C2-334F; [19-47]
+    (=>ucs@unicode	. #x5070)	; &A-UU+5070;
+    (=big5		. #xD44C)	; &A-UU+5070;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x5070)	; &A-UU+5070;
       ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (=decomposition@cid
+     ((=ucs		  . #x5070)	; 偰
+      )
+     ((=ucs		  . #xE0100)	; 󠄀
+      ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5070)	; 偰
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL PERSON")
+      (=ucs		  . #x2E85)	; ⺅
+      )
+     ((=gt		  . 07464)	; &GT-07464;
+      (=daikanwa	  . 05917)	; &I-M-05917;
+      ))
+    (=ucs@jis		. #x5070)	; 偰󠄀
+    (=jis-x0212		. #x3174)	; 偰󠄀 [17-84]
+    (=jis-x0213-2	. #x2167)	; &I-JX2-2167; [01-71]
+    (=daikanwa		. 00893)	; &I-M-00893;
+    (=jef-china3	. #x42F5)	; &I-JC3-42F5;
+    (=adobe-japan1-2	. 08388)	; &I-AJ1-08388;
+    (=hanyo-denshi/jb	. #x3174)	; &I-HD-JB-3174; [17-84]
+    (mojikyo		. 000893)	; &MCS-6000037D;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x5070)	; &A-UU+5070;
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL PERSON")
+      (=ucs		  . #x2E85)	; ⺅
+      )
+     ((=ucs@unicode	  . #x5951)	; &G0-4675;
+      (=gb2312		  . #x4675)	; &G0-4675; [38-85]
+      ))
+    (=ucs@unicode	. #x5070)	; &UU+5070;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x5070)	; &A-UU+5070;
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL PERSON")
+      (=ucs		  . #x2E85)	; ⺅
+      )
+     ((=ucs@cns		  . #x5951)	; &C1-5056;
+      (=cns11643-1	  . #x5056)	; &C1-5056; [48-54]
+      ))
+    (=ucs@cns		. #x5070)	; &C2-334F;
+    (=cns11643-2	. #x334F)	; &C2-334F; [19-47]
     ))
 (define-char
   '((<-denotational
@@ -25539,8 +25558,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@jis/2004	    . #x53DF)	; &GT-04022;
-	(=jis-x0213-1@2004  . #x5257)	; &GT-04022; [50-55]
+       ((=ucs@jis/2004	    . #x53DF)	; &AJ1-14111;
+	(=jis-x0213-1@2004  . #x5257)	; &AJ1-14111; [50-55]
 	(=daikanwa	    . 03176)	; &I-M-03176;
 	))
       (=ucs@jis		  . #x5081)	; 傁󠄀
@@ -25724,8 +25743,8 @@
 	  (=jis-x0213-1	      . #x5664)	; &I-JX1-5664; [54-68]
 	  (=daikanwa	      . 08854)	; &I-M-08854;
 	  )
-	 ((=ucs@unicode	      . #x53C8)	; &AJ1-03746;
-	  (=jis-x0208	      . #x4B74)	; &AJ1-03746; [43-84]
+	 ((=ucs@unicode	      . #x53C8)	; 又󠄀
+	  (=jis-x0208	      . #x4B74)	; 又󠄀 [43-84]
 	  (=gb2312	      . #x5356)	; &I-G0-5356; [51-54]
 	  (=cns11643-1	      . #x4434)	; &I-C1-4434; [36-20]
 	  (=jis-x0213-1	      . #x4B74)	; &I-JX1-4B74; [43-84]
@@ -25800,8 +25819,8 @@
 	 ((=ucs@unicode	      . #x5E1A)	; &GT-11134;
 	  (=gb2312	      . #x5663)	; &GT-11134; [54-67]
 	  )
-	 ((=ucs@unicode	      . #x53C8)	; &AJ1-03746;
-	  (=jis-x0208	      . #x4B74)	; &AJ1-03746; [43-84]
+	 ((=ucs@unicode	      . #x53C8)	; 又󠄀
+	  (=jis-x0208	      . #x4B74)	; 又󠄀 [43-84]
 	  (=gb2312	      . #x5356)	; &I-G0-5356; [51-54]
 	  (=cns11643-1	      . #x4434)	; &I-C1-4434; [36-20]
 	  (=jis-x0213-1	      . #x4B74)	; &I-JX1-4B74; [43-84]
@@ -26850,7 +26869,7 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ks-x1001	    . #x5350)	; &M-03709; [51-48]
+       ((=ks-x1001	    . #x5350)	; 唐󠄃 [51-48]
 	(=daikanwa	    . 03709)	; &I-M-03709;
 	))
       (=ucs@jis		  . #x508F)	; 傏󠄀
@@ -30461,12 +30480,7 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=decomposition@hanyo-denshi
-       ((=ucs		    . #x5C08)	; 專
-	)
-       ((=ucs		    . #xE0102)	; 󠄂
-	))
-      (=hanyo-denshi/jt	  . #xB041)	; 專󠄂
+     ((=hanyo-denshi/jt	  . #xB041)	; &HD-JT-B041;
       ))
     (=hanyo-denshi/jt	. #xAD95)	; 傳󠄂
     ))
@@ -30510,8 +30524,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@unicode	  . #x5340)	; 區󠄂
-      (=ks-x1001	  . #x4F21)	; 區󠄂 [47-01]
+     ((=ucs@unicode	  . #x5340)	; 區󠄀
+      (=ks-x1001	  . #x4F21)	; 區󠄀 [47-01]
       (=jis-x0208@1990	  . #x523F)	; &I-J90-523F; [50-31]
       (=jis-x0213-1	  . #x523F)	; &I-JX1-523F; [50-31]
       ))
@@ -30542,8 +30556,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@cns		  . #x5340)	; &M-02691;
-      (=cns11643-1	  . #x5934)	; &M-02691; [57-20]
+     ((=ucs@cns		  . #x5340)	; 區󠄃
+      (=cns11643-1	  . #x5934)	; 區󠄃 [57-20]
       (=daikanwa	  . 02691)	; &I-M-02691;
       ))
     (=ucs@cns		. #x50B4)	; &C2-415F;
@@ -31350,8 +31364,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@jis	    . #x57F7)	; &J90-3C39;
-	(=jis-x0208	    . #x3C39)	; &J90-3C39; [28-25]
+       ((=ucs@jis	    . #x57F7)	; &AJ1-02277;
+	(=jis-x0208	    . #x3C39)	; &AJ1-02277; [28-25]
 	(=ks-x1001	    . #x727B)	; &I-K0-727B; [82-91]
 	(=jis-x0213-1	    . #x3C39)	; &I-JX1-3C39; [28-25]
 	))
@@ -31366,9 +31380,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x57F7)	; &GT-06522;
-	(=cns11643-1	    . #x595A)	; &GT-06522; [57-58]
-	(=daikanwa	    . 05193)	; &I-M-05193;
+       ((=ucs@unicode	    . #x57F7)	; &C1-595A;
+	(=cns11643-1	    . #x595A)	; &C1-595A; [57-58]
 	))
       (=ucs@iso		  . #x20337)	; &HZK01-D0FE;
       (=cns11643-4	  . #x3C2E)	; &HZK01-D0FE; [28-14]
@@ -31914,8 +31927,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@jis	    . #x5709)	; &GT-06021;
-	(=jis-x0208	    . #x537E)	; &GT-06021; [51-94]
+       ((=ucs@jis	    . #x5709)	; &AJ1-04465;
+	(=jis-x0208	    . #x537E)	; &AJ1-04465; [51-94]
 	(=jis-x0213-1	    . #x537E)	; &I-JX1-537E; [51-94]
 	(=daikanwa	    . 04793)	; &I-M-04793;
 	))
@@ -32111,8 +32124,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@unicode	  . #x66FC)	; 曼󠄂
-      (=jis-x0208	  . #x5258)	; 曼󠄂 [50-56]
+     ((=ucs@unicode	  . #x66FC)	; 曼󠄀
+      (=jis-x0208	  . #x5258)	; 曼󠄀 [50-56]
       (=gb2312		  . #x427C)	; &I-G0-427C; [34-92]
       (=ks-x1001	  . #x583A)	; &I-K0-583A; [56-26]
       (=jis-x0213-1	  . #x5258)	; &I-JX1-5258; [50-56]
@@ -33100,7 +33113,7 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=daikanwa	    . 05273)	; &I-M-05273;
+       ((=daikanwa	    . 05273)	; &M-05273;
 	))
       (=daikanwa	  . 01081)	; &M-01081;
       (mojikyo		  . 001081)	; &MCS-60000439;
@@ -34896,8 +34909,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@unicode	  . #x7FD5)	; &C1-6145;
-      (=gb2312		  . #x7462)	; &C1-6145; [84-66]
+     ((=ucs@unicode	  . #x7FD5)	; 翕󠄂
+      (=gb2312		  . #x7462)	; 翕󠄂 [84-66]
       (=cns11643-1	  . #x6145)	; &I-C1-6145; [65-37]
       ))
     (=ucs@unicode	. #x3486)	; &C3-4578;
@@ -35033,6 +35046,7 @@
       (=ucs		  . #x2E85)	; ⺅
       )
      ((=ucs@jis		  . #x66FE)	; &GT-18103;
+      (=ucs@ks		  . #x66FE)	; &GT-18103;
       (=jis-x0208	  . #x413D)	; &GT-18103; [33-29]
       (=ks-x1001	  . #x7174)	; &I-K0-7174; [81-84]
       (=jis-x0213-1	  . #x413D)	; &I-JX1-413D; [33-29]
@@ -37242,8 +37256,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@jis	    . #x532F)	; &AJ1-04304;
-	(=jis-x0208	    . #x523B)	; &AJ1-04304; [50-27]
+       ((=ucs@jis	    . #x532F)	; 匯󠄀
+	(=jis-x0208	    . #x523B)	; 匯󠄀 [50-27]
 	(=ks-x1001	    . #x7C5D)	; &I-K0-7C5D; [92-61]
 	(=jis-x0213-1	    . #x523B)	; &I-JX1-523B; [50-27]
 	(=daikanwa	    . 02644)	; &I-M-02644;
@@ -37570,8 +37584,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@jis	    . #x585E)	; &GT-06725;
-	(=jis-x0208	    . #x3A49)	; &GT-06725; [26-41]
+       ((=ucs@jis	    . #x585E)	; &AJ1-02105;
+	(=jis-x0208	    . #x3A49)	; &AJ1-02105; [26-41]
 	(=ks-x1001	    . #x5F5D)	; &I-K0-5F5D; [63-61]
 	(=jis-x0213-1	    . #x3A49)	; &I-JX1-3A49; [26-41]
 	(=daikanwa	    . 05349)	; &I-M-05349;
@@ -42707,8 +42721,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@jis/2004	  . #x7FEB)	; &M-28766;
-      (=jis-x0208@1978	  . #x3465)	; &M-28766; [20-69]
+     ((=ucs@jis/2004	  . #x7FEB)	; 翫󠄃
+      (=jis-x0208@1978	  . #x3465)	; 翫󠄃 [20-69]
       (=ks-x1001	  . #x6851)	; &I-K0-6851; [72-49]
       (=jis-x0213-1@2004  . #x3465)	; &I-JX3-3465; [20-69]
       (=daikanwa	  . 28766)	; &I-M-28766;
@@ -45022,7 +45036,17 @@
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 19)
     (total-strokes	 . 21)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL PERSON")
+      (=ucs		  . #x2E85)	; ⺅
+      )
+     ((=>>jis-x0208	  . #x4E25)	; &G-GT-56604; [46-05]
+      ))
     (=>>ucs@unicode	. #x34A7)	; &G-UU+34A7;
+    (=>>daikanwa	. 01312)	; &G-UU+34A7;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -45031,15 +45055,25 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
+       ((=daikanwa	    . 42140)	; &M-42140;
+	))
+      (=daikanwa	  . 01312)	; &M-01312;
+      (mojikyo		  . 001312)	; &MCS-60000520;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL PERSON")
+	(=ucs		    . #x2E85)	; ⺅
+	)
        ((=ucs@jis	    . #x96E2)	; &GT-56604;
+	(=ucs@ks	    . #x96E2)	; &GT-56604;
 	(=jis-x0208	    . #x4E25)	; &GT-56604; [46-05]
 	(=ks-x1001	    . #x576E)	; &I-K0-576E; [55-78]
 	(=jis-x0213-1	    . #x4E25)	; &I-JX1-4E25; [46-05]
-	(=daikanwa	    . 42140)	; &I-M-42140;
 	))
-      (=daikanwa	  . 01312)	; &M-01312;
-      (=cbeta		  . 04184)	; &I-CB04184;
-      (mojikyo		  . 001312)	; &MCS-60000520;
+      (=cbeta		  . 04184)	; &CB04184;
       )
      ((hanyu-dazidian	  1 239 9)
       (ideographic-structure
@@ -45674,7 +45708,7 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=>>ucs@jis	  . #x56B4)	; &G-JU+56B4;
+     ((=>>jis-x0208	  . #x536E)	; &G-GT-05771; [51-78]
       ))
     (=>>ucs@jis		. #x513C)	; &G-JU+513C;
     (->subsumptive
@@ -45690,8 +45724,9 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@jis	    . #x56B4)	; &GT-05771;
-	(=jis-x0208	    . #x536E)	; &GT-05771; [51-78]
+       ((=ucs@jis	    . #x56B4)	; &AJ1-04449;
+	(=ucs@ks	    . #x56B4)	; &AJ1-04449;
+	(=jis-x0208	    . #x536E)	; &AJ1-04449; [51-78]
 	(=ks-x1001	    . #x6571)	; &I-K0-6571; [69-81]
 	(=cns11643-1	    . #x7964)	; &I-C1-7964; [89-68]
 	(=jis-x0213-1	    . #x536E)	; &I-JX1-536E; [51-78]
@@ -45974,7 +46009,7 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=cns11643-1	    . #x7B26)	; &C1-7B26; [91-06]
+       ((=cns11643-1	    . #x7B26)	; 蠡󠄂 [91-06]
 	))
       (=ucs@cns		  . #x34A9)	; &C4-6A41;
       (=cns11643-4	  . #x6A41)	; &C4-6A41; [74-33]

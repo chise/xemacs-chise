@@ -810,15 +810,26 @@
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=big5		. #xB550)	; &B-B550;
+    (=>>ucs@unicode	. #x724C)	; &G-JX3-4757;
+    (=>>jis-x0208@1978	. #x4757)	; &G-JX3-4757; [39-55]
+    (=>>jis-x0213-1@2004 . #x4757)	; &G-JX3-4757; [39-55]
+    (=big5		. #xB550)	; &G-JX3-4757;
+    (=>>daikanwa	. 19854)	; &G-JX3-4757;
+    (=>>hanyo-denshi/ft . #x327C)	; &G-JX3-4757; [18-92]
     (->subsumptive
-     ((=ucs@unicode	  . #x724C)	; &M-19854;
-      (=jis-x0208@1978	  . #x4757)	; &M-19854; [39-55]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x724C)	; 牌
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=ucs@unicode	  . #x724C)	; 牌󠄃
+      (=jis-x0208@1978	  . #x4757)	; 牌󠄃 [39-55]
       (=gb2312		  . #x4546)	; &I-G0-4546; [37-38]
       (=ks-x1001	  . #x782B)	; &I-K0-782B; [88-11]
       (=jis-x0213-1@2004  . #x4757)	; &I-JX3-4757; [39-55]
       (=daikanwa	  . 19854)	; &I-M-19854;
-      (=shinjigen	  .  4725)	; &M-19854;
+      (=shinjigen	  .  4725)	; 牌󠄃
+      (=hanyo-denshi/ft	  . #x327C)	; &I-HD-FT-327C; [18-92]
       )
      ((=cns11643-1	  . #x6056)	; &C1-6056; [64-54]
       ))
@@ -839,8 +850,8 @@
     (=gt-pj-1		. #x4757)	; &I-GT-25508; [39-55]
     (=jef-china3	. #x58BF)	; &I-JC3-58BF;
     (<-simplified@JP/extra/design
-     ((=ucs@unicode	  . #x724C)	; &M-19854;
-      (=jis-x0208@1978	  . #x4757)	; &M-19854; [39-55]
+     ((=ucs@unicode	  . #x724C)	; 牌󠄃
+      (=jis-x0208@1978	  . #x4757)	; 牌󠄃 [39-55]
       (=gb2312		  . #x4546)	; &I-G0-4546; [37-38]
       (=ks-x1001	  . #x782B)	; &I-K0-782B; [88-11]
       (=jis-x0213-1@2004  . #x4757)	; &I-JX3-4757; [39-55]
@@ -1253,6 +1264,7 @@
       (=jis-x0213-2	  . #x7030)	; &I-JX2-7030; [80-16]
       (=daikanwa	  . 19876)	; &I-M-19876;
       (=jef-china3	  . #x58C0)	; &I-JC3-58C0;
+      (=hanyo-denshi/jb	  . #x4A54)	; &I-HD-JB-4A54; [42-52]
       )
      ((=ucs@unicode	  . #x7253)	; &UU+7253;
       )

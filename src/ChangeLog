@@ -1,3 +1,32 @@
+2011-07-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (charset_code_point): If nil is specified as a
+	feature-value, don't find in mother and return -1.
+
+2011-07-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): Accept nil as a value of
+	CCS-feature [it means that specified object does not have
+	code-point of the CCS-feature].
+
+2011-06-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (complex_vars_of_mule_charset): Use "jisx0208"
+	instead of "jisx0208\\.1990" as the X-registry of `=jis-x0208'.
+
+2011-05-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (char_encode_as_entity_reference): Don't use
+	`DECODE_CHAR' to detect isolated characters.
+
+	* mule-charset.c (charset_code_point): Change the third argument
+	`defined_only' to `accepted_mode'; `accepted_mode' can be
+	CHAR_ISOLATED_ONLY, CHAR_ALL or CHAR_DEFINED_ONLY.
+
+	* char-ucs.h (CHAR_ISOLATED_ONLY): New macro.
+	(CHAR_ALL): New macro.
+	(CHAR_DEFINED_ONLY): New macro.
+
 2011-03-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Fchar_feature_base_name_eq): New function when

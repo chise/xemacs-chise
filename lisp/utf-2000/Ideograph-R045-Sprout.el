@@ -130,6 +130,7 @@
     (=big5-cdp		. #x8DBD)	; &I-CDP-8DBD;
     (=daikanwa		. 07833)	; &I-M-07833;
     (=jef-china3	. #x99E5)	; &I-JC3-99E5;
+    (=adobe-japan1-5	. 17543)	; &I-AJ1-17543;
     ))
 (define-char
   '((ideographic-radical . 45)	; ⼬

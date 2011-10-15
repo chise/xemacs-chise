@@ -52,6 +52,7 @@
     (=jis-x0212		. #x6C5C)	; &M-47588; [76-60]
     (=jis-x0213-2	. #x7E54)	; &I-JX2-7E54; [94-52]
     (=daikanwa		. 47588)	; &I-M-47588;
+    (=hanyo-denshi/jb	. #x6C5C)	; &I-HD-JB-6C5C; [76-60]
     ))
 (define-char
   '((<-denotational
@@ -60,6 +61,7 @@
     (ideographic-radical . 198)	; ⿅
     (ideographic-strokes . 2)
     (total-strokes	 . 13)
+    (=>>ucs@unicode	. #x9E80)	; &G-UU+9E80;
     (->subsumptive
      ((=ucs@unicode	  . #x9E80)	; &EGB-2D4F;
       (=iso-ir165	  . #x2D4F)	; &EGB-2D4F; [13-47]
@@ -1380,16 +1382,42 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 22)
     (=ucs		. #x9E9E)	; 麞
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9E9E)	; 麞
+      ))
+    (ideographic-radical . 198)	; ⿅
+    (ideographic-strokes . 11)
+    (total-strokes	 . 22)
+    (=>>ucs@unicode	. #x9E9E)	; &G-JX1-7E6B;
+    (=>>jis-x0213-1	. #x7E6B)	; &G-JX1-7E6B; [94-75]
+    (=>>daikanwa	. 47688)	; &G-JX1-7E6B;
+    (=>>hanyo-denshi/jb . #x6C67)	; &G-JX1-7E6B; [76-71]
     (->subsumptive
-     ((=ucs@jis		  . #x9E9E)	; &M-47688;
-      (=jis-x0212	  . #x6C67)	; &M-47688; [76-71]
-      (=jis-x0213-1	  . #x7E6B)	; &I-JX1-7E6B; [94-75]
-      (=daikanwa	  . 47688)	; &I-M-47688;
-      )
-     ((=ucs@unicode	  . #x9E9E)	; &UU+9E9E;
+     ((=>>>ucs@unicode	  . #x9E9E)	; &g2-UU+9E9E;
+      (->subsumptive
+       ((=ucs@jis	    . #x9E9E)	; &M-47688;
+	(=ucs@JP/hanazono   . nil)
+	(=jis-x0212	    . #x6C67)	; &M-47688; [76-71]
+	(=jis-x0213-1	    . #x7E6B)	; &I-JX1-7E6B; [94-75]
+	(=daikanwa	    . 47688)	; &I-M-47688;
+	(=hanyo-denshi/jb   . #x6C67)	; &I-HD-JB-6C67; [76-71]
+	)
+       ((=ucs@unicode	    . #x9E9E)	; &UU+9E9E;
+	))
       )
      ((=cns11643-3	  . #x5F3A)	; &C3-5F3A; [63-26]
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9E9E)	; 麞
+      ))
+    (ideographic-radical . 198)	; ⿅
+    (ideographic-strokes . 11)
+    (total-strokes	 . 22)
+    (=ucs@JP/hanazono	. #x9E9E)	; &hanaJU+9E9E;
     ))
 (define-char
   '((ideographic-radical . 198)	; ⿅

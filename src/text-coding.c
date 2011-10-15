@@ -3415,11 +3415,22 @@ char_encode_as_entity_reference (Emchar ch, char* buf)
 	char_type = Qnil;
       if (!NILP (ccs = Ffind_charset (ccs)))
 	{
-	  int code_point = charset_code_point (ccs, ch, 0);
+	  int code_point
+	    = charset_code_point (ccs, ch,
+				  NILP (char_type) ?
+				  CHAR_ALL : CHAR_ISOLATED_ONLY );
 
 	  if ( (code_point >= 0)
-	       && (NILP (char_type)
-		   || DECODE_CHAR (ccs, code_point, 0) != ch) )
+	       && ( NILP (char_type)
+#if 1
+		    || ( charset_code_point (ccs, ch, CHAR_DEFINED_ONLY)
+			 == -1 )
+#endif
+#if 0
+		    || ( DECODE_CHAR (ccs, code_point, 0) != ch )
+#endif
+		    )
+	       )
 	    {
 	      Lisp_Object ret;
 

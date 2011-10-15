@@ -320,7 +320,7 @@
     (=cns11643-4	. #x2152)	; &I-C4-2152; [01-50]
     (=big5-cdp		. #x85BE)	; &I-CDP-85BE;
     (=daikanwa		. 28201)	; &I-M-28201;
-    (=big5-eten		. #xC8A2)	; &B-C8A2;
+    (=big5-eten		. #xC8A2)	; &I-B-C8A2;
     (<-formed@component/connect-below
      ((=ucs		  . #x7F51)	; 网
       (=daikanwa	  . 28199)	; &I-M-28199;
@@ -783,6 +783,11 @@
      ((=ucs		  . #x518D)	; 再
       )
      ((=ucs		  . #xE0100)	; 󠄀
+      ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x518D)	; 再
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
       ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1449,10 +1454,15 @@
     (ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (=gt		. 02023)	; &GT-02023;
-    (=gt-pj-2		. #x3D43)	; &GT-02023; [29-35]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5193)	; 冓
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
+    (=gt		. 02023)	; 冓󠄃
+    (=gt-pj-2		. #x3D43)	; 冓󠄃 [29-35]
     (=daikanwa		. 01540)	; &I-M-01540;
-    (=hanyo-denshi/ks	. 018290)	; &GT-02023;
+    (=hanyo-denshi/ks	. 018290)	; 冓󠄃
     (=hanyo-denshi/ks/mf . #x0725)	; &I-KSMF-01829;
     ))
 (define-char
@@ -1835,12 +1845,17 @@
     (->subsumptive
      ((ideographic-strokes . 9)
       (total-strokes	   . 11)
-      (=gt		  . 02031)	; &AJ1-14137;
-      (=gt-pj-2		  . #x3D48)	; &AJ1-14137; [29-40]
+      (=decomposition@cid
+       ((=ucs		    . #x665F)	; 晟
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=gt		  . 02031)	; 晟󠄃
+      (=gt-pj-2		  . #x3D48)	; 晟󠄃 [29-40]
       (=daikanwa	  . 01546)	; &I-M-01546;
       (=adobe-japan1-4	  . 14137)	; &I-AJ1-14137;
       (->mistakable
-       ((=jis-x0208@1978    . #x5A70)	; &AJ1-13548; [58-80]
+       ((=jis-x0208@1978    . #x5A70)	; 晟󠄅 [58-80]
 	(=jis-x0208@1983    . #x5A70)	; &I-J83-5A70; [58-80]
 	(=ks-x1001	    . #x6079)	; &I-K0-6079; [64-89]
 	(=daikanwa	    . 13950)	; &I-M-13950;
@@ -2014,6 +2029,11 @@
      ((=ucs		  . #x6700)	; 最
       )
      ((=ucs		  . #xE0101)	; 󠄁
+      ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6700)	; 最
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
       ))
     (hanyu-dazidian	2 1516 8)
     (=cns11643-1	. #x5E32)	; 最󠄁 [62-18]

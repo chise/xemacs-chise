@@ -73,7 +73,7 @@
     (=cns11643-4	. #x2152)	; &I-C4-2152; [01-50]
     (=big5-cdp		. #x85BE)	; &I-CDP-85BE;
     (=daikanwa		. 28201)	; &I-M-28201;
-    (=big5-eten		. #xC8A2)	; &B-C8A2;
+    (=big5-eten		. #xC8A2)	; &I-B-C8A2;
     (<-formed@component/connect-below
      ((=ucs		  . #x7F51)	; 网
       (=daikanwa	  . 28199)	; &I-M-28199;
@@ -2965,7 +2965,7 @@
     (=gt		. 36587)	; &I-GT-36587;
     (=gt-pj-1		. #x6633)	; &I-GT-36587; [70-19]
     (=daikanwa		. 28417)	; &I-M-28417;
-    (=shinjigen@rev	.  6264)	; 羈
+    (=shinjigen		.  6264)	; 羈
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹

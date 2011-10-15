@@ -1,6 +1,6 @@
 ;;; isolated-char.el --- Set up isolated-characters.
 
-;; Copyright (C) 2001,2002,2003,2005 MORIOKA Tomohiko
+;; Copyright (C) 2001,2002,2003,2005,2011 MORIOKA Tomohiko
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: UTF-2000, UCS-4, character, CCS, multiscript, multilingual
@@ -180,8 +180,8 @@
 	(setq gt-code (string-to-int (match-string 1))
 	      plane (string-to-int (match-string 4))
 	      code (string-to-int (match-string 5) 16))
-	(put-char-attribute (decode-builtin-char '=gt gt-code)
-			    '=gt gt-code)
+        ;; (put-char-attribute (decode-builtin-char '=gt gt-code)
+        ;;                     '=gt gt-code)
 	(put-char-attribute (decode-builtin-char '=gt gt-code)
 			    (intern (format "=gt-pj-%d" plane))
 			    code)
@@ -249,9 +249,9 @@
 ;;   '((=gt-pj-9   . #x4C4B)
 ;;     (=gt        . 56364)
 ;;     ))
-(define-char
-  '((=gt-pj-11	. #x5A40)
-    (=gt	. 67403)
-    ))
+;; (define-char
+;;   '((=gt-pj-11  . #x5A40)
+;;     (=gt        . 67403)
+;;     ))
 
 ;;; isolated-char.el ends here

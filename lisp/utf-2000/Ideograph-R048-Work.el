@@ -185,10 +185,11 @@
     (=>ucs@JP		. #x5DE9)	; &A-CU+5DE9;
     (=>ucs@cns		. #x5DE9)	; &A-CU+5DE9;
     (->subsumptive
-     ((=ucs@jis		  . #x5DE9)	; &M-08726;
-      (=jis-x0212	  . #x3C21)	; &M-08726; [28-01]
+     ((=ucs@jis		  . #x5DE9)	; &AJ1-17587;
+      (=jis-x0212	  . #x3C21)	; &AJ1-17587; [28-01]
       (=jis-x0213-2	  . #x286E)	; &I-JX2-286E; [08-78]
       (=daikanwa	  . 08726)	; &I-M-08726;
+      (=adobe-japan1-5	  . 17587)	; &I-AJ1-17587;
       (=hanyo-denshi/jb	  . #x3C21)	; &I-HD-JB-3C21; [28-01]
       )
      ((=ucs@cns		  . #x5DE9)	; &CDP-8C6F;

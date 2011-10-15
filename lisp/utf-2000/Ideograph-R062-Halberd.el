@@ -1829,8 +1829,13 @@
     (=>>ucs@unicode	. #x622E)	; &G-HD-FT-3621;
     (=>>hanyo-denshi/ft . #x3621)	; &G-HD-FT-3621; [22-01]
     (->subsumptive
-     ((=ucs@unicode	  . #x622E)	; &HD-FT-3621;
-      (=gb2312		  . #x423E)	; &HD-FT-3621; [34-30]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x622E)	; 戮
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=ucs@unicode	  . #x622E)	; 戮󠄂
+      (=gb2312		  . #x423E)	; 戮󠄂 [34-30]
       (=hanyo-denshi/ft	  . #x3621)	; &I-HD-FT-3621; [22-01]
       )
      ((=cns11643-1	  . #x6C76)	; &C1-6C76; [76-86]

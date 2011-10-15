@@ -26,23 +26,34 @@
 (define-char
   '((ideographic-radical . 71)	; ⽆
     (ideographic-strokes . 1)
-    (total-strokes	 . 4)
     (=ucs		. #x65E1)	; 旡
+    (=big5		. #xC95E)	; &I-B-C95E;
+    (=>>hanyo-denshi/ft . #x363B)	; 旡 [22-27]
     (->subsumptive
-     ((=ucs@jis		  . #x65E1)	; &GT-17329;
+     ((total-strokes	   . 4)
+      (=ucs@jis		  . #x65E1)	; &GT-17329;
       (=jis-x0208	  . #x5A5C)	; &GT-17329; [58-60]
       (=jis-x0213-1	  . #x5A5C)	; &I-JX1-5A5C; [58-60]
-      (=big5		  . #xC95E)	; &I-B-C95E;
       (=gt		  . 17329)	; &I-GT-17329;
       (=gt-k		  . 00533)	; &I-GT-K00533;
       (=gt-pj-1		  . #x5A5C)	; &I-GT-17329; [58-60]
       (=daikanwa	  . 13717)	; &I-M-13717;
       (=shinjigen	  .  3258)	; &GT-17329;
       )
-     ((=ucs@unicode	  . #x65E1)	; &UU+65E1;
+     ((total-strokes	   . 4)
+      (=ucs@unicode	  . #x65E1)	; &UU+65E1;
       )
-     ((=ucs@cns		  . #x65E1)	; &C2-213E;
+     ((total-strokes	   . 4)
+      (=ucs@cns		  . #x65E1)	; &C2-213E;
       (=cns11643-2	  . #x213E)	; &C2-213E; [01-30]
+      )
+     ((total-strokes	   . 5)
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x65E1)	; 旡
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=hanyo-denshi/ft	  . #x363B)	; 旡󠄃 [22-27]
       ))
     ))
 (define-char
@@ -260,9 +271,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@cns	    . #x54BC)	; &GT-04428;
-	(=ucs@jis	    . #x54BC)	; &GT-04428;
-	(=jis-x0208	    . #x5325)	; &GT-04428; [51-05]
+       ((=ucs@cns	    . #x54BC)	; &AJ1-04376;
+	(=ucs@jis	    . #x54BC)	; &AJ1-04376;
+	(=jis-x0208	    . #x5325)	; &AJ1-04376; [51-05]
 	(=cns11643-2	    . #x294B)	; &I-C2-294B; [09-43]
 	(=jis-x0213-1	    . #x5325)	; &I-JX1-5325; [51-05]
 	(=daikanwa	    . 03573)	; &I-M-03573;
@@ -280,9 +291,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@cns	    . #x54BC)	; &GT-04428;
-	(=ucs@jis	    . #x54BC)	; &GT-04428;
-	(=jis-x0208	    . #x5325)	; &GT-04428; [51-05]
+       ((=ucs@cns	    . #x54BC)	; &AJ1-04376;
+	(=ucs@jis	    . #x54BC)	; &AJ1-04376;
+	(=jis-x0208	    . #x5325)	; &AJ1-04376; [51-05]
 	(=cns11643-2	    . #x294B)	; &I-C2-294B; [09-43]
 	(=jis-x0213-1	    . #x5325)	; &I-JX1-5325; [51-05]
 	(=daikanwa	    . 03573)	; &I-M-03573;

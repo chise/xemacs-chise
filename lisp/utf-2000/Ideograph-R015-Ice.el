@@ -789,8 +789,8 @@
       )
      ((=ucs		  . #x51AB)	; 冫
       )
-     ((=ucs@unicode	  . #x534A)	; 半󠄂
-      (=jis-x0208	  . #x483E)	; 半󠄂 [40-30]
+     ((=ucs@unicode	  . #x534A)	; 半󠄀
+      (=jis-x0208	  . #x483E)	; 半󠄀 [40-30]
       (=gb2312		  . #x306B)	; &I-G0-306B; [16-75]
       (=cns11643-1	  . #x4624)	; &I-C1-4624; [38-04]
       (=jis-x0213-1	  . #x483E)	; &I-JX1-483E; [40-30]
@@ -1593,7 +1593,7 @@
 	)
        ((=ucs		    . #x51AB)	; 冫
 	)
-       ((=jis-x0208@1978    . #x3E3E)	; &M-14516; [30-30]
+       ((=jis-x0208@1978    . #x3E3E)	; 松󠄃 [30-30]
 	(=jis-x0208@1983    . #x3E3E)	; &I-J83-3E3E; [30-30]
 	(=ks-x1001	    . #x6166)	; &I-K0-6166; [65-70]
 	(=daikanwa	    . 14516)	; &I-M-14516;
@@ -1618,9 +1618,8 @@
 	)
        ((=ucs		    . #x51AB)	; 冫
 	)
-       ((=ucs@unicode	    . #x677E)	; &GT-18480;
-	(=gb2312	    . #x4B49)	; &GT-18480; [43-41]
-	(=jis-x0213-1	    . #x3E3E)	; &I-JX1-3E3E; [30-30]
+       ((=ucs@unicode	    . #x677E)	; &G0-4B49;
+	(=gb2312	    . #x4B49)	; &G0-4B49; [43-41]
 	))
       (=ucs@unicode	  . #x51C7)	; &HZK01-E37A;
       (=gb2312		  . #x5A21)	; &HZK01-E37A; [58-01]
@@ -2011,8 +2010,13 @@
       )
      ((=>>>ucs@cns	  . #x51CC)	; &g2-CU+51CC;
       (->subsumptive
-       ((=hanyo-denshi/ks   . 019870)	; &HD-KS-019870;
-	(=hanyo-denshi/ks/mf . #x07C3)	; &HD-KS-019870;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x51CC)	; 凌
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(=hanyo-denshi/ks   . 019870)	; 凌󠄂
+	(=hanyo-denshi/ks/mf . #x07C3)	; 凌󠄂
 	)
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")

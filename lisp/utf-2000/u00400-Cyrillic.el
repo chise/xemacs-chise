@@ -58,7 +58,7 @@
     (=gb2312		. #x2727)	; &I-G0-2727; [07-07]
     (=ks-x1001		. #x2C27)	; &I-K0-2C27; [12-07]
     (=jis-x0213-1	. #x2727)	; &I-JX1-2727; [07-07]
-    (=big5-eten		. #xC7F9)	; &B-C7F9;
+    (=big5-eten		. #xC7F9)	; &I-B-C7F9;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER IO")
       (=ucs		  . #x0401)	; Ё
@@ -527,7 +527,7 @@
     (=gb2312		. #x2721)	; &I-G0-2721; [07-01]
     (=ks-x1001		. #x2C21)	; &I-K0-2C21; [12-01]
     (=jis-x0213-1	. #x2721)	; &I-JX1-2721; [07-01]
-    (=big5-eten		. #xC7F3)	; &B-C7F3;
+    (=big5-eten		. #xC7F3)	; &I-B-C7F3;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER A")
       (=ucs		  . #x0410)	; А
@@ -564,7 +564,7 @@
     (=gb2312		. #x2722)	; &I-G0-2722; [07-02]
     (=ks-x1001		. #x2C22)	; &I-K0-2C22; [12-02]
     (=jis-x0213-1	. #x2722)	; &I-JX1-2722; [07-02]
-    (=big5-eten		. #xC7F4)	; &B-C7F4;
+    (=big5-eten		. #xC7F4)	; &I-B-C7F4;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER BE")
       (=ucs		  . #x0411)	; Б
@@ -601,7 +601,7 @@
     (=gb2312		. #x2723)	; &I-G0-2723; [07-03]
     (=ks-x1001		. #x2C23)	; &I-K0-2C23; [12-03]
     (=jis-x0213-1	. #x2723)	; &I-JX1-2723; [07-03]
-    (=big5-eten		. #xC7F5)	; &B-C7F5;
+    (=big5-eten		. #xC7F5)	; &I-B-C7F5;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER VE")
       (=ucs		  . #x0412)	; В
@@ -638,7 +638,7 @@
     (=gb2312		. #x2724)	; &I-G0-2724; [07-04]
     (=ks-x1001		. #x2C24)	; &I-K0-2C24; [12-04]
     (=jis-x0213-1	. #x2724)	; &I-JX1-2724; [07-04]
-    (=big5-eten		. #xC7F6)	; &B-C7F6;
+    (=big5-eten		. #xC7F6)	; &I-B-C7F6;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER GHE")
       (=ucs		  . #x0413)	; Г
@@ -675,7 +675,7 @@
     (=gb2312		. #x2725)	; &I-G0-2725; [07-05]
     (=ks-x1001		. #x2C25)	; &I-K0-2C25; [12-05]
     (=jis-x0213-1	. #x2725)	; &I-JX1-2725; [07-05]
-    (=big5-eten		. #xC7F7)	; &B-C7F7;
+    (=big5-eten		. #xC7F7)	; &I-B-C7F7;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER DE")
       (=ucs		  . #x0414)	; Д
@@ -712,7 +712,7 @@
     (=gb2312		. #x2726)	; &I-G0-2726; [07-06]
     (=ks-x1001		. #x2C26)	; &I-K0-2C26; [12-06]
     (=jis-x0213-1	. #x2726)	; &I-JX1-2726; [07-06]
-    (=big5-eten		. #xC7F8)	; &B-C7F8;
+    (=big5-eten		. #xC7F8)	; &I-B-C7F8;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER IE")
       (=ucs		  . #x0415)	; Е
@@ -749,7 +749,7 @@
     (=gb2312		. #x2728)	; &I-G0-2728; [07-08]
     (=ks-x1001		. #x2C28)	; &I-K0-2C28; [12-08]
     (=jis-x0213-1	. #x2728)	; &I-JX1-2728; [07-08]
-    (=big5-eten		. #xC7FA)	; &B-C7FA;
+    (=big5-eten		. #xC7FA)	; &I-B-C7FA;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER ZHE")
       (=ucs		  . #x0416)	; Ж
@@ -786,7 +786,7 @@
     (=gb2312		. #x2729)	; &I-G0-2729; [07-09]
     (=ks-x1001		. #x2C29)	; &I-K0-2C29; [12-09]
     (=jis-x0213-1	. #x2729)	; &I-JX1-2729; [07-09]
-    (=big5-eten		. #xC7FB)	; &B-C7FB;
+    (=big5-eten		. #xC7FB)	; &I-B-C7FB;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER ZE")
       (=ucs		  . #x0417)	; З
@@ -823,7 +823,7 @@
     (=gb2312		. #x272A)	; &I-G0-272A; [07-10]
     (=ks-x1001		. #x2C2A)	; &I-K0-2C2A; [12-10]
     (=jis-x0213-1	. #x272A)	; &I-JX1-272A; [07-10]
-    (=big5-eten		. #xC7FC)	; &B-C7FC;
+    (=big5-eten		. #xC7FC)	; &I-B-C7FC;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER I")
       (=ucs		  . #x0418)	; И
@@ -867,7 +867,7 @@
     (=gb2312		. #x272B)	; &I-G0-272B; [07-11]
     (=ks-x1001		. #x2C2B)	; &I-K0-2C2B; [12-11]
     (=jis-x0213-1	. #x272B)	; &I-JX1-272B; [07-11]
-    (=big5-eten		. #xC7FD)	; &B-C7FD;
+    (=big5-eten		. #xC7FD)	; &I-B-C7FD;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER SHORT I")
       (=ucs		  . #x0419)	; Й
@@ -904,7 +904,7 @@
     (=gb2312		. #x272C)	; &I-G0-272C; [07-12]
     (=ks-x1001		. #x2C2C)	; &I-K0-2C2C; [12-12]
     (=jis-x0213-1	. #x272C)	; &I-JX1-272C; [07-12]
-    (=big5-eten		. #xC7FE)	; &B-C7FE;
+    (=big5-eten		. #xC7FE)	; &I-B-C7FE;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER KA")
       (=ucs		  . #x041A)	; К
@@ -941,7 +941,7 @@
     (=gb2312		. #x272D)	; &I-G0-272D; [07-13]
     (=ks-x1001		. #x2C2D)	; &I-K0-2C2D; [12-13]
     (=jis-x0213-1	. #x272D)	; &I-JX1-272D; [07-13]
-    (=big5-eten		. #xC840)	; &B-C840;
+    (=big5-eten		. #xC840)	; &I-B-C840;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER EL")
       (=ucs		  . #x041B)	; Л
@@ -978,7 +978,7 @@
     (=gb2312		. #x272E)	; &I-G0-272E; [07-14]
     (=ks-x1001		. #x2C2E)	; &I-K0-2C2E; [12-14]
     (=jis-x0213-1	. #x272E)	; &I-JX1-272E; [07-14]
-    (=big5-eten		. #xC841)	; &B-C841;
+    (=big5-eten		. #xC841)	; &I-B-C841;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER EM")
       (=ucs		  . #x041C)	; М
@@ -1015,7 +1015,7 @@
     (=gb2312		. #x272F)	; &I-G0-272F; [07-15]
     (=ks-x1001		. #x2C2F)	; &I-K0-2C2F; [12-15]
     (=jis-x0213-1	. #x272F)	; &I-JX1-272F; [07-15]
-    (=big5-eten		. #xC842)	; &B-C842;
+    (=big5-eten		. #xC842)	; &I-B-C842;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER EN")
       (=ucs		  . #x041D)	; Н
@@ -1052,7 +1052,7 @@
     (=gb2312		. #x2730)	; &I-G0-2730; [07-16]
     (=ks-x1001		. #x2C30)	; &I-K0-2C30; [12-16]
     (=jis-x0213-1	. #x2730)	; &I-JX1-2730; [07-16]
-    (=big5-eten		. #xC843)	; &B-C843;
+    (=big5-eten		. #xC843)	; &I-B-C843;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER O")
       (=ucs		  . #x041E)	; О
@@ -1089,7 +1089,7 @@
     (=gb2312		. #x2731)	; &I-G0-2731; [07-17]
     (=ks-x1001		. #x2C31)	; &I-K0-2C31; [12-17]
     (=jis-x0213-1	. #x2731)	; &I-JX1-2731; [07-17]
-    (=big5-eten		. #xC844)	; &B-C844;
+    (=big5-eten		. #xC844)	; &I-B-C844;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER PE")
       (=ucs		  . #x041F)	; П
@@ -1126,7 +1126,7 @@
     (=gb2312		. #x2732)	; &I-G0-2732; [07-18]
     (=ks-x1001		. #x2C32)	; &I-K0-2C32; [12-18]
     (=jis-x0213-1	. #x2732)	; &I-JX1-2732; [07-18]
-    (=big5-eten		. #xC845)	; &B-C845;
+    (=big5-eten		. #xC845)	; &I-B-C845;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER ER")
       (=ucs		  . #x0420)	; Р
@@ -1163,7 +1163,7 @@
     (=gb2312		. #x2733)	; &I-G0-2733; [07-19]
     (=ks-x1001		. #x2C33)	; &I-K0-2C33; [12-19]
     (=jis-x0213-1	. #x2733)	; &I-JX1-2733; [07-19]
-    (=big5-eten		. #xC846)	; &B-C846;
+    (=big5-eten		. #xC846)	; &I-B-C846;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER ES")
       (=ucs		  . #x0421)	; С
@@ -1200,7 +1200,7 @@
     (=gb2312		. #x2734)	; &I-G0-2734; [07-20]
     (=ks-x1001		. #x2C34)	; &I-K0-2C34; [12-20]
     (=jis-x0213-1	. #x2734)	; &I-JX1-2734; [07-20]
-    (=big5-eten		. #xC847)	; &B-C847;
+    (=big5-eten		. #xC847)	; &I-B-C847;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER TE")
       (=ucs		  . #x0422)	; Т
@@ -1237,7 +1237,7 @@
     (=gb2312		. #x2735)	; &I-G0-2735; [07-21]
     (=ks-x1001		. #x2C35)	; &I-K0-2C35; [12-21]
     (=jis-x0213-1	. #x2735)	; &I-JX1-2735; [07-21]
-    (=big5-eten		. #xC848)	; &B-C848;
+    (=big5-eten		. #xC848)	; &I-B-C848;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER U")
       (=ucs		  . #x0423)	; У
@@ -1274,7 +1274,7 @@
     (=gb2312		. #x2736)	; &I-G0-2736; [07-22]
     (=ks-x1001		. #x2C36)	; &I-K0-2C36; [12-22]
     (=jis-x0213-1	. #x2736)	; &I-JX1-2736; [07-22]
-    (=big5-eten		. #xC849)	; &B-C849;
+    (=big5-eten		. #xC849)	; &I-B-C849;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER EF")
       (=ucs		  . #x0424)	; Ф
@@ -1311,7 +1311,7 @@
     (=gb2312		. #x2737)	; &I-G0-2737; [07-23]
     (=ks-x1001		. #x2C37)	; &I-K0-2C37; [12-23]
     (=jis-x0213-1	. #x2737)	; &I-JX1-2737; [07-23]
-    (=big5-eten		. #xC84A)	; &B-C84A;
+    (=big5-eten		. #xC84A)	; &I-B-C84A;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER HA")
       (=ucs		  . #x0425)	; Х
@@ -1348,7 +1348,7 @@
     (=gb2312		. #x2738)	; &I-G0-2738; [07-24]
     (=ks-x1001		. #x2C38)	; &I-K0-2C38; [12-24]
     (=jis-x0213-1	. #x2738)	; &I-JX1-2738; [07-24]
-    (=big5-eten		. #xC84B)	; &B-C84B;
+    (=big5-eten		. #xC84B)	; &I-B-C84B;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER TSE")
       (=ucs		  . #x0426)	; Ц
@@ -1385,7 +1385,7 @@
     (=gb2312		. #x2739)	; &I-G0-2739; [07-25]
     (=ks-x1001		. #x2C39)	; &I-K0-2C39; [12-25]
     (=jis-x0213-1	. #x2739)	; &I-JX1-2739; [07-25]
-    (=big5-eten		. #xC84C)	; &B-C84C;
+    (=big5-eten		. #xC84C)	; &I-B-C84C;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER CHE")
       (=ucs		  . #x0427)	; Ч
@@ -1422,7 +1422,7 @@
     (=gb2312		. #x273A)	; &I-G0-273A; [07-26]
     (=ks-x1001		. #x2C3A)	; &I-K0-2C3A; [12-26]
     (=jis-x0213-1	. #x273A)	; &I-JX1-273A; [07-26]
-    (=big5-eten		. #xC84D)	; &B-C84D;
+    (=big5-eten		. #xC84D)	; &I-B-C84D;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER SHA")
       (=ucs		  . #x0428)	; Ш
@@ -1459,7 +1459,7 @@
     (=gb2312		. #x273B)	; &I-G0-273B; [07-27]
     (=ks-x1001		. #x2C3B)	; &I-K0-2C3B; [12-27]
     (=jis-x0213-1	. #x273B)	; &I-JX1-273B; [07-27]
-    (=big5-eten		. #xC84E)	; &B-C84E;
+    (=big5-eten		. #xC84E)	; &I-B-C84E;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER SHCHA")
       (=ucs		  . #x0429)	; Щ
@@ -1496,7 +1496,7 @@
     (=gb2312		. #x273C)	; &I-G0-273C; [07-28]
     (=ks-x1001		. #x2C3C)	; &I-K0-2C3C; [12-28]
     (=jis-x0213-1	. #x273C)	; &I-JX1-273C; [07-28]
-    (=big5-eten		. #xC84F)	; &B-C84F;
+    (=big5-eten		. #xC84F)	; &I-B-C84F;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER HARD SIGN")
       (=ucs		  . #x042A)	; Ъ
@@ -1533,7 +1533,7 @@
     (=gb2312		. #x273D)	; &I-G0-273D; [07-29]
     (=ks-x1001		. #x2C3D)	; &I-K0-2C3D; [12-29]
     (=jis-x0213-1	. #x273D)	; &I-JX1-273D; [07-29]
-    (=big5-eten		. #xC850)	; &B-C850;
+    (=big5-eten		. #xC850)	; &I-B-C850;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER YERU")
       (=ucs		  . #x042B)	; Ы
@@ -1570,7 +1570,7 @@
     (=gb2312		. #x273E)	; &I-G0-273E; [07-30]
     (=ks-x1001		. #x2C3E)	; &I-K0-2C3E; [12-30]
     (=jis-x0213-1	. #x273E)	; &I-JX1-273E; [07-30]
-    (=big5-eten		. #xC851)	; &B-C851;
+    (=big5-eten		. #xC851)	; &I-B-C851;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER SOFT SIGN")
       (=ucs		  . #x042C)	; Ь
@@ -1607,7 +1607,7 @@
     (=gb2312		. #x273F)	; &I-G0-273F; [07-31]
     (=ks-x1001		. #x2C3F)	; &I-K0-2C3F; [12-31]
     (=jis-x0213-1	. #x273F)	; &I-JX1-273F; [07-31]
-    (=big5-eten		. #xC852)	; &B-C852;
+    (=big5-eten		. #xC852)	; &I-B-C852;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER E")
       (=ucs		  . #x042D)	; Э
@@ -1644,7 +1644,7 @@
     (=gb2312		. #x2740)	; &I-G0-2740; [07-32]
     (=ks-x1001		. #x2C40)	; &I-K0-2C40; [12-32]
     (=jis-x0213-1	. #x2740)	; &I-JX1-2740; [07-32]
-    (=big5-eten		. #xC853)	; &B-C853;
+    (=big5-eten		. #xC853)	; &I-B-C853;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER YU")
       (=ucs		  . #x042E)	; Ю
@@ -1681,7 +1681,7 @@
     (=gb2312		. #x2741)	; &I-G0-2741; [07-33]
     (=ks-x1001		. #x2C41)	; &I-K0-2C41; [12-33]
     (=jis-x0213-1	. #x2741)	; &I-JX1-2741; [07-33]
-    (=big5-eten		. #xC854)	; &B-C854;
+    (=big5-eten		. #xC854)	; &I-B-C854;
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER YA")
       (=ucs		  . #x042F)	; Я
@@ -1718,7 +1718,7 @@
     (=gb2312		. #x2751)	; &I-G0-2751; [07-49]
     (=ks-x1001		. #x2C51)	; &I-K0-2C51; [12-49]
     (=jis-x0213-1	. #x2751)	; &I-JX1-2751; [07-49]
-    (=big5-eten		. #xC855)	; &B-C855;
+    (=big5-eten		. #xC855)	; &I-B-C855;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER A")
       (=ucs		  . #x0430)	; а
@@ -1755,7 +1755,7 @@
     (=gb2312		. #x2752)	; &I-G0-2752; [07-50]
     (=ks-x1001		. #x2C52)	; &I-K0-2C52; [12-50]
     (=jis-x0213-1	. #x2752)	; &I-JX1-2752; [07-50]
-    (=big5-eten		. #xC856)	; &B-C856;
+    (=big5-eten		. #xC856)	; &I-B-C856;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER BE")
       (=ucs		  . #x0431)	; б
@@ -1792,7 +1792,7 @@
     (=gb2312		. #x2753)	; &I-G0-2753; [07-51]
     (=ks-x1001		. #x2C53)	; &I-K0-2C53; [12-51]
     (=jis-x0213-1	. #x2753)	; &I-JX1-2753; [07-51]
-    (=big5-eten		. #xC857)	; &B-C857;
+    (=big5-eten		. #xC857)	; &I-B-C857;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER VE")
       (=ucs		  . #x0432)	; в
@@ -1829,7 +1829,7 @@
     (=gb2312		. #x2754)	; &I-G0-2754; [07-52]
     (=ks-x1001		. #x2C54)	; &I-K0-2C54; [12-52]
     (=jis-x0213-1	. #x2754)	; &I-JX1-2754; [07-52]
-    (=big5-eten		. #xC858)	; &B-C858;
+    (=big5-eten		. #xC858)	; &I-B-C858;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER GHE")
       (=ucs		  . #x0433)	; г
@@ -1866,7 +1866,7 @@
     (=gb2312		. #x2755)	; &I-G0-2755; [07-53]
     (=ks-x1001		. #x2C55)	; &I-K0-2C55; [12-53]
     (=jis-x0213-1	. #x2755)	; &I-JX1-2755; [07-53]
-    (=big5-eten		. #xC859)	; &B-C859;
+    (=big5-eten		. #xC859)	; &I-B-C859;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER DE")
       (=ucs		  . #x0434)	; д
@@ -1903,7 +1903,7 @@
     (=gb2312		. #x2756)	; &I-G0-2756; [07-54]
     (=ks-x1001		. #x2C56)	; &I-K0-2C56; [12-54]
     (=jis-x0213-1	. #x2756)	; &I-JX1-2756; [07-54]
-    (=big5-eten		. #xC85A)	; &B-C85A;
+    (=big5-eten		. #xC85A)	; &I-B-C85A;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER IE")
       (=ucs		  . #x0435)	; е
@@ -1940,7 +1940,7 @@
     (=gb2312		. #x2758)	; &I-G0-2758; [07-56]
     (=ks-x1001		. #x2C58)	; &I-K0-2C58; [12-56]
     (=jis-x0213-1	. #x2758)	; &I-JX1-2758; [07-56]
-    (=big5-eten		. #xC85C)	; &B-C85C;
+    (=big5-eten		. #xC85C)	; &I-B-C85C;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER ZHE")
       (=ucs		  . #x0436)	; ж
@@ -1977,7 +1977,7 @@
     (=gb2312		. #x2759)	; &I-G0-2759; [07-57]
     (=ks-x1001		. #x2C59)	; &I-K0-2C59; [12-57]
     (=jis-x0213-1	. #x2759)	; &I-JX1-2759; [07-57]
-    (=big5-eten		. #xC85D)	; &B-C85D;
+    (=big5-eten		. #xC85D)	; &I-B-C85D;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER ZE")
       (=ucs		  . #x0437)	; з
@@ -2014,7 +2014,7 @@
     (=gb2312		. #x275A)	; &I-G0-275A; [07-58]
     (=ks-x1001		. #x2C5A)	; &I-K0-2C5A; [12-58]
     (=jis-x0213-1	. #x275A)	; &I-JX1-275A; [07-58]
-    (=big5-eten		. #xC85E)	; &B-C85E;
+    (=big5-eten		. #xC85E)	; &I-B-C85E;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER I")
       (=ucs		  . #x0438)	; и
@@ -2069,7 +2069,7 @@
     (=gb2312		. #x275B)	; &I-G0-275B; [07-59]
     (=ks-x1001		. #x2C5B)	; &I-K0-2C5B; [12-59]
     (=jis-x0213-1	. #x275B)	; &I-JX1-275B; [07-59]
-    (=big5-eten		. #xC85F)	; &B-C85F;
+    (=big5-eten		. #xC85F)	; &I-B-C85F;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER SHORT I")
       (=ucs		  . #x0439)	; й
@@ -2106,7 +2106,7 @@
     (=gb2312		. #x275C)	; &I-G0-275C; [07-60]
     (=ks-x1001		. #x2C5C)	; &I-K0-2C5C; [12-60]
     (=jis-x0213-1	. #x275C)	; &I-JX1-275C; [07-60]
-    (=big5-eten		. #xC860)	; &B-C860;
+    (=big5-eten		. #xC860)	; &I-B-C860;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER KA")
       (=ucs		  . #x043A)	; к
@@ -2143,7 +2143,7 @@
     (=gb2312		. #x275D)	; &I-G0-275D; [07-61]
     (=ks-x1001		. #x2C5D)	; &I-K0-2C5D; [12-61]
     (=jis-x0213-1	. #x275D)	; &I-JX1-275D; [07-61]
-    (=big5-eten		. #xC861)	; &B-C861;
+    (=big5-eten		. #xC861)	; &I-B-C861;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER EL")
       (=ucs		  . #x043B)	; л
@@ -2180,7 +2180,7 @@
     (=gb2312		. #x275E)	; &I-G0-275E; [07-62]
     (=ks-x1001		. #x2C5E)	; &I-K0-2C5E; [12-62]
     (=jis-x0213-1	. #x275E)	; &I-JX1-275E; [07-62]
-    (=big5-eten		. #xC862)	; &B-C862;
+    (=big5-eten		. #xC862)	; &I-B-C862;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER EM")
       (=ucs		  . #x043C)	; м
@@ -2217,7 +2217,7 @@
     (=gb2312		. #x275F)	; &I-G0-275F; [07-63]
     (=ks-x1001		. #x2C5F)	; &I-K0-2C5F; [12-63]
     (=jis-x0213-1	. #x275F)	; &I-JX1-275F; [07-63]
-    (=big5-eten		. #xC863)	; &B-C863;
+    (=big5-eten		. #xC863)	; &I-B-C863;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER EN")
       (=ucs		  . #x043D)	; н
@@ -2254,7 +2254,7 @@
     (=gb2312		. #x2760)	; &I-G0-2760; [07-64]
     (=ks-x1001		. #x2C60)	; &I-K0-2C60; [12-64]
     (=jis-x0213-1	. #x2760)	; &I-JX1-2760; [07-64]
-    (=big5-eten		. #xC864)	; &B-C864;
+    (=big5-eten		. #xC864)	; &I-B-C864;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER O")
       (=ucs		  . #x043E)	; о
@@ -2291,7 +2291,7 @@
     (=gb2312		. #x2761)	; &I-G0-2761; [07-65]
     (=ks-x1001		. #x2C61)	; &I-K0-2C61; [12-65]
     (=jis-x0213-1	. #x2761)	; &I-JX1-2761; [07-65]
-    (=big5-eten		. #xC865)	; &B-C865;
+    (=big5-eten		. #xC865)	; &I-B-C865;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER PE")
       (=ucs		  . #x043F)	; п
@@ -2328,7 +2328,7 @@
     (=gb2312		. #x2762)	; &I-G0-2762; [07-66]
     (=ks-x1001		. #x2C62)	; &I-K0-2C62; [12-66]
     (=jis-x0213-1	. #x2762)	; &I-JX1-2762; [07-66]
-    (=big5-eten		. #xC866)	; &B-C866;
+    (=big5-eten		. #xC866)	; &I-B-C866;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER ER")
       (=ucs		  . #x0440)	; р
@@ -2365,7 +2365,7 @@
     (=gb2312		. #x2763)	; &I-G0-2763; [07-67]
     (=ks-x1001		. #x2C63)	; &I-K0-2C63; [12-67]
     (=jis-x0213-1	. #x2763)	; &I-JX1-2763; [07-67]
-    (=big5-eten		. #xC867)	; &B-C867;
+    (=big5-eten		. #xC867)	; &I-B-C867;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER ES")
       (=ucs		  . #x0441)	; с
@@ -2402,7 +2402,7 @@
     (=gb2312		. #x2764)	; &I-G0-2764; [07-68]
     (=ks-x1001		. #x2C64)	; &I-K0-2C64; [12-68]
     (=jis-x0213-1	. #x2764)	; &I-JX1-2764; [07-68]
-    (=big5-eten		. #xC868)	; &B-C868;
+    (=big5-eten		. #xC868)	; &I-B-C868;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER TE")
       (=ucs		  . #x0442)	; т
@@ -2439,7 +2439,7 @@
     (=gb2312		. #x2765)	; &I-G0-2765; [07-69]
     (=ks-x1001		. #x2C65)	; &I-K0-2C65; [12-69]
     (=jis-x0213-1	. #x2765)	; &I-JX1-2765; [07-69]
-    (=big5-eten		. #xC869)	; &B-C869;
+    (=big5-eten		. #xC869)	; &I-B-C869;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER U")
       (=ucs		  . #x0443)	; у
@@ -2476,7 +2476,7 @@
     (=gb2312		. #x2766)	; &I-G0-2766; [07-70]
     (=ks-x1001		. #x2C66)	; &I-K0-2C66; [12-70]
     (=jis-x0213-1	. #x2766)	; &I-JX1-2766; [07-70]
-    (=big5-eten		. #xC86A)	; &B-C86A;
+    (=big5-eten		. #xC86A)	; &I-B-C86A;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER EF")
       (=ucs		  . #x0444)	; ф
@@ -2513,7 +2513,7 @@
     (=gb2312		. #x2767)	; &I-G0-2767; [07-71]
     (=ks-x1001		. #x2C67)	; &I-K0-2C67; [12-71]
     (=jis-x0213-1	. #x2767)	; &I-JX1-2767; [07-71]
-    (=big5-eten		. #xC86B)	; &B-C86B;
+    (=big5-eten		. #xC86B)	; &I-B-C86B;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER HA")
       (=ucs		  . #x0445)	; х
@@ -2550,7 +2550,7 @@
     (=gb2312		. #x2768)	; &I-G0-2768; [07-72]
     (=ks-x1001		. #x2C68)	; &I-K0-2C68; [12-72]
     (=jis-x0213-1	. #x2768)	; &I-JX1-2768; [07-72]
-    (=big5-eten		. #xC86C)	; &B-C86C;
+    (=big5-eten		. #xC86C)	; &I-B-C86C;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER TSE")
       (=ucs		  . #x0446)	; ц
@@ -2587,7 +2587,7 @@
     (=gb2312		. #x2769)	; &I-G0-2769; [07-73]
     (=ks-x1001		. #x2C69)	; &I-K0-2C69; [12-73]
     (=jis-x0213-1	. #x2769)	; &I-JX1-2769; [07-73]
-    (=big5-eten		. #xC86D)	; &B-C86D;
+    (=big5-eten		. #xC86D)	; &I-B-C86D;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER CHE")
       (=ucs		  . #x0447)	; ч
@@ -2624,7 +2624,7 @@
     (=gb2312		. #x276A)	; &I-G0-276A; [07-74]
     (=ks-x1001		. #x2C6A)	; &I-K0-2C6A; [12-74]
     (=jis-x0213-1	. #x276A)	; &I-JX1-276A; [07-74]
-    (=big5-eten		. #xC86E)	; &B-C86E;
+    (=big5-eten		. #xC86E)	; &I-B-C86E;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER SHA")
       (=ucs		  . #x0448)	; ш
@@ -2661,7 +2661,7 @@
     (=gb2312		. #x276B)	; &I-G0-276B; [07-75]
     (=ks-x1001		. #x2C6B)	; &I-K0-2C6B; [12-75]
     (=jis-x0213-1	. #x276B)	; &I-JX1-276B; [07-75]
-    (=big5-eten		. #xC86F)	; &B-C86F;
+    (=big5-eten		. #xC86F)	; &I-B-C86F;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER SHCHA")
       (=ucs		  . #x0449)	; щ
@@ -2698,7 +2698,7 @@
     (=gb2312		. #x276C)	; &I-G0-276C; [07-76]
     (=ks-x1001		. #x2C6C)	; &I-K0-2C6C; [12-76]
     (=jis-x0213-1	. #x276C)	; &I-JX1-276C; [07-76]
-    (=big5-eten		. #xC870)	; &B-C870;
+    (=big5-eten		. #xC870)	; &I-B-C870;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER HARD SIGN")
       (=ucs		  . #x044A)	; ъ
@@ -2735,7 +2735,7 @@
     (=gb2312		. #x276D)	; &I-G0-276D; [07-77]
     (=ks-x1001		. #x2C6D)	; &I-K0-2C6D; [12-77]
     (=jis-x0213-1	. #x276D)	; &I-JX1-276D; [07-77]
-    (=big5-eten		. #xC871)	; &B-C871;
+    (=big5-eten		. #xC871)	; &I-B-C871;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER YERU")
       (=ucs		  . #x044B)	; ы
@@ -2772,7 +2772,7 @@
     (=gb2312		. #x276E)	; &I-G0-276E; [07-78]
     (=ks-x1001		. #x2C6E)	; &I-K0-2C6E; [12-78]
     (=jis-x0213-1	. #x276E)	; &I-JX1-276E; [07-78]
-    (=big5-eten		. #xC872)	; &B-C872;
+    (=big5-eten		. #xC872)	; &I-B-C872;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER SOFT SIGN")
       (=ucs		  . #x044C)	; ь
@@ -2809,7 +2809,7 @@
     (=gb2312		. #x276F)	; &I-G0-276F; [07-79]
     (=ks-x1001		. #x2C6F)	; &I-K0-2C6F; [12-79]
     (=jis-x0213-1	. #x276F)	; &I-JX1-276F; [07-79]
-    (=big5-eten		. #xC873)	; &B-C873;
+    (=big5-eten		. #xC873)	; &I-B-C873;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER E")
       (=ucs		  . #x044D)	; э
@@ -2846,7 +2846,7 @@
     (=gb2312		. #x2770)	; &I-G0-2770; [07-80]
     (=ks-x1001		. #x2C70)	; &I-K0-2C70; [12-80]
     (=jis-x0213-1	. #x2770)	; &I-JX1-2770; [07-80]
-    (=big5-eten		. #xC874)	; &B-C874;
+    (=big5-eten		. #xC874)	; &I-B-C874;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER YU")
       (=ucs		  . #x044E)	; ю
@@ -2883,7 +2883,7 @@
     (=gb2312		. #x2771)	; &I-G0-2771; [07-81]
     (=ks-x1001		. #x2C71)	; &I-K0-2C71; [12-81]
     (=jis-x0213-1	. #x2771)	; &I-JX1-2771; [07-81]
-    (=big5-eten		. #xC875)	; &B-C875;
+    (=big5-eten		. #xC875)	; &I-B-C875;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER YA")
       (=ucs		  . #x044F)	; я
@@ -2956,7 +2956,7 @@
     (=gb2312		. #x2757)	; &I-G0-2757; [07-55]
     (=ks-x1001		. #x2C57)	; &I-K0-2C57; [12-55]
     (=jis-x0213-1	. #x2757)	; &I-JX1-2757; [07-55]
-    (=big5-eten		. #xC85B)	; &B-C85B;
+    (=big5-eten		. #xC85B)	; &I-B-C85B;
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER IO")
       (=ucs		  . #x0451)	; ё

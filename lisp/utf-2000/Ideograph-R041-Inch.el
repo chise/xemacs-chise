@@ -153,7 +153,7 @@
     (=shinjigen		.  0602)	; 㝴
     (<-formed
      ((=shinjigen	  .  0601)	; 刓󠄂
-      (=jef-china3	  . #x44BC)	; 刓󠄂
+      (=hanyo-denshi/jt	  . #xAE13)	; &I-HD-JT-AE13;
       ))
     (<-formed*sources
      shinjigen)

@@ -864,7 +864,7 @@
       ))
     (=ucs		. #x3231)	; ㈱
     (=jis-x0213-1	. #x2D6A)	; &I-JX1-2D6A; [13-74]
-    (=big5-eten		. #xC8D1)	; &B-C8D1;
+    (=big5-eten		. #xC8D1)	; &I-B-C8D1;
     (=jef-china3	. #x78D5)	; &I-JC3-78D5;
     ))
 (define-char

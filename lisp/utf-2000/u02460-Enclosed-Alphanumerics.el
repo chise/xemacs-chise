@@ -11,7 +11,7 @@
     (=ks-x1001		. #x2867)	; &I-K0-2867; [08-71]
     (=cns11643-1	. #x2621)	; &I-C1-2621; [06-01]
     (=jis-x0213-1	. #x2D21)	; &I-JX1-2D21; [13-01]
-    (=big5-eten		. #xC6A1)	; &B-C6A1;
+    (=big5-eten		. #xC6A1)	; &I-B-C6A1;
     (=jef-china3	. #x77C9)	; &I-JC3-77C9;
     (<-circled
      ((name		  . "DIGIT ONE")
@@ -30,7 +30,7 @@
     (=ks-x1001		. #x2868)	; &I-K0-2868; [08-72]
     (=cns11643-1	. #x2622)	; &I-C1-2622; [06-02]
     (=jis-x0213-1	. #x2D22)	; &I-JX1-2D22; [13-02]
-    (=big5-eten		. #xC6A2)	; &B-C6A2;
+    (=big5-eten		. #xC6A2)	; &I-B-C6A2;
     (=jef-china3	. #x77CA)	; &I-JC3-77CA;
     (<-circled
      ((name		  . "DIGIT TWO")
@@ -49,7 +49,7 @@
     (=ks-x1001		. #x2869)	; &I-K0-2869; [08-73]
     (=cns11643-1	. #x2623)	; &I-C1-2623; [06-03]
     (=jis-x0213-1	. #x2D23)	; &I-JX1-2D23; [13-03]
-    (=big5-eten		. #xC6A3)	; &B-C6A3;
+    (=big5-eten		. #xC6A3)	; &I-B-C6A3;
     (=jef-china3	. #x77CB)	; &I-JC3-77CB;
     (<-circled
      ((name		  . "DIGIT THREE")
@@ -68,7 +68,7 @@
     (=ks-x1001		. #x286A)	; &I-K0-286A; [08-74]
     (=cns11643-1	. #x2624)	; &I-C1-2624; [06-04]
     (=jis-x0213-1	. #x2D24)	; &I-JX1-2D24; [13-04]
-    (=big5-eten		. #xC6A4)	; &B-C6A4;
+    (=big5-eten		. #xC6A4)	; &I-B-C6A4;
     (=jef-china3	. #x77CC)	; &I-JC3-77CC;
     (<-circled
      ((name		  . "DIGIT FOUR")
@@ -87,7 +87,7 @@
     (=ks-x1001		. #x286B)	; &I-K0-286B; [08-75]
     (=cns11643-1	. #x2625)	; &I-C1-2625; [06-05]
     (=jis-x0213-1	. #x2D25)	; &I-JX1-2D25; [13-05]
-    (=big5-eten		. #xC6A5)	; &B-C6A5;
+    (=big5-eten		. #xC6A5)	; &I-B-C6A5;
     (=jef-china3	. #x77CD)	; &I-JC3-77CD;
     (<-circled
      ((name		  . "DIGIT FIVE")
@@ -106,7 +106,7 @@
     (=ks-x1001		. #x286C)	; &I-K0-286C; [08-76]
     (=cns11643-1	. #x2626)	; &I-C1-2626; [06-06]
     (=jis-x0213-1	. #x2D26)	; &I-JX1-2D26; [13-06]
-    (=big5-eten		. #xC6A6)	; &B-C6A6;
+    (=big5-eten		. #xC6A6)	; &I-B-C6A6;
     (=jef-china3	. #x77CE)	; &I-JC3-77CE;
     (<-circled
      ((name		  . "DIGIT SIX")
@@ -125,7 +125,7 @@
     (=ks-x1001		. #x286D)	; &I-K0-286D; [08-77]
     (=cns11643-1	. #x2627)	; &I-C1-2627; [06-07]
     (=jis-x0213-1	. #x2D27)	; &I-JX1-2D27; [13-07]
-    (=big5-eten		. #xC6A7)	; &B-C6A7;
+    (=big5-eten		. #xC6A7)	; &I-B-C6A7;
     (=jef-china3	. #x77CF)	; &I-JC3-77CF;
     (<-circled
      ((name		  . "DIGIT SEVEN")
@@ -144,7 +144,7 @@
     (=ks-x1001		. #x286E)	; &I-K0-286E; [08-78]
     (=cns11643-1	. #x2628)	; &I-C1-2628; [06-08]
     (=jis-x0213-1	. #x2D28)	; &I-JX1-2D28; [13-08]
-    (=big5-eten		. #xC6A8)	; &B-C6A8;
+    (=big5-eten		. #xC6A8)	; &I-B-C6A8;
     (=jef-china3	. #x77D0)	; &I-JC3-77D0;
     (<-circled
      ((name		  . "DIGIT EIGHT")
@@ -163,7 +163,7 @@
     (=ks-x1001		. #x286F)	; &I-K0-286F; [08-79]
     (=cns11643-1	. #x2629)	; &I-C1-2629; [06-09]
     (=jis-x0213-1	. #x2D29)	; &I-JX1-2D29; [13-09]
-    (=big5-eten		. #xC6A9)	; &B-C6A9;
+    (=big5-eten		. #xC6A9)	; &I-B-C6A9;
     (=jef-china3	. #x77D1)	; &I-JC3-77D1;
     (<-circled
      ((name		  . "DIGIT NINE")
@@ -188,7 +188,7 @@
     (=ks-x1001		. #x2870)	; &I-K0-2870; [08-80]
     (=cns11643-1	. #x262A)	; &I-C1-262A; [06-10]
     (=jis-x0213-1	. #x2D2A)	; &I-JX1-2D2A; [13-10]
-    (=big5-eten		. #xC6AA)	; &B-C6AA;
+    (=big5-eten		. #xC6AA)	; &I-B-C6AA;
     (=jef-china3	. #x77D2)	; &I-JC3-77D2;
     ))
 (define-char
@@ -387,7 +387,7 @@
     (=gb2312		. #x2245)	; &I-G0-2245; [02-37]
     (=ks-x1001		. #x2967)	; &I-K0-2967; [09-71]
     (=cns11643-1	. #x262B)	; &I-C1-262B; [06-11]
-    (=big5-eten		. #xC6AB)	; &B-C6AB;
+    (=big5-eten		. #xC6AB)	; &I-B-C6AB;
     ))
 (define-char
   '((name		. "PARENTHESIZED DIGIT TWO")
@@ -410,7 +410,7 @@
     (=gb2312		. #x2246)	; &I-G0-2246; [02-38]
     (=ks-x1001		. #x2968)	; &I-K0-2968; [09-72]
     (=cns11643-1	. #x262C)	; &I-C1-262C; [06-12]
-    (=big5-eten		. #xC6AC)	; &B-C6AC;
+    (=big5-eten		. #xC6AC)	; &I-B-C6AC;
     ))
 (define-char
   '((name		. "PARENTHESIZED DIGIT THREE")
@@ -433,7 +433,7 @@
     (=gb2312		. #x2247)	; &I-G0-2247; [02-39]
     (=ks-x1001		. #x2969)	; &I-K0-2969; [09-73]
     (=cns11643-1	. #x262D)	; &I-C1-262D; [06-13]
-    (=big5-eten		. #xC6AD)	; &B-C6AD;
+    (=big5-eten		. #xC6AD)	; &I-B-C6AD;
     ))
 (define-char
   '((name		. "PARENTHESIZED DIGIT FOUR")
@@ -456,7 +456,7 @@
     (=gb2312		. #x2248)	; &I-G0-2248; [02-40]
     (=ks-x1001		. #x296A)	; &I-K0-296A; [09-74]
     (=cns11643-1	. #x262E)	; &I-C1-262E; [06-14]
-    (=big5-eten		. #xC6AE)	; &B-C6AE;
+    (=big5-eten		. #xC6AE)	; &I-B-C6AE;
     ))
 (define-char
   '((name		. "PARENTHESIZED DIGIT FIVE")
@@ -479,7 +479,7 @@
     (=gb2312		. #x2249)	; &I-G0-2249; [02-41]
     (=ks-x1001		. #x296B)	; &I-K0-296B; [09-75]
     (=cns11643-1	. #x262F)	; &I-C1-262F; [06-15]
-    (=big5-eten		. #xC6AF)	; &B-C6AF;
+    (=big5-eten		. #xC6AF)	; &I-B-C6AF;
     ))
 (define-char
   '((name		. "PARENTHESIZED DIGIT SIX")
@@ -502,7 +502,7 @@
     (=gb2312		. #x224A)	; &I-G0-224A; [02-42]
     (=ks-x1001		. #x296C)	; &I-K0-296C; [09-76]
     (=cns11643-1	. #x2630)	; &I-C1-2630; [06-16]
-    (=big5-eten		. #xC6B0)	; &B-C6B0;
+    (=big5-eten		. #xC6B0)	; &I-B-C6B0;
     ))
 (define-char
   '((name		. "PARENTHESIZED DIGIT SEVEN")
@@ -525,7 +525,7 @@
     (=gb2312		. #x224B)	; &I-G0-224B; [02-43]
     (=ks-x1001		. #x296D)	; &I-K0-296D; [09-77]
     (=cns11643-1	. #x2631)	; &I-C1-2631; [06-17]
-    (=big5-eten		. #xC6B1)	; &B-C6B1;
+    (=big5-eten		. #xC6B1)	; &I-B-C6B1;
     ))
 (define-char
   '((name		. "PARENTHESIZED DIGIT EIGHT")
@@ -548,7 +548,7 @@
     (=gb2312		. #x224C)	; &I-G0-224C; [02-44]
     (=ks-x1001		. #x296E)	; &I-K0-296E; [09-78]
     (=cns11643-1	. #x2632)	; &I-C1-2632; [06-18]
-    (=big5-eten		. #xC6B2)	; &B-C6B2;
+    (=big5-eten		. #xC6B2)	; &I-B-C6B2;
     ))
 (define-char
   '((name		. "PARENTHESIZED DIGIT NINE")
@@ -571,7 +571,7 @@
     (=gb2312		. #x224D)	; &I-G0-224D; [02-45]
     (=ks-x1001		. #x296F)	; &I-K0-296F; [09-79]
     (=cns11643-1	. #x2633)	; &I-C1-2633; [06-19]
-    (=big5-eten		. #xC6B3)	; &B-C6B3;
+    (=big5-eten		. #xC6B3)	; &I-B-C6B3;
     ))
 (define-char
   '((name		. "PARENTHESIZED NUMBER TEN")
@@ -596,7 +596,7 @@
     (=gb2312		. #x224E)	; &I-G0-224E; [02-46]
     (=ks-x1001		. #x2970)	; &I-K0-2970; [09-80]
     (=cns11643-1	. #x2634)	; &I-C1-2634; [06-20]
-    (=big5-eten		. #xC6B4)	; &B-C6B4;
+    (=big5-eten		. #xC6B4)	; &I-B-C6B4;
     ))
 (define-char
   '((name		. "PARENTHESIZED NUMBER ELEVEN")

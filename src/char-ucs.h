@@ -499,6 +499,10 @@ CHARSET_BY_ATTRIBUTES (int chars, int dimension, int final, int dir)
 #define MAX_CHAR_HANZIKU_12	(0x62000000 + 65536 * 12 + 65535)
 */
 
+#define CHAR_ISOLATED_ONLY	-1
+#define CHAR_ALL		 0
+#define CHAR_DEFINED_ONLY	 1
+
 Emchar decode_builtin_char (Lisp_Object charset, int code_point);
 
 INLINE_HEADER Lisp_Object

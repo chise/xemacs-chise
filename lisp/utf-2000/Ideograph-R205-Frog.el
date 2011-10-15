@@ -346,10 +346,33 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 19)
     (=ucs		. #x9F03)	; 鼃
-    (=jis-x0212		. #x6D24)	; &I-JSP-6D24; [77-04]
-    (=cns11643-3	. #x5C2D)	; &I-C3-5C2D; [60-13]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9F03)	; 鼃
+      ))
+    (ideographic-radical . 205)	; ⿌
+    (ideographic-strokes . 6)
+    (total-strokes	 . 19)
+    (=ucs@jis		. #x9F03)	; &M-48278;
+    (=jis-x0212		. #x6D24)	; &M-48278; [77-04]
     (=jis-x0213-2	. #x7E61)	; &I-JX2-7E61; [94-65]
     (=daikanwa		. 48278)	; &I-M-48278;
+    (=hanyo-denshi/jb	. #x6D24)	; &I-HD-JB-6D24; [77-04]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9F03)	; 鼃
+      ))
+    (ideographic-radical . 205)	; ⿌
+    (ideographic-strokes . 6)
+    (total-strokes	 . 19)
+    (=>>ucs@unicode	. #x9F03)	; &G-UU+9F03;
+    (->subsumptive
+     ((=ucs@unicode	  . #x9F03)	; &UU+9F03;
+      )
+     ((=cns11643-3	  . #x5C2D)	; &C3-5C2D; [60-13]
+      ))
     ))
 (define-char
   '((ideographic-radical . 205)	; ⿌

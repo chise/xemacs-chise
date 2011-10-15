@@ -2805,8 +2805,17 @@
     (ideographic-radical . 82)	; ⽑
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
+    (=>>ucs@unicode	. #x6C08)	; &G-GT-21755;
+    (=>>jis-x0208@1990	. #x5D61)	; &G-GT-21755; [61-65]
+    (=>>jis-x0213-1	. #x5D61)	; &G-GT-21755; [61-65]
+    (=>>gt		. 21755)	; &G-GT-21755;
+    (=>>daikanwa	. 16982)	; &G-GT-21755;
     (->subsumptive
-     ((=big5		  . #xC0D6)	; &B-C0D6;
+     ((=>>>ucs@unicode	  . #x6C08)	; &g2-JX1-5D61;
+      (=>>>jis-x0208@1990 . #x5D61)	; &g2-JX1-5D61; [61-65]
+      (=>>>jis-x0213-1	  . #x5D61)	; &g2-JX1-5D61; [61-65]
+      (=big5		  . #xC0D6)	; &g2-JX1-5D61;
+      (=>>>gt		  . 21755)	; &g2-JX1-5D61;
       (->subsumptive
        ((=ucs@jis	    . #x6C08)	; &GT-21755;
 	(=jis-x0208@1990    . #x5D61)	; &GT-21755; [61-65]
@@ -2832,8 +2841,14 @@
     (ideographic-radical . 82)	; ⽑
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
-    (=jis-x0208@1978	. #x5D61)	; &J83-5D61; [61-65]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6C08)	; 氈
+      )
+     ((=ucs		  . #xE0104)	; 󠄄
+      ))
+    (=jis-x0208@1978	. #x5D61)	; 氈󠄄 [61-65]
     (=jis-x0208@1983	. #x5D61)	; &I-J83-5D61; [61-65]
+    (=hanyo-denshi/ft	. #x3126)	; &I-HD-FT-3126; [17-06]
     ))
 (define-char
   '((ideographic-radical . 82)	; ⽑

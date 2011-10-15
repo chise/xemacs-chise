@@ -1011,7 +1011,12 @@
     (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (=jis-x0208@1978	. #x6E3D)	; &M-11746; [78-29]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6248)	; 扈
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
+    (=jis-x0208@1978	. #x6E3D)	; 扈󠄃 [78-29]
     (=ks-x1001		. #x7B43)	; &I-K0-7B43; [91-35]
     (=cns11643-1	. #x5A53)	; &I-C1-5A53; [58-51]
     (=daikanwa		. 11746)	; &I-M-11746;

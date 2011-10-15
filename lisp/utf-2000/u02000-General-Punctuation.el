@@ -38,7 +38,6 @@
     (bidi-category	. "WS")
     (mirrored		. nil)
     (=ucs		. #x2003)	;  
-    (=cns11643-1	. #x256D)	; &I-C1-256D; [05-77]
     (<-compat
      ((name		  . "SPACE")
       (=ucs		  . #x0020)	;
