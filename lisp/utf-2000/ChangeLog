@@ -1,5 +1,10 @@
 2011-10-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R031-Enclosure.el, Ideograph-R023-Hiding-Enclosure.el:
+	Use `=+>jis-x0208' instead of `=>jis-x0208@usual'.
+
+2011-10-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R184-Eat.el: Add mappings between CJK Ext-B and CNS
 	11643 plain 7.
 	(U-000296FB): Integrate M-44198.
