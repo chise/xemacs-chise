@@ -3021,12 +3021,12 @@
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 19)
     (total-strokes	 . 21)
-    (=>ucs@JP		. #x5164)	; &A-CU+5164;
+    (=+>ucs@jis		. #x5164)	; &A-CU+5164;
     (=>ucs@cns		. #x5164)	; &A-CU+5164;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x5164)	; &A-CU+5164;
+     ((=+>ucs@jis	  . #x5164)	; &A-CU+5164;
       ))
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 19)
@@ -3082,7 +3082,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x5164)	; &A-CU+5164;
+     ((=+>ucs@jis	  . #x5164)	; &A-CU+5164;
       ))
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 19)

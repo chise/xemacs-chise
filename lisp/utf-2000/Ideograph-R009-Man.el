@@ -32989,7 +32989,7 @@
       )
      ((=ucs		  . #x9EC3)	; 黃
       ))
-    (=>ucs@JP		. #x50D9)	; &A-CU+50D9;
+    (=+>ucs@jis		. #x50D9)	; &A-CU+50D9;
     (=>ucs@cns		. #x50D9)	; &A-CU+50D9;
     (->subsumptive
      ((=decomposition@cid

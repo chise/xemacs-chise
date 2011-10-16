@@ -7273,12 +7273,12 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (=>ucs@JP		. #x5272)	; &A-CU+5272;
+    (=+>ucs@jis		. #x5272)	; &A-CU+5272;
     (=>ucs@cns		. #x5272)	; &A-CU+5272;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x5272)	; &A-CU+5272;
+     ((=+>ucs@jis	  . #x5272)	; &A-CU+5272;
       ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 10)
@@ -7324,7 +7324,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x5272)	; &A-CU+5272;
+     ((=+>ucs@jis	  . #x5272)	; &A-CU+5272;
       ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 10)
