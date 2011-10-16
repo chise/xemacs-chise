@@ -7754,7 +7754,7 @@
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 15)
     (total-strokes	 . 20)
-    (=>ucs@JP		. #x7926)	; &A-CU+7926;
+    (=+>ucs@jis		. #x7926)	; &A-CU+7926;
     (=>ucs@cns		. #x7926)	; &A-CU+7926;
     (=big5		. #xC471)	; &A-CU+7926;
     (->subsumptive

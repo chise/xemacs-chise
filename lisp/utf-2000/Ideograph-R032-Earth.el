@@ -14429,7 +14429,7 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (=>ucs@JP		. #x58D9)	; &A-CU+58D9;
+    (=+>ucs@jis		. #x58D9)	; &A-CU+58D9;
     (=>ucs@ks		. #x58D9)	; &A-CU+58D9;
     (=>ucs@cns		. #x58D9)	; &A-CU+58D9;
     (=big5		. #xC252)	; &A-CU+58D9;

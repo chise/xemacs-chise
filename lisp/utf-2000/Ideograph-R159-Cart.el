@@ -4345,13 +4345,13 @@
     (ideographic-radical . 159)	; ⾞
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
-    (=>ucs@JP		. #x8F44)	; &A-GT-51330;
+    (=+>ucs@jis		. #x8F44)	; &A-GT-51330;
     (=>ucs@cns		. #x8F44)	; &A-GT-51330;
     (=>gt		. 51330)	; &A-GT-51330;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x8F44)	; &A-GT-51330;
+     ((=+>ucs@jis	  . #x8F44)	; &A-GT-51330;
       ))
     (morohashi-daikanwa	38482 1)
     (ideographic-radical . 159)	; ⾞
@@ -4365,7 +4365,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x8F44)	; &A-GT-51330;
+     ((=+>ucs@jis	  . #x8F44)	; &A-GT-51330;
       ))
     (ideographic-radical . 159)	; ⾞
     (ideographic-strokes . 10)

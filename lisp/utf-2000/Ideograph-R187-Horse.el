@@ -5712,7 +5712,7 @@
     (ideographic-radical . 187)	; ⾺
     (ideographic-strokes . 13)
     (total-strokes	 . 23)
-    (=>ucs@JP		. #x9A58)	; &A-CU+9A58;
+    (=+>ucs@jis		. #x9A58)	; &A-CU+9A58;
     (=>ucs@cns		. #x9A58)	; &A-CU+9A58;
     (->subsumptive
      ((=ucs@jis		  . #x9A58)	; &M-45025;

@@ -1836,7 +1836,7 @@
     (ideographic-radical . 157)	; ⾜
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
-    (=>ucs@JP		. #x8DBC)	; &A-CU+2F9DB;
+    (=+>ucs@jis		. #x8DBC)	; &A-CU+2F9DB;
     (=>ucs@cns		. #x2F9DB)	; &A-CU+2F9DB;
     (->subsumptive
      ((=ucs@jis		  . #x8DBC)	; &AJ1-22613;

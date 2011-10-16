@@ -18876,7 +18876,7 @@
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (=>ucs@JP		. #x6F62)	; &A-CU+6F62;
+    (=+>ucs@jis		. #x6F62)	; &A-CU+6F62;
     (=>ucs@ks		. #x6F62)	; &A-CU+6F62;
     (=>ucs@cns		. #x6F62)	; &A-CU+6F62;
     (=big5		. #xE643)	; &A-CU+6F62;
@@ -24830,7 +24830,7 @@
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (=>ucs@JP		. #x7007)	; &A-CU+7007;
+    (=+>ucs@jis		. #x7007)	; &A-CU+7007;
     (=>ucs@cns		. #x7007)	; &A-CU+7007;
     (=big5		. #xEFEB)	; &A-CU+7007;
     (->subsumptive

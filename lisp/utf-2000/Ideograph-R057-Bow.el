@@ -2965,7 +2965,7 @@
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (=>ucs@JP		. #x5F4D)	; &A-CU+5F4D;
+    (=+>ucs@jis		. #x5F4D)	; &A-CU+5F4D;
     (=>ucs@cns		. #x5F4D)	; &A-CU+5F4D;
     (->subsumptive
      ((=ucs@jis		  . #x5F4D)	; &AJ1-19354;

@@ -9323,12 +9323,12 @@
     (ideographic-radical . 104)	; ⽧
     (ideographic-strokes . 17)
     (total-strokes	 . 22)
-    (=>ucs@JP		. #x766E)	; &A-CU+766E;
+    (=+>ucs@jis		. #x766E)	; &A-CU+766E;
     (=>ucs@cns		. #x766E)	; &A-CU+766E;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x766E)	; &A-CU+766E;
+     ((=+>ucs@jis	  . #x766E)	; &A-CU+766E;
       ))
     (ideographic-radical . 104)	; ⽧
     (ideographic-strokes . 17)
@@ -9340,7 +9340,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x766E)	; &A-CU+766E;
+     ((=+>ucs@jis	  . #x766E)	; &A-CU+766E;
       ))
     (ideographic-radical . 104)	; ⽧
     (ideographic-strokes . 17)

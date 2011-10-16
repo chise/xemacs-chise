@@ -11820,7 +11820,7 @@
     (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 12)
     (total-strokes	 . 20)
-    (=>ucs@JP		. #x9404)	; &o-JU+9404;
+    (=+>ucs@jis		. #x9404)	; &o-JU+9404;
     (=>ucs@ks		. #x9404)	; &o-JU+9404;
     (->subsumptive
      ((=ucs@jis		  . #x9404)	; &M-40868;
@@ -12844,11 +12844,11 @@
      ((=ucs		  . #x942F)	; 鐯
       ))
     (ideographic-radical . 167)	; ⾦
-    (=>ucs@JP		. #x942F)	; &o-JU+942F;
+    (=+>ucs@jis		. #x942F)	; &o-JU+942F;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x942F)	; &o-JU+942F;
+     ((=+>ucs@jis	  . #x942F)	; &o-JU+942F;
       ))
     (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 13)
@@ -12857,7 +12857,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x942F)	; &o-JU+942F;
+     ((=+>ucs@jis	  . #x942F)	; &o-JU+942F;
       ))
     (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 12)

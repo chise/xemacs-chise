@@ -1331,13 +1331,13 @@
       )
      ((=ucs		  . #x537D)	; 卽
       ))
-    (=>ucs@JP		. #x537F)	; &A-CU+2F833;
+    (=+>ucs@jis		. #x537F)	; &A-CU+2F833;
     (=>ucs@ks		. #x537F)	; &A-CU+2F833;
     (=>ucs@cns		. #x2F833)	; &A-CU+2F833;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x537F)	; &A-CU+2F833;
+     ((=+>ucs@jis	  . #x537F)	; &A-CU+2F833;
       ))
     (=>ucs*		. #x537F)	; 卿
     (ideographic-radical . 26)	; ⼙
@@ -1385,7 +1385,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x537F)	; &A-CU+2F833;
+     ((=+>ucs@jis	  . #x537F)	; &A-CU+2F833;
       ))
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 10)

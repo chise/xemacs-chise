@@ -989,11 +989,11 @@
       )
      ((=ucs		  . #x516A)	; 兪
       ))
-    (=>ucs@JP		. #x532C)	; &o-JU+532C;
+    (=+>ucs@jis		. #x532C)	; &o-JU+532C;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x532C)	; &o-JU+532C;
+     ((=+>ucs@jis	  . #x532C)	; &o-JU+532C;
       ))
     (ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 9)
@@ -1022,7 +1022,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x532C)	; &o-JU+532C;
+     ((=+>ucs@jis	  . #x532C)	; &o-JU+532C;
       ))
     (ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 9)

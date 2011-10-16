@@ -6492,13 +6492,13 @@
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (=>ucs@JP		. #x913A)	; &A-CU+913A;
+    (=+>ucs@jis		. #x913A)	; &A-CU+913A;
     (=>ucs@cns		. #x913A)	; &A-CU+913A;
     (=big5		. #xF14B)	; &A-CU+913A;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x913A)	; &A-CU+913A;
+     ((=+>ucs@jis	  . #x913A)	; &A-CU+913A;
       ))
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 15)
@@ -6514,7 +6514,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x913A)	; &A-CU+913A;
+     ((=+>ucs@jis	  . #x913A)	; &A-CU+913A;
       ))
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 15)

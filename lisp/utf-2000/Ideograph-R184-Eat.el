@@ -10160,11 +10160,11 @@
      ((=ucs		  . #x995B)	; 饛
       ))
     (ideographic-radical . 184)	; ⾷
-    (=>ucs@JP		. #x995B)	; &o-JU+995B;
+    (=+>ucs@jis		. #x995B)	; &o-JU+995B;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x995B)	; &o-JU+995B;
+     ((=+>ucs@jis	  . #x995B)	; &o-JU+995B;
       ))
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 14)
@@ -10173,7 +10173,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x995B)	; &o-JU+995B;
+     ((=+>ucs@jis	  . #x995B)	; &o-JU+995B;
       ))
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 13)

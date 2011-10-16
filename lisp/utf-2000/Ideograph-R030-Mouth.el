@@ -14867,11 +14867,11 @@
       )
      ((=ucs		  . #x623B)	; 戻
       ))
-    (=>ucs@JP		. #x5533)	; &o-JU+5533;
+    (=+>ucs@jis		. #x5533)	; &o-JU+5533;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x5533)	; &o-JU+5533;
+     ((=+>ucs@jis	  . #x5533)	; &o-JU+5533;
       ))
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 7)
@@ -25829,11 +25829,11 @@
       )
      ((=ucs		  . #x8332)	; 茲
       ))
-    (=>ucs@JP		. #x55DE)	; &o-JU+55DE;
+    (=+>ucs@jis		. #x55DE)	; &o-JU+55DE;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x55DE)	; &o-JU+55DE;
+     ((=+>ucs@jis	  . #x55DE)	; &o-JU+55DE;
       ))
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 10)
@@ -25852,7 +25852,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x55DE)	; &o-JU+55DE;
+     ((=+>ucs@jis	  . #x55DE)	; &o-JU+55DE;
       ))
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 9)
@@ -39059,7 +39059,7 @@
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (=>ucs@JP		. #x569D)	; &A-CU+569D;
+    (=+>ucs@jis		. #x569D)	; &A-CU+569D;
     (=>ucs@cns		. #x569D)	; &A-CU+569D;
     (=big5		. #xEFBE)	; &A-CU+569D;
     (->subsumptive

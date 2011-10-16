@@ -846,11 +846,11 @@
       )
      ((=ucs		  . #x6241)	; 扁
       ))
-    (=>ucs@JP		. #x533E)	; &o-JU+533E;
+    (=+>ucs@jis		. #x533E)	; &o-JU+533E;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x533E)	; &o-JU+533E;
+     ((=+>ucs@jis	  . #x533E)	; &o-JU+533E;
       ))
     (ideographic-radical . 23)	; ⼖
     (ideographic-strokes . 9)

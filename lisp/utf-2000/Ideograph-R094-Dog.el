@@ -7313,7 +7313,7 @@
     (ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (=>ucs@JP		. #x7377)	; &A-CU+7377;
+    (=+>ucs@jis		. #x7377)	; &A-CU+7377;
     (=>ucs@cns		. #x7377)	; &A-CU+7377;
     (=big5		. #xC278)	; &A-CU+7377;
     (->subsumptive
