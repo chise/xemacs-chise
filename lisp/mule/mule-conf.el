@@ -1096,9 +1096,9 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=>ucs@jis))
-  (make-charset '=>ucs@JP
-		"UCS Representative characters for Japanese usual unification"
-		'(long-name	"UCS characters for JP"
+  (make-charset '=+>ucs@jis
+		"UCS based on Japanese usual unification"
+		'(long-name	"UCS unified abstract glyphs for JP"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -1106,6 +1106,7 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=>ucs@jis))
+  (define-charset-alias '=>ucs@JP '=+>ucs@jis)
   (make-charset '=>ucs@ks
 		"UCS Representative characters for Korean Standards"
 		'(long-name	"UCS characters for KS"
