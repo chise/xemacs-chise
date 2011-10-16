@@ -1,3 +1,8 @@
+2011-10-15  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=+>ucs@jis): Renamed from `=>ucs@JP'.
+	(=>ucs@JP): New alias for `=+>ucs@jis'.
+
 2011-10-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=+>jis-x0208): Renamed from
