@@ -1,3 +1,21 @@
+2011-10-15  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R022-Right-Open-Box.el,
+	Ideograph-R023-Hiding-Enclosure.el, Ideograph-R026-Seal.el,
+	Ideograph-R030-Mouth.el, Ideograph-R032-Earth.el,
+	Ideograph-R048-Work.el, Ideograph-R057-Bow.el,
+	Ideograph-R085-Water.el, Ideograph-R094-Dog.el,
+	Ideograph-R096-Jade.el, Ideograph-R104-Sickness.el,
+	Ideograph-R112-Stone.el, Ideograph-R117-Stand.el,
+	Ideograph-R120-Silk.el, Ideograph-R140-Grass.el,
+	Ideograph-R142-Insect.el, Ideograph-R149-Speech.el,
+	Ideograph-R157-Foot.el, Ideograph-R159-Cart.el,
+	Ideograph-R163-City.el, Ideograph-R167-Gold.el,
+	Ideograph-R184-Eat.el, Ideograph-R187-Horse.el,
+	Ideograph-R188-Bone.el, Ideograph-R199-Wheat.el,
+	Ideograph-R018-Knife.el, Ideograph-R010-Legs.el,
+	Ideograph-R009-Man.el: Use `=+>ucs@jis' instead of `=>ucs@JP'.
+
 2011-10-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R031-Enclosure.el, Ideograph-R023-Hiding-Enclosure.el:
