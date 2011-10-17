@@ -1,3 +1,11 @@
+2011-10-16  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=+>jis-x0213-2): Renamed from
+	`=>jis-x0213-2@usual'.
+	(=>jis-x0213-2@usual): New alias for `=+>jis-x0213-2'.
+	(=>jis-x0213-2): Use `=+>jis-x0213-2' instead of
+	`=>jis-x0213-2@usual' as the mother.
+
 2011-10-15  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=+>ucs@jis): Renamed from `=>ucs@JP'.
