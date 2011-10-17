@@ -20788,11 +20788,11 @@
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 9)
     (=+>ucs@jis		. #x8481)	; &o-JX2-7653;
-    (=>jis-x0213-2@usual . #x7653)	; &o-JX2-7653; [86-51]
+    (=+>jis-x0213-2	. #x7653)	; &o-JX2-7653; [86-51]
     ))
 (define-char
   '((<-denotational
-     ((=>jis-x0213-2@usual . #x7653)	; &o-JX2-7653; [86-51]
+     ((=+>jis-x0213-2	  . #x7653)	; &o-JX2-7653; [86-51]
       ))
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 9)
@@ -20801,7 +20801,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>jis-x0213-2@usual . #x7653)	; &o-JX2-7653; [86-51]
+     ((=+>jis-x0213-2	  . #x7653)	; &o-JX2-7653; [86-51]
       ))
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 9)
