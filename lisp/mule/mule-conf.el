@@ -573,7 +573,7 @@
 	      ))
   (define-charset-alias '<=>jis-x0213-1@2004 '=>jis-x0213-1@2004)
   (make-charset
-   '=>jis-x0213-2@usual
+   '=+>jis-x0213-2
    "JIS X 0213 Plain 2 based on usual unification."
    '(registry "jisx0213\\(\\.\\(2000\\|2004\\)\\)?-2"
 	      dimension 2
@@ -582,13 +582,14 @@
 	      =>iso-ir 229
               ;; final ?P
 	      graphic 0))
+  (define-charset-alias '=>jis-x0213-2@usual '=+>jis-x0213-2)
   (make-charset
    '=>jis-x0213-2
    "JIS X 0213 Plain 2 abstract characters"
    '(registry "jisx0213\\(\\.\\(2000\\|2004\\)\\)?-2"
 	      dimension 2
 	      chars 94
-	      mother =>jis-x0213-2@usual
+	      mother =+>jis-x0213-2
 	      =>iso-ir 229
               ;; final ?P
 	      graphic 0))
