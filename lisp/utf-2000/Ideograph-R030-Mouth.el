@@ -26995,12 +26995,12 @@
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=>ucs@iso		. #x2F84A)	; &A-IU+2F84A;
-    (=>ucs@unicode	. #x55C2)	; &A-IU+2F84A;
+    (=>ucs@unicode	. #x55C2)	; &A-UU+55C2;
+    (=>ucs@cns		. #x2F84A)	; &A-UU+55C2;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@iso	  . #x2F84A)	; &A-IU+2F84A;
+     ((=>ucs@unicode	  . #x55C2)	; &A-UU+55C2;
       ))
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 10)
@@ -27023,7 +27023,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@iso	  . #x2F84A)	; &A-IU+2F84A;
+     ((=>ucs@unicode	  . #x55C2)	; &A-UU+55C2;
       ))
     (=>ucs*		. #x55C2)	; 嗂
     (ideographic-radical . 30)	; ⼝
