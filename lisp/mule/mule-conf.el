@@ -1129,6 +1129,17 @@
 		  =>iso-ir	177
 		  mother	=>ucs@unicode))
 
+  (make-charset '=+>ucs@iso
+		"UCS based on ISO/IEC 10646 representative glyphs"
+		'(long-name	"Unified abstract glyphs of UCS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>ucs@iso))
+
   (make-charset '=>>ucs@iso
 		"Representative abstract-glyphs of ISO/IEC 10646"
 		'(long-name	"UCS abstract glyphs for UCS"
@@ -1138,7 +1149,7 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
-		  mother	=>ucs@iso))
+		  mother	=+>ucs@iso))
   (make-charset '=>>ucs@unicode
 		"Representative abstract-glyphs of Unicode"
 		'(long-name	"Unicode abstract glyphs"
