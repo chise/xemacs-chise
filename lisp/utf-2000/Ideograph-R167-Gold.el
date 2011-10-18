@@ -9485,11 +9485,11 @@
       ))
     (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 9)
-    (=>ucs@jis/1990	. #x93A1)	; &o-J90U+93A1;
+    (=+>ucs@jis/1990	. #x93A1)	; &o-J90U+93A1;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@jis/1990	  . #x93A1)	; &o-J90U+93A1;
+     ((=+>ucs@jis/1990	  . #x93A1)	; &o-J90U+93A1;
       ))
     (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 10)
@@ -9498,7 +9498,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@jis/1990	  . #x93A1)	; &o-J90U+93A1;
+     ((=+>ucs@jis/1990	  . #x93A1)	; &o-J90U+93A1;
       ))
     (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 9)

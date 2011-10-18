@@ -8264,11 +8264,11 @@
      ((=ucs		  . #x7934)	; 礴
       ))
     (ideographic-radical . 112)	; ⽯
-    (=>ucs@jis/1990	. #x7934)	; &o-J90U+7934;
+    (=+>ucs@jis/1990	. #x7934)	; &o-J90U+7934;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@jis/1990	  . #x7934)	; &o-J90U+7934;
+     ((=+>ucs@jis/1990	  . #x7934)	; &o-J90U+7934;
       ))
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 17)
@@ -8277,7 +8277,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@jis/1990	  . #x7934)	; &o-J90U+7934;
+     ((=+>ucs@jis/1990	  . #x7934)	; &o-J90U+7934;
       ))
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 16)

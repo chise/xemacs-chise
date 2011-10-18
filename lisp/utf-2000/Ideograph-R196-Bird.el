@@ -6950,11 +6950,11 @@
      ((=ucs		  . #x9DBF)	; 鶿
       ))
     (ideographic-radical . 196)	; ⿃
-    (=>ucs@jis/1990	. #x9DBF)	; &o-J90U+9DBF;
+    (=+>ucs@jis/1990	. #x9DBF)	; &o-J90U+9DBF;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@jis/1990	  . #x9DBF)	; &o-J90U+9DBF;
+     ((=+>ucs@jis/1990	  . #x9DBF)	; &o-J90U+9DBF;
       ))
     (ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 10)
@@ -6963,7 +6963,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@jis/1990	  . #x9DBF)	; &o-J90U+9DBF;
+     ((=+>ucs@jis/1990	  . #x9DBF)	; &o-J90U+9DBF;
       ))
     (ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 9)
