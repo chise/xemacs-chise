@@ -1087,16 +1087,6 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=>ucs@unicode))
-  (make-charset '=>ucs@jis/1990
-		"UCS Representative characters for JIS X0208/0212:1990"
-		'(long-name	"UCS characters for JIS:1990"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=>ucs@jis))
   (make-charset '=+>ucs@jis
 		"UCS based on Japanese usual unification"
 		'(long-name	"UCS unified abstract glyphs for JP"
@@ -1108,6 +1098,17 @@
 		  =>iso-ir	177
 		  mother	=>ucs@jis))
   (define-charset-alias '=>ucs@JP '=+>ucs@jis)
+  (make-charset '=+>ucs@jis/1990
+		"UCS Representative characters for JIS X0208/0212:1990"
+		'(long-name	"UCS characters for JIS:1990"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=+>ucs@jis))
+  (define-charset-alias '=>ucs@jis/1990 '=+>ucs@jis/1990)
   (make-charset '=>ucs@ks
 		"UCS Representative characters for Korean Standards"
 		'(long-name	"UCS characters for KS"
