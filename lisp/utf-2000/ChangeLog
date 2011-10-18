@@ -1,3 +1,18 @@
+2011-10-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R167-Gold.el, Ideograph-R149-Speech.el,
+	Ideograph-R057-Bow.el: Use `=+>ucs@iso' instead of `=>ucs@iso'.
+
+	* Ideograph-R030-Mouth.el (A-UU+55C2): Unify A-CU+2F84A instead of
+	A-IU+2F84A.
+
+	* Ideograph-R009-Man.el: Use `=+>ucs@iso' instead of `=>ucs@iso'.
+
+2011-10-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el: Use `=+>jis-x0213-2' instead of
+	`=>jis-x0213-2@usual'.
+
 2011-10-15  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R022-Right-Open-Box.el,
