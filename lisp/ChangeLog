@@ -1,3 +1,13 @@
+2011-10-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=+>ucs@iso'; use `=+>ucs@jis' instead of `=>ucs@JP'.
+
+	* mule/mule-conf.el (=+>ucs@iso): New coded-charset for XEmacs
+	CHISE.
+	(=>>ucs@iso): Use `=+>ucs@iso' instead of `=>ucs@iso' as the
+	mother.
+
 2011-10-16  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=+>jis-x0213-2): Renamed from
