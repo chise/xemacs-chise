@@ -41496,7 +41496,7 @@
       )
      ((=>ucs@ks		  . #x9069)	; &A-GT-52561;
       ))
-    (=>ucs@iso		. #x2041D)	; &A-IU+2041D;
+    (=+>ucs@iso		. #x2041D)	; &o-IU+2041D;
     (->subsumptive
      ((hanyu-dazidian	  1 235 13)
       (=ucs@iso		  . #x2041D)	; &HZK01-D6BC;

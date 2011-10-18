@@ -19043,7 +19043,7 @@
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 15)
     (total-strokes	 . 22)
-    (=>ucs@iso		. #x27B6B)	; &A-IU+27B6B;
+    (=+>ucs@iso		. #x27B6B)	; &o-IU+27B6B;
     (->subsumptive
      ((=daikanwa	  . 36102)	; &M-36102;
       )

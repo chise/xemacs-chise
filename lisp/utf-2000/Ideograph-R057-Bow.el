@@ -1635,7 +1635,7 @@
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=>ucs@iso		. #x223F3)	; &A-IU+223F3;
+    (=+>ucs@iso		. #x223F3)	; &o-IU+223F3;
     (->subsumptive
      ((=daikanwa	  . 09807)	; &M-09807;
       )

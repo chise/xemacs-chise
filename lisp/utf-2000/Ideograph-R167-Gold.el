@@ -15500,7 +15500,7 @@
     (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 19)
     (total-strokes	 . 27)
-    (=>ucs@iso		. #x28C20)	; &A-IU+28C20;
+    (=+>ucs@iso		. #x28C20)	; &o-IU+28C20;
     (->subsumptive
      ((=ucs@iso		  . #x28C20)	; &U-00028C20;
       )
