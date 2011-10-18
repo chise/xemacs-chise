@@ -1,3 +1,12 @@
+2011-10-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Use
+	`=+>ucs@jis/1990' instead of `=>ucs@jis/1990'.
+
+	* mule/mule-conf.el (=+>ucs@jis/1990): Renamed from
+	`=>ucs@jis/1990'.
+	(=>ucs@jis/1990): New alias for `=+>ucs@jis/1990'.
+
 2011-10-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
