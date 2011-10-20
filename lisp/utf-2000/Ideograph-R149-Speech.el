@@ -8775,14 +8775,15 @@
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 8)
     (total-strokes	 . 15)
-    (=+>ucs@jis		. #x8ACD)	; &A-CU+8ACD;
-    (=>ucs@ks		. #x8ACD)	; &A-CU+8ACD;
-    (=>ucs@cns		. #x8ACD)	; &A-CU+8ACD;
-    (=big5		. #xBDD8)	; &A-CU+8ACD;
+    (=+>ucs@jis		. #x8ACD)	; &o-J0-6B5A;
+    (=+>ucs@ks		. #x8ACD)	; &o-J0-6B5A;
+    (=>ucs@cns		. #x8ACD)	; &o-J0-6B5A;
+    (=+>jis-x0208	. #x6B5A)	; &o-J0-6B5A; [75-58]
+    (=big5		. #xBDD8)	; &o-J0-6B5A;
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@jis	  . #x8ACD)	; &A-CU+8ACD;
+     ((=+>jis-x0208	  . #x6B5A)	; &o-J0-6B5A; [75-58]
       ))
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 8)
@@ -8799,7 +8800,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@jis	  . #x8ACD)	; &A-CU+8ACD;
+     ((=+>jis-x0208	  . #x6B5A)	; &o-J0-6B5A; [75-58]
       ))
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 8)
