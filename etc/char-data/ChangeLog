@@ -1,3 +1,7 @@
+2011-10-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-5ED3): Map to U+FA1D instead of U+7CBE.
+
 2011-10-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* JC3-to-UCS.txt (JC3-48B9): Map to U+5840 instead of U+FA39.
