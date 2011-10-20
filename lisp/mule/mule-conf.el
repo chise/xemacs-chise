@@ -1119,6 +1119,16 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=>ucs@unicode))
+  (make-charset '=+>ucs@ks
+		"UCS Representative unified abstract glyphs for Korean Standards"
+		'(long-name	"UCS unified abstract glyphs for KS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>ucs@ks))
   (make-charset '=>ucs@cns
 		"UCS representatives characters for CNS 11643 sources"
 		'(long-name	"UCS characters for CNS 11643"
