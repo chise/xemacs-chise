@@ -1332,7 +1332,7 @@
      ((=ucs		  . #x537D)	; 卽
       ))
     (=+>ucs@jis		. #x537F)	; &A-CU+2F833;
-    (=>ucs@ks		. #x537F)	; &A-CU+2F833;
+    (=+>ucs@ks		. #x537F)	; &A-CU+2F833;
     (=>ucs@cns		. #x2F833)	; &A-CU+2F833;
     ))
 (define-char

@@ -18877,7 +18877,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (=+>ucs@jis		. #x6F62)	; &A-CU+6F62;
-    (=>ucs@ks		. #x6F62)	; &A-CU+6F62;
+    (=+>ucs@ks		. #x6F62)	; &A-CU+6F62;
     (=>ucs@cns		. #x6F62)	; &A-CU+6F62;
     (=big5		. #xE643)	; &A-CU+6F62;
     (->subsumptive
