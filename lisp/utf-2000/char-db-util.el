@@ -187,14 +187,14 @@
     =>>hanyo-denshi/ks
     =>>gt
     =>>daikanwa
-    =>jis-x0208@usual
+    =+>jis-x0208
     =+>jis-x0208@1978
+    =+>jis-x0213-2
     =>jis-x0208
     =>jis-x0208@1997
     =>jis-x0213-1
     =>jis-x0213-1@2000
     =>jis-x0213-1@2004
-    =>jis-x0213-2@usual
     =>jis-x0213-2
     ==>ucs@bucs
     =>ucs@iso
@@ -204,6 +204,7 @@
     =>ucs@jis/1990
     =>ucs@cns
     =>ucs@ks
+    =+>ucs@ks
     =>>ucs@iso
     =>>ucs@unicode
     =>>ucs@jis
