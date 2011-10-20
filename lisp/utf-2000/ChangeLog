@@ -1,3 +1,44 @@
+2011-10-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Use
+	`=+>jis-x0208' and `=+>jis-x0213-2' instead of `=>jis-x0208@usual'
+	and `=>jis-x0213-2@usual'; add `=+>ucs@ks'.
+
+	* Ideograph-R162-Walk.el: Use `=+>ucs@ks' instead of `=>ucs@ks'.
+	(G-UU+9069): Unify g2-UU+9069 and g2-J0-452C; unify g2-GT-52472
+	instead of G-52472.
+
+2011-10-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R167-Gold.el: Use `=+>ucs@ks' instead of `=>ucs@ks'.
+	(o-JU+9404): Unify A-CU+9404.
+	(C3-5D3C): Unify CU+9404.
+
+	* Ideograph-R149-Speech.el: Use `=+>ucs@ks' instead of `=>ucs@ks'.
+	(o-JU+8ACD): Unify o-J0-6B5A.
+
+	* Ideograph-R140-Grass.el: Use `=+>ucs@ks' instead of `=>ucs@ks'.
+	(A-JX1-4378): Unify o-JU+8457 instead of A-JU+8457; unify
+	o-J0-4378.
+	(A-JX1-7B27): Unify o-JU+FA5F instead of A-JU+FA5F.
+
+	* Ideograph-R087-Claw.el: Use `=+>ucs@ks' instead of `=>ucs@ks'.
+	(JC3-58AE): Use A-CU+2F921 instead of U+7235 as the mother.
+
+	* Ideograph-R032-Earth.el: Use `=+>ucs@ks' instead of `=>ucs@ks'.
+	(o-JU+58D9): Unify o-J0-545D.
+
+	* Ideograph-R030-Mouth.el: Use `=+>ucs@ks' instead of `=>ucs@ks'.
+	(U+56AE): Unify A-J0-536C.
+	(o-KU+56AE): Unify o-JU+56AE instead of A-JU+56AE.
+
+	* Ideograph-R026-Seal.el: Use `=+>ucs@ks' instead of `=>ucs@ks'.
+
+2011-10-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el, Ideograph-R038-Woman.el,
+	Ideograph-R009-Man.el: Use `=+>ucs@ks' instead of `=>ucs@ks'.
+
 2011-10-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R196-Bird.el, Ideograph-R167-Gold.el,
