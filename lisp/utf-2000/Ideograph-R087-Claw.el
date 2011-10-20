@@ -1353,16 +1353,7 @@
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
-    (=jef-china3	. #x58AE)	; &JC3-58AE;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x7235)	; 爵
-      ))
-    (ideographic-radical . 87)	; ⽖
-    (ideographic-strokes . 14)
-    (total-strokes	 . 18)
-    (=>ucs@ks		. #x7235)	; &A-CU+2F921;
+    (=+>ucs@ks		. #x7235)	; &A-CU+2F921;
     (=>ucs@cns		. #x2F921)	; &A-CU+2F921;
     (=>daikanwa		. 19711)	; &A-CU+2F921;
     ))
@@ -1376,6 +1367,15 @@
     (=ucs@ks		. #x7235)	; &M-19711;
     (=ks-x1001		. #x6D49)	; &M-19711; [77-41]
     (=daikanwa		. 19711)	; &I-M-19711;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cns	  . #x2F921)	; &A-CU+2F921;
+      ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 14)
+    (total-strokes	 . 18)
+    (=jef-china3	. #x58AE)	; &JC3-58AE;
     ))
 (define-char
   '((<-denotational
