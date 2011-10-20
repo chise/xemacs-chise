@@ -11820,8 +11820,9 @@
     (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 12)
     (total-strokes	 . 20)
-    (=+>ucs@jis		. #x9404)	; &o-JU+9404;
-    (=>ucs@ks		. #x9404)	; &o-JU+9404;
+    (=+>ucs@jis		. #x9404)	; &A-CU+9404;
+    (=+>ucs@ks		. #x9404)	; &A-CU+9404;
+    (=>ucs@cns		. #x9404)	; &A-CU+9404;
     (->subsumptive
      ((=ucs@jis		  . #x9404)	; &M-40868;
       (=ucs@ks		  . #x9404)	; &M-40868;
@@ -11832,7 +11833,8 @@
       (=jef-china3	  . #x6BB3)	; &I-JC3-6BB3;
       (=hanyo-denshi/jb	  . #x6556)	; &I-HD-JB-6556; [69-54]
       )
-     ((=cns11643-3	  . #x5D3C)	; &C3-5D3C; [61-28]
+     ((=ucs@cns		  . #x9404)	; &C3-5D3C;
+      (=cns11643-3	  . #x5D3C)	; &C3-5D3C; [61-28]
       ))
     ))
 (define-char
