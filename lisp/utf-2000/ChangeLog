@@ -1,3 +1,9 @@
+2011-10-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R119-Rice.el (U+7CBE): Unify A-J0-403A.
+	(K0-6F71): Unify KU+7CBE and U+FA1D.
+	(mother of J0-403A): Unify G-UU+7CBE, G-J0-403A and G-GT-34789.
+
 2011-10-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Use
