@@ -14566,7 +14566,7 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=>ucs@ks		. #x9069)	; &A-GT-52561;
+    (=+>ucs@ks		. #x9069)	; &A-GT-52561;
     (=>gt		. 52561)	; &A-GT-52561;
     (=>daikanwa		. 39076)	; &A-GT-52561;
     (->subsumptive
@@ -14601,8 +14601,11 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=>>ucs@unicode	. #x9069)	; &G-GT-52472;
-    (=>>gt		. 52472)	; &G-GT-52472;
+    (=>>ucs@unicode	. #x9069)	; &g2-J0-452C;
+    (=>>>ucs@unicode	. #x9069)	; &g2-J0-452C;
+    (=>>>jis-x0208	. #x452C)	; &g2-J0-452C; [37-12]
+    (=>>>jis-x0213-1	. #x452C)	; &g2-J0-452C; [37-12]
+    (=>>>gt		. 52472)	; &g2-J0-452C;
     (->subsumptive
      ((morohashi-daikanwa	39076 1)
       (=ucs@jis		  . #x9069)	; &GT-52472;
