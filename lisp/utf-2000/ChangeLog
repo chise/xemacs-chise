@@ -1,5 +1,17 @@
 2011-10-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R072-Sun.el (U+6674): Use `->denotational' and
+	`->subsumptive'.
+	(K0-7467): Unify KU+6674 and U+FA12.
+
+	* Ideograph-R030-Mouth.el (M-04480): Map to U-00021054.
+	(U+568E): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R005-Second.el (G-GT-00270): Add
+	ideographic-structure; unify G-M-00207.
+
+2011-10-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R119-Rice.el (U+7CBE): Unify A-J0-403A.
 	(K0-6F71): Unify KU+7CBE and U+FA1D.
 	(mother of J0-403A): Unify G-UU+7CBE, G-J0-403A and G-GT-34789.
