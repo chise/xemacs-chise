@@ -287,6 +287,7 @@ DESCRIPTION (string) is the description string of the charset."
           ;; =ucs-bmp-cjk@JP
 	  =ucs-bmp-cjk@JP/hanazono
 	  =ucs-bmp-cjk-compat
+          =ucs-bmp-cjk-compat@unicode
           japanese-jisx0208-1978
 	  =jis-x0212
 	  =gt-pj-2
