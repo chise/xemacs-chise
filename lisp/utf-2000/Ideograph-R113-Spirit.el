@@ -111,11 +111,13 @@
   '((<-denotational
      ((=ucs		  . #x793C)	; 礼
       ))
+    (=>ucs*		. #x793C)	; 礼
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 1)
     (total-strokes	 . 6)
-    (=daikanwa		. 24626)	; &M-24626;
-    (=shinjigen		.  5507)	; &M-24626;
+    (=ucs		. #xFA18)	; 礼
+    (=daikanwa		. 24626)	; &I-M-24626;
+    (=shinjigen		.  5507)	; 礼
     (=jef-china3	. #x70E5)	; &I-JC3-70E5;
     (<-ancient
      ((=ucs@jis		  . #x79AE)	; &GT-32019;
@@ -135,6 +137,11 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 1)
     (total-strokes	 . 6)
+    (=>>ucs@unicode	. #x793C)	; &g2-J0-4E69;
+    (=>>>ucs@unicode	. #x793C)	; &g2-J0-4E69;
+    (=>>>jis-x0208	. #x4E69)	; &g2-J0-4E69; [46-73]
+    (=>>>jis-x0213-1	. #x4E69)	; &g2-J0-4E69; [46-73]
+    (=>>>gt		. 31490)	; &g2-J0-4E69;
     (->subsumptive
      ((morohashi-daikanwa	24626 1)
       (=ucs@jis		  . #x793C)	; &GT-31490;
