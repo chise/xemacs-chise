@@ -1,4 +1,19 @@
+2011-10-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R174-Blue.el (U+9756): Unify A-J0-4C77.
+	(K0-6F7E): Unify KU+9756 and U+FA1C.
+
+	* Ideograph-R029-Again.el (U+FA0E): New character.
+
 2011-10-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R113-Spirit.el (M-24626): Unify U+FA18.
+	(mother of J0-4E69): Unify G-UU+793C, g2-UU+793C, g2-J0-4E69 and
+	g2-GT-31490.
+
+	* Ideograph-R108-Dish.el (mother of K0-6C4C): Unify G-UU+FA17,
+	G-KU+76CA, G-GT-29427 and G-M-22972.
+	(K0-76CA): Unify KU+76CA and U+FA17.
 
 	* Ideograph-R072-Sun.el (U+6674): Use `->denotational' and
 	`->subsumptive'.
