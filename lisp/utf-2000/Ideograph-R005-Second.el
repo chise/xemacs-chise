@@ -2190,7 +2190,16 @@
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>>gt		  . 36863)	; &G-GT-36863;
+      )
+     ((=ucs		  . #x4E5A)	; 乚
+      ))
     (=>>gt		. 00270)	; &G-GT-00270;
+    (=>>daikanwa	. 00207)	; &G-GT-00270;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -2217,8 +2226,7 @@
 	  )
 	 ((=cns11643-1	      . #x447C)	; &C1-447C; [36-92]
 	  )
-	 ((=ks-x1001	      . #x6962)	; &GT-36832; [73-66]
-	  (=daikanwa	      . 28614)	; &I-M-28614;
+	 ((=ucs		      . #xFA1E)	; 羽
 	  ))
 	)
        ((=ucs		    . #x4E5A)	; 乚
