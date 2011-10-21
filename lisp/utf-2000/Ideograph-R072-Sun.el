@@ -4238,35 +4238,50 @@
     (=daikanwa		. 13993)	; &I-M-13993;
     ))
 (define-char
-  '((=>ucs		. #x6674)	; 晴
+  '((ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (=ucs		. #x6674)	; 晴
+    (=>jis-x0208	. #x4032)	; 晴 [32-18]
+    (=>jis-x0213-1	. #x4032)	; 晴 [32-18]
+    (=big5		. #xB4B8)	; &I-B-B4B8;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6674)	; 晴
+      ))
+    (=>ucs*		. #x6674)	; 晴
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=ucs@big5		. #x6674)	; &M-13994;
-    (=ks-x1001		. #x7467)	; &M-13994; [84-71]
-    (=big5		. #xB4B8)	; &I-B-B4B8;
+    (=ucs		. #xFA12)	; 晴
+    (=ucs@ks		. #x6674)	; 晴
+    (=ks-x1001		. #x7467)	; &I-K0-7467; [84-71]
     (=daikanwa		. 13994)	; &I-M-13994;
     (=jef-china3	. #x51DE)	; &I-JC3-51DE;
     ))
 (define-char
-  '((morohashi-daikanwa	13994 1)
+  '((<-denotational
+     ((=ucs		  . #x6674)	; 晴
+      ))
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=ucs		. #x6674)	; 晴
-    (=jis-x0208		. #x4032)	; &I-J90-4032; [32-18]
-    (=gb2312		. #x4767)	; &I-G0-4767; [39-71]
-    (=jis-x0213-1	. #x4032)	; &I-JX1-4032; [32-18]
-    (=gt		. 17697)	; &I-GT-17697;
-    (=gt-pj-1		. #x4032)	; &I-GT-17697; [32-18]
-    ))
-(define-char
-  '((=>ucs		. #x6674)	; 晴
-    (morohashi-daikanwa	13994 1 0)
-    (ideographic-radical . 72)	; ⽇
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (=cns11643-1	. #x5F5D)	; &C1-5F5D; [63-61]
+    (=>>ucs@unicode	. #x6674)	; &G-GT-17697;
+    (=>>jis-x0208	. #x4032)	; &G-GT-17697; [32-18]
+    (=>>jis-x0213-1	. #x4032)	; &G-GT-17697; [32-18]
+    (=>>gt		. 17697)	; &G-GT-17697;
+    (->subsumptive
+     ((morohashi-daikanwa	13994 1)
+      (=ucs@unicode	  . #x6674)	; &GT-17697;
+      (=jis-x0208	  . #x4032)	; &GT-17697; [32-18]
+      (=gb2312		  . #x4767)	; &I-G0-4767; [39-71]
+      (=jis-x0213-1	  . #x4032)	; &I-JX1-4032; [32-18]
+      (=gt		  . 17697)	; &I-GT-17697;
+      (=gt-pj-1		  . #x4032)	; &I-GT-17697; [32-18]
+      )
+     ((=cns11643-1	  . #x5F5D)	; &C1-5F5D; [63-61]
+      ))
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
