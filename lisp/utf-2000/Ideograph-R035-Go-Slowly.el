@@ -352,34 +352,38 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x3687)	; 㚇
-    (ideographic-radical . 35)	; ⼢
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (=daikanwa		. 05718)	; &M-05718;
-    ))
-(define-char
-  '((=>ucs		. #x3687)	; 㚇
-    (morohashi-daikanwa	5718 0 0)
-    (ideographic-radical . 35)	; ⼢
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (=big5-cdp		. #x88E7)	; &CDP-88E7;
-    ))
-(define-char
-  '((=>ucs		. #x3687)	; 㚇
-    (morohashi-daikanwa	5718 0 1)
-    (ideographic-radical . 35)	; ⼢
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (=cns11643-4	. #x2861)	; &C4-2861; [08-65]
-    ))
-(define-char
-  '((morohashi-daikanwa	5718 0 2)
-    (ideographic-radical . 35)	; ⼢
+  '((ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (=ucs		. #x3687)	; 㚇
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3687)	; 㚇
+      ))
+    (ideographic-radical . 35)	; ⼢
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (=>>ucs@cns		. #x3687)	; &G-CDP-88E7;
+    (=>>big5-cdp	. #x88E7)	; &G-CDP-88E7;
+    (=>>daikanwa	. 05718)	; &G-CDP-88E7;
+    (->subsumptive
+     ((=daikanwa	  . 05718)	; &M-05718;
+      )
+     ((=big5-cdp	  . #x88E7)	; &CDP-88E7;
+      )
+     ((=ucs@cns		  . #x3687)	; &C4-2861;
+      (=cns11643-4	  . #x2861)	; &C4-2861; [08-65]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3687)	; 㚇
+      ))
+    (ideographic-radical . 35)	; ⼢
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (=ucs@unicode	. #x3687)	; &UU+3687;
     ))
 (define-char
   '((ideographic-radical . 35)	; ⼢
@@ -387,6 +391,7 @@
     (total-strokes	 . 10)
     (hanyu-dazidian	2 870 2)
     (=ucs		. #x590E)	; 夎
+    (=big5		. #xD159)	; &I-B-D159;
     ))
 (define-char
   '((<-denotational
@@ -395,6 +400,8 @@
     (ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (=>>ucs@cns		. #x590E)	; &G-CU+590E;
+    (=>>daikanwa	. 05719)	; &G-CU+590E;
     (->subsumptive
      ((=daikanwa	  . 05719)	; &M-05719;
       )
@@ -410,7 +417,6 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs@unicode	. #x590E)	; &UU+590E;
-    (=big5		. #xD159)	; &UU+590E;
     ))
 (define-char
   '((ideographic-radical . 35)	; ⼢
