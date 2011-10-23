@@ -1,5 +1,19 @@
 2011-10-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R150-Valley.el (HD-FT2558): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R149-Speech.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/FT characters.
+
+	* Ideograph-R147-See.el (HD-FT2538): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R035-Go-Slowly.el (U+3687): Use `->denotational' and
+	`->subsumptive'.
+
+2011-10-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R174-Blue.el (U+9756): Unify A-J0-4C77.
 	(K0-6F7E): Unify KU+9756 and U+FA1C.
 
