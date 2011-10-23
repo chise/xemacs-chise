@@ -458,7 +458,12 @@
     (=>>>ucs@unicode	. #x8C3F)	; &G-HD-FT-395A;
     (=>>hanyo-denshi/ft . #x395A)	; &G-HD-FT-395A; [25-58]
     (->subsumptive
-     ((=hanyo-denshi/ft	  . #x395A)	; &HD-FT-395A; [25-58]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8C3F)	; 谿
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/ft	  . #x395A)	; 谿󠄂 [25-58]
       )
      ((=ucs@unicode	  . #x8C3F)	; &UU+8C3F;
       ))
