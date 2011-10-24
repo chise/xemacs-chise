@@ -939,10 +939,16 @@
     (ideographic-radical . 160)	; ⾟
     (ideographic-strokes . 12)
     (total-strokes	 . 19)
-    (=>>ucs@unicode	. #x8FAD)	; &G-UU+8FAD;
+    (=>>ucs@unicode	. #x8FAD)	; &G-HD-FT-3973;
+    (=>>hanyo-denshi/ft . #x3973)	; &G-HD-FT-3973; [25-83]
     (->subsumptive
-     ((=ucs@unicode	  . #x8FAD)	; &UU+8FAD;
-      (=gb12345		  . #x3447)	; &UU+8FAD; [20-39]
+     ((=>>>ucs@unicode	  . #x8FAD)	; &g2-UU+8FAD;
+      (->subsumptive
+       ((=hanyo-denshi/ft   . #x3973)	; &HD-FT-3973; [25-83]
+	)
+       ((=ucs@unicode	    . #x8FAD)	; &UU+8FAD;
+	(=gb12345	    . #x3447)	; &UU+8FAD; [20-39]
+	))
       )
      ((=cns11643-1	  . #x7930)	; &C1-7930; [89-16]
       ))
