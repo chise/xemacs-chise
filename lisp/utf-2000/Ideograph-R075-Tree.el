@@ -18379,6 +18379,29 @@
   '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6728)	; 木
+      )
+     ((=ucs		  . #x6319)	; 挙
+      ))
+    (=ucs		. #xFA14)	; 﨔
+    (=jis-x0213-1	. #x757A)	; &I-JX1-757A; [85-90]
+    (<-simplified@JP/jis
+     ((=ucs@unicode	  . #x6B05)	; &GT-20431;
+      (=jis-x0208	  . #x5D30)	; &GT-20431; [61-16]
+      (=jis-x0213-1	  . #x5D30)	; &I-JX1-5D30; [61-16]
+      (=daikanwa	  . 15883)	; &I-M-15883;
+      ))
+    (<-simplified@JP/jis*sources
+     jis-x0213)
+    ))
+(define-char
+  '((ideographic-radical . 75)	; ⽊
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
     (=ucs		. #x21B3E)	; 𡬾
     (=cns11643-4	. #x4426)	; &I-C4-4426; [36-06]
     (=cbeta		. 12636)	; &I-CB12636;
@@ -28518,7 +28541,7 @@
 	)
        ((=ucs		    . #x6728)	; 木
 	)
-       ((=cns11643-1	    . #x7247)	; &C1-7247; [82-39]
+       ((=cns11643-1	    . #x7247)	; &HD-FT-345F; [82-39]
 	))
       (=cns11643-4	  . #x6350)	; &CB04400; [67-48]
       (=cbeta		  . 04400)	; &I-CB04400;
