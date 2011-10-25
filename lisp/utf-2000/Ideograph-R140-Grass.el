@@ -38152,6 +38152,27 @@
 (define-char
   '((ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (sound@ja/on	"rAHu")
+    (=ucs		. #xFA1F)	; 﨟
+    (=jis-x0213-1	. #x7B3A)	; &I-JX1-7B3A; [91-26]
+    (<-formed
+     ((=ucs@unicode	  . #x81D8)	; &GT-38838;
+      (=jis-x0208	  . #x6744)	; &GT-38838; [71-36]
+      (=ks-x1001	  . #x5544)	; &I-K0-5544; [53-36]
+      (=jis-x0213-1	  . #x6744)	; &I-JX1-6744; [71-36]
+      (=daikanwa	  . 30009)	; &I-M-30009;
+      )
+     ((=ucs@unicode	  . #x81C8)	; &GT-38701;
+      (=jis-x0208	  . #x6745)	; &GT-38701; [71-37]
+      (=jis-x0213-1	  . #x6745)	; &I-JX1-6745; [71-37]
+      ))
+    (<-formed*sources
+     jis-x0213)
+    ))
+(define-char
+  '((ideographic-radical . 140)	; ⾋
+    (ideographic-strokes . 13)
     (total-strokes	 . 17)
     (=ucs		. #x26F76)	; 𦽶
     (=cns11643-5	. #x5D72)	; &I-C5-5D72; [61-82]
