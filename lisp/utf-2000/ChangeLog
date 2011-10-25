@@ -1,3 +1,15 @@
+2011-10-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R160-Bitter.el (G-UU+8FAD): Unify G-HD-FT2583.
+	(HD-FT2583): New character.
+
+	* Ideograph-R157-Foot.el: Add Hanyo-Denshi/FT code points.
+
+	* Ideograph-R156-Run.el (GT-49728): Unify HD-FT2565.
+
+	* Ideograph-R154-Shell.el, Ideograph-R152-Pig.el: Add
+	Hanyo-Denshi/FT code points.
+
 2011-10-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R150-Valley.el (HD-FT2558): Add
