@@ -1,3 +1,49 @@
+2011-10-25  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (U+FA14): New character.
+
+2011-10-24  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (U+FA1F): New character.
+
+2011-10-24  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R124-Feather.el (K0-6962): Unify U+FA1E and KU+7FBD.
+	(U+7FBE): Use `->denotational'.
+	(U+7FC0): Likewise.
+	(U+437F): Use `->denotational' and `->subsumptive'.
+	(U+7FC3): Use `->denotational'.
+	(U+7FC9): Use `->denotational' and `->subsumptive'.
+	(U+7FCA): Likewise.
+	(U+7FCB): Use `->denotational'.
+	(U+7FCC): Use `->denotational' and `->subsumptive'.
+	(U+7FCD): Use `->denotational'.
+	(U+7FCE): Use `->denotational' and `->subsumptive'.
+	(U+7FD2): Add ideographic-structure.
+	(U+7FD4): Likewise.
+	(U+7FD7): Likewise; use `->denotational' instead of
+	`->subsumptive'.
+	(M-28695): Map to U-0002642B.
+	(U+7FDC): Use `->denotational' and `->subsumptive'.
+	(U+7FE1): Add ideographic-structure.
+	(U+7FE2): Likewise.
+	(U+7FE5): Use `->denotational'.
+	(U+7FED): Use `->denotational' and `->subsumptive'.
+	(U+7FE8): Likewise.
+	(U+7FEA): Use `->denotational'.
+	(U+7FEC): Use `->denotational' and `->subsumptive'.
+	(U+7FEE): Add ideographic-structure.
+	(U+7FF1): Use `->denotational' and `->subsumptive'.
+	(U+7FF2): Likewise.
+	(U+7FF3): Likewise.
+	(U+7FF4): Use `->denotational'.
+	(U+7FF5): Likewise.
+	(U+7FF7): Likewise.
+	(U+7FF8): Likewise.
+	(U+7FFD): Likewise.
+	(U+7FFE): Use `->denotational' and `->subsumptive'.
+	(U+7FFF): Use `->denotational'.
+
 2011-10-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R160-Bitter.el (G-UU+8FAD): Unify G-HD-FT2583.
