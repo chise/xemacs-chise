@@ -18876,10 +18876,10 @@
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (=+>ucs@jis		. #x6F62)	; &A-CU+6F62;
-    (=+>ucs@ks		. #x6F62)	; &A-CU+6F62;
-    (=>ucs@cns		. #x6F62)	; &A-CU+6F62;
-    (=big5		. #xE643)	; &A-CU+6F62;
+    (=+>ucs@jis		. #x6F62)	; &o-JU+6F62;
+    (=+>ucs@ks		. #x6F62)	; &o-JU+6F62;
+    (=+>ucs@cns		. #x6F62)	; &o-JU+6F62;
+    (=big5		. #xE643)	; &o-JU+6F62;
     (->subsumptive
      ((=ucs@jis		  . #x6F62)	; &M-18251;
       (=ucs@ks		  . #x6F62)	; &M-18251;
@@ -24830,9 +24830,10 @@
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (=+>ucs@jis		. #x7007)	; &A-CU+7007;
-    (=>ucs@cns		. #x7007)	; &A-CU+7007;
-    (=big5		. #xEFEB)	; &A-CU+7007;
+    (=+>ucs@jis		. #x7007)	; &o-JX2-6F4A;
+    (=+>ucs@cns		. #x7007)	; &o-JX2-6F4A;
+    (=+>jis-x0213-2	. #x6F4A)	; &o-JX2-6F4A; [79-42]
+    (=big5		. #xEFEB)	; &o-JX2-6F4A;
     (->subsumptive
      ((=ucs@jis		  . #x7007)	; &AJ1-08533;
       (=jis-x0212	  . #x492D)	; &AJ1-08533; [41-13]
