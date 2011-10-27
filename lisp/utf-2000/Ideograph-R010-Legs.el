@@ -3021,17 +3021,20 @@
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 19)
     (total-strokes	 . 21)
-    (=+>ucs@jis		. #x5164)	; &A-CU+5164;
-    (=>ucs@cns		. #x5164)	; &A-CU+5164;
+    (=+>ucs@jis		. #x5164)	; &o-JU+5164;
+    (=+>ucs@cns		. #x5164)	; &o-JU+5164;
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@jis	  . #x5164)	; &A-CU+5164;
+     ((=+>ucs@jis	  . #x5164)	; &o-JU+5164;
       ))
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 19)
     (total-strokes	 . 21)
-    (=>>ucs@jis		. #x5164)	; &G-JU+5164;
+    (=>>ucs@jis		. #x5164)	; &G-AJ1-08394;
+    (=>>>ucs@jis	. #x5164)	; &G-AJ1-08394;
+    (=>>daikanwa	. 01412)	; &G-AJ1-08394;
+    (=>>adobe-japan1	. 08394)	; &G-AJ1-08394;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5164)	; 兤
@@ -3082,7 +3085,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@jis	  . #x5164)	; &A-CU+5164;
+     ((=+>ucs@jis	  . #x5164)	; &o-JU+5164;
       ))
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 19)
