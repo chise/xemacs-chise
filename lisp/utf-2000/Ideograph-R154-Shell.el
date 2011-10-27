@@ -5147,7 +5147,7 @@
     (ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 13)
     (total-strokes	 . 20)
-    (=>ucs@cns		. #x8D0F)	; &A-CU+8D0F;
+    (=+>ucs@cns		. #x8D0F)	; &o-CU+8D0F;
     (->subsumptive
      ((=daikanwa	  . 36950)	; &M-36950;
       )
@@ -5821,7 +5821,6 @@
     (ideographic-strokes . 17)
     (total-strokes	 . 24)
     (=>ucs@cns		. #x2F9D6)	; &A-CU+2F9D6;
-    (=>daikanwa		. 36985)	; &A-CU+2F9D6;
     ))
 (define-char
   '((<-denotational
