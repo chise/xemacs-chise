@@ -2527,11 +2527,12 @@
       )
      ((=ucs		  . #x65E3)	; 旣
       ))
-    (=>ucs@cns		. #x53A9)	; &A-CU+53A9;
+    (=+>ucs@cns		. #x53A9)	; &o-J78-3139;
+    (=+>jis-x0208@1978	. #x3139)	; &o-J78-3139; [17-25]
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cns	  . #x53A9)	; &A-CU+53A9;
+     ((=+>jis-x0208@1978  . #x3139)	; &o-J78-3139; [17-25]
       ))
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 11)
@@ -2605,7 +2606,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cns	  . #x53A9)	; &A-CU+53A9;
+     ((=+>jis-x0208@1978  . #x3139)	; &o-J78-3139; [17-25]
       ))
     (ideographic-radical . 27)	; ⼚
     (ideographic-structure
