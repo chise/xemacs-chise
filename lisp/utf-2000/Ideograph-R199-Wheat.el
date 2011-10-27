@@ -352,8 +352,9 @@
     (ideographic-radical . 199)	; ⿆
     (ideographic-strokes . 4)
     (total-strokes	 . 15)
-    (=+>ucs@jis		. #x9EA8)	; &A-CU+9EA8;
-    (=>ucs@cns		. #x9EA8)	; &A-CU+9EA8;
+    (=+>ucs@jis		. #x9EA8)	; &o-JX2-7E57;
+    (=+>ucs@cns		. #x9EA8)	; &o-JX2-7E57;
+    (=+>jis-x0213-2	. #x7E57)	; &o-JX2-7E57; [94-55]
     (->subsumptive
      ((=ucs@jis		  . #x9EA8)	; &M-47733;
       (=jis-x0212	  . #x6C69)	; &M-47733; [76-73]
