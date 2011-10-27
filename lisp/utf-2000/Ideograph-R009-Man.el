@@ -32989,8 +32989,9 @@
       )
      ((=ucs		  . #x9EC3)	; 黃
       ))
-    (=+>ucs@jis		. #x50D9)	; &A-CU+50D9;
-    (=>ucs@cns		. #x50D9)	; &A-CU+50D9;
+    (=+>ucs@jis		. #x50D9)	; &o-JX2-217B;
+    (=+>ucs@cns		. #x50D9)	; &o-JX2-217B;
+    (=+>jis-x0213-2	. #x217B)	; &o-JX2-217B; [01-91]
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x50D9)	; 僙
