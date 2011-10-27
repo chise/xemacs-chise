@@ -1331,13 +1331,14 @@
       )
      ((=ucs		  . #x537D)	; 卽
       ))
-    (=+>ucs@jis		. #x537F)	; &A-CU+2F833;
-    (=+>ucs@ks		. #x537F)	; &A-CU+2F833;
-    (=>ucs@cns		. #x2F833)	; &A-CU+2F833;
+    (=+>ucs@jis		. #x537F)	; &o-J78-362A;
+    (=+>ucs@ks		. #x537F)	; &o-J78-362A;
+    (=+>ucs@cns		. #x2F833)	; &o-J78-362A;
+    (=+>jis-x0208@1978	. #x362A)	; &o-J78-362A; [22-10]
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@jis	  . #x537F)	; &A-CU+2F833;
+     ((=+>jis-x0208@1978  . #x362A)	; &o-J78-362A; [22-10]
       ))
     (=>ucs*		. #x537F)	; 卿
     (ideographic-radical . 26)	; ⼙
@@ -1385,7 +1386,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@jis	  . #x537F)	; &A-CU+2F833;
+     ((=+>jis-x0208@1978  . #x362A)	; &o-J78-362A; [22-10]
       ))
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 10)
