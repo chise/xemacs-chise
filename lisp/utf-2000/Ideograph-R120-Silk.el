@@ -14866,9 +14866,9 @@
     (ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 15)
     (total-strokes	 . 21)
-    (=+>ucs@jis		. #x7E8A)	; &A-CU+7E8A;
-    (=>ucs@cns		. #x7E8A)	; &A-CU+7E8A;
-    (=big5		. #xF5E7)	; &A-CU+7E8A;
+    (=+>ucs@jis		. #x7E8A)	; &o-JU+7E8A;
+    (=+>ucs@cns		. #x7E8A)	; &o-JU+7E8A;
+    (=big5		. #xF5E7)	; &o-JU+7E8A;
     (->subsumptive
      ((=ucs@jis		  . #x7E8A)	; &AJ1-08359;
       (=jis-x0212	  . #x5463)	; &AJ1-08359; [52-67]

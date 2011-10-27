@@ -5945,12 +5945,12 @@
     (ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 15)
     (total-strokes	 . 20)
-    (=>ucs@cns		. #x7A6C)	; &A-CU+7A6C;
-    (=big5		. #xF4A3)	; &A-CU+7A6C;
+    (=+>ucs@cns		. #x7A6C)	; &o-CU+7A6C;
+    (=big5		. #xF4A3)	; &o-CU+7A6C;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cns	  . #x7A6C)	; &A-CU+7A6C;
+     ((=+>ucs@cns	  . #x7A6C)	; &o-CU+7A6C;
       ))
     (ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 15)
@@ -5959,7 +5959,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cns	  . #x7A6C)	; &A-CU+7A6C;
+     ((=+>ucs@cns	  . #x7A6C)	; &o-CU+7A6C;
       ))
     (ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 15)

@@ -3252,7 +3252,7 @@
     (ideographic-radical . 119)	; ⽶
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
-    (=>ucs@cns		. #x25EE6)	; &A-CU+25EE6;
+    (=+>ucs@cns		. #x25EE6)	; &o-CU+25EE6;
     (->subsumptive
      ((=daikanwa	  . 27085)	; &M-27085;
       )
@@ -3280,7 +3280,7 @@
     (ideographic-radical . 119)	; ⽶
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
-    (=>ucs@cns		. #x429B)	; &A-CU+429B;
+    (=+>ucs@cns		. #x429B)	; &o-CU+429B;
     (->subsumptive
      ((=daikanwa	  . 27086)	; &M-27086;
       )
