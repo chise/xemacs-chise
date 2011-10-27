@@ -16021,12 +16021,13 @@
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (=>ucs@unicode	. #x649D)	; &A-UU+649D;
-    (=>ucs@cns		. #x2F8C5)	; &A-UU+649D;
+    (=>ucs@unicode	. #x649D)	; &o-JX2-2D50;
+    (=+>ucs@cns		. #x2F8C5)	; &o-JX2-2D50;
+    (=+>jis-x0213-2	. #x2D50)	; &o-JX2-2D50; [13-48]
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x649D)	; &A-UU+649D;
+     ((=+>jis-x0213-2	  . #x2D50)	; &o-JX2-2D50; [13-48]
       ))
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 12)
@@ -16040,7 +16041,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x649D)	; &A-UU+649D;
+     ((=+>jis-x0213-2	  . #x2D50)	; &o-JX2-2D50; [13-48]
       ))
     (=>ucs*		. #x649D)	; 撝
     (ideographic-radical . 64)	; ⼿
@@ -19349,8 +19350,10 @@
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (=>ucs@cns		. #x64F4)	; &A-CU+64F4;
-    (=big5		. #xC258)	; &A-CU+64F4;
+    (=+>ucs@jis		. #x64F4)	; &o-J0-5A32;
+    (=+>ucs@cns		. #x64F4)	; &o-J0-5A32;
+    (=+>jis-x0208	. #x5A32)	; &o-J0-5A32; [58-18]
+    (=big5		. #xC258)	; &o-J0-5A32;
     (->subsumptive
      ((=ucs@jis		  . #x64F4)	; &GT-16319;
       (=jis-x0208	  . #x5A32)	; &GT-16319; [58-18]
@@ -19373,6 +19376,7 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
     (=>>ucs@unicode	. #x64F4)	; &G-HD-FT-3634;
+    (=>>>ucs@unicode	. #x64F4)	; &G-HD-FT-3634;
     (=>>hanyo-denshi/ft . #x3634)	; &G-HD-FT-3634; [22-20]
     (->subsumptive
      ((=decomposition@hanyo-denshi
