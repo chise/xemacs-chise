@@ -508,6 +508,18 @@
 	      =>iso-ir 42
 	      ;; final ?@
 	      graphic 0))
+  (make-charset
+   '=+>jis-x0213-1
+   "JIS X 0213 Plain 1 unified abstract glyphs (unchanged part)"
+   '(registry "jisx0213\\(\\.[0-9]+\\)?-1"
+	      dimension 2
+	      chars 94
+	      mother =>>jis-x0213-1
+	      =>iso-ir 228
+              ;; final ?O
+	      graphic 0
+              ;; partial t
+	      ))
 
   (make-charset
    '=>jis-x0208
@@ -539,7 +551,7 @@
    '(registry "jisx0213\\(\\.[0-9]+\\)?-1"
 	      dimension 2
 	      chars 94
-	      mother =>>jis-x0213-1
+	      mother =+>jis-x0213-1
 	      =>iso-ir 228
               ;; final ?O
 	      graphic 0
@@ -1078,7 +1090,7 @@
 		  =>iso-ir	177
 		  mother	=>ucs@iso))
   (make-charset '=>ucs@jis
-		"UCS Representative characters for JIS X0208/0212/0213"
+		"UCS representative characters for JIS X0208/0212/0213"
 		'(long-name	"UCS characters for JIS"
 		  chars		256
 		  dimension	3
@@ -1099,7 +1111,7 @@
 		  mother	=>ucs@jis))
   (define-charset-alias '=>ucs@JP '=+>ucs@jis)
   (make-charset '=+>ucs@jis/1990
-		"UCS Representative characters for JIS X0208/0212:1990"
+		"UCS representative characters for JIS X0208/0212:1990"
 		'(long-name	"UCS characters for JIS:1990"
 		  chars		256
 		  dimension	3
@@ -1110,7 +1122,7 @@
 		  mother	=+>ucs@jis))
   (define-charset-alias '=>ucs@jis/1990 '=+>ucs@jis/1990)
   (make-charset '=>ucs@ks
-		"UCS Representative characters for Korean Standards"
+		"UCS representative characters for Korean Standards"
 		'(long-name	"UCS characters for KS"
 		  chars		256
 		  dimension	3
@@ -1120,7 +1132,7 @@
 		  =>iso-ir	177
 		  mother	=>ucs@unicode))
   (make-charset '=+>ucs@ks
-		"UCS Representative unified abstract glyphs for Korean Standards"
+		"UCS representative unified abstract glyphs for Korean Standards"
 		'(long-name	"UCS unified abstract glyphs for KS"
 		  chars		256
 		  dimension	3
@@ -1139,6 +1151,16 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=>ucs@unicode))
+  (make-charset '=+>ucs@cns
+		"UCS representatives unified abstract glyphs for CNS 11643 sources"
+		'(long-name	"UCS unified abstract glyphs for CNS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>ucs@cns))
 
   (make-charset '=+>ucs@iso
 		"UCS based on ISO/IEC 10646 representative glyphs"
@@ -1650,6 +1672,21 @@
 	       direction l2r
 	       registry "-ja-.*-ucs-0"
 	       mother =ucs@JP/hanazono
+	       min-code #x2E00
+               max-code #x9FA5
+	       ;; max-code #xA4CF
+	       ))
+  (make-charset
+   '=>ucs-bmp-cjk@unicode
+   "Unicode representative characters of CJK Unified Ideographs in BMP"
+   '(long-name "Unicode-BMP-CJK"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-zh-.*-ucs-0"
+	       mother =>ucs@unicode
 	       min-code #x2E00
                max-code #x9FA5
 	       ;; max-code #xA4CF
