@@ -375,7 +375,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>jis-x0213-1
 	  ucs-bmp
 	  ==>ucs-bmp-cjk@bucs
-	  =>>ucs@unicode
+	  =>ucs-bmp-cjk@unicode
+          ;; =>>ucs@unicode
 	  =>>gt
 	  =adobe-japan1-6
 	  =adobe-japan1-base
