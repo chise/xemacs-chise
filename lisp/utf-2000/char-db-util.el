@@ -188,8 +188,9 @@
     =>>gt
     =>>daikanwa
     =+>jis-x0208
-    =+>jis-x0208@1978
+    =+>jis-x0213-1
     =+>jis-x0213-2
+    =+>jis-x0208@1978
     =>jis-x0208
     =>jis-x0208@1997
     =>jis-x0213-1
@@ -204,6 +205,7 @@
     =>ucs@jis/1990
     =>ucs@cns
     =>ucs@ks
+    =+>ucs@cns
     =+>ucs@ks
     =>>ucs@iso
     =>>ucs@unicode
