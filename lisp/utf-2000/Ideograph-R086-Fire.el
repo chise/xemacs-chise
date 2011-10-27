@@ -16242,12 +16242,16 @@
      ((=ucs		  . #x7228)	; 爨
       ))
     (ideographic-radical . 86)	; ⽕
-    (=>ucs@cns		. #x2F920)	; &A-CU+2F920;
-    (=>daikanwa		. 19648)	; &A-CU+2F920;
+    (=>ucs@unicode	. #x7228)	; &o-J0-6026;
+    (=+>ucs@cns		. #x2F920)	; &o-J0-6026;
+    (=+>jis-x0208	. #x6026)	; &o-J0-6026; [64-06]
+    (=>daikanwa		. 19648)	; &o-J0-6026;
     (->subsumptive
      ((ideographic-strokes . 25)
       (total-strokes	   . 29)
-      (=>>ucs@jis	  . #x7228)	; &G-GT-25215;
+      (=>>ucs@jis/1990	  . #x7228)	; &G-GT-25215;
+      (=>>ucs@jis/2000	  . #x7228)	; &G-GT-25215;
+      (=>>ucs@jis/2004	  . #x7228)	; &G-GT-25215;
       (=>>jis-x0208@1983  . #x6026)	; &G-GT-25215; [64-06]
       (=>>jis-x0208@1990  . #x6026)	; &G-GT-25215; [64-06]
       (=>>jis-x0213-1	  . #x6026)	; &G-GT-25215; [64-06]
