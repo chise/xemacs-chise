@@ -8797,7 +8797,7 @@
     (total-strokes	 . 15)
     (=+>ucs@jis		. #x8ACD)	; &o-J0-6B5A;
     (=+>ucs@ks		. #x8ACD)	; &o-J0-6B5A;
-    (=>ucs@cns		. #x8ACD)	; &o-J0-6B5A;
+    (=+>ucs@cns		. #x8ACD)	; &o-J0-6B5A;
     (=+>jis-x0208	. #x6B5A)	; &o-J0-6B5A; [75-58]
     (=big5		. #xBDD8)	; &o-J0-6B5A;
     ))

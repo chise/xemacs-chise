@@ -1400,7 +1400,7 @@
     (ideographic-radical . 182)	; ⾵
     (ideographic-strokes . 8)
     (total-strokes	 . 17)
-    (=>ucs@cns		. #x4B0B)	; &A-CU+4B0B;
+    (=+>ucs@cns		. #x4B0B)	; &o-CU+4B0B;
     (->subsumptive
      ((=daikanwa	  . 43854)	; &M-43854;
       )
@@ -2969,7 +2969,7 @@
     (ideographic-radical . 182)	; ⾵
     (ideographic-strokes . 12)
     (total-strokes	 . 21)
-    (=>ucs@cns		. #x4B1D)	; &A-CU+4B1D;
+    (=+>ucs@cns		. #x4B1D)	; &o-CU+4B1D;
     (->subsumptive
      ((=daikanwa	  . 43958)	; &M-43958;
       )

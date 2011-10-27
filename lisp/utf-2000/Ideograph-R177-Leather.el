@@ -3905,7 +3905,7 @@
     (ideographic-radical . 177)	; ⾰
     (ideographic-strokes . 12)
     (total-strokes	 . 21)
-    (=>ucs@cns		. #x4A84)	; &A-CU+4A84;
+    (=+>ucs@cns		. #x4A84)	; &o-CU+4A84;
     (->subsumptive
      ((=daikanwa	  . 43036)	; &M-43036;
       (=jef-china3	  . #x6CC7)	; &I-JC3-6CC7;

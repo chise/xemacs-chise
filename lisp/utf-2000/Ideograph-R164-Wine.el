@@ -4519,11 +4519,11 @@
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 12)
     (total-strokes	 . 19)
-    (=>ucs@cns		. #x4911)	; &A-CU+4911;
+    (=+>ucs@cns		. #x4911)	; &o-CU+4911;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cns	  . #x4911)	; &A-CU+4911;
+     ((=+>ucs@cns	  . #x4911)	; &o-CU+4911;
       ))
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 12)
@@ -4532,7 +4532,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cns	  . #x4911)	; &A-CU+4911;
+     ((=+>ucs@cns	  . #x4911)	; &o-CU+4911;
       ))
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 12)

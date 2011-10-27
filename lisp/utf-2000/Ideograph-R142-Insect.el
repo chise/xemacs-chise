@@ -3297,8 +3297,8 @@
     (ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
-    (=+>ucs@jis		. #x8688)	; &A-CU+2F9B8;
-    (=>ucs@cns		. #x2F9B8)	; &A-CU+2F9B8;
+    (=+>ucs@jis		. #x8688)	; &o-JU+8688;
+    (=+>ucs@cns		. #x2F9B8)	; &o-JU+8688;
     (->subsumptive
      ((=ucs@jis		  . #x8688)	; &M-33049;
       (=jis-x0212	  . #x5A6D)	; &M-33049; [58-77]
@@ -13077,9 +13077,9 @@
     (ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 13)
     (total-strokes	 . 19)
-    (=+>ucs@jis		. #x8803)	; &A-CU+8803;
-    (=>ucs@cns		. #x8803)	; &A-CU+8803;
-    (=big5		. #xF2DD)	; &A-CU+8803;
+    (=+>ucs@jis		. #x8803)	; &o-JU+8803;
+    (=+>ucs@cns		. #x8803)	; &o-JU+8803;
+    (=big5		. #xF2DD)	; &o-JU+8803;
     (->subsumptive
      ((=ucs@jis		  . #x8803)	; &M-33685;
       (=jis-x0212	  . #x5B69)	; &M-33685; [59-73]

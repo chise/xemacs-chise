@@ -554,11 +554,11 @@
     (ideographic-radical . 150)	; ⾕
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
-    (=>ucs@cns		. #x8C41)	; &A-CU+8C41;
+    (=+>ucs@cns		. #x8C41)	; &o-CU+8C41;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cns	  . #x8C41)	; &A-CU+8C41;
+     ((=+>ucs@cns	  . #x8C41)	; &o-CU+8C41;
       ))
     (ideographic-radical . 150)	; ⾕
     (ideographic-strokes . 10)
@@ -568,7 +568,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cns	  . #x8C41)	; &A-CU+8C41;
+     ((=+>ucs@cns	  . #x8C41)	; &o-CU+8C41;
       ))
     (ideographic-radical . 150)	; ⾕
     (ideographic-strokes . 10)

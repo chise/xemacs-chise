@@ -4346,7 +4346,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
     (=+>ucs@jis		. #x8F44)	; &A-GT-51330;
-    (=>ucs@cns		. #x8F44)	; &A-GT-51330;
+    (=+>ucs@cns		. #x8F44)	; &A-GT-51330;
     (=>gt		. 51330)	; &A-GT-51330;
     ))
 (define-char

@@ -2837,12 +2837,12 @@
      ((=ucs		  . #x9AD2)	; 髒
       ))
     (ideographic-radical . 188)	; ⾻
-    (=+>ucs@jis		. #x9AD2)	; &A-CU+9AD2;
-    (=>ucs@cns		. #x9AD2)	; &A-CU+9AD2;
+    (=+>ucs@jis		. #x9AD2)	; &o-JU+9AD2;
+    (=+>ucs@cns		. #x9AD2)	; &o-JU+9AD2;
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@jis	  . #x9AD2)	; &A-CU+9AD2;
+     ((=+>ucs@jis	  . #x9AD2)	; &o-JU+9AD2;
       ))
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 13)
@@ -2859,7 +2859,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@jis	  . #x9AD2)	; &A-CU+9AD2;
+     ((=+>ucs@jis	  . #x9AD2)	; &o-JU+9AD2;
       ))
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 12)

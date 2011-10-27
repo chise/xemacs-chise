@@ -5995,7 +5995,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
     (=>ucs@unicode	. #x9929)	; &A-UU+9929;
-    (=>ucs@cns		. #x2FA04)	; &A-UU+9929;
+    (=+>ucs@cns		. #x2FA04)	; &A-UU+9929;
     (->subsumptive
      ((=>ucs*		  . #x9929)	; 餩
       (=ucs		  . #x2FA04)	; 餩
