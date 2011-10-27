@@ -182,8 +182,8 @@
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (=+>ucs@jis		. #x5DE9)	; &A-CU+5DE9;
-    (=>ucs@cns		. #x5DE9)	; &A-CU+5DE9;
+    (=+>ucs@jis		. #x5DE9)	; &o-JU+5DE9;
+    (=+>ucs@cns		. #x5DE9)	; &o-JU+5DE9;
     (->subsumptive
      ((=ucs@jis		  . #x5DE9)	; &AJ1-17587;
       (=jis-x0212	  . #x3C21)	; &AJ1-17587; [28-01]

@@ -1628,7 +1628,7 @@
     (total-strokes	 . 7)
     (sound@ja/on	"ziN")
     (=ucs		. #x225D6)	; 𢗖
-    (=>ucs@cns		. #x5FF9)	; 𢗖
+    (=+>ucs@cns		. #x5FF9)	; 𢗖
     ))
 (define-char
   '((<-denotational

@@ -1011,11 +1011,11 @@
       )
      ((=ucs		  . #x82E5)	; 若
       ))
-    (=>ucs@cns		. #x533F)	; &A-CU+533F;
+    (=+>ucs@cns		. #x533F)	; &o-CU+533F;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cns	  . #x533F)	; &A-CU+533F;
+     ((=+>ucs@cns	  . #x533F)	; &o-CU+533F;
       ))
     (ideographic-radical . 23)	; ⼖
     (ideographic-strokes . 9)
@@ -1050,7 +1050,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cns	  . #x533F)	; &A-CU+533F;
+     ((=+>ucs@cns	  . #x533F)	; &o-CU+533F;
       ))
     (ideographic-radical . 23)	; ⼖
     (ideographic-strokes . 8)

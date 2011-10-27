@@ -14431,7 +14431,7 @@
     (total-strokes	 . 18)
     (=+>ucs@jis		. #x58D9)	; &o-J0-545D;
     (=+>ucs@ks		. #x58D9)	; &o-J0-545D;
-    (=>ucs@cns		. #x58D9)	; &o-J0-545D;
+    (=+>ucs@cns		. #x58D9)	; &o-J0-545D;
     (=+>jis-x0208	. #x545D)	; &o-J0-545D; [52-61]
     (=big5		. #xC252)	; &o-J0-545D;
     (->subsumptive

@@ -2427,7 +2427,7 @@
     (ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=>ucs@cns		. #x5E30)	; &A-CU+5E30;
+    (=+>ucs@cns		. #x5E30)	; &o-CU+5E30;
     (->subsumptive
      ((hanyu-dazidian	  1 739 16)
       (=hanziku-2	  . #xEA5C)	; &HZK02-EA5C;

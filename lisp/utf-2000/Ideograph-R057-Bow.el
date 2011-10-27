@@ -2763,8 +2763,8 @@
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (=>ucs@cns		. #x5F49)	; &A-CU+5F49;
-    (=big5		. #xE576)	; &A-CU+5F49;
+    (=+>ucs@cns		. #x5F49)	; &o-CU+5F49;
+    (=big5		. #xE576)	; &o-CU+5F49;
     (->subsumptive
      ((=daikanwa	  . 09867)	; &M-09867;
       )
@@ -2965,8 +2965,8 @@
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (=+>ucs@jis		. #x5F4D)	; &A-CU+5F4D;
-    (=>ucs@cns		. #x5F4D)	; &A-CU+5F4D;
+    (=+>ucs@jis		. #x5F4D)	; &o-JU+5F4D;
+    (=+>ucs@cns		. #x5F4D)	; &o-JU+5F4D;
     (->subsumptive
      ((=ucs@jis		  . #x5F4D)	; &AJ1-19354;
       (=jis-x0212	  . #x3C76)	; &AJ1-19354; [28-86]

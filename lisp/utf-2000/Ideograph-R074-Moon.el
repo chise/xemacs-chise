@@ -871,12 +871,11 @@
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (=>ucs@cns		. #x671B)	; &A-CU+671B;
-    (=>daikanwa		. 14368)	; &A-CU+671B;
+    (=+>ucs@cns		. #x671B)	; &o-CU+671B;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cns	  . #x671B)	; &A-CU+671B;
+     ((=+>ucs@cns	  . #x671B)	; &o-CU+671B;
       ))
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 7)
@@ -886,7 +885,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cns	  . #x671B)	; &A-CU+671B;
+     ((=+>ucs@cns	  . #x671B)	; &o-CU+671B;
       ))
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 7)
@@ -902,7 +901,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=>ucs@unicode	. #x671B)	; &A-GT-18223;
-    (=>ucs@cns		. #x2F8D9)	; &A-GT-18223;
+    (=+>ucs@cns		. #x2F8D9)	; &A-GT-18223;
     (=>gt		. 18223)	; &A-GT-18223;
     (->subsumptive
      ((=>>ucs@jis	  . #x671B)	; &G-GT-18223;

@@ -18182,7 +18182,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (=>ucs@unicode	. #x69A3)	; &A-UU+69A3;
-    (=>ucs@cns		. #x2F8E9)	; &A-UU+69A3;
+    (=+>ucs@cns		. #x2F8E9)	; &A-UU+69A3;
     (=>daikanwa		. 49175)	; &A-UU+69A3;
     ))
 (define-char
