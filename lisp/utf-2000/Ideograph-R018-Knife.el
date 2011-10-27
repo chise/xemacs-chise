@@ -7164,7 +7164,7 @@
     (total-strokes	 . 12)
     (=ucs		. #x2F822)	; 割
     (=>ucs@unicode	. #x5272)	; 割
-    (=>ucs@cns		. #x2F822)	; 割
+    (=+>ucs@cns		. #x2F822)	; 割
     ))
 (define-char
   '((<-denotational
@@ -7273,12 +7273,13 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (=+>ucs@jis		. #x5272)	; &A-CU+5272;
-    (=>ucs@cns		. #x5272)	; &A-CU+5272;
+    (=+>ucs@jis		. #x5272)	; &o-J0-3364;
+    (=+>ucs@cns		. #x5272)	; &o-J0-3364;
+    (=+>jis-x0208	. #x3364)	; &o-J0-3364; [19-68]
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@jis	  . #x5272)	; &A-CU+5272;
+     ((=+>jis-x0208	  . #x3364)	; &o-J0-3364; [19-68]
       ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 10)
@@ -7324,7 +7325,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@jis	  . #x5272)	; &A-CU+5272;
+     ((=+>jis-x0208	  . #x3364)	; &o-J0-3364; [19-68]
       ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 10)
