@@ -6492,18 +6492,21 @@
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (=+>ucs@jis		. #x913A)	; &A-CU+913A;
-    (=>ucs@cns		. #x913A)	; &A-CU+913A;
-    (=big5		. #xF14B)	; &A-CU+913A;
+    (=+>ucs@jis		. #x913A)	; &o-JX2-7A3D;
+    (=+>ucs@cns		. #x913A)	; &o-JX2-7A3D;
+    (=+>jis-x0213-2	. #x7A3D)	; &o-JX2-7A3D; [90-29]
+    (=big5		. #xF14B)	; &o-JX2-7A3D;
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@jis	  . #x913A)	; &A-CU+913A;
+     ((=+>jis-x0213-2	  . #x7A3D)	; &o-JX2-7A3D; [90-29]
       ))
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (=>>ucs@jis		. #x913A)	; &G-JU+913A;
+    (=>>ucs@jis		. #x913A)	; &G-JX2-7A3D;
+    (=>>jis-x0213-2	. #x7A3D)	; &G-JX2-7A3D; [90-29]
+    (=>>daikanwa	. 39711)	; &G-JX2-7A3D;
     (->subsumptive
      ((=ucs@jis		  . #x913A)	; &M-39711;
       (=jis-x0212	  . #x6250)	; &M-39711; [66-48]
@@ -6514,7 +6517,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@jis	  . #x913A)	; &A-CU+913A;
+     ((=+>jis-x0213-2	  . #x7A3D)	; &o-JX2-7A3D; [90-29]
       ))
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 15)
