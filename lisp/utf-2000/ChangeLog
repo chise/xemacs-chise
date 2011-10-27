@@ -1,3 +1,138 @@
+2011-10-27  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el: Use `=+>ucs@cns' instead of
+	`=>ucs@cns'.
+	(A-JU+5606): Unify o-JU+5606 and o-J0-4332.
+	(o-JU+569D): Unify o-JX2-244F.
+
+2011-10-26  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R154-Shell.el (o-CU+8D0F): Use `=+>ucs@cns' instead of
+	`=>ucs@cns'.
+
+	* Ideograph-R140-Grass.el: Use `=+>ucs@cns' instead of
+	`=>ucs@cns'.
+	(o-JU+82B1): Unify o-J0-3256.
+	(G-JU+82B1): Unify G-J0-3256.
+	(o-JU+82B2): Unify o-JX2-7621.
+	(A-JU+44B3): Unify o-JU+44B3 and o-JX2-7635.
+	(M-30889): Use o-JX2-7635 instead of G-JX2-7635 as the mother.
+	(C3-3364): Use o-JX2-7635 instead of A-JX2-7635 as the mother.
+	(JX2-7635): Use o-JX2-7635 instead of G-JX2-7635 as the mother.
+	(o-JU+83C9): Unify o-JX2-763B.
+	(o-JU+83DD): Unify o-JX2-763E.
+	(o-JU+84F1): Unify o-JX2-7662.
+	(o-JU+8581): Unify o-JX2-7679.
+	(o-JU+85A2): Unify o-JX1-7B3F.
+	(o-JU+85E6): Unify o-JX2-772B.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=+>jis-x0213-1' and `=+>ucs@cns'.
+
+	* Ideograph-R027-Cliff.el: Use `=+>ucs@cns' instead of
+	`=>ucs@cns'.
+	(o-CU+53A9): Unify o-J78-3139.
+
+	* Ideograph-R087-Claw.el: Use `=+>ucs@cns' instead of `=>ucs@cns'.
+
+	* Ideograph-R086-Fire.el: Use `=+>ucs@cns' instead of `=>ucs@cns'.
+	(o-CU+2F920): Unify A-UU+7228 and o-J0-6026.
+
+	* Ideograph-R085-Water.el: Use `=+>ucs@cns' instead of
+	`=>ucs@cns'.
+	(o-JU+7007): Unify o-JX2-6F4A.
+
+	* Ideograph-R026-Seal.el: Use `=+>ucs@cns' instead of `=>ucs@cns'.
+	(o-JU+537F): Unify o-J78-362A.
+
+	* Ideograph-R023-Hiding-Enclosure.el: Use `=+>ucs@cns' instead of
+	`=>ucs@cns'.
+
+	* Ideograph-R018-Knife.el: Use `=+>ucs@cns' instead of
+	`=>ucs@cns'.
+	(o-JU+5272): Unify o-J0-3364.
+
+	* Ideograph-R199-Wheat.el: Use `=+>ucs@cns' instead of
+	`=>ucs@cns'.
+	(o-JU+9EA8): Unify o-JX2-7E57.
+
+	* Ideograph-R188-Bone.el: Use `=+>ucs@cns' instead of `=>ucs@cns'.
+
+	* Ideograph-R187-Horse.el: Use `=+>ucs@cns' instead of
+	`=>ucs@cns'.
+	(o-JU+9A58): Unify o-JX2-7D25.
+
+	* Ideograph-R163-City.el: Use `=+>ucs@cns' instead of `=>ucs@cns'.
+	(o-JU+913A): Unify o-JX2-7A3D.
+	(G-JU+913A): Unify G-JX2-7A3D and G-M-39711.
+
+	* Ideograph-R157-Foot.el: Use `=+>ucs@cns' instead of `=>ucs@cns'.
+
+	* Ideograph-R150-Valley.el, Ideograph-R149-Speech.el,
+	Ideograph-R142-Insect.el: Use `=+>ucs@cns' instead of `=>ucs@cns'.
+
+	* Ideograph-R079-Weapon.el: Use `=+>ucs@cns' instead of
+	`=>ucs@cns'.
+	(A-UU+6BBA): Unify o-J0-3B26.
+	(A-JU+F970): Unify o-JU+F970.
+
+	* Ideograph-R120-Silk.el, Ideograph-R119-Rice.el,
+	Ideograph-R117-Stand.el, Ideograph-R115-Grain.el: Use `=+>ucs@cns'
+	instead of `=>ucs@cns'.
+
+	* Ideograph-R112-Stone.el: Use `=+>ucs@cns' instead of
+	`=>ucs@cns'.
+	(o-JU+7926): Unify o-J78-395C.
+
+	* Ideograph-R104-Sickness.el, Ideograph-R096-Jade.el: Use
+	`=+>ucs@cns' instead of `=>ucs@cns'.
+
+	* Ideograph-R094-Dog.el: Use `=+>ucs@cns' instead of `=>ucs@cns'.
+	(o-JU+7377): Unify o-JX2-7057.
+
+	* Ideograph-R064-Hand.el: Use `=+>ucs@cns' instead of `=>ucs@cns'.
+	(A-UU+649D): Unify o-JX2-2D50.
+	(o-CU+64F4): Unify o-JU+64F4 and o-J0-5A32.
+	(G-UU+64F4): Unify g2-UU+64F4.
+
+	* Ideograph-R010-Legs.el: Use `=+>ucs@cns' instead of `=>ucs@cns'.
+	(G-JU+5164): Unify g2-JU+5164, G-M-01412 and G-AJ1-08394.
+
+	* Ideograph-R009-Man.el (o-JU+50D9): Use `=+>ucs@cns' instead of
+	`=>ucs@cns'; unify o-JX2-217B.
+
+	* Ideograph-R184-Eat.el, Ideograph-R182-Wind.el,
+	Ideograph-R177-Leather.el, Ideograph-R167-Gold.el,
+	Ideograph-R164-Wine.el, Ideograph-R159-Cart.el: Use `=+>ucs@cns'
+	instead of `=>ucs@cns'.
+
+	* Ideograph-R075-Tree.el, Ideograph-R074-Moon.el: Use `=+>ucs@cns'
+	instead of `=>ucs@cns'.
+
+	* Ideograph-R061-Heart.el, Ideograph-R057-Bow.el,
+	Ideograph-R050-Turban.el, Ideograph-R048-Work.el,
+	Ideograph-R032-Earth.el: Use `=+>ucs@cns' instead of `=>ucs@cns'.
+
+2011-10-25  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x6D75.
+
+	* Ideograph-R162-Walk.el: Add Hanyo-Denshi/FT code points.
+
+	* Ideograph-R015-Ice.el (M-01721): Separate C2-5644, JX1-2E57,
+	AJ1-20300 and HD-JC1455; unify HD-KS020430; modify
+	`ideographic-strokes'; add `ideographic-strokes@daikanwa'.
+	(K0-7D6B): Modify `ideographic-strokes'.
+	(JSP-3328): Likewise.
+	(AJ1-20081): Likewise.
+	(U+FA15): New character.
+	(AJ1-08542): Use U+FA15 instead of U+51DE as the mother; fix
+	`ideographic-strokes'; unify UU+FA15.
+	(AJ1-20307): Use U+FA15 instead of U+51DE as the mother; fix
+	`ideographic-strokes'; add `ideographic-radical'; unify JX1-775A
+	and JU+FA15; fix `ideographic-structure'.
+
 2011-10-25  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R075-Tree.el (U+FA14): New character.
