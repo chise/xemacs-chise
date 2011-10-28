@@ -1,3 +1,14 @@
+2011-10-28  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=+>ucs@unicode): Use `=+>ucs@iso' instead of
+	`=>ucs@unicode' as the mother.
+	(=+>ucs@jis): Use `=+>ucs@unicode' instead of `=>ucs@jis' as the
+	mother.
+	(=+>ucs@ks): Use `=+>ucs@unicode' instead of `=>ucs@ks' as the
+	mother.
+	(=+>ucs@cns): Use `=+>ucs@unicode' instead of `=>ucs@cns' as the
+	mother.
+
 2011-10-27  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
