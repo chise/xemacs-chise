@@ -205,6 +205,7 @@
     =>ucs@jis/1990
     =>ucs@cns
     =>ucs@ks
+    =+>ucs@unicode
     =+>ucs@cns
     =+>ucs@ks
     =>>ucs@iso
