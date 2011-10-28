@@ -201,11 +201,11 @@
     =>ucs@iso
     =>ucs@unicode
     =>ucs@jis
-    =>ucs@JP
-    =>ucs@jis/1990
     =>ucs@cns
     =>ucs@ks
     =+>ucs@unicode
+    =+>ucs@jis
+    =+>ucs@jis/1990
     =+>ucs@cns
     =+>ucs@ks
     =>>ucs@iso
