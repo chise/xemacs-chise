@@ -380,6 +380,7 @@
 	  ( =>ucs@cns				"A-CU+" 4 X)
 	  ( =>ucs@ks				"A-KU+" 4 X)
 	  (=+>ucs@iso				"o-IU+" 4 X)
+	  (=+>ucs@unicode			"o-UU+" 4 X)
 	  (=+>ucs@jis				"o-JU+" 4 X)
 	  (=+>ucs@jis/1990		      "o-J90U+" 4 X)
 	  (=+>ucs@cns				"o-CU+" 4 X)
