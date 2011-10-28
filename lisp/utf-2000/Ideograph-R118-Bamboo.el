@@ -11871,6 +11871,8 @@
     (ideographic-strokes . 16)
     (total-strokes	 . 22)
     (=ucs		. #x7C5F)	; 籟
+    (=>jis-x0208	. #x645D)	; 籟 [68-61]
+    (=>jis-x0213-1	. #x645D)	; 籟 [68-61]
     ))
 (define-char
   '((<-denotational

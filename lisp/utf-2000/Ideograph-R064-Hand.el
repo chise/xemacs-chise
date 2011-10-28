@@ -16021,7 +16021,7 @@
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (=>ucs@unicode	. #x649D)	; &o-JX2-2D50;
+    (=+>ucs@unicode	. #x649D)	; &o-JX2-2D50;
     (=+>ucs@cns		. #x2F8C5)	; &o-JX2-2D50;
     (=+>jis-x0213-2	. #x2D50)	; &o-JX2-2D50; [13-48]
     ))

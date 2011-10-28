@@ -1524,7 +1524,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 4)
     (total-strokes	 . 12)
-    (=>ucs@unicode	. #x98EF)	; &A-GT-59101;
+    (=+>ucs@unicode	. #x98EF)	; &A-GT-59101;
     (=>gt		. 59101)	; &A-GT-59101;
     (->subsumptive
      ((morohashi-daikanwa	44064 1)
@@ -5994,8 +5994,8 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
-    (=>ucs@unicode	. #x9929)	; &A-UU+9929;
-    (=+>ucs@cns		. #x2FA04)	; &A-UU+9929;
+    (=+>ucs@unicode	. #x9929)	; &o-UU+9929;
+    (=+>ucs@cns		. #x2FA04)	; &o-UU+9929;
     (->subsumptive
      ((=>ucs*		  . #x9929)	; 餩
       (=ucs		  . #x2FA04)	; 餩
@@ -7054,7 +7054,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 9)
     (total-strokes	 . 17)
-    (=>ucs@unicode	. #x4B4E)	; &A-UU+4B4E;
+    (=+>ucs@unicode	. #x4B4E)	; &o-UU+4B4E;
     (->subsumptive
      ((=ucs@unicode	  . #x4B4E)	; &UU+4B4E;
       )
@@ -10186,11 +10186,11 @@
      ((=ucs		  . #x995B)	; 饛
       ))
     (ideographic-radical . 184)	; ⾷
-    (=>ucs@unicode	. #x995B)	; &A-UU+995B;
+    (=+>ucs@unicode	. #x995B)	; &o-UU+995B;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x995B)	; &A-UU+995B;
+     ((=+>ucs@unicode	  . #x995B)	; &o-UU+995B;
       ))
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 14)
@@ -10199,7 +10199,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x995B)	; &A-UU+995B;
+     ((=+>ucs@unicode	  . #x995B)	; &o-UU+995B;
       ))
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 13)

@@ -356,10 +356,10 @@
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (=>ucs@unicode	. #x6BBA)	; &o-J0-3B26;
+    (=+>ucs@unicode	. #x6BBA)	; &o-J0-3B26;
     (=+>ucs@cns		. #x2F8F5)	; &o-J0-3B26;
     (=+>jis-x0208	. #x3B26)	; &o-J0-3B26; [27-06]
-    (=>jis-x0213-1	. #x3B26)	; &o-J0-3B26; [27-06]
+    (=+>jis-x0213-1	. #x3B26)	; &o-J0-3B26; [27-06]
     (=>daikanwa		. 16629)	; &o-J0-3B26;
     ))
 (define-char

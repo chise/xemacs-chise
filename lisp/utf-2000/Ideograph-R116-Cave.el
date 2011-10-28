@@ -446,10 +446,10 @@
     (ideographic-radical . 116)	; ⽳
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
-    (=>ucs@unicode	. #x7A81)	; &A-JX1-7951;
-    (=>ucs@jis		. #xFA55)	; &A-JX1-7951;
-    (=>jis-x0213-1	. #x7951)	; &A-JX1-7951; [89-49]
-    (=big5		. #xACF0)	; &A-JX1-7951;
+    (=+>ucs@unicode	. #x7A81)	; &o-JX1-7951;
+    (=+>ucs@jis		. #xFA55)	; &o-JX1-7951;
+    (=+>jis-x0213-1	. #x7951)	; &o-JX1-7951; [89-49]
+    (=big5		. #xACF0)	; &o-JX1-7951;
     (->subsumptive
      ((=>>ucs@jis	  . #xFA55)	; &G-JX1-7951;
       (=>>ucs@ks	  . #x7A81)	; &G-JX1-7951;
@@ -3424,12 +3424,14 @@
     (ideographic-radical . 116)	; ⽳
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
-    (=>ucs@unicode	. #x7ABF)	; &A-UU+7ABF;
-    (=big5		. #xC14B)	; &A-UU+7ABF;
+    (=+>ucs@unicode	. #x7ABF)	; &o-J0-6363;
+    (=+>jis-x0208	. #x6363)	; &o-J0-6363; [67-67]
+    (=+>jis-x0213-1	. #x6363)	; &o-J0-6363; [67-67]
+    (=big5		. #xC14B)	; &o-J0-6363;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x7ABF)	; &A-UU+7ABF;
+     ((=+>jis-x0208	  . #x6363)	; &o-J0-6363; [67-67]
       ))
     (ideographic-radical . 116)	; ⽳
     (ideographic-strokes . 12)
@@ -3454,7 +3456,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x7ABF)	; &A-UU+7ABF;
+     ((=+>jis-x0208	  . #x6363)	; &o-J0-6363; [67-67]
       ))
     (ideographic-radical . 116)	; ⽳
     (ideographic-strokes . 12)

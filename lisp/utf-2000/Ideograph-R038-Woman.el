@@ -14806,7 +14806,7 @@
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (=>ucs@unicode	. #x5B34)	; &A-UU+5B34;
+    (=+>ucs@unicode	. #x5B34)	; &o-UU+5B34;
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x5B34)	; 嬴

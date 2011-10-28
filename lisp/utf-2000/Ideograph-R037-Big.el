@@ -1439,12 +1439,12 @@
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=>ucs@unicode	. #x5951)	; &A-UU+5951;
-    (=big5		. #xABB4)	; &A-UU+5951;
+    (=+>ucs@unicode	. #x5951)	; &o-UU+5951;
+    (=big5		. #xABB4)	; &o-UU+5951;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x5951)	; &A-UU+5951;
+     ((=+>ucs@unicode	  . #x5951)	; &o-UU+5951;
       ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
@@ -1456,7 +1456,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x5951)	; &A-UU+5951;
+     ((=+>ucs@unicode	  . #x5951)	; &o-UU+5951;
       ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
@@ -1466,7 +1466,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x5951)	; &A-UU+5951;
+     ((=+>ucs@unicode	  . #x5951)	; &o-UU+5951;
       ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)

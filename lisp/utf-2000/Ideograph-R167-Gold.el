@@ -12872,11 +12872,11 @@
      ((=ucs		  . #x942F)	; 鐯
       ))
     (ideographic-radical . 167)	; ⾦
-    (=>ucs@unicode	. #x942F)	; &A-UU+942F;
+    (=+>ucs@unicode	. #x942F)	; &o-UU+942F;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x942F)	; &A-UU+942F;
+     ((=+>ucs@unicode	  . #x942F)	; &o-UU+942F;
       ))
     (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 12)
@@ -12885,7 +12885,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x942F)	; &A-UU+942F;
+     ((=+>ucs@unicode	  . #x942F)	; &o-UU+942F;
       ))
     (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 11)

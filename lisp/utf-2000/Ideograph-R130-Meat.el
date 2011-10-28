@@ -13989,11 +13989,13 @@
      ((=ucs		  . #x81C8)	; 臈
       ))
     (ideographic-radical . 130)	; ⾁
-    (=>ucs@unicode	. #x81C8)	; &A-UU+81C8;
+    (=+>ucs@unicode	. #x81C8)	; &o-J0-6745;
+    (=+>jis-x0208	. #x6745)	; &o-J0-6745; [71-37]
+    (=+>jis-x0213-1	. #x6745)	; &o-J0-6745; [71-37]
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x81C8)	; &A-UU+81C8;
+     ((=+>jis-x0208	  . #x6745)	; &o-J0-6745; [71-37]
       ))
     (ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 13)
@@ -14009,7 +14011,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x81C8)	; &A-UU+81C8;
+     ((=+>jis-x0208	  . #x6745)	; &o-J0-6745; [71-37]
       ))
     (ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 12)

@@ -433,16 +433,19 @@
      ((=ucs		  . #x6BD3)	; 毓
       ))
     (ideographic-radical . 80)	; ⽏
-    (=>ucs@unicode	. #x6BD3)	; &A-UU+6BD3;
-    (=big5		. #xB7B6)	; &A-UU+6BD3;
+    (=>>ucs@unicode	. #x6BD3)	; &G-GT-21457;
+    (=>>jis-x0208	. #x5D5A)	; &G-GT-21457; [61-58]
+    (=>>jis-x0213-1	. #x5D5A)	; &G-GT-21457; [61-58]
+    (=big5		. #xB7B6)	; &G-GT-21457;
+    (=>>gt		. 21457)	; &G-GT-21457;
+    (=>>daikanwa	. 16740)	; &G-GT-21457;
     (->subsumptive
      ((ideographic-strokes . 10)
       (total-strokes	   . 14)
-      (=>>ucs@unicode	  . #x6BD3)	; &G-GT-21457;
-      (=>>jis-x0208	  . #x5D5A)	; &G-GT-21457; [61-58]
-      (=>>jis-x0213-1	  . #x5D5A)	; &G-GT-21457; [61-58]
-      (=>>gt		  . 21457)	; &G-GT-21457;
-      (=>>daikanwa	  . 16740)	; &G-GT-21457;
+      (=>>>ucs@unicode	  . #x6BD3)	; &g2-J0-5D5A;
+      (=>>>jis-x0208	  . #x5D5A)	; &g2-J0-5D5A; [61-58]
+      (=>>>jis-x0213-1	  . #x5D5A)	; &g2-J0-5D5A; [61-58]
+      (=>>>gt		  . 21457)	; &g2-J0-5D5A;
       (->subsumptive
        ((=ucs@jis	    . #x6BD3)	; &GT-21457;
 	(=jis-x0208	    . #x5D5A)	; &GT-21457; [61-58]

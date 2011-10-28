@@ -1842,12 +1842,14 @@
       )
      ((=ucs		  . #x53C8)	; 又
       ))
-    (=>ucs@unicode	. #x53DF)	; &A-UU+53DF;
-    (=big5		. #xADEE)	; &A-UU+53DF;
+    (=+>ucs@unicode	. #x53DF)	; &o-J0-5257;
+    (=+>jis-x0208	. #x5257)	; &o-J0-5257; [50-55]
+    (=+>jis-x0213-1	. #x5257)	; &o-J0-5257; [50-55]
+    (=big5		. #xADEE)	; &o-J0-5257;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x53DF)	; &A-UU+53DF;
+     ((=+>jis-x0208	  . #x5257)	; &o-J0-5257; [50-55]
       ))
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 8)
@@ -1900,7 +1902,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x53DF)	; &A-UU+53DF;
+     ((=+>jis-x0208	  . #x5257)	; &o-J0-5257; [50-55]
       ))
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 7)

@@ -7448,6 +7448,8 @@
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
     (=ucs		. #x737A)	; 獺
+    (=>jis-x0208	. #x605C)	; 獺 [64-60]
+    (=>jis-x0213-1	. #x605C)	; 獺 [64-60]
     ))
 (define-char
   '((<-denotational

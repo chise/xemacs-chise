@@ -22025,12 +22025,12 @@
       )
      ((=>>ucs@unicode	  . #x5951)	; &G-UU+5951;
       ))
-    (=>ucs@unicode	. #x55AB)	; &A-UU+55AB;
-    (=big5		. #xB3F0)	; &A-UU+55AB;
+    (=+>ucs@unicode	. #x55AB)	; &o-UU+55AB;
+    (=big5		. #xB3F0)	; &o-UU+55AB;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x55AB)	; &A-UU+55AB;
+     ((=+>ucs@unicode	  . #x55AB)	; &o-UU+55AB;
       ))
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 9)
@@ -22052,7 +22052,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x55AB)	; &A-UU+55AB;
+     ((=+>ucs@unicode	  . #x55AB)	; &o-UU+55AB;
       ))
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 9)
@@ -22071,7 +22071,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x55AB)	; &A-UU+55AB;
+     ((=+>ucs@unicode	  . #x55AB)	; &o-UU+55AB;
       ))
     (=decomposition@hanyo-denshi
      ((=ucs		  . #x55AB)	; 喫
@@ -22083,7 +22083,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x55AB)	; &A-UU+55AB;
+     ((=+>ucs@unicode	  . #x55AB)	; &o-UU+55AB;
       ))
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 9)
@@ -26996,12 +26996,12 @@
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=>ucs@unicode	. #x55C2)	; &A-UU+55C2;
-    (=+>ucs@cns		. #x2F84A)	; &A-UU+55C2;
+    (=+>ucs@unicode	. #x55C2)	; &o-UU+55C2;
+    (=+>ucs@cns		. #x2F84A)	; &o-UU+55C2;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x55C2)	; &A-UU+55C2;
+     ((=+>ucs@unicode	  . #x55C2)	; &o-UU+55C2;
       ))
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 10)
@@ -27024,7 +27024,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x55C2)	; &A-UU+55C2;
+     ((=+>ucs@unicode	  . #x55C2)	; &o-UU+55C2;
       ))
     (=>ucs*		. #x55C2)	; 嗂
     (ideographic-radical . 30)	; ⼝
@@ -27458,9 +27458,8 @@
      ((=ucs		  . #x55F7)	; 嗷
       ))
     (ideographic-radical . 30)	; ⼝
-    (=>ucs@unicode	. #x55F7)	; &A-UU+55F7;
-    (=ucs@big5		. #x55F7)	; &A-UU+55F7;
-    (=big5		. #xB9C8)	; &A-UU+55F7;
+    (=+>ucs@unicode	. #x55F7)	; &o-UU+55F7;
+    (=big5		. #xB9C8)	; &o-UU+55F7;
     (->subsumptive
      ((ideographic-strokes . 10)
       (total-strokes	   . 13)
@@ -27519,7 +27518,7 @@
      ((=ucs		  . #x55F8)	; 嗸
       ))
     (ideographic-radical . 30)	; ⼝
-    (=>ucs@unicode	. #x55F8)	; &A-UU+55F8;
+    (=+>ucs@unicode	. #x55F8)	; &o-UU+55F8;
     (->subsumptive
      ((ideographic-strokes . 11)
       (total-strokes	   . 14)
@@ -32150,11 +32149,11 @@
       )
      ((=ucs		  . #x7232)	; 爲
       ))
-    (=>ucs@unicode	. #x5645)	; &A-UU+5645;
+    (=+>ucs@unicode	. #x5645)	; &o-UU+5645;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x5645)	; &A-UU+5645;
+     ((=+>ucs@unicode	  . #x5645)	; &o-UU+5645;
       ))
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 12)
@@ -32175,7 +32174,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x5645)	; &A-UU+5645;
+     ((=+>ucs@unicode	  . #x5645)	; &o-UU+5645;
       ))
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 12)

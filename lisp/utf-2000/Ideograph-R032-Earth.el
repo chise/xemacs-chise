@@ -5599,7 +5599,7 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=>ucs@unicode	. #x57F0)	; &A-UU+57F0;
+    (=+>ucs@unicode	. #x57F0)	; &o-UU+57F0;
     (->subsumptive
      ((hanyu-dazidian	  1 455 6)
       (=ucs@unicode	  . #x57F0)	; &UU+57F0;
@@ -11267,11 +11267,11 @@
      ((=ucs		  . #x5893)	; 墓
       ))
     (ideographic-radical . 32)	; ⼟
-    (=>ucs@unicode	. #x5893)	; &A-UU+5893;
+    (=+>ucs@unicode	. #x5893)	; &o-UU+5893;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x5893)	; &A-UU+5893;
+     ((=+>ucs@unicode	  . #x5893)	; &o-UU+5893;
       ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 11)
@@ -11284,7 +11284,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x5893)	; &A-UU+5893;
+     ((=+>ucs@unicode	  . #x5893)	; &o-UU+5893;
       ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 10)

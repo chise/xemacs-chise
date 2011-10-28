@@ -3162,11 +3162,12 @@
      ((=ucs		  . #x96DA)	; 雚
       ))
     (ideographic-radical . 172)	; ⾫
-    (=>ucs@unicode	. #x96DA)	; &A-UU+96DA;
+    (=+>ucs@unicode	. #x96DA)	; &o-JX2-7B73;
+    (=+>jis-x0213-2	. #x7B73)	; &o-JX2-7B73; [91-83]
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x96DA)	; &A-UU+96DA;
+     ((=+>jis-x0213-2	  . #x7B73)	; &o-JX2-7B73; [91-83]
       ))
     (ideographic-radical . 172)	; ⾫
     (ideographic-strokes . 10)
@@ -3176,7 +3177,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x96DA)	; &A-UU+96DA;
+     ((=+>jis-x0213-2	  . #x7B73)	; &o-JX2-7B73; [91-83]
       ))
     (ideographic-radical . 172)	; ⾫
     (ideographic-strokes . 9)

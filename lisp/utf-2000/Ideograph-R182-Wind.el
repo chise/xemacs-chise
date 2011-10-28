@@ -1286,7 +1286,7 @@
     (ideographic-radical . 182)	; ⾵
     (ideographic-strokes . 7)
     (total-strokes	 . 16)
-    (=>ucs@unicode	. #x98B5)	; &A-UU+98B5;
+    (=+>ucs@unicode	. #x98B5)	; &o-UU+98B5;
     (->subsumptive
      ((=ucs@unicode	  . #x98B5)	; &UU+98B5;
       )
@@ -2146,7 +2146,7 @@
     (ideographic-radical . 182)	; ⾵
     (ideographic-strokes . 9)
     (total-strokes	 . 18)
-    (=>ucs@unicode	. #x4B14)	; &A-UU+4B14;
+    (=+>ucs@unicode	. #x4B14)	; &o-UU+4B14;
     (->subsumptive
      ((=ucs@unicode	  . #x4B14)	; &UU+4B14;
       )

@@ -1329,11 +1329,14 @@
     (ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
-    (=>ucs@unicode	. #x86A9)	; &A-UU+86A9;
+    (=+>ucs@unicode	. #x86A9)	; &o-J0-6950;
+    (=+>ucs@cns		. #x2F9B7)	; &o-J0-6950;
+    (=+>jis-x0208	. #x6950)	; &o-J0-6950; [73-48]
+    (=+>jis-x0213-1	. #x6950)	; &o-J0-6950; [73-48]
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x86A9)	; &A-UU+86A9;
+     ((=+>jis-x0208	  . #x6950)	; &o-J0-6950; [73-48]
       ))
     (=>ucs*		. #x86A9)	; 蚩
     (ideographic-radical . 142)	; ⾍
@@ -1343,6 +1346,10 @@
     (=>>ucs@jis		. #x86A9)	; 蚩
     (=>>ucs@ks		. #x86A9)	; 蚩
     (=>>ucs@cns		. #x2F9B7)	; 蚩
+    (=>>jis-x0208	. #x6950)	; 蚩 [73-48]
+    (=>>jis-x0213-1	. #x6950)	; 蚩 [73-48]
+    (=>>gt		. 44398)	; 蚩
+    (=>>daikanwa	. 32902)	; 蚩
     (->subsumptive
      ((=ucs@iso		  . #x2F9B7)	; &M-32902;
       (=ucs@jis		  . #x86A9)	; &M-32902;
@@ -1362,7 +1369,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x86A9)	; &A-UU+86A9;
+     ((=+>jis-x0208	  . #x6950)	; &o-J0-6950; [73-48]
       ))
     (ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 4)

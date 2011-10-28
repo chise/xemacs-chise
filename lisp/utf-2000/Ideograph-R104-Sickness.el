@@ -4656,11 +4656,11 @@
   '((<-denotational
      ((=ucs		  . #x7610)	; 瘐
       ))
-    (=>ucs@unicode	. #x7610)	; &A-UU+7610;
+    (=+>ucs@unicode	. #x7610)	; &o-UU+7610;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x7610)	; &A-UU+7610;
+     ((=+>ucs@unicode	  . #x7610)	; &o-UU+7610;
       ))
     (ideographic-radical . 104)	; ⽧
     (ideographic-strokes . 9)
@@ -4669,7 +4669,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x7610)	; &A-UU+7610;
+     ((=+>ucs@unicode	  . #x7610)	; &o-UU+7610;
       ))
     (ideographic-strokes . 8)
     (total-strokes	 . 13)

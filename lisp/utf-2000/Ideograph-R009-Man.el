@@ -23144,12 +23144,13 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 186 7)
-    (=>ucs@unicode	. #x5070)	; &A-UU+5070;
-    (=big5		. #xD44C)	; &A-UU+5070;
+    (=+>ucs@unicode	. #x5070)	; &o-JX2-2167;
+    (=+>jis-x0213-2	. #x2167)	; &o-JX2-2167; [01-71]
+    (=big5		. #xD44C)	; &o-JX2-2167;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x5070)	; &A-UU+5070;
+     ((=+>jis-x0213-2	  . #x2167)	; &o-JX2-2167; [01-71]
       ))
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 9)
@@ -23184,7 +23185,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x5070)	; &A-UU+5070;
+     ((=+>jis-x0213-2	  . #x2167)	; &o-JX2-2167; [01-71]
       ))
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 9)
@@ -23203,7 +23204,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x5070)	; &A-UU+5070;
+     ((=+>jis-x0213-2	  . #x2167)	; &o-JX2-2167; [01-71]
       ))
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 9)

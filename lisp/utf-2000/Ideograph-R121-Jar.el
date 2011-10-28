@@ -206,11 +206,11 @@
     (ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
-    (=>ucs@unicode	. #x4343)	; &A-UU+4343;
+    (=+>ucs@unicode	. #x4343)	; &o-UU+4343;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x4343)	; &A-UU+4343;
+     ((=+>ucs@unicode	  . #x4343)	; &o-UU+4343;
       ))
     (ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 4)
@@ -220,7 +220,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x4343)	; &A-UU+4343;
+     ((=+>ucs@unicode	  . #x4343)	; &o-UU+4343;
       ))
     (ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 4)

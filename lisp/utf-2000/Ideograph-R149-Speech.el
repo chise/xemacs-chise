@@ -9950,11 +9950,13 @@
      ((=ucs		  . #x8ADB)	; 諛
       ))
     (ideographic-radical . 149)	; ⾔
-    (=>ucs@unicode	. #x8ADB)	; &A-UU+8ADB;
+    (=+>ucs@unicode	. #x8ADB)	; &o-J0-6B67;
+    (=+>jis-x0208	. #x6B67)	; &o-J0-6B67; [75-71]
+    (=+>jis-x0213-1	. #x6B67)	; &o-J0-6B67; [75-71]
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x8ADB)	; &A-UU+8ADB;
+     ((=+>jis-x0208	  . #x6B67)	; &o-J0-6B67; [75-71]
       ))
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 9)
@@ -9964,7 +9966,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x8ADB)	; &A-UU+8ADB;
+     ((=+>jis-x0208	  . #x6B67)	; &o-J0-6B67; [75-71]
       ))
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 8)

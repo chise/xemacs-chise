@@ -1075,8 +1075,9 @@
       )
      ((=ucs		  . #x82E5)	; 若
       ))
-    (=>ucs@unicode	. #x533F)	; &o-J0-463F;
+    (=+>ucs@unicode	. #x533F)	; &o-J0-463F;
     (=+>jis-x0208	. #x463F)	; &o-J0-463F; [38-31]
+    (=+>jis-x0213-1	. #x463F)	; &o-J0-463F; [38-31]
     ))
 (define-char
   '((<-denotational

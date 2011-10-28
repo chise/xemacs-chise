@@ -16127,7 +16127,7 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (=+>ucs@unicode	. 36978)
+    (=+>ucs@unicode	. #x9072)	; &o-UU+9072;
     (->subsumptive
      ((=hanyo-denshi/ft	  . #x3A3A)	; &HD-FT-3A3A; [26-26]
       )

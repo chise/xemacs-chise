@@ -512,11 +512,13 @@
     (ideographic-radical . 150)	; ⾕
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
-    (=>ucs@unicode	. #x8C41)	; &A-UU+8C41;
+    (=+>ucs@unicode	. #x8C41)	; &o-J0-6C2F;
+    (=+>jis-x0208	. #x6C2F)	; &o-J0-6C2F; [76-15]
+    (=+>jis-x0213-1	. #x6C2F)	; &o-J0-6C2F; [76-15]
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x8C41)	; &A-UU+8C41;
+     ((=+>jis-x0208	  . #x6C2F)	; &o-J0-6C2F; [76-15]
       ))
     (ideographic-radical . 150)	; ⾕
     (ideographic-strokes . 10)
@@ -525,16 +527,16 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x8C41)	; &A-UU+8C41;
+     ((=+>jis-x0208	  . #x6C2F)	; &o-J0-6C2F; [76-15]
       ))
     (ideographic-radical . 150)	; ⾕
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
-    (=>>ucs@unicode	. #x8C41)	; &G-GT-48602;
-    (=>>>ucs@unicode	. #x8C41)	; &G-GT-48602;
-    (=>>jis-x0208	. #x6C2F)	; &G-GT-48602; [76-15]
-    (=>>jis-x0213-1	. #x6C2F)	; &G-GT-48602; [76-15]
-    (=>>gt		. 48602)	; &G-GT-48602;
+    (=>>ucs@unicode	. #x8C41)	; &g2-J0-6C2F;
+    (=>>>ucs@unicode	. #x8C41)	; &g2-J0-6C2F;
+    (=>>>jis-x0208	. #x6C2F)	; &g2-J0-6C2F; [76-15]
+    (=>>>jis-x0213-1	. #x6C2F)	; &g2-J0-6C2F; [76-15]
+    (=>>>gt		. 48602)	; &g2-J0-6C2F;
     (->subsumptive
      ((=ucs@jis		  . #x8C41)	; &GT-48602;
       (=jis-x0208	  . #x6C2F)	; &GT-48602; [76-15]
