@@ -1089,16 +1089,6 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=>ucs@iso))
-  (make-charset '=+>ucs@unicode
-		"Unicode representative unified abstract glyphs"
-		'(long-name	"UCS unified abstract glyphs for Unicode"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=>ucs@unicode))
   (make-charset '=>ucs@jis
 		"UCS representative characters for JIS X0208/0212/0213"
 		'(long-name	"UCS characters for JIS"
@@ -1109,6 +1099,47 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=>ucs@unicode))
+  (make-charset '=>ucs@ks
+		"UCS representative characters for Korean Standards"
+		'(long-name	"UCS characters for KS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>ucs@unicode))
+  (make-charset '=>ucs@cns
+		"UCS representatives characters for CNS 11643 sources"
+		'(long-name	"UCS characters for CNS 11643"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>ucs@unicode))
+
+  (make-charset '=+>ucs@iso
+		"UCS based on ISO/IEC 10646 representative glyphs"
+		'(long-name	"Unified abstract glyphs of UCS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>ucs@iso))
+  (make-charset '=+>ucs@unicode
+		"Unicode representative unified abstract glyphs"
+		'(long-name	"UCS unified abstract glyphs for Unicode"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=+>ucs@iso))
   (make-charset '=+>ucs@jis
 		"UCS based on Japanese usual unification"
 		'(long-name	"UCS unified abstract glyphs for JP"
@@ -1118,7 +1149,7 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
-		  mother	=>ucs@jis))
+		  mother	=+>ucs@unicode))
   (define-charset-alias '=>ucs@JP '=+>ucs@jis)
   (make-charset '=+>ucs@jis/1990
 		"UCS representative characters for JIS X0208/0212:1990"
@@ -1131,16 +1162,6 @@
 		  =>iso-ir	177
 		  mother	=+>ucs@jis))
   (define-charset-alias '=>ucs@jis/1990 '=+>ucs@jis/1990)
-  (make-charset '=>ucs@ks
-		"UCS representative characters for Korean Standards"
-		'(long-name	"UCS characters for KS"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=>ucs@unicode))
   (make-charset '=+>ucs@ks
 		"UCS representative unified abstract glyphs for Korean Standards"
 		'(long-name	"UCS unified abstract glyphs for KS"
@@ -1150,17 +1171,7 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
-		  mother	=>ucs@ks))
-  (make-charset '=>ucs@cns
-		"UCS representatives characters for CNS 11643 sources"
-		'(long-name	"UCS characters for CNS 11643"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=>ucs@unicode))
+		  mother	=+>ucs@unicode))
   (make-charset '=+>ucs@cns
 		"UCS representatives unified abstract glyphs for CNS 11643 sources"
 		'(long-name	"UCS unified abstract glyphs for CNS"
@@ -1170,18 +1181,7 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
-		  mother	=>ucs@cns))
-
-  (make-charset '=+>ucs@iso
-		"UCS based on ISO/IEC 10646 representative glyphs"
-		'(long-name	"Unified abstract glyphs of UCS"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=>ucs@iso))
+		  mother	=+>ucs@unicode))
 
   (make-charset '=>>ucs@iso
 		"Representative abstract-glyphs of ISO/IEC 10646"
