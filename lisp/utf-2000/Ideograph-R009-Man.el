@@ -41497,7 +41497,7 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=+>ucs@ks	  . #x9069)	; &A-GT-52561;
+     ((=+>ucs@ks	  . #x9069)	; &o-GT-52561;
       ))
     (=+>ucs@iso		. #x2041D)	; &o-IU+2041D;
     (->subsumptive
