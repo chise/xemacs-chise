@@ -675,6 +675,15 @@
 		  mother	=>>>gt))
   (define-charset-alias '<=>gt '=>>gt)
   (define-charset-alias '<==>gt '=>>gt)
+  (make-charset '=+>gt
+		"GT 2000 unified abstract glyphs"
+		'(long-name	"Unified abstract GT glyphs"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=>>gt))
   (make-charset '=>gt
 		"GT 2000 abstract characters"
 		'(long-name	"abstract GT characters"
@@ -683,7 +692,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  mother	=>>gt))
+		  mother	=+>gt))
   (make-charset '=gt-k
 		"Ideographic components of GT"
 		`(long-name	"GT components"
