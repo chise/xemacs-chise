@@ -221,7 +221,7 @@
     (total-strokes	 . 5)
     (=ucs		. #x6252)	; 扒
     (=big5		. #xA5B6)	; &I-B-A5B6;
-    (=>daikanwa		. 11780)	; 扒
+    (=>>daikanwa	. 11780)	; 扒
     (->subsumptive
      ((=ucs@jis		  . #x6252)	; &GT-14900;
       (=jis-x0212	  . #x3F3A)	; &GT-14900; [31-26]
