@@ -6576,11 +6576,20 @@
      ((=ucs		  . #x7FFC)	; 翼
       ))
     (ideographic-radical . 124)	; ⽻
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 01762)	; &GT-K01762;
+      )
+     ((=ucs		  . #x7570)	; 異
+      ))
+    (=+>ucs@ks		. #x7FFC)	; &A-M-28818;
     (=>daikanwa		. 28818)	; &A-M-28818;
     ))
 (define-char
   '((<-denotational
-     ((=>daikanwa	  . 28818)	; &A-M-28818;
+     ((=+>ucs@ks	  . #x7FFC)	; &A-M-28818;
       ))
     (ideographic-radical . 124)	; ⽻
     (ideographic-strokes . 12)
@@ -6597,7 +6606,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>daikanwa	  . 28818)	; &A-M-28818;
+     ((=+>ucs@ks	  . #x7FFC)	; &A-M-28818;
       ))
     (ideographic-radical . 124)	; ⽻
     (ideographic-strokes . 11)
@@ -6615,6 +6624,7 @@
       (=jis-x0213-1	  . #x305B)	; &I-JX1-305B; [16-59]
       (=daikanwa	  . 21854)	; &I-M-21854;
       ))
+    (=ucs@ks		. #x7FFC)	; &K0-6C4F;
     (=ks-x1001		. #x6C4F)	; &K0-6C4F; [76-47]
     (=jef-china3	. #x60A9)	; &I-JC3-60A9;
     ))
