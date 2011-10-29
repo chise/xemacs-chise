@@ -1,3 +1,73 @@
+2011-10-28  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* u02E00-CJK-Radical-Supplement.el: Use `=+>gt' instead of `=>gt'.
+
+	* Ideograph-R184-Eat.el: Use `=+>gt' instead of `=>gt'.
+	(o-GT-59133): Unify o-UU+98FC and o-J0-3B74.
+	(mother of J0-3B74): Unify g2-GT-59133 instead of G-GT-59133;
+	unify g2-UU+98FC and g2-J0-3B74.
+	(o-GT-59165): Unify o-UU+4B34.
+	(mother of UU+4B34): Unify g2-GT-59165 instead of G-GT-59165;
+	unify g2-UU+4B34.
+	(o-GT-59144): Unify o-UU+98FE and o-J0-3E7E.
+	(mother of J0-3E7E): Unify g2-J0-3E7E and g2-GT-59144 instead of
+	G-J0-3E7E and G-GT-59144; unify g2-UU+98FE.
+	(o-GT-59206): Unify o-UU+4B37.
+	(mother of UU+4B37): Unify g2-GT-59206 instead of G-GT-59206;
+	unify g2-UU+4B37.
+	(o-GT-59211): Unify o-UU+9909.
+	(mother of UU+9909): Unify g2-GT-59211 instead of G-GT-59211;
+	unify g2-UU+9909.
+	(o-GT-59217): Unify o-UU+4B39.
+	(mother of UU+4B39): Unify g2-GT-59217 instead of G-GT-59217;
+	unify g2-UU+4B39.
+	(o-GT-59248): Unify o-UU+4B3A.
+	(mother of UU+4B3A): Unify g2-GT-59248 instead of G-GT-59248;
+	unify g2-UU+4B3A.
+	(o-GT-59204): Unify o-UU+990C.
+	(G-JX1-3142): Unify G-UU+990C, G-J83-3142 and G-J90-3142.
+	(o-GT-59201): Unify o-IU+296CF.
+	(mother of IU+296CF): Unify g2-GT-59201 instead of G-GT-59201;
+	unify g2-IU+296CF.
+
+	* Ideograph-R199-Wheat.el: Use `=+>gt' instead of `=>gt'.
+	(o-GT-65145): Unify o-JU+9EB4, o-CU+9EB4, o-J78-396D and
+	o-JX1-7E6F.
+	(o-GT-65188): Unify o-JU+9EB5, o-CU+9EB5, o-J78-4C4D and
+	o-JX1-7E70.
+
+	* Ideograph-R196-Bird.el (G-GT-63596): Unify G-UU+9D09 and
+	G-M-46738.
+	(G-JX1-726D): Unify G-J90U+9D09, G-J2000U+9D09, G-KU+9D09 and
+	G-J0-726D; unify G-GT-63677 instead of A-GT-63677.
+
+	* Ideograph-R162-Walk.el, Ideograph-R159-Cart.el: Use `=+>gt'
+	instead of `=>gt'.
+
+	* Ideograph-R145-Clothes.el (G-GT-46512): Unify G-GT-46512 instead
+	of A-GT-46512; unify G-UU+8936.
+	(g2-GT-46512): Unify g2-UU+8936 and g2-GT-46512 instead of
+	G-UU+8936 and G-GT-46512.
+
+	* Ideograph-R130-Meat.el: Use `=+>gt' instead of `=>gt'.
+
+	* Ideograph-R037-Big.el: Use `=+>gt' instead of `=>gt'.
+
+	* Ideograph-R030-Mouth.el (mother of C4-492D): Unify G-UU+35F4 and
+	G-M-04277 instead of A-M-05350.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=+>gt'.
+	(char-db-insert-ccs-feature): Add setting for `=+>gt'.
+
+	* Ideograph-R074-Moon.el: Use `=+>gt' instead of `=>gt'.
+
+2011-10-28  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Use
+	`=+>ucs@jis' and `=+>ucs@jis/1990' instead of `=>ucs@JP' and
+	`=>ucs@jis/1990'.
+
 2011-10-27  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R009-Man.el, Ideograph-R018-Knife.el,
