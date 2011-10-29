@@ -345,7 +345,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
     (=ucs		. #x287F5)	; 𨟵
-    (=>daikanwa		. 39780)	; 𨟵
+    (=>>daikanwa	. 39780)	; 𨟵
     (->subsumptive
      ((=daikanwa	  . 39780)	; &M-39780;
       )
@@ -2171,7 +2171,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 15)
     (=ucs		. #x2884C)	; 𨡌
-    (=>daikanwa		. 39887)	; 𨡌
+    (=>>daikanwa	. 39887)	; 𨡌
     (->subsumptive
      ((=daikanwa	  . 39887)	; &M-39887;
       )
@@ -2880,7 +2880,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
     (=ucs		. #x2886D)	; 𨡭
-    (=>daikanwa		. 39932)	; 𨡭
+    (=>>daikanwa	. 39932)	; 𨡭
     (->subsumptive
      ((=daikanwa	  . 39932)	; &M-39932;
       )
@@ -3279,7 +3279,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
     (=ucs		. #x28886)	; 𨢆
-    (=>daikanwa		. 39957)	; 𨢆
+    (=>>daikanwa	. 39957)	; 𨢆
     (->subsumptive
      ((=ucs@iso		  . #x28886)	; &M-39957;
       (=daikanwa	  . 39957)	; &M-39957;
@@ -3451,7 +3451,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
     (=ucs		. #x2888B)	; 𨢋
-    (=>daikanwa		. 39967)	; 𨢋
+    (=>>daikanwa	. 39967)	; 𨢋
     (->subsumptive
      ((=daikanwa	  . 39967)	; &M-39967;
       )
@@ -3577,7 +3577,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
     (=ucs		. #x2888E)	; 𨢎
-    (=>daikanwa		. 39973)	; 𨢎
+    (=>>daikanwa	. 39973)	; 𨢎
     (->subsumptive
      ((=daikanwa	  . 39973)	; &M-39973;
       )
@@ -3622,7 +3622,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
     (=ucs		. #x919F)	; 醟
-    (=>daikanwa		. 39976)	; 醟
+    (=>>daikanwa	. 39976)	; 醟
     (->subsumptive
      ((=daikanwa	  . 39976)	; &M-39976;
       )
