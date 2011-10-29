@@ -20,8 +20,8 @@
   '((ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (=>gt		. 37857)	; &A-GT-37857;
-    (=>daikanwa		. 29237)	; &A-GT-37857;
+    (=+>gt		. 37857)	; &o-GT-37857;
+    (=>daikanwa		. 29237)	; &o-GT-37857;
     (<-formed@component
      ((=ucs		  . #x8089)	; 肉
       ))
@@ -41,7 +41,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>gt		  . 37857)	; &A-GT-37857;
+     ((=+>gt		  . 37857)	; &o-GT-37857;
       ))
     (name		. "CJK RADICAL MEAT")
     (general-category	symbol other) ; Informative Category
@@ -61,7 +61,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>gt		  . 37857)	; &A-GT-37857;
+     ((=+>gt		  . 37857)	; &o-GT-37857;
       ))
     (ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 0)
@@ -75,7 +75,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>gt		  . 37857)	; &A-GT-37857;
+     ((=+>gt		  . 37857)	; &o-GT-37857;
       ))
     (ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 0)

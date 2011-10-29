@@ -904,7 +904,7 @@
     (=+>ucs@cns		. #x2F8D9)	; &o-J0-4B3E;
     (=+>jis-x0208	. #x4B3E)	; &o-J0-4B3E; [43-30]
     (=+>jis-x0213-1	. #x4B3E)	; &o-J0-4B3E; [43-30]
-    (=>gt		. 18223)	; &o-J0-4B3E;
+    (=+>gt		. 18223)	; &o-J0-4B3E;
     (->subsumptive
      ((=>>ucs@jis	  . #x671B)	; &G-GT-18223;
       (=>>ucs@ks	  . #x671B)	; &G-GT-18223;
