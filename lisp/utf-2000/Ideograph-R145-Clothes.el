@@ -7571,10 +7571,11 @@
     (ideographic-radical . 145)	; ⾐
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
-    (=>gt		. 46512)	; &A-GT-46512;
+    (=>>ucs@unicode	. #x8936)	; &G-GT-46512;
+    (=>>gt		. 46512)	; &G-GT-46512;
     (->subsumptive
-     ((=>>ucs@unicode	  . #x8936)	; &G-GT-46512;
-      (=>>gt		  . 46512)	; &G-GT-46512;
+     ((=>>>ucs@unicode	  . #x8936)	; &g2-GT-46512;
+      (=>>>gt		  . 46512)	; &g2-GT-46512;
       (->subsumptive
        ((=gt		    . 46512)	; &GT-46512;
 	(=gt-pj-10	    . #x386F)	; &GT-46512; [24-79]
