@@ -1,5 +1,23 @@
 2011-10-29  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R079-Weapon.el (A-JX1-7649): Unify o-JX1-7649.
+
+	* Ideograph-R038-Woman.el (U+5B3E): Unify A-J0-554F.
+	(A-M-06872): Unify A-UU+5B3E and A-GT-08658.
+	(G-JU+5B3E): Unify G-J0-554F and G-M-06872.
+
+	* Ideograph-R037-Big.el (GT-07464): Unify HD-KS067790.
+	(HD-KS067880): New character.
+	(U+FA7F): Unify HD-KS067820.
+
+	* Ideograph-R036-Evening.el (C1-6842): Unify HD-KS066550.
+
+	* Ideograph-R035-Go-Slowly.el (G-CU+590F): Unify G-HD-KS065510.
+	(g2-CU+590F): New node to integrate HD-KS065510 and C1-546E.
+	(HD-KS065510): New character.
+
+2011-10-29  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R164-Wine.el (U-000287F5): Unify G-M-39780.
 	(U-0002884C): Unify G-M-39887.
 	(U-0002886D): Unify G-M-39932.
