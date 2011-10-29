@@ -1,5 +1,9 @@
 2011-10-29  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* mule/mule-conf.el (=+>adobe-japan1): New coded-charset for
+	XEmacs CHISE.
+	(=>>hanyo-denshi/ja): New coded-charset for XEmacs CHISE.
+
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
 	setting for `=>ucs@jis/2004'.
 
