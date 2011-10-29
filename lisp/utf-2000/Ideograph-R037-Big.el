@@ -1453,6 +1453,8 @@
     (=gt-k		. 05057)	; &I-GT-K05057;
     (=gt-pj-2		. #x6735)	; &GT-07464; [71-21]
     (=daikanwa		. 05917)	; &I-M-05917;
+    (=hanyo-denshi/ks	. 067790)	; &GT-07464;
+    (=hanyo-denshi/ks/mf . #x1A7B)	; &I-KSMF-06779;
     ))
 (define-char
   '((<-denotational
@@ -1463,6 +1465,18 @@
     (total-strokes	 . 9)
     (=ucs@unicode	. #x5951)	; &G0-4675;
     (=gb2312		. #x4675)	; &G0-4675; [38-85]
+    ))
+(define-char
+  '((<-denotational
+     ((=+>ucs@unicode	  . #x5951)	; &o-UU+5951;
+      ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5951)	; 契
+      )
+     ((=ucs		  . #xE0106)	; 󠄆
+      ))
+    (=hanyo-denshi/ks	. 067880)	; 契󠄆
+    (=hanyo-denshi/ks/mf . #x1A84)	; 契󠄆
     ))
 (define-char
   '((<-denotational
@@ -1601,6 +1615,8 @@
     (total-strokes	 . 9)
     (=ucs		. #xFA7F)	; 奔
     (=daikanwa		. 05921)	; &I-M-05921;
+    (=hanyo-denshi/ks	. 067820)	; 奔
+    (=hanyo-denshi/ks/mf . #x1A7E)	; &I-KSMF-06782;
     ))
 (define-char
   '((<-denotational
