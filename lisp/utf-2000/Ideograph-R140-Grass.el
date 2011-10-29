@@ -14555,27 +14555,10 @@
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=>daikanwa		. 31214)	; &A-M-31214;
-    ))
-(define-char
-  '((<-denotational
-     ((=>daikanwa	  . 31214)	; &A-M-31214;
-      ))
-    (ideographic-radical . 140)	; ⾋
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
     (=cns11643-1	. #x615E)	; &M-31214; [65-62]
     (=daikanwa		. 31214)	; &I-M-31214;
     (=shinjigen		.  6807)	; &M-31214;
-    ))
-(define-char
-  '((<-denotational
-     ((=>daikanwa	  . 31214)	; &A-M-31214;
-      ))
-    (ideographic-radical . 140)	; ⾋
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (=jef-china3	. #x62A8)	; &JC3-62A8;
+    (=jef-china3	. #x62A8)	; &I-JC3-62A8;
     ))
 (define-char
   '((ideographic-radical . 140)	; ⾋
