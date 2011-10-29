@@ -983,6 +983,8 @@
     (=cns11643-1	. #x6842)	; &M-05802; [72-34]
     (=daikanwa		. 05802)	; &I-M-05802;
     (=shinjigen		.  1550)	; &M-05802;
+    (=hanyo-denshi/ks	. 066550)	; &M-05802;
+    (=hanyo-denshi/ks/mf . #x19FF)	; &I-KSMF-06655;
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
