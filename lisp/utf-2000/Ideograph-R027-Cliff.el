@@ -2197,7 +2197,7 @@
       )
      ((=ucs		  . #x5382)	; 厂
       )
-     ((=>>daikanwa	  . 05720)	; &G-CU+590F;
+     ((=>>hanyo-denshi/ks . 065510)	; &G-HD-KS-FFE6;
       ))
     (=>>ucs@cns		. #x53A6)	; &G-CU+53A6;
     (=>>daikanwa	. 02993)	; &G-CU+53A6;
