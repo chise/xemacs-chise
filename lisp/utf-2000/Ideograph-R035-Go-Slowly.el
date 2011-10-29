@@ -431,13 +431,20 @@
     (ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=>>ucs@cns		. #x590F)	; &G-CU+590F;
-    (=>>daikanwa	. 05720)	; &G-CU+590F;
+    (=>>ucs@cns		. #x590F)	; &G-HD-KS-FFE6;
+    (=>>daikanwa	. 05720)	; &G-HD-KS-FFE6;
+    (=>>hanyo-denshi/ks . 065510)	; &G-HD-KS-FFE6;
     (->subsumptive
      ((=daikanwa	  . 05720)	; &M-05720;
       )
-     ((=ucs@cns		  . #x590F)	; &C1-546E;
-      (=cns11643-1	  . #x546E)	; &C1-546E; [52-78]
+     ((=>>>ucs@cns	  . #x590F)	; &g2-CU+590F;
+      (->subsumptive
+       ((=hanyo-denshi/ks   . 065510)	; &HD-KS-065510;
+	(=hanyo-denshi/ks/mf . #x1997)	; &HD-KS-065510;
+	)
+       ((=ucs@cns	    . #x590F)	; &C1-546E;
+	(=cns11643-1	    . #x546E)	; &C1-546E; [52-78]
+	))
       ))
     ))
 (define-char
