@@ -1895,6 +1895,17 @@
 	       direction l2r
 	       mother =adobe-japan1-6
 	       registry "AdobeJapan1-6$"))
+  (make-charset
+   '=+>adobe-japan1
+   "Adobe-Japan1 unified abstract glyphs"
+   '(long-name "Adobe-Japan1 unified abstract glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>adobe-japan1
+	       registry "AdobeJapan1-6$"))
 
   (make-charset
    '=hanyo-denshi/ja
@@ -2061,6 +2072,17 @@
 	       registry "HanyoDenshi\\.JT-0$"
 	       mother =hanyo-denshi/jt))
 
+  (make-charset
+   '=>>hanyo-denshi/ja
+   "Han'you-Denshi/JA abstract glyphs"
+   '(long-name "Han'you-Denshi/JA glyphs"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JA-0$"
+	       mother =hanyo-denshi/ja))
   (make-charset
    '=>>hanyo-denshi/jb
    "Han'you-Denshi/JB abstract glyphs"
