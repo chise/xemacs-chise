@@ -16688,6 +16688,8 @@
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
     (=ucs		. #x5B3E)	; 嬾
+    (=>jis-x0208	. #x554F)	; 嬾 [53-47]
+    (=>jis-x0213-1	. #x554F)	; 嬾 [53-47]
     (=big5		. #xF1FB)	; &I-B-F1FB;
     ))
 (define-char
@@ -16705,11 +16707,13 @@
       )
      ((=ucs		  . #x8CF4)	; 賴
       ))
-    (=>daikanwa		. 06872)	; &A-M-06872;
+    (=>ucs@unicode	. #x5B3E)	; &A-GT-08658;
+    (=>gt		. 08658)	; &A-GT-08658;
+    (=>daikanwa		. 06872)	; &A-GT-08658;
     ))
 (define-char
   '((<-denotational
-     ((=>daikanwa	  . 06872)	; &A-M-06872;
+     ((=>ucs@unicode	  . #x5B3E)	; &A-GT-08658;
       ))
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 16)
@@ -16728,7 +16732,10 @@
       ))
     (=>>ucs@jis		. #x5B3E)	; &G-GT-08658;
     (=>>ucs@cns		. #x5B3E)	; &G-GT-08658;
+    (=>>jis-x0208	. #x554F)	; &G-GT-08658; [53-47]
+    (=>>jis-x0213-1	. #x554F)	; &G-GT-08658; [53-47]
     (=>>gt		. 08658)	; &G-GT-08658;
+    (=>>daikanwa	. 06872)	; &G-GT-08658;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -16774,7 +16781,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>daikanwa	  . 06872)	; &A-M-06872;
+     ((=>ucs@unicode	  . #x5B3E)	; &A-GT-08658;
       ))
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 16)
