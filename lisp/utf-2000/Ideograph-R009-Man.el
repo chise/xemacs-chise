@@ -27744,7 +27744,7 @@
      ((=ucs		  . #x20367)	; 𠍧
       ))
     (ideographic-radical . 9)	; ⼈
-    (=>daikanwa		. 00985)	; &A-M-00985;
+    (=>>daikanwa	. 00985)	; &A-M-00985;
     (->subsumptive
      ((ideographic-strokes . 10)
       (total-strokes	   . 12)
@@ -33482,7 +33482,7 @@
      ((=ucs		  . #x88B2)	; 袲
       ))
     (=ucs		. #x3485)	; 㒅
-    (=>daikanwa		. 01109)	; 㒅
+    (=>>daikanwa	. 01109)	; 㒅
     (->subsumptive
      ((=daikanwa	  . 01109)	; &M-01109;
       )
@@ -37474,7 +37474,7 @@
      ((=ucs		  . #x96CD)	; 雍
       ))
     (=ucs		. #x3495)	; 㒕
-    (=>daikanwa		. 01191)	; 㒕
+    (=>>daikanwa	. 01191)	; 㒕
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -41558,7 +41558,7 @@
      ((=ucs		  . #x892D)	; 褭
       ))
     (=ucs		. #x349F)	; 㒟
-    (=>daikanwa		. 01271)	; 㒟
+    (=>>daikanwa	. 01271)	; 㒟
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
