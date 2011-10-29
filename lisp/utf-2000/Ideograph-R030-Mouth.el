@@ -31631,15 +31631,13 @@
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (=>gt		. 05350)	; &A-GT-05350;
+    (=>>ucs@unicode	. #x35F4)	; &G-UU+35F4;
+    (=>>daikanwa	. 04277)	; &G-UU+35F4;
     (->subsumptive
-     ((=>>gt		  . 05351)	; &G-GT-05351;
-      (->subsumptive
-       ((=daikanwa	    . 04277)	; &M-04277;
-	)
-       ((=gt		    . 05351)	; &GT-05351;
-	(=gt-pj-11	    . #x4248)	; &GT-05351; [34-40]
-	))
+     ((=daikanwa	  . 04277)	; &M-04277;
+      )
+     ((=gt		  . 05351)	; &GT-05351;
+      (=gt-pj-11	  . #x4248)	; &GT-05351; [34-40]
       )
      ((=ucs@unicode	  . #x35F4)	; &GT-05350;
       (=cns11643-4	  . #x492D)	; &GT-05350; [41-13]
