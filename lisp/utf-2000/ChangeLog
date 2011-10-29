@@ -1,5 +1,30 @@
 2011-10-29  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R164-Wine.el (U-000287F5): Unify G-M-39780.
+	(U-0002884C): Unify G-M-39887.
+	(U-0002886D): Unify G-M-39932.
+	(U-00028886): Unify G-M-39957.
+	(U-0002888B): Unify G-M-39967.
+	(U-0002888E): Unify G-M-39973.
+	(U+919F): Unify G-M-39976.
+
+	* Ideograph-R140-Grass.el (M-31214): Unify A-M-31214 and JC3-62A8.
+
+	* Ideograph-R124-Feather.el (A-M-28818): Unify o-KU+7FFC; add
+	ideographic-structure.
+	(K0-6C4F): Unify KU+7FFC.
+
+	* Ideograph-R062-Halberd.el (U+39B4): Unify G-M-11583.
+
+	* Ideograph-R061-Heart.el (U+61F6): Separate A-M-11455; unify
+	A-J0-5871.
+	(U-0002F8B1): Unify HD-FT2193.
+	(A-M-11455): Unify A-UU+61F6 and A-GT-14456.
+	(J0-5871): Use A-UU+61F6 instead of U+61F6 as the mother.
+	(UU+61F6): Likewise.
+
+	* Ideograph-R003-Dot.el (U+4E3B): Unify G-M-00100.
+
 	* Ideograph-R064-Hand.el (U+6252): Unify G-M-11780.
 
 	* Ideograph-R015-Ice.el (U+51B4): Unify o-J0-3A63 instead of
