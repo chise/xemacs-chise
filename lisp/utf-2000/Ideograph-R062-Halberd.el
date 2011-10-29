@@ -732,7 +732,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ucs		. #x39B4)	; 㦴
-    (=>daikanwa		. 11583)	; 㦴
+    (=>>daikanwa	. 11583)	; 㦴
     (->subsumptive
      ((=cns11643-4	  . #x2D2F)	; &M-11583; [13-15]
       (=daikanwa	  . 11583)	; &I-M-11583;
