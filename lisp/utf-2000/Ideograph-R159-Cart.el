@@ -4299,13 +4299,13 @@
     (ideographic-radical . 159)	; ⾞
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
-    (=+>ucs@unicode	. #x8F44)	; &A-GT-51329;
-    (=>gt		. 51329)	; &A-GT-51329;
-    (=>daikanwa		. 38482)	; &A-GT-51329;
+    (=+>ucs@unicode	. #x8F44)	; &o-GT-51329;
+    (=+>gt		. 51329)	; &o-GT-51329;
+    (=>daikanwa		. 38482)	; &o-GT-51329;
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@unicode	  . #x8F44)	; &A-GT-51329;
+     ((=+>ucs@unicode	  . #x8F44)	; &o-GT-51329;
       ))
     (ideographic-radical . 159)	; ⾞
     (ideographic-strokes . 10)
@@ -4316,7 +4316,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@unicode	  . #x8F44)	; &A-GT-51329;
+     ((=+>ucs@unicode	  . #x8F44)	; &o-GT-51329;
       ))
     (ideographic-radical . 159)	; ⾞
     (ideographic-strokes . 10)
@@ -4325,7 +4325,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@unicode	  . #x8F44)	; &A-GT-51329;
+     ((=+>ucs@unicode	  . #x8F44)	; &o-GT-51329;
       ))
     (ideographic-radical . 159)	; ⾞
     (ideographic-strokes . 10)
@@ -4346,13 +4346,13 @@
     (ideographic-radical . 159)	; ⾞
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
-    (=+>ucs@jis		. #x8F44)	; &A-GT-51330;
-    (=+>ucs@cns		. #x8F44)	; &A-GT-51330;
-    (=>gt		. 51330)	; &A-GT-51330;
+    (=+>ucs@jis		. #x8F44)	; &o-GT-51330;
+    (=+>ucs@cns		. #x8F44)	; &o-GT-51330;
+    (=+>gt		. 51330)	; &o-GT-51330;
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@jis	  . #x8F44)	; &A-GT-51330;
+     ((=+>ucs@jis	  . #x8F44)	; &o-GT-51330;
       ))
     (morohashi-daikanwa	38482 1)
     (ideographic-radical . 159)	; ⾞
@@ -4366,7 +4366,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@jis	  . #x8F44)	; &A-GT-51330;
+     ((=+>ucs@jis	  . #x8F44)	; &o-GT-51330;
       ))
     (ideographic-radical . 159)	; ⾞
     (ideographic-strokes . 10)

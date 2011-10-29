@@ -14740,9 +14740,9 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=+>ucs@ks		. #x9069)	; &A-GT-52561;
-    (=>gt		. 52561)	; &A-GT-52561;
-    (=>daikanwa		. 39076)	; &A-GT-52561;
+    (=+>ucs@ks		. #x9069)	; &o-GT-52561;
+    (=+>gt		. 52561)	; &o-GT-52561;
+    (=>daikanwa		. 39076)	; &o-GT-52561;
     (->subsumptive
      ((=ucs@ks		  . #x9069)	; &GT-52561;
       (=ks-x1001	  . #x6E6A)	; &GT-52561; [78-74]
