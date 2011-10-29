@@ -350,7 +350,7 @@
      ((=ucs		  . #x4E01)	; 丁
       ))
     (=ucs		. #x20116)	; 𠄖
-    (=>daikanwa		. 00237)	; 𠄖
+    (=>>daikanwa	. 00237)	; 𠄖
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
