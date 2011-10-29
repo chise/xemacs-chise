@@ -17835,6 +17835,17 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 16)
+    (total-strokes	 . 19)
+    (sound@ja/on/s=hate "rai")
+    (sound@ja/on/s=lazy "raN")
+    (=ucs		. #x61F6)	; 懶
+    (=>jis-x0208	. #x5871)	; 懶 [56-81]
+    (=>jis-x0213-1	. #x5871)	; 懶 [56-81]
+    (=big5		. #xC369)	; &I-B-C369;
+    ))
+(define-char
   '((<-denotational
      ((=ucs		  . #x61F6)	; 懶
       ))
@@ -17842,6 +17853,11 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x61F6)	; 懶
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -17857,6 +17873,7 @@
     (=daikanwa		. 11454)	; &I-M-11454;
     (=shinjigen		.  2740)	; 懶
     (=cbeta		. 01900)	; &I-CB01900;
+    (=hanyo-denshi/ft	. #x357D)	; &I-HD-FT-357D; [21-93]
     (<-vulgar@shinjigen
      ((=ucs@jis		  . #x61F6)	; &GT-14456;
       (=jis-x0208	  . #x5871)	; &GT-14456; [56-81]
@@ -17878,18 +17895,19 @@
      zhengzitong daikanwa)
     ))
 (define-char
-  '((ideographic-radical . 61)	; ⼼
+  '((<-denotational
+     ((=ucs		  . #x61F6)	; 懶
+      ))
+    (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
-    (sound@ja/on/s=hate "rai")
-    (sound@ja/on/s=lazy "raN")
-    (=ucs		. #x61F6)	; 懶
-    (=big5		. #xC369)	; &I-B-C369;
-    (=>daikanwa		. 11455)	; 懶
+    (=>ucs@unicode	. #x61F6)	; &A-GT-14456;
+    (=>gt		. 14456)	; &A-GT-14456;
+    (=>daikanwa		. 11455)	; &A-GT-14456;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x61F6)	; 懶
+     ((=>ucs@unicode	  . #x61F6)	; &A-GT-14456;
       ))
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 16)
@@ -17914,27 +17932,13 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x61F6)	; 懶
+     ((=>ucs@unicode	  . #x61F6)	; &A-GT-14456;
       ))
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
     (=ucs@unicode	. #x61F6)	; &UU+61F6;
     (=gb12345		. #x4041)	; &UU+61F6; [32-33]
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x61F6)	; 懶
-      ))
-    (ideographic-radical . 61)	; ⼼
-    (ideographic-strokes . 16)
-    (total-strokes	 . 19)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x61F6)	; 懶
-      )
-     ((=ucs		  . #xE0102)	; 󠄂
-      ))
-    (=hanyo-denshi/ft	. #x357D)	; 懶󠄂 [21-93]
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
