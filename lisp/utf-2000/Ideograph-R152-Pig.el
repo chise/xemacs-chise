@@ -5,6 +5,7 @@
     (total-strokes	 . 7)
     (=ucs		. #x8C55)	; 豕
     (=big5		. #xA8A8)	; &I-B-A8A8;
+    (=>>hanyo-denshi/ft . #x395B)	; 豕 [25-59]
     (->subsumptive
      ((=ucs@jis		  . #x8C55)	; &GT-48747;
       (=ks-x1001	  . #x634E)	; &GT-48747; [67-46]
@@ -19,7 +20,12 @@
      ((=ucs@unicode	  . #x8C55)	; &G0-7539;
       (=gb2312		  . #x7539)	; &G0-7539; [85-25]
       )
-     ((=jis-x0208@1978	  . #x6C35)	; &J83-6C35; [76-21]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8C55)	; 豕
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=jis-x0208@1978	  . #x6C35)	; 豕󠄃 [76-21]
       (=jis-x0208@1983	  . #x6C35)	; &I-J83-6C35; [76-21]
       (=cns11643-1	  . #x4B49)	; &I-C1-4B49; [43-41]
       (=hanyo-denshi/ft	  . #x395B)	; &I-HD-FT-395B; [25-59]
@@ -520,6 +526,7 @@
     (total-strokes	 . 12)
     (=ucs		. #x8C61)	; 象
     (=big5		. #xB648)	; &I-B-B648;
+    (=>>hanyo-denshi/ft . #x3444)	; 象 [20-36]
     (->subsumptive
      ((=ucs@jis		  . #x8C61)	; &GT-48784;
       (=jis-x0208	  . #x3E5D)	; &GT-48784; [30-61]
@@ -534,7 +541,12 @@
      ((=ucs@unicode	  . #x8C61)	; &G0-4F73;
       (=gb2312		  . #x4F73)	; &G0-4F73; [47-83]
       )
-     ((=cns11643-1	  . #x622F)	; &HD-FT-3444; [66-15]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8C61)	; 象
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=cns11643-1	  . #x622F)	; 象󠄃 [66-15]
       (=hanyo-denshi/ft	  . #x3444)	; &I-HD-FT-3444; [20-36]
       ))
     ))
@@ -1280,6 +1292,7 @@
     (total-strokes	 . 16)
     (=ucs		. #x8C6B)	; 豫
     (=big5		. #xBFDD)	; &I-B-BFDD;
+    (=>>hanyo-denshi/ft . #x345F)	; 豫 [20-63]
     (->subsumptive
      ((=ucs@jis		  . #x8C6B)	; &GT-48859;
       (=jis-x0208	  . #x502E)	; &GT-48859; [48-14]
@@ -1293,8 +1306,13 @@
      ((=ucs@unicode	  . #x8C6B)	; &G0-5425;
       (=gb2312		  . #x5425)	; &G0-5425; [52-05]
       )
-     ((=cns11643-1	  . #x7247)	; &HD-FT-345F; [82-39]
-      (=shinjigen@1ed	  .  0068)	; &HD-FT-345F;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8C6B)	; 豫
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=cns11643-1	  . #x7247)	; 豫󠄂 [82-39]
+      (=shinjigen@1ed	  .  0068)	; 豫󠄂
       (=hanyo-denshi/ft	  . #x345F)	; &I-HD-FT-345F; [20-63]
       ))
     ))
