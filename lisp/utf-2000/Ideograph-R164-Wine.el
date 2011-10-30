@@ -58,17 +58,23 @@
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 2)
     (total-strokes	 . 9)
+    (=>>ucs@jis/2004	. #x914B)	; &G-GT-53498;
+    (=>>ucs@ks		. #x914B)	; &G-GT-53498;
     (=>>jis-x0208@1978	. #x3D36)	; &G-GT-53498; [29-22]
     (=>>jis-x0213-1@2004 . #x3D36)	; &G-GT-53498; [29-22]
     (=>>gt		. 53498)	; &G-GT-53498;
+    (=>>daikanwa	. 39765)	; &G-GT-53498;
+    (=>>hanyo-denshi/ft . #x3233)	; &G-GT-53498; [18-19]
     (->subsumptive
      ((=daikanwa	  . 39765)	; &M-39765;
       )
      ((=ucs@jis/2004	  . #x914B)	; &JX3-3D36;
+      (=ucs@ks		  . #x914B)	; &JX3-3D36;
       (=jis-x0208@1978	  . #x3D36)	; &JX3-3D36; [29-22]
       (=ks-x1001	  . #x755C)	; &I-K0-755C; [85-60]
       (=jis-x0213-1@2004  . #x3D36)	; &I-JX3-3D36; [29-22]
       (=shinjigen	  .  8490)	; &JX3-3D36;
+      (=hanyo-denshi/ft	  . #x3233)	; &I-HD-FT-3233; [18-19]
       )
      ((=gt		  . 53498)	; &GT-53498;
       (=gt-k		  . 05098)	; &I-GT-K05098;
@@ -82,6 +88,9 @@
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 2)
     (total-strokes	 . 9)
+    (=>>ucs@unicode	. #x914B)	; &G-GT-53499;
+    (=>>jis-x0208@1983	. #x3D36)	; &G-GT-53499; [29-22]
+    (=>>jis-x0208@1990	. #x3D36)	; &G-GT-53499; [29-22]
     (=>>jis-x0213-1@2000 . #x3D36)	; &G-GT-53499; [29-22]
     (=>>gt		. 53499)	; &G-GT-53499;
     (->subsumptive
@@ -94,6 +103,7 @@
       (=jis-x0213-1@2000  . #x3D36)	; &I-JX1-3D36; [29-22]
       (<-simplified@JP/jis
        ((=ucs@jis/2004	    . #x914B)	; &JX3-3D36;
+	(=ucs@ks	    . #x914B)	; &JX3-3D36;
 	(=jis-x0208@1978    . #x3D36)	; &JX3-3D36; [29-22]
 	(=ks-x1001	    . #x755C)	; &I-K0-755C; [85-60]
 	(=jis-x0213-1@2004  . #x3D36)	; &I-JX3-3D36; [29-22]
