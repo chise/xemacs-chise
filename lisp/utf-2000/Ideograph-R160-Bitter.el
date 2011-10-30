@@ -944,7 +944,12 @@
     (->subsumptive
      ((=>>>ucs@unicode	  . #x8FAD)	; &g2-UU+8FAD;
       (->subsumptive
-       ((=hanyo-denshi/ft   . #x3973)	; &HD-FT-3973; [25-83]
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x8FAD)	; 辭
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(=hanyo-denshi/ft   . #x3973)	; 辭󠄂 [25-83]
 	)
        ((=ucs@unicode	    . #x8FAD)	; &UU+8FAD;
 	(=gb12345	    . #x3447)	; &UU+8FAD; [20-39]
