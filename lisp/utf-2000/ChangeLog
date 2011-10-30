@@ -1,4 +1,43 @@
+2011-10-30  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R165-Distinguish.el (J78-3A53): Unify HD-FT1807.
+
+	* Ideograph-R112-Stone.el (o-JU+7926): Unify o-JX1-6268 and
+	o-GT-31404.
+
 2011-10-29  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R164-Wine.el (G-JX3-3D36): Unify G-J2004U+914B,
+	G-KU+914B, G-M-39765 and G-HD-FT1819.
+	(JX3-3D36): Unify KU+914B and HD-FT1819.
+	(G-JX1-3D36): Unify G-UU+914B, G-J83-3D36 and G-J90-3D36.
+
+	* Ideograph-R154-Shell.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/FT characters.
+	(U+8CA7): Unify G-HD-FT1666.
+
+	* Ideograph-R152-Pig.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/FT characters.
+	(U+8C55): Unify G-HD-FT2559.
+	(U+8C61): Unify G-HD-FT2036.
+	(U+8C6B): Unify G-HD-FT2063.
+
+	* Ideograph-R030-Mouth.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/KS characters.
+	(o-UU+55AB): Unify o-GT-04889.
+	(o-JU+56AE): Unify o-J0-536C and o-GT-05731.
+
+	* Ideograph-R162-Walk.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/FT characters.
+
+	* Ideograph-R160-Bitter.el (HD-FT2583): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R157-Foot.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/FT characters.
+
+	* Ideograph-R156-Run.el (HD-FT2565): Add
+	`=decomposition@hanyo-denshi'.
 
 	* char-db-util.el (char-db-insert-ccs-feature): Add setting for
 	`=+>adobe-japan1'; don't use `string-match' for
