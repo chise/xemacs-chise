@@ -7754,10 +7754,12 @@
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 15)
     (total-strokes	 . 20)
-    (=+>ucs@jis		. #x7926)	; &o-J78-395C;
-    (=+>ucs@cns		. #x7926)	; &o-J78-395C;
-    (=+>jis-x0208@1978	. #x395C)	; &o-J78-395C; [25-60]
-    (=big5		. #xC471)	; &o-J78-395C;
+    (=+>ucs@jis		. #x7926)	; &o-JX1-6268;
+    (=+>ucs@cns		. #x7926)	; &o-JX1-6268;
+    (=+>jis-x0208@1978	. #x395C)	; &o-JX1-6268; [25-60]
+    (=+>jis-x0213-1	. #x6268)	; &o-JX1-6268; [66-72]
+    (=big5		. #xC471)	; &o-JX1-6268;
+    (=+>gt		. 31404)	; &o-JX1-6268;
     (->subsumptive
      ((=ucs@jis		  . #x7926)	; &GT-31404;
       (=jis-x0208@1978	  . #x395C)	; &GT-31404; [25-60]
@@ -7770,6 +7772,7 @@
       (=shinjigen	  .  8607)	; &GT-31404;
       (<-formed
        ((=ucs@jis	    . #x945B)	; &GT-55165;
+	(=ucs@ks	    . #x945B)	; &GT-55165;
 	(=jis-x0208	    . #x6F4A)	; &GT-55165; [79-42]
 	(=ks-x1001	    . #x4E4E)	; &I-K0-4E4E; [46-46]
 	(=jis-x0213-1	    . #x6F4A)	; &I-JX1-6F4A; [79-42]
