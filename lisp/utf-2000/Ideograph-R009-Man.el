@@ -27929,7 +27929,7 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=>>daikanwa	  . 05720)	; &G-CU+590F;
+     ((=>>hanyo-denshi/ks . 065510)	; &G-HD-KS-FFE6;
       ))
     (=>>ucs@iso		. #x20318)	; &G-IU+20318;
     (=>>daikanwa	. 00991)	; &G-IU+20318;
@@ -32174,7 +32174,7 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=cns11643-1	    . #x622F)	; &HD-FT-3444; [66-15]
+       ((=cns11643-1	    . #x622F)	; 象󠄃 [66-15]
 	))
       (=jis-x0208@1978	  . #x417C)	; 像󠄄 [33-92]
       (=jis-x0208@1983	  . #x417C)	; &I-J83-417C; [33-92]
