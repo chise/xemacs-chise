@@ -1,5 +1,9 @@
 2011-10-29  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* char-db-util.el (char-db-insert-ccs-feature): Add setting for
+	`=+>adobe-japan1'; don't use `string-match' for
+	`=adobe-japan1-{0..6}'.
+
 	* Ideograph-R079-Weapon.el (A-JX1-7649): Unify o-JX1-7649.
 
 	* Ideograph-R038-Woman.el (U+5B3E): Unify A-J0-554F.
