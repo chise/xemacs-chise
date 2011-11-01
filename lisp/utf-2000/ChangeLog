@@ -1,3 +1,14 @@
+2011-10-31  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R073-Say.el (AJ1-14112): Add `=decomposition@cid'.
+
+	* Ideograph-R029-Again.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+	(UU+FA0E): Unify AJ1-08410.
+
+	* Ideograph-R024-Ten.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+
 2011-10-30  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R165-Distinguish.el (J78-3A53): Unify HD-FT1807.
