@@ -4605,13 +4605,13 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ucs		. #x8105)	; 脅
+    (=big5		. #xAFD9)	; &I-B-AFD9;
     (->subsumptive
      ((=ucs@unicode	  . #x8105)	; &GT-38078;
       (=jis-x0208	  . #x363C)	; &GT-38078; [22-28]
       (=ks-x1001	  . #x7A76)	; &I-K0-7A76; [90-86]
       (=jis-x0213-1	  . #x363C)	; &I-JX1-363C; [22-28]
       (=gb12345		  . #x5032)	; &GT-38078; [48-18]
-      (=big5		  . #xAFD9)	; &I-B-AFD9;
       (=gt		  . 38078)	; &I-GT-38078;
       (=gt-k		  . 06404)	; &I-GT-K06404;
       (=gt-pj-1		  . #x363C)	; &I-GT-38078; [22-28]
