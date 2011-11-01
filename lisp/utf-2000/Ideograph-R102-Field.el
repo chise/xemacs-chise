@@ -1579,7 +1579,8 @@
       )
      ((=shinjigen	  .  1385)	; &SJG2-1385;
       (<-formed
-       ((=shinjigen	    .  1384)	; &SJG2-1384;
+       ((=shinjigen	    .  1384)	; 垓󠄂
+	(=hanyo-denshi/ks   . 058090)	; 垓󠄂
 	))
       (<-formed*sources
        shinjigen)
