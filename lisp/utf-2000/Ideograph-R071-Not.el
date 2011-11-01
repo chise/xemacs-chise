@@ -271,9 +271,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@cns	    . #x54BC)	; &AJ1-04376;
-	(=ucs@jis	    . #x54BC)	; &AJ1-04376;
-	(=jis-x0208	    . #x5325)	; &AJ1-04376; [51-05]
+       ((=ucs@cns	    . #x54BC)	; 咼󠄀
+	(=ucs@jis	    . #x54BC)	; 咼󠄀
+	(=jis-x0208	    . #x5325)	; 咼󠄀 [51-05]
 	(=cns11643-2	    . #x294B)	; &I-C2-294B; [09-43]
 	(=jis-x0213-1	    . #x5325)	; &I-JX1-5325; [51-05]
 	(=daikanwa	    . 03573)	; &I-M-03573;
@@ -291,9 +291,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@cns	    . #x54BC)	; &AJ1-04376;
-	(=ucs@jis	    . #x54BC)	; &AJ1-04376;
-	(=jis-x0208	    . #x5325)	; &AJ1-04376; [51-05]
+       ((=ucs@cns	    . #x54BC)	; 咼󠄀
+	(=ucs@jis	    . #x54BC)	; 咼󠄀
+	(=jis-x0208	    . #x5325)	; 咼󠄀 [51-05]
 	(=cns11643-2	    . #x294B)	; &I-C2-294B; [09-43]
 	(=jis-x0213-1	    . #x5325)	; &I-JX1-5325; [51-05]
 	(=daikanwa	    . 03573)	; &I-M-03573;
