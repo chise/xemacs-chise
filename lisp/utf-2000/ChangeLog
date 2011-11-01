@@ -1,3 +1,39 @@
+2011-11-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R185-Head.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+	(U-00029836): New character.
+
+2011-11-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R130-Meat.el (B-AFD9): Moved to U+8105.
+
+	* Ideograph-R123-Sheep.el (U+8B71): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R120-Silk.el (U+7D5C): Use `->denotational' instead of
+	`->subsumptive'.
+
+	* Ideograph-R118-Bamboo.el: Add Hanyo-Denshi/HG code points.
+
+	* Ideograph-R116-Cave.el (U+7A7F): Use `->denotational' instead of
+	`->subsumptive'.
+	(JX3-407C): Unify HD-HG1636.
+
+	* Ideograph-R108-Dish.el (C1-714D): Separate K0-5654.
+
+	* maps-conf.el: Don't add `=>jis-x0208' if `=+>jis-x0208' is
+	defined to cover it.
+
+	* Ideograph-R011-Enter.el (G-GT-K05210): New node.
+	(GT-K05210): Use `<-subsumptive' for G-GT-K05210.
+
+	* Ideograph-R032-Earth.el: Add Hanyo-Denshi/KS code points.
+	(U+578B): Use `->denotational' for the representative character.
+	(J0-373F): Unify UU+578B instead of U+578B; use `<-denotational'
+	for U+578B.
+	(U+5793): Use `->denotational' instead of `->subsumptive'.
+
 2011-10-31  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R073-Say.el (AJ1-14112): Add `=decomposition@cid'.
