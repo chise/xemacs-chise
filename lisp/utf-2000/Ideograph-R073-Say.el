@@ -366,12 +366,17 @@
     (ideographic-radical@cns . 29)	; ⼜
     (ideographic-strokes@cns . 9)
     (total-strokes	 . 11)
+    (=decomposition@cid
+     ((=ucs		  . #x66FC)	; 曼
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=decomposition@hanyo-denshi
      ((=ucs		  . #x66FC)	; 曼
       )
      ((=ucs		  . #xE0103)	; 󠄃
       ))
-    (=cns11643-1	. #x5937)	; 曼󠄃 [57-23]
+    (=cns11643-1	. #x5937)	; 曼󠄁 [57-23]
     (=daikanwa		. 14298)	; &I-M-14298;
     (=adobe-japan1-4	. 14112)	; &I-AJ1-14112;
     (=hanyo-denshi/jt	. #xAEA3)	; &I-HD-JT-AEA3;
