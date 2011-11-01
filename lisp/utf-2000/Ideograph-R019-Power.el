@@ -2611,8 +2611,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@jis	    . #x5485)	; &GT-04385;
-	(=jis-x0212	    . #x3523)	; &GT-04385; [21-03]
+       ((=ucs@jis	    . #x5485)	; &AJ1-21265;
+	(=jis-x0212	    . #x3523)	; &AJ1-21265; [21-03]
 	(=daikanwa	    . 03483)	; &I-M-03483;
 	)
        ((=ucs		    . #x529B)	; 力
