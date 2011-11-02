@@ -804,7 +804,7 @@
     (->subsumptive
      ((=daikanwa	  . 03140)	; &M-03140;
       (<-original
-       ((=jis-x0208@1978    . #x3B4B)	; &AJ1-13451; [27-43]
+       ((=jis-x0208@1978    . #x3B4B)	; 史󠄁 [27-43]
 	(=jis-x0208@1983    . #x3B4B)	; &I-J83-3B4B; [27-43]
 	(=ks-x1001	    . #x5E48)	; &I-K0-5E48; [62-40]
 	(=daikanwa	    . 03249)	; &I-M-03249;
@@ -2813,7 +2813,12 @@
       ))
     (=ucs		. #xFA0E)	; 﨎
     (->subsumptive
-     ((ideographic-structure
+     ((=decomposition@cid
+       ((=ucs		    . #xFA0E)	; 﨎
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
@@ -2835,8 +2840,8 @@
 	(=cns11643-1	    . #x4434)	; &I-C1-4434; [36-20]
 	(=jis-x0213-1	    . #x4B74)	; &I-JX1-4B74; [43-84]
 	))
-      (=ucs@unicode	  . #xFA0E)	; &AJ1-08410;
-      (=adobe-japan1-2	  . 08410)	; &AJ1-08410;
+      (=ucs@unicode	  . #xFA0E)	; 﨎󠄀
+      (=adobe-japan1-2	  . 08410)	; 﨎󠄀
       ))
     ))
 (define-char
