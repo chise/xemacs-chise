@@ -735,9 +735,9 @@
     (=jef-china3	. #x82A2)	; &I-JC3-82A2;
     (=adobe-japan1-0	. 04542)	; &I-AJ1-04542;
     (<-vulgar
-     ((=cns11643-1	  . #x6842)	; &M-05802; [72-34]
+     ((=cns11643-1	  . #x6842)	; 夢󠄂 [72-34]
       (=daikanwa	  . 05802)	; &I-M-05802;
-      (=shinjigen	  .  1550)	; &M-05802;
+      (=shinjigen	  .  1550)	; 夢󠄂
       ))
     (<-vulgar*sources
      songyuan-yilai-suzipu zihui daikanwa shinjigen)
@@ -966,9 +966,9 @@
     (=adobe-japan1-0	. 03776)	; &I-AJ1-03776;
     (=hanyo-denshi/ja	. #x4C34)	; &I-HD-JA-4C34; [44-20]
     (<-simplified
-     ((=cns11643-1	  . #x6842)	; &M-05802; [72-34]
+     ((=cns11643-1	  . #x6842)	; 夢󠄂 [72-34]
       (=daikanwa	  . 05802)	; &I-M-05802;
-      (=shinjigen	  .  1550)	; &M-05802;
+      (=shinjigen	  .  1550)	; 夢󠄂
       ))
     (<-simplified*sources
      daikanwa shinjigen)
@@ -980,10 +980,15 @@
     (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=cns11643-1	. #x6842)	; &M-05802; [72-34]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5922)	; 夢
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=cns11643-1	. #x6842)	; 夢󠄂 [72-34]
     (=daikanwa		. 05802)	; &I-M-05802;
-    (=shinjigen		.  1550)	; &M-05802;
-    (=hanyo-denshi/ks	. 066550)	; &M-05802;
+    (=shinjigen		.  1550)	; 夢󠄂
+    (=hanyo-denshi/ks	. 066550)	; 夢󠄂
     (=hanyo-denshi/ks/mf . #x19FF)	; &I-KSMF-06655;
     ))
 (define-char
@@ -1001,9 +1006,9 @@
 	(=shinjigen	    .  1553)	; &AJ1-19304;
 	(=adobe-japan1-5    . 19304)	; &I-AJ1-19304;
 	(<-vulgar
-	 ((=cns11643-1	      . #x6842)	; &M-05802; [72-34]
+	 ((=cns11643-1	      . #x6842)	; 夢󠄂 [72-34]
 	  (=daikanwa	      . 05802)	; &I-M-05802;
-	  (=shinjigen	      .	 1550)	; &M-05802;
+	  (=shinjigen	      .	 1550)	; 夢󠄂
 	  ))
 	(<-vulgar*sources
 	 shinjigen)
