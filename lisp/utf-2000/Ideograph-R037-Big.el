@@ -1449,11 +1449,16 @@
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=gt		. 07464)	; &GT-07464;
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5951)	; 契
+      )
+     ((=ucs		  . #xE0104)	; 󠄄
+      ))
+    (=gt		. 07464)	; 契󠄄
     (=gt-k		. 05057)	; &I-GT-K05057;
-    (=gt-pj-2		. #x6735)	; &GT-07464; [71-21]
+    (=gt-pj-2		. #x6735)	; 契󠄄 [71-21]
     (=daikanwa		. 05917)	; &I-M-05917;
-    (=hanyo-denshi/ks	. 067790)	; &GT-07464;
+    (=hanyo-denshi/ks	. 067790)	; 契󠄄
     (=hanyo-denshi/ks/mf . #x1A7B)	; &I-KSMF-06779;
     ))
 (define-char
@@ -1613,6 +1618,11 @@
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5954)	; 奔
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=ucs		. #xFA7F)	; 奔
     (=daikanwa		. 05921)	; &I-M-05921;
     (=hanyo-denshi/ks	. 067820)	; 奔

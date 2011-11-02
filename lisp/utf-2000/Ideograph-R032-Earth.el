@@ -925,8 +925,8 @@
     (->subsumptive
      ((=daikanwa	  . 04920)	; &M-04920;
       (<-ancient
-       ((=daikanwa	    . 05423)	; &M-05423;
-	(=hanyo-denshi/ks   . 061980)	; &M-05423;
+       ((=daikanwa	    . 05423)	; 墍󠄂
+	(=hanyo-denshi/ks   . 061980)	; 墍󠄂
 	)
        ((=daikanwa	    . 05568)	; &M-05568;
 	))
@@ -6523,6 +6523,11 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x578B)	; 型
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=ucs		. #x2F855)	; 型
     (=cns11643-3	. #x3470)	; &I-C3-3470; [20-80]
     (=daikanwa		. 05234)	; &I-M-05234;
@@ -8586,8 +8591,13 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=daikanwa		. 05322)	; &M-05322;
-    (=hanyo-denshi/ks	. 060860)	; &M-05322;
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x584C)	; 塌
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=daikanwa		. 05322)	; 塌󠄂
+    (=hanyo-denshi/ks	. 060860)	; 塌󠄂
     (=hanyo-denshi/ks/mf . #x17C6)	; &I-KSMF-06086;
     ))
 (define-char
@@ -8765,10 +8775,15 @@
     (=>>hanyo-denshi/ja . #x413A)	; 塑 [33-26]
     (=>>hanyo-denshi/ks . 060920)	; 塑
     (->subsumptive
-     ((=daikanwa	  . 05328)	; &M-05328;
-      (=shinjigen@1ed	  .  1461)	; &M-05328;
-      (=shinjigen/+p@rev  .  1463)	; &M-05328;
-      (=hanyo-denshi/ks	  . 060920)	; &M-05328;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5851)	; 塑
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=daikanwa	  . 05328)	; 塑󠄂
+      (=shinjigen@1ed	  .  1461)	; 塑󠄂
+      (=shinjigen/+p@rev  .  1463)	; 塑󠄂
+      (=hanyo-denshi/ks	  . 060920)	; 塑󠄂
       (=hanyo-denshi/ks/mf . #x17CC)	; &I-KSMF-06092;
       )
      ((=ucs@unicode	  . #x5851)	; &AJ1-02748;
@@ -8859,13 +8874,18 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=cns11643-1	. #x6357)	; &GT-06765; [67-55]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5854)	; 塔
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=cns11643-1	. #x6357)	; 塔󠄂 [67-55]
     (=gt		. 06765)	; &I-GT-06765;
     (=gt-pj-2		. #x615B)	; &I-GT-06765; [65-59]
     (=daikanwa		. 05332)	; &I-M-05332;
-    (=shinjigen@1ed	.  1446)	; &GT-06765;
-    (=shinjigen@rev	.  1448)	; &GT-06765;
-    (=hanyo-denshi/ks	. 060960)	; &GT-06765;
+    (=shinjigen@1ed	.  1446)	; 塔󠄂
+    (=shinjigen@rev	.  1448)	; 塔󠄂
+    (=hanyo-denshi/ks	. 060960)	; 塔󠄂
     (=hanyo-denshi/ks/mf . #x17D0)	; &I-KSMF-06096;
     ))
 (define-char
@@ -11128,8 +11148,13 @@
     (=>>hanyo-denshi/jb . #x3842)	; &G-JX2-252B; [24-34]
     (=>>hanyo-denshi/ks . 061980)	; &G-JX2-252B;
     (->subsumptive
-     ((=daikanwa	  . 05423)	; &M-05423;
-      (=hanyo-denshi/ks	  . 061980)	; &M-05423;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x588D)	; 墍
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=daikanwa	  . 05423)	; 墍󠄂
+      (=hanyo-denshi/ks	  . 061980)	; 墍󠄂
       (=hanyo-denshi/ks/mf . #x1836)	; &I-KSMF-06198;
       )
      ((=cns11643-3	  . #x4645)	; &C3-4645; [38-37]
@@ -11326,12 +11351,17 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=ucs@cns		. #x5893)	; &GT-06855;
-    (=cns11643-1	. #x683B)	; &GT-06855; [72-27]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5893)	; 墓
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=ucs@cns		. #x5893)	; 墓󠄂
+    (=cns11643-1	. #x683B)	; 墓󠄂 [72-27]
     (=gt		. 06855)	; &I-GT-06855;
     (=gt-pj-2		. #x6256)	; &I-GT-06855; [66-54]
     (=daikanwa		. 05431)	; &I-M-05431;
-    (=hanyo-denshi/ks	. 062060)	; &GT-06855;
+    (=hanyo-denshi/ks	. 062060)	; 墓󠄂
     (=hanyo-denshi/ks/mf . #x183E)	; &I-KSMF-06206;
     ))
 (define-char
@@ -14017,10 +14047,15 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
-    (=ucs@cns		. #x58D2)	; &M-05555;
-    (=cns11643-2	. #x5C59)	; &M-05555; [60-57]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x58D2)	; 壒
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=ucs@cns		. #x58D2)	; 壒󠄂
+    (=cns11643-2	. #x5C59)	; 壒󠄂 [60-57]
     (=daikanwa		. 05555)	; &I-M-05555;
-    (=hanyo-denshi/ks	. 063600)	; &M-05555;
+    (=hanyo-denshi/ks	. 063600)	; 壒󠄂
     (=hanyo-denshi/ks/mf . #x18D8)	; &I-KSMF-06360;
     ))
 (define-char
