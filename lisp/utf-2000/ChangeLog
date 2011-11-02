@@ -1,4 +1,25 @@
+2011-11-02  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R029-Again.el (AJ1-08410): Add `=decomposition@cid'.
+
 2011-11-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R037-Big.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/KS characters.
+
+	* Ideograph-R036-Evening.el (HD-KS066550): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R035-Go-Slowly.el (HD-KS065510): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R032-Earth.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/KS characters.
+
+	* Ideograph-R170-Mound.el (U+96A3): Use `->denotational' instead
+	of `->subsumptive'.
+
+	* Ideograph-R119-Rice.el (JX3-4C62): Unify HD-HG1665.
 
 	* Ideograph-R163-City.el: Add Hanyo-Denshi/FT code points.
 
