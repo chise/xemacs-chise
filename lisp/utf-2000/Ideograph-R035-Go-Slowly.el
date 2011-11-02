@@ -439,8 +439,13 @@
       )
      ((=>>>ucs@cns	  . #x590F)	; &g2-CU+590F;
       (->subsumptive
-       ((=hanyo-denshi/ks   . 065510)	; &HD-KS-065510;
-	(=hanyo-denshi/ks/mf . #x1997)	; &HD-KS-065510;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x590F)	; 夏
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(=hanyo-denshi/ks   . 065510)	; 夏󠄂
+	(=hanyo-denshi/ks/mf . #x1997)	; 夏󠄂
 	)
        ((=ucs@cns	    . #x590F)	; &C1-546E;
 	(=cns11643-1	    . #x546E)	; &C1-546E; [52-78]
