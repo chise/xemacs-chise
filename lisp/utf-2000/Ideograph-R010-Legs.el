@@ -1400,8 +1400,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x56DF)	; &AJ1-17410;
-	(=gb2312	    . #x5836)	; &AJ1-17410; [56-22]
+       ((=ucs@unicode	    . #x56DF)	; 囟󠄀
+	(=gb2312	    . #x5836)	; 囟󠄀 [56-22]
 	(=jis-x0212	    . #x3675)	; &I-JSP-3675; [22-85]
 	(=jis-x0213-2	    . #x2455)	; &I-JX2-2455; [04-53]
 	(=daikanwa	    . 04691)	; &I-M-04691;
