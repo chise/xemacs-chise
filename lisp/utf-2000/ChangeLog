@@ -1,5 +1,40 @@
 2011-11-02  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R186-Fragrant.el: Add mappings between CJK Ext-B and
+	CNS 11643 plain 7.
+	(U+99A0): Use `->subsumptive' to separate representative nodes.
+	(U+4B70): Likewise.
+	(U+99A3): Likewise.
+	(U-00029850): Likewise.
+	(U-00029860): New character.
+	(U-00029862): New character.
+
+	* Ideograph-R167-Gold.el: Add Hanyo-Denshi/FT code points.
+	(U+9292): Use `->subsumptive' to separate representative nodes.
+	(U+92B8): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+92B9): Use `->subsumptive' to separate representative nodes.
+	(U+92BA): Likewise.
+	(U+93C5): Likewise.
+	(U+93C7): Likewise.
+
+	* Ideograph-R149-Speech.el (U+8B71): Use `->denotational' and
+	`->subsumptive'.
+	(U+4717): Use `->denotational' to separate representative nodes.
+
+	* Ideograph-R066-Rap.el (U-00022F05): Use `->subsumptive' to
+	separate representative nodes.
+	(M-13143): Unify U-00022F03 and H4-D4FC.
+	(M-13144): Map to U-00022F01.
+	(U-00022F04): Use `->denotational'.
+	(M-13146): Map to U-00022EFF.
+	(M-13147): Map to U-00022F00.
+	(CB00795): Unify U-00022A9B.
+	(U+555F): Copied from Ideograph-R030-Mouth.el.
+
+	* Ideograph-R040-Roof.el, Ideograph-R039-Child.el: Add
+	Hanyo-Denshi/KS code points.
+
 	* Ideograph-R029-Again.el (AJ1-08410): Add `=decomposition@cid'.
 
 2011-11-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
