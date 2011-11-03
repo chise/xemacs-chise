@@ -4941,8 +4941,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@jis	    . #x5485)	; &AJ1-21265;
-	(=jis-x0212	    . #x3523)	; &AJ1-21265; [21-03]
+       ((=ucs@jis	    . #x5485)	; 咅󠄀
+	(=jis-x0212	    . #x3523)	; 咅󠄀 [21-03]
 	(=daikanwa	    . 03483)	; &I-M-03483;
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
@@ -7198,6 +7198,7 @@
 	(=ucs		    . #x2FF0)	; ⿰
 	)
        ((=daikanwa	    . 07165)	; &M-07165;
+	(=hanyo-denshi/ks   . 081420)	; &M-07165;
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
@@ -7285,6 +7286,7 @@
     (=+>ucs@jis		. #x5272)	; &o-J0-3364;
     (=+>ucs@cns		. #x5272)	; &o-J0-3364;
     (=+>jis-x0208	. #x3364)	; &o-J0-3364; [19-68]
+    (=+>adobe-japan1	. 01474)	; &o-J0-3364;
     ))
 (define-char
   '((<-denotational
@@ -7298,6 +7300,7 @@
     (=>>jis-x0213-1	. #x3364)	; &G-GT-02726; [19-68]
     (=>>gt		. 02726)	; &G-GT-02726;
     (=>>adobe-japan1	. 01474)	; &G-GT-02726;
+    (=>>hanyo-denshi/ja . #x3364)	; &G-GT-02726; [19-68]
     (->subsumptive
      ((morohashi-daikanwa	2112 1)
       (=decomposition@cid
@@ -7343,7 +7346,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-1	  . #x5524)	; &C1-5524; [53-04]
+     ((=ucs@cns		  . #x5BB3)	; &C1-5524;
+      (=cns11643-1	  . #x5524)	; &C1-5524; [53-04]
       )
      ((name		  . "CJK RADICAL KNIFE TWO")
       (=ucs		  . #x2E89)	; ⺉
