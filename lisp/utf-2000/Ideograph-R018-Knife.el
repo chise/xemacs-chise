@@ -7317,8 +7317,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@jis	    . #x5BB3)	; &GT-08987;
-	(=jis-x0208	    . #x3332)	; &GT-08987; [19-18]
+       ((=ucs@jis	    . #x5BB3)	; 害󠄄
+	(=jis-x0208	    . #x3332)	; 害󠄄 [19-18]
 	(=jis-x0213-1	    . #x3332)	; &I-JX1-3332; [19-18]
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
