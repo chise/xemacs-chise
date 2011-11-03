@@ -1488,8 +1488,8 @@
       (=gt-pj-4		  . #x307E)	; &GT-18463; [16-94]
       (=daikanwa	  . 14492)	; &I-M-14492;
       (<-ancient
-       ((=ucs@jis	    . #x56F0)	; &AJ1-02068;
-	(=jis-x0208	    . #x3A24)	; &AJ1-02068; [26-04]
+       ((=ucs@jis	    . #x56F0)	; 困󠄀
+	(=jis-x0208	    . #x3A24)	; 困󠄀 [26-04]
 	(=ks-x1001	    . #x4D5D)	; &I-K0-4D5D; [45-61]
 	(=cns11643-1	    . #x495A)	; &I-C1-495A; [41-58]
 	(=jis-x0213-1	    . #x3A24)	; &I-JX1-3A24; [26-04]
@@ -8780,9 +8780,9 @@
     (=jef-china3	. #x82A2)	; &I-JC3-82A2;
     (=adobe-japan1-0	. 04542)	; &I-AJ1-04542;
     (<-vulgar
-     ((=cns11643-1	  . #x6842)	; &M-05802; [72-34]
+     ((=cns11643-1	  . #x6842)	; 夢󠄂 [72-34]
       (=daikanwa	  . 05802)	; &I-M-05802;
-      (=shinjigen	  .  1550)	; &M-05802;
+      (=shinjigen	  .  1550)	; 夢󠄂
       ))
     (<-vulgar*sources
      songyuan-yilai-suzipu zihui daikanwa shinjigen)
@@ -30278,8 +30278,8 @@
       (=daikanwa	  . 15947)	; &I-M-15947;
       (=shinjigen	  .  3893)	; &GT-20514;
       (<-vulgar
-       ((=ucs@jis	    . #x571D)	; &AJ1-19279;
-	(=jis-x0212	    . #x372C)	; &AJ1-19279; [23-12]
+       ((=ucs@jis	    . #x571D)	; 圝󠄀
+	(=jis-x0212	    . #x372C)	; 圝󠄀 [23-12]
 	(=daikanwa	    . 04866)	; &I-M-04866;
 	))
       )
