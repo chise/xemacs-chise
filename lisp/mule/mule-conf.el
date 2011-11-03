@@ -606,6 +606,16 @@
               ;; final ?P
 	      graphic 0))
 
+  (make-charset
+   '=>cns11643-7
+   "CNS 11643 Plane 7 abstract characters."
+   '(registry "CNS11643[.-]\\(.*[.-]\\)?7$"
+	      dimension 2
+	      chars 94
+	      mother =cns11643-7
+	      =>iso-ir 187
+	      graphic 0))
+
   (make-charset '=big5-cdp
 		"Big5 with CDP extension"
 		'(long-name	"Big5-CDP"
