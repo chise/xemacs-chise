@@ -1,3 +1,35 @@
+2011-11-03  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R059-Bristle.el, Ideograph-R053-Dotted-Cliff.el: Add
+	Hanyo-Denshi/JT code points.
+
+	* Ideograph-R051-Dry.el (U+5E73): Use `->denotational' instead of
+	`->subsumptive'.
+	(K0-7841): Unify HD-JT-B0BF.
+
+	* Ideograph-R049-Oneself.el (U+5DFB): Use `->denotational' to
+	integrate HD-JT-B098 and HD-JT-B099.
+	(HD-JT-B098): New character.
+	(HD-JT-B099): New character.
+
+	* Ideograph-R038-Woman.el: Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R036-Evening.el (HD-JT-AFB7): Add
+	`=decomposition@hanyo-denshi'.
+
+2011-11-03  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R039-Child.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JB
+	  characters.
+
+	* Ideograph-R018-Knife.el (o-J0-3364): Unify o-AJ1-01474.
+	(G-J0-3364): Unify G-HD-JA1968.
+
+	* Ideograph-R026-Seal.el (J0-4228): Add
+	`=decomposition@hanyo-denshi'.
+
 2011-11-02  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R186-Fragrant.el: Add mappings between CJK Ext-B and
