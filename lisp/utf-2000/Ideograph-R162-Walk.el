@@ -3960,6 +3960,7 @@
     (=daikanwa		. 38799)	; &M-38799;
     (<-ancient
      ((=daikanwa	  . 10073)	; &M-10073;
+      (=hanyo-denshi/jt	  . #xB12F)	; &I-HD-JT-B12F;
       ))
     (<-ancient*sources
      zihui daikanwa)
@@ -10162,6 +10163,7 @@
     (=daikanwa		. 38955)	; &M-38955;
     (<-ancient
      ((=daikanwa	  . 10073)	; &M-10073;
+      (=hanyo-denshi/jt	  . #xB12F)	; &I-HD-JT-B12F;
       ))
     (<-ancient*sources
      zihui-bu daikanwa)
@@ -12424,8 +12426,7 @@
     (=daikanwa		. 39010)	; &I-M-39010;
     (=jef-china3	. #x67DF)	; &I-JC3-67DF;
     (<-synonyms
-     ((=ucs@big5	  . #x5C0E)	; &M-07465;
-      (=ks-x1001	  . #x5374)	; &M-07465; [51-84]
+     ((=ks-x1001	  . #x5374)	; &M-07465; [51-84]
       (=daikanwa	  . 07465)	; &I-M-07465;
       ))
     (<-synonyms*sources
