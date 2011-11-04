@@ -78,15 +78,28 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (=ucs		. #x5F0D)	; 弍
-    (=jis-x0208		. #x5031)	; &I-J90-5031; [48-17]
-    (=iso-ir165		. #x2E37)	; &I-EGB-2E37; [14-23]
-    (=cns11643-3	. #x2249)	; &I-C3-2249; [02-41]
-    (=jis-x0213-1	. #x5031)	; &I-JX1-5031; [48-17]
-    (=gt		. 12175)	; &I-GT-12175;
-    (=gt-k		. 01027)	; &I-GT-K01027;
-    (=gt-pj-1		. #x5031)	; &I-GT-12175; [48-17]
-    (=daikanwa		. 09661)	; &I-M-09661;
-    (=shinjigen@rev	.  0074)	; 弍
+    (->subsumptive
+     ((=ucs@jis		  . #x5F0D)	; &GT-12175;
+      (=jis-x0208	  . #x5031)	; &GT-12175; [48-17]
+      (=cns11643-3	  . #x2249)	; &I-C3-2249; [02-41]
+      (=jis-x0213-1	  . #x5031)	; &I-JX1-5031; [48-17]
+      (=gt		  . 12175)	; &I-GT-12175;
+      (=gt-k		  . 01027)	; &I-GT-K01027;
+      (=gt-pj-1		  . #x5031)	; &I-GT-12175; [48-17]
+      (=daikanwa	  . 09661)	; &I-M-09661;
+      (=shinjigen	  .  0074)	; &GT-12175;
+      (<-ancient
+       ((=ucs		    . #x4E8C)	; 二
+	(=jis-x0208	    . #x4673)	; &I-J90-4673; [38-83]
+	(=shinjigen	    .  0073)	; 二
+	))
+      (<-ancient*sources
+       shinjigen)
+      )
+     ((=ucs@unicode	  . #x5F0D)	; &HD-JT-B103;
+      (=iso-ir165	  . #x2E37)	; &HD-JT-B103; [14-23]
+      (=hanyo-denshi/jt	  . #xB103)	; &I-HD-JT-B103;
+      ))
     ))
 (define-char
   '((ideographic-radical . 56)	; ⼷
