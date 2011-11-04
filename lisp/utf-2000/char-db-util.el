@@ -222,6 +222,7 @@
     =>gt
     =>big5-cdp
     =>daikanwa
+    =>cns11643-7
     =big5
     =big5-eten
     =>gt-k
