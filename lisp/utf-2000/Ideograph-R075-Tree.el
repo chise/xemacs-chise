@@ -16231,8 +16231,8 @@
 	)
        ((=gt-k		    . 00495)	; &GT-K00495;
 	)
-       ((=ucs@jis	    . #x5BB6)	; &GT-08985;
-	(=jis-x0208	    . #x3248)	; &GT-08985; [18-40]
+       ((=ucs@jis	    . #x5BB6)	; 家󠄁
+	(=jis-x0208	    . #x3248)	; 家󠄁 [18-40]
 	(=ks-x1001	    . #x4A2B)	; &I-K0-4A2B; [42-11]
 	(=jis-x0213-1	    . #x3248)	; &I-JX1-3248; [18-40]
 	(=daikanwa	    . 07169)	; &I-M-07169;
@@ -26792,49 +26792,7 @@
     (=daikanwa		. 15788)	; &I-M-15788;
     ))
 (define-char
-  '((=>ucs		. #x6ACE)	; 櫎
-    (ideographic-radical . 75)	; ⽊
-    (ideographic-strokes . 15)
-    (total-strokes	 . 19)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x6728)	; 木
-      )
-     ((=ucs@jis		  . #x5EE3)	; &GT-11938;
-      (=jis-x0208	  . #x5722)	; &GT-11938; [55-02]
-      (=ks-x1001	  . #x4E46)	; &I-K0-4E46; [46-38]
-      (=jis-x0213-1	  . #x5722)	; &I-JX1-5722; [55-02]
-      (=daikanwa	  . 09493)	; &I-M-09493;
-      ))
-    (=daikanwa		. 15789)	; &M-15789;
-    (=cbeta		. 02763)	; &I-CB02763;
-    (=jef-china3	. #x54BA)	; &I-JC3-54BA;
-    ))
-(define-char
-  '((=>ucs		. #x6ACE)	; 櫎
-    (morohashi-daikanwa	15789 0 1)
-    (ideographic-radical . 75)	; ⽊
-    (ideographic-strokes . 15)
-    (total-strokes	 . 19)
-    (hanyu-dazidian	2 1310 5)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x6728)	; 木
-      )
-     ((=cns11643-1	  . #x6C5D)	; &C1-6C5D; [76-61]
-      ))
-    (=cns11643-3	. #x5A44)	; &HZK04-B5C2; [58-36]
-    (=hanziku-4		. #xB5C2)	; &I-HZK04-B5C2;
-    ))
-(define-char
-  '((morohashi-daikanwa	15789 0 4)
-    (ideographic-radical . 75)	; ⽊
-    (ideographic-strokes . 14)
-    (total-strokes	 . 18)
+  '((ideographic-radical . 75)	; ⽊
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -26844,6 +26802,72 @@
      ((=ucs		  . #x5EE3)	; 廣
       ))
     (=ucs		. #x6ACE)	; 櫎
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6ACE)	; 櫎
+      ))
+    (ideographic-radical . 75)	; ⽊
+    (ideographic-strokes . 15)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6728)	; 木
+      )
+     ((=+>jis-x0208	  . #x5722)	; &o-J0-5722; [55-02]
+      ))
+    (=+>ucs@cns		. #x6ACE)	; &o-CU+6ACE;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gt-k		    . 00495)	; &GT-K00495;
+	)
+       ((=ucs@jis	    . #x5EE3)	; &GT-11938;
+	(=jis-x0208	    . #x5722)	; &GT-11938; [55-02]
+	(=ks-x1001	    . #x4E46)	; &I-K0-4E46; [46-38]
+	(=jis-x0213-1	    . #x5722)	; &I-JX1-5722; [55-02]
+	(=daikanwa	    . 09493)	; &I-M-09493;
+	))
+      (=daikanwa	  . 15789)	; &M-15789;
+      (=cbeta		  . 02763)	; &I-CB02763;
+      (=jef-china3	  . #x54BA)	; &I-JC3-54BA;
+      )
+     ((hanyu-dazidian	  2 1310 5)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gt-k		    . 00495)	; &GT-K00495;
+	)
+       ((=ucs@cns	    . #x5EE3)	; &C1-6C5D;
+	(=cns11643-1	    . #x6C5D)	; &C1-6C5D; [76-61]
+	))
+      (=ucs@cns		  . #x6ACE)	; &HZK04-B5C2;
+      (=cns11643-3	  . #x5A44)	; &HZK04-B5C2; [58-36]
+      (=hanziku-4	  . #xB5C2)	; &I-HZK04-B5C2;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6ACE)	; 櫎
+      ))
+    (ideographic-radical . 75)	; ⽊
+    (ideographic-strokes . 14)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 00495)	; &GT-K00495;
+      )
+     ((=ucs@unicode	  . #x5EE3)	; &UU+5EE3;
+      (=gb12345		  . #x3963)	; &UU+5EE3; [25-67]
+      ))
+    (=ucs@unicode	. #x6ACE)	; &UU+6ACE;
     ))
 (define-char
   '((=>ucs		. #x3BFE)	; 㯾
