@@ -1,5 +1,26 @@
 2011-11-03  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R009-Man.el (BUCS+5F9E): New character.
+	(U+4ECE): Add `<-denotational' for BUCS+5F9E; add
+	`<-simplified@CN' for U+5F9E.
+	(o-JU+5123): New node.
+	(JSP-3259): Use o-JU+5123 instead of U+5123 as the mother.
+	(C4-5565): Likewise.
+
+	* Ideograph-R075-Tree.el (U+6ACE): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R072-Sun.el (U-000232F7): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R050-Turban.el, Ideograph-R046-Mountain.el,
+	Ideograph-R041-Inch.el: Add Hanyo-Denshi/JT code points.
+
+	* Ideograph-R040-Roof.el:
+	- Add Hanyo-Denshi/JA and JT code points.
+	- Add `=decomposition@hanyo-denshi' for Hanyo-Denshi/JA and JT
+	  characters.
+
 	* Ideograph-R059-Bristle.el, Ideograph-R053-Dotted-Cliff.el: Add
 	Hanyo-Denshi/JT code points.
 
