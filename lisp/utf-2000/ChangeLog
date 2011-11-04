@@ -1,4 +1,25 @@
+2011-11-04  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R060-Step.el: Add Hanyo-Denshi/JT code points.
+	(U+38E3): Use `->denotational' to integrate U-0002F89B.
+	(U-0002F89B): Use `<-denotational' for U+38E3.
+	(BUCS+5F9E): New character.
+	(U+5F93): Add `<-denotational' for BUCS+5F9E.
+
+	* Ideograph-R057-Bow.el: Add Hanyo-Denshi/JT code points.
+	(BUCS+5F4C): New character.
+	(U+5F25): Add `<-denotational' for BUCS+5F4C; use `->denotational'
+	instead of `->subsumptive'.
+
 2011-11-03  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R047-River.el: Add Hanyo-Denshi/JT code points.
+
+	* Ideograph-R030-Mouth.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.	
+	(U+35A1): Use `->denotational' and `->subsumptive'.
+	(U+3611): Use `->subsumptive' to separate representative nodes.
 
 	* Ideograph-R009-Man.el (BUCS+5F9E): New character.
 	(U+4ECE): Add `<-denotational' for BUCS+5F9E; add
@@ -50,6 +71,9 @@
 
 	* Ideograph-R026-Seal.el (J0-4228): Add
 	`=decomposition@hanyo-denshi'.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>cns11643-7'.
 
 2011-11-02  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
