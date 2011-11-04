@@ -1597,12 +1597,12 @@
       (=daikanwa	  . 29106)	; &I-M-29106;
       (=shinjigen@1ed	  .  1705)	; &GT-37686;
       (<-vulgar
-       ((=ucs@unicode	    . #x58FB)	; &GT-07170;
-	(=jis-x0208	    . #x5466)	; &GT-07170; [52-70]
+       ((=ucs@unicode	    . #x58FB)	; &AJ1-04535;
+	(=jis-x0208	    . #x5466)	; &AJ1-04535; [52-70]
 	(=ks-x1001	    . #x5F6B)	; &I-K0-5F6B; [63-75]
 	(=jis-x0213-1	    . #x5466)	; &I-JX1-5466; [52-70]
 	(=daikanwa	    . 05664)	; &I-M-05664;
-	(=shinjigen	    .  1704)	; &GT-07170;
+	(=shinjigen	    .  1704)	; &AJ1-04535;
 	))
       (<-vulgar*sources
        goonruiju daikanwa shinjigen@1ed)
