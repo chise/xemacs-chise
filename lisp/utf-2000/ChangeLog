@@ -1,5 +1,33 @@
 2011-11-04  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R041-Inch.el (U-0002F872): Unify HD-KS084230.
+
+	* Ideograph-R040-Roof.el, Ideograph-R039-Child.el,
+	Ideograph-R038-Woman.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/KS characters.
+
+	* Ideograph-R031-Enclosure.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	(HD-JT-AF43): Use U+5716 instead of BUCS+5716 as the mother.
+	(M-04846): Map to U+5716; add `ideographic-structure'.
+	(M-04847): Unify U-00021228 and H2-E7B0.
+	(M-04848): Map to U-00021226.
+	(M-04849): Unify U-00021227 and H2-E7AE.
+
+2011-11-04  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R035-Go-Slowly.el: Add some Adobe-Japan1-0 code
+	points.
+
+	* Ideograph-R033-Scholar.el: Add some Adobe-Japan1-0 code points.
+	(U+58FB): Add ideographic-structure.
+
+	* Ideograph-R056-Shoot.el (U+5F0D): Use `->subsumptive' to
+	separate representative nodes.
+	(J0-5031): Add `<-ancient' for U+4E8C.
+	(UU+5F0D): Unify HD-JT-B103.
+
 	* Ideograph-R060-Step.el: Add Hanyo-Denshi/JT code points.
 	(U+38E3): Use `->denotational' to integrate U-0002F89B.
 	(U-0002F89B): Use `<-denotational' for U+38E3.
@@ -17,7 +45,7 @@
 
 	* Ideograph-R030-Mouth.el:
 	- Add some Adobe-Japan1 code points.
-	- Add `=decomposition@cid' for some Adobe-Japan1 characters.	
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
 	(U+35A1): Use `->denotational' and `->subsumptive'.
 	(U+3611): Use `->subsumptive' to separate representative nodes.
 
