@@ -10754,6 +10754,7 @@
     (=ks-x1001		. #x793A)	; &I-K0-793A; [89-26]
     (=jis-x0213-1@2004	. #x492F)	; &I-JX3-492F; [41-15]
     (=daikanwa		. 38973)	; &I-M-38973;
+    (=hanyo-denshi/hg	. #x3058)	; &I-HD-HG-3058; [16-56]
     (->formed
      ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA1B")
       (=ucs		  . #xFA1B)	; 福
@@ -11127,6 +11128,7 @@
     (=ks-x1001		. #x546D)	; &I-K0-546D; [52-77]
     (=jis-x0213-1@2004	. #x465B)	; &I-JX3-465B; [38-59]
     (=daikanwa		. 38982)	; &I-M-38982;
+    (=hanyo-denshi/hg	. #x3055)	; &I-HD-HG-3055; [16-53]
     (<-same
      ((=daikanwa	  . 38983)	; &M-38983;
       ))
@@ -12112,8 +12114,8 @@
     (=daikanwa		. 39004)	; &I-M-39004;
     (=shinjigen@rev	.  8313)	; &GT-52306;
     (<-synonyms
-     ((=daikanwa	  . 07165)	; &M-07165;
-      (=hanyo-denshi/ks	  . 081420)	; &M-07165;
+     ((=daikanwa	  . 07165)	; 害󠄅
+      (=hanyo-denshi/ks	  . 081420)	; 害󠄅
       ))
     (<-synonyms*sources
      shuowen-tongxundingsheng maoshi jingdian-shiwen daikanwa)
