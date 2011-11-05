@@ -185,6 +185,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x5BFF)	; 寿
+    (=>>hanyo-denshi/ks . 084230)	; 寿
     (<-simplified@ucs
      ((=ucs		  . #x58FD)	; 壽
       ))
@@ -208,6 +209,8 @@
       (=ucs@cns		  . #x2F872)	; 寿
       (=gb2312		  . #x4A59)	; &I-G0-4A59; [42-57]
       (=cns11643-6	  . #x2721)	; &I-C6-2721; [07-01]
+      (=hanyo-denshi/ks	  . 084230)	; 寿
+      (=hanyo-denshi/ks/mf . #x20E7)	; &I-KSMF-08423;
       (<-simplified@CN
        ((=ucs		    . #x58FD)	; 壽
 	(=gb12345	    . #x4A59)	; 壽 [42-57]
