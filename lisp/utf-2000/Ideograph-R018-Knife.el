@@ -7197,8 +7197,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=daikanwa	    . 07165)	; &M-07165;
-	(=hanyo-denshi/ks   . 081420)	; &M-07165;
+       ((=daikanwa	    . 07165)	; 害󠄅
+	(=hanyo-denshi/ks   . 081420)	; 害󠄅
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
