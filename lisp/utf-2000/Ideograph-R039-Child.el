@@ -328,13 +328,18 @@
     (ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (=ucs@unicode	. #x5B5A)	; &GT-08749;
-    (=gb2312		. #x665A)	; &GT-08749; [70-58]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5B5A)	; 孚
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
+    (=ucs@unicode	. #x5B5A)	; 孚󠄃
+    (=gb2312		. #x665A)	; 孚󠄃 [70-58]
     (=cns11643-1	. #x4977)	; &I-C1-4977; [41-87]
     (=gt		. 08749)	; &I-GT-08749;
     (=gt-k		. 02695)	; &I-GT-K02695;
     (=gt-pj-9		. #x5744)	; &I-GT-08749; [55-36]
-    (=hanyo-denshi/ks	. 079130)	; &GT-08749;
+    (=hanyo-denshi/ks	. 079130)	; 孚󠄃
     (=hanyo-denshi/ks/mf . #x1EE9)	; &I-KSMF-07913;
     ))
 (define-char
@@ -1863,8 +1868,13 @@
     (=>>daikanwa	. 07047)	; &G-HD-KS-1390C;
     (=>>hanyo-denshi/ks . 080140)	; &G-HD-KS-1390C;
     (->subsumptive
-     ((=daikanwa	  . 07047)	; &M-07047;
-      (=hanyo-denshi/ks	  . 080140)	; &M-07047;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5B7D)	; 孽
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=daikanwa	  . 07047)	; 孽󠄂
+      (=hanyo-denshi/ks	  . 080140)	; 孽󠄂
       (=hanyo-denshi/ks/mf . #x1F4E)	; &I-KSMF-08014;
       )
      ((=ucs@cns		  . #x5B7D)	; &C1-7969;

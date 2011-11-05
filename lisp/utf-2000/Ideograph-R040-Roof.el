@@ -1972,8 +1972,13 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=daikanwa		. 07165)	; &M-07165;
-    (=hanyo-denshi/ks	. 081420)	; &M-07165;
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5BB3)	; 害
+      )
+     ((=ucs		  . #xE0105)	; 󠄅
+      ))
+    (=daikanwa		. 07165)	; 害󠄅
+    (=hanyo-denshi/ks	. 081420)	; 害󠄅
     (=hanyo-denshi/ks/mf . #x1FCE)	; &I-KSMF-08142;
     ))
 (define-char
@@ -4507,8 +4512,13 @@
     (=>>daikanwa	. 07282)	; &G-HD-KS-14366;
     (=>>hanyo-denshi/ks . 082790)	; &G-HD-KS-14366;
     (->subsumptive
-     ((=daikanwa	  . 07282)	; &M-07282;
-      (=hanyo-denshi/ks	  . 082790)	; &M-07282;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5BDE)	; 寞
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=daikanwa	  . 07282)	; 寞󠄂
+      (=hanyo-denshi/ks	  . 082790)	; 寞󠄂
       (=hanyo-denshi/ks/mf . #x2057)	; &I-KSMF-08279;
       )
      ((=ucs@cns		  . #x5BDE)	; &C1-684E;

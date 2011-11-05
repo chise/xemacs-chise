@@ -4359,8 +4359,13 @@
     (=>>daikanwa	. 06238)	; &G-HD-KS-116A2;
     (=>>hanyo-denshi/ks . 071330)	; &G-HD-KS-116A2;
     (->subsumptive
-     ((=daikanwa	  . 06238)	; &M-06238;
-      (=hanyo-denshi/ks	  . 071330)	; &M-06238;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x21706)	; 𡜆
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=daikanwa	  . 06238)	; 𡜆󠄂
+      (=hanyo-denshi/ks	  . 071330)	; 𡜆󠄂
       (=hanyo-denshi/ks/mf . #x1BDD)	; &I-KSMF-07133;
       )
      ((=ucs@cns		  . #x21706)	; &C6-2F79;
@@ -11452,9 +11457,14 @@
     (=>>daikanwa	. 06603)	; &G-HD-KS-125FC;
     (=>>hanyo-denshi/ks . 075260)	; &G-HD-KS-125FC;
     (->subsumptive
-     ((=daikanwa	  . 06603)	; &M-06603;
-      (=shinjigen	  .  1724)	; &M-06603;
-      (=hanyo-denshi/ks	  . 075260)	; &M-06603;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5AC2)	; 嫂
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=daikanwa	  . 06603)	; 嫂󠄃
+      (=shinjigen	  .  1724)	; 嫂󠄃
+      (=hanyo-denshi/ks	  . 075260)	; 嫂󠄃
       (=hanyo-denshi/ks/mf . #x1D66)	; &I-KSMF-07526;
       )
      ((=ucs@cns		  . #x5AC2)	; &C1-6367;
@@ -12168,9 +12178,14 @@
     (->subsumptive
      ((=daikanwa	  . 06640)	; &M-06640;
       )
-     ((=shinjigen	  .  1730)	; &HD-KS-076290;
-      (=hanyo-denshi/ks	  . 076290)	; &HD-KS-076290;
-      (=hanyo-denshi/ks/mf . #x1DCD)	; &HD-KS-076290;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5AD7)	; 嫗
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=shinjigen	  .  1730)	; 嫗󠄂
+      (=hanyo-denshi/ks	  . 076290)	; 嫗󠄂
+      (=hanyo-denshi/ks/mf . #x1DCD)	; 嫗󠄂
       )
      ((=ucs@cns		  . #x5AD7)	; &C1-6849;
       (=cns11643-1	  . #x6849)	; &C1-6849; [72-41]
