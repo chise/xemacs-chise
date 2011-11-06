@@ -1,3 +1,23 @@
+2011-11-05  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R063-Door.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R036-Evening.el: Add some Adobe-Japan1-6 code points.
+
+	* Ideograph-R137-Boat.el (JX3-675B): Unify HD-HG1643.
+
+	* Ideograph-R142-Insect.el (U+8805): Use `->denotational' instead
+	of `->subsumptive'.
+	(JX3-6A24): Unify HD-HG1668.
+
+	* Ideograph-R104-Sickness.el: Add Hanyo-Denshi/HG code points.
+
+2011-11-05  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el: Add Hanyo-Denshi/HG code points.
+
+	* Ideograph-R153-Badger.el (JX3-493F): Unify HD-HG1658.
+
 2011-11-04  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R041-Inch.el (U-0002F872): Unify HD-KS084230.
@@ -16,6 +36,9 @@
 	(M-04849): Unify U-00021227 and H2-E7AE.
 
 2011-11-04  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-insert-ccs-feature): Add setting for
+	`=>>>adobe-japan1'.
 
 	* Ideograph-R035-Go-Slowly.el: Add some Adobe-Japan1-0 code
 	points.
