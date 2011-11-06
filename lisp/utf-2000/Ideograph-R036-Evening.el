@@ -414,6 +414,7 @@
     (=cns11643-4	. #x2570)	; &I-C4-2570; [05-80]
     (=daikanwa		. 05765)	; &I-M-05765;
     (=hanziku-3		. #xADC8)	; &I-HZK03-ADC8;
+    (=adobe-japan1-6	. 21374)	; &I-AJ1-21374;
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
@@ -767,6 +768,7 @@
     (=daikanwa		. 05785)	; &I-M-05785;
     (=hanziku-3		. #xADEB)	; &I-HZK03-ADEB;
     (=jef-china3	. #x48D8)	; &I-JC3-48D8;
+    (=adobe-japan1-6	. 21375)	; &I-AJ1-21375;
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
