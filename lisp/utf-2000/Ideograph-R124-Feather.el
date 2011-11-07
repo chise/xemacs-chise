@@ -6584,12 +6584,12 @@
       )
      ((=ucs		  . #x7570)	; 異
       ))
-    (=+>ucs@ks		. #x7FFC)	; &A-M-28818;
-    (=>daikanwa		. 28818)	; &A-M-28818;
+    (=+>ucs@ks		. #x7FFC)	; &o-KU+7FFC;
+    (=>daikanwa		. 28818)	; &o-KU+7FFC;
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@ks	  . #x7FFC)	; &A-M-28818;
+     ((=+>ucs@ks	  . #x7FFC)	; &o-KU+7FFC;
       ))
     (ideographic-radical . 124)	; ⽻
     (ideographic-strokes . 12)
@@ -6606,7 +6606,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@ks	  . #x7FFC)	; &A-M-28818;
+     ((=+>ucs@ks	  . #x7FFC)	; &o-KU+7FFC;
       ))
     (ideographic-radical . 124)	; ⽻
     (ideographic-strokes . 11)
