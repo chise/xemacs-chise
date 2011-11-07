@@ -1,3 +1,15 @@
+2011-11-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R046-Mountain.el: Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R037-Big.el, Ideograph-R032-Earth.el: Add some
+	Adobe-Japan1-6 code points.
+
+	* Ideograph-R009-Man.el (mother of C7-5275): Unify G-CU+2044D and
+	G-M-01302.
+	(M-01302): Omit `ideographic-structure'.
+	(C7-5275): Likewise; unify CU+2044D.
+
 2011-11-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R044-Corpse.el: Add Hanyo-Denshi/KS code points.
