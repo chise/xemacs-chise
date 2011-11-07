@@ -2537,11 +2537,12 @@
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (=>>ucs@cns		. #x53A9)	; &G-J78-3139;
-    (=>>jis-x0208@1978	. #x3139)	; &G-J78-3139; [17-25]
-    (=>>daikanwa	. 03006)	; &G-J78-3139;
-    (=>>hanyo-denshi/ft . #x315A)	; &G-J78-3139; [17-58]
-    (=>>hanyo-denshi/ks . 034790)	; &G-J78-3139;
+    (=>>ucs@cns		. #x53A9)	; &G-GT-03810;
+    (=>>jis-x0208@1978	. #x3139)	; &G-GT-03810; [17-25]
+    (=>>gt		. 03810)	; &G-GT-03810;
+    (=>>daikanwa	. 03006)	; &G-GT-03810;
+    (=>>hanyo-denshi/ft . #x315A)	; &G-GT-03810; [17-58]
+    (=>>hanyo-denshi/ks . 034790)	; &G-GT-03810;
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x53A9)	; 厩
@@ -2557,7 +2558,9 @@
        ((=ucs@unicode	    . #x65E3)	; &M-13724;
 	(=daikanwa	    . 13724)	; &M-13724;
 	))
-      (=daikanwa	  . 03006)	; 厩󠄉
+      (=gt		  . 03810)	; 厩󠄉
+      (=gt-pj-2		  . #x4B2A)	; 厩󠄉 [43-10]
+      (=daikanwa	  . 03006)	; &I-M-03006;
       (=hanyo-denshi/ks	  . 034790)	; 厩󠄉
       (=hanyo-denshi/ks/mf . #x0D97)	; &I-KSMF-03479;
       )
