@@ -1,3 +1,21 @@
+2011-11-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R044-Corpse.el: Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R035-Go-Slowly.el (mother of C2-6545): Unify G-CU+5912
+	and G-M-05741.
+	(C2-6545): Unify CU+5912.
+	(JSP-3863): Unify AJ1-21372.
+	(mother of C4-5F52): Unify G-CU+5913 and G-M-05744.
+	(C4-5F52): Unify CU+5913.
+	(JSP-3864): Unify AJ1-21373.
+
+2011-11-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el: Add Hanyo-Denshi/HG code points.
+
+	* Ideograph-R149-Speech.el: Add Hanyo-Denshi/HG code points.
+
 2011-11-05  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R063-Door.el: Add some Adobe-Japan1-5 code points.
