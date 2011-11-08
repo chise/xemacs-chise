@@ -1,5 +1,83 @@
 2011-11-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R187-Horse.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+	(U+99C8): Add `<-vulgar' for J78-715C.
+	(U+99CF): Use `->subsumptive' to separate representative nodes.
+	(U+4B84): Likewise.
+	(U+99D6): Use `->subsumptive'.
+	(U-000298A1): Use `->denotational' instead of `->subsumptive'.
+	(M-44690): Unify U-000298AB.
+	(M-44691): Unify U-000298A8 and CB02801.
+	(M-44692): Unify U-000298AA.
+	(U+99E2): Add `<-vulgar@daikanwa' for K0-5C40; add
+	`<-vulgar@shinjigen/1ed' for C3-596A.
+	(U+99EC): Use `->subsumptive' to separate representative nodes.
+	(U+4B8D): Likewise.
+	(U+99F3): Use `->denotational' and `->subsumptive'.
+	(U-000298D8): Use `->subsumptive' to separate representative
+	nodes.
+	(U+4B91): Use `->denotational' to separate representative nodes.
+	(U+99F9): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+9A02): Use `->subsumptive' to separate representative nodes.
+	(U+9A03): Likewise.
+	(U-000298ED): Integrate M-44785.
+	(U+9A08): Use `->subsumptive'.
+	(U+4B95): Use `->subsumptive' to separate representative nodes.
+	(U-00029901): Likewise.
+	(U+4B9C): Likewise.
+	(U+9A15): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U-0002991C): Use `->denotational' instead of `->subsumptive'.
+	(U+9A27): Use `->denotational' to separate representative nodes.
+	(U+9A2A): Use `->subsumptive' to separate representative nodes.
+	(U-0002993D): Likewise.
+	(U+4BA5): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+9A2D): Use `->subsumptive' to separate representative nodes.
+	(U-00029945): Use `->denotational' instead of `->subsumptive'.
+	(U-0002995C): Integrate M-44909.
+	(U+9A2F): Use `->subsumptive' to separate representative nodes.
+	(U+4BAB): Likewise.
+	(U+9A47): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U-0002996B): Use `->subsumptive' to separate representative
+	nodes.
+	(U+4BAC): Use `->denotational' instead of `->subsumptive'.
+	(A-C7-564E): New node.
+	(U-00029974): Add `<-denotational' for A-C7-564E; add `<-same' for
+	U-00029984.
+	(U+9A46): Use `->denotational' to separate representative nodes.
+	(U+9A3A): Use `->subsumptive' to separate representative nodes.
+	(U+9A49): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U-00029984): Add `<-denotational' for A-C7-564E; add `<-same' for
+	U-00029974; add `->formed' for M-45064 and M-45091; add `->same'
+	for U-00029974.
+	(U+9A56): Use `->denotational' to separate representative nodes.
+	(U-000299B5): New character.
+	(U-000299B6): Use `->denotational' instead of `->subsumptive'.
+	(U-000299A1): Use `->subsumptive' to separate representative
+	nodes.
+	(U+9A5E): Likewise.
+	(U+4BBC): Likewise.
+	(U+9A5F): Use `->denotational' and `->subsumptive'.
+	(M-45053): Unify GT-60645.
+	(U-000299CB): Use `->subsumptive' to separate representative
+	nodes.
+	(U+9A60): Likewise.
+	(U-000299D2): New character.
+	(U+4BBF): Use `->subsumptive' to separate representative nodes.
+	(M-45089): Unify U-000299DC.
+	(M-45089'): Unify GT-60691.
+	(U+4BC1): Use `->denotational' to separate representative nodes.
+	(U+4BC2): Use `->subsumptive' to separate representative nodes.
+
+2011-11-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R027-Cliff.el (HD-KS034790): Unify GT-03810.
+
 	* Ideograph-R046-Mountain.el: Add Hanyo-Denshi/KS code points.
 
 	* Ideograph-R037-Big.el, Ideograph-R032-Earth.el: Add some
