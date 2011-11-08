@@ -4235,6 +4235,18 @@
     (=ucs		. #x22FE5)	; 𢿥
     (=cns11643-7	. #x2E4B)	; &I-C7-2E4B; [14-43]
     (=daikanwa		. 13385)	; &I-M-13385;
+    (=shinjigen		.  3089)	; 𢿥
+    (<-formed
+     ((=ucs@unicode	  . #x64AD)	; &GT-16123;
+      (=jis-x0208	  . #x4745)	; &GT-16123; [39-37]
+      (=gb2312		  . #x3225)	; &I-G0-3225; [18-05]
+      (=ks-x1001	  . #x776B)	; &I-K0-776B; [87-75]
+      (=jis-x0213-1	  . #x4745)	; &I-JX1-4745; [39-37]
+      (=daikanwa	  . 12747)	; &I-M-12747;
+      (=shinjigen	  .  3088)	; &GT-16123;
+      ))
+    (<-formed*sources
+     shinjigen)
     ))
 (define-char
   '((=>ucs		. #x3AA8)	; 㪨
