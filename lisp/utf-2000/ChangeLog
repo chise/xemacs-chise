@@ -74,7 +74,21 @@
 	(U+4BC1): Use `->denotational' to separate representative nodes.
 	(U+4BC2): Use `->subsumptive' to separate representative nodes.
 
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x4D2C.
+
+	* Ideograph-R061-Heart.el: Add some Adobe-Japan1-5 code points.
+
 2011-11-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R066-Rap.el (U-00022FE5): Unify S-3089; add `<-formed'
+	for J0-4745.
+
+	* Ideograph-R062-Halberd.el: Add some Adobe-Japan1-5 code points.
+	(U+39B8): Integrate M-11606'.
+	(M-11607): Map to U-000229C9.
+	(M-11613): Map to U-000229CF.
+	(M-11621): Unify U-000229D7 and H4-CC65.
 
 	* Ideograph-R027-Cliff.el (HD-KS034790): Unify GT-03810.
 
