@@ -2748,7 +2748,10 @@
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (=daikanwa		. 30734)	; &M-30734;
+    (=gt		. 39842)	; &GT-39842;
+    (=gt-k		. 03652)	; &I-GT-K03652;
+    (=gt-pj-6		. #x4766)	; &GT-39842; [39-70]
+    (=daikanwa		. 30734)	; &I-M-30734;
     (=jef-china3	. #x61CB)	; &I-JC3-61CB;
     ))
 (define-char
