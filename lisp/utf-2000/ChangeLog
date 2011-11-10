@@ -1,3 +1,11 @@
+2011-11-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (M-30734): Unify GT-39842 and GT-K03652.
+
+2011-11-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R050-Turban.el (K0-633C): Unify KU+5E02.
+
 2011-11-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R187-Horse.el: Add mappings between CJK Ext-B and CNS
