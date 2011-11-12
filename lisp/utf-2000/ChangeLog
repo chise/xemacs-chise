@@ -1,4 +1,12 @@
+2011-11-10  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (U+503F): Use `->subsumptive' to separate
+	representative nodes.
+
 2011-11-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R124-Feather.el (U+7FE3): Use `->denotational' and
+	`->subsumptive'.
 
 	* Ideograph-R140-Grass.el (M-30734): Unify GT-39842 and GT-K03652.
 
