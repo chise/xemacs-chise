@@ -1,5 +1,22 @@
 2011-11-10  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R064-Hand.el: Add some Adobe-Japan1-5 code points.
+	(A-M-12349): New node.
+	(U+63D4): Add `<-denotational' for A-M-12349.
+	(CB01628): Use `<-denotational' for A-M-12349 instead of `=>ucs'
+	for U+63D4.
+	(B-DDAF): Separate from U+6435.
+	(U+6435): Use `<-denotational' for B-DDAF.
+	(U+63FE): Add `<-denotational' for B-DDAF.
+	(U-00022E00): Integrate M-12975' and GT-16410.
+	(CB01290): Map to U-00022E4C.
+	(M-13054): Map to U+3A78.
+	(A-M-13056): New node.
+	(M-13056): Add `<-denotational' for A-M-13056.
+	(U-00022EAB): Likewise.
+
+	* Ideograph-R038-Woman.el: Add some Adobe-Japan1-6 code points.
+
 	* Ideograph-R009-Man.el (U+503F): Use `->subsumptive' to separate
 	representative nodes.
 
