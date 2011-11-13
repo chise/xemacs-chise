@@ -9610,6 +9610,7 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (=ucs@ks		. #x9032)	; &M-38943;
     (=ks-x1001		. #x7264)	; &M-38943; [82-68]
     (=daikanwa		. 38943)	; &I-M-38943;
     (=jef-china3	. #x67D1)	; &I-JC3-67D1;
@@ -13522,6 +13523,7 @@
      ((=ucs		  . #xE0103)	; 󠄃
       ))
     (=ucs@jis/2004	. #x905C)	; 遜󠄃
+    (=ucs@ks		. #x905C)	; 遜󠄃
     (=jis-x0208@1978	. #x423D)	; 遜󠄃 [34-29]
     (=ks-x1001		. #x6161)	; &I-K0-6161; [65-65]
     (=jis-x0213-1@2004	. #x423D)	; &I-JX3-423D; [34-29]
@@ -13535,6 +13537,7 @@
      shuowen-tongxundingsheng shangshu shangshu-zhuan daikanwa)
     (->formed
      ((=ucs@jis		  . #x5B6B)	; &GT-08784;
+      (=ucs@ks		  . #x5B6B)	; &GT-08784;
       (=jis-x0208	  . #x4239)	; &GT-08784; [34-25]
       (=ks-x1001	  . #x615D)	; &I-K0-615D; [65-61]
       (=jis-x0213-1	  . #x4239)	; &I-JX1-4239; [34-25]
@@ -13576,6 +13579,7 @@
       (=jef-china3	  . #x70F7)	; &I-JC3-70F7;
       (<-simplified@JP/extra
        ((=ucs@jis/2004	    . #x905C)	; 遜󠄃
+	(=ucs@ks	    . #x905C)	; 遜󠄃
 	(=jis-x0208@1978    . #x423D)	; 遜󠄃 [34-29]
 	(=ks-x1001	    . #x6161)	; &I-K0-6161; [65-65]
 	(=jis-x0213-1@2004  . #x423D)	; &I-JX3-423D; [34-29]
@@ -17421,7 +17425,8 @@
     (=cns11643-7	. #x4A77)	; &I-C7-4A77; [42-87]
     (=daikanwa		. 39142)	; &I-M-39142;
     (<-ancient
-     ((=ks-x1001	  . #x7264)	; &M-38943; [82-68]
+     ((=ucs@ks		  . #x9032)	; &M-38943;
+      (=ks-x1001	  . #x7264)	; &M-38943; [82-68]
       (=daikanwa	  . 38943)	; &I-M-38943;
       ))
     (<-ancient*sources
@@ -21542,7 +21547,8 @@
     (total-strokes	 . 24)
     (=daikanwa		. 39262)	; &M-39262;
     (<-ancient
-     ((=ks-x1001	  . #x7264)	; &M-38943; [82-68]
+     ((=ucs@ks		  . #x9032)	; &M-38943;
+      (=ks-x1001	  . #x7264)	; &M-38943; [82-68]
       (=daikanwa	  . 38943)	; &I-M-38943;
       ))
     (<-ancient*sources
