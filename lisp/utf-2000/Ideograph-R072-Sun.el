@@ -8756,7 +8756,28 @@
     (=ucs		. #x66E2)	; 曢
     ))
 (define-char
-  '((=>ucs		. #x66E2)	; 曢
+  '((<-denotational
+     ((=ucs		  . #x66E2)	; 曢
+      ))
+    (ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 15)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((=ucs@unicode	  . #x5BEE)	; &C1-6C4E;
+      (=gb2312		  . #x653C)	; &C1-6C4E; [69-28]
+      (=cns11643-1	  . #x6C4E)	; &I-C1-6C4E; [76-46]
+      ))
+    (=ucs@unicode	. #x66E2)	; &UU+66E2;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x66E2)	; 曢
+      ))
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 15)
     (total-strokes	 . 19)
@@ -8767,6 +8788,7 @@
      ((=ucs		  . #x65E5)	; 日
       )
      ((=ucs@jis		  . #x5BEE)	; &GT-09238;
+      (=ucs@ks		  . #x5BEE)	; &GT-09238;
       (=jis-x0208	  . #x4E40)	; &GT-09238; [46-32]
       (=ks-x1001	  . #x5677)	; &I-K0-5677; [54-87]
       (=jis-x0213-1	  . #x4E40)	; &I-JX1-4E40; [46-32]
