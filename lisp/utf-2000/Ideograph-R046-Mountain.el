@@ -2670,28 +2670,7 @@
     (=daikanwa		. 08074)	; &I-M-08074;
     ))
 (define-char
-  '((=>ucs		. #x21DD7)	; 𡷗
-    (ideographic-radical . 46)	; ⼭
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5C71)	; 山
-      )
-     ((=ucs@jis		  . #x5B8C)	; &GT-08898;
-      (=jis-x0208	  . #x3430)	; &GT-08898; [20-16]
-      (=ks-x1001	  . #x6847)	; &I-K0-6847; [72-39]
-      (=jis-x0213-1	  . #x3430)	; &I-JX1-3430; [20-16]
-      (=daikanwa	  . 07079)	; &I-M-07079;
-      ))
-    (=daikanwa		. 08075)	; &M-08075;
-    (=cbeta		. 05744)	; &I-CB05744;
-    ))
-(define-char
-  '((morohashi-daikanwa	8075 0 0)
-    (ideographic-radical . 46)	; ⼭
+  '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (ideographic-structure
@@ -2703,7 +2682,36 @@
      ((=ucs		  . #x5B8C)	; 完
       ))
     (=ucs		. #x21DD7)	; 𡷗
-    (=cns11643-4	. #x2C52)	; &I-C4-2C52; [12-50]
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x5C71)	; 山
+	)
+       ((=ucs@jis	    . #x5B8C)	; &GT-08898;
+	(=ucs@ks	    . #x5B8C)	; &GT-08898;
+	(=jis-x0208	    . #x3430)	; &GT-08898; [20-16]
+	(=ks-x1001	    . #x6847)	; &I-K0-6847; [72-39]
+	(=jis-x0213-1	    . #x3430)	; &I-JX1-3430; [20-16]
+	(=daikanwa	    . 07079)	; &I-M-07079;
+	))
+      (=daikanwa	  . 08075)	; &M-08075;
+      (=cbeta		  . 05744)	; &I-CB05744;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x5C71)	; 山
+	)
+       ((=ucs@unicode	    . #x5B8C)	; &C1-4979;
+	(=gb2312	    . #x4D6A)	; &C1-4979; [45-74]
+	(=cns11643-1	    . #x4979)	; &I-C1-4979; [41-89]
+	))
+      (=ucs@iso		  . #x21DD7)	; &C4-2C52;
+      (=cns11643-4	  . #x2C52)	; &C4-2C52; [12-50]
+      ))
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
