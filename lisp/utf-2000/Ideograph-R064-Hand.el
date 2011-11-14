@@ -19457,9 +19457,9 @@
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (=>>ucs@unicode	. #x64ED)	; &G-AJ1-19421;
-    (=>>>ucs@unicode	. #x64ED)	; &G-AJ1-19421;
-    (=>>>adobe-japan1	. 19421)	; &G-AJ1-19421;
+    (=>>ucs@unicode	. #x64ED)	; &g2-AJ1-19421;
+    (=>>>ucs@unicode	. #x64ED)	; &g2-AJ1-19421;
+    (=>>>adobe-japan1	. 19421)	; &g2-AJ1-19421;
     (->subsumptive
      ((=ucs@jis		  . #x64ED)	; &AJ1-19421;
       (=jis-x0212	  . #x412F)	; &AJ1-19421; [33-15]
