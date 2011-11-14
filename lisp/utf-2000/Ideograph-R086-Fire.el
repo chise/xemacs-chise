@@ -8826,6 +8826,7 @@
        ((=gt-k		    . 00405)	; &GT-K00405;
 	)
        ((=ucs@jis	    . #x5BAE)	; &GT-08989;
+	(=ucs@ks	    . #x5BAE)	; &GT-08989;
 	(=jis-x0208	    . #x355C)	; &GT-08989; [21-60]
 	(=ks-x1001	    . #x4F60)	; &I-K0-4F60; [47-64]
 	(=jis-x0213-1	    . #x355C)	; &I-JX1-355C; [21-60]
@@ -14497,7 +14498,9 @@
     (=ucs		. #x720E)	; 爎
     ))
 (define-char
-  '((=>ucs		. #x720E)	; 爎
+  '((<-denotational
+     ((=ucs		  . #x720E)	; 爎
+      ))
     (ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 15)
     (total-strokes	 . 19)
@@ -14505,9 +14508,27 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x706B)	; 火
+     ((=gt-k		  . 00405)	; &GT-K00405;
+      )
+     ((=ucs		  . #x5BEE)	; 寮
+      ))
+    (=ucs@unicode	. #x720E)	; &UU+720E;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x720E)	; 爎
+      ))
+    (ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 15)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 00405)	; &GT-K00405;
       )
      ((=ucs@jis		  . #x5BEE)	; &GT-09238;
+      (=ucs@ks		  . #x5BEE)	; &GT-09238;
       (=jis-x0208	  . #x4E40)	; &GT-09238; [46-32]
       (=ks-x1001	  . #x5677)	; &I-K0-5677; [54-87]
       (=jis-x0213-1	  . #x4E40)	; &I-JX1-4E40; [46-32]
