@@ -2365,7 +2365,12 @@
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=>>ucs@unicode	. #x59BE)	; &G-UU+59BE;
+    (=>>ucs@unicode	. #x59BE)	; &G-GT-07757;
+    (=>>jis-x0208	. #x3E2A)	; &G-GT-07757; [30-10]
+    (=>>jis-x0213-1	. #x3E2A)	; &G-GT-07757; [30-10]
+    (=>>gt		. 07757)	; &G-GT-07757;
+    (=>>gt-k		. 03742)	; &G-GT-07757;
+    (=>>daikanwa	. 06147)	; &G-GT-07757;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -3742,7 +3747,21 @@
     (=>>daikanwa	. 06209)	; &G-AJ1-19310;
     (=>>adobe-japan1	. 19310)	; &G-AJ1-19310;
     (->subsumptive
-     ((=>>>ucs@unicode	  . #x59DF)	; &g2-UU+59DF;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs@unicode	    . #x5973)	; &GT-07623;
+	(=jis-x0208	    . #x3D77)	; &GT-07623; [29-87]
+	(=gb2312	    . #x452E)	; &I-G0-452E; [37-14]
+	(=ks-x1001	    . #x5233)	; &I-K0-5233; [50-19]
+	(=jis-x0213-1	    . #x3D77)	; &I-JX1-3D77; [29-87]
+	(=daikanwa	    . 06036)	; &I-M-06036;
+	)
+       ((=>>jis-x0208	    . #x3067)	; &G-GT-00387; [16-71]
+	))
+      (=>>>ucs@unicode	  . #x59DF)	; &g2-AJ1-19310;
+      (=>>>adobe-japan1	  . 19310)	; &g2-AJ1-19310;
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -4586,6 +4605,7 @@
 	(=daikanwa	    . 06036)	; &I-M-06036;
 	)
        ((=ucs@jis	    . #x5B85)	; &GT-08889;
+	(=ucs@ks	    . #x5B85)	; &GT-08889;
 	(=jis-x0208	    . #x4270)	; &GT-08889; [34-80]
 	(=ks-x1001	    . #x536B)	; &I-K0-536B; [51-75]
 	(=jis-x0213-1	    . #x4270)	; &I-JX1-4270; [34-80]
@@ -6660,7 +6680,8 @@
     (->subsumptive
      ((=ucs@jis		  . #x5A30)	; &AJ1-21409;
       (=jis-x0212	  . #x395A)	; &AJ1-21409; [25-58]
-      (=gt-pj-2		  . #x6B3D)	; &AJ1-21409; [75-29]
+      (=gt		  . 07934)	; &I-GT-07934;
+      (=gt-pj-2		  . #x6B3D)	; &I-GT-07934; [75-29]
       (=daikanwa	  . 06354)	; &I-M-06354;
       (=jef-china3	  . #x49BE)	; &I-JC3-49BE;
       (=adobe-japan1-6	  . 21409)	; &I-AJ1-21409;
