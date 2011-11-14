@@ -1,3 +1,17 @@
+2011-11-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R086-Fire.el (U+720E): Use `->denotational'.
+
+	* Ideograph-R075-Tree.el (U+6900): Add ideographic-structure.
+	(U+6A12): Likewise.
+
+	* Ideograph-R072-Sun.el (U+66E2): Use `->denotational'.
+
+	* Ideograph-R046-Mountain.el (U-00021DD7): Use `->subsumptive'.
+
+	* Ideograph-R005-Second.el (K0-6A61): Modify a component of
+	`ideographic-structure'.
+
 2011-11-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R188-Bone.el: Add mappings between CJK Ext-B and CNS
