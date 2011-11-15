@@ -1,3 +1,20 @@
+2011-11-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* ruimoku6.el (RUI6-E04F): Add `<-subsumptive' for G-RUI6-E04F.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>>>gt', `=>>>adobe-japan1' and `=>>adobe-japan1'.
+
+	* Ideograph-R108-Dish.el (G-RUI6-E04F): New node.
+	(RUI6-E04F): Copied from ruimoku6.el.
+
+	* Ideograph-R038-Woman.el (G-UU+59BE): Unify G-J0-3E2A,
+	G-GT-07757, G-GT-K03742 and G-M-06147.
+	(g2-UU+59DF): Unify g2-AJ1-19310; add ideographic-structure.
+	(JSP-395A): Unify GT-07934.
+
+	* Ideograph-R030-Mouth.el (g2-UU+54B9): Unify g2-AJ1-14384.
+
 2011-11-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R086-Fire.el (U+720E): Use `->denotational'.
