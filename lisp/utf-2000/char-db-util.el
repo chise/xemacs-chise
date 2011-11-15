@@ -177,6 +177,8 @@
     =>>>jis-x0208
     =>>>jis-x0213-1
     =>>>jis-x0213-2
+    =>>>gt
+    =>>>adobe-japan1
     =>>jis-x0208
     =>>jis-x0213-1
     =>>jis-x0213-1@2000
@@ -187,6 +189,7 @@
     =>>hanyo-denshi/ks
     =>>gt
     =>>daikanwa
+    =>>adobe-japan1
     =+>jis-x0208
     =+>jis-x0213-1
     =+>jis-x0213-2
