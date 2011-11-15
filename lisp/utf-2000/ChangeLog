@@ -1,5 +1,7 @@
 2011-11-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R040-Roof.el: Add some Adobe-Japan1-6 code points.
+
 	* ruimoku6.el (RUI6-E04F): Add `<-subsumptive' for G-RUI6-E04F.
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
