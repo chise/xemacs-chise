@@ -1,3 +1,17 @@
+2011-11-15  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R189-Tall.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+	(M-45327): Map to U-00029ACD.
+	(M-45353): Map to U-00029AF2.
+
+	* Ideograph-R039-Child.el: Add some Adobe-Japan1-6 code points.
+	(U+5B75): Use `->denotational'.
+	(U-00021998): Add `<-vulgar' for U+5B7A.
+	(U-000219A2): Use `->denotational'.
+	(U+3747): Use `->subsumptive' to separate representative nodes.
+	(U+5B79): Likewise.
+
 2011-11-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R040-Roof.el: Add some Adobe-Japan1-6 code points.
