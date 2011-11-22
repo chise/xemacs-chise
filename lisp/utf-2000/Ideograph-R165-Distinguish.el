@@ -26,7 +26,12 @@
     (ideographic-radical . 165)	; ⾤
     (ideographic-strokes . 1)
     (total-strokes	 . 8)
-    (=jis-x0208@1978	. #x3A53)	; &GT-53945; [26-51]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x91C7)	; 采
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
+    (=jis-x0208@1978	. #x3A53)	; 采󠄃 [26-51]
     (=ks-x1001		. #x737A)	; &I-K0-737A; [83-90]
     (=gt		. 53945)	; &I-GT-53945;
     (=gt-pj-7		. #x6353)	; &I-GT-53945; [67-51]
