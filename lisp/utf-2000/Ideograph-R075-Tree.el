@@ -29137,8 +29137,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x96B1)	; &UU+96B1;
-      (=gb12345		  . #x527E)	; &UU+96B1; [50-94]
+     ((=ucs@unicode	  . #x96B1)	; &HD-FT-3A61;
+      (=gb12345		  . #x527E)	; &HD-FT-3A61; [50-94]
       )
      ((=ucs		  . #x6728)	; 木
       ))
