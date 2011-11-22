@@ -1,3 +1,22 @@
+2011-11-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R170-Mound.el: Add Hanyo-Denshi/FT code points.
+
+	* Ideograph-R167-Gold.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/FT characters.
+
+	* Ideograph-R165-Distinguish.el (HD-FT1807): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R164-Wine.el (HD-FT1819): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R009-Man.el (U+344F): Add ideographic-structure.
+	(U+4FD5): Likewise.
+	(U-000202EA): Likewise.
+	(U+347B): Likewise.
+	(G-UU+20459): New node.
+
 2011-11-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R190-Hair.el: Add mappings between CJK Ext-B and CNS
