@@ -7263,7 +7263,7 @@
     (->subsumptive
      ((=>>>ucs@unicode	  . #x60D4)	; &g2-JX1-7454;
       (=>>>jis-x0213-1	  . #x7454)	; &g2-JX1-7454; [84-52]
-      (=>>>adobe-japan1	  . 16866)	; &g2-JX1-7454;
+      (=>>>adobe-japan1-5 . 16866)	; &g2-JX1-7454;
       (->subsumptive
        ((=ucs@jis	    . #x60D4)	; &AJ1-16866;
 	(=jis-x0212	    . #x3E2B)	; &AJ1-16866; [30-11]
