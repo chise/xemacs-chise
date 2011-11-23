@@ -663,7 +663,7 @@
     (total-strokes	 . 7)
     (=>>>ucs@unicode	. #x5B90)	; &g2-AJ1-21432;
     (=>>daikanwa	. 07089)	; &g2-AJ1-21432;
-    (=>>>adobe-japan1	. 21432)	; &g2-AJ1-21432;
+    (=>>>adobe-japan1-6 . 21432)	; &g2-AJ1-21432;
     (->subsumptive
      ((=ucs@jis		  . #x5B90)	; &AJ1-21432;
       (=jis-x0212	  . #x3A4C)	; &AJ1-21432; [26-44]
@@ -1561,7 +1561,7 @@
      ((=daikanwa	  . 07140)	; &M-07140;
       )
      ((=>>>ucs@unicode	  . #x5BA8)	; &g2-AJ1-21435;
-      (=>>>adobe-japan1	  . 21435)	; &g2-AJ1-21435;
+      (=>>>adobe-japan1-6 . 21435)	; &g2-AJ1-21435;
       (->subsumptive
        ((=ucs@jis	    . #x5BA8)	; &AJ1-21435;
 	(=jis-x0212	    . #x3A51)	; &AJ1-21435; [26-49]
@@ -2386,7 +2386,7 @@
     (=ucs		. #x5BBA)	; 宺
     (->subsumptive
      ((=>>>ucs@unicode	  . #x5BBA)	; &g2-AJ1-21441;
-      (=>>>adobe-japan1	  . 21441)	; &g2-AJ1-21441;
+      (=>>>adobe-japan1-6 . 21441)	; &g2-AJ1-21441;
       (->subsumptive
        ((=ucs@jis	    . #x5BBA)	; &AJ1-21441;
 	(=jis-x0212	    . #x3A59)	; &AJ1-21441; [26-57]
