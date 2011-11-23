@@ -161,6 +161,7 @@
     (=daikanwa		. 05469)	; &I-M-05469;
     (=shinjigen		.  1488)	; 墨
     (=jef-china3	. #x47DC)	; &I-JC3-47DC;
+    (=adobe-japan1-4	. 13387)	; &I-AJ1-13387;
     ))
 (define-char
   '((ideographic-radical . 203)	; ⿊
