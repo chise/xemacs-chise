@@ -3761,7 +3761,7 @@
        ((=>>jis-x0208	    . #x3067)	; &G-GT-00387; [16-71]
 	))
       (=>>>ucs@unicode	  . #x59DF)	; &g2-AJ1-19310;
-      (=>>>adobe-japan1	  . 19310)	; &g2-AJ1-19310;
+      (=>>>adobe-japan1-5 . 19310)	; &g2-AJ1-19310;
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
