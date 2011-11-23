@@ -1,4 +1,43 @@
+2011-11-23  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el: Use `=>>>adobe-japan1-6' instead of
+	`=>>>adobe-japan1'.
+
 2011-11-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R203-Black.el (JX1-2F5E): Unify AJ1-13387.
+
+	* Ideograph-R191-Fight.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+
+	* Ideograph-R169-Gate.el (U+95E4): Use `->denotational' and
+	`->subsumptive' to separate representative nodes.
+	(U+95E5): Use `->denotational' and `->subsumptive'.
+	(GT-55771): Unify HD-FT2661.
+
+	* Ideograph-R061-Heart.el (g2-AJ1-16866): Use `=>>>adobe-japan1-5'
+	instead of `=>>>adobe-japan1'.
+
+	* Ideograph-R038-Woman.el (g2-AJ1-19310): Use `=>>>adobe-japan1-5'
+	instead of `=>>>adobe-japan1'.
+
+	* Ideograph-R019-Power.el (G-JU+52E2): Unify G-KU+52E2, G-CU+52E2,
+	G-GT-K10228, G-M-02422 and G-AJ1-02638.
+	(K0-6127): Unify KU+52E2.
+	(C1-633C): Unify CU+52E2.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=+>adobe-japan1'.
+	(char-db-insert-ccs-feature): Add setting for
+	`=>>>adobe-japan1-{0..6}'.
+
+	* maps-conf.el: Add code to convert `=>>>adobe-japan1' to
+	`=>>>adobe-japan1-{0..6}'.
+
+2011-11-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R192-Sacrificial-Wine.el: Add mappings between CJK
+	Ext-B and CNS 11643 plain 7.
 
 	* Ideograph-R043-Lame.el (AJ1-01726): Add `=decomposition@cid'.
 
