@@ -422,12 +422,12 @@
       (=daikanwa	  . 41566)	; &I-M-41566;
       (=shinjigen	  .  1355)	; &M-41566;
       (<-original
-       ((=ucs@jis	    . #x5751)	; &AJ1-01973;
-	(=jis-x0208	    . #x3923)	; &AJ1-01973; [25-03]
+       ((=ucs@jis	    . #x5751)	; 坑󠄀
+	(=jis-x0208	    . #x3923)	; 坑󠄀 [25-03]
 	(=ks-x1001	    . #x4B55)	; &I-K0-4B55; [43-53]
 	(=jis-x0213-1	    . #x3923)	; &I-JX1-3923; [25-03]
 	(=daikanwa	    . 04932)	; &I-M-04932;
-	(=shinjigen	    .  1354)	; &AJ1-01973;
+	(=shinjigen	    .  1354)	; 坑󠄀
 	))
       (<-original*sources
        shinjigen)
