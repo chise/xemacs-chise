@@ -194,6 +194,7 @@
     =+>jis-x0213-1
     =+>jis-x0213-2
     =+>jis-x0208@1978
+    =+>adobe-japan1
     =>jis-x0208
     =>jis-x0208@1997
     =>jis-x0213-1
@@ -491,10 +492,14 @@
 			 =daikanwa/+p =daikanwa/+2p
 			 =gt =>>>gt =>>gt =+>gt =>gt
 			 =gt-k =>>gt-k =>gt-k
-			 =adobe-japan1-0 =adobe-japan1-1 =adobe-japan1-2
-			 =adobe-japan1-3 =adobe-japan1-4 =adobe-japan1-5
-			 =adobe-japan1-6 =>>>adobe-japan1 =>>adobe-japan1
-			 =+>adobe-japan1
+			 =adobe-japan1-0 =>>>adobe-japan1-0
+			 =adobe-japan1-1 =>>>adobe-japan1-1
+			 =adobe-japan1-2 =>>>adobe-japan1-2
+			 =adobe-japan1-3 =>>>adobe-japan1-3
+			 =adobe-japan1-4 =>>>adobe-japan1-4
+			 =adobe-japan1-5 =>>>adobe-japan1-5
+			 =adobe-japan1-6 =>>>adobe-japan1-6
+			 =>>adobe-japan1 =+>adobe-japan1
 			 =cbeta =>>cbeta
 			 =zinbun-oracle =>zinbun-oracle))
             ;; (string-match "^=adobe-" (symbol-name name))
