@@ -1,3 +1,16 @@
+2011-11-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=adobe-japan1): New alias for
+	`=adobe-japan1-6'.
+	(=>>>adobe-japan1-0): New coded-charset for XEmacs CHISE.
+	(=>>>adobe-japan1-1): Ditto.
+	(=>>>adobe-japan1-2): Ditto.
+	(=>>>adobe-japan1-3): Ditto.
+	(=>>>adobe-japan1-4): Ditto.
+	(=>>>adobe-japan1-5): Ditto.
+	(=>>>adobe-japan1-6): Ditto.
+	(=>>>adobe-japan1): Changed to alias for `=>>>adobe-japan1-6'.
+
 2011-11-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
