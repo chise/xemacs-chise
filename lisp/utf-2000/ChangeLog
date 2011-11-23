@@ -1,3 +1,7 @@
+2011-11-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R043-Lame.el (AJ1-01726): Add `=decomposition@cid'.
+
 2011-11-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R170-Mound.el: Add Hanyo-Denshi/FT code points.
