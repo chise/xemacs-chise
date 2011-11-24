@@ -1557,7 +1557,7 @@
     (=>>ucs@jis		. #x5313)	; &G-AJ1-21221;
     (=>>ucs@cns		. #x5313)	; &G-AJ1-21221;
     (=>>daikanwa	. 02556)	; &G-AJ1-21221;
-    (=>>adobe-japan1	. 21221)	; &G-AJ1-21221;
+    (=>>adobe-japan1-6	. 21221)	; &G-AJ1-21221;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5313)	; 匓
