@@ -1018,7 +1018,7 @@
     (=>>ucs@unicode	. #x5F8F)	; &G-JX2-2C36;
     (=>>jis-x0213-2	. #x2C36)	; &G-JX2-2C36; [12-22]
     (=>>daikanwa	. 10109)	; &G-JX2-2C36;
-    (=>>adobe-japan1	. 17614)	; &G-JX2-2C36;
+    (=>>adobe-japan1-5	. 17614)	; &G-JX2-2C36;
     (=>>hanyo-denshi/jb . #x3D2B)	; &G-JX2-2C36; [29-11]
     (->subsumptive
      ((=>>>ucs@jis	  . #x5F8F)	; &AJ1-17614;
