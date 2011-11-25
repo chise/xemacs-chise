@@ -336,7 +336,7 @@
     (=>>ucs@jis		. #x623D)	; &G-AJ1-19383;
     (=>>ucs@cns		. #x623D)	; &G-AJ1-19383;
     (=>>daikanwa	. 11711)	; &G-AJ1-19383;
-    (=>>adobe-japan1	. 19383)	; &G-AJ1-19383;
+    (=>>adobe-japan1-5	. 19383)	; &G-AJ1-19383;
     (->subsumptive
      ((=ucs@jis		  . #x623D)	; &AJ1-19383;
       (=jis-x0212	  . #x3F32)	; &AJ1-19383; [31-18]
