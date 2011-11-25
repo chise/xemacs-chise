@@ -2172,7 +2172,7 @@
     (=ucs		. #x90DE)	; 郞
     (=>>jis-x0213-1	. #x7C67)	; 郞 [92-71]
     (=>>daikanwa	. 39431)	; 郞
-    (=>>adobe-japan1	. 08635)	; 郞
+    (=>>adobe-japan1-2	. 08635)	; 郞
     (->subsumptive
      ((=ucs@jis		  . #x90DE)	; &AJ1-08635;
       (=ks-x1001	  . #x554D)	; &AJ1-08635; [53-45]
