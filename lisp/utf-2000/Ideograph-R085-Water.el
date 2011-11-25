@@ -17222,7 +17222,7 @@
     (=big5		. #xBA7E)	; &G-GT-23116;
     (=>>gt		. 23116)	; &G-GT-23116;
     (=>>daikanwa	. 18153)	; &G-GT-23116;
-    (=>>adobe-japan1	. 13332)	; &G-GT-23116;
+    (=>>adobe-japan1-4	. 13332)	; &G-GT-23116;
     (->subsumptive
      ((=>ucs*		  . #x6F22)	; 漢
       (=ucs		  . #xFA47)	; 漢
