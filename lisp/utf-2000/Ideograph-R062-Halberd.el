@@ -1327,7 +1327,7 @@
     (=>>jis-x0213-1	. #x7462)	; &G-JX1-7462; [84-66]
     (=big5		. #xB761)	; &G-JX1-7462;
     (=>>daikanwa	. 11617)	; &G-JX1-7462;
-    (=>>adobe-japan1	. 16871)	; &G-JX1-7462;
+    (=>>adobe-japan1-5	. 16871)	; &G-JX1-7462;
     (->subsumptive
      ((=daikanwa	  . 11617)	; &M-11617;
       (=jef-china3	  . #x4EF5)	; &I-JC3-4EF5;
