@@ -379,18 +379,19 @@
     (ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (=>>ucs@unicode	. #x3836)	; &g2-JX2-2871;
     (=>>>ucs@unicode	. #x3836)	; &g2-JX2-2871;
     (=>>>jis-x0213-2	. #x2871)	; &g2-JX2-2871; [08-81]
-    (=>>adobe-japan1	. 17589)	; &g2-JX2-2871;
+    (=>>>adobe-japan1-5 . 17589)	; &g2-JX2-2871;
     (=>>hanyo-denshi/jd . #x2871)	; &g2-JX2-2871; [08-81]
     (->subsumptive
      ((=ucs@jis		  . #x3836)	; &AJ1-17589;
+      (=ucs@JP/hanazono	  . nil)
       (=jis-x0213-2	  . #x2871)	; &AJ1-17589; [08-81]
       (=adobe-japan1-5	  . 17589)	; &I-AJ1-17589;
       (=hanyo-denshi/jd	  . #x2871)	; &I-HD-JD-2871; [08-81]
       )
      ((=ucs@unicode	  . #x3836)	; &UU+3836;
-      (=ucs@JP/hanazono	  . #x3836)	; &UU+3836;
       )
      ((=cns11643-3	  . #x235D)	; &C3-235D; [03-61]
       ))
@@ -1962,7 +1963,7 @@
     (=>>ucs@jis		. #x5E28)	; &G-AJ1-19340;
     (=>>ucs@cns		. #x5E28)	; &G-AJ1-19340;
     (=>>daikanwa	. 08904)	; &G-AJ1-19340;
-    (=>>adobe-japan1	. 19340)	; &G-AJ1-19340;
+    (=>>adobe-japan1-5	. 19340)	; &G-AJ1-19340;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -5607,7 +5608,7 @@
     (=>>ucs@jis		. #x5E68)	; &G-AJ1-19344;
     (=>>ucs@cns		. #x5E68)	; &G-AJ1-19344;
     (=>>daikanwa	. 09103)	; &G-AJ1-19344;
-    (=>>adobe-japan1	. 19344)	; &G-AJ1-19344;
+    (=>>adobe-japan1-5	. 19344)	; &G-AJ1-19344;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -5945,6 +5946,14 @@
     (ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      )
+     ((=>>daikanwa	  . 31555)	; &G-CU+8499;
+      ))
     (=>>ucs@cns		. #x5E6A)	; &G-CU+5E6A;
     (=>>daikanwa	. 09122)	; &G-CU+5E6A;
     (->subsumptive
@@ -5979,8 +5988,16 @@
     (ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      )
+     ((=>>jis-x0208	  . #x4C58)	; &G-GT-41753; [44-56]
+      ))
     (=>>ucs@unicode	. #x5E6A)	; &G-AJ1-19345;
-    (=>>adobe-japan1	. 19345)	; &G-AJ1-19345;
+    (=>>adobe-japan1-5	. 19345)	; &G-AJ1-19345;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
