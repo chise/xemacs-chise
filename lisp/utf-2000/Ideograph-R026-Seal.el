@@ -329,8 +329,11 @@
     (=>>jis-x0208	. #x346D)	; &G-GT-03626; [20-77]
     (=>>jis-x0213-1	. #x346D)	; &G-GT-03626; [20-77]
     (=>>gt		. 03626)	; &G-GT-03626;
+    (=>>gt-k		. 01585)	; &G-GT-03626;
     (=>>daikanwa	. 02849)	; &G-GT-03626;
-    (=>>adobe-japan1	. 01577)	; &G-GT-03626;
+    (=>>adobe-japan1-0	. 01577)	; &G-GT-03626;
+    (=>>adobe-japan1-4	. 13696)	; &G-GT-03626;
+    (=>>hanyo-denshi/ja . #x346D)	; &G-GT-03626; [20-77]
     ))
 (define-char
   '((<-denotational
@@ -1081,7 +1084,7 @@
     (=>>ucs@cns		. #x2F830)	; &G-JX1-2E71;
     (=>>jis-x0213-1	. #x2E71)	; &G-JX1-2E71; [14-81]
     (=>>daikanwa	. 02872)	; &G-JX1-2E71;
-    (=>>adobe-japan1	. 13365)	; &G-JX1-2E71;
+    (=>>adobe-japan1-4	. 13365)	; &G-JX1-2E71;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x537D)	; 卽
