@@ -1629,7 +1629,7 @@
       )
      ((=ucs		  . #x529B)	; 力
       ))
-    (=>>adobe-japan1	. 13866)	; &G-AJ1-13866;
+    (=>>adobe-japan1-4	. 13866)	; &G-AJ1-13866;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x52E2)	; 勢
@@ -2100,7 +2100,7 @@
     (=>>ucs@unicode	. #x52C7)	; &G-AJ1-14070;
     (=big5		. #xAB69)	; &G-AJ1-14070;
     (=>>daikanwa	. 02360)	; &G-AJ1-14070;
-    (=>>adobe-japan1	. 14070)	; &G-AJ1-14070;
+    (=>>adobe-japan1-4	. 14070)	; &G-AJ1-14070;
     (=>>hanyo-denshi/jt . #xAE37)	; &G-AJ1-14070;
     (->subsumptive
      ((=>ucs*		  . #x52C7)	; 勇
@@ -2215,11 +2215,13 @@
       )
      ((=ucs		  . #x529B)	; 力
       ))
+    (=>>ucs@unicode	. #x52C9)	; &g2-JX1-2E63;
+    (=>>ucs@jis		. #xFA33)	; &g2-JX1-2E63;
     (=>>>ucs@unicode	. #x52C9)	; &g2-JX1-2E63;
     (=>>>ucs@jis	. #xFA33)	; &g2-JX1-2E63;
     (=>>>jis-x0213-1	. #x2E63)	; &g2-JX1-2E63; [14-67]
     (=big5		. #xAB6A)	; &g2-JX1-2E63;
-    (=>>adobe-japan1	. 13385)	; &g2-JX1-2E63;
+    (=>>>adobe-japan1-4 . 13385)	; &g2-JX1-2E63;
     (->subsumptive
      ((=>ucs*		  . #x52C9)	; 勉
       (=ucs		  . #xFA33)	; 勉
@@ -3613,7 +3615,7 @@
     (=>>ucs@jis		. #x52DC)	; &G-AJ1-21213;
     (=>>daikanwa	. 02408)	; &G-AJ1-21213;
     (=>>cbeta		. 05798)	; &G-AJ1-21213;
-    (=>>adobe-japan1	. 21213)	; &G-AJ1-21213;
+    (=>>adobe-japan1-6	. 21213)	; &G-AJ1-21213;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x52DC)	; 勜
@@ -3738,7 +3740,8 @@
     (=>>jis-x0208	. #x3E21)	; &G-GT-03095; [30-01]
     (=>>jis-x0213-1	. #x3E21)	; &G-GT-03095; [30-01]
     (=>>gt		. 03095)	; &G-GT-03095;
-    (=>>adobe-japan1	. 02441)	; &G-GT-03095;
+    (=>>gt-k		. 09249)	; &G-GT-03095;
+    (=>>adobe-japan1-0	. 02441)	; &G-GT-03095;
     (->subsumptive
      ((script		JP Jouyou Ideograph)
       (=decomposition@cid
@@ -4275,7 +4278,7 @@
     (=>>gt		. 03115)	; &G-GT-03115;
     (=>>gt-k		. 10228)	; &G-GT-03115;
     (=>>daikanwa	. 02422)	; &G-GT-03115;
-    (=>>adobe-japan1	. 02638)	; &G-GT-03115;
+    (=>>adobe-japan1-0	. 02638)	; &G-GT-03115;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x52E2)	; 勢
@@ -4380,7 +4383,7 @@
     (=>>jis-x0213-1	. #x2E68)	; &G-JX1-2E68; [14-72]
     (=big5		. #xB6D4)	; &G-JX1-2E68;
     (=>>daikanwa	. 02424)	; &G-JX1-2E68;
-    (=>>adobe-japan1	. 13338)	; &G-JX1-2E68;
+    (=>>adobe-japan1-4	. 13338)	; &G-JX1-2E68;
     (->subsumptive
      ((=>ucs*		  . #x52E4)	; 勤
       (=decomposition@cid
@@ -5949,11 +5952,13 @@
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 17)
     (total-strokes	 . 19)
+    (=>>ucs@unicode	. #x52F8)	; &g2-J0-5230;
     (=>>>ucs@unicode	. #x52F8)	; &g2-J0-5230;
     (=>>>jis-x0208	. #x5230)	; &g2-J0-5230; [50-16]
     (=>>>jis-x0213-1	. #x5230)	; &g2-J0-5230; [50-16]
     (=>>>gt		. 03191)	; &g2-J0-5230;
-    (=>>adobe-japan1	. 04293)	; &g2-J0-5230;
+    (=>>>adobe-japan1-0 . 04293)	; &g2-J0-5230;
+    (=>>hanyo-denshi/ja . #x5230)	; &g2-J0-5230; [50-16]
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x52F8)	; 勸
