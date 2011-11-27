@@ -3031,10 +3031,10 @@
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 19)
     (total-strokes	 . 21)
-    (=>>ucs@jis		. #x5164)	; &G-AJ1-08394;
-    (=>>>ucs@jis	. #x5164)	; &G-AJ1-08394;
-    (=>>daikanwa	. 01412)	; &G-AJ1-08394;
-    (=>>adobe-japan1	. 08394)	; &G-AJ1-08394;
+    (=>>ucs@jis		. #x5164)	; &g2-AJ1-08394;
+    (=>>>ucs@jis	. #x5164)	; &g2-AJ1-08394;
+    (=>>daikanwa	. 01412)	; &g2-AJ1-08394;
+    (=>>>adobe-japan1-2 . 08394)	; &g2-AJ1-08394;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5164)	; 兤
