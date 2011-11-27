@@ -1936,7 +1936,7 @@
     (=>>ucs@unicode	. #x5B7D)	; &g2-JX1-4F57;
     (=>>>ucs@unicode	. #x5B7D)	; &g2-JX1-4F57;
     (=>>>jis-x0213-1	. #x4F57)	; &g2-JX1-4F57; [47-55]
-    (=>>adobe-japan1	. 16834)	; &g2-JX1-4F57;
+    (=>>>adobe-japan1-5 . 16834)	; &g2-JX1-4F57;
     (=>>hanyo-denshi/jb . #x3A44)	; &g2-JX1-4F57; [26-36]
     (->subsumptive
      ((=decomposition@hanyo-denshi
