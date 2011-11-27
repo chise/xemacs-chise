@@ -1538,7 +1538,7 @@
     (=>>ucs@ks		. #x53DB)	; &G-JX3-4840;
     (=>>jis-x0213-1@2004 . #x4840)	; &G-JX3-4840; [40-32]
     (=>>daikanwa	. 03166)	; &G-JX3-4840;
-    (=>>adobe-japan1	. 07978)	; &G-JX3-4840;
+    (=>>adobe-japan1-0	. 07978)	; &G-JX3-4840;
     (=>>hanyo-denshi/ft . #x3D34)	; &G-JX3-4840; [29-20]
     (->subsumptive
      ((=decomposition@cid
@@ -1596,7 +1596,8 @@
     (=>>jis-x0208	. #x4840)	; &G-GT-04013; [40-32]
     (=>>jis-x0213-1@2000 . #x4840)	; &G-GT-04013; [40-32]
     (=>>gt		. 04013)	; &G-GT-04013;
-    (=>>adobe-japan1	. 03412)	; &G-GT-04013;
+    (=>>adobe-japan1-0	. 03412)	; &G-GT-04013;
+    (=>>hanyo-denshi/ja . #x4840)	; &G-GT-04013; [40-32]
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x53DB)	; 叛
@@ -1907,12 +1908,14 @@
       )
      ((=ucs		  . #x53C8)	; 又
       ))
-    (=>>ucs@jis/2004	. #x53DF)	; &G-JX3-5257;
-    (=>>ucs@cns		. #x53DF)	; &G-JX3-5257;
-    (=>>jis-x0213-1@2004 . #x5257)	; &G-JX3-5257; [50-55]
-    (=>>daikanwa	. 03176)	; &G-JX3-5257;
-    (=>>adobe-japan1	. 14111)	; &G-JX3-5257;
-    (=>>hanyo-denshi/hg . #x3048)	; &G-JX3-5257; [16-40]
+    (=>>ucs@jis/2004	. #x53DF)	; &G-GT-04022;
+    (=>>ucs@cns		. #x53DF)	; &G-GT-04022;
+    (=>>jis-x0213-1@2004 . #x5257)	; &G-GT-04022; [50-55]
+    (=>>gt		. 04022)	; &G-GT-04022;
+    (=>>gt-k		. 06578)	; &G-GT-04022;
+    (=>>daikanwa	. 03176)	; &G-GT-04022;
+    (=>>adobe-japan1-4	. 14111)	; &G-GT-04022;
+    (=>>hanyo-denshi/hg . #x3048)	; &G-GT-04022; [16-40]
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1930,6 +1933,7 @@
       (=>>>ucs@cns	  . #x53DF)	; &g2-JX3-5257;
       (=>>>jis-x0213-1@2004 . #x5257)	; &g2-JX3-5257; [50-55]
       (=>>>gt		  . 04022)	; &g2-JX3-5257;
+      (=>>>adobe-japan1-4 . 14111)	; &g2-JX3-5257;
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x53DF)	; 叟
@@ -1961,12 +1965,15 @@
     (=>>jis-x0208	. #x5257)	; &G-GT-04009; [50-55]
     (=>>jis-x0213-1@2000 . #x5257)	; &G-GT-04009; [50-55]
     (=>>gt		. 04009)	; &G-GT-04009;
-    (=>>adobe-japan1	. 04332)	; &G-GT-04009;
+    (=>>gt-k		. 05219)	; &G-GT-04009;
+    (=>>adobe-japan1-0	. 04332)	; &G-GT-04009;
+    (=>>hanyo-denshi/ja . #x5257)	; &G-GT-04009; [50-55]
     (->subsumptive
      ((=>>>ucs@unicode	  . #x53DF)	; &g2-J0-5257;
       (=>>>jis-x0208	  . #x5257)	; &g2-J0-5257; [50-55]
       (=>>>jis-x0213-1@2000 . #x5257)	; &g2-J0-5257; [50-55]
       (=>>>gt		  . 04009)	; &g2-J0-5257;
+      (=>>>adobe-japan1-0 . 04332)	; &g2-J0-5257;
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x53DF)	; 叟
