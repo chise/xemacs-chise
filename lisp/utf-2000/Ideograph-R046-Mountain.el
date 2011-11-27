@@ -3681,7 +3681,7 @@
     (=>>ucs@cns		. #x5D06)	; &G-JX2-284C;
     (=>>jis-x0213-2	. #x284C)	; &G-JX2-284C; [08-44]
     (=>>daikanwa	. 08146)	; &G-JX2-284C;
-    (=>>adobe-japan1	. 17563)	; &G-JX2-284C;
+    (=>>adobe-japan1-5	. 17563)	; &G-JX2-284C;
     (=>>hanyo-denshi/jb . #x3B43)	; &G-JX2-284C; [27-35]
     (->subsumptive
      ((=ucs@jis		  . #x5D06)	; &AJ1-17563;
@@ -6533,7 +6533,7 @@
     (=>>>ucs@jis	. #x5D61)	; &G-JX2-2857;
     (=>>jis-x0213-2	. #x2857)	; &G-JX2-2857; [08-55]
     (=>>daikanwa	. 08331)	; &G-JX2-2857;
-    (=>>adobe-japan1	. 17571)	; &G-JX2-2857;
+    (=>>adobe-japan1-5	. 17571)	; &G-JX2-2857;
     (->subsumptive
      ((=ucs@jis		  . #x5D61)	; &M-08331;
       (=ucs@JP/hanazono	  . nil)
@@ -7214,7 +7214,7 @@
     (=>>>ucs@jis	. #x5D70)	; &g2-JX2-285A;
     (=>>>jis-x0213-2	. #x285A)	; &g2-JX2-285A; [08-58]
     (=>>daikanwa	. 08365)	; &g2-JX2-285A;
-    (=>>adobe-japan1	. 17574)	; &g2-JX2-285A;
+    (=>>>adobe-japan1-5 . 17574)	; &g2-JX2-285A;
     (->subsumptive
      ((=daikanwa	  . 08365)	; &M-08365;
       )
@@ -10143,12 +10143,14 @@
     (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (=>>adobe-japan1-5	. 17581)
+    (=>>ucs@jis		. #x5DB4)	; &g2-JX2-2865;
+    (=>>ucs@cns		. #x5DB4)	; &g2-JX2-2865;
     (=>>>ucs@jis	. #x5DB4)	; &g2-JX2-2865;
     (=>>>ucs@cns	. #x5DB4)	; &g2-JX2-2865;
     (=>>>jis-x0213-2	. #x2865)	; &g2-JX2-2865; [08-69]
     (=big5		. #xE96A)	; &g2-JX2-2865;
     (=>>daikanwa	. 08542)	; &g2-JX2-2865;
+    (=>>>adobe-japan1-5 . 17581)	; &g2-JX2-2865;
     (->subsumptive
      ((=daikanwa	  . 08542)	; &AJ1-17581;
       (=adobe-japan1-5	  . 17581)	; &I-AJ1-17581;
