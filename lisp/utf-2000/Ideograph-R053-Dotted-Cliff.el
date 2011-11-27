@@ -1865,7 +1865,7 @@
     (=>>ucs@unicode	. #x5EAC)	; &G-JX2-2C25;
     (=>>jis-x0213-2	. #x2C25)	; &G-JX2-2C25; [12-05]
     (=>>daikanwa	. 09333)	; &G-JX2-2C25;
-    (=>>adobe-japan1	. 17601)	; &G-JX2-2C25;
+    (=>>adobe-japan1-5	. 17601)	; &G-JX2-2C25;
     (=>>hanyo-denshi/jb . #x3C4A)	; &G-JX2-2C25; [28-42]
     (->subsumptive
      ((=daikanwa	  . 09333)	; &M-09333;
@@ -2334,12 +2334,14 @@
 (define-char
   '((ideographic-radical . 53)	; ⼴
     (=ucs		. #x5EB3)	; 庳
-    (=>>adobe-japan1	. 19349)	; 庳
+    (=+>adobe-japan1	. 19349)	; 庳
     (->subsumptive
      ((ideographic-strokes . 8)
       (total-strokes	   . 11)
-      (=>>>ucs@unicode	  . #x5EB3)	; &g2-UU+5EB3;
-      (=big5		  . #xD54B)	; &g2-UU+5EB3;
+      (=>>ucs@unicode	  . #x5EB3)	; &g2-AJ1-19349;
+      (=>>>ucs@unicode	  . #x5EB3)	; &g2-AJ1-19349;
+      (=big5		  . #xD54B)	; &g2-AJ1-19349;
+      (=>>>adobe-japan1-5 . 19349)	; &g2-AJ1-19349;
       (->subsumptive
        ((=ucs@jis	    . #x5EB3)	; &AJ1-19349;
 	(=ucs@JP/hanazono   . nil)
@@ -3543,7 +3545,7 @@
       (=>>>ucs@jis	  . #x5EC6)	; &g2-JX2-2C28;
       (=>>>ucs@cns	  . #x5EC6)	; &g2-JX2-2C28;
       (=>>>jis-x0213-2	  . #x2C28)	; &g2-JX2-2C28; [12-08]
-      (=>>adobe-japan1	  . 17603)	; &g2-JX2-2C28;
+      (=>>>adobe-japan1-5 . 17603)	; &g2-JX2-2C28;
       (->subsumptive
        ((=ucs@jis	    . #x5EC6)	; &AJ1-17603;
 	(=jis-x0212	    . #x3C50)	; &AJ1-17603; [28-48]
@@ -4566,6 +4568,7 @@
 (define-char
   '((ideographic-radical . 53)	; ⼴
     (=ucs		. #x5ED9)	; 廙
+    (=+>adobe-japan1	. 17604)	; 廙
     ))
 (define-char
   '((<-denotational
@@ -4583,10 +4586,11 @@
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (=>>ucs@unicode	. #x5ED9)	; &g2-JX2-2C2A;
     (=>>>ucs@unicode	. #x5ED9)	; &g2-JX2-2C2A;
     (=>>>jis-x0213-2	. #x2C2A)	; &g2-JX2-2C2A; [12-10]
     (=big5		. #xE1BB)	; &g2-JX2-2C2A;
-    (=>>adobe-japan1	. 17604)	; &g2-JX2-2C2A;
+    (=>>>adobe-japan1-5 . 17604)	; &g2-JX2-2C2A;
     (=>>hanyo-denshi/jd . #x2C2A)	; &g2-JX2-2C2A; [12-10]
     (->subsumptive
      ((=ucs@jis		  . #x5ED9)	; &AJ1-17604;
