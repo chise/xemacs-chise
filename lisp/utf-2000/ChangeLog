@@ -1,4 +1,179 @@
+2011-11-24  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R064-Hand.el (G-AJ1-19385): Use `=>>adobe-japan1-5'
+	instead of `=>>adobe-japan1'.
+	(U+62F4): Unify o-AJ1-19388.
+	(G-AJ1-19388): Use `=>>adobe-japan1-5' instead of
+	`=>>adobe-japan1'.
+	(G-AJ1-19389): Likewise.
+	(U+62F4): Unify o-AJ1-17675.
+	(G-AJ1-17675): Use `=>>adobe-japan1-5' instead of
+	`=>>adobe-japan1'.
+	(U+63D5): Unify o-AJ1-17690.
+	(G-AJ1-17690): Use `=>>adobe-japan1-5' instead of
+	`=>>adobe-japan1'.
+	(U+63E0): Unify o-AJ1-17691.
+	(G-AJ1-17691): Use `=>>adobe-japan1-5' instead of
+	`=>>adobe-japan1'.
+	(g2-AJ1-16876): Use `=>>>adobe-japan1-5' instead of
+	`=>>>adobe-japan1'.
+	(G-AJ1-17693): Use `=>>adobe-japan1-5' instead of
+	`=>>adobe-japan1'.
+	(G-AJ1-19408): Likewise.
+	(g2-AJ1-17700): Use `=>>>adobe-japan1-5' instead of
+	`=>>>adobe-japan1'.
+	(G-AJ1-16878): Use `=>>adobe-japan1-5' instead of
+	`=>>adobe-japan1'.
+	(g2-AJ1-19421): Use `=>>>adobe-japan1-5' instead of
+	`=>>>adobe-japan1'.
+	(G-JX2-2D59): Unify g2-JU+64FF, g2-JX2-2D59 and g2-AJ1-17712.
+	(G-CU+64FF): Unify g2-CU+64FF.
+	(G-UU+64FF): Unify g2-UU+64FF.
+	(G-AJ1-17714): Use `=>>adobe-japan1-5' instead of
+	`=>>adobe-japan1'.
+	(g2-AJ1-17714): Use `=>>>adobe-japan1-5' instead of
+	`=>>>adobe-japan1'.
+
+	* Ideograph-R061-Heart.el (U+6035): Unify o-AJ1-16863.
+	(G-AJ1-16863): Use `=>>adobe-japan1-5' instead of
+	`=>>adobe-japan1'.
+	(U+60BE): Unify o-AJ1-17634.
+	(G-AJ1-17634): Use `=>>adobe-japan1-5' instead of
+	`=>>adobe-japan1'.
+	(G-AJ1-19365): Likewise.
+
+	* Ideograph-R053-Dotted-Cliff.el (G-AJ1-17601): Use
+	`=>>adobe-japan1-5' instead of `=>>adobe-japan1'.
+	(U+5EB3): Unify o-AJ1-19349 instead of G-AJ1-19349.
+	(g2-UU+5EB3): Unify g2-AJ1-19349.
+	(g2-AJ1-17603): Use `=>>>adobe-japan1-5' instead of
+	`=>>adobe-japan1'.
+	(U+5ED9): Unify o-AJ1-17604.
+	(g2-AJ1-17604): Use `=>>>adobe-japan1-5' instead of
+	`=>>adobe-japan1'.
+
+	* Ideograph-R050-Turban.el (g2-AJ1-17589): Use
+	`=>>>adobe-japan1-5' instead of `=>>adobe-japan1'.
+	(G-AJ1-19340): Use `=>>adobe-japan1-5' instead of
+	`=>>adobe-japan1'.
+	(G-AJ1-19344): Likewise.
+	(G-CU+5E6A): Add ideographic-structure.
+	(G-AJ1-19345): Use `=>>adobe-japan1-5' instead of
+	`=>>adobe-japan1'; add ideographic-structure.
+
+	* Ideograph-R046-Mountain.el (G-AJ1-17563): Use
+	`=>>adobe-japan1-5' instead of `=>>adobe-japan1'.
+	(G-AJ1-17571): Likewise.
+	(g2-AJ1-17574): Use `=>>>adobe-japan1-5' instead of
+	`=>>adobe-japan1'.
+	(g2-AJ1-17581): Likewise.
+
+	* Ideograph-R039-Child.el (g2-AJ1-16826): Use `=>>>adobe-japan1-5'
+	instead of `=>>adobe-japan1'.
+
+	* Ideograph-R038-Woman.el (G-AJ1-16826): Use `=>>adobe-japan1-5'
+	instead of `=>>adobe-japan1'.
+	(G-AJ1-17488): Likewise.
+	(U+59DF): Unify o-AJ1-19310.
+	(G-AJ1-19310): Use `=>>adobe-japan1-5' instead of
+	`=>>adobe-japan1'.
+	(G-AJ1-17495): Likewise.
+	(G-AJ1-17497): Likewise; unify G-CB03788.
+	(G-AJ1-17506): Use `=>>adobe-japan1-5' instead of
+	`=>>adobe-japan1'.
+	(G-AJ1-19314): Likewise.
+	(G-AJ1-17518): Likewise.
+	(G-AJ1-19318): Likewise.
+	(G-AJ1-19319): Likewise.
+
+	* Ideograph-R029-Again.el (G-AJ1-07978): Use `=>>adobe-japan1-0'
+	instead of `=>>adobe-japan1'.
+	(G-AJ1-03412): Use `=>>adobe-japan1-0' instead of
+	`=>>adobe-japan1'; unify HD-JA4032.
+	(G-AJ1-14111): Use `=>>adobe-japan1-4' instead of
+	`=>>adobe-japan1'; unify G-GT-04022 and G-GT-K06578.
+	(g2-AJ1-14111): Use `=>>>adobe-japan1-4' instead of
+	`=>>adobe-japan1'.
+	(G-AJ1-04332): Use `=>>adobe-japan1-0' instead of
+	`=>>adobe-japan1'; unify GT-K05219 and G-HD-JA5055.
+	(g2-AJ1-04332): Use `=>>>adobe-japan1-0' instead of
+	`=>>adobe-japan1'.
+
+	* Ideograph-R026-Seal.el (G-AJ1-01577): Use `=>>adobe-japan1-0'
+	instead of `=>>adobe-japan1'; unify G-GT-K01585, G-AJ1-13696 and
+	G-HD-JA2077.
+	(G-AJ1-13365): Use `=>>adobe-japan1-4' instead of
+	`=>>adobe-japan1'.
+
+	* Ideograph-R021-Spoon.el (g2-AJ1-13523): Use `=>>>adobe-japan1-4'
+	instead of `=>>adobe-japan1'.
+	(G-AJ1-13665): Use `=>>adobe-japan1-4' instead of
+	`=>>adobe-japan1'.
+	(G-AJ1-01341): Use `=>>adobe-japan1-0' instead of
+	`=>>adobe-japan1'.
+	(G-AJ1-03706): Likewise.
+
+	* Ideograph-R019-Power.el (G-AJ1-13866): Use `=>>adobe-japan1-4'
+	instead of `=>>adobe-japan1'.
+	(G-AJ1-14070): Likewise.
+	(g2-AJ1-13385): Use `=>>>adobe-japan1-4' instead of
+	`=>>adobe-japan1'.
+	(G-AJ1-21213): Use `=>>adobe-japan1-6' instead of
+	`=>>adobe-japan1'.
+	(G-AJ1-02441): Use `=>>adobe-japan1-0' instead of
+	`=>>adobe-japan1'; unify G-GT-K09249.
+	(G-AJ1-02638): Use `=>>adobe-japan1-0' instead of
+	`=>>adobe-japan1'.
+	(G-AJ1-13338): Use `=>>adobe-japan1-4' instead of
+	`=>>adobe-japan1'.
+	(g2-AJ1-04293): Use `=>>>adobe-japan1-0' instead of
+	`=>>adobe-japan1'; unify G-HD-JA5016.
+
+	* Ideograph-R018-Knife.el (G-AJ1-13985): Use `=>>adobe-japan1-4'
+	instead of `=>>adobe-japan1'.
+	(g2-AJ1-20086): Use `=>>>adobe-japan1-5' instead of
+	`=>>adobe-japan1'.
+	(g2-AJ1-13684): Use `=>>>adobe-japan1-4' instead of
+	`=>>adobe-japan1'.
+	(G-AJ1-01474): Use `=>>adobe-japan1-0' instead of
+	`=>>adobe-japan1'; unify G-GT-K09010.
+	(G-AJ1-04268): Use `=>>adobe-japan1-0' instead of
+	`=>>adobe-japan1'; unify G-HD-JA4985.
+	(U-00020807): Unify o-AJ1-17319.
+	(G-AJ1-17319): Use `=>>adobe-japan1-5' instead of
+	`=>>adobe-japan1'.
+	(G-AJ1-17320): Likewise.
+
+	* Ideograph-R010-Legs.el (g2-AJ1-08394): Use `=>>>adobe-japan1-2'
+	instead of `=>>adobe-japan1'.
+
 2011-11-23  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el (G-AJ1-08635): Use `=>>adobe-japan1-2'
+	instead of `=>>adobe-japan1'.
+
+	* Ideograph-R085-Water.el (G-AJ1-13332): Use `=>>adobe-japan1-4'
+	instead of `=>>adobe-japan1'.
+
+	* Ideograph-R063-Door.el (G-AJ1-19383): Use `=>>adobe-japan1-5'
+	instead of `=>>adobe-japan1'.
+
+	* Ideograph-R062-Halberd.el (G-AJ1-16871): Use `=>>adobe-japan1-5'
+	instead of `=>>adobe-japan1'.
+
+	* Ideograph-R060-Step.el (G-AJ1-17614): Use `=>>adobe-japan1-5'
+	instead of `=>>adobe-japan1'.
+
+	* Ideograph-R020-Wrap.el (G-AJ1-21221): Use `=>>adobe-japan1-6'
+	instead of `=>>adobe-japan1'.
+
+	* char-db-util.el (char-db-insert-ccs-feature): Add settings for
+	`=>>adobe-japan1-{0..6}'.
+
+2011-11-23  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Add code to convert `=>>adobe-japan1' to
+	`=>>adobe-japan1-{0..6}'.
 
 	* Ideograph-R040-Roof.el: Use `=>>>adobe-japan1-6' instead of
 	`=>>>adobe-japan1'.
