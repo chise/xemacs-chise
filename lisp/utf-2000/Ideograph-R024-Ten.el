@@ -695,7 +695,7 @@
     (total-strokes	 . 6)
     (=>>ucs@cns		. #x2F82C)	; &G-AJ1-14109;
     (=>>daikanwa	. 02720)	; &G-AJ1-14109;
-    (=>>adobe-japan1	. 14109)	; &G-AJ1-14109;
+    (=>>adobe-japan1-4	. 14109)	; &G-AJ1-14109;
     (->subsumptive
      ((=>ucs*		  . #x5349)	; 卉
       (=decomposition@cid
@@ -1509,16 +1509,7 @@
     (=>>ucs@jis		. #x5359)	; &G-AJ1-21233;
     (=>>ucs@cns		. #x5359)	; &G-AJ1-21233;
     (=>>daikanwa	. 02757)	; &G-AJ1-21233;
-    (=>>adobe-japan1	. 21233)	; &G-AJ1-21233;
-    ))
-(define-char
-  '((<-denotational
-     ((=>>daikanwa	  . 02757)	; &G-AJ1-21233;
-      ))
-    (ideographic-radical . 24)	; ⼗
-    (ideographic-strokes . 9)
-    (total-strokes	 . 11)
-    (=>>>ucs@jis	. #x5359)	; &g2-JU+5359;
+    (=>>adobe-japan1-6	. 21233)	; &G-AJ1-21233;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5359)	; 卙
@@ -1545,25 +1536,18 @@
       )
      ((hanyu-dazidian	  1 65 7)
       (=hanziku-1	  . #xB16D)	; &HZK01-B16D;
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=>>daikanwa	  . 02757)	; &G-AJ1-21233;
-      ))
-    (ideographic-radical . 24)	; ⼗
-    (ideographic-strokes . 9)
-    (total-strokes	 . 11)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-1	  . #x5249)	; &C1-5249; [50-41]
-      )
-     ((=ucs		  . #x5341)	; 十
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=cns11643-1	    . #x5249)	; &C1-5249; [50-41]
+	)
+       ((=ucs		    . #x5341)	; 十
+	))
+      (=ucs@cns		  . #x5359)	; &C4-3060;
+      (=cns11643-4	  . #x3060)	; &C4-3060; [16-64]
       ))
-    (=ucs@cns		. #x5359)	; &C4-3060;
-    (=cns11643-4	. #x3060)	; &C4-3060; [16-64]
     ))
 (define-char
   '((<-denotational
@@ -1641,7 +1625,7 @@
     (=>>ucs@unicode	. #x535A)	; &G-AJ1-13976;
     (=big5		. #xB3D5)	; &G-AJ1-13976;
     (=>>daikanwa	. 02761)	; &G-AJ1-13976;
-    (=>>adobe-japan1	. 13976)	; &G-AJ1-13976;
+    (=>>adobe-japan1-4	. 13976)	; &G-AJ1-13976;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x535A)	; 博
