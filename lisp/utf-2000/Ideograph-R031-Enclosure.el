@@ -821,7 +821,7 @@
     (=>>ucs@jis		. #x56E7)	; &G-AJ1-21316;
     (=>>ucs@cns		. #x56E7)	; &G-AJ1-21316;
     (=>>daikanwa	. 04707)	; &G-AJ1-21316;
-    (=>>adobe-japan1	. 21316)	; &G-AJ1-21316;
+    (=>>adobe-japan1-6	. 21316)	; &G-AJ1-21316;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x56E7)	; 囧
@@ -1046,7 +1046,9 @@
       ))
     (=ucs		. #x56EE)	; 囮
     (=+>jis-x0208	. #x5379)	; 囮 [51-89]
+    (=+>jis-x0213-1	. #x5379)	; 囮 [51-89]
     (=big5		. #xCAA7)	; &I-B-CAA7;
+    (=+>adobe-japan1	. 04460)	; 囮
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
@@ -1060,7 +1062,8 @@
       (=>>ucs@cns	  . #x56EE)	; &G-J0-5379;
       (=>>jis-x0208	  . #x5379)	; &G-J0-5379; [51-89]
       (=>>jis-x0213-1	  . #x5379)	; &G-J0-5379; [51-89]
-      (=>>adobe-japan1	  . 04460)	; &G-J0-5379;
+      (=>>daikanwa	  . 04715)	; &G-J0-5379;
+      (=>>adobe-japan1-0  . 04460)	; &G-J0-5379;
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x56EE)	; 囮
@@ -1564,7 +1567,7 @@
     (=>>ucs@unicode	. #x56F6)	; &G-JX2-2457;
     (=>>jis-x0213-2	. #x2457)	; &G-JX2-2457; [04-55]
     (=>>daikanwa	. 04735)	; &G-JX2-2457;
-    (=>>adobe-japan1	. 17412)	; &G-JX2-2457;
+    (=>>adobe-japan1-5	. 17412)	; &G-JX2-2457;
     (=>>hanyo-denshi/jb . #x3721)	; &G-JX2-2457; [23-01]
     (->subsumptive
      ((=decomposition@cid
@@ -2154,7 +2157,8 @@
     (=>>jis-x0213-1	. #x537B)	; &G-GT-05983; [51-91]
     (=>>gt		. 05983)	; &G-GT-05983;
     (=>>daikanwa	. 04759)	; &G-GT-05983;
-    (=>>adobe-japan1	. 04462)	; &G-GT-05983;
+    (=>>cbeta		. 03344)	; &G-GT-05983;
+    (=>>adobe-japan1-0	. 04462)	; &G-GT-05983;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5700)	; 圀
@@ -3023,7 +3027,7 @@
     (=>>ucs@jis		. #x570A)	; &G-JX1-2F41;
     (=>>jis-x0213-1	. #x2F41)	; &G-JX1-2F41; [15-33]
     (=>>daikanwa	. 04797)	; &G-JX1-2F41;
-    (=>>adobe-japan1	. 14417)	; &G-JX1-2F41;
+    (=>>adobe-japan1-4	. 14417)	; &G-JX1-2F41;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x570A)	; 圊
@@ -3225,6 +3229,7 @@
       ))
     (=ucs		. #x570D)	; 圍
     (=+>jis-x0208	. #x5423)	; 圍 [52-03]
+    (=+>jis-x0213-1	. #x5423)	; 圍 [52-03]
     (=big5		. #xB3F2)	; &I-B-B3F2;
     (->subsumptive
      ((=>>ucs@unicode	  . #x570D)	; &G-GT-06038;
@@ -3232,12 +3237,15 @@
       (=>>jis-x0213-1	  . #x5423)	; &G-GT-06038; [52-03]
       (=>>gt		  . 06038)	; &G-GT-06038;
       (=>>gt-k		  . 09174)	; &G-GT-06038;
+      (=>>adobe-japan1-0  . 04468)	; &G-GT-06038;
+      (=>>adobe-japan1-4  . 13528)	; &G-GT-06038;
+      (=>>hanyo-denshi/ja . #x5423)	; &G-GT-06038; [52-03]
       (->subsumptive
        ((=>>>ucs@unicode    . #x570D)	; &g2-J0-5423;
 	(=>>>jis-x0208	    . #x5423)	; &g2-J0-5423; [52-03]
 	(=>>>jis-x0213-1    . #x5423)	; &g2-J0-5423; [52-03]
 	(=>>>gt		    . 06038)	; &g2-J0-5423;
-	(=>>>adobe-japan1   . 13528)	; &g2-J0-5423;
+	(=>>>adobe-japan1-4 . 13528)	; &g2-J0-5423;
 	(->subsumptive
 	 ((=decomposition@cid
 	   ((=ucs		. #x570D)	; 圍
@@ -3476,7 +3484,7 @@
      ((=ucs		  . #x5DFB)	; 巻
       ))
     (=ucs		. #x570F)	; 圏
-    (=>>adobe-japan1	. 01869)	; 圏
+    (=>>adobe-japan1-0	. 01869)	; 圏
     (->subsumptive
      ((morohashi-daikanwa	4815 1)
       (=decomposition@cid
@@ -3950,16 +3958,20 @@
       )
      ((=ucs		  . #x56D7)	; 囗
       )
-     ((=>>daikanwa	  . 03829)	; &G-AJ1-21281;
+     ((=>>>adobe-japan1-6 . 21281)	; &g2-AJ1-21281;
       ))
-    (=>>ucs@jis		. #x5716)	; &G-AJ1-04471;
-    (=>>ucs@ks		. #x5716)	; &G-AJ1-04471;
-    (=>>ucs@cns		. #x5716)	; &G-AJ1-04471;
-    (=>>>ucs@jis	. #x5716)	; &G-AJ1-04471;
-    (=>>>ucs@ks		. #x5716)	; &G-AJ1-04471;
-    (=>>>ucs@cns	. #x5716)	; &G-AJ1-04471;
-    (=big5		. #xB9CF)	; &G-AJ1-04471;
-    (=>>adobe-japan1	. 04471)	; &G-AJ1-04471;
+    (=>>ucs@jis		. #x5716)	; &g2-J0-5426;
+    (=>>ucs@ks		. #x5716)	; &g2-J0-5426;
+    (=>>ucs@cns		. #x5716)	; &g2-J0-5426;
+    (=>>>ucs@jis	. #x5716)	; &g2-J0-5426;
+    (=>>>ucs@ks		. #x5716)	; &g2-J0-5426;
+    (=>>>ucs@cns	. #x5716)	; &g2-J0-5426;
+    (=>>>jis-x0208	. #x5426)	; &g2-J0-5426; [52-06]
+    (=big5		. #xB9CF)	; &g2-J0-5426;
+    (=>>>gt		. 06082)	; &g2-J0-5426;
+    (=>>daikanwa	. 04832)	; &g2-J0-5426;
+    (=>>>adobe-japan1-0 . 04471)	; &g2-J0-5426;
+    (=>>hanyo-denshi/ja . #x5426)	; &g2-J0-5426; [52-06]
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5716)	; 圖
