@@ -1,3 +1,53 @@
+2011-11-26  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (mother of C4-2C43): Unify g2-CU+21A04.
+	(C4-2C43): Unify CU+21A04.
+	(mother of BC-8C5F): Unify g2-IU+21A04.
+	(U+5BB2): Unify o-AJ1-21440.
+	(G-AJ1-21440): Use `=>>adobe-japan1-6' instead of
+	`=>>adobe-japan1'.
+	(AJ1-21445): Use U+5BCF instead of G-JU+5BCF as the mother to
+	separate JC3-4ABB.
+	(JC3-4ABB): Likewise.
+
+	* Ideograph-R031-Enclosure.el (G-AJ1-21316): Use
+	`=>>adobe-japan1-6' instead of `=>>adobe-japan1'.
+	(U+56EE): Unify o-JX1-5379 and o-AJ1-04460.
+	(G-AJ1-04460): Use `=>>adobe-japan1-0' instead of
+	`=>>adobe-japan1'; unify G-M-04715.
+	(G-AJ1-17412): Use `=>>adobe-japan1-5' instead of
+	`=>>adobe-japan1'.
+	(G-AJ1-04462): Use `=>>adobe-japan1-0' instead of
+	`=>>adobe-japan1'; unify G-CB03344.
+	(G-AJ1-14417): Use `=>>adobe-japan1-4' instead of
+	`=>>adobe-japan1'.
+	(G-J0-5423): Unify G-AJ1-04468, G-AJ1-13528 and G-HD-JA5203.
+	(g2-AJ1-13528): Use `=>>>adobe-japan1-4' instead of
+	`=>>>adobe-japan1'.
+	(G-AJ1-01869): Use `=>>adobe-japan1-0' instead of
+	`=>>adobe-japan1'.
+	(g2-JU+5716): Unify g2-J0-5426, g2-GT-06082, G-M-04832 and
+	G-HD-JA5206; use `=>>>adobe-japan1-0' instead of
+	`=>>adobe-japan1'.
+
+	* Ideograph-R024-Ten.el (G-AJ1-14109): Use `=>>adobe-japan1-4'
+	instead of `=>>adobe-japan1'.
+	(G-AJ1-21233): Use `=>>adobe-japan1-6' instead of
+	`=>>adobe-japan1'; use `->denotational' instead of
+	`->subsumptive'.
+	(G-AJ1-13976): Use `=>>adobe-japan1-4' instead of
+	`=>>adobe-japan1'.
+
+	* Ideograph-R023-Hiding-Enclosure.el (G-AJ1-13994): Use
+	`=>>adobe-japan1-4' instead of `=>>adobe-japan1'.
+	(G-AJ1-19206): Use `=>>adobe-japan1-5' instead of
+	`=>>adobe-japan1'.
+	(mother of G-JX2-2350): Unify A-CU+533E instead of o-JU+533E.
+	(G-JX2-2350): Unify G-CU+533E, G-GT-K08389; use
+	`=>>adobe-japan1-4' instead of `=>>adobe-japan1'.
+	(G-AJ1-13524): Use `=>>adobe-japan1-4' instead of
+	`=>>adobe-japan1'.
+
 2011-11-24  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R064-Hand.el (G-AJ1-19385): Use `=>>adobe-japan1-5'
