@@ -1931,10 +1931,12 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (=>>>ucs@cns	. #x21A04)	; &g2-CU+21A04;
     (->subsumptive
      ((=daikanwa	  . 07163)	; &M-07163;
       )
-     ((=cns11643-4	  . #x2C43)	; &C4-2C43; [12-35]
+     ((=ucs@cns		  . #x21A04)	; &C4-2C43;
+      (=cns11643-4	  . #x2C43)	; &C4-2C43; [12-35]
       ))
     ))
 (define-char
@@ -1944,6 +1946,7 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (=>>>ucs@iso	. #x21A04)	; &g2-IU+21A04;
     (->subsumptive
      ((=big5-cdp	  . #x8C5F)	; &CDP-8C5F;
       )
@@ -1955,6 +1958,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs		. #x5BB2)	; 宲
+    (=+>adobe-japan1	. 21440)	; 宲
     ))
 (define-char
   '((<-denotational
@@ -1966,7 +1970,7 @@
     (=>>ucs@jis		. #x5BB2)	; &G-AJ1-21440;
     (=>>ucs@cns		. #x5BB2)	; &G-AJ1-21440;
     (=>>daikanwa	. 07164)	; &G-AJ1-21440;
-    (=>>adobe-japan1	. 21440)	; &G-AJ1-21440;
+    (=>>adobe-japan1-6	. 21440)	; &G-AJ1-21440;
     (->subsumptive
      ((=ucs@jis		  . #x5BB2)	; &AJ1-21440;
       (=jis-x0212	  . #x3A57)	; &AJ1-21440; [26-55]
@@ -3430,17 +3434,10 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=>>ucs@jis		. #x5BCF)	; &G-AJ1-21445;
-    (=>>daikanwa	. 07234)	; &G-AJ1-21445;
-    (=>>adobe-japan1	. 21445)	; &G-AJ1-21445;
-    (->subsumptive
-     ((=ucs@jis		  . #x5BCF)	; &AJ1-21445;
-      (=jis-x0212	  . #x3A5E)	; &AJ1-21445; [26-62]
-      (=daikanwa	  . 07234)	; &I-M-07234;
-      (=adobe-japan1-6	  . 21445)	; &I-AJ1-21445;
-      )
-     ((=jef-china3	  . #x4ABB)	; &JC3-4ABB;
-      ))
+    (=ucs@jis		. #x5BCF)	; &AJ1-21445;
+    (=jis-x0212		. #x3A5E)	; &AJ1-21445; [26-62]
+    (=daikanwa		. 07234)	; &I-M-07234;
+    (=adobe-japan1-6	. 21445)	; &I-AJ1-21445;
     ))
 (define-char
   '((<-denotational
@@ -3450,6 +3447,15 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs@unicode	. #x5BCF)	; &UU+5BCF;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5BCF)	; 寏
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (=jef-china3	. #x4ABB)	; &JC3-4ABB;
     ))
 (define-char
   '((<-denotational
