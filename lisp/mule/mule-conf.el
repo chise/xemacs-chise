@@ -2220,6 +2220,17 @@
 	       code-offset    ,(lsh #x6403 16)))
 
   (make-charset
+   '=>>>hanyo-denshi/jc
+   "Han'you-Denshi/JC abstract glyph-forms"
+   '(long-name "Han'you-Denshi/JC glyph-forms"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JC-0$"
+	       mother =hanyo-denshi/jc))
+  (make-charset
    '=>>>hanyo-denshi/jt
    "JT (Juuki Touitsu Moji) abstract glyph-forms"
    '(long-name "Han'you-Denshi/JT glyph-forms"
@@ -2263,7 +2274,7 @@
 	       graphic 2
 	       direction l2r
 	       registry "HanyoDenshi\\.JC-0$"
-	       mother =hanyo-denshi/jc))
+	       mother =>>>hanyo-denshi/jc))
   (make-charset
    '=>>hanyo-denshi/jd
    "Han'you-Denshi/JD abstract glyphs"
