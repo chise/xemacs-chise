@@ -377,11 +377,11 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==>ucs-bmp-cjk@bucs
 	  =>ucs-bmp-cjk@unicode
           ;; =>>ucs@unicode
-	  =>>gt
 	  =adobe-japan1-6
 	  =adobe-japan1-base
 	  =>jis-x0208@1997
 	  =>>hanyo-denshi/ft
+	  =>>gt
 	  )))
 
 ;;; mule-charset.el ends here
