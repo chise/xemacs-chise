@@ -1,3 +1,19 @@
+2011-11-27  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=>>>hanyo-denshi/jc): New coded-charset for
+	XEmacs CHISE.
+	(=>>hanyo-denshi/jc): Use `=>>>hanyo-denshi/jc' instead of
+	`=hanyo-denshi/jc' as the mother.
+
+2011-11-27  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=+>adobe-japan1'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer `=adobe-japan1-6', `=adobe-japan1-base', `=>jis-x0208@1997'
+	and `=>>hanyo-denshi/ft' to `=>>gt'.
+
 2011-11-23  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=>>adobe-japan1-0): New coded-charset for
