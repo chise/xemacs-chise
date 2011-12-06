@@ -4794,10 +4794,15 @@
     (ideographic-radical . 169)	; ⾨
     (ideographic-strokes . 12)
     (total-strokes	 . 20)
-    (=ucs@unicode	. #x95E5)	; &GT-55771;
-    (=gb12345		. #x634B)	; &GT-55771; [67-43]
-    (=gt		. 55771)	; &GT-55771;
-    (=gt-pj-10		. #x4522)	; &GT-55771; [37-02]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x95E5)	; 闥
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=ucs@unicode	. #x95E5)	; 闥󠄂
+    (=gb12345		. #x634B)	; 闥󠄂 [67-43]
+    (=gt		. 55771)	; 闥󠄂
+    (=gt-pj-10		. #x4522)	; 闥󠄂 [37-02]
     (=hanyo-denshi/ft	. #x3A5D)	; &I-HD-FT-3A5D; [26-61]
     ))
 (define-char
