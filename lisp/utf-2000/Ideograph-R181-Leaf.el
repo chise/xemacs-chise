@@ -660,6 +660,7 @@
       (=daikanwa	  . 43378)	; &I-M-43378;
       (=shinjigen@1ed	  .  9156)	; &GT-58248;
       (=jef-china3	  . #x6CE3)	; &I-JC3-6CE3;
+      (=hanyo-denshi/ft	  . #x305C)	; &I-HD-FT-305C; [16-60]
       )
      ((=cns11643-1	  . #x6763)	; &C1-6763; [71-67]
       (=shinjigen	  .  9155)	; &C1-6763;
@@ -702,6 +703,7 @@
     (->subsumptive
      ((=jis-x0208@1978	  . #x465C)	; &M-43381; [38-60]
       (=daikanwa	  . 43381)	; &I-M-43381;
+      (=hanyo-denshi/ft	  . #x3274)	; &I-HD-FT-3274; [18-84]
       )
      ((=ucs@jis		  . #x9813)	; &GT-58245;
       (=jis-x0208@1983	  . #x465C)	; &GT-58245; [38-60]

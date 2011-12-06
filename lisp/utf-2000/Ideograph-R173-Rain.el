@@ -332,6 +332,7 @@
       (=gt		  . 56715)	; &I-GT-56715;
       (=gt-pj-8		  . #x3425)	; &I-GT-56715; [20-05]
       (=daikanwa	  . 42231)	; &I-M-42231;
+      (=hanyo-denshi/ft	  . #x3067)	; &I-HD-FT-3067; [16-71]
       )
      ((=ucs@unicode	  . #x96F0)	; &GT-56716;
       (=jis-x0208@1990	  . #x4A37)	; &GT-56716; [42-23]
@@ -1152,23 +1153,40 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 15)
     (=ucs		. #x9704)	; 霄
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9704)	; 霄
+      ))
+    (ideographic-radical . 173)	; ⾬
+    (ideographic-strokes . 7)
+    (total-strokes	 . 15)
+    (=ucs@jis		. #x9704)	; &GT-56781;
+    (=jis-x0208		. #x703C)	; &GT-56781; [80-28]
+    (=jis-x0213-1	. #x703C)	; &I-JX1-703C; [80-28]
+    (=gt		. 56781)	; &I-GT-56781;
+    (=gt-pj-1		. #x703C)	; &I-GT-56781; [80-28]
+    (=daikanwa		. 42290)	; &I-M-42290;
+    (=shinjigen@rev	.  9000)	; &GT-56781;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9704)	; 霄
+      ))
+    (ideographic-radical . 173)	; ⾬
+    (ideographic-strokes . 7)
+    (total-strokes	 . 15)
+    (=>>ucs@unicode	. #x9704)	; &G-GT-56782;
+    (=>>gt		. 56782)	; &G-GT-56782;
+    (=>>hanyo-denshi/ft . #x3A64)	; &G-GT-56782; [26-68]
     (->subsumptive
-     ((=ucs@jis		  . #x9704)	; &GT-56781;
-      (=jis-x0208	  . #x703C)	; &GT-56781; [80-28]
-      (=jis-x0213-1	  . #x703C)	; &I-JX1-703C; [80-28]
-      (=gt		  . 56781)	; &I-GT-56781;
-      (=gt-pj-1		  . #x703C)	; &I-GT-56781; [80-28]
-      (=daikanwa	  . 42290)	; &I-M-42290;
-      (=shinjigen@rev	  .  9000)	; &GT-56781;
+     ((=ucs@unicode	  . #x9704)	; &GT-56782;
+      (=gb2312		  . #x4F76)	; &GT-56782; [47-86]
+      (=gt		  . 56782)	; &I-GT-56782;
+      (=gt-pj-10	  . #x456A)	; &I-GT-56782; [37-74]
+      (=hanyo-denshi/ft	  . #x3A64)	; &I-HD-FT-3A64; [26-68]
       )
-     ((->subsumptive
-       ((=ucs@unicode	    . #x9704)	; &GT-56782;
-	(=gb2312	    . #x4F76)	; &GT-56782; [47-86]
-	(=gt		    . 56782)	; &I-GT-56782;
-	(=gt-pj-10	    . #x456A)	; &I-GT-56782; [37-74]
-	)
-       ((=cns11643-1	    . #x6F66)	; &C1-6F66; [79-70]
-	))
+     ((=cns11643-1	  . #x6F66)	; &C1-6F66; [79-70]
       ))
     ))
 (define-char
