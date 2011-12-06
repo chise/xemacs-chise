@@ -1629,7 +1629,12 @@
     (ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=hanyo-denshi/ft	. #x3A5E)	; &HD-FT-3A5E; [26-62]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x965F)	; 陟
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=hanyo-denshi/ft	. #x3A5E)	; 陟󠄂 [26-62]
     ))
 (define-char
   '((ideographic-radical . 170)	; ⾩
@@ -3029,7 +3034,12 @@
       (=ucs@unicode	  . #x968A)	; &g2-UU+968A;
       (=gb12345		  . #x3653)	; &g2-UU+968A; [22-51]
       )
-     ((=cns11643-1	  . #x6269)	; &GT-56087; [66-73]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x968A)	; 隊
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=cns11643-1	  . #x6269)	; 隊󠄃 [66-73]
       (=gt		  . 56087)	; &I-GT-56087;
       (=gt-k		  . 09095)	; &I-GT-K09095;
       (=gt-pj-1		  . #x4262)	; &I-GT-56087; [34-66]
@@ -3742,8 +3752,13 @@
     (=>>gt		. 56110)	; &G-GT-56110;
     (=>>hanyo-denshi/ft . #x3A5F)	; &G-GT-56110; [26-63]
     (->subsumptive
-     ((=gt		  . 56110)	; &GT-56110;
-      (=gt-pj-10	  . #x453F)	; &GT-56110; [37-31]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x9698)	; 隘
+	)
+       ((=ucs		    . #xE0104)	; 󠄄
+	))
+      (=gt		  . 56110)	; 隘󠄄
+      (=gt-pj-10	  . #x453F)	; 隘󠄄 [37-31]
       (=hanyo-denshi/ft	  . #x3A5F)	; &I-HD-FT-3A5F; [26-63]
       )
      ((=ucs@unicode	  . #x9698)	; &C1-6751;
@@ -5045,9 +5060,14 @@
     (ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (=ucs@unicode	. #x96A8)	; &HD-FT-3A39;
-    (=gb12345		. #x4B66)	; &HD-FT-3A39; [43-70]
-    (=hanyo-denshi/ft	. #x3A39)	; &HD-FT-3A39; [26-25]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x96A8)	; 隨
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=ucs@unicode	. #x96A8)	; 隨󠄂
+    (=gb12345		. #x4B66)	; 隨󠄂 [43-70]
+    (=hanyo-denshi/ft	. #x3A39)	; 隨󠄂 [26-25]
     ))
 (define-char
   '((ideographic-radical . 170)	; ⾩
@@ -5363,8 +5383,13 @@
     (ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
-    (=ucs@unicode	. #x96B1)	; &HD-FT-3A61;
-    (=gb12345		. #x527E)	; &HD-FT-3A61; [50-94]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x96B1)	; 隱
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=ucs@unicode	. #x96B1)	; 隱󠄂
+    (=gb12345		. #x527E)	; 隱󠄂 [50-94]
     (=hanyo-denshi/ft	. #x3A61)	; &I-HD-FT-3A61; [26-65]
     ))
 (define-char
