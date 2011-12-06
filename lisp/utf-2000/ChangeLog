@@ -1,3 +1,18 @@
+2011-12-05  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R181-Leaf.el: Add Hanyo-Denshi/FT code points.
+
+	* Ideograph-R174-Blue.el (G-UU+975C): Unify G-HD-FT2674.
+	(UU+975C): Unify HD-FT2674.
+
+	* Ideograph-R173-Rain.el: Add Hanyo-Denshi/FT code points.
+
+	* Ideograph-R170-Mound.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/FT characters.
+
+	* Ideograph-R169-Gate.el (HD-FT2661): Add
+	`=decomposition@hanyo-denshi'.
+
 2011-11-27  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R075-Tree.el (U+6852): Unify o-AJ1-08492.
