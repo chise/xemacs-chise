@@ -531,10 +531,12 @@
     (ideographic-radical . 174)	; ⾭
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
-    (=>>ucs@unicode	. #x975C)	; &G-UU+975C;
+    (=>>ucs@unicode	. #x975C)	; &G-HD-FT-3A6A;
+    (=>>hanyo-denshi/ft . #x3A6A)	; &G-HD-FT-3A6A; [26-74]
     (->subsumptive
-     ((=ucs@unicode	  . #x975C)	; &UU+975C;
-      (=gb12345		  . #x3E32)	; &UU+975C; [30-18]
+     ((=ucs@unicode	  . #x975C)	; &HD-FT-3A6A;
+      (=gb12345		  . #x3E32)	; &HD-FT-3A6A; [30-18]
+      (=hanyo-denshi/ft	  . #x3A6A)	; &HD-FT-3A6A; [26-74]
       )
      ((=cns11643-1	  . #x727B)	; &C1-727B; [82-91]
       ))
