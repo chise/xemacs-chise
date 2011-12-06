@@ -12672,7 +12672,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=cns11643-1	    . #x6269)	; &GT-56087; [66-73]
+       ((=cns11643-1	    . #x6269)	; 隊󠄃 [66-73]
 	)
        ((=ucs		    . #x571F)	; 土
 	))
