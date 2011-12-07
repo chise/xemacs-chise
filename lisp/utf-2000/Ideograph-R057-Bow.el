@@ -3550,18 +3550,58 @@
     (=big5		. #xF7D8)	; &I-B-F7D8;
     ))
 (define-char
-  '((ideographic-radical . 57)	; ⼸
-    (ideographic-strokes . 21)
+  '((ideographic-radical@ucs . 57)	; ⼸
+    (ideographic-strokes@ucs . 21)
+    (ideographic-radical@cns . 193)	; ⿀
+    (ideographic-strokes@cns . 14)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
+    (ideographic-strokes@cns*sources
+     daikanwa)
     (total-strokes	 . 24)
     (=ucs		. #x2244B)	; 𢑋
     ))
 (define-char
-  '((=>ucs		. #x2244B)	; 𢑋
-    (ideographic-radical . 57)	; ⼸
-    (ideographic-strokes . 21)
+  '((<-denotational
+     ((=ucs		  . #x2244B)	; 𢑋
+      ))
+    (ideographic-radical@ucs . 57)	; ⼸
+    (ideographic-strokes@ucs . 21)
+    (ideographic-radical@daikanwa . 193)	; ⿀
+    (ideographic-strokes@daikanwa . 14)
     (total-strokes	 . 24)
-    (hanyu-dazidian	2 1006 3)
-    (=hanziku-3		. #xCD7B)	; &HZK03-CD7B;
+    (=>>daikanwa	. 45732)	; &A-M-45732;
+    (->subsumptive
+     ((ideographic-radical . 193)	; ⿀
+      (ideographic-strokes . 14)
+      (=daikanwa	  . 45732)	; &M-45732;
+      )
+     ((ideographic-radical . 57)	; ⼸
+      (ideographic-strokes . 21)
+      (hanyu-dazidian	  2 1006 3)
+      (=hanziku-3	  . #xCD7B)	; &HZK03-CD7B;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2244B)	; 𢑋
+      ))
+    (ideographic-radical@ucs . 57)	; ⼸
+    (ideographic-strokes@ucs . 21)
+    (ideographic-radical@cns . 193)	; ⿀
+    (ideographic-strokes@cns . 14)
+    (total-strokes	 . 24)
+    (=>>ucs@iso		. #x2244B)	; &G-IU+2244B;
+    (=>>>ucs@iso	. #x2244B)	; &G-IU+2244B;
+    (->subsumptive
+     ((ideographic-radical . 57)	; ⼸
+      (ideographic-strokes . 21)
+      (=ucs@iso		  . #x2244B)	; &U-0002244B;
+      )
+     ((ideographic-radical . 193)	; ⿀
+      (ideographic-strokes . 14)
+      (=cns11643-7	  . #x603C)	; &C7-603C; [64-28]
+      ))
     ))
 (define-char
   '((=>ucs		. #x2244C)	; 𢑌
