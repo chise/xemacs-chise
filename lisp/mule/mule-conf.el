@@ -1181,6 +1181,16 @@
 		  =>iso-ir	177
 		  mother	=+>ucs@jis))
   (define-charset-alias '=>ucs@jis/1990 '=+>ucs@jis/1990)
+  (make-charset '=+>ucs@jis/2004
+		"UCS representative characters for JIS X 0213:2004"
+		'(long-name	"UCS characters for JIS:2004"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=+>ucs@jis))
   (make-charset '=+>ucs@ks
 		"UCS representative unified abstract glyphs for Korean Standards"
 		'(long-name	"UCS unified abstract glyphs for KS"
