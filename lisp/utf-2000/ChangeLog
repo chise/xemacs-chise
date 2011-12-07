@@ -1,6 +1,10 @@
 2011-12-05  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R187-Horse.el (JX3-7159): Unify HD-HG1663.
+
 	* Ideograph-R181-Leaf.el: Add Hanyo-Denshi/FT code points.
+
+	* Ideograph-R177-Leather.el: Add Hanyo-Denshi/FT code points.
 
 	* Ideograph-R174-Blue.el (G-UU+975C): Unify G-HD-FT2674.
 	(UU+975C): Unify HD-FT2674.
