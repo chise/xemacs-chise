@@ -1,3 +1,13 @@
+2011-12-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R057-Bow.el (U-0002244B): Use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns'; use `->denotational'.
+	(M-45732): Map to U-0002244B; copied from
+	Ideograph-R193-Cauldron.el.
+	(C7-603C): Likewise.
+
 2011-12-05  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R187-Horse.el (JX3-7159): Unify HD-HG1663.
