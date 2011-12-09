@@ -204,6 +204,11 @@
 	))
       )
      ((=>ucs*		  . #x5BFF)	; 寿
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x5BFF)	; 寿
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
       (=ucs		  . #x2F872)	; 寿
       (=ucs@unicode	  . #x5BFF)	; 寿
       (=ucs@cns		  . #x2F872)	; 寿
