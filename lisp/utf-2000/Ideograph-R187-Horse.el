@@ -4321,6 +4321,33 @@
       ))
     ))
 (define-char
+  '((ideographic-radical@ucs . 187)	; ⾺
+    (ideographic-strokes@ucs . 10)
+    (ideographic-radical@ucs*sources
+     daikanwa)
+    (ideographic-strokes@ucs*sources
+     daikanwa)
+    (ideographic-radical@cns . 194)	; ⿁
+    (ideographic-strokes@cns . 10)
+    (ideographic-radical@cns*sources
+     cns11643)
+    (total-strokes	 . 20)
+    (=ucs		. #x29962)	; 𩥢
+    (->subsumptive
+     ((ideographic-radical . 187)	; ⾺
+      (ideographic-strokes . 10)
+      (=daikanwa	  . 44890)	; &M-44890;
+      )
+     ((ideographic-radical . 194)	; ⿁
+      (ideographic-strokes . 10)
+      (=cns11643-7	  . #x5227)	; &C7-5227; [50-07]
+      )
+     ((ideographic-radical . 187)	; ⾺
+      (ideographic-strokes . 10)
+      (=ucs@iso		  . #x29962)	; &U-00029962;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 187)	; ⾺
     (=ucs		. #x9A2A)	; 騪
     (->subsumptive
