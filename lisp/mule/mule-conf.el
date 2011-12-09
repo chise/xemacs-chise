@@ -509,6 +509,24 @@
 	      ;; final ?@
 	      graphic 0))
   (make-charset
+   '=+>jis-x0208@1983
+   "JIS X 0208:1983 unified abstract glyphs."
+   '(registry "jisx0208\\.1983"
+	      dimension 2
+	      chars 94
+	      mother =+>jis-x0208
+	      =>iso-ir 87
+	      graphic 0))
+  (make-charset
+   '=+>jis-x0208@1990
+   "JIS X 0208:1990 unified abstract glyphs."
+   '(registry "jisx0208\\.1990"
+	      dimension 2
+	      chars 94
+	      mother =+>jis-x0208
+	      =>iso-ir 168
+	      graphic 0))
+  (make-charset
    '=+>jis-x0213-1
    "JIS X 0213 Plain 1 unified abstract glyphs (unchanged part)"
    '(registry "jisx0213\\(\\.[0-9]+\\)?-1"
@@ -519,6 +537,18 @@
               ;; final ?O
 	      graphic 0
               ;; partial t
+	      ))
+  (make-charset
+   '=+>jis-x0213-1@2000
+   "JIS X 0213:2000 Plain 1 unified abstract glyphs"
+   '(registry "jisx0213\\(\\.2000\\)-1"
+	      dimension 2
+	      chars 94
+	      mother =+>jis-x0213-1
+	      =>iso-ir 228
+              ;; final ?O
+	      graphic 0
+	      ;; partial t
 	      ))
 
   (make-charset
