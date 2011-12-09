@@ -1,5 +1,12 @@
 2011-12-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R048-Work.el: Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R046-Mountain.el, Ideograph-R044-Corpse.el: Add
+	`=decomposition@hanyo-denshi' for some Hanyo-Denshi/KS characters.
+
+2011-12-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R041-Inch.el (HD-KS084230): Add
 	`=decomposition@hanyo-denshi'.
 
