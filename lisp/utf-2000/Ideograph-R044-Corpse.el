@@ -522,9 +522,14 @@
     (ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=ucs@unicode	. #x5C46)	; &HD-KS-087260;
-    (=cns11643-1	. #x4D23)	; &HD-KS-087260; [45-03]
-    (=hanyo-denshi/ks	. 087260)	; &HD-KS-087260;
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5C46)	; 屆
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=ucs@unicode	. #x5C46)	; 屆󠄂
+    (=cns11643-1	. #x4D23)	; 屆󠄂 [45-03]
+    (=hanyo-denshi/ks	. 087260)	; 屆󠄂
     (=hanyo-denshi/ks/mf . #x2216)	; &I-KSMF-08726;
     ))
 (define-char
@@ -2337,8 +2342,13 @@
        ((=ucs@cns	    . #x5C65)	; &C1-6C53;
 	(=cns11643-1	    . #x6C53)	; &C1-6C53; [76-51]
 	)
-       ((=hanyo-denshi/ks   . 088540)	; &HD-KS-088540;
-	(=hanyo-denshi/ks/mf . #x2296)	; &HD-KS-088540;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x5C65)	; 履
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(=hanyo-denshi/ks   . 088540)	; 履󠄂
+	(=hanyo-denshi/ks/mf . #x2296)	; 履󠄂
 	))
       ))
     ))
