@@ -1,3 +1,19 @@
+2011-12-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R041-Inch.el (HD-KS084230): Add
+	`=decomposition@hanyo-denshi'.
+
+2011-12-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R193-Cauldron.el: Add mappings between CJK Ext-B and
+	CNS 11643 plain 7.
+	(U-0002244B): Use `ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+
+	* Ideograph-R187-Horse.el (U-00029962): Copied from
+	Ideograph-R194-Ghost.el.
+
 2011-12-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R057-Bow.el (U-0002244B): Use
