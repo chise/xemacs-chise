@@ -116,8 +116,26 @@
     (=>>ucs@cns		. #x382F)	; &G-HD-IA-2256;
     (=>>daikanwa	. 08747)	; &G-HD-IA-2256;
     (=>>hanyo-denshi/ia . #x2256)	; &G-HD-IA-2256; [02-54]
+    (=>>hanyo-denshi/ks . 099080)	; &G-HD-IA-2256;
     (->subsumptive
      ((=daikanwa	  . 08747)	; &M-08747;
+      (=hanyo-denshi/ks	  . 099080)	; &M-08747;
+      (=hanyo-denshi/ks/mf . #x26B4)	; &I-KSMF-09908;
+      (<-same
+       ((=ucs@jis	    . #x4EE5)	; 以󠄀
+	(=jis-x0208	    . #x304A)	; 以󠄀 [16-42]
+	(=ks-x1001	    . #x6C24)	; &I-K0-6C24; [76-04]
+	(=jis-x0213-1	    . #x304A)	; &I-JX1-304A; [16-42]
+	(=daikanwa	    . 00388)	; &I-M-00388;
+	))
+      (<-same*sources
+       zhengzitong daikanwa)
+      (<-same@misc
+       ((=ucs		    . #x5DF3)	; 巳
+	(=daikanwa	    . 08744)	; &I-M-08744;
+	))
+      (<-same@misc*sources
+       daikanwa)
       )
      ((=ucs@cns		  . #x382F)	; &C3-2245;
       (=cns11643-3	  . #x2245)	; &C3-2245; [02-37]
