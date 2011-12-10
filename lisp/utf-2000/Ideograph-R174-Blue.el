@@ -534,9 +534,14 @@
     (=>>ucs@unicode	. #x975C)	; &G-HD-FT-3A6A;
     (=>>hanyo-denshi/ft . #x3A6A)	; &G-HD-FT-3A6A; [26-74]
     (->subsumptive
-     ((=ucs@unicode	  . #x975C)	; &HD-FT-3A6A;
-      (=gb12345		  . #x3E32)	; &HD-FT-3A6A; [30-18]
-      (=hanyo-denshi/ft	  . #x3A6A)	; &HD-FT-3A6A; [26-74]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x975C)	; 靜
+	)
+       ((=ucs		    . #xE0105)	; 󠄅
+	))
+      (=ucs@unicode	  . #x975C)	; 靜󠄅
+      (=gb12345		  . #x3E32)	; 靜󠄅 [30-18]
+      (=hanyo-denshi/ft	  . #x3A6A)	; 靜󠄅 [26-74]
       )
      ((=cns11643-1	  . #x727B)	; &C1-727B; [82-91]
       ))
