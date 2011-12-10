@@ -311,13 +311,18 @@
     (total-strokes	 . 13)
     (=ucs		. #x9774)	; 靴
     (->subsumptive
-     ((=ucs@unicode	  . #x9774)	; &GT-57341;
-      (=jis-x0208@1978	  . #x3724)	; &GT-57341; [23-04]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x9774)	; 靴
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=ucs@unicode	  . #x9774)	; 靴󠄃
+      (=jis-x0208@1978	  . #x3724)	; 靴󠄃 [23-04]
       (=gb2312		  . #x5125)	; &I-G0-5125; [49-05]
       (=gt		  . 57341)	; &I-GT-57341;
       (=gt-pj-9		  . #x4C49)	; &I-GT-57341; [44-41]
       (=daikanwa	  . 42729)	; &I-M-42729;
-      (=shinjigen@rev	  .  9052)	; &GT-57341;
+      (=shinjigen@rev	  .  9052)	; 靴󠄃
       (=hanyo-denshi/ft	  . #x3173)	; &I-HD-FT-3173; [17-83]
       )
      ((=ucs@jis		  . #x9774)	; &GT-57340;
@@ -804,8 +809,13 @@
     (ideographic-radical . 177)	; ⾰
     (ideographic-strokes . 5)
     (total-strokes	 . 14)
-    (=ucs@unicode	. #x9784)	; &GT-57409;
-    (=jis-x0208@1978	. #x3373)	; &GT-57409; [19-83]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x9784)	; 鞄
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
+    (=ucs@unicode	. #x9784)	; 鞄󠄃
+    (=jis-x0208@1978	. #x3373)	; 鞄󠄃 [19-83]
     (=cns11643-2	. #x4F2E)	; &I-C2-4F2E; [47-14]
     (=jis-x0213-1@2004	. #x3373)	; &I-JX3-3373; [19-83]
     (=gt		. 57409)	; &I-GT-57409;
@@ -829,8 +839,8 @@
     (=gt-pj-1		. #x3373)	; &I-GT-57412; [19-83]
     (=jef-china3	. #x6CCA)	; &I-JC3-6CCA;
     (<-simplified@JP/jis
-     ((=ucs@unicode	  . #x9784)	; &GT-57409;
-      (=jis-x0208@1978	  . #x3373)	; &GT-57409; [19-83]
+     ((=ucs@unicode	  . #x9784)	; 鞄󠄃
+      (=jis-x0208@1978	  . #x3373)	; 鞄󠄃 [19-83]
       (=cns11643-2	  . #x4F2E)	; &I-C2-4F2E; [47-14]
       (=jis-x0213-1@2004  . #x3373)	; &I-JX3-3373; [19-83]
       (=daikanwa	  . 42781)	; &I-M-42781;
@@ -1474,8 +1484,13 @@
     (ideographic-radical . 177)	; ⾰
     (ideographic-strokes . 7)
     (total-strokes	 . 16)
-    (=ucs@jis/2004	. #x9798)	; &GT-57472;
-    (=jis-x0208@1978	. #x3E64)	; &GT-57472; [30-68]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x9798)	; 鞘
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
+    (=ucs@jis/2004	. #x9798)	; 鞘󠄃
+    (=jis-x0208@1978	. #x3E64)	; 鞘󠄃 [30-68]
     (=jis-x0213-1@2004	. #x3E64)	; &I-JX3-3E64; [30-68]
     (=gt		. 57472)	; &I-GT-57472;
     (=gt-pj-8		. #x3A2F)	; &I-GT-57472; [26-15]
@@ -1504,8 +1519,8 @@
       (=gt-pj-1		  . #x3E64)	; &I-GT-57473; [30-68]
       (=jef-china3	  . #x6CCC)	; &I-JC3-6CCC;
       (<-simplified@JP/jis
-       ((=ucs@jis/2004	    . #x9798)	; &GT-57472;
-	(=jis-x0208@1978    . #x3E64)	; &GT-57472; [30-68]
+       ((=ucs@jis/2004	    . #x9798)	; 鞘󠄃
+	(=jis-x0208@1978    . #x3E64)	; 鞘󠄃 [30-68]
 	(=jis-x0213-1@2004  . #x3E64)	; &I-JX3-3E64; [30-68]
 	(=daikanwa	    . 42850)	; &I-M-42850;
 	))
