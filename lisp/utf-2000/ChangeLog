@@ -1,3 +1,51 @@
+2011-12-10  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R049-Oneself.el (G-HD-IA0254): Unify G-HD-KS099080.
+	(M-08747): Unify HD-KS099080; add `<-same' for J0-304A; add
+	`<-same@misc' for U+5DF3.
+
+	* Ideograph-R184-Eat.el: Add Hanyo-Denshi/FT code points.
+	(K0-6C48): Unify KU+990C.
+	(J90-3142): Use `<-simplified@JP/jis/1978' instead of
+	`<-simplified@JP/jis' for J78-3142.
+	(U-000296EA): Use `->denotational' instead of `->subsumptive'.
+	(U-00029703): Likewise.
+	(U-000297AC): Likewise.
+
+2011-12-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R194-Ghost.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+	(U+4C21): Use `->subsumptive' to separate representative nodes.
+	(U+4C2A): Use `->subsumptive'.
+	(U+9B50): Use `->denotational' instead of `->subsumptive'.
+	(U-00029962): Use `ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+	(U-00029D1E): Use `->denotational' instead of `->subsumptive'.
+	(U+9B57): Use `->subsumptive' to separate representative nodes.
+	(U-00029D3A): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R181-Leaf.el, Ideograph-R177-Leather.el: Add
+	`=decomposition@hanyo-denshi' for some Hanyo-Denshi/FT characters.
+
+	* Ideograph-R174-Blue.el (HD-FT2674): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R173-Rain.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/FT characters.
+
+	* Ideograph-R140-Grass.el (U+84CB): Use `->denotational'.
+
+	* Ideograph-R050-Turban.el: Add Hanyo-Denshi/KS code points.
+	(M-09130): Map to U-00022164.
+	(CB02210): Unify H2-EDD9.
+
+2011-12-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=+>ucs@iso'.
+
 2011-12-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R048-Work.el: Add Hanyo-Denshi/KS code points.
