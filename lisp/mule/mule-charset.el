@@ -381,6 +381,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =adobe-japan1-base
 	  =>jis-x0208@1997
 	  =>>hanyo-denshi/ft
+	  =>>hanyo-denshi/jt
 	  =>>gt
 	  )))
 
