@@ -2666,7 +2666,7 @@
     (total-strokes	 . 8)
     (=daikanwa		. 38770)	; &M-38770;
     (<-wrong
-     ((=ks-x1001	  . #x625E)	; &M-08684; [66-62]
+     ((=ks-x1001	  . #x625E)	; 巡󠄃 [66-62]
       (=daikanwa	  . 08684)	; &I-M-08684;
       ))
     (<-wrong*sources
@@ -3959,7 +3959,7 @@
     (total-strokes	 . 9)
     (=daikanwa		. 38799)	; &M-38799;
     (<-ancient
-     ((=daikanwa	  . 10073)	; &M-10073;
+     ((=daikanwa	  . 10073)	; 往󠄃
       (=hanyo-denshi/jt	  . #xB12F)	; &I-HD-JT-B12F;
       ))
     (<-ancient*sources
@@ -10163,7 +10163,7 @@
     (total-strokes	 . 12)
     (=daikanwa		. 38955)	; &M-38955;
     (<-ancient
-     ((=daikanwa	  . 10073)	; &M-10073;
+     ((=daikanwa	  . 10073)	; 往󠄃
       (=hanyo-denshi/jt	  . #xB12F)	; &I-HD-JT-B12F;
       ))
     (<-ancient*sources
@@ -12429,7 +12429,7 @@
     (=daikanwa		. 39010)	; &I-M-39010;
     (=jef-china3	. #x67DF)	; &I-JC3-67DF;
     (<-synonyms
-     ((=ks-x1001	  . #x5374)	; &M-07465; [51-84]
+     ((=ks-x1001	  . #x5374)	; 導󠄃 [51-84]
       (=daikanwa	  . 07465)	; &I-M-07465;
       ))
     (<-synonyms*sources
