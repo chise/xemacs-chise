@@ -323,7 +323,12 @@
     (ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (=ks-x1001		. #x625E)	; &M-08684; [66-62]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5DE1)	; 巡
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
+    (=ks-x1001		. #x625E)	; 巡󠄃 [66-62]
     (=daikanwa		. 08684)	; &I-M-08684;
     (=jef-china3	. #x67AA)	; &I-JC3-67AA;
     (=hanyo-denshi/jt	. #xBC3A)	; &I-HD-JT-BC3A;
