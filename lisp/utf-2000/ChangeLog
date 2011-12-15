@@ -1,3 +1,8 @@
+2011-12-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>>hanyo-denshi/jt'.
+
 2011-12-10  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R049-Oneself.el (G-HD-IA0254): Unify G-HD-KS099080.
