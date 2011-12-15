@@ -343,6 +343,8 @@
     (=ucs@cns		. #x8201)	; &M-30188;
     (=cns11643-2	. #x3234)	; &M-30188; [18-20]
     (=daikanwa		. 30188)	; &I-M-30188;
+    (=hanyo-denshi/ks	. 336910)	; &M-30188;
+    (=hanyo-denshi/ks/mf . #x839B)	; &I-KSMF-33691;
     ))
 (define-char
   '((<-denotational
@@ -438,13 +440,18 @@
       ))
     ))
 (define-char
-  '((=>ucs*		. #x8201)	; 舁
+  '((<-denotational
+     ((=ucs		  . #x8201)	; 舁
+      ))
+    (=>ucs*		. #x8201)	; 舁
     (ideographic-radical . 134)	; ⾅
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
     (=ucs		. #x2F98B)	; 舁
     (=cns11643-4	. #x3457)	; &I-C4-3457; [20-55]
     (=daikanwa		. 49560)	; &I-M-49560;
+    (=hanyo-denshi/ks	. 337010)	; 舁
+    (=hanyo-denshi/ks/mf . #x83A5)	; &I-KSMF-33701;
     ))
 (define-char
   '((ideographic-radical . 134)	; ⾅
