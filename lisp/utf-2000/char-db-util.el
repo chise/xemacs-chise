@@ -186,6 +186,7 @@
     =>>jis-x0213-2
     =>>jis-x0208@1978
     =>>hanyo-denshi/ft
+    =>>hanyo-denshi/jt
     =>>hanyo-denshi/ks
     =>>gt
     =>>daikanwa
