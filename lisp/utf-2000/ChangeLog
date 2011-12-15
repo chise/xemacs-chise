@@ -1,7 +1,46 @@
+2011-12-16  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el: Reformatted.
+
+2011-12-15  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 2011-12-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>>hanyo-denshi/jt'.
+
+2011-12-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R060-Step.el, Ideograph-R059-Bristle.el: Add
+	`=decomposition@hanyo-denshi' for Hanyo-Denshi/JT characters.
+
+	* Ideograph-R057-Bow.el (HD-JT-B112): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R056-Shoot.el (HD-JT-B103): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R053-Dotted-Cliff.el: Add
+	`=decomposition@hanyo-denshi' for Hanyo-Denshi/JT characters.
+	(U+5E63): Add ideographic-structure.
+
+	* Ideograph-R050-Turban.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/JT characters.
+
+	* Ideograph-R051-Dry.el (HD-JT-B0BF): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R047-River.el (HD-JT-BC3A): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R046-Mountain.el: Add `=decomposition@hanyo-denshi'
+	for Hanyo-Denshi/JT characters.
+	(U+5C88): Unify G-M-07921, G-AJ1-17548, G-HD-JB2710 and
+	G-HD-JT-B062.
+
+	* Ideograph-R041-Inch.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/JT characters.
+	(U+5C08): Use `->denotational' instead of `->subsumptive'.
 
 2011-12-10  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
