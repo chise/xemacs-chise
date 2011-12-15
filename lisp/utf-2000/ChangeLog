@@ -1,8 +1,26 @@
-2011-12-16  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+2011-12-15  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R162-Walk.el: Reformatted.
+	* Ideograph-R196-Bird.el (U+9D09): Unify o-J0-726D instead of
+	A-J0-726D.
+	(G-UU+9D09): Unify G-HD-HG1601.
+	(JX3-726D): Unify HD-HG1601.
 
 2011-12-15  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R134-Mortar.el (C2-3234): Unify HD-KS336910.
+	(U-0002F98B): Add `<-denotational' for U+8201; unify HD-KS337010.
+
+	* Ideograph-R058-Snout.el (U+5F56): Use `->denotational' to
+	integrate HD-KS112230.
+	(HD-KS112230): New character.
+
+	* Ideograph-R055-Two-Hands.el (U+2F890): Unify HD-KS108410.
+
+	* Ideograph-R049-Oneself.el (HD-KS099080): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R048-Work.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/KS characters.
 
 2011-12-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
