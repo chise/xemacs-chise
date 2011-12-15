@@ -1891,7 +1891,12 @@
 	(=cns11643-3	    . #x3068)	; &C3-3068; [16-72]
 	(=jef-china3	    . #x82BD)	; &I-JC3-82BD;
 	)
-       ((=hanyo-denshi/jt   . #xB0AD)	; &HD-JT-B0AD;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x5E2E)	; 帮
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(=hanyo-denshi/jt   . #xB0AD)	; 帮󠄂
 	)
        ((=jef-china3	    . #x4BFC)	; &JC3-4BFC;
 	))
@@ -2465,7 +2470,12 @@
     (=>>ucs@cns		. #x5E30)	; &G-HD-JT-B0A9;
     (=>>hanyo-denshi/jt . #xB0A9)	; &G-HD-JT-B0A9;
     (->subsumptive
-     ((=hanyo-denshi/jt	  . #xB0A9)	; &HD-JT-B0A9;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5E30)	; 帰
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=hanyo-denshi/jt	  . #xB0A9)	; 帰󠄃
       )
      ((=ucs@cns		  . #x5E30)	; &C3-3067;
       (=cns11643-3	  . #x3067)	; &C3-3067; [16-71]
@@ -5328,6 +5338,14 @@
   '((ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x655D)	; 敝
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
     (=ucs		. #x5E63)	; 幣
     (=big5		. #xB9F4)	; &I-B-B9F4;
     ))
@@ -5338,6 +5356,11 @@
     (ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5E63)	; 幣
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -5348,7 +5371,7 @@
       )
      ((=ucs		  . #x5DFE)	; 巾
       ))
-    (=ks-x1001		. #x7847)	; &M-09088; [88-39]
+    (=ks-x1001		. #x7847)	; 幣󠄃 [88-39]
     (=daikanwa		. 09088)	; &I-M-09088;
     (=jef-china3	. #x4BFE)	; &I-JC3-4BFE;
     (=hanyo-denshi/jt	. #xB0B8)	; &I-HD-JT-B0B8;
@@ -5365,15 +5388,6 @@
     (->subsumptive
      ((ideographic-strokes . 12)
       (total-strokes	   . 15)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs@unicode	    . #x655D)	; &G0-3156;
-	(=gb2312	    . #x3156)	; &G0-3156; [17-54]
-	)
-       ((=ucs		    . #x5DFE)	; 巾
-	))
       (=ucs@jis		  . #x5E63)	; &GT-11451;
       (=jis-x0208	  . #x4A3E)	; &GT-11451; [42-30]
       (=jis-x0213-1	  . #x4A3E)	; &I-JX1-4A3E; [42-30]
@@ -5386,8 +5400,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x655D)	; &G0-3156;
-	(=gb2312	    . #x3156)	; &G0-3156; [17-54]
+       ((=cns11643-1	    . #x5A71)	; &C1-5A71; [58-81]
 	)
        ((=ucs		    . #x5DFE)	; 巾
 	))
