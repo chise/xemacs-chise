@@ -14,6 +14,10 @@
 
 2011-12-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R187-Horse.el (U+4B90): Use `->denotational' and
+	`->subsumptive' to separate representative nodes.
+	(U+99F8): Use `->subsumptive'.
+
 	* Ideograph-R194-Ghost.el: Add mappings between CJK Ext-B and CNS
 	11643 plain 7.
 	(U+4C21): Use `->subsumptive' to separate representative nodes.
