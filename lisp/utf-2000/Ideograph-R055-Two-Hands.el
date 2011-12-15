@@ -34,6 +34,8 @@
     (=cns11643-6	. #x2174)	; &I-C6-2174; [01-84]
     (=big5-cdp		. #x887D)	; &I-CDP-887D;
     (=daikanwa		. 09584)	; &I-M-09584;
+    (=hanyo-denshi/ks	. 108410)	; 廾
+    (=hanyo-denshi/ks/mf . #x2A59)	; &I-KSMF-10841;
     ))
 (define-char
   '((ideographic-radical . 55)	; ⼶
