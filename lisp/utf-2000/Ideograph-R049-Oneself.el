@@ -118,8 +118,13 @@
     (=>>hanyo-denshi/ia . #x2256)	; &G-HD-IA-2256; [02-54]
     (=>>hanyo-denshi/ks . 099080)	; &G-HD-IA-2256;
     (->subsumptive
-     ((=daikanwa	  . 08747)	; &M-08747;
-      (=hanyo-denshi/ks	  . 099080)	; &M-08747;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x382F)	; 㠯
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=daikanwa	  . 08747)	; 㠯󠄂
+      (=hanyo-denshi/ks	  . 099080)	; 㠯󠄂
       (=hanyo-denshi/ks/mf . #x26B4)	; &I-KSMF-09908;
       (<-same
        ((=ucs@jis	    . #x4EE5)	; 以󠄀
