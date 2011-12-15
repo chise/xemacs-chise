@@ -9513,7 +9513,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ks-x1001	    . #x562F)	; &M-09436; [54-15]
+       ((=ks-x1001	    . #x562F)	; 廉󠄃 [54-15]
 	(=daikanwa	    . 09436)	; &I-M-09436;
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")

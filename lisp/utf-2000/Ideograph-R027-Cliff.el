@@ -2649,8 +2649,8 @@
 	)
        ((=shinjigen	    .  2208)	; &SJG2-2208;
 	(<-vulgar
-	 ((=gt		      . 11902)	; &GT-11902;
-	  (=shinjigen	      .	 2207)	; &GT-11902;
+	 ((=gt		      . 11902)	; 廏󠄃
+	  (=shinjigen	      .	 2207)	; 廏󠄃
 	  ))
 	(<-vulgar*sources
 	 shinjigen)
