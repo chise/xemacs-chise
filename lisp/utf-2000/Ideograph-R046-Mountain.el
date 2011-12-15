@@ -652,12 +652,20 @@
     (total-strokes	 . 7)
     (=ucs		. #x5C88)	; 岈
     (=big5		. #xCAC2)	; &I-B-CAC2;
+    (=>>daikanwa	. 07921)	; 岈
+    (=>>adobe-japan1-5	. 17548)	; 岈
+    (=>>hanyo-denshi/jb . #x3B2A)	; 岈 [27-10]
+    (=>>hanyo-denshi/jt . #xB062)	; 岈
     (->subsumptive
-     ((=>>ucs@unicode	  . #x5C88)	; &G-HD-JT-B062;
-      (=>>daikanwa	  . 07921)	; &G-HD-JT-B062;
-      (=>>hanyo-denshi/jt . #xB062)	; &G-HD-JT-B062;
+     ((=>>>ucs@unicode	  . #x5C88)	; &g2-HD-JT-B062;
+      (=>>>hanyo-denshi/jt . #xB062)	; &g2-HD-JT-B062;
       (->subsumptive
-       ((=daikanwa	    . 07921)	; &M-07921;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x5C88)	; 岈
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(=daikanwa	    . 07921)	; 岈󠄂
 	(=jef-china3	    . #x4BBA)	; &I-JC3-4BBA;
 	(=hanyo-denshi/jt   . #xB062)	; &I-HD-JT-B062;
 	)
@@ -780,8 +788,13 @@
     (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (=ucs@unicode	. #x5C8C)	; &HD-JT-B064;
-    (=gb2312		. #x6127)	; &HD-JT-B064; [65-07]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5C8C)	; 岌
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=ucs@unicode	. #x5C8C)	; 岌󠄂
+    (=gb2312		. #x6127)	; 岌󠄂 [65-07]
     (=hanyo-denshi/jt	. #xB064)	; &I-HD-JT-B064;
     ))
 (define-char
