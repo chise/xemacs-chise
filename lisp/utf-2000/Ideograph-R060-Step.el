@@ -457,7 +457,12 @@
     (ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=daikanwa		. 10073)	; &M-10073;
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5F80)	; 往
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
+    (=daikanwa		. 10073)	; 往󠄃
     (=jef-china3	. #x4DAF)	; &I-JC3-4DAF;
     (=hanyo-denshi/jt	. #xB12F)	; &I-HD-JT-B12F;
     ))
@@ -2639,7 +2644,12 @@
       (=gt-k		  . 10266)	; &I-GT-K10266;
       (=gt-pj-1		  . #x4879)	; &I-GT-12872; [40-89]
       )
-     ((=jef-china3	  . #x4DBD)	; &HD-JT-B13C;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5FAE)	; 微
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=jef-china3	  . #x4DBD)	; 微󠄃
       (=hanyo-denshi/jt	  . #xB13C)	; &HD-JT-B13C;
       ))
     ))
