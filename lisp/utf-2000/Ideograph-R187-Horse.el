@@ -2497,8 +2497,31 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 17)
     (=ucs		. #x4B90)	; 䮐
-    (=cns11643-3	. #x5735)	; &I-C3-5735; [55-21]
-    (=daikanwa		. 44757)	; &I-M-44757;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4B90)	; 䮐
+      ))
+    (ideographic-radical . 187)	; ⾺
+    (ideographic-strokes . 7)
+    (total-strokes	 . 17)
+    (=>>ucs@cns		. #x4B90)	; &G-CU+4B90;
+    (=>>daikanwa	. 44757)	; &G-CU+4B90;
+    (->subsumptive
+     ((=daikanwa	  . 44757)	; &M-44757;
+      )
+     ((=ucs@cns		  . #x4B90)	; &C3-5735;
+      (=cns11643-3	  . #x5735)	; &C3-5735; [55-21]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4B90)	; 䮐
+      ))
+    (ideographic-radical . 187)	; ⾺
+    (ideographic-strokes . 7)
+    (total-strokes	 . 17)
+    (=ucs@unicode	. #x4B90)	; &UU+4B90;
     ))
 (define-char
   '((ideographic-radical . 187)	; ⾺
@@ -2509,7 +2532,15 @@
     (=daikanwa		. 44758)	; &I-M-44758;
     ))
 (define-char
-  '((=>ucs		. #x99F8)	; 駸
+  '((ideographic-radical . 187)	; ⾺
+    (ideographic-strokes . 7)
+    (total-strokes	 . 17)
+    (=ucs		. #x99F8)	; 駸
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x99F8)	; 駸
+      ))
     (ideographic-radical . 187)	; ⾺
     (ideographic-strokes . 7)
     (total-strokes	 . 17)
@@ -2520,16 +2551,19 @@
     (=gt		. 60265)	; &I-GT-60265;
     (=gt-pj-1		. #x7154)	; &I-GT-60265; [81-52]
     (=daikanwa		. 44759)	; &I-M-44759;
-    (=shinjigen@rev	.  9371)	; &GT-60265;
+    (=shinjigen		.  9371)	; &GT-60265;
     ))
 (define-char
-  '((morohashi-daikanwa	44759 0 1)
+  '((<-denotational
+     ((=ucs		  . #x99F8)	; 駸
+      ))
     (ideographic-radical . 187)	; ⾺
     (ideographic-strokes . 7)
     (total-strokes	 . 17)
-    (=ucs		. #x99F8)	; 駸
-    (=gt		. 60266)	; &I-GT-60266;
-    (=gt-pj-11		. #x3332)	; &I-GT-60266; [19-18]
+    (=ucs@unicode	. #x99F8)	; &GT-60266;
+    (=gt		. 60266)	; &GT-60266;
+    (=gt-pj-11		. #x3332)	; &GT-60266; [19-18]
+    (=hanyo-denshi/ft	. #x3B36)	; &I-HD-FT-3B36; [27-22]
     ))
 (define-char
   '((ideographic-radical . 187)	; ⾺
