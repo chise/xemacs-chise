@@ -3691,7 +3691,12 @@
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=ks-x1001		. #x562F)	; &M-09436; [54-15]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5EC9)	; 廉
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
+    (=ks-x1001		. #x562F)	; 廉󠄃 [54-15]
     (=daikanwa		. 09436)	; &I-M-09436;
     (=jef-china3	. #x4CC9)	; &I-JC3-4CC9;
     (=hanyo-denshi/jt	. #xB0D9)	; &I-HD-JT-B0D9;
@@ -3703,6 +3708,7 @@
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (=>>ucs@unicode	. #x5EC9)	; &g2-J0-4E77;
     (=>>>ucs@unicode	. #x5EC9)	; &g2-J0-4E77;
     (=>>>jis-x0208	. #x4E77)	; &g2-J0-4E77; [46-87]
     (=>>>jis-x0213-1	. #x4E77)	; &g2-J0-4E77; [46-87]
@@ -4068,9 +4074,14 @@
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=gt		. 11902)	; &GT-11902;
-    (=gt-pj-11		. #x3B54)	; &GT-11902; [27-52]
-    (=shinjigen		.  2207)	; &GT-11902;
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5ECF)	; 廏
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
+    (=gt		. 11902)	; 廏󠄃
+    (=gt-pj-11		. #x3B54)	; 廏󠄃 [27-52]
+    (=shinjigen		.  2207)	; 廏󠄃
     (=hanyo-denshi/jt	. #xB0E0)	; &I-HD-JT-B0E0;
     ))
 (define-char
@@ -4136,8 +4147,8 @@
       (total-strokes	   . 14)
       (=shinjigen	  .  2209)	; &SJG2-2209;
       (<-vulgar
-       ((=gt		    . 11902)	; &GT-11902;
-	(=shinjigen	    .  2207)	; &GT-11902;
+       ((=gt		    . 11902)	; 廏󠄃
+	(=shinjigen	    .  2207)	; 廏󠄃
 	))
       (<-vulgar*sources
        shinjigen)
@@ -4982,17 +4993,27 @@
     (total-strokes	 . 14)
     (=+>ucs@unicode	. #x5EE3)	; &o-UU+5EE3;
     (->subsumptive
-     ((=>>ucs@unicode	  . #x5EE3)	; &G-HD-JT-B0E1;
-      (=>>>ucs@unicode	  . #x5EE3)	; &G-HD-JT-B0E1;
-      (=>>hanyo-denshi/jt . #xB0E1)	; &G-HD-JT-B0E1;
+     ((=>>ucs@unicode	  . #x5EE3)	; &g2-HD-JT-B0E1;
+      (=>>>ucs@unicode	  . #x5EE3)	; &g2-HD-JT-B0E1;
+      (=>>>hanyo-denshi/jt . #xB0E1)	; &g2-HD-JT-B0E1;
       (->subsumptive
-       ((=hanyo-denshi/jt   . #xB0E1)	; &HD-JT-B0E1;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x5EE3)	; 廣
+	  )
+	 ((=ucs		      . #xE0105)	; 󠄅
+	  ))
+	(=hanyo-denshi/jt   . #xB0E1)	; 廣󠄅
 	)
        ((=ucs@unicode	    . #x5EE3)	; &UU+5EE3;
 	(=gb12345	    . #x3963)	; &UU+5EE3; [25-67]
 	))
       )
-     ((=hanyo-denshi/jt	  . #xB0E2)	; &HD-JT-B0E2;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5EE3)	; 廣
+	)
+       ((=ucs		    . #xE0104)	; 󠄄
+	))
+      (=hanyo-denshi/jt	  . #xB0E2)	; 廣󠄄
       ))
     ))
 (define-char
