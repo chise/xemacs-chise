@@ -1854,7 +1854,12 @@
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=daikanwa		. 09817)	; &M-09817;
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5F38)	; 弸
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
+    (=daikanwa		. 09817)	; 弸󠄃
     (=hanyo-denshi/jt	. #xB112)	; &I-HD-JT-B112;
     ))
 (define-char
