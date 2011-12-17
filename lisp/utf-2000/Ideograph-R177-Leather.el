@@ -73,6 +73,11 @@
     (ideographic-radical . 177)	; ⾰
     (ideographic-strokes . 3)
     (total-strokes	 . 12)
+    (=>>ucs@unicode	. #x976D)	; &G-GT-57333;
+    (=>>jis-x0208@1978	. #x7057)	; &G-GT-57333; [80-55]
+    (=>>gt		. 57333)	; &G-GT-57333;
+    (=>>daikanwa	. 42715)	; &G-GT-57333;
+    (=>>hanyo-denshi/hg . #x3041)	; &G-GT-57333; [16-33]
     (->subsumptive
      ((=ucs@unicode	  . #x976D)	; &GT-57333;
       (=jis-x0208@1978	  . #x7057)	; &GT-57333; [80-55]
@@ -80,6 +85,7 @@
       (=gt		  . 57333)	; &I-GT-57333;
       (=gt-pj-8		  . #x386F)	; &I-GT-57333; [24-79]
       (=daikanwa	  . 42715)	; &I-M-42715;
+      (=hanyo-denshi/hg	  . #x3041)	; &I-HD-HG-3041; [16-33]
       (<-same@jiyun
        ((=daikanwa	    . 29262)	; &M-29262;
 	))
