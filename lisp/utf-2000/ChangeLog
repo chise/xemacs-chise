@@ -1,5 +1,22 @@
 2011-12-15  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R177-Leather.el (mother of J78-7057): Unify G-UU+976D,
+	G-J78-7057, G-GT-57333, G-M-42715 and G-HD-HG1633.
+	(J78-7057): Unify HD-HG1633.
+
+	* Ideograph-R011-Enter.el (G-HD-JT-ADC5): Unify G-GT-K01745 and
+	G-AJ1-13890.
+	(G-CU+204F4): Unify G-M-01444.
+
+	* Ideograph-R184-Eat.el (U+9910): Unify o-J0-3B41 instead of
+	A-J0-3B41; use `->denotational' instead of `->subsumptive'.
+	(JX3-3B41): Unify HD-HG1627.
+
+	* Ideograph-R054-Long-Stride.el (U+5EF7): Unify G-M-09571 and
+	G-HD-KS108170.
+	(J90-446E): Separate C1-4A2C.
+	(HD-KS108170): New character.
+
 	* Ideograph-R196-Bird.el (U+9D09): Unify o-J0-726D instead of
 	A-J0-726D.
 	(G-UU+9D09): Unify G-HD-HG1601.
