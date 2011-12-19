@@ -1,3 +1,13 @@
+2011-12-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R194-Ghost.el (J78-7233): Unify HD-FT1745.
+
+	* Ideograph-R040-Roof.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/JT characters.
+	(BUCS+61B2): New character.
+	(U+5BAA): Add `<-denotational' for BUCS+61B2.
+	(G0-4F5C): Add `<-simplified@CN' for G1-4F5C.
+
 2011-12-16  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R009-Man.el (C2-2930): Separate UU+4FB9 and JC3-42BF.
