@@ -1,3 +1,8 @@
+2011-12-16  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (C2-2930): Separate UU+4FB9 and JC3-42BF.
+	(C6-4650): Modify `ideographic-structure'.
+
 2011-12-15  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R177-Leather.el (mother of J78-7057): Unify G-UU+976D,
