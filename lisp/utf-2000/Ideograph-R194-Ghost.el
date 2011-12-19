@@ -1434,6 +1434,7 @@
       (=cns11643-1	  . #x777D)	; &I-C1-777D; [87-93]
       (=gt		  . 61677)	; &I-GT-61677;
       (=gt-pj-1		  . #x7233)	; &I-GT-61677; [82-19]
+      (=hanyo-denshi/ft	  . #x314D)	; &I-HD-FT-314D; [17-45]
       )
      ((total-strokes	   . 17)
       (=ucs@unicode	  . #x9B4D)	; &G0-774D;
