@@ -2560,9 +2560,14 @@
     (ideographic-radical . 187)	; ⾺
     (ideographic-strokes . 7)
     (total-strokes	 . 17)
-    (=ucs@unicode	. #x99F8)	; &GT-60266;
-    (=gt		. 60266)	; &GT-60266;
-    (=gt-pj-11		. #x3332)	; &GT-60266; [19-18]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x99F8)	; 駸
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=ucs@unicode	. #x99F8)	; 駸󠄂
+    (=gt		. 60266)	; 駸󠄂
+    (=gt-pj-11		. #x3332)	; 駸󠄂 [19-18]
     (=hanyo-denshi/ft	. #x3B36)	; &I-HD-FT-3B36; [27-22]
     ))
 (define-char
