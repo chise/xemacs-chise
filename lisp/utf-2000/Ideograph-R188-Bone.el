@@ -3347,7 +3347,13 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x9AD3)	; 髓
+  '((ideographic-radical . 188)	; ⾻
+    (=ucs		. #x9AD3)	; 髓
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9AD3)	; 髓
+      ))
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 13)
     (total-strokes	 . 23)
@@ -3361,20 +3367,32 @@
     (=shinjigen@rev	.  9445)	; &GT-60935;
     ))
 (define-char
-  '((=>ucs		. #x9AD3)	; 髓
-    (morohashi-daikanwa	45289 0 2)
+  '((<-denotational
+     ((=ucs		  . #x9AD3)	; 髓
+      ))
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 13)
     (total-strokes	 . 23)
     (=cns11643-1	. #x7C54)	; &C1-7C54; [92-52]
     ))
 (define-char
-  '((morohashi-daikanwa	45289 0 4)
+  '((<-denotational
+     ((=ucs		  . #x9AD3)	; 髓
+      ))
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 12)
     (total-strokes	 . 21)
-    (=ucs		. #x9AD3)	; 髓
-    (=gb2312		. #x4B68)	; &I-G0-4B68; [43-72]
+    (=ucs@unicode	. #x9AD3)	; &G0-4B68;
+    (=gb2312		. #x4B68)	; &G0-4B68; [43-72]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9AD3)	; 髓
+      ))
+    (ideographic-radical . 188)	; ⾻
+    (ideographic-strokes . 12)
+    (total-strokes	 . 22)
+    (=hanyo-denshi/ft	. #x3B39)	; &HD-FT-3B39; [27-25]
     ))
 (define-char
   '((ideographic-radical . 188)	; ⾻
