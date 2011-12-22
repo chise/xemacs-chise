@@ -1,4 +1,92 @@
+2011-12-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R195-Fish.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+	(U-00029D62): Use `->subsumptive' to separate representative
+	nodes.
+	(U+4C37): Use `->subsumptive'.
+	(U+4C38): Use `->subsumptive' to separate representative nodes.
+	(U+9B67): Likewise.
+	(U+9B6C): Likewise.
+	(U+9B6E): Likewise.
+	(U-00029D6A): Likewise.
+	(U+4C3C): Likewise.
+	(M-46048): Map to U-00029D83.
+	(U-00029D86): Integrate M-46054.
+	(U+9B8C): Use `->subsumptive' to separate representative nodes.
+	(U+4C46): Use `->denotational'.
+	(U+4C48): Use `->subsumptive' to separate representative nodes.
+	(U-00029DB6): Integrate M-46094.
+	(U+9BB5): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+9BBE): Use `->denotational' and `->subsumptive'.
+	(U-00029DEE): Integrate M-46197.
+	(U+9BCE): Use `->subsumptive' to separate representative nodes.
+	(U+9BE5): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+4C62): Use `->denotational'.
+	(U+4C63): Use `->subsumptive' to separate representative nodes.
+	(U+4C64): Likewise.
+	(U+9BE6): Use `->denotational' to separate representative nodes.
+	(U+4C6E): Use `->subsumptive' to separate representative nodes.
+	(U-00029E46): Unify M-46318.
+	(U+9C0E): Use `->subsumptive' to separate representative nodes.
+	(U+4C71): Likewise.
+	(U-00029E7A): Use `->denotational' instead of `->subsumptive'.
+	(U+4C77): Use `->subsumptive' to separate representative nodes.
+	(U+9C2B): Likewise.
+	(U+9C2C): Likewise.
+	(U+4C7D): Use `->subsumptive' to separate representative nodes.
+	(U+9C36): Use `->subsumptive'.
+	(U+9C38): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+9C41): Use `->denotational' and `->subsumptive'.
+	(U+9C42): Use `->subsumptive' to separate representative nodes.
+	(U+9C43): Use `->denotational' to separate representative nodes.
+	(U+9C45): Use `->subsumptive' to separate representative nodes.
+	(U-00029ED6): Use `->denotational' instead of `->subsumptive'.
+	(U-00029EDF): Use `->denotational'; integrate M-46491.
+	(U+4C8D): Use `->denotational' and `->subsumptive'.
+	(U+4C8E): Use `->denotational' to separate representative nodes.
+	(U+4C8F): Use `->subsumptive' to separate representative nodes.
+	(U-00029EE0): Integrate GT-63350 and GT-63351.
+	(M-46525'): Unify GT-63350.
+	(U+4C92): Use `->denotational' to separate representative nodes.
+	(U-00029F25): Unify M-46564.
+	(U+9C6F): Use `->denotational' and `->subsumptive'.
+	(U-00029F2A): Copied from Ideograph-R085-Water.el.
+	(U+4C99): Integrate M-46584.
+	(U+9C71): Use `->denotational' to separate representative nodes.
+	(U+4C9A): Likewise.
+	(U+4C9B): Likewise.
+
+	* Ideograph-R191-Fight.el (U+9B2E): Use `->denotational' instead
+	of `->subsumptive'.
+	(J78-722D): Unify HD-FT2009.
+
+2011-12-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R188-Bone.el (U+9AD3): Use `->denotational'.
+	(HD-FT2725): New character.
+
+	* Ideograph-R187-Horse.el (HD-FT2722): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R184-Eat.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/FT characters.
+
+	* Ideograph-R085-Water.el (U-00029F2A): Unify M-46574; use
+	`ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+
 2011-12-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el: Add Hanyo-Denshi/JT code points.
+	(BUCS+61B2): New character.
+	(U+61B2): Add `<-denotational' for BUCS+61B2.
+	(C7-2D69): Map to U-0002F8AC.
+	(U+61CD): Use `->subsumptive'.
 
 	* Ideograph-R194-Ghost.el (J78-7233): Unify HD-FT1745.
 
