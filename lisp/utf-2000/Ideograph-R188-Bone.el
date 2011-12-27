@@ -3392,7 +3392,12 @@
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 12)
     (total-strokes	 . 22)
-    (=hanyo-denshi/ft	. #x3B39)	; &HD-FT-3B39; [27-25]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x9AD3)	; 髓
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=hanyo-denshi/ft	. #x3B39)	; 髓󠄂 [27-25]
     ))
 (define-char
   '((ideographic-radical . 188)	; ⾻
