@@ -635,7 +635,12 @@
     (ideographic-radical . 191)	; ⾾
     (ideographic-strokes . 16)
     (total-strokes	 . 26)
-    (=jis-x0208@1978	. #x722D)	; &HD-FT-3429; [82-13]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x9B2E)	; 鬮
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
+    (=jis-x0208@1978	. #x722D)	; 鬮󠄃 [82-13]
     (=hanyo-denshi/ft	. #x3429)	; &I-HD-FT-3429; [20-09]
     ))
 (define-char
