@@ -1,3 +1,19 @@
+2011-12-25  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R102-Field.el (U-00024D12): Integrate M-47527 and
+	C7-6646.
+
+	* Ideograph-R195-Fish.el: Add Hanyo-Denshi/FT code points.
+
+	* Ideograph-R194-Ghost.el (HD-FT1745): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R191-Fight.el (HD-FT2009): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R188-Bone.el (HD-FT2725): Add
+	`=decomposition@hanyo-denshi'.
+
 2011-12-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R195-Fish.el: Add mappings between CJK Ext-B and CNS
