@@ -1,3 +1,8 @@
+2011-12-27  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R033-Scholar.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+
 2011-12-25  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R102-Field.el (U-00024D12): Integrate M-47527 and
