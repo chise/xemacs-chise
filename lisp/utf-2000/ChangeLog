@@ -1,5 +1,16 @@
 2011-12-27  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R203-Black.el (AJ1-13387): Add `=decomposition@cid'.
+
+2011-12-27  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R034-Go.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+
+	* Ideograph-R032-Earth.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+
 	* Ideograph-R033-Scholar.el: Add `=decomposition@cid' for some
 	Adobe-Japan1 characters.
 
