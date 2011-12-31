@@ -833,8 +833,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x58EF)	; &AJ1-04532;
-      (=jis-x0208	  . #x5463)	; &AJ1-04532; [52-67]
+     ((=ucs@unicode	  . #x58EF)	; 壯󠄀
+      (=jis-x0208	  . #x5463)	; 壯󠄀 [52-67]
       (=ks-x1001	  . #x6D60)	; &I-K0-6D60; [77-64]
       (=jis-x0213-1	  . #x5463)	; &I-JX1-5463; [52-67]
       (=daikanwa	  . 05643)	; &I-M-05643;
