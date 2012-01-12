@@ -289,6 +289,7 @@
     (=big5		. #xD972)	; &I-B-D972;
     (=daikanwa		. 13086)	; &I-M-13086;
     (=jef-china3	. #x50C0)	; &I-JC3-50C0;
+    (=adobe-japan1-5	. 17718)	; &I-AJ1-17718;
     ))
 (define-char
   '((ideographic-radical . 65)	; ⽀
