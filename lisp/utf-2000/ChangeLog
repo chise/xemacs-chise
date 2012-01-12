@@ -1,3 +1,9 @@
+2012-01-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R073-Say.el (K0-4C5A): Unify KU+66F4.
+
+	* Ideograph-R065-Branch.el (U+6532): Unify AJ1-17718.
+
 2012-01-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R196-Bird.el: Add mappings between CJK Ext-B and CNS
