@@ -1,3 +1,66 @@
+2012-01-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el (U+397F): Add ideographic-structure.
+	(mother of C3-4B7D): Unify o-UU+397F; add ideographic-structure.
+
+2012-01-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R197-Salt.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+	(U+9E76): Use `->subsumptive' to separate representative nodes.
+	(U+9E77): Use `->subsumptive'.
+	(U-0002A262): New character.
+	(M-47551): Map to U-0002A26A.
+	(U+4D1C): Use `->subsumptive' to separate representative nodes.
+	(M-47570): Map to U-0002A27B.
+	(U+4D1D): Use `->denotational' to separate representative nodes.
+	(U-0002A28A): New character.
+
+2012-01-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R066-Rap.el:
+	- Add some Adobe-Japan1-5 code points.
+	- Add some `=ucs@ks' features.
+	(U+6539): Use `->subsumptive'.
+	(U+653A): Use `->subsumptive' to separate representative nodes.
+	(B-B1CE): Unify o-UU+6556; omit BU+6556.
+	(A-J0-343A): Unify G-JU+6562, G-KU+6562, G-J0-343A, G-GT-16742,
+	G-GT-K09015 and G-M-13260.
+	(U+6572): Use `->subsumptive'.
+	(U+6575): Unify o-J0-4528 and o-GT-16898.
+	(B-BCC4): Unify G-UU+6575, g2-UU+6575, g2-J0-4528, g2-GT-16898,
+	G-GT-K11927 and G-M-13354.
+	(G-JX2-2D65): Unify G-AJ1-17722 and G-HD-JB3352.
+	(U-0002ABD9): New character.
+	(U+6583): Use `->denotational' instead of `->subsumptive'.
+
+2012-01-10  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R196-Bird.el: Add Hanyo-Denshi/FT code points.
+	(U+9D27): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+
+	* Ideograph-R195-Fish.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/FT characters.
+
+	* Ideograph-R160-Bitter.el (U+8FAC): Use `->subsumptive'.
+
+	* Ideograph-R072-Sun.el (U-0002329F): Use `->denotational' to
+	separate representative node.
+
+	* Ideograph-R067-Script.el:
+	- Add some Adobe-Japan1-5 code points.
+	- Add some `=ucs@ks' features.
+
+	* Ideograph-R046-Mountain.el (U+3802): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R019-Power.el (M-02420): Separate CB00984.
+	(G-IU+20895): New node to integrate CB00984 and C4-3C3B.
+
+	* Ideograph-R009-Man.el (G-CU+3488): Unify G-M-01118 and
+	G-AJ1-15442.
+
 2012-01-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R073-Say.el (K0-4C5A): Unify KU+66F4.
