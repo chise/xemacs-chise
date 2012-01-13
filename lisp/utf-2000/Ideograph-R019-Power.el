@@ -1299,6 +1299,7 @@
       (=adobe-japan1-0	  . 01966)	; &I-AJ1-01966;
       (<-simplified@JP/Jouyou
        ((=ucs@jis	    . #x6548)	; &GT-16660;
+	(=ucs@ks	    . #x6548)	; &GT-16660;
 	(=jis-x0208	    . #x5A43)	; &GT-16660; [58-35]
 	(=ks-x1001	    . #x7C79)	; &I-K0-7C79; [92-89]
 	(=jis-x0213-1	    . #x5A43)	; &I-JX1-5A43; [58-35]
@@ -1306,6 +1307,7 @@
 	))
       (<-vulgar
        ((=ucs@jis	    . #x6548)	; &GT-16660;
+	(=ucs@ks	    . #x6548)	; &GT-16660;
 	(=jis-x0208	    . #x5A43)	; &GT-16660; [58-35]
 	(=ks-x1001	    . #x7C79)	; &I-K0-7C79; [92-89]
 	(=jis-x0213-1	    . #x5A43)	; &I-JX1-5A43; [58-35]
@@ -4155,6 +4157,7 @@
       (=ucs		  . #x2FF1)	; ⿱
       )
      ((=ucs@jis		  . #x6556)	; &GT-16699;
+      (=ucs@ks		  . #x6556)	; &GT-16699;
       (=jis-x0208	  . #x5A44)	; &GT-16699; [58-36]
       (=ks-x1001	  . #x6779)	; &I-K0-6779; [71-89]
       (=jis-x0213-1	  . #x5A44)	; &I-JX1-5A44; [58-36]
@@ -4163,7 +4166,6 @@
      ((=ucs		  . #x529B)	; 力
       ))
     (=daikanwa		. 02420)	; &M-02420;
-    (=cbeta		. 00984)	; &I-CB00984;
     (=jef-china3	. #x8DBF)	; &I-JC3-8DBF;
     ))
 (define-char
@@ -4177,12 +4179,26 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=cns11643-1	  . #x5A72)	; &C1-5A72; [58-82]
+     ((=+>ucs@unicode	  . #x6556)	; &o-UU+6556;
       )
      ((=ucs		  . #x529B)	; 力
       ))
-    (=ucs@iso		. #x20895)	; &C4-3C3B;
-    (=cns11643-4	. #x3C3B)	; &C4-3C3B; [28-27]
+    (=>>ucs@iso		. #x20895)	; &G-CB00984;
+    (=>>cbeta		. 00984)	; &G-CB00984;
+    (->subsumptive
+     ((=cbeta		  . 00984)	; &CB00984;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=cns11643-1	    . #x5A72)	; &C1-5A72; [58-82]
+	)
+       ((=ucs		    . #x529B)	; 力
+	))
+      (=ucs@iso		  . #x20895)	; &C4-3C3B;
+      (=cns11643-4	  . #x3C3B)	; &C4-3C3B; [28-27]
+      ))
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
