@@ -3,6 +3,14 @@
 	* Ideograph-R061-Heart.el (U+397F): Add ideographic-structure.
 	(mother of C3-4B7D): Unify o-UU+397F; add ideographic-structure.
 
+2012-01-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (U-00020CF5): Integrate RUI6-E05E; add
+	`ideographic-strokes' and `total-strokes'; add
+	ideographic-structure.
+	(U+55F7): Add ideographic-structure.
+	(o-UU+55F8): Add ideographic-structure.
+
 2012-01-12  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R197-Salt.el: Add mappings between CJK Ext-B and CNS
