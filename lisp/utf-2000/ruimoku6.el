@@ -1179,13 +1179,17 @@
     (=ruimoku-v6	. #xE05D)	; &RUI6-E05D;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=ucs		  . #x20CF5)	; 𠳵
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
      ((=ucs		  . #x5405)	; 吅
       )
-     ((=ks-x1001	  . #x597E)	; &M-13450; [57-94]
+     ((=ucs@ks		  . #x6587)	; &M-13450;
+      (=ks-x1001	  . #x597E)	; &M-13450; [57-94]
       (=daikanwa	  . 13450)	; &I-M-13450;
       ))
     (=ruimoku-v6	. #xE05E)	; &RUI6-E05E;
