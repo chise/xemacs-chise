@@ -1,5 +1,12 @@
 2012-01-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R061-Heart.el (G-RUI6-E05F): Compact
+	ideographic-structure.
+
+	* ruimoku6.el (RUI6-E05E): Add `<-subsumptive' for U-00020CF5.
+
+2012-01-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R061-Heart.el (U+397F): Add ideographic-structure.
 	(mother of C3-4B7D): Unify o-UU+397F; add ideographic-structure.
 
