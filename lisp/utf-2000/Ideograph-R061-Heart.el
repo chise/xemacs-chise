@@ -11949,12 +11949,10 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x5405)	; 吅
-      )
-     ((=ucs		  . #x6587)	; 文
+     ((=ucs		  . #x20CF5)	; 𠳵
       )
      ((=ucs		  . #x5FC3)	; 心
       ))
