@@ -1,5 +1,9 @@
 2012-01-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R200-Hemp.el (G-UU+9EBC): Unify g2-UU+9EBC and
+	G-HD-FT2168.
+	(HD-FT2168): New character.
+
 	* Ideograph-R196-Bird.el: Add `=decomposition@hanyo-denshi' for
 	some Hanyo-Denshi/FT characters.
 
