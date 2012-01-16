@@ -1,3 +1,8 @@
+2012-01-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R196-Bird.el: Add `=decomposition@hanyo-denshi' for
+	some Hanyo-Denshi/FT characters.
+
 2012-01-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R061-Heart.el (G-RUI6-E05F): Compact
