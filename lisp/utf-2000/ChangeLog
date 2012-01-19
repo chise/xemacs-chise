@@ -1,4 +1,15 @@
+2012-01-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R199-Wheat.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+	(U+9EB0): Use `->denotational' and `->subsumptive'.
+	(U+4D42): Likewise.
+	(U+4D46): Use `->denotational'.
+
 2012-01-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R202-Millet.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
 
 	* Ideograph-R201-Yellow.el (U+9ECC): Use `->denotational' and
 	`->subsumptive'.
