@@ -1,3 +1,9 @@
+2012-01-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R201-Yellow.el (U+9ECC): Use `->denotational' and
+	`->subsumptive'.
+	(G1-5964): Unify HD-FT2743.
+
 2012-01-14  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R200-Hemp.el (G-UU+9EBC): Unify g2-UU+9EBC and
