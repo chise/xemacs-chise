@@ -1,5 +1,18 @@
 2012-01-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R198-Deer.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+	(M-47633): Map to U-0002A2A9.
+	(U+9E96): Use `->subsumptive' to separate representative nodes.
+	(M-47666): Map to U-0002A2CA.
+	(M-47667): Map to U-0002A2CC.
+	(U+9E98): Use `->subsumptive' to separate representative nodes.
+	(U+9E99): Likewise.
+	(U+9E9A): Likewise.
+	(U+9E9B): Likewise.
+	(M-47695): Map to U-0002A2E6.
+	(U+9EA0): Use `->subsumptive' to separate representative nodes.
+
 	* Ideograph-R199-Wheat.el: Add mappings between CJK Ext-B and CNS
 	11643 plain 7.
 	(U+9EB0): Use `->denotational' and `->subsumptive'.
