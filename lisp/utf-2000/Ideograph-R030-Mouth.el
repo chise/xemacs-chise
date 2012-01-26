@@ -45632,6 +45632,16 @@
       )
      ((=ucs		  . #xE0101)	; 󠄁
       ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs@jis		  . #x8D08)	; &GT-49426;
+      (=jis-x0208	  . #x4223)	; &GT-49426; [34-03]
+      (=jis-x0213-1	  . #x4223)	; &I-JX1-4223; [34-03]
+      ))
     (=adobe-japan1-5	. 20098)	; 囎󠄁
     ))
 (define-char
