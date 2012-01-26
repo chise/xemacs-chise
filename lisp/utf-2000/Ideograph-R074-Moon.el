@@ -876,12 +876,11 @@
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (=>ucs@cns		. #x671B)	; &A-CU+671B;
-    (=>daikanwa		. 14368)	; &A-CU+671B;
+    (=+>ucs@cns		. #x671B)	; &o-CU+671B;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cns	  . #x671B)	; &A-CU+671B;
+     ((=+>ucs@cns	  . #x671B)	; &o-CU+671B;
       ))
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 7)
@@ -891,7 +890,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cns	  . #x671B)	; &A-CU+671B;
+     ((=+>ucs@cns	  . #x671B)	; &o-CU+671B;
       ))
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 7)
@@ -906,14 +905,17 @@
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (=>ucs@unicode	. #x671B)	; &A-GT-18223;
-    (=>ucs@cns		. #x2F8D9)	; &A-GT-18223;
-    (=>gt		. 18223)	; &A-GT-18223;
+    (=+>ucs@unicode	. #x671B)	; &o-J0-4B3E;
+    (=+>ucs@cns		. #x2F8D9)	; &o-J0-4B3E;
+    (=+>jis-x0208	. #x4B3E)	; &o-J0-4B3E; [43-30]
+    (=+>jis-x0213-1	. #x4B3E)	; &o-J0-4B3E; [43-30]
+    (=+>gt		. 18223)	; &o-J0-4B3E;
     (->subsumptive
      ((=>>ucs@jis	  . #x671B)	; &G-GT-18223;
       (=>>ucs@ks	  . #x671B)	; &G-GT-18223;
       (=>>ucs@cns	  . #x2F8D9)	; &G-GT-18223;
       (=>>jis-x0208	  . #x4B3E)	; &G-GT-18223; [43-30]
+      (=>>jis-x0213-1	  . #x4B3E)	; &G-GT-18223; [43-30]
       (=>>gt		  . 18223)	; &G-GT-18223;
       (->subsumptive
        ((morohashi-daikanwa	14368 1)

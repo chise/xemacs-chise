@@ -295,6 +295,7 @@
     (=cns11643-2	. #x3166)	; &M-25869; [17-70]
     (=jis-x0213-1@2004	. #x3568)	; &I-JX3-3568; [21-72]
     (=daikanwa		. 25869)	; &I-M-25869;
+    (=hanyo-denshi/hg	. #x302D)	; &I-HD-HG-302D; [16-13]
     ))
 (define-char
   '((<-denotational
@@ -4631,6 +4632,7 @@
     (=ucs@jis/2004	. #x7BAD)	; &M-26193;
     (=jis-x0213-1@2004	. #x407D)	; &M-26193; [32-93]
     (=daikanwa		. 26193)	; &I-M-26193;
+    (=hanyo-denshi/hg	. #x3047)	; &I-HD-HG-3047; [16-39]
     ))
 (define-char
   '((<-denotational
@@ -5292,6 +5294,7 @@
     (=gt		. 33869)	; &I-GT-33869;
     (=gt-pj-5		. #x5F60)	; &I-GT-33869; [63-64]
     (=daikanwa		. 26257)	; &I-M-26257;
+    (=hanyo-denshi/hg	. #x305E)	; &I-HD-HG-305E; [16-62]
     ))
 (define-char
   '((<-denotational
@@ -6352,6 +6355,7 @@
     (=gt		. 33916)	; &I-GT-33916;
     (=gt-pj-5		. #x6123)	; &I-GT-33916; [65-03]
     (=daikanwa		. 26320)	; &I-M-26320;
+    (=hanyo-denshi/hg	. #x303A)	; &I-HD-HG-303A; [16-26]
     ))
 (define-char
   '((<-denotational
@@ -9890,6 +9894,11 @@
     (ideographic-radical . 118)	; ⽵
     (ideographic-strokes . 13)
     (total-strokes	 . 19)
+    (=>>ucs@jis/2004	. #x7C3E)	; &G-GT-34334;
+    (=>>jis-x0213-1@2004 . #x4E7C)	; &G-GT-34334; [46-92]
+    (=>>gt		. 34334)	; &G-GT-34334;
+    (=>>daikanwa	. 26616)	; &G-GT-34334;
+    (=>>hanyo-denshi/hg . #x3066)	; &G-GT-34334; [16-70]
     (->subsumptive
      ((=daikanwa	  . 26616)	; &M-26616;
       )
@@ -9897,6 +9906,7 @@
       (=jis-x0213-1@2004  . #x4E7C)	; &GT-34334; [46-92]
       (=gt		  . 34334)	; &I-GT-34334;
       (=gt-pj-5		  . #x6342)	; &I-GT-34334; [67-34]
+      (=hanyo-denshi/hg	  . #x3066)	; &I-HD-HG-3066; [16-70]
       ))
     ))
 (define-char
@@ -9906,6 +9916,11 @@
     (ideographic-radical . 118)	; ⽵
     (ideographic-strokes . 13)
     (total-strokes	 . 19)
+    (=>>ucs@unicode	. #x7C3E)	; &g2-J0-4E7C;
+    (=>>>ucs@unicode	. #x7C3E)	; &g2-J0-4E7C;
+    (=>>>jis-x0208	. #x4E7C)	; &g2-J0-4E7C; [46-92]
+    (=>>>jis-x0213-1@2000 . #x4E7C)	; &g2-J0-4E7C; [46-92]
+    (=>>>gt		. 34335)	; &g2-J0-4E7C;
     (->subsumptive
      ((=ucs@jis/1990	  . #x7C3E)	; &GT-34335;
       (=ucs@jis/2000	  . #x7C3E)	; &GT-34335;
@@ -11899,6 +11914,8 @@
     (ideographic-strokes . 16)
     (total-strokes	 . 22)
     (=ucs		. #x7C5F)	; 籟
+    (=>jis-x0208	. #x645D)	; 籟 [68-61]
+    (=>jis-x0213-1	. #x645D)	; 籟 [68-61]
     ))
 (define-char
   '((<-denotational

@@ -1,3 +1,23 @@
+2011-12-15  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-4DE4): Map to U+2F8AC instead of U+61B2.
+
+2011-11-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-47E0): Map to U-0002124F instead of U+572F.
+
+2011-10-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-51DE): Map to U+FA12 instead of U+6674.
+	(JC3-5BB7): Map to U+FA17 instead of U+76CA.
+	(JC3-5DE5): Map to U+FA1C instead of U+9756.
+	(JC3-60A1): Map to U+FA1E instead of U+7FBD.
+	(JC3-70E5): Map to U+FA18 instead of U+793C.
+
+2011-10-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-5ED3): Map to U+FA1D instead of U+7CBE.
+
 2011-10-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* JC3-to-UCS.txt (JC3-48B9): Map to U+5840 instead of U+FA39.

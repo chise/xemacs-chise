@@ -1607,11 +1607,20 @@
     (ideographic-radical . 156)	; ⾛
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
+    (=>>ucs@unicode	. #x8D99)	; &G-GT-49728;
+    (=>>gt		. 49728)	; &G-GT-49728;
+    (=>>hanyo-denshi/ft . #x3961)	; &G-GT-49728; [25-65]
     (->subsumptive
-     ((=ucs@unicode	  . #x8D99)	; &GT-49728;
-      (=gb12345		  . #x5554)	; &GT-49728; [53-52]
-      (=gt		  . 49728)	; &GT-49728;
-      (=gt-pj-10	  . #x3B58)	; &GT-49728; [27-56]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8D99)	; 趙
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=ucs@unicode	  . #x8D99)	; 趙󠄃
+      (=gb12345		  . #x5554)	; 趙󠄃 [53-52]
+      (=gt		  . 49728)	; 趙󠄃
+      (=gt-pj-10	  . #x3B58)	; 趙󠄃 [27-56]
+      (=hanyo-denshi/ft	  . #x3961)	; &I-HD-FT-3961; [25-65]
       )
      ((=cns11643-1	  . #x6B37)	; &C1-6B37; [75-23]
       ))

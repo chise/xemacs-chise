@@ -7413,9 +7413,10 @@
     (ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (=>ucs@JP		. #x7377)	; &A-CU+7377;
-    (=>ucs@cns		. #x7377)	; &A-CU+7377;
-    (=big5		. #xC278)	; &A-CU+7377;
+    (=+>ucs@jis		. #x7377)	; &o-JX2-7057;
+    (=+>ucs@cns		. #x7377)	; &o-JX2-7057;
+    (=+>jis-x0213-2	. #x7057)	; &o-JX2-7057; [80-55]
+    (=big5		. #xC278)	; &o-JX2-7057;
     (->subsumptive
      ((=ucs@jis		  . #x7377)	; &AJ1-08549;
       (=jis-x0212	  . #x4B4A)	; &AJ1-08549; [43-42]
@@ -7548,6 +7549,8 @@
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
     (=ucs		. #x737A)	; 獺
+    (=>jis-x0208	. #x605C)	; 獺 [64-60]
+    (=>jis-x0213-1	. #x605C)	; 獺 [64-60]
     ))
 (define-char
   '((<-denotational

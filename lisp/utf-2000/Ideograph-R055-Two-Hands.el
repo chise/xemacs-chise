@@ -34,6 +34,8 @@
     (=cns11643-6	. #x2174)	; &I-C6-2174; [01-84]
     (=big5-cdp		. #x887D)	; &I-CDP-887D;
     (=daikanwa		. 09584)	; &I-M-09584;
+    (=hanyo-denshi/ks	. 108410)	; 廾
+    (=hanyo-denshi/ks/mf . #x2A59)	; &I-KSMF-10841;
     ))
 (define-char
   '((ideographic-radical . 55)	; ⼶
@@ -836,8 +838,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x58EF)	; &GT-07142;
-      (=jis-x0208	  . #x5463)	; &GT-07142; [52-67]
+     ((=ucs@unicode	  . #x58EF)	; 壯󠄀
+      (=jis-x0208	  . #x5463)	; 壯󠄀 [52-67]
       (=ks-x1001	  . #x6D60)	; &I-K0-6D60; [77-64]
       (=jis-x0213-1	  . #x5463)	; &I-JX1-5463; [52-67]
       (=daikanwa	  . 05643)	; &I-M-05643;

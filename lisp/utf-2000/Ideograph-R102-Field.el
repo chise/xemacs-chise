@@ -1572,8 +1572,8 @@
       (=jis-x0212	  . #x4D3A)	; &M-21828; [45-26]
       (=daikanwa	  . 21828)	; &I-M-21828;
       (<-formed
-       ((=ucs@jis	    . #x5793)	; 垓󠄁
-	(=jis-x0208	    . #x5436)	; 垓󠄁 [52-22]
+       ((=ucs@jis	    . #x5793)	; 垓󠄀
+	(=jis-x0208	    . #x5436)	; 垓󠄀 [52-22]
 	(=ks-x1001	    . #x7A27)	; &I-K0-7A27; [90-07]
 	(=jis-x0213-1	    . #x5436)	; &I-JX1-5436; [52-22]
 	(=daikanwa	    . 05040)	; &I-M-05040;
@@ -1581,8 +1581,8 @@
       (<-formed*sources
        jiyun)
       (<-same
-       ((=ucs@jis	    . #x5793)	; 垓󠄁
-	(=jis-x0208	    . #x5436)	; 垓󠄁 [52-22]
+       ((=ucs@jis	    . #x5793)	; 垓󠄀
+	(=jis-x0208	    . #x5436)	; 垓󠄀 [52-22]
 	(=ks-x1001	    . #x7A27)	; &I-K0-7A27; [90-07]
 	(=jis-x0213-1	    . #x5436)	; &I-JX1-5436; [52-22]
 	(=daikanwa	    . 05040)	; &I-M-05040;
@@ -1596,7 +1596,8 @@
       )
      ((=shinjigen	  .  1385)	; &SJG2-1385;
       (<-formed
-       ((=shinjigen	    .  1384)	; &SJG2-1384;
+       ((=shinjigen	    .  1384)	; 垓󠄂
+	(=hanyo-denshi/ks   . 058090)	; 垓󠄂
 	))
       (<-formed*sources
        shinjigen)
@@ -4196,6 +4197,28 @@
     (=cns11643-7	. #x6635)	; &C7-6635; [70-21]
     ))
 (define-char
+  '((ideographic-radical@ucs . 102)	; ⽥
+    (ideographic-strokes@ucs . 31)
+    (ideographic-radical@cns . 196)	; ⿃
+    (ideographic-strokes@cns . 25)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
+    (ideographic-strokes@cns*sources
+     daikanwa)
+    (total-strokes	 . 36)
+    (=ucs		. #x24D12)	; 𤴒
+    (->subsumptive
+     ((ideographic-radical . 196)	; ⿃
+      (ideographic-strokes . 25)
+      (=daikanwa	  . 47527)	; &M-47527;
+      )
+     ((hanyu-dazidian	  8 31 14)
+      (=ucs@iso		  . #x24D12)	; &HZK12-EEF0;
+      (=cns11643-7	  . #x6646)	; &HZK12-EEF0; [70-38]
+      (=hanziku-12	  . #xEEF0)	; &I-HZK12-EEF0;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 102)	; ⽥
     (hanyu-dazidian	4 2528 7)
     (=ucs		. #x24C18)	; 𤰘
@@ -4500,10 +4523,4 @@
     (hanyu-dazidian	4 2556 11)
     (=ucs		. #x24D0D)	; 𤴍
     (=hanziku-7		. #xBA5E)	; &I-HZK07-BA5E;
-    ))
-(define-char
-  '((ideographic-radical . 102)	; ⽥
-    (hanyu-dazidian	8 31 14)
-    (=ucs		. #x24D12)	; 𤴒
-    (=hanziku-12	. #xEEF0)	; &I-HZK12-EEF0;
     ))

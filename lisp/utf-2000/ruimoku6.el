@@ -1027,11 +1027,15 @@
   '((=ruimoku-v6	. #xE04E)	; &RUI6-E04E;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=>>ruimoku-v6	  . #xE04F)	; &G-RUI6-E04F;
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
      ((=ucs@jis		  . #x5B87)	; &GT-08881;
+      (=ucs@ks		  . #x5B87)	; &GT-08881;
       (=jis-x0208	  . #x3127)	; &GT-08881; [17-07]
       (=ks-x1001	  . #x6954)	; &I-K0-6954; [73-52]
       (=jis-x0213-1	  . #x3127)	; &I-JX1-3127; [17-07]
@@ -1175,13 +1179,17 @@
     (=ruimoku-v6	. #xE05D)	; &RUI6-E05D;
     ))
 (define-char
-  '((ideographic-structure
+  '((<-subsumptive
+     ((=ucs		  . #x20CF5)	; 𠳵
+      ))
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
      ((=ucs		  . #x5405)	; 吅
       )
-     ((=ks-x1001	  . #x597E)	; &M-13450; [57-94]
+     ((=ucs@ks		  . #x6587)	; &M-13450;
+      (=ks-x1001	  . #x597E)	; &M-13450; [57-94]
       (=daikanwa	  . 13450)	; &I-M-13450;
       ))
     (=ruimoku-v6	. #xE05E)	; &RUI6-E05E;

@@ -894,34 +894,45 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x9ECC)	; 黌
+  '((ideographic-radical . 201)	; ⿈
+    (ideographic-strokes . 13)
+    (=ucs		. #x9ECC)	; 黌
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9ECC)	; 黌
+      ))
     (ideographic-radical . 201)	; ⿈
     (ideographic-strokes . 13)
     (total-strokes	 . 25)
-    (=ucs@jis		. #x9ECC)	; &GT-65447;
-    (=jis-x0208		. #x7354)	; &GT-65447; [83-52]
-    (=jis-x0213-1	. #x7354)	; &I-JX1-7354; [83-52]
-    (=gt		. 65447)	; &I-GT-65447;
-    (=gt-pj-1		. #x7354)	; &I-GT-65447; [83-52]
-    (=daikanwa		. 47985)	; &I-M-47985;
-    (=shinjigen@rev	.  9812)	; 黌
+    (=+>ucs@jis		. #x9ECC)	; &o-J0-7354;
+    (=+>ucs@cns		. #x9ECC)	; &o-J0-7354;
+    (=+>jis-x0208	. #x7354)	; &o-J0-7354; [83-52]
+    (=+>jis-x0213-1	. #x7354)	; &o-J0-7354; [83-52]
+    (=+>gt		. 65447)	; &o-J0-7354;
+    (->subsumptive
+     ((=ucs@jis		  . #x9ECC)	; &GT-65447;
+      (=jis-x0208	  . #x7354)	; &GT-65447; [83-52]
+      (=jis-x0213-1	  . #x7354)	; &I-JX1-7354; [83-52]
+      (=gt		  . 65447)	; &I-GT-65447;
+      (=gt-pj-1		  . #x7354)	; &I-GT-65447; [83-52]
+      (=daikanwa	  . 47985)	; &I-M-47985;
+      (=shinjigen	  .  9812)	; &GT-65447;
+      )
+     ((=ucs@cns		  . #x9ECC)	; &C1-7D31;
+      (=cns11643-1	  . #x7D31)	; &C1-7D31; [93-17]
+      ))
     ))
 (define-char
-  '((=>ucs		. #x9ECC)	; 黌
-    (morohashi-daikanwa	47985 0 1)
-    (ideographic-radical . 201)	; ⿈
-    (ideographic-strokes . 13)
-    (total-strokes	 . 25)
-    (=cns11643-1	. #x7D31)	; &C1-7D31; [93-17]
-    ))
-(define-char
-  '((morohashi-daikanwa	47985 0 5)
+  '((<-denotational
+     ((=ucs		  . #x9ECC)	; 黌
+      ))
     (ideographic-radical . 201)	; ⿈
     (ideographic-strokes . 13)
     (total-strokes	 . 24)
-    (=ucs		. #x9ECC)	; 黌
-    (=gb12345		. #x5964)	; 黌 [57-68]
-    (=shinjigen@rev	.  9812)	; 黌
+    (=ucs@unicode	. #x9ECC)	; &HD-FT-3B4B;
+    (=gb12345		. #x5964)	; &HD-FT-3B4B; [57-68]
+    (=hanyo-denshi/ft	. #x3B4B)	; &HD-FT-3B4B; [27-43]
     ))
 (define-char
   '((ideographic-radical . 201)	; ⿈

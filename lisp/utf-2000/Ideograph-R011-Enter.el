@@ -463,7 +463,9 @@
     (=>>ucs@ks		. #x5168)	; &G-GT-01862;
     (=>>ucs@cns		. #x5168)	; &G-GT-01862;
     (=>>gt		. 01862)	; &G-GT-01862;
+    (=>>gt-k		. 01745)	; &G-GT-01862;
     (=>>daikanwa	. 01424)	; &G-GT-01862;
+    (=>>adobe-japan1-4	. 13890)	; &G-GT-01862;
     (=>>hanyo-denshi/jt . #xADC5)	; &G-GT-01862;
     (->subsumptive
      ((=decomposition@cid
@@ -1165,11 +1167,21 @@
     (ideographic-radical . 11)	; ⼊
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (hanyu-dazidian	1 155 5)
+    (=hanziku-1		. #xC3C3)	; &HZK01-C3C3;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x516A)	; 兪
+      ))
+    (ideographic-radical . 11)	; ⼊
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x8AFC)	; &CDP-8AFC;
+     ((=>>big5-cdp	  . #x8AFC)	; &G-CDP-8AFC;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1180,18 +1192,11 @@
        ((=ucs		    . #x5DDC)	; 巜
 	))
       ))
-    (=gt-k		. 05210)	; &GT-K05210;
-    (=gt-pj-k1		. #x3A39)	; &GT-K05210; [26-25]
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x516A)	; 兪
+    (=>>gt-k		. 05210)	; &G-GT-K05210;
+    (->subsumptive
+     ((=gt-k		  . 05210)	; &GT-K05210;
+      (=gt-pj-k1	  . #x3A39)	; &GT-K05210; [26-25]
       ))
-    (ideographic-radical . 11)	; ⼊
-    (ideographic-strokes . 7)
-    (total-strokes	 . 9)
-    (hanyu-dazidian	1 155 5)
-    (=hanziku-1		. #xC3C3)	; &HZK01-C3C3;
     ))
 (define-char
   '((<-denotational
@@ -1562,11 +1567,12 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>>gt		  . 01862)	; &G-GT-01862;
+     ((=>>hanyo-denshi/jt . #xADC5)	; &G-GT-01862;
       )
      ((=ucs		  . #x4E23)	; 丣
       ))
     (=>>ucs@cns		. #x204F4)	; &G-CU+204F4;
+    (=>>daikanwa	. 01444)	; &G-CU+204F4;
     (->subsumptive
      ((hanyu-dazidian	  1 206 17)
       (ideographic-structure

@@ -1524,8 +1524,8 @@
       )
      ((=ucs		  . #x5382)	; 厂
       )
-     ((=ucs@unicode	  . #x5782)	; &AJ1-02600;
-      (=jis-x0208	  . #x3F62)	; &AJ1-02600; [31-66]
+     ((=ucs@unicode	  . #x5782)	; 垂󠄀
+      (=jis-x0208	  . #x3F62)	; 垂󠄀 [31-66]
       (=gb2312		  . #x3439)	; &I-G0-3439; [20-25]
       (=ks-x1001	  . #x6177)	; &I-K0-6177; [65-87]
       (=jis-x0213-1	  . #x3F62)	; &I-JX1-3F62; [31-66]
@@ -2224,7 +2224,7 @@
       )
      ((=ucs		  . #x5382)	; 厂
       )
-     ((=>>daikanwa	  . 05720)	; &G-CU+590F;
+     ((=>>hanyo-denshi/ks . 065510)	; &G-HD-KS-FFE6;
       ))
     (=>>ucs@cns		. #x53A6)	; &G-CU+53A6;
     (=>>daikanwa	. 02993)	; &G-CU+53A6;
@@ -2563,20 +2563,22 @@
       )
      ((=ucs		  . #x65E3)	; 旣
       ))
-    (=>ucs@cns		. #x53A9)	; &A-CU+53A9;
+    (=+>ucs@cns		. #x53A9)	; &o-J78-3139;
+    (=+>jis-x0208@1978	. #x3139)	; &o-J78-3139; [17-25]
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cns	  . #x53A9)	; &A-CU+53A9;
+     ((=+>jis-x0208@1978  . #x3139)	; &o-J78-3139; [17-25]
       ))
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (=>>ucs@cns		. #x53A9)	; &G-J78-3139;
-    (=>>jis-x0208@1978	. #x3139)	; &G-J78-3139; [17-25]
-    (=>>daikanwa	. 03006)	; &G-J78-3139;
-    (=>>hanyo-denshi/ft . #x315A)	; &G-J78-3139; [17-58]
-    (=>>hanyo-denshi/ks . 034790)	; &G-J78-3139;
+    (=>>ucs@cns		. #x53A9)	; &G-GT-03810;
+    (=>>jis-x0208@1978	. #x3139)	; &G-GT-03810; [17-25]
+    (=>>gt		. 03810)	; &G-GT-03810;
+    (=>>daikanwa	. 03006)	; &G-GT-03810;
+    (=>>hanyo-denshi/ft . #x315A)	; &G-GT-03810; [17-58]
+    (=>>hanyo-denshi/ks . 034790)	; &G-GT-03810;
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x53A9)	; 厩
@@ -2592,7 +2594,9 @@
        ((=ucs@unicode	    . #x65E3)	; &M-13724;
 	(=daikanwa	    . 13724)	; &M-13724;
 	))
-      (=daikanwa	  . 03006)	; 厩󠄉
+      (=gt		  . 03810)	; 厩󠄉
+      (=gt-pj-2		  . #x4B2A)	; 厩󠄉 [43-10]
+      (=daikanwa	  . 03006)	; &I-M-03006;
       (=hanyo-denshi/ks	  . 034790)	; 厩󠄉
       (=hanyo-denshi/ks/mf . #x0D97)	; &I-KSMF-03479;
       )
@@ -2641,7 +2645,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cns	  . #x53A9)	; &A-CU+53A9;
+     ((=+>jis-x0208@1978  . #x3139)	; &o-J78-3139; [17-25]
       ))
     (ideographic-radical . 27)	; ⼚
     (ideographic-structure
@@ -2681,8 +2685,8 @@
 	)
        ((=shinjigen	    .  2208)	; &SJG2-2208;
 	(<-vulgar
-	 ((=gt		      . 11902)	; &GT-11902;
-	  (=shinjigen	      .	 2207)	; &GT-11902;
+	 ((=gt		      . 11902)	; 廏󠄃
+	  (=shinjigen	      .	 2207)	; 廏󠄃
 	  ))
 	(<-vulgar*sources
 	 shinjigen)
@@ -2825,6 +2829,7 @@
      ((=ucs		  . #x5382)	; 厂
       )
      ((=ucs@jis		  . #x6556)	; &GT-16699;
+      (=ucs@ks		  . #x6556)	; &GT-16699;
       (=jis-x0208	  . #x5A44)	; &GT-16699; [58-36]
       (=ks-x1001	  . #x6779)	; &I-K0-6779; [71-89]
       (=jis-x0213-1	  . #x5A44)	; &I-JX1-5A44; [58-36]
@@ -3069,6 +3074,7 @@
        ((=ucs		    . #x5382)	; 厂
 	)
        ((=ucs@jis	    . #x6562)	; &GT-16742;
+	(=ucs@ks	    . #x6562)	; &GT-16742;
 	(=ks-x1001	    . #x4A72)	; &GT-16742; [42-82]
 	(=jis-x0208@1990    . #x343A)	; &I-J90-343A; [20-26]
 	(=cns11643-1	    . #x5F56)	; &I-C1-5F56; [63-54]
@@ -3438,6 +3444,7 @@
      ((=ucs		  . #x5382)	; 厂
       )
      ((=ucs@jis		  . #x655E)	; &GT-16763;
+      (=ucs@ks		  . #x655E)	; &GT-16763;
       (=jis-x0208	  . #x5A48)	; &GT-16763; [58-40]
       (=ks-x1001	  . #x7362)	; &I-K0-7362; [83-66]
       (=jis-x0213-1	  . #x5A48)	; &I-JX1-5A48; [58-40]
@@ -3847,14 +3854,14 @@
     (=adobe-japan1-0	. 01899)	; &I-AJ1-01899;
     (mojikyo		. 050115)	; &MCS-6000C3C3;
     (<-simplified@JP/Jouyou
-     ((=ucs@jis		  . #x56B4)	; &AJ1-04449;
-      (=ucs@ks		  . #x56B4)	; &AJ1-04449;
-      (=jis-x0208	  . #x536E)	; &AJ1-04449; [51-78]
+     ((=ucs@jis		  . #x56B4)	; 嚴󠄀
+      (=ucs@ks		  . #x56B4)	; 嚴󠄀
+      (=jis-x0208	  . #x536E)	; 嚴󠄀 [51-78]
       (=ks-x1001	  . #x6571)	; &I-K0-6571; [69-81]
       (=cns11643-1	  . #x7964)	; &I-C1-7964; [89-68]
       (=jis-x0213-1	  . #x536E)	; &I-JX1-536E; [51-78]
       (=daikanwa	  . 04589)	; &I-M-04589;
-      (=shinjigen	  .  1286)	; &AJ1-04449;
+      (=shinjigen	  .  1286)	; 嚴󠄀
       ))
     (<-simplified@JP/Jouyou*sources
      daikanwa shinjigen JP/Jouyou)

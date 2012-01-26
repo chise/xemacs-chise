@@ -206,11 +206,11 @@
     (ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
-    (=>ucs@unicode	. #x4343)	; &A-UU+4343;
+    (=+>ucs@unicode	. #x4343)	; &o-UU+4343;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x4343)	; &A-UU+4343;
+     ((=+>ucs@unicode	  . #x4343)	; &o-UU+4343;
       ))
     (ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 4)
@@ -220,7 +220,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x4343)	; &A-UU+4343;
+     ((=+>ucs@unicode	  . #x4343)	; &o-UU+4343;
       ))
     (ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 4)
@@ -1095,17 +1095,17 @@
       (=daikanwa	  . 28189)	; &I-M-28189;
       (=shinjigen	  .  1519)	; &GT-36312;
       (<-formed
-       ((=ucs@unicode	    . #x58DC)	; &AJ1-04529;
-	(=jis-x0208	    . #x5460)	; &AJ1-04529; [52-64]
+       ((=ucs@unicode	    . #x58DC)	; 壜󠄀
+	(=jis-x0208	    . #x5460)	; 壜󠄀 [52-64]
 	(=jis-x0213-1	    . #x5460)	; &I-JX1-5460; [52-64]
 	(=daikanwa	    . 05588)	; &I-M-05588;
-	(=shinjigen	    .  1518)	; &AJ1-04529;
+	(=shinjigen	    .  1518)	; 壜󠄀
 	))
       (<-formed*sources
        jiyun shinjigen)
       (<-same
-       ((=ucs@unicode	    . #x58DC)	; &AJ1-04529;
-	(=jis-x0208	    . #x5460)	; &AJ1-04529; [52-64]
+       ((=ucs@unicode	    . #x58DC)	; 壜󠄀
+	(=jis-x0208	    . #x5460)	; 壜󠄀 [52-64]
 	(=jis-x0213-1	    . #x5460)	; &I-JX1-5460; [52-64]
 	(=daikanwa	    . 05588)	; &I-M-05588;
 	))

@@ -305,7 +305,7 @@
     (sound@ja/on/kan	"syu")
     (=ucs		. #x4E3B)	; 主
     (=>>jis-x0208	. #x3C67)	; 主 [28-71]
-    (=>daikanwa		. 00100)	; 主
+    (=>>daikanwa	. 00100)	; 主
     ))
 (define-char
   '((<-denotational

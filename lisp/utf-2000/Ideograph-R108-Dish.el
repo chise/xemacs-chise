@@ -415,8 +415,15 @@
     (ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
+    (=>>ucs@unicode	. #xFA17)	; &G-GT-29427;
+    (=>>ucs@ks		. #x76CA)	; &G-GT-29427;
+    (=>>gt		. 29427)	; &G-GT-29427;
+    (=>>daikanwa	. 22972)	; &G-GT-29427;
     (->subsumptive
-     ((=ks-x1001	  . #x6C4C)	; &GT-29427; [76-44]
+     ((=>ucs*		  . #x76CA)	; 益
+      (=ucs		  . #xFA17)	; 益
+      (=ucs@ks		  . #x76CA)	; 益
+      (=ks-x1001	  . #x6C4C)	; &I-K0-6C4C; [76-44]
       (=gt		  . 29427)	; &I-GT-29427;
       (=gt-k		  . 06687)	; &I-GT-K06687;
       (=gt-pj-5		  . #x3E7D)	; &I-GT-29427; [30-93]
@@ -879,6 +886,36 @@
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
+    (ideographic-strokes . 6)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B87)	; 宇
+      )
+     ((=ucs		  . #x76BF)	; 皿
+      ))
+    (=>>ruimoku-v6	. #xE04F)	; &G-RUI6-E04F;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs@jis	    . #x5B87)	; &GT-08881;
+	(=ucs@ks	    . #x5B87)	; &GT-08881;
+	(=jis-x0208	    . #x3127)	; &GT-08881; [17-07]
+	(=ks-x1001	    . #x6954)	; &I-K0-6954; [73-52]
+	(=jis-x0213-1	    . #x3127)	; &I-JX1-3127; [17-07]
+	(=daikanwa	    . 07067)	; &I-M-07067;
+	)
+       ((=ucs		    . #x76BF)	; 皿
+	))
+      (=ruimoku-v6	  . #xE04F)	; &RUI6-E04F;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (=ucs		. #x76D9)	; 盙
@@ -1333,8 +1370,9 @@
       (=daikanwa	  . 23050)	; &I-M-23050;
       (=shinjigen@rev	  .  5263)	; &GT-29541;
       )
-     ((=ks-x1001	  . #x5654)	; &C1-714D; [54-52]
-      (=cns11643-1	  . #x714D)	; &I-C1-714D; [81-45]
+     ((=ks-x1001	  . #x5654)	; &K0-5654; [54-52]
+      )
+     ((=cns11643-1	  . #x714D)	; &C1-714D; [81-45]
       ))
     ))
 (define-char

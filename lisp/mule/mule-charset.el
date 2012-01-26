@@ -286,7 +286,9 @@ DESCRIPTION (string) is the description string of the charset."
 	  =ucs-bmp-cjk@unicode
           ;; =ucs-bmp-cjk@JP
 	  =ucs-bmp-cjk@JP/hanazono
-	  japanese-jisx0208-1978
+	  =ucs-bmp-cjk-compat
+          =ucs-bmp-cjk-compat@unicode
+          japanese-jisx0208-1978
 	  =jis-x0212
 	  =gt-pj-2
 	  =gt-pj-3
@@ -373,12 +375,14 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>jis-x0213-1
 	  ucs-bmp
 	  ==>ucs-bmp-cjk@bucs
-	  =>>ucs@unicode
-	  =>>gt
+	  =>ucs-bmp-cjk@unicode
+          ;; =>>ucs@unicode
 	  =adobe-japan1-6
 	  =adobe-japan1-base
 	  =>jis-x0208@1997
 	  =>>hanyo-denshi/ft
+	  =>>hanyo-denshi/jt
+	  =>>gt
 	  )))
 
 ;;; mule-charset.el ends here

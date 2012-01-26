@@ -652,15 +652,22 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
     (=ucs		. #x9812)	; 頒
+    (=>>hanyo-denshi/ft . #x305C)	; 頒 [16-60]
     (->subsumptive
-     ((=jis-x0208@1978	  . #x4852)	; &GT-58248; [40-50]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x9812)	; 頒
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=jis-x0208@1978	  . #x4852)	; 頒󠄃 [40-50]
       (=jis-x0208@1983	  . #x4852)	; &I-J83-4852; [40-50]
       (=ks-x1001	  . #x5A78)	; &I-K0-5A78; [58-88]
       (=gt		  . 58248)	; &I-GT-58248;
       (=gt-pj-8		  . #x3F5A)	; &I-GT-58248; [31-58]
       (=daikanwa	  . 43378)	; &I-M-43378;
-      (=shinjigen@1ed	  .  9156)	; &GT-58248;
+      (=shinjigen@1ed	  .  9156)	; 頒󠄃
       (=jef-china3	  . #x6CE3)	; &I-JC3-6CE3;
+      (=hanyo-denshi/ft	  . #x305C)	; &I-HD-FT-305C; [16-60]
       )
      ((=cns11643-1	  . #x6763)	; &C1-6763; [71-67]
       (=shinjigen	  .  9155)	; &C1-6763;
@@ -700,9 +707,16 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
     (=ucs		. #x9813)	; 頓
+    (=>>hanyo-denshi/ft . #x3274)	; 頓 [18-84]
     (->subsumptive
-     ((=jis-x0208@1978	  . #x465C)	; &M-43381; [38-60]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x9813)	; 頓
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=jis-x0208@1978	  . #x465C)	; 頓󠄃 [38-60]
       (=daikanwa	  . 43381)	; &I-M-43381;
+      (=hanyo-denshi/ft	  . #x3274)	; &I-HD-FT-3274; [18-84]
       )
      ((=ucs@jis		  . #x9813)	; &GT-58245;
       (=jis-x0208@1983	  . #x465C)	; &GT-58245; [38-60]

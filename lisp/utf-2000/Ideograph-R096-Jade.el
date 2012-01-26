@@ -3333,13 +3333,13 @@
     (ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=>ucs@JP		. #x7424)	; &A-CU+7424;
-    (=>ucs@cns		. #x7424)	; &A-CU+7424;
-    (=big5		. #xDAA5)	; &A-CU+7424;
+    (=+>ucs@jis		. #x7424)	; &o-JU+7424;
+    (=+>ucs@cns		. #x7424)	; &o-JU+7424;
+    (=big5		. #xDAA5)	; &o-JU+7424;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x7424)	; &A-CU+7424;
+     ((=+>ucs@jis	  . #x7424)	; &o-JU+7424;
       ))
     (ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 8)
@@ -3352,7 +3352,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x7424)	; &A-CU+7424;
+     ((=+>ucs@jis	  . #x7424)	; &o-JU+7424;
       ))
     (ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 8)

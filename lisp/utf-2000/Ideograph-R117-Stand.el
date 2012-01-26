@@ -1105,13 +1105,13 @@
     (ideographic-radical . 117)	; ⽴
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
-    (=>ucs@JP		. #x7AEB)	; &A-CU+7AEB;
-    (=>ucs@cns		. #x7AEB)	; &A-CU+7AEB;
-    (=big5		. #xDF45)	; &A-CU+7AEB;
+    (=+>ucs@jis		. #x7AEB)	; &o-JU+7AEB;
+    (=+>ucs@cns		. #x7AEB)	; &o-JU+7AEB;
+    (=big5		. #xDF45)	; &o-JU+7AEB;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x7AEB)	; &A-CU+7AEB;
+     ((=+>ucs@jis	  . #x7AEB)	; &o-JU+7AEB;
       ))
     (ideographic-radical . 117)	; ⽴
     (ideographic-strokes . 8)
@@ -1126,7 +1126,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@JP		  . #x7AEB)	; &A-CU+7AEB;
+     ((=+>ucs@jis	  . #x7AEB)	; &o-JU+7AEB;
       ))
     (ideographic-radical . 117)	; ⽴
     (ideographic-strokes . 8)

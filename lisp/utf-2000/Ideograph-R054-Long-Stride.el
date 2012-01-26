@@ -128,6 +128,8 @@
     (total-strokes	 . 7)
     (=ucs		. #x5EF7)	; 廷
     (=big5		. #xA7CA)	; &I-B-A7CA;
+    (=>>daikanwa	. 09571)	; 廷
+    (=>>hanyo-denshi/ks . 108170)	; 廷
     (->subsumptive
      ((=jis-x0208@1978	  . #x446E)	; &M-09571; [36-78]
       (=jis-x0208@1983	  . #x446E)	; &I-J83-446E; [36-78]
@@ -138,10 +140,19 @@
      ((=ucs@unicode	  . #x5EF7)	; &GT-12057;
       (=gb2312		  . #x4D22)	; &GT-12057; [45-02]
       (=jis-x0208@1990	  . #x446E)	; &I-J90-446E; [36-78]
-      (=cns11643-1	  . #x4A2C)	; &I-C1-4A2C; [42-12]
       (=jis-x0213-1	  . #x446E)	; &I-JX1-446E; [36-78]
       (=gt		  . 12057)	; &I-GT-12057;
       (=gt-pj-1		  . #x446E)	; &I-GT-12057; [36-78]
+      )
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5EF7)	; 廷
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=hanyo-denshi/ks	  . 108170)	; 廷󠄃
+      (=hanyo-denshi/ks/mf . #x2A41)	; 廷󠄃
+      )
+     ((=cns11643-1	  . #x4A2C)	; &C1-4A2C; [42-12]
       ))
     ))
 (define-char

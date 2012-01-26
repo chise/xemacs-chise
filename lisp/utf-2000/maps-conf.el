@@ -69,7 +69,8 @@
 	#x4043 #x6E56 #x6132 #x5C54 #x3557
 	#x5827 #x4C68 #x505B #x514A #x5D27
 	#x5563 #x5D7A #x4575 #x5F7C #x3B38
-	#x3237 #x3B51 #x596E #x5B5B #x6640))
+	#x3237 #x3B51 #x596E #x5B5B #x6640
+	#x6D75 #x4D2C))
 
 ;; (map-char-attribute
 ;;  (lambda (c v)
@@ -203,8 +204,9 @@
 ;;       (unless (eq code #x332A)
 ;;         (when (setq char (decode-char '=>jis-x0208@1997 code 'defined-only))
 ;;           (unless (eq (encode-char char '=>>jis-x0208) code)
-;;             (put-char-attribute char '=>jis-x0208 code)
-;;             (remove-char-attribute char '=>jis-x0208@1997))))
+;;             (unless (eq (encode-char char '=+>jis-x0208) code)
+;;               (put-char-attribute char '=>jis-x0208 code)
+;;               (remove-char-attribute char '=>jis-x0208@1997)))))
 ;;       )))
 
 ;; (map-char-attribute
@@ -213,3 +215,38 @@
 ;;      (put-char-attribute c '=>jis-x0213-1 v))
 ;;    nil)
 ;;  '=>jis-x0208)
+
+;; (dolist (aj1-f '(=>>>adobe-japan1 =>>adobe-japan1))
+;;   (map-char-attribute
+;;    (lambda (c v)
+;;      (cond
+;;       ((<= v 8283)
+;;        (remove-char-attribute c aj1-f)
+;;        (put-char-attribute c (intern (format "%s-0" aj1-f)) v)
+;;        )
+;;       ((<= v 8358)
+;;        (remove-char-attribute c aj1-f)
+;;        (put-char-attribute c (intern (format "%s-1" aj1-f)) v)
+;;        )
+;;       ((<= v 8719)
+;;        (remove-char-attribute c aj1-f)
+;;        (put-char-attribute c (intern (format "%s-2" aj1-f)) v)
+;;        )
+;;       ((<= v 9353)
+;;        (remove-char-attribute c aj1-f)
+;;        (put-char-attribute c (intern (format "%s-3" aj1-f)) v)
+;;        )
+;;       ((<= v 15443)
+;;        (remove-char-attribute c aj1-f)
+;;        (put-char-attribute c (intern (format "%s-4" aj1-f)) v)
+;;        )
+;;       ((<= v 20316)
+;;        (remove-char-attribute c aj1-f)
+;;        (put-char-attribute c (intern (format "%s-5" aj1-f)) v)
+;;        )
+;;       ((<= v 23057)
+;;        (remove-char-attribute c aj1-f)
+;;        (put-char-attribute c (intern (format "%s-6" aj1-f)) v)
+;;        ))
+;;      nil)
+;;    aj1-f))

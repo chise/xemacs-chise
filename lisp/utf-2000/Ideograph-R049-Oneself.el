@@ -116,8 +116,31 @@
     (=>>ucs@cns		. #x382F)	; &G-HD-IA-2256;
     (=>>daikanwa	. 08747)	; &G-HD-IA-2256;
     (=>>hanyo-denshi/ia . #x2256)	; &G-HD-IA-2256; [02-54]
+    (=>>hanyo-denshi/ks . 099080)	; &G-HD-IA-2256;
     (->subsumptive
-     ((=daikanwa	  . 08747)	; &M-08747;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x382F)	; 㠯
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=daikanwa	  . 08747)	; 㠯󠄂
+      (=hanyo-denshi/ks	  . 099080)	; 㠯󠄂
+      (=hanyo-denshi/ks/mf . #x26B4)	; &I-KSMF-09908;
+      (<-same
+       ((=ucs@jis	    . #x4EE5)	; 以󠄀
+	(=jis-x0208	    . #x304A)	; 以󠄀 [16-42]
+	(=ks-x1001	    . #x6C24)	; &I-K0-6C24; [76-04]
+	(=jis-x0213-1	    . #x304A)	; &I-JX1-304A; [16-42]
+	(=daikanwa	    . 00388)	; &I-M-00388;
+	))
+      (<-same*sources
+       zhengzitong daikanwa)
+      (<-same@misc
+       ((=ucs		    . #x5DF3)	; 巳
+	(=daikanwa	    . 08744)	; &I-M-08744;
+	))
+      (<-same@misc*sources
+       daikanwa)
       )
      ((=ucs@cns		  . #x382F)	; &C3-2245;
       (=cns11643-3	  . #x2245)	; &C3-2245; [02-37]
@@ -304,6 +327,19 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (=ucs		. #x5DFB)	; 巻
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5DFB)	; 巻
+      ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (=>>ucs@unicode	. #x5DFB)	; &G-GT-11038;
+    (=>>jis-x0208	. #x342C)	; &G-GT-11038; [20-12]
+    (=>>jis-x0213-1	. #x342C)	; &G-GT-11038; [20-12]
+    (=>>gt		. 11038)	; &G-GT-11038;
+    (=>>gt-k		. 05217)	; &G-GT-11038;
     (->subsumptive
      ((morohashi-daikanwa	8759 1)
       (=ucs@jis		  . #x5DFB)	; &GT-11038;
@@ -324,6 +360,30 @@
       )
      ((=ucs@unicode	  . #x5DFB)	; &C3-2C44;
       (=cns11643-3	  . #x2C44)	; &C3-2C44; [12-36]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5DFB)	; 巻
+      ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (=>>hanyo-denshi/jt . #xB098)	; &G-HD-JT-B098;
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5DFB)	; 巻
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=hanyo-denshi/jt	  . #xB098)	; 巻󠄃
+      )
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5DFB)	; 巻
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/jt	  . #xB099)	; 巻󠄂
       ))
     ))
 (define-char

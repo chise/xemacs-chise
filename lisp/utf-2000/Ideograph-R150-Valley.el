@@ -459,7 +459,12 @@
     (=>>>ucs@unicode	. #x8C3F)	; &G-HD-FT-395A;
     (=>>hanyo-denshi/ft . #x395A)	; &G-HD-FT-395A; [25-58]
     (->subsumptive
-     ((=hanyo-denshi/ft	  . #x395A)	; &HD-FT-395A; [25-58]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8C3F)	; 谿
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/ft	  . #x395A)	; 谿󠄂 [25-58]
       )
      ((=ucs@unicode	  . #x8C3F)	; &UU+8C3F;
       ))
@@ -508,11 +513,13 @@
     (ideographic-radical . 150)	; ⾕
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
-    (=>ucs@unicode	. #x8C41)	; &A-UU+8C41;
+    (=+>ucs@unicode	. #x8C41)	; &o-J0-6C2F;
+    (=+>jis-x0208	. #x6C2F)	; &o-J0-6C2F; [76-15]
+    (=+>jis-x0213-1	. #x6C2F)	; &o-J0-6C2F; [76-15]
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x8C41)	; &A-UU+8C41;
+     ((=+>jis-x0208	  . #x6C2F)	; &o-J0-6C2F; [76-15]
       ))
     (ideographic-radical . 150)	; ⾕
     (ideographic-strokes . 10)
@@ -521,16 +528,16 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@unicode	  . #x8C41)	; &A-UU+8C41;
+     ((=+>jis-x0208	  . #x6C2F)	; &o-J0-6C2F; [76-15]
       ))
     (ideographic-radical . 150)	; ⾕
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
-    (=>>ucs@unicode	. #x8C41)	; &G-GT-48602;
-    (=>>>ucs@unicode	. #x8C41)	; &G-GT-48602;
-    (=>>jis-x0208	. #x6C2F)	; &G-GT-48602; [76-15]
-    (=>>jis-x0213-1	. #x6C2F)	; &G-GT-48602; [76-15]
-    (=>>gt		. 48602)	; &G-GT-48602;
+    (=>>ucs@unicode	. #x8C41)	; &g2-J0-6C2F;
+    (=>>>ucs@unicode	. #x8C41)	; &g2-J0-6C2F;
+    (=>>>jis-x0208	. #x6C2F)	; &g2-J0-6C2F; [76-15]
+    (=>>>jis-x0213-1	. #x6C2F)	; &g2-J0-6C2F; [76-15]
+    (=>>>gt		. 48602)	; &g2-J0-6C2F;
     (->subsumptive
      ((=ucs@jis		  . #x8C41)	; &GT-48602;
       (=jis-x0208	  . #x6C2F)	; &GT-48602; [76-15]
@@ -550,11 +557,11 @@
     (ideographic-radical . 150)	; ⾕
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
-    (=>ucs@cns		. #x8C41)	; &A-CU+8C41;
+    (=+>ucs@cns		. #x8C41)	; &o-CU+8C41;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cns	  . #x8C41)	; &A-CU+8C41;
+     ((=+>ucs@cns	  . #x8C41)	; &o-CU+8C41;
       ))
     (ideographic-radical . 150)	; ⾕
     (ideographic-strokes . 10)
@@ -564,7 +571,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cns	  . #x8C41)	; &A-CU+8C41;
+     ((=+>ucs@cns	  . #x8C41)	; &o-CU+8C41;
       ))
     (ideographic-radical . 150)	; ⾕
     (ideographic-strokes . 10)

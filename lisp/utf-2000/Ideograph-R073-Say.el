@@ -104,7 +104,8 @@
     (=>jis-x0213-1	. #x3939)	; 更 [25-25]
     (=big5		. #xA7F3)	; &I-B-A7F3;
     (->subsumptive
-     ((=jis-x0208@1978	  . #x3939)	; &M-14283; [25-25]
+     ((=ucs@ks		  . #x66F4)	; &M-14283;
+      (=jis-x0208@1978	  . #x3939)	; &M-14283; [25-25]
       (=jis-x0208@1983	  . #x3939)	; &I-J83-3939; [25-25]
       (=ks-x1001	  . #x4C5A)	; &I-K0-4C5A; [44-58]
       (=daikanwa	  . 14283)	; &I-M-14283;
@@ -369,12 +370,17 @@
     (ideographic-radical@cns . 29)	; ⼜
     (ideographic-strokes@cns . 9)
     (total-strokes	 . 11)
+    (=decomposition@cid
+     ((=ucs		  . #x66FC)	; 曼
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=decomposition@hanyo-denshi
      ((=ucs		  . #x66FC)	; 曼
       )
      ((=ucs		  . #xE0103)	; 󠄃
       ))
-    (=cns11643-1	. #x5937)	; 曼󠄃 [57-23]
+    (=cns11643-1	. #x5937)	; 曼󠄁 [57-23]
     (=daikanwa		. 14298)	; &I-M-14298;
     (=adobe-japan1-4	. 14112)	; &I-AJ1-14112;
     (=hanyo-denshi/jt	. #xAEA3)	; &I-HD-JT-AEA3;

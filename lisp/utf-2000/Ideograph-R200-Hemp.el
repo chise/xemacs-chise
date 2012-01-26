@@ -170,9 +170,12 @@
     (ideographic-radical . 200)	; ⿇
     (ideographic-strokes . 3)
     (total-strokes	 . 14)
-    (=>>ucs@unicode	. #x9EBC)	; &G-UU+9EBC;
+    (=>>ucs@unicode	. #x9EBC)	; &G-HD-FT-3564;
+    (=>>>ucs@unicode	. #x9EBC)	; &G-HD-FT-3564;
+    (=>>hanyo-denshi/ft . #x3564)	; &G-HD-FT-3564; [21-68]
     (->subsumptive
-     ((mojikyo		  . 055221)	; &MCS-6000D7B5;
+     ((=hanyo-denshi/ft	  . #x3564)	; &HD-FT-3564; [21-68]
+      (mojikyo		  . 055221)	; &MCS-6000D7B5;
       )
      ((=ucs@unicode	  . #x9EBC)	; &UU+9EBC;
       ))

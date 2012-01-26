@@ -1605,8 +1605,13 @@
     (ideographic-radical . 147)	; ⾒
     (ideographic-strokes . 8)
     (total-strokes	 . 15)
-    (=ucs@unicode	. #x89A9)	; &HD-FT-3946;
-    (=cns11643-3	. #x4E64)	; &HD-FT-3946; [46-68]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x89A9)	; 覩
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=ucs@unicode	. #x89A9)	; 覩󠄂
+    (=cns11643-3	. #x4E64)	; 覩󠄂 [46-68]
     (=hanyo-denshi/ft	. #x3946)	; &I-HD-FT-3946; [25-38]
     ))
 (define-char

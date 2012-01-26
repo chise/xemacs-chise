@@ -265,8 +265,13 @@
     (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (=shinjigen		.  1547)	; &HD-JT-AFB7;
-    (=hanyo-denshi/jt	. #xAFB7)	; &HD-JT-AFB7;
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x591B)	; 夛
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
+    (=shinjigen		.  1547)	; 夛󠄃
+    (=hanyo-denshi/jt	. #xAFB7)	; 夛󠄃
     (<-vulgar
      ((=ucs		  . #x591A)	; 多
       (=jis-x0208	  . #x423F)	; &I-J90-423F; [34-31]
@@ -410,6 +415,7 @@
     (=cns11643-4	. #x2570)	; &I-C4-2570; [05-80]
     (=daikanwa		. 05765)	; &I-M-05765;
     (=hanziku-3		. #xADC8)	; &I-HZK03-ADC8;
+    (=adobe-japan1-6	. 21374)	; &I-AJ1-21374;
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
@@ -737,9 +743,9 @@
     (=jef-china3	. #x82A2)	; &I-JC3-82A2;
     (=adobe-japan1-0	. 04542)	; &I-AJ1-04542;
     (<-vulgar
-     ((=cns11643-1	  . #x6842)	; &M-05802; [72-34]
+     ((=cns11643-1	  . #x6842)	; 夢󠄂 [72-34]
       (=daikanwa	  . 05802)	; &I-M-05802;
-      (=shinjigen	  .  1550)	; &M-05802;
+      (=shinjigen	  .  1550)	; 夢󠄂
       ))
     (<-vulgar*sources
      songyuan-yilai-suzipu zihui daikanwa shinjigen)
@@ -764,6 +770,7 @@
     (=daikanwa		. 05785)	; &I-M-05785;
     (=hanziku-3		. #xADEB)	; &I-HZK03-ADEB;
     (=jef-china3	. #x48D8)	; &I-JC3-48D8;
+    (=adobe-japan1-6	. 21375)	; &I-AJ1-21375;
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
@@ -969,9 +976,9 @@
     (=hanyo-denshi/ja	. #x4C34)	; &I-HD-JA-4C34; [44-20]
     (mojikyo		. 050144)	; &MCS-6000C3E0;
     (<-simplified
-     ((=cns11643-1	  . #x6842)	; &M-05802; [72-34]
+     ((=cns11643-1	  . #x6842)	; 夢󠄂 [72-34]
       (=daikanwa	  . 05802)	; &I-M-05802;
-      (=shinjigen	  .  1550)	; &M-05802;
+      (=shinjigen	  .  1550)	; 夢󠄂
       ))
     (<-simplified*sources
      daikanwa shinjigen)
@@ -983,9 +990,16 @@
     (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=cns11643-1	. #x6842)	; &M-05802; [72-34]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5922)	; 夢
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=cns11643-1	. #x6842)	; 夢󠄂 [72-34]
     (=daikanwa		. 05802)	; &I-M-05802;
-    (=shinjigen		.  1550)	; &M-05802;
+    (=shinjigen		.  1550)	; 夢󠄂
+    (=hanyo-denshi/ks	. 066550)	; 夢󠄂
+    (=hanyo-denshi/ks/mf . #x19FF)	; &I-KSMF-06655;
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
@@ -1003,9 +1017,9 @@
 	(=adobe-japan1-5    . 19304)	; &I-AJ1-19304;
 	(mojikyo	    . 005803)	; &MCS-600016AB;
 	(<-vulgar
-	 ((=cns11643-1	      . #x6842)	; &M-05802; [72-34]
+	 ((=cns11643-1	      . #x6842)	; 夢󠄂 [72-34]
 	  (=daikanwa	      . 05802)	; &I-M-05802;
-	  (=shinjigen	      .	 1550)	; &M-05802;
+	  (=shinjigen	      .	 1550)	; 夢󠄂
 	  ))
 	(<-vulgar*sources
 	 shinjigen)

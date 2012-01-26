@@ -630,14 +630,19 @@
     (=ucs		. #x5C2D)	; 尭
     (->subsumptive
      ((ideographic-radical . 32)	; ⼟
-      (=ucs@jis		  . #x5C2D)	; &AJ1-01726;
-      (=jis-x0208@1983	  . #x3646)	; &AJ1-01726; [22-38]
+      (=decomposition@cid
+       ((=ucs		    . #x5C2D)	; 尭
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@jis		  . #x5C2D)	; 尭󠄀
+      (=jis-x0208@1983	  . #x3646)	; 尭󠄀 [22-38]
       (=jis-x0208@1990	  . #x3646)	; &I-J90-3646; [22-38]
       (=jis-x0213-1	  . #x3646)	; &I-JX1-3646; [22-38]
       (=gt		  . 01770)	; &I-GT-01770;
       (=gt-k		  . 03674)	; &I-GT-K03674;
       (=gt-pj-1		  . #x3646)	; &I-GT-01770; [22-38]
-      (=shinjigen@rev	  .  1428)	; &AJ1-01726;
+      (=shinjigen@rev	  .  1428)	; 尭󠄀
       (=jef-china3	  . #x47C8)	; &I-JC3-47C8;
       (=adobe-japan1-0	  . 01726)	; &I-AJ1-01726;
       (<-simplified@JP/jis

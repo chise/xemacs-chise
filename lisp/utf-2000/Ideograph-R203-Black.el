@@ -148,6 +148,11 @@
     (ideographic-radical@cns . 203)	; ⿊
     (ideographic-strokes@cns . 3)
     (total-strokes	 . 15)
+    (=decomposition@cid
+     ((=ucs		  . #x58A8)	; 墨
+      )
+     ((=ucs		  . #xE0100)	; 󠄀
+      ))
     (hanyu-dazidian	1 487 3)
     (=ucs		. #xFA3A)	; 墨
     (=>>ucs@unicode	. #x58A8)	; 墨
@@ -161,6 +166,7 @@
     (=daikanwa		. 05469)	; &I-M-05469;
     (=shinjigen		.  1488)	; 墨
     (=jef-china3	. #x47DC)	; &I-JC3-47DC;
+    (=adobe-japan1-4	. 13387)	; &I-AJ1-13387;
     ))
 (define-char
   '((ideographic-radical . 203)	; ⿊

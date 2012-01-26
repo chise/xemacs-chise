@@ -177,6 +177,8 @@
     =>>>jis-x0208
     =>>>jis-x0213-1
     =>>>jis-x0213-2
+    =>>>gt
+    =>>>adobe-japan1
     =>>jis-x0208
     =>>jis-x0213-1
     =>>jis-x0213-1@2000
@@ -184,26 +186,34 @@
     =>>jis-x0213-2
     =>>jis-x0208@1978
     =>>hanyo-denshi/ft
+    =>>hanyo-denshi/jt
     =>>hanyo-denshi/ks
     =>>gt
     =>>daikanwa
-    =>jis-x0208@usual
+    =>>adobe-japan1
+    =+>jis-x0208
+    =+>jis-x0213-1
+    =+>jis-x0213-2
     =+>jis-x0208@1978
+    =+>adobe-japan1
     =>jis-x0208
     =>jis-x0208@1997
     =>jis-x0213-1
     =>jis-x0213-1@2000
     =>jis-x0213-1@2004
-    =>jis-x0213-2@usual
     =>jis-x0213-2
     ==>ucs@bucs
     =>ucs@iso
     =>ucs@unicode
     =>ucs@jis
-    =>ucs@JP
-    =>ucs@jis/1990
     =>ucs@cns
     =>ucs@ks
+    =+>ucs@iso
+    =+>ucs@unicode
+    =+>ucs@jis
+    =+>ucs@jis/1990
+    =+>ucs@cns
+    =+>ucs@ks
     =>>ucs@iso
     =>>ucs@unicode
     =>>ucs@jis
@@ -214,9 +224,11 @@
     =ucs@unicode
     =>>big5-cdp
     =>>gt-k
+    =+>gt
     =>gt
     =>big5-cdp
     =>daikanwa
+    =>cns11643-7
     =big5
     =big5-eten
     =>gt-k
@@ -480,12 +492,20 @@
        ((or (memq name '(=daikanwa =>>daikanwa =>daikanwa
 			 =daikanwa@rev1 =daikanwa@rev2
 			 =daikanwa/+p =daikanwa/+2p
-			 =gt =>>>gt =>>gt =>gt
+			 =gt =>>>gt =>>gt =+>gt =>gt
 			 =gt-k =>>gt-k =>gt-k
-			 =>>adobe-japan1
+			 =adobe-japan1-0 =>>>adobe-japan1-0 =>>adobe-japan1-0
+			 =adobe-japan1-1 =>>>adobe-japan1-1 =>>adobe-japan1-1
+			 =adobe-japan1-2 =>>>adobe-japan1-2 =>>adobe-japan1-2
+			 =adobe-japan1-3 =>>>adobe-japan1-3 =>>adobe-japan1-3
+			 =adobe-japan1-4 =>>>adobe-japan1-4 =>>adobe-japan1-4
+			 =adobe-japan1-5 =>>>adobe-japan1-5 =>>adobe-japan1-5
+			 =adobe-japan1-6 =>>>adobe-japan1-6 =>>adobe-japan1-6
+			 =+>adobe-japan1
 			 =cbeta =>>cbeta
 			 =zinbun-oracle =>zinbun-oracle))
-	    (string-match "^=adobe-" (symbol-name name)))
+            ;; (string-match "^=adobe-" (symbol-name name))
+	    )
 	"(%-18s . %05d)\t; %c")
        ((memq name '(=hanyo-denshi/ks =>>hanyo-denshi/ks mojikyo))
 	"(%-18s . %06d)\t; %c")

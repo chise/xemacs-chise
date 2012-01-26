@@ -62,12 +62,10 @@
     (hanyu-dazidian	1 262 1)
     (=ucs		. #x2090E)	; 𠤎
     (->subsumptive
-     ((=>>ucs@iso	  . #x2090E)	; &G-AJ1-13523;
-      (=>>>ucs@iso	  . #x2090E)	; &G-AJ1-13523;
-      (=>>>jis-x0208@1978 . #x5238)	; &G-AJ1-13523; [50-24]
-      (=>>>jis-x0208@1983 . #x5238)	; &G-AJ1-13523; [50-24]
-      (=>>daikanwa	  . 02571)	; &G-AJ1-13523;
-      (=>>adobe-japan1	  . 13523)	; &G-AJ1-13523;
+     ((=>>>ucs@iso	  . #x2090E)	; &g2-AJ1-13523;
+      (=>>>jis-x0208@1978 . #x5238)	; &g2-AJ1-13523; [50-24]
+      (=>>>jis-x0208@1983 . #x5238)	; &g2-AJ1-13523; [50-24]
+      (=>>>adobe-japan1-4 . 13523)	; &g2-AJ1-13523;
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x2090E)	; 𠤎
@@ -104,7 +102,7 @@
     (total-strokes	 . 4)
     (=>>ucs@unicode	. #x5316)	; &G-AJ1-13665;
     (=>>daikanwa	. 02572)	; &G-AJ1-13665;
-    (=>>adobe-japan1	. 13665)	; &G-AJ1-13665;
+    (=>>adobe-japan1-4	. 13665)	; &G-AJ1-13665;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5316)	; 化
@@ -163,7 +161,7 @@
     (=>>jis-x0213-1	. #x323D)	; &G-GT-03297; [18-29]
     (=>>gt		. 03297)	; &G-GT-03297;
     (=>>gt-k		. 00403)	; &G-GT-03297;
-    (=>>adobe-japan1	. 01341)	; &G-GT-03297;
+    (=>>adobe-japan1-0	. 01341)	; &G-GT-03297;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5316)	; 化
@@ -249,7 +247,7 @@
     (=>>gt		. 03302)	; &G-GT-03302;
     (=>>gt-k		. 01003)	; &G-GT-03302;
     (=>>daikanwa	. 02574)	; &G-GT-03302;
-    (=>>adobe-japan1	. 03706)	; &G-GT-03302;
+    (=>>adobe-japan1-0	. 03706)	; &G-GT-03302;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5317)	; 北

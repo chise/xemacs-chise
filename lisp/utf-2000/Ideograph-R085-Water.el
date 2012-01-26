@@ -17397,7 +17397,7 @@
     (=big5		. #xBA7E)	; &G-GT-23116;
     (=>>gt		. 23116)	; &G-GT-23116;
     (=>>daikanwa	. 18153)	; &G-GT-23116;
-    (=>>adobe-japan1	. 13332)	; &G-GT-23116;
+    (=>>adobe-japan1-4	. 13332)	; &G-GT-23116;
     (->subsumptive
      ((=>ucs*		  . #x6F22)	; 漢
       (=ucs		  . #xFA47)	; 漢
@@ -19070,10 +19070,10 @@
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (=>ucs@JP		. #x6F62)	; &A-CU+6F62;
-    (=>ucs@ks		. #x6F62)	; &A-CU+6F62;
-    (=>ucs@cns		. #x6F62)	; &A-CU+6F62;
-    (=big5		. #xE643)	; &A-CU+6F62;
+    (=+>ucs@jis		. #x6F62)	; &o-JU+6F62;
+    (=+>ucs@ks		. #x6F62)	; &o-JU+6F62;
+    (=+>ucs@cns		. #x6F62)	; &o-JU+6F62;
+    (=big5		. #xE643)	; &o-JU+6F62;
     (->subsumptive
      ((=ucs@jis		  . #x6F62)	; &M-18251;
       (=ucs@ks		  . #x6F62)	; &M-18251;
@@ -25045,9 +25045,10 @@
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (=>ucs@JP		. #x7007)	; &A-CU+7007;
-    (=>ucs@cns		. #x7007)	; &A-CU+7007;
-    (=big5		. #xEFEB)	; &A-CU+7007;
+    (=+>ucs@jis		. #x7007)	; &o-JX2-6F4A;
+    (=+>ucs@cns		. #x7007)	; &o-JX2-6F4A;
+    (=+>jis-x0213-2	. #x6F4A)	; &o-JX2-6F4A; [79-42]
+    (=big5		. #xEFEB)	; &o-JX2-6F4A;
     (->subsumptive
      ((=ucs@jis		  . #x7007)	; &AJ1-08533;
       (=jis-x0212	  . #x492D)	; &AJ1-08533; [41-13]
@@ -28504,6 +28505,20 @@
       ))
     ))
 (define-char
+  '((ideographic-radical@ucs . 195)	; ⿂
+    (ideographic-strokes@ucs . 14)
+    (ideographic-radical@ucs*sources
+     daikanwa)
+    (ideographic-strokes@ucs*sources
+     daikanwa)
+    (ideographic-radical@cns . 85)	; ⽔
+    (ideographic-strokes@cns . 22)
+    (total-strokes	 . 25)
+    (=ucs		. #x29F2A)	; 𩼪
+    (=cns11643-7	. #x607A)	; &I-C7-607A; [64-90]
+    (=daikanwa		. 46574)	; &I-M-46574;
+    ))
+(define-char
   '((=>ucs		. #x2416D)	; 𤅭
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 22)
@@ -28545,13 +28560,6 @@
     (total-strokes	 . 25)
     (=ucs		. #x2416B)	; 𤅫
     (=cns11643-7	. #x6078)	; &I-C7-6078; [64-88]
-    ))
-(define-char
-  '((ideographic-radical . 85)	; ⽔
-    (ideographic-strokes . 22)
-    (total-strokes	 . 25)
-    (=ucs		. #x29F2A)	; 𩼪
-    (=cns11643-7	. #x607A)	; &I-C7-607A; [64-90]
     ))
 (define-char
   '((ideographic-radical . 85)	; ⽔
