@@ -233,12 +233,12 @@ Lisp_Object ensure_face_cachel_contains_charset (struct face_cachel *cachel,
 						 Lisp_Object charset);
 void ensure_face_cachel_complete (struct face_cachel *cachel,
 				  Lisp_Object domain,
-				  unsigned char *charsets);
+				  Charset_ID *charsets);
 void update_face_cachel_data (struct face_cachel *cachel,
 			      Lisp_Object domain,
 			      Lisp_Object face);
 void face_cachel_charset_font_metric_info (struct face_cachel *cachel,
-					   unsigned char *charsets,
+					   Charset_ID *charsets,
 					   struct font_metric_info *fm);
 void mark_face_cachels (face_cachel_dynarr *elements);
 void mark_face_cachels_as_clean (struct window *w);
@@ -279,7 +279,7 @@ void default_face_height_and_width_1 (Lisp_Object domain,
 				      int *height, int *width);
 
 #define FACE_CACHEL_FONT(cachel, charset) \
-  (cachel->font[XCHARSET_LEADING_BYTE (charset) - 128])
+  (cachel->font[XCHARSET_LEADING_BYTE (charset) - MIN_LEADING_BYTE])
 
 #define WINDOW_FACE_CACHEL(window, index) \
   Dynarr_atp ((window)->face_cachels, index)
