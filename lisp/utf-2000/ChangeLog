@@ -1,3 +1,8 @@
+2012-01-26  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (AJ1-20098): Add
+	`ideographic-structure'.
+
 2012-01-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R198-Deer.el: Add mappings between CJK Ext-B and CNS
