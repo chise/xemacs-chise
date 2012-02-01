@@ -1,3 +1,18 @@
+2012-02-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R204-Embroidery.el (mother of C2-5C42): Unify
+	G-CU+9EFA and G-M-48249.
+	(C2-5C42): Unify CU+9EFA.
+	(mother of J0-7364): Unify G-JU+9EFB, G-CU+9EFB, G-J0-7364,
+	G-GT-65943 and G-M-48250.
+	(C2-613C): Unify CU+9EFB.
+	(C7-4575): Map to U-0002A4CB.
+
+	* Ideograph-R086-Fire.el (U-000244C5): Integrate M-49957 and
+	C7-5B24.
+	(U+7221): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+
 2012-01-31  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R205-Frog.el: Add mappings between CJK Ext-B and CNS
