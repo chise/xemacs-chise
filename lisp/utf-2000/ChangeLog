@@ -1,3 +1,8 @@
+2012-02-03  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R206-Tripod.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+
 2012-02-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R204-Embroidery.el (mother of C2-5C42): Unify
