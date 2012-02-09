@@ -1166,3 +1166,17 @@
     (=ucs		. #x2503A)	; 𥀺
     (=cns11643-5	. #x776D)	; &I-C5-776D; [87-77]
     ))
+(define-char
+  '((ideographic-radical@ucs . 107)	; ⽪
+    (ideographic-radical@daikanwa . 207)	; ⿎
+    (=ucs		. #x2503E)	; 𥀾
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2503E)	; 𥀾
+      ))
+    (ideographic-radical . 107)	; ⽪
+    (ideographic-strokes . 27)
+    (total-strokes	 . 32)
+    (=ucs@iso		. #x2503E)	; &U-0002503E;
+    ))
