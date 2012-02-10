@@ -1,3 +1,44 @@
+2012-02-10  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R203-Black.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+	(U+4D5F): Use `->subsumptive' to separate representative nodes.
+	(U-0002A41D): Likewise.
+	(M-48069): Map to U-0002A429.
+	(M-48070): Map to U-0002A42C.
+	(M-48071): Map to U-0002A42F.
+	(M-48072): Map to U-0002A42E.
+	(M-48073): Map to U-0002A430.
+	(U+9EDA): Use `->subsumptive' to separate representative nodes.
+	(M-48086): Unify U-0002A43A.
+	(M-48087): Map to U-0002A43B.
+	(U-0002A44F): New character.
+	(U-0002A450): New character.
+	(U-0002A459): Use `->subsumptive' to separate representative
+	nodes.
+	(U+4D6B): Likewise.
+	(U+9EE6): Likewise.
+	(U-0002A45A): Likewise.
+	(U+4D6C): Likewise.
+	(U-0002A45D): Likewise.
+	(U+9EEF): Use `->denotational' and `->subsumptive'.
+	(U-0002A475): New character.
+	(U-0002A476): New character.
+	(U-0002A47D): New character.
+	(U-0002A479): New character.
+	(U-0002A47B): New character.
+	(U-0002A478): New character.
+	(U-0002A47C): New character.
+	(U-0002A487): New character.
+	(U-0002A48D): New character.
+	(U-0002A486): New character.
+	(U-0002A48A): New character.
+	(U-0002A4AD): Fix `ideographic-strokes' and `total-strokes'.
+	(U+9EF5): Use `->denotational' instead of `->subsumptive'.
+	(U+4D73): Use `->subsumptive' to separate representative nodes.
+	(U+4D74): Likewise.
+	(U-0002A4C5): New character.
+
 2012-02-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R208-Rat.el: Add mappings between CJK Ext-B and CNS
