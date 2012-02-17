@@ -5,7 +5,7 @@
 	* chartab.c (UINT8_DECODE): Don't use `INLINE_HEADER'.
 	(UINT16_DECODE): Ditto.
 
-	* glyphs-eimage.c: (png_instantiate):
+	* glyphs-eimage.c (png_instantiate):
 	- Use `png_get_image_height (png_ptr, info_ptr)' instead of
 	  `info_ptr->height'.
 	- Use `png_get_image_width (png_ptr, info_ptr)' instead of
