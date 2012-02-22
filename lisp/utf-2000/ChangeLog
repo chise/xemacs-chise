@@ -1,3 +1,8 @@
+2012-02-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x737B and #x7379.
+
 2012-02-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R209-Nose.el: Add mappings between CJK Ext-B and CNS
