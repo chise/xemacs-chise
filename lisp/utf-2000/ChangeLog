@@ -1,3 +1,11 @@
+2012-02-24  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R008-Lid.el (U-0002019C): Use `->subsumptive' to
+	integrate M-48577 and C7-4623; use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns'.
+
 2012-02-18  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
