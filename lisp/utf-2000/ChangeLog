@@ -1,4 +1,26 @@
-2012-02-24  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+2012-02-23  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R210-Even.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+	(U+9F4D): Use `->denotational'.
+	(U-000222FF): Copied from Ideograph-R053-Dotted-Cliff.el.
+	(M-48572): New character.
+
+	* Ideograph-R053-Dotted-Cliff.el (U-000222FF): Use
+	`->subsumptive'; integrate M-48572; use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@r210'.
+
+2012-02-22  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R212-Dragon.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+	(U+9F93): Use `->subsumptive'.
+	(U+4DAC): Use `->subsumptive' to separate representative nodes.
+	(M-48834): Unify JC3-70AB.
+
+2012-02-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R008-Lid.el (U-0002019C): Use `->subsumptive' to
 	integrate M-48577 and C7-4623; use
