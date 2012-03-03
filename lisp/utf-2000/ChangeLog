@@ -1,3 +1,61 @@
+2012-03-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R214-Flute.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+
+	* Ideograph-R211-Tooth.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+	(U+9F56): Use `->subsumptive' to separate representative nodes.
+	(U+4D96): Likewise.
+	(U+9F58): Likewise.
+	(U+9F5A): Likewise.
+	(U-0002A5E8): Likewise.
+	(U+4D97): Likewise.
+	(U+9F5B): Likewise.
+	(U+9F5C): Use `->subsumptive'.
+	(U+4D98): Use `->subsumptive' to separate representative nodes.
+	(U+9F5D): Likewise.
+	(U-0002A5EA): Likewise.
+	(U+4D99): Likewise.
+	(U+9F5E): Likewise.
+	(U+9F5F): Likewise.
+	(U-0002A5EE): New character.
+	(U-0002A5F0): New character.
+	(U-0002A5F4): New character.
+	(U+9F63): Use `->subsumptive' to separate representative nodes.
+	(U+9F6A): Likewise.
+	(U+9F6B): Likewise.
+	(U+9F6C): Likewise.
+	(U-0002A623): New character.
+	(U-0002A61D): New character.
+	(U+9F6D): Use `->subsumptive' to separate representative nodes.
+	(U-0002A633): New character.
+	(U-0002A631): New character.
+	(U+9F73): Use `->subsumptive' to separate representative nodes.
+	(U+9F75): Likewise.
+	(U+4DA1): Likewise.
+	(U+9F76): Likewise.
+	(U+9F77): Likewise.
+	(U+4DA3): Likewise.
+	(U+9F7A): Likewise.
+	(U-0002A654): New character.
+	(S-9894): New character.
+	(U-0002A662): New character.
+	(U-0002A66F): New character.
+	(U-0002A66B): New character.
+	(U-0002A66D): New character.
+	(U+9F7C): Use `->subsumptive' to separate representative nodes.
+	(U-0002A670): Use `->subsumptive'.
+	(U+4DA9): Use `->subsumptive' to separate representative nodes.
+	(U+4DAA): Likewise.
+	(U-0002A67A): New character.
+	(U-0002A67E): New character.
+	(U-0002A682): Integrate M-48806.
+	(U-0002A687): New character.
+	(U+4DAB): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+9F7E): Likewise.
+
 2012-02-23  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R210-Even.el: Add mappings between CJK Ext-B and CNS
