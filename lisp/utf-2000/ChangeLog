@@ -1,3 +1,10 @@
+2012-03-03  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R213-Turtle.el: Add mappings between CJK Ext-B and CNS
+	11643 plain 7.
+	(U-0002A6C1): Copied from Ideograph-R115-Grain.el; integrate
+	M-48876.
+
 2012-03-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R214-Flute.el: Add mappings between CJK Ext-B and CNS
