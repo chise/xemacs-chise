@@ -1,3 +1,7 @@
+2012-03-04  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R155-Red.el: Add mappings for Big5 code points.
+
 2012-03-03  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R213-Turtle.el: Add mappings between CJK Ext-B and CNS
