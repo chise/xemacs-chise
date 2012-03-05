@@ -9,6 +9,7 @@
     (=ks-x1001		. #x6E65)	; &I-K0-6E65; [78-69]
     (=cns11643-1	. #x4B4B)	; &I-C1-4B4B; [43-43]
     (=jis-x0213-1	. #x4056)	; &I-JX1-4056; [32-54]
+    (=big5		. #xA8AA)	; &I-B-A8AA;
     (=gt		. 49533)	; &I-GT-49533;
     (=gt-k		. 02591)	; &I-GT-K02591;
     (=gt-pj-1		. #x4056)	; &I-GT-49533; [32-54]
@@ -74,6 +75,7 @@
     (=ks-x1001		. #x5E75)	; &I-K0-5E75; [62-85]
     (=cns11643-1	. #x5D50)	; &I-C1-5D50; [61-48]
     (=jis-x0213-1	. #x3C4F)	; &I-JX1-3C4F; [28-47]
+    (=big5		. #xB36A)	; &I-B-B36A;
     (=gt		. 49540)	; &I-GT-49540;
     (=gt-k		. 07777)	; &I-GT-K07777;
     (=gt-pj-1		. #x3C4F)	; &I-GT-49540; [28-47]
@@ -122,6 +124,7 @@
     (=ucs@unicode	. #x8D67)	; &C1-5D4F;
     (=gb2312		. #x7476)	; &C1-5D4F; [84-86]
     (=cns11643-1	. #x5D4F)	; &I-C1-5D4F; [61-47]
+    (=big5		. #xB369)	; &I-B-B369;
     ))
 (define-char
   '((ideographic-radical . 155)	; ⾚
@@ -137,6 +140,7 @@
     (total-strokes	 . 13)
     (=ucs		. #x8D68)	; 赨
     (=cns11643-2	. #x4762)	; &I-C2-4762; [39-66]
+    (=big5		. #xE05C)	; &I-B-E05C;
     (=daikanwa		. 37003)	; &I-M-37003;
     ))
 (define-char
@@ -146,6 +150,7 @@
     (=ucs		. #x8D69)	; 赩
     (=jis-x0212		. #x5F47)	; &I-JSP-5F47; [63-39]
     (=cns11643-2	. #x4763)	; &I-C2-4763; [39-67]
+    (=big5		. #xE05D)	; &I-B-E05D;
     (=daikanwa		. 37004)	; &I-M-37004;
     ))
 (define-char
@@ -212,6 +217,7 @@
     (=ks-x1001		. #x7A53)	; &I-K0-7A53; [90-51]
     (=cns11643-1	. #x6B36)	; &I-C1-6B36; [75-22]
     (=jis-x0213-1	. #x3352)	; &I-JX1-3352; [19-50]
+    (=big5		. #xBBAE)	; &I-B-BBAE;
     (=gt		. 49551)	; &I-GT-49551;
     (=gt-k		. 11104)	; &I-GT-K11104;
     (=gt-pj-1		. #x3352)	; &I-GT-49551; [19-50]
@@ -275,13 +281,16 @@
     (=jis-x0212		. #x5F48)	; &I-JSP-5F48; [63-40]
     (=cns11643-2	. #x5A65)	; &I-C2-5A65; [58-69]
     (=jis-x0213-2	. #x7935)	; &I-JX2-7935; [89-21]
+    (=big5		. #xEBB9)	; &I-B-EBB9;
     (=daikanwa		. 37016)	; &I-M-37016;
+    (=jef-china3	. #x99B5)	; &I-JC3-99B5;
     ))
 (define-char
   '((ideographic-radical . 155)	; ⾚
     (=ucs		. #x8D6D)	; 赭
     (=>jis-x0208	. #x6C60)	; 赭 [76-64]
     (=>jis-x0213-1	. #x6C60)	; 赭 [76-64]
+    (=big5		. #xBDEA)	; &I-B-BDEA;
     ))
 (define-char
   '((<-denotational
@@ -316,6 +325,7 @@
     (=ucs		. #x8D6E)	; 赮
     (=jis-x0212		. #x5F49)	; &I-JSP-5F49; [63-41]
     (=cns11643-2	. #x5A66)	; &I-C2-5A66; [58-70]
+    (=big5		. #xEBBA)	; &I-B-EBBA;
     (=daikanwa		. 37018)	; &I-M-37018;
     ))
 (define-char
@@ -331,6 +341,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
     (=ucs		. #x8D6F)	; 赯
+    (=big5		. #xEEB9)	; &I-B-EEB9;
     (->subsumptive
      ((=daikanwa	  . 37020)	; &M-37020;
       )
