@@ -1,3 +1,25 @@
+2012-03-05  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R156-Run.el: Add mappings for Big5 code points.
+	(U+8D82): Use `->denotational' and `->subsumptive' to separate
+	representative nodes and integrate S-7964.
+	(U+8D83): Use `->subsumptive' to separate representative nodes.
+	(U+8D84): Unify JC3-66BC.
+	(JSP-5F4F): Unify JC3-66BD.
+	(U+8D94): Unify JC3-9FEC.
+	(U+8D95): Unify JC3-66BE.
+	(U+47BB): Use `->subsumptive' to separate representative nodes.
+	(U+8DAB): Unify JC3-66C1.
+
+	* Ideograph-R115-Grain.el (U-00025917): Unify M-25399.
+	(U-0002591A): Use `->subsumptive' to separate representative
+	nodes.
+	(U-0002A6C1): Likewise; integrate M-48876; use
+	`ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+	(U-0002591B): New character.
+
 2012-03-04  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R155-Red.el: Add mappings for Big5 code points.
