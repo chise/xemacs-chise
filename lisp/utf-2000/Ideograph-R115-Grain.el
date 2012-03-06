@@ -6607,6 +6607,14 @@
   '((ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 20)
     (total-strokes	 . 25)
+    (=ucs		. #x25917)	; 𥤗
+    (=cns11643-4	. #x6C77)	; &I-C4-6C77; [76-87]
+    (=daikanwa		. 25399)	; &I-M-25399;
+    ))
+(define-char
+  '((ideographic-radical . 115)	; ⽲
+    (ideographic-strokes . 20)
+    (total-strokes	 . 25)
     (=ucs		. #x25918)	; 𥤘
     (->subsumptive
      ((=daikanwa	  . 25400)	; &M-25400;
@@ -6619,22 +6627,54 @@
   '((ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 20)
     (total-strokes	 . 25)
-    (=ucs		. #x25917)	; 𥤗
-    (=cns11643-4	. #x6C77)	; &I-C4-6C77; [76-87]
-    ))
-(define-char
-  '((ideographic-radical . 115)	; ⽲
-    (ideographic-strokes . 20)
-    (total-strokes	 . 25)
     (=ucs		. #x2591A)	; 𥤚
-    (=cns11643-4	. #x6C78)	; &I-C4-6C78; [76-88]
+    (->subsumptive
+     ((=ucs@iso		  . #x2591A)	; &U-0002591A;
+      )
+     ((=cns11643-4	  . #x6C78)	; &C4-6C78; [76-88]
+      ))
     ))
 (define-char
-  '((ideographic-radical . 115)	; ⽲
-    (ideographic-strokes . 20)
+  '((ideographic-radical@ucs . 213)	; ⿔
+    (ideographic-strokes@ucs . 9)
+    (ideographic-radical@ucs*sources
+     daikanwa)
+    (ideographic-strokes@ucs*sources
+     daikanwa)
+    (ideographic-radical@cns . 115)	; ⽲
+    (ideographic-strokes@cns . 20)
     (total-strokes	 . 25)
     (=ucs		. #x2A6C1)	; 𪛁
-    (=cns11643-7	. #x6129)	; &I-C7-6129; [65-09]
+    (->subsumptive
+     ((ideographic-radical . 213)	; ⿔
+      (ideographic-strokes . 9)
+      (=daikanwa	  . 48876)	; &M-48876;
+      )
+     ((ideographic-radical . 115)	; ⽲
+      (ideographic-strokes . 20)
+      (=cns11643-7	  . #x6129)	; &C7-6129; [65-09]
+      )
+     ((ideographic-radical . 213)	; ⿔
+      (ideographic-strokes . 9)
+      (=ucs@iso		  . #x2A6C1)	; &U-0002A6C1;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 115)	; ⽲
+    (ideographic-strokes . 21)
+    (total-strokes	 . 26)
+    (=ucs		. #x2591B)	; 𥤛
+    (=daikanwa		. 25401)	; &I-M-25401;
+    (<-ancient
+     ((=ucs@unicode	  . #x79CB)	; &GT-32182;
+      (=jis-x0208	  . #x3D29)	; &GT-32182; [29-09]
+      (=gb2312		  . #x476F)	; &I-G0-476F; [39-79]
+      (=ks-x1001	  . #x7555)	; &I-K0-7555; [85-53]
+      (=jis-x0213-1	  . #x3D29)	; &I-JX1-3D29; [29-09]
+      (=daikanwa	  . 24940)	; &I-M-24940;
+      ))
+    (<-ancient*sources
+     jiyun daikanwa)
     ))
 (define-char
   '((ideographic-radical . 115)	; ⽲
