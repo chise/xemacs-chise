@@ -11,6 +11,13 @@
 	(C3-4635): Unify CB05586; add `ideographic-structure'.
 	(H2-DDB0): Compact `ideographic-structure'.
 
+2012-03-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Add "C7-to-UCS.txt" to the check list.
+
+	* read-maps.el (mapping-table-ccs-setting-alist): Add setting for
+	`=cns11643-7'.
+
 2012-03-05  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R156-Run.el: Add mappings for Big5 code points.
