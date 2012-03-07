@@ -1,6 +1,6 @@
 ;;; read-maps.el --- Read mapping-tables.
 
-;; Copyright (C) 2002,2003,2004,2005,2006,2008 MORIOKA Tomohiko
+;; Copyright (C) 2002,2003,2004,2005,2006,2008,2012 MORIOKA Tomohiko
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: mapping table, character, CCS, multiscript, multilingual
