@@ -7,6 +7,7 @@
 		"C2-to-UCS.txt"
 		"C3-to-UCS.txt" "C4-to-UCS.txt"
 		"C5-to-UCS.txt" "C6-to-UCS.txt"
+		"C7-to-UCS.txt"
 		"B-to-UCS.txt" "JC3-to-UCS.txt"))
   (mapping-table-read-file (expand-file-name file "../etc/char-data/")))
 
