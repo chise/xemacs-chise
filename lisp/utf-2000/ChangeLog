@@ -1,3 +1,16 @@
+2012-03-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R058-Snout.el (U-000232B8): Use `->denotational' and
+	`->subsumptive' to separate representative nodes and integrate
+	U-0002F897.
+	(C7-2D63): Map to U-0002F897.
+
+	* Ideograph-R030-Mouth.el (U+5651): Use `->denotational' and
+	`->subsumptive'.
+	(C7-2160): Unify U-0002F84E and GT-05382; separate CB05586.
+	(C3-4635): Unify CB05586; add `ideographic-structure'.
+	(H2-DDB0): Compact `ideographic-structure'.
+
 2012-03-05  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R156-Run.el: Add mappings for Big5 code points.
