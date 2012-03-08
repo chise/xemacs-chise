@@ -1115,6 +1115,12 @@
     (=daikanwa		. 01887)	; &I-M-01887;
     (=hanziku-1		. #xE8E6)	; &I-HZK01-E8E6;
     (=jef-china3	. #x44BB)	; &I-JC3-44BB;
+    (<-same
+     ((=ucs		  . #x5211)	; 刑
+      (=daikanwa	  . 01886)	; &I-M-01886;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
     ))
 (define-char
   '((=>ucs		. #x206BB)	; 𠚻
