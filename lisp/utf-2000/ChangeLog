@@ -1,5 +1,9 @@
 2012-03-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R018-Knife.el (U+34DD): Add `<-same' for U+5211.
+
+2012-03-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R061-Heart.el (U+61A4): Use `->denotational' to
 	integrate U-0002F8AD.
 	(U+61AF): Use `->denotational' to integrate U-0002F8AE; use
