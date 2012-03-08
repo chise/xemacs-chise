@@ -1,5 +1,13 @@
 2012-03-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R061-Heart.el (U+61A4): Use `->denotational' to
+	integrate U-0002F8AD.
+	(U+61AF): Use `->denotational' to integrate U-0002F8AE; use
+	`->subsumptive' to separate representative nodes.
+	(C7-227B): Map to U-0002F8AE.
+	(C7-2D79): Unify U-0002F8AD and S-2701; add `<-original' for
+	J90-4A30.
+
 	* Ideograph-R058-Snout.el (U-000232B8): Use `->denotational' and
 	`->subsumptive' to separate representative nodes and integrate
 	U-0002F897.
