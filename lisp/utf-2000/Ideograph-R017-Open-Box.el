@@ -436,7 +436,7 @@
       )
      ((=ucs		  . #x6587)	; 文
       ))
-    (=>>daikanwa	. 01822)	; &A-M-01822;
+    (=>>daikanwa	. 01822)	; &G-M-01822;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")

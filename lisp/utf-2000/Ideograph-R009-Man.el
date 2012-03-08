@@ -11103,7 +11103,7 @@
       )
      ((=>>ucs@cns	  . #x5173)	; &G-CU+5173;
       ))
-    (=>>daikanwa	. 00626)	; &A-M-00626;
+    (=>>daikanwa	. 00626)	; &G-M-00626;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -27828,7 +27828,7 @@
      ((=ucs		  . #x20367)	; 𠍧
       ))
     (ideographic-radical . 9)	; ⼈
-    (=>>daikanwa	. 00985)	; &A-M-00985;
+    (=>>daikanwa	. 00985)	; &G-M-00985;
     (->subsumptive
      ((ideographic-strokes . 10)
       (total-strokes	   . 12)
@@ -40501,7 +40501,7 @@
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
-    (=>>daikanwa	. 01250)	; &A-M-01250;
+    (=>>daikanwa	. 01250)	; &G-M-01250;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")

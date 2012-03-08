@@ -3826,7 +3826,7 @@
       )
      ((=ucs		  . #x65E5)	; 日
       ))
-    (=>>daikanwa	. 13963)	; &A-M-13963;
+    (=>>daikanwa	. 13963)	; &G-M-13963;
     (->subsumptive
      ((=daikanwa	  . 13963)	; &M-13963;
       )

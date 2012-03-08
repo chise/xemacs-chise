@@ -1695,7 +1695,7 @@
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (=>>daikanwa	. 16688)	; &A-M-16688;
+    (=>>daikanwa	. 16688)	; &G-M-16688;
     (->subsumptive
      ((=daikanwa	  . 16688)	; &M-16688;
       ))
@@ -1768,7 +1768,7 @@
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
-    (=>>daikanwa	. 16692)	; &A-M-16692;
+    (=>>daikanwa	. 16692)	; &G-M-16692;
     (->subsumptive
      ((=daikanwa	  . 16692)	; &M-16692;
       (<-same
@@ -1868,7 +1868,7 @@
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
-    (=>>daikanwa	. 16697)	; &A-M-16697;
+    (=>>daikanwa	. 16697)	; &G-M-16697;
     (->subsumptive
      ((=daikanwa	  . 16697)	; &M-16697;
       (<-same

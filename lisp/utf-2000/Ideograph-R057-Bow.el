@@ -3575,7 +3575,7 @@
     (ideographic-radical@daikanwa . 193)	; ⿀
     (ideographic-strokes@daikanwa . 14)
     (total-strokes	 . 24)
-    (=>>daikanwa	. 45732)	; &A-M-45732;
+    (=>>daikanwa	. 45732)	; &G-M-45732;
     (->subsumptive
      ((ideographic-radical . 193)	; ⿀
       (ideographic-strokes . 14)

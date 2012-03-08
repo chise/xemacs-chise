@@ -2426,7 +2426,7 @@
       )
      ((=ucs		  . #x6534)	; 攴
       ))
-    (=>>daikanwa	. 13267)	; &A-M-13267;
+    (=>>daikanwa	. 13267)	; &G-M-13267;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")

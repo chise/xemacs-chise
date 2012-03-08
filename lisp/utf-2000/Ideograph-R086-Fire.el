@@ -8937,7 +8937,7 @@
     (ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (=>>daikanwa	. 19301)	; &A-M-19301;
+    (=>>daikanwa	. 19301)	; &G-M-19301;
     (->subsumptive
      ((=daikanwa	  . 19301)	; &M-19301;
       )

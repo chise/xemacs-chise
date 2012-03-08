@@ -19310,7 +19310,7 @@
       )
      ((=ucs		  . #x9751)	; 靑
       ))
-    (=>>daikanwa	. 42566)	; &A-M-42566;
+    (=>>daikanwa	. 42566)	; &G-M-42566;
     (->subsumptive
      ((hanyu-dazidian	  1 635 13)
       (ideographic-structure
@@ -27662,7 +27662,7 @@
       )
      ((=ucs		  . #x5404)	; 各
       ))
-    (=>>daikanwa	. 04104)	; &A-M-04104;
+    (=>>daikanwa	. 04104)	; &G-M-04104;
     (->subsumptive
      ((hanyu-dazidian	  1 669 3)
       (ideographic-structure
@@ -43825,7 +43825,7 @@
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 17)
     (total-strokes	 . 20)
-    (=>>daikanwa	. 04599)	; &A-M-04599;
+    (=>>daikanwa	. 04599)	; &G-M-04599;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -44193,7 +44193,7 @@
       )
      ((=>>jis-x0208	  . #x6E50)	; &G-GT-53782; [78-48]
       ))
-    (=>>daikanwa	. 04607)	; &A-M-04607;
+    (=>>daikanwa	. 04607)	; &G-M-04607;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
