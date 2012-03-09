@@ -7492,6 +7492,7 @@
   '((<-denotational
      ((=ucs		  . #x737A)	; 獺
       ))
+    (=>ucs*		. #x737A)	; 獺
     (ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
@@ -7500,7 +7501,9 @@
       )
      ((=ucs		  . #xE0102)	; 󠄂
       ))
-    (=hanyo-denshi/ft	. #x373F)	; 獺󠄂 [23-31]
+    (=ucs		. #x2F928)	; 獺
+    (=cns11643-7	. #x4775)	; &I-C7-4775; [39-85]
+    (=hanyo-denshi/ft	. #x373F)	; &I-HD-FT-373F; [23-31]
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
@@ -7616,6 +7619,7 @@
     (ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
+    (=>>ucs@iso		. #x248CB)	; &G-IU+248CB;
     (->subsumptive
      ((=ucs@iso		  . #x248CB)	; &U-000248CB;
       )
@@ -7639,12 +7643,6 @@
     (total-strokes	 . 20)
     (=ucs		. #x248C9)	; 𤣉
     (=cns11643-7	. #x4E40)	; &I-C7-4E40; [46-32]
-    ))
-(define-char
-  '((ideographic-radical . 94)	; ⽝
-    (ideographic-strokes . 16)
-    (total-strokes	 . 19)
-    (=cns11643-7	. #x4775)	; &C7-4775; [39-85]
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
