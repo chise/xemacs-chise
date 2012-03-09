@@ -1,3 +1,16 @@
+2012-03-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R064-Hand.el (U+63C5): Use `->denotational' to
+	integrate U-0002F8C0.
+	(C7-2330): Unify U-0002F8C0.
+	(M-12568): Add `<-denotational' for U+63C5.
+	(C7-232D): Unify U-0002F8C3 and CU+2F8C3.
+	(U+6477): Use `->denotational' to integrate U-0002F8C6.
+	(U+6478): Use `->denotational' and `->subsumptive'.
+	(C7-3839): Map to U-0002F8C6.
+
+	* Ideograph-R094-Dog.el (HD-FT2331): Unify U-0002F928 and C7-4775.
+
 2012-03-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R018-Knife.el (U+34DD): Add `<-same' for U+5211.
