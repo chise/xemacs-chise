@@ -1,3 +1,22 @@
+2012-03-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R109-Eye.el (U+4046): Use `->denotational' to
+	integrate U-0002F94B.
+	(C7-304A): Map to U-0002F94B.
+
+	* Ideograph-R102-Field.el (U+7550): Use `->denotational' to
+	integrate GT-K7666.
+	(GT-K7666): New character.
+
+	* Ideograph-R032-Earth.el (U+58AC): Use `->denotational' to
+	integrate U-0002F858.
+	(C7-2176): Map to U-0002F858.
+	(U-000214E4): Use `->denotational' to integrate U-0002F859; use
+	`->subsumptive' to separate representative nodes.
+	(C7-463E): Map to U-0002F859.
+	(U-000214D6): New character.
+	(U-000214D8): New character.
+
 2012-03-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R064-Hand.el (U+63C5): Use `->denotational' to
