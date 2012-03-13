@@ -1,5 +1,23 @@
 2012-03-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R115-Grain.el (M-25280): Add `<-vulgar' for J0-6353.
+	(C7-3066): Unify U-0002F95B; use `<-denotational' for U+7A4F
+	instead of `<-subsumptive' for the mother of J0-323A.
+	(J0-323A): Use `<-denotational' for U+7A4F instead of
+	`<-subsumptive' for the mother of C7-3066.
+
+	* Ideograph-R113-Spirit.el (U+798F): Separate J97-4A21 and B-BAD6
+	to integrate U-0002F956.
+	(A-UU+798F): New abstract node; unify J97-4A21 and B-BAD6.
+	(U+FA1B): Use J97-4A21 instead of U+798F as the mother.
+	(g2-J0-4A21): Likewise; unify g2-UU+798F and g2-GT-31825.
+	(U+79A2): Use `->denotational' instead of `->subsumptive'.
+	(A-IU+2F956): New abstract node; use `<-denotational' for U+798F.
+	(C7-2627): Unify U-0002F956; use `<-denotational' for A-IU+2F956;
+	integrate M-24805.
+
+2012-03-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R109-Eye.el (U+4046): Use `->denotational' to
 	integrate U-0002F94B.
 	(C7-304A): Map to U-0002F94B.
@@ -29,6 +47,12 @@
 	(C7-3839): Map to U-0002F8C6.
 
 	* Ideograph-R094-Dog.el (HD-FT2331): Unify U-0002F928 and C7-4775.
+
+2012-03-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (U-00021B18): Use `->denotational' and
+	`->subsumptive'.
+	(C7-606D): Unify U-0002F871; add `<-denotational' for U-00021B18.
 
 2012-03-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
