@@ -4700,31 +4700,47 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
     (=daikanwa		. 25280)	; &M-25280;
+    (<-vulgar
+     ((=ucs@jis		  . #x7A69)	; &GT-32701;
+      (=jis-x0208	  . #x6353)	; &GT-32701; [67-51]
+      (=ks-x1001	  . #x6831)	; &I-K0-6831; [72-17]
+      (=jis-x0213-1	  . #x6353)	; &I-JX1-6353; [67-51]
+      (=daikanwa	  . 25344)	; &I-M-25344;
+      ))
+    (<-vulgar*sources
+     songyuan-yilai-suzipu daikanwa)
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x7A4F)	; 穏
       ))
+    (=>ucs*		. #x7A4F)	; 穏
     (ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
-    (->subsumptive
-     ((morohashi-daikanwa	25280 1)
-      (=ucs@unicode	  . #x7A4F)	; &GT-32561;
-      (=jis-x0208	  . #x323A)	; &GT-32561; [18-26]
-      (=cns11643-3	  . #x522C)	; &I-C3-522C; [50-12]
-      (=jis-x0213-1	  . #x323A)	; &I-JX1-323A; [18-26]
-      (=gt		  . 32561)	; &I-GT-32561;
-      (=gt-pj-1		  . #x323A)	; &I-GT-32561; [18-26]
-      (<-simplified@JP/Jouyou
-       ((=ucs@jis	    . #x7A69)	; &GT-32701;
-	(=jis-x0208	    . #x6353)	; &GT-32701; [67-51]
-	(=ks-x1001	    . #x6831)	; &I-K0-6831; [72-17]
-	(=jis-x0213-1	    . #x6353)	; &I-JX1-6353; [67-51]
-	(=daikanwa	    . 25344)	; &I-M-25344;
-	))
-      )
-     ((=cns11643-7	  . #x3066)	; &C7-3066; [16-70]
+    (=ucs		. #x2F95B)	; 穏
+    (=cns11643-7	. #x3066)	; &I-C7-3066; [16-70]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7A4F)	; 穏
+      ))
+    (morohashi-daikanwa	25280 1)
+    (ideographic-radical . 115)	; ⽲
+    (ideographic-strokes . 11)
+    (total-strokes	 . 16)
+    (=ucs@unicode	. #x7A4F)	; &GT-32561;
+    (=jis-x0208		. #x323A)	; &GT-32561; [18-26]
+    (=cns11643-3	. #x522C)	; &I-C3-522C; [50-12]
+    (=jis-x0213-1	. #x323A)	; &I-JX1-323A; [18-26]
+    (=gt		. 32561)	; &I-GT-32561;
+    (=gt-pj-1		. #x323A)	; &I-GT-32561; [18-26]
+    (<-simplified@JP/Jouyou
+     ((=ucs@jis		  . #x7A69)	; &GT-32701;
+      (=jis-x0208	  . #x6353)	; &GT-32701; [67-51]
+      (=ks-x1001	  . #x6831)	; &I-K0-6831; [72-17]
+      (=jis-x0213-1	  . #x6353)	; &I-JX1-6353; [67-51]
+      (=daikanwa	  . 25344)	; &I-M-25344;
       ))
     ))
 (define-char
