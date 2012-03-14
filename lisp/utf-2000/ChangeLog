@@ -1,3 +1,14 @@
+2012-03-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R076-Lack.el (U-0002393B): Integrate M-16240.
+	(U-00023939): Integrate M-16243.
+	(U-0002393A): Integrate M-16245.
+	(U-0002393C): Integrate M-16246.
+	(U+3C4D): Integrate M-16247.
+	(mother of C7-5E72): Unify U-0002F8F2.
+	(U-0002393E): Use `->subsumptive' to separate representative
+	nodes.
+
 2012-03-09  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R115-Grain.el (M-25280): Add `<-vulgar' for J0-6353.
