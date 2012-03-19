@@ -1,5 +1,9 @@
 2012-03-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R124-Feather.el (U-000264B0): New character.
+	(U-00021B18): Use `->denotational'; use `->subsumptive' to
+	integrate M-07403.
+
 	* Ideograph-R076-Lack.el (U-0002393B): Integrate M-16240.
 	(U-00023939): Integrate M-16243.
 	(U-0002393A): Integrate M-16245.
