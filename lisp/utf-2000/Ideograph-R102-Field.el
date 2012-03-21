@@ -767,7 +767,7 @@
     (=shinjigen		.  6358)	; 畊
     (<-formed
      ((=cns11643-1	  . #x5755)	; &GT-37380; [55-53]
-      (=daikanwa	  . 28907)	; &M-28907;
+      (=daikanwa	  . 28907)	; &I-M-28907;
       (=shinjigen	  .  6357)	; &GT-37380;
       ))
     (<-formed*sources
