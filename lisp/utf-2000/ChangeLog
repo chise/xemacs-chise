@@ -1,3 +1,23 @@
+2012-03-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R126-And.el (U-000264DA): Use `->denotational' to
+	integrate U-0002F97B.
+	(M-28889): Add `<-original' for U-000264DD.
+	(C5-4867): Unify CU+264DA instead of IU+264DA.
+	(G-IU+264DA): New node; add `<-denotational' for U-000264DA.
+	(C7-2728): Unify U-0002F97B; add `<-wrong' for U-000264DD; use
+	`<-subsumptive' for G-IU+264DA.
+	(IU+264DA): Use `<-subsumptive' for G-IU+264DA.
+
+	* Ideograph-R117-Stand.el (U-00025AA5): Integrate M-25809.
+	(U-00025AA6): Integrate M-25810.
+	(U-00025AA7): Integrate M-25811.
+	(C7-263E): Unify U-0002F95D; integrate M-25811.
+	(U-00025AAB): New character.
+	(C7-263C): Map to U-0002F95E.
+	(U-00025AAC): Integrate M-49421.
+	(U+41D2): Integrate M-25813.
+
 2012-03-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R122-Net.el (U-000262D9): Integrate U-0002F975.
