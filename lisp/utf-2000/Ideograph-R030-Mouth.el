@@ -11160,17 +11160,44 @@
     (=jef-china3	. #x9AAB)	; &I-JC3-9AAB;
     ))
 (define-char
-  '((ideographic-radical@ucs . 140)	; ⾋
+  '((<-denotational
+     ((=>jis-x0208	  . #x6771)	; &J97-6771; [71-81]
+      ))
+    (ideographic-radical@ucs . 140)	; ⾋
     (ideographic-strokes@ucs . 5)
     (ideographic-radical@ucs*sources
-     daikanwa ucs)
+     daikanwa ucs gt)
     (ideographic-radical@cns . 30)	; ⼝
     (ideographic-strokes@cns . 6)
     (total-strokes	 . 9)
     (=ucs		. #x830D)	; 茍
     (=cns11643-2	. #x2942)	; &I-C2-2942; [09-34]
     (=big5		. #xCE41)	; &I-B-CE41;
+    (=gt		. 40070)	; &I-GT-40070;
+    (=gt-k		. 05282)	; &I-GT-K05282;
+    (=gt-pj-6		. #x487E)	; &I-GT-40070; [40-94]
     (=daikanwa		. 30853)	; &I-M-30853;
+    (->ancient
+     ((=cns11643-6	  . #x4D71)	; &C6-4D71; [45-81]
+      ))
+    (->ancient*sources
+     shuowen daikanwa)
+    (->mistakable
+     ((=cns11643-1	  . #x5348)	; &GT-40087; [51-40]
+      (=daikanwa	  . 30790)	; &I-M-30790;
+      ))
+    (->mistakable*sources
+     kangxi-biansi-2char daikanwa)
+    (->synonyms
+     ((=ucs@cns		  . #x4E9F)	; 亟󠄀
+      (=ucs@jis		  . #x4E9F)	; 亟󠄀
+      (=jis-x0208	  . #x5034)	; 亟󠄀 [48-20]
+      (=cns11643-1	  . #x4F67)	; &I-C1-4F67; [47-71]
+      (=jis-x0213-1	  . #x5034)	; &I-JX1-5034; [48-20]
+      (=daikanwa	  . 00279)	; &I-M-00279;
+      ))
+    (->synonyms*sources
+     pianhai daikanwa)
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
