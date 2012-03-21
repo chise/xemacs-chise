@@ -1,3 +1,57 @@
+2012-03-19  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R122-Net.el (U-000262D9): Integrate U-0002F975.
+	(U+7F7A): Use `->denotational' to integrate U-0002F976.
+	(U-0002630A): Use `->subsumptive' to separate representative
+	nodes.
+	(C7-3A49): Map to U-0002F975.
+	(U-00026328): Use `->subsumptive' to separate representative
+	nodes.
+	(C7-486D): Map to U-0002F976.
+
+	* Ideograph-R106-White.el (U-00024FAE): New character.
+	(U-00024FB5): New character.
+	(U-00024FB4): Integrate M-22805.
+	(U-00024FB8): Use `->denotational' to integrate U-0002F93C.
+	(o-IU+24FB8): New node; use `<-denotational' for U-00024FB8.
+	(M-22809): Add `<-denotational' for o-IU+24FB8.
+	(IU+24FB8): Likewise.
+	(C7-537B): Unify U-0002F93C; add `<-denotational' for o-IU+24FB8.
+	(C5-6267): Add `<-denotational' for U-00024FB8.
+
+	* Ideograph-R096-Jade.el (U+7485): Use `->denotational' to
+	integrate U-0002F931.
+	(U-00024A90): Integrate M-21298.
+	(U-00024A8B): Unify M-21300.
+	(U+74B8): Use `->subsumptive'.
+	(U-00024A8C): Integrate M-21303.
+	(U+74BA): Use `->denotational'.
+	(C7-4063): Unify U-0002F931 and M-21306; add `<-denotational' for
+	U+7485.
+	(U+74BB): Use `->denotational' and `->subsumptive'.
+	(U+74BC): Use `->denotational' to separate representative nodes.
+	(U-00024A8D): Unify M-21312.
+	(U-00024A8E): Integrate M-21314.
+	(U-00024A8F): Integrate M-21315.
+
+	* Ideograph-R030-Mouth.el (U+830D): Add `<-denotational' for
+	A-J0-6771; unify GT-40070 and GT-K5282; add `->ancient' for
+	C6-4D71; add `->mistakable' for C1-5348; add `->synonyms' for
+	J0-5034.
+
+	* Ideograph-R120-Silk.el (U+7DC7): Use `->denotational' to
+	integrate U-0002F96E.
+	(G-IU+2F96E): New node; add `<-denotational' for U+7DC7.
+	(M-27725): Add `<-subsumptive' for G-IU+2F96E; add `<-original'
+	for J0-653E.
+	(C7-266A): Unify U-0002F96E; add `<-subsumptive' for G-IU+2F96E.
+	(U+7E02): Use `->denotational' to integrate U-0002F96F.
+	(C7-2669): Map to U-0002F96F.
+	(JX2-745D): Unify S-6222; add `<-vulgar' for J0-657C.
+	(U+4334): Use `->denotational' to integrate U-0002F971.
+	(C7-624D): Map to U-0002F971.
+	(U-000261FD): Use `->subsumptive'.
+
 2012-03-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R124-Feather.el (U-000264B0): New character.
