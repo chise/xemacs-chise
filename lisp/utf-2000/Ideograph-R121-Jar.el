@@ -713,11 +713,43 @@
     ))
 (define-char
   '((ideographic-radical . 121)	; ⽸
+    (=ucs		. #x26247)	; 𦉇
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x26247)	; 𦉇
+      ))
+    (ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
-    (=ucs		. #x26247)	; 𦉇
-    (=cns11643-7	. #x266F)	; &I-C7-266F; [06-79]
+    (=ucs@iso		. #x26247)	; &M-28161;
+    (=cns11643-7	. #x266F)	; &M-28161; [06-79]
     (=daikanwa		. 28161)	; &I-M-28161;
+    ))
+(define-char
+  '((ideographic-radical . 121)	; ⽸
+    (ideographic-strokes . 9)
+    (total-strokes	 . 15)
+    (=ucs		. #x26246)	; 𦉆
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x26246)	; 𦉆
+      ))
+    (ideographic-radical . 121)	; ⽸
+    (ideographic-strokes . 9)
+    (total-strokes	 . 15)
+    (=daikanwa		. 28162)	; &M-28162;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x26246)	; 𦉆
+      ))
+    (ideographic-radical . 121)	; ⽸
+    (ideographic-strokes . 9)
+    (total-strokes	 . 15)
+    (=ucs@iso		. #x26246)	; &HZK08-B4EB;
+    (=hanziku-8		. #xB4EB)	; &HZK08-B4EB;
     ))
 (define-char
   '((ideographic-radical . 121)	; ⽸
@@ -842,25 +874,33 @@
     (=daikanwa		. 28171)	; &I-M-28171;
     ))
 (define-char
-  '((ideographic-radical . 121)	; ⽸
-    (ideographic-strokes . 11)
-    (total-strokes	 . 17)
-    (=daikanwa		. 28172)	; &M-28172;
-    ))
-(define-char
-  '((morohashi-daikanwa	28172 0 2)
+  '((<-denotational
+     ((=ucs		  . #x26247)	; 𦉇
+      ))
+    (=>ucs*		. #x26247)	; 𦉇
     (ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
-    (=cns11643-7	. #x3A46)	; &C7-3A46; [26-38]
+    (=ucs		. #x2F973)	; 𦉇
+    (->subsumptive
+     ((=ucs@iso		  . #x2F973)	; &M-28172;
+      (=daikanwa	  . 28172)	; &M-28172;
+      )
+     ((=ucs@cns		  . #x2F973)	; &C7-3A46;
+      (=cns11643-7	  . #x3A46)	; &C7-3A46; [26-38]
+      ))
     ))
 (define-char
   '((ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
     (=ucs		. #x7F46)	; 罆
-    (=cns11643-3	. #x557D)	; &I-C3-557D; [53-93]
-    (=daikanwa		. 28173)	; &I-M-28173;
+    (->subsumptive
+     ((=cns11643-3	  . #x557D)	; &M-28173; [53-93]
+      (=daikanwa	  . 28173)	; &I-M-28173;
+      )
+     ((=ucs@unicode	  . #x7F46)	; &UU+7F46;
+      ))
     ))
 (define-char
   '((ideographic-radical . 121)	; ⽸
