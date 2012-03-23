@@ -1,3 +1,17 @@
+2012-03-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R141-Tiger.el (C7-3B38): Map to U-0002F9B5.
+
+2012-03-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R121-Jar.el (U-00026247): Use `->denotational' to
+	integrate U-0002F973.
+	(U-00026246): New character.
+	(C7-3A46): Map to U-0002F973.
+	(U+7F46): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R098-Tile.el (U+750E): Unify S1-4997.
+
 2012-03-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R126-And.el (U-000264DA): Use `->denotational' to
