@@ -1,6 +1,30 @@
+2012-03-23  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (A-J0-6771): Copied from
+	Ideograph-R140-Grass.el.
+	(U+830D): Use `ideographic-{radical|strokes}@r030' instead of
+	`ideographic-{radical|strokes}@cns'.
+
+	* Ideograph-R118-Bamboo.el (U-00025BE1): Integrate M-26237.
+	(U-00025BE5): Integrate M-26242.
+	(U-00025BE7): Integrate M-26247.
+	(U+7BC9): Use `->denotational' to integrate U-0002F963 and
+	separate representative nodes.
+	(C7-264D): Map to U-0002F963.
+	(U-00025BEC): Integrate M-26264.
+	(U-00025BEF): Integrate M-26270.
+	(U+7BCD): Use `->subsumptive' to separate representative nodes.
+	(U-00025BF0): Likewise.
+	(U-00025BF1): Integrate M-26276.
+	(U+4221): Use `->subsumptive' to separate representative nodes.
+	(U-00025BFC): Integrate M-26293.
+	(U-00025C24): Integrate M-26324.
+
 2012-03-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R141-Tiger.el (C7-3B38): Map to U-0002F9B5.
+
+	* chise-subr.el (char-db-feature-domains): Add `r030' and `r140'.
 
 2012-03-21  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
