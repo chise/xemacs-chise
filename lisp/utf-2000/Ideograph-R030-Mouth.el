@@ -11160,6 +11160,17 @@
     (=jef-china3	. #x9AAB)	; &I-JC3-9AAB;
     ))
 (define-char
+  '((ideographic-radical@ucs . 140)	; ⾋
+    (ideographic-strokes@ucs . 5)
+    (ideographic-radical@ucs*sources
+     daikanwa jis-x0208 cns11643-1=0x5348 gt)
+    (ideographic-radical@r030 . 30)	; ⼝
+    (ideographic-radical@r030*sources
+     cns11643-2=0x2942)
+    (=>jis-x0208	. #x6771)	; &J97-6771; [71-81]
+    (=>jis-x0213-1	. #x6771)	; &J97-6771; [71-81]
+    ))
+(define-char
   '((<-denotational
      ((=>jis-x0208	  . #x6771)	; &J97-6771; [71-81]
       ))
@@ -11167,8 +11178,10 @@
     (ideographic-strokes@ucs . 5)
     (ideographic-radical@ucs*sources
      daikanwa ucs gt)
-    (ideographic-radical@cns . 30)	; ⼝
-    (ideographic-strokes@cns . 6)
+    (ideographic-radical@r030 . 30)	; ⼝
+    (ideographic-strokes@r030 . 6)
+    (ideographic-radical@r030*sources
+     cns11643-2=0x2942)
     (total-strokes	 . 9)
     (=ucs		. #x830D)	; 茍
     (=cns11643-2	. #x2942)	; &I-C2-2942; [09-34]
