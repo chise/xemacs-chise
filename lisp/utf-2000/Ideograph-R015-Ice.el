@@ -17,6 +17,20 @@
     (=adobe-japan1-0	. 04233)	; &I-AJ1-04233;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x51AB)	; 冫
+      ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=big5-cdp		. #x8971)	; &CDP-8971;
+    (=gt-k		. 00152)	; &I-GT-K00152;
+    (=gt-pj-k1		. #x377A)	; &CDP-8971; [23-90]
+    (<-formed@component
+     ((=ucs		  . #x51AB)	; 冫
+      ))
+    ))
+(define-char
   '((ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
