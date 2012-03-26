@@ -1,7 +1,18 @@
 2012-03-24  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R073-Say.el (U+7535): Add `<-simplified@CN' for
+	G1-3567.
+	(BC-8BE8): New character.
+
+2012-03-24  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R015-Ice.el (BC-8971): New character; unify GT-K0152.
+
 	* Ideograph-R149-Speech.el (U+8B8A): Use `->denotational' to
 	integrate U-0002F9D1.
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x5E7A.
 
 2012-03-23  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
