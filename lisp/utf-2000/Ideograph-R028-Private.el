@@ -678,10 +678,15 @@
       )
      ((=ucs		  . #x53BD)	; 厽
       )
-     ((name*		  . "ideographic component person as roof")
-      (=big5-cdp	  . #x8B5D)	; &GT-00458;
+     ((=ucs		  . #x4EBA)	; 人
       ))
-    (=daikanwa		. 03088)	; &M-03088;
+    (=ucs		. #x20AEF)	; 𠫯
+    (->subsumptive
+     ((hanyu-dazidian	  1 387 2)
+      (=ucs@iso		  . #x20AEF)	; &M-03088;
+      (=daikanwa	  . 03088)	; &M-03088;
+      (=hanziku-1	  . #xF5AE)	; &I-HZK01-F5AE;
+      ))
     ))
 (define-char
   '((ideographic-radical . 28)	; ⼛
@@ -913,7 +918,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=daikanwa	  . 03088)	; &M-03088;
+     ((=ucs		  . #x20AEF)	; 𠫯
       )
      ((=ucs		  . #x5F61)	; 彡
       ))
@@ -940,7 +945,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=daikanwa	  . 03088)	; &M-03088;
+     ((=ucs		  . #x20AEF)	; 𠫯
       )
      ((=ucs		  . #x4E09)	; 三
       ))
@@ -1442,12 +1447,6 @@
     (hanyu-dazidian	1 386 17)
     (=ucs		. #x20AEE)	; 𠫮
     (=hanziku-1		. #xF57B)	; &I-HZK01-F57B;
-    ))
-(define-char
-  '((ideographic-radical . 28)	; ⼛
-    (hanyu-dazidian	1 387 2)
-    (=ucs		. #x20AEF)	; 𠫯
-    (=hanziku-1		. #xF5AE)	; &I-HZK01-F5AE;
     ))
 (define-char
   '((ideographic-radical . 28)	; ⼛
