@@ -887,7 +887,7 @@
     (ideographic-radical . 160)	; ⾟
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
-    (=>>daikanwa	. 38670)	; &A-M-38670;
+    (=>>daikanwa	. 38670)	; &G-M-38670;
     (->subsumptive
      ((=daikanwa	  . 38670)	; &M-38670;
       )
@@ -1089,7 +1089,7 @@
     (ideographic-radical . 160)	; ⾟
     (ideographic-strokes . 21)
     (total-strokes	 . 28)
-    (=>>daikanwa	. 38680)	; &A-M-38680;
+    (=>>daikanwa	. 38680)	; &G-M-38680;
     (->subsumptive
      ((=daikanwa	  . 38680)	; &M-38680;
       )
