@@ -443,8 +443,7 @@
       )
      ((=gt-k		  . 00059)	; &GT-K00059;
       )
-     ((name*		  . "ideographic component person as roof")
-      (=big5-cdp	  . #x8B5D)	; &GT-00458;
+     ((=ucs		  . #x201A2)	; 𠆢
       ))
     (=gt-k		. 00859)	; &GT-K00859;
     (=gt-pj-k1		. #x394E)	; &GT-K00859; [25-46]
