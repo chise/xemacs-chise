@@ -1385,31 +1385,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
       )
-     ((name*		  . "ideographic component person as roof")
-      (=big5-cdp	  . #x8B5D)	; &GT-00458;
+     ((=ucs		  . #x201A2)	; 𠆢
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((=ucs		      . #x4EBA)	; 人
-	  )
-	 ((=ucs		      . #x4EBA)	; 人
-	  ))
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((=ucs		      . #x4EBA)	; 人
-	  )
-	 ((=ucs		      . #x4EBA)	; 人
-	  ))
-	))
+     ((=ucs		  . #x2020C)	; 𠈌
       )
      ((=ucs		  . #x51E0)	; 几
       ))
