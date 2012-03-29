@@ -1,3 +1,7 @@
+2012-03-08  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-57B1): Map to U-0002F912 instead of U+6FC6.
+
 2012-03-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* JC3-to-UCS.txt (JC3-56FB): Map to U-0002F90F instead of U+6F6E.

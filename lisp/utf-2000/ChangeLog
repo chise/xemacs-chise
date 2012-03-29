@@ -1,4 +1,226 @@
+2012-03-27  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (o-UU+8279): Changed from G-UU+8279 and
+	G-M-30639.
+	(U+4494): Use `->denotational' instead of `->subsumptive'.
+	(U+449D): Likewise.
+	(U+44A6): Likewise.
+	(U+82DF): Add `<-denotational' for A-J0-6771.
+	(A-J0-6771): New abstract character.
+	(U+830D):
+	- Use `ideographic-{radical|strokes}@r030' instead of
+	  `ideographic-{radical|strokes}@cns'.
+	- Unify GT-40070 and GT-K5282.
+	- Add `->ancient' for C6-4D71.
+	- Add `->mistakable' for C1-5348.
+	- Add `->synonyms' for J0-4E9F.
+	(U+44DD): Use `->denotational' instead of `->subsumptive'.
+	(U+44E5): Use `->denotational' and `->subsumptive'.
+	(C7-2761): Map to U-0002F9A9.
+	(U+8516): Use `->denotational' and `->subsumptive'.
+	(U-0002F9AA): Add `<-denotational' for U+8516.
+	(C7-276D): Map to U-0002F9AA.
+	(U-000273CA): Copied from Ideograph-R142-Insect.el.
+	(U-0002F9AB): Add `<-denotational' for U-0002F9AB.
+	(C7-3244): Map to U-0002F9AB.
+	(C7-3A6E): Add `<-formed' and `<-same' for C2-3F43.
+	(U-00026F2C): Use `->denotational' to integrate U-0002F9AD.
+	(C7-3A6F): Unify U-0002F9AD; add `->vulgar' for U-000275CE.
+	(U-00026FB1): Use `->denotational' to integrate U-0002F9B0.
+	(C7-423C): Map to U-0002F9AF.
+	(M-32479): Unify S-3860; add `<-vulgar' for J0-5D21.
+	(M-32523): Separate C7-545E; map to U-0002F9B0; add `<-same' for
+	C4-5D25.
+	(C7-545E): Map to U-0002F9B0.
+
 2012-03-26  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R011-Enter.el (U-000204DC): Use `->subsumptive'.
+	(U-000204DD): Likewise.
+	(U-000204DE): Add ideographic-structure.
+	(S-4877): Use `<-ancient' for K0-6E6F instead of `<-vulgar' for
+	J0-4134.
+	(C3-2176): Add `ideographic-structure'.
+	(C1-4740): Add `ideographic-structure'.
+	(IU+204E0): Separate M-01425.
+	(U+34B2): Use `->subsumptive'.
+	(U-000204E1): Likewise.
+	(U-000204E2): Copied from Ideograph-R009-Man.el.
+	(U-000204E4): Use `->subsumptive'.
+	(U+34B4): Likewise.
+	(U-000204E7): Likewise.
+	(U-000204EA): Likewise.
+	(U-000204EB): Likewise.
+	(U-000204ED): Likewise.
+	(U-000204EE): Likewise.
+	(U-000204F1): Likewise.
+	(U-000204F7): Likewise.
+	(U-000204F6): Likewise.
+	(U-000204F8): Likewise.
+	(M-01448): Separate IU+204FD.
+	(M-01449): Modify a component in `ideographic-structure'.
+	(IU+204FF): Modify a component in `ideographic-structure'.
+
+2012-03-26  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R142-Insect.el (C7-282E): Unify U-0002F9BD.
+	(U+45D7): Use `->denotational' to integrate U-0002F9BF.
+	(U-000273CA): Use `->denotational'.
+	(M-33450): Unify C5-577D and GT-45030.
+	(M-33656): Add `<-same' for C4-533E; map to A-CU+2F9BF.
+	(C7-4260): Map to U-0002F9BF.
+
+	* Ideograph-R112-Stone.el (U-0002544A): Unify S-5469; add `<-same'
+	and `->formed@s=hand-mill' for U+78BE; add `<-vulgar' for U+78BE.
+	(U+40D1): Integrate M-24371.
+	(A-M-24372): New abstract character to integrate M-24372 and
+	U-0002552E.
+	(M-24372): New character.
+	(U-0002552E): Use `->subsumptive' to separate representative
+	nodes.
+	(U-0002552F): Integrate M-24373.
+	(U-00025530): Integrate M-24375.
+	(U+40D4): Integrate M-24377.
+	(U+78BF): Use `->denotational' and `->subsumptive'.
+	(U-00025531): Integrate M-24379.
+	(U+78C0): Use `->denotational'.
+	(U+40D5): Integrate M-24381.
+	(U+78C2): Use `->subsumptive' to separate representative nodes.
+	(U+78C3): Use `->denotational' and `->subsumptive'.
+	(U+78C4): Use `->subsumptive'.
+	(U+78C5): Use `->denotational' and `->subsumptive'.
+	(U+78C7): Use `->subsumptive' to separate representative nodes.
+	(U-0002F950): Add `<-denotational' for U+78CC.
+	(C7-257B): Map to U-0002F950.
+	(U-00025533): Integrate M-24405.
+	(U+78E4): Use `->subsumptive' to separate representative nodes.
+	(U-00025545): Integrate M-24410.
+	(U-00025548): Integrate M-24413.
+	(U+78DA): Add `<-vulgar' for U+750E.
+	(A-CU+2F951): New node; add `<-denotational' for U+40E3.
+	(M-24475): Use A-CU+2F951 instead of U+40E3 as the mother.
+	(U-0002F951): Likewise; unify CU+2F951.
+
+	* Ideograph-R085-Water.el (U-00023E79): Integrate M-18043.
+	(U-00023E7A): Use `->subsumptive' to separate representative
+	nodes.
+	(U+6ED6): Use `->subsumptive'.
+	(U-00023E7B): Use `->subsumptive' to separate representative
+	nodes.
+	(U-00023ECD): Integrate M-18076.
+	(A-M-18078): New abstract character.
+	(M-18078): Add `<-denotational' for A-M-18078; don't map to
+	U+6EF1.
+	(U+6EF1): Add `<-denotational' for A-M-18078; use `->subsumptive'
+	to separate representative nodes.
+	(U-00023ECF): Integrate M-18079.
+	(U-00023ED0): Integrate M-18080.
+	(S2-4430): Unify S1-4428.
+	(J0-5E7A): Separate GT-23184.
+	(U+6F02): Use `->subsumptive'.
+	(U-00023ED4): Integrate M-18103.
+	(U+6F03): Use `->subsumptive'.
+	(U+6F0F): Likewise.
+	(U-00023ED8): Integrate M-18121.
+	(U+6F10): Use `->subsumptive' to separate representative nodes.
+	(A-J0-5E74): New abstract character.
+	(U+6F11): Add `<-denotational' for A-J0-5E74.
+	(U+6E89): Likewise; use `->subsumptive' to separate representative
+	nodes.
+	(U-00023EE1): Integrate M-18152.
+	(U-00023EE2): Integrate M-18159.
+	(U+6F26): Use `->subsumptive' to separate representative nodes.
+	(U-00023EE3): Integrate M-18165.
+	(U+6F2B): Use `->denotational'.
+	(U+6F9A): Likewise.
+	(U+6F4F): Use `->denotational' instead of `->subsumptive'.
+	(U-00023F43): Integrate M-18222.
+	(U-00023F44): Integrate M-18224.
+	(U+3D4A): Integrate M-18227.
+	(U+3D4B): Unify M-18229.
+	(U+3D4C): Integrate M-18233.
+	(U-00023F46): Integrate M-18237.
+	(B-D9EC): Changed to abstract character.
+	(U+6F59): Use `<-denotational' for B-D9EC; unify A-JX1-772A.
+	(U+6E88): Use `<-denotational' for B-D9EC.
+	(U-00023F47): Integrate M-18244.
+	(U+3D4D): Integrate M-18252.
+	(U-00023F4E): Unify M-18263.
+	(U-00023F4F): Unify M-18264.
+	(U+3D4F): Use `->denotational' and `->subsumptive'.
+	(U+3D50): Integrate M-18269.
+	(U+6F6E): Use `->denotational'.
+	(C7-244F): Unify U-0002F90F.
+	(U+3D53): Integrate M-18283.
+	(U+3D55): Integrate M-18305.
+	(U-00023F5B): Unify M-18306.
+	(U+3D56): Integrate M-18321.
+	(U-00023F5E): Integrate M-18323.
+	(C7-2458): Unify U-0002F910; add `<-denotational' for U-00023F5E.
+	(U-00023F60): Unify M-18325.
+	(U+3D57): Integrate M-18327.
+	(U-00023F64): Unify M-18340.
+	(U-00023F65): Unify M-18341.
+	(U-00023F6A): Unify M-18346.
+	(U+6FC6): Use `->denotational'.
+	(J0-5F39): Unify M-18371.
+	(U-00023F85): Use `->subsumptive' to separate representative
+	nodes.
+	(C7-2F42): Unify U-0002F912, M-18446 and JC3-57B1; add
+	`<-denotational' for U+6FC6.
+	(U+701B): Integrate U-0002F915.
+	(U-00029240): Integrate M-18688.
+	(U-000240E9): Integrate M-18689.
+	(U+3D8C): Integrate M-18692.
+	(U+3D8D): Unify M-18697.
+	(U-000240EA): Integrate M-18698.
+	(U-000240EB): Integrate M-18699.
+	(U-000240EF): Integrate M-18705.
+	(U+3D8E): Integrate M-18708.
+	(U-000240F1): Integrate M-18710.
+	(U-000240F3): New character.
+	(U+3D8F): Integrate M-18717.
+	(U-000240F8): Integrate M-18725.
+	(U-000240F9): Integrate M-18726.
+	(U-000240FB): Integrate M-18728.
+	(G-IU+2F915): New node to integrate M-18734 and C7-4E28; add
+	`<-denotational' for U+701B.
+	(C7-4E28): Unify U-0002F915.
+	(U+3D91): Use `->subsumptive' to separate representative nodes.
+	(U+7042): Use `->denotational'.
+	(U-0002410E): Use `->subsumptive' to separate representative
+	nodes.
+	(U+3D92): Likewise.
+	(U-00024111): Unify M-18747.
+	(U+3D94): Integrate M-18748.
+	(U+7049): Use `->subsumptive'.
+	(A-CU+2F917): New node to integrate JX1-773F and U-0002F917.
+	(C7-5358): Map to U-0002F917.
+	(A-M-18751): New abstract character.
+	(U-00024112): New character; add `<-denotational' for A-M-18751.
+	(U+3D95): Add `<-denotational' for A-M-18751; unify CB06102.
+	(U-00024113): Integrate M-18752.
+	(U-00024114): Integrate M-18753.
+	(U-00024115): Integrate M-18754.
+	(U+3D97): Integrate M-18755.
+	(U-00024116): Integrate M-18756.
+	(U-00022307): Integrate M-18758.
+	(U-00024117): Integrate M-18761 and CB12930.
+	(U-00024118): Integrate M-18762.
+	(U-00024119): Integrate M-18763.
+	(U-0002411A): Integrate M-18764.
+	(U+3D98): Integrate M-18765.
+	(U-0002411B): Integrate M-18766.
+	(U-0002411D): Unify M-18768.
+	(U-00024126): Integrate M-18769.
+	(U-0002412A): Integrate M-18771.
+	(A-UU+704A): New node to integrate M-49237 and G-UU+704A.
+	(M-49237): Separate C7-5358; add `<-denotational' for A-UU+704A.
+	(M-49238): Separate C7-5360; add `<-denotational' for U-0002F916.
+	(C7-5360): Map to U-0002F916.
+	(U-0002412B): Use `->subsumptive' to separate representative
+	nodes.
+	(U-0002413C): New character.
 
 	* Ideograph-R143-Blood.el (U-000275CB): Use `->subsumptive' to
 	separate representative nodes.
@@ -8,6 +230,16 @@
 	(U-000275D8): Add `<-formed' and `<-same' for U-000275CE.
 
 	* Ideograph-R028-Private.el (M-03088): Map to U-00020AEF.
+
+	* Ideograph-R114-Track.el (U-0002573C): Add ideographic-structure.
+	(M-24887): Omit `ideographic-structure'.
+
+	* Ideograph-R089-Double-X.el (U-00024568): Compact
+	`ideographic-structure'.
+	(U-00020442): Likewise.
+
+	* Ideograph-R016-Table.el (U-00020660): Compact
+	`ideographic-structure'.
 
 2012-03-24  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
