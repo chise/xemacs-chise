@@ -57,25 +57,24 @@
   '((ideographic-radical . 114)	; ⽱
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
-    (=ucs		. #x2573C)	; 𥜼
-    (->subsumptive
-     ((hanyu-dazidian	  1 143 9)
-      (ideographic-structure
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((name*	      . "ideographic component person as roof")
-	  (=big5-cdp	      . #x8B5D)	; &GT-00458;
-	  )
-	 ((=ucs		      . #x4E37)	; 丷
-	  ))
+       ((=ucs		    . #x201A2)	; 𠆢
 	)
-       ((=ucs		    . #x79B8)	; 禸
+       ((=ucs		    . #x4E37)	; 丷
 	))
+      )
+     ((=ucs		  . #x79B8)	; 禸
+      ))
+    (=ucs		. #x2573C)	; 𥜼
+    (->subsumptive
+     ((hanyu-dazidian	  1 143 9)
       (=ucs@iso		  . #x2573C)	; &M-24887;
       (=daikanwa	  . 24887)	; &M-24887;
       (=hanziku-1	  . #xC15F)	; &I-HZK01-C15F;
@@ -88,8 +87,7 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (=ucs		      . #x2FF1)	; ⿱
 	  )
-	 ((name*	      . "ideographic component person as roof")
-	  (=big5-cdp	      . #x8B5D)	; &GT-00458;
+	 ((=ucs		      . #x201A2)	; 𠆢
 	  )
 	 ((=ucs		      . #x4E37)	; 丷
 	  ))
