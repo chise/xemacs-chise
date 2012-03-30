@@ -1,5 +1,32 @@
 2012-03-27  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R162-Walk.el (U-000285ED): Delete
+	`ideographic-strokes' and `total-strokes' to integrate U-0002F9E1.
+	(A-IU+285ED): New node.
+	(M-39132): Use A-IU+285ED instead of U-000285ED as the mother.
+	(C7-3449): Likewise.
+	(A-IU+2F9E1): New node.
+	(M-39180): Add `<-denotational' for A-IU+2F9E1.
+	(C7-3C61): Unify U-0002F9E1; add `<-denotational' for A-IU+2F9E1.
+
+	* Ideograph-R156-Run.el (U-00027F2F): Use `->denotational' and
+	`->subsumptive'.
+	(C7-3379): Unify U-0002F9D8; add `<-denotational' for U-00027F2F.
+	(U-00020804): Copied from Ideograph-R018-Knife.el.
+	(M-37235): Separate C7-3373; unify GT-49806; add `<-subsumptive'
+	for G-GT-02901.
+	(C7-3373): Unify U-0002F9D9.
+
+	* Ideograph-R120-Silk.el (U-0002035E): Add ideographic-structure.
+
+	* Ideograph-R059-Bristle.el (M-09968): Unify U-00022486 and
+	H3-ABA5.
+	(U+5F62): Use `->denotational' to integrate U-0002F899.
+	(M-09982): Unify S-2309.
+
+	* Ideograph-R018-Knife.el (U-00020804): Use `->denotational' and
+	`->subsumptive'.
+
 	* Ideograph-R140-Grass.el (o-UU+8279): Changed from G-UU+8279 and
 	G-M-30639.
 	(U+4494): Use `->denotational' instead of `->subsumptive'.
