@@ -5537,6 +5537,21 @@
     (ideographic-radical@cns*sources
      daikanwa cns11643)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=big5-cdp	  . #x8B7A)	; &CDP-8B7A;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x6534)	; 攴
+	)
+       ((=ucs		    . #x7CF8)	; 糸
+	))
+      ))
     (=ucs		. #x2035E)	; 𠍞
     (->subsumptive
      ((ideographic-structure
@@ -5549,7 +5564,11 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (=ucs		      . #x2FF1)	; ⿱
 	  )
-	 ((=ucs		      . #x6534)	; 攴
+	 ((=ucs@unicode	      . #x6534)	; &GT-16576;
+	  (=jis-x0208	      . #x5A3D)	; &GT-16576; [58-29]
+	  (=gb2312	      . #x6A37)	; &I-G0-6A37; [74-23]
+	  (=cns11643-3	      . #x2167)	; &I-C3-2167; [01-71]
+	  (=jis-x0213-1	      . #x5A3D)	; &I-JX1-5A3D; [58-29]
 	  )
 	 ((=ucs@jis	      . #x7CF8)	; &GT-35079;
 	  (=jis-x0208	      . #x3B65)	; &GT-35079; [27-69]
@@ -5571,7 +5590,11 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (=ucs		      . #x2FF1)	; ⿱
 	  )
-	 ((=ucs		      . #x6534)	; 攴
+	 ((=ucs@unicode	      . #x6534)	; &GT-16576;
+	  (=jis-x0208	      . #x5A3D)	; &GT-16576; [58-29]
+	  (=gb2312	      . #x6A37)	; &I-G0-6A37; [74-23]
+	  (=cns11643-3	      . #x2167)	; &I-C3-2167; [01-71]
+	  (=jis-x0213-1	      . #x5A3D)	; &I-JX1-5A3D; [58-29]
 	  )
 	 ((=ucs@unicode	      . #x7CF8)	; &G0-7469;
 	  (=gb2312	      . #x7469)	; &G0-7469; [84-73]
