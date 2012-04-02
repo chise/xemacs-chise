@@ -1,3 +1,107 @@
+2012-03-30  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R159-Cart.el (U+8F38): Use `->denotational' and
+	`->subsumptive'; integrate U-0002F9DF.
+	(C7-3431): Unify U-0002F9DF.
+	(U-00028372): Use `->subsumptive' to separate representative
+	nodes.
+	(U+8F5D): Unify S-8179; add `<-formed' for U+8F3F.
+	(U+8F5E): Use `->denotational' to separate representative nodes.
+
+2012-03-29  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el (U+911B): Use `->denotational' to
+	integrate U-0002F9E6.
+	(C7-3C6B): Unify U-0002F9E6.
+
+	* Ideograph-R075-Tree.el (U+6A2F): Unify S-3855; add
+	`<-simplified@CN' for U+6AA3; add `<-vulgar' for U+6AA3.
+	(U-0002367B): Unify M-15490.
+	(U-0002367D): Integrate M-15494.
+	(U-00023685): Integrate M-15523.
+	(U-00023686): Integrate M-15530.
+	(U-00023688): Unify M-15539.
+	(U+3BDA): Unify M-15542.
+	(U+6A55): Use `->subsumptive' to separate representative nodes.
+	(U-00023689): Unify M-15545.
+	(U+3BDB): Unify M-15546.
+	(U-00023690): Integrate M-15568.
+	(U-000236DA): Unify M-15570.
+	(U-00023691): Unify M-15571.
+	(U+3BDD): Unify M-15572.
+	(A-M-15574): New abstract node.
+	(U-00023693): New character; add `<-denotational' for A-M-15574.
+	(U+3BDE): Use `->subsumptive' to separate representative nodes;
+	add `<-denotational' for A-M-15574.
+	(U-00023694): Unify M-15575.
+	(U-00023696): Integrate M-15580.
+	(U-00023697): Integrate M-15581.
+	(U-0002369A): Unify M-15585.
+	(U-0002369D): Integrate M-15592.
+	(U-0002369E): Integrate M-15593.
+	(U+6A6C): Use `->denotational' and `->subsumptive'.
+	(U-0002369F): Integrate M-15596.
+	(U-000236A0): Integrate M-15597.
+	(M-15605): Unify U-0002F8EC and C7-2E6A; add `<-same' for C1-5755.
+	(U-000236A4): Integrate M-15606.
+	(U+3BE5): Integrate M-15613.
+	(U-000236EB): Integrate M-15616.
+	(U-000236D6): Integrate M-15618.
+	(U-000236D8): Unify M-15619.
+	(U+3BF5): Use `->denotational' to separate representative nodes.
+	(U-000236F2): Integrate M-15631.
+	(U-000236F3): Integrate M-15635.
+	(U+3BEC): Integrate M-15640.
+	(U-000236F6): Integrate M-15641.
+	(U+6A85): Use `->subsumptive' to separate representative nodes.
+	(U+6A86): Likewise.
+	(U+6A87): Use `->subsumptive'.
+	(U+3BED): Integrate M-15645.
+	(U+3BEE): Unify M-15646.
+	(U+3BEF): Integrate M-15648.
+	(U-000236F7): Integrate M-15649.
+	(U-000236F8): Integrate M-15651.
+	(U-000236F9): Integrate M-15661.
+	(U-000236FA): Integrate M-15664.
+	(U+3BF1): Integrate M-15668.
+	(U+6A98): Use `->subsumptive'.
+	(U+6A99): Use `->subsumptive' to separate representative nodes.
+	(U-000236FB): Integrate M-15672.
+	(U-000236FC): Integrate M-15678.
+	(U+3BF3): Integrate M-15682.
+	(U-000236FD): Integrate M-15685.
+	(U-00023701): Integrate M-15693.
+	(U-00023703): Integrate M-15696.
+	(U-00023704): Integrate M-15697.
+	(U-00023705): Integrate M-15698.
+	(U-00023708): Integrate M-15701.
+	(U-00023739): Integrate M-15702.
+	(U-00023726): Integrate M-15705.
+	(U-00023725): Integrate M-15706.
+	(U+3BF6): Use `->denotational' to separate representative nodes.
+	(U-00023742): Integrate M-15712.
+	(U-00023743): Integrate M-15714.
+	(U-00023745): Use `->subsumptive'.
+	(U-00023747): Integrate M-15719.
+	(U-0002374B): Integrate M-15724.
+	(U-0002374D): Integrate M-15730.
+	(U-0002374E): Integrate M-15732.
+	(U-00023750): Integrate M-15736.
+	(U+6AB6): Use `->denotational' instead of `->subsumptive'.
+	(U-00023751): Integrate M-15739.
+	(U-00023752): Integrate M-15740.
+	(U-00023753): Use `->subsumptive'.
+	(U-00023754): Integrate M-15752.
+	(U-00023756): Integrate M-15761.
+	(U-00023758): Integrate M-15763.
+	(U-0002375A): Integrate M-15765.
+	(U-0002375B): Integrate M-15766.
+	(U-00023777): Integrate M-15775.
+
+	* Ideograph-R044-Corpse.el (JSP-3A78): Unify S-4447; add
+	`<-original' for J0-4F33.
+	(U+3798): Add ideographic-structure.
+
 2012-03-27  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R162-Walk.el (U-000285ED): Delete
