@@ -1,3 +1,9 @@
+2012-04-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R167-Gold.el (U+9415): Use `->denotational' and
+	`->subsumptive'.
+	(C7-506B): Unify U-0002F9EC; use `<-denotational' for U+9415.
+
 2012-03-30  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R159-Cart.el (U+8F38): Use `->denotational' and
