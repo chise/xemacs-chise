@@ -1,3 +1,12 @@
+2012-04-04  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R062-Halberd.el (U-000203B6): Use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}' instead of
+	`ideographic-'; modify a component of `ideographic-structure'.
+	(M-11627): Map to U-000229E1; add `<-vulgar' for C1-6459.
+	(M-11628): Unify U-000229DD.
+	(M-11629): Map to U-000229DE.
+
 2012-04-01  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R167-Gold.el (U+9415): Use `->denotational' and
