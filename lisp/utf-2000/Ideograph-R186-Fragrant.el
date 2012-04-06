@@ -535,7 +535,7 @@
     (ideographic-radical . 186)	; ⾹
     (ideographic-strokes . 10)
     (total-strokes	 . 19)
-    (=>>daikanwa	. 44558)	; &A-M-44558;
+    (=>>daikanwa	. 44558)	; &G-M-44558;
     (->subsumptive
      ((=daikanwa	  . 44558)	; &M-44558;
       )
