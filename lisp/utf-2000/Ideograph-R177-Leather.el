@@ -2680,8 +2680,8 @@
      ((=ucs		  . #x4A76)	; 䩶
       ))
     (ideographic-radical . 177)	; ⾰
-    (ideographic-strokes . 9)
-    (total-strokes	 . 18)
+    (ideographic-strokes . 10)
+    (total-strokes	 . 19)
     (=ucs@unicode	. #x4A76)	; &UU+4A76;
     ))
 (define-char
@@ -2848,17 +2848,22 @@
     (=gb2312		. #x7735)	; &I-G0-7735; [87-21]
     ))
 (define-char
-  '((ideographic-radical . 177)	; ⾰
-    (ideographic-strokes . 10)
-    (total-strokes	 . 19)
-    (=daikanwa		. 42955)	; &M-42955;
-    ))
-(define-char
-  '((morohashi-daikanwa	42955 0 1)
+  '((<-denotational
+     ((=ucs		  . #x4A76)	; 䩶
+      ))
+    (=>ucs*		. #x4A76)	; 䩶
     (ideographic-radical . 177)	; ⾰
     (ideographic-strokes . 10)
     (total-strokes	 . 19)
-    (=cns11643-7	. #x4B5F)	; &C7-4B5F; [43-63]
+    (=ucs		. #x2F9F9)	; 䩶
+    (=cns11643-7	. #x4B5F)	; &I-C7-4B5F; [43-63]
+    (=daikanwa		. 42955)	; &I-M-42955;
+    (<-wrong
+     ((=cns11643-4	  . #x5E41)	; &M-42941; [62-33]
+      (=daikanwa	  . 42941)	; &I-M-42941;
+      ))
+    (<-wrong*sources
+     zhonghua-dazidian daikanwa)
     ))
 (define-char
   '((ideographic-radical . 177)	; ⾰
