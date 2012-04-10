@@ -1,3 +1,26 @@
+2012-04-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R179-Leek.el (G-IU+2F9FB): New node; add
+	`<-denotational' for U-0002940A.
+	(M-43253): Add `<-subsumptive' for G-IU+2F9FB.
+	(C7-4B6B): Unify U-0002F9FB; add `<-subsumptive' for G-IU+2F9FB.
+	(A-IU+2940A): New node; add `<-denotational' for U-0002940A.
+	(G-GT-58097): Use A-IU+2940A instead of U-0002940A as the mother.
+	(IU+2940A): Likewise.
+	(C7-5148): Likewise.
+
+2012-04-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R187-Horse.el (U+99FE): Use `->denotational' and
+	`->subsumptive'.
+	(C7-3E29): Unify U-0002FA07 and CU+2FA07.
+
+2012-04-05  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R177-Leather.el (UU+4A76): Fix strokes.
+	(M-42955): Unify U-0002F9F9 and C7-4B5F; add `<-denotational' for
+	U+4A76; add `<-wrong' for C4-5E41.
+
 2012-04-04  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R176-Face.el (U-0002921A): Use `->denotational' to
