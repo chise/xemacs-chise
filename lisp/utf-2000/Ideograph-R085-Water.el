@@ -20384,6 +20384,25 @@
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (=ucs		. #x2ADC1)	; 𪷁
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2ADC1)	; 𪷁
+      ))
+    (ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (=ucs@iso		. #x2ADC1)	; &U-0002ADC1;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2ADC1)	; 𪷁
+      ))
+    (ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (*references	(link (:ref "http://koikekaisho.hatenablog.com/entry/2012/04/05/150841") "koikekaisho:2012-04-05"))
     (=decomposition@hanyo-denshi
      ((=ucs		  . #x6F82)	; 澂
       )
