@@ -1,3 +1,65 @@
+2012-04-10  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R188-Bone.el (A-UU+4BCE): New node; add
+	`<-denotational' for U+4BCE.
+	(G-IU+2FA08): New node; add `<-denotational' for A-UU+4BCE.
+	(M-45157): Add `<-subsumptive' for G-IU+2FA08.
+	(C7-2B55): Likewise; unify U-0002FA08.
+	(UU+4BCE): Use A-UU+4BCE instead of U+4BCE as the mother.
+
+	* Ideograph-R169-Gate.el (U+4995): Use `->denotational' to
+	integrate U-0002F9EF.
+	(M-41396): Map to U-0002F9EF; add `<-original' for M-41290.
+	(C7-347A): Unify U-0002F9EF.
+	(U+95B7): Use `->denotational' to integrate U-0002F9F0.
+	(o-IU+2F9F0): New node; add `<-denotational' for U+95B7.
+	(G-IU+2F9F0): New node; add `<-denotational' for o-IU+2F9F0.
+	(M-49838): Add `<-subsumptive' for G-IU+2F9F0; add `<-wrong' for
+	M-41407.
+	(C7-3471): Unify U-0002F9F0; add `<-subsumptive' for G-IU+2F9F0.
+	(UU+95B7): Use o-IU+2F9F0 instead of U+95B7 as the mother.
+	(o-CU+95B7): New node; add `<-denotational' for U+95B7.
+	(M-41407): Use o-CU+95B7 instead of U+95B7 as the mother.
+	(C2-6040): Likewise; unify CU+95B7.
+
+	* Ideograph-R009-Man.el (BC-8B5D): Unify U-000201A2 and JX2-2136;
+	delete `name*'.
+	(G-BC-8AFC): Add ideographic-structure.
+	(BC-8AFC): Omit `ideographic-structure'.
+	(U-000201CF): Use `->subsumptive'.
+	(U-000204E2): Use `->denotational' and `->subsumptive'.
+	(U+4F58): Use `->subsumptive' to separate representative nodes.
+	(U-000201DC): Use `->subsumptive'.
+	(CB01887): Add `ideographic-structure'.
+	(U-0002028C): Use `->subsumptive'.
+	(U+3467): Add ideographic-structure.
+	(U-0002028B): Use `->denotational'.
+	(U-00020294): Add ideographic-structure.
+	(U-000202BA): Use `->subsumptive'.
+	(U+5097): Add ideographic-structure.
+	(U-000203B6): Use `ideographic-{radical|strokes}@{ucs|daikanwa}'
+	instead of `ideographic-'; modify a component of
+	`ideographic-structure'.
+	(U-0002035E): Add ideographic-structure.
+	(U-00020373): Use `->subsumptive' to separate representative
+	nodes.
+	(U-00020442): Compact `ideographic-structure'.
+	(UU+34AA): Separate H1-D7BD and C3-613C.
+
+	* Ideograph-R195-Fish.el (U+9C40): Use `->denotational' and
+	`->subsumptive'; integrate U-0002FA0B.
+	(M-46452): Map to U-0002FA0B.
+	(C7-5A60): Likewise.
+
+2012-04-07  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el (U-0002ADC1): New character; add
+	`<-denotational' for U+6F82.
+	(IU+2ADC1): New character.
+	(HD-FT2302): Use U-0002ADC1 instead of U+6F82 as the mother; add
+	`*references' for
+	http://koikekaisho.hatenablog.com/entry/2012/04/05/150841.
+
 2012-04-06  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R179-Leek.el (G-IU+2F9FB): New node; add
