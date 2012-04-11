@@ -837,8 +837,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((name*		    . "ideographic component person as roof")
-	(=big5-cdp	    . #x8B5D)	; &GT-00458;
+       ((=ucs		    . #x201A2)	; 𠆢
 	)
        ((=ucs@unicode	    . #x65B9)	; &C1-4549;
 	(=gb2312	    . #x373D)	; &C1-4549; [23-29]
