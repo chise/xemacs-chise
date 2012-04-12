@@ -1,3 +1,30 @@
+2012-04-11  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R207-Drum.el (U+9F16): Use `->denotational' to
+	integrate U-0002FA1B.
+	(C7-4D28): Unify U-0002FA1B.
+
+	* Ideograph-R198-Deer.el (U-0002A291): Use `->denotational' to
+	integrate U-0002FA14.
+	(M-47622): Map to U-0002FA14.
+	(C7-3E5C): Unify U-0002FA14.
+	(U+9E89): Use `->subsumptive' to separate representative nodes.
+	(U+9E8A): Use `->subsumptive'.
+	(U+9E8B): Use `->subsumptive'.
+
+2012-04-10  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R196-Bird.el (U+9CFD): Use `->denotational' to
+	integrate U-0002FA0C.
+	(U+4CCE): Use `->denotational' to integrate U-0002FA0D.
+	(A-IU+2FA0C): Renamed from U-0002FA0C; unify G-IU+2FA0C and
+	G-M-46863.
+	(C4-5A59): Unify U-0002FA0C.
+	(U+4CDC): Use `->subsumptive' to separate representative nodes.
+	(U+4CD4): Use `->denotational' to separate representative nodes.
+	(C7-4565): Unify U-0002FA0D; add `<-denotational' for U+4CCE; add
+	`<-same' and `<-formed' for C4-5F2F.
+
 2012-04-10  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R188-Bone.el (A-UU+4BCE): New node; add
