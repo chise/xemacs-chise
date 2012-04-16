@@ -1632,6 +1632,26 @@ START and END optionally delimit a substring of STRING from which to read;
   return tem;
 }
 
+Lisp_Object
+read_from_c_string (const unsigned char* str, size_t size)
+{
+  Lisp_Object tem;
+  Lisp_Object lispstream = Qnil;
+  struct gcpro gcpro1;
+
+#ifdef COMPILED_FUNCTION_ANNOTATION_HACK
+  Vcurrent_compiled_function_annotation = Qnil;
+#endif
+  GCPRO1 (lispstream);
+  lispstream = make_fixed_buffer_input_stream (str, size);
+
+  Vread_objects = Qnil;
+
+  tem = read0 (lispstream);
+  Lstream_delete (XLSTREAM (lispstream));
+  UNGCPRO;
+  return tem;
+}
 
 #ifdef LISP_BACKQUOTES
 
@@ -1801,6 +1821,25 @@ read_escape (Lisp_Object readcharfun)
 	REGISTER Emchar i = 0;
 	REGISTER int count = 0;
 	while (++count <= 2)
+	  {
+	    c = readchar (readcharfun);
+	    /* Remember, can't use isdigit(), isalpha() etc. on Emchars */
+	    if      (c >= '0' && c <= '9')  i = (i << 4) + (c - '0');
+	    else if (c >= 'a' && c <= 'f')  i = (i << 4) + (c - 'a') + 10;
+            else if (c >= 'A' && c <= 'F')  i = (i << 4) + (c - 'A') + 10;
+	    else
+	      {
+		unreadchar (readcharfun, c);
+		break;
+	      }
+	  }
+	return i;
+      }
+    case 'u':
+      {
+	REGISTER Emchar i = 0;
+	REGISTER int count = 0;
+	while (++count <= 6)
 	  {
 	    c = readchar (readcharfun);
 	    /* Remember, can't use isdigit(), isalpha() etc. on Emchars */
@@ -2198,8 +2237,8 @@ read_structure (Lisp_Object readcharfun)
 
 
 static Lisp_Object read_compiled_function (Lisp_Object readcharfun,
-					   int terminator);
-static Lisp_Object read_vector (Lisp_Object readcharfun, int terminator);
+					   Emchar terminator);
+static Lisp_Object read_vector (Lisp_Object readcharfun, Emchar terminator);
 
 /* Get the next character; filter out whitespace and comments */
 
