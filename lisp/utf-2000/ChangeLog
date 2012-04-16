@@ -1,3 +1,12 @@
+2012-04-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R211-Tooth.el (U-0002A600): Use `->denotational' to
+	integrate U-0002FA1D.
+	(M-49964): Map to U-0002FA1D; add `<-same' for M-48656.
+	(C7-5E4D): Unify U-0002FA1D.
+	(U+4DA2): Use `->subsumptive' to separate representative nodes.
+	(U+9F72): Likewise.
+
 2012-04-11  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R207-Drum.el (U+9F16): Use `->denotational' to
