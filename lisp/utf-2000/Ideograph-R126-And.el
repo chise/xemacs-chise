@@ -192,13 +192,27 @@
     ))
 (define-char
   '((ideographic-radical . 126)	; ⽽
+    (=ucs		. #x264DA)	; 𦓚
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x264DA)	; 𦓚
+      ))
+    (ideographic-radical . 126)	; ⽽
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
-    (=ucs		. #x264DA)	; 𦓚
+    (=>>ucs@cns		. #x264DA)	; &G-CU+264DA;
+    (=>>daikanwa	. 28889)	; &G-CU+264DA;
     (->subsumptive
      ((=daikanwa	  . 28889)	; &M-28889;
+      (<-original
+       ((=ucs		    . #x264DD)	; 𦓝
+	(=daikanwa	    . 28893)	; &I-M-28893;
+	))
+      (<-original*sources
+       zhengzitong daikanwa)
       )
-     ((=ucs@iso		  . #x264DA)	; &C5-4867;
+     ((=ucs@cns		  . #x264DA)	; &C5-4867;
       (=cns11643-5	  . #x4867)	; &C5-4867; [40-71]
       ))
     ))
@@ -219,11 +233,29 @@
     (=daikanwa		. 28891)	; &I-M-28891;
     ))
 (define-char
-  '((ideographic-radical . 126)	; ⽽
+  '((<-denotational
+     ((=ucs		  . #x264DA)	; 𦓚
+      ))
+    (ideographic-radical . 126)	; ⽽
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
-    (=cns11643-7	. #x2728)	; &M-28892; [07-08]
-    (=daikanwa		. 28892)	; &I-M-28892;
+    (=>>ucs@iso		. #x264DA)	; &G-IU+264DA;
+    (=>>ucs@cns		. #x2F97B)	; &G-IU+264DA;
+    (=>>daikanwa	. 28892)	; &G-IU+264DA;
+    (->subsumptive
+     ((=>ucs*		  . #x264DA)	; 𦓚
+      (=ucs		  . #x2F97B)	; 𦓚
+      (=cns11643-7	  . #x2728)	; &I-C7-2728; [07-08]
+      (=daikanwa	  . 28892)	; &I-M-28892;
+      (<-wrong
+       ((=ucs		    . #x264DD)	; 𦓝
+	(=daikanwa	    . 28893)	; &I-M-28893;
+	))
+      (<-wrong*sources
+       kangxi daikanwa)
+      )
+     ((=ucs@iso		  . #x264DA)	; &U-000264DA;
+      ))
     ))
 (define-char
   '((ideographic-radical . 126)	; ⽽

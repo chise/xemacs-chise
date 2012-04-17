@@ -238,28 +238,12 @@
     (total-strokes	 . 15)
     (hanyu-dazidian	1 223 7)
     (ideographic-structure
-     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
-      (=ucs		  . #x2FFB)	; ⿻
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
-	(=ucs		    . #x2FFB)	; ⿻
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((name*	      . "ideographic component person as roof")
-	  (=big5-cdp	      . #x8B5D)	; &GT-00458;
-	  )
-	 ((name		      . "CJK RADICAL SMALL ONE")
-	  (=ucs		      . #x2E8C)	; ⺌
-	  ))
-	)
-       ((=ucs		    . #x5182)	; 冂
-	))
+     ((=ucs		  . #x201A2)	; 𠆢
       )
-     ((=ucs		  . #x3E1A)	; 㸚
+     ((=big5-cdp	  . #x85AE)	; &CDP-85AE;
       ))
     (=ucs		. #x24568)	; 𤕨
     (=cns11643-7	. #x247C)	; &I-C7-247C; [04-92]
@@ -328,29 +312,14 @@
     (total-strokes	 . 19)
     (hanyu-dazidian	1 237 5)
     (ideographic-structure
-     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
-      (=ucs		  . #x2FFB)	; ⿻
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
-	(=ucs		    . #x2FFB)	; ⿻
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-	  (=ucs		      . #x2FF3)	; ⿳
-	  )
-	 ((name*	      . "ideographic component person as roof")
-	  (=big5-cdp	      . #x8B5D)	; &GT-00458;
-	  )
-	 ((=ucs		      . #x6B62)	; 止
-	  )
-	 ((=gt-k	      . 00305)	; &GT-K00305;
-	  ))
-	)
-       ((=ucs		    . #x5182)	; 冂
-	))
+     ((=ucs		  . #x201A2)	; 𠆢
       )
-     ((=ucs		  . #x3E1A)	; 㸚
+     ((=ucs		  . #x6B62)	; 止
+      )
+     ((=big5-cdp	  . #x88D6)	; &CDP-88D6;
       ))
     (=ucs		. #x20442)	; 𠑂
     (=cns11643-7	. #x476F)	; &I-C7-476F; [39-79]

@@ -100,7 +100,7 @@ Lisp_Object Vchar_db_stingy_mode;
 INLINE_HEADER int INT_UINT8_P (Lisp_Object obj);
 INLINE_HEADER int UINT8_VALUE_P (Lisp_Object obj);
 INLINE_HEADER unsigned char UINT8_ENCODE (Lisp_Object obj);
-INLINE_HEADER Lisp_Object UINT8_DECODE (unsigned char n);
+/* INLINE_HEADER */ Lisp_Object UINT8_DECODE (unsigned char n);
 INLINE_HEADER unsigned short UINT8_TO_UINT16 (unsigned char n);
 
 INLINE_HEADER int
@@ -138,7 +138,7 @@ UINT8_ENCODE (Lisp_Object obj)
     return XINT (obj);
 }
 
-INLINE_HEADER Lisp_Object
+/* INLINE_HEADER */ Lisp_Object
 UINT8_DECODE (unsigned char n)
 {
   if (n == BT_UINT8_unloaded)
@@ -392,7 +392,7 @@ save_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Lisp_Char_Table* root,
 INLINE_HEADER int INT_UINT16_P (Lisp_Object obj);
 INLINE_HEADER int UINT16_VALUE_P (Lisp_Object obj);
 INLINE_HEADER unsigned short UINT16_ENCODE (Lisp_Object obj);
-INLINE_HEADER Lisp_Object UINT16_DECODE (unsigned short us);
+/* INLINE_HEADER */ Lisp_Object UINT16_DECODE (unsigned short us);
 
 INLINE_HEADER int
 INT_UINT16_P (Lisp_Object obj)
@@ -429,7 +429,7 @@ UINT16_ENCODE (Lisp_Object obj)
     return XINT (obj);
 }
 
-INLINE_HEADER Lisp_Object
+/* INLINE_HEADER */ Lisp_Object
 UINT16_DECODE (unsigned short n)
 {
   if (n == BT_UINT16_unloaded)

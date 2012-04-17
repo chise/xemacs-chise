@@ -1,3 +1,20 @@
+2012-02-11  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (DECODE_ADD_UCS_CHAR): Don't use `INLINE_HEADER'.
+
+	* chartab.c (UINT8_DECODE): Don't use `INLINE_HEADER'.
+	(UINT16_DECODE): Ditto.
+
+	* glyphs-eimage.c (png_instantiate):
+	- Use `png_get_image_height (png_ptr, info_ptr)' instead of
+	  `info_ptr->height'.
+	- Use `png_get_image_width (png_ptr, info_ptr)' instead of
+	  `info_ptr->width'.
+	- Use `png_get_color_type(png_ptr, info_ptr)' instead of
+	  `info_ptr->color_type'.
+	- Use `png_get_bit_depth(png_ptr, info_ptr)' instead of
+	  `info_ptr->bit_depth'.
+
 2011-07-20  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (charset_code_point): If nil is specified as a

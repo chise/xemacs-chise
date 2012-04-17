@@ -8493,7 +8493,7 @@
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 8)
     (total-strokes	 . 15)
-    (=>>daikanwa	. 35628)	; &A-M-35628;
+    (=>>daikanwa	. 35628)	; &G-M-35628;
     (->subsumptive
      ((=daikanwa	  . 35628)	; &M-35628;
       )
@@ -11516,7 +11516,7 @@
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
-    (=>>daikanwa	. 35764)	; &A-M-35764;
+    (=>>daikanwa	. 35764)	; &G-M-35764;
     (->subsumptive
      ((=daikanwa	  . 35764)	; &M-35764;
       )
@@ -11719,7 +11719,7 @@
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
-    (=>>daikanwa	. 35776)	; &A-M-35776;
+    (=>>daikanwa	. 35776)	; &G-M-35776;
     (->subsumptive
      ((=daikanwa	  . 35776)	; &M-35776;
       (=cbeta		  . 04434)	; &I-CB04434;
@@ -13335,7 +13335,7 @@
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
-    (=>>daikanwa	. 35839)	; &A-M-35839;
+    (=>>daikanwa	. 35839)	; &G-M-35839;
     (->subsumptive
      ((=daikanwa	  . 35839)	; &M-35839;
       )
@@ -18177,7 +18177,7 @@
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 14)
     (total-strokes	 . 21)
-    (=>>daikanwa	. 36061)	; &A-M-36061;
+    (=>>daikanwa	. 36061)	; &G-M-36061;
     (->subsumptive
      ((=daikanwa	  . 36061)	; &M-36061;
       )
@@ -18356,7 +18356,7 @@
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 14)
     (total-strokes	 . 21)
-    (=>>daikanwa	. 36069)	; &A-M-36069;
+    (=>>daikanwa	. 36069)	; &G-M-36069;
     (->subsumptive
      ((=daikanwa	  . 36069)	; &M-36069;
       )
@@ -18504,7 +18504,7 @@
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 14)
     (total-strokes	 . 21)
-    (=>>daikanwa	. 36075)	; &A-M-36075;
+    (=>>daikanwa	. 36075)	; &G-M-36075;
     (->subsumptive
      ((=daikanwa	  . 36075)	; &M-36075;
       )
@@ -19093,7 +19093,7 @@
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 15)
     (total-strokes	 . 22)
-    (=>>daikanwa	. 36097)	; &A-M-36097;
+    (=>>daikanwa	. 36097)	; &G-M-36097;
     (->subsumptive
      ((=daikanwa	  . 36097)	; &M-36097;
       )
@@ -19356,10 +19356,34 @@
     ))
 (define-char
   '((ideographic-radical . 149)	; ⾔
+    (=ucs		. #x8B8A)	; 變
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8B8A)	; 變
+      ))
+    (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 15)
     (total-strokes	 . 22)
-    (=cns11643-7	. #x5941)	; &M-36112; [57-33]
-    (=daikanwa		. 36112)	; &I-M-36112;
+    (=>ucs@iso		. #x2F9D1)	; &A-IU+2F9D1;
+    (=>>ucs@iso		. #x2F9D1)	; &A-IU+2F9D1;
+    (=>>daikanwa	. 36112)	; &A-IU+2F9D1;
+    (->subsumptive
+     ((=daikanwa	  . 36112)	; &M-36112;
+      (<-vulgar
+       ((=ucs@jis	    . #x8B8A)	; &GT-48488;
+	(=jis-x0208	    . #x5A4E)	; &GT-48488; [58-46]
+	(=ks-x1001	    . #x5C28)	; &I-K0-5C28; [60-08]
+	(=jis-x0213-1	    . #x5A4E)	; &I-JX1-5A4E; [58-46]
+	(=daikanwa	    . 36117)	; &I-M-36117;
+	))
+      (<-vulgar*sources
+       zhengzitong daikanwa)
+      )
+     ((=>ucs*		  . #x8B8A)	; 變
+      (=ucs		  . #x2F9D1)	; 變
+      (=cns11643-7	  . #x5941)	; &I-C7-5941; [57-33]
+      ))
     ))
 (define-char
   '((ideographic-radical . 149)	; ⾔
@@ -19498,11 +19522,18 @@
     (=ucs@unicode	. #x8B89)	; &UU+8B89;
     ))
 (define-char
-  '((ideographic-radical . 149)	; ⾔
+  '((<-denotational
+     ((=ucs		  . #x8B8A)	; 變
+      ))
+    (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 16)
     (total-strokes	 . 23)
-    (=ucs		. #x8B8A)	; 變
-    (=big5		. #xC5DC)	; &I-B-C5DC;
+    (=>>ucs@unicode	. #x8B8A)	; &G-GT-48488;
+    (=>>jis-x0208	. #x5A4E)	; &G-GT-48488; [58-46]
+    (=>>jis-x0213-1	. #x5A4E)	; &G-GT-48488; [58-46]
+    (=big5		. #xC5DC)	; &G-GT-48488;
+    (=>>gt		. 48488)	; &G-GT-48488;
+    (=>>daikanwa	. 36117)	; &G-GT-48488;
     (->subsumptive
      ((=ucs@jis		  . #x8B8A)	; &GT-48488;
       (=jis-x0208	  . #x5A4E)	; &GT-48488; [58-46]
@@ -19904,7 +19935,7 @@
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 17)
     (total-strokes	 . 24)
-    (=>>daikanwa	. 36140)	; &A-M-36140;
+    (=>>daikanwa	. 36140)	; &G-M-36140;
     (->subsumptive
      ((=daikanwa	  . 36140)	; &M-36140;
       )
@@ -20145,7 +20176,7 @@
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 17)
     (total-strokes	 . 24)
-    (=>>daikanwa	. 36152)	; &A-M-36152;
+    (=>>daikanwa	. 36152)	; &G-M-36152;
     (->subsumptive
      ((=daikanwa	  . 36152)	; &M-36152;
       )

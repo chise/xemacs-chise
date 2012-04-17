@@ -372,7 +372,7 @@
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (=>>daikanwa	. 01456)	; &A-M-01456;
+    (=>>daikanwa	. 01456)	; &G-M-01456;
     (->subsumptive
      ((=daikanwa	  . 01456)	; &M-01456;
       )
@@ -444,8 +444,7 @@
       )
      ((=gt-k		  . 00059)	; &GT-K00059;
       )
-     ((name*		  . "ideographic component person as roof")
-      (=big5-cdp	  . #x8B5D)	; &GT-00458;
+     ((=ucs		  . #x201A2)	; 𠆢
       ))
     (=gt-k		. 00859)	; &GT-K00859;
     (=gt-pj-k1		. #x394E)	; &GT-K00859; [25-46]
@@ -1163,7 +1162,7 @@
       )
      ((=ucs		  . #x8C55)	; 豕
       ))
-    (=>>daikanwa	. 01477)	; &A-M-01477;
+    (=>>daikanwa	. 01477)	; &G-M-01477;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")

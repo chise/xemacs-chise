@@ -7,6 +7,7 @@
 ;;                 "C2-to-UCS.txt"
 ;;                 "C3-to-UCS.txt" "C4-to-UCS.txt"
 ;;                 "C5-to-UCS.txt" "C6-to-UCS.txt"
+;;                 "C7-to-UCS.txt"
 ;;                 "B-to-UCS.txt" "JC3-to-UCS.txt"))
 ;;   (mapping-table-read-file (expand-file-name file "../etc/char-data/")))
 
@@ -70,7 +71,7 @@
 	#x5827 #x4C68 #x505B #x514A #x5D27
 	#x5563 #x5D7A #x4575 #x5F7C #x3B38
 	#x3237 #x3B51 #x596E #x5B5B #x6640
-	#x6D75 #x4D2C))
+	#x6D75 #x4D2C #x737B #x7379 #x5E7A))
 
 ;; (map-char-attribute
 ;;  (lambda (c v)

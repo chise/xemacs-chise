@@ -6888,17 +6888,54 @@
     (=cns11643-4	. #x6D54)	; &I-C4-6D54; [77-52]
     ))
 (define-char
-  '((ideographic-radical . 40)	; ⼧
-    (ideographic-strokes . 23)
-    (total-strokes	 . 26)
-    (=daikanwa		. 07403)	; &M-07403;
+  '((ideographic-radical@ucs . 40)	; ⼧
+    (ideographic-radical@ucs*sources
+     daikanwa=07403 cns11643)
+    (ideographic-radical@r124 . 124)	; ⽻
+    (ideographic-radical@r124*sources
+     daikanwa=28841)
+    (=ucs		. #x21B18)	; 𡬘
     ))
 (define-char
-  '((morohashi-daikanwa	7403 0 8)
+  '((<-denotational
+     ((=ucs		  . #x21B18)	; 𡬘
+      ))
+    (ideographic-radical@ucs . 40)	; ⼧
+    (ideographic-strokes@ucs . 23)
+    (ideographic-radical@r124 . 124)	; ⽻
+    (ideographic-strokes@r124 . 20)
+    (total-strokes	 . 26)
+    (=>>daikanwa	. 28841)	; &G-M-28841;
+    (->subsumptive
+     ((ideographic-radical . 124)	; ⽻
+      (ideographic-strokes . 20)
+      (=daikanwa	  . 28841)	; &M-28841;
+      )
+     ((ideographic-radical . 40)	; ⼧
+      (ideographic-strokes . 23)
+      (=daikanwa	  . 07403)	; &M-07403;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21B18)	; 𡬘
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 23)
+    (total-strokes	 . 26)
+    (=ucs@iso		. #x21B18)	; &C5-7A27;
+    (=cns11643-5	. #x7A27)	; &C5-7A27; [90-07]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21B18)	; 𡬘
+      ))
+    (=>ucs*		. #x21B18)	; 𡬘
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 22)
     (total-strokes	 . 25)
-    (=cns11643-7	. #x606D)	; &C7-606D; [64-77]
+    (=ucs		. #x2F871)	; 𡬘
+    (=cns11643-7	. #x606D)	; &I-C7-606D; [64-77]
     ))
 (define-char
   '((ideographic-radical . 40)	; ⼧
@@ -6976,23 +7013,6 @@
      ((=ucs		  . #x58F9)	; 壹
       ))
     (=cbeta		. 03865)	; &CB03865;
-    ))
-(define-char
-  '((=>ucs		. #x21B18)	; 𡬘
-    (ideographic-radical@ucs . 40)	; ⼧
-    (ideographic-strokes@ucs . 23)
-    (ideographic-radical@daikanwa . 124)	; ⽻
-    (ideographic-strokes@daikanwa . 20)
-    (total-strokes	 . 26)
-    (=daikanwa		. 28841)	; &M-28841;
-    ))
-(define-char
-  '((morohashi-daikanwa	28841 0 2)
-    (ideographic-radical . 40)	; ⼧
-    (ideographic-strokes . 23)
-    (total-strokes	 . 26)
-    (=ucs		. #x21B18)	; 𡬘
-    (=cns11643-5	. #x7A27)	; &I-C5-7A27; [90-07]
     ))
 (define-char
   '((=>ucs		. #x21B19)	; 𡬙

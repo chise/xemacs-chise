@@ -1,7 +1,7 @@
 ;;; chise-subr.el --- basic lisp subroutines for XEmacs CHISE
 
 ;; Copyright (C) 1999, 2001, 2002, 2003, 2004, 2005, 2007, 2008, 2009,
-;;   2010, 2011 MORIOKA Tomohiko.
+;;   2010, 2011, 2012 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Character Database, ISO/IEC 10646, UCS, Unicode, MULE.
@@ -26,8 +26,21 @@
 ;;; Code:
 
 (defvar char-db-feature-domains
+  ;; (let (dest str len ret domain)
+  ;;   (dolist (fn (char-attribute-list))
+  ;;     (setq str (symbol-name fn))
+  ;;     (when (string-match "^ideographic-radical@\\([^*]+\\)$" str)
+  ;;       (setq domain (substring str (match-beginning 1)))
+  ;;       (when (> (setq len (length domain)) 0)
+  ;;         (setq ret (read-from-string domain))
+  ;;         (when (= (cdr ret) len)
+  ;;           (setq domain (car ret))
+  ;;           (unless (memq domain dest)
+  ;;             (push domain dest))))))
+  ;;   (sort dest #'string<))
   '(ucs ucs/compat daikanwa cns gt jis jis/alt jis/a jis/b
-	jis-x0212 jis-x0213 cdp shinjigen misc unknown))
+	jis-x0212 jis-x0213 cdp shinjigen
+	r030 r140 misc unknown))
 
 
 ;;; @ feature name

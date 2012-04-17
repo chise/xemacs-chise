@@ -1443,12 +1443,14 @@
     (=daikanwa		. 11625)	; &I-M-11625;
     ))
 (define-char
-  '((ideographic-	(:radical	62 ; ⼽
-			 :strokes	9
-			 :sources	(morohashi-daikanwa))
-			(:radical	9 ; ⼈
-			 :strokes	11
-			 :sources	(ucs)))
+  '((ideographic-radical@ucs . 9)	; ⼈
+    (ideographic-strokes@ucs . 11)
+    (ideographic-radical@daikanwa . 62)	; ⼽
+    (ideographic-strokes@daikanwa . 9)
+    (ideographic-radical@daikanwa*sources
+     daikanwa cns11643)
+    (ideographic-strokes@daikanwa*sources
+     daikanwa)
     (total-strokes	 . 13)
     (hanyu-dazidian	1 206 18)
     (ideographic-structure
@@ -1464,8 +1466,7 @@
        ((=ucs		    . #x6210)	; 成
 	))
       )
-     ((name*		  . "ideographic component person as roof")
-      (=big5-cdp	  . #x8B5D)	; &GT-00458;
+     ((=ucs		  . #x4EBA)	; 人
       ))
     (=ucs		. #x203B6)	; 𠎶
     (=cns11643-5	. #x3F46)	; &I-C5-3F46; [31-38]
@@ -1476,19 +1477,37 @@
   '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=daikanwa		. 11627)	; &M-11627;
+    (=ucs		. #x229E1)	; 𢧡
+    (->subsumptive
+     ((=daikanwa	  . 11627)	; &M-11627;
+      (<-vulgar
+       ((=ucs@unicode	    . #x6B72)	; &M-16326;
+	(=cns11643-1	    . #x6459)	; &M-16326; [68-57]
+	(=daikanwa	    . 16326)	; &I-M-16326;
+	))
+      (<-vulgar*sources
+       zihui-bu daikanwa)
+      )
+     ((=ucs@iso		  . #x229E1)	; &U-000229E1;
+      ))
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=daikanwa		. 11628)	; &M-11628;
+    (=ucs		. #x229DD)	; 𢧝
+    (=daikanwa		. 11628)	; &I-M-11628;
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=daikanwa		. 11629)	; &M-11629;
+    (=ucs		. #x229DE)	; 𢧞
+    (->subsumptive
+     ((=daikanwa	  . 11629)	; &M-11629;
+      )
+     ((=ucs@iso		  . #x229DE)	; &U-000229DE;
+      ))
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽

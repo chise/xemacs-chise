@@ -1826,7 +1826,7 @@
     (=gt		. 27723)	; &I-GT-27723;
     (=gt-pj-1		. #x612F)	; &I-GT-27723; [65-15]
     (=daikanwa		. 21589)	; &I-M-21589;
-    (=shinjigen@rev	.  4997)	; 甎
+    (=shinjigen		.  4997)	; 甎
     ))
 (define-char
   '((=>ucs		. #x3F3E)	; 㼾

@@ -2197,8 +2197,8 @@ do {						\
     }						\
 } while (0)
 
-INLINE_HEADER void DECODE_ADD_UCS_CHAR(Emchar c, unsigned_char_dynarr* dst);
-INLINE_HEADER void
+/* INLINE_HEADER */ void DECODE_ADD_UCS_CHAR(Emchar c, unsigned_char_dynarr* dst);
+/* INLINE_HEADER */ void
 DECODE_ADD_UCS_CHAR(Emchar c, unsigned_char_dynarr* dst)
 {
   if ( c <= 0x7f )

@@ -1249,7 +1249,7 @@
       (=jis-x0213-2	  . #x703B)	; &I-JX2-703B; [80-27]
       (=daikanwa	  . 20236)	; &I-M-20236;
       ))
-    (=>>daikanwa	. 28648)	; &A-M-28648;
+    (=>>daikanwa	. 28648)	; &G-M-28648;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -4164,7 +4164,7 @@
       )
      ((=ucs		  . #x4FAF)	; 侯
       ))
-    (=>>daikanwa	. 28748)	; &A-M-28748;
+    (=>>daikanwa	. 28748)	; &G-M-28748;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -5520,7 +5520,7 @@
       )
      ((=ucs		  . #xFA1E)	; 羽
       ))
-    (=>>daikanwa	. 49518)	; &A-M-49518;
+    (=>>daikanwa	. 49518)	; &G-M-49518;
     (->subsumptive
      ((=daikanwa	  . 49518)	; &M-49518;
       ))
@@ -7253,11 +7253,60 @@
     (=cns11643-7	. #x5863)	; &C7-5863; [56-67]
     ))
 (define-char
-  '((=>ucs		. #x21B18)	; 𡬘
+  '((ideographic-radical . 124)	; ⽻
+    (ideographic-strokes . 18)
+    (total-strokes	 . 24)
+    (=ucs		. #x264B0)	; 𦒰
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x264B0)	; 𦒰
+      ))
+    (ideographic-radical . 124)	; ⽻
+    (ideographic-strokes . 18)
+    (total-strokes	 . 24)
+    (=>>daikanwa	. 28840)	; &G-M-28840;
+    (->subsumptive
+     ((=daikanwa	  . 28840)	; &M-28840;
+      )
+     ((=hanziku-9	  . #xB7DC)	; &HZK09-B7DC;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x264B0)	; 𦒰
+      ))
+    (ideographic-radical . 124)	; ⽻
+    (ideographic-strokes . 18)
+    (total-strokes	 . 24)
+    (=ucs@iso		. #x264B0)	; &U-000264B0;
+    ))
+(define-char
+  '((ideographic-radical@ucs . 40)	; ⼧
+    (ideographic-radical@ucs*sources
+     daikanwa=07403 cns11643)
+    (ideographic-radical@r124 . 124)	; ⽻
+    (ideographic-radical@r124*sources
+     daikanwa=28841)
+    (=ucs		. #x21B18)	; 𡬘
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21B18)	; 𡬘
+      ))
     (ideographic-radical@ucs . 40)	; ⼧
     (ideographic-strokes@ucs . 23)
-    (ideographic-radical@daikanwa . 124)	; ⽻
-    (ideographic-strokes@daikanwa . 20)
+    (ideographic-radical@r124 . 124)	; ⽻
+    (ideographic-strokes@r124 . 20)
     (total-strokes	 . 26)
-    (=daikanwa		. 28841)	; &M-28841;
+    (=>>daikanwa	. 28841)	; &G-M-28841;
+    (->subsumptive
+     ((ideographic-radical . 124)	; ⽻
+      (ideographic-strokes . 20)
+      (=daikanwa	  . 28841)	; &M-28841;
+      )
+     ((ideographic-radical . 40)	; ⼧
+      (ideographic-strokes . 23)
+      (=daikanwa	  . 07403)	; &M-07403;
+      ))
     ))

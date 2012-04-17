@@ -968,15 +968,42 @@
     ))
 (define-char
   '((ideographic-radical . 102)	; ⽥
+    (=ucs		. #x7550)	; 畐
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7550)	; 畐
+      ))
+    (ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
-    (=ucs		. #x7550)	; 畐
-    (=jis-x0212		. #x4D35)	; &I-JSP-4D35; [45-21]
+    (=ucs@unicode	. #x7550)	; &CDP-8BF0;
+    (=jis-x0212		. #x4D35)	; &CDP-8BF0; [45-21]
     (=cns11643-3	. #x2E26)	; &I-C3-2E26; [14-06]
     (=jis-x0213-2	. #x713B)	; &I-JX2-713B; [81-27]
     (=big5-cdp		. #x8BF0)	; &I-CDP-8BF0;
     (=daikanwa		. 21787)	; &I-M-21787;
     (=jef-china3	. #x5ACA)	; &I-JC3-5ACA;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7550)	; 畐
+      ))
+    (ideographic-radical . 102)	; ⽥
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=big5-cdp	  . #x89CC)	; &CDP-89CC;
+      )
+     ((=ucs		  . #x7530)	; 田
+      ))
+    (=gt-k		. 07666)	; &GT-K07666;
+    (=gt-pj-k2		. #x365C)	; &GT-K07666; [22-60]
     ))
 (define-char
   '((=>ucs*		. #x24C36)	; 𤰶

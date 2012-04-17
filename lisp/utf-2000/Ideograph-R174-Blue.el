@@ -141,7 +141,7 @@
       )
      ((=ucs		  . #x9751)	; 靑
       ))
-    (=>>daikanwa	. 42566)	; &A-M-42566;
+    (=>>daikanwa	. 42566)	; &G-M-42566;
     (->subsumptive
      ((hanyu-dazidian	  1 635 13)
       (ideographic-structure

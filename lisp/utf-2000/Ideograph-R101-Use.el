@@ -392,7 +392,7 @@
     (ideographic-radical . 101)	; ⽤
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
-    (=>>daikanwa	. 21719)	; &A-M-21719;
+    (=>>daikanwa	. 21719)	; &G-M-21719;
     (->subsumptive
      ((=daikanwa	  . 21719)	; &M-21719;
       )

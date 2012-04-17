@@ -41,6 +41,26 @@
     (=cbeta		. 02169)	; &I-CB02169;
     (=jef-china3	. #x81E2)	; &I-JC3-81E2;
     (mojikyo		. 051123)	; &MCS-6000C7B3;
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x96FB)	; &GT-56729;
+      (=jis-x0208	  . #x4545)	; &GT-56729; [37-37]
+      (=ks-x1001	  . #x6F33)	; &I-K0-6F33; [79-19]
+      (=jis-x0213-1	  . #x4545)	; &I-JX1-4545; [37-37]
+      (=gb12345		  . #x3567)	; &GT-56729; [21-71]
+      (=daikanwa	  . 42253)	; &I-M-42253;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7535)	; 电
+      ))
+    (ideographic-radical . 73)	; ⽈
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (=big5-cdp		. #x8BE8)	; &CDP-8BE8;
+    (<-formed@component
+     ((=ucs		  . #x7535)	; 电
+      ))
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈

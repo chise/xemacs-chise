@@ -1403,7 +1403,19 @@
      ((=ucs@unicode	  . #x5C5A)	; &M-07731;
       (=jis-x0212	  . #x3A78)	; &M-07731; [26-88]
       (=daikanwa	  . 07731)	; &I-M-07731;
+      (=shinjigen	  .  4447)	; &M-07731;
       (mojikyo		  . 007731)	; &MCS-60001E33;
+      (<-original
+       ((=ucs@unicode	    . #x6F0F)	; &GT-23274;
+	(=jis-x0208	    . #x4F33)	; &GT-23274; [47-19]
+	(=gb2312	    . #x4229)	; &I-G0-4229; [34-09]
+	(=ks-x1001	    . #x5729)	; &I-K0-5729; [55-09]
+	(=jis-x0213-1	    . #x4F33)	; &I-JX1-4F33; [47-19]
+	(=daikanwa	    . 18120)	; &I-M-18120;
+	(=shinjigen	    .  4446)	; &GT-23274;
+	))
+      (<-original*sources
+       shinjigen)
       )
      ((=cns11643-4	  . #x3135)	; &CDP-8DA4; [17-21]
       (=big5-cdp	  . #x8DA4)	; &I-CDP-8DA4;
@@ -1413,6 +1425,14 @@
   '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      )
+     ((=ucs		  . #x8C56)	; 豖
+      ))
     (=ucs		. #x3798)	; 㞘
     (->subsumptive
      ((ideographic-structure

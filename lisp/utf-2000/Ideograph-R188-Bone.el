@@ -966,15 +966,50 @@
 (define-char
   '((ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 5)
-    (total-strokes	 . 15)
-    (=daikanwa		. 45157)	; &M-45157;
+    (=ucs		. #x4BCE)	; 䯎
     ))
 (define-char
-  '((morohashi-daikanwa	45157 0 0)
+  '((<-denotational
+     ((=ucs		  . #x4BCE)	; 䯎
+      ))
+    (ideographic-radical . 188)	; ⾻
+    (ideographic-strokes . 5)
+    (=>ucs@unicode	. #x4BCE)	; &A-UU+4BCE;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x4BCE)	; &A-UU+4BCE;
+      ))
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 5)
     (total-strokes	 . 15)
-    (=cns11643-7	. #x2B55)	; &C7-2B55; [11-53]
+    (=>>ucs@iso		. #x2FA08)	; &G-IU+2FA08;
+    (=>>daikanwa	. 45157)	; &G-IU+2FA08;
+    (->subsumptive
+     ((=daikanwa	  . 45157)	; &M-45157;
+      )
+     ((=>ucs*		  . #x4BCE)	; 䯎
+      (=ucs		  . #x2FA08)	; 䯎
+      (=cns11643-7	  . #x2B55)	; &I-C7-2B55; [11-53]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x4BCE)	; &A-UU+4BCE;
+      ))
+    (ideographic-radical . 188)	; ⾻
+    (ideographic-strokes . 5)
+    (total-strokes	 . 14)
+    (=ucs@unicode	. #x4BCE)	; &UU+4BCE;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4BCE)	; 䯎
+      ))
+    (ideographic-radical . 188)	; ⾻
+    (ideographic-strokes . 5)
+    (total-strokes	 . 15)
+    (=cns11643-3	. #x4F78)	; &C3-4F78; [47-88]
     ))
 (define-char
   '((ideographic-radical . 188)	; ⾻
@@ -1011,29 +1046,6 @@
      ((=ucs@iso		  . #x29A3A)	; &C7-2B53;
       (=cns11643-7	  . #x2B53)	; &C7-2B53; [11-51]
       ))
-    ))
-(define-char
-  '((ideographic-radical . 188)	; ⾻
-    (ideographic-strokes . 5)
-    (=ucs		. #x4BCE)	; 䯎
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x4BCE)	; 䯎
-      ))
-    (ideographic-radical . 188)	; ⾻
-    (ideographic-strokes . 5)
-    (total-strokes	 . 14)
-    (=ucs@unicode	. #x4BCE)	; &UU+4BCE;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x4BCE)	; 䯎
-      ))
-    (ideographic-radical . 188)	; ⾻
-    (ideographic-strokes . 5)
-    (total-strokes	 . 15)
-    (=cns11643-3	. #x4F78)	; &C3-4F78; [47-88]
     ))
 (define-char
   '((ideographic-radical . 188)	; ⾻

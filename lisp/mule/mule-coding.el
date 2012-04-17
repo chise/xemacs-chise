@@ -5,7 +5,7 @@
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1995 Sun Microsystems.
 ;; Copyright (C) 1997, 1999, 2002, 2003, 2004, 2005, 2006, 2008, 2009,
-;;   2010, 2011 MORIOKA Tomohiko
+;;   2010, 2011, 2012 MORIOKA Tomohiko
 
 ;; This file is part of XEmacs.
 
@@ -429,6 +429,7 @@
 	  ( =big5				   "B-" 4 X)
 	  ( =big5				  "C0-" 4 X)
 	  ( =big5-eten				  "BE-" 4 X)
+	  (=>>daikanwa				 "G-M-" 5 d)
 	  (=>daikanwa				 "A-M-" 5 d)
 	  (=>cns11643-7				"A-C7-" 4 X)
 	  (=>big5-cdp			       "A-CDP-" 4 X)
