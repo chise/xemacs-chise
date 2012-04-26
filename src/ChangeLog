@@ -1,3 +1,7 @@
+2012-02-17  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (DECODE_ADD_UCS_CHAR): Add `static'.
+
 2012-02-11  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* text-coding.c (DECODE_ADD_UCS_CHAR): Don't use `INLINE_HEADER'.
