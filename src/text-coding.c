@@ -1,8 +1,8 @@
 /* Code conversion functions.
    Copyright (C) 1991, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2008, 2011
-     MORIOKA Tomohiko
+   Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2008, 2011,
+     2012 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -2197,8 +2197,8 @@ do {						\
     }						\
 } while (0)
 
-/* INLINE_HEADER */ void DECODE_ADD_UCS_CHAR(Emchar c, unsigned_char_dynarr* dst);
-/* INLINE_HEADER */ void
+static void DECODE_ADD_UCS_CHAR(Emchar c, unsigned_char_dynarr* dst);
+static void
 DECODE_ADD_UCS_CHAR(Emchar c, unsigned_char_dynarr* dst)
 {
   if ( c <= 0x7f )
