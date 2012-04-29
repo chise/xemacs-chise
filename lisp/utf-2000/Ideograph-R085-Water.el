@@ -4066,6 +4066,16 @@
   '((ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (=ucs		. #x23CE0)	; 𣳠
+    (=hanziku-4		. #xF36E)	; &I-HZK04-F36E;
+    (<-ancient@chu
+     ((=ucs		  . #x6D77)	; 海
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
     (=cbeta		. 02963)	; &CB02963;
     ))
 (define-char
