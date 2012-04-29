@@ -247,7 +247,13 @@
   '((ideographic-radical . 97)	; ⽠
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
+    (sound@ja/on	"yu")
     (=ucs		. #x3F0C)	; 㼌
+    (<-construed@chu
+     ((=ucs		  . #x5076)	; 偶
+      )
+     ((=ucs		  . #x8026)	; 耦
+      ))
     (->subsumptive
      ((=daikanwa	  . 21387)	; &M-21387;
       )
