@@ -755,9 +755,9 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (=ucs		. #x8026)	; 耦
+    (=big5		. #xBDA2)	; &I-B-BDA2;
     (->subsumptive
      ((=cns11643-1	  . #x6E4B)	; &M-28952; [78-43]
-      (=big5		  . #xBDA2)	; &I-B-BDA2;
       (=daikanwa	  . 28952)	; &I-M-28952;
       )
      ((=ucs@jis		  . #x8026)	; &JX1-7A46;
