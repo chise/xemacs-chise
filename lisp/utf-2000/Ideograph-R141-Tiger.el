@@ -424,6 +424,23 @@
     (=cns11643-3	. #x3368)	; &I-C3-3368; [19-72]
     ))
 (define-char
+  '((ideographic-radical . 141)	; ⾌
+    (ideographic-strokes . 4)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x864D)	; 虍
+      )
+     ((=ucs		  . #x58EC)	; 壬
+      ))
+    (=ucs		. #x2B29F)	; 𫊟
+    (<-construed@chu
+     ((=ucs		  . #x543E)	; 吾
+      ))
+    ))
+(define-char
   '((=>ucs		. #x5F6A)	; 彪
     (morohashi-daikanwa	9993 0 0)
     (ideographic-radical . 141)	; ⾌
