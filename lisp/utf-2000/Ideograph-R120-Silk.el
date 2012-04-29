@@ -2551,8 +2551,12 @@
   '((ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
+    (sound@ja/on	"tai" "dai")
     (=ucs		. #x7D3F)	; 紿
     (=big5		. #xD6ED)	; &I-B-D6ED;
+    (<-construed@chu
+     ((=ucs		  . #x6CBB)	; 治
+      ))
     (->subsumptive
      ((=ucs@jis		  . #x7D3F)	; &GT-35246;
       (=jis-x0208	  . #x6529)	; &GT-35246; [69-09]
@@ -2560,7 +2564,7 @@
       (=gt		  . 35246)	; &I-GT-35246;
       (=gt-pj-1		  . #x6529)	; &I-GT-35246; [69-09]
       (=daikanwa	  . 27369)	; &I-M-27369;
-      (=shinjigen@rev	  .  6015)	; &GT-35246;
+      (=shinjigen	  .  6015)	; &GT-35246;
       )
      ((=ucs@unicode	  . #x7D3F)	; &C2-3832;
       (=cns11643-2	  . #x3832)	; &C2-3832; [24-18]
