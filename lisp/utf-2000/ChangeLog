@@ -1,3 +1,18 @@
+2012-04-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R141-Tiger.el (U-0002B29F): New character; add
+	`<-construed@chu' for U+543E.
+
+	* Ideograph-R120-Silk.el (U+7D3F):
+	- Add `sound@ja/on'
+	- Add `<-construed@chu' for U+6CBB
+
+	* Ideograph-R097-Melon.el (U+3F0C):
+	- Add `sound@ja/on'
+	- Add `<-construed@chu' for U+5076 and U+8026
+
+	* Ideograph-R127-Plow.el (U+8026): Move B-BDA2 from C1-6E4B.
+
 2012-04-13  MORIOKA Tomohiko  <tomo@zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R211-Tooth.el (U-0002A600): Use `->denotational' to
