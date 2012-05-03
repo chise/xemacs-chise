@@ -1,4 +1,16 @@
+2012-05-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (U-000225B6): Add `<-ancient' for
+	J0-3632.
+	(U+5FFB): Add `sound@ja/on'.
+	(U+6050): Use `->denotational'.
+	(S-2470): New character; add `<-denotational' for U+6050.
+	(U-00022662): Unify S-2471; add `<-vulgar' for J0-3632.
+
 2012-04-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el (U-00023CE0): New character; unify
+	H4-F36E; add `<-ancient@chu' for U+6D77.
 
 	* Ideograph-R141-Tiger.el (U-0002B29F): New character; add
 	`<-construed@chu' for U+543E.
