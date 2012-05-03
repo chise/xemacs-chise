@@ -542,6 +542,16 @@
     (=ucs		. #x225B6)	; 𢖶
     (=cns11643-6	. #x275D)	; &I-C6-275D; [07-61]
     (=daikanwa		. 10329)	; &I-M-10329;
+    (<-ancient
+     ((=ucs@unicode	  . #x6050)	; &GT-13351;
+      (=jis-x0208	  . #x3632)	; &GT-13351; [22-18]
+      (=gb2312		  . #x3F56)	; &I-G0-3F56; [31-54]
+      (=ks-x1001	  . #x4D70)	; &I-K0-4D70; [45-80]
+      (=jis-x0213-1	  . #x3632)	; &I-JX1-3632; [22-18]
+      (=daikanwa	  . 10552)	; &I-M-10552;
+      ))
+    (<-ancient*sources
+     shuowen daikanwa)
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -1508,6 +1518,7 @@
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (sound@ja/on	"kin")
     (=ucs		. #x5FFB)	; 忻
     (=jis-x0208		. #x5757)	; &I-J90-5757; [55-55]
     (=gb2312		. #x5043)	; &I-G0-5043; [48-35]
@@ -1517,7 +1528,7 @@
     (=gt		. 13051)	; &I-GT-13051;
     (=gt-pj-1		. #x5757)	; &I-GT-13051; [55-55]
     (=daikanwa		. 10401)	; &I-M-10401;
-    (=shinjigen@rev	.  2406)	; 忻
+    (=shinjigen		.  2406)	; 忻
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -3680,20 +3691,39 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ucs		. #x6050)	; 恐
-    (=jis-x0208		. #x3632)	; &I-J90-3632; [22-18]
+    (=big5		. #xAEA3)	; &I-B-AEA3;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6050)	; 恐
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (=ucs@unicode	. #x6050)	; &GT-13351;
+    (=jis-x0208		. #x3632)	; &GT-13351; [22-18]
     (=gb2312		. #x3F56)	; &I-G0-3F56; [31-54]
     (=ks-x1001		. #x4D70)	; &I-K0-4D70; [45-80]
     (=jis-x0213-1	. #x3632)	; &I-JX1-3632; [22-18]
-    (=big5		. #xAEA3)	; &I-B-AEA3;
     (=gt		. 13351)	; &I-GT-13351;
     (=gt-k		. 06402)	; &I-GT-K06402;
     (=gt-pj-1		. #x3632)	; &I-GT-13351; [22-18]
     (=daikanwa		. 10552)	; &I-M-10552;
-    (=shinjigen@rev	.  2469)	; 恐
+    (=shinjigen		.  2469)	; &GT-13351;
     ))
 (define-char
-  '((=>ucs		. #x6050)	; 恐
-    (morohashi-daikanwa	10552 0 2)
+  '((<-denotational
+     ((=ucs		  . #x6050)	; 恐
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (=shinjigen		.  2470)	; &SJG2-2470;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6050)	; 恐
+      ))
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
@@ -3706,7 +3736,19 @@
     (=ucs		. #x22662)	; 𢙢
     (=cns11643-6	. #x3752)	; &I-C6-3752; [23-50]
     (=daikanwa		. 10553)	; &I-M-10553;
+    (=shinjigen		.  2471)	; 𢙢
     (=cbeta		. 06960)	; &I-CB06960;
+    (<-vulgar
+     ((=ucs@unicode	  . #x6050)	; &GT-13351;
+      (=jis-x0208	  . #x3632)	; &GT-13351; [22-18]
+      (=gb2312		  . #x3F56)	; &I-G0-3F56; [31-54]
+      (=ks-x1001	  . #x4D70)	; &I-K0-4D70; [45-80]
+      (=jis-x0213-1	  . #x3632)	; &I-JX1-3632; [22-18]
+      (=daikanwa	  . 10552)	; &I-M-10552;
+      (=shinjigen	  .  2469)	; &GT-13351;
+      ))
+    (<-vulgar*sources
+     shinjigen)
     ))
 (define-char
   '((=>ucs		. #x3924)	; 㤤
