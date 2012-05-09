@@ -819,21 +819,20 @@
 
   (make-charset '=daikanwa@rev1
 		"Daikanwa dictionary (revised version)"
-		`(long-name	"Daikanwa Rev."
+		'(long-name	"Daikanwa Rev."
 		  chars		256
 		  dimension	2
 		  columns	2
 		  graphic	2
 		  direction	l2r
 		  registry	"Daikanwa\\(\\.[0-9]+\\)?-2"
-		  mother	=daikanwa
-                  ))
+		  mother	=daikanwa))
   (define-charset-alias 'ideograph-daikanwa-2 '=daikanwa@rev1)
   (define-charset-alias '=daikanwa-rev1 '=daikanwa@rev1)
 
   (make-charset '=daikanwa@rev2
 		"Daikanwa dictionary (revised version 2)"
-		`(long-name	"Daikanwa"
+		'(long-name	"Daikanwa"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -842,16 +841,12 @@
 		  registry	"Daikanwa\\(\\.[0-9]+\\)?-3"
 		  mother	=daikanwa
 		  min-code	1
-                  max-code	49964
-                  ;; min-code	#xE00000
-                  ;; max-code	,(+ #xE00000 50100)
-                  ;; code-offset	#xE00000
-		  ))
+                  max-code	49964))
   (define-charset-alias '=daikanwa-rev2 '=daikanwa@rev2)
 
   (make-charset '=daikanwa/+p
 		"Daikanwa dictionary (ddddd')"
-		`(long-name	"Daikanwa ddddd'"
+		'(long-name	"Daikanwa ddddd'"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -859,7 +854,7 @@
 		  direction	l2r))
   (make-charset '=daikanwa/+2p
 		"Daikanwa dictionary (ddddd'')"
-		`(long-name	"Daikanwa ddddd''"
+		'(long-name	"Daikanwa ddddd''"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -867,7 +862,7 @@
 		  direction	l2r))
   (make-charset '=daikanwa/ho
 		"Daikanwa dictionary (Hokan)"
-		`(long-name	"Daikanwa-ho"
+		'(long-name	"Daikanwa-ho"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -884,6 +879,15 @@
 		  direction	l2r
 		  registry	"Daikanwa\\(\\.[0-9]+\\)?-3"
 		  mother	=daikanwa))
+  (make-charset '=>>daikanwa/ho
+		"Daikanwa abstract glyphs (Hokan)"
+		'(long-name	"Daikanwa-ho glyph"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=daikanwa/ho))
 
   (make-charset '=>daikanwa
 		"Daikanwa abstract characters"
