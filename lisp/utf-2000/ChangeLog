@@ -1,3 +1,31 @@
+2012-05-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el: Use `=daikanwa/ho' instead of
+	`morohashi-daikanwa'.
+	(G-UU+3402): Unify G-JX1-2E23 and G-MH-0001.
+
+2012-05-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-insert-ccs-feature): Format
+	`=>>daikanwa/ho' as the same as `=daikanwa/ho'.
+
+	* Ideograph-R008-Lid.el (MH-0008): Use `=daikanwa/ho' instead of
+	`morohashi-daikanwa'.
+
+	* Ideograph-R006-Hook.el: Use `=daikanwa/ho' instead of
+	`morohashi-daikanwa'.
+
+	* Ideograph-R005-Second.el (MH-0006): Use `=daikanwa/ho' instead
+	of `morohashi-daikanwa'.
+
+	* Ideograph-R004-Slash.el (M-03118'): Use `=daikanwa/+p' instead
+	of `morohashi-daikanwa'.
+	(MH-0005): Use `=daikanwa/ho' instead of `morohashi-daikanwa'.
+
+	* ideograph-util.el (char-representative-of-daikanwa): Support
+	`=daikanwa/+p', `=daikanwa/+2p' and `=daikanwa/ho'.
+	(char-daikanwa): Likewise.
+
 2012-05-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (U-000225B6): Add `<-ancient' for
