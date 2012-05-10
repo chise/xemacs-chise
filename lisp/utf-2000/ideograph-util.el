@@ -1,7 +1,7 @@
 ;;; ideograph-util.el --- Ideographic Character Database utility
 
 ;; Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2007, 2008,
-;;   2009, 2010 MORIOKA Tomohiko.
+;;   2009, 2010, 2012 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Chaon model, ISO/IEC 10646, Unicode, UCS-4, MULE.
@@ -170,25 +170,35 @@
           (eq (or (get-char-attribute char 'ideographic-radical)
                   (char-ideographic-radical char radical t))
               radical))
-      (let ((ret (or (encode-char char 'ideograph-daikanwa 'defined-only)
-                     (encode-char char '=daikanwa-rev2 'defined-only))))
+      (let ((ret (or (encode-char char '=daikanwa@rev2 'defined-only)
+		     (encode-char char '=daikanwa/+p 'defined-only)
+                     (encode-char char '=daikanwa/+2p 'defined-only)
+                     (encode-char char '=daikanwa/ho 'defined-only)
+                     )))
 	(or (and ret char)
 	    (if (setq ret (get-char-attribute char 'morohashi-daikanwa))
 		(let ((m-m (car ret))
 		      (m-s (nth 1 ret))
 		      pat)
 		  (if (= m-s 0)
-		      (or (decode-char '=daikanwa-rev2 m-m 'defined-only)
-			  (decode-char 'ideograph-daikanwa m-m))
-		    (setq pat (list m-m m-s))
-		    (map-char-attribute (lambda (c v)
-					  (if (equal pat v)
-					      c))
-					'morohashi-daikanwa))))
+		      (or (decode-char '=daikanwa@rev2 m-m 'defined-only)
+			  (decode-char '=daikanwa m-m))
+		    (or (cond ((eq m-m 'ho)
+			       (decode-char '=daikanwa/ho m-s))
+			      ((eq m-s 1)
+			       (decode-char '=daikanwa/+p m-m))
+			      ((eq m-s 2)
+			       (decode-char '=daikanwa/+2p m-m)))
+			(progn
+			  (setq pat (list m-m m-s))
+			  (map-char-attribute (lambda (c v)
+						(if (equal pat v)
+						    c))
+					      'morohashi-daikanwa))))))
             (and (setq ret (get-char-attribute char '=>daikanwa))
 		 (if (numberp ret)
-		     (or (decode-char '=daikanwa-rev2 ret 'defined-only)
-			 (decode-char 'ideograph-daikanwa ret))
+		     (or (decode-char '=daikanwa@rev2 ret 'defined-only)
+			 (decode-char '=daikanwa ret))
 		   (map-char-attribute (lambda (c v)
 					 (if (equal ret v)
 					     char))
@@ -279,9 +289,17 @@
           (eq (or (get-char-attribute char 'ideographic-radical)
                   (char-ideographic-radical char radical t))
               radical))
-      (let ((ret (or (encode-char char 'ideograph-daikanwa 'defined-only)
-                     (encode-char char '=daikanwa-rev2 'defined-only)
+      (let ((ret (or (encode-char char '=daikanwa@rev2 'defined-only)
+                     ;; (encode-char char '=daikanwa 'defined-only)
                      (get-char-attribute char 'morohashi-daikanwa))))
+	(unless ret
+	  (cond
+	   ((setq ret (encode-char char '=daikanwa/+p 'defined-only))
+	    (setq ret (list ret 1)))
+	   ((setq ret (encode-char char '=daikanwa/+2p 'defined-only))
+	    (setq ret (list ret 2)))
+	   ((setq ret (encode-char char '=daikanwa/ho 'defined-only))
+	    (setq ret (list 'ho ret)))))
         (or (if ret
 		(if depth
 		    (if (integerp ret)
