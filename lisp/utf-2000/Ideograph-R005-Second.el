@@ -87,8 +87,7 @@
     (=big5-cdp		. #x8AAC)	; &CDP-8AAC;
     ))
 (define-char
-  '((morohashi-daikanwa	ho 6)
-    (ideographic-radical@ucs . 5)	; ⼄
+  '((ideographic-radical@ucs . 5)	; ⼄
     (ideographic-strokes@ucs . 0)
     (ideographic-radical@daikanwa . 6)	; ⼅
     (ideographic-strokes@daikanwa . 0)
@@ -101,6 +100,7 @@
     (=gt		. 00301)	; &I-GT-00301;
     (=gt-k		. 00023)	; &I-GT-K00023;
     (=gt-pj-11		. #x4329)	; &I-GT-00301; [35-09]
+    (=daikanwa/ho	.  0006)	; 𠃌
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
