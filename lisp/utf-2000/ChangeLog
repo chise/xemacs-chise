@@ -1,3 +1,18 @@
+2012-05-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R017-Open-Box.el (MH-0008): Use `=daikanwa/ho' instead
+	of `morohashi-daikanwa'.
+
+	* Ideograph-R015-Ice.el (U-00020602): Use `=daikanwa/ho' instead
+	of `morohashi-daikanwa'.
+
+	* Ideograph-R012-Eight.el (U-00020523): Use `=daikanwa/ho' instead
+	of `morohashi-daikanwa'.
+
+	* Ideograph-R010-Legs.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for MH-dddd.
+
 2012-05-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R001-One.el: Use `=daikanwa/ho' instead of
