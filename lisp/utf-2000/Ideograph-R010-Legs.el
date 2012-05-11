@@ -1534,7 +1534,6 @@
   '((<-denotational
      ((=>>jis-x0213-1	  . #x513D)	; &G-JX1-513D; [49-29]
       ))
-    (morohashi-daikanwa	1368 1)
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
@@ -1569,6 +1568,7 @@
     (=gt		. 01781)	; &I-GT-01781;
     (=gt-k		. 03858)	; &I-GT-K03858;
     (=gt-pj-1		. #x513D)	; &I-GT-01781; [49-29]
+    (=daikanwa/+p	. 01368)	; 兔󠄁
     (=jef-china3	. #x43DB)	; &I-JC3-43DB;
     (=adobe-japan1-0	. 04212)	; &I-AJ1-04212;
     (=hanyo-denshi/ja	. #x513D)	; &I-HD-JA-513D; [49-29]
@@ -2268,8 +2268,7 @@
     (=daikanwa		. 01390)	; &I-M-01390;
     ))
 (define-char
-  '((morohashi-daikanwa	ho 33)
-    (ideographic-radical . 10)	; ⼉
+  '((ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 273 14)
@@ -2282,6 +2281,7 @@
      ((=big5-cdp	  . #x8DA3)	; &CDP-8DA3;
       ))
     (=ucs		. #x2049C)	; 𠒜
+    (=daikanwa/ho	.  0033)	; 𠒜
     (=hanziku-1		. #xDE73)	; &I-HZK01-DE73;
     ))
 (define-char
@@ -2809,9 +2809,9 @@
       ))
     (=ucs		. #x204BF)	; 𠒿
     (->subsumptive
-     ((morohashi-daikanwa	ho 34)
-      (=gt		  . 01834)	; &GT-01834;
+     ((=gt		  . 01834)	; &GT-01834;
       (=gt-pj-11	  . #x4665)	; &GT-01834; [38-69]
+      (=daikanwa/ho	  .  0034)	; &GT-01834;
       )
      ((hanyu-dazidian	  1 275 9)
       (=ucs@iso		  . #x204BF)	; &HZK01-DED0;
@@ -3134,9 +3134,9 @@
       ))
     (=ucs		. #x204D6)	; 𠓖
     (->subsumptive
-     ((morohashi-daikanwa	ho 35)
-      (hanyu-dazidian	  1 275 15)
+     ((hanyu-dazidian	  1 275 15)
       (=ucs@iso		  . #x204D6)	; &HZK01-DED6;
+      (=daikanwa/ho	  .  0035)	; &HZK01-DED6;
       (=hanziku-1	  . #xDED6)	; &HZK01-DED6;
       ))
     ))
