@@ -2956,12 +2956,12 @@
     (=hanziku-1		. #xE3DF)	; &I-HZK01-E3DF;
     ))
 (define-char
-  '((morohashi-daikanwa	ho 44)
-    (ideographic-radical . 15)	; ⼎
+  '((ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
     (hanyu-dazidian	1 300 13)
     (=ucs		. #x20602)	; 𠘂
+    (=daikanwa/ho	.  0044)	; 𠘂
     (=hanziku-1		. #xE3E3)	; &I-HZK01-E3E3;
     ))
 (define-char
