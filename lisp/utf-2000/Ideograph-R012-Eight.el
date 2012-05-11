@@ -1645,12 +1645,12 @@
       ))
     ))
 (define-char
-  '((morohashi-daikanwa	ho 36)
-    (ideographic-radical . 12)	; ⼋
+  '((ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (hanyu-dazidian	1 250 5)
     (=ucs		. #x20523)	; 𠔣
+    (=daikanwa/ho	.  0036)	; 𠔣
     (=hanziku-1		. #xD9BD)	; &I-HZK01-D9BD;
     ))
 (define-char
