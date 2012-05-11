@@ -487,8 +487,7 @@
       ))
     (=ucs		. #x342B)	; 㐫
     (->subsumptive
-     ((morohashi-daikanwa	ho 8)
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
@@ -499,6 +498,7 @@
        ((=ucs		    . #x51F6)	; 凶
 	))
       (=big5-cdp	  . #x8C5E)	; &CDP-8C5E;
+      (=daikanwa/ho	  .  0008)	; &CDP-8C5E;
       (=cbeta		  . 04846)	; &I-CB04846;
       (=jef-china3	  . #x8DCD)	; &I-JC3-8DCD;
       (<-vulgar
