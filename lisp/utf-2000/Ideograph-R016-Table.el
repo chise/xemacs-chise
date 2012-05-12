@@ -345,7 +345,6 @@
   '((<-denotational
      ((=ucs		  . #x20AD7)	; 𠫗
       ))
-    (morohashi-daikanwa	ho 45)
     (ideographic-radical@ucs . 28)	; ⼛
     (ideographic-strokes@ucs . 2)
     (ideographic-radical@daikanwa . 16)	; ⼏
@@ -355,6 +354,7 @@
     (=ucs@iso		. #x20AD7)	; &GT-02288;
     (=gt		. 02288)	; &GT-02288;
     (=gt-pj-11		. #x432A)	; &GT-02288; [35-10]
+    (=daikanwa/ho	.  0045)	; &GT-02288;
     (=hanziku-1		. #xDEEF)	; &I-HZK01-DEEF;
     ))
 (define-char
@@ -727,12 +727,12 @@
      shinjigen@1ed)
     ))
 (define-char
-  '((morohashi-daikanwa	ho 46)
-    (ideographic-radical . 16)	; ⼏
+  '((ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 277 15)
     (=ucs		. #x20643)	; 𠙃
+    (=daikanwa/ho	.  0046)	; 𠙃
     (=hanziku-1		. #xDF57)	; &I-HZK01-DF57;
     ))
 (define-char
@@ -942,8 +942,7 @@
     (=adobe-japan1-4	. 14353)	; &I-AJ1-14353;
     ))
 (define-char
-  '((morohashi-daikanwa	ho 47)
-    (ideographic-radical@ucs . 208)	; ⿏
+  '((ideographic-radical@ucs . 208)	; ⿏
     (ideographic-strokes@ucs . 0)
     (ideographic-radical@daikanwa . 16)	; ⼏
     (ideographic-strokes@daikanwa . 6)
@@ -954,6 +953,7 @@
     (=gt		. 12984)	; &I-GT-12984;
     (=gt-k		. 03927)	; &I-GT-K03927;
     (=gt-pj-1		. #x736B)	; &I-GT-12984; [83-75]
+    (=daikanwa/ho	.  0047)	; 鼡
     (=adobe-japan1-0	. 07454)	; &I-AJ1-07454;
     ))
 (define-char
