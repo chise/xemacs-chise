@@ -653,7 +653,6 @@
   '((<-denotational
      ((=ucs		  . #x5189)	; 冉
       ))
-    (morohashi-daikanwa	ho 37)
     (ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
@@ -678,6 +677,7 @@
     (=gt		. 01993)	; &I-GT-01993;
     (=gt-k		. 01031)	; &I-GT-K01031;
     (=gt-pj-1		. #x5147)	; &I-GT-01993; [49-39]
+    (=daikanwa/ho	.  0037)	; 冉󠄀
     (=shinjigen		.  0512)	; 冉󠄀
     (=adobe-japan1-0	. 04222)	; &I-AJ1-04222;
     (=hanyo-denshi/ja	. #x5147)	; &I-HD-JA-5147; [49-39]
@@ -1267,25 +1267,25 @@
     (=daikanwa		. 48934)	; &I-M-48934;
     ))
 (define-char
-  '((morohashi-daikanwa	ho 38)
-    (ideographic-radical . 13)	; ⼌
+  '((ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 332 8)
     (=ucs		. #x20557)	; 𠕗
     (=gt		. 02013)	; &I-GT-02013;
     (=gt-pj-11		. #x434A)	; &I-GT-02013; [35-42]
+    (=daikanwa/ho	.  0038)	; 𠕗
     (=hanziku-1		. #xEA71)	; &I-HZK01-EA71;
     ))
 (define-char
-  '((morohashi-daikanwa	ho 39)
-    (ideographic-radical . 13)	; ⼌
+  '((ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	8 8 9)
     (=ucs		. #x20559)	; 𠕙
     (=gt		. 02017)	; &I-GT-02017;
     (=gt-pj-11		. #x434B)	; &I-GT-02017; [35-43]
+    (=daikanwa/ho	.  0039)	; 𠕙
     (=hanziku-12	. #xEB60)	; &I-HZK12-EB60;
     ))
 (define-char
@@ -1603,16 +1603,29 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (=ucs		. #x2055F)	; 𠕟
-    (->subsumptive
-     ((morohashi-daikanwa	ho 40)
-      (hanyu-dazidian	  1 101 1)
-      (=gt		  . 02029)	; &GT-02029;
-      (=gt-pj-11	  . #x4374)	; &GT-02029; [35-84]
-      (=hanziku-1	  . #xB8BE)	; &I-HZK01-B8BE;
-      )
-     ((=ucs@iso		  . #x2055F)	; &C5-2B77;
-      (=cns11643-5	  . #x2B77)	; &C5-2B77; [11-87]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2055F)	; 𠕟
       ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (hanyu-dazidian	1 101 1)
+    (=gt		. 02029)	; &GT-02029;
+    (=gt-pj-11		. #x4374)	; &GT-02029; [35-84]
+    (=daikanwa/ho	.  0040)	; &GT-02029;
+    (=hanziku-1		. #xB8BE)	; &I-HZK01-B8BE;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2055F)	; 𠕟
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (=ucs@iso		. #x2055F)	; &C5-2B77;
+    (=cns11643-5	. #x2B77)	; &C5-2B77; [11-87]
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
