@@ -1653,11 +1653,11 @@
       ))
     ))
 (define-char
-  '((morohashi-daikanwa	ho 53)
-    (ideographic-radical . 19)	; ⼒
+  '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (=ucs		. #x2085D)	; 𠡝
+    (=daikanwa/ho	.  0053)	; 𠡝
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
@@ -2134,7 +2134,6 @@
       ))
     (script		JP Jouyou Ideograph)
     (=>ucs*		. #x52C7)	; 勇
-    (morohashi-daikanwa	2360 1)
     (=decomposition@cid
      ((=ucs		  . #x52C7)	; 勇
       )
@@ -2156,6 +2155,7 @@
     (=gt		. 03030)	; &I-GT-03030;
     (=gt-k		. 05197)	; &I-GT-K05197;
     (=gt-pj-1		. #x4D26)	; &I-GT-03030; [45-06]
+    (=daikanwa/+p	. 02360)	; 勇
     (=shinjigen		.  0730)	; 勇
     (=adobe-japan1-0	. 03856)	; &I-AJ1-03856;
     (=hanyo-denshi/ja	. #x4D26)	; &I-HD-JA-4D26; [45-06]
@@ -2792,7 +2792,6 @@
       ))
     (script		JP Jouyou Ideograph)
     (=>ucs*		. #x52C9)	; 勉
-    (morohashi-daikanwa	2384 1)
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
@@ -2820,6 +2819,7 @@
     (=gt		. 03050)	; &I-GT-03050;
     (=gt-k		. 06545)	; &I-GT-K06545;
     (=gt-pj-1		. #x4A59)	; &I-GT-03050; [42-57]
+    (=daikanwa/+p	. 02384)	; 勉
     (=shinjigen		.  0735)	; 勉
     (=adobe-japan1-0	. 03625)	; &I-AJ1-03625;
     (<-simplified@JP/Jouyou
@@ -3890,7 +3890,6 @@
       ))
     (script		JP Jouyou Ideograph)
     (=>ucs*		. #x52E4)	; 勤
-    (morohashi-daikanwa	2415 1)
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
@@ -3908,6 +3907,7 @@
     (=gt		. 03088)	; &I-GT-03088;
     (=gt-k		. 09036)	; &I-GT-K09036;
     (=gt-pj-1		. #x3650)	; &I-GT-03088; [22-48]
+    (=daikanwa/+p	. 02415)	; 勤
     (=shinjigen		.  0743)	; 勤
     (=adobe-japan1-0	. 01736)	; &I-AJ1-01736;
     (<-simplified@JP/Jouyou
@@ -5050,19 +5050,18 @@
       ))
     ))
 (define-char
-  '((morohashi-daikanwa	ho 54)
-    (ideographic-radical . 19)	; ⼒
-    (ideographic-strokes . 12)
-    (total-strokes	 . 14)
+  '((ideographic-radical . 19)	; ⼒
     (=ucs		. #x208AB)	; 𠢫
-    ))
-(define-char
-  '((=>ucs		. #x208AB)	; 𠢫
-    (morohashi-daikanwa	ho 54 9)
-    (ideographic-radical . 19)	; ⼒
-    (ideographic-strokes . 13)
-    (total-strokes	 . 15)
-    (=cbeta		. 09200)	; &CB09200;
+    (->subsumptive
+     ((ideographic-strokes . 12)
+      (total-strokes	   . 14)
+      (=ucs@iso		  . #x208AB)	; &U-000208AB;
+      (=daikanwa/ho	  .  0054)	; &U-000208AB;
+      )
+     ((ideographic-strokes . 13)
+      (total-strokes	   . 15)
+      (=cbeta		  . 09200)	; &CB09200;
+      ))
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
