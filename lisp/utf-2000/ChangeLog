@@ -1,5 +1,34 @@
 2012-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R028-Private.el (MH-0045): Use `=daikanwa/ho' instead
+	of `morohashi-daikanwa'.
+
+	* Ideograph-R027-Cliff.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for MH-dddd.
+
+	* Ideograph-R024-Ten.el (M-02761'): Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa'.
+
+	* Ideograph-R022-Right-Open-Box.el (MH-0058): Use `=daikanwa/ho'
+	instead of `morohashi-daikanwa'.
+
+	* Ideograph-R021-Spoon.el (MH-0057): Use `=daikanwa/ho' instead of
+	`morohashi-daikanwa'.
+
+	* Ideograph-R014-Cover.el: Use `=daikanwa/ho' instead of
+	`morohashi-daikanwa' for MH-dddd.
+	(M-01574): Integrate U-0002057F and H1-E4A2.
+
+	* Ideograph-R009-Man.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for MH-dddd.
+	(MH-0021): Unify JPU+347A.
+	(G-HD-KS012180): Unify G-M-01042'.
+	(mother of C5-535B): Unify G-CU+20400, G-GT-01566 and G-MH-0025.
+	(mother of IU+20400): Unify G-IU+20400.
+	(GT-01645): Unify JPU+2041C.
+
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`=>>daikanwa/+p' as the same as `=daikanwa/+p'.
 
