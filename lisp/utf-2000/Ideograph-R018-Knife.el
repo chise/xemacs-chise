@@ -912,8 +912,7 @@
      zhengzitong daikanwa)
     ))
 (define-char
-  '((morohashi-daikanwa	ho 48)
-    (ideographic-radical@ucs . 46)	; ⼭
+  '((ideographic-radical@ucs . 46)	; ⼭
     (ideographic-strokes@ucs . 2)
     (ideographic-radical@daikanwa . 18)	; ⼑
     (ideographic-strokes@daikanwa . 3)
@@ -924,6 +923,7 @@
     (=gt		. 09918)	; &I-GT-09918;
     (=gt-k		. 01046)	; &I-GT-K01046;
     (=gt-pj-1		. #x5627)	; &I-GT-09918; [54-07]
+    (=daikanwa/ho	.  0048)	; 屶
     (=adobe-japan1-0	. 04660)	; &I-AJ1-04660;
     ))
 (define-char
@@ -4713,11 +4713,11 @@
     (=cns11643-6	. #x2E77)	; &I-C6-2E77; [14-87]
     ))
 (define-char
-  '((morohashi-daikanwa	ho 49)
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (=ucs		. #x20724)	; 𠜤
+    (=daikanwa/ho	.  0049)	; 𠜤
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -5996,8 +5996,7 @@
       (=>>>jis-x0213-1	  . #x3A5E)	; &g2-J0-3A5E; [26-62]
       (=>>>gt		  . 02637)	; &g2-J0-3A5E;
       (->subsumptive
-       ((morohashi-daikanwa	2076 1)
-	(=decomposition@cid
+       ((=decomposition@cid
 	 ((=ucs		      . #x5264)	; 剤
 	  )
 	 ((=ucs		      . #xE0100)	; 󠄀
@@ -6018,6 +6017,7 @@
 	(=jis-x0213-1	    . #x3A5E)	; &I-JX1-3A5E; [26-62]
 	(=gt		    . 02637)	; &I-GT-02637;
 	(=gt-pj-1	    . #x3A5E)	; &I-GT-02637; [26-62]
+	(=daikanwa/+p	    . 02076)	; 剤󠄀
 	(=shinjigen	    .  0658)	; 剤󠄀
 	(=adobe-japan1-0    . 02126)	; &I-AJ1-02126;
 	(<-simplified@JP/Jouyou
@@ -6149,8 +6149,7 @@
       ))
     (=ucs		. #x5266)	; 剦
     (->subsumptive
-     ((morohashi-daikanwa	ho 50)
-      (=decomposition@cid
+     ((=decomposition@cid
        ((=ucs		    . #x5266)	; 剦
 	)
        ((=ucs		    . #xE0100)	; 󠄀
@@ -6171,27 +6170,25 @@
 	))
       (=ucs@jis		  . #x5266)	; 剦󠄀
       (=jis-x0212	  . #x3348)	; 剦󠄀 [19-40]
+      (=daikanwa/ho	  .  0050)	; 剦󠄀
       (=adobe-japan1-4	  . 14360)	; &I-AJ1-14360;
       )
      ((=ucs@unicode	  . #x5266)	; &UU+5266;
       ))
     ))
 (define-char
-  '((morohashi-daikanwa	2076 2)
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (hanyu-dazidian	1 348 5)
     (=ucs		. #x34ED)	; 㓭
-    (=hanziku-1		. #xEDB9)	; &I-HZK01-EDB9;
-    ))
-(define-char
-  '((=>ucs		. #x34ED)	; 㓭
-    (morohashi-daikanwa	2076 2 0)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 9)
-    (total-strokes	 . 11)
-    (=cns11643-4	. #x3053)	; &C4-3053; [16-51]
+    (->subsumptive
+     ((hanyu-dazidian	  1 348 5)
+      (=ucs@unicode	  . #x34ED)	; &HZK01-EDB9;
+      (=daikanwa/+2p	  . 02076)	; &HZK01-EDB9;
+      (=hanziku-1	  . #xEDB9)	; &HZK01-EDB9;
+      )
+     ((=cns11643-4	  . #x3053)	; &C4-3053; [16-51]
+      ))
     ))
 (define-char
   '((=>ucs		. #x2075D)	; 𠝝
@@ -6916,9 +6913,10 @@
     (total-strokes	 . 11)
     (=>>gt		. 02691)	; &G-GT-02691;
     (=>>gt-k		. 08026)	; &G-GT-02691;
+    (=>>daikanwa/ho	.  0051)	; &G-GT-02691;
+    (=>>adobe-japan1-5	. 20085)	; &G-GT-02691;
     (->subsumptive
-     ((morohashi-daikanwa	ho 51)
-      (=decomposition@cid
+     ((=decomposition@cid
        ((=ucs		    . #x5271)	; 剱
 	)
        ((=ucs		    . #xE0101)	; 󠄁
@@ -6934,6 +6932,7 @@
       (=gt		  . 02691)	; 剱󠄁
       (=gt-k		  . 08026)	; &I-GT-K08026;
       (=gt-pj-9		  . #x3437)	; 剱󠄁 [20-23]
+      (=daikanwa/ho	  .  0051)	; 剱󠄁
       (=adobe-japan1-5	  . 20085)	; &I-AJ1-20085;
       )
      ((=jef-china3	  . #x44CF)	; &JC3-44CF;
@@ -7307,11 +7306,11 @@
     (=>>jis-x0213-1	. #x3364)	; &G-GT-02726; [19-68]
     (=>>gt		. 02726)	; &G-GT-02726;
     (=>>gt-k		. 09010)	; &G-GT-02726;
+    (=>>daikanwa/+p	. 02112)	; &G-GT-02726;
     (=>>adobe-japan1-0	. 01474)	; &G-GT-02726;
     (=>>hanyo-denshi/ja . #x3364)	; &G-GT-02726; [19-68]
     (->subsumptive
-     ((morohashi-daikanwa	2112 1)
-      (=decomposition@cid
+     ((=decomposition@cid
        ((=ucs		    . #x5272)	; 割
 	)
        ((=ucs		    . #xE0101)	; 󠄁
@@ -7338,6 +7337,7 @@
       (=gt		  . 02726)	; &I-GT-02726;
       (=gt-k		  . 09010)	; &I-GT-K09010;
       (=gt-pj-1		  . #x3364)	; &I-GT-02726; [19-68]
+      (=daikanwa/+p	  . 02112)	; 割󠄁
       (=shinjigen	  .  0678)	; 割󠄁
       (=adobe-japan1-0	  . 01474)	; &I-AJ1-01474;
       (=hanyo-denshi/ja	  . #x3364)	; &I-HD-JA-3364; [19-68]
@@ -9414,8 +9414,7 @@
     (=daikanwa		. 02210)	; &I-M-02210;
     ))
 (define-char
-  '((morohashi-daikanwa	ho 52)
-    (ideographic-radical@ucs . 18)	; ⼑
+  '((ideographic-radical@ucs . 18)	; ⼑
     (ideographic-strokes@ucs . 12)
     (ideographic-radical@ucs*sources
      daikanwa ucs)
@@ -9426,6 +9425,7 @@
     (=cns11643-2	. #x4C61)	; &I-C2-4C61; [44-65]
     (=jis-x0213-2	. #x233D)	; &I-JX2-233D; [03-29]
     (=big5		. #xE35A)	; &I-B-E35A;
+    (=daikanwa/ho	.  0052)	; 劄
     (=jef-china3	. #x5EC1)	; &I-JC3-5EC1;
     (=adobe-japan1-5	. 17317)	; &I-AJ1-17317;
     (<-same
