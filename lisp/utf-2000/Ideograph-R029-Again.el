@@ -165,7 +165,6 @@
      ((=ucs		  . #x53CA)	; 及
       ))
     (=>ucs*		. #x53CA)	; 及
-    (morohashi-daikanwa	3118 1)
     (ideographic-radical@ucs . 29)	; ⼜
     (ideographic-strokes@ucs . 2)
     (total-strokes@ucs	     . 4)
@@ -195,6 +194,7 @@
     (=gt		. 00163)	; &I-GT-00163;
     (=gt-k		. 00257)	; &I-GT-K00257;
     (=gt-pj-1		. #x355A)	; &I-GT-00163; [21-58]
+    (=daikanwa/+p	. 03118)	; 及
     (=shinjigen		.  0900)	; 及
     (=adobe-japan1-0	. 01652)	; &I-AJ1-01652;
     (=hanyo-denshi/ja	. #x355A)	; &I-HD-JA-355A; [21-58]
@@ -2909,8 +2909,7 @@
       ))
     ))
 (define-char
-  '((morohashi-daikanwa	ho 63)
-    (ideographic-radical@ucs . 29)	; ⼜
+  '((ideographic-radical@ucs . 29)	; ⼜
     (ideographic-strokes@ucs . 13)
     (ideographic-radical@ucs*sources
      daikanwa ucs)
@@ -2919,6 +2918,7 @@
     (total-strokes	 . 16)
     (=ucs		. #x20B8A)	; 𠮊
     (=cns11643-5	. #x542E)	; &I-C5-542E; [52-14]
+    (=daikanwa/ho	.  0063)	; 𠮊
     ))
 (define-char
   '((ideographic-radical@ucs . 29)	; ⼜
