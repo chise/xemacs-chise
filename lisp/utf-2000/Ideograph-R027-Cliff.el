@@ -302,12 +302,12 @@
      daikanwa)
     ))
 (define-char
-  '((morohashi-daikanwa	ho 59)
-    (ideographic-radical . 27)	; ⼚
+  '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 69 1)
     (=ucs		. #x20A33)	; 𠨳
+    (=daikanwa/ho	.  0059)	; 𠨳
     (=hanziku-1		. #xB24A)	; &I-HZK01-B24A;
     ))
 (define-char
@@ -1793,12 +1793,12 @@
     (=hanziku-1		. #xB350)	; &I-HZK01-B350;
     ))
 (define-char
-  '((morohashi-daikanwa	ho 60)
-    (ideographic-radical . 27)	; ⼚
+  '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (=gt		. 03762)	; &GT-03762;
     (=gt-pj-11		. #x4375)	; &GT-03762; [35-85]
+    (=daikanwa/ho	.  0060)	; &GT-03762;
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
@@ -2035,8 +2035,7 @@
     (=hanziku-12	. #xEB50)	; &I-HZK12-EB50;
     ))
 (define-char
-  '((morohashi-daikanwa	ho 61)
-    (ideographic-radical . 27)	; ⼚
+  '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 75 9)
@@ -2050,6 +2049,7 @@
       ))
     (=ucs		. #x53A2)	; 厢
     (=gb2312		. #x4F61)	; &I-G0-4F61; [47-65]
+    (=daikanwa/ho	.  0061)	; 厢
     (=hanziku-1		. #xB375)	; &I-HZK01-B375;
     ))
 (define-char
@@ -3758,7 +3758,6 @@
      ((=ucs		  . #x53B3)	; 厳
       ))
     (script		JP Jouyou Ideograph)
-    (morohashi-daikanwa	3048 1)
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
@@ -3789,6 +3788,7 @@
     (=jis-x0213-1	. #x3837)	; &I-JX1-3837; [24-23]
     (=gt		. 12988)	; &I-GT-12988;
     (=gt-pj-1		. #x3837)	; &I-GT-12988; [24-23]
+    (=daikanwa/+p	. 03048)	; 厳󠄀
     (=shinjigen		.  1285)	; 厳󠄀
     (=adobe-japan1-0	. 01899)	; &I-AJ1-01899;
     (<-simplified@JP/Jouyou
