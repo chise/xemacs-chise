@@ -1,4 +1,15 @@
+2012-05-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for MH-dddd.
+	(MH-0073): Unify dJU+5693.
+
 2012-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for MH-dddd.
 
 	* Ideograph-R028-Private.el (MH-0045): Use `=daikanwa/ho' instead
 	of `morohashi-daikanwa'.
@@ -15,6 +26,11 @@
 
 	* Ideograph-R021-Spoon.el (MH-0057): Use `=daikanwa/ho' instead of
 	`morohashi-daikanwa'.
+
+	* Ideograph-R018-Knife.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/+2p' instead of `morohashi-daikanwa' for M-ddddd''.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for MH-dddd.
 
 	* Ideograph-R014-Cover.el: Use `=daikanwa/ho' instead of
 	`morohashi-daikanwa' for MH-dddd.
