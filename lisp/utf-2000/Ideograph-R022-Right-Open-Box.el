@@ -1662,12 +1662,12 @@
     (=jef-china3	. #x45BD)	; &I-JC3-45BD;
     ))
 (define-char
-  '((morohashi-daikanwa	ho 58)
-    (ideographic-radical . 22)	; ⼕
+  '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
     (hanyu-dazidian	1 90 12)
     (=ucs		. #x20967)	; 𠥧
+    (=daikanwa/ho	.  0058)	; 𠥧
     (=hanziku-1		. #xB6A3)	; &I-HZK01-B6A3;
     ))
 (define-char
