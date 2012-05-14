@@ -217,12 +217,12 @@
     (=cns11643-4	. #x2142)	; &C4-2142; [01-34]
     ))
 (define-char
-  '((morohashi-daikanwa	ho 57)
-    (ideographic-radical . 21)	; ⼔
+  '((ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (=gt		. 03299)	; &GT-03299;
     (=gt-pj-9		. #x3375)	; &GT-03299; [19-85]
+    (=daikanwa/ho	.  0057)	; &GT-03299;
     (=jef-china3	. #x45AC)	; &I-JC3-45AC;
     ))
 (define-char
