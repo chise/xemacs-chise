@@ -1718,7 +1718,6 @@
   '((<-denotational
      ((=ucs		  . #x535A)	; 博
       ))
-    (morohashi-daikanwa	2761 1)
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
@@ -1739,6 +1738,7 @@
     (=gt		. 03527)	; &I-GT-03527;
     (=gt-k		. 09124)	; &I-GT-K09124;
     (=gt-pj-1		. #x476E)	; &I-GT-03527; [39-78]
+    (=daikanwa/+p	. 02761)	; 博󠄀
     (=shinjigen		.  0832)	; 博󠄀
     (=adobe-japan1-0	. 03364)	; &I-AJ1-03364;
     (=hanyo-denshi/ja	. #x476E)	; &I-HD-JA-476E; [39-78]
