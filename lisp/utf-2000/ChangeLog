@@ -1,7 +1,28 @@
+2012-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-insert-ccs-feature): Format
+	`=>>daikanwa/+p' as the same as `=daikanwa/+p'.
+
+2012-05-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R020-Wrap.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for MH-dddd.
+
+	* Ideograph-R019-Power.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for MH-dddd.
+
+	* Ideograph-R013-Down-Box.el: Use `=daikanwa/ho' instead of
+	`morohashi-daikanwa' for MH-dddd.
+
 2012-05-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R017-Open-Box.el (MH-0008): Use `=daikanwa/ho' instead
 	of `morohashi-daikanwa'.
+
+	* Ideograph-R016-Table.el: Use `=daikanwa/ho' instead of
+	`morohashi-daikanwa' for MH-dddd.
 
 	* Ideograph-R015-Ice.el (U-00020602): Use `=daikanwa/ho' instead
 	of `morohashi-daikanwa'.
