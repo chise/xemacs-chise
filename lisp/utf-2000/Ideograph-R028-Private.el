@@ -243,7 +243,6 @@
   '((<-denotational
      ((=ucs		  . #x20AD7)	; 𠫗
       ))
-    (morohashi-daikanwa	ho 45)
     (ideographic-radical@ucs . 28)	; ⼛
     (ideographic-strokes@ucs . 2)
     (ideographic-radical@daikanwa . 16)	; ⼏
@@ -253,6 +252,7 @@
     (=ucs@iso		. #x20AD7)	; &GT-02288;
     (=gt		. 02288)	; &GT-02288;
     (=gt-pj-11		. #x432A)	; &GT-02288; [35-10]
+    (=daikanwa/ho	.  0045)	; &GT-02288;
     (=hanziku-1		. #xDEEF)	; &I-HZK01-DEEF;
     ))
 (define-char
