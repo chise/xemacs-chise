@@ -1,3 +1,12 @@
+2012-05-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R033-Scholar.el (U+58F2): Use `=daikanwa/+p' instead
+	of `morohashi-daikanwa' for M-05647'.
+
+	* Ideograph-R031-Enclosure.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for MH-dddd.
+
 2012-05-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el:
