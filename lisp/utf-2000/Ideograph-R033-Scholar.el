@@ -311,8 +311,7 @@
       ))
     ))
 (define-char
-  '((morohashi-daikanwa	5647 1)
-    (ideographic-radical . 33)	; ⼠
+  '((ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (ideographic-structure
@@ -330,6 +329,7 @@
     (=gt		. 07145)	; &I-GT-07145;
     (=gt-k		. 02771)	; &I-GT-K02771;
     (=gt-pj-1		. #x4764)	; &I-GT-07145; [39-68]
+    (=daikanwa/+p	. 05647)	; 売
     (=shinjigen		.  7905)	; 売
     (=adobe-japan1-0	. 03354)	; &I-AJ1-03354;
     (<-simplified@JP/Jouyou
