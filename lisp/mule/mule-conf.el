@@ -908,6 +908,15 @@
 		  direction	l2r
 		  registry	"Daikanwa\\(\\.[0-9]+\\)?-3"
 		  mother	=>>daikanwa))
+  (make-charset '=>daikanwa/ho
+		"Daikanwa abstract characters (Hokan)"
+		'(long-name	"abstract Daikanwa-ho"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=>>daikanwa/ho))
 
   (make-charset '=shinjigen
 		"Kadokawa ShinJigen dictionary (common parts)"
