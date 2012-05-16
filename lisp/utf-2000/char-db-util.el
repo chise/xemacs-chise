@@ -228,6 +228,7 @@
     =>gt
     =>big5-cdp
     =>daikanwa
+    =>daikanwa/ho
     =>cns11643-7
     =big5
     =big5-eten
@@ -485,7 +486,7 @@
        ((memq name '(=shinjigen
 		     =shinjigen@1ed
 		     =shinjigen@rev =shinjigen/+p@rev
-		     =daikanwa/ho =>>daikanwa/ho))
+		     =daikanwa/ho =>>daikanwa/ho =>daikanwa/ho))
 	"(%-18s .  %04d)\t; %c")
        ((eq name '=shinjigen@1ed/24pr)
 	"(%-18s . %04d)\t; %c")
