@@ -59,6 +59,19 @@
     ))
 (define-char
   '((ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (=>>big5-cdp	. #x865B)	; &G-CDP-865B;
+    (=>>gt-k		. 01371)	; &G-CDP-865B;
+    (->subsumptive
+     ((=gt-k		  . 01371)	; &GT-K01371;
+      (=gt-pj-k1	  . #x4A55)	; &GT-K01371; [42-53]
+      )
+     ((=big5-cdp	  . #x865B)	; &CDP-865B;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (sound@ja/kun	"oyo-so" "arayu-ru")
