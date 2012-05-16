@@ -1,3 +1,17 @@
+2012-05-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>daikanwa/ho'.
+	(char-db-insert-ccs-feature): Format `=>daikanwa/ho' as the same
+	as `=daikanwa/ho'.
+
+	* Ideograph-R037-Big.el, Ideograph-R036-Evening.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for M-Hdddd.
+
+	* Ideograph-R016-Table.el (G-BC-865B): New node to integrate
+	GT-K01371 and BC-865B; unify G-GT-K01371.
+
 2012-05-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R033-Scholar.el (U+58F2): Use `=daikanwa/+p' instead
