@@ -122,12 +122,12 @@
     (=hanziku-3		. #xAD61)	; &I-HZK03-AD61;
     ))
 (define-char
-  '((morohashi-daikanwa	ho 111)
-    (ideographic-radical . 36)	; ⼣
+  '((ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (hanyu-dazidian	2 861 2)
     (=ucs		. #x21585)	; 𡖅
+    (=daikanwa/ho	.  0111)	; 𡖅
     (=hanziku-3		. #xAD62)	; &I-HZK03-AD62;
     (=cbeta		. 07125)	; &I-CB07125;
     ))
@@ -457,19 +457,16 @@
     (=cbeta		. 02776)	; &I-CB02776;
     ))
 (define-char
-  '((morohashi-daikanwa	ho 112)
-    (ideographic-radical . 36)	; ⼣
+  '((ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (=ucs		. #x3C54)	; 㱔
-    ))
-(define-char
-  '((=>ucs		. #x3C54)	; 㱔
-    (morohashi-daikanwa	ho 112 0)
-    (ideographic-radical . 36)	; ⼣
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (=cns11643-3	. #x2B7B)	; &C3-2B7B; [11-91]
+    (->subsumptive
+     ((=ucs@unicode	  . #x3C54)	; &UU+3C54;
+      (=daikanwa/ho	  .  0112)	; &UU+3C54;
+      )
+     ((=cns11643-3	  . #x2B7B)	; &C3-2B7B; [11-91]
+      ))
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
@@ -949,7 +946,6 @@
      ((=ucs		  . #x5922)	; 夢
       ))
     (=>ucs*		. #x5922)	; 夢
-    (morohashi-daikanwa	5801 1)
     (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
@@ -969,6 +965,7 @@
     (=gt		. 07332)	; &I-GT-07332;
     (=gt-k		. 10272)	; &I-GT-K10272;
     (=gt-pj-1		. #x4C34)	; &I-GT-07332; [44-20]
+    (=daikanwa/+p	. 05801)	; 夢
     (=shinjigen		.  1549)	; 夢
     (=adobe-japan1-0	. 03776)	; &I-AJ1-03776;
     (=hanyo-denshi/ja	. #x4C34)	; &I-HD-JA-4C34; [44-20]
