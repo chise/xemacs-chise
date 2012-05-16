@@ -477,3 +477,9 @@
     (total-strokes	 . 19)
     (=ucs		. #x2202F)	; 𢀯
     ))
+(define-char
+  '((ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 17)
+    (total-strokes	 . 20)
+    (=ucs		. #x22030)	; 𢀰
+    ))
