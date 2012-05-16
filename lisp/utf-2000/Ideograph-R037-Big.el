@@ -760,9 +760,9 @@
     (total-strokes	 . 7)
     (=ucs		. #x215F1)	; 𡗱
     (->subsumptive
-     ((morohashi-daikanwa	ho 113)
-      (=gt		  . 07409)	; &GT-07409;
+     ((=gt		  . 07409)	; &GT-07409;
       (=gt-pj-11	  . #x433F)	; &GT-07409; [35-31]
+      (=daikanwa/ho	  .  0113)	; &GT-07409;
       )
      ((hanyu-dazidian	  1 529 13)
       (=ucs@iso		  . #x215F1)	; &HZK02-BCD9;
@@ -1739,9 +1739,9 @@
     (total-strokes	 . 9)
     (=ucs		. #x2161A)	; 𡘚
     (->subsumptive
-     ((morohashi-daikanwa	ho 114)
-      (=gt		  . 07459)	; &GT-07459;
+     ((=gt		  . 07459)	; &GT-07459;
       (=gt-pj-11	  . #x435B)	; &GT-07459; [35-59]
+      (=daikanwa/ho	  .  0114)	; &GT-07459;
       )
      ((hanyu-dazidian	  1 540 4)
       (=ucs@iso		  . #x2161A)	; &HZK02-BEF6;
@@ -3069,13 +3069,13 @@
     (total-strokes	 . 13)
     (=ucs		. #x5968)	; 奨
     (->subsumptive
-     ((morohashi-daikanwa	5990 1)
-      (hanyu-dazidian	  1 547 4)
+     ((hanyu-dazidian	  1 547 4)
       (=ucs@unicode	  . #x5968)	; &GT-07558;
       (=jis-x0208	  . #x3E29)	; &GT-07558; [30-09]
       (=jis-x0213-1	  . #x3E29)	; &I-JX1-3E29; [30-09]
       (=gt		  . 07558)	; &I-GT-07558;
       (=gt-pj-1		  . #x3E29)	; &I-GT-07558; [30-09]
+      (=daikanwa/+p	  . 05990)	; &GT-07558;
       (=hanziku-2	  . #xC07A)	; &I-HZK02-C07A;
       (<-simplified@JP/Jouyou
        ((=ucs		    . #x596C)	; 奬
@@ -3719,21 +3719,21 @@
     (=daikanwa		. 49012)	; &I-M-49012;
     ))
 (define-char
-  '((morohashi-daikanwa	ho 115)
-    (ideographic-radical . 37)	; ⼤
+  '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
     (hanyu-dazidian	1 550 5)
     (=ucs		. #x21693)	; 𡚓
+    (=daikanwa/ho	.  0115)	; 𡚓
     (=hanziku-2		. #xC0FD)	; &I-HZK02-C0FD;
     ))
 (define-char
-  '((morohashi-daikanwa	ho 116)
-    (ideographic-radical . 37)	; ⼤
+  '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
     (hanyu-dazidian	1 549 14)
     (=ucs		. #x2168D)	; 𡚍
+    (=daikanwa/ho	.  0116)	; 𡚍
     (=hanziku-2		. #xC0E6)	; &I-HZK02-C0E6;
     ))
 (define-char
