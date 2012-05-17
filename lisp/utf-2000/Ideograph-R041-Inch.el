@@ -190,14 +190,14 @@
      ((=ucs		  . #x58FD)	; 壽
       ))
     (->subsumptive
-     ((morohashi-daikanwa	7419 1)
-      (=ucs@jis		  . #x5BFF)	; &GT-09329;
+     ((=ucs@jis		  . #x5BFF)	; &GT-09329;
       (=jis-x0208	  . #x3C77)	; &GT-09329; [28-87]
       (=cns11643-3	  . #x255D)	; &I-C3-255D; [05-61]
       (=jis-x0213-1	  . #x3C77)	; &I-JX1-3C77; [28-87]
       (=gt		  . 09329)	; &I-GT-09329;
       (=gt-k		  . 02570)	; &I-GT-K02570;
       (=gt-pj-1		  . #x3C77)	; &I-GT-09329; [28-87]
+      (=daikanwa/+p	  . 07419)	; &GT-09329;
       (<-simplified@JP/Jouyou
        ((=ucs		    . #x58FD)	; 壽
 	(=jis-x0208	    . #x5468)	; &I-J90-5468; [52-72]
@@ -463,7 +463,6 @@
   '((<-denotational
      ((=ucs		  . #x5C06)	; 将
       ))
-    (morohashi-daikanwa	7437 1)
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
@@ -474,6 +473,7 @@
     (=gt		. 09355)	; &I-GT-09355;
     (=gt-k		. 06466)	; &I-GT-K06466;
     (=gt-pj-1		. #x3E2D)	; &I-GT-09355; [30-13]
+    (=daikanwa/+p	. 07437)	; &GT-09355;
     (=shinjigen@1ed	.  1889)	; &GT-09355;
     (<-simplified@JP/Jouyou
      ((=ucs@unicode	  . #x5C07)	; &GT-09364;
@@ -957,7 +957,6 @@
   '((<-denotational
      ((=ucs		  . #x5C0E)	; 導
       ))
-    (morohashi-daikanwa	7463 1)
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
@@ -968,6 +967,7 @@
     (=gt		. 09406)	; &I-GT-09406;
     (=gt-k		. 11930)	; &I-GT-K11930;
     (=gt-pj-1		. #x4633)	; &I-GT-09406; [38-19]
+    (=daikanwa/+p	. 07463)	; &GT-09406;
     (<-simplified
      ((=ks-x1001	  . #x5374)	; 導󠄃 [51-84]
       (=daikanwa	  . 07465)	; &I-M-07465;
@@ -1025,8 +1025,7 @@
     (=daikanwa		. 07466)	; &I-M-07466;
     ))
 (define-char
-  '((morohashi-daikanwa	ho 63)
-    (ideographic-radical@ucs . 29)	; ⼜
+  '((ideographic-radical@ucs . 29)	; ⼜
     (ideographic-strokes@ucs . 13)
     (ideographic-radical@ucs*sources
      daikanwa ucs)
@@ -1035,6 +1034,7 @@
     (total-strokes	 . 16)
     (=ucs		. #x20B8A)	; 𠮊
     (=cns11643-5	. #x542E)	; &I-C5-542E; [52-14]
+    (=daikanwa/ho	.  0063)	; 𠮊
     ))
 (define-char
   '((ideographic-radical . 41)	; ⼨
