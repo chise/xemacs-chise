@@ -1,3 +1,42 @@
+2012-05-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R041-Inch.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for M-Hdddd.
+
+	* Ideograph-R032-Earth.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for M-Hdddd.
+	(A-M-H0105): New abstract character.
+	(GT-07039): Add `<-denotational' for A-M-H0105; add `<-unknown' for
+	U-00021480.
+	(U-00021480): Add `<-denotational' for A-M-H0105; fix
+	`ideographic-strokes' and `total-strokes'.
+	(U+367B): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(GT-07108): Add `ideographic-structure'; add `<-formed@Zetian' and
+	`<-same' for J0-3D69; add `<-unknown' for U-00022030.
+	(A-M-H0109): New abstract character.
+	(GT-07118): Add `<-denotational' for A-M-H0109.
+	(U-0002150C): Ditto.
+	(GT-07124): Add `<-unknown' for U-00021505.
+
+2012-05-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for M-Hdddd.
+	(G-GT-08980): New abstract character to integrate GT-08980; unify
+	G-M-H0130; add ideographic-structure.
+	(GT-08980): Add `ideographic-structure'.
+	(G-GT-09094): New abstract character to integrate GT-09094; unify
+	G-M-H0134; add ideographic-structure.
+	(GT-09094): Add `ideographic-structure'; add `<-vulgar' for J0-3473.
+	(G-GT-09129): New abstract character to integrate GT-09129; unify
+	G-M-H0135; add ideographic-structure.
+	(GT-09129): Add `ideographic-structure'.
+	(g2-J0-472B): Unify G-M-07296'.
+
 2012-05-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R038-Woman.el:
