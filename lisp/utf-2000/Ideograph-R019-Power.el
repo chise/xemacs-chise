@@ -5055,8 +5055,8 @@
     (->subsumptive
      ((ideographic-strokes . 12)
       (total-strokes	   . 14)
-      (=ucs@iso		  . #x208AB)	; &U-000208AB;
-      (=daikanwa/ho	  .  0054)	; &U-000208AB;
+      (=ucs@iso		  . #x208AB)	; &M-H0054;
+      (=daikanwa/ho	  .  0054)	; &M-H0054;
       )
      ((ideographic-strokes . 13)
       (total-strokes	   . 15)
