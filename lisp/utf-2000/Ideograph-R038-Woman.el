@@ -654,8 +654,8 @@
     (total-strokes	 . 6)
     (=ucs		. #x36A8)	; 㚨
     (->subsumptive
-     ((=ucs@unicode	  . #x36A8)	; &UU+36A8;
-      (=daikanwa/ho	  .  0117)	; &UU+36A8;
+     ((=ucs@unicode	  . #x36A8)	; &M-H0117;
+      (=daikanwa/ho	  .  0117)	; &M-H0117;
       )
      ((=cns11643-3	  . #x2349)	; &C3-2349; [03-41]
       ))
@@ -15774,8 +15774,8 @@
     (total-strokes	 . 16)
     (=ucs		. #x218B1)	; 𡢱
     (->subsumptive
-     ((=ucs@iso		  . #x218B1)	; &U-000218B1;
-      (=daikanwa/ho	  .  0127)	; &U-000218B1;
+     ((=ucs@iso		  . #x218B1)	; &M-H0127;
+      (=daikanwa/ho	  .  0127)	; &M-H0127;
       )
      ((=cns11643-5	  . #x537E)	; &C5-537E; [51-94]
       ))
