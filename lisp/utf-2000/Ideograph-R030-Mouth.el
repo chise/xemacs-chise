@@ -40705,9 +40705,9 @@
 	(=ks-x1001	    . #x734C)	; &I-K0-734C; [83-44]
 	(=jis-x0213-1	    . #x3B21)	; &I-JX1-3B21; [27-01]
 	))
-      (=ucs@JP		  . #x5693)	; &dJU+5693;
-      (=daikanwa/ho	  .  0073)	; &dJU+5693;
-      (=jef-china3	  . #x8EE0)	; &dJU+5693;
+      (=ucs@JP		  . #x5693)	; &M-H0073;
+      (=daikanwa/ho	  .  0073)	; &M-H0073;
+      (=jef-china3	  . #x8EE0)	; &M-H0073;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
