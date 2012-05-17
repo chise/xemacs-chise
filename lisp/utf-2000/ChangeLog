@@ -1,5 +1,13 @@
 2012-05-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R038-Woman.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for M-Hdddd.
+
+2012-05-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R048-Work.el (U-00022030): New character.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>daikanwa/ho'.
 	(char-db-insert-ccs-feature): Format `=>daikanwa/ho' as the same
