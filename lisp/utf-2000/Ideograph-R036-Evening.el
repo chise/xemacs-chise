@@ -462,8 +462,8 @@
     (total-strokes	 . 9)
     (=ucs		. #x3C54)	; 㱔
     (->subsumptive
-     ((=ucs@unicode	  . #x3C54)	; &UU+3C54;
-      (=daikanwa/ho	  .  0112)	; &UU+3C54;
+     ((=ucs@unicode	  . #x3C54)	; &M-H0112;
+      (=daikanwa/ho	  .  0112)	; &M-H0112;
       )
      ((=cns11643-3	  . #x2B7B)	; &C3-2B7B; [11-91]
       ))
