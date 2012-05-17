@@ -1,3 +1,8 @@
+2012-05-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `=daikanwa/ho', `=daikanwa/+p' and `=>daikanwa/ho'.
+
 2012-05-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=>daikanwa/ho): New coded-charset for XEmacs
