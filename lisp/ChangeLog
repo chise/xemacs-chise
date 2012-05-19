@@ -1,3 +1,8 @@
+2012-05-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	Prefer '("M-H" 4 d) and '("M-p" 5 d) to '("M-" 5 d).
+
 2012-05-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
