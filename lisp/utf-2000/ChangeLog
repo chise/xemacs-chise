@@ -1,3 +1,9 @@
+2012-05-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R042-Small.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for M-Hdddd.
+
 2012-05-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R041-Inch.el:
