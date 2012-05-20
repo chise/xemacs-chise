@@ -1084,10 +1084,10 @@
     (->subsumptive
      ((ideographic-strokes . 6)
       (total-strokes	   . 8)
-      (=ucs@iso		  . #x24C1E)	; &M-02739;
-      (=cns11643-4	  . #x2553)	; &M-02739; [05-51]
+      (=ucs@iso		  . #x24C1E)	; &C4-2553;
+      (=cns11643-4	  . #x2553)	; &C4-2553; [05-51]
       (=daikanwa	  . 02739)	; &I-M-02739;
-      (=shinjigen	  .  0831)	; &M-02739;
+      (=shinjigen	  .  0831)	; &C4-2553;
       (<-vulgar
        ((=ucs		    . #xFA35)	; 卑
 	(=daikanwa	    . 02738)	; &I-M-02738;
@@ -1164,8 +1164,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@iso	    . #x20143)	; &HZK01-E06C;
-	(=cns11643-6	    . #x234A)	; &HZK01-E06C; [03-42]
+       ((=ucs@iso	    . #x20143)	; &C6-234A;
+	(=cns11643-6	    . #x234A)	; &C6-234A; [03-42]
 	)
        ((=ucs		    . #x5341)	; 十
 	))
@@ -1583,8 +1583,8 @@
     (total-strokes	 . 11)
     (=ucs		. #x209AB)	; 𠦫
     (->subsumptive
-     ((=ucs@iso		  . #x209AB)	; &M-02759;
-      (=cns11643-4	  . #x3061)	; &M-02759; [16-65]
+     ((=ucs@iso		  . #x209AB)	; &C4-3061;
+      (=cns11643-4	  . #x3061)	; &C4-3061; [16-65]
       (=daikanwa	  . 02759)	; &I-M-02759;
       )
      ((hanyu-dazidian	  1 66 1)
@@ -1904,8 +1904,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x470C)	; &M-35943;
-	(=jis-x0213-2	    . #x786B)	; &M-35943; [88-75]
+       ((=ucs@jis	    . #x470C)	; &JX2-786B;
+	(=jis-x0213-2	    . #x786B)	; &JX2-786B; [88-75]
 	(=daikanwa	    . 35943)	; &I-M-35943;
 	)
        ((=ucs		    . #x5341)	; 十
