@@ -663,9 +663,9 @@
     (->subsumptive
      ((=>>>ucs@unicode	  . #x5318)	; &g2-UU+5318;
       (->subsumptive
-       ((=ucs@jis	    . #x5318)	; &M-02589;
+       ((=ucs@jis	    . #x5318)	; &JSP-3424;
 	(=ucs@JP/hanazono   . nil)
-	(=jis-x0212	    . #x3424)	; &M-02589; [20-04]
+	(=jis-x0212	    . #x3424)	; &JSP-3424; [20-04]
 	(=daikanwa	    . 02589)	; &I-M-02589;
 	)
        ((=decomposition@cid
