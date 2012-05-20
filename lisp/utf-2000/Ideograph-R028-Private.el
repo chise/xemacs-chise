@@ -220,7 +220,7 @@
      ((=ucs@iso		  . #x2062F)	; &M-03067;
       (=daikanwa	  . 03067)	; &M-03067;
       )
-     ((=cns11643-6	  . #x215C)	; &CDP-87B8; [01-60]
+     ((=cns11643-6	  . #x215C)	; &C6-215C; [01-60]
       (=big5-cdp	  . #x87B8)	; &I-CDP-87B8;
       ))
     ))
@@ -450,7 +450,7 @@
       )
      ((=ucs		  . #x53BB)	; 去
       ))
-    (=cns11643-3	. #x2331)	; &M-03080; [03-17]
+    (=cns11643-3	. #x2331)	; &C3-2331; [03-17]
     (=daikanwa		. 03080)	; &I-M-03080;
     ))
 (define-char
@@ -563,7 +563,7 @@
     (ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (=cns11643-6	. #x2641)	; &M-48957; [06-33]
+    (=cns11643-6	. #x2641)	; &C6-2641; [06-33]
     (=daikanwa		. 48957)	; &I-M-48957;
     ))
 (define-char
@@ -887,8 +887,8 @@
     (ideographic-radical@cns*sources
      daikanwa cns11643)
     (total-strokes	 . 10)
-    (=ucs@iso		. #x20AFB)	; &M-05931;
-    (=cns11643-6	. #x3649)	; &M-05931; [22-41]
+    (=ucs@iso		. #x20AFB)	; &C6-3649;
+    (=cns11643-6	. #x3649)	; &C6-3649; [22-41]
     (=daikanwa		. 05931)	; &I-M-05931;
     ))
 (define-char
@@ -959,8 +959,8 @@
       (=daikanwa	  . 03099)	; 叄󠄀
       (=adobe-japan1-5	  . 19217)	; &I-AJ1-19217;
       )
-     ((=ucs@unicode	  . #x53C4)	; &HZK01-F5C1;
-      (=cns11643-3	  . #x3455)	; &HZK01-F5C1; [20-53]
+     ((=ucs@unicode	  . #x53C4)	; &C3-3455;
+      (=cns11643-3	  . #x3455)	; &C3-3455; [20-53]
       (=hanziku-1	  . #xF5C1)	; &I-HZK01-F5C1;
       ))
     ))
@@ -985,10 +985,10 @@
 	)
        ((=ucs		    . #x201CD)	; 𠇍
 	))
-      (=ucs@unicode	  . #x53C5)	; &M-03100;
-      (=cns11643-3	  . #x3A29)	; &M-03100; [26-09]
+      (=ucs@unicode	  . #x53C5)	; &C3-3A29;
+      (=cns11643-3	  . #x3A29)	; &C3-3A29; [26-09]
       (=daikanwa	  . 03100)	; &I-M-03100;
-      (=shinjigen	  .  0894)	; &M-03100;
+      (=shinjigen	  .  0894)	; &C3-3A29;
       (=cbeta		  . 03744)	; &I-CB03744;
       (<-vulgar
        ((=ucs		    . #x53C3)	; 參
@@ -1393,8 +1393,8 @@
       (=daikanwa	  . 43254)	; &M-43254;
       )
      ((hanyu-dazidian	  1 389 20)
-      (=ucs@iso		  . #x20B18)	; &HZK01-F641;
-      (=cns11643-7	  . #x4B6A)	; &HZK01-F641; [43-74]
+      (=ucs@iso		  . #x20B18)	; &C7-4B6A;
+      (=cns11643-7	  . #x4B6A)	; &C7-4B6A; [43-74]
       (=hanziku-1	  . #xF641)	; &I-HZK01-F641;
       ))
     ))
