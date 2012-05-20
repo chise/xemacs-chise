@@ -589,8 +589,8 @@
 	(=jis-x0213-1	    . #x482C)	; &I-JX1-482C; [40-12]
 	(=daikanwa	    . 01450)	; &I-M-01450;
 	)
-       ((=ucs@unicode	    . #x5929)	; &GT-K00468;
-	(=gb2312	    . #x4C6C)	; &GT-K00468; [44-76]
+       ((=ucs@unicode	    . #x5929)	; &C1-4532;
+	(=gb2312	    . #x4C6C)	; &C1-4532; [44-76]
 	(=cns11643-1	    . #x4532)	; &I-C1-4532; [37-18]
 	))
       (=daikanwa	  . 01459)	; 关󠄂
@@ -635,8 +635,8 @@
 	)
        ((=ucs		    . #x4E37)	; 丷
 	)
-       ((=ucs@unicode	    . #x5929)	; &GT-K00468;
-	(=gb2312	    . #x4C6C)	; &GT-K00468; [44-76]
+       ((=ucs@unicode	    . #x5929)	; &C1-4532;
+	(=gb2312	    . #x4C6C)	; &C1-4532; [44-76]
 	(=cns11643-1	    . #x4532)	; &I-C1-4532; [37-18]
 	))
       (=ucs@unicode	  . #x5173)	; 关󠄀
@@ -705,7 +705,7 @@
 	)
        ((=cns11643-1	    . #x442C)	; &C1-442C; [36-12]
 	))
-      (=cns11643-3	  . #x227A)	; &HZK01-D7F7; [02-90]
+      (=cns11643-3	  . #x227A)	; &C3-227A; [02-90]
       (=hanziku-1	  . #xD7F7)	; &I-HZK01-D7F7;
       )
      ((ideographic-structure
@@ -742,8 +742,8 @@
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (=ucs@iso		. #x20509)	; &M-48931;
-    (=cns11643-6	. #x2357)	; &M-48931; [03-55]
+    (=ucs@iso		. #x20509)	; &C6-2357;
+    (=cns11643-6	. #x2357)	; &C6-2357; [03-55]
     (=daikanwa		. 48931)	; &I-M-48931;
     ))
 (define-char
@@ -763,8 +763,8 @@
     (=gt-pj-k1		. #x322C)	; 𠔉󠄀 [18-12]
     (=adobe-japan1-5	. 17299)	; &I-AJ1-17299;
     (<-formed@component/connect-below
-     ((=ucs@iso		  . #x20509)	; &M-48931;
-      (=cns11643-6	  . #x2357)	; &M-48931; [03-55]
+     ((=ucs@iso		  . #x20509)	; &C6-2357;
+      (=cns11643-6	  . #x2357)	; &C6-2357; [03-55]
       (=daikanwa	  . 48931)	; &I-M-48931;
       ))
     ))
@@ -1283,7 +1283,7 @@
      ((=ucs@iso		  . #x20515)	; &U-00020515;
       )
      ((hanyu-dazidian	  1 249 5)
-      (=cns11643-5	  . #x2827)	; &HZK01-D97B; [08-07]
+      (=cns11643-5	  . #x2827)	; &C5-2827; [08-07]
       (=hanziku-1	  . #xD97B)	; &I-HZK01-D97B;
       ))
     ))
@@ -1311,8 +1311,8 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 249 6)
-    (=ucs@unicode	. #x517B)	; &HZK01-D97C;
-    (=gb2312		. #x5178)	; &HZK01-D97C; [49-88]
+    (=ucs@unicode	. #x517B)	; &G0-5178;
+    (=gb2312		. #x5178)	; &G0-5178; [49-88]
     (=hanziku-1		. #xD97C)	; &I-HZK01-D97C;
     ))
 (define-char
