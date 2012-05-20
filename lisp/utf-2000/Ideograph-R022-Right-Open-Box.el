@@ -788,7 +788,7 @@
     (total-strokes	 . 9)
     (=ucs		. #x20942)	; 𠥂
     (->subsumptive
-     ((=cns11643-6	  . #x2F32)	; &M-02628; [15-18]
+     ((=cns11643-6	  . #x2F32)	; &C6-2F32; [15-18]
       (=daikanwa	  . 02628)	; &I-M-02628;
       (<-same
        ((=ucs@jis	    . #x67E9)	; &GT-18571;
@@ -1908,8 +1908,8 @@
        shuowen yupian jiyun daikanwa)
       )
      ((hanyu-dazidian	  1 91 10)
-      (=ucs@cns		  . #x2096C)	; &HZK01-B6C1;
-      (=cns11643-7	  . #x6443)	; &HZK01-B6C1; [68-35]
+      (=ucs@cns		  . #x2096C)	; &C7-6443;
+      (=cns11643-7	  . #x6443)	; &C7-6443; [68-35]
       (=hanziku-1	  . #xB6C1)	; &I-HZK01-B6C1;
       ))
     ))
