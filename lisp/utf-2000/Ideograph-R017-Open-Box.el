@@ -580,8 +580,8 @@
      ((=daikanwa	  . 01825)	; &M-01825;
       )
      ((hanyu-dazidian	  1 309 3)
-      (=ucs@iso		  . #x20687)	; &HZK01-E5BF;
-      (=cns11643-6	  . #x2628)	; &HZK01-E5BF; [06-08]
+      (=ucs@iso		  . #x20687)	; &C6-2628;
+      (=cns11643-6	  . #x2628)	; &C6-2628; [06-08]
       (=hanziku-1	  . #xE5BF)	; &I-HZK01-E5BF;
       ))
     ))
@@ -926,8 +926,8 @@
     (=ucs		. #x25390)	; 𥎐
     (->subsumptive
      ((hanyu-dazidian	  4 2768 16)
-      (=ucs@iso		  . #x25390)	; &M-01841;
-      (=cns11643-5	  . #x5A75)	; &M-01841; [58-85]
+      (=ucs@iso		  . #x25390)	; &C5-5A75;
+      (=cns11643-5	  . #x5A75)	; &C5-5A75; [58-85]
       (=daikanwa	  . 01841)	; &I-M-01841;
       (=hanziku-7	  . #xE845)	; &I-HZK07-E845;
       )
