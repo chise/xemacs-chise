@@ -201,8 +201,8 @@
     (=ucs		. #x5361)	; 卡
     (=big5		. #xA564)	; &I-B-A564;
     (->subsumptive
-     ((=ucs@unicode	  . #x5361)	; &M-02781;
-      (=gb2312		  . #x3F28)	; &M-02781; [31-08]
+     ((=ucs@unicode	  . #x5361)	; &JX1-2E6F;
+      (=gb2312		  . #x3F28)	; &JX1-2E6F; [31-08]
       (=jis-x0212	  . #x343B)	; &I-JSP-343B; [20-27]
       (=jis-x0213-1	  . #x2E6F)	; &I-JX1-2E6F; [14-79]
       (=daikanwa	  . 02781)	; &I-M-02781;
@@ -865,7 +865,7 @@
       (=jis-x0213-1	  . #x5325)	; &I-JX1-5325; [51-05]
       (=daikanwa	  . 03573)	; &I-M-03573;
       ))
-    (=ks-x1001		. #x6059)	; &M-02820; [64-57]
+    (=ks-x1001		. #x6059)	; &C4-3064; [64-57]
     (=cns11643-4	. #x3064)	; &I-C4-3064; [16-68]
     (=daikanwa		. 02820)	; &I-M-02820;
     (=hanziku-1		. #xB7A9)	; &I-HZK01-B7A9;
@@ -933,7 +933,7 @@
     (ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (=cns11643-6	. #x3D58)	; &M-02824; [29-56]
+    (=cns11643-6	. #x3D58)	; &C6-3D58; [29-56]
     (=daikanwa		. 02824)	; &I-M-02824;
     ))
 (define-char
