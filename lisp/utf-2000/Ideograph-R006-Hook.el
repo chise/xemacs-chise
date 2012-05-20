@@ -370,7 +370,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=cns11643-1	    . #x456F)	; &GT-K01023; [37-79]
+       ((=cns11643-1	    . #x456F)	; &C1-456F; [37-79]
 	)
        ((=ucs		    . #x4E01)	; 丁
 	))
@@ -382,8 +382,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x4EE4)	; &GT-K01022;
-	(=gb2312	    . #x416E)	; &GT-K01022; [33-78]
+       ((=ucs@unicode	    . #x4EE4)	; &G0-416E;
+	(=gb2312	    . #x416E)	; &G0-416E; [33-78]
 	)
        ((=ucs		    . #x4E01)	; 丁
 	))
@@ -410,8 +410,8 @@
     (total-strokes	 . 7)
     (=ucs		. #x20029)	; 𠀩
     (->subsumptive
-     ((=ucs@iso		  . #x20029)	; &M-00239;
-      (=cns11643-6	  . #x2563)	; &M-00239; [05-67]
+     ((=ucs@iso		  . #x20029)	; &C6-2563;
+      (=cns11643-6	  . #x2563)	; &C6-2563; [05-67]
       (=daikanwa	  . 00239)	; &I-M-00239;
       )
      ((hanyu-dazidian	  1 553 5)
