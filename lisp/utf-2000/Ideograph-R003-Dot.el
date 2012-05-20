@@ -540,8 +540,8 @@
 	  ))
 	))
       ))
-    (=ucs@unicode	. #x4E3D)	; &HZK01-A86E;
-    (=gb2312		. #x4076)	; &HZK01-A86E; [32-86]
+    (=ucs@unicode	. #x4E3D)	; &G0-4076;
+    (=gb2312		. #x4076)	; &G0-4076; [32-86]
     (=hanziku-1		. #xA86E)	; &I-HZK01-A86E;
     (<-simplified@CN
      ((=ucs@unicode	  . #x9E97)	; &UU+9E97;
