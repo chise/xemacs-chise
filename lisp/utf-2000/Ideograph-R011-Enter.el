@@ -907,8 +907,8 @@
      ((=daikanwa	  . 01430)	; &M-01430;
       )
      ((hanyu-dazidian	  1 100 8)
-      (=ucs@unicode	  . #x34B3)	; &CDP-8ABC;
-      (=cns11643-3	  . #x2455)	; &CDP-8ABC; [04-53]
+      (=ucs@unicode	  . #x34B3)	; &C3-2455;
+      (=cns11643-3	  . #x2455)	; &C3-2455; [04-53]
       (=big5-cdp	  . #x8ABC)	; &I-CDP-8ABC;
       ))
     ))
@@ -926,8 +926,8 @@
     (->subsumptive
      ((=big5-cdp	  . #x8C62)	; &CDP-8C62;
       (<-formed@component/connect-above
-       ((=ucs@unicode	    . #x34B3)	; &CDP-8ABC;
-	(=cns11643-3	    . #x2455)	; &CDP-8ABC; [04-53]
+       ((=ucs@unicode	    . #x34B3)	; &C3-2455;
+	(=cns11643-3	    . #x2455)	; &C3-2455; [04-53]
 	))
       ))
     ))
