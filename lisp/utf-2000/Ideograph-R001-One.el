@@ -1118,7 +1118,7 @@
       (=cns11643-6	  . #x2227)	; &GT-31487; [02-07]
       (=daikanwa	  . 24624)	; &I-M-24624;
       )
-     ((=cns11643-1	  . #x467C)	; &M-24623; [38-92]
+     ((=cns11643-1	  . #x467C)	; &C1-467C; [38-92]
       (=daikanwa	  . 24623)	; &I-M-24623;
       ))
     ))
@@ -1533,8 +1533,8 @@
       (ideographic-radical@cns . 1)	; ⼀
       (ideographic-strokes@cns . 4)
       (hanyu-dazidian	  1 52 9)
-      (=ucs@iso		  . #x200E0)	; &CDP-87CF;
-      (=cns11643-6	  . #x222A)	; &CDP-87CF; [02-10]
+      (=ucs@iso		  . #x200E0)	; &C6-222A;
+      (=cns11643-6	  . #x222A)	; &C6-222A; [02-10]
       (=big5-cdp	  . #x87CF)	; &I-CDP-87CF;
       ))
     ))
@@ -2317,8 +2317,8 @@
     (total-strokes	 . 7)
     (=ucs		. #x20029)	; 𠀩
     (->subsumptive
-     ((=ucs@iso		  . #x20029)	; &M-00239;
-      (=cns11643-6	  . #x2563)	; &M-00239; [05-67]
+     ((=ucs@iso		  . #x20029)	; &C6-2563;
+      (=cns11643-6	  . #x2563)	; &C6-2563; [05-67]
       (=daikanwa	  . 00239)	; &I-M-00239;
       )
      ((hanyu-dazidian	  1 553 5)
@@ -3189,9 +3189,9 @@
     (=ucs		. #x20050)	; 𠁐
     (->subsumptive
      ((hanyu-dazidian	  8 7 8)
-      (=ucs@iso		  . #x20050)	; &HZK12-EB47;
-      (=daikanwa/ho	  .  0004)	; &HZK12-EB47;
-      (=hanziku-12	  . #xEB47)	; &HZK12-EB47;
+      (=ucs@iso		  . #x20050)	; &M-H0004;
+      (=daikanwa/ho	  .  0004)	; &M-H0004;
+      (=hanziku-12	  . #xEB47)	; &M-H0004;
       )
      ((=gt		  . 00096)	; &GT-00096;
       (=gt-pj-11	  . #x454C)	; &GT-00096; [37-44]
