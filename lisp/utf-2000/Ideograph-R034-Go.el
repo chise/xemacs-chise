@@ -102,8 +102,8 @@
       )
      ((=ucs		  . #x535C)	; 卜
       ))
-    (=ucs@unicode	. #x5904)	; &HZK03-AEB6;
-    (=gb2312		. #x3426)	; &HZK03-AEB6; [20-06]
+    (=ucs@unicode	. #x5904)	; &G0-3426;
+    (=gb2312		. #x3426)	; &G0-3426; [20-06]
     (=hanziku-3		. #xAEB6)	; &I-HZK03-AEB6;
     (=jef-china3	. #x81CC)	; &I-JC3-81CC;
     ))
@@ -143,7 +143,7 @@
       (=daikanwa	  . 05695)	; &M-05695;
       (=jef-china3	  . #x48CE)	; &I-JC3-48CE;
       )
-     ((=cns11643-3	  . #x2344)	; &CDP-8D5F; [03-36]
+     ((=cns11643-3	  . #x2344)	; &C3-2344; [03-36]
       (=big5-cdp	  . #x8D5F)	; &I-CDP-8D5F;
       )
      ((=decomposition@cid
@@ -403,8 +403,8 @@
 	(=gb2312	    . #x5260)	; &C1-4729; [50-64]
 	(=cns11643-1	    . #x4729)	; &I-C1-4729; [39-09]
 	)
-       ((=ucs@unicode	    . #x590A)	; &CDP-8A71;
-	(=cns11643-3	    . #x213A)	; &CDP-8A71; [01-26]
+       ((=ucs@unicode	    . #x590A)	; &C3-213A;
+	(=cns11643-3	    . #x213A)	; &C3-213A; [01-26]
 	))
       (=ucs@cns		  . #x5909)	; &C3-2B79;
       (=cns11643-3	  . #x2B79)	; &C3-2B79; [11-89]
@@ -426,7 +426,7 @@
     (ideographic-radical . 34)	; ⼡
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=cns11643-6	. #x3E37)	; &M-05705; [30-23]
+    (=cns11643-6	. #x3E37)	; &C6-3E37; [30-23]
     (=daikanwa		. 05705)	; &I-M-05705;
     ))
 (define-char
