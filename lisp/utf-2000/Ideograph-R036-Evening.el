@@ -288,8 +288,8 @@
      ((=daikanwa	  . 05760)	; &M-05760;
       )
      ((hanyu-dazidian	  2 863 5)
-      (=ucs@iso		  . #x2158A)	; &HZK03-ADC7;
-      (=cns11643-6	  . #x266E)	; &HZK03-ADC7; [06-78]
+      (=ucs@iso		  . #x2158A)	; &C6-266E;
+      (=cns11643-6	  . #x266E)	; &C6-266E; [06-78]
       (=hanziku-3	  . #xADC7)	; &I-HZK03-ADC7;
       ))
     ))
@@ -566,8 +566,8 @@
 	)
        ((=ucs		    . #x591C)	; 夜
 	))
-      (=ucs@iso		  . #x20157)	; &HZK01-E153;
-      (=cns11643-5	  . #x2C66)	; &HZK01-E153; [12-70]
+      (=ucs@iso		  . #x20157)	; &C5-2C66;
+      (=cns11643-5	  . #x2C66)	; &C5-2C66; [12-70]
       (=hanziku-1	  . #xE153)	; &I-HZK01-E153;
       ))
     ))
@@ -1043,8 +1043,8 @@
     (=ucs		. #x5924)	; 夤
     (=big5		. #xB9DB)	; &I-B-B9DB;
     (->subsumptive
-     ((=ucs@jis		  . #x5924)	; &M-05805;
-      (=jis-x0212	  . #x386A)	; &M-05805; [24-74]
+     ((=ucs@jis		  . #x5924)	; &JX2-253D;
+      (=jis-x0212	  . #x386A)	; &JX2-253D; [24-74]
       (=jis-x0213-2	  . #x253D)	; &I-JX2-253D; [05-29]
       (=daikanwa	  . 05805)	; &I-M-05805;
       )
@@ -1183,7 +1183,7 @@
     (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=cns11643-6	. #x5B70)	; &M-05816; [59-80]
+    (=cns11643-6	. #x5B70)	; &C6-5B70; [59-80]
     (=daikanwa		. 05816)	; &I-M-05816;
     ))
 (define-char
@@ -1356,8 +1356,8 @@
      ((=daikanwa	  . 05826)	; &M-05826;
       )
      ((hanyu-dazidian	  2 867 8)
-      (=ucs@iso		  . #x215CC)	; &HZK03-AEAD;
-      (=cns11643-7	  . #x464C)	; &HZK03-AEAD; [38-44]
+      (=ucs@iso		  . #x215CC)	; &C7-464C;
+      (=cns11643-7	  . #x464C)	; &C7-464C; [38-44]
       (=hanziku-3	  . #xAEAD)	; &I-HZK03-AEAD;
       ))
     ))
