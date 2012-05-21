@@ -590,7 +590,7 @@
     (=ucs		. #x5C09)	; 尉
     (=big5		. #xB14C)	; &I-B-B14C;
     (->subsumptive
-     ((=cns11643-1	  . #x5970)	; &M-07440; [57-80]
+     ((=cns11643-1	  . #x5970)	; &C1-5970; [57-80]
       (=daikanwa	  . 07440)	; &I-M-07440;
       )
      ((=ucs@unicode	  . #x5C09)	; &GT-09359;
@@ -834,12 +834,12 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=cns11643-1	    . #x5C41)	; &M-24694; [60-33]
+       ((=cns11643-1	    . #x5C41)	; &C1-5C41; [60-33]
 	(=daikanwa	    . 24694)	; &I-M-24694;
 	)
        ((=ucs		    . #x5BF8)	; 寸
 	))
-      (=cns11643-6	  . #x5C30)	; &M-07456; [60-16]
+      (=cns11643-6	  . #x5C30)	; &C6-5C30; [60-16]
       (=daikanwa	  . 07456)	; &I-M-07456;
       )
      ((=cbeta		  . 05635)	; &CB05635;
