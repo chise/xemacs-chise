@@ -52,8 +52,8 @@
       (->mistakable*sources
        zihui daikanwa)
       )
-     ((=ucs@iso		  . #x20627)	; &CDP-8AAE;
-      (=cns11643-4	  . #x2129)	; &CDP-8AAE; [01-09]
+     ((=ucs@iso		  . #x20627)	; &C4-2129;
+      (=cns11643-4	  . #x2129)	; &C4-2129; [01-09]
       (=big5-cdp	  . #x8AAE)	; &I-CDP-8AAE;
       ))
     ))
@@ -350,7 +350,7 @@
      ((=ucs@iso		  . #x2062F)	; &M-03067;
       (=daikanwa	  . 03067)	; &M-03067;
       )
-     ((=cns11643-6	  . #x215C)	; &CDP-87B8; [01-60]
+     ((=cns11643-6	  . #x215C)	; &C6-215C; [01-60]
       (=big5-cdp	  . #x87B8)	; &I-CDP-87B8;
       ))
     ))
@@ -712,8 +712,8 @@
      ((=daikanwa	  . 01764)	; &M-01764;
       )
      ((hanyu-dazidian	  1 386 11)
-      (=ucs@iso		  . #x20AE8)	; &HZK01-F575;
-      (=cns11643-5	  . #x233C)	; &HZK01-F575; [03-28]
+      (=ucs@iso		  . #x20AE8)	; &C5-233C;
+      (=cns11643-5	  . #x233C)	; &C5-233C; [03-28]
       (=hanziku-1	  . #xF575)	; &I-HZK01-F575;
       ))
     ))
@@ -917,8 +917,8 @@
     (=cns11643-6	. #x295E)	; &I-C6-295E; [09-62]
     (=hanziku-3		. #xDF74)	; &I-HZK03-DF74;
     (<-ancient
-     ((=ucs@jis		  . #x5E7E)	; &M-09208;
-      (=jis-x0208	  . #x3476)	; &M-09208; [20-86]
+     ((=ucs@jis		  . #x5E7E)	; &J90-3476;
+      (=jis-x0208	  . #x3476)	; &J90-3476; [20-86]
       (=ks-x1001	  . #x507A)	; &I-K0-507A; [48-90]
       (=jis-x0213-1	  . #x3476)	; &I-JX1-3476; [20-86]
       (=daikanwa	  . 09208)	; &I-M-09208;
@@ -1160,7 +1160,7 @@
     (ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (=cns11643-5	. #x3129)	; &M-01786; [17-09]
+    (=cns11643-5	. #x3129)	; &C5-3129; [17-09]
     (=daikanwa		. 01786)	; &I-M-01786;
     ))
 (define-char
@@ -1279,9 +1279,9 @@
     (=ucs		. #x51EF)	; 凯
     (->subsumptive
      ((hanyu-dazidian	  1 277 19)
-      (=>>>ucs@unicode	  . #x51EF)	; &HZK01-DF5B;
-      (=ucs@unicode	  . #x51EF)	; &HZK01-DF5B;
-      (=gb2312		  . #x3F2D)	; &HZK01-DF5B; [31-13]
+      (=>>>ucs@unicode	  . #x51EF)	; &G0-3F2D;
+      (=ucs@unicode	  . #x51EF)	; &G0-3F2D;
+      (=gb2312		  . #x3F2D)	; &G0-3F2D; [31-13]
       (=hanziku-1	  . #xDF5B)	; &I-HZK01-DF5B;
       (<-simplified@CN
        ((=ucs@unicode	    . #x51F1)	; 凱󠄀
