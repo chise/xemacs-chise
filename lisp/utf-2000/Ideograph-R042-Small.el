@@ -172,8 +172,8 @@
     (total-strokes	 . 5)
     (=ucs		. #x5C14)	; 尔
     (->subsumptive
-     ((=ucs@unicode	  . #x5C14)	; &M-07479;
-      (=gb2312		  . #x367B)	; &M-07479; [22-91]
+     ((=ucs@unicode	  . #x5C14)	; &G0-367B;
+      (=gb2312		  . #x367B)	; &G0-367B; [22-91]
       (=daikanwa	  . 07479)	; &I-M-07479;
       (=cbeta		  . 00380)	; &I-CB00380;
       (<-same
@@ -651,7 +651,7 @@
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=cns11643-6	. #x3E64)	; &CB00144; [30-68]
+    (=cns11643-6	. #x3E64)	; &C6-3E64; [30-68]
     (=cbeta		. 00144)	; &I-CB00144;
     ))
 (define-char
@@ -1010,8 +1010,8 @@
      ((=daikanwa	  . 07534)	; &M-07534;
       )
      ((hanyu-dazidian	  1 566 11)
-      (=ucs@iso		  . #x221D4)	; &HZK02-C46D;
-      (=cns11643-4	  . #x5626)	; &HZK02-C46D; [54-06]
+      (=ucs@iso		  . #x221D4)	; &C4-5626;
+      (=cns11643-4	  . #x5626)	; &C4-5626; [54-06]
       (=hanziku-2	  . #xC46D)	; &I-HZK02-C46D;
       ))
     ))
