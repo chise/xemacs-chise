@@ -1855,9 +1855,9 @@
 	(=gb2312	    . #x4760)	; &I-G0-4760; [39-64]
 	(=jis-x0213-1	    . #x4044)	; &I-JX1-4044; [32-36]
 	))
-      (=ucs@unicode	  . #x51CA)	; &GT-02194;
-      (=gt		  . 02194)	; &GT-02194;
-      (=gt-pj-9		  . #x403F)	; &GT-02194; [32-31]
+      (=ucs@unicode	  . #x51CA)	; &HD-IB-2E4A;
+      (=gt		  . 02194)	; &HD-IB-2E4A;
+      (=gt-pj-9		  . #x403F)	; &HD-IB-2E4A; [32-31]
       (=hanyo-denshi/ib	  . #x2E4A)	; &I-HD-IB-2E4A; [14-42]
       )
      ((ideographic-structure
