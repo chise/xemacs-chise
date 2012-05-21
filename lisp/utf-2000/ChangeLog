@@ -1,3 +1,13 @@
+2012-05-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R044-Corpse.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for M-Hdddd.
+	(M-07806): Unify U-00021CDA.
+
+	* Ideograph-R043-Lame.el: Use `=daikanwa/ho' instead of
+	`morohashi-daikanwa' for M-Hdddd.
+
 2012-05-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R042-Small.el:
