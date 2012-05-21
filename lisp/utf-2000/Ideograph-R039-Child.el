@@ -123,7 +123,7 @@
     (ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (=cns11643-6	. #x2269)	; &M-06937; [02-73]
+    (=cns11643-6	. #x2269)	; &C6-2269; [02-73]
     (=daikanwa		. 06937)	; &I-M-06937;
     ))
 (define-char
@@ -500,8 +500,8 @@
     (total-strokes	 . 7)
     (=ucs		. #x6588)	; 斈
     (->subsumptive
-     ((=ucs@jis		  . #x6588)	; &M-13453;
-      (=jis-x0208	  . #x555D)	; &M-13453; [53-61]
+     ((=ucs@jis		  . #x6588)	; &J90-555D;
+      (=jis-x0208	  . #x555D)	; &J90-555D; [53-61]
       (=jis-x0213-1	  . #x555D)	; &I-JX1-555D; [53-61]
       (=daikanwa	  . 13453)	; &I-M-13453;
       (<-vulgar
@@ -1094,8 +1094,8 @@
     (=ucs		. #x5B6C)	; 孬
     (=big5		. #xD165)	; &I-B-D165;
     (->subsumptive
-     ((=ucs@unicode	  . #x5B6C)	; &M-06989;
-      (=gb2312		  . #x582B)	; &M-06989; [56-11]
+     ((=ucs@unicode	  . #x5B6C)	; &G0-582B;
+      (=gb2312		  . #x582B)	; &G0-582B; [56-11]
       (=daikanwa	  . 06989)	; &I-M-06989;
       )
      ((=ucs@cns		  . #x5B6C)	; &C2-2E67;
@@ -1123,8 +1123,8 @@
      ((=daikanwa	  . 06991)	; &M-06991;
       )
      ((hanyu-dazidian	  2 1016 8)
-      (=ucs@iso		  . #x22232)	; &HZK03-CFA8;
-      (=cns11643-5	  . #x2C7B)	; &HZK03-CFA8; [12-91]
+      (=ucs@iso		  . #x22232)	; &C5-2C7B;
+      (=cns11643-5	  . #x2C7B)	; &C5-2C7B; [12-91]
       (=hanziku-3	  . #xCFA8)	; &I-HZK03-CFA8;
       ))
     ))
@@ -1375,7 +1375,7 @@
     (total-strokes	 . 13)
     (=ucs		. #x21985)	; 𡦅
     (->subsumptive
-     ((=cns11643-6	  . #x516D)	; &M-07010; [49-77]
+     ((=cns11643-6	  . #x516D)	; &C6-516D; [49-77]
       (=daikanwa	  . 07010)	; &I-M-07010;
       )
      ((=ucs@iso		  . #x21985)	; &U-00021985;
@@ -1410,7 +1410,7 @@
     (ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=cns11643-3	. #x4072)	; &M-07011; [32-82]
+    (=cns11643-3	. #x4072)	; &C3-4072; [32-82]
     (=daikanwa		. 07011)	; &I-M-07011;
     (=jef-china3	. #x49F6)	; &I-JC3-49F6;
     ))
