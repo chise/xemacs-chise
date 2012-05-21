@@ -393,8 +393,8 @@
       )
      ((=ucs		  . #x5197)	; 冗
       ))
-    (=ucs@unicode	. #x58F3)	; &HZK02-A850;
-    (=gb2312		. #x3F47)	; &HZK02-A850; [31-39]
+    (=ucs@unicode	. #x58F3)	; &G0-3F47;
+    (=gb2312		. #x3F47)	; &G0-3F47; [31-39]
     (=hanziku-2		. #xA850)	; &I-HZK02-A850;
     ))
 (define-char
@@ -487,7 +487,7 @@
     (ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=cns11643-6	. #x3642)	; &M-05652; [22-34]
+    (=cns11643-6	. #x3642)	; &C6-3642; [22-34]
     (=daikanwa		. 05652)	; &I-M-05652;
     ))
 (define-char
