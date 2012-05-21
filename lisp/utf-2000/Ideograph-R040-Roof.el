@@ -75,7 +75,7 @@
      ((=daikanwa	  . 07056)	; &M-07056;
       (=cbeta		  . 08762)	; &I-CB08762;
       )
-     ((=cns11643-3	  . #x223D)	; &HZK03-B7A1; [02-29]
+     ((=cns11643-3	  . #x223D)	; &C3-223D; [02-29]
       (=hanziku-3	  . #xB7A1)	; &I-HZK03-B7A1;
       ))
     ))
@@ -439,8 +439,8 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (=ucs@jis		. #x5B8A)	; &M-07077;
-    (=jis-x0212		. #x3A4A)	; &M-07077; [26-42]
+    (=ucs@jis		. #x5B8A)	; &JSP-3A4A;
+    (=jis-x0212		. #x3A4A)	; &JSP-3A4A; [26-42]
     (=daikanwa		. 07077)	; &I-M-07077;
     (=jef-china3	. #x4AA5)	; &I-JC3-4AA5;
     ))
@@ -573,8 +573,8 @@
       (<-wrong*sources
        shinjigen)
       )
-     ((=ucs@unicode	  . #x5B8D)	; &HZK03-B8CA;
-      (=cns11643-3	  . #x255A)	; &HZK03-B8CA; [05-58]
+     ((=ucs@unicode	  . #x5B8D)	; &C3-255A;
+      (=cns11643-3	  . #x255A)	; &C3-255A; [05-58]
       (=hanziku-3	  . #xB8CA)	; &I-HZK03-B8CA;
       ))
     ))
@@ -4172,8 +4172,8 @@
 	(=cns11643-1	    . #x4574)	; &I-C1-4574; [37-84]
 	(=jis-x0213-1	    . #x5147)	; &I-JX1-5147; [49-39]
 	))
-      (=ucs@ks		  . #x5BD7)	; &CB02248;
-      (=ks-x1001	  . #x523C)	; &CB02248; [50-28]
+      (=ucs@ks		  . #x5BD7)	; &K0-523C;
+      (=ks-x1001	  . #x523C)	; &K0-523C; [50-28]
       (=cbeta		  . 02248)	; &I-CB02248;
       )
      ((ideographic-structure
