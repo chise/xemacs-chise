@@ -15,8 +15,8 @@
       (=shinjigen	  .  1538)	; &AJ1-04539;
       (=adobe-japan1-0	  . 04539)	; &I-AJ1-04539;
       )
-     ((=ucs@unicode	  . #x590A)	; &CDP-8A71;
-      (=cns11643-3	  . #x213A)	; &CDP-8A71; [01-26]
+     ((=ucs@unicode	  . #x590A)	; &C3-213A;
+      (=cns11643-3	  . #x213A)	; &C3-213A; [01-26]
       (=big5-cdp	  . #x8A71)	; &I-CDP-8A71;
       ))
     ))
