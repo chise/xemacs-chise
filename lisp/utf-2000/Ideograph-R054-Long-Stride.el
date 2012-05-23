@@ -13,8 +13,8 @@
       (=gt-pj-1		  . #x572E)	; &I-GT-12051; [55-14]
       (=daikanwa	  . 09566)	; &I-M-09566;
       )
-     ((=ucs@unicode	  . #x5EF4)	; &CDP-8BD4;
-      (=gb2312		  . #x5B48)	; &CDP-8BD4; [59-40]
+     ((=ucs@unicode	  . #x5EF4)	; &C3-213F;
+      (=gb2312		  . #x5B48)	; &C3-213F; [59-40]
       (=cns11643-3	  . #x213F)	; &I-C3-213F; [01-31]
       (=big5-cdp	  . #x8BD4)	; &I-CDP-8BD4;
       ))
