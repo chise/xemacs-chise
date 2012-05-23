@@ -289,8 +289,8 @@
     (ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=ucs@jis		. #x5DF8)	; &M-08757;
-    (=jis-x0212		. #x3C22)	; &M-08757; [28-02]
+    (=ucs@jis		. #x5DF8)	; &JSP-3C22;
+    (=jis-x0212		. #x3C22)	; &JSP-3C22; [28-02]
     (=daikanwa		. 08757)	; &I-M-08757;
     (=jef-china3	. #x4BF3)	; &I-JC3-4BF3;
     ))
@@ -340,14 +340,15 @@
     (=>>jis-x0213-1	. #x342C)	; &G-GT-11038; [20-12]
     (=>>gt		. 11038)	; &G-GT-11038;
     (=>>gt-k		. 05217)	; &G-GT-11038;
+    (=>>daikanwa/+p	. 08759)	; &G-GT-11038;
     (->subsumptive
-     ((morohashi-daikanwa	8759 1)
-      (=ucs@jis		  . #x5DFB)	; &GT-11038;
+     ((=ucs@jis		  . #x5DFB)	; &GT-11038;
       (=jis-x0208	  . #x342C)	; &GT-11038; [20-12]
       (=jis-x0213-1	  . #x342C)	; &I-JX1-342C; [20-12]
       (=gt		  . 11038)	; &I-GT-11038;
       (=gt-k		  . 05217)	; &I-GT-K05217;
       (=gt-pj-1		  . #x342C)	; &I-GT-11038; [20-12]
+      (=daikanwa/+p	  . 08759)	; &GT-11038;
       (<-simplified@JP/Jouyou
        ((=ucs@jis	    . #x5377)	; 卷󠄀
 	(=jis-x0208	    . #x524B)	; 卷󠄀 [50-43]
@@ -535,7 +536,7 @@
     (ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=cns11643-6	. #x4836)	; &M-08766; [40-22]
+    (=cns11643-6	. #x4836)	; &C6-4836; [40-22]
     (=daikanwa		. 08766)	; &I-M-08766;
     ))
 (define-char
