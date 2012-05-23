@@ -330,8 +330,8 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (sound@ja/on	"kIyo")
-    (=ucs@iso		. #x26B20)	; &M-09598;
-    (=cns11643-6	. #x274C)	; &M-09598; [07-44]
+    (=ucs@iso		. #x26B20)	; &C6-274C;
+    (=cns11643-6	. #x274C)	; &C6-274C; [07-44]
     (=daikanwa		. 09598)	; &I-M-09598;
     (<-ancient
      ((=ucs		  . #x64E7)	; 擧
@@ -468,8 +468,8 @@
       (=jis-x0213-1	  . #x5730)	; &I-JX1-5730; [55-16]
       (=daikanwa	  . 09583)	; &I-M-09583;
       ))
-    (=ucs@unicode	. #x5F06)	; &M-09605;
-    (=jis-x0212		. #x3C5D)	; &M-09605; [28-61]
+    (=ucs@unicode	. #x5F06)	; &JSP-3C5D;
+    (=jis-x0212		. #x3C5D)	; &JSP-3C5D; [28-61]
     (=cns11643-3	. #x286D)	; &I-C3-286D; [08-77]
     (=daikanwa		. 09605)	; &I-M-09605;
     (=cbeta		. 01765)	; &I-CB01765;
@@ -1203,7 +1203,7 @@
     (total-strokes	 . 27)
     (=ucs		. #x22377)	; 𢍷
     (->subsumptive
-     ((=cns11643-7	  . #x6351)	; &M-09654; [67-49]
+     ((=cns11643-7	  . #x6351)	; &C7-6351; [67-49]
       (=daikanwa	  . 09654)	; &I-M-09654;
       )
      ((=ucs@iso		  . #x22377)	; &U-00022377;
