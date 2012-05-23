@@ -1,4 +1,17 @@
+2012-05-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el: Use `=daikanwa/ho' instead of
+	`morohashi-daikanwa' for M-Hdddd.
+	(U+3846): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R049-Oneself.el (G-J0-342C): Unify G-M-08759'.
+	(J0-342C): Use `=daikanwa/+p' instead of `morohashi-daikanwa' for
+	M-8759'.
+
 2012-05-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R047-River.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
 
 	* Ideograph-R044-Corpse.el:
 	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
