@@ -65,7 +65,8 @@
   '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
-    (=daikanwa		. 08719)	; &M-08719;
+    (=ucs		. #x22015)	; 𢀕
+    (=daikanwa		. 08719)	; &I-M-08719;
     (=cbeta		. 03205)	; &I-CB03205;
     ))
 (define-char
@@ -92,7 +93,7 @@
     (=gt-k		. 00933)	; &I-GT-K00933;
     (=gt-pj-1		. #x3A38)	; &I-GT-11000; [26-24]
     (=daikanwa		. 08720)	; &I-M-08720;
-    (=shinjigen@rev	.  2063)	; &GT-11000;
+    (=shinjigen		.  2063)	; &GT-11000;
     ))
 (define-char
   '((<-denotational
@@ -166,7 +167,8 @@
   '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (=daikanwa		. 08724)	; &M-08724;
+    (=ucs		. #x22017)	; 𢀗
+    (=daikanwa		. 08724)	; &I-M-08724;
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
@@ -201,8 +203,8 @@
       (=adobe-japan1-5	  . 17587)	; &I-AJ1-17587;
       (=hanyo-denshi/jb	  . #x3C21)	; &I-HD-JB-3C21; [28-01]
       )
-     ((=ucs@cns		  . #x5DE9)	; &CDP-8C6F;
-      (=cns11643-4	  . #x2263)	; &CDP-8C6F; [02-67]
+     ((=ucs@cns		  . #x5DE9)	; &C4-2263;
+      (=cns11643-4	  . #x2263)	; &C4-2263; [02-67]
       (=big5-cdp	  . #x8C6F)	; &I-CDP-8C6F;
       ))
     ))
@@ -224,8 +226,7 @@
     (=hanyo-denshi/ks/mf . #x2697)	; &I-KSMF-09879;
     ))
 (define-char
-  '((morohashi-daikanwa	ho 158)
-    (ideographic-radical . 48)	; ⼯
+  '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (ideographic-structure
@@ -238,6 +239,7 @@
       ))
     (=gt		. 11004)	; &GT-11004;
     (=gt-pj-11		. #x4335)	; &GT-11004; [35-21]
+    (=daikanwa/ho	.  0158)	; &GT-11004;
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
@@ -467,7 +469,7 @@
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
-    (=cns11643-7	. #x4664)	; &M-08741; [38-68]
+    (=cns11643-7	. #x4664)	; &C7-4664; [38-68]
     (=daikanwa		. 08741)	; &I-M-08741;
     ))
 (define-char
