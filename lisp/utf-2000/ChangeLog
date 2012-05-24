@@ -1,4 +1,24 @@
+2012-05-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R048-Work.el (M-08719): Unify U-00022015.
+	(M-08724): Unify U-00022017.
+	(M-H0158): Use `=daikanwa/ho' instead of `morohashi-daikanwa'.
+
 2012-05-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R060-Step.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+
+	* Ideograph-R059-Bristle.el (U+5F6B): Use `=daikanwa/+p' instead
+	of `morohashi-daikanwa' for M-09995'.
+
+	* Ideograph-R057-Bow.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+
+	* Ideograph-R053-Dotted-Cliff.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+
+2012-05-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R050-Turban.el: Use `=daikanwa/ho' instead of
 	`morohashi-daikanwa' for M-Hdddd.
