@@ -58,8 +58,8 @@
     (total-strokes	 . 7)
     (=ucs		. #x6598)	; 斘
     (->subsumptive
-     ((=ucs@unicode	  . #x6598)	; &M-13491;
-      (=jis-x0212	  . #x415B)	; &M-13491; [33-59]
+     ((=ucs@unicode	  . #x6598)	; &JSP-415B;
+      (=jis-x0212	  . #x415B)	; &JSP-415B; [33-59]
       (=daikanwa	  . 13491)	; &I-M-13491;
       )
      ((=cns11643-4	  . #x2441)	; &C4-2441; [04-33]
@@ -390,8 +390,8 @@
     (total-strokes	 . 12)
     (=ucs		. #x659D)	; 斝
     (->subsumptive
-     ((=ucs@unicode	  . #x659D)	; &M-13512;
-      (=jis-x0212	  . #x415C)	; &M-13512; [33-60]
+     ((=ucs@unicode	  . #x659D)	; &JX1-752A;
+      (=jis-x0212	  . #x415C)	; &JX1-752A; [33-60]
       (=iso-ir165	  . #x7C63)	; &I-EGB-7C63; [92-67]
       (=jis-x0213-1	  . #x752A)	; &I-JX1-752A; [85-10]
       (=big5		  . #xD97A)	; &I-B-D97A;
@@ -572,8 +572,8 @@
     (ideographic-radical . 68)	; ⽃
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (=ucs@jis		. #x65A0)	; &M-13521;
-    (=jis-x0212		. #x415D)	; &M-13521; [33-61]
+    (=ucs@jis		. #x65A0)	; &JSP-415D;
+    (=jis-x0212		. #x415D)	; &JSP-415D; [33-61]
     (=daikanwa		. 13521)	; &I-M-13521;
     ))
 (define-char
@@ -657,7 +657,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=cns11643-1	    . #x5970)	; &M-07440; [57-80]
+       ((=cns11643-1	    . #x5970)	; &C1-5970; [57-80]
 	(=daikanwa	    . 07440)	; &I-M-07440;
 	)
        ((=ucs		    . #x6597)	; 斗
@@ -705,8 +705,8 @@
     (total-strokes	 . 17)
     (=ucs		. #x65A3)	; 斣
     (->subsumptive
-     ((=ucs@unicode	  . #x65A3)	; &M-13529;
-      (=jis-x0212	  . #x415E)	; &M-13529; [33-62]
+     ((=ucs@unicode	  . #x65A3)	; &JSP-415E;
+      (=jis-x0212	  . #x415E)	; &JSP-415E; [33-62]
       (=daikanwa	  . 13529)	; &I-M-13529;
       )
      ((=cns11643-4	  . #x563F)	; &C4-563F; [54-31]
