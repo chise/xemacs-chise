@@ -1,5 +1,16 @@
 2012-05-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R063-Door.el (J0-4070): Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-11743'.
+
+	* Ideograph-R062-Halberd.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+
+	* Ideograph-R058-Snout.el (U+5F52): Use `->denotational' to
+	separate M-09909' and C3-224A.
+	(M-09909'): Separate C3-224A; use `=daikanwa/+p' instead of
+	`morohashi-daikanwa); unify GT-12505.
+
 	* Ideograph-R048-Work.el (M-08719): Unify U-00022015.
 	(M-08724): Unify U-00022017.
 	(M-H0158): Use `=daikanwa/ho' instead of `morohashi-daikanwa'.
