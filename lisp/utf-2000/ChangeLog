@@ -1,3 +1,41 @@
+2012-05-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+	(mother of HD-JT-B1AF): Unify G-JT-B1AF instead of g2-JT-B1AF.
+	(JC3-4DE4): Separate S1-2684.
+	(HD-JT-B1AF): Unify S-2684.
+	(mother of G1-4F5C): Unify G-IU+2F8AC and G-UU+61B2 instead of
+	g2-IU+2F8AC and g2-UU+61B2.
+
+	* Ideograph-R046-Mountain.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for M-Hdddd.
+	(U+5CBB): Use `->denotational' to separate representative nodes.
+	(U+37C3): Use `->subsumptive' to separate representative nodes.
+	(U+5CC5): Likewise; add `sound@ja/kun/place'.
+	(U+5CBE): Likewise.
+	(U+5CBC): Add `sound@ja/kun/place'.
+	(U+FA11): Use `->subsumptive' to separate representative node; add
+	ideographic-structure.
+	(U-00021ECA): Use `->subsumptive' to separate representative
+	nodes.
+	(U+5D76): Use `->denotational'.
+	(U-00021F04): Likewise.
+	(U+381C): Use `->subsumptive'.
+	(M-H0155): Separate UU+381C; unify GT-10783.
+	(A-M-H0156): New abstract node.
+	(G-GT-10852): New abstract node; unify G-M-H0156; add
+	`<-denotational' for A-M-H0156.
+	(GT-10852): Add `<-subsumptive' for G-GT-10852; add
+	`ideographic-structure'.
+	(G-GT-10851): New abstract node; add `<-denotational' for
+	A-M-H0156.
+	(GT-10851): Add `<-subsumptive' for G-GT-10851; add
+	`ideographic-structure'.
+	(A-J0-3460): Unify g2-J0-3460, g2-GT-10864 and G-M-08624'.
+	(U-00021FC0): Use `->denotational'.
+
 2012-05-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R063-Door.el (J0-4070): Use `=daikanwa/+p' instead of
