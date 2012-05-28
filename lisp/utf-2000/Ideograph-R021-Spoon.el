@@ -220,10 +220,24 @@
   '((ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (=gt		. 03299)	; &GT-03299;
-    (=gt-pj-9		. #x3375)	; &GT-03299; [19-85]
-    (=daikanwa/ho	.  0057)	; &GT-03299;
+    (=ucs		. #x352B)	; 㔫
+    (=gt		. 03299)	; &I-GT-03299;
+    (=gt-pj-9		. #x3375)	; &I-GT-03299; [19-85]
+    (=daikanwa/ho	.  0057)	; 㔫
+    (=shinjigen		.  2064)	; 㔫
     (=jef-china3	. #x45AC)	; &I-JC3-45AC;
+    (<-vulgar
+     ((=ucs@unicode	  . #x5DE6)	; &GT-11000;
+      (=jis-x0208	  . #x3A38)	; &GT-11000; [26-24]
+      (=gb2312		  . #x5773)	; &I-G0-5773; [55-83]
+      (=ks-x1001	  . #x7127)	; &I-K0-7127; [81-07]
+      (=cns11643-1	  . #x464A)	; &I-C1-464A; [38-42]
+      (=jis-x0213-1	  . #x3A38)	; &I-JX1-3A38; [26-24]
+      (=daikanwa	  . 08720)	; &I-M-08720;
+      (=shinjigen	  .  2063)	; &GT-11000;
+      ))
+    (<-vulgar*sources
+     shinjigen)
     ))
 (define-char
   '((ideographic-radical . 21)	; ⼔
