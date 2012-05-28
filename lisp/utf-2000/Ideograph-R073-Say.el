@@ -814,8 +814,8 @@
     (->subsumptive
      ((=daikanwa	  . 14302)	; &M-14302;
       )
-     ((=ucs@jis		  . #x6701)	; &JX2-2E37;
-      (=jis-x0213-2	  . #x2E37)	; &JX2-2E37; [14-23]
+     ((=ucs@jis		  . #x6701)	; &HD-JD-2E37;
+      (=jis-x0213-2	  . #x2E37)	; &HD-JD-2E37; [14-23]
       (=hanyo-denshi/jd	  . #x2E37)	; &I-HD-JD-2E37; [14-23]
       ))
     ))
@@ -876,8 +876,8 @@
     (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=ucs@unicode	. #x3479)	; &M-14305;
-    (=cns11643-6	. #x497B)	; &M-14305; [41-91]
+    (=ucs@unicode	. #x3479)	; &C6-497B;
+    (=cns11643-6	. #x497B)	; &C6-497B; [41-91]
     (=daikanwa		. 14305)	; &I-M-14305;
     (<-vulgar
      ((=ucs		  . #x6703)	; 會
@@ -999,8 +999,8 @@
       (<-same*sources
        shuowen daikanwa)
       (->mistakable
-       ((=ucs@jis	    . #x669C)	; &M-14082;
-	(=jis-x0212	    . #x4255)	; &M-14082; [34-53]
+       ((=ucs@jis	    . #x669C)	; &JSP-4255;
+	(=jis-x0212	    . #x4255)	; &JSP-4255; [34-53]
 	(=daikanwa	    . 14082)	; &I-M-14082;
 	))
       )
@@ -1073,9 +1073,9 @@
 	)
        ((=cns11643-1	    . #x454B)	; &C1-454B; [37-43]
 	))
-      (=ucs@unicode	  . #x3B31)	; &CB06796;
-      (=cns11643-4	  . #x5056)	; &CB06796; [48-54]
-      (=shinjigen@1ed	  .  3420)	; &CB06796;
+      (=ucs@unicode	  . #x3B31)	; &C4-5056;
+      (=cns11643-4	  . #x5056)	; &C4-5056; [48-54]
+      (=shinjigen@1ed	  .  3420)	; &C4-5056;
       (=cbeta		  . 06796)	; &I-CB06796;
       (<-formed
        ((=ucs@unicode	    . #x66FF)	; &GT-18106;
