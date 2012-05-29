@@ -1,3 +1,16 @@
+2012-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R080-Do-Not.el (U+6BCE): Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-16724'.
+
+	* Ideograph-R078-Death.el (C7-2E7D): Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-16582'.
+	(U+6BB1): Use `=daikanwa/ho' instead of `morohashi-daikanwa' for
+	M-H0291.
+
+	* Ideograph-R076-Lack.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+
 2012-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R075-Tree.el, Ideograph-R074-Moon.el: Use
