@@ -116,7 +116,6 @@
   '((<-denotational
      ((=>jis-x0208@1997	  . #x4B68)	; &J97-4B68; [43-72]
       ))
-    (morohashi-daikanwa	16724 1)
     (ideographic-radical . 80)	; ⽏
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
@@ -127,6 +126,7 @@
     (=gt		. 21440)	; &I-GT-21440;
     (=gt-k		. 01689)	; &I-GT-K01689;
     (=gt-pj-1		. #x4B68)	; &I-GT-21440; [43-72]
+    (=daikanwa/+p	. 16724)	; 毎
     (<-simplified@JP/Jouyou
      ((=ucs		  . #x6BCF)	; 每
       ))
@@ -178,8 +178,8 @@
     (ideographic-radical . 80)	; ⽏
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (=ucs@cns		. #x6BD0)	; &M-16727;
-    (=cns11643-2	. #x2448)	; &M-16727; [04-40]
+    (=ucs@cns		. #x6BD0)	; &C2-2448;
+    (=cns11643-2	. #x2448)	; &C2-2448; [04-40]
     (=big5		. #xCB48)	; &I-B-CB48;
     (=daikanwa		. 16727)	; &I-M-16727;
     ))
@@ -295,7 +295,7 @@
     (ideographic-radical . 80)	; ⽏
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (=cns11643-6	. #x2C41)	; &M-16731; [12-33]
+    (=cns11643-6	. #x2C41)	; &C6-2C41; [12-33]
     (=daikanwa		. 16731)	; &I-M-16731;
     ))
 (define-char
@@ -334,7 +334,7 @@
     (ideographic-radical . 80)	; ⽏
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=cns11643-6	. #x322A)	; &M-16734; [18-10]
+    (=cns11643-6	. #x322A)	; &C6-322A; [18-10]
     (=daikanwa		. 16734)	; &I-M-16734;
     ))
 (define-char
@@ -365,7 +365,7 @@
     (ideographic-radical . 80)	; ⽏
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (=cns11643-6	. #x3867)	; &M-16736; [24-71]
+    (=cns11643-6	. #x3867)	; &C6-3867; [24-71]
     (=daikanwa		. 16736)	; &I-M-16736;
     ))
 (define-char
