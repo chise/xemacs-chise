@@ -1,3 +1,8 @@
+2012-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el, Ideograph-R084-Steam.el: Use
+	`=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+
 2012-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R079-Weapon.el (mother of J0-3225): Unify G-UU+6BB4,
