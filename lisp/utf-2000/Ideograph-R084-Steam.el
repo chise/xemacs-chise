@@ -79,8 +79,7 @@
     (=big5		. #xC9F7)	; &I-B-C9F7;
     ))
 (define-char
-  '((morohashi-daikanwa	17046 1)
-    (ideographic-radical . 84)	; ⽓
+  '((ideographic-radical . 84)	; ⽓
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=ucs		. #x6C17)	; 気
@@ -89,6 +88,7 @@
     (=gt		. 21830)	; &I-GT-21830;
     (=gt-k		. 01586)	; &I-GT-K01586;
     (=gt-pj-1		. #x3524)	; &I-GT-21830; [21-04]
+    (=daikanwa/+p	. 17046)	; 気
     (<-simplified@JP/Jouyou
      ((=ucs@unicode	  . #x6C23)	; &GT-21850;
       (=jis-x0208	  . #x5D66)	; &GT-21850; [61-70]
@@ -321,8 +321,8 @@
     (=ucs		. #x6C26)	; 氦
     (=big5		. #xAEF3)	; &I-B-AEF3;
     (->subsumptive
-     ((=ucs@jis		  . #x6C26)	; &M-17063;
-      (=jis-x0212	  . #x464D)	; &M-17063; [38-45]
+     ((=ucs@jis		  . #x6C26)	; &JSP-464D;
+      (=jis-x0212	  . #x464D)	; &JSP-464D; [38-45]
       (=daikanwa	  . 17063)	; &I-M-17063;
       )
      ((=ucs@unicode	  . #x6C26)	; &C1-5637;
@@ -348,8 +348,8 @@
     (=ucs		. #x6C28)	; 氨
     (=big5		. #xAEF2)	; &I-B-AEF2;
     (->subsumptive
-     ((=ucs@jis		  . #x6C28)	; &M-17065;
-      (=jis-x0212	  . #x464F)	; &M-17065; [38-47]
+     ((=ucs@jis		  . #x6C28)	; &JSP-464F;
+      (=jis-x0212	  . #x464F)	; &JSP-464F; [38-47]
       (=daikanwa	  . 17065)	; &I-M-17065;
       )
      ((=ucs@unicode	  . #x6C28)	; &G0-3031;
@@ -423,8 +423,8 @@
     (total-strokes	 . 12)
     (=ucs		. #x6C2E)	; 氮
     (->subsumptive
-     ((=ucs@jis		  . #x6C2E)	; &M-17071;
-      (=jis-x0212	  . #x4651)	; &M-17071; [38-49]
+     ((=ucs@jis		  . #x6C2E)	; &JSP-4651;
+      (=jis-x0212	  . #x4651)	; &JSP-4651; [38-49]
       (=big5		  . #xB4E1)	; &I-B-B4E1;
       (=daikanwa	  . 17071)	; &I-M-17071;
       )
@@ -440,7 +440,7 @@
     (total-strokes	 . 12)
     (=ucs		. #x6C2F)	; 氯
     (->subsumptive
-     ((=cns11643-1	  . #x6029)	; &M-17072; [64-09]
+     ((=cns11643-1	  . #x6029)	; &C1-6029; [64-09]
       (=big5		  . #xB4E2)	; &I-B-B4E2;
       (=daikanwa	  . 17072)	; &I-M-17072;
       )
@@ -453,18 +453,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=ucs		. #x6C30)	; 氰
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x6C30)	; 氰
-      ))
-    (morohashi-daikanwa	17072 1)
-    (ideographic-radical . 84)	; ⽓
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (=big5		. #xD9E6)	; &GT-21862;
-    (=gt		. 21862)	; &I-GT-21862;
-    (=gt-pj-4		. #x493C)	; &I-GT-21862; [41-28]
+    (=big5		. #xD9E6)	; &I-B-D9E6;
     ))
 (define-char
   '((<-denotational
@@ -473,6 +462,18 @@
     (ideographic-radical . 84)	; ⽓
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (=gt		. 21862)	; &GT-21862;
+    (=gt-pj-4		. #x493C)	; &GT-21862; [41-28]
+    (=daikanwa/+p	. 17072)	; &GT-21862;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6C30)	; 氰
+      ))
+    (ideographic-radical . 84)	; ⽓
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (=>>ucs@unicode	. #x6C30)	; &G-UU+6C30;
     (->subsumptive
      ((=ucs@unicode	  . #x6C30)	; &G0-4768;
       (=gb2312		  . #x4768)	; &G0-4768; [39-72]
