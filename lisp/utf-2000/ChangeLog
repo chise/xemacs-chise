@@ -1,5 +1,16 @@
 2012-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R079-Weapon.el (mother of J0-3225): Unify G-UU+6BB4,
+	G-J0-3225, G-GT-21302 and G-M-16618'.
+	(J0-3225): Use `=daikanwa/+p' instead of `morohashi-daikanwa' for
+	M-16618'.
+	(mother of GT-21425): Unify G-IU+23AE5, G-GT-21425 and G-M-16709'.
+	(GT-21425): Use `=daikanwa/+p' instead of `morohashi-daikanwa' for
+	M-16709'.
+
+	* Ideograph-R077-Stop.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+
 	* Ideograph-R080-Do-Not.el (U+6BCE): Use `=daikanwa/+p' instead of
 	`morohashi-daikanwa' for M-16724'.
 
