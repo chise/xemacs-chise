@@ -1,5 +1,10 @@
 2012-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R086-Fire.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+	(U+7215): Use `->subsumptive'.
+	(U+720B): Use `->subsumptive' to separate representative nodes.
+
 	* Ideograph-R085-Water.el, Ideograph-R084-Steam.el: Use
 	`=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
 
