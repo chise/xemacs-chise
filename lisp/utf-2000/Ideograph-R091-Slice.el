@@ -545,8 +545,8 @@
     (->subsumptive
      ((=daikanwa	  . 19844)	; &M-19844;
       (<-vulgar
-       ((=ucs@unicode	    . #x7250)	; &M-19869;
-	(=jis-x0212	    . #x4A53)	; &M-19869; [42-51]
+       ((=ucs@unicode	    . #x7250)	; &JSP-4A53;
+	(=jis-x0212	    . #x4A53)	; &JSP-4A53; [42-51]
 	(=daikanwa	    . 19869)	; &I-M-19869;
 	))
       (<-vulgar*sources
@@ -683,8 +683,8 @@
       (=jis-x0213-1	  . #x4A52)	; &I-JX1-4A52; [42-50]
       (=daikanwa	  . 19813)	; &I-M-19813;
       )
-     ((=ucs@jis		  . #x7A7A)	; &M-25415;
-      (=jis-x0208	  . #x3675)	; &M-25415; [22-85]
+     ((=ucs@jis		  . #x7A7A)	; &J90-3675;
+      (=jis-x0208	  . #x3675)	; &J90-3675; [22-85]
       (=ks-x1001	  . #x4D76)	; &I-K0-4D76; [45-86]
       (=jis-x0213-1	  . #x3675)	; &I-JX1-3675; [22-85]
       (=daikanwa	  . 25415)	; &I-M-25415;
@@ -1090,8 +1090,8 @@
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=ucs@jis		. #x724F)	; &M-19868;
-    (=jis-x0212		. #x4A52)	; &M-19868; [42-50]
+    (=ucs@jis		. #x724F)	; &JSP-4A52;
+    (=jis-x0212		. #x4A52)	; &JSP-4A52; [42-50]
     (=daikanwa		. 19868)	; &I-M-19868;
     ))
 (define-char
@@ -1122,8 +1122,8 @@
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=ucs@unicode	. #x7250)	; &M-19869;
-    (=jis-x0212		. #x4A53)	; &M-19869; [42-51]
+    (=ucs@unicode	. #x7250)	; &JSP-4A53;
+    (=jis-x0212		. #x4A53)	; &JSP-4A53; [42-51]
     (=daikanwa		. 19869)	; &I-M-19869;
     ))
 (define-char
@@ -1258,8 +1258,8 @@
     (=ucs		. #x7253)	; 牓
     (=big5		. #xE2C6)	; &I-B-E2C6;
     (->subsumptive
-     ((=ucs@jis		  . #x7253)	; &M-19876;
-      (=jis-x0212	  . #x4A54)	; &M-19876; [42-52]
+     ((=ucs@jis		  . #x7253)	; &HD-JB-4A54;
+      (=jis-x0212	  . #x4A54)	; &HD-JB-4A54; [42-52]
       (=jis-x0213-2	  . #x7030)	; &I-JX2-7030; [80-16]
       (=daikanwa	  . 19876)	; &I-M-19876;
       (=jef-china3	  . #x58C0)	; &I-JC3-58C0;
@@ -1516,8 +1516,8 @@
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=ucs@jis		. #x7256)	; &M-19890;
-    (=jis-x0212		. #x4A56)	; &M-19890; [42-54]
+    (=ucs@jis		. #x7256)	; &JX1-7765;
+    (=jis-x0212		. #x4A56)	; &JX1-7765; [42-54]
     (=jis-x0213-1	. #x7765)	; &I-JX1-7765; [87-69]
     (=big5		. #xBCF8)	; &I-B-BCF8;
     (=daikanwa		. 19890)	; &I-M-19890;
@@ -1657,8 +1657,8 @@
       (=jis-x0213-1	  . #x4D47)	; &I-JX1-4D47; [45-39]
       (=daikanwa	  . 09378)	; &I-M-09378;
       ))
-    (=ucs@jis		. #x7257)	; &CB04523;
-    (=jis-x0213-2	. #x7031)	; &CB04523; [80-17]
+    (=ucs@jis		. #x7257)	; &JX2-7031;
+    (=jis-x0213-2	. #x7031)	; &JX2-7031; [80-17]
     (=cbeta		. 04523)	; &I-CB04523;
     ))
 (define-char
