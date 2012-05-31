@@ -504,8 +504,8 @@
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=ucs@jis		. #x722F)	; &M-19671;
-    (=jis-x0212		. #x4A49)	; &M-19671; [42-41]
+    (=ucs@jis		. #x722F)	; &JSP-4A49;
+    (=jis-x0212		. #x4A49)	; &JSP-4A49; [42-41]
     (=daikanwa		. 19671)	; &I-M-19671;
     ))
 (define-char
@@ -515,8 +515,8 @@
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=ucs@unicode	. #x722F)	; &CDP-8CA8;
-    (=cns11643-4	. #x2A2A)	; &CDP-8CA8; [10-10]
+    (=ucs@unicode	. #x722F)	; &C4-2A2A;
+    (=cns11643-4	. #x2A2A)	; &C4-2A2A; [10-10]
     (=big5-cdp		. #x8CA8)	; &I-CDP-8CA8;
     ))
 (define-char
@@ -952,8 +952,8 @@
       (=gt-k		  . 09372)	; &GT-K09372;
       (=gt-pj-k2	  . #x363B)	; &GT-K09372; [22-27]
       )
-     ((=ucs@cns		  . #x24514)	; &CDP-8C7D;
-      (=cns11643-4	  . #x386A)	; &CDP-8C7D; [24-74]
+     ((=ucs@cns		  . #x24514)	; &C4-386A;
+      (=cns11643-4	  . #x386A)	; &C4-386A; [24-74]
       (=big5-cdp	  . #x8C7D)	; &I-CDP-8C7D;
       ))
     ))
@@ -997,8 +997,8 @@
       (=daikanwa	  . 04811)	; &M-04811;
       )
      ((hanyu-dazidian	  3 2033 18)
-      (=ucs@iso		  . #x24517)	; &HZK05-F8B3;
-      (=cns11643-6	  . #x4743)	; &HZK05-F8B3; [39-35]
+      (=ucs@iso		  . #x24517)	; &C6-4743;
+      (=cns11643-6	  . #x4743)	; &C6-4743; [39-35]
       (=hanziku-5	  . #xF8B3)	; &I-HZK05-F8B3;
       ))
     ))
