@@ -1335,7 +1335,6 @@
   '((<-denotational
      ((=ucs		  . #x7235)	; 爵
       ))
-    (morohashi-daikanwa	19710 1)
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
@@ -1346,6 +1345,7 @@
     (=jis-x0213-1	. #x3C5F)	; &I-JX1-3C5F; [28-63]
     (=gt		. 25313)	; &I-GT-25313;
     (=gt-pj-1		. #x3C5F)	; &I-GT-25313; [28-63]
+    (=daikanwa/+p	. 19710)	; &GT-25313;
     ))
 (define-char
   '((<-denotational
