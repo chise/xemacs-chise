@@ -1,5 +1,12 @@
 2012-05-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R095-Profound.el (B-B276): Unify G-UU+7387,
+	g2-UU+7387, g2-J0-4E28, g2-GT-26651, G-GT-K07893 and G-M-20817'.
+	(J0-4E28): Use `=daikanwa/+p' instead of `morohashi-daikanwa' for
+	M-20817'.
+
+2012-05-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R094-Dog.el: Use `=daikanwa/+p' instead of
 	`morohashi-daikanwa' for M-ddddd'.
 
