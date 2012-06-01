@@ -21,7 +21,7 @@
     (ideographic-radical . 99)	; ⽢
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
-    (=cns11643-6	. #x2334)	; &M-21644; [03-20]
+    (=cns11643-6	. #x2334)	; &C6-2334; [03-20]
     (=daikanwa		. 21644)	; &I-M-21644;
     ))
 (define-char
