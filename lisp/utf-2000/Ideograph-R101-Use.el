@@ -21,8 +21,8 @@
     (ideographic-radical . 101)	; ⽤
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
-    (=ucs@jis		. #x7529)	; &M-21704;
-    (=jis-x0212		. #x4D28)	; &M-21704; [45-08]
+    (=ucs@jis		. #x7529)	; &JSP-4D28;
+    (=jis-x0212		. #x4D28)	; &JSP-4D28; [45-08]
     (=daikanwa		. 21704)	; &I-M-21704;
     ))
 (define-char
@@ -40,8 +40,8 @@
     (ideographic-radical . 101)	; ⽤
     (ideographic-strokes . 1)
     (total-strokes	 . 6)
-    (=ucs@jis		. #x752A)	; &M-21705;
-    (=jis-x0212		. #x4D29)	; &M-21705; [45-09]
+    (=ucs@jis		. #x752A)	; &JX2-7133;
+    (=jis-x0212		. #x4D29)	; &JX2-7133; [45-09]
     (=jis-x0213-2	. #x7133)	; &I-JX2-7133; [81-19]
     (=daikanwa		. 21705)	; &I-M-21705;
     ))
@@ -230,8 +230,8 @@
 	)
        ((=ucs		    . #x7528)	; 用
 	))
-      (=ucs@iso		  . #x200F0)	; &HZK01-AF63;
-      (=cns11643-6	  . #x2D2C)	; &HZK01-AF63; [13-12]
+      (=ucs@iso		  . #x200F0)	; &C6-2D2C;
+      (=cns11643-6	  . #x2D2C)	; &C6-2D2C; [13-12]
       (=hanziku-1	  . #xAF63)	; &I-HZK01-AF63;
       ))
     ))
@@ -278,7 +278,7 @@
     (->subsumptive
      ((=ucs@iso		  . #x24C07)	; &U-00024C07;
       )
-     ((=cns11643-6	  . #x395D)	; &CDP-8C73; [25-61]
+     ((=cns11643-6	  . #x395D)	; &C6-395D; [25-61]
       (=big5-cdp	  . #x8C73)	; &I-CDP-8C73;
       ))
     ))
@@ -317,7 +317,7 @@
     (total-strokes	 . 11)
     (=>>ucs@iso		. #x24C08)	; &G-IU+24C08;
     (->subsumptive
-     ((=cns11643-5	  . #x3361)	; &M-21716; [19-65]
+     ((=cns11643-5	  . #x3361)	; &C5-3361; [19-65]
       (=daikanwa	  . 21716)	; &I-M-21716;
       )
      ((hanyu-dazidian	  5 3223 6)
@@ -450,8 +450,8 @@
 	(=gb2312	    . #x5339)	; &C1-5A2B; [51-25]
 	(=cns11643-1	    . #x5A2B)	; &I-C1-5A2B; [58-11]
 	))
-      (=ucs@iso		  . #x24C0E)	; &HZK01-E2BC;
-      (=cns11643-7	  . #x477D)	; &HZK01-E2BC; [39-93]
+      (=ucs@iso		  . #x24C0E)	; &C7-477D;
+      (=cns11643-7	  . #x477D)	; &C7-477D; [39-93]
       (=hanziku-1	  . #xE2BC)	; &I-HZK01-E2BC;
       ))
     ))
@@ -498,8 +498,8 @@
        ((=ucs		    . #x752C)	; 甬
 	))
       )
-     ((=ucs@unicode	  . #x82B1)	; &K0-7C23;
-      (=gb2312		  . #x3B28)	; &K0-7C23; [27-08]
+     ((=ucs@unicode	  . #x82B1)	; &G0-3B28;
+      (=gb2312		  . #x3B28)	; &G0-3B28; [27-08]
       (=ks-x1001	  . #x7C23)	; &I-K0-7C23; [92-03]
       ))
     (=ucs@iso		. #x24C0F)	; &HZK01-D7B5;
