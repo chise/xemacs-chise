@@ -81,7 +81,7 @@
     (ideographic-radical . 103)	; ⽦
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
-    (=cns11643-1	. #x5C2D)	; &M-22000; [60-13]
+    (=cns11643-1	. #x5C2D)	; &C1-5C2D; [60-13]
     (=daikanwa		. 22000)	; &I-M-22000;
     ))
 (define-char
