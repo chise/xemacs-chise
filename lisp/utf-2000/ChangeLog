@@ -1,3 +1,8 @@
+2012-06-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R100-Life.el (J0-3B3A): Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-21684'.
+
 2012-05-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R095-Profound.el (B-B276): Unify G-UU+7387,
