@@ -90,8 +90,7 @@
     (=daikanwa		. 22662)	; &I-M-22662;
     ))
 (define-char
-  '((morohashi-daikanwa	22662 1)
-    (ideographic-radical . 105)	; ⽨
+  '((ideographic-radical . 105)	; ⽨
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (=ucs		. #x767A)	; 発
@@ -100,6 +99,7 @@
     (=gt		. 29048)	; &I-GT-29048;
     (=gt-k		. 05161)	; &I-GT-K05161;
     (=gt-pj-1		. #x482F)	; &I-GT-29048; [40-15]
+    (=daikanwa/+p	. 22662)	; 発
     (<-simplified@JP/Jouyou
      ((=ucs@jis		  . #x767C)	; &GT-29057;
       (=jis-x0208	  . #x6224)	; &GT-29057; [66-04]
@@ -222,7 +222,7 @@
     (ideographic-radical . 105)	; ⽨
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (=cns11643-5	. #x3A41)	; &M-22671; [26-33]
+    (=cns11643-5	. #x3A41)	; &C5-3A41; [26-33]
     (=daikanwa		. 22671)	; &I-M-22671;
     ))
 (define-char
