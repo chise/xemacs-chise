@@ -326,9 +326,9 @@
       (=daikanwa	  . 22705)	; &I-M-22705;
       (=shinjigen	  .  3962)	; &GT-29093;
       (<-vulgar
-       ((=cns11643-3	    . #x3C48)	; &M-16308; [28-40]
+       ((=cns11643-3	    . #x3C48)	; &C3-3C48; [28-40]
 	(=daikanwa	    . 16308)	; &I-M-16308;
-	(=shinjigen@1ed	    .  3961)	; &M-16308;
+	(=shinjigen@1ed	    .  3961)	; &C3-3C48;
 	))
       (<-vulgar*sources
        shinjigen@1ed)
@@ -1095,7 +1095,7 @@
     (total-strokes	 . 16)
     (=ucs		. #x24F9B)	; 𤾛
     (->subsumptive
-     ((=cns11643-5	  . #x5572)	; &M-22774; [53-82]
+     ((=cns11643-5	  . #x5572)	; &C5-5572; [53-82]
       (=daikanwa	  . 22774)	; &I-M-22774;
       )
      ((=ucs@iso		  . #x24F9B)	; &GT-29196;
@@ -1204,7 +1204,7 @@
     (->subsumptive
      ((ideographic-strokes . 12)
       (total-strokes	   . 17)
-      (=cns11643-3	  . #x5556)	; &M-22782; [53-54]
+      (=cns11643-3	  . #x5556)	; &C3-5556; [53-54]
       (=daikanwa	  . 22782)	; &I-M-22782;
       )
      ((ideographic-strokes . 10)
@@ -1262,8 +1262,8 @@
     (total-strokes	 . 17)
     (=ucs		. #x76A5)	; 皥
     (->subsumptive
-     ((=ucs@jis		  . #x76A5)	; &M-22787;
-      (=jis-x0212	  . #x4E42)	; &M-22787; [46-34]
+     ((=ucs@jis		  . #x76A5)	; &JSP-4E42;
+      (=jis-x0212	  . #x4E42)	; &JSP-4E42; [46-34]
       (=cns11643-3	  . #x5557)	; &I-C3-5557; [53-55]
       (=daikanwa	  . 22787)	; &I-M-22787;
       )
@@ -1547,8 +1547,8 @@
     (total-strokes	 . 20)
     (=ucs		. #x76AA)	; 皪
     (->subsumptive
-     ((=ucs@unicode	  . #x76AA)	; &M-22806;
-      (=jis-x0212	  . #x4E46)	; &M-22806; [46-38]
+     ((=ucs@unicode	  . #x76AA)	; &JX1-7865;
+      (=jis-x0212	  . #x4E46)	; &JX1-7865; [46-38]
       (=jis-x0213-1	  . #x7865)	; &I-JX1-7865; [88-69]
       (=big5		  . #xF471)	; &I-B-F471;
       (=daikanwa	  . 22806)	; &I-M-22806;
@@ -1678,8 +1678,8 @@
     (->subsumptive
      ((ideographic-strokes . 18)
       (total-strokes	   . 23)
-      (=ucs@jis		  . #x76AD)	; &M-22815;
-      (=jis-x0212	  . #x4E47)	; &M-22815; [46-39]
+      (=ucs@jis		  . #x76AD)	; &JSP-4E47;
+      (=jis-x0212	  . #x4E47)	; &JSP-4E47; [46-39]
       (=daikanwa	  . 22815)	; &I-M-22815;
       )
      ((ideographic-strokes . 19)
