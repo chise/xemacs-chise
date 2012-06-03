@@ -202,8 +202,8 @@
     (->subsumptive
      ((=big5		  . #xDAC3)	; &B-DAC3;
       (->subsumptive
-       ((=ucs@jis	    . #x77DE)	; &M-23863;
-	(=jis-x0212	    . #x4F42)	; &M-23863; [47-34]
+       ((=ucs@jis	    . #x77DE)	; &JX2-7233;
+	(=jis-x0212	    . #x4F42)	; &JX2-7233; [47-34]
 	(=jis-x0213-2	    . #x7233)	; &I-JX2-7233; [82-19]
 	(=daikanwa	    . 23863)	; &I-M-23863;
 	)
@@ -260,8 +260,8 @@
     (ideographic-radical . 110)	; ⽭
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (=ucs@jis		. #x77DF)	; &M-23867;
-    (=jis-x0212		. #x4F43)	; &M-23867; [47-35]
+    (=ucs@jis		. #x77DF)	; &JX2-7234;
+    (=jis-x0212		. #x4F43)	; &JX2-7234; [47-35]
     (=jis-x0213-2	. #x7234)	; &I-JX2-7234; [82-20]
     (=daikanwa		. 23867)	; &I-M-23867;
     ))
@@ -613,7 +613,7 @@
     (ideographic-radical . 110)	; ⽭
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
-    (=cns11643-7	. #x2574)	; &M-23896; [05-84]
+    (=cns11643-7	. #x2574)	; &C7-2574; [05-84]
     (=daikanwa		. 23896)	; &I-M-23896;
     ))
 (define-char
@@ -697,8 +697,8 @@
     (=ucs		. #x25390)	; 𥎐
     (->subsumptive
      ((hanyu-dazidian	  4 2768 16)
-      (=ucs@iso		  . #x25390)	; &M-01841;
-      (=cns11643-5	  . #x5A75)	; &M-01841; [58-85]
+      (=ucs@iso		  . #x25390)	; &C5-5A75;
+      (=cns11643-5	  . #x5A75)	; &C5-5A75; [58-85]
       (=daikanwa	  . 01841)	; &I-M-01841;
       (=hanziku-7	  . #xE845)	; &I-HZK07-E845;
       )
