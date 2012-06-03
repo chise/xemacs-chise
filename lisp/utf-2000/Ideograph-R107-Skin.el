@@ -843,7 +843,7 @@
     (total-strokes	 . 16)
     (=ucs		. #x3FF8)	; 㿸
     (->subsumptive
-     ((=cns11643-4	  . #x5157)	; &M-22907; [49-55]
+     ((=cns11643-4	  . #x5157)	; &C4-5157; [49-55]
       (=daikanwa	  . 22907)	; &I-M-22907;
       )
      ((=ucs@unicode	  . #x3FF8)	; &UU+3FF8;
@@ -944,8 +944,8 @@
     (ideographic-radical . 107)	; ⽪
     (ideographic-strokes . 13)
     (total-strokes	 . 18)
-    (=ucs@jis		. #x76BD)	; &M-22921;
-    (=jis-x0212		. #x4E48)	; &M-22921; [46-40]
+    (=ucs@jis		. #x76BD)	; &JSP-4E48;
+    (=jis-x0212		. #x4E48)	; &JSP-4E48; [46-40]
     (=big5		. #xF052)	; &I-B-F052;
     (=daikanwa		. 22921)	; &I-M-22921;
     ))
@@ -1141,7 +1141,7 @@
     (ideographic-radical . 107)	; ⽪
     (ideographic-strokes . 19)
     (total-strokes	 . 24)
-    (=cns11643-5	. #x776C)	; &M-22939; [87-76]
+    (=cns11643-5	. #x776C)	; &C5-776C; [87-76]
     (=daikanwa		. 22939)	; &I-M-22939;
     ))
 (define-char
