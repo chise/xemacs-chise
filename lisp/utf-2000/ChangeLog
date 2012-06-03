@@ -1,5 +1,14 @@
 2012-06-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R105-Dotted-Tent.el (U+767A): Use `=daikanwa/+p'
+	instead of `morohashi-daikanwa' for M-22662'.
+
+	* Ideograph-R102-Field.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for M-Hdddd.
+
+2012-06-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R100-Life.el (J0-3B3A): Use `=daikanwa/+p' instead of
 	`morohashi-daikanwa' for M-21684'.
 
