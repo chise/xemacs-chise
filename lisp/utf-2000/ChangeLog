@@ -1,3 +1,13 @@
+2012-06-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R108-Dish.el (G-GT-29427): Unify GT-K06687.
+	(mother of J0-3157): Unify G-UU+76CA, G-J0-3157, G-GT-29428,
+	G-GT-K06688 and G-M-22972'.
+	(J0-3157): Use `=daikanwa/+p' instead of `morohashi-daikanwa' for
+	M-22972'.
+	(J0-4039): Use `=daikanwa/+p' instead of `morohashi-daikanwa' for
+	M-23001'.
+
 2012-06-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R105-Dotted-Tent.el (U+767A): Use `=daikanwa/+p'
