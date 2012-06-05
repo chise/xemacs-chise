@@ -6,8 +6,8 @@
     (=ucs		. #x79B8)	; 禸
     (=big5		. #xC9A8)	; &I-B-C9A8;
     (->subsumptive
-     ((=ucs@unicode	  . #x79B8)	; &M-24884;
-      (=jis-x0212	  . #x5072)	; &M-24884; [48-82]
+     ((=ucs@unicode	  . #x79B8)	; &JX1-7944;
+      (=jis-x0212	  . #x5072)	; &JX1-7944; [48-82]
       (=iso-ir165	  . #x2E22)	; &I-EGB-2E22; [14-02]
       (=jis-x0213-1	  . #x7944)	; &I-JX1-7944; [89-36]
       (=daikanwa	  . 24884)	; &I-M-24884;
@@ -38,7 +38,7 @@
     (total-strokes	 . 9)
     (=ucs		. #x79BA)	; 禺
     (->subsumptive
-     ((=jis-x0208@1978	  . #x633C)	; &M-24886; [67-28]
+     ((=jis-x0208@1978	  . #x633C)	; &C1-526E; [67-28]
       (=jis-x0208@1983	  . #x633C)	; &I-J83-633C; [67-28]
       (=cns11643-1	  . #x526E)	; &I-C1-526E; [50-78]
       (=big5		  . #xACEB)	; &I-B-ACEB;
@@ -105,8 +105,8 @@
     (=big5		. #xD6C3)	; &I-B-D6C3;
     (->subsumptive
      ((->subsumptive
-       ((=ucs@jis	    . #x79BB)	; &M-24888;
-	(=jis-x0212	    . #x5073)	; &M-24888; [48-83]
+       ((=ucs@jis	    . #x79BB)	; &JX2-726E;
+	(=jis-x0212	    . #x5073)	; &JX2-726E; [48-83]
 	(=jis-x0213-2	    . #x726E)	; &I-JX2-726E; [82-78]
 	(=daikanwa	    . 24888)	; &I-M-24888;
 	)
@@ -256,8 +256,8 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	  (=ucs		      . #x2FF0)	; ⿰
 	  )
-	 ((=ucs@cns	      . #x4E29)	; &GT-K00068;
-	  (=cns11643-4	      . #x2127)	; &GT-K00068; [01-07]
+	 ((=ucs@cns	      . #x4E29)	; &C4-2127;
+	  (=cns11643-4	      . #x2127)	; &C4-2127; [01-07]
 	  )
 	 ((=big5-cdp	      . #x88AC)	; &CDP-88AC;
 	  ))
@@ -303,8 +303,8 @@
 	)
        ((=big5-cdp	    . #x87FB)	; &CDP-87FB;
 	))
-      (=ucs@iso		  . #x20398)	; &HZK01-D2B1;
-      (=cns11643-7	  . #x262D)	; &HZK01-D2B1; [06-13]
+      (=ucs@iso		  . #x20398)	; &C7-262D;
+      (=cns11643-7	  . #x262D)	; &C7-262D; [06-13]
       (=hanziku-1	  . #xD2B1)	; &I-HZK01-D2B1;
       ))
     ))
