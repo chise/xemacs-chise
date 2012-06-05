@@ -168,8 +168,8 @@
     (total-strokes	 . 9)
     (=ucs		. #x77E6)	; 矦
     (->subsumptive
-     ((=ucs@unicode	  . #x77E6)	; &M-23937;
-      (=jis-x0212	  . #x4F46)	; &M-23937; [47-38]
+     ((=ucs@unicode	  . #x77E6)	; &JX2-7236;
+      (=jis-x0212	  . #x4F46)	; &JX2-7236; [47-38]
       (=jis-x0213-2	  . #x7236)	; &I-JX2-7236; [82-22]
       (=daikanwa	  . 23937)	; &I-M-23937;
       (=jef-china3	  . #x5BE9)	; &I-JC3-5BE9;
@@ -274,7 +274,7 @@
     (=ucs		. #x77E9)	; 矩
     (=big5		. #xAF78)	; &I-B-AF78;
     (->subsumptive
-     ((=cns11643-1	  . #x567B)	; &M-23947; [54-91]
+     ((=cns11643-1	  . #x567B)	; &C1-567B; [54-91]
       (=daikanwa	  . 23947)	; &I-M-23947;
       )
      ((=ucs@unicode	  . #x77E9)	; &GT-30637;
@@ -1025,8 +1025,8 @@
     (ideographic-radical . 111)	; ⽮
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
-    (=ucs@jis		. #x77F0)	; &M-24017;
-    (=jis-x0212		. #x4F49)	; &M-24017; [47-41]
+    (=ucs@jis		. #x77F0)	; &JX2-723A;
+    (=jis-x0212		. #x4F49)	; &JX2-723A; [47-41]
     (=jis-x0213-2	. #x723A)	; &I-JX2-723A; [82-26]
     (=big5		. #xEDA4)	; &I-B-EDA4;
     (=daikanwa		. 24017)	; &I-M-24017;
