@@ -1,3 +1,12 @@
+2012-06-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R109-Eye.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+	(M-23273): Unify U-00025152.
+	(M-23274): Unify U-00025151 and H7-AAC9.
+	(mother of C4-2E55): Unify G-UU+7714 and G-M-49364.
+	(U-000252C0): Use `->subsumptive'.
+
 2012-06-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R098-Tile.el (M-21607'): Use `=daikanwa/+p' instead of
