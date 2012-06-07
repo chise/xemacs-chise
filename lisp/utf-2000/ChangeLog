@@ -1,3 +1,9 @@
+2012-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R115-Grain.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+	(M-25234): Map to U-0002584F.
+
 2012-06-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R109-Eye.el: Use `=daikanwa/+p' instead of
