@@ -1,5 +1,10 @@
 2012-06-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R122-Net.el (J0-3D70): Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-28311'.
+
+2012-06-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R120-Silk.el:
 	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
 	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for M-Hdddd.
