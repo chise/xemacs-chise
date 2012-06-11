@@ -488,7 +488,7 @@
       )
      ((=ucs		  . #xE0102)	; 󠄂
       ))
-    (=hanyo-denshi/ft	. #x3669)	; 毓󠄂 [22-73]
+    (=hanyo-denshi/ft	. #x3669)	; &HD-FT-3669; [22-73]
     ))
 (define-char
   '((ideographic-radical . 80)	; ⽏
