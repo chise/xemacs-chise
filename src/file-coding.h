@@ -1,7 +1,7 @@
 /* Header for code conversion stuff
    Copyright (C) 1991, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2002,2005 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2002,2005,2012 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -144,6 +144,7 @@ struct Lisp_Coding_System
 #endif
 #ifdef UTF2000
   unsigned int disable_composition	:1;
+  unsigned int enable_decomposition	:1;
   unsigned int use_entity_reference	:1;
   Lisp_Object ccs_priority_list;
 #endif
@@ -193,6 +194,8 @@ DECLARE_LRECORD (coding_system, Lisp_Coding_System);
 #ifdef UTF2000
 #define CODING_SYSTEM_DISABLE_COMPOSITION(codesys) \
   ((codesys)->disable_composition)
+#define CODING_SYSTEM_ENABLE_DECOMPOSITION(codesys) \
+  ((codesys)->enable_decomposition)
 #define CODING_SYSTEM_USE_ENTITY_REFERENCE(codesys) \
   ((codesys)->use_entity_reference)
 #define CODING_SYSTEM_CCS_PRIORITY_LIST(codesys) \
@@ -247,6 +250,8 @@ DECLARE_LRECORD (coding_system, Lisp_Coding_System);
 #ifdef UTF2000
 #define XCODING_SYSTEM_DISABLE_COMPOSITION(codesys) \
   CODING_SYSTEM_DISABLE_COMPOSITION (XCODING_SYSTEM (codesys))
+#define XCODING_SYSTEM_ENABLE_DECOMPOSITION(codesys) \
+  CODING_SYSTEM_ENABLE_DECOMPOSITION (XCODING_SYSTEM (codesys))
 #define XCODING_SYSTEM_USE_ENTITY_REFERENCE(codesys) \
   CODING_SYSTEM_USE_ENTITY_REFERENCE (XCODING_SYSTEM (codesys))
 #define XCODING_SYSTEM_CCS_PRIORITY_LIST(codesys) \
