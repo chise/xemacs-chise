@@ -1401,8 +1401,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@jis		  . #x542F)	; 启󠄀
-      (=jis-x0212	  . #x346B)	; 启󠄀 [20-75]
+     ((=ucs@jis		  . #x542F)	; &AJ1-21253;
+      (=jis-x0212	  . #x346B)	; &AJ1-21253; [20-75]
       (=cns11643-3	  . #x2524)	; &I-C3-2524; [05-04]
       (=daikanwa	  . 03357)	; &I-M-03357;
       )
@@ -2450,8 +2450,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x5468)	; 周󠄁
-      (=jis-x0208	  . #x3C7E)	; 周󠄁 [28-94]
+     ((=ucs@unicode	  . #x5468)	; &AJ1-02346;
+      (=jis-x0208	  . #x3C7E)	; &AJ1-02346; [28-94]
       (=gb2312		  . #x565C)	; &I-G0-565C; [54-60]
       (=cns11643-1	  . #x4C52)	; &I-C1-4C52; [44-50]
       (=jis-x0213-1	  . #x3C7E)	; &I-JX1-3C7E; [28-94]
@@ -2472,8 +2472,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x5468)	; 周󠄁
-      (=jis-x0208	  . #x3C7E)	; 周󠄁 [28-94]
+     ((=ucs@unicode	  . #x5468)	; &AJ1-02346;
+      (=jis-x0208	  . #x3C7E)	; &AJ1-02346; [28-94]
       (=gb2312		  . #x565C)	; &I-G0-565C; [54-60]
       (=cns11643-1	  . #x4C52)	; &I-C1-4C52; [44-50]
       (=jis-x0213-1	  . #x3C7E)	; &I-JX1-3C7E; [28-94]
