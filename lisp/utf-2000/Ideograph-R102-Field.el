@@ -1582,8 +1582,8 @@
       (=jis-x0212	  . #x4D3A)	; &JSP-4D3A; [45-26]
       (=daikanwa	  . 21828)	; &I-M-21828;
       (<-formed
-       ((=ucs@jis	    . #x5793)	; 垓󠄀
-	(=jis-x0208	    . #x5436)	; 垓󠄀 [52-22]
+       ((=ucs@jis	    . #x5793)	; &AJ1-04487;
+	(=jis-x0208	    . #x5436)	; &AJ1-04487; [52-22]
 	(=ks-x1001	    . #x7A27)	; &I-K0-7A27; [90-07]
 	(=jis-x0213-1	    . #x5436)	; &I-JX1-5436; [52-22]
 	(=daikanwa	    . 05040)	; &I-M-05040;
@@ -1591,8 +1591,8 @@
       (<-formed*sources
        jiyun)
       (<-same
-       ((=ucs@jis	    . #x5793)	; 垓󠄀
-	(=jis-x0208	    . #x5436)	; 垓󠄀 [52-22]
+       ((=ucs@jis	    . #x5793)	; &AJ1-04487;
+	(=jis-x0208	    . #x5436)	; &AJ1-04487; [52-22]
 	(=ks-x1001	    . #x7A27)	; &I-K0-7A27; [90-07]
 	(=jis-x0213-1	    . #x5436)	; &I-JX1-5436; [52-22]
 	(=daikanwa	    . 05040)	; &I-M-05040;
@@ -1606,8 +1606,8 @@
       )
      ((=shinjigen	  .  1385)	; &SJG2-1385;
       (<-formed
-       ((=shinjigen	    .  1384)	; 垓󠄂
-	(=hanyo-denshi/ks   . 058090)	; 垓󠄂
+       ((=shinjigen	    .  1384)	; &HD-KS-058090;
+	(=hanyo-denshi/ks   . 058090)	; &HD-KS-058090;
 	))
       (<-formed*sources
        shinjigen)
