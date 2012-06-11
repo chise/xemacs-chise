@@ -423,8 +423,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@jis	    . #x4EAB)	; 享󠄀
-	(=jis-x0208	    . #x357D)	; 享󠄀 [21-93]
+       ((=ucs@jis	    . #x4EAB)	; &AJ1-01687;
+	(=jis-x0208	    . #x357D)	; &AJ1-01687; [21-93]
 	(=ks-x1001	    . #x7A3D)	; &I-K0-7A3D; [90-29]
 	(=jis-x0213-1	    . #x357D)	; &I-JX1-357D; [21-93]
 	(=daikanwa	    . 00298)	; &I-M-00298;
