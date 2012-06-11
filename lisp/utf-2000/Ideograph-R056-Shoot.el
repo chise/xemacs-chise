@@ -101,8 +101,8 @@
 	)
        ((=ucs		    . #xE0102)	; 󠄂
 	))
-      (=ucs@unicode	  . #x5F0D)	; 弍󠄂
-      (=iso-ir165	  . #x2E37)	; 弍󠄂 [14-23]
+      (=ucs@unicode	  . #x5F0D)	; &HD-JT-B103;
+      (=iso-ir165	  . #x2E37)	; &HD-JT-B103; [14-23]
       (=hanyo-denshi/jt	  . #xB103)	; &I-HD-JT-B103;
       ))
     ))
