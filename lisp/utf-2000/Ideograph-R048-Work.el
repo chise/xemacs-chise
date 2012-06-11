@@ -133,9 +133,9 @@
 	)
        ((=ucs		    . #xE0103)	; 󠄃
 	))
-      (=cns11643-1	  . #x4648)	; 巨󠄃 [38-40]
+      (=cns11643-1	  . #x4648)	; &HD-KS-098730; [38-40]
       (=daikanwa	  . 08722)	; &I-M-08722;
-      (=hanyo-denshi/ks	  . 098730)	; 巨󠄃
+      (=hanyo-denshi/ks	  . 098730)	; &HD-KS-098730;
       (=hanyo-denshi/ks/mf . #x2691)	; &I-KSMF-09873;
       )
      ((=ucs@unicode	  . #x5DE8)	; &GT-03331;
@@ -220,9 +220,9 @@
       )
      ((=ucs		  . #xE0102)	; 󠄂
       ))
-    (=ucs@unicode	. #x5DE9)	; 巩󠄂
-    (=gb2312		. #x392E)	; 巩󠄂 [25-14]
-    (=hanyo-denshi/ks	. 098790)	; 巩󠄂
+    (=ucs@unicode	. #x5DE9)	; &HD-KS-098790;
+    (=gb2312		. #x392E)	; &HD-KS-098790; [25-14]
+    (=hanyo-denshi/ks	. 098790)	; &HD-KS-098790;
     (=hanyo-denshi/ks/mf . #x2697)	; &I-KSMF-09879;
     ))
 (define-char
