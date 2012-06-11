@@ -149,8 +149,8 @@
 	)
        ((=ucs		    . #xE0103)	; 󠄃
 	))
-      (=hanyo-denshi/ks	  . 108170)	; 廷󠄃
-      (=hanyo-denshi/ks/mf . #x2A41)	; 廷󠄃
+      (=hanyo-denshi/ks	  . 108170)	; &HD-KS-108170;
+      (=hanyo-denshi/ks/mf . #x2A41)	; &HD-KS-108170;
       )
      ((=cns11643-1	  . #x4A2C)	; &C1-4A2C; [42-12]
       ))
