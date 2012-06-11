@@ -446,8 +446,8 @@
 	  )
 	 ((=ucs		      . #xE0102)	; 󠄂
 	  ))
-	(=hanyo-denshi/ks   . 065510)	; 夏󠄂
-	(=hanyo-denshi/ks/mf . #x1997)	; 夏󠄂
+	(=hanyo-denshi/ks   . 065510)	; &HD-KS-065510;
+	(=hanyo-denshi/ks/mf . #x1997)	; &HD-KS-065510;
 	)
        ((=ucs@cns	    . #x590F)	; &C1-546E;
 	(=cns11643-1	    . #x546E)	; &C1-546E; [52-78]
@@ -467,15 +467,15 @@
      ((=ucs		  . #xE0101)	; 󠄁
       ))
     (hanyu-dazidian	2 869 10)
-    (=ucs@unicode	. #x590F)	; 夏󠄁
-    (=jis-x0208		. #x3246)	; 夏󠄁 [18-38]
+    (=ucs@unicode	. #x590F)	; &AJ1-01350;
+    (=jis-x0208		. #x3246)	; &AJ1-01350; [18-38]
     (=gb2312		. #x4F44)	; &I-G0-4F44; [47-36]
     (=ks-x1001		. #x793E)	; &I-K0-793E; [89-30]
     (=jis-x0213-1	. #x3246)	; &I-JX1-3246; [18-38]
     (=gt		. 07217)	; &I-GT-07217;
     (=gt-k		. 06381)	; &I-GT-K06381;
     (=gt-pj-1		. #x3246)	; &I-GT-07217; [18-38]
-    (=shinjigen		.  1539)	; 夏󠄁
+    (=shinjigen		.  1539)	; &AJ1-01350;
     (=adobe-japan1-0	. 01350)	; &I-AJ1-01350;
     (=hanyo-denshi/ja	. #x3246)	; &I-HD-JA-3246; [18-38]
     ))
