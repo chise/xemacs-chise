@@ -36,10 +36,10 @@
 	)
        ((=ucs		    . #xE0102)	; 󠄂
 	))
-      (=ucs@iso		  . #x20AD3)	; 𠫓󠄂
-      (=big5-cdp	  . #x8B7E)	; 𠫓󠄂
+      (=ucs@iso		  . #x20AD3)	; &HD-KS-035360;
+      (=big5-cdp	  . #x8B7E)	; &HD-KS-035360;
       (=daikanwa	  . 03058)	; &I-M-03058;
-      (=hanyo-denshi/ks	  . 035360)	; 𠫓󠄂
+      (=hanyo-denshi/ks	  . 035360)	; &HD-KS-035360;
       (=hanyo-denshi/ks/mf . #x0DD0)	; &I-KSMF-03536;
       )
      ((=cns11643-5	  . #x212E)	; &C5-212E; [01-14]
@@ -66,14 +66,14 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@jis		  . #x4EA0)	; 亠󠄀
-      (=jis-x0208	  . #x5035)	; 亠󠄀 [48-21]
+     ((=ucs@jis		  . #x4EA0)	; &AJ1-04110;
+      (=jis-x0208	  . #x5035)	; &AJ1-04110; [48-21]
       (=jis-x0213-1	  . #x5035)	; &I-JX1-5035; [48-21]
       )
      ((=ucs		  . #x53B6)	; 厶
       ))
-    (=ucs@jis		. #x20AD3)	; 𠫓󠄀
-    (=jis-x0213-2	. #x2359)	; 𠫓󠄀 [03-57]
+    (=ucs@jis		. #x20AD3)	; &AJ1-17337;
+    (=jis-x0213-2	. #x2359)	; &AJ1-17337; [03-57]
     (=adobe-japan1-5	. 17337)	; &I-AJ1-17337;
     (=hanyo-denshi/jd	. #x2359)	; &I-HD-JD-2359; [03-57]
     ))
@@ -610,8 +610,8 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=ucs@jis		  . #x53C0)	; 叀󠄀
-      (=jis-x0212	  . #x3457)	; 叀󠄀 [20-55]
+      (=ucs@jis		  . #x53C0)	; &AJ1-17339;
+      (=jis-x0212	  . #x3457)	; &AJ1-17339; [20-55]
       (=jis-x0213-2	  . #x235B)	; &I-JX2-235B; [03-59]
       (=adobe-japan1-5	  . 17339)	; &I-AJ1-17339;
       ))
@@ -956,7 +956,7 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=daikanwa	  . 03099)	; 叄󠄀
+      (=daikanwa	  . 03099)	; &AJ1-19217;
       (=adobe-japan1-5	  . 19217)	; &I-AJ1-19217;
       )
      ((=ucs@unicode	  . #x53C4)	; &C3-3455;
@@ -1013,8 +1013,8 @@
 	)
        ((=ucs		    . #x201CD)	; 𠇍
 	))
-      (=ucs@jis		  . #x53C5)	; 叅󠄀
-      (=jis-x0212	  . #x3458)	; 叅󠄀 [20-56]
+      (=ucs@jis		  . #x53C5)	; &AJ1-19218;
+      (=jis-x0212	  . #x3458)	; &AJ1-19218; [20-56]
       (=hanziku-1	  . #xF5F1)	; &I-HZK01-F5F1;
       (=jef-china3	  . #x45E9)	; &I-JC3-45E9;
       (=adobe-japan1-5	  . 19218)	; &I-AJ1-19218;
