@@ -442,9 +442,19 @@
 	  ))
 
   (make-coding-system
+   'utf-8-ivs-mcs 'utf-8
+   "Coding-system of UTF-8 with IVS."
+   '(mnemonic "MTF8i" enable-decomposition t))
+
+  (make-coding-system
    'utf-8-mcs-er 'utf-8
    "Coding-system of UTF-8 with entity-reference."
    '(mnemonic "MTF8r" use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-ivs-mcs-er 'utf-8
+   "Coding-system of UTF-8 with IVS and entity-reference."
+   '(mnemonic "MTF8ir" enable-decomposition t use-entity-reference t))
 
   (make-coding-system
    'utf-8-mcs-no-composition 'utf-8
@@ -455,102 +465,216 @@
    'utf-8-gb 'utf-8
    "Coding-system of UTF-8 using GB mapping."
    '(mnemonic "UTF8G"
-	      charset-g0 ucs-gb
-	      charset-g1 =>ucs-gb
+	      charset-g0 =ucs@gb
+	      charset-g1 =>ucs@unicode
 	      charset-g2 =>ucs))
+
+  (make-coding-system
+   'utf-8-ivs-gb 'utf-8
+   "Coding-system of UTF-8 using GB mapping with IVS."
+   '(mnemonic "UTF8iG"
+	      charset-g0 =ucs@gb
+	      charset-g1 =>ucs@unicode
+	      charset-g2 =>ucs
+	      enable-decomposition t))
 
   (make-coding-system
    'utf-8-gb-er 'utf-8
    "Coding-system of UTF-8 using GB mapping with entity-reference."
    '(mnemonic "UTF8Gr"
-	      charset-g0 ucs-gb
-	      charset-g1 =>ucs-gb
+	      charset-g0 =ucs@gb
+	      charset-g1 =>ucs@unicode
 	      charset-g2 =>ucs
+	      use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-ivs-gb-er 'utf-8
+   "Coding-system of UTF-8 using GB mapping with IVS and entity-reference."
+   '(mnemonic "UTF8iGr"
+	      charset-g0 =ucs@gb
+	      charset-g1 =>ucs@unicode
+	      charset-g2 =>ucs
+	      enable-decomposition t
 	      use-entity-reference t))
 
   (make-coding-system
    'utf-8-cns 'utf-8
    "Coding-system of UTF-8 using CNS mapping."
    '(mnemonic "UTF8C"
-	      charset-g0 ucs-cns
-	      charset-g1 =>ucs-cns
+	      charset-g0 =ucs@cns
+	      charset-g1 =>ucs@cns
 	      charset-g2 =>ucs))
+
+  (make-coding-system
+   'utf-8-ivs-cns 'utf-8
+   "Coding-system of UTF-8 using CNS mapping with IVS."
+   '(mnemonic "UTF8iC"
+	      charset-g0 =ucs@cns
+	      charset-g1 =>ucs@cns
+	      charset-g2 =>ucs
+	      enable-decomposition t))
 
   (make-coding-system
    'utf-8-cns-er 'utf-8
    "Coding-system of UTF-8 using CNS mapping with entity-reference."
    '(mnemonic "UTF8Cr"
-	      charset-g0 ucs-cns
-	      charset-g1 =>ucs-cns
+	      charset-g0 =ucs@cns
+	      charset-g1 =>ucs@cns
 	      charset-g2 =>ucs
+	      use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-ivs-cns-er 'utf-8
+   "Coding-system of UTF-8 using CNS mapping with IVS and entity-reference."
+   '(mnemonic "UTF8iCr"
+	      charset-g0 =ucs@cns
+	      charset-g1 =>ucs@cns
+	      charset-g2 =>ucs
+	      enable-decomposition t
 	      use-entity-reference t))
 
   (make-coding-system
    'utf-8-big5 'utf-8
    "Coding-system of UTF-8 using Big5 mapping."
    '(mnemonic "UTF8B"
-	      charset-g0 ucs-big5
-	      charset-g1 =>ucs-big5
+	      charset-g0 =ucs@big5
+	      charset-g1 =>ucs@big5
 	      charset-g2 =>ucs))
+
+  (make-coding-system
+   'utf-8-ivs-big5 'utf-8
+   "Coding-system of UTF-8 using Big5 mapping with IVS."
+   '(mnemonic "UTF8iB"
+	      charset-g0 =ucs@big5
+	      charset-g1 =>ucs@big5
+	      charset-g2 =>ucs
+	      enable-decomposition t))
 
   (make-coding-system
    'utf-8-big5-er 'utf-8
    "Coding-system of UTF-8 using Big5 mapping with entity-reference."
    '(mnemonic "UTF8Br"
-	      charset-g0 ucs-big5
-	      charset-g1 =>ucs-big5
+	      charset-g0 =ucs@big5
+	      charset-g1 =>ucs@big5
 	      charset-g2 =>ucs
+	      use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-ivs-big5-er 'utf-8
+   "Coding-system of UTF-8 using Big5 mapping with IVS and entity-reference."
+   '(mnemonic "UTF8iBr"
+	      charset-g0 =ucs@big5
+	      charset-g1 =>ucs@big5
+	      charset-g2 =>ucs
+	      enable-decomposition t
 	      use-entity-reference t))
 
   (make-coding-system
    'utf-8-jis 'utf-8
-   "Coding-system of UTF-8 using JIS mapping."
-   '(mnemonic "UTF8J"
-	      charset-g0 =ucs@jis-2000
-	      charset-g1 =>ucs-jis
+   "Coding-system of UTF-8 using JIS2000 mapping."
+   '(mnemonic "UTF8J00"
+	      charset-g0 =ucs@jis/2000
+	      charset-g1 =>ucs@jis
 	      charset-g2 =>ucs))
 
   (make-coding-system
+   'utf-8-ivs-jis 'utf-8
+   "Coding-system of UTF-8 using JIS2000 mapping with IVS."
+   '(mnemonic "UTF8iJ00"
+	      charset-g0 =ucs@jis/2000
+	      charset-g1 =>ucs@jis
+	      charset-g2 =>ucs
+	      enable-decomposition t))
+
+  (make-coding-system
    'utf-8-jis-er 'utf-8
-   "Coding-system of UTF-8 using JIS mapping with entity-reference."
-   '(mnemonic "UTF8Jr"
-	      charset-g0 =ucs@jis-2000
-	      charset-g1 =>ucs-jis
+   "Coding-system of UTF-8 using JIS2000 mapping with entity-reference."
+   '(mnemonic "UTF8J00r"
+	      charset-g0 =ucs@jis/2000
+	      charset-g1 =>ucs@jis
 	      charset-g2 =>ucs
 	      use-entity-reference t))
 
   (make-coding-system
+   'utf-8-ivs-jis-er 'utf-8
+   "Coding-system of UTF-8 using JIS2000 mapping with IVS and entity-reference."
+   '(mnemonic "UTF8iJ00r"
+	      charset-g0 =ucs@jis/2000
+	      charset-g1 =>ucs@jis
+	      charset-g2 =>ucs
+	      enable-decomposition t
+	      use-entity-reference t))
+
+  (make-coding-system
    'utf-8-jp 'utf-8
-   "Coding-system of UTF-8 for common glyphs used in Japan."
-   '(mnemonic "UTF8J"
-	      charset-g0 =ucs@jp
-	      charset-g1 =>ucs-jis
+   "Coding-system of UTF-8 using =ucs@JP mapping."
+   '(mnemonic "UTF8JP"
+	      charset-g0 =ucs@JP
+	      charset-g1 =>ucs@jis
 	      charset-g2 =>ucs))
 
   (make-coding-system
-   'utf-8-jp-er 'utf-8
-   "Coding-system of UTF-8 using =ucs@jp mapping with entity-reference."
-   '(mnemonic "UTF8Jr"
-	      charset-g0 =ucs@jp
-	      charset-g1 =>ucs-jis
+   'utf-8-ivs-jp 'utf-8
+   "Coding-system of UTF-8 using =ucs@JP mapping with IVS."
+   '(mnemonic "UTF8iJP"
+	      charset-g0 =ucs@JP
+	      charset-g1 =>ucs@jis
 	      charset-g2 =>ucs
+	      enable-decomposition t))
+
+  (make-coding-system
+   'utf-8-jp-er 'utf-8
+   "Coding-system of UTF-8 using =ucs@JP mapping with entity-reference."
+   '(mnemonic "UTF8JPr"
+	      charset-g0 =ucs@JP
+	      charset-g1 =>ucs@jis
+	      charset-g2 =>ucs
+	      use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-ivs-jp-er 'utf-8
+   "Coding-system of UTF-8 using =ucs@JP mapping with IVS and entity-reference."
+   '(mnemonic "UTF8iJPr"
+	      charset-g0 =ucs@JP
+	      charset-g1 =>ucs@jis
+	      charset-g2 =>ucs
+	      enable-decomposition t
 	      use-entity-reference t))
 
   (make-coding-system
    'utf-8-ks 'utf-8
    "Coding-system of UTF-8 using KS mapping."
    '(mnemonic "UTF8K"
-	      charset-g0 ucs-ks
-	      charset-g1 =>ucs-ks
+	      charset-g0 =ucs@ks
+	      charset-g1 =>ucs@ks
 	      charset-g2 =>ucs))
+
+  (make-coding-system
+   'utf-8-ivs-ks 'utf-8
+   "Coding-system of UTF-8 using KS mapping with IVS."
+   '(mnemonic "UTF8iK"
+	      charset-g0 =ucs@ks
+	      charset-g1 =>ucs@ks
+	      charset-g2 =>ucs
+	      enable-decomposition t))
 
   (make-coding-system
    'utf-8-ks-er 'utf-8
    "Coding-system of UTF-8 using KS mapping with entity-reference."
    '(mnemonic "UTF8Kr"
-	      charset-g0 ucs-ks
-	      charset-g1 =>ucs-ks
+	      charset-g0 =ucs@ks
+	      charset-g1 =>ucs@ks
 	      charset-g2 =>ucs
+	      use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-ivs-ks-er 'utf-8
+   "Coding-system of UTF-8 using KS mapping with IVS and entity-reference."
+   '(mnemonic "UTF8iKr"
+	      charset-g0 =ucs@ks
+	      charset-g1 =>ucs@ks
+	      charset-g2 =>ucs
+	      enable-decomposition t
 	      use-entity-reference t))
 
   (define-coding-system-alias 'utf-8 'utf-8-mcs)
