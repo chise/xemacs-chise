@@ -151,7 +151,7 @@
     (=daikanwa		. 07417)	; &I-M-07417;
     (=shinjigen		.  0602)	; 㝴
     (<-formed
-     ((=shinjigen	  .  0601)	; 刓󠄂
+     ((=shinjigen	  .  0601)	; &HD-JT-AE13;
       (=hanyo-denshi/jt	  . #xAE13)	; &I-HD-JT-AE13;
       ))
     (<-formed*sources
@@ -532,14 +532,14 @@
 	)
        ((=ucs		    . #xE0103)	; 󠄃
 	))
-      (=hanyo-denshi/jt	  . #xB040)	; 將󠄃
+      (=hanyo-denshi/jt	  . #xB040)	; &HD-JT-B040;
       )
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x5C07)	; 將
 	)
        ((=ucs		    . #xE0102)	; 󠄂
 	))
-      (=hanyo-denshi/jt	  . #xB56E)	; 將󠄂
+      (=hanyo-denshi/jt	  . #xB56E)	; &HD-JT-B56E;
       ))
     ))
 (define-char
@@ -580,7 +580,7 @@
       )
      ((=ucs		  . #xE0102)	; 󠄂
       ))
-    (=jef-china3	. #x4ACE)	; 專󠄂
+    (=jef-china3	. #x4ACE)	; &HD-JT-B041;
     (=hanyo-denshi/jt	. #xB041)	; &HD-JT-B041;
     ))
 (define-char
@@ -663,8 +663,8 @@
 	)
        ((=ucs		    . #xE0104)	; 󠄄
 	))
-      (=ucs@ks		  . #x5C0A)	; 尊󠄄
-      (=ks-x1001	  . #x706E)	; 尊󠄄 [80-78]
+      (=ucs@ks		  . #x5C0A)	; &HD-JT-B045;
+      (=ks-x1001	  . #x706E)	; &HD-JT-B045; [80-78]
       (=gt		  . 09378)	; &I-GT-09378;
       (=gt-k		  . 09091)	; &I-GT-K09091;
       (=gt-pj-3		  . #x315D)	; &I-GT-09378; [17-61]
@@ -742,7 +742,7 @@
       )
      ((=ucs		  . #xE0103)	; 󠄃
       ))
-    (=ks-x1001		. #x637C)	; 尋󠄃 [67-92]
+    (=ks-x1001		. #x637C)	; &HD-JT-B044; [67-92]
     (=cns11643-1	. #x5E72)	; &I-C1-5E72; [62-82]
     (=gt		. 09374)	; &I-GT-09374;
     (=gt-k		. 09077)	; &I-GT-K09077;
@@ -969,7 +969,7 @@
     (=gt-pj-1		. #x4633)	; &I-GT-09406; [38-19]
     (=daikanwa/+p	. 07463)	; &GT-09406;
     (<-simplified
-     ((=ks-x1001	  . #x5374)	; 導󠄃 [51-84]
+     ((=ks-x1001	  . #x5374)	; &HD-JT-B04A; [51-84]
       (=daikanwa	  . 07465)	; &I-M-07465;
       ))
     (<-simplified*sources
@@ -1011,7 +1011,7 @@
       )
      ((=ucs		  . #xE0103)	; 󠄃
       ))
-    (=ks-x1001		. #x5374)	; 導󠄃 [51-84]
+    (=ks-x1001		. #x5374)	; &HD-JT-B04A; [51-84]
     (=daikanwa		. 07465)	; &I-M-07465;
     (=jef-china3	. #x4ACF)	; &I-JC3-4ACF;
     (=hanyo-denshi/jt	. #xB04A)	; &I-HD-JT-B04A;
@@ -1057,7 +1057,7 @@
     (total-strokes	 . 17)
     (=daikanwa		. 07468)	; &M-07468;
     (<-ancient
-     ((=ks-x1001	  . #x5374)	; 導󠄃 [51-84]
+     ((=ks-x1001	  . #x5374)	; &HD-JT-B04A; [51-84]
       (=daikanwa	  . 07465)	; &I-M-07465;
       ))
     (<-ancient*sources
@@ -1101,7 +1101,7 @@
     (=cns11643-7	. #x4659)	; &I-C7-4659; [38-57]
     (=daikanwa		. 07470)	; &I-M-07470;
     (<-ancient
-     ((=ks-x1001	  . #x5374)	; 導󠄃 [51-84]
+     ((=ks-x1001	  . #x5374)	; &HD-JT-B04A; [51-84]
       (=daikanwa	  . 07465)	; &I-M-07465;
       ))
     ))
