@@ -329,7 +329,7 @@
       )
      ((=ucs		  . #xE0103)	; 󠄃
       ))
-    (=ks-x1001		. #x625E)	; 巡󠄃 [66-62]
+    (=ks-x1001		. #x625E)	; &HD-JT-BC3A; [66-62]
     (=daikanwa		. 08684)	; &I-M-08684;
     (=jef-china3	. #x67AA)	; &I-JC3-67AA;
     (=hanyo-denshi/jt	. #xBC3A)	; &I-HD-JT-BC3A;
@@ -482,7 +482,7 @@
       )
      ((=ucs		  . #xE0102)	; 󠄂
       ))
-    (=hanyo-denshi/jt	. #xB323)	; 巢󠄂
+    (=hanyo-denshi/jt	. #xB323)	; &HD-JT-B323;
     ))
 (define-char
   '((ideographic-radical . 47)	; ⼮
