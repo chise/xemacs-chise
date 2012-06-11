@@ -1,3 +1,45 @@
+2012-06-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (utf-8-ivs-mcs): New coding-system for
+	XEmacs CHISE.
+	(utf-8-ivs-mcs-er): Likewise.
+	(utf-8-gb): Use `=ucs@gb' and `=>ucs@unicode' instead of `ucs-gb'
+	and `=>ucs-gb'.
+	(utf-8-ivs-gb): New coding-system for XEmacs CHISE.
+	(utf-8-gb-er): Use `=ucs@gb' and `=>ucs@unicode' instead of
+	`ucs-gb' and `=>ucs-gb'.
+	(utf-8-ivs-gb-er): New coding-system for XEmacs CHISE.
+	(utf-8-cns): Use `=ucs@cns' and `=>ucs@cns' instead of `ucs-cns'
+	and `=>ucs-cns'.
+	(utf-8-ivs-cns): New coding-system for XEmacs CHISE.
+	(utf-8-cns-er): Use `=ucs@cns' and `=>ucs@cns' instead of
+	`ucs-cns' and `=>ucs-cns'.
+	(utf-8-ivs-cns-er): New coding-system for XEmacs CHISE.
+	(utf-8-big5): Use `=ucs@big5' and `=>ucs@big5' instead of
+	`ucs-big5' and `=>ucs-big5'.
+	(utf-8-ivs-big5): New coding-system for XEmacs CHISE.
+	(utf-8-big5-er): Use `=ucs@big5' and `=>ucs@big5' instead of
+	`ucs-big5' and `=>ucs-big5'.
+	(utf-8-ivs-big5-er): New coding-system for XEmacs CHISE.
+	(utf-8-jis): Use `=ucs@jis/2000' and `=>ucs@jis' instead of
+	`=ucs@jis-2000' and `=>ucs-jis'; modify DOC and mnemonic.
+	(utf-8-ivs-jis): New coding-system for XEmacs CHISE.
+	(utf-8-jis-er): Use `=ucs@jis/2000' and `=>ucs@jis' instead of
+	`=ucs@jis-2000' and `=>ucs-jis'; modify DOC and mnemonic.
+	(utf-8-ivs-jis-er): New coding-system for XEmacs CHISE.
+	(utf-8-jp): Use `=ucs@JP' and `=>ucs@jis' instead of `=ucs@jp' and
+	`=>ucs-jis'; modify DOC and mnemonic.
+	(utf-8-ivs-jp): New coding-system for XEmacs CHISE.
+	(utf-8-jp-er): Use `=ucs@JP' and `=>ucs@jis' instead of `=ucs@jp'
+	and `=>ucs-jis'; modify DOC and mnemonic.
+	(utf-8-ivs-jp-er): New coding-system for XEmacs CHISE.
+	(utf-8-ks): Use `=ucs@ks' and `=>ucs@ks' instead of `ucs-ks' and
+	`=>ucs-ks'.
+	(utf-8-ivs-ks): New coding-system for XEmacs CHISE.
+	(utf-8-ks-er): Use `=ucs@ks' and `=>ucs@ks' instead of `ucs-ks'
+	and `=>ucs-ks'.
+	(utf-8-ivs-ks-er): New coding-system for XEmacs CHISE.
+
 2012-05-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist):
