@@ -64,7 +64,7 @@
       )
      ((=ucs		  . #xE0103)	; 󠄃
       ))
-    (=ks-x1001		. #x7841)	; 平󠄃 [88-33]
+    (=ks-x1001		. #x7841)	; &HD-JT-B0BF; [88-33]
     (=gt		. 11550)	; &I-GT-11550;
     (=gt-k		. 01070)	; &I-GT-K01070;
     (=gt-pj-3		. #x4269)	; &I-GT-11550; [34-73]
@@ -205,7 +205,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ks-x1001	  . #x7841)	; 平󠄃 [88-33]
+     ((=ks-x1001	  . #x7841)	; &HD-JT-B0BF; [88-33]
       (=daikanwa	  . 09167)	; &I-M-09167;
       )
      ((=ucs		  . #x4E01)	; 丁
