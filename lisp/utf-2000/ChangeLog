@@ -1,3 +1,14 @@
+2012-06-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R120-Silk.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for M-Hdddd.
+
+	* Ideograph-R119-Rice.el (G-J0-403A): Unify G-GT-K11139 and
+	G-M-26997'.
+	(J0-403A): Use `=daikanwa/+p' instead of `morohashi-daikanwa' for
+	M-26997'.
+
 2012-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R115-Grain.el: Use `=daikanwa/+p' instead of
