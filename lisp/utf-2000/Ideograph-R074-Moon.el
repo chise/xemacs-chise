@@ -815,8 +815,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x4EA1)	; 亡󠄀
-	(=jis-x0208	    . #x4B34)	; 亡󠄀 [43-20]
+       ((=ucs@jis	    . #x4EA1)	; &AJ1-03682;
+	(=jis-x0208	    . #x4B34)	; &AJ1-03682; [43-20]
 	(=ks-x1001	    . #x584C)	; &I-K0-584C; [56-44]
 	(=jis-x0213-1	    . #x4B34)	; &I-JX1-4B34; [43-20]
 	)
@@ -1732,7 +1732,7 @@
 	)
        ((=ucs		    . #xE0103)	; 󠄃
 	))
-      (=hanyo-denshi/ft	  . #x3646)	; 朦󠄃 [22-38]
+      (=hanyo-denshi/ft	  . #x3646)	; &HD-FT-3646; [22-38]
       ))
     ))
 (define-char
