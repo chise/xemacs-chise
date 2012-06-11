@@ -167,10 +167,10 @@
 	)
        ((=ucs		    . #x4E3F)	; 丿
 	))
-      (=ucs@unicode	  . #x5203)	; 刃󠄁
-      (=gb2312		  . #x4850)	; 刃󠄁 [40-48]
+      (=ucs@unicode	  . #x5203)	; &AJ1-13858;
+      (=gb2312		  . #x4850)	; &AJ1-13858; [40-48]
       (=ks-x1001	  . #x6C53)	; &I-K0-6C53; [76-51]
-      (=shinjigen	  .  0591)	; 刃󠄁
+      (=shinjigen	  .  0591)	; &AJ1-13858;
       (=jef-china3	  . #x44B3)	; &I-JC3-44B3;
       (=adobe-japan1-4	  . 13858)	; &I-AJ1-13858;
       (=hanyo-denshi/ib	  . #x2322)	; &I-HD-IB-2322; [03-02]
@@ -191,18 +191,18 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=ucs@jis		  . #x5204)	; 刄󠄀
-      (=jis-x0208	  . #x5163)	; 刄󠄀 [49-67]
+      (=ucs@jis		  . #x5204)	; &AJ1-04250;
+      (=jis-x0208	  . #x5163)	; &AJ1-04250; [49-67]
       (=jis-x0213-1	  . #x5163)	; &I-JX1-5163; [49-67]
       (=gt		  . 02408)	; &I-GT-02408;
       (=gt-k		  . 00213)	; &I-GT-K00213;
       (=gt-pj-1		  . #x5163)	; &I-GT-02408; [49-67]
       (=daikanwa	  . 01849)	; &I-M-01849;
-      (=shinjigen	  .  0592)	; 刄󠄀
+      (=shinjigen	  .  0592)	; &AJ1-04250;
       (=adobe-japan1-0	  . 04250)	; &I-AJ1-04250;
       (<-simplified@misc
-       ((=ucs@jis	    . #x5169)	; 兩󠄀
-	(=jis-x0208	    . #x5140)	; 兩󠄀 [49-32]
+       ((=ucs@jis	    . #x5169)	; &AJ1-04215;
+	(=jis-x0208	    . #x5140)	; &AJ1-04215; [49-32]
 	(=ks-x1001	    . #x5557)	; &I-K0-5557; [53-55]
 	(=jis-x0213-1	    . #x5140)	; &I-JX1-5140; [49-32]
 	(=daikanwa	    . 01436)	; &I-M-01436;
@@ -335,8 +335,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x5203)	; 刃󠄁
-      (=gb2312		  . #x4850)	; 刃󠄁 [40-48]
+     ((=ucs@unicode	  . #x5203)	; &AJ1-13858;
+      (=gb2312		  . #x4850)	; &AJ1-13858; [40-48]
       (=ks-x1001	  . #x6C53)	; &I-K0-6C53; [76-51]
       )
      ((=ucs		  . #x4E36)	; 丶
@@ -349,8 +349,8 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=ucs@unicode	  . #x5205)	; 刅󠄀
-      (=jis-x0212	  . #x3332)	; 刅󠄀 [19-18]
+      (=ucs@unicode	  . #x5205)	; &AJ1-19183;
+      (=jis-x0212	  . #x3332)	; &AJ1-19183; [19-18]
       (=adobe-japan1-5	  . 19183)	; &I-AJ1-19183;
       )
      ((hanyu-dazidian	  1 323 1)
@@ -419,22 +419,22 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x516B)	; 八󠄀
-	(=jis-x0208	    . #x482C)	; 八󠄀 [40-12]
+       ((=ucs@jis	    . #x516B)	; &AJ1-03392;
+	(=jis-x0208	    . #x482C)	; &AJ1-03392; [40-12]
 	(=ks-x1001	    . #x7822)	; &I-K0-7822; [88-02]
 	(=jis-x0213-1	    . #x482C)	; &I-JX1-482C; [40-12]
 	(=daikanwa	    . 01450)	; &I-M-01450;
 	)
        ((=ucs		    . #x5200)	; 刀
 	))
-      (=jis-x0208@1978	  . #x4A2C)	; 分󠄁 [42-12]
+      (=jis-x0208@1978	  . #x4A2C)	; &AJ1-13499; [42-12]
       (=jis-x0208@1983	  . #x4A2C)	; &I-J83-4A2C; [42-12]
       (=ks-x1001	  . #x5D42)	; &I-K0-5D42; [61-34]
       (=gt		  . 02420)	; &I-GT-02420;
       (=gt-k		  . 00485)	; &I-GT-K00485;
       (=gt-pj-2		  . #x4031)	; &I-GT-02420; [32-17]
       (=daikanwa	  . 01853)	; &I-M-01853;
-      (=shinjigen	  .  0599)	; 分󠄁
+      (=shinjigen	  .  0599)	; &AJ1-13499;
       (=jef-china3	  . #x44B5)	; &I-JC3-44B5;
       (=adobe-japan1-4	  . 13499)	; &I-AJ1-13499;
       (=hanyo-denshi/ft	  . #x3064)	; &I-HD-FT-3064; [16-68]
@@ -479,16 +479,16 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (=ucs		      . #x2FF1)	; ⿱
 	  )
-	 ((=adobe-japan1-5    . 20079)	; 八󠄁
+	 ((=adobe-japan1-5    . 20079)	; &AJ1-20079;
 	  )
 	 ((=ucs		      . #x5200)	; 刀
 	  ))
-	(=ucs@jis	    . #x5206)	; 分󠄀
-	(=jis-x0208@1990    . #x4A2C)	; 分󠄀 [42-12]
+	(=ucs@jis	    . #x5206)	; &AJ1-03580;
+	(=jis-x0208@1990    . #x4A2C)	; &AJ1-03580; [42-12]
 	(=jis-x0213-1	    . #x4A2C)	; &I-JX1-4A2C; [42-12]
 	(=gt		    . 02421)	; &I-GT-02421;
 	(=gt-pj-1	    . #x4A2C)	; &I-GT-02421; [42-12]
-	(=shinjigen	    .  0598)	; 分󠄀
+	(=shinjigen	    .  0598)	; &AJ1-03580;
 	(=adobe-japan1-0    . 03580)	; &I-AJ1-03580;
 	(=hanyo-denshi/ja   . #x4A2C)	; &I-HD-JA-4A2C; [42-12]
 	))
@@ -551,15 +551,15 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=ucs@jis		  . #x5207)	; 切󠄀
-      (=jis-x0208	  . #x405A)	; 切󠄀 [32-58]
+      (=ucs@jis		  . #x5207)	; &AJ1-02686;
+      (=jis-x0208	  . #x405A)	; &AJ1-02686; [32-58]
       (=ks-x1001	  . #x6F37)	; &I-K0-6F37; [79-23]
       (=jis-x0213-1	  . #x405A)	; &I-JX1-405A; [32-58]
       (=gt		  . 02415)	; &I-GT-02415;
       (=gt-k		  . 00456)	; &I-GT-K00456;
       (=gt-pj-1		  . #x405A)	; &I-GT-02415; [32-58]
       (=daikanwa	  . 01858)	; &I-M-01858;
-      (=shinjigen	  .  0596)	; 切󠄀
+      (=shinjigen	  .  0596)	; &AJ1-02686;
       (=adobe-japan1-0	  . 02686)	; &I-AJ1-02686;
       )
      ((hanyu-dazidian	  1 320 5)
@@ -577,12 +577,12 @@
     (total-strokes	 . 5)
     (=shinjigen		.  0597)	; &SJG2-0597;
     (<-wrong
-     ((=ucs@jis		  . #x5207)	; 切󠄀
-      (=jis-x0208	  . #x405A)	; 切󠄀 [32-58]
+     ((=ucs@jis		  . #x5207)	; &AJ1-02686;
+      (=jis-x0208	  . #x405A)	; &AJ1-02686; [32-58]
       (=ks-x1001	  . #x6F37)	; &I-K0-6F37; [79-23]
       (=jis-x0213-1	  . #x405A)	; &I-JX1-405A; [32-58]
       (=daikanwa	  . 01858)	; &I-M-01858;
-      (=shinjigen	  .  0596)	; 切󠄀
+      (=shinjigen	  .  0596)	; &AJ1-02686;
       ))
     (<-wrong*sources
      shinjigen)
@@ -873,8 +873,8 @@
 	)
        ((=ucs		    . #x5200)	; 刀
 	))
-      (=ucs@unicode	  . #x34DB)	; 㓛󠄀
-      (=cns11643-6	  . #x2241)	; 㓛󠄀 [02-33]
+      (=ucs@unicode	  . #x34DB)	; &AJ1-15425;
+      (=cns11643-6	  . #x2241)	; &AJ1-15425; [02-33]
       (=jis-x0213-1	  . #x2E5B)	; &I-JX1-2E5B; [14-59]
       (=daikanwa	  . 01876)	; &I-M-01876;
       (=cbeta		  . 01196)	; &I-CB01196;
@@ -902,8 +902,8 @@
     (=cns11643-3	. #x217C)	; &I-C3-217C; [01-92]
     (=daikanwa		. 01878)	; &I-M-01878;
     (<-vulgar
-     ((=ucs@jis		  . #x5207)	; 切󠄀
-      (=jis-x0208	  . #x405A)	; 切󠄀 [32-58]
+     ((=ucs@jis		  . #x5207)	; &AJ1-02686;
+      (=jis-x0208	  . #x405A)	; &AJ1-02686; [32-58]
       (=ks-x1001	  . #x6F37)	; &I-K0-6F37; [79-23]
       (=jis-x0213-1	  . #x405A)	; &I-JX1-405A; [32-58]
       (=daikanwa	  . 01858)	; &I-M-01858;
@@ -1219,8 +1219,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x4E30)	; 丰󠄀
-      (=gb2312		  . #x3761)	; 丰󠄀 [23-65]
+     ((=ucs@unicode	  . #x4E30)	; &AJ1-14301;
+      (=gb2312		  . #x3761)	; &AJ1-14301; [23-65]
       (=jis-x0212	  . #x302D)	; &I-JSP-302D; [16-13]
       (=jis-x0213-1	  . #x2E26)	; &I-JX1-2E26; [14-06]
       (=daikanwa	  . 00076)	; &I-M-00076;
@@ -1372,8 +1372,8 @@
 	)
        ((=ucs		    . #xE0101)	; 󠄁
 	))
-      (=ucs@unicode	  . #x5213)	; 刓󠄀
-      (=jis-x0212	  . #x3334)	; 刓󠄀 [19-20]
+      (=ucs@unicode	  . #x5213)	; &AJ1-14357;
+      (=jis-x0212	  . #x3334)	; &AJ1-14357; [19-20]
       (=cns11643-2	  . #x217C)	; &I-C2-217C; [01-92]
       (=jis-x0213-1	  . #x2E5C)	; &I-JX1-2E5C; [14-60]
       (=big5		  . #xC9BD)	; &I-B-C9BD;
@@ -1386,8 +1386,8 @@
 	)
        ((=ucs		    . #xE0102)	; 󠄂
 	))
-      (=shinjigen	  .  0601)	; 刓󠄂
-      (=jef-china3	  . #x44BC)	; 刓󠄂
+      (=shinjigen	  .  0601)	; &HD-JT-AE13;
+      (=jef-china3	  . #x44BC)	; &HD-JT-AE13;
       (=hanyo-denshi/jt	  . #xAE13)	; &I-HD-JT-AE13;
       ))
     ))
@@ -1589,8 +1589,8 @@
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@jis		  . #x5218)	; 刘󠄀
-      (=jis-x0212	  . #x3337)	; 刘󠄀 [19-23]
+      (=ucs@jis		  . #x5218)	; &AJ1-21191;
+      (=jis-x0212	  . #x3337)	; &AJ1-21191; [19-23]
       (=daikanwa	  . 01908)	; &I-M-01908;
       (=jef-china3	  . #x44BD)	; &I-JC3-44BD;
       (=adobe-japan1-6	  . 21191)	; &I-AJ1-21191;
@@ -1601,12 +1601,12 @@
       (=cns11643-3	  . #x2327)	; &I-C3-2327; [03-07]
       (=hanziku-1	  . #xE973)	; &I-HZK01-E973;
       (<-simplified@CN
-       ((=ucs@unicode	    . #x5289)	; 劉󠄀
-	(=jis-x0208	    . #x4E2D)	; 劉󠄀 [46-13]
+       ((=ucs@unicode	    . #x5289)	; &AJ1-03957;
+	(=jis-x0208	    . #x4E2D)	; &AJ1-03957; [46-13]
 	(=ks-x1001	    . #x5731)	; &I-K0-5731; [55-17]
 	(=cns11643-1	    . #x6C2C)	; &I-C1-6C2C; [76-12]
 	(=jis-x0213-1	    . #x4E2D)	; &I-JX1-4E2D; [46-13]
-	(=gb12345	    . #x4175)	; 劉󠄀 [33-85]
+	(=gb12345	    . #x4175)	; &AJ1-03957; [33-85]
 	))
       ))
     ))
@@ -1688,15 +1688,15 @@
 	)
        ((=ucs		    . #x5200)	; 刀
 	))
-      (=ucs@jis		  . #x521D)	; 初󠄀
-      (=jis-x0208	  . #x3D69)	; 初󠄀 [29-73]
+      (=ucs@jis		  . #x521D)	; &AJ1-02419;
+      (=jis-x0208	  . #x3D69)	; &AJ1-02419; [29-73]
       (=ks-x1001	  . #x7478)	; &I-K0-7478; [84-88]
       (=jis-x0213-1	  . #x3D69)	; &I-JX1-3D69; [29-73]
       (=gt		  . 02490)	; &I-GT-02490;
       (=gt-k		  . 02573)	; &I-GT-K02573;
       (=gt-pj-1		  . #x3D69)	; &I-GT-02490; [29-73]
       (=daikanwa	  . 01911)	; &I-M-01911;
-      (=shinjigen	  .  0612)	; 初󠄀
+      (=shinjigen	  .  0612)	; &AJ1-02419;
       (=adobe-japan1-0	  . 02419)	; &I-AJ1-02419;
       )
      ((ideographic-structure
@@ -1855,8 +1855,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@jis	    . #x4EE4)	; 令󠄀
-	(=jis-x0208	    . #x4E61)	; 令󠄀 [46-65]
+       ((=ucs@jis	    . #x4EE4)	; &AJ1-04009;
+	(=jis-x0208	    . #x4E61)	; &AJ1-04009; [46-65]
 	(=ks-x1001	    . #x5635)	; &I-K0-5635; [54-21]
 	(=jis-x0213-1	    . #x4E61)	; &I-JX1-4E61; [46-65]
 	(=daikanwa	    . 00387)	; &I-M-00387;
@@ -1864,8 +1864,8 @@
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@jis		  . #x5222)	; 刢󠄀
-      (=jis-x0212	  . #x3338)	; 刢󠄀 [19-24]
+      (=ucs@jis		  . #x5222)	; &AJ1-21192;
+      (=jis-x0212	  . #x3338)	; &AJ1-21192; [19-24]
       (=daikanwa	  . 01919)	; &I-M-01919;
       (=cbeta		  . 05262)	; &I-CB05262;
       (=jef-china3	  . #x44BE)	; &I-JC3-44BE;
@@ -2007,10 +2007,10 @@
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@ks		  . #x5224)	; 判󠄁
-      (=ks-x1001	  . #x7777)	; 判󠄁 [87-87]
+      (=ucs@ks		  . #x5224)	; &AJ1-13985;
+      (=ks-x1001	  . #x7777)	; &AJ1-13985; [87-87]
       (=daikanwa	  . 01923)	; &I-M-01923;
-      (=shinjigen	  .  0614)	; 判󠄁
+      (=shinjigen	  .  0614)	; &AJ1-13985;
       (=jef-china3	  . #x44BF)	; &I-JC3-44BF;
       (=adobe-japan1-4	  . 13985)	; &I-AJ1-13985;
       (=hanyo-denshi/jt	  . #xAE15)	; &I-HD-JT-AE15;
@@ -2020,8 +2020,8 @@
 	)
        ((=ucs		    . #xE0103)	; 󠄃
 	))
-      (=hanyo-denshi/ks	  . 022690)	; 判󠄃
-      (=hanyo-denshi/ks/mf . #x08DD)	; 判󠄃
+      (=hanyo-denshi/ks	  . 022690)	; &HD-KS-022690;
+      (=hanyo-denshi/ks/mf . #x08DD)	; &HD-KS-022690;
       ))
     ))
 (define-char
@@ -2051,8 +2051,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x534A)	; 半󠄀
-	(=jis-x0208	    . #x483E)	; 半󠄀 [40-30]
+       ((=ucs@unicode	    . #x534A)	; &AJ1-03410;
+	(=jis-x0208	    . #x483E)	; &AJ1-03410; [40-30]
 	(=gb2312	    . #x306B)	; &I-G0-306B; [16-75]
 	(=cns11643-1	    . #x4624)	; &I-C1-4624; [38-04]
 	(=jis-x0213-1	    . #x483E)	; &I-JX1-483E; [40-30]
@@ -2060,13 +2060,13 @@
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@jis		  . #x5224)	; 判󠄀
-      (=jis-x0208	  . #x483D)	; 判󠄀 [40-29]
+      (=ucs@jis		  . #x5224)	; &AJ1-03409;
+      (=jis-x0208	  . #x483D)	; &AJ1-03409; [40-29]
       (=jis-x0213-1	  . #x483D)	; &I-JX1-483D; [40-29]
       (=gt		  . 02499)	; &I-GT-02499;
       (=gt-k		  . 02635)	; &I-GT-K02635;
       (=gt-pj-1		  . #x483D)	; &I-GT-02499; [40-29]
-      (=shinjigen	  .  0613)	; 判󠄀
+      (=shinjigen	  .  0613)	; &AJ1-03409;
       (=adobe-japan1-0	  . 03409)	; &I-AJ1-03409;
       (=hanyo-denshi/ja	  . #x483D)	; &I-HD-JA-483D; [40-29]
       )
@@ -2104,8 +2104,8 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=ucs@jis		  . #x5225)	; 別󠄀
-      (=jis-x0208	  . #x4A4C)	; 別󠄀 [42-44]
+      (=ucs@jis		  . #x5225)	; &AJ1-03612;
+      (=jis-x0208	  . #x4A4C)	; &AJ1-03612; [42-44]
       (=ks-x1001	  . #x5C2C)	; &I-K0-5C2C; [60-12]
       (=cns11643-1	  . #x4931)	; &I-C1-4931; [41-17]
       (=jis-x0213-1	  . #x4A4C)	; &I-JX1-4A4C; [42-44]
@@ -2114,7 +2114,7 @@
       (=gt-k		  . 02645)	; &I-GT-K02645;
       (=gt-pj-1		  . #x4A4C)	; &I-GT-02504; [42-44]
       (=daikanwa	  . 01924)	; &I-M-01924;
-      (=shinjigen	  .  0615)	; 別󠄀
+      (=shinjigen	  .  0615)	; &AJ1-03612;
       (=adobe-japan1-0	  . 03612)	; &I-AJ1-03612;
       )
      ((=ucs@unicode	  . #x5225)	; &UU+5225;
@@ -2142,8 +2142,8 @@
     (=daikanwa		. 01925)	; &I-M-01925;
     (=adobe-japan1-5	. 19186)	; &I-AJ1-19186;
     (<-vulgar
-     ((=ucs@jis		  . #x5225)	; 別󠄀
-      (=jis-x0208	  . #x4A4C)	; 別󠄀 [42-44]
+     ((=ucs@jis		  . #x5225)	; &AJ1-03612;
+      (=jis-x0208	  . #x4A4C)	; &AJ1-03612; [42-44]
       (=ks-x1001	  . #x5C2C)	; &I-K0-5C2C; [60-12]
       (=cns11643-1	  . #x4931)	; &I-C1-4931; [41-17]
       (=jis-x0213-1	  . #x4A4C)	; &I-JX1-4A4C; [42-44]
@@ -2438,8 +2438,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x518C)	; 册󠄀
-	(=jis-x0208	    . #x5146)	; 册󠄀 [49-38]
+       ((=ucs@unicode	    . #x518C)	; &AJ1-04221;
+	(=jis-x0208	    . #x5146)	; &AJ1-04221; [49-38]
 	(=gb2312	    . #x3261)	; &I-G0-3261; [18-65]
 	(=jis-x0213-1	    . #x5146)	; &I-JX1-5146; [49-38]
 	(=daikanwa	    . 01516)	; &I-M-01516;
@@ -2623,9 +2623,9 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=gt		  . 02525)	; 𠛬󠄀
+      (=gt		  . 02525)	; &AJ1-20083;
       (=gt-k		  . 03929)	; &I-GT-K03929;
-      (=gt-pj-2		  . #x4127)	; 𠛬󠄀 [33-07]
+      (=gt-pj-2		  . #x4127)	; &AJ1-20083; [33-07]
       (=daikanwa	  . 01951)	; &I-M-01951;
       (=adobe-japan1-5	  . 20083)	; &I-AJ1-20083;
       (<-original
@@ -2709,12 +2709,12 @@
 	)
        ((=ucs		    . #x4E95)	; 井
 	)
-       ((=ucs@unicode	    . #x5205)	; 刅󠄀
-	(=jis-x0212	    . #x3332)	; 刅󠄀 [19-18]
+       ((=ucs@unicode	    . #x5205)	; &AJ1-19183;
+	(=jis-x0212	    . #x3332)	; &AJ1-19183; [19-18]
 	))
-      (=ucs@unicode	  . #x5231)	; 刱󠄀
-      (=shinjigen	  .  0634)	; 刱󠄀
-      (=adobe-japan1-5	  . 19187)	; 刱󠄀
+      (=ucs@unicode	  . #x5231)	; &AJ1-19187;
+      (=shinjigen	  .  0634)	; &AJ1-19187;
+      (=adobe-japan1-5	  . 19187)	; &AJ1-19187;
       )
      ((hanyu-dazidian	  1 332 6)
       (ideographic-structure
@@ -2773,11 +2773,11 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=ucs@jis		  . #x5233)	; 刳󠄀
-      (=jis-x0208	  . #x516A)	; 刳󠄀 [49-74]
+      (=ucs@jis		  . #x5233)	; &AJ1-04257;
+      (=jis-x0208	  . #x516A)	; &AJ1-04257; [49-74]
       (=jis-x0213-1	  . #x516A)	; &I-JX1-516A; [49-74]
       (=daikanwa	  . 01956)	; &I-M-01956;
-      (=shinjigen	  .  0625)	; 刳󠄀
+      (=shinjigen	  .  0625)	; &AJ1-04257;
       (=adobe-japan1-0	  . 04257)	; &I-AJ1-04257;
       )
      ((=ucs@unicode	  . #x5233)	; &GT-02529;
@@ -2865,8 +2865,8 @@
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@jis		  . #x5235)	; 刵󠄀
-      (=jis-x0212	  . #x333C)	; 刵󠄀 [19-28]
+      (=ucs@jis		  . #x5235)	; &AJ1-19189;
+      (=jis-x0212	  . #x333C)	; &AJ1-19189; [19-28]
       (=cns11643-2	  . #x2550)	; &I-C2-2550; [05-48]
       (=daikanwa	  . 01960)	; &I-M-01960;
       (=adobe-japan1-5	  . 19189)	; &I-AJ1-19189;
@@ -2970,13 +2970,13 @@
     (=daikanwa		. 01965)	; &I-M-01965;
     (=shinjigen		.  0616)	; 𠛰
     (<-original
-     ((=ucs@jis		  . #x5225)	; 別󠄀
-      (=jis-x0208	  . #x4A4C)	; 別󠄀 [42-44]
+     ((=ucs@jis		  . #x5225)	; &AJ1-03612;
+      (=jis-x0208	  . #x4A4C)	; &AJ1-03612; [42-44]
       (=ks-x1001	  . #x5C2C)	; &I-K0-5C2C; [60-12]
       (=cns11643-1	  . #x4931)	; &I-C1-4931; [41-17]
       (=jis-x0213-1	  . #x4A4C)	; &I-JX1-4A4C; [42-44]
       (=daikanwa	  . 01924)	; &I-M-01924;
-      (=shinjigen	  .  0615)	; 別󠄀
+      (=shinjigen	  .  0615)	; &AJ1-03612;
       ))
     (<-original*sources
      zhengzitong daikanwa shinjigen)
@@ -3015,14 +3015,14 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@jis		  . #x20509)	; 𠔉󠄀
-      (=jis-x0213-2	  . #x2327)	; 𠔉󠄀 [03-07]
+     ((=ucs@jis		  . #x20509)	; &AJ1-17299;
+      (=jis-x0213-2	  . #x2327)	; &AJ1-17299; [03-07]
       )
      ((=ucs		  . #x5200)	; 刀
       ))
-    (=ks-x1001		. #x4F67)	; 券󠄁 [47-71]
+    (=ks-x1001		. #x4F67)	; &AJ1-13749; [47-71]
     (=daikanwa		. 01966)	; &I-M-01966;
-    (=shinjigen		.  0624)	; 券󠄁
+    (=shinjigen		.  0624)	; &AJ1-13749;
     (=jef-china3	. #x44B6)	; &I-JC3-44B6;
     (=adobe-japan1-4	. 13749)	; &I-AJ1-13749;
     ))
@@ -3058,13 +3058,13 @@
 	)
        ((=ucs		    . #x5200)	; 刀
 	))
-      (=ucs@jis		  . #x5238)	; 券󠄀
-      (=jis-x0208	  . #x3774)	; 券󠄀 [23-84]
+      (=ucs@jis		  . #x5238)	; &AJ1-01866;
+      (=jis-x0208	  . #x3774)	; &AJ1-01866; [23-84]
       (=jis-x0213-1	  . #x3774)	; &I-JX1-3774; [23-84]
       (=gt		  . 02528)	; &I-GT-02528;
       (=gt-k		  . 03687)	; &I-GT-K03687;
       (=gt-pj-1		  . #x3774)	; &I-GT-02528; [23-84]
-      (=shinjigen	  .  0623)	; 券󠄀
+      (=shinjigen	  .  0623)	; &AJ1-01866;
       (=adobe-japan1-0	  . 01866)	; &I-AJ1-01866;
       )
      ((ideographic-structure
@@ -3106,16 +3106,16 @@
       )
      ((=ucs		  . #xE0100)	; 󠄀
       ))
-    (=>>ucs@jis		. #x5239)	; 刹󠄀
-    (=ucs@jis		. #x5239)	; 刹󠄀
-    (=jis-x0208		. #x516B)	; 刹󠄀 [49-75]
+    (=>>ucs@jis		. #x5239)	; &AJ1-04258;
+    (=ucs@jis		. #x5239)	; &AJ1-04258;
+    (=jis-x0208		. #x516B)	; &AJ1-04258; [49-75]
     (=ks-x1001		. #x734B)	; &I-K0-734B; [83-43]
     (=jis-x0213-1	. #x516B)	; &I-JX1-516B; [49-75]
     (=gt		. 02537)	; &I-GT-02537;
     (=gt-k		. 03860)	; &I-GT-K03860;
     (=gt-pj-1		. #x516B)	; &I-GT-02537; [49-75]
     (=daikanwa		. 01967)	; &I-M-01967;
-    (=shinjigen		.  0632)	; 刹󠄀
+    (=shinjigen		.  0632)	; &AJ1-04258;
     (=adobe-japan1-0	. 04258)	; &I-AJ1-04258;
     ))
 (define-char
@@ -3227,23 +3227,23 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@jis	    . #x4EA5)	; 亥󠄀
-	(=jis-x0208	    . #x3067)	; 亥󠄀 [16-71]
+       ((=ucs@jis	    . #x4EA5)	; &AJ1-01195;
+	(=jis-x0208	    . #x3067)	; &AJ1-01195; [16-71]
 	(=ks-x1001	    . #x7A24)	; &I-K0-7A24; [90-04]
 	(=jis-x0213-1	    . #x3067)	; &I-JX1-3067; [16-71]
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@jis		  . #x523B)	; 刻󠄀
-      (=jis-x0208	  . #x396F)	; 刻󠄀 [25-79]
+      (=ucs@jis		  . #x523B)	; &AJ1-02049;
+      (=jis-x0208	  . #x396F)	; &AJ1-02049; [25-79]
       (=ks-x1001	  . #x4A3E)	; &I-K0-4A3E; [42-30]
       (=jis-x0213-1	  . #x396F)	; &I-JX1-396F; [25-79]
       (=gt		  . 02532)	; &I-GT-02532;
       (=gt-k		  . 03707)	; &I-GT-K03707;
       (=gt-pj-1		  . #x396F)	; &I-GT-02532; [25-79]
       (=daikanwa	  . 01970)	; &I-M-01970;
-      (=shinjigen	  .  0626)	; 刻󠄀
+      (=shinjigen	  .  0626)	; &AJ1-02049;
       (=adobe-japan1-0	  . 02049)	; &I-AJ1-02049;
       )
      ((ideographic-structure
@@ -3282,7 +3282,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=daikanwa	  . 00292)	; 亥󠄂
+     ((=daikanwa	  . 00292)	; &HD-JT-AD2B;
       (=hanyo-denshi/jt	  . #xAD2B)	; &I-HD-JT-AD2B;
       )
      ((name		  . "CJK RADICAL KNIFE TWO")
@@ -3310,8 +3310,8 @@
     (->subsumptive
      ((=daikanwa	  . 01971)	; &M-01971;
       (<-same
-       ((=ucs@jis	    . #x523B)	; 刻󠄀
-	(=jis-x0208	    . #x396F)	; 刻󠄀 [25-79]
+       ((=ucs@jis	    . #x523B)	; &AJ1-02049;
+	(=jis-x0208	    . #x396F)	; &AJ1-02049; [25-79]
 	(=ks-x1001	    . #x4A3E)	; &I-K0-4A3E; [42-30]
 	(=jis-x0213-1	    . #x396F)	; &I-JX1-396F; [25-79]
 	(=daikanwa	    . 01970)	; &I-M-01970;
@@ -3511,13 +3511,13 @@
 	)
        ((=ucs		    . #x53BB)	; 去
 	)
-       ((=ucs@jis	    . #x5204)	; 刄󠄀
-	(=jis-x0208	    . #x5163)	; 刄󠄀 [49-67]
+       ((=ucs@jis	    . #x5204)	; &AJ1-04250;
+	(=jis-x0208	    . #x5163)	; &AJ1-04250; [49-67]
 	(=jis-x0213-1	    . #x5163)	; &I-JX1-5163; [49-67]
 	(=daikanwa	    . 01849)	; &I-M-01849;
 	))
-      (=ucs@jis		  . #x523C)	; 刼󠄀
-      (=jis-x0212	  . #x333D)	; 刼󠄀 [19-29]
+      (=ucs@jis		  . #x523C)	; &AJ1-19190;
+      (=jis-x0212	  . #x333D)	; &AJ1-19190; [19-29]
       (=daikanwa	  . 01987)	; &I-M-01987;
       (=adobe-japan1-5	  . 19190)	; &I-AJ1-19190;
       )
@@ -3586,8 +3586,8 @@
 	)
        ((=ucs		    . #x53BB)	; 去
 	)
-       ((=ucs@unicode	    . #x5203)	; 刃󠄁
-	(=gb2312	    . #x4850)	; 刃󠄁 [40-48]
+       ((=ucs@unicode	    . #x5203)	; &AJ1-13858;
+	(=gb2312	    . #x4850)	; &AJ1-13858; [40-48]
 	(=ks-x1001	    . #x6C53)	; &I-K0-6C53; [76-51]
 	))
       (=ucs@unicode	  . #x523C)	; &UU+523C;
@@ -3623,10 +3623,10 @@
       (=cns11643-4	  . #x254E)	; &I-C4-254E; [05-46]
       (=hanziku-1	  . #xEB52)	; &I-HZK01-EB52;
       (<-simplified@CN
-       ((=ucs@unicode	    . #x528A)	; 劊󠄀
-	(=jis-x0212	    . #x3350)	; 劊󠄀 [19-48]
+       ((=ucs@unicode	    . #x528A)	; &AJ1-19196;
+	(=jis-x0212	    . #x3350)	; &AJ1-19196; [19-48]
 	(=cns11643-1	    . #x6C2E)	; &I-C1-6C2E; [76-14]
-	(=gb12345	    . #x3974)	; 劊󠄀 [25-84]
+	(=gb12345	    . #x3974)	; &AJ1-19196; [25-84]
 	(=daikanwa	    . 02225)	; &I-M-02225;
 	))
       ))
@@ -3817,8 +3817,8 @@
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@unicode	  . #x5245)	; 剅󠄀
-      (=jis-x0212	  . #x333E)	; 剅󠄀 [19-30]
+      (=ucs@unicode	  . #x5245)	; &AJ1-21193;
+      (=jis-x0212	  . #x333E)	; &AJ1-21193; [19-30]
       (=iso-ir165	  . #x7E5B)	; &I-EGB-7E5B; [94-59]
       (=cns11643-3	  . #x2B3F)	; &I-C3-2B3F; [11-31]
       (=daikanwa	  . 01991)	; &I-M-01991;
@@ -4097,12 +4097,12 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=ucs@unicode	  . #x5249)	; 剉󠄀
-      (=jis-x0212	  . #x333F)	; 剉󠄀 [19-31]
+      (=ucs@unicode	  . #x5249)	; &AJ1-14358;
+      (=jis-x0212	  . #x333F)	; &AJ1-14358; [19-31]
       (=cns11643-2	  . #x2933)	; &I-C2-2933; [09-19]
       (=jis-x0213-1	  . #x2E5E)	; &I-JX1-2E5E; [14-62]
       (=daikanwa	  . 01999)	; &I-M-01999;
-      (=shinjigen	  .  0640)	; 剉󠄀
+      (=shinjigen	  .  0640)	; &AJ1-14358;
       (=jef-china3	  . #x44C2)	; &I-JC3-44C2;
       (=adobe-japan1-4	  . 14358)	; &I-AJ1-14358;
       ))
@@ -4152,9 +4152,9 @@
      ((name		  . "CJK RADICAL KNIFE TWO")
       (=ucs		  . #x2E89)	; ⺉
       ))
-    (=ks-x1001		. #x5E7B)	; 削󠄁 [62-91]
+    (=ks-x1001		. #x5E7B)	; &AJ1-13789; [62-91]
     (=daikanwa		. 02000)	; &I-M-02000;
-    (=shinjigen		.  0642)	; 削󠄁
+    (=shinjigen		.  0642)	; &AJ1-13789;
     (=jef-china3	. #x44C3)	; &I-JC3-44C3;
     (=adobe-japan1-4	. 13789)	; &I-AJ1-13789;
     (=hanyo-denshi/jt	. #xAE1E)	; &I-HD-JT-AE1E;
@@ -4191,14 +4191,14 @@
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@unicode	  . #x524A)	; 削󠄀
-      (=jis-x0208	  . #x3A6F)	; 削󠄀 [26-79]
+      (=ucs@unicode	  . #x524A)	; &AJ1-02143;
+      (=jis-x0208	  . #x3A6F)	; &AJ1-02143; [26-79]
       (=gb2312		  . #x4F77)	; &I-G0-4F77; [47-87]
       (=jis-x0213-1	  . #x3A6F)	; &I-JX1-3A6F; [26-79]
       (=gt		  . 02587)	; &I-GT-02587;
       (=gt-k		  . 05086)	; &I-GT-K05086;
       (=gt-pj-1		  . #x3A6F)	; &I-GT-02587; [26-79]
-      (=shinjigen	  .  0641)	; 削󠄀
+      (=shinjigen	  .  0641)	; &AJ1-02143;
       (=adobe-japan1-0	  . 02143)	; &I-AJ1-02143;
       (=hanyo-denshi/ja	  . #x3A6F)	; &I-HD-JA-3A6F; [26-79]
       )
@@ -4380,8 +4380,8 @@
       )
      ((=ucs		  . #xE0103)	; 󠄃
       ))
-    (=daikanwa		. 02011)	; 前󠄁
-    (=shinjigen		.  0644)	; 前󠄁
+    (=daikanwa		. 02011)	; &AJ1-13889;
+    (=shinjigen		.  0644)	; &AJ1-13889;
     (=jef-china3	. #x44CE)	; &I-JC3-44CE;
     (=adobe-japan1-4	. 13889)	; &I-AJ1-13889;
     (=hanyo-denshi/jt	. #xAE1B)	; &I-HD-JT-AE1B;
@@ -4407,15 +4407,15 @@
 	)
        ((=ucs		    . #xE0102)	; 󠄂
 	))
-      (=ucs@unicode	  . #x524D)	; 前󠄀
-      (=jis-x0208	  . #x4130)	; 前󠄀 [33-16]
+      (=ucs@unicode	  . #x524D)	; &AJ1-02738;
+      (=jis-x0208	  . #x4130)	; &AJ1-02738; [33-16]
       (=gb2312		  . #x4730)	; &I-G0-4730; [39-16]
       (=ks-x1001	  . #x6E71)	; &I-K0-6E71; [78-81]
       (=jis-x0213-1	  . #x4130)	; &I-JX1-4130; [33-16]
       (=gt		  . 02595)	; &I-GT-02595;
       (=gt-k		  . 05125)	; &I-GT-K05125;
       (=gt-pj-1		  . #x4130)	; &I-GT-02595; [33-16]
-      (=shinjigen	  .  0643)	; 前󠄀
+      (=shinjigen	  .  0643)	; &AJ1-02738;
       (=adobe-japan1-0	  . 02738)	; &I-AJ1-02738;
       (=hanyo-denshi/ja	  . #x4130)	; &I-HD-JA-4130; [33-16]
       )
@@ -4444,8 +4444,8 @@
     (=ucs@unicode	. #x524E)	; &M-02012;
     (=daikanwa		. 02012)	; &M-02012;
     (<-original
-     ((=ucs@jis		  . #x5239)	; 刹󠄀
-      (=jis-x0208	  . #x516B)	; 刹󠄀 [49-75]
+     ((=ucs@jis		  . #x5239)	; &AJ1-04258;
+      (=jis-x0208	  . #x516B)	; &AJ1-04258; [49-75]
       (=ks-x1001	  . #x734B)	; &I-K0-734B; [83-43]
       (=jis-x0213-1	  . #x516B)	; &I-JX1-516B; [49-75]
       (=daikanwa	  . 01967)	; &I-M-01967;
@@ -4646,22 +4646,22 @@
 	)
        ((=ucs		    . #x5E76)	; 并
 	)
-       ((=ucs@jis	    . #x5204)	; 刄󠄀
-	(=jis-x0208	    . #x5163)	; 刄󠄀 [49-67]
+       ((=ucs@jis	    . #x5204)	; &AJ1-04250;
+	(=jis-x0208	    . #x5163)	; &AJ1-04250; [49-67]
 	(=jis-x0213-1	    . #x5163)	; &I-JX1-5163; [49-67]
 	(=daikanwa	    . 01849)	; &I-M-01849;
 	))
-      (=ucs@jis		  . #x524F)	; 剏󠄀
-      (=jis-x0208	  . #x516C)	; 剏󠄀 [49-76]
+      (=ucs@jis		  . #x524F)	; &AJ1-04259;
+      (=jis-x0208	  . #x516C)	; &AJ1-04259; [49-76]
       (=jis-x0213-1	  . #x516C)	; &I-JX1-516C; [49-76]
       (=gt		  . 02591)	; &I-GT-02591;
       (=gt-pj-1		  . #x516C)	; &I-GT-02591; [49-76]
-      (=shinjigen	  .  0635)	; 剏󠄀
+      (=shinjigen	  .  0635)	; &AJ1-04259;
       (=adobe-japan1-0	  . 04259)	; &I-AJ1-04259;
       (<-vulgar
-       ((=ucs@unicode	    . #x5231)	; 刱󠄀
-	(=shinjigen	    .  0634)	; 刱󠄀
-	(=adobe-japan1-5    . 19187)	; 刱󠄀
+       ((=ucs@unicode	    . #x5231)	; &AJ1-19187;
+	(=shinjigen	    .  0634)	; &AJ1-19187;
+	(=adobe-japan1-5    . 19187)	; &AJ1-19187;
 	))
       (<-vulgar*sources
        shinjigen)
@@ -4690,8 +4690,8 @@
 	)
        ((=ucs		    . #x5E76)	; 并
 	)
-       ((=ucs@unicode	    . #x5203)	; 刃󠄁
-	(=gb2312	    . #x4850)	; 刃󠄁 [40-48]
+       ((=ucs@unicode	    . #x5203)	; &AJ1-13858;
+	(=gb2312	    . #x4850)	; &AJ1-13858; [40-48]
 	(=ks-x1001	    . #x6C53)	; &I-K0-6C53; [76-51]
 	))
       (=ucs@unicode	  . #x524F)	; &UU+524F;
@@ -4890,9 +4890,9 @@
 	 ((name		      . "CJK RADICAL KNIFE TWO")
 	  (=ucs		      . #x2E89)	; ⺉
 	  ))
-	(=ucs@cns	    . #x5255)	; 剕󠄀
-	(=ucs@jis	    . #x5255)	; 剕󠄀
-	(=jis-x0212	    . #x3340)	; 剕󠄀 [19-32]
+	(=ucs@cns	    . #x5255)	; &AJ1-17313;
+	(=ucs@jis	    . #x5255)	; &AJ1-17313;
+	(=jis-x0212	    . #x3340)	; &AJ1-17313; [19-32]
 	(=cns11643-2	    . #x2E2E)	; &I-C2-2E2E; [14-14]
 	(=jis-x0213-2	    . #x2339)	; &I-JX2-2339; [03-25]
 	(=adobe-japan1-5    . 17313)	; &I-AJ1-17313;
@@ -4947,22 +4947,22 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@jis	    . #x5485)	; 咅󠄀
-	(=jis-x0212	    . #x3523)	; 咅󠄀 [21-03]
+       ((=ucs@jis	    . #x5485)	; &AJ1-21265;
+	(=jis-x0212	    . #x3523)	; &AJ1-21265; [21-03]
 	(=daikanwa	    . 03483)	; &I-M-03483;
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@jis		  . #x5256)	; 剖󠄀
-      (=jis-x0208	  . #x4B36)	; 剖󠄀 [43-22]
+      (=ucs@jis		  . #x5256)	; &AJ1-03684;
+      (=jis-x0208	  . #x4B36)	; &AJ1-03684; [43-22]
       (=ks-x1001	  . #x5C78)	; &I-K0-5C78; [60-88]
       (=jis-x0213-1	  . #x4B36)	; &I-JX1-4B36; [43-22]
       (=gt		  . 02669)	; &I-GT-02669;
       (=gt-k		  . 06548)	; &I-GT-K06548;
       (=gt-pj-1		  . #x4B36)	; &I-GT-02669; [43-22]
       (=daikanwa	  . 02034)	; &I-M-02034;
-      (=shinjigen	  .  0669)	; 剖󠄀
+      (=shinjigen	  .  0669)	; &AJ1-03684;
       (=adobe-japan1-0	  . 03684)	; &I-AJ1-03684;
       )
      ((ideographic-structure
@@ -5008,8 +5008,8 @@
       (=gt-pj-2		  . #x416F)	; &GT-02667; [33-79]
       (=daikanwa	  . 02035)	; &I-M-02035;
       (<-original
-       ((=ucs@jis	    . #x5256)	; 剖󠄀
-	(=jis-x0208	    . #x4B36)	; 剖󠄀 [43-22]
+       ((=ucs@jis	    . #x5256)	; &AJ1-03684;
+	(=jis-x0208	    . #x4B36)	; &AJ1-03684; [43-22]
 	(=ks-x1001	    . #x5C78)	; &I-K0-5C78; [60-88]
 	(=jis-x0213-1	    . #x4B36)	; &I-JX1-4B36; [43-22]
 	(=daikanwa	    . 02034)	; &I-M-02034;
@@ -5130,15 +5130,15 @@
 	)
        ((=ucs		    . #x5E76)	; 并
 	)
-       ((=ucs@unicode	    . #x5205)	; 刅󠄀
-	(=jis-x0212	    . #x3332)	; 刅󠄀 [19-18]
+       ((=ucs@unicode	    . #x5205)	; &AJ1-19183;
+	(=jis-x0212	    . #x3332)	; &AJ1-19183; [19-18]
 	))
       (=ucs@unicode	  . #x5259)	; &UU+5259;
       (=shinjigen	  .  0636)	; &UU+5259;
       (<-vulgar
-       ((=ucs@unicode	    . #x5231)	; 刱󠄀
-	(=shinjigen	    .  0634)	; 刱󠄀
-	(=adobe-japan1-5    . 19187)	; 刱󠄀
+       ((=ucs@unicode	    . #x5231)	; &AJ1-19187;
+	(=shinjigen	    .  0634)	; &AJ1-19187;
+	(=adobe-japan1-5    . 19187)	; &AJ1-19187;
 	))
       (<-vulgar*sources
        shinjigen)
@@ -5314,11 +5314,11 @@
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@jis		  . #x525C)	; 剜󠄀
-      (=jis-x0212	  . #x3344)	; 剜󠄀 [19-36]
+      (=ucs@jis		  . #x525C)	; &AJ1-17314;
+      (=jis-x0212	  . #x3344)	; &AJ1-17314; [19-36]
       (=jis-x0213-2	  . #x233A)	; &I-JX2-233A; [03-26]
       (=daikanwa	  . 02044)	; &I-M-02044;
-      (=shinjigen@rev	  .  0671)	; 剜󠄀
+      (=shinjigen@rev	  .  0671)	; &AJ1-17314;
       (=adobe-japan1-5	  . 17314)	; &I-AJ1-17314;
       )
      ((ideographic-structure
@@ -5414,7 +5414,7 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=adobe-japan1-0	  . 07774)	; 剝󠄀
+      (=adobe-japan1-0	  . 07774)	; &AJ1-07774;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -5514,8 +5514,8 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=ucs@unicode	  . #x525F)	; 剟󠄀
-      (=jis-x0212	  . #x3345)	; 剟󠄀 [19-37]
+      (=ucs@unicode	  . #x525F)	; &AJ1-21195;
+      (=jis-x0212	  . #x3345)	; &AJ1-21195; [19-37]
       (=daikanwa	  . 02055)	; &I-M-02055;
       (=adobe-japan1-6	  . 21195)	; &I-AJ1-21195;
       )
@@ -5563,8 +5563,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@jis	    . #x4EAC)	; 京󠄀
-	(=jis-x0208	    . #x357E)	; 京󠄀 [21-94]
+       ((=ucs@jis	    . #x4EAC)	; &AJ1-01688;
+	(=jis-x0208	    . #x357E)	; &AJ1-01688; [21-94]
 	(=ks-x1001	    . #x4C48)	; &I-K0-4C48; [44-40]
 	(=jis-x0213-1	    . #x357E)	; &I-JX1-357E; [21-94]
 	(=daikanwa	    . 00299)	; &I-M-00299;
@@ -5572,8 +5572,8 @@
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@jis		  . #x5260)	; 剠󠄀
-      (=jis-x0212	  . #x3346)	; 剠󠄀 [19-38]
+      (=ucs@jis		  . #x5260)	; &AJ1-19192;
+      (=jis-x0212	  . #x3346)	; &AJ1-19192; [19-38]
       (=daikanwa	  . 02058)	; &I-M-02058;
       (=cbeta		  . 05822)	; &I-CB05822;
       (=jef-china3	  . #x44C6)	; &I-JC3-44C6;
@@ -5618,13 +5618,13 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=ucs@unicode	  . #x5261)	; 剡󠄀
-      (=gb2312		  . #x585F)	; 剡󠄀 [56-63]
+      (=ucs@unicode	  . #x5261)	; &AJ1-14359;
+      (=gb2312		  . #x585F)	; &AJ1-14359; [56-63]
       (=ks-x1001	  . #x6066)	; &I-K0-6066; [64-70]
       (=jis-x0212	  . #x3347)	; &I-JSP-3347; [19-39]
       (=jis-x0213-1	  . #x2E60)	; &I-JX1-2E60; [14-64]
       (=daikanwa	  . 02059)	; &I-M-02059;
-      (=shinjigen	  .  0650)	; 剡󠄀
+      (=shinjigen	  .  0650)	; &AJ1-14359;
       (=jef-china3	  . #x97CF)	; &I-JC3-97CF;
       (=adobe-japan1-4	  . 14359)	; &I-AJ1-14359;
       )
@@ -5965,7 +5965,7 @@
      ((name		  . "CJK RADICAL KNIFE TWO")
       (=ucs		  . #x2E89)	; ⺉
       ))
-    (=adobe-japan1-4	. 14106)	; 劍󠄁
+    (=adobe-japan1-4	. 14106)	; &AJ1-14106;
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -6012,21 +6012,21 @@
 	 ((name		      . "CJK RADICAL KNIFE TWO")
 	  (=ucs		      . #x2E89)	; ⺉
 	  ))
-	(=ucs@jis	    . #x5264)	; 剤󠄀
-	(=jis-x0208	    . #x3A5E)	; 剤󠄀 [26-62]
+	(=ucs@jis	    . #x5264)	; &AJ1-02126;
+	(=jis-x0208	    . #x3A5E)	; &AJ1-02126; [26-62]
 	(=jis-x0213-1	    . #x3A5E)	; &I-JX1-3A5E; [26-62]
 	(=gt		    . 02637)	; &I-GT-02637;
 	(=gt-pj-1	    . #x3A5E)	; &I-GT-02637; [26-62]
-	(=daikanwa/+p	    . 02076)	; 剤󠄀
-	(=shinjigen	    .  0658)	; 剤󠄀
+	(=daikanwa/+p	    . 02076)	; &AJ1-02126;
+	(=shinjigen	    .  0658)	; &AJ1-02126;
 	(=adobe-japan1-0    . 02126)	; &I-AJ1-02126;
 	(<-simplified@JP/Jouyou
-	 ((=ucs@jis	      . #x5291)	; 劑󠄀
-	  (=jis-x0208	      . #x517D)	; 劑󠄀 [49-93]
+	 ((=ucs@jis	      . #x5291)	; &AJ1-04276;
+	  (=jis-x0208	      . #x517D)	; &AJ1-04276; [49-93]
 	  (=ks-x1001	      . #x7025)	; &I-K0-7025; [80-05]
 	  (=jis-x0213-1	      . #x517D)	; &I-JX1-517D; [49-93]
 	  (=daikanwa	      . 02241)	; &I-M-02241;
-	  (=shinjigen	      .	 0659)	; 劑󠄀
+	  (=shinjigen	      .	 0659)	; &AJ1-04276;
 	  ))
 	(<-simplified@JP/Jouyou*sources
 	 daikanwa shinjigen@1ed JP/Jouyou)
@@ -6050,7 +6050,7 @@
 	)
        ((=ucs		    . #xE0101)	; 󠄁
 	))
-      (=adobe-japan1-5	  . 20084)	; 剤󠄁
+      (=adobe-japan1-5	  . 20084)	; &AJ1-20084;
       ))
     ))
 (define-char
@@ -6120,7 +6120,7 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=adobe-japan1-0	  . 03363)	; 剥󠄀
+      (=adobe-japan1-0	  . 03363)	; &AJ1-03363;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -6168,9 +6168,9 @@
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@jis		  . #x5266)	; 剦󠄀
-      (=jis-x0212	  . #x3348)	; 剦󠄀 [19-40]
-      (=daikanwa/ho	  .  0050)	; 剦󠄀
+      (=ucs@jis		  . #x5266)	; &AJ1-14360;
+      (=jis-x0212	  . #x3348)	; &AJ1-14360; [19-40]
+      (=daikanwa/ho	  .  0050)	; &AJ1-14360;
       (=adobe-japan1-4	  . 14360)	; &I-AJ1-14360;
       )
      ((=ucs@unicode	  . #x5266)	; &UU+5266;
@@ -6423,21 +6423,21 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=daikanwa	  . 02011)	; 前󠄁
+     ((=daikanwa	  . 02011)	; &AJ1-13889;
       (=adobe-japan1-4	  . 13889)	; &I-AJ1-13889;
       )
      ((=ucs		  . #x5200)	; 刀
       ))
-    (=>>ucs@jis		. #x526A)	; 剪󠄀
-    (=ucs@jis		. #x526A)	; 剪󠄀
-    (=jis-x0208		. #x5172)	; 剪󠄀 [49-82]
+    (=>>ucs@jis		. #x526A)	; &AJ1-04265;
+    (=ucs@jis		. #x526A)	; &AJ1-04265;
+    (=jis-x0208		. #x5172)	; &AJ1-04265; [49-82]
     (=ks-x1001		. #x6E72)	; &I-K0-6E72; [78-82]
     (=jis-x0213-1	. #x5172)	; &I-JX1-5172; [49-82]
     (=gt		. 02704)	; &I-GT-02704;
     (=gt-k		. 08056)	; &I-GT-K08056;
     (=gt-pj-1		. #x5172)	; &I-GT-02704; [49-82]
     (=daikanwa		. 02088)	; &I-M-02088;
-    (=shinjigen		.  0675)	; 剪󠄀
+    (=shinjigen		.  0675)	; &AJ1-04265;
     (=adobe-japan1-0	. 04265)	; &I-AJ1-04265;
     ))
 (define-char
@@ -6462,8 +6462,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x524D)	; 前󠄀
-	(=jis-x0208	    . #x4130)	; 前󠄀 [33-16]
+       ((=ucs@unicode	    . #x524D)	; &AJ1-02738;
+	(=jis-x0208	    . #x4130)	; &AJ1-02738; [33-16]
 	(=gb2312	    . #x4730)	; &I-G0-4730; [39-16]
 	(=ks-x1001	    . #x6E71)	; &I-K0-6E71; [78-81]
 	(=jis-x0213-1	    . #x4130)	; &I-JX1-4130; [33-16]
@@ -6609,9 +6609,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@cns		  . #x54BC)	; 咼󠄀
-      (=ucs@jis		  . #x54BC)	; 咼󠄀
-      (=jis-x0208	  . #x5325)	; 咼󠄀 [51-05]
+     ((=ucs@cns		  . #x54BC)	; &AJ1-04376;
+      (=ucs@jis		  . #x54BC)	; &AJ1-04376;
+      (=jis-x0208	  . #x5325)	; &AJ1-04376; [51-05]
       (=cns11643-2	  . #x294B)	; &I-C2-294B; [09-43]
       (=jis-x0213-1	  . #x5325)	; &I-JX1-5325; [51-05]
       (=daikanwa	  . 03573)	; &I-M-03573;
@@ -6619,10 +6619,10 @@
      ((name		  . "CJK RADICAL KNIFE TWO")
       (=ucs		  . #x2E89)	; ⺉
       ))
-    (=>>ucs@cns		. #x526E)	; 剮󠄀
-    (=ucs@cns		. #x526E)	; 剮󠄀
-    (=ucs@jis		. #x526E)	; 剮󠄀
-    (=jis-x0212		. #x3349)	; 剮󠄀 [19-41]
+    (=>>ucs@cns		. #x526E)	; &AJ1-19193;
+    (=ucs@cns		. #x526E)	; &AJ1-19193;
+    (=ucs@jis		. #x526E)	; &AJ1-19193;
+    (=jis-x0212		. #x3349)	; &AJ1-19193; [19-41]
     (=cns11643-2	. #x336F)	; &I-C2-336F; [19-79]
     (=big5		. #xD46C)	; &I-B-D46C;
     (=daikanwa		. 02094)	; &I-M-02094;
@@ -6868,13 +6868,13 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=ucs@jis		  . #x5270)	; 剰󠄀
-      (=jis-x0208	  . #x3E6A)	; 剰󠄀 [30-74]
+      (=ucs@jis		  . #x5270)	; &AJ1-02514;
+      (=jis-x0208	  . #x3E6A)	; &AJ1-02514; [30-74]
       (=jis-x0213-1	  . #x3E6A)	; &I-JX1-3E6A; [30-74]
       (=gt		  . 02701)	; &I-GT-02701;
       (=gt-pj-1		  . #x3E6A)	; &I-GT-02701; [30-74]
       (=daikanwa	  . 02107)	; &I-M-02107;
-      (=shinjigen	  .  0673)	; 剰󠄀
+      (=shinjigen	  .  0673)	; &AJ1-02514;
       (=adobe-japan1-0	  . 02514)	; &I-AJ1-02514;
       (<-simplified@JP/Jouyou
        ((=ucs		    . #x5269)	; 剩
@@ -6929,10 +6929,10 @@
 	)
        ((=ucs		    . #x2F81E)	; 刃
 	))
-      (=gt		  . 02691)	; 剱󠄁
+      (=gt		  . 02691)	; &AJ1-20085;
       (=gt-k		  . 08026)	; &I-GT-K08026;
-      (=gt-pj-9		  . #x3437)	; 剱󠄁 [20-23]
-      (=daikanwa/ho	  .  0051)	; 剱󠄁
+      (=gt-pj-9		  . #x3437)	; &AJ1-20085; [20-23]
+      (=daikanwa/ho	  .  0051)	; &AJ1-20085;
       (=adobe-japan1-5	  . 20085)	; &I-AJ1-20085;
       )
      ((=jef-china3	  . #x44CF)	; &JC3-44CF;
@@ -6967,8 +6967,8 @@
 	)
        ((=gt-k		    . 03992)	; &GT-K03992;
 	)
-       ((=ucs@unicode	    . #x5203)	; 刃󠄁
-	(=gb2312	    . #x4850)	; 刃󠄁 [40-48]
+       ((=ucs@unicode	    . #x5203)	; &AJ1-13858;
+	(=gb2312	    . #x4850)	; &AJ1-13858; [40-48]
 	(=ks-x1001	    . #x6C53)	; &I-K0-6C53; [76-51]
 	))
       (=ucs@unicode	  . #x5271)	; &UU+5271;
@@ -7003,20 +7003,20 @@
 	)
        ((=gt-k		    . 03992)	; &GT-K03992;
 	)
-       ((=ucs@jis	    . #x5204)	; 刄󠄀
-	(=jis-x0208	    . #x5163)	; 刄󠄀 [49-67]
+       ((=ucs@jis	    . #x5204)	; &AJ1-04250;
+	(=jis-x0208	    . #x5163)	; &AJ1-04250; [49-67]
 	(=jis-x0213-1	    . #x5163)	; &I-JX1-5163; [49-67]
 	(=daikanwa	    . 01849)	; &I-M-01849;
 	))
-      (=ucs@jis		  . #x5271)	; 剱󠄀
-      (=jis-x0208	  . #x517B)	; 剱󠄀 [49-91]
+      (=ucs@jis		  . #x5271)	; &AJ1-04274;
+      (=jis-x0208	  . #x517B)	; &AJ1-04274; [49-91]
       (=jis-x0213-1	  . #x517B)	; &I-JX1-517B; [49-91]
       (=gt		  . 02690)	; &I-GT-02690;
       (=gt-pj-1		  . #x517B)	; &I-GT-02690; [49-91]
       (=adobe-japan1-0	  . 04274)	; &I-AJ1-04274;
       (<-simplified@JP/jis
-       ((=ucs@jis	    . #x5294)	; 劔󠄀
-	(=jis-x0208	    . #x5179)	; 劔󠄀 [49-89]
+       ((=ucs@jis	    . #x5294)	; &AJ1-04272;
+	(=jis-x0208	    . #x5179)	; &AJ1-04272; [49-89]
 	(=jis-x0213-1	    . #x5179)	; &I-JX1-5179; [49-89]
 	(=daikanwa	    . 02245)	; &I-M-02245;
 	))
@@ -7203,13 +7203,13 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=daikanwa	    . 07165)	; 害󠄅
-	(=hanyo-denshi/ks   . 081420)	; 害󠄅
+       ((=daikanwa	    . 07165)	; &HD-KS-081420;
+	(=hanyo-denshi/ks   . 081420)	; &HD-KS-081420;
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=daikanwa	  . 02112)	; 割󠄂
+      (=daikanwa	  . 02112)	; &AJ1-20086;
       (=adobe-japan1-5	  . 20086)	; &I-AJ1-20086;
       )
      ((=decomposition@hanyo-denshi
@@ -7217,8 +7217,8 @@
 	)
        ((=ucs		    . #xE0104)	; 󠄄
 	))
-      (=hanyo-denshi/ks	  . 025050)	; 割󠄄
-      (=hanyo-denshi/ks/mf . #x09C9)	; 割󠄄
+      (=hanyo-denshi/ks	  . 025050)	; &HD-KS-025050;
+      (=hanyo-denshi/ks/mf . #x09C9)	; &HD-KS-025050;
       )
      ((=ucs@cns		  . #x2F822)	; &C6-4667;
       (=cns11643-6	  . #x4667)	; &C6-4667; [38-71]
@@ -7268,8 +7268,8 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=shinjigen	  .  0679)	; 割󠄀
-      (=jef-china3	  . #x44C7)	; 割󠄀
+      (=shinjigen	  .  0679)	; &AJ1-13684;
+      (=jef-china3	  . #x44C7)	; &AJ1-13684;
       (=adobe-japan1-4	  . 13684)	; &I-AJ1-13684;
       )
      ((=decomposition@hanyo-denshi
@@ -7277,7 +7277,7 @@
 	)
        ((=ucs		    . #xE0105)	; 󠄅
 	))
-      (=hanyo-denshi/jt	  . #xAE24)	; 割󠄅
+      (=hanyo-denshi/jt	  . #xAE24)	; &HD-JT-AE24;
       )
      ((=ucs@iso		  . #x2F822)	; &U-0002F822;
       ))
@@ -7324,21 +7324,21 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@jis	    . #x5BB3)	; 害󠄄
-	(=jis-x0208	    . #x3332)	; 害󠄄 [19-18]
+       ((=ucs@jis	    . #x5BB3)	; &HD-JA-3332;
+	(=jis-x0208	    . #x3332)	; &HD-JA-3332; [19-18]
 	(=jis-x0213-1	    . #x3332)	; &I-JX1-3332; [19-18]
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@jis		  . #x5272)	; 割󠄁
-      (=jis-x0208	  . #x3364)	; 割󠄁 [19-68]
+      (=ucs@jis		  . #x5272)	; &AJ1-01474;
+      (=jis-x0208	  . #x3364)	; &AJ1-01474; [19-68]
       (=jis-x0213-1	  . #x3364)	; &I-JX1-3364; [19-68]
       (=gt		  . 02726)	; &I-GT-02726;
       (=gt-k		  . 09010)	; &I-GT-K09010;
       (=gt-pj-1		  . #x3364)	; &I-GT-02726; [19-68]
-      (=daikanwa/+p	  . 02112)	; 割󠄁
-      (=shinjigen	  .  0678)	; 割󠄁
+      (=daikanwa/+p	  . 02112)	; &AJ1-01474;
+      (=shinjigen	  .  0678)	; &AJ1-01474;
       (=adobe-japan1-0	  . 01474)	; &I-AJ1-01474;
       (=hanyo-denshi/ja	  . #x3364)	; &I-HD-JA-3364; [19-68]
       ))
@@ -7388,9 +7388,9 @@
       )
      ((=ucs		  . #xE0102)	; 󠄂
       ))
-    (=cns11643-3	. #x3A21)	; 剳󠄂 [26-01]
+    (=cns11643-3	. #x3A21)	; &HD-KS-024770; [26-01]
     (=daikanwa		. 02113)	; &I-M-02113;
-    (=hanyo-denshi/ks	. 024770)	; 剳󠄂
+    (=hanyo-denshi/ks	. 024770)	; &HD-KS-024770;
     (=hanyo-denshi/ks/mf . #x09AD)	; &I-KSMF-02477;
     ))
 (define-char
@@ -7418,8 +7418,8 @@
 	)
        ((=ucs		    . #xE0101)	; 󠄁
 	))
-      (=ucs@unicode	  . #x5273)	; 剳󠄀
-      (=jis-x0208	  . #x5175)	; 剳󠄀 [49-85]
+      (=ucs@unicode	  . #x5273)	; &AJ1-04268;
+      (=jis-x0208	  . #x5175)	; &AJ1-04268; [49-85]
       (=jis-x0213-1	  . #x5175)	; &I-JX1-5175; [49-85]
       (=gt		  . 02713)	; &I-GT-02713;
       (=gt-pj-1		  . #x5175)	; &I-GT-02713; [49-85]
@@ -7672,8 +7672,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@jis		  . #x5009)	; 倉󠄀
-      (=jis-x0208	  . #x4152)	; 倉󠄀 [33-50]
+     ((=ucs@jis		  . #x5009)	; &AJ1-02772;
+      (=jis-x0208	  . #x4152)	; &AJ1-02772; [33-50]
       (=ks-x1001	  . #x735A)	; &I-K0-735A; [83-58]
       (=cns11643-1	  . #x543F)	; &I-C1-543F; [52-31]
       (=jis-x0213-1	  . #x4152)	; &I-JX1-4152; [33-50]
@@ -7682,8 +7682,8 @@
      ((name		  . "CJK RADICAL KNIFE TWO")
       (=ucs		  . #x2E89)	; ⺉
       ))
-    (=ucs@jis		. #x5275)	; 創󠄀
-    (=jis-x0208@1983	. #x414F)	; 創󠄀 [33-47]
+    (=ucs@jis		. #x5275)	; &AJ1-02769;
+    (=jis-x0208@1983	. #x414F)	; &AJ1-02769; [33-47]
     (=ks-x1001		. #x735C)	; &I-K0-735C; [83-60]
     (=jis-x0208@1990	. #x414F)	; &I-J90-414F; [33-47]
     (=cns11643-1	. #x5E36)	; &I-C1-5E36; [62-22]
@@ -7692,7 +7692,7 @@
     (=gt-k		. 09087)	; &I-GT-K09087;
     (=gt-pj-1		. #x414F)	; &I-GT-02749; [33-47]
     (=daikanwa		. 02127)	; &I-M-02127;
-    (=shinjigen		.  0680)	; 創󠄀
+    (=shinjigen		.  0680)	; &AJ1-02769;
     (=adobe-japan1-0	. 02769)	; &I-AJ1-02769;
     (=hanyo-denshi/ja	. #x414F)	; &I-HD-JA-414F; [33-47]
     ))
@@ -7715,7 +7715,7 @@
 	)
        ((=ucs		    . #xE0103)	; 󠄃
 	))
-      (=jis-x0208@1978	  . #x414F)	; 創󠄁 [33-47]
+      (=jis-x0208@1978	  . #x414F)	; &AJ1-07723; [33-47]
       (=adobe-japan1-0	  . 07723)	; &I-AJ1-07723;
       (=hanyo-denshi/ft	  . #x3D3A)	; &I-HD-FT-3D3A; [29-26]
       )
@@ -7821,8 +7821,8 @@
     (total-strokes	 . 12)
     (=ucs		. #x202F4)	; 𠋴
     (<-same
-     ((=ucs@unicode	  . #x5013)	; 倓󠄀
-      (=jis-x0212	  . #x3151)	; 倓󠄀 [17-49]
+     ((=ucs@unicode	  . #x5013)	; &AJ1-17271;
+      (=jis-x0212	  . #x3151)	; &AJ1-17271; [17-49]
       (=jis-x0213-2	  . #x215A)	; &I-JX2-215A; [01-58]
       (=daikanwa	  . 00768)	; &I-M-00768;
       ))
@@ -7837,8 +7837,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x5261)	; 剡󠄀
-	(=gb2312	    . #x585F)	; 剡󠄀 [56-63]
+       ((=ucs@unicode	    . #x5261)	; &AJ1-14359;
+	(=gb2312	    . #x585F)	; &AJ1-14359; [56-63]
 	(=ks-x1001	    . #x6066)	; &I-K0-6066; [64-70]
 	(=jis-x0212	    . #x3347)	; &I-JSP-3347; [19-39]
 	(=jis-x0213-1	    . #x2E60)	; &I-JX1-2E60; [14-64]
@@ -8016,8 +8016,8 @@
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@jis		  . #x5277)	; 剷󠄀
-      (=jis-x0212	  . #x334A)	; 剷󠄀 [19-42]
+      (=ucs@jis		  . #x5277)	; &AJ1-17316;
+      (=jis-x0212	  . #x334A)	; &AJ1-17316; [19-42]
       (=jis-x0213-2	  . #x233C)	; &I-JX2-233C; [03-28]
       (=gt		  . 02776)	; &I-GT-02776;
       (=gt-pj-2		  . #x4274)	; &I-GT-02776; [34-84]
@@ -8180,8 +8180,8 @@
      ((name		  . "CJK RADICAL KNIFE TWO")
       (=ucs		  . #x2E89)	; ⺉
       ))
-    (=ucs@jis		. #x5279)	; 剹󠄀
-    (=jis-x0212		. #x334C)	; 剹󠄀 [19-44]
+    (=ucs@jis		. #x5279)	; &AJ1-19195;
+    (=jis-x0212		. #x334C)	; &AJ1-19195; [19-44]
     (=daikanwa		. 02149)	; &I-M-02149;
     (=jef-china3	. #x44CA)	; &I-JC3-44CA;
     (=adobe-japan1-5	. 19195)	; &I-AJ1-19195;
@@ -8487,15 +8487,15 @@
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@unicode	  . #x527D)	; 剽󠄀
-      (=jis-x0208	  . #x5177)	; 剽󠄀 [49-87]
+      (=ucs@unicode	  . #x527D)	; &AJ1-04270;
+      (=jis-x0208	  . #x5177)	; &AJ1-04270; [49-87]
       (=gb2312		  . #x5862)	; &I-G0-5862; [56-66]
       (=ks-x1001	  . #x7872)	; &I-K0-7872; [88-82]
       (=jis-x0213-1	  . #x5177)	; &I-JX1-5177; [49-87]
       (=gt		  . 02792)	; &I-GT-02792;
       (=gt-k		  . 10295)	; &I-GT-K10295;
       (=gt-pj-1		  . #x5177)	; &I-GT-02792; [49-87]
-      (=shinjigen	  .  0691)	; 剽󠄀
+      (=shinjigen	  .  0691)	; &AJ1-04270;
       (=adobe-japan1-0	  . 04270)	; &I-AJ1-04270;
       ))
     ))
@@ -8556,8 +8556,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x5340)	; 區󠄀
-      (=ks-x1001	  . #x4F21)	; 區󠄀 [47-01]
+     ((=ucs@unicode	  . #x5340)	; &AJ1-04308;
+      (=ks-x1001	  . #x4F21)	; &AJ1-04308; [47-01]
       (=jis-x0208@1990	  . #x523F)	; &I-J90-523F; [50-31]
       (=jis-x0213-1	  . #x523F)	; &I-JX1-523F; [50-31]
       )
@@ -8579,8 +8579,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@cns		  . #x5340)	; 區󠄃
-      (=cns11643-1	  . #x5934)	; 區󠄃 [57-20]
+     ((=ucs@cns		  . #x5340)	; &HD-KS-030850;
+      (=cns11643-1	  . #x5934)	; &HD-KS-030850; [57-20]
       (=daikanwa	  . 02691)	; &I-M-02691;
       )
      ((name		  . "CJK RADICAL KNIFE TWO")
@@ -8884,8 +8884,8 @@
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@jis		  . #x5280)	; 劀󠄀
-      (=jis-x0212	  . #x334D)	; 劀󠄀 [19-45]
+      (=ucs@jis		  . #x5280)	; &AJ1-21196;
+      (=jis-x0212	  . #x334D)	; &AJ1-21196; [19-45]
       (=daikanwa	  . 02180)	; &I-M-02180;
       (=adobe-japan1-6	  . 21196)	; &I-AJ1-21196;
       )
@@ -9086,7 +9086,7 @@
       )
      ((=ucs		  . #xE0100)	; 󠄀
       ))
-    (=daikanwa		. 02189)	; 𠟈󠄀
+    (=daikanwa		. 02189)	; &AJ1-20128;
     (=adobe-japan1-5	. 20128)	; &I-AJ1-20128;
     ))
 (define-char
@@ -9121,8 +9121,8 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=ucs@jis		  . #x5282)	; 劂󠄀
-      (=jis-x0212	  . #x334E)	; 劂󠄀 [19-46]
+      (=ucs@jis		  . #x5282)	; &AJ1-17318;
+      (=jis-x0212	  . #x334E)	; &AJ1-17318; [19-46]
       (=jis-x0213-2	  . #x233E)	; &I-JX2-233E; [03-30]
       (=gt		  . 02814)	; &I-GT-02814;
       (=gt-pj-2		  . #x4343)	; &I-GT-02814; [35-35]
@@ -9136,8 +9136,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@jis	    . #x53A5)	; 厥󠄀
-	(=jis-x0208	    . #x5250)	; 厥󠄀 [50-48]
+       ((=ucs@jis	    . #x53A5)	; &AJ1-04325;
+	(=jis-x0208	    . #x5250)	; &AJ1-04325; [50-48]
 	(=ks-x1001	    . #x4F70)	; &I-K0-4F70; [47-80]
 	(=cns11643-1	    . #x5E3C)	; &I-C1-5E3C; [62-28]
 	(=jis-x0213-1	    . #x5250)	; &I-JX1-5250; [50-48]
@@ -9191,12 +9191,12 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=ucs@unicode	  . #x5283)	; 劃󠄀
-      (=jis-x0208	  . #x3344)	; 劃󠄀 [19-36]
+      (=ucs@unicode	  . #x5283)	; &AJ1-01442;
+      (=jis-x0208	  . #x3344)	; &AJ1-01442; [19-36]
       (=ks-x1001	  . #x7C71)	; &I-K0-7C71; [92-81]
       (=cns11643-1	  . #x6822)	; &I-C1-6822; [72-02]
       (=jis-x0213-1	  . #x3344)	; &I-JX1-3344; [19-36]
-      (=gb12345		  . #x3B2E)	; 劃󠄀 [27-14]
+      (=gb12345		  . #x3B2E)	; &AJ1-01442; [27-14]
       (=big5		  . #xB9BA)	; &I-B-B9BA;
       (=gt		  . 02806)	; &I-GT-02806;
       (=gt-pj-1		  . #x3344)	; &I-GT-02806; [19-36]
@@ -9519,7 +9519,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ks-x1001	    . #x562F)	; 廉󠄃 [54-15]
+       ((=ks-x1001	    . #x562F)	; &HD-JT-B0D9; [54-15]
 	(=daikanwa	    . 09436)	; &I-M-09436;
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
@@ -9594,16 +9594,16 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=ucs@unicode	  . #x5287)	; 劇󠄀
-      (=jis-x0208	  . #x3760)	; 劇󠄀 [23-64]
+      (=ucs@unicode	  . #x5287)	; &AJ1-01846;
+      (=jis-x0208	  . #x3760)	; &AJ1-01846; [23-64]
       (=ks-x1001	  . #x503C)	; &I-K0-503C; [48-28]
       (=jis-x0213-1	  . #x3760)	; &I-JX1-3760; [23-64]
-      (=gb12345		  . #x3E67)	; 劇󠄀 [30-71]
+      (=gb12345		  . #x3E67)	; &AJ1-01846; [30-71]
       (=gt		  . 02855)	; &I-GT-02855;
       (=gt-k		  . 11902)	; &I-GT-K11902;
       (=gt-pj-1		  . #x3760)	; &I-GT-02855; [23-64]
       (=daikanwa	  . 02218)	; &I-M-02218;
-      (=shinjigen	  .  0696)	; 劇󠄀
+      (=shinjigen	  .  0696)	; &AJ1-01846;
       (=adobe-japan1-0	  . 01846)	; &I-AJ1-01846;
       )
      ((ideographic-structure
@@ -9641,11 +9641,11 @@
     (=cns11643-3	. #x2F64)	; &I-C3-2F64; [15-68]
     (=hanziku-1		. #xED74)	; &I-HZK01-ED74;
     (<-simplified@CN
-     ((=ucs@unicode	  . #x5287)	; 劇󠄀
-      (=jis-x0208	  . #x3760)	; 劇󠄀 [23-64]
+     ((=ucs@unicode	  . #x5287)	; &AJ1-01846;
+      (=jis-x0208	  . #x3760)	; &AJ1-01846; [23-64]
       (=ks-x1001	  . #x503C)	; &I-K0-503C; [48-28]
       (=jis-x0213-1	  . #x3760)	; &I-JX1-3760; [23-64]
-      (=gb12345		  . #x3E67)	; 劇󠄀 [30-71]
+      (=gb12345		  . #x3E67)	; &AJ1-01846; [30-71]
       (=daikanwa	  . 02218)	; &I-M-02218;
       ))
     ))
@@ -9730,14 +9730,14 @@
 	)
        ((=ucs		    . #x5200)	; 刀
 	))
-      (=ucs@jis		  . #x5288)	; 劈󠄀
-      (=jis-x0208	  . #x517C)	; 劈󠄀 [49-92]
+      (=ucs@jis		  . #x5288)	; &AJ1-04275;
+      (=jis-x0208	  . #x517C)	; &AJ1-04275; [49-92]
       (=ks-x1001	  . #x5B79)	; &I-K0-5B79; [59-89]
       (=jis-x0213-1	  . #x517C)	; &I-JX1-517C; [49-92]
       (=gt		  . 02873)	; &I-GT-02873;
       (=gt-pj-1		  . #x517C)	; &I-GT-02873; [49-92]
       (=daikanwa	  . 02223)	; &I-M-02223;
-      (=shinjigen	  .  0697)	; 劈󠄀
+      (=shinjigen	  .  0697)	; &AJ1-04275;
       (=adobe-japan1-0	  . 04275)	; &I-AJ1-04275;
       )
      ((ideographic-structure
@@ -9771,8 +9771,8 @@
 	)
        ((=ucs		    . #xE0102)	; 󠄂
 	))
-      (=daikanwa	  . 02224)	; 劉󠄂
-      (=hanyo-denshi/ks	  . 025890)	; 劉󠄂
+      (=daikanwa	  . 02224)	; &HD-KS-025890;
+      (=hanyo-denshi/ks	  . 025890)	; &HD-KS-025890;
       (=hanyo-denshi/ks/mf . #x0A1D)	; &I-KSMF-02589;
       )
      ((=decomposition@cid
@@ -9795,18 +9795,18 @@
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=>>ucs@unicode	  . #x5289)	; 劉󠄀
-      (=ucs@unicode	  . #x5289)	; 劉󠄀
-      (=jis-x0208	  . #x4E2D)	; 劉󠄀 [46-13]
+      (=>>ucs@unicode	  . #x5289)	; &AJ1-03957;
+      (=ucs@unicode	  . #x5289)	; &AJ1-03957;
+      (=jis-x0208	  . #x4E2D)	; &AJ1-03957; [46-13]
       (=ks-x1001	  . #x5731)	; &I-K0-5731; [55-17]
       (=cns11643-1	  . #x6C2C)	; &I-C1-6C2C; [76-12]
       (=jis-x0213-1	  . #x4E2D)	; &I-JX1-4E2D; [46-13]
-      (=gb12345		  . #x4175)	; 劉󠄀 [33-85]
+      (=gb12345		  . #x4175)	; &AJ1-03957; [33-85]
       (=big5		  . #xBC42)	; &I-B-BC42;
       (=gt		  . 02875)	; &I-GT-02875;
       (=gt-k		  . 11956)	; &I-GT-K11956;
       (=gt-pj-1		  . #x4E2D)	; &I-GT-02875; [46-13]
-      (=shinjigen	  .  0698)	; 劉󠄀
+      (=shinjigen	  .  0698)	; &AJ1-03957;
       (=adobe-japan1-0	  . 03957)	; &I-AJ1-03957;
       (=hanyo-denshi/ja	  . #x4E2D)	; &I-HD-JA-4E2D; [46-13]
       ))
@@ -9827,10 +9827,10 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=ucs@unicode	  . #x528A)	; 劊󠄀
-      (=jis-x0212	  . #x3350)	; 劊󠄀 [19-48]
+      (=ucs@unicode	  . #x528A)	; &AJ1-19196;
+      (=jis-x0212	  . #x3350)	; &AJ1-19196; [19-48]
       (=cns11643-1	  . #x6C2E)	; &I-C1-6C2E; [76-14]
-      (=gb12345		  . #x3974)	; 劊󠄀 [25-84]
+      (=gb12345		  . #x3974)	; &AJ1-19196; [25-84]
       (=daikanwa	  . 02225)	; &I-M-02225;
       (=adobe-japan1-5	  . 19196)	; &I-AJ1-19196;
       ))
@@ -9925,9 +9925,9 @@
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@unicode	  . #x528C)	; 劌󠄀
-      (=cns11643-2	  . #x4F5B)	; 劌󠄀 [47-59]
-      (=gb12345		  . #x585B)	; 劌󠄀 [56-59]
+      (=ucs@unicode	  . #x528C)	; &AJ1-19197;
+      (=cns11643-2	  . #x4F5B)	; &AJ1-19197; [47-59]
+      (=gb12345		  . #x585B)	; &AJ1-19197; [56-59]
       (=big5		  . #xE4F3)	; &I-B-E4F3;
       (=adobe-japan1-5	  . 19197)	; &I-AJ1-19197;
       ))
@@ -9944,9 +9944,9 @@
     (=gb2312		. #x585B)	; &I-G0-585B; [56-59]
     (=hanziku-1		. #xEAD3)	; &I-HZK01-EAD3;
     (<-simplified@CN
-     ((=ucs@unicode	  . #x528C)	; 劌󠄀
-      (=cns11643-2	  . #x4F5B)	; 劌󠄀 [47-59]
-      (=gb12345		  . #x585B)	; 劌󠄀 [56-59]
+     ((=ucs@unicode	  . #x528C)	; &AJ1-19197;
+      (=cns11643-2	  . #x4F5B)	; &AJ1-19197; [47-59]
+      (=gb12345		  . #x585B)	; &AJ1-19197; [56-59]
       ))
     ))
 (define-char
@@ -10214,14 +10214,14 @@
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@jis		  . #x5291)	; 劑󠄀
-      (=jis-x0208	  . #x517D)	; 劑󠄀 [49-93]
+      (=ucs@jis		  . #x5291)	; &AJ1-04276;
+      (=jis-x0208	  . #x517D)	; &AJ1-04276; [49-93]
       (=ks-x1001	  . #x7025)	; &I-K0-7025; [80-05]
       (=jis-x0213-1	  . #x517D)	; &I-JX1-517D; [49-93]
       (=gt		  . 02895)	; &I-GT-02895;
       (=gt-pj-1		  . #x517D)	; &I-GT-02895; [49-93]
       (=daikanwa	  . 02241)	; &I-M-02241;
-      (=shinjigen	  .  0659)	; 劑󠄀
+      (=shinjigen	  .  0659)	; &AJ1-04276;
       (=adobe-japan1-0	  . 04276)	; &I-AJ1-04276;
       )
      ((ideographic-structure
@@ -10307,18 +10307,18 @@
 	)
        ((=ucs		    . #x50C9)	; 僉
 	)
-       ((=ucs@unicode	    . #x5203)	; 刃󠄁
-	(=gb2312	    . #x4850)	; 刃󠄁 [40-48]
+       ((=ucs@unicode	    . #x5203)	; &AJ1-13858;
+	(=gb2312	    . #x4850)	; &AJ1-13858; [40-48]
 	(=ks-x1001	    . #x6C53)	; &I-K0-6C53; [76-51]
 	))
-      (=ucs@unicode	  . #x5292)	; 劒󠄀
-      (=jis-x0208	  . #x517A)	; 劒󠄀 [49-90]
+      (=ucs@unicode	  . #x5292)	; &AJ1-04273;
+      (=jis-x0208	  . #x517A)	; &AJ1-04273; [49-90]
       (=ks-x1001	  . #x4B7D)	; &I-K0-4B7D; [43-93]
       (=jis-x0213-1	  . #x517A)	; &I-JX1-517A; [49-90]
       (=gt		  . 02884)	; &I-GT-02884;
       (=gt-pj-1		  . #x517A)	; &I-GT-02884; [49-90]
       (=daikanwa	  . 02243)	; &I-M-02243;
-      (=shinjigen	  .  0654)	; 劒󠄀
+      (=shinjigen	  .  0654)	; &AJ1-04273;
       (=adobe-japan1-0	  . 04273)	; &I-AJ1-04273;
       (=hanyo-denshi/ja	  . #x517A)	; &I-HD-JA-517A; [49-90]
       (<-ancient
@@ -10366,7 +10366,7 @@
       )
      ((=ucs		  . #x2F81E)	; 刃
       ))
-    (=hanyo-denshi/ft	. #x3477)	; 劒󠄂 [20-87]
+    (=hanyo-denshi/ft	. #x3477)	; &HD-FT-3477; [20-87]
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -10405,18 +10405,18 @@
 	)
        ((=ucs		    . #x50C9)	; 僉
 	)
-       ((=ucs@jis	    . #x5204)	; 刄󠄀
-	(=jis-x0208	    . #x5163)	; 刄󠄀 [49-67]
+       ((=ucs@jis	    . #x5204)	; &AJ1-04250;
+	(=jis-x0208	    . #x5163)	; &AJ1-04250; [49-67]
 	(=jis-x0213-1	    . #x5163)	; &I-JX1-5163; [49-67]
 	(=daikanwa	    . 01849)	; &I-M-01849;
 	))
-      (=ucs@jis		  . #x5294)	; 劔󠄀
-      (=jis-x0208	  . #x5179)	; 劔󠄀 [49-89]
+      (=ucs@jis		  . #x5294)	; &AJ1-04272;
+      (=jis-x0208	  . #x5179)	; &AJ1-04272; [49-89]
       (=jis-x0213-1	  . #x5179)	; &I-JX1-5179; [49-89]
       (=gt		  . 02886)	; &I-GT-02886;
       (=gt-pj-1		  . #x5179)	; &I-GT-02886; [49-89]
       (=daikanwa	  . 02245)	; &I-M-02245;
-      (=shinjigen	  .  0655)	; 劔󠄀
+      (=shinjigen	  .  0655)	; &AJ1-04272;
       (=adobe-japan1-0	  . 04272)	; &I-AJ1-04272;
       (<-vulgar
        ((=ucs		    . #x528D)	; 劍
@@ -10667,8 +10667,8 @@
 	)
        ((=ucs		    . #xE0102)	; 󠄂
 	))
-      (=daikanwa	  . 02256)	; 𠠇󠄂
-      (=hanyo-denshi/ks	  . 026240)	; 𠠇󠄂
+      (=daikanwa	  . 02256)	; &HD-KS-026240;
+      (=hanyo-denshi/ks	  . 026240)	; &HD-KS-026240;
       (=hanyo-denshi/ks/mf . #x0A40)	; &I-KSMF-02624;
       )
      ((=ucs@iso		  . #x20807)	; &U-00020807;
@@ -10700,8 +10700,8 @@
 	)
        ((=ucs		    . #xE0101)	; 󠄁
 	))
-      (=ucs@jis		  . #x20807)	; 𠠇󠄀
-      (=jis-x0213-2	  . #x233F)	; 𠠇󠄀 [03-31]
+      (=ucs@jis		  . #x20807)	; &AJ1-17319;
+      (=jis-x0213-2	  . #x233F)	; &AJ1-17319; [03-31]
       (=adobe-japan1-5	  . 17319)	; &I-AJ1-17319;
       (=hanyo-denshi/jd	  . #x233F)	; &I-HD-JD-233F; [03-31]
       ))
@@ -10957,7 +10957,7 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=daikanwa	  . 02273)	; 劖󠄀
+      (=daikanwa	  . 02273)	; &AJ1-21199;
       (=adobe-japan1-6	  . 21199)	; &I-AJ1-21199;
       )
      ((ideographic-structure
@@ -11148,8 +11148,8 @@
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@jis		  . #x5298)	; 劘󠄀
-      (=jis-x0212	  . #x3356)	; 劘󠄀 [19-54]
+      (=ucs@jis		  . #x5298)	; &AJ1-17320;
+      (=jis-x0212	  . #x3356)	; &AJ1-17320; [19-54]
       (=jis-x0213-2	  . #x2340)	; &I-JX2-2340; [03-32]
       (=daikanwa	  . 02281)	; &I-M-02281;
       (=adobe-japan1-5	  . 17320)	; &I-AJ1-17320;
@@ -11201,7 +11201,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=cns11643-1	    . #x7B26)	; 蠡󠄂 [91-06]
+       ((=cns11643-1	    . #x7B26)	; &HD-FT-3938; [91-06]
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
@@ -11249,8 +11249,8 @@
      ((name		  . "CJK RADICAL KNIFE TWO")
       (=ucs		  . #x2E89)	; ⺉
       ))
-    (=ucs@jis		. #x529A)	; 劚󠄀
-    (=jis-x0212		. #x3357)	; 劚󠄀 [19-55]
+    (=ucs@jis		. #x529A)	; &AJ1-21201;
+    (=jis-x0212		. #x3357)	; &AJ1-21201; [19-55]
     (=daikanwa		. 02284)	; &I-M-02284;
     (=jef-china3	. #x44CD)	; &I-JC3-44CD;
     (=adobe-japan1-6	. 21201)	; &I-AJ1-21201;
