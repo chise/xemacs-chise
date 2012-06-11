@@ -151,8 +151,8 @@
      ((=ucs@unicode	  . #x5F52)	; &G0-3969;
       (=gb2312		  . #x3969)	; &G0-3969; [25-73]
       (<-simplified@CN
-       ((=ucs@unicode	    . #x6B78)	; 歸󠄂
-	(=gb12345	    . #x3969)	; 歸󠄂 [25-73]
+       ((=ucs@unicode	    . #x6B78)	; &HD-FT-3666;
+	(=gb12345	    . #x3969)	; &HD-FT-3666; [25-73]
 	))
       ))
     ))
@@ -438,8 +438,8 @@
       )
      ((=ucs		  . #xE0102)	; 󠄂
       ))
-    (=hanyo-denshi/ks	. 112230)	; 彖󠄂
-    (=hanyo-denshi/ks/mf . #x2BD7)	; 彖󠄂
+    (=hanyo-denshi/ks	. 112230)	; &HD-KS-112230;
+    (=hanyo-denshi/ks/mf . #x2BD7)	; &HD-KS-112230;
     ))
 (define-char
   '((ideographic-radical . 58)	; ⼹
@@ -565,7 +565,7 @@
 	)
        ((=ucs		    . #xE0102)	; 󠄂
 	))
-      (=hanyo-denshi/ft	  . #x356E)	; 彗󠄂 [21-78]
+      (=hanyo-denshi/ft	  . #x356E)	; &HD-FT-356E; [21-78]
       )
      ((=ucs@unicode	  . #x5F57)	; &G0-6567;
       (=gb2312		  . #x6567)	; &G0-6567; [69-71]
@@ -869,7 +869,7 @@
 	  )
 	 ((=ucs		      . #xE0102)	; 󠄂
 	  ))
-	(=hanyo-denshi/ft   . #x356C)	; 彜󠄂 [21-76]
+	(=hanyo-denshi/ft   . #x356C)	; &HD-FT-356C; [21-76]
 	))
       ))
     ))
