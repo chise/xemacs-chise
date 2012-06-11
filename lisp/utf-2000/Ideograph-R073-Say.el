@@ -252,7 +252,7 @@
       )
      ((=ucs		  . #xE0102)	; 󠄂
       ))
-    (=hanyo-denshi/ft	. #x3645)	; 曷󠄂 [22-37]
+    (=hanyo-denshi/ft	. #x3645)	; &HD-FT-3645; [22-37]
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈
@@ -397,7 +397,7 @@
       )
      ((=ucs		  . #xE0103)	; 󠄃
       ))
-    (=cns11643-1	. #x5937)	; 曼󠄁 [57-23]
+    (=cns11643-1	. #x5937)	; &AJ1-14112; [57-23]
     (=daikanwa		. 14298)	; &I-M-14298;
     (=adobe-japan1-4	. 14112)	; &I-AJ1-14112;
     (=hanyo-denshi/jt	. #xAEA3)	; &I-HD-JT-AEA3;
@@ -421,8 +421,8 @@
       )
      ((=ucs		  . #xE0102)	; 󠄂
       ))
-    (=ucs@unicode	. #x66FC)	; 曼󠄀
-    (=jis-x0208		. #x5258)	; 曼󠄀 [50-56]
+    (=ucs@unicode	. #x66FC)	; &AJ1-04333;
+    (=jis-x0208		. #x5258)	; &AJ1-04333; [50-56]
     (=gb2312		. #x427C)	; &I-G0-427C; [34-92]
     (=ks-x1001		. #x583A)	; &I-K0-583A; [56-26]
     (=jis-x0213-1	. #x5258)	; &I-JX1-5258; [50-56]
@@ -490,7 +490,7 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=jis-x0208@1978	  . #x514B)	; 冕󠄀 [49-43]
+      (=jis-x0208@1978	  . #x514B)	; &AJ1-07816; [49-43]
       (=adobe-japan1-0	  . 07816)	; &I-AJ1-07816;
       )
      ((=>ucs*		  . #x5195)	; 冕
@@ -540,9 +540,9 @@
       )
      ((=ucs		  . #x52A9)	; 助
       ))
-    (=>>ucs@unicode	. #x52D7)	; 勗󠄀
-    (=ucs@unicode	. #x52D7)	; 勗󠄀
-    (=jis-x0208		. #x5228)	; 勗󠄀 [50-08]
+    (=>>ucs@unicode	. #x52D7)	; &AJ1-04285;
+    (=ucs@unicode	. #x52D7)	; &AJ1-04285;
+    (=jis-x0208		. #x5228)	; &AJ1-04285; [50-08]
     (=cns11643-1	. #x5B2B)	; &I-C1-5B2B; [59-11]
     (=jis-x0213-1	. #x5228)	; &I-JX1-5228; [50-08]
     (=big5		. #xB1E5)	; &I-B-B1E5;
@@ -563,7 +563,7 @@
       )
      ((=ucs		  . #xE0102)	; 󠄂
       ))
-    (=adobe-japan1-4	. 14136)	; 晟󠄂
+    (=adobe-japan1-4	. 14136)	; &AJ1-14136;
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈
@@ -631,11 +631,11 @@
      ((=ucs		  . #xE0103)	; 󠄃
       ))
     (hanyu-dazidian	2 1516 8)
-    (=cns11643-1	. #x5E32)	; 最󠄁 [62-18]
+    (=cns11643-1	. #x5E32)	; &AJ1-20143; [62-18]
     (=daikanwa		. 01597)	; &I-M-01597;
-    (=shinjigen		.  0926)	; 最󠄁
+    (=shinjigen		.  0926)	; &AJ1-20143;
     (=adobe-japan1-5	. 20143)	; &I-AJ1-20143;
-    (=hanyo-denshi/ks	. 019090)	; 最󠄁
+    (=hanyo-denshi/ks	. 019090)	; &AJ1-20143;
     (=hanyo-denshi/ks/mf . #x0775)	; &I-KSMF-01909;
     (<-original
      ((=ucs		  . #x2F8D4)	; 最
@@ -643,10 +643,10 @@
     (<-original*sources
      zhengzitong daikanwa shinjigen)
     (<-original@daikanwa
-     ((=ucs@cns		  . #x2F8D4)	; 最󠄀
-      (=ucs@jis		  . #x6700)	; 最󠄀
-      (=ucs@ks		  . #x6700)	; 最󠄀
-      (=jis-x0208	  . #x3A47)	; 最󠄀 [26-39]
+     ((=ucs@cns		  . #x2F8D4)	; &AJ1-02103;
+      (=ucs@jis		  . #x6700)	; &AJ1-02103;
+      (=ucs@ks		  . #x6700)	; &AJ1-02103;
+      (=jis-x0208	  . #x3A47)	; &AJ1-02103; [26-39]
       (=ks-x1001	  . #x754C)	; &I-K0-754C; [85-44]
       (=cns11643-6	  . #x4978)	; &I-C6-4978; [41-88]
       (=jis-x0213-1	  . #x3A47)	; &I-JX1-3A47; [26-39]
@@ -700,7 +700,7 @@
 	)
        ((=ucs		    . #xE0103)	; 󠄃
 	))
-      (=hanyo-denshi/ft	  . #x3448)	; 曾󠄃 [20-40]
+      (=hanyo-denshi/ft	  . #x3448)	; &HD-FT-3448; [20-40]
       ))
     ))
 (define-char
@@ -775,10 +775,10 @@
 	  )
 	 ((=ucs		      . #xE0102)	; 󠄂
 	  ))
-	(=ucs@cns	    . #x2F8D4)	; 最󠄀
-	(=ucs@jis	    . #x6700)	; 最󠄀
-	(=ucs@ks	    . #x6700)	; 最󠄀
-	(=jis-x0208	    . #x3A47)	; 最󠄀 [26-39]
+	(=ucs@cns	    . #x2F8D4)	; &AJ1-02103;
+	(=ucs@jis	    . #x6700)	; &AJ1-02103;
+	(=ucs@ks	    . #x6700)	; &AJ1-02103;
+	(=jis-x0208	    . #x3A47)	; &AJ1-02103; [26-39]
 	(=ks-x1001	    . #x754C)	; &I-K0-754C; [85-44]
 	(=cns11643-6	    . #x4978)	; &I-C6-4978; [41-88]
 	(=jis-x0213-1	    . #x3A47)	; &I-JX1-3A47; [26-39]
@@ -899,8 +899,8 @@
       )
      ((=cns11643-1	  . #x454B)	; &C1-454B; [37-43]
       )
-     ((=ucs@jis		  . #x514D)	; 免󠄀
-      (=jis-x0208	  . #x4C48)	; 免󠄀 [44-40]
+     ((=ucs@jis		  . #x514D)	; &AJ1-03796;
+      (=jis-x0208	  . #x4C48)	; &AJ1-03796; [44-40]
       (=jis-x0213-1	  . #x4C48)	; &I-JX1-4C48; [44-40]
       ))
     (=hanyo-denshi/ib	. #x2E40)	; &HD-IB-2E40; [14-32]
