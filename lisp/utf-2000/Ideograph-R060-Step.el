@@ -462,7 +462,7 @@
       )
      ((=ucs		  . #xE0103)	; 󠄃
       ))
-    (=daikanwa		. 10073)	; 往󠄃
+    (=daikanwa		. 10073)	; &HD-JT-B12F;
     (=jef-china3	. #x4DAF)	; &I-JC3-4DAF;
     (=hanyo-denshi/jt	. #xB12F)	; &I-HD-JT-B12F;
     ))
@@ -930,8 +930,8 @@
      ((=daikanwa	  . 10104)	; &M-10104;
       (=jef-china3	  . #x4DB3)	; &I-JC3-4DB3;
       (<-same
-       ((=ucs@jis	    . #x4F5F)	; 佟󠄀
-	(=jis-x0212	    . #x3070)	; 佟󠄀 [16-80]
+       ((=ucs@jis	    . #x4F5F)	; &AJ1-16780;
+	(=jis-x0212	    . #x3070)	; &AJ1-16780; [16-80]
 	(=jis-x0213-1	    . #x2E31)	; &I-JX1-2E31; [14-17]
 	(=daikanwa	    . 00522)	; &I-M-00522;
 	))
@@ -1693,7 +1693,7 @@
        ((=ucs		    . #x24D13)	; 𤴓
 	))
       ))
-    (=hanyo-denshi/jt	. #xB13A)	; 從󠄂
+    (=hanyo-denshi/jt	. #xB13A)	; &HD-JT-B13A;
     ))
 (define-char
   '((=>ucs		. #x5F9F)	; 徟
@@ -2649,7 +2649,7 @@
 	)
        ((=ucs		    . #xE0103)	; 󠄃
 	))
-      (=jef-china3	  . #x4DBD)	; 微󠄃
+      (=jef-china3	  . #x4DBD)	; &HD-JT-B13C;
       (=hanyo-denshi/jt	  . #xB13C)	; &HD-JT-B13C;
       ))
     ))
@@ -3165,8 +3165,8 @@
       (=gt-pj-1		  . #x4427)	; &I-GT-12893; [36-07]
       (=daikanwa/+p	  . 10238)	; &GT-12893;
       (<-simplified@JP/Jouyou
-       ((=ucs@jis	    . #x5FB5)	; 徵󠄂
-	(=cns11643-1	    . #x6C62)	; 徵󠄂 [76-66]
+       ((=ucs@jis	    . #x5FB5)	; &HD-JC-7444;
+	(=cns11643-1	    . #x6C62)	; &HD-JC-7444; [76-66]
 	(=jis-x0213-1	    . #x7444)	; &I-JX1-7444; [84-36]
 	))
       )
@@ -3214,8 +3214,8 @@
       )
      ((=ucs		  . #xE0102)	; 󠄂
       ))
-    (=ucs@jis		. #x5FB5)	; 徵󠄂
-    (=cns11643-1	. #x6C62)	; 徵󠄂 [76-66]
+    (=ucs@jis		. #x5FB5)	; &HD-JC-7444;
+    (=cns11643-1	. #x6C62)	; &HD-JC-7444; [76-66]
     (=jis-x0213-1	. #x7444)	; &I-JX1-7444; [84-36]
     (=hanyo-denshi/jc	. #x7444)	; &I-HD-JC-7444; [84-36]
     ))
@@ -3635,8 +3635,8 @@
 	)
        ((=ucs		    . #xE0103)	; 󠄃
 	))
-      (=ucs@jis/2004	  . #x5FBD)	; 徽󠄃
-      (=jis-x0208@1978	  . #x352B)	; 徽󠄃 [21-11]
+      (=ucs@jis/2004	  . #x5FBD)	; &HD-FT-316B;
+      (=jis-x0208@1978	  . #x352B)	; &HD-FT-316B; [21-11]
       (=ks-x1001	  . #x7D45)	; &I-K0-7D45; [93-37]
       (=cns11643-1	  . #x735B)	; &I-C1-735B; [83-59]
       (=jis-x0213-1@2004  . #x352B)	; &I-JX3-352B; [21-11]
@@ -3663,8 +3663,8 @@
     (=gt-pj-1		. #x352B)	; &I-GT-35717; [21-11]
     (=jef-china3	. #x4DC1)	; &I-JC3-4DC1;
     (<-simplified@JP/jis
-     ((=ucs@jis/2004	  . #x5FBD)	; 徽󠄃
-      (=jis-x0208@1978	  . #x352B)	; 徽󠄃 [21-11]
+     ((=ucs@jis/2004	  . #x5FBD)	; &HD-FT-316B;
+      (=jis-x0208@1978	  . #x352B)	; &HD-FT-316B; [21-11]
       (=ks-x1001	  . #x7D45)	; &I-K0-7D45; [93-37]
       (=cns11643-1	  . #x735B)	; &I-C1-735B; [83-59]
       (=jis-x0213-1@2004  . #x352B)	; &I-JX3-352B; [21-11]
