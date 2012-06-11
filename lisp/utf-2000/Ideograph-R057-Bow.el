@@ -1859,7 +1859,7 @@
       )
      ((=ucs		  . #xE0103)	; 󠄃
       ))
-    (=daikanwa		. 09817)	; 弸󠄃
+    (=daikanwa		. 09817)	; &HD-JT-B112;
     (=hanyo-denshi/jt	. #xB112)	; &I-HD-JT-B112;
     ))
 (define-char
@@ -2613,8 +2613,8 @@
       )
      ((=ucs		  . #x5F13)	; 弓
       )
-     ((=ucs@jis		  . #x526A)	; 剪󠄀
-      (=jis-x0208	  . #x5172)	; 剪󠄀 [49-82]
+     ((=ucs@jis		  . #x526A)	; &AJ1-04265;
+      (=jis-x0208	  . #x5172)	; &AJ1-04265; [49-82]
       (=ks-x1001	  . #x6E72)	; &I-K0-6E72; [78-82]
       (=jis-x0213-1	  . #x5172)	; &I-JX1-5172; [49-82]
       (=daikanwa	  . 02088)	; &I-M-02088;
@@ -2975,7 +2975,7 @@
       )
      ((=ucs		  . #xE0103)	; 󠄃
       ))
-    (=hanyo-denshi/jt	. #xB11E)	; 彌󠄃
+    (=hanyo-denshi/jt	. #xB11E)	; &HD-JT-B11E;
     ))
 (define-char
   '((<-denotational
@@ -2989,7 +2989,7 @@
       )
      ((=ucs		  . #xE0102)	; 󠄂
       ))
-    (=hanyo-denshi/jt	. #xB11D)	; 彌󠄂
+    (=hanyo-denshi/jt	. #xB11D)	; &HD-JT-B11D;
     ))
 (define-char
   '((=>ucs		. #x2242C)	; 𢐬
