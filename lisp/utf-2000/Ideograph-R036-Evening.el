@@ -240,8 +240,8 @@
      ((=ucs		  . #xE0102)	; 󠄂
       ))
     (hanyu-dazidian	2 863 1)
-    (=ucs@unicode	. #x591B)	; 夛󠄂
-    (=jis-x0208		. #x546C)	; 夛󠄂 [52-76]
+    (=ucs@unicode	. #x591B)	; &AJ1-04541;
+    (=jis-x0208		. #x546C)	; &AJ1-04541; [52-76]
     (=cns11643-4	. #x2252)	; &I-C4-2252; [02-50]
     (=jis-x0213-1	. #x546C)	; &I-JX1-546C; [52-76]
     (=gt		. 07281)	; &I-GT-07281;
@@ -269,8 +269,8 @@
       )
      ((=ucs		  . #xE0103)	; 󠄃
       ))
-    (=shinjigen		.  1547)	; 夛󠄃
-    (=hanyo-denshi/jt	. #xAFB7)	; 夛󠄃
+    (=shinjigen		.  1547)	; &HD-JT-AFB7;
+    (=hanyo-denshi/jt	. #xAFB7)	; &HD-JT-AFB7;
     (<-vulgar
      ((=ucs		  . #x591A)	; 多
       (=jis-x0208	  . #x423F)	; &I-J90-423F; [34-31]
@@ -738,9 +738,9 @@
     (=jef-china3	. #x82A2)	; &I-JC3-82A2;
     (=adobe-japan1-0	. 04542)	; &I-AJ1-04542;
     (<-vulgar
-     ((=cns11643-1	  . #x6842)	; 夢󠄂 [72-34]
+     ((=cns11643-1	  . #x6842)	; &HD-KS-066550; [72-34]
       (=daikanwa	  . 05802)	; &I-M-05802;
-      (=shinjigen	  .  1550)	; 夢󠄂
+      (=shinjigen	  .  1550)	; &HD-KS-066550;
       ))
     (<-vulgar*sources
      songyuan-yilai-suzipu zihui daikanwa shinjigen)
@@ -970,9 +970,9 @@
     (=adobe-japan1-0	. 03776)	; &I-AJ1-03776;
     (=hanyo-denshi/ja	. #x4C34)	; &I-HD-JA-4C34; [44-20]
     (<-simplified
-     ((=cns11643-1	  . #x6842)	; 夢󠄂 [72-34]
+     ((=cns11643-1	  . #x6842)	; &HD-KS-066550; [72-34]
       (=daikanwa	  . 05802)	; &I-M-05802;
-      (=shinjigen	  .  1550)	; 夢󠄂
+      (=shinjigen	  .  1550)	; &HD-KS-066550;
       ))
     (<-simplified*sources
      daikanwa shinjigen)
@@ -989,10 +989,10 @@
       )
      ((=ucs		  . #xE0102)	; 󠄂
       ))
-    (=cns11643-1	. #x6842)	; 夢󠄂 [72-34]
+    (=cns11643-1	. #x6842)	; &HD-KS-066550; [72-34]
     (=daikanwa		. 05802)	; &I-M-05802;
-    (=shinjigen		.  1550)	; 夢󠄂
-    (=hanyo-denshi/ks	. 066550)	; 夢󠄂
+    (=shinjigen		.  1550)	; &HD-KS-066550;
+    (=hanyo-denshi/ks	. 066550)	; &HD-KS-066550;
     (=hanyo-denshi/ks/mf . #x19FF)	; &I-KSMF-06655;
     ))
 (define-char
@@ -1010,9 +1010,9 @@
 	(=shinjigen	    .  1553)	; &AJ1-19304;
 	(=adobe-japan1-5    . 19304)	; &I-AJ1-19304;
 	(<-vulgar
-	 ((=cns11643-1	      . #x6842)	; 夢󠄂 [72-34]
+	 ((=cns11643-1	      . #x6842)	; &HD-KS-066550; [72-34]
 	  (=daikanwa	      . 05802)	; &I-M-05802;
-	  (=shinjigen	      .	 1550)	; 夢󠄂
+	  (=shinjigen	      .	 1550)	; &HD-KS-066550;
 	  ))
 	(<-vulgar*sources
 	 shinjigen)
@@ -1321,8 +1321,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@jis		  . #x4EAD)	; 亭󠄀
-      (=jis-x0208	  . #x4462)	; 亭󠄀 [36-66]
+     ((=ucs@jis		  . #x4EAD)	; &AJ1-03070;
+      (=jis-x0208	  . #x4462)	; &AJ1-03070; [36-66]
       (=ks-x1001	  . #x6F4D)	; &I-K0-6F4D; [79-45]
       (=jis-x0213-1	  . #x4462)	; &I-JX1-4462; [36-66]
       (=daikanwa	  . 00303)	; &I-M-00303;
