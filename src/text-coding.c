@@ -107,7 +107,7 @@ Lisp_Object Qshort, Qno_ascii_eol, Qno_ascii_cntl, Qseven, Qlock_shift;
 #endif
 #ifdef UTF2000
 Lisp_Object Qutf_8_mcs;
-Lisp_Object Qdisable_composition;
+Lisp_Object Qdisable_composition, Qenable_decomposition;
 Lisp_Object Qccs_priority_list;
 Lisp_Object Quse_entity_reference;
 Lisp_Object Qd, Qx, QX;
@@ -849,8 +849,10 @@ character set.  Recognized properties are:
 		`coding-system-property' will return nil.)
 
 'disable-composition
-     If non-nil, composition/decomposition for combining characters
-     are disabled.
+     If non-nil, composition for combining characters is disabled.
+
+'enable-decomposition
+     If non-nil, decomposition for combining characters is enabled.
 
 'use-entity-reference
      If non-nil, SGML style entity-reference is used for non-system-characters.
@@ -1007,6 +1009,8 @@ if TYPE is 'ccl:
 #ifdef UTF2000
 	else if (EQ (key, Qdisable_composition))
 	  CODING_SYSTEM_DISABLE_COMPOSITION (codesys) = !NILP (value);
+	else if (EQ (key, Qenable_decomposition))
+	  CODING_SYSTEM_ENABLE_DECOMPOSITION (codesys) = !NILP (value);
 	else if (EQ (key, Quse_entity_reference))
 	  CODING_SYSTEM_USE_ENTITY_REFERENCE (codesys) = !NILP (value);
 #endif
@@ -1491,6 +1495,8 @@ Return the PROP property of CODING-SYSTEM.
 #ifdef UTF2000
   else if (EQ (prop, Qdisable_composition))
     return XCODING_SYSTEM_DISABLE_COMPOSITION (coding_system) ? Qt : Qnil;
+  else if (EQ (prop, Qenable_decomposition))
+    return XCODING_SYSTEM_ENABLE_DECOMPOSITION (coding_system) ? Qt : Qnil;
   else if (EQ (prop, Quse_entity_reference))
     return XCODING_SYSTEM_USE_ENTITY_REFERENCE (coding_system) ? Qt : Qnil;
   else if (EQ (prop, Qccs_priority_list))
@@ -4670,38 +4676,42 @@ char_encode_utf8 (struct encoding_stream *str, Emchar ch,
 
       if ( (code_point < 0) || (code_point > 0xEFFFF) )
 	{
-	  Lisp_Object rest = Vdecomposition_feature_list;
-	  Lisp_Object decomp_f;
-	  Lisp_Object seq = Qnil;
 	  Lisp_Object map, ret;
-	  struct gcpro gcpro1;
 
-	  while ( CONSP (rest) )
+	  if ( CODING_SYSTEM_ENABLE_DECOMPOSITION (str->codesys) )
 	    {
-	      decomp_f = XCAR (rest);
-	      GCPRO1 (rest);
-	      seq = Fchar_feature (make_char (ch), decomp_f, Qnil,
-				   Qnil, Qnil);
-	      UNGCPRO;
-	      if ( !NILP (seq) )
-		break;
-	      rest = XCDR (rest);
-	    }
+	      Lisp_Object rest = Vdecomposition_feature_list;
+	      Lisp_Object decomp_f;
+	      Lisp_Object seq = Qnil;
+	      struct gcpro gcpro1;
 
-	  if ( CONSP (seq) )
-	    {
-	      Lisp_Object base = Fcar (seq);
-
-	      seq = Fcdr (seq);
-	      if ( CHARP (base) && CONSP (seq) )
+	      while ( CONSP (rest) )
 		{
-		  Lisp_Object comb = Fcar (seq);
+		  decomp_f = XCAR (rest);
+		  GCPRO1 (rest);
+		  seq = Fchar_feature (make_char (ch), decomp_f, Qnil,
+				       Qnil, Qnil);
+		  UNGCPRO;
+		  if ( !NILP (seq) )
+		    break;
+		  rest = XCDR (rest);
+		}
 
-		  if ( CHARP (comb) )
+	      if ( CONSP (seq) )
+		{
+		  Lisp_Object base = Fcar (seq);
+
+		  seq = Fcdr (seq);
+		  if ( CHARP (base) && CONSP (seq) )
 		    {
-		      char_encode_utf8 (str, XCHAR (base), dst, flags);
-		      char_encode_utf8 (str, XCHAR (comb), dst, flags);
-		      return;
+		      Lisp_Object comb = Fcar (seq);
+
+		      if ( CHARP (comb) )
+			{
+			  char_encode_utf8 (str, XCHAR (base), dst, flags);
+			  char_encode_utf8 (str, XCHAR (comb), dst, flags);
+			  return;
+			}
 		    }
 		}
 	    }
@@ -6451,6 +6461,7 @@ syms_of_file_coding (void)
 #ifdef UTF2000
   defsymbol (&Qutf_8_mcs, "utf-8-mcs");
   defsymbol (&Qdisable_composition, "disable-composition");
+  defsymbol (&Qenable_decomposition, "enable-decomposition");
   defsymbol (&Qccs_priority_list, "ccs-priority-list");
   defsymbol (&Quse_entity_reference, "use-entity-reference");
   defsymbol (&Qd, "d");
@@ -6641,6 +6652,7 @@ complex_vars_of_file_coding (void)
   DEFINE_CODESYS_PROP (CODESYS_PROP_CCL,     Qdecode);
 #ifdef UTF2000
   DEFINE_CODESYS_PROP (CODESYS_PROP_ALL_OK,  Qdisable_composition);
+  DEFINE_CODESYS_PROP (CODESYS_PROP_ALL_OK,  Qenable_decomposition);
   DEFINE_CODESYS_PROP (CODESYS_PROP_ALL_OK,  Quse_entity_reference);
 #endif
 #endif /* MULE */
