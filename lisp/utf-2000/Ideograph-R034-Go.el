@@ -151,8 +151,8 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=ucs@jis		  . #x5905)	; 夅󠄀
-      (=jis-x0212	  . #x385F)	; 夅󠄀 [24-63]
+      (=ucs@jis		  . #x5905)	; &AJ1-17468;
+      (=jis-x0212	  . #x385F)	; &AJ1-17468; [24-63]
       (=jis-x0213-2	  . #x2538)	; &I-JX2-2538; [05-24]
       (=adobe-japan1-5	  . 17468)	; &I-AJ1-17468;
       )
@@ -220,7 +220,7 @@
       )
      ((=ucs		  . #xE0100)	; 󠄀
       ))
-    (=adobe-japan1-5	. 17469)	; 夆󠄀
+    (=adobe-japan1-5	. 17469)	; &AJ1-17469;
     ))
 (define-char
   '((<-denotational
@@ -351,21 +351,21 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x4EA6)	; 亦󠄀
-	(=jis-x0208	    . #x4B72)	; 亦󠄀 [43-82]
+       ((=ucs@jis	    . #x4EA6)	; &AJ1-03744;
+	(=jis-x0208	    . #x4B72)	; &AJ1-03744; [43-82]
 	(=ks-x1001	    . #x6632)	; &I-K0-6632; [70-18]
 	(=jis-x0213-1	    . #x4B72)	; &I-JX1-4B72; [43-82]
 	(=daikanwa	    . 00293)	; &I-M-00293;
 	)
        ((=ucs		    . #x5902)	; 夂
 	))
-      (=ucs@jis		  . #x5909)	; 変󠄀
-      (=jis-x0208	  . #x4A51)	; 変󠄀 [42-49]
+      (=ucs@jis		  . #x5909)	; &AJ1-03617;
+      (=jis-x0208	  . #x4A51)	; &AJ1-03617; [42-49]
       (=jis-x0213-1	  . #x4A51)	; &I-JX1-4A51; [42-49]
       (=gt		  . 07215)	; &I-GT-07215;
       (=gt-pj-1		  . #x4A51)	; &I-GT-07215; [42-49]
       (=daikanwa	  . 05703)	; &I-M-05703;
-      (=shinjigen	  .  3201)	; 変󠄀
+      (=shinjigen	  .  3201)	; &AJ1-03617;
       (=adobe-japan1-0	  . 03617)	; &I-AJ1-03617;
       (<-simplified@JP/Jouyou
        ((=ucs@jis	    . #x8B8A)	; &GT-48488;
