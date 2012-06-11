@@ -714,8 +714,8 @@
 	  )
 	 ((=ucs		      . #xE0103)	; 󠄃
 	  ))
-	(=ucs@unicode	    . #x76D4)	; 盔󠄃
-	(=gb2312	    . #x3F78)	; 盔󠄃 [31-88]
+	(=ucs@unicode	    . #x76D4)	; &HD-JC-786A;
+	(=gb2312	    . #x3F78)	; &HD-JC-786A; [31-88]
 	(=jis-x0213-1	    . #x786A)	; &I-JX1-786A; [88-74]
 	(=hanyo-denshi/jc   . #x786A)	; &I-HD-JC-786A; [88-74]
 	)
