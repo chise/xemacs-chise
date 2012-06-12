@@ -625,7 +625,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=>>jis-x0213-1	    . #x3878)	; &G-GT-01893; [24-88]
+       ((=>>>jis-x0213-1    . #x3878)	; &g2-JX1-3878; [24-88]
 	)
        ((=ucs		    . #x513F)	; 儿
 	))
