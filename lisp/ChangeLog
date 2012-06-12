@@ -1,3 +1,13 @@
+2012-06-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=>>>hanyo-denshi/ja): New coded-charset for
+	XEmacs CHISE.
+	(=>>>hanyo-denshi/ib): Ditto.
+	(=>>hanyo-denshi/ja): Use `=>>>hanyo-denshi/ja' instead of
+	`=hanyo-denshi/ja' as the mother.
+	(=>>hanyo-denshi/ib): Use `=>>>hanyo-denshi/ib' instead of
+	`=hanyo-denshi/ib' as the mother.
+
 2012-06-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (utf-8-ivs-mcs): New coding-system for
