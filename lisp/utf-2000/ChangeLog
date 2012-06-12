@@ -1,3 +1,20 @@
+2012-06-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R113-Spirit.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+	(U+793F): Use `->denotational' instead of `->subsumptive'.
+	(U+40FE): Likewise.
+	(U+794A): Likewise.
+	(U-00025615): Likewise.
+	(U+794B): Likewise.
+	(U+40FF): Likewise.
+	(U+794C): Likewise.
+	(o-JX2-726C): New abstract node.
+	(M-24833): Use o-JX2-726C instead of U+79A9 as the mother; unify
+	S-5509; add `<-formed' for J0-632B.
+	(JX2-726C): Use o-JX2-726C instead of U+79A9 as the mother; unify
+	CB05194.
+
 2012-06-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R122-Net.el (J0-3D70): Use `=daikanwa/+p' instead of
