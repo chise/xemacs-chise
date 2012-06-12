@@ -47,8 +47,8 @@
     (total-strokes	 . 9)
     (=ucs		. #x800D)	; 耍
     (->subsumptive
-     ((=ucs@unicode	  . #x800D)	; &M-28875;
-      (=gb2312		  . #x4B23)	; &M-28875; [43-03]
+     ((=ucs@unicode	  . #x800D)	; &JSP-554B;
+      (=gb2312		  . #x4B23)	; &JSP-554B; [43-03]
       (=jis-x0212	  . #x554B)	; &I-JSP-554B; [53-43]
       (=big5		  . #xAD41)	; &I-B-AD41;
       (=daikanwa	  . 28875)	; &I-M-28875;
@@ -75,8 +75,8 @@
     (total-strokes	 . 9)
     (=ucs		. #x800E)	; 耎
     (->subsumptive
-     ((=ucs@unicode	  . #x800E)	; &M-28877;
-      (=jis-x0212	  . #x554C)	; &M-28877; [53-44]
+     ((=ucs@unicode	  . #x800E)	; &JX2-7525;
+      (=jis-x0212	  . #x554C)	; &JX2-7525; [53-44]
       (=jis-x0213-2	  . #x7525)	; &I-JX2-7525; [85-05]
       (=big5		  . #xD052)	; &I-B-D052;
       (=daikanwa	  . 28877)	; &I-M-28877;
