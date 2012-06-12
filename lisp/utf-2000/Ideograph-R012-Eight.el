@@ -151,9 +151,12 @@
 	))
       (=cns11643-1	  . #x447C)	; &C1-447C; [36-92]
       )
-     ((=>>ucs@unicode	  . #x516C)	; &G-GT-01893;
-      (=>>jis-x0213-1	  . #x3878)	; &G-GT-01893; [24-88]
-      (=>>gt		  . 01893)	; &G-GT-01893;
+     ((=>>>ucs@unicode	  . #x516C)	; &g2-JX1-3878;
+      (=>>>jis-x0208@1990 . #x3878)	; &g2-JX1-3878; [24-88]
+      (=>>>jis-x0213-1	  . #x3878)	; &g2-JX1-3878; [24-88]
+      (=>>>gt		  . 01893)	; &g2-JX1-3878;
+      (=>>>adobe-japan1-0 . 01964)	; &g2-JX1-3878;
+      (=>>>hanyo-denshi/ja . #x3878)	; &g2-JX1-3878; [24-88]
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
