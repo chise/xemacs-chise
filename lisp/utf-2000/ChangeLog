@@ -1,3 +1,40 @@
+2012-06-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R127-Plow.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+
+	* Ideograph-R124-Feather.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+	(mother of J90-3227): Unify g2-UU+7FC1, g2-J90-3227, g2-JX1-3227
+	and g2-GT-36866 instead of G-UU+7FC1 and G-GT-36866.
+
+	* Ideograph-R112-Stone.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for M-Hdddd.
+	(U+409F): Unify M-24085.
+	(U-00025446): Unify M-24086.
+	(U+40A1): Unify M-24094.
+	(U-00025448): Integrate M-24095.
+	(U+40A2): Integrate M-24096.
+	(U+782C): Use `->subsumptive'.
+	(U-000782C): Unify M-24109.
+	(U+782D): Use `->subsumptive'.
+	(U+7830): Use `->denotational'.
+	(U-0002544E): Unify M-24116.
+	(U-0002544F): Integrate M-24117.
+	(U+7831): Use `->subsumptive'.
+	(U+7832): Use `->denotational'.
+	(U-00025471): New character.
+	(U+7842): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+784A): Use `->subsumptive'.
+	(U-0002547E): Integrate M-24169.
+	(U+785D): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R012-Eight.el (mother of J90-3878): Unify g2-UU+516C,
+	g2-J90-3878, g2-JX1-3878, g2-GT-01893, g2-AJ1-01964 and
+	g2-HD-JA2488 instead of G-UU+516C, G-JX1-3878 and G-GT-01893.
+
 2012-06-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R113-Spirit.el: Use `=daikanwa/+p' instead of
