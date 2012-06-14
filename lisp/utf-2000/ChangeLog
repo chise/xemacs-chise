@@ -1,5 +1,21 @@
 2012-06-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R118-Bamboo.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for M-Hdddd.
+	(U+4212): Integrate M-26208.
+	(U+4214): Unify M-26217.
+	(U+4215): Unify M-26219.
+	(U+4218): Integrate M-26241.
+	(U+4219): Integrate M-26244.
+	(U+421A): Unify M-26245.
+	(U+421B): Integrate M-26252.
+	(U+421E): Integrate M-26265.
+	(U+421F): Unify M-26266.
+	(U+7BCF): Use `->subsumptive' to separate representative nodes.
+	(U+7BD2): Use `->subsumptive'.
+	(U+7C4F): Use `->subsumptive'.
+
 	* Ideograph-R127-Plow.el: Use `=daikanwa/+p' instead of
 	`morohashi-daikanwa' for M-ddddd'.
 
