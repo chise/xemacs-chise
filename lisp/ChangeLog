@@ -1,4 +1,9 @@
-2012-06-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+2012-06-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>>>hanyo-denshi/ib'.
+
+2012-06-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=>>>hanyo-denshi/ja): New coded-charset for
 	XEmacs CHISE.
