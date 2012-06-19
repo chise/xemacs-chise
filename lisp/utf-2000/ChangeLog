@@ -1,3 +1,29 @@
+2012-06-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R131-Minister.el (U-000268E9): Unify H7-EEF6.
+
+	* Ideograph-R129-Brush.el (M-29223'): Use `=daikanwa/+p' instead
+	of `morohashi-daikanwa'.
+
+	* Ideograph-R116-Cave.el (U-00025977): Integrate M-25510.
+	(U+41A1): Integrate M-25511.
+	(U-00025978): Integrate M-25512.
+	(U+41A2): Use `->denotational' instead of `->subsumptive'.
+	(U-00025979): Integrate M-25514.
+	(U-0002597A): Integrate M-25515.
+	(U+7A96): Don't use `->subsumptive' to integrate C1-6128 and
+	G0-3D51.
+	(U-0002597B): Integrate M-25518.
+	(U+7A98): Use `->denotational' instead of `->subsumptive'.
+	(U+7A99): Likewise.
+	(A-M-25527): New abstract character.
+	(M-25527): New character; add `<-denotational' for A-M-25527.
+	(U-00025981): Add `<-denotational' for A-M-25527.
+	(U-00025986): Integrate M-25532.
+	(U-00025989): Use `->denotational' instead of `->subsumptive'.
+	(M-25547'): Use `=daikanwa/+p' instead of `morohashi-daikanwa';
+	separate GT-32926.
+
 2012-06-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (mother of HD-IB1332): Unify g2-UU+4F00
