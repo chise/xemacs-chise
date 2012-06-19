@@ -1,3 +1,15 @@
+2012-06-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R128-Ear.el (mother of C1-657B): Unify G-KU+8056,
+	G-CU+8056, G-GT-37654, G-GT-K10230 and G-M-29074.
+	(mother of J0-403B): Unify G-UU+8056, G-J0-403B, G-GT-37655,
+	G-GT-K10229 and G-M-29074'.
+	(J0-403B): Use `=daikanwa/+p' instead of `morohashi-daikanwa' for
+	M-29074'.
+
+	* Ideograph-R086-Fire.el (G-GT-38767): Unify G-M-29995.
+	(G-GT-38769): Unify G-IU+24443.
+
 2012-06-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R131-Minister.el (U-000268E9): Unify H7-EEF6.
