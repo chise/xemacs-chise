@@ -86,8 +86,8 @@
     (total-strokes	 . 10)
     (=ucs		. #x8081)	; 肁
     (->subsumptive
-     ((=ucs@jis		  . #x8081)	; &M-29220;
-      (=jis-x0212	  . #x556A)	; &M-29220; [53-74]
+     ((=ucs@jis		  . #x8081)	; &JSP-556A;
+      (=jis-x0212	  . #x556A)	; &JSP-556A; [53-74]
       (=cns11643-6	  . #x3B24)	; &I-C6-3B24; [27-04]
       (=daikanwa	  . 29220)	; &I-M-29220;
       )
@@ -138,19 +138,19 @@
     (total-strokes	 . 11)
     (=ucs		. #x7C9B)	; 粛
     (->subsumptive
-     ((morohashi-daikanwa	29223 1)
-      (=ucs@unicode	  . #x7C9B)	; &GT-37838;
+     ((=ucs@unicode	  . #x7C9B)	; &GT-37838;
       (=jis-x0208	  . #x3D4D)	; &GT-37838; [29-45]
       (=jis-x0213-1	  . #x3D4D)	; &I-JX1-3D4D; [29-45]
       (=gt		  . 37838)	; &I-GT-37838;
       (=gt-k		  . 07787)	; &I-GT-K07787;
       (=gt-pj-1		  . #x3D4D)	; &I-GT-37838; [29-45]
+      (=daikanwa/+p	  . 29223)	; &GT-37838;
       (<-simplified@JP/Jouyou
        ((=ucs		    . #x8085)	; 肅
 	(=jis-x0208	    . #x6669)	; &I-J90-6669; [70-73]
 	))
       )
-     ((=cns11643-3	  . #x383E)	; &CDP-88C9; [24-30]
+     ((=cns11643-3	  . #x383E)	; &C3-383E; [24-30]
       (=big5-cdp	  . #x88C9)	; &I-CDP-88C9;
       ))
     ))
