@@ -1,3 +1,9 @@
+2012-06-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (mother of HD-IB1332): Unify g2-UU+4F00
+	and g2-HD-IB1332 instead of G-UU+4F00.
+	(G-UU+50D2): Add ideographic-structure; unify G-M-01089.
+
 2012-06-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R118-Bamboo.el:
