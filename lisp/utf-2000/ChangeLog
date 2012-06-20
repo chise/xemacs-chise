@@ -1,5 +1,14 @@
 2012-06-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R132-Self.el (J0-3D2D): Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-30103'.
+
+	* Ideograph-R130-Meat.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for M-Hdddd.
+
+2012-06-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R128-Ear.el (mother of C1-657B): Unify G-KU+8056,
 	G-CU+8056, G-GT-37654, G-GT-K10230 and G-M-29074.
 	(mother of J0-403B): Unify G-UU+8056, G-J0-403B, G-GT-37655,
