@@ -56,11 +56,10 @@
     (=gt-k		. 03908)	; &I-GT-K03908;
     (=gt-pj-1		. #x6752)	; &I-GT-39174; [71-50]
     (=daikanwa		. 30278)	; &I-M-30278;
-    (=shinjigen@rev	.  1030)	; 舍
+    (=shinjigen		.  1030)	; 舍
     ))
 (define-char
-  '((morohashi-daikanwa	30278 1)
-    (ideographic-radical . 135)	; ⾆
+  '((ideographic-radical . 135)	; ⾆
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
     (=ucs		. #x820E)	; 舎
@@ -70,6 +69,7 @@
     (=gt		. 39175)	; &I-GT-39175;
     (=gt-k		. 03730)	; &I-GT-K03730;
     (=gt-pj-1		. #x3C4B)	; &I-GT-39175; [28-43]
+    (=daikanwa/+p	. 30278)	; 舎
     ))
 (define-char
   '((ideographic-radical . 135)	; ⾆
@@ -334,8 +334,8 @@
     (ideographic-radical . 135)	; ⾆
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
-    (=ucs@jis		. #x445B)	; &M-30296;
-    (=jis-x0213-1	. #x7A5A)	; &M-30296; [90-58]
+    (=ucs@jis		. #x445B)	; &JX1-7A5A;
+    (=jis-x0213-1	. #x7A5A)	; &JX1-7A5A; [90-58]
     (=daikanwa		. 30296)	; &I-M-30296;
     (=jef-china3	. #x60F4)	; &I-JC3-60F4;
     ))
@@ -436,8 +436,8 @@
     (ideographic-radical . 135)	; ⾆
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
-    (=ucs@jis		. #x269DD)	; &M-30306;
-    (=jis-x0213-2	. #x755F)	; &M-30306; [85-63]
+    (=ucs@jis		. #x269DD)	; &JX2-755F;
+    (=jis-x0213-2	. #x755F)	; &JX2-755F; [85-63]
     (=daikanwa		. 30306)	; &I-M-30306;
     ))
 (define-char
@@ -460,8 +460,8 @@
     (->subsumptive
      ((=daikanwa	  . 30307)	; &M-30307;
       (<-vulgar@jiyun
-       ((=ucs@jis	    . #x8FA4)	; &M-38649;
-	(=jis-x0212	    . #x6130)	; &M-38649; [65-16]
+       ((=ucs@jis	    . #x8FA4)	; &JX2-7967;
+	(=jis-x0212	    . #x6130)	; &JX2-7967; [65-16]
 	(=jis-x0213-2	    . #x7967)	; &I-JX2-7967; [89-71]
 	(=daikanwa	    . 38649)	; &I-M-38649;
 	))
@@ -551,8 +551,8 @@
       (=jis-x0213-1	  . #x575B)	; &I-JX1-575B; [55-59]
       (=daikanwa	  . 10348)	; &I-M-10348;
       ))
-    (=ucs@jis		. #x8214)	; &M-30312;
-    (=jis-x0212		. #x5671)	; &M-30312; [54-81]
+    (=ucs@jis		. #x8214)	; &JSP-5671;
+    (=jis-x0212		. #x5671)	; &JSP-5671; [54-81]
     (=big5		. #xBB51)	; &I-B-BB51;
     (=daikanwa		. 30312)	; &I-M-30312;
     ))
@@ -781,8 +781,7 @@
     (=daikanwa		. 30323)	; &I-M-30323;
     ))
 (define-char
-  '((morohashi-daikanwa	30323 1)
-    (ideographic-radical . 135)	; ⾆
+  '((ideographic-radical . 135)	; ⾆
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (=ucs		. #x8217)	; 舗
@@ -790,6 +789,7 @@
     (=jis-x0213-1	. #x4A5E)	; &I-JX1-4A5E; [42-62]
     (=gt		. 39220)	; &I-GT-39220;
     (=gt-pj-1		. #x4A5E)	; &I-GT-39220; [42-62]
+    (=daikanwa/+p	. 30323)	; 舗
     ))
 (define-char
   '((=>ucs		. #x269ED)	; 𦧭
