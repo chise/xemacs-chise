@@ -1,4 +1,15 @@
+2012-06-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R135-Tongue.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+
 2012-06-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R134-Mortar.el (GT-39041): Use `=daikanwa/+p' instead
+	of `morohashi-daikanwa' for M-30192'.
+
+	* Ideograph-R009-Man.el (U-000203C4): Use `->denotational' instead
+	of `->subsumptive'; add ideographic-structure.
 
 	* Ideograph-R132-Self.el (J0-3D2D): Use `=daikanwa/+p' instead of
 	`morohashi-daikanwa' for M-30103'.
