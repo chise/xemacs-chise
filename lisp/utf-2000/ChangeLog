@@ -1,3 +1,31 @@
+2012-06-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R096-Jade.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+	(U+3EEB): Integrate M-21184.
+	(U+747F): Use `->denotational' instead of `->subsumptive'.
+	(U+3EEC): Integrate M-21189.
+	(U-00024A39): Integrate M-21190.
+	(U-00024A14): Integrate M-21191.
+	(U+3EED): Integrate M-21192.
+	(U-00024A15): Unify M-21197.
+	(U-00024A19): Unify M-21198.
+	(U+7484): Use `->subsumptive'.
+	(U+3EEE): Integrate M-21200.
+	(U-00024A16): Unify M-21205.
+	(U-00024A17): Integrate M-21207.
+	(U-00024A18): Integrate M-21209.
+	(U+3EEF): Integrate M-21210.
+	(U+3EF0): Integrate M-21212.
+	(U-00024A41): Integrate M-21213.
+	(U-00024A1A): Unify M-21214.
+	(U-00024A1B): Integrate M-21215.
+	(U-00024A1C): Integrate M-21216.
+	(U-00024A1D): Integrate M-21217.
+	(U-00024A3A): Use `->subsumptive' to separate representative
+	nodes.
+	(U+748F): Likewise.
+
 2012-06-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R135-Tongue.el: Use `=daikanwa/+p' instead of
