@@ -408,7 +408,7 @@
     (ideographic-radical . 139)	; ⾊
     (ideographic-strokes . 16)
     (total-strokes	 . 22)
-    (=cns11643-4	. #x6933)	; &M-30636; [73-19]
+    (=cns11643-4	. #x6933)	; &C4-6933; [73-19]
     (=daikanwa		. 30636)	; &I-M-30636;
     ))
 (define-char
