@@ -1,3 +1,12 @@
+2012-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R136-Oppose.el (mother of C1-6A5A): Unify G-UU+821E
+	and G-M-30342.
+	(g2-UU+821E): New abstract node to integrate M-30342 and G0-4E68.
+	(M-30342): Separate G0-4E68.
+	(G-J0-4971): New abstract node to integrate J0-4971 and K0-5971.
+	(J0-4971): Separate K0-5971 and S-6639.
+
 2012-06-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R096-Jade.el: Use `=daikanwa/+p' instead of
