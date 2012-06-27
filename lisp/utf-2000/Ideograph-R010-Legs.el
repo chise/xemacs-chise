@@ -561,6 +561,19 @@
     (=adobe-japan1-0	. 01963)	; &I-AJ1-01963;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x5149)	; 光
+      ))
+    (ideographic-radical . 10)	; ⼉
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=gt-k		. 01606)	; &GT-K01606;
+    (=gt-pj-k1		. #x3441)	; &GT-K01606; [20-33]
+    (<-formed@component/connect-right
+     ((=ucs		  . #x5149)	; 光
+      ))
+    ))
+(define-char
   '((ideographic-radical . 10)	; ⼉
     (==>ucs@bucs	. #x514C)	; &BUCS+514C;
     ))
@@ -3202,6 +3215,14 @@
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5149)	; 光
+      )
+     ((=ucs		  . #x862D)	; 蘭
+      ))
     (=ucs		. #x204DA)	; 𠓚
     ))
 (define-char
@@ -3216,7 +3237,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x5149)	; 光
+     ((=gt-k		  . 01606)	; &GT-K01606;
       )
      ((=ucs@unicode	  . #x862D)	; &GT-43788;
       (=ks-x1001	  . #x5535)	; &GT-43788; [53-21]
@@ -3234,9 +3255,10 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x5149)	; 光
+     ((=gt-k		  . 01606)	; &GT-K01606;
       )
-     ((=cns11643-1	  . #x7B22)	; &GT-43909; [91-02]
+     ((=ucs@cns		  . #x862D)	; &GT-43909;
+      (=cns11643-1	  . #x7B22)	; &GT-43909; [91-02]
       ))
     (=ucs@iso		. #x204DA)	; &U-000204DA;
     ))
