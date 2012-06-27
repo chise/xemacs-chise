@@ -1,3 +1,28 @@
+2012-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-insert-ccs-feature): Add setting for
+	`=>>>hanyo-denshi/ks'.
+
+	* Ideograph-R142-Insect.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+
+	* Ideograph-R140-Grass.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/+2p' instead of `morohashi-daikanwa' for M-ddddd''.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for M-Hdddd.
+	(U+44AD): Use `->denotational' to separate representative nodes.
+
+	* Ideograph-R038-Woman.el (G-CU+5B4F): Unify G-M-06920; add
+	ideographic-structure.
+	(M-06920): Add `<-same' and `<-formed' for J0-554F.
+
+	* Ideograph-R010-Legs.el (GT-K01606): New character; add
+	`<-denotational' and `<-formed@component/connect-right' for
+	U+5149.
+	(U-000204DA): Add ideographic-structure.
+	(H1-DED9): Modify component in `ideographic-structure'.
+	(IU+204DA): Likewise.
+
 2012-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R136-Oppose.el (mother of C1-6A5A): Unify G-UU+821E
