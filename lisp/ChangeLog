@@ -1,3 +1,9 @@
+2012-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=>>>hanyo-denshi/ks): New coded-charset for
+	XEmacs CHISE.
+	(=>>hanyo-denshi/ks): Use `=>>>hanyo-denshi/ks' as the mother.
+
 2012-06-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
