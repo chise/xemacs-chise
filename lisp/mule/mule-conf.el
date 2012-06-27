@@ -2340,6 +2340,16 @@
 	       direction l2r
 	       registry "HanyoDenshi\\.JT-0$"
 	       mother =hanyo-denshi/jt))
+  (make-charset
+   '=>>>hanyo-denshi/ks
+   "KoSeki-touitsu-moji abstract glyph-forms"
+   '(long-name "Han'you-Denshi/KS glyph-forms"
+	       chars 256
+	       dimension 3
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =hanyo-denshi/ks))
 
   (make-charset
    '=>>hanyo-denshi/ja
@@ -2449,7 +2459,7 @@
 	       columns 2
 	       graphic 2
 	       direction l2r
-	       mother =hanyo-denshi/ks))
+	       mother =>>>hanyo-denshi/ks))
   )
 
 ;;; mule-conf.el ends here
