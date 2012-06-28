@@ -1,5 +1,14 @@
 2012-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U+5673): Add ideographic-structure.
+	(mother of C2-564A): Likewise; unify G-CU+5673 and G-M-04408.
+	(U+56D2): Add ideographic-structure.
+	(mother of C3-6071): Likewise; unify G-CU+56D2, G-M-04658 and
+	G-CB02258.
+	(C3-6071): Unify CU+56D2.
+
+2012-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* char-db-util.el (char-db-insert-ccs-feature): Add setting for
 	`=>>>hanyo-denshi/ks'.
 
