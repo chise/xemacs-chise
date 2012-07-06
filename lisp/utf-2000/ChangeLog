@@ -1,3 +1,15 @@
+2012-06-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R146-West.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+
+	* Ideograph-R145-Clothes.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+	(U+88C4): Use `->subsumptive'.
+
+	* Ideograph-R144-Walk-Enclosure.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+
 2012-06-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R143-Blood.el (U-000275BF): New character.
