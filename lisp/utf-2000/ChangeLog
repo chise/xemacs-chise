@@ -1,3 +1,9 @@
+2012-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R148-Horn.el (U-00027922): Use `=daikanwa/+p' instead
+	of `morohashi-daikanwa'.
+	(U-00027918): Unify M-49717.
+
 2012-06-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R146-West.el: Use `=daikanwa/+p' instead of
