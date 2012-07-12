@@ -1,5 +1,12 @@
 2012-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R147-See.el (mother of J0-3B6B): Unify G-UU+8996,
+	g2-UU+8996, g2-J0-3B6B, g2-GT-46874 and G-M-34827'.
+	(J0-3B6B): Use `=daikanwa/+p' instead of `morohashi-daikanwa' for
+	M-34827'.
+
+2012-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R148-Horn.el (U-00027922): Use `=daikanwa/+p' instead
 	of `morohashi-daikanwa'.
 	(U-00027918): Unify M-49717.
