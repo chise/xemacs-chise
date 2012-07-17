@@ -1,3 +1,19 @@
+2012-07-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R152-Pig.el (G-IU+27C9B): Unify G-GT-48918 and
+	G-M-36486'.
+	(GT-48918): Use `=daikanwa/+p' instead of `morohashi-daikanwa' for
+	M-36486'.
+
+	* Ideograph-R149-Speech.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+	(U+8A34): Use `->denotational' instead of `->subsumptive'.
+	(U+8AA0): Use `->denotational' to integrate M-35537.
+	(M-35516): Unify K0-772B.
+	(J78-4342): Separate K0-772B.
+	(U+8AF3): Use `->denotational' to separate S-7685.
+	(M-35931'): Unify GT-48227.
+
 2012-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R147-See.el (mother of J0-3B6B): Unify G-UU+8996,
