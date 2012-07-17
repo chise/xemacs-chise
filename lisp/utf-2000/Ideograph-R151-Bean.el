@@ -240,8 +240,8 @@
     (ideographic-radical . 151)	; ⾖
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
-    (=ucs@iso		. #x27BE6)	; &HZK09-E47E;
-    (=cns11643-4	. #x4075)	; &HZK09-E47E; [32-85]
+    (=ucs@iso		. #x27BE6)	; &C4-4075;
+    (=cns11643-4	. #x4075)	; &C4-4075; [32-85]
     (=hanziku-9		. #xE47E)	; &I-HZK09-E47E;
     ))
 (define-char
@@ -270,8 +270,8 @@
     (total-strokes	 . 13)
     (=ucs		. #x8C4B)	; 豋
     (->subsumptive
-     ((=ucs@unicode	  . #x8C4B)	; &M-36264;
-      (=jis-x0212	  . #x5E69)	; &M-36264; [62-73]
+     ((=ucs@unicode	  . #x8C4B)	; &JSP-5E69;
+      (=jis-x0212	  . #x5E69)	; &JSP-5E69; [62-73]
       (=big5		  . #xE053)	; &I-B-E053;
       (=daikanwa	  . 36264)	; &I-M-36264;
       (=jef-china3	  . #x65DE)	; &I-JC3-65DE;
@@ -284,7 +284,7 @@
     (ideographic-radical . 151)	; ⾖
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
-    (=cns11643-4	. #x474E)	; &M-36266; [39-46]
+    (=cns11643-4	. #x474E)	; &C4-474E; [39-46]
     (=daikanwa		. 36266)	; &I-M-36266;
     ))
 (define-char
@@ -571,8 +571,8 @@
     (ideographic-radical . 151)	; ⾖
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
-    (=ucs@jis		. #x8C4F)	; &M-36292;
-    (=jis-x0212		. #x5E6A)	; &M-36292; [62-74]
+    (=ucs@jis		. #x8C4F)	; &JX2-787D;
+    (=jis-x0212		. #x5E6A)	; &JX2-787D; [62-74]
     (=jis-x0213-2	. #x787D)	; &I-JX2-787D; [88-93]
     (=daikanwa		. 36292)	; &I-M-36292;
     ))
@@ -662,8 +662,8 @@
       )
      ((ideographic-radical . 102)	; ⽥
       (ideographic-strokes . 12)
-      (=ucs@iso		  . #x24CD8)	; &HZK07-B9B6;
-      (=cns11643-5	  . #x5C34)	; &HZK07-B9B6; [60-20]
+      (=ucs@iso		  . #x24CD8)	; &C5-5C34;
+      (=cns11643-5	  . #x5C34)	; &C5-5C34; [60-20]
       (=hanziku-7	  . #xB9B6)	; &I-HZK07-B9B6;
       ))
     ))
