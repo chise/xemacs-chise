@@ -1,3 +1,9 @@
+2012-07-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R154-Shell.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for M-Hdddd.
+
 2012-07-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R152-Pig.el (G-IU+27C9B): Unify G-GT-48918 and
