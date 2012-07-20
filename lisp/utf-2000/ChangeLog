@@ -1,5 +1,9 @@
 2012-07-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R159-Cart.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for M-Hdddd.
+
 	* Ideograph-R157-Foot.el: Use `=daikanwa/+p' instead of
 	`morohashi-daikanwa' for M-ddddd'.
 	(U+8DEB): Use `->denotational' and `->subsumptive'.
