@@ -1,3 +1,15 @@
+2012-07-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R157-Foot.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+	(U+8DEB): Use `->denotational' and `->subsumptive'.
+	(U+8E8D): Likewise.
+
+	* Ideograph-R156-Run.el (U+8D71): Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-37034'; unify S-7956; add `<-formed'
+	and `<-vulgar' for U+8D70.
+	(U-00027E86): Unify S-7955.
+
 2012-07-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R154-Shell.el:
