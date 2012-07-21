@@ -5,12 +5,12 @@
     (total-strokes	 . 7)
     (=ucs		. #x8FB0)	; 辰
     (->subsumptive
-     ((=ucs@jis		  . #x8FB0)	; &M-38682;
-      (=jis-x0208	  . #x4324)	; &M-38682; [35-04]
+     ((=ucs@jis		  . #x8FB0)	; &J90-4324;
+      (=jis-x0208	  . #x4324)	; &J90-4324; [35-04]
       (=cns11643-1	  . #x4B51)	; &I-C1-4B51; [43-49]
       (=jis-x0213-1	  . #x4324)	; &I-JX1-4324; [35-04]
       (=daikanwa	  . 38682)	; &I-M-38682;
-      (=shinjigen@rev	  .  8205)	; &M-38682;
+      (=shinjigen@rev	  .  8205)	; &J90-4324;
       )
      ((=ucs@unicode	  . #x8FB0)	; &GT-51621;
       (=gb2312		  . #x333D)	; &GT-51621; [19-29]
@@ -222,8 +222,8 @@
     (total-strokes	 . 19)
     (=ucs		. #x8FB4)	; 辴
     (->subsumptive
-     ((=ucs@unicode	  . #x8FB4)	; &M-38694;
-      (=jis-x0213-2	  . #x7968)	; &M-38694; [89-72]
+     ((=ucs@unicode	  . #x8FB4)	; &JX2-7968;
+      (=jis-x0213-2	  . #x7968)	; &JX2-7968; [89-72]
       (=daikanwa	  . 38694)	; &I-M-38694;
       )
      ((=cns11643-2	  . #x6747)	; &C2-6747; [71-39]
