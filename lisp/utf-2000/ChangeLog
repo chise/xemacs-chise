@@ -1,3 +1,8 @@
+2012-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R160-Bitter.el (GT-51556): Use `=daikanwa/+p' instead
+	of `morohashi-daikanwa' for M-38630'.
+
 2012-07-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R159-Cart.el:
