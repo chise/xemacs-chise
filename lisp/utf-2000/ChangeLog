@@ -1,3 +1,9 @@
+2012-07-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R162-Walk.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+	(U-000285E5): Use `->denotational' instead of `->subsumptive'.
+
 2012-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R160-Bitter.el (GT-51556): Use `=daikanwa/+p' instead
