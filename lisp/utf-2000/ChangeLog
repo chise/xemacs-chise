@@ -1,3 +1,9 @@
+2012-07-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R165-Distinguish.el (GT-53949): Don't map to U+91C8.
+	(U+91C8): Use `=daikanwa/+p' instead of `morohashi-daikanwa' for
+	M-40120'.
+
 2012-07-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R163-City.el: Use `=daikanwa/+p' instead of
