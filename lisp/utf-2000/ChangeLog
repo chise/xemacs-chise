@@ -1,5 +1,14 @@
 2012-07-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R163-City.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+	(mother of J90-3C59): Unify G-JU+90AA, G-KU+90AA, G-J0-3C59,
+	G-JX1-3C59, G-GT-52948, G-GT-K03732 and G-M-39357'.
+	(J90-3C59): Use `=ucs@jis/1990', `=ucs@jis/2000' and
+	`=ucs@jis/2004' instead of `=ucs@jis'; unify KU+90AA.
+
+2012-07-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R162-Walk.el: Use `=daikanwa/+p' instead of
 	`morohashi-daikanwa' for M-ddddd'.
 	(U-000285E5): Use `->denotational' instead of `->subsumptive'.
