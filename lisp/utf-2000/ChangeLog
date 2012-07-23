@@ -1,5 +1,8 @@
 2012-07-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x3E7A.
+
 	* Ideograph-R165-Distinguish.el (GT-53949): Don't map to U+91C8.
 	(U+91C8): Use `=daikanwa/+p' instead of `morohashi-daikanwa' for
 	M-40120'.
