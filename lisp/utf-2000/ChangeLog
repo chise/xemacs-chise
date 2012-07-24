@@ -1,5 +1,25 @@
 2012-07-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R167-Gold.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for M-Hdddd.
+	(U+91FC): Omit `<-simplified' for U+91F0.
+	(J0-6E5F): Move `sound@ja/on' to U+91FC.
+	(U+9396): Use `->denotational'.
+	(K0-6170): Unify JC3-6AF0.
+	(U+9454): Use `->subsumptive'; integrate GT-55127.
+
+	* Ideograph-R164-Wine.el (mother of K0-7B65): Unify G-KU+9177,
+	G-GT-53623 and G-M-39870.
+	(K0-7B65): Unify KU+9177.
+	(mother of J0-3973): Unify G-UU+9177, G-J0-3973, G-GT-53624 and
+	G-M-39870'; delete `morohashi-daikanwa' for M-39870'.
+	(J0-3973): Unify M-39870'.
+	(J0-3E7A): Use `=daikanwa/+p' instead of `morohashi-daikanwa' for
+	M-40064'; separate GT-53867.
+
+2012-07-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
 	Add #x3E7A.
 
