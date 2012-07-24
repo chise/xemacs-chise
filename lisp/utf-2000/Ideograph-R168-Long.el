@@ -355,7 +355,7 @@
     (ideographic-radical . 168)	; ⾧
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
-    (=cns11643-6	. #x5956)	; &M-41136; [57-54]
+    (=cns11643-6	. #x5956)	; &C6-5956; [57-54]
     (=daikanwa		. 41136)	; &I-M-41136;
     ))
 (define-char
@@ -691,7 +691,7 @@
     (ideographic-radical . 168)	; ⾧
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
-    (=cns11643-7	. #x346D)	; &M-41167; [20-77]
+    (=cns11643-7	. #x346D)	; &C7-346D; [20-77]
     (=daikanwa		. 41167)	; &I-M-41167;
     ))
 (define-char
@@ -857,7 +857,7 @@
     (ideographic-radical . 168)	; ⾧
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
-    (=cns11643-5	. #x6557)	; &M-41180; [69-55]
+    (=cns11643-5	. #x6557)	; &C5-6557; [69-55]
     (=daikanwa		. 41180)	; &I-M-41180;
     ))
 (define-char
