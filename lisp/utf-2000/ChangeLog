@@ -1,5 +1,12 @@
 2012-07-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R170-Mound.el:
+	- Use `=daikanwa/+p' instead of `morohashi-daikanwa' for M-ddddd'.
+	- Use `=daikanwa/ho' instead of `morohashi-daikanwa' for M-Hdddd.
+	(U+96A1): Use `->denotational' instead of `->subsumptive'.
+
+2012-07-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R166-Village.el (GT-53970): Use `=daikanwa/+p' instead
 	of `morohashi-daikanwa' for M-40132'; add `<-denotational' for
 	U-00028923; add `<-original' for U+91CD.
