@@ -56,7 +56,7 @@
     (total-strokes	 . 10)
     (=ucs		. #x291E8)	; 𩇨
     (->subsumptive
-     ((=cns11643-6	  . #x3C73)	; &M-42587; [28-83]
+     ((=cns11643-6	  . #x3C73)	; &C6-3C73; [28-83]
       (=daikanwa	  . 42587)	; &I-M-42587;
       )
      ((=ucs@iso		  . #x291E8)	; &U-000291E8;
@@ -212,8 +212,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
 	(=ucs		    . #x2FF3)	; ⿳
 	)
-       ((=ucs@jis	    . #x4EA0)	; 亠󠄀
-	(=jis-x0208	    . #x5035)	; 亠󠄀 [48-21]
+       ((=ucs@jis	    . #x4EA0)	; &AJ1-04110;
+	(=jis-x0208	    . #x5035)	; &AJ1-04110; [48-21]
 	(=jis-x0213-1	    . #x5035)	; &I-JX1-5035; [48-21]
 	)
        ((=ucs@jis	    . #x975E)	; &GT-57172;
