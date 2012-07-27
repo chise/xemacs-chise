@@ -1,3 +1,9 @@
+2012-07-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R177-Leather.el (G-JX1-7057): Unify G-UU+9771,
+	G-J83-7057, G-J90-7057 and G-M-H0701.
+	(G-GT-57335): Unify J90U+9771 and M-H0701.
+
 2012-07-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R174-Blue.el: Use `=daikanwa/+p' instead of
