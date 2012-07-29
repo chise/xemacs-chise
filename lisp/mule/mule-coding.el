@@ -291,6 +291,7 @@
 	  ( =zinbun-oracle                       "ZOB-" 4 d)
 	  ( =daikanwa/ho			  "M-H" 4 d)
 	  ( =daikanwa/+p			  "M-p" 5 d)
+	  ( =daikanwa/+2p			 "M-2p" 5 d)
 	  ( =daikanwa				  "M-"  5 d)
 	  ( =daikanwa@rev2			"r2M-"  5 d)
 	  ( =daikanwa@rev1			"r1M-"  5 d)
