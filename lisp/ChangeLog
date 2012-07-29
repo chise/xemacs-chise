@@ -1,3 +1,11 @@
+2012-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=daikanwa/+2p'.
+
+	* mule/mule-conf.el (=>>daikanwa/+2p): New coded-charset for
+	XEmacs CHISE.
+
 2012-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=>>>hanyo-denshi/ks): New coded-charset for
