@@ -69,8 +69,8 @@
     (total-strokes	 . 13)
     (=ucs		. #x97F4)	; 韴
     (->subsumptive
-     ((=ucs@jis		  . #x97F4)	; &M-43269;
-      (=jis-x0212	  . #x676F)	; &M-43269; [71-79]
+     ((=ucs@jis		  . #x97F4)	; &JX1-7D75;
+      (=jis-x0212	  . #x676F)	; &JX1-7D75; [71-79]
       (=jis-x0213-1	  . #x7D75)	; &I-JX1-7D75; [93-85]
       (=daikanwa	  . 43269)	; &I-M-43269;
       )
@@ -186,8 +186,8 @@
     (total-strokes	 . 14)
     (=ucs		. #x97F7)	; 韷
     (->subsumptive
-     ((=ucs@jis		  . #x97F7)	; &M-43277;
-      (=jis-x0212	  . #x6770)	; &M-43277; [71-80]
+     ((=ucs@jis		  . #x97F7)	; &JSP-6770;
+      (=jis-x0212	  . #x6770)	; &JSP-6770; [71-80]
       (=daikanwa	  . 43277)	; &I-M-43277;
       )
      ((=ucs@unicode	  . #x97F7)	; &C4-4846;
@@ -345,8 +345,8 @@
     (total-strokes	 . 16)
     (=ucs		. #x97F8)	; 韸
     (->subsumptive
-     ((=ucs@jis		  . #x97F8)	; &M-43290;
-      (=jis-x0212	  . #x6771)	; &M-43290; [71-81]
+     ((=ucs@jis		  . #x97F8)	; &JSP-6771;
+      (=jis-x0212	  . #x6771)	; &JSP-6771; [71-81]
       (=daikanwa	  . 43290)	; &I-M-43290;
       (=jef-china3	  . #x6CDB)	; &I-JC3-6CDB;
       )
@@ -778,7 +778,6 @@
   '((<-denotational
      ((=ucs		  . #x97FF)	; 響
       ))
-    (morohashi-daikanwa	43318 1)
     (ideographic-radical . 180)	; ⾳
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
@@ -787,6 +786,7 @@
     (=jis-x0213-1	. #x3641)	; &I-JX1-3641; [22-33]
     (=gt		. 58170)	; &I-GT-58170;
     (=gt-pj-1		. #x3641)	; &I-GT-58170; [22-33]
+    (=daikanwa/+p	. 43318)	; &GT-58170;
     (=shinjigen		.  9139)	; &GT-58170;
     (<-simplified@JP/Jouyou
      ((=ucs		  . #xFA69)	; 響
@@ -908,6 +908,7 @@
     (ideographic-radical . 180)	; ⾳
     (ideographic-strokes . 13)
     (total-strokes	 . 22)
+    (=>>ucs@jis		. #xFA69)	; &G-JX1-7D76;
     (=>>jis-x0213-1	. #x7D76)	; &G-JX1-7D76; [93-86]
     (->subsumptive
      ((=>ucs*		  . #x97FF)	; 響
