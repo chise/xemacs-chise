@@ -1,3 +1,12 @@
+2012-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R181-Leaf.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+
+	* Ideograph-R180-Sound.el (J0-3641): Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-43318'.
+	(G-JX1-7D76): Unify G-JU+FA69.
+
 2012-07-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R177-Leather.el (G-JX1-7057): Unify G-UU+9771,
