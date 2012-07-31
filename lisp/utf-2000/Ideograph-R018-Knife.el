@@ -6183,9 +6183,9 @@
     (=ucs		. #x34ED)	; 㓭
     (->subsumptive
      ((hanyu-dazidian	  1 348 5)
-      (=ucs@unicode	  . #x34ED)	; &HZK01-EDB9;
-      (=daikanwa/+2p	  . 02076)	; &HZK01-EDB9;
-      (=hanziku-1	  . #xEDB9)	; &HZK01-EDB9;
+      (=ucs@unicode	  . #x34ED)	; &M-2p02076;
+      (=daikanwa/+2p	  . 02076)	; &M-2p02076;
+      (=hanziku-1	  . #xEDB9)	; &M-2p02076;
       )
      ((=cns11643-4	  . #x3053)	; &C4-3053; [16-51]
       ))
