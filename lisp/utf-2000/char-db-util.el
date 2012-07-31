@@ -493,7 +493,7 @@
        ((or (memq name '(=daikanwa =>>daikanwa =>daikanwa
 			 =daikanwa@rev1 =daikanwa@rev2
 			 =daikanwa/+p =>>daikanwa/+p
-			 =daikanwa/+2p
+			 =daikanwa/+2p =>>daikanwa/+2p
 			 =gt =>>>gt =>>gt =+>gt =>gt
 			 =gt-k =>>gt-k =>gt-k
 			 =adobe-japan1-0 =>>>adobe-japan1-0 =>>adobe-japan1-0
