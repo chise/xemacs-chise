@@ -1,5 +1,14 @@
 2012-07-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R182-Wind.el (U-0002960E): Use `->subsumptive'.
+	(GT-58906): Use `=daikanwa/+p' instead of `morohashi-daikanwa' for
+	M-43920'.
+
+	* Ideograph-R179-Leek.el (G-GT-58097): Unify G-M-43256'.
+	(M-43256'): Use `=daikanwa/+p' instead of `morohashi-daikanwa'.
+	(G-GT-58098): Unify G-M-43256''.
+	(M-43256''): Use `=daikanwa/+2p' instead of `morohashi-daikanwa'.
+
 	* char-db-util.el (char-db-insert-ccs-feature): Add setting for
 	`=>>daikanwa/+2p'.
 
