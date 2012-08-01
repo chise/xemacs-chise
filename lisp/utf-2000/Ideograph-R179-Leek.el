@@ -246,8 +246,8 @@
       (=daikanwa	  . 43254)	; &M-43254;
       )
      ((hanyu-dazidian	  1 389 20)
-      (=ucs@iso		  . #x20B18)	; &HZK01-F641;
-      (=cns11643-7	  . #x4B6A)	; &HZK01-F641; [43-74]
+      (=ucs@iso		  . #x20B18)	; &C7-4B6A;
+      (=cns11643-7	  . #x4B6A)	; &C7-4B6A; [43-74]
       (=hanziku-1	  . #xF641)	; &I-HZK01-F641;
       ))
     ))
@@ -298,7 +298,7 @@
     (ideographic-radical . 179)	; ⾲
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
-    (=cns11643-7	. #x5147)	; &M-43256; [49-39]
+    (=cns11643-7	. #x5147)	; &C7-5147; [49-39]
     (=daikanwa		. 43256)	; &I-M-43256;
     ))
 (define-char
@@ -328,8 +328,9 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
     (=>>gt		. 58097)	; &G-GT-58097;
+    (=>>daikanwa/+p	. 43256)	; &G-GT-58097;
     (->subsumptive
-     ((morohashi-daikanwa	43256 1)
+     ((=daikanwa/+p	  . 43256)	; &M-p43256;
       )
      ((=gt		  . 58097)	; &GT-58097;
       (=gt-pj-8		  . #x3E47)	; &GT-58097; [30-39]
@@ -367,8 +368,9 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
     (=>>gt		. 58098)	; &G-GT-58098;
+    (=>>daikanwa/+2p	. 43256)	; &G-GT-58098;
     (->subsumptive
-     ((morohashi-daikanwa	43256 2)
+     ((=daikanwa/+2p	  . 43256)	; &M-2p43256;
       )
      ((=gt		  . 58098)	; &GT-58098;
       (=gt-pj-8		  . #x3E48)	; &GT-58098; [30-40]
