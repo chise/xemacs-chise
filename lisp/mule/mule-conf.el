@@ -637,6 +637,15 @@
 	      graphic 0))
 
   (make-charset
+   '=>cns11643-2
+   "CNS 11643 Plane 2 abstract characters."
+   '(registry "CNS11643[.-]\\(.*[.-]\\)?2$"
+	      dimension 2
+	      chars 94
+	      mother =cns11643-2
+	      =>iso-ir 172
+	      graphic 0))
+  (make-charset
    '=>cns11643-7
    "CNS 11643 Plane 7 abstract characters."
    '(registry "CNS11643[.-]\\(.*[.-]\\)?7$"
