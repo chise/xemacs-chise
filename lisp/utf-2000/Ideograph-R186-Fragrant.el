@@ -101,8 +101,8 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 14)
     (->subsumptive
-     ((=ucs@jis		  . #x999B)	; &M-44525;
-      (=jis-x0212	  . #x6877)	; &M-44525; [72-87]
+     ((=ucs@jis		  . #x999B)	; &JSP-6877;
+      (=jis-x0212	  . #x6877)	; &JSP-6877; [72-87]
       (=daikanwa	  . 44525)	; &I-M-44525;
       (=jef-china3	  . #x6DD0)	; &I-JC3-6DD0;
       )
@@ -191,8 +191,8 @@
     (ideographic-radical . 186)	; ⾹
     (ideographic-strokes . 7)
     (total-strokes	 . 16)
-    (=ucs@jis		. #x999F)	; &M-44534;
-    (=jis-x0212		. #x6879)	; &M-44534; [72-89]
+    (=ucs@jis		. #x999F)	; &JSP-6879;
+    (=jis-x0212		. #x6879)	; &JSP-6879; [72-89]
     (=daikanwa		. 44534)	; &I-M-44534;
     ))
 (define-char
@@ -209,7 +209,7 @@
     (total-strokes	 . 16)
     (=ucs		. #x99A0)	; 馠
     (->subsumptive
-     ((=cns11643-3	  . #x5368)	; &M-44535; [51-72]
+     ((=cns11643-3	  . #x5368)	; &C3-5368; [51-72]
       (=daikanwa	  . 44535)	; &I-M-44535;
       )
      ((=ucs@unicode	  . #x99A0)	; &UU+99A0;
@@ -302,8 +302,8 @@
     (total-strokes	 . 17)
     (=ucs		. #x99A3)	; 馣
     (->subsumptive
-     ((=ucs@unicode	  . #x99A3)	; &M-44542;
-      (=jis-x0213-2	  . #x7C6C)	; &M-44542; [92-76]
+     ((=ucs@unicode	  . #x99A3)	; &JX2-7C6C;
+      (=jis-x0213-2	  . #x7C6C)	; &JX2-7C6C; [92-76]
       (=daikanwa	  . 44542)	; &I-M-44542;
       )
      ((=cns11643-2	  . #x6062)	; &C2-6062; [64-66]
@@ -461,8 +461,8 @@
     (ideographic-radical . 186)	; ⾹
     (ideographic-strokes . 10)
     (total-strokes	 . 19)
-    (=ucs@jis		. #x99A6)	; &M-44554;
-    (=jis-x0212		. #x687A)	; &M-44554; [72-90]
+    (=ucs@jis		. #x99A6)	; &JX2-7C6D;
+    (=jis-x0212		. #x687A)	; &JX2-7C6D; [72-90]
     (=jis-x0213-2	. #x7C6D)	; &I-JX2-7C6D; [92-77]
     (=daikanwa		. 44554)	; &I-M-44554;
     ))
@@ -503,8 +503,8 @@
     (ideographic-radical . 186)	; ⾹
     (ideographic-strokes . 10)
     (total-strokes	 . 19)
-    (=ucs@cns		. #x99A7)	; &M-44556;
-    (=cns11643-2	. #x677E)	; &M-44556; [71-94]
+    (=ucs@cns		. #x99A7)	; &C2-677E;
+    (=cns11643-2	. #x677E)	; &C2-677E; [71-94]
     (=daikanwa		. 44556)	; &I-M-44556;
     ))
 (define-char
