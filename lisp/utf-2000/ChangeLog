@@ -1,3 +1,12 @@
+2012-08-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R184-Eat.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+	(GT-59087): Add `ideographic-structure'; add `sound@ja/on'.
+	(U+4B40): Use `->denotational' instead of `->subsumptive'.
+	(U-000296E1): Likewise.
+	(U+4B41): Use `->subsumptive'.
+
 2012-08-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R188-Bone.el (J0-3F71): Use `=daikanwa/+p' instead of
