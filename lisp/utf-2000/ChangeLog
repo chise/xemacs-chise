@@ -1,5 +1,18 @@
 2012-08-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R190-Hair.el (U+9AEA): Use `=daikanwa/+p' instead of
+	morohashi-daikanwa' for M-45387'.
+
+	* Ideograph-R187-Horse.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+	(U+99B1): Unify S-9342; add `<-original' for U+99C4.
+	(U+9A30): Use `->denotational' and `->subsumptive'.
+	(U+9A31): Likewise.
+	(U+9A32): Use `->denotational' to separate representative nodes.
+	(U+9A6A): Use `->subsumptive'.
+
+2012-08-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R184-Eat.el: Use `=daikanwa/+p' instead of
 	`morohashi-daikanwa' for M-ddddd'.
 	(GT-59087): Add `ideographic-structure'; add `sound@ja/on'.
