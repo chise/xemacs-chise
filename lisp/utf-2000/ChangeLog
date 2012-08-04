@@ -11,6 +11,16 @@
 	(U+9A32): Use `->denotational' to separate representative nodes.
 	(U+9A6A): Use `->subsumptive'.
 
+	* Ideograph-R169-Gate.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+	(U-00028D2C): Use `->denotational' instead of `->subsumptive'.
+	(U+499D): Use `->subsumptive' to separate representative nodes.
+	(U+95AE): Likewise.
+	(U+95AF): Likewise.
+	(U+95B0): Use `->denotational' to separate representative nodes.
+	(U+95B1): Use `->subsumptive'.
+	(U+95B2): Add `<-same' for M-41341.
+
 2012-08-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R184-Eat.el: Use `=daikanwa/+p' instead of
