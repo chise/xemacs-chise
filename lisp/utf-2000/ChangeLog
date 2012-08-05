@@ -1,3 +1,8 @@
+2012-08-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R191-Fight.el (U+95D8): Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-45649'.
+
 2012-08-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R190-Hair.el (U+9AEA): Use `=daikanwa/+p' instead of
