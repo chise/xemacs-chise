@@ -25,8 +25,8 @@
     (total-strokes	 . 5)
     (=ucs		. #x29C0A)	; 𩰊
     (->subsumptive
-     ((=ucs@iso		  . #x29C0A)	; &M-45633;
-      (=cns11643-6	  . #x233D)	; &M-45633; [03-29]
+     ((=ucs@iso		  . #x29C0A)	; &C6-233D;
+      (=cns11643-6	  . #x233D)	; &C6-233D; [03-29]
       (=daikanwa	  . 45633)	; &I-M-45633;
       )
      ((hanyu-dazidian	  1 14 2)
@@ -40,7 +40,7 @@
     (=ucs		. #x29C0B)	; 𩰋
     (->subsumptive
      ((hanyu-dazidian	  1 15 2)
-      (=cns11643-6	  . #x233C)	; &CDP-88D1; [03-28]
+      (=cns11643-6	  . #x233C)	; &C6-233C; [03-28]
       (=big5-cdp	  . #x88D1)	; &I-CDP-88D1;
       (=daikanwa	  . 45634)	; &I-M-45634;
       )
@@ -320,8 +320,8 @@
       ))
     (sound@ja/kun/name	"kuzi" "kuti" "^guti")
     (sound@ja/kun/place "kuzi" "kuzu")
-    (=ucs@jis		. #x4C17)	; 䰗󠄂
-    (=jis-x0213-1	. #x7E3E)	; 䰗󠄂 [94-30]
+    (=ucs@jis		. #x4C17)	; &HD-JC-7E3E;
+    (=jis-x0213-1	. #x7E3E)	; &HD-JC-7E3E; [94-30]
     (=jef-china3	. #x6EB8)	; &I-JC3-6EB8;
     (=hanyo-denshi/jc	. #x7E3E)	; &I-HD-JC-7E3E; [94-30]
     ))
@@ -345,8 +345,7 @@
       ))
     ))
 (define-char
-  '((morohashi-daikanwa	45649 1)
-    (ideographic-radical@ucs . 169)	; ⾨
+  '((ideographic-radical@ucs . 169)	; ⾨
     (ideographic-radical@daikanwa . 191)	; ⾾
     (ideographic-strokes . 10)
     (total-strokes	 . 18)
@@ -356,10 +355,11 @@
     (=jis-x0213-1	. #x462E)	; &I-JX1-462E; [38-14]
     (=gt		. 61399)	; &I-GT-61399;
     (=gt-pj-1		. #x462E)	; &I-GT-61399; [38-14]
+    (=daikanwa/+p	. 45649)	; 闘
     (=shinjigen		.  9497)	; 闘
     (<-simplified@JP/Jouyou
-     ((=ucs@unicode	  . #x9B2D)	; 鬭󠄄
-      (=jis-x0213-1	  . #x7E3F)	; 鬭󠄄 [94-31]
+     ((=ucs@unicode	  . #x9B2D)	; &HD-JC-7E3F;
+      (=jis-x0213-1	  . #x7E3F)	; &HD-JC-7E3F; [94-31]
       ))
     ))
 (define-char
@@ -521,8 +521,8 @@
     (->subsumptive
      ((=daikanwa	  . 45657)	; &M-45657;
       )
-     ((=ucs@jis/1990	  . #x9B2D)	; &JSP-6A32;
-      (=jis-x0212	  . #x6A32)	; &JSP-6A32; [74-18]
+     ((=ucs@jis/1990	  . #x9B2D)	; &HD-JB-6A32;
+      (=jis-x0212	  . #x6A32)	; &HD-JB-6A32; [74-18]
       (=hanyo-denshi/jb	  . #x6A32)	; &I-HD-JB-6A32; [74-18]
       )
      ((ideographic-strokes . 15)
@@ -547,8 +547,8 @@
 	)
        ((=ucs		    . #xE0104)	; 󠄄
 	))
-      (=ucs@unicode	  . #x9B2D)	; 鬭󠄄
-      (=jis-x0213-1	  . #x7E3F)	; 鬭󠄄 [94-31]
+      (=ucs@unicode	  . #x9B2D)	; &HD-JC-7E3F;
+      (=jis-x0213-1	  . #x7E3F)	; &HD-JC-7E3F; [94-31]
       (=cbeta		  . 10823)	; &I-CB10823;
       (=hanyo-denshi/jc	  . #x7E3F)	; &I-HD-JC-7E3F; [94-31]
       )
@@ -640,7 +640,7 @@
       )
      ((=ucs		  . #xE0103)	; 󠄃
       ))
-    (=jis-x0208@1978	. #x722D)	; 鬮󠄃 [82-13]
+    (=jis-x0208@1978	. #x722D)	; &HD-FT-3429; [82-13]
     (=hanyo-denshi/ft	. #x3429)	; &I-HD-FT-3429; [20-09]
     ))
 (define-char
