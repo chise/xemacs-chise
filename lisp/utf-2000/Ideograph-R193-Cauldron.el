@@ -25,11 +25,11 @@
     (total-strokes	 . 10)
     (=>>ucs@jis		. #x9B32)	; &G-JU+9B32;
     (->subsumptive
-     ((=ucs@jis		  . #x9B32)	; &M-45672;
-      (=jis-x0208	  . #x722F)	; &M-45672; [82-15]
+     ((=ucs@jis		  . #x9B32)	; &J90-722F;
+      (=jis-x0208	  . #x722F)	; &J90-722F; [82-15]
       (=jis-x0213-1	  . #x722F)	; &I-JX1-722F; [82-15]
       (=daikanwa	  . 45672)	; &I-M-45672;
-      (=shinjigen	  .  9503)	; &M-45672;
+      (=shinjigen	  .  9503)	; &J90-722F;
       )
      ((=gt		  . 61436)	; &GT-61436;
       (=gt-k		  . 06657)	; &I-GT-K06657;
@@ -45,11 +45,11 @@
     (total-strokes	 . 10)
     (=shinjigen		.  9507)	; &SJG2-9507;
     (<-vulgar
-     ((=ucs@jis		  . #x9B32)	; &M-45672;
-      (=jis-x0208	  . #x722F)	; &M-45672; [82-15]
+     ((=ucs@jis		  . #x9B32)	; &J90-722F;
+      (=jis-x0208	  . #x722F)	; &J90-722F; [82-15]
       (=jis-x0213-1	  . #x722F)	; &I-JX1-722F; [82-15]
       (=daikanwa	  . 45672)	; &I-M-45672;
-      (=shinjigen	  .  9503)	; &M-45672;
+      (=shinjigen	  .  9503)	; &J90-722F;
       ))
     (<-vulgar*sources
      shinjigen)
@@ -146,9 +146,9 @@
     (<-same@p=guo*sources
      jiyun daikanwa)
     (<-same@p=wai1
-     ((=ucs@cns		  . #x54BC)	; 咼󠄀
-      (=ucs@jis		  . #x54BC)	; 咼󠄀
-      (=jis-x0208	  . #x5325)	; 咼󠄀 [51-05]
+     ((=ucs@cns		  . #x54BC)	; &AJ1-04376;
+      (=ucs@jis		  . #x54BC)	; &AJ1-04376;
+      (=jis-x0208	  . #x5325)	; &AJ1-04376; [51-05]
       (=cns11643-2	  . #x294B)	; &I-C2-294B; [09-43]
       (=jis-x0213-1	  . #x5325)	; &I-JX1-5325; [51-05]
       (=daikanwa	  . 03573)	; &I-M-03573;
@@ -273,11 +273,11 @@
     (=daikanwa		. 45679)	; &M-45679;
     (=shinjigen		.  9504)	; &M-45679;
     (<-formed
-     ((=ucs@jis		  . #x9B32)	; &M-45672;
-      (=jis-x0208	  . #x722F)	; &M-45672; [82-15]
+     ((=ucs@jis		  . #x9B32)	; &J90-722F;
+      (=jis-x0208	  . #x722F)	; &J90-722F; [82-15]
       (=jis-x0213-1	  . #x722F)	; &I-JX1-722F; [82-15]
       (=daikanwa	  . 45672)	; &I-M-45672;
-      (=shinjigen	  .  9503)	; &M-45672;
+      (=shinjigen	  .  9503)	; &J90-722F;
       ))
     (<-formed*sources
      shinjigen)
@@ -333,8 +333,8 @@
     (ideographic-radical . 193)	; ⿀
     (ideographic-strokes . 6)
     (total-strokes	 . 16)
-    (=ucs@jis		. #x9B33)	; &M-45681;
-    (=jis-x0212		. #x6A33)	; &M-45681; [74-19]
+    (=ucs@jis		. #x9B33)	; &JX2-7D3D;
+    (=jis-x0212		. #x6A33)	; &JX2-7D3D; [74-19]
     (=jis-x0213-2	. #x7D3D)	; &I-JX2-7D3D; [93-29]
     (=daikanwa		. 45681)	; &I-M-45681;
     ))
@@ -519,8 +519,8 @@
     (ideographic-radical . 193)	; ⿀
     (ideographic-strokes . 7)
     (total-strokes	 . 17)
-    (=ucs@jis		. #x9B34)	; &M-45690;
-    (=jis-x0212		. #x6A34)	; &M-45690; [74-20]
+    (=ucs@jis		. #x9B34)	; &JSP-6A34;
+    (=jis-x0212		. #x6A34)	; &JSP-6A34; [74-20]
     (=daikanwa		. 45690)	; &I-M-45690;
     ))
 (define-char
@@ -615,8 +615,8 @@
     (ideographic-radical . 193)	; ⿀
     (ideographic-strokes . 8)
     (total-strokes	 . 18)
-    (=ucs@jis		. #x9B35)	; &M-45695;
-    (=jis-x0212		. #x6A35)	; &M-45695; [74-21]
+    (=ucs@jis		. #x9B35)	; &JSP-6A35;
+    (=jis-x0212		. #x6A35)	; &JSP-6A35; [74-21]
     (=daikanwa		. 45695)	; &I-M-45695;
     ))
 (define-char
@@ -1040,8 +1040,8 @@
     (ideographic-radical . 193)	; ⿀
     (ideographic-strokes . 11)
     (total-strokes	 . 21)
-    (=ucs@jis		. #x9B39)	; &M-45714;
-    (=jis-x0212		. #x6A37)	; &M-45714; [74-23]
+    (=ucs@jis		. #x9B39)	; &JSP-6A37;
+    (=jis-x0212		. #x6A37)	; &JSP-6A37; [74-23]
     (=daikanwa		. 45714)	; &I-M-45714;
     ))
 (define-char
@@ -1072,8 +1072,8 @@
     (ideographic-radical . 193)	; ⿀
     (ideographic-strokes . 11)
     (total-strokes	 . 21)
-    (=ucs@jis		. #x9B3A)	; &M-45716;
-    (=jis-x0212		. #x6A38)	; &M-45716; [74-24]
+    (=ucs@jis		. #x9B3A)	; &JSP-6A38;
+    (=jis-x0212		. #x6A38)	; &JSP-6A38; [74-24]
     (=daikanwa		. 45716)	; &I-M-45716;
     ))
 (define-char
@@ -1201,11 +1201,11 @@
     (=daikanwa		. 45719)	; &M-45719;
     (=shinjigen		.  9508)	; &M-45719;
     (<-vulgar
-     ((=ucs@jis		  . #x9B32)	; &M-45672;
-      (=jis-x0208	  . #x722F)	; &M-45672; [82-15]
+     ((=ucs@jis		  . #x9B32)	; &J90-722F;
+      (=jis-x0208	  . #x722F)	; &J90-722F; [82-15]
       (=jis-x0213-1	  . #x722F)	; &I-JX1-722F; [82-15]
       (=daikanwa	  . 45672)	; &I-M-45672;
-      (=shinjigen	  .  9503)	; &M-45672;
+      (=shinjigen	  .  9503)	; &J90-722F;
       ))
     (<-vulgar*sources
      shinjigen)
