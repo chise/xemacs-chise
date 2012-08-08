@@ -1,3 +1,14 @@
+2012-08-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R194-Ghost.el (mother of C1-7B49): Unify G-KU+9B54,
+	G-CU+9B54 and G-M-45906.
+	(K0-582A): Unify KU+9B54.
+	(C1-7B49): Unify CU+9B54.
+	(mother of J0-4B62): Unify G-UU+9B54, G-J0-4B62, G-GT-61719 and
+	G-M-45906'.
+	(J0-4B62): Use `=daikanwa/+p' instead of `morohashi-daikanwa' for
+	M-45906'.
+
 2012-08-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R191-Fight.el (U+95D8): Use `=daikanwa/+p' instead of
