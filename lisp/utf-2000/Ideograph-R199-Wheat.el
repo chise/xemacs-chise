@@ -356,8 +356,8 @@
     (=+>ucs@cns		. #x9EA8)	; &o-JX2-7E57;
     (=+>jis-x0213-2	. #x7E57)	; &o-JX2-7E57; [94-55]
     (->subsumptive
-     ((=ucs@jis		  . #x9EA8)	; &M-47733;
-      (=jis-x0212	  . #x6C69)	; &M-47733; [76-73]
+     ((=ucs@jis		  . #x9EA8)	; &HD-JB-6C69;
+      (=jis-x0212	  . #x6C69)	; &HD-JB-6C69; [76-73]
       (=jis-x0213-2	  . #x7E57)	; &I-JX2-7E57; [94-55]
       (=daikanwa	  . 47733)	; &I-M-47733;
       (=hanyo-denshi/jb	  . #x6C69)	; &I-HD-JB-6C69; [76-73]
@@ -1233,8 +1233,8 @@
     (ideographic-radical . 199)	; ⿆
     (ideographic-strokes . 6)
     (total-strokes	 . 17)
-    (=ucs@jis		. #x9EAF)	; &M-47771;
-    (=jis-x0212		. #x6C6C)	; &M-47771; [76-76]
+    (=ucs@jis		. #x9EAF)	; &JX1-7E6E;
+    (=jis-x0212		. #x6C6C)	; &JX1-7E6E; [76-76]
     (=jis-x0213-1	. #x7E6E)	; &I-JX1-7E6E; [94-78]
     (=daikanwa		. 47771)	; &I-M-47771;
     ))
@@ -1322,8 +1322,8 @@
     (ideographic-radical . 199)	; ⿆
     (ideographic-strokes . 6)
     (total-strokes	 . 17)
-    (=ucs@jis		. #x9EB0)	; &M-47774;
-    (=jis-x0212		. #x6C6D)	; &M-47774; [76-77]
+    (=ucs@jis		. #x9EB0)	; &JSP-6C6D;
+    (=jis-x0212		. #x6C6D)	; &JSP-6C6D; [76-77]
     (=daikanwa		. 47774)	; &I-M-47774;
     ))
 (define-char
