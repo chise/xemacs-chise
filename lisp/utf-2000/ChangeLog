@@ -1,3 +1,20 @@
+2012-08-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R200-Hemp.el (J0-4B7B): Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-47909'.
+
+	* Ideograph-R195-Fish.el (U+9BDA): Use `->subsumptive' to separate
+	representative nodes.
+	(U+4C5E): Likewise.
+	(U+9BDB): Use `->denotational'.
+	(GT-62590): Unify JC3-6EDF.
+	(J0-4264): Use `=daikanwa/+p' instead of `morohashi-daikanwa' for
+	M-46226'.
+	(U+9BDC): Use `->subsumptive'.
+	(g2-CU+29EE0): Unify G-M-46525'.
+	(GT-63350): Use `=daikanwa/+p' instead of `morohashi-daikanwa' for
+	M-46525'.
+
 2012-08-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R196-Bird.el: Use `=daikanwa/+p' instead of
