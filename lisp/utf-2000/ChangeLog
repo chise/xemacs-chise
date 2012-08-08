@@ -1,5 +1,10 @@
 2012-08-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R196-Bird.el: Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-ddddd'.
+
+2012-08-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R194-Ghost.el (mother of C1-7B49): Unify G-KU+9B54,
 	G-CU+9B54 and G-M-45906.
 	(K0-582A): Unify KU+9B54.
