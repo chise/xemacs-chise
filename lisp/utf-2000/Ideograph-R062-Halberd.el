@@ -2187,7 +2187,15 @@
     (total-strokes	 . 16)
     (=ucs		. #x22A0B)	; 𢨋
     (=cns11643-7	. #x2E27)	; &I-C7-2E27; [14-07]
+    (=big5-cdp		. #x8AE4)	; &I-CDP-8AE4;
     (=daikanwa		. 11673)	; &I-M-11673;
+    (<-Zhouwen
+     ((=ucs@jis		  . #x8A96)	; &JSP-5D76;
+      (=jis-x0212	  . #x5D76)	; &JSP-5D76; [61-86]
+      (=daikanwa	  . 35517)	; &I-M-35517;
+      ))
+    (<-Zhouwen*sources
+     shuowen daikanwa)
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
