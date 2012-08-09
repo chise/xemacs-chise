@@ -355,7 +355,7 @@
     (ideographic-radical . 202)	; ⿉
     (ideographic-strokes . 8)
     (total-strokes	 . 20)
-    (=cns11643-5	. #x6F54)	; &M-48017; [79-52]
+    (=cns11643-5	. #x6F54)	; &C5-6F54; [79-52]
     (=daikanwa		. 48017)	; &I-M-48017;
     ))
 (define-char
