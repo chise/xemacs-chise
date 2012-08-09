@@ -42856,12 +42856,26 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=big5-cdp	  . #x8AE4)	; &CDP-8AE4;
+     ((=ucs		  . #x22A0B)	; 𢨋
       ))
     (=ucs		. #x20432)	; 𠐲
     (=cns11643-5	. #x6131)	; &I-C5-6131; [65-17]
     (=daikanwa/ho	.  0029)	; 𠐲
     (=hanziku-1		. #xD6D4)	; &I-HZK01-D6D4;
+    (<-formed
+     ((=ucs@jis		  . #x8A96)	; &JSP-5D76;
+      (=jis-x0212	  . #x5D76)	; &JSP-5D76; [61-86]
+      (=daikanwa	  . 35517)	; &I-M-35517;
+      ))
+    (<-formed*sources
+     jiyun)
+    (<-same
+     ((=ucs@jis		  . #x8A96)	; &JSP-5D76;
+      (=jis-x0212	  . #x5D76)	; &JSP-5D76; [61-86]
+      (=daikanwa	  . 35517)	; &I-M-35517;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
