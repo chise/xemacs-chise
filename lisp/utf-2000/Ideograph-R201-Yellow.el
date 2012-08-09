@@ -30,7 +30,6 @@
   '((<-denotational
      ((=>jis-x0208@1997	  . #x322B)	; &J97-322B; [18-11]
       ))
-    (morohashi-daikanwa	47926 1)
     (ideographic-radical . 201)	; ⿈
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
@@ -42,6 +41,7 @@
     (=gt		. 65323)	; &I-GT-65323;
     (=gt-k		. 07722)	; &I-GT-K07722;
     (=gt-pj-1		. #x322B)	; &I-GT-65323; [18-11]
+    (=daikanwa/+p	. 47926)	; 黄
     (<-simplified@JP/Jouyou
      ((=ucs@unicode	  . #x9EC3)	; &GT-65324;
       (=ks-x1001	  . #x7C5C)	; &GT-65324; [92-60]
@@ -115,8 +115,8 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 16)
     (->subsumptive
-     ((=ucs@jis		  . #x9EC6)	; &M-47929;
-      (=jis-x0212	  . #x6C71)	; &M-47929; [76-81]
+     ((=ucs@jis		  . #x9EC6)	; &JSP-6C71;
+      (=jis-x0212	  . #x6C71)	; &JSP-6C71; [76-81]
       (=daikanwa	  . 47929)	; &I-M-47929;
       )
      ((=cns11643-3	  . #x543B)	; &C3-543B; [52-27]
@@ -248,8 +248,8 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 17)
     (->subsumptive
-     ((=ucs@jis		  . #x9EC8)	; &M-47937;
-      (=jis-x0212	  . #x6C72)	; &M-47937; [76-82]
+     ((=ucs@jis		  . #x9EC8)	; &JSP-6C72;
+      (=jis-x0212	  . #x6C72)	; &JSP-6C72; [76-82]
       (=daikanwa	  . 47937)	; &I-M-47937;
       )
      ((=jef-china3	  . #x6FCE)	; &JC3-6FCE;
@@ -382,8 +382,8 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 18)
     (->subsumptive
-     ((=ucs@jis		  . #x9ECB)	; &M-47943;
-      (=jis-x0212	  . #x6C73)	; &M-47943; [76-83]
+     ((=ucs@jis		  . #x9ECB)	; &JSP-6C73;
+      (=jis-x0212	  . #x6C73)	; &JSP-6C73; [76-83]
       (=daikanwa	  . 47943)	; &I-M-47943;
       )
      ((=cns11643-4	  . #x5F3E)	; &C4-5F3E; [63-30]
