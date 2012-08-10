@@ -157,8 +157,8 @@
     (ideographic-radical . 207)	; ⿎
     (ideographic-strokes . 5)
     (total-strokes	 . 18)
-    (=ucs@unicode	. #x9F16)	; &M-48344;
-    (=jis-x0212		. #x6D2B)	; &M-48344; [77-11]
+    (=ucs@unicode	. #x9F16)	; &JSP-6D2B;
+    (=jis-x0212		. #x6D2B)	; &JSP-6D2B; [77-11]
     (=cns11643-2	. #x652F)	; &I-C2-652F; [69-15]
     (=daikanwa		. 48344)	; &I-M-48344;
     ))
@@ -189,7 +189,7 @@
     (total-strokes	 . 19)
     (=ucs		. #x4D80)	; 䶀
     (->subsumptive
-     ((=cns11643-4	  . #x6326)	; &M-48347; [67-06]
+     ((=cns11643-4	  . #x6326)	; &C4-6326; [67-06]
       (=daikanwa	  . 48347)	; &I-M-48347;
       )
      ((=ucs@unicode	  . #x4D80)	; &UU+4D80;
@@ -593,8 +593,8 @@
     (total-strokes	 . 25)
     (=ucs		. #x9F1F)	; 鼟
     (->subsumptive
-     ((=ucs@jis		  . #x9F1F)	; &M-48382;
-      (=jis-x0212	  . #x6D30)	; &M-48382; [77-16]
+     ((=ucs@jis		  . #x9F1F)	; &JSP-6D30;
+      (=jis-x0212	  . #x6D30)	; &JSP-6D30; [77-16]
       (=cns11643-4	  . #x6D48)	; &I-C4-6D48; [77-40]
       (=daikanwa	  . 48382)	; &I-M-48382;
       )
