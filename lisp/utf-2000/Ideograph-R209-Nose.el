@@ -28,7 +28,6 @@
      ((=ucs		  . #x9F3B)	; 鼻
       ))
     (=>ucs*		. #x9F3B)	; 鼻
-    (morohashi-daikanwa	48498 1)
     (ideographic-radical . 209)	; ⿐
     (ideographic-strokes . 0)
     (total-strokes	 . 14)
@@ -42,6 +41,7 @@
     (=gt		. 66225)	; &I-GT-66225;
     (=gt-k		. 11267)	; &I-GT-K11267;
     (=gt-pj-1		. #x4921)	; &I-GT-66225; [41-01]
+    (=daikanwa/+p	. 48498)	; 鼻
     ))
 (define-char
   '((ideographic-radical . 209)	; ⿐
@@ -65,8 +65,8 @@
     (total-strokes	 . 16)
     (=ucs		. #x9F3C)	; 鼼
     (->subsumptive
-     ((=ucs@unicode	  . #x9F3C)	; &M-48501;
-      (=jis-x0212	  . #x6D3C)	; &M-48501; [77-28]
+     ((=ucs@unicode	  . #x9F3C)	; &JSP-6D3C;
+      (=jis-x0212	  . #x6D3C)	; &JSP-6D3C; [77-28]
       (=daikanwa	  . 48501)	; &I-M-48501;
       )
      ((=cns11643-4	  . #x5563)	; &C4-5563; [53-67]
@@ -196,7 +196,7 @@
     (ideographic-radical . 209)	; ⿐
     (ideographic-strokes . 4)
     (total-strokes	 . 18)
-    (=cns11643-4	. #x5F46)	; &M-48511; [63-38]
+    (=cns11643-4	. #x5F46)	; &C4-5F46; [63-38]
     (=daikanwa		. 48511)	; &I-M-48511;
     ))
 (define-char
@@ -492,8 +492,8 @@
     (=>>ucs@cns		. #x9F44)	; &G-JU+9F44;
     (=>>daikanwa	. 48541)	; &G-JU+9F44;
     (->subsumptive
-     ((=ucs@jis		  . #x9F44)	; &M-48541;
-      (=jis-x0212	  . #x6D41)	; &M-48541; [77-33]
+     ((=ucs@jis		  . #x9F44)	; &JSP-6D41;
+      (=jis-x0212	  . #x6D41)	; &JSP-6D41; [77-33]
       (=daikanwa	  . 48541)	; &I-M-48541;
       )
      ((=ucs@cns		  . #x9F44)	; &C4-6B5C;
@@ -541,8 +541,8 @@
     (total-strokes	 . 24)
     (=ucs		. #x9F45)	; 齅
     (->subsumptive
-     ((=ucs@unicode	  . #x9F45)	; &M-48543;
-      (=jis-x0212	  . #x6D42)	; &M-48543; [77-34]
+     ((=ucs@unicode	  . #x9F45)	; &JX2-7E69;
+      (=jis-x0212	  . #x6D42)	; &JX2-7E69; [77-34]
       (=jis-x0213-2	  . #x7E69)	; &I-JX2-7E69; [94-73]
       (=daikanwa	  . 48543)	; &I-M-48543;
       )
@@ -581,8 +581,8 @@
     (total-strokes	 . 25)
     (=ucs		. #x9F47)	; 齇
     (->subsumptive
-     ((=ucs@unicode	  . #x9F47)	; &M-48547;
-      (=jis-x0212	  . #x6D44)	; &M-48547; [77-36]
+     ((=ucs@unicode	  . #x9F47)	; &JSP-6D44;
+      (=jis-x0212	  . #x6D44)	; &JSP-6D44; [77-36]
       (=daikanwa	  . 48547)	; &I-M-48547;
       )
      ((=cns11643-2	  . #x7155)	; &C2-7155; [81-53]
