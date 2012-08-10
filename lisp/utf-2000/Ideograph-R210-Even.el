@@ -96,8 +96,8 @@
      ((=daikanwa	  . 48563)	; &M-48563;
       )
      ((hanyu-dazidian	  2 907 2)
-      (=ucs@iso		  . #x2A5C6)	; &HZK03-B6BF;
-      (=cns11643-4	  . #x5A65)	; &HZK03-B6BF; [58-69]
+      (=ucs@iso		  . #x2A5C6)	; &C4-5A65;
+      (=cns11643-4	  . #x5A65)	; &C4-5A65; [58-69]
       (=hanziku-3	  . #xB6BF)	; &I-HZK03-B6BF;
       ))
     ))
@@ -387,8 +387,8 @@
       (=daikanwa	  . 48577)	; &M-48577;
       )
      ((hanyu-dazidian	  1 294 7)
-      (=ucs@iso		  . #x2019C)	; &HZK01-E2BA;
-      (=cns11643-7	  . #x4623)	; &HZK01-E2BA; [38-03]
+      (=ucs@iso		  . #x2019C)	; &C7-4623;
+      (=cns11643-7	  . #x4623)	; &C7-4623; [38-03]
       (=hanziku-1	  . #xE2BA)	; &I-HZK01-E2BA;
       ))
     ))
@@ -439,7 +439,7 @@
      ((=ucs@iso		  . #x2A5CF)	; &U-0002A5CF;
       )
      ((hanyu-dazidian	  7 4787 6)
-      (=cns11643-5	  . #x7A23)	; &HZK12-E3DD; [90-03]
+      (=cns11643-5	  . #x7A23)	; &C5-7A23; [90-03]
       (=hanziku-12	  . #xE3DD)	; &I-HZK12-E3DD;
       ))
     ))
