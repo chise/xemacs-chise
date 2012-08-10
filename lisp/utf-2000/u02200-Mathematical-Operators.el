@@ -265,9 +265,9 @@
      ((name		  . "N-ARY PRODUCT")
       (=ucs		  . #x220F)	; ∏
       ))
-    (=ucs@gb		. #x220F)	; &K0-2233;
-    (=ucs@ks		. #x220F)	; &K0-2233;
-    (=gb2312		. #x2147)	; &K0-2233; [01-39]
+    (=ucs@gb		. #x220F)	; &G0-2147;
+    (=ucs@ks		. #x220F)	; &G0-2147;
+    (=gb2312		. #x2147)	; &G0-2147; [01-39]
     (=ks-x1001		. #x2233)	; &I-K0-2233; [02-19]
     (<-fullwidth
      ((name		  . "N-ARY PRODUCT")
@@ -293,9 +293,9 @@
      ((name		  . "N-ARY SUMMATION")
       (=ucs		  . #x2211)	; ∑
       ))
-    (=ucs@gb		. #x2211)	; &K0-2232;
-    (=ucs@ks		. #x2211)	; &K0-2232;
-    (=gb2312		. #x2146)	; &K0-2232; [01-38]
+    (=ucs@gb		. #x2211)	; &G0-2146;
+    (=ucs@ks		. #x2211)	; &G0-2146;
+    (=gb2312		. #x2146)	; &G0-2146; [01-38]
     (=ks-x1001		. #x2232)	; &I-K0-2232; [02-18]
     (<-fullwidth
      ((name		  . "N-ARY SUMMATION")
@@ -1449,12 +1449,12 @@
      ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
       (=ucs		  . #x0338)	; ̸
       ))
-    (=ucs@gb		. #x2260)	; ＝̸
-    (=ucs@cns		. #x2260)	; ＝̸
-    (=ucs@jis		. #x2260)	; ＝̸
-    (=ucs@ks		. #x2260)	; ＝̸
-    (=ucs@big5		. #x2260)	; ＝̸
-    (=jis-x0208		. #x2162)	; ＝̸ [01-66]
+    (=ucs@gb		. #x2260)	; &J90-2162;
+    (=ucs@cns		. #x2260)	; &J90-2162;
+    (=ucs@jis		. #x2260)	; &J90-2162;
+    (=ucs@ks		. #x2260)	; &J90-2162;
+    (=ucs@big5		. #x2260)	; &J90-2162;
+    (=jis-x0208		. #x2162)	; &J90-2162; [01-66]
     (=gb2312		. #x2159)	; &I-G0-2159; [01-57]
     (=ks-x1001		. #x2141)	; &I-K0-2141; [01-33]
     (=cns11643-1	. #x223B)	; &I-C1-223B; [02-27]
@@ -1528,8 +1528,8 @@
      ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
       (=ucs		  . #x0338)	; ̸
       ))
-    (=ucs@jis		. #x2262)	; &J90-2261;̸
-    (=jis-x0213-1	. #x226B)	; &J90-2261;̸ [02-75]
+    (=ucs@jis		. #x2262)	; &JX1-226B;
+    (=jis-x0213-1	. #x226B)	; &JX1-226B; [02-75]
     (<-fullwidth
      ((name		  . "NOT IDENTICAL TO")
       (=ucs		  . #x2262)	; ≢
@@ -1554,9 +1554,9 @@
      ((name		  . "LESS-THAN OR EQUAL TO")
       (=ucs		  . #x2264)	; ≤
       ))
-    (=ucs@gb		. #x2264)	; &K0-2142;
-    (=ucs@ks		. #x2264)	; &K0-2142;
-    (=gb2312		. #x215C)	; &K0-2142; [01-60]
+    (=ucs@gb		. #x2264)	; &G0-215C;
+    (=ucs@ks		. #x2264)	; &G0-215C;
+    (=gb2312		. #x215C)	; &G0-215C; [01-60]
     (=ks-x1001		. #x2142)	; &I-K0-2142; [01-34]
     (<-fullwidth
      ((name		  . "LESS-THAN OR EQUAL TO")
@@ -1575,9 +1575,9 @@
      ((name		  . "GREATER-THAN OR EQUAL TO")
       (=ucs		  . #x2265)	; ≥
       ))
-    (=ucs@gb		. #x2265)	; &K0-2143;
-    (=ucs@ks		. #x2265)	; &K0-2143;
-    (=gb2312		. #x215D)	; &K0-2143; [01-61]
+    (=ucs@gb		. #x2265)	; &G0-215D;
+    (=ucs@ks		. #x2265)	; &G0-215D;
+    (=gb2312		. #x215D)	; &G0-215D; [01-61]
     (=ks-x1001		. #x2143)	; &I-K0-2143; [01-35]
     (<-fullwidth
      ((name		  . "GREATER-THAN OR EQUAL TO")
@@ -1741,8 +1741,8 @@
      ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
       (=ucs		  . #x0338)	; ̸
       ))
-    (=ucs@gb		. #x226E)	; ＜̸
-    (=gb2312		. #x215A)	; ＜̸ [01-58]
+    (=ucs@gb		. #x226E)	; &G0-215A;
+    (=gb2312		. #x215A)	; &G0-215A; [01-58]
     (<-fullwidth
      ((name		  . "NOT LESS-THAN")
       (=ucs		  . #x226E)	; ≮
@@ -1774,8 +1774,8 @@
      ((name		  . "COMBINING LONG SOLIDUS OVERLAY")
       (=ucs		  . #x0338)	; ̸
       ))
-    (=ucs@gb		. #x226F)	; ＞̸
-    (=gb2312		. #x215B)	; ＞̸ [01-59]
+    (=ucs@gb		. #x226F)	; &G0-215B;
+    (=gb2312		. #x215B)	; &G0-215B; [01-59]
     (<-fullwidth
      ((name		  . "NOT GREATER-THAN")
       (=ucs		  . #x226F)	; ≯
