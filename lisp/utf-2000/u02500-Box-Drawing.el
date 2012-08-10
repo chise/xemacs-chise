@@ -300,9 +300,9 @@
      ((name		  . "BOX DRAWINGS DOWN LIGHT AND RIGHT HEAVY")
       (=ucs		  . #x250D)	; ┍
       ))
-    (=ucs@gb		. #x250D)	; &K0-2648;
-    (=ucs@ks		. #x250D)	; &K0-2648;
-    (=gb2312		. #x2931)	; &K0-2648; [09-17]
+    (=ucs@gb		. #x250D)	; &G0-2931;
+    (=ucs@ks		. #x250D)	; &G0-2931;
+    (=gb2312		. #x2931)	; &G0-2931; [09-17]
     (=ks-x1001		. #x2648)	; &I-K0-2648; [06-40]
     (<-fullwidth
      ((name		  . "BOX DRAWINGS DOWN LIGHT AND RIGHT HEAVY")
@@ -321,9 +321,9 @@
      ((name		  . "BOX DRAWINGS DOWN HEAVY AND RIGHT LIGHT")
       (=ucs		  . #x250E)	; ┎
       ))
-    (=ucs@gb		. #x250E)	; &K0-2647;
-    (=ucs@ks		. #x250E)	; &K0-2647;
-    (=gb2312		. #x2932)	; &K0-2647; [09-18]
+    (=ucs@gb		. #x250E)	; &G0-2932;
+    (=ucs@ks		. #x250E)	; &G0-2932;
+    (=gb2312		. #x2932)	; &G0-2932; [09-18]
     (=ks-x1001		. #x2647)	; &I-K0-2647; [06-39]
     (<-fullwidth
      ((name		  . "BOX DRAWINGS DOWN HEAVY AND RIGHT LIGHT")
@@ -396,9 +396,9 @@
      ((name		  . "BOX DRAWINGS DOWN LIGHT AND LEFT HEAVY")
       (=ucs		  . #x2511)	; ┑
       ))
-    (=ucs@gb		. #x2511)	; &K0-2642;
-    (=ucs@ks		. #x2511)	; &K0-2642;
-    (=gb2312		. #x2935)	; &K0-2642; [09-21]
+    (=ucs@gb		. #x2511)	; &G0-2935;
+    (=ucs@ks		. #x2511)	; &G0-2935;
+    (=gb2312		. #x2935)	; &G0-2935; [09-21]
     (=ks-x1001		. #x2642)	; &I-K0-2642; [06-34]
     (<-fullwidth
      ((name		  . "BOX DRAWINGS DOWN LIGHT AND LEFT HEAVY")
@@ -417,9 +417,9 @@
      ((name		  . "BOX DRAWINGS DOWN HEAVY AND LEFT LIGHT")
       (=ucs		  . #x2512)	; ┒
       ))
-    (=ucs@gb		. #x2512)	; &K0-2641;
-    (=ucs@ks		. #x2512)	; &K0-2641;
-    (=gb2312		. #x2936)	; &K0-2641; [09-22]
+    (=ucs@gb		. #x2512)	; &G0-2936;
+    (=ucs@ks		. #x2512)	; &G0-2936;
+    (=gb2312		. #x2936)	; &G0-2936; [09-22]
     (=ks-x1001		. #x2641)	; &I-K0-2641; [06-33]
     (<-fullwidth
      ((name		  . "BOX DRAWINGS DOWN HEAVY AND LEFT LIGHT")
@@ -492,9 +492,9 @@
      ((name		  . "BOX DRAWINGS UP LIGHT AND RIGHT HEAVY")
       (=ucs		  . #x2515)	; ┕
       ))
-    (=ucs@gb		. #x2515)	; &K0-2646;
-    (=ucs@ks		. #x2515)	; &K0-2646;
-    (=gb2312		. #x2939)	; &K0-2646; [09-25]
+    (=ucs@gb		. #x2515)	; &G0-2939;
+    (=ucs@ks		. #x2515)	; &G0-2939;
+    (=gb2312		. #x2939)	; &G0-2939; [09-25]
     (=ks-x1001		. #x2646)	; &I-K0-2646; [06-38]
     (<-fullwidth
      ((name		  . "BOX DRAWINGS UP LIGHT AND RIGHT HEAVY")
@@ -513,9 +513,9 @@
      ((name		  . "BOX DRAWINGS UP HEAVY AND RIGHT LIGHT")
       (=ucs		  . #x2516)	; ┖
       ))
-    (=ucs@gb		. #x2516)	; &K0-2645;
-    (=ucs@ks		. #x2516)	; &K0-2645;
-    (=gb2312		. #x293A)	; &K0-2645; [09-26]
+    (=ucs@gb		. #x2516)	; &G0-293A;
+    (=ucs@ks		. #x2516)	; &G0-293A;
+    (=gb2312		. #x293A)	; &G0-293A; [09-26]
     (=ks-x1001		. #x2645)	; &I-K0-2645; [06-37]
     (<-fullwidth
      ((name		  . "BOX DRAWINGS UP HEAVY AND RIGHT LIGHT")
@@ -588,9 +588,9 @@
      ((name		  . "BOX DRAWINGS UP LIGHT AND LEFT HEAVY")
       (=ucs		  . #x2519)	; ┙
       ))
-    (=ucs@gb		. #x2519)	; &K0-2644;
-    (=ucs@ks		. #x2519)	; &K0-2644;
-    (=gb2312		. #x293D)	; &K0-2644; [09-29]
+    (=ucs@gb		. #x2519)	; &G0-293D;
+    (=ucs@ks		. #x2519)	; &G0-293D;
+    (=gb2312		. #x293D)	; &G0-293D; [09-29]
     (=ks-x1001		. #x2644)	; &I-K0-2644; [06-36]
     (<-fullwidth
      ((name		  . "BOX DRAWINGS UP LIGHT AND LEFT HEAVY")
@@ -609,9 +609,9 @@
      ((name		  . "BOX DRAWINGS UP HEAVY AND LEFT LIGHT")
       (=ucs		  . #x251A)	; ┚
       ))
-    (=ucs@gb		. #x251A)	; &K0-2643;
-    (=ucs@ks		. #x251A)	; &K0-2643;
-    (=gb2312		. #x293E)	; &K0-2643; [09-30]
+    (=ucs@gb		. #x251A)	; &G0-293E;
+    (=ucs@ks		. #x251A)	; &G0-293E;
+    (=gb2312		. #x293E)	; &G0-293E; [09-30]
     (=ks-x1001		. #x2643)	; &I-K0-2643; [06-35]
     (<-fullwidth
      ((name		  . "BOX DRAWINGS UP HEAVY AND LEFT LIGHT")
@@ -709,9 +709,9 @@
      ((name		  . "BOX DRAWINGS UP HEAVY AND RIGHT DOWN LIGHT")
       (=ucs		  . #x251E)	; ┞
       ))
-    (=ucs@gb		. #x251E)	; &K0-2649;
-    (=ucs@ks		. #x251E)	; &K0-2649;
-    (=gb2312		. #x2942)	; &K0-2649; [09-34]
+    (=ucs@gb		. #x251E)	; &G0-2942;
+    (=ucs@ks		. #x251E)	; &G0-2942;
+    (=gb2312		. #x2942)	; &G0-2942; [09-34]
     (=ks-x1001		. #x2649)	; &I-K0-2649; [06-41]
     (<-fullwidth
      ((name		  . "BOX DRAWINGS UP HEAVY AND RIGHT DOWN LIGHT")
@@ -730,9 +730,9 @@
      ((name		  . "BOX DRAWINGS DOWN HEAVY AND RIGHT UP LIGHT")
       (=ucs		  . #x251F)	; ┟
       ))
-    (=ucs@gb		. #x251F)	; &K0-264A;
-    (=ucs@ks		. #x251F)	; &K0-264A;
-    (=gb2312		. #x2943)	; &K0-264A; [09-35]
+    (=ucs@gb		. #x251F)	; &G0-2943;
+    (=ucs@ks		. #x251F)	; &G0-2943;
+    (=gb2312		. #x2943)	; &G0-2943; [09-35]
     (=ks-x1001		. #x264A)	; &I-K0-264A; [06-42]
     (<-fullwidth
      ((name		  . "BOX DRAWINGS DOWN HEAVY AND RIGHT UP LIGHT")
@@ -776,9 +776,9 @@
      ((name		  . "BOX DRAWINGS DOWN LIGHT AND RIGHT UP HEAVY")
       (=ucs		  . #x2521)	; ┡
       ))
-    (=ucs@gb		. #x2521)	; &K0-264B;
-    (=ucs@ks		. #x2521)	; &K0-264B;
-    (=gb2312		. #x2945)	; &K0-264B; [09-37]
+    (=ucs@gb		. #x2521)	; &G0-2945;
+    (=ucs@ks		. #x2521)	; &G0-2945;
+    (=gb2312		. #x2945)	; &G0-2945; [09-37]
     (=ks-x1001		. #x264B)	; &I-K0-264B; [06-43]
     (<-fullwidth
      ((name		  . "BOX DRAWINGS DOWN LIGHT AND RIGHT UP HEAVY")
@@ -797,9 +797,9 @@
      ((name		  . "BOX DRAWINGS UP LIGHT AND RIGHT DOWN HEAVY")
       (=ucs		  . #x2522)	; ┢
       ))
-    (=ucs@gb		. #x2522)	; &K0-264C;
-    (=ucs@ks		. #x2522)	; &K0-264C;
-    (=gb2312		. #x2946)	; &K0-264C; [09-38]
+    (=ucs@gb		. #x2522)	; &G0-2946;
+    (=ucs@ks		. #x2522)	; &G0-2946;
+    (=gb2312		. #x2946)	; &G0-2946; [09-38]
     (=ks-x1001		. #x264C)	; &I-K0-264C; [06-44]
     (<-fullwidth
      ((name		  . "BOX DRAWINGS UP LIGHT AND RIGHT DOWN HEAVY")
@@ -897,9 +897,9 @@
      ((name		  . "BOX DRAWINGS UP HEAVY AND LEFT DOWN LIGHT")
       (=ucs		  . #x2526)	; ┦
       ))
-    (=ucs@gb		. #x2526)	; &K0-264D;
-    (=ucs@ks		. #x2526)	; &K0-264D;
-    (=gb2312		. #x294A)	; &K0-264D; [09-42]
+    (=ucs@gb		. #x2526)	; &G0-294A;
+    (=ucs@ks		. #x2526)	; &G0-294A;
+    (=gb2312		. #x294A)	; &G0-294A; [09-42]
     (=ks-x1001		. #x264D)	; &I-K0-264D; [06-45]
     (<-fullwidth
      ((name		  . "BOX DRAWINGS UP HEAVY AND LEFT DOWN LIGHT")
@@ -918,9 +918,9 @@
      ((name		  . "BOX DRAWINGS DOWN HEAVY AND LEFT UP LIGHT")
       (=ucs		  . #x2527)	; ┧
       ))
-    (=ucs@gb		. #x2527)	; &K0-264E;
-    (=ucs@ks		. #x2527)	; &K0-264E;
-    (=gb2312		. #x294B)	; &K0-264E; [09-43]
+    (=ucs@gb		. #x2527)	; &G0-294B;
+    (=ucs@ks		. #x2527)	; &G0-294B;
+    (=gb2312		. #x294B)	; &G0-294B; [09-43]
     (=ks-x1001		. #x264E)	; &I-K0-264E; [06-46]
     (<-fullwidth
      ((name		  . "BOX DRAWINGS DOWN HEAVY AND LEFT UP LIGHT")
@@ -964,9 +964,9 @@
      ((name		  . "BOX DRAWINGS DOWN LIGHT AND LEFT UP HEAVY")
       (=ucs		  . #x2529)	; ┩
       ))
-    (=ucs@gb		. #x2529)	; &K0-264F;
-    (=ucs@ks		. #x2529)	; &K0-264F;
-    (=gb2312		. #x294D)	; &K0-264F; [09-45]
+    (=ucs@gb		. #x2529)	; &G0-294D;
+    (=ucs@ks		. #x2529)	; &G0-294D;
+    (=gb2312		. #x294D)	; &G0-294D; [09-45]
     (=ks-x1001		. #x264F)	; &I-K0-264F; [06-47]
     (<-fullwidth
      ((name		  . "BOX DRAWINGS DOWN LIGHT AND LEFT UP HEAVY")
@@ -985,9 +985,9 @@
      ((name		  . "BOX DRAWINGS UP LIGHT AND LEFT DOWN HEAVY")
       (=ucs		  . #x252A)	; ┪
       ))
-    (=ucs@gb		. #x252A)	; &K0-2650;
-    (=ucs@ks		. #x252A)	; &K0-2650;
-    (=gb2312		. #x294E)	; &K0-2650; [09-46]
+    (=ucs@gb		. #x252A)	; &G0-294E;
+    (=ucs@ks		. #x252A)	; &G0-294E;
+    (=gb2312		. #x294E)	; &G0-294E; [09-46]
     (=ks-x1001		. #x2650)	; &I-K0-2650; [06-48]
     (<-fullwidth
      ((name		  . "BOX DRAWINGS UP LIGHT AND LEFT DOWN HEAVY")
@@ -1060,9 +1060,9 @@
      ((name . "BOX DRAWINGS LEFT HEAVY AND RIGHT DOWN LIGHT")
       (=ucs		  . #x252D)	; ┭
       ))
-    (=ucs@gb		. #x252D)	; &K0-2651;
-    (=ucs@ks		. #x252D)	; &K0-2651;
-    (=gb2312		. #x2951)	; &K0-2651; [09-49]
+    (=ucs@gb		. #x252D)	; &G0-2951;
+    (=ucs@ks		. #x252D)	; &G0-2951;
+    (=gb2312		. #x2951)	; &G0-2951; [09-49]
     (=ks-x1001		. #x2651)	; &I-K0-2651; [06-49]
     (<-fullwidth
      ((name . "BOX DRAWINGS LEFT HEAVY AND RIGHT DOWN LIGHT")
@@ -1081,9 +1081,9 @@
      ((name . "BOX DRAWINGS RIGHT HEAVY AND LEFT DOWN LIGHT")
       (=ucs		  . #x252E)	; ┮
       ))
-    (=ucs@gb		. #x252E)	; &K0-2652;
-    (=ucs@ks		. #x252E)	; &K0-2652;
-    (=gb2312		. #x2952)	; &K0-2652; [09-50]
+    (=ucs@gb		. #x252E)	; &G0-2952;
+    (=ucs@ks		. #x252E)	; &G0-2952;
+    (=gb2312		. #x2952)	; &G0-2952; [09-50]
     (=ks-x1001		. #x2652)	; &I-K0-2652; [06-50]
     (<-fullwidth
      ((name . "BOX DRAWINGS RIGHT HEAVY AND LEFT DOWN LIGHT")
@@ -1152,9 +1152,9 @@
      ((name . "BOX DRAWINGS RIGHT LIGHT AND LEFT DOWN HEAVY")
       (=ucs		  . #x2531)	; ┱
       ))
-    (=ucs@gb		. #x2531)	; &K0-2653;
-    (=ucs@ks		. #x2531)	; &K0-2653;
-    (=gb2312		. #x2955)	; &K0-2653; [09-53]
+    (=ucs@gb		. #x2531)	; &G0-2955;
+    (=ucs@ks		. #x2531)	; &G0-2955;
+    (=gb2312		. #x2955)	; &G0-2955; [09-53]
     (=ks-x1001		. #x2653)	; &I-K0-2653; [06-51]
     (<-fullwidth
      ((name . "BOX DRAWINGS RIGHT LIGHT AND LEFT DOWN HEAVY")
@@ -1173,9 +1173,9 @@
      ((name . "BOX DRAWINGS LEFT LIGHT AND RIGHT DOWN HEAVY")
       (=ucs		  . #x2532)	; ┲
       ))
-    (=ucs@gb		. #x2532)	; &K0-2654;
-    (=ucs@ks		. #x2532)	; &K0-2654;
-    (=gb2312		. #x2956)	; &K0-2654; [09-54]
+    (=ucs@gb		. #x2532)	; &G0-2956;
+    (=ucs@ks		. #x2532)	; &G0-2956;
+    (=gb2312		. #x2956)	; &G0-2956; [09-54]
     (=ks-x1001		. #x2654)	; &I-K0-2654; [06-52]
     (<-fullwidth
      ((name . "BOX DRAWINGS LEFT LIGHT AND RIGHT DOWN HEAVY")
@@ -1248,9 +1248,9 @@
      ((name		  . "BOX DRAWINGS LEFT HEAVY AND RIGHT UP LIGHT")
       (=ucs		  . #x2535)	; ┵
       ))
-    (=ucs@gb		. #x2535)	; &K0-2655;
-    (=ucs@ks		. #x2535)	; &K0-2655;
-    (=gb2312		. #x2959)	; &K0-2655; [09-57]
+    (=ucs@gb		. #x2535)	; &G0-2959;
+    (=ucs@ks		. #x2535)	; &G0-2959;
+    (=gb2312		. #x2959)	; &G0-2959; [09-57]
     (=ks-x1001		. #x2655)	; &I-K0-2655; [06-53]
     (<-fullwidth
      ((name		  . "BOX DRAWINGS LEFT HEAVY AND RIGHT UP LIGHT")
@@ -1269,9 +1269,9 @@
      ((name		  . "BOX DRAWINGS RIGHT HEAVY AND LEFT UP LIGHT")
       (=ucs		  . #x2536)	; ┶
       ))
-    (=ucs@gb		. #x2536)	; &K0-2656;
-    (=ucs@ks		. #x2536)	; &K0-2656;
-    (=gb2312		. #x295A)	; &K0-2656; [09-58]
+    (=ucs@gb		. #x2536)	; &G0-295A;
+    (=ucs@ks		. #x2536)	; &G0-295A;
+    (=gb2312		. #x295A)	; &G0-295A; [09-58]
     (=ks-x1001		. #x2656)	; &I-K0-2656; [06-54]
     (<-fullwidth
      ((name		  . "BOX DRAWINGS RIGHT HEAVY AND LEFT UP LIGHT")
@@ -1340,9 +1340,9 @@
      ((name		  . "BOX DRAWINGS RIGHT LIGHT AND LEFT UP HEAVY")
       (=ucs		  . #x2539)	; ┹
       ))
-    (=ucs@gb		. #x2539)	; &K0-2657;
-    (=ucs@ks		. #x2539)	; &K0-2657;
-    (=gb2312		. #x295D)	; &K0-2657; [09-61]
+    (=ucs@gb		. #x2539)	; &G0-295D;
+    (=ucs@ks		. #x2539)	; &G0-295D;
+    (=gb2312		. #x295D)	; &G0-295D; [09-61]
     (=ks-x1001		. #x2657)	; &I-K0-2657; [06-55]
     (<-fullwidth
      ((name		  . "BOX DRAWINGS RIGHT LIGHT AND LEFT UP HEAVY")
@@ -1361,9 +1361,9 @@
      ((name		  . "BOX DRAWINGS LEFT LIGHT AND RIGHT UP HEAVY")
       (=ucs		  . #x253A)	; ┺
       ))
-    (=ucs@gb		. #x253A)	; &K0-2658;
-    (=ucs@ks		. #x253A)	; &K0-2658;
-    (=gb2312		. #x295E)	; &K0-2658; [09-62]
+    (=ucs@gb		. #x253A)	; &G0-295E;
+    (=ucs@ks		. #x253A)	; &G0-295E;
+    (=gb2312		. #x295E)	; &G0-295E; [09-62]
     (=ks-x1001		. #x2658)	; &I-K0-2658; [06-56]
     (<-fullwidth
      ((name		  . "BOX DRAWINGS LEFT LIGHT AND RIGHT UP HEAVY")
@@ -1436,9 +1436,9 @@
      ((name . "BOX DRAWINGS LEFT HEAVY AND RIGHT VERTICAL LIGHT")
       (=ucs		  . #x253D)	; ┽
       ))
-    (=ucs@gb		. #x253D)	; &K0-2659;
-    (=ucs@ks		. #x253D)	; &K0-2659;
-    (=gb2312		. #x2961)	; &K0-2659; [09-65]
+    (=ucs@gb		. #x253D)	; &G0-2961;
+    (=ucs@ks		. #x253D)	; &G0-2961;
+    (=gb2312		. #x2961)	; &G0-2961; [09-65]
     (=ks-x1001		. #x2659)	; &I-K0-2659; [06-57]
     (<-fullwidth
      ((name . "BOX DRAWINGS LEFT HEAVY AND RIGHT VERTICAL LIGHT")
@@ -1457,9 +1457,9 @@
      ((name . "BOX DRAWINGS RIGHT HEAVY AND LEFT VERTICAL LIGHT")
       (=ucs		  . #x253E)	; ┾
       ))
-    (=ucs@gb		. #x253E)	; &K0-265A;
-    (=ucs@ks		. #x253E)	; &K0-265A;
-    (=gb2312		. #x2962)	; &K0-265A; [09-66]
+    (=ucs@gb		. #x253E)	; &G0-2962;
+    (=ucs@ks		. #x253E)	; &G0-2962;
+    (=gb2312		. #x2962)	; &G0-2962; [09-66]
     (=ks-x1001		. #x265A)	; &I-K0-265A; [06-58]
     (<-fullwidth
      ((name . "BOX DRAWINGS RIGHT HEAVY AND LEFT VERTICAL LIGHT")
@@ -1503,9 +1503,9 @@
      ((name . "BOX DRAWINGS UP HEAVY AND DOWN HORIZONTAL LIGHT")
       (=ucs		  . #x2540)	; ╀
       ))
-    (=ucs@gb		. #x2540)	; &K0-265B;
-    (=ucs@ks		. #x2540)	; &K0-265B;
-    (=gb2312		. #x2964)	; &K0-265B; [09-68]
+    (=ucs@gb		. #x2540)	; &G0-2964;
+    (=ucs@ks		. #x2540)	; &G0-2964;
+    (=gb2312		. #x2964)	; &G0-2964; [09-68]
     (=ks-x1001		. #x265B)	; &I-K0-265B; [06-59]
     (<-fullwidth
      ((name . "BOX DRAWINGS UP HEAVY AND DOWN HORIZONTAL LIGHT")
@@ -1524,9 +1524,9 @@
      ((name . "BOX DRAWINGS DOWN HEAVY AND UP HORIZONTAL LIGHT")
       (=ucs		  . #x2541)	; ╁
       ))
-    (=ucs@gb		. #x2541)	; &K0-265C;
-    (=ucs@ks		. #x2541)	; &K0-265C;
-    (=gb2312		. #x2965)	; &K0-265C; [09-69]
+    (=ucs@gb		. #x2541)	; &G0-2965;
+    (=ucs@ks		. #x2541)	; &G0-2965;
+    (=gb2312		. #x2965)	; &G0-2965; [09-69]
     (=ks-x1001		. #x265C)	; &I-K0-265C; [06-60]
     (<-fullwidth
      ((name . "BOX DRAWINGS DOWN HEAVY AND UP HORIZONTAL LIGHT")
@@ -1570,9 +1570,9 @@
      ((name . "BOX DRAWINGS LEFT UP HEAVY AND RIGHT DOWN LIGHT")
       (=ucs		  . #x2543)	; ╃
       ))
-    (=ucs@gb		. #x2543)	; &K0-265D;
-    (=ucs@ks		. #x2543)	; &K0-265D;
-    (=gb2312		. #x2967)	; &K0-265D; [09-71]
+    (=ucs@gb		. #x2543)	; &G0-2967;
+    (=ucs@ks		. #x2543)	; &G0-2967;
+    (=gb2312		. #x2967)	; &G0-2967; [09-71]
     (=ks-x1001		. #x265D)	; &I-K0-265D; [06-61]
     (<-fullwidth
      ((name . "BOX DRAWINGS LEFT UP HEAVY AND RIGHT DOWN LIGHT")
@@ -1591,9 +1591,9 @@
      ((name . "BOX DRAWINGS RIGHT UP HEAVY AND LEFT DOWN LIGHT")
       (=ucs		  . #x2544)	; ╄
       ))
-    (=ucs@gb		. #x2544)	; &K0-265E;
-    (=ucs@ks		. #x2544)	; &K0-265E;
-    (=gb2312		. #x2968)	; &K0-265E; [09-72]
+    (=ucs@gb		. #x2544)	; &G0-2968;
+    (=ucs@ks		. #x2544)	; &G0-2968;
+    (=gb2312		. #x2968)	; &G0-2968; [09-72]
     (=ks-x1001		. #x265E)	; &I-K0-265E; [06-62]
     (<-fullwidth
      ((name . "BOX DRAWINGS RIGHT UP HEAVY AND LEFT DOWN LIGHT")
@@ -1612,9 +1612,9 @@
      ((name . "BOX DRAWINGS LEFT DOWN HEAVY AND RIGHT UP LIGHT")
       (=ucs		  . #x2545)	; ╅
       ))
-    (=ucs@gb		. #x2545)	; &K0-265F;
-    (=ucs@ks		. #x2545)	; &K0-265F;
-    (=gb2312		. #x2969)	; &K0-265F; [09-73]
+    (=ucs@gb		. #x2545)	; &G0-2969;
+    (=ucs@ks		. #x2545)	; &G0-2969;
+    (=gb2312		. #x2969)	; &G0-2969; [09-73]
     (=ks-x1001		. #x265F)	; &I-K0-265F; [06-63]
     (<-fullwidth
      ((name . "BOX DRAWINGS LEFT DOWN HEAVY AND RIGHT UP LIGHT")
@@ -1633,9 +1633,9 @@
      ((name . "BOX DRAWINGS RIGHT DOWN HEAVY AND LEFT UP LIGHT")
       (=ucs		  . #x2546)	; ╆
       ))
-    (=ucs@gb		. #x2546)	; &K0-2660;
-    (=ucs@ks		. #x2546)	; &K0-2660;
-    (=gb2312		. #x296A)	; &K0-2660; [09-74]
+    (=ucs@gb		. #x2546)	; &G0-296A;
+    (=ucs@ks		. #x2546)	; &G0-296A;
+    (=gb2312		. #x296A)	; &G0-296A; [09-74]
     (=ks-x1001		. #x2660)	; &I-K0-2660; [06-64]
     (<-fullwidth
      ((name . "BOX DRAWINGS RIGHT DOWN HEAVY AND LEFT UP LIGHT")
@@ -1654,9 +1654,9 @@
      ((name . "BOX DRAWINGS DOWN LIGHT AND UP HORIZONTAL HEAVY")
       (=ucs		  . #x2547)	; ╇
       ))
-    (=ucs@gb		. #x2547)	; &K0-2661;
-    (=ucs@ks		. #x2547)	; &K0-2661;
-    (=gb2312		. #x296B)	; &K0-2661; [09-75]
+    (=ucs@gb		. #x2547)	; &G0-296B;
+    (=ucs@ks		. #x2547)	; &G0-296B;
+    (=gb2312		. #x296B)	; &G0-296B; [09-75]
     (=ks-x1001		. #x2661)	; &I-K0-2661; [06-65]
     (<-fullwidth
      ((name . "BOX DRAWINGS DOWN LIGHT AND UP HORIZONTAL HEAVY")
@@ -1675,9 +1675,9 @@
      ((name . "BOX DRAWINGS UP LIGHT AND DOWN HORIZONTAL HEAVY")
       (=ucs		  . #x2548)	; ╈
       ))
-    (=ucs@gb		. #x2548)	; &K0-2662;
-    (=ucs@ks		. #x2548)	; &K0-2662;
-    (=gb2312		. #x296C)	; &K0-2662; [09-76]
+    (=ucs@gb		. #x2548)	; &G0-296C;
+    (=ucs@ks		. #x2548)	; &G0-296C;
+    (=gb2312		. #x296C)	; &G0-296C; [09-76]
     (=ks-x1001		. #x2662)	; &I-K0-2662; [06-66]
     (<-fullwidth
      ((name . "BOX DRAWINGS UP LIGHT AND DOWN HORIZONTAL HEAVY")
@@ -1696,9 +1696,9 @@
      ((name . "BOX DRAWINGS RIGHT LIGHT AND LEFT VERTICAL HEAVY")
       (=ucs		  . #x2549)	; ╉
       ))
-    (=ucs@gb		. #x2549)	; &K0-2663;
-    (=ucs@ks		. #x2549)	; &K0-2663;
-    (=gb2312		. #x296D)	; &K0-2663; [09-77]
+    (=ucs@gb		. #x2549)	; &G0-296D;
+    (=ucs@ks		. #x2549)	; &G0-296D;
+    (=gb2312		. #x296D)	; &G0-296D; [09-77]
     (=ks-x1001		. #x2663)	; &I-K0-2663; [06-67]
     (<-fullwidth
      ((name . "BOX DRAWINGS RIGHT LIGHT AND LEFT VERTICAL HEAVY")
@@ -1717,9 +1717,9 @@
      ((name . "BOX DRAWINGS LEFT LIGHT AND RIGHT VERTICAL HEAVY")
       (=ucs		  . #x254A)	; ╊
       ))
-    (=ucs@gb		. #x254A)	; &K0-2664;
-    (=ucs@ks		. #x254A)	; &K0-2664;
-    (=gb2312		. #x296E)	; &K0-2664; [09-78]
+    (=ucs@gb		. #x254A)	; &G0-296E;
+    (=ucs@ks		. #x254A)	; &G0-296E;
+    (=gb2312		. #x296E)	; &G0-296E; [09-78]
     (=ks-x1001		. #x2664)	; &I-K0-2664; [06-68]
     (<-fullwidth
      ((name . "BOX DRAWINGS LEFT LIGHT AND RIGHT VERTICAL HEAVY")
