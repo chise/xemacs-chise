@@ -78,8 +78,8 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 25)
     (->subsumptive
-     ((=ucs@jis		  . #x9FA3)	; &M-48887;
-      (=jis-x0212	  . #x6D62)	; &M-48887; [77-66]
+     ((=ucs@jis		  . #x9FA3)	; &JSP-6D62;
+      (=jis-x0212	  . #x6D62)	; &JSP-6D62; [77-66]
       (=daikanwa	  . 48887)	; &I-M-48887;
       )
      ((=cns11643-3	  . #x6161)	; &C3-6161; [65-65]
