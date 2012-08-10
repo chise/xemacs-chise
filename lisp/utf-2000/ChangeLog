@@ -1,5 +1,8 @@
 2012-08-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R211-Tooth.el (J0-4E70): Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-48632'.
+
 	* Ideograph-R209-Nose.el (J0-4921): Use `=daikanwa/+p' instead of
 	`morohashi-daikanwa' for M-48498'.
 
