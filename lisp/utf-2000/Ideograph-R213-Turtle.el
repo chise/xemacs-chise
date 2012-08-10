@@ -33,8 +33,8 @@
     (=hanziku-12	. #xEBBD)	; &I-HZK12-EBBD;
     (=adobe-japan1-0	. 01615)	; &I-AJ1-01615;
     (<-vulgar
-     ((=ucs@jis		  . #x9F9C)	; &M-48847;
-      (=jis-x0208@1983	  . #x737D)	; &M-48847; [83-93]
+     ((=ucs@jis		  . #x9F9C)	; &J90-737D;
+      (=jis-x0208@1983	  . #x737D)	; &J90-737D; [83-93]
       (=ks-x1001	  . #x4F4F)	; &I-K0-4F4F; [47-47]
       (=jis-x0213-1	  . #x737D)	; &I-JX1-737D; [83-93]
       (=daikanwa	  . 48847)	; &I-M-48847;
@@ -68,14 +68,14 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 16)
     (->subsumptive
-     ((=ucs@jis		  . #x9F9C)	; &M-48847;
-      (=jis-x0208@1983	  . #x737D)	; &M-48847; [83-93]
+     ((=ucs@jis		  . #x9F9C)	; &J90-737D;
+      (=jis-x0208@1983	  . #x737D)	; &J90-737D; [83-93]
       (=ks-x1001	  . #x4F4F)	; &I-K0-4F4F; [47-47]
       (=jis-x0208@1990	  . #x737D)	; &I-J90-737D; [83-93]
       (=jis-x0213-1	  . #x737D)	; &I-JX1-737D; [83-93]
       (=daikanwa	  . 48847)	; &I-M-48847;
-      (=shinjigen@1ed	  .  9918)	; &M-48847;
-      (=shinjigen@rev	  .  9917)	; &M-48847;
+      (=shinjigen@1ed	  .  9918)	; &J90-737D;
+      (=shinjigen@rev	  .  9917)	; &J90-737D;
       )
      ((=gt		  . 66712)	; &GT-66712;
       (=gt-pj-1		  . #x737D)	; &GT-66712; [83-93]
@@ -115,17 +115,17 @@
     (ideographic-radical . 213)	; ⿔
     (ideographic-strokes . 0)
     (total-strokes	 . 15)
-    (=cns11643-7	. #x2C3A)	; &M-48848; [12-26]
+    (=cns11643-7	. #x2C3A)	; &C7-2C3A; [12-26]
     (=daikanwa		. 48848)	; &I-M-48848;
-    (=shinjigen@1ed	.  9919)	; &M-48848;
+    (=shinjigen@1ed	.  9919)	; &C7-2C3A;
     (<-original
-     ((=ucs@jis		  . #x9F9C)	; &M-48847;
-      (=jis-x0208@1983	  . #x737D)	; &M-48847; [83-93]
+     ((=ucs@jis		  . #x9F9C)	; &J90-737D;
+      (=jis-x0208@1983	  . #x737D)	; &J90-737D; [83-93]
       (=ks-x1001	  . #x4F4F)	; &I-K0-4F4F; [47-47]
       (=jis-x0208@1990	  . #x737D)	; &I-J90-737D; [83-93]
       (=jis-x0213-1	  . #x737D)	; &I-JX1-737D; [83-93]
       (=daikanwa	  . 48847)	; &I-M-48847;
-      (=shinjigen@1ed	  .  9918)	; &M-48847;
+      (=shinjigen@1ed	  .  9918)	; &J90-737D;
       ))
     (<-original*sources
      zhengzitong daikanwa shinjigen@1ed)
@@ -462,7 +462,7 @@
     (total-strokes	 . 19)
     (=ucs		. #x2A6BA)	; 𪚺
     (->subsumptive
-     ((=cns11643-5	  . #x6B6A)	; &M-48868; [75-74]
+     ((=cns11643-5	  . #x6B6A)	; &C5-6B6A; [75-74]
       (=daikanwa	  . 48868)	; &I-M-48868;
       )
      ((=ucs@iso		  . #x2A6BA)	; &U-0002A6BA;
