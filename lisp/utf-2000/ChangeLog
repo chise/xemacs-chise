@@ -1,5 +1,14 @@
 2012-08-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R201-Yellow.el (U+9EC4): Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-47926'.
+
+	* Ideograph-R062-Halberd.el (U-00022A0B): Unify BC-8AE4; add
+	`<-Zhouwen' for JSP-5D76.
+
+	* Ideograph-R009-Man.el (U-00020432): Add `<-same' and `<-formed'
+	for JSP-5D76.
+
 	* Ideograph-R200-Hemp.el (J0-4B7B): Use `=daikanwa/+p' instead of
 	`morohashi-daikanwa' for M-47909'.
 
