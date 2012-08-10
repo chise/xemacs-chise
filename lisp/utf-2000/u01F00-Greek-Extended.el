@@ -1814,8 +1814,8 @@
      ((name		  . "COMBINING GRAVE ACCENT")
       (=ucs		  . #x0300)	; ̀
       ))
-    (=ucs@jis		. #x1F70)	; ɑ̀
-    (=jis-x0213-1	. #x2B46)	; ɑ̀ [11-38]
+    (=ucs@jis		. #x1F70)	; &JX1-2B46;
+    (=jis-x0213-1	. #x2B46)	; &JX1-2B46; [11-38]
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER ALPHA WITH OXIA")
@@ -1845,8 +1845,8 @@
      ((name		  . "COMBINING ACUTE ACCENT")
       (=ucs		  . #x0301)	; ́
       ))
-    (=ucs@jis		. #x1F71)	; ɑ́
-    (=jis-x0213-1	. #x2B47)	; ɑ́ [11-39]
+    (=ucs@jis		. #x1F71)	; &JX1-2B47;
+    (=jis-x0213-1	. #x2B47)	; &JX1-2B47; [11-39]
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER EPSILON WITH VARIA")
@@ -1879,8 +1879,8 @@
      ((name		  . "COMBINING GRAVE ACCENT")
       (=ucs		  . #x0300)	; ̀
       ))
-    (=ucs@jis		. #x1F72)	; ɛ̀
-    (=jis-x0213-1	. #x2B50)	; ɛ̀ [11-48]
+    (=ucs@jis		. #x1F72)	; &JX1-2B50;
+    (=jis-x0213-1	. #x2B50)	; &JX1-2B50; [11-48]
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER OPEN E WITH GRAVE")
       ))
@@ -1913,8 +1913,8 @@
      ((name		  . "COMBINING ACUTE ACCENT")
       (=ucs		  . #x0301)	; ́
       ))
-    (=ucs@jis		. #x1F73)	; ɛ́
-    (=jis-x0213-1	. #x2B51)	; ɛ́ [11-49]
+    (=ucs@jis		. #x1F73)	; &JX1-2B51;
+    (=jis-x0213-1	. #x2B51)	; &JX1-2B51; [11-49]
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER OPEN E WITH ACUTE")
       ))
