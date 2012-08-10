@@ -1,3 +1,11 @@
+2012-08-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R208-Rat.el (U+9F21): Use `=daikanwa/ho' instead of
+	`morohashi-daikanwa' for M-H0047.
+
+	* Ideograph-R203-Black.el (J0-4C5B): Use `=daikanwa/+p' instead of
+	`morohashi-daikanwa' for M-48063'.
+
 2012-08-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R201-Yellow.el (U+9EC4): Use `=daikanwa/+p' instead of
