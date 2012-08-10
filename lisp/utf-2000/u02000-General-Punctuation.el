@@ -253,9 +253,9 @@
      ((name		  . "HORIZONTAL BAR")
       (=ucs		  . #x2015)	; ―
       ))
-    (=ucs@gb		. #x2015)	; &K0-212A;
-    (=ucs@ks		. #x2015)	; &K0-212A;
-    (=gb2312		. #x212A)	; &K0-212A; [01-10]
+    (=ucs@gb		. #x2015)	; &G0-212A;
+    (=ucs@ks		. #x2015)	; &G0-212A;
+    (=gb2312		. #x212A)	; &G0-212A; [01-10]
     (=ks-x1001		. #x212A)	; &I-K0-212A; [01-10]
     (<-fullwidth
      ((name		  . "HORIZONTAL BAR")
