@@ -9,7 +9,7 @@
      ((name		  . "COMBINING RING BELOW")
       (=ucs		  . #x0325)	; ̥
       ))
-    (=jef-china3	. #x8AF0)	; M̥
+    (=jef-china3	. #x8AF0)	; &JC3-8AF0;
     ))
 (define-char
   '((name*		. "latin small letter a with macron and acute")
@@ -22,5 +22,5 @@
       (=ucs		  . #x0301)	; ́
       ))
     (sources		ruimoku=C011091-00007)
-    (=ruimoku-v6	. #xE00D)	; ā́
+    (=ruimoku-v6	. #xE00D)	; &RUI6-E00D;
     ))
