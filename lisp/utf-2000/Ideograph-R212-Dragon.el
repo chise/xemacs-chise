@@ -134,8 +134,8 @@
     (total-strokes	 . 19)
     (=ucs		. #x9F8F)	; 龏
     (->subsumptive
-     ((=ucs@jis		  . #x9F8F)	; &M-48823;
-      (=jis-x0212	  . #x6D58)	; &M-48823; [77-56]
+     ((=ucs@jis		  . #x9F8F)	; &JSP-6D58;
+      (=jis-x0212	  . #x6D58)	; &JSP-6D58; [77-56]
       (=daikanwa	  . 48823)	; &I-M-48823;
       )
      ((=ucs@unicode	  . #x9F8F)	; &UU+9F8F;
@@ -152,8 +152,8 @@
      ((=>>>ucs@unicode	  . #x9F90)	; &g2-JX1-7E76;
       (=>>>jis-x0213-1	  . #x7E76)	; &g2-JX1-7E76; [94-86]
       (->subsumptive
-       ((=ucs@jis	    . #x9F90)	; &M-48824;
-	(=ks-x1001	    . #x5B42)	; &M-48824; [59-34]
+       ((=ucs@jis	    . #x9F90)	; &HD-JB-6D59;
+	(=ks-x1001	    . #x5B42)	; &HD-JB-6D59; [59-34]
 	(=jis-x0212	    . #x6D59)	; &I-JSP-6D59; [77-57]
 	(=jis-x0213-1	    . #x7E76)	; &I-JX1-7E76; [94-86]
 	(=daikanwa	    . 48824)	; &I-M-48824;
@@ -216,8 +216,8 @@
     (total-strokes	 . 20)
     (=ucs		. #x9F91)	; 龑
     (->subsumptive
-     ((=ucs@jis		  . #x9F91)	; &M-48827;
-      (=jis-x0212	  . #x6D5A)	; &M-48827; [77-58]
+     ((=ucs@jis		  . #x9F91)	; &JSP-6D5A;
+      (=jis-x0212	  . #x6D5A)	; &JSP-6D5A; [77-58]
       (=daikanwa	  . 48827)	; &I-M-48827;
       (=jef-china3	  . #x70A6)	; &I-JC3-70A6;
       )
@@ -381,8 +381,8 @@
      ((=>>>ucs@unicode	  . #x9F94)	; &g2-JX1-7E77;
       (=>>>jis-x0213-1	  . #x7E77)	; &g2-JX1-7E77; [94-87]
       (->subsumptive
-       ((=ucs@jis	    . #x9F94)	; &M-48837;
-	(=jis-x0212	    . #x6D5C)	; &M-48837; [77-60]
+       ((=ucs@jis	    . #x9F94)	; &HD-JB-6D5C;
+	(=jis-x0212	    . #x6D5C)	; &HD-JB-6D5C; [77-60]
 	(=jis-x0213-1	    . #x7E77)	; &I-JX1-7E77; [94-87]
 	(=daikanwa	    . 48837)	; &I-M-48837;
 	(=hanyo-denshi/jb   . #x6D5C)	; &I-HD-JB-6D5C; [77-60]
@@ -488,8 +488,8 @@
     (total-strokes	 . 32)
     (=ucs		. #x9F96)	; 龖
     (->subsumptive
-     ((=ucs@jis		  . #x9F96)	; &M-48843;
-      (=jis-x0212	  . #x6D5D)	; &M-48843; [77-61]
+     ((=ucs@jis		  . #x9F96)	; &JSP-6D5D;
+      (=jis-x0212	  . #x6D5D)	; &JSP-6D5D; [77-61]
       (=daikanwa	  . 48843)	; &I-M-48843;
       )
      ((=ucs@unicode	  . #x9F96)	; &UU+9F96;
@@ -506,8 +506,8 @@
     (sound@ja/on/name	"(n)ou")
     (=ucs		. #x9F97)	; 龗
     (->subsumptive
-     ((=ucs@jis		  . #x9F97)	; &M-48844;
-      (=jis-x0212	  . #x6D5E)	; &M-48844; [77-62]
+     ((=ucs@jis		  . #x9F97)	; &JX1-7E78;
+      (=jis-x0212	  . #x6D5E)	; &JX1-7E78; [77-62]
       (=jis-x0213-1	  . #x7E78)	; &I-JX1-7E78; [94-88]
       (=daikanwa	  . 48844)	; &I-M-48844;
       )
