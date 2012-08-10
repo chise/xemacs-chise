@@ -1165,7 +1165,7 @@
       )
      ((=ucs		  . #x58EC)	; 壬
       )
-     ((=cns11643-1	  . #x467C)	; &M-24623; [38-92]
+     ((=cns11643-1	  . #x467C)	; &C1-467C; [38-92]
       (=daikanwa	  . 24623)	; &I-M-24623;
       ))
     (zinbun-oracle-page . 5)
@@ -1353,7 +1353,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-1	  . #x467C)	; &M-24623; [38-92]
+     ((=cns11643-1	  . #x467C)	; &C1-467C; [38-92]
       (=daikanwa	  . 24623)	; &I-M-24623;
       )
      ((=zinbun-oracle	  . 00909)	; &ZOB-0909;
@@ -1536,7 +1536,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-1	  . #x467C)	; &M-24623; [38-92]
+     ((=cns11643-1	  . #x467C)	; &C1-467C; [38-92]
       (=daikanwa	  . 24623)	; &I-M-24623;
       )
      ((=ucs		  . #x679C)	; 果
@@ -1729,7 +1729,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
       (=ucs		  . #x2FF2)	; ⿲
       )
-     ((=cns11643-1	  . #x467C)	; &M-24623; [38-92]
+     ((=cns11643-1	  . #x467C)	; &C1-467C; [38-92]
       (=daikanwa	  . 24623)	; &I-M-24623;
       )
      ((=ucs		  . #x571F)	; 土
@@ -4462,7 +4462,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=cns11643-1	    . #x467C)	; &M-24623; [38-92]
+       ((=cns11643-1	    . #x467C)	; &C1-467C; [38-92]
 	(=daikanwa	    . 24623)	; &I-M-24623;
 	)
        ((=ucs		    . #x5DF3)	; 巳
@@ -6644,7 +6644,7 @@
 	)
        ((=gt-k		    . 00153)	; &GT-K00153;
 	)
-       ((=cns11643-1	    . #x467C)	; &M-24623; [38-92]
+       ((=cns11643-1	    . #x467C)	; &C1-467C; [38-92]
 	(=daikanwa	    . 24623)	; &I-M-24623;
 	))
       )
@@ -18797,8 +18797,8 @@
      ((ideographic-combination
        ((=ucs		    . #x6771)	; 東
 	)
-       ((=ucs@unicode	    . #x5317)	; 北󠄀
-	(=jis-x0208	    . #x4B4C)	; 北󠄀 [43-44]
+       ((=ucs@unicode	    . #x5317)	; &AJ1-03706;
+	(=jis-x0208	    . #x4B4C)	; &AJ1-03706; [43-44]
 	(=gb2312	    . #x3131)	; &I-G0-3131; [17-17]
 	(=ks-x1001	    . #x5D41)	; &I-K0-5D41; [61-33]
 	(=jis-x0213-1	    . #x4B4C)	; &I-JX1-4B4C; [43-44]
