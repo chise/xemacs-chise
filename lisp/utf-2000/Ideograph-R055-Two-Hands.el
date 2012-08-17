@@ -116,12 +116,14 @@
       (=daikanwa	  . 38657)	; &I-M-38657;
       )
      ((=ucs@jis		  . #x74E3)	; &GT-27515;
+      (=ucs@ks		  . #x74E3)	; &GT-27515;
       (=jis-x0208	  . #x6122)	; &GT-27515; [65-02]
       (=ks-x1001	  . #x777B)	; &I-K0-777B; [87-91]
       (=jis-x0213-1	  . #x6122)	; &I-JX1-6122; [65-02]
       (=daikanwa	  . 21425)	; &I-M-21425;
       )
      ((=ucs@jis		  . #x8FAF)	; &GT-51615;
+      (=ucs@ks		  . #x8FAF)	; &GT-51615;
       (=jis-x0208	  . #x6D67)	; &GT-51615; [77-71]
       (=ks-x1001	  . #x5C2A)	; &I-K0-5C2A; [60-10]
       (=jis-x0213-1	  . #x6D67)	; &I-JX1-6D67; [77-71]
@@ -851,8 +853,19 @@
     (=jis-x0213-1	. #x5732)	; &I-JX1-5732; [55-18]
     (=gt		. 12125)	; &I-GT-12125;
     (=gt-pj-1		. #x5732)	; &I-GT-12125; [55-18]
+    (=shinjigen		.  1585)	; &GT-12125;
     (=hanziku-2		. #xBA71)	; &I-HZK02-BA71;
     (=cbeta		. 04455)	; &I-CB04455;
+    (<-vulgar
+     ((=ucs@unicode	  . #x5958)	; &AJ1-04554;
+      (=jis-x0208	  . #x5479)	; &AJ1-04554; [52-89]
+      (=gb2312		  . #x5E4A)	; &I-G0-5E4A; [62-42]
+      (=jis-x0213-1	  . #x5479)	; &I-JX1-5479; [52-89]
+      (=daikanwa	  . 05928)	; &I-M-05928;
+      (=shinjigen	  .  1584)	; &AJ1-04554;
+      ))
+    (<-vulgar*sources
+     shinjigen)
     ))
 (define-char
   '((ideographic-radical . 55)	; ⼶
@@ -1015,8 +1028,19 @@
 	))
       (=ucs@unicode	  . #x38A1)	; &AJ1-20171;
       (=daikanwa	  . 09639)	; &AJ1-20171;
+      (=shinjigen	  .  1597)	; &AJ1-20171;
       (=cbeta		  . 00727)	; &I-CB00727;
       (=adobe-japan1-5	  . 20171)	; &I-AJ1-20171;
+      (<-formed
+       ((=ucs@unicode	    . #x596C)	; &AJ1-04558;
+	(=jis-x0208	    . #x547D)	; &AJ1-04558; [52-93]
+	(=ks-x1001	    . #x6D61)	; &I-K0-6D61; [77-65]
+	(=jis-x0213-1	    . #x547D)	; &I-JX1-547D; [52-93]
+	(=daikanwa	    . 05997)	; &I-M-05997;
+	(=shinjigen	    .  1595)	; &AJ1-04558;
+	))
+      (<-formed*sources
+       shinjigen)
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1095,6 +1119,7 @@
     (ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
+    (=ucs@ks		. #x5F0A)	; &M-09644;
     (=ks-x1001		. #x7849)	; &M-09644; [88-41]
     (=daikanwa		. 09644)	; &I-M-09644;
     (=jef-china3	. #x4CDE)	; &I-JC3-4CDE;
