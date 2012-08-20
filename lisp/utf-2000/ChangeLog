@@ -1,5 +1,15 @@
 2012-08-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R093-Cow.el (K0-4C32): Unify KU+727D.
+
+	* Ideograph-R069-Axe.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R031-Enclosure.el (U+56F0): Add ideographic-structure.
+	(J0-3A24): Omit `ideographic-structure'; unify KU+56F0.
+
+	* Ideograph-R022-Right-Open-Box.el (g2-CU+2096C): Unify G-CU+2096C
+	and G-M-02671.
+
 	* Ideograph-R037-Big.el: Add some Adobe-Japan1-0 code points.
 	(U+5956): Don't use `morohashi-daikanwa'; add `<-simplified@CN'
 	for J0-547D.
