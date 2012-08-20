@@ -15677,8 +15677,9 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@jis	    . #x5949)	; &GT-07447;
-	(=jis-x0208	    . #x4A74)	; &GT-07447; [42-84]
+       ((=ucs@jis	    . #x5949)	; &AJ1-03652;
+	(=ucs@ks	    . #x5949)	; &AJ1-03652;
+	(=jis-x0208	    . #x4A74)	; &AJ1-03652; [42-84]
 	(=ks-x1001	    . #x5C65)	; &I-K0-5C65; [60-69]
 	(=jis-x0213-1	    . #x4A74)	; &I-JX1-4A74; [42-84]
 	(=daikanwa	    . 05894)	; &I-M-05894;
@@ -15759,8 +15760,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x5944)	; &GT-07418;
-	(=jis-x0208	    . #x3162)	; &GT-07418; [17-66]
+       ((=ucs@unicode	    . #x5944)	; &AJ1-01284;
+	(=jis-x0208	    . #x3162)	; &AJ1-01284; [17-66]
 	(=gb2312	    . #x5159)	; &I-G0-5159; [49-57]
 	(=ks-x1001	    . #x6572)	; &I-K0-6572; [69-82]
 	(=jis-x0213-1	    . #x3162)	; &I-JX1-3162; [17-66]
@@ -19086,7 +19087,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=jis-x0208@1978    . #x3E3E)	; &HD-FT-3046; [30-30]
+       ((=ucs@ks	    . #x677E)	; &HD-FT-3046;
+	(=jis-x0208@1978    . #x3E3E)	; &HD-FT-3046; [30-30]
 	(=jis-x0208@1983    . #x3E3E)	; &I-J83-3E3E; [30-30]
 	(=ks-x1001	    . #x6166)	; &I-K0-6166; [65-70]
 	(=daikanwa	    . 14516)	; &I-M-14516;
@@ -19746,8 +19748,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x5948)	; &GT-07434;
-	(=jis-x0208	    . #x4660)	; &GT-07434; [38-64]
+       ((=ucs@unicode	    . #x5948)	; &AJ1-03256;
+	(=jis-x0208	    . #x4660)	; &AJ1-03256; [38-64]
 	(=gb2312	    . #x444E)	; &I-G0-444E; [36-46]
 	(=ks-x1001	    . #x522F)	; &I-K0-522F; [50-15]
 	(=jis-x0213-1	    . #x4660)	; &I-JX1-4660; [38-64]
@@ -23447,8 +23449,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@jis		  . #x5951)	; &HD-JA-3740;
-      (=jis-x0208	  . #x3740)	; &HD-JA-3740; [23-32]
+     ((=ucs@jis		  . #x5951)	; &AJ1-01814;
+      (=jis-x0208	  . #x3740)	; &AJ1-01814; [23-32]
       (=jis-x0213-1	  . #x3740)	; &I-JX1-3740; [23-32]
       ))
     (=hanyo-denshi/jt	. #xAD7F)	; &HD-JT-AD7F;
@@ -26362,6 +26364,7 @@
 	(=ucs		    . #x2E85)	; ⺅
 	)
        ((=ucs@jis	    . #x6840)	; &GT-18861;
+	(=ucs@ks	    . #x6840)	; &GT-18861;
 	(=jis-x0208	    . #x5B5C)	; &GT-18861; [59-60]
 	(=ks-x1001	    . #x4B7A)	; &I-K0-4B7A; [43-90]
 	(=jis-x0213-1	    . #x5B5C)	; &I-JX1-5B5C; [59-60]
@@ -26531,8 +26534,9 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@jis		  . #x595A)	; &GT-07480;
-      (=jis-x0208	  . #x5478)	; &GT-07480; [52-88]
+     ((=ucs@jis		  . #x595A)	; &AJ1-04553;
+      (=ucs@ks		  . #x595A)	; &AJ1-04553;
+      (=jis-x0208	  . #x5478)	; &AJ1-04553; [52-88]
       (=ks-x1001	  . #x7A28)	; &I-K0-7A28; [90-08]
       (=jis-x0213-1	  . #x5478)	; &I-JX1-5478; [52-88]
       (=daikanwa	  . 05930)	; &I-M-05930;
@@ -26550,6 +26554,16 @@
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL PERSON")
+      (=ucs		  . #x2E85)	; ⺅
+      )
+     ((=>>ucs@unicode	  . #x595A)	; &G-UU+595A;
+      ))
+    (=>>ucs@unicode	. #x5092)	; &G-UU+5092;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -26582,6 +26596,14 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x4F9A)	; 侚
+      )
+     ((=ucs		  . #x516E)	; 兮
+      ))
     (=ucs		. #x202F9)	; 𠋹
     (->subsumptive
      ((ideographic-structure
@@ -35843,7 +35865,8 @@
 	  )
 	 ((=ucs		      . #x8980)	; 覀
 	  )
-	 ((=ks-x1001	      . #x743F)	; &HD-IB-2354; [84-31]
+	 ((=ucs@ks	      . #x821B)	; &HD-IB-2354;
+	  (=ks-x1001	      . #x743F)	; &HD-IB-2354; [84-31]
 	  ))
 	))
       (=ucs@jis/2000	  . #x50F2)	; &AJ1-16786;
