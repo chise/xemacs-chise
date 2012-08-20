@@ -1,5 +1,13 @@
 2012-08-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R037-Big.el: Add some Adobe-Japan1-0 code points.
+	(U+5956): Don't use `morohashi-daikanwa'; add `<-simplified@CN'
+	for J0-547D.
+	(U-00021669): Use `->subsumptive'.
+	(U+5969): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R029-Again.el (K0-753F): Unify KU+53E2.
+
 	* Ideograph-R055-Two-Hands.el (J0-5732): Unify S-1585; add
 	`<-vulgar' for J0-5479.
 	(AJ1-20171): Unify S-1597; add `<-formed' for J0-547D.
