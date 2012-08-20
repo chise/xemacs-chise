@@ -1,3 +1,19 @@
+2012-08-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R097-Melon.el (mother of C4-5B6D): Unify o-IU+24B1A.
+	(J0-6122): Unify KU+74E3.
+
+	* Ideograph-R072-Sun.el (U+3B07): Add ideographic-structure.
+	(M-14060): Unify JPU+3B07.
+	(C3-4153): Unify UU+4153.
+	(U-000232F8): Use `->subsumptive' to separate representative
+	nodes.
+	(U-000232F9): Use `->denotational'.
+
+	* Ideograph-R009-Man.el (mother of C2-3A41): Unify G-UU+5092; add
+	ideographic-structure.
+	(U-000202F9): Add ideographic-structure.
+
 2012-08-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R093-Cow.el (K0-4C32): Unify KU+727D.
