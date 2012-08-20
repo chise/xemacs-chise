@@ -754,6 +754,7 @@
     (ideographic-radical . 97)	; ⽠
     (ideographic-strokes . 13)
     (total-strokes	 . 18)
+    (=+>ucs@iso		. #x24B1A)	; &o-IU+24B1A;
     (->subsumptive
      ((=ucs@iso		  . #x24B1A)	; &U-00024B1A;
       )
@@ -768,6 +769,7 @@
     (=big5		. #xC3A4)	; &I-B-C3A4;
     (->subsumptive
      ((=ucs@jis		  . #x74E3)	; &GT-27515;
+      (=ucs@ks		  . #x74E3)	; &GT-27515;
       (=jis-x0208	  . #x6122)	; &GT-27515; [65-02]
       (=ks-x1001	  . #x777B)	; &I-K0-777B; [87-91]
       (=jis-x0213-1	  . #x6122)	; &I-JX1-6122; [65-02]
