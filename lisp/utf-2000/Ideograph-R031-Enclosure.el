@@ -1152,6 +1152,14 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 714 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=ucs		  . #x6728)	; 木
+      ))
     (=ucs		. #x56F0)	; 困
     (=big5		. #xA778)	; &I-B-A778;
     (->subsumptive
@@ -1160,15 +1168,8 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-	(=ucs		    . #x2FF4)	; ⿴
-	)
-       ((=ucs		    . #x56D7)	; 囗
-	)
-       ((=ucs		    . #x6728)	; 木
-	))
       (=ucs@jis		  . #x56F0)	; &AJ1-02068;
+      (=ucs@ks		  . #x56F0)	; &AJ1-02068;
       (=jis-x0208	  . #x3A24)	; &AJ1-02068; [26-04]
       (=ks-x1001	  . #x4D5D)	; &I-K0-4D5D; [45-61]
       (=cns11643-1	  . #x495A)	; &I-C1-495A; [41-58]
@@ -4731,6 +4732,7 @@
       (=adobe-japan1-5	  . 19279)	; &I-AJ1-19279;
       (<-vulgar
        ((=ucs@jis	    . #x6B12)	; &GT-20514;
+	(=ucs@ks	    . #x6B12)	; &GT-20514;
 	(=jis-x0208	    . #x5D33)	; &GT-20514; [61-19]
 	(=ks-x1001	    . #x5532)	; &I-K0-5532; [53-18]
 	(=jis-x0213-1	    . #x5D33)	; &I-JX1-5D33; [61-19]
@@ -4741,6 +4743,7 @@
        shinjigen)
       (->vulgar
        ((=ucs@jis	    . #x6B12)	; &GT-20514;
+	(=ucs@ks	    . #x6B12)	; &GT-20514;
 	(=jis-x0208	    . #x5D33)	; &GT-20514; [61-19]
 	(=ks-x1001	    . #x5532)	; &I-K0-5532; [53-18]
 	(=jis-x0213-1	    . #x5D33)	; &I-JX1-5D33; [61-19]
@@ -4814,6 +4817,7 @@
        ((=ucs		    . #x56D7)	; 囗
 	)
        ((=ucs@jis	    . #x6B12)	; &GT-20514;
+	(=ucs@ks	    . #x6B12)	; &GT-20514;
 	(=jis-x0208	    . #x5D33)	; &GT-20514; [61-19]
 	(=ks-x1001	    . #x5532)	; &I-K0-5532; [53-18]
 	(=jis-x0213-1	    . #x5D33)	; &I-JX1-5D33; [61-19]
