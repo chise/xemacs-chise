@@ -2056,8 +2056,12 @@
     (=shinjigen		.  0474)	; 党
     (=adobe-japan1-0	. 03160)	; &I-AJ1-03160;
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x9EE8)	; 黨
-      (=jis-x0208	  . #x735E)	; &I-J90-735E; [83-62]
+     ((=ucs@unicode	  . #x9EE8)	; &GT-65731;
+      (=jis-x0208	  . #x735E)	; &GT-65731; [83-62]
+      (=ks-x1001	  . #x535A)	; &I-K0-535A; [51-58]
+      (=cns11643-1	  . #x7A5D)	; &I-C1-7A5D; [90-61]
+      (=jis-x0213-1	  . #x735E)	; &I-JX1-735E; [83-62]
+      (=daikanwa	  . 48132)	; &I-M-48132;
       ))
     ))
 (define-char
