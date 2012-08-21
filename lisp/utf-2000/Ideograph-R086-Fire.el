@@ -2562,23 +2562,21 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x70B8)	; 炸
-    (=jis-x0208		. #x5F5A)	; &I-J90-5F5A; [63-58]
-    (=gb2312		. #x5528)	; &I-G0-5528; [53-08]
-    (=ks-x1001		. #x6D48)	; &I-K0-6D48; [77-40]
-    (=jis-x0213-1	. #x5F5A)	; &I-JX1-5F5A; [63-58]
     (=big5		. #xACB5)	; &I-B-ACB5;
-    (=gt		. 24266)	; &I-GT-24266;
-    (=gt-pj-1		. #x5F5A)	; &I-GT-24266; [63-58]
-    (=daikanwa		. 18979)	; &I-M-18979;
-    (=shinjigen@rev	.  4576)	; 炸
-    ))
-(define-char
-  '((=>ucs		. #x70B8)	; 炸
-    (morohashi-daikanwa	18979 0 0)
-    (ideographic-radical . 86)	; ⽕
-    (ideographic-strokes . 5)
-    (total-strokes	 . 9)
-    (=cns11643-1	. #x5238)	; &C1-5238; [50-24]
+    (->subsumptive
+     ((=ucs@unicode	  . #x70B8)	; &GT-24266;
+      (=jis-x0208	  . #x5F5A)	; &GT-24266; [63-58]
+      (=gb2312		  . #x5528)	; &I-G0-5528; [53-08]
+      (=ks-x1001	  . #x6D48)	; &I-K0-6D48; [77-40]
+      (=jis-x0213-1	  . #x5F5A)	; &I-JX1-5F5A; [63-58]
+      (=gt		  . 24266)	; &I-GT-24266;
+      (=gt-pj-1		  . #x5F5A)	; &I-GT-24266; [63-58]
+      (=daikanwa	  . 18979)	; &I-M-18979;
+      (=shinjigen@1ed	  .  4575)	; &GT-24266;
+      (=shinjigen@rev	  .  4576)	; &GT-24266;
+      )
+     ((=cns11643-1	  . #x5238)	; &C1-5238; [50-24]
+      ))
     ))
 (define-char
   '((ideographic-radical . 86)	; ⽕
@@ -2593,17 +2591,21 @@
     (=gt		. 24287)	; &I-GT-24287;
     (=gt-pj-1		. #x4540)	; &I-GT-24287; [37-32]
     (=daikanwa		. 18980)	; &I-M-18980;
-    (=shinjigen@rev	.  9825)	; 点
+    (=shinjigen		.  9825)	; 点
     (<-simplified@CN
-     ((=ucs		  . #x9EDE)	; 點
-      (=gb12345		  . #x3563)	; 點 [21-67]
+     ((=ucs@unicode	  . #x9EDE)	; &GT-65623;
+      (=jis-x0208	  . #x735A)	; &GT-65623; [83-58]
+      (=ks-x1001	  . #x6F47)	; &I-K0-6F47; [79-39]
+      (=cns11643-1	  . #x7635)	; &I-C1-7635; [86-21]
+      (=jis-x0213-1	  . #x735A)	; &I-JX1-735A; [83-58]
+      (=gb12345		  . #x3563)	; &GT-65623; [21-67]
       ))
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x9EDE)	; 點
-      (=jis-x0208	  . #x735A)	; &I-J90-735A; [83-58]
-      ))
-    (<-simplified@ucs
-     ((=ucs		  . #x9EDE)	; 點
+     ((=ucs@unicode	  . #x9EDE)	; &GT-65623;
+      (=jis-x0208	  . #x735A)	; &GT-65623; [83-58]
+      (=ks-x1001	  . #x6F47)	; &I-K0-6F47; [79-39]
+      (=cns11643-1	  . #x7635)	; &I-C1-7635; [86-21]
+      (=jis-x0213-1	  . #x735A)	; &I-JX1-735A; [83-58]
       ))
     ))
 (define-char
