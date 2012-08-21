@@ -5326,16 +5326,24 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (=ucs		. #x3E8F)	; 㺏
-    (=cns11643-6	. #x5E6E)	; &I-C6-5E6E; [62-78]
-    (=daikanwa		. 20634)	; &I-M-20634;
+    (->subsumptive
+     ((=ucs@unicode	  . #x3E8F)	; &M-20634;
+      (=daikanwa	  . 20634)	; &M-20634;
+      )
+     ((=cns11643-6	  . #x5E6E)	; &C6-5E6E; [62-78]
+      ))
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (=ucs		. #x24843)	; 𤡃
-    (=cns11643-5	. #x4736)	; &I-C5-4736; [39-22]
-    (=daikanwa		. 20635)	; &I-M-20635;
+    (->subsumptive
+     ((=cns11643-5	  . #x4736)	; &C5-4736; [39-22]
+      (=daikanwa	  . 20635)	; &I-M-20635;
+      )
+     ((=ucs@iso		  . #x24843)	; &U-00024843;
+      ))
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
@@ -5350,21 +5358,28 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (=ucs		. #x734E)	; 獎
-    (=jis-x0208		. #x6052)	; &I-J90-6052; [64-50]
-    (=jis-x0213-1	. #x6052)	; &I-JX1-6052; [64-50]
     (=big5		. #xBCFA)	; &I-B-BCFA;
-    (=gt		. 26487)	; &I-GT-26487;
-    (=gt-pj-1		. #x6052)	; &I-GT-26487; [64-50]
-    (=daikanwa		. 20637)	; &I-M-20637;
-    (=shinjigen@rev	.  1596)	; 獎
-    ))
-(define-char
-  '((=>ucs		. #x734E)	; 獎
-    (morohashi-daikanwa	20637 0 0)
-    (ideographic-radical . 94)	; ⽝
-    (ideographic-strokes . 11)
-    (total-strokes	 . 15)
-    (=cns11643-1	. #x6D64)	; &C1-6D64; [77-68]
+    (->subsumptive
+     ((=ucs@unicode	  . #x734E)	; &GT-26487;
+      (=jis-x0208	  . #x6052)	; &GT-26487; [64-50]
+      (=jis-x0213-1	  . #x6052)	; &I-JX1-6052; [64-50]
+      (=gt		  . 26487)	; &I-GT-26487;
+      (=gt-pj-1		  . #x6052)	; &I-GT-26487; [64-50]
+      (=daikanwa	  . 20637)	; &I-M-20637;
+      (=shinjigen	  .  1596)	; &GT-26487;
+      (<-ancient
+       ((=ucs@unicode	    . #x596C)	; &AJ1-04558;
+	(=jis-x0208	    . #x547D)	; &AJ1-04558; [52-93]
+	(=ks-x1001	    . #x6D61)	; &I-K0-6D61; [77-65]
+	(=jis-x0213-1	    . #x547D)	; &I-JX1-547D; [52-93]
+	(=daikanwa	    . 05997)	; &I-M-05997;
+	(=shinjigen	    .  1595)	; &AJ1-04558;
+	))
+      (<-ancient*sources
+       shinjigen)
+      )
+     ((=cns11643-1	  . #x6D64)	; &C1-6D64; [77-68]
+      ))
     ))
 (define-char
   '((=>ucs		. #x734F)	; 獏
