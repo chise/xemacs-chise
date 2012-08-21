@@ -3,14 +3,15 @@
   '((ideographic-radical . 98)	; ⽡
     (ideographic-strokes . 0)
     (=ucs		. #x74E6)	; 瓦
+    (=big5		. #xA5CB)	; &I-B-A5CB;
     (->subsumptive
      ((total-strokes	   . 5)
       (=ucs@jis		  . #x74E6)	; &GT-27544;
+      (=ucs@ks		  . #x74E6)	; &GT-27544;
       (=jis-x0208	  . #x3424)	; &GT-27544; [20-04]
       (=ks-x1001	  . #x683F)	; &I-K0-683F; [72-31]
       (=cns11643-1	  . #x466B)	; &I-C1-466B; [38-75]
       (=jis-x0213-1	  . #x3424)	; &I-JX1-3424; [20-04]
-      (=big5		  . #xA5CB)	; &I-B-A5CB;
       (=gt		  . 27544)	; &I-GT-27544;
       (=gt-k		  . 00906)	; &I-GT-K00906;
       (=gt-pj-1		  . #x3424)	; &I-GT-27544; [20-04]
