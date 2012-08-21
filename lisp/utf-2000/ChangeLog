@@ -1,5 +1,40 @@
 2012-08-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R200-Hemp.el (G-JU+9EBC): Unify G-J0-5677, G-GT-65265,
+	G-GT-K11204 and G-M-47892.
+	(HD-FT2168): Add `=decomposition@hanyo-denshi'.
+	(G-JU+9EBD): Unify G-JX2-7E59 and G-M-47893.
+
+2012-08-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R151-Bean.el (U+3AB7): Add
+	`ideographic-{radical|strokes}@{ucs|cns}'; add
+	ideographic-structure.
+	(M-13507): Omit `ideographic-structure'.
+
+	* Ideograph-R136-Oppose.el (K0-743F): Unify KU+821B.
+
+	* Ideograph-R130-Meat.el (U+810A): Use `->denotational' instead of
+	`->subsumptive'.
+
+	* Ideograph-R094-Dog.el (U+3E8F): Use `->subsumptive' to separate
+	representative nodes.
+	(U-00024843): Likewise.
+	(U+734E): Use `->subsumptive'.
+
+	* Ideograph-R086-Fire.el (U+70B8): Use `->subsumptive'.
+
+	* Ideograph-R068-Dipper.el (U+3AB7): Add
+	`ideographic-{radical|strokes}@{ucs|cns}'; add
+	ideographic-structure.
+	(M-13507): Omit `ideographic-structure'.
+	(U+659B): Add ideographic-structure.
+	(JX1-752A): Unify AJ1-16881.
+	(mother of C6-495D): Unify G-IU+2307C.
+
+	* Ideograph-R008-Lid.el (g2-IU+20199): Unify G-IU+20199 and
+	G-CB00833.
+
 	* Ideograph-R201-Yellow.el (HD-FT2743): Add
 	`=decomposition@hanyo-denshi'.
 
