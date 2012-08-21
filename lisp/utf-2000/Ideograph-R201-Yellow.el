@@ -953,6 +953,11 @@
     (ideographic-radical . 201)	; ⿈
     (ideographic-strokes . 13)
     (total-strokes	 . 24)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x9ECC)	; 黌
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=ucs@unicode	. #x9ECC)	; &HD-FT-3B4B;
     (=gb12345		. #x5964)	; &HD-FT-3B4B; [57-68]
     (=hanyo-denshi/ft	. #x3B4B)	; &HD-FT-3B4B; [27-43]
