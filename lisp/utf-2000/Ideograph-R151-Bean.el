@@ -130,20 +130,25 @@
     (=daikanwa		. 36254)	; &I-M-36254;
     ))
 (define-char
-  '((total-strokes	 . 11)
+  '((ideographic-radical@ucs . 68)	; ⽃
+    (ideographic-strokes@ucs . 7)
+    (ideographic-radical@ucs*sources
+     daikanwa cbeta)
+    (ideographic-radical@cns . 151)	; ⾖
+    (ideographic-strokes@cns . 4)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8C46)	; 豆
+      )
+     ((=ucs		  . #x6597)	; 斗
+      ))
     (=ucs		. #x3AB7)	; 㪷
     (->subsumptive
      ((ideographic-radical . 68)	; ⽃
       (ideographic-strokes . 7)
-      (ideographic-radical*sources daikanwa cbeta ucs)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x8C46)	; 豆
-	)
-       ((=ucs		    . #x6597)	; 斗
-	))
       (=ucs@unicode	  . #x3AB7)	; &M-13507;
       (=daikanwa	  . 13507)	; &M-13507;
       (=cbeta		  . 00356)	; &I-CB00356;
