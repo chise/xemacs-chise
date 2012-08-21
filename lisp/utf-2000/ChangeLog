@@ -1,5 +1,62 @@
 2012-08-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R201-Yellow.el (HD-FT2743): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R098-Tile.el (J0-3424): Unify KU+74E6; move B-A5CB to
+	U+74E6.
+
+	* Ideograph-R075-Tree.el: Add some `=ucs@ks' code points.
+	(U+672F): Use `->subsumptive'.
+	(U-000233C2): Add ideographic-structure.
+	(g2-J90-3E3E): Omit `=>>>ucs@jis/1990', `=>>>ucs@jis/2000' and
+	`=>>>ucs@jis/2004'.
+	(U+67B0): Use `->denotational'.
+	(U+67BE): Use `->subsumptive'.
+	(A-M-14647): New abstract node.
+	(M-14647): Add `<-denotational' for A-M-14647.
+	(U-0002340E): Likewise; use `->subsumptive'.
+	(JX2-2E53): Unify S-1570; add `<-original' for J0-4660.
+	(J78-4072): Unify S2-3612'.
+	(J90-4072): Unify S2-3612.
+	(J90-393B): Use `=ucs@jis/1990', `=ucs@jis/2000' and
+	`=ucs@jis/2004' instead of `=ucs@jis' for JU+6821.
+	(U+3B6C): Add ideographic-structure.
+	(U+68B0): Use `->subsumptive'.
+	(U+68D9): Add ideographic-structure.
+	(C2-3C73): Add `<-same' for J0-3A2D.
+	(UU+68DE): Unify S-3633; add `<-formed' for J0-3A2D.
+	(Mother of JX1-756B): Unify o-JU+68E8, o-KU+68E8, o-CU+68E8 and
+	o-JX1-756B instead of G-JU+68E8 and G-CU+68E8.
+	(U+68EC): Use `->denotational'.
+	(U+68ED): Use `->denotational' and `->subsumptive'.
+	(U+6909): Use `->subsumptive'.
+	(J90-5C37): Use `=ucs@jis/1990', `=ucs@jis/2000' and
+	`=ucs@jis/2004' instead of `=ucs@jis' for JU+696B.
+	(J0-5C57): Unify S1-3777.
+	(J0-3F3A): Unify S1-3765.
+	(U+699C): Use `->denotational' to separate S2-3777.
+	(S2-3777): Unify S1-3776.
+	(U-000235B7): Use `->denotational' instead of `->subsumptive'; add
+	ideographic-structure.
+	(U+69C8): Add ideographic-structure.
+	(J0-4164): Unify S1-3767.
+	(J0-5C47): Unify S1-3742.
+	(U+69D2): Add ideographic-structure.
+	(U+6A1F): Use `->denotational' to separate S2-3792.
+	(S2-3792): Unify S1-3791.
+	(U+6A24): Add ideographic-structure.
+	(U+6A43): Use `->subsumptive'.
+	(U+6A5F): Use `->denotational' instead of `->subsumptive'.
+	(U+6A7D): Use `->denotational'.
+	(U+3BEA): Use `->subsumptive'.
+	(U+6AF2): Add ideographic-structure.
+	(U+6AF6): Use `->denotational' and `->subsumptive'.
+	(U+6AFD): Add ideographic-structure.
+	(U-00023869): Likewise.
+
+	* Ideograph-R030-Mouth.el (U+559A): Add ideographic-structure.
+
 	* Ideograph-R097-Melon.el (mother of C4-5B6D): Unify o-IU+24B1A.
 	(J0-6122): Unify KU+74E3.
 
