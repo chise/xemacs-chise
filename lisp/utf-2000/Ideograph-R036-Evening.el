@@ -346,8 +346,14 @@
     (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=>>>ucs@unicode	. #x591C)	; &g2-UU+591C;
+    (=>>ucs@unicode	. #x591C)	; &g2-J0-4C6B;
+    (=>>>ucs@unicode	. #x591C)	; &g2-J0-4C6B;
+    (=>>>jis-x0208	. #x4C6B)	; &g2-J0-4C6B; [44-75]
+    (=>>>jis-x0213-1	. #x4C6B)	; &g2-J0-4C6B; [44-75]
     (=big5		. #xA95D)	; &I-B-A95D;
+    (=>>>gt		. 07291)	; &g2-J0-4C6B;
+    (=>>gt-k		. 03842)	; &g2-J0-4C6B;
+    (=>>>adobe-japan1-0 . 03831)	; &g2-J0-4C6B;
     (->subsumptive
      ((=ucs@jis		  . #x591C)	; &AJ1-03831;
       (=jis-x0208	  . #x4C6B)	; &AJ1-03831; [44-75]
