@@ -147,8 +147,13 @@
     (ideographic-radical . 200)	; ⿇
     (ideographic-strokes . 3)
     (total-strokes	 . 14)
-    (=>>ucs@jis		. #x9EBC)	; &G-JU+9EBC;
-    (=>>ucs@cns		. #x9EBC)	; &G-JU+9EBC;
+    (=>>ucs@jis		. #x9EBC)	; &G-GT-65265;
+    (=>>ucs@cns		. #x9EBC)	; &G-GT-65265;
+    (=>>jis-x0208	. #x5677)	; &G-GT-65265; [54-87]
+    (=>>jis-x0213-1	. #x5677)	; &G-GT-65265; [54-87]
+    (=>>gt		. 65265)	; &G-GT-65265;
+    (=>>gt-k		. 11204)	; &G-GT-65265;
+    (=>>daikanwa	. 47892)	; &G-GT-65265;
     (->subsumptive
      ((=ucs@jis		  . #x9EBC)	; &GT-65265;
       (=jis-x0208	  . #x5677)	; &GT-65265; [54-87]
@@ -173,7 +178,12 @@
     (=>>>ucs@unicode	. #x9EBC)	; &G-HD-FT-3564;
     (=>>hanyo-denshi/ft . #x3564)	; &G-HD-FT-3564; [21-68]
     (->subsumptive
-     ((=hanyo-denshi/ft	  . #x3564)	; &HD-FT-3564; [21-68]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x9EBC)	; 麼
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/ft	  . #x3564)	; &HD-FT-3564; [21-68]
       )
      ((=ucs@unicode	  . #x9EBC)	; &UU+9EBC;
       ))
@@ -191,8 +201,10 @@
     (ideographic-radical . 200)	; ⿇
     (ideographic-strokes . 3)
     (total-strokes	 . 14)
-    (=>>ucs@jis		. #x9EBD)	; &G-JU+9EBD;
-    (=>>ucs@cns		. #x9EBD)	; &G-JU+9EBD;
+    (=>>ucs@jis		. #x9EBD)	; &G-JX2-7E59;
+    (=>>ucs@cns		. #x9EBD)	; &G-JX2-7E59;
+    (=>>jis-x0213-2	. #x7E59)	; &G-JX2-7E59; [94-57]
+    (=>>daikanwa	. 47893)	; &G-JX2-7E59;
     (->subsumptive
      ((=ucs@jis		  . #x9EBD)	; &JX2-7E59;
       (=jis-x0213-2	  . #x7E59)	; &JX2-7E59; [94-57]
