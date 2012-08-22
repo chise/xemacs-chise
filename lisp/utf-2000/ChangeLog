@@ -1,5 +1,7 @@
 2012-08-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R062-Halberd.el (U-0002F8B2): Unify HD-JT-B1CA.
+
 	* Ideograph-R036-Evening.el (g2-UU+591C): Unify G-UU+591C,
 	g2-J0-4C6B, g2-GT-07291, G-GT-K03842 and g2-AJ1-03831.
 
