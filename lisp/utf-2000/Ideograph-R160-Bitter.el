@@ -1036,6 +1036,7 @@
     (=ucs		. #x8FAF)	; 辯
     (->subsumptive
      ((=ucs@jis		  . #x8FAF)	; &GT-51615;
+      (=ucs@ks		  . #x8FAF)	; &GT-51615;
       (=jis-x0208	  . #x6D67)	; &GT-51615; [77-71]
       (=ks-x1001	  . #x5C2A)	; &I-K0-5C2A; [60-10]
       (=jis-x0213-1	  . #x6D67)	; &I-JX1-6D67; [77-71]
