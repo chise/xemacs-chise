@@ -333,6 +333,7 @@
     (=gt-pj-3		. #x5957)	; &I-GT-14567; [57-55]
     (=daikanwa		. 11544)	; &I-M-11544;
     (=jef-china3	. #x4EEF)	; &I-JC3-4EEF;
+    (=hanyo-denshi/jt	. #xB1CA)	; &I-HD-JT-B1CA;
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
