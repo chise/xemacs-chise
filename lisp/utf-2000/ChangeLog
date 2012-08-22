@@ -1,5 +1,18 @@
 2012-08-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R203-Black.el: Add Hanyo-Denshi/FT code points.
+	(U+4D62): Use `->subsumptive' to separate representative nodes.
+	(U+4D63): Likewise.
+	(U+9EDD): Use `->subsumptive'.
+
+	* Ideograph-R195-Fish.el (G-JX3-4B70): Unify G-J2004U+9C52,
+	G-J78-4B70, G-M-46492 and G-HD-HG1648.
+	(JX3-4B70): Unify HD-HG1648.
+	(G-JX1-4B70): Unify G-UU+9C52, G-J83-4B70 and G-J90-4B70.
+	(C2-6F65): Unify CU+9C52.
+
+	* Ideograph-R160-Bitter.el (J0-6D67): Unify KU+8FAF.
+
 	* Ideograph-R062-Halberd.el (U-0002F8B2): Unify HD-JT-B1CA.
 
 	* Ideograph-R036-Evening.el (g2-UU+591C): Unify G-UU+591C,
