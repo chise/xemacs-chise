@@ -1219,8 +1219,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x5973)	; &GT-07623;
-      (=jis-x0208	  . #x3D77)	; &GT-07623; [29-87]
+     ((=ucs@unicode	  . #x5973)	; &AJ1-02433;
+      (=jis-x0208	  . #x3D77)	; &AJ1-02433; [29-87]
       (=gb2312		  . #x452E)	; &I-G0-452E; [37-14]
       (=ks-x1001	  . #x5233)	; &I-K0-5233; [50-19]
       (=jis-x0213-1	  . #x3D77)	; &I-JX1-3D77; [29-87]
