@@ -66,6 +66,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
     (=ucs@jis		. #x8FB1)	; &GT-51624;
+    (=ucs@ks		. #x8FB1)	; &GT-51624;
     (=jis-x0208		. #x3F2B)	; &GT-51624; [31-11]
     (=ks-x1001		. #x6934)	; &I-K0-6934; [73-20]
     (=jis-x0213-1	. #x3F2B)	; &I-JX1-3F2B; [31-11]
@@ -81,6 +82,7 @@
     (ideographic-radical . 161)	; ⾠
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
+    (=>>ucs@unicode	. #x8FB1)	; &G-UU+8FB1;
     (->subsumptive
      ((=ucs@unicode	  . #x8FB1)	; &G0-4868;
       (=gb2312		  . #x4868)	; &G0-4868; [40-72]
