@@ -4442,6 +4442,7 @@
     (=daikanwa		. 41836)	; &I-M-41836;
     (<-simplified
      ((=ucs@jis		  . #x96B1)	; &GT-56268;
+      (=ucs@ks		  . #x96B1)	; &GT-56268;
       (=jis-x0208	  . #x702C)	; &GT-56268; [80-12]
       (=ks-x1001	  . #x6B5F)	; &I-K0-6B5F; [75-63]
       (=jis-x0213-1	  . #x702C)	; &I-JX1-702C; [80-12]
@@ -4476,6 +4477,7 @@
     (=shinjigen@1ed	.  8923)	; &GT-56168;
     (<-simplified@JP/Jouyou
      ((=ucs@jis		  . #x96B1)	; &GT-56268;
+      (=ucs@ks		  . #x96B1)	; &GT-56268;
       (=jis-x0208	  . #x702C)	; &GT-56268; [80-12]
       (=ks-x1001	  . #x6B5F)	; &I-K0-6B5F; [75-63]
       (=jis-x0213-1	  . #x702C)	; &I-JX1-702C; [80-12]
@@ -5392,6 +5394,7 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
     (=ucs@jis		. #x96B1)	; &GT-56268;
+    (=ucs@ks		. #x96B1)	; &GT-56268;
     (=jis-x0208		. #x702C)	; &GT-56268; [80-12]
     (=ks-x1001		. #x6B5F)	; &I-K0-6B5F; [75-63]
     (=jis-x0213-1	. #x702C)	; &I-JX1-702C; [80-12]
