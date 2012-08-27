@@ -1,4 +1,72 @@
+2012-08-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R053-Dotted-Cliff.el: Add Hanyo-Denshi/KS code points.
+	(U+5EBB): Use `->denotational' and `->subsumptive' to integrate
+	S2-4595 and S2-4596.
+
 2012-08-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R060-Step.el (M-10096): Unify U-000224E1 and H3-A4D0.
+	(U+5F8C): Use `->denotational' and `->subsumptive'; integrate
+	HD-KS114130.
+
+	* Ideograph-R057-Bow.el: Add Hanyo-Denshi/KS code points.
+	(M-09704): Add `<-unknown' for U-000223A1.
+	(U-000223A1): Add `ideographic-strokes' and `total-strokes'.
+
+	* Ideograph-R038-Woman.el: Add some Adobe-Japan1-0 code points.
+	(U+5981): Use `->denotational'.
+	(U+5988): Don't use `morohashi-daikanwa'; add `<-simplified@CN'
+	for J0-5540.
+	(U+36AD): Use `->subsumptive' to separate representative nodes.
+	(M-06137): Unify S-1679 and H3-D36F; add `<-same' and `<-formed'
+	for M-06381; add `<-original' and `->formed' for J0-5534.
+	(U+59E2): Use `->subsumptive'.
+	(JX2-2553): Unify S-1647; add `<-formed' for J0-342F.
+	(U+36C3): Use `->subsumptive' to separate representative nodes.
+	(U+36C4): Likewise.
+	(U+59E9): Likewise.
+	(JX2-2554): Unify S-1653.
+	(JSP-394D): Unify S-1699 and H3-D5F3; add `<-vulgar' for J0-4F2C.
+	(U+5A07): Don't use `morohashi-daikanwa'; add `<-simplified@CN'
+	for J0-5548.
+	(U+36CD): Use `->subsumptive' to separate representative nodes.
+	(U+36CE): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+5A09): Use `->subsumptive' to separate representative nodes.
+	(U+5A0A): Likewise.
+	(U+36DB): Likewise.
+	(U+36DC): Likewise.
+	(U+5A21): Likewise.
+	(JSP-3955): Unify S-1608; add `<-same' and `<-formed' for J0-5523.
+	(JX2-255C): Unify S-1746; add `<-formed' for J0-3472.
+	(M-06381): Unify CB07294; add `<-formed' for J0-5534.
+	(U-00021764): Use `->subsumptive'.
+	(JSP-3963): Unify S-1644, H3-D9D1 and CB09135; add `<-same',
+	`<-Zhouwen' and `<-formed' for J0-3079.
+	(U+5A75): Use `->subsumptive'; don't use `morohashi-daikanwa'.
+	(G0-663F): Add `<-simplified@CN' for G1-663F.
+	(M-06482): Unify S-1735; add `<-original' for J0-5544.
+	(H3-D96A): New character.
+	(U+5A91): Use `->subsumptive' to separate representative nodes.
+	(U+5AAA): Use `->subsumptive'.
+	(U-000217ED): Use `->subsumptive'.
+	(UU+5AF0): Unify S-1736 and H3-DBC6; add `<-vulgar' for J0-5544.
+	(U+5B0A): Use `->subsumptive' to separate representative nodes.
+	(U+5B0E): Likewise.
+
+	* Ideograph-R030-Mouth.el (U+5549): Unify S-2572; add `<-vulgar'
+	for U+60CF; add `->formed' for M-03807; add `->synonyms@s=covet'
+	for J0-553A.
+	(U-00020D42): Use `->subsumptive'.
+
+	* Ideograph-R009-Man.el (U+4F84): Unify S-1660; add
+	`<-vulgar@s=niece' for J0-4C45.
+	(U+3475): Add ideographic-structure.
+	(M-00949): Unify S-1721 and CB08689; add `<-original@s=envy' and
+	`->formed@s=envy' for J0-3C3B; add `->synonyms@s=illness' for
+	J0-3C40.
+	(U+3476): Unify ideographic-structure.
 
 	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
 	Add #x3865.
@@ -16,6 +84,8 @@
 	nodes.
 	(HD-KS127180): New character.
 	(M-11500): Map to U-00022960.
+
+	* Ideograph-R059-Bristle.el (M-09982): Unify HD-KS112900.
 
 2012-08-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
