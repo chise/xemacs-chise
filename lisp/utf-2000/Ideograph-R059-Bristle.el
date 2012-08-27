@@ -302,12 +302,15 @@
     (ideographic-radical . 59)	; ⼺
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=>ucs@iso		. #x2F899)	; &A-IU+2F899;
-    (=>>ucs@iso		. #x2F899)	; &A-IU+2F899;
-    (=>>daikanwa	. 09982)	; &A-IU+2F899;
+    (=>ucs@iso		. #x2F899)	; &G-HD-KS-1B904;
+    (=>>ucs@iso		. #x2F899)	; &G-HD-KS-1B904;
+    (=>>daikanwa	. 09982)	; &G-HD-KS-1B904;
+    (=>>hanyo-denshi/ks . 112900)	; &G-HD-KS-1B904;
     (->subsumptive
-     ((=daikanwa	  . 09982)	; &M-09982;
-      (=shinjigen	  .  2309)	; &M-09982;
+     ((=daikanwa	  . 09982)	; &HD-KS-112900;
+      (=shinjigen	  .  2309)	; &HD-KS-112900;
+      (=hanyo-denshi/ks	  . 112900)	; &HD-KS-112900;
+      (=hanyo-denshi/ks/mf . #x2C1A)	; &I-KSMF-11290;
       (<-original
        ((=ucs@unicode	    . #x5F62)	; &GT-12578;
 	(=jis-x0208	    . #x3741)	; &GT-12578; [23-33]
