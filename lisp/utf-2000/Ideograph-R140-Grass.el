@@ -4448,11 +4448,13 @@
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=cns11643-1	. #x5348)	; &GT-40087; [51-40]
+    (=cns11643-1	. #x5348)	; &HD-KS-344660; [51-40]
     (=gt		. 40087)	; &I-GT-40087;
     (=gt-k		. 05281)	; &I-GT-K05281;
     (=gt-pj-6		. #x483F)	; &I-GT-40087; [40-31]
     (=daikanwa		. 30790)	; &I-M-30790;
+    (=hanyo-denshi/ks	. 344660)	; &HD-KS-344660;
+    (=hanyo-denshi/ks/mf . #x86A2)	; &I-KSMF-34466;
     ))
 (define-char
   '((<-denotational
@@ -4469,6 +4471,21 @@
     (=gt		. 39889)	; &I-GT-39889;
     (=gt-k		. 03911)	; &I-GT-K03911;
     (=gt-pj-1		. #x6771)	; &I-GT-39889; [71-81]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x82DF)	; 苟
+      ))
+    (ideographic-radical . 140)	; ⾋
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x82DF)	; 苟
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=hanyo-denshi/ks	. 344440)	; &HD-KS-344440;
+    (=hanyo-denshi/ks/mf . #x868C)	; &HD-KS-344440;
     ))
 (define-char
   '((=>ucs		. #x82E0)	; 苠
@@ -6040,7 +6057,7 @@
     (->ancient*sources
      shuowen daikanwa)
     (->mistakable
-     ((=cns11643-1	  . #x5348)	; &GT-40087; [51-40]
+     ((=cns11643-1	  . #x5348)	; &HD-KS-344660; [51-40]
       (=daikanwa	  . 30790)	; &I-M-30790;
       ))
     (->mistakable*sources
