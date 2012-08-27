@@ -1,3 +1,22 @@
+2012-08-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x3865.
+
+	* Ideograph-R170-Mound.el (J0-702C): Unify KU+96B1.
+
+	* Ideograph-R140-Grass.el (C1-5348): Unify HD-KS344660.
+	(HD-KS344440): New character.
+
+	* Ideograph-R061-Heart.el: Add `=decomposition@hanyo-denshi' for
+	Hanyo-Denshi/JT characters.
+	(U+60C6): Use `->denotational'.
+	(U+60CF): Unify S-2570.
+	(U-000226D3): Use `->subsumptive' to separate representative
+	nodes.
+	(HD-KS127180): New character.
+	(M-11500): Map to U-00022960.
+
 2012-08-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R055-Two-Hands.el (HD-KS108410): Add
