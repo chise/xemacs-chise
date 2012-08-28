@@ -116,10 +116,11 @@
     (total-strokes	 . 7)
     (=ucs		. #x6588)	; 斈
     (->subsumptive
-     ((=ucs@jis		  . #x6588)	; &J90-555D;
-      (=jis-x0208	  . #x555D)	; &J90-555D; [53-61]
+     ((=ucs@jis		  . #x6588)	; &AJ1-04620;
+      (=jis-x0208	  . #x555D)	; &AJ1-04620; [53-61]
       (=jis-x0213-1	  . #x555D)	; &I-JX1-555D; [53-61]
       (=daikanwa	  . 13453)	; &I-M-13453;
+      (=adobe-japan1-0	  . 04620)	; &I-AJ1-04620;
       (<-vulgar
        ((=ucs		    . #x5B78)	; 學
 	(=daikanwa	    . 07033)	; &I-M-07033;
