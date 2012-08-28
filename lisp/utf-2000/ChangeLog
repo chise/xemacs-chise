@@ -1,5 +1,7 @@
 2012-08-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R067-Script.el (J0-555D): Unify AJ1-04620.
+
 	* Ideograph-R053-Dotted-Cliff.el: Add Hanyo-Denshi/KS code points.
 	(U+5EBB): Use `->denotational' and `->subsumptive' to integrate
 	S2-4595 and S2-4596.
