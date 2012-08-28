@@ -1,5 +1,12 @@
 2012-08-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R039-Child.el: Add some Adobe-Japan1-0 code points.
+	(U+5B52): Unify S-1771.
+	(U-00021941): New character.
+	(U+373D): Unify S-1774, H3-CE7E and CB07501; add `<-ancient' for
+	U+5B50.
+	(M-07001): Map to U-00021978; integrate H3-CFCA.
+
 	* Ideograph-R067-Script.el (J0-555D): Unify AJ1-04620.
 
 	* Ideograph-R053-Dotted-Cliff.el: Add Hanyo-Denshi/KS code points.
