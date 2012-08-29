@@ -875,7 +875,12 @@
        ((=ucs@cns	    . #x5F8C)	; &C1-5125;
 	(=cns11643-1	    . #x5125)	; &C1-5125; [49-05]
 	)
-       ((=hanyo-denshi/ks   . 114130)	; &HD-KS-114130;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x5F8C)	; 後
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(=hanyo-denshi/ks   . 114130)	; &HD-KS-114130;
 	(=hanyo-denshi/ks/mf . #x2C95)	; &HD-KS-114130;
 	))
       ))
