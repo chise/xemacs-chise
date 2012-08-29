@@ -307,7 +307,12 @@
     (=>>daikanwa	. 09982)	; &G-HD-KS-1B904;
     (=>>hanyo-denshi/ks . 112900)	; &G-HD-KS-1B904;
     (->subsumptive
-     ((=daikanwa	  . 09982)	; &HD-KS-112900;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5F62)	; 形
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=daikanwa	  . 09982)	; &HD-KS-112900;
       (=shinjigen	  .  2309)	; &HD-KS-112900;
       (=hanyo-denshi/ks	  . 112900)	; &HD-KS-112900;
       (=hanyo-denshi/ks/mf . #x2C1A)	; &I-KSMF-11290;
