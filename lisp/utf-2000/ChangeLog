@@ -1,3 +1,14 @@
+2012-08-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R060-Step.el (HD-KS114130): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R059-Bristle.el (HD-KS112900): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R053-Dotted-Cliff.el: Add
+	`=decomposition@hanyo-denshi' for some Hanyo-Denshi/KS characters.
+
 2012-08-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R039-Child.el: Add some Adobe-Japan1-0 code points.
