@@ -2591,7 +2591,12 @@
     (=>>>ucs@cns	. #x2F88D)	; &G-HD-KS-19F14;
     (=>>>hanyo-denshi/ks . 106260)	; &G-HD-KS-19F14;
     (->subsumptive
-     ((=hanyo-denshi/ks	  . 106260)	; &HD-KS-106260;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5EB6)	; 庶
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/ks	  . 106260)	; &HD-KS-106260;
       (=hanyo-denshi/ks/mf . #x2982)	; &HD-KS-106260;
       )
      ((=>ucs*		  . #x5EB6)	; 庶
@@ -3137,7 +3142,12 @@
     (=>>daikanwa	. 09400)	; &G-HD-KS-19F6E;
     (=>>>hanyo-denshi/ks . 106350)	; &G-HD-KS-19F6E;
     (->subsumptive
-     ((=daikanwa	  . 09400)	; &HD-KS-106350;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5EBF)	; 庿
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=daikanwa	  . 09400)	; &HD-KS-106350;
       (=hanyo-denshi/ks	  . 106350)	; &HD-KS-106350;
       (=hanyo-denshi/ks/mf . #x298B)	; &I-KSMF-10635;
       )
@@ -4214,6 +4224,11 @@
       )
      ((ideographic-strokes . 11)
       (total-strokes	   . 14)
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x5ED0)	; 廐
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
       (=hanyo-denshi/ks	  . 107150)	; &HD-KS-107150;
       (=hanyo-denshi/ks/mf . #x29DB)	; &HD-KS-107150;
       )
@@ -4662,6 +4677,11 @@
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5ED9)	; 廙
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=daikanwa		. 09478)	; &HD-KS-107200;
     (=hanyo-denshi/ks	. 107200)	; &HD-KS-107200;
     (=hanyo-denshi/ks/mf . #x29E0)	; &I-KSMF-10720;
