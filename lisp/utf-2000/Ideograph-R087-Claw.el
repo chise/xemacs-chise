@@ -410,9 +410,9 @@
     (total-strokes	 . 9)
     (=daikanwa		. 19667)	; &M-19667;
     (<-ancient
-     ((=ucs@jis		  . #x5B5A)	; &HD-JA-5555;
-      (=ucs@ks		  . #x5B5A)	; &HD-JA-5555;
-      (=jis-x0208	  . #x5555)	; &HD-JA-5555; [53-53]
+     ((=ucs@jis		  . #x5B5A)	; &AJ1-04612;
+      (=ucs@ks		  . #x5B5A)	; &AJ1-04612;
+      (=jis-x0208	  . #x5555)	; &AJ1-04612; [53-53]
       (=ks-x1001	  . #x5D21)	; &I-K0-5D21; [61-01]
       (=jis-x0213-1	  . #x5555)	; &I-JX1-5555; [53-53]
       (=daikanwa	  . 06948)	; &I-M-06948;
