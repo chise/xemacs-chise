@@ -13610,9 +13610,9 @@
     (<-synonyms*sources
      shuowen-tongxundingsheng shangshu shangshu-zhuan daikanwa)
     (->formed
-     ((=ucs@jis		  . #x5B6B)	; &GT-08784;
-      (=ucs@ks		  . #x5B6B)	; &GT-08784;
-      (=jis-x0208	  . #x4239)	; &GT-08784; [34-25]
+     ((=ucs@jis		  . #x5B6B)	; &AJ1-02841;
+      (=ucs@ks		  . #x5B6B)	; &AJ1-02841;
+      (=jis-x0208	  . #x4239)	; &AJ1-02841; [34-25]
       (=ks-x1001	  . #x615D)	; &I-K0-615D; [65-61]
       (=jis-x0213-1	  . #x4239)	; &I-JX1-4239; [34-25]
       (=daikanwa	  . 06987)	; &I-M-06987;
