@@ -116,13 +116,13 @@
      ((=daikanwa	  . 09225)	; &M-09225;
       (=shinjigen@1ed	  .  1810)	; &M-09225;
       (<-ancient
-       ((=ucs@jis	    . #x5B85)	; &GT-08889;
-	(=ucs@ks	    . #x5B85)	; &GT-08889;
-	(=jis-x0208	    . #x4270)	; &GT-08889; [34-80]
+       ((=ucs@jis	    . #x5B85)	; &AJ1-02896;
+	(=ucs@ks	    . #x5B85)	; &AJ1-02896;
+	(=jis-x0208	    . #x4270)	; &AJ1-02896; [34-80]
 	(=ks-x1001	    . #x536B)	; &I-K0-536B; [51-75]
 	(=jis-x0213-1	    . #x4270)	; &I-JX1-4270; [34-80]
 	(=daikanwa	    . 07064)	; &I-M-07064;
-	(=shinjigen	    .  1809)	; &GT-08889;
+	(=shinjigen	    .  1809)	; &AJ1-02896;
 	))
       (<-ancient*sources
        shinjigen@1ed)
