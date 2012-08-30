@@ -1659,8 +1659,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
 	(=ucs		    . #x2FF3)	; ⿳
 	)
-       ((=ucs@jis	    . #x5B80)	; &GT-08869;
-	(=jis-x0208	    . #x555F)	; &GT-08869; [53-63]
+       ((=ucs@jis	    . #x5B80)	; &AJ1-04622;
+	(=jis-x0208	    . #x555F)	; &AJ1-04622; [53-63]
 	(=jis-x0213-1	    . #x555F)	; &I-JX1-555F; [53-63]
 	(=daikanwa	    . 07054)	; &I-M-07054;
 	)
@@ -1681,8 +1681,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
 	(=ucs		    . #x2FF3)	; ⿳
 	)
-       ((=ucs@jis	    . #x5B80)	; &GT-08869;
-	(=jis-x0208	    . #x555F)	; &GT-08869; [53-63]
+       ((=ucs@jis	    . #x5B80)	; &AJ1-04622;
+	(=jis-x0208	    . #x555F)	; &AJ1-04622; [53-63]
 	(=jis-x0213-1	    . #x555F)	; &I-JX1-555F; [53-63]
 	(=daikanwa	    . 07054)	; &I-M-07054;
 	)
