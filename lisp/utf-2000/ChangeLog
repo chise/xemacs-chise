@@ -1,3 +1,8 @@
+2012-08-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (G-HD-KS014610): Add
+	ideographic-structure.
+
 2012-08-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R060-Step.el (HD-KS114130): Add
