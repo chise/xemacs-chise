@@ -197,9 +197,9 @@
     (=shinjigen		.  1871)	; &AJ1-02296;
     (=adobe-japan1-0	. 02296)	; &I-AJ1-02296;
     (<-simplified@JP/Jouyou
-     ((=ucs@jis		  . #x5BEB)	; &GT-09222;
-      (=ucs@ks		  . #x5BEB)	; &GT-09222;
-      (=jis-x0208	  . #x556D)	; &GT-09222; [53-77]
+     ((=ucs@jis		  . #x5BEB)	; &AJ1-04636;
+      (=ucs@ks		  . #x5BEB)	; &AJ1-04636;
+      (=jis-x0208	  . #x556D)	; &AJ1-04636; [53-77]
       (=ks-x1001	  . #x5E50)	; &I-K0-5E50; [62-48]
       (=jis-x0213-1	  . #x556D)	; &I-JX1-556D; [53-77]
       (=daikanwa	  . 07320)	; &I-M-07320;
@@ -1129,13 +1129,13 @@
     (=hanziku-1		. #xE4DC)	; &I-HZK01-E4DC;
     (=adobe-japan1-0	. 03532)	; &I-AJ1-03532;
     (<-vulgar
-     ((=ucs@jis		  . #x5BCC)	; &GT-09112;
-      (=ucs@ks		  . #x5BCC)	; &GT-09112;
-      (=jis-x0208	  . #x4959)	; &GT-09112; [41-57]
+     ((=ucs@jis		  . #x5BCC)	; &AJ1-03531;
+      (=ucs@ks		  . #x5BCC)	; &AJ1-03531;
+      (=jis-x0208	  . #x4959)	; &AJ1-03531; [41-57]
       (=ks-x1001	  . #x5D23)	; &I-K0-5D23; [61-03]
       (=jis-x0213-1	  . #x4959)	; &I-JX1-4959; [41-57]
       (=daikanwa	  . 07230)	; &I-M-07230;
-      (=shinjigen	  .  1852)	; &GT-09112;
+      (=shinjigen	  .  1852)	; &AJ1-03531;
       ))
     (<-vulgar*sources
      zhengzitong daikanwa shinjigen@1ed)
