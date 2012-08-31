@@ -1,3 +1,27 @@
+2012-08-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R063-Door.el (C3-2628): Unify HD-KS131910.
+
+	* Ideograph-R062-Halberd.el (mother of C1-7643): Unify G-UU+6233.
+	(U+6234): Use `->denotational' to separate representative nodes.
+	(M-11685): Unify HD-KS131690.
+
+	* Ideograph-R040-Roof.el: Add some Adobe-Japan1-0 code points.
+	(U-000219C8): Use `->denotational' to integrate U-0002F86C.
+	(JSP-3A4C): Unify S2-1817.
+	(G-C4-225B): New node to integrate S1-1817 and C4-225B.
+	(M-07196): Unify S-1847; add `<-ancient' for J0-3D49.
+	(U+375E): Use `->subsumptive' to separate representative nodes.
+	(U-00021A25): Use `->subsumptive'.
+	(M-07208): Unify S2-3172; add `<-vulgar' for J0-5564.
+	(S1-3172): New character.
+	(U+5BC7): Use `->denotational' to integrate S1-3171; use
+	`->subsumptive' to separate representative nodes.
+	(U-00021A46): Use `->subsumptive'.
+	(U+5BDD): Omit `<-simplified@ucs'.
+
+	* Ideograph-R014-Cover.el (S-1873): New character.
+
 2012-08-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (G-CU+5698): Add ideographic-structure.
