@@ -2357,6 +2357,7 @@
     (ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
+    (=>>ucs@unicode	. #x6233)	; &G-UU+6233;
     (->subsumptive
      ((=ucs@unicode	  . #x6233)	; &G0-3441;
       (=gb2312		  . #x3441)	; &G0-3441; [20-33]
@@ -2366,10 +2367,28 @@
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
-    (ideographic-strokes . 14)
-    (total-strokes	 . 17)
     (=ucs		. #x6234)	; 戴
-    (=jis-x0208		. #x4257)	; &I-J90-4257; [34-55]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6234)	; 戴
+      ))
+    (ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 14)
+    (total-strokes	 . 18)
+    (=daikanwa		. 11685)	; &HD-KS-131690;
+    (=hanyo-denshi/ks	. 131690)	; &HD-KS-131690;
+    (=hanyo-denshi/ks/mf . #x3371)	; &I-KSMF-13169;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6234)	; 戴
+      ))
+    (ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 13)
+    (total-strokes	 . 17)
+    (=ucs@unicode	. #x6234)	; &GT-14720;
+    (=jis-x0208		. #x4257)	; &GT-14720; [34-55]
     (=gb2312		. #x3477)	; &I-G0-3477; [20-87]
     (=ks-x1001		. #x5363)	; &I-K0-5363; [51-67]
     (=cns11643-1	. #x7362)	; &I-C1-7362; [83-66]
@@ -2377,7 +2396,6 @@
     (=big5		. #xC0B9)	; &I-B-C0B9;
     (=gt		. 14720)	; &I-GT-14720;
     (=gt-pj-1		. #x4257)	; &I-GT-14720; [34-55]
-    (=daikanwa		. 11685)	; &I-M-11685;
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
