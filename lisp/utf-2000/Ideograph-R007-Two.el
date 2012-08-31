@@ -72,11 +72,11 @@
     (hanyu-dazidian	1 2 3)
     (=ucs		. #x2011F)	; 𠄟
     (=cns11643-6	. #x2128)	; &I-C6-2128; [01-08]
+    (=big5-cdp		. #x8A76)	; &I-CDP-8A76;
     (=gt		. 00327)	; &I-GT-00327;
     (=gt-k		. 00155)	; &I-GT-K00155;
     (=gt-pj-2		. #x322D)	; &I-GT-00327; [18-13]
     (=daikanwa		. 00249)	; &I-M-00249;
-    (=big5-cdp		. #x8A76)	; &I-CDP-8A76;
     (<-ancient
      ((=ucs		  . #x4E0B)	; 下
       (=daikanwa	  . 00014)	; &I-M-00014;
@@ -179,10 +179,10 @@
       ))
     (=ucs		. #x4E90)	; 亐
     (=ks-x1001		. #x6A27)	; &I-K0-6A27; [74-07]
+    (=big5-cdp		. #x8A42)	; &I-CDP-8A42;
     (=gt		. 00333)	; &I-GT-00333;
     (=gt-pj-9		. #x4B26)	; &I-GT-00333; [43-06]
     (=shinjigen		.  0077)	; 亐
-    (=big5-cdp		. #x8A42)	; &I-CDP-8A42;
     (<-formed
      ((=ucs		  . #x4E8E)	; 于
       (=jis-x0208	  . #x5032)	; &I-J90-5032; [48-18]
@@ -210,11 +210,11 @@
     (=ucs		. #x4E8F)	; 亏
     (=gb2312		. #x3F77)	; &I-G0-3F77; [31-87]
     (=cns11643-3	. #x2131)	; &I-C3-2131; [01-17]
+    (=big5-cdp		. #x8CF1)	; &I-CDP-8CF1;
     (=gt		. 00332)	; &I-GT-00332;
     (=gt-pj-2		. #x3230)	; &I-GT-00332; [18-16]
     (=daikanwa		. 00253)	; &I-M-00253;
     (=shinjigen		.  0076)	; 亏
-    (=big5-cdp		. #x8CF1)	; &I-CDP-8CF1;
     (<-original
      ((=ucs		  . #x4E8E)	; 于
       (=jis-x0208	  . #x5032)	; &I-J90-5032; [48-18]
@@ -469,12 +469,12 @@
     (=cns11643-3	. #x2266)	; &I-C3-2266; [02-70]
     (=jis-x0213-1	. #x4F4B)	; &I-JX1-4F4B; [47-43]
     (=adobe-japan1-0	. 04081)	; &I-AJ1-04081;
+    (=big5-cdp		. #x8CEE)	; &I-CDP-8CEE;
     (=gt		. 00345)	; &I-GT-00345;
     (=gt-k		. 01711)	; &I-GT-K01711;
     (=gt-pj-1		. #x4F4B)	; &I-GT-00345; [47-43]
     (=daikanwa		. 00262)	; &I-M-00262;
     (=shinjigen		.  0083)	; 亘
-    (=big5-cdp		. #x8CEE)	; &I-CDP-8CEE;
     (=cbeta		. 00040)	; &I-CB00040;
     ))
 (define-char
@@ -794,12 +794,12 @@
     (=cns11643-3	. #x2442)	; &I-C3-2442; [04-34]
     (=jis-x0213-1	. #x3021)	; &I-JX1-3021; [16-01]
     (=adobe-japan1-0	. 01125)	; &I-AJ1-01125;
+    (=big5-cdp		. #x89B8)	; &I-CDP-89B8;
     (=gt		. 00350)	; &I-GT-00350;
     (=gt-k		. 02499)	; &I-GT-K02499;
     (=gt-pj-1		. #x3021)	; &I-GT-00350; [16-01]
     (=daikanwa		. 00272)	; &I-M-00272;
     (=shinjigen		.  0084)	; 亜
-    (=big5-cdp		. #x89B8)	; &I-CDP-89B8;
     (<-simplified@JP/Jouyou
      ((=ucs		  . #x4E9E)	; 亞
       (=jis-x0208	  . #x5033)	; &I-J90-5033; [48-19]
