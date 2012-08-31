@@ -215,11 +215,13 @@
     (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (=cns11643-3	. #x2628)	; &GT-14762; [06-08]
+    (=cns11643-3	. #x2628)	; &HD-KS-131910; [06-08]
     (=gt		. 14762)	; &I-GT-14762;
     (=gt-k		. 02657)	; &I-GT-K02657;
     (=gt-pj-3		. #x5B34)	; &I-GT-14762; [59-20]
     (=daikanwa		. 11707)	; &I-M-11707;
+    (=hanyo-denshi/ks	. 131910)	; &HD-KS-131910;
+    (=hanyo-denshi/ks/mf . #x3387)	; &I-KSMF-13191;
     (->mistakable
      ((=ucs@jis		  . #x623E)	; &JX1-7463;
       (=ks-x1001	  . #x5568)	; &JX1-7463; [53-72]
