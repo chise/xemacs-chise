@@ -1,5 +1,7 @@
 2012-08-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (G-CU+5698): Add ideographic-structure.
+
 	* Ideograph-R009-Man.el (G-HD-KS014610): Add
 	ideographic-structure.
 
