@@ -1,3 +1,13 @@
+2012-08-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (GT-K00105): Use `<-denotational' for
+	U-00020087; add `<-formed@component/surround-from-upper-left' for
+	U-00020087.
+	(U-00020094): Use `->subsumptive'.
+
+	* Ideograph-R003-Dot.el (U-0002007D): Use `->subsumptive' to
+	separate representative nodes.
+
 2012-08-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R063-Door.el (C3-2628): Unify HD-KS131910.
