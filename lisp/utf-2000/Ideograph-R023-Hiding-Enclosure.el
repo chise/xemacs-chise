@@ -352,10 +352,10 @@
       )
      ((=ucs		  . #x77E2)	; 矢
       ))
-    (=>>ucs@cns		. #x533B)	; &G-CDP-8CD3;
-    (=>>big5-cdp	. #x8CD3)	; &G-CDP-8CD3;
-    (=>>daikanwa	. 02680)	; &G-CDP-8CD3;
-    (=>>hanyo-denshi/ks . 030470)	; &G-CDP-8CD3;
+    (=>>ucs@cns		. #x533B)	; &G-HD-KS-7706;
+    (=>>big5-cdp	. #x8CD3)	; &G-HD-KS-7706;
+    (=>>daikanwa	. 02680)	; &G-HD-KS-7706;
+    (=>>hanyo-denshi/ks . 030470)	; &G-HD-KS-7706;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
