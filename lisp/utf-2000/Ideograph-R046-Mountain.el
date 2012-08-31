@@ -8464,12 +8464,12 @@
     (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=>>ucs@ks		. #x5D87)	; &G-J78-564F;
-    (=>>ucs@cns		. #x5D87)	; &G-J78-564F;
-    (=>>jis-x0208@1978	. #x564F)	; &G-J78-564F; [54-47]
-    (=>>jis-x0208@1983	. #x564F)	; &G-J78-564F; [54-47]
-    (=>>daikanwa	. 08426)	; &G-J78-564F;
-    (=>>hanyo-denshi/ks . 095530)	; &G-J78-564F;
+    (=>>ucs@ks		. #x5D87)	; &G-HD-KS-1752A;
+    (=>>ucs@cns		. #x5D87)	; &G-HD-KS-1752A;
+    (=>>jis-x0208@1978	. #x564F)	; &G-HD-KS-1752A; [54-47]
+    (=>>jis-x0208@1983	. #x564F)	; &G-HD-KS-1752A; [54-47]
+    (=>>daikanwa	. 08426)	; &G-HD-KS-1752A;
+    (=>>hanyo-denshi/ks . 095530)	; &G-HD-KS-1752A;
     (->subsumptive
      ((=ucs@ks		  . #x5D87)	; &M-08426;
       (=jis-x0208@1978	  . #x564F)	; &M-08426; [54-47]
