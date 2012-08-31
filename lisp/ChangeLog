@@ -1,3 +1,14 @@
+2012-08-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	Prefer `=>>hanyo-denshi/{ft|ia|ib|jt|ks}' to `=>>jis-x0208@1978',
+	`=>>big5-cdp', `=>>gt-k' and `=>>ruimoku-v6'; add `=>>cns11643-4'.
+
+	* mule/mule-conf.el (=>>cns11643-4): New coded-charset for XEmacs
+	CHISE.
+	(=>>>hanyo-denshi/ft): New coded-charset for XEmacs CHISE.
+	(=>>hanyo-denshi/ft): Use `=>>>hanyo-denshi/ft' as the mother.
+
 2012-07-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=>cns11643-2): New coded-charset for XEmacs
