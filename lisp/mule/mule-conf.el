@@ -637,6 +637,16 @@
 	      graphic 0))
 
   (make-charset
+   '=>>cns11643-4
+   "CNS 11643 Plane 4 abstract glyphs."
+   '(registry "CNS11643[.-]\\(.*[.-]\\)?4$"
+	      dimension 2
+	      chars 94
+	      mother =cns11643-4
+	      =>iso-ir 184
+	      graphic 0))
+
+  (make-charset
    '=>cns11643-2
    "CNS 11643 Plane 2 abstract characters."
    '(registry "CNS11643[.-]\\(.*[.-]\\)?2$"
@@ -2337,6 +2347,17 @@
 	       registry "HanyoDenshi\\.JC-0$"
 	       mother =hanyo-denshi/jc))
   (make-charset
+   '=>>>hanyo-denshi/ft
+   "Han'you-Denshi/FT abstract glyph-forms"
+   '(long-name "Han'you-Denshi/FT glyph-forms"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.FT-0$"
+	       mother =hanyo-denshi/ft))
+  (make-charset
    '=>>>hanyo-denshi/ib
    "Han'you-Denshi/IB abstract glyph-forms"
    '(long-name "Han'you-Denshi/IB glyph-forms"
@@ -2423,7 +2444,7 @@
 	       graphic 2
 	       direction l2r
 	       registry "HanyoDenshi\\.FT-0$"
-	       mother =hanyo-denshi/ft))
+	       mother =>>>hanyo-denshi/ft))
   (make-charset
    '=>>hanyo-denshi/ia
    "Han'you-Denshi/IA abstract glyphs"
