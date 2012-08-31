@@ -1214,9 +1214,9 @@
     (->subsumptive
      ((=daikanwa	  . 16662)	; &M-16662;
       (->formed@synonymous
-       ((=ucs@jis	    . #x5BB0)	; &GT-09005;
-	(=ucs@ks	    . #x5BB0)	; &GT-09005;
-	(=jis-x0208	    . #x3A4B)	; &GT-09005; [26-43]
+       ((=ucs@jis	    . #x5BB0)	; &AJ1-02107;
+	(=ucs@ks	    . #x5BB0)	; &AJ1-02107;
+	(=jis-x0208	    . #x3A4B)	; &AJ1-02107; [26-43]
 	(=ks-x1001	    . #x6E25)	; &I-K0-6E25; [78-05]
 	(=jis-x0213-1	    . #x3A4B)	; &I-JX1-3A4B; [26-43]
 	(=daikanwa	    . 07160)	; &I-M-07160;
