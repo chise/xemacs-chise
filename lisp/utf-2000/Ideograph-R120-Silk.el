@@ -5851,10 +5851,10 @@
     (ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
-    (=>>ucs@cns		. #x7D9F)	; &G-J78-6546;
-    (=>>jis-x0208@1978	. #x6546)	; &G-J78-6546; [69-38]
-    (=>>daikanwa	. 27540)	; &G-J78-6546;
-    (=>>hanyo-denshi/ft . #x336E)	; &G-J78-6546; [19-78]
+    (=>>ucs@cns		. #x7D9F)	; &G-HD-FT-336E;
+    (=>>jis-x0208@1978	. #x6546)	; &G-HD-FT-336E; [69-38]
+    (=>>daikanwa	. 27540)	; &G-HD-FT-336E;
+    (=>>hanyo-denshi/ft . #x336E)	; &G-HD-FT-336E; [19-78]
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x7D9F)	; 綟
