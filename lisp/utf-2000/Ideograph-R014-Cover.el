@@ -1377,6 +1377,33 @@
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=ucs		  . #x65E7)	; 旧
+      )
+     ((=big5-cdp	  . #x8C40)	; &CDP-8C40;
+      ))
+    (=shinjigen		.  1873)	; &SJG2-1873;
+    (<-vulgar
+     ((=ucs@jis		  . #x5BEB)	; &AJ1-04636;
+      (=ucs@ks		  . #x5BEB)	; &AJ1-04636;
+      (=jis-x0208	  . #x556D)	; &AJ1-04636; [53-77]
+      (=ks-x1001	  . #x5E50)	; &I-K0-5E50; [62-48]
+      (=jis-x0213-1	  . #x556D)	; &I-JX1-556D; [53-77]
+      (=daikanwa	  . 07320)	; &I-M-07320;
+      (=shinjigen	  .  1872)	; &AJ1-04636;
+      ))
+    (<-vulgar*sources
+     shinjigen)
+    ))
+(define-char
+  '((ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (hanyu-dazidian	1 306 4)
