@@ -899,9 +899,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x5B87)	; &GT-08881;
-	(=ucs@ks	    . #x5B87)	; &GT-08881;
-	(=jis-x0208	    . #x3127)	; &GT-08881; [17-07]
+       ((=ucs@jis	    . #x5B87)	; &AJ1-01225;
+	(=ucs@ks	    . #x5B87)	; &AJ1-01225;
+	(=jis-x0208	    . #x3127)	; &AJ1-01225; [17-07]
 	(=ks-x1001	    . #x6954)	; &I-K0-6954; [73-52]
 	(=jis-x0213-1	    . #x3127)	; &I-JX1-3127; [17-07]
 	(=daikanwa	    . 07067)	; &I-M-07067;
