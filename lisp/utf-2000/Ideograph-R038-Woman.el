@@ -10377,10 +10377,10 @@
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=>>ucs@ks		. #x5A9B)	; &G-J78-4932;
-    (=>>jis-x0208@1978	. #x4932)	; &G-J78-4932; [41-18]
-    (=>>daikanwa	. 06516)	; &G-J78-4932;
-    (=>>hanyo-denshi/ft . #x332B)	; &G-J78-4932; [19-11]
+    (=>>ucs@ks		. #x5A9B)	; &G-HD-FT-332B;
+    (=>>jis-x0208@1978	. #x4932)	; &G-HD-FT-332B; [41-18]
+    (=>>daikanwa	. 06516)	; &G-HD-FT-332B;
+    (=>>hanyo-denshi/ft . #x332B)	; &G-HD-FT-332B; [19-11]
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x5A9B)	; 媛
