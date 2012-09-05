@@ -1,3 +1,11 @@
+2012-09-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=>>>hanyo-denshi/jb): New coded-charset for
+	XEmacs CHISE.
+	(=>>>hanyo-denshi/hg): New coded-charset for XEmacs CHISE.
+	(=>>hanyo-denshi/jb): Use `=>>>hanyo-denshi/jb' as the mother.
+	(=>>hanyo-denshi/hg): Use `=>>>hanyo-denshi/hg' as the mother.
+
 2012-08-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list):
