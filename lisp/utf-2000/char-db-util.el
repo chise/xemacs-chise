@@ -138,8 +138,6 @@
     chinese-gb12345
     latin-viscii
     ethiopic-ucs
-    =big5-cdp
-    =gt
     =adobe-japan1-0
     =adobe-japan1-1
     =adobe-japan1-2
@@ -147,6 +145,7 @@
     =adobe-japan1-4
     =adobe-japan1-5
     =adobe-japan1-6
+    =big5-cdp
     =hanyo-denshi/ja
     =hanyo-denshi/jb
     =hanyo-denshi/jc
@@ -157,11 +156,12 @@
     =hanyo-denshi/hg
     =hanyo-denshi/jt
     =hanyo-denshi/ks
+    =gt
+    =gt-k
     =daikanwa
     =daikanwa@rev2
     =daikanwa@rev1
     =cbeta
-    =gt-k
     ideograph-hanziku-1
     ideograph-hanziku-2
     ideograph-hanziku-3
