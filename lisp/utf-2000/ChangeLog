@@ -1,3 +1,37 @@
+2012-09-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R022-Right-Open-Box.el (U+5329): Add `<-original' for
+	U+5321.
+	(U-00020946): Add `<-unknown' for U+5329; don't use
+	`morohashi-daikanwa'.
+	(U+532A): Add ideographic-structure.
+	(U+532F): Unify g2-J0-523B.
+	(G-JX2-234F): New node to separate and integrate representative
+	nodes.
+	(JX2-234F): Separate H1-B6A4.
+
+	* Ideograph-R018-Knife.el (G-UU+5203): Unify G-AJ1-13858,
+	G-HD-IB0302, G-GT-K00215 and G-M-01848.
+	(g2-J90-4A2C): Unify g2-AJ1-03580, g2-HD-JA4212 and g2-GT-02421.
+	(U-000206E0): Unify S-0672; add `<-formed' for JX2-233A.
+	(U+5220): Add ideographic-structure.
+	(G-J0-3774): Unify G-JX1-3774, G-AJ1-01866, G-GT-02528 and
+	GT-K03687.
+	(G-J0-396F): Unify G-JX1-396F, G-AJ1-02049, G-GT-02532,
+	G-GT-K03707 and G-M-01970.
+	(G-J0-3A6F): Add ideographic-structure; unify G-JX1-3A6F,
+	G-AJ1-02143, G-HD-JA2679, G-GT-02587 and G-GT-K05086.
+	(G-J0-516C): Unify G-JX1-516C, G-AJ1-04259, G-GT-02591, G-M-02024
+	and G-CB01772.
+	(G-J0-4B36): Add ideographic-structure; unify g2-UU+5256,
+	g2-J0-4B36, g2-AJ1-03684, g2-GT-02669, g2-GT-K06548 and
+	g2-M-02034.
+	(G-J0-517B): Unify G-JX1-517B, G-AJ1-04274 and G-GT-02690.
+	(G-IU+2F822): Unify A-IU+2F822.
+	(G-JU+5277): Unify G-JX2-233C, G-AJ1-17316, G-GT-02776, G-M-02143.
+	(G-JU+5280): Unify G-AJ1-21196.
+	(U+5296): Add ideographic-structure.
+
 2012-08-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R017-Open-Box.el (g2-UU+51FD): Unify g2-AJ1-20082.
