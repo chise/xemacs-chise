@@ -1180,6 +1180,17 @@
 	       registry "HanyoDenshi\\.JA-0$"
 	       mother =hanyo-denshi/ja))
   (make-charset
+   '=>>>hanyo-denshi/jb
+   "Han'you-Denshi/JB abstract glyph-forms"
+   '(long-name "Han'you-Denshi/JB glyph-forms"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JB-0$"
+	       mother =hanyo-denshi/jb))
+  (make-charset
    '=>>>hanyo-denshi/jc
    "Han'you-Denshi/JC abstract glyph-forms"
    '(long-name "Han'you-Denshi/JC glyph-forms"
@@ -1212,6 +1223,17 @@
 	       direction l2r
 	       registry "HanyoDenshi\\.IB-0$"
 	       mother =hanyo-denshi/ib))
+  (make-charset
+   '=>>>hanyo-denshi/hg
+   "Han'you-Denshi/HG abstract glyph-forms"
+   '(long-name "Han'you-Denshi/HG glyph-forms"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.HG-0$"
+	       mother =hanyo-denshi/hg))
   (make-charset
    '=>>>hanyo-denshi/jt
    "JT (Juuki Touitsu Moji) abstract glyph-forms"
@@ -1255,7 +1277,7 @@
 	       graphic 2
 	       direction l2r
 	       registry "HanyoDenshi\\.JB-0$"
-	       mother =hanyo-denshi/jb))
+	       mother =>>>hanyo-denshi/jb))
   (make-charset
    '=>>hanyo-denshi/jc
    "Han'you-Denshi/JC abstract glyphs"
@@ -1321,7 +1343,7 @@
 	       graphic 2
 	       direction l2r
 	       registry "HanyoDenshi\\.HG-0$"
-	       mother =hanyo-denshi/hg))
+	       mother =>>>hanyo-denshi/hg))
   (make-charset
    '=>>hanyo-denshi/jt
    "JT (Juuki Touitsu Moji) abstract glyphs"
