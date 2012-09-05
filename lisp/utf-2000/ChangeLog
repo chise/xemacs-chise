@@ -5,6 +5,11 @@
 	U-00020087.
 	(U-00020094): Use `->subsumptive'.
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Prefer
+	`=adobe-japan1-{0..6}' to `=big5-cdp' and `=gt'; prefer
+	`=hanyo-denshi/*' to `=gt'; prefer `=gt-k' to `=daikanwa',
+	`=daikanwa@rev2', `=daikanwa@rev1' and `=cbeta'.
+
 	* Ideograph-R003-Dot.el (U-0002007D): Use `->subsumptive' to
 	separate representative nodes.
 
