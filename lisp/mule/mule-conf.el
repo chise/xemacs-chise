@@ -665,6 +665,320 @@
 	      =>iso-ir 187
 	      graphic 0))
 
+  (make-charset '=big5-eten
+		"Big5 ETEN"
+		'(long-name	"Big5-ETEN"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	chinese-big5
+		  min-code	#x8140
+		  max-code	#xFEFE
+		  registry	"Big5\\.ETEN"))
+  (define-charset-alias 'chinese-big5-eten '=big5-eten)
+  (make-charset 'chinese-big5-eten-a
+		"Big5 ETEN (#xF9D6 .. #xF9FE)"
+		'(long-name	"Big5-ETEN-a"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	chinese-big5
+		  min-code	#xF9D6
+		  max-code	#xF9FE
+		  registry	"Big5\\.ETEN"))
+  (make-charset 'chinese-big5-eten-b
+		"Big5 ETEN (#xC6A1 .. #xC8FE)"
+		'(long-name	"Big5-ETEN-b"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	chinese-big5
+		  min-code	#xC6A1
+		  max-code	#xC8FE
+		  registry	"Big5\\.ETEN"))
+
+  (make-charset
+   '=adobe-japan1-base
+   "Adobe-Japan1 Character Collection for CID-Keyed Fonts"
+   `(long-name "Adobe-Japan1"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "AdobeJapan1-[0-6]$"
+	       min-code	,(lsh #x6300 16)
+	       max-code	,(+ (lsh #x6300 16) 23057)
+	       code-offset	,(lsh #x6300 16)))
+  (make-charset
+   '=adobe-japan1-0
+   "Adobe-Japan1-0 Character Collection for CID-Keyed Fonts"
+   '(long-name "Adobe-Japan1-0"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-base
+	       min-code 0
+	       max-code 8283
+	       registry "AdobeJapan1-0$"))
+  (make-charset
+   '=adobe-japan1-1
+   "Adobe-Japan1-1 Character Collection for CID-Keyed Fonts"
+   '(long-name "Adobe-Japan1-1"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-0
+	       min-code 0
+	       max-code 8358
+	       registry "AdobeJapan1-1$"))
+  (make-charset
+   '=adobe-japan1-2
+   "Adobe-Japan1-2 Character Collection for CID-Keyed Fonts"
+   '(long-name "Adobe-Japan1-2"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-1
+	       min-code 0
+	       max-code 8719
+	       registry "AdobeJapan1-2$"))
+  (make-charset
+   '=adobe-japan1-3
+   "Adobe-Japan1-3 Character Collection for CID-Keyed Fonts"
+   '(long-name "Adobe-Japan1-3"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-2
+	       min-code 0
+	       max-code 9353
+	       registry "AdobeJapan1-3$"))
+  (make-charset
+   '=adobe-japan1-4
+   "Adobe-Japan1-4 Character Collection for CID-Keyed Fonts"
+   '(long-name "Adobe-Japan1-4"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-3
+	       min-code 0
+	       max-code 15443
+	       registry "AdobeJapan1-4$"))
+  (make-charset
+   '=adobe-japan1-5
+   "Adobe-Japan1-5 Character Collection for CID-Keyed Fonts"
+   '(long-name "Adobe-Japan1-5"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-4
+	       min-code 0
+	       max-code 20316
+	       registry "AdobeJapan1-5$"))
+  (make-charset
+   '=adobe-japan1-6
+   "Adobe-Japan1-6 Character Collection for CID-Keyed Fonts"
+   '(long-name "Adobe-Japan1-6"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-5
+	       min-code 0
+	       max-code 23057
+	       registry "AdobeJapan1-6$"))
+  (define-charset-alias '=adobe-japan1 '=adobe-japan1-6)
+
+  (make-charset
+   '=>>>adobe-japan1-0
+   "Adobe-Japan1-0 abstract glyph-forms"
+   '(long-name "Adobe-Japan1-0 abstract glyph-forms"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-0
+	       registry "AdobeJapan1-0$"))
+  (make-charset
+   '=>>>adobe-japan1-1
+   "Adobe-Japan1-1 abstract glyph-forms"
+   '(long-name "Adobe-Japan1-1 abstract glyph-forms"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>>adobe-japan1-0
+	       registry "AdobeJapan1-1$"))
+  (make-charset
+   '=>>>adobe-japan1-2
+   "Adobe-Japan1-2 abstract glyph-forms"
+   '(long-name "Adobe-Japan1-2 abstract glyph-forms"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>>adobe-japan1-1
+	       registry "AdobeJapan1-2$"))
+  (make-charset
+   '=>>>adobe-japan1-3
+   "Adobe-Japan1-3 abstract glyph-forms"
+   '(long-name "Adobe-Japan1-3 abstract glyph-forms"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>>adobe-japan1-2
+	       registry "AdobeJapan1-3$"))
+  (make-charset
+   '=>>>adobe-japan1-4
+   "Adobe-Japan1-4 abstract glyph-forms"
+   '(long-name "Adobe-Japan1-4 abstract glyph-forms"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>>adobe-japan1-3
+	       registry "AdobeJapan1-4$"))
+  (make-charset
+   '=>>>adobe-japan1-5
+   "Adobe-Japan1-5 abstract glyph-forms"
+   '(long-name "Adobe-Japan1-5 abstract glyph-forms"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>>adobe-japan1-4
+	       registry "AdobeJapan1-5$"))
+  (make-charset
+   '=>>>adobe-japan1-6
+   "Adobe-Japan1-6 abstract glyph-forms"
+   '(long-name "Adobe-Japan1-6 abstract glyph-forms"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>>adobe-japan1-5
+	       registry "AdobeJapan1-6$"))
+  (define-charset-alias '=>>>adobe-japan1 '=>>>adobe-japan1-6)
+
+  (make-charset
+   '=>>adobe-japan1-0
+   "Adobe-Japan1-0 abstract glyphs"
+   '(long-name "Adobe-Japan1-0 abstract glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>>adobe-japan1
+	       registry "AdobeJapan1-0$"))
+  (make-charset
+   '=>>adobe-japan1-1
+   "Adobe-Japan1-1 abstract glyphs"
+   '(long-name "Adobe-Japan1-1 abstract glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>adobe-japan1-0
+	       registry "AdobeJapan1-1"))
+  (make-charset
+   '=>>adobe-japan1-2
+   "Adobe-Japan1-2 abstract glyphs"
+   '(long-name "Adobe-Japan1-2 abstract glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>adobe-japan1-1
+	       registry "AdobeJapan1-2"))
+  (make-charset
+   '=>>adobe-japan1-3
+   "Adobe-Japan1-3 abstract glyphs"
+   '(long-name "Adobe-Japan1-3 abstract glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>adobe-japan1-2
+	       registry "AdobeJapan1-3"))
+  (make-charset
+   '=>>adobe-japan1-4
+   "Adobe-Japan1-4 abstract glyphs"
+   '(long-name "Adobe-Japan1-4 abstract glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>adobe-japan1-3
+	       registry "AdobeJapan1-4"))
+  (make-charset
+   '=>>adobe-japan1-5
+   "Adobe-Japan1-5 abstract glyphs"
+   '(long-name "Adobe-Japan1-5 abstract glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>adobe-japan1-4
+	       registry "AdobeJapan1-5"))
+  (make-charset
+   '=>>adobe-japan1-6
+   "Adobe-Japan1-6 abstract glyphs"
+   '(long-name "Adobe-Japan1-6 abstract glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>adobe-japan1-5
+	       registry "AdobeJapan1-6"))
+  (define-charset-alias '=>>adobe-japan1 '=>>adobe-japan1-6)
+
+  (make-charset
+   '=+>adobe-japan1
+   "Adobe-Japan1 unified abstract glyphs"
+   '(long-name "Adobe-Japan1 unified abstract glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>adobe-japan1
+	       registry "AdobeJapan1-6$"))
+
   (make-charset '=big5-cdp
 		"Big5 with CDP extension"
 		'(long-name	"Big5-CDP"
@@ -700,6 +1014,335 @@
 		  direction	l2r
 		  registry	"big5\\.cdp-0"
 		  mother	=>>big5-cdp))
+
+  (make-charset
+   '=hanyo-denshi/ja
+   "JA (JIS X0208) part of Han'you-Denshi characters"
+   `(long-name "Han'you-Denshi/JA"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JA-0$"
+	       min-code	,(lsh #x6400 16)
+	       max-code	,(+ (lsh #x6400 16) (1- (* 94 94)))
+	       code-offset ,(lsh #x6400 16)))
+  (make-charset
+   '=hanyo-denshi/jb
+   "JB (JIS X0212) part of Han'you-Denshi characters"
+   `(long-name "Han'you-Denshi/JB"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JB-0$"
+	       min-code	   ,(+ (lsh #x6400 16) (* 94 94))
+	       max-code	   ,(+ (lsh #x6400 16) (1- (* 94 94 2)))
+	       code-offset ,(+ (lsh #x6400 16) (* 94 94))))
+  (make-charset
+   '=hanyo-denshi/jc
+   "JC (JIS X0213:2000 Plane 1) part of Han'you-Denshi characters"
+   `(long-name "Han'you-Denshi/JC"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JC-0$"
+	       min-code	   ,(+ (lsh #x6400 16) (* 94 94 2))
+	       max-code	   ,(+ (lsh #x6400 16) (1- (* 94 94 3)))
+	       code-offset ,(+ (lsh #x6400 16) (* 94 94 2))))
+  (make-charset
+   '=hanyo-denshi/jd
+   "JD (JIS X0213:2000 Plane 1) part of Han'you-Denshi characters"
+   `(long-name "Han'you-Denshi/JD"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JD-0$"
+	       min-code	   ,(+ (lsh #x6400 16) (* 94 94 3))
+	       max-code	   ,(+ (lsh #x6400 16) (1- (* 94 94 4)))
+	       code-offset ,(+ (lsh #x6400 16) (* 94 94 3))))
+  (make-charset
+   '=hanyo-denshi/ft
+   "FT (FDPC additional) part of Han'you-Denshi characters"
+   `(long-name "Han'you-Denshi/FT"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.FT-0$"
+	       min-code	   ,(+ (lsh #x6400 16) (* 94 94 4))
+	       max-code	   ,(+ (lsh #x6400 16) (1- (* 94 94 5)))
+	       code-offset ,(+ (lsh #x6400 16) (* 94 94 4))))
+  (make-charset
+   '=hanyo-denshi/ia
+   "IA part of Han'you-Denshi characters"
+   `(long-name "Han'you-Denshi/IA"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.IA-0$"
+	       min-code	   ,(+ (lsh #x6400 16) (* 94 94 5))
+	       max-code	   ,(+ (lsh #x6400 16) (1- (* 94 94 6)))
+	       code-offset ,(+ (lsh #x6400 16) (* 94 94 5))))
+  (make-charset
+   '=hanyo-denshi/ib
+   "IB part of Han'you-Denshi characters"
+   `(long-name "Han'you-Denshi/IB"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.IB-0$"
+	       min-code	   ,(+ (lsh #x6400 16) (* 94 94 6))
+	       max-code	   ,(+ (lsh #x6400 16) (1- (* 94 94 7)))
+	       code-offset ,(+ (lsh #x6400 16) (* 94 94 6))))
+  (make-charset
+   '=hanyo-denshi/hg
+   "HG (HyouGai Kanji) part of Han'you-Denshi characters"
+   `(long-name "Han'you-Denshi/HG"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.HG-0$"
+	       min-code	   ,(+ (lsh #x6400 16) (* 94 94 7))
+	       max-code	   ,(+ (lsh #x6400 16) (1- (* 94 94 8)))
+	       code-offset ,(+ (lsh #x6400 16) (* 94 94 7))))
+  (make-charset
+   '=hanyo-denshi/ip
+   "IP (for IPA) part of Han'you-Denshi characters"
+   `(long-name "Han'you-Denshi/IP"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.IP-0$"
+	       min-code	   ,(+ (lsh #x6402 16) #x4E00)
+	       max-code	   ,(+ (lsh #x6402 16) #x9FFF)
+	       code-offset ,(+ (lsh #x6402 16))))
+  (make-charset
+   '=hanyo-denshi/jt
+   "JT (Juuki Touitsu Moji) part of Han'you-Denshi characters"
+   `(long-name "Han'you-Denshi/JT"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JT-0$"
+	       min-code	   ,(+ (lsh #x6402 16) #xAC00)
+	       max-code	   ,(+ (lsh #x6402 16) #xD7AF)
+	       code-offset ,(+ (lsh #x6402 16))))
+  (make-charset
+   '=hanyo-denshi/ks
+   "KS (KoSeki) part of Han'you-Denshi characters"
+   `(long-name "Han'you-Denshi/KS font encoding"
+	       chars 256
+	       dimension 3
+	       columns 2
+	       graphic 2
+	       direction l2r))
+  (make-charset
+   '=hanyo-denshi/ks/mf
+   "font encoding for KS (KoSeki) characters"
+   `(long-name "Han'you-Denshi/KS font encoding"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.KSMF-0$"
+	       min-code	      ,(lsh #x6403 16)
+	       max-code	   ,(+ (lsh #x6403 16) #xFFFF)
+	       code-offset    ,(lsh #x6403 16)))
+
+  (make-charset
+   '=>>>hanyo-denshi/ja
+   "Han'you-Denshi/JA abstract glyph-forms"
+   '(long-name "Han'you-Denshi/JA glyph-forms"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JA-0$"
+	       mother =hanyo-denshi/ja))
+  (make-charset
+   '=>>>hanyo-denshi/jc
+   "Han'you-Denshi/JC abstract glyph-forms"
+   '(long-name "Han'you-Denshi/JC glyph-forms"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JC-0$"
+	       mother =hanyo-denshi/jc))
+  (make-charset
+   '=>>>hanyo-denshi/ft
+   "Han'you-Denshi/FT abstract glyph-forms"
+   '(long-name "Han'you-Denshi/FT glyph-forms"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.FT-0$"
+	       mother =hanyo-denshi/ft))
+  (make-charset
+   '=>>>hanyo-denshi/ib
+   "Han'you-Denshi/IB abstract glyph-forms"
+   '(long-name "Han'you-Denshi/IB glyph-forms"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.IB-0$"
+	       mother =hanyo-denshi/ib))
+  (make-charset
+   '=>>>hanyo-denshi/jt
+   "JT (Juuki Touitsu Moji) abstract glyph-forms"
+   '(long-name "Han'you-Denshi/JT glyph-forms"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JT-0$"
+	       mother =hanyo-denshi/jt))
+  (make-charset
+   '=>>>hanyo-denshi/ks
+   "KoSeki-touitsu-moji abstract glyph-forms"
+   '(long-name "Han'you-Denshi/KS glyph-forms"
+	       chars 256
+	       dimension 3
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =hanyo-denshi/ks))
+
+  (make-charset
+   '=>>hanyo-denshi/ja
+   "Han'you-Denshi/JA abstract glyphs"
+   '(long-name "Han'you-Denshi/JA glyphs"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JA-0$"
+	       mother =>>>hanyo-denshi/ja))
+  (make-charset
+   '=>>hanyo-denshi/jb
+   "Han'you-Denshi/JB abstract glyphs"
+   '(long-name "Han'you-Denshi/JB glyphs"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JB-0$"
+	       mother =hanyo-denshi/jb))
+  (make-charset
+   '=>>hanyo-denshi/jc
+   "Han'you-Denshi/JC abstract glyphs"
+   '(long-name "Han'you-Denshi/JC glyphs"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JC-0$"
+	       mother =>>>hanyo-denshi/jc))
+  (make-charset
+   '=>>hanyo-denshi/jd
+   "Han'you-Denshi/JD abstract glyphs"
+   '(long-name "Han'you-Denshi/JD glyphs"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JD-0$"
+	       mother =hanyo-denshi/jd))
+  (make-charset
+   '=>>hanyo-denshi/ft
+   "Han'you-Denshi/FT abstract glyphs"
+   '(long-name "Han'you-Denshi/FT glyphs"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.FT-0$"
+	       mother =>>>hanyo-denshi/ft))
+  (make-charset
+   '=>>hanyo-denshi/ia
+   "Han'you-Denshi/IA abstract glyphs"
+   '(long-name "Han'you-Denshi/IA glyphs"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.IA-0$"
+	       mother =hanyo-denshi/ia))
+  (make-charset
+   '=>>hanyo-denshi/ib
+   "Han'you-Denshi/IB abstract glyphs"
+   '(long-name "Han'you-Denshi/IB abstract glyphs"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.IB-0$"
+	       mother =>>>hanyo-denshi/ib))
+  (make-charset
+   '=>>hanyo-denshi/hg
+   "Han'you-Denshi/HG abstract glyphs"
+   '(long-name "Han'you-Denshi/HG abstract glyphs"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.HG-0$"
+	       mother =hanyo-denshi/hg))
+  (make-charset
+   '=>>hanyo-denshi/jt
+   "JT (Juuki Touitsu Moji) abstract glyphs"
+   '(long-name "Han'you-Denshi/JT glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JT-0$"
+	       mother =>>>hanyo-denshi/jt))
+  (make-charset
+   '=>>hanyo-denshi/ks
+   "Han'you-Denshi/KS abstract glyphs"
+   '(long-name "Han'you-Denshi/KS glyphs"
+	       chars 256
+	       dimension 3
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>>hanyo-denshi/ks))
 
   (make-charset '=gt
 		"GT 2000"
@@ -1010,43 +1653,6 @@
 		  mother	chinese-big5
 		  registry	"Big5\\.ETEN"))
   (define-charset-alias 'chinese-big5-pua '=big5-pua)
-  (make-charset '=big5-eten
-		"Big5 ETEN"
-		'(long-name	"Big5-ETEN"
-		  chars		256
-		  dimension	2
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	chinese-big5
-		  min-code	#x8140
-		  max-code	#xFEFE
-		  registry	"Big5\\.ETEN"))
-  (define-charset-alias 'chinese-big5-eten '=big5-eten)
-  (make-charset 'chinese-big5-eten-a
-		"Big5 ETEN (#xF9D6 .. #xF9FE)"
-		'(long-name	"Big5-ETEN-a"
-		  chars		256
-		  dimension	2
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	chinese-big5
-		  min-code	#xF9D6
-		  max-code	#xF9FE
-		  registry	"Big5\\.ETEN"))
-  (make-charset 'chinese-big5-eten-b
-		"Big5 ETEN (#xC6A1 .. #xC8FE)"
-		'(long-name	"Big5-ETEN-b"
-		  chars		256
-		  dimension	2
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	chinese-big5
-		  min-code	#xC6A1
-		  max-code	#xC8FE
-		  registry	"Big5\\.ETEN"))
 
   (let* ((i 1)
 	 (hzk-min (+ (lsh #x6200 16) 65536))
@@ -1894,611 +2500,6 @@
 	       mother =ucs@iso
 	       min-code #x20000 max-code #x2A6D6
 	       code-offset #x20000))
-
-  (make-charset
-   '=adobe-japan1-base
-   "Adobe-Japan1 Character Collection for CID-Keyed Fonts"
-   `(long-name "Adobe-Japan1"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "AdobeJapan1-[0-6]$"
-	       min-code	,(lsh #x6300 16)
-	       max-code	,(+ (lsh #x6300 16) 23057)
-	       code-offset	,(lsh #x6300 16)))
-  (make-charset
-   '=adobe-japan1-0
-   "Adobe-Japan1-0 Character Collection for CID-Keyed Fonts"
-   '(long-name "Adobe-Japan1-0"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =adobe-japan1-base
-	       min-code 0
-	       max-code 8283
-	       registry "AdobeJapan1-0$"))
-  (make-charset
-   '=adobe-japan1-1
-   "Adobe-Japan1-1 Character Collection for CID-Keyed Fonts"
-   '(long-name "Adobe-Japan1-1"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =adobe-japan1-0
-	       min-code 0
-	       max-code 8358
-	       registry "AdobeJapan1-1$"))
-  (make-charset
-   '=adobe-japan1-2
-   "Adobe-Japan1-2 Character Collection for CID-Keyed Fonts"
-   '(long-name "Adobe-Japan1-2"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =adobe-japan1-1
-	       min-code 0
-	       max-code 8719
-	       registry "AdobeJapan1-2$"))
-  (make-charset
-   '=adobe-japan1-3
-   "Adobe-Japan1-3 Character Collection for CID-Keyed Fonts"
-   '(long-name "Adobe-Japan1-3"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =adobe-japan1-2
-	       min-code 0
-	       max-code 9353
-	       registry "AdobeJapan1-3$"))
-  (make-charset
-   '=adobe-japan1-4
-   "Adobe-Japan1-4 Character Collection for CID-Keyed Fonts"
-   '(long-name "Adobe-Japan1-4"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =adobe-japan1-3
-	       min-code 0
-	       max-code 15443
-	       registry "AdobeJapan1-4$"))
-  (make-charset
-   '=adobe-japan1-5
-   "Adobe-Japan1-5 Character Collection for CID-Keyed Fonts"
-   '(long-name "Adobe-Japan1-5"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =adobe-japan1-4
-	       min-code 0
-	       max-code 20316
-	       registry "AdobeJapan1-5$"))
-  (make-charset
-   '=adobe-japan1-6
-   "Adobe-Japan1-6 Character Collection for CID-Keyed Fonts"
-   '(long-name "Adobe-Japan1-6"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =adobe-japan1-5
-	       min-code 0
-	       max-code 23057
-	       registry "AdobeJapan1-6$"))
-  (define-charset-alias '=adobe-japan1 '=adobe-japan1-6)
-
-  (make-charset
-   '=>>>adobe-japan1-0
-   "Adobe-Japan1-0 abstract glyph-forms"
-   '(long-name "Adobe-Japan1-0 abstract glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =adobe-japan1-0
-	       registry "AdobeJapan1-0$"))
-  (make-charset
-   '=>>>adobe-japan1-1
-   "Adobe-Japan1-1 abstract glyph-forms"
-   '(long-name "Adobe-Japan1-1 abstract glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>>adobe-japan1-0
-	       registry "AdobeJapan1-1$"))
-  (make-charset
-   '=>>>adobe-japan1-2
-   "Adobe-Japan1-2 abstract glyph-forms"
-   '(long-name "Adobe-Japan1-2 abstract glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>>adobe-japan1-1
-	       registry "AdobeJapan1-2$"))
-  (make-charset
-   '=>>>adobe-japan1-3
-   "Adobe-Japan1-3 abstract glyph-forms"
-   '(long-name "Adobe-Japan1-3 abstract glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>>adobe-japan1-2
-	       registry "AdobeJapan1-3$"))
-  (make-charset
-   '=>>>adobe-japan1-4
-   "Adobe-Japan1-4 abstract glyph-forms"
-   '(long-name "Adobe-Japan1-4 abstract glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>>adobe-japan1-3
-	       registry "AdobeJapan1-4$"))
-  (make-charset
-   '=>>>adobe-japan1-5
-   "Adobe-Japan1-5 abstract glyph-forms"
-   '(long-name "Adobe-Japan1-5 abstract glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>>adobe-japan1-4
-	       registry "AdobeJapan1-5$"))
-  (make-charset
-   '=>>>adobe-japan1-6
-   "Adobe-Japan1-6 abstract glyph-forms"
-   '(long-name "Adobe-Japan1-6 abstract glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>>adobe-japan1-5
-	       registry "AdobeJapan1-6$"))
-  (define-charset-alias '=>>>adobe-japan1 '=>>>adobe-japan1-6)
-
-  (make-charset
-   '=>>adobe-japan1-0
-   "Adobe-Japan1-0 abstract glyphs"
-   '(long-name "Adobe-Japan1-0 abstract glyphs"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>>adobe-japan1
-	       registry "AdobeJapan1-0$"))
-  (make-charset
-   '=>>adobe-japan1-1
-   "Adobe-Japan1-1 abstract glyphs"
-   '(long-name "Adobe-Japan1-1 abstract glyphs"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>adobe-japan1-0
-	       registry "AdobeJapan1-1"))
-  (make-charset
-   '=>>adobe-japan1-2
-   "Adobe-Japan1-2 abstract glyphs"
-   '(long-name "Adobe-Japan1-2 abstract glyphs"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>adobe-japan1-1
-	       registry "AdobeJapan1-2"))
-  (make-charset
-   '=>>adobe-japan1-3
-   "Adobe-Japan1-3 abstract glyphs"
-   '(long-name "Adobe-Japan1-3 abstract glyphs"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>adobe-japan1-2
-	       registry "AdobeJapan1-3"))
-  (make-charset
-   '=>>adobe-japan1-4
-   "Adobe-Japan1-4 abstract glyphs"
-   '(long-name "Adobe-Japan1-4 abstract glyphs"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>adobe-japan1-3
-	       registry "AdobeJapan1-4"))
-  (make-charset
-   '=>>adobe-japan1-5
-   "Adobe-Japan1-5 abstract glyphs"
-   '(long-name "Adobe-Japan1-5 abstract glyphs"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>adobe-japan1-4
-	       registry "AdobeJapan1-5"))
-  (make-charset
-   '=>>adobe-japan1-6
-   "Adobe-Japan1-6 abstract glyphs"
-   '(long-name "Adobe-Japan1-6 abstract glyphs"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>adobe-japan1-5
-	       registry "AdobeJapan1-6"))
-  (define-charset-alias '=>>adobe-japan1 '=>>adobe-japan1-6)
-
-  (make-charset
-   '=+>adobe-japan1
-   "Adobe-Japan1 unified abstract glyphs"
-   '(long-name "Adobe-Japan1 unified abstract glyphs"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>adobe-japan1
-	       registry "AdobeJapan1-6$"))
-
-  (make-charset
-   '=hanyo-denshi/ja
-   "JA (JIS X0208) part of Han'you-Denshi characters"
-   `(long-name "Han'you-Denshi/JA"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.JA-0$"
-	       min-code	,(lsh #x6400 16)
-	       max-code	,(+ (lsh #x6400 16) (1- (* 94 94)))
-	       code-offset ,(lsh #x6400 16)))
-  (make-charset
-   '=hanyo-denshi/jb
-   "JB (JIS X0212) part of Han'you-Denshi characters"
-   `(long-name "Han'you-Denshi/JB"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.JB-0$"
-	       min-code	   ,(+ (lsh #x6400 16) (* 94 94))
-	       max-code	   ,(+ (lsh #x6400 16) (1- (* 94 94 2)))
-	       code-offset ,(+ (lsh #x6400 16) (* 94 94))))
-  (make-charset
-   '=hanyo-denshi/jc
-   "JC (JIS X0213:2000 Plane 1) part of Han'you-Denshi characters"
-   `(long-name "Han'you-Denshi/JC"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.JC-0$"
-	       min-code	   ,(+ (lsh #x6400 16) (* 94 94 2))
-	       max-code	   ,(+ (lsh #x6400 16) (1- (* 94 94 3)))
-	       code-offset ,(+ (lsh #x6400 16) (* 94 94 2))))
-  (make-charset
-   '=hanyo-denshi/jd
-   "JD (JIS X0213:2000 Plane 1) part of Han'you-Denshi characters"
-   `(long-name "Han'you-Denshi/JD"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.JD-0$"
-	       min-code	   ,(+ (lsh #x6400 16) (* 94 94 3))
-	       max-code	   ,(+ (lsh #x6400 16) (1- (* 94 94 4)))
-	       code-offset ,(+ (lsh #x6400 16) (* 94 94 3))))
-  (make-charset
-   '=hanyo-denshi/ft
-   "FT (FDPC additional) part of Han'you-Denshi characters"
-   `(long-name "Han'you-Denshi/FT"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.FT-0$"
-	       min-code	   ,(+ (lsh #x6400 16) (* 94 94 4))
-	       max-code	   ,(+ (lsh #x6400 16) (1- (* 94 94 5)))
-	       code-offset ,(+ (lsh #x6400 16) (* 94 94 4))))
-  (make-charset
-   '=hanyo-denshi/ia
-   "IA part of Han'you-Denshi characters"
-   `(long-name "Han'you-Denshi/IA"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.IA-0$"
-	       min-code	   ,(+ (lsh #x6400 16) (* 94 94 5))
-	       max-code	   ,(+ (lsh #x6400 16) (1- (* 94 94 6)))
-	       code-offset ,(+ (lsh #x6400 16) (* 94 94 5))))
-  (make-charset
-   '=hanyo-denshi/ib
-   "IB part of Han'you-Denshi characters"
-   `(long-name "Han'you-Denshi/IB"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.IB-0$"
-	       min-code	   ,(+ (lsh #x6400 16) (* 94 94 6))
-	       max-code	   ,(+ (lsh #x6400 16) (1- (* 94 94 7)))
-	       code-offset ,(+ (lsh #x6400 16) (* 94 94 6))))
-  (make-charset
-   '=hanyo-denshi/hg
-   "HG (HyouGai Kanji) part of Han'you-Denshi characters"
-   `(long-name "Han'you-Denshi/HG"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.HG-0$"
-	       min-code	   ,(+ (lsh #x6400 16) (* 94 94 7))
-	       max-code	   ,(+ (lsh #x6400 16) (1- (* 94 94 8)))
-	       code-offset ,(+ (lsh #x6400 16) (* 94 94 7))))
-  (make-charset
-   '=hanyo-denshi/ip
-   "IP (for IPA) part of Han'you-Denshi characters"
-   `(long-name "Han'you-Denshi/IP"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.IP-0$"
-	       min-code	   ,(+ (lsh #x6402 16) #x4E00)
-	       max-code	   ,(+ (lsh #x6402 16) #x9FFF)
-	       code-offset ,(+ (lsh #x6402 16))))
-  (make-charset
-   '=hanyo-denshi/jt
-   "JT (Juuki Touitsu Moji) part of Han'you-Denshi characters"
-   `(long-name "Han'you-Denshi/JT"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.JT-0$"
-	       min-code	   ,(+ (lsh #x6402 16) #xAC00)
-	       max-code	   ,(+ (lsh #x6402 16) #xD7AF)
-	       code-offset ,(+ (lsh #x6402 16))))
-  (make-charset
-   '=hanyo-denshi/ks
-   "KS (KoSeki) part of Han'you-Denshi characters"
-   `(long-name "Han'you-Denshi/KS font encoding"
-	       chars 256
-	       dimension 3
-	       columns 2
-	       graphic 2
-	       direction l2r))
-  (make-charset
-   '=hanyo-denshi/ks/mf
-   "font encoding for KS (KoSeki) characters"
-   `(long-name "Han'you-Denshi/KS font encoding"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.KSMF-0$"
-	       min-code	      ,(lsh #x6403 16)
-	       max-code	   ,(+ (lsh #x6403 16) #xFFFF)
-	       code-offset    ,(lsh #x6403 16)))
-
-  (make-charset
-   '=>>>hanyo-denshi/ja
-   "Han'you-Denshi/JA abstract glyph-forms"
-   '(long-name "Han'you-Denshi/JA glyph-forms"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.JA-0$"
-	       mother =hanyo-denshi/ja))
-  (make-charset
-   '=>>>hanyo-denshi/jc
-   "Han'you-Denshi/JC abstract glyph-forms"
-   '(long-name "Han'you-Denshi/JC glyph-forms"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.JC-0$"
-	       mother =hanyo-denshi/jc))
-  (make-charset
-   '=>>>hanyo-denshi/ft
-   "Han'you-Denshi/FT abstract glyph-forms"
-   '(long-name "Han'you-Denshi/FT glyph-forms"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.FT-0$"
-	       mother =hanyo-denshi/ft))
-  (make-charset
-   '=>>>hanyo-denshi/ib
-   "Han'you-Denshi/IB abstract glyph-forms"
-   '(long-name "Han'you-Denshi/IB glyph-forms"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.IB-0$"
-	       mother =hanyo-denshi/ib))
-  (make-charset
-   '=>>>hanyo-denshi/jt
-   "JT (Juuki Touitsu Moji) abstract glyph-forms"
-   '(long-name "Han'you-Denshi/JT glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.JT-0$"
-	       mother =hanyo-denshi/jt))
-  (make-charset
-   '=>>>hanyo-denshi/ks
-   "KoSeki-touitsu-moji abstract glyph-forms"
-   '(long-name "Han'you-Denshi/KS glyph-forms"
-	       chars 256
-	       dimension 3
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =hanyo-denshi/ks))
-
-  (make-charset
-   '=>>hanyo-denshi/ja
-   "Han'you-Denshi/JA abstract glyphs"
-   '(long-name "Han'you-Denshi/JA glyphs"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.JA-0$"
-	       mother =>>>hanyo-denshi/ja))
-  (make-charset
-   '=>>hanyo-denshi/jb
-   "Han'you-Denshi/JB abstract glyphs"
-   '(long-name "Han'you-Denshi/JB glyphs"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.JB-0$"
-	       mother =hanyo-denshi/jb))
-  (make-charset
-   '=>>hanyo-denshi/jc
-   "Han'you-Denshi/JC abstract glyphs"
-   '(long-name "Han'you-Denshi/JC glyphs"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.JC-0$"
-	       mother =>>>hanyo-denshi/jc))
-  (make-charset
-   '=>>hanyo-denshi/jd
-   "Han'you-Denshi/JD abstract glyphs"
-   '(long-name "Han'you-Denshi/JD glyphs"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.JD-0$"
-	       mother =hanyo-denshi/jd))
-  (make-charset
-   '=>>hanyo-denshi/ft
-   "Han'you-Denshi/FT abstract glyphs"
-   '(long-name "Han'you-Denshi/FT glyphs"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.FT-0$"
-	       mother =>>>hanyo-denshi/ft))
-  (make-charset
-   '=>>hanyo-denshi/ia
-   "Han'you-Denshi/IA abstract glyphs"
-   '(long-name "Han'you-Denshi/IA glyphs"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.IA-0$"
-	       mother =hanyo-denshi/ia))
-  (make-charset
-   '=>>hanyo-denshi/ib
-   "Han'you-Denshi/IB abstract glyphs"
-   '(long-name "Han'you-Denshi/IB abstract glyphs"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.IB-0$"
-	       mother =>>>hanyo-denshi/ib))
-  (make-charset
-   '=>>hanyo-denshi/hg
-   "Han'you-Denshi/HG abstract glyphs"
-   '(long-name "Han'you-Denshi/HG abstract glyphs"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.HG-0$"
-	       mother =hanyo-denshi/hg))
-  (make-charset
-   '=>>hanyo-denshi/jt
-   "JT (Juuki Touitsu Moji) abstract glyphs"
-   '(long-name "Han'you-Denshi/JT glyphs"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.JT-0$"
-	       mother =>>>hanyo-denshi/jt))
-  (make-charset
-   '=>>hanyo-denshi/ks
-   "Han'you-Denshi/KS abstract glyphs"
-   '(long-name "Han'you-Denshi/KS glyphs"
-	       chars 256
-	       dimension 3
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>>hanyo-denshi/ks))
   )
 
 ;;; mule-conf.el ends here
