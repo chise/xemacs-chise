@@ -1,3 +1,12 @@
+2012-08-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer `chinese-cns11643-{1..7}', `=adobe-japan1-6', `=big5-cdp'
+	and `=hanyo-denshi/*' to `=gt-pj-{2..11}', `=gt-pj-k{1|2}', etc.
+
+	* mule/mule-conf.el: Modify order of definitions of some
+	coded-charsets.
+
 2012-08-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist):
