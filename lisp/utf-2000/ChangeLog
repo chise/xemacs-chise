@@ -1,5 +1,20 @@
 2012-09-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R025-Divination.el (U-00020061): Add
+	`ideographic-{radical|strokes}@{ucs|cns}'.
+	(M-00069): Omit `ideographic-radical*sources'.
+	(M-02775): Likewise.
+
+2012-09-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R023-Hiding-Enclosure.el (G-J0-3065): Unify
+	G-AJ1-01193 and G-HD-JA1669.
+	(G-AJ1-21232): New node to represent abstract
+	ideographic-structure.
+	(AJ1-21232): Use `<-subsumptive' for G-AJ1-21232.
+	(g2-JX2-2350): Add ideographic-structure; unify g2-HD-JB2021.
+	(JX2-2350): Omit `ideographic-structure'.
+
 	* Ideograph-R024-Ten.el (G-AJ1-14109): Unify G-IU+2F82C instead of
 	G-CU+2F82C; unify A-IU+2F82C.
 
@@ -102,6 +117,13 @@
 	(G-J0-5039): Unify g2-UU+4EB6, g2-J0-5039, g2-AJ1-04114,
 	g2-HD-JA4825, g2-GT-00433, G-GT-K10291 and G-M-00328.
 	(G-KU+4EB6): Unify G-HD-IB1322.
+
+	* Ideograph-R002-Line.el (G-JX2-2125): Unify g2-JX2-2125 and
+	g2-GT-00102 instead of G-JX2-2125 and G-GT-00102; unify g2-UU+4E29
+	and g2-AJ1-17237.
+	(U-00020061): Add `ideographic-{radical|strokes}@{ucs|cns}'.
+	(M-00069): Omit `ideographic-radical*sources'.
+	(M-02775): Likewise.
 
 	* Ideograph-R004-Slash.el (GT-K00105): Use `<-denotational' for
 	U-00020087; add `<-formed@component/surround-from-upper-left' for
