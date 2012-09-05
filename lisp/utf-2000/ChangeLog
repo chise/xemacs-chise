@@ -1,5 +1,50 @@
 2012-09-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R024-Ten.el (G-AJ1-14109): Unify G-IU+2F82C instead of
+	G-CU+2F82C; unify A-IU+2F82C.
+
+	* Ideograph-R019-Power.el (G-J0-5225): Unify G-JX1-5225,
+	G-AJ1-04282, G-HD-JA5005, G-GT-02996, G-GT-K03863, G-M-02330 and
+	G-CB00374.
+	(G-J0-332F): Unify G-JX1-332F, G-AJ1-01421, G-GT-02991 and
+	G-M-02342.
+	(G-JU+52C6): Unify G-AJ1-21210 and G-M-02359.
+	(G-J0-522D): Unify G-JX1-522D, G-AJ1-04290, G-HD-JA5013,
+	G-GT-03127, G-M-02418 and G-CB01744.
+	(G-UU+52E0): Unify G-HD-FT2092.
+	(G-UU+52EF): Unify G-M-02455.
+	(g2-UU+52EF): New node to integrate M-02455 and UU+52EF.
+	(G-UU+52F3): Unify G-J0-522E, G-AJ1-04291, G-HD-JA5014, G-GT-03168
+	and G-M-02465.
+
+	* Ideograph-R014-Cover.el (G-JX3-514D): Unify G-AJ1-07817 and
+	G-HD-HG1603.
+	(g2-JX3-514D): Unify g2-AJ1-07817 and g2-HD-HG1603.
+	(G-J90-514D): Unify G-AJ1-04228 and G-HD-JA4945.
+	(g2-J90-514D): Unify g2-AJ1-04228, g2-HD-JA4945 and g2-GT-02089.
+	(G-J0-3A47): Unify G-JX1-3A47, G-AJ1-02103, G-HD-JA2639 and
+	G-M-14301.
+
+	* Ideograph-R009-Man.el (G-J0-5040): Unify G-JX1-5040,
+	G-AJ1-04121, G-HD-JA4832 and G-M-00379.
+	(G-GT-00527): Unify g2-GT-00527 instead of G-GT-00527; unify
+	g2-AJ1-19146.
+	(G-UU+4F60): Unify G-JX1-2E2D, G-AJ1-14316, G-HD-JB1663,
+	G-GT-00641, G-GT-K03475 and G-M-00471.
+	(U+4F9A): Add `<-formed' for U+5F87.
+	(U+5016): Unify G-HD-JA2486.
+	(U-00020295): Use `->denotational'.
+	(G-GT-01113): Unify g2-GT-01113 instead of G-GT-01113; unify
+	g2-UU+5062 and g2-19157.
+	(G-HD-KS012180): Unify G-IU+2F809 instead of G-CU+2F809; unify
+	A-IU+2F809.
+	(G-J0-5128): Unify G-AJ1-04191, G-AJ1-20078 and G-HD-JA4908.
+	(g2-HD-JT-ADAD): Unify g2-AJ1-20078.
+	(G-J0-322F): Unify g2-UU+5104, g2-J0-322F, g2-HD-JA1815 and
+	g2-GT-01500; separate HD-JT-ADA5.
+	(U-00020425): Add ideographic-structure.
+	(C4-5A69): Add `ideographic-structure'.
+
 	* Ideograph-R022-Right-Open-Box.el (U+5329): Add `<-original' for
 	U+5321.
 	(U-00020946): Add `<-unknown' for U+5329; don't use
