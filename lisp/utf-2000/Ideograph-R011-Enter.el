@@ -17,12 +17,12 @@
       (=jis-x0208	  . #x467E)	; &AJ1-03286; [38-94]
       (=ks-x1001	  . #x6C7D)	; &I-K0-6C7D; [76-93]
       (=jis-x0213-1	  . #x467E)	; &I-JX1-467E; [38-94]
+      (=adobe-japan1-0	  . 03286)	; &I-AJ1-03286;
       (=gt		  . 01850)	; &I-GT-01850;
       (=gt-k		  . 00050)	; &I-GT-K00050;
       (=gt-pj-1		  . #x467E)	; &I-GT-01850; [38-94]
       (=daikanwa	  . 01415)	; &I-M-01415;
       (=shinjigen	  .  0480)	; &AJ1-03286;
-      (=adobe-japan1-0	  . 03286)	; &I-AJ1-03286;
       )
      ((=ucs@cns		  . #x5165)	; &C1-442B;
       (=cns11643-1	  . #x442B)	; &C1-442B; [36-11]
@@ -117,13 +117,13 @@
 	))
       (=ucs@jis		  . #x5166)	; &AJ1-21181;
       (=jis-x0212	  . #x326E)	; &AJ1-21181; [18-78]
+      (=adobe-japan1-6	  . 21181)	; &I-AJ1-21181;
       (=daikanwa	  . 01417)	; &I-M-01417;
       (=shinjigen@1ed	  .  0091)	; &AJ1-21181;
-      (=adobe-japan1-6	  . 21181)	; &I-AJ1-21181;
       (<-original
-       ((=daikanwa	    . 00287)	; &I-M-00287;
+       ((=adobe-japan1-4    . 14031)	; &AJ1-14031;
+	(=daikanwa	    . 00287)	; &I-M-00287;
 	(=shinjigen	    .  0090)	; &AJ1-14031;
-	(=adobe-japan1-4    . 14031)	; &I-AJ1-14031;
 	))
       (<-original*sources
        zhengzitong daikanwa shinjigen@1ed)
@@ -192,10 +192,10 @@
 	))
       (=ucs@JP		  . #x5167)	; &AJ1-13966;
       (=ks-x1001	  . #x522E)	; &AJ1-13966; [50-14]
+      (=adobe-japan1-4	  . 13966)	; &I-AJ1-13966;
       (=daikanwa	  . 01418)	; &I-M-01418;
       (=shinjigen	  .  0482)	; &AJ1-13966;
       (=jef-china3	  . #x43DE)	; &I-JC3-43DE;
-      (=adobe-japan1-4	  . 13966)	; &I-AJ1-13966;
       )
      ((hanyu-dazidian	  1 97 2)
       (=ucs@unicode	  . #x5167)	; &C1-4479;
@@ -484,11 +484,11 @@
       ))
     (=>>ucs@ks		. #x5168)	; &G-GT-01862;
     (=>>ucs@cns		. #x5168)	; &G-GT-01862;
+    (=>>adobe-japan1-4	. 13890)	; &G-GT-01862;
+    (=>>hanyo-denshi/jt . #xADC5)	; &G-GT-01862;
     (=>>gt		. 01862)	; &G-GT-01862;
     (=>>gt-k		. 01745)	; &G-GT-01862;
     (=>>daikanwa	. 01424)	; &G-GT-01862;
-    (=>>adobe-japan1-4	. 13890)	; &G-GT-01862;
-    (=>>hanyo-denshi/jt . #xADC5)	; &G-GT-01862;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5168)	; 全
@@ -514,14 +514,14 @@
 	))
       (=ucs@ks		  . #x5168)	; &AJ1-13890;
       (=ks-x1001	  . #x6E6F)	; &AJ1-13890; [78-79]
+      (=adobe-japan1-4	  . 13890)	; &I-AJ1-13890;
+      (=hanyo-denshi/jt	  . #xADC5)	; &I-HD-JT-ADC5;
       (=gt		  . 01862)	; &I-GT-01862;
       (=gt-k		  . 01745)	; &I-GT-K01745;
       (=gt-pj-2		  . #x3C3E)	; &I-GT-01862; [28-30]
       (=daikanwa	  . 01424)	; &I-M-01424;
       (=shinjigen	  .  4876)	; &AJ1-13890;
       (=jef-china3	  . #x43DF)	; &I-JC3-43DF;
-      (=adobe-japan1-4	  . 13890)	; &I-AJ1-13890;
-      (=hanyo-denshi/jt	  . #xADC5)	; &I-HD-JT-ADC5;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -568,12 +568,12 @@
     (=jis-x0208		. #x4134)	; &I-J90-4134; [33-20]
     (=gb2312		. #x482B)	; &I-G0-482B; [40-11]
     (=jis-x0213-1	. #x4134)	; &I-JX1-4134; [33-20]
+    (=adobe-japan1-0	. 02742)	; &I-AJ1-02742;
+    (=hanyo-denshi/ja	. #x4134)	; &I-HD-JA-4134; [33-20]
     (=gt		. 00565)	; &I-GT-00565;
     (=gt-k		. 01658)	; &I-GT-K01658;
     (=gt-pj-1		. #x4134)	; &I-GT-00565; [33-20]
     (=shinjigen		.  4875)	; 全
-    (=adobe-japan1-0	. 02742)	; &I-AJ1-02742;
-    (=hanyo-denshi/ja	. #x4134)	; &I-HD-JA-4134; [33-20]
     ))
 (define-char
   '((ideographic-radical . 11)	; ⼊
@@ -1212,12 +1212,12 @@
       (=jis-x0208	  . #x5140)	; &AJ1-04215; [49-32]
       (=ks-x1001	  . #x5557)	; &I-K0-5557; [53-55]
       (=jis-x0213-1	  . #x5140)	; &I-JX1-5140; [49-32]
+      (=adobe-japan1-0	  . 04215)	; &I-AJ1-04215;
       (=gt		  . 01871)	; &I-GT-01871;
       (=gt-k		  . 03859)	; &I-GT-K03859;
       (=gt-pj-1		  . #x5140)	; &I-GT-01871; [49-32]
       (=daikanwa	  . 01436)	; &I-M-01436;
       (=shinjigen	  .  0484)	; &AJ1-04215;
-      (=adobe-japan1-0	  . 04215)	; &I-AJ1-04215;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1267,12 +1267,12 @@
     (=jis-x0208		. #x5141)	; &AJ1-04216; [49-33]
     (=ks-x1001		. #x6A64)	; &I-K0-6A64; [74-68]
     (=jis-x0213-1	. #x5141)	; &I-JX1-5141; [49-33]
+    (=adobe-japan1-0	. 04216)	; &I-AJ1-04216;
     (=gt		. 01873)	; &I-GT-01873;
     (=gt-k		. 05209)	; &I-GT-K05209;
     (=gt-pj-1		. #x5141)	; &I-GT-01873; [49-33]
     (=daikanwa		. 01437)	; &I-M-01437;
     (=shinjigen		.  0487)	; &AJ1-04216;
-    (=adobe-japan1-0	. 04216)	; &I-AJ1-04216;
     ))
 (define-char
   '((<-denotational
