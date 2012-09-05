@@ -290,6 +290,26 @@ DESCRIPTION (string) is the description string of the charset."
           =ucs-bmp-cjk-compat@unicode
           japanese-jisx0208-1978
 	  =jis-x0212
+	  chinese-cns11643-1
+	  chinese-cns11643-2
+	  chinese-cns11643-3
+          chinese-cns11643-4
+	  chinese-cns11643-5
+	  chinese-cns11643-6
+	  chinese-cns11643-7
+	  =adobe-japan1-6
+	  =big5-cdp
+	  =hanyo-denshi/ja
+	  =hanyo-denshi/jb
+	  =hanyo-denshi/jc
+	  =hanyo-denshi/jd
+	  =hanyo-denshi/ft
+	  =hanyo-denshi/ia
+	  =hanyo-denshi/ib
+	  =hanyo-denshi/hg
+	  =hanyo-denshi/ip
+	  =hanyo-denshi/jt
+	  =hanyo-denshi/ks/mf
 	  =gt-pj-2
 	  =gt-pj-3
 	  =gt-pj-4
@@ -302,14 +322,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  =gt-pj-11
 	  =gt-pj-k1
 	  =gt-pj-k2
-	  chinese-cns11643-1
-	  chinese-cns11643-2
-	  chinese-cns11643-3
-          chinese-cns11643-4
-	  chinese-cns11643-5
-	  chinese-cns11643-6
-	  chinese-cns11643-7
-	  =big5-cdp
 	  chinese-big5-eten-a
 	  chinese-big5-eten-b
 	  chinese-big5
@@ -333,17 +345,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  =hanziku-10
 	  =hanziku-11
 	  =hanziku-12
-	  =hanyo-denshi/ja
-	  =hanyo-denshi/jb
-	  =hanyo-denshi/jc
-	  =hanyo-denshi/jd
-	  =hanyo-denshi/ft
-	  =hanyo-denshi/ia
-	  =hanyo-denshi/ib
-	  =hanyo-denshi/hg
-	  =hanyo-denshi/ip
-	  =hanyo-denshi/jt
-	  =hanyo-denshi/ks/mf
 	  =ucs-sip-ext-b@iso
 	  ideograph-daikanwa-2
 	  ideograph-daikanwa
@@ -378,7 +379,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>ucs-bmp-cjk@unicode
           =+>ucs-bmp-cjk@unicode
           ;; =>>ucs@unicode
-	  =adobe-japan1-6
 	  =adobe-japan1-base
 	  =>jis-x0208@1997
 	  =>>hanyo-denshi/ft
