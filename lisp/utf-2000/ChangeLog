@@ -1,5 +1,29 @@
 2012-08-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R017-Open-Box.el (g2-UU+51FD): Unify g2-AJ1-20082.
+
+	* Ideograph-R015-Ice.el (G-J90-3A63): Unify G-J78-3A63,
+	G-AJ1-02131, G-AJ1-13404, G-HD-JA2667 and G-CB06339.
+	(J78-3A63): Unify AJ1-13404.
+	(G-JX1-2E56): Unify G-AJ1-16794, G-HD-JC1454 and G-M-01666.
+	(G-UU+51CA): Unify G-HD-IB1442.
+	(g2-CU+51DB): Unify g2-J78-515B, g2-J83-515B and g2-AJ1-13522.
+	(g2-UU+51DB): Unify g2-J90-515B, g2-JX1-515B, g2-AJ1-04242 and
+	g2-GT-02257.
+
+	* Ideograph-R008-Lid.el (G-J0-4B34): Unify G-AJ1-03682,
+	G-HD-JA4320 and G-GT-K00201.
+	(mother of JX2-2132): Unify G-UU+342C, G-JX2-2132, G-AJ1-17246 and
+	G-M-00296.
+	(G-J0-4E3C): Unify G-CU+4EAE, g2-UU+4EAE, g2-CU+4EAE, g2-J0-4E3C,
+	g2-AJ1-03972, g2-HD-JA4628, g2-GT-00408, g2-GT-K05202 and
+	g2-M-00304.
+	(C1-4F69): Unify CU+4EAE.
+	(G-UU+4EAE): Unify g2-UU+4EAE and g2-HD-IB1321.
+	(G-J0-5039): Unify g2-UU+4EB6, g2-J0-5039, g2-AJ1-04114,
+	g2-HD-JA4825, g2-GT-00433, G-GT-K10291 and G-M-00328.
+	(G-KU+4EB6): Unify G-HD-IB1322.
+
 	* Ideograph-R004-Slash.el (GT-K00105): Use `<-denotational' for
 	U-00020087; add `<-formed@component/surround-from-upper-left' for
 	U-00020087.
