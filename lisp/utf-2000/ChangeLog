@@ -1,4 +1,13 @@
+2012-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R007-Two.el (G-J0-5034): Unify G-AJ1-04109,
+	G-JX1-5034, G-GT-K03851 and G-M-00279.
+
+	* Ideograph-R004-Slash.el (U+4E47): Add ideographic-structure.
+
 2012-09-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R026-Seal.el (g2-J0-3237): Unify g2-AJ1-01335.
 
 	* Ideograph-R025-Divination.el (U-00020061): Add
 	`ideographic-{radical|strokes}@{ucs|cns}'.
