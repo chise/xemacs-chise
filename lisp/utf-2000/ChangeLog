@@ -5,6 +5,26 @@
 	other abstract glyph-form CCSs; prefer `=>>adobe-japan1-*' to
 	other abstract glyph CCSs.
 
+	* Ideograph-R010-Legs.el (U-0002047B): Use `->subsumptive'.
+	(g2-UU+514D): Unify g2-HD-KS015850.
+	(U+515D): Add ideographic-structure.
+	(G-GT-01824): Unify g2-GT-01824 instead of G-GT-01824; unify
+	G-M-01397.
+	(G-IU+204A8): Add ideographic-structure.
+
+	* Ideograph-R008-Lid.el (G-GT-00389): Unify g2-KU+4EA4 and
+	g2-GT-00389 instead of G-KU+4EA4 and G-GT-00389; unify
+	g2-AJ1-13439, g2-J78-3872 and g2-J83-3872.
+	(G-GT-00390): Unify g2-GT-00390 instead of G-GT-00390; unify
+	g2-UU+4EA4, g2-AJ1-01958, g2-J90-3872, g2-JX1-3872 and
+	g2-HD-JA2482.
+	(G-J0-3067): Unify G-AJ1-01195, G-JX1-3067, G-HD-JA1671 and
+	G-GT-K01560.
+	(M-00333): Map to U-0002018B.
+	(U-0002018C): Add ideographic-structure.
+	(G-UU+4EB9): Unify g2-UU+4EB9, g2-AJ1-14309, g2-JX2-2134,
+	g2-HD-JB1634 and G-M-00342.
+
 	* Ideograph-R007-Two.el (G-J0-5034): Unify G-AJ1-04109,
 	G-JX1-5034, G-GT-K03851 and G-M-00279.
 
