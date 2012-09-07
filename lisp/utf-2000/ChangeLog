@@ -15,6 +15,14 @@
 	(g2-JX2-2350): Add ideographic-structure; unify g2-HD-JB2021.
 	(JX2-2350): Omit `ideographic-structure'.
 
+	* Ideograph-R010-Legs.el (G-HD-KS015560): Unify CU+5145 instead of
+	G-CU+FA74; unify A-UU+FA74 and G-UU+FA74.
+	(C1-4572): Unify CU+5145.
+	(G-J0-3D3C): Unify g2-UU+5145, g2-CU+2F80D, g2-J0-3D3C,
+	g2-AJ1-02374, g2-HD-JA2928, g2-GT-01746, g2-GT-K01638 and
+	G-M-01345.
+	(G-JX1-2E50): Unify G-AJ1-13389 and G-M-01358.
+
 	* Ideograph-R024-Ten.el (G-AJ1-14109): Unify G-IU+2F82C instead of
 	G-CU+2F82C; unify A-IU+2F82C.
 
