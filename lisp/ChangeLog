@@ -1,3 +1,12 @@
+2012-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	Prefer `=>>>adobe-japan1' to other abstract glyph-form CCSs;
+	prefer `=>>adobe-japan1' to other abstract glyph CCSs.
+
+	* mule/mule-conf.el: Define coded-charsets about Adobe-Japan1 at
+	the top.
+
 2012-09-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=>>>hanyo-denshi/jb): New coded-charset for
