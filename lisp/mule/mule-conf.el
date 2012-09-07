@@ -29,6 +29,282 @@
 (cond
  ((featurep 'utf-2000)
   (make-charset
+   '=adobe-japan1-base
+   "Adobe-Japan1 Character Collection for CID-Keyed Fonts"
+   `(long-name "Adobe-Japan1"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "AdobeJapan1-[0-6]$"
+	       min-code	,(lsh #x6300 16)
+	       max-code	,(+ (lsh #x6300 16) 23057)
+	       code-offset	,(lsh #x6300 16)))
+  (make-charset
+   '=adobe-japan1-0
+   "Adobe-Japan1-0 Character Collection for CID-Keyed Fonts"
+   '(long-name "Adobe-Japan1-0"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-base
+	       min-code 0
+	       max-code 8283
+	       registry "AdobeJapan1-0$"))
+  (make-charset
+   '=adobe-japan1-1
+   "Adobe-Japan1-1 Character Collection for CID-Keyed Fonts"
+   '(long-name "Adobe-Japan1-1"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-0
+	       min-code 0
+	       max-code 8358
+	       registry "AdobeJapan1-1$"))
+  (make-charset
+   '=adobe-japan1-2
+   "Adobe-Japan1-2 Character Collection for CID-Keyed Fonts"
+   '(long-name "Adobe-Japan1-2"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-1
+	       min-code 0
+	       max-code 8719
+	       registry "AdobeJapan1-2$"))
+  (make-charset
+   '=adobe-japan1-3
+   "Adobe-Japan1-3 Character Collection for CID-Keyed Fonts"
+   '(long-name "Adobe-Japan1-3"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-2
+	       min-code 0
+	       max-code 9353
+	       registry "AdobeJapan1-3$"))
+  (make-charset
+   '=adobe-japan1-4
+   "Adobe-Japan1-4 Character Collection for CID-Keyed Fonts"
+   '(long-name "Adobe-Japan1-4"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-3
+	       min-code 0
+	       max-code 15443
+	       registry "AdobeJapan1-4$"))
+  (make-charset
+   '=adobe-japan1-5
+   "Adobe-Japan1-5 Character Collection for CID-Keyed Fonts"
+   '(long-name "Adobe-Japan1-5"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-4
+	       min-code 0
+	       max-code 20316
+	       registry "AdobeJapan1-5$"))
+  (make-charset
+   '=adobe-japan1-6
+   "Adobe-Japan1-6 Character Collection for CID-Keyed Fonts"
+   '(long-name "Adobe-Japan1-6"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-5
+	       min-code 0
+	       max-code 23057
+	       registry "AdobeJapan1-6$"))
+  (define-charset-alias '=adobe-japan1 '=adobe-japan1-6)
+
+  (make-charset
+   '=>>>adobe-japan1-0
+   "Adobe-Japan1-0 abstract glyph-forms"
+   '(long-name "Adobe-Japan1-0 abstract glyph-forms"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =adobe-japan1-0
+	       registry "AdobeJapan1-0$"))
+  (make-charset
+   '=>>>adobe-japan1-1
+   "Adobe-Japan1-1 abstract glyph-forms"
+   '(long-name "Adobe-Japan1-1 abstract glyph-forms"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>>adobe-japan1-0
+	       registry "AdobeJapan1-1$"))
+  (make-charset
+   '=>>>adobe-japan1-2
+   "Adobe-Japan1-2 abstract glyph-forms"
+   '(long-name "Adobe-Japan1-2 abstract glyph-forms"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>>adobe-japan1-1
+	       registry "AdobeJapan1-2$"))
+  (make-charset
+   '=>>>adobe-japan1-3
+   "Adobe-Japan1-3 abstract glyph-forms"
+   '(long-name "Adobe-Japan1-3 abstract glyph-forms"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>>adobe-japan1-2
+	       registry "AdobeJapan1-3$"))
+  (make-charset
+   '=>>>adobe-japan1-4
+   "Adobe-Japan1-4 abstract glyph-forms"
+   '(long-name "Adobe-Japan1-4 abstract glyph-forms"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>>adobe-japan1-3
+	       registry "AdobeJapan1-4$"))
+  (make-charset
+   '=>>>adobe-japan1-5
+   "Adobe-Japan1-5 abstract glyph-forms"
+   '(long-name "Adobe-Japan1-5 abstract glyph-forms"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>>adobe-japan1-4
+	       registry "AdobeJapan1-5$"))
+  (make-charset
+   '=>>>adobe-japan1-6
+   "Adobe-Japan1-6 abstract glyph-forms"
+   '(long-name "Adobe-Japan1-6 abstract glyph-forms"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>>adobe-japan1-5
+	       registry "AdobeJapan1-6$"))
+  (define-charset-alias '=>>>adobe-japan1 '=>>>adobe-japan1-6)
+
+  (make-charset
+   '=>>adobe-japan1-0
+   "Adobe-Japan1-0 abstract glyphs"
+   '(long-name "Adobe-Japan1-0 abstract glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>>adobe-japan1
+	       registry "AdobeJapan1-0$"))
+  (make-charset
+   '=>>adobe-japan1-1
+   "Adobe-Japan1-1 abstract glyphs"
+   '(long-name "Adobe-Japan1-1 abstract glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>adobe-japan1-0
+	       registry "AdobeJapan1-1"))
+  (make-charset
+   '=>>adobe-japan1-2
+   "Adobe-Japan1-2 abstract glyphs"
+   '(long-name "Adobe-Japan1-2 abstract glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>adobe-japan1-1
+	       registry "AdobeJapan1-2"))
+  (make-charset
+   '=>>adobe-japan1-3
+   "Adobe-Japan1-3 abstract glyphs"
+   '(long-name "Adobe-Japan1-3 abstract glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>adobe-japan1-2
+	       registry "AdobeJapan1-3"))
+  (make-charset
+   '=>>adobe-japan1-4
+   "Adobe-Japan1-4 abstract glyphs"
+   '(long-name "Adobe-Japan1-4 abstract glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>adobe-japan1-3
+	       registry "AdobeJapan1-4"))
+  (make-charset
+   '=>>adobe-japan1-5
+   "Adobe-Japan1-5 abstract glyphs"
+   '(long-name "Adobe-Japan1-5 abstract glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>adobe-japan1-4
+	       registry "AdobeJapan1-5"))
+  (make-charset
+   '=>>adobe-japan1-6
+   "Adobe-Japan1-6 abstract glyphs"
+   '(long-name "Adobe-Japan1-6 abstract glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>adobe-japan1-5
+	       registry "AdobeJapan1-6"))
+  (define-charset-alias '=>>adobe-japan1 '=>>adobe-japan1-6)
+
+  (make-charset
+   '=+>adobe-japan1
+   "Adobe-Japan1 unified abstract glyphs"
+   '(long-name "Adobe-Japan1 unified abstract glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =>>adobe-japan1
+	       registry "AdobeJapan1-6$"))
+
+  (make-charset
    '=jis-x0208@1978
    "JIS X 0208:1978, unchanged part."
    '(registry "jisx0208\\.1978"
@@ -702,282 +978,6 @@
 		  min-code	#xC6A1
 		  max-code	#xC8FE
 		  registry	"Big5\\.ETEN"))
-
-  (make-charset
-   '=adobe-japan1-base
-   "Adobe-Japan1 Character Collection for CID-Keyed Fonts"
-   `(long-name "Adobe-Japan1"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "AdobeJapan1-[0-6]$"
-	       min-code	,(lsh #x6300 16)
-	       max-code	,(+ (lsh #x6300 16) 23057)
-	       code-offset	,(lsh #x6300 16)))
-  (make-charset
-   '=adobe-japan1-0
-   "Adobe-Japan1-0 Character Collection for CID-Keyed Fonts"
-   '(long-name "Adobe-Japan1-0"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =adobe-japan1-base
-	       min-code 0
-	       max-code 8283
-	       registry "AdobeJapan1-0$"))
-  (make-charset
-   '=adobe-japan1-1
-   "Adobe-Japan1-1 Character Collection for CID-Keyed Fonts"
-   '(long-name "Adobe-Japan1-1"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =adobe-japan1-0
-	       min-code 0
-	       max-code 8358
-	       registry "AdobeJapan1-1$"))
-  (make-charset
-   '=adobe-japan1-2
-   "Adobe-Japan1-2 Character Collection for CID-Keyed Fonts"
-   '(long-name "Adobe-Japan1-2"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =adobe-japan1-1
-	       min-code 0
-	       max-code 8719
-	       registry "AdobeJapan1-2$"))
-  (make-charset
-   '=adobe-japan1-3
-   "Adobe-Japan1-3 Character Collection for CID-Keyed Fonts"
-   '(long-name "Adobe-Japan1-3"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =adobe-japan1-2
-	       min-code 0
-	       max-code 9353
-	       registry "AdobeJapan1-3$"))
-  (make-charset
-   '=adobe-japan1-4
-   "Adobe-Japan1-4 Character Collection for CID-Keyed Fonts"
-   '(long-name "Adobe-Japan1-4"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =adobe-japan1-3
-	       min-code 0
-	       max-code 15443
-	       registry "AdobeJapan1-4$"))
-  (make-charset
-   '=adobe-japan1-5
-   "Adobe-Japan1-5 Character Collection for CID-Keyed Fonts"
-   '(long-name "Adobe-Japan1-5"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =adobe-japan1-4
-	       min-code 0
-	       max-code 20316
-	       registry "AdobeJapan1-5$"))
-  (make-charset
-   '=adobe-japan1-6
-   "Adobe-Japan1-6 Character Collection for CID-Keyed Fonts"
-   '(long-name "Adobe-Japan1-6"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =adobe-japan1-5
-	       min-code 0
-	       max-code 23057
-	       registry "AdobeJapan1-6$"))
-  (define-charset-alias '=adobe-japan1 '=adobe-japan1-6)
-
-  (make-charset
-   '=>>>adobe-japan1-0
-   "Adobe-Japan1-0 abstract glyph-forms"
-   '(long-name "Adobe-Japan1-0 abstract glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =adobe-japan1-0
-	       registry "AdobeJapan1-0$"))
-  (make-charset
-   '=>>>adobe-japan1-1
-   "Adobe-Japan1-1 abstract glyph-forms"
-   '(long-name "Adobe-Japan1-1 abstract glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>>adobe-japan1-0
-	       registry "AdobeJapan1-1$"))
-  (make-charset
-   '=>>>adobe-japan1-2
-   "Adobe-Japan1-2 abstract glyph-forms"
-   '(long-name "Adobe-Japan1-2 abstract glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>>adobe-japan1-1
-	       registry "AdobeJapan1-2$"))
-  (make-charset
-   '=>>>adobe-japan1-3
-   "Adobe-Japan1-3 abstract glyph-forms"
-   '(long-name "Adobe-Japan1-3 abstract glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>>adobe-japan1-2
-	       registry "AdobeJapan1-3$"))
-  (make-charset
-   '=>>>adobe-japan1-4
-   "Adobe-Japan1-4 abstract glyph-forms"
-   '(long-name "Adobe-Japan1-4 abstract glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>>adobe-japan1-3
-	       registry "AdobeJapan1-4$"))
-  (make-charset
-   '=>>>adobe-japan1-5
-   "Adobe-Japan1-5 abstract glyph-forms"
-   '(long-name "Adobe-Japan1-5 abstract glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>>adobe-japan1-4
-	       registry "AdobeJapan1-5$"))
-  (make-charset
-   '=>>>adobe-japan1-6
-   "Adobe-Japan1-6 abstract glyph-forms"
-   '(long-name "Adobe-Japan1-6 abstract glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>>adobe-japan1-5
-	       registry "AdobeJapan1-6$"))
-  (define-charset-alias '=>>>adobe-japan1 '=>>>adobe-japan1-6)
-
-  (make-charset
-   '=>>adobe-japan1-0
-   "Adobe-Japan1-0 abstract glyphs"
-   '(long-name "Adobe-Japan1-0 abstract glyphs"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>>adobe-japan1
-	       registry "AdobeJapan1-0$"))
-  (make-charset
-   '=>>adobe-japan1-1
-   "Adobe-Japan1-1 abstract glyphs"
-   '(long-name "Adobe-Japan1-1 abstract glyphs"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>adobe-japan1-0
-	       registry "AdobeJapan1-1"))
-  (make-charset
-   '=>>adobe-japan1-2
-   "Adobe-Japan1-2 abstract glyphs"
-   '(long-name "Adobe-Japan1-2 abstract glyphs"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>adobe-japan1-1
-	       registry "AdobeJapan1-2"))
-  (make-charset
-   '=>>adobe-japan1-3
-   "Adobe-Japan1-3 abstract glyphs"
-   '(long-name "Adobe-Japan1-3 abstract glyphs"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>adobe-japan1-2
-	       registry "AdobeJapan1-3"))
-  (make-charset
-   '=>>adobe-japan1-4
-   "Adobe-Japan1-4 abstract glyphs"
-   '(long-name "Adobe-Japan1-4 abstract glyphs"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>adobe-japan1-3
-	       registry "AdobeJapan1-4"))
-  (make-charset
-   '=>>adobe-japan1-5
-   "Adobe-Japan1-5 abstract glyphs"
-   '(long-name "Adobe-Japan1-5 abstract glyphs"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>adobe-japan1-4
-	       registry "AdobeJapan1-5"))
-  (make-charset
-   '=>>adobe-japan1-6
-   "Adobe-Japan1-6 abstract glyphs"
-   '(long-name "Adobe-Japan1-6 abstract glyphs"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>adobe-japan1-5
-	       registry "AdobeJapan1-6"))
-  (define-charset-alias '=>>adobe-japan1 '=>>adobe-japan1-6)
-
-  (make-charset
-   '=+>adobe-japan1
-   "Adobe-Japan1 unified abstract glyphs"
-   '(long-name "Adobe-Japan1 unified abstract glyphs"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>adobe-japan1
-	       registry "AdobeJapan1-6$"))
 
   (make-charset '=big5-cdp
 		"Big5 with CDP extension"
