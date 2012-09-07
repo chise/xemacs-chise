@@ -114,6 +114,13 @@
     cyrillic-iso8859-5
     greek-iso8859-7
     thai-tis620
+    =adobe-japan1-0
+    =adobe-japan1-1
+    =adobe-japan1-2
+    =adobe-japan1-3
+    =adobe-japan1-4
+    =adobe-japan1-5
+    =adobe-japan1-6
     =jis-x0208
     =jis-x0208@1978
     =jis-x0208@1983
@@ -138,13 +145,6 @@
     chinese-gb12345
     latin-viscii
     ethiopic-ucs
-    =adobe-japan1-0
-    =adobe-japan1-1
-    =adobe-japan1-2
-    =adobe-japan1-3
-    =adobe-japan1-4
-    =adobe-japan1-5
-    =adobe-japan1-6
     =big5-cdp
     =hanyo-denshi/ja
     =hanyo-denshi/jb
@@ -174,11 +174,24 @@
     ideograph-hanziku-10
     ideograph-hanziku-11
     ideograph-hanziku-12
+    =>>>adobe-japan1-0
+    =>>>adobe-japan1-1
+    =>>>adobe-japan1-2
+    =>>>adobe-japan1-3
+    =>>>adobe-japan1-4
+    =>>>adobe-japan1-5
+    =>>>adobe-japan1-6
     =>>>jis-x0208
     =>>>jis-x0213-1
     =>>>jis-x0213-2
     =>>>gt
-    =>>>adobe-japan1
+    =>>adobe-japan1-0
+    =>>adobe-japan1-1
+    =>>adobe-japan1-2
+    =>>adobe-japan1-3
+    =>>adobe-japan1-4
+    =>>adobe-japan1-5
+    =>>adobe-japan1-6
     =>>jis-x0208
     =>>jis-x0213-1
     =>>jis-x0213-1@2000
@@ -190,7 +203,6 @@
     =>>hanyo-denshi/ks
     =>>gt
     =>>daikanwa
-    =>>adobe-japan1
     =+>jis-x0208
     =+>jis-x0213-1
     =+>jis-x0213-2
@@ -257,6 +269,26 @@
 			 (setq char-spec (cons (cons 'name* ret) char-spec))
 			 ))
 		  )
+		 ((encode-char char '=adobe-japan1 'defined-only)
+		  (setq char-spec nil)
+		  (dolist (ccs (charset-list))
+		    (if (and (or (memq ccs
+				       '(=adobe-japan1-0
+					 =adobe-japan1-1
+					 =adobe-japan1-2
+					 =adobe-japan1-3
+					 =adobe-japan1-4
+					 =adobe-japan1-5
+					 =adobe-japan1-6
+					 ))
+                                 ;; (eq (charset-property ccs 'iso-ir) 177)
+				 (string-match "=ucs@" (symbol-name ccs))
+				 )
+			     (setq ccs (charset-name ccs))
+			     (null (assq ccs char-spec))
+			     (setq ret (encode-char char ccs 'defined-only)))
+			(setq char-spec (cons (cons ccs ret) char-spec))))
+		  )
 		 ((setq ret
 			(catch 'tag
 			  (let ((rest char-db-coded-charset-priority-list)
@@ -278,7 +310,9 @@
 					 ;; =gt-k
 					 =jis-x0208@1997
 					 ))
-				 (string-match "=ucs@" (symbol-name ccs)))
+                                 (eq (charset-property ccs 'iso-ir) 177)
+				 ;; (string-match "=ucs@" (symbol-name ccs))
+				 )
 			     (setq ccs (charset-name ccs))
 			     (null (assq ccs char-spec))
 			     (setq ret (encode-char char ccs 'defined-only)))
