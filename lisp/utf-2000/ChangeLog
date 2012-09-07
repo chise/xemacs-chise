@@ -1,7 +1,20 @@
 2012-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Prefer
+	`=adobe-japan1-*' to `=jis-x0208'; prefer `=>>>adobe-japan1-*' to
+	other abstract glyph-form CCSs; prefer `=>>adobe-japan1-*' to
+	other abstract glyph CCSs.
+
 	* Ideograph-R007-Two.el (G-J0-5034): Unify G-AJ1-04109,
 	G-JX1-5034, G-GT-K03851 and G-M-00279.
+
+	* chise-subr.el (charset-id-=adobe-japan1-0): New constant.
+	(charset-id-=adobe-japan1-6): New constant.
+	(charset-id-=>>>adobe-japan1-0): New constant.
+	(charset-id-=>>>adobe-japan1-6): New constant.
+	(charset-id-=>>adobe-japan1-0): New constant.
+	(charset-id-=>>adobe-japan1-6): New constant.
+	(char-attribute-name<): Prefer Adobe-Japan1 to non-UCS CCSs.
 
 	* Ideograph-R004-Slash.el (U+4E47): Add ideographic-structure.
 
