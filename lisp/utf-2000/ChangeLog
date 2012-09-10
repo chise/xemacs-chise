@@ -1,5 +1,10 @@
 2012-09-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R012-Eight.el (G-KU+517C): Unify G-AJ1-13748,
+	G-HD-IB0301 and G-M-01483.
+	(G-JU+517E): Unify G-AJ1-21182 and G-CB00042.
+	(G-UU+517E): Unify G-CB01005.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>>>hanyo-denshi/*'.
 
