@@ -184,6 +184,14 @@
     =>>>jis-x0208
     =>>>jis-x0213-1
     =>>>jis-x0213-2
+    =>>>hanyo-denshi/ja
+    =>>>hanyo-denshi/jb
+    =>>>hanyo-denshi/jc
+    =>>>hanyo-denshi/ft
+    =>>>hanyo-denshi/ib
+    =>>>hanyo-denshi/hg
+    =>>>hanyo-denshi/jt
+    =>>>hanyo-denshi/ks
     =>>>gt
     =>>adobe-japan1-0
     =>>adobe-japan1-1
