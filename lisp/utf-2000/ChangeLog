@@ -1,5 +1,17 @@
 2012-09-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R014-Cover.el (G-J0-514F): Unify G-AJ1-04230,
+	G-JX1-514F, G-HD-JA4947, G-HD-JT-ADF1, G-GT-02093, G-GT-K06576 and
+	G-M-01585.
+	(G-J90-514D): Unify G-GT-02089 and G-GT-K06575.
+	(G-J0-3A47): Unify G-GT-18101 and G-GT-K09052.
+
+	* Ideograph-R013-Down-Box.el (G-UU+5193): Unify g2-UU+5193,
+	g2-AJ1-04225, g2-AJ1-13521, g2-J0-514A, g2-HD-JA4942, g2-GT-02024
+	and G-GT-K06574.
+	(g2-KU+5195): Unify g2-AJ1-07816 and g2-J78-514B.
+	(G-J0-3A47): Unify G-GT-18101 and G-GT-K09052.
+
 	* Ideograph-R012-Eight.el (G-KU+517C): Unify G-AJ1-13748,
 	G-HD-IB0301 and G-M-01483.
 	(G-JU+517E): Unify G-AJ1-21182 and G-CB00042.
