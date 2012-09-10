@@ -1,5 +1,24 @@
 2012-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R009-Man.el (mother of G-J0-3A23): Unify A-M-00358
+	instead of U+4ECA.
+	(G-J0-3A23): Unify U+4ECA.
+	(AJ1-13780): Unify U-0002B746; use A-M-00358 instead of U+4ECA as
+	the mother.
+	(U-000201B5): Add ideographic-structure.
+	(U-000201BC): Add ideographic-structure.
+	(U-00020200): Add ideographic-structure.
+	(U+4FB4): Use `->denotational' instead of `->subsumptive'; add
+	ideographic-structure.
+	(U-0002023A): Add ideographic-structure.
+	(C1-5426): Unify CU+5025.
+	(U-000202F4): Add ideographic-structure.
+	(U-000203D3): Add ideographic-structure.
+	(U-000203EC): Add ideographic-structure.
+	(M-01226): Modify tree of `ideographic-structure'.
+	(C4-4F5F): Likewise.
+	(U-00020450): Add ideographic-structure.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Prefer
 	`=adobe-japan1-*' to `=jis-x0208'; prefer `=>>>adobe-japan1-*' to
 	other abstract glyph-form CCSs; prefer `=>>adobe-japan1-*' to
