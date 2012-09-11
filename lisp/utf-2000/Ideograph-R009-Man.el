@@ -20479,8 +20479,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=>>ucs@unicode	  . #x524D)	; &G-J0-4130;
-      (=>>jis-x0208	  . #x4130)	; &G-J0-4130; [33-16]
+     ((=>>ucs@unicode	  . #x524D)	; &G-AJ1-02738;
+      (=>>adobe-japan1-0  . 02738)	; &G-AJ1-02738;
       ))
     (=>>ucs@unicode	. #x5042)	; &G-HD-JT-AD83;
     (=>>hanyo-denshi/jt . #xAD83)	; &G-HD-JT-AD83;
