@@ -33220,7 +33220,7 @@
     (=+>ucs@jis		. #x50D9)	; &o-JX2-217B;
     (=+>ucs@cns		. #x50D9)	; &o-JX2-217B;
     (=+>jis-x0213-2	. #x217B)	; &o-JX2-217B; [01-91]
-    (=+>adobe-japan1-4	. #x3C30)	; &o-JX2-217B;
+    (=+>adobe-japan1-4	. 15408)	; &o-JX2-217B;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x50D9)	; 僙
@@ -40851,13 +40851,13 @@
     (total-strokes	 . 17)
     (=+>ucs@jis		. #x5123)	; &o-AJ1-21168;
     (=+>ucs@cns		. #x5123)	; &o-AJ1-21168;
-    (=+>adobe-japan1-6	. #x52B0)	; &o-AJ1-21168;
+    (=+>adobe-japan1-6	. 21168)	; &o-AJ1-21168;
     ))
 (define-char
   '((<-denotational
      ((=+>ucs@jis	  . #x5123)	; &o-AJ1-21168;
       (=+>ucs@cns	  . #x5123)	; &o-AJ1-21168;
-      (=+>adobe-japan1-6  . #x52B0)	; &o-AJ1-21168;
+      (=+>adobe-japan1-6  . 21168)	; &o-AJ1-21168;
       ))
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 15)
@@ -40890,7 +40890,7 @@
   '((<-denotational
      ((=+>ucs@jis	  . #x5123)	; &o-AJ1-21168;
       (=+>ucs@cns	  . #x5123)	; &o-AJ1-21168;
-      (=+>adobe-japan1-6  . #x52B0)	; &o-AJ1-21168;
+      (=+>adobe-japan1-6  . 21168)	; &o-AJ1-21168;
       ))
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 15)
