@@ -1,5 +1,22 @@
 2012-09-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R023-Hiding-Enclosure.el (G-IU+20976): Unify
+	G-GT-03445 and G-M-02688.
+
+	* Ideograph-R018-Knife.el (mother of AJ1-19183): Unify G-UU+5205
+	and G-AJ1-19183.
+	(U+5218): Add ideographic-structure.
+	(G-J0-4130): Unify G-AJ1-02738, G-JX1-4130, G-HD-JA3316,
+	G-GT-02595 and G-GT-K05125.
+	(G-J0-3E6A): Unify G-JX1-3E6A, G-GT-02701 and G-M-02107.
+	(o-J0-3364): Use `=+>adobe-japan1-0' instead of `=+>adobe-japan1'
+	for o-AJ1-01474.
+	(U-000202F4): Add ideographic-structure.
+	(G-J0-517A): Unify G-AJ1-04273, G-JX1-517A, G-HD-JA4990,
+	G-GT-02884 and G-M-02243.
+	(U-00020807): Use `=+>adobe-japan1-5' instead of `=+>adobe-japan1'
+	for o-AJ1-17319.
+
 	* char-db-util.el (char-db-insert-ccs-feature): Add settings for
 	`=+>adobe-japan1-{0..6}'; delete setting for `=+>adobe-japan1'.
 
