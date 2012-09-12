@@ -1,3 +1,14 @@
+2012-09-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (G-J0-524D): Unify G-AJ1-04322 and
+	G-HD-JA5045.
+	(G-JX3-3139): Unify G-AJ1-07964, G-AJ1-20271, G-HD-HG1614 and
+	G-GT-03811.
+	(g2-GT-03811): Unify g2-HD-KS034890.
+	(G-UU+53A9): Unify G-J90U+53A9, G-J2000U+53A9, G-AJ1-01243,
+	G-AJ1-13412, G-J83-3139, G-J90-3139, G-JX1-3139, G-HD-JA1725 and
+	G-GT-03790.
+
 2012-09-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R023-Hiding-Enclosure.el (G-IU+20976): Unify
