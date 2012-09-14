@@ -1,3 +1,10 @@
+2012-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el (U+56EE): Use `=+>adobe-japan1-0'
+	instead of `=+>adobe-japan1' for o-AJ1-04460; unify o-AJ1-20099.
+	(U+570D): Unify o-AJ1-04468 and o-AJ1-13528.
+	(G-J0-5423): Unify G-AJ1-04468, G-AJ1-13528 and G-HD-JA5203.
+
 2012-09-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (U+4EDD): Unify S-0976; add `<-formed' for
