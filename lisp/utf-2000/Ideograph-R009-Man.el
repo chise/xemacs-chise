@@ -1401,7 +1401,15 @@
     (=jis-x0213-1	. #x2138)	; &I-JX1-2138; [01-24]
     (=big5		. #xC969)	; &I-B-C969;
     (=daikanwa		. 00378)	; &I-M-00378;
+    (=shinjigen		.  0976)	; 仝
     (=jef-china3	. #x97CA)	; &I-JC3-97CA;
+    (<-formed
+     ((=ucs		  . #x540C)	; 同
+      (=jis-x0208	  . #x4631)	; &I-J90-4631; [38-17]
+      (=shinjigen	  .  0975)	; 同
+      ))
+    (<-formed*sources
+     shinjigen)
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
@@ -2214,7 +2222,9 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@jis		  . #x53CD)	; &AJ1-03411;
+     ((=ucs@cns		  . #x53CD)	; &AJ1-03411;
+      (=ucs@jis		  . #x53CD)	; &AJ1-03411;
+      (=ucs@ks		  . #x53CD)	; &AJ1-03411;
       (=adobe-japan1-0	  . 03411)	; &AJ1-03411;
       ))
     (=ucs@cns		. #x4EEE)	; &AJ1-01342;
