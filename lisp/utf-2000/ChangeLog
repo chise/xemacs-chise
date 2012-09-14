@@ -1,5 +1,20 @@
 2012-09-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (G-J0-483F): Unify G-JU+53CD, G-KU+53CD,
+	G-CU+53CD, G-AJ1-03411, G-GT-03956, G-GT-K00475 and G-M-03127.
+	(J0-483F): Unify CU+53CD.
+	(mother of UU+53CD): Unify G-UU+53CD and G-GT-K00476.
+	(G-KS036510): Unify A-IU+2F837 and G-IU+2F837 instead of
+	G-CU+2F837.
+	(g2-CU+2F837): Unify g2-IU+2F837 instead of g2-CU+2F837; unify
+	g2-KS036510.
+	(g2-J0-5257): Unify g2-HD-JA5055.
+	(G-J0-3A47): Unify G-AJ1-02103, G-JX1-3A47, G-HD-JA2639,
+	G-GT-18101, G-GT-K09052 and G-M-14301.
+
+	* Ideograph-R028-Private.el (G-KS035360): Unify G-BC-8B7E and
+	G-M-03058.
+
 	* Ideograph-R027-Cliff.el (G-J0-524D): Unify G-AJ1-04322 and
 	G-HD-JA5045.
 	(G-JX3-3139): Unify G-AJ1-07964, G-AJ1-20271, G-HD-HG1614 and
