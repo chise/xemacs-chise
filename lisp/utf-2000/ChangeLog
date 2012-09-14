@@ -1,5 +1,8 @@
 2012-09-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R009-Man.el (U+4EDD): Unify S-0976; add `<-formed' for
+	U+540C.
+
 	* Ideograph-R029-Again.el (G-J0-483F): Unify G-JU+53CD, G-KU+53CD,
 	G-CU+53CD, G-AJ1-03411, G-GT-03956, G-GT-K00475 and G-M-03127.
 	(J0-483F): Unify CU+53CD.
