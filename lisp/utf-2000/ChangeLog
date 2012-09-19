@@ -1,5 +1,52 @@
 2012-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R033-Scholar.el (U+58F7): Add `<-formed' for U+58FA.
+	(U-0002153D): Unify S-1535; add `<-vulgar' for U+58FD.
+
+	* Ideograph-R030-Mouth.el (G-AJ1-07692): Unify A-IU+2F83A and
+	G-IU+2F83A instead of G-CU+2F83A.
+	(U+541C): Add ideographic-structure; use `->denotational' instead
+	of `->subsumptive'.
+	(A-M-03342): New node to integrate U-00020BCF and S-0961.
+	(U-00020BCF): Add `<-denotational' for A-M-03342; add `<-original'
+	for U+5403.
+	(S-0961): New character; add `<-original' for U+5403.
+	(o-CU+5448): Use `=+>adobe-japan1-4' instead of `=+>adobe-japan1'
+	for o-AJ1-13942.
+	(U+544C): Add ideographic-structure.
+	(U+5465): Add ideographic-structure; use `->denotational' instead
+	of `->subsumptive'.
+	(U+5492): Add `<-vulgar' for U+546A.
+	(U+5485): Use `=+>adobe-japan1-6' instead of `=+>adobe-japan1' for
+	o-AJ1-21265.
+	(G-J0-527E): New node to integrate J0-527E and S-1067.
+	(U+54AF): Add `<-formed' for J0-533D.
+	(U+54E5): Add ideographic-structure.
+	(J0-5327): Omit `ideographic-structure'.
+	(G-J90-3E25): Add ideographic-structure.
+	(U+5507): Add `<-vulgar' for J0-667C.
+	(U-00020CC8): Add `<-formed', `<-same' and `<-vulgar' for
+	AJ1-04348.
+	(U+5547): Use `->denotational' instead of `->subsumptive'.
+	(J0-5338): Add `<-formed' for S2-1124.
+	(S-1160): Add `ideographic-structure'.
+	(U-00020DB7): Use `->subsumptive'.
+	(JX1-2F2A): Add `<-formed' for J0-452F.
+	(U+35BE): Unify S-1057; add `<-original' for U+54A2.
+	(g2-HD-JT-AEEF): Add ideographic-structure.
+	(U+35CA): Add ideographic-structure.
+	(U+560A): Add `<-formed' for U+5540.
+	(U-000203D3): Add ideographic-structure.
+	(U+5661): Use `=+>adobe-japan1-6' instead of `=+>adobe-japan1' for
+	o-AJ1-21302.
+	(U+56A8): Use `=+>adobe-japan1-5' instead of `=+>adobe-japan1' for
+	o-AJ1-17406.
+	(U+56AB): Use `=+>adobe-japan1-6' instead of `=+>adobe-japan1' for
+	o-AJ1-21309.
+	(U+56BB): Use `->denotational' to integrate S-1290.
+	(C3-5E26): Add `<-same' for U+56C2.
+	(S-1290): New character.
+
 	* Ideograph-R032-Earth.el (U+576F): Unify S-1362; add `<-vulgar'
 	for U+574F.
 	(U+3634): Unify S-1357; add `<-vulgar' for U+5750.
