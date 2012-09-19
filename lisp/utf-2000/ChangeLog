@@ -1,5 +1,23 @@
 2012-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (U+576F): Unify S-1362; add `<-vulgar'
+	for U+574F.
+	(U+3634): Unify S-1357; add `<-vulgar' for U+5750.
+	(G-JU+57D5): Unify o-JU+57D5, o-CU+57D5 and o-AJ1-19291 instead of
+	G-JU+57D5 and G-CU+57D5.
+	(U+57F9): Use `=+>adobe-japan1-0' instead of `=+>adobe-japan1' for
+	o-AJ1-03347.
+	(o-AJ1-20102): Use `=+>adobe-japan1-5' instead of
+	`=+>adobe-japan1'.
+	(o-J0-4A68): Use `=+>adobe-japan1-0' instead of `=+>adobe-japan1'
+	for o-AJ1-03640.
+	(U+58DF): Use `=+>adobe-japan1-0' instead of `=+>adobe-japan1' for
+	o-AJ1-04531.
+	(U+58E0): Use `=+>adobe-japan1-5' instead of `=+>adobe-japan1' for
+	o-AJ1-16823.
+
+2012-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R031-Enclosure.el (U+56EE): Use `=+>adobe-japan1-0'
 	instead of `=+>adobe-japan1' for o-AJ1-04460; unify o-AJ1-20099.
 	(U+570D): Unify o-AJ1-04468 and o-AJ1-13528.
