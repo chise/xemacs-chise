@@ -1,3 +1,12 @@
+2012-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R036-Evening.el (g2-UU+5923): Unify g2-AJ1-19304.
+
+	* Ideograph-R035-Go-Slowly.el (g2-CU+590F): Unify g2-KS065510.
+
+	* Ideograph-R034-Go.el (G-UU+5909): Unify G-AJ1-03617, G-J0-4A51,
+	G-GT-07215 and G-M-05703.
+
 2012-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R033-Scholar.el (U+58F7): Add `<-formed' for U+58FA.
