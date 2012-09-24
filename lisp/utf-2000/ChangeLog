@@ -1,5 +1,24 @@
 2012-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R040-Roof.el (U+5B9D): Omit `<-simplified@ucs'.
+	(g2-JX2-2822): Unify g2-AJ1-17527.
+	(U+5BB2): Use `=+>adobe-japan1-6' instead of `=+>adobe-japan1' for
+	o-AJ1-21440.
+	(g2-UU+5BCE): Unify g2-AJ1-17530.
+	(g2-JU+5BD6): Unify G-JU+5BD6, G-CU+5BD6, g2-AJ1-17531,
+	g2-JX2-2827 and G-M-07253.
+	(g2-JU+5BD7): Unify G-JU+5BD7, G-CU+5BD7, g2-AJ1-19322 and
+	G-M-07255.
+	(g2-UU+5BD7): Unify G-UU+5BD7 and G-CB02248.
+	(G-JX2-2828): Unify G-AJ1-17532.
+	(g2-JX2-282A): Unify g2-AJ1-17534.
+
+	* Ideograph-R039-Child.el (g2-JX2-257A): Unify g2-AJ1-14472.
+	(U+5B7D): Use `=+>adobe-japan1-5' instead of `=+>adobe-japan1' for
+	o-AJ1-16834.
+	(g2-CU+5B7D): Unify g2-HD-KS080140 instead of G-HD-KS080140.
+	(g2-AJ1-16834): Unify g2-HD-JB2636 instead of G-HD-JB2636.
+
 	* Ideograph-R038-Woman.el (U+59DF): Use `=+>adobe-japan1-5'
 	instead of `=+>adobe-japan1' for o-AJ1-19310.
 
