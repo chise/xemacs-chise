@@ -1,3 +1,8 @@
+2012-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R038-Woman.el (U+59DF): Use `=+>adobe-japan1-5'
+	instead of `=+>adobe-japan1' for o-AJ1-19310.
+
 2012-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R036-Evening.el (g2-UU+5923): Unify g2-AJ1-19304.
