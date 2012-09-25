@@ -1,3 +1,8 @@
+2012-09-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R041-Inch.el: Add some Adobe-Japan1-0 code points.
+	(J0-5573): Add `<-vulgar' for HD-JT-B041.
+
 2012-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R040-Roof.el (U+5B9D): Omit `<-simplified@ucs'.
