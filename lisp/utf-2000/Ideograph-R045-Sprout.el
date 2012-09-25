@@ -123,13 +123,13 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=ucs		. #x5C70)	; 屰
+    (=adobe-japan1-5	. 17543)	; &I-AJ1-17543;
     (=jis-x0212		. #x3B22)	; &I-JSP-3B22; [27-02]
     (=cns11643-4	. #x225F)	; &I-C4-225F; [02-63]
     (=jis-x0213-2	. #x2836)	; &I-JX2-2836; [08-22]
     (=big5-cdp		. #x8DBD)	; &I-CDP-8DBD;
     (=daikanwa		. 07833)	; &I-M-07833;
     (=jef-china3	. #x99E5)	; &I-JC3-99E5;
-    (=adobe-japan1-5	. 17543)	; &I-AJ1-17543;
     ))
 (define-char
   '((ideographic-radical . 45)	; ⼬
