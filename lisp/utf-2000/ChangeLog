@@ -123,6 +123,9 @@
 	(U+58E0): Use `=+>adobe-japan1-5' instead of `=+>adobe-japan1' for
 	o-AJ1-16823.
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=+>adobe-japan1-{0..6}'; delete `=+>adobe-japan1'.
+
 2012-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R031-Enclosure.el (U+56EE): Use `=+>adobe-japan1-0'
