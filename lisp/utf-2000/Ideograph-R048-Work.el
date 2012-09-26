@@ -134,9 +134,9 @@
        ((=ucs		    . #xE0103)	; 󠄃
 	))
       (=cns11643-1	  . #x4648)	; &HD-KS-098730; [38-40]
-      (=daikanwa	  . 08722)	; &I-M-08722;
       (=hanyo-denshi/ks	  . 098730)	; &HD-KS-098730;
       (=hanyo-denshi/ks/mf . #x2691)	; &I-KSMF-09873;
+      (=daikanwa	  . 08722)	; &I-M-08722;
       )
      ((=ucs@unicode	  . #x5DE8)	; &GT-03331;
       (=jis-x0208	  . #x3570)	; &GT-03331; [21-80]
@@ -194,14 +194,14 @@
     (=+>ucs@jis		. #x5DE9)	; &o-JX2-286E;
     (=+>ucs@cns		. #x5DE9)	; &o-JX2-286E;
     (=+>jis-x0213-2	. #x286E)	; &o-JX2-286E; [08-78]
-    (=+>adobe-japan1	. 17587)	; &o-JX2-286E;
+    (=+>adobe-japan1-5	. 17587)	; &o-JX2-286E;
     (->subsumptive
      ((=ucs@jis		  . #x5DE9)	; &AJ1-17587;
-      (=jis-x0212	  . #x3C21)	; &AJ1-17587; [28-01]
+      (=adobe-japan1-5	  . 17587)	; &AJ1-17587;
+      (=jis-x0212	  . #x3C21)	; &I-JSP-3C21; [28-01]
       (=jis-x0213-2	  . #x286E)	; &I-JX2-286E; [08-78]
-      (=daikanwa	  . 08726)	; &I-M-08726;
-      (=adobe-japan1-5	  . 17587)	; &I-AJ1-17587;
       (=hanyo-denshi/jb	  . #x3C21)	; &I-HD-JB-3C21; [28-01]
+      (=daikanwa	  . 08726)	; &I-M-08726;
       )
      ((=ucs@cns		  . #x5DE9)	; &C4-2263;
       (=cns11643-4	  . #x2263)	; &C4-2263; [02-67]
