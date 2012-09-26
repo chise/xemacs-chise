@@ -1,3 +1,10 @@
+2012-09-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=>>>hanyo-denshi/jd): New coded-charset for
+	XEmacs CHISE.
+	(=>>hanyo-denshi/jd): Use `=>>>hanyo-denshi/jd' instead of
+	`=hanyo-denshi/jd' as the mother.
+
 2012-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=+>adobe-japan1-0): New coded-charset for
