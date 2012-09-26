@@ -1,5 +1,9 @@
 2012-09-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R044-Corpse.el (g2-CU+5C65): Unify g2-HD-KS088540.
+
+2012-09-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R041-Inch.el: Add some Adobe-Japan1-0 code points.
 	(J0-5573): Add `<-vulgar' for HD-JT-B041.
 
