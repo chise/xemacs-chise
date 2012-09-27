@@ -1,3 +1,21 @@
+2012-09-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R053-Dotted-Cliff.el (g2-CU+5EAC): Unify g2-HD-IB1780
+	instead of G-HD-IB1780; unify G-CU+5EAC.
+	(U+5EB3): Use `=+>adobe-japan1-5' instead of `=+>adobe-japan1' for
+	o-AJ1-19349.
+	(g2-AJ1-19349): Unify G-M-09359.
+	(G-CU+5ECB): Unify g2-J2000U+5ECB, g2-J2004U+5ECB, g2-CU+5ECB,
+	g2-JX1-742F, g2-HD-JC8415 and G-M-09438.
+	(G-UU+5ECB): Unify g2-UU+5ECB and g2-HD-JB2850.
+	(G-GT-11901): Unify o-GT-11901 instead of G-GT-11901; separate
+	G-CB00636, G-HD-IB0677 and G-HD-KS107150.
+	(G-HD-KS107150): New node to integrate GT-11901, HD-KS107150 and
+	S-2209; unify G-GT-11901.
+	(U+5ED9): Use `=+>adobe-japan1-5' instead of `=+>adobe-japan1' for
+	o-AJ1-17604.
+	(g2-JX2-2C2A): Unify g2-HD-JD1210 instead of G-HD-JD1210.
+
 2012-09-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R050-Turban.el (g-JX2-2871): Unify g2-HD-JD0881
