@@ -16108,7 +16108,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=adobe-japan1-5    . 19346)	; &AJ1-19346;
+       ((=ucs@jis	    . #x5E77)	; &AJ1-19346;
+	(=adobe-japan1-5    . 19346)	; &AJ1-19346;
 	))
       (=adobe-japan1-4	  . 13383)	; &AJ1-13383;
       (=ks-x1001	  . #x5C31)	; &I-K0-5C31; [60-17]
