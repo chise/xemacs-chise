@@ -320,11 +320,11 @@
     (=big5		. #xCC74)	; &I-B-CC74;
     (->subsumptive
      ((=ucs@unicode	  . #x5F54)	; &AJ1-16858;
-      (=jis-x0212	  . #x3C78)	; &AJ1-16858; [28-88]
+      (=adobe-japan1-5	  . 16858)	; &AJ1-16858;
+      (=jis-x0212	  . #x3C78)	; &I-JSP-3C78; [28-88]
       (=jis-x0213-1	  . #x743B)	; &I-JX1-743B; [84-27]
       (=daikanwa	  . 09918)	; &I-M-09918;
       (=jef-china3	  . #x4CFA)	; &I-JC3-4CFA;
-      (=adobe-japan1-5	  . 16858)	; &I-AJ1-16858;
       )
      ((=cns11643-2	  . #x2655)	; &C2-2655; [06-53]
       ))
@@ -402,13 +402,13 @@
     (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=>>ucs@unicode	. #x5F56)	; &G-GT-12518;
-    (=>>jis-x0208	. #x5741)	; &G-GT-12518; [55-33]
-    (=>>jis-x0213-1	. #x5741)	; &G-GT-12518; [55-33]
-    (=big5		. #xCEBD)	; &G-GT-12518;
-    (=>>gt		. 12518)	; &G-GT-12518;
-    (=>>gt-k		. 05239)	; &G-GT-12518;
-    (=>>daikanwa	. 09920)	; &G-GT-12518;
+    (=>>ucs@unicode	. #x5F56)	; &G-J0-5741;
+    (=>>jis-x0208	. #x5741)	; &G-J0-5741; [55-33]
+    (=>>jis-x0213-1	. #x5741)	; &G-J0-5741; [55-33]
+    (=big5		. #xCEBD)	; &G-J0-5741;
+    (=>>gt		. 12518)	; &G-J0-5741;
+    (=>>gt-k		. 05239)	; &G-J0-5741;
+    (=>>daikanwa	. 09920)	; &G-J0-5741;
     (->subsumptive
      ((=ucs@jis		  . #x5F56)	; &GT-12518;
       (=jis-x0208	  . #x5741)	; &GT-12518; [55-33]
