@@ -31,11 +31,11 @@
      jis-x0213-2000/b)
     (total-strokes	 . 4)
     (=ucs		. #x5F00)	; 开
+    (=adobe-japan1-5	. 16854)	; &I-AJ1-16854;
     (=gb2312		. #x3F2A)	; &I-G0-3F2A; [31-10]
     (=cns11643-4	. #x214D)	; &I-C4-214D; [01-45]
     (=jis-x0213-1	. #x7431)	; &I-JX1-7431; [84-17]
     (=big5-cdp		. #x8B6F)	; &I-CDP-8B6F;
-    (=adobe-japan1-5	. 16854)	; &I-AJ1-16854;
     ))
 (define-char
   '((ideographic-radical . 51)	; ⼲
@@ -65,12 +65,12 @@
      ((=ucs		  . #xE0103)	; 󠄃
       ))
     (=ks-x1001		. #x7841)	; &HD-JT-B0BF; [88-33]
+    (=hanyo-denshi/jt	. #xB0BF)	; &I-HD-JT-B0BF;
     (=gt		. 11550)	; &I-GT-11550;
     (=gt-k		. 01070)	; &I-GT-K01070;
     (=gt-pj-3		. #x4269)	; &I-GT-11550; [34-73]
     (=daikanwa		. 09167)	; &I-M-09167;
     (=jef-china3	. #x4CB0)	; &I-JC3-4CB0;
-    (=hanyo-denshi/jt	. #xB0BF)	; &I-HD-JT-B0BF;
     ))
 (define-char
   '((<-denotational
@@ -160,6 +160,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=ucs		. #x5E76)	; 并
+    (=adobe-japan1-0	. 04738)	; &I-AJ1-04738;
     (=jis-x0208		. #x5675)	; &I-J90-5675; [54-85]
     (=gb2312		. #x3222)	; &I-G0-3222; [18-02]
     (=cns11643-1	. #x477E)	; &I-C1-477E; [39-94]
@@ -170,9 +171,9 @@
     (=gt-pj-1		. #x5675)	; &I-GT-11554; [54-85]
     (=daikanwa		. 09170)	; &I-M-09170;
     (=shinjigen		.  2157)	; 并
-    (=adobe-japan1-0	. 04738)	; &I-AJ1-04738;
     (<-vulgar
-     ((=ks-x1001	  . #x5C34)	; &AJ1-19346; [60-20]
+     ((=ucs@jis		  . #x5E77)	; &AJ1-19346;
+      (=adobe-japan1-5	  . 19346)	; &AJ1-19346;
       (=jis-x0213-1@2004  . #x7E7C)	; &I-JX3-7E7C; [94-92]
       (=daikanwa	  . 09175)	; &I-M-09175;
       (=shinjigen	  .  2156)	; &AJ1-19346;
@@ -274,13 +275,14 @@
     (=ucs		. #x5E77)	; 幷
     (=>jis-x0213-1@2004 . #x7E7C)	; 幷 [94-92]
     (->subsumptive
-     ((=ks-x1001	  . #x5C34)	; &AJ1-19346; [60-20]
+     ((=ucs@jis		  . #x5E77)	; &AJ1-19346;
+      (=adobe-japan1-5	  . 19346)	; &AJ1-19346;
+      (=ks-x1001	  . #x5C34)	; &I-K0-5C34; [60-20]
       (=jis-x0213-1@2004  . #x7E7C)	; &I-JX3-7E7C; [94-92]
       (=big5-cdp	  . #x88EB)	; &I-CDP-88EB;
       (=daikanwa	  . 09175)	; &I-M-09175;
       (=shinjigen	  .  2156)	; &AJ1-19346;
       (=jef-china3	  . #x4CB2)	; &I-JC3-4CB2;
-      (=adobe-japan1-5	  . 19346)	; &I-AJ1-19346;
       )
      ((=ucs@unicode	  . #x5E77)	; &C3-2863;
       (=cns11643-3	  . #x2863)	; &C3-2863; [08-67]
