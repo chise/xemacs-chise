@@ -117,12 +117,12 @@
       (=iso-ir165	  . #x2E38)	; &I-EGB-2E38; [14-24]
       (=cns11643-3	  . #x2362)	; &I-C3-2362; [03-66]
       (=jis-x0213-2	  . #x2C2E)	; &I-JX2-2C2E; [12-14]
+      (=hanyo-denshi/jb	  . #x3C60)	; &I-HD-JB-3C60; [28-64]
       (=daikanwa	  . 09662)	; &I-M-09662;
       (=shinjigen@1ed	  .  0007)	; &HD-JB-3C60;
-      (=hanyo-denshi/jb	  . #x3C60)	; &I-HD-JB-3C60; [28-64]
       )
-     ((=jef-china3	  . #x41A7)	; &HD-IB-3223;
-      (=hanyo-denshi/ib	  . #x3223)	; &I-HD-IB-3223; [18-03]
+     ((=hanyo-denshi/ib	  . #x3223)	; &HD-IB-3223; [18-03]
+      (=jef-china3	  . #x41A7)	; &I-JC3-41A7;
       ))
     ))
 (define-char
