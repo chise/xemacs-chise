@@ -1,4 +1,13 @@
+2012-09-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R055-Two-Hands.el (U+5F03): Use `->denotational' to
+	cover possible forms; add ideographic-structure.
+	(J0-5731): Modify tree of `ideographic-structure'; add `<-ancient'
+	for J0-347E.
+
 2012-09-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (o-JU+5F4D): Unify o-AJ1-19354.
 
 	* Ideograph-R053-Dotted-Cliff.el (g2-CU+5EAC): Unify g2-HD-IB1780
 	instead of G-HD-IB1780; unify G-CU+5EAC.
