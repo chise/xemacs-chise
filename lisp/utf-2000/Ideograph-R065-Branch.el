@@ -284,12 +284,12 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=ucs		. #x6532)	; 攲
+    (=adobe-japan1-5	. 17718)	; &I-AJ1-17718;
     (=cns11643-2	. #x3C37)	; &I-C2-3C37; [28-23]
     (=jis-x0213-2	. #x2D61)	; &I-JX2-2D61; [13-65]
     (=big5		. #xD972)	; &I-B-D972;
     (=daikanwa		. 13086)	; &I-M-13086;
     (=jef-china3	. #x50C0)	; &I-JC3-50C0;
-    (=adobe-japan1-5	. 17718)	; &I-AJ1-17718;
     ))
 (define-char
   '((ideographic-radical . 65)	; ⽀
