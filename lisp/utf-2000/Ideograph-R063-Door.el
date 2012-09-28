@@ -82,11 +82,11 @@
      ((=ucs		  . #x4E59)	; 乙
       ))
     (=ucs@jis		. #x6239)	; &AJ1-19382;
-    (=jis-x0212		. #x3F31)	; &AJ1-19382; [31-17]
+    (=adobe-japan1-5	. 19382)	; &AJ1-19382;
+    (=jis-x0212		. #x3F31)	; &I-JSP-3F31; [31-17]
     (=cns11643-3	. #x224E)	; &I-C3-224E; [02-46]
     (=daikanwa		. 11697)	; &I-M-11697;
     (=cbeta		. 00147)	; &I-CB00147;
-    (=adobe-japan1-5	. 19382)	; &I-AJ1-19382;
     ))
 (define-char
   '((<-denotational
@@ -216,12 +216,12 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=cns11643-3	. #x2628)	; &HD-KS-131910; [06-08]
+    (=hanyo-denshi/ks	. 131910)	; &HD-KS-131910;
+    (=hanyo-denshi/ks/mf . #x3387)	; &I-KSMF-13191;
     (=gt		. 14762)	; &I-GT-14762;
     (=gt-k		. 02657)	; &I-GT-K02657;
     (=gt-pj-3		. #x5B34)	; &I-GT-14762; [59-20]
     (=daikanwa		. 11707)	; &I-M-11707;
-    (=hanyo-denshi/ks	. 131910)	; &HD-KS-131910;
-    (=hanyo-denshi/ks/mf . #x3387)	; &I-KSMF-13191;
     (->mistakable
      ((=ucs@jis		  . #x623E)	; &JX1-7463;
       (=ks-x1001	  . #x5568)	; &JX1-7463; [53-72]
@@ -337,13 +337,13 @@
     (total-strokes	 . 8)
     (=>>ucs@jis		. #x623D)	; &G-AJ1-19383;
     (=>>ucs@cns		. #x623D)	; &G-AJ1-19383;
-    (=>>daikanwa	. 11711)	; &G-AJ1-19383;
     (=>>adobe-japan1-5	. 19383)	; &G-AJ1-19383;
+    (=>>daikanwa	. 11711)	; &G-AJ1-19383;
     (->subsumptive
      ((=ucs@jis		  . #x623D)	; &AJ1-19383;
-      (=jis-x0212	  . #x3F32)	; &AJ1-19383; [31-18]
+      (=adobe-japan1-5	  . 19383)	; &AJ1-19383;
+      (=jis-x0212	  . #x3F32)	; &I-JSP-3F32; [31-18]
       (=daikanwa	  . 11711)	; &I-M-11711;
-      (=adobe-japan1-5	  . 19383)	; &I-AJ1-19383;
       )
      ((=ucs@cns		  . #x623D)	; &C2-2671;
       (=cns11643-2	  . #x2671)	; &C2-2671; [06-81]
@@ -432,14 +432,14 @@
     (=>>ucs@ks		. #x623F)	; &G-HD-JT-B1D3;
     (=>>ucs@cns		. #x623F)	; &G-HD-JT-B1D3;
     (=big5		. #xA9D0)	; &G-HD-JT-B1D3;
-    (=>>daikanwa	. 11714)	; &G-HD-JT-B1D3;
     (=>>hanyo-denshi/jt . #xB1D3)	; &G-HD-JT-B1D3;
+    (=>>daikanwa	. 11714)	; &G-HD-JT-B1D3;
     (->subsumptive
      ((=ucs@ks		  . #x623F)	; &HD-JT-B1D3;
       (=ks-x1001	  . #x5B2E)	; &HD-JT-B1D3; [59-14]
+      (=hanyo-denshi/jt	  . #xB1D3)	; &I-HD-JT-B1D3;
       (=daikanwa	  . 11714)	; &I-M-11714;
       (=jef-china3	  . #x4EFC)	; &I-JC3-4EFC;
-      (=hanyo-denshi/jt	  . #xB1D3)	; &I-HD-JT-B1D3;
       )
      ((=ucs@cns		  . #x623F)	; &C1-4D52;
       (=cns11643-1	  . #x4D52)	; &C1-4D52; [45-50]
@@ -493,12 +493,12 @@
     (=ks-x1001		. #x6136)	; &I-K0-6136; [65-22]
     (=cns11643-1	. #x4D54)	; &I-C1-4D54; [45-52]
     (=big5		. #xA9D2)	; &I-B-A9D2;
+    (=hanyo-denshi/ib	. #x232F)	; &I-HD-IB-232F; [03-15]
     (=gt		. 14778)	; &I-GT-14778;
     (=gt-k		. 03740)	; &I-GT-K03740;
     (=gt-pj-3		. #x5B3C)	; &I-GT-14778; [59-28]
     (=daikanwa		. 11715)	; &I-M-11715;
     (=jef-china3	. #x50E2)	; &I-JC3-50E2;
-    (=hanyo-denshi/ib	. #x232F)	; &I-HD-IB-232F; [03-15]
     ))
 (define-char
   '((<-denotational
@@ -641,11 +641,11 @@
     (=ks-x1001		. #x7837)	; &HD-HG-305D; [88-23]
     (=cns11643-1	. #x5137)	; &I-C1-5137; [49-23]
     (=jis-x0213-1@2004	. #x5928)	; &I-JX3-5928; [57-08]
+    (=hanyo-denshi/hg	. #x305D)	; &I-HD-HG-305D; [16-61]
     (=gt		. 14816)	; &I-GT-14816;
     (=gt-k		. 05246)	; &I-GT-K05246;
     (=gt-pj-3		. #x5B46)	; &I-GT-14816; [59-38]
     (=daikanwa		. 11724)	; &I-M-11724;
-    (=hanyo-denshi/hg	. #x305D)	; &I-HD-HG-305D; [16-61]
     ))
 (define-char
   '((<-denotational
@@ -978,11 +978,11 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ks-x1001		. #x603F)	; &HD-JT-B1D6; [64-31]
+    (=hanyo-denshi/jt	. #xB1D6)	; &I-HD-JT-B1D6;
     (=gt		. 14838)	; &I-GT-14838;
     (=gt-pj-3		. #x5B59)	; &I-GT-14838; [59-57]
     (=daikanwa		. 11743)	; &I-M-11743;
     (=jef-china3	. #x4EFE)	; &I-JC3-4EFE;
-    (=hanyo-denshi/jt	. #xB1D6)	; &I-HD-JT-B1D6;
     ))
 (define-char
   '((<-denotational
@@ -1056,8 +1056,8 @@
     (=jis-x0208@1978	. #x6E3D)	; &HD-FT-3423; [78-29]
     (=ks-x1001		. #x7B43)	; &I-K0-7B43; [91-35]
     (=cns11643-1	. #x5A53)	; &I-C1-5A53; [58-51]
-    (=daikanwa		. 11746)	; &I-M-11746;
     (=hanyo-denshi/ft	. #x3423)	; &I-HD-FT-3423; [20-03]
+    (=daikanwa		. 11746)	; &I-M-11746;
     ))
 (define-char
   '((<-denotational
