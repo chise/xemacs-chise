@@ -1,5 +1,45 @@
 2012-09-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R064-Hand.el (U+62F4): Use `=+>adobe-japan1-5' instead
+	of `=+>adobe-japan1' for o-AJ1-19388.
+	(U+633B): Use `=+>adobe-japan1-5' instead of `=+>adobe-japan1' for
+	o-AJ1-17675.
+	(U+63D5): Use `=+>adobe-japan1-5' instead of `=+>adobe-japan1' for
+	o-AJ1-17690.
+	(U+63E0): Use `=+>adobe-japan1-5' instead of `=+>adobe-japan1' for
+	o-AJ1-17691.
+
+	* Ideograph-R061-Heart.el: Add Hanyo-Denshi/KS code points.
+	(U+6035): Use `=+>adobe-japan1-5' instead of `=+>adobe-japan1' for
+	o-AJ1-16863.
+	(U+608A): Unify S1-1093 and S1-1096; add `<-formed' for U+54F2.
+	(U+60BE): Use `=+>adobe-japan1-5' instead of `=+>adobe-japan1' for
+	o-AJ1-17634.
+	(U+3964): Use `->subsumptive' to separate representative nodes.
+	(U-0002274A): Unify S-2668; add `<-original@daikanwa' for M-11170;
+	add `<-original@shinjigen' for J0-4D2B; add `->formed' for
+	M-11413.
+	(U+611B): Use `->denotational' instead of `->subsumptive'.
+	(U+3966): Use `->subsumptive' to separate representative nodes.
+	(M-11006): Map to U-00022792.
+	(U+3971): Use `->subsumptive' to separate representative nodes.
+	(U+6134): Use `->subsumptive'.
+	(U+613A): Use `=+>adobe-japan1-5' instead of `=+>adobe-japan1' for
+	o-AJ1-17642.
+	(U-0002F8A6): Add `<-denotational' for U+6148.
+	(M-11056): Map to U-000227A3.
+	(U+3987): Use `->subsumptive'.
+	(U-000227F6): Use `->subsumptive' to separate representative
+	nodes.
+	(U-00022834): Likewise.
+	(U+61D5): Use `=+>adobe-japan1-5' instead of `=+>adobe-japan1' for
+	o-AJ1-17654.
+	(U+61EE): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+
+	* Ideograph-R060-Step.el (U+5F87): Unify S1-2348.
+	(U+5FB7): Unify S2-2385.
+
 	* Ideograph-R055-Two-Hands.el (U+5F03): Use `->denotational' to
 	cover possible forms; add ideographic-structure.
 	(J0-5731): Modify tree of `ideographic-structure'; add `<-ancient'
