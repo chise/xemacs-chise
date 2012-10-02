@@ -1,3 +1,9 @@
+2012-09-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (U-000231F5): New character.
+
+	* Ideograph-R066-Rap.el (J0-3635): Add `<-vulgar' for AJ1-08471.
+
 2012-09-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R064-Hand.el (U+62F4): Use `=+>adobe-japan1-5' instead
@@ -323,6 +329,10 @@
 	(U-0002018C): Add ideographic-structure.
 	(G-UU+4EB9): Unify g2-UU+4EB9, g2-AJ1-14309, g2-JX2-2134,
 	g2-HD-JB1634 and G-M-00342.
+
+	* Ideograph-R001-One.el (U+4E06): Unify GT-K00106.
+	(U-00020043): Use `ideographic-{radical|strokes}@{ucs|cns}'
+	instead of `ideographic-'.
 
 	* Ideograph-R007-Two.el (G-J0-5034): Unify G-AJ1-04109,
 	G-JX1-5034, G-GT-K03851 and G-M-00279.
