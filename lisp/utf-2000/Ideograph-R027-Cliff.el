@@ -2620,8 +2620,9 @@
       )
      ((=ucs		  . #x5382)	; 厂
       )
-     ((=>>ucs@jis	  . #xFA42)	; &G-JX1-752B;
-      (=>>jis-x0213-1	  . #x752B)	; &G-JX1-752B; [85-11]
+     ((=>ucs@unicode	  . #xFA42)	; &G-AJ1-13334;
+      (=>>ucs@unicode	  . #xFA42)	; &G-AJ1-13334;
+      (=>>adobe-japan1-4  . 13334)	; &G-AJ1-13334;
       ))
     (=>>ucs@jis/2004	. #x53A9)	; &G-AJ1-20271;
     (=>>adobe-japan1-0	. 07964)	; &G-AJ1-20271;
