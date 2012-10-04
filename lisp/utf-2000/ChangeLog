@@ -1,3 +1,9 @@
+2012-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R062-Halberd.el (M-11551): Map to U-00022998.
+	(U+39AF): Use `->subsumptive' to separate representative nodes.
+	(M-11554): Map to U-0002299A; integrate H4-CB5D.
+
 2012-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R078-Death.el (U-000239E9): Add ideographic-structure.
