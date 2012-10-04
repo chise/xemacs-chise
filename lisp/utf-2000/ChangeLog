@@ -1,3 +1,29 @@
+2012-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R078-Death.el (U-000239E9): Add ideographic-structure.
+
+	* Ideograph-R077-Stop.el (JX1-7643): Unify S2-3953.
+
+	* Ideograph-R076-Lack.el (U+3C20): Add ideographic-structure.
+
+	* Ideograph-R075-Tree.el (U+6852): Use `=+>adobe-japan1-2' instead
+	of `=+>adobe-japan1' for o-AJ1-08492.
+	(U+68A5): Omit G-HD-JB3585 and G-HD-IB1667.
+	(U-00020043): Use `ideographic-{radical|strokes}@{ucs|cns}'
+	instead of `ideographic-'.
+	(U+6982): Unify o-J0-3335 instead of G-J0-3335.
+
+	* Ideograph-R073-Say.el (g2-CU+2F8D3): Unify g2-AJ1-07816 and
+	g2-J78-514B.
+	(G-J0-413D): Unify G-GT-K09845.
+	(HD-IB0710): Add `<-vulgar*sources'.
+	(G-J0-3A47): Unify G-AJ1-02103, G-HD-JA2639, G-GT-18101,
+	G-GT-K09052 and G-M-14301.
+
+	* Ideograph-R071-Not.el (G-JX1-752B): Unify A-UU+FA42 and
+	G-UU+FA42 instead of G-JU+FA42.
+	(U+65E4): Add ideographic-structure.
+
 2012-09-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R072-Sun.el (U-000231F5): New character.
