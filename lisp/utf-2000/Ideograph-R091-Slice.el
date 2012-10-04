@@ -813,8 +813,8 @@
     (=>>jis-x0208@1978	. #x4757)	; &G-JX3-4757; [39-55]
     (=>>jis-x0213-1@2004 . #x4757)	; &G-JX3-4757; [39-55]
     (=big5		. #xB550)	; &G-JX3-4757;
-    (=>>daikanwa	. 19854)	; &G-JX3-4757;
     (=>>hanyo-denshi/ft . #x327C)	; &G-JX3-4757; [18-92]
+    (=>>daikanwa	. 19854)	; &G-JX3-4757;
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x724C)	; 牌
@@ -826,9 +826,9 @@
       (=gb2312		  . #x4546)	; &I-G0-4546; [37-38]
       (=ks-x1001	  . #x782B)	; &I-K0-782B; [88-11]
       (=jis-x0213-1@2004  . #x4757)	; &I-JX3-4757; [39-55]
+      (=hanyo-denshi/ft	  . #x327C)	; &I-HD-FT-327C; [18-92]
       (=daikanwa	  . 19854)	; &I-M-19854;
       (=shinjigen	  .  4725)	; &HD-FT-327C;
-      (=hanyo-denshi/ft	  . #x327C)	; &I-HD-FT-327C; [18-92]
       )
      ((=cns11643-1	  . #x6056)	; &C1-6056; [64-54]
       ))
@@ -1261,9 +1261,9 @@
      ((=ucs@jis		  . #x7253)	; &HD-JB-4A54;
       (=jis-x0212	  . #x4A54)	; &HD-JB-4A54; [42-52]
       (=jis-x0213-2	  . #x7030)	; &I-JX2-7030; [80-16]
+      (=hanyo-denshi/jb	  . #x4A54)	; &I-HD-JB-4A54; [42-52]
       (=daikanwa	  . 19876)	; &I-M-19876;
       (=jef-china3	  . #x58C0)	; &I-JC3-58C0;
-      (=hanyo-denshi/jb	  . #x4A54)	; &I-HD-JB-4A54; [42-52]
       )
      ((=ucs@unicode	  . #x7253)	; &UU+7253;
       )
