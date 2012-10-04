@@ -328,12 +328,12 @@
     (total-strokes	 . 7)
     (=ucs		. #x2F8B2)	; 成
     (=cns11643-3	. #x2627)	; &I-C3-2627; [06-07]
+    (=hanyo-denshi/jt	. #xB1CA)	; &I-HD-JT-B1CA;
     (=gt		. 14567)	; &I-GT-14567;
     (=gt-k		. 02589)	; &I-GT-K02589;
     (=gt-pj-3		. #x5957)	; &I-GT-14567; [57-55]
     (=daikanwa		. 11544)	; &I-M-11544;
     (=jef-china3	. #x4EEF)	; &I-JC3-4EEF;
-    (=hanyo-denshi/jt	. #xB1CA)	; &I-HD-JT-B1CA;
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
@@ -383,18 +383,18 @@
     (=gt-k		. 02509)	; &I-GT-K02509;
     (=gt-pj-1		. #x327C)	; &I-GT-14564; [18-92]
     (=daikanwa		. 11548)	; &I-M-11548;
-    (=shinjigen@rev	.  2765)	; 戒
+    (=shinjigen		.  2765)	; 戒
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x6213)	; 戓
+    (=adobe-japan1-2	. 08465)	; &I-AJ1-08465;
     (=jis-x0212		. #x3F28)	; &I-JSP-3F28; [31-08]
     (=cns11643-3	. #x2625)	; &I-C3-2625; [06-05]
     (=daikanwa		. 11549)	; &I-M-11549;
     (=jef-china3	. #x4EF7)	; &I-JC3-4EF7;
-    (=adobe-japan1-2	. 08465)	; &I-AJ1-08465;
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
@@ -408,15 +408,24 @@
   '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (=daikanwa		. 11551)	; &M-11551;
+    (=ucs		. #x22998)	; 𢦘
+    (->subsumptive
+     ((=daikanwa	  . 11551)	; &M-11551;
+      )
+     ((=ucs@iso		  . #x22998)	; &U-00022998;
+      ))
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x39AF)	; 㦯
-    (=cns11643-3	. #x2626)	; &I-C3-2626; [06-06]
-    (=daikanwa		. 11552)	; &I-M-11552;
+    (->subsumptive
+     ((=daikanwa	  . 11552)	; &M-11552;
+      )
+     ((=ucs@unicode	  . #x39AF)	; &C3-2626;
+      (=cns11643-3	  . #x2626)	; &C3-2626; [06-06]
+      ))
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
@@ -430,14 +439,22 @@
   '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (=daikanwa		. 11554)	; &M-11554;
+    (=ucs		. #x22994)	; 𢦔
+    (=cns11643-5	. #x243B)	; &I-C5-243B; [04-27]
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
-    (ideographic-strokes . 3)
-    (total-strokes	 . 7)
-    (=ucs		. #x22994)	; 𢦔
-    (=cns11643-5	. #x243B)	; &I-C5-243B; [04-27]
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (=ucs		. #x2299A)	; 𢦚
+    (->subsumptive
+     ((=daikanwa	  . 11554)	; &M-11554;
+      )
+     ((=cns11643-4	  . #x2652)	; &C4-2652; [06-50]
+      )
+     ((=ucs@iso		  . #x2299A)	; &HZK04-CB5D;
+      (=hanziku-4	  . #xCB5D)	; &HZK04-CB5D;
+      ))
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
@@ -578,13 +595,6 @@
     (total-strokes	 . 8)
     (=ucs		. #x6217)	; 戗
     (=gb2312		. #x6A28)	; &I-G0-6A28; [74-08]
-    ))
-(define-char
-  '((ideographic-radical . 62)	; ⼽
-    (ideographic-strokes . 4)
-    (total-strokes	 . 8)
-    (=ucs		. #x2299A)	; 𢦚
-    (=cns11643-4	. #x2652)	; &I-C4-2652; [06-50]
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
@@ -1105,9 +1115,9 @@
 	(=jis-x0213-1	    . #x5879)	; &I-JX1-5879; [56-89]
 	))
       (=ucs@unicode	  . #x39B8)	; &AJ1-20123;
+      (=adobe-japan1-5	  . 20123)	; &AJ1-20123;
       (=daikanwa/+p	  . 11606)	; &AJ1-20123;
-      (=cbeta		  . 02455)	; &AJ1-20123;
-      (=adobe-japan1-5	  . 20123)	; &I-AJ1-20123;
+      (=cbeta		  . 02455)	; &I-CB02455;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1323,20 +1333,20 @@
     (ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=>>ucs@jis		. #x6222)	; &G-JX1-7462;
-    (=>>ucs@cns		. #x6222)	; &G-JX1-7462;
-    (=>>jis-x0213-1	. #x7462)	; &G-JX1-7462; [84-66]
-    (=big5		. #xB761)	; &G-JX1-7462;
-    (=>>daikanwa	. 11617)	; &G-JX1-7462;
-    (=>>adobe-japan1-5	. 16871)	; &G-JX1-7462;
+    (=>>ucs@jis		. #x6222)	; &G-AJ1-16871;
+    (=>>ucs@cns		. #x6222)	; &G-AJ1-16871;
+    (=>>adobe-japan1-5	. 16871)	; &G-AJ1-16871;
+    (=>>jis-x0213-1	. #x7462)	; &G-AJ1-16871; [84-66]
+    (=big5		. #xB761)	; &G-AJ1-16871;
+    (=>>daikanwa	. 11617)	; &G-AJ1-16871;
     (->subsumptive
      ((=daikanwa	  . 11617)	; &M-11617;
       (=jef-china3	  . #x4EF5)	; &I-JC3-4EF5;
       )
      ((=ucs@jis		  . #x6222)	; &AJ1-16871;
-      (=jis-x0212	  . #x3F2C)	; &AJ1-16871; [31-12]
+      (=adobe-japan1-5	  . 16871)	; &AJ1-16871;
+      (=jis-x0212	  . #x3F2C)	; &I-JSP-3F2C; [31-12]
       (=jis-x0213-1	  . #x7462)	; &I-JX1-7462; [84-66]
-      (=adobe-japan1-5	  . 16871)	; &I-AJ1-16871;
       )
      ((=ucs@cns		  . #x6222)	; &C1-6429;
       (=cns11643-1	  . #x6429)	; &C1-6429; [68-09]
@@ -1393,12 +1403,12 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (=ucs		. #x6223)	; 戣
+    (=adobe-japan1-5	. 17658)	; &I-AJ1-17658;
     (=jis-x0212		. #x3F2D)	; &I-JSP-3F2D; [31-13]
     (=cns11643-2	. #x427A)	; &I-C2-427A; [34-90]
     (=jis-x0213-2	. #x2C74)	; &I-JX2-2C74; [12-84]
     (=big5		. #xDD74)	; &I-B-DD74;
     (=daikanwa		. 11622)	; &I-M-11622;
-    (=adobe-japan1-5	. 17658)	; &I-AJ1-17658;
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
@@ -2114,10 +2124,10 @@
 	(=jis-x0213-1	    . #x5879)	; &I-JX1-5879; [56-89]
 	))
       (=ucs@unicode	  . #x6231)	; &AJ1-19381;
-      (=ks-x1001	  . #x7D74)	; &AJ1-19381; [93-84]
+      (=adobe-japan1-5	  . 19381)	; &AJ1-19381;
+      (=ks-x1001	  . #x7D74)	; &I-K0-7D74; [93-84]
       (=daikanwa	  . 11668)	; &I-M-11668;
       (=cbeta		  . 00554)	; &I-CB00554;
-      (=adobe-japan1-5	  . 19381)	; &I-AJ1-19381;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -2376,9 +2386,9 @@
     (ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
-    (=daikanwa		. 11685)	; &HD-KS-131690;
     (=hanyo-denshi/ks	. 131690)	; &HD-KS-131690;
-    (=hanyo-denshi/ks/mf . #x3371)	; &I-KSMF-13169;
+    (=hanyo-denshi/ks/mf . #x3371)	; &HD-KS-131690;
+    (=daikanwa		. 11685)	; &I-M-11685;
     ))
 (define-char
   '((<-denotational
