@@ -412,9 +412,7 @@
     (<-ancient
      ((=ucs@jis		  . #x5B5A)	; &AJ1-04612;
       (=ucs@ks		  . #x5B5A)	; &AJ1-04612;
-      (=jis-x0208	  . #x5555)	; &AJ1-04612; [53-53]
-      (=ks-x1001	  . #x5D21)	; &I-K0-5D21; [61-01]
-      (=jis-x0213-1	  . #x5555)	; &I-JX1-5555; [53-53]
+      (=adobe-japan1-0	  . 04612)	; &AJ1-04612;
       (=daikanwa	  . 06948)	; &I-M-06948;
       ))
     (<-ancient*sources
@@ -905,8 +903,7 @@
     (=daikanwa		. 19687)	; &I-M-19687;
     (<-same
      ((=ucs@jis		  . #x4E82)	; &AJ1-04101;
-      (=jis-x0208	  . #x502C)	; &AJ1-04101; [48-12]
-      (=jis-x0213-1	  . #x502C)	; &I-JX1-502C; [48-12]
+      (=adobe-japan1-0	  . 04101)	; &AJ1-04101;
       (=daikanwa	  . 00214)	; &I-M-00214;
       ))
     (<-same*sources
@@ -1360,7 +1357,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@cns	  . #x2F921)	; &o-CU+2F921;
+     ((=+>ucs@ks	  . #x7235)	; &o-CU+2F921;
+      (=+>ucs@cns	  . #x2F921)	; &o-CU+2F921;
       ))
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 14)
@@ -1371,7 +1369,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@cns	  . #x2F921)	; &o-CU+2F921;
+     ((=+>ucs@ks	  . #x7235)	; &o-CU+2F921;
+      (=+>ucs@cns	  . #x2F921)	; &o-CU+2F921;
       ))
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 14)
@@ -1380,7 +1379,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@cns	  . #x2F921)	; &o-CU+2F921;
+     ((=+>ucs@ks	  . #x7235)	; &o-CU+2F921;
+      (=+>ucs@cns	  . #x2F921)	; &o-CU+2F921;
       ))
     (=>ucs*		. #x7235)	; 爵
     (ideographic-radical . 87)	; ⽖
