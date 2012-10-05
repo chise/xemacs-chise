@@ -16,8 +16,8 @@
     (total-strokes	 . 4)
     (=>>ucs@unicode	. #x7259)	; &G-JX3-3267;
     (=>>jis-x0213-1@2004 . #x3267)	; &G-JX3-3267; [18-71]
-    (=>>daikanwa	. 19909)	; &G-JX3-3267;
     (=>>hanyo-denshi/hg . #x3026)	; &G-JX3-3267; [16-06]
+    (=>>daikanwa	. 19909)	; &G-JX3-3267;
     (->subsumptive
      ((=daikanwa	  . 19909)	; &M-19909;
       )
