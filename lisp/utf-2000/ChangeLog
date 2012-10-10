@@ -1,5 +1,10 @@
 2012-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R101-Use.el (g2-UU+752F): Unify g2-AJ1-08434 and
+	g2-JX1-7849.
+
+2012-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R082-Fur.el (U-00023B39): Use `->subsumptive'.
 
 	* Ideograph-R062-Halberd.el (M-11551): Map to U-00022998.
