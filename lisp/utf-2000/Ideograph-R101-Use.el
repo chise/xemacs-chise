@@ -341,14 +341,16 @@
     (=ucs		. #x752F)	; 甯
     (=big5		. #xDAAC)	; &I-B-DAAC;
     (->subsumptive
-     ((=>>>ucs@unicode	  . #x752F)	; &g2-UU+752F;
+     ((=>>>ucs@unicode	  . #x752F)	; &g2-AJ1-08434;
+      (=>>>adobe-japan1-2 . 08434)	; &g2-AJ1-08434;
+      (=>>>jis-x0213-1	  . #x7849)	; &g2-AJ1-08434; [88-41]
       (->subsumptive
        ((=ucs@jis	    . #x752F)	; &AJ1-08434;
-	(=jis-x0212	    . #x4D2A)	; &AJ1-08434; [45-10]
+	(=adobe-japan1-2    . 08434)	; &AJ1-08434;
+	(=jis-x0212	    . #x4D2A)	; &I-JSP-4D2A; [45-10]
 	(=jis-x0213-1	    . #x7849)	; &I-JX1-7849; [88-41]
 	(=daikanwa	    . 21717)	; &I-M-21717;
 	(=jef-china3	    . #x4ABD)	; &I-JC3-4ABD;
-	(=adobe-japan1-2    . 08434)	; &I-AJ1-08434;
 	)
        ((=ucs@unicode	    . #x752F)	; &G0-6538;
 	(=gb2312	    . #x6538)	; &G0-6538; [69-24]
@@ -424,10 +426,7 @@
 	(=ucs		    . #x2FF0)	; ⿰
 	)
        ((=ucs@jis	    . #x4EAB)	; &AJ1-01687;
-	(=jis-x0208	    . #x357D)	; &AJ1-01687; [21-93]
-	(=ks-x1001	    . #x7A3D)	; &I-K0-7A3D; [90-29]
-	(=jis-x0213-1	    . #x357D)	; &I-JX1-357D; [21-93]
-	(=daikanwa	    . 00298)	; &I-M-00298;
+	(=adobe-japan1-0    . 01687)	; &AJ1-01687;
 	)
        ((=ucs@jis	    . #x5EB8)	; &GT-11819;
 	(=jis-x0208	    . #x4D47)	; &GT-11819; [45-39]
