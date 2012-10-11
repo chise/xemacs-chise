@@ -1,5 +1,10 @@
 2012-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R086-Fire.el (U+70AF): Use `->subsumptive'.
+	(U+70F1): Use `->denotational' and `->subsumptive'.
+	(U+70F2): Use `->subsumptive' to separate representative nodes.
+	(C3-3C79): Add `ideographic-structure'.
+
 	* Ideograph-R108-Dish.el (g2-JU+76D4): Unify g2-HD-JB4647 instead
 	of G-HD-JB4647.
 
