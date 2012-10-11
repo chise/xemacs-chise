@@ -1583,18 +1583,13 @@
       (=daikanwa	  . 21828)	; &I-M-21828;
       (<-formed
        ((=ucs@jis	    . #x5793)	; &AJ1-04487;
-	(=jis-x0208	    . #x5436)	; &AJ1-04487; [52-22]
-	(=ks-x1001	    . #x7A27)	; &I-K0-7A27; [90-07]
-	(=jis-x0213-1	    . #x5436)	; &I-JX1-5436; [52-22]
-	(=daikanwa	    . 05040)	; &I-M-05040;
+	(=adobe-japan1-0    . 04487)	; &AJ1-04487;
 	))
       (<-formed*sources
        jiyun)
       (<-same
        ((=ucs@jis	    . #x5793)	; &AJ1-04487;
-	(=jis-x0208	    . #x5436)	; &AJ1-04487; [52-22]
-	(=ks-x1001	    . #x7A27)	; &I-K0-7A27; [90-07]
-	(=jis-x0213-1	    . #x5436)	; &I-JX1-5436; [52-22]
+	(=adobe-japan1-0    . 04487)	; &AJ1-04487;
 	(=daikanwa	    . 05040)	; &I-M-05040;
 	))
       (<-same*sources
@@ -1606,8 +1601,8 @@
       )
      ((=shinjigen	  .  1385)	; &SJG2-1385;
       (<-formed
-       ((=shinjigen	    .  1384)	; &HD-KS-058090;
-	(=hanyo-denshi/ks   . 058090)	; &HD-KS-058090;
+       ((=hanyo-denshi/ks   . 058090)	; &HD-KS-058090;
+	(=shinjigen	    .  1384)	; &HD-KS-058090;
 	))
       (<-formed*sources
        shinjigen)
@@ -2115,6 +2110,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (=>>ucs@cns		. #x756F)	; &G-CU+756F;
+    (=>>daikanwa	. 21865)	; &G-CU+756F;
     (->subsumptive
      ((=daikanwa	  . 21865)	; &M-21865;
       )
@@ -2129,12 +2125,8 @@
     (ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (=ucs@jis		. #x756F)	; &AJ1-08565;
-    (=ks-x1001		. #x7161)	; &AJ1-08565; [81-65]
-    (=jis-x0212		. #x4D3B)	; &I-JSP-4D3B; [45-27]
-    (=jis-x0213-1	. #x784A)	; &I-JX1-784A; [88-42]
-    (=jef-china3	. #x5AD0)	; &I-JC3-5AD0;
-    (=adobe-japan1-2	. 08565)	; &I-AJ1-08565;
+    (=ucs@unicode	. #x756F)	; &EGB-7D51;
+    (=iso-ir165		. #x7D51)	; &EGB-7D51; [93-49]
     ))
 (define-char
   '((<-denotational
@@ -2143,8 +2135,12 @@
     (ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (=ucs@unicode	. #x756F)	; &EGB-7D51;
-    (=iso-ir165		. #x7D51)	; &EGB-7D51; [93-49]
+    (=ucs@jis		. #x756F)	; &AJ1-08565;
+    (=adobe-japan1-2	. 08565)	; &AJ1-08565;
+    (=ks-x1001		. #x7161)	; &I-K0-7161; [81-65]
+    (=jis-x0212		. #x4D3B)	; &I-JSP-4D3B; [45-27]
+    (=jis-x0213-1	. #x784A)	; &I-JX1-784A; [88-42]
+    (=jef-china3	. #x5AD0)	; &I-JC3-5AD0;
     ))
 (define-char
   '((<-denotational
