@@ -436,12 +436,12 @@
     (ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
-    (=>>ucs@unicode	. #x76CA)	; &G-GT-29428;
-    (=>>jis-x0208	. #x3157)	; &G-GT-29428; [17-55]
-    (=>>jis-x0213-1	. #x3157)	; &G-GT-29428; [17-55]
-    (=>>gt		. 29428)	; &G-GT-29428;
-    (=>>gt-k		. 06688)	; &G-GT-29428;
-    (=>>daikanwa/+p	. 22972)	; &G-GT-29428;
+    (=>>ucs@unicode	. #x76CA)	; &G-J0-3157;
+    (=>>jis-x0208	. #x3157)	; &G-J0-3157; [17-55]
+    (=>>jis-x0213-1	. #x3157)	; &G-J0-3157; [17-55]
+    (=>>gt		. 29428)	; &G-J0-3157;
+    (=>>gt-k		. 06688)	; &G-J0-3157;
+    (=>>daikanwa/+p	. 22972)	; &G-J0-3157;
     (->subsumptive
      ((=ucs@jis		  . #x76CA)	; &GT-29428;
       (=jis-x0208	  . #x3157)	; &GT-29428; [17-55]
@@ -692,15 +692,15 @@
     (->subsumptive
      ((=>>ucs@jis	  . #x76D4)	; &G-JU+76D4;
       (=>>>ucs@jis	  . #x76D4)	; &G-JU+76D4;
+      (=>>>hanyo-denshi/jb . #x4E4F)	; &G-JU+76D4; [46-47]
       (=>>daikanwa	  . 22992)	; &G-JU+76D4;
-      (=>>hanyo-denshi/jb . #x4E4F)	; &G-JU+76D4; [46-47]
       (->subsumptive
        ((=ucs@jis	    . #x76D4)	; &HD-JB-4E4F;
 	(=ucs@JP/hanazono   . nil)
 	(=jis-x0212	    . #x4E4F)	; &HD-JB-4E4F; [46-47]
+	(=hanyo-denshi/jb   . #x4E4F)	; &I-HD-JB-4E4F; [46-47]
 	(=daikanwa	    . 22992)	; &I-M-22992;
 	(=jef-china3	    . #x9BEE)	; &I-JC3-9BEE;
-	(=hanyo-denshi/jb   . #x4E4F)	; &I-HD-JB-4E4F; [46-47]
 	)
        ((=ucs@JP/hanazono   . #x76D4)	; &hanaJU+76D4;
 	))
@@ -901,10 +901,7 @@
 	)
        ((=ucs@jis	    . #x5B87)	; &AJ1-01225;
 	(=ucs@ks	    . #x5B87)	; &AJ1-01225;
-	(=jis-x0208	    . #x3127)	; &AJ1-01225; [17-07]
-	(=ks-x1001	    . #x6954)	; &I-K0-6954; [73-52]
-	(=jis-x0213-1	    . #x3127)	; &I-JX1-3127; [17-07]
-	(=daikanwa	    . 07067)	; &I-M-07067;
+	(=adobe-japan1-0    . 01225)	; &AJ1-01225;
 	)
        ((=ucs		    . #x76BF)	; 皿
 	))
@@ -1728,7 +1725,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>>jis-x0208	  . #x547B)	; &G-GT-07540; [52-91]
+     ((=>>ucs@jis	  . #x5960)	; &G-AJ1-04556;
+      (=>>ucs@ks	  . #x5960)	; &G-AJ1-04556;
+      (=>>adobe-japan1-0  . 04556)	; &G-AJ1-04556;
       )
      ((=ucs		  . #x76BF)	; 皿
       ))
