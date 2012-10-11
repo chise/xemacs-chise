@@ -1,3 +1,32 @@
+2012-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R108-Dish.el (g2-JU+76D4): Unify g2-HD-JB4647 instead
+	of G-HD-JB4647.
+
+2012-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R102-Field.el (G-CU+756F): Unify G-M-21865.
+
+	* Ideograph-R098-Tile.el (U+74F6): Unify S1-4991; add `<-vulgar'
+	for AJ1-08564.
+	(U+3F24): Use `->subsumptive' to separate representative nodes.
+	(JX1-7847): Unify S1-4989 and S2-4990.
+
+	* Ideograph-R094-Dog.el (g2-JU+7324): Unify g2-AJ1-08547.
+	(G-JU+FA16): Unify G-AJ1-08548, G-JX1-776F and G-M-20534.
+	(G-UU+7350): Unify g2-UU+7350; unify g2-JX1-7770 instead of
+	G-JX1-7770; unify g2-HD-JB4326.
+
+	* Ideograph-R085-Water.el (g2-JX2-6E3E): Unify g2-HD-JB3879
+	instead of G-HD-JB3879.
+	(U-00023C99): New character.
+	(U+3CD3): New character.
+	(U+3CD8): Integrate M-17367.
+	(JSP-4825): Unify S-4282; add `<-vulgar' for J0-3D5F.
+	(U-00023E96): New character.
+	(G-UU+6F88): Unify g2-UU+6F88 instead of G-UU+6F88; unify
+	g2-AJ1-08529 and g2-JX1-772F.
+
 2012-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R101-Use.el (g2-UU+752F): Unify g2-AJ1-08434 and
