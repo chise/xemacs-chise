@@ -1,3 +1,26 @@
+2012-10-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R113-Spirit.el (g2-UU+7940): Unify g2-HD-FT2365
+	instead of G-HD-FT2365.
+	(g2-UU+79AE): Unify g2-HD-FT2377 instead of G-HD-FT2377.
+
+	* Ideograph-R096-Jade.el (U+73EA): Add `<-formed' for U+572D.
+	(U+7409): Use `->subsumptive'.
+	(U+3ECD): Integrate M-21009.
+	(U+7402): Use `->subsumptive'.
+	(U+3ED0): New character.
+	(U+3EE2): New character.
+	(U+7460): Unify S1-4907; add `<-formed' for S1-4905.
+	(g2-JX1-7833): Unify g2-HD-JC8819 instead of G-HD-JC8819.
+	(U+3EF8): Integrate M-21243.
+	(U+74A2): Unify S1-4908; add `<-formed@shinjigen/1ed' for S1-4905;
+	add `<-formed@shinjigen/rev' for U+7460.
+	(U+3EF9): Integrate M-21251.
+	(U+3EFA): Integrate M-21254.
+	(U+3EFB): New character.
+	(g2-J90U+74D8): Unify g2-HD-JB4479 instead of G-HD-JB4479.
+	(g2-JX2-712A): Unify g2-HD-JD8110 instead of G-HD-JD8110.
+
 2012-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R086-Fire.el (U+70AF): Use `->subsumptive'.
