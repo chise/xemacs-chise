@@ -1,5 +1,12 @@
 2012-10-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R120-Silk.el (o-JU+7E8A): Unify o-JX1-7A37 and
+	o-AJ1-08359.
+
+	* Ideograph-R112-Stone.el (U+40BC): Use `->subsumptive' to
+	separate representative nodes.
+	(U+7882): Use `->subsumptive'.
+
 	* Ideograph-R113-Spirit.el (g2-UU+7940): Unify g2-HD-FT2365
 	instead of G-HD-FT2365.
 	(g2-UU+79AE): Unify g2-HD-FT2377 instead of G-HD-FT2377.
