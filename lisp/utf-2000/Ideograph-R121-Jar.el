@@ -521,14 +521,14 @@
     (total-strokes	 . 12)
     (=>>ucs@unicode	. #x7F3E)	; &G-JX2-7464;
     (=>>jis-x0213-2	. #x7464)	; &G-JX2-7464; [84-68]
-    (=>>daikanwa	. 28143)	; &G-JX2-7464;
     (=>>hanyo-denshi/jb . #x546E)	; &G-JX2-7464; [52-78]
+    (=>>daikanwa	. 28143)	; &G-JX2-7464;
     (->subsumptive
      ((=ucs@jis		  . #x7F3E)	; &HD-JB-546E;
       (=jis-x0212	  . #x546E)	; &HD-JB-546E; [52-78]
       (=jis-x0213-2	  . #x7464)	; &I-JX2-7464; [84-68]
-      (=daikanwa	  . 28143)	; &I-M-28143;
       (=hanyo-denshi/jb	  . #x546E)	; &I-HD-JB-546E; [52-78]
+      (=daikanwa	  . 28143)	; &I-M-28143;
       )
      ((=cns11643-2	  . #x3F22)	; &C2-3F22; [31-02]
       )
@@ -923,16 +923,17 @@
     (ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 12)
     (total-strokes	 . 18)
-    (=>>ucs@jis		. #x7F47)	; &G-JX1-7A39;
-    (=>>jis-x0213-1	. #x7A39)	; &G-JX1-7A39; [90-25]
-    (=>>daikanwa	. 28175)	; &G-JX1-7A39;
+    (=>>ucs@jis		. #x7F47)	; &G-AJ1-08597;
+    (=>>adobe-japan1-2	. 08597)	; &G-AJ1-08597;
+    (=>>jis-x0213-1	. #x7A39)	; &G-AJ1-08597; [90-25]
+    (=>>daikanwa	. 28175)	; &G-AJ1-08597;
     (->subsumptive
      ((=daikanwa	  . 28175)	; &M-28175;
       )
      ((=ucs@jis		  . #x7F47)	; &AJ1-08597;
-      (=jis-x0212	  . #x5472)	; &AJ1-08597; [52-82]
+      (=adobe-japan1-2	  . 08597)	; &AJ1-08597;
+      (=jis-x0212	  . #x5472)	; &I-JSP-5472; [52-82]
       (=jis-x0213-1	  . #x7A39)	; &I-JX1-7A39; [90-25]
-      (=adobe-japan1-2	  . 08597)	; &I-AJ1-08597;
       )
      ((=jef-china3	  . #x5FE8)	; &JC3-5FE8;
       ))
@@ -1119,17 +1120,15 @@
       (=shinjigen	  .  1519)	; &GT-36312;
       (<-formed
        ((=ucs@unicode	    . #x58DC)	; &AJ1-04529;
-	(=jis-x0208	    . #x5460)	; &AJ1-04529; [52-64]
-	(=jis-x0213-1	    . #x5460)	; &I-JX1-5460; [52-64]
-	(=daikanwa	    . 05588)	; &I-M-05588;
+	(=adobe-japan1-0    . 04529)	; &AJ1-04529;
+	(=jis-x0208	    . #x5460)	; &I-J90-5460; [52-64]
 	(=shinjigen	    .  1518)	; &AJ1-04529;
 	))
       (<-formed*sources
        jiyun shinjigen)
       (<-same
        ((=ucs@unicode	    . #x58DC)	; &AJ1-04529;
-	(=jis-x0208	    . #x5460)	; &AJ1-04529; [52-64]
-	(=jis-x0213-1	    . #x5460)	; &I-JX1-5460; [52-64]
+	(=adobe-japan1-0    . 04529)	; &AJ1-04529;
 	(=daikanwa	    . 05588)	; &I-M-05588;
 	))
       (<-same*sources
