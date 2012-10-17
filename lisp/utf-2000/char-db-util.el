@@ -638,7 +638,10 @@
 			   =jis-x0212
 			   =jis-x0208@1983
 			   =jis-x0208@1978
-			   =shinjigen))))
+			   =shinjigen
+			   =shinjigen@1ed
+			   =shinjigen@rev
+			   =shinjigen/+p@rev))))
 	   ((eq source 'CN)
 	    (setq required-features
 		  (union required-features
@@ -1024,17 +1027,17 @@
 	    (setq strokes value)))
       (setq attributes (delq 'cns-strokes attributes))
       )
-    (when (and (memq 'shinjigen-1-radical attributes)
-	       (setq value (get-char-attribute char 'shinjigen-1-radical)))
-      (unless (eq value radical)
-	(insert (format "(shinjigen-1-radical . %S)\t; %c%s"
-			value
-			(ideographic-radical value)
-			line-breaking))
-	(or radical
-	    (setq radical value)))
-      (setq attributes (delq 'shinjigen-1-radical attributes))
-      )
+    ;; (when (and (memq 'shinjigen-1-radical attributes)
+    ;;            (setq value (get-char-attribute char 'shinjigen-1-radical)))
+    ;;   (unless (eq value radical)
+    ;;     (insert (format "(shinjigen-1-radical . %S)\t; %c%s"
+    ;;                     value
+    ;;                     (ideographic-radical value)
+    ;;                     line-breaking))
+    ;;     (or radical
+    ;;         (setq radical value)))
+    ;;   (setq attributes (delq 'shinjigen-1-radical attributes))
+    ;;   )
     (when (and (memq 'ideographic- attributes)
 	       (setq value (get-char-attribute char 'ideographic-)))
       (insert "(ideographic-       ")
