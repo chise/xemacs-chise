@@ -1,3 +1,9 @@
+2012-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R123-Sheep.el (U-0002638C): Add ideographic-structure.
+
+	* Ideograph-R121-Jar.el (G-JX1-7A39): Unify G-AJ1-08597.
+
 2012-10-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R120-Silk.el (o-JU+7E8A): Unify o-JX1-7A37 and
