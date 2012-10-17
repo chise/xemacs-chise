@@ -1,3 +1,11 @@
+2012-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-insert-relation-feature): Add
+	`=shinjigen@1ed', `=shinjigen@rev' and `=shinjigen/+p@rev' into
+	required-features for `JP', `JP/Jouyou', `shinjigen',
+	`shinjigen@1ed' and `shinjigen@rev' domains.
+	(insert-char-attributes): Delete code for `shinjigen-1-radical'.
+
 2012-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R128-Ear.el (G-UU+8034): Unify G-AJ1-22250 and
