@@ -53,12 +53,12 @@
      ((=ucs		  . #x535C)	; 卜
       ))
     (=ucs		. #x5367)	; 卧
+    (=adobe-japan1-5	. 17333)	; &I-AJ1-17333;
     (=gb2312		. #x4E54)	; &I-G0-4E54; [46-52]
     (=cns11643-3	. #x2A5C)	; &I-C3-2A5C; [10-60]
     (=jis-x0213-2	. #x2354)	; &I-JX2-2354; [03-52]
     (=daikanwa		. 02808)	; &I-M-02808;
     (=hanziku-7		. #xEECB)	; &I-HZK07-EECB;
-    (=adobe-japan1-5	. 17333)	; &I-AJ1-17333;
     ))
 (define-char
   '((ideographic-radical . 131)	; ⾂
