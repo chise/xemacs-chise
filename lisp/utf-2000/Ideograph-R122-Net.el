@@ -71,9 +71,9 @@
     (=ucs		. #x5188)	; 冈
     (=gb2312		. #x3854)	; &I-G0-3854; [24-52]
     (=cns11643-4	. #x2152)	; &I-C4-2152; [01-50]
+    (=big5-eten		. #xC8A2)	; &I-B-C8A2;
     (=big5-cdp		. #x85BE)	; &I-CDP-85BE;
     (=daikanwa		. 28201)	; &I-M-28201;
-    (=big5-eten		. #xC8A2)	; &I-B-C8A2;
     (<-formed@component/connect-below
      ((=ucs		  . #x7F51)	; 网
       (=daikanwa	  . 28199)	; &I-M-28199;
@@ -139,10 +139,10 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=ucs@jis		. #x7F53)	; &AJ1-15000;
-    (=jis-x0212		. #x5475)	; &AJ1-15000; [52-85]
+    (=adobe-japan1-4	. 15000)	; &AJ1-15000;
+    (=jis-x0212		. #x5475)	; &I-JSP-5475; [52-85]
     (=gt-k		. 00882)	; &I-GT-K00882;
     (=gt-pj-k1		. #x6174)	; &AJ1-15000; [65-84]
-    (=adobe-japan1-4	. 15000)	; &I-AJ1-15000;
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
