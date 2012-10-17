@@ -1,5 +1,11 @@
 2012-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R128-Ear.el (G-UU+8034): Unify G-AJ1-22250 and
+	G-M-29001.
+	(JSP-555B): Unify S2-6375.
+	(GT-37686): Unify S2-1705.
+	(J90-665D): Delete S2-1705.
+
 	* Ideograph-R123-Sheep.el (U-0002638C): Add ideographic-structure.
 
 	* Ideograph-R121-Jar.el (G-JX1-7A39): Unify G-AJ1-08597.
