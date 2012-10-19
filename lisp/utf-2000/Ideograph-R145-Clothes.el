@@ -100,9 +100,8 @@
       (=shinjigen	  .  0824)	; &M-34094;
       (<-original
        ((=ucs@jis	    . #x5352)	; &AJ1-02836;
-	(=jis-x0208	    . #x4234)	; &AJ1-02836; [34-20]
-	(=ks-x1001	    . #x706F)	; &I-K0-706F; [80-79]
-	(=jis-x0213-1	    . #x4234)	; &I-JX1-4234; [34-20]
+	(=adobe-japan1-0    . 02836)	; &AJ1-02836;
+	(=jis-x0208	    . #x4234)	; &I-J90-4234; [34-20]
 	(=daikanwa	    . 02740)	; &I-M-02740;
 	(=shinjigen	    .  0823)	; &AJ1-02836;
 	))
@@ -6580,8 +6579,8 @@
      ((=ucs@jis		  . #x891C)	; &HD-JB-5C5F;
       (=jis-x0212	  . #x5C5F)	; &HD-JB-5C5F; [60-63]
       (=jis-x0213-1	  . #x7B6E)	; &I-JX1-7B6E; [91-78]
-      (=jef-china3	  . #x64B5)	; &I-JC3-64B5;
       (=hanyo-denshi/jb	  . #x5C5F)	; &I-HD-JB-5C5F; [60-63]
+      (=jef-china3	  . #x64B5)	; &I-JC3-64B5;
       )
      ((=ucs@unicode	  . #x891C)	; &UU+891C;
       ))
@@ -7213,8 +7212,8 @@
     (ideographic-radical . 145)	; ⾐
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
-    (=>>jis-x0213-1	. #x6A75)	; &G-GT-46465; [74-85]
-    (=>>gt		. 46465)	; &G-GT-46465;
+    (=>>jis-x0213-1	. #x6A75)	; &G-JX1-6A75; [74-85]
+    (=>>gt		. 46465)	; &G-JX1-6A75;
     (->subsumptive
      ((=ucs@jis		  . #x892B)	; &GT-46465;
       (=jis-x0208@1990	  . #x6A75)	; &GT-46465; [74-85]
@@ -9367,8 +9366,8 @@
     (=>>ucs@cns		. #x8956)	; &G-JX3-3228;
     (=>>jis-x0208@1978	. #x3228)	; &G-JX3-3228; [18-08]
     (=>>jis-x0213-1@2004 . #x3228)	; &G-JX3-3228; [18-08]
-    (=>>daikanwa	. 34629)	; &G-JX3-3228;
     (=>>hanyo-denshi/ft . #x315E)	; &G-JX3-3228; [17-62]
+    (=>>daikanwa	. 34629)	; &G-JX3-3228;
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x8956)	; 襖
@@ -9378,8 +9377,8 @@
       (=ucs@jis/2004	  . #x8956)	; &HD-FT-315E;
       (=jis-x0208@1978	  . #x3228)	; &HD-FT-315E; [18-08]
       (=jis-x0213-1@2004  . #x3228)	; &I-JX3-3228; [18-08]
-      (=daikanwa	  . 34629)	; &I-M-34629;
       (=hanyo-denshi/ft	  . #x315E)	; &I-HD-FT-315E; [17-62]
+      (=daikanwa	  . 34629)	; &I-M-34629;
       )
      ((=ucs@cns		  . #x8956)	; &C1-7878;
       (=cns11643-1	  . #x7878)	; &C1-7878; [88-88]
