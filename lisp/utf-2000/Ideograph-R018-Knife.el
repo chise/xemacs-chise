@@ -1811,8 +1811,7 @@
     (=gt		. 02486)	; &I-GT-02486;
     (=gt-pj-1		. #x5168)	; &I-GT-02486; [49-72]
     (=daikanwa		. 01917)	; &I-M-01917;
-    (=shinjigen@1ed	.  0609)	; 刪
-    (=shinjigen@rev	.  0611)	; 刪
+    (=shinjigen		.  0609)	; 刪
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -2461,7 +2460,15 @@
       (=ucs@unicode	  . #x5220)	; &G0-493E;
       (=gb2312		  . #x493E)	; &G0-493E; [41-30]
       (=daikanwa	  . 48937)	; &I-M-48937;
+      (=shinjigen	  .  0611)	; &G0-493E;
       (=hanziku-1	  . #xE9EF)	; &I-HZK01-E9EF;
+      (<-formed
+       ((=ucs		    . #x522A)	; 刪
+	(=jis-x0208	    . #x5168)	; &I-J90-5168; [49-72]
+	(=shinjigen	    .  0609)	; 刪
+	))
+      (<-formed*sources
+       shinjigen)
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -3648,14 +3655,14 @@
     (=ucs		. #x20702)	; 𠜂
     (=cns11643-6	. #x2968)	; &I-C6-2968; [09-72]
     (=daikanwa		. 48938)	; &I-M-48938;
-    (=shinjigen@1ed	.  0610)	; 𠜂
+    (=shinjigen		.  0610)	; 𠜂
     (<-formed
      ((=ucs		  . #x522A)	; 刪
       (=jis-x0208	  . #x5168)	; &I-J90-5168; [49-72]
-      (=shinjigen@1ed	  .  0609)	; 刪
+      (=shinjigen	  .  0609)	; 刪
       ))
     (<-formed*sources
-     shinjigen@1ed)
+     shinjigen)
     (<-same
      ((=ucs		  . #x206F9)	; 𠛹
       (=daikanwa	  . 01980)	; &I-M-01980;
