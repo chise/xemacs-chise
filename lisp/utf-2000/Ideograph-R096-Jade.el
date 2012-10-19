@@ -6754,6 +6754,7 @@
     (<-formed@shinjigen/rev
      ((=ucs		  . #x7460)	; 瑠
       (=jis-x0208	  . #x4E5C)	; &I-J90-4E5C; [46-60]
+      (=shinjigen@1ed	  .  4907)	; 瑠
       (=shinjigen@rev	  .  4949)	; 瑠
       ))
     (<-formed@shinjigen/rev*sources
