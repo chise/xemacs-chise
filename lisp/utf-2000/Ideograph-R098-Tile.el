@@ -511,6 +511,7 @@
      ((=ucs@jis		  . #x7501)	; &AJ1-08564;
       (=adobe-japan1-2	  . 08564)	; &AJ1-08564;
       (=shinjigen@1ed	  .  4989)	; &AJ1-08564;
+      (=shinjigen@rev	  .  4990)	; &AJ1-08564;
       ))
     (<-vulgar*sources
      shinjigen@1ed)
