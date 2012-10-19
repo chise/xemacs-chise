@@ -16562,10 +16562,10 @@
       (=shinjigen@1ed	  .  4419)	; &GT-23146;
       (=shinjigen@rev	  .  4421)	; &GT-23146;
       )
-     ((=>>>ucs@unicode	  . #x6EFE)	; &G-HD-FT-3129;
-      (=>>>jis-x0208@1978 . #x5E78)	; &G-HD-FT-3129; [62-88]
-      (=>>>jis-x0208@1983 . #x5E78)	; &G-HD-FT-3129; [62-88]
-      (=>>>hanyo-denshi/ft . #x3129)	; &G-HD-FT-3129; [17-09]
+     ((=>>>ucs@unicode	  . #x6EFE)	; &g2-HD-FT-3129;
+      (=>>>jis-x0208@1978 . #x5E78)	; &g2-HD-FT-3129; [62-88]
+      (=>>>jis-x0208@1983 . #x5E78)	; &g2-HD-FT-3129; [62-88]
+      (=>>>hanyo-denshi/ft . #x3129)	; &g2-HD-FT-3129; [17-09]
       (->subsumptive
        ((=decomposition@hanyo-denshi
 	 ((=ucs		      . #x6EFE)	; 滾
