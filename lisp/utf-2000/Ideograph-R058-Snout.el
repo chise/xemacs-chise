@@ -220,7 +220,7 @@
     (=gt-k		. 01674)	; &I-GT-K01674;
     (=gt-pj-1		. #x4576)	; &I-GT-12509; [37-86]
     (=daikanwa		. 09913)	; &I-M-09913;
-    (=shinjigen@rev	.  5071)	; 当
+    (=shinjigen		.  5071)	; 当
     (<-simplified@CN
      ((=ucs		  . #x7576)	; 當
       (=gb12345		  . #x3531)	; 當 [21-17]
@@ -232,9 +232,10 @@
      ((=ucs		  . #x7576)	; 當
       (=jis-x0208	  . #x6144)	; &I-J90-6144; [65-36]
       (=daikanwa	  . 21890)	; &I-M-21890;
+      (=shinjigen	  .  5072)	; 當
       ))
     (<-simplified@JP/Jouyou*sources
-     daikanwa JP/Jouyou)
+     daikanwa JP/Jouyou shinjigen@rev)
     (<-simplified@ucs
      ((=ucs		  . #x7576)	; 當
       ))
