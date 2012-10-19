@@ -13646,6 +13646,7 @@
       (=jis-x0213-1	  . #x667C)	; &I-JX1-667C; [70-92]
       (=daikanwa	  . 29526)	; &I-M-29526;
       (=shinjigen@1ed	  .  6496)	; &GT-38188;
+      (=shinjigen@rev	  .  1091)	; &GT-38188;
       ))
     (<-vulgar*sources
      shinjigen@1ed)
@@ -18013,6 +18014,7 @@
      ((=adobe-japan1-4	  . 13738)	; &AJ1-13738;
       (=daikanwa	  . 03820)	; &I-M-03820;
       (=shinjigen@1ed	  .  1108)	; &AJ1-13738;
+      (=shinjigen/+p@rev  .  1112)	; &AJ1-13738;
       ))
     (<-vulgar*sources
      zhengzitong daikanwa shinjigen@1ed shinjigen@rev)
@@ -39088,14 +39090,16 @@
     (=cns11643-4	. #x557A)	; &I-C4-557A; [53-90]
     (=daikanwa		. 04434)	; &I-M-04434;
     (=shinjigen@1ed	.  1143)	; 𡀽
+    (=shinjigen@rev	.  1110)	; 𡀽
     (=hanziku-2		. #xE15E)	; &I-HZK02-E15E;
     (<-vulgar
      ((=ucs		  . #xFA36)	; 喝
       (=jis-x0208@1978	  . #x3365)	; &I-J78-3365; [19-69]
       (=shinjigen@1ed	  .  1142)	; 喝
+      (=shinjigen@rev	  .  1109)	; 喝
       ))
     (<-vulgar*sources
-     jiyun danchuu daikanwa/p1 shinjigen@1ed)
+     jiyun danchuu daikanwa/p1 shinjigen@1ed shinjigen@rev)
     ))
 (define-char
   '((=>ucs		. #x2103F)	; 𡀿
@@ -39312,6 +39316,14 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
     (hanyu-dazidian	1 698 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs		  . #x7FE0)	; 翠
+      ))
     (sound@ja/on	"sui")
     (=ucs		. #x567F)	; 噿
     (=big5		. #xECC8)	; &I-B-ECC8;
@@ -39342,6 +39354,16 @@
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=>>ucs@unicode	  . #x7FE0)	; &G-JX1-3F69;
+      (=>>jis-x0213-1	  . #x3F69)	; &G-JX1-3F69; [31-73]
+      ))
+    (=>>ucs@unicode	. #x567F)	; &G-UU+567F;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -39360,7 +39382,8 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=cns11643-1	    . #x6A49)	; &C1-6A49; [74-41]
+       ((=ucs@cns	    . #x7FE0)	; &C1-6A49;
+	(=cns11643-1	    . #x6A49)	; &C1-6A49; [74-41]
 	))
       (=cns11643-2	  . #x5C54)	; &C2-5C54; [60-52]
       ))
