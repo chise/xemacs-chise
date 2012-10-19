@@ -525,11 +525,12 @@
      ((=ucs@unicode	  . #x537D)	; &AJ1-13365;
       (=adobe-japan1-4	  . 13365)	; &AJ1-13365;
       ))
-    (<-vulgar
+    (<-simplified@JP/shinjigen
      ((=daikanwa	  . 02873)	; &M-02873;
+      (=shinjigen	  .  0860)	; &M-02873;
       ))
-    (<-vulgar*sources
-     shinjigen@1ed)
+    (<-simplified@JP/shinjigen*sources
+     shinjigen)
     ))
 (define-char
   '((<-denotational
@@ -1132,7 +1133,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (=daikanwa		. 02873)	; &M-02873;
-    (=shinjigen@rev	.  0860)	; &M-02873;
+    (=shinjigen		.  0860)	; &M-02873;
     ))
 (define-char
   '((ideographic-radical . 26)	; ⼙
