@@ -1,5 +1,20 @@
 2012-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (U+5841): Delete S1-1452; unify S1-1450.
+
+	* Ideograph-R030-Mouth.el (U-0002103D): Unify S2-1110.
+	(U+567F): Add ideographic-structure.
+	(mother of C2-5C54): Unify G-UU+567F; add ideographic-structure.
+
+	* Ideograph-R015-Ice.el (J0-515A): Add `shinjigen@rev' into
+	`<-vulgar*sources'.
+
+	* Ideograph-R143-Blood.el (U+8849): Unify S1-1141 and S2-1143; add
+	`<-formed' for J0-533D.
+
+	* Ideograph-R133-Arrive.el (U-00026935): Use `->subsumptive' to
+	separate representative nodes.
+
 	* char-db-util.el (char-db-insert-relation-feature): Add
 	`=shinjigen@1ed', `=shinjigen@rev' and `=shinjigen/+p@rev' into
 	required-features for `JP', `JP/Jouyou', `shinjigen',
