@@ -8960,15 +8960,17 @@
     (=gt-k		. 09161)	; &I-GT-K09161;
     (=gt-pj-1		. #x4E5D)	; &I-GT-06689; [46-61]
     (=daikanwa/+p	. 05316)	; 塁
-    (=shinjigen		.  1452)	; 塁
+    (=shinjigen@1ed	.  1450)	; 塁
+    (=shinjigen@rev	.  1452)	; 塁
     (<-simplified@JP/Jouyou
      ((=ucs		  . #x58D8)	; 壘
       (=jis-x0208	  . #x545E)	; &I-J90-545E; [52-62]
       (=daikanwa	  . 05574)	; &I-M-05574;
       (=shinjigen@1ed	  .  1451)	; 壘
+      (=shinjigen@rev	  .  1453)	; 壘
       ))
     (<-simplified@JP/Jouyou*sources
-     JP/Jouyou daikanwa shinjigen@1ed)
+     JP/Jouyou daikanwa shinjigen@1ed shinjigen@rev)
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
