@@ -2880,6 +2880,7 @@
     (=jef-china3	. #x4FBB)	; &I-JC3-4FBB;
     (<-vulgar
      ((=shinjigen@1ed	  .  2851)	; &JC3-4FBA;
+      (=shinjigen@rev	  .  2852)	; &JC3-4FBA;
       (=jef-china3	  . #x4FBA)	; &JC3-4FBA;
       ))
     (<-vulgar*sources
@@ -2902,6 +2903,7 @@
       (=cns11643-1	  . #x4D66)	; &I-C1-4D66; [45-70]
       (=jis-x0213-1	  . #x327D)	; &I-JX1-327D; [18-93]
       (=daikanwa	  . 11955)	; &I-M-11955;
+      (=shinjigen@1ed	  .  2852)	; &GT-15032;
       (=shinjigen@rev	  .  2851)	; &GT-15032;
       ))
     (<-original*sources
@@ -2921,6 +2923,7 @@
     (=shinjigen		.  2853)	; &G0-3955;
     (<-vulgar@shinjigen/1ed
      ((=shinjigen@1ed	  .  2851)	; &JC3-4FBA;
+      (=shinjigen@rev	  .  2852)	; &JC3-4FBA;
       (=jef-china3	  . #x4FBA)	; &JC3-4FBA;
       ))
     (<-vulgar@shinjigen/1ed*sources
@@ -2932,6 +2935,7 @@
       (=cns11643-1	  . #x4D66)	; &I-C1-4D66; [45-70]
       (=jis-x0213-1	  . #x327D)	; &I-JX1-327D; [18-93]
       (=daikanwa	  . 11955)	; &I-M-11955;
+      (=shinjigen@1ed	  .  2852)	; &GT-15032;
       (=shinjigen@rev	  .  2851)	; &GT-15032;
       ))
     (<-vulgar@shinjigen/rev*sources
@@ -5723,6 +5727,7 @@
       (=jis-x0213-1	  . #x5967)	; &I-JX1-5967; [57-71]
       (=daikanwa	  . 12346)	; &I-M-12346;
       (=shinjigen@1ed	  .  3012)	; &GT-15629;
+      (=shinjigen@rev	  .  2940)	; &GT-15629;
       ))
     (<-vulgar*sources
      shinjigen@1ed)
@@ -9000,9 +9005,11 @@
     (<-simplified@JP/Jouyou
      ((=ucs		  . #x63ED)	; 揭
       (=daikanwa	  . 12389)	; &I-M-12389;
+      (=shinjigen@1ed	  .  2960)	; 揭
+      (=shinjigen@rev	  .  2963)	; 揭
       ))
     (<-simplified@JP/Jouyou*sources
-     daikanwa JP/Jouyou)
+     daikanwa JP/Jouyou shinjigen@rev)
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
@@ -10605,6 +10612,7 @@
     (=big5		. #xB4A6)	; &I-B-B4A6;
     (=daikanwa		. 12389)	; &I-M-12389;
     (=shinjigen@1ed	.  2960)	; 揭
+    (=shinjigen@rev	.  2963)	; 揭
     (=jef-china3	. #x4FEA)	; &I-JC3-4FEA;
     ))
 (define-char
@@ -11420,6 +11428,7 @@
     (=gt-pj-1		. #x4D49)	; &I-GT-15703; [45-41]
     (=daikanwa/+p	. 12445)	; 揺
     (=shinjigen@1ed	.  3022)	; 揺
+    (=shinjigen@rev	.  3025)	; 揺
     (<-simplified@JP/Jouyou
      ((=ucs@unicode	  . #x6416)	; &GT-15861;
       (=jis-x0208	  . #x596A)	; &GT-15861; [57-74]
@@ -11427,9 +11436,10 @@
       (=jis-x0213-1	  . #x596A)	; &I-JX1-596A; [57-74]
       (=daikanwa	  . 12479)	; &I-M-12479;
       (=shinjigen@1ed	  .  3023)	; &GT-15861;
+      (=shinjigen@rev	  .  3026)	; &GT-15861;
       ))
     (<-simplified@JP/Jouyou*sources
-     shinjigen@1ed JP/Jouyou daikanwa)
+     JP/Jouyou daikanwa shinjigen@rev)
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
