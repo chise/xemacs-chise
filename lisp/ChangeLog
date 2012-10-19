@@ -1,3 +1,8 @@
+2012-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>>>hanyo-denshi/ft'.
+
 2012-09-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=>>>hanyo-denshi/jd): New coded-charset for
