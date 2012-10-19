@@ -1,4 +1,37 @@
+2012-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R026-Seal.el (J0-4228): Use
+	`<-simplified@JP/shinjigen' instead of `<-vulgar' for M-02873.
+	(M-02873): Unify S1-0860.
+
 2012-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R140-Grass.el (g2-JX1-7A78): Unify g2-HD-JB5611
+	instead of G-HD-JB5611.
+	(U-00026D5D): Fix strokes.
+	(U-00026D49): New character.
+	(g2-JX2-7657): Unify g2-HD-JB5678 instead of G-HD-JB5678.
+	(g2-JX1-7B30): Unify g2-HD-JB5685 instead of G-HD-JB5685.
+	(U-0002705C): New character.
+	(U+8637): New character.
+
+	* Ideograph-R094-Dog.el (U+731F): Unify S2-4812; delete
+	`shinjigen@1ed' from `<-simplified@JP/Jouyou*sources'; add
+	`shinjigen@rev' into `<-simplified@JP/Jouyou*sources'.
+	(G-CU+7375): New node to integrate S2-4814 and C1-7665.
+	(S2-4814): New character; unify S1-4812.
+
+	* Ideograph-R064-Hand.el (U+63B2): Add `shinjigen@rev' into
+	`<-simplified@JP/Jouyou*sources'.
+	(U+63ED): Unify S2-2963.
+	(U+63FA): Unify S2-3025; add `shinjigen@rev' into
+	`<-simplified@JP/Jouyou*sources'.
+
+	* Ideograph-R058-Snout.el (U+5F53): Unify S1-5071.
+
+	* Ideograph-R018-Knife.el (U+522A): Delete S2-0611; unify S2-0609.
+	(G0-493E): Unify S-0611; add `<-formed' for U+522A.
+	(U-00020702): Unify S2-0610.
 
 	* Ideograph-R032-Earth.el (U+5841): Delete S1-1452; unify S1-1450.
 
