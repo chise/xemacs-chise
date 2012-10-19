@@ -2304,8 +2304,8 @@
      ((=ucs@unicode	  . #x5BB6)	; &G0-3C52;
       (=gb2312		  . #x3C52)	; &G0-3C52; [28-50]
       )
-     ((=>>>ucs@cns	  . #x5BB6)	; &G-HD-FT-3431;
-      (=>>>hanyo-denshi/ft . #x3431)	; &G-HD-FT-3431; [20-17]
+     ((=>>>ucs@cns	  . #x5BB6)	; &g2-HD-FT-3431;
+      (=>>>hanyo-denshi/ft . #x3431)	; &g2-HD-FT-3431; [20-17]
       (->subsumptive
        ((=decomposition@hanyo-denshi
 	 ((=ucs		      . #x5BB6)	; 家
@@ -5156,8 +5156,8 @@
     (=>>ucs@unicode	. #x5BE5)	; &G-HD-FT-3557;
     (=>>hanyo-denshi/ft . #x3557)	; &G-HD-FT-3557; [21-55]
     (->subsumptive
-     ((=>>>ucs@unicode	  . #x5BE5)	; &G-HD-FT-3557;
-      (=>>>hanyo-denshi/ft . #x3557)	; &G-HD-FT-3557; [21-55]
+     ((=>>>ucs@unicode	  . #x5BE5)	; &g2-HD-FT-3557;
+      (=>>>hanyo-denshi/ft . #x3557)	; &g2-HD-FT-3557; [21-55]
       (->subsumptive
        ((=decomposition@hanyo-denshi
 	 ((=ucs		      . #x5BE5)	; 寥
