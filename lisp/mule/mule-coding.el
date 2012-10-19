@@ -348,6 +348,7 @@
 	  (=>>>jis-x0213-1@2004		      "g2-JX3-" 4 X)
 	  (=>>>jis-x0213-1@2004		      "GI-JX3-" 4 X)
 	  (=>>>hanyo-denshi/ib		    "g2-HD-IB-" 4 X)
+	  (=>>>hanyo-denshi/ft		    "g2-HD-FT-" 4 X)
 	  (=>>>hanyo-denshi/jt		    "g2-HD-JT-" 4 X)
 	  (=>>>gt			       "g2-GT-" 5 d)
 	  (=>>adobe-japan1		       "G-AJ1-" 5 d)
