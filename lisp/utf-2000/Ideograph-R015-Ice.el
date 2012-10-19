@@ -1733,9 +1733,10 @@
 	(=jis-x0213-1	    . #x4E43)	; &I-JX1-4E43; [46-35]
 	(=daikanwa	    . 17606)	; &I-M-17606;
 	(=shinjigen@1ed	    .  4308)	; &GT-22670;
+	(=shinjigen@rev	    .  4309)	; &GT-22670;
 	))
       (<-vulgar*sources
-       shinjigen@1ed)
+       shinjigen@1ed shinjigen@rev)
       )
      ((hanyu-dazidian	  1 299 9)
       (ideographic-structure
