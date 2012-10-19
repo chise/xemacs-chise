@@ -380,11 +380,11 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
-    (=>>ucs@unicode	. #x7940)	; &g2-GT-31502;
-    (=>>>ucs@unicode	. #x7940)	; &g2-GT-31502;
-    (=big5		. #xAAC1)	; &g2-GT-31502;
-    (=>>>hanyo-denshi/ft . #x3761)	; &g2-GT-31502; [23-65]
-    (=>>>gt		. 31502)	; &g2-GT-31502;
+    (=>>ucs@unicode	. #x7940)	; &g2-HD-FT-3761;
+    (=>>>ucs@unicode	. #x7940)	; &g2-HD-FT-3761;
+    (=big5		. #xAAC1)	; &g2-HD-FT-3761;
+    (=>>>hanyo-denshi/ft . #x3761)	; &g2-HD-FT-3761; [23-65]
+    (=>>>gt		. 31502)	; &g2-HD-FT-3761;
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x7940)	; 祀
@@ -7024,9 +7024,9 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 13)
     (total-strokes	 . 18)
-    (=>>ucs@unicode	. #x79AE)	; &G-HD-FT-376D;
-    (=>>>ucs@unicode	. #x79AE)	; &G-HD-FT-376D;
-    (=>>>hanyo-denshi/ft . #x376D)	; &G-HD-FT-376D; [23-77]
+    (=>>ucs@unicode	. #x79AE)	; &g2-HD-FT-376D;
+    (=>>>ucs@unicode	. #x79AE)	; &g2-HD-FT-376D;
+    (=>>>hanyo-denshi/ft . #x376D)	; &g2-HD-FT-376D; [23-77]
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x79AE)	; 禮
