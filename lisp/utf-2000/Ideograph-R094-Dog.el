@@ -3524,6 +3524,7 @@
     (=gt-pj-1		. #x4E44)	; &I-GT-26249; [46-36]
     (=daikanwa/+p	. 20512)	; 猟
     (=shinjigen@1ed	.  4810)	; 猟
+    (=shinjigen@rev	.  4812)	; 猟
     (<-simplified@JP/Jouyou
      ((=ucs@unicode	  . #x7375)	; &GT-26597;
       (=jis-x0208	  . #x605A)	; &GT-26597; [64-58]
@@ -3531,9 +3532,10 @@
       (=jis-x0213-1	  . #x605A)	; &I-JX1-605A; [64-58]
       (=daikanwa	  . 20768)	; &I-M-20768;
       (=shinjigen@1ed	  .  4811)	; &GT-26597;
+      (=shinjigen@rev	  .  4813)	; &GT-26597;
       ))
     (<-simplified@JP/Jouyou*sources
-     daikanwa shinjigen@1ed JP/Jouyou)
+     daikanwa JP/Jouyou shinjigen@rev)
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
@@ -7247,7 +7249,25 @@
     (ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (=cns11643-1	. #x7665)	; &C1-7665; [86-69]
+    (=>>ucs@cns		. #x7375)	; &G-CU+7375;
+    (->subsumptive
+     ((=shinjigen@1ed	  .  4812)	; &SJG2-4814;
+      (=shinjigen@rev	  .  4814)	; &SJG2-4814;
+      (<-vulgar
+       ((=ucs@unicode	    . #x7375)	; &GT-26597;
+	(=jis-x0208	    . #x605A)	; &GT-26597; [64-58]
+	(=ks-x1001	    . #x5634)	; &I-K0-5634; [54-20]
+	(=jis-x0213-1	    . #x605A)	; &I-JX1-605A; [64-58]
+	(=daikanwa	    . 20768)	; &I-M-20768;
+	(=shinjigen@1ed	    .  4811)	; &GT-26597;
+	(=shinjigen@rev	    .  4813)	; &GT-26597;
+	))
+      (<-vulgar*sources
+       shinjigen@1ed shinjigen@rev)
+      )
+     ((=ucs@cns		  . #x7375)	; &C1-7665;
+      (=cns11643-1	  . #x7665)	; &C1-7665; [86-69]
+      ))
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
