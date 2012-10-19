@@ -40,6 +40,7 @@
     (total-strokes	 . 8)
     (hanyu-dazidian	1 334 3)
     (=ucs		. #x5230)	; 到
+    (=adobe-japan1-0	. 03192)	; &I-AJ1-03192;
     (=jis-x0208		. #x457E)	; &I-J90-457E; [37-94]
     (=gb2312		. #x353D)	; &I-G0-353D; [21-29]
     (=ks-x1001		. #x5370)	; &I-K0-5370; [51-80]
@@ -51,7 +52,6 @@
     (=gt-pj-1		. #x457E)	; &I-GT-02558; [37-94]
     (=daikanwa		. 01950)	; &I-M-01950;
     (=shinjigen		.  6602)	; 到
-    (=adobe-japan1-0	. 03192)	; &I-AJ1-03192;
     ))
 (define-char
   '((ideographic-radical . 133)	; ⾄
@@ -71,8 +71,12 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
     (=ucs		. #x26935)	; 𦤵
-    (=cns11643-6	. #x2D72)	; &I-C6-2D72; [13-82]
-    (=daikanwa		. 30145)	; &I-M-30145;
+    (->subsumptive
+     ((=daikanwa	  . 30145)	; &M-30145;
+      )
+     ((=ucs@iso		  . #x26935)	; &C6-2D72;
+      (=cns11643-6	  . #x2D72)	; &C6-2D72; [13-82]
+      ))
     ))
 (define-char
   '((ideographic-radical . 133)	; ⾄
