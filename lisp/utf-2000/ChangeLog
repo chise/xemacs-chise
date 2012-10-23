@@ -1,5 +1,32 @@
 2012-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R153-Badger.el (g2-J90U+8C9B): Unify g2-HD-JB6307
+	instead of G-HD-JB6307.
+	(g2-JX2-792A): Unify g2-HD-JD8910 instead of G-HD-JD8910.
+
+	* Ideograph-R152-Pig.el (J0-502E): Separate S2-0068.
+	(HD-FT2063): Unify S2-0068.
+
+	* Ideograph-R150-Valley.el (g2-UU+8C45): Unify g2-JX2-787B and
+	g2-HD-JB6270.
+
+	* Ideograph-R149-Speech.el (JSP-5E34): Unify S-1175; add
+	`<-formed' for U+5583.
+
+	* Ideograph-R146-West.el (g2-UU+8988): Unify g2-HD-FT2536 instead
+	of G-HD-FT2536.
+
+	* Ideograph-R137-Boat.el (U+8229): Integrate CB11971 and H8-CFD5.
+	(J0-6755): Add `<-vulgar' for J83-4125.
+
+	* Ideograph-R124-Feather.el (U+7FC2): Add ideographic-structure.
+	(mother of C2-3228): Unify G-UU+7FC2; add ideographic-structure.
+	(J0-6643): Add `<-vulgar' for J78-3F69.
+
+	* Ideograph-R102-Field.el (U+7576): Unify S1-5072.
+	(U+7577): Unify S1-5070.
+	(U+7578): Unify S1-5069.
+
 	* Ideograph-R026-Seal.el (J0-4228): Use
 	`<-simplified@JP/shinjigen' instead of `<-vulgar' for M-02873.
 	(M-02873): Unify S1-0860.
