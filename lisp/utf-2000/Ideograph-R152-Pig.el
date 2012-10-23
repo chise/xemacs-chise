@@ -1301,7 +1301,6 @@
       (=gt		  . 48859)	; &I-GT-48859;
       (=gt-pj-1		  . #x502E)	; &I-GT-48859; [48-14]
       (=daikanwa	  . 36425)	; &I-M-36425;
-      (=shinjigen@rev	  .  0068)	; &GT-48859;
       )
      ((=ucs@unicode	  . #x8C6B)	; &G0-5425;
       (=gb2312		  . #x5425)	; &G0-5425; [52-05]
@@ -1312,8 +1311,8 @@
        ((=ucs		    . #xE0102)	; 󠄂
 	))
       (=cns11643-1	  . #x7247)	; &HD-FT-345F; [82-39]
-      (=shinjigen@1ed	  .  0068)	; &HD-FT-345F;
       (=hanyo-denshi/ft	  . #x345F)	; &I-HD-FT-345F; [20-63]
+      (=shinjigen	  .  0068)	; &HD-FT-345F;
       ))
     ))
 (define-char
