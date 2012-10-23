@@ -163,13 +163,13 @@
     (ideographic-radical . 146)	; ⾑
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
-    (=>>ucs@unicode	. #x8981)	; &G-GT-46811;
-    (=>>jis-x0208	. #x4D57)	; &G-GT-46811; [45-55]
-    (=>>jis-x0213-1	. #x4D57)	; &G-GT-46811; [45-55]
+    (=>>ucs@unicode	. #x8981)	; &G-J0-4D57;
+    (=>>jis-x0208	. #x4D57)	; &G-J0-4D57; [45-55]
+    (=>>jis-x0213-1	. #x4D57)	; &G-J0-4D57; [45-55]
     (=big5		. #xAD6E)	; &I-B-AD6E;
-    (=>>gt		. 46811)	; &G-GT-46811;
-    (=>>gt-k		. 05360)	; &G-GT-46811;
-    (=>>daikanwa/+p	. 34768)	; &G-GT-46811;
+    (=>>gt		. 46811)	; &G-J0-4D57;
+    (=>>gt-k		. 05360)	; &G-J0-4D57;
+    (=>>daikanwa/+p	. 34768)	; &G-J0-4D57;
     (->subsumptive
      ((=ucs@unicode	  . #x8981)	; &GT-46811;
       (=jis-x0208	  . #x4D57)	; &GT-46811; [45-55]
@@ -394,9 +394,9 @@
     (=ks-x1001		. #x5347)	; &I-K0-5347; [51-39]
     (=cns11643-1	. #x617D)	; &I-C1-617D; [65-93]
     (=big5		. #xB5F7)	; &I-B-B5F7;
+    (=hanyo-denshi/ft	. #x3943)	; &I-HD-FT-3943; [25-35]
     (=shinjigen		.  7477)	; &HD-FT-3943;
     (=jef-china3	. #x64BA)	; &I-JC3-64BA;
-    (=hanyo-denshi/ft	. #x3943)	; &I-HD-FT-3943; [25-35]
     ))
 (define-char
   '((ideographic-radical . 146)	; ⾑
@@ -677,19 +677,19 @@
     (ideographic-radical . 146)	; ⾑
     (ideographic-strokes . 13)
     (total-strokes	 . 19)
-    (=>>ucs@unicode	. #x8988)	; &G-HD-FT-3944;
-    (=>>>ucs@unicode	. #x8988)	; &G-HD-FT-3944;
-    (=big5		. #xF2F2)	; &G-HD-FT-3944;
-    (=>>hanyo-denshi/ft . #x3944)	; &G-HD-FT-3944; [25-36]
+    (=>>ucs@unicode	. #x8988)	; &g2-HD-FT-3944;
+    (=>>>ucs@unicode	. #x8988)	; &g2-HD-FT-3944;
+    (=big5		. #xF2F2)	; &g2-HD-FT-3944;
+    (=>>>hanyo-denshi/ft . #x3944)	; &g2-HD-FT-3944; [25-36]
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x8988)	; 覈
 	)
        ((=ucs		    . #xE0102)	; 󠄂
 	))
+      (=hanyo-denshi/ft	  . #x3944)	; &HD-FT-3944; [25-36]
       (=shinjigen@1ed	  .  7480)	; &HD-FT-3944;
       (=shinjigen@rev	  .  7479)	; &HD-FT-3944;
-      (=hanyo-denshi/ft	  . #x3944)	; &HD-FT-3944; [25-36]
       )
      ((=ucs@unicode	  . #x8988)	; &C2-667D;
       (=cns11643-2	  . #x667D)	; &C2-667D; [70-93]
@@ -823,8 +823,8 @@
      ((=ucs		  . #xE0102)	; 󠄂
       ))
     (=ucs@unicode	. #x898A)	; &HD-FT-3945;
-    (=shinjigen		.  6267)	; &HD-FT-3945;
     (=hanyo-denshi/ft	. #x3945)	; &HD-FT-3945; [25-37]
+    (=shinjigen		.  6267)	; &HD-FT-3945;
     (<-vulgar
      ((=ucs		  . #x7F88)	; 羈
       (=jis-x0208	  . #x6633)	; &I-J90-6633; [70-19]
