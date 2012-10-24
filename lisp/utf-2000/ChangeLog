@@ -1,5 +1,36 @@
 2012-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R164-Wine.el (M-40058): Add `<-formed@s=drink' for
+	J0-3232.
+
+	* Ideograph-R159-Cart.el (U+8F45): Unify S1-8172.
+	(U+4868): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R157-Foot.el (o-JU+8DBC): Unify G-JU+8DBC and
+	G-CU+8DBC instead of o-JU+8DBC and o-CU+8DBC; unify G-AJ1-22613,
+	G-GT-50128 and G-M-37527.
+	(g2-UU+8E91): Unify g2-HD-FT2572.
+
+	* Ideograph-R156-Run.el (J0-6C64): Unify S1-7967.
+
+	* Ideograph-R142-Insect.el (U+8675): Use `->subsumptive'.
+
+	* Ideograph-R130-Meat.el (U+808A): Add `sound@ja/on/go',
+	`sound@ja/on/kan' and `sound@zh'.
+	(GT-37858): Unify S-6569; add `<-original' for S-6568; add
+	`->formed@p=yi' for J0-3232; add `->synonyms@s=overflowing' for
+	M-11257; add `->wrong@p=yi' for M-29254.
+	(U+8090): Add `sound@ja/on/go/p=qi', `sound@ja/on/go/p=yi',
+	`sound@ja/on/kan/p=qi', `sound@ja/on/kan/p=yi', `sound@ja/on/p=ge'
+	and `sound@zh'.
+	(M-29254): Add `<-same@p=ge' and `<-same@zh' for G0-386C; add
+	`<-wrong@p=yi' for GT-37858.
+	(U+8117): Use `->subsumptive'.
+	(J0-667C): Add `<-original' for J0-3F30.
+	(U+4407): Use `->subsumptive'.
+	(U+81C6): Add `sound@ja/on/go/p=yi', `sound@ja/on/kan/p=yi',
+	`sound@ja/on/s=drink', `sound@zh/p=yi' and `sound@zh/s=drink'.
+
 	* Ideograph-R153-Badger.el (g2-J90U+8C9B): Unify g2-HD-JB6307
 	instead of G-HD-JB6307.
 	(g2-JX2-792A): Unify g2-HD-JD8910 instead of G-HD-JD8910.
@@ -26,6 +57,15 @@
 	* Ideograph-R102-Field.el (U+7576): Unify S1-5072.
 	(U+7577): Unify S1-5070.
 	(U+7578): Unify S1-5069.
+
+	* Ideograph-R005-Second.el (G-UU+8034): Unify G-AJ1-22250 and
+	G-M-29001.
+	(G-UU+4E75): Unify g2-UU+4E75 instead of G-UU+4E75; unify
+	g2-AJ1-21080.
+	(G-GT-00252): Unify g2-GT-00252 instead of G-GT-00252.
+	(G-GT-00253): Unify G-IU+200ED and G-M-00193.
+	(G-J0-502C): Unify G-KU+4E82, G-AJ1-04101, G-JX1-502C, G-GT-00285,
+	G-GT-K10403 and G-M-00214.
 
 	* Ideograph-R026-Seal.el (J0-4228): Use
 	`<-simplified@JP/shinjigen' instead of `<-vulgar' for M-02873.
