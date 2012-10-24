@@ -33,10 +33,10 @@
       ))
     (=jis-x0208@1978	. #x3A53)	; &HD-FT-3227; [26-51]
     (=ks-x1001		. #x737A)	; &I-K0-737A; [83-90]
+    (=hanyo-denshi/ft	. #x3227)	; &I-HD-FT-3227; [18-07]
     (=gt		. 53945)	; &I-GT-53945;
     (=gt-pj-7		. #x6353)	; &I-GT-53945; [67-51]
     (=daikanwa		. 40116)	; &I-M-40116;
-    (=hanyo-denshi/ft	. #x3227)	; &I-HD-FT-3227; [18-07]
     ))
 (define-char
   '((<-denotational
