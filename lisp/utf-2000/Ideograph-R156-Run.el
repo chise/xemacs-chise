@@ -118,11 +118,11 @@
      ((=ucs		  . #x8D73)	; 赳
       ))
     (ideographic-radical . 156)	; ⾛
-    (=>>ucs@jis		. #x8D73)	; &G-GT-49594;
-    (=>>ucs@ks		. #x8D73)	; &G-GT-49594;
-    (=>>jis-x0208	. #x6C62)	; &G-GT-49594; [76-66]
-    (=>>jis-x0213-1	. #x6C62)	; &G-GT-49594; [76-66]
-    (=>>gt		. 49594)	; &G-GT-49594;
+    (=>>ucs@jis		. #x8D73)	; &G-J0-6C62;
+    (=>>ucs@ks		. #x8D73)	; &G-J0-6C62;
+    (=>>jis-x0208	. #x6C62)	; &G-J0-6C62; [76-66]
+    (=>>jis-x0213-1	. #x6C62)	; &G-J0-6C62; [76-66]
+    (=>>gt		. 49594)	; &G-J0-6C62;
     (->subsumptive
      ((ideographic-strokes . 3)
       (total-strokes	   . 10)
@@ -1699,7 +1699,7 @@
     (=gt		. 49727)	; &I-GT-49727;
     (=gt-pj-1		. #x6C64)	; &I-GT-49727; [76-68]
     (=daikanwa		. 37171)	; &I-M-37171;
-    (=shinjigen@rev	.  7967)	; &GT-49727;
+    (=shinjigen		.  7967)	; &GT-49727;
     ))
 (define-char
   '((<-denotational
@@ -1708,9 +1708,9 @@
     (ideographic-radical . 156)	; ⾛
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
-    (=>>ucs@unicode	. #x8D99)	; &G-GT-49728;
-    (=>>gt		. 49728)	; &G-GT-49728;
-    (=>>hanyo-denshi/ft . #x3961)	; &G-GT-49728; [25-65]
+    (=>>ucs@unicode	. #x8D99)	; &G-HD-FT-3961;
+    (=>>hanyo-denshi/ft . #x3961)	; &G-HD-FT-3961; [25-65]
+    (=>>gt		. 49728)	; &G-HD-FT-3961;
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x8D99)	; 趙
@@ -1719,9 +1719,9 @@
 	))
       (=ucs@unicode	  . #x8D99)	; &HD-FT-3961;
       (=gb12345		  . #x5554)	; &HD-FT-3961; [53-52]
-      (=gt		  . 49728)	; &HD-FT-3961;
-      (=gt-pj-10	  . #x3B58)	; &HD-FT-3961; [27-56]
-      (=hanyo-denshi/ft	  . #x3961)	; &I-HD-FT-3961; [25-65]
+      (=hanyo-denshi/ft	  . #x3961)	; &HD-FT-3961; [25-65]
+      (=gt		  . 49728)	; &I-GT-49728;
+      (=gt-pj-10	  . #x3B58)	; &I-GT-49728; [27-56]
       )
      ((=cns11643-1	  . #x6B37)	; &C1-6B37; [75-23]
       ))
@@ -2582,6 +2582,7 @@
 (define-char
   '((<-denotational
      ((=>ucs@iso	  . #x20804)	; &A-IU+20804;
+      (=>ucs@cns	  . #x2F9D9)	; &A-IU+20804;
       ))
     (ideographic-radical@r018 . 18)	; ⼑
     (ideographic-strokes@r018 . 14)
@@ -2615,6 +2616,7 @@
 (define-char
   '((<-denotational
      ((=>ucs@iso	  . #x20804)	; &A-IU+20804;
+      (=>ucs@cns	  . #x2F9D9)	; &A-IU+20804;
       ))
     (ideographic-radical@ucs . 18)	; ⼑
     (ideographic-strokes@ucs . 14)
