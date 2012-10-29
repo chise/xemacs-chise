@@ -1423,6 +1423,17 @@
 	       registry "HanyoDenshi\\.HG-0$"
 	       mother =>>>hanyo-denshi/hg))
   (make-charset
+   '=>>hanyo-denshi/ip
+   "Han'you-Denshi/IP abstract glyphs"
+   '(long-name "Han'you-Denshi/IP abstract glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.IP-0$"
+	       mother =hanyo-denshi/ip))
+  (make-charset
    '=>>hanyo-denshi/jt
    "JT (Juuki Touitsu Moji) abstract glyphs"
    '(long-name "Han'you-Denshi/JT glyphs"
