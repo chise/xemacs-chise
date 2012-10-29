@@ -1,3 +1,20 @@
+2012-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R173-Rain.el (U-000291A9): New character.
+
+	* Ideograph-R172-Short-Tailed-Bird.el (o2-J90U+96DA): Unify
+	o2-HD-JB7086 instead of G-HD-JB7086.
+	(o2-JX2-7B73): Unify o2-HD-JD9183 instead of G-HD-JD9183.
+
+2012-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R170-Mound.el (U+962B): Unify S-1361; add `<-formed'
+	for U+574F.
+	(U+962F): Add `<-original' for U+5740.
+
+	* Ideograph-R169-Gate.el (o-UU+95B7): Unify o-CU+2F9F0 and
+	A-CU+2F9F0 instead of o-IU+2F9F0 and A-IU+2F9F0; unify A-M-49838.
+
 2012-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R164-Wine.el (M-40058): Add `<-formed@s=drink' for
