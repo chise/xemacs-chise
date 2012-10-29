@@ -349,10 +349,10 @@
       (=jis-x0208@1978	  . #x4A37)	; &HD-FT-3067; [42-23]
       (=jis-x0208@1983	  . #x4A37)	; &I-J83-4A37; [42-23]
       (=ks-x1001	  . #x5D54)	; &I-K0-5D54; [61-52]
+      (=hanyo-denshi/ft	  . #x3067)	; &I-HD-FT-3067; [16-71]
       (=gt		  . 56715)	; &I-GT-56715;
       (=gt-pj-8		  . #x3425)	; &I-GT-56715; [20-05]
       (=daikanwa	  . 42231)	; &I-M-42231;
-      (=hanyo-denshi/ft	  . #x3067)	; &I-HD-FT-3067; [16-71]
       )
      ((=ucs@unicode	  . #x96F0)	; &GT-56716;
       (=jis-x0208@1990	  . #x4A37)	; &GT-56716; [42-23]
@@ -1187,7 +1187,7 @@
     (=gt		. 56781)	; &I-GT-56781;
     (=gt-pj-1		. #x703C)	; &I-GT-56781; [80-28]
     (=daikanwa		. 42290)	; &I-M-42290;
-    (=shinjigen@rev	.  9000)	; &GT-56781;
+    (=shinjigen		.  9000)	; &GT-56781;
     ))
 (define-char
   '((<-denotational
@@ -1196,9 +1196,9 @@
     (ideographic-radical . 173)	; ⾬
     (ideographic-strokes . 7)
     (total-strokes	 . 15)
-    (=>>ucs@unicode	. #x9704)	; &G-GT-56782;
-    (=>>gt		. 56782)	; &G-GT-56782;
-    (=>>hanyo-denshi/ft . #x3A64)	; &G-GT-56782; [26-68]
+    (=>>ucs@unicode	. #x9704)	; &G-HD-FT-3A64;
+    (=>>hanyo-denshi/ft . #x3A64)	; &G-HD-FT-3A64; [26-68]
+    (=>>gt		. 56782)	; &G-HD-FT-3A64;
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x9704)	; 霄
@@ -1207,9 +1207,9 @@
 	))
       (=ucs@unicode	  . #x9704)	; &HD-FT-3A64;
       (=gb2312		  . #x4F76)	; &HD-FT-3A64; [47-86]
+      (=hanyo-denshi/ft	  . #x3A64)	; &I-HD-FT-3A64; [26-68]
       (=gt		  . 56782)	; &I-GT-56782;
       (=gt-pj-10	  . #x456A)	; &I-GT-56782; [37-74]
-      (=hanyo-denshi/ft	  . #x3A64)	; &I-HD-FT-3A64; [26-68]
       )
      ((=cns11643-1	  . #x6F66)	; &C1-6F66; [79-70]
       ))
@@ -4423,8 +4423,8 @@
     (->subsumptive
      ((=ucs@jis		  . #x9736)	; &HD-JD-7B79;
       (=jis-x0213-2	  . #x7B79)	; &HD-JD-7B79; [91-89]
-      (=daikanwa	  . 42487)	; &I-M-42487;
       (=hanyo-denshi/jd	  . #x7B79)	; &I-HD-JD-7B79; [91-89]
+      (=daikanwa	  . 42487)	; &I-M-42487;
       )
      ((=ucs@unicode	  . #x9736)	; &UU+9736;
       )
@@ -5043,6 +5043,21 @@
       )
      ((=cns11643-5	  . #x7663)	; &C5-7663; [86-67]
       ))
+    ))
+(define-char
+  '((ideographic-radical . 173)	; ⾬
+    (ideographic-strokes . 15)
+    (total-strokes	 . 23)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL RAIN")
+      (=ucs		  . #x2ED7)	; ⻗
+      )
+     ((=ucs		  . #x6F8D)	; 澍
+      ))
+    (=ucs		. #x291A9)	; 𩆩
     ))
 (define-char
   '((ideographic-radical . 173)	; ⾬
