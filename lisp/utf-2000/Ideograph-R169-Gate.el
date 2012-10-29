@@ -2727,8 +2727,8 @@
     (ideographic-radical . 169)	; ⾨
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
-    (=>>jis-x0213-1	. #x6F65)	; &G-GT-55612; [79-69]
-    (=>>gt		. 55612)	; &G-GT-55612;
+    (=>>jis-x0213-1	. #x6F65)	; &G-JX1-6F65; [79-69]
+    (=>>gt		. 55612)	; &G-JX1-6F65;
     (->subsumptive
      ((=daikanwa	  . 41379)	; &M-41379;
       )
@@ -3054,20 +3054,25 @@
     (ideographic-radical . 169)	; ⾨
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
-    (=>ucs@iso		. #x2F9F0)	; &A-IU+2F9F0;
-    (=>ucs@unicode	. #x95B7)	; &A-IU+2F9F0;
-    (=+>ucs@iso		. #x2F9F0)	; &A-IU+2F9F0;
-    (=+>ucs@unicode	. #x95B7)	; &A-IU+2F9F0;
+    (=>ucs@unicode	. #x95B7)	; &A-UU+95B7;
+    (=>ucs@cns		. #x2F9F0)	; &A-UU+95B7;
+    (=+>ucs@unicode	. #x95B7)	; &A-UU+95B7;
+    (=+>ucs@cns		. #x2F9F0)	; &A-UU+95B7;
+    (=>daikanwa		. 49838)	; &A-UU+95B7;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@iso	  . #x2F9F0)	; &A-IU+2F9F0;
+     ((=>ucs@unicode	  . #x95B7)	; &A-UU+95B7;
+      (=>ucs@cns	  . #x2F9F0)	; &A-UU+95B7;
+      (=+>ucs@unicode	  . #x95B7)	; &A-UU+95B7;
+      (=+>ucs@cns	  . #x2F9F0)	; &A-UU+95B7;
       ))
     (ideographic-radical . 169)	; ⾨
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
-    (=>>ucs@iso		. #x2F9F0)	; &G-IU+2F9F0;
-    (=>>daikanwa	. 49838)	; &G-IU+2F9F0;
+    (=>ucs@iso		. #x2F9F0)	; &A-IU+2F9F0;
+    (=>>ucs@iso		. #x2F9F0)	; &A-IU+2F9F0;
+    (=>>daikanwa	. 49838)	; &A-IU+2F9F0;
     (->subsumptive
      ((=daikanwa	  . 49838)	; &M-49838;
       (<-wrong
@@ -3083,7 +3088,10 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@iso	  . #x2F9F0)	; &A-IU+2F9F0;
+     ((=>ucs@unicode	  . #x95B7)	; &A-UU+95B7;
+      (=>ucs@cns	  . #x2F9F0)	; &A-UU+95B7;
+      (=+>ucs@unicode	  . #x95B7)	; &A-UU+95B7;
+      (=+>ucs@cns	  . #x2F9F0)	; &A-UU+95B7;
       ))
     (ideographic-radical . 169)	; ⾨
     (ideographic-strokes . 8)
@@ -3184,6 +3192,7 @@
 (define-char
   '((<-denotational
      ((=>ucs@cns	  . #x95B7)	; &A-CU+95B7;
+      (=+>ucs@cns	  . #x95B7)	; &A-CU+95B7;
       ))
     (ideographic-radical . 169)	; ⾨
     (ideographic-strokes . 9)
@@ -3193,6 +3202,7 @@
 (define-char
   '((<-denotational
      ((=>ucs@cns	  . #x95B7)	; &A-CU+95B7;
+      (=+>ucs@cns	  . #x95B7)	; &A-CU+95B7;
       ))
     (ideographic-radical . 169)	; ⾨
     (ideographic-strokes . 9)
@@ -3630,11 +3640,11 @@
     (ideographic-radical . 169)	; ⾨
     (ideographic-strokes . 9)
     (total-strokes	 . 17)
-    (=>>ucs@jis		. #x95CD)	; &G-GT-55680;
-    (=>>jis-x0208	. #x6F6B)	; &G-GT-55680; [79-75]
-    (=>>jis-x0213-1	. #x6F6B)	; &G-GT-55680; [79-75]
-    (=>>gt		. 55680)	; &G-GT-55680;
-    (=>>daikanwa	. 41434)	; &G-GT-55680;
+    (=>>ucs@jis		. #x95CD)	; &G-J0-6F6B;
+    (=>>jis-x0208	. #x6F6B)	; &G-J0-6F6B; [79-75]
+    (=>>jis-x0213-1	. #x6F6B)	; &G-J0-6F6B; [79-75]
+    (=>>gt		. 55680)	; &G-J0-6F6B;
+    (=>>daikanwa	. 41434)	; &G-J0-6F6B;
     (->subsumptive
      ((=daikanwa	  . 41434)	; &M-41434;
       )
@@ -4858,11 +4868,11 @@
     (ideographic-radical . 169)	; ⾨
     (ideographic-strokes . 13)
     (total-strokes	 . 21)
-    (=>>ucs@jis		. #x95E5)	; &G-GT-55791;
-    (=>>jis-x0208	. #x6F72)	; &G-GT-55791; [79-82]
-    (=>>jis-x0213-1	. #x6F72)	; &G-GT-55791; [79-82]
-    (=>>gt		. 55791)	; &G-GT-55791;
-    (=>>daikanwa	. 41508)	; &G-GT-55791;
+    (=>>ucs@jis		. #x95E5)	; &G-J0-6F72;
+    (=>>jis-x0208	. #x6F72)	; &G-J0-6F72; [79-82]
+    (=>>jis-x0213-1	. #x6F72)	; &G-J0-6F72; [79-82]
+    (=>>gt		. 55791)	; &G-J0-6F72;
+    (=>>daikanwa	. 41508)	; &G-J0-6F72;
     (->subsumptive
      ((=daikanwa	  . 41508)	; &M-41508;
       )
@@ -4897,9 +4907,9 @@
       ))
     (=ucs@unicode	. #x95E5)	; &HD-FT-3A5D;
     (=gb12345		. #x634B)	; &HD-FT-3A5D; [67-43]
-    (=gt		. 55771)	; &HD-FT-3A5D;
-    (=gt-pj-10		. #x4522)	; &HD-FT-3A5D; [37-02]
-    (=hanyo-denshi/ft	. #x3A5D)	; &I-HD-FT-3A5D; [26-61]
+    (=hanyo-denshi/ft	. #x3A5D)	; &HD-FT-3A5D; [26-61]
+    (=gt		. 55771)	; &I-GT-55771;
+    (=gt-pj-10		. #x4522)	; &I-GT-55771; [37-02]
     ))
 (define-char
   '((ideographic-radical . 169)	; ⾨
