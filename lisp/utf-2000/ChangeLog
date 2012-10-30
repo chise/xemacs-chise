@@ -1,4 +1,21 @@
+2012-10-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R060-Step.el (U+5F77): Use `->subsumptive' to separate
+	representative nodes.
+	(U-000224C8): Use `->denotational' to integrate CB08611 and
+	H2-F9B0.
+	(U+5F78): Use `->subsumptive'.
+	(U+5F86): Use `->subsumptive' to separate representative nodes.
+
 2012-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R174-Blue.el (G-JX2-7B7C): Unify G-JU+9755.
+	(g2-J90U+9755): Unify g2-HD-JB7118.
+
+	* Ideograph-R163-City.el (G-UU+9115): Unify G-HD-IP-9115 and
+	G-M-39571.
+
+	* Ideograph-R162-Walk.el (J0-6E34): Unify S1-8209.
 
 	* Ideograph-R173-Rain.el (U-000291A9): New character.
 
