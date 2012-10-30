@@ -1419,8 +1419,8 @@
     (=>>ucs@jis		. #x97DE)	; &G-JX1-7D73;
     (=>>ucs@cns		. #x97DE)	; &G-JX1-7D73;
     (=>>jis-x0213-1	. #x7D73)	; &G-JX1-7D73; [93-83]
-    (=>>daikanwa	. 43191)	; &G-JX1-7D73;
     (=>>hanyo-denshi/jb . #x6768)	; &G-JX1-7D73; [71-72]
+    (=>>daikanwa	. 43191)	; &G-JX1-7D73;
     (->subsumptive
      ((total-strokes	   . 19)
       (=>>>ucs@cns	  . #x97DE)	; &g2-CU+97DE;
@@ -1435,8 +1435,8 @@
       (=ucs@jis		  . #x97DE)	; &HD-JB-6768;
       (=jis-x0212	  . #x6768)	; &HD-JB-6768; [71-72]
       (=jis-x0213-1	  . #x7D73)	; &I-JX1-7D73; [93-83]
-      (=jef-china3	  . #x6CCD)	; &I-JC3-6CCD;
       (=hanyo-denshi/jb	  . #x6768)	; &I-HD-JB-6768; [71-72]
+      (=jef-china3	  . #x6CCD)	; &I-JC3-6CCD;
       ))
     ))
 (define-char
@@ -1622,8 +1622,8 @@
       (=ucs@jis		  . #x97DB)	; &HD-JB-676A;
       (=jis-x0212	  . #x676A)	; &HD-JB-676A; [71-74]
       (=jis-x0213-1	  . #x7D74)	; &I-JX1-7D74; [93-84]
-      (=jef-china3	  . #x6CCE)	; &I-JC3-6CCE;
       (=hanyo-denshi/jb	  . #x676A)	; &I-HD-JB-676A; [71-74]
+      (=jef-china3	  . #x6CCE)	; &I-JC3-6CCE;
       ))
     ))
 (define-char
