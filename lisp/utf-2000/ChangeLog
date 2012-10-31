@@ -1,5 +1,10 @@
 2012-10-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R181-Leaf.el (HD-FT1660): Unify S2-9156.
+	(J90-465C): Unify S1-9153.
+
+	* Ideograph-R175-Wrong.el (U-000291F0): Add ideographic-structure.
+
 	* Ideograph-R060-Step.el (U+5F77): Use `->subsumptive' to separate
 	representative nodes.
 	(U-000224C8): Use `->denotational' to integrate CB08611 and
