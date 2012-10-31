@@ -893,6 +893,18 @@
 	      graphic 0
 	      ;; partial t
 	      ))
+  (make-charset
+   '=+>jis-x0213-1@2004
+   "JIS X 0213:2004 Plain 1 unified abstract glyphs"
+   '(registry "jisx0213\\(\\.2004\\)-1"
+	      dimension 2
+	      chars 94
+	      mother =+>jis-x0213-1
+	      =>iso-ir 233
+              ;; final ?Q
+	      graphic 0
+              ;; partial t
+	      ))
 
   (make-charset
    '=>jis-x0208
