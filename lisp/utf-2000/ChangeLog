@@ -1,3 +1,22 @@
+2012-10-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R167-Gold.el (JSP-633C): Unify S-8599; add `<-vulgar'
+	for J83-3174.
+	(U-0002B4EA): New character.
+	(U+928F): Use `->denotational'; integrate M-40324 instead of
+	M-40373.
+	(UU+928F): Unify M-40324; add `<-vulgar' for M-40373.
+	(C3-4530): Separate UU+928F; unify CB01058.
+	(U-0002B7F6): New character.
+	(BC-8D69): New character.
+	(U+928E): Use `->denotational' to separate representative nodes.
+	(G-M-40373): New node to integrate M-40373 and CB11428.
+	(M-40373): Use `<-subsumptive' for G-M-40373; don't map to U+928F.
+	(CB11428): New character.
+	(U+94F3): Modify strokes.
+	(o-JU+9404): Unify o-JX1-7D46.
+	(g2-UU+945B): Unify g2-HD-FT2655 instead of g-HD-FT2655.
+
 2012-10-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R181-Leaf.el (HD-FT1660): Unify S2-9156.
