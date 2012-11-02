@@ -2942,12 +2942,12 @@
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 11)
     (total-strokes	 . 21)
-    (=>>ucs@jis		. #x9ACF)	; &G-GT-60913;
-    (=>>ucs@cns		. #x9ACF)	; &G-GT-60913;
-    (=>>jis-x0208	. #x7170)	; &G-GT-60913; [81-80]
-    (=>>jis-x0213-1	. #x7170)	; &G-GT-60913; [81-80]
-    (=>>gt		. 60913)	; &G-GT-60913;
-    (=>>daikanwa	. 45267)	; &G-GT-60913;
+    (=>>ucs@jis		. #x9ACF)	; &G-J0-7170;
+    (=>>ucs@cns		. #x9ACF)	; &G-J0-7170;
+    (=>>jis-x0208	. #x7170)	; &G-J0-7170; [81-80]
+    (=>>jis-x0213-1	. #x7170)	; &G-J0-7170; [81-80]
+    (=>>gt		. 60913)	; &G-J0-7170;
+    (=>>daikanwa	. 45267)	; &G-J0-7170;
     (->subsumptive
      ((=ucs@jis		  . #x9ACF)	; &GT-60913;
       (=jis-x0208	  . #x7170)	; &GT-60913; [81-80]
@@ -3182,12 +3182,12 @@
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 13)
     (total-strokes	 . 23)
-    (=>>ucs@jis		. #x9AD1)	; &G-GT-60938;
-    (=>>ucs@cns		. #x9AD1)	; &G-GT-60938;
-    (=>>jis-x0208	. #x7171)	; &G-GT-60938; [81-81]
-    (=>>jis-x0213-1	. #x7171)	; &G-GT-60938; [81-81]
-    (=>>gt		. 60938)	; &G-GT-60938;
-    (=>>daikanwa	. 45281)	; &G-GT-60938;
+    (=>>ucs@jis		. #x9AD1)	; &G-J0-7171;
+    (=>>ucs@cns		. #x9AD1)	; &G-J0-7171;
+    (=>>jis-x0208	. #x7171)	; &G-J0-7171; [81-81]
+    (=>>jis-x0213-1	. #x7171)	; &G-J0-7171; [81-81]
+    (=>>gt		. 60938)	; &G-J0-7171;
+    (=>>daikanwa	. 45281)	; &G-J0-7171;
     (->subsumptive
      ((=ucs@jis		  . #x9AD1)	; &GT-60938;
       (=jis-x0208	  . #x7171)	; &GT-60938; [81-81]
@@ -3247,12 +3247,15 @@
      ((=ucs		  . #x9AD2)	; 髒
       ))
     (ideographic-radical . 188)	; ⾻
-    (=+>ucs@jis		. #x9AD2)	; &o-JU+9AD2;
-    (=+>ucs@cns		. #x9AD2)	; &o-JU+9AD2;
+    (=+>ucs@jis		. #x9AD2)	; &o-JX2-7D2F;
+    (=+>ucs@cns		. #x9AD2)	; &o-JX2-7D2F;
+    (=+>jis-x0213-2	. #x7D2F)	; &o-JX2-7D2F; [93-15]
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@jis	  . #x9AD2)	; &o-JU+9AD2;
+     ((=+>ucs@jis	  . #x9AD2)	; &o-JX2-7D2F;
+      (=+>ucs@cns	  . #x9AD2)	; &o-JX2-7D2F;
+      (=+>jis-x0213-2	  . #x7D2F)	; &o-JX2-7D2F; [93-15]
       ))
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 13)
@@ -3269,7 +3272,9 @@
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@jis	  . #x9AD2)	; &o-JU+9AD2;
+     ((=+>ucs@jis	  . #x9AD2)	; &o-JX2-7D2F;
+      (=+>ucs@cns	  . #x9AD2)	; &o-JX2-7D2F;
+      (=+>jis-x0213-2	  . #x7D2F)	; &o-JX2-7D2F; [93-15]
       ))
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 12)
