@@ -1,3 +1,21 @@
+2012-10-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R195-Fish.el (J90-724E): Unify J90+9BF2, J2000U+9BF2
+	and J2004U+9BF2 instead of JU+9BF2.
+
+	* Ideograph-R188-Bone.el (o-JU+9AD2): Unify o-JX2-7D2F.
+
+	* Ideograph-R184-Eat.el (g2-UU+9909): Unify g2-HD-FT2691 instead
+	of G-HD-FT2691.
+	(o-UU+990C): Unify o-J83-3142, J90-3142 and JX1-3142.
+	(G-JX2-7C55): Unify o-UU+4B3B and o-JX2-7C55 instead of G-UU+4B3B,
+	G-JX2-7C55 and G-HD-JD9253.
+	(g2-JX2-7C55): Unify g2-HD-JD9253 and G-UU+4B3B.
+	(K0-4E3D): Unify U+FA2C and KU+9928.
+	(U+994D): Use `->denotational' instead of `->subsumptive'.
+	(G-UU+994E): Unify o-UU+994E instead of UU+994E.
+	(o-J2004U+9957): Unify o-JX3-3642.
+
 2012-10-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R167-Gold.el (JSP-633C): Unify S-8599; add `<-vulgar'
