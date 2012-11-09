@@ -1,5 +1,8 @@
 2012-10-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R193-Cauldron.el (G-JU+9B32): Unify G-J0-722F,
+	G-GT-61436, G-GT-K06657 and G-M-45672.
+
 	* Ideograph-R195-Fish.el (J90-724E): Unify J90+9BF2, J2000U+9BF2
 	and J2004U+9BF2 instead of JU+9BF2.
 
