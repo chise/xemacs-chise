@@ -295,8 +295,8 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 20)
     (=>>ucs@unicode	. #x4C17)	; &G-HD-IA-2822;
-    (=>>daikanwa	. 45648)	; &G-HD-IA-2822;
     (=>>hanyo-denshi/ia . #x2822)	; &G-HD-IA-2822; [08-02]
+    (=>>daikanwa	. 45648)	; &G-HD-IA-2822;
     (->subsumptive
      ((=daikanwa	  . 45648)	; &M-45648;
       )
@@ -322,8 +322,8 @@
     (sound@ja/kun/place "kuzi" "kuzu")
     (=ucs@jis		. #x4C17)	; &HD-JC-7E3E;
     (=jis-x0213-1	. #x7E3E)	; &HD-JC-7E3E; [94-30]
-    (=jef-china3	. #x6EB8)	; &I-JC3-6EB8;
     (=hanyo-denshi/jc	. #x7E3E)	; &I-HD-JC-7E3E; [94-30]
+    (=jef-china3	. #x6EB8)	; &I-JC3-6EB8;
     ))
 (define-char
   '((ideographic-radical . 191)	; ⾾
@@ -516,8 +516,8 @@
     (total-strokes	 . 24)
     (=>>ucs@jis/1990	. #x9B2D)	; &G-CU+9B2D;
     (=>>ucs@cns		. #x9B2D)	; &G-CU+9B2D;
-    (=>>daikanwa	. 45657)	; &G-CU+9B2D;
     (=>>hanyo-denshi/jb . #x6A32)	; &G-CU+9B2D; [74-18]
+    (=>>daikanwa	. 45657)	; &G-CU+9B2D;
     (->subsumptive
      ((=daikanwa	  . 45657)	; &M-45657;
       )
@@ -541,6 +541,7 @@
     (=>>ucs@unicode	. #x9B2D)	; &G-JX1-7E3F;
     (=>>jis-x0213-1	. #x7E3F)	; &G-JX1-7E3F; [94-31]
     (=>>hanyo-denshi/jc . #x7E3F)	; &G-JX1-7E3F; [94-31]
+    (=>>cbeta		. 10823)	; &G-JX1-7E3F;
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x9B2D)	; 鬭
@@ -549,8 +550,8 @@
 	))
       (=ucs@unicode	  . #x9B2D)	; &HD-JC-7E3F;
       (=jis-x0213-1	  . #x7E3F)	; &HD-JC-7E3F; [94-31]
-      (=cbeta		  . 10823)	; &I-CB10823;
       (=hanyo-denshi/jc	  . #x7E3F)	; &I-HD-JC-7E3F; [94-31]
+      (=cbeta		  . 10823)	; &I-CB10823;
       )
      ((=shinjigen	  .  9499)	; &SJG2-9499;
       (<-original
@@ -601,12 +602,12 @@
     (ideographic-radical . 191)	; ⾾
     (ideographic-strokes . 16)
     (total-strokes	 . 26)
-    (=>>ucs@jis		. #x9B2E)	; &G-GT-61417;
-    (=>>jis-x0208@1983	. #x722D)	; &G-GT-61417; [82-13]
-    (=>>jis-x0208@1990	. #x722D)	; &G-GT-61417; [82-13]
-    (=>>jis-x0213-1	. #x722D)	; &G-GT-61417; [82-13]
-    (=>>gt		. 61417)	; &G-GT-61417;
-    (=>>daikanwa	. 45659)	; &G-GT-61417;
+    (=>>ucs@jis		. #x9B2E)	; &G-JX1-722D;
+    (=>>jis-x0208@1983	. #x722D)	; &G-JX1-722D; [82-13]
+    (=>>jis-x0208@1990	. #x722D)	; &G-JX1-722D; [82-13]
+    (=>>jis-x0213-1	. #x722D)	; &G-JX1-722D; [82-13]
+    (=>>gt		. 61417)	; &G-JX1-722D;
+    (=>>daikanwa	. 45659)	; &G-JX1-722D;
     (->subsumptive
      ((=daikanwa	  . 45659)	; &M-45659;
       )
