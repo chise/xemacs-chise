@@ -147,13 +147,13 @@
     (ideographic-radical . 200)	; ⿇
     (ideographic-strokes . 3)
     (total-strokes	 . 14)
-    (=>>ucs@jis		. #x9EBC)	; &G-GT-65265;
-    (=>>ucs@cns		. #x9EBC)	; &G-GT-65265;
-    (=>>jis-x0208	. #x5677)	; &G-GT-65265; [54-87]
-    (=>>jis-x0213-1	. #x5677)	; &G-GT-65265; [54-87]
-    (=>>gt		. 65265)	; &G-GT-65265;
-    (=>>gt-k		. 11204)	; &G-GT-65265;
-    (=>>daikanwa	. 47892)	; &G-GT-65265;
+    (=>>ucs@jis		. #x9EBC)	; &G-J0-5677;
+    (=>>ucs@cns		. #x9EBC)	; &G-J0-5677;
+    (=>>jis-x0208	. #x5677)	; &G-J0-5677; [54-87]
+    (=>>jis-x0213-1	. #x5677)	; &G-J0-5677; [54-87]
+    (=>>gt		. 65265)	; &G-J0-5677;
+    (=>>gt-k		. 11204)	; &G-J0-5677;
+    (=>>daikanwa	. 47892)	; &G-J0-5677;
     (->subsumptive
      ((=ucs@jis		  . #x9EBC)	; &GT-65265;
       (=jis-x0208	  . #x5677)	; &GT-65265; [54-87]
