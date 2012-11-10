@@ -1,3 +1,7 @@
+2012-11-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R196-Bird.el (g2-JX3-726D): Unify g2-HD-HG1601.
+
 2012-10-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R193-Cauldron.el (G-JU+9B32): Unify G-J0-722F,
@@ -447,6 +451,10 @@
 
 	* Ideograph-R034-Go.el (G-UU+5909): Unify G-AJ1-03617, G-J0-4A51,
 	G-GT-07215 and G-M-05703.
+
+2012-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* u0AC00-Hangul-Syllables.el (U+B9C4): New character.
 
 2012-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
