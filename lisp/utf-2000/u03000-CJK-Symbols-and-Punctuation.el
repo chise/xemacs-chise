@@ -72,16 +72,16 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (=ucs		. #x3005)	; 々
+    (=adobe-japan1-0	. 00657)	; &I-AJ1-00657;
     (=jis-x0208		. #x2139)	; &I-J90-2139; [01-25]
     (=gb2312		. #x2129)	; &I-G0-2129; [01-09]
     (=jis-x0213-1	. #x2139)	; &I-JX1-2139; [01-25]
+    (=big5-eten		. #xC6E0)	; &I-B-C6E0;
     (=gt		. 00135)	; &I-GT-00135;
     (=gt-k		. 00282)	; &I-GT-K00282;
     (=gt-pj-2		. #x306C)	; &I-GT-00135; [16-76]
     (=daikanwa		. 00097)	; &I-M-00097;
-    (=big5-eten		. #xC6E0)	; &I-B-C6E0;
     (=cbeta		. 02728)	; &I-CB02728;
-    (=adobe-japan1-0	. 00657)	; &I-AJ1-00657;
     ))
 (define-char
   '((name		. "IDEOGRAPHIC CLOSING MARK")
