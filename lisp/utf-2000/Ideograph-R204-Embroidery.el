@@ -86,12 +86,12 @@
     (ideographic-radical . 204)	; ⿋
     (ideographic-strokes . 5)
     (total-strokes	 . 17)
-    (=>>ucs@jis		. #x9EFB)	; &G-GT-65943;
-    (=>>ucs@cns		. #x9EFB)	; &G-GT-65943;
-    (=>>jis-x0208	. #x7364)	; &G-GT-65943; [83-68]
-    (=>>jis-x0213-1	. #x7364)	; &G-GT-65943; [83-68]
-    (=>>gt		. 65943)	; &G-GT-65943;
-    (=>>daikanwa	. 48250)	; &G-GT-65943;
+    (=>>ucs@jis		. #x9EFB)	; &G-J0-7364;
+    (=>>ucs@cns		. #x9EFB)	; &G-J0-7364;
+    (=>>jis-x0208	. #x7364)	; &G-J0-7364; [83-68]
+    (=>>jis-x0213-1	. #x7364)	; &G-J0-7364; [83-68]
+    (=>>gt		. 65943)	; &G-J0-7364;
+    (=>>daikanwa	. 48250)	; &G-J0-7364;
     (->subsumptive
      ((=ucs@jis		  . #x9EFB)	; &GT-65943;
       (=jis-x0208	  . #x7364)	; &GT-65943; [83-68]
