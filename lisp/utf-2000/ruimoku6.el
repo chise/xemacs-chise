@@ -92,9 +92,7 @@
       (=ucs		  . #x2FF3)	; ⿳
       )
      ((=ucs@jis		  . #x5B80)	; &AJ1-04622;
-      (=jis-x0208	  . #x555F)	; &AJ1-04622; [53-63]
-      (=jis-x0213-1	  . #x555F)	; &I-JX1-555F; [53-63]
-      (=daikanwa	  . 07054)	; &I-M-07054;
+      (=adobe-japan1-0	  . 04622)	; &AJ1-04622;
       )
      ((=ucs		  . #x9FB6)	; 龶
       )
@@ -325,7 +323,7 @@
     ))
 (define-char
   '((<-subsumptive
-     ((=>>ucs@iso	  . #x20E04)	; &G-IU+20E04;
+     ((=>>ucs@iso	  . #x20E04)	; &G-RUI6-E01A;
       ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -624,12 +622,10 @@
 	  ))
 	))
       )
-     ((=ucs@jis		  . #x53CD)	; &AJ1-03411;
-      (=jis-x0208	  . #x483F)	; &AJ1-03411; [40-31]
-      (=ks-x1001	  . #x5A63)	; &I-K0-5A63; [58-67]
-      (=cns11643-1	  . #x4530)	; &I-C1-4530; [37-16]
-      (=jis-x0213-1	  . #x483F)	; &I-JX1-483F; [40-31]
-      (=daikanwa	  . 03127)	; &I-M-03127;
+     ((=ucs@cns		  . #x53CD)	; &AJ1-03411;
+      (=ucs@jis		  . #x53CD)	; &AJ1-03411;
+      (=ucs@ks		  . #x53CD)	; &AJ1-03411;
+      (=adobe-japan1-0	  . 03411)	; &AJ1-03411;
       ))
     (sources		ruimoku=A2005-10807-00005 ruimoku=A2005-10807-00006)
     (=ruimoku-v6	. #xE033)	; &RUI6-E033;
@@ -674,10 +670,7 @@
        ((=ucs		    . #x5348)	; 午
 	)
        ((=ucs@unicode	    . #x53C8)	; &AJ1-03746;
-	(=jis-x0208	    . #x4B74)	; &AJ1-03746; [43-84]
-	(=gb2312	    . #x5356)	; &I-G0-5356; [51-54]
-	(=cns11643-1	    . #x4434)	; &I-C1-4434; [36-20]
-	(=jis-x0213-1	    . #x4B74)	; &I-JX1-4B74; [43-84]
+	(=adobe-japan1-0    . 03746)	; &AJ1-03746;
 	))
       ))
     (=ruimoku-v6	. #xE036)	; &RUI6-E036;
@@ -966,10 +959,7 @@
 	))
       )
      ((=ucs@unicode	  . #x53C8)	; &AJ1-03746;
-      (=jis-x0208	  . #x4B74)	; &AJ1-03746; [43-84]
-      (=gb2312		  . #x5356)	; &I-G0-5356; [51-54]
-      (=cns11643-1	  . #x4434)	; &I-C1-4434; [36-20]
-      (=jis-x0213-1	  . #x4B74)	; &I-JX1-4B74; [43-84]
+      (=adobe-japan1-0	  . 03746)	; &AJ1-03746;
       ))
     (=ruimoku-v6	. #xE047)	; &RUI6-E047;
     ))
@@ -1035,10 +1025,7 @@
       )
      ((=ucs@jis		  . #x5B87)	; &AJ1-01225;
       (=ucs@ks		  . #x5B87)	; &AJ1-01225;
-      (=jis-x0208	  . #x3127)	; &AJ1-01225; [17-07]
-      (=ks-x1001	  . #x6954)	; &I-K0-6954; [73-52]
-      (=jis-x0213-1	  . #x3127)	; &I-JX1-3127; [17-07]
-      (=daikanwa	  . 07067)	; &I-M-07067;
+      (=adobe-japan1-0	  . 01225)	; &AJ1-01225;
       )
      ((=ucs		  . #x76BF)	; 皿
       ))
@@ -1220,11 +1207,7 @@
       (=ucs		  . #x2FF0)	; ⿰
       )
      ((=ucs@unicode	  . #x5973)	; &AJ1-02433;
-      (=jis-x0208	  . #x3D77)	; &AJ1-02433; [29-87]
-      (=gb2312		  . #x452E)	; &I-G0-452E; [37-14]
-      (=ks-x1001	  . #x5233)	; &I-K0-5233; [50-19]
-      (=jis-x0213-1	  . #x3D77)	; &I-JX1-3D77; [29-87]
-      (=daikanwa	  . 06036)	; &I-M-06036;
+      (=adobe-japan1-0	  . 02433)	; &AJ1-02433;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1575,12 +1558,12 @@
     (total-strokes	 . 10)
     (=ucs		. #xFA19)	; 神
     (=ucs@ks		. #x795E)	; 神
+    (=adobe-japan1-2	. 08580)	; &I-AJ1-08580;
     (=ks-x1001		. #x636A)	; &I-K0-636A; [67-74]
     (=jis-x0213-1	. #x793C)	; &I-JX1-793C; [89-28]
     (=daikanwa		. 24673)	; &I-M-24673;
     (=jef-china3	. #x5CDA)	; &I-JC3-5CDA;
     (=ruimoku-v6	. #xE085)	; &I-RUI6-E085;
-    (=adobe-japan1-2	. 08580)	; &I-AJ1-08580;
     ))
 (define-char
   '((<-denotational
@@ -1595,12 +1578,12 @@
      ((=ucs		  . #xE0103)	; 󠄃
       ))
     (=ucs@jis/2004	. #x698A)	; &AJ1-07686;
-    (=jis-x0208@1978	. #x3A67)	; &AJ1-07686; [26-71]
+    (=adobe-japan1-0	. 07686)	; &AJ1-07686;
+    (=jis-x0208@1978	. #x3A67)	; &I-J78-3A67; [26-71]
     (=jis-x0213-1@2004	. #x3A67)	; &I-JX3-3A67; [26-71]
+    (=hanyo-denshi/ft	. #x3228)	; &I-HD-FT-3228; [18-08]
     (=daikanwa		. 15352)	; &I-M-15352;
     (=ruimoku-v6	. #xE086)	; &I-RUI6-E086;
-    (=adobe-japan1-0	. 07686)	; &I-AJ1-07686;
-    (=hanyo-denshi/ft	. #x3228)	; &I-HD-FT-3228; [18-08]
     ))
 (define-char
   '((=ruimoku-v6	. #xE087)	; &RUI6-E087;
