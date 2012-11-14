@@ -21,6 +21,7 @@
     (sound@ja/kun	"kame")
     (sound@ja/on	"ki")
     (=ucs		. #x4E80)	; 亀
+    (=adobe-japan1-0	. 01615)	; &I-AJ1-01615;
     (=jis-x0208		. #x3535)	; &I-J90-3535; [21-21]
     (=cns11643-3	. #x396C)	; &I-C3-396C; [25-76]
     (=jis-x0213-1	. #x3535)	; &I-JX1-3535; [21-21]
@@ -31,7 +32,6 @@
     (=shinjigen@1ed	.  9917)	; 亀
     (=shinjigen@rev	.  9916)	; 亀
     (=hanziku-12	. #xEBBD)	; &I-HZK12-EBBD;
-    (=adobe-japan1-0	. 01615)	; &I-AJ1-01615;
     (<-vulgar
      ((=ucs@jis		  . #x9F9C)	; &J90-737D;
       (=jis-x0208@1983	  . #x737D)	; &J90-737D; [83-93]
@@ -115,20 +115,41 @@
     (ideographic-radical . 213)	; ⿔
     (ideographic-strokes . 0)
     (total-strokes	 . 15)
-    (=cns11643-7	. #x2C3A)	; &C7-2C3A; [12-26]
-    (=daikanwa		. 48848)	; &I-M-48848;
-    (=shinjigen@1ed	.  9919)	; &C7-2C3A;
-    (<-original
-     ((=ucs@jis		  . #x9F9C)	; &J90-737D;
-      (=jis-x0208@1983	  . #x737D)	; &J90-737D; [83-93]
-      (=ks-x1001	  . #x4F4F)	; &I-K0-4F4F; [47-47]
-      (=jis-x0208@1990	  . #x737D)	; &I-J90-737D; [83-93]
-      (=jis-x0213-1	  . #x737D)	; &I-JX1-737D; [83-93]
-      (=daikanwa	  . 48847)	; &I-M-48847;
-      (=shinjigen@1ed	  .  9918)	; &J90-737D;
+    (=>>ucs@cns		. #x9F9C)	; &G-CU+9F9C;
+    (=>>daikanwa	. 48848)	; &G-CU+9F9C;
+    (->subsumptive
+     ((=daikanwa	  . 48848)	; &M-48848;
+      (=shinjigen@1ed	  .  9919)	; &M-48848;
+      (<-original
+       ((=ucs@jis	    . #x9F9C)	; &J90-737D;
+	(=jis-x0208@1983    . #x737D)	; &J90-737D; [83-93]
+	(=ks-x1001	    . #x4F4F)	; &I-K0-4F4F; [47-47]
+	(=jis-x0208@1990    . #x737D)	; &I-J90-737D; [83-93]
+	(=jis-x0213-1	    . #x737D)	; &I-JX1-737D; [83-93]
+	(=daikanwa	    . 48847)	; &I-M-48847;
+	(=shinjigen@1ed	    .  9918)	; &J90-737D;
+	(=shinjigen@rev	    .  9917)	; &J90-737D;
+	))
+      (<-original*sources
+       zhengzitong daikanwa shinjigen@1ed)
+      )
+     ((=shinjigen@rev	  .  9918)	; &SJG2-9918;
+      (<-original
+       ((=ucs@jis	    . #x9F9C)	; &J90-737D;
+	(=jis-x0208@1983    . #x737D)	; &J90-737D; [83-93]
+	(=ks-x1001	    . #x4F4F)	; &I-K0-4F4F; [47-47]
+	(=jis-x0208@1990    . #x737D)	; &I-J90-737D; [83-93]
+	(=jis-x0213-1	    . #x737D)	; &I-JX1-737D; [83-93]
+	(=daikanwa	    . 48847)	; &I-M-48847;
+	(=shinjigen@1ed	    .  9918)	; &J90-737D;
+	(=shinjigen@rev	    .  9917)	; &J90-737D;
+	))
+      (<-original*sources
+       shinjigen@rev)
+      )
+     ((=ucs@cns		  . #x9F9C)	; &C7-2C3A;
+      (=cns11643-7	  . #x2C3A)	; &C7-2C3A; [12-26]
       ))
-    (<-original*sources
-     zhengzitong daikanwa shinjigen@1ed)
     ))
 (define-char
   '((ideographic-radical . 213)	; ⿔
