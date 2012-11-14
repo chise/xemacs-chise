@@ -51,8 +51,8 @@
     (=ucs@jis		. #x9E80)	; &HD-JB-6C5C;
     (=jis-x0212		. #x6C5C)	; &HD-JB-6C5C; [76-60]
     (=jis-x0213-2	. #x7E54)	; &I-JX2-7E54; [94-52]
-    (=daikanwa		. 47588)	; &I-M-47588;
     (=hanyo-denshi/jb	. #x6C5C)	; &I-HD-JB-6C5C; [76-60]
+    (=daikanwa		. 47588)	; &I-M-47588;
     ))
 (define-char
   '((<-denotational
@@ -1604,17 +1604,19 @@
     (total-strokes	 . 22)
     (=>>ucs@unicode	. #x9E9E)	; &G-JX1-7E6B;
     (=>>jis-x0213-1	. #x7E6B)	; &G-JX1-7E6B; [94-75]
-    (=>>daikanwa	. 47688)	; &G-JX1-7E6B;
     (=>>hanyo-denshi/jb . #x6C67)	; &G-JX1-7E6B; [76-71]
+    (=>>daikanwa	. 47688)	; &G-JX1-7E6B;
     (->subsumptive
-     ((=>>>ucs@unicode	  . #x9E9E)	; &g2-UU+9E9E;
+     ((=>>>ucs@unicode	  . #x9E9E)	; &g2-JX1-7E6B;
+      (=>>>jis-x0213-1	  . #x7E6B)	; &g2-JX1-7E6B; [94-75]
+      (=>>>hanyo-denshi/jb . #x6C67)	; &g2-JX1-7E6B; [76-71]
       (->subsumptive
        ((=ucs@jis	    . #x9E9E)	; &HD-JB-6C67;
 	(=ucs@JP/hanazono   . nil)
 	(=jis-x0212	    . #x6C67)	; &HD-JB-6C67; [76-71]
 	(=jis-x0213-1	    . #x7E6B)	; &I-JX1-7E6B; [94-75]
-	(=daikanwa	    . 47688)	; &I-M-47688;
 	(=hanyo-denshi/jb   . #x6C67)	; &I-HD-JB-6C67; [76-71]
+	(=daikanwa	    . 47688)	; &I-M-47688;
 	)
        ((=ucs@unicode	    . #x9E9E)	; &UU+9E9E;
 	))
