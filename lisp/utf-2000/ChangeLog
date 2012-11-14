@@ -1,3 +1,17 @@
+2012-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Oracle-Bones.el (ZOB-01719): Use U+5317 instead of J0-4B4C as a
+	component in the value of `<-Oracle-Bones'.
+
+	* Ideograph-R213-Turtle.el (G-CU+9F9C): New node to integrate
+	M-48848, S2-9918 and C7-2C3A.
+	(M-48848): Separate C7-2C3A.
+	(S2-9918): New character.
+	(C7-2C3A): Separate M-48848 and S1-9919; unify CU+9F9C.
+
+	* Ideograph-R212-Dragon.el (g2-JX1-7E76): Unify g2-HD-JB7757.
+	(g2-JX1-7E77): Unify g2-HD-JB7760.
+
 2012-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R198-Deer.el (g2-UU+9E9E): Unify g2-JX1-7E6B and
