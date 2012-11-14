@@ -456,8 +456,8 @@
     (=ucs@jis		. #x9F03)	; &HD-JB-6D24;
     (=jis-x0212		. #x6D24)	; &HD-JB-6D24; [77-04]
     (=jis-x0213-2	. #x7E61)	; &I-JX2-7E61; [94-65]
-    (=daikanwa		. 48278)	; &I-M-48278;
     (=hanyo-denshi/jb	. #x6D24)	; &I-HD-JB-6D24; [77-04]
+    (=daikanwa		. 48278)	; &I-M-48278;
     ))
 (define-char
   '((<-denotational
