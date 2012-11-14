@@ -26,13 +26,13 @@
     (ideographic-strokes@daikanwa . 6)
     (total-strokes	 . 8)
     (=ucs		. #x9F21)	; 鼡
+    (=adobe-japan1-0	. 07454)	; &I-AJ1-07454;
     (=jis-x0208		. #x736B)	; &I-J90-736B; [83-75]
     (=jis-x0213-1	. #x736B)	; &I-JX1-736B; [83-75]
     (=gt		. 12984)	; &I-GT-12984;
     (=gt-k		. 03927)	; &I-GT-K03927;
     (=gt-pj-1		. #x736B)	; &I-GT-12984; [83-75]
     (=daikanwa/ho	.  0047)	; 鼡
-    (=adobe-japan1-0	. 07454)	; &I-AJ1-07454;
     ))
 (define-char
   '((ideographic-radical . 208)	; ⿏
@@ -853,12 +853,12 @@
     (ideographic-radical . 208)	; ⿏
     (ideographic-strokes . 5)
     (total-strokes	 . 18)
-    (=>>ucs@jis		. #x9F2C)	; &G-GT-66133;
-    (=>>ucs@cns		. #x9F2C)	; &G-GT-66133;
-    (=>>jis-x0208	. #x736C)	; &G-GT-66133; [83-76]
-    (=>>jis-x0213-1	. #x736C)	; &G-GT-66133; [83-76]
-    (=>>gt		. 66133)	; &G-GT-66133;
-    (=>>daikanwa	. 48427)	; &G-GT-66133;
+    (=>>ucs@jis		. #x9F2C)	; &G-J0-736C;
+    (=>>ucs@cns		. #x9F2C)	; &G-J0-736C;
+    (=>>jis-x0208	. #x736C)	; &G-J0-736C; [83-76]
+    (=>>jis-x0213-1	. #x736C)	; &G-J0-736C; [83-76]
+    (=>>gt		. 66133)	; &G-J0-736C;
+    (=>>daikanwa	. 48427)	; &G-J0-736C;
     (->subsumptive
      ((=ucs@cns		  . #x9F2C)	; &J90-736C;
       (=ucs@jis		  . #x9F2C)	; &J90-736C;
