@@ -1,3 +1,13 @@
+2012-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R198-Deer.el (g2-UU+9E9E): Unify g2-JX1-7E6B and
+	g2-HD-JB7671.
+
+2012-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R194-Ghost.el (J90-7233): Separate S2-9528.
+	(S1-9528): New character.
+
 2012-11-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R196-Bird.el (g2-JX3-726D): Unify g2-HD-HG1601.
