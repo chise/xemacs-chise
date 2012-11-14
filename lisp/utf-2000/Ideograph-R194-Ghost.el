@@ -1426,7 +1426,9 @@
       (=jis-x0208@1990	  . #x7233)	; &J90-7233; [82-19]
       (=jis-x0213-1	  . #x7233)	; &I-JX1-7233; [82-19]
       (=daikanwa	  . 45869)	; &I-M-45869;
-      (=shinjigen@rev	  .  9528)	; &J90-7233;
+      )
+     ((total-strokes	   . 18)
+      (=shinjigen@rev	  .  9528)	; &SJG2-9528;
       )
      ((total-strokes	   . 18)
       (=decomposition@hanyo-denshi
@@ -1437,9 +1439,12 @@
       (=jis-x0208@1978	  . #x7233)	; &HD-FT-314D; [82-19]
       (=jis-x0208@1983	  . #x7233)	; &I-J83-7233; [82-19]
       (=cns11643-1	  . #x777D)	; &I-C1-777D; [87-93]
+      (=hanyo-denshi/ft	  . #x314D)	; &I-HD-FT-314D; [17-45]
       (=gt		  . 61677)	; &I-GT-61677;
       (=gt-pj-1		  . #x7233)	; &I-GT-61677; [82-19]
-      (=hanyo-denshi/ft	  . #x314D)	; &I-HD-FT-314D; [17-45]
+      )
+     ((total-strokes	   . 18)
+      (=shinjigen@1ed	  .  9528)	; &SJG1-9528;
       )
      ((total-strokes	   . 17)
       (=ucs@unicode	  . #x9B4D)	; &G0-774D;
@@ -2038,11 +2043,11 @@
       ))
     (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 11)
-    (=>>ucs@unicode	. #x9B54)	; &G-GT-61719;
-    (=>>jis-x0208	. #x4B62)	; &G-GT-61719; [43-66]
-    (=>>jis-x0213-1	. #x4B62)	; &G-GT-61719; [43-66]
-    (=>>gt		. 61719)	; &G-GT-61719;
-    (=>>daikanwa/+p	. 45906)	; &G-GT-61719;
+    (=>>ucs@unicode	. #x9B54)	; &G-J0-4B62;
+    (=>>jis-x0208	. #x4B62)	; &G-J0-4B62; [43-66]
+    (=>>jis-x0213-1	. #x4B62)	; &G-J0-4B62; [43-66]
+    (=>>gt		. 61719)	; &G-J0-4B62;
+    (=>>daikanwa/+p	. 45906)	; &G-J0-4B62;
     (->subsumptive
      ((total-strokes	   . 21)
       (=ucs@jis		  . #x9B54)	; &GT-61719;
