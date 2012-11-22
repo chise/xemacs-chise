@@ -1,3 +1,11 @@
+2012-11-15  MORIOKA Tomohiko  <tomo@porter.kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R124-Feather.el (U+FA1E): Unify AJ1-08599.
+
+	* Ideograph-R119-Rice.el (U+FA1D): Unify AJ1-08590.
+
+	* Ideograph-R113-Spirit.el (U+FA18): Unify AJ1-08579.
+
 2012-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Oracle-Bones.el (ZOB-01719): Use U+5317 instead of J0-4B4C as a
