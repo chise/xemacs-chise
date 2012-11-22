@@ -16,6 +16,7 @@
     (total-strokes	 . 6)
     (=ucs		. #xFA1E)	; 羽
     (=ucs@ks		. #x7FBD)	; 羽
+    (=adobe-japan1-2	. 08599)	; &I-AJ1-08599;
     (=ks-x1001		. #x6962)	; &I-K0-6962; [73-66]
     (=gt		. 36832)	; &I-GT-36832;
     (=gt-k		. 01761)	; &I-GT-K01761;
