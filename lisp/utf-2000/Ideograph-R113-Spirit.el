@@ -116,6 +116,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 6)
     (=ucs		. #xFA18)	; 礼
+    (=adobe-japan1-2	. 08579)	; &I-AJ1-08579;
     (=daikanwa		. 24626)	; &I-M-24626;
     (=shinjigen		.  5507)	; 礼
     (=jef-china3	. #x70E5)	; &I-JC3-70E5;
