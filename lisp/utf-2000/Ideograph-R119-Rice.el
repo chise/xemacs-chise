@@ -2163,6 +2163,7 @@
     (total-strokes	 . 14)
     (=ucs		. #xFA1D)	; 精
     (=ucs@ks		. #x7CBE)	; 精
+    (=adobe-japan1-2	. 08590)	; &I-AJ1-08590;
     (=ks-x1001		. #x6F71)	; &I-K0-6F71; [79-81]
     (=gt		. 34788)	; &I-GT-34788;
     (=gt-k		. 11255)	; &I-GT-K11255;
