@@ -412,15 +412,17 @@
     (ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
-    (=>>ucs@unicode	. #xFA17)	; &G-GT-29427;
-    (=>>ucs@ks		. #x76CA)	; &G-GT-29427;
-    (=>>gt		. 29427)	; &G-GT-29427;
-    (=>>gt-k		. 06687)	; &G-GT-29427;
-    (=>>daikanwa	. 22972)	; &G-GT-29427;
+    (=>>ucs@unicode	. #xFA17)	; &G-AJ1-08571;
+    (=>>ucs@ks		. #x76CA)	; &G-AJ1-08571;
+    (=>>adobe-japan1-2	. 08571)	; &G-AJ1-08571;
+    (=>>gt		. 29427)	; &G-AJ1-08571;
+    (=>>gt-k		. 06687)	; &G-AJ1-08571;
+    (=>>daikanwa	. 22972)	; &G-AJ1-08571;
     (->subsumptive
      ((=>ucs*		  . #x76CA)	; 益
       (=ucs		  . #xFA17)	; 益
       (=ucs@ks		  . #x76CA)	; 益
+      (=adobe-japan1-2	  . 08571)	; &I-AJ1-08571;
       (=ks-x1001	  . #x6C4C)	; &I-K0-6C4C; [76-44]
       (=gt		  . 29427)	; &I-GT-29427;
       (=gt-k		  . 06687)	; &I-GT-K06687;
