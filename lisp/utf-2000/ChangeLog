@@ -1,5 +1,8 @@
 2012-11-15  MORIOKA Tomohiko  <tomo@porter.kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R108-Dish.el (G-GT-29427): Unify G-AJ1-08571.
+	(U+FA17): Unify AJ1-08571.
+
 	* Ideograph-R124-Feather.el (U+FA1E): Unify AJ1-08599.
 
 	* Ideograph-R119-Rice.el (U+FA1D): Unify AJ1-08590.
