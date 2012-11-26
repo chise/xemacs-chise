@@ -192,6 +192,11 @@
     (ideographic-radical . 34)	; ⼡
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (=decomposition@cid
+     ((=ucs		  . #x5906)	; 夆
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (hanyu-dazidian	2 868 7)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
