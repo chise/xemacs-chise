@@ -13520,7 +13520,8 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=>>ucs@cns	  . #x590B)	; &G-CU+590B;
+     ((=>>ucs@cns	  . #x590B)	; &G-CDP-8D64;
+      (=>>daikanwa	  . 05711)	; &G-CDP-8D64;
       ))
     (=>>ucs@cns		. #x5506)	; &G-HD-KS-A5E6;
     (=>>hanyo-denshi/ks . 042470)	; &G-HD-KS-A5E6;
