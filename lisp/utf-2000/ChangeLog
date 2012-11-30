@@ -1,5 +1,11 @@
 2012-11-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R037-Big.el: Add some Adobe-Japan1-4 code points.
+	(U+5939): Don't use `morohashi-daikanwa'; add `<-simplified@CN'
+	for U+593E.
+	(U+3692): Use `->subsumptive' to separate representative nodes.
+	(U+3693): Likewise.
+
 	* Ideograph-R045-Sprout.el: Add some Adobe-Japan1-0 code points.
 
 2012-11-27  MORIOKA Tomohiko  <tomo.git@chise.org>
