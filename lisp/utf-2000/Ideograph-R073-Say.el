@@ -165,6 +165,7 @@
     (cns-radical	 . 72)	; ⽇
     (total-strokes	 . 7)
     (=ucs		. #x3AD7)	; 㫗
+    (=adobe-japan1-5	. 17758)	; &I-AJ1-17758;
     (=cns11643-3	. #x2640)	; &I-C3-2640; [06-32]
     (=jis-x0213-2	. #x2E36)	; &I-JX2-2E36; [14-22]
     (=daikanwa		. 14285)	; &I-M-14285;
