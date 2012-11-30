@@ -1,3 +1,13 @@
+2012-11-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R045-Sprout.el: Add some Adobe-Japan1-0 code points.
+
+2012-11-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R035-Go-Slowly.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+	(JX1-2F67): Unify AJ1-14444.
+
 2012-11-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R034-Go.el (AJ1-21371): Add `=decomposition@cid'.
