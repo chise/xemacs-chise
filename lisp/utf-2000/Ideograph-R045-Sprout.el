@@ -34,6 +34,7 @@
     (total-strokes	 . 3)
     (=ucs		. #x2F878)	; 屮
     (=ucs@jis		. #x5C6E)	; 屮
+    (=adobe-japan1-0	. 04658)	; &I-AJ1-04658;
     (=jis-x0208		. #x5625)	; &I-J90-5625; [54-05]
     (=cns11643-4	. #x2135)	; &I-C4-2135; [01-21]
     (=jis-x0213-1	. #x5625)	; &I-JX1-5625; [54-05]
@@ -49,12 +50,8 @@
     (->mistakable*sources
      daikanwa)
     (->synonyms
-     ((=ucs@unicode	  . #x5DE6)	; &GT-11000;
-      (=jis-x0208	  . #x3A38)	; &GT-11000; [26-24]
-      (=gb2312		  . #x5773)	; &I-G0-5773; [55-83]
-      (=ks-x1001	  . #x7127)	; &I-K0-7127; [81-07]
-      (=cns11643-1	  . #x464A)	; &I-C1-464A; [38-42]
-      (=jis-x0213-1	  . #x3A38)	; &I-JX1-3A38; [26-24]
+     ((=ucs@unicode	  . #x5DE6)	; &AJ1-02088;
+      (=adobe-japan1-0	  . 02088)	; &I-AJ1-02088;
       (=daikanwa	  . 08720)	; &I-M-08720;
       ))
     (->synonyms*sources
@@ -76,15 +73,16 @@
     (total-strokes	 . 4)
     (=ucs		. #x5C6F)	; 屯
     (->subsumptive
-     ((=ucs@jis		  . #x5C6F)	; &GT-09854;
-      (=jis-x0208	  . #x4656)	; &GT-09854; [38-54]
+     ((=ucs@jis		  . #x5C6F)	; &AJ1-03246;
+      (=adobe-japan1-0	  . 03246)	; &I-AJ1-03246;
+      (=jis-x0208	  . #x4656)	; &AJ1-03246; [38-54]
       (=ks-x1001	  . #x546A)	; &I-K0-546A; [52-74]
       (=jis-x0213-1	  . #x4656)	; &I-JX1-4656; [38-54]
       (=gt		  . 09854)	; &I-GT-09854;
       (=gt-k		  . 00470)	; &I-GT-K00470;
       (=gt-pj-1		  . #x4656)	; &I-GT-09854; [38-54]
       (=daikanwa	  . 07828)	; &I-M-07828;
-      (=shinjigen	  .  1953)	; &GT-09854;
+      (=shinjigen	  .  1953)	; &AJ1-03246;
       )
      ((=ucs@unicode	  . #x5C6F)	; &C1-453A;
       (=gb2312		  . #x4D4D)	; &C1-453A; [45-45]
@@ -338,10 +336,8 @@
     (=cns11643-6	. #x3528)	; &I-C6-3528; [21-08]
     (=hanziku-3		. #xD0D4)	; &I-HZK03-D0D4;
     (<-original
-     ((=ucs@jis		  . #x5E78)	; &GT-11561;
-      (=jis-x0208	  . #x392C)	; &GT-11561; [25-12]
-      (=ks-x1001	  . #x7A39)	; &I-K0-7A39; [90-25]
-      (=jis-x0213-1	  . #x392C)	; &I-JX1-392C; [25-12]
+     ((=ucs@jis		  . #x5E78)	; &AJ1-01982;
+      (=adobe-japan1-0	  . 01982)	; &I-AJ1-01982;
       (=daikanwa	  . 09176)	; &I-M-09176;
       ))
     (<-original*sources
