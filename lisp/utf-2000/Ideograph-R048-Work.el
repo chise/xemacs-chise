@@ -82,8 +82,9 @@
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (=ucs@unicode	. #x5DE6)	; &GT-11000;
-    (=jis-x0208		. #x3A38)	; &GT-11000; [26-24]
+    (=ucs@unicode	. #x5DE6)	; &AJ1-02088;
+    (=adobe-japan1-0	. 02088)	; &AJ1-02088;
+    (=jis-x0208		. #x3A38)	; &I-J90-3A38; [26-24]
     (=gb2312		. #x5773)	; &I-G0-5773; [55-83]
     (=ks-x1001		. #x7127)	; &I-K0-7127; [81-07]
     (=cns11643-1	. #x464A)	; &I-C1-464A; [38-42]
@@ -93,7 +94,7 @@
     (=gt-k		. 00933)	; &I-GT-K00933;
     (=gt-pj-1		. #x3A38)	; &I-GT-11000; [26-24]
     (=daikanwa		. 08720)	; &I-M-08720;
-    (=shinjigen		.  2063)	; &GT-11000;
+    (=shinjigen		.  2063)	; &AJ1-02088;
     ))
 (define-char
   '((<-denotational
