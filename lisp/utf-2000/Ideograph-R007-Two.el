@@ -559,11 +559,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x5C6F)	; &GT-09854;
-	(=jis-x0208	    . #x4656)	; &GT-09854; [38-54]
-	(=ks-x1001	    . #x546A)	; &I-K0-546A; [52-74]
-	(=jis-x0213-1	    . #x4656)	; &I-JX1-4656; [38-54]
-	(=daikanwa	    . 07828)	; &I-M-07828;
+       ((=ucs@jis	    . #x5C6F)	; &AJ1-03246;
+	(=adobe-japan1-0    . 03246)	; &AJ1-03246;
 	)
        ((=ucs		    . #x4E8C)	; 二
 	))
