@@ -301,17 +301,24 @@
     (ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=>>ucs@unicode	. #x5E78)	; &G-UU+5E78;
+    (=>>ucs@unicode	. #x5E78)	; &G-AJ1-01982;
+    (=>>adobe-japan1-0	. 01982)	; &G-AJ1-01982;
+    (=>>jis-x0208	. #x392C)	; &G-AJ1-01982; [25-12]
+    (=>>jis-x0213-1	. #x392C)	; &G-AJ1-01982; [25-12]
+    (=>>gt		. 11561)	; &G-AJ1-01982;
+    (=>>gt-k		. 03701)	; &G-AJ1-01982;
+    (=>>daikanwa	. 09176)	; &G-AJ1-01982;
     (->subsumptive
-     ((=ucs@jis		  . #x5E78)	; &GT-11561;
-      (=jis-x0208	  . #x392C)	; &GT-11561; [25-12]
+     ((=ucs@jis		  . #x5E78)	; &AJ1-01982;
+      (=adobe-japan1-0	  . 01982)	; &AJ1-01982;
+      (=jis-x0208	  . #x392C)	; &I-J90-392C; [25-12]
       (=ks-x1001	  . #x7A39)	; &I-K0-7A39; [90-25]
       (=jis-x0213-1	  . #x392C)	; &I-JX1-392C; [25-12]
       (=gt		  . 11561)	; &I-GT-11561;
       (=gt-k		  . 03701)	; &I-GT-K03701;
       (=gt-pj-1		  . #x392C)	; &I-GT-11561; [25-12]
       (=daikanwa	  . 09176)	; &I-M-09176;
-      (=shinjigen@rev	  .  2154)	; &GT-11561;
+      (=shinjigen	  .  2154)	; &AJ1-01982;
       )
      ((=ucs@unicode	  . #x5E78)	; &C1-4D31;
       (=gb2312		  . #x5052)	; &C1-4D31; [48-50]
