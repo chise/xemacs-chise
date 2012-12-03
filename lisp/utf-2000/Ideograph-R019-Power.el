@@ -277,11 +277,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x5C11)	; &GT-09425;
-	(=jis-x0208	    . #x3E2F)	; &GT-09425; [30-15]
-	(=ks-x1001	    . #x6134)	; &I-K0-6134; [65-20]
-	(=jis-x0213-1	    . #x3E2F)	; &I-JX1-3E2F; [30-15]
-	(=daikanwa	    . 07475)	; &I-M-07475;
+       ((=ucs@jis	    . #x5C11)	; &AJ1-02455;
+	(=adobe-japan1-0    . 02455)	; &AJ1-02455;
 	)
        ((=ucs		    . #x529B)	; 力
 	))
