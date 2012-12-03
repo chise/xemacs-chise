@@ -1885,7 +1885,17 @@
     (=gt-k		. 05817)	; &I-GT-K05817;
     (=gt-pj-2		. #x3139)	; &I-GT-00207; [17-25]
     (=daikanwa		. 00152)	; &I-M-00152;
+    (=shinjigen		.  2155)	; 𠂷
     (=hanziku-1		. #xAC40)	; &I-HZK01-AC40;
+    (<-ancient
+     ((=ucs@jis		  . #x5E78)	; &AJ1-01982;
+      (=adobe-japan1-0	  . 01982)	; &AJ1-01982;
+      (=jis-x0208	  . #x392C)	; &I-J90-392C; [25-12]
+      (=daikanwa	  . 09176)	; &I-M-09176;
+      (=shinjigen	  .  2154)	; &AJ1-01982;
+      ))
+    (<-ancient*sources
+     yupian daikanwa shinjigen)
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃
@@ -2022,10 +2032,8 @@
     (=cns11643-6	. #x3528)	; &I-C6-3528; [21-08]
     (=hanziku-3		. #xD0D4)	; &I-HZK03-D0D4;
     (<-original
-     ((=ucs@jis		  . #x5E78)	; &GT-11561;
-      (=jis-x0208	  . #x392C)	; &GT-11561; [25-12]
-      (=ks-x1001	  . #x7A39)	; &I-K0-7A39; [90-25]
-      (=jis-x0213-1	  . #x392C)	; &I-JX1-392C; [25-12]
+     ((=ucs@jis		  . #x5E78)	; &AJ1-01982;
+      (=adobe-japan1-0	  . 01982)	; &AJ1-01982;
       (=daikanwa	  . 09176)	; &I-M-09176;
       ))
     (<-original*sources
