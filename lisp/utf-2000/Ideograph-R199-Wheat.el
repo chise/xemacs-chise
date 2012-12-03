@@ -52,15 +52,16 @@
     (ideographic-radical . 199)	; ⿆
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
-    (=ucs@unicode	. #x9EA6)	; &GT-64905;
-    (=jis-x0208		. #x477E)	; &GT-64905; [39-94]
+    (=ucs@unicode	. #x9EA6)	; &AJ1-03380;
+    (=adobe-japan1-0	. 03380)	; &AJ1-03380;
+    (=jis-x0208		. #x477E)	; &I-J90-477E; [39-94]
     (=gb2312		. #x4273)	; &I-G0-4273; [34-83]
     (=jis-x0213-1	. #x477E)	; &I-JX1-477E; [39-94]
     (=gt		. 64905)	; &I-GT-64905;
     (=gt-k		. 02633)	; &I-GT-K02633;
     (=gt-pj-1		. #x477E)	; &I-GT-64905; [39-94]
     (=daikanwa		. 47718)	; &I-M-47718;
-    (=shinjigen		.  9791)	; &GT-64905;
+    (=shinjigen		.  9791)	; &AJ1-03380;
     (<-simplified@CN
      ((=ucs@unicode	  . #x9EA5)	; &J90-734E;
       (=jis-x0208	  . #x734E)	; &J90-734E; [83-46]
