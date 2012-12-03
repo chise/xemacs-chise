@@ -51,7 +51,7 @@
      daikanwa)
     (->synonyms
      ((=ucs@unicode	  . #x5DE6)	; &AJ1-02088;
-      (=adobe-japan1-0	  . 02088)	; &I-AJ1-02088;
+      (=adobe-japan1-0	  . 02088)	; &AJ1-02088;
       (=daikanwa	  . 08720)	; &I-M-08720;
       ))
     (->synonyms*sources
@@ -74,8 +74,8 @@
     (=ucs		. #x5C6F)	; 屯
     (->subsumptive
      ((=ucs@jis		  . #x5C6F)	; &AJ1-03246;
-      (=adobe-japan1-0	  . 03246)	; &I-AJ1-03246;
-      (=jis-x0208	  . #x4656)	; &AJ1-03246; [38-54]
+      (=adobe-japan1-0	  . 03246)	; &AJ1-03246;
+      (=jis-x0208	  . #x4656)	; &I-J90-4656; [38-54]
       (=ks-x1001	  . #x546A)	; &I-K0-546A; [52-74]
       (=jis-x0213-1	  . #x4656)	; &I-JX1-4656; [38-54]
       (=gt		  . 09854)	; &I-GT-09854;
@@ -337,7 +337,7 @@
     (=hanziku-3		. #xD0D4)	; &I-HZK03-D0D4;
     (<-original
      ((=ucs@jis		  . #x5E78)	; &AJ1-01982;
-      (=adobe-japan1-0	  . 01982)	; &I-AJ1-01982;
+      (=adobe-japan1-0	  . 01982)	; &AJ1-01982;
       (=daikanwa	  . 09176)	; &I-M-09176;
       ))
     (<-original*sources
