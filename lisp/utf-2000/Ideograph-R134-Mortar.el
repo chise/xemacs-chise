@@ -77,9 +77,10 @@
     (total-strokes	 . 8)
     (=ucs		. #x81FD)	; 臽
     (->subsumptive
-     ((=ucs@cns		  . #x81FD)	; &JX2-755B;
-      (=ucs@jis		  . #x81FD)	; &JX2-755B;
-      (=jis-x0212	  . #x566B)	; &JX2-755B; [54-75]
+     ((=ucs@cns		  . #x81FD)	; &AJ1-18448;
+      (=ucs@jis		  . #x81FD)	; &AJ1-18448;
+      (=adobe-japan1-5	  . 18448)	; &AJ1-18448;
+      (=jis-x0212	  . #x566B)	; &I-JSP-566B; [54-75]
       (=cns11643-4	  . #x276D)	; &I-C4-276D; [07-77]
       (=jis-x0213-2	  . #x755B)	; &I-JX2-755B; [85-59]
       (=daikanwa	  . 30177)	; &I-M-30177;
