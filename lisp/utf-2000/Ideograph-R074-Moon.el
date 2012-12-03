@@ -505,8 +505,9 @@
     (->subsumptive
      ((=daikanwa	  . 14356)	; &M-14356;
       )
-     ((=ucs@unicode	  . #x6712)	; &JX2-2E39;
-      (=cns11643-2	  . #x2F59)	; &JX2-2E39; [15-57]
+     ((=ucs@unicode	  . #x6712)	; &AJ1-17760;
+      (=adobe-japan1-5	  . 17760)	; &AJ1-17760;
+      (=cns11643-2	  . #x2F59)	; &I-C2-2F59; [15-57]
       (=jis-x0213-2	  . #x2E39)	; &I-JX2-2E39; [14-25]
       ))
     ))
@@ -763,13 +764,18 @@
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (=>>ucs@jis		. #x6719)	; &G-JU+6719;
-    (=>>ucs@cns		. #x6719)	; &G-JU+6719;
+    (=>>ucs@jis		. #x6719)	; &G-AJ1-17762;
+    (=>>ucs@cns		. #x6719)	; &G-AJ1-17762;
+    (=>>adobe-japan1-5	. 17762)	; &G-AJ1-17762;
+    (=>>jis-x0213-2	. #x2E3B)	; &G-AJ1-17762; [14-27]
+    (=>>daikanwa	. 14366)	; &G-AJ1-17762;
     (->subsumptive
-     ((=ucs@jis		  . #x6719)	; &JX2-2E3B;
-      (=jis-x0212	  . #x4272)	; &JX2-2E3B; [34-82]
+     ((=daikanwa	  . 14366)	; &M-14366;
+      )
+     ((=ucs@jis		  . #x6719)	; &AJ1-17762;
+      (=adobe-japan1-5	  . 17762)	; &AJ1-17762;
+      (=jis-x0212	  . #x4272)	; &I-JSP-4272; [34-82]
       (=jis-x0213-2	  . #x2E3B)	; &I-JX2-2E3B; [14-27]
-      (=daikanwa	  . 14366)	; &I-M-14366;
       )
      ((=ucs@cns		  . #x6719)	; &C3-3647;
       (=cns11643-3	  . #x3647)	; &C3-3647; [22-39]
@@ -1618,6 +1624,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
     (=ucs		. #x6725)	; 朥
+    (=adobe-japan1-5	. 19442)	; &I-AJ1-19442;
     ))
 (define-char
   '((ideographic-radical . 74)	; ⽉
