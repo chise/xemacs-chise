@@ -1800,10 +1800,8 @@
     (=jis-x0213-2	. #x7970)	; &I-JX2-7970; [89-80]
     (=daikanwa		. 38747)	; &I-M-38747;
     (<-same
-     ((=ucs@jis		  . #x5C6F)	; &GT-09854;
-      (=jis-x0208	  . #x4656)	; &GT-09854; [38-54]
-      (=ks-x1001	  . #x546A)	; &I-K0-546A; [52-74]
-      (=jis-x0213-1	  . #x4656)	; &I-JX1-4656; [38-54]
+     ((=ucs@jis		  . #x5C6F)	; &AJ1-03246;
+      (=adobe-japan1-0	  . 03246)	; &AJ1-03246;
       (=daikanwa	  . 07828)	; &I-M-07828;
       ))
     (<-same*sources
@@ -6501,10 +6499,10 @@
      ((=ucs@jis		  . #x902C)	; &JSP-6155;
       (=jis-x0212	  . #x6155)	; &JSP-6155; [65-53]
       (=daikanwa	  . 38929)	; &I-M-38929;
-      (=shinjigen@1ed	  .  8311)	; &JSP-6155;
+      (=shinjigen	  .  8311)	; &JSP-6155;
       ))
     (<-vulgar*sources
-     zhengzitong daikanwa shinjigen@1ed)
+     zhengzitong daikanwa shinjigen)
     ))
 (define-char
   '((<-denotational
@@ -9168,7 +9166,7 @@
     (=ucs@jis		. #x902C)	; &JSP-6155;
     (=jis-x0212		. #x6155)	; &JSP-6155; [65-53]
     (=daikanwa		. 38929)	; &I-M-38929;
-    (=shinjigen@1ed	.  8311)	; &JSP-6155;
+    (=shinjigen		.  8311)	; &JSP-6155;
     (<-same
      ((=ucs		  . #x2F9DC)	; 跰
       (=daikanwa	  . 37638)	; &I-M-37638;
@@ -9176,9 +9174,8 @@
     (<-same*sources
      jiyun daikanwa)
     (<-synonyms
-     ((=jis-x0208@1978	  . #x5622)	; &JX3-7E7B; [54-02]
-      (=ks-x1001	  . #x5C33)	; &I-K0-5C33; [60-19]
-      (=jis-x0213-1@2004  . #x7E7B)	; &I-JX3-7E7B; [94-91]
+     ((=ucs@jis		  . #x5C5B)	; &AJ1-07826;
+      (=adobe-japan1-0	  . 07826)	; &AJ1-07826;
       (=daikanwa	  . 07734)	; &I-M-07734;
       ))
     (<-synonyms*sources
