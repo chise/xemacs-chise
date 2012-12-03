@@ -1,5 +1,18 @@
 2012-11-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R134-Mortar.el (JX2-755B): Unify AJ1-18448.
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x557B and #x436B.
+
+	* Ideograph-R086-Fire.el (U+7225): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R074-Moon.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R004-Slash.el (U-000200B7): Unify S-2155; add
+	`<-ancient' for J0-392C.
+
 	* Ideograph-R073-Say.el (U+3AD7): Unify AJ1-17758.
 
 	* Ideograph-R051-Dry.el (J0-392C): Unify AJ1-01982.
