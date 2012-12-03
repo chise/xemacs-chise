@@ -1,4 +1,12 @@
+2012-12-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (U+53AC): Add ideographic-structure.
+
 2012-11-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R162-Walk.el (J0-6D7E): Use `shinjigen' instead of
+	`shinjigen@1ed' in `<-vulgar*sources'.
+	(JSP-6155): Unify S2-8311.
 
 	* Ideograph-R134-Mortar.el (JX2-755B): Unify AJ1-18448.
 
