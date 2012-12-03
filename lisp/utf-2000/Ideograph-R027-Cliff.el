@@ -1061,9 +1061,9 @@
       )
      ((=ucs		  . #x5382)	; 厂
       )
-     ((=>>ucs@jis	  . #x5C28)	; &G-J0-5578;
-      (=>>ucs@cns	  . #x5C28)	; &G-J0-5578;
-      (=>>jis-x0208	  . #x5578)	; &G-J0-5578; [53-88]
+     ((=>>ucs@jis	  . #x5C28)	; &G-AJ1-04647;
+      (=>>ucs@cns	  . #x5C28)	; &G-AJ1-04647;
+      (=>>adobe-japan1-0  . 04647)	; &G-AJ1-04647;
       ))
     (=>>ucs@jis		. #x5396)	; &G-AJ1-04322;
     (=>>ucs@cns		. #x5396)	; &G-AJ1-04322;
@@ -1091,9 +1091,8 @@
 	)
        ((=ucs		    . #x5382)	; 厂
 	)
-       ((=ucs@jis	    . #x5C28)	; &J90-5578;
-	(=jis-x0208	    . #x5578)	; &J90-5578; [53-88]
-	(=jis-x0213-1	    . #x5578)	; &I-JX1-5578; [53-88]
+       ((=ucs@jis	    . #x5C28)	; &AJ1-04647;
+	(=adobe-japan1-0    . 04647)	; &AJ1-04647;
 	))
       (=ucs@cns		  . #x5396)	; &AJ1-04322;
       (=ucs@jis		  . #x5396)	; &AJ1-04322;
@@ -3050,6 +3049,14 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (hanyu-dazidian	1 79 1)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs		  . #x6677)	; 晷
+      ))
     (=ucs		. #x53AC)	; 厬
     (=big5		. #xE146)	; &I-B-E146;
     ))
@@ -3066,11 +3073,10 @@
       )
      ((=ucs		  . #x5382)	; 厂
       )
-     ((=ucs@cns		  . #x6677)	; &HD-JC-7540;
-      (=ucs@jis/2000	  . #x6677)	; &HD-JC-7540;
-      (=ucs@jis/2004	  . #x6677)	; &HD-JC-7540;
-      (=cns11643-1	  . #x5F63)	; &HD-JC-7540; [63-67]
-      (=jis-x0213-1	  . #x7540)	; &I-JX1-7540; [85-32]
+     ((=ucs@cns		  . #x6677)	; &AJ1-16889;
+      (=ucs@jis/2000	  . #x6677)	; &AJ1-16889;
+      (=ucs@jis/2004	  . #x6677)	; &AJ1-16889;
+      (=adobe-japan1-5	  . 16889)	; &AJ1-16889;
       ))
     (=ucs@cns		. #x53AC)	; &C2-492D;
     (=cns11643-2	. #x492D)	; &C2-492D; [41-13]
