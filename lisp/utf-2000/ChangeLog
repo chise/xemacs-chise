@@ -1,4 +1,35 @@
+2012-11-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R073-Say.el (U+3AD7): Unify AJ1-17758.
+
+	* Ideograph-R051-Dry.el (J0-392C): Unify AJ1-01982.
+
+	* Ideograph-R048-Work.el (J0-3A38): Unify AJ1-02088.
+
+	* Ideograph-R043-Lame.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R042-Small.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R036-Evening.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+	(HD-JT-AFB7): Unify AJ1-07987.
+	(U+591F): Use `->subsumptive' to integrate JC3-82B7 and JC3-91BE.
+	(JX2-253D): Unify AJ1-14445.
+
 2012-11-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R199-Wheat.el (J0-477E): Unify AJ1-03380.
+
+2012-11-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el (J0-4F33): Unify AJ1-04057.
+
+	* Ideograph-R038-Woman.el: Add some Adobe-Japan1-4 code points.
+	(U+36FD): Use `->subsumptive' to separate representative nodes.
+	(U+5AAB): Use `->subsumptive'.
+	(UU+5AAF): Use `<-simplified@misc' instead of `<-simplified' for
+	AJ1-14467.
+	(U-000218C9): Use `->subsumptive'.
 
 	* Ideograph-R037-Big.el: Add some Adobe-Japan1-4 code points.
 	(U+5939): Don't use `morohashi-daikanwa'; add `<-simplified@CN'
