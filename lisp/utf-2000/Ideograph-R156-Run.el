@@ -221,6 +221,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
     (=ucs		. #x8D76)	; 赶
+    (=adobe-japan1-2	. 08629)	; &I-AJ1-08629;
     (=gb2312		. #x384F)	; &I-G0-384F; [24-47]
     (=cns11643-2	. #x3327)	; &I-C2-3327; [19-07]
     (=big5		. #xD3E3)	; &I-B-D3E3;
