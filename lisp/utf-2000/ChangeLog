@@ -1,9 +1,34 @@
 2012-12-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R072-Sun.el: Add some Adobe-Japan1-5 code points.
+	(U+65FD): Use `->subsumptive'.
+	(U+663C): Add `ideographic-{radical|strokes}@{r044|r072}'.
+	(U+FA12): Unify AJ1-08481.
+	(U+3B18): Use `->subsumptive' to separate representative nodes.
+	(U+66C1): Likewise.
+	(U+3B25): Use `->subsumptive'.
+	(U+3B26): Use `->denotational' and `->subsumptive'.
+	(U+66EF): Use `->denotational'.
+
 	* Ideograph-R044-Corpse.el: Add some Adobe-Japan1-0 code points.
 	(U+3790): Add ideographic-structure.
 
 2012-12-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R159-Cart.el (U+8ECF): Unify AJ1-08631.
+
+	* Ideograph-R156-Run.el (U+8D76): Unify AJ1-08629.
+
+	* Ideograph-R149-Speech.el: Add some Adobe-Japan1-2 code points.
+
+	* Ideograph-R145-Clothes.el: Add some Adobe-Japan1-2 code points.
+	(U+88F4): Integrate S1-7408.
+	(U+88F6): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R142-Insect.el (U+8806): Use `->denotational' instead
+	of `->subsumptive'.
+	(U+8807): Use `->denotational'.
+	(UU+8807): Unify AJ1-08614 and JC3-63E0.
 
 	* Ideograph-R027-Cliff.el (U+53AC): Add ideographic-structure.
 
