@@ -13334,23 +13334,38 @@
 (define-char
   '((ideographic-radical . 142)	; ⾍
     (=ucs		. #x8806)	; 蠆
-    (->subsumptive
-     ((ideographic-strokes . 13)
-      (total-strokes	   . 19)
-      (=cns11643-2	  . #x666E)	; &C2-666E; [70-78]
-      (=daikanwa	  . 33694)	; &I-M-33694;
-      )
-     ((ideographic-strokes . 12)
-      (total-strokes	   . 18)
-      (=ucs@unicode	  . #x8806)	; &JX1-7B63;
-      (=jis-x0212	  . #x5B6A)	; &JX1-7B63; [59-74]
-      (=jis-x0213-1	  . #x7B63)	; &I-JX1-7B63; [91-67]
-      (=gb12345		  . #x7232)	; &JX1-7B63; [82-18]
-      (=big5		  . #xF2E3)	; &I-B-F2E3;
-      ))
+    (=big5		. #xF2E3)	; &I-B-F2E3;
     ))
 (define-char
-  '((=>ucs		. #x8807)	; 蠇
+  '((<-denotational
+     ((=ucs		  . #x8806)	; 蠆
+      ))
+    (ideographic-radical . 142)	; ⾍
+    (ideographic-strokes . 13)
+    (total-strokes	 . 19)
+    (=cns11643-2	. #x666E)	; &C2-666E; [70-78]
+    (=daikanwa		. 33694)	; &I-M-33694;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8806)	; 蠆
+      ))
+    (ideographic-radical . 142)	; ⾍
+    (ideographic-strokes . 12)
+    (total-strokes	 . 18)
+    (=ucs@unicode	. #x8806)	; &JX1-7B63;
+    (=jis-x0212		. #x5B6A)	; &JX1-7B63; [59-74]
+    (=jis-x0213-1	. #x7B63)	; &I-JX1-7B63; [91-67]
+    (=gb12345		. #x7232)	; &JX1-7B63; [82-18]
+    ))
+(define-char
+  '((ideographic-radical . 142)	; ⾍
+    (=ucs		. #x8807)	; 蠇
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8807)	; 蠇
+      ))
     (ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 13)
     (total-strokes	 . 19)
@@ -13358,11 +13373,15 @@
     (=daikanwa		. 33695)	; &I-M-33695;
     ))
 (define-char
-  '((morohashi-daikanwa	33695 0 1)
+  '((<-denotational
+     ((=ucs		  . #x8807)	; 蠇
+      ))
     (ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 12)
     (total-strokes	 . 18)
-    (=ucs		. #x8807)	; 蠇
+    (=ucs@unicode	. #x8807)	; &AJ1-08614;
+    (=adobe-japan1-2	. 08614)	; &AJ1-08614;
+    (=jef-china3	. #x63E0)	; &I-JC3-63E0;
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
