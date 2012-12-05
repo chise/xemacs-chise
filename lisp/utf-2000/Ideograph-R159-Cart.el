@@ -226,6 +226,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
     (=ucs		. #x8ECF)	; 軏
+    (=adobe-japan1-2	. 08631)	; &I-AJ1-08631;
     (=jis-x0212		. #x6059)	; &I-JSP-6059; [64-57]
     (=cns11643-1	. #x5848)	; &I-C1-5848; [56-40]
     (=daikanwa		. 38183)	; &I-M-38183;
