@@ -1,5 +1,16 @@
 2012-12-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R036-Evening.el (AJ1-07987): Add `=decomposition@cid'.
+	(AJ1-14445): Add `=decomposition@cid'.
+
+	* Ideograph-R035-Go-Slowly.el (AJ1-14444): Add
+	`=decomposition@cid'.
+
+	* Ideograph-R009-Man.el (U-000201A2): Unify AJ1-13857.
+	(U+4F05): Add ideographic-structure.
+	(U+4F32): Likewise.
+	(U-00020293): Likewise.
+
 	* Ideograph-R072-Sun.el: Add some Adobe-Japan1-5 code points.
 	(U+65FD): Use `->subsumptive'.
 	(U+663C): Add `ideographic-{radical|strokes}@{r044|r072}'.
