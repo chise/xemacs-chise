@@ -219,6 +219,11 @@
     (ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (=decomposition@cid
+     ((=ucs		  . #x590C)	; 夌
+      )
+     ((=ucs		  . #xE0100)	; 󠄀
+      ))
     (=ucs@jis		. #x590C)	; &AJ1-14444;
     (=adobe-japan1-4	. 14444)	; &AJ1-14444;
     (=jis-x0212		. #x3862)	; &I-JSP-3862; [24-66]
