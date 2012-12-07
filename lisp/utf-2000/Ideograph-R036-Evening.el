@@ -274,6 +274,11 @@
     (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (=decomposition@cid
+     ((=ucs		  . #x591B)	; 夛
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=decomposition@hanyo-denshi
      ((=ucs		  . #x591B)	; 夛
       )
@@ -1080,7 +1085,12 @@
     (=ucs		. #x5924)	; 夤
     (=big5		. #xB9DB)	; &I-B-B9DB;
     (->subsumptive
-     ((=ucs@jis		  . #x5924)	; &AJ1-14445;
+     ((=decomposition@cid
+       ((=ucs		    . #x5924)	; 夤
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@jis		  . #x5924)	; &AJ1-14445;
       (=adobe-japan1-4	  . 14445)	; &AJ1-14445;
       (=jis-x0212	  . #x386A)	; &I-JSP-386A; [24-74]
       (=jis-x0213-2	  . #x253D)	; &I-JX2-253D; [05-29]
