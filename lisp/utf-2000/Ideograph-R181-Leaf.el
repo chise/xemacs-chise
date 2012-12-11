@@ -2683,11 +2683,8 @@
     (=gt-pj-1		. #x4D6A)	; &I-GT-58416; [45-74]
     (=daikanwa/+p	. 43529)	; 頼
     (<-simplified@JP/Jouyou
-     ((=ucs@jis		  . #x8CF4)	; &JX1-7C3A;
-      (=ks-x1001	  . #x5673)	; &JX1-7C3A; [54-83]
-      (=cns11643-1	  . #x724A)	; &I-C1-724A; [82-42]
-      (=jis-x0213-1	  . #x7C3A)	; &I-JX1-7C3A; [92-26]
-      (=daikanwa	  . 36861)	; &I-M-36861;
+     ((=ucs@jis		  . #x8CF4)	; &AJ1-08627;
+      (=adobe-japan1-2	  . 08627)	; &AJ1-08627;
       ))
     ))
 (define-char
