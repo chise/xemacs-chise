@@ -63,6 +63,17 @@
 (defun char-attribute-name< (ka kb)
   "Return t if symbol KA is less than KB in feature-name sorting order."
   (cond
+   ((and (symbolp ka)
+	 (eq (aref (symbol-name ka) 0) ?*))
+    (cond ((and (symbolp kb)
+		(eq (aref (symbol-name kb) 0) ?*))
+	   (string< (symbol-name ka)
+		    (symbol-name kb))
+	   ))
+    )
+   ((and (symbolp kb)
+	 (eq (aref (symbol-name kb) 0) ?*))
+    t)
    ((eq '->denotational kb)
     t)
    ((eq '->subsumptive kb)
