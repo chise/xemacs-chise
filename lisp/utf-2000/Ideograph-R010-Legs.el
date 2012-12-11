@@ -1977,8 +1977,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@iso	    . #x215D7)	; &GT-K01089;
-	(=gt-k		    . 01089)	; &GT-K01089;
+       ((=ucs@iso	    . #x215D7)	; &AJ1-17472;
+	(=adobe-japan1-5    . 17472)	; &AJ1-17472;
 	)
        ((=ucs		    . #x5143)	; 元
 	))
