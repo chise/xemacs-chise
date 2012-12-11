@@ -3414,8 +3414,9 @@
     (total-strokes	 . 16)
     (=ucs		. #x8CF0)	; 賰
     (->subsumptive
-     ((=ucs@jis		  . #x8CF0)	; &JX2-7930;
-      (=jis-x0212	  . #x5F39)	; &JX2-7930; [63-25]
+     ((=ucs@jis		  . #x8CF0)	; &AJ1-08626;
+      (=adobe-japan1-2	  . 08626)	; &AJ1-08626;
+      (=jis-x0212	  . #x5F39)	; &I-JSP-5F39; [63-25]
       (=jis-x0213-2	  . #x7930)	; &I-JX2-7930; [89-16]
       (=daikanwa	  . 36855)	; &I-M-36855;
       (=jef-china3	  . #x66AB)	; &I-JC3-66AB;
@@ -3514,8 +3515,9 @@
     (ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
-    (=ucs@jis		. #x8CF4)	; &JX1-7C3A;
-    (=ks-x1001		. #x5673)	; &JX1-7C3A; [54-83]
+    (=ucs@jis		. #x8CF4)	; &AJ1-08627;
+    (=adobe-japan1-2	. 08627)	; &AJ1-08627;
+    (=ks-x1001		. #x5673)	; &I-K0-5673; [54-83]
     (=cns11643-1	. #x724A)	; &I-C1-724A; [82-42]
     (=jis-x0213-1	. #x7C3A)	; &I-JX1-7C3A; [92-26]
     (=daikanwa		. 36861)	; &I-M-36861;
@@ -5361,6 +5363,7 @@
     (total-strokes	 . 21)
     (hanyu-dazidian	6 3659 13)
     (=ucs		. #x8D12)	; 贒
+    (=adobe-japan1-2	. 08628)	; &I-AJ1-08628;
     (=jis-x0212		. #x5F43)	; &I-JSP-5F43; [63-35]
     (=cns11643-3	. #x5E66)	; &I-C3-5E66; [62-70]
     (=jis-x0213-1	. #x7C3E)	; &I-JX1-7C3E; [92-30]
