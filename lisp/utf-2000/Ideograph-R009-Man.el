@@ -23274,7 +23274,6 @@
       (=ucs		  . #x2E85)	; ⺅
       )
      ((=hanyo-denshi/ks	  . 067790)	; &HD-KS-067790;
-      (=daikanwa	  . 05917)	; &HD-KS-067790;
       ))
     (=ucs@jis		. #x5070)	; &AJ1-08388;
     (=adobe-japan1-2	. 08388)	; &AJ1-08388;
