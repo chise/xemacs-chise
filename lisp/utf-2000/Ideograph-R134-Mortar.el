@@ -499,6 +499,14 @@
   '((ideographic-radical . 134)	; ⾅
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x215D7)	; 𡗗
+      )
+     ((=ucs		  . #x81FC)	; 臼
+      ))
     (=ucs		. #x8202)	; 舂
     (=big5		. #xB2EA)	; &I-B-B2EA;
     (->subsumptive
@@ -506,8 +514,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@iso	    . #x215D7)	; &GT-K01089;
-	(=gt-k		    . 01089)	; &GT-K01089;
+       ((=ucs@iso	    . #x215D7)	; &AJ1-17472;
+	(=adobe-japan1-5    . 17472)	; &AJ1-17472;
 	)
        ((=ucs		    . #x81FC)	; 臼
 	))
@@ -518,7 +526,7 @@
       (=gt-k		  . 07972)	; &I-GT-K07972;
       (=gt-pj-1		  . #x674E)	; &I-GT-39060; [71-46]
       (=daikanwa	  . 30195)	; &I-M-30195;
-      (=shinjigen@rev	  .  6618)	; &GT-39060;
+      (=shinjigen	  .  6618)	; &GT-39060;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
