@@ -20502,13 +20502,13 @@
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (*references	(link (:ref "http://koikekaisho.hatenablog.com/entry/2012/04/05/150841") "koikekaisho:2012-04-05"))
     (=decomposition@hanyo-denshi
      ((=ucs		  . #x6F82)	; 澂
       )
      ((=ucs		  . #xE0102)	; 󠄂
       ))
     (=hanyo-denshi/ft	. #x3722)	; &HD-FT-3722; [23-02]
+    (*references	(link (:ref "http://koikekaisho.hatenablog.com/entry/2012/04/05/150841") "koikekaisho:2012-04-05"))
     ))
 (define-char
   '((ideographic-radical . 85)	; ⽔
