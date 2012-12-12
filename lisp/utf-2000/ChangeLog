@@ -1,5 +1,7 @@
 2012-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R134-Mortar.el (U+8202): Add ideographic-structure.
+
 	* chise-subr.el (char-attribute-name<): Don't prefer `*foo' to
 	`foo' and `->foo'.
 
