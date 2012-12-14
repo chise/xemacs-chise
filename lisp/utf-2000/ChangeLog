@@ -1,5 +1,16 @@
 2012-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R118-Bamboo.el (mother of C6-6027): Unify G-IU+25B91
+	and G-M-26124.
+
+	* Ideograph-R086-Fire.el (U+71FA): Use `->subsumptive'.
+
+	* Ideograph-R037-Big.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+
+2012-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R134-Mortar.el (U+8202): Add ideographic-structure.
 
 	* chise-subr.el (char-attribute-name<): Don't prefer `*foo' to
