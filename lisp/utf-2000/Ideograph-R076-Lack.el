@@ -997,7 +997,8 @@
      ((=cns11643-6	  . #x3179)	; &C6-3179; [17-89]
       (=daikanwa	  . 16043)	; &I-M-16043;
       (<-same
-       ((=ucs		    . #x67B1)	; 枱
+       ((=ucs@unicode	    . #x67B1)	; &AJ1-19449;
+	(=adobe-japan1-5    . 19449)	; &AJ1-19449;
 	(=daikanwa	    . 14581)	; &I-M-14581;
 	))
       (<-same*sources
