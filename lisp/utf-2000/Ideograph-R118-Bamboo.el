@@ -3403,8 +3403,8 @@
       (<-same*sources
        jiyun daikanwa)
       (->ancient
-       ((=ucs@jis	    . #x3B8D)	; &JX2-2F2C;
-	(=jis-x0213-2	    . #x2F2C)	; &JX2-2F2C; [15-12]
+       ((=ucs@jis	    . #x3B8D)	; &AJ1-17828;
+	(=adobe-japan1-5    . 17828)	; &AJ1-17828;
 	(=daikanwa	    . 15089)	; &I-M-15089;
 	))
       (->ancient*sources
@@ -3460,19 +3460,20 @@
     (ideographic-radical . 118)	; ⽵
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
+    (=>>ucs@iso		. #x25B91)	; &G-IU+25B91;
+    (=>>daikanwa	. 26124)	; &G-IU+25B91;
     (->subsumptive
      ((=cns11643-6	  . #x6027)	; &C6-6027; [64-07]
       (=daikanwa	  . 26124)	; &I-M-26124;
       (<-formed
-       ((=ucs@jis	    . #x3C0F)	; &JX1-763A;
-	(=jis-x0213-1	    . #x763A)	; &JX1-763A; [86-26]
-	(=daikanwa	    . 15871)	; &I-M-15871;
+       ((=ucs@jis	    . #x3C0F)	; &AJ1-16919;
+	(=adobe-japan1-5    . 16919)	; &AJ1-16919;
 	))
       (<-formed*sources
        jiyun)
       (<-same
-       ((=ucs@jis	    . #x3C0F)	; &JX1-763A;
-	(=jis-x0213-1	    . #x763A)	; &JX1-763A; [86-26]
+       ((=ucs@jis	    . #x3C0F)	; &AJ1-16919;
+	(=adobe-japan1-5    . 16919)	; &AJ1-16919;
 	(=daikanwa	    . 15871)	; &I-M-15871;
 	))
       (<-same*sources
