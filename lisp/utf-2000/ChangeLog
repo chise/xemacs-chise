@@ -1,3 +1,9 @@
+2012-12-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R140-Grass.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R121-Jar.el (U+7F4D): Unify S1-6236.
+
 2012-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R118-Bamboo.el (mother of C6-6027): Unify G-IU+25B91
