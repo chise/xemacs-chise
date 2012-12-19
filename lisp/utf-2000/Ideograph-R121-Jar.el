@@ -1095,6 +1095,7 @@
     (=gt		. 36310)	; &I-GT-36310;
     (=gt-pj-1		. #x6623)	; &I-GT-36310; [70-03]
     (=daikanwa		. 28187)	; &I-M-28187;
+    (=shinjigen@1ed	.  6236)	; 罍
     (=shinjigen@rev	.  6237)	; 罍
     ))
 (define-char
