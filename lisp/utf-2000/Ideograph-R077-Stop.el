@@ -427,6 +427,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ucs		. #x6B67)	; 歧
+    (=adobe-japan1-5	. 16922)	; &I-AJ1-16922;
     (=gb2312		. #x4667)	; &I-G0-4667; [38-71]
     (=jis-x0212		. #x4579)	; &I-JSP-4579; [37-89]
     (=cns11643-1	. #x4E3E)	; &I-C1-4E3E; [46-30]
@@ -689,8 +690,9 @@
     (total-strokes	 . 10)
     (=ucs		. #x6B6C)	; 歬
     (->subsumptive
-     ((=ucs@jis		  . #x6B6C)	; &JX2-2F7B;
-      (=jis-x0213-2	  . #x2F7B)	; &JX2-2F7B; [15-91]
+     ((=ucs@jis		  . #x6B6C)	; &AJ1-17891;
+      (=adobe-japan1-5	  . 17891)	; &AJ1-17891;
+      (=jis-x0213-2	  . #x2F7B)	; &I-JX2-2F7B; [15-91]
       (=daikanwa	  . 16291)	; &I-M-16291;
       (<-ancient
        ((=adobe-japan1-4    . 13889)	; &AJ1-13889;
@@ -1614,6 +1616,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (=ucs		. #x6B75)	; 歵
+    (=adobe-japan1-5	. 17892)	; &I-AJ1-17892;
     (=jis-x0212		. #x457D)	; &I-JSP-457D; [37-93]
     (=cns11643-4	. #x4A4E)	; &I-C4-4A4E; [42-46]
     (=jis-x0213-2	. #x2F7C)	; &I-JX2-2F7C; [15-92]
