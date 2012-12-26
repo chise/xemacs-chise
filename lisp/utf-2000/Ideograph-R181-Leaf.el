@@ -5551,15 +5551,26 @@
     (=daikanwa		. 43722)	; &I-M-43722;
     ))
 (define-char
-  '((ideographic-radical . 181)	; ⾴
-    (ideographic-strokes . 14)
+  '((ideographic-radical@ucs . 181)	; ⾴
+    (ideographic-strokes@ucs . 14)
+    (ideographic-radical@cns11643-5 . 70)	; ⽅
+    (ideographic-strokes@cns11643-5 . 19)
     (total-strokes	 . 23)
     (=ucs		. #x29572)	; 𩕲
     (->subsumptive
-     ((=daikanwa	  . 43723)	; &M-43723;
+     ((ideographic-radical . 181)	; ⾴
+      (ideographic-strokes . 14)
+      (=daikanwa	  . 43723)	; &M-43723;
       )
-     ((=ucs@iso		  . #x29572)	; &C4-6B2E;
+     ((ideographic-radical . 181)	; ⾴
+      (ideographic-strokes . 14)
       (=cns11643-4	  . #x6B2E)	; &C4-6B2E; [75-14]
+      )
+     ((=ucs@iso		  . #x29572)	; &U-00029572;
+      )
+     ((ideographic-radical . 70)	; ⽅
+      (ideographic-strokes . 19)
+      (=cns11643-5	  . #x756C)	; &C5-756C; [85-76]
       ))
     ))
 (define-char
