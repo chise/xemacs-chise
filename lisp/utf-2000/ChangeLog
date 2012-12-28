@@ -1,3 +1,45 @@
+2012-12-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el: Add some Adobe-Japan1-5 code points.
+	(U+6736): Use `->subsumptive'.
+	(U+6794): Use `->subsumptive' to separate representative nodes.
+	(U-000233DD): Unify S-3511; add `<-vulgar' for U+6795.
+	(U+683F): Add ideographic-structure.
+	(U-00023482): Integrate M-14863.
+	(U-00023483): Integrate M-14864.
+	(U-00023487): Integrate M-14890.
+	(U-000234B7): Integrate M-14896.
+	(U-000234B9): Integrate M-14898.
+	(U-000234BC): Integrate M-14901.
+	(U-000234AA): Integrate M-14904.
+	(U-000234C0): Integrate M-14908.
+	(U+68E3): Use `->subsumptive' to separate representative nodes.
+	(U-000234DC): Integrate M-15036.
+	(U-00023533): Integrate M-15074.
+	(U-0002353F): Integrate M-15132.
+	(U-00023542): Integrate M-15142.
+	(M-15166): Unify S-3625.
+	(U-000235A8): Integrate M-15202.
+	(U-000235B0): Integrate M-15245.
+	(U-000235B1): Integrate M-15249.
+	(U-000235B5): Integrate M-15268.
+	(U-000235B6): Integrate M-15269.
+	(U-000235B8): Integrate M-15271.
+	(J0-5C63): Unify S1-3766.
+	(UU+3BAE): Unify S-3595; add `<-formed' for U+6854.
+	(U-000235B9): Integrate M-15285.
+	(U-000235BA): Integrate M-15294.
+	(U+69C5): Add ideographic-structure.
+	(U-000235BC): Integrate M-15307.
+	(U-000235BD): Integrate M-15308.
+	(U-00021B3E): Integrate M-15334.
+	(U+FA14): Integrate AJ1-08499.
+	(U+69E6): Use `->subsumptive'.
+	(U+5C61): Unify S1-3790.
+	(U+69FD): Unify S1-3795.
+	(U+6AD1): Unify S1-6237; add `<-original' for U+7F4D.
+	(U+6B1B): Add ideographic-structure.
+
 2012-12-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R140-Grass.el (AJ1-17472): Add `=decomposition@cid'.
