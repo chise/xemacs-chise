@@ -1,3 +1,13 @@
+2012-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R169-Gate.el (C1-6267): Unify AJ1-08685.
+
+	* Ideograph-R163-City.el: Add some Adobe-Japan1-2 code points.
+
+	* Ideograph-R162-Walk.el: Add some Adobe-Japan1-2 code points.
+
+	* Ideograph-R046-Mountain.el (JX1-4F63): Unify AJ1-16838.
+
 2012-12-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R075-Tree.el: Add some Adobe-Japan1-5 code points.
