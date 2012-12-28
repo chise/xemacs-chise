@@ -1,5 +1,10 @@
 2012-12-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R140-Grass.el (AJ1-17472): Add `=decomposition@cid'.
+
+	* Ideograph-R037-Big.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+
 	* Ideograph-R181-Leaf.el (U-00029572): Use
 	`ideographic-{radical|strokes}@ucs' instead of
 	`ideographic-{radical|strokes}'; add
