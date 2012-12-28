@@ -3239,8 +3239,8 @@
     (=gt-pj-1		. #x363F)	; &I-GT-53083; [22-31]
     (=daikanwa/+p	. 39498)	; 郷
     (<-simplified@JP/Jouyou
-     ((=ucs@jis		  . #x9115)	; &HD-JC-7C6C;
-      (=jis-x0213-1	  . #x7C6C)	; &HD-JC-7C6C; [92-76]
+     ((=ucs@jis		  . #x9115)	; &AJ1-08637;
+      (=adobe-japan1-2	  . 08637)	; &AJ1-08637;
       ))
     ))
 (define-char
@@ -3426,10 +3426,11 @@
     (total-strokes	 . 12)
     (=ucs		. #xFA26)	; 都
     (=ucs@ks		. #x90FD)	; 都
+    (=adobe-japan1-2	. 08636)	; &I-AJ1-08636;
     (=ks-x1001		. #x5434)	; &I-K0-5434; [52-20]
     (=jis-x0213-1	. #x7C6A)	; &I-JX1-7C6A; [92-74]
     (=daikanwa		. 39509)	; &I-M-39509;
-    (=shinjigen@1ed	.  8456)	; 都
+    (=shinjigen		.  8456)	; 都
     (=jef-china3	. #x68A8)	; &I-JC3-68A8;
     ))
 (define-char
@@ -4359,8 +4360,9 @@
       )
      ((=ucs		  . #xE0101)	; 󠄁
       ))
-    (=ucs@jis		. #x9115)	; &HD-JC-7C6C;
-    (=jis-x0213-1	. #x7C6C)	; &HD-JC-7C6C; [92-76]
+    (=ucs@jis		. #x9115)	; &AJ1-08637;
+    (=adobe-japan1-2	. 08637)	; &AJ1-08637;
+    (=jis-x0213-1	. #x7C6C)	; &I-JX1-7C6C; [92-76]
     (=hanyo-denshi/jc	. #x7C6C)	; &I-HD-JC-7C6C; [92-76]
     ))
 (define-char
@@ -5213,8 +5215,9 @@
     (=ucs		. #x9127)	; 鄧
     (=big5		. #xBE48)	; &I-B-BE48;
     (->subsumptive
-     ((=ucs@jis		  . #x9127)	; &JX1-7C70;
-      (=ks-x1001	  . #x5478)	; &JX1-7C70; [52-88]
+     ((=ucs@jis		  . #x9127)	; &AJ1-08638;
+      (=adobe-japan1-2	  . 08638)	; &AJ1-08638;
+      (=ks-x1001	  . #x5478)	; &I-K0-5478; [52-88]
       (=jis-x0212	  . #x6247)	; &I-JSP-6247; [66-39]
       (=cns11643-1	  . #x6F52)	; &I-C1-6F52; [79-50]
       (=jis-x0213-1	  . #x7C70)	; &I-JX1-7C70; [92-80]
