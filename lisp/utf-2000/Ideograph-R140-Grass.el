@@ -3909,7 +3909,12 @@
     (total-strokes	 . 5)
     (=ucs		. #x215D7)	; 𡗗
     (->subsumptive
-     ((=ucs@iso		  . #x215D7)	; &AJ1-17472;
+     ((=decomposition@cid
+       ((=ucs		    . #x215D7)	; 𡗗
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@iso		  . #x215D7)	; &AJ1-17472;
       (=adobe-japan1-5	  . 17472)	; &AJ1-17472;
       (=gt-k		  . 01089)	; &I-GT-K01089;
       (=gt-pj-k1	  . #x322E)	; &AJ1-17472; [18-14]
