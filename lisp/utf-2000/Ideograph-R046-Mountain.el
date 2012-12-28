@@ -474,8 +474,9 @@
     (=ucs		. #x216B4)	; 𡚴
     (->subsumptive
      ((sound@ja/kun/place "aken")
-      (=ucs@jis		  . #x216B4)	; &JX1-4F63;
-      (=jis-x0213-1	  . #x4F63)	; &JX1-4F63; [47-67]
+      (=ucs@jis		  . #x216B4)	; &AJ1-16838;
+      (=adobe-japan1-5	  . 16838)	; &AJ1-16838;
+      (=jis-x0213-1	  . #x4F63)	; &I-JX1-4F63; [47-67]
       )
      ((=ucs@iso		  . #x216B4)	; &U-000216B4;
       ))
@@ -11563,13 +11564,11 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	  (=ucs		      . #x2FF0)	; ⿰
 	  )
-	 ((=ucs@unicode	      . #x9751)	; &M-42564;
-	  (=ks-x1001	      . #x746C)	; &M-42564; [84-76]
-	  (=daikanwa	      . 42564)	; &I-M-42564;
+	 ((=ucs@unicode	      . #x9751)	; &AJ1-08695;
+	  (=adobe-japan1-2    . 08695)	; &AJ1-08695;
 	  )
-	 ((=ucs@unicode	      . #x9751)	; &M-42564;
-	  (=ks-x1001	      . #x746C)	; &M-42564; [84-76]
-	  (=daikanwa	      . 42564)	; &I-M-42564;
+	 ((=ucs@unicode	      . #x9751)	; &AJ1-08695;
+	  (=adobe-japan1-2    . 08695)	; &AJ1-08695;
 	  ))
 	))
       (=gt		  . 10852)	; &GT-10852;
