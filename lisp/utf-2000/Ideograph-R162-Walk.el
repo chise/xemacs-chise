@@ -10086,6 +10086,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #xFA25)	; 逸
+    (=adobe-japan1-2	. 08633)	; &I-AJ1-08633;
     ))
 (define-char
   '((<-denotational
@@ -14803,8 +14804,9 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=ucs@jis		. #x9067)	; &JSP-6162;
-    (=jis-x0212		. #x6162)	; &JSP-6162; [65-66]
+    (=ucs@jis		. #x9067)	; &AJ1-08634;
+    (=adobe-japan1-2	. 08634)	; &AJ1-08634;
+    (=jis-x0212		. #x6162)	; &I-JSP-6162; [65-66]
     (=daikanwa		. 39072)	; &I-M-39072;
     (<-synonyms
      ((=ucs@jis		  . #x7AE0)	; &GT-33228;
