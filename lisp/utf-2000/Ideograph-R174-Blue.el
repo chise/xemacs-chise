@@ -5,8 +5,9 @@
     (total-strokes	 . 8)
     (=ucs		. #x9751)	; 靑
     (->subsumptive
-     ((=ucs@unicode	  . #x9751)	; &M-42564;
-      (=ks-x1001	  . #x746C)	; &M-42564; [84-76]
+     ((=ucs@unicode	  . #x9751)	; &AJ1-08695;
+      (=adobe-japan1-2	  . 08695)	; &AJ1-08695;
+      (=ks-x1001	  . #x746C)	; &I-K0-746C; [84-76]
       (=daikanwa	  . 42564)	; &I-M-42564;
       (=jef-china3	  . #x6CB3)	; &I-JC3-6CB3;
       )
@@ -28,8 +29,8 @@
       (=gt-pj-1		  . #x4044)	; &I-GT-57125; [32-36]
       (=daikanwa/+p	  . 42564)	; &GT-57125;
       (<-same
-       ((=ucs@unicode	    . #x9751)	; &M-42564;
-	(=ks-x1001	    . #x746C)	; &M-42564; [84-76]
+       ((=ucs@unicode	    . #x9751)	; &AJ1-08695;
+	(=adobe-japan1-2    . 08695)	; &AJ1-08695;
 	(=daikanwa	    . 42564)	; &I-M-42564;
 	))
       (<-same*sources
@@ -148,9 +149,8 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@unicode	    . #x9751)	; &M-42564;
-	(=ks-x1001	    . #x746C)	; &M-42564; [84-76]
-	(=daikanwa	    . 42564)	; &I-M-42564;
+       ((=ucs@unicode	    . #x9751)	; &AJ1-08695;
+	(=adobe-japan1-2    . 08695)	; &AJ1-08695;
 	))
       (=daikanwa	  . 42566)	; &M-42566;
       (=hanziku-2	  . #xD4F9)	; &I-HZK02-D4F9;
@@ -267,6 +267,7 @@
     (total-strokes	 . 13)
     (=ucs		. #xFA1C)	; 靖
     (=ucs@ks		. #x9756)	; 靖
+    (=adobe-japan1-2	. 08587)	; &I-AJ1-08587;
     (=ks-x1001		. #x6F7E)	; &I-K0-6F7E; [79-94]
     (=gt		. 57137)	; &I-GT-57137;
     (=gt-pj-8		. #x3745)	; &I-GT-57137; [23-37]
