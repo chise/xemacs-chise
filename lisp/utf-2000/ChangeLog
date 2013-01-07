@@ -1,5 +1,48 @@
 2012-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R174-Blue.el: Add some Adobe-Japan1-2 code points.
+
+	* Ideograph-R070-Square.el: Add some Adobe-Japan1-5 code points.
+	(U-000230F3): Integrate M-13652.
+	(U-000230F5): Integrate M-13662.
+	(U-000230FB): Integrate M-13663.
+	(U+3ACB): Integrate M-13664.
+	(U-000230FC): Integrate M-13665.
+	(U-000230FD): Integrate M-13666.
+	(U-000230FE): Integrate M-13667.
+	(U-000230FF): Integrate M-13669.
+	(U-00023100): Integrate M-13670.
+	(U-00023101): Integrate M-13671.
+	(U-00023108): Integrate M-13674.
+	(U-00023109): Integrate M-13675.
+	(U+3ACD): Integrate M-13677.
+	(U-0002310A): Integrate M-13680.
+	(U-0002310D): New character.
+	(U-0002310E): Integrate M-13682.
+	(U-0002310F): Integrate M-13683.
+	(U-00023110): Integrate M-13684.
+	(U+65D6): Use `->subsumptive'.
+	(U-00023111): Integrate M-13686.
+	(U+65D7): Use `->subsumptive'.
+	(U-00023113): New character.
+	(U-00023114): Integrate M-13689.
+	(U+3ACE): Integrate M-13690.
+	(U+3ACF): Integrate M-13691.
+	(U-00023124): Integrate M-13708.
+	(U-00023126): Integrate M-13710.
+	(U-00023127): Integrate M-13711.
+	(U-00023128): Integrate M-13712.
+	(C5-756C): Map to U-00029572; integrate M-13713, M-43723 and
+	C4-6B2E.
+	(U-0002312A): Integrate M-13714.
+	(U-0002312B): Integrate M-13715.
+
+	* Ideograph-R038-Woman.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+
+	* Ideograph-R030-Mouth.el (U+54F8): Add ideographic-structure.
+
 	* Ideograph-R169-Gate.el (C1-6267): Unify AJ1-08685.
 
 	* Ideograph-R163-City.el: Add some Adobe-Japan1-2 code points.
