@@ -12746,6 +12746,14 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (hanyu-dazidian	1 631 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs		  . #x59A5)	; 妥
+      ))
     (=ucs		. #x54F8)	; 哸
     (=big5		. #xD143)	; &I-B-D143;
     ))
@@ -12762,8 +12770,7 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=hanyo-denshi/jt	  . #xAFDF)	; &HD-JT-AFDF;
-      (=daikanwa	  . 06107)	; &I-M-06107;
+     ((=adobe-japan1-4	  . 13903)	; &AJ1-13903;
       ))
     (=daikanwa		. 03674)	; &M-03674;
     ))
@@ -19395,9 +19402,8 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@unicode	    . #x9751)	; &M-42564;
-	(=ks-x1001	    . #x746C)	; &M-42564; [84-76]
-	(=daikanwa	    . 42564)	; &I-M-42564;
+       ((=ucs@unicode	    . #x9751)	; &AJ1-08695;
+	(=adobe-japan1-2    . 08695)	; &AJ1-08695;
 	))
       (=daikanwa	  . 42566)	; &M-42566;
       (=hanziku-2	  . #xD4F9)	; &I-HZK02-D4F9;
