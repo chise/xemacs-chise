@@ -3948,10 +3948,12 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 19)
     (=ucs		. #x9857)	; 顗
+    (=adobe-japan1-2	. 08697)	; &I-AJ1-08697;
     (=jis-x0212		. #x6831)	; &I-JSP-6831; [72-17]
     (=cns11643-2	. #x6775)	; &I-C2-6775; [71-85]
     (=jis-x0213-1	. #x7E21)	; &I-JX1-7E21; [94-01]
     (=daikanwa		. 43614)	; &I-M-43614;
+    (=jef-china3	. #x6CF3)	; &I-JC3-6CF3;
     ))
 (define-char
   '((ideographic-radical . 181)	; ⾴
@@ -5007,8 +5009,9 @@
     (total-strokes	 . 21)
     (=ucs		. #x9865)	; 顥
     (->subsumptive
-     ((=ucs@jis		  . #x9865)	; &JX1-7E25;
-      (=ks-x1001	  . #x7B62)	; &JX1-7E25; [91-66]
+     ((=ucs@jis		  . #x9865)	; &AJ1-08698;
+      (=adobe-japan1-2	  . 08698)	; &AJ1-08698;
+      (=ks-x1001	  . #x7B62)	; &I-K0-7B62; [91-66]
       (=jis-x0212	  . #x6836)	; &I-JSP-6836; [72-22]
       (=jis-x0213-1	  . #x7E25)	; &I-JX1-7E25; [94-05]
       (=daikanwa	  . 43682)	; &I-M-43682;
@@ -5558,19 +5561,27 @@
     (total-strokes	 . 23)
     (=ucs		. #x29572)	; 𩕲
     (->subsumptive
-     ((ideographic-radical . 181)	; ⾴
-      (ideographic-strokes . 14)
-      (=daikanwa	  . 43723)	; &M-43723;
-      )
-     ((ideographic-radical . 181)	; ⾴
-      (ideographic-strokes . 14)
-      (=cns11643-4	  . #x6B2E)	; &C4-6B2E; [75-14]
+     ((ideographic-radical . 70)	; ⽅
+      (ideographic-strokes . 19)
+      (=>>daikanwa	  . 13713)	; &G-M-13713;
+      (->subsumptive
+       ((=daikanwa	    . 13713)	; &M-13713;
+	)
+       ((=cns11643-5	    . #x756C)	; &C5-756C; [85-76]
+	))
       )
      ((=ucs@iso		  . #x29572)	; &U-00029572;
       )
-     ((ideographic-radical . 70)	; ⽅
-      (ideographic-strokes . 19)
-      (=cns11643-5	  . #x756C)	; &C5-756C; [85-76]
+     ((ideographic-radical . 181)	; ⾴
+      (ideographic-strokes . 14)
+      (=>>>ucs@cns	  . #x29572)	; &g2-CU+29572;
+      (=>>daikanwa	  . 43723)	; &g2-CU+29572;
+      (->subsumptive
+       ((=daikanwa	    . 43723)	; &M-43723;
+	)
+       ((=ucs@cns	    . #x29572)	; &C4-6B2E;
+	(=cns11643-4	    . #x6B2E)	; &C4-6B2E; [75-14]
+	))
       ))
     ))
 (define-char
