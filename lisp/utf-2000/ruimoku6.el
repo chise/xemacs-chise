@@ -76,9 +76,8 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
-     ((=ucs@unicode	  . #x96A0)	; &GT-56168;
-      (=jis-x0208	  . #x3123)	; &GT-56168; [17-03]
-      (=jis-x0213-1	  . #x3123)	; &I-JX1-3123; [17-03]
+     ((=ucs@unicode	  . #x96A0)	; &AJ1-01221;
+      (=adobe-japan1-0	  . 01221)	; &AJ1-01221;
       ))
     (sources		ruimoku=A015330-00006)
     (=ruimoku-v6	. #xE008)	; &RUI6-E008;
