@@ -1,3 +1,12 @@
+2013-01-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x413B, #x562D, #x4C28, #x562F, #x5631, #x5632, #x5633,
+	#x5635, #x463D, #x362E, #x3265, #x563B, #x4A76, #x5638, #x5637,
+	#x3A6A, #x5642, #x563D, #x5647, #x5641, #x5644, #x5648, #x564A,
+	#x3A37, #x564F, #x4568, #x5653, #x5652, #x5654, #x5655, #x5659 and
+	#x565C.
+
 2013-01-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R173-Rain.el: Add some Adobe-Japan1-2 code points.
