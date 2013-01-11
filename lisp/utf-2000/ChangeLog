@@ -1,11 +1,32 @@
 2013-01-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R039-Child.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+
+2013-01-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R170-Mound.el (JSP-6657): Unify S-1985; add `<-formed'
+	for J0-5639.
+	(U+966D): Use `->subsumptive' to integrate S-1997.
+	(U+969D): Unify AJ1-08688 and JC3-68D4.
+	(J0-3123): Unify AJ1-01221.
+	(U+96AF): Unify AJ1-08689 and JC3-68DB.
+
 	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
 	Add #x413B, #x562D, #x4C28, #x562F, #x5631, #x5632, #x5633,
 	#x5635, #x463D, #x362E, #x3265, #x563B, #x4A76, #x5638, #x5637,
 	#x3A6A, #x5642, #x563D, #x5647, #x5641, #x5644, #x5648, #x564A,
 	#x3A37, #x564F, #x4568, #x5653, #x5652, #x5654, #x5655, #x5659 and
 	#x565C.
+
+	* Ideograph-R086-Fire.el (U+71A3): Use `->subsumptive'.
+
+	* Ideograph-R067-Script.el (J0-555D): Add `=decomposition@cid'.
+
+	* Ideograph-R038-Woman.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+	(U+36D4): Use `->subsumptive' to separate representative nodes.
 
 2013-01-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
