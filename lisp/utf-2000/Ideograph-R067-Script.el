@@ -116,7 +116,12 @@
     (total-strokes	 . 7)
     (=ucs		. #x6588)	; 斈
     (->subsumptive
-     ((=ucs@jis		  . #x6588)	; &AJ1-04620;
+     ((=decomposition@cid
+       ((=ucs		    . #x6588)	; 斈
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@jis		  . #x6588)	; &AJ1-04620;
       (=adobe-japan1-0	  . 04620)	; &AJ1-04620;
       (=jis-x0208	  . #x555D)	; &I-J90-555D; [53-61]
       (=jis-x0213-1	  . #x555D)	; &I-JX1-555D; [53-61]
