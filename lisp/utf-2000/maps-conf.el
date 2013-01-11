@@ -72,7 +72,14 @@
 	#x5563 #x5D7A #x4575 #x5F7C #x3B38
 	#x3237 #x3B51 #x596E #x5B5B #x6640
 	#x6D75 #x4D2C #x737B #x7379 #x5E7A
-	#x3E7A #x3865 #x557B #x436B))
+	#x3E7A #x3865 #x557B #x436B #x413B
+	#x562D #x4C28 #x562F #x5631 #x5632
+	#x5633 #x5635 #x463D #x362E #x3265
+	#x563B #x4A76 #x5638 #x5637 #x3A6A
+	#x5642 #x563D #x5647 #x5641 #x5644
+	#x5648 #x564A #x3A37 #x564F #x4568
+	#x5653 #x5652 #x5654 #x5655 #x5659
+	#x565C))
 
 (map-char-attribute
  (lambda (c v)
