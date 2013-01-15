@@ -363,6 +363,11 @@
     (ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (=decomposition@cid
+     ((=ucs		  . #x5B5A)	; 孚
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=decomposition@hanyo-denshi
      ((=ucs		  . #x5B5A)	; 孚
       )
@@ -1558,6 +1563,11 @@
     (ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (=decomposition@cid
+     ((=ucs		  . #x5B73)	; 孳
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=decomposition@hanyo-denshi
      ((=ucs		  . #x5B73)	; 孳
       )
@@ -2026,7 +2036,12 @@
     (=>>>ucs@cns	. #x5B7C)	; &g2-AJ1-20110;
     (=>>>adobe-japan1-5 . 20110)	; &g2-AJ1-20110;
     (->subsumptive
-     ((=ucs@ks		  . #x5B7C)	; &AJ1-20110;
+     ((=decomposition@cid
+       ((=ucs		    . #x5B7C)	; 孼
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=ucs@ks		  . #x5B7C)	; &AJ1-20110;
       (=adobe-japan1-5	  . 20110)	; &AJ1-20110;
       (=ks-x1001	  . #x656D)	; &I-K0-656D; [69-77]
       )
