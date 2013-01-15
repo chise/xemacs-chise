@@ -1,3 +1,13 @@
+2013-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R078-Death.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R072-Sun.el (U+65F6): Unify S-3321; add `<-vulgar' for
+	J0-3B7E.
+	(U+6642): Use `->denotational'.
+
+	* Ideograph-R091-Slice.el (U-000245EF): Use `->subsumptive'.
+
 2013-01-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R039-Child.el:
