@@ -1,3 +1,16 @@
+2013-01-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (U-0002F8AC): Unify o-AJ1-13750 and
+	o-AJ1-20120.
+	(G-CU+2F8AC): Unify g2-CU+2F8AC, g2-AJ1-20120 and g2-HD-KS127180.
+	(M-11269): Unify AJ1-20120.
+	(G-HD-JT-B1AF): Unify g2-AJ1-13750 and g2-HD-JT-B1AF.
+	(HD-JT-B1AF): Unify AJ1-13750.
+	(o-J0-377B): Unify o-AJ1-01873.
+	(J0-377B): Unify AJ1-01873.
+
+	* Ideograph-R009-Man.el (U+4FBA): Add ideographic-structure.
+
 2013-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R078-Death.el: Add some Adobe-Japan1-5 code points.
@@ -5,6 +18,9 @@
 	* Ideograph-R072-Sun.el (U+65F6): Unify S-3321; add `<-vulgar' for
 	J0-3B7E.
 	(U+6642): Use `->denotational'.
+
+	* Ideograph-R039-Child.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
 
 	* Ideograph-R091-Slice.el (U-000245EF): Use `->subsumptive'.
 
