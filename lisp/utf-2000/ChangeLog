@@ -1,5 +1,9 @@
 2013-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el (U-0002F822): Add ideographic-structure.
+	(g2-AJ1-20086): Likewise.
+	(HD-KS025050): Add `ideographic-structure'.
+
 	* Ideograph-R040-Roof.el:
 	- Add some Adobe-Japan1 code points.
 	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
