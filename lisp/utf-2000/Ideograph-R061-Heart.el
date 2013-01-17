@@ -15801,12 +15801,17 @@
     (=ucs		. #x2F8AC)	; 憲
     (=+>ucs@unicode	. #x61B2)	; 憲
     (=+>ucs@cns		. #x2F8AC)	; 憲
+    (=+>adobe-japan1-4	. 13750)	; 憲
+    (=+>adobe-japan1-5	. 20120)	; 憲
     (->subsumptive
-     ((=>>ucs@cns	  . #x2F8AC)	; &G-HD-KS-1F0CC;
-      (=>>hanyo-denshi/ks . 127180)	; &G-HD-KS-1F0CC;
-      (=>>daikanwa	  . 11269)	; &G-HD-KS-1F0CC;
+     ((=>>ucs@cns	  . #x2F8AC)	; &g2-AJ1-20120;
+      (=>>>ucs@cns	  . #x2F8AC)	; &g2-AJ1-20120;
+      (=>>>adobe-japan1-5 . 20120)	; &g2-AJ1-20120;
+      (=>>>hanyo-denshi/ks . 127180)	; &g2-AJ1-20120;
+      (=>>daikanwa	  . 11269)	; &g2-AJ1-20120;
       (->subsumptive
-       ((=daikanwa	    . 11269)	; &M-11269;
+       ((=adobe-japan1-5    . 20120)	; &AJ1-20120;
+	(=daikanwa	    . 11269)	; &I-M-11269;
 	)
        ((=decomposition@hanyo-denshi
 	 ((=ucs		      . #x61B2)	; 憲
@@ -15820,7 +15825,8 @@
 	(=cns11643-7	    . #x2D69)	; &C7-2D69; [13-73]
 	))
       )
-     ((=>>hanyo-denshi/jt . #xB1AF)	; &G-HD-JT-B1AF;
+     ((=>>>adobe-japan1-4 . 13750)	; &g2-AJ1-13750;
+      (=>>>hanyo-denshi/jt . #xB1AF)	; &g2-AJ1-13750;
       (->subsumptive
        ((=jef-china3	    . #x4DE4)	; &JC3-4DE4;
 	)
@@ -15829,8 +15835,9 @@
 	  )
 	 ((=ucs		      . #xE0106)	; 󠄆
 	  ))
-	(=hanyo-denshi/jt   . #xB1AF)	; &HD-JT-B1AF;
-	(=shinjigen	    .  2684)	; &HD-JT-B1AF;
+	(=adobe-japan1-4    . 13750)	; &AJ1-13750;
+	(=hanyo-denshi/jt   . #xB1AF)	; &I-HD-JT-B1AF;
+	(=shinjigen	    .  2684)	; &AJ1-13750;
 	))
       )
      ((=>>ucs@iso	  . #x2F8AC)	; &G-IU+2F8AC;
@@ -15869,17 +15876,19 @@
     (=+>ucs@cns		. #x61B2)	; &o-J0-377B;
     (=+>jis-x0208	. #x377B)	; &o-J0-377B; [23-91]
     (=+>jis-x0213-1	. #x377B)	; &o-J0-377B; [23-91]
+    (=+>adobe-japan1-0	. 01873)	; &o-J0-377B;
     (=+>gt		. 14230)	; &o-J0-377B;
     (->subsumptive
-     ((=ucs@jis		  . #x61B2)	; &GT-14230;
-      (=ucs@ks		  . #x61B2)	; &GT-14230;
-      (=jis-x0208	  . #x377B)	; &GT-14230; [23-91]
+     ((=ucs@jis		  . #x61B2)	; &AJ1-01873;
+      (=ucs@ks		  . #x61B2)	; &AJ1-01873;
+      (=adobe-japan1-0	  . 01873)	; &AJ1-01873;
+      (=jis-x0208	  . #x377B)	; &I-J90-377B; [23-91]
       (=ks-x1001	  . #x7A4A)	; &I-K0-7A4A; [90-42]
       (=jis-x0213-1	  . #x377B)	; &I-JX1-377B; [23-91]
       (=gt		  . 14230)	; &I-GT-14230;
       (=gt-pj-1		  . #x377B)	; &I-GT-14230; [23-91]
-      (=daikanwa/+p	  . 11269)	; &GT-14230;
-      (=shinjigen	  .  2683)	; &GT-14230;
+      (=daikanwa/+p	  . 11269)	; &AJ1-01873;
+      (=shinjigen	  .  2683)	; &AJ1-01873;
       )
      ((=ucs@cns		  . #x61B2)	; &C1-7054;
       (=cns11643-1	  . #x7054)	; &C1-7054; [80-52]
