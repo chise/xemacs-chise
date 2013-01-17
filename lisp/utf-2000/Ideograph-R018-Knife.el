@@ -7211,6 +7211,15 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=+>ucs@unicode	  . #x5BB3)	; &o-UU+5BB3;
+      )
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
+      ))
     (=ucs		. #x2F822)	; 割
     (=+>ucs@unicode	. #x5272)	; 割
     (=+>ucs@cns		. #x2F822)	; 割
@@ -7222,6 +7231,15 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>>>adobe-japan1-5 . 20111)	; &g2-AJ1-20111;
+      )
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
+      ))
     (=>>ucs@cns		. #x2F822)	; &g2-AJ1-20086;
     (=>>>ucs@cns	. #x2F822)	; &g2-AJ1-20086;
     (=>>>adobe-japan1-5 . 20086)	; &g2-AJ1-20086;
@@ -7237,8 +7255,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=hanyo-denshi/ks   . 081420)	; &HD-KS-081420;
-	(=daikanwa	    . 07165)	; &HD-KS-081420;
+       ((=adobe-japan1-5    . 20111)	; &AJ1-20111;
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
@@ -7250,6 +7267,15 @@
        ((=ucs		    . #x5272)	; 割
 	)
        ((=ucs		    . #xE0104)	; 󠄄
+	))
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=hanyo-denshi/ks   . 081420)	; &HD-KS-081420;
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
 	))
       (=hanyo-denshi/ks	  . 025050)	; &HD-KS-025050;
       (=hanyo-denshi/ks/mf . #x09C9)	; &HD-KS-025050;
