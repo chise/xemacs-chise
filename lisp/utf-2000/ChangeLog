@@ -1,4 +1,43 @@
+2013-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	(BUCS-5BE8): New abstract character.
+	(U+5BE8): Add `<-denotational' for BUCS-5BE8.
+	(AJ1-14146): New character; add `<-denotational' for BUCS-5BE8.
+
 2013-01-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R167-Gold.el: Add some Adobe-Japan1-2 code points.
+	(U+9211): Use `->subsumptive'.
+	(U+9212): Use `->denotational'.
+	(U+9213): Use `->denotational' to separate representative nodes.
+	(U+9214): Use `->subsumptive'.
+	(U+9215): Use `->denotational'.
+	(U+9216): Use `->subsumptive' to separate representative nodes.
+	(U+491E): Likewise.
+	(U+921A): Likewise.
+	(U+4921): Use `->denotational' to separate representative nodes.
+	(U+4924): Use `->subsumptive' to separate representative nodes.
+	(U+9287): Use `->denotational' to separate representative nodes.
+	(U+92D7): Use `->denotational' to integrate U-0002F9E8.
+	(U+931C): Use `->subsumptive' to separate representative nodes.
+	(U+931F): Likewise.
+	(U+9320): Use `->subsumptive'.
+	(U+493B): Use `->subsumptive' to separate representative nodes.
+	(U+9371): Likewise.
+	(U+93A3): Likewise.
+	(U-00028AD3): Use `->denotational' to separate representative
+	nodes.
+	(U+93DF): Use `->denotational' and `->subsumptive'.
+	(U+93E0): Use `->denotational'.
+	(U+93E1): Use `->subsumptive'.
+	(U+93F7): Use `->subsumptive' to separate representative nodes.
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x3474, #x562E, #x5630, #x5639 #x3D54, #x5645, #x564E and
+	#x5651.
 
 	* Ideograph-R061-Heart.el (U-0002F8AC): Unify o-AJ1-13750 and
 	o-AJ1-20120.
