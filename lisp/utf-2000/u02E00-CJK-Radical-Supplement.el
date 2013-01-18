@@ -200,7 +200,10 @@
       ))
     ))
 (define-char
-  '((name		. "CJK RADICAL SMALL ONE")
+  '((<-denotational
+     ((=adobe-japan1-4	  . 13833)	; &AJ1-13833;
+      ))
+    (name		. "CJK RADICAL SMALL ONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -211,17 +214,15 @@
     (<-formed@component/connect-below
      ((=ucs		  . #x5C0F)	; 小
       ))
-    ))
-(define-char
-  '((=>ucs		. #x2E8C)	; ⺌
-    (=gt-k		. 00305)	; &GT-K00305;
-    (=gt-pj-k1		. #x324E)	; &GT-K00305; [18-46]
-    (<-formed@component/connect-below
-     ((=ucs		  . #x5C0F)	; 小
+    (<-identical@component
+     ((=adobe-japan1-4	  . 13833)	; &AJ1-13833;
       ))
     ))
 (define-char
-  '((name		. "CJK RADICAL SMALL TWO")
+  '((<-denotational
+     ((=adobe-japan1-4	  . 13834)	; &AJ1-13834;
+      ))
+    (name		. "CJK RADICAL SMALL TWO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -230,6 +231,9 @@
     (=gt-pj-k1		. #x3251)	; ⺍ [18-49]
     (<-formed@component/connect-below
      ((=ucs		  . #x5C0F)	; 小
+      ))
+    (<-identical@component
+     ((=adobe-japan1-4	  . 13834)	; &AJ1-13834;
       ))
     ))
 (define-char
