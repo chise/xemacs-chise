@@ -756,11 +756,8 @@
     (=daikanwa		. 16399)	; &I-M-16399;
     (=hanziku-4		. #xC4B0)	; &I-HZK04-C4B0;
     (<-ancient
-     ((=ucs@unicode	  . #x5DDE)	; &GT-10952;
-      (=jis-x0208	  . #x3D23)	; &GT-10952; [29-03]
-      (=gb2312		  . #x565D)	; &I-G0-565D; [54-61]
-      (=ks-x1001	  . #x7136)	; &I-K0-7136; [81-22]
-      (=jis-x0213-1	  . #x3D23)	; &I-JX1-3D23; [29-03]
+     ((=ucs@unicode	  . #x5DDE)	; &AJ1-02349;
+      (=adobe-japan1-0	  . 02349)	; &AJ1-02349;
       (=daikanwa	  . 08678)	; &I-M-08678;
       ))
     (<-ancient*sources
