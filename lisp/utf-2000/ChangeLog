@@ -1,5 +1,75 @@
 2013-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL SMALL ONE>): Add
+	`<-denotational' and `<-identical@component' for AJ1-13833.
+	(GT-K00305): Moved to Ideograph-R042-Small.el.
+	(<CJK RADICAL SMALL TWO>): Add `<-denotational' and
+	`<-identical@component' for AJ1-13834.
+
+	* Ideograph-R049-Oneself.el: Add some Adobe-Japan1-0 code points.
+	(U+5DF5): Add `<-vulgar' for U+536E.
+
+	* Ideograph-R048-Work.el: Add some Adobe-Japan1-0 code points.
+	(C1-4648): Unify S-2061.
+	(J0-3570): Unify S-2060.
+
+	* Ideograph-R047-River.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R046-Mountain.el: Add some Adobe-Japan1-0 code points.
+	(JX1-4F63): Add `=decomposition@cid'.
+	(M-08045): Unify S-3320; add `<-ancient' for J0-3B7E.
+	(U+5CE9): Add `<-formed' for J0-3265.
+	(U+37CB): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+5CEF): Add `<-formed' for J0-4A76.
+	(U+37CF): Add ideographic-structure.
+	(U+5D08): Use `->subsumptive' to separate representative nodes.
+	(JX2-284D): Separate M-08172; unify S-2002; add `<-formed' for
+	J0-5642.
+	(U-00021E43): Use `->denotational' and `->subsumptive'.
+	(M-49050): Unify S2-2010'; add `<-formed' for J0-5645.
+	(U+5D52): Add `<-formed' for U+5CA9.
+	(U+5D53): Add `<-vulgar' for U+5CA9.
+	(JX1-4F72): Unify S-1996.
+	(JX2-2859): Unify S-2021; add `<-formed' for J0-564C.
+	(U+5D75): Use `->denotational'.
+	(U-00021EBF): Add `ideographic-structure'; use `->denotational'
+	instead of `->subsumptive'.
+	(JSP-3B65): Unify S-2028; add `<-formed' for U+5D84.
+	(M-08423): Separate C2-496B.
+	(U-00021EED): Use `->subsumptive'.
+	(U-00021EF1): Likewise.
+	(U+3800): Unify S-1987; add `<-original' for U+5CF6.
+	(U+5DA1): Use `->subsumptive' to separate representative nodes.
+	(U+5DAA): Add ideographic-structure.
+	(U+5DAB): Likewise.
+	(U+3814): Use `->subsumptive' to separate representative nodes.
+	(U-00021F49): Use `->subsumptive'.
+	(U+3820): Add ideographic-structure.
+	(U+5DDA): Use `->denotational' and `->subsumptive'.
+	(U+5DD9): Use `->denotational' to separate representative nodes.
+
+	* Ideograph-R030-Mouth.el (U+55CF): Add ideographic-structure.
+	(U+55D0): Likewise.
+
+	* Ideograph-R162-Walk.el (U+904F): Add ideographic-structure.
+	(A-UU+904F): Likewise.
+	(J0-6E21): Add `ideographic-structure'.
+	(G0-3674): Likewise.
+	(C1-6733): Likewise.
+	(S-8314): New character.
+	(HD-FT2612): Add `ideographic-structure'.
+
+	* Ideograph-R149-Speech.el (J0-3731): Unify AJ1-01799.
+
+	* Ideograph-R041-Inch.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	(U+5BFF): Omit `<-simplified@ucs'.
+	(U+5C06): Omit `<-simplified@ucs'.
+	(U-00021B35): New character.
+	(U+3DC9): Use `->subsumptive' to separate representative nodes.
+
 	* Ideograph-R018-Knife.el (U-0002F822): Add ideographic-structure.
 	(g2-AJ1-20086): Likewise.
 	(HD-KS025050): Add `ideographic-structure'.
