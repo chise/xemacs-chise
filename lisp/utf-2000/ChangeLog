@@ -1,3 +1,17 @@
+2013-01-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R042-Small.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	(GT-K00305): Moved from u02E00-CJK-Radical-Supplement.el; add
+	`<-denotational' for U+5C0F.
+	(<CJK RADICAL SMALL ONE>): Copied from
+	u02E00-CJK-Radical-Supplement.el; add `<-denotational' for U+5C0F;
+	add `<-identical@component' for AJ1-13833.
+	(<CJK RADICAL SMALL TWO>): Copied from
+	u02E00-CJK-Radical-Supplement.el; add `<-denotational' for U+5C0F;
+	add `<-identical@component' for AJ1-13834.
+
 2013-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL SMALL ONE>): Add
