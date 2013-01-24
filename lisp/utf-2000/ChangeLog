@@ -1,3 +1,9 @@
+2013-01-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U-0002043A): Use `->denotational' to
+	separate representative node.
+	(U-00020435): Add ideographic-structure.
+
 2013-01-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R042-Small.el:
