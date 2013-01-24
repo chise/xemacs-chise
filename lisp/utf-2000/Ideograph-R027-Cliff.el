@@ -1121,8 +1121,8 @@
       )
      ((=ucs		  . #x5382)	; 厂
       )
-     ((=>>ucs@unicode	  . #x5C28)	; &G-HD-IA-3027;
-      (=>>daikanwa	  . 07554)	; &G-HD-IA-3027;
+     ((=>>ucs@unicode	  . #x5C28)	; &G-AJ1-07988;
+      (=>>adobe-japan1-0  . 07988)	; &G-AJ1-07988;
       ))
     (=>>ucs@unicode	. #x5396)	; &G-HD-JT-AE85;
     (=>>hanyo-denshi/jt . #xAE85)	; &G-HD-JT-AE85;
@@ -1138,8 +1138,7 @@
 	)
        ((=ucs		    . #x5382)	; 厂
 	)
-       ((=ks-x1001	    . #x5B2B)	; &HD-IA-3027; [59-11]
-	(=daikanwa	    . 07554)	; &I-M-07554;
+       ((=adobe-japan1-0    . 07988)	; &AJ1-07988;
 	))
       (=hanyo-denshi/jt	  . #xAE85)	; &HD-JT-AE85;
       (=shinjigen	  .  0879)	; &HD-JT-AE85;
