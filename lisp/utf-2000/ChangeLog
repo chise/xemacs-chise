@@ -1,5 +1,7 @@
 2013-01-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R184-Eat.el: Add some Adobe-Japan1-2 code points.
+
 	* Ideograph-R009-Man.el (U-0002043A): Use `->denotational' to
 	separate representative node.
 	(U-00020435): Add ideographic-structure.
