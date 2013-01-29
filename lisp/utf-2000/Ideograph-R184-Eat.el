@@ -6181,8 +6181,9 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 8)
     (total-strokes	 . 17)
-    (=ucs@jis		. #x9927)	; &JSP-685D;
-    (=jis-x0212		. #x685D)	; &JSP-685D; [72-61]
+    (=ucs@jis		. #x9927)	; &AJ1-08701;
+    (=adobe-japan1-2	. 08701)	; &AJ1-08701;
+    (=jis-x0212		. #x685D)	; &I-JSP-685D; [72-61]
     (=daikanwa		. 44236)	; &I-M-44236;
     (=jef-china3	. #x6DBD)	; &I-JC3-6DBD;
     ))
@@ -6223,6 +6224,7 @@
     (total-strokes	 . 17)
     (=ucs		. #xFA2C)	; 館
     (=ucs@ks		. #x9928)	; 館
+    (=adobe-japan1-2	. 08702)	; &I-AJ1-08702;
     (=ks-x1001		. #x4E3D)	; &I-K0-4E3D; [46-29]
     (=daikanwa		. 44237)	; &I-M-44237;
     (=jef-china3	. #x6DBE)	; &I-JC3-6DBE;
