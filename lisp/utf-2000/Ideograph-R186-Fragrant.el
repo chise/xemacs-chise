@@ -182,6 +182,7 @@
     (japanese-strokes	 . 6)
     (total-strokes	 . 16)
     (=ucs		. #x999E)	; 馞
+    (=adobe-japan1-2	. 08703)	; &I-AJ1-08703;
     (=cns11643-2	. #x5B6C)	; &I-C2-5B6C; [59-76]
     (=jis-x0213-1	. #x7E2B)	; &I-JX1-7E2B; [94-11]
     (=daikanwa		. 44533)	; &I-M-44533;
