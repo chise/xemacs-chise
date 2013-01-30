@@ -473,20 +473,28 @@
     (=hanziku-1		. #xAEE3)	; &I-HZK01-AEE3;
     ))
 (define-char
-  '((=ucs		. #x21FEE)	; 𡿮
+  '((ideographic-radical@ucs . 47)	; ⼮
+    (ideographic-radical@cns . 28)	; ⼛
+    (=ucs		. #x21FEE)	; 𡿮
     (->subsumptive
      ((ideographic-radical . 28)	; ⼛
       (ideographic-strokes . 4)
       (total-strokes	   . 6)
+      (=>>ucs@cns	  . #x21FEE)	; &G-CU+21FEE;
+      (=>>daikanwa	  . 03081)	; &G-CU+21FEE;
       (->subsumptive
        ((=daikanwa	    . 03081)	; &M-03081;
 	)
-       ((=cns11643-6	    . #x237E)	; &C6-237E; [03-94]
+       ((=ucs@cns	    . #x21FEE)	; &C6-237E;
+	(=cns11643-6	    . #x237E)	; &C6-237E; [03-94]
 	))
       )
      ((ideographic-radical . 47)	; ⼮
       (ideographic-strokes . 4)
       (total-strokes	   . 7)
+      (=>>ucs@iso	  . #x21FEE)	; &G-IU+21FEE;
+      (=>>>ucs@iso	  . #x21FEE)	; &G-IU+21FEE;
+      (=>>daikanwa	  . 08682)	; &G-IU+21FEE;
       (->subsumptive
        ((=daikanwa	    . 08682)	; &M-08682;
 	)
