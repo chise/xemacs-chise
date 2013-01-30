@@ -1,3 +1,11 @@
+2013-01-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R028-Private.el (U-00021FEE): Add
+	`ideographic-radical@{ucs|cns}'.
+	(mother of C6-237E): Unify G-CU+21FEE and G-M-03081.
+	(C6-237E): Unify CU+21FEE.
+	(mother of IU+21FEE): Unify G-IU+21FEE, g2-IU+21FEE and G-M-08682.
+
 2013-01-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R184-Eat.el: Add some Adobe-Japan1-2 code points.
