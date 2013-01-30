@@ -1,3 +1,13 @@
+2013-01-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R186-Fragrant.el (U+999E): Unify AJ1-08703.
+
+	* Ideograph-R047-River.el: Add some Adobe-Japan1-4 code points.
+	(U-00021FEE): Add `ideographic-radical@{ucs|cns}'.
+	(U-0002F882): Add `<-denotational' for U+5DE2.
+
+	* Ideograph-R030-Mouth.el (U+54E4): Add ideographic-structure.
+
 2013-01-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R028-Private.el (U-00021FEE): Add
