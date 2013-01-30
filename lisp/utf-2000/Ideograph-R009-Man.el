@@ -40796,10 +40796,9 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@jis/2000	    . #x5DB2)	; &HD-JD-2864;
-	(=ucs@jis/2004	    . #x5DB2)	; &HD-JD-2864;
-	(=jis-x0213-2	    . #x2864)	; &HD-JD-2864; [08-68]
-	(=daikanwa	    . 08532)	; &I-M-08532;
+       ((=ucs@jis/2000	    . #x5DB2)	; &AJ1-15405;
+	(=ucs@jis/2004	    . #x5DB2)	; &AJ1-15405;
+	(=adobe-japan1-4    . 15405)	; &AJ1-15405;
 	))
       (=daikanwa	  . 01252)	; &M-01252;
       )
