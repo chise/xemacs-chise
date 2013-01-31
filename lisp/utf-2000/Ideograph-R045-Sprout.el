@@ -17,6 +17,7 @@
     (=ucs		. #xFA3C)	; 屮
     (=ucs@unicode	. #x5C6E)	; 屮
     (=ucs@jis		. #xFA3C)	; 屮
+    (=adobe-japan1-5	. 16837)	; &I-AJ1-16837;
     (=gb2312		. #x6578)	; &I-G0-6578; [69-88]
     (=cns11643-2	. #x212B)	; &I-C2-212B; [01-11]
     (=jis-x0213-1	. #x4F62)	; &I-JX1-4F62; [47-66]
@@ -32,6 +33,11 @@
     (ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (=decomposition@cid
+     ((=ucs		  . #x5C6E)	; 屮
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=ucs		. #x2F878)	; 屮
     (=ucs@jis		. #x5C6E)	; 屮
     (=adobe-japan1-0	. 04658)	; &I-AJ1-04658;
@@ -73,7 +79,12 @@
     (total-strokes	 . 4)
     (=ucs		. #x5C6F)	; 屯
     (->subsumptive
-     ((=ucs@jis		  . #x5C6F)	; &AJ1-03246;
+     ((=decomposition@cid
+       ((=ucs		    . #x5C6F)	; 屯
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@jis		  . #x5C6F)	; &AJ1-03246;
       (=adobe-japan1-0	  . 03246)	; &AJ1-03246;
       (=jis-x0208	  . #x4656)	; &I-J90-4656; [38-54]
       (=ks-x1001	  . #x546A)	; &I-K0-546A; [52-74]
