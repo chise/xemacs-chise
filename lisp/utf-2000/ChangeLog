@@ -1,3 +1,32 @@
+2013-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R043-Lame.el:
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	- Add some Adobe-Japan1 code points.
+	(U+3789): Use `->subsumptive' to separate representative nodes.
+	(U-00021C09): Use `<-unknown' for JU+5C32; don't use
+	`morohashi-daikanwa'.
+	(U+378A): Use `->subsumptive' to separate representative nodes.
+	(U-00021C0E): Likewise.
+	(U-00021C10): Use `->subsumptive'.
+	(U-00021C11): Use `->subsumptive' to separate representative
+	nodes.
+	(U-00021C12): Use `->subsumptive'.
+	(U-00021C14): Likewise.
+	(U-00021C0D): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R046-Mountain.el: Add some Adobe-Japan1-4 code points.
+	(U+5CD1): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+5D40): Use `->denotational' to separate representative nodes.
+	(U+5D41): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+5D4A): Use `->subsumptive' to separate representative nodes.
+	(U+5D93): Likewise.
+	(U+5D9E): Likewise.
+	(U+5D9F): Use `->denotational' and `->subsumptive'.
+	(U+5DB3): Use `->subsumptive' to separate representative nodes.
+
 2013-01-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R186-Fragrant.el (U+999E): Unify AJ1-08703.
