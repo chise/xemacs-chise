@@ -1,3 +1,12 @@
+2013-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R137-Boat.el (J0-484C): Unify AJ1-03424.
+
+	* Ideograph-R145-Clothes.el (M-34415): Unify S-2114; add
+	`<-formed' for U+5E44.
+
+	* Ideograph-R079-Weapon.el: Add some Adobe-Japan1-5 code points.
+
 2013-01-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R044-Corpse.el:
