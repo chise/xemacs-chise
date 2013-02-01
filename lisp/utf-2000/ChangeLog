@@ -1,5 +1,8 @@
 2013-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R072-Sun.el (g2-J0-436B): Unify g2-JX1-436B.
+	(AJ1-02985): Add `=decomposition@cid'.
+
 	* Ideograph-R045-Sprout.el: Add `=decomposition@cid' for some
 	Adobe-Japan1 characters.
 	(U+FA3C): Unify AJ1-16837.
