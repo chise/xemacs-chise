@@ -2496,8 +2496,14 @@
      ((=>>>ucs@unicode	  . #x663C)	; &g2-AJ1-02985;
       (=>>>adobe-japan1-0 . 02985)	; &g2-AJ1-02985;
       (=>>>jis-x0208	  . #x436B)	; &g2-AJ1-02985; [35-75]
+      (=>>>jis-x0213-1	  . #x436B)	; &g2-AJ1-02985; [35-75]
       (->subsumptive
-       ((=ucs@unicode	    . #x663C)	; &AJ1-02985;
+       ((=decomposition@cid
+	 ((=ucs		      . #x663C)	; 昼
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(=ucs@unicode	    . #x663C)	; &AJ1-02985;
 	(=adobe-japan1-0    . 02985)	; &AJ1-02985;
 	(=jis-x0208	    . #x436B)	; &I-J90-436B; [35-75]
 	(=gb2312	    . #x5667)	; &I-G0-5667; [54-71]
