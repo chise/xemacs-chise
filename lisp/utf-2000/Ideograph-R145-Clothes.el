@@ -5546,6 +5546,14 @@
     (=ucs		. #x276D0)	; 𧛐
     (->subsumptive
      ((=daikanwa	  . 34415)	; &M-34415;
+      (=shinjigen	  .  2114)	; &M-34415;
+      (<-formed
+       ((=ucs		    . #x5E44)	; 幄
+	(=jis-x0208	    . #x566A)	; &I-J90-566A; [54-74]
+	(=shinjigen	    .  2113)	; 幄
+	))
+      (<-formed*sources
+       shinjigen)
       )
      ((=ucs@iso		  . #x276D0)	; &C7-2854;
       (=cns11643-7	  . #x2854)	; &C7-2854; [08-52]
