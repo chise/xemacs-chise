@@ -2630,8 +2630,8 @@
     (->subsumptive
      ((=daikanwa	  . 16521)	; &M-16521;
       (<-same
-       ((=ucs@jis	    . #x6BC8)	; &JX2-6E27;
-	(=jis-x0213-2	    . #x6E27)	; &JX2-6E27; [78-07]
+       ((=ucs@jis	    . #x6BC8)	; &AJ1-17900;
+	(=adobe-japan1-5    . 17900)	; &AJ1-17900;
 	(=daikanwa	    . 16681)	; &I-M-16681;
 	))
       (<-same*sources
