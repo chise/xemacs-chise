@@ -908,10 +908,8 @@
     (->subsumptive
      ((=daikanwa	  . 02935)	; &M-02935;
       (<-ancient
-       ((=ucs@jis	    . #x5E2D)	; &GT-11229;
-	(=jis-x0208	    . #x404A)	; &GT-11229; [32-42]
-	(=ks-x1001	    . #x602C)	; &I-K0-602C; [64-12]
-	(=jis-x0213-1	    . #x404A)	; &I-JX1-404A; [32-42]
+       ((=ucs@jis	    . #x5E2D)	; &AJ1-02670;
+	(=adobe-japan1-0    . 02670)	; &AJ1-02670;
 	(=daikanwa	    . 08926)	; &I-M-08926;
 	))
       (<-ancient*sources
