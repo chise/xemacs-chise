@@ -1068,8 +1068,20 @@
     (->subsumptive
      ((=daikanwa	  . 43827)	; &M-43827;
       )
+     ((=hanziku-11	  . #xF968)	; &CB10256;
+      (=cbeta		  . 10256)	; &I-CB10256;
+      )
      ((=ucs@iso		  . #x295CB)	; &C7-2B35;
       (=cns11643-7	  . #x2B35)	; &C7-2B35; [11-21]
+      (=shinjigen	  .  2086)	; &C7-2B35;
+      (<-ancient
+       ((=ucs@unicode	    . #x5E06)	; &AJ1-03413;
+	(=adobe-japan1-0    . 03413)	; &AJ1-03413;
+	(=jis-x0208	    . #x4841)	; &I-J90-4841; [40-33]
+	(=shinjigen	    .  2084)	; &AJ1-03413;
+	))
+      (<-ancient*sources
+       shinjigen)
       ))
     ))
 (define-char
@@ -2496,17 +2508,24 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 19)
     (=ucs		. #x98BF)	; 颿
-    (=jis-x0212		. #x6843)	; &I-JSP-6843; [72-35]
-    (=jis-x0213-2	. #x7C47)	; &I-JX2-7C47; [92-39]
-    (=daikanwa		. 43930)	; &I-M-43930;
-    ))
-(define-char
-  '((=>ucs		. #x98BF)	; 颿
-    (morohashi-daikanwa	43930 0 1)
-    (ideographic-radical . 182)	; ⾵
-    (ideographic-strokes . 10)
-    (total-strokes	 . 19)
-    (=cns11643-2	. #x6776)	; &C2-6776; [71-86]
+    (->subsumptive
+     ((=ucs@unicode	  . #x98BF)	; &JX2-7C47;
+      (=jis-x0212	  . #x6843)	; &JX2-7C47; [72-35]
+      (=jis-x0213-2	  . #x7C47)	; &I-JX2-7C47; [92-39]
+      (=daikanwa	  . 43930)	; &I-M-43930;
+      (=jef-china3	  . #x6DA2)	; &I-JC3-6DA2;
+      )
+     ((=cns11643-2	  . #x6776)	; &C2-6776; [71-86]
+      (=shinjigen	  .  2087)	; &C2-6776;
+      (<-formed
+       ((=ucs@unicode	    . #x5E06)	; &AJ1-03413;
+	(=adobe-japan1-0    . 03413)	; &AJ1-03413;
+	(=jis-x0208	    . #x4841)	; &I-J90-4841; [40-33]
+	(=shinjigen	    .  2084)	; &AJ1-03413;
+	))
+      (<-formed*sources
+       shinjigen)
+      ))
     ))
 (define-char
   '((ideographic-radical . 182)	; ⾵
