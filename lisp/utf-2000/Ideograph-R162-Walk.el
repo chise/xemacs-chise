@@ -9609,11 +9609,8 @@
     (total-strokes	 . 12)
     (=daikanwa		. 38942)	; &M-38942;
     (<-same
-     ((=ucs@jis		  . #x6B78)	; &GT-20995;
-      (=jis-x0208	  . #x5D45)	; &GT-20995; [61-37]
-      (=ks-x1001	  . #x4F7D)	; &I-K0-4F7D; [47-93]
-      (=cns11643-1	  . #x7657)	; &I-C1-7657; [86-55]
-      (=jis-x0213-1	  . #x5D45)	; &I-JX1-5D45; [61-37]
+     ((=ucs@jis		  . #x6B78)	; &AJ1-05348;
+      (=adobe-japan1-0	  . 05348)	; &AJ1-05348;
       (=daikanwa	  . 16349)	; &I-M-16349;
       ))
     (<-same*sources
