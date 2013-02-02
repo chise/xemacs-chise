@@ -326,12 +326,13 @@
       (=daikanwa	  . 22705)	; &I-M-22705;
       (=shinjigen	  .  3962)	; &GT-29093;
       (<-vulgar
-       ((=cns11643-3	    . #x3C48)	; &C3-3C48; [28-40]
-	(=daikanwa	    . 16308)	; &I-M-16308;
-	(=shinjigen@1ed	    .  3961)	; &C3-3C48;
+       ((=ucs@jis	    . #x6B78)	; &AJ1-05348;
+	(=adobe-japan1-0    . 05348)	; &AJ1-05348;
+	(=jis-x0208	    . #x5D45)	; &I-J90-5D45; [61-37]
+	(=shinjigen	    .  3960)	; &AJ1-05348;
 	))
       (<-vulgar*sources
-       shinjigen@1ed)
+       shinjigen)
       )
      ((=ucs@unicode	  . #x7688)	; &G0-7027;
       (=gb2312		  . #x7027)	; &G0-7027; [80-07]
