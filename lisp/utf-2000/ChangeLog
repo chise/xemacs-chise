@@ -1,5 +1,39 @@
 2013-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R182-Wind.el (U-000295CB): Integrate H11-F968 and
+	CB10256.
+	(C7-2B35): Unify S-2086; add `<-ancient' for J0-4841.
+	(U+98BF): Use `->subsumptive'.
+
+	* Ideograph-R140-Grass.el (G-J0-4C58): Unify G-AJ1-03812.
+	(J0-4C58): Unify AJ1-03812.
+	(J0-3338): Unify AJ1-01430.
+
+	* Ideograph-R106-White.el (J0-6227): Use `shinjigen' instead of
+	`shinjigen@1ed' in `<-vulgar*sources'.
+
+	* Ideograph-R066-Rap.el (mother of J90-5A49): Unify G-JU+655D,
+	G-AJ1-05070, G-J0-5A49, G-GT-16787, G-GT-K09196 and G-M-13245.
+	(J90-5A49): Unify J90U+655D, J2000U+655D and J2004U+655D instead
+	of JU+655D; unify AJ1-05070.
+	(mother of C1-5A71): Unify G-UU+655D.
+
+	* Ideograph-R081-Compare.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R077-Stop.el (C3-3C48): Unify S2-3961; use `<-ancient'
+	instead of `<-original' for J0-5D45.
+	(J0-5D45): Unify AJ1-05348.
+
+	* Ideograph-R030-Mouth.el (g2-UU+557B): Unify G-UU+557B,
+	G-GT-K09171 and G-M-03886.
+	(U+56B5): Add ideographic-structure.
+	(UU+56B5): Separate M-04591.
+
+	* Ideograph-R018-Knife.el (AJ1-21199): Add
+	`ideographic-structure'.
+
+	* Ideograph-R009-Man.el (AJ1-19170): Separate UU+5133.
+
 	* Ideograph-R137-Boat.el (J0-484C): Unify AJ1-03424.
 
 	* Ideograph-R145-Clothes.el (M-34415): Unify S-2114; add
