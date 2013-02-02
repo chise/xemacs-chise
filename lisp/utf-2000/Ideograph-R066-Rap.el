@@ -2048,6 +2048,13 @@
     (ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (=>>ucs@jis		. #x655D)	; &G-AJ1-05070;
+    (=>>adobe-japan1-0	. 05070)	; &G-AJ1-05070;
+    (=>>jis-x0208	. #x5A49)	; &G-AJ1-05070; [58-41]
+    (=>>jis-x0213-1	. #x5A49)	; &G-AJ1-05070; [58-41]
+    (=>>gt		. 16787)	; &G-AJ1-05070;
+    (=>>gt-k		. 09196)	; &G-AJ1-05070;
+    (=>>daikanwa	. 13245)	; &G-AJ1-05070;
     (->subsumptive
      ((=gt		  . 16787)	; &GT-16787;
       (=gt-k		  . 09196)	; &I-GT-K09196;
@@ -2057,10 +2064,13 @@
      ((=jis-x0208@1978	  . #x5A49)	; &J83-5A49; [58-41]
       (=jis-x0208@1983	  . #x5A49)	; &I-J83-5A49; [58-41]
       )
-     ((=ucs@jis		  . #x655D)	; &J90-5A49;
-      (=jis-x0208@1990	  . #x5A49)	; &J90-5A49; [58-41]
+     ((=ucs@jis/1990	  . #x655D)	; &AJ1-05070;
+      (=ucs@jis/2000	  . #x655D)	; &AJ1-05070;
+      (=ucs@jis/2004	  . #x655D)	; &AJ1-05070;
+      (=adobe-japan1-0	  . 05070)	; &AJ1-05070;
+      (=jis-x0208@1990	  . #x5A49)	; &I-J90-5A49; [58-41]
       (=jis-x0213-1	  . #x5A49)	; &I-JX1-5A49; [58-41]
-      (=shinjigen	  .  3184)	; &J90-5A49;
+      (=shinjigen	  .  3184)	; &AJ1-05070;
       ))
     ))
 (define-char
@@ -2070,6 +2080,7 @@
     (ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (=>>ucs@unicode	. #x655D)	; &G-UU+655D;
     (->subsumptive
      ((=cns11643-1	  . #x5A71)	; &C1-5A71; [58-81]
       )
