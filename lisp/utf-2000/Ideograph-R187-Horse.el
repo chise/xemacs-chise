@@ -6032,8 +6032,9 @@
     (total-strokes	 . 22)
     (=ucs		. #x9A4E)	; 驎
     (->subsumptive
-     ((=ucs@unicode	  . #x9A4E)	; &HD-JB-6951;
-      (=jis-x0212	  . #x6951)	; &HD-JB-6951; [73-49]
+     ((=ucs@unicode	  . #x9A4E)	; &AJ1-08704;
+      (=adobe-japan1-2	  . 08704)	; &AJ1-08704;
+      (=jis-x0212	  . #x6951)	; &I-JSP-6951; [73-49]
       (=jis-x0213-1	  . #x7E33)	; &I-JX1-7E33; [94-19]
       (=hanyo-denshi/jb	  . #x6951)	; &I-HD-JB-6951; [73-49]
       (=daikanwa	  . 44990)	; &I-M-44990;
