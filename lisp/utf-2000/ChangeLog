@@ -1,5 +1,13 @@
 2013-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R187-Horse.el (JX1-7E33): AJ1-08704.
+
+	* Ideograph-R120-Silk.el (mother of C1-5748): Unify G-KU+7D1A,
+	G-CU+7D1A and G-M-27294.
+	(K0-5064): Unify KU+7D1A.
+	(C1-5748): Unify CU+7D1A.
+	(J83-4A36): Unify S-5994.
+
 	* Ideograph-R182-Wind.el (U-000295CB): Integrate H11-F968 and
 	CB10256.
 	(C7-2B35): Unify S-2086; add `<-ancient' for J0-4841.
