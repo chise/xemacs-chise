@@ -5789,10 +5789,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x5E75)	; &GT-11552;
-	(=jis-x0208	    . #x5674)	; &GT-11552; [54-84]
-	(=jis-x0213-1	    . #x5674)	; &I-JX1-5674; [54-84]
-	(=daikanwa	    . 09169)	; &I-M-09169;
+       ((=ucs@jis	    . #x5E75)	; &AJ1-04737;
+	(=adobe-japan1-0    . 04737)	; &AJ1-04737;
 	)
        ((=ucs		    . #x6728)	; 木
 	))
@@ -16960,7 +16958,15 @@
       (=jis-x0212	  . #x445C)	; &JX2-2F37; [36-60]
       (=jis-x0213-2	  . #x2F37)	; &I-JX2-2F37; [15-23]
       (=daikanwa	  . 15257)	; &I-M-15257;
+      (=shinjigen	  .  2159)	; &JX2-2F37;
       (=jef-china3	  . #x52FA)	; &I-JC3-52FA;
+      (<-original
+       ((=ucs		    . #x5E79)	; 幹
+	(=jis-x0208	    . #x3434)	; &I-J90-3434; [20-20]
+	(=shinjigen	    .  2158)	; 幹
+	))
+      (<-original*sources
+       shinjigen)
       )
      ((=ucs@unicode	  . #x69A6)	; &UU+69A6;
       )
@@ -28491,6 +28497,7 @@
      ((=ucs		  . #x6728)	; 木
       )
      ((=+>ucs@jis	  . #x5EE3)	; &o-J0-5722;
+      (=+>ucs@ks	  . #x5EE3)	; &o-J0-5722;
       (=+>ucs@cns	  . #x5EE3)	; &o-J0-5722;
       (=+>jis-x0208	  . #x5722)	; &o-J0-5722; [55-02]
       ))
@@ -28502,11 +28509,9 @@
 	)
        ((=gt-k		    . 00495)	; &GT-K00495;
 	)
-       ((=ucs@jis	    . #x5EE3)	; &GT-11938;
-	(=jis-x0208	    . #x5722)	; &GT-11938; [55-02]
-	(=ks-x1001	    . #x4E46)	; &I-K0-4E46; [46-38]
-	(=jis-x0213-1	    . #x5722)	; &I-JX1-5722; [55-02]
-	(=daikanwa	    . 09493)	; &I-M-09493;
+       ((=ucs@jis	    . #x5EE3)	; &AJ1-04749;
+	(=ucs@ks	    . #x5EE3)	; &AJ1-04749;
+	(=adobe-japan1-0    . 04749)	; &AJ1-04749;
 	))
       (=daikanwa	  . 15789)	; &M-15789;
       (=cbeta		  . 02763)	; &I-CB02763;
