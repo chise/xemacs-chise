@@ -12012,6 +12012,16 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=>>ucs@unicode	  . #x5EB6)	; &g2-AJ1-02424;
+      (=>>>ucs@unicode	  . #x5EB6)	; &g2-AJ1-02424;
+      (=>>>adobe-japan1-0 . 02424)	; &g2-AJ1-02424;
+      ))
     (=>>ucs@unicode	. #x588C)	; &g2-AJ1-21359;
     (=>>>ucs@unicode	. #x588C)	; &g2-AJ1-21359;
     (=>>>adobe-japan1-6 . 21359)	; &g2-AJ1-21359;
@@ -12028,11 +12038,8 @@
 	)
        ((=gt-k		    . 00199)	; &GT-K00199;
 	)
-       ((=ucs@jis	    . #x5EB6)	; &GT-11788;
-	(=jis-x0208	    . #x3D6E)	; &GT-11788; [29-78]
-	(=ks-x1001	    . #x5F6E)	; &I-K0-5F6E; [63-78]
-	(=jis-x0213-1	    . #x3D6E)	; &I-JX1-3D6E; [29-78]
-	(=daikanwa	    . 09373)	; &I-M-09373;
+       ((=ucs@jis	    . #x5EB6)	; &AJ1-02424;
+	(=adobe-japan1-0    . 02424)	; &AJ1-02424;
 	))
       (=ucs@jis		  . #x588C)	; &AJ1-21359;
       (=adobe-japan1-6	  . 21359)	; &AJ1-21359;
@@ -12063,6 +12070,14 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 00199)	; &GT-K00199;
+      )
+     ((=hanyo-denshi/ks	  . 106260)	; &HD-KS-106260;
+      ))
     (=cbeta		. 01838)	; &CB01838;
     ))
 (define-char
