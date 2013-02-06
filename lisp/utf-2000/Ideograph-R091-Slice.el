@@ -1629,42 +1629,44 @@
      ((=ucs		  . #x5EB8)	; 庸
       ))
     (=ucs		. #x7257)	; 牗
-    ))
-(define-char
-  '((=>ucs		. #x7257)	; 牗
-    (ideographic-radical . 91)	; ⽚
-    (ideographic-strokes . 11)
-    (total-strokes	 . 15)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gt		    . 25442)	; &GT-25442;
+	)
+       ((=ucs@jis	    . #x5EB8)	; &AJ1-03889;
+	(=adobe-japan1-0    . 03889)	; &AJ1-03889;
+	))
+      (=ucs@jis		  . #x7257)	; &JX2-7031;
+      (=jis-x0213-2	  . #x7031)	; &JX2-7031; [80-17]
+      (=cbeta		  . 04523)	; &I-CB04523;
       )
-     ((=cns11643-1	  . #x455A)	; &C1-455A; [37-58]
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gt		    . 25442)	; &GT-25442;
+	)
+       ((=ucs@unicode	    . #x5EB8)	; &C1-5A2B;
+	(=gb2312	    . #x5339)	; &C1-5A2B; [51-25]
+	(=cns11643-1	    . #x5A2B)	; &I-C1-5A2B; [58-11]
+	))
+      (=ucs@unicode	  . #x7257)	; &UU+7257;
       )
-     ((=ucs		  . #x5EB8)	; 庸
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=cns11643-1	    . #x455A)	; &C1-455A; [37-58]
+	)
+       ((=ucs@unicode	    . #x5EB8)	; &C1-5A2B;
+	(=gb2312	    . #x5339)	; &C1-5A2B; [51-25]
+	(=cns11643-1	    . #x5A2B)	; &I-C1-5A2B; [58-11]
+	))
+      (=cns11643-3	  . #x4D2D)	; &C3-4D2D; [45-13]
       ))
-    (=cns11643-3	. #x4D2D)	; &C3-4D2D; [45-13]
-    ))
-(define-char
-  '((=>ucs		. #x7257)	; 牗
-    (ideographic-radical . 91)	; ⽚
-    (ideographic-strokes . 11)
-    (total-strokes	 . 15)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x7247)	; 片
-      )
-     ((=ucs@jis		  . #x5EB8)	; &GT-11819;
-      (=jis-x0208	  . #x4D47)	; &GT-11819; [45-39]
-      (=ks-x1001	  . #x693C)	; &I-K0-693C; [73-28]
-      (=jis-x0213-1	  . #x4D47)	; &I-JX1-4D47; [45-39]
-      (=daikanwa	  . 09378)	; &I-M-09378;
-      ))
-    (=ucs@jis		. #x7257)	; &JX2-7031;
-    (=jis-x0213-2	. #x7031)	; &JX2-7031; [80-17]
-    (=cbeta		. 04523)	; &I-CB04523;
     ))
 (define-char
   '((ideographic-radical . 91)	; ⽚
