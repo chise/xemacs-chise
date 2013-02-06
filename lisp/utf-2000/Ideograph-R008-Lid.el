@@ -1246,6 +1246,15 @@
 	))
       (=big5-cdp	  . #x8BE5)	; &CDP-8BE5;
       (=daikanwa	  . 00300)	; &I-M-00300;
+      (=shinjigen	  .  2230)	; &CDP-8BE5;
+      (<-original
+       ((=ucs@jis	    . #x5EE9)	; &AJ1-04756;
+	(=adobe-japan1-0    . 04756)	; &AJ1-04756;
+	(=jis-x0208	    . #x5729)	; &I-J90-5729; [55-09]
+	(=shinjigen	    .  2229)	; &AJ1-04756;
+	))
+      (<-original*sources
+       shinjigen)
       )
      ((hanyu-dazidian	  1 284 7)
       (ideographic-structure
