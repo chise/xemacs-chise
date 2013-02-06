@@ -899,10 +899,8 @@
     (=cns11643-6	. #x295E)	; &I-C6-295E; [09-62]
     (=hanziku-3		. #xDF74)	; &I-HZK03-DF74;
     (<-ancient
-     ((=ucs@jis		  . #x5E7E)	; &J90-3476;
-      (=jis-x0208	  . #x3476)	; &J90-3476; [20-86]
-      (=ks-x1001	  . #x507A)	; &I-K0-507A; [48-90]
-      (=jis-x0213-1	  . #x3476)	; &I-JX1-3476; [20-86]
+     ((=ucs@jis		  . #x5E7E)	; &AJ1-01586;
+      (=adobe-japan1-0	  . 01586)	; &AJ1-01586;
       (=daikanwa	  . 09208)	; &I-M-09208;
       ))
     (<-ancient*sources
