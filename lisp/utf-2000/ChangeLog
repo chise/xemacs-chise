@@ -1,11 +1,50 @@
 2013-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R189-Tall.el (U-00029AF1): Add ideographic-structure.
+
+	* Ideograph-R162-Walk.el (mother of GT-52562): Unify G-IU+285C1,
+	g2-IU+285C1 and g2-GT-52562.
+
+	* Ideograph-R091-Slice.el (U+7257): Use `->subsumptive'.
+
+	* Ideograph-R075-Tree.el (JX2-2F37): Unify S-2159; add
+	`<-original' for U+5E79.
+
+	* Ideograph-R072-Sun.el (J0-374A): Unify AJ1-01824.
+	(JSP-4255): Unify S-3358; add `<-original' for U+666E.
+
 	* Ideograph-R052-Short-Thread.el: Add some Adobe-Japan1-0 code
 	points.
 	(M-09192): Map to U-000221B0; add `<-same' for M-25867.
 	(G1-3C38): Unify S-2164.
 
 	* Ideograph-R051-Dry.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R050-Turban.el: Add some Adobe-Japan1-0 code points.
+	(U+3832): Use `->subsumptive' to separate representative nodes.
+	(U+5E06): Use `->denotational' to integrate S-2085.
+	(S-2085): New character.
+	(U+5E08): Use `->subsumptive'.
+	(U+5E0B): Add `<-vulgar' for J0-3B66.
+	(GT-11193): Omit `ideographic-structure'.
+	(U-0002209E): Unify S-2089; add `<-formed' for U+5E0C.
+	(C3-3068): Unify S-2146; add `<-wrong' for U+5E6B.
+	(U+5E29): Add ideographic-structure.
+	(M-08967): Unify S-2120; add `<-vulgar' for C1-5E7A.
+	(C1-5E7A): Unify S-2119.
+	(U+5E47): Add `<-vulgar' for U+5E6B.
+	(U+5E55): Add ideographic-structure.
+	(U+5E59): Likewise.
+	(HD-KS102950): Unify S-2134.
+	(HD-KS102960): Unify S-2135.
+	(JX2-287C): Unify S-2144 and JC3-91D0.
+	(U+5E6E): Use `^->denotational' to instead of `->subsumptive'.
+
+	* Ideograph-R030-Mouth.el (o-JX2-244F): Add ideographic-structure.
+	(g2-HD-JT-AF21): Likewise.
+
+	* Ideograph-R027-Cliff.el (U+53A0): Add `shinjigen@rev' into
+	`<-vulgar*sources'.
 
 	* Ideograph-R010-Legs.el (o-JU+5164): Add ideographic-structure.
 
