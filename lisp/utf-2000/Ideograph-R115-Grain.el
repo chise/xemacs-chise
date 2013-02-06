@@ -216,19 +216,35 @@
     (=gt-k		. 03903)	; &I-GT-K03903;
     (=gt-pj-1		. #x633D)	; &I-GT-32154; [67-29]
     (=daikanwa		. 24932)	; &I-M-24932;
-    (=shinjigen@rev	.  5594)	; 秉
+    (=shinjigen		.  5594)	; 秉
     ))
 (define-char
   '((ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
     (=ucs		. #x79CA)	; 秊
-    (=ks-x1001		. #x5236)	; &I-K0-5236; [50-22]
-    (=jis-x0212		. #x5078)	; &I-JSP-5078; [48-88]
-    (=cns11643-3	. #x2A44)	; &I-C3-2A44; [10-36]
-    (=jis-x0213-1	. #x7946)	; &I-JX1-7946; [89-38]
-    (=daikanwa		. 24933)	; &I-M-24933;
-    (=jef-china3	. #x4CB1)	; &I-JC3-4CB1;
+    (->subsumptive
+     ((=ucs@unicode	  . #x79CA)	; &JX1-7946;
+      (=ks-x1001	  . #x5236)	; &JX1-7946; [50-22]
+      (=jis-x0212	  . #x5078)	; &I-JSP-5078; [48-88]
+      (=jis-x0213-1	  . #x7946)	; &I-JX1-7946; [89-38]
+      (=daikanwa	  . 24933)	; &I-M-24933;
+      (=shinjigen	  .  2153)	; &JX1-7946;
+      (=hanziku-7	  . #xC16F)	; &I-HZK07-C16F;
+      (=cbeta		  . 05383)	; &I-CB05383;
+      (=jef-china3	  . #x4CB1)	; &I-JC3-4CB1;
+      (<-original
+       ((=ucs@unicode	    . #x5E74)	; &AJ1-03301;
+	(=adobe-japan1-0    . 03301)	; &AJ1-03301;
+	(=jis-x0208	    . #x472F)	; &I-J90-472F; [39-15]
+	(=daikanwa	    . 09168)	; &I-M-09168;
+	(=shinjigen	    .  2152)	; &AJ1-03301;
+	))
+      (<-original*sources
+       zhengzitong daikanwa shinjigen)
+      )
+     ((=cns11643-3	  . #x2A44)	; &C3-2A44; [10-36]
+      ))
     ))
 (define-char
   '((ideographic-radical . 115)	; ⽲
