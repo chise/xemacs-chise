@@ -15791,36 +15791,45 @@
     (=hanziku-12	. #xEE4F)	; &HZK12-EE4F;
     ))
 (define-char
-  '((=>ucs		. #x6468)	; 摨
-    (ideographic-radical . 64)	; ⼿
-    (ideographic-strokes . 12)
-    (total-strokes	 . 15)
-    (=ucs@big5		. #x6468)	; &M-12675;
-    (=big5		. #xE5BA)	; &M-12675;
-    (=daikanwa		. 12675)	; &I-M-12675;
-    ))
-(define-char
-  '((morohashi-daikanwa	12675 0 2)
-    (ideographic-radical . 64)	; ⼿
+  '((ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (=ucs		. #x6468)	; 摨
-    (=cns11643-2	. #x5061)	; &I-C2-5061; [48-65]
+    (=big5		. #xE5BA)	; &I-B-E5BA;
+    (->subsumptive
+     ((=daikanwa	  . 12675)	; &M-12675;
+      )
+     ((=ucs@unicode	  . #x6468)	; &C2-5061;
+      (=cns11643-2	  . #x5061)	; &C2-5061; [48-65]
+      ))
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (=ucs		. #x6485)	; 撅
-    (=gb2312		. #x3E6F)	; &I-G0-3E6F; [30-79]
-    (=jis-x0212		. #x406C)	; &I-JSP-406C; [32-76]
-    (=cns11643-2	. #x5058)	; &I-C2-5058; [48-56]
     (=big5		. #xE5B1)	; &I-B-E5B1;
-    (=daikanwa		. 12676)	; &I-M-12676;
-    (=jef-china3	. #x4FFC)	; &I-JC3-4FFC;
+    (->subsumptive
+     ((=ucs@jis		  . #x6485)	; &JSP-406C;
+      (=jis-x0212	  . #x406C)	; &JSP-406C; [32-76]
+      (=cns11643-2	  . #x5058)	; &I-C2-5058; [48-56]
+      (=daikanwa	  . 12676)	; &I-M-12676;
+      (=jef-china3	  . #x4FFC)	; &I-JC3-4FFC;
+      )
+     ((=ucs@unicode	  . #x6485)	; &G0-3E6F;
+      (=gb2312		  . #x3E6F)	; &G0-3E6F; [30-79]
+      ))
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x655D)	; 敝
+      )
+     ((=ucs		  . #x624B)	; 手
+      ))
     (=ucs		. #x6486)	; 撆
     ))
 (define-char
@@ -15834,9 +15843,10 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@jis		  . #x655D)	; &J90-5A49;
-      (=jis-x0208@1990	  . #x5A49)	; &J90-5A49; [58-41]
-      (=jis-x0213-1	  . #x5A49)	; &I-JX1-5A49; [58-41]
+     ((=ucs@jis/1990	  . #x655D)	; &AJ1-05070;
+      (=ucs@jis/2000	  . #x655D)	; &AJ1-05070;
+      (=ucs@jis/2004	  . #x655D)	; &AJ1-05070;
+      (=adobe-japan1-0	  . 05070)	; &AJ1-05070;
       )
      ((=ucs		  . #x624B)	; 手
       ))
