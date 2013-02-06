@@ -1,3 +1,8 @@
+2013-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (BC-8BE5): Unify S-2230; add `<-original'
+	for J0-5729.
+
 2013-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R189-Tall.el (U-00029AF1): Add ideographic-structure.
