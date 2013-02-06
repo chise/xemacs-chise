@@ -1,3 +1,16 @@
+2013-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R115-Grain.el (U+79CA): Use `->subsumptive' to
+	separate representative nodes.
+	(JX1-7946): Unify S-2153, H7-C16F and CB05383; add `<-original'
+	for J0-472F.
+
+2013-02-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R064-Hand.el (U+6468): Use `->subsumptive'.
+	(U+6485): Use `->subsumptive' to separate representative nodes.
+	(U+6486): Add ideographic-structure.
+
 2013-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R187-Horse.el (JX1-7E33): AJ1-08704.
