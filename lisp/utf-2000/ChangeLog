@@ -1,5 +1,14 @@
 2013-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R052-Short-Thread.el: Add some Adobe-Japan1-0 code
+	points.
+	(M-09192): Map to U-000221B0; add `<-same' for M-25867.
+	(G1-3C38): Unify S-2164.
+
+	* Ideograph-R051-Dry.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R010-Legs.el (o-JU+5164): Add ideographic-structure.
+
 	* Ideograph-R115-Grain.el (U+79CA): Use `->subsumptive' to
 	separate representative nodes.
 	(JX1-7946): Unify S-2153, H7-C16F and CB05383; add `<-original'
