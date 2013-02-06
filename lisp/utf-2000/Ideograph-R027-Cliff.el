@@ -1879,14 +1879,13 @@
     (=shinjigen		.  2192)	; 厠
     (=hanziku-1		. #xB378)	; &I-HZK01-B378;
     (<-vulgar
-     ((=ucs@jis		  . #x5EC1)	; &GT-11840;
-      (=jis-x0208	  . #x567A)	; &GT-11840; [54-90]
-      (=jis-x0213-1	  . #x567A)	; &I-JX1-567A; [54-90]
-      (=daikanwa	  . 09410)	; &I-M-09410;
-      (=shinjigen	  .  2191)	; &GT-11840;
+     ((=ucs@jis		  . #x5EC1)	; &AJ1-04743;
+      (=adobe-japan1-0	  . 04743)	; &AJ1-04743;
+      (=jis-x0208	  . #x567A)	; &I-J90-567A; [54-90]
+      (=shinjigen	  .  2191)	; &AJ1-04743;
       ))
     (<-vulgar*sources
-     shinjigen@1ed)
+     shinjigen)
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
@@ -2255,11 +2254,10 @@
     (=shinjigen		.  2200)	; &AJ1-04324;
     (=hanziku-1		. #xB3A7)	; &I-HZK01-B3A7;
     (<-vulgar
-     ((=ucs@jis		  . #x5EC8)	; &GT-11869;
-      (=jis-x0208	  . #x567C)	; &GT-11869; [54-92]
-      (=ks-x1001	  . #x793F)	; &I-K0-793F; [89-31]
-      (=jis-x0213-1	  . #x567C)	; &I-JX1-567C; [54-92]
-      (=shinjigen	  .  2199)	; &GT-11869;
+     ((=ucs@jis		  . #x5EC8)	; &AJ1-04745;
+      (=adobe-japan1-0	  . 04745)	; &AJ1-04745;
+      (=jis-x0208	  . #x567C)	; &I-J90-567C; [54-92]
+      (=shinjigen	  .  2199)	; &AJ1-04745;
       ))
     (<-vulgar*sources
      shinjigen)
@@ -2491,12 +2489,10 @@
     (=hanziku-1		. #xB3A6)	; &I-HZK01-B3A6;
     (=cbeta		. 00634)	; &I-CB00634;
     (<-vulgar
-     ((=ucs@jis		  . #x5EDA)	; &GT-11949;
-      (=jis-x0208	  . #x5724)	; &GT-11949; [55-04]
-      (=ks-x1001	  . #x7137)	; &I-K0-7137; [81-23]
-      (=jis-x0213-1	  . #x5724)	; &I-JX1-5724; [55-04]
-      (=daikanwa	  . 09479)	; &I-M-09479;
-      (=shinjigen	  .  2216)	; &GT-11949;
+     ((=ucs@jis		  . #x5EDA)	; &AJ1-04751;
+      (=adobe-japan1-0	  . 04751)	; &AJ1-04751;
+      (=jis-x0208	  . #x5724)	; &I-J90-5724; [55-04]
+      (=shinjigen	  .  2216)	; &AJ1-04751;
       ))
     (<-vulgar*sources
      shinjigen)
@@ -3236,11 +3232,10 @@
     (=hanziku-1		. #xB3DB)	; &I-HZK01-B3DB;
     (=cbeta		. 00637)	; &I-CB00637;
     (<-vulgar
-     ((=ucs@jis		  . #x5EDD)	; &GT-11939;
-      (=jis-x0208	  . #x5723)	; &GT-11939; [55-03]
-      (=jis-x0213-1	  . #x5723)	; &I-JX1-5723; [55-03]
-      (=daikanwa	  . 09487)	; &I-M-09487;
-      (=shinjigen	  .  2212)	; &GT-11939;
+     ((=ucs@jis		  . #x5EDD)	; &AJ1-04750;
+      (=adobe-japan1-0	  . 04750)	; &AJ1-04750;
+      (=jis-x0208	  . #x5723)	; &I-J90-5723; [55-03]
+      (=shinjigen	  .  2212)	; &AJ1-04750;
       ))
     (<-vulgar*sources
      shinjigen)
@@ -3351,12 +3346,11 @@
     (=daikanwa		. 03033)	; &M-03033;
     (=shinjigen		.  2218)	; &M-03033;
     (<-vulgar
-     ((=ucs@jis		  . #x5EDA)	; &GT-11949;
-      (=jis-x0208	  . #x5724)	; &GT-11949; [55-04]
-      (=ks-x1001	  . #x7137)	; &I-K0-7137; [81-23]
-      (=jis-x0213-1	  . #x5724)	; &I-JX1-5724; [55-04]
+     ((=ucs@jis		  . #x5EDA)	; &AJ1-04751;
+      (=adobe-japan1-0	  . 04751)	; &AJ1-04751;
+      (=jis-x0208	  . #x5724)	; &I-J90-5724; [55-04]
       (=daikanwa	  . 09479)	; &I-M-09479;
-      (=shinjigen	  .  2216)	; &GT-11949;
+      (=shinjigen	  .  2216)	; &AJ1-04751;
       ))
     (<-vulgar*sources
      zhengzitong daikanwa shinjigen)
