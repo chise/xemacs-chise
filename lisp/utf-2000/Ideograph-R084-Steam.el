@@ -403,6 +403,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=ucs		. #x6C2C)	; 氬
+    (=adobe-japan1-5	. 19484)	; &I-AJ1-19484;
     (=jis-x0212		. #x4650)	; &I-JSP-4650; [38-48]
     (=cns11643-1	. #x602A)	; &I-C1-602A; [64-10]
     (=gb12345		. #x6B32)	; 氬 [75-18]
@@ -414,18 +415,23 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=ucs		. #x6C2D)	; 氭
-    (=cns11643-3	. #x3C4E)	; &I-C3-3C4E; [28-46]
-    (=daikanwa		. 17070)	; &I-M-17070;
+    (->subsumptive
+     ((=daikanwa	  . 17070)	; &M-17070;
+      )
+     ((=cns11643-3	  . #x3C4E)	; &C3-3C4E; [28-46]
+      )
+     ((=ucs@unicode	  . #x6C2D)	; &UU+6C2D;
+      ))
     ))
 (define-char
   '((ideographic-radical . 84)	; ⽓
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=ucs		. #x6C2E)	; 氮
+    (=big5		. #xB4E1)	; &I-B-B4E1;
     (->subsumptive
      ((=ucs@jis		  . #x6C2E)	; &JSP-4651;
       (=jis-x0212	  . #x4651)	; &JSP-4651; [38-49]
-      (=big5		  . #xB4E1)	; &I-B-B4E1;
       (=daikanwa	  . 17071)	; &I-M-17071;
       )
      ((=ucs@unicode	  . #x6C2E)	; &G0-352A;
@@ -439,14 +445,33 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=ucs		. #x6C2F)	; 氯
-    (->subsumptive
-     ((=cns11643-1	  . #x6029)	; &C1-6029; [64-09]
-      (=big5		  . #xB4E2)	; &I-B-B4E2;
-      (=daikanwa	  . 17072)	; &I-M-17072;
-      )
-     ((=ucs@unicode	  . #x6C2F)	; &G0-4248;
-      (=gb2312		  . #x4248)	; &G0-4248; [34-40]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6C2F)	; 氯
       ))
+    (ideographic-radical . 84)	; ⽓
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (=>>ucs@cns		. #x6C2F)	; &G-CU+6C2F;
+    (=big5		. #xB4E2)	; &G-CU+6C2F;
+    (=>>daikanwa	. 17072)	; &G-CU+6C2F;
+    (->subsumptive
+     ((=daikanwa	  . 17072)	; &M-17072;
+      )
+     ((=ucs@cns		  . #x6C2F)	; &C1-6029;
+      (=cns11643-1	  . #x6029)	; &C1-6029; [64-09]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6C2F)	; 氯
+      ))
+    (ideographic-radical . 84)	; ⽓
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (=ucs@unicode	. #x6C2F)	; &G0-4248;
+    (=gb2312		. #x4248)	; &G0-4248; [34-40]
     ))
 (define-char
   '((ideographic-radical . 84)	; ⽓
