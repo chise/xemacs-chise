@@ -1,5 +1,17 @@
 2013-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R084-Steam.el: Add some Adobe-Japan1-5 code points.
+	(U+6C2D): Use `->subsumptive' to separate representative nodes.
+	(U+6C2F): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R032-Earth.el (g2-AJ1-21359): Add
+	ideographic-structure.
+	(CB01838): Add `ideographic-structure'.
+
+	* Ideograph-R009-Man.el (U-0002032E): Use `->denotational' for
+	CB02101.
+	(CB02101): Add `ideographic-structure'.
+
 	* Ideograph-R008-Lid.el (BC-8BE5): Unify S-2230; add `<-original'
 	for J0-5729.
 
