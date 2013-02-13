@@ -3833,6 +3833,18 @@
     (=big5		. #xF4D6)	; &I-B-F4D6;
     (->subsumptive
      ((=daikanwa	  . 37326)	; &M-37326;
+      (=shinjigen	  .  8077)	; &M-37326;
+      (<-original
+       ((=ucs@unicode	    . #x8E81)	; &GT-50653;
+	(=jis-x0208	    . #x6D2F)	; &GT-50653; [77-15]
+	(=gb2312	    . #x546A)	; &I-G0-546A; [52-74]
+	(=ks-x1001	    . #x7062)	; &I-K0-7062; [80-66]
+	(=jis-x0213-1	    . #x6D2F)	; &I-JX1-6D2F; [77-15]
+	(=daikanwa	    . 37906)	; &I-M-37906;
+	(=shinjigen	    .  8076)	; &GT-50653;
+	))
+      (<-original*sources
+       shinjigen)
       )
      ((=ucs@unicode	  . #x8DAE)	; &UU+8DAE;
       )
