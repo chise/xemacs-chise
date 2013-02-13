@@ -1,3 +1,20 @@
+2013-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R053-Dotted-Cliff.el: Add some Adobe-Japan1-0 code
+	points.
+	(U+388F): Use `->denotational' and `->subsumptive'.
+	(U-00022266): Use `->subsumptive' to separate representative
+	nodes.
+	(U-00022267): Likewise.
+	(U-00022268): Likewise.
+	(U-00022269): Likewise.
+	(U+5EC2): Use `->subsumptive'.
+	(U-0002226A): Likewise.
+	(U+5EDC): Use `->denotational'.
+	(U+5EEA): Use `->subsumptive'.
+	(U-0002217A): Use `->denotational'.
+	(U-00022303): Use `->subsumptive'.
+
 2013-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R084-Steam.el: Add some Adobe-Japan1-5 code points.
