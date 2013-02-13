@@ -1,5 +1,10 @@
 2013-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R156-Run.el (M-37326): Unify S-8077; add `<-original'
+	for J0-6D2F.
+
+2013-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R053-Dotted-Cliff.el: Add some Adobe-Japan1-0 code
 	points.
 	(U+388F): Use `->denotational' and `->subsumptive'.
