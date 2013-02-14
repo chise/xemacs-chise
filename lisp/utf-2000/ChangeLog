@@ -1,5 +1,54 @@
 2013-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R157-Foot.el: Add mappings for Big5 code points.
+	(U+8DB7): Unify JC3-66C7.
+	(U+8DBB): Use `->subsumptive' to separate representative nodes.
+	(U+8DC6): Unify JC3-9EB7.
+	(U+47E6): Unify S2-7989; add `<-vulgar' for J0-6C6D.
+	(U+8DD1): Unify JC3-66CA.
+	(U+8DD7): Unify JC3-66CB.
+	(U+8DD9): Unify JC3-66CC.
+	(U+8DEC): Unify JC3-66CE.
+	(U+8E14): Unify JC3-66D3.
+	(U+4803): Use `->subsumptive' to separate representative nodes.
+	(U+8E16): Unify JC3-66D4.
+	(U+8E26): Unify JC3-66D7.
+	(U+8E27): Unify JC3-66D8.
+	(U+8E2A): Use `->subsumptive'.
+	(U+480F): Use `->subsumptive' to separate representative nodes.
+	(U+8E36): Add `<-formed' and `<-same' for JSP-6030.
+	(U-000280A6): Use `->subsumptive' to separate representative
+	nodes.
+	(U+8E39): Unify JC3-66DA.
+	(JSP-602C): Unify JC3-66DB.
+	(JSP-6030): Unify S-8040 and CB04581; add `<-ancient' for J0-447D;
+	add `<-original' for S-8039; add `->formed' for J0-447D and
+	U+8E36.
+	(UU+8E4F): Unify H10-AFE1.
+	(U+8E53): Unify JC3-93DA.
+	(U+8E5A): Unify JC3-80A7.
+	(U+8E5F): Add `<-formed' for J0-4057.
+	(JSP-6038): Unify JC3-92F2.
+	(U+8E7A): Unify JC3-66DF.
+	(U+8E7B): Unify JC3-92F3.
+	(U+8E83): Use `->subsumptive'.
+	(U+482C): Use `->subsumptive' to separate representative nodes.
+	(U-000281E0): New character.
+	(JSP-6049): Unify JC3-66E1.
+	(S-8090): New character.
+	(U+8EA6): Unify JC3-80C4.
+	(U+8EA7): Use `->subsumptive' to separate representative nodes.
+
+2013-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R060-Step.el (U+5FA4): Add ideographic-structure.
+
+	* Ideograph-R043-Lame.el (U+377F): Use `->subsumptive' to separate
+	representative nodes.
+	(M-07570): Unify S-7987 and CB10986; add `<-formed' for U+8DDB.
+	(U+377E): Use `->subsumptive' to separate representative nodes.
+	(U-00024FD1): Likewise.
+
 	* Ideograph-R156-Run.el (M-37326): Unify S-8077; add `<-original'
 	for J0-6D2F.
 
