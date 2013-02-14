@@ -2840,7 +2840,7 @@
     (->subsumptive
      ((ideographic-strokes . 8)
       (total-strokes	   . 15)
-      (=>>ucs@iso	  . #x2832F)	; &G-IU+2832F;
+      (=>>>ucs@iso	  . #x2832F)	; &g2-IU+2832F;
       (->subsumptive
        ((=daikanwa	    . 38387)	; &M-38387;
 	)
@@ -2859,6 +2859,25 @@
     (=ucs		. #x28330)	; 𨌰
     (=cns11643-7	. #x2958)	; &I-C7-2958; [09-56]
     (=daikanwa		. 38388)	; &I-M-38388;
+    (=shinjigen		.  8055)	; 𨌰
+    (<-formed
+     ((=ucs		  . #x486E)	; 䡮
+      ))
+    (<-formed*sources
+     jiyun)
+    (<-original
+     ((=ucs		  . #x8E64)	; 蹤
+      (=jis-x0208	  . #x6D27)	; &I-J90-6D27; [77-07]
+      (=shinjigen	  .  8054)	; 蹤
+      ))
+    (<-original*sources
+     shinjigen)
+    (<-same
+     ((=ucs		  . #x486E)	; 䡮
+      (=daikanwa	  . 38500)	; &I-M-38500;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
     ))
 (define-char
   '((=>ucs		. #x8F23)	; 輣
@@ -4656,6 +4675,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
     (=>>ucs@cns		. #x486D)	; &G-CU+486D;
+    (=>>daikanwa	. 38499)	; &G-CU+486D;
     (->subsumptive
      ((=daikanwa	  . 38499)	; &M-38499;
       )
