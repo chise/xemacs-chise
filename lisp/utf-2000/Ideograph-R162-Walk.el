@@ -5064,7 +5064,17 @@
     (=gt-k		. 06648)	; &I-GT-K06648;
     (=gt-pj-1		. #x6D71)	; &I-GT-51996; [77-81]
     (=daikanwa		. 38827)	; &I-M-38827;
-    (=shinjigen@rev	.  8003)	; &GT-51996;
+    (=shinjigen		.  8003)	; &GT-51996;
+    (<-original
+     ((=ucs@jis		  . #x8DE1)	; &GT-50150;
+      (=jis-x0208	  . #x4057)	; &GT-50150; [32-55]
+      (=ks-x1001	  . #x6E66)	; &I-K0-6E66; [78-70]
+      (=jis-x0213-1	  . #x4057)	; &I-JX1-4057; [32-55]
+      (=daikanwa	  . 37493)	; &I-M-37493;
+      (=shinjigen	  .  8002)	; &GT-50150;
+      ))
+    (<-original*sources
+     shinjigen)
     (<-same
      ((=ucs@jis		  . #x8DE1)	; &GT-50150;
       (=jis-x0208	  . #x4057)	; &GT-50150; [32-55]
@@ -5096,9 +5106,9 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (=>>ucs@unicode	. #x8FF9)	; &G-HD-FT-397C;
-    (=>>>ucs@unicode	. #x8FF9)	; &G-HD-FT-397C;
-    (=>>hanyo-denshi/ft . #x397C)	; &G-HD-FT-397C; [25-92]
+    (=>>ucs@unicode	. #x8FF9)	; &g2-HD-FT-397C;
+    (=>>>ucs@unicode	. #x8FF9)	; &g2-HD-FT-397C;
+    (=>>>hanyo-denshi/ft . #x397C)	; &g2-HD-FT-397C; [25-92]
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x8FF9)	; 迹
@@ -11229,8 +11239,7 @@
     (total-strokes	 . 13)
     (=daikanwa		. 38983)	; &M-38983;
     (<-same
-     ((=ucs		  . #x280A6)	; 𨂦
-      (=daikanwa	  . 37692)	; &I-M-37692;
+     ((=daikanwa	  . 37692)	; &M-37692;
       ))
     (<-same*sources
      jiyun daikanwa)
