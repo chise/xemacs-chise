@@ -2487,6 +2487,14 @@
   '((ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F73)	; 彳
+      )
+     ((=ucs		  . #x5EFA)	; 建
+      ))
     (=ucs		. #x5FA4)	; 徤
     (->subsumptive
      ((ideographic-structure
@@ -2510,10 +2518,8 @@
 	)
        ((=ucs		    . #x5F73)	; 彳
 	)
-       ((=ucs@unicode	    . #x5EFA)	; &GT-12065;
-	(=gb2312	    . #x3D28)	; &GT-12065; [29-08]
-	(=cns11643-1	    . #x507A)	; &I-C1-507A; [48-90]
-	(=jis-x0213-1	    . #x377A)	; &I-JX1-377A; [23-90]
+       ((=ucs@unicode	    . #x5EFA)	; &AJ1-01872;
+	(=adobe-japan1-0    . 01872)	; &AJ1-01872;
 	))
       (=ucs@unicode	  . #x5FA4)	; &C4-374A;
       (=cns11643-4	  . #x374A)	; &C4-374A; [23-42]
