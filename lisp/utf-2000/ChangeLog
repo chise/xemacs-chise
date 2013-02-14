@@ -1,5 +1,15 @@
 2013-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R162-Walk.el (J0-6D71): Add `<-original' for J0-4057.
+	(g2-UU+8FF9): Unify g2-HD-FT2592 instead of G-HD-FT2592.
+
+	* Ideograph-R159-Cart.el (U-00028330): Unify S-8055; add
+	`<-formed' and `<-same' for U+486E; add `<-original' for U+8E64.
+
+	* Ideograph-R054-Long-Stride.el: Add some Adobe-Japan1-0 code
+	points.
+	(J0-4736): Add `<-wrong' for J0-6D72.
+
 	* Ideograph-R157-Foot.el: Add mappings for Big5 code points.
 	(U+8DB7): Unify JC3-66C7.
 	(U+8DBB): Use `->subsumptive' to separate representative nodes.
