@@ -1,3 +1,12 @@
+2013-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R058-Snout.el (G-J0-5741): Add ideographic-structure.
+	(J0-5741): Add `ideographic-structure'.
+	(G0-6568): Likewise.
+	(C2-2A3E): Likewise.
+	(G-KS112230): New node to integrate KS112230 and GT-K06232.
+	(GT-K06232): New character.
+
 2013-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R162-Walk.el (J0-6D71): Add `<-original' for J0-4057.
