@@ -38869,11 +38869,7 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #xFA64)	; &JX1-7C38;
-	(=ucs@ks	    . #x8CD3)	; &JX1-7C38;
-	(=ks-x1001	    . #x5E39)	; &JX1-7C38; [62-25]
-	(=jis-x0213-1	    . #x7C38)	; &I-JX1-7C38; [92-24]
-	(=daikanwa	    . 36788)	; &I-M-36788;
+       ((=ucs		    . #xFA64)	; 賓
 	))
       (=ucs@jis		  . #x5110)	; &AJ1-14346;
       (=adobe-japan1-4	  . 14346)	; &AJ1-14346;
