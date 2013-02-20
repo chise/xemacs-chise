@@ -2471,6 +2471,30 @@
 		  =>iso-ir	177
 		  mother	=ucs@big5))
 
+  (make-charset '=ucs-itaiji-084
+		"uXXXX-itaiji-084 glyph-images of GlyphWiki"
+		'(long-name	"UCS-itaiji-084"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs))
+  (make-charset '=ucs-bmp-itaiji-084
+		"uXXXX-itaiji-084 glyph-images in BMP"
+		'(long-name	"UCS-BMP-itaiji-084"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs-itaiji-084
+		  min-code #x2E00
+		  max-code #x9FA5
+		  registry "ucs\\.itaiji084-0"))
+
   (make-charset
    '=ucs-radicals
    "CJK Radicals of UCS"
