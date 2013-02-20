@@ -318,6 +318,8 @@
 	  ((=hanziku-2		. isolated)   "I-HZK2-" 4 X)
 	  ( =hanziku-2				"HZK2-" 4 X)
 	  ( =hanyo-denshi/ks/mf                 "KSMF-" 5 d)
+	  ( =big5-cdp-var-3		    "CDP-var3-" 4 X)
+	  ( =big5-cdp-var-5		    "CDP-var5-" 4 X)
 	  ( latin-iso8859-1		      "LATIN1-" 2 X)
 	  ( latin-iso8859-2	    	      "LATIN2-" 2 X)
 	  ( latin-iso8859-3		      "LATIN3-" 2 X)

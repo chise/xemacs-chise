@@ -3,7 +3,7 @@
 ;; Copyright (C) 1995,1999 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1997, 1999, 2000, 2002, 2003, 2004, 2005, 2006, 2008,
-;;   2009, 2010, 2011, 2012 MORIOKA Tomohiko
+;;   2009, 2010, 2011, 2012, 2013 MORIOKA Tomohiko
 
 ;; Keywords: mule, multilingual, character set, coding system
 
@@ -1886,6 +1886,49 @@
 		  registry	"rui6-0"
 		  mother	=ruimoku-v6))
 
+  ;; (make-charset
+  ;;  '=zihai
+  ;;  "ZhongHua-ZiHai glyph-images"
+  ;;  '(long-name "ZhongHua-ZiHai (pppp-nn)"
+  ;;              chars 256
+  ;;              dimension 3
+  ;;              columns 2
+  ;;              graphic 2
+  ;;              direction l2r))
+
+  ;; (make-charset
+  ;;  '=zihai-17xx
+  ;;  "ZhongHua-ZiHai (pp.1700〜1781) glyph-images"
+  ;;  '(long-name "ZhongHua-ZiHai pp.17xx"
+  ;;              chars 256
+  ;;              dimension 2
+  ;;              columns 2
+  ;;              graphic 2
+  ;;              direction l2r
+  ;;              registry "zihai\\.cp-17$"))
+
+  (make-charset '=big5-cdp-var-3
+		"Big5-CDP-var-3 glyph-images of GlyphWiki"
+		'(long-name     "Big5-CDP-var-3"
+		  chars         256
+		  dimension     2
+		  columns       2
+		  graphic       2
+		  direction     l2r
+		  registry      "cdp\\.var-3$"
+		  mother        =big5-cdp))
+
+  (make-charset '=big5-cdp-var-5
+		"Big5-CDP-var-5 glyph-images of GlyphWiki"
+		'(long-name     "Big5-CDP-var-5"
+		  chars         256
+		  dimension     2
+		  columns       2
+		  graphic       2
+		  direction     l2r
+		  registry      "cdp\\.var-5$"
+		  mother        =big5-cdp))
+
   (make-charset '==>ucs@bucs
 		"Basic Subset of Coded Character Sets (BUCS)"
 		'(long-name	"BUCS abstract characters"
@@ -2427,6 +2470,30 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=ucs@big5))
+
+  (make-charset '=ucs-itaiji-084
+		"uXXXX-itaiji-084 glyph-images of GlyphWiki"
+		'(long-name	"UCS-itaiji-084"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs))
+  (make-charset '=ucs-bmp-itaiji-084
+		"uXXXX-itaiji-084 glyph-images in BMP"
+		'(long-name	"UCS-BMP-itaiji-084"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs-itaiji-084
+		  min-code #x2E00
+		  max-code #x9FA5
+		  registry "ucs\\.itaiji084-0"))
 
   (make-charset
    '=ucs-radicals

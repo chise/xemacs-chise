@@ -1513,6 +1513,13 @@
   '((ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
+    (=ucs		. #x200AD)	; 𠂭
+    (=big5-cdp		. #x89D4)	; &I-CDP-89D4;
+    ))
+(define-char
+  '((ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
       (=ucs		  . #x2FF5)	; ⿵
