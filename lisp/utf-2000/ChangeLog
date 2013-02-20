@@ -1,3 +1,15 @@
+2013-02-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R154-Shell.el (G-UU+8CD3): Integrate S-7910.
+	(J0-4950): Unify S-7909.
+	(M-36789): Unify S-7911; add `<-vulgar@daikanwa' for U+FA64; add
+	`<-vulgar@shinjigen' for S-7910.
+
+2013-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (U-000200AD): New character; unify
+	BC-89D4.
+
 2013-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R058-Snout.el (G-J0-5741): Add ideographic-structure.
@@ -6,6 +18,12 @@
 	(C2-2A3E): Likewise.
 	(G-KS112230): New node to integrate KS112230 and GT-K06232.
 	(GT-K06232): New character.
+
+2013-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=big5-cdp-var-3' and `=big5-cdp-var-5'.
+	(char-db-insert-ccs-feature): Format `=zihai' as decimal.
 
 2013-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
