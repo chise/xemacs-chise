@@ -1,3 +1,12 @@
+2013-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Delete `=zihai-17xx'; add `=ucs-bmp-itaiji-084'.
+
+	* mule/mule-conf.el (=ucs-itaiji-084): New coded-charset for
+	XEmacs CHISE.
+	(=ucs-bmp-itaiji-084): Ditto.
+
 2013-02-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
