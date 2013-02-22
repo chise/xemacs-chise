@@ -1,3 +1,9 @@
+2013-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R213-Turtle.el (BC-var3-88CB): New character.
+	(BC-var5-88CB): New character.
+	(U-i084+9F9C): New character.
+
 2013-02-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R154-Shell.el (G-UU+8CD3): Integrate S-7910.
