@@ -230,6 +230,63 @@
     ))
 (define-char
   '((ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 7)
+    (=big5-cdp-var-3	. #x88CB)	; &CDP-var3-88CB;
+    (<-unknown
+     ((=big5-cdp	  . #x88CB)	; &CDP-88CB;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=big5-cdp-var-3	  . #x88CB)	; &CDP-var3-88CB;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=big5-cdp	    . #x8BAB)	; &GT-67403;
+	)
+       ((=big5-cdp	    . #x8BAB)	; &GT-67403;
+	))
+      ))
+    (=big5-cdp-var-5	. #x88CB)	; &CDP-var5-88CB;
+    (<-unknown
+     ((=big5-cdp	  . #x88CB)	; &CDP-88CB;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 21)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+	(=ucs		    . #x2FF7)	; ⿷
+	)
+       ((=big5-cdp-var-5    . #x88CB)	; &CDP-var5-88CB;
+	)
+       ((=big5-cdp	    . #x8C78)	; &CDP-8C78;
+	))
+      )
+     ((=ucs		  . #x200AD)	; 𠂭
+      ))
+    (=ucs-itaiji-084	. #x9F9C)	; &U-i084+9F9C;
+    (<-unknown
+     ((=ucs		  . #x9F9C)	; 龜
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 213)	; ⿔
     (ideographic-strokes . 3)
     (total-strokes	 . 19)
     (=ucs		. #x4DAF)	; 䶯
