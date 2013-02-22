@@ -1,3 +1,8 @@
+2013-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* chartab.c (find_char_feature_in_family): New implementation;
+	don't support multiple parents; support non-list mother.
+
 2012-06-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* text-coding.c (Qenable_decomposition): New variable in XEmacs

@@ -3340,6 +3340,7 @@ find_char_feature_in_family (Lisp_Object character,
 {
   Lisp_Object ancestors
     = Fget_char_attribute (character, con_feature, Qnil);
+#if 0
 
   while (!NILP (ancestors))
     {
@@ -3364,6 +3365,38 @@ find_char_feature_in_family (Lisp_Object character,
       if (!NILP (ret))
 	ancestors = nconc2 (Fcopy_sequence (ancestors), ret);
     }
+#else
+  Lisp_Object ancestor;
+
+  if (CONSP (ancestors))
+    ancestor = XCAR (ancestors);
+  else
+    ancestor = ancestors;
+
+  if (!NILP (ancestor))
+    {
+      Lisp_Object ret;
+      Lisp_Object anc;
+
+      if (EQ (ancestor, character))
+	return Qunbound;
+
+      ret = Fchar_feature (ancestor, feature, Qunbound,
+			   Qnil, make_int (0));
+      if (!UNBOUNDP (ret))
+	return ret;
+
+      ret = find_char_feature_in_family (ancestor, Q_subsumptive_from,
+					 feature, feature_rel_max);
+      if (!UNBOUNDP (ret))
+	return ret;
+
+      ret = find_char_feature_in_family (ancestor, Q_denotational_from,
+					 feature, feature_rel_max);
+      if (!UNBOUNDP (ret))
+	return ret;
+    }
+#endif
   return Qunbound;
 }
 
