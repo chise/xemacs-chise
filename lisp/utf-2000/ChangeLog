@@ -1,3 +1,8 @@
+2013-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R047-River.el (JX1-7428): Add `ideographic-structure'.
+	(U-0002F882): Likewise.
+
 2013-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R213-Turtle.el (BC-var3-88CB): New character.
