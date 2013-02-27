@@ -1,3 +1,25 @@
+2013-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R118-Bamboo.el (U-00025ADD): Integrate M-25849.
+	(U-00025ADE): Unify M-25850.
+	(U-00025ADF): Unify M-25852.
+	(U+7AFE): Use `->subsumptive' to separate representative nodes.
+	(U+41D6): Integrate M-25855.
+	(U-00025AE0): Unify M-25856.
+	(U-00025AE1): Integrate M-25857.
+	(U-00025AE2): Integrate M-25859.
+	(M-25861): New character.
+	(U-00025AE5): New character; add `<-unknown' for M-25861.
+	(U+7B04): Add `<-vulgar' and `->original' for M-26005.
+	(U-00025AEF): Unify M-25864.
+	(U+41D7): Integrate M-25866.
+	(U+41D8): Integrate M-25867, H8-B770 and CB11044.
+	(U-00025AF0): Integrate M-25871.
+	(U-00025AF5): Unify M-25884.
+	(U+7B35): Add `<-formed' for J0-484F.
+	(U-00025B17): Integrate M-25953.
+	(U+7B53): Use `->subsumptive' to separate representative nodes.
+
 2013-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R047-River.el (JX1-7428): Add `ideographic-structure'.
