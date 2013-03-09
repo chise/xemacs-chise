@@ -1,3 +1,73 @@
+2013-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R082-Fur.el: Add some Adobe-Japan1-5 code points.
+	(U+6BEB): Use `->subsumptive'.
+	(U+3C94): Integrate M-16832.
+	(U+3C95): Integrate M-16833.
+	(U-00023B73): Integrate M-16838.
+	(U+3C97): Integrate M-16839.
+	(U-00023B74): Integrate M-16840.
+	(U-00023B76): Integrate M-16842.
+	(U+6BED): Use `->subsumptive' to separate representative nodes.
+	(U+3C99): Integrate M-16847.
+	(U-00023B79): Integrate M-16848.
+	(U-00023B7A): Integrate M-16850.
+	(U-00023B7C): Integrate M-16852.
+	(U-00023B7D): Use `->subsumptive'.
+	(U-00023BE5): Integrate M-16943.
+	(U-00023BE6): Integrate M-16944.
+	(U-00023BE7): Integrate M-16945.
+	(U-00023BE8): Integrate M-16946.
+	(U-00023BE9): Integrate M-16947.
+	(U-00023BEA): Integrate M-16948.
+	(U-00023BEC): Integrate M-16953.
+	(U-00023BED): Integrate M-16954.
+	(U-00023BEE): Integrate M-16955.
+	(U-00023BEF): Integrate M-16956.
+	(U-00023BF0): Integrate M-16957.
+	(U-00023BF1): Integrate M-16958.
+	(U-00023BF2): Integrate M-16959.
+	(U-00023BF5): New character.
+	(U-00023BF7): Use `->subsumptive' to separate representative
+	nodes.
+	(U-00023C09): Use `->denotational' and `->subsumptive'.
+	(U+6C03): Use `->subsumptive'.
+	(U-00023C0C): Integrate M-16981.
+	(U-00023C0D): Integrate M-16985.
+	(U-00023C0E): Integrate M-16986.
+	(U-00023C10): Integrate M-16987.
+	(U-00023C18): New character.
+	(U-00023C17): New character.
+	(U-00023C1A): Integrate M-16992.
+	(U-00023C1B): Integrate M-16994.
+	(U-00023C1C): Integrate M-16995.
+	(U+3CB0): Integrate M-16998.
+	(U-00023C1E): Integrate M-16999.
+	(U-00023C1F): Integrate M-17000.
+	(U-00023C21): Integrate M-17002.
+	(U-00023C27): New character.
+	(U-00023C29): New character.
+	(U-00023C28): Integrate M-17005.
+	(U-00023C23): Use `->subsumptive'.
+	(U-00023C2B): Integrate M-17006.
+	(U+3CB1): Integrate M-17007.
+	(U-00023C2C): Integrate M-17008.
+	(U+6C0C): Use `->subsumptive' to separate representative nodes.
+	(U-00023C2D): Integrate M-17010.
+	(U-00023C2E): Integrate M-17011.
+	(U+4DB0): Use `->denotational' to separate representative nodes.
+	(U-00020AC8): Integrate M-17012.
+	(U-00023C32): Integrate M-17013.
+	(U-00023C36): Integrate M-17014.
+	(U-00023C37): Integrate M-17015.
+	(U-00023C38): Integrate M-17016.
+	(U-00023C3A): New character.
+	(U-00023C3B): Integrate M-17018.
+	(U-00023C3C): Integrate M-17019.
+	(U-00023C42): New character.
+	(U+3CB2): Use `->subsumptive'.
+	(U-00023C44): Integrate M-17025.
+
 2013-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R118-Bamboo.el (U-00025ADD): Integrate M-25849.
