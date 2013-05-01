@@ -2,7 +2,7 @@
    Copyright (C) 1991, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
    Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2008, 2011,
-     2012 MORIOKA Tomohiko
+     2012, 2013 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -37,6 +37,9 @@ Boston, MA 02111-1307, USA.  */
 #ifdef MULE
 #include "mule-ccl.h"
 #include "chartab.h"
+#endif
+#ifdef HAVE_LIBCHISE
+#include <cos.h>
 #endif
 #include "file-coding.h"
 
@@ -2334,7 +2337,11 @@ struct decoding_stream
 
   unsigned combined_char_count;
   Emchar combined_chars[16];
+#ifdef HAVE_LIBCHISE
+  COS_object combining_table;
+#else
   Lisp_Object combining_table;
+#endif /* HAVE_LIBCHISE */
 #endif
   struct detection_state decst;
 };
@@ -2476,7 +2483,11 @@ reset_decoding_stream (struct decoding_stream *str)
   str->bom_flag = 0;
   str->er_counter = 0;
   str->combined_char_count = 0;
+#ifdef HAVE_LIBCHISE
+  str->combining_table = COS_NIL;
+#else
   str->combining_table = Qnil;
+#endif /* HAVE_LIBCHISE */
 #endif
   if (CODING_SYSTEM_TYPE (str->codesys) == CODESYS_AUTODETECT
       || CODING_SYSTEM_EOL_TYPE (str->codesys) == EOL_AUTODETECT)
@@ -3507,7 +3518,23 @@ COMPOSE_FLUSH_CHARS (struct decoding_stream *str, unsigned_char_dynarr* dst)
   for (i = 0; i < str->combined_char_count; i++)
     decode_add_er_char (str, str->combined_chars[i], dst);
   str->combined_char_count = 0;
+#ifdef HAVE_LIBCHISE
+  str->combining_table = COS_NIL;
+#else
   str->combining_table = Qnil;
+#endif /* HAVE_LIBCHISE */
+}
+
+extern CONCORD_DS concord_current_env;
+
+static int
+concord_setup_env_maybe ()
+{
+  if (concord_current_env == NULL)
+    {
+      concord_open_env ("/usr/local/share/chise/1.0/db/");
+    }
+  return 0;
 }
 
 void COMPOSE_ADD_CHAR (struct decoding_stream *str, Emchar character,
@@ -3518,6 +3545,73 @@ COMPOSE_ADD_CHAR (struct decoding_stream *str,
 {
   if (CODING_SYSTEM_DISABLE_COMPOSITION (str->codesys))
     decode_add_er_char (str, character, dst);
+#ifdef HAVE_LIBCHISE
+  else if (!cos_cons_p (str->combining_table))
+    {
+      COS_object ret;
+
+      concord_setup_env_maybe ();
+      ret = concord_object_get_feature_value (cos_make_char (character),
+					      COS_COMPOSITION);
+
+      if (!cos_cons_p (ret))
+	decode_add_er_char (str, character, dst);
+      else
+	{
+	  //cos_retain_object (ret);
+	  str->combined_chars[0] = character;
+	  str->combined_char_count = 1;
+	  str->combining_table = ret;
+	}
+    }
+  else
+    {
+      COS_object ret
+	= cos_cdr (cos_assoc (cos_make_char (character),
+			      str->combining_table));
+
+      //cos_release_object (str->combining_table);
+      if (cos_char_p (ret))
+	{
+	  Emchar char2 = cos_char_id (ret);
+	  COS_object ret2;
+
+	  concord_setup_env_maybe ();
+      	  ret2 = concord_object_get_feature_value (ret, COS_COMPOSITION);
+
+	  if (!cos_cons_p (ret2))
+	    {
+	      decode_add_er_char (str, char2, dst);
+	      str->combined_char_count = 0;
+	      str->combining_table = COS_NIL;
+	    }
+	  else
+	    {
+	      //cos_retain_object (ret2);
+	      str->combined_chars[0] = char2;
+	      str->combined_char_count = 1;
+	      str->combining_table = ret2;
+	    }
+	}
+      else
+	{
+	  concord_setup_env_maybe ();
+      	  ret = concord_object_get_feature_value (cos_make_char (character),
+						  COS_COMPOSITION);
+
+	  COMPOSE_FLUSH_CHARS (str, dst);
+	  if (!cos_cons_p (ret))
+	    decode_add_er_char (str, character, dst);
+	  else
+	    {
+	      //cos_retain_object (ret);
+	      str->combined_chars[0] = character;
+	      str->combined_char_count = 1;
+	      str->combining_table = ret;
+	    }
+	}
+    }
+#else
   else if (!CONSP (str->combining_table))
     {
       Lisp_Object ret
@@ -3573,6 +3667,7 @@ COMPOSE_ADD_CHAR (struct decoding_stream *str,
 	    }
 	}
     }
+#endif /* HAVE_LIBCHISE */
 }
 #else /* not UTF2000 */
 #define COMPOSE_FLUSH_CHARS(str, dst)
