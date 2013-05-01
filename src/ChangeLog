@@ -1,3 +1,13 @@
+2013-04-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* text-coding.c (struct decoding_stream): Use COS_object instead
+	of Lisp_Object for `combining_table' if HAVE_LIBCHISE is defined.
+	(reset_decoding_stream): Likewise.
+	(COMPOSE_FLUSH_CHARS): Likewise.
+	(concord_setup_env_maybe): New function.
+	(COMPOSE_ADD_CHAR): Use COS API for `str->combining_table' if
+	HAVE_LIBCHISE is defined.
+
 2013-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* chartab.c (find_char_feature_in_family): New implementation;
