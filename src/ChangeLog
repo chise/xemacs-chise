@@ -1,3 +1,27 @@
+2013-05-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* chartab.h (load_char_attribute_maybe_cos): New prototype when
+	HAVE_LIBCHISE is defined.
+	(get_char_id_table_ce): New inline function when HAVE_LIBCHISE is
+	defined.
+
+	* mule-charset.c (charset_code_point): Use `get_char_id_table_ce'
+	instead of `get_char_id_table' when HAVE_LIBCHISE is defined.
+	(load_char_decoding_entry_maybe): Don't use
+	`decoding_table_put_char' to avoid GC.
+
+	* text-coding.c (concord_setup_env_maybe): Abolished.
+	(COMPOSE_ADD_CHAR): Use `open_chise_data_source_maybe' instead of
+	`concord_setup_env_maybe'.
+
+2013-05-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* chartab.c (open_chise_data_source_maybe): New implementation;
+	don't use `build_string' and `Fexpand_file_name' to avoid GC.
+	(char_table_get_db_cos): New function when HAVE_LIBCHISE is
+	defined.
+	(load_char_attribute_maybe_cos): Likewise.
+
 2013-04-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* text-coding.c (struct decoding_stream): Use COS_object instead
