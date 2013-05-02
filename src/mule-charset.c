@@ -1149,8 +1149,15 @@ charset_code_point (Lisp_Object charset, Emchar ch, int accepted_mode)
       Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (charset);
 
       if ( CHAR_TABLEP (encoding_table)
+#ifdef HAVE_LIBCHISE
+	   && !UNBOUNDP (ret = get_char_id_table_ce (XCHAR_TABLE
+						     (encoding_table),
+						     ch))
+#else
 	   && !UNBOUNDP (ret = get_char_id_table (XCHAR_TABLE(encoding_table),
-						  ch)) )
+						  ch))
+#endif
+	   )
 	if ( INTP (ret) )
 	  return XINT (ret);
 	else
@@ -2556,10 +2563,12 @@ load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
     = chise_ds_decode_char (default_chise_data_source,
 			    XSTRING_DATA(Fsymbol_name (XCHARSET_NAME(ccs))),
 			    code_point);
+#if 0
   if (char_id >= 0)
     decoding_table_put_char (ccs, code_point, make_char (char_id));
   else
     decoding_table_put_char (ccs, code_point, Qnil);
+#endif
 
   /* chise_ccst_close (dt_ccs); */
   return char_id;
