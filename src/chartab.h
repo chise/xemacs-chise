@@ -1,7 +1,8 @@
 /* Declarations having to do with Mule char tables.
    Copyright (C) 1992 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2001,2002,2003,2004,2006,2010 MORIOKA Tomohiko
+   Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2006, 2010, 2013
+     MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -376,6 +377,10 @@ put_char_id_table_0 (Lisp_Char_Table* cit, Emchar code, Lisp_Object value)
 #ifdef HAVE_CHISE
 Lisp_Object load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch);
 
+#ifdef HAVE_LIBCHISE
+COS_object load_char_attribute_maybe_cos (Lisp_Char_Table* cit, Emchar ch);
+#endif
+
 #ifndef HAVE_LIBCHISE
 extern Lisp_Object Qsystem_char_id;
 
@@ -419,6 +424,49 @@ get_char_id_table (Lisp_Char_Table* cit, Emchar ch)
   else
     return val;
 }
+
+#ifdef HAVE_LIBCHISE
+INLINE_HEADER Lisp_Object
+get_char_id_table_ce (Lisp_Char_Table* cit, Emchar ch);
+INLINE_HEADER Lisp_Object
+get_char_id_table_ce (Lisp_Char_Table* cit, Emchar ch)
+{
+#if 1
+  Lisp_Object val = get_char_id_table_0 (cit, ch);
+
+  if (EQ (val, Qunloaded))
+    {
+      val = load_char_attribute_maybe (cit, ch);
+      /* put_char_id_table_0 (cit, ch, val); */
+    }
+  if (UNBOUNDP (val))
+    return cit->default_value;
+  else
+    return val;
+#else
+  Lisp_Object val = get_char_id_table_0 (cit, ch);
+
+  if (EQ (val, Qunloaded))
+    {
+#if 0
+      val = load_char_attribute_maybe_cos (cit, ch);
+      if ( val == NULL )
+	return cit->default_value;
+      else
+	return val;
+#else
+      val = load_char_attribute_maybe (cit, ch);
+#endif
+    }
+  if ( UNBOUNDP (val) )
+    return cit->default_value;
+  else
+    return val;
+#endif
+}
+#else
+#define get_char_id_table_ce(cit, ch) get_char_id_table(cit, ch)
+#endif
 
 void
 decode_char_table_range (Lisp_Object range, struct chartab_range *outrange);
