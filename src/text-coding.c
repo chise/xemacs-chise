@@ -3527,6 +3527,7 @@ COMPOSE_FLUSH_CHARS (struct decoding_stream *str, unsigned_char_dynarr* dst)
 
 extern CONCORD_DS concord_current_env;
 
+#if 0
 static int
 concord_setup_env_maybe ()
 {
@@ -3536,6 +3537,7 @@ concord_setup_env_maybe ()
     }
   return 0;
 }
+#endif
 
 void COMPOSE_ADD_CHAR (struct decoding_stream *str, Emchar character,
 		       unsigned_char_dynarr* dst);
@@ -3550,7 +3552,8 @@ COMPOSE_ADD_CHAR (struct decoding_stream *str,
     {
       COS_object ret;
 
-      concord_setup_env_maybe ();
+      /* concord_setup_env_maybe (); */
+      open_chise_data_source_maybe ();
       ret = concord_object_get_feature_value (cos_make_char (character),
 					      COS_COMPOSITION);
 
@@ -3558,7 +3561,6 @@ COMPOSE_ADD_CHAR (struct decoding_stream *str,
 	decode_add_er_char (str, character, dst);
       else
 	{
-	  //cos_retain_object (ret);
 	  str->combined_chars[0] = character;
 	  str->combined_char_count = 1;
 	  str->combining_table = ret;
@@ -3570,13 +3572,13 @@ COMPOSE_ADD_CHAR (struct decoding_stream *str,
 	= cos_cdr (cos_assoc (cos_make_char (character),
 			      str->combining_table));
 
-      //cos_release_object (str->combining_table);
       if (cos_char_p (ret))
 	{
 	  Emchar char2 = cos_char_id (ret);
 	  COS_object ret2;
 
-	  concord_setup_env_maybe ();
+	  /* concord_setup_env_maybe (); */
+	  open_chise_data_source_maybe ();
       	  ret2 = concord_object_get_feature_value (ret, COS_COMPOSITION);
 
 	  if (!cos_cons_p (ret2))
@@ -3587,7 +3589,6 @@ COMPOSE_ADD_CHAR (struct decoding_stream *str,
 	    }
 	  else
 	    {
-	      //cos_retain_object (ret2);
 	      str->combined_chars[0] = char2;
 	      str->combined_char_count = 1;
 	      str->combining_table = ret2;
@@ -3595,7 +3596,8 @@ COMPOSE_ADD_CHAR (struct decoding_stream *str,
 	}
       else
 	{
-	  concord_setup_env_maybe ();
+	  /* concord_setup_env_maybe (); */
+	  open_chise_data_source_maybe ();
       	  ret = concord_object_get_feature_value (cos_make_char (character),
 						  COS_COMPOSITION);
 
@@ -3604,7 +3606,6 @@ COMPOSE_ADD_CHAR (struct decoding_stream *str,
 	    decode_add_er_char (str, character, dst);
 	  else
 	    {
-	      //cos_retain_object (ret);
 	      str->combined_chars[0] = character;
 	      str->combined_char_count = 1;
 	      str->combining_table = ret;
