@@ -5,7 +5,7 @@
    Copyright (C) 1995, 1997, 1999 Electrotechnical Laboratory, JAPAN.
    Licensed to the Free Software Foundation.
    Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2008,
-     2010, 2011, 2012 MORIOKA Tomohiko
+     2010, 2011, 2012, 2013 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -3804,22 +3804,43 @@ open_chise_data_source_maybe ()
 {
   if (default_chise_data_source == NULL)
     {
-      Lisp_Object db_dir = Vdata_directory;
       int modemask = 0755;		/* rwxr-xr-x */
+      char* db_dir_name;
+      size_t len;
 
-      if (NILP (db_dir))
-	db_dir = build_string ("../etc");
-      db_dir = Fexpand_file_name (build_string ("chise-db"), db_dir);
+      if (STRINGP (Vdata_directory))
+	{
+	  char* dir_name = XSTRING_DATA (Vdata_directory);
 
-      default_chise_data_source
-	= CHISE_DS_open (CHISE_DS_Berkeley_DB, XSTRING_DATA (db_dir),
-			 0 /* DB_HASH */, modemask);
+	  len = strlen (dir_name) + 8;
+	  db_dir_name = alloca (len + 1);
+	  strncpy (db_dir_name, dir_name, len);
+	}
+      else
+	{
+	  if (STRINGP (current_buffer->directory))
+	    {
+	      char* dir_name = XSTRING_DATA (current_buffer->directory);
+
+	      len = strlen (dir_name) + 7 + 8;
+	      db_dir_name = alloca (len + 1);
+	      strncpy (db_dir_name, dir_name, len);
+	      strncat(db_dir_name, "../etc/", 15);
+	    }
+	  else
+	    {
+	      len = 7 + 8;
+	      db_dir_name = alloca (len + 1);
+	      strncpy (db_dir_name, "../etc/", len);
+	    }
+	}
+      strncat(db_dir_name, "chise-db", 8);
+
+      default_chise_data_source = CHISE_DS_open (CHISE_DS_Berkeley_DB,
+						 db_dir_name,
+						 0 /* DB_HASH */, modemask);
       if (default_chise_data_source == NULL)
 	return -1;
-#if 0
-      chise_ds_set_make_string_function (default_chise_data_source,
-					 &make_string);
-#endif
     }
   return 0;
 }
@@ -3895,13 +3916,8 @@ char_table_get_db (Lisp_Char_Table* cit, Emchar ch)
 
   if (!status)
     {
-#if 0
-      val = Fread (make_string (chise_value_data (&value),
-				chise_value_size (&value) ));
-#else
       val = read_from_c_string (chise_value_data (&value),
 				chise_value_size (&value) );
-#endif
     }
   else
     val = Qunbound;
@@ -3915,6 +3931,17 @@ char_table_get_db (Lisp_Char_Table* cit, Emchar ch)
 #endif /* not HAVE_LIBCHISE */
   return val;
 }
+
+#ifdef HAVE_LIBCHISE
+COS_object
+char_table_get_db_cos (Lisp_Char_Table* cit, Emchar ch)
+{
+  return
+    concord_object_get_feature_value
+    (cos_make_char (ch),
+     cos_intern (XSTRING_DATA (Fsymbol_name (cit->name))));
+}
+#endif
 
 #ifndef HAVE_LIBCHISE
 Lisp_Object
@@ -4185,6 +4212,27 @@ load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch)
     }
   return Qunbound;
 }
+
+#ifdef HAVE_LIBCHISE
+COS_object
+load_char_attribute_maybe_cos (Lisp_Char_Table* cit, Emchar ch)
+{
+  Lisp_Object attribute = CHAR_TABLE_NAME (cit);
+
+  if (!NILP (attribute))
+    {
+      COS_object val;
+
+      if (char_table_open_db_maybe (cit))
+	return Qunbound;
+
+      val = char_table_get_db_cos (cit, ch);
+
+      return val;
+    }
+  return Qunbound;
+}
+#endif
 
 Lisp_Char_Table* char_attribute_table_to_load;
 
