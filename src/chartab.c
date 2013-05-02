@@ -4224,13 +4224,13 @@ load_char_attribute_maybe_cos (Lisp_Char_Table* cit, Emchar ch)
       COS_object val;
 
       if (char_table_open_db_maybe (cit))
-	return Qunbound;
+	return NULL;
 
       val = char_table_get_db_cos (cit, ch);
 
       return val;
     }
-  return Qunbound;
+  return NULL;
 }
 #endif
 
