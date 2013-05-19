@@ -1,3 +1,12 @@
+2013-05-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* chartab.h (get_char_id_table_ce): Use
+	`load_char_attribute_maybe_cos' instead of
+	`load_char_attribute_maybe'.
+
+	* chartab.c (load_char_attribute_maybe_cos): Return NULL instead
+	of Qunbound as the default value.
+
 2013-05-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* chartab.h (load_char_attribute_maybe_cos): New prototype when
