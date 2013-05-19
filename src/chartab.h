@@ -431,38 +431,24 @@ get_char_id_table_ce (Lisp_Char_Table* cit, Emchar ch);
 INLINE_HEADER Lisp_Object
 get_char_id_table_ce (Lisp_Char_Table* cit, Emchar ch)
 {
-#if 1
-  Lisp_Object val = get_char_id_table_0 (cit, ch);
-
-  if (EQ (val, Qunloaded))
-    {
-      val = load_char_attribute_maybe (cit, ch);
-      /* put_char_id_table_0 (cit, ch, val); */
-    }
-  if (UNBOUNDP (val))
-    return cit->default_value;
-  else
-    return val;
-#else
   Lisp_Object val = get_char_id_table_0 (cit, ch);
 
   if (EQ (val, Qunloaded))
     {
 #if 0
-      val = load_char_attribute_maybe_cos (cit, ch);
-      if ( val == NULL )
+      val = load_char_attribute_maybe (cit, ch);
+#else
+      COS_object ret = load_char_attribute_maybe_cos (cit, ch);
+      if ( ret == NULL )
 	return cit->default_value;
       else
-	return val;
-#else
-      val = load_char_attribute_maybe (cit, ch);
+	return ret;
 #endif
     }
-  if ( UNBOUNDP (val) )
+  if (UNBOUNDP (val))
     return cit->default_value;
   else
     return val;
-#endif
 }
 #else
 #define get_char_id_table_ce(cit, ch) get_char_id_table(cit, ch)
