@@ -1,3 +1,13 @@
+2013-05-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* text-coding.c (COMPOSE_ADD_CHAR): Use
+	`concord_object_get_attribute' instead of
+	`concord_object_get_feature_value'.
+
+	* chartab.c (char_table_get_db_cos): Use
+	`concord_object_get_attribute' instead of
+	`concord_object_get_feature_value'.
+
 2013-05-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* chartab.h (get_char_id_table_ce): Use
