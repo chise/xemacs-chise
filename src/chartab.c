@@ -3937,7 +3937,7 @@ COS_object
 char_table_get_db_cos (Lisp_Char_Table* cit, Emchar ch)
 {
   return
-    concord_object_get_feature_value
+    concord_object_get_attribute
     (cos_make_char (ch),
      cos_intern (XSTRING_DATA (Fsymbol_name (cit->name))));
 }
