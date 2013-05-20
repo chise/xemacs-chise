@@ -3554,7 +3554,7 @@ COMPOSE_ADD_CHAR (struct decoding_stream *str,
 
       /* concord_setup_env_maybe (); */
       open_chise_data_source_maybe ();
-      ret = concord_object_get_feature_value (cos_make_char (character),
+      ret = concord_object_get_attribute (cos_make_char (character),
 					      COS_COMPOSITION);
 
       if (!cos_cons_p (ret))
@@ -3579,7 +3579,7 @@ COMPOSE_ADD_CHAR (struct decoding_stream *str,
 
 	  /* concord_setup_env_maybe (); */
 	  open_chise_data_source_maybe ();
-      	  ret2 = concord_object_get_feature_value (ret, COS_COMPOSITION);
+      	  ret2 = concord_object_get_attribute (ret, COS_COMPOSITION);
 
 	  if (!cos_cons_p (ret2))
 	    {
@@ -3598,7 +3598,7 @@ COMPOSE_ADD_CHAR (struct decoding_stream *str,
 	{
 	  /* concord_setup_env_maybe (); */
 	  open_chise_data_source_maybe ();
-      	  ret = concord_object_get_feature_value (cos_make_char (character),
+      	  ret = concord_object_get_attribute (cos_make_char (character),
 						  COS_COMPOSITION);
 
 	  COMPOSE_FLUSH_CHARS (str, dst);
