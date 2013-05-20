@@ -474,6 +474,14 @@
     (ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5DDB)	; 巛
+      )
+     ((=ucs		  . #x679C)	; 果
+      ))
     (=ucs@unicode	. #x5DE2)	; &AJ1-13362;
     (=adobe-japan1-4	. 13362)	; &AJ1-13362;
     (=gb2312		. #x3332)	; &I-G0-3332; [19-18]
@@ -563,6 +571,14 @@
     (ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5DDB)	; 巛
+      )
+     ((=big5-cdp	  . #x8850)	; &CDP-8850;
+      ))
     (=ucs		. #x2F882)	; 巢
     (=cns11643-6	. #x5C49)	; &I-C6-5C49; [60-41]
     (=daikanwa		. 08700)	; &I-M-08700;
