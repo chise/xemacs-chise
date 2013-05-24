@@ -1173,6 +1173,11 @@
     (ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (=decomposition@cid
+     ((=ucs		  . #x5C51)	; 屑
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=decomposition@hanyo-denshi
      ((=ucs		  . #x5C51)	; 屑
       )
@@ -1496,7 +1501,12 @@
     (total-strokes	 . 11)
     (=ucs		. #x5C5A)	; 屚
     (->subsumptive
-     ((=ucs@unicode	  . #x5C5A)	; &AJ1-21456;
+     ((=decomposition@cid
+       ((=ucs		    . #x5C5A)	; 屚
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@unicode	  . #x5C5A)	; &AJ1-21456;
       (=adobe-japan1-6	  . 21456)	; &AJ1-21456;
       (=jis-x0212	  . #x3A78)	; &I-JSP-3A78; [26-88]
       (=daikanwa	  . 07731)	; &I-M-07731;
@@ -1891,7 +1901,12 @@
     (=>>>hanyo-denshi/ft . #x326A)	; &g2-AJ1-07754; [18-74]
     (=>>daikanwa	. 07761)	; &g2-AJ1-07754;
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x5C60)	; 屠
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x5C60)	; 屠
 	)
        ((=ucs		    . #xE0103)	; 󠄃
