@@ -825,8 +825,8 @@
        ((=gt-k		    . 01444)	; &GT-K01444;
 	))
       (<-simplified@component/connect-below
-       ((=gt		    . 60969)	; &GT-60969;
-	(=daikanwa	    . 45314)	; &I-M-45314;
+       ((=ucs@JP	    . #x9AD9)	; &AJ1-08705;
+	(=adobe-japan1-2    . 08705)	; &AJ1-08705;
 	))
       ))
     ))
@@ -1349,8 +1349,8 @@
       (=gt-k		  . 04733)	; &GT-K04733;
       (=gt-pj-k1	  . #x393A)	; &GT-K04733; [25-26]
       (<-simplified@component/connect-below
-       ((=gt		    . 60969)	; &GT-60969;
-	(=daikanwa	    . 45314)	; &I-M-45314;
+       ((=ucs@JP	    . #x9AD9)	; &AJ1-08705;
+	(=adobe-japan1-2    . 08705)	; &AJ1-08705;
 	))
       (<-vulgar@component
        ((=big5-cdp	    . #x8C4D)	; &CDP-8C4D;
