@@ -14,6 +14,11 @@
     (ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (=decomposition@cid
+     ((=ucs		  . #x5C6E)	; 屮
+      )
+     ((=ucs		  . #xE0100)	; 󠄀
+      ))
     (=ucs		. #xFA3C)	; 屮
     (=ucs@unicode	. #x5C6E)	; 屮
     (=ucs@jis		. #xFA3C)	; 屮
