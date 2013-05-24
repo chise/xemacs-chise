@@ -37205,6 +37205,7 @@
 	(=ucs		    . #x2E85)	; ⺅
 	)
        ((=ucs@jis	    . #x5D6C)	; &AJ1-04697;
+	(=ucs@ks	    . #x5D6C)	; &AJ1-04697;
 	(=adobe-japan1-0    . 04697)	; &AJ1-04697;
 	))
       (=ucs@iso		  . #x203BA)	; &C7-212F;
