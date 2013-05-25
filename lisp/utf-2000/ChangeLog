@@ -1,3 +1,15 @@
+2013-05-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x564C, #x3460, #x565B and #x5628.
+
+2013-05-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R045-Sprout.el (AJ1-16837): Add `=decomposition@cid'.
+
+	* Ideograph-R044-Corpse.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+
 2013-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R082-Fur.el: Add some Adobe-Japan1-5 code points.
