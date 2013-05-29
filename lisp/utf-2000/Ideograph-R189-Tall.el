@@ -39,11 +39,13 @@
     (total-strokes	 . 11)
     (=ucs		. #x9AD9)	; 髙
     (->subsumptive
-     ((=gt		  . 60969)	; &GT-60969;
+     ((=ucs@JP		  . #x9AD9)	; &AJ1-08705;
+      (=adobe-japan1-2	  . 08705)	; &AJ1-08705;
+      (=gt		  . 60969)	; &I-GT-60969;
       (=gt-k		  . 08024)	; &I-GT-K08024;
-      (=gt-pj-8		  . #x5362)	; &GT-60969; [51-66]
+      (=gt-pj-8		  . #x5362)	; &I-GT-60969; [51-66]
       (=daikanwa	  . 45314)	; &I-M-45314;
-      (=shinjigen	  .  9451)	; &GT-60969;
+      (=shinjigen	  .  9451)	; &AJ1-08705;
       (=jef-china3	  . #x6EA4)	; &I-JC3-6EA4;
       (<-vulgar
        ((=ucs@jis	    . #x9AD8)	; &GT-60968;
@@ -461,8 +463,9 @@
     (total-strokes	 . 18)
     (=ucs		. #x9ADC)	; 髜
     (->subsumptive
-     ((=ucs@jis		  . #x9ADC)	; &JX2-7D32;
-      (=jis-x0212	  . #x696D)	; &JX2-7D32; [73-77]
+     ((=ucs@jis		  . #x9ADC)	; &AJ1-08706;
+      (=adobe-japan1-2	  . 08706)	; &AJ1-08706;
+      (=jis-x0212	  . #x696D)	; &I-JSP-696D; [73-77]
       (=jis-x0213-2	  . #x7D32)	; &I-JX2-7D32; [93-18]
       (=daikanwa	  . 45333)	; &I-M-45333;
       )
