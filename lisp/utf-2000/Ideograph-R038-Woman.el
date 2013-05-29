@@ -1395,10 +1395,12 @@
     (=jis-x0213-1	. #x562C)	; &I-JX1-562C; [54-12]
     (=gt		. 09983)	; &I-GT-09983;
     (=gt-pj-1		. #x562C)	; &I-GT-09983; [54-12]
-    (<-error@jis-x0208
+    (<-error@jis/x0208
      ((=ucs@jis		  . #x216B4)	; &AJ1-16838;
       (=adobe-japan1-5	  . 16838)	; &AJ1-16838;
       ))
+    (<-error@jis/x0208*sources
+     jis-x0208@1997)
     (<-unknown
      ((=ucs@jis		  . #x5AB8)	; &JSP-397B;
       (=jis-x0212	  . #x397B)	; &JSP-397B; [25-91]
