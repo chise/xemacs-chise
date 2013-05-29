@@ -1,4 +1,11 @@
+2013-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R038-Woman.el (J0-562C): Use `<-error@jis/x0208'
+	instead of `<-error@jis-x0208'; add `<-error@jis/x0208*sources'.
+
 2013-05-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R189-Tall.el: Add some Adobe-Japan1-2 code points.
 
 	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
 	Add #x564C, #x3460, #x565B and #x5628.
