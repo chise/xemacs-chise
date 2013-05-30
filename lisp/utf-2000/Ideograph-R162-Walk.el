@@ -2674,7 +2674,7 @@
     (total-strokes	 . 8)
     (=daikanwa		. 38770)	; &M-38770;
     (<-wrong
-     ((=ks-x1001	  . #x625E)	; &HD-JT-BC3A; [66-62]
+     ((=adobe-japan1-4	  . 13823)	; &AJ1-13823;
       (=daikanwa	  . 08684)	; &I-M-08684;
       ))
     (<-wrong*sources
