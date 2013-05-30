@@ -1,5 +1,14 @@
 2013-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R049-Oneself.el:
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	- Add some Adobe-Japan1 code points.
+	(U+5DF8): Use `->denotational'.
+
+	* Ideograph-R047-River.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+	(K0-625E): Unify AJ1-13823.
+
 	* Ideograph-R038-Woman.el (J0-562C): Use `<-error@jis/x0208'
 	instead of `<-error@jis-x0208'; add `<-error@jis/x0208*sources'.
 
