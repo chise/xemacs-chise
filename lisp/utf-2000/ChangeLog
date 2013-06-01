@@ -1,3 +1,40 @@
+2013-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R169-Gate.el (J90-313C): Use
+	`=jis-x0208@1978/1pr/fixed' and `=jis-x0208@1978/2-pr' instead of
+	`=jis-x0208@1978/1er-pr'; add `=jis-x0208@1978/1pr/fixed*sources'.
+	(J90-6F65): Likewise; use `=ucs@jis/1990', `=ucs@jis/2000' and
+	`=ucs@jis/2004' instead of `=ucs@jis'.
+
+2013-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R076-Lack.el (mother of C6-406B): Unify G-IU+238AE.
+
+	* Ideograph-R050-Turban.el:
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	- Add some Adobe-Japan1 code points.
+	(U+383A): Use `->subsumptive' to separate representative nodes.
+	(U-00022099): New character.
+	(A-J0-5672): New node.
+	(JX1-5672): Use A-J0-5672 instead of U+5E64 as the mother; delete
+	J78-5672; add `=jis-x0208@1978/1pr/fixed' and
+	`=jis-x0208@1978/2-pr'; add =jis-x0208@1978/1pr/fixed*sources'.
+	(HD-FT2167): Use A-J0-5672 instead of U+5E64 as the mother.
+	(AJ1-07827): New character; unify J78/1pr-5672; add
+	`<-error@jis/x0208' for AJ1-04735.
+	(mother of M-09107): Add `<-denotational' for U+3862; unify
+	G-CU+2F888, g2-CU+2F888 and G-M-09107 instead of U-0002F888.
+	(C7-2D55): Unify U-0002F888.
+	(A-UU+3862): New node.
+	(UU+3862): Use A-UU+3862 instead of U+3862 as the mother.
+	(C3-4B6F): Likewise.
+	(U+5E70): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+
+	* Ideograph-R048-Work.el:
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	- Add some Adobe-Japan1 code points.
+
 2013-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R049-Oneself.el:
