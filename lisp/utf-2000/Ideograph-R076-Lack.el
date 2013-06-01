@@ -1209,8 +1209,8 @@
     (total-strokes	 . 10)
     (=daikanwa		. 16059)	; &M-16059;
     (<-same
-     ((=ucs@jis		  . #x5DF8)	; &JSP-3C22;
-      (=jis-x0212	  . #x3C22)	; &JSP-3C22; [28-02]
+     ((=ucs@jis		  . #x5DF8)	; &AJ1-14496;
+      (=adobe-japan1-4	  . 14496)	; &AJ1-14496;
       (=daikanwa	  . 08757)	; &I-M-08757;
       ))
     (<-same*sources
@@ -1223,6 +1223,7 @@
     (ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (=>>ucs@iso		. #x238AE)	; &G-IU+238AE;
     (->subsumptive
      ((=cns11643-6	  . #x406B)	; &C6-406B; [32-75]
       )
