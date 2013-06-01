@@ -404,6 +404,17 @@
 	    final ?@
 	    graphic 0))
   (make-charset
+   '=jis-x0208@1978/1pr/fixed
+   "JIS X 0208:1978, correct glyph in the errata of 1st impression."
+   '(registry "jisx0208\\.1978"
+	      dimension 2
+	      chars 94
+	      mother =jis-x0208@1978/1pr
+	      =>iso-ir 42
+	      ;; final ?@
+	      graphic 0
+	      partial t))
+  (make-charset
    '=jis-x0208@1978/-4X
    "JIS X 0208:1978, index before the 4th impression."
    '(registry "jisx0208\\.1978"
@@ -414,24 +425,25 @@
               ;; final ?@
 	      graphic 0
 	      partial t))
-  (make-charset
-   '=jis-x0208@1978/1er-pr
-   "JIS X 0208:1978, fixed by errata [Nov 1978]."
-   '(registry "jisx0208\\.1978"
-	      dimension 2
-	      chars 94
-	      mother =jis-x0208@1978
-              =>iso-ir 42
-	      ;; final ?@
-	      graphic 0
-	      partial t))
+  ;; (make-charset
+  ;;  '=jis-x0208@1978/1er-pr
+  ;;  "JIS X 0208:1978, fixed by errata [Nov 1978]."
+  ;;  '(registry "jisx0208\\.1978"
+  ;;             dimension 2
+  ;;             chars 94
+  ;;             mother =jis-x0208@1978
+  ;;             =>iso-ir 42
+  ;;             ;; final ?@
+  ;;             graphic 0
+  ;;             partial t))
   (make-charset
    '=jis-x0208@1978/2-pr
    "JIS X 0208:1978, 2nd impression or later."
    '(registry "jisx0208\\.1978"
 	      dimension 2
 	      chars 94
-	      mother =jis-x0208@1978/1er-pr
+              ;; mother =jis-x0208@1978/1er-pr
+	      mother =jis-x0208@1978
               =>iso-ir 42
 	      ;; final ?@
 	      graphic 0
