@@ -367,16 +367,13 @@
       )
      ((=ucs		  . #x81FC)	; 臼
       )
-     ((=ucs@unicode	  . #x5EFE)	; &GT-12077;
-      (=jis-x0208	  . #x5730)	; &GT-12077; [55-16]
-      (=gb2312		  . #x5E43)	; &I-G0-5E43; [62-35]
-      (=cns11643-1	  . #x445C)	; &I-C1-445C; [36-60]
-      (=jis-x0213-1	  . #x5730)	; &I-JX1-5730; [55-16]
-      (=daikanwa	  . 09583)	; &I-M-09583;
+     ((=ucs@unicode	  . #x5EFE)	; &AJ1-04763;
+      (=adobe-japan1-0	  . 04763)	; &AJ1-04763;
       ))
     (=ucs		. #x2F893)	; 舁
     (=ucs@unicode	. #x8201)	; 舁
     (=ucs@cns		. #x2F893)	; 舁
+    (=adobe-japan1-0	. 06296)	; &I-AJ1-06296;
     (=jis-x0208		. #x674D)	; &I-J90-674D; [71-45]
     (=gb2312		. #x7428)	; &I-G0-7428; [84-08]
     (=cns11643-6	. #x3074)	; &I-C6-3074; [16-84]
@@ -782,18 +779,19 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
     (=ucs		. #x8207)	; 與
+    (=big5		. #xBB50)	; &I-B-BB50;
     (->subsumptive
-     ((=ucs@unicode	  . #x8207)	; &GT-39084;
-      (=jis-x0208	  . #x6750)	; &GT-39084; [71-48]
+     ((=ucs@unicode	  . #x8207)	; &AJ1-06299;
+      (=adobe-japan1-0	  . 06299)	; &AJ1-06299;
+      (=jis-x0208	  . #x6750)	; &I-J90-6750; [71-48]
       (=ks-x1001	  . #x6628)	; &I-K0-6628; [70-08]
       (=jis-x0213-1	  . #x6750)	; &I-JX1-6750; [71-48]
-      (=gb12345		  . #x536B)	; &GT-39084; [51-75]
-      (=big5		  . #xBB50)	; &I-B-BB50;
+      (=gb12345		  . #x536B)	; &AJ1-06299; [51-75]
       (=gt		  . 39084)	; &I-GT-39084;
       (=gt-k		  . 10342)	; &I-GT-K10342;
       (=gt-pj-1		  . #x6750)	; &I-GT-39084; [71-48]
       (=daikanwa	  . 30212)	; &I-M-30212;
-      (=shinjigen	  .  6626)	; &GT-39084;
+      (=shinjigen	  .  6626)	; &AJ1-06299;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
@@ -1601,13 +1599,13 @@
     (ideographic-radical . 134)	; ⾅
     (ideographic-strokes . 14)
     (total-strokes	 . 20)
+    (=>>ucs@iso		. #x269B2)	; &G-IU+269B2;
+    (=>>daikanwa	. 30263)	; &G-IU+269B2;
     (->subsumptive
      ((=daikanwa	  . 30263)	; &M-30263;
       (<-ancient@s=company
-       ((=ucs@unicode	    . #x8207)	; &GT-39084;
-	(=jis-x0208	    . #x6750)	; &GT-39084; [71-48]
-	(=ks-x1001	    . #x6628)	; &I-K0-6628; [70-08]
-	(=jis-x0213-1	    . #x6750)	; &I-JX1-6750; [71-48]
+       ((=ucs@unicode	    . #x8207)	; &AJ1-06299;
+	(=adobe-japan1-0    . 06299)	; &AJ1-06299;
 	(=daikanwa	    . 30212)	; &I-M-30212;
 	))
       (<-ancient@s=company*sources
