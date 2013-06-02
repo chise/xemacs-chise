@@ -1,3 +1,30 @@
+2013-06-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R109-Eye.el (JX1-7877): Use `=jis-x0208@1978/1pr*note'
+	instead of `=jis-x0208@1978*note'.
+
+2013-06-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (J90-7033): Use
+	`=jis-x0208@1978/1pr/fixed', `=jis-x0208@1978/2-pr',
+	`=jis-x0208@1983' and `=jis-x0208@1990' instead of `=jis-x0208';
+	use `=ucs@jis/1990', `=ucs@jis/2000' and `=ucs@jis/2004' instead
+	of `=ucs@jis'; add `=jis-x0208@1978/1pr/fixed*sources'.
+	(G-HD-JB7084): Unify G-AJ1-15269.
+	(JSP-6674): Unify AJ1-15269.
+	(JX1-7B74): Unify S-8960; add `<-original' for J0-7036.
+
+	* Ideograph-R134-Mortar.el (J0-674D): Unify AJ1-06296.
+	(J0-6750): Unify AJ1-06299.
+	(mother of IU+269B2): Unify G-IU+269B2 and G-M-30263.
+
+	* Ideograph-R055-Two-Hands.el: Add some Adobe-Japan1-0 code
+	points.
+	(U-00022331): Use `->denotational' to integrate U-0002F891 and
+	U-0002F892.
+	(U-0002F891): Add `<-denotational' for U-00022331.
+	(U-0002F892): Ditto.
+
 2013-06-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R097-Melon.el (J0-6122): Unify AJ1-05689.
