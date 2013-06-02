@@ -1,3 +1,60 @@
+2013-06-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R097-Melon.el (J0-6122): Unify AJ1-05689.
+
+	* Ideograph-R075-Tree.el (J0-347E): Unify AJ1-01594.
+
+	* Ideograph-R064-Hand.el (U+630A): Unify S-2251; add `<-vulgar'
+	for U+5F04.
+	(U+6335): Unify S-2252 and H5-D8CC; add `<-vulgar' for U+5F04.
+
+	* Ideograph-R046-Mountain.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.	
+	(U+37A8): Use `->subsumptive' to separate representative nodes.
+	(U+5C7E): Likewise.
+	(U+37B5): Integrate M-07931.
+	(U+37B6): Use `->subsumptive' to separate representative nodes.
+	(U+5C8E): Likewise.
+	(U+5C93): Likewise.
+	(U+5C9E): Likewise.
+	(U+37B9): Likewise.
+	(U+37C4): Likewise.
+	(U+5CD6): Likewise.
+	(U+5CDE): Likewise.
+	(U+5CD8): Likewise.
+	(U+5CE5): Likewise.
+	(U+37D3): Likewise.
+	(C5-2D31): Unify IU+21DE0 instead of UU+21DE0.
+	(G-UU+5D1D): Unify G-HD-IB0664.
+	(U+5D21): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+5D35): Use `->subsumptive' to separate representative nodes.
+	(U+5D38): Likewise.
+	(U-00021E71): New character.
+	(mother of C3-3B2A): Unify G-UU+5D48.
+	(U-00021E76): Use `->denotational' and `->subsumptive'.
+	(U+5D4F): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+37EA): Use `->subsumptive' to separate representative nodes.
+	(U+37F0): Likewise.
+	(mother of C4-3C7D): Unify G-IU+21EB2 and G-M-08336.
+	(U-00021EEA): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+5D7B): Use `->subsumptive' to separate representative nodes.
+	(U-00021EDA): Likewise.
+	(U-00021EE1): Likewise.
+	(U+3801): Likewise.
+	(U+5DA3): Likewise.
+	(U-00021F15): Likewise.
+	(U+380C): Likewise.
+	(U+380D): Use `->subsumptive'.
+	(U+380E): Likewise.
+	(U+5D9C): Use `->subsumptive' to separate representative nodes.
+	(U+3819): Likewise.
+	(U+3818): Likewise.
+	(U-00021F64): Use `->subsumptive'.
+
 2013-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R169-Gate.el (J90-313C): Use
