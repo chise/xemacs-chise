@@ -4333,8 +4333,16 @@
     (=cns11643-4	. #x2959)	; &I-C4-2959; [09-57]
     (=jis-x0213-1	. #x746C)	; &I-JX1-746C; [84-76]
     (=daikanwa		. 12041)	; &I-M-12041;
+    (=shinjigen		.  2251)	; 挊
     (=cbeta		. 02416)	; &I-CB02416;
     (=jef-china3	. #x4FC4)	; &I-JC3-4FC4;
+    (<-vulgar
+     ((=ucs		  . #x5F04)	; 弄
+      (=jis-x0208	  . #x4F2E)	; &I-J90-4F2E; [47-14]
+      (=shinjigen	  .  2250)	; 弄
+      ))
+    (<-vulgar*sources
+     shinjigen)
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
@@ -5358,8 +5366,17 @@
     (=cns11643-3	. #x3138)	; &I-C3-3138; [17-24]
     (=jis-x0213-2	. #x2D2C)	; &I-JX2-2D2C; [13-12]
     (=daikanwa		. 12101)	; &I-M-12101;
+    (=shinjigen		.  2252)	; 挵
+    (=hanziku-5		. #xD8CC)	; &I-HZK05-D8CC;
     (=cbeta		. 02537)	; &I-CB02537;
     (=jef-china3	. #x4FC9)	; &I-JC3-4FC9;
+    (<-vulgar
+     ((=ucs		  . #x5F04)	; 弄
+      (=jis-x0208	  . #x4F2E)	; &I-J90-4F2E; [47-14]
+      (=shinjigen	  .  2250)	; 弄
+      ))
+    (<-vulgar*sources
+     shinjigen)
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
