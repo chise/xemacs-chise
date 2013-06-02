@@ -8459,7 +8459,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=daikanwa	  . 08212)	; &M-08212;
+     ((=adobe-japan1-4	  . 14020)	; &AJ1-14020;
       )
      ((name		  . "CJK RADICAL KNIFE TWO")
       (=ucs		  . #x2E89)	; ⺉
