@@ -272,7 +272,9 @@
       (=daikanwa	  . 16002)	; &I-M-16002;
       (=jef-china3	  . #x54CA)	; &I-JC3-54CA;
       (<-same
-       ((=ucs@jis	    . #x55E4)	; &AJ1-04419;
+       ((=ucs@jis/1990	    . #x55E4)	; &AJ1-04419;
+	(=ucs@jis/2000	    . #x55E4)	; &AJ1-04419;
+	(=ucs@jis/2004	    . #x55E4)	; &AJ1-04419;
 	(=ucs@ks	    . #x55E4)	; &AJ1-04419;
 	(=adobe-japan1-0    . 04419)	; &AJ1-04419;
 	(=daikanwa	    . 04110)	; &I-M-04110;
