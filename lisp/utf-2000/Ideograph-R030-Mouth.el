@@ -20095,8 +20095,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt		  . 11193)	; &GT-11193;
-      (=daikanwa	  . 08865)	; &I-M-08865;
+     ((=adobe-japan1-4	  . 13943)	; &AJ1-13943;
       )
      ((=ucs		  . #x53E3)	; 口
       ))
@@ -20198,8 +20197,7 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=gt		  . 11193)	; &GT-11193;
-      (=daikanwa	  . 08865)	; &I-M-08865;
+     ((=adobe-japan1-4	  . 13943)	; &AJ1-13943;
       ))
     (=hanyo-denshi/ks	. 046180)	; &HD-KS-046180;
     (=hanyo-denshi/ks/mf . #x120A)	; &HD-KS-046180;
@@ -28078,9 +28076,13 @@
       )
      ((=ucs		  . #x2F9B7)	; 蚩
       ))
-    (=>>ucs@jis		. #x55E4)	; &g2-AJ1-04419;
+    (=>>ucs@jis/1990	. #x55E4)	; &g2-AJ1-04419;
+    (=>>ucs@jis/2000	. #x55E4)	; &g2-AJ1-04419;
+    (=>>ucs@jis/2004	. #x55E4)	; &g2-AJ1-04419;
     (=>>ucs@ks		. #x55E4)	; &g2-AJ1-04419;
-    (=>>>ucs@jis	. #x55E4)	; &g2-AJ1-04419;
+    (=>>>ucs@jis/1990	. #x55E4)	; &g2-AJ1-04419;
+    (=>>>ucs@jis/2000	. #x55E4)	; &g2-AJ1-04419;
+    (=>>>ucs@jis/2004	. #x55E4)	; &g2-AJ1-04419;
     (=>>>ucs@ks		. #x55E4)	; &g2-AJ1-04419;
     (=>>>adobe-japan1-0 . 04419)	; &g2-AJ1-04419;
     (=>>>jis-x0208@1983 . #x5350)	; &g2-AJ1-04419; [51-48]
@@ -28103,6 +28105,8 @@
 	)
        ((=ucs		    . #xE0103)	; 󠄃
 	))
+      (=jis-x0208@1978/1pr/fixed*sources jis-x0208@1978/1pr/errata
+					 jis-x0208@1997)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
@@ -28117,10 +28121,13 @@
 	(=jis-x0213-1	    . #x6950)	; &I-JX1-6950; [73-48]
 	(=daikanwa	    . 32902)	; &I-M-32902;
 	))
-      (=ucs@jis		  . #x55E4)	; &AJ1-04419;
+      (=ucs@jis/1990	  . #x55E4)	; &AJ1-04419;
+      (=ucs@jis/2000	  . #x55E4)	; &AJ1-04419;
+      (=ucs@jis/2004	  . #x55E4)	; &AJ1-04419;
       (=ucs@ks		  . #x55E4)	; &AJ1-04419;
       (=adobe-japan1-0	  . 04419)	; &AJ1-04419;
-      (=jis-x0208@1978/1er-pr . #x5350)	; &AJ1-04419; [51-48]
+      (=jis-x0208@1978/1pr/fixed . #x5350)	; &AJ1-04419; [51-48]
+      (=jis-x0208@1978/2-pr . #x5350)	; &AJ1-04419; [51-48]
       (=jis-x0208@1983	  . #x5350)	; &I-J83-5350; [51-48]
       (=ks-x1001	  . #x7638)	; &I-K0-7638; [86-24]
       (=jis-x0208@1990	  . #x5350)	; &I-J90-5350; [51-48]
@@ -28191,6 +28198,15 @@
     (=jis-x0208@1978/1pr . #x5350)	; &I-J78-5350; [51-48]
     (=hanyo-denshi/jt	. #xAEF2)	; &I-HD-JT-AEF2;
     (=cbeta		. 06695)	; &I-CB06695;
+    (<-error@jis/x0208
+     ((=ucs@jis/1990	  . #x55E4)	; &AJ1-04419;
+      (=ucs@jis/2000	  . #x55E4)	; &AJ1-04419;
+      (=ucs@jis/2004	  . #x55E4)	; &AJ1-04419;
+      (=ucs@ks		  . #x55E4)	; &AJ1-04419;
+      (=adobe-japan1-0	  . 04419)	; &AJ1-04419;
+      ))
+    (<-error@jis/x0208*sources
+     jis-x0208@1pr/errata jis-x0208@1997)
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
