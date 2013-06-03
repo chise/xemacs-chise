@@ -14,13 +14,20 @@
     (=gt-k		. 00165)	; &I-GT-K00165;
     (=gt-pj-1		. #x355D)	; &I-GT-12214; [21-61]
     (=daikanwa		. 09692)	; &I-M-09692;
-    (=shinjigen@rev	.  2263)	; 弓
+    (=shinjigen		.  2263)	; 弓
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (=daikanwa		. 09693)	; &M-09693;
+    (=ucs		. #x22397)	; 𢎗
+    (=daikanwa		. 09693)	; &I-M-09693;
+    (<-ancient
+     ((=ucs		  . #x4E43)	; 乃
+      (=daikanwa	  . 00113)	; &I-M-00113;
+      ))
+    (<-ancient*sources
+     zhengzitong daikanwa)
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
