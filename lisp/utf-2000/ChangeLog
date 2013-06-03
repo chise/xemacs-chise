@@ -1,5 +1,15 @@
 2013-06-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (g2-AJ1-04419): Use `=>>ucs@jis/1990',
+	`=>>ucs@jis/2000', `=>>ucs@jis/2004', `=>>>ucs@jis/1990',
+	`=>>>ucs@jis/2000' and `=>>>ucs@jis/2004' instead of `=>>ucs@jis'
+	and `=>>>ucs@jis'.
+	(J90-5350): Use `=jis-x0208@1978/1pr/fixed' and
+	`=jis-x0208@1978/2-pr' instead of `=jis-x0208@1978/1er-pr'.
+	(J78/1pr-5350): Add `<-error@jis/x0208' for AJ1-04419.
+
+2013-06-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R109-Eye.el (JX1-7877): Use `=jis-x0208@1978/1pr*note'
 	instead of `=jis-x0208@1978*note'.
 
