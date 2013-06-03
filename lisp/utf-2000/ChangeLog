@@ -1,3 +1,8 @@
+2013-06-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (M-09693): Unify U-00022397; add
+	`<-ancient' for U+4E43.
+
 2013-06-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (g2-AJ1-04419): Use `=>>ucs@jis/1990',
