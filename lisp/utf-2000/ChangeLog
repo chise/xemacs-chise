@@ -1,5 +1,12 @@
 2013-06-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R056-Shoot.el: Add some Adobe-Japan1-0 code points.
+	(M-09657): Integrate U-0002237A and C6-2140; use
+	`ideographic-radical@ucs' and `ideographic-strokes@ucs' instead of
+	`ideographic-radical' and `ideographic-strokes'; add
+	`ideographic-radical@cns' and `ideographic-strokes@cns'.
+	(M-09664): Map to U-0002237D.
+
 	* Ideograph-R057-Bow.el (M-09693): Unify U-00022397; add
 	`<-ancient' for U+4E43.
 
