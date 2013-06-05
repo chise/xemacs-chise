@@ -6364,8 +6364,9 @@
     (=ucs		. #x8A96)	; 誖
     (=big5		. #xE44F)	; &I-B-E44F;
     (->subsumptive
-     ((=ucs@jis		  . #x8A96)	; &JSP-5D76;
-      (=jis-x0212	  . #x5D76)	; &JSP-5D76; [61-86]
+     ((=ucs@jis		  . #x8A96)	; &AJ1-19806;
+      (=adobe-japan1-5	  . 19806)	; &AJ1-19806;
+      (=jis-x0212	  . #x5D76)	; &I-JSP-5D76; [61-86]
       (=daikanwa	  . 35517)	; &I-M-35517;
       )
      ((=ucs@unicode	  . #x8A96)	; &C2-4E37;
