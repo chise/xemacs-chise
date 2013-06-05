@@ -4,11 +4,13 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=ucs		. #x6208)	; 戈
+    (=big5		. #xA4E0)	; &I-B-A4E0;
     (->subsumptive
      ((=gt		  . 14544)	; &GT-14544;
       (=gt-k		  . 00527)	; &I-GT-K00527;
       (=gt-pj-1		  . #x5879)	; &GT-14544; [56-89]
       (=daikanwa	  . 11530)	; &I-M-11530;
+      (=shinjigen	  .  2755)	; &GT-14544;
       )
      ((=ucs@unicode	  . #x6208)	; &J90-5879;
       (=jis-x0208	  . #x5879)	; &J90-5879; [56-89]
@@ -16,22 +18,32 @@
       (=ks-x1001	  . #x4D7C)	; &I-K0-4D7C; [45-92]
       (=cns11643-1	  . #x4541)	; &I-C1-4541; [37-33]
       (=jis-x0213-1	  . #x5879)	; &I-JX1-5879; [56-89]
-      (=big5		  . #xA4E0)	; &I-B-A4E0;
-      (=shinjigen@rev	  .  2755)	; &J90-5879;
       ))
     ))
 (define-char
-  '((ideographic-radical . 62)	; ⼽
-    (ideographic-strokes . 0)
+  '((ideographic-radical@ucs . 56)	; ⼷
+    (ideographic-strokes@ucs . 0)
+    (ideographic-radical@ucs*sources
+     daikanwa)
+    (ideographic-strokes@ucs*sources
+     daikanwa)
+    (ideographic-radical@cns . 62)	; ⼽
+    (ideographic-strokes@cns . 0)
     (total-strokes	 . 3)
     (=ucs		. #x2237A)	; 𢍺
-    ))
-(define-char
-  '((=>ucs		. #x2237A)	; 𢍺
-    (ideographic-radical . 62)	; ⼽
-    (ideographic-strokes . 0)
-    (total-strokes	 . 3)
-    (=cns11643-6	. #x2140)	; &C6-2140; [01-32]
+    (->subsumptive
+     ((ideographic-radical . 56)	; ⼷
+      (ideographic-strokes . 0)
+      (=daikanwa	  . 09657)	; &M-09657;
+      )
+     ((ideographic-radical . 56)	; ⼷
+      (ideographic-strokes . 0)
+      (=ucs@iso		  . #x2237A)	; &U-0002237A;
+      )
+     ((ideographic-radical . 62)	; ⼽
+      (ideographic-strokes . 0)
+      (=cns11643-6	  . #x2140)	; &C6-2140; [01-32]
+      ))
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
@@ -2201,8 +2213,8 @@
     (=big5-cdp		. #x8AE4)	; &I-CDP-8AE4;
     (=daikanwa		. 11673)	; &I-M-11673;
     (<-Zhouwen
-     ((=ucs@jis		  . #x8A96)	; &JSP-5D76;
-      (=jis-x0212	  . #x5D76)	; &JSP-5D76; [61-86]
+     ((=ucs@jis		  . #x8A96)	; &AJ1-19806;
+      (=adobe-japan1-5	  . 19806)	; &AJ1-19806;
       (=daikanwa	  . 35517)	; &I-M-35517;
       ))
     (<-Zhouwen*sources
