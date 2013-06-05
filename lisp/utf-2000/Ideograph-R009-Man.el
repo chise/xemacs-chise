@@ -42882,15 +42882,14 @@
     (=daikanwa/ho	.  0029)	; 𠐲
     (=hanziku-1		. #xD6D4)	; &I-HZK01-D6D4;
     (<-formed
-     ((=ucs@jis		  . #x8A96)	; &JSP-5D76;
-      (=jis-x0212	  . #x5D76)	; &JSP-5D76; [61-86]
-      (=daikanwa	  . 35517)	; &I-M-35517;
+     ((=ucs@jis		  . #x8A96)	; &AJ1-19806;
+      (=adobe-japan1-5	  . 19806)	; &AJ1-19806;
       ))
     (<-formed*sources
      jiyun)
     (<-same
-     ((=ucs@jis		  . #x8A96)	; &JSP-5D76;
-      (=jis-x0212	  . #x5D76)	; &JSP-5D76; [61-86]
+     ((=ucs@jis		  . #x8A96)	; &AJ1-19806;
+      (=adobe-japan1-5	  . 19806)	; &AJ1-19806;
       (=daikanwa	  . 35517)	; &I-M-35517;
       ))
     (<-same*sources
