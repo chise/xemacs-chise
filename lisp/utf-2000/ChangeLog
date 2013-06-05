@@ -1,3 +1,18 @@
+2013-06-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R160-Bitter.el (U+8FA7): Use `->subsumptive'.
+	(J0-5221): Add `<-original' and `<-same' for J0-517E.
+	(U+8FA8): Use `->subsumptive'.
+	(J0-517E): Unify AJ1-04277 and A-2245.
+	(J0-6D67): Unify AJ1-06886.
+
+	* Ideograph-R149-Speech.el (JSP-5D76): Unify AJ1-19806.
+
+	* Ideograph-R062-Halberd.el (U-0002237A): Integrate M-09657; use
+	`ideographic-radical@cns' and `ideographic-strokes@cns' instead of
+	`ideographic-radical' and `ideographic-strokes'; add
+	`ideographic-radical@ucs and `ideographic-strokes@ucs'.
+
 2013-06-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R056-Shoot.el: Add some Adobe-Japan1-0 code points.
