@@ -2652,7 +2652,8 @@
       (=daikanwa	  . 16522)	; &M-16522;
       (=hanziku-4	  . #xC651)	; &I-HZK04-C651;
       (<-same
-       ((=ucs		    . #x6E48)	; 湈
+       ((=ucs@unicode	    . #x6E48)	; &AJ1-17959;
+	(=adobe-japan1-5    . 17959)	; &AJ1-17959;
 	(=daikanwa	    . 17815)	; &I-M-17815;
 	))
       (<-same*sources
