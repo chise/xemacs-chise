@@ -1,3 +1,20 @@
+2013-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R059-Bristle.el: Add some Adobe-Japan1-0 code points.
+	(J0-4927): Use `<-simplified@JP/misc' instead of
+	`<-simplified@JP'.
+	(HD-JT-B12A): Unify S-2324.
+
+	* Ideograph-R057-Bow.el: Add some Adobe-Japan1-0 code points.
+	(K0-6530): Unify S-2284.
+	(J0-3C65): Unify S-2283.
+	(U-00022400): Unify S-2293; add `<-original' and `<-same' for
+	U+5F3C.
+	(U+5F3B): Unify S-2294; add `<-formed' and `<-same' for U+5F3C.
+	(U-00022405): Unify S-2285; add `<-original' for K0-6530.
+	(U+5F3E): Unify S-2290.
+	(U+38C6): Unify S-2278; add `<-original' for J0-573D.
+
 2013-06-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R160-Bitter.el (U+8FA7): Use `->subsumptive'.
