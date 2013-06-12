@@ -15527,14 +15527,27 @@
     (=ucs@unicode	. #x432D)	; &UU+432D;
     ))
 (define-char
-  '((ideographic-radical . 120)	; ⽷
-    (ideographic-strokes . 16)
+  '((ideographic-radical@ucs . 120)	; ⽷
+    (ideographic-strokes@ucs . 16)
+    (ideographic-radical@ucs/compat . 58)	; ⼹
+    (ideographic-strokes@ucs/compat . 19)
     (total-strokes	 . 22)
     (=ucs		. #x261DA)	; 𦇚
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x261DA)	; 𦇚
+      ))
+    (ideographic-radical . 120)	; ⽷
+    (ideographic-strokes . 16)
+    (total-strokes	 . 22)
+    (=>>ucs@iso		. #x261DA)	; &G-IU+261DA;
+    (=>>daikanwa	. 28063)	; &G-IU+261DA;
     (->subsumptive
      ((=daikanwa	  . 28063)	; &M-28063;
       (<-ancient
-       ((=ucs		    . #x5F5D)	; 彝
+       ((=ucs@jis	    . #x5F5D)	; &AJ1-04766;
+	(=adobe-japan1-0    . 04766)	; &AJ1-04766;
 	(=daikanwa	    . 09950)	; &I-M-09950;
 	))
       (<-ancient*sources
