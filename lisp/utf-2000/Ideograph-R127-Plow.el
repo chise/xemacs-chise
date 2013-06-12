@@ -14,7 +14,7 @@
       (=gt-k		  . 01732)	; &I-GT-K01732;
       (=gt-pj-1		  . #x6650)	; &I-GT-37363; [70-48]
       (=daikanwa	  . 28898)	; &I-M-28898;
-      (=shinjigen@rev	  .  6352)	; &GT-37363;
+      (=shinjigen	  .  6352)	; &GT-37363;
       )
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x8012)	; 耒
@@ -24,6 +24,15 @@
       (=ucs@unicode	  . #x8012)	; &HD-FT-384C;
       (=gb2312		  . #x7167)	; &HD-FT-384C; [81-71]
       (=hanyo-denshi/ft	  . #x384C)	; &I-HD-FT-384C; [24-44]
+      (=shinjigen	  .  0243)	; &HD-FT-384C;
+      (<-vulgar
+       ((=ucs@unicode	    . #x4F86)	; &AJ1-04141;
+	(=adobe-japan1-0    . 04141)	; &AJ1-04141;
+	(=jis-x0208	    . #x5054)	; &I-J90-5054; [48-52]
+	(=shinjigen	    .  0241)	; &AJ1-04141;
+	))
+      (<-vulgar*sources
+       shinjigen)
       ))
     ))
 (define-char
