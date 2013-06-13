@@ -12,6 +12,11 @@
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (=decomposition@cid
+     ((=ucs		  . #x5DE5)	; 工
+      )
+     ((=ucs		  . #xE0100)	; 󠄀
+      ))
     (=ucs@unicode	. #x5DE5)	; &AJ1-01979;
     (=adobe-japan1-0	. 01979)	; &AJ1-01979;
     (=jis-x0208		. #x3929)	; &I-J90-3929; [25-09]
@@ -161,7 +166,12 @@
     (=ucs		. #x5DE8)	; 巨
     (=big5		. #xA5A8)	; &I-B-A5A8;
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x5DE8)	; 巨
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x5DE8)	; 巨
 	)
        ((=ucs		    . #xE0103)	; 󠄃
@@ -220,6 +230,12 @@
     (=ucs		. #x22018)	; 𢀘
     (=cns11643-5	. #x2168)	; &I-C5-2168; [01-72]
     (=daikanwa		. 08725)	; &I-M-08725;
+    ))
+(define-char
+  '((ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=ucs		. #x22016)	; 𢀖
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
