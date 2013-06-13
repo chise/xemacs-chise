@@ -1,3 +1,28 @@
+2013-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R127-Plow.el (HD-FT2444): Unify S-0243; add `<-vulgar'
+	for J0-5054.
+
+	* Ideograph-R120-Silk.el (U-000261DA): Use `->denotational' to
+	integrate U-0002F898; use `ideographic-{radical|strokes}@ucs'
+	instead of `ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs/compat'.
+
+	* Ideograph-R060-Step.el: Add some Adobe-Japan1-0 code points.
+	(HD-JT-B12F): Unify S-2332.
+	(J0-317D): Unify S-2331.
+	(U+5F83): Add `<-vulgar' for HD-JT-B12F and AJ1-01311.
+	(U+5FA0): Add `<-ancient' for J0-5054.
+	(U-0002250E): Use `->denotational' and `->subsumptive'; integrate
+	S-2333.
+	(M-10162): Add `<-ancient' for HD-JT-B12F.
+	(S-2333): New character; add `<-original' for HD-JT-B12F.
+	(M-10171): Map to U+38EA; unify H3-A853.
+	(U-00022536): Unify S-2364; add `<-original' for U+5F97.
+	(U+5FC2): Use `->subsumptive'.
+	(U-000225A3): Use `->subsumptive' to separate representative
+	nodes.
+
 2013-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R059-Bristle.el: Add some Adobe-Japan1-0 code points.
