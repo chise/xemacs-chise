@@ -348,6 +348,11 @@
     (ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (=decomposition@cid
+     ((=ucs		  . #x5DE1)	; 巡
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=decomposition@hanyo-denshi
      ((=ucs		  . #x5DE1)	; 巡
       )
