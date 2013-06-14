@@ -283,7 +283,12 @@
     (=ucs		. #x5E7E)	; 幾
     (=big5		. #xB458)	; &I-B-B458;
     (->subsumptive
-     ((=ucs@jis		  . #x5E7E)	; &AJ1-01586;
+     ((=decomposition@cid
+       ((=ucs		    . #x5E7E)	; 幾
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@jis		  . #x5E7E)	; &AJ1-01586;
       (=adobe-japan1-0	  . 01586)	; &AJ1-01586;
       (=jis-x0208	  . #x3476)	; &I-J90-3476; [20-86]
       (=ks-x1001	  . #x507A)	; &I-K0-507A; [48-90]
@@ -297,9 +302,10 @@
       (=gt-k		  . 09021)	; &I-GT-K09021;
       (=gt-pj-1		  . #x3476)	; &I-GT-11608; [20-86]
       )
-     ((=ucs@unicode	  . #x5E7E)	; &UU+5E7E;
-      (=gb12345		  . #x3C38)	; &UU+5E7E; [28-24]
-      (=shinjigen	  .  2164)	; &UU+5E7E;
+     ((=ucs@unicode	  . #x5E7E)	; &AJ1-13700;
+      (=adobe-japan1-4	  . 13700)	; &I-AJ1-13700;
+      (=gb12345		  . #x3C38)	; &AJ1-13700; [28-24]
+      (=shinjigen	  .  2164)	; &AJ1-13700;
       ))
     ))
 (define-char
