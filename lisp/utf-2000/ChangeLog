@@ -1,3 +1,17 @@
+2013-06-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+
+	* Ideograph-R049-Oneself.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+
+	* Ideograph-R048-Work.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+	(U-00022016): New character.
+
+	* Ideograph-R047-River.el (AJ1-13823): Add `=decomposition@cid'.
+
 2013-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R127-Plow.el (HD-FT2444): Unify S-0243; add `<-vulgar'
@@ -116,7 +130,7 @@
 
 	* Ideograph-R046-Mountain.el:
 	- Add some Adobe-Japan1 code points.
-	- Add `=decomposition@cid' for some Adobe-Japan1 characters.	
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
 	(U+37A8): Use `->subsumptive' to separate representative nodes.
 	(U+5C7E): Likewise.
 	(U+37B5): Integrate M-07931.
