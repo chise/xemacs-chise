@@ -65,7 +65,9 @@
       )
      ((=ucs		  . #xE0103)	; 󠄃
       ))
-    (=ks-x1001		. #x7841)	; &HD-JT-B0BF; [88-33]
+    (=ucs@ks		. #x5E73)	; &AJ1-14011;
+    (=adobe-japan1-4	. 14011)	; &AJ1-14011;
+    (=ks-x1001		. #x7841)	; &M-09167; [88-33]
     (=hanyo-denshi/jt	. #xB0BF)	; &I-HD-JT-B0BF;
     (=gt		. 11550)	; &I-GT-11550;
     (=gt-k		. 01070)	; &I-GT-K01070;
@@ -80,6 +82,11 @@
     (ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (=decomposition@cid
+     ((=ucs		  . #x5E73)	; 平
+      )
+     ((=ucs		  . #xE0100)	; 󠄀
+      ))
     (=ucs@unicode	. #x5E73)	; &AJ1-03599;
     (=adobe-japan1-0	. 03599)	; &AJ1-03599;
     (=jis-x0208		. #x4A3F)	; &I-J90-4A3F; [42-31]
@@ -103,6 +110,11 @@
     (ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (=decomposition@cid
+     ((=ucs		  . #x5E74)	; 年
+      )
+     ((=ucs		  . #xE0100)	; 󠄀
+      ))
     (=ucs@unicode	. #x5E74)	; &AJ1-03301;
     (=adobe-japan1-0	. 03301)	; &AJ1-03301;
     (=jis-x0208		. #x472F)	; &I-J90-472F; [39-15]
@@ -133,7 +145,12 @@
     (=ucs		. #x5E75)	; 幵
     (=big5		. #xC9DB)	; &I-B-C9DB;
     (->subsumptive
-     ((=ucs@jis		  . #x5E75)	; &AJ1-04737;
+     ((=decomposition@cid
+       ((=ucs		    . #x5E75)	; 幵
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@jis		  . #x5E75)	; &AJ1-04737;
       (=adobe-japan1-0	  . 04737)	; &AJ1-04737;
       (=jis-x0208	  . #x5674)	; &I-J90-5674; [54-84]
       (=jis-x0213-1	  . #x5674)	; &I-JX1-5674; [54-84]
@@ -210,8 +227,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ks-x1001	  . #x7841)	; &HD-JT-B0BF; [88-33]
-      (=daikanwa	  . 09167)	; &I-M-09167;
+     ((=ucs@ks		  . #x5E73)	; &AJ1-14011;
+      (=adobe-japan1-4	  . 14011)	; &AJ1-14011;
       )
      ((=ucs		  . #x4E01)	; 丁
       ))
@@ -276,7 +293,12 @@
     (=ucs		. #x5E77)	; 幷
     (=>jis-x0213-1@2004 . #x7E7C)	; 幷 [94-92]
     (->subsumptive
-     ((=ucs@jis		  . #x5E77)	; &AJ1-19346;
+     ((=decomposition@cid
+       ((=ucs		    . #x5E77)	; 幷
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@jis		  . #x5E77)	; &AJ1-19346;
       (=adobe-japan1-5	  . 19346)	; &AJ1-19346;
       (=ks-x1001	  . #x5C34)	; &I-K0-5C34; [60-20]
       (=jis-x0213-1@2004  . #x7E7C)	; &I-JX3-7E7C; [94-92]
@@ -310,7 +332,12 @@
     (=>>gt-k		. 03701)	; &G-AJ1-01982;
     (=>>daikanwa	. 09176)	; &G-AJ1-01982;
     (->subsumptive
-     ((=ucs@jis		  . #x5E78)	; &AJ1-01982;
+     ((=decomposition@cid
+       ((=ucs		    . #x5E78)	; 幸
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@jis		  . #x5E78)	; &AJ1-01982;
       (=adobe-japan1-0	  . 01982)	; &AJ1-01982;
       (=jis-x0208	  . #x392C)	; &I-J90-392C; [25-12]
       (=ks-x1001	  . #x7A39)	; &I-K0-7A39; [90-25]
