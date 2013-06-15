@@ -2649,8 +2649,8 @@
 	)
        ((=shinjigen	    .  2208)	; &SJG2-2208;
 	(<-vulgar
-	 ((=hanyo-denshi/jt   . #xB0E0)	; &HD-JT-B0E0;
-	  (=shinjigen	      .	 2207)	; &HD-JT-B0E0;
+	 ((=adobe-japan1-0    . 07990)	; &AJ1-07990;
+	  (=shinjigen	      .	 2207)	; &AJ1-07990;
 	  ))
 	(<-vulgar*sources
 	 shinjigen)
@@ -3414,7 +3414,8 @@
     (=shinjigen		.  2215)	; &AJ1-04327;
     (=cbeta		. 01927)	; &I-CB01927;
     (<-vulgar
-     ((=jis-x0208@1978	  . #x3E33)	; &HD-FT-3239; [30-19]
+     ((=ucs@ks		  . #x5EE0)	; &HD-FT-3239;
+      (=jis-x0208@1978	  . #x3E33)	; &HD-FT-3239; [30-19]
       (=ks-x1001	  . #x735F)	; &I-K0-735F; [83-63]
       (=daikanwa	  . 09490)	; &I-M-09490;
       (=shinjigen	  .  2214)	; &HD-FT-3239;
