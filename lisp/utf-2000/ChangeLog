@@ -6,9 +6,20 @@
 
 2013-06-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R162-Walk.el (M-38714): Unify S-2359.
+	(M-38757): Unify S-2361; add `<-original' for U+5F99.
+	(U+8FF3): Use `->denotational' to integrate S-2338.
+	(S-2338): New character; add `<-vulgar' for U+5F91.
+	(J0-6E22): Unify AJ1-06911.
+	(J0-6E23): Unify AJ1-06912.
+	(J0-6E33): Unify AJ1-06928.
+
 	* Ideograph-R051-Dry.el: Add `=decomposition@cid' for some
 	Adobe-Japan1 characters.
 	(K0-7841): Unify AJ1-14011 and KU+5E73.
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x5726.
 
 2013-06-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
