@@ -1,8 +1,16 @@
 2013-06-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R195-Fish.el (U-00029F2A): Use `->subsumptive' to
+	integrate M-18827.
+
 	* Ideograph-R052-Short-Thread.el (AJ1-01586): Add
 	`=decomposition@cid'.
 	(G1-3C38): Unify AJ1-13700.
+
+	* Ideograph-R009-Man.el (U+4F77): Unify S-2347; add `<-formed' for
+	U+5F88.
+	(U+506B): Add `ideographic-structure'.
+	(U-000203F0): Add `ideographic-structure'.
 
 2013-06-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
