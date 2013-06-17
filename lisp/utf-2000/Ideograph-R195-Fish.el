@@ -9398,15 +9398,44 @@
   '((ideographic-radical@ucs . 195)	; ⿂
     (ideographic-strokes@ucs . 14)
     (ideographic-radical@ucs*sources
-     daikanwa)
+     daikanwa=46574)
     (ideographic-strokes@ucs*sources
-     daikanwa)
+     daikanwa=46574)
     (ideographic-radical@cns . 85)	; ⽔
     (ideographic-strokes@cns . 22)
     (total-strokes	 . 25)
     (=ucs		. #x29F2A)	; 𩼪
     (=cns11643-7	. #x607A)	; &I-C7-607A; [64-90]
-    (=daikanwa		. 46574)	; &I-M-46574;
+    (->subsumptive
+     ((ideographic-radical . 85)	; ⽔
+      (ideographic-strokes . 22)
+      (=daikanwa	  . 18827)	; &M-18827;
+      (<-original
+       ((=ucs		    . #x6F01)	; 漁
+	))
+      (<-same
+       ((=ucs		    . #x6F01)	; 漁
+	(=daikanwa	    . 18101)	; &I-M-18101;
+	))
+      (<-same*sources
+       guangyun daikanwa)
+      )
+     ((ideographic-radical . 195)	; ⿂
+      (ideographic-strokes . 14)
+      (=daikanwa	  . 46574)	; &M-46574;
+      (<-same
+       ((=ucs		    . #x6F01)	; 漁
+	(=daikanwa	    . 18101)	; &I-M-18101;
+	)
+       ((=ucs@unicode	    . #x4C77)	; &M-46380;
+	(=daikanwa	    . 46380)	; &M-46380;
+	)
+       ((=ucs		    . #x4C3B)	; 䰻
+	(=daikanwa	    . 46002)	; &I-M-46002;
+	))
+      (<-same*sources
+       shuowen jiyun daikanwa)
+      ))
     ))
 (define-char
   '((ideographic-radical . 195)	; ⿂
