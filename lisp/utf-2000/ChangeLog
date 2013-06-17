@@ -1,3 +1,15 @@
+2013-06-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R052-Short-Thread.el (AJ1-01586): Add
+	`=decomposition@cid'.
+	(G1-3C38): Unify AJ1-13700.
+
+2013-06-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R051-Dry.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+	(K0-7841): Unify AJ1-14011 and KU+5E73.
+
 2013-06-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R050-Turban.el: Add `=decomposition@cid' for some
