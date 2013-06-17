@@ -571,12 +571,15 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=daikanwa		. 38714)	; &M-38714;
+    (=shinjigen		.  2359)	; &M-38714;
     (<-original
      ((=ucs		  . #x5F92)	; 徒
+      (=jis-x0208	  . #x454C)	; &I-J90-454C; [37-44]
       (=daikanwa	  . 10121)	; &I-M-10121;
+      (=shinjigen	  .  2358)	; 徒
       ))
     (<-original*sources
-     zhengzitong daikanwa)
+     zhengzitong daikanwa shinjigen)
     ))
 (define-char
   '((<-denotational
@@ -2196,6 +2199,14 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=daikanwa		. 38757)	; &M-38757;
+    (=shinjigen		.  2361)	; &M-38757;
+    (<-original
+     ((=ucs		  . #x5F99)	; 徙
+      (=jis-x0208	  . #x5750)	; &I-J90-5750; [55-48]
+      (=shinjigen	  .  2360)	; 徙
+      ))
+    (<-original*sources
+     shinjigen)
     ))
 (define-char
   '((<-denotational
@@ -4652,9 +4663,52 @@
 (define-char
   '((ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 5)
-    (total-strokes	 . 8)
     (=ucs		. #x8FF3)	; 迳
-    (=gb2312		. #x6549)	; &I-G0-6549; [69-41]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8FF3)	; 迳
+      ))
+    (ideographic-radical . 162)	; ⾡
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((name		  . "CJK RADICAL WALK ONE")
+      (=ucs		  . #x2ECD)	; ⻍
+      )
+     ((=ucs@unicode	  . #x5723)	; &AJ1-14419;
+      (=adobe-japan1-4	  . 14419)	; &AJ1-14419;
+      ))
+    (=shinjigen		.  2338)	; &SJG2-2338;
+    (<-vulgar
+     ((=ucs		  . #x5F91)	; 徑
+      (=jis-x0208	  . #x574D)	; &I-J90-574D; [55-45]
+      (=shinjigen	  .  2336)	; 徑
+      ))
+    (<-vulgar*sources
+     shinjigen)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8FF3)	; 迳
+      ))
+    (ideographic-radical . 162)	; ⾡
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((name		  . "CJK RADICAL SIMPLIFIED WALK")
+      (=ucs		  . #x2ECC)	; ⻌
+      )
+     ((=ucs		  . #x22016)	; 𢀖
+      ))
+    (=ucs@unicode	. #x8FF3)	; &G0-6549;
+    (=gb2312		. #x6549)	; &G0-6549; [69-41]
     ))
 (define-char
   '((ideographic-radical . 162)	; ⾡
@@ -6232,9 +6286,7 @@
     (total-strokes	 . 10)
     (=daikanwa		. 38857)	; &M-38857;
     (<-same
-     ((=jis-x0208@1978	  . #x446D)	; &GT-11748; [36-77]
-      (=jis-x0208@1983	  . #x446D)	; &I-J83-446D; [36-77]
-      (=ks-x1001	  . #x6F54)	; &I-K0-6F54; [79-52]
+     ((=gt		  . 11748)	; &GT-11748;
       (=daikanwa	  . 09337)	; &I-M-09337;
       ))
     (<-same*sources
@@ -12330,15 +12382,16 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=ucs@jis		. #x9050)	; &GT-52321;
-    (=jis-x0208		. #x6E22)	; &GT-52321; [78-02]
+    (=ucs@jis		. #x9050)	; &AJ1-06911;
+    (=adobe-japan1-0	. 06911)	; &AJ1-06911;
+    (=jis-x0208		. #x6E22)	; &I-J90-6E22; [78-02]
     (=ks-x1001		. #x7946)	; &I-K0-7946; [89-38]
     (=jis-x0213-1	. #x6E22)	; &I-JX1-6E22; [78-02]
     (=gt		. 52321)	; &I-GT-52321;
     (=gt-k		. 10360)	; &I-GT-K10360;
     (=gt-pj-1		. #x6E22)	; &I-GT-52321; [78-02]
     (=daikanwa		. 39005)	; &I-M-39005;
-    (=shinjigen		.  8320)	; &GT-52321;
+    (=shinjigen		.  8320)	; &AJ1-06911;
     (<-synonyms
      ((=ucs		  . #x7455)	; 瑕
       (=daikanwa	  . 21120)	; &I-M-21120;
@@ -12390,14 +12443,15 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=ucs@jis		. #x9051)	; &GT-52330;
-    (=jis-x0208		. #x6E23)	; &GT-52330; [78-03]
+    (=ucs@jis		. #x9051)	; &AJ1-06912;
+    (=adobe-japan1-0	. 06912)	; &AJ1-06912;
+    (=jis-x0208		. #x6E23)	; &I-J90-6E23; [78-03]
     (=ks-x1001		. #x7C5A)	; &I-K0-7C5A; [92-58]
     (=jis-x0213-1	. #x6E23)	; &I-JX1-6E23; [78-03]
     (=gt		. 52330)	; &I-GT-52330;
     (=gt-pj-1		. #x6E23)	; &I-GT-52330; [78-03]
     (=daikanwa		. 39006)	; &I-M-39006;
-    (=shinjigen@rev	.  8325)	; &GT-52330;
+    (=shinjigen		.  8325)	; &AJ1-06912;
     (<-synonyms
      ((=ucs		  . #x7687)	; 皇
       (=daikanwa	  . 22701)	; &I-M-22701;
@@ -16096,10 +16150,8 @@
     (total-strokes	 . 15)
     (=daikanwa		. 39103)	; &M-39103;
     (<-same
-     ((=ucs@jis		  . #x9080)	; &GT-52731;
-      (=jis-x0208	  . #x6E33)	; &GT-52731; [78-19]
-      (=ks-x1001	  . #x692D)	; &I-K0-692D; [73-13]
-      (=jis-x0213-1	  . #x6E33)	; &I-JX1-6E33; [78-19]
+     ((=ucs@jis		  . #x9080)	; &AJ1-06928;
+      (=adobe-japan1-0	  . 06928)	; &AJ1-06928;
       (=daikanwa	  . 39168)	; &I-M-39168;
       ))
     (<-same*sources
@@ -18473,18 +18525,18 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
-    (=ucs@jis		. #x9080)	; &GT-52731;
-    (=jis-x0208		. #x6E33)	; &GT-52731; [78-19]
+    (=ucs@jis		. #x9080)	; &AJ1-06928;
+    (=adobe-japan1-0	. 06928)	; &AJ1-06928;
+    (=jis-x0208		. #x6E33)	; &I-J90-6E33; [78-19]
     (=ks-x1001		. #x692D)	; &I-K0-692D; [73-13]
     (=jis-x0213-1	. #x6E33)	; &I-JX1-6E33; [78-19]
     (=gt		. 52731)	; &I-GT-52731;
     (=gt-pj-1		. #x6E33)	; &I-GT-52731; [78-19]
     (=daikanwa		. 39168)	; &I-M-39168;
-    (=shinjigen		.  8398)	; &GT-52731;
+    (=shinjigen		.  8398)	; &AJ1-06928;
     (->formed
-     ((=ucs@jis		  . #x5FBC)	; &GT-12935;
-      (=jis-x0208	  . #x5755)	; &GT-12935; [55-53]
-      (=jis-x0213-1	  . #x5755)	; &I-JX1-5755; [55-53]
+     ((=ucs@jis		  . #x5FBC)	; &AJ1-04800;
+      (=adobe-japan1-0	  . 04800)	; &AJ1-04800;
       (=daikanwa	  . 10261)	; &I-M-10261;
       ))
     (->formed*sources
