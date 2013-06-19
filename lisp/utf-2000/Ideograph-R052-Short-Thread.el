@@ -302,7 +302,12 @@
       (=gt-k		  . 09021)	; &I-GT-K09021;
       (=gt-pj-1		  . #x3476)	; &I-GT-11608; [20-86]
       )
-     ((=ucs@unicode	  . #x5E7E)	; &AJ1-13700;
+     ((=decomposition@cid
+       ((=ucs		    . #x5E7E)	; 幾
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=ucs@unicode	  . #x5E7E)	; &AJ1-13700;
       (=adobe-japan1-4	  . 13700)	; &AJ1-13700;
       (=gb12345		  . #x3C38)	; &AJ1-13700; [28-24]
       (=shinjigen	  .  2164)	; &AJ1-13700;
