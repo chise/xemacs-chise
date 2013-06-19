@@ -9573,13 +9573,25 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>>ucs@ks	  . #x5EC9)	; &g2-AJ1-14095;
+      (=>>>ucs@ks	  . #x5EC9)	; &g2-AJ1-14095;
+      (=>>>adobe-japan1-4 . 14095)	; &g2-AJ1-14095;
+      )
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
+      ))
+    (=>>daikanwa	. 02215)	; &G-M-02215;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ks-x1001	    . #x562F)	; &HD-JT-B0D9; [54-15]
-	(=daikanwa	    . 09436)	; &I-M-09436;
+       ((=ucs@ks	    . #x5EC9)	; &HD-JT-B0D9;
+	(=ks-x1001	    . #x562F)	; &HD-JT-B0D9; [54-15]
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
