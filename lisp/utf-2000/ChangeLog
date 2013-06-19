@@ -1,3 +1,10 @@
+2013-06-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R052-Short-Thread.el (AJ1-13700): Add
+	`=decomposition@cid'.
+
+	* Ideograph-R051-Dry.el (AJ1-14011): Add `=decomposition@cid'.
+
 2013-06-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R195-Fish.el (U-00029F2A): Use `->subsumptive' to
