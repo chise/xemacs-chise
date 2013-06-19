@@ -60,6 +60,11 @@
     (ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (=decomposition@cid
+     ((=ucs		  . #x5E73)	; 平
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=decomposition@hanyo-denshi
      ((=ucs		  . #x5E73)	; 平
       )
