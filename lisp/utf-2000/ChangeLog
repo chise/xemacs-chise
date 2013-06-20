@@ -1,4 +1,24 @@
+2013-06-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R058-Snout.el: Add some Adobe-Japan1-0 code points.
+	(U-00022464): Unify H3-C1DF; add `<-same' for U+5F59.
+	(U+5F5A): Use `->denotational' to integrate S-2307.
+	(C3-4123): Unify S-2306; add `<-Liwen', `<-formed' and `<-same'
+	for U+5F59.
+	(S-2307): New character; add `<-wrong' for U+5F59.
+	(M-09938): Map to U-00022467; integrate CB09649.
+	(M-09940): Map to U-0002246C; integrate CB11512.
+	(U-00022475): Use `->subsumptive' to separate representative
+	nodes.
+	(U-000261DA): Copied from Ideograph-R120-Silk.el.
+	(U-0002F898): Add `<-denotational' for U-000261DA.
+
 2013-06-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R134-Mortar.el (AJ1-06296): Add `=decomposition@cid'.
+
+	* Ideograph-R018-Knife.el (mother of M-02215): Unify G-M-02215;
+	add ideographic-structure.
 
 	* Ideograph-R052-Short-Thread.el (AJ1-13700): Add
 	`=decomposition@cid'.
