@@ -361,6 +361,11 @@
     (ideographic-radical@ucs/compat*sources
      cns11643-6)
     (total-strokes	 . 9)
+    (=decomposition@cid
+     ((=ucs		  . #x8201)	; 舁
+      )
+     ((=ucs		  . #xE0100)	; 󠄀
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
