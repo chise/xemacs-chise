@@ -1,5 +1,14 @@
 2013-06-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R055-Two-Hands.el:
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	- Add some Adobe-Japan1 code points.
+
+	* Ideograph-R032-Earth.el (U+3631): Use `->denotational' to
+	separate representative nodes.
+	(C3-2827): Add `<-ancient' for U+574D.
+	(U-00021299): New character.
+
 	* Ideograph-R058-Snout.el: Add some Adobe-Japan1-0 code points.
 	(U-00022464): Unify H3-C1DF; add `<-same' for U+5F59.
 	(U+5F5A): Use `->denotational' to integrate S-2307.
