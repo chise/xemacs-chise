@@ -1,3 +1,11 @@
+2013-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R055-Two-Hands.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+
+	* Ideograph-R054-Long-Stride.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+
 2013-06-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R054-Long-Stride.el:
