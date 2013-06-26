@@ -516,6 +516,11 @@
     (ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (=decomposition@cid
+     ((=ucs		  . #x5F06)	; 弆
+      )
+     ((=ucs		  . #xE0100)	; 󠄀
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -1173,6 +1178,11 @@
     (ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
+    (=decomposition@cid
+     ((=ucs		  . #x5F0A)	; 弊
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=ucs@ks		. #x5F0A)	; &AJ1-14012;
     (=adobe-japan1-4	. 14012)	; &AJ1-14012;
     (=ks-x1001		. #x7849)	; &I-K0-7849; [88-41]
