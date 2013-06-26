@@ -84,7 +84,12 @@
     (=>>hanyo-denshi/ib . #x232C)	; &G-AJ1-13654; [03-12]
     (=>>daikanwa	. 09569)	; &G-AJ1-13654;
     (->subsumptive
-     ((=ucs@ks		  . #x5EF6)	; &AJ1-13654;
+     ((=decomposition@cid
+       ((=ucs		    . #x5EF6)	; 延
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=ucs@ks		  . #x5EF6)	; &AJ1-13654;
       (=adobe-japan1-4	  . 13654)	; &AJ1-13654;
       (=ks-x1001	  . #x6645)	; &I-K0-6645; [70-37]
       (=daikanwa	  . 09569)	; &I-M-09569;
@@ -112,7 +117,12 @@
     (=>>gt		. 12058)	; &G-AJ1-13415;
     (=>>gt-k		. 03635)	; &G-AJ1-13415;
     (->subsumptive
-     ((=adobe-japan1-4	  . 13415)	; &AJ1-13415;
+     ((=decomposition@cid
+       ((=ucs		    . #x5EF6)	; 延
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=adobe-japan1-4	  . 13415)	; &AJ1-13415;
       (=jis-x0208@1978	  . #x3164)	; &I-J78-3164; [17-68]
       (=jis-x0208@1983	  . #x3164)	; &I-J83-3164; [17-68]
       )
@@ -167,7 +177,12 @@
       )
      ((=cns11643-1	  . #x4A2C)	; &C1-4A2C; [42-12]
       )
-     ((=ucs@ks		  . #x5EF7)	; &AJ1-13482;
+     ((=decomposition@cid
+       ((=ucs		    . #x5EF7)	; 廷
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=ucs@ks		  . #x5EF7)	; &AJ1-13482;
       (=adobe-japan1-4	  . 13482)	; &AJ1-13482;
       (=jis-x0208@1978	  . #x446E)	; &I-J78-446E; [36-78]
       (=jis-x0208@1983	  . #x446E)	; &I-J83-446E; [36-78]
@@ -289,7 +304,12 @@
     (=ucs		. #x5EFA)	; 建
     (=big5		. #xABD8)	; &I-B-ABD8;
     (->subsumptive
-     ((=ucs@ks		  . #x5EFA)	; &AJ1-13436;
+     ((=decomposition@cid
+       ((=ucs		    . #x5EFA)	; 建
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=ucs@ks		  . #x5EFA)	; &AJ1-13436;
       (=adobe-japan1-4	  . 13436)	; &AJ1-13436;
       (=jis-x0208@1978	  . #x377A)	; &I-J78-377A; [23-90]
       (=jis-x0208@1983	  . #x377A)	; &I-J83-377A; [23-90]
@@ -339,7 +359,12 @@
       (=shinjigen	  .  2239)	; &AJ1-01398;
       (=cbeta		  . 00327)	; &I-CB00327;
       )
-     ((=ucs@unicode	  . #x5EFB)	; &AJ1-13673;
+     ((=decomposition@cid
+       ((=ucs		    . #x5EFB)	; 廻
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=ucs@unicode	  . #x5EFB)	; &AJ1-13673;
       (=adobe-japan1-4	  . 13673)	; &AJ1-13673;
       (=cns11643-3	  . #x2C4C)	; &I-C3-2C4C; [12-44]
       (=jis-x0213-1@2004  . #x3276)	; &I-JX3-3276; [18-86]
