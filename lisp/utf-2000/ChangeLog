@@ -1,3 +1,46 @@
+2013-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R053-Dotted-Cliff.el:
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	- Add some Adobe-Japan1 code points.
+	(U+5E88): Use `->subsumptive' to separate representative nodes.
+	(U+5E89): Likewise.
+	(U+5E8D): Likewise.
+	(U-000221E5): Likewise.
+	(U-000221E6): Use `->subsumptive'.
+	(U-000221E7): Use `->subsumptive' to separate representative
+	nodes.
+	(U+3872): Likewise.
+	(U+3873): Likewise.
+	(U-000221E8): Likewise.
+	(U-000221E9): Likewise.
+	(U-000221EA): Likewise.
+	(U-000221F0): Likewise.
+	(BUCS+5EA7): New abstract node.
+	(U+5EA7): Add `<-denotational' for BUCS+5EA7.
+	(U-0002B776): New character; add `<-denotational' for BUCS+5EA7.
+	(U-0002B777): Likewise.
+	(U-00022295): Use `->subsumptive' to separate representative
+	nodes.
+	(U-000222B3): Use `->subsumptive'.
+	(U-000222B4): Use `->subsumptive' to separate representative
+	nodes.
+	(U-000222B5): Use `->denotational' and `->subsumptive'.
+	(U-000222BC): Use `->subsumptive' to separate representative
+	nodes.
+	(U-000222BB): Likewise.
+	(M-09500): Map to U-000222C0; integrate CB08778.
+	(U-000222BA): Use `->subsumptive' to separate representative
+	nodes.
+	(U-000222C3): Likewise.
+	(U+3899): Likewise.
+	(U+389A): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U-000222E1): Use `->subsumptive' to separate representative
+	nodes.
+	(U-000222E2): Likewise.
+	(U-000222E6): Likewise.
+
 2013-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R055-Two-Hands.el: Add `=decomposition@cid' for some
