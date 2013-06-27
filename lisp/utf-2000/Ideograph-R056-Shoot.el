@@ -6,7 +6,12 @@
     (=ucs		. #x5F0B)	; 弋
     (=big5		. #xA47C)	; &I-B-A47C;
     (->subsumptive
-     ((=ucs@unicode	  . #x5F0B)	; &AJ1-04768;
+     ((=decomposition@cid
+       ((=ucs		    . #x5F0B)	; 弋
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@unicode	  . #x5F0B)	; &AJ1-04768;
       (=adobe-japan1-0	  . 04768)	; &AJ1-04768;
       (=jis-x0208	  . #x5735)	; &I-J90-5735; [55-21]
       (=gb2312		  . #x5F2E)	; &I-G0-5F2E; [63-14]
@@ -97,7 +102,12 @@
     (total-strokes	 . 5)
     (=ucs		. #x5F0D)	; 弍
     (->subsumptive
-     ((=ucs@jis		  . #x5F0D)	; &AJ1-04106;
+     ((=decomposition@cid
+       ((=ucs		    . #x5F0D)	; 弍
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@jis		  . #x5F0D)	; &AJ1-04106;
       (=adobe-japan1-0	  . 04106)	; &AJ1-04106;
       (=jis-x0208	  . #x5031)	; &I-J90-5031; [48-17]
       (=cns11643-3	  . #x2249)	; &I-C3-2249; [02-41]
@@ -131,14 +141,22 @@
     (total-strokes	 . 6)
     (=ucs		. #x5F0E)	; 弎
     (->subsumptive
-     ((=ucs@unicode	  . #x5F0E)	; &HD-JB-3C60;
-      (=jis-x0212	  . #x3C60)	; &HD-JB-3C60; [28-64]
+     ((=ucs@unicode	  . #x5F0E)	; &AJ1-14513;
+      (=adobe-japan1-4	  . 14513)	; &AJ1-14513;
+      (=jis-x0212	  . #x3C60)	; &I-JSP-3C60; [28-64]
       (=iso-ir165	  . #x2E38)	; &I-EGB-2E38; [14-24]
       (=cns11643-3	  . #x2362)	; &I-C3-2362; [03-66]
       (=jis-x0213-2	  . #x2C2E)	; &I-JX2-2C2E; [12-14]
       (=hanyo-denshi/jb	  . #x3C60)	; &I-HD-JB-3C60; [28-64]
       (=daikanwa	  . 09662)	; &I-M-09662;
-      (=shinjigen@1ed	  .  0007)	; &HD-JB-3C60;
+      (=shinjigen	  .  0007)	; &AJ1-14513;
+      (<-ancient
+       ((=ucs		    . #x4E09)	; 三
+	(=jis-x0208	    . #x3B30)	; &I-J90-3B30; [27-16]
+	(=shinjigen	    .  0006)	; 三
+	))
+      (<-ancient*sources
+       shinjigen)
       )
      ((=hanyo-denshi/ib	  . #x3223)	; &HD-IB-3223; [18-03]
       (=jef-china3	  . #x41A7)	; &I-JC3-41A7;
@@ -368,6 +386,11 @@
     (ideographic-radical . 56)	; ⼷
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (=decomposition@cid
+     ((=ucs		  . #x5F11)	; 弑
+      )
+     ((=ucs		  . #xE0100)	; 󠄀
+      ))
     (=ucs@jis		. #x5F11)	; &AJ1-04769;
     (=adobe-japan1-0	. 04769)	; &AJ1-04769;
     (=jis-x0208		. #x5736)	; &I-J90-5736; [55-22]
