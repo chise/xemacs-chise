@@ -1640,7 +1640,16 @@
     (=ucs		. #x7718)	; 眘
     (=cns11643-3	. #x3268)	; &I-C3-3268; [18-72]
     (=daikanwa		. 23225)	; &I-M-23225;
+    (=shinjigen		.  2632)	; 眘
     (=hanziku-7		. #xAAAE)	; &I-HZK07-AAAE;
+    (<-ancient
+     ((=ucs@unicode	  . #x613C)	; &AJ1-04879;
+      (=adobe-japan1-0	  . 04879)	; &AJ1-04879;
+      (=jis-x0208	  . #x5846)	; &I-J90-5846; [56-38]
+      (=shinjigen	  .  2631)	; &AJ1-04879;
+      ))
+    (<-ancient*sources
+     shinjigen)
     ))
 (define-char
   '((=>ucs		. #x25134)	; 𥄴
