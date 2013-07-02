@@ -1988,6 +1988,37 @@
     (=hanziku-1		. #xA7B6)	; &I-HZK01-A7B6;
     ))
 (define-char
+  '((ideographic-radical@ucs . 57)	; ⼸
+    (ideographic-strokes@ucs . 3)
+    (ideographic-radical@ucs*sources
+     daikanwa)
+    (ideographic-strokes@ucs*sources
+     daikanwa)
+    (ideographic-radical@misc . 1)	; ⼀
+    (ideographic-strokes@misc . 5)
+    (total-strokes	 . 6)
+    (hanyu-dazidian	1 19 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x87EB)	; &CDP-87EB;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=ucs		. #x223AE)	; 𢎮
+    (=daikanwa		. 09727)	; &I-M-09727;
+    (=hanziku-1		. #xA7F1)	; &I-HZK01-A7F1;
+    (<-ancient
+     ((=ucs@jis		  . #x6C10)	; &JX1-764F;
+      (=jis-x0212	  . #x4649)	; &JX1-764F; [38-41]
+      (=jis-x0213-1	  . #x764F)	; &I-JX1-764F; [86-47]
+      (=daikanwa	  . 17027)	; &I-M-17027;
+      ))
+    (<-ancient*sources
+     zihui-bu daikanwa)
+    ))
+(define-char
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
@@ -2111,22 +2142,6 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
-    (hanyu-dazidian	1 19 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=big5-cdp	  . #x87EB)	; &CDP-87EB;
-      )
-     ((=ucs		  . #x4E00)	; 一
-      ))
-    (=ucs		. #x223AE)	; 𢎮
-    (=hanziku-1		. #xA7F1)	; &I-HZK01-A7F1;
-    ))
-(define-char
-  '((ideographic-radical . 1)	; ⼀
-    (ideographic-strokes . 5)
-    (total-strokes	 . 6)
     (=gt		. 00054)	; &GT-00054;
     (=gt-pj-9		. #x3666)	; &GT-00054; [22-70]
     ))
@@ -2134,6 +2149,14 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x52A0)	; 加
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
     (=gt		. 00055)	; &GT-00055;
     (=gt-pj-9		. #x4055)	; &GT-00055; [32-53]
     ))
