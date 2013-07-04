@@ -49,6 +49,24 @@
     (=cns11643-3	. #x2F25)	; &I-C3-2F25; [15-05]
     (=jis-x0213-2	. #x7824)	; &I-JX2-7824; [88-04]
     (=daikanwa		. 33968)	; &I-M-33968;
+    (=shinjigen		.  2492)	; 䘏
+    (=hanziku-8		. #xCE6E)	; &I-HZK08-CE6E;
+    (=cbeta		. 00421)	; &I-CB00421;
+    (<-wrong
+     ((=ucs		  . #x5379)	; 卹
+      (=jis-x0212	  . #x3441)	; &I-JSP-3441; [20-33]
+      (=daikanwa	  . 02862)	; &I-M-02862;
+      (=shinjigen	  .  2491)	; 卹
+      ))
+    (<-wrong*sources
+     zhengzitong daikanwa shinjigen)
+    (<-wrong@shinjigen
+     ((=ucs		  . #x6064)	; 恤
+      (=jis-x0208	  . #x5775)	; &I-J90-5775; [55-85]
+      (=shinjigen	  .  2490)	; 恤
+      ))
+    (<-wrong@shinjigen*sources
+     shinjigen)
     ))
 (define-char
   '((ideographic-radical . 143)	; ⾎
