@@ -1,3 +1,18 @@
+2013-07-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Oracle-Bones.el (ZOB-{01411 .. 01428}): Fix `shuowen-radical'.
+	(ZOB-{02318 .. 02366}): New characters.
+
+	* Ideograph-R135-Tongue.el (U+8214): Use `->denotational'.
+
+	* Ideograph-R099-Sweet.el (J0-453C): Separate M-21656; unify
+	AJ1-03126.
+
+	* Ideograph-R027-Cliff.el (U+538E): Add ideographic-structure.
+
+	* Ideograph-R026-Seal.el (U+5379): Unify S-2491; add `<-formed'
+	for U+6064.
+
 2013-07-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (shuowen-radicals): Fix order of ?曰, ?乃, ?丂,
