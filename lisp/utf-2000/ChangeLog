@@ -1,7 +1,16 @@
+2013-07-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (shuowen-radicals): Fix order of ?曰, ?乃, ?丂,
+	?可, ?兮, ?号, ?亏 and ?旨; add ?比, ?北, ?丘, ?㐺, ?𡈼, ?重, ?臥,
+	?身, ?㐆 and ?衣.
+
 2013-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
 	Add #x5759, #x583E, #x5833, #x5843, #x584E, #x5860 and #x585D.
+
+	* Ideograph-R109-Eye.el (U+7718): Unify S-2632; add `<-ancient'
+	for J0-5846.
 
 	* Ideograph-R001-One.el (U-000223AE): Unify M-09727; use
 	`ideographic-{radical|strokes}@misc' instead of
