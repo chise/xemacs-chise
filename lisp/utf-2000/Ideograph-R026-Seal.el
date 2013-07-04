@@ -826,7 +826,15 @@
     (=cns11643-1	. #x4C3C)	; &I-C1-4C3C; [44-28]
     (=big5		. #xA8F9)	; &I-B-A8F9;
     (=daikanwa		. 02862)	; &I-M-02862;
+    (=shinjigen		.  2491)	; 卹
     (=jef-china3	. #x45D3)	; &I-JC3-45D3;
+    (<-formed
+     ((=ucs		  . #x6064)	; 恤
+      (=jis-x0208	  . #x5775)	; &I-J90-5775; [55-85]
+      (=shinjigen	  .  2490)	; 恤
+      ))
+    (<-formed*sources
+     shinjigen)
     ))
 (define-char
   '((ideographic-radical . 26)	; ⼙
