@@ -11643,7 +11643,7 @@
     (=ks-x1001		. #x6967)	; &M-38991; [73-71]
     (=daikanwa		. 38991)	; &I-M-38991;
     (<-synonyms
-     ((=ucs		  . #x611A)	; 愚
+     ((=cns11643-1	  . #x6373)	; &C1-6373; [67-83]
       (=daikanwa	  . 10946)	; &I-M-10946;
       ))
     (<-synonyms*sources
@@ -14213,8 +14213,7 @@
     (<-same*sources
      shuowen fangyan maoshi maoshi-zhuan caozhi-fu wenxuan-lishan-zhu daikanwa)
     (<-synonyms
-     ((=ucs		  . #x612C)	; 愬
-      (=daikanwa	  . 10988)	; &I-M-10988;
+     ((=daikanwa	  . 10988)	; &M-10988;
       ))
     (<-synonyms*sources
      zhangxie-fu wenxuan-lishan-zhu daikanwa)
