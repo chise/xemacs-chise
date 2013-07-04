@@ -173,17 +173,19 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
     (=ucs		. #x751C)	; 甜
+    (=big5		. #xB2A2)	; &I-B-B2A2;
     (->subsumptive
-     ((=ucs@unicode	  . #x751C)	; &GT-27816;
-      (=jis-x0208	  . #x453C)	; &GT-27816; [37-28]
+     ((=daikanwa	  . 21656)	; &M-21656;
+      )
+     ((=ucs@unicode	  . #x751C)	; &AJ1-03126;
+      (=adobe-japan1-0	  . 03126)	; &AJ1-03126;
+      (=jis-x0208	  . #x453C)	; &I-J90-453C; [37-28]
       (=gb2312		  . #x4C70)	; &I-G0-4C70; [44-80]
       (=jis-x0213-1	  . #x453C)	; &I-JX1-453C; [37-28]
-      (=big5		  . #xB2A2)	; &I-B-B2A2;
       (=gt		  . 27816)	; &I-GT-27816;
       (=gt-k		  . 07841)	; &I-GT-K07841;
       (=gt-pj-1		  . #x453C)	; &I-GT-27816; [37-28]
-      (=daikanwa	  . 21656)	; &I-M-21656;
-      (=shinjigen@rev	  .  6632)	; &GT-27816;
+      (=shinjigen	  .  6632)	; &AJ1-03126;
       )
      ((=cns11643-1	  . #x5C27)	; &C1-5C27; [60-07]
       ))
