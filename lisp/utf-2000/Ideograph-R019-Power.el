@@ -5437,11 +5437,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x616E)	; &GT-14186;
-	(=jis-x0208	    . #x4E38)	; &GT-14186; [46-24]
-	(=ks-x1001	    . #x5567)	; &I-K0-5567; [53-71]
-	(=jis-x0213-1	    . #x4E38)	; &I-JX1-4E38; [46-24]
-	(=daikanwa	    . 11132)	; &I-M-11132;
+       ((=ucs@unicode	    . #x616E)	; &AJ1-03968;
+	(=adobe-japan1-0    . 03968)	; &AJ1-03968;
 	)
        ((=ucs		    . #x529B)	; 力
 	))
