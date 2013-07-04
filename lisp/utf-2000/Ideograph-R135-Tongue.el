@@ -536,29 +536,7 @@
     (=cns11643-3	. #x492B)	; &C3-492B; [41-11]
     ))
 (define-char
-  '((=>ucs		. #x8214)	; 舔
-    (ideographic-radical . 135)	; ⾆
-    (ideographic-strokes . 8)
-    (total-strokes	 . 14)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x820C)	; 舌
-      )
-     ((=ucs@jis		  . #x5FDD)	; &GT-13168;
-      (=jis-x0208	  . #x575B)	; &GT-13168; [55-59]
-      (=jis-x0213-1	  . #x575B)	; &I-JX1-575B; [55-59]
-      (=daikanwa	  . 10348)	; &I-M-10348;
-      ))
-    (=ucs@jis		. #x8214)	; &JSP-5671;
-    (=jis-x0212		. #x5671)	; &JSP-5671; [54-81]
-    (=big5		. #xBB51)	; &I-B-BB51;
-    (=daikanwa		. 30312)	; &I-M-30312;
-    ))
-(define-char
-  '((morohashi-daikanwa	30312 0 1)
-    (ideographic-radical . 135)	; ⾆
+  '((ideographic-radical . 135)	; ⾆
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
     (ideographic-structure
@@ -570,11 +548,57 @@
      ((=ucs		  . #x5FDD)	; 忝
       ))
     (=ucs		. #x8214)	; 舔
-    (=gb2312		. #x4C72)	; &I-G0-4C72; [44-82]
+    (=big5		. #xBB51)	; &I-B-BB51;
     ))
 (define-char
-  '((=>ucs		. #x8214)	; 舔
-    (morohashi-daikanwa	30312 0 2)
+  '((<-denotational
+     ((=ucs		  . #x8214)	; 舔
+      ))
+    (ideographic-radical . 135)	; ⾆
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x820C)	; 舌
+      )
+     ((=ucs@jis		  . #x5FDD)	; &AJ1-04806;
+      (=adobe-japan1-0	  . 04806)	; &AJ1-04806;
+      ))
+    (=ucs@jis		. #x8214)	; &JSP-5671;
+    (=jis-x0212		. #x5671)	; &JSP-5671; [54-81]
+    (=daikanwa		. 30312)	; &I-M-30312;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8214)	; 舔
+      ))
+    (ideographic-radical . 135)	; ⾆
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x820C)	; &GT-39171;
+      (=jis-x0208	  . #x4065)	; &GT-39171; [32-69]
+      (=gb2312		  . #x4960)	; &I-G0-4960; [41-64]
+      (=ks-x1001	  . #x605F)	; &I-K0-605F; [64-63]
+      (=jis-x0213-1	  . #x4065)	; &I-JX1-4065; [32-69]
+      (=daikanwa	  . 30277)	; &I-M-30277;
+      )
+     ((=ucs@unicode	  . #x5FDD)	; &C1-4D3F;
+      (=gb2312		  . #x6343)	; &C1-4D3F; [67-35]
+      (=cns11643-1	  . #x4D3F)	; &I-C1-4D3F; [45-31]
+      ))
+    (=ucs@unicode	. #x8214)	; &G0-4C72;
+    (=gb2312		. #x4C72)	; &G0-4C72; [44-82]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8214)	; 舔
+      ))
     (ideographic-radical . 135)	; ⾆
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
@@ -584,7 +608,9 @@
       )
      ((=cns11643-1	  . #x485F)	; &C1-485F; [40-63]
       )
-     ((=ucs		  . #x5FDD)	; 忝
+     ((=ucs@unicode	  . #x5FDD)	; &C1-4D3F;
+      (=gb2312		  . #x6343)	; &C1-4D3F; [67-35]
+      (=cns11643-1	  . #x4D3F)	; &I-C1-4D3F; [45-31]
       ))
     (=cns11643-1	. #x6A59)	; &C1-6A59; [74-57]
     ))
