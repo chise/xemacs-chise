@@ -2204,11 +2204,11 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
-     ((=ucs@jis		  . #x6C10)	; &JX1-764F;
-      (=jis-x0212	  . #x4649)	; &JX1-764F; [38-41]
-      (=cns11643-1	  . #x4662)	; &I-C1-4662; [38-66]
-      (=jis-x0213-1	  . #x764F)	; &I-JX1-764F; [86-47]
-      (=daikanwa	  . 17027)	; &I-M-17027;
+     ((=>>ucs@jis	  . #x6C10)	; &g2-JX1-764F;
+      (=>>ucs@cns	  . #x6C10)	; &g2-JX1-764F;
+      (=>>>ucs@jis	  . #x6C10)	; &g2-JX1-764F;
+      (=>>>ucs@cns	  . #x6C10)	; &g2-JX1-764F;
+      (=>>>jis-x0213-1	  . #x764F)	; &g2-JX1-764F; [86-47]
       ))
     (=>>ucs@jis		. #x5CBB)	; &g2-AJ1-04667;
     (=>>ucs@cns		. #x5CBB)	; &g2-AJ1-04667;
@@ -2221,20 +2221,48 @@
     (=>>daikanwa	. 08017)	; &g2-AJ1-04667;
     (=>>cbeta		. 06475)	; &g2-AJ1-04667;
     (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x5C71)	; 山
+	)
+       ((=ucs@jis	    . #x6C10)	; &JX1-764F;
+	(=jis-x0212	    . #x4649)	; &JX1-764F; [38-41]
+	(=jis-x0213-1	    . #x764F)	; &I-JX1-764F; [86-47]
+	))
+      (=daikanwa	  . 08017)	; &M-08017;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x5C71)	; 山
+	)
+       ((=ucs@cns	    . #x6C10)	; &C1-4662;
+	(=cns11643-1	    . #x4662)	; &C1-4662; [38-66]
+	))
+      (=ucs@cns		  . #x5CBB)	; &C3-2857;
+      (=cns11643-3	  . #x2857)	; &C3-2857; [08-55]
+      )
      ((=decomposition@cid
        ((=ucs		    . #x5CBB)	; 岻
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x5C71)	; 山
+	)
+       ((=ucs@JP/hanazono   . #x6C10)	; &hanaJU+6C10;
+	))
       (=ucs@jis		  . #x5CBB)	; &AJ1-04667;
       (=adobe-japan1-0	  . 04667)	; &AJ1-04667;
       (=jis-x0208	  . #x562E)	; &I-J90-562E; [54-14]
       (=jis-x0213-1	  . #x562E)	; &I-JX1-562E; [54-14]
-      (=daikanwa	  . 08017)	; &I-M-08017;
       (=cbeta		  . 06475)	; &I-CB06475;
-      )
-     ((=ucs@cns		  . #x5CBB)	; &C3-2857;
-      (=cns11643-3	  . #x2857)	; &C3-2857; [08-55]
       )
      ((=gt		  . 10051)	; &GT-10051;
       (=gt-pj-1		  . #x562E)	; &GT-10051; [54-14]
