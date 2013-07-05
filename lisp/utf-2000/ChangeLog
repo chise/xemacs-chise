@@ -1,3 +1,16 @@
+2013-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x4463.
+
+2013-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R143-Blood.el (U+460F): Unify S-2492, H8-CE6E and
+	CB00421; add `<-wrong' for U+5379; add `<-wrong@shinjigen' for
+	U+6064.
+
+	* Ideograph-R046-Mountain.el (J0-562E): Separate M-08017.
+
 2013-07-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Oracle-Bones.el (ZOB-{01411 .. 01428}): Fix `shuowen-radical'.
