@@ -2369,15 +2369,21 @@
 	)
        ((=ucs		    . #x5382)	; 厂
 	)
+       ((=daikanwa	    . 23235)	; &M-23235;
+	))
+      (=daikanwa	  . 02998)	; &M-02998;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x5382)	; 厂
+	)
        ((=ucs@unicode	    . #x771E)	; &GT-29751;
-	(=jis-x0208	    . #x6243)	; &GT-29751; [66-35]
-	(=ks-x1001	    . #x7258)	; &I-K0-7258; [82-56]
-	(=jis-x0213-1	    . #x6243)	; &I-JX1-6243; [66-35]
-	(=daikanwa	    . 23235)	; &I-M-23235;
+	(=gt		    . 29751)	; &GT-29751;
 	))
       (=gt		  . 03801)	; &GT-03801;
       (=gt-pj-2		  . #x4B23)	; &GT-03801; [43-03]
-      (=daikanwa	  . 02998)	; &I-M-02998;
       ))
     ))
 (define-char
