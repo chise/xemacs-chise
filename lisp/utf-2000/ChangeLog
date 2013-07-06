@@ -1,5 +1,15 @@
 2013-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R075-Tree.el (U+3B88): Add ideographic-structure.
+	(C3-3C2D): Modify `ideographic-structure'.
+	(JX2-2F29): Likewise.
+	(U+6AD6): Add ideographic-structure.
+	(JSP-4552): Modify `ideographic-structure'.
+	(C4-5F71): Likewise.
+
+	* Ideograph-R038-Woman.el (U-000216DC): Use `->denotational' and
+	`->subsumptive'.
+
 	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
 	Add #x4463.
 
