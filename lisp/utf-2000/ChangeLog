@@ -20,6 +20,31 @@
 	(U-000223B4): Unify M-09729.
 	(U+38C5): Use `->denotational' and `->subsumptive'.
 
+2013-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R113-Spirit.el (G-JU+799B): Unify g2-JU+799B,
+	g2-AJ1-08584 and g2-JX2-726A.
+	(JX2-726A): Separate M-24789.
+
+	* Ideograph-R083-Clan.el (U+6C10): Use `->denotational' instead of
+	`->subsumptive'.
+	(JX1-764F): Separate M-17027, C1-4662 and JC3-55A8.
+	(U+6C11): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R009-Man.el (G-J0-4463): New abstract node; use
+	`->subsumptive' to separate representative nodes for M-00504,
+	GT-00668, J0-4463 and C1-4925.
+	(AJ1-19159): Separate M-00951 and GT-01257.
+	(U+50FD): Add ideographic-structure.
+	(G-CU+50FE): Likewise.
+	(U+50FF): Likewise.
+	(g2-J0-322F): Likewise.
+	(J0-322F): Separate M-01178.
+
+	* Ideograph-R027-Cliff.el (GT-03801): Separate M-02998.
+
+	* Ideograph-R012-Eight.el (M-01505): Separate CB04138.
+
 2013-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R075-Tree.el (U+3B88): Add ideographic-structure.
