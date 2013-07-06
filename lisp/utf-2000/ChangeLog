@@ -1,3 +1,25 @@
+2013-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x4C31.
+
+	* Ideograph-R057-Bow.el:
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	- Add some Adobe-Japan1 code points.
+	(A-M-09721): New abstract character.
+	(U-000223AC): Add `<-denotational' for A-M-09721; use
+	`->subsumptive' to integrate M-09721.
+	(M-09721): Add `<-original' for U+5F48.
+	(U-000223B2): Add `<-denotational' for A-M-09721; use
+	`->subsumptive' to separate representative nodes.
+	(M-09727): Unify U-000223AE and H1-A7F1; add `<-ancient' for
+	M-17027; use `ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@misc'.
+	(M-09728): Unify U-000223B5.
+	(U-000223B4): Unify M-09729.
+	(U+38C5): Use `->denotational' and `->subsumptive'.
+
 2013-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R075-Tree.el (U+3B88): Add ideographic-structure.
