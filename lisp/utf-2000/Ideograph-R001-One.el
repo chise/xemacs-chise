@@ -2010,10 +2010,7 @@
     (=daikanwa		. 09727)	; &I-M-09727;
     (=hanziku-1		. #xA7F1)	; &I-HZK01-A7F1;
     (<-ancient
-     ((=ucs@jis		  . #x6C10)	; &JX1-764F;
-      (=jis-x0212	  . #x4649)	; &JX1-764F; [38-41]
-      (=jis-x0213-1	  . #x764F)	; &I-JX1-764F; [86-47]
-      (=daikanwa	  . 17027)	; &I-M-17027;
+     ((=daikanwa	  . 17027)	; &M-17027;
       ))
     (<-ancient*sources
      zihui-bu daikanwa)
