@@ -455,7 +455,7 @@
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (=>cns11643-6	. 9322)
+    (=>cns11643-6	. #x246A)	; &A-M-09721; [04-74]
     (=>daikanwa		. 09721)	; &A-M-09721;
     ))
 (define-char
