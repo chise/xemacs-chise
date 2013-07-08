@@ -1,6 +1,11 @@
 2013-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x5351 and #x6243.
+
+2013-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
 	Add #x4C31.
 
 	* Ideograph-R057-Bow.el:
