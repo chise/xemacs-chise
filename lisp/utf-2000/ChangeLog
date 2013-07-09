@@ -1,3 +1,10 @@
+2013-07-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R109-Eye.el (J0-6243): Separate UU+771E, GT-29751,
+	GT-K06615, M-23235 and S-5293.
+	(G-JU+771F): Unify G-J0-3F3F, G-GT-29752, G-GT-K06478 and
+	G-M-23236.
+
 2013-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (g2-AJ1-21259): New node to separate
