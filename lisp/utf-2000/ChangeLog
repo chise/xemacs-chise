@@ -1,5 +1,13 @@
 2013-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (g2-AJ1-21259): New node to separate
+	M-03438, C2-256E and JSP-3478.
+	(J0-5351): Separate M-04074, GT-05150 and S-1197.
+	(g2-J0-5360): Add ideographic-structure.
+	(J0-5360): Separate M-04381.
+	(G-CU+566F): Add ideographic-structure.
+	(C1-7045): Add `ideographic-structure'.
+
 	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
 	Add #x5351 and #x6243.
 
