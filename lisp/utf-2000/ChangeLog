@@ -1,3 +1,112 @@
+2013-07-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el: Add some Adobe-Japan1-0 code points.
+	(U-000225B9): Unify S-2518 and H6-D643; add `<-vulgar' for
+	J0-5821.
+	(U+3901): Unify S-2418; add `<-ancient' for J0-575B.
+	(M-10374): Separate UU+3905; unify S-2575; add `<-ancient' for
+	J0-3026.
+	(U-000225CE): Use `->subsumptive' to separate representative
+	nodes.
+	(M-10379): Unify U-000225CF.
+	(U+3907): Unify S-2705; add `<-vulgar' for S-2704.
+	(U+5FF0): Add `<-vulgar' for J0-582C.
+	(J0-5768): Unify S-2452.
+	(G1-6271): Separate S2-2452.
+	(U+6030): Use `->subsumptive' to separate representative nodes.
+	(U+3916): Likewise.
+	(U+6031): Add `<-vulgar' for K0-7542 and BC-8BDD.
+	(M-10509): Unify U-0002261F and H6-D7AC.
+	(M-10510): Map to U-00022622.
+	(M-10511): Unify U-00022629 and H6-D96F.
+	(U+6039): Use `->subsumptive' to separate representative nodes.
+	(U+604F): Use `->subsumptive' to separate representative nodes.
+	(C2-2A46): Unify S-2552; add `<-vulgar' for J0-582E.
+	(U-0002264A): Use `->subsumptive' to separate representative
+	nodes; use `->denotational' to integrate S-2488.
+	(M-10581): Add `<-same' for AJ1-04830.
+	(S-2488): New character; add `<-formed' for J0-5773.
+	(U-00022644): Unify S-2473; add `<-original' for U+606D.
+	(U+606E): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U-00022675): Unify S-2532; add `<-vulgar' for J0-5827.
+	(BC-8BDD): Unify S-2520.
+	(U-000226B0): Unify S-2526; add `<-vulgar' for U-000226B0.
+	(U+393E): Use `->denotational'.
+	(U-000226E9): Use `->subsumptive' to separate representative
+	nodes.
+	(U+3943): Likewise.
+	(C3-3575): Unify S-2569; add `<-formed' for J0-4C65.
+	(U+60B7): Use `->denotational' to separate representative nodes.
+	(U+60B9): Use `->subsumptive' to separate representative nodes.
+	(U+60BA): Likewise.
+	(U+3944): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U-00022724): Use `->denotational' to integrate S1-2576.
+	(M-10841): Unify S2-2576; add `<-vulgar' for J0-3026.
+	(S2-2576): New character; add `<-vulgar' for J0-3026.
+	(U+395B): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U-0002273D): Use `->subsumptive'; integrate S-2536.
+	(S-2536): New character; add `<-formed' for J0-5829.
+	(U+3965): Use `->subsumptive' to separate representative nodes.
+	(JX2-2C5E): Unify S-2728; add `<-formed' for J0-586F.
+	(B-B759): Moved to abstract node.
+	(U+6120): Add `<-denotational' for B-B759; unify AJ1-08459.
+	(M-10955): Unify S-2563.
+	(U+612D): Use `->subsumptive' to separate representative nodes.
+	(U+612E): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(G-CB01720): New node to separate and integrate M-11025 and
+	JC3-4DDB.
+	(U+614D): Use `<-denotational' for B-B759; add `<-original' for
+	U+6120.
+	(U-000227F9): Use `->subsumptive' to separate representative
+	nodes.
+	(U-000227E1): Use `->subsumptive'.
+	(M-11085): Unify S-2694; add `<-original' for GT-14269.
+	(U+6154): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+615A): Add `<-formed' for U+6159.
+	(o-JU+FA3E): New node to integrate G-HD-KS125630 and U+FA3E.
+	(G-HD-KS125630): Unify G-CU+FA3E; integrate C4-434E.
+	(U+616A): Use `->denotational' instead of `->subsumptive'.
+	(U+617A): Use `->denotational' to integrate U-0002F8AA; use
+	`->subsumptive' to separate representative nodes.
+	(U-000227F7): Use `->subsumptive' to separate representative
+	nodes.
+	(J0-585C): Add `<-vulgar' for J0-3746.
+	(M-11188): Add `<-ancient' for UU+617A.
+	(U+6198): Unify S-1147; add `<-formed' for J0-346E.
+	(U+6199): Add `<-formed' for J0-346E.
+	(U+619C): Use `->subsumptive'.
+	(JSP-3E65): Unify S-2609; add `<-original' for J0-4246.
+	(U-0002283E): Use `->subsumptive' to separate representative
+	nodes.
+	(C7-2D75): Unify S-2680; add `<-formed' for J0-3746.
+	(U-0002283F): Use `->denotational' instead of `->subsumptive'.
+	(U+61AA): Use `->subsumptive' to separate representative nodes.
+	(U+3993): Use `->subsumptive'.
+	(U-00022865): Use `->denotational' instead of `->subsumptive'.
+	(U-00022846): Use `->subsumptive'.
+	(C7-377C): Unify S-2716; add `<-original' for J0-3A29.
+	(U-000228A3): Use `->denotational'.
+	(C7-3821): Add `<-formed' for J0-5868.
+	(U-0002289E): Use `->subsumptive' to separate representative
+	nodes.
+	(U+61DA): Use `->denotational'.
+	(JSP-3E7C): Unify S-2729; add `<-formed' for J0-586F.
+	(U-00022903): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(M-11416): Map to U-00022904.
+	(U+61EF): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(M-11418): Map to U-00022905.
+	(U+61F3): Use `->denotational' to separate representative nodes.
+	(U-000228D4): Add `<-unknown' for M-11370.
+	(U+39A3): Use `->denotational' to integrate M-11441; use
+	`->subsumptive' to separate representative nodes.
+
 2013-07-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R109-Eye.el (J0-6243): Separate UU+771E, GT-29751,
