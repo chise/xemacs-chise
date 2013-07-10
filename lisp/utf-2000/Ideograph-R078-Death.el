@@ -3158,10 +3158,8 @@
     (=daikanwa		. 16549)	; &M-16549;
     (=hanziku-4		. #xC971)	; &I-HZK04-C971;
     (<-vulgar
-     ((=ucs@jis		  . #x622E)	; &GT-14699;
-      (=jis-x0208	  . #x5924)	; &GT-14699; [57-04]
-      (=ks-x1001	  . #x5740)	; &I-K0-5740; [55-32]
-      (=jis-x0213-1	  . #x5924)	; &I-JX1-5924; [57-04]
+     ((=ucs@jis		  . #x622E)	; &AJ1-04939;
+      (=adobe-japan1-0	  . 04939)	; &AJ1-04939;
       (=daikanwa	  . 11655)	; &I-M-11655;
       ))
     (<-vulgar*sources
@@ -3174,6 +3172,7 @@
     (ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
+    (=>>ucs@iso		. #x23A4D)	; &G-IU+23A4D;
     (->subsumptive
      ((=ucs@iso		  . #x23A4D)	; &U-00023A4D;
       )
