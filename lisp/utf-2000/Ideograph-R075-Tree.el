@@ -30917,18 +30917,24 @@
   '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 17)
     (total-strokes	 . 21)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6728)	; 木
+      )
+     ((=ucs		  . #x6232)	; 戲
+      ))
     (=ucs		. #x237F5)	; 𣟵
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs		    . #x6728)	; 木
+       ((=gt-k		    . 00495)	; &GT-K00495;
 	)
-       ((=ucs@unicode	    . #x6232)	; &GT-14715;
-	(=jis-x0208	    . #x5926)	; &GT-14715; [57-06]
-	(=jis-x0213-1	    . #x5926)	; &I-JX1-5926; [57-06]
-	(=daikanwa	    . 11681)	; &I-M-11681;
+       ((=ucs@unicode	    . #x6232)	; &AJ1-04941;
+	(=adobe-japan1-0    . 04941)	; &AJ1-04941;
 	))
       (=daikanwa	  . 15894)	; &M-15894;
       (=cbeta		  . 02106)	; &I-CB02106;
@@ -30939,7 +30945,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs		    . #x6728)	; 木
+       ((=gt-k		    . 00495)	; &GT-K00495;
 	)
        ((=cns11643-1	    . #x7361)	; &C1-7361; [83-65]
 	))
