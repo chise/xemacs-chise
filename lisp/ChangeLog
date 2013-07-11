@@ -1,3 +1,11 @@
+2013-07-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=+>ucs-bmp-cjk-compat@jis'.
+
+	* mule/mule-conf.el (=+>ucs-bmp-cjk-compat@jis): New coded-charset
+	for XEmacs CHISE.
+
 2013-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=>cns11643-6): New coded-charset for XEmacs
