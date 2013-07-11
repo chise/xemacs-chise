@@ -1297,8 +1297,8 @@
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
