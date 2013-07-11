@@ -141,7 +141,12 @@
     (total-strokes	 . 6)
     (=ucs		. #x5F0E)	; 弎
     (->subsumptive
-     ((=ucs@unicode	  . #x5F0E)	; &AJ1-14513;
+     ((=decomposition@cid
+       ((=ucs		    . #x5F0E)	; 弎
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@unicode	  . #x5F0E)	; &AJ1-14513;
       (=adobe-japan1-4	  . 14513)	; &AJ1-14513;
       (=jis-x0212	  . #x3C60)	; &I-JSP-3C60; [28-64]
       (=iso-ir165	  . #x2E38)	; &I-EGB-2E38; [14-24]
