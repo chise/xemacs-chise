@@ -1,3 +1,16 @@
+2013-07-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x587A.
+
+	* Ideograph-R078-Death.el (mother of C7-2429): Unify G-IU+23A4D.
+
+	* Ideograph-R075-Tree.el (U-000237F5): Add ideographic-structure.
+	(M-15894): Modify `ideographic-structure'.
+	(C5-7029): Likewise.
+
+	* Ideograph-R063-Door.el: Add some Adobe-Japan1-0 code points.
+
 2013-07-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el: Add some Adobe-Japan1-0 code points.
