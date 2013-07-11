@@ -1894,7 +1894,12 @@
       ))
     (=ucs		. #x2B777)	; 𫝷
     (->subsumptive
-     ((=ucs@iso		  . #x2B777)	; &AJ1-13782;
+     ((=decomposition@cid
+       ((=ucs		    . #x2B777)	; 𫝷
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@iso		  . #x2B777)	; &AJ1-13782;
       (=adobe-japan1-4	  . 13782)	; &AJ1-13782;
       (=shinjigen	  .  2185)	; &AJ1-13782;
       (<-vulgar
