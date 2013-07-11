@@ -382,7 +382,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==>ucs-bmp-cjk@bucs
 	  =>ucs-bmp-cjk@unicode
           =+>ucs-bmp-cjk@unicode
-          ;; =>>ucs@unicode
+          =+>ucs-bmp-cjk-compat@jis
+	  ;; =>>ucs@unicode
 	  =adobe-japan1-base
 	  =>jis-x0208@1997
 	  =>>hanyo-denshi/ft
