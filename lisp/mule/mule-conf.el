@@ -2686,6 +2686,20 @@
 	       max-code #xFAFF
 	       ))
   (make-charset
+   '=+>ucs-bmp-cjk-compat@jis
+   "CJK Compatibility Ideographs of JIS representatives unified glyphs"
+   '(long-name "JIS unified glyphs for CJK Compat chars"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-ja-.*-ucs-0"
+	       mother =+>ucs@jis
+	       min-code #xF900
+	       max-code #xFAFF
+	       ))
+  (make-charset
    '=ucs-sip-ext-b
    "CJK Ideographs Extension B"
    '(long-name "UCS CJK Ext-B"
