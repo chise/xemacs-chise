@@ -1,3 +1,19 @@
+2013-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x5921.
+
+	* ruimoku6.el (RUI6-E067): Fix `ideographic-strokes' and
+	`total-strokes'.
+
+	* Ideograph-R057-Bow.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+
+	* Ideograph-R056-Shoot.el (AJ1-14513): Add `=decomposition@cid'.
+
+	* Ideograph-R053-Dotted-Cliff.el (AJ1-13782): Add
+	`=decomposition@cid'.
+
 2013-07-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
