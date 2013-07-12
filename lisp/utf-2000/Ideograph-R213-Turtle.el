@@ -251,9 +251,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=big5-cdp	    . #x8BAB)	; &GT-67403;
+       ((=adobe-japan1-4    . 15391)	; &AJ1-15391;
 	)
-       ((=big5-cdp	    . #x8BAB)	; &GT-67403;
+       ((=adobe-japan1-4    . 15391)	; &AJ1-15391;
 	))
       ))
     (=big5-cdp-var-5	. #x88CB)	; &CDP-var5-88CB;
