@@ -1,5 +1,14 @@
 2013-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R062-Halberd.el: Add some Adobe-Japan1-0 code points.
+	(U+6215): Use `->subsumptive' to separate representative nodes.
+	(AJ1-20123): Separate M-11606'.
+	(U-000229E4): Use `->subsumptive' to separate representative
+	nodes.
+	(RUI6-E067): Fix `ideographic-strokes' and `total-strokes'.
+
+2013-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
 	Add #x5921.
 
