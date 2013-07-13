@@ -1,5 +1,124 @@
 2013-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R085-Water.el: Add some Adobe-Japan1-5 code points.
+	(U-00023C75): Integrate M-17095.
+	(U+3CBA): Integrate M-17096.
+	(U-00023C76): Unify M-17097.
+	(U+3CBC): Integrate M-17107.
+	(U-00023C7B): New character.
+	(U+6C4E): Use `->denotational' to integrate U-0002F8FA.
+	(J0-5D72): Add `<-formed' and `<-same' for G0-636A.
+	(U+3CD9): Use `->subsumptive'.
+	(UU+3CD9): Unify S-4207; add `<-vulgar' for J0-5E32.
+	(U+6D32): Use `->subsumptive'.
+	(B-D264): Unify G-CU+6D16 and G-M-17456.
+	(mother of C1-5646): Unify G-CU+6D5A and G-M-17460.
+	(U+6D7B): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+6D8B): Use `->subsumptive'.
+	(U+6D8C): Add `<-original' for UU+6E67.
+	(G-UU+6D8E): Unify G-J0-5E37, G-GT-22369 and G-M-17536.
+	(U+6D93): Use `->subsumptive'.
+	(U+3CF5): Use `->subsumptive' to separate representative nodes.
+	(J0-4D64): Unify S1-4299.
+	(U-00023D7F): Integrate M-17611.
+	(U+6DC1): Use `->subsumptive'.
+	(U-00023D80): Integrate M-17615.
+	(U+6DC5): Unify S1-4293.
+	(U-00023D81): Integrate M-17618.
+	(U+6DC6): Use `->subsumptive'.
+	(U+3CF8): Integrate M-17625.
+	(U-00023D82): Integrate M-17627.
+	(U-00023D86): Integrate M-17650.
+	(J0-5E44): Unify S1-4287.
+	(U+3CFC): Unify M-17661.
+	(U-00023D8B): Integrate M-17663.
+	(G-CU+6DE9): Unify G-M-17670.
+	(U+3CFD): Integrate M-17671.
+	(U-00023D8D): Integrate M-17673.
+	(U+3CFE): Integrate M-17676.
+	(K0-6B62): Unify KU+6DEB.
+	(J0-5E4E): Unify S1-4314.
+	(U-00023D93): Integrate M-17700.
+	(U-00023D94): Integrate M-17702.
+	(U+3D01): Integrate M-17704.
+	(U-00023D99): Integrate M-17710.
+	(U-00023D9B): Integrate M-17711.
+	(U+6E00): Use `->denotational' instead of `->subsumptive'.
+	(U+3D02): Integrate M-17716.
+	(U-00023D9E): Integrate M-17717.
+	(U+3D03): Use `->denotational' instead of `->subsumptive'.
+	(U+6E01): Use `->subsumptive' to separate representative nodes.
+	(U-00023D9F): Integrate M-17720.
+	(U+6E02): Use `->subsumptive' to separate representative nodes.
+	(U+3D04): Integrate M-17723.
+	(U+3D05): Integrate M-17724.
+	(U+3D06): Integrate M-17726.
+	(U-00023DA2): Integrate M-17727.
+	(U+6E33): Use `->subsumptive'.
+	(U-00023E08): Use `->subsumptive'.
+	(U+3D17): Use `->subsumptive'.
+	(U+6E67): Use `->denotational' and `->subsumptive'.
+	(J0-4D2F): Unify S2-4361.
+	(U+6E9C): Unify S1-4404.
+	(U+3D28): Use `->denotational' and `->subsumptive'.
+	(U+6EA6): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+6EB2): Likewise.
+	(g2-J0-5E71): New node to integrate J0-5E71 and G0-6468.
+	(J0-5E71): Separate S2-4401.
+	(S2-4401): Unify S1-4399.
+	(U+6EC5): Use `->subsumptive'.
+	(J0-5E77): Unify S1-4417.
+	(U+6F01): Add `<-formed' for M-46574; add `->original' for
+	M-18827.
+	(g2-UU+6F10): New node to separate/integrate UU+6F10, M-18122 and
+	C3-4C6A.
+	(mother of C2-4B43): New node; unify g2-UU+6F3B.
+	(U+6F91): Unify S1-4405; add `<-original' for U+6E9C.
+	(mother of C2-577E): Unify G-CU+6F9E and G-M-18375.
+	(JX1-773B): Unify S-4236; add `<-vulgar' for J0-5F40.
+	(U+7048): Use `->subsumptive'.
+	(U-0002415D): Integrate M-18807.
+	(U-00024160): Integrate M-18808.
+	(U+3D9E): Integrate M-18809.
+	(U-00024161): Integrate M-18810.
+	(U+3D9F): Integrate M-18812.
+	(U-00024162): Unify M-18813.
+	(U-00024163): Integrate M-18817.
+	(U-00024164): Unify M-18818.
+	(mother of C2-703C): Unify G-CU+7061 and G-M-18819.
+	(U-00024166): Integrate M-18820.
+	(M-18821): New character; add `<-same' for M-18735.
+	(U-00024168): Use `->subsumptive' to separate representative
+	nodes; add `<-unknown' for M-18821.
+	(U-00024169): Integrate M-18824.
+	(U-0002416A): Integrate M-18825.
+	(U-0002416B): Integrate M-18826.
+	(U-00029F2A): Use `->subsumptive' to integrate M-18827 and
+	M-46574.
+	(U-00024170): Unify M-18828.
+	(U-00024171): Unify M-18829.
+	(U+3DA0): Integrate M-18830.
+	(U-00024172): Integrate M-18832.
+	(U-00024173): Unify M-18836.
+	(U-00024174): Integrate M-18837.
+	(U-00024177): Integrate M-18838.
+	(U-00024178): Unify M-18840.
+	(U-00024179): Integrate M-18841.
+	(U+7068): Use `->subsumptive'.
+	(U-0002417B): Integrate M-18843.
+	(U-0002417C): Unify M-18844.
+	(U-0002417D): Unify M-18845.
+
+	* Ideograph-R059-Bristle.el:
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	- Add some Adobe-Japan1 code points.
+
+	* Ideograph-R058-Snout.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+
 	* Ideograph-R062-Halberd.el: Add some Adobe-Japan1-0 code points.
 	(U+6215): Use `->subsumptive' to separate representative nodes.
 	(AJ1-20123): Separate M-11606'.
