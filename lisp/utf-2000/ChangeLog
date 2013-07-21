@@ -1,3 +1,14 @@
+2013-07-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R062-Halberd.el: Add some Adobe-Japan1-6 code points.
+
+	* Ideograph-R009-Man.el (G-IU+20233): New node to separate
+	representative nodes of M-00661, IU+20233 and H1-C5EF.
+
+2013-07-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R060-Step.el: Add some Adobe-Japan1-6 code points.
+
 2013-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R085-Water.el: Add some Adobe-Japan1-5 code points.
