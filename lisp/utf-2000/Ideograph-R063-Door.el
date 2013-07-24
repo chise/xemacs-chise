@@ -701,6 +701,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x6242)	; 扂
+    (=big5		. #xCED2)	; &I-B-CED2;
     ))
 (define-char
   '((<-denotational
@@ -709,11 +710,11 @@
     (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=ucs@cns		. #x6242)	; &JSP-3F33;
-    (=ucs@jis		. #x6242)	; &JSP-3F33;
-    (=jis-x0212		. #x3F33)	; &JSP-3F33; [31-19]
+    (=ucs@cns		. #x6242)	; &AJ1-21608;
+    (=ucs@jis		. #x6242)	; &AJ1-21608;
+    (=adobe-japan1-6	. 21608)	; &AJ1-21608;
+    (=jis-x0212		. #x3F33)	; &I-JSP-3F33; [31-19]
     (=cns11643-2	. #x2A53)	; &I-C2-2A53; [10-51]
-    (=big5		. #xCED2)	; &I-B-CED2;
     (=daikanwa		. 11726)	; &I-M-11726;
     ))
 (define-char
@@ -827,50 +828,95 @@
   '((ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
+    (=ucs		. #x22A40)	; 𢩀
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22A40)	; 𢩀
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
     (=daikanwa		. 11735)	; &M-11735;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22A40)	; 𢩀
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (=ucs@iso		. #x22A40)	; &U-00022A40;
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x22A3F)	; 𢨿
-    (->subsumptive
-     ((=daikanwa	  . 11736)	; &M-11736;
-      )
-     ((=ucs@iso		  . #x22A3F)	; &U-00022A3F;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22A3F)	; 𢨿
       ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (=daikanwa		. 11736)	; &M-11736;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22A3F)	; 𢨿
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (=ucs@iso		. #x22A3F)	; &U-00022A3F;
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ucs		. #x6244)	; 扄
-    (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	(=ucs		    . #x2FF8)	; ⿸
-	)
-       ((=ucs		    . #x6236)	; 戶
-	)
-       ((=ucs		    . #x5411)	; 向
-	))
-      (=ucs@jis		  . #x6244)	; &JSP-3F35;
-      (=jis-x0212	  . #x3F35)	; &JSP-3F35; [31-21]
-      (=daikanwa	  . 11737)	; &I-M-11737;
-      (=cbeta		  . 02034)	; &I-CB02034;
-      )
-     ((hanyu-dazidian	  3 2263 1)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	(=ucs		    . #x2FF8)	; ⿸
-	)
-       ((=ucs		    . #x6237)	; 户
-	)
-       ((=ucs		    . #x5411)	; 向
-	))
-      (=ucs@unicode	  . #x6244)	; &HZK06-D457;
-      (=hanziku-6	  . #xD457)	; &HZK06-D457;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6244)	; 扄
       ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x6236)	; 戶
+      )
+     ((=ucs		  . #x5411)	; 向
+      ))
+    (=ucs@jis		. #x6244)	; &AJ1-21609;
+    (=adobe-japan1-6	. 21609)	; &AJ1-21609;
+    (=jis-x0212		. #x3F35)	; &I-JSP-3F35; [31-21]
+    (=daikanwa		. 11737)	; &I-M-11737;
+    (=cbeta		. 02034)	; &I-CB02034;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6244)	; 扄
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (hanyu-dazidian	3 2263 1)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x6237)	; 户
+      )
+     ((=ucs		  . #x5411)	; 向
+      ))
+    (=ucs@unicode	. #x6244)	; &HZK06-D457;
+    (=hanziku-6		. #xD457)	; &HZK06-D457;
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
