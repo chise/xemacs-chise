@@ -2568,16 +2568,16 @@
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
-   '=ucs-bmp-cjk@unicode
-   "CJK Characters in BMP of Unicode"
-   '(long-name "Unicode-BMP-CJK"
+   '=ucs-bmp-cjk@gb
+   "CJK Characters in BMP with GB representative glyph-images."
+   '(long-name "CJK in BMP@GB"
 	       chars 256
 	       dimension 2
 	       columns 2
 	       graphic 2
 	       direction l2r
 	       registry "-zh-.*-ucs-0"
-	       mother =ucs@unicode
+	       mother =ucs@gb
 	       min-code #x2E00
                max-code #x9FA5
 	       ;; max-code #xA4CF
