@@ -283,7 +283,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =jis-x0208-1990
 	  =ucs-radicals
 	  =ucs-radicals@unicode
-	  =ucs-bmp-cjk@unicode
+	  =ucs-bmp-cjk@gb
           ;; =ucs-bmp-cjk@JP
 	  =ucs-bmp-cjk@JP/hanazono
 	  =ucs-bmp-cjk-compat
