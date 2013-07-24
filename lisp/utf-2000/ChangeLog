@@ -1,5 +1,36 @@
 2013-07-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R063-Door.el: Add some Adobe-Japan1-6 code points.
+	(M-11735): Map to U-00022A40.
+	(U-00022A3F): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R061-Heart.el: Add some Adobe-Japan1-6 code points.
+	(M-10318): Unify U-000225C4 and H6-D5FE.
+	(mother of C6-3130): Unify G-UU+393A, G-CU+2F8A1 and G-M-10606
+	instead of U-0002F8A1.
+	(C6-3130): Unify U-0002F8A1.
+	(U+607F): Use `<-ancient' for U+FA76 instead of
+	`ancient-char-of-shinjigen-1' for S1-0731.
+	(U-00022678): Use `->subsumptive' to separate representative
+	nodes.
+	(U+6090): Likewise.
+	(U-00022679): Likewise.
+	(U+60C3): Likewise.
+	(U+3949): Likewise.
+	(U+394C): Likewise.
+	(U+60E6): Use `->subsumptive'.
+	(o-J0-3932): New node.
+	(HD-KS124190): Use o-J0-3932 instead of U+614C.
+	(G-HD-KS124450): Likewise.
+	(G-AJ1-01988): Likewise.
+	(U-0002F8A7): Add `<-denotational' for U+614C.
+	(U+3985): Use `->subsumptive' to separate representative nodes.
+	(U+6179): Likewise.
+	(U-000227EF): Likewise.
+	(U-0002F8A9): Add `<-denotational' for U+614C.
+	(U-0002283A): Use `->subsumptive' to separate representative
+	nodes.
+
 	* Ideograph-R062-Halberd.el: Add some Adobe-Japan1-6 code points.
 
 	* Ideograph-R009-Man.el (G-IU+20233): New node to separate
