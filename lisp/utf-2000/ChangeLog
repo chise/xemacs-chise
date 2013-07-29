@@ -1,3 +1,11 @@
+2013-07-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R059-Bristle.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+
+	* Ideograph-R058-Snout.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 characters.
+
 2013-07-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R063-Door.el: Add some Adobe-Japan1-6 code points.
