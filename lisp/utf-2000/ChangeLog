@@ -1,3 +1,8 @@
+2013-07-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x4879 and #x4530.
+
 2013-07-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R059-Bristle.el: Add `=decomposition@cid' for some
