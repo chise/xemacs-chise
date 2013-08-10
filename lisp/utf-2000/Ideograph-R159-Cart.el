@@ -2136,8 +2136,9 @@
     (->subsumptive
      ((ideographic-strokes . 7)
       (total-strokes	   . 14)
-      (=ucs@unicode	  . #x8F13)	; &GT-51187;
-      (=jis-x0208@1983	  . #x6D4E)	; &GT-51187; [77-46]
+      (=ucs@unicode	  . #x8F13)	; &AJ1-06861;
+      (=adobe-japan1-0	  . 06861)	; &AJ1-06861;
+      (=jis-x0208@1983	  . #x6D4E)	; &I-J83-6D4E; [77-46]
       (=ks-x1001	  . #x5842)	; &I-K0-5842; [56-34]
       (=jis-x0208@1990	  . #x6D4E)	; &I-J90-6D4E; [77-46]
       (=cns11643-1	  . #x6B3D)	; &I-C1-6B3D; [75-29]
@@ -2145,7 +2146,7 @@
       (=gt		  . 51187)	; &I-GT-51187;
       (=gt-pj-1		  . #x6D4E)	; &I-GT-51187; [77-46]
       (=daikanwa	  . 38337)	; &I-M-38337;
-      (=shinjigen	  .  8147)	; &GT-51187;
+      (=shinjigen	  .  8147)	; &AJ1-06861;
       )
      ((ideographic-strokes . 8)
       (total-strokes	   . 15)
