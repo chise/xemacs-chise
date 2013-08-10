@@ -12046,8 +12046,12 @@
     (total-strokes	 . 13)
     (=ucs		. #x22797)	; 𢞗
     (->subsumptive
-     ((=ucs@iso		  . #x22797)	; &M-11018;
-      (=daikanwa	  . 11018)	; &M-11018;
+     ((=>>>ucs@iso	  . #x22797)	; &g2-IU+22797;
+      (->subsumptive
+       ((=daikanwa	    . 11018)	; &M-11018;
+	)
+       ((=ucs@iso	    . #x22797)	; &U-00022797;
+	))
       )
      ((=cns11643-5	  . #x3F44)	; &C5-3F44; [31-36]
       ))
