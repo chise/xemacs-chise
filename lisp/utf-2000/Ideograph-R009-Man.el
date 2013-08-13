@@ -18893,8 +18893,7 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=hanyo-denshi/jt	  . #xB12F)	; &HD-JT-B12F;
-      (=daikanwa	  . 10073)	; &I-M-10073;
+     ((=adobe-japan1-4	  . 13661)	; &AJ1-13661;
       ))
     (=daikanwa		. 00795)	; &M-00795;
     ))
@@ -39754,10 +39753,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@jis	    . #x6434)	; &GT-15904;
-	(=jis-x0208	    . #x596B)	; &GT-15904; [57-75]
-	(=jis-x0213-1	    . #x596B)	; &I-JX1-596B; [57-75]
-	(=daikanwa	    . 12519)	; &I-M-12519;
+       ((=ucs@jis	    . #x6434)	; &AJ1-05010;
+	(=adobe-japan1-0    . 05010)	; &AJ1-05010;
 	))
       (=daikanwa	  . 01231)	; &M-01231;
       )
