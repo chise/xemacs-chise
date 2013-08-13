@@ -1,5 +1,14 @@
 2013-08-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R070-Square.el (J0-3177): Unify AJ1-01305.
+
+	* Ideograph-R060-Step.el:
+	- Add `=decomposition@cid' for some Adobe-Japan1 characters.
+	- Add some Adobe-Japan1 code points.
+	(U+38E5): Use `->denotational'.
+	(U-00022535): Use `->denotational' instead of `->subsumptive'.
+	(U+5FB8): Use `->subsumptive'.
+
 	* Ideograph-R162-Walk.el (J90-7423): Unify AJ1-07476.
 
 	* Ideograph-R159-Cart.el (J90-6D4E): Unify AJ1-06861.
