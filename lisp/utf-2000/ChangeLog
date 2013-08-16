@@ -1,3 +1,11 @@
+2013-08-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x4863, #x5932, #x3E35, #x4D5E, #x5A2D, #x4471, #x5939,
+	#x3348, #x3969, #x594D, #x3044, #x594B, #x3027, #x3F36, #x405C,
+	#x5964, #x5962, #x5953, #x5977, #x3B35, #x4531, #x5A26, #x5A2B,
+	#x5A2F, #x5A36, #x5A37 and #x5A3B.
+
 2013-08-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R070-Square.el (J0-3177): Unify AJ1-01305.
