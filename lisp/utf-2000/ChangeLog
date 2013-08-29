@@ -1,3 +1,8 @@
+2013-08-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x5A2C.
+
 2013-08-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
