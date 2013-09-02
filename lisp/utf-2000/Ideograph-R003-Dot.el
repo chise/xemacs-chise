@@ -623,11 +623,7 @@
     (=hanziku-1		. #xADBF)	; &I-HZK01-ADBF;
     (<-simplified@CN
      ((=ucs@unicode	  . #x8209)	; &GT-39114;
-      (=jis-x0208	  . #x5A2A)	; &GT-39114; [58-10]
-      (=cns11643-1	  . #x7528)	; &I-C1-7528; [85-08]
-      (=jis-x0213-1	  . #x5A2A)	; &I-JX1-5A2A; [58-10]
       (=gb12345		  . #x3E59)	; &GT-39114; [30-57]
-      (=daikanwa	  . 30238)	; &I-M-30238;
       ))
     ))
 (define-char
