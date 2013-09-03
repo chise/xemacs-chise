@@ -1,5 +1,64 @@
 2013-09-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R134-Mortar.el (U-00026995): Use `->denotational' to
+	separate representative nodes.
+	(GT-39114): Separate J0-5A2A, C1-7528, M-30238 and S2-2903.
+	(M-30238): Unify S-2903.
+	(U-00026996): Use `->subsumptive' to separate representative
+	nodes.
+	(U-00026998): Use `->denotational' to separate representative
+	nodes.
+	(U-00026999): Use `->subsumptive' to separate representative
+	nodes.
+
+	* Ideograph-R064-Hand.el: Add some Adobe-Japan1-0 code points.
+	(U-00022A87): Use `->subsumptive' to separate representative
+	nodes.
+	(U+627A): Likewise.
+	(U+627D): Use `->subsumptive'.
+	(U-00022A90): Use `->subsumptive' to separate representative
+	nodes.
+	(U+6285): Likewise.
+	(JX1-7468): Unify S-2864; add `<-vulgar' for U+62D8.
+	(M-11898): Map to U-00022AA6.
+	(M-11899): Unify U-00022AA7 and H5-D0B1.
+	(M-11900): Unify U-00022AA5 and H5-CFB2.
+	(U+62AD): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+39D2): Use `->subsumptive'.
+	(U+62CB): Use `->subsumptive' to separate representative nodes.
+	(U+39DE): New character.
+	(U-00022AFE): Use `->subsumptive'.
+	(M-12071): Unify S1-2913 and S2-2915; add `<-ancient' for J0-3B58.
+	(U+39F3): Use `->subsumptive'.
+	(B-D1BE): Moved to abstract node.
+	(U+6329): Add `<-denotational' for B-D1BE; use `->subsumptive'.
+	(U+635D): Add `<-denotational' for B-D1BE.
+	(U+6330): Use `->denotational' to separate representative nodes.
+	(g2-UU+6353): New node to integrate M-12155, UU+6353 and C3-3139.
+	(M-12155): Separate UU+6353; unify S1-3017 and S2-3020; add
+	`<-formed' for S2-3019.
+	(U+39F3): Use `->subsumptive'.
+	(U+6330): Use `->denotational' to separate representative nodes.
+	(g2-UU+6353): New node; use `->subsumptive' to separate M-12155
+	and UU+6353, and integrate C3-3139.
+	(mother of C2-2F43): Unify G-CU+6358 and G-M-12161.
+	(U-0002F8BE): Integrate S-2938 and CB06703.
+	(U+63E2): Use `->subsumptive' to separate representative nodes.
+	(U+3A14): Unify S-3098; add `<-original' for U+64BC.
+	(U-00022C67): Use `->subsumptive'; integrate S-2843.
+	(mother of UU+3A40): Unify G-UU+3A40 and G-M-49134.
+	(M-49134): Unify S-2862; add `<-vulgar' for J0-5A21.
+	(mother of JSP-4072): Unify G-JU+6499 and G-M-12712.
+	(mother of G-C1-6D2B): Unify G-UU+6499.
+	(M-12830): Unify S1-3029 and S2-3032; add `<-vulgar' for J0-3748.
+	(JX2-2D54): Unify S1-3030 and S2-3033; add `<-vulgar' for J0-3748.
+	(JX2-2D58): Unify S-3129.
+	(U+6502): Unify S-3115; add `<-original' for J0-5A27.
+	(U-00022E6C): Use `->subsumptive'.
+
+2013-09-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
 	Add #x5A2A.
 
