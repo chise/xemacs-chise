@@ -580,13 +580,7 @@
     (->subsumptive
      ((=daikanwa	  . 16637)	; &M-16637;
       (<-ancient
-       ((=ucs@jis	    . #x6562)	; &GT-16742;
-	(=ucs@ks	    . #x6562)	; &GT-16742;
-	(=ks-x1001	    . #x4A72)	; &GT-16742; [42-82]
-	(=jis-x0208@1990    . #x343A)	; &I-J90-343A; [20-26]
-	(=cns11643-1	    . #x5F56)	; &I-C1-5F56; [63-54]
-	(=jis-x0213-1	    . #x343A)	; &I-JX1-343A; [20-26]
-	(=daikanwa	    . 13260)	; &I-M-13260;
+       ((=daikanwa	    . 13260)	; &M-13260;
 	))
       (<-ancient*sources
        jiyun daikanwa)
@@ -1730,11 +1724,9 @@
     (->subsumptive
      ((=daikanwa	  . 16689)	; &M-16689;
       (<-same
-       ((=ucs@jis	    . #x6572)	; &GT-16853;
-	(=ucs@ks	    . #x6572)	; &GT-16853;
-	(=jis-x0208	    . #x5A4A)	; &GT-16853; [58-42]
-	(=ks-x1001	    . #x4D3B)	; &I-K0-4D3B; [45-27]
-	(=jis-x0213-1	    . #x5A4A)	; &I-JX1-5A4A; [58-42]
+       ((=ucs@jis	    . #x6572)	; &AJ1-05071;
+	(=ucs@ks	    . #x6572)	; &AJ1-05071;
+	(=adobe-japan1-0    . 05071)	; &AJ1-05071;
 	(=daikanwa	    . 13337)	; &I-M-13337;
 	))
       (<-same*sources
