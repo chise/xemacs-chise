@@ -501,10 +501,6 @@
     (=ucs		. #x53CE)	; 収
     (=>>jis-x0208	. #x3C7D)	; 収 [28-93]
     (=>>jis-x0213-1	. #x3C7D)	; 収 [28-93]
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x6536)	; 收
-      (=jis-x0208	  . #x5A40)	; &I-J90-5A40; [58-32]
-      ))
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x53CE)	; 収
@@ -532,8 +528,16 @@
       (=shinjigen	  .  0906)	; &AJ1-02345;
       (=hanziku-1	  . #xF6D2)	; &I-HZK01-F6D2;
       (=cbeta		  . 01495)	; &I-CB01495;
+      (<-simplified@JP/Jouyou
+       ((=ucs@jis	    . #x6536)	; &J90-5A40;
+	(=jis-x0208	    . #x5A40)	; &J90-5A40; [58-32]
+	(=jis-x0213-1	    . #x5A40)	; &I-JX1-5A40; [58-32]
+	(=daikanwa	    . 13110)	; &I-M-13110;
+	))
       (<-vulgar
-       ((=ucs		    . #x6536)	; 收
+       ((=ucs@jis	    . #x6536)	; &J90-5A40;
+	(=jis-x0208	    . #x5A40)	; &J90-5A40; [58-32]
+	(=jis-x0213-1	    . #x5A40)	; &I-JX1-5A40; [58-32]
 	(=daikanwa	    . 13110)	; &I-M-13110;
 	))
       (<-vulgar*sources
@@ -2047,15 +2051,44 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (=ucs		. #x20B56)	; 𠭖
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20B56)	; 𠭖
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (=>>daikanwa	. 03182)	; &G-M-03182;
     (->subsumptive
      ((=daikanwa	  . 03182)	; &M-03182;
       )
      ((hanyu-dazidian	  1 400 3)
+      (=shinjigen	  .  3177)	; &HZK01-F856;
       (=hanziku-1	  . #xF856)	; &HZK01-F856;
-      )
-     ((=ucs@iso		  . #x20B56)	; &C6-3D68;
-      (=cns11643-6	  . #x3D68)	; &C6-3D68; [29-72]
+      (<-original
+       ((=ucs@cns	    . #x6562)	; &AJ1-01526;
+	(=ucs@jis/1990	    . #x6562)	; &AJ1-01526;
+	(=ucs@jis/2000	    . #x6562)	; &AJ1-01526;
+	(=ucs@jis/2004	    . #x6562)	; &AJ1-01526;
+	(=ucs@ks	    . #x6562)	; &AJ1-01526;
+	(=adobe-japan1-0    . 01526)	; &AJ1-01526;
+	(=jis-x0208@1990    . #x343A)	; &I-J90-343A; [20-26]
+	(=shinjigen	    .  3176)	; &AJ1-01526;
+	))
+      (<-original*sources
+       shinjigen)
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20B56)	; 𠭖
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (=ucs@iso		. #x20B56)	; &C6-3D68;
+    (=cns11643-6	. #x3D68)	; &C6-3D68; [29-72]
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
