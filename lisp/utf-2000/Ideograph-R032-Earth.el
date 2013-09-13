@@ -13368,19 +13368,27 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x6566)	; &GT-16781;
-	(=ucs@ks	    . #x6566)	; &GT-16781;
-	(=jis-x0208	    . #x4658)	; &GT-16781; [38-56]
-	(=ks-x1001	    . #x5444)	; &I-K0-5444; [52-36]
+       ((=ucs@jis	    . #x6566)	; &J90-4658;
+	(=jis-x0208	    . #x4658)	; &J90-4658; [38-56]
 	(=jis-x0213-1	    . #x4658)	; &I-JX1-4658; [38-56]
 	(=daikanwa	    . 13276)	; &I-M-13276;
 	)
        ((=ucs		    . #x571F)	; 土
 	))
-      (=ucs@jis		  . #x58AA)	; &AJ1-17460;
-      (=adobe-japan1-5	  . 17460)	; &AJ1-17460;
-      (=jis-x0213-2	  . #x2530)	; &I-JX2-2530; [05-16]
+      (=ucs@jis		  . #x58AA)	; &JX2-2530;
+      (=jis-x0213-2	  . #x2530)	; &JX2-2530; [05-16]
       (=daikanwa	  . 05471)	; &I-M-05471;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs@ks	    . #x6566)	; &AJ1-03248;
+	(=adobe-japan1-0    . 03248)	; &AJ1-03248;
+	)
+       ((=ucs		    . #x571F)	; 土
+	))
+      (=adobe-japan1-5	  . 17460)	; &AJ1-17460;
       (=cbeta		  . 01382)	; &I-CB01382;
       )
      ((hanyu-dazidian	  1 489 1)
