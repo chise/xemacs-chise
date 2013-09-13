@@ -1,3 +1,8 @@
+2013-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (JX2-2530): Separate AJ1-17460 and
+	CB01382.
+
 2013-09-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R120-Silk.el (U-0002035E): Modify
@@ -18838,7 +18843,7 @@
 	`script' feature.
 	(RUI6-E034): New character.
 
-	* char-db-util.el (shuowen-radicals): Add ?夕, ?多, ?毌, ?㔾, ?𣎺,
+	* char-db-util.el (shuowen-radicals): Add ?夕, ?多, ?毌, ?㔾, ?朳,
 	?𠧪, ?齊, ?朿, ?片 and ?鼎.
 
 2007-11-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
@@ -18947,7 +18952,7 @@
 
 	* char-db-util.el (shuowen-radicals): Add ?木, ?東, ?林, ?才, ?叒,
 	?之, ?帀, ?出, ?𣎵, ?生, ?乇, ?𠂹, ?𠌶, ?華, ?𥝌, ?稽, ?巢, ?桼,
-	?束, ?㯻, ?囗, ?員, ?貝, ?邑 and ?𨛜.
+	?束, ?櫂, ?囗, ?員, ?貝, ?邑 and ?𨛜.
 
 2007-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
@@ -19327,7 +19332,7 @@
 
 2007-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* char-db-util.el (shuowen-radicals): Add ?𦥑, ?𨉋, ?爨, ?革, ?鬲,
+	* char-db-util.el (shuowen-radicals): Add ?𦥑, ?躴, ?爨, ?革, ?鬲,
 	?䰜, ?爪, ?𠃨, ?鬥, ?又, ?𠂇, ?㕜, ?  支, ?𦘒, ?聿, ?畫, ?隶, ?堅,
 	?臣, ?殳, ?殺, ?𠘧, ?寸, ?皮 , ?瓪, ?  攴, ?敎, ?卜, ?用, ?爻 and
 	?㸚.
