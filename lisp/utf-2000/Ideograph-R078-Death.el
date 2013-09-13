@@ -3846,7 +3846,9 @@
     (=daikanwa		. 16590)	; &I-M-16590;
     (=jef-china3	. #x54E8)	; &I-JC3-54E8;
     (<-synonyms
-     ((=ucs		  . #x6582)	; 斂
+     ((=ucs@jis		  . #x6582)	; &J90-5A4C;
+      (=jis-x0208	  . #x5A4C)	; &J90-5A4C; [58-44]
+      (=jis-x0213-1	  . #x5A4C)	; &I-JX1-5A4C; [58-44]
       (=daikanwa	  . 13407)	; &I-M-13407;
       ))
     (<-synonyms*sources
