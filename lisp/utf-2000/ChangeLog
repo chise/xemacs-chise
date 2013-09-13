@@ -1,3 +1,17 @@
+2013-09-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (o-UU+53AB): New node to integrate
+	UU+53AB and C3-4048.
+	(U-00020A9A): Use `->denotational' instead of `->subsumptive'.
+
+2013-09-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (U+53CE): Move `<-simplified@JP/Jouyou'
+	to J90-3C7D.
+	(U-00020B56): Use `->denotational' instead of `->subsumptive'.
+	(G-M-03182): New node to integrate M-03182 and H1-F856.
+	(H1-F856): Unify S-3177; add `<-original' for J90-343A.
+
 2013-09-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R134-Mortar.el (U-00026995): Use `->denotational' to
