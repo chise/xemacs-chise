@@ -1,5 +1,8 @@
 2013-09-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R120-Silk.el (U-0002035E): Modify
+	ideographic-structure.
+
 	* Ideograph-R027-Cliff.el (o-UU+53AB): New node to integrate
 	UU+53AB and C3-4048.
 	(U-00020A9A): Use `->denotational' instead of `->subsumptive'.
