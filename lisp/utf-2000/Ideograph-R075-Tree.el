@@ -29537,6 +29537,18 @@
 	))
       (=daikanwa	  . 15833)	; &M-15833;
       )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gt-k		    . 00495)	; &GT-K00495;
+	)
+       ((=ks-x1001	    . #x6226)	; &K0-6226; [66-06]
+	))
+      (=adobe-japan1-2	  . 08507)	; &AJ1-08507;
+      (=cbeta		  . 04859)	; &I-CB04859;
+      (=jef-china3	  . #x54BC)	; &I-JC3-54BC;
+      )
      ((hanyu-dazidian	  2 1313 12)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -29544,14 +29556,11 @@
 	)
        ((=gt-k		    . 00495)	; &GT-K00495;
 	)
-       ((=ucs@unicode	    . #x6578)	; &GT-16891;
-	(=ks-x1001	    . #x6226)	; &GT-16891; [66-06]
+       ((=ucs@unicode	    . #x6578)	; &UU+6578;
+	(=gb12345	    . #x4A7D)	; &UU+6578; [42-93]
 	))
-      (=ucs@unicode	  . #x6AE2)	; &AJ1-08507;
-      (=adobe-japan1-2	  . 08507)	; &AJ1-08507;
-      (=hanziku-4	  . #xB66A)	; &I-HZK04-B66A;
-      (=cbeta		  . 04859)	; &I-CB04859;
-      (=jef-china3	  . #x54BC)	; &I-JC3-54BC;
+      (=ucs@unicode	  . #x6AE2)	; &HZK04-B66A;
+      (=hanziku-4	  . #xB66A)	; &HZK04-B66A;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
