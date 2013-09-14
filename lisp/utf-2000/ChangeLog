@@ -1,5 +1,16 @@
 2013-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R065-Branch.el (J0-3B59): Unify AJ1-02215.
+	(M-13062): Map to U-00022EB5.
+
+	* Ideograph-R124-Feather.el (G-J0-6642): Use `->subsumptive' to
+	separate representative nodes.
+	(J0-6642): Separate S2-6300.
+	(S-6300): Unify S1-6300; add `ideographic-structure'.
+
+	* Ideograph-R075-Tree.el (AJ1-08507): Separate UU+6AE2 and
+	H4-B66A.
+
 	* Ideograph-R032-Earth.el (JX2-2530): Separate AJ1-17460 and
 	CB01382.
 
