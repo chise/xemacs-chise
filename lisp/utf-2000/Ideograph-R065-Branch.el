@@ -32,8 +32,8 @@
       )
      ((=cns11643-4	  . #x2277)	; &C4-2277; [02-87]
       )
-     ((=ucs@iso		  . #x22EB5)	; &C4-2277;
-      (=hanziku-4	  . #xB968)	; &I-HZK04-B968;
+     ((=ucs@iso		  . #x22EB5)	; &HZK04-B968;
+      (=hanziku-4	  . #xB968)	; &HZK04-B968;
       ))
     ))
 (define-char
