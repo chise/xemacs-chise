@@ -463,13 +463,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
 	(=ucs		    . #x2FFA)	; ⿺
 	)
-       ((=ucs@unicode	    . #x652F)	; &GT-16520;
-	(=jis-x0208	    . #x3B59)	; &GT-16520; [27-57]
-	(=gb2312	    . #x5627)	; &I-G0-5627; [54-07]
-	(=ks-x1001	    . #x7228)	; &I-K0-7228; [82-08]
-	(=cns11643-1	    . #x4545)	; &I-C1-4545; [37-37]
-	(=jis-x0213-1	    . #x3B59)	; &I-JX1-3B59; [27-57]
-	(=daikanwa	    . 13061)	; &I-M-13061;
+       ((=ucs@unicode	    . #x652F)	; &AJ1-02215;
+	(=adobe-japan1-0    . 02215)	; &AJ1-02215;
 	)
        ((=ucs		    . #x529B)	; 力
 	))
@@ -1276,24 +1271,19 @@
       (=shinjigen	  .  0724)	; &AJ1-01966;
       (=cbeta		  . 00283)	; &I-CB00283;
       (<-simplified@JP/Jouyou
-       ((=ucs@jis	    . #x6548)	; &GT-16660;
-	(=ucs@ks	    . #x6548)	; &GT-16660;
-	(=jis-x0208	    . #x5A43)	; &GT-16660; [58-35]
-	(=ks-x1001	    . #x7C79)	; &I-K0-7C79; [92-89]
+       ((=ucs@jis	    . #x6548)	; &J90-5A43;
+	(=jis-x0208	    . #x5A43)	; &I-J90-5A43; [58-35]
 	(=jis-x0213-1	    . #x5A43)	; &I-JX1-5A43; [58-35]
 	(=daikanwa	    . 13186)	; &I-M-13186;
 	))
       (<-vulgar
-       ((=ucs@jis	    . #x6548)	; &GT-16660;
-	(=ucs@ks	    . #x6548)	; &GT-16660;
-	(=jis-x0208	    . #x5A43)	; &GT-16660; [58-35]
-	(=ks-x1001	    . #x7C79)	; &I-K0-7C79; [92-89]
+       ((=ucs@jis	    . #x6548)	; &J90-5A43;
+	(=jis-x0208	    . #x5A43)	; &I-J90-5A43; [58-35]
 	(=jis-x0213-1	    . #x5A43)	; &I-JX1-5A43; [58-35]
 	(=daikanwa	    . 13186)	; &I-M-13186;
-	(=shinjigen	    .  0725)	; &GT-16660;
 	))
       (<-vulgar*sources
-       yupian zhengyun zhengzitong daikanwa shinjigen@1ed)
+       yupian zhengyun zhengzitong daikanwa)
       )
      ((hanyu-dazidian	  1 370 1)
       (=ucs@unicode	  . #x52B9)	; &C3-2760;
@@ -1917,8 +1907,10 @@
       (=hanziku-1	  . #xF263)	; &I-HZK01-F263;
       (=cbeta		  . 00330)	; &I-CB00330;
       (<-simplified@JP/Jouyou
-       ((=ucs		    . #x6555)	; 敕
-	(=jis-x0208	    . #x5A45)	; &I-J90-5A45; [58-37]
+       ((=ucs@jis	    . #x6555)	; &J90-5A45;
+	(=jis-x0208	    . #x5A45)	; &J90-5A45; [58-37]
+	(=jis-x0213-1	    . #x5A45)	; &I-JX1-5A45; [58-37]
+	(=daikanwa	    . 13225)	; &I-M-13225;
 	))
       (<-vulgar
        ((=ucs@unicode	    . #x52D1)	; &AJ1-17326;
@@ -1928,7 +1920,9 @@
       (<-vulgar*sources
        zhengzitong daikanwa)
       (->synonyms
-       ((=ucs		    . #x6555)	; 敕
+       ((=ucs@jis	    . #x6555)	; &J90-5A45;
+	(=jis-x0208	    . #x5A45)	; &J90-5A45; [58-37]
+	(=jis-x0213-1	    . #x5A45)	; &I-JX1-5A45; [58-37]
 	(=daikanwa	    . 13225)	; &I-M-13225;
 	))
       (->synonyms*sources
@@ -4121,10 +4115,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@jis		  . #x6556)	; &GT-16699;
-      (=ucs@ks		  . #x6556)	; &GT-16699;
-      (=jis-x0208	  . #x5A44)	; &GT-16699; [58-36]
-      (=ks-x1001	  . #x6779)	; &I-K0-6779; [71-89]
+     ((=ucs@jis		  . #x6556)	; &J90-5A44;
+      (=jis-x0208	  . #x5A44)	; &I-J90-5A44; [58-36]
       (=jis-x0213-1	  . #x5A44)	; &I-JX1-5A44; [58-36]
       (=daikanwa	  . 13226)	; &I-M-13226;
       )
