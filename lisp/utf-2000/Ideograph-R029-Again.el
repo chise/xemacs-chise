@@ -2068,12 +2068,8 @@
       (=hanziku-1	  . #xF856)	; &HZK01-F856;
       (<-original
        ((=ucs@cns	    . #x6562)	; &AJ1-01526;
-	(=ucs@jis/1990	    . #x6562)	; &AJ1-01526;
-	(=ucs@jis/2000	    . #x6562)	; &AJ1-01526;
-	(=ucs@jis/2004	    . #x6562)	; &AJ1-01526;
 	(=ucs@ks	    . #x6562)	; &AJ1-01526;
 	(=adobe-japan1-0    . 01526)	; &AJ1-01526;
-	(=jis-x0208@1990    . #x343A)	; &I-J90-343A; [20-26]
 	(=shinjigen	    .  3176)	; &AJ1-01526;
 	))
       (<-original*sources
