@@ -1,5 +1,12 @@
 2013-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R162-Walk.el (g2-J0-6E2B): New abstract node to
+	separate representative nodes.
+
+	* Ideograph-R109-Eye.el (G-CU+2F947): Unify G-HD-IB2489.
+
+2013-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R066-Rap.el: Add some Adobe-Japan1-0 code points.
 	(U+3AA3): Use `->subsumptive'.
 	(U-00022FEB): Unify S-3197; add `<-formed' for AJ1-02644.
