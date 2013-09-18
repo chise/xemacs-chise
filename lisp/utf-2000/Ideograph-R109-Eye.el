@@ -1867,8 +1867,9 @@
     (ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
-    (=>>ucs@cns		. #x2F947)	; &G-CU+2F947;
-    (=>>daikanwa	. 23237)	; &G-CU+2F947;
+    (=>>ucs@cns		. #x2F947)	; &G-HD-IB-3879;
+    (=>>hanyo-denshi/ib . #x3879)	; &G-HD-IB-3879; [24-89]
+    (=>>daikanwa	. 23237)	; &G-HD-IB-3879;
     (->subsumptive
      ((=>>>ucs@cns	  . #x2F947)	; &g2-CU+2F947;
       (->subsumptive
