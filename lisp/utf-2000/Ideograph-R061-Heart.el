@@ -13711,13 +13711,29 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=ucs@jis		. #x6160)	; &AJ1-17646;
-    (=adobe-japan1-5	. 17646)	; &AJ1-17646;
-    (=jis-x0212		. #x3E54)	; &I-JSP-3E54; [30-52]
-    (=jis-x0213-2	. #x2C63)	; &I-JX2-2C63; [12-67]
-    (=daikanwa		. 11106)	; &I-M-11106;
-    (=cbeta		. 00392)	; &I-CB00392;
-    (=jef-china3	. #x4ED5)	; &I-JC3-4ED5;
+    (=>>ucs@jis		. #x6160)	; &g2-AJ1-17646;
+    (=>>>ucs@jis	. #x6160)	; &g2-AJ1-17646;
+    (=>>>adobe-japan1-5 . 17646)	; &g2-AJ1-17646;
+    (=>>>jis-x0213-2	. #x2C63)	; &g2-AJ1-17646; [12-67]
+    (=>>daikanwa	. 11106)	; &g2-AJ1-17646;
+    (=>>cbeta		. 00392)	; &g2-AJ1-17646;
+    (->subsumptive
+     ((=ucs@jis		  . #x6160)	; &JX2-2C63;
+      (=jis-x0212	  . #x3E54)	; &JX2-2C63; [30-52]
+      (=jis-x0213-2	  . #x2C63)	; &I-JX2-2C63; [12-67]
+      (=daikanwa	  . 11106)	; &I-M-11106;
+      (=shinjigen	  .  0374)	; &JX2-2C63;
+      (<-formed
+       ((=adobe-japan1-0    . 04183)	; &AJ1-04183;
+	(=shinjigen	    .  0373)	; &AJ1-04183;
+	))
+      (<-formed*sources
+       shinjigen)
+      )
+     ((=adobe-japan1-5	  . 17646)	; &AJ1-17646;
+      (=cbeta		  . 00392)	; &I-CB00392;
+      (=jef-china3	  . #x4ED5)	; &I-JC3-4ED5;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -13758,9 +13774,10 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@jis		  . #x6556)	; &AJ1-05065;
-      (=ucs@ks		  . #x6556)	; &AJ1-05065;
-      (=adobe-japan1-0	  . 05065)	; &AJ1-05065;
+     ((=ucs@jis		  . #x6556)	; &J90-5A44;
+      (=jis-x0208	  . #x5A44)	; &J90-5A44; [58-36]
+      (=jis-x0213-1	  . #x5A44)	; &I-JX1-5A44; [58-36]
+      (=daikanwa	  . 13226)	; &I-M-13226;
       )
      ((=ucs		  . #x5FC3)	; 心
       ))
