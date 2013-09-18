@@ -14998,23 +14998,29 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=ucs@jis		. #x9068)	; &GT-52518;
-    (=jis-x0208		. #x6E2B)	; &GT-52518; [78-11]
-    (=jis-x0213-1	. #x6E2B)	; &I-JX1-6E2B; [78-11]
-    (=gt		. 52518)	; &I-GT-52518;
-    (=gt-pj-1		. #x6E2B)	; &I-GT-52518; [78-11]
-    (=daikanwa		. 39073)	; &I-M-39073;
-    (=shinjigen		.  8365)	; &GT-52518;
-    (<-same
-     ((=ucs@jis		  . #x6556)	; &GT-16699;
-      (=ucs@ks		  . #x6556)	; &GT-16699;
-      (=jis-x0208	  . #x5A44)	; &GT-16699; [58-36]
-      (=ks-x1001	  . #x6779)	; &I-K0-6779; [71-89]
-      (=jis-x0213-1	  . #x5A44)	; &I-JX1-5A44; [58-36]
-      (=daikanwa	  . 13226)	; &I-M-13226;
+    (=>>ucs@jis		. #x9068)	; &g2-J0-6E2B;
+    (=>>>ucs@jis	. #x9068)	; &g2-J0-6E2B;
+    (=>>>jis-x0208	. #x6E2B)	; &g2-J0-6E2B; [78-11]
+    (=>>>jis-x0213-1	. #x6E2B)	; &g2-J0-6E2B; [78-11]
+    (=>>>gt		. 52518)	; &g2-J0-6E2B;
+    (->subsumptive
+     ((=ucs@jis		  . #x9068)	; &J90-6E2B;
+      (=jis-x0208	  . #x6E2B)	; &J90-6E2B; [78-11]
+      (=jis-x0213-1	  . #x6E2B)	; &I-JX1-6E2B; [78-11]
+      (=daikanwa	  . 39073)	; &I-M-39073;
+      (<-same
+       ((=ucs@jis	    . #x6556)	; &J90-5A44;
+	(=jis-x0208	    . #x5A44)	; &J90-5A44; [58-36]
+	(=jis-x0213-1	    . #x5A44)	; &I-JX1-5A44; [58-36]
+	(=daikanwa	    . 13226)	; &I-M-13226;
+	))
+      (<-same*sources
+       yupian jiyun maoshi houhanshu daikanwa)
+      )
+     ((=gt		  . 52518)	; &GT-52518;
+      (=gt-pj-1		  . #x6E2B)	; &GT-52518; [78-11]
+      (=shinjigen	  .  8365)	; &GT-52518;
       ))
-    (<-same*sources
-     yupian jiyun maoshi houhanshu daikanwa)
     ))
 (define-char
   '((<-denotational
@@ -19045,8 +19051,8 @@
     (total-strokes	 . 17)
     (=daikanwa		. 39182)	; &M-39182;
     (<-same
-     ((=ucs@jis		  . #x9068)	; &GT-52518;
-      (=jis-x0208	  . #x6E2B)	; &GT-52518; [78-11]
+     ((=ucs@jis		  . #x9068)	; &J90-6E2B;
+      (=jis-x0208	  . #x6E2B)	; &J90-6E2B; [78-11]
       (=jis-x0213-1	  . #x6E2B)	; &I-JX1-6E2B; [78-11]
       (=daikanwa	  . 39073)	; &I-M-39073;
       ))
