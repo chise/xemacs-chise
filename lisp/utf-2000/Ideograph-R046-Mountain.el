@@ -10449,12 +10449,18 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
-     ((=ucs@jis		  . #x6556)	; &AJ1-05065;
-      (=ucs@ks		  . #x6556)	; &AJ1-05065;
-      (=adobe-japan1-0	  . 05065)	; &AJ1-05065;
+     ((=ucs@jis		  . #x6556)	; &J90-5A44;
+      (=jis-x0208	  . #x5A44)	; &J90-5A44; [58-36]
+      (=jis-x0213-1	  . #x5A44)	; &I-JX1-5A44; [58-36]
+      (=daikanwa	  . 13226)	; &I-M-13226;
       ))
     (=daikanwa		. 49055)	; &M-49055;
     (=cbeta		. 06478)	; &I-CB06478;
+    (<-same
+     ((=daikanwa	  . 08414)	; &M-08414;
+      ))
+    (<-same*sources
+     daikanwa)
     ))
 (define-char
   '((<-denotational
