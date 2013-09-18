@@ -1,3 +1,27 @@
+2013-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el: Add some Adobe-Japan1-0 code points.
+	(U+3AA3): Use `->subsumptive'.
+	(U-00022FEB): Unify S-3197; add `<-formed' for AJ1-02644.
+
+	* Ideograph-R061-Heart.el (g2-JX2-2C63): New abstract node to
+	separate representative nodes.
+
+	* Ideograph-R046-Mountain.el (M-49055): Add `<-same' for M-08414.
+
+	* Ideograph-R030-Mouth.el (J0-5353): Separate AJ1-04422 and
+	GT-05235.
+	(o-UU+55F7): Add ideographic-structure.
+	(g2-AJ1-19254): New abstract node to separate representative
+	nodes.
+	(UU+55F8): Fix ideographic-strokes and total-strokes.
+	(g2-JX1-2F33): New abstract node to separate representative nodes.
+	(M-04301): Separate JU+564B, AJ1-14402, JSP-3644 and JC3-47A7.
+	(U+56B4): Compact ideographic-structure.
+	(G-UU+56B4): Add ideographic-structure; unify CU+56B4.
+	(g2-J0-536E): New abstract node to separate representative nodes.
+	(G1-514F): Modify ideographic-structure.
+
 2013-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R065-Branch.el (J0-3B59): Unify AJ1-02215.
