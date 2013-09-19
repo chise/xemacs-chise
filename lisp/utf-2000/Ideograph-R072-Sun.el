@@ -7314,17 +7314,40 @@
       )
      ((=ucs		  . #x65E5)	; 日
       )
-     ((=ucs@cns		  . #x6562)	; &AJ1-01526;
-      (=ucs@jis/1990	  . #x6562)	; &AJ1-01526;
-      (=ucs@jis/2000	  . #x6562)	; &AJ1-01526;
-      (=ucs@jis/2004	  . #x6562)	; &AJ1-01526;
-      (=ucs@ks		  . #x6562)	; &AJ1-01526;
-      (=adobe-japan1-0	  . 01526)	; &AJ1-01526;
+     ((=>>ucs@jis	  . #x6562)	; &G-AJ1-01526;
+      (=>>ucs@ks	  . #x6562)	; &G-AJ1-01526;
+      (=>>ucs@cns	  . #x6562)	; &G-AJ1-01526;
+      (=>>adobe-japan1-0  . 01526)	; &G-AJ1-01526;
       ))
-    (=ucs@iso		. #x2329F)	; &C5-546B;
-    (=cns11643-5	. #x546B)	; &C5-546B; [52-75]
-    (=daikanwa		. 14161)	; &I-M-14161;
-    (=cbeta		. 02528)	; &I-CB02528;
+    (=>>ucs@iso		. #x2329F)	; &G-IU+2329F;
+    (->subsumptive
+     ((=>>>ucs@iso	  . #x2329F)	; &g2-IU+2329F;
+      (->subsumptive
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((=ucs		      . #x65E5)	; 日
+	  )
+	 ((=daikanwa	      . 13260)	; &M-13260;
+	  ))
+	(=daikanwa	    . 14161)	; &M-14161;
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((=ucs		      . #x65E5)	; 日
+	  )
+	 ((=ucs@cns	      . #x6562)	; &AJ1-01526;
+	  (=ucs@ks	      . #x6562)	; &AJ1-01526;
+	  (=adobe-japan1-0    . 01526)	; &AJ1-01526;
+	  ))
+	(=ucs@iso	    . #x2329F)	; &C5-546B;
+	(=cns11643-5	    . #x546B)	; &C5-546B; [52-75]
+	(=cbeta		    . 02528)	; &I-CB02528;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
