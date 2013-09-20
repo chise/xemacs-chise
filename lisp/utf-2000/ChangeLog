@@ -1,5 +1,23 @@
 2013-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R009-Man.el (J0-507B): Separate AJ1-04180, GT-01222
+	and S-0356.
+	(G-JU+50B2): Unify g2-JU+50B2, g2-AJ1-04183, g2-J0-507E and
+	g2-GT-01321.
+	(J0-507E): Separate AJ1-04183, K0-676C, GT-01321 and S-0373.
+	(o-UU+50B2): New abstract node to integrate G0-3041 and C1-632D.
+	(U-0002035E): Modify ideographic-structure.
+	(M-49471): Likewise.
+	(C6-564E): Likewise.
+	(g2-CU+3488): New abstract node to separate representative nodes.
+	(U-0002040D): Add ideographic-structure.
+	(M-01264): Separate H1-D672.
+	(mother of IU+20461): Unify G-IU+20461 and G-M-01321.
+	(G-IU+2045F): Unify G-M-01322.
+	(G-JU+56B4): Unify G-CU+56B4.
+	(G-JU+513C): Unify G-KU+513C and G-CU+513C.
+	(g2-J0-5137): New abstract node to separate representative nodes.
+
 	* Ideograph-R072-Sun.el (G-IU+2329F): New abstract node to
 	separate representative nodes.
 	(g2-IU+2329F): Likewise.
