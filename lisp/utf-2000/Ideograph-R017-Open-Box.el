@@ -631,18 +631,19 @@
     (ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (=>>ucs@unicode	. #x51FD)	; &g2-AJ1-20082;
-    (=>>>ucs@unicode	. #x51FD)	; &g2-AJ1-20082;
-    (=>>>adobe-japan1-5 . 20082)	; &g2-AJ1-20082;
+    (=>>ucs@unicode	. #x51FD)	; &AJ1-20082;
+    (=ucs@unicode	. #x51FD)	; &AJ1-20082;
+    (=adobe-japan1-5	. 20082)	; &AJ1-20082;
+    (=gb2312		. #x3A2F)	; &I-G0-3A2F; [26-15]
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x51FD)	; 函
 	)
        ((=ucs		    . #xE0101)	; 󠄁
 	))
-      (=adobe-japan1-5	  . 20082)	; &AJ1-20082;
-      (=cns11643-1	  . #x4C2A)	; &I-C1-4C2A; [44-10]
-      (=shinjigen	  .  0585)	; &AJ1-20082;
+      (=cns11643-1	  . #x4C2A)	; &R-AJ1-20082; [44-10]
+      (==adobe-japan1-5	  . 20082)	; &R-AJ1-20082;
+      (=shinjigen	  .  0585)	; &R-AJ1-20082;
       (<-formed
        ((=ucs@jis	    . #x51FD)	; &AJ1-03381;
 	(=adobe-japan1-0    . 03381)	; &AJ1-03381;
@@ -652,8 +653,8 @@
       (<-formed*sources
        shinjigen)
       )
-     ((=ucs@unicode	  . #x51FD)	; &G0-3A2F;
-      (=gb2312		  . #x3A2F)	; &G0-3A2F; [26-15]
+     ((==ucs@unicode	  . #x51FD)	; &R-UU+51FD;
+      (==gb2312		  . #x3A2F)	; &R-UU+51FD; [26-15]
       ))
     ))
 (define-char
