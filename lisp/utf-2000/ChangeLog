@@ -1,3 +1,41 @@
+2013-10-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R023-Hiding-Enclosure.el,
+	Ideograph-R022-Right-Open-Box.el: Apply new glyph-image
+	conventions for `ucs@*', `adobe-japan1-*', `jis-x0208',
+	`jis-x0208@*', `gb2312', `iso-ir165', `jis-x0213-*',
+	`hanyo-denshi/*', `gt', `gt-k', `gt-pj-*' and `jef-china3'.
+
+2013-09-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R013-Down-Box.el, Ideograph-R017-Open-Box.el,
+	Ideograph-R014-Cover.el, Ideograph-R008-Lid.el: Apply new
+	glyph-image conventions for `ucs@*', `adobe-japan1-*',
+	`jis-x0208', `jis-x0208@*', `gb2312', `iso-ir165', `jis-x0213-*',
+	`hanyo-denshi/*', `gt', `gt-k', `gt-pj-*' and `jef-china3'.
+
+2013-09-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el, Ideograph-R002-Line.el: Apply new
+	glyph-image conventions for `ucs@*', `adobe-japan1-*',
+	`jis-x0208@1990', `jis-x0212', `jis-x0213-*', `gt', `gt-k',
+	`gt-pj-*' and `jef-china3'.
+	
+2013-09-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R011-Enter.el: Apply new glyph-image conventions for
+	`ucs@*', `adobe-japan1-*', `jis-x0208@*', `gb2312', `iso-ir165',
+	`jis-x0213-*', `hanyo-denshi/*', `gt', `gt-k', `gt-pj-*' and
+	`jef-china3'.
+
+2013-09-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R007-Two.el: Apply new glyph-image conventions for
+	`ucs@iso' and `adobe-japan1-*'.
+
+	* Ideograph-R004-Slash.el (GT-00160): Add `(=ucs@JP/hanazono . 
+	nil)'.
+
 2013-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (J0-507B): Separate AJ1-04180, GT-01222
