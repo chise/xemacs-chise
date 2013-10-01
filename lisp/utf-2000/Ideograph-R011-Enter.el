@@ -906,11 +906,11 @@
 	)
        ((=ucs		    . #x65E5)	; 日
 	))
-      (=>>>ucs@iso	  . #x204E4)	; &g2-IU+204E4;
+      (=ucs@iso		  . #x204E4)	; &U-000204E4;
       (->subsumptive
        ((=daikanwa	    . 01431)	; &M-01431;
 	)
-       ((=ucs@iso	    . #x204E4)	; &U-000204E4;
+       ((==ucs@iso	    . #x204E4)	; &R-U-000204E4;
 	)
        ((=hanziku-1	    . #xBE55)	; &HZK01-BE55;
 	))
