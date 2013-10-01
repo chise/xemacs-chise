@@ -1117,19 +1117,22 @@
       ))
     (=ucs		. #x2013F)	; 𠄿
     (->subsumptive
-     ((hanyu-dazidian	  1 26 17)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x4E8C)	; 二
-	)
-       ((=adobe-japan1-4    . 13528)	; &AJ1-13528;
-	))
-      (=daikanwa	  . 00285)	; &M-00285;
-      (=hanziku-1	  . #xA9A1)	; &I-HZK01-A9A1;
-      )
      ((=ucs@iso		  . #x2013F)	; &U-0002013F;
+      (->subsumptive
+       ((hanyu-dazidian	    1 26 17)
+	(ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((=ucs		      . #x4E8C)	; 二
+	  )
+	 ((==adobe-japan1-4   . 13528)	; &R-AJ1-13528;
+	  ))
+	(=daikanwa	    . 00285)	; &M-00285;
+	(=hanziku-1	    . #xA9A1)	; &I-HZK01-A9A1;
+	)
+       ((==ucs@iso	    . #x2013F)	; &R-U-0002013F;
+	))
       )
      ((=gt		  . 00373)	; &GT-00373;
       (=gt-pj-9		  . #x5128)	; &GT-00373; [49-08]
