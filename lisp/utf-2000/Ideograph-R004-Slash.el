@@ -497,6 +497,7 @@
     (=ucs		. #x4E49)	; 义
     (->subsumptive
      ((=ucs@JP		  . #x4E49)	; &GT-00160;
+      (=ucs@JP/hanazono	  . nil)
       (=gt		  . 00160)	; &GT-00160;
       (=gt-k		  . 00245)	; &I-GT-K00245;
       (=gt-pj-2		  . #x3122)	; &GT-00160; [17-02]
