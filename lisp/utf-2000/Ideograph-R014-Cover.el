@@ -856,27 +856,27 @@
        ((=ucs		    . #x2F80F)	; 兔
 	))
       (=ucs		  . #x2F818)	; 冤
-      (=>>>ucs@jis/2004	  . #x51A4)	; 冤
-      (=>>>adobe-japan1-0 . 07817)	; 冤
-      (=>>>jis-x0208@1978 . #x514D)	; 冤 [49-45]
-      (=>>>jis-x0213-1@2004 . #x514D)	; 冤 [49-45]
-      (=>>>hanyo-denshi/hg . #x3023)	; 冤 [16-03]
+      (=ucs@jis/2004	  . #x51A4)	; 冤
+      (=adobe-japan1-0	  . 07817)	; &I-AJ1-07817;
+      (=jis-x0208@1978	  . #x514D)	; &I-J78-514D; [49-45]
+      (=jis-x0213-1@2004  . #x514D)	; &I-JX3-514D; [49-45]
+      (=hanyo-denshi/hg	  . #x3023)	; &I-HD-HG-3023; [16-03]
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x51A4)	; 冤
 	  )
 	 ((=ucs		      . #xE0101)	; 󠄁
 	  ))
-	(=ucs@iso	    . #x2F818)	; &AJ1-07817;
-	(=ucs@jis/2004	    . #x51A4)	; &AJ1-07817;
-	(=adobe-japan1-0    . 07817)	; &AJ1-07817;
-	(=jis-x0208@1978    . #x514D)	; &I-J78-514D; [49-45]
-	(=jis-x0213-1@2004  . #x514D)	; &I-JX3-514D; [49-45]
-	(=hanyo-denshi/hg   . #x3023)	; &I-HD-HG-3023; [16-03]
-	(=daikanwa	    . 01587)	; &I-M-01587;
-	(=shinjigen	    .  0529)	; &AJ1-07817;
+	(==ucs@iso	    . #x2F818)	; &R-AJ1-07817;
+	(==ucs@jis/2004	    . #x51A4)	; &R-AJ1-07817;
+	(==jis-x0208@1978   . #x514D)	; &R-AJ1-07817; [49-45]
+	(==jis-x0213-1@2004 . #x514D)	; &R-AJ1-07817; [49-45]
+	(==adobe-japan1-0   . 07817)	; &R-AJ1-07817;
+	(==hanyo-denshi/hg  . #x3023)	; &R-AJ1-07817; [16-03]
+	(=daikanwa	    . 01587)	; &R-AJ1-07817;
+	(=shinjigen	    .  0529)	; &R-AJ1-07817;
 	)
-       ((=ucs@cns	    . #x2F818)	; &C6-3544;
+       ((==ucs@cns	    . #x2F818)	; &C6-3544;
 	(=cns11643-6	    . #x3544)	; &C6-3544; [21-36]
 	))
       ))
@@ -921,13 +921,25 @@
     (ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (=>>>ucs@unicode	. #x51A4)	; &g2-AJ1-04228;
-    (=>>>adobe-japan1-0 . 04228)	; &g2-AJ1-04228;
-    (=>>>jis-x0208@1983 . #x514D)	; &g2-AJ1-04228; [49-45]
-    (=>>>jis-x0208@1990 . #x514D)	; &g2-AJ1-04228; [49-45]
-    (=>>>jis-x0213-1@2000 . #x514D)	; &g2-AJ1-04228; [49-45]
-    (=>>>hanyo-denshi/ja . #x514D)	; &g2-AJ1-04228; [49-45]
-    (=>>>gt		. 02089)	; &g2-AJ1-04228;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=ucs@unicode	  . #x5154)	; &AJ1-04212;
+      (=adobe-japan1-0	  . 04212)	; &AJ1-04212;
+      ))
+    (=ucs@unicode	. #x51A4)	; &AJ1-04228;
+    (=adobe-japan1-0	. 04228)	; &AJ1-04228;
+    (=gb2312		. #x5429)	; &I-G0-5429; [52-09]
+    (=jis-x0208@1983	. #x514D)	; &I-J83-514D; [49-45]
+    (=jis-x0208@1990	. #x514D)	; &I-J90-514D; [49-45]
+    (=jis-x0213-1@2000	. #x514D)	; &I-JX1-514D; [49-45]
+    (=hanyo-denshi/ja	. #x514D)	; &I-HD-JA-514D; [49-45]
+    (=gt		. 02089)	; &I-GT-02089;
+    (=gt-k		. 06575)	; &I-GT-K06575;
+    (=gt-pj-1		. #x514D)	; &I-GT-02089; [49-45]
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x51A4)	; 冤
@@ -939,27 +951,18 @@
 	)
        ((=ucs		    . #xE0102)	; 󠄂
 	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x5196)	; 冖
-	)
-       ((=ucs@unicode	    . #x5154)	; &AJ1-04212;
-	(=adobe-japan1-0    . 04212)	; &AJ1-04212;
-	))
-      (=ucs@unicode	  . #x51A4)	; &AJ1-04228;
-      (=adobe-japan1-0	  . 04228)	; &AJ1-04228;
-      (=gb2312		  . #x5429)	; &I-G0-5429; [52-09]
-      (=jis-x0208@1983	  . #x514D)	; &I-J83-514D; [49-45]
-      (=jis-x0208@1990	  . #x514D)	; &I-J90-514D; [49-45]
-      (=jis-x0213-1@2000  . #x514D)	; &I-JX1-514D; [49-45]
-      (=hanyo-denshi/ja	  . #x514D)	; &I-HD-JA-514D; [49-45]
-      (=gt		  . 02089)	; &I-GT-02089;
-      (=gt-k		  . 06575)	; &I-GT-K06575;
-      (=gt-pj-1		  . #x514D)	; &I-GT-02089; [49-45]
+      (==ucs@unicode	  . #x51A4)	; &R-AJ1-04228;
+      (==gb2312		  . #x5429)	; &R-AJ1-04228; [52-09]
+      (==jis-x0208@1983	  . #x514D)	; &R-AJ1-04228; [49-45]
+      (==jis-x0208@1990	  . #x514D)	; &R-AJ1-04228; [49-45]
+      (==jis-x0213-1@2000 . #x514D)	; &R-AJ1-04228; [49-45]
+      (==adobe-japan1-0	  . 04228)	; &R-AJ1-04228;
+      (==hanyo-denshi/ja  . #x514D)	; &R-AJ1-04228; [49-45]
+      (==gt		  . 02089)	; &R-AJ1-04228;
+      (==gt-k		  . 06575)	; &R-AJ1-04228;
       )
-     ((=cns11643-1	  . #x5441)	; &C1-5441; [52-33]
+     ((==ucs@cns	  . #x51A4)	; &C1-5441;
+      (=cns11643-1	  . #x5441)	; &C1-5441; [52-33]
       ))
     ))
 (define-char
