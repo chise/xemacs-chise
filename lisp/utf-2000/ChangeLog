@@ -1,3 +1,11 @@
+2013-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R021-Spoon.el, Ideograph-R029-Again.el: Apply new
+	glyph-image conventions for `ucs@*', `adobe-japan1-*',
+	`jis-x0208', `jis-x0208@*', `gb2312', `iso-ir165', `jis-x0213-*',
+	`jis-x0213-1@*', `hanyo-denshi/*', `gt', `gt-k', `gt-pj-*' and
+	`jef-china3'.
+
 2013-10-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R026-Seal.el, Ideograph-R015-Ice.el: Apply new
