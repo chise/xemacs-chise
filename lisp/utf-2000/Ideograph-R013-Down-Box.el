@@ -1527,9 +1527,9 @@
        ((=ucs		    . #xE0102)	; 󠄂
 	))
       (==ucs@unicode	  . #x5193)	; &R-AJ1-04225;
+      (==adobe-japan1-0	  . 04225)	; &R-AJ1-04225;
       (==jis-x0208@1990	  . #x514A)	; &R-AJ1-04225; [49-42]
       (==jis-x0213-1	  . #x514A)	; &R-AJ1-04225; [49-42]
-      (==adobe-japan1-0	  . 04225)	; &R-AJ1-04225;
       (==hanyo-denshi/ja  . #x514A)	; &R-AJ1-04225; [49-42]
       (=shinjigen	  .  0523)	; &R-AJ1-04225;
       )
@@ -1538,10 +1538,10 @@
 	)
        ((=ucs		    . #xE0101)	; 󠄁
 	))
+      (==adobe-japan1-4	  . 13521)	; &R-AJ1-13521;
       (==jis-x0208@1978	  . #x514A)	; &R-AJ1-13521; [49-42]
       (==jis-x0208@1983	  . #x514A)	; &R-AJ1-13521; [49-42]
       (=cns11643-2	  . #x2E23)	; &R-AJ1-13521; [14-03]
-      (==adobe-japan1-4	  . 13521)	; &R-AJ1-13521;
       (==gt		  . 02024)	; &R-AJ1-13521;
       (==gt-k		  . 06574)	; &R-AJ1-13521;
       ))
@@ -1831,8 +1831,8 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (==jis-x0208@1978	  . #x514B)	; &R-AJ1-07816; [49-43]
       (==adobe-japan1-0	  . 07816)	; &R-AJ1-07816;
+      (==jis-x0208@1978	  . #x514B)	; &R-AJ1-07816; [49-43]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
