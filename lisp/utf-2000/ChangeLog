@@ -1,5 +1,20 @@
 2013-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el, Ideograph-R035-Go-Slowly.el: Apply new
+	glyph-image conventions for `ucs@*', `adobe-japan1-*',
+	`jis-x0208', `jis-x0208@*', `gb2312', `iso-ir165', `jis-x0213-*',
+	`jis-x0213-1@*', `hanyo-denshi/*', `gt', `gt-k', `gt-pj-*' and
+	`jef-china3'.
+
+	* Ideograph-R008-Lid.el (U+4EA5): Modify for new glyph-image
+	conventions.
+	(U+4EAD): Separate abstract glyph-image node.
+	(JC3-81D2): Use `->subsumptive' to integrate BC-8BA7 and C3-2B24.
+	(U-00020179): Add ideographic-structure; modify for new
+	glyph-image conventions.
+	(U-00020192): Likewise.
+	(U-00020199): Likewise.
+
 	* Ideograph-R021-Spoon.el, Ideograph-R029-Again.el: Apply new
 	glyph-image conventions for `ucs@*', `adobe-japan1-*',
 	`jis-x0208', `jis-x0208@*', `gb2312', `iso-ir165', `jis-x0213-*',
