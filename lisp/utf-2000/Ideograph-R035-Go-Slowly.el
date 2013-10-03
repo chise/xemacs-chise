@@ -467,18 +467,18 @@
     (->subsumptive
      ((=daikanwa	  . 05720)	; &M-05720;
       )
-     ((=>>>ucs@cns	  . #x590F)	; &G-HD-KS-FFE6;
-      (=>>>hanyo-denshi/ks . 065510)	; &G-HD-KS-FFE6;
+     ((=ucs@cns		  . #x590F)	; &HD-KS-065510;
+      (=hanyo-denshi/ks	  . 065510)	; &HD-KS-065510;
       (->subsumptive
        ((=decomposition@hanyo-denshi
 	 ((=ucs		      . #x590F)	; 夏
 	  )
 	 ((=ucs		      . #xE0102)	; 󠄂
 	  ))
-	(=hanyo-denshi/ks   . 065510)	; &HD-KS-065510;
-	(=hanyo-denshi/ks/mf . #x1997)	; &HD-KS-065510;
+	(==hanyo-denshi/ks  . 065510)	; &R-HD-KS-065510;
+	(=hanyo-denshi/ks/mf . #x1997)	; &R-HD-KS-065510;
 	)
-       ((=ucs@cns	    . #x590F)	; &C1-546E;
+       ((==ucs@cns	    . #x590F)	; &C1-546E;
 	(=cns11643-1	    . #x546E)	; &C1-546E; [52-78]
 	))
       ))
