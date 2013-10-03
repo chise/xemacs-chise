@@ -1631,8 +1631,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
 	(=ucs		    . #x2FF3)	; ⿳
 	)
-       ((=ucs@jis	    . #x5B80)	; &AJ1-04622;
-	(=adobe-japan1-0    . 04622)	; &AJ1-04622;
+       ((=ucs		    . #x5B80)	; 宀
 	)
        ((=ucs@unicode	    . #x706B)	; &GT-24152;
 	(=jis-x0208	    . #x3250)	; &GT-24152; [18-48]
@@ -1651,8 +1650,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
 	(=ucs		    . #x2FF3)	; ⿳
 	)
-       ((=ucs@jis	    . #x5B80)	; &AJ1-04622;
-	(=adobe-japan1-0    . 04622)	; &AJ1-04622;
+       ((=ucs		    . #x5B80)	; 宀
 	)
        ((=ucs@unicode	    . #x706B)	; &GT-24152;
 	(=jis-x0208	    . #x3250)	; &GT-24152; [18-48]
@@ -1667,17 +1665,18 @@
       (=cbeta		  . 00008)	; &CB00008;
       (=jef-china3	  . #x8EC0)	; &I-JC3-8EC0;
       )
-     ((=big5-cdp	  . #x8AC4)	; &CDP-8AC4;
-      )
      ((=ucs@unicode	  . #x53DC)	; &UU+53DC;
+      (->subsumptive
+       ((=big5-cdp	    . #x8AC4)	; &CDP-8AC4;
+	)
+       ((==ucs@unicode	    . #x53DC)	; &R-UU+53DC;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
 	(=ucs		    . #x2FF3)	; ⿳
 	)
-       ((=ucs@unicode	    . #x5B80)	; &C3-213B;
-	(=gb2312	    . #x6532)	; &C3-213B; [69-18]
-	(=cns11643-3	    . #x213B)	; &I-C3-213B; [01-27]
+       ((=ucs		    . #x5B80)	; 宀
 	)
        ((=cns11643-1	    . #x4556)	; &C1-4556; [37-54]
 	)
