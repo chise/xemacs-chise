@@ -1,3 +1,20 @@
+2013-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (U+342D): Modify for new glyph-image
+	conventions.
+	(U+4EB6): Modify for U+342D.
+	(U-0002018E): Fix ideographic-structures.
+	(IU+2018E): Add `ideographic-structure'.
+
+	* Ideograph-R007-Two.el (IU+2013F): Add ideographic-structure.
+
+2013-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el: Apply new glyph-image conventions for
+	`ucs@*', `adobe-japan1-*', `jis-x0208', `jis-x0208@*', `gb2312',
+	`iso-ir165', `jis-x0213-*', `jis-x0213-1@*', `hanyo-denshi/*',
+	`gt', `gt-k', `gt-pj-*' and `jef-china3'.
+
 2013-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R039-Child.el, Ideograph-R038-Woman.el: Apply new
