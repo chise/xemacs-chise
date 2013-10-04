@@ -1241,50 +1241,52 @@
   '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x4EA0)	; 亠
-      )
-     ((=ucs		  . #x56DE)	; 回
-      ))
     (=ucs		. #x342D)	; 㐭
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x4EA0)	; &AJ1-04110;
-	(=adobe-japan1-0    . 04110)	; &AJ1-04110;
+       ((=ucs		    . #x4EA0)	; 亠
 	)
        ((=ucs		    . #x56DE)	; 回
 	))
-      (=big5-cdp	  . #x8BE5)	; &CDP-8BE5;
-      (=daikanwa	  . 00300)	; &I-M-00300;
-      (=shinjigen	  .  2230)	; &CDP-8BE5;
-      (<-original
-       ((=ucs@jis	    . #x5EE9)	; &AJ1-04756;
-	(=adobe-japan1-0    . 04756)	; &AJ1-04756;
-	(=jis-x0208	    . #x5729)	; &I-J90-5729; [55-09]
-	(=shinjigen	    .  2229)	; &AJ1-04756;
-	))
-      (<-original*sources
-       shinjigen)
-      )
-     ((hanyu-dazidian	  1 284 7)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
+      (=ucs@unicode	  . #x342D)	; &UU+342D;
+      (->subsumptive
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((=ucs@jis	      . #x4EA0)	; &AJ1-04110;
+	  (=adobe-japan1-0    . 04110)	; &AJ1-04110;
+	  )
+	 ((=ucs		      . #x56DE)	; 回
+	  ))
+	(=big5-cdp	    . #x8BE5)	; &CDP-8BE5;
+	(=daikanwa	    . 00300)	; &I-M-00300;
+	(=shinjigen	    .  2230)	; &CDP-8BE5;
+	(<-original
+	 ((==ucs@jis	      . #x5EE9)	; &R-AJ1-04756;
+	  (==adobe-japan1-0   . 04756)	; &R-AJ1-04756;
+	  (=shinjigen	      .	 2229)	; &R-AJ1-04756;
+	  ))
+	(<-original*sources
+	 shinjigen)
 	)
-       ((=ucs@unicode	    . #x4EA0)	; &GT-00375;
-	(=gb2312	    . #x596F)	; &GT-00375; [57-79]
-	(=daikanwa	    . 00286)	; &I-M-00286;
-	)
-       ((=ucs		    . #x56DE)	; 回
+       ((hanyu-dazidian	    1 284 7)
+	(ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((=ucs@unicode	      . #x4EA0)	; &GT-00375;
+	  (=gb2312	      . #x596F)	; &GT-00375; [57-79]
+	  (=daikanwa	      . 00286)	; &I-M-00286;
+	  )
+	 ((=ucs		      . #x56DE)	; 回
+	  ))
+	(==ucs@unicode	    . #x342D)	; &C4-2534;
+	(=cns11643-4	    . #x2534)	; &C4-2534; [05-20]
 	))
-      (=ucs@unicode	  . #x342D)	; &C4-2534;
-      (=cns11643-4	  . #x2534)	; &C4-2534; [05-20]
       ))
     ))
 (define-char
@@ -3139,7 +3141,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x342D)	; &C4-2534;
+       ((==ucs@unicode	    . #x342D)	; &C4-2534;
 	(=cns11643-4	    . #x2534)	; &C4-2534; [05-20]
 	)
        ((=ucs		    . #x65E6)	; 旦
@@ -3909,7 +3911,8 @@
 	 ((=ucs@jis	      . #x4EA0)	; &AJ1-04110;
 	  (=adobe-japan1-0    . 04110)	; &AJ1-04110;
 	  )
-	 ((==adobe-japan1-4   . 13528)	; &R-AJ1-13528;
+	 ((=ucs@cns	      . #x570D)	; &C1-5E58;
+	  (=cns11643-1	      . #x5E58)	; &C1-5E58; [62-56]
 	  )
 	 ((=ucs@unicode	      . #x53C8)	; &AJ1-03746;
 	  (=adobe-japan1-0    . 03746)	; &AJ1-03746;
@@ -3924,7 +3927,8 @@
 	  (=gb2312	      . #x596F)	; &GT-00375; [57-79]
 	  (=daikanwa	      . 00286)	; &I-M-00286;
 	  )
-	 ((==adobe-japan1-4   . 13528)	; &R-AJ1-13528;
+	 ((=ucs@cns	      . #x570D)	; &C1-5E58;
+	  (=cns11643-1	      . #x5E58)	; &C1-5E58; [62-56]
 	  )
 	 ((=ucs@unicode	      . #x53C8)	; &AJ1-03746;
 	  (=adobe-japan1-0    . 03746)	; &AJ1-03746;
@@ -3933,7 +3937,20 @@
 	(=cns11643-5	    . #x5353)	; &C5-5353; [51-51]
 	))
       )
-     ((=ucs@iso		  . #x2018E)	; &U-0002018E;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	(=ucs		    . #x2FF3)	; ⿳
+	)
+       ((=ucs		    . #x4EA0)	; 亠
+	)
+       ((=ucs@unicode	    . #x570D)	; &AJ1-13528;
+	(=adobe-japan1-0    . 04468)	; &AJ1-13528;
+	(=adobe-japan1-4    . 13528)	; &I-AJ1-13528;
+	)
+       ((=ucs@unicode	    . #x53C8)	; &AJ1-03746;
+	(=adobe-japan1-0    . 03746)	; &AJ1-03746;
+	))
+      (=ucs@iso		  . #x2018E)	; &U-0002018E;
       )
      ((hanyu-dazidian	  1 293 10)
       (=hanziku-1	  . #xE27B)	; &HZK01-E27B;
