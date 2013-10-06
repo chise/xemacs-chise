@@ -1,9 +1,13 @@
 2013-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* Ideograph-R046-Mountain.el: Apply new glyph-image conventions
-	for `ucs@*', `adobe-japan1-*', `jis-x0208', `jis-x0208@*',
-	`gb2312', `iso-ir165', `jis-x0213-*', `jis-x0213-1@*',
-	`hanyo-denshi/*', `gt', `gt-k', `gt-pj-*' and `jef-china3'.
+	* Ideograph-R059-Bristle.el, Ideograph-R046-Mountain.el,
+	Ideograph-R044-Corpse.el, Ideograph-R058-Snout.el,
+	Ideograph-R057-Bow.el, Ideograph-R055-Two-Hands.el,
+	Ideograph-R052-Short-Thread.el, Ideograph-R050-Turban.el: Apply
+	new glyph-image conventions for `ucs@*', `adobe-japan1-*',
+	`jis-x0208', `jis-x0208@*', `gb2312', `iso-ir165', `jis-x0213-*',
+	`jis-x0213-1@*', `hanyo-denshi/*', `gt', `gt-k', `gt-pj-*' and
+	`jef-china3'.
 
 	* Ideograph-R008-Lid.el (U+342D): Modify for new glyph-image
 	conventions.
