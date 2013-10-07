@@ -988,19 +988,20 @@
     (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (=>>ucs@jis		. #x6246)	; &g2-JX2-2C76;
-    (=>>ucs@cns		. #x6246)	; &g2-JX2-2C76;
-    (=>>>ucs@jis	. #x6246)	; &g2-JX2-2C76;
-    (=>>>ucs@cns	. #x6246)	; &g2-JX2-2C76;
-    (=>>>jis-x0213-2	. #x2C76)	; &g2-JX2-2C76; [12-86]
-    (=>>daikanwa	. 11742)	; &g2-JX2-2C76;
+    (=>>ucs@jis		. #x6246)	; &JX2-2C76;
+    (=>>ucs@cns		. #x6246)	; &JX2-2C76;
+    (=ucs@cns		. #x6246)	; &JX2-2C76;
+    (=ucs@jis		. #x6246)	; &JX2-2C76;
+    (=jis-x0212		. #x3F36)	; &JX2-2C76; [31-22]
+    (=jis-x0213-2	. #x2C76)	; &I-JX2-2C76; [12-86]
+    (=>>daikanwa	. 11742)	; &JX2-2C76;
     (->subsumptive
-     ((=ucs@jis		  . #x6246)	; &JX2-2C76;
-      (=jis-x0212	  . #x3F36)	; &JX2-2C76; [31-22]
-      (=jis-x0213-2	  . #x2C76)	; &I-JX2-2C76; [12-86]
-      (=daikanwa	  . 11742)	; &I-M-11742;
+     ((==ucs@jis	  . #x6246)	; &R-JSP-3F36;
+      (==jis-x0212	  . #x3F36)	; &R-JSP-3F36; [31-22]
+      (==jis-x0213-2	  . #x2C76)	; &R-JSP-3F36; [12-86]
+      (=daikanwa	  . 11742)	; &R-JSP-3F36;
       )
-     ((=ucs@cns		  . #x6246)	; &C2-2F32;
+     ((==ucs@cns	  . #x6246)	; &C2-2F32;
       (=cns11643-2	  . #x2F32)	; &C2-2F32; [15-18]
       ))
     ))
