@@ -674,7 +674,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (=ucs		. #x2F89A)	; 彫
-    (=ucs@ks		. #x5F6B)	; &R-AJ1-13928;
+    (=ucs@ks		. #x5F6B)	; 彫
     (=adobe-japan1-4	. 13928)	; &I-AJ1-13928;
     (=gt		. 12606)	; &I-GT-12606;
     (=gt-k		. 07831)	; &I-GT-K07831;
