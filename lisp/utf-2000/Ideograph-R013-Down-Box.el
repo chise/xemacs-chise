@@ -1820,7 +1820,7 @@
       ))
     (=ucs		. #x2F8D3)	; 冕
     (=ucs@cns		. #x2F8D3)	; 冕
-    (=ucs@ks		. #x5195)	; &C6-4057;
+    (=ucs@ks		. #x5195)	; 冕
     (=adobe-japan1-0	. 07816)	; &I-AJ1-07816;
     (=jis-x0208@1978	. #x514B)	; &I-J78-514B; [49-43]
     (->subsumptive
