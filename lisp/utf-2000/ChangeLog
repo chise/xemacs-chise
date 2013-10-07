@@ -1,3 +1,25 @@
+2013-10-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el: Apply new glyph-image conventions for
+	`ucs@*', `adobe-japan1-*', `jis-x0208', `jis-x0208@*', `gb2312',
+	`iso-ir165', `jis-x0213-*', `jis-x0213-1@*', `hanyo-denshi/*',
+	`gt', `gt-k', `gt-pj-*' and `jef-china3'.
+
+2013-10-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R060-Step.el: Apply new glyph-image conventions for
+	`ucs@*', `adobe-japan1-*', `jis-x0208', `jis-x0208@*', `gb2312',
+	`iso-ir165', `jis-x0213-*', `jis-x0213-1@*', `hanyo-denshi/*',
+	`gt', `gt-k', `gt-pj-*' and `jef-china3'.
+
+2013-10-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R063-Door.el, Ideograph-R062-Halberd.el,
+	Ideograph-R019-Power.el: Apply new glyph-image conventions for
+	`ucs@*', `adobe-japan1-*', `jis-x0208', `jis-x0208@*', `gb2312',
+	`iso-ir165', `jis-x0213-*', `jis-x0213-1@*', `hanyo-denshi/*',
+	`gt', `gt-k', `gt-pj-*' and `jef-china3'.
+
 2013-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el, Ideograph-R053-Dotted-Cliff.el,
