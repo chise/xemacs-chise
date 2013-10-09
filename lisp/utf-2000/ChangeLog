@@ -1,6 +1,8 @@
 2013-10-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* Ideograph-R073-Say.el: Apply new glyph-image conventions for
+	* Ideograph-R075-Tree.el, Ideograph-R072-Sun.el,
+	Ideograph-R064-Hand.el, Ideograph-R040-Roof.el,
+	Ideograph-R073-Say.el: Apply new glyph-image conventions for
 	`ucs@*', `adobe-japan1-*', `jis-x0208', `jis-x0208@*', `gb2312',
 	`iso-ir165', `jis-x0213-*', `jis-x0213-1@*', `hanyo-denshi/*',
 	`gt', `gt-k', `gt-pj-*' and `jef-china3'.
