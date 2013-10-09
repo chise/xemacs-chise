@@ -442,33 +442,32 @@
     (->subsumptive
      ((ideographic-strokes . 10)
       (total-strokes	   . 14)
-      (=>>>ucs@unicode	  . #x6BD3)	; &g2-J0-5D5A;
-      (=>>>jis-x0208	  . #x5D5A)	; &g2-J0-5D5A; [61-58]
-      (=>>>jis-x0213-1	  . #x5D5A)	; &g2-J0-5D5A; [61-58]
-      (=>>>gt		  . 21457)	; &g2-J0-5D5A;
+      (=ucs@unicode	  . #x6BD3)	; &GT-21457;
+      (=jis-x0208	  . #x5D5A)	; &GT-21457; [61-58]
+      (=gb2312		  . #x5839)	; &I-G0-5839; [56-25]
+      (=jis-x0213-1	  . #x5D5A)	; &I-JX1-5D5A; [61-58]
+      (=gt		  . 21457)	; &I-GT-21457;
+      (=gt-pj-1		  . #x5D5A)	; &I-GT-21457; [61-58]
       (->subsumptive
-       ((=ucs@jis	    . #x6BD3)	; &GT-21457;
-	(=jis-x0208	    . #x5D5A)	; &GT-21457; [61-58]
-	(=ks-x1001	    . #x6B3E)	; &I-K0-6B3E; [75-30]
-	(=jis-x0213-1	    . #x5D5A)	; &I-JX1-5D5A; [61-58]
-	(=gt		    . 21457)	; &I-GT-21457;
-	(=gt-pj-1	    . #x5D5A)	; &I-GT-21457; [61-58]
+       ((==ucs@jis	    . #x6BD3)	; &R-GT-21457;
+	(=ks-x1001	    . #x6B3E)	; &R-GT-21457; [75-30]
+	(==jis-x0208	    . #x5D5A)	; &R-GT-21457; [61-58]
+	(==jis-x0213-1	    . #x5D5A)	; &R-GT-21457; [61-58]
+	(==gt		    . 21457)	; &R-GT-21457;
 	(=daikanwa	    . 16740)	; &I-M-16740;
-	(=shinjigen	    .  6433)	; &GT-21457;
+	(=shinjigen	    .  6433)	; &R-GT-21457;
 	(<-ancient
-	 ((=ucs@jis	      . #x80B2)	; &GT-37901;
-	  (=ucs@ks	      . #x80B2)	; &GT-37901;
-	  (=jis-x0208	      . #x3069)	; &GT-37901; [16-73]
-	  (=ks-x1001	      . #x6B40)	; &I-K0-6B40; [75-32]
-	  (=jis-x0213-1	      . #x3069)	; &I-JX1-3069; [16-73]
+	 ((==ucs@jis	      . #x80B2)	; &R-GT-37901;
+	  (==ucs@ks	      . #x80B2)	; &R-GT-37901;
+	  (=ks-x1001	      . #x6B40)	; &R-GT-37901; [75-32]
 	  (=daikanwa	      . 29318)	; &I-M-29318;
-	  (=shinjigen	      .	 6431)	; &GT-37901;
+	  (=shinjigen	      .	 6431)	; &R-GT-37901;
 	  ))
 	(<-ancient*sources
 	 shinjigen)
 	)
-       ((=ucs@unicode	    . #x6BD3)	; &G0-5839;
-	(=gb2312	    . #x5839)	; &G0-5839; [56-25]
+       ((==ucs@unicode	    . #x6BD3)	; &R-UU+6BD3;
+	(==gb2312	    . #x5839)	; &R-UU+6BD3; [56-25]
 	))
       )
      ((ideographic-strokes . 9)
