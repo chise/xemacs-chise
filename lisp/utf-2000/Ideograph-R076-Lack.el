@@ -272,11 +272,11 @@
       (=daikanwa	  . 16002)	; &I-M-16002;
       (=jef-china3	  . #x54CA)	; &I-JC3-54CA;
       (<-same
-       ((=ucs@jis/1990	    . #x55E4)	; &AJ1-04419;
-	(=ucs@jis/2000	    . #x55E4)	; &AJ1-04419;
-	(=ucs@jis/2004	    . #x55E4)	; &AJ1-04419;
-	(=ucs@ks	    . #x55E4)	; &AJ1-04419;
-	(=adobe-japan1-0    . 04419)	; &AJ1-04419;
+       ((==ucs@jis/1990	    . #x55E4)	; &R-AJ1-04419;
+	(==ucs@jis/2000	    . #x55E4)	; &R-AJ1-04419;
+	(==ucs@jis/2004	    . #x55E4)	; &R-AJ1-04419;
+	(==ucs@ks	    . #x55E4)	; &R-AJ1-04419;
+	(==adobe-japan1-0   . 04419)	; &R-AJ1-04419;
 	(=daikanwa	    . 04110)	; &I-M-04110;
 	))
       (<-same*sources
@@ -4004,10 +4004,10 @@
      ((=cns11643-4	  . #x5067)	; &C4-5067; [48-71]
       (=daikanwa	  . 16206)	; &I-M-16206;
       (<-ancient
-       ((=ucs@jis	    . #x61FF)	; &AJ1-04925;
-	(=ucs@ks	    . #x61FF)	; &AJ1-04925;
-	(=adobe-japan1-0    . 04925)	; &AJ1-04925;
-	(=daikanwa	    . 11501)	; &I-M-11501;
+       ((==ucs@jis	    . #x61FF)	; &R-AJ1-04925;
+	(==ucs@ks	    . #x61FF)	; &R-AJ1-04925;
+	(==adobe-japan1-0   . 04925)	; &R-AJ1-04925;
+	(=daikanwa	    . 11501)	; &R-AJ1-04925;
 	))
       (<-ancient*sources
        jiyun daikanwa)
@@ -4500,9 +4500,9 @@
     (->subsumptive
      ((=daikanwa	  . 16234)	; &M-16234;
       (<-same
-       ((=ucs@jis	    . #x5859)	; &AJ1-03405;
-	(=adobe-japan1-0    . 03405)	; &AJ1-03405;
-	(=daikanwa	    . 05341)	; &I-M-05341;
+       ((==ucs@jis	    . #x5859)	; &R-AJ1-03405;
+	(==adobe-japan1-0   . 03405)	; &R-AJ1-03405;
+	(=daikanwa	    . 05341)	; &R-AJ1-03405;
 	))
       (<-same*sources
        kangxi daikanwa)
