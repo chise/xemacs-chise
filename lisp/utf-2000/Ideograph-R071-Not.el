@@ -162,22 +162,21 @@
     (=>>daikanwa	. 13724)	; &G-AJ1-13701;
     (->subsumptive
      ((total-strokes	   . 11)
-      (=>>>ucs@unicode	  . #x65E3)	; &g2-UU+65E3;
-      (->subsumptive
-       ((=ucs@unicode	    . #x65E3)	; &M-13724;
-	(=daikanwa	    . 13724)	; &M-13724;
-	(=jef-china3	    . #x50F4)	; &I-JC3-50F4;
-	)
-       ((=cns11643-3	    . #x3641)	; &C3-3641; [22-33]
-	))
+      (=ucs@unicode	  . #x65E3)	; &M-13724;
+      (=daikanwa	  . 13724)	; &M-13724;
+      (=jef-china3	  . #x50F4)	; &I-JC3-50F4;
+      )
+     ((total-strokes	   . 11)
+      (=ucs@cns		  . #x65E3)	; &C3-3641;
+      (=cns11643-3	  . #x3641)	; &C3-3641; [22-33]
       )
      ((total-strokes	   . 12)
-      (=>>>ucs@ks	  . #x65E3)	; &g2-AJ1-13701;
-      (=>>>adobe-japan1-4 . 13701)	; &g2-AJ1-13701;
+      (=ucs@ks		  . #x65E3)	; &AJ1-13701;
+      (=adobe-japan1-4	  . 13701)	; &AJ1-13701;
       (->subsumptive
-       ((=adobe-japan1-4    . 13701)	; &AJ1-13701;
+       ((==adobe-japan1-4   . 13701)	; &R-AJ1-13701;
 	)
-       ((=ucs@ks	    . #x65E3)	; &K0-507E;
+       ((==ucs@ks	    . #x65E3)	; &K0-507E;
 	(=ks-x1001	    . #x507E)	; &K0-507E; [48-94]
 	))
       )
