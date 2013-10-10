@@ -505,10 +505,12 @@
     (=shinjigen@rev	.  4989)	; 瓶
     (<-simplified@JP/Jouyou
      ((=ucs@jis		  . #x7501)	; &AJ1-08564;
+      (=ucs@ks		  . #x7501)	; &AJ1-08564;
       (=adobe-japan1-2	  . 08564)	; &AJ1-08564;
       ))
     (<-vulgar
      ((=ucs@jis		  . #x7501)	; &AJ1-08564;
+      (=ucs@ks		  . #x7501)	; &AJ1-08564;
       (=adobe-japan1-2	  . 08564)	; &AJ1-08564;
       (=shinjigen@1ed	  .  4989)	; &AJ1-08564;
       (=shinjigen@rev	  .  4990)	; &AJ1-08564;
@@ -998,6 +1000,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
     (=ucs@jis		. #x7501)	; &AJ1-08564;
+    (=ucs@ks		. #x7501)	; &AJ1-08564;
     (=adobe-japan1-2	. 08564)	; &AJ1-08564;
     (=ks-x1001		. #x5C3A)	; &I-K0-5C3A; [60-26]
     (=jis-x0213-1	. #x7847)	; &I-JX1-7847; [88-39]
@@ -1013,13 +1016,13 @@
     (ideographic-radical . 98)	; ⽡
     (ideographic-strokes . 8)
     (=>>ucs@unicode	. #x7501)	; &G-UU+7501;
-    (=>>>ucs@unicode	. #x7501)	; &G-UU+7501;
+    (=ucs@unicode	. #x7501)	; &G-UU+7501;
     (->subsumptive
      ((total-strokes	   . 13)
       (=cns11643-3	  . #x4277)	; &C3-4277; [34-87]
       )
      ((total-strokes	   . 12)
-      (=ucs@unicode	  . #x7501)	; &UU+7501;
+      (==ucs@unicode	  . #x7501)	; &R-UU+7501;
       ))
     ))
 (define-char
@@ -1779,8 +1782,8 @@
 	(=gt-pj-1	    . #x612E)	; &I-GT-27715; [65-14]
 	(=daikanwa	    . 21586)	; &I-M-21586;
 	)
-       ((=ucs@jis	    . #x750C)	; &J90-612E;
-	(=jis-x0208@1990    . #x612E)	; &J90-612E; [65-14]
+       ((=ucs@jis	    . #x750C)	; &I-J90-612E;
+	(=jis-x0208@1990    . #x612E)	; &I-J90-612E; [65-14]
 	(=jis-x0213-1	    . #x612E)	; &I-JX1-612E; [65-14]
 	))
       )
