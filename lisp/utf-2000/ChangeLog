@@ -1,9 +1,16 @@
 2013-10-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* Ideograph-R074-Moon.el: Apply new glyph-image conventions for
-	`ucs@*', `adobe-japan1-*', `jis-x0208', `jis-x0208@*', `gb2312',
-	`iso-ir165', `jis-x0213-*', `jis-x0213-1@*', `hanyo-denshi/*',
-	`gt', `gt-k', `gt-pj-*' and `jef-china3'.
+	* Ideograph-R030-Mouth.el (U+3570): Modify for new glyph-image
+	conventions.
+
+	* Ideograph-R010-Legs.el (U+515E): Modify for new glyph-image
+	conventions.
+
+	* Ideograph-R032-Earth.el, Ideograph-R074-Moon.el: Apply new
+	glyph-image conventions for `ucs@*', `adobe-japan1-*',
+	`jis-x0208', `jis-x0208@*', `gb2312', `iso-ir165', `jis-x0213-*',
+	`jis-x0213-1@*', `hanyo-denshi/*', `gt', `gt-k', `gt-pj-*' and
+	`jef-china3'.
 
 2013-10-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
