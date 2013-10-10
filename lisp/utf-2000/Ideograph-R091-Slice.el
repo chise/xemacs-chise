@@ -1636,24 +1636,37 @@
 	)
        ((=gt		    . 25442)	; &GT-25442;
 	)
-       ((=ucs@jis	    . #x5EB8)	; &AJ1-03889;
+       ((=ucs@unicode	    . #x5EB8)	; &AJ1-03889;
 	(=adobe-japan1-0    . 03889)	; &AJ1-03889;
 	))
-      (=ucs@jis		  . #x7257)	; &JX2-7031;
+      (=ucs@unicode	  . #x7257)	; &JX2-7031;
       (=jis-x0213-2	  . #x7031)	; &JX2-7031; [80-17]
-      (=cbeta		  . 04523)	; &I-CB04523;
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
+      (->subsumptive
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((=gt		      . 25442)	; &GT-25442;
+	  )
+	 ((==ucs@jis	      . #x5EB8)	; &R-AJ1-03889;
+	  (==ucs@ks	      . #x5EB8)	; &R-AJ1-03889;
+	  (==adobe-japan1-0   . 03889)	; &R-AJ1-03889;
+	  ))
+	(==ucs@jis	    . #x7257)	; &R-JX2-7031;
+	(==jis-x0213-2	    . #x7031)	; &R-JX2-7031; [80-17]
+	(=cbeta		    . 04523)	; &R-JX2-7031;
 	)
-       ((=gt		    . 25442)	; &GT-25442;
-	)
-       ((=ucs@unicode	    . #x5EB8)	; &C1-5A2B;
-	(=gb2312	    . #x5339)	; &C1-5A2B; [51-25]
-	(=cns11643-1	    . #x5A2B)	; &I-C1-5A2B; [58-11]
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((=gt		      . 25442)	; &GT-25442;
+	  )
+	 ((==ucs@unicode      . #x5EB8)	; &C1-5A2B;
+	  (=cns11643-1	      . #x5A2B)	; &C1-5A2B; [58-11]
+	  ))
+	(==ucs@unicode	    . #x7257)	; &R-UU+7257;
 	))
-      (=ucs@unicode	  . #x7257)	; &UU+7257;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1661,9 +1674,8 @@
 	)
        ((=cns11643-1	    . #x455A)	; &C1-455A; [37-58]
 	)
-       ((=ucs@unicode	    . #x5EB8)	; &C1-5A2B;
-	(=gb2312	    . #x5339)	; &C1-5A2B; [51-25]
-	(=cns11643-1	    . #x5A2B)	; &I-C1-5A2B; [58-11]
+       ((=ucs@unicode	    . #x5EB8)	; &AJ1-03889;
+	(=adobe-japan1-0    . 03889)	; &AJ1-03889;
 	))
       (=cns11643-3	  . #x4D2D)	; &C3-4D2D; [45-13]
       ))
