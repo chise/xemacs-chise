@@ -1577,36 +1577,56 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
     (=ucs		. #x7561)	; 畡
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7561)	; 畡
+      ))
+    (ideographic-radical . 102)	; ⽥
+    (ideographic-strokes . 6)
+    (total-strokes	 . 11)
+    (=ucs@unicode	. #x7561)	; &JSP-4D3A;
+    (=jis-x0212		. #x4D3A)	; &JSP-4D3A; [45-26]
     (->subsumptive
-     ((=ucs@jis		  . #x7561)	; &JSP-4D3A;
-      (=jis-x0212	  . #x4D3A)	; &JSP-4D3A; [45-26]
-      (=daikanwa	  . 21828)	; &I-M-21828;
+     ((==ucs@jis	  . #x7561)	; &R-JSP-4D3A;
+      (==jis-x0212	  . #x4D3A)	; &R-JSP-4D3A; [45-26]
+      (=daikanwa	  . 21828)	; &R-JSP-4D3A;
       (<-formed
-       ((=ucs@jis	    . #x5793)	; &AJ1-04487;
-	(=adobe-japan1-0    . 04487)	; &AJ1-04487;
+       ((==ucs@jis	    . #x5793)	; &R-AJ1-04487;
+	(==ucs@ks	    . #x5793)	; &R-AJ1-04487;
+	(==adobe-japan1-0   . 04487)	; &R-AJ1-04487;
 	))
       (<-formed*sources
        jiyun)
       (<-same
-       ((=ucs@jis	    . #x5793)	; &AJ1-04487;
-	(=adobe-japan1-0    . 04487)	; &AJ1-04487;
+       ((==ucs@jis	    . #x5793)	; &R-AJ1-04487;
+	(==ucs@ks	    . #x5793)	; &R-AJ1-04487;
+	(==adobe-japan1-0   . 04487)	; &R-AJ1-04487;
 	(=daikanwa	    . 05040)	; &I-M-05040;
 	))
       (<-same*sources
        jiyun daikanwa)
       )
-     ((=cns11643-3	  . #x3746)	; &C3-3746; [23-38]
+     ((==ucs@cns	  . #x7561)	; &C3-3746;
+      (=cns11643-3	  . #x3746)	; &C3-3746; [23-38]
       )
-     ((=ucs@unicode	  . #x7561)	; &UU+7561;
-      )
-     ((=shinjigen	  .  1385)	; &SJG2-1385;
-      (<-formed
-       ((=hanyo-denshi/ks   . 058090)	; &HD-KS-058090;
-	(=shinjigen	    .  1384)	; &HD-KS-058090;
-	))
-      (<-formed*sources
-       shinjigen)
+     ((==ucs@unicode	  . #x7561)	; &R-UU+7561;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7561)	; 畡
+      ))
+    (ideographic-radical . 102)	; ⽥
+    (ideographic-strokes . 6)
+    (total-strokes	 . 11)
+    (=shinjigen		.  1385)	; &SJG2-1385;
+    (<-formed
+     ((=hanyo-denshi/ks	  . 058090)	; &HD-KS-058090;
+      (=shinjigen	  .  1384)	; &HD-KS-058090;
+      ))
+    (<-formed*sources
+     shinjigen)
     ))
 (define-char
   '((ideographic-radical . 102)	; ⽥
