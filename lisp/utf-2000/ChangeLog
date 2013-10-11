@@ -1,5 +1,15 @@
 2013-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R113-Spirit.el, Ideograph-R112-Stone.el,
+	Ideograph-R101-Use.el: Apply new glyph-image conventions for
+	`ucs@*', `adobe-japan1-*', `jis-x0208', `jis-x0208@*', `gb2312',
+	`iso-ir165', `jis-x0213-*', `jis-x0213-1@*', `hanyo-denshi/*',
+	`gt', `gt-k', `gt-pj-*' and `jef-china3'.
+
+	* Ideograph-R075-Tree.el (U+6901): Modify for new glyph-image
+	conventions.
+	(U+69E8): Likewise.
+
 	* Ideograph-R109-Eye.el, Ideograph-R108-Dish.el,
 	Ideograph-R096-Jade.el, Ideograph-R085-Water.el: Apply new
 	glyph-image conventions for `ucs@*', `adobe-japan1-*',
