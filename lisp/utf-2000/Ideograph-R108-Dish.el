@@ -692,17 +692,18 @@
     (=>jis-x0213-1	. #x786A)	; 盔 [88-74]
     (=big5		. #xB2AF)	; &I-B-B2AF;
     (->subsumptive
-     ((=>>ucs@jis	  . #x76D4)	; &G-JU+76D4;
-      (=>>>ucs@jis	  . #x76D4)	; &G-JU+76D4;
-      (=>>>hanyo-denshi/jb . #x4E4F)	; &G-JU+76D4; [46-47]
-      (=>>daikanwa	  . 22992)	; &G-JU+76D4;
+     ((=>>ucs@jis	  . #x76D4)	; &HD-JB-4E4F;
+      (=ucs@jis		  . #x76D4)	; &HD-JB-4E4F;
+      (=jis-x0212	  . #x4E4F)	; &HD-JB-4E4F; [46-47]
+      (=hanyo-denshi/jb	  . #x4E4F)	; &I-HD-JB-4E4F; [46-47]
+      (=>>daikanwa	  . 22992)	; &HD-JB-4E4F;
+      (=jef-china3	  . #x9BEE)	; &I-JC3-9BEE;
       (->subsumptive
-       ((=ucs@jis	    . #x76D4)	; &HD-JB-4E4F;
-	(=ucs@JP/hanazono   . nil)
-	(=jis-x0212	    . #x4E4F)	; &HD-JB-4E4F; [46-47]
-	(=hanyo-denshi/jb   . #x4E4F)	; &I-HD-JB-4E4F; [46-47]
-	(=daikanwa	    . 22992)	; &I-M-22992;
-	(=jef-china3	    . #x9BEE)	; &I-JC3-9BEE;
+       ((==ucs@jis	    . #x76D4)	; &R-HD-JB-4E4F;
+	(==ucs@JP/hanazono  . nil)
+	(==jis-x0212	    . #x4E4F)	; &R-HD-JB-4E4F; [46-47]
+	(==hanyo-denshi/jb  . #x4E4F)	; &R-HD-JB-4E4F; [46-47]
+	(=daikanwa	    . 22992)	; &R-HD-JB-4E4F;
 	)
        ((=ucs@JP/hanazono   . #x76D4)	; &hanaJU+76D4;
 	))
