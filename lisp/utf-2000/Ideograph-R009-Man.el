@@ -5152,6 +5152,15 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 138 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL PERSON")
+      (=ucs		  . #x2E85)	; ⺅
+      )
+     ((=ucs		  . #x7384)	; 玄
+      ))
     (=ucs		. #x4F2D)	; 伭
     (=big5		. #xCA66)	; &I-B-CA66;
     (->subsumptive
@@ -5162,10 +5171,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@jis	    . #x7384)	; &GT-26647;
-	(=jis-x0208	    . #x383C)	; &GT-26647; [24-28]
-	(=ks-x1001	    . #x7A5C)	; &I-K0-7A5C; [90-60]
-	(=jis-x0213-1	    . #x383C)	; &I-JX1-383C; [24-28]
+       ((==ucs@jis	    . #x7384)	; &R-J90-383C;
+	(=ks-x1001	    . #x7A5C)	; &R-J90-383C; [90-60]
 	(=daikanwa	    . 20814)	; &I-M-20814;
 	))
       (=daikanwa	  . 00463)	; &M-00463;
@@ -5177,12 +5184,20 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x7384)	; &C1-4668;
-	(=gb2312	    . #x507E)	; &C1-4668; [48-94]
-	(=cns11643-1	    . #x4668)	; &I-C1-4668; [38-72]
+       ((=cns11643-1	    . #x4668)	; &C1-4668; [38-72]
 	))
-      (=ucs@unicode	  . #x4F2D)	; &C2-2328;
       (=cns11643-2	  . #x2328)	; &C2-2328; [03-08]
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL PERSON")
+	(=ucs		    . #x2E85)	; ⺅
+	)
+       ((==ucs@unicode	    . #x7384)	; &R-UU+7384;
+	))
+      (==ucs@unicode	  . #x4F2D)	; &R-UU+4F2D;
       ))
     ))
 (define-char
@@ -6777,6 +6792,7 @@
 	  (=ucs		      . #x2E85)	; ⺅
 	  )
 	 ((==ucs@jis	      . #x7ACB)	; &R-GT-33181;
+	  (==ucs@ks	      . #x7ACB)	; &R-GT-33181;
 	  (=ks-x1001	      . #x5821)	; &R-GT-33181; [56-01]
 	  (=daikanwa	      . 25721)	; &I-M-25721;
 	  ))
@@ -24053,6 +24069,7 @@
 	 ((=ucs		      . #x201A2)	; 𠆢
 	  )
 	 ((==ucs@jis	      . #x7ACB)	; &R-GT-33181;
+	  (==ucs@ks	      . #x7ACB)	; &R-GT-33181;
 	  (=ks-x1001	      . #x5821)	; &R-GT-33181; [56-01]
 	  (=daikanwa	      . 25721)	; &I-M-25721;
 	  )
