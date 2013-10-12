@@ -677,21 +677,21 @@
     (ideographic-radical . 146)	; ⾑
     (ideographic-strokes . 13)
     (total-strokes	 . 19)
-    (=>>ucs@unicode	. #x8988)	; &g2-HD-FT-3944;
-    (=>>>ucs@unicode	. #x8988)	; &g2-HD-FT-3944;
-    (=big5		. #xF2F2)	; &g2-HD-FT-3944;
-    (=>>>hanyo-denshi/ft . #x3944)	; &g2-HD-FT-3944; [25-36]
+    (=>>ucs@unicode	. #x8988)	; &HD-FT-3944;
+    (=ucs@unicode	. #x8988)	; &HD-FT-3944;
+    (=big5		. #xF2F2)	; &HD-FT-3944;
+    (=hanyo-denshi/ft	. #x3944)	; &I-HD-FT-3944; [25-36]
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x8988)	; 覈
 	)
        ((=ucs		    . #xE0102)	; 󠄂
 	))
-      (=hanyo-denshi/ft	  . #x3944)	; &HD-FT-3944; [25-36]
-      (=shinjigen@1ed	  .  7480)	; &HD-FT-3944;
-      (=shinjigen@rev	  .  7479)	; &HD-FT-3944;
+      (==hanyo-denshi/ft  . #x3944)	; &R-HD-FT-3944; [25-36]
+      (=shinjigen@1ed	  .  7480)	; &R-HD-FT-3944;
+      (=shinjigen@rev	  .  7479)	; &R-HD-FT-3944;
       )
-     ((=ucs@unicode	  . #x8988)	; &C2-667D;
+     ((==ucs@unicode	  . #x8988)	; &C2-667D;
       (=cns11643-2	  . #x667D)	; &C2-667D; [70-93]
       ))
     ))
