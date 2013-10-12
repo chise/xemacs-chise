@@ -1,3 +1,39 @@
+2013-10-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R138-Stopping.el, Ideograph-R095-Profound.el: Apply
+	new glyph-image conventions for `ucs@*', `adobe-japan1-*',
+	`jis-x0208', `jis-x0208@*', `gb2312', `iso-ir165', `jis-x0213-*',
+	`jis-x0213-1@*', `hanyo-denshi/*', `gt', `gt-k', `gt-pj-*' and
+	`jef-china3'.
+
+	* Ideograph-R073-Say.el (J0-5B2B): Use `->subsumptive' to separate
+	representative glyph-image nodes.
+
+	* Ideograph-R030-Mouth.el (U+545F): Modify for new glyph-image
+	conventions.
+	(U-00020C57): Likewise.
+	(U+54FC): Likewise.
+	(U+554D): Likewise.
+	(U+56B2): Likewise.
+
+	* Ideograph-R008-Lid.el (GT-K01444): Modify for new glyph-image
+	conventions.
+	(BC-8BAA): Likewise.
+	(GT-K02128): Likewise.
+	(U+4EA8): Likewise.
+	(BC-8C4D): Likewise.
+	(U+4EAB): Likewise.
+	(J0-357E): Likewise.
+	(U-0002014C): Likewise.
+	(U+4EAF): Likewise.
+	(U+4EB2): Likewise.
+	(U-00020156): Likewise.
+	(U-00020161): Likewise.
+	(M-00321): Map to U-00020166.
+	(U-00020169): Modify for new glyph-image conventions.
+	(U-0002018C): Likewise.
+	(U+342F): Likewise.
+
 2013-10-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R119-Rice.el: Apply new glyph-image conventions for
@@ -203,7 +239,8 @@
 
 2013-09-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* Ideograph-R047-River.el, Ideograph-R028-Private.el,
+	* Ideograph-R146-West.el, Ideograph-R144-Walk-Enclosure.el,
+	Ideograph-R047-River.el, Ideograph-R028-Private.el,
 	Ideograph-R011-Enter.el: Apply new glyph-image conventions for
 	`ucs@*', `adobe-japan1-*', `jis-x0208', `jis-x0208@*', `gb2312',
 	`iso-ir165', `jis-x0213-*', `jis-x0213-1@*', `hanyo-denshi/*',
