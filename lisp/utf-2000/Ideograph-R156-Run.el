@@ -2598,14 +2598,14 @@
     (ideographic-strokes@r156*sources
      daikanwa=37235)
     (total-strokes	 . 16)
-    (=>>>gt		. 02901)	; &g2-GT-02901;
-    (=>>daikanwa	. 02254)	; &g2-GT-02901;
+    (=gt		. 02901)	; &GT-02901;
+    (=gt-pj-2		. #x437B)	; &GT-02901; [35-91]
+    (=>>daikanwa	. 02254)	; &GT-02901;
     (->subsumptive
      ((ideographic-radical . 18)	; ⼑
       (ideographic-strokes . 14)
-      (=gt		  . 02901)	; &GT-02901;
-      (=gt-pj-2		  . #x437B)	; &GT-02901; [35-91]
-      (=daikanwa	  . 02254)	; &I-M-02254;
+      (==gt		  . 02901)	; &R-GT-02901;
+      (=daikanwa	  . 02254)	; &R-GT-02901;
       )
      ((ideographic-radical . 156)	; ⾛
       (ideographic-strokes . 9)
