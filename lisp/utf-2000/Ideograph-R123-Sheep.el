@@ -2114,11 +2114,20 @@
   '((ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EAF)	; 亯
+      )
+     ((name		  . "CJK RADICAL EWE")
+      (=ucs		  . #x2EB8)	; ⺸
+      ))
     (=ucs		. #x263A7)	; 𦎧
     (->subsumptive
      ((=daikanwa	  . 28535)	; &M-28535;
       )
-     ((=ucs@iso		  . #x263A7)	; &HZK01-E275;
+     ((==ucs@iso	  . #x263A7)	; &HZK01-E275;
       (=hanziku-1	  . #xE275)	; &HZK01-E275;
       )
      ((hanyu-dazidian	  1 293 4)
@@ -2126,12 +2135,13 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x4EAF)	; &C3-2B26;
+       ((==ucs@unicode	    . #x4EAF)	; &C3-2B26;
 	(=cns11643-3	    . #x2B26)	; &C3-2B26; [11-06]
 	)
        ((name		    . "CJK RADICAL EWE")
 	(=ucs		    . #x2EB8)	; ⺸
 	))
+      (==ucs@cns	  . #x263A7)	; &C7-314F;
       (=cns11643-7	  . #x314F)	; &C7-314F; [17-47]
       ))
     ))
@@ -2293,8 +2303,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x4EAF)	; &AJ1-21082;
-	(=adobe-japan1-6    . 21082)	; &AJ1-21082;
+       ((==ucs@jis	    . #x4EAF)	; &R-AJ1-21082;
+	(==adobe-japan1-6   . 21082)	; &R-AJ1-21082;
 	)
        ((=ucs		    . #x7F8A)	; 羊
 	))
@@ -2304,12 +2314,12 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x4EAF)	; &C3-2B26;
+       ((==ucs@unicode	    . #x4EAF)	; &C3-2B26;
 	(=cns11643-3	    . #x2B26)	; &C3-2B26; [11-06]
 	)
        ((=ucs		    . #x7F8A)	; 羊
 	))
-      (=ucs@iso		  . #x263AB)	; &C4-4C48;
+      (==ucs@iso	  . #x263AB)	; &C4-4C48;
       (=cns11643-4	  . #x4C48)	; &C4-4C48; [44-40]
       ))
     ))
