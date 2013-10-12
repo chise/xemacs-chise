@@ -456,11 +456,11 @@
       (=gt-pj-6		  . #x6B5C)	; &GT-45938; [75-60]
       (=daikanwa/+p	  . 34065)	; &GT-45938;
       )
-     ((=>>>ucs@iso	  . #x275FA)	; &g2-IU+275FA;
+     ((=ucs@iso		  . #x275FA)	; &U-000275FA;
       (->subsumptive
        ((=cns11643-6	    . #x6227)	; &C6-6227; [66-07]
 	)
-       ((=ucs@iso	    . #x275FA)	; &U-000275FA;
+       ((==ucs@iso	    . #x275FA)	; &R-U-000275FA;
 	))
       ))
     ))
