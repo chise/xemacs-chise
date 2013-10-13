@@ -1,5 +1,14 @@
 2013-10-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R147-See.el, Ideograph-R142-Insect.el,
+	Ideograph-R136-Oppose.el, Ideograph-R130-Meat.el,
+	Ideograph-R123-Sheep.el: Apply new glyph-image conventions for
+	`ucs@*', `adobe-japan1-*', `jis-x0208', `jis-x0208@*', `gb2312',
+	`iso-ir165', `jis-x0213-*', `jis-x0213-1@*', `hanyo-denshi/*',
+	`gt', `gt-k', `gt-pj-*' and `jef-china3'.
+
+2013-10-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R138-Stopping.el, Ideograph-R095-Profound.el: Apply
 	new glyph-image conventions for `ucs@*', `adobe-japan1-*',
 	`jis-x0208', `jis-x0208@*', `gb2312', `iso-ir165', `jis-x0213-*',
@@ -239,12 +248,13 @@
 
 2013-09-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* Ideograph-R146-West.el, Ideograph-R144-Walk-Enclosure.el,
-	Ideograph-R047-River.el, Ideograph-R028-Private.el,
-	Ideograph-R011-Enter.el: Apply new glyph-image conventions for
-	`ucs@*', `adobe-japan1-*', `jis-x0208', `jis-x0208@*', `gb2312',
-	`iso-ir165', `jis-x0213-*', `jis-x0213-1@*', `hanyo-denshi/*',
-	`gt', `gt-k', `gt-pj-*' and `jef-china3'.
+	* Ideograph-R156-Run.el, Ideograph-R146-West.el,
+	Ideograph-R144-Walk-Enclosure.el, Ideograph-R047-River.el,
+	Ideograph-R028-Private.el, Ideograph-R011-Enter.el: Apply new
+	glyph-image conventions for `ucs@*', `adobe-japan1-*',
+	`jis-x0208', `jis-x0208@*', `gb2312', `iso-ir165', `jis-x0213-*',
+	`jis-x0213-1@*', `hanyo-denshi/*', `gt', `gt-k', `gt-pj-*' and
+	`jef-china3'.
 
 2013-09-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
