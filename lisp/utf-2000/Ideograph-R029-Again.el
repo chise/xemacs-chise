@@ -1028,9 +1028,7 @@
     (->subsumptive
      ((=daikanwa	  . 03151)	; &M-03151;
       (<-vulgar
-       ((==ucs@jis/2004	    . #x53DF)	; &R-AJ1-14111;
-	(==adobe-japan1-4   . 14111)	; &R-AJ1-14111;
-	(=daikanwa	    . 03176)	; &I-M-03176;
+       ((=daikanwa	    . 03176)	; &M-03176;
 	))
       (<-vulgar*sources
        zihui daikanwa)
@@ -1894,18 +1892,21 @@
       (=gt-k		  . 06578)	; &I-GT-K06578;
       (=gt-pj-2		  . #x4C6D)	; &I-GT-04022; [44-77]
       (->subsumptive
+       ((=daikanwa	    . 03176)	; &M-03176;
+	)
+       ((==ucs@jis/2004	    . #x53DF)	; &R-HD-HG-3048;
+	(==jis-x0213-1@2004 . #x5257)	; &R-HD-HG-3048; [50-55]
+	(==hanyo-denshi/hg  . #x3048)	; &R-HD-HG-3048; [16-40]
+	)
+       ((==gt		    . 04022)	; &R-GT-04022;
+	(==gt-k		    . 06578)	; &R-GT-04022;
+	)
        ((=decomposition@cid
 	 ((=ucs		      . #x53DF)	; 叟
 	  )
 	 ((=ucs		      . #xE0101)	; 󠄁
 	  ))
-	(==ucs@jis/2004	    . #x53DF)	; &R-AJ1-14111;
 	(==adobe-japan1-4   . 14111)	; &R-AJ1-14111;
-	(==jis-x0213-1@2004 . #x5257)	; &R-AJ1-14111; [50-55]
-	(==hanyo-denshi/hg  . #x3048)	; &R-AJ1-14111; [16-40]
-	(==gt		    . 04022)	; &R-AJ1-14111;
-	(==gt-k		    . 06578)	; &R-AJ1-14111;
-	(=daikanwa	    . 03176)	; &I-M-03176;
 	)
        ((==ucs@cns	    . #x53DF)	; &C1-5451;
 	(=cns11643-1	    . #x5451)	; &C1-5451; [52-49]
