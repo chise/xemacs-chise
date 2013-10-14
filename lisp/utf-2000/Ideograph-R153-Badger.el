@@ -2080,19 +2080,20 @@
     (ideographic-radical . 153)	; ⾘
     (ideographic-strokes . 18)
     (total-strokes	 . 25)
-    (=>>ucs@jis/1990	. #x8C9B)	; &G-CU+8C9B;
-    (=>>ucs@cns		. #x8C9B)	; &G-CU+8C9B;
-    (=>>>ucs@jis/1990	. #x8C9B)	; &G-CU+8C9B;
-    (=>>>ucs@cns	. #x8C9B)	; &G-CU+8C9B;
-    (=>>>hanyo-denshi/jb . #x5F27)	; &G-CU+8C9B; [63-07]
-    (=>>daikanwa	. 36653)	; &G-CU+8C9B;
+    (=>>ucs@jis/1990	. #x8C9B)	; &HD-JB-5F27;
+    (=>>ucs@cns		. #x8C9B)	; &HD-JB-5F27;
+    (=ucs@cns		. #x8C9B)	; &HD-JB-5F27;
+    (=ucs@jis/1990	. #x8C9B)	; &HD-JB-5F27;
+    (=jis-x0212		. #x5F27)	; &HD-JB-5F27; [63-07]
+    (=hanyo-denshi/jb	. #x5F27)	; &I-HD-JB-5F27; [63-07]
+    (=>>daikanwa	. 36653)	; &HD-JB-5F27;
     (->subsumptive
-     ((=ucs@jis/1990	  . #x8C9B)	; &HD-JB-5F27;
-      (=jis-x0212	  . #x5F27)	; &HD-JB-5F27; [63-07]
-      (=hanyo-denshi/jb	  . #x5F27)	; &I-HD-JB-5F27; [63-07]
-      (=daikanwa	  . 36653)	; &I-M-36653;
+     ((==ucs@jis/1990	  . #x8C9B)	; &R-HD-JB-5F27;
+      (==jis-x0212	  . #x5F27)	; &R-HD-JB-5F27; [63-07]
+      (==hanyo-denshi/jb  . #x5F27)	; &R-HD-JB-5F27; [63-07]
+      (=daikanwa	  . 36653)	; &R-HD-JB-5F27;
       )
-     ((=ucs@cns		  . #x8C9B)	; &C3-614D;
+     ((==ucs@cns	  . #x8C9B)	; &C3-614D;
       (=cns11643-3	  . #x614D)	; &C3-614D; [65-45]
       ))
     ))
@@ -2103,17 +2104,17 @@
     (ideographic-radical . 153)	; ⾘
     (ideographic-strokes . 17)
     (total-strokes	 . 24)
-    (=>>ucs@unicode	. #x8C9B)	; &g2-JX2-792A;
-    (=>>>ucs@unicode	. #x8C9B)	; &g2-JX2-792A;
-    (=>>>jis-x0213-2	. #x792A)	; &g2-JX2-792A; [89-10]
-    (=>>>hanyo-denshi/jd . #x792A)	; &g2-JX2-792A; [89-10]
+    (=>>ucs@unicode	. #x8C9B)	; &HD-JD-792A;
+    (=ucs@unicode	. #x8C9B)	; &HD-JD-792A;
+    (=jis-x0213-2	. #x792A)	; &HD-JD-792A; [89-10]
+    (=hanyo-denshi/jd	. #x792A)	; &I-HD-JD-792A; [89-10]
     (->subsumptive
-     ((=ucs@jis/2000	  . #x8C9B)	; &HD-JD-792A;
-      (=ucs@jis/2004	  . #x8C9B)	; &HD-JD-792A;
-      (=jis-x0213-2	  . #x792A)	; &HD-JD-792A; [89-10]
-      (=hanyo-denshi/jd	  . #x792A)	; &I-HD-JD-792A; [89-10]
+     ((==ucs@jis/2000	  . #x8C9B)	; &R-HD-JD-792A;
+      (==ucs@jis/2004	  . #x8C9B)	; &R-HD-JD-792A;
+      (==jis-x0213-2	  . #x792A)	; &R-HD-JD-792A; [89-10]
+      (==hanyo-denshi/jd  . #x792A)	; &R-HD-JD-792A; [89-10]
       )
-     ((=ucs@unicode	  . #x8C9B)	; &UU+8C9B;
+     ((==ucs@unicode	  . #x8C9B)	; &R-UU+8C9B;
       ))
     ))
 (define-char
