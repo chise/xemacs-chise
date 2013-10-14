@@ -312,13 +312,13 @@
     (=>>hanyo-denshi/jb . #x605B)	; &G-JX2-795B; [64-59]
     (=>>daikanwa	. 38190)	; &G-JX2-795B;
     (->subsumptive
-     ((=>>>ucs@cns	  . #x8ED4)	; &g2-CU+8ED4;
+     ((=ucs@cns		  . #x8ED4)	; &CU+8ED4;
+      (=jef-china3	  . #x92F4)	; &CU+8ED4;
       (->subsumptive
        ((=daikanwa	    . 38190)	; &M-38190;
 	)
-       ((=ucs@cns	    . #x8ED4)	; &C1-5847;
+       ((==ucs@cns	    . #x8ED4)	; &C1-5847;
 	(=cns11643-1	    . #x5847)	; &C1-5847; [56-39]
-	(=jef-china3	    . #x92F4)	; &I-JC3-92F4;
 	))
       )
      ((=ucs@unicode	  . #x8ED4)	; &HD-JB-605B;
@@ -2841,11 +2841,11 @@
     (->subsumptive
      ((ideographic-strokes . 8)
       (total-strokes	   . 15)
-      (=>>>ucs@iso	  . #x2832F)	; &g2-IU+2832F;
+      (=ucs@iso		  . #x2832F)	; &U-0002832F;
       (->subsumptive
        ((=daikanwa	    . 38387)	; &M-38387;
 	)
-       ((=ucs@iso	    . #x2832F)	; &U-0002832F;
+       ((==ucs@iso	    . #x2832F)	; &R-U-0002832F;
 	))
       )
      ((ideographic-strokes . 7)
@@ -3383,8 +3383,8 @@
       (=daikanwa	  . 38420)	; &I-M-38420;
       (=shinjigen	  .  8163)	; &GT-51290;
       )
-     ((=ucs@jis		  . #x8F2F)	; &J90-3D34;
-      (=jis-x0208@1990	  . #x3D34)	; &J90-3D34; [29-20]
+     ((=ucs@jis		  . #x8F2F)	; &I-J90-3D34;
+      (=jis-x0208@1990	  . #x3D34)	; &I-J90-3D34; [29-20]
       (=jis-x0213-1	  . #x3D34)	; &I-JX1-3D34; [29-20]
       )
      ((=ucs@unicode	  . #x8F2F)	; &K0-727E;
@@ -4374,12 +4374,14 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
     (=>>ucs@unicode	. #x8F44)	; &G-UU+8F44;
-    (=>>>ucs@unicode	. #x8F44)	; &G-UU+8F44;
+    (=ucs@unicode	. #x8F44)	; &G-UU+8F44;
+    (=gb12345		. #x4F3D)	; &G-UU+8F44; [47-29]
     (->subsumptive
-     ((=ks-x1001	  . #x795D)	; &K0-795D; [89-61]
+     ((==ucs@ks		  . #x8F44)	; &K0-795D;
+      (=ks-x1001	  . #x795D)	; &K0-795D; [89-61]
       )
-     ((=ucs@unicode	  . #x8F44)	; &UU+8F44;
-      (=gb12345		  . #x4F3D)	; &UU+8F44; [47-29]
+     ((==ucs@unicode	  . #x8F44)	; &R-UU+8F44;
+      (==gb12345	  . #x4F3D)	; &R-UU+8F44; [47-29]
       ))
     ))
 (define-char
@@ -4578,8 +4580,9 @@
     (=ucs		. #x8F96)	; 辖
     (=gb2312		. #x4F3D)	; &I-G0-4F3D; [47-29]
     (<-simplified@CN
-     ((=ucs@unicode	  . #x8F44)	; &UU+8F44;
-      (=gb12345		  . #x4F3D)	; &UU+8F44; [47-29]
+     ((=>>ucs@unicode	  . #x8F44)	; &G-UU+8F44;
+      (=ucs@unicode	  . #x8F44)	; &G-UU+8F44;
+      (=gb12345		  . #x4F3D)	; &G-UU+8F44; [47-29]
       ))
     ))
 (define-char
