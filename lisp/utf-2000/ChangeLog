@@ -1,11 +1,29 @@
 2013-10-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R150-Valley.el, Ideograph-R149-Speech.el: Apply new
+	glyph-image conventions for `ucs@*', `adobe-japan1-*',
+	`jis-x0208', `jis-x0208@*', `gb2312', `iso-ir165', `jis-x0213-*',
+	`jis-x0213-1@*', `hanyo-denshi/*', `gt', `gt-k', `gt-pj-*' and
+	`jef-china3'.
+
+	* Ideograph-R159-Cart.el, Ideograph-R154-Shell.el,
+	Ideograph-R153-Badger.el, Ideograph-R152-Pig.el,
+	Ideograph-R145-Clothes.el, Ideograph-R082-Fur.el: Apply new
+	glyph-image conventions for `ucs@*', `adobe-japan1-*',
+	`jis-x0208', `jis-x0208@*', `gb2312', `iso-ir165', `jis-x0213-*',
+	`jis-x0213-1@*', `hanyo-denshi/*', `gt', `gt-k', `gt-pj-*' and
+	`jef-china3'.
+
+	* Ideograph-R029-Again.el (R-JX3-5257): Separate R-M-03176,
+	R-GT-04022 and R-AJ1-14111.
+
 	* Ideograph-R147-See.el, Ideograph-R142-Insect.el,
-	Ideograph-R136-Oppose.el, Ideograph-R130-Meat.el,
-	Ideograph-R123-Sheep.el: Apply new glyph-image conventions for
-	`ucs@*', `adobe-japan1-*', `jis-x0208', `jis-x0208@*', `gb2312',
-	`iso-ir165', `jis-x0213-*', `jis-x0213-1@*', `hanyo-denshi/*',
-	`gt', `gt-k', `gt-pj-*' and `jef-china3'.
+	Ideograph-R135-Tongue.el, Ideograph-R136-Oppose.el,
+	Ideograph-R130-Meat.el, Ideograph-R123-Sheep.el: Apply new
+	glyph-image conventions for `ucs@*', `adobe-japan1-*',
+	`jis-x0208', `jis-x0208@*', `gb2312', `iso-ir165', `jis-x0213-*',
+	`jis-x0213-1@*', `hanyo-denshi/*', `gt', `gt-k', `gt-pj-*' and
+	`jef-china3'.
 
 2013-10-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
