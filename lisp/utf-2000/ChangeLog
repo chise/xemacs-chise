@@ -1,3 +1,11 @@
+2013-10-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R162-Walk.el, Ideograph-R160-Bitter.el,
+	Ideograph-R157-Foot.el: Apply new glyph-image conventions for
+	`ucs@*', `adobe-japan1-*', `jis-x0208', `jis-x0208@*', `gb2312',
+	`iso-ir165', `jis-x0213-*', `jis-x0213-1@*', `hanyo-denshi/*',
+	`gt', `gt-k', `gt-pj-*' and `jef-china3'.
+
 2013-10-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R150-Valley.el, Ideograph-R149-Speech.el: Apply new
