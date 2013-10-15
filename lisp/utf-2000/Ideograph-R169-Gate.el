@@ -2144,9 +2144,9 @@
     (->subsumptive
      ((=daikanwa	  . 41338)	; &M-41338;
       )
-     ((=>>>ucs@unicode	  . #x95AE)	; &g2-UU+95AE;
+     ((=ucs@unicode	  . #x95AE)	; &UU+95AE;
       (->subsumptive
-       ((=ucs@unicode	    . #x95AE)	; &UU+95AE;
+       ((==ucs@unicode	    . #x95AE)	; &R-UU+95AE;
 	)
        ((=cns11643-2	    . #x5551)	; &C2-5551; [53-49]
 	))
@@ -2301,9 +2301,9 @@
     (->subsumptive
      ((=daikanwa	  . 41347)	; &M-41347;
       )
-     ((=>>>ucs@iso	  . #x28D46)	; &g2-IU+28D46;
+     ((=ucs@iso		  . #x28D46)	; &U-00028D46;
       (->subsumptive
-       ((=ucs@iso	    . #x28D46)	; &U-00028D46;
+       ((==ucs@iso	    . #x28D46)	; &R-U-00028D46;
 	)
        ((=cns11643-5	    . #x522E)	; &C5-522E; [50-14]
 	))
@@ -2390,9 +2390,9 @@
     (->subsumptive
      ((=daikanwa	  . 41354)	; &M-41354;
       )
-     ((=>>>ucs@unicode	  . #x499F)	; &g2-UU+499F;
+     ((=ucs@unicode	  . #x499F)	; &UU+499F;
       (->subsumptive
-       ((=ucs@unicode	    . #x499F)	; &UU+499F;
+       ((==ucs@unicode	    . #x499F)	; &R-UU+499F;
 	)
        ((=cns11643-3	    . #x4F57)	; &C3-4F57; [47-55]
 	))
