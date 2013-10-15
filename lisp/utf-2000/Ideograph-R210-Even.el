@@ -308,8 +308,8 @@
     (=>jis-x0208	. #x6C5A)	; 齎 [76-58]
     (=>jis-x0213-1	. #x6C5A)	; 齎 [76-58]
     (->subsumptive
-     ((=ucs@jis		  . #x9F4E)	; &GT-66374;
-      (=jis-x0208@1990	  . #x6C5A)	; &GT-66374; [76-58]
+     ((=ucs@jis		  . #x9F4E)	; &I-J90-6C5A;
+      (=jis-x0208@1990	  . #x6C5A)	; &I-J90-6C5A; [76-58]
       (=jis-x0213-1	  . #x6C5A)	; &I-JX1-6C5A; [76-58]
       (=gt		  . 66374)	; &I-GT-66374;
       (=gt-pj-1		  . #x6C5A)	; &I-GT-66374; [76-58]
@@ -490,9 +490,9 @@
     (->subsumptive
      ((=daikanwa	  . 48581)	; &M-48581;
       )
-     ((=>>>ucs@iso	  . #x2A5D1)	; &g2-IU+2A5D1;
+     ((=ucs@iso		  . #x2A5D1)	; &U-0002A5D1;
       (->subsumptive
-       ((=ucs@iso	    . #x2A5D1)	; &U-0002A5D1;
+       ((==ucs@iso	    . #x2A5D1)	; &R-U-0002A5D1;
 	)
        ((=cns11643-7	    . #x6221)	; &C7-6221; [66-01]
 	))
@@ -526,9 +526,9 @@
     (->subsumptive
      ((=daikanwa	  . 48582)	; &M-48582;
       )
-     ((=>>>ucs@iso	  . #x2A5D2)	; &g2-IU+2A5D2;
+     ((=ucs@iso		  . #x2A5D2)	; &U-0002A5D2;
       (->subsumptive
-       ((=ucs@iso	    . #x2A5D2)	; &U-0002A5D2;
+       ((==ucs@iso	    . #x2A5D2)	; &R-U-0002A5D2;
 	)
        ((=cns11643-7	    . #x652F)	; &C7-652F; [69-15]
 	))
