@@ -1,3 +1,12 @@
+2013-10-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R172-Short-Tailed-Bird.el, Ideograph-R169-Gate.el,
+	Ideograph-R167-Gold.el, Ideograph-R164-Wine.el: Apply new
+	glyph-image conventions for `ucs@*', `adobe-japan1-*',
+	`jis-x0208', `jis-x0208@*', `gb2312', `iso-ir165', `jis-x0213-*',
+	`jis-x0213-1@*', `hanyo-denshi/*', `gt', `gt-k', `gt-pj-*' and
+	`jef-china3'.
+
 2013-10-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R162-Walk.el, Ideograph-R160-Bitter.el,
@@ -274,13 +283,14 @@
 
 2013-09-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* Ideograph-R156-Run.el, Ideograph-R146-West.el,
-	Ideograph-R144-Walk-Enclosure.el, Ideograph-R047-River.el,
-	Ideograph-R028-Private.el, Ideograph-R011-Enter.el: Apply new
-	glyph-image conventions for `ucs@*', `adobe-japan1-*',
-	`jis-x0208', `jis-x0208@*', `gb2312', `iso-ir165', `jis-x0213-*',
-	`jis-x0213-1@*', `hanyo-denshi/*', `gt', `gt-k', `gt-pj-*' and
-	`jef-china3'.
+	* Ideograph-R176-Face.el, Ideograph-R175-Wrong.el,
+	Ideograph-R171-Slave.el, Ideograph-R156-Run.el,
+	Ideograph-R146-West.el, Ideograph-R144-Walk-Enclosure.el,
+	Ideograph-R047-River.el, Ideograph-R028-Private.el,
+	Ideograph-R011-Enter.el: Apply new glyph-image conventions for
+	`ucs@*', `adobe-japan1-*', `jis-x0208', `jis-x0208@*', `gb2312',
+	`iso-ir165', `jis-x0213-*', `jis-x0213-1@*', `hanyo-denshi/*',
+	`gt', `gt-k', `gt-pj-*' and `jef-china3'.
 
 2013-09-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
