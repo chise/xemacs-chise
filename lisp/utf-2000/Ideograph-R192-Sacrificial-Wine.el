@@ -195,11 +195,12 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 23)
     (=>>ucs@iso		. #x29C28)	; &G-IU+29C28;
-    (=>>>ucs@iso	. #x29C28)	; &G-IU+29C28;
+    (=ucs@iso		. #x29C28)	; &G-IU+29C28;
     (->subsumptive
-     ((=cns11643-7	  . #x5D6E)	; &C7-5D6E; [61-78]
+     ((==ucs@cns	  . #x29C28)	; &C7-5D6E;
+      (=cns11643-7	  . #x5D6E)	; &C7-5D6E; [61-78]
       )
-     ((=ucs@iso		  . #x29C28)	; &U-00029C28;
+     ((==ucs@iso	  . #x29C28)	; &R-U-00029C28;
       ))
     ))
 (define-char
