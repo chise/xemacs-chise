@@ -1084,8 +1084,8 @@
       (=jis-x0208@1983	  . #x395F)	; &I-J83-395F; [25-63]
       (=ks-x1001	  . #x4B3D)	; &I-K0-4B3D; [43-29]
       )
-     ((=ucs@jis		  . #x964D)	; &GT-55959;
-      (=jis-x0208@1990	  . #x395F)	; &GT-55959; [25-63]
+     ((=ucs@jis		  . #x964D)	; &I-J90-395F;
+      (=jis-x0208@1990	  . #x395F)	; &I-J90-395F; [25-63]
       (=jis-x0213-1	  . #x395F)	; &I-JX1-395F; [25-63]
       (=gt		  . 55959)	; &I-GT-55959;
       (=gt-k		  . 06703)	; &I-GT-K06703;
@@ -1423,10 +1423,9 @@
     (=shinjigen		.  1985)	; &JSP-6657;
     (=jef-china3	. #x93AF)	; &I-JC3-93AF;
     (<-formed
-     ((=ucs@jis		  . #x5CED)	; &AJ1-04678;
-      (=adobe-japan1-0	  . 04678)	; &AJ1-04678;
-      (=jis-x0208	  . #x5639)	; &I-J90-5639; [54-25]
-      (=shinjigen	  .  1984)	; &AJ1-04678;
+     ((==ucs@jis	  . #x5CED)	; &R-AJ1-04678;
+      (==adobe-japan1-0	  . 04678)	; &R-AJ1-04678;
+      (=shinjigen	  .  1984)	; &R-AJ1-04678;
       ))
     (<-formed*sources
      shinjigen)
@@ -4739,10 +4738,10 @@
       (=shinjigen	  .  8932)	; &GT-56267;
       (=cbeta		  . 00444)	; &I-CB00444;
       )
-     ((=ucs@jis/1990	  . #x96A3)	; &J90-4E59;
-      (=ucs@jis/2000	  . #x96A3)	; &J90-4E59;
-      (=ucs@jis/2004	  . #x96A3)	; &J90-4E59;
-      (=jis-x0208@1990	  . #x4E59)	; &J90-4E59; [46-57]
+     ((=ucs@jis/1990	  . #x96A3)	; &I-J90-4E59;
+      (=ucs@jis/2000	  . #x96A3)	; &I-J90-4E59;
+      (=ucs@jis/2004	  . #x96A3)	; &I-J90-4E59;
+      (=jis-x0208@1990	  . #x4E59)	; &I-J90-4E59; [46-57]
       (=jis-x0213-1	  . #x4E59)	; &I-JX1-4E59; [46-57]
       ))
     ))
@@ -5913,11 +5912,11 @@
     (ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 16)
     (total-strokes	 . 24)
-    (=>>>ucs@iso	. #x28F61)	; &g2-IU+28F61;
+    (=ucs@iso		. #x28F61)	; &U-00028F61;
     (->subsumptive
      ((=cns11643-7	  . #x5F77)	; &C7-5F77; [63-87]
       )
-     ((=ucs@iso		  . #x28F61)	; &U-00028F61;
+     ((==ucs@iso	  . #x28F61)	; &R-U-00028F61;
       ))
     ))
 (define-char
@@ -6028,9 +6027,9 @@
     (ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 18)
     (total-strokes	 . 26)
-    (=>>>ucs@iso	. #x28F6A)	; &g2-IU+28F6A;
+    (=ucs@iso		. #x28F6A)	; &U-00028F6A;
     (->subsumptive
-     ((=ucs@iso		  . #x28F6A)	; &U-00028F6A;
+     ((==ucs@iso	  . #x28F6A)	; &R-U-00028F6A;
       )
      ((=cns11643-7	  . #x6279)	; &C7-6279; [66-89]
       ))
