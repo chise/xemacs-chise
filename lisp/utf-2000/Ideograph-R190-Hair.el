@@ -1793,12 +1793,12 @@
     (ideographic-radical . 190)	; ⾽
     (ideographic-strokes . 9)
     (total-strokes	 . 19)
-    (=>>>ucs@iso	. #x29B83)	; &g2-IU+29B83;
-    (=>>daikanwa	. 45510)	; &g2-IU+29B83;
+    (=ucs@iso		. #x29B83)	; &U-00029B83;
+    (=>>daikanwa	. 45510)	; &U-00029B83;
     (->subsumptive
      ((=daikanwa	  . 45510)	; &M-45510;
       )
-     ((=ucs@iso		  . #x29B83)	; &U-00029B83;
+     ((==ucs@iso	  . #x29B83)	; &R-U-00029B83;
       ))
     ))
 (define-char
