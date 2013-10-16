@@ -46,20 +46,25 @@
     (ideographic-radical . 200)	; ⿇
     (ideographic-strokes . 0)
     (total-strokes	 . 11)
-    (=>>gt		. 65257)	; &G-GT-65257;
+    (=ucs@unicode	. #x9EBB)	; &GT-65257;
+    (=jis-x0208		. #x4B63)	; &GT-65257; [43-67]
+    (=gb2312		. #x4269)	; &I-G0-4269; [34-73]
+    (=jis-x0213-1	. #x4B63)	; &I-JX1-4B63; [43-67]
+    (=gt		. 65257)	; &I-GT-65257;
+    (=gt-k		. 07878)	; &I-GT-K07878;
+    (=gt-pj-1		. #x4B63)	; &I-GT-65257; [43-67]
     (->subsumptive
-     ((=ucs@jis		  . #x9EBB)	; &GT-65257;
-      (=jis-x0208	  . #x4B63)	; &GT-65257; [43-67]
-      (=jis-x0213-1	  . #x4B63)	; &I-JX1-4B63; [43-67]
-      (=big5-cdp	  . #x8A5F)	; &I-CDP-8A5F;
-      (=gt		  . 65257)	; &I-GT-65257;
-      (=gt-k		  . 07878)	; &I-GT-K07878;
-      (=gt-pj-1		  . #x4B63)	; &I-GT-65257; [43-67]
+     ((==ucs@jis	  . #x9EBB)	; &R-GT-65257;
+      (==jis-x0208	  . #x4B63)	; &R-GT-65257; [43-67]
+      (==jis-x0213-1	  . #x4B63)	; &R-GT-65257; [43-67]
+      (=big5-cdp	  . #x8A5F)	; &R-GT-65257;
+      (==gt		  . 65257)	; &R-GT-65257;
+      (==gt-k		  . 07878)	; &R-GT-65257;
       (=daikanwa	  . 47888)	; &I-M-47888;
-      (=shinjigen	  .  9804)	; &GT-65257;
+      (=shinjigen	  .  9804)	; &R-GT-65257;
       )
-     ((=ucs@unicode	  . #x9EBB)	; &G0-4269;
-      (=gb2312		  . #x4269)	; &G0-4269; [34-73]
+     ((==ucs@unicode	  . #x9EBB)	; &R-UU+9EBB;
+      (==gb2312		  . #x4269)	; &R-UU+9EBB; [34-73]
       ))
     ))
 (define-char
@@ -174,18 +179,18 @@
     (ideographic-radical . 200)	; ⿇
     (ideographic-strokes . 3)
     (total-strokes	 . 14)
-    (=>>ucs@unicode	. #x9EBC)	; &G-HD-FT-3564;
-    (=>>>ucs@unicode	. #x9EBC)	; &G-HD-FT-3564;
-    (=>>hanyo-denshi/ft . #x3564)	; &G-HD-FT-3564; [21-68]
+    (=>>ucs@unicode	. #x9EBC)	; &HD-FT-3564;
+    (=ucs@unicode	. #x9EBC)	; &HD-FT-3564;
+    (=hanyo-denshi/ft	. #x3564)	; &HD-FT-3564; [21-68]
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x9EBC)	; 麼
 	)
        ((=ucs		    . #xE0102)	; 󠄂
 	))
-      (=hanyo-denshi/ft	  . #x3564)	; &HD-FT-3564; [21-68]
+      (==hanyo-denshi/ft  . #x3564)	; &R-HD-FT-3564; [21-68]
       )
-     ((=ucs@unicode	  . #x9EBC)	; &UU+9EBC;
+     ((==ucs@unicode	  . #x9EBC)	; &R-UU+9EBC;
       ))
     ))
 (define-char
