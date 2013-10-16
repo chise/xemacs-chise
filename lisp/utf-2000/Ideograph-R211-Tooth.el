@@ -1179,11 +1179,11 @@
       (=jis-x0213-2	  . #x7E71)	; &I-JX2-7E71; [94-81]
       (=daikanwa	  . 48653)	; &I-M-48653;
       )
-     ((=>>>ucs@cns	  . #x9F69)	; &g2-CU+9F69;
+     ((=ucs@cns		  . #x9F69)	; &CU+9F69;
       (->subsumptive
        ((=jef-china3	    . #x6FFE)	; &JC3-6FFE;
 	)
-       ((=ucs@cns	    . #x9F69)	; &C3-5F3E;
+       ((==ucs@cns	    . #x9F69)	; &C3-5F3E;
 	(=cns11643-3	    . #x5F3E)	; &C3-5F3E; [63-30]
 	))
       )
@@ -3502,12 +3502,12 @@
     (ideographic-strokes . 20)
     (total-strokes	 . 35)
     (=>>ucs@cns		. #x4DAB)	; &G-CU+4DAB;
-    (=>>>ucs@cns	. #x4DAB)	; &G-CU+4DAB;
+    (=ucs@cns		. #x4DAB)	; &G-CU+4DAB;
     (=>>daikanwa	. 48812)	; &G-CU+4DAB;
     (->subsumptive
      ((=daikanwa	  . 48812)	; &M-48812;
       )
-     ((=ucs@cns		  . #x4DAB)	; &C4-6E5A;
+     ((==ucs@cns	  . #x4DAB)	; &C4-6E5A;
       (=cns11643-4	  . #x6E5A)	; &C4-6E5A; [78-58]
       ))
     ))
