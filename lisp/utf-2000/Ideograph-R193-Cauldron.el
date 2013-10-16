@@ -1223,11 +1223,12 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 22)
     (=>>ucs@iso		. #x29C54)	; &G-IU+29C54;
-    (=>>>ucs@iso	. #x29C54)	; &G-IU+29C54;
+    (=ucs@iso		. #x29C54)	; &G-IU+29C54;
     (->subsumptive
-     ((=ucs@iso		  . #x29C54)	; &U-00029C54;
+     ((==ucs@iso	  . #x29C54)	; &R-U-00029C54;
       )
-     ((=cns11643-7	  . #x5A4C)	; &C7-5A4C; [58-44]
+     ((==ucs@cns	  . #x29C54)	; &C7-5A4C;
+      (=cns11643-7	  . #x5A4C)	; &C7-5A4C; [58-44]
       ))
     ))
 (define-char
@@ -1533,14 +1534,15 @@
     (ideographic-strokes@cns . 14)
     (total-strokes	 . 24)
     (=>>ucs@iso		. #x2244B)	; &G-IU+2244B;
-    (=>>>ucs@iso	. #x2244B)	; &G-IU+2244B;
+    (=ucs@iso		. #x2244B)	; &G-IU+2244B;
     (->subsumptive
      ((ideographic-radical . 57)	; ⼸
       (ideographic-strokes . 21)
-      (=ucs@iso		  . #x2244B)	; &U-0002244B;
+      (==ucs@iso	  . #x2244B)	; &R-U-0002244B;
       )
      ((ideographic-radical . 193)	; ⿀
       (ideographic-strokes . 14)
+      (==ucs@cns	  . #x2244B)	; &C7-603C;
       (=cns11643-7	  . #x603C)	; &C7-603C; [64-28]
       ))
     ))
