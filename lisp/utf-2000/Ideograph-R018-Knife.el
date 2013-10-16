@@ -7125,10 +7125,10 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (=ucs		      . #x2FF1)	; ⿱
 	  )
-	 ((=ucs@unicode	      . #x7ACB)	; &GT-33181;
-	  (=jis-x0208	      . #x4E29)	; &GT-33181; [46-09]
-	  (=gb2312	      . #x4122)	; &I-G0-4122; [33-02]
-	  (=jis-x0213-1	      . #x4E29)	; &I-JX1-4E29; [46-09]
+	 ((==ucs@jis	      . #x7ACB)	; &R-GT-33181;
+	  (==ucs@ks	      . #x7ACB)	; &R-GT-33181;
+	  (=ks-x1001	      . #x5821)	; &R-GT-33181; [56-01]
+	  (=daikanwa	      . 25721)	; &I-M-25721;
 	  )
 	 ((=big5-cdp	      . #x8958)	; &CDP-8958;
 	  ))
