@@ -1389,12 +1389,12 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 17)
     (=>>ucs@iso		. #x2A328)	; &G-IU+2A328;
-    (=>>>ucs@iso	. #x2A328)	; &G-IU+2A328;
+    (=ucs@iso		. #x2A328)	; &G-IU+2A328;
     (=>>daikanwa	. 47776)	; &G-IU+2A328;
     (->subsumptive
      ((=daikanwa	  . 47776)	; &M-47776;
       )
-     ((=ucs@iso		  . #x2A328)	; &U-0002A328;
+     ((==ucs@iso	  . #x2A328)	; &R-U-0002A328;
       ))
     ))
 (define-char
@@ -2602,12 +2602,12 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 20)
     (=>>ucs@iso		. #x2A350)	; &G-IU+2A350;
-    (=>>>ucs@iso	. #x2A350)	; &G-IU+2A350;
+    (=ucs@iso		. #x2A350)	; &G-IU+2A350;
     (=>>daikanwa	. 47828)	; &G-IU+2A350;
     (->subsumptive
      ((=daikanwa	  . 47828)	; &M-47828;
       )
-     ((=ucs@iso		  . #x2A350)	; &U-0002A350;
+     ((==ucs@iso	  . #x2A350)	; &R-U-0002A350;
       ))
     ))
 (define-char
@@ -2873,12 +2873,12 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 21)
     (=>>ucs@iso		. #x2A35C)	; &G-IU+2A35C;
-    (=>>>ucs@iso	. #x2A35C)	; &G-IU+2A35C;
+    (=ucs@iso		. #x2A35C)	; &G-IU+2A35C;
     (=>>daikanwa	. 47838)	; &G-IU+2A35C;
     (->subsumptive
      ((=daikanwa	  . 47838)	; &M-47838;
       )
-     ((=ucs@iso		  . #x2A35C)	; &U-0002A35C;
+     ((==ucs@iso	  . #x2A35C)	; &R-U-0002A35C;
       ))
     ))
 (define-char
@@ -3318,12 +3318,12 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 22)
     (=>>ucs@unicode	. #x4D42)	; &G-UU+4D42;
-    (=>>>ucs@unicode	. #x4D42)	; &G-UU+4D42;
+    (=ucs@unicode	. #x4D42)	; &G-UU+4D42;
     (=>>daikanwa	. 47854)	; &G-UU+4D42;
     (->subsumptive
      ((=daikanwa	  . 47854)	; &M-47854;
       )
-     ((=ucs@unicode	  . #x4D42)	; &UU+4D42;
+     ((==ucs@unicode	  . #x4D42)	; &R-UU+4D42;
       ))
     ))
 (define-char
@@ -4079,12 +4079,12 @@
     (ideographic-strokes . 17)
     (total-strokes	 . 28)
     (=>>ucs@iso		. #x2A383)	; &G-IU+2A383;
-    (=>>>ucs@iso	. #x2A383)	; &G-IU+2A383;
+    (=ucs@iso		. #x2A383)	; &G-IU+2A383;
     (=>>daikanwa	. 47881)	; &G-IU+2A383;
     (->subsumptive
      ((=daikanwa	  . 47881)	; &M-47881;
       )
-     ((=ucs@iso		  . #x2A383)	; &U-0002A383;
+     ((==ucs@iso	  . #x2A383)	; &R-U-0002A383;
       ))
     ))
 (define-char
