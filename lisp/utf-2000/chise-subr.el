@@ -1,7 +1,7 @@
 ;;; chise-subr.el --- basic lisp subroutines for XEmacs CHISE
 
 ;; Copyright (C) 1999, 2001, 2002, 2003, 2004, 2005, 2007, 2008, 2009,
-;;   2010, 2011, 2012 MORIOKA Tomohiko.
+;;   2010, 2011, 2012, 2013 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Character Database, ISO/IEC 10646, UCS, Unicode, MULE.
@@ -44,10 +44,23 @@
 
 (defconst charset-id-=adobe-japan1-0 (charset-id '=adobe-japan1-0))
 (defconst charset-id-=adobe-japan1-6 (charset-id '=adobe-japan1-6))
+(defconst charset-id-==adobe-japan1-0 (charset-id '==adobe-japan1-0))
+(defconst charset-id-==adobe-japan1-6 (charset-id '==adobe-japan1-6))
 (defconst charset-id-=>>>adobe-japan1-0 (charset-id '=>>>adobe-japan1-0))
 (defconst charset-id-=>>>adobe-japan1-6 (charset-id '=>>>adobe-japan1-6))
 (defconst charset-id-=>>adobe-japan1-0 (charset-id '=>>adobe-japan1-0))
 (defconst charset-id-=>>adobe-japan1-6 (charset-id '=>>adobe-japan1-6))
+
+(defun charset-id-adobe-japan1-p (id)
+  (or (and (<= charset-id-=adobe-japan1-0 id)
+	   (<= id charset-id-=adobe-japan1-6))
+      (and (<= charset-id-==adobe-japan1-0 id)
+	   (<= id charset-id-==adobe-japan1-6))
+      (and (<= charset-id-=>>>adobe-japan1-0 id)
+	   (<= id charset-id-=>>>adobe-japan1-6))
+      (and (<= charset-id-=>>adobe-japan1-0 id)
+	   (<= id charset-id-=>>adobe-japan1-6))
+      ))
 
 
 ;;; @ feature name
@@ -129,13 +142,7 @@
 		 ((= a-ir 177)
 		  t)
 		 ((and (setq b-id (charset-id kb))
-		       (or (and (<= charset-id-=adobe-japan1-0 b-id)
-				(<= b-id charset-id-=adobe-japan1-6))
-			   (and (<= charset-id-=>>>adobe-japan1-0 b-id)
-				(<= b-id charset-id-=>>>adobe-japan1-6))
-			   (and (<= charset-id-=>>adobe-japan1-0 b-id)
-				(<= b-id charset-id-=>>adobe-japan1-6))
-			   ))
+		       (charset-id-adobe-japan1-p b-id))
 		  nil)
 		 (t)))
 	    (if (setq b-ir (charset-property kb 'iso-ir))
@@ -143,42 +150,18 @@
 		 ((= b-ir 177)
 		  nil)
 		 ((and (setq a-id (charset-id ka))
-		       (or (and (<= charset-id-=adobe-japan1-0 a-id)
-				(<= a-id charset-id-=adobe-japan1-6))
-			   (and (<= charset-id-=>>>adobe-japan1-0 a-id)
-				(<= a-id charset-id-=>>>adobe-japan1-6))
-			   (and (<= charset-id-=>>adobe-japan1-0 a-id)
-				(<= a-id charset-id-=>>adobe-japan1-6))
-			   ))
+		       (charset-id-adobe-japan1-p a-id))
 		  t)
 		 (t nil))
 	      (cond
 	       ((and (setq a-id (charset-id ka))
-		     (or (and (<= charset-id-=adobe-japan1-0 a-id)
-			      (<= a-id charset-id-=adobe-japan1-6))
-			 (and (<= charset-id-=>>>adobe-japan1-0 a-id)
-			      (<= a-id charset-id-=>>>adobe-japan1-6))
-			 (and (<= charset-id-=>>adobe-japan1-0 a-id)
-			      (<= a-id charset-id-=>>adobe-japan1-6))
-			 ))
+		     (charset-id-adobe-japan1-p a-id))
 		(if (and (setq b-id (charset-id kb))
-			 (or (and (<= charset-id-=adobe-japan1-0 b-id)
-				  (<= b-id charset-id-=adobe-japan1-6))
-			     (and (<= charset-id-=>>>adobe-japan1-0 b-id)
-				  (<= b-id charset-id-=>>>adobe-japan1-6))
-			     (and (<= charset-id-=>>adobe-japan1-0 b-id)
-				  (<= b-id charset-id-=>>adobe-japan1-6))
-			     ))
+			 (charset-id-adobe-japan1-p b-id))
 		    (< a-id b-id)
 		  t))
 	       ((and (setq b-id (charset-id kb))
-		     (or (and (<= charset-id-=adobe-japan1-0 b-id)
-			      (<= b-id charset-id-=adobe-japan1-6))
-			 (and (<= charset-id-=>>>adobe-japan1-0 b-id)
-			      (<= b-id charset-id-=>>>adobe-japan1-6))
-			 (and (<= charset-id-=>>adobe-japan1-0 b-id)
-			      (<= b-id charset-id-=>>adobe-japan1-6))
-			 ))
+		     (charset-id-adobe-japan1-p b-id))
 		nil)
 	       (t
 		(< (charset-id ka)(charset-id kb))
