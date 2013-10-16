@@ -160,6 +160,24 @@
     =hanyo-denshi/ks
     =gt
     =gt-k
+    ==adobe-japan1-0
+    ==adobe-japan1-1
+    ==adobe-japan1-2
+    ==adobe-japan1-3
+    ==adobe-japan1-4
+    ==adobe-japan1-5
+    ==adobe-japan1-6
+    ==jis-x0208
+    ==jis-x0213-1
+    ==jis-x0213-2
+    ==hanyo-denshi/ja
+    ==hanyo-denshi/jb
+    ==hanyo-denshi/jc
+    ==hanyo-denshi/ft
+    ==hanyo-denshi/ib
+    ==hanyo-denshi/hg
+    ==hanyo-denshi/jt
+    ==hanyo-denshi/ks
     =daikanwa
     =daikanwa@rev2
     =daikanwa@rev1
@@ -176,6 +194,10 @@
     ideograph-hanziku-10
     ideograph-hanziku-11
     ideograph-hanziku-12
+    ==gt
+    ==jis-x0208@1990
+    ==ks-x1001
+    ==gt-k
     =>>>adobe-japan1-0
     =>>>adobe-japan1-1
     =>>>adobe-japan1-2
@@ -248,8 +270,11 @@
     =>>ucs@cns
     =>>>ucs@iso
     =>>>ucs@unicode
+    ==ucs@iso
+    ==ucs@unicode
     =ucs@iso
     =ucs@unicode
+    =ucs@cns
     =>>big5-cdp
     =>>gt-k
     =+>gt
@@ -298,6 +323,26 @@
 					 =adobe-japan1-4
 					 =adobe-japan1-5
 					 =adobe-japan1-6
+					 ))
+                                 ;; (eq (charset-property ccs 'iso-ir) 177)
+				 (string-match "=ucs@" (symbol-name ccs))
+				 )
+			     (setq ccs (charset-name ccs))
+			     (null (assq ccs char-spec))
+			     (setq ret (encode-char char ccs 'defined-only)))
+			(setq char-spec (cons (cons ccs ret) char-spec))))
+		  )
+		 ((encode-char char '==adobe-japan1 'defined-only)
+		  (setq char-spec nil)
+		  (dolist (ccs (charset-list))
+		    (if (and (or (memq ccs
+				       '(==adobe-japan1-0
+					 ==adobe-japan1-1
+					 ==adobe-japan1-2
+					 ==adobe-japan1-3
+					 ==adobe-japan1-4
+					 ==adobe-japan1-5
+					 ==adobe-japan1-6
 					 ))
                                  ;; (eq (charset-property ccs 'iso-ir) 177)
 				 (string-match "=ucs@" (symbol-name ccs))
@@ -504,6 +549,8 @@
     (setq ret
 	  (cond ((eq ccs 'arabic-iso8859-6)
 		 (decode-char ccs code-point))
+                ;; ((eq ccs '=gt)
+                ;;  (decode-builtin-char '==gt code-point))
 		((and (memq ccs '(=gt-pj-1
 				  =gt-pj-2
 				  =gt-pj-3
@@ -535,26 +582,28 @@
     (insert
      (format
       (cond
-       ((memq name '(=shinjigen
+       ((memq name '(==shinjigen
+		     =shinjigen
 		     =shinjigen@1ed
 		     =shinjigen@rev =shinjigen/+p@rev
 		     =daikanwa/ho =>>daikanwa/ho =>daikanwa/ho))
 	"(%-18s .  %04d)\t; %c")
        ((eq name '=shinjigen@1ed/24pr)
 	"(%-18s . %04d)\t; %c")
-       ((or (memq name '(=daikanwa =>>daikanwa =>daikanwa
+       ((or (memq name '(==daikanwa
+			 =daikanwa =>>daikanwa =>daikanwa
 			 =daikanwa@rev1 =daikanwa@rev2
 			 =daikanwa/+p =>>daikanwa/+p
 			 =daikanwa/+2p =>>daikanwa/+2p
-			 =gt =>>>gt =>>gt =+>gt =>gt
-			 =gt-k =>>gt-k =>gt-k
-			 =adobe-japan1-0 =>>>adobe-japan1-0
-			 =adobe-japan1-1 =>>>adobe-japan1-1
-			 =adobe-japan1-2 =>>>adobe-japan1-2
-			 =adobe-japan1-3 =>>>adobe-japan1-3
-			 =adobe-japan1-4 =>>>adobe-japan1-4
-			 =adobe-japan1-5 =>>>adobe-japan1-5
-			 =adobe-japan1-6 =>>>adobe-japan1-6
+			 =gt ==gt =>>>gt =>>gt =+>gt =>gt
+			 =gt-k ==gt-k =>>gt-k =>gt-k
+			 =adobe-japan1-0 ==adobe-japan1-0 =>>>adobe-japan1-0
+			 =adobe-japan1-1 ==adobe-japan1-1 =>>>adobe-japan1-1
+			 =adobe-japan1-2 ==adobe-japan1-2 =>>>adobe-japan1-2
+			 =adobe-japan1-3 ==adobe-japan1-3 =>>>adobe-japan1-3
+			 =adobe-japan1-4 ==adobe-japan1-4 =>>>adobe-japan1-4
+			 =adobe-japan1-5 ==adobe-japan1-5 =>>>adobe-japan1-5
+			 =adobe-japan1-6 ==adobe-japan1-6 =>>>adobe-japan1-6
 			 =>>adobe-japan1-0 =+>adobe-japan1-0
 			 =>>adobe-japan1-1 =+>adobe-japan1-1
 			 =>>adobe-japan1-2 =+>adobe-japan1-2
@@ -568,7 +617,7 @@
 	    )
 	"(%-18s . %05d)\t; %c")
        ((memq name '(=hanyo-denshi/ks
-		     =>>>hanyo-denshi/ks =>>hanyo-denshi/ks
+		     ==hanyo-denshi/ks =>>>hanyo-denshi/ks =>>hanyo-denshi/ks
 		     =zihai mojikyo))
 	"(%-18s . %06d)\t; %c")
        ((>= (charset-dimension name) 2)
