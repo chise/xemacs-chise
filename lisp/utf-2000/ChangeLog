@@ -231,6 +231,16 @@
 
 	* Ideograph-R007-Two.el (IU+2013F): Add ideographic-structure.
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`==adobe-japan1-*', `==jis-x0208', `==jis-x0213-1',
+	`==jis-x0213-2', `==hanyo-denshi/*', `==gt', `==jis-x0208@1990',
+	`==ks-x1001', `==gt-k', `==ucs@iso', `==ucs@unicode' and
+	`=ucs@cns'.
+	(char-db-make-char-spec): Add code for `==adobe-japan1-*'.
+	(char-db-insert-ccs-feature): Modify for `==shinjigen',
+	`==daikanwa', `==gt', `==gt-k', `==adobe-japan1-*' and
+	`==hanyo-denshi/ks'.
+
 2013-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R010-Legs.el, Ideograph-R031-Enclosure.el: Apply new
@@ -268,6 +278,11 @@
 	glyph-image conventions.
 	(U-00020192): Likewise.
 	(U-00020199): Likewise.
+
+	* chise-subr.el (charset-id-==adobe-japan1-0): New constant.
+	(charset-id-==adobe-japan1-6): New constant.
+	(charset-id-adobe-japan1-p): New function.
+	(char-attribute-name<): Use `charset-id-adobe-japan1-p'.
 
 	* Ideograph-R021-Spoon.el, Ideograph-R029-Again.el: Apply new
 	glyph-image conventions for `ucs@*', `adobe-japan1-*',
