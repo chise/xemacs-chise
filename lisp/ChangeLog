@@ -1,3 +1,93 @@
+2013-10-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `==adobe-japan1-6', `==hanyo-denshi/*', `==gt',
+	`==jis-x0208@1990', `==jis-x0212', `==jis-x0213-1@2000',
+	`==jis-x0213-2', `==jis-x0213-1@2004', `==big5-cdp', `==gt-k',
+	`==jis-x0208@1983', `==jis-x0208@1978', `==ucs@iso',
+	`==ucs@unicode', `=>>daikanwa/+p' and `==shinjigen@rev'.
+
+2013-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=adobe-japan1-0', `=adobe-japan1-1', `=adobe-japan1-2',
+	`=adobe-japan1-3', `=adobe-japan1-4', `=adobe-japan1-5',
+	`==jis-x0208@1990', `==ucs-bmp-cjk@gb',
+	`==ucs-bmp-cjk@JP/hanazono', `==ucs-sip-ext-b@iso',
+	`==hanyo-denshi/*', `==adobe-japan1-6', `==big5-cdp',
+	`==jis-x0208@1983', `==jis-x0208@1978', `==jis-x0213-1@2000' and
+	`==jis-x0212'.
+
+2013-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=adobe-japan1-0): Modify registry to accept
+	"AdobeJapan1-[0-6]$".
+	(=adobe-japan1-1): Modify registry to accept "AdobeJapan1-[1-6]$".
+	(=adobe-japan1-2): Modify registry to accept "AdobeJapan1-[2-6]$".
+	(=adobe-japan1-3): Modify registry to accept "AdobeJapan1-[3-6]$".
+	(=adobe-japan1-4): Modify registry to accept "AdobeJapan1-[4-6]$".
+	(=adobe-japan1-5): Modify registry to accept "AdobeJapan1-[5-6]$".
+	(==adobe-japan1-0): New coded-charset for XEmacs CHISE.
+	(==adobe-japan1-1): Ditto.
+	(==adobe-japan1-2): Ditto.
+	(==adobe-japan1-3): Ditto.
+	(==adobe-japan1-4): Ditto.
+	(==adobe-japan1-5): Ditto.
+	(==adobe-japan1-6): Ditto.
+	(==jis-x0208): Ditto.
+	(==jis-x0208@1978): Ditto.
+	(==jis-x0208@1983): Ditto.
+	(==jis-x0208@1990): Ditto.
+	(==jis-x0213-1): Ditto.
+	(==jis-x0213-1@2000): Ditto.
+	(==jis-x0213-1@2004): Ditto.
+	(==jis-x0213-2): Ditto.
+	(==jis-x0212): Ditto.
+	(==gb2312): Ditto.
+	(==iso-ir165): Ditto.
+	(==gb12345): Ditto.
+	(==ks-x1001): Ditto.
+	(==cns11643-1): Ditto.
+	(==cns11643-2): Ditto.
+	(==cns11643-3): Ditto.
+	(==cns11643-4): Ditto.
+	(==cns11643-5): Ditto.
+	(==cns11643-6): Ditto.
+	(==cns11643-7): Ditto.
+	(==big5-cdp): Ditto.
+	(==hanyo-denshi/ja): Ditto.
+	(==hanyo-denshi/jb): Ditto.
+	(==hanyo-denshi/jc): Ditto.
+	(==hanyo-denshi/jd): Ditto.
+	(==hanyo-denshi/ft): Ditto.
+	(==hanyo-denshi/ia): Ditto.
+	(==hanyo-denshi/ib): Ditto.
+	(==hanyo-denshi/hg): Ditto.
+	(==hanyo-denshi/jt): Ditto.
+	(==hanyo-denshi/ks): Ditto.
+	(==gt): Ditto.
+	(==gt-k): Ditto.
+	(==daikanwa): Ditto.
+	(==shinjigen): Ditto.
+	(==ucs@iso): Ditto.
+	(==ucs@unicode): Ditto.
+	(==ucs@gb): Ditto.
+	(==ucs-bmp@gb): Ditto.
+	(==ucs@cns): Ditto.
+	(==ucs-bmp@cns): Ditto.
+	(==ucs@jis): Ditto.
+	(==ucs@jis/1990): Ditto.
+	(==ucs@jis/2000): Ditto.
+	(==ucs@jis/2004): Ditto.
+	(==ucs@JP): Ditto.
+	(==ucs@JP/hanazono): Ditto.
+	(==ucs@ks): Ditto.
+	(==ucs-bmp@ks): Ditto.
+	(==ucs@cns11643): Ditto.
+	(==ucs-bmp-cjk@gb): Ditto.
+	(==ucs-bmp-cjk@JP/hanazono): Ditto.
+	(==ucs-sip-ext-b@iso): Ditto.
+
 2013-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Use
