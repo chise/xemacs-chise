@@ -1,3 +1,15 @@
+2013-10-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R212-Dragon.el, Ideograph-R211-Tooth.el,
+	Ideograph-R208-Rat.el, Ideograph-R205-Frog.el,
+	Ideograph-R203-Black.el, Ideograph-R200-Hemp.el,
+	Ideograph-R199-Wheat.el, Ideograph-R195-Fish.el,
+	Ideograph-R194-Ghost.el, Ideograph-R193-Cauldron.el: Apply new
+	glyph-image conventions for `ucs@*', `adobe-japan1-*',
+	`jis-x0208', `jis-x0208@*', `gb2312', `iso-ir165', `jis-x0213-*',
+	`jis-x0213-1@*', `hanyo-denshi/*', `gt', `gt-k', `gt-pj-*' and
+	`jef-china3'.
+
 2013-10-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R192-Sacrificial-Wine.el, Ideograph-R191-Fight.el,
