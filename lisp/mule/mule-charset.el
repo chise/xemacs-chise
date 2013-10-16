@@ -297,6 +297,12 @@ DESCRIPTION (string) is the description string of the charset."
 	  chinese-cns11643-5
 	  chinese-cns11643-6
 	  chinese-cns11643-7
+	  =adobe-japan1-0
+	  =adobe-japan1-1
+	  =adobe-japan1-2
+	  =adobe-japan1-3
+	  =adobe-japan1-4
+	  =adobe-japan1-5
 	  =adobe-japan1-6
 	  =big5-cdp
 	  =hanyo-denshi/ja
@@ -371,6 +377,26 @@ DESCRIPTION (string) is the description string of the charset."
 	  =ucs-bmp-itaiji-084
 	  =big5-cdp-var-3
 	  =big5-cdp-var-5
+	  ==jis-x0208@1990
+	  ==ucs-bmp-cjk@gb
+          ==ucs-bmp-cjk@JP/hanazono
+	  ==ucs-sip-ext-b@iso
+	  ==hanyo-denshi/ja
+	  ==hanyo-denshi/jb
+	  ==hanyo-denshi/jc
+	  ==hanyo-denshi/jd
+	  ==hanyo-denshi/ft
+	  ==hanyo-denshi/ia
+	  ==hanyo-denshi/ib
+	  ==hanyo-denshi/hg
+	  ==hanyo-denshi/ip
+	  ==hanyo-denshi/jt
+	  ==adobe-japan1-6
+	  ==big5-cdp
+	  ==jis-x0208@1983
+	  ==jis-x0208@1978
+	  ==jis-x0213-1@2000
+	  ==jis-x0212
 	  ;; ucs-sip
 	  =>>big5-cdp
 	  =>>jis-x0208
