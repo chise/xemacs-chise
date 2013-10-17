@@ -16345,7 +16345,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt-k		  . 00199)	; &GT-K00199;
+     ((=ucs		  . #x571F)	; 土
       )
      ((=>>ucs@unicode	  . #x9F8D)	; &G-J0-4E36;
       (=>>jis-x0208	  . #x4E36)	; &G-J0-4E36; [46-22]
@@ -16390,6 +16390,7 @@
 	 ((=gt-k	      . 00199)	; &GT-K00199;
 	  )
 	 ((==ucs@jis	      . #x9F8D)	; &R-GT-66672;
+	  (==ucs@ks	      . #x9F8D)	; &R-GT-66672;
 	  (=ks-x1001	      . #x5723)	; &R-GT-66672; [55-03]
 	  (=daikanwa	      . 48818)	; &I-M-48818;
 	  ))
