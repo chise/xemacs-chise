@@ -1752,6 +1752,14 @@
   '((ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 16)
     (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6708)	; 月
+      )
+     ((=ucs		  . #x9F8D)	; 龍
+      ))
     (=ucs		. #x6727)	; 朧
     (=big5		. #xC467)	; &I-B-C467;
     ))
@@ -1800,7 +1808,10 @@
 	 ((=gt		      . 18141)	; &GT-18141;
 	  (=daikanwa	      . 14330)	; &I-M-14330;
 	  )
-	 ((==jis-x0208	      . #x4E36)	; &R-GT-66672; [46-22]
+	 ((==ucs@jis	      . #x9F8D)	; &R-GT-66672;
+	  (==ucs@ks	      . #x9F8D)	; &R-GT-66672;
+	  (=ks-x1001	      . #x5723)	; &R-GT-66672; [55-03]
+	  (=daikanwa	      . 48818)	; &I-M-48818;
 	  ))
 	(==gt		    . 18335)	; &R-GT-18335;
 	(=daikanwa	    . 14411)	; &R-GT-18335;
@@ -1817,6 +1828,7 @@
 	  (=jis-x0213-1	      . #x376E)	; &I-JX1-376E; [23-78]
 	  )
 	 ((==ucs@jis	      . #x9F8D)	; &R-GT-66672;
+	  (==ucs@ks	      . #x9F8D)	; &R-GT-66672;
 	  (=ks-x1001	      . #x5723)	; &R-GT-66672; [55-03]
 	  (=daikanwa	      . 48818)	; &I-M-48818;
 	  ))
