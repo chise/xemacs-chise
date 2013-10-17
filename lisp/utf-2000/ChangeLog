@@ -1,4 +1,15 @@
+2013-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ruimoku6.el, Ideograph-R181-Leaf.el: Apply new glyph-image
+	conventions for `ucs@*', `adobe-japan1-*', `jis-x0208',
+	`jis-x0208@*', `gb2312', `iso-ir165', `jis-x0213-*',
+	`jis-x0213-1@*', `hanyo-denshi/*', `gt', `gt-k', `gt-pj-*' and
+	`jef-china3'.
+
 2013-10-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (RUI6-E03C): Fix grain-rank of
+	`ideographic-structure'.
 
 	* Ideograph-R212-Dragon.el, Ideograph-R211-Tooth.el,
 	Ideograph-R208-Rat.el, Ideograph-R205-Frog.el,
