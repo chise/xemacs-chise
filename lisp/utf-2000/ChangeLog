@@ -1,11 +1,19 @@
 2013-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R074-Moon.el (U+6727): Add ideographic-structure.
+
 	* Ideograph-R140-Grass.el: Apply new glyph-image conventions for
 	`ucs@*', `adobe-japan1-*', `jis-x0208', `jis-x0208@*', `gb2312',
 	`iso-ir165', `jis-x0213-*', `jis-x0213-1@*', `hanyo-denshi/*',
 	`gt', `gt-k', `gt-pj-*' and `jef-china3'.
 
 2013-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R197-Salt.el, Ideograph-R196-Bird.el: Apply new
+	glyph-image conventions for `ucs@*', `adobe-japan1-*',
+	`jis-x0208', `jis-x0208@*', `gb2312', `iso-ir165', `jis-x0213-*',
+	`jis-x0213-1@*', `hanyo-denshi/*', `gt', `gt-k', `gt-pj-*' and
+	`jef-china3'.
 
 	* Ideograph-R032-Earth.el (G-JX1-2F65): Fix grain-rank of
 	ideographic-structure.
