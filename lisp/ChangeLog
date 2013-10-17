@@ -1,3 +1,14 @@
+2013-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=>>>adobe-japan1-0): Changed to an alias for
+	`=adobe-japan1-0'.
+	(=>>>adobe-japan1-1): Changed to an alias for `=adobe-japan1-1'.
+	(=>>>adobe-japan1-2): Changed to an alias for `=adobe-japan1-2'.
+	(=>>>adobe-japan1-3): Changed to an alias for `=adobe-japan1-3'.
+	(=>>>adobe-japan1-4): Changed to an alias for `=adobe-japan1-4'.
+	(=>>>adobe-japan1-5): Changed to an alias for `=adobe-japan1-5'.
+	(=>>>adobe-japan1-6): Changed to an alias for `=adobe-japan1-6'.
+
 2013-10-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
