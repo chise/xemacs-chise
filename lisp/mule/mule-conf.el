@@ -213,83 +213,90 @@
 	       registry "AdobeJapan1-6$"))
   (define-charset-alias '==adobe-japan1 '==adobe-japan1-6)
 
-  (make-charset
-   '=>>>adobe-japan1-0
-   "Adobe-Japan1-0 abstract glyph-forms"
-   '(long-name "Adobe-Japan1-0 abstract glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =adobe-japan1-0
-	       registry "AdobeJapan1-0$"))
-  (make-charset
-   '=>>>adobe-japan1-1
-   "Adobe-Japan1-1 abstract glyph-forms"
-   '(long-name "Adobe-Japan1-1 abstract glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>>adobe-japan1-0
-	       registry "AdobeJapan1-1$"))
-  (make-charset
-   '=>>>adobe-japan1-2
-   "Adobe-Japan1-2 abstract glyph-forms"
-   '(long-name "Adobe-Japan1-2 abstract glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>>adobe-japan1-1
-	       registry "AdobeJapan1-2$"))
-  (make-charset
-   '=>>>adobe-japan1-3
-   "Adobe-Japan1-3 abstract glyph-forms"
-   '(long-name "Adobe-Japan1-3 abstract glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>>adobe-japan1-2
-	       registry "AdobeJapan1-3$"))
-  (make-charset
-   '=>>>adobe-japan1-4
-   "Adobe-Japan1-4 abstract glyph-forms"
-   '(long-name "Adobe-Japan1-4 abstract glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>>adobe-japan1-3
-	       registry "AdobeJapan1-4$"))
-  (make-charset
-   '=>>>adobe-japan1-5
-   "Adobe-Japan1-5 abstract glyph-forms"
-   '(long-name "Adobe-Japan1-5 abstract glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>>adobe-japan1-4
-	       registry "AdobeJapan1-5$"))
-  (make-charset
-   '=>>>adobe-japan1-6
-   "Adobe-Japan1-6 abstract glyph-forms"
-   '(long-name "Adobe-Japan1-6 abstract glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =>>>adobe-japan1-5
-	       registry "AdobeJapan1-6$"))
+  (define-charset-alias '=>>>adobe-japan1-0 '=adobe-japan1-0)
+  (define-charset-alias '=>>>adobe-japan1-1 '=adobe-japan1-1)
+  (define-charset-alias '=>>>adobe-japan1-2 '=adobe-japan1-2)
+  (define-charset-alias '=>>>adobe-japan1-3 '=adobe-japan1-3)
+  (define-charset-alias '=>>>adobe-japan1-4 '=adobe-japan1-4)
+  (define-charset-alias '=>>>adobe-japan1-5 '=adobe-japan1-5)
+  (define-charset-alias '=>>>adobe-japan1-6 '=adobe-japan1-6)
+  ;; (make-charset
+  ;;  '=>>>adobe-japan1-0
+  ;;  "Adobe-Japan1-0 abstract glyph-forms"
+  ;;  '(long-name "Adobe-Japan1-0 abstract glyph-forms"
+  ;;              chars 256
+  ;;              dimension 2
+  ;;              columns 2
+  ;;              graphic 2
+  ;;              direction l2r
+  ;;              mother =adobe-japan1-0
+  ;;              registry "AdobeJapan1-0$"))
+  ;; (make-charset
+  ;;  '=>>>adobe-japan1-1
+  ;;  "Adobe-Japan1-1 abstract glyph-forms"
+  ;;  '(long-name "Adobe-Japan1-1 abstract glyph-forms"
+  ;;              chars 256
+  ;;              dimension 2
+  ;;              columns 2
+  ;;              graphic 2
+  ;;              direction l2r
+  ;;              mother =>>>adobe-japan1-0
+  ;;              registry "AdobeJapan1-1$"))
+  ;; (make-charset
+  ;;  '=>>>adobe-japan1-2
+  ;;  "Adobe-Japan1-2 abstract glyph-forms"
+  ;;  '(long-name "Adobe-Japan1-2 abstract glyph-forms"
+  ;;              chars 256
+  ;;              dimension 2
+  ;;              columns 2
+  ;;              graphic 2
+  ;;              direction l2r
+  ;;              mother =>>>adobe-japan1-1
+  ;;              registry "AdobeJapan1-2$"))
+  ;; (make-charset
+  ;;  '=>>>adobe-japan1-3
+  ;;  "Adobe-Japan1-3 abstract glyph-forms"
+  ;;  '(long-name "Adobe-Japan1-3 abstract glyph-forms"
+  ;;              chars 256
+  ;;              dimension 2
+  ;;              columns 2
+  ;;              graphic 2
+  ;;              direction l2r
+  ;;              mother =>>>adobe-japan1-2
+  ;;              registry "AdobeJapan1-3$"))
+  ;; (make-charset
+  ;;  '=>>>adobe-japan1-4
+  ;;  "Adobe-Japan1-4 abstract glyph-forms"
+  ;;  '(long-name "Adobe-Japan1-4 abstract glyph-forms"
+  ;;              chars 256
+  ;;              dimension 2
+  ;;              columns 2
+  ;;              graphic 2
+  ;;              direction l2r
+  ;;              mother =>>>adobe-japan1-3
+  ;;              registry "AdobeJapan1-4$"))
+  ;; (make-charset
+  ;;  '=>>>adobe-japan1-5
+  ;;  "Adobe-Japan1-5 abstract glyph-forms"
+  ;;  '(long-name "Adobe-Japan1-5 abstract glyph-forms"
+  ;;              chars 256
+  ;;              dimension 2
+  ;;              columns 2
+  ;;              graphic 2
+  ;;              direction l2r
+  ;;              mother =>>>adobe-japan1-4
+  ;;              registry "AdobeJapan1-5$"))
+  ;; (make-charset
+  ;;  '=>>>adobe-japan1-6
+  ;;  "Adobe-Japan1-6 abstract glyph-forms"
+  ;;  '(long-name "Adobe-Japan1-6 abstract glyph-forms"
+  ;;              chars 256
+  ;;              dimension 2
+  ;;              columns 2
+  ;;              graphic 2
+  ;;              direction l2r
+  ;;              mother =>>>adobe-japan1-5
+  ;;              registry "AdobeJapan1-6$"))
   (define-charset-alias '=>>>adobe-japan1 '=>>>adobe-japan1-6)
 
   (make-charset
