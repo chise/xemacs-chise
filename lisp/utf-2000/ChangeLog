@@ -1,3 +1,17 @@
+2013-10-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R198-Deer.el, Ideograph-R187-Horse.el,
+	Ideograph-R178-Tanned-Leather.el, Ideograph-R177-Leather.el: Apply
+	new glyph-image conventions for `ucs@*', `adobe-japan1-*',
+	`jis-x0208', `jis-x0208@*', `gb2312', `iso-ir165', `jis-x0213-*',
+	`jis-x0213-1@*', `hanyo-denshi/*', `gt', `gt-k', `gt-pj-*' and
+	`jef-china3'.
+
+2013-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R136-Oppose.el (C1-6A5A): Use G0-4E68 instead of
+	G-M-30342 as the mother.
+
 2013-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R074-Moon.el (U+6727): Add ideographic-structure.
