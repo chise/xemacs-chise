@@ -1938,15 +1938,16 @@
                   ;; max-code	67392
 		  ))
   (define-charset-alias 'ideograph-gt '=gt)
-  (make-charset '=>>>gt
-		"GT 2000 abstract glyph-forms"
-		'(long-name	"GT abstract glyph-forms"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	=gt))
+  (define-charset-alias '=>>>gt '=gt)
+  ;; (make-charset '=>>>gt
+  ;;               "GT 2000 abstract glyph-forms"
+  ;;               '(long-name     "GT abstract glyph-forms"
+  ;;                 chars         256
+  ;;                 dimension     3
+  ;;                 columns       2
+  ;;                 graphic       2
+  ;;                 direction     l2r
+  ;;                 mother        =gt))
   (make-charset '=>>gt
 		"GT 2000 abstract glyphs"
 		'(long-name	"GT abstract glyphs"
