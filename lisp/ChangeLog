@@ -1,5 +1,19 @@
 2013-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* mule/mule-conf.el (=>>>jis-x0208): Changed to an alias for
+	`=jis-x0208'.
+	(=>>>jis-x0208@1978): Changed to an alias for `=jis-x0208@1978'.
+	(=>>>jis-x0208@1983): Changed to an alias for `=jis-x0208@1983'.
+	(=>>>jis-x0208@1990): Changed to an alias for `=jis-x0208@1990'.
+	(=>>>jis-x0213-1): Changed to an alias for `=jis-x0213-1'.
+	(=>>>jis-x0213-1@2000): Changed to an alias for
+	`=jis-x0213-1@2000'.
+	(=>>>jis-x0213-1@2004): Changed to an alias for
+	`=jis-x0213-1@2004'.
+	(=>>>jis-x0213-2): Changed to an alias for `=jis-x0213-2'.
+
+2013-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* mule/mule-conf.el (=>>>adobe-japan1-0): Changed to an alias for
 	`=adobe-japan1-0'.
 	(=>>>adobe-japan1-1): Changed to an alias for `=adobe-japan1-1'.
