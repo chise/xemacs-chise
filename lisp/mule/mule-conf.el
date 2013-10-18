@@ -1684,104 +1684,113 @@
 	       max-code	   ,(+ (lsh #x6403 16) #xFFFF)
 	       code-offset    ,(lsh #x6403 16)))
 
-  (make-charset
-   '=>>>hanyo-denshi/ja
-   "Han'you-Denshi/JA abstract glyph-forms"
-   '(long-name "Han'you-Denshi/JA glyph-forms"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.JA-0$"
-	       mother =hanyo-denshi/ja))
-  (make-charset
-   '=>>>hanyo-denshi/jb
-   "Han'you-Denshi/JB abstract glyph-forms"
-   '(long-name "Han'you-Denshi/JB glyph-forms"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.JB-0$"
-	       mother =hanyo-denshi/jb))
-  (make-charset
-   '=>>>hanyo-denshi/jc
-   "Han'you-Denshi/JC abstract glyph-forms"
-   '(long-name "Han'you-Denshi/JC glyph-forms"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.JC-0$"
-	       mother =hanyo-denshi/jc))
-  (make-charset
-   '=>>>hanyo-denshi/jd
-   "Han'you-Denshi/JD abstract glyph-forms"
-   '(long-name "Han'you-Denshi/JD glyph-forms"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.JD-0$"
-	       mother =hanyo-denshi/jd))
-  (make-charset
-   '=>>>hanyo-denshi/ft
-   "Han'you-Denshi/FT abstract glyph-forms"
-   '(long-name "Han'you-Denshi/FT glyph-forms"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.FT-0$"
-	       mother =hanyo-denshi/ft))
-  (make-charset
-   '=>>>hanyo-denshi/ib
-   "Han'you-Denshi/IB abstract glyph-forms"
-   '(long-name "Han'you-Denshi/IB glyph-forms"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.IB-0$"
-	       mother =hanyo-denshi/ib))
-  (make-charset
-   '=>>>hanyo-denshi/hg
-   "Han'you-Denshi/HG abstract glyph-forms"
-   '(long-name "Han'you-Denshi/HG glyph-forms"
-	       chars 94
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.HG-0$"
-	       mother =hanyo-denshi/hg))
-  (make-charset
-   '=>>>hanyo-denshi/jt
-   "JT (Juuki Touitsu Moji) abstract glyph-forms"
-   '(long-name "Han'you-Denshi/JT glyph-forms"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "HanyoDenshi\\.JT-0$"
-	       mother =hanyo-denshi/jt))
-  (make-charset
-   '=>>>hanyo-denshi/ks
-   "KoSeki-touitsu-moji abstract glyph-forms"
-   '(long-name "Han'you-Denshi/KS glyph-forms"
-	       chars 256
-	       dimension 3
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother =hanyo-denshi/ks))
+  (define-charset-alias '=>>>hanyo-denshi/ja '=hanyo-denshi/ja)
+  ;; (make-charset
+  ;;  '=>>>hanyo-denshi/ja
+  ;;  "Han'you-Denshi/JA abstract glyph-forms"
+  ;;  '(long-name "Han'you-Denshi/JA glyph-forms"
+  ;;              chars 94
+  ;;              dimension 2
+  ;;              columns 2
+  ;;              graphic 2
+  ;;              direction l2r
+  ;;              registry "HanyoDenshi\\.JA-0$"
+  ;;              mother =hanyo-denshi/ja))
+  (define-charset-alias '=>>>hanyo-denshi/jb '=hanyo-denshi/jb)
+  ;; (make-charset
+  ;;  '=>>>hanyo-denshi/jb
+  ;;  "Han'you-Denshi/JB abstract glyph-forms"
+  ;;  '(long-name "Han'you-Denshi/JB glyph-forms"
+  ;;              chars 94
+  ;;              dimension 2
+  ;;              columns 2
+  ;;              graphic 2
+  ;;              direction l2r
+  ;;              registry "HanyoDenshi\\.JB-0$"
+  ;;              mother =hanyo-denshi/jb))
+  (define-charset-alias '=>>>hanyo-denshi/jc '=hanyo-denshi/jc)
+  ;; (make-charset
+  ;;  '=>>>hanyo-denshi/jc
+  ;;  "Han'you-Denshi/JC abstract glyph-forms"
+  ;;  '(long-name "Han'you-Denshi/JC glyph-forms"
+  ;;              chars 94
+  ;;              dimension 2
+  ;;              columns 2
+  ;;              graphic 2
+  ;;              direction l2r
+  ;;              registry "HanyoDenshi\\.JC-0$"
+  ;;              mother =hanyo-denshi/jc))
+  (define-charset-alias '=>>>hanyo-denshi/jd '=hanyo-denshi/jd)
+  ;; (make-charset
+  ;;  '=>>>hanyo-denshi/jd
+  ;;  "Han'you-Denshi/JD abstract glyph-forms"
+  ;;  '(long-name "Han'you-Denshi/JD glyph-forms"
+  ;;              chars 94
+  ;;              dimension 2
+  ;;              columns 2
+  ;;              graphic 2
+  ;;              direction l2r
+  ;;              registry "HanyoDenshi\\.JD-0$"
+  ;;              mother =hanyo-denshi/jd))
+  (define-charset-alias '=>>>hanyo-denshi/ft '=hanyo-denshi/ft)
+  ;; (make-charset
+  ;;  '=>>>hanyo-denshi/ft
+  ;;  "Han'you-Denshi/FT abstract glyph-forms"
+  ;;  '(long-name "Han'you-Denshi/FT glyph-forms"
+  ;;              chars 94
+  ;;              dimension 2
+  ;;              columns 2
+  ;;              graphic 2
+  ;;              direction l2r
+  ;;              registry "HanyoDenshi\\.FT-0$"
+  ;;              mother =hanyo-denshi/ft))
+  (define-charset-alias '=>>>hanyo-denshi/ib '=hanyo-denshi/ib)
+  ;; (make-charset
+  ;;  '=>>>hanyo-denshi/ib
+  ;;  "Han'you-Denshi/IB abstract glyph-forms"
+  ;;  '(long-name "Han'you-Denshi/IB glyph-forms"
+  ;;              chars 94
+  ;;              dimension 2
+  ;;              columns 2
+  ;;              graphic 2
+  ;;              direction l2r
+  ;;              registry "HanyoDenshi\\.IB-0$"
+  ;;              mother =hanyo-denshi/ib))
+  (define-charset-alias '=>>>hanyo-denshi/hg '=hanyo-denshi/hg)
+  ;; (make-charset
+  ;;  '=>>>hanyo-denshi/hg
+  ;;  "Han'you-Denshi/HG abstract glyph-forms"
+  ;;  '(long-name "Han'you-Denshi/HG glyph-forms"
+  ;;              chars 94
+  ;;              dimension 2
+  ;;              columns 2
+  ;;              graphic 2
+  ;;              direction l2r
+  ;;              registry "HanyoDenshi\\.HG-0$"
+  ;;              mother =hanyo-denshi/hg))
+  (define-charset-alias '=>>>hanyo-denshi/jt '=hanyo-denshi/jt)
+  ;; (make-charset
+  ;;  '=>>>hanyo-denshi/jt
+  ;;  "JT (Juuki Touitsu Moji) abstract glyph-forms"
+  ;;  '(long-name "Han'you-Denshi/JT glyph-forms"
+  ;;              chars 256
+  ;;              dimension 2
+  ;;              columns 2
+  ;;              graphic 2
+  ;;              direction l2r
+  ;;              registry "HanyoDenshi\\.JT-0$"
+  ;;              mother =hanyo-denshi/jt))
+  (define-charset-alias '=>>>hanyo-denshi/ks '=hanyo-denshi/ks)
+  ;; (make-charset
+  ;;  '=>>>hanyo-denshi/ks
+  ;;  "KoSeki-touitsu-moji abstract glyph-forms"
+  ;;  '(long-name "Han'you-Denshi/KS glyph-forms"
+  ;;              chars 256
+  ;;              dimension 3
+  ;;              columns 2
+  ;;              graphic 2
+  ;;              direction l2r
+  ;;              mother =hanyo-denshi/ks))
 
   (make-charset
    '=>>hanyo-denshi/ja
