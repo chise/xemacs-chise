@@ -1197,8 +1197,8 @@
       (=daikanwa	  . 47663)	; &I-M-47663;
       (=shinjigen@rev	  .  9782)	; &GT-64844;
       )
-     ((=ucs@jis		  . #x9E97)	; &J90-4E6F;
-      (=jis-x0208@1990	  . #x4E6F)	; &J90-4E6F; [46-79]
+     ((=ucs@jis		  . #x9E97)	; &I-J90-4E6F;
+      (=jis-x0208@1990	  . #x4E6F)	; &I-J90-4E6F; [46-79]
       (=jis-x0213-1	  . #x4E6F)	; &I-JX1-4E6F; [46-79]
       )
      ((=ucs@unicode	  . #x9E97)	; &UU+9E97;
@@ -1602,26 +1602,18 @@
     (ideographic-radical . 198)	; ⿅
     (ideographic-strokes . 11)
     (total-strokes	 . 22)
-    (=>>ucs@unicode	. #x9E9E)	; &G-JX1-7E6B;
-    (=>>jis-x0213-1	. #x7E6B)	; &G-JX1-7E6B; [94-75]
-    (=>>hanyo-denshi/jb . #x6C67)	; &G-JX1-7E6B; [76-71]
-    (=>>daikanwa	. 47688)	; &G-JX1-7E6B;
+    (=ucs@jis		. #x9E9E)	; &HD-JB-6C67;
+    (=jis-x0212		. #x6C67)	; &HD-JB-6C67; [76-71]
+    (=jis-x0213-1	. #x7E6B)	; &I-JX1-7E6B; [94-75]
+    (=hanyo-denshi/jb	. #x6C67)	; &I-HD-JB-6C67; [76-71]
+    (=>>daikanwa	. 47688)	; &HD-JB-6C67;
     (->subsumptive
-     ((=>>>ucs@unicode	  . #x9E9E)	; &g2-JX1-7E6B;
-      (=>>>jis-x0213-1	  . #x7E6B)	; &g2-JX1-7E6B; [94-75]
-      (=>>>hanyo-denshi/jb . #x6C67)	; &g2-JX1-7E6B; [76-71]
-      (->subsumptive
-       ((=ucs@jis	    . #x9E9E)	; &HD-JB-6C67;
-	(=ucs@JP/hanazono   . nil)
-	(=jis-x0212	    . #x6C67)	; &HD-JB-6C67; [76-71]
-	(=jis-x0213-1	    . #x7E6B)	; &I-JX1-7E6B; [94-75]
-	(=hanyo-denshi/jb   . #x6C67)	; &I-HD-JB-6C67; [76-71]
-	(=daikanwa	    . 47688)	; &I-M-47688;
-	)
-       ((=ucs@unicode	    . #x9E9E)	; &UU+9E9E;
-	))
+     ((=daikanwa	  . 47688)	; &M-47688;
       )
-     ((=cns11643-3	  . #x5F3A)	; &C3-5F3A; [63-26]
+     ((==ucs@jis	  . #x9E9E)	; &R-HD-JB-6C67;
+      (==jis-x0212	  . #x6C67)	; &R-HD-JB-6C67; [76-71]
+      (==jis-x0213-1	  . #x7E6B)	; &R-HD-JB-6C67; [94-75]
+      (==hanyo-denshi/jb  . #x6C67)	; &R-HD-JB-6C67; [76-71]
       ))
     ))
 (define-char
@@ -1631,7 +1623,12 @@
     (ideographic-radical . 198)	; ⿅
     (ideographic-strokes . 11)
     (total-strokes	 . 22)
-    (=ucs@JP/hanazono	. #x9E9E)	; &hanaJU+9E9E;
+    (=>>ucs@unicode	. #x9E9E)	; &G-UU+9E9E;
+    (->subsumptive
+     ((=ucs@unicode	  . #x9E9E)	; &UU+9E9E;
+      )
+     ((=cns11643-3	  . #x5F3A)	; &C3-5F3A; [63-26]
+      ))
     ))
 (define-char
   '((ideographic-radical . 198)	; ⿅
