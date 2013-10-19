@@ -1091,8 +1091,7 @@
       (=daikanwa	  . 43411)	; &M-43411;
       (<-vulgar
        ((==ucs@ks	    . #x9867)	; &R-GT-58611;
-	(=ks-x1001	    . #x4D53)	; &R-GT-58611; [45-51]
-	(=daikanwa	    . 43689)	; &I-M-43689;
+	(=daikanwa	    . 43689)	; &R-GT-58611;
 	))
       (<-vulgar*sources
        yupian daikanwa)
@@ -4303,6 +4302,7 @@
     (=ucs@unicode	. #x985E)	; &AJ1-13396;
     (=ucs@jis		. #xF9D0)	; &AJ1-13396;
     (=adobe-japan1-4	. 13396)	; &AJ1-13396;
+    (=ks-x1001		. #x573E)	; &I-K0-573E; [55-30]
     (=cns11643-1	. #x794B)	; &I-C1-794B; [89-43]
     (=jis-x0213-1	. #x7E24)	; &I-JX1-7E24; [94-04]
     (=gb12345		. #x4060)	; &AJ1-13396; [32-64]
@@ -4311,12 +4311,12 @@
     (=daikanwa		. 43636)	; &I-M-43636;
     (=jef-china3	. #x6CF5)	; &I-JC3-6CF5;
     (->subsumptive
-     ((=ks-x1001	  . #x573E)	; &K0-573E; [55-30]
+     ((==ks-x1001	  . #x573E)	; &R-K0-573E; [55-30]
       )
      ((name		  . "CJK COMPATIBILITY IDEOGRAPH-F9D0")
       (=>ucs*		  . #x985E)	; 類
       (=ucs		  . #xF9D0)	; 類
-      (=ks-x1001	  . #x6B3A)	; &I-K0-6B3A; [75-26]
+      (==ks-x1001	  . #x6B3A)	; 類 [75-26]
       ))
     ))
 (define-char
@@ -5128,15 +5128,16 @@
     (=>>ucs@cns		. #x9867)	; &GT-58611;
     (=ucs@cns		. #x9867)	; &GT-58611;
     (=ucs@ks		. #x9867)	; &GT-58611;
-    (=gt		. 58611)	; &GT-58611;
-    (=gt-pj-8		. #x426F)	; &GT-58611; [34-79]
+    (=ks-x1001		. #x4D53)	; &GT-58611; [45-51]
+    (=gt		. 58611)	; &I-GT-58611;
+    (=gt-pj-8		. #x426F)	; &I-GT-58611; [34-79]
     (=>>daikanwa	. 43689)	; &GT-58611;
     (=jef-china3	. #x6CF9)	; &I-JC3-6CF9;
     (->subsumptive
      ((==ucs@ks		  . #x9867)	; &R-GT-58611;
-      (=ks-x1001	  . #x4D53)	; &R-GT-58611; [45-51]
+      (==ks-x1001	  . #x4D53)	; &R-GT-58611; [45-51]
       (==gt		  . 58611)	; &R-GT-58611;
-      (=daikanwa	  . 43689)	; &I-M-43689;
+      (=daikanwa	  . 43689)	; &R-GT-58611;
       )
      ((==ucs@cns	  . #x9867)	; &C1-7B41;
       (=cns11643-1	  . #x7B41)	; &C1-7B41; [91-33]
