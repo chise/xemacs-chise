@@ -1602,7 +1602,7 @@
        ((==ucs@jis	    . #x5793)	; &R-AJ1-04487;
 	(==ucs@ks	    . #x5793)	; &R-AJ1-04487;
 	(==adobe-japan1-0   . 04487)	; &R-AJ1-04487;
-	(=daikanwa	    . 05040)	; &I-M-05040;
+	(=daikanwa	    . 05040)	; &R-AJ1-04487;
 	))
       (<-same*sources
        jiyun daikanwa)
