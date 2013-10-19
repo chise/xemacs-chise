@@ -4373,12 +4373,13 @@
     (ideographic-radical . 159)	; ⾞
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
-    (=>>ucs@unicode	. #x8F44)	; &G-UU+8F44;
-    (=ucs@unicode	. #x8F44)	; &G-UU+8F44;
-    (=gb12345		. #x4F3D)	; &G-UU+8F44; [47-29]
+    (=>>ucs@unicode	. #x8F44)	; &K0-795D;
+    (=ucs@unicode	. #x8F44)	; &K0-795D;
+    (=ks-x1001		. #x795D)	; &K0-795D; [89-61]
+    (=gb12345		. #x4F3D)	; &K0-795D; [47-29]
     (->subsumptive
-     ((==ucs@ks		  . #x8F44)	; &K0-795D;
-      (=ks-x1001	  . #x795D)	; &K0-795D; [89-61]
+     ((==ucs@ks		  . #x8F44)	; &R-K0-795D;
+      (==ks-x1001	  . #x795D)	; &R-K0-795D; [89-61]
       )
      ((==ucs@unicode	  . #x8F44)	; &R-UU+8F44;
       (==gb12345	  . #x4F3D)	; &R-UU+8F44; [47-29]
@@ -4580,9 +4581,10 @@
     (=ucs		. #x8F96)	; 辖
     (=gb2312		. #x4F3D)	; &I-G0-4F3D; [47-29]
     (<-simplified@CN
-     ((=>>ucs@unicode	  . #x8F44)	; &G-UU+8F44;
-      (=ucs@unicode	  . #x8F44)	; &G-UU+8F44;
-      (=gb12345		  . #x4F3D)	; &G-UU+8F44; [47-29]
+     ((=>>ucs@unicode	  . #x8F44)	; &K0-795D;
+      (=ucs@unicode	  . #x8F44)	; &K0-795D;
+      (=ks-x1001	  . #x795D)	; &K0-795D; [89-61]
+      (=gb12345		  . #x4F3D)	; &K0-795D; [47-29]
       ))
     ))
 (define-char
