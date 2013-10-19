@@ -1707,6 +1707,7 @@
     (=>>ucs@ks		. #x5F31)	; &AJ1-13811;
     (=ucs@ks		. #x5F31)	; &AJ1-13811;
     (=adobe-japan1-4	. 13811)	; &AJ1-13811;
+    (=ks-x1001		. #x6530)	; &I-K0-6530; [69-16]
     (=>>daikanwa	. 09791)	; &AJ1-13811;
     (=jef-china3	. #x4CE8)	; &I-JC3-4CE8;
     (->subsumptive
@@ -1718,9 +1719,9 @@
       (==adobe-japan1-4	  . 13811)	; &R-AJ1-13811;
       (=daikanwa	  . 09791)	; &R-AJ1-13811;
       )
-     ((==ucs@ks		  . #x5F31)	; &K0-6530;
-      (=ks-x1001	  . #x6530)	; &K0-6530; [69-16]
-      (=shinjigen	  .  2284)	; &K0-6530;
+     ((==ucs@ks		  . #x5F31)	; &R-K0-6530;
+      (==ks-x1001	  . #x6530)	; &R-K0-6530; [69-16]
+      (=shinjigen	  .  2284)	; &R-K0-6530;
       ))
     ))
 (define-char
@@ -2533,9 +2534,9 @@
     (=shinjigen		.  2285)	; 𢐅
     (=hanziku-3		. #xCC58)	; &I-HZK03-CC58;
     (<-original
-     ((==ucs@ks		  . #x5F31)	; &K0-6530;
-      (=ks-x1001	  . #x6530)	; &K0-6530; [69-16]
-      (=shinjigen	  .  2284)	; &K0-6530;
+     ((==ucs@ks		  . #x5F31)	; &R-K0-6530;
+      (==ks-x1001	  . #x6530)	; &R-K0-6530; [69-16]
+      (=shinjigen	  .  2284)	; &R-K0-6530;
       ))
     (<-original*sources
      shinjigen)
