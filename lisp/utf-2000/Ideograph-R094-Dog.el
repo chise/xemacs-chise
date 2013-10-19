@@ -5460,6 +5460,7 @@
     (=>>ucs@unicode	. #x7350)	; &HD-JB-4B3A;
     (=ucs@unicode	. #x7350)	; &HD-JB-4B3A;
     (=gb2312		. #x622F)	; &HD-JB-4B3A; [66-15]
+    (=ks-x1001		. #x6D6F)	; &I-K0-6D6F; [77-79]
     (=jis-x0212		. #x4B3A)	; &I-JSP-4B3A; [43-26]
     (=jis-x0213-1	. #x7770)	; &I-JX1-7770; [87-80]
     (=big5		. #xBABC)	; &I-B-BABC;
@@ -5468,11 +5469,11 @@
     (->subsumptive
      ((==ucs@jis	  . #x7350)	; &R-HD-JB-4B3A;
       (==ucs@ks		  . #x7350)	; &R-HD-JB-4B3A;
-      (=ks-x1001	  . #x6D6F)	; &R-HD-JB-4B3A; [77-79]
+      (==ks-x1001	  . #x6D6F)	; &R-HD-JB-4B3A; [77-79]
       (==jis-x0212	  . #x4B3A)	; &R-HD-JB-4B3A; [43-26]
       (==jis-x0213-1	  . #x7770)	; &R-HD-JB-4B3A; [87-80]
       (==hanyo-denshi/jb  . #x4B3A)	; &R-HD-JB-4B3A; [43-26]
-      (=daikanwa	  . 20643)	; &I-M-20643;
+      (=daikanwa	  . 20643)	; &R-HD-JB-4B3A;
       )
      ((==ucs@unicode	  . #x7350)	; &C1-6963;
       (==gb2312		  . #x622F)	; &C1-6963; [66-15]
