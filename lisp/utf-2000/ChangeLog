@@ -1,3 +1,14 @@
+2013-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el: Apply new glyph-image conventions for
+	`ks-x1001'.
+
+2013-10-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R036-Evening.el, Ideograph-R027-Cliff.el,
+	Ideograph-R023-Hiding-Enclosure.el, Ideograph-R012-Eight.el: Apply
+	new glyph-image conventions for `ks-x1001'.
+
 2013-10-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (U+5081): Modify for new glyph-image
