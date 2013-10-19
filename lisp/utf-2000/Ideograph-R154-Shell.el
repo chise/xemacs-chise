@@ -1242,6 +1242,7 @@
     (total-strokes	 . 12)
     (=ucs@unicode	. #x8CC1)	; &GT-49201;
     (=jis-x0208		. #x6C4C)	; &GT-49201; [76-44]
+    (=ks-x1001		. #x5D53)	; &I-K0-5D53; [61-51]
     (=jis-x0213-1	. #x6C4C)	; &I-JX1-6C4C; [76-44]
     (=gb12345		. #x6A5A)	; &GT-49201; [74-58]
     (=big5		. #xB64E)	; &I-B-B64E;
@@ -1250,13 +1251,13 @@
     (=gt-pj-1		. #x6C4C)	; &I-GT-49201; [76-44]
     (->subsumptive
      ((==ucs@unicode	  . #x8CC1)	; &R-GT-49201;
-      (=ks-x1001	  . #x5D53)	; &R-GT-49201; [61-51]
+      (==ks-x1001	  . #x5D53)	; &R-GT-49201; [61-51]
       (==jis-x0208	  . #x6C4C)	; &R-GT-49201; [76-44]
       (==jis-x0213-1	  . #x6C4C)	; &R-GT-49201; [76-44]
       (==gb12345	  . #x6A5A)	; &R-GT-49201; [74-58]
       (==gt		  . 49201)	; &R-GT-49201;
       (==gt-k		  . 09235)	; &R-GT-49201;
-      (=daikanwa	  . 36727)	; &I-M-36727;
+      (=daikanwa	  . 36727)	; &R-GT-49201;
       (=shinjigen	  .  7890)	; &R-GT-49201;
       (<-vulgar
        ((=ucs		    . #x2F9D5)	; 賁
@@ -2283,16 +2284,17 @@
       (=ucs		  . #xFA64)	; 賓
       (=ucs@unicode	  . #x8CD3)	; 賓
       (=ucs@jis		  . #xFA64)	; 賓
+      (=ks-x1001	  . #x5E39)	; &I-K0-5E39; [62-25]
       (=jis-x0213-1	  . #x7C38)	; &I-JX1-7C38; [92-24]
       (=gb12345		  . #x3176)	; 賓 [17-86]
-      (=daikanwa	  . 36788)	; &I-M-36788;
+      (=daikanwa	  . 36788)	; &R-JX1-7C38;
       (=jef-china3	  . #x65F4)	; &I-JC3-65F4;
       (->subsumptive
        ((==ucs@unicode	    . #xFA64)	; &R-JX1-7C38;
 	(==ucs@ks	    . #x8CD3)	; &R-JX1-7C38;
-	(=ks-x1001	    . #x5E39)	; &R-JX1-7C38; [62-25]
+	(==ks-x1001	    . #x5E39)	; &R-JX1-7C38; [62-25]
 	(==jis-x0213-1	    . #x7C38)	; &R-JX1-7C38; [92-24]
-	(=daikanwa	    . 36788)	; &I-M-36788;
+	(=daikanwa	    . 36788)	; &R-JX1-7C38;
 	)
        ((==ucs@unicode	    . #x8CD3)	; &C1-6B33;
 	(=cns11643-1	    . #x6B33)	; &C1-6B33; [75-19]
@@ -2330,7 +2332,7 @@
       (=shinjigen	  .  7911)	; &M-36789;
       (<-vulgar@daikanwa
        ((=ucs		    . #xFA64)	; 賓
-	(=daikanwa	    . 36788)	; &I-M-36788;
+	(=daikanwa	    . 36788)	; &R-JX1-7C38;
 	))
       (<-vulgar@daikanwa*sources
        yunhai daikanwa)
