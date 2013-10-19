@@ -277,7 +277,7 @@
 	(==ucs@jis/2004	    . #x55E4)	; &R-AJ1-04419;
 	(==ucs@ks	    . #x55E4)	; &R-AJ1-04419;
 	(==adobe-japan1-0   . 04419)	; &R-AJ1-04419;
-	(=daikanwa	    . 04110)	; &I-M-04110;
+	(=daikanwa	    . 04110)	; &R-AJ1-04419;
 	))
       (<-same*sources
        zihui-bu daikanwa)
