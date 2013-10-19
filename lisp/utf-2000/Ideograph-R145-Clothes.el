@@ -6266,10 +6266,11 @@
     (=ucs		. #x8918)	; 褘
     (=big5		. #xE7C7)	; &I-B-E7C7;
     (->subsumptive
-     ((=ucs@unicode	  . #x8918)	; &UU+8918;
+     ((=ucs@unicode	  . #x8918)	; &K0-6A5C;
+      (=ks-x1001	  . #x6A5C)	; &K0-6A5C; [74-60]
       (->subsumptive
-       ((=ks-x1001	    . #x6A5C)	; &M-34453; [74-60]
-	(=daikanwa	    . 34453)	; &I-M-34453;
+       ((==ks-x1001	    . #x6A5C)	; &M-34453; [74-60]
+	(=daikanwa	    . 34453)	; &M-34453;
 	)
        ((==ucs@unicode	    . #x8918)	; &R-UU+8918;
 	))
