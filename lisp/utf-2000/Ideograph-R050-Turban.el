@@ -6249,12 +6249,12 @@
   '((<-denotational
      ((=ucs		  . #x3862)	; 㡢
       ))
+    (=>ucs*		. #x3862)	; 㡢
     (ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (=>>ucs@cns		. #x2F888)	; &G-CU+2F888;
-    (=>>>ucs@cns	. #x2F888)	; &G-CU+2F888;
-    (=>>daikanwa	. 09107)	; &G-CU+2F888;
+    (=ucs		. #x2F888)	; 㡢
+    (=>>daikanwa	. 09107)	; 㡢
     (->subsumptive
      ((=daikanwa	  . 09107)	; &M-09107;
       (<-vulgar
@@ -6265,9 +6265,8 @@
       (<-vulgar*sources
        zhengzitong daikanwa)
       )
-     ((=>ucs*		  . #x3862)	; 㡢
-      (=ucs		  . #x2F888)	; 㡢
-      (=cns11643-7	  . #x2D55)	; &I-C7-2D55; [13-53]
+     ((==ucs@iso	  . #x2F888)	; &C7-2D55;
+      (=cns11643-7	  . #x2D55)	; &C7-2D55; [13-53]
       ))
     ))
 (define-char
