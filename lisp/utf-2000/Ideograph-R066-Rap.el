@@ -4253,8 +4253,7 @@
     (total-strokes	 . 15)
     (=>>ucs@cns		. #x657A)	; &G-CU+657A;
     (->subsumptive
-     ((=>>>ucs@cns	  . #x657A)	; &C2-5065;
-      (=ucs@cns		  . #x657A)	; &C2-5065;
+     ((=ucs@cns		  . #x657A)	; &C2-5065;
       (=cns11643-2	  . #x5065)	; &C2-5065; [48-69]
       ))
     ))
