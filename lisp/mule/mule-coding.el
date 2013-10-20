@@ -438,8 +438,6 @@
 	  (=>>>ucs@jis			       "GI-JU+" 4 X)
 	  (=>>>ucs@ks			       "g2-KU+" 4 X)
 	  (=>>>ucs@ks			       "GI-KU+" 4 X)
-	  (=>>>ucs@cns			       "g2-CU+" 4 X)
-	  (=>>>ucs@cns			       "GI-CU+" 4 X)
 	  (=>>>ucs@jis/2004		     "g2-J04U+" 4 X)
 	  (=>>>ucs@jis/2004		     "GI-J04U+" 4 X)
 	  (=>>>ucs@jis/1990		     "g2-J90U+" 4 X)
@@ -473,6 +471,8 @@
 	  ( =shinjigen@rev			"SJG2-" 4 d)
 	  ( =shinjigen@1ed			"SJG1-" 4 d)
 	  (==shinjigen@rev		      "R-SJG2-" 4 d)
+	  (=>>>ucs@cns			       "g2-CU+" 4 X)
+	  (=>>>ucs@cns			       "GI-CU+" 4 X)
 	  ))
 
   (make-coding-system
