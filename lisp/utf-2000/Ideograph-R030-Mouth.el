@@ -14184,14 +14184,15 @@
   '((<-denotational
      ((=ucs		  . #x5510)	; 唐
       ))
+    (=>ucs*		. #x5510)	; 唐
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=>>ucs@jis		. #x5510)	; &AJ1-03164;
-    (=>>ucs@cns		. #x2F842)	; &AJ1-03164;
-    (=>>>ucs@cns	. #x2F842)	; &AJ1-03164;
-    (=ucs@jis		. #x5510)	; &AJ1-03164;
-    (=adobe-japan1-0	. 03164)	; &AJ1-03164;
+    (=ucs		. #x2F842)	; 唐
+    (=>>ucs@jis		. #x5510)	; 唐
+    (=>>ucs@cns		. #x2F842)	; 唐
+    (=ucs@jis		. #x5510)	; 唐
+    (=adobe-japan1-0	. 03164)	; &I-AJ1-03164;
     (=jis-x0208		. #x4562)	; &I-J90-4562; [37-66]
     (=jis-x0213-1	. #x4562)	; &I-JX1-4562; [37-66]
     (=hanyo-denshi/ja	. #x4562)	; &I-HD-JA-4562; [37-66]
@@ -14220,9 +14221,10 @@
       (=shinjigen@1ed	  .  1095)	; &R-AJ1-03164;
       (=shinjigen@rev	  .  1098)	; &R-AJ1-03164;
       )
-     ((=>ucs*		  . #x5510)	; 唐
-      (=ucs		  . #x2F842)	; 唐
-      (=cns11643-6	  . #x357E)	; &I-C6-357E; [21-94]
+     ((==ucs@iso	  . #x2F842)	; &R-U-0002F842;
+      )
+     ((==ucs@cns	  . #x2F842)	; &C6-357E;
+      (=cns11643-6	  . #x357E)	; &C6-357E; [21-94]
       ))
     ))
 (define-char
@@ -27437,8 +27439,7 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs@jis		  . #x5510)	; &AJ1-03164;
-      (=adobe-japan1-0	  . 03164)	; &AJ1-03164;
+     ((=ucs		  . #x2F842)	; 唐
       ))
     (=cbeta		. 06731)	; &CB06731;
     ))
