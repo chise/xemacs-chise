@@ -1,3 +1,11 @@
+2013-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	Change priority of `=>>>ucs@cns'.
+
+	* mule/mule-conf.el (=>>>ucs@cns): Changed to an alias for
+	`=ucs@cns'.
+
 2013-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
