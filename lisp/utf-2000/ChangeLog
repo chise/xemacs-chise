@@ -1,5 +1,9 @@
 2013-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R095-Profound.el, Ideograph-R030-Mouth.el,
+	Ideograph-R009-Man.el: Apply new glyph-image conventions for
+	`ks-x1001'.
+
 	* ruimoku6.el, Ideograph-R212-Dragon.el, Ideograph-R181-Leaf.el,
 	Ideograph-R180-Sound.el, Ideograph-R172-Short-Tailed-Bird.el,
 	Ideograph-R170-Mound.el, Ideograph-R167-Gold.el,
