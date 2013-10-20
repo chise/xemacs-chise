@@ -2715,16 +2715,16 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=>>>ucs@unicode))
-  (make-charset '=>>>ucs@cns
-		"UCS Representative glyph-forms for CNS 11643 sources"
-		'(long-name	"UCS glyph-forms for CNS"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=>>>ucs@unicode))
+  ;; (make-charset '=>>>ucs@cns
+  ;;               "UCS Representative glyph-forms for CNS 11643 sources"
+  ;;               '(long-name     "UCS glyph-forms for CNS"
+  ;;                 chars         256
+  ;;                 dimension     3
+  ;;                 columns       2
+  ;;                 graphic       2
+  ;;                 direction     l2r
+  ;;                 =>iso-ir      177
+  ;;                 mother        =>>>ucs@unicode))
 
   (make-charset '=ucs@iso
 		"ISO/IEC 10646 for its representative glyphs"
@@ -2789,6 +2789,7 @@
 		  =>iso-ir	177
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-cns '=ucs@cns)
+  (define-charset-alias '=>>>ucs@cns '=ucs@cns)
   (make-charset '=ucs@cns/fw
 		"ISO/IEC 10646 for CNS 11643 with fullwidth"
 		'(long-name	"UCS for CNS-fullwidth"
