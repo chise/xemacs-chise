@@ -1,3 +1,12 @@
+2013-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`==ks-x1001'.
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Use
+	`=ks-x1001' instead of `korean-ksc5601'; add setting for
+	`==ks-x1001'.
+
 2013-10-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=>>>gt): Changed to an alias for `=gt'.
