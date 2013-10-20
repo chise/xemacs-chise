@@ -17837,7 +17837,6 @@
      ((=ucs		  . #xE0102)	; 󠄂
       ))
     (=>>ucs@cns		. #x61BC)	; &HD-JT-B1BC;
-    (=>>>ucs@cns	. #x61BC)	; &HD-JT-B1BC;
     (=ucs@cns		. #x61BC)	; &HD-JT-B1BC;
     (=cns11643-2	. #x5C6C)	; &HD-JT-B1BC; [60-76]
     (=hanyo-denshi/jt	. #xB1BC)	; &I-HD-JT-B1BC;
