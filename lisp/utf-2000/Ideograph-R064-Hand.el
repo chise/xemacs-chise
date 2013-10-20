@@ -10984,8 +10984,7 @@
     (total-strokes	 . 12)
     (=>>ucs@cns		. #x63E0)	; &G-CU+63E0;
     (->subsumptive
-     ((=>>>ucs@cns	  . #x63E0)	; &C2-3C22;
-      (=ucs@cns		  . #x63E0)	; &C2-3C22;
+     ((=ucs@cns		  . #x63E0)	; &C2-3C22;
       (=cns11643-2	  . #x3C22)	; &C2-3C22; [28-02]
       ))
     ))
@@ -13431,7 +13430,6 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (=>>ucs@cns		. #x6425)	; &C2-433A;
-    (=>>>ucs@cns	. #x6425)	; &C2-433A;
     (=ucs@cns		. #x6425)	; &C2-433A;
     (=cns11643-2	. #x433A)	; &C2-433A; [35-26]
     ))
@@ -15371,7 +15369,6 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (=>>ucs@cns		. #x6460)	; &C2-4A52;
-    (=>>>ucs@cns	. #x6460)	; &C2-4A52;
     (=ucs@cns		. #x6460)	; &C2-4A52;
     (=cns11643-2	. #x4A52)	; &C2-4A52; [42-50]
     ))
@@ -16041,8 +16038,7 @@
     (total-strokes	 . 14)
     (=>>ucs@cns		. #x6473)	; &G-CU+6473;
     (->subsumptive
-     ((=>>>ucs@cns	  . #x6473)	; &C2-4A47;
-      (=ucs@cns		  . #x6473)	; &C2-4A47;
+     ((=ucs@cns		  . #x6473)	; &C2-4A47;
       (=cns11643-2	  . #x4A47)	; &C2-4A47; [42-39]
       ))
     ))
@@ -16059,8 +16055,7 @@
       (=jis-x0212	  . #x4069)	; &I-JSP-4069; [32-73]
       (=daikanwa	  . 12639)	; &I-M-12639;
       )
-     ((=>>>ucs@cns	  . #x6474)	; &C2-4A44;
-      (=ucs@cns		  . #x6474)	; &C2-4A44;
+     ((=ucs@cns		  . #x6474)	; &C2-4A44;
       (=cns11643-2	  . #x4A44)	; &C2-4A44; [42-36]
       ))
     ))
