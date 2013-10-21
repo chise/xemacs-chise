@@ -2282,7 +2282,6 @@
     (=>>ucs@jis		. #x73F5)	; &AJ1-08556;
     (=>>ucs@cns		. #x73F5)	; &AJ1-08556;
     (=>>>ucs@jis	. #x73F5)	; &AJ1-08556;
-    (=>>>ucs@cns	. #x73F5)	; &AJ1-08556;
     (=ucs@cns		. #x73F5)	; &AJ1-08556;
     (=ucs@jis		. #x73F5)	; &AJ1-08556;
     (=adobe-japan1-2	. 08556)	; &AJ1-08556;
@@ -7014,7 +7013,6 @@
     (ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
-    (=>>>ucs@cns	. #x74A5)	; &C2-5D59;
     (=ucs@cns		. #x74A5)	; &C2-5D59;
     (=cns11643-2	. #x5D59)	; &C2-5D59; [61-57]
     (=daikanwa		. 21266)	; &I-M-21266;
