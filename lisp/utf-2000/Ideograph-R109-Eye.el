@@ -1880,7 +1880,8 @@
     (=>>hanyo-denshi/ib . #x3879)	; &G-HD-IB-3879; [24-89]
     (=>>daikanwa	. 23237)	; &G-HD-IB-3879;
     (->subsumptive
-     ((=>>>ucs@cns	  . #x2F947)	; &g2-CU+2F947;
+     ((=>ucs*		  . #x771F)	; 真
+      (=ucs		  . #x2F947)	; 真
       (->subsumptive
        ((=daikanwa	    . 23237)	; &M-23237;
 	(<-original
@@ -1894,9 +1895,8 @@
 	(<-simplified@misc*sources
 	 daikanwa)
 	)
-       ((=>ucs*		    . #x771F)	; 真
-	(=ucs		    . #x2F947)	; 真
-	(=cns11643-6	    . #x3A2E)	; &I-C6-3A2E; [26-14]
+       ((==ucs@iso	    . #x2F947)	; &C6-3A2E;
+	(=cns11643-6	    . #x3A2E)	; &C6-3A2E; [26-14]
 	))
       )
      ((=hanyo-denshi/ib	  . #x3879)	; &HD-IB-3879; [24-89]
