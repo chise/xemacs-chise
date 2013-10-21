@@ -1,3 +1,25 @@
+2013-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R109-Eye.el: Now `=>>>ucs@cns' is an alias for
+	`=ucs@cns'.
+	(G-CU+2F947): Modify for new glyph-image conventions.
+
+	* Ideograph-R050-Turban.el (G-M-09107): Unify U-0002F888; omit
+	`=>>ucs@cns' and `=>>>ucs@cns'.
+	(C7-2D55): Unify R-IU+2F888 instead of U-0002F888.
+
+	* Ideograph-R030-Mouth.el (J0-4562): Unify U-0002F842; omit
+	`=>>>ucs@cns'.
+	(R-IU+2F842): New representative glyph-image.
+	(C6-357E): Unify R-CU+2F842 instead of U-0002F842.
+
+2013-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R096-Jade.el, Ideograph-R075-Tree.el,
+	Ideograph-R066-Rap.el, Ideograph-R064-Hand.el,
+	Ideograph-R061-Heart.el, Ideograph-R014-Cover.el: `=>>>ucs@cns'
+	was changed to an alias for `=ucs@cns'.
+
 2013-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R095-Profound.el, Ideograph-R030-Mouth.el,
