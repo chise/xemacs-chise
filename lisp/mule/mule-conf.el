@@ -2675,36 +2675,36 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=>>>ucs@unicode))
-  (make-charset '=>>>ucs@jis/1990
-		"UCS Representative glyph-forms for JIS X 0208/0212:1990"
-		'(long-name	"UCS glyph-forms for JIS:1990"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=>>>ucs@jis))
-  (make-charset '=>>>ucs@jis/2000
-		"UCS Representative glyph-forms for JIS X 0213:2000"
-		'(long-name	"UCS glyph-forms for JIS:2000"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=>>>ucs@jis))
-  (make-charset '=>>>ucs@jis/2004
-		"UCS Representative glyph-forms for JIS X 0213:2004"
-		'(long-name	"UCS glyph-forms for JIS:2004"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=>>>ucs@jis))
+  ;; (make-charset '=>>>ucs@jis/1990
+  ;;               "UCS Representative glyph-forms for JIS X 0208/0212:1990"
+  ;;               '(long-name     "UCS glyph-forms for JIS:1990"
+  ;;                 chars         256
+  ;;                 dimension     3
+  ;;                 columns       2
+  ;;                 graphic       2
+  ;;                 direction     l2r
+  ;;                 =>iso-ir      177
+  ;;                 mother        =>>>ucs@jis))
+  ;; (make-charset '=>>>ucs@jis/2000
+  ;;               "UCS Representative glyph-forms for JIS X 0213:2000"
+  ;;               '(long-name     "UCS glyph-forms for JIS:2000"
+  ;;                 chars         256
+  ;;                 dimension     3
+  ;;                 columns       2
+  ;;                 graphic       2
+  ;;                 direction     l2r
+  ;;                 =>iso-ir      177
+  ;;                 mother        =>>>ucs@jis))
+  ;; (make-charset '=>>>ucs@jis/2004
+  ;;               "UCS Representative glyph-forms for JIS X 0213:2004"
+  ;;               '(long-name     "UCS glyph-forms for JIS:2004"
+  ;;                 chars         256
+  ;;                 dimension     3
+  ;;                 columns       2
+  ;;                 graphic       2
+  ;;                 direction     l2r
+  ;;                 =>iso-ir      177
+  ;;                 mother        =>>>ucs@jis))
   (make-charset '=>>>ucs@ks
 		"UCS Representative glyph-forms for Korean Standards"
 		'(long-name	"UCS glyph-forms for KS"
@@ -2865,6 +2865,7 @@
 		  mother	=ucs@jis))
   (define-charset-alias '=ucs@jis-1990 '=ucs@jis/1990)
   (define-charset-alias '=ucs-jis-1990 '=ucs@jis/1990)
+  (define-charset-alias '=>>>ucs@jis/1990 '=ucs@jis/1990)
   (make-charset '=ucs@jis/2000
 		"ISO/IEC 10646 for JIS X 0213:2000"
 		'(long-name	"UCS for JIS:2000"
@@ -2877,6 +2878,7 @@
 		  mother	=ucs@jis))
   (define-charset-alias '=ucs@jis-2000 '=ucs@jis/2000)
   (define-charset-alias '=ucs-jis-2000 '=ucs@jis/2000)
+  (define-charset-alias '=>>>ucs@jis/2000 '=ucs@jis/2000)
   (make-charset '=ucs@jis/2004
 		"ISO/IEC 10646 for JIS X 0213:2004"
 		'(long-name	"UCS for JIS:2004"
@@ -2887,6 +2889,7 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=ucs@jis))
+  (define-charset-alias '=>>>ucs@jis/2004 '=ucs@jis/2004)
   (make-charset '=ucs@JP
 		"UCS for common glyphs used in Japan"
 		'(long-name	"UCS for Japan"
