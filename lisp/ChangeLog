@@ -1,6 +1,17 @@
 2013-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	Change priority of `=>>>ucs@jis/2004', `=>>>ucs@jis/2004' and
+	`=>>>ucs@jis/1990'.
+
+	* mule/mule-conf.el (=>>>ucs@jis/1990): Changed to an alias for
+	`=ucs@jis/1990'.
+	(=>>>ucs@jis/2000): Changed to an alias for `=ucs@jis/2000'.
+	(=>>>ucs@jis/2004): Changed to an alias for `=ucs@jis/2004'.
+
+2013-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
 	Change priority of `=>>>ucs@cns'.
 
 	* mule/mule-conf.el (=>>>ucs@cns): Changed to an alias for
