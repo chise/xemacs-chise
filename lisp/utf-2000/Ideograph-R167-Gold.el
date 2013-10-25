@@ -11154,18 +11154,14 @@
     (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 11)
     (total-strokes	 . 19)
-    (=daikanwa		. 40784)	; &M-40784;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x93CC)	; 鏌
+    (=>>ucs@cns		. #x93CC)	; &G-CU+93CC;
+    (=>>daikanwa	. 40784)	; &G-CU+93CC;
+    (->subsumptive
+     ((=daikanwa	  . 40784)	; &M-40784;
+      )
+     ((=ucs@cns		  . #x93CC)	; &C2-6754;
+      (=cns11643-2	  . #x6754)	; &C2-6754; [71-52]
       ))
-    (ideographic-radical . 167)	; ⾦
-    (ideographic-strokes . 11)
-    (total-strokes	 . 19)
-    (=>>>ucs@cns	. #x93CC)	; &C2-6754;
-    (=ucs@cns		. #x93CC)	; &C2-6754;
-    (=cns11643-2	. #x6754)	; &C2-6754; [71-52]
     ))
 (define-char
   '((<-denotational
