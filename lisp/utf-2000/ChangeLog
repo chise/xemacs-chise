@@ -1,3 +1,20 @@
+2013-10-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R167-Gold.el (G-CU+93CC): New node to integrate
+	M-40784 and C2-6754.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Delete
+	`=>>>adobe-japan1-*', `=>>>jis-x0208', `=>>>jis-x0213-1',
+	`=>>>jis-x0213-2', `=>>>hanyo-denshi/*' and `=>>>gt'.
+	(char-db-insert-ccs-feature): Delete setting for `=>>>gt',
+	`=>>>adobe-japan1-*' and `=>>>hanyo-denshi/ks'.
+
+	* chise-subr.el (charset-id-=>>>adobe-japan1-0): Abolished.
+	(charset-id-=>>>adobe-japan1-6): Abolished.
+	(charset-id-adobe-japan1-p): Don't refer
+	`charset-id-=>>>adobe-japan1-0' and
+	`charset-id-=>>>adobe-japan1-6'.
+
 2013-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R109-Eye.el: Now `=>>>ucs@cns' is an alias for
