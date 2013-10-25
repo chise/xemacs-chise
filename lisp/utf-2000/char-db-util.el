@@ -198,25 +198,25 @@
     ==jis-x0208@1990
     ==ks-x1001
     ==gt-k
-    =>>>adobe-japan1-0
-    =>>>adobe-japan1-1
-    =>>>adobe-japan1-2
-    =>>>adobe-japan1-3
-    =>>>adobe-japan1-4
-    =>>>adobe-japan1-5
-    =>>>adobe-japan1-6
-    =>>>jis-x0208
-    =>>>jis-x0213-1
-    =>>>jis-x0213-2
-    =>>>hanyo-denshi/ja
-    =>>>hanyo-denshi/jb
-    =>>>hanyo-denshi/jc
-    =>>>hanyo-denshi/ft
-    =>>>hanyo-denshi/ib
-    =>>>hanyo-denshi/hg
-    =>>>hanyo-denshi/jt
-    =>>>hanyo-denshi/ks
-    =>>>gt
+    ;; =>>>adobe-japan1-0
+    ;; =>>>adobe-japan1-1
+    ;; =>>>adobe-japan1-2
+    ;; =>>>adobe-japan1-3
+    ;; =>>>adobe-japan1-4
+    ;; =>>>adobe-japan1-5
+    ;; =>>>adobe-japan1-6
+    ;; =>>>jis-x0208
+    ;; =>>>jis-x0213-1
+    ;; =>>>jis-x0213-2
+    ;; =>>>hanyo-denshi/ja
+    ;; =>>>hanyo-denshi/jb
+    ;; =>>>hanyo-denshi/jc
+    ;; =>>>hanyo-denshi/ft
+    ;; =>>>hanyo-denshi/ib
+    ;; =>>>hanyo-denshi/hg
+    ;; =>>>hanyo-denshi/jt
+    ;; =>>>hanyo-denshi/ks
+    ;; =>>>gt
     =>>adobe-japan1-0
     =>>adobe-japan1-1
     =>>adobe-japan1-2
@@ -595,15 +595,16 @@
 			 =daikanwa@rev1 =daikanwa@rev2
 			 =daikanwa/+p =>>daikanwa/+p
 			 =daikanwa/+2p =>>daikanwa/+2p
-			 =gt ==gt =>>>gt =>>gt =+>gt =>gt
+			 =gt ==gt ; =>>>gt
+			 =>>gt =+>gt =>gt
 			 =gt-k ==gt-k =>>gt-k =>gt-k
-			 =adobe-japan1-0 ==adobe-japan1-0 =>>>adobe-japan1-0
-			 =adobe-japan1-1 ==adobe-japan1-1 =>>>adobe-japan1-1
-			 =adobe-japan1-2 ==adobe-japan1-2 =>>>adobe-japan1-2
-			 =adobe-japan1-3 ==adobe-japan1-3 =>>>adobe-japan1-3
-			 =adobe-japan1-4 ==adobe-japan1-4 =>>>adobe-japan1-4
-			 =adobe-japan1-5 ==adobe-japan1-5 =>>>adobe-japan1-5
-			 =adobe-japan1-6 ==adobe-japan1-6 =>>>adobe-japan1-6
+			 =adobe-japan1-0 ==adobe-japan1-0 ; =>>>adobe-japan1-0
+			 =adobe-japan1-1 ==adobe-japan1-1 ; =>>>adobe-japan1-1
+			 =adobe-japan1-2 ==adobe-japan1-2 ; =>>>adobe-japan1-2
+			 =adobe-japan1-3 ==adobe-japan1-3 ; =>>>adobe-japan1-3
+			 =adobe-japan1-4 ==adobe-japan1-4 ; =>>>adobe-japan1-4
+			 =adobe-japan1-5 ==adobe-japan1-5 ; =>>>adobe-japan1-5
+			 =adobe-japan1-6 ==adobe-japan1-6 ; =>>>adobe-japan1-6
 			 =>>adobe-japan1-0 =+>adobe-japan1-0
 			 =>>adobe-japan1-1 =+>adobe-japan1-1
 			 =>>adobe-japan1-2 =+>adobe-japan1-2
@@ -617,7 +618,8 @@
 	    )
 	"(%-18s . %05d)\t; %c")
        ((memq name '(=hanyo-denshi/ks
-		     ==hanyo-denshi/ks =>>>hanyo-denshi/ks =>>hanyo-denshi/ks
+		     ==hanyo-denshi/ks ; =>>>hanyo-denshi/ks
+		     =>>hanyo-denshi/ks
 		     =zihai mojikyo))
 	"(%-18s . %06d)\t; %c")
        ((>= (charset-dimension name) 2)
