@@ -1237,7 +1237,7 @@
    '==cns11643-1
    "CNS 11643 Plane 1 representative glyph-images."
    '(registry "CNS11643[.-]\\(.*[.-]\\)?1$"
-	      dimension 1
+	      dimension 2
 	      chars 94
 	      mother =cns11643-1
 	      =>iso-ir 171
@@ -1246,7 +1246,7 @@
    '==cns11643-2
    "CNS 11643 Plane 2 representative glyph-images."
    '(registry "CNS11643[.-]\\(.*[.-]\\)?2$"
-	      dimension 1
+	      dimension 2
 	      chars 94
 	      mother =cns11643-2
 	      =>iso-ir 172
@@ -1255,7 +1255,7 @@
    '==cns11643-3
    "CNS 11643 Plane 3 representative glyph-images."
    '(registry "CNS11643[.-]\\(.*[.-]\\)?3$"
-	      dimension 1
+	      dimension 2
 	      chars 94
 	      mother =cns11643-3
 	      =>iso-ir 183
@@ -1264,7 +1264,7 @@
    '==cns11643-4
    "CNS 11643 Plane 4 representative glyph-images."
    '(registry "CNS11643[.-]\\(.*[.-]\\)?4$"
-	      dimension 1
+	      dimension 2
 	      chars 94
 	      mother =cns11643-4
 	      =>iso-ir 184
@@ -1273,7 +1273,7 @@
    '==cns11643-5
    "CNS 11643 Plane 5 representative glyph-images."
    '(registry "CNS11643[.-]\\(.*[.-]\\)?5$"
-	      dimension 1
+	      dimension 2
 	      chars 94
 	      mother =cns11643-5
 	      =>iso-ir 185
@@ -1282,7 +1282,7 @@
    '==cns11643-6
    "CNS 11643 Plane 6 representative glyph-images."
    '(registry "CNS11643[.-]\\(.*[.-]\\)?6$"
-	      dimension 1
+	      dimension 2
 	      chars 94
 	      mother =cns11643-6
 	      =>iso-ir 186
@@ -1291,7 +1291,7 @@
    '==cns11643-7
    "CNS 11643 Plane 7 representative glyph-images."
    '(registry "CNS11643[.-]\\(.*[.-]\\)?7$"
-	      dimension 1
+	      dimension 2
 	      chars 94
 	      mother =cns11643-7
 	      =>iso-ir 187
