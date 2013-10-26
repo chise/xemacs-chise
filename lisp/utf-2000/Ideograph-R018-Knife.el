@@ -3253,6 +3253,7 @@
     (=jis-x0208		. #x396F)	; &I-J90-396F; [25-79]
     (=gb2312		. #x3F4C)	; &I-G0-3F4C; [31-44]
     (=ks-x1001		. #x4A3E)	; &I-K0-4A3E; [42-30]
+    (=cns11643-1	. #x4C2B)	; &I-C1-4C2B; [44-11]
     (=jis-x0213-1	. #x396F)	; &I-JX1-396F; [25-79]
     (=big5		. #xA8E8)	; &I-B-A8E8;
     (=gt		. 02532)	; &I-GT-02532;
@@ -3301,13 +3302,13 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@cns	    . #x4EA5)	; &C1-472A;
-	(=cns11643-1	    . #x472A)	; &C1-472A; [39-10]
+       ((==ucs@cns	    . #x4EA5)	; &R-CU+4EA5;
+	(==cns11643-1	    . #x472A)	; &R-CU+4EA5; [39-10]
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=cns11643-1	  . #x4C2B)	; &C1-4C2B; [44-11]
+      (==cns11643-1	  . #x4C2B)	; &R-C1-4C2B; [44-11]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -5018,6 +5019,7 @@
     (=jis-x0208		. #x4B36)	; &I-J90-4B36; [43-22]
     (=gb2312		. #x464A)	; &I-G0-464A; [38-42]
     (=ks-x1001		. #x5C78)	; &I-K0-5C78; [60-88]
+    (=cns11643-1	. #x5448)	; &I-C1-5448; [52-40]
     (=jis-x0213-1	. #x4B36)	; &I-JX1-4B36; [43-22]
     (=gt		. 02669)	; &I-GT-02669;
     (=gt-k		. 06548)	; &I-GT-K06548;
@@ -5060,9 +5062,9 @@
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (==ucs@unicode	  . #x5256)	; &C1-5448;
-      (==gb2312		  . #x464A)	; &C1-5448; [38-42]
-      (=cns11643-1	  . #x5448)	; &C1-5448; [52-40]
+      (==ucs@unicode	  . #x5256)	; &R-UU+5256;
+      (==gb2312		  . #x464A)	; &R-UU+5256; [38-42]
+      (==cns11643-1	  . #x5448)	; &R-UU+5256; [52-40]
       ))
     ))
 (define-char
@@ -5679,8 +5681,7 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	  (=ucs		      . #x2FF0)	; ⿰
 	  )
-	 ((==ucs@unicode      . #x4EAC)	; &C1-4B6B;
-	  (=cns11643-1	      . #x4B6B)	; &C1-4B6B; [43-75]
+	 ((==ucs@unicode      . #x4EAC)	; &R-UU+4EAC;
 	  )
 	 ((name		      . "CJK RADICAL KNIFE TWO")
 	  (=ucs		      . #x2E89)	; ⺉
