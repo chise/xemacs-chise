@@ -317,6 +317,7 @@
 	))
       (=ucs		  . #xFA74)	; 充
       (=ucs@cns		  . #x5145)	; 充
+      (=cns11643-1	  . #x4572)	; &I-C1-4572; [37-82]
       (=hanyo-denshi/ks	  . 015560)	; 充
       (->subsumptive
        ((=decomposition@hanyo-denshi
@@ -347,9 +348,9 @@
 	  )
 	 ((=ucs		      . #x513F)	; 儿
 	  ))
-	(==ucs@unicode	    . #xFA74)	; &C1-4572;
-	(==ucs@cns	    . #x5145)	; &C1-4572;
-	(=cns11643-1	    . #x4572)	; &C1-4572; [37-82]
+	(==ucs@unicode	    . #xFA74)	; &R-UU+FA74;
+	(==ucs@cns	    . #x5145)	; &R-UU+FA74;
+	(==cns11643-1	    . #x4572)	; &R-UU+FA74; [37-82]
 	))
       ))
     ))
@@ -1108,6 +1109,7 @@
     (=ucs@unicode	. #x514D)	; &HD-KS-015850;
     (=gb2312		. #x4362)	; &HD-KS-015850; [35-66]
     (=ks-x1001		. #x5873)	; &I-K0-5873; [56-83]
+    (=cns11643-1	. #x492D)	; &I-C1-492D; [41-13]
     (=hanyo-denshi/ks	. 015850)	; &HD-KS-015850;
     (->subsumptive
      ((=decomposition@hanyo-denshi
@@ -1126,9 +1128,9 @@
 	)
        ((=big5-cdp	    . #x8BCB)	; &CDP-8BCB;
 	))
-      (==ucs@unicode	  . #x514D)	; &C1-492D;
-      (==gb2312		  . #x4362)	; &C1-492D; [35-66]
-      (=cns11643-1	  . #x492D)	; &C1-492D; [41-13]
+      (==ucs@unicode	  . #x514D)	; &R-UU+514D;
+      (==gb2312		  . #x4362)	; &R-UU+514D; [35-66]
+      (==cns11643-1	  . #x492D)	; &R-UU+514D; [41-13]
       )
      ((==ucs@ks		  . #x514D)	; &R-K0-5873;
       (==ks-x1001	  . #x5873)	; &R-K0-5873; [56-83]
@@ -1604,6 +1606,7 @@
      ((=ucs@unicode	  . #x514D)	; &HD-KS-015850;
       (=gb2312		  . #x4362)	; &HD-KS-015850; [35-66]
       (=ks-x1001	  . #x5873)	; &I-K0-5873; [56-83]
+      (=cns11643-1	  . #x492D)	; &I-C1-492D; [41-13]
       )
      ((=ucs		  . #x4E36)	; 丶
       ))
@@ -2571,8 +2574,7 @@
 	(==ucs@cns	    . #x2F80D)	; &C6-2352;
 	(=cns11643-6	    . #x2352)	; &C6-2352; [03-50]
 	)
-       ((==ucs@unicode	    . #x4EAC)	; &C1-4B6B;
-	(=cns11643-1	    . #x4B6B)	; &C1-4B6B; [43-75]
+       ((==ucs@unicode	    . #x4EAC)	; &R-UU+4EAC;
 	))
       (=hanziku-1	  . #xDECA)	; &HZK01-DECA;
       ))
@@ -2598,12 +2600,10 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
 	(=ucs		    . #x2FFA)	; ⿺
 	)
-       ((==ucs@unicode	    . #xFA74)	; &C1-4572;
-	(==ucs@cns	    . #x5145)	; &C1-4572;
-	(=cns11643-1	    . #x4572)	; &C1-4572; [37-82]
+       ((==ucs@unicode	    . #xFA74)	; &R-UU+FA74;
+	(==ucs@cns	    . #x5145)	; &R-UU+FA74;
 	)
-       ((==ucs@unicode	    . #x4EAC)	; &C1-4B6B;
-	(=cns11643-1	    . #x4B6B)	; &C1-4B6B; [43-75]
+       ((==ucs@unicode	    . #x4EAC)	; &R-UU+4EAC;
 	))
       (==ucs@cns	  . #x204A8)	; &C6-5063;
       (=cns11643-6	  . #x5063)	; &C6-5063; [48-67]
@@ -2615,8 +2615,7 @@
        ((==hanyo-denshi/ks  . 015560)	; &R-HD-KS-015560;
 	(=daikanwa	    . 01344)	; &I-M-01344;
 	)
-       ((==ucs@unicode	    . #x4EAC)	; &C1-4B6B;
-	(=cns11643-1	    . #x4B6B)	; &C1-4B6B; [43-75]
+       ((==ucs@unicode	    . #x4EAC)	; &R-UU+4EAC;
 	))
       (==ucs@iso	  . #x204A8)	; &R-U-000204A8;
       ))
