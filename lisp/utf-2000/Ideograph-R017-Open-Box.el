@@ -635,6 +635,7 @@
     (=ucs@unicode	. #x51FD)	; &AJ1-20082;
     (=adobe-japan1-5	. 20082)	; &AJ1-20082;
     (=gb2312		. #x3A2F)	; &I-G0-3A2F; [26-15]
+    (=cns11643-1	. #x4C2A)	; &I-C1-4C2A; [44-10]
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x51FD)	; 函
@@ -642,7 +643,7 @@
        ((=ucs		    . #xE0101)	; 󠄁
 	))
       (==adobe-japan1-5	  . 20082)	; &R-AJ1-20082;
-      (=cns11643-1	  . #x4C2A)	; &R-AJ1-20082; [44-10]
+      (==cns11643-1	  . #x4C2A)	; &R-AJ1-20082; [44-10]
       (=shinjigen	  .  0585)	; &R-AJ1-20082;
       (<-formed
        ((=ucs@jis	    . #x51FD)	; &AJ1-03381;
