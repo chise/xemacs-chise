@@ -1,3 +1,20 @@
+2013-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Use
+	`=cns11643-1' instead of `chinese-cns11643-1'; add settings for
+	`==ucs@cns' and `==cns11643-1'.
+
+	* mule/mule-conf.el (==cns11643-1): Fix `dimension'.
+	(==cns11643-2): Ditto.
+	(==cns11643-3): Ditto.
+	(==cns11643-4): Ditto.
+	(==cns11643-5): Ditto.
+	(==cns11643-6): Ditto.
+	(==cns11643-7): Ditto.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`==cns11643-1'.
+
 2013-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist):
