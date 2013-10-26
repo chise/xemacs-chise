@@ -1,3 +1,24 @@
+2013-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el, Ideograph-R031-Enclosure.el,
+	Ideograph-R029-Again.el, Ideograph-R027-Cliff.el,
+	Ideograph-R026-Seal.el, Ideograph-R023-Hiding-Enclosure.el,
+	Ideograph-R019-Power.el, Ideograph-R018-Knife.el,
+	Ideograph-R017-Open-Box.el, Ideograph-R014-Cover.el: Apply new
+	glyph-image conventions for `cns11643-1'.
+
+	* Ideograph-R009-Man.el: Apply new glyph-image conventions for
+	`cns11643-1'.
+	(U+4F47): Apply new glyph-image conventions for `ks-x1001'.
+
+	* Ideograph-R010-Legs.el, Ideograph-R008-Lid.el: Apply new
+	glyph-image conventions for `cns11643-1'.
+
+2013-10-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R015-Ice.el, Ideograph-R013-Down-Box.el: Apply new
+	glyph-image conventions for `cns11643-1'.
+
 2013-10-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R167-Gold.el (G-CU+93CC): New node to integrate
