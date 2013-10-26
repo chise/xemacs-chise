@@ -1303,6 +1303,7 @@
      ((=ucs@unicode	  . #x514D)	; &HD-KS-015850;
       (=gb2312		  . #x4362)	; &HD-KS-015850; [35-66]
       (=ks-x1001	  . #x5873)	; &I-K0-5873; [56-83]
+      (=cns11643-1	  . #x492D)	; &I-C1-492D; [41-13]
       ))
     (=ucs@unicode	. #x51C2)	; &AJ1-21185;
     (=adobe-japan1-6	. 21185)	; &AJ1-21185;
@@ -1325,8 +1326,7 @@
 	)
        ((=ucs		    . #x51AB)	; 冫
 	)
-       ((==ucs@unicode	    . #x514D)	; &C1-492D;
-	(=cns11643-1	    . #x492D)	; &C1-492D; [41-13]
+       ((==ucs@unicode	    . #x514D)	; &R-UU+514D;
 	))
       (==ucs@unicode	  . #x51C2)	; &R-AJ1-21185;
       (==adobe-japan1-6	  . 21185)	; &R-AJ1-21185;
@@ -1781,8 +1781,7 @@
 	  )
 	 ((=ucs		      . #x51AB)	; 冫
 	  )
-	 ((==ucs@unicode      . #x4EAC)	; &C1-4B6B;
-	  (=cns11643-1	      . #x4B6B)	; &C1-4B6B; [43-75]
+	 ((==ucs@unicode      . #x4EAC)	; &R-UU+4EAC;
 	  ))
 	(==ucs@unicode	    . #x51C9)	; &C3-2F5F;
 	(==gb2312	    . #x4139)	; &C3-2F5F; [33-25]
