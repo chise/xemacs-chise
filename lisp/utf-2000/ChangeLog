@@ -1,5 +1,10 @@
 2013-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R059-Bristle.el, Ideograph-R053-Dotted-Cliff.el,
+	Ideograph-R052-Short-Thread.el, Ideograph-R050-Turban.el,
+	Ideograph-R046-Mountain.el, Ideograph-R044-Corpse.el: Apply new
+	glyph-image conventions for `cns11643-1'.
+
 	* Ideograph-R040-Roof.el, Ideograph-R039-Child.el,
 	Ideograph-R038-Woman.el, Ideograph-R036-Evening.el,
 	Ideograph-R035-Go-Slowly.el: Apply new glyph-image conventions for
