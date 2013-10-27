@@ -1,5 +1,12 @@
 2013-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R040-Roof.el, Ideograph-R039-Child.el,
+	Ideograph-R038-Woman.el, Ideograph-R036-Evening.el,
+	Ideograph-R035-Go-Slowly.el: Apply new glyph-image conventions for
+	`cns11643-1'.
+
+2013-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R032-Earth.el, Ideograph-R031-Enclosure.el,
 	Ideograph-R029-Again.el, Ideograph-R027-Cliff.el,
 	Ideograph-R026-Seal.el, Ideograph-R023-Hiding-Enclosure.el,
