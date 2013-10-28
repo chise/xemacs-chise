@@ -3913,7 +3913,8 @@
       (=gb2312		  . #x3C5A)	; &G0-3C5A; [28-58]
       )
      ((=ucs@cns		  . #x7A3C)	; &HD-FT-3432;
-      (=hanyo-denshi/ft	  . #x3432)	; &HD-FT-3432; [20-18]
+      (=cns11643-1	  . #x6E26)	; &HD-FT-3432; [78-06]
+      (=hanyo-denshi/ft	  . #x3432)	; &I-HD-FT-3432; [20-18]
       (->subsumptive
        ((=decomposition@hanyo-denshi
 	 ((=ucs		      . #x7A3C)	; 稼
@@ -3922,8 +3923,8 @@
 	  ))
 	(==hanyo-denshi/ft  . #x3432)	; &R-HD-FT-3432; [20-18]
 	)
-       ((==ucs@cns	    . #x7A3C)	; &C1-6E26;
-	(=cns11643-1	    . #x6E26)	; &C1-6E26; [78-06]
+       ((==ucs@cns	    . #x7A3C)	; &R-CU+7A3C;
+	(==cns11643-1	    . #x6E26)	; &R-CU+7A3C; [78-06]
 	))
       ))
     ))
