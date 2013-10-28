@@ -2258,8 +2258,8 @@
        ((==ucs@cns	    . #x6BDB)	; &C1-4553;
 	(=cns11643-1	    . #x4553)	; &C1-4553; [37-51]
 	)
-       ((==ucs@cns	    . #x53DF)	; &C1-5451;
-	(=cns11643-1	    . #x5451)	; &C1-5451; [52-49]
+       ((==ucs@cns	    . #x53DF)	; &R-CU+53DF;
+	(==cns11643-1	    . #x5451)	; &R-CU+53DF; [52-49]
 	))
       (==ucs@cns	  . #x23BDC)	; &C5-4669;
       (=cns11643-5	  . #x4669)	; &C5-4669; [38-73]
@@ -2444,8 +2444,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@unicode	    . #x65C1)	; &C1-5569;
-	(=cns11643-1	    . #x5569)	; &C1-5569; [53-73]
+       ((==ucs@unicode	    . #x65C1)	; &R-UU+65C1;
 	)
        ((==ucs@unicode	    . #x6BDB)	; &R-GT-21495;
 	(=ks-x1001	    . #x593E)	; &R-GT-21495; [57-30]
@@ -2457,8 +2456,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@unicode	    . #x65C1)	; &C1-5569;
-	(=cns11643-1	    . #x5569)	; &C1-5569; [53-73]
+       ((==ucs@unicode	    . #x65C1)	; &R-UU+65C1;
 	)
        ((==ucs@cns	    . #x6BDB)	; &C1-4553;
 	(=cns11643-1	    . #x4553)	; &C1-4553; [37-51]
@@ -3338,6 +3336,7 @@
     (->subsumptive
      ((=ucs@unicode	  . #x6C08)	; &I-J90-5D61;
       (=jis-x0208@1990	  . #x5D61)	; &I-J90-5D61; [61-65]
+      (=cns11643-1	  . #x7421)	; &I-C1-7421; [84-01]
       (=jis-x0213-1	  . #x5D61)	; &I-JX1-5D61; [61-65]
       (=gb12345		  . #x5531)	; &I-J90-5D61; [53-17]
       (=big5		  . #xC0D6)	; &I-B-C0D6;
@@ -3353,8 +3352,8 @@
        ((==ucs@unicode	    . #x6C08)	; &R-UU+6C08;
 	(==gb12345	    . #x5531)	; &R-UU+6C08; [53-17]
 	)
-       ((==ucs@cns	    . #x6C08)	; &C1-7421;
-	(=cns11643-1	    . #x7421)	; &C1-7421; [84-01]
+       ((==ucs@cns	    . #x6C08)	; &R-CU+6C08;
+	(==cns11643-1	    . #x7421)	; &R-CU+6C08; [84-01]
 	))
       )
      ((=ks-x1001	  . #x6E7D)	; &K0-6E7D; [78-93]
