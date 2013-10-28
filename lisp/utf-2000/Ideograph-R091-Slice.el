@@ -1662,8 +1662,7 @@
 	  )
 	 ((=gt		      . 25442)	; &GT-25442;
 	  )
-	 ((==ucs@unicode      . #x5EB8)	; &C1-5A2B;
-	  (=cns11643-1	      . #x5A2B)	; &C1-5A2B; [58-11]
+	 ((==ucs@unicode      . #x5EB8)	; &R-UU+5EB8;
 	  ))
 	(==ucs@unicode	    . #x7257)	; &R-UU+7257;
 	))
