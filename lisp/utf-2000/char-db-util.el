@@ -194,10 +194,6 @@
     ideograph-hanziku-10
     ideograph-hanziku-11
     ideograph-hanziku-12
-    ==gt
-    ==jis-x0208@1990
-    ==ks-x1001
-    ==gt-k
     ;; =>>>adobe-japan1-0
     ;; =>>>adobe-japan1-1
     ;; =>>>adobe-japan1-2
@@ -272,6 +268,12 @@
     =>>>ucs@unicode
     ==ucs@iso
     ==ucs@unicode
+    ==gb2312
+    ==ks-x1001
+    ==cns11643-1
+    ==gt
+    ==jis-x0208@1990
+    ==gt-k
     =ucs@iso
     =ucs@unicode
     =ucs@cns
