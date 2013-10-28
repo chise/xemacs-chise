@@ -2647,15 +2647,16 @@
     (=ucs		. #x740A)	; 琊
     (=big5		. #xB278)	; &I-B-B278;
     (->subsumptive
-     ((=ucs@unicode	  . #x740A)	; &G0-6770;
-      (=gb2312		  . #x6770)	; &G0-6770; [71-80]
+     ((=ucs@unicode	  . #x740A)	; &C1-5B7D;
+      (=gb2312		  . #x6770)	; &C1-5B7D; [71-80]
+      (=cns11643-1	  . #x5B7D)	; &I-C1-5B7D; [59-93]
       (->subsumptive
        ((=daikanwa	    . 21018)	; &M-21018;
 	)
        ((==ucs@unicode	    . #x740A)	; &R-UU+740A;
 	(==gb2312	    . #x6770)	; &R-UU+740A; [71-80]
 	)
-       ((=cns11643-1	    . #x5B7D)	; &C1-5B7D; [59-93]
+       ((==cns11643-1	    . #x5B7D)	; &R-C1-5B7D; [59-93]
 	))
       )
      ((=ucs@jis		  . #x740A)	; &JX1-7822;
@@ -5241,7 +5242,8 @@
     (total-strokes	 . 13)
     (=>>ucs@unicode	. #x746F)	; &HD-FT-3740;
     (=ucs@unicode	. #x746F)	; &HD-FT-3740;
-    (=hanyo-denshi/ft	. #x3740)	; &HD-FT-3740; [23-32]
+    (=cns11643-1	. #x652B)	; &HD-FT-3740; [69-11]
+    (=hanyo-denshi/ft	. #x3740)	; &I-HD-FT-3740; [23-32]
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x746F)	; 瑯
@@ -5250,8 +5252,8 @@
 	))
       (==hanyo-denshi/ft  . #x3740)	; &R-HD-FT-3740; [23-32]
       )
-     ((==ucs@unicode	  . #x746F)	; &C1-652B;
-      (=cns11643-1	  . #x652B)	; &C1-652B; [69-11]
+     ((==ucs@unicode	  . #x746F)	; &R-UU+746F;
+      (==cns11643-1	  . #x652B)	; &R-UU+746F; [69-11]
       ))
     ))
 (define-char
@@ -6146,6 +6148,7 @@
       (=jis-x0208	  . #x6078)	; &GT-27155; [64-88]
       (=gb2312		  . #x6830)	; &I-G0-6830; [72-16]
       (=ks-x1001	  . #x6D70)	; &I-K0-6D70; [77-80]
+      (=cns11643-1	  . #x6D67)	; &I-C1-6D67; [77-71]
       (=jis-x0213-1	  . #x6078)	; &I-JX1-6078; [64-88]
       (=gt		  . 27155)	; &I-GT-27155;
       (=gt-pj-1		  . #x6078)	; &I-GT-27155; [64-88]
@@ -6158,9 +6161,9 @@
 	(==gt		    . 27155)	; &R-GT-27155;
 	(=daikanwa	    . 21211)	; &R-GT-27155;
 	)
-       ((==ucs@unicode	    . #x748B)	; &C1-6D67;
-	(==gb2312	    . #x6830)	; &C1-6D67; [72-16]
-	(=cns11643-1	    . #x6D67)	; &C1-6D67; [77-71]
+       ((==ucs@unicode	    . #x748B)	; &R-UU+748B;
+	(==gb2312	    . #x6830)	; &R-UU+748B; [72-16]
+	(==cns11643-1	    . #x6D67)	; &R-UU+748B; [77-71]
 	))
       )
      ((=shinjigen	  .  4955)	; &SJG2-4955;
