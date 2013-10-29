@@ -1006,8 +1006,7 @@
        ((=ucs@iso	    . #x29ACF)	; &C7-362D;
 	(=cns11643-7	    . #x362D)	; &C7-362D; [22-13]
 	)
-       ((==ucs@unicode	    . #x5EB8)	; &C1-5A2B;
-	(=cns11643-1	    . #x5A2B)	; &C1-5A2B; [58-11]
+       ((==ucs@unicode	    . #x5EB8)	; &R-UU+5EB8;
 	))
       (==ucs@iso	  . #x29AF1)	; &C4-6E28;
       (=cns11643-4	  . #x6E28)	; &C4-6E28; [78-08]
