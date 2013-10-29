@@ -115,8 +115,9 @@
     (ideographic-radical . 136)	; ⾇
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
-    (=ucs@unicode	. #x821E)	; &G0-4E68;
-    (=gb2312		. #x4E68)	; &G0-4E68; [46-72]
+    (=ucs@unicode	. #x821E)	; &C1-6A5A;
+    (=gb2312		. #x4E68)	; &C1-6A5A; [46-72]
+    (=cns11643-1	. #x6A5A)	; &I-C1-6A5A; [74-58]
     (->subsumptive
      ((=daikanwa	  . 30342)	; &M-30342;
       (=shinjigen	  .  6640)	; &M-30342;
@@ -124,7 +125,7 @@
      ((==ucs@unicode	  . #x821E)	; &R-UU+821E;
       (==gb2312		  . #x4E68)	; &R-UU+821E; [46-72]
       )
-     ((=cns11643-1	  . #x6A5A)	; &C1-6A5A; [74-58]
+     ((==cns11643-1	  . #x6A5A)	; &R-C1-6A5A; [74-58]
       ))
     ))
 (define-char
