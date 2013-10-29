@@ -312,13 +312,14 @@
     (=>>hanyo-denshi/jb . #x605B)	; &G-JX2-795B; [64-59]
     (=>>daikanwa	. 38190)	; &G-JX2-795B;
     (->subsumptive
-     ((=ucs@cns		  . #x8ED4)	; &CU+8ED4;
-      (=jef-china3	  . #x92F4)	; &CU+8ED4;
+     ((=ucs@cns		  . #x8ED4)	; &C1-5847;
+      (=cns11643-1	  . #x5847)	; &C1-5847; [56-39]
+      (=jef-china3	  . #x92F4)	; &I-JC3-92F4;
       (->subsumptive
        ((=daikanwa	    . 38190)	; &M-38190;
 	)
-       ((==ucs@cns	    . #x8ED4)	; &C1-5847;
-	(=cns11643-1	    . #x5847)	; &C1-5847; [56-39]
+       ((==ucs@cns	    . #x8ED4)	; &R-CU+8ED4;
+	(==cns11643-1	    . #x5847)	; &R-CU+8ED4; [56-39]
 	))
       )
      ((=ucs@unicode	  . #x8ED4)	; &HD-JB-605B;
