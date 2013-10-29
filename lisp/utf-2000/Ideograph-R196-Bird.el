@@ -1327,7 +1327,8 @@
      ((ideographic-strokes . 4)
       (total-strokes	   . 15)
       (=ucs@unicode	  . #x9D09)	; &HD-HG-3021;
-      (=jis-x0213-1@2004  . #x726D)	; &HD-HG-3021; [82-77]
+      (=cns11643-1	  . #x7029)	; &HD-HG-3021; [80-09]
+      (=jis-x0213-1@2004  . #x726D)	; &I-JX3-726D; [82-77]
       (=gb12345		  . #x513B)	; &HD-HG-3021; [49-27]
       (=hanyo-denshi/hg	  . #x3021)	; &I-HD-HG-3021; [16-01]
       (=gt		  . 63596)	; &I-GT-63596;
@@ -1342,7 +1343,7 @@
 	(==gb12345	    . #x513B)	; &R-HD-HG-3021; [49-27]
 	(==hanyo-denshi/hg  . #x3021)	; &R-HD-HG-3021; [16-01]
 	)
-       ((=cns11643-1	    . #x7029)	; &C1-7029; [80-09]
+       ((==cns11643-1	    . #x7029)	; &R-C1-7029; [80-09]
 	))
       )
      ((ideographic-strokes . 5)
@@ -1355,7 +1356,8 @@
       (=gt-pj-1		  . #x726D)	; &I-GT-63677; [82-77]
       (<-simplified@JP/extra/design
        ((=ucs@unicode	    . #x9D09)	; &HD-HG-3021;
-	(=jis-x0213-1@2004  . #x726D)	; &HD-HG-3021; [82-77]
+	(=cns11643-1	    . #x7029)	; &HD-HG-3021; [80-09]
+	(=jis-x0213-1@2004  . #x726D)	; &I-JX3-726D; [82-77]
 	))
       )
      ((ideographic-strokes . 5)
@@ -12291,14 +12293,15 @@
     (ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 18)
     (total-strokes	 . 29)
-    (=>>ucs@cns		. #x9E1B)	; &G-CU+9E1B;
-    (=ucs@cns		. #x9E1B)	; &G-CU+9E1B;
-    (=>>daikanwa	. 47500)	; &G-CU+9E1B;
+    (=>>ucs@cns		. #x9E1B)	; &C1-7D49;
+    (=ucs@cns		. #x9E1B)	; &C1-7D49;
+    (=cns11643-1	. #x7D49)	; &C1-7D49; [93-41]
+    (=>>daikanwa	. 47500)	; &C1-7D49;
     (->subsumptive
      ((=daikanwa	  . 47500)	; &M-47500;
       )
-     ((==ucs@cns	  . #x9E1B)	; &C1-7D49;
-      (=cns11643-1	  . #x7D49)	; &C1-7D49; [93-41]
+     ((==ucs@cns	  . #x9E1B)	; &R-CU+9E1B;
+      (==cns11643-1	  . #x7D49)	; &R-CU+9E1B; [93-41]
       ))
     ))
 (define-char
