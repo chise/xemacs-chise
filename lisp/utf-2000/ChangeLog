@@ -1,3 +1,32 @@
+2013-10-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R038-Woman.el: `=>>>ucs@ks' was changed to an alias
+	for `=ucs@ks'.
+
+2013-10-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R203-Black.el, Ideograph-R196-Bird.el,
+	Ideograph-R189-Tall.el, Ideograph-R181-Leaf.el,
+	Ideograph-R180-Sound.el, Ideograph-R177-Leather.el,
+	Ideograph-R167-Gold.el, Ideograph-R160-Bitter.el,
+	Ideograph-R159-Cart.el, Ideograph-R157-Foot.el,
+	Ideograph-R154-Shell.el, Ideograph-R152-Pig.el,
+	Ideograph-R147-See.el, Ideograph-R145-Clothes.el,
+	Ideograph-R140-Grass.el, Ideograph-R138-Stopping.el,
+	Ideograph-R136-Oppose.el: Apply new glyph-image conventions for
+	`cns11643-1'.
+
+2013-10-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R124-Feather.el, Ideograph-R118-Bamboo.el,
+	Ideograph-R117-Stand.el, Ideograph-R115-Grain.el,
+	Ideograph-R113-Spirit.el, Ideograph-R112-Stone.el,
+	Ideograph-R104-Sickness.el, Ideograph-R096-Jade.el,
+	Ideograph-R095-Profound.el, Ideograph-R094-Dog.el,
+	Ideograph-R091-Slice.el, Ideograph-R086-Fire.el,
+	Ideograph-R085-Water.el, Ideograph-R083-Clan.el: Apply new
+	glyph-image conventions for `cns11643-1'.
+
 2013-10-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R082-Fur.el, Ideograph-R075-Tree.el,
@@ -7,6 +36,10 @@
 	Ideograph-R064-Hand.el, Ideograph-R061-Heart.el,
 	Ideograph-R060-Step.el, Ideograph-R030-Mouth.el: Apply new
 	glyph-image conventions for `cns11643-1'.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`==gb2312' and `==cns11643-1'; change priority of `==gt',
+	`==jis-x0208@1990', `==ks-x1001' and `==gt-k'.
 
 2013-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
@@ -40,6 +73,11 @@
 
 	* Ideograph-R015-Ice.el, Ideograph-R013-Down-Box.el: Apply new
 	glyph-image conventions for `cns11643-1'.
+
+2013-10-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R162-Walk.el: Apply new glyph-image conventions for
+	`cns11643-1'.
 
 2013-10-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
