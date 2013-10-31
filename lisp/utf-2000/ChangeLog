@@ -1,3 +1,8 @@
+2013-10-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R172-Short-Tailed-Bird.el: Apply new glyph-image
+	conventions for `cns11643-1'.
+
 2013-10-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R038-Woman.el: `=>>>ucs@ks' was changed to an alias
