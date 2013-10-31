@@ -436,8 +436,6 @@
 	  (=>>>ucs@unicode		       "GI-UU+" 4 X)
 	  (=>>>ucs@jis			       "g2-JU+" 4 X)
 	  (=>>>ucs@jis			       "GI-JU+" 4 X)
-	  (=>>>ucs@ks			       "g2-KU+" 4 X)
-	  (=>>>ucs@ks			       "GI-KU+" 4 X)
 	  ( =ucs@iso				   "U-" 8 X)
 	  ( =ucs@unicode			  "UU+" 4 X)
 	  ( =ucs@unicode			  "UU-" 8 X)
@@ -475,6 +473,8 @@
 	  (=>>>ucs@jis/2004		     "g2-J04U+" 4 X)
 	  (=>>>ucs@jis/2004		     "GI-J04U+" 4 X)
 	  (=>>>ucs@jis/1990		     "g2-J90U+" 4 X)
+	  (=>>>ucs@ks			       "g2-KU+" 4 X)
+	  (=>>>ucs@ks			       "GI-KU+" 4 X)
 	  ))
 
   (make-coding-system
