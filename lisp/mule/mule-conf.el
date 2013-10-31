@@ -2705,16 +2705,16 @@
   ;;                 direction     l2r
   ;;                 =>iso-ir      177
   ;;                 mother        =>>>ucs@jis))
-  (make-charset '=>>>ucs@ks
-		"UCS Representative glyph-forms for Korean Standards"
-		'(long-name	"UCS glyph-forms for KS"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=>>>ucs@unicode))
+  ;; (make-charset '=>>>ucs@ks
+  ;;               "UCS Representative glyph-forms for Korean Standards"
+  ;;               '(long-name     "UCS glyph-forms for KS"
+  ;;                 chars         256
+  ;;                 dimension     3
+  ;;                 columns       2
+  ;;                 graphic       2
+  ;;                 direction     l2r
+  ;;                 =>iso-ir      177
+  ;;                 mother        =>>>ucs@unicode))
   ;; (make-charset '=>>>ucs@cns
   ;;               "UCS Representative glyph-forms for CNS 11643 sources"
   ;;               '(long-name     "UCS glyph-forms for CNS"
@@ -2922,6 +2922,7 @@
 		  =>iso-ir	177
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-ks '=ucs@ks)
+  (define-charset-alias '=>>>ucs@ks '=ucs@ks)
   (make-charset '=ucs-bmp@ks
 		"ISO/IEC 10646 BMP for KS"
 		'(long-name	"BMP for KS"
