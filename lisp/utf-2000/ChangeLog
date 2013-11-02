@@ -1,5 +1,8 @@
 2013-11-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R067-Script.el, Ideograph-R064-Hand.el: Apply new
+	glyph-image conventions for `cns11643-2'.
+
 	* Ideograph-R063-Door.el, Ideograph-R062-Halberd.el,
 	Ideograph-R061-Heart.el, Ideograph-R060-Step.el,
 	Ideograph-R057-Bow.el, Ideograph-R046-Mountain.el,
