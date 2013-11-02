@@ -1829,6 +1829,7 @@
      ((=ucs@unicode	  . #x5BA8)	; &AJ1-21435;
       (=adobe-japan1-6	  . 21435)	; &AJ1-21435;
       (=jis-x0212	  . #x3A51)	; &I-JSP-3A51; [26-49]
+      (=cns11643-2	  . #x2978)	; &I-C2-2978; [09-88]
       (=jef-china3	  . #x4AAA)	; &I-JC3-4AAA;
       (->subsumptive
        ((=decomposition@cid
@@ -1840,8 +1841,8 @@
 	(==adobe-japan1-6   . 21435)	; &R-AJ1-21435;
 	(==jis-x0212	    . #x3A51)	; &R-AJ1-21435; [26-49]
 	)
-       ((==ucs@unicode	    . #x5BA8)	; &C2-2978;
-	(=cns11643-2	    . #x2978)	; &C2-2978; [09-88]
+       ((==ucs@unicode	    . #x5BA8)	; &R-UU+5BA8;
+	(==cns11643-2	    . #x2978)	; &R-UU+5BA8; [09-88]
 	))
       ))
     ))
@@ -2000,17 +2001,18 @@
       )
      ((ideographic-strokes . 6)
       (total-strokes	   . 9)
-      (=ucs@unicode	  . #x5BAC)	; &K0-6074;
-      (=ks-x1001	  . #x6074)	; &K0-6074; [64-84]
+      (=ucs@unicode	  . #x5BAC)	; &C2-2E6A;
+      (=ks-x1001	  . #x6074)	; &C2-2E6A; [64-84]
       (=iso-ir165	  . #x7B32)	; &I-EGB-7B32; [91-18]
+      (=cns11643-2	  . #x2E6A)	; &I-C2-2E6A; [14-74]
       (=jef-china3	  . #x97E8)	; &I-JC3-97E8;
       (->subsumptive
        ((==ucs@ks	    . #x5BAC)	; &R-K0-6074;
 	(==ks-x1001	    . #x6074)	; &R-K0-6074; [64-84]
 	)
-       ((==ucs@unicode	    . #x5BAC)	; &C2-2E6A;
-	(==iso-ir165	    . #x7B32)	; &C2-2E6A; [91-18]
-	(=cns11643-2	    . #x2E6A)	; &C2-2E6A; [14-74]
+       ((==ucs@unicode	    . #x5BAC)	; &R-UU+5BAC;
+	(==iso-ir165	    . #x7B32)	; &R-UU+5BAC; [91-18]
+	(==cns11643-2	    . #x2E6A)	; &R-UU+5BAC; [14-74]
 	))
       ))
     ))
@@ -4668,6 +4670,7 @@
     (=ucs@jis		. #x5BD6)	; &AJ1-17531;
     (=adobe-japan1-5	. 17531)	; &AJ1-17531;
     (=jis-x0212		. #x3A5F)	; &I-JSP-3A5F; [26-63]
+    (=cns11643-2	. #x424E)	; &I-C2-424E; [34-46]
     (=jis-x0213-2	. #x2827)	; &I-JX2-2827; [08-07]
     (=>>daikanwa	. 07253)	; &AJ1-17531;
     (=jef-china3	. #x4ABE)	; &I-JC3-4ABE;
@@ -4683,8 +4686,8 @@
       (==jis-x0213-2	  . #x2827)	; &R-AJ1-17531; [08-07]
       (=daikanwa	  . 07253)	; &R-AJ1-17531;
       )
-     ((==ucs@cns	  . #x5BD6)	; &C2-424E;
-      (=cns11643-2	  . #x424E)	; &C2-424E; [34-46]
+     ((==ucs@cns	  . #x5BD6)	; &R-CU+5BD6;
+      (==cns11643-2	  . #x424E)	; &R-CU+5BD6; [34-46]
       ))
     ))
 (define-char
