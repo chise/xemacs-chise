@@ -447,13 +447,14 @@
     (=ucs@jis		. #x5F7D)	; &AJ1-16859;
     (=adobe-japan1-5	. 16859)	; &AJ1-16859;
     (=jis-x0212		. #x3D27)	; &I-JSP-3D27; [29-07]
+    (=cns11643-2	. #x2658)	; &I-C2-2658; [06-56]
     (=jis-x0213-1	. #x743F)	; &I-JX1-743F; [84-31]
     (=>>daikanwa	. 10069)	; &AJ1-16859;
     (->subsumptive
      ((=daikanwa	  . 10069)	; &M-10069;
       )
-     ((==ucs@cns	  . #x5F7D)	; &C2-2658;
-      (=cns11643-2	  . #x2658)	; &C2-2658; [06-56]
+     ((==ucs@cns	  . #x5F7D)	; &R-CU+5F7D;
+      (==cns11643-2	  . #x2658)	; &R-CU+5F7D; [06-56]
       )
      ((=decomposition@cid
        ((=ucs		    . #x5F7D)	; 彽
@@ -1615,12 +1616,13 @@
     (=ucs		. #x5F96)	; 徖
     (=big5		. #xD54F)	; &I-B-D54F;
     (->subsumptive
-     ((=ucs@cns		  . #x5F96)	; &CU+5F96;
+     ((=ucs@cns		  . #x5F96)	; &C2-3533;
+      (=cns11643-2	  . #x3533)	; &C2-3533; [21-19]
       (->subsumptive
        ((=daikanwa	    . 10136)	; &M-10136;
 	)
-       ((==ucs@cns	    . #x5F96)	; &C2-3533;
-	(=cns11643-2	    . #x3533)	; &C2-3533; [21-19]
+       ((==ucs@cns	    . #x5F96)	; &R-CU+5F96;
+	(==cns11643-2	    . #x3533)	; &R-CU+5F96; [21-19]
 	))
       )
      ((=ucs@unicode	  . #x5F96)	; &AJ1-21527;
