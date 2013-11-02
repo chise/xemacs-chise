@@ -11254,6 +11254,7 @@
      ((=ucs@unicode	  . #x63E5)	; &AJ1-16876;
       (=adobe-japan1-5	  . 16876)	; &AJ1-16876;
       (=jis-x0212	  . #x403F)	; &I-JSP-403F; [32-31]
+      (=cns11643-2	  . #x3B79)	; &I-C2-3B79; [27-89]
       (=jis-x0213-1	  . #x7472)	; &I-JX1-7472; [84-82]
       (=hanyo-denshi/jb	  . #x403F)	; &I-HD-JB-403F; [32-31]
       (->subsumptive
@@ -11264,8 +11265,8 @@
 	(==hanyo-denshi/jb  . #x403F)	; &R-AJ1-16876; [32-31]
 	(=daikanwa	    . 12379)	; &R-AJ1-16876;
 	)
-       ((==ucs@unicode	    . #x63E5)	; &C2-3B79;
-	(=cns11643-2	    . #x3B79)	; &C2-3B79; [27-89]
+       ((==ucs@unicode	    . #x63E5)	; &R-UU+63E5;
+	(==cns11643-2	    . #x3B79)	; &R-UU+63E5; [27-89]
 	))
       ))
     ))
@@ -12087,6 +12088,7 @@
       (=ucs@jis		  . #x63F6)	; &AJ1-05007;
       (=adobe-japan1-0	  . 05007)	; &AJ1-05007;
       (=jis-x0208	  . #x5968)	; &I-J90-5968; [57-72]
+      (=cns11643-2	  . #x3C23)	; &I-C2-3C23; [28-03]
       (=jis-x0213-1	  . #x5968)	; &I-JX1-5968; [57-72]
       (=gt		  . 15696)	; &I-GT-15696;
       (=gt-pj-1		  . #x5968)	; &I-GT-15696; [57-72]
@@ -12097,7 +12099,7 @@
 	(==ucs@jis	    . #x63F6)	; &R-AJ1-05007;
 	(==adobe-japan1-0   . 05007)	; &R-AJ1-05007;
 	(==jis-x0208	    . #x5968)	; &R-AJ1-05007; [57-72]
-	(=cns11643-2	    . #x3C23)	; &I-C2-3C23; [28-03]
+	(==cns11643-2	    . #x3C23)	; &R-AJ1-05007; [28-03]
 	(==jis-x0213-1	    . #x5968)	; &R-AJ1-05007; [57-72]
 	(==gt		    . 15696)	; &R-AJ1-05007;
 	(=shinjigen@1ed	    .  3016)	; &R-AJ1-05007;
@@ -13399,12 +13401,13 @@
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=>>ucs@unicode	. #x6424)	; &G-UU+6424;
-    (=ucs@unicode	. #x6424)	; &G-UU+6424;
+    (=>>ucs@unicode	. #x6424)	; &C2-4326;
+    (=ucs@unicode	. #x6424)	; &C2-4326;
+    (=cns11643-2	. #x4326)	; &C2-4326; [35-06]
     (->subsumptive
      ((==ucs@unicode	  . #x6424)	; &R-UU+6424;
       )
-     ((=cns11643-2	  . #x4326)	; &C2-4326; [35-06]
+     ((==cns11643-2	  . #x4326)	; &R-C2-4326; [35-06]
       ))
     ))
 (define-char
@@ -21696,11 +21699,12 @@
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (=>>ucs@cns		. #x64FF)	; &G-CU+64FF;
-    (=ucs@cns		. #x64FF)	; &G-CU+64FF;
+    (=>>ucs@cns		. #x64FF)	; &C2-615D;
+    (=ucs@cns		. #x64FF)	; &C2-615D;
+    (=cns11643-2	. #x615D)	; &C2-615D; [65-61]
     (->subsumptive
-     ((==ucs@cns	  . #x64FF)	; &C2-615D;
-      (=cns11643-2	  . #x615D)	; &C2-615D; [65-61]
+     ((==ucs@cns	  . #x64FF)	; &R-CU+64FF;
+      (==cns11643-2	  . #x615D)	; &R-CU+64FF; [65-61]
       ))
     ))
 (define-char
