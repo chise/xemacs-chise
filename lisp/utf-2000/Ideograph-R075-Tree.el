@@ -23582,6 +23582,7 @@
     (->subsumptive
      ((=ucs@unicode	  . #x6A55)	; &JSP-452E;
       (=jis-x0212	  . #x452E)	; &JSP-452E; [37-14]
+      (=cns11643-2	  . #x5765)	; &I-C2-5765; [55-69]
       (=jef-china3	  . #x54A9)	; &I-JC3-54A9;
       (->subsumptive
        ((=daikanwa	    . 15543)	; &M-15543;
@@ -23591,7 +23592,7 @@
 	)
        ((==ucs@unicode	    . #x6A55)	; &R-UU+6A55;
 	)
-       ((=cns11643-2	    . #x5765)	; &C2-5765; [55-69]
+       ((==cns11643-2	    . #x5765)	; &R-C2-5765; [55-69]
 	))
       )
      ((=adobe-japan1-5	  . 19467)	; &AJ1-19467;
@@ -24179,6 +24180,7 @@
       (=ucs@unicode	  . #x6A66)	; &GT-19987;
       (=jis-x0208	  . #x5C75)	; &GT-19987; [60-85]
       (=iso-ir165	  . #x7C2A)	; &I-EGB-7C2A; [92-10]
+      (=cns11643-2	  . #x574A)	; &I-C2-574A; [55-42]
       (=jis-x0213-1	  . #x5C75)	; &I-JX1-5C75; [60-85]
       (=gt		  . 19987)	; &I-GT-19987;
       (=gt-pj-1		  . #x5C75)	; &I-GT-19987; [60-85]
@@ -24190,9 +24192,9 @@
 	(==gt		    . 19987)	; &R-GT-19987;
 	(=daikanwa	    . 15578)	; &R-GT-19987;
 	)
-       ((==ucs@unicode	    . #x6A66)	; &C2-574A;
-	(==iso-ir165	    . #x7C2A)	; &C2-574A; [92-10]
-	(=cns11643-2	    . #x574A)	; &C2-574A; [55-42]
+       ((==ucs@unicode	    . #x6A66)	; &R-UU+6A66;
+	(==iso-ir165	    . #x7C2A)	; &R-UU+6A66; [92-10]
+	(==cns11643-2	    . #x574A)	; &R-UU+6A66; [55-42]
 	))
       )
      ((=shinjigen	  .  3834)	; &SJG2-3834;
@@ -27543,14 +27545,15 @@
     (ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
-    (=>>ucs@cns		. #x6AB4)	; &G-CU+6AB4;
-    (=ucs@cns		. #x6AB4)	; &G-CU+6AB4;
-    (=>>daikanwa	. 15735)	; &G-CU+6AB4;
+    (=>>ucs@cns		. #x6AB4)	; &C2-6172;
+    (=ucs@cns		. #x6AB4)	; &C2-6172;
+    (=cns11643-2	. #x6172)	; &C2-6172; [65-82]
+    (=>>daikanwa	. 15735)	; &C2-6172;
     (->subsumptive
      ((=daikanwa	  . 15735)	; &M-15735;
       )
-     ((==ucs@cns	  . #x6AB4)	; &C2-6172;
-      (=cns11643-2	  . #x6172)	; &C2-6172; [65-82]
+     ((==ucs@cns	  . #x6AB4)	; &R-CU+6AB4;
+      (==cns11643-2	  . #x6172)	; &R-CU+6AB4; [65-82]
       ))
     ))
 (define-char
