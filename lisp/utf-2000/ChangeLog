@@ -1,5 +1,12 @@
 2013-11-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R140-Grass.el, Ideograph-R124-Feather.el,
+	Ideograph-R119-Rice.el, Ideograph-R113-Spirit.el,
+	Ideograph-R104-Sickness.el, Ideograph-R096-Jade.el,
+	Ideograph-R085-Water.el, Ideograph-R082-Fur.el,
+	Ideograph-R075-Tree.el, Ideograph-R072-Sun.el: Apply new
+	glyph-image conventions for `cns11643-2'.
+
 	* Ideograph-R067-Script.el, Ideograph-R064-Hand.el: Apply new
 	glyph-image conventions for `cns11643-2'.
 
