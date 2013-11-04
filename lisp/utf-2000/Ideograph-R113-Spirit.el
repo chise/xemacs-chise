@@ -1984,13 +1984,14 @@
     (total-strokes	 . 10)
     (=ucs@unicode	. #x795B)	; &HD-IB-2770;
     (=gb2312		. #x6C6E)	; &HD-IB-2770; [76-78]
+    (=cns11643-2	. #x314A)	; &I-C2-314A; [17-42]
     (=hanyo-denshi/ib	. #x2770)	; &I-HD-IB-2770; [07-80]
     (->subsumptive
      ((==hanyo-denshi/ib  . #x2770)	; &R-HD-IB-2770; [07-80]
       )
-     ((==ucs@unicode	  . #x795B)	; &C2-314A;
-      (==gb2312		  . #x6C6E)	; &C2-314A; [76-78]
-      (=cns11643-2	  . #x314A)	; &C2-314A; [17-42]
+     ((==ucs@unicode	  . #x795B)	; &R-UU+795B;
+      (==gb2312		  . #x6C6E)	; &R-UU+795B; [76-78]
+      (==cns11643-2	  . #x314A)	; &R-UU+795B; [17-42]
       ))
     ))
 (define-char
@@ -2025,13 +2026,14 @@
     (total-strokes	 . 10)
     (=ucs@unicode	. #x795C)	; &HD-IB-2771;
     (=gb2312		. #x6C6F)	; &HD-IB-2771; [76-79]
+    (=cns11643-2	. #x314C)	; &I-C2-314C; [17-44]
     (=hanyo-denshi/ib	. #x2771)	; &I-HD-IB-2771; [07-81]
     (->subsumptive
      ((==hanyo-denshi/ib  . #x2771)	; &R-HD-IB-2771; [07-81]
       )
-     ((==ucs@unicode	  . #x795C)	; &C2-314C;
-      (==gb2312		  . #x6C6F)	; &C2-314C; [76-79]
-      (=cns11643-2	  . #x314C)	; &C2-314C; [17-44]
+     ((==ucs@unicode	  . #x795C)	; &R-UU+795C;
+      (==gb2312		  . #x6C6F)	; &R-UU+795C; [76-79]
+      (==cns11643-2	  . #x314C)	; &R-UU+795C; [17-44]
       ))
     ))
 (define-char
@@ -5026,12 +5028,13 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
     (=ucs@unicode	. #x7994)	; &HD-IB-2826;
-    (=hanyo-denshi/ib	. #x2826)	; &HD-IB-2826; [08-06]
+    (=cns11643-2	. #x4C45)	; &HD-IB-2826; [44-37]
+    (=hanyo-denshi/ib	. #x2826)	; &I-HD-IB-2826; [08-06]
     (->subsumptive
      ((==hanyo-denshi/ib  . #x2826)	; &R-HD-IB-2826; [08-06]
       )
-     ((==ucs@unicode	  . #x7994)	; &C2-4C45;
-      (=cns11643-2	  . #x4C45)	; &C2-4C45; [44-37]
+     ((==ucs@unicode	  . #x7994)	; &R-UU+7994;
+      (==cns11643-2	  . #x4C45)	; &R-UU+7994; [44-37]
       ))
     ))
 (define-char
@@ -5191,13 +5194,14 @@
     (total-strokes	 . 14)
     (=ucs@unicode	. #x7998)	; &HD-IB-282A;
     (=iso-ir165		. #x7D3C)	; &HD-IB-282A; [93-28]
+    (=cns11643-2	. #x4C40)	; &I-C2-4C40; [44-32]
     (=hanyo-denshi/ib	. #x282A)	; &I-HD-IB-282A; [08-10]
     (->subsumptive
      ((==hanyo-denshi/ib  . #x282A)	; &R-HD-IB-282A; [08-10]
       )
-     ((==ucs@unicode	  . #x7998)	; &C2-4C40;
-      (==iso-ir165	  . #x7D3C)	; &C2-4C40; [93-28]
-      (=cns11643-2	  . #x4C40)	; &C2-4C40; [44-32]
+     ((==ucs@unicode	  . #x7998)	; &R-UU+7998;
+      (==iso-ir165	  . #x7D3C)	; &R-UU+7998; [93-28]
+      (==cns11643-2	  . #x4C40)	; &R-UU+7998; [44-32]
       ))
     ))
 (define-char
@@ -7350,6 +7354,7 @@
     (=>>jis-x0208@1983	. #x4729)	; &GT-32014; [39-09]
     (=jis-x0208@1990	. #x4729)	; &I-J90-4729; [39-09]
     (=>>jis-x0208@1990	. #x4729)	; &GT-32014; [39-09]
+    (=cns11643-2	. #x662F)	; &I-C2-662F; [70-15]
     (=jis-x0213-1@2000	. #x4729)	; &I-JX1-4729; [39-09]
     (=>>jis-x0213-1@2000 . #x4729)	; &GT-32014; [39-09]
     (=gb12345		. #x6C72)	; &GT-32014; [76-82]
@@ -7371,9 +7376,9 @@
       (==jis-x0213-1@2000 . #x4729)	; &R-GT-32014; [39-09]
       (==gt		  . 32014)	; &R-GT-32014;
       )
-     ((==ucs@unicode	  . #x79B0)	; &C2-662F;
-      (=cns11643-2	  . #x662F)	; &C2-662F; [70-15]
-      (==gb12345	  . #x6C72)	; &C2-662F; [76-82]
+     ((==ucs@unicode	  . #x79B0)	; &R-UU+79B0;
+      (==cns11643-2	  . #x662F)	; &R-UU+79B0; [70-15]
+      (==gb12345	  . #x6C72)	; &R-UU+79B0; [76-82]
       ))
     ))
 (define-char
