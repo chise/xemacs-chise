@@ -4439,13 +4439,14 @@
     (ideographic-radical . 177)	; ⾰
     (ideographic-strokes . 14)
     (total-strokes	 . 23)
-    (=ucs@cns		. #x97C4)	; &CU+97C4;
-    (=>>daikanwa	. 43068)	; &CU+97C4;
+    (=ucs@cns		. #x97C4)	; &C2-6F5D;
+    (=cns11643-2	. #x6F5D)	; &C2-6F5D; [79-61]
+    (=>>daikanwa	. 43068)	; &C2-6F5D;
     (->subsumptive
      ((=daikanwa	  . 43068)	; &M-43068;
       )
-     ((==ucs@cns	  . #x97C4)	; &C2-6F5D;
-      (=cns11643-2	  . #x6F5D)	; &C2-6F5D; [79-61]
+     ((==ucs@cns	  . #x97C4)	; &R-CU+97C4;
+      (==cns11643-2	  . #x6F5D)	; &R-CU+97C4; [79-61]
       ))
     ))
 (define-char
