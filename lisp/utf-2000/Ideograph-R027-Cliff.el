@@ -613,6 +613,7 @@
     (=ucs@jis		. #x538E)	; &AJ1-21239;
     (=adobe-japan1-6	. 21239)	; &AJ1-21239;
     (=jis-x0212		. #x3446)	; &I-JSP-3446; [20-38]
+    (=cns11643-2	. #x2336)	; &I-C2-2336; [03-22]
     (=>>daikanwa	. 02918)	; &AJ1-21239;
     (=jef-china3	. #x45DA)	; &I-JC3-45DA;
     (->subsumptive
@@ -644,8 +645,8 @@
        ((==ucs@cns	    . #x6C10)	; &R-CU+6C10;
 	(==cns11643-1	    . #x4662)	; &R-CU+6C10; [38-66]
 	))
-      (==ucs@cns	  . #x538E)	; &C2-2336;
-      (=cns11643-2	  . #x2336)	; &C2-2336; [03-22]
+      (==ucs@cns	  . #x538E)	; &R-CU+538E;
+      (==cns11643-2	  . #x2336)	; &R-CU+538E; [03-22]
       ))
     ))
 (define-char
@@ -946,9 +947,10 @@
     (->subsumptive
      ((=daikanwa	  . 02935)	; &M-02935;
       (<-ancient
-       ((=ucs@jis	    . #x5E2D)	; &AJ1-02670;
-	(=adobe-japan1-0    . 02670)	; &AJ1-02670;
-	(=daikanwa	    . 08926)	; &I-M-08926;
+       ((==ucs@jis	    . #x5E2D)	; &R-AJ1-02670;
+	(==ucs@ks	    . #x5E2D)	; &R-AJ1-02670;
+	(==adobe-japan1-0   . 02670)	; &R-AJ1-02670;
+	(=daikanwa	    . 08926)	; &R-AJ1-02670;
 	))
       (<-ancient*sources
        zihui daikanwa)
@@ -2546,10 +2548,10 @@
     (=hanziku-1		. #xB3A6)	; &I-HZK01-B3A6;
     (=cbeta		. 00634)	; &I-CB00634;
     (<-vulgar
-     ((=ucs@jis		  . #x5EDA)	; &AJ1-04751;
-      (=adobe-japan1-0	  . 04751)	; &AJ1-04751;
-      (=jis-x0208	  . #x5724)	; &I-J90-5724; [55-04]
-      (=shinjigen	  .  2216)	; &AJ1-04751;
+     ((==ucs@jis	  . #x5EDA)	; &R-AJ1-04751;
+      (==ucs@ks		  . #x5EDA)	; &R-AJ1-04751;
+      (==adobe-japan1-0	  . 04751)	; &R-AJ1-04751;
+      (=shinjigen	  .  2216)	; &R-AJ1-04751;
       ))
     (<-vulgar*sources
      shinjigen)
@@ -3458,11 +3460,11 @@
     (=daikanwa		. 03033)	; &M-03033;
     (=shinjigen		.  2218)	; &M-03033;
     (<-vulgar
-     ((=ucs@jis		  . #x5EDA)	; &AJ1-04751;
-      (=adobe-japan1-0	  . 04751)	; &AJ1-04751;
-      (=jis-x0208	  . #x5724)	; &I-J90-5724; [55-04]
+     ((==ucs@jis	  . #x5EDA)	; &R-AJ1-04751;
+      (==ucs@ks		  . #x5EDA)	; &R-AJ1-04751;
+      (==adobe-japan1-0	  . 04751)	; &R-AJ1-04751;
       (=daikanwa	  . 09479)	; &I-M-09479;
-      (=shinjigen	  .  2216)	; &AJ1-04751;
+      (=shinjigen	  .  2216)	; &R-AJ1-04751;
       ))
     (<-vulgar*sources
      zhengzitong daikanwa shinjigen)
