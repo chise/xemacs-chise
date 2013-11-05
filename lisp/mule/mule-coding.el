@@ -454,6 +454,7 @@
 	  (==ucs@unicode			"R-UU+" 4 X)
 	  (==ucs@cns				"R-CU+" 4 X)
 	  (==cns11643-1				"R-C1-" 4 X)
+	  (==cns11643-2				"R-C2-" 4 X)
 	  ( china3-jef				 "JC3-" 4 X)
 	  ( =big5				   "B-" 4 X)
 	  ( =big5				  "C0-" 4 X)
