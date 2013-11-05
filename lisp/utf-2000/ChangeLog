@@ -1,5 +1,17 @@
 2013-11-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R180-Sound.el: Apply new glyph-image conventions for
+	`cns11643-2'.
+
+2013-11-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R178-Tanned-Leather.el, Ideograph-R177-Leather.el,
+	Ideograph-R172-Short-Tailed-Bird.el, Ideograph-R169-Gate.el,
+	Ideograph-R167-Gold.el, Ideograph-R157-Foot.el,
+	Ideograph-R146-West.el, Ideograph-R053-Dotted-Cliff.el,
+	Ideograph-R050-Turban.el, Ideograph-R027-Cliff.el: Apply new
+	glyph-image conventions for `cns11643-2'.
+
 	* Ideograph-R140-Grass.el, Ideograph-R124-Feather.el,
 	Ideograph-R119-Rice.el, Ideograph-R113-Spirit.el,
 	Ideograph-R104-Sickness.el, Ideograph-R096-Jade.el,
