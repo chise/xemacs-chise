@@ -2144,11 +2144,12 @@
     (->subsumptive
      ((=daikanwa	  . 41338)	; &M-41338;
       )
-     ((=ucs@unicode	  . #x95AE)	; &UU+95AE;
+     ((=ucs@unicode	  . #x95AE)	; &C2-5551;
+      (=cns11643-2	  . #x5551)	; &C2-5551; [53-49]
       (->subsumptive
        ((==ucs@unicode	    . #x95AE)	; &R-UU+95AE;
 	)
-       ((=cns11643-2	    . #x5551)	; &C2-5551; [53-49]
+       ((==cns11643-2	    . #x5551)	; &R-C2-5551; [53-49]
 	))
       ))
     ))
