@@ -965,14 +965,15 @@
     (ideographic-radical . 180)	; ⾳
     (ideographic-strokes . 14)
     (total-strokes	 . 23)
-    (=>>ucs@cns		. #x9800)	; &G-CU+9800;
-    (=ucs@cns		. #x9800)	; &G-CU+9800;
-    (=>>daikanwa	. 43327)	; &G-CU+9800;
+    (=>>ucs@cns		. #x9800)	; &C2-6F5F;
+    (=ucs@cns		. #x9800)	; &C2-6F5F;
+    (=cns11643-2	. #x6F5F)	; &C2-6F5F; [79-63]
+    (=>>daikanwa	. 43327)	; &C2-6F5F;
     (->subsumptive
      ((=daikanwa	  . 43327)	; &M-43327;
       )
-     ((==ucs@cns	  . #x9800)	; &C2-6F5F;
-      (=cns11643-2	  . #x6F5F)	; &C2-6F5F; [79-63]
+     ((==ucs@cns	  . #x9800)	; &R-CU+9800;
+      (==cns11643-2	  . #x6F5F)	; &R-CU+9800; [79-63]
       ))
     ))
 (define-char
