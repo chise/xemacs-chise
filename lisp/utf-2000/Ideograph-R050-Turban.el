@@ -449,6 +449,7 @@
     (=>>ucs@unicode	. #x3836)	; &AJ1-17589;
     (=ucs@unicode	. #x3836)	; &AJ1-17589;
     (=adobe-japan1-5	. 17589)	; &AJ1-17589;
+    (=cns11643-3	. #x235D)	; &I-C3-235D; [03-61]
     (=jis-x0213-2	. #x2871)	; &I-JX2-2871; [08-81]
     (=hanyo-denshi/jd	. #x2871)	; &I-HD-JD-2871; [08-81]
     (->subsumptive
@@ -465,8 +466,8 @@
       )
      ((==ucs@unicode	  . #x3836)	; &R-UU+3836;
       )
-     ((==ucs@cns	  . #x3836)	; &C3-235D;
-      (=cns11643-3	  . #x235D)	; &C3-235D; [03-61]
+     ((==ucs@cns	  . #x3836)	; &R-CU+3836;
+      (==cns11643-3	  . #x235D)	; &R-CU+3836; [03-61]
       ))
     ))
 (define-char
