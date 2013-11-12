@@ -507,7 +507,8 @@
 	(=cns11643-1	    . #x4721)	; &I-C1-4721; [39-01]
 	(=jis-x0213-1	    . #x4E29)	; &I-JX1-4E29; [46-09]
 	))
-      (=ucs@unicode	  . #x3790)	; &UU+3790;
+      (=ucs@unicode	  . #x3790)	; &C3-2852;
+      (=cns11643-3	  . #x2852)	; &C3-2852; [08-50]
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -531,8 +532,8 @@
 	  )
 	 ((==ucs@unicode      . #x7ACB)	; &R-UU+7ACB;
 	  ))
-	(==ucs@unicode	    . #x3790)	; &C3-2852;
-	(=cns11643-3	    . #x2852)	; &C3-2852; [08-50]
+	(==ucs@unicode	    . #x3790)	; &R-UU+3790;
+	(==cns11643-3	    . #x2852)	; &R-UU+3790; [08-50]
 	))
       ))
     ))
