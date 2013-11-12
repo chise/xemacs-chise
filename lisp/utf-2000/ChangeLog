@@ -1,3 +1,11 @@
+2013-11-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el, Ideograph-R058-Snout.el,
+	Ideograph-R055-Two-Hands.el, Ideograph-R050-Turban.el,
+	Ideograph-R044-Corpse.el, Ideograph-R040-Roof.el,
+	Ideograph-R039-Child.el, Ideograph-R008-Lid.el: Apply new
+	glyph-image conventions for `cns11643-3'.
+
 2013-11-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R086-Fire.el: Apply new glyph-image conventions for
