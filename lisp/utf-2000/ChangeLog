@@ -1,3 +1,8 @@
+2013-11-11  MORIOKA Tomohiko  <tomo@hugtlang.local>
+
+	* Ideograph-R085-Water.el, Ideograph-R075-Tree.el: Apply new
+	glyph-image conventions for `cns11643-3'.
+
 2013-11-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el, Ideograph-R058-Snout.el,
