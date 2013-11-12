@@ -8621,6 +8621,7 @@
       (=ucs@unicode	  . #x689A)	; &AJ1-17807;
       (=adobe-japan1-5	  . 17807)	; &AJ1-17807;
       (=jis-x0212	  . #x4371)	; &I-JSP-4371; [35-81]
+      (=cns11643-3	  . #x3650)	; &I-C3-3650; [22-48]
       (=jis-x0213-2	  . #x2E70)	; &I-JX2-2E70; [14-80]
       (=jef-china3	  . #x53D5)	; &I-JC3-53D5;
       (->subsumptive
@@ -8647,9 +8648,9 @@
 	  )
 	 ((==ucs@unicode      . #x514D)	; &R-UU+514D;
 	  ))
-	(==ucs@unicode	    . #x689A)	; &C3-3650;
-	(=cns11643-3	    . #x3650)	; &C3-3650; [22-48]
-	(=hanziku-3	    . #xF8BE)	; &I-HZK03-F8BE;
+	(==ucs@unicode	    . #x689A)	; &CB01532;
+	(==cns11643-3	    . #x3650)	; &CB01532; [22-48]
+	(=hanziku-3	    . #xF8BE)	; &CB01532;
 	(=cbeta		    . 01532)	; &I-CB01532;
 	))
       ))
@@ -10974,6 +10975,7 @@
     (=>>ucs@unicode	. #x68ED)	; &JX1-756C;
     (=ucs@unicode	. #x68ED)	; &JX1-756C;
     (=jis-x0212		. #x442D)	; &JX1-756C; [36-13]
+    (=cns11643-3	. #x3C2A)	; &I-C3-3C2A; [28-10]
     (=jis-x0213-1	. #x756C)	; &I-JX1-756C; [85-76]
     (=>>cbeta		. 00790)	; &JX1-756C;
     (=jef-china3	. #x53DF)	; &I-JC3-53DF;
@@ -11002,9 +11004,9 @@
 	)
        ((==ucs@unicode	    . #x591C)	; &R-UU+591C;
 	))
-      (==ucs@unicode	  . #x68ED)	; &C3-3C2A;
-      (=cns11643-3	  . #x3C2A)	; &C3-3C2A; [28-10]
-      (=hanziku-4	  . #xA6BC)	; &I-HZK04-A6BC;
+      (==ucs@unicode	  . #x68ED)	; &HZK04-A6BC;
+      (==cns11643-3	  . #x3C2A)	; &HZK04-A6BC; [28-10]
+      (=hanziku-4	  . #xA6BC)	; &HZK04-A6BC;
       ))
     ))
 (define-char
@@ -23641,14 +23643,15 @@
     (ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (=>>ucs@cns		. #x3BDC)	; &G-CU+3BDC;
-    (=ucs@cns		. #x3BDC)	; &G-CU+3BDC;
-    (=>>daikanwa	. 15547)	; &G-CU+3BDC;
+    (=>>ucs@cns		. #x3BDC)	; &C3-513D;
+    (=ucs@cns		. #x3BDC)	; &C3-513D;
+    (=cns11643-3	. #x513D)	; &C3-513D; [49-29]
+    (=>>daikanwa	. 15547)	; &C3-513D;
     (->subsumptive
      ((=daikanwa	  . 15547)	; &M-15547;
       )
-     ((==ucs@cns	  . #x3BDC)	; &C3-513D;
-      (=cns11643-3	  . #x513D)	; &C3-513D; [49-29]
+     ((==ucs@cns	  . #x3BDC)	; &R-CU+3BDC;
+      (==cns11643-3	  . #x513D)	; &R-CU+3BDC; [49-29]
       ))
     ))
 (define-char
