@@ -1980,13 +1980,14 @@
 	))
       (=daikanwa	  . 00311)	; &M-00311;
       )
-     ((=ucs@cns		  . #x4EB2)	; &CU+4EB2;
-      (=jef-china3	  . #x81D2)	; &CU+4EB2;
+     ((=ucs@cns		  . #x4EB2)	; &C3-2B24;
+      (=cns11643-3	  . #x2B24)	; &C3-2B24; [11-04]
+      (=jef-china3	  . #x81D2)	; &I-JC3-81D2;
       (->subsumptive
        ((=big5-cdp	    . #x8BA7)	; &CDP-8BA7;
 	)
-       ((==ucs@cns	    . #x4EB2)	; &C3-2B24;
-	(=cns11643-3	    . #x2B24)	; &C3-2B24; [11-04]
+       ((==ucs@cns	    . #x4EB2)	; &R-CU+4EB2;
+	(==cns11643-3	    . #x2B24)	; &R-CU+4EB2; [11-04]
 	))
       )
      ((ideographic-structure
