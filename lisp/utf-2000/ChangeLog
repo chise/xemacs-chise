@@ -1,4 +1,15 @@
-2013-11-11  MORIOKA Tomohiko  <tomo@hugtlang.local>
+2013-11-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R102-Field.el, Ideograph-R098-Tile.el,
+	Ideograph-R094-Dog.el, Ideograph-R072-Sun.el,
+	Ideograph-R064-Hand.el, Ideograph-R046-Mountain.el,
+	Ideograph-R032-Earth.el, Ideograph-R031-Enclosure.el,
+	Ideograph-R030-Mouth.el, Ideograph-R019-Power.el,
+	Ideograph-R018-Knife.el, Ideograph-R015-Ice.el,
+	Ideograph-R009-Man.el: Apply new glyph-image conventions for
+	`cns11643-3'.
+
+2013-11-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R085-Water.el, Ideograph-R075-Tree.el: Apply new
 	glyph-image conventions for `cns11643-3'.
