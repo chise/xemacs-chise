@@ -17069,8 +17069,7 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((==ucs@unicode	    . #x5485)	; &C3-276C;
-	(=cns11643-3	    . #x276C)	; &C3-276C; [07-76]
+       ((==ucs@unicode	    . #x5485)	; &R-UU+5485;
 	))
       (==ucs@unicode	  . #x500D)	; &R-UU+500D;
       (==gb2312		  . #x3136)	; &R-UU+500D; [17-22]
@@ -22080,6 +22079,7 @@
       (=ucs@unicode	  . #x5059)	; &AJ1-21136;
       (=adobe-japan1-6	  . 21136)	; &AJ1-21136;
       (=jis-x0212	  . #x316B)	; &I-JSP-316B; [17-75]
+      (=cns11643-3	  . #x343D)	; &I-C3-343D; [20-29]
       (=jef-china3	  . #x42ED)	; &I-JC3-42ED;
       (->subsumptive
        ((=decomposition@cid
@@ -22114,9 +22114,9 @@
 	  )
 	 ((==ucs@unicode      . #x5E1D)	; &R-UU+5E1D;
 	  ))
-	(==ucs@unicode	    . #x5059)	; &C3-343D;
-	(=cns11643-3	    . #x343D)	; &C3-343D; [20-29]
-	(=hanziku-1	    . #xCE60)	; &I-HZK01-CE60;
+	(==ucs@unicode	    . #x5059)	; &HZK01-CE60;
+	(==cns11643-3	    . #x343D)	; &HZK01-CE60; [20-29]
+	(=hanziku-1	    . #xCE60)	; &HZK01-CE60;
 	))
       ))
     ))
@@ -25116,6 +25116,7 @@
       (=ucs@jis		  . #x5081)	; &AJ1-21141;
       (=adobe-japan1-6	  . 21141)	; &AJ1-21141;
       (=jis-x0212	  . #x3177)	; &I-JSP-3177; [17-87]
+      (=cns11643-3	  . #x3975)	; &I-C3-3975; [25-85]
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x5081)	; 傁
@@ -25147,8 +25148,8 @@
 	 ((==ucs@cns	      . #x53DF)	; &R-CU+53DF;
 	  (==cns11643-1	      . #x5451)	; &R-CU+53DF; [52-49]
 	  ))
-	(==ucs@cns	    . #x5081)	; &C3-3975;
-	(=cns11643-3	    . #x3975)	; &C3-3975; [25-85]
+	(==ucs@cns	    . #x5081)	; &R-CU+5081;
+	(==cns11643-3	    . #x3975)	; &R-CU+5081; [25-85]
 	))
       ))
     ))
@@ -26500,6 +26501,7 @@
     (=ucs@unicode	. #x508F)	; &AJ1-14337;
     (=adobe-japan1-4	. 14337)	; &AJ1-14337;
     (=jis-x0212		. #x317D)	; &I-JSP-317D; [17-93]
+    (=cns11643-3	. #x396F)	; &I-C3-396F; [25-79]
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x508F)	; 傏
@@ -26532,9 +26534,9 @@
 	)
        ((==ucs@unicode	    . #x5510)	; &R-UU+5510;
 	))
-      (==ucs@unicode	  . #x508F)	; &C3-396F;
-      (=cns11643-3	  . #x396F)	; &C3-396F; [25-79]
-      (=hanziku-1	  . #xD0A1)	; &I-HZK01-D0A1;
+      (==ucs@unicode	  . #x508F)	; &HZK01-D0A1;
+      (==cns11643-3	  . #x396F)	; &HZK01-D0A1; [25-79]
+      (=hanziku-1	  . #xD0A1)	; &HZK01-D0A1;
       ))
     ))
 (define-char
@@ -29787,8 +29789,7 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@cns		  . #x2F88D)	; &HD-KS-106260;
-      (=hanyo-denshi/ks	  . 106260)	; 庶
+     ((=ucs		  . #x2F88D)	; 庶
       ))
     (=cbeta		. 02101)	; &CB02101;
     ))
@@ -40613,6 +40614,7 @@
       (=cns11643-1	  . #x6A5A)	; &I-C1-6A5A; [74-58]
       ))
     (=ucs@unicode	. #x511B)	; &HD-KS-014330;
+    (=cns11643-3	. #x5035)	; &HD-KS-014330; [48-21]
     (=hanyo-denshi/ks	. 014330)	; &HD-KS-014330;
     (->subsumptive
      ((hanyu-dazidian	  1 231 3)
@@ -40657,8 +40659,8 @@
 	)
        ((==cns11643-1	    . #x6A5A)	; &R-C1-6A5A; [74-58]
 	))
-      (==ucs@cns	  . #x511B)	; &C3-5035;
-      (=cns11643-3	  . #x5035)	; &C3-5035; [48-21]
+      (==ucs@cns	  . #x511B)	; &R-CU+511B;
+      (==cns11643-3	  . #x5035)	; &R-CU+511B; [48-21]
       ))
     ))
 (define-char
@@ -41413,8 +41415,9 @@
      ((=ucs@unicode	  . #x5DB2)	; &AJ1-15405;
       (=adobe-japan1-4	  . 15405)	; &AJ1-15405;
       ))
-    (=ucs@unicode	. #x349E)	; &UU+349E;
-    (=>>daikanwa	. 01252)	; &UU+349E;
+    (=ucs@unicode	. #x349E)	; &C3-5753;
+    (=cns11643-3	. #x5753)	; &C3-5753; [55-51]
+    (=>>daikanwa	. 01252)	; &C3-5753;
     (->subsumptive
      ((ideographic-strokes . 15)
       (total-strokes	   . 17)
@@ -41443,9 +41446,9 @@
 	)
        ((==ucs@unicode	    . #x5DB2)	; &R-UU+5DB2;
 	))
-      (==ucs@unicode	  . #x349E)	; &C3-5753;
-      (=cns11643-3	  . #x5753)	; &C3-5753; [55-51]
-      (=hanziku-1	  . #xD6B3)	; &I-HZK01-D6B3;
+      (==ucs@unicode	  . #x349E)	; &HZK01-D6B3;
+      (==cns11643-3	  . #x5753)	; &HZK01-D6B3; [55-51]
+      (=hanziku-1	  . #xD6B3)	; &HZK01-D6B3;
       ))
     ))
 (define-char
