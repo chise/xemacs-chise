@@ -2629,6 +2629,7 @@
     (=ucs@unicode	. #x52CF)	; &AJ1-21211;
     (=adobe-japan1-6	. 21211)	; &AJ1-21211;
     (=jis-x0212		. #x336A)	; &I-JSP-336A; [19-74]
+    (=cns11643-3	. #x2F6A)	; &I-C3-2F6A; [15-74]
     (=jef-china3	. #x44E9)	; &I-JC3-44E9;
     (->subsumptive
      ((=decomposition@cid
@@ -2655,14 +2656,13 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@unicode	    . #x5485)	; &C3-276C;
-	(=cns11643-3	    . #x276C)	; &C3-276C; [07-76]
+       ((==ucs@unicode	    . #x5485)	; &R-UU+5485;
 	)
        ((=ucs		    . #x529B)	; 力
 	))
-      (==ucs@unicode	  . #x52CF)	; &C3-2F6A;
-      (=cns11643-3	  . #x2F6A)	; &C3-2F6A; [15-74]
-      (=hanziku-1	  . #xF2CF)	; &I-HZK01-F2CF;
+      (==ucs@unicode	  . #x52CF)	; &HZK01-F2CF;
+      (==cns11643-3	  . #x2F6A)	; &HZK01-F2CF; [15-74]
+      (=hanziku-1	  . #xF2CF)	; &HZK01-F2CF;
       ))
     ))
 (define-char
@@ -4993,12 +4993,13 @@
       ))
     (=ucs		. #x52ED)	; 勭
     (->subsumptive
-     ((=ucs@unicode	  . #x52ED)	; &UU+52ED;
+     ((=ucs@unicode	  . #x52ED)	; &C3-457E;
+      (=cns11643-3	  . #x457E)	; &C3-457E; [37-94]
       (->subsumptive
        ((=daikanwa	    . 02447)	; &M-02447;
 	)
-       ((==ucs@unicode	    . #x52ED)	; &C3-457E;
-	(=cns11643-3	    . #x457E)	; &C3-457E; [37-94]
+       ((==ucs@unicode	    . #x52ED)	; &R-UU+52ED;
+	(==cns11643-3	    . #x457E)	; &R-UU+52ED; [37-94]
 	))
       )
      ((hanyu-dazidian	  1 381 2)
