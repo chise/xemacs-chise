@@ -1308,6 +1308,7 @@
     (=ucs@unicode	. #x51C2)	; &AJ1-21185;
     (=adobe-japan1-6	. 21185)	; &AJ1-21185;
     (=jis-x0212		. #x327E)	; &I-JSP-327E; [18-94]
+    (=cns11643-3	. #x2B3D)	; &I-C3-2B3D; [11-29]
     (=jef-china3	. #x43F9)	; &I-JC3-43F9;
     (->subsumptive
      ((==ucs@jis	  . #x51C2)	; &R-JSP-327E;
@@ -1330,8 +1331,8 @@
 	))
       (==ucs@unicode	  . #x51C2)	; &R-AJ1-21185;
       (==adobe-japan1-6	  . 21185)	; &R-AJ1-21185;
-      (=cns11643-3	  . #x2B3D)	; &R-AJ1-21185; [11-29]
-      (=hanziku-1	  . #xE3BE)	; &I-HZK01-E3BE;
+      (==cns11643-3	  . #x2B3D)	; &R-AJ1-21185; [11-29]
+      (=hanziku-1	  . #xE3BE)	; &R-AJ1-21185;
       ))
     ))
 (define-char
@@ -1735,6 +1736,7 @@
       (=jis-x0208	  . #x515A)	; &I-J90-515A; [49-58]
       (=gb2312		  . #x4139)	; &I-G0-4139; [33-25]
       (=ks-x1001	  . #x5558)	; &I-K0-5558; [53-56]
+      (=cns11643-3	  . #x2F5F)	; &I-C3-2F5F; [15-63]
       (=jis-x0213-1	  . #x515A)	; &I-JX1-515A; [49-58]
       (=gt		  . 02201)	; &I-GT-02201;
       (=gt-pj-1		  . #x515A)	; &I-GT-02201; [49-58]
@@ -1783,10 +1785,10 @@
 	  )
 	 ((==ucs@unicode      . #x4EAC)	; &R-UU+4EAC;
 	  ))
-	(==ucs@unicode	    . #x51C9)	; &C3-2F5F;
-	(==gb2312	    . #x4139)	; &C3-2F5F; [33-25]
-	(=cns11643-3	    . #x2F5F)	; &C3-2F5F; [15-63]
-	(=hanziku-1	    . #xE3BF)	; &I-HZK01-E3BF;
+	(==ucs@unicode	    . #x51C9)	; &HZK01-E3BF;
+	(==gb2312	    . #x4139)	; &HZK01-E3BF; [33-25]
+	(==cns11643-3	    . #x2F5F)	; &HZK01-E3BF; [15-63]
+	(=hanziku-1	    . #xE3BF)	; &HZK01-E3BF;
 	))
       ))
     ))
@@ -3266,12 +3268,14 @@
 	)
        ((=ucs		    . #x51AB)	; 冫
 	)
-       ((=ucs@cns	    . #x7980)	; &CU+7980;
+       ((=ucs@cns	    . #x7980)	; &C3-433D;
+	(=cns11643-3	    . #x433D)	; &C3-433D; [35-29]
 	))
       (=ucs@cns		  . #x51DB)	; &AJ1-13522;
       (=adobe-japan1-4	  . 13522)	; &AJ1-13522;
       (=jis-x0208@1978	  . #x515B)	; &I-J78-515B; [49-59]
       (=jis-x0208@1983	  . #x515B)	; &I-J83-515B; [49-59]
+      (=cns11643-3	  . #x4B30)	; &I-C3-4B30; [43-16]
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x51DB)	; 凛
@@ -3305,11 +3309,11 @@
 	  )
 	 ((=ucs		      . #x51AB)	; 冫
 	  )
-	 ((==ucs@cns	      . #x7980)	; &C3-433D;
-	  (=cns11643-3	      . #x433D)	; &C3-433D; [35-29]
+	 ((==ucs@cns	      . #x7980)	; &R-CU+7980;
+	  (==cns11643-3	      . #x433D)	; &R-CU+7980; [35-29]
 	  ))
-	(==ucs@cns	    . #x51DB)	; &C3-4B30;
-	(=cns11643-3	    . #x4B30)	; &C3-4B30; [43-16]
+	(==ucs@cns	    . #x51DB)	; &R-CU+51DB;
+	(==cns11643-3	    . #x4B30)	; &R-CU+51DB; [43-16]
 	))
       )
      ((ideographic-structure
