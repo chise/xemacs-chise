@@ -1587,6 +1587,7 @@
     (total-strokes	 . 11)
     (=ucs@unicode	. #x7561)	; &JSP-4D3A;
     (=jis-x0212		. #x4D3A)	; &JSP-4D3A; [45-26]
+    (=cns11643-3	. #x3746)	; &I-C3-3746; [23-38]
     (->subsumptive
      ((==ucs@jis	  . #x7561)	; &R-JSP-4D3A;
       (==jis-x0212	  . #x4D3A)	; &R-JSP-4D3A; [45-26]
@@ -1607,8 +1608,8 @@
       (<-same*sources
        jiyun daikanwa)
       )
-     ((==ucs@cns	  . #x7561)	; &C3-3746;
-      (=cns11643-3	  . #x3746)	; &C3-3746; [23-38]
+     ((==ucs@cns	  . #x7561)	; &R-CU+7561;
+      (==cns11643-3	  . #x3746)	; &R-CU+7561; [23-38]
       )
      ((==ucs@unicode	  . #x7561)	; &R-UU+7561;
       ))
