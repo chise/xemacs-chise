@@ -3637,12 +3637,13 @@
 	(==jis-x0212	    . #x4B2E)	; &R-AJ1-08547; [43-14]
 	))
       )
-     ((=ucs@unicode	  . #x7324)	; &UU+7324;
-      (=jef-china3	  . #x58ED)	; &UU+7324;
+     ((=ucs@unicode	  . #x7324)	; &C3-3D27;
+      (=cns11643-3	  . #x3D27)	; &C3-3D27; [29-07]
+      (=jef-china3	  . #x58ED)	; &I-JC3-58ED;
       (->subsumptive
        ((==ucs@unicode	    . #x7324)	; &R-UU+7324;
 	)
-       ((=cns11643-3	    . #x3D27)	; &C3-3D27; [29-07]
+       ((==cns11643-3	    . #x3D27)	; &R-C3-3D27; [29-07]
 	))
       ))
     ))
