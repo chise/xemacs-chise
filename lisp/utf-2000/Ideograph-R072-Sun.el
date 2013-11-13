@@ -2753,8 +2753,9 @@
        ((=ucs@unicode	    . #x4EA4)	; &AJ1-01958;
 	(=adobe-japan1-0    . 01958)	; &AJ1-01958;
 	))
-      (=ucs@unicode	  . #x6648)	; &UU+6648;
-      (=jef-china3	  . #x51D0)	; &UU+6648;
+      (=ucs@unicode	  . #x6648)	; &C3-3149;
+      (=cns11643-3	  . #x3149)	; &C3-3149; [17-41]
+      (=jef-china3	  . #x51D0)	; &I-JC3-51D0;
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -2764,8 +2765,8 @@
 	  )
 	 ((==ucs@unicode      . #x4EA4)	; &R-UU+4EA4;
 	  ))
-	(==ucs@unicode	    . #x6648)	; &C3-3149;
-	(=cns11643-3	    . #x3149)	; &C3-3149; [17-41]
+	(==ucs@unicode	    . #x6648)	; &R-UU+6648;
+	(==cns11643-3	    . #x3149)	; &R-UU+6648; [17-41]
 	))
       ))
     ))
@@ -6164,8 +6165,9 @@
     (=ucs@unicode	. #x66A4)	; &AJ1-14610;
     (=adobe-japan1-4	. 14610)	; &AJ1-14610;
     (=jis-x0212		. #x4258)	; &I-JSP-4258; [34-56]
+    (=cns11643-3	. #x4739)	; &I-C3-4739; [39-25]
     (->subsumptive
-     ((=cns11643-3	  . #x4739)	; &C3-4739; [39-25]
+     ((==cns11643-3	  . #x4739)	; &R-C3-4739; [39-25]
       )
      ((==ucs@unicode	  . #x66A4)	; &R-AJ1-14610;
       (==adobe-japan1-4	  . 14610)	; &R-AJ1-14610;
