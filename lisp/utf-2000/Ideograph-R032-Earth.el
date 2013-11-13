@@ -12092,6 +12092,7 @@
     (=ucs@unicode	. #x588C)	; &AJ1-21359;
     (=adobe-japan1-6	. 21359)	; &AJ1-21359;
     (=jis-x0212		. #x3841)	; &I-JSP-3841; [24-33]
+    (=cns11643-3	. #x463A)	; &I-C3-463A; [38-26]
     (=jef-china3	. #x48B7)	; &I-JC3-48B7;
     (->subsumptive
      ((=decomposition@cid
@@ -12123,9 +12124,9 @@
 	)
        ((==ucs@unicode	    . #x5EB6)	; &R-UU+5EB6;
 	))
-      (==ucs@unicode	  . #x588C)	; &C3-463A;
-      (=cns11643-3	  . #x463A)	; &C3-463A; [38-26]
-      (=hanziku-2	  . #xB2F9)	; &I-HZK02-B2F9;
+      (==ucs@unicode	  . #x588C)	; &HZK02-B2F9;
+      (==cns11643-3	  . #x463A)	; &HZK02-B2F9; [38-26]
+      (=hanziku-2	  . #xB2F9)	; &HZK02-B2F9;
       ))
     ))
 (define-char
@@ -12141,8 +12142,7 @@
       )
      ((=gt-k		  . 00199)	; &GT-K00199;
       )
-     ((=ucs@cns		  . #x2F88D)	; &HD-KS-106260;
-      (=hanyo-denshi/ks	  . 106260)	; 庶
+     ((=ucs		  . #x2F88D)	; 庶
       ))
     (=cbeta		. 01838)	; &CB01838;
     ))
