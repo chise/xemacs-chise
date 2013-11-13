@@ -1015,11 +1015,12 @@
       ))
     (ideographic-radical . 98)	; ⽡
     (ideographic-strokes . 8)
-    (=>>ucs@unicode	. #x7501)	; &G-UU+7501;
-    (=ucs@unicode	. #x7501)	; &G-UU+7501;
+    (=>>ucs@unicode	. #x7501)	; &C3-4277;
+    (=ucs@unicode	. #x7501)	; &C3-4277;
+    (=cns11643-3	. #x4277)	; &C3-4277; [34-87]
     (->subsumptive
      ((total-strokes	   . 13)
-      (=cns11643-3	  . #x4277)	; &C3-4277; [34-87]
+      (==cns11643-3	  . #x4277)	; &R-C3-4277; [34-87]
       )
      ((total-strokes	   . 12)
       (==ucs@unicode	  . #x7501)	; &R-UU+7501;
