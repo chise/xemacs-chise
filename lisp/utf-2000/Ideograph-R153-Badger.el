@@ -2085,6 +2085,7 @@
     (=ucs@cns		. #x8C9B)	; &HD-JB-5F27;
     (=ucs@jis/1990	. #x8C9B)	; &HD-JB-5F27;
     (=jis-x0212		. #x5F27)	; &HD-JB-5F27; [63-07]
+    (=cns11643-3	. #x614D)	; &I-C3-614D; [65-45]
     (=hanyo-denshi/jb	. #x5F27)	; &I-HD-JB-5F27; [63-07]
     (=>>daikanwa	. 36653)	; &HD-JB-5F27;
     (->subsumptive
@@ -2093,8 +2094,8 @@
       (==hanyo-denshi/jb  . #x5F27)	; &R-HD-JB-5F27; [63-07]
       (=daikanwa	  . 36653)	; &R-HD-JB-5F27;
       )
-     ((==ucs@cns	  . #x8C9B)	; &C3-614D;
-      (=cns11643-3	  . #x614D)	; &C3-614D; [65-45]
+     ((==ucs@cns	  . #x8C9B)	; &R-CU+8C9B;
+      (==cns11643-3	  . #x614D)	; &R-CU+8C9B; [65-45]
       ))
     ))
 (define-char
