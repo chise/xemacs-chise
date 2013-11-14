@@ -395,6 +395,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==big5-cdp
 	  ==cns11643-1
 	  ==cns11643-2
+	  ==cns11643-3
 	  ==jis-x0208@1983
 	  ==jis-x0208@1978
 	  ==jis-x0213-1@2000
