@@ -6460,14 +6460,15 @@
     (ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
-    (=>>ucs@cns		. #x42EF)	; &G-CU+42EF;
-    (=ucs@cns		. #x42EF)	; &G-CU+42EF;
-    (=>>daikanwa	. 27570)	; &G-CU+42EF;
+    (=>>ucs@cns		. #x42EF)	; &C3-4875;
+    (=ucs@cns		. #x42EF)	; &C3-4875;
+    (=cns11643-3	. #x4875)	; &C3-4875; [40-85]
+    (=>>daikanwa	. 27570)	; &C3-4875;
     (->subsumptive
      ((=daikanwa	  . 27570)	; &M-27570;
       )
-     ((==ucs@cns	  . #x42EF)	; &C3-4875;
-      (=cns11643-3	  . #x4875)	; &C3-4875; [40-85]
+     ((==ucs@cns	  . #x42EF)	; &R-CU+42EF;
+      (==cns11643-3	  . #x4875)	; &R-CU+42EF; [40-85]
       ))
     ))
 (define-char
