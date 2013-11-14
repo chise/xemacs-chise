@@ -2391,11 +2391,12 @@
     (->subsumptive
      ((=daikanwa	  . 41354)	; &M-41354;
       )
-     ((=ucs@unicode	  . #x499F)	; &UU+499F;
+     ((=ucs@unicode	  . #x499F)	; &C3-4F57;
+      (=cns11643-3	  . #x4F57)	; &C3-4F57; [47-55]
       (->subsumptive
        ((==ucs@unicode	    . #x499F)	; &R-UU+499F;
 	)
-       ((=cns11643-3	    . #x4F57)	; &C3-4F57; [47-55]
+       ((==cns11643-3	    . #x4F57)	; &R-C3-4F57; [47-55]
 	))
       ))
     ))
