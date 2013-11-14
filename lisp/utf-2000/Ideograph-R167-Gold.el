@@ -16461,12 +16461,13 @@
     (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 21)
     (total-strokes	 . 29)
-    (=ucs@cns		. #x9484)	; &CU+9484;
+    (=ucs@cns		. #x9484)	; &C3-6236;
+    (=cns11643-3	. #x6236)	; &C3-6236; [66-22]
     (->subsumptive
      ((=daikanwa	  . 49830)	; &M-49830;
       )
-     ((==ucs@cns	  . #x9484)	; &C3-6236;
-      (=cns11643-3	  . #x6236)	; &C3-6236; [66-22]
+     ((==ucs@cns	  . #x9484)	; &R-CU+9484;
+      (==cns11643-3	  . #x6236)	; &R-CU+9484; [66-22]
       ))
     ))
 (define-char
