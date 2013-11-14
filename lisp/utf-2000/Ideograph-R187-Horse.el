@@ -4625,14 +4625,15 @@
     (ideographic-radical . 187)	; ⾺
     (ideographic-strokes . 10)
     (total-strokes	 . 20)
-    (=>>ucs@cns		. #x4BA5)	; &G-CU+4BA5;
-    (=ucs@cns		. #x4BA5)	; &G-CU+4BA5;
-    (=>>daikanwa	. 44905)	; &G-CU+4BA5;
+    (=>>ucs@cns		. #x4BA5)	; &C3-5D5D;
+    (=ucs@cns		. #x4BA5)	; &C3-5D5D;
+    (=cns11643-3	. #x5D5D)	; &C3-5D5D; [61-61]
+    (=>>daikanwa	. 44905)	; &C3-5D5D;
     (->subsumptive
      ((=daikanwa	  . 44905)	; &M-44905;
       )
-     ((==ucs@cns	  . #x4BA5)	; &C3-5D5D;
-      (=cns11643-3	  . #x5D5D)	; &C3-5D5D; [61-61]
+     ((==ucs@cns	  . #x4BA5)	; &R-CU+4BA5;
+      (==cns11643-3	  . #x5D5D)	; &R-CU+4BA5; [61-61]
       ))
     ))
 (define-char
