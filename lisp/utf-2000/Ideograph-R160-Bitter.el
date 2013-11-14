@@ -270,6 +270,7 @@
     (=ucs@unicode	. #x8F9E)	; &GT-51568;
     (=jis-x0208		. #x3C2D)	; &GT-51568; [28-13]
     (=gb2312		. #x3447)	; &I-G0-3447; [20-39]
+    (=cns11643-3	. #x4477)	; &I-C3-4477; [36-87]
     (=jis-x0213-1	. #x3C2D)	; &I-JX1-3C2D; [28-13]
     (=gt		. 51568)	; &I-GT-51568;
     (=gt-pj-1		. #x3C2D)	; &I-GT-51568; [28-13]
@@ -316,9 +317,9 @@
       )
      ((ideographic-radical . 160)	; ⾟
       (ideographic-strokes . 6)
-      (==ucs@unicode	  . #x8F9E)	; &C3-4477;
-      (==gb2312		  . #x3447)	; &C3-4477; [20-39]
-      (=cns11643-3	  . #x4477)	; &C3-4477; [36-87]
+      (==ucs@unicode	  . #x8F9E)	; &R-UU+8F9E;
+      (==gb2312		  . #x3447)	; &R-UU+8F9E; [20-39]
+      (==cns11643-3	  . #x4477)	; &R-UU+8F9E; [36-87]
       ))
     ))
 (define-char
@@ -491,6 +492,7 @@
     (->subsumptive
      ((=ucs@unicode	  . #x8FA4)	; &JX2-7967;
       (=jis-x0212	  . #x6130)	; &JX2-7967; [65-16]
+      (=cns11643-3	  . #x4F37)	; &I-C3-4F37; [47-23]
       (=jis-x0213-2	  . #x7967)	; &I-JX2-7967; [89-71]
       (->subsumptive
        ((==ucs@jis	    . #x8FA4)	; &R-JSP-6130;
@@ -506,8 +508,8 @@
 	(<-vulgar*sources
 	 shinjigen)
 	)
-       ((==ucs@unicode	    . #x8FA4)	; &C3-4F37;
-	(=cns11643-3	    . #x4F37)	; &C3-4F37; [47-23]
+       ((==ucs@unicode	    . #x8FA4)	; &R-UU+8FA4;
+	(==cns11643-3	    . #x4F37)	; &R-UU+8FA4; [47-23]
 	))
       ))
     ))
