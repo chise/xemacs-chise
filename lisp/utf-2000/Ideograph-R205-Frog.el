@@ -426,12 +426,13 @@
     (->subsumptive
      ((=ucs@cns		  . #x4D77)	; &JX2-7E60;
       (=ucs@jis		  . #x4D77)	; &JX2-7E60;
-      (=jis-x0213-2	  . #x7E60)	; &JX2-7E60; [94-64]
+      (=cns11643-3	  . #x5C2C)	; &JX2-7E60; [60-12]
+      (=jis-x0213-2	  . #x7E60)	; &I-JX2-7E60; [94-64]
       (->subsumptive
        ((=daikanwa	    . 48277)	; &M-48277;
 	)
-       ((==ucs@cns	    . #x4D77)	; &C3-5C2C;
-	(=cns11643-3	    . #x5C2C)	; &C3-5C2C; [60-12]
+       ((==ucs@cns	    . #x4D77)	; &R-CU+4D77;
+	(==cns11643-3	    . #x5C2C)	; &R-CU+4D77; [60-12]
 	)
        ((==ucs@jis	    . #x4D77)	; &R-JX2-7E60;
 	(==jis-x0213-2	    . #x7E60)	; &R-JX2-7E60; [94-64]
