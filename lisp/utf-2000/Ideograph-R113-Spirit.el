@@ -143,6 +143,7 @@
     (=ucs@unicode	. #x793C)	; &GT-31490;
     (=jis-x0208		. #x4E69)	; &GT-31490; [46-73]
     (=gb2312		. #x4071)	; &I-G0-4071; [32-81]
+    (=cns11643-3	. #x2433)	; &I-C3-2433; [04-19]
     (=jis-x0213-1	. #x4E69)	; &I-JX1-4E69; [46-73]
     (=gt		. 31490)	; &I-GT-31490;
     (=gt-k		. 01024)	; &I-GT-K01024;
@@ -164,9 +165,9 @@
       (==gt-k		  . 01024)	; &R-GT-31490;
       (=daikanwa/+p	  . 24626)	; &R-GT-31490;
       )
-     ((==ucs@unicode	  . #x793C)	; &C3-2433;
-      (==gb2312		  . #x4071)	; &C3-2433; [32-81]
-      (=cns11643-3	  . #x2433)	; &C3-2433; [04-19]
+     ((==ucs@unicode	  . #x793C)	; &R-UU+793C;
+      (==gb2312		  . #x4071)	; &R-UU+793C; [32-81]
+      (==cns11643-3	  . #x2433)	; &R-UU+793C; [04-19]
       ))
     ))
 (define-char
@@ -2330,7 +2331,8 @@
     (=>>hanyo-denshi/ft . #x3D33)	; &G-HD-FT-3D33; [29-19]
     (->subsumptive
      ((=ucs@cns		  . #x7962)	; &HD-FT-3D33;
-      (=hanyo-denshi/ft	  . #x3D33)	; &HD-FT-3D33; [29-19]
+      (=cns11643-3	  . #x3272)	; &HD-FT-3D33; [18-82]
+      (=hanyo-denshi/ft	  . #x3D33)	; &I-HD-FT-3D33; [29-19]
       (->subsumptive
        ((=decomposition@hanyo-denshi
 	 ((=ucs		      . #x7962)	; 祢
@@ -2339,8 +2341,8 @@
 	  ))
 	(==hanyo-denshi/ft  . #x3D33)	; &R-HD-FT-3D33; [29-19]
 	)
-       ((==ucs@cns	    . #x7962)	; &C3-3272;
-	(=cns11643-3	    . #x3272)	; &C3-3272; [18-82]
+       ((==ucs@cns	    . #x7962)	; &R-CU+7962;
+	(==cns11643-3	    . #x3272)	; &R-CU+7962; [18-82]
 	))
       )
      ((=ucs@unicode	  . #x7962)	; &G0-6C72;
@@ -4014,12 +4016,13 @@
     (total-strokes	 . 13)
     (=ucs		. #x7980)	; 禀
     (->subsumptive
-     ((=ucs@cns		  . #x7980)	; &CU+7980;
+     ((=ucs@cns		  . #x7980)	; &C3-433D;
+      (=cns11643-3	  . #x433D)	; &C3-433D; [35-29]
       (->subsumptive
        ((=daikanwa	    . 24742)	; &M-24742;
 	)
-       ((==ucs@cns	    . #x7980)	; &C3-433D;
-	(=cns11643-3	    . #x433D)	; &C3-433D; [35-29]
+       ((==ucs@cns	    . #x7980)	; &R-CU+7980;
+	(==cns11643-3	    . #x433D)	; &R-CU+7980; [35-29]
 	))
       )
      ((=ucs@unicode	  . #x7980)	; &GT-31833;
