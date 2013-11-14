@@ -1,4 +1,17 @@
-2013-11-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+2013-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R211-Tooth.el, Ideograph-R205-Frog.el,
+	Ideograph-R195-Fish.el, Ideograph-R187-Horse.el,
+	Ideograph-R172-Short-Tailed-Bird.el, Ideograph-R169-Gate.el,
+	Ideograph-R167-Gold.el, Ideograph-R160-Bitter.el,
+	Ideograph-R157-Foot.el, Ideograph-R153-Badger.el,
+	Ideograph-R140-Grass.el, Ideograph-R135-Tongue.el,
+	Ideograph-R120-Silk.el, Ideograph-R119-Rice.el,
+	Ideograph-R117-Stand.el, Ideograph-R113-Spirit.el,
+	Ideograph-R053-Dotted-Cliff.el: Apply new glyph-image conventions
+	for `cns11643-3'.
+
+2013-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R102-Field.el, Ideograph-R098-Tile.el,
 	Ideograph-R094-Dog.el, Ideograph-R072-Sun.el,
@@ -8,6 +21,9 @@
 	Ideograph-R018-Knife.el, Ideograph-R015-Ice.el,
 	Ideograph-R009-Man.el: Apply new glyph-image conventions for
 	`cns11643-3'.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`==cns11643-2' and `==cns11643-3'.
 
 2013-11-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
