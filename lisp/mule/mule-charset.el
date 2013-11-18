@@ -396,6 +396,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==cns11643-1
 	  ==cns11643-2
 	  ==cns11643-3
+	  ==cns11643-4
 	  ==jis-x0208@1983
 	  ==jis-x0208@1978
 	  ==jis-x0213-1@2000
