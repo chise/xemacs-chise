@@ -9635,12 +9635,13 @@
     (total-strokes	 . 18)
     (=ucs		. #x493F)	; 䤿
     (->subsumptive
-     ((=ucs@cns		  . #x493F)	; &CU+493F;
+     ((=ucs@cns		  . #x493F)	; &C4-5E2F;
+      (=cns11643-4	  . #x5E2F)	; &C4-5E2F; [62-15]
       (->subsumptive
        ((=daikanwa	    . 40707)	; &M-40707;
 	)
-       ((==ucs@cns	    . #x493F)	; &C4-5E2F;
-	(=cns11643-4	    . #x5E2F)	; &C4-5E2F; [62-15]
+       ((==ucs@cns	    . #x493F)	; &R-CU+493F;
+	(==cns11643-4	    . #x5E2F)	; &R-CU+493F; [62-15]
 	))
       )
      ((=ucs@unicode	  . #x493F)	; &UU+493F;
