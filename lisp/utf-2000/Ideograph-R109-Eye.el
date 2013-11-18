@@ -6249,12 +6249,13 @@
     (ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
-    (=ucs@cns		. #x405B)	; &CU+405B;
+    (=ucs@cns		. #x405B)	; &C4-4B47;
+    (=cns11643-4	. #x4B47)	; &C4-4B47; [43-39]
     (->subsumptive
      ((=daikanwa	  . 23580)	; &M-23580;
       )
-     ((==ucs@cns	  . #x405B)	; &C4-4B47;
-      (=cns11643-4	  . #x4B47)	; &C4-4B47; [43-39]
+     ((==ucs@cns	  . #x405B)	; &R-CU+405B;
+      (==cns11643-4	  . #x4B47)	; &R-CU+405B; [43-39]
       ))
     ))
 (define-char
