@@ -3121,7 +3121,8 @@
 	(=ucs@ks	    . #x6562)	; &AJ1-01526;
 	(=adobe-japan1-0    . 01526)	; &AJ1-01526;
 	))
-      (=ucs@iso		  . #x20A9A)	; &U-00020A9A;
+      (=ucs@iso		  . #x20A9A)	; &C4-4249;
+      (=cns11643-4	  . #x4249)	; &C4-4249; [34-41]
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -3145,9 +3146,9 @@
 	  (==ucs@ks	      . #x6562)	; &R-AJ1-01526;
 	  (==adobe-japan1-0   . 01526)	; &R-AJ1-01526;
 	  ))
-	(==ucs@iso	    . #x20A9A)	; &C4-4249;
-	(=cns11643-4	    . #x4249)	; &C4-4249; [34-41]
-	(=big5-cdp	    . #x8D4D)	; &I-CDP-8D4D;
+	(==ucs@iso	    . #x20A9A)	; &CDP-8D4D;
+	(==cns11643-4	    . #x4249)	; &CDP-8D4D; [34-41]
+	(=big5-cdp	    . #x8D4D)	; &CDP-8D4D;
 	))
       ))
     ))
@@ -3891,7 +3892,8 @@
       )
      ((=big5-cdp	  . #x89B2)	; &CDP-89B2;
       )
-     ((=ucs@iso		  . #x20A9A)	; &U-00020A9A;
+     ((=ucs@iso		  . #x20A9A)	; &C4-4249;
+      (=cns11643-4	  . #x4249)	; &C4-4249; [34-41]
       ))
     (=ucs@jis		. #x53B3)	; &AJ1-01899;
     (=adobe-japan1-0	. 01899)	; &AJ1-01899;
