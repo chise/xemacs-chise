@@ -1314,6 +1314,7 @@
      ((=ucs@unicode	  . #x4E75)	; &AJ1-21080;
       (=adobe-japan1-6	  . 21080)	; &AJ1-21080;
       (=jis-x0212	  . #x303A)	; &I-JSP-303A; [16-26]
+      (=cns11643-4	  . #x2530)	; &I-C4-2530; [05-16]
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x4E75)	; 乵
@@ -1348,9 +1349,9 @@
 	  )
 	 ((=ucs		      . #x4E5A)	; 乚
 	  ))
-	(==ucs@unicode	    . #x4E75)	; &C4-2530;
-	(=cns11643-4	    . #x2530)	; &C4-2530; [05-16]
-	(=hanziku-1	    . #xAF65)	; &I-HZK01-AF65;
+	(==ucs@unicode	    . #x4E75)	; &HZK01-AF65;
+	(==cns11643-4	    . #x2530)	; &HZK01-AF65; [05-16]
+	(=hanziku-1	    . #xAF65)	; &HZK01-AF65;
 	))
       )
      ((=gt		  . 00252)	; &GT-00252;
