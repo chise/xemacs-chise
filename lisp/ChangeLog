@@ -1,3 +1,11 @@
+2013-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `==cns11643-4'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`==cns11643-4'.
+
 2013-11-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
