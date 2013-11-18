@@ -5577,13 +5577,14 @@
       )
      ((ideographic-radical . 181)	; ⾴
       (ideographic-strokes . 14)
-      (=ucs@cns		  . #x29572)	; &CU+29572;
-      (=>>daikanwa	  . 43723)	; &CU+29572;
+      (=ucs@cns		  . #x29572)	; &C4-6B2E;
+      (=cns11643-4	  . #x6B2E)	; &C4-6B2E; [75-14]
+      (=>>daikanwa	  . 43723)	; &C4-6B2E;
       (->subsumptive
        ((=daikanwa	    . 43723)	; &M-43723;
 	)
-       ((==ucs@cns	    . #x29572)	; &C4-6B2E;
-	(=cns11643-4	    . #x6B2E)	; &C4-6B2E; [75-14]
+       ((==ucs@cns	    . #x29572)	; &R-CU+29572;
+	(==cns11643-4	    . #x6B2E)	; &R-CU+29572; [75-14]
 	))
       ))
     ))
