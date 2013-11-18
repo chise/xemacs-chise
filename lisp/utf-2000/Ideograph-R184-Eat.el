@@ -2800,12 +2800,13 @@
     (=+>ucs@unicode	. #x4B34)	; &o-GT-59165;
     (=+>gt		. 59165)	; &o-GT-59165;
     (->subsumptive
-     ((==ucs@cns	  . #x4B34)	; &C4-417A;
-      (=cns11643-4	  . #x417A)	; &C4-417A; [33-90]
+     ((==ucs@cns	  . #x4B34)	; &R-CU+4B34;
+      (==cns11643-4	  . #x417A)	; &R-CU+4B34; [33-90]
       )
      ((=ucs@unicode	  . #x4B34)	; &GT-59165;
-      (=gt		  . 59165)	; &GT-59165;
-      (=gt-pj-10	  . #x492A)	; &GT-59165; [41-10]
+      (=cns11643-4	  . #x417A)	; &GT-59165; [33-90]
+      (=gt		  . 59165)	; &I-GT-59165;
+      (=gt-pj-10	  . #x492A)	; &I-GT-59165; [41-10]
       (->subsumptive
        ((==gt		    . 59165)	; &R-GT-59165;
 	)
@@ -5257,10 +5258,11 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 8)
     (total-strokes	 . 17)
-    (=>>ucs@iso		. #x296FB)	; &G-IU+296FB;
-    (=ucs@iso		. #x296FB)	; &G-IU+296FB;
+    (=>>ucs@iso		. #x296FB)	; &C4-5A26;
+    (=ucs@iso		. #x296FB)	; &C4-5A26;
+    (=cns11643-4	. #x5A26)	; &C4-5A26; [58-06]
     (->subsumptive
-     ((=cns11643-4	  . #x5A26)	; &C4-5A26; [58-06]
+     ((==cns11643-4	  . #x5A26)	; &R-C4-5A26; [58-06]
       )
      ((==ucs@iso	  . #x296FB)	; &R-U-000296FB;
       ))
