@@ -3502,14 +3502,15 @@
     (ideographic-radical . 211)	; ⿒
     (ideographic-strokes . 20)
     (total-strokes	 . 35)
-    (=>>ucs@cns		. #x4DAB)	; &G-CU+4DAB;
-    (=ucs@cns		. #x4DAB)	; &G-CU+4DAB;
-    (=>>daikanwa	. 48812)	; &G-CU+4DAB;
+    (=>>ucs@cns		. #x4DAB)	; &C4-6E5A;
+    (=ucs@cns		. #x4DAB)	; &C4-6E5A;
+    (=cns11643-4	. #x6E5A)	; &C4-6E5A; [78-58]
+    (=>>daikanwa	. 48812)	; &C4-6E5A;
     (->subsumptive
      ((=daikanwa	  . 48812)	; &M-48812;
       )
-     ((==ucs@cns	  . #x4DAB)	; &C4-6E5A;
-      (=cns11643-4	  . #x6E5A)	; &C4-6E5A; [78-58]
+     ((==ucs@cns	  . #x4DAB)	; &R-CU+4DAB;
+      (==cns11643-4	  . #x6E5A)	; &R-CU+4DAB; [78-58]
       ))
     ))
 (define-char
