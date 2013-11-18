@@ -444,13 +444,14 @@
     (=ucs		. #x97D1)	; 韑
     (->subsumptive
      ((total-strokes	   . 15)
-      (=ucs@unicode	  . #x97D1)	; &UU+97D1;
-      (=jef-china3	  . #x6CCF)	; &UU+97D1;
+      (=ucs@unicode	  . #x97D1)	; &C4-4E57;
+      (=cns11643-4	  . #x4E57)	; &C4-4E57; [46-55]
+      (=jef-china3	  . #x6CCF)	; &I-JC3-6CCF;
       (->subsumptive
        ((==ucs@unicode	    . #x97D1)	; &M-43136;
 	(=daikanwa	    . 43136)	; &M-43136;
 	)
-       ((=cns11643-4	    . #x4E57)	; &C4-4E57; [46-55]
+       ((==cns11643-4	    . #x4E57)	; &R-C4-4E57; [46-55]
 	))
       )
      ((total-strokes	   . 16)
