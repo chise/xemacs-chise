@@ -8522,6 +8522,7 @@
       (=ucs@cns		  . #x37F4)	; &AJ1-17573;
       (=ucs@jis		  . #x37F4)	; &AJ1-17573;
       (=adobe-japan1-5	  . 17573)	; &AJ1-17573;
+      (=cns11643-4	  . #x3D21)	; &I-C4-3D21; [29-01]
       (=jis-x0213-2	  . #x2859)	; &I-JX2-2859; [08-57]
       (->subsumptive
        ((=decomposition@cid
@@ -8543,8 +8544,8 @@
 	(<-formed*sources
 	 shinjigen)
 	)
-       ((==ucs@cns	    . #x37F4)	; &C4-3D21;
-	(=cns11643-4	    . #x3D21)	; &C4-3D21; [29-01]
+       ((==ucs@cns	    . #x37F4)	; &R-CU+37F4;
+	(==cns11643-4	    . #x3D21)	; &R-CU+37F4; [29-01]
 	))
       )
      ((ideographic-strokes . 9)
