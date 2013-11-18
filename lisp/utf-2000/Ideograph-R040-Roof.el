@@ -1291,9 +1291,10 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=>>ucs@cns		. #x5B90)	; &G-CU+5B90;
-    (=ucs@cns		. #x5B90)	; &G-CU+5B90;
-    (=>>daikanwa	. 07112)	; &G-CU+5B90;
+    (=>>ucs@cns		. #x5B90)	; &C4-2625;
+    (=ucs@cns		. #x5B90)	; &C4-2625;
+    (=cns11643-4	. #x2625)	; &C4-2625; [06-05]
+    (=>>daikanwa	. 07112)	; &C4-2625;
     (->subsumptive
      ((=daikanwa	  . 07112)	; &M-07112;
       (<-same
@@ -1305,8 +1306,8 @@
       (<-same*sources
        daikanwa)
       )
-     ((==ucs@cns	  . #x5B90)	; &C4-2625;
-      (=cns11643-4	  . #x2625)	; &C4-2625; [06-05]
+     ((==ucs@cns	  . #x5B90)	; &R-CU+5B90;
+      (==cns11643-4	  . #x2625)	; &R-CU+5B90; [06-05]
       ))
     ))
 (define-char
@@ -2259,12 +2260,13 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=ucs@cns		. #x21A04)	; &CU+21A04;
+    (=ucs@cns		. #x21A04)	; &C4-2C43;
+    (=cns11643-4	. #x2C43)	; &C4-2C43; [12-35]
     (->subsumptive
      ((=daikanwa	  . 07163)	; &M-07163;
       )
-     ((==ucs@cns	  . #x21A04)	; &C4-2C43;
-      (=cns11643-4	  . #x2C43)	; &C4-2C43; [12-35]
+     ((==ucs@cns	  . #x21A04)	; &R-CU+21A04;
+      (==cns11643-4	  . #x2C43)	; &R-CU+21A04; [12-35]
       ))
     ))
 (define-char
@@ -5212,6 +5214,7 @@
     (=adobe-japan1-0	. 02552)	; &AJ1-02552;
     (=jis-x0208		. #x3F32)	; &I-J90-3F32; [31-18]
     (=gb2312		. #x475E)	; &I-G0-475E; [39-62]
+    (=cns11643-4	. #x3C6E)	; &I-C4-3C6E; [28-78]
     (=jis-x0213-1	. #x3F32)	; &I-JX1-3F32; [31-18]
     (=gt		. 09138)	; &I-GT-09138;
     (=gt-pj-1		. #x3F32)	; &I-GT-09138; [31-18]
@@ -5239,9 +5242,9 @@
       (==gt		  . 09138)	; &R-AJ1-02552;
       (=daikanwa/+p	  . 07278)	; &R-AJ1-02552;
       )
-     ((==ucs@unicode	  . #x5BDD)	; &C4-3C6E;
-      (==gb2312		  . #x475E)	; &C4-3C6E; [39-62]
-      (=cns11643-4	  . #x3C6E)	; &C4-3C6E; [28-78]
+     ((==ucs@unicode	  . #x5BDD)	; &R-UU+5BDD;
+      (==gb2312		  . #x475E)	; &R-UU+5BDD; [39-62]
+      (==cns11643-4	  . #x3C6E)	; &R-UU+5BDD; [28-78]
       ))
     ))
 (define-char
