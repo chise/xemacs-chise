@@ -1264,7 +1264,8 @@
 	)
        ((=ucs		    . #x56DE)	; 回
 	))
-      (=ucs@unicode	  . #x342D)	; &UU+342D;
+      (=ucs@unicode	  . #x342D)	; &C4-2534;
+      (=cns11643-4	  . #x2534)	; &C4-2534; [05-20]
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1297,8 +1298,8 @@
 	  )
 	 ((=ucs		      . #x56DE)	; 回
 	  ))
-	(==ucs@unicode	    . #x342D)	; &C4-2534;
-	(=cns11643-4	    . #x2534)	; &C4-2534; [05-20]
+	(==ucs@unicode	    . #x342D)	; &R-UU+342D;
+	(==cns11643-4	    . #x2534)	; &R-UU+342D; [05-20]
 	))
       ))
     ))
@@ -3217,8 +3218,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((==ucs@unicode	    . #x342D)	; &C4-2534;
-	(=cns11643-4	    . #x2534)	; &C4-2534; [05-20]
+       ((==ucs@unicode	    . #x342D)	; &R-UU+342D;
 	)
        ((=ucs		    . #x65E6)	; 旦
 	))
