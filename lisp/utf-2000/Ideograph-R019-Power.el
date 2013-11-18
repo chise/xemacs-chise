@@ -884,7 +884,8 @@
       ))
     (=ucs		. #x2084D)	; 𠡍
     (->subsumptive
-     ((=ucs@cns		  . #x2084D)	; &CU+2084D;
+     ((=ucs@cns		  . #x2084D)	; &C4-2349;
+      (=cns11643-4	  . #x2349)	; &C4-2349; [03-41]
       (->subsumptive
        ((=daikanwa	    . 02327)	; &M-02327;
 	(<-vulgar
@@ -895,8 +896,8 @@
 	(<-vulgar*sources
 	 songyuan-yilai-suzipu daikanwa)
 	)
-       ((==ucs@cns	    . #x2084D)	; &C4-2349;
-	(=cns11643-4	    . #x2349)	; &C4-2349; [03-41]
+       ((==ucs@cns	    . #x2084D)	; &R-CU+2084D;
+	(==cns11643-4	    . #x2349)	; &R-CU+2084D; [03-41]
 	))
       )
      ((=ucs@iso		  . #x2084D)	; &U-0002084D;
@@ -2010,6 +2011,7 @@
     (=ucs@jis		. #x52C6)	; &AJ1-21210;
     (=adobe-japan1-6	. 21210)	; &AJ1-21210;
     (=jis-x0212		. #x3367)	; &I-JSP-3367; [19-71]
+    (=cns11643-4	. #x2849)	; &I-C4-2849; [08-41]
     (=>>daikanwa	. 02359)	; &AJ1-21210;
     (=jef-china3	. #x44E6)	; &I-JC3-44E6;
     (->subsumptive
@@ -2035,8 +2037,8 @@
      ((hanyu-dazidian	  1 372 5)
       (=hanziku-1	  . #xF2A8)	; &HZK01-F2A8;
       )
-     ((==ucs@cns	  . #x52C6)	; &C4-2849;
-      (=cns11643-4	  . #x2849)	; &C4-2849; [08-41]
+     ((==ucs@cns	  . #x52C6)	; &R-CU+52C6;
+      (==cns11643-4	  . #x2849)	; &R-CU+52C6; [08-41]
       ))
     ))
 (define-char
