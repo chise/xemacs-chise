@@ -1,3 +1,13 @@
+2013-11-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R070-Square.el, Ideograph-R061-Heart.el,
+	Ideograph-R046-Mountain.el, Ideograph-R040-Roof.el,
+	Ideograph-R032-Earth.el, Ideograph-R030-Mouth.el,
+	Ideograph-R027-Cliff.el, Ideograph-R019-Power.el,
+	Ideograph-R009-Man.el, Ideograph-R008-Lid.el,
+	Ideograph-R005-Second.el: Apply new glyph-image conventions for
+	`cns11643-4'.
+
 2013-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R211-Tooth.el, Ideograph-R205-Frog.el,
