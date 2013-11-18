@@ -1913,14 +1913,15 @@
     (ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 5)
     (total-strokes	 . 16)
-    (=>>ucs@cns		. #x4CC1)	; &G-CU+4CC1;
-    (=ucs@cns		. #x4CC1)	; &G-CU+4CC1;
-    (=>>daikanwa	. 46788)	; &G-CU+4CC1;
+    (=>>ucs@cns		. #x4CC1)	; &C4-554A;
+    (=ucs@cns		. #x4CC1)	; &C4-554A;
+    (=cns11643-4	. #x554A)	; &C4-554A; [53-42]
+    (=>>daikanwa	. 46788)	; &C4-554A;
     (->subsumptive
      ((=daikanwa	  . 46788)	; &M-46788;
       )
-     ((==ucs@cns	  . #x4CC1)	; &C4-554A;
-      (=cns11643-4	  . #x554A)	; &C4-554A; [53-42]
+     ((==ucs@cns	  . #x4CC1)	; &R-CU+4CC1;
+      (==cns11643-4	  . #x554A)	; &R-CU+4CC1; [53-42]
       ))
     ))
 (define-char
