@@ -29743,9 +29743,10 @@
      ((=ucs@unicode	  . #x5EB6)	; &AJ1-02424;
       (=adobe-japan1-0	  . 02424)	; &AJ1-02424;
       ))
-    (=>>ucs@iso		. #x2032E)	; &G-IU+2032E;
-    (=ucs@iso		. #x2032E)	; &G-IU+2032E;
-    (=>>daikanwa	. 01014)	; &G-IU+2032E;
+    (=>>ucs@iso		. #x2032E)	; &C5-3D58;
+    (=ucs@iso		. #x2032E)	; &C5-3D58;
+    (=cns11643-5	. #x3D58)	; &C5-3D58; [29-56]
+    (=>>daikanwa	. 01014)	; &C5-3D58;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -29770,9 +29771,9 @@
 	)
        ((==ucs@unicode	    . #x5EB6)	; &R-UU+5EB6;
 	))
-      (==ucs@iso	  . #x2032E)	; &C5-3D58;
-      (=cns11643-5	  . #x3D58)	; &C5-3D58; [29-56]
-      (=hanziku-1	  . #xD264)	; &I-HZK01-D264;
+      (==ucs@iso	  . #x2032E)	; &HZK01-D264;
+      (==cns11643-5	  . #x3D58)	; &HZK01-D264; [29-56]
+      (=hanziku-1	  . #xD264)	; &HZK01-D264;
       ))
     ))
 (define-char
@@ -45037,7 +45038,8 @@
 	 ((=ucs@unicode	      . #x5BF5)	; &AJ1-03004;
 	  (=adobe-japan1-0    . 03004)	; &AJ1-03004;
 	  ))
-	(=ucs@unicode	    . #x20459)	; &UU+20459;
+	(=ucs@unicode	    . #x20459)	; &C5-6F68;
+	(=cns11643-5	    . #x6F68)	; &C5-6F68; [79-72]
 	(->subsumptive
 	 ((ideographic-structure
 	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -45075,8 +45077,8 @@
 	  )
 	 ((=cns11643-1	      . #x7831)	; &C1-7831; [88-17]
 	  ))
-	(==ucs@cns	    . #x20459)	; &C5-6F68;
-	(=cns11643-5	    . #x6F68)	; &C5-6F68; [79-72]
+	(==ucs@cns	    . #x20459)	; &R-CU+20459;
+	(==cns11643-5	    . #x6F68)	; &R-CU+20459; [79-72]
 	))
       ))
     ))
