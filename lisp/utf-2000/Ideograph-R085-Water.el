@@ -30122,14 +30122,15 @@
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 21)
     (total-strokes	 . 24)
-    (=>>ucs@cns		. #x24166)	; &G-CU+24166;
-    (=ucs@cns		. #x24166)	; &G-CU+24166;
-    (=>>daikanwa	. 18820)	; &G-CU+24166;
+    (=>>ucs@cns		. #x24166)	; &C5-7766;
+    (=ucs@cns		. #x24166)	; &C5-7766;
+    (=cns11643-5	. #x7766)	; &C5-7766; [87-70]
+    (=>>daikanwa	. 18820)	; &C5-7766;
     (->subsumptive
      ((=daikanwa	  . 18820)	; &M-18820;
       )
-     ((==ucs@cns	  . #x24166)	; &C5-7766;
-      (=cns11643-5	  . #x7766)	; &C5-7766; [87-70]
+     ((==ucs@cns	  . #x24166)	; &R-CU+24166;
+      (==cns11643-5	  . #x7766)	; &R-CU+24166; [87-70]
       ))
     ))
 (define-char
