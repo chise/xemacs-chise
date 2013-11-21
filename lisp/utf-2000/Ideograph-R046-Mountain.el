@@ -12086,13 +12086,14 @@
     (->subsumptive
      ((ideographic-strokes . 13)
       (total-strokes	   . 16)
-      (=ucs@cns		  . #x3815)	; &CU+3815;
-      (=jef-china3	  . #x4BAE)	; &CU+3815;
+      (=ucs@cns		  . #x3815)	; &C5-5436;
+      (=cns11643-5	  . #x5436)	; &C5-5436; [52-22]
+      (=jef-china3	  . #x4BAE)	; &I-JC3-4BAE;
       (->subsumptive
        ((=daikanwa	    . 08527)	; &M-08527;
 	)
-       ((==ucs@cns	    . #x3815)	; &C5-5436;
-	(=cns11643-5	    . #x5436)	; &C5-5436; [52-22]
+       ((==ucs@cns	    . #x3815)	; &R-CU+3815;
+	(==cns11643-5	    . #x5436)	; &R-CU+3815; [52-22]
 	))
       )
      ((ideographic-strokes . 12)
