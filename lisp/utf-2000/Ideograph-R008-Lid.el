@@ -3995,7 +3995,8 @@
        ((=ucs@unicode	    . #x53C8)	; &AJ1-03746;
 	(=adobe-japan1-0    . 03746)	; &AJ1-03746;
 	))
-      (=ucs@cns		  . #x2018E)	; &CU+2018E;
+      (=ucs@cns		  . #x2018E)	; &C5-5353;
+      (=cns11643-5	  . #x5353)	; &C5-5353; [51-51]
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
@@ -4026,8 +4027,8 @@
 	 ((=ucs@unicode	      . #x53C8)	; &AJ1-03746;
 	  (=adobe-japan1-0    . 03746)	; &AJ1-03746;
 	  ))
-	(==ucs@cns	    . #x2018E)	; &C5-5353;
-	(=cns11643-5	    . #x5353)	; &C5-5353; [51-51]
+	(==ucs@cns	    . #x2018E)	; &R-CU+2018E;
+	(==cns11643-5	    . #x5353)	; &R-CU+2018E; [51-51]
 	))
       )
      ((ideographic-structure
