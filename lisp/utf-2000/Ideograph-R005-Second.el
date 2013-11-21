@@ -2258,8 +2258,9 @@
       (=ucs@iso		  . #x200FD)	; &U-000200FD;
       )
      ((=ucs@cns		  . #x200FD)	; &GT-00271;
-      (=gt		  . 00271)	; &GT-00271;
-      (=gt-pj-9		  . #x5121)	; &GT-00271; [49-01]
+      (=cns11643-5	  . #x3073)	; &GT-00271; [16-83]
+      (=gt		  . 00271)	; &I-GT-00271;
+      (=gt-pj-9		  . #x5121)	; &I-GT-00271; [49-01]
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -2269,8 +2270,8 @@
 	  )
 	 ((=ucs		      . #x4E5A)	; 乚
 	  ))
-	(==ucs@cns	    . #x200FD)	; &C5-3073;
-	(=cns11643-5	    . #x3073)	; &C5-3073; [16-83]
+	(==ucs@cns	    . #x200FD)	; &R-CU+200FD;
+	(==cns11643-5	    . #x3073)	; &R-CU+200FD; [16-83]
 	)
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
