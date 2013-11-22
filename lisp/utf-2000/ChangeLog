@@ -1,3 +1,17 @@
+2013-11-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R194-Ghost.el, Ideograph-R187-Horse.el,
+	Ideograph-R169-Gate.el, Ideograph-R109-Eye.el,
+	Ideograph-R104-Sickness.el, Ideograph-R072-Sun.el: Apply new
+	glyph-image conventions for `cns11643-5'.
+
+2013-11-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el, Ideograph-R082-Fur.el,
+	Ideograph-R046-Mountain.el, Ideograph-R009-Man.el,
+	Ideograph-R008-Lid.el, Ideograph-R005-Second.el: Apply new
+	glyph-image conventions for `cns11643-5'.
+
 2013-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R211-Tooth.el, Ideograph-R196-Bird.el,
