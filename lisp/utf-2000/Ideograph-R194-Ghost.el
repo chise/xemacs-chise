@@ -2676,10 +2676,11 @@
     (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 15)
     (total-strokes	 . 25)
-    (=>>ucs@iso		. #x29D3A)	; &G-IU+29D3A;
-    (=ucs@iso		. #x29D3A)	; &G-IU+29D3A;
+    (=>>ucs@iso		. #x29D3A)	; &C5-7967;
+    (=ucs@iso		. #x29D3A)	; &C5-7967;
+    (=cns11643-5	. #x7967)	; &C5-7967; [89-71]
     (->subsumptive
-     ((=cns11643-5	  . #x7967)	; &C5-7967; [89-71]
+     ((==cns11643-5	  . #x7967)	; &R-C5-7967; [89-71]
       )
      ((==ucs@iso	  . #x29D3A)	; &R-U-00029D3A;
       ))
