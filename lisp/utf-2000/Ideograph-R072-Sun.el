@@ -7351,7 +7351,9 @@
 	(=ucs@ks	    . #x6562)	; &AJ1-01526;
 	(=adobe-japan1-0    . 01526)	; &AJ1-01526;
 	))
-      (=ucs@iso		  . #x2329F)	; &U-0002329F;
+      (=ucs@iso		  . #x2329F)	; &C5-546B;
+      (=cns11643-5	  . #x546B)	; &C5-546B; [52-75]
+      (=cbeta		  . 02528)	; &I-CB02528;
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -7373,9 +7375,8 @@
 	  (==ucs@ks	      . #x6562)	; &R-AJ1-01526;
 	  (==adobe-japan1-0   . 01526)	; &R-AJ1-01526;
 	  ))
-	(==ucs@iso	    . #x2329F)	; &C5-546B;
-	(=cns11643-5	    . #x546B)	; &C5-546B; [52-75]
-	(=cbeta		    . 02528)	; &I-CB02528;
+	(==ucs@iso	    . #x2329F)	; &R-U-0002329F;
+	(==cns11643-5	    . #x546B)	; &R-U-0002329F; [52-75]
 	))
       ))
     ))
@@ -9334,9 +9335,10 @@
       (=jis-x0212	  . #x6676)	; &HD-JB-6676; [70-86]
       (=cns11643-2	  . #x643D)	; &I-C2-643D; [68-29]
       ))
-    (=ucs@iso		. #x23313)	; &G-CB02530;
-    (=>>daikanwa	. 14263)	; &G-CB02530;
-    (=>>cbeta		. 02530)	; &G-CB02530;
+    (=ucs@iso		. #x23313)	; &C5-7349;
+    (=cns11643-5	. #x7349)	; &C5-7349; [83-41]
+    (=>>daikanwa	. 14263)	; &C5-7349;
+    (=>>cbeta		. 02530)	; &C5-7349;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -9360,8 +9362,8 @@
        ((==ucs@cns	    . #x96DA)	; &R-CU+96DA;
 	(==cns11643-2	    . #x643D)	; &R-CU+96DA; [68-29]
 	))
-      (==ucs@iso	  . #x23313)	; &C5-7349;
-      (=cns11643-5	  . #x7349)	; &C5-7349; [83-41]
+      (==ucs@iso	  . #x23313)	; &R-U-00023313;
+      (==cns11643-5	  . #x7349)	; &R-U-00023313; [83-41]
       ))
     ))
 (define-char
