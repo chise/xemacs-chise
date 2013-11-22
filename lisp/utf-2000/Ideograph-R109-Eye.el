@@ -6297,10 +6297,11 @@
     (ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
-    (=ucs@iso		. #x2524C)	; &U-0002524C;
+    (=ucs@iso		. #x2524C)	; &C5-4E66;
+    (=cns11643-5	. #x4E66)	; &C5-4E66; [46-70]
     (->subsumptive
-     ((=cns11643-5	  . #x4E66)	; &C5-4E66; [46-70]
-      (=daikanwa	  . 23582)	; &I-M-23582;
+     ((==cns11643-5	  . #x4E66)	; &M-23582; [46-70]
+      (=daikanwa	  . 23582)	; &M-23582;
       )
      ((==ucs@iso	  . #x2524C)	; &R-U-0002524C;
       ))
