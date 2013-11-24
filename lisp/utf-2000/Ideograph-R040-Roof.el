@@ -338,9 +338,10 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (=>>ucs@iso		. #x219C8)	; &G-IU+219C8;
-    (=ucs@iso		. #x219C8)	; &G-IU+219C8;
-    (=>>daikanwa	. 07068)	; &G-IU+219C8;
+    (=>>ucs@iso		. #x219C8)	; &C6-2447;
+    (=ucs@iso		. #x219C8)	; &C6-2447;
+    (=cns11643-6	. #x2447)	; &C6-2447; [04-39]
+    (=>>daikanwa	. 07068)	; &C6-2447;
     (->subsumptive
      ((=daikanwa	  . 07068)	; &M-07068;
       (<-same
@@ -352,8 +353,8 @@
       (<-same*sources
        pianhai-leibian daikanwa)
       )
-     ((==ucs@iso	  . #x219C8)	; &C6-2447;
-      (=cns11643-6	  . #x2447)	; &C6-2447; [04-39]
+     ((==ucs@iso	  . #x219C8)	; &R-U-000219C8;
+      (==cns11643-6	  . #x2447)	; &R-U-000219C8; [04-39]
       ))
     ))
 (define-char
