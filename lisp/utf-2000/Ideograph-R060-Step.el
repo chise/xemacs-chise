@@ -2220,9 +2220,10 @@
     (ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=>>ucs@iso		. #x2250E)	; &G-IU+2250E;
-    (=ucs@iso		. #x2250E)	; &G-IU+2250E;
-    (=>>daikanwa	. 10162)	; &G-IU+2250E;
+    (=>>ucs@iso		. #x2250E)	; &C6-3F62;
+    (=ucs@iso		. #x2250E)	; &C6-3F62;
+    (=cns11643-6	. #x3F62)	; &C6-3F62; [31-66]
+    (=>>daikanwa	. 10162)	; &C6-3F62;
     (->subsumptive
      ((=daikanwa	  . 10162)	; &M-10162;
       (<-ancient
@@ -2232,8 +2233,8 @@
       (<-ancient*sources
        yupian daikanwa)
       )
-     ((==ucs@iso	  . #x2250E)	; &C6-3F62;
-      (=cns11643-6	  . #x3F62)	; &C6-3F62; [31-66]
+     ((==ucs@iso	  . #x2250E)	; &R-U-0002250E;
+      (==cns11643-6	  . #x3F62)	; &R-U-0002250E; [31-66]
       ))
     ))
 (define-char
