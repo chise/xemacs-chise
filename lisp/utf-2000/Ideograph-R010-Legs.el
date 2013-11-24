@@ -395,6 +395,7 @@
     (=jis-x0208		. #x3D3C)	; &I-J90-3D3C; [29-28]
     (=gb2312		. #x3364)	; &I-G0-3364; [19-68]
     (=ks-x1001		. #x7576)	; &I-K0-7576; [85-86]
+    (=cns11643-6	. #x2352)	; &I-C6-2352; [03-50]
     (=jis-x0213-1	. #x3D3C)	; &I-JX1-3D3C; [29-28]
     (=hanyo-denshi/ja	. #x3D3C)	; &I-HD-JA-3D3C; [29-28]
     (=gt		. 01746)	; &I-GT-01746;
@@ -429,12 +430,12 @@
       (=shinjigen	  .  0453)	; &R-AJ1-02374;
       )
      ((hanyu-dazidian	  1 269 2)
-      (==ucs@iso	  . #x2F80D)	; &C6-2352;
-      (==ucs@unicode	  . #x5145)	; &C6-2352;
-      (==ucs@cns	  . #x2F80D)	; &C6-2352;
-      (==gb2312		  . #x3364)	; &C6-2352; [19-68]
-      (=cns11643-6	  . #x2352)	; &C6-2352; [03-50]
-      (=hanziku-1	  . #xDDA6)	; &I-HZK01-DDA6;
+      (==ucs@iso	  . #x2F80D)	; &HZK01-DDA6;
+      (==ucs@unicode	  . #x5145)	; &HZK01-DDA6;
+      (==ucs@cns	  . #x2F80D)	; &HZK01-DDA6;
+      (==gb2312		  . #x3364)	; &HZK01-DDA6; [19-68]
+      (==cns11643-6	  . #x2352)	; &HZK01-DDA6; [03-50]
+      (=hanziku-1	  . #xDDA6)	; &HZK01-DDA6;
       ))
     ))
 (define-char
@@ -2569,10 +2570,10 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
 	(=ucs		    . #x2FFA)	; ⿺
 	)
-       ((==ucs@iso	    . #x2F80D)	; &C6-2352;
-	(==ucs@unicode	    . #x5145)	; &C6-2352;
-	(==ucs@cns	    . #x2F80D)	; &C6-2352;
-	(=cns11643-6	    . #x2352)	; &C6-2352; [03-50]
+       ((==ucs@iso	    . #x2F80D)	; &HZK01-DDA6;
+	(==ucs@unicode	    . #x5145)	; &HZK01-DDA6;
+	(==ucs@cns	    . #x2F80D)	; &HZK01-DDA6;
+	(=hanziku-1	    . #xDDA6)	; &HZK01-DDA6;
 	)
        ((==ucs@unicode	    . #x4EAC)	; &R-UU+4EAC;
 	))
@@ -2594,7 +2595,8 @@
       )
      ((=ucs		  . #x4EAC)	; 京
       ))
-    (=ucs@iso		. #x204A8)	; &U-000204A8;
+    (=ucs@iso		. #x204A8)	; &C6-5063;
+    (=cns11643-6	. #x5063)	; &C6-5063; [48-67]
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
@@ -2605,8 +2607,8 @@
 	)
        ((==ucs@unicode	    . #x4EAC)	; &R-UU+4EAC;
 	))
-      (==ucs@cns	  . #x204A8)	; &C6-5063;
-      (=cns11643-6	  . #x5063)	; &C6-5063; [48-67]
+      (==ucs@cns	  . #x204A8)	; &R-CU+204A8;
+      (==cns11643-6	  . #x5063)	; &R-CU+204A8; [48-67]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
