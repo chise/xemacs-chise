@@ -2439,7 +2439,8 @@
     (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (=ucs@iso		. #x20159)	; &U-00020159;
+    (=ucs@iso		. #x20159)	; &C6-3530;
+    (=cns11643-6	. #x3530)	; &C6-3530; [21-16]
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -2481,9 +2482,9 @@
 	)
        ((=ucs		    . #x513F)	; 儿
 	))
-      (==ucs@iso	  . #x20159)	; &C6-3530;
-      (=cns11643-6	  . #x3530)	; &C6-3530; [21-16]
-      (=hanziku-1	  . #xE155)	; &I-HZK01-E155;
+      (==ucs@iso	  . #x20159)	; &HZK01-E155;
+      (==cns11643-6	  . #x3530)	; &HZK01-E155; [21-16]
+      (=hanziku-1	  . #xE155)	; &HZK01-E155;
       ))
     ))
 (define-char
