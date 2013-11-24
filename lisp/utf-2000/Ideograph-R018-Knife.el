@@ -7291,6 +7291,7 @@
     (=>>ucs@cns		. #x2F822)	; &AJ1-20086;
     (=ucs@cns		. #x2F822)	; &AJ1-20086;
     (=adobe-japan1-5	. 20086)	; &AJ1-20086;
+    (=cns11643-6	. #x4667)	; &I-C6-4667; [38-71]
     (=hanyo-denshi/ks	. 025050)	; &AJ1-20086;
     (=>>daikanwa	. 02112)	; &AJ1-20086;
     (->subsumptive
@@ -7328,8 +7329,8 @@
       (==hanyo-denshi/ks  . 025050)	; &R-HD-KS-025050;
       (=hanyo-denshi/ks/mf . #x09C9)	; &R-HD-KS-025050;
       )
-     ((==ucs@cns	  . #x2F822)	; &C6-4667;
-      (=cns11643-6	  . #x4667)	; &C6-4667; [38-71]
+     ((==ucs@cns	  . #x2F822)	; &R-CU+2F822;
+      (==cns11643-6	  . #x4667)	; &R-CU+2F822; [38-71]
       ))
     ))
 (define-char
