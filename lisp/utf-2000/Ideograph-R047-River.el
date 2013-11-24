@@ -309,13 +309,14 @@
      ((ideographic-radical . 28)	; ⼛
       (ideographic-strokes . 4)
       (total-strokes	   . 6)
-      (=ucs@cns		  . #x21FEE)	; &CU+21FEE;
-      (=>>daikanwa	  . 03081)	; &CU+21FEE;
+      (=ucs@cns		  . #x21FEE)	; &C6-237E;
+      (=cns11643-6	  . #x237E)	; &C6-237E; [03-94]
+      (=>>daikanwa	  . 03081)	; &C6-237E;
       (->subsumptive
        ((=daikanwa	    . 03081)	; &M-03081;
 	)
-       ((==ucs@cns	    . #x21FEE)	; &C6-237E;
-	(=cns11643-6	    . #x237E)	; &C6-237E; [03-94]
+       ((==ucs@cns	    . #x21FEE)	; &R-CU+21FEE;
+	(==cns11643-6	    . #x237E)	; &R-CU+21FEE; [03-94]
 	))
       )
      ((ideographic-radical . 47)	; ⼮
