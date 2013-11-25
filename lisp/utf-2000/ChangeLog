@@ -1,5 +1,16 @@
 2013-11-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R144-Walk-Enclosure.el, Ideograph-R142-Insect.el,
+	Ideograph-R085-Water.el, Ideograph-R082-Fur.el,
+	Ideograph-R073-Say.el, Ideograph-R070-Square.el,
+	Ideograph-R066-Rap.el, Ideograph-R038-Woman.el: Apply new
+	glyph-image conventions for `cns11643-6'.
+
+2013-11-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R015-Ice.el, Ideograph-R009-Man.el: Apply new
+	glyph-image conventions for `cns11643-6'.
+
 	* Ideograph-R060-Step.el, Ideograph-R047-River.el,
 	Ideograph-R040-Roof.el, Ideograph-R030-Mouth.el,
 	Ideograph-R028-Private.el, Ideograph-R018-Knife.el,
