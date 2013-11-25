@@ -302,11 +302,12 @@
       (<-vulgar*sources
        zhengzitong daikanwa shinjigen)
       )
-     ((=ucs@iso		  . #x205B1)	; &U-000205B1;
+     ((=ucs@iso		  . #x205B1)	; &C6-235C;
+      (=cns11643-6	  . #x235C)	; &C6-235C; [03-60]
       (->subsumptive
        ((==ucs@iso	    . #x205B1)	; &R-U-000205B1;
 	)
-       ((=cns11643-6	    . #x235C)	; &C6-235C; [03-60]
+       ((==cns11643-6	    . #x235C)	; &R-C6-235C; [03-60]
 	))
       ))
     ))
