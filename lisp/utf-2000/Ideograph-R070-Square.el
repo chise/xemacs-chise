@@ -133,14 +133,15 @@
     (=>>ucs@unicode	. #x3AC4)	; &AJ1-20135;
     (=ucs@unicode	. #x3AC4)	; &AJ1-20135;
     (=adobe-japan1-5	. 20135)	; &AJ1-20135;
+    (=cns11643-6	. #x2B70)	; &I-C6-2B70; [11-80]
     (=>>daikanwa	. 13627)	; &AJ1-20135;
     (=jef-china3	. #x50EA)	; &I-JC3-50EA;
     (->subsumptive
      ((==adobe-japan1-5	  . 20135)	; &R-AJ1-20135;
       (=daikanwa	  . 13627)	; &R-AJ1-20135;
       )
-     ((==ucs@unicode	  . #x3AC4)	; &C6-2B70;
-      (=cns11643-6	  . #x2B70)	; &C6-2B70; [11-80]
+     ((==ucs@unicode	  . #x3AC4)	; &R-UU+3AC4;
+      (==cns11643-6	  . #x2B70)	; &R-UU+3AC4; [11-80]
       ))
     ))
 (define-char
