@@ -8163,11 +8163,12 @@
       (<-vulgar*sources
        zihui daikanwa shinjigen)
       )
-     ((=ucs@iso		  . #x21764)	; &U-00021764;
+     ((=ucs@iso		  . #x21764)	; &C6-3E49;
+      (=cns11643-6	  . #x3E49)	; &C6-3E49; [30-41]
       (->subsumptive
        ((==ucs@iso	    . #x21764)	; &R-U-00021764;
 	)
-       ((=cns11643-6	    . #x3E49)	; &C6-3E49; [30-41]
+       ((==cns11643-6	    . #x3E49)	; &R-C6-3E49; [30-41]
 	))
       ))
     ))
