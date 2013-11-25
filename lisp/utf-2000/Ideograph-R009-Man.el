@@ -24081,7 +24081,8 @@
 	)
        ((=ucs		    . #x6C34)	; 水
 	))
-      (=ucs@iso		  . #x202BA)	; &U-000202BA;
+      (=ucs@iso		  . #x202BA)	; &C6-3D37;
+      (=cns11643-6	  . #x3D37)	; &C6-3D37; [29-23]
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
@@ -24113,7 +24114,7 @@
        ((hanyu-dazidian	    1 186 4)
 	(=hanziku-1	    . #xCCB5)	; &HZK01-CCB5;
 	)
-       ((=cns11643-6	    . #x3D37)	; &C6-3D37; [29-23]
+       ((==cns11643-6	    . #x3D37)	; &R-C6-3D37; [29-23]
 	))
       ))
     ))
