@@ -1,3 +1,11 @@
+2013-11-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`==cns11643-6'.
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `==cns11643-6'.
+
 2013-11-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
