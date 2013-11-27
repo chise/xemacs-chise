@@ -4148,7 +4148,8 @@
 	(=cns11643-1	    . #x5376)	; &I-C1-5376; [51-86]
 	(=jis-x0213-1	    . #x323B)	; &I-JX1-323B; [18-27]
 	))
-      (=ucs@iso		  . #x20192)	; &U-00020192;
+      (=ucs@iso		  . #x20192)	; &C7-2C3D;
+      (=cns11643-7	  . #x2C3D)	; &C7-2C3D; [12-29]
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -4182,9 +4183,9 @@
 	  )
 	 ((==ucs@unicode      . #x97F3)	; &R-UU+97F3;
 	  ))
-	(==ucs@iso	    . #x20192)	; &C7-2C3D;
-	(=cns11643-7	    . #x2C3D)	; &C7-2C3D; [12-29]
-	(=hanziku-1	    . #xE278)	; &I-HZK01-E278;
+	(==ucs@iso	    . #x20192)	; &HZK01-E278;
+	(==cns11643-7	    . #x2C3D)	; &HZK01-E278; [12-29]
+	(=hanziku-1	    . #xE278)	; &HZK01-E278;
 	))
       ))
     ))
