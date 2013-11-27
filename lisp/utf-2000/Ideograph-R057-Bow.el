@@ -4088,8 +4088,9 @@
     (ideographic-radical@cns . 193)	; ⿀
     (ideographic-strokes@cns . 14)
     (total-strokes	 . 24)
-    (=>>ucs@iso		. #x2244B)	; &G-IU+2244B;
-    (=ucs@iso		. #x2244B)	; &G-IU+2244B;
+    (=>>ucs@iso		. #x2244B)	; &C7-603C;
+    (=ucs@iso		. #x2244B)	; &C7-603C;
+    (=cns11643-7	. #x603C)	; &C7-603C; [64-28]
     (->subsumptive
      ((ideographic-radical . 57)	; ⼸
       (ideographic-strokes . 21)
@@ -4097,8 +4098,8 @@
       )
      ((ideographic-radical . 193)	; ⿀
       (ideographic-strokes . 14)
-      (==ucs@cns	  . #x2244B)	; &C7-603C;
-      (=cns11643-7	  . #x603C)	; &C7-603C; [64-28]
+      (==ucs@cns	  . #x2244B)	; &R-CU+2244B;
+      (==cns11643-7	  . #x603C)	; &R-CU+2244B; [64-28]
       ))
     ))
 (define-char
