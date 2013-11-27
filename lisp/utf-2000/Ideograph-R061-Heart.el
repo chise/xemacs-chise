@@ -17126,6 +17126,7 @@
      ((=>>ucs@cns	  . #x2F8AC)	; &AJ1-20120;
       (=ucs@cns		  . #x2F8AC)	; &AJ1-20120;
       (=adobe-japan1-5	  . 20120)	; &AJ1-20120;
+      (=cns11643-7	  . #x2D69)	; &I-C7-2D69; [13-73]
       (=hanyo-denshi/ks	  . 127180)	; &AJ1-20120;
       (=>>daikanwa	  . 11269)	; &AJ1-20120;
       (->subsumptive
@@ -17140,8 +17141,8 @@
 	(==hanyo-denshi/ks  . 127180)	; &R-HD-KS-127180;
 	(=hanyo-denshi/ks/mf . #x31AE)	; &R-HD-KS-127180;
 	)
-       ((==ucs@cns	    . #x2F8AC)	; &C7-2D69;
-	(=cns11643-7	    . #x2D69)	; &C7-2D69; [13-73]
+       ((==ucs@cns	    . #x2F8AC)	; &R-CU+2F8AC;
+	(==cns11643-7	    . #x2D69)	; &R-CU+2F8AC; [13-73]
 	))
       )
      ((=adobe-japan1-4	  . 13750)	; &AJ1-13750;
