@@ -42753,10 +42753,9 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((==ucs@iso	    . #x2F8C3)	; &C7-232D;
-	(==ucs@unicode	    . #x6469)	; &C7-232D;
-	(==ucs@cns	    . #x2F8C3)	; &C7-232D;
-	(=cns11643-7	    . #x232D)	; &C7-232D; [03-13]
+       ((==ucs@iso	    . #x2F8C3)	; &R-U-0002F8C3;
+	(==ucs@unicode	    . #x6469)	; &R-U-0002F8C3;
+	(==ucs@cns	    . #x2F8C3)	; &R-U-0002F8C3;
 	))
       (==ucs@unicode	  . #x56A4)	; &R-UU+56A4;
       (==gb12345	  . #x7C58)	; &R-UU+56A4; [92-56]
