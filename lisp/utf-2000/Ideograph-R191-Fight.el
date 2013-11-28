@@ -467,13 +467,14 @@
     (ideographic-radical . 191)	; ⾾
     (ideographic-strokes . 12)
     (total-strokes	 . 22)
-    (=>>ucs@iso		. #x29C19)	; &G-IU+29C19;
-    (=ucs@iso		. #x29C19)	; &G-IU+29C19;
+    (=>>ucs@iso		. #x29C19)	; &C7-5A49;
+    (=ucs@iso		. #x29C19)	; &C7-5A49;
+    (=cns11643-7	. #x5A49)	; &C7-5A49; [58-41]
     (->subsumptive
      ((==ucs@iso	  . #x29C19)	; &R-U-00029C19;
       )
-     ((==ucs@cns	  . #x29C19)	; &C7-5A49;
-      (=cns11643-7	  . #x5A49)	; &C7-5A49; [58-41]
+     ((==ucs@cns	  . #x29C19)	; &R-CU+29C19;
+      (==cns11643-7	  . #x5A49)	; &R-CU+29C19; [58-41]
       ))
     ))
 (define-char
