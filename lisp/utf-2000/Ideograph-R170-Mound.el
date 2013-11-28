@@ -5913,9 +5913,10 @@
     (ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 16)
     (total-strokes	 . 24)
-    (=ucs@iso		. #x28F61)	; &U-00028F61;
+    (=ucs@iso		. #x28F61)	; &C7-5F77;
+    (=cns11643-7	. #x5F77)	; &C7-5F77; [63-87]
     (->subsumptive
-     ((=cns11643-7	  . #x5F77)	; &C7-5F77; [63-87]
+     ((==cns11643-7	  . #x5F77)	; &R-C7-5F77; [63-87]
       )
      ((==ucs@iso	  . #x28F61)	; &R-U-00028F61;
       ))
@@ -6028,11 +6029,12 @@
     (ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 18)
     (total-strokes	 . 26)
-    (=ucs@iso		. #x28F6A)	; &U-00028F6A;
+    (=ucs@iso		. #x28F6A)	; &C7-6279;
+    (=cns11643-7	. #x6279)	; &C7-6279; [66-89]
     (->subsumptive
      ((==ucs@iso	  . #x28F6A)	; &R-U-00028F6A;
       )
-     ((=cns11643-7	  . #x6279)	; &C7-6279; [66-89]
+     ((==cns11643-7	  . #x6279)	; &R-C7-6279; [66-89]
       ))
     ))
 (define-char
