@@ -9454,14 +9454,15 @@
     (ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 11)
     (total-strokes	 . 22)
-    (=>>ucs@cns		. #x2A13E)	; &G-CU+2A13E;
-    (=ucs@cns		. #x2A13E)	; &G-CU+2A13E;
-    (=>>daikanwa	. 47301)	; &G-CU+2A13E;
+    (=>>ucs@cns		. #x2A13E)	; &C7-5A70;
+    (=ucs@cns		. #x2A13E)	; &C7-5A70;
+    (=cns11643-7	. #x5A70)	; &C7-5A70; [58-80]
+    (=>>daikanwa	. 47301)	; &C7-5A70;
     (->subsumptive
      ((=daikanwa	  . 47301)	; &M-47301;
       )
-     ((==ucs@cns	  . #x2A13E)	; &C7-5A70;
-      (=cns11643-7	  . #x5A70)	; &C7-5A70; [58-80]
+     ((==ucs@cns	  . #x2A13E)	; &R-CU+2A13E;
+      (==cns11643-7	  . #x5A70)	; &R-CU+2A13E; [58-80]
       ))
     ))
 (define-char
@@ -12598,14 +12599,15 @@
     (ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 22)
     (total-strokes	 . 33)
-    (=>>ucs@cns		. #x2A23B)	; &G-CU+2A23B;
-    (=ucs@cns		. #x2A23B)	; &G-CU+2A23B;
-    (=>>daikanwa	. 47521)	; &G-CU+2A23B;
+    (=>>ucs@cns		. #x2A23B)	; &C7-663A;
+    (=ucs@cns		. #x2A23B)	; &C7-663A;
+    (=cns11643-7	. #x663A)	; &C7-663A; [70-26]
+    (=>>daikanwa	. 47521)	; &C7-663A;
     (->subsumptive
      ((=daikanwa	  . 47521)	; &M-47521;
       )
-     ((==ucs@cns	  . #x2A23B)	; &C7-663A;
-      (=cns11643-7	  . #x663A)	; &C7-663A; [70-26]
+     ((==ucs@cns	  . #x2A23B)	; &R-CU+2A23B;
+      (==cns11643-7	  . #x663A)	; &R-CU+2A23B; [70-26]
       ))
     ))
 (define-char
