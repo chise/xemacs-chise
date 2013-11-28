@@ -437,9 +437,10 @@
     (->subsumptive
      ((=daikanwa	  . 42610)	; &M-42610;
       )
-     ((=ucs@iso		  . #x291FC)	; &U-000291FC;
+     ((=ucs@iso		  . #x291FC)	; &C7-353E;
+      (=cns11643-7	  . #x353E)	; &C7-353E; [21-30]
       (->subsumptive
-       ((=cns11643-7	    . #x353E)	; &C7-353E; [21-30]
+       ((==cns11643-7	    . #x353E)	; &R-C7-353E; [21-30]
 	)
        ((==ucs@iso	    . #x291FC)	; &R-U-000291FC;
 	))
