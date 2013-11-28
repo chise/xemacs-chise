@@ -1,5 +1,17 @@
 2013-11-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R210-Even.el, Ideograph-R209-Nose.el,
+	Ideograph-R205-Frog.el, Ideograph-R203-Black.el,
+	Ideograph-R202-Millet.el, Ideograph-R201-Yellow.el,
+	Ideograph-R197-Salt.el, Ideograph-R196-Bird.el,
+	Ideograph-R195-Fish.el, Ideograph-R194-Ghost.el,
+	Ideograph-R193-Cauldron.el, Ideograph-R192-Sacrificial-Wine.el,
+	Ideograph-R191-Fight.el, Ideograph-R187-Horse.el,
+	Ideograph-R184-Eat.el, Ideograph-R182-Wind.el: Apply new
+	glyph-image conventions for `cns11643-7'.
+
+2013-11-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R181-Leaf.el, Ideograph-R178-Tanned-Leather.el,
 	Ideograph-R177-Leather.el, Ideograph-R175-Wrong.el,
 	Ideograph-R173-Rain.el, Ideograph-R172-Short-Tailed-Bird.el,
