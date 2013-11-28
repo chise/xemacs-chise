@@ -1,3 +1,14 @@
+2013-11-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R181-Leaf.el, Ideograph-R178-Tanned-Leather.el,
+	Ideograph-R177-Leather.el, Ideograph-R175-Wrong.el,
+	Ideograph-R173-Rain.el, Ideograph-R172-Short-Tailed-Bird.el,
+	Ideograph-R170-Mound.el, Ideograph-R167-Gold.el,
+	Ideograph-R157-Foot.el, Ideograph-R140-Grass.el,
+	Ideograph-R120-Silk.el, Ideograph-R104-Sickness.el,
+	Ideograph-R085-Water.el, Ideograph-R082-Fur.el: Apply new
+	glyph-image conventions for `cns11643-7'.
+
 2013-11-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R064-Hand.el, Ideograph-R061-Heart.el,
