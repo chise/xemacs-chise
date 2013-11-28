@@ -194,11 +194,12 @@
     (ideographic-radical . 192)	; ⾿
     (ideographic-strokes . 13)
     (total-strokes	 . 23)
-    (=>>ucs@iso		. #x29C28)	; &G-IU+29C28;
-    (=ucs@iso		. #x29C28)	; &G-IU+29C28;
+    (=>>ucs@iso		. #x29C28)	; &C7-5D6E;
+    (=ucs@iso		. #x29C28)	; &C7-5D6E;
+    (=cns11643-7	. #x5D6E)	; &C7-5D6E; [61-78]
     (->subsumptive
-     ((==ucs@cns	  . #x29C28)	; &C7-5D6E;
-      (=cns11643-7	  . #x5D6E)	; &C7-5D6E; [61-78]
+     ((==ucs@cns	  . #x29C28)	; &R-CU+29C28;
+      (==cns11643-7	  . #x5D6E)	; &R-CU+29C28; [61-78]
       )
      ((==ucs@iso	  . #x29C28)	; &R-U-00029C28;
       ))
