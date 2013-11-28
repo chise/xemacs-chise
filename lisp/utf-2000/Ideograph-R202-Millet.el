@@ -659,14 +659,15 @@
     (ideographic-radical . 202)	; ⿉
     (ideographic-strokes . 14)
     (total-strokes	 . 26)
-    (=>>ucs@cns		. #x2A411)	; &G-CU+2A411;
-    (=ucs@cns		. #x2A411)	; &G-CU+2A411;
-    (=>>daikanwa	. 48034)	; &G-CU+2A411;
+    (=>>ucs@cns		. #x2A411)	; &C7-6340;
+    (=ucs@cns		. #x2A411)	; &C7-6340;
+    (=cns11643-7	. #x6340)	; &C7-6340; [67-32]
+    (=>>daikanwa	. 48034)	; &C7-6340;
     (->subsumptive
      ((=daikanwa	  . 48034)	; &M-48034;
       )
-     ((==ucs@cns	  . #x2A411)	; &C7-6340;
-      (=cns11643-7	  . #x6340)	; &C7-6340; [67-32]
+     ((==ucs@cns	  . #x2A411)	; &R-CU+2A411;
+      (==cns11643-7	  . #x6340)	; &R-CU+2A411; [67-32]
       ))
     ))
 (define-char
