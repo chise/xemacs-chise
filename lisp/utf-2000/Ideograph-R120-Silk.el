@@ -16257,9 +16257,10 @@
      ((hanyu-dazidian	  5 3472 2)
       (=hanziku-9	  . #xD158)	; &HZK09-D158;
       )
-     ((=ucs@iso		  . #x261FD)	; &U-000261FD;
+     ((=ucs@iso		  . #x261FD)	; &C7-624E;
+      (=cns11643-7	  . #x624E)	; &C7-624E; [66-46]
       (->subsumptive
-       ((=cns11643-7	    . #x624E)	; &C7-624E; [66-46]
+       ((==cns11643-7	    . #x624E)	; &R-C7-624E; [66-46]
 	)
        ((==ucs@iso	    . #x261FD)	; &R-U-000261FD;
 	))
