@@ -3024,12 +3024,13 @@
     (ideographic-radical . 82)	; ⽑
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=>>ucs@iso		. #x23C09)	; &G-IU+23C09;
-    (=ucs@iso		. #x23C09)	; &G-IU+23C09;
+    (=>>ucs@iso		. #x23C09)	; &C7-2439;
+    (=ucs@iso		. #x23C09)	; &C7-2439;
+    (=cns11643-7	. #x2439)	; &C7-2439; [04-25]
     (->subsumptive
      ((==ucs@iso	  . #x23C09)	; &R-U-00023C09;
       )
-     ((=cns11643-7	  . #x2439)	; &C7-2439; [04-25]
+     ((==cns11643-7	  . #x2439)	; &R-C7-2439; [04-25]
       ))
     ))
 (define-char
