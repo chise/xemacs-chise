@@ -8369,13 +8369,14 @@
       (ideographic-strokes . 11)
       (=daikanwa	  . 49890)	; &M-49890;
       )
-     ((=ucs@iso		  . #x29548)	; &U-00029548;
+     ((=ucs@iso		  . #x29548)	; &C7-504C;
+      (=cns11643-7	  . #x504C)	; &C7-504C; [48-44]
       (->subsumptive
        ((==ucs@iso	    . #x29548)	; &R-U-00029548;
 	)
        ((ideographic-radical . 157)	; ⾜
 	(ideographic-strokes . 13)
-	(=cns11643-7	    . #x504C)	; &C7-504C; [48-44]
+	(==cns11643-7	    . #x504C)	; &R-C7-504C; [48-44]
 	))
       ))
     ))
