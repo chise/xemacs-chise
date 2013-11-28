@@ -6591,12 +6591,13 @@
     (ideographic-radical . 195)	; ⿂
     (ideographic-strokes . 10)
     (total-strokes	 . 21)
-    (=>>ucs@iso		. #x29E81)	; &G-IU+29E81;
-    (=ucs@iso		. #x29E81)	; &G-IU+29E81;
+    (=>>ucs@iso		. #x29E81)	; &C7-5675;
+    (=ucs@iso		. #x29E81)	; &C7-5675;
+    (=cns11643-7	. #x5675)	; &C7-5675; [54-85]
     (->subsumptive
      ((==ucs@iso	  . #x29E81)	; &R-U-00029E81;
       )
-     ((=cns11643-7	  . #x5675)	; &C7-5675; [54-85]
+     ((==cns11643-7	  . #x5675)	; &R-C7-5675; [54-85]
       ))
     ))
 (define-char
@@ -8736,15 +8737,16 @@
     (total-strokes	 . 24)
     (=>>ucs@cns		. #x29EE0)	; &GT-63350;
     (=ucs@cns		. #x29EE0)	; &GT-63350;
-    (=gt		. 63350)	; &GT-63350;
-    (=gt-pj-8		. #x5F66)	; &GT-63350; [63-70]
+    (=cns11643-7	. #x6046)	; &GT-63350; [64-38]
+    (=gt		. 63350)	; &I-GT-63350;
+    (=gt-pj-8		. #x5F66)	; &I-GT-63350; [63-70]
     (=>>daikanwa/+p	. 46525)	; &GT-63350;
     (->subsumptive
      ((==gt		  . 63350)	; &R-GT-63350;
       (=daikanwa/+p	  . 46525)	; &R-GT-63350;
       )
-     ((==ucs@cns	  . #x29EE0)	; &C7-6046;
-      (=cns11643-7	  . #x6046)	; &C7-6046; [64-38]
+     ((==ucs@cns	  . #x29EE0)	; &R-CU+29EE0;
+      (==cns11643-7	  . #x6046)	; &R-CU+29EE0; [64-38]
       ))
     ))
 (define-char
