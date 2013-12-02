@@ -1,3 +1,11 @@
+2013-11-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R113-Spirit.el, Ideograph-R109-Eye.el,
+	Ideograph-R029-Again.el, Ideograph-R027-Cliff.el,
+	Ideograph-R021-Spoon.el, Ideograph-R008-Lid.el,
+	Ideograph-R002-Line.el: Apply new glyph-image conventions for
+	`big5-cdp'.
+
 2013-11-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R210-Even.el, Ideograph-R209-Nose.el,
