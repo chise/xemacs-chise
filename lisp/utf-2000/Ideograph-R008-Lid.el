@@ -1266,6 +1266,7 @@
 	))
       (=ucs@unicode	  . #x342D)	; &C4-2534;
       (=cns11643-4	  . #x2534)	; &C4-2534; [05-20]
+      (=big5-cdp	  . #x8BE5)	; &I-CDP-8BE5;
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1276,9 +1277,9 @@
 	  )
 	 ((=ucs		      . #x56DE)	; 回
 	  ))
-	(=big5-cdp	    . #x8BE5)	; &CDP-8BE5;
-	(=daikanwa	    . 00300)	; &I-M-00300;
-	(=shinjigen	    .  2230)	; &CDP-8BE5;
+	(==big5-cdp	    . #x8BE5)	; &R-CDP-8BE5;
+	(=daikanwa	    . 00300)	; &R-CDP-8BE5;
+	(=shinjigen	    .  2230)	; &R-CDP-8BE5;
 	(<-original
 	 ((==ucs@jis	      . #x5EE9)	; &R-AJ1-04756;
 	  (==adobe-japan1-0   . 04756)	; &R-AJ1-04756;
@@ -3200,8 +3201,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=big5-cdp	    . #x8BE5)	; &CDP-8BE5;
-	(=daikanwa	    . 00300)	; &I-M-00300;
+       ((=daikanwa	    . 00300)	; &R-CDP-8BE5;
 	)
        ((=ucs		    . #x65E6)	; 旦
 	))
@@ -3253,8 +3253,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=big5-cdp	    . #x8BE5)	; &CDP-8BE5;
-	(=daikanwa	    . 00300)	; &I-M-00300;
+       ((=daikanwa	    . 00300)	; &R-CDP-8BE5;
 	)
        ((=ucs		    . #x4E14)	; 且
 	))
