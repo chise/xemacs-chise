@@ -68,6 +68,7 @@
       (=adobe-japan1-4	  . 13523)	; &AJ1-13523;
       (=jis-x0208@1978	  . #x5238)	; &I-J78-5238; [50-24]
       (=jis-x0208@1983	  . #x5238)	; &I-J83-5238; [50-24]
+      (=big5-cdp	  . #x8BBA)	; &I-CDP-8BBA;
       (=jef-china3	  . #x45AB)	; &I-JC3-45AB;
       (->subsumptive
        ((=decomposition@cid
@@ -77,8 +78,8 @@
 	  ))
 	(==ucs@iso	    . #x2090E)	; &R-AJ1-13523;
 	(==adobe-japan1-4   . 13523)	; &R-AJ1-13523;
-	(=big5-cdp	    . #x8BBA)	; &R-AJ1-13523;
-	(=daikanwa	    . 02571)	; &I-M-02571;
+	(==big5-cdp	    . #x8BBA)	; &R-AJ1-13523;
+	(=daikanwa	    . 02571)	; &R-AJ1-13523;
 	)
        ((==jis-x0208@1978   . #x5238)	; &R-J83-5238; [50-24]
 	(==jis-x0208@1983   . #x5238)	; &R-J83-5238; [50-24]
