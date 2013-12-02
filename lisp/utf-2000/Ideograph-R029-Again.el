@@ -1663,9 +1663,10 @@
       (=cbeta		  . 00008)	; &CB00008;
       (=jef-china3	  . #x8EC0)	; &I-JC3-8EC0;
       )
-     ((=ucs@unicode	  . #x53DC)	; &UU+53DC;
+     ((=ucs@unicode	  . #x53DC)	; &CDP-8AC4;
+      (=big5-cdp	  . #x8AC4)	; &CDP-8AC4;
       (->subsumptive
-       ((=big5-cdp	    . #x8AC4)	; &CDP-8AC4;
+       ((==big5-cdp	    . #x8AC4)	; &R-CDP-8AC4;
 	)
        ((==ucs@unicode	    . #x53DC)	; &R-UU+53DC;
 	))
