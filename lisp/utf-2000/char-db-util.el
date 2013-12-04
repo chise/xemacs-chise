@@ -231,6 +231,7 @@
     =>>hanyo-denshi/ks
     =>>gt
     =>>daikanwa
+    =>>cbeta
     =+>jis-x0208
     =+>jis-x0213-1
     =+>jis-x0213-2
