@@ -7484,6 +7484,7 @@
     (=adobe-japan1-6	. 21265)	; &AJ1-21265;
     (=jis-x0212		. #x3523)	; &I-JSP-3523; [21-03]
     (=cns11643-3	. #x276C)	; &I-C3-276C; [07-76]
+    (=big5-cdp		. #x8BCF)	; &I-CDP-8BCF;
     (=>>big5-cdp	. #x8BCF)	; &AJ1-21265;
     (=gt		. 04385)	; &I-GT-04385;
     (=gt-k		. 04392)	; &I-GT-K04392;
@@ -7509,7 +7510,7 @@
       (==ucs@jis	  . #x5485)	; &R-AJ1-21265;
       (==adobe-japan1-6	  . 21265)	; &R-AJ1-21265;
       (==jis-x0212	  . #x3523)	; &R-AJ1-21265; [21-03]
-      (=big5-cdp	  . #x8BCF)	; &I-CDP-8BCF;
+      (==big5-cdp	  . #x8BCF)	; &R-AJ1-21265;
       (==gt		  . 04385)	; &R-AJ1-21265;
       (==gt-k		  . 04392)	; &R-AJ1-21265;
       (=daikanwa	  . 03483)	; &I-M-03483;
@@ -18452,7 +18453,7 @@
     (=adobe-japan1-6	. 21281)	; &AJ1-21281;
     (=jis-x0212		. #x355E)	; &I-JSP-355E; [21-62]
     (=cns11643-3	. #x3464)	; &I-C3-3464; [20-68]
-    (=>>big5-cdp	. #x8BEB)	; &AJ1-21281;
+    (=big5-cdp		. #x8BEB)	; &I-CDP-8BEB;
     (=>>daikanwa	. 03829)	; &AJ1-21281;
     (->subsumptive
      ((=decomposition@cid
@@ -18475,8 +18476,8 @@
       (==ucs@jis	  . #x555A)	; &R-AJ1-21281;
       (==adobe-japan1-6	  . 21281)	; &R-AJ1-21281;
       (==jis-x0212	  . #x355E)	; &R-AJ1-21281; [21-62]
-      (=big5-cdp	  . #x8BEB)	; &R-AJ1-21281;
-      (=daikanwa	  . 03829)	; &I-M-03829;
+      (==big5-cdp	  . #x8BEB)	; &R-AJ1-21281;
+      (=daikanwa	  . 03829)	; &R-AJ1-21281;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
@@ -26929,7 +26930,7 @@
 	  )
 	 ((==ucs@jis	      . #x771E)	; &R-J90-6243;
 	  (==ucs@ks	      . #x771E)	; &R-J90-6243;
-	  (=big5-cdp	      . #x88E9)	; &R-J90-6243;
+	  (==jis-x0208	      . #x6243)	; &R-J90-6243; [66-35]
 	  ))
 	(==ucs@jis	    . #x55D4)	; &R-AJ1-04420;
 	(==ucs@ks	    . #x55D4)	; &R-AJ1-04420;
@@ -32424,8 +32425,8 @@
        ((=ucs		    . #x53E3)	; 口
 	)
        ((==ucs@jis	    . #x9EBB)	; &R-GT-65257;
-	(=big5-cdp	    . #x8A5F)	; &R-GT-65257;
-	(=daikanwa	    . 47888)	; &I-M-47888;
+	(==jis-x0208	    . #x4B63)	; &R-GT-65257; [43-67]
+	(=daikanwa	    . 47888)	; &R-GT-65257;
 	))
       (==hanyo-denshi/ft  . #x3530)	; &R-HD-FT-3530; [21-16]
       )
@@ -44397,8 +44398,7 @@
 	  )
 	 ((=ucs		      . #x5405)	; 吅
 	  )
-	 ((==ucs@iso	      . #x20A9A)	; &CDP-8D4D;
-	  (=big5-cdp	      . #x8D4D)	; &CDP-8D4D;
+	 ((==ucs@iso	      . #x20A9A)	; &R-CDP-8D4D;
 	  ))
 	(==ucs@cns	    . #x56B4)	; &R-AJ1-04449;
 	(==ucs@jis	    . #x56B4)	; &R-AJ1-04449;
