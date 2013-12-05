@@ -1,3 +1,11 @@
+2013-12-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el: Apply new glyph-image conventions for
+	`big5-cdp'.
+	(B-D8D2): Apply new glyph-image conventions for `cns11643-2'.
+	(G-CB06652): New abstract node to represent abstract glyph of
+	CB06652.
+
 2013-12-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el: Apply new glyph-image conventions for
