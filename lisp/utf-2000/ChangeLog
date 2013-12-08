@@ -1,5 +1,21 @@
 2013-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R026-Seal.el, Ideograph-R023-Hiding-Enclosure.el:
+	Apply new glyph-image conventions for `daikanwa' and `shinjigen'.
+
+	* Ideograph-R018-Knife.el: Apply new glyph-image conventions for
+	`daikanwa' and `shinjigen'.
+	(U-000206F3): Use `->denotational' instead of `->subsumptive'.
+	(U-00020752): Use `->denotational' to separate glyph node.
+
+	* Ideograph-R014-Cover.el, Ideograph-R012-Eight.el: Apply new
+	glyph-image conventions for `daikanwa' and `shinjigen'.
+
+	* Ideograph-R021-Spoon.el, Ideograph-R017-Open-Box.el,
+	Ideograph-R015-Ice.el, Ideograph-R011-Enter.el,
+	Ideograph-R010-Legs.el, Ideograph-R005-Second.el: Apply new
+	glyph-image conventions for `daikanwa' and `shinjigen'.
+
 	* Ideograph-R008-Lid.el: Apply new glyph-image conventions for
 	`daikanwa' and `shinjigen'.
 	(GT-K02128): Add ideographic-structure.
