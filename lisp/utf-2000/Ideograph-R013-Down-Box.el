@@ -1516,6 +1516,7 @@
     (=gt		. 02024)	; &I-GT-02024;
     (=gt-k		. 06574)	; &I-GT-K06574;
     (=gt-pj-1		. #x514A)	; &I-GT-02024; [49-42]
+    (=shinjigen		.  0523)	; &AJ1-13521;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5193)	; 冓
@@ -1532,7 +1533,7 @@
       (==jis-x0208@1990	  . #x514A)	; &R-AJ1-04225; [49-42]
       (==jis-x0213-1	  . #x514A)	; &R-AJ1-04225; [49-42]
       (==hanyo-denshi/ja  . #x514A)	; &R-AJ1-04225; [49-42]
-      (=shinjigen	  .  0523)	; &R-AJ1-04225;
+      (==shinjigen	  .  0523)	; &R-AJ1-04225;
       )
      ((=decomposition@cid
        ((=ucs		    . #x5193)	; 冓
