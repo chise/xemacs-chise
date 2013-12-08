@@ -171,6 +171,7 @@
       (=hanyo-denshi/ja	  . #x3878)	; &I-HD-JA-3878; [24-88]
       (=gt		  . 01893)	; &I-GT-01893;
       (=gt-pj-1		  . #x3878)	; &I-GT-01893; [24-88]
+      (=shinjigen	  .  0493)	; &AJ1-01964;
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -209,7 +210,7 @@
 	(==jis-x0213-1	    . #x3878)	; &R-AJ1-01964; [24-88]
 	(==hanyo-denshi/ja  . #x3878)	; &R-AJ1-01964; [24-88]
 	(==gt		    . 01893)	; &R-AJ1-01964;
-	(=shinjigen	    .  0493)	; &R-AJ1-01964;
+	(==shinjigen	    .  0493)	; &R-AJ1-01964;
 	))
       ))
     ))
@@ -2130,8 +2131,7 @@
     (=>>ucs@cns		. #x2F813)	; &G-CU+2F813;
     (=>>daikanwa	. 01505)	; &G-CU+2F813;
     (->subsumptive
-     ((=>>>daikanwa	  . 1505)
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
@@ -2139,32 +2139,26 @@
 	(=jis-x0208	    . #x6243)	; &GT-29751; [66-35]
 	(=ks-x1001	    . #x7258)	; &I-K0-7258; [82-56]
 	(=jis-x0213-1	    . #x6243)	; &I-JX1-6243; [66-35]
+	(=daikanwa	    . 23235)	; &I-M-23235;
 	)
        ((=ucs@unicode	    . #x771E)	; &GT-29751;
 	(=jis-x0208	    . #x6243)	; &GT-29751; [66-35]
 	(=ks-x1001	    . #x7258)	; &I-K0-7258; [82-56]
 	(=jis-x0213-1	    . #x6243)	; &I-JX1-6243; [66-35]
+	(=daikanwa	    . 23235)	; &I-M-23235;
 	))
+      (=daikanwa	  . 01505)	; &M-01505;
+      (=cbeta		  . 04138)	; &I-CB04138;
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	  (=ucs		      . #x2FF0)	; ⿰
 	  )
-	 ((=daikanwa	      . 23235)	; &M-23235;
+	 ((==daikanwa	      . 23235)	; &R-M-23235;
 	  )
-	 ((=daikanwa	      . 23235)	; &M-23235;
+	 ((==daikanwa	      . 23235)	; &R-M-23235;
 	  ))
-	(=daikanwa	    . 01505)	; &M-01505;
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((==ucs@unicode      . #x771E)	; &R-GT-29751;
-	  )
-	 ((==ucs@unicode      . #x771E)	; &R-GT-29751;
-	  ))
-	(=cbeta		    . 04138)	; &CB04138;
+	(==daikanwa	    . 01505)	; &R-M-01505;
 	))
       )
      ((=>ucs*		  . #x34B9)	; 㒹
