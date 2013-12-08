@@ -1140,8 +1140,8 @@
 	 ((==ucs@ks	      . #x570D)	; &R-AJ1-13528;
 	  (==adobe-japan1-4   . 13528)	; &R-AJ1-13528;
 	  ))
-	(==daikanwa	    . 00285)	; &HZK01-A9A1;
-	(=hanziku-1	    . #xA9A1)	; &HZK01-A9A1;
+	(==daikanwa	    . 00285)	; &R-M-00285;
+	(=hanziku-1	    . #xA9A1)	; &R-M-00285;
 	)
        ((==ucs@iso	    . #x2013F)	; &R-U-0002013F;
 	))
