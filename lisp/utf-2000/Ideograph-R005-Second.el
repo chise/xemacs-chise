@@ -1315,6 +1315,7 @@
       (=adobe-japan1-6	  . 21080)	; &AJ1-21080;
       (=jis-x0212	  . #x303A)	; &I-JSP-303A; [16-26]
       (=cns11643-4	  . #x2530)	; &I-C4-2530; [05-16]
+      (=daikanwa	  . 00192)	; &I-M-00192;
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x4E75)	; 乵
@@ -1325,27 +1326,23 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	  (=ucs		      . #x2FF0)	; ⿰
 	  )
-	 ((=ucs@jis	      . #x8F9B)	; &GT-51557;
-	  (=jis-x0208	      . #x3F49)	; &GT-51557; [31-41]
-	  (=ks-x1001	      . #x6374)	; &I-K0-6374; [67-84]
-	  (=jis-x0213-1	      . #x3F49)	; &I-JX1-3F49; [31-41]
-	  (=daikanwa	      . 38630)	; &I-M-38630;
+	 ((==ucs@jis	      . #x8F9B)	; &R-GT-51557;
+	  (==ucs@ks	      . #x8F9B)	; &R-GT-51557;
+	  (==jis-x0208	      . #x3F49)	; &R-GT-51557; [31-41]
 	  )
 	 ((=ucs		      . #x4E5A)	; 乚
 	  ))
 	(==ucs@jis	    . #x4E75)	; &R-AJ1-21080;
 	(==adobe-japan1-6   . 21080)	; &R-AJ1-21080;
 	(==jis-x0212	    . #x303A)	; &R-AJ1-21080; [16-26]
-	(=daikanwa	    . 00192)	; &R-AJ1-21080;
+	(==daikanwa	    . 00192)	; &R-AJ1-21080;
 	)
        ((hanyu-dazidian	    1 55 5)
 	(ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	  (=ucs		      . #x2FF0)	; ⿰
 	  )
-	 ((=ucs@unicode	      . #x8F9B)	; &C1-4B50;
-	  (=gb2312	      . #x5041)	; &C1-4B50; [48-33]
-	  (=cns11643-1	      . #x4B50)	; &I-C1-4B50; [43-48]
+	 ((==ucs@unicode      . #x8F9B)	; &R-UU+8F9B;
 	  )
 	 ((=ucs		      . #x4E5A)	; 乚
 	  ))
@@ -1354,19 +1351,19 @@
 	(=hanziku-1	    . #xAF65)	; &HZK01-AF65;
 	))
       )
-     ((=gt		  . 00252)	; &GT-00252;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gt-k		    . 02585)	; &GT-K02585;
+	)
+       ((=ucs		    . #x4E5A)	; 乚
+	))
+      (=gt		  . 00252)	; &GT-00252;
       (=gt-pj-2		  . #x315B)	; &GT-00252; [17-59]
       (=jef-china3	  . #x41C3)	; &I-JC3-41C3;
       (->subsumptive
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=gt-k	      . 02585)	; &GT-K02585;
-	  )
-	 ((=ucs		      . #x4E5A)	; 乚
-	  ))
-	(==gt		    . 00252)	; &R-GT-00252;
+       ((==gt		    . 00252)	; &R-GT-00252;
 	))
       ))
     ))
