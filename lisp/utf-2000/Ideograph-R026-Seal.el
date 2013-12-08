@@ -770,6 +770,8 @@
       (=gt		  . 03640)	; &I-GT-03640;
       (=gt-k		  . 03646)	; &I-GT-K03646;
       (=gt-pj-1		  . #x3237)	; &I-GT-03640; [18-23]
+      (=daikanwa	  . 02861)	; &I-M-02861;
+      (=shinjigen	  .  0865)	; &AJ1-01335;
       (->subsumptive
        ((ideographic-strokes@ucs . 6)
 	(total-strokes@ucs	 . 8)
@@ -789,8 +791,8 @@
 	(==gb2312	    . #x5036)	; &R-AJ1-01335; [48-22]
 	(==jis-x0208	    . #x3237)	; &R-AJ1-01335; [18-23]
 	(==jis-x0213-1	    . #x3237)	; &R-AJ1-01335; [18-23]
-	(=daikanwa	    . 02861)	; &R-AJ1-01335;
-	(=shinjigen	    .  0865)	; &R-AJ1-01335;
+	(==daikanwa	    . 02861)	; &R-AJ1-01335;
+	(==shinjigen	    .  0865)	; &R-AJ1-01335;
 	)
        ((ideographic-strokes . 6)
 	(total-strokes	     . 8)
@@ -798,7 +800,7 @@
 	(==cns11643-1	    . #x4C3B)	; &R-GT-03640; [44-27]
 	(==gt		    . 03640)	; &R-GT-03640;
 	(==gt-k		    . 03646)	; &R-GT-03640;
-	(=shinjigen	    .  0866)	; &R-GT-03640;
+	(==shinjigen	    .  0866)	; &R-GT-03640;
 	))
       )
      ((ideographic-strokes . 6)
