@@ -1127,7 +1127,8 @@
 	(=adobe-japan1-0    . 04468)	; &AJ1-13528;
 	(=adobe-japan1-4    . 13528)	; &I-AJ1-13528;
 	))
-      (=ucs@iso		  . #x2013F)	; &U-0002013F;
+      (=ucs@iso		  . #x2013F)	; &M-00285;
+      (=daikanwa	  . 00285)	; &M-00285;
       (->subsumptive
        ((hanyu-dazidian	    1 26 17)
 	(ideographic-structure
@@ -1139,8 +1140,8 @@
 	 ((==ucs@ks	      . #x570D)	; &R-AJ1-13528;
 	  (==adobe-japan1-4   . 13528)	; &R-AJ1-13528;
 	  ))
-	(=daikanwa	    . 00285)	; &M-00285;
-	(=hanziku-1	    . #xA9A1)	; &I-HZK01-A9A1;
+	(==daikanwa	    . 00285)	; &HZK01-A9A1;
+	(=hanziku-1	    . #xA9A1)	; &HZK01-A9A1;
 	)
        ((==ucs@iso	    . #x2013F)	; &R-U-0002013F;
 	))
