@@ -1,3 +1,8 @@
+2013-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R007-Two.el, Ideograph-R002-Line.el: Apply new
+	glyph-image conventions for `daikanwa' and `shinjigen'.
+
 2013-12-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R040-Roof.el: Apply new glyph-image conventions for
