@@ -1,7 +1,22 @@
 2013-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R008-Lid.el: Apply new glyph-image conventions for
+	`daikanwa' and `shinjigen'.
+	(GT-K02128): Add ideographic-structure.
+	(R-GT-K02128): Likewise.
+	(J0-4462): Add ideographic-structure.
+	(U+4EB0): Use `->denotational' instead of `->subsumptive'; apply
+	new glyph-image conventions.
+	(U+7AD2): Likewise.
+	(U-00020158): Likewise.
+
 	* Ideograph-R007-Two.el, Ideograph-R002-Line.el: Apply new
 	glyph-image conventions for `daikanwa' and `shinjigen'.
+
+2013-12-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R013-Down-Box.el: Apply new glyph-image conventions
+	for `daikanwa' and `shinjigen'.
 
 2013-12-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
