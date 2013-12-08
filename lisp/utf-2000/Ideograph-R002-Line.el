@@ -31,6 +31,8 @@
       (=gt		  . 00102)	; &I-GT-00102;
       (=gt-k		  . 00069)	; &I-GT-K00069;
       (=gt-pj-2		  . #x3054)	; &I-GT-00102; [16-52]
+      (=daikanwa	  . 00068)	; &I-M-00068;
+      (=shinjigen	  .  0031)	; &AJ1-17237;
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x4E29)	; 丩
@@ -40,8 +42,8 @@
 	(==ucs@unicode	    . #x4E29)	; &R-AJ1-17237;
 	(==adobe-japan1-5   . 17237)	; &R-AJ1-17237;
 	(==jis-x0213-2	    . #x2125)	; &R-AJ1-17237; [01-05]
-	(=daikanwa	    . 00068)	; &R-AJ1-17237;
-	(=shinjigen	    .  0031)	; &R-AJ1-17237;
+	(==daikanwa	    . 00068)	; &R-AJ1-17237;
+	(==shinjigen	    .  0031)	; &R-AJ1-17237;
 	)
        ((==big5-cdp	    . #x8BA3)	; &R-GT-00102;
 	(==gt		    . 00102)	; &R-GT-00102;
