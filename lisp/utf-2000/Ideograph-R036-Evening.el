@@ -374,6 +374,7 @@
     (=gt		. 07291)	; &I-GT-07291;
     (=gt-k		. 03842)	; &I-GT-K03842;
     (=gt-pj-1		. #x4C6B)	; &I-GT-07291; [44-75]
+    (=shinjigen		.  1548)	; &AJ1-03831;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x591C)	; 夜
@@ -388,7 +389,7 @@
       (==jis-x0213-1	  . #x4C6B)	; &R-AJ1-03831; [44-75]
       (==gt		  . 07291)	; &R-AJ1-03831;
       (==gt-k		  . 03842)	; &R-AJ1-03831;
-      (=shinjigen	  .  1548)	; &R-AJ1-03831;
+      (==shinjigen	  .  1548)	; &R-AJ1-03831;
       )
      ((hanyu-dazidian	  1 285 1)
       (==ucs@unicode	  . #x591C)	; &R-UU+591C;
@@ -1045,6 +1046,15 @@
       (=ucs@unicode	  . #x5923)	; &AJ1-19304;
       (=adobe-japan1-5	  . 19304)	; &AJ1-19304;
       (=jis-x0212	  . #x3869)	; &I-JSP-3869; [24-73]
+      (=daikanwa	  . 05803)	; &I-M-05803;
+      (=shinjigen	  .  1553)	; &AJ1-19304;
+      (<-vulgar
+       ((=cns11643-1	    . #x6842)	; &HD-KS-066550; [72-34]
+	(=daikanwa	    . 05802)	; &I-M-05802;
+	(=shinjigen	    .  1550)	; &HD-KS-066550;
+	))
+      (<-vulgar*sources
+       shinjigen)
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x5923)	; 夣
@@ -1054,15 +1064,8 @@
 	(==ucs@jis	    . #x5923)	; &R-AJ1-19304;
 	(==adobe-japan1-5   . 19304)	; &R-AJ1-19304;
 	(==jis-x0212	    . #x3869)	; &R-AJ1-19304; [24-73]
-	(=daikanwa	    . 05803)	; &R-AJ1-19304;
-	(=shinjigen	    .  1553)	; &R-AJ1-19304;
-	(<-vulgar
-	 ((=cns11643-1	      . #x6842)	; &HD-KS-066550; [72-34]
-	  (=daikanwa	      . 05802)	; &I-M-05802;
-	  (=shinjigen	      .	 1550)	; &HD-KS-066550;
-	  ))
-	(<-vulgar*sources
-	 shinjigen)
+	(==daikanwa	    . 05803)	; &R-AJ1-19304;
+	(==shinjigen	    .  1553)	; &R-AJ1-19304;
 	)
        ((==ucs@unicode	    . #x5923)	; &HZK03-AE6B;
 	(=hanziku-3	    . #xAE6B)	; &HZK03-AE6B;
