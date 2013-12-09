@@ -1,5 +1,12 @@
 2013-12-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R009-Man.el: Apply new glyph-image conventions for
+	`daikanwa' and `shinjigen'.
+	(U+3480): Use `->denotational' instead of `->subsumptive'.
+
+	* Ideograph-R028-Private.el: Apply new glyph-image conventions for
+	`daikanwa' and `shinjigen'.
+
 	* Ideograph-R027-Cliff.el: Apply new glyph-image conventions for
 	`daikanwa' and `shinjigen'.
 
