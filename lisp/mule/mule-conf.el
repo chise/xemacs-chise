@@ -2254,6 +2254,16 @@
 		  direction	l2r
 		  mother	=shinjigen
 		  registry	"Shinjigen\\(\\.[0-9]+\\)?-*"))
+  (make-charset '==shinjigen@rev
+		"Kadokawa ShinJigen dictionary (the revised edition)"
+		`(long-name	"Shinjigen-2"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	==shinjigen
+		  registry	"Shinjigen\\(\\.[0-9]+\\)?-2"))
 
   (make-charset '=big5-pua
 		"Big5 with private used area"
