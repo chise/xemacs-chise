@@ -697,8 +697,9 @@
     (->subsumptive
      ((=ucs@unicode	  . #x5B64)	; &G0-3942;
       (=gb2312		  . #x3942)	; &G0-3942; [25-34]
+      (=daikanwa	  . 06966)	; &I-M-06966;
       (->subsumptive
-       ((=daikanwa	    . 06966)	; &M-06966;
+       ((==daikanwa	    . 06966)	; &R-M-06966;
 	)
        ((==ucs@unicode	    . #x5B64)	; &R-UU+5B64;
 	(==gb2312	    . #x3942)	; &R-UU+5B64; [25-34]
@@ -924,7 +925,7 @@
     (=hanyo-denshi/ja	. #x5558)	; &I-HD-JA-5558; [53-56]
     (=gt		. 08767)	; &I-GT-08767;
     (=gt-pj-1		. #x5558)	; &I-GT-08767; [53-56]
-    (=>>daikanwa	. 06977)	; &AJ1-04615;
+    (=daikanwa		. 06977)	; &I-M-06977;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5B69)	; 孩
@@ -943,7 +944,7 @@
       (==jis-x0208	  . #x5558)	; &R-AJ1-04615; [53-56]
       (==jis-x0213-1	  . #x5558)	; &R-AJ1-04615; [53-56]
       (==hanyo-denshi/ja  . #x5558)	; &R-AJ1-04615; [53-56]
-      (=daikanwa	  . 06977)	; &R-AJ1-04615;
+      (==daikanwa	  . 06977)	; &R-AJ1-04615;
       )
      ((==gt		  . 08767)	; &R-GT-08767;
       )
@@ -1136,8 +1137,9 @@
 	))
       (=ucs@unicode	  . #x3743)	; &C3-3054;
       (=cns11643-3	  . #x3054)	; &C3-3054; [16-52]
+      (=daikanwa	  . 06988)	; &I-M-06988;
       (->subsumptive
-       ((=daikanwa	    . 06988)	; &M-06988;
+       ((==daikanwa	    . 06988)	; &R-M-06988;
 	)
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -2002,12 +2004,11 @@
     (ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
-    (=>>ucs@unicode	. #x5B7C)	; &AJ1-14472;
     (=ucs@unicode	. #x5B7C)	; &AJ1-14472;
     (=adobe-japan1-4	. 14472)	; &AJ1-14472;
     (=jis-x0212		. #x3A43)	; &I-JSP-3A43; [26-35]
     (=jis-x0213-2	. #x257A)	; &I-JX2-257A; [05-90]
-    (=>>daikanwa	. 07046)	; &AJ1-14472;
+    (=daikanwa		. 07046)	; &I-M-07046;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5B7C)	; 孼
@@ -2018,7 +2019,7 @@
       (==adobe-japan1-4	  . 14472)	; &R-AJ1-14472;
       (==jis-x0212	  . #x3A43)	; &R-AJ1-14472; [26-35]
       (==jis-x0213-2	  . #x257A)	; &R-AJ1-14472; [05-90]
-      (=daikanwa	  . 07046)	; &R-AJ1-14472;
+      (==daikanwa	  . 07046)	; &R-AJ1-14472;
       )
      ((==ucs@unicode	  . #x5B7C)	; &R-UU+5B7C;
       ))
