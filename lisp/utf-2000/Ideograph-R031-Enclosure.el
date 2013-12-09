@@ -3232,6 +3232,8 @@
 	(=gt		    . 06038)	; &I-GT-06038;
 	(=gt-k		    . 09174)	; &I-GT-K09174;
 	(=gt-pj-1	    . #x5423)	; &I-GT-06038; [52-03]
+	(=daikanwa	    . 04806)	; &I-M-04806;
+	(=shinjigen	    .  1309)	; &AJ1-13528;
 	(->subsumptive
 	 ((=decomposition@cid
 	   ((=ucs		. #x570D)	; 圍
@@ -3243,11 +3245,11 @@
 	  (==jis-x0208@1978   . #x5423)	; &R-AJ1-13528; [52-03]
 	  (==jis-x0208@1983   . #x5423)	; &R-AJ1-13528; [52-03]
 	  (==ks-x1001	      . #x6A4C)	; &R-AJ1-13528; [74-44]
-	  (=daikanwa	      . 04806)	; &I-M-04806;
+	  (==daikanwa	      . 04806)	; &R-AJ1-13528;
 	  )
 	 ((==gt		      . 06038)	; &R-GT-06038;
 	  (==gt-k	      . 09174)	; &R-GT-06038;
-	  (=shinjigen	      .	 1309)	; &R-GT-06038;
+	  (==shinjigen	      .	 1309)	; &R-GT-06038;
 	  )
 	 ((=decomposition@cid
 	   ((=ucs		. #x570D)	; 圍
@@ -3936,9 +3938,6 @@
       (=ucs@jis		  . #x555A)	; &AJ1-21281;
       (=adobe-japan1-6	  . 21281)	; &AJ1-21281;
       ))
-    (=>>ucs@jis		. #x5716)	; &AJ1-04471;
-    (=>>ucs@ks		. #x5716)	; &AJ1-04471;
-    (=>>ucs@cns		. #x5716)	; &AJ1-04471;
     (=ucs@cns		. #x5716)	; &AJ1-04471;
     (=ucs@jis		. #x5716)	; &AJ1-04471;
     (=ucs@ks		. #x5716)	; &AJ1-04471;
@@ -3951,7 +3950,8 @@
     (=hanyo-denshi/ja	. #x5426)	; &I-HD-JA-5426; [52-06]
     (=gt		. 06082)	; &I-GT-06082;
     (=gt-pj-1		. #x5426)	; &I-GT-06082; [52-06]
-    (=>>daikanwa	. 04832)	; &AJ1-04471;
+    (=daikanwa		. 04832)	; &I-M-04832;
+    (=shinjigen		.  1314)	; &AJ1-04471;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5716)	; 圖
@@ -3980,8 +3980,8 @@
       (==jis-x0213-1	  . #x5426)	; &R-AJ1-04471; [52-06]
       (==hanyo-denshi/ja  . #x5426)	; &R-AJ1-04471; [52-06]
       (==gt		  . 06082)	; &R-AJ1-04471;
-      (=daikanwa	  . 04832)	; &R-AJ1-04471;
-      (=shinjigen	  .  1314)	; &R-AJ1-04471;
+      (==daikanwa	  . 04832)	; &R-AJ1-04471;
+      (==shinjigen	  .  1314)	; &R-AJ1-04471;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
@@ -4073,10 +4073,11 @@
      ((=ucs@unicode	  . #x5717)	; &M-04833;
       (=daikanwa	  . 04833)	; &M-04833;
       (<-vulgar
-       ((==ucs@jis	    . #x5716)	; &R-AJ1-04471;
-	(==ucs@ks	    . #x5716)	; &R-AJ1-04471;
-	(==adobe-japan1-0   . 04471)	; &R-AJ1-04471;
-	(=daikanwa	    . 04832)	; &R-AJ1-04471;
+       ((=ucs@cns	    . #x5716)	; &AJ1-04471;
+	(=ucs@jis	    . #x5716)	; &AJ1-04471;
+	(=ucs@ks	    . #x5716)	; &AJ1-04471;
+	(=adobe-japan1-0    . 04471)	; &AJ1-04471;
+	(=daikanwa	    . 04832)	; &I-M-04832;
 	))
       (<-vulgar*sources
        zhengzitong daikanwa)
@@ -4087,10 +4088,12 @@
       (=shinjigen@1ed	  .  1315)	; &C3-4637;
       (=hanziku-2	  . #xE7AC)	; &I-HZK02-E7AC;
       (<-vulgar
-       ((==ucs@jis	    . #x5716)	; &R-AJ1-04471;
-	(==ucs@ks	    . #x5716)	; &R-AJ1-04471;
-	(==adobe-japan1-0   . 04471)	; &R-AJ1-04471;
-	(=shinjigen	    .  1314)	; &R-AJ1-04471;
+       ((=ucs@cns	    . #x5716)	; &AJ1-04471;
+	(=ucs@jis	    . #x5716)	; &AJ1-04471;
+	(=ucs@ks	    . #x5716)	; &AJ1-04471;
+	(=adobe-japan1-0    . 04471)	; &AJ1-04471;
+	(=jis-x0208	    . #x5426)	; &I-J90-5426; [52-06]
+	(=shinjigen	    .  1314)	; &AJ1-04471;
 	))
       (<-vulgar*sources
        shinjigen@1ed)
@@ -4232,23 +4235,26 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (=ucs		. #x2F84D)	; 圗
+    (=cns11643-6	. #x5B59)	; &I-C6-5B59; [59-57]
     (=gt		. 06085)	; &I-GT-06085;
     (=gt-pj-2		. #x5D24)	; &I-GT-06085; [61-04]
+    (=daikanwa/+p	. 04841)	; 圗
+    (<-vulgar
+     ((=ucs@cns		  . #x5716)	; &AJ1-04471;
+      (=ucs@jis		  . #x5716)	; &AJ1-04471;
+      (=ucs@ks		  . #x5716)	; &AJ1-04471;
+      (=adobe-japan1-0	  . 04471)	; &AJ1-04471;
+      (=daikanwa	  . 04832)	; &I-M-04832;
+      ))
+    (<-vulgar*sources
+     songyuan-yilai-suzipu daikanwa)
     (->subsumptive
      ((==ucs@iso	  . #x2F84D)	; &R-GT-06085;
       (==gt		  . 06085)	; &R-GT-06085;
-      (=daikanwa/+p	  . 04841)	; &R-GT-06085;
-      (<-vulgar
-       ((==ucs@jis	    . #x5716)	; &R-AJ1-04471;
-	(==ucs@ks	    . #x5716)	; &R-AJ1-04471;
-	(==adobe-japan1-0   . 04471)	; &R-AJ1-04471;
-	(=daikanwa	    . 04832)	; &R-AJ1-04471;
-	))
-      (<-vulgar*sources
-       songyuan-yilai-suzipu daikanwa)
+      (==daikanwa/+p	  . 04841)	; &R-GT-06085;
       )
-     ((==ucs@cns	  . #x2F84D)	; &C6-5B59;
-      (=cns11643-6	  . #x5B59)	; &C6-5B59; [59-57]
+     ((==ucs@cns	  . #x2F84D)	; &R-CU+2F84D;
+      (==cns11643-6	  . #x5B59)	; &R-CU+2F84D; [59-57]
       ))
     ))
 (define-char
