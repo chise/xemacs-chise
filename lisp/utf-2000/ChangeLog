@@ -3,6 +3,9 @@
 	* Ideograph-R019-Power.el: Apply new glyph-image conventions for
 	`daikanwa' and `shinjigen'.
 
+	* Ideograph-R029-Again.el: Apply new glyph-image conventions for
+	`daikanwa' and `shinjigen'.
+
 	* Ideograph-R026-Seal.el, Ideograph-R023-Hiding-Enclosure.el:
 	Apply new glyph-image conventions for `daikanwa' and `shinjigen'.
 
