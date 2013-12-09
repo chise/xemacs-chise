@@ -1748,10 +1748,10 @@
     (=iso-ir165		. #x7A5D)	; &I-EGB-7A5D; [90-61]
     (=cns11643-2	. #x2962)	; &I-C2-2962; [09-66]
     (=big5		. #xCE61)	; &I-B-CE61;
-    (=>>daikanwa	. 05920)	; &AJ1-14289;
+    (=daikanwa		. 05920)	; &I-M-05920;
     (=jef-china3	. #x48E3)	; &I-JC3-48E3;
     (->subsumptive
-     ((=daikanwa	  . 05920)	; &M-05920;
+     ((==daikanwa	  . 05920)	; &R-M-05920;
       )
      ((=decomposition@cid
        ((=ucs		    . #x5953)	; 奓
@@ -3695,11 +3695,11 @@
 	(=gb2312	    . #x3C2F)	; &I-G0-3C2F; [28-15]
 	(=ks-x1001	    . #x7322)	; &I-K0-7322; [83-02]
 	(=jis-x0213-1	    . #x3D38)	; &I-JX1-3D38; [29-24]
+	(=daikanwa	    . 41974)	; &I-M-41974;
 	))
-      (=>>ucs@iso	  . #x21678)	; &G-CB03033;
-      (=ucs@iso		  . #x21678)	; &G-CB03033;
-      (=>>daikanwa	  . 06004)	; &G-CB03033;
-      (=>>cbeta		  . 03033)	; &G-CB03033;
+      (=ucs@iso		  . #x21678)	; &M-06004;
+      (=daikanwa	  . 06004)	; &M-06004;
+      (=cbeta		  . 03033)	; &I-CB03033;
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -3709,10 +3709,8 @@
 	  )
 	 ((==ucs@jis	      . #x96C6)	; &R-GT-56392;
 	  (==jis-x0208	      . #x3D38)	; &R-GT-56392; [29-24]
-	  (=daikanwa	      . 41974)	; &R-GT-56392;
 	  ))
-	(=daikanwa	    . 06004)	; &M-06004;
-	(=cbeta		    . 03033)	; &I-CB03033;
+	(==daikanwa	    . 06004)	; &R-M-06004;
 	)
        ((hanyu-dazidian	    1 549 5)
 	(ideographic-structure
