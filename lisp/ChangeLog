@@ -1,3 +1,14 @@
+2013-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `==daikanwa' and `==ucs@JP/hanazono'.
+
+	* mule/mule-conf.el (==shinjigen@rev): New coded-charset for
+	XEmacs CHISE.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`==daikanwa'.
+
 2013-11-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
