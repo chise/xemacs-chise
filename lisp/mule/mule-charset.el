@@ -405,6 +405,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==jis-x0213-1@2000
 	  ==jis-x0212
 	  ==ks-x1001
+	  ==daikanwa
 	  ;; ucs-sip
 	  =>>big5-cdp
 	  =>>jis-x0208
