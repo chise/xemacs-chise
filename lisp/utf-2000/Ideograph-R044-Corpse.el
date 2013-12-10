@@ -352,6 +352,8 @@
       (=gt		  . 09647)	; &I-GT-09647;
       (=gt-k		  . 02698)	; &I-GT-K02698;
       (=gt-pj-1		  . #x557B)	; &I-GT-09647; [53-91]
+      (=daikanwa	  . 07654)	; &I-M-07654;
+      (=shinjigen	  .  1925)	; &AJ1-04650;
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x5C41)	; 屁
@@ -362,8 +364,8 @@
 	(==adobe-japan1-0   . 04650)	; &R-AJ1-04650;
 	(==jis-x0208	    . #x557B)	; &R-AJ1-04650; [53-91]
 	(==jis-x0213-1	    . #x557B)	; &R-AJ1-04650; [53-91]
-	(=daikanwa	    . 07654)	; &R-AJ1-04650;
-	(=shinjigen	    .  1925)	; &R-AJ1-04650;
+	(==daikanwa	    . 07654)	; &R-AJ1-04650;
+	(==shinjigen	    .  1925)	; &R-AJ1-04650;
 	)
        ((==ucs@unicode	    . #x5C41)	; &R-GT-09647;
 	(==gb2312	    . #x4628)	; &R-GT-09647; [38-08]
@@ -506,9 +508,12 @@
 	(=ks-x1001	    . #x5821)	; &I-K0-5821; [56-01]
 	(=cns11643-1	    . #x4721)	; &I-C1-4721; [39-01]
 	(=jis-x0213-1	    . #x4E29)	; &I-JX1-4E29; [46-09]
+	(=daikanwa	    . 25721)	; &I-M-25721;
 	))
       (=ucs@unicode	  . #x3790)	; &C3-2852;
       (=cns11643-3	  . #x2852)	; &C3-2852; [08-50]
+      (=daikanwa	  . 07664)	; &I-M-07664;
+      (=cbeta		  . 05464)	; &I-CB05464;
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -519,10 +524,8 @@
 	 ((==ucs@jis	      . #x7ACB)	; &R-GT-33181;
 	  (==ucs@ks	      . #x7ACB)	; &R-GT-33181;
 	  (==jis-x0208	      . #x4E29)	; &R-GT-33181; [46-09]
-	  (=daikanwa	      . 25721)	; &R-GT-33181;
 	  ))
-	(=daikanwa	    . 07664)	; &M-07664;
-	(=cbeta		    . 05464)	; &I-CB05464;
+	(==daikanwa	    . 07664)	; &R-M-07664;
 	)
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
