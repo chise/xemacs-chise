@@ -272,7 +272,6 @@
     (ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (=>>ucs@unicode	. #x5F03)	; &AJ1-04764;
     (=ucs@unicode	. #x5F03)	; &AJ1-04764;
     (=adobe-japan1-0	. 04764)	; &AJ1-04764;
     (=jis-x0208		. #x5731)	; &I-J90-5731; [55-17]
@@ -282,8 +281,18 @@
     (=gt		. 12093)	; &I-GT-12093;
     (=gt-k		. 02705)	; &I-GT-K02705;
     (=gt-pj-1		. #x5731)	; &I-GT-12093; [55-17]
-    (=>>daikanwa	. 09594)	; &AJ1-04764;
-    (=>>cbeta		. 00020)	; &AJ1-04764;
+    (=daikanwa		. 09594)	; &I-M-09594;
+    (=shinjigen		.  3710)	; &AJ1-04764;
+    (=cbeta		. 00020)	; &I-CB00020;
+    (<-ancient
+     ((=ucs@unicode	  . #x68C4)	; &AJ1-01594;
+      (=adobe-japan1-0	  . 01594)	; &AJ1-01594;
+      (=jis-x0208	  . #x347E)	; &I-J90-347E; [20-94]
+      (=daikanwa	  . 14913)	; &I-M-14913;
+      (=shinjigen	  .  3708)	; &AJ1-01594;
+      ))
+    (<-ancient*sources
+     shuowen liji/sangdaji daikanwa shinjigen)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5F03)	; 弃
@@ -306,18 +315,8 @@
       (==jis-x0213-1	  . #x5731)	; &R-AJ1-04764; [55-17]
       (==gt		  . 12093)	; &R-AJ1-04764;
       (==gt-k		  . 02705)	; &R-AJ1-04764;
-      (=daikanwa	  . 09594)	; &R-AJ1-04764;
-      (=shinjigen	  .  3710)	; &R-AJ1-04764;
-      (=cbeta		  . 00020)	; &I-CB00020;
-      (<-ancient
-       ((==ucs@jis	    . #x68C4)	; &R-AJ1-01594;
-	(==ucs@ks	    . #x68C4)	; &R-AJ1-01594;
-	(==adobe-japan1-0   . 01594)	; &R-AJ1-01594;
-	(=daikanwa	    . 14913)	; &R-AJ1-01594;
-	(=shinjigen	    .  3708)	; &R-AJ1-01594;
-	))
-      (<-ancient*sources
-       shuowen liji/sangdaji daikanwa shinjigen)
+      (==daikanwa	  . 09594)	; &R-AJ1-04764;
+      (==shinjigen	  .  3710)	; &R-AJ1-04764;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
