@@ -181,6 +181,7 @@
     =daikanwa
     =daikanwa@rev2
     =daikanwa@rev1
+    ==daikanwa
     =cbeta
     ideograph-hanziku-1
     ideograph-hanziku-2
@@ -590,7 +591,8 @@
        ((memq name '(==shinjigen
 		     =shinjigen
 		     =shinjigen@1ed
-		     =shinjigen@rev =shinjigen/+p@rev
+		     =shinjigen@rev ==shinjigen@rev
+		     =shinjigen/+p@rev
 		     =daikanwa/ho =>>daikanwa/ho =>daikanwa/ho))
 	"(%-18s .  %04d)\t; %c")
        ((eq name '=shinjigen@1ed/24pr)
@@ -598,7 +600,7 @@
        ((or (memq name '(==daikanwa
 			 =daikanwa =>>daikanwa =>daikanwa
 			 =daikanwa@rev1 =daikanwa@rev2
-			 =daikanwa/+p =>>daikanwa/+p
+			 =daikanwa/+p ==daikanwa/+p =>>daikanwa/+p
 			 =daikanwa/+2p =>>daikanwa/+2p
 			 =gt ==gt ; =>>>gt
 			 =>>gt =+>gt =>gt
