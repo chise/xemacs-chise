@@ -941,23 +941,41 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (=ucs		. #x20A4C)	; 𠩌
-    (->subsumptive
-     ((=daikanwa	  . 02935)	; &M-02935;
-      (<-ancient
-       ((==ucs@jis	    . #x5E2D)	; &R-AJ1-02670;
-	(==ucs@ks	    . #x5E2D)	; &R-AJ1-02670;
-	(==adobe-japan1-0   . 02670)	; &R-AJ1-02670;
-	(=daikanwa	    . 08926)	; &R-AJ1-02670;
-	))
-      (<-ancient*sources
-       zihui daikanwa)
-      )
-     ((=ucs@iso		  . #x20A4C)	; &C6-2A29;
-      (=cns11643-6	  . #x2A29)	; &C6-2A29; [10-09]
-      )
-     ((hanyu-dazidian	  1 71 5)
-      (=hanziku-1	  . #xB2B0)	; &HZK01-B2B0;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20A4C)	; 𠩌
       ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (=daikanwa		. 02935)	; &M-02935;
+    (<-ancient
+     ((=ucs		  . #x5E2D)	; 席
+      (=daikanwa	  . 08926)	; &I-M-08926;
+      ))
+    (<-ancient*sources
+     zihui daikanwa)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20A4C)	; 𠩌
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (=ucs@iso		. #x20A4C)	; &C6-2A29;
+    (=cns11643-6	. #x2A29)	; &C6-2A29; [10-09]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20A4C)	; 𠩌
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (hanyu-dazidian	1 71 5)
+    (=hanziku-1		. #xB2B0)	; &HZK01-B2B0;
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
