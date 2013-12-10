@@ -1,11 +1,22 @@
 2013-12-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`==daikanwa'.
+	(char-db-insert-ccs-feature): Support `==shinjigen@rev' and
+	`==daikanwa/+p'.
+
 	* Ideograph-R039-Child.el, Ideograph-R032-Earth.el: Apply new
 	glyph-image conventions for `daikanwa' and `shinjigen'.
 
 	* Ideograph-R031-Enclosure.el: Apply new glyph-image conventions
 	for `daikanwa' and `shinjigen'.
 	(U-0002F84D): Apply new glyph-image conventions.
+
+	* Ideograph-R047-River.el: Apply new glyph-image conventions for
+	`daikanwa' and `shinjigen'.
+
+	* Ideograph-R044-Corpse.el: Apply new glyph-image conventions for
+	`daikanwa' and `shinjigen'.
 
 	* Ideograph-R037-Big.el: Apply new glyph-image conventions for
 	`daikanwa' and `shinjigen'.
