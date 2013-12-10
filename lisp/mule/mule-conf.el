@@ -2132,6 +2132,15 @@
 		  direction	l2r
 		  registry	"Daikanwa\\(\\.[0-9]+\\)?-3"
 		  mother	=daikanwa))
+  (make-charset '==daikanwa/+p
+		"Daikanwa detailed glyph-images (ddddd')"
+		'(long-name	"Daikanwa detailed glyphs-images (ddddd')"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=daikanwa/+p))
 
   (make-charset '=>>daikanwa
 		"Daikanwa abstract glyphs"
