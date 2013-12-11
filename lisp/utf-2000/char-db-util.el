@@ -593,6 +593,7 @@
 		     =shinjigen@1ed
 		     =shinjigen@rev ==shinjigen@rev
 		     =shinjigen/+p@rev
+		     ==daikanwa/ho
 		     =daikanwa/ho =>>daikanwa/ho =>daikanwa/ho))
 	"(%-18s .  %04d)\t; %c")
        ((eq name '=shinjigen@1ed/24pr)
