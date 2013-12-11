@@ -2263,8 +2263,8 @@
   (define-charset-alias 'shinjigen-2-p '=shinjigen/+p@rev)
 
   (make-charset '==shinjigen
-		"Kadokawa ShinJigen dictionary (common parts)"
-		`(long-name	"Shinjigen common parts"
+		"Detailed glyph-images of ShinJigen (common parts)"
+		'(long-name	"Shinjigen common parts"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -2272,9 +2272,19 @@
 		  direction	l2r
 		  mother	=shinjigen
 		  registry	"Shinjigen\\(\\.[0-9]+\\)?-*"))
+  (make-charset '==shinjigen@1ed
+		"Detailed glyph-images of ShinJigen (the first edition)"
+		'(long-name	"Detailed glyph-images of Shinjigen-1"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	==shinjigen
+		  registry	"Shinjigen\\(\\.[0-9]+\\)?-1"))
   (make-charset '==shinjigen@rev
-		"Kadokawa ShinJigen dictionary (the revised edition)"
-		`(long-name	"Shinjigen-2"
+		"Detailed glyph-images of ShinJigen (the revised edition)"
+		'(long-name	"Detailed glyph-images of Shinjigen-2"
 		  chars		256
 		  dimension	2
 		  columns	2
