@@ -348,13 +348,14 @@
       (=gb2312		  . #x6538)	; &I-G0-6538; [69-24]
       (=jis-x0212	  . #x4D2A)	; &I-JSP-4D2A; [45-10]
       (=jis-x0213-1	  . #x7849)	; &I-JX1-7849; [88-41]
+      (=daikanwa	  . 21717)	; &I-M-21717;
       (=jef-china3	  . #x4ABD)	; &I-JC3-4ABD;
       (->subsumptive
        ((==ucs@jis	    . #x752F)	; &R-AJ1-08434;
 	(==adobe-japan1-2   . 08434)	; &R-AJ1-08434;
 	(==jis-x0212	    . #x4D2A)	; &R-AJ1-08434; [45-10]
 	(==jis-x0213-1	    . #x7849)	; &R-AJ1-08434; [88-41]
-	(=daikanwa	    . 21717)	; &R-AJ1-08434;
+	(==daikanwa	    . 21717)	; &R-AJ1-08434;
 	)
        ((==ucs@unicode	    . #x752F)	; &R-UU+752F;
 	(==gb2312	    . #x6538)	; &R-UU+752F; [69-24]
