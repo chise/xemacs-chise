@@ -238,13 +238,15 @@
     (=gt		. 18084)	; &I-GT-18084;
     (=gt-k		. 05253)	; &I-GT-K05253;
     (=gt-pj-1		. #x5B2B)	; &I-GT-18084; [59-11]
+    (=daikanwa		. 14290)	; &I-M-14290;
+    (=shinjigen		.  3414)	; &GT-18084;
     (->subsumptive
-     ((=daikanwa	  . 14290)	; &M-14290;
+     ((==daikanwa	  . 14290)	; &R-M-14290;
       )
      ((==ks-x1001	  . #x4A63)	; &R-J90-5B2B; [42-67]
       (==jis-x0208	  . #x5B2B)	; &R-J90-5B2B; [59-11]
       (==jis-x0213-1	  . #x5B2B)	; &R-J90-5B2B; [59-11]
-      (=shinjigen	  .  3414)	; &R-J90-5B2B;
+      (==shinjigen	  .  3414)	; &R-J90-5B2B;
       )
      ((==ucs@unicode	  . #x66F7)	; &R-UU+66F7;
       (==gb2312		  . #x6A42)	; &R-UU+66F7; [74-34]
@@ -1041,8 +1043,9 @@
       (<-same*sources
        shuowen daikanwa)
       (->mistakable
-       ((==ucs@jis	    . #x669C)	; &R-JSP-4255;
-	(=daikanwa	    . 14082)	; &R-JSP-4255;
+       ((=ucs@unicode	    . #x669C)	; &JSP-4255;
+	(=jis-x0212	    . #x4255)	; &JSP-4255; [34-53]
+	(=daikanwa	    . 14082)	; &I-M-14082;
 	))
       )
      ((==ucs@iso	  . #x2F8D5)	; &C6-5D5B;
