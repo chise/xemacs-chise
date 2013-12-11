@@ -1,5 +1,15 @@
 2013-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R060-Step.el, Ideograph-R059-Bristle.el,
+	Ideograph-R057-Bow.el: Apply new glyph-image conventions for
+	`daikanwa' and `shinjigen'.
+
+	* Ideograph-R063-Door.el, Ideograph-R062-Halberd.el: Apply new
+	glyph-image conventions for `daikanwa' and `shinjigen'.
+
+	* Ideograph-R008-Lid.el (R-M-09212): Modify a component of
+	`ideographic-structure' to represent detailed glyph-image.
+
 	* Ideograph-R055-Two-Hands.el, Ideograph-R050-Turban.el: Apply new
 	glyph-image conventions for `daikanwa' and `shinjigen'.
 
