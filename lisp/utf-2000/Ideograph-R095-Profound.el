@@ -167,8 +167,10 @@
 	(=ks-x1001	    . #x4A63)	; &I-K0-4A63; [42-67]
 	(=cns11643-1	    . #x5157)	; &I-C1-5157; [49-55]
 	(=jis-x0213-1	    . #x5B2B)	; &I-JX1-5B2B; [59-11]
+	(=daikanwa	    . 14290)	; &I-M-14290;
 	))
-      (=ucs@iso		  . #x248E8)	; &U-000248E8;
+      (=ucs@iso		  . #x248E8)	; &M-20820;
+      (=daikanwa	  . 20820)	; &M-20820;
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -178,9 +180,9 @@
 	  (==jis-x0208	      . #x383C)	; &R-J90-383C; [24-28]
 	  (=daikanwa	      . 20814)	; &R-J90-383C;
 	  )
-	 ((=daikanwa	      . 14290)	; &M-14290;
+	 ((==daikanwa	      . 14290)	; &R-M-14290;
 	  ))
-	(=daikanwa	    . 20820)	; &M-20820;
+	(==daikanwa	    . 20820)	; &R-M-20820;
 	)
        ((hanyu-dazidian	    1 292 3)
 	(ideographic-structure
