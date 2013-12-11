@@ -1,3 +1,9 @@
+2013-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (==shinjigen): Modify DOC.
+	(==shinjigen@1ed): New coded-charset for XEmacs CHISE.
+	(==shinjigen@rev): Modify DOC.
+
 2013-12-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (==daikanwa/+p): New coded-charset for XEmacs
