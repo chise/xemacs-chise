@@ -539,9 +539,6 @@
     (ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=>>ucs@jis		. #x65B0)	; &GT-17156;
-    (=>>ucs@ks		. #x65B0)	; &GT-17156;
-    (=>>ucs@cns		. #x65B0)	; &GT-17156;
     (=ucs@cns		. #x65B0)	; &GT-17156;
     (=ucs@jis		. #x65B0)	; &GT-17156;
     (=ucs@ks		. #x65B0)	; &GT-17156;
@@ -552,7 +549,8 @@
     (=gt		. 17156)	; &I-GT-17156;
     (=gt-k		. 10225)	; &I-GT-K10225;
     (=gt-pj-1		. #x3F37)	; &I-GT-17156; [31-23]
-    (=>>daikanwa	. 13572)	; &GT-17156;
+    (=daikanwa		. 13572)	; &I-M-13572;
+    (=shinjigen		.  3233)	; &GT-17156;
     (->subsumptive
      ((==ucs@jis	  . #x65B0)	; &R-GT-17156;
       (==ucs@ks		  . #x65B0)	; &R-GT-17156;
@@ -561,8 +559,8 @@
       (==jis-x0213-1	  . #x3F37)	; &R-GT-17156; [31-23]
       (==gt		  . 17156)	; &R-GT-17156;
       (==gt-k		  . 10225)	; &R-GT-17156;
-      (=daikanwa	  . 13572)	; &R-GT-17156;
-      (=shinjigen	  .  3233)	; &R-GT-17156;
+      (==daikanwa	  . 13572)	; &R-GT-17156;
+      (==shinjigen	  .  3233)	; &R-GT-17156;
       )
      ((==ucs@cns	  . #x65B0)	; &R-CU+65B0;
       (==cns11643-1	  . #x643B)	; &R-CU+65B0; [68-27]
