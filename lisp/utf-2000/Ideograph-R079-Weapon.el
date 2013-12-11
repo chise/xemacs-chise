@@ -580,7 +580,13 @@
     (->subsumptive
      ((=daikanwa	  . 16637)	; &M-16637;
       (<-ancient
-       ((=daikanwa	    . 13260)	; &M-13260;
+       ((=ucs@cns	    . #x6562)	; &AJ1-01526;
+	(=ucs@jis/1990	    . #x6562)	; &AJ1-01526;
+	(=ucs@jis/2000	    . #x6562)	; &AJ1-01526;
+	(=ucs@jis/2004	    . #x6562)	; &AJ1-01526;
+	(=ucs@ks	    . #x6562)	; &AJ1-01526;
+	(=adobe-japan1-0    . 01526)	; &AJ1-01526;
+	(=daikanwa	    . 13260)	; &I-M-13260;
 	))
       (<-ancient*sources
        jiyun daikanwa)
