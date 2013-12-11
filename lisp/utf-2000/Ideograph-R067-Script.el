@@ -469,19 +469,17 @@
     (ideographic-radical . 67)	; ⽂
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=>>ucs@jis		. #x6592)	; &AJ1-19428;
-    (=>>ucs@cns		. #x6592)	; &AJ1-19428;
     (=ucs@cns		. #x6592)	; &AJ1-19428;
     (=ucs@jis		. #x6592)	; &AJ1-19428;
     (=adobe-japan1-5	. 19428)	; &AJ1-19428;
     (=jis-x0212		. #x4159)	; &I-JSP-4159; [33-57]
     (=cns11643-2	. #x4343)	; &I-C2-4343; [35-35]
-    (=>>daikanwa	. 13471)	; &AJ1-19428;
+    (=daikanwa		. 13471)	; &I-M-13471;
     (->subsumptive
      ((==ucs@jis	  . #x6592)	; &R-AJ1-19428;
       (==adobe-japan1-5	  . 19428)	; &R-AJ1-19428;
       (==jis-x0212	  . #x4159)	; &R-AJ1-19428; [33-57]
-      (=daikanwa	  . 13471)	; &R-AJ1-19428;
+      (==daikanwa	  . 13471)	; &R-AJ1-19428;
       )
      ((==ucs@cns	  . #x6592)	; &R-CU+6592;
       (==cns11643-2	  . #x4343)	; &R-CU+6592; [35-35]
