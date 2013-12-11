@@ -1,4 +1,17 @@
+2013-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R070-Square.el, Ideograph-R067-Script.el: Apply new
+	glyph-image conventions for `daikanwa' and `shinjigen'.
+
 2013-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el: Apply new glyph-image conventions for
+	`daikanwa' and `shinjigen'.
+	(U-00023140): Use `->decomposition'.
+
+	* Ideograph-R066-Rap.el, Ideograph-R053-Dotted-Cliff.el,
+	Ideograph-R052-Short-Thread.el, Ideograph-R046-Mountain.el: Apply
+	new glyph-image conventions for `daikanwa' and `shinjigen'.
 
 	* Ideograph-R060-Step.el, Ideograph-R059-Bristle.el,
 	Ideograph-R057-Bow.el: Apply new glyph-image conventions for
@@ -19,6 +32,9 @@
 	* Ideograph-R030-Mouth.el: Apply new glyph-image conventions for
 	`daikanwa' and `shinjigen'.
 	(U-00020F71): Use `->denotational'.
+
+	* char-db-util.el (char-db-insert-ccs-feature): Support
+	`==daikanwa/ho'.
 
 	* Ideograph-R038-Woman.el: Apply new glyph-image conventions for
 	`daikanwa' and `shinjigen'.
