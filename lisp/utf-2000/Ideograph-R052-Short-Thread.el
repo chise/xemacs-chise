@@ -69,13 +69,16 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (=ucs		. #x221B0)	; 𢆰
+    (=daikanwa		. 09192)	; &I-M-09192;
+    (<-same
+     ((=ucs@unicode	  . #x41D8)	; &C4-2E70;
+      (=cns11643-4	  . #x2E70)	; &C4-2E70; [14-80]
+      (=daikanwa	  . 25867)	; &I-M-25867;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 09192)	; &M-09192;
-      (<-same
-       ((=daikanwa	    . 25867)	; &M-25867;
-	))
-      (<-same*sources
-       jiyun daikanwa)
+     ((==daikanwa	  . 09192)	; &R-M-09192;
       )
      ((==ucs@iso	  . #x221B0)	; &R-U-000221B0;
       ))
@@ -376,7 +379,8 @@
 	)
        ((=ucs		    . #x221B0)	; 𢆰
 	))
-      (=ucs@iso		  . #x20179)	; &U-00020179;
+      (=ucs@iso		  . #x20179)	; &M-09212;
+      (=daikanwa	  . 09212)	; &M-09212;
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -386,9 +390,9 @@
 	  (==ucs@ks	      . #x4EAD)	; &R-AJ1-03070;
 	  (==adobe-japan1-0   . 03070)	; &R-AJ1-03070;
 	  )
-	 ((=daikanwa	      . 09192)	; &M-09192;
+	 ((==daikanwa	      . 09192)	; &R-M-09192;
 	  ))
-	(=daikanwa	    . 09212)	; &M-09212;
+	(==daikanwa	    . 09212)	; &R-M-09212;
 	)
        ((hanyu-dazidian	    1 291 4)
 	(ideographic-structure
