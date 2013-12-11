@@ -614,7 +614,12 @@
     (=daikanwa		. 09727)	; &I-M-09727;
     (=hanziku-1		. #xA7F1)	; &I-HZK01-A7F1;
     (<-ancient
-     ((=daikanwa	  . 17027)	; &M-17027;
+     ((=ucs@cns		  . #x6C10)	; &JX1-764F;
+      (=ucs@jis		  . #x6C10)	; &JX1-764F;
+      (=jis-x0212	  . #x4649)	; &JX1-764F; [38-41]
+      (=cns11643-1	  . #x4662)	; &I-C1-4662; [38-66]
+      (=jis-x0213-1	  . #x764F)	; &I-JX1-764F; [86-47]
+      (=daikanwa	  . 17027)	; &I-M-17027;
       ))
     (<-ancient*sources
      zihui-bu daikanwa)
@@ -912,16 +917,15 @@
     (total-strokes	 . 8)
     (=ucs		. #x5F22)	; 弢
     (->subsumptive
-     ((=>>ucs@jis	  . #x5F22)	; &AJ1-14516;
-      (=ucs@jis		  . #x5F22)	; &AJ1-14516;
+     ((=ucs@jis		  . #x5F22)	; &AJ1-14516;
       (=adobe-japan1-4	  . 14516)	; &AJ1-14516;
       (=jis-x0212	  . #x3C65)	; &I-JSP-3C65; [28-69]
-      (=>>daikanwa	  . 09748)	; &AJ1-14516;
+      (=daikanwa	  . 09748)	; &I-M-09748;
       (->subsumptive
        ((==ucs@jis	    . #x5F22)	; &R-JSP-3C65;
 	(==ucs@JP/hanazono  . nil)
 	(==jis-x0212	    . #x3C65)	; &R-JSP-3C65; [28-69]
-	(=daikanwa	    . 09748)	; &R-JSP-3C65;
+	(==daikanwa	    . 09748)	; &R-JSP-3C65;
 	)
        ((=decomposition@cid
 	 ((=ucs		      . #x5F22)	; 弢
@@ -974,16 +978,14 @@
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=>>ucs@jis		. #x5F24)	; &AJ1-21512;
-    (=>>ucs@cns		. #x5F24)	; &AJ1-21512;
     (=ucs@cns		. #x5F24)	; &AJ1-21512;
     (=ucs@jis		. #x5F24)	; &AJ1-21512;
     (=adobe-japan1-6	. 21512)	; &AJ1-21512;
     (=jis-x0212		. #x3C67)	; &I-JSP-3C67; [28-71]
     (=cns11643-2	. #x2654)	; &I-C2-2654; [06-52]
-    (=>>daikanwa	. 09751)	; &AJ1-21512;
+    (=daikanwa		. 09751)	; &I-M-09751;
     (->subsumptive
-     ((=daikanwa	  . 09751)	; &M-09751;
+     ((==daikanwa	  . 09751)	; &R-M-09751;
       )
      ((==ucs@cns	  . #x5F24)	; &R-CU+5F24;
       (==cns11643-2	  . #x2654)	; &R-CU+5F24; [06-52]
@@ -1377,13 +1379,12 @@
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=>>ucs@jis		. #x5F2E)	; &AJ1-21515;
     (=ucs@jis		. #x5F2E)	; &AJ1-21515;
     (=adobe-japan1-6	. 21515)	; &AJ1-21515;
     (=jis-x0212		. #x3C6B)	; &I-JSP-3C6B; [28-75]
-    (=>>daikanwa	. 09769)	; &AJ1-21515;
+    (=daikanwa		. 09769)	; &I-M-09769;
     (->subsumptive
-     ((=daikanwa	  . 09769)	; &M-09769;
+     ((==daikanwa	  . 09769)	; &R-M-09769;
       )
      ((=decomposition@cid
        ((=ucs		    . #x5F2E)	; 弮
@@ -2883,16 +2884,14 @@
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=>>ucs@jis		. #x5F44)	; &AJ1-21518;
-    (=>>ucs@cns		. #x5F44)	; &AJ1-21518;
     (=ucs@cns		. #x5F44)	; &AJ1-21518;
     (=ucs@jis		. #x5F44)	; &AJ1-21518;
     (=adobe-japan1-6	. 21518)	; &AJ1-21518;
     (=jis-x0212		. #x3C73)	; &I-JSP-3C73; [28-83]
     (=cns11643-2	. #x4A25)	; &I-C2-4A25; [42-05]
-    (=>>daikanwa	. 09853)	; &AJ1-21518;
+    (=daikanwa		. 09853)	; &I-M-09853;
     (->subsumptive
-     ((=daikanwa	  . 09853)	; &M-09853;
+     ((==daikanwa	  . 09853)	; &R-M-09853;
       )
      ((=decomposition@cid
        ((=ucs		    . #x5F44)	; 彄
