@@ -1,5 +1,16 @@
 2013-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R096-Jade.el, Ideograph-R094-Dog.el: Apply new
+	glyph-image conventions for `daikanwa' and `shinjigen'.
+
+2013-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R101-Use.el, Ideograph-R095-Profound.el,
+	Ideograph-R086-Fire.el, Ideograph-R083-Clan.el,
+	Ideograph-R080-Do-Not.el, Ideograph-R076-Lack.el,
+	Ideograph-R073-Say.el: Apply new glyph-image conventions for
+	`daikanwa' and `shinjigen'.
+
 	* Ideograph-R075-Tree.el: Apply new glyph-image conventions for
 	`daikanwa' and `shinjigen'.
 
