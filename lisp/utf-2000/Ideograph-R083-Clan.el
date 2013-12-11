@@ -30,17 +30,15 @@
     (ideographic-radical . 83)	; ⽒
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
-    (=>>ucs@jis		. #x6C10)	; &JX1-764F;
-    (=>>ucs@cns		. #x6C10)	; &JX1-764F;
     (=ucs@cns		. #x6C10)	; &JX1-764F;
     (=ucs@jis		. #x6C10)	; &JX1-764F;
     (=jis-x0212		. #x4649)	; &JX1-764F; [38-41]
     (=cns11643-1	. #x4662)	; &I-C1-4662; [38-66]
     (=jis-x0213-1	. #x764F)	; &I-JX1-764F; [86-47]
-    (=>>daikanwa	. 17027)	; &JX1-764F;
+    (=daikanwa		. 17027)	; &I-M-17027;
     (=jef-china3	. #x55A8)	; &I-JC3-55A8;
     (->subsumptive
-     ((=daikanwa	  . 17027)	; &M-17027;
+     ((==daikanwa	  . 17027)	; &R-M-17027;
       )
      ((==ucs@cns	  . #x6C10)	; &R-CU+6C10;
       (==cns11643-1	  . #x4662)	; &R-CU+6C10; [38-66]
@@ -50,7 +48,7 @@
       (==jis-x0212	  . #x4649)	; &R-JSP-4649; [38-41]
       (==jis-x0213-1	  . #x764F)	; &R-JSP-4649; [86-47]
       )
-     ((=ucs@JP/hanazono	  . #x6C10)	; &hanaJU+6C10;
+     ((==ucs@JP/hanazono  . #x6C10)	; &R-hanaJU+6C10;
       ))
     ))
 (define-char
