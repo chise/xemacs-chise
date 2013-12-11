@@ -1,7 +1,11 @@
 2013-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* Ideograph-R070-Square.el, Ideograph-R067-Script.el: Apply new
-	glyph-image conventions for `daikanwa' and `shinjigen'.
+	* Ideograph-R075-Tree.el: Apply new glyph-image conventions for
+	`daikanwa' and `shinjigen'.
+
+	* Ideograph-R070-Square.el, Ideograph-R069-Axe.el,
+	Ideograph-R067-Script.el: Apply new glyph-image conventions for
+	`daikanwa' and `shinjigen'.
 
 2013-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
