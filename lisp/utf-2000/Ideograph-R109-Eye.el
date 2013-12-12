@@ -1797,8 +1797,10 @@
       (=gt		  . 29751)	; &I-GT-29751;
       (=gt-k		  . 06615)	; &I-GT-K06615;
       (=gt-pj-1		  . #x6243)	; &I-GT-29751; [66-35]
+      (=daikanwa	  . 23235)	; &I-M-23235;
+      (=shinjigen	  .  5293)	; &GT-29751;
       (->subsumptive
-       ((=daikanwa	    . 23235)	; &M-23235;
+       ((==daikanwa	    . 23235)	; &R-M-23235;
 	)
        ((hanyu-dazidian	    1 249 12)
 	(==ucs@jis	    . #x771E)	; &R-J90-6243;
@@ -1811,7 +1813,7 @@
        ((==ucs@unicode	    . #x771E)	; &R-GT-29751;
 	(==gt		    . 29751)	; &R-GT-29751;
 	(==gt-k		    . 06615)	; &R-GT-29751;
-	(=shinjigen	    .  5293)	; &R-GT-29751;
+	(==shinjigen	    .  5293)	; &R-GT-29751;
 	))
       )
      ((=cns11643-3	  . #x3759)	; &C3-3759; [23-57]
@@ -1851,6 +1853,7 @@
 	(=jis-x0208	    . #x6243)	; &GT-29751; [66-35]
 	(=ks-x1001	    . #x7258)	; &I-K0-7258; [82-56]
 	(=jis-x0213-1	    . #x6243)	; &I-JX1-6243; [66-35]
+	(=daikanwa	    . 23235)	; &I-M-23235;
 	))
       )
      ((=>ucs*		  . #x771F)	; 真
@@ -1886,12 +1889,20 @@
       (->subsumptive
        ((=daikanwa	    . 23237)	; &M-23237;
 	(<-original
-	 ((=daikanwa	      . 23235)	; &M-23235;
+	 ((=ucs@unicode	      . #x771E)	; &GT-29751;
+	  (=jis-x0208	      . #x6243)	; &GT-29751; [66-35]
+	  (=ks-x1001	      . #x7258)	; &I-K0-7258; [82-56]
+	  (=jis-x0213-1	      . #x6243)	; &I-JX1-6243; [66-35]
+	  (=daikanwa	      . 23235)	; &I-M-23235;
 	  ))
 	(<-original*sources
 	 liushu-zongyao daikanwa)
 	(<-simplified@misc
-	 ((=daikanwa	      . 23235)	; &M-23235;
+	 ((=ucs@unicode	      . #x771E)	; &GT-29751;
+	  (=jis-x0208	      . #x6243)	; &GT-29751; [66-35]
+	  (=ks-x1001	      . #x7258)	; &I-K0-7258; [82-56]
+	  (=jis-x0213-1	      . #x6243)	; &I-JX1-6243; [66-35]
+	  (=daikanwa	      . 23235)	; &I-M-23235;
 	  ))
 	(<-simplified@misc*sources
 	 daikanwa)
@@ -6300,9 +6311,10 @@
     (total-strokes	 . 15)
     (=ucs@iso		. #x2524C)	; &C5-4E66;
     (=cns11643-5	. #x4E66)	; &C5-4E66; [46-70]
+    (=daikanwa		. 23582)	; &I-M-23582;
     (->subsumptive
-     ((==cns11643-5	  . #x4E66)	; &M-23582; [46-70]
-      (=daikanwa	  . 23582)	; &M-23582;
+     ((==cns11643-5	  . #x4E66)	; &R-M-23582; [46-70]
+      (==daikanwa	  . 23582)	; &R-M-23582;
       )
      ((==ucs@iso	  . #x2524C)	; &R-U-0002524C;
       ))
