@@ -561,6 +561,7 @@
       (=jis-x0213-1	  . #x4A34)	; &I-JX1-4A34; [42-20]
       (=gt		  . 34641)	; &I-GT-34641;
       (=gt-pj-1		  . #x4A34)	; &I-GT-34641; [42-20]
+      (=shinjigen	  .  5904)	; &GT-34641;
       (->subsumptive
        ((==ucs@unicode	    . #x7C89)	; &R-UU+7C89;
 	(==gb2312	    . #x375B)	; &R-UU+7C89; [23-59]
@@ -571,7 +572,7 @@
 	(==jis-x0208@1990   . #x4A34)	; &R-GT-34641; [42-20]
 	(==jis-x0213-1	    . #x4A34)	; &R-GT-34641; [42-20]
 	(==gt		    . 34641)	; &R-GT-34641;
-	(=shinjigen	    .  5904)	; &R-GT-34641;
+	(==shinjigen	    .  5904)	; &R-GT-34641;
 	))
       ))
     ))
@@ -1527,9 +1528,10 @@
     (total-strokes	 . 13)
     (=ucs		. #x25E73)	; 𥹳
     (->subsumptive
-     ((=ucs@iso		  . #x25E73)	; &U-00025E73;
+     ((=ucs@iso		  . #x25E73)	; &M-26951;
+      (=daikanwa	  . 26951)	; &M-26951;
       (->subsumptive
-       ((=daikanwa	    . 26951)	; &M-26951;
+       ((==daikanwa	    . 26951)	; &R-M-26951;
 	)
        ((==ucs@iso	    . #x25E73)	; &R-U-00025E73;
 	))
@@ -1559,6 +1561,7 @@
     (=jis-x0213-1	. #x646E)	; &I-JX1-646E; [68-78]
     (=gt		. 34761)	; &I-GT-34761;
     (=gt-pj-1		. #x646E)	; &I-GT-34761; [68-78]
+    (=daikanwa		. 26952)	; &I-M-26952;
     (->subsumptive
      ((==ucs@jis/1990	  . #x7CAE)	; &R-GT-34761;
       (==ucs@jis/2000	  . #x7CAE)	; &R-GT-34761;
@@ -1569,7 +1572,7 @@
       (==jis-x0208@1990	  . #x646E)	; &R-GT-34761; [68-78]
       (==jis-x0213-1	  . #x646E)	; &R-GT-34761; [68-78]
       (==gt		  . 34761)	; &R-GT-34761;
-      (=daikanwa	  . 26952)	; &R-GT-34761;
+      (==daikanwa	  . 26952)	; &R-GT-34761;
       (=shinjigen@rev	  .  5946)	; &R-GT-34761;
       )
      ((==ucs@unicode	  . #x7CAE)	; &R-UU+7CAE;
@@ -3413,9 +3416,10 @@
     (ideographic-radical . 119)	; ⽶
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
-    (=ucs@iso		. #x25EFF)	; &U-00025EFF;
+    (=ucs@iso		. #x25EFF)	; &M-27089;
+    (=daikanwa		. 27089)	; &M-27089;
     (->subsumptive
-     ((=daikanwa	  . 27089)	; &M-27089;
+     ((==daikanwa	  . 27089)	; &R-M-27089;
       )
      ((==ucs@iso	  . #x25EFF)	; &R-U-00025EFF;
       ))
