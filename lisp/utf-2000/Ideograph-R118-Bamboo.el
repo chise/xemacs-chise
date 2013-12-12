@@ -372,7 +372,7 @@
     (total-strokes	 . 10)
     (=ucs@unicode	. #x41D8)	; &C4-2E70;
     (=cns11643-4	. #x2E70)	; &C4-2E70; [14-80]
-    (=daikanwa		. 25867)	; &M-25867;
+    (=daikanwa		. 25867)	; &I-M-25867;
     (=hanziku-8		. #xB770)	; &I-HZK08-B770;
     ))
 (define-char
@@ -6720,9 +6720,10 @@
     (->subsumptive
      ((ideographic-strokes . 10)
       (total-strokes	   . 16)
-      (=ucs@iso		  . #x25C24)	; &U-00025C24;
+      (=ucs@iso		  . #x25C24)	; &M-26324;
+      (=daikanwa	  . 26324)	; &M-26324;
       (->subsumptive
-       ((=daikanwa	    . 26324)	; &M-26324;
+       ((==daikanwa	    . 26324)	; &R-M-26324;
 	)
        ((==ucs@iso	    . #x25C24)	; &R-U-00025C24;
 	))
@@ -13015,6 +13016,7 @@
     (=gb12345		. #x4069)	; &GT-34571; [32-73]
     (=gt		. 34571)	; &I-GT-34571;
     (=gt-pj-1		. #x6461)	; &I-GT-34571; [68-65]
+    (=daikanwa		. 26803)	; &I-M-26803;
     (->subsumptive
      ((==ucs@jis	  . #x7C6C)	; &R-GT-34571;
       (==ucs@ks		  . #x7C6C)	; &R-GT-34571;
@@ -13022,7 +13024,7 @@
       (==jis-x0208	  . #x6461)	; &R-GT-34571; [68-65]
       (==jis-x0213-1	  . #x6461)	; &R-GT-34571; [68-65]
       (==gt		  . 34571)	; &R-GT-34571;
-      (=daikanwa	  . 26803)	; &R-GT-34571;
+      (==daikanwa	  . 26803)	; &R-GT-34571;
       )
      ((==ucs@unicode	  . #x7C6C)	; &R-UU+7C6C;
       (==gb12345	  . #x4069)	; &R-UU+7C6C; [32-73]
