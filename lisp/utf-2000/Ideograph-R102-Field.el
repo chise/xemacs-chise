@@ -1588,25 +1588,24 @@
     (=ucs@unicode	. #x7561)	; &JSP-4D3A;
     (=jis-x0212		. #x4D3A)	; &JSP-4D3A; [45-26]
     (=cns11643-3	. #x3746)	; &I-C3-3746; [23-38]
+    (=daikanwa		. 21828)	; &I-M-21828;
+    (<-formed
+     ((=ucs@unicode	  . #x5793)	; &AJ1-04487;
+      (=adobe-japan1-0	  . 04487)	; &AJ1-04487;
+      ))
+    (<-formed*sources
+     jiyun)
+    (<-same
+     ((=ucs@unicode	  . #x5793)	; &AJ1-04487;
+      (=adobe-japan1-0	  . 04487)	; &AJ1-04487;
+      (=daikanwa	  . 05040)	; &I-M-05040;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
      ((==ucs@jis	  . #x7561)	; &R-JSP-4D3A;
       (==jis-x0212	  . #x4D3A)	; &R-JSP-4D3A; [45-26]
-      (=daikanwa	  . 21828)	; &R-JSP-4D3A;
-      (<-formed
-       ((==ucs@jis	    . #x5793)	; &R-AJ1-04487;
-	(==ucs@ks	    . #x5793)	; &R-AJ1-04487;
-	(==adobe-japan1-0   . 04487)	; &R-AJ1-04487;
-	))
-      (<-formed*sources
-       jiyun)
-      (<-same
-       ((==ucs@jis	    . #x5793)	; &R-AJ1-04487;
-	(==ucs@ks	    . #x5793)	; &R-AJ1-04487;
-	(==adobe-japan1-0   . 04487)	; &R-AJ1-04487;
-	(=daikanwa	    . 05040)	; &R-AJ1-04487;
-	))
-      (<-same*sources
-       jiyun daikanwa)
+      (==daikanwa	  . 21828)	; &R-JSP-4D3A;
       )
      ((==ucs@cns	  . #x7561)	; &R-CU+7561;
       (==cns11643-3	  . #x3746)	; &R-CU+7561; [23-38]
