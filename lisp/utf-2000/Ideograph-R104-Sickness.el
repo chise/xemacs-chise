@@ -2138,9 +2138,10 @@
     (total-strokes	 . 12)
     (=ucs		. #x3F93)	; 㾓
     (->subsumptive
-     ((=ucs@unicode	  . #x3F93)	; &UU+3F93;
+     ((=ucs@unicode	  . #x3F93)	; &M-22183;
+      (=daikanwa	  . 22183)	; &M-22183;
       (->subsumptive
-       ((=daikanwa	    . 22183)	; &M-22183;
+       ((==daikanwa	    . 22183)	; &R-M-22183;
 	)
        ((==ucs@unicode	    . #x3F93)	; &R-UU+3F93;
 	))
@@ -2336,14 +2337,13 @@
     (ideographic-radical . 104)	; ⽧
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (=>>ucs@unicode	. #x75DC)	; &JSP-4D58;
     (=ucs@unicode	. #x75DC)	; &JSP-4D58;
     (=jis-x0212		. #x4D58)	; &JSP-4D58; [45-56]
-    (=>>daikanwa	. 22196)	; &JSP-4D58;
+    (=daikanwa		. 22196)	; &I-M-22196;
     (->subsumptive
      ((==ucs@jis	  . #x75DC)	; &R-JSP-4D58;
       (==jis-x0212	  . #x4D58)	; &R-JSP-4D58; [45-56]
-      (=daikanwa	  . 22196)	; &R-JSP-4D58;
+      (==daikanwa	  . 22196)	; &R-JSP-4D58;
       )
      ((==ucs@unicode	  . #x75DC)	; &R-UU+75DC;
       ))
@@ -3248,9 +3248,10 @@
     (total-strokes	 . 13)
     (=ucs		. #x24DC2)	; 𤷂
     (->subsumptive
-     ((=ucs@iso		  . #x24DC2)	; &U-00024DC2;
+     ((=ucs@iso		  . #x24DC2)	; &M-22253;
+      (=daikanwa	  . 22253)	; &M-22253;
       (->subsumptive
-       ((=daikanwa	    . 22253)	; &M-22253;
+       ((==daikanwa	    . 22253)	; &R-M-22253;
 	)
        ((==ucs@iso	    . #x24DC2)	; &R-U-00024DC2;
 	))
@@ -6327,13 +6328,15 @@
       (=gb12345		  . #x4531)	; &GT-28619; [37-17]
       (=gt		  . 28619)	; &I-GT-28619;
       (=gt-pj-1		  . #x616A)	; &I-GT-28619; [65-74]
+      (=daikanwa	  . 22419)	; &I-M-22419;
+      (=shinjigen	  .  5149)	; &GT-28619;
       (->subsumptive
        ((==ucs@jis	    . #x7627)	; &R-GT-28619;
 	(==jis-x0208	    . #x616A)	; &R-GT-28619; [65-74]
 	(==jis-x0213-1	    . #x616A)	; &R-GT-28619; [65-74]
 	(==gt		    . 28619)	; &R-GT-28619;
-	(=daikanwa	    . 22419)	; &R-GT-28619;
-	(=shinjigen	    .  5149)	; &R-GT-28619;
+	(==daikanwa	    . 22419)	; &R-GT-28619;
+	(==shinjigen	    .  5149)	; &R-GT-28619;
 	)
        ((==ucs@unicode	    . #x7627)	; &R-UU+7627;
 	(==gb12345	    . #x4531)	; &R-UU+7627; [37-17]
