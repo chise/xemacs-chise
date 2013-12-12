@@ -5352,7 +5352,6 @@
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
-    (=>>ucs@unicode	. #x78C5)	; &GT-31206;
     (=ucs@unicode	. #x78C5)	; &GT-31206;
     (=jis-x0208		. #x627C)	; &GT-31206; [66-92]
     (=gb2312		. #x3075)	; &I-G0-3075; [16-85]
@@ -5361,7 +5360,7 @@
     (=jis-x0213-1	. #x627C)	; &I-JX1-627C; [66-92]
     (=gt		. 31206)	; &I-GT-31206;
     (=gt-pj-1		. #x627C)	; &I-GT-31206; [66-92]
-    (=>>daikanwa	. 24386)	; &GT-31206;
+    (=daikanwa		. 24386)	; &I-M-24386;
     (->subsumptive
      ((==ucs@jis	  . #x78C5)	; &R-GT-31206;
       (==ucs@ks		  . #x78C5)	; &R-GT-31206;
@@ -5369,7 +5368,7 @@
       (==jis-x0208	  . #x627C)	; &R-GT-31206; [66-92]
       (==jis-x0213-1	  . #x627C)	; &R-GT-31206; [66-92]
       (==gt		  . 31206)	; &R-GT-31206;
-      (=daikanwa	  . 24386)	; &R-GT-31206;
+      (==daikanwa	  . 24386)	; &R-GT-31206;
       )
      ((==ucs@unicode	  . #x78C5)	; &R-UU+78C5;
       (==gb2312		  . #x3075)	; &R-UU+78C5; [16-85]
