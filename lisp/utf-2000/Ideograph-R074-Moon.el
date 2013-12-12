@@ -1795,14 +1795,14 @@
 	(=jis-x0208	    . #x4E36)	; &GT-66672; [46-22]
 	(=ks-x1001	    . #x5723)	; &I-K0-5723; [55-03]
 	(=jis-x0213-1	    . #x4E36)	; &I-JX1-4E36; [46-22]
+	(=daikanwa	    . 48818)	; &I-M-48818;
 	))
-      (=ucs@unicode	  . #x6727)	; &GT-18334;
-      (=jis-x0208	  . #x5B30)	; &GT-18334; [59-16]
+      (=ucs@unicode	  . #x6727)	; &J90-5B30;
+      (=jis-x0208	  . #x5B30)	; &J90-5B30; [59-16]
       (=ks-x1001	  . #x5668)	; &I-K0-5668; [54-72]
       (=jis-x0213-1	  . #x5B30)	; &I-JX1-5B30; [59-16]
-      (=gb12345		  . #x6B4A)	; &GT-18334; [75-42]
-      (=gt		  . 18334)	; &I-GT-18334;
-      (=gt-pj-1		  . #x5B30)	; &I-GT-18334; [59-16]
+      (=gb12345		  . #x6B4A)	; &J90-5B30; [75-42]
+      (=daikanwa	  . 14411)	; &I-M-14411;
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1814,10 +1814,10 @@
 	 ((==ucs@jis	      . #x9F8D)	; &R-GT-66672;
 	  (==ucs@ks	      . #x9F8D)	; &R-GT-66672;
 	  (==jis-x0208	      . #x4E36)	; &R-GT-66672; [46-22]
-	  (=daikanwa	      . 48818)	; &R-GT-66672;
 	  ))
-	(==gt		    . 18335)	; &R-GT-18335;
-	(=daikanwa	    . 14411)	; &R-GT-18335;
+	(=gt		    . 18335)	; &GT-18335;
+	(=gt-pj-11	    . #x3D56)	; &GT-18335; [29-54]
+	(==daikanwa	    . 14411)	; &GT-18335;
 	)
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1833,14 +1833,14 @@
 	 ((==ucs@jis	      . #x9F8D)	; &R-GT-66672;
 	  (==ucs@ks	      . #x9F8D)	; &R-GT-66672;
 	  (==jis-x0208	      . #x4E36)	; &R-GT-66672; [46-22]
-	  (=daikanwa	      . 48818)	; &R-GT-66672;
 	  ))
-	(==ucs@jis	    . #x6727)	; &R-GT-18334;
-	(==ucs@ks	    . #x6727)	; &R-GT-18334;
-	(==ks-x1001	    . #x5668)	; &R-GT-18334; [54-72]
-	(==jis-x0208	    . #x5B30)	; &R-GT-18334; [59-16]
-	(==jis-x0213-1	    . #x5B30)	; &R-GT-18334; [59-16]
-	(==gt		    . 18334)	; &R-GT-18334;
+	(==ucs@jis	    . #x6727)	; &GT-18334;
+	(==ucs@ks	    . #x6727)	; &GT-18334;
+	(==ks-x1001	    . #x5668)	; &GT-18334; [54-72]
+	(==jis-x0208	    . #x5B30)	; &GT-18334; [59-16]
+	(==jis-x0213-1	    . #x5B30)	; &GT-18334; [59-16]
+	(=gt		    . 18334)	; &GT-18334;
+	(=gt-pj-1	    . #x5B30)	; &GT-18334; [59-16]
 	)
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
