@@ -1709,12 +1709,13 @@
       (=jis-x0213-1	  . #x7039)	; &I-JX1-7039; [80-25]
       (=gt		  . 56813)	; &I-GT-56813;
       (=gt-pj-1		  . #x7039)	; &I-GT-56813; [80-25]
+      (=daikanwa	  . 42321)	; &I-M-42321;
       (->subsumptive
        ((==ucs@jis	    . #x970D)	; &R-GT-56813;
 	(==jis-x0208	    . #x7039)	; &R-GT-56813; [80-25]
 	(==jis-x0213-1	    . #x7039)	; &R-GT-56813; [80-25]
 	(==gt		    . 56813)	; &R-GT-56813;
-	(=daikanwa	    . 42321)	; &R-GT-56813;
+	(==daikanwa	    . 42321)	; &R-GT-56813;
 	(=shinjigen@rev	    .  8965)	; &R-GT-56813;
 	)
        ((==ucs@unicode	    . #x970D)	; &R-UU+970D;
@@ -1987,9 +1988,10 @@
     (total-strokes	 . 16)
     (=ucs		. #x290DC)	; 𩃜
     (->subsumptive
-     ((=ucs@iso		  . #x290DC)	; &U-000290DC;
+     ((=ucs@iso		  . #x290DC)	; &M-42336;
+      (=daikanwa	  . 42336)	; &M-42336;
       (->subsumptive
-       ((=daikanwa	    . 42336)	; &M-42336;
+       ((==daikanwa	    . 42336)	; &R-M-42336;
 	)
        ((==ucs@iso	    . #x290DC)	; &R-U-000290DC;
 	))
@@ -2395,9 +2397,10 @@
     (total-strokes	 . 17)
     (=ucs		. #x290FD)	; 𩃽
     (->subsumptive
-     ((=ucs@iso		  . #x290FD)	; &U-000290FD;
+     ((=ucs@iso		  . #x290FD)	; &M-42362;
+      (=daikanwa	  . 42362)	; &M-42362;
       (->subsumptive
-       ((=daikanwa	    . 42362)	; &M-42362;
+       ((==daikanwa	    . 42362)	; &R-M-42362;
 	)
        ((==ucs@iso	    . #x290FD)	; &R-U-000290FD;
 	))
@@ -2536,9 +2539,10 @@
     (total-strokes	 . 17)
     (=ucs		. #x290FF)	; 𩃿
     (->subsumptive
-     ((=ucs@iso		  . #x290FF)	; &U-000290FF;
+     ((=ucs@iso		  . #x290FF)	; &M-42370;
+      (=daikanwa	  . 42370)	; &M-42370;
       (->subsumptive
-       ((=daikanwa	    . 42370)	; &M-42370;
+       ((==daikanwa	    . 42370)	; &R-M-42370;
 	)
        ((==ucs@iso	    . #x290FF)	; &R-U-000290FF;
 	))
@@ -2577,9 +2581,10 @@
     (total-strokes	 . 17)
     (=ucs		. #x29109)	; 𩄉
     (->subsumptive
-     ((=ucs@iso		  . #x29109)	; &U-00029109;
+     ((=ucs@iso		  . #x29109)	; &M-42376;
+      (=daikanwa	  . 42376)	; &M-42376;
       (->subsumptive
-       ((=daikanwa	    . 42376)	; &M-42376;
+       ((==daikanwa	    . 42376)	; &R-M-42376;
 	)
        ((==ucs@iso	    . #x29109)	; &R-U-00029109;
 	))
@@ -2759,9 +2764,10 @@
     (total-strokes	 . 18)
     (=ucs		. #x4A26)	; 䨦
     (->subsumptive
-     ((=ucs@unicode	  . #x4A26)	; &UU+4A26;
+     ((=ucs@unicode	  . #x4A26)	; &M-42389;
+      (=daikanwa	  . 42389)	; &M-42389;
       (->subsumptive
-       ((=daikanwa	    . 42389)	; &M-42389;
+       ((==daikanwa	    . 42389)	; &R-M-42389;
 	)
        ((==ucs@unicode	    . #x4A26)	; &R-UU+4A26;
 	))
@@ -3590,9 +3596,10 @@
     (total-strokes	 . 19)
     (=ucs		. #x29147)	; 𩅇
     (->subsumptive
-     ((=ucs@iso		  . #x29147)	; &U-00029147;
+     ((=ucs@iso		  . #x29147)	; &M-42437;
+      (=daikanwa	  . 42437)	; &M-42437;
       (->subsumptive
-       ((=daikanwa	    . 42437)	; &M-42437;
+       ((==daikanwa	    . 42437)	; &R-M-42437;
 	)
        ((==ucs@iso	    . #x29147)	; &R-U-00029147;
 	))
@@ -3649,9 +3656,10 @@
     (total-strokes	 . 19)
     (=ucs		. #x29152)	; 𩅒
     (->subsumptive
-     ((=ucs@iso		  . #x29152)	; &U-00029152;
+     ((=ucs@iso		  . #x29152)	; &M-42442;
+      (=daikanwa	  . 42442)	; &M-42442;
       (->subsumptive
-       ((=daikanwa	    . 42442)	; &M-42442;
+       ((==daikanwa	    . 42442)	; &R-M-42442;
 	)
        ((==ucs@iso	    . #x29152)	; &R-U-00029152;
 	))
@@ -4405,9 +4413,10 @@
     (total-strokes	 . 21)
     (=ucs		. #x29184)	; 𩆄
     (->subsumptive
-     ((=ucs@iso		  . #x29184)	; &U-00029184;
+     ((=ucs@iso		  . #x29184)	; &M-42486;
+      (=daikanwa	  . 42486)	; &M-42486;
       (->subsumptive
-       ((=daikanwa	    . 42486)	; &M-42486;
+       ((==daikanwa	    . 42486)	; &R-M-42486;
 	)
        ((==ucs@iso	    . #x29184)	; &R-U-00029184;
 	))
@@ -5623,9 +5632,10 @@
     (total-strokes	 . 28)
     (=ucs		. #x291C8)	; 𩇈
     (->subsumptive
-     ((=ucs@iso		  . #x291C8)	; &U-000291C8;
+     ((=ucs@iso		  . #x291C8)	; &M-42553;
+      (=daikanwa	  . 42553)	; &M-42553;
       (->subsumptive
-       ((=daikanwa	    . 42553)	; &M-42553;
+       ((==daikanwa	    . 42553)	; &R-M-42553;
 	)
        ((==ucs@iso	    . #x291C8)	; &R-U-000291C8;
 	))
@@ -5646,9 +5656,10 @@
     (total-strokes	 . 29)
     (=ucs		. #x291CA)	; 𩇊
     (->subsumptive
-     ((=ucs@iso		  . #x291CA)	; &U-000291CA;
+     ((=ucs@iso		  . #x291CA)	; &M-42554;
+      (=daikanwa	  . 42554)	; &M-42554;
       (->subsumptive
-       ((=daikanwa	    . 42554)	; &M-42554;
+       ((==daikanwa	    . 42554)	; &R-M-42554;
 	)
        ((==ucs@iso	    . #x291CA)	; &R-U-000291CA;
 	))
@@ -5718,9 +5729,10 @@
     (total-strokes	 . 32)
     (=ucs		. #x291D1)	; 𩇑
     (->subsumptive
-     ((=ucs@iso		  . #x291D1)	; &U-000291D1;
+     ((=ucs@iso		  . #x291D1)	; &M-49871;
+      (=daikanwa	  . 49871)	; &M-49871;
       (->subsumptive
-       ((=daikanwa	    . 49871)	; &M-49871;
+       ((==daikanwa	    . 49871)	; &R-M-49871;
 	)
        ((==ucs@iso	    . #x291D1)	; &R-U-000291D1;
 	))
@@ -5793,9 +5805,10 @@
     (total-strokes	 . 40)
     (=ucs		. #x291D3)	; 𩇓
     (->subsumptive
-     ((=ucs@iso		  . #x291D3)	; &U-000291D3;
+     ((=ucs@iso		  . #x291D3)	; &M-42561;
+      (=daikanwa	  . 42561)	; &M-42561;
       (->subsumptive
-       ((=daikanwa	    . 42561)	; &M-42561;
+       ((==daikanwa	    . 42561)	; &R-M-42561;
 	)
        ((==ucs@iso	    . #x291D3)	; &R-U-000291D3;
 	))
