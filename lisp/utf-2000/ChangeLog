@@ -1,4 +1,12 @@
+2013-12-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R140-Grass.el, Ideograph-R136-Oppose.el: Apply new
+	glyph-image conventions for `daikanwa' and `shinjigen'.
+
 2013-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R124-Feather.el: Apply new glyph-image conventions for
+	`daikanwa' and `shinjigen'.
 
 	* Ideograph-R113-Spirit.el, Ideograph-R112-Stone.el,
 	Ideograph-R109-Eye.el, Ideograph-R104-Sickness.el: Apply new
@@ -18,6 +26,9 @@
 
 	* Ideograph-R096-Jade.el, Ideograph-R094-Dog.el: Apply new
 	glyph-image conventions for `daikanwa' and `shinjigen'.
+
+	* char-db-util.el (char-db-insert-ccs-feature): Support
+	`==shinjigen@1ed'.
 
 2013-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
