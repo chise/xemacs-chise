@@ -118,9 +118,11 @@
     (=ucs@unicode	. #x821E)	; &C1-6A5A;
     (=gb2312		. #x4E68)	; &C1-6A5A; [46-72]
     (=cns11643-1	. #x6A5A)	; &I-C1-6A5A; [74-58]
+    (=daikanwa		. 30342)	; &I-M-30342;
+    (=shinjigen		.  6640)	; &C1-6A5A;
     (->subsumptive
-     ((=daikanwa	  . 30342)	; &M-30342;
-      (=shinjigen	  .  6640)	; &M-30342;
+     ((==daikanwa	  . 30342)	; &R-M-30342;
+      (==shinjigen	  .  6640)	; &R-M-30342;
       )
      ((==ucs@unicode	  . #x821E)	; &R-UU+821E;
       (==gb2312		  . #x4E68)	; &R-UU+821E; [46-72]
