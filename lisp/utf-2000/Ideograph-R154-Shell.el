@@ -1250,6 +1250,14 @@
     (=gt		. 49201)	; &I-GT-49201;
     (=gt-k		. 09235)	; &I-GT-K09235;
     (=gt-pj-1		. #x6C4C)	; &I-GT-49201; [76-44]
+    (=daikanwa		. 36727)	; &I-M-36727;
+    (=shinjigen		.  7890)	; &GT-49201;
+    (<-vulgar
+     ((=ucs		  . #x2F9D5)	; 賁
+      (=shinjigen	  .  7889)	; 賁
+      ))
+    (<-vulgar*sources
+     shinjigen)
     (->subsumptive
      ((==ucs@unicode	  . #x8CC1)	; &R-GT-49201;
       (==ks-x1001	  . #x5D53)	; &R-GT-49201; [61-51]
@@ -1258,14 +1266,8 @@
       (==gb12345	  . #x6A5A)	; &R-GT-49201; [74-58]
       (==gt		  . 49201)	; &R-GT-49201;
       (==gt-k		  . 09235)	; &R-GT-49201;
-      (=daikanwa	  . 36727)	; &R-GT-49201;
-      (=shinjigen	  .  7890)	; &R-GT-49201;
-      (<-vulgar
-       ((=ucs		    . #x2F9D5)	; 賁
-	(=shinjigen	    .  7889)	; 賁
-	))
-      (<-vulgar*sources
-       shinjigen)
+      (==daikanwa	  . 36727)	; &R-GT-49201;
+      (==shinjigen	  .  7890)	; &R-GT-49201;
       )
      ((==ucs@cns	  . #x8CC1)	; &R-CU+8CC1;
       (==cns11643-1	  . #x6235)	; &R-CU+8CC1; [66-21]
@@ -2289,14 +2291,14 @@
       (=cns11643-1	  . #x6B33)	; &I-C1-6B33; [75-19]
       (=jis-x0213-1	  . #x7C38)	; &I-JX1-7C38; [92-24]
       (=gb12345		  . #x3176)	; 賓 [17-86]
-      (=daikanwa	  . 36788)	; &R-JX1-7C38;
+      (=daikanwa	  . 36788)	; &I-M-36788;
       (=jef-china3	  . #x65F4)	; &I-JC3-65F4;
       (->subsumptive
        ((==ucs@unicode	    . #xFA64)	; &R-JX1-7C38;
 	(==ucs@ks	    . #x8CD3)	; &R-JX1-7C38;
 	(==ks-x1001	    . #x5E39)	; &R-JX1-7C38; [62-25]
 	(==jis-x0213-1	    . #x7C38)	; &R-JX1-7C38; [92-24]
-	(=daikanwa	    . 36788)	; &R-JX1-7C38;
+	(==daikanwa	    . 36788)	; &R-JX1-7C38;
 	)
        ((==ucs@unicode	    . #x8CD3)	; &R-UU+8CD3;
 	(==cns11643-1	    . #x6B33)	; &R-UU+8CD3; [75-19]
@@ -2334,7 +2336,7 @@
       (=shinjigen	  .  7911)	; &M-36789;
       (<-vulgar@daikanwa
        ((=ucs		    . #xFA64)	; 賓
-	(=daikanwa	    . 36788)	; &R-JX1-7C38;
+	(=daikanwa	    . 36788)	; &I-M-36788;
 	))
       (<-vulgar@daikanwa*sources
        yunhai daikanwa)
