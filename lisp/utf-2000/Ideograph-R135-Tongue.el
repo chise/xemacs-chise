@@ -476,6 +476,7 @@
     (=jis-x0213-1	. #x3C2D)	; &I-JX1-3C2D; [28-13]
     (=gt		. 51568)	; &I-GT-51568;
     (=gt-pj-1		. #x3C2D)	; &I-GT-51568; [28-13]
+    (=shinjigen		.  8199)	; &GT-51568;
     (<-simplified@JP/Jouyou
      ((=ucs@jis		  . #x8FAD)	; &GT-51611;
       (=ucs@ks		  . #x8FAD)	; &GT-51611;
@@ -484,29 +485,31 @@
       (=jis-x0213-1	  . #x6D66)	; &I-JX1-6D66; [77-70]
       (=daikanwa	  . 38671)	; &I-M-38671;
       ))
+    (<-vulgar@jiyun
+     ((=ucs@unicode	  . #x8FA4)	; &JX2-7967;
+      (=jis-x0212	  . #x6130)	; &JX2-7967; [65-16]
+      (=cns11643-3	  . #x4F37)	; &I-C3-4F37; [47-23]
+      (=jis-x0213-2	  . #x7967)	; &I-JX2-7967; [89-71]
+      (=daikanwa	  . 38649)	; &I-M-38649;
+      ))
+    (<-vulgar@jiyun*sources
+     jiyun daikanwa)
+    (<-vulgar@zhengzitong
+     ((=ucs@jis		  . #x8FAD)	; &GT-51611;
+      (=ucs@ks		  . #x8FAD)	; &GT-51611;
+      (=jis-x0208	  . #x6D66)	; &GT-51611; [77-70]
+      (=ks-x1001	  . #x5E76)	; &I-K0-5E76; [62-86]
+      (=jis-x0213-1	  . #x6D66)	; &I-JX1-6D66; [77-70]
+      (=daikanwa	  . 38671)	; &I-M-38671;
+      ))
+    (<-vulgar@zhengzitong*sources
+     zhengzitong daikanwa)
     (->subsumptive
      ((==ucs@jis	  . #x8F9E)	; &R-GT-51568;
       (==jis-x0208	  . #x3C2D)	; &R-GT-51568; [28-13]
       (==jis-x0213-1	  . #x3C2D)	; &R-GT-51568; [28-13]
       (==gt		  . 51568)	; &R-GT-51568;
-      (=shinjigen	  .  8199)	; &R-GT-51568;
-      (<-vulgar@jiyun
-       ((==ucs@jis	    . #x8FA4)	; &R-JSP-6130;
-	(==jis-x0213-2	    . #x7967)	; &R-JSP-6130; [89-71]
-	(=daikanwa	    . 38649)	; &R-JSP-6130;
-	))
-      (<-vulgar@jiyun*sources
-       jiyun daikanwa)
-      (<-vulgar@zhengzitong
-       ((=ucs@jis	    . #x8FAD)	; &GT-51611;
-	(=ucs@ks	    . #x8FAD)	; &GT-51611;
-	(=jis-x0208	    . #x6D66)	; &GT-51611; [77-70]
-	(=ks-x1001	    . #x5E76)	; &I-K0-5E76; [62-86]
-	(=jis-x0213-1	    . #x6D66)	; &I-JX1-6D66; [77-70]
-	(=daikanwa	    . 38671)	; &I-M-38671;
-	))
-      (<-vulgar@zhengzitong*sources
-       zhengzitong daikanwa)
+      (==shinjigen	  .  8199)	; &R-GT-51568;
       (->subsumptive
        ((ideographic-radical . 160)	; ⾟
 	(ideographic-strokes . 6)
