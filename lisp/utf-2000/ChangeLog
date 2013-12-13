@@ -1,13 +1,27 @@
 2013-12-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R167-Gold.el: Apply new glyph-image conventions for
+	`daikanwa' and `shinjigen'.
+
+	* Ideograph-R138-Stopping.el: Apply new glyph-image conventions
+	for `daikanwa' and `shinjigen'.
+
+	* Ideograph-R174-Blue.el, Ideograph-R173-Rain.el,
+	Ideograph-R171-Slave.el, Ideograph-R164-Wine.el,
+	Ideograph-R163-City.el, Ideograph-R160-Bitter.el,
+	Ideograph-R157-Foot.el, Ideograph-R150-Valley.el,
+	Ideograph-R149-Speech.el, Ideograph-R130-Meat.el: Apply new
+	glyph-image conventions for `daikanwa' and `shinjigen'.
+
 	* Ideograph-R153-Badger.el, Ideograph-R145-Clothes.el: Apply new
 	glyph-image conventions for `daikanwa' and `shinjigen'.
 
 2013-12-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* Ideograph-R154-Shell.el, Ideograph-R147-See.el,
-	Ideograph-R142-Insect.el, Ideograph-R135-Tongue.el: Apply new
-	glyph-image conventions for `daikanwa' and `shinjigen'.
+	* Ideograph-R159-Cart.el, Ideograph-R154-Shell.el,
+	Ideograph-R147-See.el, Ideograph-R142-Insect.el,
+	Ideograph-R135-Tongue.el: Apply new glyph-image conventions for
+	`daikanwa' and `shinjigen'.
 
 2013-12-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
