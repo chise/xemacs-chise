@@ -219,8 +219,9 @@
       (=ucs@jis/1990	  . #x9755)	; &HD-JB-6732;
       (=jis-x0212	  . #x6732)	; &HD-JB-6732; [71-18]
       (=hanyo-denshi/jb	  . #x6732)	; &I-HD-JB-6732; [71-18]
+      (=daikanwa	  . 42569)	; &I-M-42569;
       (->subsumptive
-       ((=daikanwa	    . 42569)	; &M-42569;
+       ((==daikanwa	    . 42569)	; &R-M-42569;
 	)
        ((==ucs@jis/1990	    . #x9755)	; &R-HD-JB-6732;
 	(==jis-x0212	    . #x6732)	; &R-HD-JB-6732; [71-18]
