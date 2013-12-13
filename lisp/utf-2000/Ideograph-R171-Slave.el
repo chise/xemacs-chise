@@ -90,9 +90,10 @@
     (total-strokes	 . 16)
     (=ucs		. #x28F7C)	; 𨽼
     (->subsumptive
-     ((=ucs@iso		  . #x28F7C)	; &U-00028F7C;
+     ((=ucs@iso		  . #x28F7C)	; &M-41929;
+      (=daikanwa	  . 41929)	; &M-41929;
       (->subsumptive
-       ((=daikanwa	    . 41929)	; &M-41929;
+       ((==daikanwa	    . 41929)	; &R-M-41929;
 	)
        ((==ucs@iso	    . #x28F7C)	; &R-U-00028F7C;
 	))
@@ -192,9 +193,10 @@
     (total-strokes	 . 20)
     (=ucs		. #x28F83)	; 𨾃
     (->subsumptive
-     ((=ucs@iso		  . #x28F83)	; &U-00028F83;
+     ((=ucs@iso		  . #x28F83)	; &M-41936;
+      (=daikanwa	  . 41936)	; &M-41936;
       (->subsumptive
-       ((=daikanwa	    . 41936)	; &M-41936;
+       ((==daikanwa	    . 41936)	; &R-M-41936;
 	)
        ((==ucs@iso	    . #x28F83)	; &R-U-00028F83;
 	))
