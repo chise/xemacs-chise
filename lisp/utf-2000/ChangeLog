@@ -1,3 +1,14 @@
+2013-12-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R153-Badger.el, Ideograph-R145-Clothes.el: Apply new
+	glyph-image conventions for `daikanwa' and `shinjigen'.
+
+2013-12-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R154-Shell.el, Ideograph-R147-See.el,
+	Ideograph-R142-Insect.el, Ideograph-R135-Tongue.el: Apply new
+	glyph-image conventions for `daikanwa' and `shinjigen'.
+
 2013-12-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R140-Grass.el, Ideograph-R136-Oppose.el: Apply new
