@@ -5691,21 +5691,23 @@
       (=gb12345		  . #x415A)	; &GT-53344; [33-58]
       (=gt		  . 53344)	; &I-GT-53344;
       (=gt-pj-1		  . #x6E43)	; &I-GT-53344; [78-35]
+      (=daikanwa	  . 39656)	; &I-M-39656;
+      (=shinjigen	  .  8934)	; &GT-53344;
+      (<-original
+       ((=ucs@unicode	    . #x96A3)	; &M-41847;
+	(=daikanwa	    . 41847)	; &M-41847;
+	(=shinjigen	    .  8933)	; &M-41847;
+	))
+      (<-original*sources
+       shinjigen)
       (->subsumptive
        ((==ucs@unicode	    . #x9130)	; &R-GT-53344;
 	(==jis-x0208@1978   . #x6E43)	; &R-GT-53344; [78-35]
 	(==jis-x0208@1983   . #x6E43)	; &R-GT-53344; [78-35]
 	(==gb12345	    . #x415A)	; &R-GT-53344; [33-58]
 	(==gt		    . 53344)	; &R-GT-53344;
-	(=daikanwa	    . 39656)	; &R-GT-53344;
-	(=shinjigen	    .  8934)	; &R-GT-53344;
-	(<-original
-	 ((=ucs@unicode	      . #x96A3)	; &M-41847;
-	  (=daikanwa	      . 41847)	; &M-41847;
-	  (=shinjigen	      .	 8933)	; &M-41847;
-	  ))
-	(<-original*sources
-	 shinjigen)
+	(==daikanwa	    . 39656)	; &R-GT-53344;
+	(==shinjigen	    .  8934)	; &R-GT-53344;
 	)
        ((==ucs@jis/1990	    . #x9130)	; &R-J90-6E43;
 	(==ucs@jis/2000	    . #x9130)	; &R-J90-6E43;
