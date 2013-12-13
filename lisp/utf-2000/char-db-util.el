@@ -590,7 +590,7 @@
       (cond
        ((memq name '(==shinjigen
 		     =shinjigen
-		     =shinjigen@1ed
+		     =shinjigen@1ed ==shinjigen@1ed
 		     =shinjigen@rev ==shinjigen@rev
 		     =shinjigen/+p@rev
 		     ==daikanwa/ho
