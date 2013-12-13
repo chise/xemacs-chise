@@ -35391,8 +35391,9 @@
     (total-strokes	 . 17)
     (=ucs@iso		. #x26F94)	; &C7-3B36;
     (=cns11643-7	. #x3B36)	; &C7-3B36; [27-22]
+    (=daikanwa		. 32048)	; &I-M-32048;
     (->subsumptive
-     ((=daikanwa	  . 32048)	; &M-32048;
+     ((==daikanwa	  . 32048)	; &R-M-32048;
       )
      ((hanyu-dazidian	  5 3303 5)
       (==ucs@iso	  . #x26F94)	; &HZK09-AC54;
