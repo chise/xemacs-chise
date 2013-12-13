@@ -2842,9 +2842,10 @@
     (->subsumptive
      ((ideographic-strokes . 8)
       (total-strokes	   . 15)
-      (=ucs@iso		  . #x2832F)	; &U-0002832F;
+      (=ucs@iso		  . #x2832F)	; &M-38387;
+      (=daikanwa	  . 38387)	; &M-38387;
       (->subsumptive
-       ((=daikanwa	    . 38387)	; &M-38387;
+       ((==daikanwa	    . 38387)	; &R-M-38387;
 	)
        ((==ucs@iso	    . #x2832F)	; &R-U-0002832F;
 	))
