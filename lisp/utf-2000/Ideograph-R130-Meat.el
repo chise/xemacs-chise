@@ -124,7 +124,12 @@
       (<-original*sources
        shinjigen)
       (->formed@p=yi
-       ((=daikanwa	    . 29951)	; &M-29951;
+       ((=ucs@unicode	    . #x81C6)	; &GT-38705;
+	(=jis-x0208	    . #x3232)	; &GT-38705; [18-18]
+	(=gb2312	    . #x525C)	; &I-G0-525C; [50-60]
+	(=ks-x1001	    . #x6566)	; &I-K0-6566; [69-70]
+	(=jis-x0213-1	    . #x3232)	; &I-JX1-3232; [18-18]
+	(=daikanwa	    . 29951)	; &I-M-29951;
 	))
       (->formed@p=yi*sources
        shuowen daikanwa)
@@ -1824,6 +1829,8 @@
       (=gt		  . 37901)	; &I-GT-37901;
       (=gt-k		  . 03628)	; &I-GT-K03628;
       (=gt-pj-1		  . #x3069)	; &I-GT-37901; [16-73]
+      (=daikanwa	  . 29318)	; &I-M-29318;
+      (=shinjigen	  .  6431)	; &GT-37901;
       (->subsumptive
        ((==ucs@jis	    . #x80B2)	; &R-GT-37901;
 	(==ucs@ks	    . #x80B2)	; &R-GT-37901;
@@ -1832,8 +1839,8 @@
 	(==jis-x0213-1	    . #x3069)	; &R-GT-37901; [16-73]
 	(==gt		    . 37901)	; &R-GT-37901;
 	(==gt-k		    . 03628)	; &R-GT-37901;
-	(=daikanwa	    . 29318)	; &R-GT-37901;
-	(=shinjigen	    .  6431)	; &R-GT-37901;
+	(==daikanwa	    . 29318)	; &R-GT-37901;
+	(==shinjigen	    .  6431)	; &R-GT-37901;
 	)
        ((==ucs@unicode	    . #x80B2)	; &R-UU+80B2;
 	(==gb2312	    . #x537D)	; &R-UU+80B2; [51-93]
@@ -14075,32 +14082,38 @@
       (=jis-x0213-1	  . #x3232)	; &I-JX1-3232; [18-18]
       (=gt		  . 38705)	; &I-GT-38705;
       (=gt-pj-1		  . #x3232)	; &I-GT-38705; [18-18]
+      (=daikanwa	  . 29951)	; &I-M-29951;
+      (<-formed@p=yi
+       ((=ucs@unicode	    . #x808A)	; &GT-37858;
+	(=gt		    . 37858)	; &GT-37858;
+	(=daikanwa	    . 29238)	; &I-M-29238;
+	))
+      (<-formed@p=yi*sources
+       shuowen)
+      (<-same@p=yi
+       ((=ucs@unicode	    . #x808A)	; &GT-37858;
+	(=gt		    . 37858)	; &GT-37858;
+	(=daikanwa	    . 29238)	; &I-M-29238;
+	))
+      (<-same@p=yi*sources
+       shuowen daikanwa)
+      (<-same@s=drink
+       ((=ucs@jis	    . #x91AB)	; &GT-53782;
+	(=ucs@ks	    . #x91AB)	; &GT-53782;
+	(=jis-x0208	    . #x6E50)	; &GT-53782; [78-48]
+	(=ks-x1001	    . #x6C22)	; &I-K0-6C22; [76-02]
+	(=jis-x0213-1	    . #x6E50)	; &I-JX1-6E50; [78-48]
+	(=daikanwa	    . 40006)	; &I-M-40006;
+	))
+      (<-same@s=drink*sources
+       jiyun daikanwa)
+      (->formed@s=drink
+       ((=daikanwa	    . 40058)	; &M-40058;
+	))
+      (->formed@s=drink*sources
+       jingdian-shiwen daikanwa)
       (->subsumptive
-       ((=daikanwa	    . 29951)	; &M-29951;
-	(<-formed@p=yi
-	 ((=ucs@unicode	      . #x808A)	; &GT-37858;
-	  (=gt		      . 37858)	; &GT-37858;
-	  (=daikanwa	      . 29238)	; &I-M-29238;
-	  ))
-	(<-formed@p=yi*sources
-	 shuowen)
-	(<-same@p=yi
-	 ((=ucs@unicode	      . #x808A)	; &GT-37858;
-	  (=gt		      . 37858)	; &GT-37858;
-	  (=daikanwa	      . 29238)	; &I-M-29238;
-	  ))
-	(<-same@p=yi*sources
-	 shuowen daikanwa)
-	(<-same@s=drink
-	 ((=daikanwa	      . 40006)	; &M-40006;
-	  ))
-	(<-same@s=drink*sources
-	 jiyun daikanwa)
-	(->formed@s=drink
-	 ((=daikanwa	      . 40058)	; &M-40058;
-	  ))
-	(->formed@s=drink*sources
-	 jingdian-shiwen daikanwa)
+       ((==daikanwa	    . 29951)	; &R-M-29951;
 	)
        ((==ucs@jis	    . #x81C6)	; &R-GT-38705;
 	(==ucs@ks	    . #x81C6)	; &R-GT-38705;
