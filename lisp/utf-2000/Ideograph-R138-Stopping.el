@@ -48,6 +48,8 @@
     (=gt		. 39586)	; &I-GT-39586;
     (=gt-k		. 02672)	; &I-GT-K02672;
     (=gt-pj-1		. #x4E49)	; &I-GT-39586; [46-41]
+    (=daikanwa		. 30597)	; &I-M-30597;
+    (=shinjigen		.  6671)	; &GT-39586;
     (->subsumptive
      ((==ucs@jis	  . #x826F)	; &R-GT-39586;
       (==ks-x1001	  . #x555E)	; &R-GT-39586; [53-62]
@@ -55,8 +57,8 @@
       (==jis-x0213-1	  . #x4E49)	; &R-GT-39586; [46-41]
       (==gt		  . 39586)	; &R-GT-39586;
       (==gt-k		  . 02672)	; &R-GT-39586;
-      (=daikanwa	  . 30597)	; &R-GT-39586;
-      (=shinjigen	  .  6671)	; &R-GT-39586;
+      (==daikanwa	  . 30597)	; &R-GT-39586;
+      (==shinjigen	  .  6671)	; &R-GT-39586;
       )
      ((==ucs@unicode	  . #x826F)	; &R-UU+826F;
       (==gb2312		  . #x413C)	; &R-UU+826F; [33-28]
@@ -81,7 +83,6 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 7)
     (=gt-k		. 02673)	; &GT-K02673;
-    (=>>gt-k		. 02673)	; &GT-K02673;
     (=gt-pj-k1		. #x374D)	; &GT-K02673; [23-45]
     (<-formed@component/connect-right
      ((=ucs@unicode	  . #x826F)	; &GT-39586;
@@ -90,13 +91,13 @@
       (=ks-x1001	  . #x555E)	; &I-K0-555E; [53-62]
       (=cns11643-1	  . #x4B40)	; &I-C1-4B40; [43-32]
       (=jis-x0213-1	  . #x4E49)	; &I-JX1-4E49; [46-41]
+      (=daikanwa	  . 30597)	; &I-M-30597;
       ))
     (->subsumptive
      ((==gt-k		  . 02673)	; &R-GT-K02673;
       (<-formed@component/connect-right
        ((==ucs@jis	    . #x826F)	; &R-GT-39586;
 	(==jis-x0208	    . #x4E49)	; &R-GT-39586; [46-41]
-	(=daikanwa	    . 30597)	; &R-GT-39586;
 	))
       ))
     ))
@@ -108,7 +109,6 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 6)
     (=big5-cdp		. #x8C42)	; &CDP-8C42;
-    (=>>big5-cdp	. #x8C42)	; &CDP-8C42;
     (<-simplified@component
      ((=gt-k		  . 02673)	; &GT-K02673;
       ))
@@ -119,6 +119,7 @@
       (=ks-x1001	  . #x555E)	; &I-K0-555E; [53-62]
       (=cns11643-1	  . #x4B40)	; &I-C1-4B40; [43-32]
       (=jis-x0213-1	  . #x4E49)	; &I-JX1-4E49; [46-41]
+      (=daikanwa	  . 30597)	; &I-M-30597;
       ))
     (->subsumptive
      ((==big5-cdp	  . #x8C42)	; &R-CDP-8C42;
