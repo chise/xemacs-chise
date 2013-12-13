@@ -4035,6 +4035,15 @@
       (=jis-x0213-1	  . #x6D29)	; &I-JX1-6D29; [77-09]
       (=gt		  . 50294)	; &I-GT-50294;
       (=gt-pj-1		  . #x6D29)	; &I-GT-50294; [77-09]
+      (=shinjigen	  .  8056)	; &GT-50294;
+      (=cbeta		  . 05114)	; &I-CB05114;
+      (<-formed
+       ((=ucs		    . #x8E64)	; 蹤
+	(=jis-x0208	    . #x6D27)	; &I-J90-6D27; [77-07]
+	(=shinjigen	    .  8054)	; 蹤
+	))
+      (<-formed*sources
+       shinjigen)
       (->subsumptive
        ((==ucs@jis	    . #x8E2A)	; &R-GT-50294;
 	(==ucs@ks	    . #x8E2A)	; &R-GT-50294;
@@ -4042,15 +4051,7 @@
 	(==jis-x0208	    . #x6D29)	; &R-GT-50294; [77-09]
 	(==jis-x0213-1	    . #x6D29)	; &R-GT-50294; [77-09]
 	(==gt		    . 50294)	; &R-GT-50294;
-	(=shinjigen	    .  8056)	; &R-GT-50294;
-	(=cbeta		    . 05114)	; &R-GT-50294;
-	(<-formed
-	 ((=ucs		      . #x8E64)	; 蹤
-	  (=jis-x0208	      . #x6D27)	; &I-J90-6D27; [77-07]
-	  (=shinjigen	      .	 8054)	; 蹤
-	  ))
-	(<-formed*sources
-	 shinjigen)
+	(==shinjigen	    .  8056)	; &R-GT-50294;
 	)
        ((==ucs@unicode	    . #x8E2A)	; &HZK10-ADDE;
 	(==gb2312	    . #x5759)	; &HZK10-ADDE; [55-57]
@@ -4872,8 +4873,7 @@
     (total-strokes	 . 16)
     (=ucs		. #x8E44)	; 蹄
     (->subsumptive
-     ((=>>ucs@unicode	  . #x8E44)	; &GT-50392;
-      (=ucs@unicode	  . #x8E44)	; &GT-50392;
+     ((=ucs@unicode	  . #x8E44)	; &GT-50392;
       (=jis-x0208	  . #x447D)	; &GT-50392; [36-93]
       (=gb2312		  . #x4C63)	; &I-G0-4C63; [44-67]
       (=ks-x1001	  . #x7034)	; &I-K0-7034; [80-20]
@@ -4882,7 +4882,21 @@
       (=big5		  . #xBFE1)	; &I-B-BFE1;
       (=gt		  . 50392)	; &I-GT-50392;
       (=gt-pj-1		  . #x447D)	; &I-GT-50392; [36-93]
-      (=>>daikanwa	  . 37724)	; &GT-50392;
+      (=daikanwa	  . 37724)	; &I-M-37724;
+      (<-formed
+       ((=ucs@jis	    . #x8E4F)	; &JSP-6030;
+	(=jis-x0212	    . #x6030)	; &JSP-6030; [64-16]
+	(=daikanwa	    . 37763)	; &I-M-37763;
+	))
+      (<-formed*sources
+       jiyun)
+      (<-same
+       ((=ucs@jis	    . #x8E4F)	; &JSP-6030;
+	(=jis-x0212	    . #x6030)	; &JSP-6030; [64-16]
+	(=daikanwa	    . 37763)	; &I-M-37763;
+	))
+      (<-same*sources
+       jiyun daikanwa)
       (->subsumptive
        ((==ucs@jis	    . #x8E44)	; &R-GT-50392;
 	(==ucs@ks	    . #x8E44)	; &R-GT-50392;
@@ -4890,21 +4904,7 @@
 	(==jis-x0208	    . #x447D)	; &R-GT-50392; [36-93]
 	(==jis-x0213-1	    . #x447D)	; &R-GT-50392; [36-93]
 	(==gt		    . 50392)	; &R-GT-50392;
-	(=daikanwa	    . 37724)	; &R-GT-50392;
-	(<-formed
-	 ((=ucs@jis	      . #x8E4F)	; &JSP-6030;
-	  (=jis-x0212	      . #x6030)	; &JSP-6030; [64-16]
-	  (=daikanwa	      . 37763)	; &I-M-37763;
-	  ))
-	(<-formed*sources
-	 jiyun)
-	(<-same
-	 ((=ucs@jis	      . #x8E4F)	; &JSP-6030;
-	  (=jis-x0212	      . #x6030)	; &JSP-6030; [64-16]
-	  (=daikanwa	      . 37763)	; &I-M-37763;
-	  ))
-	(<-same*sources
-	 jiyun daikanwa)
+	(==daikanwa	    . 37724)	; &R-GT-50392;
 	)
        ((==ucs@unicode	    . #x8E44)	; &R-UU+8E44;
 	(==gb2312	    . #x4C63)	; &R-UU+8E44; [44-67]
@@ -5621,9 +5621,10 @@
     (ideographic-radical . 157)	; ⾜
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
-    (=>>ucs@jis		. #x8E4F)	; &G-JU+8E4F;
-    (=>>ucs@cns		. #x8E4F)	; &G-JU+8E4F;
-    (=>>daikanwa	. 37763)	; &G-JU+8E4F;
+    (=>>ucs@jis		. #x8E4F)	; &G-CB04581;
+    (=>>ucs@cns		. #x8E4F)	; &G-CB04581;
+    (=>>daikanwa	. 37763)	; &G-CB04581;
+    (=>>cbeta		. 04581)	; &G-CB04581;
     (->subsumptive
      ((=ucs@jis		  . #x8E4F)	; &JSP-6030;
       (=jis-x0212	  . #x6030)	; &JSP-6030; [64-16]
@@ -5631,13 +5632,13 @@
       (=shinjigen	  .  8040)	; &JSP-6030;
       (=cbeta		  . 04581)	; &I-CB04581;
       (<-ancient
-       ((=>>ucs@unicode	    . #x8E44)	; &GT-50392;
-	(=ucs@unicode	    . #x8E44)	; &GT-50392;
+       ((=ucs@unicode	    . #x8E44)	; &GT-50392;
 	(=jis-x0208	    . #x447D)	; &GT-50392; [36-93]
 	(=gb2312	    . #x4C63)	; &I-G0-4C63; [44-67]
 	(=ks-x1001	    . #x7034)	; &I-K0-7034; [80-20]
 	(=cns11643-1	    . #x724B)	; &I-C1-724B; [82-43]
 	(=jis-x0213-1	    . #x447D)	; &I-JX1-447D; [36-93]
+	(=daikanwa	    . 37724)	; &I-M-37724;
 	))
       (<-ancient*sources
        hanshu-zhu)
@@ -5647,10 +5648,13 @@
       (<-original*sources
        shinjigen)
       (->formed
-       ((==ucs@jis	    . #x8E44)	; &R-GT-50392;
-	(==ucs@ks	    . #x8E44)	; &R-GT-50392;
-	(==jis-x0208	    . #x447D)	; &R-GT-50392; [36-93]
-	(=daikanwa	    . 37724)	; &R-GT-50392;
+       ((=ucs@unicode	    . #x8E44)	; &GT-50392;
+	(=jis-x0208	    . #x447D)	; &GT-50392; [36-93]
+	(=gb2312	    . #x4C63)	; &I-G0-4C63; [44-67]
+	(=ks-x1001	    . #x7034)	; &I-K0-7034; [80-20]
+	(=cns11643-1	    . #x724B)	; &I-C1-724B; [82-43]
+	(=jis-x0213-1	    . #x447D)	; &I-JX1-447D; [36-93]
+	(=daikanwa	    . 37724)	; &I-M-37724;
 	)
        ((=ucs		    . #x8E36)	; 踶
 	(=daikanwa	    . 37688)	; &I-M-37688;
