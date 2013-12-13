@@ -5525,11 +5525,10 @@
     (ideographic-radical . 145)	; ⾐
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
-    (=>>ucs@unicode	. #x4644)	; &G-UU+4644;
-    (=ucs@unicode	. #x4644)	; &G-UU+4644;
-    (=>>daikanwa	. 34414)	; &G-UU+4644;
+    (=ucs@unicode	. #x4644)	; &M-34414;
+    (=daikanwa		. 34414)	; &M-34414;
     (->subsumptive
-     ((=daikanwa	  . 34414)	; &M-34414;
+     ((==daikanwa	  . 34414)	; &R-M-34414;
       )
      ((==ucs@unicode	  . #x4644)	; &R-UU+4644;
       ))
@@ -6248,9 +6247,10 @@
     (total-strokes	 . 15)
     (=ucs		. #x4648)	; 䙈
     (->subsumptive
-     ((=ucs@unicode	  . #x4648)	; &UU+4648;
+     ((=ucs@unicode	  . #x4648)	; &M-34452;
+      (=daikanwa	  . 34452)	; &M-34452;
       (->subsumptive
-       ((=daikanwa	    . 34452)	; &M-34452;
+       ((==daikanwa	    . 34452)	; &R-M-34452;
 	)
        ((==ucs@unicode	    . #x4648)	; &R-UU+4648;
 	))
@@ -6266,11 +6266,12 @@
     (=ucs		. #x8918)	; 褘
     (=big5		. #xE7C7)	; &I-B-E7C7;
     (->subsumptive
-     ((=ucs@unicode	  . #x8918)	; &K0-6A5C;
-      (=ks-x1001	  . #x6A5C)	; &K0-6A5C; [74-60]
+     ((=ucs@unicode	  . #x8918)	; &M-34453;
+      (=ks-x1001	  . #x6A5C)	; &M-34453; [74-60]
+      (=daikanwa	  . 34453)	; &I-M-34453;
       (->subsumptive
-       ((==ks-x1001	    . #x6A5C)	; &M-34453; [74-60]
-	(=daikanwa	    . 34453)	; &M-34453;
+       ((==ks-x1001	    . #x6A5C)	; &R-M-34453; [74-60]
+	(==daikanwa	    . 34453)	; &R-M-34453;
 	)
        ((==ucs@unicode	    . #x8918)	; &R-UU+8918;
 	))
@@ -10977,6 +10978,8 @@
       (=jis-x0213-1	  . #x6B25)	; &I-JX1-6B25; [75-05]
       (=gt		  . 46736)	; &I-GT-46736;
       (=gt-pj-1		  . #x6B25)	; &I-GT-46736; [75-05]
+      (=daikanwa	  . 34712)	; &I-M-34712;
+      (=shinjigen	  .  7468)	; &I-J90-6B25;
       (->subsumptive
        ((==ucs@jis/1990	    . #x896F)	; &R-GT-46736;
 	(==ucs@jis/2000	    . #x896F)	; &R-GT-46736;
@@ -10984,8 +10987,8 @@
 	(==jis-x0208@1990   . #x6B25)	; &R-GT-46736; [75-05]
 	(==jis-x0213-1	    . #x6B25)	; &R-GT-46736; [75-05]
 	(==gt		    . 46736)	; &R-GT-46736;
-	(=daikanwa	    . 34712)	; &R-GT-46736;
-	(=shinjigen	    .  7468)	; &R-GT-46736;
+	(==daikanwa	    . 34712)	; &R-GT-46736;
+	(==shinjigen	    .  7468)	; &R-GT-46736;
 	)
        ((==ucs@cns	    . #x896F)	; &R-CU+896F;
 	(==cns11643-1	    . #x7B72)	; &R-CU+896F; [91-82]
