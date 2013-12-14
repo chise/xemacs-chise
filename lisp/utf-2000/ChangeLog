@@ -1,5 +1,11 @@
 2013-12-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R180-Sound.el, Ideograph-R178-Tanned-Leather.el,
+	Ideograph-R177-Leather.el, Ideograph-R176-Face.el: Apply new
+	glyph-image conventions for `daikanwa' and `shinjigen'.
+
+2013-12-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R167-Gold.el: Apply new glyph-image conventions for
 	`daikanwa' and `shinjigen'.
 
