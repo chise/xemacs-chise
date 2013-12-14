@@ -347,11 +347,10 @@
     (total-strokes	 . 16)
     (=ucs		. #x29ACE)	; 𩫎
     (->subsumptive
-     ((=>>ucs@iso	  . #x29ACE)	; &G-IU+29ACE;
-      (=ucs@iso		  . #x29ACE)	; &G-IU+29ACE;
-      (=>>daikanwa	  . 45328)	; &G-IU+29ACE;
+     ((=ucs@iso		  . #x29ACE)	; &M-45328;
+      (=daikanwa	  . 45328)	; &M-45328;
       (->subsumptive
-       ((=daikanwa	    . 45328)	; &M-45328;
+       ((==daikanwa	    . 45328)	; &R-M-45328;
 	)
        ((==ucs@iso	    . #x29ACE)	; &R-U-00029ACE;
 	))
@@ -1060,10 +1059,10 @@
     (ideographic-radical . 189)	; ⾼
     (ideographic-strokes . 21)
     (total-strokes	 . 31)
-    (=ucs@iso		. #x29AF3)	; &U-00029AF3;
-    (=>>daikanwa	. 45354)	; &U-00029AF3;
+    (=ucs@iso		. #x29AF3)	; &M-45354;
+    (=daikanwa		. 45354)	; &M-45354;
     (->subsumptive
-     ((=daikanwa	  . 45354)	; &M-45354;
+     ((==daikanwa	  . 45354)	; &R-M-45354;
       )
      ((hanyu-dazidian	  7 4595 11)
       (==ucs@iso	  . #x29AF3)	; &HZK12-BA4D;
