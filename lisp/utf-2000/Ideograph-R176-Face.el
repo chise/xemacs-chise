@@ -319,9 +319,10 @@
     (total-strokes	 . 15)
     (=ucs		. #x2921D)	; 𩈝
     (->subsumptive
-     ((=ucs@iso		  . #x2921D)	; &U-0002921D;
+     ((=ucs@iso		  . #x2921D)	; &M-42649;
+      (=daikanwa	  . 42649)	; &M-42649;
       (->subsumptive
-       ((=daikanwa	    . 42649)	; &M-42649;
+       ((==daikanwa	    . 42649)	; &R-M-42649;
 	)
        ((==ucs@iso	    . #x2921D)	; &R-U-0002921D;
 	))
