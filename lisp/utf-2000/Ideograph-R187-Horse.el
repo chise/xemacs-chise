@@ -3000,9 +3000,10 @@
     (total-strokes	 . 18)
     (=ucs		. #x298ED)	; 𩣭
     (->subsumptive
-     ((=ucs@iso		  . #x298ED)	; &U-000298ED;
+     ((=ucs@iso		  . #x298ED)	; &M-44785;
+      (=daikanwa	  . 44785)	; &M-44785;
       (->subsumptive
-       ((=daikanwa	    . 44785)	; &M-44785;
+       ((==daikanwa	    . 44785)	; &R-M-44785;
 	)
        ((==ucs@iso	    . #x298ED)	; &R-U-000298ED;
 	))
