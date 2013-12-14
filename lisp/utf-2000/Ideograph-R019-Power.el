@@ -5965,9 +5965,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>>ucs@jis/1990	  . #x96DA)	; &HD-JB-6676;
-      (=>>ucs@cns	  . #x96DA)	; &HD-JB-6676;
-      (=ucs@cns		  . #x96DA)	; &HD-JB-6676;
+     ((=ucs@cns		  . #x96DA)	; &HD-JB-6676;
       (=ucs@jis/1990	  . #x96DA)	; &HD-JB-6676;
       (=jis-x0212	  . #x6676)	; &HD-JB-6676; [70-86]
       (=cns11643-2	  . #x643D)	; &I-C2-643D; [68-29]
@@ -6024,8 +6022,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>>ucs@unicode	  . #x96DA)	; &HD-JD-7B73;
-      (=ucs@unicode	  . #x96DA)	; &HD-JD-7B73;
+     ((=ucs@unicode	  . #x96DA)	; &HD-JD-7B73;
       (=jis-x0213-2	  . #x7B73)	; &HD-JD-7B73; [91-83]
       )
      ((=ucs		  . #x529B)	; 力
