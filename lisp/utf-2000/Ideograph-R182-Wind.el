@@ -2127,9 +2127,10 @@
     (total-strokes	 . 18)
     (=ucs		. #x4B13)	; 䬓
     (->subsumptive
-     ((=ucs@unicode	  . #x4B13)	; &UU+4B13;
+     ((=ucs@unicode	  . #x4B13)	; &M-43904;
+      (=daikanwa	  . 43904)	; &M-43904;
       (->subsumptive
-       ((=daikanwa	    . 43904)	; &M-43904;
+       ((==daikanwa	    . 43904)	; &R-M-43904;
 	)
        ((==ucs@unicode	    . #x4B13)	; &R-UU+4B13;
 	))
