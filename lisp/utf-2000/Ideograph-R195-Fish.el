@@ -3782,9 +3782,10 @@
     (total-strokes	 . 19)
     (=ucs		. #x9BDC)	; 鯜
     (->subsumptive
-     ((=ucs@unicode	  . #x9BDC)	; &UU+9BDC;
+     ((=ucs@unicode	  . #x9BDC)	; &M-46227;
+      (=daikanwa	  . 46227)	; &M-46227;
       (->subsumptive
-       ((=daikanwa	    . 46227)	; &M-46227;
+       ((==daikanwa	    . 46227)	; &R-M-46227;
 	)
        ((==ucs@unicode	    . #x9BDC)	; &R-UU+9BDC;
 	))
@@ -7980,13 +7981,12 @@
     (ideographic-radical . 195)	; ⿂
     (ideographic-strokes . 12)
     (total-strokes	 . 23)
-    (=>>ucs@iso		. #x29EDB)	; &C4-6B3E;
     (=ucs@iso		. #x29EDB)	; &C4-6B3E;
     (=cns11643-4	. #x6B3E)	; &C4-6B3E; [75-30]
-    (=>>daikanwa	. 46480)	; &C4-6B3E;
+    (=daikanwa		. 46480)	; &I-M-46480;
     (->subsumptive
-     ((==ucs@iso	  . #x29EDB)	; &M-46480;
-      (=daikanwa	  . 46480)	; &M-46480;
+     ((==ucs@iso	  . #x29EDB)	; &R-M-46480;
+      (==daikanwa	  . 46480)	; &R-M-46480;
       )
      ((==cns11643-4	  . #x6B3E)	; &R-C4-6B3E; [75-30]
       ))
