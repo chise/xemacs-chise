@@ -1,5 +1,14 @@
 2013-12-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R082-Fur.el: Apply new glyph-image conventions for
+	`daikanwa' and `shinjigen'.
+	(U-00023B40): Use `->denotational'.
+	(U-00023BDF): Likewise.
+
+	* Ideograph-R061-Heart.el, Ideograph-R030-Mouth.el,
+	Ideograph-R029-Again.el: Apply new glyph-image conventions for
+	`daikanwa' and `shinjigen'.
+
 	* ruimoku6.el, Ideograph-R208-Rat.el, Ideograph-R199-Wheat.el,
 	Ideograph-R196-Bird.el: Apply new glyph-image conventions for
 	`daikanwa' and `shinjigen'.
