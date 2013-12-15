@@ -433,9 +433,10 @@
     (total-strokes	 . 21)
     (=ucs		. #x2A409)	; 𪐉
     (->subsumptive
-     ((=ucs@iso		  . #x2A409)	; &U-0002A409;
+     ((=ucs@iso		  . #x2A409)	; &M-48024;
+      (=daikanwa	  . 48024)	; &M-48024;
       (->subsumptive
-       ((=daikanwa	    . 48024)	; &M-48024;
+       ((==daikanwa	    . 48024)	; &R-M-48024;
 	)
        ((==ucs@iso	    . #x2A409)	; &R-U-0002A409;
 	))
