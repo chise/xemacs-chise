@@ -1606,9 +1606,9 @@
     (=jis-x0212		. #x6C67)	; &HD-JB-6C67; [76-71]
     (=jis-x0213-1	. #x7E6B)	; &I-JX1-7E6B; [94-75]
     (=hanyo-denshi/jb	. #x6C67)	; &I-HD-JB-6C67; [76-71]
-    (=>>daikanwa	. 47688)	; &HD-JB-6C67;
+    (=daikanwa		. 47688)	; &I-M-47688;
     (->subsumptive
-     ((=daikanwa	  . 47688)	; &M-47688;
+     ((==daikanwa	  . 47688)	; &R-M-47688;
       )
      ((==ucs@jis	  . #x9E9E)	; &R-HD-JB-6C67;
       (==jis-x0212	  . #x6C67)	; &R-HD-JB-6C67; [76-71]
