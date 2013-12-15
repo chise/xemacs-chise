@@ -1388,11 +1388,10 @@
     (ideographic-radical . 199)	; ⿆
     (ideographic-strokes . 6)
     (total-strokes	 . 17)
-    (=>>ucs@iso		. #x2A328)	; &G-IU+2A328;
-    (=ucs@iso		. #x2A328)	; &G-IU+2A328;
-    (=>>daikanwa	. 47776)	; &G-IU+2A328;
+    (=ucs@iso		. #x2A328)	; &M-47776;
+    (=daikanwa		. 47776)	; &M-47776;
     (->subsumptive
-     ((=daikanwa	  . 47776)	; &M-47776;
+     ((==daikanwa	  . 47776)	; &R-M-47776;
       )
      ((==ucs@iso	  . #x2A328)	; &R-U-0002A328;
       ))
@@ -2601,11 +2600,10 @@
     (ideographic-radical . 199)	; ⿆
     (ideographic-strokes . 9)
     (total-strokes	 . 20)
-    (=>>ucs@iso		. #x2A350)	; &G-IU+2A350;
-    (=ucs@iso		. #x2A350)	; &G-IU+2A350;
-    (=>>daikanwa	. 47828)	; &G-IU+2A350;
+    (=ucs@iso		. #x2A350)	; &M-47828;
+    (=daikanwa		. 47828)	; &M-47828;
     (->subsumptive
-     ((=daikanwa	  . 47828)	; &M-47828;
+     ((==daikanwa	  . 47828)	; &R-M-47828;
       )
      ((==ucs@iso	  . #x2A350)	; &R-U-0002A350;
       ))
@@ -2872,11 +2870,10 @@
     (ideographic-radical . 199)	; ⿆
     (ideographic-strokes . 10)
     (total-strokes	 . 21)
-    (=>>ucs@iso		. #x2A35C)	; &G-IU+2A35C;
-    (=ucs@iso		. #x2A35C)	; &G-IU+2A35C;
-    (=>>daikanwa	. 47838)	; &G-IU+2A35C;
+    (=ucs@iso		. #x2A35C)	; &M-47838;
+    (=daikanwa		. 47838)	; &M-47838;
     (->subsumptive
-     ((=daikanwa	  . 47838)	; &M-47838;
+     ((==daikanwa	  . 47838)	; &R-M-47838;
       )
      ((==ucs@iso	  . #x2A35C)	; &R-U-0002A35C;
       ))
@@ -3317,11 +3314,10 @@
     (ideographic-radical . 199)	; ⿆
     (ideographic-strokes . 11)
     (total-strokes	 . 22)
-    (=>>ucs@unicode	. #x4D42)	; &G-UU+4D42;
-    (=ucs@unicode	. #x4D42)	; &G-UU+4D42;
-    (=>>daikanwa	. 47854)	; &G-UU+4D42;
+    (=ucs@unicode	. #x4D42)	; &M-47854;
+    (=daikanwa		. 47854)	; &M-47854;
     (->subsumptive
-     ((=daikanwa	  . 47854)	; &M-47854;
+     ((==daikanwa	  . 47854)	; &R-M-47854;
       )
      ((==ucs@unicode	  . #x4D42)	; &R-UU+4D42;
       ))
@@ -4078,11 +4074,10 @@
     (ideographic-radical . 199)	; ⿆
     (ideographic-strokes . 17)
     (total-strokes	 . 28)
-    (=>>ucs@iso		. #x2A383)	; &G-IU+2A383;
-    (=ucs@iso		. #x2A383)	; &G-IU+2A383;
-    (=>>daikanwa	. 47881)	; &G-IU+2A383;
+    (=ucs@iso		. #x2A383)	; &M-47881;
+    (=daikanwa		. 47881)	; &M-47881;
     (->subsumptive
-     ((=daikanwa	  . 47881)	; &M-47881;
+     ((==daikanwa	  . 47881)	; &R-M-47881;
       )
      ((==ucs@iso	  . #x2A383)	; &R-U-0002A383;
       ))
