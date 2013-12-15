@@ -592,7 +592,7 @@
 		     =shinjigen
 		     =shinjigen@1ed ==shinjigen@1ed
 		     =shinjigen@rev ==shinjigen@rev
-		     =shinjigen/+p@rev
+		     =shinjigen/+p@rev ==shinjigen/+p@rev
 		     ==daikanwa/ho
 		     =daikanwa/ho =>>daikanwa/ho =>daikanwa/ho))
 	"(%-18s .  %04d)\t; %c")
