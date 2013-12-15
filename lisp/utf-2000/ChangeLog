@@ -1,5 +1,15 @@
 2013-12-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ruimoku6.el, Ideograph-R208-Rat.el, Ideograph-R199-Wheat.el,
+	Ideograph-R196-Bird.el: Apply new glyph-image conventions for
+	`daikanwa' and `shinjigen'.
+
+	* Ideograph-R212-Dragon.el, Ideograph-R205-Frog.el,
+	Ideograph-R202-Millet.el, Ideograph-R200-Hemp.el,
+	Ideograph-R198-Deer.el, Ideograph-R195-Fish.el,
+	Ideograph-R162-Walk.el: Apply new glyph-image conventions for
+	`daikanwa' and `shinjigen'.
+
 	* Ideograph-R189-Tall.el, Ideograph-R184-Eat.el,
 	Ideograph-R172-Short-Tailed-Bird.el: Apply new glyph-image
 	conventions for `daikanwa' and `shinjigen'.
@@ -7,7 +17,10 @@
 2013-12-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R190-Hair.el, Ideograph-R187-Horse.el,
-	Ideograph-R182-Wind.el, Ideograph-R085-Water.el: Apply new
+	Ideograph-R182-Wind.el: Apply new glyph-image conventions for
+	`daikanwa' and `shinjigen'.
+
+	* Ideograph-R170-Mound.el, Ideograph-R085-Water.el: Apply new
 	glyph-image conventions for `daikanwa' and `shinjigen'.
 
 	* Ideograph-R180-Sound.el, Ideograph-R178-Tanned-Leather.el,
@@ -21,6 +34,9 @@
 
 	* Ideograph-R138-Stopping.el: Apply new glyph-image conventions
 	for `daikanwa' and `shinjigen'.
+
+	* char-db-util.el (char-db-insert-ccs-feature): Support
+	`==shinjigen/+p@rev'.
 
 	* Ideograph-R174-Blue.el, Ideograph-R173-Rain.el,
 	Ideograph-R171-Slave.el, Ideograph-R164-Wine.el,
