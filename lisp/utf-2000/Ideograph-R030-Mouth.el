@@ -45190,9 +45190,7 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=>>ucs@jis/1990	  . #x96DA)	; &HD-JB-6676;
-      (=>>ucs@cns	  . #x96DA)	; &HD-JB-6676;
-      (=ucs@cns		  . #x96DA)	; &HD-JB-6676;
+     ((=ucs@cns		  . #x96DA)	; &HD-JB-6676;
       (=ucs@jis/1990	  . #x96DA)	; &HD-JB-6676;
       (=jis-x0212	  . #x6676)	; &HD-JB-6676; [70-86]
       (=cns11643-2	  . #x643D)	; &I-C2-643D; [68-29]
@@ -45252,12 +45250,10 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=>>ucs@unicode	  . #x96DA)	; &HD-JD-7B73;
-      (=ucs@unicode	  . #x96DA)	; &HD-JD-7B73;
+     ((=ucs@unicode	  . #x96DA)	; &HD-JD-7B73;
       (=jis-x0213-2	  . #x7B73)	; &HD-JD-7B73; [91-83]
       ))
-    (=>>ucs@unicode	. #x56BE)	; &G-UU+56BE;
-    (=ucs@unicode	. #x56BE)	; &G-UU+56BE;
+    (=ucs@unicode	. #x56BE)	; &UU+56BE;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
