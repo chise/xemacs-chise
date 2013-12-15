@@ -764,7 +764,6 @@
        ((==ucs@jis	    . #x7ACB)	; &R-GT-33181;
 	(==ucs@ks	    . #x7ACB)	; &R-GT-33181;
 	(==jis-x0208	    . #x4E29)	; &R-GT-33181; [46-09]
-	(=daikanwa	    . 25721)	; &R-GT-33181;
 	)
        ((=big5-cdp	    . #x8958)	; &CDP-8958;
 	))
