@@ -1333,8 +1333,9 @@
       (=hanyo-denshi/hg	  . #x3021)	; &I-HD-HG-3021; [16-01]
       (=gt		  . 63596)	; &I-GT-63596;
       (=gt-pj-8		  . #x616F)	; &I-GT-63596; [65-79]
+      (=daikanwa	  . 46738)	; &I-M-46738;
       (->subsumptive
-       ((=daikanwa	    . 46738)	; &M-46738;
+       ((==daikanwa	    . 46738)	; &R-M-46738;
 	)
        ((==gt		    . 63596)	; &R-GT-63596;
 	)
@@ -1358,6 +1359,7 @@
        ((=ucs@unicode	    . #x9D09)	; &HD-HG-3021;
 	(=cns11643-1	    . #x7029)	; &HD-HG-3021; [80-09]
 	(=jis-x0213-1@2004  . #x726D)	; &I-JX3-726D; [82-77]
+	(=daikanwa	    . 46738)	; &I-M-46738;
 	))
       )
      ((ideographic-strokes . 5)
@@ -4718,9 +4720,10 @@
     (total-strokes	 . 19)
     (=ucs		. #x2A07F)	; 𪁿
     (->subsumptive
-     ((=ucs@iso		  . #x2A07F)	; &U-0002A07F;
+     ((=ucs@iso		  . #x2A07F)	; &M-46993;
+      (=daikanwa	  . 46993)	; &M-46993;
       (->subsumptive
-       ((=daikanwa	    . 46993)	; &M-46993;
+       ((==daikanwa	    . 46993)	; &R-M-46993;
 	)
        ((==ucs@iso	    . #x2A07F)	; &R-U-0002A07F;
 	))
@@ -9213,11 +9216,10 @@
     (ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 11)
     (total-strokes	 . 22)
-    (=>>ucs@iso		. #x2A146)	; &G-IU+2A146;
-    (=ucs@iso		. #x2A146)	; &G-IU+2A146;
-    (=>>daikanwa	. 47284)	; &G-IU+2A146;
+    (=ucs@iso		. #x2A146)	; &M-47284;
+    (=daikanwa		. 47284)	; &M-47284;
     (->subsumptive
-     ((=daikanwa	  . 47284)	; &M-47284;
+     ((==daikanwa	  . 47284)	; &R-M-47284;
       )
      ((==ucs@iso	  . #x2A146)	; &R-U-0002A146;
       ))
@@ -11753,11 +11755,10 @@
     (ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 15)
     (total-strokes	 . 26)
-    (=>>ucs@iso		. #x2A1F7)	; &G-IU+2A1F7;
-    (=ucs@iso		. #x2A1F7)	; &G-IU+2A1F7;
-    (=>>daikanwa	. 47459)	; &G-IU+2A1F7;
+    (=ucs@iso		. #x2A1F7)	; &M-47459;
+    (=daikanwa		. 47459)	; &M-47459;
     (->subsumptive
-     ((=daikanwa	  . 47459)	; &M-47459;
+     ((==daikanwa	  . 47459)	; &R-M-47459;
       )
      ((==ucs@iso	  . #x2A1F7)	; &R-U-0002A1F7;
       ))
