@@ -2292,6 +2292,16 @@
 		  direction	l2r
 		  mother	==shinjigen
 		  registry	"Shinjigen\\(\\.[0-9]+\\)?-2"))
+  (make-charset
+   '==shinjigen/+p@rev
+   "Detailed glyph-images of ShinJigen (the second edition) number with '"
+   '(long-name	"Detailed glyph-images of Shinjigen-2 with '"
+		mother	=shinjigen/+p@rev
+		chars		256
+		dimension	2
+		columns	2
+		graphic	2
+		direction	l2r))
 
   (make-charset '=big5-pua
 		"Big5 with private used area"
