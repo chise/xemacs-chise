@@ -1423,9 +1423,10 @@
     (=shinjigen		.  1985)	; &JSP-6657;
     (=jef-china3	. #x93AF)	; &I-JC3-93AF;
     (<-formed
-     ((==ucs@jis	  . #x5CED)	; &R-AJ1-04678;
-      (==adobe-japan1-0	  . 04678)	; &R-AJ1-04678;
-      (=shinjigen	  .  1984)	; &R-AJ1-04678;
+     ((=ucs@jis		  . #x5CED)	; &AJ1-04678;
+      (=adobe-japan1-0	  . 04678)	; &AJ1-04678;
+      (=jis-x0208	  . #x5639)	; &I-J90-5639; [54-25]
+      (=shinjigen	  .  1984)	; &AJ1-04678;
       ))
     (<-formed*sources
      shinjigen)
@@ -1437,7 +1438,8 @@
     (ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=>>ucs@unicode	. #x9657)	; &G-UU+9657;
+    (=>>ucs@unicode	. #x9657)	; &G-C4-303F;
+    (=>>cns11643-4	. #x303F)	; &G-C4-303F; [16-31]
     (->subsumptive
      ((=ucs@unicode	  . #x9657)	; &UU+9657;
       )
