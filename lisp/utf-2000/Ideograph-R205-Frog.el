@@ -431,8 +431,9 @@
       (=ucs@jis		  . #x4D77)	; &JX2-7E60;
       (=cns11643-3	  . #x5C2C)	; &JX2-7E60; [60-12]
       (=jis-x0213-2	  . #x7E60)	; &I-JX2-7E60; [94-64]
+      (=daikanwa	  . 48277)	; &I-M-48277;
       (->subsumptive
-       ((=daikanwa	    . 48277)	; &M-48277;
+       ((==daikanwa	    . 48277)	; &R-M-48277;
 	)
        ((==ucs@cns	    . #x4D77)	; &R-CU+4D77;
 	(==cns11643-3	    . #x5C2C)	; &R-CU+4D77; [60-12]
