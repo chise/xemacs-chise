@@ -4848,8 +4848,8 @@
     (total-strokes	 . 10)
     (=daikanwa		. 38820)	; &M-38820;
     (<-synonyms
-     ((==ucs@ks		  . #x4EA4)	; &R-AJ1-13439;
-      (==adobe-japan1-4	  . 13439)	; &R-AJ1-13439;
+     ((=ucs@ks		  . #x4EA4)	; &AJ1-13439;
+      (=adobe-japan1-4	  . 13439)	; &AJ1-13439;
       (=daikanwa	  . 00291)	; &I-M-00291;
       ))
     (<-synonyms*sources
@@ -8243,10 +8243,9 @@
     (total-strokes	 . 11)
     (=daikanwa		. 38900)	; &M-38900;
     (<-ancient
-     ((==ucs@jis	  . #x68C4)	; &R-AJ1-01594;
-      (==ucs@ks		  . #x68C4)	; &R-AJ1-01594;
-      (==adobe-japan1-0	  . 01594)	; &R-AJ1-01594;
-      (=daikanwa	  . 14913)	; &R-AJ1-01594;
+     ((=ucs@unicode	  . #x68C4)	; &AJ1-01594;
+      (=adobe-japan1-0	  . 01594)	; &AJ1-01594;
+      (=daikanwa	  . 14913)	; &I-M-14913;
       ))
     (<-ancient*sources
      jiyun daikanwa)
@@ -12228,6 +12227,7 @@
       (=ks-x1001	  . #x4A63)	; &I-K0-4A63; [42-67]
       (=cns11643-1	  . #x5157)	; &I-C1-5157; [49-55]
       (=jis-x0213-1	  . #x5B2B)	; &I-JX1-5B2B; [59-11]
+      (=daikanwa	  . 14290)	; &I-M-14290;
       ))
     (=>ucs@unicode	. #x904F)	; &A-UU+904F;
     ))
@@ -12251,6 +12251,7 @@
       (=ks-x1001	  . #x4A63)	; &I-K0-4A63; [42-67]
       (=cns11643-1	  . #x5157)	; &I-C1-5157; [49-55]
       (=jis-x0213-1	  . #x5B2B)	; &I-JX1-5B2B; [59-11]
+      (=daikanwa	  . 14290)	; &I-M-14290;
       ))
     (=ucs@jis		. #x904F)	; &GT-52306;
     (=jis-x0208		. #x6E21)	; &GT-52306; [78-01]
@@ -12286,6 +12287,7 @@
       (=ks-x1001	  . #x4A63)	; &I-K0-4A63; [42-67]
       (=cns11643-1	  . #x5157)	; &I-C1-5157; [49-55]
       (=jis-x0213-1	  . #x5B2B)	; &I-JX1-5B2B; [59-11]
+      (=daikanwa	  . 14290)	; &I-M-14290;
       ))
     (=ucs@unicode	. #x904F)	; &G0-3674;
     (=gb2312		. #x3674)	; &G0-3674; [22-84]
@@ -12310,6 +12312,7 @@
       (=ks-x1001	  . #x4A63)	; &I-K0-4A63; [42-67]
       (=cns11643-1	  . #x5157)	; &I-C1-5157; [49-55]
       (=jis-x0213-1	  . #x5B2B)	; &I-JX1-5B2B; [59-11]
+      (=daikanwa	  . 14290)	; &I-M-14290;
       ))
     (=cns11643-1	. #x6733)	; &C1-6733; [71-19]
     ))
@@ -14997,27 +15000,29 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=>>ucs@jis		. #x9068)	; &GT-52518;
     (=ucs@jis		. #x9068)	; &GT-52518;
     (=jis-x0208		. #x6E2B)	; &GT-52518; [78-11]
     (=jis-x0213-1	. #x6E2B)	; &I-JX1-6E2B; [78-11]
     (=gt		. 52518)	; &I-GT-52518;
     (=gt-pj-1		. #x6E2B)	; &I-GT-52518; [78-11]
+    (=daikanwa		. 39073)	; &I-M-39073;
+    (=shinjigen		.  8365)	; &GT-52518;
+    (<-same
+     ((=ucs@jis		  . #x6556)	; &AJ1-05065;
+      (=ucs@ks		  . #x6556)	; &AJ1-05065;
+      (=adobe-japan1-0	  . 05065)	; &AJ1-05065;
+      (=daikanwa	  . 13226)	; &I-M-13226;
+      ))
+    (<-same*sources
+     yupian jiyun maoshi houhanshu daikanwa)
     (->subsumptive
      ((==ucs@jis	  . #x9068)	; &R-J90-6E2B;
       (==jis-x0208	  . #x6E2B)	; &R-J90-6E2B; [78-11]
       (==jis-x0213-1	  . #x6E2B)	; &R-J90-6E2B; [78-11]
-      (=daikanwa	  . 39073)	; &R-J90-6E2B;
-      (<-same
-       ((=ucs@jis	    . #x6556)	; &AJ1-05065;
-	(=ucs@ks	    . #x6556)	; &AJ1-05065;
-	(=adobe-japan1-0    . 05065)	; &AJ1-05065;
-	))
-      (<-same*sources
-       yupian jiyun maoshi houhanshu daikanwa)
+      (==daikanwa	  . 39073)	; &R-J90-6E2B;
       )
      ((==gt		  . 52518)	; &R-GT-52518;
-      (=shinjigen	  .  8365)	; &R-GT-52518;
+      (==shinjigen	  .  8365)	; &R-GT-52518;
       ))
     ))
 (define-char
@@ -15886,6 +15891,7 @@
     (<-same
      ((=ucs@unicode	  . #x5FA1)	; &AJ1-01946;
       (=adobe-japan1-0	  . 01946)	; &AJ1-01946;
+      (=daikanwa	  . 10157)	; &I-M-10157;
       ))
     (<-same*sources
      zihui-bu shiguwen guwenyuan-zhu daikanwa)
@@ -19055,10 +19061,10 @@
     (total-strokes	 . 17)
     (=daikanwa		. 39182)	; &M-39182;
     (<-same
-     ((=>>ucs@jis	  . #x9068)	; &GT-52518;
-      (=ucs@jis		  . #x9068)	; &GT-52518;
+     ((=ucs@jis		  . #x9068)	; &GT-52518;
       (=jis-x0208	  . #x6E2B)	; &GT-52518; [78-11]
       (=jis-x0213-1	  . #x6E2B)	; &I-JX1-6E2B; [78-11]
+      (=daikanwa	  . 39073)	; &I-M-39073;
       ))
     (<-same*sources
      zihui-bu daikanwa)
@@ -20601,10 +20607,9 @@
     (total-strokes	 . 19)
     (=daikanwa		. 39227)	; &M-39227;
     (<-same
-     ((==ucs@jis	  . #x58DF)	; &R-AJ1-04531;
-      (==ucs@ks		  . #x58DF)	; &R-AJ1-04531;
-      (==adobe-japan1-0	  . 04531)	; &R-AJ1-04531;
-      (=daikanwa	  . 05591)	; &R-AJ1-04531;
+     ((=ucs@unicode	  . #x58DF)	; &AJ1-04531;
+      (=adobe-japan1-0	  . 04531)	; &AJ1-04531;
+      (=daikanwa	  . 05591)	; &I-M-05591;
       ))
     (<-same*sources
      longkanshoujian daikanwa)
