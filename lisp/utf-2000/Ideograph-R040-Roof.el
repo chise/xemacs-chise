@@ -5231,9 +5231,9 @@
     (=jis-x0213-1	. #x3F32)	; &I-JX1-3F32; [31-18]
     (=gt		. 09138)	; &I-GT-09138;
     (=gt-pj-1		. #x3F32)	; &I-GT-09138; [31-18]
+    (=daikanwa/+p	. 07278)	; &AJ1-02552;
     (<-simplified@CN
-     ((=>>ucs@unicode	  . #x5BE2)	; &HD-JT-B036;
-      (=ucs@unicode	  . #x5BE2)	; &HD-JT-B036;
+     ((=ucs@unicode	  . #x5BE2)	; &HD-JT-B036;
       (=gb12345		  . #x475E)	; &HD-JT-B036; [39-62]
       ))
     (<-simplified@JP/Jouyou
@@ -5253,7 +5253,7 @@
       (==jis-x0208	  . #x3F32)	; &R-AJ1-02552; [31-18]
       (==jis-x0213-1	  . #x3F32)	; &R-AJ1-02552; [31-18]
       (==gt		  . 09138)	; &R-AJ1-02552;
-      (=daikanwa/+p	  . 07278)	; &R-AJ1-02552;
+      (==daikanwa/+p	  . 07278)	; &R-AJ1-02552;
       )
      ((==ucs@unicode	  . #x5BDD)	; &R-UU+5BDD;
       (==gb2312		  . #x475E)	; &R-UU+5BDD; [39-62]
@@ -5661,7 +5661,6 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=>>ucs@unicode	. #x5BE2)	; &HD-JT-B036;
     (=ucs@unicode	. #x5BE2)	; &HD-JT-B036;
     (=gb12345		. #x475E)	; &HD-JT-B036; [39-62]
     (=hanyo-denshi/jt	. #xB036)	; &I-HD-JT-B036;
@@ -5911,8 +5910,6 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (=ucs		. #x2F86F)	; 寧
-    (=>>ucs@jis		. #x5BE7)	; 寧
-    (=>>ucs@cns		. #x2F86F)	; 寧
     (=ucs@jis		. #x5BE7)	; 寧
     (=adobe-japan1-0	. 03297)	; &I-AJ1-03297;
     (=jis-x0208		. #x472B)	; &I-J90-472B; [39-11]
@@ -5921,7 +5918,7 @@
     (=gt		. 09189)	; &I-GT-09189;
     (=gt-k		. 11162)	; &I-GT-K11162;
     (=gt-pj-1		. #x472B)	; &I-GT-09189; [39-11]
-    (=>>daikanwa/+p	. 07296)	; 寧
+    (=daikanwa/+p	. 07296)	; 寧
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5BE7)	; 寧
@@ -5940,7 +5937,7 @@
       (==hanyo-denshi/ja  . #x472B)	; &R-AJ1-03297; [39-11]
       (==gt		  . 09189)	; &R-AJ1-03297;
       (==gt-k		  . 11162)	; &R-AJ1-03297;
-      (=daikanwa/+p	  . 07296)	; &R-AJ1-03297;
+      (==daikanwa/+p	  . 07296)	; &R-AJ1-03297;
       )
      ((==ucs@iso	  . #x2F86F)	; &C6-5C22;
       (=cns11643-6	  . #x5C22)	; &C6-5C22; [60-02]
