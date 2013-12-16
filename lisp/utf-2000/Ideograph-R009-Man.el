@@ -29551,8 +29551,7 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=>>ucs@unicode	  . #x7387)	; &GT-26651;
-      (=ucs@unicode	  . #x7387)	; &GT-26651;
+     ((=ucs@unicode	  . #x7387)	; &GT-26651;
       (=jis-x0208	  . #x4E28)	; &GT-26651; [46-08]
       (=gb2312		  . #x424A)	; &I-G0-424A; [34-42]
       (=ks-x1001	  . #x6163)	; &I-K0-6163; [65-67]
@@ -32477,8 +32476,7 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=>>ucs@unicode	  . #x98E2)	; &GT-59033;
-      (=ucs@unicode	  . #x98E2)	; &GT-59033;
+     ((=ucs@unicode	  . #x98E2)	; &GT-59033;
       (=jis-x0208	  . #x3532)	; &GT-59033; [21-18]
       (=jis-x0213-1	  . #x3532)	; &I-JX1-3532; [21-18]
       ))
