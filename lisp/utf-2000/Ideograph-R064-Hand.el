@@ -15660,7 +15660,6 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (=ucs		. #x2F8C3)	; 摩
-    (=>>ucs@unicode	. #x6469)	; 摩
     (=ucs@unicode	. #x6469)	; 摩
     (=ucs@cns		. #x2F8C3)	; 摩
     (=adobe-japan1-0	. 03726)	; &I-AJ1-03726;
@@ -15671,6 +15670,7 @@
     (=jis-x0213-1	. #x4B60)	; &I-JX1-4B60; [43-64]
     (=gt		. 16141)	; &I-GT-16141;
     (=gt-pj-1		. #x4B60)	; &I-GT-16141; [43-64]
+    (=daikanwa/+p	. 12613)	; 摩
     (->subsumptive
      ((==ucs@jis	  . #x6469)	; &R-AJ1-03726;
       (==ucs@ks		  . #x6469)	; &R-AJ1-03726;
@@ -15679,7 +15679,7 @@
       (==jis-x0208	  . #x4B60)	; &R-AJ1-03726; [43-64]
       (==jis-x0213-1	  . #x4B60)	; &R-AJ1-03726; [43-64]
       (==gt		  . 16141)	; &R-AJ1-03726;
-      (=daikanwa/+p	  . 12613)	; &R-AJ1-03726;
+      (==daikanwa/+p	  . 12613)	; &R-AJ1-03726;
       )
      ((==ucs@iso	  . #x2F8C3)	; &R-U-0002F8C3;
       (==ucs@unicode	  . #x6469)	; &R-U-0002F8C3;
