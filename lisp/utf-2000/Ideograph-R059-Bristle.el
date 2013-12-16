@@ -715,7 +715,7 @@
     (=gt		. 12607)	; &I-GT-12607;
     (=gt-k		. 07832)	; &I-GT-K07832;
     (=gt-pj-1		. #x4426)	; &I-GT-12607; [36-06]
-    (=>>daikanwa/+p	. 09995)	; &AJ1-03010;
+    (=daikanwa/+p	. 09995)	; &AJ1-03010;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5F6B)	; 彫
@@ -723,7 +723,7 @@
        ((=ucs		    . #xE0100)	; 󠄀
 	))
       (==adobe-japan1-0	  . 03010)	; &R-AJ1-03010;
-      (=daikanwa/+p	  . 09995)	; &R-AJ1-03010;
+      (==daikanwa/+p	  . 09995)	; &R-AJ1-03010;
       )
      ((==ucs@unicode	  . #x5F6B)	; &R-GT-12607;
       (==jis-x0208	  . #x4426)	; &R-GT-12607; [36-06]
