@@ -14195,8 +14195,6 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs		. #x2F842)	; 唐
-    (=>>ucs@jis		. #x5510)	; 唐
-    (=>>ucs@cns		. #x2F842)	; 唐
     (=ucs@jis		. #x5510)	; 唐
     (=adobe-japan1-0	. 03164)	; &I-AJ1-03164;
     (=jis-x0208		. #x4562)	; &I-J90-4562; [37-66]
@@ -14205,6 +14203,7 @@
     (=gt		. 04641)	; &I-GT-04641;
     (=gt-k		. 06516)	; &I-GT-K06516;
     (=gt-pj-1		. #x4562)	; &I-GT-04641; [37-66]
+    (=daikanwa/+p	. 03709)	; 唐
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5510)	; 唐
@@ -14223,7 +14222,7 @@
       (==hanyo-denshi/ja  . #x4562)	; &R-AJ1-03164; [37-66]
       (==gt		  . 04641)	; &R-AJ1-03164;
       (==gt-k		  . 06516)	; &R-AJ1-03164;
-      (=daikanwa/+p	  . 03709)	; &R-AJ1-03164;
+      (==daikanwa/+p	  . 03709)	; &R-AJ1-03164;
       (=shinjigen@1ed	  .  1095)	; &R-AJ1-03164;
       (=shinjigen@rev	  .  1098)	; &R-AJ1-03164;
       )
