@@ -448,7 +448,6 @@
     (ideographic-radical . 147)	; ⾒
     (ideographic-strokes . 4)
     (total-strokes	 . 12)
-    (=>>ucs@unicode	. #x8996)	; &GT-46874;
     (=ucs@unicode	. #x8996)	; &GT-46874;
     (=jis-x0208		. #x3B6B)	; &GT-46874; [27-75]
     (=cns11643-1	. #x617E)	; &I-C1-617E; [65-94]
@@ -456,7 +455,7 @@
     (=gb12345		. #x4A53)	; &GT-46874; [42-51]
     (=gt		. 46874)	; &I-GT-46874;
     (=gt-pj-1		. #x3B6B)	; &I-GT-46874; [27-75]
-    (=>>daikanwa/+p	. 34827)	; &GT-46874;
+    (=daikanwa/+p	. 34827)	; &GT-46874;
     (<-simplified@JP/Jouyou
      ((=ucs		  . #xFA61)	; 視
       ))
@@ -465,7 +464,7 @@
       (==jis-x0208	  . #x3B6B)	; &R-GT-46874; [27-75]
       (==jis-x0213-1	  . #x3B6B)	; &R-GT-46874; [27-75]
       (==gt		  . 46874)	; &R-GT-46874;
-      (=daikanwa/+p	  . 34827)	; &R-GT-46874;
+      (==daikanwa/+p	  . 34827)	; &R-GT-46874;
       )
      ((==ucs@unicode	  . #x8996)	; &R-UU+8996;
       (==cns11643-1	  . #x617E)	; &R-UU+8996; [65-94]
