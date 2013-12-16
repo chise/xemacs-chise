@@ -13978,8 +13978,6 @@
     (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 17)
     (total-strokes	 . 20)
-    (=>>ucs@jis		. #x5DCC)	; &AJ1-13427;
-    (=>>ucs@cns		. #x5DCC)	; &AJ1-13427;
     (=ucs@cns		. #x5DCC)	; &AJ1-13427;
     (=ucs@jis		. #x5DCC)	; &AJ1-13427;
     (=adobe-japan1-0	. 01564)	; &AJ1-13427;
@@ -13989,7 +13987,7 @@
     (=jis-x0213-1	. #x3460)	; &I-JX1-3460; [20-64]
     (=gt		. 10864)	; &I-GT-10864;
     (=gt-pj-1		. #x3460)	; &I-GT-10864; [20-64]
-    (=>>daikanwa/+p	. 08624)	; &AJ1-13427;
+    (=daikanwa/+p	. 08624)	; &AJ1-13427;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5DCC)	; 巌
@@ -14002,7 +14000,7 @@
       (==jis-x0208@1983	  . #x3460)	; &R-AJ1-13427; [20-64]
       (==cns11643-3	  . #x5C3E)	; &R-AJ1-13427; [60-30]
       (==gt		  . 10864)	; &R-AJ1-13427;
-      (=daikanwa/+p	  . 08624)	; &R-AJ1-13427;
+      (==daikanwa/+p	  . 08624)	; &R-AJ1-13427;
       )
      ((=decomposition@cid
        ((=ucs		    . #x5DCC)	; 巌
