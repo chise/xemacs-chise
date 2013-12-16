@@ -19442,30 +19442,28 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
     (=ucs		. #x2F8B0)	; 懲
-    (=>>ucs@jis		. #x61F2)	; 懲
-    (=>>ucs@cns		. #x2F8B0)	; 懲
     (=ucs@jis		. #x61F2)	; 懲
     (=adobe-japan1-0	. 03012)	; &I-AJ1-03012;
     (=jis-x0208		. #x4428)	; &I-J90-4428; [36-08]
     (=jis-x0213-1	. #x4428)	; &I-JX1-4428; [36-08]
     (=gt		. 14384)	; &I-GT-14384;
     (=gt-pj-1		. #x4428)	; &I-GT-14384; [36-08]
-    (=>>daikanwa/+p	. 11399)	; 懲
+    (=daikanwa/+p	. 11399)	; 懲
     (<-simplified@JP/Jouyou
      ((=ucs		  . #xFA40)	; 懲
       ))
+    (<-simplified@JP/misc
+     ((=ucs@ks		  . #x61F2)	; &M-11424;
+      (=ks-x1001	  . #x7324)	; &M-11424; [83-04]
+      (=daikanwa	  . 11424)	; &I-M-11424;
+      ))
+    (<-simplified@JP/misc*sources
+     daikanwa)
     (->subsumptive
      ((==ucs@iso	  . #x2F8B0)	; &R-GT-14384;
       (=cns11643-4	  . #x5B2C)	; &R-GT-14384; [59-12]
       (==gt		  . 14384)	; &R-GT-14384;
-      (=daikanwa/+p	  . 11399)	; &R-GT-14384;
-      (<-simplified@JP/misc
-       ((=ucs@ks	    . #x61F2)	; &M-11424;
-	(=ks-x1001	    . #x7324)	; &M-11424; [83-04]
-	(=daikanwa	    . 11424)	; &I-M-11424;
-	))
-      (<-simplified@JP/misc*sources
-       daikanwa)
+      (==daikanwa/+p	  . 11399)	; &R-GT-14384;
       )
      ((==ucs@jis	  . #x61F2)	; &R-AJ1-03012;
       (==adobe-japan1-0	  . 03012)	; &R-AJ1-03012;
