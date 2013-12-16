@@ -5544,7 +5544,6 @@
     (ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 13)
     (total-strokes	 . 18)
-    (=>>ucs@unicode	. #x7A6B)	; &GT-32672;
     (=ucs@unicode	. #x7A6B)	; &GT-32672;
     (=jis-x0208		. #x334F)	; &GT-32672; [19-47]
     (=ks-x1001		. #x7C2E)	; &I-K0-7C2E; [92-14]
@@ -5552,7 +5551,7 @@
     (=gb12345		. #x783E)	; &GT-32672; [88-30]
     (=gt		. 32672)	; &I-GT-32672;
     (=gt-pj-1		. #x334F)	; &I-GT-32672; [19-47]
-    (=>>daikanwa/+p	. 25334)	; &GT-32672;
+    (=daikanwa/+p	. 25334)	; &GT-32672;
     (->subsumptive
      ((==ucs@jis	  . #x7A6B)	; &R-GT-32672;
       (==ucs@ks		  . #x7A6B)	; &R-GT-32672;
@@ -5560,7 +5559,7 @@
       (==jis-x0208	  . #x334F)	; &R-GT-32672; [19-47]
       (==jis-x0213-1	  . #x334F)	; &R-GT-32672; [19-47]
       (==gt		  . 32672)	; &R-GT-32672;
-      (=daikanwa/+p	  . 25334)	; &R-GT-32672;
+      (==daikanwa/+p	  . 25334)	; &R-GT-32672;
       )
      ((==ucs@unicode	  . #x7A6B)	; &R-UU+7A6B;
       (==gb12345	  . #x783E)	; &R-UU+7A6B; [88-30]
