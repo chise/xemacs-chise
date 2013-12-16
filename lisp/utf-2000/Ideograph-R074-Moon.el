@@ -648,7 +648,6 @@
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (=>>ucs@unicode	. #x6717)	; &GT-18208;
     (=ucs@unicode	. #x6717)	; &GT-18208;
     (=jis-x0208		. #x4F2F)	; &GT-18208; [47-15]
     (=gb2312		. #x404A)	; &I-G0-404A; [32-42]
@@ -657,7 +656,7 @@
     (=big5		. #xAED4)	; &I-B-AED4;
     (=gt		. 18208)	; &I-GT-18208;
     (=gt-pj-1		. #x4F2F)	; &I-GT-18208; [47-15]
-    (=>>daikanwa/+p	. 14362)	; &GT-18208;
+    (=daikanwa/+p	. 14362)	; &GT-18208;
     (<-simplified@JP/Jouyou
      ((=ucs		  . #xF929)	; 朗
       ))
@@ -666,7 +665,7 @@
       (==jis-x0208	  . #x4F2F)	; &R-GT-18208; [47-15]
       (==jis-x0213-1	  . #x4F2F)	; &R-GT-18208; [47-15]
       (==gt		  . 18208)	; &R-GT-18208;
-      (=daikanwa/+p	  . 14362)	; &R-GT-18208;
+      (==daikanwa/+p	  . 14362)	; &R-GT-18208;
       )
      ((==ucs@unicode	  . #x6717)	; &R-UU+6717;
       (==gb2312		  . #x404A)	; &R-UU+6717; [32-42]
