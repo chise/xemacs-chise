@@ -6472,20 +6472,19 @@
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
-    (=>>ucs@unicode	. #x78E8)	; &GT-31263;
     (=ucs@unicode	. #x78E8)	; &GT-31263;
     (=jis-x0208		. #x4B61)	; &GT-31263; [43-65]
     (=gb2312		. #x4425)	; &I-G0-4425; [36-05]
     (=jis-x0213-1	. #x4B61)	; &I-JX1-4B61; [43-65]
     (=gt		. 31263)	; &I-GT-31263;
     (=gt-pj-1		. #x4B61)	; &I-GT-31263; [43-65]
-    (=>>daikanwa/+p	. 24449)	; &GT-31263;
+    (=daikanwa/+p	. 24449)	; &GT-31263;
     (->subsumptive
      ((==ucs@jis	  . #x78E8)	; &R-GT-31263;
       (==jis-x0208	  . #x4B61)	; &R-GT-31263; [43-65]
       (==jis-x0213-1	  . #x4B61)	; &R-GT-31263; [43-65]
       (==gt		  . 31263)	; &R-GT-31263;
-      (=daikanwa/+p	  . 24449)	; &R-GT-31263;
+      (==daikanwa/+p	  . 24449)	; &R-GT-31263;
       )
      ((==ucs@unicode	  . #x78E8)	; &R-UU+78E8;
       (==gb2312		  . #x4425)	; &R-UU+78E8; [36-05]
