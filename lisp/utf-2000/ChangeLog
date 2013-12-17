@@ -1,7 +1,17 @@
 2013-12-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* Ideograph-R147-See.el, Ideograph-R140-Grass.el,
-	Ideograph-R115-Grain.el, Ideograph-R074-Moon.el,
+	* Ideograph-R113-Spirit.el, Ideograph-R040-Roof.el: Apply new
+	glyph-image conventions for `daikanwa/+p'.
+
+2013-12-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el, Ideograph-R061-Heart.el: Apply new
+	glyph-image conventions for `daikanwa/+p'.
+
+	* Ideograph-R184-Eat.el, Ideograph-R162-Walk.el,
+	Ideograph-R147-See.el, Ideograph-R140-Grass.el,
+	Ideograph-R115-Grain.el, Ideograph-R112-Stone.el,
+	Ideograph-R095-Profound.el, Ideograph-R074-Moon.el,
 	Ideograph-R064-Hand.el, Ideograph-R059-Bristle.el,
 	Ideograph-R046-Mountain.el, Ideograph-R030-Mouth.el: Apply new
 	glyph-image conventions for `daikanwa/+p'.
