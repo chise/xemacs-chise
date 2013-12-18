@@ -4157,6 +4157,7 @@
       (=jis-x0213-1	  . #x3969)	; &I-JX1-3969; [25-73]
       (=gt		  . 15156)	; &I-GT-15156;
       (=gt-pj-1		  . #x3969)	; &I-GT-15156; [25-73]
+      (=shinjigen@1ed	  .  2910)	; &AJ1-02043;
       (->subsumptive
        ((==ucs@jis/1990	    . #x62F7)	; &R-AJ1-02043;
 	(==ucs@jis/2000	    . #x62F7)	; &R-AJ1-02043;
@@ -4166,8 +4167,8 @@
 	(==ks-x1001	    . #x4D38)	; &R-AJ1-02043; [45-24]
 	(==jis-x0208@1990   . #x3969)	; &R-AJ1-02043; [25-73]
 	(==jis-x0213-1	    . #x3969)	; &R-AJ1-02043; [25-73]
-	(=shinjigen@1ed	    .  2910)	; &R-AJ1-02043;
 	(=shinjigen@rev	    .  2912)	; &R-AJ1-02043;
+	(==shinjigen@1ed    .  2910)	; &R-AJ1-02043;
 	)
        ((==gt		    . 15156)	; &R-GT-15156;
 	))
@@ -5505,14 +5506,15 @@
       (=gt		  . 15232)	; &I-GT-15232;
       (=gt-pj-1		  . #x3027)	; &I-GT-15232; [16-07]
       (=daikanwa	  . 12082)	; &I-M-12082;
+      (=shinjigen@1ed	  .  2922)	; &AJ1-01131;
       (->subsumptive
        ((==ucs@jis	    . #x6328)	; &R-AJ1-01131;
 	(==adobe-japan1-0   . 01131)	; &R-AJ1-01131;
 	(==jis-x0208	    . #x3027)	; &R-AJ1-01131; [16-07]
 	(==jis-x0213-1	    . #x3027)	; &R-AJ1-01131; [16-07]
 	(==daikanwa	    . 12082)	; &R-AJ1-01131;
-	(=shinjigen@1ed	    .  2922)	; &R-AJ1-01131;
 	(=shinjigen@rev	    .  2924)	; &R-AJ1-01131;
+	(==shinjigen@1ed    .  2922)	; &R-AJ1-01131;
 	)
        ((==ucs@unicode	    . #x6328)	; &R-GT-15232;
 	(==gb2312	    . #x3024)	; &R-GT-15232; [16-04]
@@ -6585,6 +6587,7 @@
     (=gt		. 15341)	; &I-GT-15341;
     (=gt-pj-1		. #x3B2B)	; &I-GT-15341; [27-11]
     (=daikanwa		. 12141)	; &I-M-12141;
+    (=shinjigen@1ed	.  2945)	; &AJ1-02169;
     (->subsumptive
      ((==jis-x0208@1978	  . #x3B2B)	; &R-M-12141; [27-11]
       (==daikanwa	  . 12141)	; &R-M-12141;
@@ -6601,8 +6604,8 @@
       (==cns11643-1	  . #x5565)	; &R-AJ1-02169; [53-69]
       (==jis-x0213-1	  . #x3B2B)	; &R-AJ1-02169; [27-11]
       (==gt		  . 15341)	; &R-AJ1-02169;
-      (=shinjigen@1ed	  .  2945)	; &R-AJ1-02169;
       (=shinjigen@rev	  .  2948)	; &R-AJ1-02169;
+      (==shinjigen@1ed	  .  2945)	; &R-AJ1-02169;
       ))
     ))
 (define-char
@@ -8758,7 +8761,6 @@
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=>>ucs@unicode	. #x6396)	; &AJ1-04988;
     (=ucs@unicode	. #x6396)	; &AJ1-04988;
     (=adobe-japan1-0	. 04988)	; &AJ1-04988;
     (=jis-x0208		. #x5955)	; &I-J90-5955; [57-53]
@@ -8769,6 +8771,7 @@
     (=big5		. #xB1B3)	; &I-B-B1B3;
     (=gt		. 15374)	; &I-GT-15374;
     (=gt-pj-1		. #x5955)	; &I-GT-15374; [57-53]
+    (=shinjigen@1ed	.  2951)	; &AJ1-04988;
     (->subsumptive
      ((==ucs@jis	  . #x6396)	; &R-AJ1-04988;
       (==ucs@ks		  . #x6396)	; &R-AJ1-04988;
@@ -8777,8 +8780,8 @@
       (==jis-x0208	  . #x5955)	; &R-AJ1-04988; [57-53]
       (==jis-x0213-1	  . #x5955)	; &R-AJ1-04988; [57-53]
       (==gt		  . 15374)	; &R-AJ1-04988;
-      (=shinjigen@1ed	  .  2951)	; &R-AJ1-04988;
       (=shinjigen@rev	  .  2954)	; &R-AJ1-04988;
+      (==shinjigen@1ed	  .  2951)	; &R-AJ1-04988;
       )
      ((==ucs@unicode	  . #x6396)	; &R-UU+6396;
       (==gb2312		  . #x5234)	; &R-UU+6396; [50-20]
@@ -10233,6 +10236,7 @@
       (=cns11643-1	  . #x5F44)	; &I-C1-5F44; [63-36]
       (=jis-x0213-1	  . #x5964)	; &I-JX1-5964; [57-68]
       (=daikanwa	  . 12326)	; &I-M-12326;
+      (=shinjigen@1ed	  .  3006)	; &AJ1-05003;
       (->subsumptive
        ((==daikanwa	    . 12326)	; &R-M-12326;
 	)
@@ -10250,8 +10254,8 @@
        ((==ucs@cns	    . #x63C6)	; &R-CU+63C6;
 	(==cns11643-1	    . #x5F44)	; &R-CU+63C6; [63-36]
 	)
-       ((=shinjigen@1ed	    .  3006)	; &SJG2-3008;
-	(=shinjigen@rev	    .  3008)	; &SJG2-3008;
+       ((=shinjigen@rev	    .  3008)	; &SJG2-3008;
+	(==shinjigen@1ed    .  3006)	; &SJG2-3008;
 	))
       )
      ((=gt		  . 15569)	; &GT-15569;
@@ -10868,6 +10872,7 @@
     (=gt		. 15566)	; &I-GT-15566;
     (=gt-pj-1		. #x3439)	; &I-GT-15566; [20-25]
     (=daikanwa		. 12358)	; &I-M-12358;
+    (=shinjigen@1ed	.  3004)	; &AJ1-01525;
     (->subsumptive
      ((==ucs@jis	  . #x63DB)	; &R-AJ1-01525;
       (==ucs@ks		  . #x63DB)	; &R-AJ1-01525;
@@ -10878,8 +10883,8 @@
       (==gt		  . 15566)	; &R-AJ1-01525;
       (==daikanwa	  . 12358)	; &R-AJ1-01525;
       )
-     ((=shinjigen@1ed	  .  3004)	; &SJG2-3006;
-      (=shinjigen@rev	  .  3006)	; &SJG2-3006;
+     ((=shinjigen@rev	  .  3006)	; &SJG2-3006;
+      (==shinjigen@1ed	  .  3004)	; &SJG2-3006;
       ))
     ))
 (define-char
@@ -12725,6 +12730,7 @@
       (=gt-k		  . 10309)	; &I-GT-K10309;
       (=gt-pj-1		  . #x5973)	; &I-GT-15841; [57-83]
       (=daikanwa	  . 12466)	; &I-M-12466;
+      (=shinjigen@1ed	  .  3050)	; &AJ1-05018;
       (->subsumptive
        ((==daikanwa	    . 12466)	; &R-M-12466;
 	)
@@ -12738,8 +12744,8 @@
 	(==ks-x1001	    . #x5A51)	; &R-GT-15841; [58-49]
 	(==gt		    . 15841)	; &R-GT-15841;
 	(==gt-k		    . 10309)	; &R-GT-15841;
-	(=shinjigen@1ed	    .  3050)	; &R-GT-15841;
 	(=shinjigen@rev	    .  3051)	; &R-GT-15841;
+	(==shinjigen@1ed    .  3050)	; &R-GT-15841;
 	))
       )
      ((=jis-x0208@1978	  . #x5973)	; &C1-6431; [57-83]
@@ -13501,6 +13507,7 @@
     (=gt		. 15772)	; &I-GT-15772;
     (=gt-pj-1		. #x596E)	; &I-GT-15772; [57-78]
     (=daikanwa		. 12500)	; &I-M-12500;
+    (=shinjigen@1ed	.  3036)	; &AJ1-05013;
     (->subsumptive
      ((==ucs@jis	  . #x6426)	; &R-AJ1-05013;
       (==adobe-japan1-0	  . 05013)	; &R-AJ1-05013;
@@ -13509,8 +13516,8 @@
       (==daikanwa	  . 12500)	; &R-AJ1-05013;
       )
      ((==gt		  . 15772)	; &R-GT-15772;
-      (=shinjigen@1ed	  .  3036)	; &R-GT-15772;
       (=shinjigen@rev	  .  3039)	; &R-GT-15772;
+      (==shinjigen@1ed	  .  3036)	; &R-GT-15772;
       ))
     ))
 (define-char
@@ -15092,6 +15099,7 @@
       (=gt-k		  . 11155)	; &I-GT-K11155;
       (=gt-pj-1		  . #x4526)	; &I-GT-15970; [37-06]
       (=daikanwa	  . 12582)	; &I-M-12582;
+      (=shinjigen@1ed	  .  3067)	; &AJ1-03104;
       (->subsumptive
        ((==ucs@jis	    . #x6458)	; &R-AJ1-03104;
 	(==adobe-japan1-0   . 03104)	; &R-AJ1-03104;
@@ -15103,8 +15111,8 @@
 	)
        ((==ucs@ks	    . #x6458)	; &R-K0-6E57;
 	(==ks-x1001	    . #x6E57)	; &R-K0-6E57; [78-55]
-	(=shinjigen@1ed	    .  3067)	; &R-K0-6E57;
 	(=shinjigen@rev	    .  3068)	; &R-K0-6E57;
+	(==shinjigen@1ed    .  3067)	; &R-K0-6E57;
 	)
        ((==ucs@unicode	    . #x6458)	; &R-UU+6458;
 	(==gb2312	    . #x552A)	; &R-UU+6458; [53-10]
