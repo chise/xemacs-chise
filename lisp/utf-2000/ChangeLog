@@ -1,3 +1,8 @@
+2013-12-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el: Apply new glyph-image conventions
+	for `=daikanwa/ho'.
+
 2013-12-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R113-Spirit.el, Ideograph-R040-Roof.el: Apply new
