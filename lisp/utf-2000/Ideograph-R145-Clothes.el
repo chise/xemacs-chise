@@ -4740,8 +4740,9 @@
       )
      ((=ucs@unicode	  . #x88F4)	; &G0-4561;
       (=gb2312		  . #x4561)	; &G0-4561; [37-65]
+      (=shinjigen@1ed	  .  7408)	; &G0-4561;
       (->subsumptive
-       ((=shinjigen@1ed	    .  7408)	; &SJG1-7408;
+       ((==shinjigen@1ed    .  7408)	; &R-SJG1-7408;
 	)
        ((==ucs@unicode	    . #x88F4)	; &R-UU+88F4;
 	(==gb2312	    . #x4561)	; &R-UU+88F4; [37-65]
