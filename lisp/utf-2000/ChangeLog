@@ -1,3 +1,8 @@
+2013-12-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R053-Dotted-Cliff.el: Apply new glyph-image
+	conventions for `shinjigen@1ed'.
+
 2013-12-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R015-Ice.el: Apply new glyph-image conventions for
