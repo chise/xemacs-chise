@@ -4068,7 +4068,7 @@
     (=gt-pj-1		. #x495F)	; &I-GT-16902; [41-63]
     (=daikanwa/+p	. 13359)	; 𢾾
     (->subsumptive
-     ((==daikanwa/+p	  . 13359)	; &MCS-000F0EF6;
+     ((==daikanwa/+p	  . 13359)	; &R-M-p13359;
       )
      ((=ucs@iso		  . #x22FBE)	; &U-00022FBE;
       )
