@@ -314,6 +314,7 @@
 	  ( =daikanwa				  "M-"  5 d)
 	  ( =daikanwa@rev2			"r2M-"  5 d)
 	  ( =daikanwa@rev1			"r1M-"  5 d)
+	  (==daikanwa/+p			"R-M-p" 5 d)
 	  (==daikanwa				"R-M-"  5 d)
 	  ( =ks-x1001                    	  "K0-" 4 X)
 	  (==ks-x1001			        "R-K0-" 4 X)
