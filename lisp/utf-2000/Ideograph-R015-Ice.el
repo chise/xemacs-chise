@@ -1743,6 +1743,19 @@
       (=gt		  . 02201)	; &I-GT-02201;
       (=gt-pj-1		  . #x515A)	; &I-GT-02201; [49-58]
       (=daikanwa	  . 01665)	; &I-M-01665;
+      (=shinjigen@1ed	  .  4309)	; &AJ1-04241;
+      (=shinjigen@rev	  .  4310)	; &AJ1-04241;
+      (=cbeta		  . 00289)	; &I-CB00289;
+      (<-vulgar
+       ((=ucs@jis	    . #x6DBC)	; &GT-22670;
+	(=jis-x0208	    . #x4E43)	; &GT-22670; [46-35]
+	(=jis-x0213-1	    . #x4E43)	; &I-JX1-4E43; [46-35]
+	(=daikanwa	    . 17606)	; &I-M-17606;
+	(=shinjigen@1ed	    .  4308)	; &GT-22670;
+	(=shinjigen@rev	    .  4309)	; &GT-22670;
+	))
+      (<-vulgar*sources
+       shinjigen@1ed shinjigen@rev)
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x51C9)	; 凉
@@ -1767,17 +1780,8 @@
 	(==jis-x0213-1	    . #x515A)	; &R-AJ1-04241; [49-58]
 	(==gt		    . 02201)	; &R-AJ1-04241;
 	(==daikanwa	    . 01665)	; &R-AJ1-04241;
-	(=shinjigen@1ed	    .  4309)	; &R-AJ1-04241;
-	(=shinjigen@rev	    .  4310)	; &R-AJ1-04241;
-	(=cbeta		    . 00289)	; &R-AJ1-04241;
-	(<-vulgar
-	 ((==ucs@jis	      . #x6DBC)	; &M-17606;
-	  (=daikanwa	      . 17606)	; &M-17606;
-	  (=shinjigen@1ed     .	 4308)	; &GT-22670;
-	  (=shinjigen@rev     .	 4309)	; &GT-22670;
-	  ))
-	(<-vulgar*sources
-	 shinjigen@1ed shinjigen@rev)
+	(==shinjigen@1ed    .  4309)	; &R-AJ1-04241;
+	(==shinjigen@rev    .  4310)	; &R-AJ1-04241;
 	)
        ((hanyu-dazidian	    1 299 9)
 	(ideographic-structure
