@@ -1,7 +1,17 @@
 2013-12-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R212-Dragon.el, Ideograph-R146-West.el,
+	Ideograph-R145-Clothes.el: Apply new glyph-image conventions for
+	`shinjigen@1ed'.
+
+2013-12-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R064-Hand.el, Ideograph-R061-Heart.el,
+	Ideograph-R032-Earth.el, Ideograph-R030-Mouth.el: Apply new
+	glyph-image conventions for `shinjigen@1ed'.
+
 	* Ideograph-R046-Mountain.el: Apply new glyph-image conventions
-	for `=daikanwa/ho'.
+	for `daikanwa/ho'.
 
 2013-12-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
