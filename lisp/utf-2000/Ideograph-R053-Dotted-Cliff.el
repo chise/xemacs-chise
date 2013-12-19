@@ -2885,7 +2885,6 @@
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=>>ucs@unicode	. #x5EB6)	; &AJ1-02424;
     (=ucs@unicode	. #x5EB6)	; &AJ1-02424;
     (=adobe-japan1-0	. 02424)	; &AJ1-02424;
     (=jis-x0208		. #x3D6E)	; &I-J90-3D6E; [29-78]
@@ -2898,6 +2897,8 @@
     (=gt-k		. 07790)	; &I-GT-K07790;
     (=gt-pj-1		. #x3D6E)	; &I-GT-11788; [29-78]
     (=daikanwa		. 09373)	; &I-M-09373;
+    (=shinjigen@1ed	.  4593)	; &AJ1-02424;
+    (=shinjigen@rev	.  4594)	; &AJ1-02424;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5EB6)	; 庶
@@ -2913,8 +2914,8 @@
       (==gt		  . 11788)	; &R-AJ1-02424;
       (==gt-k		  . 07790)	; &R-AJ1-02424;
       (==daikanwa	  . 09373)	; &R-AJ1-02424;
-      (=shinjigen@1ed	  .  4593)	; &R-AJ1-02424;
-      (=shinjigen@rev	  .  4594)	; &R-AJ1-02424;
+      (==shinjigen@1ed	  .  4593)	; &R-AJ1-02424;
+      (==shinjigen@rev	  .  4594)	; &R-AJ1-02424;
       )
      ((==ucs@unicode	  . #x5EB6)	; &R-UU+5EB6;
       (==gb2312		  . #x4A7C)	; &R-UU+5EB6; [42-92]
@@ -3329,21 +3330,22 @@
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=>>ucs@unicode	. #x5EBB)	; &C3-3560;
     (=ucs@unicode	. #x5EBB)	; &C3-3560;
     (=cns11643-3	. #x3560)	; &C3-3560; [21-64]
+    (=shinjigen@1ed	.  4595)	; &C3-3560;
+    (=shinjigen@rev	.  4596)	; &C3-3560;
+    (<-vulgar
+     ((=ucs@unicode	  . #x5EB6)	; &AJ1-02424;
+      (=adobe-japan1-0	  . 02424)	; &AJ1-02424;
+      (=jis-x0208	  . #x3D6E)	; &I-J90-3D6E; [29-78]
+      (=shinjigen@1ed	  .  4593)	; &AJ1-02424;
+      (=shinjigen@rev	  .  4594)	; &AJ1-02424;
+      ))
+    (<-vulgar*sources
+     shinjigen@1ed shinjigen@rev)
     (->subsumptive
-     ((=shinjigen@1ed	  .  4595)	; &SJG2-4596;
-      (=shinjigen@rev	  .  4596)	; &SJG2-4596;
-      (<-vulgar
-       ((==ucs@jis	    . #x5EB6)	; &R-AJ1-02424;
-	(==ucs@ks	    . #x5EB6)	; &R-AJ1-02424;
-	(==adobe-japan1-0   . 02424)	; &R-AJ1-02424;
-	(=shinjigen@1ed	    .  4593)	; &R-AJ1-02424;
-	(=shinjigen@rev	    .  4594)	; &R-AJ1-02424;
-	))
-      (<-vulgar*sources
-       shinjigen@1ed shinjigen@rev)
+     ((==shinjigen@1ed	  .  4595)	; &R-SJG2-4596;
+      (==shinjigen@rev	  .  4596)	; &R-SJG2-4596;
       )
      ((==ucs@unicode	  . #x5EBB)	; &R-UU+5EBB;
       (==cns11643-3	  . #x3560)	; &R-UU+5EBB; [21-64]
