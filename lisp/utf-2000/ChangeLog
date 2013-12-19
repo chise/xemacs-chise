@@ -1,5 +1,8 @@
 2013-12-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R015-Ice.el: Apply new glyph-image conventions for
+	`shinjigen@1ed'.
+
 	* Ideograph-R212-Dragon.el, Ideograph-R146-West.el,
 	Ideograph-R145-Clothes.el: Apply new glyph-image conventions for
 	`shinjigen@1ed'.
