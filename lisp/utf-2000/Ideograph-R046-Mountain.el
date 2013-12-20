@@ -5332,13 +5332,13 @@
     (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=>>ucs@jis		. #x5D1A)	; &AJ1-04690;
     (=ucs@jis		. #x5D1A)	; &AJ1-04690;
     (=adobe-japan1-0	. 04690)	; &AJ1-04690;
     (=jis-x0208		. #x5645)	; &I-J90-5645; [54-37]
     (=jis-x0213-1	. #x5645)	; &I-JX1-5645; [54-37]
     (=gt		. 10366)	; &I-GT-10366;
     (=gt-pj-1		. #x5645)	; &I-GT-10366; [54-37]
+    (=shinjigen@rev	.  2010)	; &AJ1-04690;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5D1A)	; 崚
@@ -5349,7 +5349,7 @@
       (==adobe-japan1-0	  . 04690)	; &R-AJ1-04690;
       (==jis-x0208	  . #x5645)	; &R-AJ1-04690; [54-37]
       (==jis-x0213-1	  . #x5645)	; &R-AJ1-04690; [54-37]
-      (=shinjigen@rev	  .  2010)	; &R-AJ1-04690;
+      (==shinjigen@rev	  .  2010)	; &R-AJ1-04690;
       )
      ((==gt		  . 10366)	; &R-GT-10366;
       ))
@@ -6147,9 +6147,10 @@
      ((=daikanwa	  . 49050)	; &M-49050;
       (=shinjigen/+p@rev  .  2010)	; &M-49050;
       (<-formed
-       ((==ucs@jis	    . #x5D1A)	; &R-AJ1-04690;
-	(==adobe-japan1-0   . 04690)	; &R-AJ1-04690;
-	(=shinjigen@rev	    .  2010)	; &R-AJ1-04690;
+       ((=ucs@jis	    . #x5D1A)	; &AJ1-04690;
+	(=adobe-japan1-0    . 04690)	; &AJ1-04690;
+	(=jis-x0208	    . #x5645)	; &I-J90-5645; [54-37]
+	(=shinjigen@rev	    .  2010)	; &AJ1-04690;
 	))
       (<-formed*sources
        shinjigen@rev)
