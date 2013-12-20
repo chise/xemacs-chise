@@ -1562,6 +1562,7 @@
     (=gt		. 34761)	; &I-GT-34761;
     (=gt-pj-1		. #x646E)	; &I-GT-34761; [68-78]
     (=daikanwa		. 26952)	; &I-M-26952;
+    (=shinjigen@rev	.  5946)	; &GT-34761;
     (->subsumptive
      ((==ucs@jis/1990	  . #x7CAE)	; &R-GT-34761;
       (==ucs@jis/2000	  . #x7CAE)	; &R-GT-34761;
@@ -1573,7 +1574,7 @@
       (==jis-x0213-1	  . #x646E)	; &R-GT-34761; [68-78]
       (==gt		  . 34761)	; &R-GT-34761;
       (==daikanwa	  . 26952)	; &R-GT-34761;
-      (=shinjigen@rev	  .  5946)	; &R-GT-34761;
+      (==shinjigen@rev	  .  5946)	; &R-GT-34761;
       )
      ((==ucs@unicode	  . #x7CAE)	; &R-UU+7CAE;
       (==gb2312		  . #x4138)	; &R-UU+7CAE; [33-24]
