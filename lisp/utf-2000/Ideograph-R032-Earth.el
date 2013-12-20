@@ -10019,6 +10019,7 @@
     (=gt-pj-1		. #x4839)	; &I-GT-06721; [40-25]
     (=daikanwa		. 05341)	; &I-M-05341;
     (=shinjigen@1ed	.  1456)	; &AJ1-03405;
+    (=shinjigen@rev	.  1459)	; &AJ1-03405;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5859)	; 塙
@@ -10037,8 +10038,8 @@
       (==hanyo-denshi/ja  . #x4839)	; &R-AJ1-03405; [40-25]
       (==gt		  . 06721)	; &R-AJ1-03405;
       (==daikanwa	  . 05341)	; &R-AJ1-03405;
-      (=shinjigen@rev	  .  1459)	; &R-AJ1-03405;
       (==shinjigen@1ed	  .  1456)	; &R-AJ1-03405;
+      (==shinjigen@rev	  .  1459)	; &R-AJ1-03405;
       )
      ((hanyu-dazidian	  1 473 15)
       (==ucs@unicode	  . #x5859)	; &R-UU+5859;
@@ -10179,6 +10180,7 @@
       (=gt-pj-2		  . #x6166)	; &I-GT-06756; [65-70]
       (=daikanwa	  . 05345)	; &I-M-05345;
       (=shinjigen@1ed	  .  1463)	; &AJ1-08422;
+      (=shinjigen@rev	  .  1441)	; &AJ1-08422;
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x585A)	; 塚
@@ -10192,8 +10194,8 @@
 	(==ks-x1001	    . #x7540)	; &R-AJ1-07746; [85-32]
 	(==jis-x0213-1	    . #x2F57)	; &R-AJ1-07746; [15-55]
 	(==daikanwa	    . 05345)	; &R-AJ1-07746;
-	(=shinjigen@rev	    .  1441)	; &R-AJ1-07746;
 	(==shinjigen@1ed    .  1463)	; &R-AJ1-07746;
+	(==shinjigen@rev    .  1441)	; &R-AJ1-07746;
 	)
        ((=>ucs*		    . #x585A)	; 塚
 	(=decomposition@cid
@@ -11794,6 +11796,7 @@
     (=gt-pj-1		. #x362D)	; &I-GT-06806; [22-13]
     (=daikanwa		. 05409)	; &I-M-05409;
     (=shinjigen@1ed	.  1473)	; &AJ1-01701;
+    (=shinjigen@rev	.  1474)	; &AJ1-01701;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5883)	; 境
@@ -11808,8 +11811,8 @@
       (==jis-x0213-1	  . #x362D)	; &R-AJ1-01701; [22-13]
       (==gt		  . 06806)	; &R-AJ1-01701;
       (==daikanwa	  . 05409)	; &R-AJ1-01701;
-      (=shinjigen@rev	  .  1474)	; &R-AJ1-01701;
       (==shinjigen@1ed	  .  1473)	; &R-AJ1-01701;
+      (==shinjigen@rev	  .  1474)	; &R-AJ1-01701;
       )
      ((==ucs@unicode	  . #x5883)	; &R-UU+5883;
       (==gb2312		  . #x3E33)	; &R-UU+5883; [30-19]
