@@ -1710,13 +1710,14 @@
       (=gt		  . 56813)	; &I-GT-56813;
       (=gt-pj-1		  . #x7039)	; &I-GT-56813; [80-25]
       (=daikanwa	  . 42321)	; &I-M-42321;
+      (=shinjigen@rev	  .  8965)	; &GT-56813;
       (->subsumptive
        ((==ucs@jis	    . #x970D)	; &R-GT-56813;
 	(==jis-x0208	    . #x7039)	; &R-GT-56813; [80-25]
 	(==jis-x0213-1	    . #x7039)	; &R-GT-56813; [80-25]
 	(==gt		    . 56813)	; &R-GT-56813;
 	(==daikanwa	    . 42321)	; &R-GT-56813;
-	(=shinjigen@rev	    .  8965)	; &R-GT-56813;
+	(==shinjigen@rev    .  8965)	; &R-GT-56813;
 	)
        ((==ucs@unicode	    . #x970D)	; &R-UU+970D;
 	(==gb2312	    . #x3B74)	; &R-UU+970D; [27-84]
