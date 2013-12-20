@@ -16432,6 +16432,7 @@
     (=gt		. 23089)	; &I-GT-23089;
     (=gt-pj-1		. #x426C)	; &I-GT-23089; [34-76]
     (=daikanwa		. 18067)	; &I-M-18067;
+    (=shinjigen@rev	.  4410)	; &GT-23089;
     (<-simplified@JP/Jouyou
      ((=ucs@unicode	  . #x7027)	; &GT-23937;
       (=jis-x0208	  . #x426D)	; &GT-23937; [34-77]
@@ -16445,7 +16446,7 @@
       (==jis-x0213-1	  . #x426C)	; &R-GT-23089; [34-76]
       (==gt		  . 23089)	; &R-GT-23089;
       (==daikanwa	  . 18067)	; &R-GT-23089;
-      (=shinjigen@rev	  .  4410)	; &R-GT-23089;
+      (==shinjigen@rev	  .  4410)	; &R-GT-23089;
       )
      ((==ucs@unicode	  . #x6EDD)	; &R-UU+6EDD;
       (==cns11643-3	  . #x423D)	; &R-UU+6EDD; [34-29]
