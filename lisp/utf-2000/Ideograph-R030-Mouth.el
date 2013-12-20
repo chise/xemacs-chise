@@ -1896,6 +1896,7 @@
       (=gt		  . 04190)	; &I-GT-04190;
       (=gt-pj-1		  . #x4D79)	; &I-GT-04190; [45-89]
       (=shinjigen@1ed	  .  0978)	; &AJ1-03939;
+      (=shinjigen@rev	  .  0979)	; &AJ1-03939;
       (->subsumptive
        ((==ucs@cns	    . #x540F)	; &R-CU+540F;
 	(==cns11643-1	    . #x4750)	; &R-CU+540F; [39-48]
@@ -1911,8 +1912,8 @@
 	(==jis-x0208@1990   . #x4D79)	; &R-AJ1-03939; [45-89]
 	(==jis-x0213-1	    . #x4D79)	; &R-AJ1-03939; [45-89]
 	(==gt		    . 04190)	; &R-AJ1-03939;
-	(=shinjigen@rev	    .  0979)	; &R-AJ1-03939;
 	(==shinjigen@1ed    .  0978)	; &R-AJ1-03939;
+	(==shinjigen@rev    .  0979)	; &R-AJ1-03939;
 	))
       ))
     ))
@@ -14207,6 +14208,7 @@
     (=gt-pj-1		. #x4562)	; &I-GT-04641; [37-66]
     (=daikanwa/+p	. 03709)	; 唐
     (=shinjigen@1ed	.  1095)	; 唐
+    (=shinjigen@rev	.  1098)	; 唐
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5510)	; 唐
@@ -14226,8 +14228,8 @@
       (==gt		  . 04641)	; &R-AJ1-03164;
       (==gt-k		  . 06516)	; &R-AJ1-03164;
       (==daikanwa/+p	  . 03709)	; &R-AJ1-03164;
-      (=shinjigen@rev	  .  1098)	; &R-AJ1-03164;
       (==shinjigen@1ed	  .  1095)	; &R-AJ1-03164;
+      (==shinjigen@rev	  .  1098)	; &R-AJ1-03164;
       )
      ((==ucs@iso	  . #x2F842)	; &R-U-0002F842;
       )
