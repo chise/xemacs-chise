@@ -6465,7 +6465,7 @@
     (total-strokes	 . 10)
     (=daikanwa		. 38862)	; &M-38862;
     (<-same
-     ((=ucs@jis		  . #x5352)	; &AJ1-02836;
+     ((=ucs@unicode	  . #x5352)	; &AJ1-02836;
       (=adobe-japan1-0	  . 02836)	; &AJ1-02836;
       (=daikanwa	  . 02740)	; &I-M-02740;
       ))
