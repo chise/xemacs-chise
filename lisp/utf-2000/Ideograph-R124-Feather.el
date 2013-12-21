@@ -3564,7 +3564,7 @@
       )
      ((=gt-k		  . 01762)	; &GT-K01762;
       )
-     ((=ucs@jis		  . #x5352)	; &AJ1-02836;
+     ((=ucs@unicode	  . #x5352)	; &AJ1-02836;
       (=adobe-japan1-0	  . 02836)	; &AJ1-02836;
       ))
     (=jis-x0208@1978	. #x3F69)	; &HD-FT-3241; [31-73]
@@ -3608,7 +3608,8 @@
 	(=cns11643-1	    . #x4851)	; &I-C1-4851; [40-49]
 	(=jis-x0213-1	    . #x3129)	; &I-JX1-3129; [17-09]
 	)
-       ((=ucs		    . #x5352)	; 卒
+       ((=ucs@unicode	    . #x5352)	; &AJ1-02836;
+	(=adobe-japan1-0    . 02836)	; &AJ1-02836;
 	))
       (=ucs@cns		  . #x7FE0)	; &GT-37078;
       (=ucs@jis/1990	  . #x7FE0)	; &GT-37078;
@@ -3621,6 +3622,7 @@
       (=gt		  . 37078)	; &I-GT-37078;
       (=gt-k		  . 11136)	; &I-GT-K11136;
       (=gt-pj-1		  . #x3F69)	; &I-GT-37078; [31-73]
+      (=shinjigen@rev	  .  6312)	; &GT-37078;
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -3632,8 +3634,8 @@
 	  (=cns11643-1	      . #x4851)	; &I-C1-4851; [40-49]
 	  (=jis-x0213-1	      . #x3129)	; &I-JX1-3129; [17-09]
 	  )
-	 ((=ucs@jis	      . #x5352)	; &AJ1-02836;
-	  (=adobe-japan1-0    . 02836)	; &AJ1-02836;
+	 ((==ucs@jis	      . #x5352)	; &R-AJ1-02836;
+	  (==adobe-japan1-0   . 02836)	; &R-AJ1-02836;
 	  ))
 	(==ucs@jis/1990	    . #x7FE0)	; &R-GT-37078;
 	(==ucs@jis/2000	    . #x7FE0)	; &R-GT-37078;
@@ -3643,7 +3645,7 @@
 	(==jis-x0213-1	    . #x3F69)	; &R-GT-37078; [31-73]
 	(==gt		    . 37078)	; &R-GT-37078;
 	(==gt-k		    . 11136)	; &R-GT-37078;
-	(=shinjigen@rev	    .  6312)	; &R-GT-37078;
+	(==shinjigen@rev    .  6312)	; &R-GT-37078;
 	)
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -3655,9 +3657,7 @@
 	  (=cns11643-1	      . #x4851)	; &I-C1-4851; [40-49]
 	  (=jis-x0213-1	      . #x3129)	; &I-JX1-3129; [17-09]
 	  )
-	 ((=ucs@unicode	      . #x5352)	; &C1-4C35;
-	  (=gb2312	      . #x5764)	; &C1-4C35; [55-68]
-	  (=cns11643-1	      . #x4C35)	; &I-C1-4C35; [44-21]
+	 ((==cns11643-1	      . #x4C35)	; &R-C1-4C35; [44-21]
 	  ))
 	(==ucs@cns	    . #x7FE0)	; &R-CU+7FE0;
 	(==cns11643-1	    . #x6A49)	; &R-CU+7FE0; [74-41]
