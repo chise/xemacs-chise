@@ -95,21 +95,24 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
     (=ucs		. #x461A)	; 䘚
+    (=cns11643-3	. #x2A6E)	; &I-C3-2A6E; [10-78]
+    (=daikanwa		. 34094)	; &I-M-34094;
+    (=shinjigen		.  0824)	; 䘚
+    (<-original
+     ((=ucs@unicode	  . #x5352)	; &AJ1-02836;
+      (=adobe-japan1-0	  . 02836)	; &AJ1-02836;
+      (=jis-x0208	  . #x4234)	; &I-J90-4234; [34-20]
+      (=daikanwa	  . 02740)	; &I-M-02740;
+      (=shinjigen	  .  0823)	; &AJ1-02836;
+      ))
+    (<-original*sources
+     zhengzitong daikanwa shinjigen)
     (->subsumptive
-     ((=daikanwa	  . 34094)	; &M-34094;
-      (=shinjigen	  .  0824)	; &M-34094;
-      (<-original
-       ((=ucs@jis	    . #x5352)	; &AJ1-02836;
-	(=adobe-japan1-0    . 02836)	; &AJ1-02836;
-	(=jis-x0208	    . #x4234)	; &I-J90-4234; [34-20]
-	(=daikanwa	    . 02740)	; &I-M-02740;
-	(=shinjigen	    .  0823)	; &AJ1-02836;
-	))
-      (<-original*sources
-       zhengzitong daikanwa shinjigen)
+     ((==daikanwa	  . 34094)	; &R-M-34094;
+      (==shinjigen	  .  0824)	; &R-M-34094;
       )
-     ((=ucs@unicode	  . #x461A)	; &C3-2A6E;
-      (=cns11643-3	  . #x2A6E)	; &C3-2A6E; [10-78]
+     ((==ucs@unicode	  . #x461A)	; &R-UU+461A;
+      (==cns11643-3	  . #x2A6E)	; &R-UU+461A; [10-78]
       ))
     ))
 (define-char
