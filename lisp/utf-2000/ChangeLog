@@ -1,3 +1,18 @@
+2013-12-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R145-Clothes.el (U+461A): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R124-Feather.el: Apply new glyph-image conventions for
+	`shinjigen@rev'.
+
+	* Ideograph-R078-Death.el (U-00023A1B): Use `->subsumptive'; apply
+	new glyph-image conventions.
+
+	* Ideograph-R030-Mouth.el (U+5550): Use `->denotational' to
+	separate abstract glyph-image node; apply new glyph-image
+	conventions.
+
 2013-12-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R008-Lid.el (U-00020143): Use `->denotational' to
