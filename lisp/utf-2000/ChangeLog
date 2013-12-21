@@ -1,5 +1,7 @@
 2013-12-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R003-Dot.el (GT-K00461): New character.
+
 	* Ideograph-R145-Clothes.el (U+461A): Apply new glyph-image
 	conventions.
 
