@@ -254,6 +254,19 @@
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
+    (=gt-k		. 00461)	; &GT-K00461;
+    (=gt-pj-k2		. #x3B39)	; &GT-K00461; [27-25]
+    (<-formed@component
+     ((=ucs		  . #x4E39)	; 丹
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E39)	; 丹
+      ))
+    (ideographic-radical . 3)	; ⼂
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
     (=>>adobe-japan1-4	. 13914)	; &G-AJ1-13914;
     (=>>gt-k		. 00463)	; &G-AJ1-13914;
     (<-formed@component
