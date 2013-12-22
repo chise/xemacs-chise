@@ -16463,8 +16463,15 @@
      ((=ucs		  . #x5352)	; 卒
       ))
     (=ucs		. #x5005)	; 倅
-    (=>>jis-x0208	. #x5066)	; 倅 [48-70]
+    (=adobe-japan1-0	. 04159)	; &I-AJ1-04159;
+    (=jis-x0208		. #x5066)	; &I-J90-5066; [48-70]
+    (=cns11643-2	. #x2D6A)	; &I-C2-2D6A; [13-74]
+    (=jis-x0213-1	. #x5066)	; &I-JX1-5066; [48-70]
     (=big5		. #xD0C9)	; &I-B-D0C9;
+    (=gt		. 00973)	; &I-GT-00973;
+    (=gt-pj-1		. #x5066)	; &I-GT-00973; [48-70]
+    (=daikanwa		. 00750)	; &I-M-00750;
+    (=shinjigen		.  0298)	; 倅
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5005)	; 倅
@@ -16478,31 +16485,21 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@jis	    . #x5352)	; &AJ1-02836;
-	(=adobe-japan1-0    . 02836)	; &AJ1-02836;
+       ((==ucs@jis	    . #x5352)	; &R-AJ1-02836;
+	(==ucs@ks	    . #x5352)	; &R-AJ1-02836;
+	(==adobe-japan1-0   . 02836)	; &R-AJ1-02836;
 	))
-      (=ucs@jis		  . #x5005)	; &AJ1-04159;
-      (=adobe-japan1-0	  . 04159)	; &AJ1-04159;
-      (=jis-x0208	  . #x5066)	; &I-J90-5066; [48-70]
-      (=jis-x0213-1	  . #x5066)	; &I-JX1-5066; [48-70]
-      (=gt		  . 00973)	; &I-GT-00973;
-      (=gt-pj-1		  . #x5066)	; &I-GT-00973; [48-70]
-      (=daikanwa	  . 00750)	; &I-M-00750;
-      (=shinjigen	  .  0298)	; &AJ1-04159;
+      (==ucs@jis	  . #x5005)	; &R-AJ1-04159;
+      (==adobe-japan1-0	  . 04159)	; &R-AJ1-04159;
+      (==jis-x0208	  . #x5066)	; &R-AJ1-04159; [48-70]
+      (==jis-x0213-1	  . #x5066)	; &R-AJ1-04159; [48-70]
+      (==gt		  . 00973)	; &R-AJ1-04159;
+      (==daikanwa	  . 00750)	; &R-AJ1-04159;
+      (==shinjigen	  .  0298)	; &R-AJ1-04159;
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((name		    . "CJK RADICAL PERSON")
-	(=ucs		    . #x2E85)	; ⺅
-	)
-       ((=ucs@unicode	    . #x5352)	; &C1-4C35;
-	(=gb2312	    . #x5764)	; &C1-4C35; [55-68]
-	(=cns11643-1	    . #x4C35)	; &I-C1-4C35; [44-21]
-	))
-      (=ucs@unicode	  . #x5005)	; &C2-2D6A;
-      (=cns11643-2	  . #x2D6A)	; &C2-2D6A; [13-74]
+     ((==ucs@unicode	  . #x5005)	; &R-UU+5005;
+      )
+     ((==cns11643-2	  . #x2D6A)	; &R-C2-2D6A; [13-74]
       ))
     ))
 (define-char
