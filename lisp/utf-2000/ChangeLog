@@ -1,5 +1,11 @@
 2013-12-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R024-Ten.el (U+5352): Use `->denotational' to separate
+	abstract glyph-image node; apply new glyph-image conventions.
+
+	* Ideograph-R009-Man.el (U+5005): Apply new glyph-image
+	conventions.
+
 	* Ideograph-R003-Dot.el (GT-K00461): New character.
 
 	* Ideograph-R145-Clothes.el (U+461A): Apply new glyph-image
