@@ -14147,6 +14147,7 @@
     (=hanyo-denshi/jt	. #xAEC7)	; &I-HD-JT-AEC7;
     (=daikanwa		. 03709)	; &I-M-03709;
     (=shinjigen@1ed	.  1096)	; &AJ1-13955;
+    (=shinjigen/+p@rev	.  1098)	; &AJ1-13955;
     (=jef-china3	. #x45FE)	; &I-JC3-45FE;
     (->subsumptive
      ((=decomposition@cid
@@ -14173,8 +14174,8 @@
       (==ks-x1001	  . #x5350)	; &R-AJ1-13955; [51-48]
       (==hanyo-denshi/jt  . #xAEC7)	; &R-AJ1-13955;
       (==daikanwa	  . 03709)	; &R-AJ1-13955;
-      (=shinjigen/+p@rev  .  1098)	; &R-AJ1-13955;
       (==shinjigen@1ed	  .  1096)	; &R-AJ1-13955;
+      (==shinjigen/+p@rev .  1098)	; &R-AJ1-13955;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
