@@ -16,8 +16,7 @@
 (jp-jouyou-read-file "../etc/char-data/jp-jouyou.txt")
 
 (let ((ucs #xE000)
-      big5 chr
-      ret)
+      big5 chr)
   (while (<= ucs #xF848)
     (setq chr (decode-char 'ucs ucs))
     (when (setq big5 (get-char-attribute chr '=big5-pua))
@@ -27,7 +26,7 @@
     (setq ucs (1+ ucs))))
 
 
-(setq gt-pj-1-and-jis-x0208-1990-different-code-points
+(defconst gt-pj-1-and-jis-x0208-1990-different-code-points
       '(#x5C37 #x5C52 #x3521 #x5D62 #x5F4A
 	#x5F5B #x6062 #x4849 #x6173 #x306B
 	#x6328 #x6352 #x6362 #x6471 #x6524
@@ -94,12 +93,13 @@
 	#x5A41 #x327E #x384E #x5A43 #x5A47
 	#x5A45 #x4754 #x343A #x3B36 #x4658
 	#x3749 #x3F74 #x4528 #x4030 #x5A4C
-	#x507B #x507E #x5353 #x5A44 #x6E2B))
+	#x507B #x507E #x5353 #x5A44 #x6E2B
+	#x5B30))
 
 (map-char-attribute
  (lambda (c v)
    (unless (memq v gt-pj-1-and-jis-x0208-1990-different-code-points)
-     (put-char-attribute (decode-char 'japanese-jisx0208-1990 v)
+     (put-char-attribute (decode-char '=jis-x0208@1990 v)
 			 '=gt-pj-1 v))
    nil)
  '=gt-pj-1)
@@ -210,21 +210,38 @@
   (buffer-disable-undo)
   (insert-file-contents "../etc/char-data/JX3-JX1-rep-diff.txt")
   (goto-char (point-min))
-  (let (ku ten char code ucs)
+  (let (ku ten char code ucs rep-char)
     (while (re-search-forward "^1-\\([0-9]+\\)-\\([0-9]+\\)[ \t]+" nil t)
       (setq ku (string-to-number (match-string 1))
 	    ten (string-to-number (match-string 2)))
       (setq char (make-char '=jis-x0213-1@2000 (+ ku 32)(+ ten 32)))
       (setq code (encode-char char '=jis-x0213-1@2000))
-      (put-char-attribute char '=jis-x0213-1@2000 code)
-      (remove-char-attribute char '=jis-x0213-1)
-      (remove-char-attribute char '=jis-x0213-1@2004)
       (setq ucs (encode-char char '=ucs@jis/2000))
-      (remove-char-attribute char '=ucs@jis)
-      (remove-char-attribute char '=ucs@jis/2004)
-      (when (setq char (decode-char '=jis-x0213-1@2004 code))
-	(unless (eq (encode-char char '=ucs@jis/2004) ucs)
-	  (put-char-attribute char '=ucs@jis/2004 ucs)))
+      (setq rep-char (decode-char '==jis-x0213-1@2000 code))
+      (cond
+       ((or (eq char rep-char)
+	    (null rep-char))
+	(put-char-attribute char '=jis-x0213-1@2000 code)
+	(remove-char-attribute char '=jis-x0213-1)
+	(remove-char-attribute char '=jis-x0213-1@2004)
+	(remove-char-attribute char '=ucs@jis)
+	(remove-char-attribute char '=ucs@jis/2004)
+	(when (setq char (decode-char '=jis-x0213-1@2004 code))
+	  (unless (eq (encode-char char '=ucs@jis/2004) ucs)
+	    (put-char-attribute char '=ucs@jis/2004 ucs)))
+	)
+       (rep-char
+	(put-char-attribute rep-char '==jis-x0213-1@2000 code)
+	(remove-char-attribute rep-char '==jis-x0213-1)
+	(remove-char-attribute rep-char '==jis-x0213-1@2004)
+	(setq ucs (or (encode-char rep-char '==ucs@jis/2000)
+		      ucs))
+	(remove-char-attribute rep-char '==ucs@jis)
+	(remove-char-attribute rep-char '==ucs@jis/2004)
+	(when (setq rep-char (decode-char '==jis-x0213-1@2004 code))
+	  (unless (eq (encode-char rep-char '==ucs@jis/2004) ucs)
+	    (put-char-attribute rep-char '==ucs@jis/2004 ucs)))
+	))
       (unless (eq code #x332A)
 	(when (setq char (decode-char '=>jis-x0208@1997 code 'defined-only))
 	  (unless (eq (encode-char char '=>>jis-x0208) code)
@@ -239,38 +256,3 @@
      (put-char-attribute c '=>jis-x0213-1 v))
    nil)
  '=>jis-x0208)
-
-(dolist (aj1-f '(=>>>adobe-japan1 =>>adobe-japan1))
-  (map-char-attribute
-   (lambda (c v)
-     (cond
-      ((<= v 8283)
-       (remove-char-attribute c aj1-f)
-       (put-char-attribute c (intern (format "%s-0" aj1-f)) v)
-       )
-      ((<= v 8358)
-       (remove-char-attribute c aj1-f)
-       (put-char-attribute c (intern (format "%s-1" aj1-f)) v)
-       )
-      ((<= v 8719)
-       (remove-char-attribute c aj1-f)
-       (put-char-attribute c (intern (format "%s-2" aj1-f)) v)
-       )
-      ((<= v 9353)
-       (remove-char-attribute c aj1-f)
-       (put-char-attribute c (intern (format "%s-3" aj1-f)) v)
-       )
-      ((<= v 15443)
-       (remove-char-attribute c aj1-f)
-       (put-char-attribute c (intern (format "%s-4" aj1-f)) v)
-       )
-      ((<= v 20316)
-       (remove-char-attribute c aj1-f)
-       (put-char-attribute c (intern (format "%s-5" aj1-f)) v)
-       )
-      ((<= v 23057)
-       (remove-char-attribute c aj1-f)
-       (put-char-attribute c (intern (format "%s-6" aj1-f)) v)
-       ))
-     nil)
-   aj1-f))
