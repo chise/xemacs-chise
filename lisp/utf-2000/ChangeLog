@@ -1,3 +1,8 @@
+2013-12-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el: Apply new glyph-image conventions for
+	`shinjigen/+p@rev'.
+
 2013-12-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R024-Ten.el (U+5352): Use `->denotational' to separate
