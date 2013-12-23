@@ -1,3 +1,13 @@
+2013-12-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Use `defconst' instead of `setq'; add #x5B30.
+	- Use `=jis-x0208@1990' instead of `japanese-jisx0208-1990'.
+	- Support new glyph-image conventions for `jis-x0213-1', `ucs@jis'
+	  and `ucs@jis/2004'.
+	- Delete code to convert `=>>>adobe-japan1' and `=>>adobe-japan1'
+	  to `=>>>adobe-japan1-{0-6}' and `=>>adobe-japan1-{0-6}'.
+
 2013-12-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el: Apply new glyph-image conventions for
