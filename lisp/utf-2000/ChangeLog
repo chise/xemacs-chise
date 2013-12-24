@@ -1,3 +1,11 @@
+2013-12-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (J0-5768): Unify AJ1-04819.
+	(RUI6-E05F): Apply new glyph-image conventions for U+6587.
+
+	* Ideograph-R017-Open-Box.el (M-01822): Apply new glyph-image
+	conventions for U+6587.
+
 2013-12-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
