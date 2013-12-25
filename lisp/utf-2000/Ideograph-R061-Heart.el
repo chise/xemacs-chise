@@ -8326,8 +8326,6 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=>>ucs@jis		. #x60DD)	; &AJ1-16867;
-    (=>>>ucs@jis	. #x60DD)	; &AJ1-16867;
     (=ucs@jis		. #x60DD)	; &AJ1-16867;
     (=adobe-japan1-5	. 16867)	; &AJ1-16867;
     (=jis-x0212		. #x3E2F)	; &I-JSP-3E2F; [30-15]
