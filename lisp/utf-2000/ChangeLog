@@ -1,5 +1,60 @@
 2013-12-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R096-Jade.el: `=>>>ucs@jis' was changed to an alias
+	for `=ucs@jis'.
+	(AJ1-08556): Omit `=>>ucs@jis' and `=>>ucs@cns'.
+
+	* Ideograph-R118-Bamboo.el: `=>>>ucs@jis' was changed to an alias
+	for `=ucs@jis'.
+
+	* Ideograph-R064-Hand.el: `=>>>ucs@jis' was changed to an alias
+	for `=ucs@jis'.
+	(JX1-7466): Omit `=>>ucs@jis'.
+	(JX2-2D46): Likewise.
+	(C2-433A): Likewise.
+
+	* Ideograph-R061-Heart.el: `=>>>ucs@jis' was changed to an alias
+	for `=ucs@jis'.
+	(JX1-7456): Omit `=>>ucs@jis'.
+
+	* Ideograph-R060-Step.el: `=>>>ucs@jis' was changed to an alias
+	for `=ucs@jis'.
+
+	* Ideograph-R017-Open-Box.el: `=>>>ucs@jis' was changed to an
+	alias for `=ucs@jis'.
+	(J0-4821): Omit `=>>ucs@jis'.
+	(AJ1-20082): Omit `=>>ucs@unicode'.
+
+	* Ideograph-R041-Inch.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/JA.
+
+	* Ideograph-R033-Scholar.el (U+58FF): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R031-Enclosure.el: `=>>>ucs@jis' was changed to an
+	alias for `=ucs@jis'.
+
+	* Ideograph-R030-Mouth.el (U+541D): Apply new glyph-image
+	conventions.
+	(U+5445): Likewise.
+	(U+54E4): Likewise.
+	(U-00020CF5): Likewise.
+	(U+561D): Likewise.
+	(U+5642): Likewise.
+	(U+568C): Likewise.
+
+	* Ideograph-R027-Cliff.el (U+5396): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R021-Spoon.el, Ideograph-R016-Table.el,
+	Ideograph-R015-Ice.el, Ideograph-R014-Cover.el: `=>>>ucs@jis' was
+	changed to an alias for `=ucs@jis'.
+
+	* Ideograph-R009-Man.el (U+50D4): Apply new glyph-image
+	conventions.
+
 	* Ideograph-R068-Dipper.el: Add some Adobe-Japan1-0 code points.
 
 	* Ideograph-R044-Corpse.el:
