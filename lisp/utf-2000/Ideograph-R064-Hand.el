@@ -448,8 +448,6 @@
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (=>>ucs@jis		. #x625A)	; &AJ1-16872;
-    (=>>>ucs@jis	. #x625A)	; &AJ1-16872;
     (=ucs@jis		. #x625A)	; &AJ1-16872;
     (=adobe-japan1-5	. 16872)	; &AJ1-16872;
     (=jis-x0212		. #x3F3D)	; &I-JSP-3F3D; [31-29]
@@ -13451,8 +13449,6 @@
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=>>ucs@jis		. #x6425)	; &AJ1-17696;
-    (=>>>ucs@jis	. #x6425)	; &AJ1-17696;
     (=ucs@jis		. #x6425)	; &AJ1-17696;
     (=adobe-japan1-5	. 17696)	; &AJ1-17696;
     (=jis-x0212		. #x4051)	; &I-JSP-4051; [32-49]
@@ -13468,7 +13464,6 @@
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=>>ucs@cns		. #x6425)	; &C2-433A;
     (=ucs@cns		. #x6425)	; &C2-433A;
     (=cns11643-2	. #x433A)	; &C2-433A; [35-26]
     ))
