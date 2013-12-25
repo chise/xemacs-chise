@@ -2713,16 +2713,16 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=>>>ucs@iso))
-  (make-charset '=>>>ucs@jis
-		"UCS Representative glyph-forms for JIS X0208/0212/0213"
-		'(long-name	"UCS glyph-forms for JIS"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=>>>ucs@unicode))
+  ;; (make-charset '=>>>ucs@jis
+  ;;               "UCS Representative glyph-forms for JIS X0208/0212/0213"
+  ;;               '(long-name     "UCS glyph-forms for JIS"
+  ;;                 chars         256
+  ;;                 dimension     3
+  ;;                 columns       2
+  ;;                 graphic       2
+  ;;                 direction     l2r
+  ;;                 =>iso-ir      177
+  ;;                 mother        =>>>ucs@unicode))
   ;; (make-charset '=>>>ucs@jis/1990
   ;;               "UCS Representative glyph-forms for JIS X 0208/0212:1990"
   ;;               '(long-name     "UCS glyph-forms for JIS:1990"
@@ -2870,6 +2870,7 @@
 		  =>iso-ir	177
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-jis '=ucs@jis)
+  (define-charset-alias '=>>>ucs@jis '=ucs@jis)
   (make-charset '=ucs@jis/fw
 		"ISO/IEC 10646 for JIS X0208/0212/0213 with fullwidth"
 		'(long-name	"UCS for JIS-fullwidth"
