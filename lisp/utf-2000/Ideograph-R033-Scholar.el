@@ -992,6 +992,8 @@
     (ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (=ucs@unicode	. #x58FF)	; &C2-4F7A;
+    (=cns11643-2	. #x4F7A)	; &C2-4F7A; [47-90]
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -999,10 +1001,10 @@
 	)
        ((=ucs		    . #x58EB)	; 士
 	)
-       ((=cns11643-1	    . #x5E71)	; &C1-5E71; [62-81]
+       ((==cns11643-1	    . #x5E71)	; &R-C1-5E71; [62-81]
 	))
-      (=ucs@cns		  . #x58FF)	; &C2-4F7A;
-      (=cns11643-2	  . #x4F7A)	; &C2-4F7A; [47-90]
+      (==ucs@cns	  . #x58FF)	; &R-CU+58FF;
+      (==cns11643-2	  . #x4F7A)	; &R-CU+58FF; [47-90]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1010,10 +1012,9 @@
 	)
        ((=ucs		    . #x58EB)	; 士
 	)
-       ((=ucs@unicode	    . #x5C0A)	; &G0-5770;
-	(=gb2312	    . #x5770)	; &G0-5770; [55-80]
+       ((==ucs@unicode	    . #x5C0A)	; &R-UU+5C0A;
 	))
-      (=ucs@unicode	  . #x58FF)	; &UU+58FF;
+      (==ucs@unicode	  . #x58FF)	; &R-UU+58FF;
       ))
     ))
 (define-char
