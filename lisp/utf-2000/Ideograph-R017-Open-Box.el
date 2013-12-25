@@ -610,8 +610,6 @@
       )
      ((=ucs		  . #xE0100)	; 󠄀
       ))
-    (=>>ucs@jis		. #x51FD)	; &AJ1-03381;
-    (=>>>ucs@jis	. #x51FD)	; &AJ1-03381;
     (=ucs@jis		. #x51FD)	; &AJ1-03381;
     (=adobe-japan1-0	. 03381)	; &AJ1-03381;
     (=jis-x0208		. #x4821)	; &I-J90-4821; [40-01]
@@ -630,7 +628,6 @@
     (ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (=>>ucs@unicode	. #x51FD)	; &AJ1-20082;
     (=ucs@unicode	. #x51FD)	; &AJ1-20082;
     (=adobe-japan1-5	. 20082)	; &AJ1-20082;
     (=gb2312		. #x3A2F)	; &I-G0-3A2F; [26-15]
