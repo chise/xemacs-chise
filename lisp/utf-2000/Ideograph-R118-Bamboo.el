@@ -5033,8 +5033,7 @@
     (=ucs		. #x7BB5)	; 箵
     (=big5		. #xE6DE)	; &I-B-E6DE;
     (->subsumptive
-     ((=>>>ucs@jis	  . #x7BB5)	; &JX2-7359;
-      (=ucs@jis		  . #x7BB5)	; &JX2-7359;
+     ((=ucs@jis		  . #x7BB5)	; &JX2-7359;
       (=jis-x0212	  . #x5242)	; &JX2-7359; [50-34]
       (=jis-x0213-2	  . #x7359)	; &I-JX2-7359; [83-57]
       (=daikanwa	  . 26216)	; &I-M-26216;
