@@ -2279,9 +2279,6 @@
     (ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (=>>ucs@jis		. #x73F5)	; &AJ1-08556;
-    (=>>ucs@cns		. #x73F5)	; &AJ1-08556;
-    (=>>>ucs@jis	. #x73F5)	; &AJ1-08556;
     (=ucs@cns		. #x73F5)	; &AJ1-08556;
     (=ucs@jis		. #x73F5)	; &AJ1-08556;
     (=adobe-japan1-2	. 08556)	; &AJ1-08556;
