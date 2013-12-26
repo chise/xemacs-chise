@@ -1006,8 +1006,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>>>ucs@unicode	  . #x8279)	; &GT-39639;
-      (=ucs@unicode	  . #x8279)	; &GT-39639;
+     ((=ucs@unicode	  . #x8279)	; &GT-39639;
       (=gb2312		  . #x5C33)	; &GT-39639; [60-19]
       (=jis-x0213-2	  . #x7576)	; &I-JX2-7576; [85-86]
       ))
@@ -1017,8 +1016,7 @@
     (mirrored		. nil)
     (=ucs		. #x2EBE)	; ⺾
     (<-identical@component
-     ((=>>>ucs@unicode	  . #x8279)	; &GT-39639;
-      (=ucs@unicode	  . #x8279)	; &GT-39639;
+     ((=ucs@unicode	  . #x8279)	; &GT-39639;
       (=gb2312		  . #x5C33)	; &GT-39639; [60-19]
       (=jis-x0213-2	  . #x7576)	; &I-JX2-7576; [85-86]
       ))
