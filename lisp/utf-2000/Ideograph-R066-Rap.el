@@ -4245,8 +4245,7 @@
     (=>>hanyo-denshi/jb . #x4154)	; &G-AJ1-17722; [33-52]
     (=>>daikanwa	. 13367)	; &G-AJ1-17722;
     (->subsumptive
-     ((=>>>ucs@unicode	  . #x657A)	; &AJ1-17722;
-      (=ucs@unicode	  . #x657A)	; &AJ1-17722;
+     ((=ucs@unicode	  . #x657A)	; &AJ1-17722;
       (=adobe-japan1-5	  . 17722)	; &AJ1-17722;
       (=jis-x0212	  . #x4154)	; &I-JSP-4154; [33-52]
       (=jis-x0213-2	  . #x2D65)	; &I-JX2-2D65; [13-69]
