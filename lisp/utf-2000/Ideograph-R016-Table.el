@@ -105,8 +105,6 @@
       )
      ((=ucs		  . #x4E36)	; 丶
       ))
-    (=>>ucs@unicode	. #x51E1)	; &AJ1-03724;
-    (=>>>ucs@unicode	. #x51E1)	; &AJ1-03724;
     (=ucs@unicode	. #x51E1)	; &AJ1-03724;
     (=adobe-japan1-0	. 03724)	; &AJ1-03724;
     (=jis-x0208		. #x4B5E)	; &I-J90-4B5E; [43-62]
@@ -770,8 +768,6 @@
       )
      ((=ucs		  . #x51E0)	; 几
       ))
-    (=>>ucs@unicode	. #x51ED)	; &AJ1-04246;
-    (=>>>ucs@unicode	. #x51ED)	; &AJ1-04246;
     (=ucs@unicode	. #x51ED)	; &AJ1-04246;
     (=adobe-japan1-0	. 04246)	; &AJ1-04246;
     (=jis-x0208		. #x515F)	; &I-J90-515F; [49-63]
@@ -1226,7 +1222,6 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=>>>ucs@unicode	  . #x51F1)	; &AJ1-01420;
       (=ucs@unicode	  . #x51F1)	; &AJ1-01420;
       (=adobe-japan1-0	  . 01420)	; &AJ1-01420;
       (=jis-x0208	  . #x332E)	; &I-J90-332E; [19-14]
@@ -1259,7 +1254,6 @@
     (=ucs		. #x51EF)	; 凯
     (->subsumptive
      ((hanyu-dazidian	  1 277 19)
-      (=>>>ucs@unicode	  . #x51EF)	; &G0-3F2D;
       (=ucs@unicode	  . #x51EF)	; &G0-3F2D;
       (=gb2312		  . #x3F2D)	; &G0-3F2D; [31-13]
       (=hanziku-1	  . #xDF5B)	; &I-HZK01-DF5B;
@@ -1346,20 +1340,9 @@
     (ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-      (=ucs		  . #x2FF5)	; ⿵
-      )
-     ((name		  . "CJK RADICAL TABLE")
-      (=ucs		  . #x2E87)	; ⺇
-      )
-     ((=ucs@unicode	  . #x517C)	; &AJ1-01865;
-      (=adobe-japan1-0	  . 01865)	; &AJ1-01865;
-      ))
     (=>>ucs@unicode	. #x51F2)	; &G-UU+51F2;
     (->subsumptive
-     ((=>>>ucs@unicode	  . #x51F2)	; &g2-UU+51F2;
-      (=ucs@unicode	  . #x51F2)	; &g2-UU+51F2;
+     ((=ucs@unicode	  . #x51F2)	; &UU+51F2;
       ))
     ))
 (define-char
