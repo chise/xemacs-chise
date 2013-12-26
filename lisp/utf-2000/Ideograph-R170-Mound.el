@@ -3060,14 +3060,12 @@
     (=>>gt		. 56087)	; &G-J0-4262;
     (=>>gt-k		. 09095)	; &G-J0-4262;
     (->subsumptive
-     ((=>>>ucs@jis	  . #x968A)	; &J90-4262;
-      (=ucs@jis		  . #x968A)	; &J90-4262;
+     ((=ucs@jis		  . #x968A)	; &J90-4262;
       (=jis-x0208	  . #x4262)	; &J90-4262; [34-66]
       (=jis-x0213-1	  . #x4262)	; &I-JX1-4262; [34-66]
       )
-     ((=>>>ucs@unicode	  . #x968A)	; &g2-UU+968A;
-      (=ucs@unicode	  . #x968A)	; &g2-UU+968A;
-      (=gb12345		  . #x3653)	; &g2-UU+968A; [22-51]
+     ((=ucs@unicode	  . #x968A)	; &UU+968A;
+      (=gb12345		  . #x3653)	; &UU+968A; [22-51]
       )
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x968A)	; 隊
