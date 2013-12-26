@@ -1218,8 +1218,7 @@
       (=hanyo-denshi/jb	  . #x3D2B)	; &I-HD-JB-3D2B; [29-11]
       (=daikanwa	  . 10109)	; &I-M-10109;
       )
-     ((=>>>ucs@unicode	  . #x5F8F)	; &C3-3072;
-      (=ucs@unicode	  . #x5F8F)	; &C3-3072;
+     ((=ucs@unicode	  . #x5F8F)	; &C3-3072;
       (=cns11643-3	  . #x3072)	; &C3-3072; [16-82]
       ))
     ))
