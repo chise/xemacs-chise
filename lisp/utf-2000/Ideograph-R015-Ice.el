@@ -352,7 +352,6 @@
 	 ((=ucs@unicode	      . #x7259)	; &G0-5140;
 	  (=gb2312	      . #x5140)	; &G0-5140; [49-32]
 	  ))
-	(=>>>ucs@unicode    . #x51B4)	; &AJ1-13787;
 	(=ucs@unicode	    . #x51B4)	; &AJ1-13787;
 	(=adobe-japan1-4    . 13787)	; &AJ1-13787;
 	(=hanyo-denshi/jt   . #xADFC)	; &I-HD-JT-ADFC;
@@ -2515,7 +2514,6 @@
 	(=jis-x0213-1	    . #x372A)	; &I-JX1-372A; [23-10]
 	(=daikanwa	    . 14695)	; &I-M-14695;
 	))
-      (=>>>ucs@unicode	  . #x51D3)	; &AJ1-19179;
       (=ucs@unicode	  . #x51D3)	; &AJ1-19179;
       (=adobe-japan1-5	  . 19179)	; &AJ1-19179;
       (=jis-x0212	  . #x3325)	; &I-JSP-3325; [19-05]
@@ -2577,8 +2575,7 @@
        ((=ucs@unicode	    . #x5009)	; &UU+5009;
 	(=gb12345	    . #x3256)	; &UU+5009; [18-54]
 	))
-      (=>>>ucs@unicode	  . #x51D4)	; &g2-UU+51D4;
-      (=ucs@unicode	  . #x51D4)	; &g2-UU+51D4;
+      (=ucs@unicode	  . #x51D4)	; &UU+51D4;
       ))
     ))
 (define-char
