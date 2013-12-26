@@ -17851,7 +17851,6 @@
       )
      ((=ucs		  . #xE0102)	; 󠄂
       ))
-    (=>>ucs@cns		. #x61BC)	; &HD-JT-B1BC;
     (=ucs@cns		. #x61BC)	; &HD-JT-B1BC;
     (=cns11643-2	. #x5C6C)	; &HD-JT-B1BC; [60-76]
     (=hanyo-denshi/jt	. #xB1BC)	; &I-HD-JT-B1BC;
@@ -17864,7 +17863,6 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (=>>>ucs@unicode	. #x61BC)	; &AJ1-16869;
     (=ucs@unicode	. #x61BC)	; &AJ1-16869;
     (=adobe-japan1-5	. 16869)	; &AJ1-16869;
     (=jis-x0212		. #x3E6F)	; &I-JSP-3E6F; [30-79]
