@@ -1,3 +1,40 @@
+2013-12-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el: `=>>>ucs@unicode' was changed to an
+	alias for `=ucs@unicode'.
+	(C2-5C6C): Omit `=>>ucs@cns'.
+
+	* Ideograph-R023-Hiding-Enclosure.el: `=>>>ucs@unicode' was
+	changed to an alias for `=ucs@unicode'.
+	(J90-523F): Omit `=>>ucs@unicode'.
+
+	* Ideograph-R016-Table.el: `=>>>ucs@unicode' was changed to an
+	alias for `=ucs@unicode'.
+	(J0-4B5E): Omit `=>>ucs@unicode'.
+	(J0-515F): Likewise.
+	(G-UU+51F2): Omit ideographic-structure.
+
+2013-12-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* u02E00-CJK-Radical-Supplement.el: `=>>>ucs@unicode' was changed
+	to an alias for `=ucs@unicode'.
+
+	* Ideograph-R170-Mound.el:
+	- `=>>>ucs@jis' was changed to an alias for `=ucs@jis'.
+	- `=>>>ucs@unicode' was changed to an alias for `=ucs@unicode'.
+
+	* Ideograph-R066-Rap.el, Ideograph-R060-Step.el,
+	Ideograph-R038-Woman.el: `=>>>ucs@unicode' was changed to an alias
+	for `=ucs@unicode'.
+
+	* Ideograph-R032-Earth.el: Add `=decomposition@hanyo-denshi' for
+	representative (detailed) glyph-images of Hanyo-Denshi/JA.
+	(U+5851): Apply new glyph-image conventions.
+
+	* Ideograph-R031-Enclosure.el, Ideograph-R019-Power.el,
+	Ideograph-R015-Ice.el, Ideograph-R014-Cover.el: `=>>>ucs@unicode'
+	was changed to an alias for `=ucs@unicode'.
+
 2013-12-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R096-Jade.el: `=>>>ucs@jis' was changed to an alias
