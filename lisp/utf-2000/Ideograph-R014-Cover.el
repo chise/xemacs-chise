@@ -600,8 +600,7 @@
        ((=ucs@unicode	    . #x8C55)	; &G0-7539;
 	(=gb2312	    . #x7539)	; &G0-7539; [85-25]
 	))
-      (=>>>ucs@unicode	  . #x51A1)	; &g2-UU+51A1;
-      (=ucs@unicode	  . #x51A1)	; &g2-UU+51A1;
+      (=ucs@unicode	  . #x51A1)	; &UU+51A1;
       )
      ((hanyu-dazidian	  1 304 6)
       (ideographic-structure
@@ -1537,7 +1536,6 @@
      ((=ucs@unicode	  . #x5E55)	; &AJ1-03737;
       (=adobe-japan1-0	  . 03737)	; &AJ1-03737;
       ))
-    (=>>>ucs@unicode	. #x51AA)	; &AJ1-04232;
     (=ucs@unicode	. #x51AA)	; &AJ1-04232;
     (=adobe-japan1-0	. 04232)	; &AJ1-04232;
     (=jis-x0208		. #x5151)	; &I-J90-5151; [49-49]
