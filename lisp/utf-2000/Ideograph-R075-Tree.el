@@ -24176,9 +24176,7 @@
     (ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (=>>ucs@unicode	. #x3BDF)	; &G-UU+3BDF;
-    (=>>>ucs@unicode	. #x3BDF)	; &G-UU+3BDF;
-    (=ucs@unicode	. #x3BDF)	; &G-UU+3BDF;
+    (=ucs@unicode	. #x3BDF)	; &UU+3BDF;
     ))
 (define-char
   '((ideographic-radical . 75)	; ⽊
