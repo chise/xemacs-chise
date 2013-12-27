@@ -2294,9 +2294,7 @@
     (ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (=>>ucs@unicode	. #x73F5)	; &G-UU+73F5;
-    (=>>>ucs@unicode	. #x73F5)	; &G-UU+73F5;
-    (=ucs@unicode	. #x73F5)	; &G-UU+73F5;
+    (=ucs@unicode	. #x73F5)	; &UU+73F5;
     ))
 (define-char
   '((ideographic-radical . 96)	; ⽟
@@ -2597,8 +2595,7 @@
     (=ucs		. #x7407)	; 琇
     (=big5		. #xD671)	; &I-B-D671;
     (->subsumptive
-     ((=>>>ucs@unicode	  . #x7407)	; &AJ1-08555;
-      (=ucs@unicode	  . #x7407)	; &AJ1-08555;
+     ((=ucs@unicode	  . #x7407)	; &AJ1-08555;
       (=adobe-japan1-2	  . 08555)	; &AJ1-08555;
       (=ks-x1001	  . #x622F)	; &I-K0-622F; [66-15]
       (=jis-x0212	  . #x4C25)	; &I-JSP-4C25; [44-05]
@@ -6029,8 +6026,6 @@
     (ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (=>>ucs@unicode	. #x7488)	; &EGB-2C4C;
-    (=>>>ucs@unicode	. #x7488)	; &EGB-2C4C;
     (=ucs@unicode	. #x7488)	; &EGB-2C4C;
     (=iso-ir165		. #x2C4C)	; &EGB-2C4C; [12-44]
     ))
@@ -7027,7 +7022,6 @@
     (ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (=>>>ucs@unicode	. #x74A5)	; &HD-JD-7123;
     (=ucs@unicode	. #x74A5)	; &HD-JD-7123;
     (=ks-x1001		. #x4C60)	; &HD-JD-7123; [44-64]
     (=jis-x0213-2	. #x7123)	; &I-JX2-7123; [81-03]
