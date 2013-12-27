@@ -1,4 +1,13 @@
+2013-12-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ruimoku6.el (RUI6-E04F): Apply new glyph-image conventions for
+	U+5B87.
+
 2013-12-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R118-Bamboo.el: `=>>>ucs@unicode' was changed to an
+	alias for `=ucs@unicode'.
+	(UU+4217): Omit `=>>ucs@unicode'.
 
 	* Ideograph-R140-Grass.el: `=>>>ucs@unicode' was changed to an
 	alias for `=ucs@unicode'.
