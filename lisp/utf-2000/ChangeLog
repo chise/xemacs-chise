@@ -1,5 +1,34 @@
 2013-12-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R140-Grass.el: `=>>>ucs@unicode' was changed to an
+	alias for `=ucs@unicode'.
+	(GT-40268): Apply new glyph-image conventions for U+5B87.
+	(JX1-7A6D): Likewise; omit `=>>ucs@unicode'.
+
+	* Ideograph-R167-Gold.el: `=>>>ucs@unicode' was changed to an
+	alias for `=ucs@unicode'.
+	(UU+93CF): Omit `=>>ucs@unicode'.
+
+	* Ideograph-R108-Dish.el (RUI6-E04F): Apply new glyph-image
+	conventions for U+5B87.
+
+	* Ideograph-R096-Jade.el: `=>>>ucs@unicode' was changed to an
+	alias for `=ucs@unicode'.
+	(UU+73F5): Omit `=>>ucs@unicode'.
+	(UU+7488): Likewise.
+
+	* Ideograph-R075-Tree.el: `=>>>ucs@unicode' was changed to an
+	alias for `=ucs@unicode'.
+	(UU+3BDF): Omit `=>>ucs@unicode'.
+
+	* Ideograph-R064-Hand.el: `=>>>ucs@unicode' was changed to an
+	alias for `=ucs@unicode'.
+	(C2-224B): Omit `=>>ucs@unicode'.
+	(JX1-746B): Likewise.
+	(UU+6460): Likewise.
+	(C2-4A52): Omit `=>>ucs@cns'.
+	(JX2-2D4C): Omit `=>>ucs@unicode'.
+
 	* Ideograph-R061-Heart.el: `=>>>ucs@unicode' was changed to an
 	alias for `=ucs@unicode'.
 	(C2-5C6C): Omit `=>>ucs@cns'.
