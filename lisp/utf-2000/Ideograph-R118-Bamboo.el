@@ -5038,8 +5038,7 @@
       (=jis-x0213-2	  . #x7359)	; &I-JX2-7359; [83-57]
       (=daikanwa	  . 26216)	; &I-M-26216;
       )
-     ((=>>>ucs@unicode	  . #x7BB5)	; &C2-5266;
-      (=ucs@unicode	  . #x7BB5)	; &C2-5266;
+     ((=ucs@unicode	  . #x7BB5)	; &C2-5266;
       (=cns11643-2	  . #x5266)	; &C2-5266; [50-70]
       ))
     ))
@@ -5163,8 +5162,9 @@
     (ideographic-radical . 118)	; ⽵
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
-    (=>>ucs@cns		. #x4217)	; &G-CU+4217;
-    (=>>daikanwa	. 26225)	; &G-CU+4217;
+    (=>>ucs@cns		. #x4217)	; &G-C4-4C2E;
+    (=>>cns11643-4	. #x4C2E)	; &G-C4-4C2E; [44-14]
+    (=>>daikanwa	. 26225)	; &G-C4-4C2E;
     (->subsumptive
      ((=daikanwa	  . 26225)	; &M-26225;
       )
@@ -5179,9 +5179,7 @@
     (ideographic-radical . 118)	; ⽵
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
-    (=>>ucs@unicode	. #x4217)	; &G-UU+4217;
-    (=>>>ucs@unicode	. #x4217)	; &G-UU+4217;
-    (=ucs@unicode	. #x4217)	; &G-UU+4217;
+    (=ucs@unicode	. #x4217)	; &UU+4217;
     ))
 (define-char
   '((ideographic-radical . 118)	; ⽵
