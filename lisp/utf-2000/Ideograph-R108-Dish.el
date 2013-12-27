@@ -902,8 +902,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x5B87)	; &AJ1-01225;
-	(=ucs@ks	    . #x5B87)	; &AJ1-01225;
+       ((=ucs@unicode	    . #x5B87)	; &AJ1-01225;
 	(=adobe-japan1-0    . 01225)	; &AJ1-01225;
 	)
        ((=ucs		    . #x76BF)	; 皿
