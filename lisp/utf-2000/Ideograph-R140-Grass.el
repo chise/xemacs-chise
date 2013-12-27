@@ -86,7 +86,6 @@
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (=>>>ucs@unicode	. #x8279)	; &GT-39639;
     (=ucs@unicode	. #x8279)	; &GT-39639;
     (=gb2312		. #x5C33)	; &GT-39639; [60-19]
     (=jis-x0213-2	. #x7576)	; &I-JX2-7576; [85-86]
@@ -98,8 +97,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>>>ucs@unicode	  . #x8279)	; &GT-39639;
-      (=ucs@unicode	  . #x8279)	; &GT-39639;
+     ((=ucs@unicode	  . #x8279)	; &GT-39639;
       (=gb2312		  . #x5C33)	; &GT-39639; [60-19]
       (=jis-x0213-2	  . #x7576)	; &I-JX2-7576; [85-86]
       ))
@@ -109,8 +107,7 @@
     (mirrored		. nil)
     (=ucs		. #x2EBE)	; ⺾
     (<-identical@component
-     ((=>>>ucs@unicode	  . #x8279)	; &GT-39639;
-      (=ucs@unicode	  . #x8279)	; &GT-39639;
+     ((=ucs@unicode	  . #x8279)	; &GT-39639;
       (=gb2312		  . #x5C33)	; &GT-39639; [60-19]
       (=jis-x0213-2	  . #x7576)	; &I-JX2-7576; [85-86]
       ))
@@ -755,8 +752,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=>>>ucs@unicode    . #x8279)	; &GT-39639;
-	(=ucs@unicode	    . #x8279)	; &GT-39639;
+       ((=ucs@unicode	    . #x8279)	; &GT-39639;
 	(=gb2312	    . #x5C33)	; &GT-39639; [60-19]
 	(=jis-x0213-2	    . #x7576)	; &I-JX2-7576; [85-86]
 	)
@@ -9152,8 +9148,7 @@
      ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA5E")
       (=ucs		  . #xFA5E)	; 艹
       )
-     ((=ucs@jis		  . #x5B87)	; &AJ1-01225;
-      (=ucs@ks		  . #x5B87)	; &AJ1-01225;
+     ((=ucs@unicode	  . #x5B87)	; &AJ1-01225;
       (=adobe-japan1-0	  . 01225)	; &AJ1-01225;
       ))
     (=gt		. 40268)	; &GT-40268;
@@ -9171,14 +9166,13 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>>>ucs@unicode	  . #x8279)	; &GT-39639;
-      (=ucs@unicode	  . #x8279)	; &GT-39639;
+     ((=ucs@unicode	  . #x8279)	; &GT-39639;
       (=gb2312		  . #x5C33)	; &GT-39639; [60-19]
       (=jis-x0213-2	  . #x7576)	; &I-JX2-7576; [85-86]
       )
-     ((=ucs		  . #x5B87)	; 宇
+     ((=ucs@unicode	  . #x5B87)	; &AJ1-01225;
+      (=adobe-japan1-0	  . 01225)	; &AJ1-01225;
       ))
-    (=>>ucs@unicode	. #x8362)	; &AJ1-08601;
     (=ucs@unicode	. #x8362)	; &AJ1-08601;
     (=adobe-japan1-2	. 08601)	; &AJ1-08601;
     (=jis-x0213-1	. #x7A6D)	; &I-JX1-7A6D; [90-77]
@@ -9193,14 +9187,13 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=>>>ucs@unicode    . #x8279)	; &GT-39639;
-	(=ucs@unicode	    . #x8279)	; &GT-39639;
+       ((=ucs@unicode	    . #x8279)	; &GT-39639;
 	(=gb2312	    . #x5C33)	; &GT-39639; [60-19]
 	(=jis-x0213-2	    . #x7576)	; &I-JX2-7576; [85-86]
 	)
-       ((=ucs@jis	    . #x5B87)	; &AJ1-01225;
-	(=ucs@ks	    . #x5B87)	; &AJ1-01225;
-	(=adobe-japan1-0    . 01225)	; &AJ1-01225;
+       ((==ucs@jis	    . #x5B87)	; &R-AJ1-01225;
+	(==ucs@ks	    . #x5B87)	; &R-AJ1-01225;
+	(==adobe-japan1-0   . 01225)	; &R-AJ1-01225;
 	))
       (==ucs@jis	  . #x8362)	; &R-AJ1-08601;
       (==adobe-japan1-2	  . 08601)	; &R-AJ1-08601;
@@ -9211,14 +9204,11 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=>>>ucs@unicode    . #x8279)	; &GT-39639;
-	(=ucs@unicode	    . #x8279)	; &GT-39639;
+       ((=ucs@unicode	    . #x8279)	; &GT-39639;
 	(=gb2312	    . #x5C33)	; &GT-39639; [60-19]
 	(=jis-x0213-2	    . #x7576)	; &I-JX2-7576; [85-86]
 	)
-       ((=ucs@unicode	    . #x5B87)	; &C1-4775;
-	(=gb2312	    . #x536E)	; &C1-4775; [51-78]
-	(=cns11643-1	    . #x4775)	; &I-C1-4775; [39-85]
+       ((==ucs@unicode	    . #x5B87)	; &R-UU+5B87;
 	))
       (==ucs@unicode	  . #x8362)	; &R-UU+8362;
       ))
@@ -9247,8 +9237,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>>>ucs@unicode	  . #x8279)	; &GT-39639;
-      (=ucs@unicode	  . #x8279)	; &GT-39639;
+     ((=ucs@unicode	  . #x8279)	; &GT-39639;
       (=gb2312		  . #x5C33)	; &GT-39639; [60-19]
       (=jis-x0213-2	  . #x7576)	; &I-JX2-7576; [85-86]
       )
