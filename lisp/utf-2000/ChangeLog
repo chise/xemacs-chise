@@ -1,5 +1,11 @@
 2013-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (JX2-2364): Add
+	`=decomposition@hanyo-denshi'.
+	(U+5686): Apply new glyph-image conventions.
+
+2013-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R162-Walk.el (AJ1-08634): Apply new glyph-image
 	conventions for U+7AE0.
 
