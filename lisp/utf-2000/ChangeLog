@@ -1,5 +1,13 @@
 2013-12-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R049-Oneself.el, Ideograph-R048-Work.el,
+	Ideograph-R047-River.el, Ideograph-R046-Mountain.el:	
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/JA.
+	- Add Hanyo-Denshi/JA code points.
+
+2013-12-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R164-Wine.el: Apply new glyph-image conventions for
 	some characters.
 
