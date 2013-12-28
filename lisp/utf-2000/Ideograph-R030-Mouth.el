@@ -5486,6 +5486,11 @@
       )
      ((=ucs		  . #xE0100)	; 󠄀
       ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5455)	; 呕
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (hanyu-dazidian	1 587 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -40568,15 +40573,14 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=>>ucs@cns	  . #x84BF)	; &C1-6A5D;
-      (=ucs@cns		  . #x84BF)	; &C1-6A5D;
+     ((=ucs@cns		  . #x84BF)	; &C1-6A5D;
       (=cns11643-1	  . #x6A5D)	; &C1-6A5D; [74-61]
+      (=daikanwa	  . 31634)	; &I-M-31634;
       ))
-    (=>>ucs@cns		. #x5686)	; &HD-KS-051060;
     (=ucs@cns		. #x5686)	; &HD-KS-051060;
     (=cns11643-2	. #x5C4F)	; &HD-KS-051060; [60-47]
     (=hanyo-denshi/ks	. 051060)	; &HD-KS-051060;
-    (=>>daikanwa	. 04458)	; &HD-KS-051060;
+    (=daikanwa		. 04458)	; &I-M-04458;
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x5686)	; 嚆
@@ -40589,11 +40593,11 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=daikanwa	    . 31634)	; &M-31634;
+       ((==daikanwa	    . 31634)	; &R-M-31634;
 	))
       (==hanyo-denshi/ks  . 051060)	; &R-HD-KS-051060;
       (=hanyo-denshi/ks/mf . #x13F2)	; &R-HD-KS-051060;
-      (=daikanwa	  . 04458)	; &I-M-04458;
+      (==daikanwa	  . 04458)	; &R-HD-KS-051060;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -40621,14 +40625,12 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=>>ucs@unicode	  . #x84BF)	; &GT-41499;
-      (=ucs@unicode	  . #x84BF)	; &GT-41499;
+     ((=ucs@unicode	  . #x84BF)	; &GT-41499;
       (=jis-x0208	  . #x6866)	; &GT-41499; [72-70]
       (=gb2312		  . #x5D6F)	; &I-G0-5D6F; [61-79]
       (=ks-x1001	  . #x7B5A)	; &I-K0-7B5A; [91-58]
       (=jis-x0213-1	  . #x6866)	; &I-JX1-6866; [72-70]
       ))
-    (=>>ucs@unicode	. #x5686)	; &AJ1-04440;
     (=ucs@unicode	. #x5686)	; &AJ1-04440;
     (=adobe-japan1-0	. 04440)	; &AJ1-04440;
     (=jis-x0208		. #x5365)	; &I-J90-5365; [51-69]
