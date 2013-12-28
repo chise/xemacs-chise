@@ -1,5 +1,12 @@
 2013-12-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R164-Wine.el: Apply new glyph-image conventions for
+	some characters.
+
+	* Ideograph-R040-Roof.el (U+5B87): Apply new glyph-image
+	conventions.
+	(U-0002F86C): Likewise.
+
 	* ruimoku6.el (RUI6-E04F): Apply new glyph-image conventions for
 	U+5B87.
 
