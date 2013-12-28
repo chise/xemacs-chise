@@ -24899,11 +24899,11 @@
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (=>>ucs@cns		. #x84BF)	; &C1-6A5D;
     (=ucs@cns		. #x84BF)	; &C1-6A5D;
     (=cns11643-1	. #x6A5D)	; &C1-6A5D; [74-61]
+    (=daikanwa		. 31634)	; &I-M-31634;
     (->subsumptive
-     ((=daikanwa	  . 31634)	; &M-31634;
+     ((==daikanwa	  . 31634)	; &R-M-31634;
       )
      ((==ucs@cns	  . #x84BF)	; &R-CU+84BF;
       (==cns11643-1	  . #x6A5D)	; &R-CU+84BF; [74-61]
@@ -24916,7 +24916,6 @@
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=>>ucs@unicode	. #x84BF)	; &GT-41499;
     (=ucs@unicode	. #x84BF)	; &GT-41499;
     (=jis-x0208		. #x6866)	; &GT-41499; [72-70]
     (=gb2312		. #x5D6F)	; &I-G0-5D6F; [61-79]
