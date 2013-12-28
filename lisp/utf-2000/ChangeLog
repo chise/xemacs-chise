@@ -1,7 +1,29 @@
+2013-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R162-Walk.el (AJ1-08634): Apply new glyph-image
+	conventions for U+7AE0.
+
+	* Ideograph-R140-Grass.el (C1-6A5D): Apply new glyph-image
+	conventions for `daikanwa'.
+
+	* Ideograph-R117-Stand.el (BC-8BAE): Apply new glyph-image
+	conventions for U+7AE0.
+	(U+7AE0): Apply new glyph-image conventions.
+
+	* Ideograph-R050-Turban.el:
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/{JA|JB|JD}.
+	- Add Hanyo-Denshi/JA code points.
+	(U+5E5B): Apply new glyph-image conventions.
+	(U+5E63): Likewise.
+
+	* Ideograph-R009-Man.el (U+50BD): Apply new glyph-image
+	conventions.
+
 2013-12-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R049-Oneself.el, Ideograph-R048-Work.el,
-	Ideograph-R047-River.el, Ideograph-R046-Mountain.el:	
+	Ideograph-R047-River.el, Ideograph-R046-Mountain.el:
 	- Add `=decomposition@hanyo-denshi' for representative (detailed)
 	  glyph-images of Hanyo-Denshi/JA.
 	- Add Hanyo-Denshi/JA code points.
