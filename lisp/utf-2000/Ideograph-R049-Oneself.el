@@ -162,6 +162,11 @@
       )
      ((=ucs		  . #xE0100)	; 󠄀
       ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x382F)	; 㠯
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (hanyu-dazidian	1 29 2)
     (=ucs@unicode	. #x382F)	; &AJ1-17588;
     (=adobe-japan1-5	. 17588)	; &AJ1-17588;
@@ -291,12 +296,18 @@
       )
      ((=ucs		  . #xE0100)	; 󠄀
       ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5DF7)	; 巷
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=ucs@jis/1990	. #x5DF7)	; &AJ1-01981;
     (=ucs@jis/2000	. #x5DF7)	; &AJ1-01981;
     (=adobe-japan1-0	. 01981)	; &AJ1-01981;
     (=jis-x0208@1983	. #x392B)	; &I-J83-392B; [25-11]
     (=jis-x0208@1990	. #x392B)	; &I-J90-392B; [25-11]
     (=jis-x0213-1@2000	. #x392B)	; &I-JX1-392B; [25-11]
+    (=hanyo-denshi/ja	. #x392B)	; &I-HD-JA-392B; [25-11]
     (=gt		. 11041)	; &I-GT-11041;
     (=gt-k		. 05074)	; &I-GT-K05074;
     (=gt-pj-1		. #x392B)	; &I-GT-11041; [25-11]
@@ -376,6 +387,7 @@
     (=>>adobe-japan1-0	. 01512)	; &G-AJ1-01512;
     (=>>jis-x0208	. #x342C)	; &G-AJ1-01512; [20-12]
     (=>>jis-x0213-1	. #x342C)	; &G-AJ1-01512; [20-12]
+    (=>>hanyo-denshi/ja . #x342C)	; &G-AJ1-01512; [20-12]
     (=>>gt		. 11038)	; &G-AJ1-01512;
     (=>>gt-k		. 05217)	; &G-AJ1-01512;
     (=>>daikanwa/+p	. 08759)	; &G-AJ1-01512;
@@ -385,10 +397,16 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x5DFB)	; 巻
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
       (=ucs@jis		  . #x5DFB)	; &AJ1-01512;
       (=adobe-japan1-0	  . 01512)	; &AJ1-01512;
       (=jis-x0208	  . #x342C)	; &I-J90-342C; [20-12]
       (=jis-x0213-1	  . #x342C)	; &I-JX1-342C; [20-12]
+      (=hanyo-denshi/ja	  . #x342C)	; &I-HD-JA-342C; [20-12]
       (=gt		  . 11038)	; &I-GT-11038;
       (=gt-k		  . 05217)	; &I-GT-K05217;
       (=gt-pj-1		  . #x342C)	; &I-GT-11038; [20-12]
@@ -572,11 +590,17 @@
       )
      ((=ucs		  . #xE0101)	; 󠄁
       ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5DFD)	; 巽
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=ucs@jis		. #x5DFD)	; &AJ1-02917;
     (=adobe-japan1-0	. 02917)	; &AJ1-02917;
     (=jis-x0208@1983	. #x4327)	; &I-J83-4327; [35-07]
     (=jis-x0208@1990	. #x4327)	; &I-J90-4327; [35-07]
     (=jis-x0213-1	. #x4327)	; &I-JX1-4327; [35-07]
+    (=hanyo-denshi/ja	. #x4327)	; &I-HD-JA-4327; [35-07]
     (=gt		. 11054)	; &I-GT-11054;
     (=gt-k		. 09097)	; &I-GT-K09097;
     (=gt-pj-1		. #x4327)	; &I-GT-11054; [35-07]
