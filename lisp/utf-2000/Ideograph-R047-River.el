@@ -218,6 +218,7 @@
     (=>>adobe-japan1-0	. 02414)	; &G-AJ1-02414;
     (=>>jis-x0208	. #x3D64)	; &G-AJ1-02414; [29-68]
     (=>>jis-x0213-1	. #x3D64)	; &G-AJ1-02414; [29-68]
+    (=>>hanyo-denshi/ja . #x3D64)	; &G-AJ1-02414; [29-68]
     (=>>gt		. 10953)	; &G-AJ1-02414;
     (=>>daikanwa/+p	. 08680)	; &G-AJ1-02414;
     (->subsumptive
@@ -226,11 +227,17 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x5DE1)	; 巡
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
       (=ucs@unicode	  . #x5DE1)	; &AJ1-02414;
       (=adobe-japan1-0	  . 02414)	; &AJ1-02414;
       (=jis-x0208	  . #x3D64)	; &I-J90-3D64; [29-68]
       (=gb2312		  . #x5132)	; &I-G0-5132; [49-18]
       (=jis-x0213-1	  . #x3D64)	; &I-JX1-3D64; [29-68]
+      (=hanyo-denshi/ja	  . #x3D64)	; &I-HD-JA-3D64; [29-68]
       (=gt		  . 10953)	; &I-GT-10953;
       (=gt-pj-1		  . #x3D64)	; &I-GT-10953; [29-68]
       (=daikanwa/+p	  . 08680)	; &AJ1-02414;
@@ -494,6 +501,11 @@
      ((=ucs		  . #x5DE2)	; 巢
       )
      ((=ucs		  . #xE0100)	; 󠄀
+      ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5DE2)	; 巢
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
       ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
