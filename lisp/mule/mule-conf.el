@@ -2693,16 +2693,16 @@
 		  =>iso-ir	177
 		  mother	=>>ucs@unicode))
 
-  (make-charset '=>>>ucs@iso
-		"Representative glyph-forms of ISO/IEC 10646"
-		'(long-name	"UCS glyph-forms for UCS"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=>>ucs@iso))
+  ;; (make-charset '=>>>ucs@iso
+  ;;               "Representative glyph-forms of ISO/IEC 10646"
+  ;;               '(long-name     "UCS glyph-forms for UCS"
+  ;;                 chars         256
+  ;;                 dimension     3
+  ;;                 columns       2
+  ;;                 graphic       2
+  ;;                 direction     l2r
+  ;;                 =>iso-ir      177
+  ;;                 mother        =>>ucs@iso))
   ;; (make-charset '=>>>ucs@unicode
   ;;               "Representative glyph-forms of Unicode"
   ;;               '(long-name     "UCS glyph-forms for Unicode"
@@ -2783,7 +2783,10 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
-		  mother	=>>>ucs@iso))
+                  mother	=>>ucs@iso
+		  ;; mother	=>>>ucs@iso
+		  ))
+  (define-charset-alias '=>>>ucs@iso '=ucs@iso)
   (make-charset '=ucs@unicode
 		"Unicode for its representative glyphs"
 		'(long-name	"UCS for Unicode"
