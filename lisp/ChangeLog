@@ -1,3 +1,12 @@
+2013-12-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	Change priority of `=>>>ucs@iso'.
+
+	* mule/mule-conf.el (=ucs@iso): Use `=>>ucs@iso' instead of
+	`=>>>ucs@iso' as the mother.
+	(=>>>ucs@iso): Changed to an alias for `=ucs@iso'.
+
 2013-12-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist):
