@@ -107,11 +107,17 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x5F0D)	; 弍
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
       (=ucs@jis		  . #x5F0D)	; &AJ1-04106;
       (=adobe-japan1-0	  . 04106)	; &AJ1-04106;
       (=jis-x0208	  . #x5031)	; &I-J90-5031; [48-17]
       (=cns11643-3	  . #x2249)	; &I-C3-2249; [02-41]
       (=jis-x0213-1	  . #x5031)	; &I-JX1-5031; [48-17]
+      (=hanyo-denshi/ja	  . #x5031)	; &I-HD-JA-5031; [48-17]
       (=gt		  . 12175)	; &I-GT-12175;
       (=gt-k		  . 01027)	; &I-GT-K01027;
       (=gt-pj-1		  . #x5031)	; &I-GT-12175; [48-17]
@@ -145,6 +151,11 @@
        ((=ucs		    . #x5F0E)	; 弎
 	)
        ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x5F0E)	; 弎
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
 	))
       (=ucs@unicode	  . #x5F0E)	; &AJ1-14513;
       (=adobe-japan1-4	  . 14513)	; &AJ1-14513;
