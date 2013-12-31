@@ -1,3 +1,13 @@
+2013-12-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R051-Dry.el:
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/JA.
+	- Add Hanyo-Denshi/JA code points.
+
+	* Ideograph-R050-Turban.el (R-J0-4A3E): Add
+	`=decomposition@hanyo-denshi'.
+
 2013-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (JX2-2364): Add
