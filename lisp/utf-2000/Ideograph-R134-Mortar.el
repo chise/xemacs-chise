@@ -366,6 +366,11 @@
       )
      ((=ucs		  . #xE0100)	; 󠄀
       ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x8201)	; 舁
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -383,6 +388,7 @@
     (=gb2312		. #x7428)	; &I-G0-7428; [84-08]
     (=cns11643-6	. #x3074)	; &I-C6-3074; [16-84]
     (=jis-x0213-1	. #x674D)	; &I-JX1-674D; [71-45]
+    (=hanyo-denshi/ja	. #x674D)	; &I-HD-JA-674D; [71-45]
     (=gt		. 39043)	; &I-GT-39043;
     (=gt-pj-1		. #x674D)	; &I-GT-39043; [71-45]
     ))
