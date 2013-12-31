@@ -5939,7 +5939,12 @@
       (=gt		  . 11451)	; &I-GT-11451;
       (=gt-pj-1		  . #x4A3E)	; &I-GT-11451; [42-30]
       (->subsumptive
-       ((==ucs@jis	    . #x5E63)	; &R-AJ1-03598;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x5E63)	; 幣
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(==ucs@jis	    . #x5E63)	; &R-AJ1-03598;
 	(==adobe-japan1-0   . 03598)	; &R-AJ1-03598;
 	(==jis-x0208	    . #x4A3E)	; &R-AJ1-03598; [42-30]
 	(==jis-x0213-1	    . #x4A3E)	; &R-AJ1-03598; [42-30]
