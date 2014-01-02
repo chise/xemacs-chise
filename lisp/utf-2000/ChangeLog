@@ -1,3 +1,15 @@
+2013-12-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R060-Step.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/{JA|JB}.
+
+	* Ideograph-R058-Snout.el, Ideograph-R057-Bow.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/JA.
+
 2013-12-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R134-Mortar.el, Ideograph-R059-Bristle.el,
