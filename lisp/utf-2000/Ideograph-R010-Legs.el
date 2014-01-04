@@ -1067,6 +1067,7 @@
     (=>>ucs@unicode	. #x514D)	; &G-J0-4C48;
     (=>>jis-x0208	. #x4C48)	; &G-J0-4C48; [44-40]
     (=>>jis-x0213-1	. #x4C48)	; &G-J0-4C48; [44-40]
+    (=>>hanyo-denshi/ja . #x4C48)	; &G-J0-4C48; [44-40]
     (=>>hanyo-denshi/ks . 015850)	; &G-J0-4C48;
     ))
 (define-char
@@ -1580,6 +1581,7 @@
     (=>>jis-x0208@1983	. #x513D)	; &G-JX1-513D; [49-29]
     (=>>jis-x0208@1990	. #x513D)	; &G-JX1-513D; [49-29]
     (=>>jis-x0213-1	. #x513D)	; &G-JX1-513D; [49-29]
+    (=>>hanyo-denshi/ja . #x513D)	; &G-JX1-513D; [49-29]
     (=>>hanyo-denshi/jt . #xADC1)	; &G-JX1-513D;
     ))
 (define-char
