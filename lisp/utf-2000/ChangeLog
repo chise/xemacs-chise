@@ -1,3 +1,17 @@
+2014-01-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R054-Long-Stride.el, Ideograph-R051-Dry.el,
+	Ideograph-R050-Turban.el, Ideograph-R046-Mountain.el,
+	Ideograph-R019-Power.el, Ideograph-R010-Legs.el: Complete
+	`=>>hanyo-denshi/ja'.
+
+2014-01-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/{JA|JB|JD}.
+
 2013-12-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R060-Step.el:
