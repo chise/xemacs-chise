@@ -281,6 +281,11 @@
     (ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6210)	; 成
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=ucs@unicode	. #x6210)	; &AJ1-02642;
     (=adobe-japan1-0	. 02642)	; &AJ1-02642;
     (=jis-x0208		. #x402E)	; &I-J90-402E; [32-14]
@@ -289,6 +294,7 @@
     (=cns11643-1	. #x4829)	; &I-C1-4829; [40-09]
     (=jis-x0213-1	. #x402E)	; &I-JX1-402E; [32-14]
     (=big5		. #xA6A8)	; &I-B-A6A8;
+    (=hanyo-denshi/ja	. #x402E)	; &I-HD-JA-402E; [32-14]
     (=gt		. 14557)	; &I-GT-14557;
     (=gt-k		. 01650)	; &I-GT-K01650;
     (=gt-pj-1		. #x402E)	; &I-GT-14557; [32-14]
@@ -1954,11 +1960,18 @@
     (ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x622E)	; 戮
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=ucs@jis		. #x622E)	; &AJ1-04939;
+    (=ucs@ks		. #x622E)	; &AJ1-04939;
     (=adobe-japan1-0	. 04939)	; &AJ1-04939;
     (=jis-x0208		. #x5924)	; &I-J90-5924; [57-04]
     (=ks-x1001		. #x5740)	; &I-K0-5740; [55-32]
     (=jis-x0213-1	. #x5924)	; &I-JX1-5924; [57-04]
+    (=hanyo-denshi/ja	. #x5924)	; &I-HD-JA-5924; [57-04]
     (=gt		. 14699)	; &I-GT-14699;
     (=gt-k		. 11975)	; &I-GT-K11975;
     (=gt-pj-1		. #x5924)	; &I-GT-14699; [57-04]
@@ -2477,6 +2490,11 @@
     (ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6234)	; 戴
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=ucs@unicode	. #x6234)	; &AJ1-02871;
     (=adobe-japan1-0	. 02871)	; &AJ1-02871;
     (=jis-x0208		. #x4257)	; &I-J90-4257; [34-55]
@@ -2485,6 +2503,7 @@
     (=cns11643-1	. #x7362)	; &I-C1-7362; [83-66]
     (=jis-x0213-1	. #x4257)	; &I-JX1-4257; [34-55]
     (=big5		. #xC0B9)	; &I-B-C0B9;
+    (=hanyo-denshi/ja	. #x4257)	; &I-HD-JA-4257; [34-55]
     (=gt		. 14720)	; &I-GT-14720;
     (=gt-pj-1		. #x4257)	; &I-GT-14720; [34-55]
     ))
