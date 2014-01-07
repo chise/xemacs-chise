@@ -1,3 +1,15 @@
+2014-01-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R064-Hand.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/{JA|JB}.
+
+	* Ideograph-R063-Door.el, Ideograph-R062-Halberd.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/JA.
+
 2014-01-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R054-Long-Stride.el, Ideograph-R051-Dry.el,
