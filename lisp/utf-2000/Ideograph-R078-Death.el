@@ -3169,6 +3169,7 @@
     (=hanziku-4		. #xC971)	; &I-HZK04-C971;
     (<-vulgar
      ((=ucs@jis		  . #x622E)	; &AJ1-04939;
+      (=ucs@ks		  . #x622E)	; &AJ1-04939;
       (=adobe-japan1-0	  . 04939)	; &AJ1-04939;
       (=daikanwa	  . 11655)	; &I-M-11655;
       ))
