@@ -1,3 +1,25 @@
+2014-01-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R210-Even.el (R-J0-6337): Unify R-AJ1-05898.
+
+	* Ideograph-R069-Axe.el: Add some Adobe-Japan1-0 code points.
+
+2014-01-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ruimoku6.el (RUI6-E03E): Apply new glyph-image conventions for
+	U+65B9.
+
+2014-01-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R162-Walk.el (K0-663D): Apply new glyph-image
+	conventions for U+65A5.
+
+	* Ideograph-R140-Grass.el (RUI6-E03E): Apply new glyph-image
+	conventions for U+65B9.
+
+	* Ideograph-R031-Enclosure.el (U+5700): Apply new glyph-image
+	conventions for U+65B9.
+
 2014-01-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R064-Hand.el:
