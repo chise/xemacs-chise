@@ -6021,7 +6021,8 @@
     (=daikanwa		. 38849)	; &I-M-38849;
     (=jef-china3	. #x67BF)	; &I-JC3-67BF;
     (<-synonyms
-     ((=ucs		  . #x65A5)	; 斥
+     ((=ucs@unicode	  . #x65A5)	; &AJ1-02673;
+      (=adobe-japan1-0	  . 02673)	; &AJ1-02673;
       (=daikanwa	  . 13535)	; &I-M-13535;
       ))
     (<-synonyms*sources
