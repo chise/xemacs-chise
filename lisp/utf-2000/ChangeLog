@@ -1,5 +1,9 @@
 2014-01-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R009-Man.el (U+4EFF): Apply new glyph-image
+	conventions.
+	(U+508D): Apply new glyph-image conventions for U+65C1.
+
 	* Ideograph-R210-Even.el (R-J0-6337): Unify R-AJ1-05898.
 
 	* Ideograph-R069-Axe.el: Add some Adobe-Japan1-0 code points.
