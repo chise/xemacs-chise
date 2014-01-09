@@ -1,11 +1,48 @@
 2014-01-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R074-Moon.el (U+671A): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R071-Not.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/JA.
+	(U+65E4): Apply new glyph-image conventions.
+
+	* Ideograph-R070-Square.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/{JA|JB}.
+	(U+65C5): Apply new glyph-image conventions.
+	(U-000230E8): Likewise.
+	(U+65C9): Likewise.
+
+2014-01-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (G-UU+5402): Apply new glyph-image
+	conventions for G-UU+4EA1.
+	(UU+5605): Apply new glyph-image conventions for UU+65E2.
+
+	* Ideograph-R027-Cliff.el (UU+53A9): Apply new glyph-image
+	conventions for UU+65E2.
+
+	* Ideograph-R009-Man.el (IU+20330): Apply new glyph-image
+	conventions for UU+65E2.
+
+	* Ideograph-R008-Lid.el (U+4EA1): Apply new glyph-image
+	conventions.
+
 	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
 	Add #x4C40.
 
 	* Ideograph-R077-Stop.el (U-0002394F): Apply new glyph-image
 	conventions for U+65C5.
 	(U-00023950): Likewise.
+
+	* Ideograph-R069-Axe.el:
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/JB.
+	- Add Hanyo-Denshi/JA code points.
 
 2014-01-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
