@@ -1,5 +1,8 @@
 2014-01-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x4C40.
+
 	* Ideograph-R077-Stop.el (U-0002394F): Apply new glyph-image
 	conventions for U+65C5.
 	(U-00023950): Likewise.
