@@ -1,5 +1,12 @@
 2014-01-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R068-Dipper.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/JA.
+
+2014-01-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R009-Man.el (U+4EFF): Apply new glyph-image
 	conventions.
 	(U+508D): Apply new glyph-image conventions for U+65C1.
