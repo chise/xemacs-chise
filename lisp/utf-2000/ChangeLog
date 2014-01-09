@@ -1,3 +1,9 @@
+2014-01-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R077-Stop.el (U-0002394F): Apply new glyph-image
+	conventions for U+65C5.
+	(U-00023950): Likewise.
+
 2014-01-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R070-Square.el: Add some Adobe-Japan1-0 code points.
