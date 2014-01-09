@@ -89,28 +89,44 @@
     (=>>gt		. 00378)	; &G-AJ1-03682;
     (=>>gt-k		. 00201)	; &G-AJ1-03682;
     (->subsumptive
-     ((=decomposition@cid
-       ((=ucs		    . #x4EA1)	; 亡
-	)
-       ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (=decomposition@hanyo-denshi
-       ((=ucs		    . #x4EA1)	; 亡
-	)
-       ((=ucs		    . #xE0102)	; 󠄂
-	))
+     ((=ucs@cns		  . #x4EA1)	; &AJ1-03682;
       (=ucs@jis		  . #x4EA1)	; &AJ1-03682;
+      (=ucs@ks		  . #x4EA1)	; &AJ1-03682;
       (=adobe-japan1-0	  . 03682)	; &AJ1-03682;
       (=jis-x0208	  . #x4B34)	; &I-J90-4B34; [43-20]
       (=ks-x1001	  . #x584C)	; &I-K0-584C; [56-44]
+      (=cns11643-1	  . #x4441)	; &I-C1-4441; [36-33]
       (=jis-x0213-1	  . #x4B34)	; &I-JX1-4B34; [43-20]
       (=hanyo-denshi/ja	  . #x4B34)	; &I-HD-JA-4B34; [43-20]
       (=gt		  . 00378)	; &I-GT-00378;
       (=gt-k		  . 00201)	; &I-GT-K00201;
       (=gt-pj-1		  . #x4B34)	; &I-GT-00378; [43-20]
       (=shinjigen	  .  0089)	; &AJ1-03682;
-      )
-     ((=cns11643-1	  . #x4441)	; &C1-4441; [36-33]
+      (->subsumptive
+       ((=decomposition@cid
+	 ((=ucs		      . #x4EA1)	; 亡
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(=decomposition@hanyo-denshi
+	 ((=ucs		      . #x4EA1)	; 亡
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(==ucs@jis	    . #x4EA1)	; &R-AJ1-03682;
+	(==ucs@ks	    . #x4EA1)	; &R-AJ1-03682;
+	(==adobe-japan1-0   . 03682)	; &R-AJ1-03682;
+	(==ks-x1001	    . #x584C)	; &R-AJ1-03682; [56-44]
+	(==jis-x0208	    . #x4B34)	; &R-AJ1-03682; [43-20]
+	(==jis-x0213-1	    . #x4B34)	; &R-AJ1-03682; [43-20]
+	(==hanyo-denshi/ja  . #x4B34)	; &R-AJ1-03682; [43-20]
+	(==gt		    . 00378)	; &R-AJ1-03682;
+	(==gt-k		    . 00201)	; &R-AJ1-03682;
+	(==shinjigen	    .  0089)	; &R-AJ1-03682;
+	)
+       ((==ucs@cns	    . #x4EA1)	; &R-CU+4EA1;
+	(==cns11643-1	    . #x4441)	; &R-CU+4EA1; [36-33]
+	))
       )
      ((hanyu-dazidian	  1 279 5)
       (=ucs@unicode	  . #x4EA1)	; &G0-4D76;
