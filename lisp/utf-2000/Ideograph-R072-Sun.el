@@ -5662,6 +5662,11 @@
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6696)	; 暖
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=ucs@unicode	. #x6696)	; &HD-JA-4348;
     (=jis-x0208		. #x4348)	; &HD-JA-4348; [35-40]
     (=gb2312		. #x452F)	; &I-G0-452F; [37-15]
@@ -9045,7 +9050,12 @@
       (->subsumptive
        ((==daikanwa	    . 14245)	; &R-M-14245;
 	)
-       ((==ucs@jis	    . #x66E0)	; &R-HD-JA-5B25;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x66E0)	; 曠
+	  )
+	 ((=ucs		      . #xE0101)	; 󠄁
+	  ))
+	(==ucs@jis	    . #x66E0)	; &R-HD-JA-5B25;
 	(==ucs@ks	    . #x66E0)	; &R-HD-JA-5B25;
 	(==ks-x1001	    . #x4E47)	; &R-HD-JA-5B25; [46-39]
 	(==jis-x0208	    . #x5B25)	; &R-HD-JA-5B25; [59-05]
