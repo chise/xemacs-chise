@@ -584,6 +584,11 @@
     (ideographic-radical . 203)	; ⿊
     (ideographic-strokes . 5)
     (total-strokes	 . 17)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x9EDB)	; 黛
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=ucs@unicode	. #x9EDB)	; &HD-FT-3251;
     (=jis-x0208@1978	. #x4263)	; &HD-FT-3251; [34-67]
     (=gb2312		. #x776C)	; &I-G0-776C; [87-76]
@@ -772,6 +777,11 @@
     (ideographic-radical . 203)	; ⿊
     (ideographic-strokes . 5)
     (total-strokes	 . 16)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x9EDE)	; 點
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=hanyo-denshi/ft	. #x3B4E)	; &HD-FT-3B4E; [27-46]
     ))
 (define-char
@@ -1005,6 +1015,11 @@
     (ideographic-radical . 203)	; ⿊
     (ideographic-strokes . 6)
     (total-strokes	 . 17)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x9EE0)	; 黠
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=hanyo-denshi/ft	. #x3B50)	; &HD-FT-3B50; [27-48]
     ))
 (define-char
