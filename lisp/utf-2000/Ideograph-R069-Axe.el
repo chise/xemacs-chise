@@ -1104,6 +1104,11 @@
     (ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x65B7)	; 斷
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=ucs@unicode	. #x65B7)	; &AJ1-05079;
     (=adobe-japan1-0	. 05079)	; &AJ1-05079;
     (=jis-x0208		. #x5A52)	; &I-J90-5A52; [58-50]
