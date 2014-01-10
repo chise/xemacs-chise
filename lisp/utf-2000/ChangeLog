@@ -1,5 +1,15 @@
 2014-01-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R072-Sun.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/{JA|JB|JD}.
+	(U+663F): Apply new glyph-image conventions.
+	(U+3B2D): Add ideographic-structure.
+
+	* Ideograph-R020-Wrap.el (U+5304): Apply new glyph-image
+	conventions.
+
 	* Ideograph-R074-Moon.el (U+671A): Apply new glyph-image
 	conventions.
 
