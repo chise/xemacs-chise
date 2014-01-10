@@ -34914,7 +34914,8 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=>>ucs@jis	  . #x6701)	; &G-JU+6701;
+     ((=>>ucs@jis	  . #x6701)	; &G-JX2-2E37;
+      (=>>jis-x0213-2	  . #x2E37)	; &G-JX2-2E37; [14-23]
       ))
     (=>>ucs@jis		. #x5646)	; &G-AJ1-21301;
     (=>>adobe-japan1-6	. 21301)	; &G-AJ1-21301;
@@ -34973,19 +34974,32 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@unicode	    . #x6701)	; &UU+6701;
+       ((=ucs@unicode	    . #x6701)	; &C2-3C4C;
+	(=cns11643-2	    . #x3C4C)	; &C2-3C4C; [28-44]
 	))
-      (=ucs@unicode	  . #x5646)	; &UU+5646;
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x53E3)	; 口
-	)
-       ((=cns11643-2	    . #x3C4C)	; &C2-3C4C; [28-44]
-	))
+      (=ucs@unicode	  . #x5646)	; &C2-4F65;
       (=cns11643-2	  . #x4F65)	; &C2-4F65; [47-69]
+      (->subsumptive
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((=ucs		      . #x53E3)	; 口
+	  )
+	 ((==ucs@unicode      . #x6701)	; &R-UU+6701;
+	  ))
+	(==ucs@unicode	    . #x5646)	; &R-UU+5646;
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((=ucs		      . #x53E3)	; 口
+	  )
+	 ((==cns11643-2	      . #x3C4C)	; &R-C2-3C4C; [28-44]
+	  ))
+	(==cns11643-2	    . #x4F65)	; &R-C2-4F65; [47-69]
+	))
       ))
     ))
 (define-char
@@ -35400,9 +35414,9 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs@jis		  . #x66FE)	; &GT-18103;
-      (=ucs@ks		  . #x66FE)	; &GT-18103;
-      (=jis-x0208	  . #x413D)	; &GT-18103; [33-29]
+     ((=ucs@jis		  . #x66FE)	; &HD-JA-413D;
+      (=ucs@ks		  . #x66FE)	; &HD-JA-413D;
+      (=jis-x0208	  . #x413D)	; &HD-JA-413D; [33-29]
       (=ks-x1001	  . #x7174)	; &I-K0-7174; [81-84]
       (=jis-x0213-1	  . #x413D)	; &I-JX1-413D; [33-29]
       (=daikanwa	  . 14299)	; &I-M-14299;
@@ -43197,7 +43211,7 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=jef-china3	  . #x70A4)	; &JC3-70A4;
+     ((=hanyo-denshi/ft	  . #x3C5D)	; &HD-FT-3C5D; [28-61]
       ))
     (=hanyo-denshi/ks	. 052320)	; &HD-KS-052320;
     (=hanyo-denshi/ks/mf . #x1470)	; &HD-KS-052320;
