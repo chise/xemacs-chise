@@ -16492,7 +16492,7 @@
       )
      ((=gt-k		  . 00199)	; &GT-K00199;
       )
-     ((=jef-china3	  . #x70A4)	; &JC3-70A4;
+     ((=hanyo-denshi/ft	  . #x3C5D)	; &HD-FT-3C5D; [28-61]
       ))
     (=hanyo-denshi/ks	. 064180)	; &HD-KS-064180;
     (=hanyo-denshi/ks/mf . #x1912)	; &HD-KS-064180;
