@@ -34696,9 +34696,9 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@jis		  . #x66FE)	; &GT-18103;
-      (=ucs@ks		  . #x66FE)	; &GT-18103;
-      (=jis-x0208	  . #x413D)	; &GT-18103; [33-29]
+     ((=ucs@jis		  . #x66FE)	; &HD-JA-413D;
+      (=ucs@ks		  . #x66FE)	; &HD-JA-413D;
+      (=jis-x0208	  . #x413D)	; &HD-JA-413D; [33-29]
       (=ks-x1001	  . #x7174)	; &I-K0-7174; [81-84]
       (=jis-x0213-1	  . #x413D)	; &I-JX1-413D; [33-29]
       (=daikanwa	  . 14299)	; &I-M-14299;
@@ -35302,7 +35302,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=>>ucs@jis	  . #x6701)	; &G-JU+6701;
+     ((=>>ucs@jis	  . #x6701)	; &G-JX2-2E37;
+      (=>>jis-x0213-2	  . #x2E37)	; &G-JX2-2E37; [14-23]
       ))
     (=>>ucs@jis		. #x50ED)	; &G-AJ1-20078;
     (=>>adobe-japan1-0	. 04191)	; &G-AJ1-20078;
@@ -35398,21 +35399,36 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x6701)	; &UU+6701;
+       ((=ucs@unicode	    . #x6701)	; &C2-3C4C;
+	(=cns11643-2	    . #x3C4C)	; &C2-3C4C; [28-44]
 	))
-      (=ucs@unicode	  . #x50ED)	; &G0-5954;
-      (=gb2312		  . #x5954)	; &G0-5954; [57-52]
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
+      (=ucs@unicode	  . #x50ED)	; &C1-6776;
+      (=gb2312		  . #x5954)	; &C1-6776; [57-52]
+      (=cns11643-1	  . #x6776)	; &I-C1-6776; [71-86]
+      (->subsumptive
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((name		      . "CJK RADICAL PERSON")
+	  (=ucs		      . #x2E85)	; ⺅
+	  )
+	 ((==ucs@unicode      . #x6701)	; &R-UU+6701;
+	  ))
+	(==ucs@unicode	    . #x50ED)	; &R-UU+50ED;
+	(==gb2312	    . #x5954)	; &R-UU+50ED; [57-52]
 	)
-       ((name		    . "CJK RADICAL PERSON")
-	(=ucs		    . #x2E85)	; ⺅
-	)
-       ((=cns11643-2	    . #x3C4C)	; &C2-3C4C; [28-44]
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((name		      . "CJK RADICAL PERSON")
+	  (=ucs		      . #x2E85)	; ⺅
+	  )
+	 ((==cns11643-2	      . #x3C4C)	; &R-C2-3C4C; [28-44]
+	  ))
+	(==cns11643-1	    . #x6776)	; &R-C1-6776; [71-86]
 	))
-      (=cns11643-1	  . #x6776)	; &C1-6776; [71-86]
       )
      ((=ks-x1001	  . #x7350)	; &K0-7350; [83-48]
       ))
