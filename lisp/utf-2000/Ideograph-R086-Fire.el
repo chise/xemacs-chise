@@ -7470,8 +7470,14 @@
     (total-strokes	 . 13)
     (=>>ucs@unicode	. #x3DD4)	; &G-JX2-6F77;
     (=>>jis-x0213-2	. #x6F77)	; &G-JX2-6F77; [79-87]
+    (=>>hanyo-denshi/ia . #x245F)	; &G-JX2-6F77; [04-63]
     (->subsumptive
-     ((=ucs@unicode	  . #x3DD4)	; &HD-IA-245F;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x3DD4)	; 㷔
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=ucs@unicode	  . #x3DD4)	; &HD-IA-245F;
       (=jis-x0213-2	  . #x6F77)	; &HD-IA-245F; [79-87]
       (=hanyo-denshi/ia	  . #x245F)	; &I-HD-IA-245F; [04-63]
       )
