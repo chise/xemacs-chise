@@ -522,6 +522,11 @@
       )
      ((=ucs		  . #xE0101)	; 󠄁
       ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5305)	; 包
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (hanyu-dazidian	1 257 6)
     (ideographic-structure
      ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
@@ -531,7 +536,6 @@
       )
      ((=ucs		  . #x5DF3)	; 巳
       ))
-    (=>>ucs@unicode	. #x5305)	; &AJ1-14019;
     (=ucs@unicode	. #x5305)	; &AJ1-14019;
     (=adobe-japan1-4	. 14019)	; &AJ1-14019;
     (=gb2312		. #x307C)	; &I-G0-307C; [16-92]
