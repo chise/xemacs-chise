@@ -1,5 +1,11 @@
 2014-01-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R049-Oneself.el, Ideograph-R043-Lame.el: Add
+	`=decomposition@hanyo-denshi' for representative (detailed)
+	glyph-images of Hanyo-Denshi/IA.
+
+2014-01-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R030-Mouth.el (U+5646): Apply new glyph-image
 	conventions.
 
