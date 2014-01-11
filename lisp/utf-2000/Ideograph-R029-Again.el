@@ -1897,7 +1897,12 @@
       (->subsumptive
        ((==daikanwa	    . 03176)	; &R-M-03176;
 	)
-       ((==ucs@jis/2004	    . #x53DF)	; &R-HD-HG-3048;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x53DF)	; 叟
+	  )
+	 ((=ucs		      . #xE0103)	; 󠄃
+	  ))
+	(==ucs@jis/2004	    . #x53DF)	; &R-HD-HG-3048;
 	(==jis-x0213-1@2004 . #x5257)	; &R-HD-HG-3048; [50-55]
 	(==hanyo-denshi/hg  . #x3048)	; &R-HD-HG-3048; [16-40]
 	)
