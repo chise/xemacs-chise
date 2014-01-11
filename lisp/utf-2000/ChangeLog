@@ -1,5 +1,17 @@
 2014-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R064-Hand.el, Ideograph-R063-Door.el,
+	Ideograph-R029-Again.el, Ideograph-R027-Cliff.el: Add
+	`=decomposition@hanyo-denshi' for representative (detailed)
+	glyph-images of Hanyo-Denshi/HG.
+
+	* Ideograph-R009-Man.el: Add `=decomposition@hanyo-denshi' for
+	representative (detailed) glyph-images of Hanyo-Denshi/IB.
+
+	* Ideograph-R008-Lid.el: Add `=decomposition@hanyo-denshi' for
+	representative (detailed) glyph-images of Hanyo-Denshi/IB.
+	(U+4EAE): Apply new glyph-image conventions for BC-8C4D.
+
 	* Ideograph-R020-Wrap.el: Add `=decomposition@hanyo-denshi' for
 	representative (detailed) glyph-images of Hanyo-Denshi/IB.
 
@@ -7,13 +19,21 @@
 	Ideograph-R046-Mountain.el, Ideograph-R038-Woman.el,
 	Ideograph-R037-Big.el, Ideograph-R032-Earth.el,
 	Ideograph-R019-Power.el, Ideograph-R018-Knife.el,
-	Ideograph-R015-Ice.el, Ideograph-R012-Eight.el,
-	Ideograph-R002-Line.el: Add `=decomposition@hanyo-denshi' for
-	representative (detailed) glyph-images of Hanyo-Denshi/IB.
+	Ideograph-R015-Ice.el, Ideograph-R014-Cover.el,
+	Ideograph-R012-Eight.el, Ideograph-R002-Line.el: Add
+	`=decomposition@hanyo-denshi' for representative (detailed)
+	glyph-images of Hanyo-Denshi/IB.
 
 2014-01-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* Ideograph-R049-Oneself.el, Ideograph-R043-Lame.el: Add
+	* Ideograph-R212-Dragon.el (J0-4E36): Separate S2-9913.
+	(R-J0-4E36): Separate R-S2-9913.
+	(S1-9914): Unify HD-FT2861 and S2-9913.
+
+	* Ideograph-R184-Eat.el, Ideograph-R159-Cart.el,
+	Ideograph-R142-Insect.el, Ideograph-R140-Grass.el,
+	Ideograph-R113-Spirit.el, Ideograph-R061-Heart.el,
+	Ideograph-R049-Oneself.el, Ideograph-R043-Lame.el: Add
 	`=decomposition@hanyo-denshi' for representative (detailed)
 	glyph-images of Hanyo-Denshi/IA.
 
