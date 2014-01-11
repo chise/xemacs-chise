@@ -1877,7 +1877,12 @@
     (=>>hanyo-denshi/ib . #x2E4A)	; &G-HD-IB-2E4A; [14-42]
     (=>>gt		. 02194)	; &G-HD-IB-2E4A;
     (->subsumptive
-     ((ideographic-structure
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x51CA)	; 凊
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
