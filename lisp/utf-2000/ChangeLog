@@ -1,5 +1,8 @@
 2014-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el: Add `=decomposition@hanyo-denshi' for
+	representative (detailed) glyph-images of Hanyo-Denshi/IB.
+
 	* Ideograph-R064-Hand.el, Ideograph-R063-Door.el,
 	Ideograph-R029-Again.el, Ideograph-R027-Cliff.el: Add
 	`=decomposition@hanyo-denshi' for representative (detailed)
