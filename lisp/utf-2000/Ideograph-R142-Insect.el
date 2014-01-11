@@ -179,6 +179,11 @@
     (ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x459D)	; 䖝
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=hanyo-denshi/ia	. #x2657)	; &HD-IA-2657; [06-55]
     ))
 (define-char
