@@ -659,6 +659,11 @@
     (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6241)	; 扁
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=ucs@jis/2004	. #x6241)	; &HD-HG-305D;
     (=ks-x1001		. #x7837)	; &HD-HG-305D; [88-23]
     (=cns11643-1	. #x5137)	; &I-C1-5137; [49-23]
