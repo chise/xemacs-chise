@@ -1,5 +1,20 @@
 2014-01-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U+5646): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R009-Man.el (U+50ED): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R073-Say.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/{JA|JD}.
+
+	* Ideograph-R072-Sun.el (J0-4348): Add
+	`=decomposition@hanyo-denshi'.
+	(R-J0-5B25): Add `=decomposition@hanyo-denshi'.
+
 	* Ideograph-R069-Axe.el (J0-5A52): Add
 	`=decomposition@hanyo-denshi'.
 
