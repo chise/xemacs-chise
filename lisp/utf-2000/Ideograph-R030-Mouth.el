@@ -17061,6 +17061,11 @@
 	)
        ((=ucs		    . #xE0101)	; 󠄁
 	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x5544)	; 啄
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
@@ -23292,8 +23297,6 @@
       (=ucs@ks		  . #x4EAE)	; &AJ1-03972;
       (=adobe-japan1-0	  . 03972)	; &AJ1-03972;
       ))
-    (=>>ucs@jis		. #x55A8)	; &AJ1-04413;
-    (=>>ucs@cns		. #x55A8)	; &AJ1-04413;
     (=ucs@cns		. #x55A8)	; &AJ1-04413;
     (=ucs@jis		. #x55A8)	; &AJ1-04413;
     (=adobe-japan1-0	. 04413)	; &AJ1-04413;
@@ -23359,11 +23362,9 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=>>ucs@unicode	  . #x4EAE)	; &HD-IB-2D35;
-      (=ucs@unicode	  . #x4EAE)	; &HD-IB-2D35;
+     ((=ucs@unicode	  . #x4EAE)	; &HD-IB-2D35;
       (=gb2312		  . #x4141)	; &HD-IB-2D35; [33-33]
       ))
-    (=>>ucs@unicode	. #x55A8)	; &HD-JT-AEEF;
     (=ucs@unicode	. #x55A8)	; &HD-JT-AEEF;
     (=hanyo-denshi/jt	. #xAEEF)	; &HD-JT-AEEF;
     (->subsumptive
