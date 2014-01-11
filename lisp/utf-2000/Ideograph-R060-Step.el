@@ -3739,14 +3739,21 @@
      ((=ucs@ks		  . #x5FB5)	; &AJ1-13929;
       (=adobe-japan1-4	  . 13929)	; &AJ1-13929;
       (=ks-x1001	  . #x7323)	; &I-K0-7323; [83-03]
+      (=hanyo-denshi/ip	  . #x5FB5)	; &I-HD-IP-5FB5;
+      (=daikanwa	  . 10239)	; &I-M-10239;
       (=jef-china3	  . #x4DBF)	; &I-JC3-4DBF;
       (->subsumptive
        ((==ucs@ks	    . #x5FB5)	; &R-AJ1-13929;
 	(==adobe-japan1-4   . 13929)	; &R-AJ1-13929;
 	(==ks-x1001	    . #x7323)	; &R-AJ1-13929; [83-03]
-	(=daikanwa	    . 10239)	; &R-AJ1-13929;
+	(==daikanwa	    . 10239)	; &R-AJ1-13929;
 	)
-       ((=hanyo-denshi/ip   . #x5FB5)	; &HD-IP-5FB5;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x5FB5)	; 徵
+	  )
+	 ((=ucs		      . #xE0103)	; 󠄃
+	  ))
+	(==hanyo-denshi/ip  . #x5FB5)	; &R-HD-IP-5FB5;
 	))
       )
      ((=ucs@unicode	  . #x5FB5)	; &G0-6167;
