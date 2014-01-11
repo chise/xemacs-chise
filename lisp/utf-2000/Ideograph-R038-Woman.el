@@ -9275,7 +9275,12 @@
     (=>>ucs@unicode	. #x5A67)	; &G-HD-IB-2657;
     (=>>hanyo-denshi/ib . #x2657)	; &G-HD-IB-2657; [06-55]
     (->subsumptive
-     ((=ucs@unicode	  . #x5A67)	; &HD-IB-2657;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5A67)	; 婧
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=ucs@unicode	  . #x5A67)	; &HD-IB-2657;
       (=gb2312		  . #x663A)	; &HD-IB-2657; [70-26]
       (=hanyo-denshi/ib	  . #x2657)	; &I-HD-IB-2657; [06-55]
       )
