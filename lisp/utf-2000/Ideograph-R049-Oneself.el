@@ -147,7 +147,12 @@
      ((=ucs@cns		  . #x382F)	; &C3-2245;
       (=cns11643-3	  . #x2245)	; &C3-2245; [02-37]
       )
-     ((=hanyo-denshi/ia	  . #x2256)	; &HD-IA-2256; [02-54]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x382F)	; 㠯
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=hanyo-denshi/ia	  . #x2256)	; &HD-IA-2256; [02-54]
       ))
     ))
 (define-char
