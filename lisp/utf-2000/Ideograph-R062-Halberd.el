@@ -333,6 +333,11 @@
     (ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6210)	; 成
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=ucs		. #x2F8B2)	; 成
     (=cns11643-3	. #x2627)	; &I-C3-2627; [06-07]
     (=hanyo-denshi/jt	. #xB1CA)	; &I-HD-JT-B1CA;
