@@ -5597,7 +5597,12 @@
     (=>>ucs@unicode	. #x5D1D)	; &G-HD-IB-2660;
     (=>>hanyo-denshi/ib . #x2660)	; &G-HD-IB-2660; [06-64]
     (->subsumptive
-     ((=hanyo-denshi/ib	  . #x2660)	; &HD-IB-2660; [06-64]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5D1D)	; 崝
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/ib	  . #x2660)	; &HD-IB-2660; [06-64]
       )
      ((=ucs@unicode	  . #x5D1D)	; &UU+5D1D;
       )
@@ -5902,7 +5907,12 @@
       (=gb2312		  . #x6142)	; &C1-5A23; [65-34]
       (=cns11643-1	  . #x5A23)	; &I-C1-5A23; [58-03]
       )
-     ((=hanyo-denshi/ib	  . #x313F)	; &HD-IB-313F; [17-31]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5D27)	; 崧
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/ib	  . #x313F)	; &HD-IB-313F; [17-31]
       ))
     ))
 (define-char
@@ -10956,6 +10966,11 @@
     (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5D92)	; 嶒
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=hanyo-denshi/ib	. #x3151)	; &HD-IB-3151; [17-49]
     ))
 (define-char
