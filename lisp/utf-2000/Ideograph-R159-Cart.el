@@ -821,6 +821,11 @@
     (ideographic-radical . 159)	; ⾞
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x484E)	; 䡎
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=cns11643-6	. #x4545)	; &HD-IA-272F; [37-37]
     (=hanyo-denshi/ia	. #x272F)	; &I-HD-IA-272F; [07-15]
     (=daikanwa		. 38234)	; &I-M-38234;
