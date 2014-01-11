@@ -3365,7 +3365,12 @@
     (=>>hanyo-denshi/ia . #x227A)	; 㤗 [02-90]
     (=>>hanyo-denshi/jt . #xC0E4)	; 㤗
     (->subsumptive
-     ((=ucs@jis		  . #x3917)	; &AJ1-17625;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x3917)	; 㤗
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=ucs@jis		  . #x3917)	; &AJ1-17625;
       (=adobe-japan1-5	  . 17625)	; &AJ1-17625;
       (=jis-x0213-2	  . #x2C46)	; &I-JX2-2C46; [12-38]
       (=hanyo-denshi/ia	  . #x227A)	; &I-HD-IA-227A; [02-90]
