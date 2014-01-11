@@ -4339,7 +4339,12 @@
     (=>>hanyo-denshi/ip . #x9115)	; &G-UU+9115;
     (=>>daikanwa	. 39571)	; &G-UU+9115;
     (->subsumptive
-     ((=ucs@unicode	  . #x9115)	; &HD-IP-9115;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x9115)	; 鄕
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=ucs@unicode	  . #x9115)	; &HD-IP-9115;
       (=ks-x1001	  . #x7A41)	; &HD-IP-9115; [90-33]
       (=hanyo-denshi/ip	  . #x9115)	; &I-HD-IP-9115;
       (=daikanwa	  . 39571)	; &I-M-39571;
