@@ -12221,8 +12221,8 @@
       )
      ((=ucs		  . #x8FB6)	; 辶
       )
-     ((=ucs@unicode	  . #x66F7)	; &GT-18084;
-      (=jis-x0208	  . #x5B2B)	; &GT-18084; [59-11]
+     ((=ucs@unicode	  . #x66F7)	; &HD-JA-5B2B;
+      (=jis-x0208	  . #x5B2B)	; &HD-JA-5B2B; [59-11]
       (=gb2312		  . #x6A42)	; &I-G0-6A42; [74-34]
       (=ks-x1001	  . #x4A63)	; &I-K0-4A63; [42-67]
       (=cns11643-1	  . #x5157)	; &I-C1-5157; [49-55]
@@ -12245,8 +12245,8 @@
      ((name		  . "CJK RADICAL WALK ONE")
       (=ucs		  . #x2ECD)	; ⻍
       )
-     ((=ucs@unicode	  . #x66F7)	; &GT-18084;
-      (=jis-x0208	  . #x5B2B)	; &GT-18084; [59-11]
+     ((=ucs@unicode	  . #x66F7)	; &HD-JA-5B2B;
+      (=jis-x0208	  . #x5B2B)	; &HD-JA-5B2B; [59-11]
       (=gb2312		  . #x6A42)	; &I-G0-6A42; [74-34]
       (=ks-x1001	  . #x4A63)	; &I-K0-4A63; [42-67]
       (=cns11643-1	  . #x5157)	; &I-C1-5157; [49-55]
@@ -12281,8 +12281,8 @@
      ((name		  . "CJK RADICAL SIMPLIFIED WALK")
       (=ucs		  . #x2ECC)	; ⻌
       )
-     ((=ucs@unicode	  . #x66F7)	; &GT-18084;
-      (=jis-x0208	  . #x5B2B)	; &GT-18084; [59-11]
+     ((=ucs@unicode	  . #x66F7)	; &HD-JA-5B2B;
+      (=jis-x0208	  . #x5B2B)	; &HD-JA-5B2B; [59-11]
       (=gb2312		  . #x6A42)	; &I-G0-6A42; [74-34]
       (=ks-x1001	  . #x4A63)	; &I-K0-4A63; [42-67]
       (=cns11643-1	  . #x5157)	; &I-C1-5157; [49-55]
@@ -12306,8 +12306,8 @@
      ((name		  . "CJK RADICAL WALK TWO")
       (=ucs		  . #x2ECE)	; ⻎
       )
-     ((=ucs@unicode	  . #x66F7)	; &GT-18084;
-      (=jis-x0208	  . #x5B2B)	; &GT-18084; [59-11]
+     ((=ucs@unicode	  . #x66F7)	; &HD-JA-5B2B;
+      (=jis-x0208	  . #x5B2B)	; &HD-JA-5B2B; [59-11]
       (=gb2312		  . #x6A42)	; &I-G0-6A42; [74-34]
       (=ks-x1001	  . #x4A63)	; &I-K0-4A63; [42-67]
       (=cns11643-1	  . #x5157)	; &I-C1-5157; [49-55]
