@@ -319,6 +319,11 @@
 	)
        ((=ucs		    . #xE0101)	; 󠄁
 	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x4E30)	; 丰
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
       (=adobe-japan1-4	  . 15386)	; &AJ1-15386;
       (=hanyo-denshi/ib	  . #x2D26)	; &I-HD-IB-2D26; [13-06]
       )
