@@ -1935,7 +1935,7 @@
      ((=gt		  . 18141)	; &GT-18141;
       (=daikanwa	  . 14330)	; &I-M-14330;
       )
-     ((=jef-china3	  . #x70A4)	; &JC3-70A4;
+     ((=hanyo-denshi/ft	  . #x3C5D)	; &HD-FT-3C5D; [28-61]
       ))
     (=shinjigen@1ed	.  3452)	; &SJG2-3453;
     (=shinjigen@rev	.  3453)	; &SJG2-3453;
