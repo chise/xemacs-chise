@@ -1374,6 +1374,11 @@
 	)
        ((=ucs		    . #xE0101)	; 󠄁
 	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x517C)	; 兼
+	)
+       ((=ucs		    . #xE0104)	; 󠄄
+	))
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
 	(=ucs		    . #x2FF3)	; ⿳
@@ -1451,6 +1456,11 @@
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x517C)	; 兼
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=hanyo-denshi/ib	. #x2630)	; &HD-IB-2630; [06-16]
     ))
 (define-char
