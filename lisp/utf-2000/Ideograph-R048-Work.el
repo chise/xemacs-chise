@@ -145,6 +145,11 @@
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5DE6)	; 左
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=hanyo-denshi/ib	. #x2661)	; &HD-IB-2661; [06-65]
     ))
 (define-char
