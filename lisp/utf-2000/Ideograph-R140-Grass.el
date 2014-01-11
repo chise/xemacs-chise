@@ -6999,6 +6999,11 @@
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x44B3)	; 䒳
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=ucs@jis		. #x44B3)	; &HD-IA-2635;
     (=jis-x0213-2	. #x7635)	; &HD-IA-2635; [86-21]
     (=hanyo-denshi/ia	. #x2635)	; &I-HD-IA-2635; [06-21]
@@ -9080,7 +9085,12 @@
     (=jis-x0213-2	. #x7632)	; &HD-IA-2638; [86-18]
     (=hanyo-denshi/ia	. #x2638)	; &I-HD-IA-2638; [06-24]
     (->subsumptive
-     ((==ucs@jis	  . #x44BE)	; &R-HD-IA-2638;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x44BE)	; 䒾
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@jis	  . #x44BE)	; &R-HD-IA-2638;
       (==jis-x0213-2	  . #x7632)	; &R-HD-IA-2638; [86-18]
       (==hanyo-denshi/ia  . #x2638)	; &R-HD-IA-2638; [06-24]
       )
@@ -35241,6 +35251,11 @@
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x4543)	; 䕃
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=ucs@unicode	. #x4543)	; &HD-IA-2649;
     (=jis-x0213-2	. #x766E)	; &HD-IA-2649; [86-78]
     (=hanyo-denshi/ia	. #x2649)	; &I-HD-IA-2649; [06-41]
