@@ -16,6 +16,7 @@
     (=>>jis-x0208	. #x4E36)	; &G-J0-4E36; [46-22]
     (=>>jis-x0213-1	. #x4E36)	; &G-J0-4E36; [46-22]
     (=>>gt		. 66672)	; &G-J0-4E36;
+    (=>>daikanwa	. 48818)	; &G-J0-4E36;
     (->subsumptive
      ((=ucs@unicode	  . #x9F8D)	; &GT-66672;
       (=jis-x0208	  . #x4E36)	; &GT-66672; [46-22]
@@ -25,7 +26,7 @@
       (=gt		  . 66672)	; &I-GT-66672;
       (=gt-pj-1		  . #x4E36)	; &I-GT-66672; [46-22]
       (=daikanwa	  . 48818)	; &I-M-48818;
-      (=shinjigen	  .  9913)	; &GT-66672;
+      (=shinjigen@1ed	  .  9913)	; &GT-66672;
       (->subsumptive
        ((==ucs@jis	    . #x9F8D)	; &R-GT-66672;
 	(==ucs@ks	    . #x9F8D)	; &R-GT-66672;
@@ -34,7 +35,7 @@
 	(==jis-x0213-1	    . #x4E36)	; &R-GT-66672; [46-22]
 	(==gt		    . 66672)	; &R-GT-66672;
 	(==daikanwa	    . 48818)	; &R-GT-66672;
-	(==shinjigen	    .  9913)	; &R-GT-66672;
+	(==shinjigen@1ed    .  9913)	; &R-GT-66672;
 	)
        ((==ucs@unicode	    . #x9F8D)	; &R-UU+9F8D;
 	(==gb12345	    . #x417A)	; &R-UU+9F8D; [33-90]
@@ -51,8 +52,10 @@
     (ideographic-radical . 212)	; ⿓
     (ideographic-strokes . 0)
     (total-strokes	 . 16)
-    (=shinjigen@1ed	.  9914)	; &JC3-70A4;
-    (=jef-china3	. #x70A4)	; &JC3-70A4;
+    (=hanyo-denshi/ft	. #x3C5D)	; &HD-FT-3C5D; [28-61]
+    (=shinjigen@1ed	.  9914)	; &HD-FT-3C5D;
+    (=shinjigen@rev	.  9913)	; &HD-FT-3C5D;
+    (=jef-china3	. #x70A4)	; &I-JC3-70A4;
     ))
 (define-char
   '((<-denotational
