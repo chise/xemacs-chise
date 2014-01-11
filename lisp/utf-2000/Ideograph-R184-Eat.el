@@ -4204,6 +4204,11 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 6)
     (total-strokes	 . 15)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x4B3B)	; 䬻
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=hanyo-denshi/ia	. #x2772)	; &HD-IA-2772; [07-82]
     (=daikanwa		. 44156)	; &I-M-44156;
     ))
