@@ -2724,6 +2724,11 @@
 	)
        ((=ucs		    . #xE0105)	; 󠄅
 	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x53A9)	; 厩
+	)
+       ((=ucs		    . #xE0107)	; 󠄇
+	))
       (=ucs@jis/2004	  . #x53A9)	; &AJ1-20271;
       (=adobe-japan1-5	  . 20271)	; &AJ1-20271;
       (=jis-x0213-1@2004  . #x3139)	; &I-JX3-3139; [17-25]
