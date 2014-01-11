@@ -3,6 +3,10 @@
 	* Ideograph-R062-Halberd.el: Add `=decomposition@hanyo-denshi' for
 	Hanyo-Denshi/JT characters.
 
+	* Ideograph-R060-Step.el: Add `=decomposition@hanyo-denshi' for
+	representative (detailed) glyph-images of Hanyo-Denshi/IP.
+	(U+5FB5): Apply new glyph-image conventions.
+
 2014-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R163-City.el: Add `=decomposition@hanyo-denshi' for
