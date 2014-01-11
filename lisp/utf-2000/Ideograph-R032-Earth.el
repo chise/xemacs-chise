@@ -488,6 +488,11 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5734)	; 圴
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=ucs@unicode	. #x5734)	; &HD-IB-2F69;
     (=cns11643-2	. #x222A)	; &HD-IB-2F69; [02-10]
     (=hanyo-denshi/ib	. #x2F69)	; &I-HD-IB-2F69; [15-73]
