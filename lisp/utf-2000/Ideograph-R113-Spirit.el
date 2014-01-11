@@ -2842,7 +2842,12 @@
     (->subsumptive
      ((=daikanwa	  . 24691)	; &M-24691;
       )
-     ((=hanyo-denshi/ia	  . #x2537)	; &HD-IA-2537; [05-23]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x4105)	; 䄅
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=hanyo-denshi/ia	  . #x2537)	; &HD-IA-2537; [05-23]
       (=jef-china3	  . #x5CD2)	; &I-JC3-5CD2;
       ))
     ))
