@@ -625,6 +625,11 @@
       )
      ((=ucs		  . #xE0100)	; 󠄀
       ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x3691)	; 㚑
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=ucs@jis		. #x3691)	; &AJ1-17473;
     (=adobe-japan1-5	. 17473)	; &AJ1-17473;
     (=jis-x0213-2	. #x253F)	; &I-JX2-253F; [05-31]
@@ -1054,7 +1059,12 @@
       (=daikanwa	  . 05888)	; &I-M-05888;
       (=hanziku-2	  . #xBCD6)	; &I-HZK02-BCD6;
       )
-     ((=ucs@unicode	  . #x5946)	; &HD-IB-3036;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5946)	; 奆
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=ucs@unicode	  . #x5946)	; &HD-IB-3036;
       (=hanyo-denshi/ib	  . #x3036)	; &HD-IB-3036; [16-22]
       (=jef-china3	  . #x48E1)	; &I-JC3-48E1;
       ))
@@ -2522,6 +2532,11 @@
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x595F)	; 奟
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (hanyu-dazidian	1 544 2)
     (=ucs@unicode	. #x595F)	; &HD-IB-303D;
     (=cns11643-4	. #x3126)	; &HD-IB-303D; [17-06]
