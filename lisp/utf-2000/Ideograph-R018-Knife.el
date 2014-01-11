@@ -163,6 +163,11 @@
 	)
        ((=ucs		    . #xE0101)	; 󠄁
 	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x5203)	; 刃
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
 	(=ucs		    . #x2FF9)	; ⿹
