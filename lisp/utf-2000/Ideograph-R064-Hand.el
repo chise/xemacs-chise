@@ -10142,6 +10142,11 @@
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x63C3)	; 揃
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=ucs@jis/2004	. #x63C3)	; &HD-HG-3045;
     (=jis-x0213-1@2004	. #x4237)	; &HD-HG-3045; [34-23]
     (=hanyo-denshi/hg	. #x3045)	; &I-HD-HG-3045; [16-37]
