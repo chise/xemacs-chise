@@ -1,5 +1,17 @@
 2014-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R062-Halberd.el (R-HD-KS131690): Add
+	`=decomposition@hanyo-denshi'.
+
+2014-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (R-HD-KS034790): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R191-Fight.el: Add `=decomposition@hanyo-denshi' for
+	representative (detailed) glyph-images of Hanyo-Denshi/IA.
+	(G-UU+4C17): Apply new glyph-image conventions.
+
 	* Ideograph-R062-Halberd.el: Add `=decomposition@hanyo-denshi' for
 	Hanyo-Denshi/JT characters.
 
