@@ -1632,8 +1632,8 @@
 	)
        ((=ucs		    . #x51AB)	; 冫
 	)
-       ((=ucs@unicode	    . #x677E)	; &GT-18480;
-	(=gb2312	    . #x4B49)	; &GT-18480; [43-41]
+       ((=ucs@unicode	    . #x677E)	; &HD-JA-3E3E;
+	(=gb2312	    . #x4B49)	; &HD-JA-3E3E; [43-41]
 	(=jis-x0213-1	    . #x3E3E)	; &I-JX1-3E3E; [30-30]
 	))
       (=ucs@unicode	  . #x51C7)	; &G0-5A21;
