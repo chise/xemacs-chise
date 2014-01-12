@@ -1,5 +1,14 @@
 2014-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R066-Rap.el:
+	- Add Hanyo-Denshi/KS code points.
+	- Add `=decomposition@hanyo-denshi' for some representative
+	  (detailed) glyph-images of Hanyo-Denshi/KS.
+
+	* Ideograph-R063-Door.el: Add `=decomposition@hanyo-denshi' for
+	representative (detailed) glyph-images of Hanyo-Denshi/JT.
+	(U+623F): Apply new glyph-image conventions.
+
 	* Ideograph-R062-Halberd.el (R-HD-KS131690): Add
 	`=decomposition@hanyo-denshi'.
 
