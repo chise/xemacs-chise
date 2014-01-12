@@ -2484,6 +2484,11 @@
     (ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6234)	; 戴
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=hanyo-denshi/ks	. 131690)	; &HD-KS-131690;
     (=hanyo-denshi/ks/mf . #x3371)	; &HD-KS-131690;
     (=daikanwa		. 11685)	; &I-M-11685;
