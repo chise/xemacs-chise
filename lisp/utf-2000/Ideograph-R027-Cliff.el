@@ -2611,7 +2611,12 @@
       (->subsumptive
        ((=daikanwa	    . 03006)	; &M-03006;
 	)
-       ((==hanyo-denshi/ks  . 034790)	; &R-HD-KS-034790;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x53A9)	; 厩
+	  )
+	 ((=ucs		      . #xE0109)	; 󠄉
+	  ))
+	(==hanyo-denshi/ks  . 034790)	; &R-HD-KS-034790;
 	(=hanyo-denshi/ks/mf . #x0D97)	; &R-HD-KS-034790;
 	)
        ((==gt		    . 03810)	; &R-GT-03810;
