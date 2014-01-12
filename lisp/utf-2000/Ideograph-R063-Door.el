@@ -437,20 +437,27 @@
     (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (=>>ucs@ks		. #x623F)	; &G-HD-JT-B1D3;
-    (=>>ucs@cns		. #x623F)	; &G-HD-JT-B1D3;
-    (=big5		. #xA9D0)	; &G-HD-JT-B1D3;
-    (=>>hanyo-denshi/jt . #xB1D3)	; &G-HD-JT-B1D3;
-    (=>>daikanwa	. 11714)	; &G-HD-JT-B1D3;
+    (=ucs@cns		. #x623F)	; &HD-JT-B1D3;
+    (=ucs@ks		. #x623F)	; &HD-JT-B1D3;
+    (=ks-x1001		. #x5B2E)	; &HD-JT-B1D3; [59-14]
+    (=cns11643-1	. #x4D52)	; &I-C1-4D52; [45-50]
+    (=big5		. #xA9D0)	; &I-B-A9D0;
+    (=hanyo-denshi/jt	. #xB1D3)	; &I-HD-JT-B1D3;
+    (=daikanwa		. 11714)	; &I-M-11714;
+    (=jef-china3	. #x4EFC)	; &I-JC3-4EFC;
     (->subsumptive
-     ((=ucs@ks		  . #x623F)	; &HD-JT-B1D3;
-      (=ks-x1001	  . #x5B2E)	; &HD-JT-B1D3; [59-14]
-      (=hanyo-denshi/jt	  . #xB1D3)	; &I-HD-JT-B1D3;
-      (=daikanwa	  . 11714)	; &I-M-11714;
-      (=jef-china3	  . #x4EFC)	; &I-JC3-4EFC;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x623F)	; 房
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==ucs@ks		  . #x623F)	; &R-HD-JT-B1D3;
+      (==ks-x1001	  . #x5B2E)	; &R-HD-JT-B1D3; [59-14]
+      (==hanyo-denshi/jt  . #xB1D3)	; &R-HD-JT-B1D3;
+      (==daikanwa	  . 11714)	; &R-HD-JT-B1D3;
       )
-     ((=ucs@cns		  . #x623F)	; &C1-4D52;
-      (=cns11643-1	  . #x4D52)	; &C1-4D52; [45-50]
+     ((==ucs@cns	  . #x623F)	; &R-CU+623F;
+      (==cns11643-1	  . #x4D52)	; &R-CU+623F; [45-50]
       ))
     ))
 (define-char
@@ -487,7 +494,12 @@
      ((=ucs@unicode	  . #x623F)	; &G0-373F;
       (=gb2312		  . #x373F)	; &G0-373F; [23-31]
       )
-     ((=hanyo-denshi/jt	  . #xB1D4)	; &HD-JT-B1D4;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x623F)	; 房
+	)
+       ((=ucs		    . #xE0104)	; 󠄄
+	))
+      (=hanyo-denshi/jt	  . #xB1D4)	; &HD-JT-B1D4;
       ))
     ))
 (define-char
@@ -1059,6 +1071,11 @@
     (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6247)	; 扇
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=ks-x1001		. #x603F)	; &HD-JT-B1D6; [64-31]
     (=hanyo-denshi/jt	. #xB1D6)	; &I-HD-JT-B1D6;
     (=gt		. 14838)	; &I-GT-14838;
