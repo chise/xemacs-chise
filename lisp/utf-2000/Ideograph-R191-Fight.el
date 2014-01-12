@@ -301,9 +301,20 @@
      ((=daikanwa	  . 45648)	; &M-45648;
       )
      ((=ucs@unicode	  . #x4C17)	; &HD-IA-2822;
-      (=hanyo-denshi/ia	  . #x2822)	; &HD-IA-2822; [08-02]
-      )
-     ((=cns11643-7	  . #x517D)	; &C7-517D; [49-93]
+      (=cns11643-7	  . #x517D)	; &HD-IA-2822; [49-93]
+      (=hanyo-denshi/ia	  . #x2822)	; &I-HD-IA-2822; [08-02]
+      (->subsumptive
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x4C17)	; 䰗
+	  )
+	 ((=ucs		      . #xE0101)	; 󠄁
+	  ))
+	(==hanyo-denshi/ia  . #x2822)	; &R-HD-IA-2822; [08-02]
+	)
+       ((==ucs@unicode	    . #x4C17)	; &R-UU+4C17;
+	)
+       ((==cns11643-7	    . #x517D)	; &R-C7-517D; [49-93]
+	))
       ))
     ))
 (define-char
