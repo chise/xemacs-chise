@@ -125,10 +125,17 @@
     ))
 (define-char
   '((ideographic-radical . 66)	; ⽁
+    (=ucs		. #x6538)	; 攸
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6538)	; 攸
+      ))
+    (ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (=ucs		. #x6538)	; 攸
-    (=adobe-japan1-0	. 05062)	; &I-AJ1-05062;
+    (=ucs@unicode	. #x6538)	; &AJ1-05062;
+    (=adobe-japan1-0	. 05062)	; &AJ1-05062;
     (=jis-x0208		. #x5A41)	; &I-J90-5A41; [58-33]
     (=gb2312		. #x587C)	; &I-G0-587C; [56-92]
     (=ks-x1001		. #x6A72)	; &I-K0-6A72; [74-82]
@@ -140,7 +147,7 @@
     (=gt-k		. 02707)	; &I-GT-K02707;
     (=gt-pj-1		. #x5A41)	; &I-GT-16593; [58-33]
     (=daikanwa		. 13113)	; &I-M-13113;
-    (=shinjigen		.  3160)	; 攸
+    (=shinjigen		.  3160)	; &AJ1-05062;
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x6538)	; 攸
@@ -164,6 +171,21 @@
       (==gt		  . 16593)	; &R-GT-16593;
       (==gt-k		  . 02707)	; &R-GT-16593;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6538)	; 攸
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6538)	; 攸
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=hanyo-denshi/ks	. 005620)	; &HD-KS-005620;
+    (=hanyo-denshi/ks/mf . #x0232)	; &HD-KS-005620;
     ))
 (define-char
   '((ideographic-radical . 66)	; ⽁
@@ -4303,10 +4325,15 @@
     (ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=>>ucs@cns		. #x657A)	; &G-CU+657A;
+    (=ucs@cns		. #x657A)	; &HD-KS-149950;
+    (=cns11643-2	. #x5065)	; &HD-KS-149950; [48-69]
+    (=hanyo-denshi/ks	. 149950)	; &HD-KS-149950;
     (->subsumptive
-     ((=ucs@cns		  . #x657A)	; &C2-5065;
-      (=cns11643-2	  . #x5065)	; &C2-5065; [48-69]
+     ((==hanyo-denshi/ks  . 149950)	; &R-HD-KS-149950;
+      (=hanyo-denshi/ks/mf . #x3A93)	; &R-HD-KS-149950;
+      )
+     ((==ucs@cns	  . #x657A)	; &R-CU+657A;
+      (==cns11643-2	  . #x5065)	; &R-CU+657A; [48-69]
       ))
     ))
 (define-char
