@@ -95,7 +95,12 @@
       (=daikanwa	  . 09569)	; &I-M-09569;
       (=jef-china3	  . #x4CD5)	; &I-JC3-4CD5;
       )
-     ((=hanyo-denshi/ib	  . #x232C)	; &HD-IB-232C; [03-12]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5EF6)	; 延
+	)
+       ((=ucs		    . #xE0104)	; 󠄄
+	))
+      (=hanyo-denshi/ib	  . #x232C)	; &HD-IB-232C; [03-12]
       )
      ((=ucs@unicode	  . #x5EF6)	; &G0-5153;
       (=gb2312		  . #x5153)	; &G0-5153; [49-51]
