@@ -174,7 +174,12 @@
       (<-ancient*sources
        shinjigen)
       )
-     ((=hanyo-denshi/ib	  . #x3223)	; &HD-IB-3223; [18-03]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5F0E)	; 弎
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/ib	  . #x3223)	; &HD-IB-3223; [18-03]
       (=jef-china3	  . #x41A7)	; &I-JC3-41A7;
       ))
     ))
