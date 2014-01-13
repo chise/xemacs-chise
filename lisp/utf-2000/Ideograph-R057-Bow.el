@@ -3094,6 +3094,11 @@
       )
      ((=ucs		  . #xE0101)	; 󠄁
       ))
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5F45)	; 彅
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
