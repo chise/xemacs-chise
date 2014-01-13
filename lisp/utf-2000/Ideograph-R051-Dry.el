@@ -153,6 +153,11 @@
     (ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5E74)	; 年
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=hanyo-denshi/ib	. #x2667)	; &HD-IB-2667; [06-71]
     ))
 (define-char
@@ -385,6 +390,11 @@
     (ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5E78)	; 幸
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=hanyo-denshi/ib	. #x2668)	; &HD-IB-2668; [06-72]
     ))
 (define-char
