@@ -1,3 +1,14 @@
+2014-01-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R212-Dragon.el (HD-FT2861): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R086-Fire.el (U+71FA): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R078-Death.el (U-00023A45): Apply new glyph-image
+	conventions.
+
 2014-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R066-Rap.el:
