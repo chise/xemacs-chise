@@ -2954,23 +2954,35 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (=ucs		. #x23A45)	; 𣩅
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23A45)	; 𣩅
+      ))
+    (ideographic-radical . 78)	; ⽍
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
+    (=ucs@iso		. #x23A45)	; &C4-442E;
+    (=cns11643-4	. #x442E)	; &C4-442E; [36-14]
+    (=daikanwa		. 16539)	; &I-M-16539;
+    (<-synonyms
+     ((=ucs@unicode	  . #x69C1)	; &HD-JA-5C49;
+      (=jis-x0208	  . #x5C49)	; &HD-JA-5C49; [60-41]
+      (=gb2312		  . #x6942)	; &I-G0-6942; [73-34]
+      (=ks-x1001	  . #x4D3E)	; &I-K0-4D3E; [45-30]
+      (=cns11643-1	  . #x6929)	; &I-C1-6929; [73-09]
+      (=jis-x0213-1	  . #x5C49)	; &I-JX1-5C49; [60-41]
+      (=daikanwa	  . 15300)	; &I-M-15300;
+      ))
+    (<-synonyms*sources
+     zhengzitong guangya daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 16539)	; &M-16539;
-      (<-synonyms
-       ((=ucs@jis	    . #x69C1)	; &GT-19490;
-	(=ucs@ks	    . #x69C1)	; &GT-19490;
-	(=jis-x0208	    . #x5C49)	; &GT-19490; [60-41]
-	(=ks-x1001	    . #x4D3E)	; &I-K0-4D3E; [45-30]
-	(=jis-x0213-1	    . #x5C49)	; &I-JX1-5C49; [60-41]
-	(=daikanwa	    . 15300)	; &I-M-15300;
-	))
-      (<-synonyms*sources
-       zhengzitong guangya daikanwa)
+     ((==daikanwa	  . 16539)	; &R-M-16539;
       )
      ((hanyu-dazidian	  2 1392 9)
-      (=ucs@iso		  . #x23A45)	; &C4-442E;
-      (=cns11643-4	  . #x442E)	; &C4-442E; [36-14]
-      (=hanziku-4	  . #xC677)	; &I-HZK04-C677;
+      (==ucs@iso	  . #x23A45)	; &HZK04-C677;
+      (==cns11643-4	  . #x442E)	; &HZK04-C677; [36-14]
+      (=hanziku-4	  . #xC677)	; &HZK04-C677;
       ))
     ))
 (define-char
