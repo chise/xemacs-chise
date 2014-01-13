@@ -299,6 +299,15 @@
        ((=ucs		    . #x53E3)	; 口
 	))
       (=big5-cdp	  . #x8BAA)	; &CDP-8BAA;
+      (<-simplified@component/connect-below
+       ((=ucs@unicode	    . #x9AD8)	; &GT-60968;
+	(=jis-x0208	    . #x3962)	; &GT-60968; [25-66]
+	(=gb2312	    . #x385F)	; &I-G0-385F; [24-63]
+	(=ks-x1001	    . #x4D54)	; &I-K0-4D54; [45-52]
+	(=cns11643-1	    . #x586D)	; &I-C1-586D; [56-77]
+	(=jis-x0213-1	    . #x3962)	; &I-JX1-3962; [25-66]
+	(=daikanwa	    . 45313)	; &I-M-45313;
+	))
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -311,12 +320,9 @@
 	  ))
 	(==big5-cdp	    . #x8BAA)	; &R-CDP-8BAA;
 	(<-simplified@component/connect-below
-	 ((=ucs@jis	      . #x9AD8)	; &GT-60968;
-	  (=ucs@ks	      . #x9AD8)	; &GT-60968;
-	  (=jis-x0208	      . #x3962)	; &GT-60968; [25-66]
-	  (=ks-x1001	      . #x4D54)	; &I-K0-4D54; [45-52]
-	  (=jis-x0213-1	      . #x3962)	; &I-JX1-3962; [25-66]
-	  (=daikanwa	      . 45313)	; &I-M-45313;
+	 ((==ucs@jis	      . #x9AD8)	; &R-GT-60968;
+	  (==ucs@ks	      . #x9AD8)	; &R-GT-60968;
+	  (==jis-x0208	      . #x3962)	; &R-GT-60968; [25-66]
 	  ))
 	))
       ))
@@ -881,7 +887,7 @@
        ((=gt-k		    . 01444)	; &GT-K01444;
 	))
       (<-simplified@component/connect-below
-       ((=ucs@JP	    . #x9AD9)	; &AJ1-08705;
+       ((=ucs@unicode	    . #x9AD9)	; &AJ1-08705;
 	(=adobe-japan1-2    . 08705)	; &AJ1-08705;
 	))
       (->subsumptive
@@ -1149,10 +1155,11 @@
       (=gt-k		  . 02791)	; &I-GT-K02791;
       (=gt-pj-k1	  . #x324C)	; &CDP-8C4D; [18-44]
       (<-simplified@component/connect-below
-       ((=ucs@jis	    . #x9AD8)	; &GT-60968;
-	(=ucs@ks	    . #x9AD8)	; &GT-60968;
+       ((=ucs@unicode	    . #x9AD8)	; &GT-60968;
 	(=jis-x0208	    . #x3962)	; &GT-60968; [25-66]
+	(=gb2312	    . #x385F)	; &I-G0-385F; [24-63]
 	(=ks-x1001	    . #x4D54)	; &I-K0-4D54; [45-52]
+	(=cns11643-1	    . #x586D)	; &I-C1-586D; [56-77]
 	(=jis-x0213-1	    . #x3962)	; &I-JX1-3962; [25-66]
 	(=daikanwa	    . 45313)	; &I-M-45313;
 	))
@@ -1167,6 +1174,11 @@
 	  ))
 	(==big5-cdp	    . #x8C4D)	; &R-CDP-8C4D;
 	(==gt-k		    . 02791)	; &R-CDP-8C4D;
+	(<-simplified@component/connect-below
+	 ((==ucs@jis	      . #x9AD8)	; &R-GT-60968;
+	  (==ucs@ks	      . #x9AD8)	; &R-GT-60968;
+	  (==jis-x0208	      . #x3962)	; &R-GT-60968; [25-66]
+	  ))
 	))
       ))
     ))
@@ -1443,17 +1455,18 @@
       (=gt-k		  . 04733)	; &GT-K04733;
       (=gt-pj-k1	  . #x393A)	; &GT-K04733; [25-26]
       (<-simplified@component/connect-below
-       ((=ucs@JP	    . #x9AD9)	; &AJ1-08705;
+       ((=ucs@unicode	    . #x9AD9)	; &AJ1-08705;
 	(=adobe-japan1-2    . 08705)	; &AJ1-08705;
 	))
       (<-vulgar@component
        ((=big5-cdp	    . #x8C4D)	; &CDP-8C4D;
 	))
       (<-vulgar@component/connect-below
-       ((=ucs@jis	    . #x9AD8)	; &GT-60968;
-	(=ucs@ks	    . #x9AD8)	; &GT-60968;
+       ((=ucs@unicode	    . #x9AD8)	; &GT-60968;
 	(=jis-x0208	    . #x3962)	; &GT-60968; [25-66]
+	(=gb2312	    . #x385F)	; &I-G0-385F; [24-63]
 	(=ks-x1001	    . #x4D54)	; &I-K0-4D54; [45-52]
+	(=cns11643-1	    . #x586D)	; &I-C1-586D; [56-77]
 	(=jis-x0213-1	    . #x3962)	; &I-JX1-3962; [25-66]
 	(=daikanwa	    . 45313)	; &I-M-45313;
 	))
