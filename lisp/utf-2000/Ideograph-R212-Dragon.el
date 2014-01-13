@@ -52,6 +52,11 @@
     (ideographic-radical . 212)	; ⿓
     (ideographic-strokes . 0)
     (total-strokes	 . 16)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x9F8D)	; 龍
+      )
+     ((=ucs		  . #xE0107)	; 󠄇
+      ))
     (=hanyo-denshi/ft	. #x3C5D)	; &HD-FT-3C5D; [28-61]
     (=shinjigen@1ed	.  9914)	; &HD-FT-3C5D;
     (=shinjigen@rev	.  9913)	; &HD-FT-3C5D;
