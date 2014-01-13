@@ -1,5 +1,20 @@
 2014-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R060-Step.el, Ideograph-R057-Bow.el,
+	Ideograph-R056-Shoot.el, Ideograph-R054-Long-Stride.el: Add
+	`=decomposition@hanyo-denshi' for representative (detailed)
+	glyph-images of Hanyo-Denshi/IB.
+
+	* Ideograph-R008-Lid.el (BC-8BAA): Add
+	`<-simplified@component/connect-below' for J0-3962.
+	(R-BC-8BAA): Apply new glyph-image conventions for J0-3962.
+	(GT-K02128): Apply new glyph-image conventions for U+9AD9.
+	(GT-K02791): Apply new glyph-image conventions for J0-3962.
+	(R-GT-K02791): Add `<-simplified@component/connect-below' for
+	R-J0-3962.
+	(GT-K04733): Apply new glyph-image conventions for U+9AD9 and
+	J0-3962.
+
 	* Ideograph-R051-Dry.el: Add `=decomposition@hanyo-denshi' for
 	representative (detailed) glyph-images of Hanyo-Denshi/IB.
 
