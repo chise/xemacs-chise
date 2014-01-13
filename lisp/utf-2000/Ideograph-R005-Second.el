@@ -2347,8 +2347,9 @@
     (=shinjigen@rev	.  9916)	; 亀
     (=hanziku-12	. #xEBBD)	; &I-HZK12-EBBD;
     (<-vulgar
-     ((=ucs@jis		  . #x9F9C)	; &J90-737D;
-      (=jis-x0208@1983	  . #x737D)	; &J90-737D; [83-93]
+     ((=ucs@jis		  . #x9F9C)	; &GT-66712;
+      (=ucs@ks		  . #x9F9C)	; &GT-66712;
+      (=jis-x0208@1983	  . #x737D)	; &GT-66712; [83-93]
       (=ks-x1001	  . #x4F4F)	; &I-K0-4F4F; [47-47]
       (=jis-x0213-1	  . #x737D)	; &I-JX1-737D; [83-93]
       (=daikanwa	  . 48847)	; &I-M-48847;
