@@ -1278,12 +1278,13 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	  (=ucs		      . #x2FF0)	; ⿰
 	  )
-	 ((=ucs@unicode	      . #x6708)	; &GT-18140;
-	  (=jis-x0208	      . #x376E)	; &GT-18140; [23-78]
+	 ((=ucs@unicode	      . #x6708)	; &HD-JA-376E;
+	  (=jis-x0208	      . #x376E)	; &HD-JA-376E; [23-78]
 	  (=gb2312	      . #x5442)	; &I-G0-5442; [52-34]
 	  (=ks-x1001	      . #x6A45)	; &I-K0-6A45; [74-37]
 	  (=cns11643-1	      . #x454C)	; &I-C1-454C; [37-44]
 	  (=jis-x0213-1	      . #x376E)	; &I-JX1-376E; [23-78]
+	  (=daikanwa	      . 14330)	; &I-M-14330;
 	  )
 	 ((=ucs		      . #x5DDC)	; 巜
 	  ))
