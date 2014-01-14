@@ -216,6 +216,11 @@
     (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x623B)	; 戻
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=cns11643-3	. #x2628)	; &HD-KS-131910; [06-08]
     (=hanyo-denshi/ks	. 131910)	; &HD-KS-131910;
     (=hanyo-denshi/ks/mf . #x3387)	; &I-KSMF-13191;
