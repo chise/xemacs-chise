@@ -4329,7 +4329,12 @@
       (=ks-x1001	  . #x6B23)	; &I-K0-6B23; [75-03]
       (=daikanwa	  . 20558)	; &I-M-20558;
       )
-     ((=ucs@jis/2004	  . #x7337)	; &HD-HG-3063;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7337)	; 猷
+	)
+       ((=ucs		    . #xE0104)	; 󠄄
+	))
+      (=ucs@jis/2004	  . #x7337)	; &HD-HG-3063;
       (=jis-x0213-1@2004  . #x4D32)	; &HD-HG-3063; [45-18]
       (=hanyo-denshi/hg	  . #x3063)	; &I-HD-HG-3063; [16-67]
       ))
