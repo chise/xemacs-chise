@@ -8406,6 +8406,11 @@
     (ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x717D)	; 煽
+      )
+     ((=ucs		  . #xE0104)	; 󠄄
+      ))
     (=ucs@jis/2004	. #x717D)	; &HD-HG-3046;
     (=ks-x1001		. #x6043)	; &HD-HG-3046; [64-35]
     (=jis-x0213-1@2004	. #x407A)	; &I-JX3-407A; [32-90]
