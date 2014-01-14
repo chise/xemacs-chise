@@ -1,3 +1,17 @@
+2014-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R063-Door.el: Add `=decomposition@hanyo-denshi' for
+	some representative (detailed) glyph-images of Hanyo-Denshi/KS.
+
+	* Ideograph-R053-Dotted-Cliff.el: Add
+	`=decomposition@hanyo-denshi' for representative (detailed)
+	glyph-images of Hanyo-Denshi/IB.
+	(U+5EAC): Apply new glyph-image conventions.
+	(G-KS107150): Likewise.
+
+	* Ideograph-R162-Walk.el (M-38850): Apply new glyph-image
+	conventions for U+6062.
+
 2014-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el: Add `=decomposition@hanyo-denshi' for
