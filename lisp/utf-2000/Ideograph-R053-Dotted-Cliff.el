@@ -2160,7 +2160,12 @@
     (=>>hanyo-denshi/jb . #x3C4A)	; &G-AJ1-17601; [28-42]
     (=>>daikanwa	. 09333)	; &G-AJ1-17601;
     (->subsumptive
-     ((=daikanwa	  . 09333)	; &M-09333;
+     ((=ucs@jis		  . #x5EAC)	; &AJ1-17601;
+      (=adobe-japan1-5	  . 17601)	; &AJ1-17601;
+      (=jis-x0212	  . #x3C4A)	; &I-JSP-3C4A; [28-42]
+      (=jis-x0213-2	  . #x2C25)	; &I-JX2-2C25; [12-05]
+      (=hanyo-denshi/jb	  . #x3C4A)	; &I-HD-JB-3C4A; [28-42]
+      (=daikanwa	  . 09333)	; &I-M-09333;
       (<-vulgar
        ((=ucs@cns	    . #x5396)	; &AJ1-04322;
 	(=ucs@jis	    . #x5396)	; &AJ1-04322;
@@ -2169,22 +2174,25 @@
 	))
       (<-vulgar*sources
        zhengzitong daikanwa)
-      )
-     ((=decomposition@cid
-       ((=ucs		    . #x5EAC)	; 庬
+      (->subsumptive
+       ((==daikanwa	    . 09333)	; &R-M-09333;
 	)
-       ((=ucs		    . #xE0100)	; 󠄀
+       ((=decomposition@cid
+	 ((=ucs		      . #x5EAC)	; 庬
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(=decomposition@hanyo-denshi
+	 ((=ucs		      . #x5EAC)	; 庬
+	  )
+	 ((=ucs		      . #xE0101)	; 󠄁
+	  ))
+	(==ucs@jis	    . #x5EAC)	; &R-AJ1-17601;
+	(==adobe-japan1-5   . 17601)	; &R-AJ1-17601;
+	(==jis-x0212	    . #x3C4A)	; &R-AJ1-17601; [28-42]
+	(==jis-x0213-2	    . #x2C25)	; &R-AJ1-17601; [12-05]
+	(==hanyo-denshi/jb  . #x3C4A)	; &R-AJ1-17601; [28-42]
 	))
-      (=decomposition@hanyo-denshi
-       ((=ucs		    . #x5EAC)	; 庬
-	)
-       ((=ucs		    . #xE0101)	; 󠄁
-	))
-      (=ucs@jis		  . #x5EAC)	; &AJ1-17601;
-      (=adobe-japan1-5	  . 17601)	; &AJ1-17601;
-      (=jis-x0212	  . #x3C4A)	; &I-JSP-3C4A; [28-42]
-      (=jis-x0213-2	  . #x2C25)	; &I-JX2-2C25; [12-05]
-      (=hanyo-denshi/jb	  . #x3C4A)	; &I-HD-JB-3C4A; [28-42]
       )
      ((=jef-china3	  . #x4CC2)	; &JC3-4CC2;
       )
@@ -2198,19 +2206,24 @@
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=>>ucs@cns		. #x5EAC)	; &HD-IB-3170;
     (=ucs@cns		. #x5EAC)	; &HD-IB-3170;
     (=cns11643-2	. #x2E7A)	; &HD-IB-3170; [14-90]
     (=hanyo-denshi/ib	. #x3170)	; &I-HD-IB-3170; [17-80]
+    (=shinjigen		.  0880)	; &HD-IB-3170;
+    (<-formed
+     ((=hanyo-denshi/jt	  . #xAE85)	; &HD-JT-AE85;
+      (=shinjigen	  .  0879)	; &HD-JT-AE85;
+      ))
+    (<-formed*sources
+     shinjigen)
     (->subsumptive
-     ((==hanyo-denshi/ib  . #x3170)	; &R-HD-IB-3170; [17-80]
-      (=shinjigen	  .  0880)	; &R-HD-IB-3170;
-      (<-formed
-       ((=hanyo-denshi/jt   . #xAE85)	; &HD-JT-AE85;
-	(=shinjigen	    .  0879)	; &HD-JT-AE85;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5EAC)	; 庬
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
 	))
-      (<-formed*sources
-       shinjigen)
+      (==hanyo-denshi/ib  . #x3170)	; &R-HD-IB-3170; [17-80]
+      (==shinjigen	  .  0880)	; &R-HD-IB-3170;
       )
      ((==ucs@cns	  . #x5EAC)	; &R-CU+5EAC;
       (==cns11643-2	  . #x2E7A)	; &R-CU+5EAC; [14-90]
@@ -4891,16 +4904,20 @@
       (=>>hanyo-denshi/ks . 107150)	; &G-HD-KS-1A28E;
       (=>>gt		  . 11901)	; &G-HD-KS-1A28E;
       (->subsumptive
-       ((=gt		    . 11901)	; &GT-11901;
-	(=gt-pj-9	    . #x4C55)	; &GT-11901; [44-53]
-	)
-       ((=decomposition@hanyo-denshi
-	 ((=ucs		      . #x5ED0)	; 廐
+       ((=hanyo-denshi/ks   . 107150)	; &HD-KS-107150;
+	(=gt		    . 11901)	; &HD-KS-107150;
+	(=gt-pj-9	    . #x4C55)	; &HD-KS-107150; [44-53]
+	(->subsumptive
+	 ((==gt		      . 11901)	; &R-GT-11901;
 	  )
-	 ((=ucs		      . #xE0103)	; 󠄃
+	 ((=decomposition@hanyo-denshi
+	   ((=ucs		. #x5ED0)	; 廐
+	    )
+	   ((=ucs		. #xE0103)	; 󠄃
+	    ))
+	  (==hanyo-denshi/ks  . 107150)	; &R-HD-KS-107150;
+	  (=hanyo-denshi/ks/mf . #x29DB)	; &R-HD-KS-107150;
 	  ))
-	(=hanyo-denshi/ks   . 107150)	; &HD-KS-107150;
-	(=hanyo-denshi/ks/mf . #x29DB)	; &HD-KS-107150;
 	)
        ((=shinjigen	    .  2209)	; &SJG2-2209;
 	(<-vulgar
@@ -4917,6 +4934,11 @@
        ((=ucs		    . #x5ED0)	; 廐
 	)
        ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x5ED0)	; 廐
+	)
+       ((=ucs		    . #xE0104)	; 󠄄
 	))
       (=adobe-japan1-0	  . 07989)	; &AJ1-07989;
       (=hanyo-denshi/ib	  . #x266D)	; &I-HD-IB-266D; [06-77]
