@@ -346,8 +346,8 @@
     (=daikanwa		. 16270)	; &I-M-16270;
     (=hanziku-4		. #xD2F5)	; &I-HZK04-D2F5;
     (<-ancient
-     ((=ucs@unicode	  . #x65C5)	; &GT-17246;
-      (=gb2312		  . #x4243)	; &GT-17246; [34-35]
+     ((=ucs@unicode	  . #x65C5)	; &HD-JT-B272;
+      (=gb2312		  . #x4243)	; &HD-JT-B272; [34-35]
       (=ks-x1001	  . #x5569)	; &I-K0-5569; [53-73]
       (=cns11643-1	  . #x556A)	; &I-C1-556A; [53-74]
       (=daikanwa	  . 13644)	; &I-M-13644;
@@ -365,8 +365,8 @@
     (=daikanwa		. 16271)	; &I-M-16271;
     (=hanziku-4		. #xD2F3)	; &I-HZK04-D2F3;
     (<-ancient
-     ((=ucs@unicode	  . #x65C5)	; &GT-17246;
-      (=gb2312		  . #x4243)	; &GT-17246; [34-35]
+     ((=ucs@unicode	  . #x65C5)	; &HD-JT-B272;
+      (=gb2312		  . #x4243)	; &HD-JT-B272; [34-35]
       (=ks-x1001	  . #x5569)	; &I-K0-5569; [53-73]
       (=cns11643-1	  . #x556A)	; &I-C1-556A; [53-74]
       (=daikanwa	  . 13644)	; &I-M-13644;
