@@ -1,8 +1,8 @@
 2014-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* Ideograph-R189-Tall.el (U+9AD8): Apply new glyph-image
-	conventions.
-	(U+9AD9): Likewise.
+	* Ideograph-R061-Heart.el: Add `=decomposition@hanyo-denshi' for
+	representative (detailed) glyph-images of Hanyo-Denshi/HG.
+	(G-UU+6062): Apply new glyph-image conventions.
 
 	* Ideograph-R094-Dog.el, Ideograph-R086-Fire.el,
 	Ideograph-R085-Water.el: Add `=decomposition@hanyo-denshi' for
@@ -30,6 +30,10 @@
 	representative (detailed) glyph-images of Hanyo-Denshi/IB.
 
 2014-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R189-Tall.el (U+9AD8): Apply new glyph-image
+	conventions.
+	(U+9AD9): Likewise.
 
 	* Ideograph-R124-Feather.el (U+7FEF): Add ideographic-structure;
 	apply new glyph-image conventions for U+9AD8.
