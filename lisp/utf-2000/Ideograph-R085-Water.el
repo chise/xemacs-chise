@@ -1196,6 +1196,11 @@
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6C72)	; 汲
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=ucs@jis/2004	. #x6C72)	; &HD-HG-302B;
     (=ks-x1001		. #x5063)	; &HD-HG-302B; [48-67]
     (=cns11643-1	. #x4A77)	; &I-C1-4A77; [42-87]
@@ -15087,6 +15092,11 @@
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6EBA)	; 溺
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=ucs@jis/2004	. #x6EBA)	; &HD-HG-3051;
     (=jis-x0208@1978	. #x452E)	; &HD-HG-3051; [37-14]
     (=ks-x1001		. #x527C)	; &I-K0-527C; [50-92]
