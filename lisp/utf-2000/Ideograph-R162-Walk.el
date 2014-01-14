@@ -6067,7 +6067,9 @@
     (total-strokes	 . 10)
     (=daikanwa		. 38850)	; &M-38850;
     (<-same
-     ((=jis-x0208@1978	  . #x327A)	; &HD-FT-3161; [18-90]
+     ((=ucs@unicode	  . #x6062)	; &HD-FT-3161;
+      (=jis-x0208@1978	  . #x327A)	; &HD-FT-3161; [18-90]
+      (=gb2312		  . #x3B56)	; &I-G0-3B56; [27-54]
       (=daikanwa	  . 10577)	; &I-M-10577;
       ))
     (<-same*sources
