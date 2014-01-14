@@ -877,6 +877,11 @@
 	  )
 	 ((=ucs		      . #xE0101)	; 󠄁
 	  ))
+	(=decomposition@hanyo-denshi
+	 ((=ucs		      . #x51A4)	; 冤
+	  )
+	 ((=ucs		      . #xE0103)	; 󠄃
+	  ))
 	(==ucs@iso	    . #x2F818)	; &R-AJ1-07817;
 	(==ucs@jis/2004	    . #x51A4)	; &R-AJ1-07817;
 	(==adobe-japan1-0   . 07817)	; &R-AJ1-07817;
