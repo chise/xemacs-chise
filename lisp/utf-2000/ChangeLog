@@ -1,5 +1,23 @@
 2014-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R098-Tile.el: Add `=decomposition@hanyo-denshi' for
+	representative (detailed) glyph-images of Hanyo-Denshi/HG.
+
+	* Ideograph-R075-Tree.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/{JA|JB|JD}.
+	(U+69C0): Apply new glyph-image conventions.
+	(G-CB01849): New abstract node.
+
+	* Ideograph-R070-Square.el: Add Hanyo-Denshi/JT code points.
+
+	* Ideograph-R068-Dipper.el: Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R066-Rap.el: Add Hanyo-Denshi/JT code points.
+
+2014-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R063-Door.el: Add `=decomposition@hanyo-denshi' for
 	some representative (detailed) glyph-images of Hanyo-Denshi/KS.
 
