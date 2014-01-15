@@ -1,4 +1,37 @@
+2014-01-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R213-Turtle.el:
+	- Add Hanyo-Denshi/FT code points.
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/FT.
+	(U+9F9C): Apply new glyph-image conventions.
+
 2014-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R092-Fang.el: Add `=decomposition@hanyo-denshi' for
+	representative (detailed) glyph-images of Hanyo-Denshi/HG.
+	(U+7259): Apply new glyph-image conventions.
+
+	* Ideograph-R078-Death.el: Add `=decomposition@hanyo-denshi' for
+	representative (detailed) glyph-images of Hanyo-Denshi/JB.
+
+	* Ideograph-R077-Stop.el: Add Hanyo-Denshi/JA code points.
+
+	* Ideograph-R064-Hand.el: Add Hanyo-Denshi/JT code points.
+
+	* Ideograph-R041-Inch.el (G-KU+5C0A): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R030-Mouth.el: Add `=decomposition@hanyo-denshi' for
+	representative (detailed) glyph-images of Hanyo-Denshi/HG.
+	(U+5440): Apply new glyph-image conventions.
+
+	* Ideograph-R015-Ice.el (U+51B4): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R009-Man.el (U+4F22): Apply new glyph-image
+	conventions.
+	(U+50D4): Likewise.
 
 	* Ideograph-R098-Tile.el: Add `=decomposition@hanyo-denshi' for
 	representative (detailed) glyph-images of Hanyo-Denshi/HG.
@@ -26,6 +59,9 @@
 	glyph-images of Hanyo-Denshi/IB.
 	(U+5EAC): Apply new glyph-image conventions.
 	(G-KS107150): Likewise.
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add `#x376E'.
 
 	* Ideograph-R162-Walk.el (M-38850): Apply new glyph-image
 	conventions for U+6062.
