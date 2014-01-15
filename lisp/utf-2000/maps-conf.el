@@ -94,7 +94,7 @@
 	#x5A45 #x4754 #x343A #x3B36 #x4658
 	#x3749 #x3F74 #x4528 #x4030 #x5A4C
 	#x507B #x507E #x5353 #x5A44 #x6E2B
-	#x5B30 #x4C40))
+	#x5B30 #x4C40 #x376E))
 
 (map-char-attribute
  (lambda (c v)
