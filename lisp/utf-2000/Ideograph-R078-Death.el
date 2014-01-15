@@ -3614,6 +3614,11 @@
     (ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6BA9)	; 殩
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=ucs@jis/1990	. #x6BA9)	; &HD-JB-462B;
     (=jis-x0212		. #x462B)	; &HD-JB-462B; [38-11]
     (=hanyo-denshi/jb	. #x462B)	; &I-HD-JB-462B; [38-11]
@@ -3628,6 +3633,7 @@
     (total-strokes	 . 17)
     (=>>ucs@unicode	. #x6BA9)	; &G-JX1-7647;
     (=>>jis-x0213-1	. #x7647)	; &G-JX1-7647; [86-39]
+    (=>>hanyo-denshi/jc . #x7647)	; &G-JX1-7647; [86-39]
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x6BA9)	; 殩
