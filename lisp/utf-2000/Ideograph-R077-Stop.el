@@ -10,6 +10,7 @@
     (=cns11643-1	. #x454F)	; &I-C1-454F; [37-47]
     (=jis-x0213-1	. #x3B5F)	; &I-JX1-3B5F; [27-63]
     (=big5		. #xA4EE)	; &I-B-A4EE;
+    (=hanyo-denshi/ja	. #x3B5F)	; &I-HD-JA-3B5F; [27-63]
     (=gt		. 20884)	; &I-GT-20884;
     (=gt-k		. 00438)	; &I-GT-K00438;
     (=gt-pj-1		. #x3B5F)	; &I-GT-20884; [27-63]
@@ -1895,12 +1896,18 @@
     (ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6B78)	; 歸
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=ucs@jis		. #x6B78)	; &AJ1-05348;
     (=adobe-japan1-0	. 05348)	; &AJ1-05348;
     (=jis-x0208		. #x5D45)	; &I-J90-5D45; [61-37]
     (=ks-x1001		. #x4F7D)	; &I-K0-4F7D; [47-93]
     (=cns11643-1	. #x7657)	; &I-C1-7657; [86-55]
     (=jis-x0213-1	. #x5D45)	; &I-JX1-5D45; [61-37]
+    (=hanyo-denshi/ja	. #x5D45)	; &I-HD-JA-5D45; [61-37]
     (=gt		. 20995)	; &I-GT-20995;
     (=gt-pj-1		. #x5D45)	; &I-GT-20995; [61-37]
     (=daikanwa		. 16349)	; &I-M-16349;
