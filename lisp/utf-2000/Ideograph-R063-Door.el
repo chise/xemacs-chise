@@ -520,6 +520,11 @@
     (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6240)	; 所
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=ucs@unicode	. #x6240)	; &HD-IB-232F;
     (=gb2312		. #x4B79)	; &HD-IB-232F; [43-89]
     (=ks-x1001		. #x6136)	; &I-K0-6136; [65-22]
