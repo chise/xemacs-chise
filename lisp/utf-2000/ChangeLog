@@ -1,4 +1,32 @@
+2014-01-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R079-Weapon.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/JA.
+	(G-CB00906): New abstract node.
+	(U-00023AE2): Add ideographic-structure.
+
+	* Ideograph-R019-Power.el (J0-5228): Omit G-UU+52D7.
+
+	* Ideograph-R064-Hand.el: Add `=decomposition@hanyo-denshi' for
+	representative (detailed) glyph-images of Hanyo-Denshi/IB.
+
 2014-01-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R074-Moon.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/JA.
+	(U+670F): Apply new glyph-image conventions.
+	(U-00023367): Likewise.
+	(U-0002336E): Likewise.
+	(U-00023385): Likewise.
+	(U+6727): Apply new glyph-image conventions for U+6708.
+
+	* Ideograph-R073-Say.el: Add `=decomposition@hanyo-denshi' for
+	representative (detailed) glyph-images of Hanyo-Denshi/IB.
+	(J0-5228): Omit G-UU+52D7.
 
 	* Ideograph-R063-Door.el: Add `=decomposition@hanyo-denshi' for
 	representative (detailed) glyph-images of Hanyo-Denshi/IB.
