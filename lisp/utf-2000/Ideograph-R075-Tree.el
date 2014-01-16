@@ -14948,7 +14948,12 @@
       (->subsumptive
        ((==daikanwa	    . 15154)	; &R-M-15154;
 	)
-       ((==ucs@jis/2004	    . #x6962)	; &R-HD-HG-3062;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x6962)	; 楢
+	  )
+	 ((=ucs		      . #xE0103)	; 󠄃
+	  ))
+	(==ucs@jis/2004	    . #x6962)	; &R-HD-HG-3062;
 	(==ucs@ks	    . #x6962)	; &R-HD-HG-3062;
 	(==jis-x0208@1978   . #x466A)	; &R-HD-HG-3062; [38-74]
 	(==ks-x1001	    . #x6A79)	; &R-HD-HG-3062; [74-89]
@@ -23279,22 +23284,29 @@
     (ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (=>>ucs@jis/2004	. #x6A3D)	; &G-JX3-432E;
-    (=>>ucs@ks		. #x6A3D)	; &G-JX3-432E;
-    (=>>jis-x0208@1978	. #x432E)	; &G-JX3-432E; [35-14]
-    (=>>jis-x0213-1@2004 . #x432E)	; &G-JX3-432E; [35-14]
-    (=>>hanyo-denshi/hg . #x304F)	; &G-JX3-432E; [16-47]
-    (=>>daikanwa	. 15500)	; &G-JX3-432E;
+    (=ucs@jis/2004	. #x6A3D)	; &HD-HG-304F;
+    (=ucs@ks		. #x6A3D)	; &HD-HG-304F;
+    (=jis-x0208@1978	. #x432E)	; &HD-HG-304F; [35-14]
+    (=ks-x1001		. #x715C)	; &I-K0-715C; [81-60]
+    (=jis-x0213-1@2004	. #x432E)	; &I-JX3-432E; [35-14]
+    (=hanyo-denshi/hg	. #x304F)	; &I-HD-HG-304F; [16-47]
+    (=daikanwa		. 15500)	; &I-M-15500;
+    (=shinjigen		.  3825)	; &HD-HG-304F;
     (->subsumptive
-     ((=daikanwa	  . 15500)	; &M-15500;
+     ((==daikanwa	  . 15500)	; &R-M-15500;
       )
-     ((=ucs@jis/2004	  . #x6A3D)	; &HD-HG-304F;
-      (=ucs@ks		  . #x6A3D)	; &HD-HG-304F;
-      (=jis-x0208@1978	  . #x432E)	; &HD-HG-304F; [35-14]
-      (=ks-x1001	  . #x715C)	; &I-K0-715C; [81-60]
-      (=jis-x0213-1@2004  . #x432E)	; &I-JX3-432E; [35-14]
-      (=hanyo-denshi/hg	  . #x304F)	; &I-HD-HG-304F; [16-47]
-      (=shinjigen	  .  3825)	; &HD-HG-304F;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x6A3D)	; 樽
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==ucs@jis/2004	  . #x6A3D)	; &R-HD-HG-304F;
+      (==ucs@ks		  . #x6A3D)	; &R-HD-HG-304F;
+      (==jis-x0208@1978	  . #x432E)	; &R-HD-HG-304F; [35-14]
+      (==ks-x1001	  . #x715C)	; &R-HD-HG-304F; [81-60]
+      (==jis-x0213-1@2004 . #x432E)	; &R-HD-HG-304F; [35-14]
+      (==hanyo-denshi/hg  . #x304F)	; &R-HD-HG-304F; [16-47]
+      (==shinjigen	  .  3825)	; &R-HD-HG-304F;
       ))
     ))
 (define-char
@@ -23320,6 +23332,7 @@
       (=jis-x0208@1978	  . #x432E)	; &HD-HG-304F; [35-14]
       (=ks-x1001	  . #x715C)	; &I-K0-715C; [81-60]
       (=jis-x0213-1@2004  . #x432E)	; &I-JX3-432E; [35-14]
+      (=daikanwa	  . 15500)	; &I-M-15500;
       ))
     (->subsumptive
      ((==cns11643-1	  . #x7073)	; &R-C1-7073; [80-83]
