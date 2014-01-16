@@ -1,5 +1,9 @@
 2014-01-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R033-Scholar.el (U+58FF): Add ideographic-structure.
+	(M-05678): Apply new glyph-image conventions.
+	(C2-4F7A): Add ideographic-structure.
+
 	* Ideograph-R079-Weapon.el:
 	- Add Hanyo-Denshi/JA code points.
 	- Add `=decomposition@hanyo-denshi' for representative (detailed)
