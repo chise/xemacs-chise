@@ -1,5 +1,10 @@
 2014-01-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R063-Door.el: Add `=decomposition@hanyo-denshi' for
+	representative (detailed) glyph-images of Hanyo-Denshi/IB.
+
+2014-01-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R213-Turtle.el:
 	- Add Hanyo-Denshi/FT code points.
 	- Add `=decomposition@hanyo-denshi' for representative (detailed)
