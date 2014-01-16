@@ -517,7 +517,6 @@
       )
      ((=ucs		  . #x52A9)	; 助
       ))
-    (=>>ucs@unicode	. #x52D7)	; &AJ1-04285;
     (=ucs@unicode	. #x52D7)	; &AJ1-04285;
     (=adobe-japan1-0	. 04285)	; &AJ1-04285;
     (=jis-x0208		. #x5228)	; &I-J90-5228; [50-08]
@@ -746,6 +745,11 @@
     (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x66FE)	; 曾
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=ucs@unicode	. #x66FE)	; &HD-IB-272A;
     (=gb2312		. #x5478)	; &HD-IB-272A; [52-88]
     (=cns11643-1	. #x5F64)	; &I-C1-5F64; [63-68]
@@ -948,6 +952,11 @@
     (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x5195)	; 冕
+      )
+     ((=ucs		  . #xE0104)	; 󠄄
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
