@@ -8539,7 +8539,8 @@
     (=daikanwa		. 10822)	; &I-M-10822;
     (=shinjigen		.  2480)	; &AJ1-04851;
     (<-vulgar
-     ((=shinjigen	  .  2479)	; &SJG2-2479;
+     ((=hanyo-denshi/ib	  . #x3260)	; &HD-IB-3260; [18-64]
+      (=shinjigen	  .  2479)	; &HD-IB-3260;
       ))
     (<-vulgar*sources
      shinjigen)
@@ -8565,14 +8566,18 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=>>shinjigen	. 2479)
-    (=>>hanyo-denshi/ib . #x3260)	; &G-HD-IB-3260; [18-64]
+    (=hanyo-denshi/ib	. #x3260)	; &HD-IB-3260; [18-64]
+    (=shinjigen		.  2479)	; &HD-IB-3260;
+    (=jef-china3	. #x4DD6)	; &I-JC3-4DD6;
     (->subsumptive
-     ((=shinjigen	  .  2479)	; &SJG2-2479;
+     ((==shinjigen	  .  2479)	; &R-SJG2-2479;
       )
-     ((=hanyo-denshi/ib	  . #x3260)	; &HD-IB-3260; [18-64]
-      )
-     ((=jef-china3	  . #x4DD6)	; &JC3-4DD6;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x60E0)	; 惠
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==hanyo-denshi/ib  . #x3260)	; &R-HD-IB-3260; [18-64]
       ))
     ))
 (define-char
@@ -14178,6 +14183,11 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6165)	; 慥
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=hanyo-denshi/ib	. #x2674)	; &HD-IB-2674; [06-84]
     ))
 (define-char
