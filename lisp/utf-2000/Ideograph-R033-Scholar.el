@@ -965,6 +965,14 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (hanyu-dazidian	1 488 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x58EB)	; 士
+      )
+     ((=ucs		  . #x5C0A)	; 尊
+      ))
     (=ucs		. #x58FF)	; 壿
     (=big5		. #xE553)	; &I-B-E553;
     ))
@@ -981,9 +989,22 @@
       )
      ((=ucs		  . #x58EB)	; 士
       )
-     ((=daikanwa	  . 07445)	; &M-07445;
+     ((=ucs@ks		  . #x5C0A)	; &HD-JT-B045;
+      (=ks-x1001	  . #x706E)	; &HD-JT-B045; [80-78]
+      (=daikanwa	  . 07445)	; &I-M-07445;
       ))
     (=daikanwa		. 05678)	; &M-05678;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x58EB)	; 士
+	)
+       ((==daikanwa	    . 07445)	; &R-M-07445;
+	))
+      (==daikanwa	  . 05678)	; &R-M-05678;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -992,6 +1013,15 @@
     (ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x58EB)	; 士
+      )
+     ((=ucs@unicode	  . #x5C0A)	; &AJ1-02842;
+      (=adobe-japan1-0	  . 02842)	; &AJ1-02842;
+      ))
     (=ucs@unicode	. #x58FF)	; &C2-4F7A;
     (=cns11643-2	. #x4F7A)	; &C2-4F7A; [47-90]
     (->subsumptive
