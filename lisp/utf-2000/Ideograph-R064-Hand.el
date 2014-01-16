@@ -15558,6 +15558,11 @@
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6460)	; 摠
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=hanyo-denshi/ib	. #x334E)	; &HD-IB-334E; [19-46]
     ))
 (define-char
@@ -21986,11 +21991,15 @@
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
-    (=>>ucs@unicode	. #x64FF)	; &HD-IB-267E;
     (=ucs@unicode	. #x64FF)	; &HD-IB-267E;
     (=hanyo-denshi/ib	. #x267E)	; &HD-IB-267E; [06-94]
     (->subsumptive
-     ((==hanyo-denshi/ib  . #x267E)	; &R-HD-IB-267E; [06-94]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x64FF)	; 擿
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==hanyo-denshi/ib  . #x267E)	; &R-HD-IB-267E; [06-94]
       )
      ((==ucs@unicode	  . #x64FF)	; &R-UU+64FF;
       ))
