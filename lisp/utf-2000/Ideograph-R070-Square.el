@@ -614,7 +614,12 @@
      ((==daikanwa	  . 13644)	; &R-M-13644;
       (==shinjigen	  .  3251)	; &R-M-13644;
       )
-     ((==hanyo-denshi/jt  . #xB272)	; &R-HD-JT-B272;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x65C5)	; 旅
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==hanyo-denshi/jt  . #xB272)	; &R-HD-JT-B272;
       )
      ((==ks-x1001	  . #x5569)	; &R-K0-5569; [53-73]
       )
