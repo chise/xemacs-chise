@@ -388,7 +388,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@jis	    . #x4EA2)	; &AJ1-04111;
+       ((=ucs@unicode	    . #x4EA2)	; &AJ1-04111;
 	(=adobe-japan1-0    . 04111)	; &AJ1-04111;
 	)
        ((=ucs		    . #x529B)	; 力
