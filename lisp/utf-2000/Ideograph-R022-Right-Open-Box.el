@@ -208,7 +208,6 @@
   '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (hanyu-dazidian	1 84 6)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (=ucs		  . #x2FF7)	; ⿷
@@ -218,7 +217,30 @@
      ((=ucs		  . #x4EA2)	; 亢
       ))
     (=ucs		. #x531F)	; 匟
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x531F)	; 匟
+      ))
+    (ideographic-radical . 22)	; ⼕
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (hanyu-dazidian	1 84 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x531A)	; 匚
+      )
+     ((=ucs@unicode	  . #x4EA2)	; &AJ1-04111;
+      (=adobe-japan1-0	  . 04111)	; &AJ1-04111;
+      ))
+    (=ucs@unicode	. #x531F)	; &AJ1-19203;
+    (=adobe-japan1-5	. 19203)	; &AJ1-19203;
+    (=jis-x0212		. #x3428)	; &I-JSP-3428; [20-08]
+    (=cns11643-2	. #x2222)	; &I-C2-2222; [02-02]
     (=big5		. #xC9C2)	; &I-B-C9C2;
+    (=daikanwa		. 02603)	; &I-M-02603;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x531F)	; 匟
@@ -231,13 +253,13 @@
 	)
        ((=ucs		    . #x531A)	; 匚
 	)
-       ((=ucs@jis	    . #x4EA2)	; &AJ1-04111;
-	(=adobe-japan1-0    . 04111)	; &AJ1-04111;
+       ((==ucs@jis	    . #x4EA2)	; &R-AJ1-04111;
+	(==adobe-japan1-0   . 04111)	; &R-AJ1-04111;
 	))
-      (=ucs@jis		  . #x531F)	; &AJ1-19203;
-      (=adobe-japan1-5	  . 19203)	; &AJ1-19203;
-      (=jis-x0212	  . #x3428)	; &I-JSP-3428; [20-08]
-      (=daikanwa	  . 02603)	; &I-M-02603;
+      (==ucs@jis	  . #x531F)	; &R-AJ1-19203;
+      (==adobe-japan1-5	  . 19203)	; &R-AJ1-19203;
+      (==jis-x0212	  . #x3428)	; &R-AJ1-19203; [20-08]
+      (==daikanwa	  . 02603)	; &R-AJ1-19203;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
@@ -245,12 +267,10 @@
 	)
        ((=ucs		    . #x531A)	; 匚
 	)
-       ((=ucs@unicode	    . #x4EA2)	; &C1-446D;
-	(=gb2312	    . #x3F3A)	; &C1-446D; [31-26]
-	(=cns11643-1	    . #x446D)	; &I-C1-446D; [36-77]
+       ((==ucs@unicode	    . #x4EA2)	; &R-UU+4EA2;
 	))
-      (=ucs@unicode	  . #x531F)	; &C2-2222;
-      (=cns11643-2	  . #x2222)	; &C2-2222; [02-02]
+      (==ucs@unicode	  . #x531F)	; &R-UU+531F;
+      (==cns11643-2	  . #x2222)	; &R-UU+531F; [02-02]
       ))
     ))
 (define-char
