@@ -1,5 +1,14 @@
 2014-01-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R080-Do-Not.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/JA.
+
+	* Ideograph-R071-Not.el (HD-JT-B27A): New character.
+
+2014-01-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R068-Dipper.el: Add `=decomposition@hanyo-denshi' for
 	some representative (detailed) glyph-images of Hanyo-Denshi/KS.
 
