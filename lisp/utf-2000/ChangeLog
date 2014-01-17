@@ -1,3 +1,11 @@
+2014-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (U+4EA2): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R019-Power.el (U+52A5): Apply new glyph-image
+	conventions for U+4EA2.
+
 2014-01-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R080-Do-Not.el:
