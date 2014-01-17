@@ -147,8 +147,35 @@
       ))
     (sound@ja/on	"kAu")
     (=ucs		. #x4EA2)	; 亢
-    (=>>jis-x0208	. #x5036)	; 亢 [48-22]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4EA2)	; 亢
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((=ucs		  . #x51E0)	; 几
+      ))
+    (=ucs@unicode	. #x4EA2)	; &AJ1-04111;
+    (=adobe-japan1-0	. 04111)	; &AJ1-04111;
+    (=jis-x0208		. #x5036)	; &I-J90-5036; [48-22]
+    (=gb2312		. #x3F3A)	; &I-G0-3F3A; [31-26]
+    (=ks-x1001		. #x7971)	; &I-K0-7971; [89-81]
+    (=cns11643-1	. #x446D)	; &I-C1-446D; [36-77]
+    (=jis-x0213-1	. #x5036)	; &I-JX1-5036; [48-22]
     (=big5		. #xA4AE)	; &I-B-A4AE;
+    (=gt		. 00379)	; &I-GT-00379;
+    (=gt-k		. 00508)	; &I-GT-K00508;
+    (=gt-pj-1		. #x5036)	; &I-GT-00379; [48-22]
+    (=daikanwa		. 00288)	; &I-M-00288;
+    (=shinjigen		.  0092)	; &AJ1-04111;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x4EA2)	; 亢
@@ -164,16 +191,15 @@
 	)
        ((=ucs		    . #x51E0)	; 几
 	))
-      (=ucs@jis		  . #x4EA2)	; &AJ1-04111;
-      (=adobe-japan1-0	  . 04111)	; &AJ1-04111;
-      (=jis-x0208	  . #x5036)	; &I-J90-5036; [48-22]
-      (=ks-x1001	  . #x7971)	; &I-K0-7971; [89-81]
-      (=jis-x0213-1	  . #x5036)	; &I-JX1-5036; [48-22]
-      (=gt		  . 00379)	; &I-GT-00379;
-      (=gt-k		  . 00508)	; &I-GT-K00508;
-      (=gt-pj-1		  . #x5036)	; &I-GT-00379; [48-22]
-      (=daikanwa	  . 00288)	; &I-M-00288;
-      (=shinjigen	  .  0092)	; &AJ1-04111;
+      (==ucs@jis	  . #x4EA2)	; &R-AJ1-04111;
+      (==adobe-japan1-0	  . 04111)	; &R-AJ1-04111;
+      (==ks-x1001	  . #x7971)	; &R-AJ1-04111; [89-81]
+      (==jis-x0208	  . #x5036)	; &R-AJ1-04111; [48-22]
+      (==jis-x0213-1	  . #x5036)	; &R-AJ1-04111; [48-22]
+      (==gt		  . 00379)	; &R-AJ1-04111;
+      (==gt-k		  . 00508)	; &R-AJ1-04111;
+      (==daikanwa	  . 00288)	; &R-AJ1-04111;
+      (==shinjigen	  .  0092)	; &R-AJ1-04111;
       )
      ((hanyu-dazidian	  1 280 1)
       (ideographic-structure
@@ -186,9 +212,9 @@
 	)
        ((=ucs		    . #x51E0)	; 几
 	))
-      (=ucs@unicode	  . #x4EA2)	; &C1-446D;
-      (=gb2312		  . #x3F3A)	; &C1-446D; [31-26]
-      (=cns11643-1	  . #x446D)	; &I-C1-446D; [36-77]
+      (==ucs@unicode	  . #x4EA2)	; &R-UU+4EA2;
+      (==gb2312		  . #x3F3A)	; &R-UU+4EA2; [31-26]
+      (==cns11643-1	  . #x446D)	; &R-UU+4EA2; [36-77]
       ))
     ))
 (define-char
