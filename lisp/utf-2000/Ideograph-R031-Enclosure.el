@@ -715,7 +715,29 @@
      ((=ucs		  . #x4EA2)	; 亢
       ))
     (=ucs		. #x56E5)	; 囥
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x56E5)	; 囥
+      ))
+    (ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=ucs@unicode	  . #x4EA2)	; &AJ1-04111;
+      (=adobe-japan1-0	  . 04111)	; &AJ1-04111;
+      ))
+    (=ucs@unicode	. #x56E5)	; &AJ1-21314;
+    (=adobe-japan1-6	. 21314)	; &AJ1-21314;
+    (=jis-x0212		. #x3678)	; &I-JSP-3678; [22-88]
+    (=cns11643-2	. #x2349)	; &I-C2-2349; [03-41]
     (=big5		. #xCAA9)	; &I-B-CAA9;
+    (=daikanwa		. 04705)	; &I-M-04705;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x56E5)	; 囥
@@ -729,13 +751,13 @@
 	)
        ((=ucs		    . #x56D7)	; 囗
 	)
-       ((=ucs@jis	    . #x4EA2)	; &AJ1-04111;
-	(=adobe-japan1-0    . 04111)	; &AJ1-04111;
+       ((==ucs@jis	    . #x4EA2)	; &R-AJ1-04111;
+	(==adobe-japan1-0   . 04111)	; &R-AJ1-04111;
 	))
-      (=ucs@jis		  . #x56E5)	; &AJ1-21314;
-      (=adobe-japan1-6	  . 21314)	; &AJ1-21314;
-      (=jis-x0212	  . #x3678)	; &I-JSP-3678; [22-88]
-      (=daikanwa	  . 04705)	; &I-M-04705;
+      (==ucs@jis	  . #x56E5)	; &R-AJ1-21314;
+      (==adobe-japan1-6	  . 21314)	; &R-AJ1-21314;
+      (==jis-x0212	  . #x3678)	; &R-AJ1-21314; [22-88]
+      (==daikanwa	  . 04705)	; &R-AJ1-21314;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
@@ -743,12 +765,10 @@
 	)
        ((=ucs		    . #x56D7)	; 囗
 	)
-       ((=ucs@unicode	    . #x4EA2)	; &C1-446D;
-	(=gb2312	    . #x3F3A)	; &C1-446D; [31-26]
-	(=cns11643-1	    . #x446D)	; &I-C1-446D; [36-77]
+       ((==ucs@unicode	    . #x4EA2)	; &R-UU+4EA2;
 	))
-      (=ucs@unicode	  . #x56E5)	; &C2-2349;
-      (=cns11643-2	  . #x2349)	; &C2-2349; [03-41]
+      (==ucs@unicode	  . #x56E5)	; &R-UU+56E5;
+      (==cns11643-2	  . #x2349)	; &R-UU+56E5; [03-41]
       ))
     ))
 (define-char
