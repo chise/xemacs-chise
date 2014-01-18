@@ -1,5 +1,10 @@
 2014-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R119-Rice.el: Add `=decomposition@hanyo-denshi' for a
+	representative (detailed) glyph-image of Hanyo-Denshi/HG.
+
+2014-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R031-Enclosure.el (U+56E5): Apply new glyph-image
 	conventions.
 
@@ -8,6 +13,13 @@
 
 	* Ideograph-R008-Lid.el (U+4EA2): Apply new glyph-image
 	conventions.
+
+	* Ideograph-R075-Tree.el, Ideograph-R074-Moon.el: Add
+	`=decomposition@hanyo-denshi' for representative (detailed)
+	glyph-images of Hanyo-Denshi/IB.
+
+	* Ideograph-R162-Walk.el (JSP-613E): Apply new glyph-image
+	conventions for U+4EA2.
 
 	* Ideograph-R019-Power.el (U+52A5): Apply new glyph-image
 	conventions for U+4EA2.
