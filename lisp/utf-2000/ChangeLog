@@ -1,5 +1,8 @@
 2014-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R031-Enclosure.el (U+56E5): Apply new glyph-image
+	conventions.
+
 	* Ideograph-R022-Right-Open-Box.el (U+531F): Apply new glyph-image
 	conventions.
 
