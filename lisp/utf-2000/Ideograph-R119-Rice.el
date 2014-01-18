@@ -324,7 +324,12 @@
       (=gt-pj-5		  . #x6622)	; &I-GT-34620; [70-02]
       (=daikanwa	  . 26857)	; &I-M-26857;
       )
-     ((=ucs@jis/2004	  . #x7C7E)	; &HD-HG-3061;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7C7E)	; 籾
+	)
+       ((=ucs		    . #xE0104)	; 󠄄
+	))
+      (=ucs@jis/2004	  . #x7C7E)	; &HD-HG-3061;
       (=jis-x0213-1@2004  . #x4C62)	; &HD-HG-3061; [44-66]
       (=hanyo-denshi/hg	  . #x3061)	; &I-HD-HG-3061; [16-65]
       ))
