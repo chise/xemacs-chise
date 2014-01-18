@@ -223,6 +223,11 @@
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x670B)	; 朋
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=hanyo-denshi/ib	. #x3450)	; &HD-IB-3450; [20-48]
     (=gt		. 18172)	; &I-GT-18172;
     (=gt-k		. 04938)	; &I-GT-K04938;
