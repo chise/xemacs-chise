@@ -2105,7 +2105,7 @@
     (=jis-x0212		. #x613E)	; &JSP-613E; [65-30]
     (=daikanwa		. 38755)	; &I-M-38755;
     (<-synonyms@p1/s5
-     ((=ucs@jis		  . #x4EA2)	; &AJ1-04111;
+     ((=ucs@unicode	  . #x4EA2)	; &AJ1-04111;
       (=adobe-japan1-0	  . 04111)	; &AJ1-04111;
       (=daikanwa	  . 00288)	; &I-M-00288;
       ))
