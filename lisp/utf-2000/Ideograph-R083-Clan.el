@@ -116,9 +116,15 @@
      ((=ks-x1001	  . #x586C)	; &M-17030; [56-76]
       (=daikanwa	  . 17030)	; &I-M-17030;
       )
-     ((=ucs@jis		  . #x6C13)	; &I-J90-5D62;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x6C13)	; 氓
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=ucs@jis		  . #x6C13)	; &I-J90-5D62;
       (=jis-x0208@1990	  . #x5D62)	; &I-J90-5D62; [61-66]
       (=jis-x0213-1	  . #x5D62)	; &I-JX1-5D62; [61-66]
+      (=hanyo-denshi/ja	  . #x5D62)	; &I-HD-JA-5D62; [61-66]
       (=shinjigen	  .  4040)	; &I-J90-5D62;
       )
      ((=ucs@cns		  . #x6C13)	; &HD-FT-366B;
