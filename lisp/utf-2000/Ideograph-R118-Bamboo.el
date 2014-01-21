@@ -414,6 +414,11 @@
     (ideographic-radical . 118)	; ⽵
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x7B08)	; 笈
+      )
+     ((=ucs		  . #xE0104)	; 󠄄
+      ))
     (=ucs@jis/2004	. #x7B08)	; &HD-HG-302D;
     (=cns11643-2	. #x3166)	; &HD-HG-302D; [17-70]
     (=jis-x0213-1@2004	. #x3568)	; &I-JX3-3568; [21-72]
@@ -4762,6 +4767,11 @@
     (ideographic-radical . 118)	; ⽵
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x7BAD)	; 箭
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=ucs@jis/2004	. #x7BAD)	; &HD-HG-3047;
     (=jis-x0213-1@2004	. #x407D)	; &HD-HG-3047; [32-93]
     (=hanyo-denshi/hg	. #x3047)	; &I-HD-HG-3047; [16-39]
@@ -5588,6 +5598,11 @@
     (ideographic-radical . 118)	; ⽵
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x7BC7)	; 篇
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=ucs@jis/2004	. #x7BC7)	; &HD-HG-305E;
     (=ks-x1001		. #x7839)	; &HD-HG-305E; [88-25]
     (=cns11643-1	. #x6E32)	; &I-C1-6E32; [78-18]
@@ -6657,6 +6672,11 @@
     (ideographic-radical . 118)	; ⽵
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x7BDD)	; 篝
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=ucs@jis/2004	. #x7BDD)	; &HD-HG-303A;
     (=jis-x0213-1@2004	. #x6440)	; &HD-HG-303A; [68-32]
     (=hanyo-denshi/hg	. #x303A)	; &I-HD-HG-303A; [16-26]
@@ -10222,7 +10242,12 @@
     (->subsumptive
      ((=daikanwa	  . 26616)	; &M-26616;
       )
-     ((=ucs@jis/2004	  . #x7C3E)	; &HD-HG-3066;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7C3E)	; 簾
+	)
+       ((=ucs		    . #xE0104)	; 󠄄
+	))
+      (=ucs@jis/2004	  . #x7C3E)	; &HD-HG-3066;
       (=jis-x0213-1@2004  . #x4E7C)	; &HD-HG-3066; [46-92]
       (=hanyo-denshi/hg	  . #x3066)	; &I-HD-HG-3066; [16-70]
       (=gt		  . 34334)	; &I-GT-34334;
