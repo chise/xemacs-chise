@@ -771,9 +771,18 @@
     (ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=ucs@unicode	. #x65B2)	; &C2-5068;
-    (=cns11643-2	. #x5068)	; &C2-5068; [48-72]
+    (=ucs@unicode	. #x65B2)	; &HD-KS-152280;
+    (=cns11643-2	. #x5068)	; &HD-KS-152280; [48-72]
     (=big5		. #xE5C1)	; &I-B-E5C1;
+    (=hanyo-denshi/ks	. 152280)	; &HD-KS-152280;
+    (->subsumptive
+     ((==hanyo-denshi/ks  . 152280)	; &R-HD-KS-152280;
+      (=hanyo-denshi/ks/mf . #x3B7C)	; &R-HD-KS-152280;
+      )
+     ((==ucs@unicode	  . #x65B2)	; &R-UU+65B2;
+      )
+     ((==cns11643-2	  . #x5068)	; &R-C2-5068; [48-72]
+      ))
     ))
 (define-char
   '((ideographic-radical . 69)	; ⽄
@@ -1130,7 +1139,9 @@
     (ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
-    (=shinjigen@rev	.  3229)	; &SJG2-3229;
+    (=hanyo-denshi/ks	. 152560)	; &HD-KS-152560;
+    (=hanyo-denshi/ks/mf . #x3B98)	; &HD-KS-152560;
+    (=shinjigen@rev	.  3229)	; &HD-KS-152560;
     ))
 (define-char
   '((ideographic-radical . 69)	; ⽄
@@ -1184,7 +1195,8 @@
       (=daikanwa	  . 13617)	; &M-13617;
       (=shinjigen@rev	  .  3230)	; &M-13617;
       (<-original
-       ((=shinjigen@rev	    .  3229)	; &SJG2-3229;
+       ((=hanyo-denshi/ks   . 152560)	; &HD-KS-152560;
+	(=shinjigen@rev	    .  3229)	; &HD-KS-152560;
 	))
       (<-original*sources
        shinjigen@rev)
