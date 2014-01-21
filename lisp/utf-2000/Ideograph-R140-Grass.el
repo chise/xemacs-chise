@@ -1389,6 +1389,11 @@
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x8292)	; 芒
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=ucs@jis/2004	. #x8292)	; &HD-HG-3060;
     (=jis-x0213-1@2004	. #x676A)	; &HD-HG-3060; [71-74]
     (=hanyo-denshi/hg	. #x3060)	; &I-HD-HG-3060; [16-64]
@@ -7177,7 +7182,12 @@
     (=>>jis-x0213-1@2004 . #x3071)	; &G-JX3-3071; [16-81]
     (=>>hanyo-denshi/hg . #x303C)	; &G-JX3-3071; [16-28]
     (->subsumptive
-     ((=ucs@jis/2004	  . #x8328)	; &HD-HG-303C;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8328)	; 茨
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=ucs@jis/2004	  . #x8328)	; &HD-HG-303C;
       (=jis-x0213-1@2004  . #x3071)	; &HD-HG-303C; [16-81]
       (=hanyo-denshi/hg	  . #x303C)	; &I-HD-HG-303C; [16-28]
       )
@@ -28978,6 +28988,11 @@
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x8511)	; 蔑
+      )
+     ((=ucs		  . #xE0105)	; 󠄅
+      ))
     (=ucs@jis/2004	. #x8511)	; &HD-HG-305C;
     (=jis-x0213-1@2004	. #x4A4E)	; &HD-HG-305C; [42-46]
     (=hanyo-denshi/hg	. #x305C)	; &I-HD-HG-305C; [16-60]
