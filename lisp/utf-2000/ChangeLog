@@ -1,5 +1,11 @@
 2014-01-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R096-Jade.el, Ideograph-R086-Fire.el: Add
+	`=decomposition@hanyo-denshi' for representative (detailed)
+	glyph-images of Hanyo-Denshi/IB.
+
+	* char-db-util.el (char-db-insert-ccs-feature): Support `=koseki'.
+
 	* Ideograph-R082-Fur.el:
 	- Add Hanyo-Denshi/JA code points.
 	- Add `=decomposition@hanyo-denshi' for a representative (detailed)
