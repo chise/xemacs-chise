@@ -1305,6 +1305,11 @@
     (ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x73CA)	; 珊
+      )
+     ((=ucs		  . #xE0104)	; 󠄄
+      ))
     (=hanyo-denshi/ib	. #x2124)	; &HD-IB-2124; [01-04]
     (=daikanwa		. 20917)	; &I-M-20917;
     (=shinjigen		.  4884)	; &HD-IB-2124;
@@ -2352,6 +2357,11 @@
       )
      ((ideographic-strokes . 6)
       (total-strokes	   . 10)
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x73F9)	; 珹
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
       (=ucs@unicode	  . #x73F9)	; &HD-IB-3777;
       (=ks-x1001	  . #x607B)	; &HD-IB-3777; [64-91]
       (=cns11643-3	  . #x323F)	; &I-C3-323F; [18-31]
@@ -3264,7 +3274,12 @@
      ((=ucs@unicode	  . #x7422)	; &G0-5741;
       (=gb2312		  . #x5741)	; &G0-5741; [55-33]
       )
-     ((=cns11643-1	  . #x6060)	; &HD-IB-3827; [64-64]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7422)	; 琢
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=cns11643-1	  . #x6060)	; &HD-IB-3827; [64-64]
       (=hanyo-denshi/ib	  . #x3827)	; &I-HD-IB-3827; [24-07]
       ))
     ))
@@ -6079,6 +6094,11 @@
     (ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x7489)	; 璉
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=ucs@unicode	. #x7489)	; &HD-IB-2755;
     (=gb12345		. #x6776)	; &HD-IB-2755; [71-86]
     (=hanyo-denshi/ib	. #x2755)	; &HD-IB-2755; [07-53]
@@ -7112,7 +7132,12 @@
      ((=ucs@unicode	  . #x74A9)	; &G0-6833;
       (=gb2312		  . #x6833)	; &G0-6833; [72-19]
       )
-     ((=hanyo-denshi/ib	  . #x3847)	; &HD-IB-3847; [24-39]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x74A9)	; 璩
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/ib	  . #x3847)	; &HD-IB-3847; [24-39]
       )
      ((=jef-china3	  . #x5AA2)	; &JC3-5AA2;
       )
