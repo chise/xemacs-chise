@@ -5,7 +5,7 @@
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1995 Sun Microsystems.
 ;; Copyright (C) 1997, 1999, 2002, 2003, 2004, 2005, 2006, 2008, 2009,
-;;   2010, 2011, 2012, 2013 MORIOKA Tomohiko
+;;   2010, 2011, 2012, 2013, 2014 MORIOKA Tomohiko
 
 ;; This file is part of XEmacs.
 
@@ -325,6 +325,7 @@
 	  (==gt-k			       "R-GT-K" 5 d)
 	  (==jis-x0208@1983		       "R-J83-" 4 X)
 	  (==jis-x0208@1978		       "R-J78-" 4 X)
+	  ( =koseki			      "KOSEKI-" 6 d)
 	  ( =cbeta				   "CB" 5 d)
 	  ( =hanziku-1			       "HZK01-" 4 X)
 	  ( =hanziku-2			       "HZK02-" 4 X)
@@ -411,6 +412,7 @@
 	  ( =>gt-k			       "A-GT-K" 5 d)
 	  ( =>zinbun-oracle		       "A-ZOB-" 4 d)
 	  (==>ucs@bucs				"BUCS+" 4 X)
+	  ( =>ucs@hanyo-denshi		    "A-HD-UCS+" 4 X)
 	  ( =>ucs@iso				"A-IU+" 4 X)
 	  ( =>ucs@unicode			"A-UU+" 4 X)
 	  ( =>ucs@jis				"A-JU+" 4 X)
