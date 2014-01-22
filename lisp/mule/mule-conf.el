@@ -3,7 +3,7 @@
 ;; Copyright (C) 1995,1999 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1997, 1999, 2000, 2002, 2003, 2004, 2005, 2006, 2008,
-;;   2009, 2010, 2011, 2012, 2013 MORIOKA Tomohiko
+;;   2009, 2010, 2011, 2012, 2013, 2014 MORIOKA Tomohiko
 
 ;; Keywords: mule, multilingual, character set, coding system
 
@@ -1695,6 +1695,17 @@
 	       max-code	   ,(+ (lsh #x6403 16) #xFFFF)
 	       code-offset    ,(lsh #x6403 16)))
 
+  (make-charset
+   '=koseki
+   "Representative glyph-images of KoSeki-touitsu-moji."
+   '(long-name "KoSeki-touitsu-moji"
+	       chars 256
+	       dimension 3
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =hanyo-denshi/ks))
+
   (define-charset-alias '=>>>hanyo-denshi/ja '=hanyo-denshi/ja)
   ;; (make-charset
   ;;  '=>>>hanyo-denshi/ja
@@ -2481,6 +2492,17 @@
   (make-charset '==>ucs@bucs
 		"Basic Subset of Coded Character Sets (BUCS)"
 		'(long-name	"BUCS abstract characters"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=ucs))
+
+  (make-charset '=>ucs@hanyo-denshi
+		"UCS abstract characters based on Han'you-Denshi collection."
+		'(long-name	"UCS base characters of Han'you-Denshi"
 		  chars		256
 		  dimension	3
 		  columns	2
