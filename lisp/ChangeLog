@@ -1,3 +1,11 @@
+2014-01-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=koseki' and `=>ucs@hanyo-denshi'.
+
+	* mule/mule-conf.el (=koseki): New coded-charset for XEmacs CHISE.
+	(=>ucs@hanyo-denshi): New coded-charset for XEmacs CHISE.
+
 2014-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (==hanyo-denshi/ip): New coded-charset for
