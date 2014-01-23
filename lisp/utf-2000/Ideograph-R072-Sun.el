@@ -2298,10 +2298,12 @@
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=ucs@unicode	. #x6636)	; &C2-2A6C;
-    (=gb2312		. #x6A46)	; &C2-2A6C; [74-38]
+    (=ucs@unicode	. #x6636)	; &HD-KS-156220;
+    (=gb2312		. #x6A46)	; &HD-KS-156220; [74-38]
     (=cns11643-2	. #x2A6C)	; &I-C2-2A6C; [10-76]
-    (=shinjigen		.  3311)	; &C2-2A6C;
+    (=hanyo-denshi/ks	. 156220)	; &HD-KS-156220;
+    (=hanyo-denshi/ks/mf . #x3D06)	; &I-KSMF-15622;
+    (=shinjigen		.  3311)	; &HD-KS-156220;
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
@@ -5271,8 +5273,9 @@
      ((=>>ucs@cns	  . #x82F1)	; &G-GT-40028;
       (=>>gt		  . 40028)	; &G-GT-40028;
       ))
-    (=>>ucs@cns		. #x668E)	; &G-CU+668E;
-    (=>>daikanwa	. 14048)	; &G-CU+668E;
+    (=>>ucs@cns		. #x668E)	; &G-HD-KS-26A5C;
+    (=>>hanyo-denshi/ks . 158300)	; &G-HD-KS-26A5C;
+    (=>>daikanwa	. 14048)	; &G-HD-KS-26A5C;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -5283,7 +5286,9 @@
        ((=gt		    . 40028)	; &GT-40028;
 	(=daikanwa	    . 30808)	; &I-M-30808;
 	))
-      (=daikanwa	  . 14048)	; &M-14048;
+      (=hanyo-denshi/ks	  . 158300)	; &HD-KS-158300;
+      (=hanyo-denshi/ks/mf . #x3DD6)	; &HD-KS-158300;
+      (=daikanwa	  . 14048)	; &I-M-14048;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -5339,8 +5344,17 @@
     (=ucs		. #x6690)	; 暐
     (=big5		. #xDDC2)	; &I-B-DDC2;
     (->subsumptive
-     ((=ucs@unicode	  . #x6690)	; &M-14049;
-      (=daikanwa	  . 14049)	; &M-14049;
+     ((=ucs@unicode	  . #x6690)	; &HD-KS-158310;
+      (=hanyo-denshi/ks	  . 158310)	; &HD-KS-158310;
+      (=daikanwa	  . 14049)	; &HD-KS-158310;
+      (->subsumptive
+       ((==daikanwa	    . 14049)	; &R-M-14049;
+	)
+       ((==hanyo-denshi/ks  . 158310)	; &R-HD-KS-158310;
+	(=hanyo-denshi/ks/mf . #x3DD7)	; &R-HD-KS-158310;
+	)
+       ((==ucs@unicode	    . #x6690)	; &R-UU+6690;
+	))
       )
      ((=ucs@cns		  . #x6690)	; &C2-4348;
       (=cns11643-2	  . #x4348)	; &C2-4348; [35-40]
@@ -6932,8 +6946,10 @@
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=cns11643-1	. #x6D34)	; &C1-6D34; [77-20]
-    (=shinjigen		.  3300)	; &C1-6D34;
+    (=cns11643-1	. #x6D34)	; &HD-KS-159500; [77-20]
+    (=hanyo-denshi/ks	. 159500)	; &HD-KS-159500;
+    (=hanyo-denshi/ks/mf . #x3E4E)	; &I-KSMF-15950;
+    (=shinjigen		.  3300)	; &HD-KS-159500;
     (<-original
      ((=ucs@unicode	  . #x6635)	; &GT-17503;
       (=jis-x0208	  . #x5A63)	; &GT-17503; [58-67]
@@ -8365,14 +8381,16 @@
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
-    (=>>ucs@cns		. #x66D6)	; &G-CU+66D6;
-    (=>>daikanwa	. 14206)	; &G-CU+66D6;
+    (=>>ucs@cns		. #x66D6)	; &G-HD-KS-27178;
+    (=>>hanyo-denshi/ks . 160120)	; &G-HD-KS-27178;
+    (=>>daikanwa	. 14206)	; &G-HD-KS-27178;
     (->subsumptive
      ((=daikanwa	  . 14206)	; &M-14206;
-      (=shinjigen@rev	  .  3391)	; &M-14206;
       )
-     ((=ucs@cns		  . #x66D6)	; &C1-7370;
-      (=cns11643-1	  . #x7370)	; &C1-7370; [83-80]
+     ((=ucs@cns		  . #x66D6)	; &HD-KS-160120;
+      (=cns11643-1	  . #x7370)	; &HD-KS-160120; [83-80]
+      (=hanyo-denshi/ks	  . 160120)	; &HD-KS-160120;
+      (=hanyo-denshi/ks/mf . #x3E8C)	; &I-KSMF-16012;
       ))
     ))
 (define-char
@@ -8395,6 +8413,7 @@
     (=hanyo-denshi/ja	. #x5B23)	; &I-HD-JA-5B23; [59-03]
     (=gt		. 17960)	; &I-GT-17960;
     (=gt-pj-1		. #x5B23)	; &I-GT-17960; [59-03]
+    (=shinjigen		.  3391)	; &HD-JA-5B23;
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
@@ -8633,10 +8652,14 @@
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
-    (=>>ucs@cns		. #x66DA)	; &G-CU+66DA;
-    (=>>daikanwa	. 14223)	; &G-CU+66DA;
+    (=>>ucs@cns		. #x66DA)	; &G-HD-KS-27268;
+    (=>>hanyo-denshi/ks . 160360)	; &G-HD-KS-27268;
+    (=>>daikanwa	. 14223)	; &G-HD-KS-27268;
     (->subsumptive
      ((=daikanwa	  . 14223)	; &M-14223;
+      )
+     ((=hanyo-denshi/ks	  . 160360)	; &HD-KS-160360;
+      (=hanyo-denshi/ks/mf . #x3EA4)	; &HD-KS-160360;
       )
      ((=ucs@cns		  . #x66DA)	; &C2-6166;
       (=cns11643-2	  . #x6166)	; &C2-6166; [65-70]
@@ -9380,6 +9403,21 @@
      ((=ucs@cns		  . #x66E8)	; &C2-687C;
       (=cns11643-2	  . #x687C)	; &C2-687C; [72-92]
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x66E8)	; 曨
+      ))
+    (ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 16)
+    (total-strokes	 . 20)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x66E8)	; 曨
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=hanyo-denshi/ks	. 160790)	; &HD-KS-160790;
+    (=hanyo-denshi/ks/mf . #x3ECF)	; &HD-KS-160790;
     ))
 (define-char
   '((=>ucs		. #x232FF)	; 𣋿
