@@ -251,6 +251,7 @@
     =>jis-x0213-1@2004
     =>jis-x0213-2
     ==>ucs@bucs
+    =>ucs@hanyo-denshi
     =>ucs@iso
     =>ucs@unicode
     =>ucs@jis
