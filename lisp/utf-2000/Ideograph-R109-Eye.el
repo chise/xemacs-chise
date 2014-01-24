@@ -1886,32 +1886,39 @@
     (->subsumptive
      ((=>ucs*		  . #x771F)	; 真
       (=ucs		  . #x2F947)	; 真
+      (=cns11643-6	  . #x3A2E)	; &I-C6-3A2E; [26-14]
+      (=daikanwa	  . 23237)	; &I-M-23237;
+      (<-original
+       ((=ucs@unicode	    . #x771E)	; &GT-29751;
+	(=jis-x0208	    . #x6243)	; &GT-29751; [66-35]
+	(=ks-x1001	    . #x7258)	; &I-K0-7258; [82-56]
+	(=jis-x0213-1	    . #x6243)	; &I-JX1-6243; [66-35]
+	(=daikanwa	    . 23235)	; &I-M-23235;
+	))
+      (<-original*sources
+       liushu-zongyao daikanwa)
+      (<-simplified@misc
+       ((=ucs@unicode	    . #x771E)	; &GT-29751;
+	(=jis-x0208	    . #x6243)	; &GT-29751; [66-35]
+	(=ks-x1001	    . #x7258)	; &I-K0-7258; [82-56]
+	(=jis-x0213-1	    . #x6243)	; &I-JX1-6243; [66-35]
+	(=daikanwa	    . 23235)	; &I-M-23235;
+	))
+      (<-simplified@misc*sources
+       daikanwa)
       (->subsumptive
-       ((=daikanwa	    . 23237)	; &M-23237;
-	(<-original
-	 ((=ucs@unicode	      . #x771E)	; &GT-29751;
-	  (=jis-x0208	      . #x6243)	; &GT-29751; [66-35]
-	  (=ks-x1001	      . #x7258)	; &I-K0-7258; [82-56]
-	  (=jis-x0213-1	      . #x6243)	; &I-JX1-6243; [66-35]
-	  (=daikanwa	      . 23235)	; &I-M-23235;
-	  ))
-	(<-original*sources
-	 liushu-zongyao daikanwa)
-	(<-simplified@misc
-	 ((=ucs@unicode	      . #x771E)	; &GT-29751;
-	  (=jis-x0208	      . #x6243)	; &GT-29751; [66-35]
-	  (=ks-x1001	      . #x7258)	; &I-K0-7258; [82-56]
-	  (=jis-x0213-1	      . #x6243)	; &I-JX1-6243; [66-35]
-	  (=daikanwa	      . 23235)	; &I-M-23235;
-	  ))
-	(<-simplified@misc*sources
-	 daikanwa)
+       ((==daikanwa	    . 23237)	; &R-M-23237;
 	)
-       ((==ucs@iso	    . #x2F947)	; &C6-3A2E;
-	(=cns11643-6	    . #x3A2E)	; &C6-3A2E; [26-14]
+       ((==ucs@iso	    . #x2F947)	; &R-U-0002F947;
+	(==cns11643-6	    . #x3A2E)	; &R-U-0002F947; [26-14]
 	))
       )
-     ((=hanyo-denshi/ib	  . #x3879)	; &HD-IB-3879; [24-89]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x771F)	; 真
+	)
+       ((=ucs		    . #xE0104)	; 󠄄
+	))
+      (=hanyo-denshi/ib	  . #x3879)	; &HD-IB-3879; [24-89]
       ))
     ))
 (define-char
