@@ -411,11 +411,22 @@
     (=>>hanyo-denshi/hg . #x3044)	; &G-JX3-407C; [16-36]
     (=>>daikanwa	. 25436)	; &G-JX3-407C;
     (->subsumptive
-     ((=daikanwa	  . 25436)	; &M-25436;
-      )
      ((=ucs@jis/2004	  . #x7A7F)	; &HD-HG-3044;
       (=jis-x0213-1@2004  . #x407C)	; &HD-HG-3044; [32-92]
       (=hanyo-denshi/hg	  . #x3044)	; &I-HD-HG-3044; [16-36]
+      (=daikanwa	  . 25436)	; &I-M-25436;
+      (->subsumptive
+       ((==daikanwa	    . 25436)	; &R-M-25436;
+	)
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x7A7F)	; 穿
+	  )
+	 ((=ucs		      . #xE0103)	; 󠄃
+	  ))
+	(==ucs@jis/2004	    . #x7A7F)	; &R-HD-HG-3044;
+	(==jis-x0213-1@2004 . #x407C)	; &R-HD-HG-3044; [32-92]
+	(==hanyo-denshi/hg  . #x3044)	; &R-HD-HG-3044; [16-36]
+	))
       )
      ((=ucs@cns		  . #x7A7F)	; &C1-5272;
       (=cns11643-1	  . #x5272)	; &C1-5272; [50-82]
