@@ -1,5 +1,35 @@
 2014-01-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs@hanyo-denshi'.
+
+	* Ideograph-R116-Cave.el (U+7A7F): Apply new glyph-image
+	conventions.
+	(HD-HG1636): Add `=decomposition@hanyo-denshi'.
+
+	* Ideograph-R109-Eye.el (U-0002F947): Apply new glyph-image
+	conventions.
+	(HD-IB2489): Add `=decomposition@hanyo-denshi'.
+
+	* Ideograph-R104-Sickness.el: Add `=decomposition@hanyo-denshi'
+	for representative (detailed) glyph-images of Hanyo-Denshi/HG.
+
+	* Ideograph-R076-Lack.el: Add Hanyo-Denshi/JA code points.
+	(U+6B20): Apply new glyph-image conventions.
+	(U-00023881): Likewise.
+	(U+3C20): Likewise.
+	(U+3C24): Likewise.
+	(U+3C26): Likewise.
+	(U-000238A8): Likewise.
+	(U-000238CB): Likewise.
+	(G-CB00654): New abstract node.
+	(U+6B46): Apply new glyph-image conventions.
+	(G-UU+6B49): Likewise.
+	(U+6B53): Likewise.
+	(U+3C47): Likewise.
+
+	* Ideograph-R072-Sun.el: Add Hanyo-Denshi/KS code points.
+
 	* Ideograph-R064-Hand.el: Add Hanyo-Denshi/KS code points.
 
 	* Ideograph-R030-Mouth.el (U+542D): Apply new glyph-image
