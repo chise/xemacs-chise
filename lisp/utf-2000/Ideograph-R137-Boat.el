@@ -2522,6 +2522,13 @@
       (=hanyo-denshi/hg	  . #x304B)	; &I-HD-HG-304B; [16-43]
       (=daikanwa	  . 30511)	; &I-M-30511;
       (=shinjigen	  .  6661)	; &HD-HG-304B;
+      (->subsumptive
+       ((==daikanwa	    . 30511)	; &R-M-30511;
+	)
+       ((==ucs@jis/2004	    . #x8258)	; &R-HD-HG-304B;
+	(==jis-x0213-1@2004 . #x675B)	; &R-HD-HG-304B; [71-59]
+	(==hanyo-denshi/hg  . #x304B)	; &R-HD-HG-304B; [16-43]
+	))
       )
      ((=ucs@cns		  . #x8258)	; &C1-717C;
       (=cns11643-1	  . #x717C)	; &C1-717C; [81-92]
