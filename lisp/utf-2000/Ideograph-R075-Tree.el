@@ -4817,7 +4817,12 @@
       (=shinjigen@1ed	  .  3567)	; &M-14660;
       (=jef-china3	  . #x53BC)	; &I-JC3-53BC;
       )
-     ((=ucs@unicode	  . #x67F1)	; &HD-JA-436C;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x67F1)	; 柱
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=ucs@unicode	  . #x67F1)	; &HD-JA-436C;
       (=jis-x0208	  . #x436C)	; &HD-JA-436C; [35-76]
       (=gb2312		  . #x5679)	; &I-G0-5679; [54-89]
       (=ks-x1001	  . #x713A)	; &I-K0-713A; [81-26]
@@ -22221,6 +22226,11 @@
     (ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6A23)	; 樣
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=ucs@unicode	. #x6A23)	; &HD-JA-5C6B;
     (=jis-x0208		. #x5C6B)	; &HD-JA-5C6B; [60-75]
     (=ks-x1001		. #x6546)	; &I-K0-6546; [69-38]
@@ -23266,6 +23276,11 @@
     (ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6A3A)	; 樺
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=ucs@unicode	. #x6A3A)	; &HD-JA-3372;
     (=jis-x0208		. #x3372)	; &HD-JA-3372; [19-82]
     (=ks-x1001		. #x7B7C)	; &I-K0-7B7C; [91-92]
