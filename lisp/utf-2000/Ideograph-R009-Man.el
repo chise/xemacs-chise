@@ -11619,6 +11619,22 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL PERSON")
+      (=ucs		  . #x2E85)	; ⺅
+      )
+     ((=ucs		  . #x4E21)	; 両
+      ))
+    (=ucs		. #x20213)	; 𠈓
+    (=jis-x0213-2	. #x2146)	; &I-JX2-2146; [01-38]
+    ))
+(define-char
+  '((ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
     (=ucs		. #x20215)	; 𠈕
     (=cns11643-5	. #x2526)	; &I-C5-2526; [05-06]
     ))
