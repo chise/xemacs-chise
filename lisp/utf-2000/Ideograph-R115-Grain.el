@@ -5276,6 +5276,11 @@
     (ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x7A5F)	; 穟
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=hanyo-denshi/ib	. #x2841)	; &HD-IB-2841; [08-33]
     ))
 (define-char
