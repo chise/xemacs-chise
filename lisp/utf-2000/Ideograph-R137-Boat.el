@@ -2525,7 +2525,12 @@
       (->subsumptive
        ((==daikanwa	    . 30511)	; &R-M-30511;
 	)
-       ((==ucs@jis/2004	    . #x8258)	; &R-HD-HG-304B;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x8258)	; 艘
+	  )
+	 ((=ucs		      . #xE0103)	; 󠄃
+	  ))
+	(==ucs@jis/2004	    . #x8258)	; &R-HD-HG-304B;
 	(==jis-x0213-1@2004 . #x675B)	; &R-HD-HG-304B; [71-59]
 	(==hanyo-denshi/hg  . #x304B)	; &R-HD-HG-304B; [16-43]
 	))
