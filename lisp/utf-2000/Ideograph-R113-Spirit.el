@@ -414,6 +414,11 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x7940)	; 祀
+      )
+     ((=ucs		  . #xE0104)	; 󠄄
+      ))
     (=hanyo-denshi/ib	. #x3947)	; &HD-IB-3947; [25-39]
     ))
 (define-char
@@ -423,6 +428,11 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x7940)	; 祀
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=hanyo-denshi/ib	. #x3949)	; &HD-IB-3949; [25-41]
     ))
 (define-char
@@ -1982,7 +1992,12 @@
     (=cns11643-2	. #x314A)	; &I-C2-314A; [17-42]
     (=hanyo-denshi/ib	. #x2770)	; &I-HD-IB-2770; [07-80]
     (->subsumptive
-     ((==hanyo-denshi/ib  . #x2770)	; &R-HD-IB-2770; [07-80]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x795B)	; 祛
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==hanyo-denshi/ib  . #x2770)	; &R-HD-IB-2770; [07-80]
       )
      ((==ucs@unicode	  . #x795B)	; &R-UU+795B;
       (==gb2312		  . #x6C6E)	; &R-UU+795B; [76-78]
@@ -2024,7 +2039,12 @@
     (=cns11643-2	. #x314C)	; &I-C2-314C; [17-44]
     (=hanyo-denshi/ib	. #x2771)	; &I-HD-IB-2771; [07-81]
     (->subsumptive
-     ((==hanyo-denshi/ib  . #x2771)	; &R-HD-IB-2771; [07-81]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x795C)	; 祜
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==hanyo-denshi/ib  . #x2771)	; &R-HD-IB-2771; [07-81]
       )
      ((==ucs@unicode	  . #x795C)	; &R-UU+795C;
       (==gb2312		  . #x6C6F)	; &R-UU+795C; [76-79]
@@ -4485,7 +4505,12 @@
     (=>>ucs@unicode	. #x798A)	; &G-HD-IB-2824;
     (=>>hanyo-denshi/ib . #x2824)	; &G-HD-IB-2824; [08-04]
     (->subsumptive
-     ((=hanyo-denshi/ib	  . #x2824)	; &HD-IB-2824; [08-04]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x798A)	; 禊
+	)
+       ((=ucs		    . #xE0104)	; 󠄄
+	))
+      (=hanyo-denshi/ib	  . #x2824)	; &HD-IB-2824; [08-04]
       )
      ((=cns11643-2	  . #x4C41)	; &C2-4C41; [44-33]
       )
@@ -5030,7 +5055,12 @@
     (=cns11643-2	. #x4C45)	; &HD-IB-2826; [44-37]
     (=hanyo-denshi/ib	. #x2826)	; &I-HD-IB-2826; [08-06]
     (->subsumptive
-     ((==hanyo-denshi/ib  . #x2826)	; &R-HD-IB-2826; [08-06]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7994)	; 禔
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==hanyo-denshi/ib  . #x2826)	; &R-HD-IB-2826; [08-06]
       )
      ((==ucs@unicode	  . #x7994)	; &R-UU+7994;
       (==cns11643-2	  . #x4C45)	; &R-UU+7994; [44-37]
@@ -5100,7 +5130,12 @@
       )
      ((=cns11643-2	  . #x4C44)	; &C2-4C44; [44-36]
       )
-     ((=hanyo-denshi/ib	  . #x2827)	; &HD-IB-2827; [08-07]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7995)	; 禕
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=hanyo-denshi/ib	  . #x2827)	; &HD-IB-2827; [08-07]
       ))
     ))
 (define-char
@@ -5196,7 +5231,12 @@
     (=cns11643-2	. #x4C40)	; &I-C2-4C40; [44-32]
     (=hanyo-denshi/ib	. #x282A)	; &I-HD-IB-282A; [08-10]
     (->subsumptive
-     ((==hanyo-denshi/ib  . #x282A)	; &R-HD-IB-282A; [08-10]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7998)	; 禘
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==hanyo-denshi/ib  . #x282A)	; &R-HD-IB-282A; [08-10]
       )
      ((==ucs@unicode	  . #x7998)	; &R-UU+7998;
       (==iso-ir165	  . #x7D3C)	; &R-UU+7998; [93-28]
@@ -7425,7 +7465,12 @@
     (=big5		. #xC3AB)	; &I-B-C3AB;
     (=hanyo-denshi/ib	. #x283B)	; &I-HD-IB-283B; [08-27]
     (->subsumptive
-     ((==hanyo-denshi/ib  . #x283B)	; &R-HD-IB-283B; [08-27]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x79B1)	; 禱
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==hanyo-denshi/ib  . #x283B)	; &R-HD-IB-283B; [08-27]
       )
      ((==ucs@unicode	  . #x79B1)	; &R-UU+79B1;
       (==cns11643-1	  . #x7856)	; &R-UU+79B1; [88-54]
@@ -7693,7 +7738,12 @@
     (=big5		. #xC5A1)	; &I-B-C5A1;
     (=hanyo-denshi/ib	. #x283E)	; &I-HD-IB-283E; [08-30]
     (->subsumptive
-     ((==hanyo-denshi/ib  . #x283E)	; &R-HD-IB-283E; [08-30]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x79B3)	; 禳
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==hanyo-denshi/ib  . #x283E)	; &R-HD-IB-283E; [08-30]
       )
      ((==ucs@unicode	  . #x79B3)	; &R-UU+79B3;
       (==gb2312		  . #x6C7C)	; &R-UU+79B3; [76-92]
