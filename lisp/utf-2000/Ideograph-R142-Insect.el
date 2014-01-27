@@ -13265,7 +13265,12 @@
       )
      ((=cns11643-1	  . #x7872)	; &C1-7872; [88-82]
       )
-     ((=ucs@unicode	  . #x8805)	; &HD-HG-3064;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8805)	; 蠅
+	)
+       ((=ucs		    . #xE0104)	; 󠄄
+	))
+      (=ucs@unicode	  . #x8805)	; &HD-HG-3064;
       (=jis-x0213-1@2004  . #x6A24)	; &HD-HG-3064; [74-04]
       (=gb12345		  . #x532C)	; &HD-HG-3064; [51-12]
       (=hanyo-denshi/hg	  . #x3064)	; &I-HD-HG-3064; [16-68]
