@@ -4746,6 +4746,11 @@
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x78B0)	; 碰
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=ucs@unicode	. #x78B0)	; &HD-IB-3937;
     (=gb2312		. #x4576)	; &HD-IB-3937; [37-86]
     (=cns11643-1	. #x6550)	; &I-C1-6550; [69-48]
