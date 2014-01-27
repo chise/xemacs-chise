@@ -1,5 +1,14 @@
 2014-01-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R115-Grain.el, Ideograph-R113-Spirit.el,
+	Ideograph-R112-Stone.el: Add `=decomposition@hanyo-denshi' for
+	representative (detailed) glyph-images of Hanyo-Denshi/IB.
+
+	* Ideograph-R086-Fire.el:
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/{JA|JB}.
+	- Add Hanyo-Denshi/JA code points.
+
 	* Ideograph-R009-Man.el (U-00020213): New character.
 
 2014-01-24  MORIOKA Tomohiko  <tomo.git@chise.org>
