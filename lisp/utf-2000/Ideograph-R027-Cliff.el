@@ -3211,8 +3211,8 @@
       )
      ((=ucs		  . #x5382)	; 厂
       )
-     ((=ucs@unicode	  . #x6677)	; &G0-6A50;
-      (=gb2312		  . #x6A50)	; &G0-6A50; [74-48]
+     ((=ucs@unicode	  . #x6677)	; &HD-JT-B2A3;
+      (=gb2312		  . #x6A50)	; &HD-JT-B2A3; [74-48]
       ))
     (=ucs@unicode	. #x53AC)	; &UU+53AC;
     ))
