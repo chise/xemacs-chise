@@ -776,7 +776,12 @@
     (=big5		. #xE5C1)	; &I-B-E5C1;
     (=hanyo-denshi/ks	. 152280)	; &HD-KS-152280;
     (->subsumptive
-     ((==hanyo-denshi/ks  . 152280)	; &R-HD-KS-152280;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x65B2)	; 斲
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==hanyo-denshi/ks  . 152280)	; &R-HD-KS-152280;
       (=hanyo-denshi/ks/mf . #x3B7C)	; &R-HD-KS-152280;
       )
      ((==ucs@unicode	  . #x65B2)	; &R-UU+65B2;
@@ -1139,6 +1144,11 @@
     (ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x65B7)	; 斷
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=hanyo-denshi/ks	. 152560)	; &HD-KS-152560;
     (=hanyo-denshi/ks/mf . #x3B98)	; &HD-KS-152560;
     (=shinjigen@rev	.  3229)	; &HD-KS-152560;
