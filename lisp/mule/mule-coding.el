@@ -412,6 +412,7 @@
 	  ( =>gt-k			       "A-GT-K" 5 d)
 	  ( =>zinbun-oracle		       "A-ZOB-" 4 d)
 	  (==>ucs@bucs				"BUCS+" 4 X)
+	  ( =>ucs@hanyo-denshi		       "A-HDU+" 4 X)
 	  ( =>ucs@hanyo-denshi		    "A-HD-UCS+" 4 X)
 	  ( =>ucs@iso				"A-IU+" 4 X)
 	  ( =>ucs@unicode			"A-UU+" 4 X)
