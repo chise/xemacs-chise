@@ -1,3 +1,9 @@
+2014-01-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R069-Axe.el, Ideograph-R066-Rap.el,
+	Ideograph-R064-Hand.el: Add `=decomposition@hanyo-denshi' for some
+	representative (detailed) glyph-images of Hanyo-Denshi/KS.
+
 2014-01-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R149-Speech.el, Ideograph-R142-Insect.el,
