@@ -1,5 +1,10 @@
 2014-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R073-Say.el (M-14302): Unify HD-KS158130 and
+	KOSEKI-158130; use `->subsumptive' for representative nodes.
+	(R-M-14302): New node.
+	(R-KS158130): New node.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Change
 	priorities of `=gt' and `=gt-k'.
 
