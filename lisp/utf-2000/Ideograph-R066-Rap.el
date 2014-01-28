@@ -4356,7 +4356,12 @@
     (=cns11643-2	. #x5065)	; &HD-KS-149950; [48-69]
     (=hanyo-denshi/ks	. 149950)	; &HD-KS-149950;
     (->subsumptive
-     ((==hanyo-denshi/ks  . 149950)	; &R-HD-KS-149950;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x657A)	; 敺
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==hanyo-denshi/ks  . 149950)	; &R-HD-KS-149950;
       (=hanyo-denshi/ks/mf . #x3A93)	; &R-HD-KS-149950;
       )
      ((==ucs@cns	  . #x657A)	; &R-CU+657A;
