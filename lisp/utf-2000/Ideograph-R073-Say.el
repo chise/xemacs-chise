@@ -864,7 +864,15 @@
     (=>>hanyo-denshi/jd . #x2E37)	; &G-JX2-2E37; [14-23]
     (=>>daikanwa	. 14302)	; &G-JX2-2E37;
     (->subsumptive
-     ((=daikanwa	  . 14302)	; &M-14302;
+     ((=hanyo-denshi/ks	  . 158130)	; &HD-KS-158130;
+      (=koseki		  . 158130)	; &HD-KS-158130;
+      (=daikanwa	  . 14302)	; &HD-KS-158130;
+      (->subsumptive
+       ((==daikanwa	    . 14302)	; &R-M-14302;
+	)
+       ((==hanyo-denshi/ks  . 158130)	; &R-HD-KS-158130;
+	(=hanyo-denshi/ks/mf . #x3DC5)	; &R-HD-KS-158130;
+	))
       )
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x6701)	; 朁
