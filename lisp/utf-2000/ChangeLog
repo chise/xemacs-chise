@@ -1,3 +1,8 @@
+2014-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Change
+	priorities of `=gt' and `=gt-k'.
+
 2014-01-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R069-Axe.el, Ideograph-R066-Rap.el,
