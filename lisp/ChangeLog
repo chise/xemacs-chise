@@ -1,3 +1,9 @@
+2014-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Use
+	"A-HDU+" instead of "A-HD-UCS+" as the prefix for
+	`=>ucs@hanyo-denshi'.
+
 2014-01-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
