@@ -158,8 +158,6 @@
     =hanyo-denshi/hg
     =hanyo-denshi/jt
     =hanyo-denshi/ks
-    =gt
-    =gt-k
     ==adobe-japan1-0
     ==adobe-japan1-1
     ==adobe-japan1-2
@@ -178,6 +176,8 @@
     ==hanyo-denshi/hg
     ==hanyo-denshi/jt
     ==hanyo-denshi/ks
+    =gt
+    =gt-k
     =daikanwa
     =daikanwa@rev2
     =daikanwa@rev1
