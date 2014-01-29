@@ -3390,6 +3390,11 @@
     (ideographic-radical . 119)	; ⽶
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x7CD9)	; 糙
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=hanyo-denshi/ib	. #x284D)	; &HD-IB-284D; [08-45]
     ))
 (define-char
