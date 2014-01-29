@@ -187,9 +187,13 @@
     (=daikanwa		. 07477)	; &I-M-07477;
     (=shinjigen		.  4716)	; &GT-09427;
     (<-vulgar
-     ((=ucs		  . #x723E)	; 爾
-      (=jis-x0208	  . #x3C24)	; &I-J90-3C24; [28-04]
-      (=shinjigen	  .  4714)	; 爾
+     ((=ucs@unicode	  . #x723E)	; &HD-JA-3C24;
+      (=jis-x0208	  . #x3C24)	; &HD-JA-3C24; [28-04]
+      (=ks-x1001	  . #x6C33)	; &I-K0-6C33; [76-19]
+      (=cns11643-1	  . #x695F)	; &I-C1-695F; [73-63]
+      (=jis-x0213-1	  . #x3C24)	; &I-JX1-3C24; [28-04]
+      (=daikanwa	  . 19750)	; &I-M-19750;
+      (=shinjigen	  .  4714)	; &HD-JA-3C24;
       ))
     (<-vulgar*sources
      shinjigen)
@@ -258,9 +262,13 @@
       )
      ((=shinjigen	  .  4715)	; &SJG2-4715;
       (<-vulgar
-       ((=ucs		    . #x723E)	; 爾
-	(=jis-x0208	    . #x3C24)	; &I-J90-3C24; [28-04]
-	(=shinjigen	    .  4714)	; 爾
+       ((=ucs@unicode	    . #x723E)	; &HD-JA-3C24;
+	(=jis-x0208	    . #x3C24)	; &HD-JA-3C24; [28-04]
+	(=ks-x1001	    . #x6C33)	; &I-K0-6C33; [76-19]
+	(=cns11643-1	    . #x695F)	; &I-C1-695F; [73-63]
+	(=jis-x0213-1	    . #x3C24)	; &I-JX1-3C24; [28-04]
+	(=daikanwa	    . 19750)	; &I-M-19750;
+	(=shinjigen	    .  4714)	; &HD-JA-3C24;
 	))
       (<-vulgar*sources
        shinjigen)
@@ -287,8 +295,13 @@
       (<-same*sources
        jiyun daikanwa)
       (<-simplified@CN
-       ((=ucs		    . #x723E)	; 爾
-	(=gb12345	    . #x367B)	; 爾 [22-91]
+       ((=ucs@unicode	    . #x723E)	; &HD-JA-3C24;
+	(=jis-x0208	    . #x3C24)	; &HD-JA-3C24; [28-04]
+	(=ks-x1001	    . #x6C33)	; &I-K0-6C33; [76-19]
+	(=cns11643-1	    . #x695F)	; &I-C1-695F; [73-63]
+	(=jis-x0213-1	    . #x3C24)	; &I-JX1-3C24; [28-04]
+	(=gb12345	    . #x367B)	; &HD-JA-3C24; [22-91]
+	(=daikanwa	    . 19750)	; &I-M-19750;
 	))
       )
      ((=decomposition@cid
