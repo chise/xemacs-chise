@@ -173,17 +173,28 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (=ucs		. #x723E)	; 爾
-    (=jis-x0208		. #x3C24)	; &I-J90-3C24; [28-04]
+    (=>ucs@hanyo-denshi . #x723E)	; 爾
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x723E)	; 爾
+      ))
+    (ideographic-radical . 89)	; ⽘
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
+    (=ucs@unicode	. #x723E)	; &HD-JA-3C24;
+    (=jis-x0208		. #x3C24)	; &HD-JA-3C24; [28-04]
     (=ks-x1001		. #x6C33)	; &I-K0-6C33; [76-19]
     (=cns11643-1	. #x695F)	; &I-C1-695F; [73-63]
     (=jis-x0213-1	. #x3C24)	; &I-JX1-3C24; [28-04]
-    (=gb12345		. #x367B)	; 爾 [22-91]
+    (=gb12345		. #x367B)	; &HD-JA-3C24; [22-91]
     (=big5		. #xBAB8)	; &I-B-BAB8;
+    (=hanyo-denshi/ja	. #x3C24)	; &I-HD-JA-3C24; [28-04]
     (=gt		. 25366)	; &I-GT-25366;
     (=gt-k		. 11127)	; &I-GT-K11127;
     (=gt-pj-1		. #x3C24)	; &I-GT-25366; [28-04]
     (=daikanwa		. 19750)	; &I-M-19750;
-    (=shinjigen		.  4714)	; 爾
+    (=shinjigen		.  4714)	; &HD-JA-3C24;
     ))
 (define-char
   '((<-denotational
