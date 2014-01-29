@@ -1,5 +1,19 @@
 2014-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R089-Double-X.el (U+723E): Use `->denotational' to
+	treat JC3-41A4; unify A-HDU+723E.
+	(J0-3C24): Unify HD-JA2804.
+
+	* Ideograph-R086-Fire.el (J0-5F67): Add
+	`=decomposition@hanyo-denshi'.
+	(mother of JX2-6F7C): Unify G-JU+71A2, G-KU+71A2, G-JX2-6F7C,
+	G-M-19337 and G-CB00201.
+	(KU+5C6C): Unify KU+71A2.
+
+	* Ideograph-R074-Moon.el: Add Hanyo-Denshi/JT code points.
+
+	* Ideograph-R030-Mouth.el (M-04296): Separate representative node.
+
 	* Ideograph-R091-Slice.el: Add `=decomposition@hanyo-denshi' for
 	representative (detailed) glyph-images of Hanyo-Denshi/{JA|JB}.
 	(U-000245C7): Add ideographic-structure.
