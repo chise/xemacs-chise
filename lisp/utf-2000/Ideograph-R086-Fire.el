@@ -8883,6 +8883,11 @@
     (ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x7188)	; 熈
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
     (=ucs@unicode	. #x7188)	; &HD-JA-5F67;
     (=jis-x0208		. #x5F67)	; &HD-JA-5F67; [63-71]
     (=jis-x0213-1	. #x5F67)	; &I-JX1-5F67; [63-71]
@@ -9895,6 +9900,11 @@
     (ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
+    (=>>ucs@jis		. #x71A2)	; &G-JX2-6F7C;
+    (=>>ucs@ks		. #x71A2)	; &G-JX2-6F7C;
+    (=>>jis-x0213-2	. #x6F7C)	; &G-JX2-6F7C; [79-92]
+    (=>>daikanwa	. 19337)	; &G-JX2-6F7C;
+    (=>>cbeta		. 00201)	; &G-JX2-6F7C;
     (->subsumptive
      ((=ucs@jis		  . #x71A2)	; &JX2-6F7C;
       (=jis-x0212	  . #x4A2B)	; &JX2-6F7C; [42-11]
@@ -9912,6 +9922,7 @@
 	(=jis-x0213-1@2004  . #x3029)	; &I-JX3-3029; [16-09]
 	(=daikanwa	    . 38901)	; &I-M-38901;
 	))
+      (=ucs@ks		  . #x71A2)	; &K0-5C6C;
       (=ks-x1001	  . #x5C6C)	; &K0-5C6C; [60-76]
       (=cbeta		  . 00201)	; &I-CB00201;
       ))
