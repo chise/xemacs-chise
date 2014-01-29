@@ -1,3 +1,7 @@
+2014-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* JC3-to-UCS.txt (JC3-52AD): Map to U-0002F8D8 instead of U+6717.
+
 2013-10-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* JC3-to-UCS.txt (JC3-46A3): Map to U+2F83F instead of U+5468.
