@@ -1,5 +1,20 @@
 2014-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R091-Slice.el: Add `=decomposition@hanyo-denshi' for
+	representative (detailed) glyph-images of Hanyo-Denshi/{JA|JB}.
+	(U-000245C7): Add ideographic-structure.
+	(J90-4757): Unify HD-JA3955.
+
+	* Ideograph-R075-Tree.el: Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R072-Sun.el: Add Hanyo-Denshi/JT code points.
+	(C1-7070): Unify KOSEKI-159720.
+
+	* Ideograph-R009-Man.el (J0-5128): Use `->subsumptive' to separate
+	representative nodes.
+
+2014-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R073-Say.el (M-14302): Unify HD-KS158130 and
 	KOSEKI-158130; use `->subsumptive' for representative nodes.
 	(R-M-14302): New node.
