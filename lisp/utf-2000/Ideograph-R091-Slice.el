@@ -663,6 +663,14 @@
   '((ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7247)	; 片
+      )
+     ((=ucs		  . #x7A7A)	; 空
+      ))
     (=ucs		. #x245C7)	; 𤗇
     ))
 (define-char
@@ -840,11 +848,17 @@
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=ucs@jis/1990	. #x724C)	; &GT-25508;
-    (=ucs@jis/2000	. #x724C)	; &GT-25508;
-    (=jis-x0208@1983	. #x4757)	; &GT-25508; [39-55]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x724C)	; 牌
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=ucs@jis/1990	. #x724C)	; &HD-JA-4757;
+    (=ucs@jis/2000	. #x724C)	; &HD-JA-4757;
+    (=jis-x0208@1983	. #x4757)	; &HD-JA-4757; [39-55]
     (=jis-x0208@1990	. #x4757)	; &I-J90-4757; [39-55]
     (=jis-x0213-1@2000	. #x4757)	; &I-JX1-4757; [39-55]
+    (=hanyo-denshi/ja	. #x4757)	; &I-HD-JA-4757; [39-55]
     (=gt		. 25508)	; &I-GT-25508;
     (=gt-pj-1		. #x4757)	; &I-GT-25508; [39-55]
     (=jef-china3	. #x58BF)	; &I-JC3-58BF;
@@ -1258,14 +1272,26 @@
     (=ucs		. #x7253)	; 牓
     (=big5		. #xE2C6)	; &I-B-E2C6;
     (->subsumptive
-     ((=ucs@jis		  . #x7253)	; &HD-JB-4A54;
+     ((=ucs@unicode	  . #x7253)	; &HD-JB-4A54;
       (=jis-x0212	  . #x4A54)	; &HD-JB-4A54; [42-52]
       (=jis-x0213-2	  . #x7030)	; &I-JX2-7030; [80-16]
       (=hanyo-denshi/jb	  . #x4A54)	; &I-HD-JB-4A54; [42-52]
       (=daikanwa	  . 19876)	; &I-M-19876;
       (=jef-china3	  . #x58C0)	; &I-JC3-58C0;
-      )
-     ((=ucs@unicode	  . #x7253)	; &UU+7253;
+      (->subsumptive
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x7253)	; 牓
+	  )
+	 ((=ucs		      . #xE0101)	; 󠄁
+	  ))
+	(==ucs@jis	    . #x7253)	; &R-HD-JB-4A54;
+	(==jis-x0212	    . #x4A54)	; &R-HD-JB-4A54; [42-52]
+	(==jis-x0213-2	    . #x7030)	; &R-HD-JB-4A54; [80-16]
+	(==hanyo-denshi/jb  . #x4A54)	; &R-HD-JB-4A54; [42-52]
+	(==daikanwa	    . 19876)	; &R-HD-JB-4A54;
+	)
+       ((==ucs@unicode	    . #x7253)	; &R-UU+7253;
+	))
       )
      ((=ucs@cns		  . #x7253)	; &C2-4B6C;
       (=cns11643-2	  . #x4B6C)	; &C2-4B6C; [43-76]
