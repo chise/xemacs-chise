@@ -1,3 +1,19 @@
+2014-01-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R119-Rice.el, Ideograph-R118-Bamboo.el: Add
+	`=decomposition@hanyo-denshi' for representative (detailed)
+	glyph-images of Hanyo-Denshi/IB.
+
+	* Ideograph-R087-Claw.el:
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/JA.
+	- Add Hanyo-Denshi/JA code points.
+
+	* Ideograph-R042-Small.el (GT-09427): Modify for changing
+	unification range of U+723E.
+	(S-4715): Likewise.
+	(G0-367B): Likewise.
+
 2014-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R089-Double-X.el (U+723E): Use `->denotational' to
