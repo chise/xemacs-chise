@@ -4193,6 +4193,11 @@
     (ideographic-radical . 118)	; ⽵
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x7B9E)	; 箞
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=hanyo-denshi/ib	. #x3A52)	; &HD-IB-3A52; [26-50]
     ))
 (define-char
@@ -5522,6 +5527,11 @@
     (ideographic-radical . 118)	; ⽵
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x7BC4)	; 範
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=hanyo-denshi/ib	. #x2846)	; &HD-IB-2846; [08-38]
     ))
 (define-char
@@ -13002,6 +13012,11 @@
     (ideographic-radical . 118)	; ⽵
     (ideographic-strokes . 18)
     (total-strokes	 . 24)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x7C69)	; 籩
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=hanyo-denshi/ib	. #x284C)	; &HD-IB-284C; [08-44]
     ))
 (define-char
