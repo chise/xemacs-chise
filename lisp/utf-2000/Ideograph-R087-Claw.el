@@ -531,15 +531,22 @@
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=ucs@jis		. #x7230)	; &GT-25242;
-    (=jis-x0208		. #x6029)	; &GT-25242; [64-09]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x7230)	; 爰
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
+    (=ucs@jis		. #x7230)	; &HD-JA-6029;
+    (=ucs@ks		. #x7230)	; &HD-JA-6029;
+    (=jis-x0208		. #x6029)	; &HD-JA-6029; [64-09]
     (=ks-x1001		. #x6A3A)	; &I-K0-6A3A; [74-26]
     (=jis-x0213-1	. #x6029)	; &I-JX1-6029; [64-09]
+    (=hanyo-denshi/ja	. #x6029)	; &I-HD-JA-6029; [64-09]
     (=gt		. 25242)	; &I-GT-25242;
     (=gt-k		. 05358)	; &I-GT-K05358;
     (=gt-pj-1		. #x6029)	; &I-GT-25242; [64-09]
     (=daikanwa		. 19672)	; &I-M-19672;
-    (=shinjigen		.  4701)	; &GT-25242;
+    (=shinjigen		.  4701)	; &HD-JA-6029;
     ))
 (define-char
   '((<-denotational
@@ -1335,14 +1342,32 @@
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
-    (=ucs@unicode	. #x7235)	; &GT-25313;
-    (=jis-x0208		. #x3C5F)	; &GT-25313; [28-63]
+    (=ucs@unicode	. #x7235)	; &HD-JA-3C5F;
+    (=jis-x0208		. #x3C5F)	; &HD-JA-3C5F; [28-63]
     (=gb2312		. #x3E74)	; &I-G0-3E74; [30-84]
     (=cns11643-1	. #x743A)	; &I-C1-743A; [84-26]
     (=jis-x0213-1	. #x3C5F)	; &I-JX1-3C5F; [28-63]
+    (=hanyo-denshi/ja	. #x3C5F)	; &I-HD-JA-3C5F; [28-63]
     (=gt		. 25313)	; &I-GT-25313;
     (=gt-pj-1		. #x3C5F)	; &I-GT-25313; [28-63]
-    (=daikanwa/+p	. 19710)	; &GT-25313;
+    (=daikanwa/+p	. 19710)	; &HD-JA-3C5F;
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7235)	; 爵
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==ucs@jis	  . #x7235)	; &R-HD-JA-3C5F;
+      (==jis-x0208	  . #x3C5F)	; &R-HD-JA-3C5F; [28-63]
+      (==jis-x0213-1	  . #x3C5F)	; &R-HD-JA-3C5F; [28-63]
+      (==hanyo-denshi/ja  . #x3C5F)	; &R-HD-JA-3C5F; [28-63]
+      (==daikanwa/+p	  . 19710)	; &R-HD-JA-3C5F;
+      )
+     ((==ucs@unicode	  . #x7235)	; &R-GT-25313;
+      (==gb2312		  . #x3E74)	; &R-GT-25313; [30-84]
+      (==cns11643-1	  . #x743A)	; &R-GT-25313; [84-26]
+      (==gt		  . 25313)	; &R-GT-25313;
+      ))
     ))
 (define-char
   '((<-denotational
