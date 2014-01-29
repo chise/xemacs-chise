@@ -35454,7 +35454,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=daikanwa	    . 14302)	; &M-14302;
+       ((=hanyo-denshi/ks   . 158130)	; &HD-KS-158130;
+	(=daikanwa	    . 14302)	; &HD-KS-158130;
 	))
       (=ucs@jis		  . #x50ED)	; &AJ1-04191;
       (=adobe-japan1-0	  . 04191)	; &AJ1-04191;
@@ -35465,6 +35466,18 @@
       (=gt-pj-1		  . #x5128)	; &I-GT-01456; [49-08]
       (=daikanwa	  . 01128)	; &I-M-01128;
       (=shinjigen	  .  0395)	; &AJ1-04191;
+      (->subsumptive
+       ((==daikanwa	    . 01128)	; &R-M-01128;
+	)
+       ((==ucs@jis	    . #x50ED)	; &R-AJ1-04191;
+	(==adobe-japan1-0   . 04191)	; &R-AJ1-04191;
+	(==jis-x0208	    . #x5128)	; &R-AJ1-04191; [49-08]
+	(==jis-x0213-1	    . #x5128)	; &R-AJ1-04191; [49-08]
+	(==hanyo-denshi/ja  . #x5128)	; &R-AJ1-04191; [49-08]
+	(==shinjigen	    .  0395)	; &R-AJ1-04191;
+	)
+       ((==gt		    . 01456)	; &R-GT-01456;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
