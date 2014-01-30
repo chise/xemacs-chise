@@ -19544,7 +19544,11 @@
     (<-ancient*sources
      shuowen jiyun daikanwa)
     (<-synonyms
-     ((=ucs		  . #x723E)	; 爾
+     ((=ucs@unicode	  . #x723E)	; &HD-JA-3C24;
+      (=jis-x0208	  . #x3C24)	; &HD-JA-3C24; [28-04]
+      (=ks-x1001	  . #x6C33)	; &I-K0-6C33; [76-19]
+      (=cns11643-1	  . #x695F)	; &I-C1-695F; [73-63]
+      (=jis-x0213-1	  . #x3C24)	; &I-JX1-3C24; [28-04]
       (=daikanwa	  . 19750)	; &I-M-19750;
       ))
     (<-synonyms*sources
