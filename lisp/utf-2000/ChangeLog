@@ -1,5 +1,9 @@
 2014-01-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R177-Leather.el, Ideograph-R153-Badger.el: Add
+	`=decomposition@hanyo-denshi' for representative (detailed)
+	glyph-images of Hanyo-Denshi/HG.
+
 	* Ideograph-R119-Rice.el, Ideograph-R118-Bamboo.el: Add
 	`=decomposition@hanyo-denshi' for representative (detailed)
 	glyph-images of Hanyo-Denshi/IB.
@@ -15,6 +19,9 @@
 	(G0-367B): Likewise.
 
 2014-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R162-Walk.el (J90-6D6E): Modify for changing
+	unification range of U+723E.
 
 	* Ideograph-R089-Double-X.el (U+723E): Use `->denotational' to
 	treat JC3-41A4; unify A-HDU+723E.
