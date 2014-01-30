@@ -51,6 +51,11 @@
     (ideographic-radical . 153)	; ⾘
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x8C79)	; 豹
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=ucs@jis/2004	. #x8C79)	; &HD-HG-305A;
     (=ks-x1001		. #x787B)	; &HD-HG-305A; [88-91]
     (=jis-x0213-1@2004	. #x493F)	; &I-JX3-493F; [41-31]
