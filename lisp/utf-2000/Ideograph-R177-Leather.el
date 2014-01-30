@@ -79,7 +79,12 @@
     (=>>gt		. 57333)	; &G-GT-57333;
     (=>>daikanwa	. 42715)	; &G-GT-57333;
     (->subsumptive
-     ((=ucs@unicode	  . #x976D)	; &HD-HG-3041;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x976D)	; 靭
+	)
+       ((=ucs		    . #xE0104)	; 󠄄
+	))
+      (=ucs@unicode	  . #x976D)	; &HD-HG-3041;
       (=jis-x0208@1978	  . #x7057)	; &HD-HG-3041; [80-55]
       (=ks-x1001	  . #x6C65)	; &I-K0-6C65; [76-69]
       (=hanyo-denshi/hg	  . #x3041)	; &I-HD-HG-3041; [16-33]
