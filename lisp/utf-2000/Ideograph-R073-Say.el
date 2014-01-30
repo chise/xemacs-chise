@@ -870,7 +870,12 @@
       (->subsumptive
        ((==daikanwa	    . 14302)	; &R-M-14302;
 	)
-       ((==hanyo-denshi/ks  . 158130)	; &R-HD-KS-158130;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x6701)	; 朁
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(==hanyo-denshi/ks  . 158130)	; &R-HD-KS-158130;
 	(=hanyo-denshi/ks/mf . #x3DC5)	; &R-HD-KS-158130;
 	))
       )
