@@ -18,7 +18,12 @@
       (=hanyo-denshi/jt	  . #xB2DB)	; &I-HD-JT-B2DB;
       (=daikanwa	  . 14330)	; &I-M-14330;
       (->subsumptive
-       ((==hanyo-denshi/jt  . #xB2DB)	; &R-HD-JT-B2DB;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x6708)	; 月
+	  )
+	 ((=ucs		      . #xE0103)	; 󠄃
+	  ))
+	(==hanyo-denshi/jt  . #xB2DB)	; &R-HD-JT-B2DB;
 	(=gt		    . 18141)	; &R-HD-JT-B2DB;
 	(=gt-k		    . 00596)	; &I-GT-K00596;
 	(=gt-pj-9	    . #x4B5B)	; &R-HD-JT-B2DB; [43-59]
@@ -109,7 +114,12 @@
 	(==daikanwa	    . 14332)	; &R-HD-JA-4D2D;
 	(=shinjigen	    .  3425)	; &R-HD-JA-4D2D;
 	)
-       ((==hanyo-denshi/jt  . #xB2DC)	; &R-HD-JT-B2DC;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x6709)	; 有
+	  )
+	 ((=ucs		      . #xE0103)	; 󠄃
+	  ))
+	(==hanyo-denshi/jt  . #xB2DC)	; &R-HD-JT-B2DC;
 	(=shinjigen	    .  3426)	; &R-HD-JT-B2DC;
 	(=jef-china3	    . #x52A7)	; &R-HD-JT-B2DC;
 	))
@@ -346,6 +356,11 @@
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x670D)	; 服
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=hanyo-denshi/jt	. #xB2DE)	; &HD-JT-B2DE;
     (=daikanwa		. 14345)	; &I-M-14345;
     (=jef-china3	. #x52B4)	; &I-JC3-52B4;
@@ -837,7 +852,12 @@
        ((==ucs@iso	    . #x2F8D8)	; &R-U-0002F8D8;
 	(==cns11643-4	    . #x323E)	; &R-U-0002F8D8; [18-30]
 	)
-       ((==hanyo-denshi/jt  . #xB2E9)	; &R-HD-JT-B2E9;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x6717)	; 朗
+	  )
+	 ((=ucs		      . #xE0105)	; 󠄅
+	  ))
+	(==hanyo-denshi/jt  . #xB2E9)	; &R-HD-JT-B2E9;
 	))
       )
      ((=ucs@jis		  . #xF929)	; &JX1-754E;
@@ -1059,6 +1079,11 @@
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x671B)	; 望
+      )
+     ((=ucs		  . #xE0107)	; 󠄇
+      ))
     (=hanyo-denshi/jt	. #xB2E5)	; &HD-JT-B2E5;
     (=daikanwa		. 14368)	; &I-M-14368;
     ))
@@ -1079,6 +1104,11 @@
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x671B)	; 望
+      )
+     ((=ucs		  . #xE0106)	; 󠄆
+      ))
     (=hanyo-denshi/jt	. #xB2E6)	; &HD-JT-B2E6;
     (=jef-china3	. #x52A6)	; &I-JC3-52A6;
     ))
@@ -1247,6 +1277,11 @@
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x671D)	; 朝
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=hanyo-denshi/jt	. #xB2EC)	; &HD-JT-B2EC;
     (=daikanwa		. 14374)	; &M-14374;
     (=jef-china3	. #x52AF)	; &I-JC3-52AF;
@@ -1359,7 +1394,12 @@
       (=hanyo-denshi/jt	  . #xB2EE)	; &HD-JT-B2EE;
       (=cbeta		  . 04407)	; &I-CB04407;
       (->subsumptive
-       ((==hanyo-denshi/jt  . #xB2EE)	; &R-HD-JT-B2EE;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x671E)	; 朞
+	  )
+	 ((=ucs		      . #xE0103)	; 󠄃
+	  ))
+	(==hanyo-denshi/jt  . #xB2EE)	; &R-HD-JT-B2EE;
 	)
        ((==ucs@unicode	    . #x671E)	; &R-UU+671E;
 	))
