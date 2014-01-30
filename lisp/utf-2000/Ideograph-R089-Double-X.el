@@ -182,6 +182,11 @@
     (ideographic-radical . 89)	; ⽘
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x723E)	; 爾
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=ucs@unicode	. #x723E)	; &HD-JA-3C24;
     (=jis-x0208		. #x3C24)	; &HD-JA-3C24; [28-04]
     (=ks-x1001		. #x6C33)	; &I-K0-6C33; [76-19]
