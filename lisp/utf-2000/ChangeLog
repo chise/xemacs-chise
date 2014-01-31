@@ -1,3 +1,22 @@
+2014-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R089-Double-X.el (J0-3C24): Add
+	`=decomposition@hanyo-denshi'.
+
+2014-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R073-Say.el: Add `=decomposition@hanyo-denshi' for a
+	representative (detailed) glyph-image of Hanyo-Denshi/KS.
+
+	* Ideograph-R074-Moon.el, Ideograph-R072-Sun.el: Add
+	`=decomposition@hanyo-denshi' for representative (detailed)
+	glyph-images of Hanyo-Denshi/JT.
+
+2014-01-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R195-Fish.el (U-00029F2A): Modify for changing
+	unification range of U+6F01.
+
 2014-01-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R177-Leather.el, Ideograph-R153-Badger.el: Add
