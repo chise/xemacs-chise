@@ -1,5 +1,13 @@
 2014-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R152-Pig.el (U-0002F9D2): Add `<-denotational' for
+	U+8C55.
+
+	* Ideograph-R092-Fang.el (J0-3267): Add
+	`=decomposition@hanyo-denshi'; unify HD-JA1871.
+
+	* Ideograph-R077-Stop.el: Add Hanyo-Denshi/KS code points.
+
 	* Ideograph-R089-Double-X.el (J0-3C24): Add
 	`=decomposition@hanyo-denshi'.
 
