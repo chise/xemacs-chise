@@ -61,7 +61,10 @@
       ))
     ))
 (define-char
-  '((=>ucs*		. #x8C55)	; 豕
+  '((<-denotational
+     ((=ucs		  . #x8C55)	; 豕
+      ))
+    (=>ucs*		. #x8C55)	; 豕
     (ideographic-radical . 152)	; ⾗
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
