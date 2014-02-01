@@ -4527,7 +4527,6 @@
 (define-char
   '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 7)
-    (kangxi-strokes	 . 13)
     (total-strokes	 . 10)
     (=ucs		. #x5D04)	; 崄
     (=iso-ir165		. #x7A77)	; &I-EGB-7A77; [90-87]
@@ -6296,6 +6295,21 @@
     (=ucs		. #x5D30)	; 崰
     (=cns11643-2	. #x3524)	; &I-C2-3524; [21-04]
     (=big5		. #xD540)	; &I-B-D540;
+    ))
+(define-char
+  '((ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (=ucs		. #x21E34)	; 𡸴
+    (->subsumptive
+     ((=ucs@iso		  . #x21E34)	; &JX1-4F6E;
+      (=jis-x0213-1	  . #x4F6E)	; &JX1-4F6E; [47-78]
+      (->subsumptive
+       ((==jis-x0213-1	    . #x4F6E)	; &R-JX1-4F6E; [47-78]
+	)
+       ((==ucs@iso	    . #x21E34)	; &R-U-00021E34;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
