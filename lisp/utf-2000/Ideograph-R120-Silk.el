@@ -6284,7 +6284,12 @@
     (=>>ucs@unicode	. #x7DAA)	; &G-HD-IB-284E;
     (=>>hanyo-denshi/ib . #x284E)	; &G-HD-IB-284E; [08-46]
     (->subsumptive
-     ((=hanyo-denshi/ib	  . #x284E)	; &HD-IB-284E; [08-46]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7DAA)	; 綪
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/ib	  . #x284E)	; &HD-IB-284E; [08-46]
       )
      ((=ucs@unicode	  . #x7DAA)	; &UU+7DAA;
       )
