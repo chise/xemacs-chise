@@ -1,5 +1,7 @@
 2014-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R038-Woman.el (U-000218BD): New character.
+
 	* Ideograph-R152-Pig.el (U-0002F9D2): Add `<-denotational' for
 	U+8C55.
 
