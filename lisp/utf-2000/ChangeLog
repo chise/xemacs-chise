@@ -1,3 +1,21 @@
+2014-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R156-Run.el (U+FA23): New character.
+
+2014-01-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R120-Silk.el: Add `=decomposition@hanyo-denshi' for a
+	representative (detailed) glyph-image of Hanyo-Denshi/IB.
+
+2014-01-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R076-Lack.el: Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R046-Mountain.el (U-00021E34): New character.
+
+	* Ideograph-R032-Earth.el (U+5790): Use `->denotational' and
+	`->subsumptive'.
+
 2014-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R038-Woman.el (U-000218BD): New character.
