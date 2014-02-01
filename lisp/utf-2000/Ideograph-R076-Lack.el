@@ -53,7 +53,10 @@
     (ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (=ks-x1001		. #x732D)	; &M-15992; [83-13]
+    (=ucs@ks		. #x6B21)	; &HD-KS-181650;
+    (=ks-x1001		. #x732D)	; &HD-KS-181650; [83-13]
+    (=hanyo-denshi/ks	. 181650)	; &HD-KS-181650;
+    (=hanyo-denshi/ks/mf . #x46F5)	; &I-KSMF-18165;
     (=daikanwa		. 15992)	; &I-M-15992;
     ))
 (define-char
@@ -76,6 +79,12 @@
     (=ucs		. #x2F8EF)	; 次
     (=>>ucs@unicode	. #x6B21)	; 次
     (=>>ucs@cns		. #x2F8EF)	; 次
+    (=>>jis-x0208	. #x3C21)	; 次 [28-01]
+    (=>>jis-x0213-1	. #x3C21)	; 次 [28-01]
+    (=>>hanyo-denshi/ja . #x3C21)	; 次 [28-01]
+    (=>>gt		. 20574)	; 次
+    (=>>gt-k		. 01626)	; 次
+    (=>>daikanwa/+p	. 15992)	; 次
     (->subsumptive
      ((=ucs@iso		  . #x2F8EF)	; &HD-JA-3C21;
       (=ucs@jis		  . #x6B21)	; &HD-JA-3C21;
@@ -87,7 +96,8 @@
       (=gt-pj-1		  . #x3C21)	; &I-GT-20574; [28-01]
       (=daikanwa/+p	  . 15992)	; &HD-JA-3C21;
       (<-same
-       ((=ks-x1001	    . #x732D)	; &M-15992; [83-13]
+       ((=ucs@ks	    . #x6B21)	; &HD-KS-181650;
+	(=ks-x1001	    . #x732D)	; &HD-KS-181650; [83-13]
 	(=daikanwa	    . 15992)	; &I-M-15992;
 	))
       (<-same*sources
@@ -154,8 +164,8 @@
       (=cns11643-3	  . #x2379)	; &I-C3-2379; [03-89]
       (=daikanwa	  . 15994)	; &I-M-15994;
       (<-simplified
-       ((=ucs@cns	    . #x6B61)	; &C1-7B63;
-	(=cns11643-1	    . #x7B63)	; &C1-7B63; [91-67]
+       ((=ucs@cns	    . #x6B61)	; &HD-KS-184400;
+	(=cns11643-1	    . #x7B63)	; &HD-KS-184400; [91-67]
 	(=daikanwa	    . 16242)	; &I-M-16242;
 	))
       (<-simplified*sources
@@ -2543,7 +2553,16 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (=ucs		. #x6B46)	; 歆
-    (=adobe-japan1-4	. 14680)	; &I-AJ1-14680;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6B46)	; 歆
+      ))
+    (ideographic-radical . 76)	; ⽋
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (=ucs@unicode	. #x6B46)	; &AJ1-14680;
+    (=adobe-japan1-4	. 14680)	; &AJ1-14680;
     (=gb2312		. #x6C27)	; &I-G0-6C27; [76-07]
     (=ks-x1001		. #x7D64)	; &I-K0-7D64; [93-68]
     (=jis-x0212		. #x4571)	; &I-JSP-4571; [37-81]
@@ -2576,6 +2595,21 @@
      ((==ucs@unicode	  . #x6B46)	; &R-UU+6B46;
       (==gb2312		  . #x6C27)	; &R-UU+6B46; [76-07]
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6B46)	; 歆
+      ))
+    (ideographic-radical . 76)	; ⽋
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6B46)	; 歆
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=hanyo-denshi/ks	. 183370)	; &HD-KS-183370;
+    (=hanyo-denshi/ks/mf . #x47A1)	; &HD-KS-183370;
     ))
 (define-char
   '((ideographic-radical . 76)	; ⽋
@@ -3629,7 +3663,9 @@
     (ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=cns11643-1	. #x6D44)	; &C1-6D44; [77-36]
+    (=cns11643-1	. #x6D44)	; &HD-KS-183890; [77-36]
+    (=hanyo-denshi/ks	. 183890)	; &HD-KS-183890;
+    (=hanyo-denshi/ks/mf . #x47D5)	; &I-KSMF-18389;
     ))
 (define-char
   '((ideographic-radical . 76)	; ⽋
@@ -3884,8 +3920,8 @@
       (=jis-x0213-1	  . #x5D44)	; &I-JX1-5D44; [61-36]
       ))
     (<-vulgar
-     ((=ucs@cns		  . #x6B61)	; &C1-7B63;
-      (=cns11643-1	  . #x7B63)	; &C1-7B63; [91-67]
+     ((=ucs@cns		  . #x6B61)	; &HD-KS-184400;
+      (=cns11643-1	  . #x7B63)	; &HD-KS-184400; [91-67]
       (=daikanwa	  . 16242)	; &I-M-16242;
       ))
     (<-vulgar*sources
@@ -4768,11 +4804,14 @@
     (ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 18)
     (total-strokes	 . 22)
-    (=ucs@cns		. #x6B61)	; &C1-7B63;
-    (=cns11643-1	. #x7B63)	; &C1-7B63; [91-67]
+    (=ucs@cns		. #x6B61)	; &HD-KS-184400;
+    (=cns11643-1	. #x7B63)	; &HD-KS-184400; [91-67]
+    (=hanyo-denshi/ks	. 184400)	; &HD-KS-184400;
     (=daikanwa		. 16242)	; &I-M-16242;
     (->subsumptive
-     ((==daikanwa	  . 16242)	; &R-M-16242;
+     ((==hanyo-denshi/ks  . 184400)	; &R-HD-KS-184400;
+      (=hanyo-denshi/ks/mf . #x4808)	; &R-HD-KS-184400;
+      (==daikanwa	  . 16242)	; &R-HD-KS-184400;
       )
      ((==ucs@cns	  . #x6B61)	; &R-CU+6B61;
       (==cns11643-1	  . #x7B63)	; &R-CU+6B61; [91-67]
