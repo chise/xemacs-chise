@@ -600,6 +600,12 @@
     ))
 (define-char
   '((ideographic-radical . 156)	; ⾛
+    (ideographic-strokes . 4)
+    (total-strokes	 . 11)
+    (=ucs		. #xFA23)	; 﨣
+    ))
+(define-char
+  '((ideographic-radical . 156)	; ⾛
     (ideographic-strokes . 5)
     (total-strokes	 . 12)
     (=ucs		. #x8D80)	; 趀
