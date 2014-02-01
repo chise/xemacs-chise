@@ -17350,6 +17350,21 @@
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (=ucs		. #x218BD)	; 𡢽
+    (->subsumptive
+     ((=ucs@iso		  . #x218BD)	; &JX1-2F7B;
+      (=jis-x0213-1	  . #x2F7B)	; &JX1-2F7B; [15-91]
+      (->subsumptive
+       ((==jis-x0213-1	    . #x2F7B)	; &R-JX1-2F7B; [15-91]
+	)
+       ((==ucs@iso	    . #x218BD)	; &R-U-000218BD;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
     (=ucs		. #x5B23)	; 嬣
