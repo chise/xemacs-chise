@@ -3238,7 +3238,23 @@
     (=daikanwa		. 05036)	; &I-M-05036;
     ))
 (define-char
-  '((=>ucs		. #x5790)	; 垐
+  '((ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6B21)	; 次
+      )
+     ((=ucs		  . #x571F)	; 土
+      ))
+    (=ucs		. #x5790)	; 垐
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5790)	; 垐
+      ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
@@ -3246,7 +3262,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ks-x1001	  . #x732D)	; &M-15992; [83-13]
+     ((=ucs@ks		  . #x6B21)	; &HD-KS-181650;
+      (=ks-x1001	  . #x732D)	; &HD-KS-181650; [83-13]
       (=daikanwa	  . 15992)	; &I-M-15992;
       )
      ((=ucs		  . #x571F)	; 土
@@ -3255,8 +3272,9 @@
     (=cbeta		. 01683)	; &I-CB01683;
     ))
 (define-char
-  '((=>ucs		. #x5790)	; 垐
-    (morohashi-daikanwa	5037 0 0)
+  '((<-denotational
+     ((=ucs		  . #x5790)	; 垐
+      ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
@@ -3271,7 +3289,9 @@
     (=cns11643-3	. #x2B6C)	; &C3-2B6C; [11-76]
     ))
 (define-char
-  '((morohashi-daikanwa	5037 0 1)
+  '((<-denotational
+     ((=ucs		  . #x5790)	; 垐
+      ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
@@ -3280,12 +3300,26 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x6B21)	; 次
+     ((=ucs@unicode	  . #x6B21)	; &C6-2523;
+      (=ucs@cns		  . #x2F8EF)	; &C6-2523;
+      (=gb2312		  . #x344E)	; &C6-2523; [20-46]
+      (=cns11643-6	  . #x2523)	; &I-C6-2523; [05-03]
       )
      ((=ucs		  . #x571F)	; 土
       ))
-    (=ucs		. #x5790)	; 垐
-    (=hanziku-2		. #xAAE2)	; &I-HZK02-AAE2;
+    (=ucs@unicode	. #x5790)	; &HZK02-AAE2;
+    (=hanziku-2		. #xAAE2)	; &HZK02-AAE2;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((==ucs@unicode	    . #x6B21)	; &R-UU+6B21;
+	)
+       ((=ucs		    . #x571F)	; 土
+	))
+      (==ucs@unicode	  . #x5790)	; &R-UU+5790;
+      ))
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
