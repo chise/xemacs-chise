@@ -4671,9 +4671,9 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs@jis/1990	  . #x7259)	; &GT-25560;
-      (=ucs@jis/2000	  . #x7259)	; &GT-25560;
-      (=jis-x0208	  . #x3267)	; &GT-25560; [18-71]
+     ((=ucs@jis/1990	  . #x7259)	; &HD-JA-3267;
+      (=ucs@jis/2000	  . #x7259)	; &HD-JA-3267;
+      (=jis-x0208	  . #x3267)	; &HD-JA-3267; [18-71]
       (=jis-x0213-1@2000  . #x3267)	; &I-JX1-3267; [18-71]
       ))
     (=adobe-japan1-5	. 20089)	; &AJ1-20089;
@@ -9031,6 +9031,16 @@
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@ks		  . #x6B21)	; &HD-KS-181650;
+      (=ks-x1001	  . #x732D)	; &HD-KS-181650; [83-13]
+      (=daikanwa	  . 15992)	; &I-M-15992;
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
     (=ucs@jis		. #x54A8)	; &AJ1-04371;
     (=ucs@ks		. #x54A8)	; &AJ1-04371;
     (=adobe-japan1-0	. 04371)	; &AJ1-04371;
@@ -9043,19 +9053,12 @@
     (=daikanwa		. 03538)	; &I-M-03538;
     (=shinjigen		.  1067)	; &AJ1-04371;
     (->subsumptive
+     ((==daikanwa	  . 03538)	; &R-M-03538;
+      )
      ((=decomposition@cid
        ((=ucs		    . #x54A8)	; 咨
 	)
        ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ks-x1001	    . #x732D)	; &M-15992; [83-13]
-	(=daikanwa	    . 15992)	; &I-M-15992;
-	)
-       ((=ucs		    . #x53E3)	; 口
 	))
       (==ucs@jis	  . #x54A8)	; &R-AJ1-04371;
       (==ucs@ks		  . #x54A8)	; &R-AJ1-04371;
@@ -9065,7 +9068,6 @@
       (==jis-x0213-1	  . #x527E)	; &R-AJ1-04371; [50-94]
       (==gt		  . 04485)	; &R-AJ1-04371;
       (==gt-k		  . 05223)	; &R-AJ1-04371;
-      (==daikanwa	  . 03538)	; &R-AJ1-04371;
       )
      ((==shinjigen	  .  1067)	; &R-SJG2-1067;
       ))
@@ -30667,9 +30669,8 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=>>ucs@unicode	    . #x689F)	; &K0-7C7C;
-	(=ucs@unicode	    . #x689F)	; &K0-7C7C;
-	(=ks-x1001	    . #x7C7C)	; &K0-7C7C; [92-92]
+       ((=ucs@unicode	    . #x689F)	; &HD-JT-B336;
+	(=ks-x1001	    . #x7C7C)	; &HD-JT-B336; [92-92]
 	))
       (=ucs@unicode	  . #x5604)	; &M-04168;
       (=daikanwa	  . 04168)	; &M-04168;
