@@ -1530,6 +1530,16 @@
     ))
 (define-char
   '((ideographic-radical . 112)	; ⽯
+    (ideographic-strokes@cns . 6)
+    (total-strokes@cns	     . 11)
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (=ucs		. #x2546F)	; 𥑯
+    (=cns11643-5	. #x3426)	; &I-C5-3426; [20-06]
+    (=daikanwa		. 24129)	; &I-M-24129;
+    ))
+(define-char
+  '((ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
     (=ucs		. #x25470)	; 𥑰
@@ -2435,8 +2445,8 @@
   '((ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
-    (=ucs		. #x2546F)	; 𥑯
-    (=cns11643-5	. #x3426)	; &I-C5-3426; [20-06]
+    (=ucs		. #x2548E)	; 𥒎
+    (=jis-x0213-1	. #x787E)	; &I-JX1-787E; [88-94]
     ))
 (define-char
   '((ideographic-radical . 112)	; ⽯
