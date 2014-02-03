@@ -4522,6 +4522,22 @@
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (=ucs		. #x247F1)	; 𤟱
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x247F1)	; 𤟱
+      ))
+    (ideographic-radical . 94)	; ⽝
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (=ucs@iso		. #x247F1)	; &JX1-776C;
+    (=jis-x0213-1	. #x776C)	; &JX1-776C; [87-76]
+    ))
+(define-char
+  '((ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (=ucs		. #x733A)	; 猺
