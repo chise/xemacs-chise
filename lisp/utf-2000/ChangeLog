@@ -1,5 +1,38 @@
 2014-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R184-Eat.el: Add `=decomposition@hanyo-denshi' for a
+	representative (detailed) glyph-image of Hanyo-Denshi/HG.
+
+	* Ideograph-R170-Mound.el (U+FA29): New character.
+
+	* Ideograph-R162-Walk.el: Add `=decomposition@hanyo-denshi' for
+	representative (detailed) glyph-images of Hanyo-Denshi/HG.
+	(U+FA24): New character.
+
+2014-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R142-Insect.el (U+FA21): New character.
+
+	* Ideograph-R112-Stone.el (U-0002546F): Unify M-24129.
+	(U-0002548E): New character.
+
+	* Ideograph-R094-Dog.el (U-000247F1): New character.
+
+	* Ideograph-R095-Profound.el: Add Hanyo-Denshi/JA code points.
+
+	* Ideograph-R085-Water.el:
+	- Add Hanyo-Denshi/JT code points.
+	- Add `=decomposition@hanyo-denshi' for representative (detailed)
+	  glyph-images of Hanyo-Denshi/IB.
+	(U+6F45): Apply new glyph-image conventions.
+	(U+6F7C): Likewise.
+	(U+6FF1): Likewise.
+	(U+6FF5): Likewise.
+	(U+704C): Likewise.
+
+	* Ideograph-R030-Mouth.el (J0-527E): Add `ideographic-structure'.
+	(R-J0-527E): Separate R-M-03538; omit `ideographic-structure'.
+
 	* Ideograph-R156-Run.el (U+FA23): New character.
 
 2014-01-31  MORIOKA Tomohiko  <tomo.git@chise.org>
