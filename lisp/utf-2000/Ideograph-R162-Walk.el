@@ -2862,6 +2862,38 @@
     ))
 (define-char
   '((ideographic-radical . 162)	; ⾡
+    (ideographic-strokes . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x8FB6)	; 辶
+      )
+     ((=ucs		  . #x53CA)	; 及
+      ))
+    (=ucs		. #xFA24)	; 﨤
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #xFA24)	; 﨤
+      ))
+    (ideographic-radical . 162)	; ⾡
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((name		  . "CJK RADICAL WALK ONE")
+      (=ucs		  . #x2ECD)	; ⻍
+      )
+     ((=ucs@cns		  . #x53CA)	; &AJ1-13710;
+      (=adobe-japan1-4	  . 13710)	; &AJ1-13710;
+      ))
+    (=ucs@unicode	. #xFA24)	; &UU+FA24;
+    ))
+(define-char
+  '((ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 5)
     (=ucs		. #x28483)	; 𨒃
     (=>daikanwa		. 38774)	; 𨒃
@@ -10860,6 +10892,11 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x903C)	; 逼
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=ucs@jis/2004	. #x903C)	; &HD-HG-3058;
     (=jis-x0208@1978	. #x492F)	; &HD-HG-3058; [41-15]
     (=ks-x1001		. #x793A)	; &I-K0-793A; [89-26]
@@ -11231,6 +11268,11 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x9041)	; 遁
+      )
+     ((=ucs		  . #xE0104)	; 󠄄
+      ))
     (=ucs@jis/2004	. #x9041)	; &HD-HG-3055;
     (=jis-x0208@1978	. #x465B)	; &HD-HG-3055; [38-59]
     (=ks-x1001		. #x546D)	; &I-K0-546D; [52-77]
