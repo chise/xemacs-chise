@@ -4396,7 +4396,12 @@
     (=>>gt		. 59369)	; &G-JX3-3B41;
     (=>>daikanwa	. 44160)	; &G-JX3-3B41;
     (->subsumptive
-     ((=ucs@jis/2004	  . #x9910)	; &HD-HG-303B;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x9910)	; 餐
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=ucs@jis/2004	  . #x9910)	; &HD-HG-303B;
       (=ucs@ks		  . #x9910)	; &HD-HG-303B;
       (=ks-x1001	  . #x7349)	; &HD-HG-303B; [83-41]
       (=jis-x0213-1@2004  . #x3B41)	; &I-JX3-3B41; [27-33]
