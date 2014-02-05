@@ -1,4 +1,20 @@
+2014-02-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R077-Stop.el, Ideograph-R076-Lack.el,
+	Ideograph-R072-Sun.el: Add `=decomposition@hanyo-denshi' for some
+	representative (detailed) glyph-images of Hanyo-Denshi/KS.
+
+2014-02-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el: Add `=decomposition@hanyo-denshi' for
+	representative (detailed) glyph-images of Hanyo-Denshi/JT.
+
 2014-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R115-Grain.el (U-0002576F): Integrate M-24968.
+	(U-0002577A): Integrate M-24969.
+	(U-0002577B): Integrate M-24970.
+	(U-00025771): New character.
 
 	* Ideograph-R184-Eat.el: Add `=decomposition@hanyo-denshi' for a
 	representative (detailed) glyph-image of Hanyo-Denshi/HG.
