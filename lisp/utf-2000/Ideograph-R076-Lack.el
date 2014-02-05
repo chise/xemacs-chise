@@ -53,6 +53,11 @@
     (ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6B21)	; 次
+      )
+     ((=ucs		  . #xE0104)	; 󠄄
+      ))
     (=ucs@ks		. #x6B21)	; &HD-KS-181650;
     (=ks-x1001		. #x732D)	; &HD-KS-181650; [83-13]
     (=hanyo-denshi/ks	. 181650)	; &HD-KS-181650;
@@ -3663,6 +3668,11 @@
     (ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6B50)	; 歐
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=cns11643-1	. #x6D44)	; &HD-KS-183890; [77-36]
     (=hanyo-denshi/ks	. 183890)	; &HD-KS-183890;
     (=hanyo-denshi/ks/mf . #x47D5)	; &I-KSMF-18389;
@@ -4809,7 +4819,12 @@
     (=hanyo-denshi/ks	. 184400)	; &HD-KS-184400;
     (=daikanwa		. 16242)	; &I-M-16242;
     (->subsumptive
-     ((==hanyo-denshi/ks  . 184400)	; &R-HD-KS-184400;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x6B61)	; 歡
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==hanyo-denshi/ks  . 184400)	; &R-HD-KS-184400;
       (=hanyo-denshi/ks/mf . #x4808)	; &R-HD-KS-184400;
       (==daikanwa	  . 16242)	; &R-HD-KS-184400;
       )
