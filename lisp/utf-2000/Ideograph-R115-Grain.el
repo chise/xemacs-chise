@@ -527,6 +527,56 @@
   '((ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
+    (=ucs		. #x2576F)	; 𥝯
+    (->subsumptive
+     ((=ucs@iso		  . #x2576F)	; &M-24968;
+      (=daikanwa	  . 24968)	; &M-24968;
+      (<-same
+       ((=ucs		    . #xFA7F)	; 奔
+	(=daikanwa	    . 05921)	; &I-M-05921;
+	))
+      (<-same*sources
+       yupian kangxi daikanwa)
+      )
+     ((=cns11643-6	  . #x3357)	; &C6-3357; [19-55]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 115)	; ⽲
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (=ucs		. #x2577A)	; 𥝺
+    (=cns11643-6	. #x3355)	; &I-C6-3355; [19-53]
+    (=daikanwa		. 24969)	; &I-M-24969;
+    (<-same
+     ((=ucs		  . #x7A73)	; 穳
+      (=daikanwa	  . 25397)	; &I-M-25397;
+      ))
+    (<-same*sources
+     chuanpian daikanwa)
+    ))
+(define-char
+  '((ideographic-radical . 115)	; ⽲
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (=ucs		. #x2577B)	; 𥝻
+    (->subsumptive
+     ((=daikanwa	  . 24970)	; &M-24970;
+      (<-same
+       ((=ucs		    . #xFA54)	; 穀
+	(=daikanwa	    . 25221)	; &I-M-25221;
+	))
+      (<-same*sources
+       yuwen daikanwa)
+      )
+     ((=ucs@iso		  . #x2577B)	; &C6-3353;
+      (=cns11643-6	  . #x3353)	; &C6-3353; [19-51]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 115)	; ⽲
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
     (=ucs		. #x2577C)	; 𥝼
     (=cns11643-6	. #x334E)	; &I-C6-334E; [19-46]
     (=daikanwa		. 24974)	; &I-M-24974;
@@ -659,22 +709,8 @@
   '((ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
-    (=ucs		. #x2576F)	; 𥝯
-    (=cns11643-6	. #x3357)	; &I-C6-3357; [19-55]
-    ))
-(define-char
-  '((ideographic-radical . 115)	; ⽲
-    (ideographic-strokes . 4)
-    (total-strokes	 . 9)
-    (=ucs		. #x2577A)	; 𥝺
-    (=cns11643-6	. #x3355)	; &I-C6-3355; [19-53]
-    ))
-(define-char
-  '((ideographic-radical . 115)	; ⽲
-    (ideographic-strokes . 4)
-    (total-strokes	 . 9)
-    (=ucs		. #x2577B)	; 𥝻
-    (=cns11643-6	. #x3353)	; &I-C6-3353; [19-51]
+    (=ucs		. #x25771)	; 𥝱
+    (=jis-x0213-1	. #x7947)	; &I-JX1-7947; [89-39]
     ))
 (define-char
   '((ideographic-radical . 115)	; ⽲
@@ -4032,6 +4068,7 @@
     (=>>ucs@jis		. #xFA54)	; &G-JX1-794D;
     (=>>jis-x0213-1	. #x794D)	; &G-JX1-794D; [89-45]
     (=big5		. #xBD5C)	; &G-JX1-794D;
+    (=>>daikanwa	. 25221)	; &G-JX1-794D;
     (->subsumptive
      ((=>ucs*		  . #x7A40)	; 穀
       (=ucs		  . #xFA54)	; 穀
