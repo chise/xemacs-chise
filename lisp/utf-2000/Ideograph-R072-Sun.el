@@ -2357,6 +2357,11 @@
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x6636)	; 昶
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=ucs@unicode	. #x6636)	; &HD-KS-156220;
     (=gb2312		. #x6A46)	; &HD-KS-156220; [74-38]
     (=cns11643-2	. #x2A6C)	; &I-C2-2A6C; [10-76]
@@ -5355,7 +5360,12 @@
     (=>>hanyo-denshi/ks . 158300)	; &G-HD-KS-26A5C;
     (=>>daikanwa	. 14048)	; &G-HD-KS-26A5C;
     (->subsumptive
-     ((ideographic-structure
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x668E)	; 暎
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
@@ -5442,7 +5452,12 @@
       (->subsumptive
        ((==daikanwa	    . 14049)	; &R-M-14049;
 	)
-       ((==hanyo-denshi/ks  . 158310)	; &R-HD-KS-158310;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x6690)	; 暐
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(==hanyo-denshi/ks  . 158310)	; &R-HD-KS-158310;
 	(=hanyo-denshi/ks/mf . #x3DD7)	; &R-HD-KS-158310;
 	)
        ((==ucs@unicode	    . #x6690)	; &R-UU+6690;
@@ -7148,6 +7163,11 @@
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x66B1)	; 暱
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=cns11643-1	. #x6D34)	; &HD-KS-159500; [77-20]
     (=hanyo-denshi/ks	. 159500)	; &HD-KS-159500;
     (=hanyo-denshi/ks/mf . #x3E4E)	; &I-KSMF-15950;
@@ -8696,7 +8716,12 @@
     (->subsumptive
      ((=daikanwa	  . 14206)	; &M-14206;
       )
-     ((=ucs@cns		  . #x66D6)	; &HD-KS-160120;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x66D6)	; 曖
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=ucs@cns		  . #x66D6)	; &HD-KS-160120;
       (=cns11643-1	  . #x7370)	; &HD-KS-160120; [83-80]
       (=hanyo-denshi/ks	  . 160120)	; &HD-KS-160120;
       (=hanyo-denshi/ks/mf . #x3E8C)	; &I-KSMF-16012;
@@ -8967,7 +8992,12 @@
     (->subsumptive
      ((=daikanwa	  . 14223)	; &M-14223;
       )
-     ((=hanyo-denshi/ks	  . 160360)	; &HD-KS-160360;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x66DA)	; 曚
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/ks	  . 160360)	; &HD-KS-160360;
       (=hanyo-denshi/ks/mf . #x3EA4)	; &HD-KS-160360;
       )
      ((=ucs@cns		  . #x66DA)	; &C2-6166;
