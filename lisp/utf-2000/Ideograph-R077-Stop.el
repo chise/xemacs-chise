@@ -68,7 +68,12 @@
      ((=ucs		  . #x6B62)	; 止
       ))
     (->subsumptive
-     ((==big5-cdp	  . #x8960)	; &R-HD-KS-184490;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x6B62)	; 止
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==big5-cdp	  . #x8960)	; &R-HD-KS-184490;
       (==hanyo-denshi/ks  . 184490)	; &R-HD-KS-184490;
       (=hanyo-denshi/ks/mf . #x4811)	; &R-HD-KS-184490;
       )
