@@ -1,3 +1,10 @@
+2014-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R167-Gold.el (U+FA27): New character.
+	(U+FA28): New character.
+
+	* Ideograph-R079-Weapon.el: Add Hanyo-Denshi/KS code points.
+
 2014-02-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R077-Stop.el, Ideograph-R076-Lack.el,
