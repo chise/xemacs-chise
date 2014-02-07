@@ -20,6 +20,11 @@
       (=cns11643-1	  . #x4860)	; &C1-4860; [40-64]
       )
      ((total-strokes	   . 7)
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x821B)	; 舛
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
       (=ucs@ks		  . #x821B)	; &HD-IB-2354;
       (=ks-x1001	  . #x743F)	; &HD-IB-2354; [84-31]
       (=hanyo-denshi/ib	  . #x2354)	; &I-HD-IB-2354; [03-52]
