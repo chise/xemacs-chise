@@ -3009,6 +3009,16 @@
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-ks '=ucs@ks)
   (define-charset-alias '=>>>ucs@ks '=ucs@ks)
+  (make-charset '=ucs@ks/2012
+		"Mapping for Korean Standards in ISO/IEC 10646:2012"
+		'(long-name	"UCS:2012 for KS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=ucs@ks))
   (make-charset '=ucs-bmp@ks
 		"ISO/IEC 10646 BMP for KS"
 		'(long-name	"BMP for KS"
