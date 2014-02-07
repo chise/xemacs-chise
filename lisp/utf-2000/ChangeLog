@@ -1,3 +1,16 @@
+2014-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R136-Oppose.el: Add `=decomposition@hanyo-denshi' for
+	a representative (detailed) glyph-image of Hanyo-Denshi/IB.
+
+2014-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R171-Slave.el (K0-6766): Unify U+F9B8 and K2012U+FA2F.
+
+	* Ideograph-R163-City.el (U+90DE): Apply new glyph-image
+	conventions.
+	(K0-522B): Unify U+F92C and K2012U+FA2E.
+
 2014-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R167-Gold.el (U+FA27): New character.
