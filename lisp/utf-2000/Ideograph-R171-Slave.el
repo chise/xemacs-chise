@@ -82,6 +82,16 @@
       (=gt		  . 56345)	; &I-GT-56345;
       (=gt-pj-1		  . #x4E6C)	; &I-GT-56345; [46-76]
       (=shinjigen	  .  8938)	; &GT-56345;
+      (->subsumptive
+       ((=>ucs*		    . #x96B8)	; 隸
+	(=ucs		    . #xF9B8)	; 隸
+	(=ucs@ks/2012	    . #xFA2F)	; 隸
+	(=ks-x1001	    . #x6766)	; &I-K0-6766; [71-70]
+	(->subsumptive
+	 ((=>ucs*	      . #x96B7)	; 隷
+	  (=ucs		      . #xFA2F)	; 隷
+	  ))
+	))
       ))
     ))
 (define-char
