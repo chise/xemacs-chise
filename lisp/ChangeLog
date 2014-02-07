@@ -1,3 +1,8 @@
+2014-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=ucs@ks/2012): New coded-charset for XEmacs
+	CHISE.
+
 2014-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Use
