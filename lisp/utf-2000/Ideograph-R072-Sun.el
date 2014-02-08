@@ -5353,8 +5353,8 @@
       )
      ((=ucs		  . #x65E5)	; 日
       )
-     ((=>>ucs@cns	  . #x82F1)	; &G-GT-40028;
-      (=>>gt		  . 40028)	; &G-GT-40028;
+     ((=>>ucs@cns	  . #x82F1)	; &G-HD-IB-3B76;
+      (=>>gt		  . 40028)	; &G-HD-IB-3B76;
       ))
     (=>>ucs@cns		. #x668E)	; &G-HD-KS-26A5C;
     (=>>hanyo-denshi/ks . 158300)	; &G-HD-KS-26A5C;
@@ -5371,7 +5371,7 @@
 	)
        ((=ucs		    . #x65E5)	; 日
 	)
-       ((=gt		    . 40028)	; &GT-40028;
+       ((=hanyo-denshi/ib   . #x3B76)	; &HD-IB-3B76; [27-86]
 	(=daikanwa	    . 30808)	; &I-M-30808;
 	))
       (=hanyo-denshi/ks	  . 158300)	; &HD-KS-158300;
