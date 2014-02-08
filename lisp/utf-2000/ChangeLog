@@ -1,5 +1,7 @@
 2014-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R074-Moon.el: Add Hanyo-Denshi/KS code points.
+
 	* Ideograph-R136-Oppose.el: Add `=decomposition@hanyo-denshi' for
 	a representative (detailed) glyph-image of Hanyo-Denshi/IB.
 
