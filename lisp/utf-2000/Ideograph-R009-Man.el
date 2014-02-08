@@ -20609,8 +20609,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=>>ucs@cns	  . #x82F1)	; &G-GT-40028;
-      (=>>gt		  . 40028)	; &G-GT-40028;
+     ((=>>ucs@cns	  . #x82F1)	; &G-HD-IB-3B76;
+      (=>>gt		  . 40028)	; &G-HD-IB-3B76;
       ))
     (=>>ucs@cns		. #x5040)	; &G-HD-JT-AD7E;
     (=>>hanyo-denshi/jt . #xAD7E)	; &G-HD-JT-AD7E;
@@ -20628,7 +20628,7 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=gt		    . 40028)	; &GT-40028;
+       ((=hanyo-denshi/ib   . #x3B76)	; &HD-IB-3B76; [27-86]
 	(=daikanwa	    . 30808)	; &I-M-30808;
 	))
       (=hanyo-denshi/jt	  . #xAD7E)	; &HD-JT-AD7E;
