@@ -1,3 +1,22 @@
+2014-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R079-Weapon.el, Ideograph-R074-Moon.el: Add
+	`=decomposition@hanyo-denshi' for some representative (detailed)
+	glyph-images of Hanyo-Denshi/KS.
+
+2014-02-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R195-Fish.el: Add `=decomposition@hanyo-denshi' for a
+	representative (detailed) glyph-image of Hanyo-Denshi/HG.
+	(U+9C52): Apply new glyph-image conventions.
+
+2014-02-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R094-Dog.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some representative
+	  (detailed) glyph-images of Hanyo-Denshi/{JA|JB|JD}.
+
 2014-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R074-Moon.el: Add Hanyo-Denshi/KS code points.
