@@ -330,7 +330,7 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=gt		  . 40028)	; &GT-40028;
+     ((=hanyo-denshi/ib	  . #x3B76)	; &HD-IB-3B76; [27-86]
       (=daikanwa	  . 30808)	; &I-M-30808;
       ))
     (sources		ruimoku=A021761-00005)
