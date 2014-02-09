@@ -1526,7 +1526,12 @@
     (=>>ucs@cns		. #x6BC6)	; &G-HD-KS-2E2D4;
     (=>>hanyo-denshi/ks . 189140)	; &G-HD-KS-2E2D4;
     (->subsumptive
-     ((=hanyo-denshi/ks	  . 189140)	; &HD-KS-189140;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x6BC6)	; 毆
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/ks	  . 189140)	; &HD-KS-189140;
       (=hanyo-denshi/ks/mf . #x49E2)	; &HD-KS-189140;
       )
      ((=ucs@cns		  . #x6BC6)	; &C1-6D48;
