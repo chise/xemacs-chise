@@ -908,6 +908,15 @@
     (ideographic-radical . 135)	; ⾆
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
+    (=>ucs@hanyo-denshi . #x8218)	; &A-HDU+8218;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@hanyo-denshi . #x8218)	; &A-HDU+8218;
+      ))
+    (ideographic-radical . 135)	; ⾆
+    (ideographic-strokes . 10)
+    (total-strokes	 . 16)
     (=ucs		. #x8218)	; 舘
     (=jis-x0208		. #x345C)	; &I-J90-345C; [20-60]
     (=jis-x0213-1	. #x345C)	; &I-JX1-345C; [20-60]
@@ -934,12 +943,20 @@
     ))
 (define-char
   '((<-denotational
-     ((==>ucs@bucs	  . #x9928)	; &BUCS+9928;
+     ((=>ucs@hanyo-denshi . #x8218)	; &A-HDU+8218;
       ))
     (ideographic-radical . 135)	; ⾆
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
-    (=hanyo-denshi/ib	. #x2A63)	; &HD-IB-2A63; [10-67]
+    (=>>hanyo-denshi/ib . #x2A63)	; &G-HD-IB-2A63; [10-67]
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8218)	; 舘
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=hanyo-denshi/ib	  . #x2A63)	; &HD-IB-2A63; [10-67]
+      ))
     ))
 (define-char
   '((=>ucs		. #x269F0)	; 𦧰
