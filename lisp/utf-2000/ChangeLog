@@ -1,3 +1,25 @@
+2014-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R187-Horse.el (JX3-7159): Use `->subsumptive' to
+	separate representative nodes.
+
+2014-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R140-Grass.el: Add Hanyo-Denshi/IB code points.
+
+	* Ideograph-R135-Tongue.el (A-HDU+8218): New node; add
+	`<-denotational' for BUCS+9928.
+	(U+8218): Use A-HDU+8218 instead of BUCS+9928 as the mother.
+	(G-HD-IB1067): New node; add `<-denotational' for A-HDU+8218.
+	(HD-IB1067): Use G-HD-IB1067 instead of BUCS+9928 as the mother;
+	add `=decomposition@hanyo-denshi'.
+
+	* Ideograph-R116-Cave.el (U-000259B2): Integrate MH-0442.
+	(U+41AA): Integrate M-25575.
+	(U-000259C4): New character.
+
+	* Ideograph-R086-Fire.el: Add Hanyo-Denshi/JT code points.
+
 2014-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R079-Weapon.el, Ideograph-R074-Moon.el: Add
