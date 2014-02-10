@@ -1,5 +1,20 @@
 2014-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R118-Bamboo.el (U-00025D9B): Use
+	`ideographic-strokes@cns' and `total-strokes@cns' instead of
+	`ideographic-strokes' and `total-strokes'; add
+	`ideographic-strokes@ucs' and `total-strokes@ucs'.
+	(U-00025D74): Unify M-26726'; add `<-same' and `<-formed' for
+	M-26521.
+	(U-00025DC3): Integrate M-26727'.
+	(U-00025DA1): New character.
+	(U-00025DBD): Use `->denotational' to separate representative
+	nodes.
+	(U+426F): Use `->subsumptive' to separate representative nodes;
+	use `ideographic-strokes@cns' and `total-strokes@cns' instead of
+	`ideographic-strokes' and `total-strokes'; add
+	`ideographic-strokes@ucs' and `total-strokes@ucs'.
+
 	* Ideograph-R187-Horse.el (JX3-7159): Use `->subsumptive' to
 	separate representative nodes.
 
