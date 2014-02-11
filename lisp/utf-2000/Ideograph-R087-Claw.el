@@ -1388,9 +1388,18 @@
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
-    (=ucs@ks		. #x7235)	; &M-19711;
-    (=ks-x1001		. #x6D49)	; &M-19711; [77-41]
+    (=ucs@ks		. #x7235)	; &HD-JT-B55C;
+    (=ks-x1001		. #x6D49)	; &HD-JT-B55C; [77-41]
+    (=hanyo-denshi/jt	. #xB55C)	; &I-HD-JT-B55C;
     (=daikanwa		. 19711)	; &I-M-19711;
+    (->subsumptive
+     ((==daikanwa	  . 19711)	; &R-M-19711;
+      )
+     ((==ucs@ks		  . #x7235)	; &R-K0-6D49;
+      (==ks-x1001	  . #x6D49)	; &R-K0-6D49; [77-41]
+      )
+     ((==hanyo-denshi/jt  . #xB55C)	; &R-HD-JT-B55C;
+      ))
     ))
 (define-char
   '((<-denotational
