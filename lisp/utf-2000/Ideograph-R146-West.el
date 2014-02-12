@@ -617,10 +617,16 @@
       (<-vulgar*sources
        shinjigen@1ed)
       )
-     ((=cns11643-3	  . #x5B2F)	; &GT-46845; [59-15]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8987)	; 覇
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=cns11643-3	  . #x5B2F)	; &HD-IB-2269; [59-15]
+      (=hanyo-denshi/ib	  . #x2269)	; &I-HD-IB-2269; [02-73]
       (=gt		  . 46845)	; &I-GT-46845;
       (=gt-pj-11	  . #x3E23)	; &I-GT-46845; [30-03]
-      (=shinjigen/+p@rev  .  7480)	; &GT-46845;
+      (=shinjigen/+p@rev  .  7480)	; &HD-IB-2269;
       (=jef-china3	  . #x64BB)	; &I-JC3-64BB;
       ))
     ))
