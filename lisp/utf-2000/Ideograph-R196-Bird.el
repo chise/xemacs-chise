@@ -1339,7 +1339,12 @@
 	)
        ((==gt		    . 63596)	; &R-GT-63596;
 	)
-       ((==ucs@unicode	    . #x9D09)	; &R-HD-HG-3021;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x9D09)	; 鴉
+	  )
+	 ((=ucs		      . #xE0103)	; 󠄃
+	  ))
+	(==ucs@unicode	    . #x9D09)	; &R-HD-HG-3021;
 	(==jis-x0213-1@2004 . #x726D)	; &R-HD-HG-3021; [82-77]
 	(==gb12345	    . #x513B)	; &R-HD-HG-3021; [49-27]
 	(==hanyo-denshi/hg  . #x3021)	; &R-HD-HG-3021; [16-01]
