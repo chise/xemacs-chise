@@ -1,5 +1,19 @@
 2014-02-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R096-Jade.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some representative
+	  (detailed) glyph-images of Hanyo-Denshi/{JA|JB|JD}.
+	(U-00024A0F): Unify S1-4947 and S2-4945; add `<-vulgar' for
+	J0-6074.
+	(U+74CE): Use `->denotational' and `->subsumptive' to separate
+	representative nodes.
+	(U+74D0): Use `->subsumptive' to separate representative nodes.
+
+	* Ideograph-R085-Water.el: Add Hanyo-Denshi/KS code points.
+
+2014-02-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R087-Claw.el, Ideograph-R075-Tree.el: Add
 	Hanyo-Denshi/JT code points.
 
