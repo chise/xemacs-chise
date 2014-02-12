@@ -1,3 +1,8 @@
+2014-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* UCS-compat.txt: Add mappings for new compatibility ideographs
+	added in ISO/IEC 10646:2012.
+
 2014-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* JC3-to-UCS.txt (JC3-52AD): Map to U-0002F8D8 instead of U+6717.
