@@ -3885,7 +3885,12 @@
     (=gt-pj-8		. #x4E51)	; &I-GT-60417; [46-49]
     (=daikanwa		. 44849)	; &I-M-44849;
     (->subsumptive
-     ((==ucs@jis/2004	  . #x9A19)	; &R-HD-HG-305F;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x9A19)	; 騙
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==ucs@jis/2004	  . #x9A19)	; &R-HD-HG-305F;
       (==ks-x1001	  . #x783E)	; &R-HD-HG-305F; [88-30]
       (==jis-x0213-1@2004 . #x7159)	; &R-HD-HG-305F; [81-57]
       (==hanyo-denshi/hg  . #x305F)	; &R-HD-HG-305F; [16-63]
