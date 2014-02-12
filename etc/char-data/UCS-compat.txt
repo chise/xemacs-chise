@@ -288,6 +288,8 @@
     U+FA2B	    U+98FC
     U+FA2C	    U+9928
     U+FA2D	    U+9DB4
+    U+FA2E	    U+90DE
+    U+FA2F	    U+96B7
     U+FA30	    U+4FAE
     U+FA31	    U+50E7
     U+FA32	    U+514D
@@ -347,6 +349,115 @@
     U+FA68	    U+96E3
     U+FA69	    U+97FF
     U+FA6A	    U+983B
+    U+FA6B	    U+6075
+    U+FA6C	U-0002242EE
+    U+FA6D	    U+8218
+    U+FA70	    U+4E26
+    U+FA71	    U+51B5
+    U+FA72	    U+5168
+    U+FA73	    U+4F80
+    U+FA74	    U+5145
+    U+FA75	    U+5180
+    U+FA76	    U+52C7
+    U+FA77	    U+52FA
+    U+FA78	    U+559D
+    U+FA79	    U+5555
+    U+FA7A	    U+5599
+    U+FA7B	    U+55E2
+    U+FA7C	    U+585A
+    U+FA7D	    U+58B3
+    U+FA7E	    U+5944
+    U+FA7F	    U+5954
+    U+FA80	    U+5A62
+    U+FA81	    U+5B28
+    U+FA82	    U+5ED2
+    U+FA83	    U+5ED9
+    U+FA84	    U+5F69
+    U+FA85	    U+5FAD
+    U+FA86	    U+60D8
+    U+FA87	    U+614E
+    U+FA88	    U+6108
+    U+FA89	    U+618E
+    U+FA8A	    U+6160
+    U+FA8B	    U+61F2
+    U+FA8C	    U+6234
+    U+FA8D	    U+63C4
+    U+FA8E	    U+641C
+    U+FA8F	    U+6452
+    U+FA90	    U+6556
+    U+FA91	    U+6674
+    U+FA92	    U+6717
+    U+FA93	    U+671B
+    U+FA94	    U+6756
+    U+FA95	    U+6B79
+    U+FA96	    U+6BBA
+    U+FA97	    U+6D41
+    U+FA98	    U+6EDB
+    U+FA99	    U+6ECB
+    U+FA9A	    U+6F22
+    U+FA9B	    U+701E
+    U+FA9C	    U+716E
+    U+FA9D	    U+77A7
+    U+FA9E	    U+7235
+    U+FA9F	    U+72AF
+    U+FAA0	    U+732A
+    U+FAA1	    U+7471
+    U+FAA2	    U+7506
+    U+FAA3	    U+753B
+    U+FAA4	    U+761D
+    U+FAA5	    U+761F
+    U+FAA6	    U+76CA
+    U+FAA7	    U+76DB
+    U+FAA8	    U+76F4
+    U+FAA9	    U+774A
+    U+FAAA	    U+7740
+    U+FAAB	    U+78CC
+    U+FAAC	    U+7AB1
+    U+FAAD	    U+7BC0
+    U+FAAE	    U+7C7B
+    U+FAAF	    U+7D5B
+    U+FAB0	    U+7DF4
+    U+FAB1	    U+7F3E
+    U+FAB2	    U+8005
+    U+FAB3	    U+8352
+    U+FAB4	    U+83EF
+    U+FAB5	    U+8779
+    U+FAB6	    U+8941
+    U+FAB7	    U+8986
+    U+FAB8	    U+8996
+    U+FAB9	    U+8ABF
+    U+FABA	    U+8AF8
+    U+FABB	    U+8ACB
+    U+FABC	    U+8B01
+    U+FABD	    U+8AFE
+    U+FABE	    U+8AED
+    U+FABF	    U+8B39
+    U+FAC0	    U+8B8A
+    U+FAC1	    U+8D08
+    U+FAC2	    U+8F38
+    U+FAC3	    U+9072
+    U+FAC4	    U+9199
+    U+FAC5	    U+9276
+    U+FAC6	    U+967C
+    U+FAC7	    U+96E3
+    U+FAC8	    U+9756
+    U+FAC9	    U+97DB
+    U+FACA	    U+97FF
+    U+FACB	    U+980B
+    U+FACC	    U+983B
+    U+FACD	    U+9B12
+    U+FACE	    U+9F9C
+    U+FACF	U-0002284A
+    U+FAD0	U-00022844
+    U+FAD1	U-000233D5
+    U+FAD2	    U+3B9D
+    U+FAD3	    U+4018
+    U+FAD4	    U+4039
+    U+FAD5	U-00025249
+    U+FAD6	U-00025CD0
+    U+FAD7	U-00027ED3
+    U+FAD8	    U+9F43
+    U+FAD9	    U+9F8E
 U-0002F800	    U+4E3D
 U-0002F801	    U+4E38
 U-0002F802	    U+4E41
