@@ -44,8 +44,9 @@
     (ideographic-radical . 148)	; ⾓
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
-    (=ucs@unicode	. #x89D2)	; &G0-3D47;
-    (=gb2312		. #x3D47)	; &G0-3D47; [29-39]
+    (=ucs@unicode	. #x89D2)	; &HD-IB-287A;
+    (=gb2312		. #x3D47)	; &HD-IB-287A; [29-39]
+    (=hanyo-denshi/ib	. #x287A)	; &I-HD-IB-287A; [08-90]
     ))
 (define-char
   '((ideographic-radical . 148)	; ⾓
