@@ -1,4 +1,18 @@
+2014-02-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R146-West.el (C3-5B2F): Unify HD-IB0273; add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R140-Grass.el: Add `=decomposition@hanyo-denshi' for
+	representative (detailed) glyph-images of Hanyo-Denshi/IB.
+
 2014-02-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R196-Bird.el, Ideograph-R187-Horse.el: Add
+	`=decomposition@hanyo-denshi' for representative (detailed)
+	glyph-images of Hanyo-Denshi/HG.
+
+	* Ideograph-R148-Horn.el (G0-3D47): Add HD-IB0890.
 
 	* Ideograph-R096-Jade.el:
 	- Add Hanyo-Denshi/JA code points.
@@ -11,6 +25,9 @@
 	(U+74D0): Use `->subsumptive' to separate representative nodes.
 
 	* Ideograph-R085-Water.el: Add Hanyo-Denshi/KS code points.
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add `#x6067'.
 
 2014-02-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
