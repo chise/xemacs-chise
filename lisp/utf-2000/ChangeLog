@@ -1,3 +1,8 @@
+2014-02-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R087-Claw.el: Add `=decomposition@hanyo-denshi' for a
+	representative (detailed) glyph-image of Hanyo-Denshi/JT.
+
 2014-02-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R146-West.el (C3-5B2F): Unify HD-IB0273; add
