@@ -7477,7 +7477,12 @@
     (=gt-pj-1		. #x3444)	; &I-GT-27246; [20-36]
     (=shinjigen		.  4961)	; &HD-JA-3444;
     (->subsumptive
-     ((==ucs@jis	  . #x74B0)	; &R-HD-JA-3444;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x74B0)	; 環
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@jis	  . #x74B0)	; &R-HD-JA-3444;
       (==jis-x0208	  . #x3444)	; &R-HD-JA-3444; [20-36]
       (==jis-x0213-1	  . #x3444)	; &R-HD-JA-3444; [20-36]
       (==hanyo-denshi/ja  . #x3444)	; &R-HD-JA-3444; [20-36]
@@ -8145,7 +8150,12 @@
 	(==cns11643-1	    . #x784E)	; &R-CU+74CA; [88-46]
 	))
       )
-     ((=ucs@unicode	  . #x74CA)	; &HD-JA-607B;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x74CA)	; 瓊
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=ucs@unicode	  . #x74CA)	; &HD-JA-607B;
       (=jis-x0208	  . #x607B)	; &HD-JA-607B; [64-91]
       (=ks-x1001	  . #x4C61)	; &I-K0-4C61; [44-65]
       (=jis-x0213-1	  . #x607B)	; &I-JX1-607B; [64-91]
@@ -8356,7 +8366,12 @@
       (=gt-pj-1		  . #x607C)	; &I-GT-27346; [64-92]
       (=daikanwa	  . 21340)	; &I-M-21340;
       (->subsumptive
-       ((==ucs@jis	    . #x74CF)	; &R-HD-JA-607C;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x74CF)	; 瓏
+	  )
+	 ((=ucs		      . #xE0101)	; 󠄁
+	  ))
+	(==ucs@jis	    . #x74CF)	; &R-HD-JA-607C;
 	(==ks-x1001	    . #x566A)	; &R-HD-JA-607C; [54-74]
 	(==jis-x0208	    . #x607C)	; &R-HD-JA-607C; [64-92]
 	(==jis-x0213-1	    . #x607C)	; &R-HD-JA-607C; [64-92]
