@@ -2037,7 +2037,12 @@
     (=ucs		. #x70AC)	; 炬
     (=big5		. #xACB2)	; &I-B-ACB2;
     (->subsumptive
-     ((=hanyo-denshi/jt	  . #xB512)	; &HD-JT-B512;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x70AC)	; 炬
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/jt	  . #xB512)	; &HD-JT-B512;
       (=daikanwa	  . 18949)	; &I-M-18949;
       )
      ((=cns11643-1	  . #x5235)	; &C1-5235; [50-21]
@@ -2346,7 +2351,12 @@
 	(==shinjigen@1ed    .  4582)	; &R-HD-JA-5F5B;
 	))
       )
-     ((=hanyo-denshi/jt	  . #xB513)	; &HD-JT-B513;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x70B3)	; 炳
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/jt	  . #xB513)	; &HD-JT-B513;
       )
      ((=ucs@unicode	  . #x70B3)	; &GT-24296;
       (=gb2312		  . #x317E)	; &GT-24296; [17-94]
@@ -6976,7 +6986,12 @@
       (->subsumptive
        ((==daikanwa	    . 19189)	; &R-M-19189;
 	)
-       ((==hanyo-denshi/jt  . #xB53A)	; &R-HD-JT-B53A;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x7152)	; 煒
+	  )
+	 ((=ucs		      . #xE0103)	; 󠄃
+	  ))
+	(==hanyo-denshi/jt  . #xB53A)	; &R-HD-JT-B53A;
 	)
        ((==ucs@unicode	    . #x7152)	; &R-UU+7152;
 	(==gb12345	    . #x6C3F)	; &R-UU+7152; [76-31]
@@ -11218,10 +11233,20 @@
       (=daikanwa	  . 19390)	; &I-M-19390;
       (=jef-china3	  . #x57F6)	; &I-JC3-57F6;
       (->subsumptive
-       ((==hanyo-denshi/jt  . #xB545)	; &R-HD-JT-B545;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x71C1)	; 燁
+	  )
+	 ((=ucs		      . #xE0103)	; 󠄃
+	  ))
+	(==hanyo-denshi/jt  . #xB545)	; &R-HD-JT-B545;
 	(==daikanwa	    . 19390)	; &R-HD-JT-B545;
 	)
-       ((=hanyo-denshi/jt   . #xC0C0)	; &HD-JT-C0C0;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x71C1)	; 燁
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(=hanyo-denshi/jt   . #xC0C0)	; &HD-JT-C0C0;
 	))
       )
      ((=ucs@cns		  . #x71C1)	; &C2-5839;
@@ -13026,7 +13051,12 @@
      ((=ucs@ks		  . #x71E7)	; &K0-622C;
       (=ks-x1001	  . #x622C)	; &K0-622C; [66-12]
       )
-     ((=hanyo-denshi/jt	  . #xB558)	; &HD-JT-B558;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x71E7)	; 燧
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=hanyo-denshi/jt	  . #xB558)	; &HD-JT-B558;
       ))
     ))
 (define-char
