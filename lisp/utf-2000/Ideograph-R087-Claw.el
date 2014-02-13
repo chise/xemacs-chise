@@ -1398,7 +1398,12 @@
      ((==ucs@ks		  . #x7235)	; &R-K0-6D49;
       (==ks-x1001	  . #x6D49)	; &R-K0-6D49; [77-41]
       )
-     ((==hanyo-denshi/jt  . #xB55C)	; &R-HD-JT-B55C;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7235)	; 爵
+	)
+       ((=ucs		    . #xE0104)	; 󠄄
+	))
+      (==hanyo-denshi/jt  . #xB55C)	; &R-HD-JT-B55C;
       ))
     ))
 (define-char
