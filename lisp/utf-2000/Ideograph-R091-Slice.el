@@ -1295,6 +1295,14 @@
       )
      ((=ucs@cns		  . #x7253)	; &C2-4B6C;
       (=cns11643-2	  . #x4B6C)	; &C2-4B6C; [43-76]
+      )
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7253)	; 牓
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/ks	  . 223800)	; &HD-KS-223800;
+      (=hanyo-denshi/ks/mf . #x576C)	; &HD-KS-223800;
       ))
     ))
 (define-char
