@@ -208,7 +208,8 @@
     (ideographic-radical . 89)	; ⽘
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (=jef-china3	. #x41A4)	; &JC3-41A4;
+    (=hanyo-denshi/jt	. #xAD19)	; &HD-JT-AD19;
+    (=jef-china3	. #x41A4)	; &I-JC3-41A4;
     ))
 (define-char
   '((ideographic-radical@ucs . 9)	; ⼈
