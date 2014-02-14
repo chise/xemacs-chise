@@ -12841,8 +12841,6 @@
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
     (=ucs		. #x54F6)	; 哶
     ))
 (define-char
@@ -12888,7 +12886,8 @@
      ((=ucs@unicode	  . #x8289)	; &JSP-5734;
       (=jis-x0212	  . #x5734)	; &JSP-5734; [55-20]
       ))
-    (=hanziku-2		. #xD0A1)	; &HZK02-D0A1;
+    (=hanziku-2		. #xD0A1)	; &CB02378;
+    (=cbeta		. 02378)	; &I-CB02378;
     ))
 (define-char
   '((<-denotational
