@@ -1,5 +1,20 @@
 2014-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R097-Melon.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some representative
+	  (detailed) glyph-images of Hanyo-Denshi/JA.
+
+	* Ideograph-R085-Water.el: Add `=decomposition@hanyo-denshi' for
+	some representative (detailed) glyph-images of Hanyo-Denshi/KS.
+
+	* Ideograph-R075-Tree.el: Add `=decomposition@hanyo-denshi' for
+	representative (detailed) glyph-images of Hanyo-Denshi/JT.
+
+	* Ideograph-R030-Mouth.el (HZK02-D0A1): Unify CB02378.
+
+2014-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R096-Jade.el: Add `=decomposition@hanyo-denshi' for
 	some representative (detailed) glyph-images of Hanyo-Denshi/JA.
 
