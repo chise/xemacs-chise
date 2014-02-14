@@ -44,6 +44,11 @@
     (ideographic-radical . 148)	; ⾓
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x89D2)	; 角
+      )
+     ((=ucs		  . #xE0104)	; 󠄄
+      ))
     (=ucs@unicode	. #x89D2)	; &HD-IB-287A;
     (=gb2312		. #x3D47)	; &HD-IB-287A; [29-39]
     (=hanyo-denshi/ib	. #x287A)	; &I-HD-IB-287A; [08-90]
