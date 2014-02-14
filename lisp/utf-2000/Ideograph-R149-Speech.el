@@ -10724,6 +10724,11 @@
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x8AED)	; 諭
+      )
+     ((=ucs		  . #xE0104)	; 󠄄
+      ))
     (=ucs@ks		. #x8AED)	; &HD-IB-3D40;
     (=ks-x1001		. #x6B31)	; &HD-IB-3D40; [75-17]
     (=hanyo-denshi/ib	. #x3D40)	; &I-HD-IB-3D40; [29-32]
