@@ -1,5 +1,12 @@
 2014-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R149-Speech.el, Ideograph-R148-Horn.el: Add
+	`=decomposition@hanyo-denshi' for representative (detailed)
+	glyph-images of Hanyo-Denshi/IB.
+
+	* Ideograph-R074-Moon.el (R-HD-JA5914): Add
+	`=decomposition@hanyo-denshi'.
+
 	* Ideograph-R097-Melon.el:
 	- Add Hanyo-Denshi/JA code points.
 	- Add `=decomposition@hanyo-denshi' for some representative
