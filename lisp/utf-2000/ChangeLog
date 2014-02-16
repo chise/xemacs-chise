@@ -1,3 +1,8 @@
+2014-02-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R089-Double-X.el: Add `=decomposition@hanyo-denshi'
+	for a representative (detailed) glyph-image of Hanyo-Denshi/JT.
+
 2014-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R149-Speech.el, Ideograph-R148-Horn.el: Add
