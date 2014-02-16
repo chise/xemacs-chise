@@ -208,6 +208,11 @@
     (ideographic-radical . 89)	; ⽘
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x723E)	; 爾
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
     (=hanyo-denshi/jt	. #xAD19)	; &HD-JT-AD19;
     (=jef-china3	. #x41A4)	; &I-JC3-41A4;
     ))
