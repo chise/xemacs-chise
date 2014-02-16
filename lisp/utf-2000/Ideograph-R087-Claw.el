@@ -555,9 +555,11 @@
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=ucs@unicode	. #x7230)	; &C1-523B;
-    (=gb2312		. #x6B3C)	; &C1-523B; [75-28]
+    (=ucs@unicode	. #x7230)	; &HD-KS-221640;
+    (=gb2312		. #x6B3C)	; &HD-KS-221640; [75-28]
     (=cns11643-1	. #x523B)	; &I-C1-523B; [50-27]
+    (=hanyo-denshi/ks	. 221640)	; &HD-KS-221640;
+    (=hanyo-denshi/ks/mf . #x5694)	; &I-KSMF-22164;
     ))
 (define-char
   '((ideographic-radical . 87)	; ⽖
