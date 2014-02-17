@@ -3713,22 +3713,22 @@
       (=hanyo-denshi/jt	  . #xAEAF)	; &I-HD-JT-AEAF;
       (=daikanwa	  . 03363)	; &I-M-03363;
       (<-formed
-       ((=ucs@ks	    . #x901E)	; &M-38896;
-	(=ks-x1001	    . #x5641)	; &M-38896; [54-33]
+       ((=ucs@ks	    . #x901E)	; &HD-IB-2422;
+	(=ks-x1001	    . #x5641)	; &HD-IB-2422; [54-33]
 	(=daikanwa	    . 38896)	; &I-M-38896;
 	))
       (<-formed*sources
        jiyun shiwen)
       (<-same
-       ((=ucs@ks	    . #x901E)	; &M-38896;
-	(=ks-x1001	    . #x5641)	; &M-38896; [54-33]
+       ((=ucs@ks	    . #x901E)	; &HD-IB-2422;
+	(=ks-x1001	    . #x5641)	; &HD-IB-2422; [54-33]
 	(=daikanwa	    . 38896)	; &I-M-38896;
 	))
       (<-same*sources
        jiyun shiwen daikanwa)
       (->original
-       ((=ucs@ks	    . #x901E)	; &M-38896;
-	(=ks-x1001	    . #x5641)	; &M-38896; [54-33]
+       ((=ucs@ks	    . #x901E)	; &HD-IB-2422;
+	(=ks-x1001	    . #x5641)	; &HD-IB-2422; [54-33]
 	(=daikanwa	    . 38896)	; &I-M-38896;
 	))
       (->original*sources
@@ -9760,8 +9760,8 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@unicode	    . #x7070)	; &G0-3B52;
-	(=gb2312	    . #x3B52)	; &G0-3B52; [27-50]
+       ((=ucs@unicode	    . #x7070)	; &HD-KS-212510;
+	(=gb2312	    . #x3B52)	; &HD-KS-212510; [27-50]
 	(=ks-x1001	    . #x7C69)	; &I-K0-7C69; [92-73]
 	(=daikanwa	    . 18858)	; &I-M-18858;
 	))
@@ -22621,8 +22621,8 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs@unicode	  . #x7230)	; &C1-523B;
-      (=gb2312		  . #x6B3C)	; &C1-523B; [75-28]
+     ((=ucs@unicode	  . #x7230)	; &HD-KS-221640;
+      (=gb2312		  . #x6B3C)	; &HD-KS-221640; [75-28]
       (=cns11643-1	  . #x523B)	; &I-C1-523B; [50-27]
       ))
     (=ucs@unicode	. #x559B)	; &C3-3A33;
