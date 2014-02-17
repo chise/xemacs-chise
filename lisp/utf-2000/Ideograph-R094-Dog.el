@@ -4303,12 +4303,17 @@
     (ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=ucs@ks		. #x7336)	; &M-20557;
-    (=ks-x1001		. #x6B22)	; &M-20557; [75-02]
+    (=ucs@ks		. #x7336)	; &HD-JT-B585;
+    (=ks-x1001		. #x6B22)	; &HD-JT-B585; [75-02]
+    (=hanyo-denshi/jt	. #xB585)	; &I-HD-JT-B585;
     (=daikanwa		. 20557)	; &I-M-20557;
     (=jef-china3	. #x58F0)	; &I-JC3-58F0;
     (->subsumptive
      ((==daikanwa	  . 20557)	; &R-M-20557;
+      )
+     ((=hanyo-denshi/jt	  . #xB586)	; &HD-JT-B586;
+      )
+     ((==hanyo-denshi/jt  . #xB585)	; &R-HD-JT-B585;
       )
      ((==ucs@ks		  . #x7336)	; &R-K0-6B22;
       (==ks-x1001	  . #x6B22)	; &R-K0-6B22; [75-02]
