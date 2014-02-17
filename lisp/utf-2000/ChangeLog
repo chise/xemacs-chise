@@ -1,5 +1,7 @@
 2014-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R094-Dog.el: Add Hanyo-Denshi/JT code points.
+
 	* Ideograph-R087-Claw.el (C1-523B): Unify HD-KS221640.
 
 2014-02-15  MORIOKA Tomohiko  <tomo.git@chise.org>
