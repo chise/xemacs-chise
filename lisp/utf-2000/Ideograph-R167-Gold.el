@@ -6979,7 +6979,7 @@
     (=gt		. 54518)	; &I-GT-54518;
     (=gt-pj-1		. #x6F23)	; &I-GT-54518; [79-03]
     (=daikanwa		. 40553)	; &I-M-40553;
-    (=shinjigen@rev	.  8676)	; &GT-54518;
+    (=shinjigen		.  8676)	; &GT-54518;
     ))
 (define-char
   '((<-denotational
@@ -7007,8 +7007,9 @@
     (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 6)
     (total-strokes	 . 14)
-    (=ucs@unicode	. #x931A)	; &UU+931A;
-    (=gb12345		. #x6F23)	; &UU+931A; [79-03]
+    (=ucs@unicode	. #x931A)	; &HD-IB-3E6E;
+    (=gb12345		. #x6F23)	; &HD-IB-3E6E; [79-03]
+    (=hanyo-denshi/ib	. #x3E6E)	; &HD-IB-3E6E; [30-78]
     ))
 (define-char
   '((ideographic-radical . 167)	; ⾦
@@ -12599,7 +12600,8 @@
     (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 11)
     (total-strokes	 . 19)
-    (=ucs@unicode	. #x9404)	; &UU+9404;
+    (=ucs@unicode	. #x9404)	; &HD-IB-3F42;
+    (=hanyo-denshi/ib	. #x3F42)	; &HD-IB-3F42; [31-34]
     ))
 (define-char
   '((ideographic-radical . 167)	; ⾦
@@ -14095,6 +14097,8 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 21)
     (=ucs		. #x943B)	; 鐻
+    (=>>hanyo-denshi/jb . #x6566)	; 鐻 [69-70]
+    (=>>hanyo-denshi/ib . #x3F51)	; 鐻 [31-49]
     (->subsumptive
      ((=ucs@jis		  . #x943B)	; &HD-JB-6566;
       (=jis-x0212	  . #x6566)	; &HD-JB-6566; [69-70]
@@ -14104,6 +14108,8 @@
       (=jef-china3	  . #x6BC1)	; &I-JC3-6BC1;
       )
      ((=ucs@unicode	  . #x943B)	; &UU+943B;
+      )
+     ((=hanyo-denshi/ib	  . #x3F51)	; &HD-IB-3F51; [31-49]
       )
      ((=cns11643-2	  . #x6C4E)	; &C2-6C4E; [76-46]
       ))
