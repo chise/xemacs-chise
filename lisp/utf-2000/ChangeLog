@@ -1,5 +1,19 @@
 2014-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R086-Fire.el: Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R085-Water.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some representative
+	  (detailed) glyph-images of Hanyo-Denshi/{JA|JB|JD}.
+	(J0-5E44): Fix `=shinjigen@1ed' to unify S1-4285 instead of
+	S1-4287.
+	(S1-4358): New character.
+	(HD-FT2284): Unify S2-4358; add `<-vulgar' for J0-5E61.
+	(U-00023E01): Use `->subsumptive'; integrate S-4188.
+	(HD-JB2283): Unify S-4186.
+	(JX3-4654): Unify S-4185; add `<-formed' for J0-5E46.
+
 	* Ideograph-R167-Gold.el: Add Hanyo-Denshi/IB code points.
 
 	* Ideograph-R096-Jade.el, Ideograph-R095-Profound.el: Add
