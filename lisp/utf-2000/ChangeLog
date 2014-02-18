@@ -1,3 +1,10 @@
+2014-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R167-Gold.el: Add Hanyo-Denshi/IB code points.
+
+	* Ideograph-R096-Jade.el, Ideograph-R095-Profound.el: Add
+	Hanyo-Denshi/JT code points.
+
 2014-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R094-Dog.el: Add Hanyo-Denshi/JT code points.
