@@ -4311,9 +4311,19 @@
     (->subsumptive
      ((==daikanwa	  . 20557)	; &R-M-20557;
       )
-     ((=hanyo-denshi/jt	  . #xB586)	; &HD-JT-B586;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7336)	; 猶
+	)
+       ((=ucs		    . #xE0105)	; 󠄅
+	))
+      (=hanyo-denshi/jt	  . #xB586)	; &HD-JT-B586;
       )
-     ((==hanyo-denshi/jt  . #xB585)	; &R-HD-JT-B585;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7336)	; 猶
+	)
+       ((=ucs		    . #xE0104)	; 󠄄
+	))
+      (==hanyo-denshi/jt  . #xB585)	; &R-HD-JT-B585;
       )
      ((==ucs@ks		  . #x7336)	; &R-K0-6B22;
       (==ks-x1001	  . #x6B22)	; &R-K0-6B22; [75-02]
