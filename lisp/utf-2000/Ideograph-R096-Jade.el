@@ -4283,7 +4283,12 @@
       (->subsumptive
        ((==daikanwa	    . 21107)	; &R-M-21107;
 	)
-       ((==hanyo-denshi/jt  . #xB5B9)	; &R-HD-JT-B5B9;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x744B)	; 瑋
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(==hanyo-denshi/jt  . #xB5B9)	; &R-HD-JT-B5B9;
 	)
        ((==ucs@unicode	    . #x744B)	; &R-UU+744B;
 	(==gb12345	    . #x6762)	; &R-UU+744B; [71-66]
@@ -4638,7 +4643,12 @@
     (=>>hanyo-denshi/jt . #xB5BB)	; &G-HD-JT-B5BB;
     (=>>daikanwa	. 21127)	; &G-HD-JT-B5BB;
     (->subsumptive
-     ((=hanyo-denshi/jt	  . #xB5BB)	; &HD-JT-B5BB;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x745B)	; 瑛
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=hanyo-denshi/jt	  . #xB5BB)	; &HD-JT-B5BB;
       (=daikanwa	  . 21127)	; &I-M-21127;
       )
      ((=ucs@cns		  . #x745B)	; &C1-6533;
@@ -6944,7 +6954,12 @@
     (=ucs@unicode	. #x74A1)	; &HD-JT-B5CE;
     (=hanyo-denshi/jt	. #xB5CE)	; &HD-JT-B5CE;
     (->subsumptive
-     ((==hanyo-denshi/jt  . #xB5CE)	; &R-HD-JT-B5CE;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x74A1)	; 璡
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==hanyo-denshi/jt  . #xB5CE)	; &R-HD-JT-B5CE;
       )
      ((==ucs@unicode	  . #x74A1)	; &R-UU+74A1;
       ))
@@ -7488,7 +7503,12 @@
       )
      ((==shinjigen	  .  4962)	; &R-SJG2-4962;
       )
-     ((==ucs@unicode	  . #x74B0)	; &R-HD-JT-B5D5;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x74B0)	; 環
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==ucs@unicode	  . #x74B0)	; &R-HD-JT-B5D5;
       (==gb12345	  . #x3B37)	; &R-HD-JT-B5D5; [27-23]
       (==hanyo-denshi/jt  . #xB5D5)	; &R-HD-JT-B5D5;
       )
@@ -8206,7 +8226,12 @@
        ((==ucs@cns	    . #x74CA)	; &R-CU+74CA;
 	(==cns11643-1	    . #x784E)	; &R-CU+74CA; [88-46]
 	)
-       ((==hanyo-denshi/jt  . #xB5DA)	; &R-HD-JT-B5DA;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x74CA)	; 瓊
+	  )
+	 ((=ucs		      . #xE0103)	; 󠄃
+	  ))
+	(==hanyo-denshi/jt  . #xB5DA)	; &R-HD-JT-B5DA;
 	))
       )
      ((=decomposition@hanyo-denshi
