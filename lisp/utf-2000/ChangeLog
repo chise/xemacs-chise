@@ -1,3 +1,20 @@
+2014-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el: Add `=decomposition@hanyo-denshi' for
+	some representative detailed glyph-images of Hanyo-Denshi/JA.
+
+2014-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R087-Claw.el, Ideograph-R086-Fire.el: Add
+	`=decomposition@hanyo-denshi' for some representative (detailed)
+	glyph-images of Hanyo-Denshi/KS.
+
+	* Ideograph-R032-Earth.el (U-0002145E): Use `->denotational'.
+
+	* Ideograph-R096-Jade.el, Ideograph-R095-Profound.el,
+	Ideograph-R094-Dog.el: Add `=decomposition@hanyo-denshi' for some
+	representative (detailed) glyph-images of Hanyo-Denshi/JT.
+
 2014-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R086-Fire.el: Add Hanyo-Denshi/KS code points.
