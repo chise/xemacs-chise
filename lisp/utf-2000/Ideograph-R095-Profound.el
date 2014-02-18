@@ -76,8 +76,14 @@
     (ideographic-radical . 95)	; ⽞
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
+    (=hanyo-denshi/jt	. #xB593)	; &HD-JT-B593;
     (=daikanwa		. 20817)	; &M-20817;
     (=jef-china3	. #x58FD)	; &I-JC3-58FD;
+    (->subsumptive
+     ((==daikanwa	  . 20817)	; &R-M-20817;
+      )
+     ((==hanyo-denshi/jt  . #xB593)	; &R-HD-JT-B593;
+      ))
     ))
 (define-char
   '((<-denotational
