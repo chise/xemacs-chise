@@ -82,7 +82,12 @@
     (->subsumptive
      ((==daikanwa	  . 20817)	; &R-M-20817;
       )
-     ((==hanyo-denshi/jt  . #xB593)	; &R-HD-JT-B593;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7387)	; 率
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==hanyo-denshi/jt  . #xB593)	; &R-HD-JT-B593;
       ))
     ))
 (define-char
