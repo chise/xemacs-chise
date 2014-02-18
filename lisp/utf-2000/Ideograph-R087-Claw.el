@@ -555,6 +555,11 @@
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x7230)	; 爰
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (=ucs@unicode	. #x7230)	; &HD-KS-221640;
     (=gb2312		. #x6B3C)	; &HD-KS-221640; [75-28]
     (=cns11643-1	. #x523B)	; &I-C1-523B; [50-27]
