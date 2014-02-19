@@ -1139,9 +1139,18 @@
     (ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
-    (=ks-x1001		. #x5A6D)	; &M-21801; [58-77]
+    (=ucs@ks		. #x7554)	; &HD-JT-B5F8;
+    (=ks-x1001		. #x5A6D)	; &HD-JT-B5F8; [58-77]
+    (=hanyo-denshi/jt	. #xB5F8)	; &I-HD-JT-B5F8;
     (=daikanwa		. 21801)	; &I-M-21801;
     (=jef-china3	. #x5ACF)	; &I-JC3-5ACF;
+    (->subsumptive
+     ((==ucs@ks		  . #x7554)	; &R-M-21801;
+      (==ks-x1001	  . #x5A6D)	; &R-M-21801; [58-77]
+      (==daikanwa	  . 21801)	; &R-M-21801;
+      )
+     ((==hanyo-denshi/jt  . #xB5F8)	; &R-HD-JT-B5F8;
+      ))
     ))
 (define-char
   '((<-denotational
