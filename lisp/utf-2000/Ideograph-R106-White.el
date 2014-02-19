@@ -157,8 +157,33 @@
   '((ideographic-radical . 106)	; ⽩
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x767D)	; 白
+      )
+     ((=ucs		  . #x52FA)	; 勺
+      ))
     (=ucs		. #x7684)	; 的
-    (=jis-x0208		. #x452A)	; &I-J90-452A; [37-10]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7684)	; 的
+      ))
+    (ideographic-radical . 106)	; ⽩
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x767D)	; 白
+      )
+     ((=ucs		  . #xFA77)	; 勺
+      ))
+    (=ucs@unicode	. #x7684)	; &GT-29087;
+    (=jis-x0208		. #x452A)	; &GT-29087; [37-10]
     (=gb2312		. #x3544)	; &I-G0-3544; [21-36]
     (=ks-x1001		. #x6E5C)	; &I-K0-6E5C; [78-60]
     (=cns11643-1	. #x4E7B)	; &I-C1-4E7B; [46-91]
@@ -168,7 +193,45 @@
     (=gt-k		. 03780)	; &I-GT-K03780;
     (=gt-pj-1		. #x452A)	; &I-GT-29087; [37-10]
     (=daikanwa		. 22692)	; &I-M-22692;
-    (=shinjigen@rev	.  5199)	; 的
+    (=shinjigen		.  5199)	; &GT-29087;
+    (->subsumptive
+     ((==daikanwa	  . 22692)	; &R-M-22692;
+      )
+     ((==ucs@unicode	  . #x7684)	; &R-J90-452A;
+      (==gb2312		  . #x3544)	; &R-J90-452A; [21-36]
+      (==ks-x1001	  . #x6E5C)	; &R-J90-452A; [78-60]
+      (==jis-x0208	  . #x452A)	; &R-J90-452A; [37-10]
+      (==cns11643-1	  . #x4E7B)	; &R-J90-452A; [46-91]
+      (==jis-x0213-1	  . #x452A)	; &R-J90-452A; [37-10]
+      (==shinjigen	  .  5199)	; &R-J90-452A;
+      )
+     ((==gt		  . 29087)	; &R-GT-29087;
+      (==gt-k		  . 03780)	; &R-GT-29087;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7684)	; 的
+      ))
+    (ideographic-radical . 106)	; ⽩
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x7684)	; 的
+      )
+     ((=ucs		  . #xE0103)	; 󠄃
+      ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x767D)	; 白
+      )
+     ((=ucs		  . #x2F828)	; 勺
+      ))
+    (=hanyo-denshi/ks	. 254180)	; &HD-KS-254180;
+    (=hanyo-denshi/ks/mf . #x634A)	; &HD-KS-254180;
+    (=shinjigen		.  5200)	; &HD-KS-254180;
     ))
 (define-char
   '((ideographic-radical . 106)	; ⽩
