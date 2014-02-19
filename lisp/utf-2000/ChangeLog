@@ -1,5 +1,9 @@
 2014-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R102-Field.el: Add Hanyo-Denshi/JT code points.
+
+	* Ideograph-R097-Melon.el (HD-JT-B5DE): New character.
+
 	* Ideograph-R085-Water.el: Add `=decomposition@hanyo-denshi' for
 	some representative detailed glyph-images of Hanyo-Denshi/JA.
 
