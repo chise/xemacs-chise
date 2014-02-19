@@ -11,8 +11,6 @@
      ((=ucs@unicode	  . #x74DC)	; &G0-394F;
       (=gb2312		  . #x394F)	; &G0-394F; [25-47]
       )
-     ((=cns11643-1	  . #x466A)	; &C1-466A; [38-74]
-      )
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x74DC)	; 瓜
 	)
@@ -27,6 +25,15 @@
       (=gt		  . 27382)	; &I-GT-27382;
       (=gt-k		  . 01570)	; &I-GT-K01570;
       (=gt-pj-1		  . #x313B)	; &I-GT-27382; [17-27]
+      )
+     ((=cns11643-1	  . #x466A)	; &C1-466A; [38-74]
+      )
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x74DC)	; 瓜
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (=hanyo-denshi/jt	  . #xB5DE)	; &HD-JT-B5DE;
       ))
     ))
 (define-char
