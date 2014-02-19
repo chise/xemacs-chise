@@ -1,5 +1,12 @@
 2014-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R106-White.el (U+7684): Add `ideographic-structure';
+	use `->denotational' to integrate HD-KS254180; use `->subsumptive'
+	to separate representative nodes.
+	(HD-KS254180): New character.
+
+	* Ideograph-R104-Sickness.el: Add Hanyo-Denshi/KS code points.
+
 	* Ideograph-R102-Field.el: Add Hanyo-Denshi/JT code points.
 
 	* Ideograph-R097-Melon.el (HD-JT-B5DE): New character.
