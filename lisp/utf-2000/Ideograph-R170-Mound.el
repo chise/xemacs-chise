@@ -2611,17 +2611,35 @@
      ((=ucs		  . #x9686)	; 隆
       ))
     (ideographic-radical . 170)	; ⾩
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (=ucs@jis		. #x9686)	; &GT-56046;
-    (=jis-x0208		. #x4E34)	; &GT-56046; [46-20]
-    (=jis-x0213-1	. #x4E34)	; &I-JX1-4E34; [46-20]
-    (=gt		. 56046)	; &I-GT-56046;
-    (=gt-k		. 07896)	; &I-GT-K07896;
-    (=gt-pj-1		. #x4E34)	; &I-GT-56046; [46-20]
-    (=daikanwa/+p	. 41720)	; &GT-56046;
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #xF9DC)	; 隆
+    (=>>ucs@jis		. #x9686)	; &G-J0-4E34;
+    (=>>jis-x0208	. #x4E34)	; &G-J0-4E34; [46-20]
+    (=>>jis-x0213-1	. #x4E34)	; &G-J0-4E34; [46-20]
+    (=>>hanyo-denshi/ib . #x2A3D)	; &G-J0-4E34; [10-29]
+    (=>>gt		. 56046)	; &G-J0-4E34;
+    (=>>gt-k		. 07896)	; &G-J0-4E34;
+    (=>>daikanwa/+p	. 41720)	; &G-J0-4E34;
+    (->subsumptive
+     ((ideographic-strokes . 8)
+      (total-strokes	   . 11)
+      (=ucs@jis		  . #x9686)	; &GT-56046;
+      (=jis-x0208	  . #x4E34)	; &GT-56046; [46-20]
+      (=jis-x0213-1	  . #x4E34)	; &I-JX1-4E34; [46-20]
+      (=gt		  . 56046)	; &I-GT-56046;
+      (=gt-k		  . 07896)	; &I-GT-K07896;
+      (=gt-pj-1		  . #x4E34)	; &I-GT-56046; [46-20]
+      (=daikanwa/+p	  . 41720)	; &GT-56046;
+      (<-simplified@JP/Jouyou
+       ((=ucs		    . #xF9DC)	; 隆
+	))
+      )
+     ((ideographic-strokes . 9)
+      (total-strokes	   . 12)
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x9686)	; 隆
+	)
+       ((=ucs		    . #xE0104)	; 󠄄
+	))
+      (=hanyo-denshi/ib	  . #x2A3D)	; &HD-IB-2A3D; [10-29]
       ))
     ))
 (define-char
