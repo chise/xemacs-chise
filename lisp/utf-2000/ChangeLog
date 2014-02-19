@@ -1,3 +1,12 @@
+2014-02-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R170-Mound.el (G-J0-4E34): New node to integrate
+	J0-4E34 and HD-IB1029.
+	(HD-IB1029): New character.
+
+	* Ideograph-R167-Gold.el: Add `=decomposition@hanyo-denshi' for
+	representative (detailed) glyph-images of Hanyo-Denshi/IB.
+
 2014-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R106-White.el (U+7684): Add `ideographic-structure';
