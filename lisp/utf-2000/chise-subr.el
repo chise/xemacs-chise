@@ -1,7 +1,7 @@
 ;;; chise-subr.el --- basic lisp subroutines for XEmacs CHISE
 
 ;; Copyright (C) 1999, 2001, 2002, 2003, 2004, 2005, 2007, 2008, 2009,
-;;   2010, 2011, 2012, 2013 MORIOKA Tomohiko.
+;;   2010, 2011, 2012, 2013, 2014 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Character Database, ISO/IEC 10646, UCS, Unicode, MULE.
@@ -141,6 +141,12 @@
 		(cond
 		 ((= a-ir 177)
 		  t)
+		 ((eq kb '=mj)
+		  nil)
+		 ((eq kb '==mj)
+		  nil)
+		 ((eq kb '=>>mj)
+		  nil)
 		 ((and (setq b-id (charset-id kb))
 		       (charset-id-adobe-japan1-p b-id))
 		  nil)
@@ -149,17 +155,43 @@
 		(cond
 		 ((= b-ir 177)
 		  nil)
+		 ((eq ka '=mj)
+		  t)
+		 ((eq ka '==mj)
+		  t)
+		 ((eq ka '=>>mj)
+		  t)
 		 ((and (setq a-id (charset-id ka))
 		       (charset-id-adobe-japan1-p a-id))
 		  t)
 		 (t nil))
 	      (cond
+	       ((eq ka '=mj)
+		t)
+	       ((eq ka '==mj)
+		t)
+	       ((eq ka '=>>mj)
+		t)
 	       ((and (setq a-id (charset-id ka))
 		     (charset-id-adobe-japan1-p a-id))
-		(if (and (setq b-id (charset-id kb))
-			 (charset-id-adobe-japan1-p b-id))
-		    (< a-id b-id)
-		  t))
+		(cond
+		 ((eq kb '=mj)
+		  nil)
+		 ((eq kb '==mj)
+		  nil)
+		 ((eq kb '=>>mj)
+		  nil)
+		 ((and (setq b-id (charset-id kb))
+		       (charset-id-adobe-japan1-p b-id))
+		  (< a-id b-id))
+		 (t))
+		)
+	       ((eq kb '=mj)
+		nil)
+	       ((eq kb '==mj)
+		nil)
+	       ((eq kb '=>>mj)
+		nil)
 	       ((and (setq b-id (charset-id kb))
 		     (charset-id-adobe-japan1-p b-id))
 		nil)
