@@ -2374,6 +2374,21 @@
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x722B)	; 爫
+	)
+       ((=ucs		    . #x5B88)	; 守
+	))
+      )
+     ((=ucs		  . #x4E5A)	; 乚
+      ))
     (=ucs		. #x200FF)	; 𠃿
     ))
 (define-char
@@ -2394,14 +2409,31 @@
        ((name		    . "CJK RADICAL PAW ONE")
 	(=ucs		    . #x2EA4)	; ⺤
 	)
-       ((=ucs@unicode	    . #x5B88)	; &C1-4776;
-	(=gb2312	    . #x4A58)	; &C1-4776; [42-56]
-	(=cns11643-1	    . #x4776)	; &I-C1-4776; [39-86]
+       ((=ucs		    . #x5B88)	; 守
 	))
       )
      ((=ucs		  . #x4E5A)	; 乚
       ))
     (=ucs@iso		. #x200FF)	; &U-000200FF;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((name		      . "CJK RADICAL PAW ONE")
+	  (=ucs		      . #x2EA4)	; ⺤
+	  )
+	 ((==ucs@unicode      . #x5B88)	; &R-UU+5B88;
+	  ))
+	)
+       ((=ucs		    . #x4E5A)	; 乚
+	))
+      (==ucs@iso	  . #x200FF)	; &R-U-000200FF;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2424,9 +2456,7 @@
 	(=jis-x0213-2	    . #x702A)	; &I-JX2-702A; [80-10]
 	(=daikanwa	    . 19655)	; &I-M-19655;
 	)
-       ((=ucs@unicode	    . #x5B88)	; &C1-4776;
-	(=gb2312	    . #x4A58)	; &C1-4776; [42-56]
-	(=cns11643-1	    . #x4776)	; &I-C1-4776; [39-86]
+       ((==ucs@unicode	    . #x5B88)	; &R-UU+5B88;
 	))
       )
      ((=ucs		  . #x4E5A)	; 乚
