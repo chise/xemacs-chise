@@ -1,21 +1,34 @@
 2014-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* chise-subr.el (char-attribute-name<): Prefer MJ to Adobe-Japan1.
+
+2014-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R082-Fur.el, Ideograph-R073-Say.el: Complete
+	`==ucs@{jis|cns|ks}'.
+
 	* Ideograph-R007-Two.el (U-0002F81B): Unify MJ007371.
 
 	* Ideograph-R003-Dot.el: Add some MJ code points.
 
 2014-02-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R094-Dog.el: Complete `==ucs@{cns|ks}'.
+
+	* Ideograph-R078-Death.el, Ideograph-R074-Moon.el,
+	Ideograph-R067-Script.el: Complete `==ucs@cns'.
+
 	* Ideograph-R039-Child.el (U+5B57): Apply new glyph-image
 	conventions.
 
-	* Ideograph-R064-Hand.el, Ideograph-R046-Mountain.el,
-	Ideograph-R061-Heart.el, Ideograph-R038-Woman.el,
-	Ideograph-R053-Dotted-Cliff.el, Ideograph-R037-Big.el,
-	Ideograph-R031-Enclosure.el, Ideograph-R022-Right-Open-Box.el,
-	Ideograph-R019-Power.el, Ideograph-R018-Knife.el,
-	Ideograph-R015-Ice.el, Ideograph-R013-Down-Box.el,
-	Ideograph-R008-Lid.el: Complete `==ucs@{jis|cns|ks}'.
+	* Ideograph-R069-Axe.el, Ideograph-R064-Hand.el,
+	Ideograph-R046-Mountain.el, Ideograph-R061-Heart.el,
+	Ideograph-R038-Woman.el, Ideograph-R053-Dotted-Cliff.el,
+	Ideograph-R037-Big.el, Ideograph-R031-Enclosure.el,
+	Ideograph-R022-Right-Open-Box.el, Ideograph-R019-Power.el,
+	Ideograph-R018-Knife.el, Ideograph-R015-Ice.el,
+	Ideograph-R013-Down-Box.el, Ideograph-R008-Lid.el: Complete
+	`==ucs@{jis|cns|ks}'.
 
 2014-02-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
