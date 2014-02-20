@@ -1,5 +1,14 @@
 2014-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	Prefer MJ to Adobe-Japan1; use "I-MJ", "MJ" and "&R-MJ" instead of
+	"I-MJ-", "MJ-" and "&R-MJ-" as prefixes of MJ.
+
+2014-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=mj-0', `=mj-1', `==mj-0' and `==mj-1'.
+
 	* mule/mule-conf.el (=mj): New coded-charset for XEmacs CHISE.
 	(=mj-0): Ditto.
 	(=mj-1): Ditto.
