@@ -1,5 +1,11 @@
 2014-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Delete
+	`=mj', `=adobe-japan1-*', `==mj' and `==adobe-japan1-*'.
+	(char-db-make-char-spec): Add code for `=mj' and `==mj' to prefer
+	them to `=adobe-japan1-*' and `==adobe-japan1-*'.
+	(char-db-insert-ccs-feature): Support `=mj', `==mj' and `=>>mj'.
+
 	* Ideograph-R005-Second.el (U-000200FF): Apply new glyph-image
 	conventions.
 
