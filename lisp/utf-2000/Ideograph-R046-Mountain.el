@@ -6305,7 +6305,8 @@
      ((=ucs@iso		  . #x21E34)	; &JX1-4F6E;
       (=jis-x0213-1	  . #x4F6E)	; &JX1-4F6E; [47-78]
       (->subsumptive
-       ((==jis-x0213-1	    . #x4F6E)	; &R-JX1-4F6E; [47-78]
+       ((==ucs@jis	    . #x21E34)	; &R-JX1-4F6E;
+	(==jis-x0213-1	    . #x4F6E)	; &R-JX1-4F6E; [47-78]
 	)
        ((==ucs@iso	    . #x21E34)	; &R-U-00021E34;
 	))
