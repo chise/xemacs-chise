@@ -254,6 +254,7 @@
        ((=ucs		    . #x531A)	; 匚
 	)
        ((==ucs@jis	    . #x4EA2)	; &R-AJ1-04111;
+	(==ucs@ks	    . #x4EA2)	; &R-AJ1-04111;
 	(==adobe-japan1-0   . 04111)	; &R-AJ1-04111;
 	))
       (==ucs@jis	  . #x531F)	; &R-AJ1-19203;
