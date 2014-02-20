@@ -1421,6 +1421,46 @@
 		  mother	=>>big5-cdp))
 
   (make-charset
+   '=mj
+   "Moji-Jouhou-Kiban characters"
+   `(long-name "Moji-Jouhou-Kiban"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+               ;; registry "mj-0$"
+	       min-code	      ,(lsh #x6404 16)
+	       max-code	   ,(+ (lsh #x6404 16) 68053)
+	       code-offset    ,(lsh #x6404 16)))
+  (make-charset
+   '=mj-0
+   "Moji-Jouhou-Kiban plane 0"
+   '(long-name "Moji-Jouhou-Kiban-0"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "mj-0$"
+	       mother =mj
+	       min-code	0
+	       max-code	#xFFFF))
+  (make-charset
+   '=mj-1
+   "Moji-Jouhou-Kiban plane 1"
+   '(long-name "Moji-Jouhou-Kiban-1"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "mj-1$"
+	       mother =mj
+	       min-code	#x10000
+	       code-offset #x10000))
+
+  (make-charset
    '=hanyo-denshi/ja
    "JA (JIS X0208) part of Han'you-Denshi characters"
    `(long-name "Han'you-Denshi/JA"
@@ -1559,6 +1599,43 @@
 	       columns 2
 	       graphic 2
 	       direction l2r))
+
+  (make-charset
+   '==mj
+   "Moji-Jouhou-Kiban detailed glyph-images."
+   '(long-name "MJ glyph-images"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =mj))
+  (make-charset
+   '==mj-0
+   "MJ detailed glyph-images plane 0"
+   '(long-name "MJ glyph-images-0"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "mj-0$"
+	       mother ==mj
+	       min-code	0
+	       max-code	#xFFFF))
+  (make-charset
+   '==mj-1
+   "MJ detailed glyph-images plane 1"
+   '(long-name "MJ glyph-images-1"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "mj-1$"
+	       mother ==mj
+	       min-code	#x10000
+	       code-offset #x10000))
 
   (make-charset
    '==hanyo-denshi/ja
@@ -1813,6 +1890,17 @@
   ;;              graphic 2
   ;;              direction l2r
   ;;              mother =hanyo-denshi/ks))
+
+  (make-charset
+   '=>>mj
+   "Moji-Jouhou-Kiban abstract glyphs."
+   '(long-name "MJ glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =mj))
 
   (make-charset
    '=>>hanyo-denshi/ja
