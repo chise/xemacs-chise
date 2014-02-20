@@ -8,6 +8,9 @@
 	(==mj-1): Ditto.
 	(=>>mj): Ditto.
 
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=mj' and `==mj'.
+
 2014-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=ucs@ks/2012): New coded-charset for XEmacs
