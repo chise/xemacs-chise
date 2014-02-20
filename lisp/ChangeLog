@@ -1,3 +1,13 @@
+2014-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=mj): New coded-charset for XEmacs CHISE.
+	(=mj-0): Ditto.
+	(=mj-1): Ditto.
+	(==mj): Ditto.
+	(==mj-0): Ditto.
+	(==mj-1): Ditto.
+	(=>>mj): Ditto.
+
 2014-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=ucs@ks/2012): New coded-charset for XEmacs
