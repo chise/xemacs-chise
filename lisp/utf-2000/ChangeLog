@@ -1,5 +1,8 @@
 2014-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R005-Second.el (U-000200FF): Apply new glyph-image
+	conventions.
+
 	* chise-subr.el (char-attribute-name<): Prefer MJ to Adobe-Japan1.
 
 2014-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
