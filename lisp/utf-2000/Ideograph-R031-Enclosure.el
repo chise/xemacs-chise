@@ -752,6 +752,7 @@
        ((=ucs		    . #x56D7)	; 囗
 	)
        ((==ucs@jis	    . #x4EA2)	; &R-AJ1-04111;
+	(==ucs@ks	    . #x4EA2)	; &R-AJ1-04111;
 	(==adobe-japan1-0   . 04111)	; &R-AJ1-04111;
 	))
       (==ucs@jis	  . #x56E5)	; &R-AJ1-21314;
