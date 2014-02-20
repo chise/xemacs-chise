@@ -116,13 +116,14 @@
     cyrillic-iso8859-5
     greek-iso8859-7
     thai-tis620
-    =adobe-japan1-0
-    =adobe-japan1-1
-    =adobe-japan1-2
-    =adobe-japan1-3
-    =adobe-japan1-4
-    =adobe-japan1-5
-    =adobe-japan1-6
+    ;; =mj
+    ;; =adobe-japan1-0
+    ;; =adobe-japan1-1
+    ;; =adobe-japan1-2
+    ;; =adobe-japan1-3
+    ;; =adobe-japan1-4
+    ;; =adobe-japan1-5
+    ;; =adobe-japan1-6
     =jis-x0208
     =jis-x0208@1978
     =jis-x0208@1983
@@ -158,13 +159,14 @@
     =hanyo-denshi/hg
     =hanyo-denshi/jt
     =hanyo-denshi/ks
-    ==adobe-japan1-0
-    ==adobe-japan1-1
-    ==adobe-japan1-2
-    ==adobe-japan1-3
-    ==adobe-japan1-4
-    ==adobe-japan1-5
-    ==adobe-japan1-6
+    ;; ==mj
+    ;; ==adobe-japan1-0
+    ;; ==adobe-japan1-1
+    ;; ==adobe-japan1-2
+    ;; ==adobe-japan1-3
+    ;; ==adobe-japan1-4
+    ;; ==adobe-japan1-5
+    ;; ==adobe-japan1-6
     ==jis-x0208
     ==jis-x0213-1
     ==jis-x0213-2
@@ -318,6 +320,30 @@
 			((setq ret (get-char-attribute char 'name*))
 			 (setq char-spec (cons (cons 'name* ret) char-spec))
 			 ))
+		  )
+		 ((encode-char char '=mj 'defined-only)
+		  (setq char-spec nil)
+		  (dolist (ccs (charset-list))
+		    (if (and (or (eq ccs '=mj)
+                                 ;; (eq (charset-property ccs 'iso-ir) 177)
+				 (string-match "=ucs@" (symbol-name ccs))
+				 )
+			     (setq ccs (charset-name ccs))
+			     (null (assq ccs char-spec))
+			     (setq ret (encode-char char ccs 'defined-only)))
+			(setq char-spec (cons (cons ccs ret) char-spec))))
+		  )
+		 ((encode-char char '==mj 'defined-only)
+		  (setq char-spec nil)
+		  (dolist (ccs (charset-list))
+		    (if (and (or (eq ccs '==mj)
+                                 ;; (eq (charset-property ccs 'iso-ir) 177)
+				 (string-match "=ucs@" (symbol-name ccs))
+				 )
+			     (setq ccs (charset-name ccs))
+			     (null (assq ccs char-spec))
+			     (setq ret (encode-char char ccs 'defined-only)))
+			(setq char-spec (cons (cons ccs ret) char-spec))))
 		  )
 		 ((encode-char char '=adobe-japan1 'defined-only)
 		  (setq char-spec nil)
@@ -630,6 +656,7 @@
 		     ==hanyo-denshi/ks ; =>>>hanyo-denshi/ks
 		     =>>hanyo-denshi/ks
 		     =koseki
+		     =mj ==mj =>>mj
 		     =zihai mojikyo))
 	"(%-18s . %06d)\t; %c")
        ((>= (charset-dimension name) 2)
