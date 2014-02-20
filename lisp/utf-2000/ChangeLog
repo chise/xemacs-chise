@@ -1,5 +1,15 @@
 2014-02-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R064-Hand.el, Ideograph-R046-Mountain.el,
+	Ideograph-R061-Heart.el, Ideograph-R038-Woman.el,
+	Ideograph-R053-Dotted-Cliff.el, Ideograph-R037-Big.el,
+	Ideograph-R031-Enclosure.el, Ideograph-R022-Right-Open-Box.el,
+	Ideograph-R019-Power.el, Ideograph-R018-Knife.el,
+	Ideograph-R015-Ice.el, Ideograph-R013-Down-Box.el,
+	Ideograph-R008-Lid.el: Complete `==ucs@{jis|cns|ks}'.
+
+2014-02-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R170-Mound.el (G-J0-4E34): New node to integrate
 	J0-4E34 and HD-IB1029.
 	(HD-IB1029): New character.
