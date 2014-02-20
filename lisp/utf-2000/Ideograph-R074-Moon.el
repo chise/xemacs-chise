@@ -1041,7 +1041,8 @@
 	 ((==ucs@unicode      . #x660E)	; &R-HD-JA-4C40;
 	  (==jis-x0208	      . #x4C40)	; &R-HD-JA-4C40; [44-32]
 	  ))
-	(==cns11643-3	    . #x3646)	; &R-C3-3646; [22-38]
+	(==ucs@cns	    . #x671A)	; &R-CU+671A;
+	(==cns11643-3	    . #x3646)	; &R-CU+671A; [22-38]
 	))
       )
      ((ideographic-structure
