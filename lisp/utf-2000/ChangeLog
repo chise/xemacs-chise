@@ -1,4 +1,13 @@
+2014-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R007-Two.el (U-0002F81B): Unify MJ007371.
+
+	* Ideograph-R003-Dot.el: Add some MJ code points.
+
 2014-02-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R039-Child.el (U+5B57): Apply new glyph-image
+	conventions.
 
 	* Ideograph-R064-Hand.el, Ideograph-R046-Mountain.el,
 	Ideograph-R061-Heart.el, Ideograph-R038-Woman.el,
