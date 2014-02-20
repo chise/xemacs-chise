@@ -249,6 +249,8 @@
 	)
        ((=ucs		    . #xE0101)	; 󠄁
 	))
+      (==ucs@jis	  . #x66F7)	; &R-HD-JA-5B2B;
+      (==ucs@ks		  . #x66F7)	; &R-HD-JA-5B2B;
       (==ks-x1001	  . #x4A63)	; &R-HD-JA-5B2B; [42-67]
       (==jis-x0208	  . #x5B2B)	; &R-HD-JA-5B2B; [59-11]
       (==jis-x0213-1	  . #x5B2B)	; &R-HD-JA-5B2B; [59-11]
@@ -902,7 +904,8 @@
     (->subsumptive
      ((==ucs@unicode	  . #x6701)	; &R-UU+6701;
       )
-     ((==cns11643-2	  . #x3C4C)	; &R-C2-3C4C; [28-44]
+     ((==ucs@cns	  . #x6701)	; &R-CU+6701;
+      (==cns11643-2	  . #x3C4C)	; &R-CU+6701; [28-44]
       ))
     ))
 (define-char
