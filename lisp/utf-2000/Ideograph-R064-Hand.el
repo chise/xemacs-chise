@@ -6974,7 +6974,8 @@
 	)
        ((==ucs@unicode	    . #x6353)	; &R-UU+6353;
 	)
-       ((==cns11643-3	    . #x3139)	; &R-C3-3139; [17-25]
+       ((==ucs@cns	    . #x6353)	; &R-CU+6353;
+	(==cns11643-3	    . #x3139)	; &R-CU+6353; [17-25]
 	))
       )
      ((=ucs@jis		  . #x6353)	; &AJ1-19394;
@@ -13640,13 +13641,13 @@
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=>>ucs@unicode	. #x6424)	; &C2-4326;
     (=ucs@unicode	. #x6424)	; &C2-4326;
     (=cns11643-2	. #x4326)	; &C2-4326; [35-06]
     (->subsumptive
      ((==ucs@unicode	  . #x6424)	; &R-UU+6424;
       )
-     ((==cns11643-2	  . #x4326)	; &R-C2-4326; [35-06]
+     ((==ucs@cns	  . #x6424)	; &R-CU+6424;
+      (==cns11643-2	  . #x4326)	; &R-CU+6424; [35-06]
       ))
     ))
 (define-char
