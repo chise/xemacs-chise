@@ -1,5 +1,8 @@
 2014-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R014-Cover.el (J0-3C4C): Add `->subsumptive' to add
+	representative detailed-glyph-image nodes.
+
 	* Ideograph-R030-Mouth.el: Complete `==ucs@{jis|cns|ks}'.
 	(C4-224C): Add `->subsumptive' to add representative
 	detailed-glyph-image node.
