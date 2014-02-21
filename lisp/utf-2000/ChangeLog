@@ -1,5 +1,7 @@
 2014-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el: Add some MJ code points.
+
 	* Ideograph-R014-Cover.el (J0-3C4C): Add `->subsumptive' to add
 	representative detailed-glyph-image nodes.
 
