@@ -1832,6 +1832,23 @@
   '((ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x5143)	; 元
+      )
+     ((=ucs		  . #x4E11)	; 丑
+      ))
+    (=ucs		. #x20489)	; 𠒉
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20489)	; 𠒉
+      ))
+    (ideographic-radical . 10)	; ⼉
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
     (hanyu-dazidian	1 272 1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
@@ -1839,11 +1856,14 @@
       )
      ((=ucs		  . #x5143)	; 元
       )
-     ((=ucs@jis		  . #x4E11)	; &AJ1-01233;
-      (=adobe-japan1-0	  . 01233)	; &AJ1-01233;
+     ((=ucs@jis		  . #x4E11)	; &MJ006315;
+      (=mj		  . 006315)	; &MJ006315;
       ))
-    (=ucs		. #x20489)	; 𠒉
-    (=hanziku-1		. #xDE46)	; &I-HZK01-DE46;
+    (=ucs@iso		. #x20489)	; &HZK01-DE46;
+    (=hanziku-1		. #xDE46)	; &HZK01-DE46;
+    (->subsumptive
+     ((==ucs@iso	  . #x20489)	; &R-U-00020489;
+      ))
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
