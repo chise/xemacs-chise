@@ -1,5 +1,8 @@
 2014-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R010-Legs.el (U-00020489): Use `->denotational' and
+	`->subsumptive' to separate representative nodes.
+
 	* Ideograph-R040-Roof.el (U+5B81): Apply new glyph-image
 	conventions for daikanwa, jef-china3 and cns11643-2.
 	(U+5B82): Apply new glyph-image conventions for daikanwa and
