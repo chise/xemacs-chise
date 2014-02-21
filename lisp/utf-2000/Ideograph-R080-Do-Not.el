@@ -437,6 +437,7 @@
     (=>>jis-x0208	. #x5D5A)	; &G-J0-5D5A; [61-58]
     (=>>jis-x0213-1	. #x5D5A)	; &G-J0-5D5A; [61-58]
     (=big5		. #xB7B6)	; &G-J0-5D5A;
+    (=>>hanyo-denshi/ja . #x5D5A)	; &G-J0-5D5A; [61-58]
     (=>>gt		. 21457)	; &G-J0-5D5A;
     (=>>daikanwa	. 16740)	; &G-J0-5D5A;
     (->subsumptive
@@ -470,6 +471,7 @@
 	 ((=ucs		      . #xE0101)	; 󠄁
 	  ))
 	(==ucs@jis	    . #x6BD3)	; &R-HD-JA-5D5A;
+	(==ucs@ks	    . #x6BD3)	; &R-HD-JA-5D5A;
 	(==ks-x1001	    . #x6B3E)	; &R-HD-JA-5D5A; [75-30]
 	(==jis-x0208	    . #x5D5A)	; &R-HD-JA-5D5A; [61-58]
 	(==jis-x0213-1	    . #x5D5A)	; &R-HD-JA-5D5A; [61-58]
