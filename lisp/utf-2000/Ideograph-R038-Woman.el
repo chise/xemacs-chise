@@ -4207,8 +4207,8 @@
 	)
        ((=adobe-japan1-4    . 13828)	; &AJ1-13828;
 	)
-       ((=ucs@unicode	    . #x4EA5)	; &AJ1-01195;
-	(=adobe-japan1-0    . 01195)	; &AJ1-01195;
+       ((=ucs@unicode	    . #x4EA5)	; &MJ006470;
+	(=mj		    . 006470)	; &MJ006470;
 	))
       (=ucs@unicode	  . #x59DF)	; &AJ1-19310;
       (=adobe-japan1-5	  . 19310)	; &AJ1-19310;
@@ -4226,9 +4226,9 @@
 	  )
 	 ((=adobe-japan1-4    . 13828)	; &AJ1-13828;
 	  )
-	 ((==ucs@jis	      . #x4EA5)	; &R-AJ1-01195;
-	  (==ucs@ks	      . #x4EA5)	; &R-AJ1-01195;
-	  (==adobe-japan1-0   . 01195)	; &R-AJ1-01195;
+	 ((==ucs@jis	      . #x4EA5)	; &R-MJ006470;
+	  (==ucs@ks	      . #x4EA5)	; &R-MJ006470;
+	  (==mj		      . 006470)	; &R-MJ006470;
 	  ))
 	(==ucs@jis	    . #x59DF)	; &R-AJ1-19310;
 	(==adobe-japan1-5   . 19310)	; &R-AJ1-19310;
@@ -4271,11 +4271,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x5973)	; &AJ1-02433;
-      (=adobe-japan1-0	  . 02433)	; &AJ1-02433;
+     ((=adobe-japan1-4	  . 13828)	; &AJ1-13828;
       )
-     ((=hanyo-denshi/jt	  . #xAD2B)	; &HD-JT-AD2B;
-      (=daikanwa	  . 00292)	; &I-M-00292;
+     ((=mj		  . 006471)	; &MJ006471;
       ))
     (=cbeta		. 00108)	; &CB00108;
     ))
