@@ -2144,13 +2144,10 @@
     (->subsumptive
      ((=daikanwa	  . 41338)	; &M-41338;
       )
-     ((=ucs@unicode	  . #x95AE)	; &C2-5551;
+     ((=ucs@unicode	  . #x95AE)	; &UU+95AE;
+      )
+     ((=ucs@cns		  . #x95AE)	; &C2-5551;
       (=cns11643-2	  . #x5551)	; &C2-5551; [53-49]
-      (->subsumptive
-       ((==ucs@unicode	    . #x95AE)	; &R-UU+95AE;
-	)
-       ((==cns11643-2	    . #x5551)	; &R-C2-5551; [53-49]
-	))
       ))
     ))
 (define-char
@@ -2307,7 +2304,8 @@
       (->subsumptive
        ((==ucs@iso	    . #x28D46)	; &R-U-00028D46;
 	)
-       ((==cns11643-5	    . #x522E)	; &R-C5-522E; [50-14]
+       ((==ucs@cns	    . #x28D46)	; &R-CU+28D46;
+	(==cns11643-5	    . #x522E)	; &R-CU+28D46; [50-14]
 	))
       ))
     ))
@@ -2397,7 +2395,8 @@
       (->subsumptive
        ((==ucs@unicode	    . #x499F)	; &R-UU+499F;
 	)
-       ((==cns11643-3	    . #x4F57)	; &R-C3-4F57; [47-55]
+       ((==ucs@cns	    . #x499F)	; &R-CU+499F;
+	(==cns11643-3	    . #x4F57)	; &R-CU+499F; [47-55]
 	))
       ))
     ))
