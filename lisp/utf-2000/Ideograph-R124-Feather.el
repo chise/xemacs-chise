@@ -1467,7 +1467,8 @@
      ((=ucs@unicode	  . #x7FC9)	; &C2-3842;
       (=cns11643-2	  . #x3842)	; &C2-3842; [24-34]
       (->subsumptive
-       ((==cns11643-2	    . #x3842)	; &R-C2-3842; [24-34]
+       ((==ucs@cns	    . #x7FC9)	; &R-CU+7FC9;
+	(==cns11643-2	    . #x3842)	; &R-CU+7FC9; [24-34]
 	)
        ((==ucs@unicode	    . #x7FC9)	; &R-UU+7FC9;
 	))
