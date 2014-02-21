@@ -10,6 +10,8 @@
 	(U+5677): Use `->denotational' to separate representative node.
 	(U-00021167): Apply new glyph-image conventions.
 
+	* Ideograph-R002-Line.el: Add some MJ code points.
+
 2014-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R020-Wrap.el (C3-2222): Use `->subsumptive' to add
