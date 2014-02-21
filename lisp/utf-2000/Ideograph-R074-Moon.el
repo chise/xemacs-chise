@@ -968,7 +968,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=adobe-japan1-4	  . 14031)	; &AJ1-14031;
+     ((=mj		  . 006462)	; &MJ006462;
       )
      ((=ucs@unicode	  . #x660E)	; &HD-JA-4C40;
       (=jis-x0208	  . #x4C40)	; &HD-JA-4C40; [44-32]
@@ -984,7 +984,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=adobe-japan1-4    . 14031)	; &AJ1-14031;
+       ((=mj		    . 006462)	; &MJ006462;
 	)
        ((==hanyo-denshi/jt  . #xB27F)	; &R-HD-JT-B27F;
 	))
@@ -1014,10 +1014,10 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@cns	    . #x4EA1)	; &AJ1-03682;
-	(=ucs@jis	    . #x4EA1)	; &AJ1-03682;
-	(=ucs@ks	    . #x4EA1)	; &AJ1-03682;
-	(=adobe-japan1-0    . 03682)	; &AJ1-03682;
+       ((=ucs@cns	    . #x4EA1)	; &MJ006463;
+	(=ucs@jis	    . #x4EA1)	; &MJ006463;
+	(=ucs@ks	    . #x4EA1)	; &MJ006463;
+	(=mj		    . 006463)	; &MJ006463;
 	)
        ((=ucs@unicode	    . #x660E)	; &HD-JA-4C40;
 	(=jis-x0208	    . #x4C40)	; &HD-JA-4C40; [44-32]
