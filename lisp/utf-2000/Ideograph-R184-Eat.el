@@ -4116,7 +4116,8 @@
       (->subsumptive
        ((==ucs@iso	    . #x296D2)	; &R-U-000296D2;
 	)
-       ((==cns11643-7	    . #x2B39)	; &R-C7-2B39; [11-25]
+       ((==ucs@cns	    . #x296D2)	; &R-CU+296D2;
+	(==cns11643-7	    . #x2B39)	; &R-CU+296D2; [11-25]
 	))
       ))
     ))
@@ -4186,7 +4187,8 @@
      ((=ucs@iso		  . #x296DB)	; &C7-2B3A;
       (=cns11643-7	  . #x2B3A)	; &C7-2B3A; [11-26]
       (->subsumptive
-       ((==cns11643-7	    . #x2B3A)	; &R-C7-2B3A; [11-26]
+       ((==ucs@cns	    . #x296DB)	; &R-CU+296DB;
+	(==cns11643-7	    . #x2B3A)	; &R-CU+296DB; [11-26]
 	)
        ((==ucs@iso	    . #x296DB)	; &R-U-000296DB;
 	))
@@ -5266,11 +5268,11 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 8)
     (total-strokes	 . 17)
-    (=>>ucs@iso		. #x296FB)	; &C4-5A26;
     (=ucs@iso		. #x296FB)	; &C4-5A26;
     (=cns11643-4	. #x5A26)	; &C4-5A26; [58-06]
     (->subsumptive
-     ((==cns11643-4	  . #x5A26)	; &R-C4-5A26; [58-06]
+     ((==ucs@cns	  . #x296FB)	; &R-CU+296FB;
+      (==cns11643-4	  . #x5A26)	; &R-CU+296FB; [58-06]
       )
      ((==ucs@iso	  . #x296FB)	; &R-U-000296FB;
       ))
@@ -5381,13 +5383,13 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
-    (=>>ucs@iso		. #x296FE)	; &C7-3566;
     (=ucs@iso		. #x296FE)	; &C7-3566;
     (=cns11643-7	. #x3566)	; &C7-3566; [21-70]
     (->subsumptive
      ((==ucs@iso	  . #x296FE)	; &R-U-000296FE;
       )
-     ((==cns11643-7	  . #x3566)	; &R-C7-3566; [21-70]
+     ((==ucs@cns	  . #x296FE)	; &R-CU+296FE;
+      (==cns11643-7	  . #x3566)	; &R-CU+296FE; [21-70]
       ))
     ))
 (define-char
@@ -8117,13 +8119,13 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 10)
     (total-strokes	 . 18)
-    (=>>ucs@iso		. #x29770)	; &C7-4531;
     (=ucs@iso		. #x29770)	; &C7-4531;
     (=cns11643-7	. #x4531)	; &C7-4531; [37-17]
     (->subsumptive
      ((==ucs@iso	  . #x29770)	; &R-U-00029770;
       )
-     ((==cns11643-7	  . #x4531)	; &R-C7-4531; [37-17]
+     ((==ucs@cns	  . #x29770)	; &R-CU+29770;
+      (==cns11643-7	  . #x4531)	; &R-CU+29770; [37-17]
       ))
     ))
 (define-char
