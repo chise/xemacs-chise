@@ -453,7 +453,7 @@
       )
      ((=ucs		  . #x52F9)	; 勹
       )
-     ((=adobe-japan1-4	  . 14031)	; &AJ1-14031;
+     ((=mj		  . 006462)	; &MJ006462;
       ))
     (=daikanwa		. 02505)	; &M-02505;
     ))
@@ -481,12 +481,25 @@
 	)
        ((=ucs		    . #x52F9)	; 勹
 	)
-       ((=ucs@cns	    . #x4EA1)	; &AJ1-03682;
-	(=ucs@jis	    . #x4EA1)	; &AJ1-03682;
-	(=ucs@ks	    . #x4EA1)	; &AJ1-03682;
-	(=adobe-japan1-0    . 03682)	; &AJ1-03682;
+       ((=ucs@cns	    . #x4EA1)	; &MJ006463;
+	(=ucs@jis	    . #x4EA1)	; &MJ006463;
+	(=ucs@ks	    . #x4EA1)	; &MJ006463;
+	(=mj		    . 006463)	; &MJ006463;
 	))
       (=cns11643-3	  . #x2222)	; &C3-2222; [02-02]
+      (->subsumptive
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	  (=ucs		      . #x2FF4)	; ⿴
+	  )
+	 ((=ucs		      . #x52F9)	; 勹
+	  )
+	 ((==ucs@cns	      . #x4EA1)	; &R-CU+4EA1;
+	  (==cns11643-1	      . #x4441)	; &R-CU+4EA1; [36-33]
+	  ))
+	(==ucs@cns	    . #x5304)	; &R-CU+5304;
+	(==cns11643-3	    . #x2222)	; &R-CU+5304; [02-02]
+	))
       )
      ((hanyu-dazidian	  1 257 5)
       (ideographic-structure
