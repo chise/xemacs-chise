@@ -14350,12 +14350,14 @@
 	)
        ((=ucs		    . #xE0103)	; 󠄃
 	))
+      (==ucs@jis	  . #x6ECB)	; &R-HD-JA-3C22;
       (==jis-x0208	  . #x3C22)	; &R-HD-JA-3C22; [28-02]
       (==jis-x0213-1	  . #x3C22)	; &R-HD-JA-3C22; [28-02]
       (==hanyo-denshi/ja  . #x3C22)	; &R-HD-JA-3C22; [28-02]
       (==daikanwa/+p	  . 17919)	; &R-HD-JA-3C22;
       )
-     ((==ks-x1001	  . #x6D32)	; &R-K0-6D32; [77-18]
+     ((==ucs@ks		  . #x6ECB)	; &R-K0-6D32;
+      (==ks-x1001	  . #x6D32)	; &R-K0-6D32; [77-18]
       )
      ((==cns11643-1	  . #x6045)	; &R-C1-6045; [64-37]
       )
@@ -18687,7 +18689,8 @@
 	)
        ((==ucs@unicode	    . #x6F10)	; &R-UU+6F10;
 	)
-       ((==cns11643-3	    . #x4C6A)	; &R-C3-4C6A; [44-74]
+       ((==ucs@cns	    . #x6F10)	; &R-CU+6F10;
+	(==cns11643-3	    . #x4C6A)	; &R-CU+6F10; [44-74]
 	))
       )
      ((=ucs@jis		  . #x6F10)	; &AJ1-16944;
@@ -20786,14 +20789,18 @@
       (=hanyo-denshi/ks	  . 207050)	; &HD-KS-207050;
       (=hanyo-denshi/ks/mf . #x50E1)	; &HD-KS-207050;
       )
-     ((=ks-x1001	  . #x4C3E)	; &HD-JT-B4A9; [44-30]
+     ((=ucs@cns		  . #x6F54)	; &HD-JT-B4A9;
+      (=ucs@ks		  . #x6F54)	; &HD-JT-B4A9;
+      (=ks-x1001	  . #x4C3E)	; &HD-JT-B4A9; [44-30]
       (=cns11643-1	  . #x6D4E)	; &I-C1-6D4E; [77-46]
       (=hanyo-denshi/jt	  . #xB4A9)	; &I-HD-JT-B4A9;
       (=jef-china3	  . #x56F4)	; &I-JC3-56F4;
       (->subsumptive
-       ((==ks-x1001	    . #x4C3E)	; &R-K0-4C3E; [44-30]
+       ((==ucs@ks	    . #x6F54)	; &R-K0-4C3E;
+	(==ks-x1001	    . #x4C3E)	; &R-K0-4C3E; [44-30]
 	)
-       ((==cns11643-1	    . #x6D4E)	; &R-C1-6D4E; [77-46]
+       ((==ucs@cns	    . #x6F54)	; &R-CU+6F54;
+	(==cns11643-1	    . #x6D4E)	; &R-CU+6F54; [77-46]
 	)
        ((=decomposition@hanyo-denshi
 	 ((=ucs		      . #x6F54)	; 潔
@@ -22280,6 +22287,7 @@
        ((=ucs		    . #xE0101)	; 󠄁
 	))
       (==ucs@jis	  . #x6F7C)	; &R-HD-JA-5F2E;
+      (==ucs@ks		  . #x6F7C)	; &R-HD-JA-5F2E;
       (==ks-x1001	  . #x5458)	; &R-HD-JA-5F2E; [52-56]
       (==jis-x0208	  . #x5F2E)	; &R-HD-JA-5F2E; [63-14]
       (==jis-x0213-1	  . #x5F2E)	; &R-HD-JA-5F2E; [63-14]
@@ -26569,6 +26577,7 @@
        ((=ucs		    . #xE0101)	; 󠄁
 	))
       (==ucs@jis	  . #x6FF1)	; &R-HD-JA-5F40;
+      (==ucs@ks		  . #x6FF1)	; &R-HD-JA-5F40;
       (==ks-x1001	  . #x5E34)	; &R-HD-JA-5F40; [62-20]
       (==jis-x0208	  . #x5F40)	; &R-HD-JA-5F40; [63-32]
       (==jis-x0213-1	  . #x5F40)	; &R-HD-JA-5F40; [63-32]
@@ -30762,6 +30771,7 @@
        ((=ucs		    . #xE0101)	; 󠄁
 	))
       (==ucs@jis	  . #x704C)	; &R-HD-JA-5E75;
+      (==ucs@ks		  . #x704C)	; &R-HD-JA-5E75;
       (==jis-x0208@1978	  . #x3443)	; &R-HD-JA-5E75; [20-35]
       (==jis-x0208@1983	  . #x5E75)	; &R-HD-JA-5E75; [62-85]
       (==ks-x1001	  . #x4E34)	; &R-HD-JA-5E75; [46-20]
