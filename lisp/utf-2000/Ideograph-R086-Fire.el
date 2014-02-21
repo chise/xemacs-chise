@@ -315,7 +315,8 @@
        ((==ucs@unicode	    . #x7070)	; &R-UU+7070;
 	(==gb2312	    . #x3B52)	; &R-UU+7070; [27-50]
 	)
-       ((==ks-x1001	    . #x7C69)	; &R-K0-7C69; [92-73]
+       ((==ucs@ks	    . #x7070)	; &R-K0-7C69;
+	(==ks-x1001	    . #x7C69)	; &R-K0-7C69; [92-73]
 	)
        ((=decomposition@hanyo-denshi
 	 ((=ucs		      . #x7070)	; 灰
@@ -11203,21 +11204,21 @@
       (=gt		  . 24875)	; &I-GT-24875;
       (=gt-pj-1		  . #x5F75)	; &I-GT-24875; [63-85]
       (=daikanwa	  . 19385)	; &I-M-19385;
-      (=shinjigen@rev	  .  4664)	; &HD-JA-5F75;
       (->subsumptive
+       ((==daikanwa	    . 19385)	; &R-M-19385;
+	)
        ((=decomposition@hanyo-denshi
 	 ((=ucs		      . #x71BE)	; 熾
 	  )
 	 ((=ucs		      . #xE0101)	; 󠄁
 	  ))
 	(==ucs@jis	    . #x71BE)	; &R-HD-JA-5F75;
+	(==ucs@ks	    . #x71BE)	; &R-HD-JA-5F75;
 	(==ks-x1001	    . #x763F)	; &R-HD-JA-5F75; [86-31]
 	(==jis-x0208	    . #x5F75)	; &R-HD-JA-5F75; [63-85]
 	(==jis-x0213-1	    . #x5F75)	; &R-HD-JA-5F75; [63-85]
 	(==hanyo-denshi/ja  . #x5F75)	; &R-HD-JA-5F75; [63-85]
 	(==gt		    . 24875)	; &R-HD-JA-5F75;
-	(==daikanwa	    . 19385)	; &R-HD-JA-5F75;
-	(==shinjigen@rev    .  4664)	; &R-HD-JA-5F75;
 	)
        ((==ucs@unicode	    . #x71BE)	; &R-UU+71BE;
 	(==gb12345	    . #x3363)	; &R-UU+71BE; [19-67]
@@ -11232,6 +11233,8 @@
 	))
       (=hanyo-denshi/ks	  . 219130)	; &HD-KS-219130;
       (=hanyo-denshi/ks/mf . #x5599)	; &HD-KS-219130;
+      (=shinjigen@1ed	  .  4663)	; &HD-KS-219130;
+      (=shinjigen@rev	  .  4664)	; &HD-KS-219130;
       ))
     ))
 (define-char
