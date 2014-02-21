@@ -8380,7 +8380,8 @@
 	)
        ((ideographic-radical . 157)	; ⾜
 	(ideographic-strokes . 13)
-	(==cns11643-7	    . #x504C)	; &R-C7-504C; [48-44]
+	(==ucs@cns	    . #x29548)	; &R-CU+29548;
+	(==cns11643-7	    . #x504C)	; &R-CU+29548; [48-44]
 	))
       ))
     ))
