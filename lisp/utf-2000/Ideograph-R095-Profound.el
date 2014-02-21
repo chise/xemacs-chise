@@ -4,26 +4,40 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (=ucs		. #x7384)	; 玄
-    (=jis-x0208		. #x383C)	; &I-J90-383C; [24-28]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7384)	; 玄
+      ))
+    (ideographic-radical . 95)	; ⽞
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (=ucs@unicode	. #x7384)	; &GT-26647;
+    (=jis-x0208		. #x383C)	; &GT-26647; [24-28]
     (=gb2312		. #x507E)	; &I-G0-507E; [48-94]
     (=ks-x1001		. #x7A5C)	; &I-K0-7A5C; [90-60]
+    (=cns11643-1	. #x4668)	; &I-C1-4668; [38-72]
     (=jis-x0213-1	. #x383C)	; &I-JX1-383C; [24-28]
     (=big5		. #xA5C8)	; &I-B-A5C8;
     (=gt		. 26647)	; &I-GT-26647;
     (=gt-k		. 00923)	; &I-GT-K00923;
     (=gt-pj-1		. #x383C)	; &I-GT-26647; [24-28]
+    (=daikanwa		. 20814)	; &I-M-20814;
+    (=shinjigen		.  4867)	; &GT-26647;
     (->subsumptive
-     ((==ucs@jis	  . #x7384)	; &R-J90-383C;
-      (==ks-x1001	  . #x7A5C)	; &R-J90-383C; [90-60]
-      (==jis-x0208	  . #x383C)	; &R-J90-383C; [24-28]
-      (==jis-x0213-1	  . #x383C)	; &R-J90-383C; [24-28]
-      (=daikanwa	  . 20814)	; &R-J90-383C;
-      (=shinjigen@rev	  .  4867)	; &R-J90-383C;
+     ((==daikanwa	  . 20814)	; &R-M-20814;
       )
      ((==gt		  . 26647)	; &R-GT-26647;
       (==gt-k		  . 00923)	; &R-GT-26647;
       )
-     ((=cns11643-1	  . #x4668)	; &C1-4668; [38-72]
+     ((==ucs@jis	  . #x7384)	; &R-J90-383C;
+      (==ucs@ks		  . #x7384)	; &R-J90-383C;
+      (==ks-x1001	  . #x7A5C)	; &R-J90-383C; [90-60]
+      (==jis-x0208	  . #x383C)	; &R-J90-383C; [24-28]
+      (==jis-x0213-1	  . #x383C)	; &R-J90-383C; [24-28]
+      (==shinjigen	  .  4867)	; &R-J90-383C;
+      )
+     ((==cns11643-1	  . #x4668)	; &R-C1-4668; [38-72]
       )
      ((==ucs@unicode	  . #x7384)	; &R-UU+7384;
       (==gb2312		  . #x507E)	; &R-UU+7384; [48-94]
@@ -77,7 +91,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
     (=hanyo-denshi/jt	. #xB593)	; &HD-JT-B593;
-    (=daikanwa		. 20817)	; &M-20817;
+    (=daikanwa		. 20817)	; &I-M-20817;
     (=jef-china3	. #x58FD)	; &I-JC3-58FD;
     (->subsumptive
      ((==daikanwa	  . 20817)	; &R-M-20817;
@@ -195,8 +209,8 @@
 	  (=ucs		      . #x2FF0)	; ⿰
 	  )
 	 ((==ucs@jis	      . #x7384)	; &R-J90-383C;
+	  (==ucs@ks	      . #x7384)	; &R-J90-383C;
 	  (==jis-x0208	      . #x383C)	; &R-J90-383C; [24-28]
-	  (=daikanwa	      . 20814)	; &R-J90-383C;
 	  )
 	 ((==daikanwa	      . 14290)	; &R-M-14290;
 	  ))
