@@ -1,5 +1,60 @@
 2014-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R191-Fight.el, Ideograph-R187-Horse.el,
+	Ideograph-R184-Eat.el, Ideograph-R182-Wind.el: Complete
+	`==ucs@{cns|ks}'.
+
+	* Ideograph-R180-Sound.el: Complete `==ucs@ks'.
+	(C2-6F5F): Apply new glyph-image conventions for daikanwa.
+
+	* Ideograph-R178-Tanned-Leather.el: Complete `==ucs@cns'.
+
+	* Ideograph-R172-Short-Tailed-Bird.el: Add Hanyo-Denshi/IB code
+	point.
+
+	* Ideograph-R169-Gate.el: Complete `==ucs@cns'.
+	(C2-5551): Separate UU+95AE.
+
+	* Ideograph-R098-Tile.el: Add Hanyo-Denshi/JT code points.
+
+	* Ideograph-R095-Profound.el (U+7384): Use `->denotational' to
+	separate abstract glyph-image node; apply new glyph-image
+	conventions for cns11643-1, daikanwa and shinjigen.
+
+	* Ideograph-R086-Fire.el: Complete `==ucs@ks'.
+	(R-J0-5F75): Separate R-M-19385 and R-S2-4664.
+	(HD-KS219130): Unify S1-4663 and S2-4664.
+
+	* Ideograph-R076-Lack.el: Complete `==ucs@{cns|ks}'.
+	(R-JX1-7640): Separate R-M-16139.
+
+	* Ideograph-R072-Sun.el (U+65E5): Add `->subsumptive' to add
+	representative detailed-glyph-image nodes.
+	(U+65F3): Add ideographic-structure.
+	(M-13760): Unify S-5201; add `ideographic-structure'; add
+	`<-original' for J0-452A; add `->subsumptive' to add
+	representative detailed-glyph-image nodes.
+	(C2-243B): Add `ideographic-structure'.
+	(JSP-4221): Unify JC3-51C7; add `->subsumptive' to add
+	representative detailed-glyph-image nodes.
+	(C3-2D23): Separate JC3-51C7.
+	(JX1-7544): Separate R-M-14089.
+	(R-HD-JT-B2BA): Add `ideographic-structure'.
+
+	* Ideograph-R029-Again.el (J0-355A): Unify MJ007990; add
+	`->subsumptive' to add representative detailed-glyph-image nodes.
+
+	* Ideograph-R009-Man.el: Complete `==ucs@{cns|ks}'.
+	(U-000201D0): Use `->denotational' to separate representative
+	node; add ideographic-structure.
+	(U+4F2D): Apply new glyph-image conventions.
+	(U+4F47): Apply new glyph-image conventions for daikanwa and
+	shinjigen.
+	(U+344F): Apply new glyph-image conventions.
+	(IU+202A7): Add `->subsumptive' to add representative
+	detailed-glyph-image nodes.
+	(UU+513A): Apply new glyph-image conventions.
+
 	* Ideograph-R004-Slash.el: Add some MJ code points.
 
 2014-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
