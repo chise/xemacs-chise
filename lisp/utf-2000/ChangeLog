@@ -1,4 +1,20 @@
+2014-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el: Complete `==ucs@{jis|cns|ks}'.
+	(C4-224C): Add `->subsumptive' to add representative
+	detailed-glyph-image node.
+	(R-C4-224C): New node.
+	(U+545F): Use `->subsumptive' to separate representative node;
+	apply new glyph-image conventions for daikanwa, shinjigen, cbeta
+	and cns11643-3.
+	(U+5677): Use `->denotational' to separate representative node.
+	(U-00021167): Apply new glyph-image conventions.
+
 2014-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R020-Wrap.el (C3-2222): Use `->subsumptive' to add
+	representative detailed-glyph-image node.
+	(R-C3-2222): New node.
 
 	* Ideograph-R010-Legs.el (U-00020489): Use `->denotational' and
 	`->subsumptive' to separate representative nodes.
