@@ -278,31 +278,43 @@
     (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (=decomposition@cid
-     ((=ucs		  . #x4E30)	; 丰
+    (=>>ucs@unicode	. #x4E30)	; &G-AJ1-14301;
+    (=>>mj		. 006350)	; &G-AJ1-14301;
+    (=>>adobe-japan1-4	. 14301)	; &G-AJ1-14301;
+    (=>>jis-x0213-1	. #x2E26)	; &G-AJ1-14301; [14-06]
+    (=>>big5-cdp	. #x897E)	; &G-AJ1-14301;
+    (=>>hanyo-denshi/jb . #x302D)	; &G-AJ1-14301; [16-13]
+    (=>>gt		. 00110)	; &G-AJ1-14301;
+    (=>>daikanwa	. 00076)	; &G-AJ1-14301;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x4E30)	; 丰
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x4E30)	; 丰
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=ucs@unicode	  . #x4E30)	; &MJ006350;
+      (=mj		  . 006350)	; &MJ006350;
+      (=adobe-japan1-4	  . 14301)	; &I-AJ1-14301;
+      (=gb2312		  . #x3761)	; &I-G0-3761; [23-65]
+      (=jis-x0212	  . #x302D)	; &I-JSP-302D; [16-13]
+      (=jis-x0213-1	  . #x2E26)	; &I-JX1-2E26; [14-06]
+      (=hanyo-denshi/jb	  . #x302D)	; &I-HD-JB-302D; [16-13]
+      (=gt		  . 00110)	; &I-GT-00110;
+      (=gt-pj-2		  . #x305A)	; &I-GT-00110; [16-58]
+      (=daikanwa	  . 00076)	; &I-M-00076;
+      (=shinjigen	  .  0035)	; &MJ006350;
+      (=jef-china3	  . #x81FE)	; &I-JC3-81FE;
+      (<-simplified@CN
+       ((=ucs		    . #x8C50)	; 豐
+	(=gb12345	    . #x3761)	; 豐 [23-65]
+	))
       )
-     ((=ucs		  . #xE0100)	; 󠄀
-      ))
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x4E30)	; 丰
-      )
-     ((=ucs		  . #xE0102)	; 󠄂
-      ))
-    (=ucs@unicode	. #x4E30)	; &AJ1-14301;
-    (=adobe-japan1-4	. 14301)	; &AJ1-14301;
-    (=gb2312		. #x3761)	; &I-G0-3761; [23-65]
-    (=jis-x0212		. #x302D)	; &I-JSP-302D; [16-13]
-    (=jis-x0213-1	. #x2E26)	; &I-JX1-2E26; [14-06]
-    (=big5-cdp		. #x897E)	; &I-CDP-897E;
-    (=hanyo-denshi/jb	. #x302D)	; &I-HD-JB-302D; [16-13]
-    (=gt		. 00110)	; &I-GT-00110;
-    (=gt-pj-2		. #x305A)	; &I-GT-00110; [16-58]
-    (=daikanwa		. 00076)	; &I-M-00076;
-    (=shinjigen		.  0035)	; &AJ1-14301;
-    (=jef-china3	. #x81FE)	; &I-JC3-81FE;
-    (<-simplified@CN
-     ((=ucs		  . #x8C50)	; 豐
-      (=gb12345		  . #x3761)	; 豐 [23-65]
+     ((=big5-cdp	  . #x897E)	; &CDP-897E;
       ))
     ))
 (define-char
@@ -312,20 +324,30 @@
     (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (=>>ucs@cns		. #x4E30)	; &G-CU+4E30;
+    (=>>ucs@cns		. #x4E30)	; &G-AJ1-15386;
+    (=>>mj		. 006351)	; &G-AJ1-15386;
+    (=>>adobe-japan1-4	. 15386)	; &G-AJ1-15386;
+    (=>>hanyo-denshi/ib . #x2D26)	; &G-AJ1-15386; [13-06]
     (->subsumptive
-     ((=decomposition@cid
-       ((=ucs		    . #x4E30)	; 丰
-	)
-       ((=ucs		    . #xE0101)	; 󠄁
-	))
-      (=decomposition@hanyo-denshi
-       ((=ucs		    . #x4E30)	; 丰
-	)
-       ((=ucs		    . #xE0103)	; 󠄃
-	))
-      (=adobe-japan1-4	  . 15386)	; &AJ1-15386;
+     ((=mj		  . 006351)	; &MJ006351;
+      (=adobe-japan1-4	  . 15386)	; &I-AJ1-15386;
       (=hanyo-denshi/ib	  . #x2D26)	; &I-HD-IB-2D26; [13-06]
+      (->subsumptive
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x4E30)	; 丰
+	  )
+	 ((=ucs		      . #xE0103)	; 󠄃
+	  ))
+	(==mj		    . 006351)	; &R-MJ006351;
+	(==hanyo-denshi/ib  . #x2D26)	; &R-MJ006351; [13-06]
+	)
+       ((=decomposition@cid
+	 ((=ucs		      . #x4E30)	; 丰
+	  )
+	 ((=ucs		      . #xE0101)	; 󠄁
+	  ))
+	(==adobe-japan1-4   . 15386)	; &R-AJ1-15386;
+	))
       )
      ((=ucs@cns		  . #x4E30)	; &C1-4464;
       (=cns11643-1	  . #x4464)	; &C1-4464; [36-68]
@@ -346,12 +368,12 @@
     (=gt		. 00111)	; &GT-00111;
     (=gt-pj-9		. #x4A2C)	; &GT-00111; [42-12]
     (<-formed@component/connect-right
-     ((=ucs@unicode	  . #x4E30)	; &AJ1-14301;
-      (=adobe-japan1-4	  . 14301)	; &AJ1-14301;
+     ((=ucs@unicode	  . #x4E30)	; &MJ006350;
+      (=mj		  . 006350)	; &MJ006350;
       ))
     (<-unknown
-     ((=ucs@unicode	  . #x4E30)	; &AJ1-14301;
-      (=adobe-japan1-4	  . 14301)	; &AJ1-14301;
+     ((=ucs@unicode	  . #x4E30)	; &MJ006350;
+      (=mj		  . 006350)	; &MJ006350;
       ))
     ))
 (define-char
