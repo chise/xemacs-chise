@@ -52,6 +52,7 @@
     (=shinjigen		.  6671)	; &GT-39586;
     (->subsumptive
      ((==ucs@jis	  . #x826F)	; &R-GT-39586;
+      (==ucs@ks		  . #x826F)	; &R-GT-39586;
       (==ks-x1001	  . #x555E)	; &R-GT-39586; [53-62]
       (==jis-x0208	  . #x4E49)	; &R-GT-39586; [46-41]
       (==jis-x0213-1	  . #x4E49)	; &R-GT-39586; [46-41]
@@ -97,6 +98,7 @@
      ((==gt-k		  . 02673)	; &R-GT-K02673;
       (<-formed@component/connect-right
        ((==ucs@jis	    . #x826F)	; &R-GT-39586;
+	(==ucs@ks	    . #x826F)	; &R-GT-39586;
 	(==jis-x0208	    . #x4E49)	; &R-GT-39586; [46-41]
 	))
       ))
