@@ -1,9 +1,19 @@
 2014-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R004-Slash.el: Add some MJ code points.
+
+2014-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R001-One.el: Add some MJ code points.
+
+	* Ideograph-R096-Jade.el: Complete `==ucs@ks'.
 
 	* Ideograph-R014-Cover.el (J0-3C4C): Add `->subsumptive' to add
 	representative detailed-glyph-image nodes.
+
+	* Ideograph-R075-Tree.el: Complete `==ucs@cns'.
+	(G-CB03556): New node to separate and integrate CB03556 and
+	C3-294D.
 
 	* Ideograph-R030-Mouth.el: Complete `==ucs@{jis|cns|ks}'.
 	(C4-224C): Add `->subsumptive' to add representative
@@ -16,6 +26,13 @@
 	(U-00021167): Apply new glyph-image conventions.
 
 	* Ideograph-R002-Line.el: Add some MJ code points.
+
+	* Ideograph-R177-Leather.el, Ideograph-R175-Wrong.el,
+	Ideograph-R173-Rain.el, Ideograph-R170-Mound.el,
+	Ideograph-R167-Gold.el, Ideograph-R157-Foot.el,
+	Ideograph-R145-Clothes.el, Ideograph-R144-Walk-Enclosure.el,
+	Ideograph-R138-Stopping.el, Ideograph-R124-Feather.el: Complete
+	`==ucs@{cns|ks}'.
 
 2014-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
