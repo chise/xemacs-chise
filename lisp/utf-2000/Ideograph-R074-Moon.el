@@ -1292,7 +1292,7 @@
      ((=ucs		  . #xE0103)	; 󠄃
       ))
     (=hanyo-denshi/jt	. #xB2EC)	; &HD-JT-B2EC;
-    (=daikanwa		. 14374)	; &M-14374;
+    (=daikanwa		. 14374)	; &I-M-14374;
     (=jef-china3	. #x52AF)	; &I-JC3-52AF;
     ))
 (define-char
@@ -1321,7 +1321,7 @@
     (=daikanwa/+p	. 14374)	; &HD-JA-442B;
     (<-same
      ((=hanyo-denshi/jt	  . #xB2EC)	; &HD-JT-B2EC;
-      (=daikanwa	  . 14374)	; &M-14374;
+      (=daikanwa	  . 14374)	; &I-M-14374;
       ))
     (<-same*sources
      daikanwa)
