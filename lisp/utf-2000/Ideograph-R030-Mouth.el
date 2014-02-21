@@ -33748,7 +33748,8 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=daikanwa	  . 14374)	; &HD-JT-B2EC;
+     ((=hanyo-denshi/jt	  . #xB2EC)	; &HD-JT-B2EC;
+      (=daikanwa	  . 14374)	; &I-M-14374;
       ))
     (=ucs@jis/2004	. #x5632)	; &AJ1-07821;
     (=adobe-japan1-0	. 07821)	; &AJ1-07821;
