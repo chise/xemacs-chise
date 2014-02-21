@@ -115,9 +115,9 @@
       (=daikanwa	  . 01417)	; &I-M-01417;
       (=shinjigen@1ed	  .  0091)	; &AJ1-21181;
       (<-original
-       ((=adobe-japan1-4    . 14031)	; &AJ1-14031;
+       ((=mj		    . 006462)	; &MJ006462;
 	(=daikanwa	    . 00287)	; &I-M-00287;
-	(=shinjigen	    .  0090)	; &AJ1-14031;
+	(=shinjigen	    .  0090)	; &MJ006462;
 	))
       (<-original*sources
        zhengzitong daikanwa shinjigen@1ed)
