@@ -299,7 +299,8 @@
      ((=ucs@unicode	  . #x7C80)	; &C2-2C69;
       (=cns11643-2	  . #x2C69)	; &C2-2C69; [12-73]
       (->subsumptive
-       ((==cns11643-2	    . #x2C69)	; &R-C2-2C69; [12-73]
+       ((==ucs@cns	    . #x7C80)	; &R-CU+7C80;
+	(==cns11643-2	    . #x2C69)	; &R-CU+7C80; [12-73]
 	)
        ((==ucs@unicode	    . #x7C80)	; &R-UU+7C80;
 	))
