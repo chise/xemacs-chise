@@ -15381,7 +15381,8 @@
     (->subsumptive
      ((==ucs@iso	  . #x28BBD)	; &R-U-00028BBD;
       )
-     ((==cns11643-7	  . #x5D2F)	; &R-C7-5D2F; [61-15]
+     ((==ucs@cns	  . #x28BBD)	; &R-CU+28BBD;
+      (==cns11643-7	  . #x5D2F)	; &R-CU+28BBD; [61-15]
       ))
     ))
 (define-char
