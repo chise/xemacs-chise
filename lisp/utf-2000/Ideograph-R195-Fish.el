@@ -6592,13 +6592,13 @@
     (ideographic-radical . 195)	; ⿂
     (ideographic-strokes . 10)
     (total-strokes	 . 21)
-    (=>>ucs@iso		. #x29E81)	; &C7-5675;
     (=ucs@iso		. #x29E81)	; &C7-5675;
     (=cns11643-7	. #x5675)	; &C7-5675; [54-85]
     (->subsumptive
      ((==ucs@iso	  . #x29E81)	; &R-U-00029E81;
       )
-     ((==cns11643-7	  . #x5675)	; &R-C7-5675; [54-85]
+     ((==ucs@cns	  . #x29E81)	; &R-CU+29E81;
+      (==cns11643-7	  . #x5675)	; &R-CU+29E81; [54-85]
       ))
     ))
 (define-char
@@ -7988,7 +7988,8 @@
      ((==ucs@iso	  . #x29EDB)	; &R-M-46480;
       (==daikanwa	  . 46480)	; &R-M-46480;
       )
-     ((==cns11643-4	  . #x6B3E)	; &R-C4-6B3E; [75-30]
+     ((==ucs@cns	  . #x29EDB)	; &R-CU+29EDB;
+      (==cns11643-4	  . #x6B3E)	; &R-CU+29EDB; [75-30]
       ))
     ))
 (define-char
