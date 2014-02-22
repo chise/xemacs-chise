@@ -3204,13 +3204,12 @@
     (ideographic-radical . 181)	; ⾴
     (ideographic-strokes . 8)
     (total-strokes	 . 17)
-    (=>>ucs@iso		. #x294EB)	; &C7-3D6A;
-    (=ucs@iso		. #x294EB)	; &C7-3D6A;
-    (=cns11643-7	. #x3D6A)	; &C7-3D6A; [29-74]
+    (=>>ucs@iso		. #x294EB)	; &G-IU+294EB;
     (->subsumptive
-     ((==ucs@iso	  . #x294EB)	; &R-U-000294EB;
+     ((=ucs@iso		  . #x294EB)	; &U-000294EB;
       )
-     ((==cns11643-7	  . #x3D6A)	; &R-C7-3D6A; [29-74]
+     ((=ucs@cns		  . #x294EB)	; &C7-3D6A;
+      (=cns11643-7	  . #x3D6A)	; &C7-3D6A; [29-74]
       ))
     ))
 (define-char
@@ -4312,12 +4311,13 @@
     (=daikanwa		. 43636)	; &I-M-43636;
     (=jef-china3	. #x6CF5)	; &I-JC3-6CF5;
     (->subsumptive
-     ((==ks-x1001	  . #x573E)	; &R-K0-573E; [55-30]
+     ((==ucs@ks		  . #x985E)	; &R-K0-573E;
+      (==ks-x1001	  . #x573E)	; &R-K0-573E; [55-30]
       )
      ((name		  . "CJK COMPATIBILITY IDEOGRAPH-F9D0")
       (=>ucs*		  . #x985E)	; 類
       (=ucs		  . #xF9D0)	; 類
-      (==ks-x1001	  . #x6B3A)	; 類 [75-26]
+      (=ks-x1001	  . #x6B3A)	; &I-K0-6B3A; [75-26]
       ))
     ))
 (define-char
@@ -4824,7 +4824,8 @@
 	)
        ((ideographic-radical . 157)	; ⾜
 	(ideographic-strokes . 13)
-	(==cns11643-7	    . #x504C)	; &R-C7-504C; [48-44]
+	(==ucs@cns	    . #x29548)	; &R-CU+29548;
+	(==cns11643-7	    . #x504C)	; &R-CU+29548; [48-44]
 	))
       ))
     ))
