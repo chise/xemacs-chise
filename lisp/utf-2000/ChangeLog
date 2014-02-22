@@ -1,3 +1,8 @@
+2014-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R210-Even.el, Ideograph-R209-Nose.el,
+	Ideograph-R203-Black.el: Complete `==ucs@cns'.
+
 2014-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R201-Yellow.el, Ideograph-R195-Fish.el,
