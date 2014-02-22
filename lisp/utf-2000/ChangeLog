@@ -1,5 +1,16 @@
 2014-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R201-Yellow.el, Ideograph-R195-Fish.el,
+	Ideograph-R194-Ghost.el: Complete `==ucs@cns'.
+
+	* Ideograph-R197-Salt.el: Complete `==ucs@cns'.
+
+	* Ideograph-R181-Leaf.el (G-IU+294EB): Separate
+	abstract-glyph-images.
+	(R-IU+294EB): Changed to abstract-glyph-image node.
+	(R-C7-3D6A): Likewise.
+	(U+F9D0): Unify K0-6B3A instead of R-K0-6B3A.
+
 	* Ideograph-R191-Fight.el, Ideograph-R187-Horse.el,
 	Ideograph-R184-Eat.el, Ideograph-R182-Wind.el: Complete
 	`==ucs@{cns|ks}'.
