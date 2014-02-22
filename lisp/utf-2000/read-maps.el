@@ -1,6 +1,7 @@
 ;;; read-maps.el --- Read mapping-tables.
 
-;; Copyright (C) 2002,2003,2004,2005,2006,2008,2012 MORIOKA Tomohiko
+;; Copyright (C) 2002, 2003, 2004, 2005, 2006, 2008, 2012, 2014
+;;   MORIOKA Tomohiko
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: mapping table, character, CCS, multiscript, multilingual
@@ -33,11 +34,11 @@
      "^JSP-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
      =ucs@jis/1990
      "\tJU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
-    (=jis-x0213-1-2000
+    (=jis-x0213-1@2000
      "^JX1-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
      =ucs@jis/2000
      "\tJU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
-    (=jis-x0213-2-2000
+    (=jis-x0213-2
      "^JX2-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" 1 16
      =ucs@jis/2000
      "\tJU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)")
@@ -114,7 +115,8 @@ UCS-REGEXP is a regular expression to match against
     (buffer-disable-undo)
     (insert-file-contents filename)
     (goto-char (point-min))
-    (let (rest setting ccs code ucs ucs-pat ucs-ccs ucs-code chr)
+    (let (rest setting ccs code ucs ucs-pat ucs-ccs ucs-code chr
+	       drep-chr drep-ccs drep-ucs-ccs)
       (while (not (eobp))
 	(setq rest mapping-table-ccs-setting-alist)
 	(catch 'matched
@@ -125,14 +127,22 @@ UCS-REGEXP is a regular expression to match against
 	      (setq code (string-to-int (match-string (pop setting))
 					(pop setting))
 		    ucs-ccs (pop setting)
-		    ucs-pat (car setting))
+		    ucs-pat (car setting)
+		    drep-ccs (intern (format "=%s" ccs))
+		    drep-ucs-ccs (intern (format "=%s" ucs-ccs)))
+	      (unless (find-charset drep-ccs)
+		(setq drep-ccs nil))
+	      (unless (find-charset drep-ucs-ccs)
+		(setq drep-ucs-ccs nil))
 	      (goto-char (match-end 0))
 	      (throw 'matched t))
 	    (setq rest (cdr rest)))
 	  (setq ccs nil
 		code nil
 		ucs-pat nil
-		ucs-ccs nil))
+		ucs-ccs nil
+		drep-ccs nil
+		drep-ucs-ccs nil))
 	(setq ucs-code
 	      (if (and ucs-pat
 		       (looking-at ucs-pat))
@@ -189,6 +199,33 @@ UCS-REGEXP is a regular expression to match against
 	      (unless (eq (encode-char chr ucs-ccs 'defined-only)
 			  ucs)
 		(put-char-attribute chr ucs-ccs ucs)))))
+
+	(when (and drep-ccs
+		   (setq drep-chr (decode-char drep-ccs code))
+		   (not (eq drep-chr chr)))
+	  (unless (eq (encode-char drep-chr drep-ccs 'defined-only)
+		      code)
+	    (put-char-attribute drep-chr drep-ccs code))
+	  (when (and ucs-code
+		     (not (eq (encode-char drep-chr drep-ucs-ccs
+					   'defined-only)
+			      ucs-code)))
+	    (put-char-attribute drep-chr drep-ucs-ccs ucs-code))
+	  (when (and ucs
+		     (not (eq (and (not (memq drep-ucs-ccs '(==ucs@jis
+							     ==ucs@jis/1990
+							     ==ucs@jis/2000
+							     ==ucs@gb
+							     ==ucs@cns
+							     ==ucs@ks)))
+				   (char-feature drep-chr '=>ucs))
+			      ucs)))
+	    (if (or ucs-code (null drep-ucs-ccs))
+		(unless (eq (char-feature drep-chr '=>ucs) ucs)
+		  (put-char-attribute drep-chr '=>ucs ucs))
+	      (unless (eq (encode-char drep-chr drep-ucs-ccs 'defined-only)
+			  ucs)
+		(put-char-attribute drep-chr drep-ucs-ccs ucs)))))
 	(forward-line)))))
 
 ;;;###autoload
