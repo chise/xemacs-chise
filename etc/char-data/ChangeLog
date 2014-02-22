@@ -1,3 +1,7 @@
+2014-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* C4-to-UCS.txt (C4-225B): Delete UCS mapping.
+
 2014-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* UCS-compat.txt: Add mappings for new compatibility ideographs
