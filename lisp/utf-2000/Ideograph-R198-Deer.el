@@ -1651,7 +1651,9 @@
     (->subsumptive
      ((=daikanwa	  . 47690)	; &M-47690;
       (->synonyms@daikanwa
-       ((=daikanwa	    . 19417)	; &M-19417;
+       ((=ucs@unicode	    . #x71D0)	; &HD-KS-218660;
+	(=hanyo-denshi/ks   . 218660)	; &HD-KS-218660;
+	(=daikanwa	    . 19417)	; &HD-KS-218660;
 	))
       (->synonyms@daikanwa*sources
        daikanwa)
