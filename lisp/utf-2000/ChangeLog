@@ -172,6 +172,12 @@
 	Ideograph-R013-Down-Box.el, Ideograph-R008-Lid.el: Complete
 	`==ucs@{jis|cns|ks}'.
 
+	* read-maps.el (mapping-table-ccs-setting-alist): Use
+	`=jis-x0213-1@2000' and `=jis-x0213-2' instead of
+	`=jis-x0213-1-2000' and `=jis-x0213-2-2000'.
+	(mapping-table-read-file): Setup features about
+	detailed-glyph-images.
+
 2014-02-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R170-Mound.el (G-J0-4E34): New node to integrate
