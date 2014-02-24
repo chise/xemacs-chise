@@ -1,3 +1,16 @@
+2014-02-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R070-Square.el: Complete `==ucs@{cns|ks}'.
+	(U-00023118): Integrate M-13692.
+	(U-00023119): Integrate M-13693.
+	(U-0002311D): Integrate M-13697.
+	(U+65DA): Apply new glyph-image conventions.
+	(U-0002311E): Integrate M-13699.
+	(U-0002311F): Integrate M-13701.
+	(U-00023120): Integrate M-13702.
+	(U-00023121): Integrate M-13703.
+	(U-00023122): Integrate M-13704.
+
 2014-02-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R164-Wine.el: Complete `==ucs@{cns|ks}'.
