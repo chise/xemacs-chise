@@ -1,5 +1,12 @@
 2014-02-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R162-Walk.el: Add Hanyo-Denshi/IB code point.
+	(J0-6E2C): Use `->ancient' instead of `<-ancient' for M-39238.
+	(M-39238): Add `<-ancient' for J0-6E2C.
+	(M-39239): Delete `<-ancient' for J0-6E2C.
+
+2014-02-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R070-Square.el: Complete `==ucs@{cns|ks}'.
 	(U-00023118): Integrate M-13692.
 	(U-00023119): Integrate M-13693.
