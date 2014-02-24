@@ -1,3 +1,7 @@
+2014-02-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R164-Wine.el: Complete `==ucs@{cns|ks}'.
+
 2014-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R210-Even.el, Ideograph-R209-Nose.el,
