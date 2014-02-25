@@ -560,6 +560,7 @@
 	(=ucs		    . #x2FF1)	; ⿱
 	)
        ((=ucs@jis	    . #x5C6F)	; &AJ1-03246;
+	(=ucs@ks	    . #x5C6F)	; &AJ1-03246;
 	(=adobe-japan1-0    . 03246)	; &AJ1-03246;
 	)
        ((=ucs		    . #x4E8C)	; 二
