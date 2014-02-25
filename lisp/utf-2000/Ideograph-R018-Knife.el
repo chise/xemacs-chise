@@ -211,6 +211,7 @@
       (=shinjigen	  .  0592)	; &AJ1-04250;
       (<-simplified@misc
        ((=ucs@jis	    . #x5169)	; &AJ1-04215;
+	(=ucs@ks	    . #x5169)	; &AJ1-04215;
 	(=adobe-japan1-0    . 04215)	; &AJ1-04215;
 	(=daikanwa	    . 01436)	; &I-M-01436;
 	))
@@ -1876,6 +1877,7 @@
 	(=ucs		    . #x2FF0)	; ⿰
 	)
        ((=ucs@jis	    . #x4EE4)	; &AJ1-04009;
+	(=ucs@ks	    . #x4EE4)	; &AJ1-04009;
 	(=adobe-japan1-0    . 04009)	; &AJ1-04009;
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
