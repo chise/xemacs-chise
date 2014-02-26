@@ -1,5 +1,16 @@
 2014-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R012-Eight.el (U+516D): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R005-Second.el: Complete `=ucs@ks'.
+	(U-000200F2): Apply new glyph-image conventions.
+
+	* Ideograph-R003-Dot.el (U+4E3E): Use `->subsumptive' to separate
+	representative node.
+
+2014-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R011-Enter.el (K0-5557): Unify KU+5169.
 
 	* Ideograph-R004-Slash.el, Ideograph-R001-One.el: Complete
