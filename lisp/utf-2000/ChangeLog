@@ -1,5 +1,24 @@
 2014-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (K0-5060): Unify KU+53CA.
+
+	* Ideograph-R017-Open-Box.el (U+342B): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R008-Lid.el (U+4EA6): Apply new glyph-image
+	conventions.
+	(U+342B): Likewise.
+	(U+4EA8): Apply new glyph-image conventions for `ks-x1001',
+	`daikanwa', `shinjigen' and `cns11643-1'.
+	(U+4EAB): Likewise.
+	(U+4EAF): Apply new glyph-image conventions for `cns11643-3',
+	`big5-cdp', `daikanwa' and `shinjigen'.
+	(U-00020169): Apply new glyph-image conventions.
+	(U+342E): Likewise.
+	(G-IU+2018C): New node to separate representative glyph-image
+	node.
+	(G-CU+2018C): Likewise.
+
 	* Ideograph-R012-Eight.el (U+516D): Apply new glyph-image
 	conventions.
 
