@@ -1017,16 +1017,6 @@
     (ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
-    (hanyu-dazidian	2 872 1)
-    (=hanziku-3		. #xAFA9)	; &HZK03-AFA9;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x5913)	; 夓
-      ))
-    (ideographic-radical . 35)	; ⼢
-    (ideographic-strokes . 16)
-    (total-strokes	 . 19)
     (=decomposition@cid
      ((=ucs		  . #x5913)	; 夓
       )
@@ -1035,6 +1025,16 @@
     (=ucs@jis		. #x5913)	; &AJ1-21373;
     (=adobe-japan1-6	. 21373)	; &AJ1-21373;
     (=jis-x0212		. #x3864)	; &I-JSP-3864; [24-68]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5913)	; 夓
+      ))
+    (ideographic-radical . 35)	; ⼢
+    (ideographic-strokes . 16)
+    (total-strokes	 . 19)
+    (hanyu-dazidian	2 872 1)
+    (=hanziku-3		. #xAFA9)	; &HZK03-AFA9;
     ))
 (define-char
   '((=>ucs		. #x21581)	; 𡖁
@@ -1073,6 +1073,23 @@
     (ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 17)
     (total-strokes	 . 20)
+    (=decomposition@cid
+     ((=ucs		  . #x5914)	; 夔
+      )
+     ((=ucs		  . #xE0100)	; 󠄀
+      ))
+    (=ucs@jis		. #x5914)	; &AJ1-17471;
+    (=adobe-japan1-5	. 17471)	; &AJ1-17471;
+    (=jis-x0212		. #x3865)	; &I-JSP-3865; [24-69]
+    (=jis-x0213-2	. #x253C)	; &I-JX2-253C; [05-28]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5914)	; 夔
+      ))
+    (ideographic-radical . 35)	; ⼢
+    (ideographic-strokes . 17)
+    (total-strokes	 . 20)
     (=ucs@unicode	. #x5914)	; &G0-5967;
     (=gb2312		. #x5967)	; &G0-5967; [57-71]
     ))
@@ -1084,23 +1101,6 @@
     (ideographic-strokes . 17)
     (total-strokes	 . 20)
     (=ks-x1001		. #x5073)	; &K0-5073; [48-83]
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x5914)	; 夔
-      ))
-    (ideographic-radical . 35)	; ⼢
-    (ideographic-strokes . 17)
-    (total-strokes	 . 20)
-    (=decomposition@cid
-     ((=ucs		  . #x5914)	; 夔
-      )
-     ((=ucs		  . #xE0100)	; 󠄀
-      ))
-    (=ucs@jis		. #x5914)	; &AJ1-17471;
-    (=adobe-japan1-5	. 17471)	; &AJ1-17471;
-    (=jis-x0212		. #x3865)	; &I-JSP-3865; [24-69]
-    (=jis-x0213-2	. #x253C)	; &I-JX2-253C; [05-28]
     ))
 (define-char
   '((<-denotational
