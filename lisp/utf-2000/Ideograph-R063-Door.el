@@ -245,17 +245,6 @@
     (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (hanyu-dazidian	3 2257 9)
-    (=ucs@iso		. #x623B)	; &HZK06-D2FB;
-    (=hanziku-6		. #xD2FB)	; &HZK06-D2FB;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x623B)	; 戻
-      ))
-    (ideographic-radical . 63)	; ⼾
-    (ideographic-strokes . 3)
-    (total-strokes	 . 7)
     (=decomposition@hanyo-denshi
      ((=ucs		  . #x623B)	; 戻
       )
@@ -277,6 +266,17 @@
       (=jis-x0213-1	  . #x7463)	; &I-JX1-7463; [84-67]
       (=daikanwa	  . 11712)	; &I-M-11712;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x623B)	; 戻
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (hanyu-dazidian	3 2257 9)
+    (=ucs@iso		. #x623B)	; &HZK06-D2FB;
+    (=hanziku-6		. #xD2FB)	; &HZK06-D2FB;
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
@@ -703,16 +703,6 @@
     (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=ucs@unicode	. #x6241)	; &G0-3162;
-    (=gb2312		. #x3162)	; &G0-3162; [17-66]
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x6241)	; 扁
-      ))
-    (ideographic-radical . 63)	; ⼾
-    (ideographic-strokes . 5)
-    (total-strokes	 . 9)
     (=decomposition@hanyo-denshi
      ((=ucs		  . #x6241)	; 扁
       )
@@ -734,6 +724,16 @@
       (=jis-x0213-1@2004  . #x5928)	; &I-JX3-5928; [57-08]
       (=daikanwa	  . 11724)	; &I-M-11724;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6241)	; 扁
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (=ucs@unicode	. #x6241)	; &G0-3162;
+    (=gb2312		. #x3162)	; &G0-3162; [17-66]
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
@@ -1182,16 +1182,6 @@
     (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (=ucs@unicode	. #x6248)	; &G0-6C68;
-    (=gb2312		. #x6C68)	; &G0-6C68; [76-72]
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x6248)	; 扈
-      ))
-    (ideographic-radical . 63)	; ⼾
-    (ideographic-strokes . 7)
-    (total-strokes	 . 11)
     (=decomposition@hanyo-denshi
      ((=ucs		  . #x6248)	; 扈
       )
@@ -1208,6 +1198,16 @@
     (=gt		. 14843)	; &I-GT-14843;
     (=gt-k		. 07983)	; &I-GT-K07983;
     (=gt-pj-1		. #x6E3D)	; &I-GT-14843; [78-29]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6248)	; 扈
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (=ucs@unicode	. #x6248)	; &G0-6C68;
+    (=gb2312		. #x6C68)	; &G0-6C68; [76-72]
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
