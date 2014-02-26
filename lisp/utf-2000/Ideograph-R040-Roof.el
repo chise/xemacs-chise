@@ -2405,16 +2405,6 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=ucs@unicode	. #x5BB3)	; &G0-3A26;
-    (=gb2312		. #x3A26)	; &G0-3A26; [26-06]
-    ))
-(define-char
-  '((<-denotational
-     ((=+>ucs@unicode	  . #x5BB3)	; &o-UU+5BB3;
-      ))
-    (ideographic-radical . 40)	; ⼧
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
     (=decomposition@cid
      ((=ucs		  . #x5BB3)	; 害
       )
@@ -2424,6 +2414,16 @@
     (=adobe-japan1-4	. 13675)	; &AJ1-13675;
     (=ks-x1001		. #x7A2A)	; &I-K0-7A2A; [90-10]
     (=jef-china3	. #x4AB1)	; &I-JC3-4AB1;
+    ))
+(define-char
+  '((<-denotational
+     ((=+>ucs@unicode	  . #x5BB3)	; &o-UU+5BB3;
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (=ucs@unicode	. #x5BB3)	; &G0-3A26;
+    (=gb2312		. #x3A26)	; &G0-3A26; [26-06]
     ))
 (define-char
   '((<-denotational
