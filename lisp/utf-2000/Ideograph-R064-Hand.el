@@ -13839,8 +13839,12 @@
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=ucs@unicode	. #x6428)	; &C2-4333;
-    (=cns11643-2	. #x4333)	; &C2-4333; [35-19]
+    (=ucs@jis		. #x6428)	; &AJ1-05017;
+    (=adobe-japan1-0	. 05017)	; &AJ1-05017;
+    (=jis-x0208		. #x5972)	; &I-J90-5972; [57-82]
+    (=jis-x0213-1	. #x5972)	; &I-JX1-5972; [57-82]
+    (=gt		. 15833)	; &I-GT-15833;
+    (=gt-pj-1		. #x5972)	; &I-GT-15833; [57-82]
     ))
 (define-char
   '((<-denotational
@@ -13849,12 +13853,8 @@
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=ucs@jis		. #x6428)	; &AJ1-05017;
-    (=adobe-japan1-0	. 05017)	; &AJ1-05017;
-    (=jis-x0208		. #x5972)	; &I-J90-5972; [57-82]
-    (=jis-x0213-1	. #x5972)	; &I-JX1-5972; [57-82]
-    (=gt		. 15833)	; &I-GT-15833;
-    (=gt-pj-1		. #x5972)	; &I-GT-15833; [57-82]
+    (=ucs@unicode	. #x6428)	; &C2-4333;
+    (=cns11643-2	. #x4333)	; &C2-4333; [35-19]
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
