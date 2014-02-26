@@ -1,3 +1,12 @@
+2014-02-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R051-Dry.el (J0-392C): Unify KU+5E78.
+
+	* Ideograph-R042-Small.el (J0-3E2F): Unify KU+5C11.
+
+	* Ideograph-R034-Go.el (U+5909): Apply new glyph-image conventions
+	for U+4EA6.
+
 2014-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el (K0-5060): Unify KU+53CA.
