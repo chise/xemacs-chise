@@ -376,10 +376,7 @@
      ((=ucs@iso		  . #x209DC)	; &M-02793;
       (=daikanwa	  . 02793)	; &M-02793;
       (<-same
-       ((=ucs@jis	    . #x897F)	; &GT-46803;
-	(=jis-x0208	    . #x403E)	; &GT-46803; [32-30]
-	(=ks-x1001	    . #x6024)	; &I-K0-6024; [64-04]
-	(=jis-x0213-1	    . #x403E)	; &I-JX1-403E; [32-30]
+       ((=ucs		    . #x897F)	; 西
 	(=daikanwa	    . 34763)	; &I-M-34763;
 	))
       (<-same*sources
@@ -412,10 +409,7 @@
     (<-Zhouwen*sources
      shuowen daikanwa)
     (<-same
-     ((=ucs@jis		  . #x897F)	; &GT-46803;
-      (=jis-x0208	  . #x403E)	; &GT-46803; [32-30]
-      (=ks-x1001	  . #x6024)	; &I-K0-6024; [64-04]
-      (=jis-x0213-1	  . #x403E)	; &I-JX1-403E; [32-30]
+     ((=ucs		  . #x897F)	; 西
       (=daikanwa	  . 34763)	; &I-M-34763;
       ))
     (<-same*sources
