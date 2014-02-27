@@ -298,6 +298,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ucs@jis		. #x722D)	; &GT-25238;
+    (=ucs@ks		. #x722D)	; &GT-25238;
     (=jis-x0208		. #x6027)	; &GT-25238; [64-07]
     (=ks-x1001		. #x6E33)	; &I-K0-6E33; [78-19]
     (=jis-x0213-1	. #x6027)	; &I-JX1-6027; [64-07]
