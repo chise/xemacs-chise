@@ -666,6 +666,14 @@
   '((ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6B79)	; 歹
+      )
+     ((=ucs		  . #x51F6)	; 凶
+      ))
     (=ucs		. #x239D1)	; 𣧑
     (->subsumptive
      ((ideographic-structure
@@ -675,6 +683,7 @@
        ((=ucs		    . #x6B79)	; 歹
 	)
        ((=ucs@jis	    . #x51F6)	; &GT-02360;
+	(=ucs@ks	    . #x51F6)	; &GT-02360;
 	(=jis-x0208	    . #x3627)	; &GT-02360; [22-07]
 	(=ks-x1001	    . #x7D55)	; &I-K0-7D55; [93-53]
 	(=cns11643-1	    . #x447E)	; &I-C1-447E; [36-94]
@@ -685,6 +694,7 @@
       (=daikanwa	  . 16396)	; &I-M-16396;
       (<-same
        ((=ucs@jis	    . #x51F6)	; &GT-02360;
+	(=ucs@ks	    . #x51F6)	; &GT-02360;
 	(=jis-x0208	    . #x3627)	; &GT-02360; [22-07]
 	(=ks-x1001	    . #x7D55)	; &I-K0-7D55; [93-53]
 	(=cns11643-1	    . #x447E)	; &I-C1-447E; [36-94]
@@ -3035,20 +3045,33 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (=ucs		. #x23A46)	; 𣩆
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23A46)	; 𣩆
+      ))
+    (ideographic-radical . 78)	; ⽍
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
+    (hanyu-dazidian	2 1392 13)
+    (=ucs@iso		. #x23A46)	; &C6-5D7B;
+    (=cns11643-6	. #x5D7B)	; &C6-5D7B; [61-91]
+    (=daikanwa		. 16543)	; &I-M-16543;
+    (=hanziku-4		. #xC67B)	; &I-HZK04-C67B;
+    (<-same
+     ((=ucs@unicode	  . #x51A5)	; &AJ1-03785;
+      (=adobe-japan1-0	  . 03785)	; &AJ1-03785;
+      (=daikanwa	  . 01588)	; &I-M-01588;
+      ))
+    (<-same*sources
+     zihui daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 16543)	; &M-16543;
-      (<-same
-       ((=ucs@jis	    . #x51A5)	; &AJ1-03785;
-	(=adobe-japan1-0    . 03785)	; &AJ1-03785;
-	(=daikanwa	    . 01588)	; &I-M-01588;
-	))
-      (<-same*sources
-       zihui daikanwa)
+     ((==daikanwa	  . 16543)	; &R-M-16543;
       )
-     ((hanyu-dazidian	  2 1392 13)
-      (=ucs@iso		  . #x23A46)	; &C6-5D7B;
-      (=cns11643-6	  . #x5D7B)	; &C6-5D7B; [61-91]
-      (=hanziku-4	  . #xC67B)	; &I-HZK04-C67B;
+     ((==ucs@iso	  . #x23A46)	; &R-U-00023A46;
+      )
+     ((==ucs@cns	  . #x23A46)	; &R-CU+23A46;
+      (==cns11643-6	  . #x5D7B)	; &R-CU+23A46; [61-91]
       ))
     ))
 (define-char
