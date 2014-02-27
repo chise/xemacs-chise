@@ -1,4 +1,21 @@
+2014-02-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R086-Fire.el (U+7133): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R078-Death.el (U-000239D1): Add ideographic-structure.
+	(U-00023A46): Apply new glyph-image conventions.
+
 2014-02-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el (J0-3A3B): Unify KU+6C99.
+	(U+6E96): Apply new glyph-image conventions.
+
+	* Ideograph-R062-Halberd.el (U+622A): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R046-Mountain.el (U+5DBB): Apply new glyph-image
+	conventions.
 
 	* Ideograph-R015-Ice.el (U+51C6): Apply new glyph-image
 	conventions.
@@ -21796,7 +21813,7 @@
 
 	* char-db-util.el (shuowen-radicals): Add ?𠦒, ?冓, ?幺, ?𢆶, ?叀,
 	?玄, ?予, ?放, ?𠬪, ?𣦼, ?歺, ?死, ?冎, ?骨, ?肉, ?筋, ?刀, ?刃,
-	?㓞, ?丰, ?耒 and ?𧢞.
+	?㓞, ?丰, ?耒 and ?𧢓.
 
 	* Oracle-Bones.el (ZOB-00010): Use ZOB-01263 in
 	`ideographic-structure'.
@@ -21966,7 +21983,7 @@
 
 2007-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* char-db-util.el (shuowen-radicals): Add ?𦥑, ?躴, ?爨, ?革, ?鬲,
+	* char-db-util.el (shuowen-radicals): Add ?𦥑, ?𨈼, ?爨, ?革, ?鬲,
 	?䰜, ?爪, ?𠃨, ?鬥, ?又, ?𠂇, ?㕜, ?  支, ?𦘒, ?聿, ?畫, ?隶, ?堅,
 	?臣, ?殳, ?殺, ?𠘧, ?寸, ?皮 , ?瓪, ?  攴, ?敎, ?卜, ?用, ?爻 and
 	?㸚.
