@@ -1804,6 +1804,7 @@
     (=daikanwa		. 38747)	; &I-M-38747;
     (<-same
      ((=ucs@jis		  . #x5C6F)	; &AJ1-03246;
+      (=ucs@ks		  . #x5C6F)	; &AJ1-03246;
       (=adobe-japan1-0	  . 03246)	; &AJ1-03246;
       (=daikanwa	  . 07828)	; &I-M-07828;
       ))
@@ -2888,6 +2889,7 @@
       (=ucs		  . #x2ECD)	; ⻍
       )
      ((=ucs@cns		  . #x53CA)	; &AJ1-13710;
+      (=ucs@ks		  . #x53CA)	; &AJ1-13710;
       (=adobe-japan1-4	  . 13710)	; &AJ1-13710;
       ))
     (=ucs@unicode	. #xFA24)	; &UU+FA24;
@@ -14509,6 +14511,7 @@
     (=daikanwa		. 39051)	; &M-39051;
     (<-ancient
      ((=ucs@cns		  . #x53CA)	; &AJ1-13710;
+      (=ucs@ks		  . #x53CA)	; &AJ1-13710;
       (=adobe-japan1-4	  . 13710)	; &AJ1-13710;
       (=daikanwa	  . 03118)	; &I-M-03118;
       ))
