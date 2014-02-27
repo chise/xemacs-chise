@@ -1,5 +1,19 @@
 2014-02-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R015-Ice.el (U+51C6): Apply new glyph-image
+	conventions.
+	(U+51D5): Likewise.
+	(U+51D6): Likewise.
+
+2014-02-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R117-Stand.el (U+7ADD): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R088-Father.el (K0-5D2B): Unify KU+7236.
+
+	* Ideograph-R087-Claw.el (J0-6027): Unify KU+722D.
+
 	* Ideograph-R045-Sprout.el (J0-4656): Unify KU+5C6F.
 
 	* Ideograph-R014-Cover.el (U+51A5): Apply new glyph-image
