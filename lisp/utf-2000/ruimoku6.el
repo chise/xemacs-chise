@@ -677,17 +677,6 @@
   '((<-subsumptive
      ((=>>ruimoku-v6	  . #xE037)	; &G-RUI6-E037;
       ))
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=daikanwa	  . 00311)	; &M-00311;
-      )
-     ((=ucs@jis		  . #x96B9)	; &GT-56353;
-      (=jis-x0208	  . #x7032)	; &GT-56353; [80-18]
-      (=jis-x0213-1	  . #x7032)	; &I-JX1-7032; [80-18]
-      (=daikanwa	  . 41937)	; &I-M-41937;
-      ))
     (=ruimoku-v6	. #xE037)	; &RUI6-E037;
     ))
 (define-char
@@ -917,6 +906,7 @@
 	  (=daikanwa	      . 32674)	; &I-M-32674;
 	  )
 	 ((=ucs@jis	      . #x5E78)	; &AJ1-01982;
+	  (=ucs@ks	      . #x5E78)	; &AJ1-01982;
 	  (=adobe-japan1-0    . 01982)	; &AJ1-01982;
 	  ))
 	))
@@ -1056,10 +1046,7 @@
       )
      ((=gt-k		  . 05309)	; &GT-K05309;
       )
-     ((=ucs@jis		  . #x96B9)	; &GT-56353;
-      (=jis-x0208	  . #x7032)	; &GT-56353; [80-18]
-      (=jis-x0213-1	  . #x7032)	; &I-JX1-7032; [80-18]
-      (=daikanwa	  . 41937)	; &I-M-41937;
+     ((=ucs		  . #x96B9)	; 隹
       ))
     (=ruimoku-v6	. #xE054)	; &RUI6-E054;
     ))
