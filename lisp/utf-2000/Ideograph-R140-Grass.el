@@ -19024,15 +19024,6 @@
       ))
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 9)
-    (total-strokes	 . 13)
-    (=cns11643-3	. #x442C)	; &C3-442C; [36-12]
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x8448)	; 葈
-      ))
-    (ideographic-radical . 140)	; ⾋
-    (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (hanyu-dazidian	5 3258 13)
     (=ucs@unicode	. #x8448)	; &AJ1-08605;
@@ -19042,6 +19033,15 @@
     (=hanyo-denshi/jb	. #x5851)	; &I-HD-JB-5851; [56-49]
     (=hanziku-8		. #xF8D7)	; &I-HZK08-F8D7;
     (=jef-china3	. #x70E8)	; &I-JC3-70E8;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8448)	; 葈
+      ))
+    (ideographic-radical . 140)	; ⾋
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (=cns11643-3	. #x442C)	; &C3-442C; [36-12]
     ))
 (define-char
   '((ideographic-radical . 140)	; ⾋
@@ -26807,17 +26807,7 @@
       ))
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 10)
-    (total-strokes	 . 14)
-    (=jef-china3	. #x62C4)	; &JC3-62C4;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x84DC)	; 蓜
-      ))
-    (ideographic-radical . 140)	; ⾋
-    (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=>>ucs@unicode	. #x84DC)	; &AJ1-08363;
     (=ucs@unicode	. #x84DC)	; &AJ1-08363;
     (=adobe-japan1-2	. 08363)	; &AJ1-08363;
     (=jis-x0212		. #x5921)	; &I-JSP-5921; [57-01]
@@ -26832,6 +26822,15 @@
       )
      ((==ucs@unicode	  . #x84DC)	; &R-UU+84DC;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x84DC)	; 蓜
+      ))
+    (ideographic-radical . 140)	; ⾋
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
+    (=jef-china3	. #x62C4)	; &JC3-62C4;
     ))
 (define-char
   '((ideographic-radical . 140)	; ⾋
