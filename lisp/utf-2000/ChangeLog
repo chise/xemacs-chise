@@ -1,5 +1,14 @@
 2014-02-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ruimoku6.el (RUI6-E037): Omit `ideographic-structure'.
+
+2014-02-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R152-Pig.el (J0-502E): Unify KU+8C6B.
+
+	* Ideograph-R146-West.el (U+897F): Apply new glyph-image
+	conventions.
+
 	* Ideograph-R086-Fire.el (U+7133): Apply new glyph-image
 	conventions.
 
