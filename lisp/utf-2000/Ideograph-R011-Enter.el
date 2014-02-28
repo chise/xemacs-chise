@@ -367,7 +367,7 @@
       (=hanziku-1	  . #xBAC6)	; &I-HZK01-BAC6;
       (<-ancient
        ((=ucs@ks	    . #x5168)	; &MJ007267;
-	(=mj		    . 007267)	; &I-MJ007267;
+	(=mj		    . 007267)	; &MJ007267;
 	(=shinjigen	    .  4876)	; &MJ007267;
 	))
       (<-ancient*sources
@@ -490,8 +490,8 @@
        ((=ucs		    . #x738B)	; 王
 	))
       (=ucs@ks		  . #x5168)	; &MJ007267;
-      (=mj		  . 007267)	; &I-MJ007267;
-      (=adobe-japan1-4	  . 13890)	; &MJ007267;
+      (=mj		  . 007267)	; &MJ007267;
+      (=adobe-japan1-4	  . 13890)	; &I-AJ1-13890;
       (=ks-x1001	  . #x6E6F)	; &I-K0-6E6F; [78-79]
       (=hanyo-denshi/jt	  . #xADC5)	; &I-HD-JT-ADC5;
       (=gt		  . 01862)	; &I-GT-01862;
@@ -1520,7 +1520,7 @@
       (=daikanwa	  . 01443)	; &M-01443;
       (<-ancient
        ((=ucs@ks	    . #x5168)	; &MJ007267;
-	(=mj		    . 007267)	; &I-MJ007267;
+	(=mj		    . 007267)	; &MJ007267;
 	(=daikanwa	    . 01424)	; &I-M-01424;
 	))
       (<-ancient*sources
@@ -1569,7 +1569,7 @@
 	(=ucs		    . #x2FF1)	; ⿱
 	)
        ((=ucs@ks	    . #x5168)	; &MJ007267;
-	(=mj		    . 007267)	; &I-MJ007267;
+	(=mj		    . 007267)	; &MJ007267;
 	)
        ((=ucs		    . #x4E23)	; 丣
 	))
