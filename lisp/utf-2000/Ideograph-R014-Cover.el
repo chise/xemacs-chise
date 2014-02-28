@@ -934,7 +934,7 @@
       )
      ((=ucs		  . #x5196)	; 冖
       )
-     ((=hanyo-denshi/jt	  . #xADC1)	; &HD-JT-ADC1;
+     ((=mj		  . 007243)	; &MJ007243;
       ))
     (=jef-china3	. #x43F0)	; &JC3-43F0;
     ))
@@ -952,8 +952,8 @@
       )
      ((=ucs		  . #x5196)	; 冖
       )
-     ((=ucs@unicode	  . #x5154)	; &AJ1-04212;
-      (=adobe-japan1-0	  . 04212)	; &AJ1-04212;
+     ((=ucs@unicode	  . #x5154)	; &MJ007242;
+      (=mj		  . 007242)	; &MJ007242;
       ))
     (=ucs@unicode	. #x51A4)	; &AJ1-04228;
     (=adobe-japan1-0	. 04228)	; &AJ1-04228;
