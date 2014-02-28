@@ -1149,7 +1149,12 @@
       (==ks-x1001	  . #x5A6D)	; &R-M-21801; [58-77]
       (==daikanwa	  . 21801)	; &R-M-21801;
       )
-     ((==hanyo-denshi/jt  . #xB5F8)	; &R-HD-JT-B5F8;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7554)	; 畔
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==hanyo-denshi/jt  . #xB5F8)	; &R-HD-JT-B5F8;
       ))
     ))
 (define-char
