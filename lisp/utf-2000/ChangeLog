@@ -1,3 +1,29 @@
+2014-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (U+689A): Apply new glyph-image
+	conventions for hanziku-3 and cbeta.
+	(U+6901): Use `->denotational' to separate abstract glyph node;
+	apply new glyph-image conventions for cns11643-3, hanziku-4,
+	daikanwa and shinjigen.
+	(U+69E8): Use `->denotational' to separate abstract glyph node;
+	apply new glyph-image conventions for ks-x1001, cns11643-1,
+	daikanwa and shinjigen.
+
+	* Ideograph-R015-Ice.el (AJ1-21185): Unify H1-E3BE.
+	(R-JSP-327E): Add `ideographic-structure'.
+	(R-C3-2B3D): Separate H1-E3BE.
+
+	* Ideograph-R009-Man.el (J0-4E61): Unify KU+4EE4.
+	(U+344A): Apply new glyph-image conventions.
+	(U+5020): Likewise.
+	(U-000202A3): Use `->denotational' to separate abstract glyph
+	node.
+	(U-000202F6): Apply new glyph-image conventions.
+	(U+50A1): Likewise.
+	(U-00020329): Use `->subsumptive' to separate representative
+	nodes; fix ideographic-structure.
+	(mother of C1-6333): Unify G-CU+50BB and G-M-01034.
+
 2014-02-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R102-Field.el: Add `=decomposition@hanyo-denshi' for a
