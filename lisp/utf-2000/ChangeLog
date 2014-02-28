@@ -1,5 +1,7 @@
 2014-02-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R011-Enter.el: Add some MJ code points.
+
 	* ruimoku6.el (RUI6-E037): Omit `ideographic-structure'.
 
 2014-02-27  MORIOKA Tomohiko  <tomo.git@chise.org>
