@@ -1,5 +1,22 @@
 2014-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R038-Woman.el (JX2-255B): Modify component of
+	ideographic-structure; add `->subsumptive' to add detailed
+	glyph-image node.
+
+	* Ideograph-R037-Big.el (U-00021669): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R023-Hiding-Enclosure.el (U-00020976): Apply new
+	glyph-image conventions.
+
+	* Ideograph-R013-Down-Box.el (J90-514B): Use `->subsumptive' to
+	add detailed-glyph-image node.
+
+	* Ideograph-R141-Tiger.el (G-JU+864E): Unify G-KU+864E, G-J0-3857,
+	G-GT-44178, G-GT-K03697 and G-M-32675.
+	(J0-3857): Unify KU+864E.
+
 	* Ideograph-R075-Tree.el (U+689A): Apply new glyph-image
 	conventions for hanziku-3 and cbeta.
 	(U+6901): Use `->denotational' to separate abstract glyph node;
@@ -8,6 +25,16 @@
 	(U+69E8): Use `->denotational' to separate abstract glyph node;
 	apply new glyph-image conventions for ks-x1001, cns11643-1,
 	daikanwa and shinjigen.
+
+	* Ideograph-R030-Mouth.el (U-00020BCB): Use `->subsumptive'.
+	(U+54C2): Apply new glyph-image conventions.
+	(U+54FC): Apply new glyph-image conventions for cns11643-1 and
+	daikanwa.
+	(U+552E): Apply new glyph-image conventions.
+	(U+552F): Likewise.
+	(U+554D): Apply new glyph-image conventions for cns11643-2 and
+	daikanwa.
+	(U+56C7): Apply new glyph-image conventions.
 
 	* Ideograph-R015-Ice.el (AJ1-21185): Unify H1-E3BE.
 	(R-JSP-327E): Add `ideographic-structure'.
