@@ -1723,16 +1723,6 @@
     (ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (=decomposition@cid
-     ((=ucs		  . #x5195)	; 冕
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x5195)	; 冕
-      )
-     ((=ucs		  . #xE0103)	; 󠄃
-      ))
     (hanyu-dazidian	2 1514 6)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1741,10 +1731,8 @@
      ((name*		  . "ideographic component hood")
       (=big5-cdp	  . #x8A78)	; &CDP-8A78;
       )
-     ((=ucs@unicode	  . #x514D)	; &HD-KS-015850;
-      (=gb2312		  . #x4362)	; &HD-KS-015850; [35-66]
-      (=ks-x1001	  . #x5873)	; &I-K0-5873; [56-83]
-      (=cns11643-1	  . #x492D)	; &I-C1-492D; [41-13]
+     ((=ucs@unicode	  . #x514D)	; &MJ007229;
+      (=mj		  . 007229)	; &MJ007229;
       ))
     (=ucs@unicode	. #x5195)	; &AJ1-04226;
     (=adobe-japan1-0	. 04226)	; &AJ1-04226;
@@ -1759,6 +1747,32 @@
     (=daikanwa		. 01545)	; &I-M-01545;
     (=shinjigen		.  0524)	; &AJ1-04226;
     (=jef-china3	. #x43EE)	; &I-JC3-43EE;
+    (->subsumptive
+     ((==daikanwa	  . 01545)	; &R-M-01545;
+      )
+     ((==shinjigen	  .  0524)	; &R-SJG2-0524;
+      )
+     ((=decomposition@cid
+       ((=ucs		    . #x5195)	; 冕
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x5195)	; 冕
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==ucs@unicode	  . #x5195)	; &R-AJ1-04226;
+      (==adobe-japan1-0	  . 04226)	; &R-AJ1-04226;
+      (==gb2312		  . #x4361)	; &R-AJ1-04226; [35-65]
+      (==jis-x0208@1983	  . #x514B)	; &R-AJ1-04226; [49-43]
+      (==jis-x0208@1990	  . #x514B)	; &R-AJ1-04226; [49-43]
+      (==cns11643-1	  . #x5928)	; &R-AJ1-04226; [57-08]
+      (==jis-x0213-1	  . #x514B)	; &R-AJ1-04226; [49-43]
+      (==hanyo-denshi/ja  . #x514B)	; &R-AJ1-04226; [49-43]
+      )
+     ((==gt		  . 02032)	; &R-GT-02032;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -1780,8 +1794,8 @@
      ((name*		  . "ideographic component hood")
       (=big5-cdp	  . #x8A78)	; &CDP-8A78;
       )
-     ((=ucs@jis		  . #x514D)	; &AJ1-03796;
-      (=adobe-japan1-0	  . 03796)	; &AJ1-03796;
+     ((=ucs@jis		  . #x514D)	; &MJ007230;
+      (=mj		  . 007230)	; &MJ007230;
       ))
     (=adobe-japan1-4	. 14104)	; &AJ1-14104;
     ))
@@ -1820,10 +1834,8 @@
       )
      ((=cns11643-1	  . #x454B)	; &C1-454B; [37-43]
       )
-     ((=ucs@unicode	  . #x514D)	; &HD-KS-015850;
-      (=gb2312		  . #x4362)	; &HD-KS-015850; [35-66]
-      (=ks-x1001	  . #x5873)	; &I-K0-5873; [56-83]
-      (=cns11643-1	  . #x492D)	; &I-C1-492D; [41-13]
+     ((=ucs@unicode	  . #x514D)	; &MJ007229;
+      (=mj		  . 007229)	; &MJ007229;
       ))
     (=ucs		. #x2F8D3)	; 冕
     (=ucs@cns		. #x2F8D3)	; 冕
