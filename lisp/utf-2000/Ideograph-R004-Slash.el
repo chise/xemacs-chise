@@ -547,16 +547,6 @@
      shinjigen mj)
     (total-strokes@shinjigen*sources
      shinjigen gt mj)
-    (=decomposition@cid
-     ((=ucs		  . #x53CA)	; 及
-      )
-     ((=ucs		  . #xE0100)	; 󠄀
-      ))
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x53CA)	; 及
-      )
-     ((=ucs		  . #xE0102)	; 󠄂
-      ))
     (hanyu-dazidian	1 35 1)
     (=ucs		. #x2F836)	; 及
     (=ucs@unicode	. #x53CA)	; 及
@@ -582,6 +572,16 @@
      ((ideographic-radical@jis . 29)	; ⼜
       (ideographic-strokes@jis . 2)
       (total-strokes@jis       . 4)
+      (=decomposition@cid
+       ((=ucs		    . #x53CA)	; 及
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x53CA)	; 及
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
       (==ucs@jis	  . #x53CA)	; &R-MJ007990;
       (==mj		  . 007990)	; &R-MJ007990;
       (==adobe-japan1-0	  . 01652)	; &R-MJ007990;
