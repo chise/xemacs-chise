@@ -38,9 +38,13 @@
 	       graphic 2
 	       direction l2r
 	       registry "AdobeJapan1-[0-6]$"
-	       min-code	,(lsh #x6300 16)
-	       max-code	,(+ (lsh #x6300 16) 23057)
-	       code-offset	,(lsh #x6300 16)))
+	       min-code	    #xE10000
+	       max-code	,(+ #xE10000 23057)
+	       code-offset  #xE10000
+               ;; min-code	,(lsh #x6300 16)
+               ;; max-code	,(+ (lsh #x6300 16) 23057)
+               ;; code-offset	,(lsh #x6300 16)
+	       ))
   (make-charset
    '=adobe-japan1-0
    "Adobe-Japan1-0 Character Collection for CID-Keyed Fonts"
@@ -1430,9 +1434,13 @@
 	       graphic 2
 	       direction l2r
                ;; registry "mj-0$"
-	       min-code	      ,(lsh #x6404 16)
-	       max-code	   ,(+ (lsh #x6404 16) 68053)
-	       code-offset    ,(lsh #x6404 16)))
+	       min-code     #xE30000
+	       max-code ,(+ #xE30000 68053)
+	       code-offset  #xE30000
+	       ;; min-code	      ,(lsh #x6404 16)
+               ;; max-code	   ,(+ (lsh #x6404 16) 68053)
+               ;; code-offset    ,(lsh #x6404 16)
+	       ))
   (make-charset
    '=mj-0
    "Moji-Jouhou-Kiban plane 0"
