@@ -1,3 +1,8 @@
+2014-03-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (AJ1-01652): Move `=decomposition@cid'
+	and `=decomposition@hanyo-denshi' to R-AJ1-01652.
+
 2014-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R038-Woman.el (JX2-255B): Modify component of
