@@ -3307,32 +3307,34 @@
       ))
     (=ucs		. #x21669)	; 𡙩
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs@jis	    . #x4EA6)	; &AJ1-03744;
-	(=adobe-japan1-0    . 03744)	; &AJ1-03744;
-	)
-       ((=ucs		    . #x593E)	; 夾
-	))
-      (=daikanwa	  . 05989)	; &M-05989;
-      )
-     ((=ucs@iso		  . #x21669)	; &C5-3E54;
-      (=cns11643-5	  . #x3E54)	; &C5-3E54; [30-52]
-      )
      ((hanyu-dazidian	  1 291 7)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x4EA6)	; &C1-4729;
-	(=gb2312	    . #x5260)	; &C1-4729; [50-64]
-	(=cns11643-1	    . #x4729)	; &I-C1-4729; [39-09]
+       ((=ucs@unicode	    . #x4EA6)	; &AJ1-03744;
+	(=adobe-japan1-0    . 03744)	; &AJ1-03744;
 	)
        ((=ucs		    . #x593E)	; 夾
 	))
-      (=hanziku-1	  . #xE1F7)	; &HZK01-E1F7;
+      (=daikanwa	  . 05989)	; &M-05989;
+      (=hanziku-1	  . #xE1F7)	; &I-HZK01-E1F7;
+      (->subsumptive
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((==ucs@jis	      . #x4EA6)	; &R-AJ1-03744;
+	  (==ucs@ks	      . #x4EA6)	; &R-AJ1-03744;
+	  (==adobe-japan1-0   . 03744)	; &R-AJ1-03744;
+	  )
+	 ((=ucs		      . #x593E)	; 夾
+	  ))
+	(==daikanwa	    . 05989)	; &R-M-05989;
+	))
+      )
+     ((=ucs@iso		  . #x21669)	; &C5-3E54;
+      (=cns11643-5	  . #x3E54)	; &C5-3E54; [30-52]
       ))
     ))
 (define-char
