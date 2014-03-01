@@ -7057,21 +7057,15 @@
     (=>>daikanwa	. 06333)	; &G-AJ1-17497;
     (=>>cbeta		. 03788)	; &G-AJ1-17497;
     (->subsumptive
-     ((=decomposition@cid
-       ((=ucs		    . #x5A27)	; 娧
-	)
-       ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x5973)	; &AJ1-02433;
-	(=adobe-japan1-0    . 02433)	; &AJ1-02433;
+       ((=adobe-japan1-4    . 13828)	; &AJ1-13828;
 	)
-       ((=ucs@jis	    . #x514C)	; &AJ1-04211;
-	(=ucs@ks	    . #x514C)	; &AJ1-04211;
-	(=adobe-japan1-0    . 04211)	; &AJ1-04211;
+       ((=ucs@jis	    . #x514C)	; &MJ007227;
+	(=ucs@ks	    . #x514C)	; &MJ007227;
+	(=mj		    . 007227)	; &MJ007227;
 	))
       (=ucs@jis		  . #x5A27)	; &AJ1-17497;
       (=adobe-japan1-5	  . 17497)	; &AJ1-17497;
@@ -7080,6 +7074,20 @@
       (=daikanwa	  . 06333)	; &I-M-06333;
       (=cbeta		  . 03788)	; &I-CB03788;
       (=jef-china3	  . #x49BD)	; &I-JC3-49BD;
+      (->subsumptive
+       ((==daikanwa	    . 06333)	; &R-M-06333;
+	)
+       ((==ucs@jis	    . #x5A27)	; &R-JSP-3956;
+	(==jis-x0212	    . #x3956)	; &R-JSP-3956; [25-54]
+	(==jis-x0213-2	    . #x255B)	; &R-JSP-3956; [05-59]
+	)
+       ((=decomposition@cid
+	 ((=ucs		      . #x5A27)	; 娧
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(==adobe-japan1-5   . 17497)	; &R-AJ1-17497;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
