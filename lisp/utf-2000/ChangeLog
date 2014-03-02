@@ -1,5 +1,8 @@
 2014-03-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R024-Ten.el, Ideograph-R017-Open-Box.el: Complete
+	`==ucs@cns' for `==cns11643-1'.
+
 	* Ideograph-R004-Slash.el (AJ1-01652): Move `=decomposition@cid'
 	and `=decomposition@hanyo-denshi' to R-AJ1-01652.
 
