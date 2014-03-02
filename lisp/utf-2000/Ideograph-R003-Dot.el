@@ -647,8 +647,8 @@
 	  )
 	 ((=ucs		      . #x4E00)	; 一
 	  )
-	 ((=ucs@unicode	      . #x516B)	; &AJ1-20079;
-	  (=adobe-japan1-5    . 20079)	; &AJ1-20079;
+	 ((=ucs@unicode	      . #x516B)	; &MJ007274;
+	  (=mj		      . 007274)	; &MJ007274;
 	  ))
 	)
        ((=big5-cdp	    . #x8BF1)	; &CDP-8BF1;
