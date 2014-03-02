@@ -777,6 +777,7 @@
       )
      ((=ucs		  . #xE0101)	; 󠄁
       ))
+    (=ucs@cns		. #x4E11)	; &MJ006315;
     (=ucs@jis		. #x4E11)	; &MJ006315;
     (=ucs@ks		. #x4E11)	; &MJ006315;
     (=mj		. 006315)	; &MJ006315;
@@ -800,7 +801,8 @@
       (==gt-k		  . 00398)	; &R-GT-00033;
       (==shinjigen	  .  0016)	; &R-GT-00033;
       )
-     ((==cns11643-1	  . #x4460)	; &R-C1-4460; [36-64]
+     ((==ucs@cns	  . #x4E11)	; &R-CU+4E11;
+      (==cns11643-1	  . #x4460)	; &R-CU+4E11; [36-64]
       )
      ((==ucs@jis	  . #x4E11)	; &R-MJ006315;
       (==mj		  . 006315)	; &R-MJ006315;
@@ -843,7 +845,8 @@
       (=gb12345		  . #x3373)	; &UU+919C; [19-83]
       ))
     (<-vulgar
-     ((=ucs@jis		  . #x4E11)	; &MJ006315;
+     ((=ucs@cns		  . #x4E11)	; &MJ006315;
+      (=ucs@jis		  . #x4E11)	; &MJ006315;
       (=ucs@ks		  . #x4E11)	; &MJ006315;
       (=mj		  . 006315)	; &MJ006315;
       (=jis-x0208	  . #x312F)	; &I-J90-312F; [17-15]
@@ -979,7 +982,8 @@
     (->subsumptive
      ((=daikanwa	  . 00028)	; &M-00028;
       (<-vulgar
-       ((=ucs@jis	    . #x4E11)	; &MJ006315;
+       ((=ucs@cns	    . #x4E11)	; &MJ006315;
+	(=ucs@jis	    . #x4E11)	; &MJ006315;
 	(=ucs@ks	    . #x4E11)	; &MJ006315;
 	(=mj		    . 006315)	; &MJ006315;
 	(=daikanwa	    . 00023)	; &I-M-00023;
@@ -1050,12 +1054,12 @@
     (=shinjigen		.  0492)	; 𠔃
     (=hanziku-1		. #xD7D7)	; &I-HZK01-D7D7;
     (<-vulgar
-     ((=ucs@jis		  . #x516E)	; &AJ1-04217;
-      (=ucs@ks		  . #x516E)	; &AJ1-04217;
-      (=adobe-japan1-0	  . 04217)	; &AJ1-04217;
+     ((=ucs@jis		  . #x516E)	; &MJ007278;
+      (=ucs@ks		  . #x516E)	; &MJ007278;
+      (=mj		  . 007278)	; &MJ007278;
       (=jis-x0208	  . #x5142)	; &I-J90-5142; [49-34]
       (=daikanwa	  . 01455)	; &I-M-01455;
-      (=shinjigen	  .  0491)	; &AJ1-04217;
+      (=shinjigen	  .  0491)	; &MJ007278;
       ))
     (<-vulgar*sources
      daikanwa shinjigen)
