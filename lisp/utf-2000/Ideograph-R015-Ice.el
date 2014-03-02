@@ -404,7 +404,8 @@
 	)
        ((=ucs		    . #x51AB)	; 冫
 	)
-       ((==cns11643-1	    . #x455B)	; &R-C1-455B; [37-59]
+       ((==ucs@cns	    . #x7259)	; &R-CU+7259;
+	(==cns11643-1	    . #x455B)	; &R-CU+7259; [37-59]
 	))
       (==ucs@cns	  . #x51B4)	; &R-CU+51B4;
       (==cns11643-3	  . #x227C)	; &R-CU+51B4; [02-92]
@@ -1590,7 +1591,17 @@
       (==daikanwa	  . 01661)	; &R-AJ1-02404;
       (==shinjigen	  .  0550)	; &R-AJ1-02404;
       )
-     ((==cns11643-1	  . #x5446)	; &R-C1-5446; [52-38]
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x51AB)	; 冫
+	)
+       ((==ucs@cns	    . #x96B9)	; &R-CU+96B9;
+	(==cns11643-1	    . #x4F63)	; &R-CU+96B9; [47-67]
+	))
+      (==ucs@cns	  . #x51C6)	; &R-CU+51C6;
+      (==cns11643-1	  . #x5446)	; &R-CU+51C6; [52-38]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -2862,7 +2873,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((==cns11643-1	    . #x5446)	; &R-C1-5446; [52-38]
+       ((==ucs@cns	    . #x51C6)	; &R-CU+51C6;
+	(==cns11643-1	    . #x5446)	; &R-CU+51C6; [52-38]
 	)
        ((=ucs		    . #x5341)	; 十
 	))
