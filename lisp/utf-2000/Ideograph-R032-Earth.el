@@ -1096,8 +1096,8 @@
       )
      ((=gt-k		  . 00199)	; &GT-K00199;
       )
-     ((=ucs@unicode	  . #x5197)	; &AJ1-02513;
-      (=adobe-japan1-0	  . 02513)	; &AJ1-02513;
+     ((=ucs@unicode	  . #x5197)	; &MJ007329;
+      (=mj		  . 007329)	; &MJ007329;
       ))
     (=ucs@unicode	. #x5748)	; &CB04985;
     (=cbeta		. 04985)	; &CB04985;
@@ -11295,24 +11295,25 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x516B)	; &AJ1-03392;
-	(=adobe-japan1-0    . 03392)	; &AJ1-03392;
+       ((=ucs		    . #x516B)	; 八
 	)
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (=ucs		      . #x2FF1)	; ⿱
 	  )
-	 ((=ks-x1001	      . #x6951)	; &M-03115; [73-49]
-	  (=daikanwa	      . 03115)	; &I-M-03115;
+	 ((=ucs		      . #x53C8)	; 又
 	  )
 	 ((=ucs		      . #x76BF)	; 皿
 	  ))
 	))
       ))
-    (=cbeta		. 05673)	; &CB05673;
+    (=>>cbeta		. 05673)	; &G-CB05673;
     (<-unknown
      ((=ucs@jis		  . #x5867)	; &AJ1-17452;
       (=adobe-japan1-5	  . 17452)	; &AJ1-17452;
+      ))
+    (->subsumptive
+     ((=cbeta		  . 05673)	; &CB05673;
       ))
     ))
 (define-char
