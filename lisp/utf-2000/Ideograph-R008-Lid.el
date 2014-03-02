@@ -4282,8 +4282,8 @@
        ((=ucs@unicode	    . #x4EAF)	; &AJ1-21082;
 	(=adobe-japan1-6    . 21082)	; &AJ1-21082;
 	)
-       ((=ucs@unicode	    . #x516B)	; &AJ1-20079;
-	(=adobe-japan1-5    . 20079)	; &AJ1-20079;
+       ((=ucs@unicode	    . #x516B)	; &MJ007274;
+	(=mj		    . 007274)	; &MJ007274;
 	)
        ((=ucs		    . #x767D)	; 白
 	))
@@ -4298,8 +4298,7 @@
 	 ((==ucs@jis	      . #x4EAF)	; &R-AJ1-21082;
 	  (==adobe-japan1-6   . 21082)	; &R-AJ1-21082;
 	  )
-	 ((=ucs@unicode	      . #x516B)	; &AJ1-20079;
-	  (=adobe-japan1-5    . 20079)	; &AJ1-20079;
+	 ((==mj		      . 007274)	; &R-MJ007274;
 	  )
 	 ((=ucs		      . #x767D)	; 白
 	  ))
@@ -4311,8 +4310,7 @@
 	  )
 	 ((==ucs@unicode      . #x4EAF)	; &R-UU+4EAF;
 	  )
-	 ((=ucs@unicode	      . #x516B)	; &AJ1-20079;
-	  (=adobe-japan1-5    . 20079)	; &AJ1-20079;
+	 ((==mj		      . 007274)	; &R-MJ007274;
 	  )
 	 ((=ucs		      . #x767D)	; 白
 	  ))
