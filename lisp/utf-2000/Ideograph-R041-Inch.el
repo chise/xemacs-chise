@@ -796,7 +796,8 @@
     (=gt-k		. 09092)	; &I-GT-K09092;
     (=gt-pj-1		. #x423A)	; &I-GT-09379; [34-26]
     (->subsumptive
-     ((==cns11643-1	  . #x5E71)	; &R-C1-5E71; [62-81]
+     ((==ucs@cns	  . #x5C0A)	; &R-CU+5C0A;
+      (==cns11643-1	  . #x5E71)	; &R-CU+5C0A; [62-81]
       )
      ((=decomposition@cid
        ((=ucs		    . #x5C0A)	; 尊
