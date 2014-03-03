@@ -1,5 +1,24 @@
 2014-03-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R070-Square.el, Ideograph-R068-Dipper.el,
+	Ideograph-R066-Rap.el, Ideograph-R060-Step.el,
+	Ideograph-R053-Dotted-Cliff.el, Ideograph-R041-Inch.el: Complete
+	`==ucs@cns' for `==cns11643-1'.
+
+	* Ideograph-R040-Roof.el (U+5BD7): Apply new glyph-image
+	conventions for cbeta.
+
+	* Ideograph-R032-Earth.el (G-CB05673): New node.
+	(CB05673): Add `<-subsumptive' for G-CB05673.
+
+	* Ideograph-R015-Ice.el: Complete `==ucs@cns' for `==cns11643-1'.
+	(R-C1-5446): Add `ideographic-structure'.
+
+	* Add Ideograph-R010-Legs.el: some MJ code points.
+
+	* Ideograph-R001-One.el: Complete `==ucs@cns' for `==cns11643-1'.
+	(C1-4460): Unify CU+4E11.
+
 	* Ideograph-R024-Ten.el, Ideograph-R017-Open-Box.el: Complete
 	`==ucs@cns' for `==cns11643-1'.
 
