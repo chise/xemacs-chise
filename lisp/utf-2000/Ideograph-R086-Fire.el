@@ -6350,8 +6350,8 @@
     (total-strokes	 . 12)
     (=daikanwa		. 19166)	; &M-19166;
     (<-vulgar
-     ((=ucs@ks		  . #x517C)	; &AJ1-13748;
-      (=adobe-japan1-4	  . 13748)	; &AJ1-13748;
+     ((=ucs@ks		  . #x517C)	; &MJ007296;
+      (=mj		  . 007296)	; &MJ007296;
       (=daikanwa	  . 01483)	; &I-M-01483;
       ))
     (<-vulgar*sources
