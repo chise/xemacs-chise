@@ -929,7 +929,8 @@
 	(==daikanwa	    . 13656)	; &R-AJ1-02719;
 	(==shinjigen	    .  5086)	; &R-AJ1-02719;
 	)
-       ((==cns11643-1	    . #x5B21)	; &R-C1-5B21; [59-01]
+       ((==ucs@cns	    . #x65CB)	; &R-CU+65CB;
+	(==cns11643-1	    . #x5B21)	; &R-CU+65CB; [59-01]
 	)
        ((==ucs@unicode	    . #x65CB)	; &R-UU+65CB;
 	(==gb2312	    . #x507D)	; &R-UU+65CB; [48-93]
