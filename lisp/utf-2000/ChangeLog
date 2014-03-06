@@ -1,3 +1,20 @@
+2014-03-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (JX1-2E4F): Add `->subsumptive' to add
+	representative detailed-glyph-image nodes.
+
+	* Ideograph-R009-Man.el: Complete `==ucs@cns' for `==cns11643-1'.
+	(IU+201B5): Add `->subsumptive' to add representative
+	detailed-glyph-image nodes.
+	(JX1-2E29): Likewise.
+	(JX2-213F): Likewise.
+	(IU+20200): Likewise.
+	(C5-2333): Separate H1-C0D7.
+
+2014-03-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R071-Not.el: Complete `==ucs@cns' for `==cns11643-1'.
+
 2014-03-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R070-Square.el, Ideograph-R068-Dipper.el,
