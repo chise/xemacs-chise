@@ -623,7 +623,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=mj		    . 007276)	; &MJ007276;
+       ((=ucs@ks	    . #x516C)	; &MJ007276;
+	(=mj		    . 007276)	; &MJ007276;
 	)
        ((=ucs		    . #x513F)	; 儿
 	))
@@ -635,6 +636,16 @@
       (=hanyo-denshi/jb	  . #x3266)	; &I-HD-JB-3266; [18-70]
       (=daikanwa	  . 01351)	; &I-M-01351;
       (=jef-china3	  . #x43D3)	; &I-JC3-43D3;
+      (->subsumptive
+       ((==ucs@jis	    . #x514A)	; &R-HD-JB-3266;
+	(==jis-x0212	    . #x3266)	; &R-HD-JB-3266; [18-70]
+	(==jis-x0213-1	    . #x2E4F)	; &R-HD-JB-3266; [14-47]
+	(==hanyo-denshi/jb  . #x3266)	; &R-HD-JB-3266; [18-70]
+	(==daikanwa	    . 01351)	; &R-HD-JB-3266;
+	)
+       ((==mj		    . 007222)	; &R-MJ007222;
+	(==adobe-japan1-2   . 08393)	; &R-MJ007222;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -884,6 +895,7 @@
 	(=ucs		    . #x2FF1)	; ⿱
 	)
        ((=ucs@jis	    . #x516B)	; &MJ007273;
+	(=ucs@ks	    . #x516B)	; &MJ007273;
 	(=mj		    . 007273)	; &MJ007273;
 	)
        ((=ucs		    . #x5144)	; 兄
