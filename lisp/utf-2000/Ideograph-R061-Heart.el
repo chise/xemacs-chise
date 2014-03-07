@@ -1152,7 +1152,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=adobe-japan1-4    . 13440)	; &AJ1-13440;
+       ((=ucs@ks	    . #x516C)	; &MJ007276;
+	(=mj		    . 007276)	; &MJ007276;
 	)
        ((=ucs		    . #x5FC3)	; 心
 	))
@@ -1161,8 +1162,13 @@
       (=jis-x0213-1	  . #x7449)	; &I-JX1-7449; [84-41]
       (=daikanwa	  . 10366)	; &I-M-10366;
       (=cbeta		  . 00784)	; &I-CB00784;
+      (=jef-china3	  . #x4DC9)	; &I-JC3-4DC9;
       (->subsumptive
-       ((=jef-china3	    . #x4DC9)	; &JC3-4DC9;
+       ((==daikanwa	    . 10366)	; &R-M-10366;
+	)
+       ((==ucs@jis	    . #x5FE9)	; &R-JSP-3D46;
+	(==jis-x0212	    . #x3D46)	; &R-JSP-3D46; [29-38]
+	(==jis-x0213-1	    . #x7449)	; &R-JSP-3D46; [84-41]
 	)
        ((=jef-china3	    . #x90ED)	; &JC3-90ED;
 	))
@@ -1181,8 +1187,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x516C)	; &AJ1-01964;
-	(=adobe-japan1-0    . 01964)	; &AJ1-01964;
+       ((=ucs@unicode	    . #x516C)	; &MJ007275;
+	(=mj		    . 007275)	; &MJ007275;
 	)
        ((=ucs		    . #x5FC3)	; 心
 	))
