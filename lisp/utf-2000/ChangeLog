@@ -1,4 +1,22 @@
+2014-03-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R073-Say.el (AJ1-20143): Unify CU+6700, MJ-013505 and
+	KOSEKI-019090; add `->subsumptive' to add representative
+	detailed-glyph-image nodes.
+	(U+2F8D4): Apply new glyph-image conventions.
+
+	* Ideograph-R031-Enclosure.el (JX2-2457): Add `->subsumptive' to
+	add representative detailed-glyph-image nodes; move
+	`=decomposition@hanyo-denshi' to R-JX2-2457; move
+	`=decomposition@cid' to R-AJ1-17412.
+	(R-JX2-2457): New node.
+	(R-AJ1-17412): New node.
+	(U+5700): Apply new glyph-image conventions.
+
 2014-03-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el: Complete `==ucs@cns' for
+	`==cns11643-1'.
 
 	* Ideograph-R061-Heart.el (JX1-7449): Apply new glyph-image
 	conventions.
