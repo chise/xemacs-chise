@@ -429,11 +429,13 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x516B)	; &AJ1-03392;
-	(=adobe-japan1-0    . 03392)	; &AJ1-03392;
+       ((=ucs@jis	    . #x516B)	; &MJ007273;
+	(=ucs@ks	    . #x516B)	; &MJ007273;
+	(=mj		    . 007273)	; &MJ007273;
 	)
        ((=ucs		    . #x5200)	; 刀
 	))
+      (=ucs@ks		  . #x5206)	; &AJ1-13499;
       (=adobe-japan1-4	  . 13499)	; &AJ1-13499;
       (=jis-x0208@1978	  . #x4A2C)	; &I-J78-4A2C; [42-12]
       (=jis-x0208@1983	  . #x4A2C)	; &I-J83-4A2C; [42-12]
@@ -445,6 +447,23 @@
       (=daikanwa	  . 01853)	; &I-M-01853;
       (=shinjigen	  .  0599)	; &AJ1-13499;
       (=jef-china3	  . #x44B5)	; &I-JC3-44B5;
+      (->subsumptive
+       ((==daikanwa	    . 01853)	; &R-M-01853;
+	)
+       ((==jis-x0208@1978   . #x4A2C)	; &R-J83-4A2C; [42-12]
+	(==jis-x0208@1983   . #x4A2C)	; &R-J83-4A2C; [42-12]
+	)
+       ((==hanyo-denshi/ft  . #x3064)	; &R-HD-FT-3064; [16-68]
+	)
+       ((==adobe-japan1-4   . 13499)	; &R-AJ1-13499;
+	)
+       ((==shinjigen	    .  0599)	; &R-SJG2-0599;
+	)
+       ((==ucs@ks	    . #x5206)	; &R-GT-02420;
+	(==ks-x1001	    . #x5D42)	; &R-GT-02420; [61-34]
+	(==gt		    . 02420)	; &R-GT-02420;
+	(==gt-k		    . 00485)	; &R-GT-02420;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -460,8 +479,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x516B)	; &AJ1-20079;
-	(=adobe-japan1-5    . 20079)	; &AJ1-20079;
+       ((=ucs@unicode	    . #x516B)	; &MJ007274;
+	(=mj		    . 007274)	; &MJ007274;
 	)
        ((=ucs		    . #x5200)	; 刀
 	))
@@ -501,7 +520,7 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (=ucs		      . #x2FF1)	; ⿱
 	  )
-	 ((==adobe-japan1-5   . 20079)	; &R-AJ1-20079;
+	 ((==mj		      . 007274)	; &R-MJ007274;
 	  )
 	 ((=ucs		      . #x5200)	; 刀
 	  ))
@@ -3317,7 +3336,8 @@
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (==cns11643-1	  . #x4C2B)	; &R-C1-4C2B; [44-11]
+      (==ucs@cns	  . #x523B)	; &R-CU+523B;
+      (==cns11643-1	  . #x4C2B)	; &R-CU+523B; [44-11]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
