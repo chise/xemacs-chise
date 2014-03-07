@@ -1,5 +1,19 @@
 2014-03-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R061-Heart.el (JX1-7449): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R050-Turban.el (U+5E1F): Apply new glyph-image
+	conventions.
+	(U+5E37): Apply new glyph-image conventions.
+	(U+5E4E): Likewise.
+	(C1-685D): Unify CU+5E55; unify KOSEKI-102450; add `->subsumptive'
+	to add representative detailed-glyph-image nodes.
+	(J0-4B6B): Unify MJ-010897.
+
+	* Ideograph-R046-Mountain.el (U-00021D73): Apply new glyph-image
+	conventions.
+
 	* Ideograph-R018-Knife.el: Complete `==ucs@cns' for
 	`==cns11643-1'.
 	(KU+5D42): Unify KU+5206; add `->subsumptive' to add
