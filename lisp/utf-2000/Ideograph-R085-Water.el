@@ -14360,7 +14360,8 @@
      ((==ucs@ks		  . #x6ECB)	; &R-K0-6D32;
       (==ks-x1001	  . #x6D32)	; &R-K0-6D32; [77-18]
       )
-     ((==cns11643-1	  . #x6045)	; &R-C1-6045; [64-37]
+     ((==ucs@cns	  . #x6ECB)	; &R-CU+6ECB;
+      (==cns11643-1	  . #x6045)	; &R-CU+6ECB; [64-37]
       )
      ((==gt		  . 22764)	; &R-GT-22764;
       (==gt-k		  . 09062)	; &R-GT-22764;
@@ -14838,7 +14839,8 @@
       (==daikanwa	  . 17934)	; &R-GT-22976;
       (==shinjigen	  .  4378)	; &R-GT-22976;
       )
-     ((==cns11643-1	  . #x646D)	; &R-C1-646D; [68-77]
+     ((==ucs@cns	  . #x6E96)	; &R-CU+6E96;
+      (==cns11643-1	  . #x646D)	; &R-CU+6E96; [68-77]
       )
      ((==ucs@unicode	  . #x6E96)	; &R-UU+6E96;
       (==gb12345	  . #x573C)	; &R-UU+6E96; [55-28]
@@ -23596,7 +23598,8 @@
       (==hanyo-denshi/jb  . #x4870)	; &R-AJ1-16949; [40-80]
       (==daikanwa	  . 18378)	; &R-AJ1-16949;
       )
-     ((==cns11643-1	  . #x7133)	; &R-C1-7133; [81-19]
+     ((==ucs@cns	  . #x6FA0)	; &R-CU+6FA0;
+      (==cns11643-1	  . #x7133)	; &R-CU+6FA0; [81-19]
       )
      ((==ucs@unicode	  . #x6FA0)	; &R-UU+6FA0;
       (==gb12345	  . #x6445)	; &R-UU+6FA0; [68-37]
@@ -25769,7 +25772,8 @@
      ((=ucs@unicode	  . #x6FE0)	; &G0-6529;
       (=gb2312		  . #x6529)	; &G0-6529; [69-09]
       )
-     ((=cns11643-1	  . #x7425)	; &HD-JT-B4D7; [84-05]
+     ((=ucs@cns		  . #x6FE0)	; &HD-JT-B4D7;
+      (=cns11643-1	  . #x7425)	; &HD-JT-B4D7; [84-05]
       (=hanyo-denshi/jt	  . #xB4D7)	; &I-HD-JT-B4D7;
       (->subsumptive
        ((=decomposition@hanyo-denshi
@@ -25779,7 +25783,8 @@
 	  ))
 	(==hanyo-denshi/jt  . #xB4D7)	; &R-HD-JT-B4D7;
 	)
-       ((==cns11643-1	    . #x7425)	; &R-C1-7425; [84-05]
+       ((==ucs@cns	    . #x6FE0)	; &R-CU+6FE0;
+	(==cns11643-1	    . #x7425)	; &R-CU+6FE0; [84-05]
 	))
       ))
     ))
@@ -28886,6 +28891,7 @@
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
+    (=ucs@cns		. #x701F)	; &HD-KS-210320;
     (=cns11643-1	. #x7841)	; &HD-KS-210320; [88-33]
     (=hanyo-denshi/ks	. 210320)	; &HD-KS-210320;
     (=koseki		. 210320)	; &HD-KS-210320;
@@ -28893,7 +28899,8 @@
     (->subsumptive
      ((==daikanwa	  . 18660)	; &R-M-18660;
       )
-     ((==cns11643-1	  . #x7841)	; &R-C1-7841; [88-33]
+     ((==ucs@cns	  . #x701F)	; &R-CU+701F;
+      (==cns11643-1	  . #x7841)	; &R-CU+701F; [88-33]
       )
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x701F)	; 瀟
