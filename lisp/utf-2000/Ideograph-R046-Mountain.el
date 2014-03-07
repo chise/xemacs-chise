@@ -1289,10 +1289,22 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
-     ((=adobe-japan1-4	  . 13499)	; &AJ1-13499;
+     ((=ucs		  . #x5206)	; 分
       ))
     (=ucs		. #x21D73)	; 𡵳
-    (=cbeta		. 03791)	; &I-CB03791;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x5C71)	; 山
+	)
+       ((=ucs@ks	    . #x5206)	; &AJ1-13499;
+	(=adobe-japan1-4    . 13499)	; &AJ1-13499;
+	))
+      (=ucs@iso		  . #x21D73)	; &CB03791;
+      (=cbeta		  . 03791)	; &CB03791;
+      ))
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
