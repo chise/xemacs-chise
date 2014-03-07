@@ -23,7 +23,8 @@
     (->subsumptive
      ((==daikanwa	  . 19909)	; &R-M-19909;
       )
-     ((==cns11643-1	  . #x455B)	; &R-C1-455B; [37-59]
+     ((==ucs@cns	  . #x7259)	; &R-CU+7259;
+      (==cns11643-1	  . #x455B)	; &R-CU+7259; [37-59]
       )
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x7259)	; 牙
