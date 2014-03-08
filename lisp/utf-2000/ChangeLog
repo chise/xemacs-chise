@@ -1,3 +1,10 @@
+2014-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R014-Cover.el: Add some MJ code points.
+	(AJ1-20143): Unify CU+6700, MJ-013505 and KOSEKI-019090; add
+	`->subsumptive' to add representative detailed-glyph-image nodes.
+	(U+2F8D4): Apply new glyph-image conventions.
+
 2014-03-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R196-Bird.el: Complete `==ucs@cns' for `==cns11643-1'.
