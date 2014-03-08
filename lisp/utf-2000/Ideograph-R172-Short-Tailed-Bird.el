@@ -4,19 +4,29 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
     (=ucs		. #x96B9)	; 隹
+    (=jis-x0208		. #x7032)	; &I-J90-7032; [80-18]
+    (=gb2312		. #x763F)	; &I-G0-763F; [86-31]
+    (=cns11643-1	. #x4F63)	; &I-C1-4F63; [47-67]
+    (=jis-x0213-1	. #x7032)	; &I-JX1-7032; [80-18]
+    (=gt		. 56353)	; &I-GT-56353;
+    (=gt-k		. 03926)	; &I-GT-K03926;
+    (=gt-pj-1		. #x7032)	; &I-GT-56353; [80-18]
+    (=daikanwa		. 41937)	; &I-M-41937;
+    (=shinjigen		.  8940)	; 隹
     (->subsumptive
-     ((=ucs@jis		  . #x96B9)	; &GT-56353;
-      (=jis-x0208	  . #x7032)	; &GT-56353; [80-18]
-      (=jis-x0213-1	  . #x7032)	; &I-JX1-7032; [80-18]
-      (=gt		  . 56353)	; &I-GT-56353;
-      (=gt-k		  . 03926)	; &I-GT-K03926;
-      (=gt-pj-1		  . #x7032)	; &I-GT-56353; [80-18]
-      (=daikanwa	  . 41937)	; &I-M-41937;
-      (=shinjigen	  .  8940)	; &GT-56353;
+     ((==ucs@jis	  . #x96B9)	; &R-GT-56353;
+      (==jis-x0208	  . #x7032)	; &R-GT-56353; [80-18]
+      (==jis-x0213-1	  . #x7032)	; &R-GT-56353; [80-18]
+      (==gt		  . 56353)	; &R-GT-56353;
+      (==gt-k		  . 03926)	; &R-GT-56353;
+      (==daikanwa	  . 41937)	; &R-GT-56353;
+      (==shinjigen	  .  8940)	; &R-GT-56353;
       )
-     ((=ucs@unicode	  . #x96B9)	; &C1-4F63;
-      (=gb2312		  . #x763F)	; &C1-4F63; [86-31]
-      (=cns11643-1	  . #x4F63)	; &I-C1-4F63; [47-67]
+     ((==ucs@cns	  . #x96B9)	; &R-CU+96B9;
+      (==cns11643-1	  . #x4F63)	; &R-CU+96B9; [47-67]
+      )
+     ((==ucs@unicode	  . #x96B9)	; &R-UU+96B9;
+      (==gb2312		  . #x763F)	; &R-UU+96B9; [86-31]
       ))
     ))
 (define-char
@@ -373,10 +383,7 @@
        ((=ucs		    . #x4E00)	; 一
 	))
       )
-     ((=ucs@jis		  . #x96B9)	; &GT-56353;
-      (=jis-x0208	  . #x7032)	; &GT-56353; [80-18]
-      (=jis-x0213-1	  . #x7032)	; &I-JX1-7032; [80-18]
-      (=daikanwa	  . 41937)	; &I-M-41937;
+     ((=ucs		  . #x96B9)	; 隹
       ))
     (=gt		. 56364)	; &GT-56364;
     (=gt-k		. 08651)	; &I-GT-K08651;
@@ -2977,18 +2984,7 @@
       ))
     (=>>ruimoku-v6	. #xE037)	; &G-RUI6-E037;
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=daikanwa	    . 00311)	; &M-00311;
-	)
-       ((=ucs@jis	    . #x96B9)	; &GT-56353;
-	(=jis-x0208	    . #x7032)	; &GT-56353; [80-18]
-	(=jis-x0213-1	    . #x7032)	; &I-JX1-7032; [80-18]
-	(=daikanwa	    . 41937)	; &I-M-41937;
-	))
-      (=ruimoku-v6	  . #xE037)	; &RUI6-E037;
+     ((=ruimoku-v6	  . #xE037)	; &RUI6-E037;
       ))
     ))
 (define-char
