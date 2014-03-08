@@ -308,8 +308,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x516B)	; &AJ1-03392;
-	(=adobe-japan1-0    . 03392)	; &AJ1-03392;
+       ((=ucs@jis	    . #x516B)	; &MJ007273;
+	(=ucs@ks	    . #x516B)	; &MJ007273;
+	(=mj		    . 007273)	; &MJ007273;
 	)
        ((=big5-cdp	    . #x8958)	; &CDP-8958;
 	))
@@ -321,8 +322,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x516B)	; &AJ1-20079;
-	(=adobe-japan1-5    . 20079)	; &AJ1-20079;
+       ((=ucs@unicode	    . #x516B)	; &MJ007274;
+	(=mj		    . 007274)	; &MJ007274;
 	)
        ((=big5-cdp	    . #x8958)	; &CDP-8958;
 	))
@@ -350,8 +351,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@jis		  . #x516B)	; &AJ1-03392;
-      (=adobe-japan1-0	  . 03392)	; &AJ1-03392;
+     ((=ucs@jis		  . #x516B)	; &MJ007273;
+      (=ucs@ks		  . #x516B)	; &MJ007273;
+      (=mj		  . 007273)	; &MJ007273;
       )
      ((=ucs		  . #x6708)	; 月
       ))
