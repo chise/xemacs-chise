@@ -1,5 +1,30 @@
 2014-03-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R196-Bird.el: Complete `==ucs@cns' for `==cns11643-1'.
+
+	* Ideograph-R172-Short-Tailed-Bird.el (U+96B9): Apply new
+	glyph-image conventions.
+	(RUI6-E037): Omit `ideographic-structure'.
+
+	* Ideograph-R164-Wine.el: Complete `==ucs@cns' for `==cns11643-1'.
+
+	* Ideograph-R152-Pig.el (K0-634E): Unify KU+8C55.
+	(C1-4B49): Unify CU+8C55 and MJ-024907.
+
+	* Ideograph-R030-Mouth.el: Complete `==ucs@cns' for
+	`==cns11643-1'.
+	(AJ1-04347): Unify KU+5429.
+	(U+545F): Apply new glyph-image conventions.
+	(C2-4F6B): Unify CU+562C.
+	(AJ1-19259): Apply new glyph-image conventions.
+
+	* Ideograph-R029-Again.el (U-0002F836): Move `=decomposition@cid'
+	and `=decomposition@hanyo-denshi' to R-J0-355A.
+	(AJ1-20143): Unify CU+6700, MJ-013505 and KOSEKI-019090; add
+	`->subsumptive' to add representative detailed-glyph-image nodes.
+	(U+2F8D4): Apply new glyph-image conventions.
+	(U+FA0E): Apply new glyph-image conventions.
+
 	* Ideograph-R073-Say.el (AJ1-20143): Unify CU+6700, MJ-013505 and
 	KOSEKI-019090; add `->subsumptive' to add representative
 	detailed-glyph-image nodes.
