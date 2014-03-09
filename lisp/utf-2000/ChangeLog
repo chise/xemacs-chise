@@ -1,5 +1,10 @@
 2014-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (JX3-5257): Unify MJ008019.
+	(J0-5257): Unify MJ008018.
+	(C1-5937): Unify CU+66FC and MJ013499.
+	(J0-5258): Unify MJ013498.
+
 	* Ideograph-R019-Power.el: Complete `==ucs@cns' for
 	`==cns11643-1'.
 	(G-J0-5225): Unify G-MJ-007645.
