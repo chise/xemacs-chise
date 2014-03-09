@@ -455,6 +455,7 @@
 	  (==ucs@iso				 "R-U-" 8 X)
 	  (==ucs@unicode			"R-UU+" 4 X)
 	  (==ucs@cns				"R-CU+" 4 X)
+	  (==ucs@ks				"R-KU+" 4 X)
 	  (==cns11643-1				"R-C1-" 4 X)
 	  (==cns11643-2				"R-C2-" 4 X)
 	  (==cns11643-3				"R-C3-" 4 X)
