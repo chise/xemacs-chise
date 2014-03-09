@@ -989,9 +989,8 @@
       )
      ((=ucs		  . #x58EB)	; 士
       )
-     ((=ucs@ks		  . #x5C0A)	; &HD-JT-B045;
-      (=ks-x1001	  . #x706E)	; &HD-JT-B045; [80-78]
-      (=daikanwa	  . 07445)	; &I-M-07445;
+     ((=ucs@ks		  . #x5C0A)	; &MJ010275;
+      (=mj		  . 010275)	; &MJ010275;
       ))
     (=daikanwa		. 05678)	; &M-05678;
     (->subsumptive
@@ -1019,8 +1018,8 @@
       )
      ((=ucs		  . #x58EB)	; 士
       )
-     ((=ucs@unicode	  . #x5C0A)	; &AJ1-02842;
-      (=adobe-japan1-0	  . 02842)	; &AJ1-02842;
+     ((=ucs@unicode	  . #x5C0A)	; &MJ010276;
+      (=mj		  . 010276)	; &MJ010276;
       ))
     (=ucs@unicode	. #x58FF)	; &C2-4F7A;
     (=cns11643-2	. #x4F7A)	; &C2-4F7A; [47-90]
