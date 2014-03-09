@@ -1,5 +1,20 @@
 2014-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R019-Power.el: Complete `==ucs@cns' for
+	`==cns11643-1'.
+	(G-J0-5225): Unify G-MJ-007645.
+	(J0-5225): Unify MJ-007645.
+	(K0-632D): Unify KU+52DD.
+	(U+52E7): Apply new glyph-image conventions for cns11643-3 and
+	hanziku-1.
+
+	* Ideograph-R013-Down-Box.el: Add some MJ code points.
+	(AJ1-20143): Unify CU+6700, MJ-013505 and KOSEKI-019090; add
+	`->subsumptive' to add representative detailed-glyph-image nodes.
+	(U+2F8D4): Apply new glyph-image conventions.
+
+2014-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R014-Cover.el: Add some MJ code points.
 	(AJ1-20143): Unify CU+6700, MJ-013505 and KOSEKI-019090; add
 	`->subsumptive' to add representative detailed-glyph-image nodes.
