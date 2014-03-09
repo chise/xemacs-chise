@@ -336,9 +336,10 @@
       )
      ((=ucs		  . #xE0102)	; 󠄂
       ))
-    (=ucs@jis		. #x5B5A)	; &AJ1-04612;
-    (=ucs@ks		. #x5B5A)	; &AJ1-04612;
-    (=adobe-japan1-0	. 04612)	; &AJ1-04612;
+    (=ucs@jis		. #x5B5A)	; &MJ010060;
+    (=ucs@ks		. #x5B5A)	; &MJ010060;
+    (=mj		. 010060)	; &MJ010060;
+    (=adobe-japan1-0	. 04612)	; &I-AJ1-04612;
     (=jis-x0208		. #x5555)	; &I-J90-5555; [53-53]
     (=ks-x1001		. #x5D21)	; &I-K0-5D21; [61-01]
     (=jis-x0213-1	. #x5555)	; &I-JX1-5555; [53-53]
@@ -347,13 +348,13 @@
     (=gt-k		. 02693)	; &I-GT-K02693;
     (=gt-pj-1		. #x5555)	; &I-GT-08748; [53-53]
     (=daikanwa		. 06948)	; &I-M-06948;
-    (=shinjigen		.  1780)	; &AJ1-04612;
+    (=shinjigen		.  1780)	; &MJ010060;
     ))
 (define-char
   '((<-denotational
-     ((=ucs@jis		  . #x5B5A)	; &AJ1-04612;
-      (=ucs@ks		  . #x5B5A)	; &AJ1-04612;
-      (=adobe-japan1-0	  . 04612)	; &AJ1-04612;
+     ((=ucs@jis		  . #x5B5A)	; &MJ010060;
+      (=ucs@ks		  . #x5B5A)	; &MJ010060;
+      (=mj		  . 010060)	; &MJ010060;
       ))
     (ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 4)
@@ -361,9 +362,9 @@
     (=gt-k		. 02694)	; &GT-K02694;
     (=gt-pj-k1		. #x355E)	; &GT-K02694; [21-62]
     (<-formed@component/connect-right
-     ((=ucs@jis		  . #x5B5A)	; &AJ1-04612;
-      (=ucs@ks		  . #x5B5A)	; &AJ1-04612;
-      (=adobe-japan1-0	  . 04612)	; &AJ1-04612;
+     ((=ucs@jis		  . #x5B5A)	; &MJ010060;
+      (=ucs@ks		  . #x5B5A)	; &MJ010060;
+      (=mj		  . 010060)	; &MJ010060;
       ))
     ))
 (define-char
