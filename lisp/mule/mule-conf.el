@@ -3145,7 +3145,9 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
-		  mother	=>>ucs@cns))
+		  mother	=ucs@cns
+		  ;; mother	=>>ucs@cns
+		  ))
   (define-charset-alias 'ucs-big5 '=ucs@big5)
   (make-charset '=ucs@big5/cns11643
 		"ISO/IEC 10646 for Big5 based on www.cns11643.gov.tw"
