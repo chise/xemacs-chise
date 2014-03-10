@@ -309,9 +309,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@iso	    . #x20AD3)	; &HD-KS-035360;
-	(=big5-cdp	    . #x8B7E)	; &HD-KS-035360;
-	(=daikanwa	    . 03058)	; &I-M-03058;
+       ((=ucs@iso	    . #x20AD3)	; &MJ031959;
+	(=mj		    . 031959)	; &MJ031959;
 	)
        ((=ucs		    . #x513F)	; 儿
 	))
@@ -377,8 +376,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@jis		  . #x20AD3)	; &AJ1-17337;
-      (=adobe-japan1-5	  . 17337)	; &AJ1-17337;
+     ((=ucs@jis		  . #x20AD3)	; &MJ031960;
+      (=mj		  . 031960)	; &MJ031960;
       )
      ((=ucs		  . #x513F)	; 儿
       ))
