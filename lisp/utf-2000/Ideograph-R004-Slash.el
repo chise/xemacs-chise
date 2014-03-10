@@ -105,9 +105,9 @@
     (=gt-pj-2		. #x3076)	; &I-GT-00149; [16-86]
     (=daikanwa		. 00110)	; &I-M-00110;
     (<-ancient
-     ((=ucs@cns		  . #x53CA)	; &AJ1-13710;
-      (=ucs@ks		  . #x53CA)	; &AJ1-13710;
-      (=adobe-japan1-4	  . 13710)	; &AJ1-13710;
+     ((=ucs@cns		  . #x53CA)	; &MJ007989;
+      (=ucs@ks		  . #x53CA)	; &MJ007989;
+      (=mj		  . 007989)	; &MJ007989;
       (=daikanwa	  . 03118)	; &I-M-03118;
       ))
     (<-ancient*sources
