@@ -1,5 +1,12 @@
 2014-03-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R025-Divination.el: Add some MJ code points.
+	(K0-6059): Unify CU+5368 and KU+5368.
+
+	* Ideograph-R020-Wrap.el: Add some MJ code points.
+
+2014-03-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R050-Turban.el (C1-685D): Unify MJ010898.
 
 	* Ideograph-R048-Work.el (C1-4648): Unify MJ010776.
