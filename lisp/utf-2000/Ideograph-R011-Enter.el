@@ -1296,18 +1296,33 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	  (=ucs		      . #x2FF0)	; ⿰
 	  )
-	 ((=ucs@unicode	      . #x6708)	; &HD-JA-376E;
-	  (=jis-x0208	      . #x376E)	; &HD-JA-376E; [23-78]
-	  (=gb2312	      . #x5442)	; &I-G0-5442; [52-34]
-	  (=ks-x1001	      . #x6A45)	; &I-K0-6A45; [74-37]
-	  (=cns11643-1	      . #x454C)	; &I-C1-454C; [37-44]
-	  (=jis-x0213-1	      . #x376E)	; &I-JX1-376E; [23-78]
-	  (=daikanwa	      . 14330)	; &I-M-14330;
+	 ((=ucs@unicode	      . #x6708)	; &MJ013519;
+	  (=mj		      . 013519)	; &MJ013519;
 	  )
 	 ((=ucs		      . #x5DDC)	; 巜
 	  ))
 	))
       (=cns11643-3	  . #x2B37)	; &C3-2B37; [11-23]
+      (->subsumptive
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((=big5-cdp	      . #x8AFC)	; &CDP-8AFC;
+	  )
+	 ((ideographic-structure
+	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	    (=ucs		. #x2FF0)	; ⿰
+	    )
+	   ((==ucs@unicode	. #x6708)	; &R-HD-JA-376E;
+	    (==jis-x0208	. #x376E)	; &R-HD-JA-376E; [23-78]
+	    )
+	   ((=ucs		. #x5DDC)	; 巜
+	    ))
+	  ))
+	(==ucs@cns	    . #x516A)	; &R-CU+516A;
+	(==cns11643-3	    . #x2B37)	; &R-CU+516A; [11-23]
+	))
       ))
     ))
 (define-char
