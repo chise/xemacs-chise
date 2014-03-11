@@ -1,3 +1,11 @@
+2014-03-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R024-Ten.el, Ideograph-R023-Hiding-Enclosure.el: Add
+	some MJ code points.
+
+	* Ideograph-R011-Enter.el (C3-2B37): Add `->subsumptive' to add
+	representative detailed-glyph-image node.
+
 2014-03-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R025-Divination.el: Add some MJ code points.
