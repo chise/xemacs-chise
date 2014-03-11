@@ -1,5 +1,18 @@
 2014-03-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el: Add some MJ code points.
+
+	* Ideograph-R022-Right-Open-Box.el (U+532F): Apply new glyph-image
+	conventions for ks-x1001, cns11643-1, daikanwa and shinjigen.
+	(U+5337): Apply new glyph-image conventions.
+
+	* Ideograph-R017-Open-Box.el (K0-795E): Unify KU+51FD; use
+	`->subsumptive' to add representative detailed-glyph-node.
+
+	* Ideograph-R015-Ice.el: Add some MJ code points.
+
+2014-03-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R024-Ten.el, Ideograph-R023-Hiding-Enclosure.el: Add
 	some MJ code points.
 
@@ -21,6 +34,9 @@
 	(J0-3570): Unify MJ010777.
 
 	* Ideograph-R039-Child.el (J0-5555): Unify MJ010060.
+
+	* Ideograph-R035-Go-Slowly.el (C1-546E): Unify MJ009419.
+	(J0-3246): Unify MJ009420.
 
 2014-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
