@@ -462,14 +462,16 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=>>ucs@cns		. #x590F)	; &G-HD-KS-FFE6;
+    (=>>mj		. 009419)	; &G-HD-KS-FFE6;
     (=>>hanyo-denshi/ks . 065510)	; &G-HD-KS-FFE6;
     (=>>daikanwa	. 05720)	; &G-HD-KS-FFE6;
     (->subsumptive
      ((=daikanwa	  . 05720)	; &M-05720;
       )
-     ((=ucs@cns		  . #x590F)	; &HD-KS-065510;
-      (=cns11643-1	  . #x546E)	; &HD-KS-065510; [52-78]
-      (=hanyo-denshi/ks	  . 065510)	; &HD-KS-065510;
+     ((=ucs@cns		  . #x590F)	; &MJ009419;
+      (=mj		  . 009419)	; &MJ009419;
+      (=cns11643-1	  . #x546E)	; &I-C1-546E; [52-78]
+      (=hanyo-denshi/ks	  . 065510)	; &MJ009419;
       (->subsumptive
        ((=decomposition@hanyo-denshi
 	 ((=ucs		      . #x590F)	; 夏
@@ -478,6 +480,8 @@
 	  ))
 	(==hanyo-denshi/ks  . 065510)	; &R-HD-KS-065510;
 	(=hanyo-denshi/ks/mf . #x1997)	; &R-HD-KS-065510;
+	)
+       ((==mj		    . 009419)	; &R-MJ009419;
 	)
        ((==ucs@cns	    . #x590F)	; &R-CU+590F;
 	(==cns11643-1	    . #x546E)	; &R-CU+590F; [52-78]
@@ -502,8 +506,9 @@
      ((=ucs		  . #xE0101)	; 󠄁
       ))
     (hanyu-dazidian	2 869 10)
-    (=ucs@unicode	. #x590F)	; &AJ1-01350;
-    (=adobe-japan1-0	. 01350)	; &AJ1-01350;
+    (=ucs@unicode	. #x590F)	; &MJ009420;
+    (=mj		. 009420)	; &MJ009420;
+    (=adobe-japan1-0	. 01350)	; &I-AJ1-01350;
     (=jis-x0208		. #x3246)	; &I-J90-3246; [18-38]
     (=gb2312		. #x4F44)	; &I-G0-4F44; [47-36]
     (=ks-x1001		. #x793E)	; &I-K0-793E; [89-30]
@@ -512,7 +517,7 @@
     (=gt		. 07217)	; &I-GT-07217;
     (=gt-k		. 06381)	; &I-GT-K06381;
     (=gt-pj-1		. #x3246)	; &I-GT-07217; [18-38]
-    (=shinjigen		.  1539)	; &AJ1-01350;
+    (=shinjigen		.  1539)	; &MJ009420;
     ))
 (define-char
   '((ideographic-radical . 35)	; ⼢
