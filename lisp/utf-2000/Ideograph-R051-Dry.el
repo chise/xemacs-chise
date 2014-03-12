@@ -70,8 +70,9 @@
       )
      ((=ucs		  . #xE0103)	; 󠄃
       ))
-    (=ucs@ks		. #x5E73)	; &AJ1-14011;
-    (=adobe-japan1-4	. 14011)	; &AJ1-14011;
+    (=ucs@ks		. #x5E73)	; &MJ010942;
+    (=mj		. 010942)	; &MJ010942;
+    (=adobe-japan1-4	. 14011)	; &I-AJ1-14011;
     (=ks-x1001		. #x7841)	; &I-K0-7841; [88-33]
     (=hanyo-denshi/jt	. #xB0BF)	; &I-HD-JT-B0BF;
     (=gt		. 11550)	; &I-GT-11550;
@@ -97,8 +98,9 @@
       )
      ((=ucs		  . #xE0102)	; 󠄂
       ))
-    (=ucs@unicode	. #x5E73)	; &AJ1-03599;
-    (=adobe-japan1-0	. 03599)	; &AJ1-03599;
+    (=ucs@unicode	. #x5E73)	; &MJ010943;
+    (=mj		. 010943)	; &MJ010943;
+    (=adobe-japan1-0	. 03599)	; &I-AJ1-03599;
     (=jis-x0208		. #x4A3F)	; &I-J90-4A3F; [42-31]
     (=gb2312		. #x463D)	; &I-G0-463D; [38-29]
     (=cns11643-1	. #x464D)	; &I-C1-464D; [38-45]
@@ -249,8 +251,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@ks		  . #x5E73)	; &AJ1-14011;
-      (=adobe-japan1-4	  . 14011)	; &AJ1-14011;
+     ((=ucs@ks		  . #x5E73)	; &MJ010942;
+      (=mj		  . 010942)	; &MJ010942;
       )
      ((=ucs		  . #x4E01)	; 丁
       ))
@@ -268,8 +270,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x5E73)	; &AJ1-03599;
-      (=adobe-japan1-0	  . 03599)	; &AJ1-03599;
+     ((=ucs@unicode	  . #x5E73)	; &MJ010943;
+      (=mj		  . 010943)	; &MJ010943;
       )
      ((=ucs		  . #x4E01)	; 丁
       ))
