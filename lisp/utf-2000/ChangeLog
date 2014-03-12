@@ -1,5 +1,14 @@
 2014-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R038-Woman.el (HD-JT-AFDF): Unify MJ009598.
+	(J0-4245): Unify MJ009599.
+	(U+3739): Apply new glyph-image conventions.
+
+	* Ideograph-R036-Evening.el, Ideograph-R031-Enclosure.el: Add some
+	MJ code points.
+
+2014-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R028-Private.el, Ideograph-R026-Seal.el: Add some MJ
 	code points.
 
@@ -28,6 +37,12 @@
 	representative detailed-glyph-image node.
 
 2014-03-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R051-Dry.el (AJ1-14011): Unify MJ010942.
+	(J0-4A3F): Unify MJ010943.
+
+	* Ideograph-R049-Oneself.el (JX2-286F): Unify MJ000945.
+	(J0-342C): Unify MJ010798.
 
 	* Ideograph-R025-Divination.el: Add some MJ code points.
 	(K0-6059): Unify CU+5368 and KU+5368.
