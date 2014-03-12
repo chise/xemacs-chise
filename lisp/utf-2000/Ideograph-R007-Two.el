@@ -1125,9 +1125,8 @@
 	)
        ((=ucs		    . #x4E8C)	; 二
 	)
-       ((=ucs@unicode	    . #x570D)	; &AJ1-13528;
-	(=adobe-japan1-0    . 04468)	; &AJ1-13528;
-	(=adobe-japan1-4    . 13528)	; &I-AJ1-13528;
+       ((=ucs@unicode	    . #x570D)	; &MJ008868;
+	(=mj		    . 008868)	; &MJ008868;
 	))
       (=ucs@iso		  . #x2013F)	; &M-00285;
       (=daikanwa	  . 00285)	; &M-00285;
