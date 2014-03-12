@@ -250,8 +250,9 @@
      ((=ucs		  . #xE0102)	; 󠄂
       ))
     (hanyu-dazidian	2 863 1)
-    (=ucs@unicode	. #x591B)	; &AJ1-04541;
-    (=adobe-japan1-0	. 04541)	; &AJ1-04541;
+    (=ucs@unicode	. #x591B)	; &MJ009438;
+    (=mj		. 009438)	; &MJ009438;
+    (=adobe-japan1-0	. 04541)	; &I-AJ1-04541;
     (=jis-x0208		. #x546C)	; &I-J90-546C; [52-76]
     (=cns11643-4	. #x2252)	; &I-C4-2252; [02-50]
     (=jis-x0213-1	. #x546C)	; &I-JX1-546C; [52-76]
@@ -284,9 +285,10 @@
       )
      ((=ucs		  . #xE0103)	; 󠄃
       ))
-    (=adobe-japan1-0	. 07987)	; &AJ1-07987;
+    (=mj		. 009439)	; &MJ009439;
+    (=adobe-japan1-0	. 07987)	; &I-AJ1-07987;
     (=hanyo-denshi/jt	. #xAFB7)	; &I-HD-JT-AFB7;
-    (=shinjigen		.  1547)	; &AJ1-07987;
+    (=shinjigen		.  1547)	; &MJ009439;
     (<-vulgar
      ((=ucs		  . #x591A)	; 多
       (=jis-x0208	  . #x423F)	; &I-J90-423F; [34-31]
@@ -774,9 +776,10 @@
     (=hanziku-3		. #xADD4)	; &I-HZK03-ADD4;
     (=jef-china3	. #x82A2)	; &I-JC3-82A2;
     (<-vulgar
-     ((=cns11643-1	  . #x6842)	; &HD-KS-066550; [72-34]
+     ((=ucs@cns		  . #x5922)	; &MJ009447;
+      (=mj		  . 009447)	; &MJ009447;
       (=daikanwa	  . 05802)	; &I-M-05802;
-      (=shinjigen	  .  1550)	; &HD-KS-066550;
+      (=shinjigen	  .  1550)	; &MJ009447;
       ))
     (<-vulgar*sources
      songyuan-yilai-suzipu zihui daikanwa shinjigen)
@@ -998,6 +1001,7 @@
     (=ucs		. #x2F85E)	; 夢
     (=ucs@unicode	. #x5922)	; 夢
     (=ucs@cns		. #x2F85E)	; 夢
+    (=mj		. 009446)	; &I-MJ009446;
     (=adobe-japan1-0	. 03776)	; &I-AJ1-03776;
     (=jis-x0208		. #x4C34)	; &I-J90-4C34; [44-20]
     (=ks-x1001		. #x5953)	; &I-K0-5953; [57-51]
@@ -1011,9 +1015,10 @@
     (=daikanwa/+p	. 05801)	; 夢
     (=shinjigen		.  1549)	; 夢
     (<-simplified
-     ((=cns11643-1	  . #x6842)	; &HD-KS-066550; [72-34]
+     ((=ucs@cns		  . #x5922)	; &MJ009447;
+      (=mj		  . 009447)	; &MJ009447;
       (=daikanwa	  . 05802)	; &I-M-05802;
-      (=shinjigen	  .  1550)	; &HD-KS-066550;
+      (=shinjigen	  .  1550)	; &MJ009447;
       ))
     (<-simplified*sources
      daikanwa shinjigen)
@@ -1030,11 +1035,13 @@
       )
      ((=ucs		  . #xE0102)	; 󠄂
       ))
-    (=cns11643-1	. #x6842)	; &HD-KS-066550; [72-34]
-    (=hanyo-denshi/ks	. 066550)	; &HD-KS-066550;
+    (=ucs@cns		. #x5922)	; &MJ009447;
+    (=mj		. 009447)	; &MJ009447;
+    (=cns11643-1	. #x6842)	; &I-C1-6842; [72-34]
+    (=hanyo-denshi/ks	. 066550)	; &MJ009447;
     (=hanyo-denshi/ks/mf . #x19FF)	; &I-KSMF-06655;
     (=daikanwa		. 05802)	; &I-M-05802;
-    (=shinjigen		.  1550)	; &HD-KS-066550;
+    (=shinjigen		.  1550)	; &MJ009447;
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
@@ -1048,10 +1055,11 @@
       (=jis-x0212	  . #x3869)	; &I-JSP-3869; [24-73]
       (=daikanwa	  . 05803)	; &I-M-05803;
       (=shinjigen	  .  1553)	; &AJ1-19304;
+      (=hanziku-3	  . #xAE6B)	; &I-HZK03-AE6B;
       (<-vulgar
-       ((=cns11643-1	    . #x6842)	; &HD-KS-066550; [72-34]
-	(=daikanwa	    . 05802)	; &I-M-05802;
-	(=shinjigen	    .  1550)	; &HD-KS-066550;
+       ((=ucs@cns	    . #x5922)	; &MJ009447;
+	(=mj		    . 009447)	; &MJ009447;
+	(=shinjigen	    .  1550)	; &MJ009447;
 	))
       (<-vulgar*sources
        shinjigen)
@@ -1067,8 +1075,7 @@
 	(==daikanwa	    . 05803)	; &R-AJ1-19304;
 	(==shinjigen	    .  1553)	; &R-AJ1-19304;
 	)
-       ((==ucs@unicode	    . #x5923)	; &HZK03-AE6B;
-	(=hanziku-3	    . #xAE6B)	; &HZK03-AE6B;
+       ((==ucs@unicode	    . #x5923)	; &R-UU+5923;
 	))
       )
      ((ideographic-strokes . 10)
