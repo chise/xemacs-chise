@@ -1,3 +1,9 @@
+2014-03-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (J0-5629): Unify MJ010416.
+	(U+5D14): Apply new glyph-image conventions.
+	(JX2-2864): Unify MJ010713.
+
 2014-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R038-Woman.el (HD-JT-AFDF): Unify MJ009598.
