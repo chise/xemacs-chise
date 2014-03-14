@@ -1,5 +1,16 @@
 2014-03-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R043-Lame.el (HD-IA1607): Unify KU+5C28 and MJ010311;
+	use `->subsumptive' to add representative detailed-glyph-image
+	nodes.
+	(J0-5578): Unify MJ010310; modify representative
+	detailed-glyph-image nodes.
+
+	* Ideograph-R040-Roof.el, Ideograph-R037-Big.el: Add some MJ code
+	points.
+
+2014-03-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R046-Mountain.el (J0-5629): Unify MJ010416.
 	(U+5D14): Apply new glyph-image conventions.
 	(JX2-2864): Unify MJ010713.
