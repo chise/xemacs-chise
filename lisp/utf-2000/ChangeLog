@@ -1,3 +1,23 @@
+2014-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (JSP-4173): Use `->subsumptive' to add
+	representative nodes.
+	(AJ1-13548): Unify KU+665F and MJ013289.
+	(G0-6A50): Unify MJ013318.
+	(JX1-7540): Unify MJ013317.
+
+	* Ideograph-R066-Rap.el (J0-5A48): Unify MJ012992.
+	(HD-JT-B248): Unify MJ012993.
+
+	* Ideograph-R062-Halberd.el (J0-5924): Unify MJ012096.
+
+	* Ideograph-R055-Two-Hands.el (J0-5730): Unify MJ011120.
+
+	* Ideograph-R044-Corpse.el (U-00021C2A): Unify BC-8C6E; add
+	`<-vulgar' for M-29595; use `->subsumptive' to add representative
+	nodes.
+	(JX3-367D): Unify MJ010355.
+
 2014-03-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R053-Dotted-Cliff.el (J0-3D6E): Unify MJ011015.
