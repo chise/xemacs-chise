@@ -1,3 +1,25 @@
+2014-03-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R053-Dotted-Cliff.el (J0-3D6E): Unify MJ011015.
+	(R-J0-3D6E): Unify R-MJ011015.
+	(J0-4D47): Unify MJ011018.
+	(R-J0-4D47): Unify R-MJ011018.
+	(HD-JT-B0D9): Unify MJ011038; apply new glyph-image conventions
+	for daikanwa.
+	(R-HD-JT-B0D9): Unify R-MJ011038.
+	(J0-4E77): Unify MJ011039.
+	(R-J0-4E77): Unify R-MJ011039.
+	(HD-JT-B0E0): Unify MJ011046.
+	(G-AJ1-07704): Unify G-MJ011071.
+	(HD-FT1825): Unify MJ011071.
+	(J0-5722): Unify MJ011077.
+	(HD-JT-B0E1): Unify MJ011076.
+	(R-HD-JT-B0E1): Unify R-MJ011076.
+
+	* Ideograph-R041-Inch.el: Add some MJ code points.
+
+	* Ideograph-R027-Cliff.el: Add some MJ code points.
+
 2014-03-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R043-Lame.el (HD-IA1607): Unify KU+5C28 and MJ010311;
