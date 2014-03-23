@@ -377,8 +377,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x89D2)	; &HD-IB-287A;
-      (=gb2312		  . #x3D47)	; &HD-IB-287A; [29-39]
+     ((=ucs@unicode	  . #x89D2)	; &MJ024282;
+      (=mj		  . 024282)	; &MJ024282;
       )
      ((=ucs		  . #x6597)	; 斗
       ))
