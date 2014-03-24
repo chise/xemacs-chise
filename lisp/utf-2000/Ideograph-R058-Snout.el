@@ -149,8 +149,8 @@
     (=gt-pj-3		. #x497B)	; &GT-12505; [41-91]
     (=daikanwa/+p	. 09909)	; &GT-12505;
     (<-vulgar
-     ((=ucs@jis		  . #x6B78)	; &AJ1-05348;
-      (=adobe-japan1-0	  . 05348)	; &AJ1-05348;
+     ((=ucs@jis		  . #x6B78)	; &MJ014849;
+      (=mj		  . 014849)	; &MJ014849;
       (=daikanwa	  . 16349)	; &I-M-16349;
       ))
     (<-vulgar*sources
@@ -437,6 +437,7 @@
      ((=ucs		  . #x27C28)	; 𧰨
       ))
     (=>>ucs@unicode	. #x5F56)	; &G-AJ1-04780;
+    (=>>mj		. 011233)	; &G-AJ1-04780;
     (=>>adobe-japan1-0	. 04780)	; &G-AJ1-04780;
     (=>>jis-x0208	. #x5741)	; &G-AJ1-04780; [55-33]
     (=>>jis-x0213-1	. #x5741)	; &G-AJ1-04780; [55-33]
@@ -466,8 +467,9 @@
 	)
        ((=ucs		    . #xE0101)	; 󠄁
 	))
-      (=ucs@jis		  . #x5F56)	; &AJ1-04780;
-      (=adobe-japan1-0	  . 04780)	; &AJ1-04780;
+      (=ucs@jis		  . #x5F56)	; &MJ011233;
+      (=mj		  . 011233)	; &MJ011233;
+      (=adobe-japan1-0	  . 04780)	; &I-AJ1-04780;
       (=jis-x0208	  . #x5741)	; &I-J90-5741; [55-33]
       (=ks-x1001	  . #x5327)	; &I-K0-5327; [51-07]
       (=jis-x0213-1	  . #x5741)	; &I-JX1-5741; [55-33]
@@ -475,7 +477,7 @@
       (=gt		  . 12518)	; &I-GT-12518;
       (=gt-k		  . 05239)	; &I-GT-K05239;
       (=gt-pj-1		  . #x5741)	; &I-GT-12518; [55-33]
-      (=shinjigen	  .  2301)	; &AJ1-04780;
+      (=shinjigen	  .  2301)	; &MJ011233;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -660,8 +662,9 @@
       )
      ((=ucs		  . #xE0101)	; 󠄁
       ))
-    (=ucs@jis		. #x5F57)	; &AJ1-04781;
-    (=adobe-japan1-0	. 04781)	; &AJ1-04781;
+    (=ucs@jis		. #x5F57)	; &MJ011236;
+    (=mj		. 011236)	; &MJ011236;
+    (=adobe-japan1-0	. 04781)	; &I-AJ1-04781;
     (=jis-x0208		. #x5742)	; &I-J90-5742; [55-34]
     (=ks-x1001		. #x7B32)	; &I-K0-7B32; [91-18]
     (=cns11643-1	. #x5A31)	; &I-C1-5A31; [58-17]
@@ -671,7 +674,7 @@
     (=gt-k		. 07930)	; &I-GT-K07930;
     (=gt-pj-1		. #x5742)	; &I-GT-12528; [55-34]
     (=daikanwa		. 09927)	; &I-M-09927;
-    (=shinjigen		.  2303)	; &AJ1-04781;
+    (=shinjigen		.  2303)	; &MJ011236;
     ))
 (define-char
   '((<-denotational
