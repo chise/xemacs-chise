@@ -1,3 +1,21 @@
+2014-03-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R063-Door.el (J0-4C61): Unify MJ012112.
+	(JX3-5928): Unify MJ012121.
+	(J0-5928): Unify MJ012122.
+
+	* Ideograph-R060-Step.el (J0-317D): Unify MJ011289.
+	(U+5FC2): Apply new glyph-image conventions.
+
+	* Ideograph-R058-Snout.el (G-J0-5741): Unify G-MJ011233.
+	(J0-5741): Unify MJ011233.
+	(J0-5742): Unify MJ011236.
+
+	* Ideograph-R054-Long-Stride.el (G-J0-3164): Unify G-MJ011101.
+	(J90-3164): Unify MJ011101.
+	(J90-446E): Separate G0-4D22; unify MJ011104; use `->subsumptive'
+	to add representative nodes.
+
 2014-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R072-Sun.el (JSP-4173): Use `->subsumptive' to add
