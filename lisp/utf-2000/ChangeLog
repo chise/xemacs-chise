@@ -1,3 +1,14 @@
+2014-03-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el: Add some MJ code points.
+	(U+5207): Use `->denotational' to separate abstract glyph nodes.
+	(U-0002F850): Add `<-denotational' for U+5207.
+	(U+521D): Apply new glyph-image conventions.
+	(U+5225): Likewise.
+	(U+5255): Likewise.
+	(U+5281): Likewise.
+	(U+5288): Likewise.
+
 2014-03-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R063-Door.el (J0-4C61): Unify MJ012112.
