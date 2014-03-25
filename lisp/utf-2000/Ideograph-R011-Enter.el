@@ -1296,8 +1296,8 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	  (=ucs		      . #x2FF0)	; ⿰
 	  )
-	 ((=ucs@unicode	      . #x6708)	; &MJ013519;
-	  (=mj		      . 013519)	; &MJ013519;
+	 ((=ucs@unicode	      . #x6708)	; &MJ013520;
+	  (=mj		      . 013520)	; &MJ013520;
 	  )
 	 ((=ucs		      . #x5DDC)	; 巜
 	  ))
@@ -1314,8 +1314,8 @@
 	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	    (=ucs		. #x2FF0)	; ⿰
 	    )
-	   ((==ucs@unicode	. #x6708)	; &R-HD-JA-376E;
-	    (==jis-x0208	. #x376E)	; &R-HD-JA-376E; [23-78]
+	   ((==ucs@unicode	. #x6708)	; &R-MJ013520;
+	    (==mj		. 013520)	; &R-MJ013520;
 	    )
 	   ((=ucs		. #x5DDC)	; 巜
 	    ))
