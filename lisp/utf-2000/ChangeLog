@@ -1,5 +1,28 @@
 2014-03-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R074-Moon.el (J0-376E): Unify MJ013520, GT-18140,
+	GT-K00416 and S-3423.
+	(R-HD-JT-B2DB): Unify MJ013519.
+	(R-J0-376E): Unify R-MJ013520; unify R-GT-18140, R-GT-K00416 and
+	R-S-3423 instead of GT-18140, GT-K00416 and S-3423.
+	(J0-4D2D): Unify MJ013521; apply new glyph-image conventions for
+	shinjigen.
+	(R-J0-4D2D): Unify R-MJ013521.
+	(R-HD-JT-B2DC): Unify MJ013522.
+	(J0-4A7E): Unify MJ013525.
+	(J0-442B): Unify MJ013558.
+
+	* Ideograph-R061-Heart.el (J0-355E): Unify MJ011473.
+	(HD-KS123500): Unify MJ011751.
+	(J0-3026): Unify MJ011752.
+	(G-HD-KS125970): Unify G-MJ011890.
+	(HD-KS125970): Unify MJ011890.
+	(J0-4D2B): Unify MJ011891.
+
+	* Ideograph-R019-Power.el: Add some MJ code points.
+	(U+52B1): Use `<-simplified@misc' instead of `<-simplified' for
+	C1-7344.
+
 	* Ideograph-R018-Knife.el: Add some MJ code points.
 	(U+5207): Use `->denotational' to separate abstract glyph nodes.
 	(U-0002F850): Add `<-denotational' for U+5207.
