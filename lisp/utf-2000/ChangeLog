@@ -1,3 +1,14 @@
+2014-03-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R073-Say.el (C1-5937): Unify CU+66FC and MJ013499.
+	(J0-5258): Unify MJ013498.
+	(J0-5228): Unify MJ007695.
+	(C1-5F64): Unify MJ013502.
+	(JX2-2E37): Unify MJ013508; use `->subsumptive' to add
+	representative nodes.
+
+	* Ideograph-R032-Earth.el: Add some MJ code points.
+
 2014-03-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R074-Moon.el (J0-376E): Unify MJ013520, GT-18140,
