@@ -1,3 +1,9 @@
+2014-03-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R077-Stop.el (K0-6128): Unify KU+6B72.
+	(U-0002399F): Apply new glyph-image conventions.
+	(J0-5D45): Unify MJ014849.
+
 2014-03-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R073-Say.el (C1-5937): Unify CU+66FC and MJ013499.
