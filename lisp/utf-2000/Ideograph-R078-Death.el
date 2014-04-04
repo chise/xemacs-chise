@@ -429,8 +429,8 @@
     (=cns11643-6	. #x2C3F)	; &C6-2C3F; [12-31]
     (=daikanwa		. 16383)	; &I-M-16383;
     (<-vulgar
-     ((=ucs@jis		  . #x5C8C)	; &AJ1-04662;
-      (=adobe-japan1-0	  . 04662)	; &AJ1-04662;
+     ((=ucs@jis		  . #x5C8C)	; &MJ010416;
+      (=mj		  . 010416)	; &MJ010416;
       (=daikanwa	  . 07929)	; &I-M-07929;
       ))
     (<-vulgar*sources
@@ -1099,8 +1099,8 @@
 	)
        ((=ucs		    . #x6B79)	; 歹
 	)
-       ((=ucs@unicode	    . #x51AC)	; &AJ1-03161;
-	(=adobe-japan1-0    . 03161)	; &AJ1-03161;
+       ((=ucs@unicode	    . #x51AC)	; &MJ007359;
+	(=mj		    . 007359)	; &MJ007359;
 	))
       (=ucs@iso		  . #x239E9)	; &C4-297A;
       (=cns11643-4	  . #x297A)	; &C4-297A; [09-90]
@@ -3204,9 +3204,9 @@
     (=daikanwa		. 16549)	; &M-16549;
     (=hanziku-4		. #xC971)	; &I-HZK04-C971;
     (<-vulgar
-     ((=ucs@jis		  . #x622E)	; &AJ1-04939;
-      (=ucs@ks		  . #x622E)	; &AJ1-04939;
-      (=adobe-japan1-0	  . 04939)	; &AJ1-04939;
+     ((=ucs@jis		  . #x622E)	; &MJ012096;
+      (=ucs@ks		  . #x622E)	; &MJ012096;
+      (=mj		  . 012096)	; &MJ012096;
       (=daikanwa	  . 11655)	; &I-M-11655;
       ))
     (<-vulgar*sources
