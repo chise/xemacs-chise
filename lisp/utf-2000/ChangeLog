@@ -1,3 +1,18 @@
+2014-04-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R076-Lack.el (HD-KS181650): Unify MJ014748.
+	(JX1-7640): Unify MJ014787.
+	(U-0002391C): Apply new glyph-image conventions.
+
+	* Ideograph-R075-Tree.el (HD-FT1638): Unify MJ013668; use
+	`->subsumptive' to add representative nodes.
+	(J90-3E3E): Unify MJ013667.
+	(HD-JT-B336): Unify MJ013994.
+	(U+6A97): Apply new glyph-image conventions.
+	(U+6A98): Likewise.
+	(HD-JA5956): Add `=decomposition@hanyo-denshi'.
+	(J90-367B): Use `->subsumptive' to add representative nodes.
+
 2014-03-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R077-Stop.el (K0-6128): Unify KU+6B72.
