@@ -573,8 +573,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x5305)	; &AJ1-14019;
-      (=adobe-japan1-4	  . 14019)	; &AJ1-14019;
+     ((=ucs@unicode	  . #x5305)	; &MJ007757;
+      (=mj		  . 007757)	; &MJ007757;
       )
      ((=ucs		  . #x6BDB)	; 毛
       ))
@@ -2168,9 +2168,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@cns	    . #x53DF)	; &AJ1-14111;
-	(=ucs@jis/2004	    . #x53DF)	; &AJ1-14111;
-	(=adobe-japan1-4    . 14111)	; &AJ1-14111;
+       ((=ucs@cns	    . #x53DF)	; &MJ008019;
+	(=ucs@jis/2004	    . #x53DF)	; &MJ008019;
+	(=mj		    . 008019)	; &MJ008019;
 	)
        ((=ucs		    . #x6BDB)	; 毛
 	))
@@ -2203,8 +2203,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x53DF)	; &AJ1-04332;
-	(=adobe-japan1-0    . 04332)	; &AJ1-04332;
+       ((=ucs@unicode	    . #x53DF)	; &MJ008018;
+	(=mj		    . 008018)	; &MJ008018;
 	)
        ((=ucs		    . #x6BDB)	; 毛
 	))
@@ -2236,9 +2236,9 @@
       )
      ((=ucs		  . #x6BDB)	; 毛
       )
-     ((=ucs@cns		  . #x53DF)	; &AJ1-14111;
-      (=ucs@jis/2004	  . #x53DF)	; &AJ1-14111;
-      (=adobe-japan1-4	  . 14111)	; &AJ1-14111;
+     ((=ucs@cns		  . #x53DF)	; &MJ008019;
+      (=ucs@jis/2004	  . #x53DF)	; &MJ008019;
+      (=mj		  . 008019)	; &MJ008019;
       ))
     (=ucs@iso		. #x23BDC)	; &C5-4669;
     (=cns11643-5	. #x4669)	; &C5-4669; [38-73]
