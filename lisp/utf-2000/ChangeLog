@@ -1,3 +1,22 @@
+2014-04-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el: Add some MJ code points.
+	(U+5573): Use `->denotational'.
+	(U+55FA): Apply new glyph-image conventions.
+	(U+5603): Apply new glyph-image conventions for hanziku-2.
+	(U-00020F62): Use `->denotational' and `->subsumptive'.
+	(U+564D): Apply new glyph-image conventions.
+
+2014-04-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el (J0-3561): Unify MJ015049.
+	(U+6DEE): Apply new glyph-image conventions for ks-x1001,
+	cns11643-1, daikanwa, shinjigen@1ed and shinjigen@rev.
+	(J0-3574): Unify MJ015545.
+
+	* Ideograph-R079-Weapon.el (G-J0-5D55): Unify G-MJ014908.
+	(J0-5D55): Unify MJ014908.
+
 2014-04-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R076-Lack.el (HD-KS181650): Unify MJ014748.
