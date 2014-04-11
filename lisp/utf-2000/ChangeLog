@@ -1,3 +1,15 @@
+2014-04-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R087-Claw.el (J0-6029): Unify MJ016740.
+	(HD-KS221640): Unify MJ016741.
+	(J0-3C5F): Unify MJ016747.
+	(HD-JT-B55C): Unify MJ016748.
+
+	* Ideograph-R086-Fire.el (G-UU+7070): Unify G-MJ016266.
+	(HD-KS212510): Unify MJ016266.
+	(U+7126): Apply new glyph-image conventions.
+	(U+71A3): Likewise.
+
 2014-04-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el: Add some MJ code points.
