@@ -2292,6 +2292,20 @@
      daikanwa)
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x4E23)	; 丣
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (=big5-cdp		. #x89B6)	; &CDP-89B6;
+    (<-formed@component
+     ((=ucs		  . #x623C)	; 戼
+      )
+     ((=ucs		  . #x4E23)	; 丣
+      ))
+    ))
+(define-char
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
