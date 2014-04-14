@@ -789,6 +789,8 @@
     (=adobe-japan1-0	. 03828)	; &I-AJ1-03828;
     (=jis-x0208		. #x4C68)	; &I-J90-4C68; [44-72]
     (=jis-x0213-1	. #x4C68)	; &I-JX1-4C68; [44-72]
+    (=gt		. 03212)	; &I-GT-03212;
+    (=gt-pj-1		. #x4C68)	; &I-GT-03212; [44-72]
     (=shinjigen		.  0769)	; 匁
     (->subsumptive
      ((ideographic-radical . 4)	; ⼃
@@ -797,17 +799,15 @@
       (=gt-pj-11	  . #x527B)	; &GT-00176; [50-91]
       (=daikanwa	  . 00129)	; &I-M-00129;
       (<-same
-       ((=gt		    . 03212)	; &GT-03212;
-	(=daikanwa	    . 02502)	; &I-M-02502;
+       ((=daikanwa	    . 02502)	; &R-GT-03212;
 	))
       (<-same*sources
        daikanwa)
       )
      ((ideographic-radical . 20)	; ⼓
       (ideographic-strokes . 2)
-      (=gt		  . 03212)	; &GT-03212;
-      (=gt-pj-1		  . #x4C68)	; &GT-03212; [44-72]
-      (=daikanwa	  . 02502)	; &I-M-02502;
+      (==gt		  . 03212)	; &R-GT-03212;
+      (=daikanwa	  . 02502)	; &R-GT-03212;
       (<-same
        ((=gt		    . 00176)	; &GT-00176;
 	(=daikanwa	    . 00129)	; &I-M-00129;
