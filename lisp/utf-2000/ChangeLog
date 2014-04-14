@@ -1,3 +1,7 @@
+2014-04-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (BC-89B6): New character.
+
 2014-04-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R087-Claw.el (J0-6029): Unify MJ016740.
