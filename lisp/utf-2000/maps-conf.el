@@ -4,7 +4,7 @@
 		"JX1-to-UCS.txt" "JX2-to-UCS.txt"
 		"K0-to-UCS.txt"
 		"G0-to-UCS.txt"
-		"C2-to-UCS.txt"
+		"C1-to-UCS.txt" "C2-to-UCS.txt"
 		"C3-to-UCS.txt" "C4-to-UCS.txt"
 		"C5-to-UCS.txt" "C6-to-UCS.txt"
 		"C7-to-UCS.txt"
