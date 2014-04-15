@@ -175,20 +175,59 @@
     (total-strokes	 . 8)
     (=ucs		. #x7A7A)	; 空
     (=big5		. #xAAC5)	; &I-B-AAC5;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7A7A)	; 空
+      ))
+    (ideographic-radical . 116)	; ⽳
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (=>>ucs@jis		. #x7A7A)	; &G-J0-3675;
+    (=>>ucs@ks		. #x7A7A)	; &G-J0-3675;
+    (=>>ucs@cns		. #x7A7A)	; &G-J0-3675;
+    (=>>jis-x0208	. #x3675)	; &G-J0-3675; [22-85]
+    (=>>jis-x0213-1	. #x3675)	; &G-J0-3675; [22-85]
+    (=>>gt		. 32804)	; &G-J0-3675;
+    (=>>gt-k		. 03682)	; &G-J0-3675;
+    (=>>daikanwa	. 25415)	; &G-J0-3675;
     (->subsumptive
-     ((=ucs@jis		  . #x7A7A)	; &J90-3675;
-      (=jis-x0208	  . #x3675)	; &J90-3675; [22-85]
+     ((=ucs@jis		  . #x7A7A)	; &GT-32804;
+      (=ucs@ks		  . #x7A7A)	; &GT-32804;
+      (=jis-x0208	  . #x3675)	; &GT-32804; [22-85]
       (=ks-x1001	  . #x4D76)	; &I-K0-4D76; [45-86]
       (=jis-x0213-1	  . #x3675)	; &I-JX1-3675; [22-85]
-      (=daikanwa	  . 25415)	; &I-M-25415;
-      (=shinjigen	  .  5681)	; &J90-3675;
-      )
-     ((=gt		  . 32804)	; &GT-32804;
+      (=gt		  . 32804)	; &I-GT-32804;
       (=gt-k		  . 03682)	; &I-GT-K03682;
-      (=gt-pj-1		  . #x3675)	; &GT-32804; [22-85]
+      (=gt-pj-1		  . #x3675)	; &I-GT-32804; [22-85]
+      (=daikanwa	  . 25415)	; &I-M-25415;
+      (=shinjigen	  .  5681)	; &GT-32804;
+      (->subsumptive
+       ((==ucs@jis	    . #x7A7A)	; &R-J90-3675;
+	(==jis-x0208	    . #x3675)	; &R-J90-3675; [22-85]
+	(==jis-x0213-1	    . #x3675)	; &R-J90-3675; [22-85]
+	(==daikanwa	    . 25415)	; &R-J90-3675;
+	(==shinjigen	    .  5681)	; &R-J90-3675;
+	)
+       ((==ucs@ks	    . #x7A7A)	; &R-GT-32804;
+	(==ks-x1001	    . #x4D76)	; &R-GT-32804; [45-86]
+	(==gt		    . 32804)	; &R-GT-32804;
+	(==gt-k		    . 03682)	; &R-GT-32804;
+	))
       )
-     ((=cns11643-1	  . #x4F28)	; &C1-4F28; [47-08]
-      )
+     ((=ucs@cns		  . #x7A7A)	; &C1-4F28;
+      (=cns11643-1	  . #x4F28)	; &C1-4F28; [47-08]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7A7A)	; 空
+      ))
+    (ideographic-radical . 116)	; ⽳
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (=>>ucs@unicode	. #x7A7A)	; &G-UU+7A7A;
+    (->subsumptive
      ((=ucs@unicode	  . #x7A7A)	; &G0-3F55;
       (=gb2312		  . #x3F55)	; &G0-3F55; [31-53]
       )
@@ -2687,8 +2726,8 @@
       (total-strokes	   . 14)
       (=daikanwa	  . 25590)	; &M-25590;
       (<-ancient
-       ((=ucs@ks	    . #x7235)	; &HD-JT-B55C;
-	(=ks-x1001	    . #x6D49)	; &HD-JT-B55C; [77-41]
+       ((=ucs@ks	    . #x7235)	; &MJ016748;
+	(=mj		    . 016748)	; &MJ016748;
 	(=daikanwa	    . 19711)	; &I-M-19711;
 	))
       (<-ancient*sources
