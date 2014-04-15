@@ -1,5 +1,10 @@
 2014-04-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (G-AJ1-04390): Add
+	ideographic-structure.
+
+2014-04-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R020-Wrap.el (U+5301): Unify GT-03212.
 	(M-02502): Unify R-GT-03212 instead of GT-03212.
 
@@ -7,6 +12,20 @@
 	(M-02502): Unify R-GT-03212 instead of GT-03212.
 
 	* Ideograph-R001-One.el (BC-89B6): New character.
+
+	* Ideograph-R063-Door.el (U+623C): Unify S2-0849.
+
+2014-04-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R094-Dog.el: Add Hanyo-Denshi/KS code points.
+
+	* Ideograph-R092-Fang.el (U+7259): Unify G-J0-3267 instead of
+	A-J0-3267.
+	(JX3-3267): Use `<-subsumptive' instead of `<-denotational'.
+	(G-JX1-3267): Abolished; unified by U+7259.
+	(J0-3267): Use U+7259 instead of G-JX1-3267 as the mother; unify
+	MJ016802.
+	(K0-6433): Use U+7259 instead of G-JX1-3267 as the mother.
 
 2014-04-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
@@ -384,6 +403,8 @@
 
 	* Ideograph-R004-Slash.el (AJ1-01652): Move `=decomposition@cid'
 	and `=decomposition@hanyo-denshi' to R-AJ1-01652.
+
+	* maps-conf.el: Add C1-to-UCS.txt to the check list.
 
 2014-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
