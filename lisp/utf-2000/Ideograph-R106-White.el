@@ -389,10 +389,10 @@
       (=daikanwa	  . 22705)	; &I-M-22705;
       (=shinjigen	  .  3962)	; &GT-29093;
       (<-vulgar
-       ((=ucs@jis	    . #x6B78)	; &AJ1-05348;
-	(=adobe-japan1-0    . 05348)	; &AJ1-05348;
+       ((=ucs@jis	    . #x6B78)	; &MJ014849;
+	(=mj		    . 014849)	; &MJ014849;
 	(=jis-x0208	    . #x5D45)	; &I-J90-5D45; [61-37]
-	(=shinjigen	    .  3960)	; &AJ1-05348;
+	(=shinjigen	    .  3960)	; &MJ014849;
 	))
       (<-vulgar*sources
        shinjigen)
