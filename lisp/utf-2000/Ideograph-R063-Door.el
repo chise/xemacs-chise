@@ -288,7 +288,7 @@
     (=cns11643-3	. #x2629)	; &I-C3-2629; [06-09]
     (=big5-cdp		. #x89B5)	; &I-CDP-89B5;
     (=daikanwa		. 11708)	; &I-M-11708;
-    (=shinjigen@1ed	.  0849)	; 戼
+    (=shinjigen		.  0849)	; 戼
     (<-original
      ((=ucs		  . #x536F)	; 卯
       (=jis-x0208	  . #x312C)	; &I-J90-312C; [17-12]
@@ -296,7 +296,7 @@
       (=shinjigen	  .  0848)	; 卯
       ))
     (<-original*sources
-     zhengzitong daikanwa shinjigen@1ed)
+     zhengzitong daikanwa shinjigen)
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
