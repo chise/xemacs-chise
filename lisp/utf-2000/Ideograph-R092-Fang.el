@@ -3,71 +3,56 @@
   '((ideographic-radical . 92)	; ⽛
     (ideographic-strokes . 0)
     (=ucs		. #x7259)	; 牙
-    (=>jis-x0208	. #x3267)	; 牙 [18-71]
-    (=>jis-x0213-1	. #x3267)	; 牙 [18-71]
+    (=>>jis-x0208	. #x3267)	; 牙 [18-71]
+    (=>>jis-x0213-1	. #x3267)	; 牙 [18-71]
     (=big5		. #xA4FA)	; &I-B-A4FA;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x7259)	; 牙
-      ))
-    (ideographic-radical . 92)	; ⽛
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (=ucs@unicode	. #x7259)	; &HD-HG-3026;
-    (=gb2312		. #x5140)	; &HD-HG-3026; [49-32]
-    (=cns11643-1	. #x455B)	; &I-C1-455B; [37-59]
-    (=jis-x0213-1@2004	. #x3267)	; &I-JX3-3267; [18-71]
-    (=hanyo-denshi/hg	. #x3026)	; &I-HD-HG-3026; [16-06]
-    (=daikanwa		. 19909)	; &I-M-19909;
     (->subsumptive
-     ((==daikanwa	  . 19909)	; &R-M-19909;
-      )
-     ((==ucs@cns	  . #x7259)	; &R-CU+7259;
-      (==cns11643-1	  . #x455B)	; &R-CU+7259; [37-59]
-      )
-     ((=decomposition@hanyo-denshi
-       ((=ucs		    . #x7259)	; 牙
+     ((total-strokes	   . 4)
+      (=ucs@unicode	  . #x7259)	; &MJ016801;
+      (=mj		  . 016801)	; &MJ016801;
+      (=gb2312		  . #x5140)	; &I-G0-5140; [49-32]
+      (=cns11643-1	  . #x455B)	; &I-C1-455B; [37-59]
+      (=jis-x0213-1@2004  . #x3267)	; &I-JX3-3267; [18-71]
+      (=hanyo-denshi/hg	  . #x3026)	; &I-HD-HG-3026; [16-06]
+      (=daikanwa	  . 19909)	; &I-M-19909;
+      (->subsumptive
+       ((==daikanwa	    . 19909)	; &R-M-19909;
 	)
-       ((=ucs		    . #xE0103)	; 󠄃
+       ((==ucs@cns	    . #x7259)	; &R-CU+7259;
+	(==cns11643-1	    . #x455B)	; &R-CU+7259; [37-59]
+	)
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x7259)	; 牙
+	  )
+	 ((=ucs		      . #xE0103)	; 󠄃
+	  ))
+	(==ucs@jis/2004	    . #x7259)	; &R-MJ016801;
+	(==mj		    . 016801)	; &R-MJ016801;
+	(==jis-x0213-1@2004 . #x3267)	; &R-MJ016801; [18-71]
+	(==hanyo-denshi/hg  . #x3026)	; &R-MJ016801; [16-06]
+	)
+       ((==ucs@unicode	    . #x7259)	; &R-UU+7259;
+	(==gb2312	    . #x5140)	; &R-UU+7259; [49-32]
 	))
-      (==ucs@jis/2004	  . #x7259)	; &R-HD-HG-3026;
-      (==jis-x0213-1@2004 . #x3267)	; &R-HD-HG-3026; [18-71]
-      (==hanyo-denshi/hg  . #x3026)	; &R-HD-HG-3026; [16-06]
       )
-     ((==ucs@unicode	  . #x7259)	; &R-UU+7259;
-      (==gb2312		  . #x5140)	; &R-UU+7259; [49-32]
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x7259)	; 牙
-      ))
-    (ideographic-radical . 92)	; ⽛
-    (ideographic-strokes . 0)
-    (total-strokes	 . 5)
-    (=>>ucs@jis/1990	. #x7259)	; &G-J0-3267;
-    (=>>ucs@jis/2000	. #x7259)	; &G-J0-3267;
-    (=>>ucs@ks		. #x7259)	; &G-J0-3267;
-    (=>>jis-x0208	. #x3267)	; &G-J0-3267; [18-71]
-    (=>>jis-x0213-1@2000 . #x3267)	; &G-J0-3267; [18-71]
-    (=>>gt		. 25560)	; &G-J0-3267;
-    (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((total-strokes	   . 5)
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x7259)	; 牙
 	)
        ((=ucs		    . #xE0102)	; 󠄂
 	))
-      (=ucs@jis/1990	  . #x7259)	; &HD-JA-3267;
-      (=ucs@jis/2000	  . #x7259)	; &HD-JA-3267;
-      (=jis-x0208	  . #x3267)	; &HD-JA-3267; [18-71]
+      (=ucs@jis/1990	  . #x7259)	; &MJ016802;
+      (=ucs@jis/2000	  . #x7259)	; &MJ016802;
+      (=mj		  . 016802)	; &MJ016802;
+      (=jis-x0208	  . #x3267)	; &I-J90-3267; [18-71]
       (=jis-x0213-1@2000  . #x3267)	; &I-JX1-3267; [18-71]
       (=hanyo-denshi/ja	  . #x3267)	; &I-HD-JA-3267; [18-71]
       (=gt		  . 25560)	; &I-GT-25560;
       (=gt-k		  . 00900)	; &I-GT-K00900;
       (=gt-pj-1		  . #x3267)	; &I-GT-25560; [18-71]
       )
-     ((=ucs@ks		  . #x7259)	; &K0-6433;
+     ((total-strokes	   . 5)
+      (=ucs@ks		  . #x7259)	; &K0-6433;
       (=ks-x1001	  . #x6433)	; &K0-6433; [68-19]
       (=jef-china3	  . #x58C5)	; &I-JC3-58C5;
       ))
