@@ -1,3 +1,22 @@
+2014-04-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R116-Cave.el (U+7A7A): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R098-Tile.el: Add Hanyo-Denshi/JA code points.
+	(C3-2E24): Unify CU+74EF; use `->subsumptive' to add
+	representative nodes.
+	(JX2-712C): Use `->subsumptive' to add representative nodes.
+	(C1-7149): Unify CU+750D.
+
+	* Ideograph-R091-Slice.el (J0-4A52): Apply new glyph-image
+	conventions.
+	(U-000245EF): Likewise.
+	(JX2-7031): Apply new glyph-image conventions for cbeta.
+
+	* Ideograph-R019-Power.el (U+52B9): Apply new glyph-image
+	conventions.
+
 2014-04-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (G-AJ1-04390): Add
