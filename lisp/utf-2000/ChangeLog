@@ -1,3 +1,20 @@
+2014-04-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el (U+6548): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R046-Mountain.el (U+5C79): Apply new glyph-image
+	conventions.
+	(U+5C90): Likewise.
+	(U+5CA8): Likewise.
+	(U+5CAB): Likewise.
+	(U+5CAC): Likewise.
+	(U+5CB6): Likewise.
+	(U+5CB7): Likewise.
+
+	* Ideograph-R043-Lame.el (U+5C24): Apply new glyph-image
+	conventions.
+
 2014-04-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R136-Oppose.el (U+821E): Use `->subsumptive' instead
