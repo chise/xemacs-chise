@@ -7153,15 +7153,13 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=ucs		. #x4401)	; 䐁
-    (=daikanwa		. 29595)	; &I-M-29595;
-    ))
-(define-char
-  '((=>ucs		. #x4401)	; 䐁
-    (morohashi-daikanwa	29595 0 0)
-    (ideographic-radical . 130)	; ⾁
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (=cns11643-4	. #x3A4A)	; &C4-3A4A; [26-42]
+    (->subsumptive
+     ((=daikanwa	  . 29595)	; &M-29595;
+      )
+     ((=ucs@unicode	  . #x4401)	; &UU+4401;
+      )
+     ((=cns11643-4	  . #x3A4A)	; &C4-3A4A; [26-42]
+      ))
     ))
 (define-char
   '((ideographic-radical . 130)	; ⾁
