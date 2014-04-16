@@ -7168,10 +7168,10 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 13)
     (total-strokes	 . 18)
-    (=>>ucs@unicode	. #x79AE)	; &HD-FT-376D;
-    (=ucs@unicode	. #x79AE)	; &HD-FT-376D;
-    (=cns11643-1	. #x7671)	; &HD-FT-376D; [86-81]
-    (=gb12345		. #x4071)	; &HD-FT-376D; [32-81]
+    (=ucs@unicode	. #x79AE)	; &MJ018964;
+    (=mj		. 018964)	; &MJ018964;
+    (=cns11643-1	. #x7671)	; &I-C1-7671; [86-81]
+    (=gb12345		. #x4071)	; &MJ018964; [32-81]
     (=hanyo-denshi/ft	. #x376D)	; &I-HD-FT-376D; [23-77]
     (=jef-china3	. #x5CEB)	; &I-JC3-5CEB;
     (->subsumptive
@@ -7182,9 +7182,13 @@
 	))
       (==hanyo-denshi/ft  . #x376D)	; &R-HD-FT-376D; [23-77]
       )
+     ((==mj		  . 018964)	; &R-MJ018964;
+      )
      ((==ucs@unicode	  . #x79AE)	; &R-UU+79AE;
-      (==cns11643-1	  . #x7671)	; &R-UU+79AE; [86-81]
       (==gb12345	  . #x4071)	; &R-UU+79AE; [32-81]
+      )
+     ((==ucs@cns	  . #x79AE)	; &R-CU+79AE;
+      (==cns11643-1	  . #x7671)	; &R-CU+79AE; [86-81]
       ))
     ))
 (define-char
