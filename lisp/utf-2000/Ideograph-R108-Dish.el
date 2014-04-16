@@ -1709,8 +1709,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x5960)	; &AJ1-20105;
-      (=adobe-japan1-5	  . 20105)	; &AJ1-20105;
+     ((=ucs@unicode	  . #x5960)	; &MJ009516;
+      (=mj		  . 009516)	; &MJ009516;
       )
      ((=ucs		  . #x76BF)	; 皿
       ))
@@ -1735,7 +1735,17 @@
       ))
     (=>>ucs@JP		. #x250B4)	; &G-dJU+250B4;
     (->subsumptive
-     ((=ucs@JP		  . #x250B4)	; &HZK12-EEF2;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs@jis	    . #x5960)	; &MJ009514;
+	(=ucs@ks	    . #x5960)	; &MJ009514;
+	(=mj		    . 009514)	; &MJ009514;
+	)
+       ((=ucs		    . #x76BF)	; 皿
+	))
+      (=ucs@JP		  . #x250B4)	; &HZK12-EEF2;
       (=hanziku-12	  . #xEEF2)	; &HZK12-EEF2;
       ))
     ))
