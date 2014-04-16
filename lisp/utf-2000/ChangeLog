@@ -1,5 +1,21 @@
 2014-04-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R136-Oppose.el (U+821E): Use `->subsumptive' instead
+	of `->denotational'.
+
+	* Ideograph-R130-Meat.el (U+4401): Use `->subsumptive'.
+
+	* Ideograph-R124-Feather.el (C1-6145): Unify MJ020688.
+	(JX3-3465): Unify MJ020716.
+
+	* Ideograph-R113-Spirit.el (C1-7671): Unify MJ018964.
+
+	* Ideograph-R108-Dish.el (JPU+250B4): Add `ideographic-structure'.
+
+	* Ideograph-R095-Profound.el (G-J0-4E28): New node.
+	(J0-4E28): Separate M-20817', GT-26651 and GT-K07893 as different
+	abstract glyph-images.
+
 	* Ideograph-R116-Cave.el (U+7A7A): Apply new glyph-image
 	conventions.
 
