@@ -377,8 +377,8 @@
       )
      ((=ucs		  . #x81FC)	; 臼
       )
-     ((=ucs@unicode	  . #x5EFE)	; &AJ1-04763;
-      (=adobe-japan1-0	  . 04763)	; &AJ1-04763;
+     ((=ucs@unicode	  . #x5EFE)	; &MJ011120;
+      (=mj		  . 011120)	; &MJ011120;
       ))
     (=ucs		. #x2F893)	; 舁
     (=ucs@unicode	. #x8201)	; 舁
