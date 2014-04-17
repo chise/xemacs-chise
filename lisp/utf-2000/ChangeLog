@@ -1,5 +1,28 @@
 2014-04-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R148-Horn.el (G0-3D47): Unify MJ024282.
+
+2014-04-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R140-Grass.el (C1-5345): Unify CU+82D1.
+	(o-J78-336B): Unify o-JX3-336B; apply new glyph-image conventions.
+	(JX3-336B): Unify MJ022336; use `->subsumptive' to add
+	representative nodes.
+	(C1-7731): Unify MJ023039.
+
+	* Ideograph-R133-Arrive.el (U+81F4): Unify B-AD50.
+	(U-00026936): Unify S-6604.
+	(J0-4357): Move B-AD50 to U+81F4.
+
+	* Ideograph-R109-Eye.el (U+77BF): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R102-Field.el: Add Hanyo-Denshi/JA code points.
+	(U+7544): Add `<-vulgar' for U+7559; use `->subsumptive' to add
+	representative nodes.
+	(J0-305B): Unify MJ017706.
+	(U+7571): Unify S-5051; add `<-original' for J0-4E31.
+
 	* Ideograph-R066-Rap.el (U+6548): Apply new glyph-image
 	conventions.
 
