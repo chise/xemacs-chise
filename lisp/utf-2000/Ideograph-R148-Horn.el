@@ -49,8 +49,9 @@
       )
      ((=ucs		  . #xE0104)	; 󠄄
       ))
-    (=ucs@unicode	. #x89D2)	; &HD-IB-287A;
-    (=gb2312		. #x3D47)	; &HD-IB-287A; [29-39]
+    (=ucs@unicode	. #x89D2)	; &MJ024282;
+    (=mj		. 024282)	; &MJ024282;
+    (=gb2312		. #x3D47)	; &I-G0-3D47; [29-39]
     (=hanyo-denshi/ib	. #x287A)	; &I-HD-IB-287A; [08-90]
     ))
 (define-char
