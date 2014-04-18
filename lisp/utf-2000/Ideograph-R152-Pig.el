@@ -1012,8 +1012,9 @@
      ((=ucs@unicode	  . #x8C6A)	; &G0-3A40;
       (=gb2312		  . #x3A40)	; &G0-3A40; [26-32]
       )
-     ((=ucs@cns		  . #x8C6A)	; &HD-FT-343F;
-      (=cns11643-1	  . #x6B30)	; &HD-FT-343F; [75-16]
+     ((=ucs@cns		  . #x8C6A)	; &MJ024938;
+      (=mj		  . 024938)	; &MJ024938;
+      (=cns11643-1	  . #x6B30)	; &I-C1-6B30; [75-16]
       (=hanyo-denshi/ft	  . #x343F)	; &I-HD-FT-343F; [20-31]
       (->subsumptive
        ((=decomposition@hanyo-denshi
@@ -1021,7 +1022,8 @@
 	  )
 	 ((=ucs		      . #xE0104)	; 󠄄
 	  ))
-	(==hanyo-denshi/ft  . #x343F)	; &R-HD-FT-343F; [20-31]
+	(==mj		    . 024938)	; &R-MJ024938;
+	(==hanyo-denshi/ft  . #x343F)	; &R-MJ024938; [20-31]
 	)
        ((==ucs@cns	    . #x8C6A)	; &R-CU+8C6A;
 	(==cns11643-1	    . #x6B30)	; &R-CU+8C6A; [75-16]
