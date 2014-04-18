@@ -1,3 +1,10 @@
+2014-04-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R158-Body.el (J0-6D3B): Unify KU+8EAC.
+
+	* Ideograph-R152-Pig.el (C1-6B30): Unify MJ024938.
+	(R-HD-FT2031): Unify R-MJ024938.
+
 2014-04-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R153-Badger.el (JX3-493F): Unify MJ024955.
