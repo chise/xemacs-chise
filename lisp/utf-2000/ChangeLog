@@ -1,5 +1,7 @@
 2014-04-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R153-Badger.el (JX3-493F): Unify MJ024955.
+
 	* Ideograph-R148-Horn.el (G0-3D47): Unify MJ024282.
 
 2014-04-16  MORIOKA Tomohiko  <tomo.git@chise.org>
