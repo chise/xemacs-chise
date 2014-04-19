@@ -3876,7 +3876,9 @@
     (ideographic-radical . 187)	; ⾺
     (ideographic-strokes . 9)
     (total-strokes	 . 19)
+    (=ucs@cns		. #x9A19)	; &HD-HG-305F;
     (=ucs@jis/2004	. #x9A19)	; &HD-HG-305F;
+    (=ucs@ks		. #x9A19)	; &HD-HG-305F;
     (=ks-x1001		. #x783E)	; &HD-HG-305F; [88-30]
     (=cns11643-1	. #x7952)	; &I-C1-7952; [89-50]
     (=jis-x0213-1@2004	. #x7159)	; &I-JX3-7159; [81-57]
@@ -3898,7 +3900,8 @@
       (==gt		  . 60417)	; &R-HD-HG-305F;
       (==daikanwa	  . 44849)	; &R-HD-HG-305F;
       )
-     ((==cns11643-1	  . #x7952)	; &R-C1-7952; [89-50]
+     ((==ucs@cns	  . #x9A19)	; &R-CU+9A19;
+      (==cns11643-1	  . #x7952)	; &R-CU+9A19; [89-50]
       ))
     ))
 (define-char
@@ -3925,7 +3928,9 @@
     (=gt		. 60420)	; &I-GT-60420;
     (=gt-pj-1		. #x7159)	; &I-GT-60420; [81-57]
     (<-simplified@JP/extra/design
-     ((=ucs@jis/2004	  . #x9A19)	; &HD-HG-305F;
+     ((=ucs@cns		  . #x9A19)	; &HD-HG-305F;
+      (=ucs@jis/2004	  . #x9A19)	; &HD-HG-305F;
+      (=ucs@ks		  . #x9A19)	; &HD-HG-305F;
       (=ks-x1001	  . #x783E)	; &HD-HG-305F; [88-30]
       (=cns11643-1	  . #x7952)	; &I-C1-7952; [89-50]
       (=jis-x0213-1@2004  . #x7159)	; &I-JX3-7159; [81-57]
