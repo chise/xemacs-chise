@@ -418,23 +418,43 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
     (=ucs		. #x8F9F)	; 辟
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8F9F)	; 辟
+      ))
+    (ideographic-radical . 160)	; ⾟
+    (ideographic-strokes . 6)
+    (total-strokes	 . 13)
+    (=ucs@unicode	. #x8F9F)	; &GT-51571;
+    (=jis-x0208		. #x6D64)	; &GT-51571; [77-68]
+    (=gb2312		. #x3159)	; &I-G0-3159; [17-57]
+    (=cns11643-1	. #x6728)	; &I-C1-6728; [71-08]
+    (=jis-x0213-1	. #x6D64)	; &I-JX1-6D64; [77-68]
+    (=gt		. 51571)	; &I-GT-51571;
+    (=gt-k		. 10359)	; &I-GT-K10359;
+    (=gt-pj-1		. #x6D64)	; &I-GT-51571; [77-68]
+    (=daikanwa		. 38642)	; &I-M-38642;
+    (=shinjigen		.  8202)	; &GT-51571;
+    (<-formed
+     ((=ucs@ks		  . #x907F)	; &M-39163;
+      (=ks-x1001	  . #x792D)	; &M-39163; [89-13]
+      (=daikanwa	  . 39163)	; &I-M-39163;
+      ))
     (->subsumptive
-     ((=ucs@jis		  . #x8F9F)	; &GT-51571;
-      (=jis-x0208	  . #x6D64)	; &GT-51571; [77-68]
-      (=jis-x0213-1	  . #x6D64)	; &I-JX1-6D64; [77-68]
-      (=gt		  . 51571)	; &I-GT-51571;
-      (=gt-k		  . 10359)	; &I-GT-K10359;
-      (=gt-pj-1		  . #x6D64)	; &I-GT-51571; [77-68]
-      (=daikanwa	  . 38642)	; &I-M-38642;
-      (=shinjigen	  .  8202)	; &GT-51571;
-      (<-formed
-       ((=ks-x1001	    . #x792D)	; &M-39163; [89-13]
-	(=daikanwa	    . 39163)	; &I-M-39163;
-	))
+     ((==ucs@jis	  . #x8F9F)	; &R-GT-51571;
+      (==jis-x0208	  . #x6D64)	; &R-GT-51571; [77-68]
+      (==jis-x0213-1	  . #x6D64)	; &R-GT-51571; [77-68]
+      (==gt		  . 51571)	; &R-GT-51571;
+      (==gt-k		  . 10359)	; &R-GT-51571;
+      (==daikanwa	  . 38642)	; &R-GT-51571;
+      (==shinjigen	  .  8202)	; &R-GT-51571;
       )
-     ((=ucs@unicode	  . #x8F9F)	; &C1-6728;
-      (=gb2312		  . #x3159)	; &C1-6728; [17-57]
-      (=cns11643-1	  . #x6728)	; &I-C1-6728; [71-08]
+     ((==ucs@cns	  . #x8F9F)	; &R-CU+8F9F;
+      (==cns11643-1	  . #x6728)	; &R-CU+8F9F; [71-08]
+      )
+     ((==ucs@unicode	  . #x8F9F)	; &R-UU+8F9F;
+      (==gb2312		  . #x3159)	; &R-UU+8F9F; [17-57]
       ))
     ))
 (define-char
