@@ -229,9 +229,9 @@
     (=gb2312		. #x4222)	; &I-G0-4222; [34-02]
     (=hanziku-2		. #xA8B6)	; &I-HZK02-A8B6;
     (<-simplified@CN
-     ((=ucs@unicode	  . #x58DF)	; &AJ1-04531;
-      (=adobe-japan1-0	  . 04531)	; &AJ1-04531;
-      (=gb12345		  . #x4222)	; &AJ1-04531; [34-02]
+     ((=ucs@unicode	  . #x58DF)	; &MJ009368;
+      (=mj		  . 009368)	; &MJ009368;
+      (=gb12345		  . #x4222)	; &MJ009368; [34-02]
       ))
     ))
 (define-char
