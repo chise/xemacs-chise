@@ -1,5 +1,10 @@
 2014-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R160-Bitter.el (U+8F9F): Apply new glyph-image
+	conventions.
+
+2014-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R145-Clothes.el (U+8863): Apply new glyph-image
 	conventions.
 	(U+8864): Likewise.
@@ -88,6 +93,9 @@
 
 	* Ideograph-R019-Power.el (U+52B9): Apply new glyph-image
 	conventions.
+
+	* maps-conf.el (gt-pj-1-and-jis-x0208-1990-different-code-points):
+	Add #x4E28.
 
 2014-04-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
