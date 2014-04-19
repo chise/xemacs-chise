@@ -1793,7 +1793,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@unicode	    . #x8864)	; &R-CDP-8BB1;
+       ((==ucs@unicode	    . #x8864)	; &R-UU+8864;
 	)
        ((=ucs		    . #x5200)	; 刀
 	))
@@ -10058,6 +10058,7 @@
 	(=ucs		    . #x2FF1)	; ⿱
 	)
        ((==ucs@cns	    . #x8F9F)	; &R-CU+8F9F;
+	(==cns11643-1	    . #x6728)	; &R-CU+8F9F; [71-08]
 	)
        ((=ucs		    . #x5200)	; 刀
 	))
