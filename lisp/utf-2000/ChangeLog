@@ -1,3 +1,10 @@
+2014-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R145-Clothes.el (U+8863): Apply new glyph-image
+	conventions.
+	(U+8864): Likewise.
+	(U-0002767E): Use `->subsumptive'.
+
 2014-04-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R158-Body.el (J0-6D3B): Unify KU+8EAC.
@@ -374,6 +381,8 @@
 	(AJ1-20143): Unify CU+6700, MJ-013505 and KOSEKI-019090; add
 	`->subsumptive' to add representative detailed-glyph-image nodes.
 	(U+2F8D4): Apply new glyph-image conventions.
+
+	* Ideograph-R187-Horse.el (C1-7952): Unify CU+9A19 and KU+9A19.
 
 2014-03-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
