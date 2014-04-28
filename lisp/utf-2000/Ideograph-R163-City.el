@@ -3893,21 +3893,32 @@
     ))
 (define-char
   '((ideographic-radical . 163)	; ⾢
+    (=ucs		. #x2872E)	; 𨜮
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2872E)	; 𨜮
+      ))
+    (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (sound@ja/on	"kei")
-    (=ucs		. #x2872E)	; 𨜮
+    (=ucs@iso		. #x2872E)	; &C6-4F63;
+    (=cns11643-6	. #x4F63)	; &C6-4F63; [47-67]
+    (=daikanwa		. 39541)	; &I-M-39541;
+    (<-same
+     ((=ucs		  . #x2F833)	; 卿
+      (=daikanwa	  . 02879)	; &I-M-02879;
+      ))
+    (<-same*sources
+     zhonghua-dazidian daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 39541)	; &M-39541;
-      (<-same
-       ((=ucs		    . #x2F833)	; 卿
-	(=daikanwa	    . 02879)	; &I-M-02879;
-	))
-      (<-same*sources
-       zhonghua-dazidian daikanwa)
+     ((==daikanwa	  . 39541)	; &R-M-39541;
       )
-     ((=ucs@iso		  . #x2872E)	; &C6-4F63;
-      (=cns11643-6	  . #x4F63)	; &C6-4F63; [47-67]
+     ((==ucs@iso	  . #x2872E)	; &R-U-0002872E;
+      )
+     ((==ucs@cns	  . #x2872E)	; &R-CU+2872E;
+      (==cns11643-6	  . #x4F63)	; &R-CU+2872E; [47-67]
       ))
     ))
 (define-char
@@ -4354,6 +4365,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (=>>ucs@unicode	. #x9115)	; &G-UU+9115;
+    (=>>mj		. 026366)	; &G-UU+9115;
     (=>>hanyo-denshi/ip . #x9115)	; &G-UU+9115;
     (=>>daikanwa	. 39571)	; &G-UU+9115;
     (->subsumptive
@@ -4362,8 +4374,9 @@
 	)
        ((=ucs		    . #xE0102)	; 󠄂
 	))
-      (=ucs@unicode	  . #x9115)	; &HD-IP-9115;
-      (=ks-x1001	  . #x7A41)	; &HD-IP-9115; [90-33]
+      (=ucs@unicode	  . #x9115)	; &MJ026366;
+      (=mj		  . 026366)	; &MJ026366;
+      (=ks-x1001	  . #x7A41)	; &I-K0-7A41; [90-33]
       (=hanyo-denshi/ip	  . #x9115)	; &I-HD-IP-9115;
       (=daikanwa	  . 39571)	; &I-M-39571;
       (=jef-china3	  . #x68AC)	; &I-JC3-68AC;
@@ -4493,7 +4506,10 @@
     (=daikanwa		. 39578)	; &I-M-39578;
     ))
 (define-char
-  '((=>ucs*		. #x2872E)	; 𨜮
+  '((<-denotational
+     ((=ucs		  . #x2872E)	; 𨜮
+      ))
+    (=>ucs*		. #x2872E)	; 𨜮
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
@@ -4506,8 +4522,8 @@
       ))
     (<-same@ucs*notes	"different meaning; maybe mapping bug")
     (<-wrong
-     ((=ucs@unicode	  . #x9115)	; &HD-IP-9115;
-      (=ks-x1001	  . #x7A41)	; &HD-IP-9115; [90-33]
+     ((=ucs@unicode	  . #x9115)	; &MJ026366;
+      (=mj		  . 026366)	; &MJ026366;
       (=daikanwa	  . 39571)	; &I-M-39571;
       ))
     (<-wrong*sources
