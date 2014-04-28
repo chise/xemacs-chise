@@ -1,3 +1,14 @@
+2014-04-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R163-City.el (U-0002872E): Apply new glyph-image
+	conventions.
+	(U-0002F9E5): Add `<-denotational' for U-0002872E.
+
+2014-04-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R043-Lame.el (U+5C24): Apply new glyph-image
+	conventions for gb2312 and ucs@unicode.
+
 2014-04-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U+54C0): Apply new glyph-image
