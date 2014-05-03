@@ -13,7 +13,7 @@
     (=gt-k		. 10207)	; &I-GT-K10207;
     (=gt-pj-1		. #x385D)	; &I-GT-66032; [24-61]
     (=daikanwa		. 48330)	; &I-M-48330;
-    (=shinjigen@rev	.  9854)	; 鼓
+    (=shinjigen		.  9854)	; 鼓
     ))
 (define-char
   '((ideographic-radical . 207)	; ⿎
