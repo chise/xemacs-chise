@@ -1,3 +1,26 @@
+2014-04-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R207-Drum.el (U+9F13): Unify S1-9854.
+
+	* Ideograph-R189-Tall.el (U-00029ACF): Apply new glyph-image
+	conventions.
+	(U-00029AE0): Likewise.
+	(U-00029AE7): Likewise.
+	(U-00029AE8): Likewise.
+	(U-00029AED): Likewise.
+	(U-00029AEF): Likewise.
+	(U-00029AF0): Likewise.
+	(U-00029AF1): Likewise.
+
+2014-04-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R107-Skin.el (U+76B6): Use `->denotational' and
+	`->subsumptive' to separate abstract glyphs and representative
+	nodes.
+	(U+3FF5): Use `->subsumptive' to separate representative nodes.
+	(U+76B7): Use `->denotational' to integrate HD-JT-B631.
+	(HD-JT-B631): New character.
+
 2014-04-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R163-City.el (U-0002872E): Apply new glyph-image
