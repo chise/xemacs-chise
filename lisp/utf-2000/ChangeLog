@@ -1,3 +1,13 @@
+2014-05-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R198-Deer.el (M-47607): Unify S1-9783; add `<-vulgar'
+	for J90-4E6F; use `->subsumptive' to add representative nodes.
+	(S2-9783): New character; add `<-vulgar' for J90-4E6F.
+	(U+9E97): Apply new glyph-image conventions.
+
+	* Ideograph-R030-Mouth.el (UU+56C7): Add `ideographic-structure';
+	apply new glyph-image conventions for U+9E97.
+
 2014-04-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R162-Walk.el (JX3-465B): Unify KU+9041 and MJ026013;
