@@ -46777,6 +46777,19 @@
     (=ucs		. #x56C7)	; 囇
     (->subsumptive
      ((hanyu-dazidian	  1 707 14)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x53E3)	; 口
+	)
+       ((=ucs@unicode	    . #x9E97)	; &GT-64844;
+	(=jis-x0208@1978    . #x4E6F)	; &GT-64844; [46-79]
+	(=jis-x0208@1983    . #x4E6F)	; &I-J83-4E6F; [46-79]
+	(=ks-x1001	    . #x5572)	; &I-K0-5572; [53-82]
+	(=jis-x0213-1	    . #x4E6F)	; &I-JX1-4E6F; [46-79]
+	(=daikanwa	    . 47663)	; &I-M-47663;
+	))
       (=ucs@unicode	  . #x56C7)	; &M-04628;
       (=daikanwa	  . 04628)	; &M-04628;
       (=hanziku-2	  . #xE3C7)	; &I-HZK02-E3C7;
@@ -46789,11 +46802,8 @@
 	  )
 	 ((=ucs		      . #x53E3)	; 口
 	  )
-	 ((=ucs@ks	      . #x9E97)	; &GT-64844;
-	  (=jis-x0208@1978    . #x4E6F)	; &GT-64844; [46-79]
-	  (=jis-x0208@1983    . #x4E6F)	; &I-J83-4E6F; [46-79]
-	  (=ks-x1001	      . #x5572)	; &I-K0-5572; [53-82]
-	  (=daikanwa	      . 47663)	; &I-M-47663;
+	 ((==ucs@ks	      . #x9E97)	; &R-M-47663;
+	  (==daikanwa	      . 47663)	; &R-M-47663;
 	  ))
 	(==daikanwa	    . 04628)	; &R-M-04628;
 	)
@@ -46803,8 +46813,7 @@
 	  )
 	 ((=ucs		      . #x53E3)	; 口
 	  )
-	 ((=ucs@unicode	      . #x9E97)	; &UU+9E97;
-	  (=gb12345	      . #x4076)	; &UU+9E97; [32-86]
+	 ((==ucs@unicode      . #x9E97)	; &R-UU+9E97;
 	  ))
 	(==ucs@unicode	    . #x56C7)	; &R-UU+56C7;
 	))
