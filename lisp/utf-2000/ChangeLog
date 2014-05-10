@@ -1,3 +1,24 @@
+2014-05-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el: Add some MJ code points.
+	(U+4F18): Apply new glyph-image conventions.
+	(U+4F9D): Likewise.
+	(U+4FDB): Likewise.
+	(U+4FF2): Likewise.
+	(U+506F): Likewise.
+	(UU+5091): Use `->subsumptive' to add representative nodes.
+	(U+509A): Apply new glyph-image conventions.
+	(U+50AC): Likewise.
+	(HD-KS012500): Use `->subsumptive' to add representative nodes.
+	(U+50EC): Apply new glyph-image conventions.
+	(AJ1-21164): Use `->subsumptive' to add representative nodes.
+	(U+3491): Apply new glyph-image conventions.
+	(U+50FB): Likewise.
+	(U+511B): Use `->subsumptive' instead of `->denotational'.
+	(A-HDU+512A): New node.
+	(U+512A): Add `<-denotational' for A-HDU+512A.
+	(HD-JT-ADB3): Use A-HDU+512A instead of U+512A as its mother.
+
 2014-05-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R198-Deer.el (M-47607): Unify S1-9783; add `<-vulgar'
