@@ -1,3 +1,8 @@
+2014-05-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R094-Dog.el: Add `=decomposition@hanyo-denshi' for
+	some representative (detailed) glyph-images of Hanyo-Denshi/JA.
+
 2014-05-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el: Add some MJ code points.
