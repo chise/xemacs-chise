@@ -1,3 +1,10 @@
+2014-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R104-Sickness.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some representative
+	  (detailed) glyph-images of Hanyo-Denshi/{JA|JB}.
+
 2014-05-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R094-Dog.el: Add `=decomposition@hanyo-denshi' for
