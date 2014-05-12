@@ -1,5 +1,8 @@
 2014-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R098-Tile.el: Add `=decomposition@hanyo-denshi' for a
+	representative (detailed) glyph-image of Hanyo-Denshi/JT.
+
 	* Ideograph-R104-Sickness.el:
 	- Add Hanyo-Denshi/JA code points.
 	- Add `=decomposition@hanyo-denshi' for some representative
