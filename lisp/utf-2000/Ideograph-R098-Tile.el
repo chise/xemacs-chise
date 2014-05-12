@@ -1856,6 +1856,11 @@
     (ideographic-radical . 98)	; ⽡
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x750D)	; 甍
+      )
+     ((=ucs		  . #xE0104)	; 󠄄
+      ))
     (=jis-x0208@1978	. #x6130)	; &HD-JT-B5EB; [65-16]
     (=hanyo-denshi/jt	. #xB5EB)	; &I-HD-JT-B5EB;
     ))
@@ -2515,6 +2520,11 @@
     (ideographic-radical . 98)	; ⽡
     (ideographic-strokes . 13)
     (total-strokes	 . 18)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x7515)	; 甕
+      )
+     ((=ucs		  . #xE0104)	; 󠄄
+      ))
     (=jis-x0208@1978	. #x6131)	; &HD-JT-B5F0; [65-17]
     (=hanyo-denshi/jt	. #xB5F0)	; &I-HD-JT-B5F0;
     ))
