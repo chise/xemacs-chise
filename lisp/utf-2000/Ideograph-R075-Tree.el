@@ -17297,8 +17297,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x77E9)	; &GT-30637;
-	(=jis-x0208	    . #x366B)	; &GT-30637; [22-75]
+       ((=ucs@unicode	    . #x77E9)	; &HD-JA-366B;
+	(=jis-x0208	    . #x366B)	; &HD-JA-366B; [22-75]
 	(=gb2312	    . #x3E58)	; &I-G0-3E58; [30-56]
 	(=ks-x1001	    . #x4F3B)	; &I-K0-4F3B; [47-27]
 	(=jis-x0213-1	    . #x366B)	; &I-JX1-366B; [22-75]
