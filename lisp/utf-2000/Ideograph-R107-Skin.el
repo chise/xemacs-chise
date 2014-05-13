@@ -645,22 +645,29 @@
     (ideographic-radical . 107)	; ⽪
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
-    (=ucs@unicode	. #x76B7)	; &GT-29326;
-    (=jis-x0208		. #x7369)	; &GT-29326; [83-73]
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x76B7)	; 皷
+      )
+     ((=ucs		  . #xE0101)	; 󠄁
+      ))
+    (=ucs@unicode	. #x76B7)	; &HD-JA-7369;
+    (=jis-x0208		. #x7369)	; &HD-JA-7369; [83-73]
     (=cns11643-3	. #x4830)	; &I-C3-4830; [40-16]
     (=jis-x0213-1	. #x7369)	; &I-JX1-7369; [83-73]
+    (=hanyo-denshi/ja	. #x7369)	; &I-HD-JA-7369; [83-73]
     (=gt		. 29326)	; &I-GT-29326;
     (=gt-k		. 11242)	; &I-GT-K11242;
     (=gt-pj-1		. #x7369)	; &I-GT-29326; [83-73]
     (=daikanwa		. 22887)	; &I-M-22887;
-    (=shinjigen		.  9855)	; &GT-29326;
+    (=shinjigen		.  9855)	; &HD-JA-7369;
     (<-vulgar
      ((=ucs		  . #x9F13)	; 鼓
       (=jis-x0208	  . #x385D)	; &I-J90-385D; [24-61]
+      (=daikanwa	  . 48330)	; &I-M-48330;
       (=shinjigen	  .  9854)	; 鼓
       ))
     (<-vulgar*sources
-     shinjigen)
+     zihui daikanwa shinjigen)
     ))
 (define-char
   '((<-denotational
