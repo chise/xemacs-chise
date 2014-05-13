@@ -277,15 +277,35 @@
      ((=cns11643-1	  . #x567B)	; &C1-567B; [54-91]
       (=daikanwa	  . 23947)	; &I-M-23947;
       )
-     ((=ucs@unicode	  . #x77E9)	; &GT-30637;
-      (=jis-x0208	  . #x366B)	; &GT-30637; [22-75]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x77E9)	; 矩
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=ucs@unicode	  . #x77E9)	; &HD-JA-366B;
+      (=jis-x0208	  . #x366B)	; &HD-JA-366B; [22-75]
       (=gb2312		  . #x3E58)	; &I-G0-3E58; [30-56]
       (=ks-x1001	  . #x4F3B)	; &I-K0-4F3B; [47-27]
       (=jis-x0213-1	  . #x366B)	; &I-JX1-366B; [22-75]
+      (=hanyo-denshi/ja	  . #x366B)	; &I-HD-JA-366B; [22-75]
       (=gt		  . 30637)	; &I-GT-30637;
       (=gt-k		  . 06406)	; &I-GT-K06406;
       (=gt-pj-1		  . #x366B)	; &I-GT-30637; [22-75]
       (=jef-china3	  . #x5BEC)	; &I-JC3-5BEC;
+      (->subsumptive
+       ((==ucs@jis	    . #x77E9)	; &R-HD-JA-366B;
+	(==ucs@ks	    . #x77E9)	; &R-HD-JA-366B;
+	(==ks-x1001	    . #x4F3B)	; &R-HD-JA-366B; [47-27]
+	(==jis-x0208	    . #x366B)	; &R-HD-JA-366B; [22-75]
+	(==jis-x0213-1	    . #x366B)	; &R-HD-JA-366B; [22-75]
+	(==hanyo-denshi/ja  . #x366B)	; &R-HD-JA-366B; [22-75]
+	)
+       ((==gt		    . 30637)	; &R-GT-30637;
+	(==gt-k		    . 06406)	; &R-GT-30637;
+	)
+       ((==ucs@unicode	    . #x77E9)	; &R-UU+77E9;
+	(==gb2312	    . #x3E58)	; &R-UU+77E9; [30-56]
+	))
       ))
     ))
 (define-char
