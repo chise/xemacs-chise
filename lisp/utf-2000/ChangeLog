@@ -1,5 +1,13 @@
 2014-05-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R102-Field.el (J0-4E31): Use `->subsumptive' to add
+	representative nodes.
+
+	* Ideograph-R108-Dish.el: Add Hanyo-Denshi/JT code points.
+
+	* Ideograph-R107-Skin.el (J0-7369): Add
+	`=decomposition@hanyo-denshi'; unify HD-JA8373.
+
 	* Ideograph-R111-Arrow.el: Add Hanyo-Denshi/JA code points.
 
 2014-05-12  MORIOKA Tomohiko  <tomo.git@chise.org>
