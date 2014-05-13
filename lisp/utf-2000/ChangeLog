@@ -1,3 +1,7 @@
+2014-05-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R106-White.el: Add Hanyo-Denshi/JA code points.
+
 2014-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R098-Tile.el: Add `=decomposition@hanyo-denshi' for a
