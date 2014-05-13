@@ -871,7 +871,8 @@
     (=gt-pj-1		. #x4039)	; &I-GT-29465; [32-25]
     (=daikanwa/+p	. 23001)	; &GT-29465;
     (<-simplified
-     ((=daikanwa	  . 23005)	; &M-23005;
+     ((=hanyo-denshi/jt	  . #xB63A)	; &HD-JT-B63A;
+      (=daikanwa	  . 23005)	; &I-M-23005;
       ))
     (<-simplified*sources
      daikanwa)
@@ -935,7 +936,8 @@
     (ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (=daikanwa		. 23005)	; &M-23005;
+    (=hanyo-denshi/jt	. #xB63A)	; &HD-JT-B63A;
+    (=daikanwa		. 23005)	; &I-M-23005;
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
@@ -1077,22 +1079,40 @@
     (total-strokes	 . 13)
     (=ucs		. #x76DF)	; 盟
     (->subsumptive
-     ((=gt		  . 29501)	; &GT-29501;
-      (=gt-pj-9		  . #x4B70)	; &GT-29501; [43-80]
-      (=daikanwa	  . 23024)	; &I-M-23024;
-      (=jef-china3	  . #x5BB8)	; &I-JC3-5BB8;
-      )
-     ((=ucs@unicode	  . #x76DF)	; &GT-29500;
-      (=jis-x0208	  . #x4C41)	; &GT-29500; [44-33]
+     ((=ucs@unicode	  . #x76DF)	; &HD-JT-B63D;
+      (=jis-x0208	  . #x4C41)	; &HD-JT-B63D; [44-33]
       (=gb2312		  . #x434B)	; &I-G0-434B; [35-43]
       (=ks-x1001	  . #x586F)	; &I-K0-586F; [56-79]
       (=cns11643-1	  . #x6541)	; &I-C1-6541; [69-33]
       (=jis-x0213-1	  . #x4C41)	; &I-JX1-4C41; [44-33]
       (=big5		  . #xB7F9)	; &I-B-B7F9;
+      (=hanyo-denshi/jt	  . #xB63D)	; &I-HD-JT-B63D;
       (=gt		  . 29500)	; &I-GT-29500;
       (=gt-k		  . 10273)	; &I-GT-K10273;
       (=gt-pj-1		  . #x4C41)	; &I-GT-29500; [44-33]
-      (=shinjigen@rev	  .  5255)	; &GT-29500;
+      (=daikanwa	  . 23024)	; &I-M-23024;
+      (=shinjigen	  .  5255)	; &HD-JT-B63D;
+      (->subsumptive
+       ((=gt		    . 29501)	; &GT-29501;
+	(=gt-pj-9	    . #x4B70)	; &GT-29501; [43-80]
+	(=jef-china3	    . #x5BB8)	; &I-JC3-5BB8;
+	(->subsumptive
+	 ((==daikanwa	      . 23024)	; &R-M-23024;
+	  )
+	 ((==hanyo-denshi/jt  . #xB63D)	; &R-HD-JT-B63D;
+	  (==gt		      . 29501)	; &R-HD-JT-B63D;
+	  ))
+	)
+       ((==ucs@unicode	    . #x76DF)	; &R-GT-29500;
+	(==gb2312	    . #x434B)	; &R-GT-29500; [35-43]
+	(==ks-x1001	    . #x586F)	; &R-GT-29500; [56-79]
+	(==jis-x0208	    . #x4C41)	; &R-GT-29500; [44-33]
+	(==cns11643-1	    . #x6541)	; &R-GT-29500; [69-33]
+	(==jis-x0213-1	    . #x4C41)	; &R-GT-29500; [44-33]
+	(==gt		    . 29500)	; &R-GT-29500;
+	(==gt-k		    . 10273)	; &R-GT-29500;
+	(==shinjigen	    .  5255)	; &R-GT-29500;
+	))
       ))
     ))
 (define-char
