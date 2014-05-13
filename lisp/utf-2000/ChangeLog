@@ -1,4 +1,13 @@
+2014-05-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R111-Arrow.el: Add Hanyo-Denshi/JA code points.
+
 2014-05-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R162-Walk.el (HD-IB0402): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R109-Eye.el: Add Hanyo-Denshi/JT code points.
 
 	* Ideograph-R106-White.el: Add Hanyo-Denshi/JA code points.
 
