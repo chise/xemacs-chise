@@ -1303,6 +1303,31 @@
       (=gt-pj-1		  . #x4E31)	; &I-GT-28015; [46-17]
       (=daikanwa	  . 21808)	; &I-M-21808;
       (=shinjigen	  .  5050)	; &HD-JA-4E31;
+      (->subsumptive
+       ((==daikanwa	    . 21808)	; &R-M-21808;
+	)
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x7559)	; 留
+	  )
+	 ((=ucs		      . #xE0101)	; 󠄁
+	  ))
+	(==ucs@jis	    . #x7559)	; &R-HD-JA-4E31;
+	(==ucs@ks	    . #x7559)	; &R-HD-JA-4E31;
+	(==ks-x1001	    . #x573A)	; &R-HD-JA-4E31; [55-26]
+	(==jis-x0208	    . #x4E31)	; &R-HD-JA-4E31; [46-17]
+	(==jis-x0213-1	    . #x4E31)	; &R-HD-JA-4E31; [46-17]
+	(==hanyo-denshi/ja  . #x4E31)	; &R-HD-JA-4E31; [46-17]
+	(==shinjigen	    .  5050)	; &R-HD-JA-4E31;
+	)
+       ((==ucs@unicode	    . #x7559)	; &R-UU+7559;
+	(==gb2312	    . #x4174)	; &R-UU+7559; [33-84]
+	)
+       ((==ucs@cns	    . #x7559)	; &R-CU+7559;
+	(==cns11643-1	    . #x5667)	; &R-CU+7559; [54-71]
+	)
+       ((==gt		    . 28015)	; &R-GT-28015;
+	(==gt-k		    . 06557)	; &R-GT-28015;
+	))
       ))
     ))
 (define-char
