@@ -8009,7 +8009,12 @@
     (=>>hanyo-denshi/ib . #x2422)	; &G-HD-IB-2422; [04-02]
     (=>>daikanwa	. 38896)	; &G-HD-IB-2422;
     (->subsumptive
-     ((=hanyo-denshi/ib	  . #x2422)	; &HD-IB-2422; [04-02]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x901E)	; 逞
+	)
+       ((=ucs		    . #xE0104)	; 󠄄
+	))
+      (=hanyo-denshi/ib	  . #x2422)	; &HD-IB-2422; [04-02]
       (=daikanwa	  . 38896)	; &I-M-38896;
       (<-original
        ((=ucs@cns	    . #x5448)	; &MJ008132;
