@@ -458,14 +458,14 @@
     (=daikanwa		. 13760)	; &M-13760;
     (=shinjigen		.  5201)	; &M-13760;
     (<-original
-     ((=ucs@unicode	  . #x7684)	; &GT-29087;
-      (=jis-x0208	  . #x452A)	; &GT-29087; [37-10]
+     ((=ucs@unicode	  . #x7684)	; &HD-JA-452A;
+      (=jis-x0208	  . #x452A)	; &HD-JA-452A; [37-10]
       (=gb2312		  . #x3544)	; &I-G0-3544; [21-36]
       (=ks-x1001	  . #x6E5C)	; &I-K0-6E5C; [78-60]
       (=cns11643-1	  . #x4E7B)	; &I-C1-4E7B; [46-91]
       (=jis-x0213-1	  . #x452A)	; &I-JX1-452A; [37-10]
       (=daikanwa	  . 22692)	; &I-M-22692;
-      (=shinjigen	  .  5199)	; &GT-29087;
+      (=shinjigen	  .  5199)	; &HD-JA-452A;
       ))
     (<-original*sources
      shinjigen)
