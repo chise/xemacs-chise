@@ -23,19 +23,6 @@
       ))
     ))
 (define-char
-  '((<-denotational
-     ((=ucs		  . #x7F36)	; 缶
-      ))
-    (ideographic-radical . 121)	; ⽸
-    (ideographic-strokes . 0)
-    (total-strokes	 . 5)
-    (=gt-k		. 01231)	; &GT-K01231;
-    (=gt-pj-k1		. #x385C)	; &GT-K01231; [24-60]
-    (<-formed@component
-     ((=ucs		  . #x7F36)	; 缶
-      ))
-    ))
-(define-char
   '((ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
