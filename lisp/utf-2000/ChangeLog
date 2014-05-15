@@ -1,3 +1,17 @@
+2014-05-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R017-Open-Box.el (U-0002067B): Add `<-ancient' for
+	U+738B; use `->subsumptive' to add representative nodes.
+	(GT-K01231): Moved from Ideograph-R121-Jar.el; use U-0002067B as
+	its mother.
+
+2014-05-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R121-Jar.el (GT-K01231): Moved to
+	Ideograph-R017-Open-Box.el; use U-0002067B instead of U+7F36 as
+	its mother; modify `ideographic-radical' and
+	`ideographic-strokes'.
+
 2014-05-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R102-Field.el (J0-4E31): Use `->subsumptive' to add
