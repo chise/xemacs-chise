@@ -293,6 +293,31 @@
     (=cns11643-6	. #x223E)	; &I-C6-223E; [02-30]
     (=daikanwa		. 01813)	; &I-M-01813;
     (=hanziku-1		. #xE55E)	; &I-HZK01-E55E;
+    (<-ancient
+     ((=ucs		  . #x738B)	; 王
+      (=daikanwa	  . 20823)	; &I-M-20823;
+      ))
+    (<-ancient*sources
+     shuowen daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 01813)	; &R-M-01813;
+      )
+     ((==ucs@iso	  . #x2067B)	; &R-U-0002067B;
+      (==cns11643-6	  . #x223E)	; &R-U-0002067B; [02-30]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2067B)	; 𠙻
+      ))
+    (ideographic-radical . 17)	; ⼐
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (=gt-k		. 01231)	; &GT-K01231;
+    (=gt-pj-k1		. #x385C)	; &GT-K01231; [24-60]
+    (<-formed@component
+     ((=ucs		  . #x7F36)	; 缶
+      ))
     ))
 (define-char
   '((ideographic-radical@ucs . 17)	; ⼐
