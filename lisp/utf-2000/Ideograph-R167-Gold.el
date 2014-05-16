@@ -2990,13 +2990,13 @@
     (=gt		. 54151)	; &I-GT-54151;
     (=gt-pj-1		. #x395B)	; &I-GT-54151; [25-59]
     (<-simplified@JP/Jouyou
-     ((=ucs@jis		  . #x7926)	; &GT-31404;
-      (=jis-x0208@1978	  . #x395C)	; &GT-31404; [25-60]
+     ((=ucs@jis		  . #x7926)	; &HD-JA-6268;
+      (=jis-x0208@1978	  . #x395C)	; &HD-JA-6268; [25-60]
       (=jis-x0208@1983	  . #x6268)	; &I-J83-6268; [66-72]
       (=jis-x0208@1990	  . #x6268)	; &I-J90-6268; [66-72]
       (=jis-x0213-1	  . #x6268)	; &I-JX1-6268; [66-72]
       (=daikanwa	  . 24564)	; &I-M-24564;
-      (=shinjigen	  .  8607)	; &GT-31404;
+      (=shinjigen	  .  8607)	; &HD-JA-6268;
       ))
     (<-simplified@JP/Jouyou*sources
      JP/Jouyou daikanwa)
