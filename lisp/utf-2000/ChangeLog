@@ -1,3 +1,12 @@
+2014-05-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R108-Dish.el:
+	- Add `=decomposition@hanyo-denshi' for some representative
+	  (detailed) glyph-images of Hanyo-Denshi/{JA|JC}.
+	- Add Hanyo-Denshi/JA code points.
+	(JSP-4E4F): Unify J90U+76D4 instead of JU+76D4.
+	(JX1-786A): Use `->subsumptive' to add representative nodes.
+
 2014-05-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R017-Open-Box.el (U-0002067B): Add `<-ancient' for
