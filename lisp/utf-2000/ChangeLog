@@ -1,3 +1,19 @@
+2014-05-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R112-Stone.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some representative
+	  (detailed) glyph-images of Hanyo-Denshi/{JA|JB}.
+
+	* Ideograph-R109-Eye.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some representative
+	  (detailed) glyph-images of Hanyo-Denshi/{JA|JB|JD}.
+	(M-23335): Map to U-00025177; integrate H7-ABD5.
+	(M-23336): Map to U-00025178; integrate H7-ABD8.
+	(M-23337): Map to U-0002517A; integrate H7-AC4F.
+	(M-23338): Map to U-00025175; integrate H7-ABD0.
+
 2014-05-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R108-Dish.el:
