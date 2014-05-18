@@ -692,7 +692,12 @@
     (=>jis-x0213-1	. #x786A)	; 盔 [88-74]
     (=big5		. #xB2AF)	; &I-B-B2AF;
     (->subsumptive
-     ((=ucs@jis/1990	  . #x76D4)	; &HD-JB-4E4F;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x76D4)	; 盔
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=ucs@jis/1990	  . #x76D4)	; &HD-JB-4E4F;
       (=jis-x0212	  . #x4E4F)	; &HD-JB-4E4F; [46-47]
       (=hanyo-denshi/jb	  . #x4E4F)	; &I-HD-JB-4E4F; [46-47]
       (=daikanwa	  . 22992)	; &I-M-22992;
