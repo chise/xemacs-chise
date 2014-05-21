@@ -1049,12 +1049,8 @@
      ((name		  . "TILDE OPERATOR")
       (=ucs		  . #x223C)	; ∼
       ))
-    (=ucs@cns		. #xFF5E)	; &C1-2244;
-    (=ucs@ks		. #x223C)	; &C1-2244;
-    (=ucs@big5		. #xFF5E)	; &C1-2244;
-    (=ks-x1001		. #x212D)	; &C1-2244; [01-13]
-    (=cns11643-1	. #x2244)	; &I-C1-2244; [02-36]
-    (=big5		. #xA1E3)	; &I-B-A1E3;
+    (=ucs@ks		. #x223C)	; &K0-212D;
+    (=ks-x1001		. #x212D)	; &K0-212D; [01-13]
     (<-fullwidth
      ((name		  . "TILDE OPERATOR")
       (=ucs		  . #x223C)	; ∼
