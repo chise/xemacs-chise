@@ -1,3 +1,12 @@
+2014-05-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* B-to-UCS.txt (B-A1E3): Don't map to U+223C.
+
+2014-05-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* C1-to-UCS.txt (C1-2244): Map to U+FF5E instead of U+223C.
+	(C1-243F): Map to U+3039 instead of U+5344.
+
 2014-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* C4-to-UCS.txt (C4-225B): Delete UCS mapping.
