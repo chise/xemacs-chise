@@ -1,3 +1,17 @@
+2014-05-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R109-Eye.el: Add `=decomposition@hanyo-denshi' for
+	some representative (detailed) glyph-images of Hanyo-Denshi/JA.
+
+	* Ideograph-R108-Dish.el (JSP-4E4F): Add
+	`=decomposition@hanyo-denshi'.
+
+	* u0FF00-Halfwidth-and-Fullwidth-Forms.el (<FULLWIDTH TILDE>):
+	Unify C1-2244 and B-A1E3.
+
+	* u02200-Mathematical-Operators.el (K0-212D): Separate CU+FF5E,
+	BU+FF5E, C1-2244 and B-A1E3.
+
 2014-05-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R112-Stone.el:
