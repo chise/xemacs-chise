@@ -1,5 +1,8 @@
 2014-05-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R112-Stone.el: Add `=decomposition@hanyo-denshi' for
+	some representative (detailed) glyph-images of Hanyo-Denshi/JA.
+
 	* Ideograph-R109-Eye.el: Add `=decomposition@hanyo-denshi' for
 	some representative (detailed) glyph-images of Hanyo-Denshi/JA.
 
