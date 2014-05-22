@@ -2855,7 +2855,12 @@
       (->subsumptive
        ((==daikanwa	    . 24229)	; &R-M-24229;
 	)
-       ((==ucs@jis	    . #x786B)	; &R-HD-JA-4E32;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x786B)	; 硫
+	  )
+	 ((=ucs		      . #xE0101)	; 󠄁
+	  ))
+	(==ucs@jis	    . #x786B)	; &R-HD-JA-4E32;
 	(==ucs@ks	    . #x786B)	; &R-HD-JA-4E32;
 	(==ks-x1001	    . #x573C)	; &R-HD-JA-4E32; [55-28]
 	(==jis-x0208	    . #x4E32)	; &R-HD-JA-4E32; [46-18]
@@ -4361,11 +4366,6 @@
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x78A3)	; 碣
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
     (=ucs@unicode	. #x78A3)	; &HD-JA-6272;
     (=jis-x0208		. #x6272)	; &HD-JA-6272; [66-82]
     (=gb2312		. #x6D59)	; &I-G0-6D59; [77-57]
@@ -4381,7 +4381,12 @@
     (->subsumptive
      ((==daikanwa	  . 24326)	; &R-M-24326;
       )
-     ((==ucs@jis	  . #x78A3)	; &R-HD-JA-6272;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x78A3)	; 碣
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@jis	  . #x78A3)	; &R-HD-JA-6272;
       (==ucs@ks		  . #x78A3)	; &R-HD-JA-6272;
       (==ks-x1001	  . #x4A65)	; &R-HD-JA-6272; [42-69]
       (==jis-x0208	  . #x6272)	; &R-HD-JA-6272; [66-82]
@@ -4936,7 +4941,12 @@
      ((==daikanwa	  . 24364)	; &R-M-24364;
       (==shinjigen	  .  5455)	; &R-M-24364;
       )
-     ((==ucs@jis	  . #x78C1)	; &R-HD-JA-3C27;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x78C1)	; 磁
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@jis	  . #x78C1)	; &R-HD-JA-3C27;
       (==jis-x0208	  . #x3C27)	; &R-HD-JA-3C27; [28-07]
       (==jis-x0213-1	  . #x3C27)	; &R-HD-JA-3C27; [28-07]
       (==hanyo-denshi/ja  . #x3C27)	; &R-HD-JA-3C27; [28-07]
@@ -6848,7 +6858,12 @@
       (=gt-pj-1		  . #x306B)	; &I-GT-31281; [16-75]
       (=daikanwa	  . 24465)	; &I-M-24465;
       )
-     ((=ucs@jis		  . #x78EF)	; &HD-JA-306B;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x78EF)	; 磯
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=ucs@jis		  . #x78EF)	; &HD-JA-306B;
       (=ucs@ks		  . #x78EF)	; &HD-JA-306B;
       (=jis-x0208	  . #x306B)	; &HD-JA-306B; [16-75]
       (=ks-x1001	  . #x5134)	; &I-K0-5134; [49-20]
