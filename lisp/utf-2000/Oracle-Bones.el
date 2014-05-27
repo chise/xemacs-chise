@@ -17,7 +17,7 @@
       )
      ((=zinbun-oracle	  . 00247)	; &ZOB-0247;
       ))
-    (sources		zob1968=1791)
+    (sources		zob1959=1791)
     (zinbun-oracle-page . 3)
     (=zinbun-oracle	. 00002)	; &ZOB-0002;
     (<-Oracle-Bones
@@ -62,7 +62,7 @@
       )
      ((=zinbun-oracle	  . 00293)	; &ZOB-0293;
       ))
-    (sources		zob1968=1333 zob1968=1348 zob1968=3065)
+    (sources		zob1959=1333 zob1959=1348 zob1959=3065)
     (zinbun-oracle-page . 3)
     (=zinbun-oracle	. 00003)	; &ZOB-0003;
     ))
@@ -71,14 +71,14 @@
      ((=>zinbun-oracle	  . 00003)	; &A-ZOB-0003;
       ))
     (shuowen-radical	. 1)	; 一
-    (sources		zob1968=0049 zob1968=0722 zob1968=1256 zob1968=1544
-			zob1968=1551 zob1968=1905 zob1968=2281 zob1968=2688
-			zob1968=2689 zob1968=2690 zob1968=2695 zob1968=2696
-			zob1968=2697 zob1968=2699 zob1968=2701 zob1968=2703
-			zob1968=2704 zob1968=2705 zob1968=2710-2713
-			zob1968=2721 zob1968=2727 zob1968=2979 zob1968=2997
-			zob1968=3009 zob1968=3045 zob1968=3064 zob1968=3065
-			zob1968=3256)
+    (sources		zob1959=0049 zob1959=0722 zob1959=1256 zob1959=1544
+			zob1959=1551 zob1959=1905 zob1959=2281 zob1959=2688
+			zob1959=2689 zob1959=2690 zob1959=2695 zob1959=2696
+			zob1959=2697 zob1959=2699 zob1959=2701 zob1959=2703
+			zob1959=2704 zob1959=2705 zob1959=2710-2713
+			zob1959=2721 zob1959=2727 zob1959=2979 zob1959=2997
+			zob1959=3009 zob1959=3045 zob1959=3064 zob1959=3065
+			zob1959=3256)
     (zinbun-oracle-page . 3)
     (=zinbun-oracle	. 00004)	; &ZOB-0004;
     ))
@@ -92,8 +92,8 @@
       )
      ((=zinbun-oracle	  . 00300)	; &ZOB-0300;
       ))
-    (sources		zob1968=2258 zob1968=2264 zob1968=2279 zob1968=2332
-			zob1968=2333 zob1968=2337 zob1968=2979 zob1968=2997)
+    (sources		zob1959=2258 zob1959=2264 zob1959=2279 zob1959=2332
+			zob1959=2333 zob1959=2337 zob1959=2979 zob1959=2997)
     (zinbun-oracle-page . 3)
     (=zinbun-oracle	. 00005)	; &ZOB-0005;
     (<-Oracle-Bones
@@ -114,7 +114,7 @@
       )
      ((=ucs		  . #x52FF)	; 勿
       ))
-    (sources		zob1968=0061)
+    (sources		zob1959=0061)
     (zinbun-oracle-page . 3)
     (=zinbun-oracle	. 00006)	; &ZOB-0006;
     (<-Oracle-Bones
@@ -175,7 +175,7 @@
       )
      ((=zinbun-oracle	  . 01244)	; &ZOB-1244;
       ))
-    (sources		zob1968=1350 zob1968=2299)
+    (sources		zob1959=1350 zob1959=2299)
     (zinbun-oracle-page . 3)
     (=zinbun-oracle	. 00009)	; &ZOB-0009;
     (<-Oracle-Bones
@@ -196,7 +196,7 @@
       )
      ((=zinbun-oracle	  . 01263)	; &ZOB-1263;
       ))
-    (sources		zob1968=1383 zob1968=1819)
+    (sources		zob1959=1383 zob1959=1819)
     (zinbun-oracle-page . 3)
     (=zinbun-oracle	. 00010)	; &ZOB-0010;
     (<-Oracle-Bones
@@ -224,7 +224,7 @@
       )
      ((=zinbun-oracle	  . 01252)	; &ZOB-1252;
       ))
-    (sources		zob1968=3248)
+    (sources		zob1959=3248)
     (zinbun-oracle-page . 3)
     (=zinbun-oracle	. 00011)	; &ZOB-0011;
     (<-Oracle-Bones
@@ -260,7 +260,7 @@
       )
      ((=ucs		  . #x6708)	; 月
       ))
-    (sources		zob1968=1192 zob1968=3001 zob1968=3002)
+    (sources		zob1959=1192 zob1959=3001 zob1959=3002)
     (zinbun-oracle-page . 3)
     (=zinbun-oracle	. 00012)	; &ZOB-0012;
     ))
@@ -269,11 +269,11 @@
      ((=>zinbun-oracle	  . 00012)	; &A-ZOB-0012;
       ))
     (shuowen-radical	. 1)	; 一
-    (sources		zob1968=0004 zob1968=0037 zob1968=0068 zob1968=0084
-			zob1968=0127 zob1968=0210 zob1968=0606 zob1968=0607
-			zob1968=0784 zob1968=0796 zob1968=0919 zob1968=1162
-			zob1968=1291 zob1968=1521 zob1968=1737 zob1968=1767
-			zob1968=3099 zob1968=3118 zob1968=3135 zob1968=3242)
+    (sources		zob1959=0004 zob1959=0037 zob1959=0068 zob1959=0084
+			zob1959=0127 zob1959=0210 zob1959=0606 zob1959=0607
+			zob1959=0784 zob1959=0796 zob1959=0919 zob1959=1162
+			zob1959=1291 zob1959=1521 zob1959=1737 zob1959=1767
+			zob1959=3099 zob1959=3118 zob1959=3135 zob1959=3242)
     (zinbun-oracle-page . 3)
     (=zinbun-oracle	. 00013)	; &ZOB-0013;
     ))
@@ -307,7 +307,7 @@
       )
      ((=ucs		  . #x4EBA)	; 人
       ))
-    (sources		zob1968=2219)
+    (sources		zob1959=2219)
     (zinbun-oracle-page . 3)
     (=zinbun-oracle	. 00015)	; &ZOB-0015;
     (<-Oracle-Bones
@@ -348,7 +348,7 @@
       )
      ((=ucs		  . #x8C55)	; 豕
       ))
-    (sources		zob1968=3068)
+    (sources		zob1959=3068)
     (zinbun-oracle-page . 3)
     (=zinbun-oracle	. 00017)	; &ZOB-0017;
     (<-Oracle-Bones
@@ -369,7 +369,7 @@
       )
      ((=gt-k		  . 00118)	; &GT-K00118;
       ))
-    (sources		zob1968=1095)
+    (sources		zob1959=1095)
     (zinbun-oracle-page . 3)
     (=zinbun-oracle	. 00018)	; &ZOB-0018;
     (<-Oracle-Bones
@@ -390,7 +390,7 @@
       )
      ((=ucs		  . #x513F)	; 儿
       ))
-    (sources		zob1968=1157)
+    (sources		zob1959=1157)
     (zinbun-oracle-page . 3)
     (=zinbun-oracle	. 00019)	; &ZOB-0019;
     (<-Oracle-Bones
@@ -407,7 +407,7 @@
       )
      ((=zinbun-oracle	  . 00054)	; &ZOB-0054;
       ))
-    (sources		zob1968=0716)
+    (sources		zob1959=0716)
     (zinbun-oracle-page . 3)
     (=zinbun-oracle	. 00020)	; &ZOB-0020;
     (<-Oracle-Bones
@@ -493,26 +493,26 @@
       )
      ((=zinbun-oracle	  . 00337)	; &ZOB-0337;
       ))
-    (sources		zob1968=0010 zob1968=0027 zob1968=0045 zob1968=0046
-			zob1968=0052 zob1968=0088 zob1968=0145 zob1968=0166
-			zob1968=0175 zob1968=0302 zob1968=0452 zob1968=0491
-			zob1968=0492 zob1968=0493 zob1968=0494
-			zob1968=0496-0499 zob1968=0501 zob1968=0648
-			zob1968=0719 zob1968=0724 zob1968=0727 zob1968=0735
-			zob1968=0740 zob1968=0743 zob1968=0758 zob1968=0802
-			zob1968=0807 zob1968=0810 zob1968=0828 zob1968=0832
-			zob1968=0839 zob1968=0842 zob1968=0843 zob1968=0848
-			zob1968=0854 zob1968=0873 zob1968=0874 zob1968=0877
-			zob1968=0881 zob1968=0884 zob1968=0905 zob1968=0975
-			zob1968=0993 zob1968=0997 zob1968=0998 zob1968=1003
-			zob1968=1005 zob1968=1006 zob1968=1007 zob1968=1010
-			zob1968=1018 zob1968=1020 zob1968=1021 zob1968=1022
-			zob1968=1024 zob1968=1025 zob1968=1027 zob1968=1028
-			zob1968=1031-1035 zob1968=1037-1040 zob1968=1043
-			zob1968=1048 zob1968=1050 zob1968=1051 zob1968=1053
-			zob1968=1056 zob1968=1063 zob1968=1064 zob1968=1068
-			zob1968=1086 zob1968=1092 zob1968=1208 zob1968=1216
-			zob1968=1217 zob1968=3220 zob1968=3250)
+    (sources		zob1959=0010 zob1959=0027 zob1959=0045 zob1959=0046
+			zob1959=0052 zob1959=0088 zob1959=0145 zob1959=0166
+			zob1959=0175 zob1959=0302 zob1959=0452 zob1959=0491
+			zob1959=0492 zob1959=0493 zob1959=0494
+			zob1959=0496-0499 zob1959=0501 zob1959=0648
+			zob1959=0719 zob1959=0724 zob1959=0727 zob1959=0735
+			zob1959=0740 zob1959=0743 zob1959=0758 zob1959=0802
+			zob1959=0807 zob1959=0810 zob1959=0828 zob1959=0832
+			zob1959=0839 zob1959=0842 zob1959=0843 zob1959=0848
+			zob1959=0854 zob1959=0873 zob1959=0874 zob1959=0877
+			zob1959=0881 zob1959=0884 zob1959=0905 zob1959=0975
+			zob1959=0993 zob1959=0997 zob1959=0998 zob1959=1003
+			zob1959=1005 zob1959=1006 zob1959=1007 zob1959=1010
+			zob1959=1018 zob1959=1020 zob1959=1021 zob1959=1022
+			zob1959=1024 zob1959=1025 zob1959=1027 zob1959=1028
+			zob1959=1031-1035 zob1959=1037-1040 zob1959=1043
+			zob1959=1048 zob1959=1050 zob1959=1051 zob1959=1053
+			zob1959=1056 zob1959=1063 zob1959=1064 zob1959=1068
+			zob1959=1086 zob1959=1092 zob1959=1208 zob1959=1216
+			zob1959=1217 zob1959=3220 zob1959=3250)
     (zinbun-oracle-page . 4)
     (=zinbun-oracle	. 00025)	; &ZOB-0025;
     (<-Oracle-Bones
@@ -533,7 +533,7 @@
       )
      ((=ucs		  . #x6B69)	; 歩
       ))
-    (sources		zob1968=2155)
+    (sources		zob1959=2155)
     (zinbun-oracle-page . 4)
     (=zinbun-oracle	. 00026)	; &ZOB-0026;
     (<-Oracle-Bones
@@ -561,11 +561,11 @@
      ((=>zinbun-oracle	  . 00027)	; &A-ZOB-0027;
       ))
     (shuowen-radical	. 2)	; 上
-    (sources		zob1968=0008 zob1968=0009 zob1968=0010 zob1968=0011
-			zob1968=0716 zob1968=0717 zob1968=1780 zob1968=1781
-			zob1968=1783 zob1968=1784 zob1968=2263 zob1968=2264
-			zob1968=2265 zob1968=2266 zob1968=2267 zob1968=2268
-			zob1968=2285 zob1968=2363 zob1968=2979-2984)
+    (sources		zob1959=0008 zob1959=0009 zob1959=0010 zob1959=0011
+			zob1959=0716 zob1959=0717 zob1959=1780 zob1959=1781
+			zob1959=1783 zob1959=1784 zob1959=2263 zob1959=2264
+			zob1959=2265 zob1959=2266 zob1959=2267 zob1959=2268
+			zob1959=2285 zob1959=2363 zob1959=2979-2984)
     (zinbun-oracle-page . 4)
     (=zinbun-oracle	. 00027)	; &ZOB-0027;
     ))
@@ -582,7 +582,7 @@
       )
      ((=zinbun-oracle	  . 00027)	; &ZOB-0027;
       ))
-    (sources		zob1968=1251)
+    (sources		zob1959=1251)
     (zinbun-oracle-page . 4)
     (=zinbun-oracle	. 00028)	; &ZOB-0028;
     ))
@@ -599,7 +599,7 @@
       )
      ((=zinbun-oracle	  . 00027)	; &ZOB-0027;
       ))
-    (sources		zob1968=1252 zob1968=1782)
+    (sources		zob1959=1252 zob1959=1782)
     (zinbun-oracle-page . 4)
     (=zinbun-oracle	. 00029)	; &ZOB-0029;
     ))
@@ -684,10 +684,10 @@
      ((=>zinbun-oracle	  . 00033)	; &A-ZOB-0033;
       ))
     (shuowen-radical	. 2)	; 上
-    (sources		zob1968=0062 zob1968=0063 zob1968=0069 zob1968=0137
-			zob1968=0156 zob1968=0157 zob1968=0710 zob1968=0802
-			zob1968=1156 zob1968=1556 zob1968=1940 zob1968=2982
-			zob1968=3221)
+    (sources		zob1959=0062 zob1959=0063 zob1959=0069 zob1959=0137
+			zob1959=0156 zob1959=0157 zob1959=0710 zob1959=0802
+			zob1959=1156 zob1959=1556 zob1959=1940 zob1959=2982
+			zob1959=3221)
     (zinbun-oracle-page . 4)
     (=zinbun-oracle	. 00033)	; &ZOB-0033;
     ))
@@ -696,7 +696,7 @@
      ((=>zinbun-oracle	  . 00033)	; &A-ZOB-0033;
       ))
     (shuowen-radical	. 2)	; 上
-    (sources		zob1968=0061 zob1968=0064 zob1968=3249)
+    (sources		zob1959=0061 zob1959=0064 zob1959=3249)
     (zinbun-oracle-page . 4)
     (=zinbun-oracle	. 00034)	; &ZOB-0034;
     ))
@@ -705,7 +705,7 @@
      ((=>zinbun-oracle	  . 00033)	; &A-ZOB-0033;
       ))
     (shuowen-radical	. 2)	; 上
-    (sources		zob1968=2142)
+    (sources		zob1959=2142)
     (zinbun-oracle-page . 4)
     (=zinbun-oracle	. 00035)	; &ZOB-0035;
     ))
@@ -714,7 +714,7 @@
      ((=>zinbun-oracle	  . 00033)	; &A-ZOB-0033;
       ))
     (shuowen-radical	. 2)	; 上
-    (sources		zob1968=2298 zob1968=3035)
+    (sources		zob1959=2298 zob1959=3035)
     (zinbun-oracle-page . 4)
     (=zinbun-oracle	. 00036)	; &ZOB-0036;
     ))
@@ -723,7 +723,7 @@
      ((=>zinbun-oracle	  . 00033)	; &A-ZOB-0033;
       ))
     (shuowen-radical	. 2)	; 上
-    (sources		zob1968=3032)
+    (sources		zob1959=3032)
     (zinbun-oracle-page . 4)
     (=zinbun-oracle	. 00037)	; &ZOB-0037;
     ))
@@ -825,7 +825,7 @@
     ))
 (define-char
   '((shuowen-radical	. 2)	; 上
-    (sources		zob1968=0717)
+    (sources		zob1959=0717)
     (zinbun-oracle-page . 4)
     (=zinbun-oracle	. 00043)	; &ZOB-0043;
     (<-Oracle-Bones
@@ -844,7 +844,7 @@
       )
      ((=zinbun-oracle	  . 00022)	; &ZOB-0022;
       ))
-    (sources		zob1968=0692 zob1968=0911)
+    (sources		zob1959=0692 zob1959=0911)
     (zinbun-oracle-page . 4)
     (=zinbun-oracle	. 00044)	; &ZOB-0044;
     (<-Oracle-Bones
@@ -916,7 +916,7 @@
        ((=ucs		    . #x5216)	; 刖
 	))
       ))
-    (sources		zob1968=2363)
+    (sources		zob1959=2363)
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00047)	; &ZOB-0047;
     (<-Oracle-Bones
@@ -959,7 +959,7 @@
       )
      ((=ucs		  . #x5371)	; 危
       ))
-    (sources		zob1968=0331 zob1968=0887 zob1968=0913)
+    (sources		zob1959=0331 zob1959=0887 zob1959=0913)
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00049)	; &ZOB-0049;
     (<-Oracle-Bones
@@ -987,7 +987,7 @@
        ((=ucs		    . #x571F)	; 土
 	))
       ))
-    (sources		zob1968=1932)
+    (sources		zob1959=1932)
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00050)	; &ZOB-0050;
     (<-Oracle-Bones
@@ -1078,10 +1078,10 @@
      ((=>zinbun-oracle	  . 00054)	; &A-ZOB-0054;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=0010 zob1968=0716 zob1968=1881 zob1968=2155
-			zob1968=2292 zob1968=2301 zob1968=2306 zob1968=2366
-			zob1968=2979 zob1968=3001 zob1968=3065 zob1968=3096
-			zob1968=3140)
+    (sources		zob1959=0010 zob1959=0716 zob1959=1881 zob1959=2155
+			zob1959=2292 zob1959=2301 zob1959=2306 zob1959=2366
+			zob1959=2979 zob1959=3001 zob1959=3065 zob1959=3096
+			zob1959=3140)
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00054)	; &ZOB-0054;
     ))
@@ -1090,10 +1090,10 @@
      ((=>zinbun-oracle	  . 00054)	; &A-ZOB-0054;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=0011 zob1968=0036 zob1968=0511 zob1968=0939
-			zob1968=1091 zob1968=1092-1095 zob1968=1098
-			zob1968=1761 zob1968=1832 zob1968=2369 zob1968=2545
-			zob1968=3098)
+    (sources		zob1959=0011 zob1959=0036 zob1959=0511 zob1959=0939
+			zob1959=1091 zob1959=1092-1095 zob1959=1098
+			zob1959=1761 zob1959=1832 zob1959=2369 zob1959=2545
+			zob1959=3098)
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00055)	; &ZOB-0055;
     ))
@@ -1219,7 +1219,7 @@
       )
      ((=ucs		  . #x7678)	; 癸
       ))
-    (sources		zob1968=1826 zob1968=1827)
+    (sources		zob1959=1826 zob1959=1827)
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00061)	; &ZOB-0061;
     ))
@@ -1233,7 +1233,7 @@
       )
      ((=ucs		  . #x53E4)	; 古
       ))
-    (sources		zob1968=1826 zob1968=1827)
+    (sources		zob1959=1826 zob1959=1827)
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00062)	; &ZOB-0062;
     (<-Oracle-Bones
@@ -1270,8 +1270,8 @@
       )
      ((=ucs		  . #x793A)	; 示
       ))
-    (sources		zob1968=1800 zob1968=1806 zob1968=1811 zob1968=1861
-			zob1968=1883 zob1968=2947)
+    (sources		zob1959=1800 zob1959=1806 zob1959=1811 zob1959=1861
+			zob1959=1883 zob1959=2947)
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00065)	; &ZOB-0065;
     (<-Oracle-Bones
@@ -1315,8 +1315,8 @@
       )
      ((=zinbun-oracle	  . 00909)	; &ZOB-0909;
       ))
-    (sources		zob1968=1255 zob1968=1284 zob1968=1302 zob1968=1785
-			zob1968=1790 zob1968=2316 zob1968=2613)
+    (sources		zob1959=1255 zob1959=1284 zob1959=1302 zob1959=1785
+			zob1959=1790 zob1959=2316 zob1959=2613)
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00067)	; &ZOB-0067;
     ))
@@ -1340,7 +1340,7 @@
       )
      ((=zinbun-oracle	  . 00909)	; &ZOB-0909;
       ))
-    (sources		zob1968=1817)
+    (sources		zob1959=1817)
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00068)	; &ZOB-0068;
     ))
@@ -1358,7 +1358,7 @@
       )
      ((=zinbun-oracle	  . 00909)	; &ZOB-0909;
       ))
-    (sources		zob1968=1851)
+    (sources		zob1959=1851)
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00069)	; &ZOB-0069;
     ))
@@ -1375,13 +1375,13 @@
       )
      ((=zinbun-oracle	  . 00909)	; &ZOB-0909;
       ))
-    (sources		zob1968=2280)
+    (sources		zob1959=2280)
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00070)	; &ZOB-0070;
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
-    (sources		zob1968=2272)
+    (sources		zob1959=2272)
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00071)	; &ZOB-0071;
     ))
@@ -1408,7 +1408,7 @@
       )
      ((=zinbun-oracle	  . 00073)	; &ZOB-0073;
       ))
-    (sources		zob1968=3031)
+    (sources		zob1959=3031)
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00072)	; &ZOB-0072;
     (<-Oracle-Bones
@@ -1420,7 +1420,7 @@
      ((=>zinbun-oracle	  . 00072)	; &A-ZOB-0072;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=1885 zob1968=1886)
+    (sources		zob1959=1885 zob1959=1886)
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00073)	; &ZOB-0073;
     (<-Oracle-Bones
@@ -1457,8 +1457,8 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
-    (sources		zob1968=0009 zob1968=0012 zob1968=0268 zob1968=1271
-			zob1968=2263 zob1968=2284)
+    (sources		zob1959=0009 zob1959=0012 zob1959=0268 zob1959=1271
+			zob1959=2263 zob1959=2284)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00076)	; &ZOB-0076;
     (<-Oracle-Bones
@@ -1541,7 +1541,7 @@
       )
      ((=ucs		  . #x679C)	; 果
       ))
-    (sources		zob1968=0117 zob1968=0454 zob1968=0737)
+    (sources		zob1959=0117 zob1959=0454 zob1959=0737)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00081)	; &ZOB-0081;
     ))
@@ -1550,7 +1550,7 @@
      ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=0043 zob1968=0118)
+    (sources		zob1959=0043 zob1959=0118)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00082)	; &ZOB-0082;
     ))
@@ -1559,10 +1559,10 @@
      ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=1274 zob1968=1280 zob1968=1282 zob1968=1286
-			zob1968=1287 zob1968=1289 zob1968=1290 zob1968=1293
-			zob1968=1294 zob1968=1561 zob1968=1562 zob1968=1569
-			zob1968=1573 zob1968=1574 zob1968=1575 zob1968=1593)
+    (sources		zob1959=1274 zob1959=1280 zob1959=1282 zob1959=1286
+			zob1959=1287 zob1959=1289 zob1959=1290 zob1959=1293
+			zob1959=1294 zob1959=1561 zob1959=1562 zob1959=1569
+			zob1959=1573 zob1959=1574 zob1959=1575 zob1959=1593)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00083)	; &ZOB-0083;
     ))
@@ -1571,7 +1571,7 @@
      ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=1291 zob1968=1609 zob1968=1689)
+    (sources		zob1959=1291 zob1959=1609 zob1959=1689)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00084)	; &ZOB-0084;
     ))
@@ -1580,7 +1580,7 @@
      ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=1292 zob1968=1298 zob1968=1560)
+    (sources		zob1959=1292 zob1959=1298 zob1959=1560)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00085)	; &ZOB-0085;
     ))
@@ -1589,7 +1589,7 @@
      ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=1359)
+    (sources		zob1959=1359)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00086)	; &ZOB-0086;
     ))
@@ -1598,7 +1598,7 @@
      ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=1475 zob1968=1866)
+    (sources		zob1959=1475 zob1959=1866)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00087)	; &ZOB-0087;
     ))
@@ -1607,7 +1607,7 @@
      ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=1551 zob1968=2291)
+    (sources		zob1959=1551 zob1959=2291)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00088)	; &ZOB-0088;
     ))
@@ -1616,7 +1616,7 @@
      ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=1810)
+    (sources		zob1959=1810)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00089)	; &ZOB-0089;
     ))
@@ -1625,7 +1625,7 @@
      ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=2292)
+    (sources		zob1959=2292)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00090)	; &ZOB-0090;
     ))
@@ -1634,7 +1634,7 @@
      ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=2315)
+    (sources		zob1959=2315)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00091)	; &ZOB-0091;
     ))
@@ -1643,7 +1643,7 @@
      ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=2611)
+    (sources		zob1959=2611)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00092)	; &ZOB-0092;
     ))
@@ -1652,7 +1652,7 @@
      ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=2621)
+    (sources		zob1959=2621)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00093)	; &ZOB-0093;
     ))
@@ -1661,7 +1661,7 @@
      ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=2676)
+    (sources		zob1959=2676)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00094)	; &ZOB-0094;
     ))
@@ -1670,7 +1670,7 @@
      ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=3006)
+    (sources		zob1959=3006)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00095)	; &ZOB-0095;
     ))
@@ -1679,7 +1679,7 @@
      ((=>zinbun-oracle	  . 00081)	; &A-ZOB-0081;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=3071)
+    (sources		zob1959=3071)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00096)	; &ZOB-0096;
     ))
@@ -1755,7 +1755,7 @@
      ((=>zinbun-oracle	  . 00101)	; &A-ZOB-0101;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=0067 zob1968=0250 zob1968=2947)
+    (sources		zob1959=0067 zob1959=0250 zob1959=2947)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00101)	; &ZOB-0101;
     ))
@@ -1764,8 +1764,8 @@
      ((=>zinbun-oracle	  . 00101)	; &A-ZOB-0101;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=0207 zob1968=0260 zob1968=0448 zob1968=1162
-			zob1968=1164)
+    (sources		zob1959=0207 zob1959=0260 zob1959=0448 zob1959=1162
+			zob1959=1164)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00102)	; &ZOB-0102;
     ))
@@ -1774,10 +1774,10 @@
      ((=>zinbun-oracle	  . 00101)	; &A-ZOB-0101;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=0259 zob1968=0443 zob1968=0444 zob1968=0446
-			zob1968=2401-2459 zob1968=2462 zob1968=2464
-			zob1968=2467 zob1968=2474 zob1968=2481 zob1968=2482
-			zob1968=2513 zob1968=2551 zob1968=2553)
+    (sources		zob1959=0259 zob1959=0443 zob1959=0444 zob1959=0446
+			zob1959=2401-2459 zob1959=2462 zob1959=2464
+			zob1959=2467 zob1959=2474 zob1959=2481 zob1959=2482
+			zob1959=2513 zob1959=2551 zob1959=2553)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00103)	; &ZOB-0103;
     ))
@@ -1786,7 +1786,7 @@
      ((=>zinbun-oracle	  . 00101)	; &A-ZOB-0101;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=0452 zob1968=3124)
+    (sources		zob1959=0452 zob1959=3124)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00104)	; &ZOB-0104;
     ))
@@ -1795,9 +1795,9 @@
      ((=>zinbun-oracle	  . 00101)	; &A-ZOB-0101;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=2277 zob1968=2295 zob1968=2365 zob1968=2407
-			zob1968=2436 zob1968=2453 zob1968=2468-2473
-			zob1968=2476 zob1968=3089)
+    (sources		zob1959=2277 zob1959=2295 zob1959=2365 zob1959=2407
+			zob1959=2436 zob1959=2453 zob1959=2468-2473
+			zob1959=2476 zob1959=3089)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00105)	; &ZOB-0105;
     ))
@@ -1806,7 +1806,7 @@
      ((=>zinbun-oracle	  . 00101)	; &A-ZOB-0101;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=2326)
+    (sources		zob1959=2326)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00106)	; &ZOB-0106;
     ))
@@ -1815,8 +1815,8 @@
      ((=>zinbun-oracle	  . 00101)	; &A-ZOB-0101;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=2399 zob1968=2475 zob1968=2477 zob1968=2480
-			zob1968=2483 zob1968=2486 zob1968=2513 zob1968=3106)
+    (sources		zob1959=2399 zob1959=2475 zob1959=2477 zob1959=2480
+			zob1959=2483 zob1959=2486 zob1959=2513 zob1959=3106)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00107)	; &ZOB-0107;
     ))
@@ -1825,14 +1825,14 @@
      ((=>zinbun-oracle	  . 00101)	; &A-ZOB-0101;
       ))
     (shuowen-radical	. 3)	; 示
-    (sources		zob1968=2481 zob1968=3016 zob1968=3048 zob1968=3107
-			zob1968=3114)
+    (sources		zob1959=2481 zob1959=3016 zob1959=3048 zob1959=3107
+			zob1959=3114)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00108)	; &ZOB-0108;
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
-    (sources		zob1968=0380)
+    (sources		zob1959=0380)
     (zinbun-oracle-page . 6)
     (=zinbun-oracle	. 00109)	; &ZOB-0109;
     ))
@@ -1843,7 +1843,7 @@
     ))
 (define-char
   '((shuowen-radical	. 3)	; 示
-    (sources		zob1968=0659)
+    (sources		zob1959=0659)
     (zinbun-oracle-page . 7)
     (=zinbun-oracle	. 00111)	; &ZOB-0111;
     ))
@@ -1862,8 +1862,8 @@
       )
      ((=zinbun-oracle	  . 00054)	; &ZOB-0054;
       ))
-    (sources		zob1968=0013 zob1968=0103 zob1968=1085 zob1968=1767
-			zob1968=1787)
+    (sources		zob1959=0013 zob1959=0103 zob1959=1085 zob1959=1767
+			zob1959=1787)
     (zinbun-oracle-page . 7)
     (=zinbun-oracle	. 00113)	; &ZOB-0113;
     (<-Oracle-Bones
@@ -1887,7 +1887,7 @@
       )
      ((=ucs		  . #x518A)	; 冊
       ))
-    (sources		zob1968=1875 zob1968=1880)
+    (sources		zob1959=1875 zob1959=1880)
     (zinbun-oracle-page . 7)
     (=zinbun-oracle	. 00114)	; &ZOB-0114;
     (<-Oracle-Bones
@@ -2002,8 +2002,8 @@
       )
      ((=zinbun-oracle	  . 00121)	; &ZOB-0121;
       )
-     ((=ucs@jis		  . #x7940)	; &GT-31521;
-      (=jis-x0208	  . #x632B)	; &GT-31521; [67-11]
+     ((=ucs@jis		  . #x7940)	; &HD-JA-632B;
+      (=jis-x0208	  . #x632B)	; &HD-JA-632B; [67-11]
       (=ks-x1001	  . #x5E65)	; &I-K0-5E65; [62-69]
       (=jis-x0213-1	  . #x632B)	; &I-JX1-632B; [67-11]
       (=daikanwa	  . 24633)	; &I-M-24633;
@@ -2048,7 +2048,7 @@
       )
      ((=zinbun-oracle	  . 00198)	; &ZOB-0198;
       ))
-    (sources		zob1968=2297)
+    (sources		zob1959=2297)
     (zinbun-oracle-page . 7)
     (=zinbun-oracle	. 00125)	; &ZOB-0125;
     (<-Oracle-Bones
@@ -2069,7 +2069,7 @@
       )
      ((=zinbun-oracle	  . 00247)	; &ZOB-0247;
       ))
-    (sources		zob1968=0001 zob1968=1541)
+    (sources		zob1959=0001 zob1959=1541)
     (zinbun-oracle-page . 7)
     (=zinbun-oracle	. 00126)	; &ZOB-0126;
     (<-Oracle-Bones
@@ -2123,10 +2123,10 @@
       )
      ((=ucs		  . #x725B)	; 牛
       ))
-    (sources		zob1968=0001 zob1968=0716 zob1968=1913 zob1968=1919
-			zob1968=2260 zob1968=2275 zob1968=2285 zob1968=2361
-			zob1968=2361 zob1968=2366 zob1968=2982 zob1968=2988
-			zob1968=3045)
+    (sources		zob1959=0001 zob1959=0716 zob1959=1913 zob1959=1919
+			zob1959=2260 zob1959=2275 zob1959=2285 zob1959=2361
+			zob1959=2361 zob1959=2366 zob1959=2982 zob1959=2988
+			zob1959=3045)
     (zinbun-oracle-page . 7)
     (=zinbun-oracle	. 00128)	; &ZOB-0128;
     (<-Oracle-Bones
@@ -2147,10 +2147,10 @@
       )
      ((=zinbun-oracle	  . 00300)	; &ZOB-0300;
       ))
-    (sources		zob1968=1785 zob1968=1786 zob1968=1904 zob1968=1907
-			zob1968=1910 zob1968=2258 zob1968=2276 zob1968=2334
-			zob1968=2336 zob1968=2338 zob1968=2340 zob1968=2343
-			zob1968=2344 zob1968=3033)
+    (sources		zob1959=1785 zob1959=1786 zob1959=1904 zob1959=1907
+			zob1959=1910 zob1959=2258 zob1959=2276 zob1959=2334
+			zob1959=2336 zob1959=2338 zob1959=2340 zob1959=2343
+			zob1959=2344 zob1959=3033)
     (zinbun-oracle-page . 7)
     (=zinbun-oracle	. 00129)	; &ZOB-0129;
     (<-Oracle-Bones
@@ -2211,7 +2211,7 @@
       )
      ((=zinbun-oracle	  . 00915)	; &ZOB-0915;
       ))
-    (sources		zob1968=1817)
+    (sources		zob1959=1817)
     (zinbun-oracle-page . 7)
     (=zinbun-oracle	. 00132)	; &ZOB-0132;
     (<-Oracle-Bones
@@ -2272,7 +2272,7 @@
       )
      ((=zinbun-oracle	  . 01244)	; &ZOB-1244;
       ))
-    (sources		zob1968=1948)
+    (sources		zob1959=1948)
     (zinbun-oracle-page . 8)
     (=zinbun-oracle	. 00135)	; &ZOB-0135;
     (<-Oracle-Bones
@@ -2293,9 +2293,9 @@
       )
      ((=zinbun-oracle	  . 01263)	; &ZOB-1263;
       ))
-    (sources		zob1968=1334 zob1968=1344 zob1968=1346 zob1968=1906
-			zob1968=2260 zob1968=2315 zob1968=2978 zob1968=3061
-			zob1968=3254 zob1968=3255)
+    (sources		zob1959=1334 zob1959=1344 zob1959=1346 zob1959=1906
+			zob1959=2260 zob1959=2315 zob1959=2978 zob1959=3061
+			zob1959=3254 zob1959=3255)
     (zinbun-oracle-page . 8)
     (=zinbun-oracle	. 00136)	; &ZOB-0136;
     (<-Oracle-Bones
@@ -2350,7 +2350,7 @@
        ((=zinbun-oracle	    . 01244)	; &ZOB-1244;
 	))
       ))
-    (sources		zob1968=2300)
+    (sources		zob1959=2300)
     (zinbun-oracle-page . 8)
     (=zinbun-oracle	. 00138)	; &ZOB-0138;
     (<-Oracle-Bones
@@ -2398,7 +2398,7 @@
       )
      ((=ucs		  . #x65E5)	; 日
       ))
-    (sources		zob1968=0264 zob1968=0516 zob1968=1084 zob1968=3207)
+    (sources		zob1959=0264 zob1959=0516 zob1959=1084 zob1959=3207)
     (zinbun-oracle-page . 8)
     (=zinbun-oracle	. 00140)	; &ZOB-0140;
     (<-Oracle-Bones
@@ -2419,7 +2419,7 @@
       )
      ((=ucs		  . #x65CF)	; 族
       ))
-    (sources		zob1968=2534)
+    (sources		zob1959=2534)
     (zinbun-oracle-page . 8)
     (=zinbun-oracle	. 00141)	; &ZOB-0141;
     (<-Oracle-Bones
@@ -2463,9 +2463,9 @@
       )
      ((=ucs		  . #x6708)	; 月
       ))
-    (sources		zob1968=0203 zob1968=0232 zob1968=0364 zob1968=0465
-			zob1968=0995 zob1968=1597 zob1968=1599 zob1968=1618
-			zob1968=3101 zob1968=3111 zob1968=3237)
+    (sources		zob1959=0203 zob1959=0232 zob1959=0364 zob1959=0465
+			zob1959=0995 zob1959=1597 zob1959=1599 zob1959=1618
+			zob1959=3101 zob1959=3111 zob1959=3237)
     (zinbun-oracle-page . 8)
     (=zinbun-oracle	. 00142)	; &ZOB-0142;
     ))
@@ -2482,10 +2482,10 @@
       )
      ((=ucs		  . #x6708)	; 月
       ))
-    (sources		zob1968=0386 zob1968=0387 zob1968=0608 zob1968=0727
-			zob1968=0911 zob1968=1414 zob1968=1518 zob1968=1546
-			zob1968=1554 zob1968=1592 zob1968=1605 zob1968=1625
-			zob1968=1637 zob1968=3253)
+    (sources		zob1959=0386 zob1959=0387 zob1959=0608 zob1959=0727
+			zob1959=0911 zob1959=1414 zob1959=1518 zob1959=1546
+			zob1959=1554 zob1959=1592 zob1959=1605 zob1959=1625
+			zob1959=1637 zob1959=3253)
     (zinbun-oracle-page . 8)
     (=zinbun-oracle	. 00143)	; &ZOB-0143;
     ))
@@ -2568,7 +2568,7 @@
       )
      ((=ucs		  . #x8C55)	; 豕
       ))
-    (sources		zob1968=0096)
+    (sources		zob1959=0096)
     (zinbun-oracle-page . 8)
     (=zinbun-oracle	. 00147)	; &ZOB-0147;
     (<-Oracle-Bones
@@ -2743,7 +2743,7 @@
       )
      ((=ucs		  . #x77DB)	; 矛
       ))
-    (sources		zob1968=1091 zob1968=1092)
+    (sources		zob1959=1091 zob1959=1092)
     (zinbun-oracle-page . 8)
     (=zinbun-oracle	. 00155)	; &ZOB-0155;
     (<-Oracle-Bones
@@ -2781,10 +2781,10 @@
     ))
 (define-char
   '((shuowen-radical	. 4)	; 三
-    (sources		zob1968=0276 zob1968=0278 zob1968=0607 zob1968=0897
-			zob1968=0949 zob1968=0951 zob1968=1086 zob1968=1096
-			zob1968=1150 zob1968=1223 zob1968=1514 zob1968=1543
-			zob1968=2370)
+    (sources		zob1959=0276 zob1959=0278 zob1959=0607 zob1959=0897
+			zob1959=0949 zob1959=0951 zob1959=1086 zob1959=1096
+			zob1959=1150 zob1959=1223 zob1959=1514 zob1959=1543
+			zob1959=2370)
     (zinbun-oracle-page . 9)
     (=zinbun-oracle	. 00158)	; &ZOB-0158;
     (<-Oracle-Bones
@@ -2823,7 +2823,7 @@
     ))
 (define-char
   '((shuowen-radical	. 5)	; 王
-    (sources		zob1968=3028 zob1968=3241)
+    (sources		zob1959=3028 zob1959=3241)
     (zinbun-oracle-page . 9)
     (=zinbun-oracle	. 00161)	; &ZOB-0161;
     (<-Oracle-Bones
@@ -2840,7 +2840,7 @@
       )
      ((=ucs		  . #x4E99)	; 亙
       ))
-    (sources		zob1968=0715)
+    (sources		zob1959=0715)
     (zinbun-oracle-page . 9)
     (=zinbun-oracle	. 00162)	; &ZOB-0162;
     (<-Oracle-Bones
@@ -2906,7 +2906,7 @@
       )
      ((=ucs		  . #x4EA5)	; 亥
       ))
-    (sources		zob1968=0007 zob1968=0129 zob1968=0713 zob1968=0714)
+    (sources		zob1959=0007 zob1959=0129 zob1959=0713 zob1959=0714)
     (zinbun-oracle-page . 9)
     (=zinbun-oracle	. 00166)	; &ZOB-0166;
     (<-Oracle-Bones
@@ -3029,7 +3029,7 @@
       )
      ((=ucs		  . #x248E9)	; 𤣩
       ))
-    (sources		zob1968=0775 zob1968=2894)
+    (sources		zob1959=0775 zob1959=2894)
     (zinbun-oracle-page . 9)
     (=zinbun-oracle	. 00176)	; &ZOB-0176;
     (<-Oracle-Bones
@@ -3085,7 +3085,7 @@
      ((=>zinbun-oracle	  . 00180)	; &A-ZOB-0180;
       ))
     (shuowen-radical	. 10)	; 丨
-    (sources		zob1968=0972)
+    (sources		zob1959=0972)
     (zinbun-oracle-page . 9)
     (=zinbun-oracle	. 00180)	; &ZOB-0180;
     ))
@@ -3094,7 +3094,7 @@
      ((=>zinbun-oracle	  . 00180)	; &A-ZOB-0180;
       ))
     (shuowen-radical	. 10)	; 丨
-    (sources		zob1968=0417 zob1968=0723 zob1968=1817)
+    (sources		zob1959=0417 zob1959=0723 zob1959=1817)
     (zinbun-oracle-page . 9)
     (=zinbun-oracle	. 00181)	; &ZOB-0181;
     ))
@@ -3103,7 +3103,7 @@
      ((=>zinbun-oracle	  . 00180)	; &A-ZOB-0180;
       ))
     (shuowen-radical	. 10)	; 丨
-    (sources		zob1968=1476 zob1968=1596)
+    (sources		zob1959=1476 zob1959=1596)
     (zinbun-oracle-page . 9)
     (=zinbun-oracle	. 00182)	; &ZOB-0182;
     ))
@@ -3157,7 +3157,7 @@
       )
      ((=ucs		  . #x65E5)	; 日
       ))
-    (sources		zob1968=3114)
+    (sources		zob1959=3114)
     (zinbun-oracle-page . 10)
     (=zinbun-oracle	. 00185)	; &ZOB-0185;
     (<-Oracle-Bones
@@ -3262,7 +3262,7 @@
       )
      ((=ucs		  . #x4E01)	; 丁
       ))
-    (sources		zob1968=3000)
+    (sources		zob1959=3000)
     (zinbun-oracle-page . 10)
     (=zinbun-oracle	. 00189)	; &ZOB-0189;
     ))
@@ -3279,7 +3279,7 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
-    (sources		zob1968=2997 zob1968=2998 zob1968=2999)
+    (sources		zob1959=2997 zob1959=2998 zob1959=2999)
     (zinbun-oracle-page . 10)
     (=zinbun-oracle	. 00190)	; &ZOB-0190;
     ))
@@ -3313,7 +3313,7 @@
       )
      ((=gt-k		  . 01160)	; &GT-K01160;
       ))
-    (sources		zob1968=1270 zob1968=1634 zob1968=3028)
+    (sources		zob1959=1270 zob1959=1634 zob1959=3028)
     (zinbun-oracle-page . 10)
     (=zinbun-oracle	. 00192)	; &ZOB-0192;
     (<-Oracle-Bones
@@ -3337,8 +3337,8 @@
      ((=>zinbun-oracle	  . 00193)	; &A-ZOB-0193;
       ))
     (shuowen-radical	. 11)	; 屮
-    (sources		zob1968=2010 zob1968=2064 zob1968=2067 zob1968=2072
-			zob1968=2073 zob1968=2101 zob1968=2109 zob1968=2159)
+    (sources		zob1959=2010 zob1959=2064 zob1959=2067 zob1959=2072
+			zob1959=2073 zob1959=2101 zob1959=2109 zob1959=2159)
     (zinbun-oracle-page . 10)
     (=zinbun-oracle	. 00193)	; &ZOB-0193;
     ))
@@ -3347,10 +3347,10 @@
      ((=>zinbun-oracle	  . 00193)	; &A-ZOB-0193;
       ))
     (shuowen-radical	. 11)	; 屮
-    (sources		zob1968=2003 zob1968=2033 zob1968=2043 zob1968=2045
-			zob1968=2047 zob1968=2049 zob1968=2052 zob1968=2053
-			zob1968=2070 zob1968=2084 zob1968=2102 zob1968=2130
-			zob1968=2142)
+    (sources		zob1959=2003 zob1959=2033 zob1959=2043 zob1959=2045
+			zob1959=2047 zob1959=2049 zob1959=2052 zob1959=2053
+			zob1959=2070 zob1959=2084 zob1959=2102 zob1959=2130
+			zob1959=2142)
     (zinbun-oracle-page . 10)
     (=zinbun-oracle	. 00194)	; &ZOB-0194;
     ))
@@ -3359,7 +3359,7 @@
      ((=>zinbun-oracle	  . 00193)	; &A-ZOB-0193;
       ))
     (shuowen-radical	. 11)	; 屮
-    (sources		zob1968=1912)
+    (sources		zob1959=1912)
     (zinbun-oracle-page . 10)
     (=zinbun-oracle	. 00195)	; &ZOB-0195;
     ))
@@ -3368,7 +3368,7 @@
      ((=>zinbun-oracle	  . 00193)	; &A-ZOB-0193;
       ))
     (shuowen-radical	. 11)	; 屮
-    (sources		zob1968=1920)
+    (sources		zob1959=1920)
     (zinbun-oracle-page . 10)
     (=zinbun-oracle	. 00196)	; &ZOB-0196;
     ))
@@ -3377,7 +3377,7 @@
      ((=>zinbun-oracle	  . 00193)	; &A-ZOB-0193;
       ))
     (shuowen-radical	. 11)	; 屮
-    (sources		zob1968=2061)
+    (sources		zob1959=2061)
     (zinbun-oracle-page . 10)
     (=zinbun-oracle	. 00197)	; &ZOB-0197;
     ))
@@ -3386,7 +3386,7 @@
      ((=>zinbun-oracle	  . 00193)	; &A-ZOB-0193;
       ))
     (shuowen-radical	. 11)	; 屮
-    (sources		zob1968=2297)
+    (sources		zob1959=2297)
     (zinbun-oracle-page . 10)
     (=zinbun-oracle	. 00198)	; &ZOB-0198;
     ))
@@ -3395,7 +3395,7 @@
      ((=>zinbun-oracle	  . 00193)	; &A-ZOB-0193;
       ))
     (shuowen-radical	. 11)	; 屮
-    (sources		zob1968=2941)
+    (sources		zob1959=2941)
     (zinbun-oracle-page . 10)
     (=zinbun-oracle	. 00199)	; &ZOB-0199;
     ))
@@ -3409,7 +3409,7 @@
       )
      ((=ucs		  . #x620A)	; 戊
       ))
-    (sources		zob1968=2297)
+    (sources		zob1959=2297)
     (zinbun-oracle-page . 10)
     (=zinbun-oracle	. 00200)	; &ZOB-0200;
     (<-Oracle-Bones
@@ -3422,7 +3422,7 @@
     ))
 (define-char
   '((shuowen-radical	. 12)	; 艸
-    (sources		zob1968=1978)
+    (sources		zob1959=1978)
     (zinbun-oracle-page . 10)
     (=zinbun-oracle	. 00201)	; &ZOB-0201;
     (<-Oracle-Bones
@@ -3449,15 +3449,15 @@
     ))
 (define-char
   '((shuowen-radical	. 12)	; 艸
-    (sources		zob1968=0029 zob1968=0042 zob1968=0060 zob1968=0065
-			zob1968=0068 zob1968=0069 zob1968=0071 zob1968=0072
-			zob1968=0123 zob1968=0305 zob1968=0334 zob1968=0460
-			zob1968=0741 zob1968=0743 zob1968=0744 zob1968=0794
-			zob1968=0879 zob1968=1073 zob1968=1156 zob1968=1595
-			zob1968=1885 zob1968=1886 zob1968=1973 zob1968=2142
-			zob1968=2292 zob1968=2295 zob1968=2374 zob1968=2541
-			zob1968=2945 zob1968=3001 zob1968=3121 zob1968=3169
-			zob1968=3220)
+    (sources		zob1959=0029 zob1959=0042 zob1959=0060 zob1959=0065
+			zob1959=0068 zob1959=0069 zob1959=0071 zob1959=0072
+			zob1959=0123 zob1959=0305 zob1959=0334 zob1959=0460
+			zob1959=0741 zob1959=0743 zob1959=0744 zob1959=0794
+			zob1959=0879 zob1959=1073 zob1959=1156 zob1959=1595
+			zob1959=1885 zob1959=1886 zob1959=1973 zob1959=2142
+			zob1959=2292 zob1959=2295 zob1959=2374 zob1959=2541
+			zob1959=2945 zob1959=3001 zob1959=3121 zob1959=3169
+			zob1959=3220)
     (zinbun-oracle-page . 10)
     (=zinbun-oracle	. 00204)	; &ZOB-0204;
     (<-Oracle-Bones
@@ -3474,7 +3474,7 @@
       )
      ((=zinbun-oracle	  . 00101)	; &ZOB-0101;
       ))
-    (sources		zob1968=0067)
+    (sources		zob1959=0067)
     (zinbun-oracle-page . 10)
     (=zinbun-oracle	. 00205)	; &ZOB-0205;
     (<-Oracle-Bones
@@ -3495,8 +3495,8 @@
     ))
 (define-char
   '((shuowen-radical	. 12)	; 艸
-    (sources		zob1968=0289 zob1968=0424 zob1968=0737 zob1968=2369
-			zob1968=2512)
+    (sources		zob1959=0289 zob1959=0424 zob1959=0737 zob1959=2369
+			zob1959=2512)
     (zinbun-oracle-page . 10)
     (=zinbun-oracle	. 00207)	; &ZOB-0207;
     (<-Oracle-Bones
@@ -3513,7 +3513,7 @@
     ))
 (define-char
   '((shuowen-radical	. 12)	; 艸
-    (sources		zob1968=2311)
+    (sources		zob1959=2311)
     (zinbun-oracle-page . 11)
     (=zinbun-oracle	. 00209)	; &ZOB-0209;
     (<-Oracle-Bones
@@ -3558,7 +3558,7 @@
     ))
 (define-char
   '((shuowen-radical	. 12)	; 艸
-    (sources		zob1968=3131)
+    (sources		zob1959=3131)
     (zinbun-oracle-page . 11)
     (=zinbun-oracle	. 00216)	; &ZOB-0216;
     (<-Oracle-Bones
@@ -3612,8 +3612,8 @@
     ))
 (define-char
   '((shuowen-radical	. 12)	; 艸
-    (sources		zob1968=0615 zob1968=0721 zob1968=0915 zob1968=0919
-			zob1968=1103)
+    (sources		zob1959=0615 zob1959=0721 zob1959=0915 zob1959=0919
+			zob1959=1103)
     (zinbun-oracle-page . 11)
     (=zinbun-oracle	. 00221)	; &ZOB-0221;
     (<-Oracle-Bones
@@ -3627,7 +3627,7 @@
     ))
 (define-char
   '((shuowen-radical	. 14)	; 茻
-    (sources		zob1968=0278 zob1968=2039 zob1968=2075)
+    (sources		zob1959=0278 zob1959=2039 zob1959=2075)
     (zinbun-oracle-page . 11)
     (=zinbun-oracle	. 00223)	; &ZOB-0223;
     (<-Oracle-Bones
@@ -3638,7 +3638,7 @@
     ))
 (define-char
   '((shuowen-radical	. 14)	; 茻
-    (sources		zob1968=1887 zob1968=1907)
+    (sources		zob1959=1887 zob1959=1907)
     (zinbun-oracle-page . 11)
     (=zinbun-oracle	. 00224)	; &ZOB-0224;
     ))
@@ -3649,7 +3649,7 @@
     ))
 (define-char
   '((shuowen-radical	. 14)	; 茻
-    (sources		zob1968=0451)
+    (sources		zob1959=0451)
     (zinbun-oracle-page . 11)
     (=zinbun-oracle	. 00226)	; &ZOB-0226;
     (<-Oracle-Bones
@@ -3663,13 +3663,13 @@
     ))
 (define-char
   '((shuowen-radical	. 14)	; 茻
-    (sources		zob1968=0450)
+    (sources		zob1959=0450)
     (zinbun-oracle-page . 11)
     (=zinbun-oracle	. 00228)	; &ZOB-0228;
     ))
 (define-char
   '((shuowen-radical	. 14)	; 茻
-    (sources		zob1968=0456)
+    (sources		zob1959=0456)
     (zinbun-oracle-page . 11)
     (=zinbun-oracle	. 00229)	; &ZOB-0229;
     ))
@@ -3705,9 +3705,9 @@
     ))
 (define-char
   '((shuowen-radical	. 15)	; 小
-    (sources		zob1968=0001 zob1968=0697 zob1968=1373 zob1968=1376
-			zob1968=1541 zob1968=1719 zob1968=1722 zob1968=1791
-			zob1968=1850 zob1968=2588)
+    (sources		zob1959=0001 zob1959=0697 zob1959=1373 zob1959=1376
+			zob1959=1541 zob1959=1719 zob1959=1722 zob1959=1791
+			zob1959=1850 zob1959=2588)
     (zinbun-oracle-page . 13)
     (=zinbun-oracle	. 00236)	; &ZOB-0236;
     (<-Oracle-Bones
@@ -3724,7 +3724,7 @@
       )
      ((=zinbun-oracle	  . 00036)	; &ZOB-0036;
       ))
-    (sources		zob1968=2298)
+    (sources		zob1959=2298)
     (zinbun-oracle-page . 13)
     (=zinbun-oracle	. 00237)	; &ZOB-0237;
     (<-Oracle-Bones
@@ -3772,7 +3772,7 @@
        ((=ucs		    . #x6708)	; 月
 	))
       ))
-    (sources		zob1968=3101)
+    (sources		zob1959=3101)
     (zinbun-oracle-page . 13)
     (=zinbun-oracle	. 00239)	; &ZOB-0239;
     (<-Oracle-Bones
@@ -3795,7 +3795,7 @@
       )
      ((=zinbun-oracle	  . 00161)	; &ZOB-0161;
       ))
-    (sources		zob1968=3028 zob1968=3241)
+    (sources		zob1959=3028 zob1959=3241)
     (zinbun-oracle-page . 13)
     (=zinbun-oracle	. 00240)	; &ZOB-0240;
     (<-Oracle-Bones
@@ -3860,7 +3860,7 @@
       )
      ((=zinbun-oracle	  . 00300)	; &ZOB-0300;
       ))
-    (sources		zob1968=1894)
+    (sources		zob1959=1894)
     (zinbun-oracle-page . 13)
     (=zinbun-oracle	. 00243)	; &ZOB-0243;
     (<-Oracle-Bones
@@ -3881,14 +3881,14 @@
       )
      ((=zinbun-oracle	  . 00337)	; &ZOB-0337;
       ))
-    (sources		zob1968=0007 zob1968=0500 zob1968=0502-0508
-			zob1968=0607 zob1968=0763 zob1968=0843 zob1968=0867
-			zob1968=0874 zob1968=0936 zob1968=0940 zob1968=0974
-			zob1968=0987 zob1968=0995 zob1968=0996 zob1968=0999
-			zob1968=1001 zob1968=1005 zob1968=1009 zob1968=1010
-			zob1968=1011 zob1968=1019 zob1968=1020 zob1968=1029
-			zob1968=1036 zob1968=1040 zob1968=1057 zob1968=1071
-			zob1968=3228)
+    (sources		zob1959=0007 zob1959=0500 zob1959=0502-0508
+			zob1959=0607 zob1959=0763 zob1959=0843 zob1959=0867
+			zob1959=0874 zob1959=0936 zob1959=0940 zob1959=0974
+			zob1959=0987 zob1959=0995 zob1959=0996 zob1959=0999
+			zob1959=1001 zob1959=1005 zob1959=1009 zob1959=1010
+			zob1959=1011 zob1959=1019 zob1959=1020 zob1959=1029
+			zob1959=1036 zob1959=1040 zob1959=1057 zob1959=1071
+			zob1959=3228)
     (zinbun-oracle-page . 13)
     (=zinbun-oracle	. 00244)	; &ZOB-0244;
     (<-Oracle-Bones
@@ -3909,7 +3909,7 @@
       )
      ((=ucs		  . #x81E3)	; 臣
       ))
-    (sources		zob1968=0155)
+    (sources		zob1959=0155)
     (zinbun-oracle-page . 13)
     (=zinbun-oracle	. 00245)	; &ZOB-0245;
     (<-Oracle-Bones
@@ -3930,7 +3930,7 @@
       )
      ((=zinbun-oracle	  . 01155)	; &ZOB-1155;
       ))
-    (sources		zob1968=2359)
+    (sources		zob1959=2359)
     (zinbun-oracle-page . 13)
     (=zinbun-oracle	. 00246)	; &ZOB-0246;
     (<-Oracle-Bones
@@ -3951,9 +3951,9 @@
       )
      ((=zinbun-oracle	  . 01263)	; &ZOB-1263;
       ))
-    (sources		zob1968=0001 zob1968=0055 zob1968=1343 zob1968=1376
-			zob1968=1541 zob1968=1791 zob1968=1821 zob1968=1902
-			zob1968=1911 zob1968=1912)
+    (sources		zob1959=0001 zob1959=0055 zob1959=1343 zob1959=1376
+			zob1959=1541 zob1959=1791 zob1959=1821 zob1959=1902
+			zob1959=1911 zob1959=1912)
     (zinbun-oracle-page . 13)
     (=zinbun-oracle	. 00247)	; &ZOB-0247;
     (<-Oracle-Bones
@@ -4001,7 +4001,7 @@
       )
      ((=zinbun-oracle	  . 01678)	; &ZOB-1678;
       ))
-    (sources		zob1968=3099)
+    (sources		zob1959=3099)
     (zinbun-oracle-page . 13)
     (=zinbun-oracle	. 00249)	; &ZOB-0249;
     (<-Oracle-Bones
@@ -4136,7 +4136,7 @@
       )
      ((=ucs		  . #x706B)	; 火
       ))
-    (sources		zob1968=1945)
+    (sources		zob1959=1945)
     (zinbun-oracle-page . 13)
     (=zinbun-oracle	. 00255)	; &ZOB-0255;
     (<-Oracle-Bones
@@ -4157,7 +4157,7 @@
       )
      ((=ucs		  . #x96E8)	; 雨
       ))
-    (sources		zob1968=1962 zob1968=1982 zob1968=2060 zob1968=2373)
+    (sources		zob1959=1962 zob1959=1982 zob1959=2060 zob1959=2373)
     (zinbun-oracle-page . 13)
     (=zinbun-oracle	. 00256)	; &ZOB-0256;
     (<-Oracle-Bones
@@ -4198,7 +4198,7 @@
       )
      ((=ucs		  . #x6383)	; 掃
       ))
-    (sources		zob1968=0154)
+    (sources		zob1959=0154)
     (zinbun-oracle-page . 14)
     (=zinbun-oracle	. 00258)	; &ZOB-0258;
     (<-Oracle-Bones
@@ -4268,8 +4268,8 @@
       )
      ((=ucs		  . #x4E59)	; 乙
       ))
-    (sources		zob1968=1264 zob1968=1800 zob1968=1801 zob1968=2280
-			zob1968=2569)
+    (sources		zob1959=1264 zob1959=1800 zob1959=1801 zob1959=2280
+			zob1959=2569)
     (zinbun-oracle-page . 14)
     (=zinbun-oracle	. 00261)	; &ZOB-0261;
     (<-Oracle-Bones
@@ -4290,7 +4290,7 @@
       )
      ((=ucs		  . #x4E01)	; 丁
       ))
-    (sources		zob1968=1259 zob1968=1803)
+    (sources		zob1959=1259 zob1959=1803)
     (zinbun-oracle-page . 14)
     (=zinbun-oracle	. 00262)	; &ZOB-0262;
     (<-Oracle-Bones
@@ -4311,7 +4311,7 @@
       )
      ((=ucs		  . #x8F9B)	; 辛
       ))
-    (sources		zob1968=1266)
+    (sources		zob1959=1266)
     (zinbun-oracle-page . 14)
     (=zinbun-oracle	. 00263)	; &ZOB-0263;
     (<-Oracle-Bones
@@ -4548,7 +4548,7 @@
       )
      ((=zinbun-oracle	  . 01244)	; &ZOB-1244;
       ))
-    (sources		zob1968=0083)
+    (sources		zob1959=0083)
     (zinbun-oracle-page . 14)
     (=zinbun-oracle	. 00276)	; &ZOB-0276;
     (<-Oracle-Bones
@@ -4589,7 +4589,7 @@
       )
      ((=zinbun-oracle	  . 01857)	; &ZOB-1857;
       ))
-    (sources		zob1968=0516 zob1968=3099 zob1968=3100)
+    (sources		zob1959=0516 zob1959=3099 zob1959=3100)
     (zinbun-oracle-page . 14)
     (=zinbun-oracle	. 00278)	; &ZOB-0278;
     (<-Oracle-Bones
@@ -4625,10 +4625,10 @@
       )
      ((=ucs		  . #x6708)	; 月
       ))
-    (sources		zob1968=0083 zob1968=0211 zob1968=0227 zob1968=0335
-			zob1968=0782 zob1968=0799 zob1968=1279 zob1968=1283
-			zob1968=1261 zob1968=1467 zob1968=1559 zob1968=3166
-			zob1968=3250)
+    (sources		zob1959=0083 zob1959=0211 zob1959=0227 zob1959=0335
+			zob1959=0782 zob1959=0799 zob1959=1279 zob1959=1283
+			zob1959=1261 zob1959=1467 zob1959=1559 zob1959=3166
+			zob1959=3250)
     (zinbun-oracle-page . 14)
     (=zinbun-oracle	. 00279)	; &ZOB-0279;
     ))
@@ -4637,8 +4637,8 @@
      ((=>zinbun-oracle	  . 00279)	; &A-ZOB-0279;
       ))
     (shuowen-radical	. 16)	; 八
-    (sources		zob1968=0197 zob1968=0216 zob1968=1544 zob1968=1601
-			zob1968=1667 zob1968=2913)
+    (sources		zob1959=0197 zob1959=0216 zob1959=1544 zob1959=1601
+			zob1959=1667 zob1959=2913)
     (zinbun-oracle-page . 14)
     (=zinbun-oracle	. 00280)	; &ZOB-0280;
     ))
@@ -4771,10 +4771,10 @@
       )
      ((=ucs		  . #x6729)	; 朩
       ))
-    (sources		zob1968=0696 zob1968=0761 zob1968=2947 zob1968=3050
-			zob1968=3074 zob1968=3122 zob1968=3123 zob1968=3126
-			zob1968=3127 zob1968=3241 zob1968=3242 zob1968=3243
-			zob1968=3246)
+    (sources		zob1959=0696 zob1959=0761 zob1959=2947 zob1959=3050
+			zob1959=3074 zob1959=3122 zob1959=3123 zob1959=3126
+			zob1959=3127 zob1959=3241 zob1959=3242 zob1959=3243
+			zob1959=3246)
     (zinbun-oracle-page . 15)
     (=zinbun-oracle	. 00288)	; &ZOB-0288;
     ))
@@ -4783,7 +4783,7 @@
      ((=>zinbun-oracle	  . 00288)	; &A-ZOB-0288;
       ))
     (shuowen-radical	. 16)	; 八
-    (sources		zob1968=0335)
+    (sources		zob1959=0335)
     (zinbun-oracle-page . 15)
     (=zinbun-oracle	. 00289)	; &ZOB-0289;
     ))
@@ -4815,33 +4815,33 @@
     ))
 (define-char
   '((shuowen-radical	. 19)	; 牛
-    (sources		zob1968=0001 zob1968=0007 zob1968=0019 zob1968=0049
-			zob1968=0076 zob1968=0078 zob1968=0083 zob1968=0085
-			zob1968=0087 zob1968=0088 zob1968=0089 zob1968=0091
-			zob1968=0101 zob1968=0116 zob1968=0118 zob1968=0190
-			zob1968=0202 zob1968=0393 zob1968=0714 zob1968=0716
-			zob1968=0718 zob1968=0722 zob1968=0750 zob1968=0751
-			zob1968=0760 zob1968=0845 zob1968=1194 zob1968=1244
-			zob1968=1256 zob1968=1261 zob1968=1271 zob1968=1333
-			zob1968=1347 zob1968=1348 zob1968=1349 zob1968=1544
-			zob1968=1551 zob1968=1582 zob1968=1584 zob1968=1788
-			zob1968=1806 zob1968=1807 zob1968=1813 zob1968=1821
-			zob1968=1896 zob1968=1905 zob1968=1913 zob1968=1914
-			zob1968=1915 zob1968=1917 zob1968=1918 zob1968=1919
-			zob1968=1928 zob1968=2260 zob1968=2272 zob1968=2273
-			zob1968=2275 zob1968=2276 zob1968=2281 zob1968=2285
-			zob1968=2291 zob1968=2318 zob1968=2346 zob1968=2348
-			zob1968=2360 zob1968=2361 zob1968=2366 zob1968=2487
-			zob1968=2584 zob1968=2688-2691 zob1968=2693
-			zob1968=2695 zob1968=2696 zob1968=2697 zob1968=2699
-			zob1968=2701-2705 zob1968=2707 zob1968=2708
-			zob1968=2710-2713 zob1968=2716 zob1968=2717
-			zob1968=2718 zob1968=2721 zob1968=2726 zob1968=2727
-			zob1968=2736 zob1968=2889 zob1968=2979 zob1968=2982
-			zob1968=3988 zob1968=2997 zob1968=3009 zob1968=3011
-			zob1968=3039 zob1968=3045 zob1968=3055 zob1968=3063
-			zob1968=3064 zob1968=3065 zob1968=3067 zob1968=3096
-			zob1968=3247 zob1968=3256)
+    (sources		zob1959=0001 zob1959=0007 zob1959=0019 zob1959=0049
+			zob1959=0076 zob1959=0078 zob1959=0083 zob1959=0085
+			zob1959=0087 zob1959=0088 zob1959=0089 zob1959=0091
+			zob1959=0101 zob1959=0116 zob1959=0118 zob1959=0190
+			zob1959=0202 zob1959=0393 zob1959=0714 zob1959=0716
+			zob1959=0718 zob1959=0722 zob1959=0750 zob1959=0751
+			zob1959=0760 zob1959=0845 zob1959=1194 zob1959=1244
+			zob1959=1256 zob1959=1261 zob1959=1271 zob1959=1333
+			zob1959=1347 zob1959=1348 zob1959=1349 zob1959=1544
+			zob1959=1551 zob1959=1582 zob1959=1584 zob1959=1788
+			zob1959=1806 zob1959=1807 zob1959=1813 zob1959=1821
+			zob1959=1896 zob1959=1905 zob1959=1913 zob1959=1914
+			zob1959=1915 zob1959=1917 zob1959=1918 zob1959=1919
+			zob1959=1928 zob1959=2260 zob1959=2272 zob1959=2273
+			zob1959=2275 zob1959=2276 zob1959=2281 zob1959=2285
+			zob1959=2291 zob1959=2318 zob1959=2346 zob1959=2348
+			zob1959=2360 zob1959=2361 zob1959=2366 zob1959=2487
+			zob1959=2584 zob1959=2688-2691 zob1959=2693
+			zob1959=2695 zob1959=2696 zob1959=2697 zob1959=2699
+			zob1959=2701-2705 zob1959=2707 zob1959=2708
+			zob1959=2710-2713 zob1959=2716 zob1959=2717
+			zob1959=2718 zob1959=2721 zob1959=2726 zob1959=2727
+			zob1959=2736 zob1959=2889 zob1959=2979 zob1959=2982
+			zob1959=3988 zob1959=2997 zob1959=3009 zob1959=3011
+			zob1959=3039 zob1959=3045 zob1959=3055 zob1959=3063
+			zob1959=3064 zob1959=3065 zob1959=3067 zob1959=3096
+			zob1959=3247 zob1959=3256)
     (zinbun-oracle-page . 15)
     (=zinbun-oracle	. 00293)	; &ZOB-0293;
     (<-Oracle-Bones
@@ -4858,8 +4858,8 @@
       )
      ((=zinbun-oracle	  . 00293)	; &ZOB-0293;
       ))
-    (sources		zob1968=0092 zob1968=0754 zob1968=1547 zob1968=1587
-			zob1968=2300)
+    (sources		zob1959=0092 zob1959=0754 zob1959=1547 zob1959=1587
+			zob1959=2300)
     (zinbun-oracle-page . 15)
     (=zinbun-oracle	. 00294)	; &ZOB-0294;
     (<-Oracle-Bones
@@ -4932,7 +4932,7 @@
       )
      ((=ucs		  . #x5315)	; 匕
       ))
-    (sources		zob1968=1547 zob1968=3022)
+    (sources		zob1959=1547 zob1959=3022)
     (zinbun-oracle-page . 15)
     (=zinbun-oracle	. 00297)	; &ZOB-0297;
     ))
@@ -4941,7 +4941,7 @@
      ((=>zinbun-oracle	  . 00297)	; &A-ZOB-0297;
       ))
     (shuowen-radical	. 19)	; 牛
-    (sources		zob1968=2996)
+    (sources		zob1959=2996)
     (zinbun-oracle-page . 15)
     (=zinbun-oracle	. 00298)	; &ZOB-0298;
     ))
@@ -4982,24 +4982,24 @@
       )
      ((=zinbun-oracle	  . 00293)	; &ZOB-0293;
       ))
-    (sources		zob1968=0750 zob1968=0755 zob1968=1271 zob1968=1342
-			zob1968=1785 zob1968=1786 zob1968=1793 zob1968=1815
-			zob1968=1821 zob1968=1830 zob1968=1878 zob1968=1882
-			zob1968=1894-1901 zob1968=1903 zob1968=1904
-			zob1968=1905 zob1968=1907 zob1968=1909 zob1968=1910
-			zob1968=2258 zob1968=2259 zob1968=2260 zob1968=2264
-			zob1968=2272 zob1968=2276 zob1968=2279 zob1968=2295
-			zob1968=2296 zob1968=2298 zob1968=2308 zob1968=2321
-			zob1968=2324 zob1968=2331-2341 zob1968=2343
-			zob1968=2344 zob1968=2370 zob1968=2389 zob1968=2571
-			zob1968=2572 zob1968=2577 zob1968=2578 zob1968=2581
-			zob1968=2583 zob1968=2584 zob1968=2688-2695
-			zob1968=2697 zob1968=2698 zob1968=2699
-			zob1968=2701-2713 zob1968=2716-2719 zob1968=2721
-			zob1968=2722 zob1968=2726 zob1968=2727 zob1968=2732
-			zob1968=2979 zob1968=2982 zob1968=2986 zob1968=2995
-			zob1968=2997 zob1968=3005 zob1968=3008 zob1968=3015
-			zob1968=3033 zob1968=3057-3060 zob1968=3240)
+    (sources		zob1959=0750 zob1959=0755 zob1959=1271 zob1959=1342
+			zob1959=1785 zob1959=1786 zob1959=1793 zob1959=1815
+			zob1959=1821 zob1959=1830 zob1959=1878 zob1959=1882
+			zob1959=1894-1901 zob1959=1903 zob1959=1904
+			zob1959=1905 zob1959=1907 zob1959=1909 zob1959=1910
+			zob1959=2258 zob1959=2259 zob1959=2260 zob1959=2264
+			zob1959=2272 zob1959=2276 zob1959=2279 zob1959=2295
+			zob1959=2296 zob1959=2298 zob1959=2308 zob1959=2321
+			zob1959=2324 zob1959=2331-2341 zob1959=2343
+			zob1959=2344 zob1959=2370 zob1959=2389 zob1959=2571
+			zob1959=2572 zob1959=2577 zob1959=2578 zob1959=2581
+			zob1959=2583 zob1959=2584 zob1959=2688-2695
+			zob1959=2697 zob1959=2698 zob1959=2699
+			zob1959=2701-2713 zob1959=2716-2719 zob1959=2721
+			zob1959=2722 zob1959=2726 zob1959=2727 zob1959=2732
+			zob1959=2979 zob1959=2982 zob1959=2986 zob1959=2995
+			zob1959=2997 zob1959=3005 zob1959=3008 zob1959=3015
+			zob1959=3033 zob1959=3057-3060 zob1959=3240)
     (zinbun-oracle-page . 15)
     (=zinbun-oracle	. 00300)	; &ZOB-0300;
     (<-Oracle-Bones
@@ -5016,10 +5016,10 @@
       )
      ((=ucs		  . #x52FF)	; 勿
       ))
-    (sources		zob1968=1344 zob1968=2224 zob1968=2389 zob1968=2688
-			zob1968=2692 zob1968=2696 zob1968=2700 zob1968=2714
-			zob1968=2715 zob1968=2719 zob1968=2720
-			zob1968=2722-2725)
+    (sources		zob1959=1344 zob1959=2224 zob1959=2389 zob1959=2688
+			zob1959=2692 zob1959=2696 zob1959=2700 zob1959=2714
+			zob1959=2715 zob1959=2719 zob1959=2720
+			zob1959=2722-2725)
     (zinbun-oracle-page . 16)
     (=zinbun-oracle	. 00301)	; &ZOB-0301;
     (<-Oracle-Bones
@@ -5036,7 +5036,7 @@
       )
      ((=zinbun-oracle	  . 00293)	; &ZOB-0293;
       ))
-    (sources		zob1968=1347 zob1968=1917 zob1968=2276 zob1968=2689)
+    (sources		zob1959=1347 zob1959=1917 zob1959=2276 zob1959=2689)
     (zinbun-oracle-page . 16)
     (=zinbun-oracle	. 00302)	; &ZOB-0302;
     (<-Oracle-Bones
@@ -5176,14 +5176,14 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
-    (sources		zob1968=0003 zob1968=0010 zob1968=0051 zob1968=0117
-			zob1968=0126 zob1968=0127 zob1968=0129 zob1968=0216
-			zob1968=0495 zob1968=0799 zob1968=0896 zob1968=0970
-			zob1968=1016 zob1968=1062 zob1968=1359-1362
-			zob1968=1988 zob1968=2273 zob1968=2285 zob1968=2349
-			zob1968=2350 zob1968=2367 zob1968=2520 zob1968=2522
-			zob1968=2991 zob1968=3051 zob1968=3099 zob1968=3145
-			zob1968=3256)
+    (sources		zob1959=0003 zob1959=0010 zob1959=0051 zob1959=0117
+			zob1959=0126 zob1959=0127 zob1959=0129 zob1959=0216
+			zob1959=0495 zob1959=0799 zob1959=0896 zob1959=0970
+			zob1959=1016 zob1959=1062 zob1959=1359-1362
+			zob1959=1988 zob1959=2273 zob1959=2285 zob1959=2349
+			zob1959=2350 zob1959=2367 zob1959=2520 zob1959=2522
+			zob1959=2991 zob1959=3051 zob1959=3099 zob1959=3145
+			zob1959=3256)
     (zinbun-oracle-page . 16)
     (=zinbun-oracle	. 00311)	; &ZOB-0311;
     ))
@@ -5200,7 +5200,7 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
-    (sources		zob1968=0128 zob1968=0718)
+    (sources		zob1959=0128 zob1959=0718)
     (zinbun-oracle-page . 16)
     (=zinbun-oracle	. 00312)	; &ZOB-0312;
     ))
@@ -5217,7 +5217,7 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
-    (sources		zob1968=0389 zob1968=0517 zob1968=3075 zob1968=3160)
+    (sources		zob1959=0389 zob1959=0517 zob1959=3075 zob1959=3160)
     (zinbun-oracle-page . 16)
     (=zinbun-oracle	. 00313)	; &ZOB-0313;
     ))
@@ -5231,14 +5231,14 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
-    (sources		zob1968=0196)
+    (sources		zob1959=0196)
     (zinbun-oracle-page . 16)
     (=zinbun-oracle	. 00314)	; &ZOB-0314;
     ))
 (define-char
   '((shuowen-radical	. 22)	; 口
-    (sources		zob1968=1688 zob1968=1689 zob1968=1699 zob1968=1736
-			zob1968=1739)
+    (sources		zob1959=1688 zob1959=1689 zob1959=1699 zob1959=1736
+			zob1959=1739)
     (zinbun-oracle-page . 16)
     (=zinbun-oracle	. 00315)	; &ZOB-0315;
     (<-Oracle-Bones
@@ -5247,7 +5247,7 @@
     ))
 (define-char
   '((shuowen-radical	. 22)	; 口
-    (sources		zob1968=2588)
+    (sources		zob1959=2588)
     (zinbun-oracle-page . 16)
     (=zinbun-oracle	. 00316)	; &ZOB-0316;
     ))
@@ -5285,7 +5285,7 @@
     ))
 (define-char
   '((shuowen-radical	. 22)	; 口
-    (sources		zob1968=3164)
+    (sources		zob1959=3164)
     (zinbun-oracle-page . 16)
     (=zinbun-oracle	. 00319)	; &ZOB-0319;
     ))
@@ -5315,7 +5315,7 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
-    (sources		zob1968=2997)
+    (sources		zob1959=2997)
     (zinbun-oracle-page . 17)
     (=zinbun-oracle	. 00321)	; &ZOB-0321;
     (<-Oracle-Bones
@@ -5377,7 +5377,7 @@
      ((=>zinbun-oracle	  . 00324)	; &A-ZOB-0324;
       ))
     (shuowen-radical	. 22)	; 口
-    (sources		zob1968=2932 zob1968=2934 zob1968=2937 zob1968=2940)
+    (sources		zob1959=2932 zob1959=2934 zob1959=2937 zob1959=2940)
     (zinbun-oracle-page . 17)
     (=zinbun-oracle	. 00325)	; &ZOB-0325;
     ))
@@ -5394,7 +5394,7 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
-    (sources		zob1968=2525 zob1968=2894)
+    (sources		zob1959=2525 zob1959=2894)
     (zinbun-oracle-page . 17)
     (=zinbun-oracle	. 00326)	; &ZOB-0326;
     ))
@@ -5408,7 +5408,7 @@
       )
      ((=ucs		  . #x65B9)	; 方
       ))
-    (sources		zob1968=2520 zob1968=2521 zob1968=2523)
+    (sources		zob1959=2520 zob1959=2521 zob1959=2523)
     (zinbun-oracle-page . 17)
     (=zinbun-oracle	. 00327)	; &ZOB-0327;
     (<-Oracle-Bones
@@ -5473,7 +5473,7 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
-    (sources		zob1968=3130)
+    (sources		zob1959=3130)
     (zinbun-oracle-page . 17)
     (=zinbun-oracle	. 00331)	; &ZOB-0331;
     (<-Oracle-Bones
@@ -5490,7 +5490,7 @@
       )
      ((=ucs		  . #x620A)	; 戊
       ))
-    (sources		zob1968=0962)
+    (sources		zob1959=0962)
     (zinbun-oracle-page . 17)
     (=zinbun-oracle	. 00332)	; &ZOB-0332;
     (<-Oracle-Bones
@@ -5590,9 +5590,9 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
-    (sources		zob1968=0074 zob1968=0520 zob1968=1066 zob1968=1067
-			zob1968=1068 zob1968=1070 zob1968=1077 zob1968=1355
-			zob1968=1683 zob1968=1690 zob1968=1691)
+    (sources		zob1959=0074 zob1959=0520 zob1959=1066 zob1959=1067
+			zob1959=1068 zob1959=1070 zob1959=1077 zob1959=1355
+			zob1959=1683 zob1959=1690 zob1959=1691)
     (zinbun-oracle-page . 17)
     (=zinbun-oracle	. 00336)	; &ZOB-0336;
     ))
@@ -5609,29 +5609,29 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
-    (sources		zob1968=0007 zob1968=0010 zob1968=0027 zob1968=0045
-			zob1968=0046 zob1968=0052 zob1968=0088 zob1968=0145
-			zob1968=0166 zob1968=0175 zob1968=0302 zob1968=0452
-			zob1968=0491 zob1968=0492 zob1968=0493 zob1968=0494
-			zob1968=0496-0508 zob1968=0607 zob1968=0648
-			zob1968=0719 zob1968=0724 zob1968=0727 zob1968=0735
-			zob1968=0740 zob1968=0743 zob1968=0758 zob1968=0763
-			zob1968=0802 zob1968=0807 zob1968=0810 zob1968=0828
-			zob1968=0832 zob1968=0839 zob1968=0842 zob1968=0843
-			zob1968=0848 zob1968=0854 zob1968=0867 zob1968=0873
-			zob1968=0874 zob1968=0877 zob1968=0881 zob1968=0884
-			zob1968=0905 zob1968=0936 zob1968=0940 zob1968=0974
-			zob1968=0975 zob1968=0987 zob1968=0993
-			zob1968=0995-0999 zob1968=1001 zob1968=1003
-			zob1968=1005 zob1968=1006 zob1968=1007 zob1968=1009
-			zob1968=1010 zob1968=1011 zob1968=1019-1022
-			zob1968=1024 zob1968=1025 zob1968=1027 zob1968=1028
-			zob1968=1029 zob1968=1031-1040 zob1968=1043
-			zob1968=1048 zob1968=1050 zob1968=1051 zob1968=1053
-			zob1968=1056 zob1968=1057 zob1968=1063 zob1968=1064
-			zob1968=1068 zob1968=1071 zob1968=1086 zob1968=1092
-			zob1968=1169 zob1968=1208 zob1968=1216 zob1968=1217
-			zob1968=3220 zob1968=3228 zob1968=3250)
+    (sources		zob1959=0007 zob1959=0010 zob1959=0027 zob1959=0045
+			zob1959=0046 zob1959=0052 zob1959=0088 zob1959=0145
+			zob1959=0166 zob1959=0175 zob1959=0302 zob1959=0452
+			zob1959=0491 zob1959=0492 zob1959=0493 zob1959=0494
+			zob1959=0496-0508 zob1959=0607 zob1959=0648
+			zob1959=0719 zob1959=0724 zob1959=0727 zob1959=0735
+			zob1959=0740 zob1959=0743 zob1959=0758 zob1959=0763
+			zob1959=0802 zob1959=0807 zob1959=0810 zob1959=0828
+			zob1959=0832 zob1959=0839 zob1959=0842 zob1959=0843
+			zob1959=0848 zob1959=0854 zob1959=0867 zob1959=0873
+			zob1959=0874 zob1959=0877 zob1959=0881 zob1959=0884
+			zob1959=0905 zob1959=0936 zob1959=0940 zob1959=0974
+			zob1959=0975 zob1959=0987 zob1959=0993
+			zob1959=0995-0999 zob1959=1001 zob1959=1003
+			zob1959=1005 zob1959=1006 zob1959=1007 zob1959=1009
+			zob1959=1010 zob1959=1011 zob1959=1019-1022
+			zob1959=1024 zob1959=1025 zob1959=1027 zob1959=1028
+			zob1959=1029 zob1959=1031-1040 zob1959=1043
+			zob1959=1048 zob1959=1050 zob1959=1051 zob1959=1053
+			zob1959=1056 zob1959=1057 zob1959=1063 zob1959=1064
+			zob1959=1068 zob1959=1071 zob1959=1086 zob1959=1092
+			zob1959=1169 zob1959=1208 zob1959=1216 zob1959=1217
+			zob1959=3220 zob1959=3228 zob1959=3250)
     (zinbun-oracle-page . 17)
     (=zinbun-oracle	. 00337)	; &ZOB-0337;
     ))
@@ -5648,20 +5648,20 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
-    (sources		zob1968=1802 zob1968=1808 zob1968=1810 zob1968=1841
-			zob1968=1863 zob1968=1866 zob1968=1870 zob1968=1872
-			zob1968=1875 zob1968=1903 zob1968=1913 zob1968=1935
-			zob1968=1942 zob1968=1943 zob1968=1947 zob1968=1957
-			zob1968=1981 zob1968=1982 zob1968=1985 zob1968=1997
-			zob1968=2004 zob1968=2021 zob1968=2025 zob1968=2030
-			zob1968=2034 zob1968=2059 zob1968=2064 zob1968=2065
-			zob1968=2080 zob1968=2116 zob1968=2163 zob1968=2167
-			zob1968=2171 zob1968=2172 zob1968=2173 zob1968=2176
-			zob1968=2179 zob1968=2181 zob1968=2185 zob1968=2186
-			zob1968=2189 zob1968=2192 zob1968=2193 zob1968=2204
-			zob1968=2207 zob1968=2253 zob1968=2351 zob1968=2353
-			zob1968=2893 zob1968=2897 zob1968=2900 zob1968=2910
-			zob1968=2917 zob1968=2929 zob1968=2943)
+    (sources		zob1959=1802 zob1959=1808 zob1959=1810 zob1959=1841
+			zob1959=1863 zob1959=1866 zob1959=1870 zob1959=1872
+			zob1959=1875 zob1959=1903 zob1959=1913 zob1959=1935
+			zob1959=1942 zob1959=1943 zob1959=1947 zob1959=1957
+			zob1959=1981 zob1959=1982 zob1959=1985 zob1959=1997
+			zob1959=2004 zob1959=2021 zob1959=2025 zob1959=2030
+			zob1959=2034 zob1959=2059 zob1959=2064 zob1959=2065
+			zob1959=2080 zob1959=2116 zob1959=2163 zob1959=2167
+			zob1959=2171 zob1959=2172 zob1959=2173 zob1959=2176
+			zob1959=2179 zob1959=2181 zob1959=2185 zob1959=2186
+			zob1959=2189 zob1959=2192 zob1959=2193 zob1959=2204
+			zob1959=2207 zob1959=2253 zob1959=2351 zob1959=2353
+			zob1959=2893 zob1959=2897 zob1959=2900 zob1959=2910
+			zob1959=2917 zob1959=2929 zob1959=2943)
     (zinbun-oracle-page . 17)
     (=zinbun-oracle	. 00338)	; &ZOB-0338;
     ))
@@ -5678,23 +5678,23 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
-    (sources		zob1968=1814 zob1968=1825 zob1968=1871 zob1968=1875
-			zob1968=1887 zob1968=1940 zob1968=1956 zob1968=2001
-			zob1968=2008 zob1968=2014 zob1968=2027 zob1968=2030
-			zob1968=2034 zob1968=2040 zob1968=2042 zob1968=2096
-			zob1968=2112 zob1968=2113 zob1968=2114 zob1968=2117
-			zob1968=2118 zob1968=2119 zob1968=2163 zob1968=2166
-			zob1968=2168 zob1968=2169 zob1968=2170 zob1968=2174
-			zob1968=2175 zob1968=2177 zob1968=2178 zob1968=2182
-			zob1968=2183 zob1968=2184 zob1968=2187 zob1968=2188
-			zob1968=2190 zob1968=2194-2203 zob1968=2208-2212
-			zob1968=2218 zob1968=2244 zob1968=2925 zob1968=2928)
+    (sources		zob1959=1814 zob1959=1825 zob1959=1871 zob1959=1875
+			zob1959=1887 zob1959=1940 zob1959=1956 zob1959=2001
+			zob1959=2008 zob1959=2014 zob1959=2027 zob1959=2030
+			zob1959=2034 zob1959=2040 zob1959=2042 zob1959=2096
+			zob1959=2112 zob1959=2113 zob1959=2114 zob1959=2117
+			zob1959=2118 zob1959=2119 zob1959=2163 zob1959=2166
+			zob1959=2168 zob1959=2169 zob1959=2170 zob1959=2174
+			zob1959=2175 zob1959=2177 zob1959=2178 zob1959=2182
+			zob1959=2183 zob1959=2184 zob1959=2187 zob1959=2188
+			zob1959=2190 zob1959=2194-2203 zob1959=2208-2212
+			zob1959=2218 zob1959=2244 zob1959=2925 zob1959=2928)
     (zinbun-oracle-page . 17)
     (=zinbun-oracle	. 00339)	; &ZOB-0339;
     ))
 (define-char
   '((shuowen-radical	. 22)	; 口
-    (sources		zob1968=521)
+    (sources		zob1959=521)
     (zinbun-oracle-page . 18)
     (=zinbun-oracle	. 00340)	; &ZOB-0340;
     ))
@@ -5742,8 +5742,8 @@
      ((=>zinbun-oracle	  . 00345)	; &A-ZOB-0345;
       ))
     (shuowen-radical	. 22)	; 口
-    (sources		zob1968=0012 zob1968=0013 zob1968=0015
-			zob1968=0718-0721 zob1968=1253 zob1968=1340)
+    (sources		zob1959=0012 zob1959=0013 zob1959=0015
+			zob1959=0718-0721 zob1959=1253 zob1959=1340)
     (zinbun-oracle-page . 18)
     (=zinbun-oracle	. 00345)	; &ZOB-0345;
     ))
@@ -5752,7 +5752,7 @@
      ((=>zinbun-oracle	  . 00345)	; &A-ZOB-0345;
       ))
     (shuowen-radical	. 22)	; 口
-    (sources		zob1968=2991 zob1968=2992)
+    (sources		zob1959=2991 zob1959=2992)
     (zinbun-oracle-page . 18)
     (=zinbun-oracle	. 00346)	; &ZOB-0346;
     ))
@@ -5761,7 +5761,7 @@
      ((=>zinbun-oracle	  . 00345)	; &A-ZOB-0345;
       ))
     (shuowen-radical	. 22)	; 口
-    (sources		zob1968=2993)
+    (sources		zob1959=2993)
     (zinbun-oracle-page . 18)
     (=zinbun-oracle	. 00347)	; &ZOB-0347;
     ))
@@ -5815,7 +5815,7 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
-    (sources		zob1968=0700 zob1968=2141)
+    (sources		zob1959=0700 zob1959=2141)
     (zinbun-oracle-page . 18)
     (=zinbun-oracle	. 00350)	; &ZOB-0350;
     (<-Oracle-Bones
@@ -5907,7 +5907,7 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
-    (sources		zob1968=2941)
+    (sources		zob1959=2941)
     (zinbun-oracle-page . 18)
     (=zinbun-oracle	. 00353)	; &ZOB-0353;
     (<-Oracle-Bones
@@ -5956,9 +5956,9 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
-    (sources		zob1968=0050 zob1968=0112 zob1968=0113 zob1968=0115
-			zob1968=0764 zob1968=1805 zob1968=1876 zob1968=1877
-			zob1968=2947 zob1968=3057 zob1968=3241)
+    (sources		zob1959=0050 zob1959=0112 zob1959=0113 zob1959=0115
+			zob1959=0764 zob1959=1805 zob1959=1876 zob1959=1877
+			zob1959=2947 zob1959=3057 zob1959=3241)
     (zinbun-oracle-page . 18)
     (=zinbun-oracle	. 00356)	; &ZOB-0356;
     (<-Oracle-Bones
@@ -5982,7 +5982,7 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
-    (sources		zob1968=1342)
+    (sources		zob1959=1342)
     (zinbun-oracle-page . 18)
     (=zinbun-oracle	. 00357)	; &ZOB-0357;
     (<-Oracle-Bones
@@ -6029,9 +6029,9 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
-    (sources		zob1968=2588 zob1968=2866 zob1968=2867 zob1968=2869
-			zob1968=2880 zob1968=2928 zob1968=2929 zob1968=2930
-			zob1968=2943)
+    (sources		zob1959=2588 zob1959=2866 zob1959=2867 zob1959=2869
+			zob1959=2880 zob1959=2928 zob1959=2929 zob1959=2930
+			zob1959=2943)
     (zinbun-oracle-page . 18)
     (=zinbun-oracle	. 00359)	; &ZOB-0359;
     (<-Oracle-Bones
@@ -6099,7 +6099,7 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
-    (sources		zob1968=0924)
+    (sources		zob1959=0924)
     (zinbun-oracle-page . 19)
     (=zinbun-oracle	. 00363)	; &ZOB-0363;
     (<-Oracle-Bones
@@ -6136,9 +6136,9 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
-    (sources		zob1968=0197-0203 zob1968=0205 zob1968=0212
-			zob1968=0277 zob1968=0561 zob1968=0727 zob1968=0947
-			zob1968=1095 zob1968=1143 zob1968=1146)
+    (sources		zob1959=0197-0203 zob1959=0205 zob1959=0212
+			zob1959=0277 zob1959=0561 zob1959=0727 zob1959=0947
+			zob1959=1095 zob1959=1143 zob1959=1146)
     (zinbun-oracle-page . 19)
     (=zinbun-oracle	. 00365)	; &ZOB-0365;
     (<-Oracle-Bones
@@ -6169,7 +6169,7 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
-    (sources		zob1968=0934)
+    (sources		zob1959=0934)
     (zinbun-oracle-page . 19)
     (=zinbun-oracle	. 00366)	; &ZOB-0366;
     (<-Oracle-Bones
@@ -6231,7 +6231,7 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
-    (sources		zob1968=0123 zob1968=3034)
+    (sources		zob1959=0123 zob1959=3034)
     (zinbun-oracle-page . 19)
     (=zinbun-oracle	. 00368)	; &ZOB-0368;
     ))
@@ -6240,51 +6240,51 @@
      ((=>zinbun-oracle	  . 00368)	; &A-ZOB-0368;
       ))
     (shuowen-radical	. 22)	; 口
-    (sources		zob1968=0564 zob1968=1456)
+    (sources		zob1959=0564 zob1959=1456)
     (zinbun-oracle-page . 19)
     (=zinbun-oracle	. 00369)	; &ZOB-0369;
     ))
 (define-char
   '((shuowen-radical	. 22)	; 口
-    (sources		zob1968=1586)
+    (sources		zob1959=1586)
     (zinbun-oracle-page . 19)
     (=zinbun-oracle	. 00370)	; &ZOB-0370;
     ))
 (define-char
   '((shuowen-radical	. 22)	; 口
-    (sources		zob1968=2062)
+    (sources		zob1959=2062)
     (zinbun-oracle-page . 19)
     (=zinbun-oracle	. 00371)	; &ZOB-0371;
     ))
 (define-char
   '((shuowen-radical	. 22)	; 口
-    (sources		zob1968=2123)
+    (sources		zob1959=2123)
     (zinbun-oracle-page . 19)
     (=zinbun-oracle	. 00372)	; &ZOB-0372;
     ))
 (define-char
   '((shuowen-radical	. 22)	; 口
-    (sources		zob1968=2476)
+    (sources		zob1959=2476)
     (zinbun-oracle-page . 19)
     (=zinbun-oracle	. 00373)	; &ZOB-0373;
     ))
 (define-char
   '((shuowen-radical	. 22)	; 口
-    (sources		zob1968=0070 zob1968=0073 zob1968=1327 zob1968=1328
-			zob1968=1785 zob1968=1800 zob1968=1802 zob1968=1857
-			zob1968=1866 zob1968=1887 zob1968=1891 zob1968=1973)
+    (sources		zob1959=0070 zob1959=0073 zob1959=1327 zob1959=1328
+			zob1959=1785 zob1959=1800 zob1959=1802 zob1959=1857
+			zob1959=1866 zob1959=1887 zob1959=1891 zob1959=1973)
     (zinbun-oracle-page . 19)
     (=zinbun-oracle	. 00374)	; &ZOB-0374;
     ))
 (define-char
   '((shuowen-radical	. 22)	; 口
-    (sources		zob1968=1140)
+    (sources		zob1959=1140)
     (zinbun-oracle-page . 19)
     (=zinbun-oracle	. 00375)	; &ZOB-0375;
     ))
 (define-char
   '((shuowen-radical	. 22)	; 口
-    (sources		zob1968=3241)
+    (sources		zob1959=3241)
     (zinbun-oracle-page . 19)
     (=zinbun-oracle	. 00376)	; &ZOB-0376;
     ))
@@ -6706,7 +6706,7 @@
     ))
 (define-char
   '((shuowen-radical	. 24)	; 吅
-    (sources		zob1968=2056)
+    (sources		zob1959=2056)
     (zinbun-oracle-page . 22)
     (=zinbun-oracle	. 00447)	; &ZOB-0447;
     (<-Oracle-Bones
@@ -6715,7 +6715,7 @@
     ))
 (define-char
   '((shuowen-radical	. 24)	; 吅
-    (sources		zob1968=1340 zob1968=1557)
+    (sources		zob1959=1340 zob1959=1557)
     (zinbun-oracle-page . 22)
     (=zinbun-oracle	. 00448)	; &ZOB-0448;
     (<-Oracle-Bones
@@ -6846,7 +6846,7 @@
       )
      ((=zinbun-oracle	  . 00456)	; &ZOB-0456;
       ))
-    (sources		zob1968=0264 zob1968=0398 zob1968=0948)
+    (sources		zob1959=0264 zob1959=0398 zob1959=0948)
     (zinbun-oracle-page . 23)
     (=zinbun-oracle	. 00459)	; &ZOB-0459;
     (<-Oracle-Bones
@@ -6863,8 +6863,8 @@
       )
      ((=zinbun-oracle	  . 02203)	; &ZOB-2203;
       ))
-    (sources		zob1968=0433 zob1968=0914 zob1968=0966 zob1968=2141
-			zob1968=2142 zob1968=2997 zob1968=3131)
+    (sources		zob1959=0433 zob1959=0914 zob1959=0966 zob1959=2141
+			zob1959=2142 zob1959=2997 zob1959=3131)
     (zinbun-oracle-page . 23)
     (=zinbun-oracle	. 00460)	; &ZOB-0460;
     (<-Oracle-Bones
@@ -6901,7 +6901,7 @@
       )
      ((=zinbun-oracle	  . 00456)	; &ZOB-0456;
       ))
-    (sources		zob1968=2946)
+    (sources		zob1959=2946)
     (zinbun-oracle-page . 23)
     (=zinbun-oracle	. 00462)	; &ZOB-0462;
     (<-Oracle-Bones
@@ -6932,7 +6932,7 @@
       )
      ((=ucs		  . #x6B62)	; 止
       ))
-    (sources		zob1968=2928)
+    (sources		zob1959=2928)
     (zinbun-oracle-page . 23)
     (=zinbun-oracle	. 00463)	; &ZOB-0463;
     (<-Oracle-Bones
@@ -6963,8 +6963,8 @@
       )
      ((=ucs		  . #x6B62)	; 止
       ))
-    (sources		zob1968=0156 zob1968=1160 zob1968=2089 zob1968=3040
-			zob1968=3074)
+    (sources		zob1959=0156 zob1959=1160 zob1959=2089 zob1959=3040
+			zob1959=3074)
     (zinbun-oracle-page . 23)
     (=zinbun-oracle	. 00464)	; &ZOB-0464;
     (<-Oracle-Bones
@@ -6988,7 +6988,7 @@
       )
      ((=ucs		  . #x6B62)	; 止
       ))
-    (sources		zob1968=0375)
+    (sources		zob1959=0375)
     (zinbun-oracle-page . 23)
     (=zinbun-oracle	. 00465)	; &ZOB-0465;
     (<-Oracle-Bones
@@ -7168,19 +7168,19 @@
       )
      ((=ucs		  . #x6B62)	; 止
       ))
-    (sources		zob1968=0302)
+    (sources		zob1959=0302)
     (zinbun-oracle-page . 23)
     (=zinbun-oracle	. 00472)	; &ZOB-0472;
     ))
 (define-char
   '((shuowen-radical	. 27)	; 止
-    (sources		zob1968=0343)
+    (sources		zob1959=0343)
     (zinbun-oracle-page . 23)
     (=zinbun-oracle	. 00473)	; &ZOB-0473;
     ))
 (define-char
   '((shuowen-radical	. 27)	; 止
-    (sources		zob1968=1803)
+    (sources		zob1959=1803)
     (zinbun-oracle-page . 23)
     (=zinbun-oracle	. 00474)	; &ZOB-0474;
     ))
@@ -7366,7 +7366,7 @@
       )
      ((=zinbun-oracle	  . 00909)	; &ZOB-0909;
       ))
-    (sources		zob1968=0671)
+    (sources		zob1959=0671)
     (zinbun-oracle-page . 24)
     (=zinbun-oracle	. 00504)	; &ZOB-0504;
     ))
@@ -7375,7 +7375,7 @@
      ((=>zinbun-oracle	  . 00504)	; &A-ZOB-0504;
       ))
     (shuowen-radical	. 28)	; 癶
-    (sources		zob1968=0921 zob1968=0922)
+    (sources		zob1959=0921 zob1959=0922)
     (zinbun-oracle-page . 24)
     (=zinbun-oracle	. 00505)	; &ZOB-0505;
     ))
@@ -7384,7 +7384,7 @@
      ((=>zinbun-oracle	  . 00504)	; &A-ZOB-0504;
       ))
     (shuowen-radical	. 28)	; 癶
-    (sources		zob1968=1275 zob1968=1832 zob1968=1901 zob1968=2314)
+    (sources		zob1959=1275 zob1959=1832 zob1959=1901 zob1959=2314)
     (zinbun-oracle-page . 24)
     (=zinbun-oracle	. 00506)	; &ZOB-0506;
     ))
@@ -7398,7 +7398,7 @@
       )
      ((=zinbun-oracle	  . 01791)	; &ZOB-1791;
       ))
-    (sources		zob1968=3155)
+    (sources		zob1959=3155)
     (zinbun-oracle-page . 25)
     (=zinbun-oracle	. 00507)	; &ZOB-0507;
     (<-Oracle-Bones
@@ -7419,7 +7419,7 @@
       )
      ((=ucs		  . #x4EBA)	; 人
       ))
-    (sources		zob1968=2289)
+    (sources		zob1959=2289)
     (zinbun-oracle-page . 25)
     (=zinbun-oracle	. 00508)	; &ZOB-0508;
     (<-Oracle-Bones
@@ -7611,13 +7611,13 @@
       )
      ((=ucs		  . #x6B62)	; 止
       ))
-    (sources		zob1968=0001 zob1968=0194 zob1968=0319
-			zob1968=0320-0323 zob1968=0338 zob1968=0669
-			zob1968=0767 zob1968=0878 zob1968=1158 zob1968=1168
-			zob1968=1929 zob1968=2149 zob1968=2400 zob1968=2513
-			zob1968=2518 zob1968=2894 zob1968=2998 zob1968=3043
-			zob1968=3090 zob1968=3092 zob1968=3094 zob1968=3096
-			zob1968=3113 zob1968=3121 zob1968=3215 zob1968=3222)
+    (sources		zob1959=0001 zob1959=0194 zob1959=0319
+			zob1959=0320-0323 zob1959=0338 zob1959=0669
+			zob1959=0767 zob1959=0878 zob1959=1158 zob1959=1168
+			zob1959=1929 zob1959=2149 zob1959=2400 zob1959=2513
+			zob1959=2518 zob1959=2894 zob1959=2998 zob1959=3043
+			zob1959=3090 zob1959=3092 zob1959=3094 zob1959=3096
+			zob1959=3113 zob1959=3121 zob1959=3215 zob1959=3222)
     (zinbun-oracle-page . 25)
     (=zinbun-oracle	. 00523)	; &ZOB-0523;
     (<-Oracle-Bones
@@ -7637,13 +7637,13 @@
      ((=>zinbun-oracle	  . 00524)	; &A-ZOB-0524;
       ))
     (shuowen-radical	. 29)	; 步
-    (sources		zob1968=0095 zob1968=0722 zob1968=1254 zob1968=1259
-			zob1968=1262 zob1968=1265 zob1968=1266 zob1968=1270
-			zob1968=1334-1340 zob1968=1541 zob1968=1544
-			zob1968=1547 zob1968=1550 zob1968=1575 zob1968=1580
-			zob1968=1584 zob1968=1587 zob1968=1684 zob1968=1685
-			zob1968=1788 zob1968=1878 zob1968=2272 zob1968=2276
-			zob1968=2295 zob1968=3253 zob1968=3254)
+    (sources		zob1959=0095 zob1959=0722 zob1959=1254 zob1959=1259
+			zob1959=1262 zob1959=1265 zob1959=1266 zob1959=1270
+			zob1959=1334-1340 zob1959=1541 zob1959=1544
+			zob1959=1547 zob1959=1550 zob1959=1575 zob1959=1580
+			zob1959=1584 zob1959=1587 zob1959=1684 zob1959=1685
+			zob1959=1788 zob1959=1878 zob1959=2272 zob1959=2276
+			zob1959=2295 zob1959=3253 zob1959=3254)
     (zinbun-oracle-page . 25)
     (=zinbun-oracle	. 00524)	; &ZOB-0524;
     ))
@@ -7652,14 +7652,14 @@
      ((=>zinbun-oracle	  . 00524)	; &A-ZOB-0524;
       ))
     (shuowen-radical	. 29)	; 步
-    (sources		zob1968=0304 zob1968=0801 zob1968=1341 zob1968=1549
-			zob1968=1786 zob1968=1790 zob1968=1816 zob1968=1817
-			zob1968=1821 zob1968=1829 zob1968=1838 zob1968=1840
-			zob1968=1848 zob1968=1899 zob1968=1901 zob1968=1902
-			zob1968=1907 zob1968=2264 zob1968=2275 zob1968=2278
-			zob1968=2279 zob1968=2280 zob1968=2285 zob1968=2316
-			zob1968=2318 zob1968=2320 zob1968=2321 zob1968=2323
-			zob1968=2324 zob1968=2328 zob1968=2331 zob1968=2389)
+    (sources		zob1959=0304 zob1959=0801 zob1959=1341 zob1959=1549
+			zob1959=1786 zob1959=1790 zob1959=1816 zob1959=1817
+			zob1959=1821 zob1959=1829 zob1959=1838 zob1959=1840
+			zob1959=1848 zob1959=1899 zob1959=1901 zob1959=1902
+			zob1959=1907 zob1959=2264 zob1959=2275 zob1959=2278
+			zob1959=2279 zob1959=2280 zob1959=2285 zob1959=2316
+			zob1959=2318 zob1959=2320 zob1959=2321 zob1959=2323
+			zob1959=2324 zob1959=2328 zob1959=2331 zob1959=2389)
     (zinbun-oracle-page . 25)
     (=zinbun-oracle	. 00525)	; &ZOB-0525;
     ))
@@ -7668,12 +7668,12 @@
      ((=>zinbun-oracle	  . 00524)	; &A-ZOB-0524;
       ))
     (shuowen-radical	. 29)	; 步
-    (sources		zob1968=2589 zob1968=2590 zob1968=2596 zob1968=2598
-			zob1968=2599 zob1968=2600 zob1968=2602 zob1968=2603
-			zob1968=2604 zob1968=2606 zob1968=2609 zob1968=2610
-			zob1968=2633 zob1968=2634 zob1968=2635 zob1968=2640
-			zob1968=2641 zob1968=2643-2657 zob1968=2890
-			zob1968=2945)
+    (sources		zob1959=2589 zob1959=2590 zob1959=2596 zob1959=2598
+			zob1959=2599 zob1959=2600 zob1959=2602 zob1959=2603
+			zob1959=2604 zob1959=2606 zob1959=2609 zob1959=2610
+			zob1959=2633 zob1959=2634 zob1959=2635 zob1959=2640
+			zob1959=2641 zob1959=2643-2657 zob1959=2890
+			zob1959=2945)
     (zinbun-oracle-page . 25)
     (=zinbun-oracle	. 00526)	; &ZOB-0526;
     ))
@@ -7714,12 +7714,12 @@
       )
      ((=ucs		  . #x6B62)	; 止
       ))
-    (sources		zob1968=0116 zob1968=0726 zob1968=0894 zob1968=0903
-			zob1968=1190 zob1968=1803 zob1968=1820 zob1968=1823
-			zob1968=1854 zob1968=1856 zob1968=1875 zob1968=1881
-			zob1968=1886 zob1968=1930 zob1968=2040 zob1968=2098
-			zob1968=2134 zob1968=2148 zob1968=2176 zob1968=2614
-			zob1968=2951 zob1968=3001)
+    (sources		zob1959=0116 zob1959=0726 zob1959=0894 zob1959=0903
+			zob1959=1190 zob1959=1803 zob1959=1820 zob1959=1823
+			zob1959=1854 zob1959=1856 zob1959=1875 zob1959=1881
+			zob1959=1886 zob1959=1930 zob1959=2040 zob1959=2098
+			zob1959=2134 zob1959=2148 zob1959=2176 zob1959=2614
+			zob1959=2951 zob1959=3001)
     (zinbun-oracle-page . 26)
     (=zinbun-oracle	. 00528)	; &ZOB-0528;
     ))
@@ -7743,9 +7743,9 @@
        ((=ucs		    . #x6B62)	; 止
 	))
       ))
-    (sources		zob1968=0344 zob1968=0345 zob1968=0346 zob1968=0932
-			zob1968=2147 zob1968=2400 zob1968=3120 zob1968=3132
-			zob1968=3155)
+    (sources		zob1959=0344 zob1959=0345 zob1959=0346 zob1959=0932
+			zob1959=2147 zob1959=2400 zob1959=3120 zob1959=3132
+			zob1959=3155)
     (zinbun-oracle-page . 26)
     (=zinbun-oracle	. 00529)	; &ZOB-0529;
     ))
@@ -7759,7 +7759,7 @@
       )
      ((=ucs		  . #x6708)	; 月
       ))
-    (sources		zob1968=2758 zob1968=2766)
+    (sources		zob1959=2758 zob1959=2766)
     (zinbun-oracle-page . 26)
     (=zinbun-oracle	. 00530)	; &ZOB-0530;
     (<-Oracle-Bones
@@ -7916,7 +7916,7 @@
       )
      ((=ucs		  . #x5F73)	; 彳
       ))
-    (sources		zob1968=0108)
+    (sources		zob1959=0108)
     (zinbun-oracle-page . 26)
     (=zinbun-oracle	. 00542)	; &ZOB-0542;
     (<-Oracle-Bones
@@ -7940,9 +7940,9 @@
       )
      ((=ucs		  . #x6B62)	; 止
       ))
-    (sources		zob1968=1784 zob1968=1950 zob1968=1951 zob1968=1959
-			zob1968=1991 zob1968=1992 zob1968=1995 zob1968=1996
-			zob1968=2106 zob1968=2931)
+    (sources		zob1959=1784 zob1959=1950 zob1959=1951 zob1959=1959
+			zob1959=1991 zob1959=1992 zob1959=1995 zob1959=1996
+			zob1959=2106 zob1959=2931)
     (zinbun-oracle-page . 26)
     (=zinbun-oracle	. 00543)	; &ZOB-0543;
     (<-Oracle-Bones
@@ -7976,12 +7976,12 @@
     ))
 (define-char
   '((shuowen-radical	. 33)	; 辵
-    (sources		zob1968=1464 zob1968=2027 zob1968=2028 zob1968=2029
-			zob1968=2031 zob1968=2034 zob1968=2037 zob1968=2046
-			zob1968=2062 zob1968=2063 zob1968=2066 zob1968=2067
-			zob1968=2076 zob1968=2077 zob1968=2082-2086
-			zob1968=2096 zob1968=2142 zob1968=2503 zob1968=2505
-			zob1968=2506)
+    (sources		zob1959=1464 zob1959=2027 zob1959=2028 zob1959=2029
+			zob1959=2031 zob1959=2034 zob1959=2037 zob1959=2046
+			zob1959=2062 zob1959=2063 zob1959=2066 zob1959=2067
+			zob1959=2076 zob1959=2077 zob1959=2082-2086
+			zob1959=2096 zob1959=2142 zob1959=2503 zob1959=2505
+			zob1959=2506)
     (zinbun-oracle-page . 26)
     (=zinbun-oracle	. 00545)	; &ZOB-0545;
     (<-Oracle-Bones
@@ -8008,7 +8008,7 @@
       )
      ((=ucs		  . #x752C)	; 甬
       ))
-    (sources		zob1968=1857)
+    (sources		zob1959=1857)
     (zinbun-oracle-page . 26)
     (=zinbun-oracle	. 00548)	; &ZOB-0548;
     (<-Oracle-Bones
@@ -8048,11 +8048,11 @@
       )
      ((=ucs		  . #x5F73)	; 彳
       ))
-    (sources		zob1968=0181 zob1968=0281 zob1968=0307 zob1968=0316
-			zob1968=0317 zob1968=0392 zob1968=0816 zob1968=1461
-			zob1968=1462 zob1968=1580 zob1968=1685 zob1968=1783
-			zob1968=1801 zob1968=2070 zob1968=2317 zob1968=2516
-			zob1968=3220)
+    (sources		zob1959=0181 zob1959=0281 zob1959=0307 zob1959=0316
+			zob1959=0317 zob1959=0392 zob1959=0816 zob1959=1461
+			zob1959=1462 zob1959=1580 zob1959=1685 zob1959=1783
+			zob1959=1801 zob1959=2070 zob1959=2317 zob1959=2516
+			zob1959=3220)
     (zinbun-oracle-page . 26)
     (=zinbun-oracle	. 00550)	; &ZOB-0550;
     (<-Oracle-Bones
@@ -8069,8 +8069,8 @@
     ))
 (define-char
   '((shuowen-radical	. 33)	; 辵
-    (sources		zob1968=1588 zob1968=1602 zob1968=1613 zob1968=1622
-			zob1968=1633 zob1968=2322 zob1968=2540)
+    (sources		zob1959=1588 zob1959=1602 zob1959=1613 zob1959=1622
+			zob1959=1633 zob1959=2322 zob1959=2540)
     (zinbun-oracle-page . 27)
     (=zinbun-oracle	. 00552)	; &ZOB-0552;
     (<-Oracle-Bones
@@ -8097,7 +8097,7 @@
       )
      ((=zinbun-oracle	  . 00456)	; &ZOB-0456;
       ))
-    (sources		zob1968=0318 zob1968=0343 zob1968=3224)
+    (sources		zob1959=0318 zob1959=0343 zob1959=3224)
     (zinbun-oracle-page . 27)
     (=zinbun-oracle	. 00555)	; &ZOB-0555;
     (<-Oracle-Bones
@@ -8114,8 +8114,8 @@
       )
      ((=ucs		  . #x6B62)	; 止
       ))
-    (sources		zob1968=0226 zob1968=0272 zob1968=0273 zob1968=0274
-			zob1968=0298 zob1968=2863 zob1968=2865)
+    (sources		zob1959=0226 zob1959=0272 zob1959=0273 zob1959=0274
+			zob1959=0298 zob1959=2863 zob1959=2865)
     (zinbun-oracle-page . 27)
     (=zinbun-oracle	. 00556)	; &ZOB-0556;
     (<-Oracle-Bones
@@ -8181,7 +8181,7 @@
       )
      ((=zinbun-oracle	  . 00456)	; &ZOB-0456;
       ))
-    (sources		zob1968=0393 zob1968=1073)
+    (sources		zob1959=0393 zob1959=1073)
     (zinbun-oracle-page . 27)
     (=zinbun-oracle	. 00559)	; &ZOB-0559;
     (<-Oracle-Bones
@@ -8542,9 +8542,9 @@
       )
      ((=ucs		  . #x6B62)	; 止
       ))
-    (sources		zob1968=2870 zob1968=2871 zob1968=2872 zob1968=2932
-			zob1968=2933 zob1968=2937 zob1968=2940 zob1968=2942
-			zob1968=2944)
+    (sources		zob1959=2870 zob1959=2871 zob1959=2872 zob1959=2932
+			zob1959=2933 zob1959=2937 zob1959=2940 zob1959=2942
+			zob1959=2944)
     (zinbun-oracle-page . 28)
     (=zinbun-oracle	. 00581)	; &ZOB-0581;
     ))
@@ -8553,7 +8553,7 @@
      ((=>zinbun-oracle	  . 00581)	; &A-ZOB-0581;
       ))
     (shuowen-radical	. 34)	; 彳
-    (sources		zob1968=1958 zob1968=2027-2038)
+    (sources		zob1959=1958 zob1959=2027-2038)
     (zinbun-oracle-page . 28)
     (=zinbun-oracle	. 00582)	; &ZOB-0582;
     ))
@@ -8590,7 +8590,7 @@
        ((=ucs		    . #x8F9B)	; 辛
 	))
       ))
-    (sources		zob1968=2142)
+    (sources		zob1959=2142)
     (zinbun-oracle-page . 28)
     (=zinbun-oracle	. 00584)	; &ZOB-0584;
     (<-Oracle-Bones
@@ -8607,7 +8607,7 @@
       )
      ((=zinbun-oracle	  . 00909)	; &ZOB-0909;
       ))
-    (sources		zob1968=0186 zob1968=0554 zob1968=0555 zob1968=2113)
+    (sources		zob1959=0186 zob1959=0554 zob1959=0555 zob1959=2113)
     (zinbun-oracle-page . 28)
     (=zinbun-oracle	. 00585)	; &ZOB-0585;
     (<-Oracle-Bones
@@ -8638,7 +8638,7 @@
        ((=zinbun-oracle	    . 01824)	; &ZOB-1824;
 	))
       ))
-    (sources		zob1968=0628)
+    (sources		zob1959=0628)
     (zinbun-oracle-page . 28)
     (=zinbun-oracle	. 00586)	; &ZOB-0586;
     ))
@@ -8652,7 +8652,7 @@
       )
      ((=zinbun-oracle	  . 01030)	; &ZOB-1030;
       ))
-    (sources		zob1968=2033)
+    (sources		zob1959=2033)
     (zinbun-oracle-page . 28)
     (=zinbun-oracle	. 00587)	; &ZOB-0587;
     (<-Oracle-Bones
@@ -8680,10 +8680,10 @@
       )
      ((=ucs		  . #x5369)	; 卩
       ))
-    (sources		zob1968=0018 zob1968=0026 zob1968=0122 zob1968=0729
-			zob1968=0733 zob1968=0736 zob1968=0779 zob1968=0835
-			zob1968=0994 zob1968=1554 zob1968=1633 zob1968=1682
-			zob1968=2392)
+    (sources		zob1959=0018 zob1959=0026 zob1959=0122 zob1959=0729
+			zob1959=0733 zob1959=0736 zob1959=0779 zob1959=0835
+			zob1959=0994 zob1959=1554 zob1959=1633 zob1959=1682
+			zob1959=2392)
     (zinbun-oracle-page . 28)
     (=zinbun-oracle	. 00588)	; &ZOB-0588;
     ))
@@ -8700,8 +8700,8 @@
       )
      ((=ucs		  . #x5369)	; 卩
       ))
-    (sources		zob1968=0511 zob1968=1842 zob1968=2874 zob1968=2875
-			zob1968=2925 zob1968=2927 zob1968=2928)
+    (sources		zob1959=0511 zob1959=1842 zob1959=2874 zob1959=2875
+			zob1959=2925 zob1959=2927 zob1959=2928)
     (zinbun-oracle-page . 28)
     (=zinbun-oracle	. 00589)	; &ZOB-0589;
     ))
@@ -8710,8 +8710,8 @@
      ((=>zinbun-oracle	  . 00588)	; &A-ZOB-0588;
       ))
     (shuowen-radical	. 34)	; 彳
-    (sources		zob1968=2284 zob1968=2307 zob1968=3010 zob1968=3020
-			zob1968=3028 zob1968=3146 zob1968=3232)
+    (sources		zob1959=2284 zob1959=2307 zob1959=3010 zob1959=3020
+			zob1959=3028 zob1959=3146 zob1959=3232)
     (zinbun-oracle-page . 28)
     (=zinbun-oracle	. 00590)	; &ZOB-0590;
     ))
@@ -8720,7 +8720,7 @@
      ((=>zinbun-oracle	  . 00588)	; &A-ZOB-0588;
       ))
     (shuowen-radical	. 34)	; 彳
-    (sources		zob1968=2142)
+    (sources		zob1959=2142)
     (zinbun-oracle-page . 28)
     (=zinbun-oracle	. 00591)	; &ZOB-0591;
     ))
@@ -8795,7 +8795,7 @@
       )
      ((=ucs		  . #x5F73)	; 彳
       ))
-    (sources		zob1968=0960)
+    (sources		zob1959=0960)
     (zinbun-oracle-page . 28)
     (=zinbun-oracle	. 00594)	; &ZOB-0594;
     (<-Oracle-Bones
@@ -8812,7 +8812,7 @@
       )
      ((=ucs		  . #x5DDB)	; 巛
       ))
-    (sources		zob1968=3244 zob1968=3246)
+    (sources		zob1959=3244 zob1959=3246)
     (zinbun-oracle-page . 28)
     (=zinbun-oracle	. 00595)	; &ZOB-0595;
     (<-Oracle-Bones
@@ -8836,7 +8836,7 @@
       )
      ((=ucs		  . #x5927)	; 大
       ))
-    (sources		zob1968=0624)
+    (sources		zob1959=0624)
     (zinbun-oracle-page . 29)
     (=zinbun-oracle	. 00596)	; &ZOB-0596;
     (<-Oracle-Bones
@@ -8853,7 +8853,7 @@
       )
      ((=zinbun-oracle	  . 01147)	; &ZOB-1147;
       ))
-    (sources		zob1968=3054 zob1968=3132)
+    (sources		zob1959=3054 zob1959=3132)
     (zinbun-oracle-page . 29)
     (=zinbun-oracle	. 00597)	; &ZOB-0597;
     (<-Oracle-Bones
@@ -8877,9 +8877,9 @@
       )
      ((=zinbun-oracle	  . 01177)	; &ZOB-1177;
       ))
-    (sources		zob1968=0051 zob1968=0324 zob1968=0347 zob1968=0738
-			zob1968=0875 zob1968=0876 zob1968=0883 zob1968=0884
-			zob1968=0885 zob1968=0891 zob1968=0905 zob1968=3175)
+    (sources		zob1959=0051 zob1959=0324 zob1959=0347 zob1959=0738
+			zob1959=0875 zob1959=0876 zob1959=0883 zob1959=0884
+			zob1959=0885 zob1959=0891 zob1959=0905 zob1959=3175)
     (zinbun-oracle-page . 29)
     (=zinbun-oracle	. 00598)	; &ZOB-0598;
     (<-Oracle-Bones
@@ -8910,7 +8910,7 @@
        ((=zinbun-oracle	    . 00315)	; &ZOB-0315;
 	))
       ))
-    (sources		zob1968=2047 zob1968=2505)
+    (sources		zob1959=2047 zob1959=2505)
     (zinbun-oracle-page . 29)
     (=zinbun-oracle	. 00599)	; &ZOB-0599;
     (<-Oracle-Bones
@@ -8948,8 +8948,8 @@
        ((=zinbun-oracle	    . 00315)	; &ZOB-0315;
 	))
       ))
-    (sources		zob1968=1984 zob1968=2043 zob1968=2049 zob1968=2110
-			zob1968=2119)
+    (sources		zob1959=1984 zob1959=2043 zob1959=2049 zob1959=2110
+			zob1959=2119)
     (zinbun-oracle-page . 29)
     (=zinbun-oracle	. 00600)	; &ZOB-0600;
     (<-Oracle-Bones
@@ -9144,7 +9144,7 @@
     ))
 (define-char
   '((shuowen-radical	. 34)	; 彳
-    (sources		zob1968=2026)
+    (sources		zob1959=2026)
     (zinbun-oracle-page . 29)
     (=zinbun-oracle	. 00610)	; &ZOB-0610;
     ))
@@ -9328,8 +9328,8 @@
      ((=>zinbun-oracle	  . 00644)	; &A-ZOB-0644;
       ))
     (shuowen-radical	. 36)	; 㢟
-    (sources		zob1968=1803 zob1968=1872 zob1968=1873 zob1968=1945
-			zob1968=2014 zob1968=2018)
+    (sources		zob1959=1803 zob1959=1872 zob1959=1873 zob1959=1945
+			zob1959=2014 zob1959=2018)
     (zinbun-oracle-page . 31)
     (=zinbun-oracle	. 00644)	; &ZOB-0644;
     (<-Oracle-Bones
@@ -9338,10 +9338,10 @@
     ))
 (define-char
   '((shuowen-radical	. 37)	; 行
-    (sources		zob1968=0306 zob1968=0880 zob1968=0881 zob1968=1274
-			zob1968=1317 zob1968=1541 zob1968=1548 zob1968=1570
-			zob1968=1574 zob1968=1593 zob1968=1604 zob1968=1606
-			zob1968=1614 zob1968=1621 zob1968=1646 zob1968=2541)
+    (sources		zob1959=0306 zob1959=0880 zob1959=0881 zob1959=1274
+			zob1959=1317 zob1959=1541 zob1959=1548 zob1959=1570
+			zob1959=1574 zob1959=1593 zob1959=1604 zob1959=1606
+			zob1959=1614 zob1959=1621 zob1959=1646 zob1959=2541)
     (zinbun-oracle-page . 31)
     (=zinbun-oracle	. 00645)	; &ZOB-0645;
     (<-Oracle-Bones
@@ -9350,7 +9350,7 @@
     ))
 (define-char
   '((shuowen-radical	. 37)	; 行
-    (sources		zob1968=0544 zob1968=0886)
+    (sources		zob1959=0544 zob1959=0886)
     (zinbun-oracle-page . 31)
     (=zinbun-oracle	. 00646)	; &ZOB-0646;
     (<-Oracle-Bones
@@ -9373,7 +9373,7 @@
     ))
 (define-char
   '((shuowen-radical	. 37)	; 行
-    (sources		zob1968=0624)
+    (sources		zob1959=0624)
     (zinbun-oracle-page . 31)
     (=zinbun-oracle	. 00647)	; &ZOB-0647;
     (<-Oracle-Bones
@@ -9449,7 +9449,7 @@
     ))
 (define-char
   '((shuowen-radical	. 37)	; 行
-    (sources		zob1968=3250)
+    (sources		zob1959=3250)
     (zinbun-oracle-page . 31)
     (=zinbun-oracle	. 00652)	; &ZOB-0652;
     ))
@@ -9525,7 +9525,7 @@
     ))
 (define-char
   '((shuowen-radical	. 38)	; 齒
-    (sources		zob1968=0454)
+    (sources		zob1959=0454)
     (zinbun-oracle-page . 32)
     (=zinbun-oracle	. 00667)	; &ZOB-0667;
     (<-Oracle-Bones
@@ -9563,7 +9563,7 @@
     ))
 (define-char
   '((shuowen-radical	. 42)	; 品
-    (sources		zob1968=1564 zob1968=1884)
+    (sources		zob1959=1564 zob1959=1884)
     (zinbun-oracle-page . 32)
     (=zinbun-oracle	. 00672)	; &ZOB-0672;
     (<-Oracle-Bones
@@ -9572,9 +9572,9 @@
     ))
 (define-char
   '((shuowen-radical	. 42)	; 品
-    (sources		zob1968=0211 zob1968=0212 zob1968=0278 zob1968=0401
-			zob1968=0560 zob1968=0939 zob1968=1141 zob1968=1142
-			zob1968=1144)
+    (sources		zob1959=0211 zob1959=0212 zob1959=0278 zob1959=0401
+			zob1959=0560 zob1959=0939 zob1959=1141 zob1959=1142
+			zob1959=1144)
     (zinbun-oracle-page . 32)
     (=zinbun-oracle	. 00673)	; &ZOB-0673;
     (<-Oracle-Bones
@@ -9598,7 +9598,7 @@
     ))
 (define-char
   '((shuowen-radical	. 43)	; 龠
-    (sources		zob1968=1844)
+    (sources		zob1959=1844)
     (zinbun-oracle-page . 32)
     (=zinbun-oracle	. 00675)	; &ZOB-0675;
     ))
@@ -9629,7 +9629,7 @@
     ))
 (define-char
   '((shuowen-radical	. 44)	; 冊
-    (sources		zob1968=0335 zob1968=1830 zob1968=1878 zob1968=2263)
+    (sources		zob1959=0335 zob1959=1830 zob1959=1878 zob1959=2263)
     (zinbun-oracle-page . 32)
     (=zinbun-oracle	. 00681)	; &ZOB-0681;
     (<-Oracle-Bones
@@ -9638,7 +9638,7 @@
     ))
 (define-char
   '((shuowen-radical	. 44)	; 冊
-    (sources		zob1968=1883)
+    (sources		zob1959=1883)
     (zinbun-oracle-page . 32)
     (=zinbun-oracle	. 00682)	; &ZOB-0682;
     (<-Oracle-Bones
@@ -9698,7 +9698,7 @@
     ))
 (define-char
   '((shuowen-radical	. 47)	; 干
-    (sources		zob1968=3021)
+    (sources		zob1959=3021)
     (zinbun-oracle-page . 33)
     (=zinbun-oracle	. 00690)	; &ZOB-0690;
     ))
@@ -9712,7 +9712,7 @@
     ))
 (define-char
   '((shuowen-radical	. 47)	; 干
-    (sources		zob1968=1564)
+    (sources		zob1959=1564)
     (zinbun-oracle-page . 33)
     (=zinbun-oracle	. 00692)	; &ZOB-0692;
     ))
@@ -9726,8 +9726,8 @@
     ))
 (define-char
   '((shuowen-radical	. 50)	; 㕯
-    (sources		zob1968=0414 zob1968=1363 zob1968=2362 zob1968=2529
-			zob1968=2984 zob1968=3001 zob1968=3161)
+    (sources		zob1959=0414 zob1959=1363 zob1959=2362 zob1959=2529
+			zob1959=2984 zob1959=3001 zob1959=3161)
     (zinbun-oracle-page . 33)
     (=zinbun-oracle	. 00694)	; &ZOB-0694;
     (<-Oracle-Bones
@@ -9748,7 +9748,7 @@
     ))
 (define-char
   '((shuowen-radical	. 50)	; 㕯
-    (sources		zob1968=0670 zob1968=3241 zob1968=3246)
+    (sources		zob1959=0670 zob1959=3241 zob1959=3246)
     (zinbun-oracle-page . 33)
     (=zinbun-oracle	. 00696)	; &ZOB-0696;
     (<-Oracle-Bones
@@ -9810,7 +9810,7 @@
     ))
 (define-char
   '((shuowen-radical	. 54)	; 十
-    (sources		zob1968=2306)
+    (sources		zob1959=2306)
     (zinbun-oracle-page . 33)
     (=zinbun-oracle	. 00704)	; &ZOB-0704;
     (<-Oracle-Bones
@@ -9851,7 +9851,7 @@
     ))
 (define-char
   '((shuowen-radical	. 54)	; 十
-    (sources		zob1968=0007 zob1968=0089 zob1968=1788 zob1968=1806)
+    (sources		zob1959=0007 zob1959=0089 zob1959=1788 zob1959=1806)
     (zinbun-oracle-page . 34)
     (=zinbun-oracle	. 00707)	; &ZOB-0707;
     (<-Oracle-Bones
@@ -9864,8 +9864,8 @@
     ))
 (define-char
   '((shuowen-radical	. 54)	; 十
-    (sources		zob1968=1793 zob1968=1815 zob1968=1909 zob1968=2264
-			zob1968=2338 zob1968=2340 zob1968=2389)
+    (sources		zob1959=1793 zob1959=1815 zob1959=1909 zob1959=2264
+			zob1959=2338 zob1959=2340 zob1959=2389)
     (zinbun-oracle-page . 34)
     (=zinbun-oracle	. 00708)	; &ZOB-0708;
     (<-Oracle-Bones
@@ -9878,7 +9878,7 @@
     ))
 (define-char
   '((shuowen-radical	. 54)	; 十
-    (sources		zob1968=0078 zob1968=0089)
+    (sources		zob1959=0078 zob1959=0089)
     (zinbun-oracle-page . 34)
     (=zinbun-oracle	. 00709)	; &ZOB-0709;
     (<-Oracle-Bones
@@ -9891,7 +9891,7 @@
     ))
 (define-char
   '((shuowen-radical	. 54)	; 十
-    (sources		zob1968=2293)
+    (sources		zob1959=2293)
     (zinbun-oracle-page . 34)
     (=zinbun-oracle	. 00710)	; &ZOB-0710;
     (<-Oracle-Bones
@@ -9911,7 +9911,7 @@
     ))
 (define-char
   '((shuowen-radical	. 54)	; 十
-    (sources		zob1968=1793 zob1968=2313)
+    (sources		zob1959=1793 zob1959=2313)
     (zinbun-oracle-page . 34)
     (=zinbun-oracle	. 00711)	; &ZOB-0711;
     (<-Oracle-Bones
@@ -9948,13 +9948,13 @@
     ))
 (define-char
   '((shuowen-radical	. 54)	; 十
-    (sources		zob1968=0219 zob1968=0222 zob1968=0329 zob1968=0573
-			zob1968=0611 zob1968=0612 zob1968=0800 zob1968=1272
-			zob1968=1361 zob1968=1363 zob1968=1372 zob1968=1418
-			zob1968=1439 zob1968=1441 zob1968=1608 zob1968=1694
-			zob1968=1716 zob1968=2924 zob1968=2957 zob1968=3054
-			zob1968=3092 zob1968=3143 zob1968=3146 zob1968=3178
-			zob1968=3220)
+    (sources		zob1959=0219 zob1959=0222 zob1959=0329 zob1959=0573
+			zob1959=0611 zob1959=0612 zob1959=0800 zob1959=1272
+			zob1959=1361 zob1959=1363 zob1959=1372 zob1959=1418
+			zob1959=1439 zob1959=1441 zob1959=1608 zob1959=1694
+			zob1959=1716 zob1959=2924 zob1959=2957 zob1959=3054
+			zob1959=3092 zob1959=3143 zob1959=3146 zob1959=3178
+			zob1959=3220)
     (zinbun-oracle-page . 34)
     (=zinbun-oracle	. 00714)	; &ZOB-0714;
     (<-Oracle-Bones
@@ -9984,9 +9984,9 @@
      ((=>zinbun-oracle	  . 00715)	; &A-ZOB-0715;
       ))
     (shuowen-radical	. 54)	; 十
-    (sources		zob1968=0107 zob1968=0157 zob1968=0269 zob1968=0401
-			zob1968=0549 zob1968=1177 zob1968=1428 zob1968=1719
-			zob1968=3055 zob1968=3118)
+    (sources		zob1959=0107 zob1959=0157 zob1959=0269 zob1959=0401
+			zob1959=0549 zob1959=1177 zob1959=1428 zob1959=1719
+			zob1959=3055 zob1959=3118)
     (zinbun-oracle-page . 34)
     (=zinbun-oracle	. 00715)	; &ZOB-0715;
     ))
@@ -9995,7 +9995,7 @@
      ((=>zinbun-oracle	  . 00715)	; &A-ZOB-0715;
       ))
     (shuowen-radical	. 54)	; 十
-    (sources		zob1968=1277 zob1968=1319 zob1968=1470 zob1968=1527)
+    (sources		zob1959=1277 zob1959=1319 zob1959=1470 zob1959=1527)
     (zinbun-oracle-page . 34)
     (=zinbun-oracle	. 00716)	; &ZOB-0716;
     ))
@@ -10018,8 +10018,8 @@
      ((=>zinbun-oracle	  . 00717)	; &A-ZOB-0717;
       ))
     (shuowen-radical	. 54)	; 十
-    (sources		zob1968=0205 zob1968=0212 zob1968=0596 zob1968=0927
-			zob1968=1630 zob1968=1761 zob1968=3016)
+    (sources		zob1959=0205 zob1959=0212 zob1959=0596 zob1959=0927
+			zob1959=1630 zob1959=1761 zob1959=3016)
     (zinbun-oracle-page . 34)
     (=zinbun-oracle	. 00717)	; &ZOB-0717;
     ))
@@ -10028,8 +10028,8 @@
      ((=>zinbun-oracle	  . 00717)	; &A-ZOB-0717;
       ))
     (shuowen-radical	. 54)	; 十
-    (sources		zob1968=1257 zob1968=1263 zob1968=1297 zob1968=1357
-			zob1968=1573 zob1968=1602 zob1968=3172)
+    (sources		zob1959=1257 zob1959=1263 zob1959=1297 zob1959=1357
+			zob1959=1573 zob1959=1602 zob1959=3172)
     (zinbun-oracle-page . 34)
     (=zinbun-oracle	. 00718)	; &ZOB-0718;
     ))
@@ -10052,8 +10052,8 @@
      ((=>zinbun-oracle	  . 00719)	; &A-ZOB-0719;
       ))
     (shuowen-radical	. 54)	; 十
-    (sources		zob1968=0084 zob1968=0449 zob1968=0773 zob1968=0853
-			zob1968=0949 zob1968=1192 zob1968=1771)
+    (sources		zob1959=0084 zob1959=0449 zob1959=0773 zob1959=0853
+			zob1959=0949 zob1959=1192 zob1959=1771)
     (zinbun-oracle-page . 34)
     (=zinbun-oracle	. 00719)	; &ZOB-0719;
     ))
@@ -10062,7 +10062,7 @@
      ((=>zinbun-oracle	  . 00719)	; &A-ZOB-0719;
       ))
     (shuowen-radical	. 54)	; 十
-    (sources		zob1968=0949 zob1968=1602)
+    (sources		zob1959=0949 zob1959=1602)
     (zinbun-oracle-page . 34)
     (=zinbun-oracle	. 00720)	; &ZOB-0720;
     ))
@@ -10110,7 +10110,7 @@
     ))
 (define-char
   '((shuowen-radical	. 54)	; 十
-    (sources		zob1968=1887 zob1968=1888 zob1968=1889)
+    (sources		zob1959=1887 zob1959=1888 zob1959=1889)
     (zinbun-oracle-page . 34)
     (=zinbun-oracle	. 00724)	; &ZOB-0724;
     (<-Oracle-Bones
@@ -10135,7 +10135,7 @@
     ))
 (define-char
   '((shuowen-radical	. 54)	; 十
-    (sources		zob1968=1920 zob1968=2299)
+    (sources		zob1959=1920 zob1959=2299)
     (zinbun-oracle-page . 34)
     (=zinbun-oracle	. 00726)	; &ZOB-0726;
     (<-Oracle-Bones
@@ -10184,7 +10184,7 @@
     ))
 (define-char
   '((shuowen-radical	. 54)	; 十
-    (sources		zob1968=0025)
+    (sources		zob1959=0025)
     (zinbun-oracle-page . 34)
     (=zinbun-oracle	. 00730)	; &ZOB-0730;
     (<-Oracle-Bones
@@ -10206,7 +10206,7 @@
     ))
 (define-char
   '((shuowen-radical	. 54)	; 十
-    (sources		zob1968=1094 zob1968=1095)
+    (sources		zob1959=1094 zob1959=1095)
     (zinbun-oracle-page . 34)
     (=zinbun-oracle	. 00731)	; &ZOB-0731;
     (<-Oracle-Bones
@@ -10219,13 +10219,13 @@
     ))
 (define-char
   '((shuowen-radical	. 54)	; 十
-    (sources		zob1968=0722)
+    (sources		zob1959=0722)
     (zinbun-oracle-page . 34)
     (=zinbun-oracle	. 00732)	; &ZOB-0732;
     ))
 (define-char
   '((shuowen-radical	. 54)	; 十
-    (sources		zob1968=3114)
+    (sources		zob1959=3114)
     (zinbun-oracle-page . 35)
     (=zinbun-oracle	. 00733)	; &ZOB-0733;
     (<-Oracle-Bones
@@ -10238,7 +10238,7 @@
     ))
 (define-char
   '((shuowen-radical	. 54)	; 十
-    (sources		zob1968=2307 zob1968=2369)
+    (sources		zob1959=2307 zob1959=2369)
     (zinbun-oracle-page . 35)
     (=zinbun-oracle	. 00734)	; &ZOB-0734;
     (<-Oracle-Bones
@@ -10252,7 +10252,7 @@
     ))
 (define-char
   '((shuowen-radical	. 54)	; 十
-    (sources		zob1968=2292 zob1968=3056)
+    (sources		zob1959=2292 zob1959=3056)
     (zinbun-oracle-page . 35)
     (=zinbun-oracle	. 00736)	; &ZOB-0736;
     (<-Oracle-Bones
@@ -10309,7 +10309,7 @@
     ))
 (define-char
   '((shuowen-radical	. 54)	; 十
-    (sources		zob1968=2210)
+    (sources		zob1959=2210)
     (zinbun-oracle-page . 35)
     (=zinbun-oracle	. 00741)	; &ZOB-0741;
     (<-Oracle-Bones
@@ -10322,7 +10322,7 @@
     ))
 (define-char
   '((shuowen-radical	. 54)	; 十
-    (sources		zob1968=1890)
+    (sources		zob1959=1890)
     (zinbun-oracle-page . 35)
     (=zinbun-oracle	. 00742)	; &ZOB-0742;
     (<-Oracle-Bones
@@ -10335,8 +10335,8 @@
     ))
 (define-char
   '((shuowen-radical	. 55)	; 卅
-    (sources		zob1968=0694 zob1968=0754 zob1968=1310 zob1968=1812
-			zob1968=2318 zob1968=3046)
+    (sources		zob1959=0694 zob1959=0754 zob1959=1310 zob1959=1812
+			zob1959=2318 zob1959=3046)
     (zinbun-oracle-page . 35)
     (=zinbun-oracle	. 00743)	; &ZOB-0743;
     (<-Oracle-Bones
@@ -10345,7 +10345,7 @@
     ))
 (define-char
   '((shuowen-radical	. 55)	; 卅
-    (sources		zob1968=0083 zob1968=0088 zob1968=1271 zob1968=2291)
+    (sources		zob1959=0083 zob1959=0088 zob1959=1271 zob1959=2291)
     (zinbun-oracle-page . 35)
     (=zinbun-oracle	. 00744)	; &ZOB-0744;
     (<-Oracle-Bones
@@ -10370,7 +10370,7 @@
     ))
 (define-char
   '((shuowen-radical	. 55)	; 卅
-    (sources		zob1968=1890)
+    (sources		zob1959=1890)
     (zinbun-oracle-page . 35)
     (=zinbun-oracle	. 00746)	; &ZOB-0746;
     (<-Oracle-Bones
@@ -10395,7 +10395,7 @@
     ))
 (define-char
   '((shuowen-radical	. 55)	; 卅
-    (sources		zob1968=2998)
+    (sources		zob1959=2998)
     (zinbun-oracle-page . 35)
     (=zinbun-oracle	. 00748)	; &ZOB-0748;
     (<-Oracle-Bones
@@ -10408,7 +10408,7 @@
     ))
 (define-char
   '((shuowen-radical	. 55)	; 卅
-    (sources		zob1968=2987)
+    (sources		zob1959=2987)
     (zinbun-oracle-page . 35)
     (=zinbun-oracle	. 00749)	; &ZOB-0749;
     (<-Oracle-Bones
@@ -10421,7 +10421,7 @@
     ))
 (define-char
   '((shuowen-radical	. 55)	; 卅
-    (sources		zob1968=0530 zob1968=0607)
+    (sources		zob1959=0530 zob1959=0607)
     (zinbun-oracle-page . 35)
     (=zinbun-oracle	. 00750)	; &ZOB-0750;
     (<-Oracle-Bones
@@ -10442,7 +10442,7 @@
     ))
 (define-char
   '((shuowen-radical	. 56)	; 言
-    (sources		zob1968=0184 zob1968=0252 zob1968=1446)
+    (sources		zob1959=0184 zob1959=0252 zob1959=1446)
     (zinbun-oracle-page . 35)
     (=zinbun-oracle	. 00752)	; &ZOB-0752;
     (<-Oracle-Bones
@@ -10479,7 +10479,7 @@
     ))
 (define-char
   '((shuowen-radical	. 57)	; 誩
-    (sources		zob1968=1798)
+    (sources		zob1959=1798)
     (zinbun-oracle-page . 36)
     (=zinbun-oracle	. 00759)	; &ZOB-0759;
     (<-Oracle-Bones
@@ -10496,13 +10496,13 @@
     ))
 (define-char
   '((shuowen-radical	. 59)	; 䇂
-    (sources		zob1968=3115)
+    (sources		zob1959=3115)
     (zinbun-oracle-page . 36)
     (=zinbun-oracle	. 00761)	; &ZOB-0761;
     ))
 (define-char
   '((shuowen-radical	. 59)	; 䇂
-    (sources		zob1968=3038)
+    (sources		zob1959=3038)
     (zinbun-oracle-page . 36)
     (=zinbun-oracle	. 00762)	; &ZOB-0762;
     (<-Oracle-Bones
@@ -10511,7 +10511,7 @@
     ))
 (define-char
   '((shuowen-radical	. 59)	; 䇂
-    (sources		zob1968=1854 zob1968=1855)
+    (sources		zob1959=1854 zob1959=1855)
     (zinbun-oracle-page . 36)
     (=zinbun-oracle	. 00763)	; &ZOB-0763;
     ))
@@ -10660,7 +10660,7 @@
     ))
 (define-char
   '((shuowen-radical	. 62)	; 𠬞
-    (sources		zob1968=0444)
+    (sources		zob1959=0444)
     (zinbun-oracle-page . 37)
     (=zinbun-oracle	. 00781)	; &ZOB-0781;
     (<-Oracle-Bones
@@ -10676,44 +10676,44 @@
     ))
 (define-char
   '((shuowen-radical	. 62)	; 𠬞
-    (sources		zob1968=3073)
+    (sources		zob1959=3073)
     (zinbun-oracle-page . 37)
     (=zinbun-oracle	. 00782)	; &ZOB-0782;
     ))
 (define-char
   '((shuowen-radical	. 62)	; 𠬞
-    (sources		zob1968=3160)
+    (sources		zob1959=3160)
     (zinbun-oracle-page . 37)
     (=zinbun-oracle	. 00783)	; &ZOB-0783;
     ))
 (define-char
   '((shuowen-radical	. 62)	; 𠬞
-    (sources		zob1968=3254)
+    (sources		zob1959=3254)
     (zinbun-oracle-page . 37)
     (=zinbun-oracle	. 00784)	; &ZOB-0784;
     ))
 (define-char
   '((shuowen-radical	. 62)	; 𠬞
-    (sources		zob1968=0268 zob1968=0269 zob1968=0386 zob1968=0969
-			zob1968=3159)
+    (sources		zob1959=0268 zob1959=0269 zob1959=0386 zob1959=0969
+			zob1959=3159)
     (zinbun-oracle-page . 37)
     (=zinbun-oracle	. 00785)	; &ZOB-0785;
     ))
 (define-char
   '((shuowen-radical	. 62)	; 𠬞
-    (sources		zob1968=0459)
+    (sources		zob1959=0459)
     (zinbun-oracle-page . 37)
     (=zinbun-oracle	. 00786)	; &ZOB-0786;
     ))
 (define-char
   '((shuowen-radical	. 62)	; 𠬞
-    (sources		zob1968=2605 zob1968=2612)
+    (sources		zob1959=2605 zob1959=2612)
     (zinbun-oracle-page . 37)
     (=zinbun-oracle	. 00787)	; &ZOB-0787;
     ))
 (define-char
   '((shuowen-radical	. 62)	; 𠬞
-    (sources		zob1968=3245)
+    (sources		zob1959=3245)
     (zinbun-oracle-page . 37)
     (=zinbun-oracle	. 00788)	; &ZOB-0788;
     ))
@@ -10924,7 +10924,7 @@
     ))
 (define-char
   '((shuowen-radical	. 64)	; 共
-    (sources		zob1968=0602 zob1968=2687)
+    (sources		zob1959=0602 zob1959=2687)
     (zinbun-oracle-page . 39)
     (=zinbun-oracle	. 00830)	; &ZOB-0830;
     (<-Oracle-Bones
@@ -10933,7 +10933,7 @@
     ))
 (define-char
   '((shuowen-radical	. 64)	; 共
-    (sources		zob1968=0156 zob1968=1989 zob1968=2141)
+    (sources		zob1959=0156 zob1959=1989 zob1959=2141)
     (zinbun-oracle-page . 39)
     (=zinbun-oracle	. 00831)	; &ZOB-0831;
     (<-Oracle-Bones
@@ -10977,7 +10977,7 @@
     ))
 (define-char
   '((shuowen-radical	. 66)	; 舁
-    (sources		zob1968=3151)
+    (sources		zob1959=3151)
     (zinbun-oracle-page . 39)
     (=zinbun-oracle	. 00839)	; &ZOB-0839;
     (<-Oracle-Bones
@@ -11036,7 +11036,7 @@
     ))
 (define-char
   '((shuowen-radical	. 68)	; 䢅
-    (sources		zob1968=2104)
+    (sources		zob1959=2104)
     (zinbun-oracle-page . 39)
     (=zinbun-oracle	. 00844)	; &ZOB-0844;
     ))
@@ -11062,7 +11062,7 @@
     ))
 (define-char
   '((shuowen-radical	. 71)	; 鬲
-    (sources		zob1968=0144)
+    (sources		zob1959=0144)
     (zinbun-oracle-page . 39)
     (=zinbun-oracle	. 00849)	; &ZOB-0849;
     (<-Oracle-Bones
@@ -11261,7 +11261,7 @@
     ))
 (define-char
   '((shuowen-radical	. 73)	; 爪
-    (sources		zob1968=3167)
+    (sources		zob1959=3167)
     (zinbun-oracle-page . 41)
     (=zinbun-oracle	. 00878)	; &ZOB-0878;
     (<-Oracle-Bones
@@ -11278,7 +11278,7 @@
     ))
 (define-char
   '((shuowen-radical	. 73)	; 爪
-    (sources		zob1968=0378)
+    (sources		zob1959=0378)
     (zinbun-oracle-page . 41)
     (=zinbun-oracle	. 00879)	; &ZOB-0879;
     (<-Oracle-Bones
@@ -11357,7 +11357,7 @@
     ))
 (define-char
   '((shuowen-radical	. 74)	; 𠃨
-    (sources		zob1968=2312 zob1968=2313)
+    (sources		zob1959=2312 zob1959=2313)
     (zinbun-oracle-page . 41)
     (=zinbun-oracle	. 00889)	; &ZOB-0889;
     (<-Oracle-Bones
@@ -11379,11 +11379,11 @@
     ))
 (define-char
   '((shuowen-radical	. 74)	; 𠃨
-    (sources		zob1968=0143 zob1968=1273 zob1968=1274 zob1968=1280
-			zob1968=1293 zob1968=1323 zob1968=1475 zob1968=1562
-			zob1968=1569 zob1968=1784 zob1968=1848 zob1968=1970
-			zob1968=2005 zob1968=2046 zob1968=2052 zob1968=2059
-			zob1968=2075)
+    (sources		zob1959=0143 zob1959=1273 zob1959=1274 zob1959=1280
+			zob1959=1293 zob1959=1323 zob1959=1475 zob1959=1562
+			zob1959=1569 zob1959=1784 zob1959=1848 zob1959=1970
+			zob1959=2005 zob1959=2046 zob1959=2052 zob1959=2059
+			zob1959=2075)
     (zinbun-oracle-page . 41)
     (=zinbun-oracle	. 00892)	; &ZOB-0892;
     (<-Oracle-Bones
@@ -11497,7 +11497,7 @@
     ))
 (define-char
   '((shuowen-radical	. 75)	; 鬥
-    (sources		zob1968=2187)
+    (sources		zob1959=2187)
     (zinbun-oracle-page . 42)
     (=zinbun-oracle	. 00908)	; &ZOB-0908;
     ))
@@ -11514,51 +11514,51 @@
      ((=>zinbun-oracle	  . 00909)	; &A-ZOB-0909;
       ))
     (shuowen-radical	. 76)	; 又
-    (sources		zob1968=0020 zob1968=0151 zob1968=0327 zob1968=0331
-			zob1968=0344 zob1968=0348 zob1968=0349 zob1968=0354
-			zob1968=0371 zob1968=0418 zob1968=0624 zob1968=0657
-			zob1968=0781 zob1968=0785 zob1968=0891 zob1968=0906
-			zob1968=0919 zob1968=1168 zob1968=1172 zob1968=1250
-			zob1968=1256 zob1968=1260 zob1968=1268 zob1968=1324
-			zob1968=1328 zob1968=1348 zob1968=1464 zob1968=1575
-			zob1968=1625 zob1968=1630 zob1968=1648 zob1968=1674
-			zob1968=1677 zob1968=1786 zob1968=1790 zob1968=1791
-			zob1968=1793 zob1968=1800 zob1968=1803 zob1968=1806
-			zob1968=1807 zob1968=1808 zob1968=1811
-			zob1968=1814-1817 zob1968=1819 zob1968=1820
-			zob1968=1823 zob1968=1824 zob1968=1830 zob1968=1833
-			zob1968=1837 zob1968=1838 zob1968=1844 zob1968=1844
-			zob1968=1846 zob1968=1847 zob1968=1851
-			zob1968=1854-1858 zob1968=1861 zob1968=1878
-			zob1968=1881 zob1968=1883 zob1968=1884
-			zob1968=1886-1891 zob1968=1893-1900 zob1968=1905
-			zob1968=1912 zob1968=1927 zob1968=1929 zob1968=1930
-			zob1968=1941 zob1968=1943-1946 zob1968=1948
-			zob1968=1961 zob1968=1968 zob1968=1978 zob1968=1994
-			zob1968=1997 zob1968=2030 zob1968=2052 zob1968=2062
-			zob1968=2098 zob1968=2100 zob1968=2113 zob1968=2115
-			zob1968=2141 zob1968=2148 zob1968=2223 zob1968=2241
-			zob1968=2248 zob1968=2254 zob1968=2256 zob1968=2263
-			zob1968=2279 zob1968=2280 zob1968=2281 zob1968=2283
-			zob1968=2284 zob1968=2286 zob1968=2295 zob1968=2297
-			zob1968=2306 zob1968=2313 zob1968=2318 zob1968=2320
-			zob1968=2325 zob1968=2336 zob1968=2339 zob1968=2359
-			zob1968=2366 zob1968=2370 zob1968=2376 zob1968=2470
-			zob1968=2476 zob1968=2487 zob1968=2523 zob1968=2524
-			zob1968=2525 zob1968=2528 zob1968=2584 zob1968=2614
-			zob1968=2688 zob1968=2689 zob1968=2695 zob1968=2696
-			zob1968=2698-2704 zob1968=2708-2711 zob1968=2713
-			zob1968=2720 zob1968=2724 zob1968=2726 zob1968=2732
-			zob1968=2736 zob1968=2738 zob1968=2739 zob1968=2740
-			zob1968=2888 zob1968=2889 zob1968=2947 zob1968=2951
-			zob1968=2982 zob1968=2986 zob1968=2987 zob1968=2988
-			zob1968=2990 zob1968=2997 zob1968=3000 zob1968=3002
-			zob1968=3011 zob1968=3013 zob1968=3045 zob1968=3047
-			zob1968=3057 zob1968=3060 zob1968=3064 zob1968=3066
-			zob1968=3067 zob1968=3068 zob1968=3078 zob1968=3080
-			zob1968=3099 zob1968=3114 zob1968=3117 zob1968=3134
-			zob1968=3166 zob1968=3167 zob1968=3171 zob1968=3223
-			zob1968=3240-3243 zob1968=3245 zob1968=3253)
+    (sources		zob1959=0020 zob1959=0151 zob1959=0327 zob1959=0331
+			zob1959=0344 zob1959=0348 zob1959=0349 zob1959=0354
+			zob1959=0371 zob1959=0418 zob1959=0624 zob1959=0657
+			zob1959=0781 zob1959=0785 zob1959=0891 zob1959=0906
+			zob1959=0919 zob1959=1168 zob1959=1172 zob1959=1250
+			zob1959=1256 zob1959=1260 zob1959=1268 zob1959=1324
+			zob1959=1328 zob1959=1348 zob1959=1464 zob1959=1575
+			zob1959=1625 zob1959=1630 zob1959=1648 zob1959=1674
+			zob1959=1677 zob1959=1786 zob1959=1790 zob1959=1791
+			zob1959=1793 zob1959=1800 zob1959=1803 zob1959=1806
+			zob1959=1807 zob1959=1808 zob1959=1811
+			zob1959=1814-1817 zob1959=1819 zob1959=1820
+			zob1959=1823 zob1959=1824 zob1959=1830 zob1959=1833
+			zob1959=1837 zob1959=1838 zob1959=1844 zob1959=1844
+			zob1959=1846 zob1959=1847 zob1959=1851
+			zob1959=1854-1858 zob1959=1861 zob1959=1878
+			zob1959=1881 zob1959=1883 zob1959=1884
+			zob1959=1886-1891 zob1959=1893-1900 zob1959=1905
+			zob1959=1912 zob1959=1927 zob1959=1929 zob1959=1930
+			zob1959=1941 zob1959=1943-1946 zob1959=1948
+			zob1959=1961 zob1959=1968 zob1959=1978 zob1959=1994
+			zob1959=1997 zob1959=2030 zob1959=2052 zob1959=2062
+			zob1959=2098 zob1959=2100 zob1959=2113 zob1959=2115
+			zob1959=2141 zob1959=2148 zob1959=2223 zob1959=2241
+			zob1959=2248 zob1959=2254 zob1959=2256 zob1959=2263
+			zob1959=2279 zob1959=2280 zob1959=2281 zob1959=2283
+			zob1959=2284 zob1959=2286 zob1959=2295 zob1959=2297
+			zob1959=2306 zob1959=2313 zob1959=2318 zob1959=2320
+			zob1959=2325 zob1959=2336 zob1959=2339 zob1959=2359
+			zob1959=2366 zob1959=2370 zob1959=2376 zob1959=2470
+			zob1959=2476 zob1959=2487 zob1959=2523 zob1959=2524
+			zob1959=2525 zob1959=2528 zob1959=2584 zob1959=2614
+			zob1959=2688 zob1959=2689 zob1959=2695 zob1959=2696
+			zob1959=2698-2704 zob1959=2708-2711 zob1959=2713
+			zob1959=2720 zob1959=2724 zob1959=2726 zob1959=2732
+			zob1959=2736 zob1959=2738 zob1959=2739 zob1959=2740
+			zob1959=2888 zob1959=2889 zob1959=2947 zob1959=2951
+			zob1959=2982 zob1959=2986 zob1959=2987 zob1959=2988
+			zob1959=2990 zob1959=2997 zob1959=3000 zob1959=3002
+			zob1959=3011 zob1959=3013 zob1959=3045 zob1959=3047
+			zob1959=3057 zob1959=3060 zob1959=3064 zob1959=3066
+			zob1959=3067 zob1959=3068 zob1959=3078 zob1959=3080
+			zob1959=3099 zob1959=3114 zob1959=3117 zob1959=3134
+			zob1959=3166 zob1959=3167 zob1959=3171 zob1959=3223
+			zob1959=3240-3243 zob1959=3245 zob1959=3253)
     (zinbun-oracle-page . 42)
     (=zinbun-oracle	. 00909)	; &ZOB-0909;
     (<-Oracle-Bones
@@ -11579,8 +11579,8 @@
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=0726 zob1968=1803 zob1968=1823 zob1968=1862
-			zob1968=1875)
+    (sources		zob1959=0726 zob1959=1803 zob1959=1823 zob1959=1862
+			zob1959=1875)
     (zinbun-oracle-page . 43)
     (=zinbun-oracle	. 00911)	; &ZOB-0911;
     (<-Oracle-Bones
@@ -11593,7 +11593,7 @@
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=1948)
+    (sources		zob1959=1948)
     (zinbun-oracle-page . 43)
     (=zinbun-oracle	. 00912)	; &ZOB-0912;
     (<-Oracle-Bones
@@ -11606,7 +11606,7 @@
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=1943)
+    (sources		zob1959=1943)
     (zinbun-oracle-page . 43)
     (=zinbun-oracle	. 00913)	; &ZOB-0913;
     (<-Oracle-Bones
@@ -11627,10 +11627,10 @@
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=0045 zob1968=0049 zob1968=0490 zob1968=0730
-			zob1968=0733 zob1968=0734 zob1968=1347 zob1968=1817
-			zob1968=2294 zob1968=3013 zob1968=3014 zob1968=3018
-			zob1968=3019 zob1968=3179)
+    (sources		zob1959=0045 zob1959=0049 zob1959=0490 zob1959=0730
+			zob1959=0733 zob1959=0734 zob1959=1347 zob1959=1817
+			zob1959=2294 zob1959=3013 zob1959=3014 zob1959=3018
+			zob1959=3019 zob1959=3179)
     (zinbun-oracle-page . 43)
     (=zinbun-oracle	. 00915)	; &ZOB-0915;
     (<-Oracle-Bones
@@ -11639,7 +11639,7 @@
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=2295)
+    (sources		zob1959=2295)
     (zinbun-oracle-page . 43)
     (=zinbun-oracle	. 00916)	; &ZOB-0916;
     (<-Oracle-Bones
@@ -11667,7 +11667,7 @@
      ((=>zinbun-oracle	  . 00917)	; &A-ZOB-0917;
       ))
     (shuowen-radical	. 76)	; 又
-    (sources		zob1968=1683 zob1968=1823 zob1968=3254)
+    (sources		zob1959=1683 zob1959=1823 zob1959=3254)
     (zinbun-oracle-page . 43)
     (=zinbun-oracle	. 00917)	; &ZOB-0917;
     ))
@@ -11676,8 +11676,8 @@
      ((=>zinbun-oracle	  . 00917)	; &A-ZOB-0917;
       ))
     (shuowen-radical	. 76)	; 又
-    (sources		zob1968=0032 zob1968=0033 zob1968=0034 zob1968=1812
-			zob1968=1813 zob1968=1814 zob1968=3012)
+    (sources		zob1959=0032 zob1959=0033 zob1959=0034 zob1959=1812
+			zob1959=1813 zob1959=1814 zob1959=3012)
     (zinbun-oracle-page . 43)
     (=zinbun-oracle	. 00918)	; &ZOB-0918;
     ))
@@ -11698,7 +11698,7 @@
      ((=>zinbun-oracle	  . 00919)	; &A-ZOB-0919;
       ))
     (shuowen-radical	. 76)	; 又
-    (sources		zob1968=3015)
+    (sources		zob1959=3015)
     (zinbun-oracle-page . 43)
     (=zinbun-oracle	. 00919)	; &ZOB-0919;
     ))
@@ -11707,9 +11707,9 @@
      ((=>zinbun-oracle	  . 00919)	; &A-ZOB-0919;
       ))
     (shuowen-radical	. 76)	; 又
-    (sources		zob1968=0039 zob1968=0040-0044 zob1968=0729
-			zob1968=0731 zob1968=0732 zob1968=2292 zob1968=2295
-			zob1968=3016 zob1968=3017 zob1968=3063)
+    (sources		zob1959=0039 zob1959=0040-0044 zob1959=0729
+			zob1959=0731 zob1959=0732 zob1959=2292 zob1959=2295
+			zob1959=3016 zob1959=3017 zob1959=3063)
     (zinbun-oracle-page . 43)
     (=zinbun-oracle	. 00920)	; &ZOB-0920;
     ))
@@ -11742,9 +11742,9 @@
      ((=>zinbun-oracle	  . 00922)	; &A-ZOB-0922;
       ))
     (shuowen-radical	. 76)	; 又
-    (sources		zob1968=1254 zob1968=1265 zob1968=1266 zob1968=1340
-			zob1968=1547 zob1968=1548 zob1968=1549 zob1968=1815
-			zob1968=3254)
+    (sources		zob1959=1254 zob1959=1265 zob1959=1266 zob1959=1340
+			zob1959=1547 zob1959=1548 zob1959=1549 zob1959=1815
+			zob1959=3254)
     (zinbun-oracle-page . 43)
     (=zinbun-oracle	. 00922)	; &ZOB-0922;
     ))
@@ -11753,9 +11753,9 @@
      ((=>zinbun-oracle	  . 00922)	; &A-ZOB-0922;
       ))
     (shuowen-radical	. 76)	; 又
-    (sources		zob1968=2283 zob1968=2284 zob1968=2285
-			zob1968=2287-2291 zob1968=2366 zob1968=2487
-			zob1968=2520 zob1968=2534)
+    (sources		zob1959=2283 zob1959=2284 zob1959=2285
+			zob1959=2287-2291 zob1959=2366 zob1959=2487
+			zob1959=2520 zob1959=2534)
     (zinbun-oracle-page . 43)
     (=zinbun-oracle	. 00923)	; &ZOB-0923;
     ))
@@ -11798,7 +11798,7 @@
      ((=>zinbun-oracle	  . 00925)	; &A-ZOB-0925;
       ))
     (shuowen-radical	. 76)	; 又
-    (sources		zob1968=1816 zob1968=1902)
+    (sources		zob1959=1816 zob1959=1902)
     (zinbun-oracle-page . 43)
     (=zinbun-oracle	. 00926)	; &ZOB-0926;
     ))
@@ -11819,7 +11819,7 @@
      ((=>zinbun-oracle	  . 00927)	; &A-ZOB-0927;
       ))
     (shuowen-radical	. 76)	; 又
-    (sources		zob1968=1807 zob1968=1808 zob1968=1810 zob1968=1811)
+    (sources		zob1959=1807 zob1959=1808 zob1959=1810 zob1959=1811)
     (zinbun-oracle-page . 43)
     (=zinbun-oracle	. 00927)	; &ZOB-0927;
     ))
@@ -11828,14 +11828,14 @@
      ((=>zinbun-oracle	  . 00927)	; &A-ZOB-0927;
       ))
     (shuowen-radical	. 76)	; 又
-    (sources		zob1968=1809)
+    (sources		zob1959=1809)
     (zinbun-oracle-page . 43)
     (=zinbun-oracle	. 00928)	; &ZOB-0928;
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=0035 zob1968=0036 zob1968=0037 zob1968=0038
-			zob1968=1811)
+    (sources		zob1959=0035 zob1959=0036 zob1959=0037 zob1959=0038
+			zob1959=1811)
     (zinbun-oracle-page . 43)
     (=zinbun-oracle	. 00929)	; &ZOB-0929;
     (<-Oracle-Bones
@@ -11871,7 +11871,7 @@
      ((=>zinbun-oracle	  . 00930)	; &A-ZOB-0930;
       ))
     (shuowen-radical	. 76)	; 又
-    (sources		zob1968=3014)
+    (sources		zob1959=3014)
     (zinbun-oracle-page . 43)
     (=zinbun-oracle	. 00931)	; &ZOB-0931;
     ))
@@ -11913,7 +11913,7 @@
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=0278)
+    (sources		zob1959=0278)
     (zinbun-oracle-page . 43)
     (=zinbun-oracle	. 00935)	; &ZOB-0935;
     (<-Oracle-Bones
@@ -11922,15 +11922,15 @@
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=0057 zob1968=0058 zob1968=0432 zob1968=0738
-			zob1968=0739 zob1968=0740 zob1968=0742 zob1968=1252
-			zob1968=1286 zob1968=1305 zob1968=1338 zob1968=1339
-			zob1968=1351 zob1968=1419 zob1968=1434 zob1968=1453
-			zob1968=1454 zob1968=1459 zob1968=1545 zob1968=1546
-			zob1968=1562 zob1968=1607 zob1968=1615 zob1968=1617
-			zob1968=1623 zob1968=1626 zob1968=1638 zob1968=2363
-			zob1968=2998 zob1968=3039 zob1968=3046 zob1968=3161
-			zob1968=3248 zob1968=3254)
+    (sources		zob1959=0057 zob1959=0058 zob1959=0432 zob1959=0738
+			zob1959=0739 zob1959=0740 zob1959=0742 zob1959=1252
+			zob1959=1286 zob1959=1305 zob1959=1338 zob1959=1339
+			zob1959=1351 zob1959=1419 zob1959=1434 zob1959=1453
+			zob1959=1454 zob1959=1459 zob1959=1545 zob1959=1546
+			zob1959=1562 zob1959=1607 zob1959=1615 zob1959=1617
+			zob1959=1623 zob1959=1626 zob1959=1638 zob1959=2363
+			zob1959=2998 zob1959=3039 zob1959=3046 zob1959=3161
+			zob1959=3248 zob1959=3254)
     (zinbun-oracle-page . 43)
     (=zinbun-oracle	. 00936)	; &ZOB-0936;
     (<-Oracle-Bones
@@ -11947,7 +11947,7 @@
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=2146 zob1968=2147)
+    (sources		zob1959=2146 zob1959=2147)
     (zinbun-oracle-page . 44)
     (=zinbun-oracle	. 00938)	; &ZOB-0938;
     (<-Oracle-Bones
@@ -11960,8 +11960,8 @@
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=0343 zob1968=0395 zob1968=0886 zob1968=2145
-			zob1968=2370 zob1968=2521)
+    (sources		zob1959=0343 zob1959=0395 zob1959=0886 zob1959=2145
+			zob1959=2370 zob1959=2521)
     (zinbun-oracle-page . 44)
     (=zinbun-oracle	. 00939)	; &ZOB-0939;
     (<-Oracle-Bones
@@ -11986,7 +11986,7 @@
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=0115 zob1968=3044 zob1968=3141)
+    (sources		zob1959=0115 zob1959=3044 zob1959=3141)
     (zinbun-oracle-page . 44)
     (=zinbun-oracle	. 00942)	; &ZOB-0942;
     (<-Oracle-Bones
@@ -12018,10 +12018,10 @@
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=0001 zob1968=0158 zob1968=0159 zob1968=0160
-			zob1968=0161 zob1968=0314 zob1968=0617 zob1968=0762
-			zob1968=0809 zob1968=0810 zob1968=0811 zob1968=0960
-			zob1968=3030 zob1968=3051)
+    (sources		zob1959=0001 zob1959=0158 zob1959=0159 zob1959=0160
+			zob1959=0161 zob1959=0314 zob1959=0617 zob1959=0762
+			zob1959=0809 zob1959=0810 zob1959=0811 zob1959=0960
+			zob1959=3030 zob1959=3051)
     (zinbun-oracle-page . 44)
     (=zinbun-oracle	. 00947)	; &ZOB-0947;
     (<-Oracle-Bones
@@ -12050,7 +12050,7 @@
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=0932)
+    (sources		zob1959=0932)
     (zinbun-oracle-page . 44)
     (=zinbun-oracle	. 00950)	; &ZOB-0950;
     (<-Oracle-Bones
@@ -12059,7 +12059,7 @@
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=0306)
+    (sources		zob1959=0306)
     (zinbun-oracle-page . 44)
     (=zinbun-oracle	. 00951)	; &ZOB-0951;
     (<-Oracle-Bones
@@ -12093,14 +12093,14 @@
      ((=>zinbun-oracle	  . 00952)	; &A-ZOB-0952;
       ))
     (shuowen-radical	. 76)	; 又
-    (sources		zob1968=1251 zob1968=1258 zob1968=1275-1279
-			zob1968=1281 zob1968=1283 zob1968=1284 zob1968=1285
-			zob1968=1288 zob1968=1563 zob1968=1571 zob1968=1578
-			zob1968=1592 zob1968=1945 zob1968=2585 zob1968=2596
-			zob1968=2602 zob1968=2616-2620 zob1968=2622-2629
-			zob1968=2631 zob1968=2632 zob1968=2634 zob1968=2654
-			zob1968=2658-2664 zob1968=2667 zob1968=2672
-			zob1968=2683 zob1968=3254)
+    (sources		zob1959=1251 zob1959=1258 zob1959=1275-1279
+			zob1959=1281 zob1959=1283 zob1959=1284 zob1959=1285
+			zob1959=1288 zob1959=1563 zob1959=1571 zob1959=1578
+			zob1959=1592 zob1959=1945 zob1959=2585 zob1959=2596
+			zob1959=2602 zob1959=2616-2620 zob1959=2622-2629
+			zob1959=2631 zob1959=2632 zob1959=2634 zob1959=2654
+			zob1959=2658-2664 zob1959=2667 zob1959=2672
+			zob1959=2683 zob1959=3254)
     (zinbun-oracle-page . 44)
     (=zinbun-oracle	. 00952)	; &ZOB-0952;
     ))
@@ -12109,7 +12109,7 @@
      ((=>zinbun-oracle	  . 00952)	; &A-ZOB-0952;
       ))
     (shuowen-radical	. 76)	; 又
-    (sources		zob1968=1269)
+    (sources		zob1959=1269)
     (zinbun-oracle-page . 44)
     (=zinbun-oracle	. 00953)	; &ZOB-0953;
     ))
@@ -12118,19 +12118,19 @@
      ((=>zinbun-oracle	  . 00952)	; &A-ZOB-0952;
       ))
     (shuowen-radical	. 76)	; 又
-    (sources		zob1968=1943)
+    (sources		zob1959=1943)
     (zinbun-oracle-page . 44)
     (=zinbun-oracle	. 00954)	; &ZOB-0954;
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=1944)
+    (sources		zob1959=1944)
     (zinbun-oracle-page . 44)
     (=zinbun-oracle	. 00955)	; &ZOB-0955;
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=1944)
+    (sources		zob1959=1944)
     (zinbun-oracle-page . 44)
     (=zinbun-oracle	. 00956)	; &ZOB-0956;
     ))
@@ -12159,9 +12159,9 @@
      ((=>zinbun-oracle	  . 00958)	; &A-ZOB-0958;
       ))
     (shuowen-radical	. 76)	; 又
-    (sources		zob1968=1899 zob1968=1927 zob1968=1933 zob1968=1958
-			zob1968=1972-1977 zob1968=2128 zob1968=2218
-			zob1968=2219 zob1968=2945)
+    (sources		zob1959=1899 zob1959=1927 zob1959=1933 zob1959=1958
+			zob1959=1972-1977 zob1959=2128 zob1959=2218
+			zob1959=2219 zob1959=2945)
     (zinbun-oracle-page . 44)
     (=zinbun-oracle	. 00958)	; &ZOB-0958;
     ))
@@ -12170,7 +12170,7 @@
      ((=>zinbun-oracle	  . 00958)	; &A-ZOB-0958;
       ))
     (shuowen-radical	. 76)	; 又
-    (sources		zob1968=1790 zob1968=1811)
+    (sources		zob1959=1790 zob1959=1811)
     (zinbun-oracle-page . 44)
     (=zinbun-oracle	. 00959)	; &ZOB-0959;
     ))
@@ -12266,31 +12266,31 @@
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=0629)
+    (sources		zob1959=0629)
     (zinbun-oracle-page . 45)
     (=zinbun-oracle	. 00968)	; &ZOB-0968;
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=2512)
+    (sources		zob1959=2512)
     (zinbun-oracle-page . 45)
     (=zinbun-oracle	. 00969)	; &ZOB-0969;
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=3016)
+    (sources		zob1959=3016)
     (zinbun-oracle-page . 45)
     (=zinbun-oracle	. 00970)	; &ZOB-0970;
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=0417)
+    (sources		zob1959=0417)
     (zinbun-oracle-page . 45)
     (=zinbun-oracle	. 00971)	; &ZOB-0971;
     ))
 (define-char
   '((shuowen-radical	. 76)	; 又
-    (sources		zob1968=3211)
+    (sources		zob1959=3211)
     (zinbun-oracle-page . 45)
     (=zinbun-oracle	. 00972)	; &ZOB-0972;
     ))
@@ -12545,7 +12545,7 @@
     ))
 (define-char
   '((shuowen-radical	. 77)	; 𠂇
-    (sources		zob1968=0447)
+    (sources		zob1959=0447)
     (zinbun-oracle-page . 47)
     (=zinbun-oracle	. 01020)	; &ZOB-1020;
     ))
@@ -12562,10 +12562,10 @@
      ((=>zinbun-oracle	  . 01021)	; &A-ZOB-1021;
       ))
     (shuowen-radical	. 78)	; 㕜
-    (sources		zob1968=0174 zob1968=0213-0221 zob1968=0373
-			zob1968=0562 zob1968=0563 zob1968=0621 zob1968=1158
-			zob1968=1271 zob1968=1272 zob1968=1738 zob1968=1784
-			zob1968=1801 zob1968=2529 zob1968=3124)
+    (sources		zob1959=0174 zob1959=0213-0221 zob1959=0373
+			zob1959=0562 zob1959=0563 zob1959=0621 zob1959=1158
+			zob1959=1271 zob1959=1272 zob1959=1738 zob1959=1784
+			zob1959=1801 zob1959=2529 zob1959=3124)
     (zinbun-oracle-page . 47)
     (=zinbun-oracle	. 01021)	; &ZOB-1021;
     ))
@@ -12574,14 +12574,14 @@
      ((=>zinbun-oracle	  . 01021)	; &A-ZOB-1021;
       ))
     (shuowen-radical	. 78)	; 㕜
-    (sources		zob1968=3016)
+    (sources		zob1959=3016)
     (zinbun-oracle-page . 47)
     (=zinbun-oracle	. 01022)	; &ZOB-1022;
     ))
 (define-char
   '((shuowen-radical	. 78)	; 㕜
-    (sources		zob1968=0338 zob1968=0434 zob1968=0923 zob1968=3242
-			zob1968=3243 zob1968=3244 zob1968=3252)
+    (sources		zob1959=0338 zob1959=0434 zob1959=0923 zob1959=3242
+			zob1959=3243 zob1959=3244 zob1959=3252)
     (zinbun-oracle-page . 47)
     (=zinbun-oracle	. 01023)	; &ZOB-1023;
     (<-Oracle-Bones
@@ -12590,7 +12590,7 @@
     ))
 (define-char
   '((shuowen-radical	. 78)	; 㕜
-    (sources		zob1968=0269)
+    (sources		zob1959=0269)
     (zinbun-oracle-page . 47)
     (=zinbun-oracle	. 01024)	; &ZOB-1024;
     ))
@@ -12606,13 +12606,13 @@
     ))
 (define-char
   '((shuowen-radical	. 80)	; 𦘒
-    (sources		zob1968=1831 zob1968=1850 zob1968=2071)
+    (sources		zob1959=1831 zob1959=1850 zob1959=2071)
     (zinbun-oracle-page . 47)
     (=zinbun-oracle	. 01027)	; &ZOB-1027;
     ))
 (define-char
   '((shuowen-radical	. 80)	; 𦘒
-    (sources		zob1968=2505)
+    (sources		zob1959=2505)
     (zinbun-oracle-page . 47)
     (=zinbun-oracle	. 01028)	; &ZOB-1028;
     ))
@@ -12631,7 +12631,7 @@
     ))
 (define-char
   '((shuowen-radical	. 82)	; 畫
-    (sources		zob1968=0384 zob1968=0414 zob1968=0425 zob1968=0644)
+    (sources		zob1959=0384 zob1959=0414 zob1959=0425 zob1959=0644)
     (zinbun-oracle-page . 47)
     (=zinbun-oracle	. 01031)	; &ZOB-1031;
     (<-Oracle-Bones
@@ -12671,7 +12671,7 @@
      ((=>zinbun-oracle	  . 01036)	; &A-ZOB-1036;
       ))
     (shuowen-radical	. 85)	; 臣
-    (sources		zob1968=0155 zob1968=0283 zob1968=0967)
+    (sources		zob1959=0155 zob1959=0283 zob1959=0967)
     (zinbun-oracle-page . 48)
     (=zinbun-oracle	. 01036)	; &ZOB-1036;
     ))
@@ -12680,13 +12680,13 @@
      ((=>zinbun-oracle	  . 01036)	; &A-ZOB-1036;
       ))
     (shuowen-radical	. 85)	; 臣
-    (sources		zob1968=1940)
+    (sources		zob1959=1940)
     (zinbun-oracle-page . 48)
     (=zinbun-oracle	. 01037)	; &ZOB-1037;
     ))
 (define-char
   '((shuowen-radical	. 85)	; 臣
-    (sources		zob1968=1097 zob1968=1100)
+    (sources		zob1959=1097 zob1959=1100)
     (zinbun-oracle-page . 48)
     (=zinbun-oracle	. 01038)	; &ZOB-1038;
     (<-Oracle-Bones
@@ -12713,21 +12713,21 @@
     ))
 (define-char
   '((shuowen-radical	. 86)	; 殳
-    (sources		zob1968=0015 zob1968=0017 zob1968=0020 zob1968=0039
-			zob1968=0046 zob1968=0063 zob1968=0066 zob1968=0071
-			zob1968=0073 zob1968=0081 zob1968=0095 zob1968=0096
-			zob1968=0106 zob1968=0112 zob1968=0124 zob1968=0165
-			zob1968=0266 zob1968=0330 zob1968=0331 zob1968=0334
-			zob1968=0337 zob1968=0342 zob1968=0364 zob1968=0422
-			zob1968=0438 zob1968=0439 zob1968=0443 zob1968=0453
-			zob1968=0458 zob1968=0462 zob1968=0469 zob1968=0514
-			zob1968=0544-0554 zob1968=0684 zob1968=0811
-			zob1968=0872 zob1968=0879 zob1968=0919 zob1968=0922
-			zob1968=0970 zob1968=0971 zob1968=0973 zob1968=0988
-			zob1968=1065 zob1968=1067 zob1968=1095
-			zob1968=1119-1126 zob1968=1127 zob1968=1128-1132
-			zob1968=1134 zob1968=1135 zob1968=1137 zob1968=1138
-			zob1968=1139 zob1968=3252)
+    (sources		zob1959=0015 zob1959=0017 zob1959=0020 zob1959=0039
+			zob1959=0046 zob1959=0063 zob1959=0066 zob1959=0071
+			zob1959=0073 zob1959=0081 zob1959=0095 zob1959=0096
+			zob1959=0106 zob1959=0112 zob1959=0124 zob1959=0165
+			zob1959=0266 zob1959=0330 zob1959=0331 zob1959=0334
+			zob1959=0337 zob1959=0342 zob1959=0364 zob1959=0422
+			zob1959=0438 zob1959=0439 zob1959=0443 zob1959=0453
+			zob1959=0458 zob1959=0462 zob1959=0469 zob1959=0514
+			zob1959=0544-0554 zob1959=0684 zob1959=0811
+			zob1959=0872 zob1959=0879 zob1959=0919 zob1959=0922
+			zob1959=0970 zob1959=0971 zob1959=0973 zob1959=0988
+			zob1959=1065 zob1959=1067 zob1959=1095
+			zob1959=1119-1126 zob1959=1127 zob1959=1128-1132
+			zob1959=1134 zob1959=1135 zob1959=1137 zob1959=1138
+			zob1959=1139 zob1959=3252)
     (zinbun-oracle-page . 48)
     (=zinbun-oracle	. 01042)	; &ZOB-1042;
     (<-Oracle-Bones
@@ -12748,7 +12748,7 @@
     ))
 (define-char
   '((shuowen-radical	. 86)	; 殳
-    (sources		zob1968=3091 zob1968=3093 zob1968=3096)
+    (sources		zob1959=3091 zob1959=3093 zob1959=3096)
     (zinbun-oracle-page . 48)
     (=zinbun-oracle	. 01044)	; &ZOB-1044;
     (<-Oracle-Bones
@@ -12757,7 +12757,7 @@
     ))
 (define-char
   '((shuowen-radical	. 86)	; 殳
-    (sources		zob1968=0301 zob1968=0869)
+    (sources		zob1959=0301 zob1959=0869)
     (zinbun-oracle-page . 48)
     (=zinbun-oracle	. 01045)	; &ZOB-1045;
     (<-Oracle-Bones
@@ -12773,7 +12773,7 @@
     ))
 (define-char
   '((shuowen-radical	. 86)	; 殳
-    (sources		zob1968=1678)
+    (sources		zob1959=1678)
     (zinbun-oracle-page . 48)
     (=zinbun-oracle	. 01046)	; &ZOB-1046;
     (<-Oracle-Bones
@@ -12789,7 +12789,7 @@
     ))
 (define-char
   '((shuowen-radical	. 86)	; 殳
-    (sources		zob1968=2044)
+    (sources		zob1959=2044)
     (zinbun-oracle-page . 48)
     (=zinbun-oracle	. 01047)	; &ZOB-1047;
     (<-Oracle-Bones
@@ -12805,7 +12805,7 @@
     ))
 (define-char
   '((shuowen-radical	. 86)	; 殳
-    (sources		zob1968=0136 zob1968=1910)
+    (sources		zob1959=0136 zob1959=1910)
     (zinbun-oracle-page . 48)
     (=zinbun-oracle	. 01048)	; &ZOB-1048;
     (<-Oracle-Bones
@@ -12814,7 +12814,7 @@
     ))
 (define-char
   '((shuowen-radical	. 86)	; 殳
-    (sources		zob1968=2522)
+    (sources		zob1959=2522)
     (zinbun-oracle-page . 48)
     (=zinbun-oracle	. 01049)	; &ZOB-1049;
     (<-Oracle-Bones
@@ -12839,7 +12839,7 @@
     ))
 (define-char
   '((shuowen-radical	. 86)	; 殳
-    (sources		zob1968=0003)
+    (sources		zob1959=0003)
     (zinbun-oracle-page . 48)
     (=zinbun-oracle	. 01052)	; &ZOB-1052;
     ))
@@ -12860,7 +12860,7 @@
     ))
 (define-char
   '((shuowen-radical	. 89)	; 寸
-    (sources		zob1968=0053 zob1968=1886 zob1968=2295)
+    (sources		zob1959=0053 zob1959=1886 zob1959=2295)
     (zinbun-oracle-page . 49)
     (=zinbun-oracle	. 01056)	; &ZOB-1056;
     (<-Oracle-Bones
@@ -12869,7 +12869,7 @@
     ))
 (define-char
   '((shuowen-radical	. 89)	; 寸
-    (sources		zob1968=1940 zob1968=2082 zob1968=2130 zob1968=2524)
+    (sources		zob1959=1940 zob1959=2082 zob1959=2130 zob1959=2524)
     (zinbun-oracle-page . 49)
     (=zinbun-oracle	. 01057)	; &ZOB-1057;
     (<-Oracle-Bones
@@ -12878,13 +12878,13 @@
     ))
 (define-char
   '((shuowen-radical	. 89)	; 寸
-    (sources		zob1968=2130)
+    (sources		zob1959=2130)
     (zinbun-oracle-page . 49)
     (=zinbun-oracle	. 01058)	; &ZOB-1058;
     ))
 (define-char
   '((shuowen-radical	. 89)	; 寸
-    (sources		zob1968=0222 zob1968=0223 zob1968=0224 zob1968=0310)
+    (sources		zob1959=0222 zob1959=0223 zob1959=0224 zob1959=0310)
     (zinbun-oracle-page . 49)
     (=zinbun-oracle	. 01059)	; &ZOB-1059;
     (<-Oracle-Bones
@@ -12903,7 +12903,7 @@
     ))
 (define-char
   '((shuowen-radical	. 92)	; 攴
-    (sources		zob1968=2819)
+    (sources		zob1959=2819)
     (zinbun-oracle-page . 49)
     (=zinbun-oracle	. 01061)	; &ZOB-1061;
     ))
@@ -12930,7 +12930,7 @@
     ))
 (define-char
   '((shuowen-radical	. 92)	; 攴
-    (sources		zob1968=0015 zob1968=0283)
+    (sources		zob1959=0015 zob1959=0283)
     (zinbun-oracle-page . 49)
     (=zinbun-oracle	. 01065)	; &ZOB-1065;
     (<-Oracle-Bones
@@ -13032,13 +13032,13 @@
     ))
 (define-char
   '((shuowen-radical	. 92)	; 攴
-    (sources		zob1968=1845)
+    (sources		zob1959=1845)
     (zinbun-oracle-page . 50)
     (=zinbun-oracle	. 01080)	; &ZOB-1080;
     ))
 (define-char
   '((shuowen-radical	. 92)	; 攴
-    (sources		zob1968=2146)
+    (sources		zob1959=2146)
     (zinbun-oracle-page . 50)
     (=zinbun-oracle	. 01081)	; &ZOB-1081;
     (<-Oracle-Bones
@@ -13094,19 +13094,19 @@
     ))
 (define-char
   '((shuowen-radical	. 92)	; 攴
-    (sources		zob1968=2156)
+    (sources		zob1959=2156)
     (zinbun-oracle-page . 50)
     (=zinbun-oracle	. 01085)	; &ZOB-1085;
     ))
 (define-char
   '((shuowen-radical	. 92)	; 攴
-    (sources		zob1968=0187)
+    (sources		zob1959=0187)
     (zinbun-oracle-page . 50)
     (=zinbun-oracle	. 01086)	; &ZOB-1086;
     ))
 (define-char
   '((shuowen-radical	. 92)	; 攴
-    (sources		zob1968=2089)
+    (sources		zob1959=2089)
     (zinbun-oracle-page . 50)
     (=zinbun-oracle	. 01087)	; &ZOB-1087;
     ))
@@ -13324,13 +13324,13 @@
      ((=>zinbun-oracle	  . 01126)	; &A-ZOB-1126;
       ))
     (shuowen-radical	. 93)	; 敎
-    (sources		zob1968=0060 zob1968=2374 zob1968=3250)
+    (sources		zob1959=0060 zob1959=2374 zob1959=3250)
     (zinbun-oracle-page . 52)
     (=zinbun-oracle	. 01127)	; &ZOB-1127;
     ))
 (define-char
   '((shuowen-radical	. 93)	; 敎
-    (sources		zob1968=0059 zob1968=1363)
+    (sources		zob1959=0059 zob1959=1363)
     (zinbun-oracle-page . 52)
     (=zinbun-oracle	. 01128)	; &ZOB-1128;
     (<-Oracle-Bones
@@ -13343,7 +13343,7 @@
     ))
 (define-char
   '((shuowen-radical	. 94)	; 卜
-    (sources		zob1968=0848)
+    (sources		zob1959=0848)
     (zinbun-oracle-page . 52)
     (=zinbun-oracle	. 01129)	; &ZOB-1129;
     (<-Oracle-Bones
@@ -13352,7 +13352,7 @@
     ))
 (define-char
   '((shuowen-radical	. 94)	; 卜
-    (sources		zob1968=1555)
+    (sources		zob1959=1555)
     (zinbun-oracle-page . 52)
     (=zinbun-oracle	. 01130)	; &ZOB-1130;
     (<-Oracle-Bones
@@ -13386,14 +13386,14 @@
      ((=>zinbun-oracle	  . 01131)	; &A-ZOB-1131;
       ))
     (shuowen-radical	. 94)	; 卜
-    (sources		zob1968=1226 zob1968=1267 zob1968=1270 zob1968=1278
-			zob1968=1279 zob1968=1280 zob1968=1283 zob1968=1316
-			zob1968=1335 zob1968=1362 zob1968=1370 zob1968=1380
-			zob1968=1394 zob1968=1402 zob1968=1418 zob1968=1420
-			zob1968=1435 zob1968=1515 zob1968=1521 zob1968=1522
-			zob1968=1524 zob1968=1529 zob1968=1530 zob1968=1550
-			zob1968=1557 zob1968=1563 zob1968=1586 zob1968=1597
-			zob1968=1672 zob1968=1681)
+    (sources		zob1959=1226 zob1959=1267 zob1959=1270 zob1959=1278
+			zob1959=1279 zob1959=1280 zob1959=1283 zob1959=1316
+			zob1959=1335 zob1959=1362 zob1959=1370 zob1959=1380
+			zob1959=1394 zob1959=1402 zob1959=1418 zob1959=1420
+			zob1959=1435 zob1959=1515 zob1959=1521 zob1959=1522
+			zob1959=1524 zob1959=1529 zob1959=1530 zob1959=1550
+			zob1959=1557 zob1959=1563 zob1959=1586 zob1959=1597
+			zob1959=1672 zob1959=1681)
     (zinbun-oracle-page . 52)
     (=zinbun-oracle	. 01132)	; &ZOB-1132;
     ))
@@ -13402,7 +13402,7 @@
      ((=>zinbun-oracle	  . 01131)	; &A-ZOB-1131;
       ))
     (shuowen-radical	. 94)	; 卜
-    (sources		zob1968=1514)
+    (sources		zob1959=1514)
     (zinbun-oracle-page . 52)
     (=zinbun-oracle	. 01133)	; &ZOB-1133;
     ))
@@ -13411,7 +13411,7 @@
      ((=>zinbun-oracle	  . 01131)	; &A-ZOB-1131;
       ))
     (shuowen-radical	. 94)	; 卜
-    (sources		zob1968=1579)
+    (sources		zob1959=1579)
     (zinbun-oracle-page . 52)
     (=zinbun-oracle	. 01134)	; &ZOB-1134;
     ))
@@ -13420,7 +13420,7 @@
      ((=>zinbun-oracle	  . 01131)	; &A-ZOB-1131;
       ))
     (shuowen-radical	. 94)	; 卜
-    (sources		zob1968=1853)
+    (sources		zob1959=1853)
     (zinbun-oracle-page . 52)
     (=zinbun-oracle	. 01135)	; &ZOB-1135;
     ))
@@ -13429,7 +13429,7 @@
      ((=>zinbun-oracle	  . 01131)	; &A-ZOB-1131;
       ))
     (shuowen-radical	. 94)	; 卜
-    (sources		zob1968=2270 zob1968=2292)
+    (sources		zob1959=2270 zob1959=2292)
     (zinbun-oracle-page . 52)
     (=zinbun-oracle	. 01136)	; &ZOB-1136;
     ))
@@ -13438,12 +13438,12 @@
      ((=>zinbun-oracle	  . 01131)	; &A-ZOB-1131;
       ))
     (shuowen-radical	. 94)	; 卜
-    (sources		zob1968=2266 zob1968=2330 zob1968=2359 zob1968=2361
-			zob1968=2370 zob1968=2399 zob1968=2480 zob1968=2483
-			zob1968=2486 zob1968=2487 zob1968=3050 zob1968=3126
-			zob1968=3127 zob1968=3142 zob1968=3147 zob1968=3155
-			zob1968=3175 zob1968=3177 zob1968=3179 zob1968=3220
-			zob1968=3235 zob1968=3238)
+    (sources		zob1959=2266 zob1959=2330 zob1959=2359 zob1959=2361
+			zob1959=2370 zob1959=2399 zob1959=2480 zob1959=2483
+			zob1959=2486 zob1959=2487 zob1959=3050 zob1959=3126
+			zob1959=3127 zob1959=3142 zob1959=3147 zob1959=3155
+			zob1959=3175 zob1959=3177 zob1959=3179 zob1959=3220
+			zob1959=3235 zob1959=3238)
     (zinbun-oracle-page . 52)
     (=zinbun-oracle	. 01137)	; &ZOB-1137;
     ))
@@ -13452,7 +13452,7 @@
      ((=>zinbun-oracle	  . 01131)	; &A-ZOB-1131;
       ))
     (shuowen-radical	. 94)	; 卜
-    (sources		zob1968=2329 zob1968=2482 zob1968=3241 zob1968=3246)
+    (sources		zob1959=2329 zob1959=2482 zob1959=3241 zob1959=3246)
     (zinbun-oracle-page . 52)
     (=zinbun-oracle	. 01138)	; &ZOB-1138;
     ))
@@ -13461,7 +13461,7 @@
      ((=>zinbun-oracle	  . 01131)	; &A-ZOB-1131;
       ))
     (shuowen-radical	. 94)	; 卜
-    (sources		zob1968=2481)
+    (sources		zob1959=2481)
     (zinbun-oracle-page . 52)
     (=zinbun-oracle	. 01139)	; &ZOB-1139;
     ))
@@ -13470,7 +13470,7 @@
      ((=>zinbun-oracle	  . 01131)	; &A-ZOB-1131;
       ))
     (shuowen-radical	. 94)	; 卜
-    (sources		zob1968=3105)
+    (sources		zob1959=3105)
     (zinbun-oracle-page . 52)
     (=zinbun-oracle	. 01140)	; &ZOB-1140;
     ))
@@ -13481,21 +13481,21 @@
     ))
 (define-char
   '((shuowen-radical	. 94)	; 卜
-    (sources		zob1968=0017 zob1968=0046 zob1968=0066 zob1968=0120
-			zob1968=0134 zob1968=0156 zob1968=0157 zob1968=0325
-			zob1968=0337 zob1968=0350 zob1968=0376 zob1968=0464
-			zob1968=0513 zob1968=0514 zob1968=0515 zob1968=0522
-			zob1968=0546 zob1968=0555 zob1968=0838 zob1968=0848
-			zob1968=0897 zob1968=1065-1070 zob1968=1076-1083
-			zob1968=1088)
+    (sources		zob1959=0017 zob1959=0046 zob1959=0066 zob1959=0120
+			zob1959=0134 zob1959=0156 zob1959=0157 zob1959=0325
+			zob1959=0337 zob1959=0350 zob1959=0376 zob1959=0464
+			zob1959=0513 zob1959=0514 zob1959=0515 zob1959=0522
+			zob1959=0546 zob1959=0555 zob1959=0838 zob1959=0848
+			zob1959=0897 zob1959=1065-1070 zob1959=1076-1083
+			zob1959=1088)
     (zinbun-oracle-page . 52)
     (=zinbun-oracle	. 01143)	; &ZOB-1143;
     ))
 (define-char
   '((shuowen-radical	. 94)	; 卜
-    (sources		zob1968=2873 zob1968=2897 zob1968=2900 zob1968=2910
-			zob1968=2917 zob1968=2923 zob1968=2924 zob1968=2925
-			zob1968=2928 zob1968=2929 zob1968=2947)
+    (sources		zob1959=2873 zob1959=2897 zob1959=2900 zob1959=2910
+			zob1959=2917 zob1959=2923 zob1959=2924 zob1959=2925
+			zob1959=2928 zob1959=2929 zob1959=2947)
     (zinbun-oracle-page . 52)
     (=zinbun-oracle	. 01144)	; &ZOB-1144;
     ))
@@ -13521,30 +13521,30 @@
      ((=>zinbun-oracle	  . 01147)	; &A-ZOB-1147;
       ))
     (shuowen-radical	. 95)	; 用
-    (sources		zob1968=0019 zob1968=0075 zob1968=0076 zob1968=0077
-			zob1968=0083 zob1968=0094 zob1968=0208 zob1968=0290
-			zob1968=0400 zob1968=0425 zob1968=0588 zob1968=0633
-			zob1968=0641 zob1968=0832 zob1968=1357 zob1968=1519
-			zob1968=1585 zob1968=1685 zob1968=1821 zob1968=1830
-			zob1968=1831 zob1968=1865 zob1968=1875 zob1968=1878
-			zob1968=1880 zob1968=1901 zob1968=1902
-			zob1968=1920-1924 zob1968=1930 zob1968=1933
-			zob1968=1947 zob1968=1974 zob1968=1982 zob1968=1997
-			zob1968=2025 zob1968=2030 zob1968=2113 zob1968=2116
-			zob1968=2146 zob1968=2164 zob1968=2181 zob1968=2184
-			zob1968=2187 zob1968=2192 zob1968=2195 zob1968=2196
-			zob1968=2210 zob1968=2212 zob1968=2219 zob1968=2264
-			zob1968=2265 zob1968=2275 zob1968=2277 zob1968=2287
-			zob1968=2294 zob1968=2297 zob1968=2335 zob1968=2342
-			zob1968=2344 zob1968=2345 zob1968=2347 zob1968=2348
-			zob1968=2352-2355 zob1968=2386 zob1968=2508
-			zob1968=2514 zob1968=2541 zob1968=2689 zob1968=2691
-			zob1968=2692 zob1968=2696 zob1968=2709 zob1968=2714
-			zob1968=2715 zob1968=2724 zob1968=2729-2733
-			zob1968=2889 zob1968=2982 zob1968=2984 zob1968=2996
-			zob1968=3003 zob1968=3007 zob1968=3011 zob1968=3016
-			zob1968=3022 zob1968=3037 zob1968=3063 zob1968=3077
-			zob1968=3097)
+    (sources		zob1959=0019 zob1959=0075 zob1959=0076 zob1959=0077
+			zob1959=0083 zob1959=0094 zob1959=0208 zob1959=0290
+			zob1959=0400 zob1959=0425 zob1959=0588 zob1959=0633
+			zob1959=0641 zob1959=0832 zob1959=1357 zob1959=1519
+			zob1959=1585 zob1959=1685 zob1959=1821 zob1959=1830
+			zob1959=1831 zob1959=1865 zob1959=1875 zob1959=1878
+			zob1959=1880 zob1959=1901 zob1959=1902
+			zob1959=1920-1924 zob1959=1930 zob1959=1933
+			zob1959=1947 zob1959=1974 zob1959=1982 zob1959=1997
+			zob1959=2025 zob1959=2030 zob1959=2113 zob1959=2116
+			zob1959=2146 zob1959=2164 zob1959=2181 zob1959=2184
+			zob1959=2187 zob1959=2192 zob1959=2195 zob1959=2196
+			zob1959=2210 zob1959=2212 zob1959=2219 zob1959=2264
+			zob1959=2265 zob1959=2275 zob1959=2277 zob1959=2287
+			zob1959=2294 zob1959=2297 zob1959=2335 zob1959=2342
+			zob1959=2344 zob1959=2345 zob1959=2347 zob1959=2348
+			zob1959=2352-2355 zob1959=2386 zob1959=2508
+			zob1959=2514 zob1959=2541 zob1959=2689 zob1959=2691
+			zob1959=2692 zob1959=2696 zob1959=2709 zob1959=2714
+			zob1959=2715 zob1959=2724 zob1959=2729-2733
+			zob1959=2889 zob1959=2982 zob1959=2984 zob1959=2996
+			zob1959=3003 zob1959=3007 zob1959=3011 zob1959=3016
+			zob1959=3022 zob1959=3037 zob1959=3063 zob1959=3077
+			zob1959=3097)
     (zinbun-oracle-page . 52)
     (=zinbun-oracle	. 01147)	; &ZOB-1147;
     ))
@@ -13553,7 +13553,7 @@
      ((=>zinbun-oracle	  . 01147)	; &A-ZOB-1147;
       ))
     (shuowen-radical	. 95)	; 用
-    (sources		zob1968=2615 zob1968=2702)
+    (sources		zob1959=2615 zob1959=2702)
     (zinbun-oracle-page . 53)
     (=zinbun-oracle	. 01148)	; &ZOB-1148;
     ))
@@ -13564,7 +13564,7 @@
     ))
 (define-char
   '((shuowen-radical	. 95)	; 用
-    (sources		zob1968=0620 zob1968=0800)
+    (sources		zob1959=0620 zob1959=0800)
     (zinbun-oracle-page . 53)
     (=zinbun-oracle	. 01150)	; &ZOB-1150;
     (<-Oracle-Bones
@@ -13573,13 +13573,13 @@
     ))
 (define-char
   '((shuowen-radical	. 95)	; 用
-    (sources		zob1968=3016 zob1968=3074 zob1968=3110 zob1968=3112)
+    (sources		zob1959=3016 zob1959=3074 zob1959=3110 zob1959=3112)
     (zinbun-oracle-page . 53)
     (=zinbun-oracle	. 01151)	; &ZOB-1151;
     ))
 (define-char
   '((shuowen-radical	. 95)	; 用
-    (sources		zob1968=3101)
+    (sources		zob1959=3101)
     (zinbun-oracle-page . 53)
     (=zinbun-oracle	. 01152)	; &ZOB-1152;
     ))
@@ -13595,7 +13595,7 @@
     ))
 (define-char
   '((shuowen-radical	. 98)	; 𥄎
-    (sources		zob1968=3122 zob1968=3143 zob1968=3151)
+    (sources		zob1959=3122 zob1959=3143 zob1959=3151)
     (zinbun-oracle-page . 54)
     (=zinbun-oracle	. 01154)	; &ZOB-1154;
     (<-Oracle-Bones
@@ -13604,7 +13604,7 @@
     ))
 (define-char
   '((shuowen-radical	. 99)	; 目
-    (sources		zob1968=0090 zob1968=2359)
+    (sources		zob1959=0090 zob1959=2359)
     (zinbun-oracle-page . 54)
     (=zinbun-oracle	. 01155)	; &ZOB-1155;
     (<-Oracle-Bones
@@ -13613,11 +13613,11 @@
     ))
 (define-char
   '((shuowen-radical	. 99)	; 目
-    (sources		zob1968=0083 zob1968=0188 zob1968=0264 zob1968=0341
-			zob1968=0887 zob1968=0949 zob1968=0962 zob1968=1091
-			zob1968=1254 zob1968=1265 zob1968=1792 zob1968=1828
-			zob1968=1943 zob1968=2161 zob1968=2225 zob1968=2266
-			zob1968=3030 zob1968=3163 zob1968=3254)
+    (sources		zob1959=0083 zob1959=0188 zob1959=0264 zob1959=0341
+			zob1959=0887 zob1959=0949 zob1959=0962 zob1959=1091
+			zob1959=1254 zob1959=1265 zob1959=1792 zob1959=1828
+			zob1959=1943 zob1959=2161 zob1959=2225 zob1959=2266
+			zob1959=3030 zob1959=3163 zob1959=3254)
     (zinbun-oracle-page . 54)
     (=zinbun-oracle	. 01156)	; &ZOB-1156;
     (<-Oracle-Bones
@@ -13650,13 +13650,13 @@
     ))
 (define-char
   '((shuowen-radical	. 99)	; 目
-    (sources		zob1968=0159 zob1968=0160)
+    (sources		zob1959=0159 zob1959=0160)
     (zinbun-oracle-page . 54)
     (=zinbun-oracle	. 01161)	; &ZOB-1161;
     ))
 (define-char
   '((shuowen-radical	. 99)	; 目
-    (sources		zob1968=2363)
+    (sources		zob1959=2363)
     (zinbun-oracle-page . 54)
     (=zinbun-oracle	. 01162)	; &ZOB-1162;
     (<-Oracle-Bones
@@ -13673,7 +13673,7 @@
     ))
 (define-char
   '((shuowen-radical	. 99)	; 目
-    (sources		zob1968=2119)
+    (sources		zob1959=2119)
     (zinbun-oracle-page . 54)
     (=zinbun-oracle	. 01163)	; &ZOB-1163;
     (<-Oracle-Bones
@@ -13690,7 +13690,7 @@
     ))
 (define-char
   '((shuowen-radical	. 99)	; 目
-    (sources		zob1968=3036 zob1968=3084)
+    (sources		zob1959=3036 zob1959=3084)
     (zinbun-oracle-page . 54)
     (=zinbun-oracle	. 01164)	; &ZOB-1164;
     ))
@@ -13749,7 +13749,7 @@
     ))
 (define-char
   '((shuowen-radical	. 101)	; 眉
-    (sources		zob1968=2011 zob1968=2013)
+    (sources		zob1959=2011 zob1959=2013)
     (zinbun-oracle-page . 54)
     (=zinbun-oracle	. 01175)	; &ZOB-1175;
     (<-Oracle-Bones
@@ -13769,10 +13769,10 @@
      ((=>zinbun-oracle	  . 01176)	; &A-ZOB-1176;
       ))
     (shuowen-radical	. 101)	; 眉
-    (sources		zob1968=0277 zob1968=0871 zob1968=1996 zob1968=2003
-			zob1968=2046 zob1968=2050 zob1968=2054 zob1968=2057
-			zob1968=2060 zob1968=2072-2075 zob1968=2080
-			zob1968=2081 zob1968=2084 zob1968=2094 zob1968=2105)
+    (sources		zob1959=0277 zob1959=0871 zob1959=1996 zob1959=2003
+			zob1959=2046 zob1959=2050 zob1959=2054 zob1959=2057
+			zob1959=2060 zob1959=2072-2075 zob1959=2080
+			zob1959=2081 zob1959=2084 zob1959=2094 zob1959=2105)
     (zinbun-oracle-page . 55)
     (=zinbun-oracle	. 01176)	; &ZOB-1176;
     ))
@@ -13781,7 +13781,7 @@
      ((=>zinbun-oracle	  . 01176)	; &A-ZOB-1176;
       ))
     (shuowen-radical	. 101)	; 眉
-    (sources		zob1968=3245)
+    (sources		zob1959=3245)
     (zinbun-oracle-page . 55)
     (=zinbun-oracle	. 01177)	; &ZOB-1177;
     ))
@@ -13813,17 +13813,17 @@
      ((=>zinbun-oracle	  . 01179)	; &A-ZOB-1179;
       ))
     (shuowen-radical	. 103)	; 自
-    (sources		zob1968=0008-0011 zob1968=0083 zob1968=0090
-			zob1968=0119 zob1968=0235 zob1968=0276 zob1968=0347
-			zob1968=0425 zob1968=0544 zob1968=0558 zob1968=0600
-			zob1968=0601 zob1968=0617 zob1968=0717 zob1968=0806
-			zob1968=0824 zob1968=0878 zob1968=0886 zob1968=0898
-			zob1968=0825 zob1968=0929 zob1968=0930 zob1968=0934
-			zob1968=0980 zob1968=1097 zob1968=1100 zob1968=1188
-			zob1968=1190 zob1968=1191 zob1968=1234 zob1968=1543
-			zob1968=1780 zob1968=1781 zob1968=1783 zob1968=2534
-			zob1968=2979 zob1968=2984 zob1968=3038 zob1968=3056
-			zob1968=3099)
+    (sources		zob1959=0008-0011 zob1959=0083 zob1959=0090
+			zob1959=0119 zob1959=0235 zob1959=0276 zob1959=0347
+			zob1959=0425 zob1959=0544 zob1959=0558 zob1959=0600
+			zob1959=0601 zob1959=0617 zob1959=0717 zob1959=0806
+			zob1959=0824 zob1959=0878 zob1959=0886 zob1959=0898
+			zob1959=0825 zob1959=0929 zob1959=0930 zob1959=0934
+			zob1959=0980 zob1959=1097 zob1959=1100 zob1959=1188
+			zob1959=1190 zob1959=1191 zob1959=1234 zob1959=1543
+			zob1959=1780 zob1959=1781 zob1959=1783 zob1959=2534
+			zob1959=2979 zob1959=2984 zob1959=3038 zob1959=3056
+			zob1959=3099)
     (zinbun-oracle-page . 55)
     (=zinbun-oracle	. 01179)	; &ZOB-1179;
     ))
@@ -13832,8 +13832,8 @@
      ((=>zinbun-oracle	  . 01179)	; &A-ZOB-1179;
       ))
     (shuowen-radical	. 103)	; 自
-    (sources		zob1968=1803 zob1968=1811 zob1968=1830 zob1968=1910
-			zob1968=2162 zob1968=2265 zob1968=2275 zob1968=2363)
+    (sources		zob1959=1803 zob1959=1811 zob1959=1830 zob1959=1910
+			zob1959=2162 zob1959=2265 zob1959=2275 zob1959=2363)
     (zinbun-oracle-page . 55)
     (=zinbun-oracle	. 01180)	; &ZOB-1180;
     ))
@@ -13842,8 +13842,8 @@
      ((=>zinbun-oracle	  . 01179)	; &A-ZOB-1179;
       ))
     (shuowen-radical	. 103)	; 自
-    (sources		zob1968=0765 zob1968=2292 zob1968=2614 zob1968=3000
-			zob1968=3053 zob1968=3096)
+    (sources		zob1959=0765 zob1959=2292 zob1959=2614 zob1959=3000
+			zob1959=3053 zob1959=3096)
     (zinbun-oracle-page . 55)
     (=zinbun-oracle	. 01181)	; &ZOB-1181;
     ))
@@ -13940,8 +13940,8 @@
     ))
 (define-char
   '((shuowen-radical	. 104)	; 白
-    (sources		zob1968=0122 zob1968=0264 zob1968=0518 zob1968=0684
-			zob1968=0939)
+    (sources		zob1959=0122 zob1959=0264 zob1959=0518 zob1959=0684
+			zob1959=0939)
     (zinbun-oracle-page . 55)
     (=zinbun-oracle	. 01193)	; &ZOB-1193;
     (<-Oracle-Bones
@@ -13991,7 +13991,7 @@
     ))
 (define-char
   '((shuowen-radical	. 107)	; 習
-    (sources		zob1968=2226)
+    (sources		zob1959=2226)
     (zinbun-oracle-page . 55)
     (=zinbun-oracle	. 01197)	; &ZOB-1197;
     (<-Oracle-Bones
@@ -14010,27 +14010,27 @@
      ((=>zinbun-oracle	  . 01198)	; &A-ZOB-1198;
       ))
     (shuowen-radical	. 108)	; 羽
-    (sources		zob1968=0016 zob1968=0049 zob1968=0053 zob1968=0073
-			zob1968=0078 zob1968=0079 zob1968=0081 zob1968=0085
-			zob1968=0086 zob1968=0101 zob1968=0133 zob1968=0144
-			zob1968=0166 zob1968=0175 zob1968=0177 zob1968=0189
-			zob1968=0191 zob1968=0194 zob1968=0279 zob1968=0280
-			zob1968=0293 zob1968=0301 zob1968=0338 zob1968=0341
-			zob1968=0344 zob1968=0381 zob1968=0528 zob1968=0537
-			zob1968=0590-0597 zob1968=0623 zob1968=0624
-			zob1968=0633 zob1968=0645 zob1968=0704 zob1968=0724
-			zob1968=0801 zob1968=0803 zob1968=0804 zob1968=0805
-			zob1968=0807 zob1968=0821 zob1968=0824
-			zob1968=0829-0833 zob1968=0836 zob1968=0838
-			zob1968=0840 zob1968=0841 zob1968=0954 zob1968=0988
-			zob1968=1128 zob1968=1180-1185 zob1968=1260
-			zob1968=1269 zob1968=1296 zob1968=1336 zob1968=1341
-			zob1968=1342 zob1968=1372 zob1968=1460 zob1968=1471
-			zob1968=1565 zob1968=1566 zob1968=1575 zob1968=1580
-			zob1968=1673 zob1968=1683 zob1968=1753 zob1968=1765
-			zob1968=2016 zob1968=2026 zob1968=2289 zob1968=2310
-			zob1968=2529 zob1968=2548 zob1968=2566 zob1968=2762
-			zob1968=2982 zob1968=2983 zob1968=3115 zob1968=3250)
+    (sources		zob1959=0016 zob1959=0049 zob1959=0053 zob1959=0073
+			zob1959=0078 zob1959=0079 zob1959=0081 zob1959=0085
+			zob1959=0086 zob1959=0101 zob1959=0133 zob1959=0144
+			zob1959=0166 zob1959=0175 zob1959=0177 zob1959=0189
+			zob1959=0191 zob1959=0194 zob1959=0279 zob1959=0280
+			zob1959=0293 zob1959=0301 zob1959=0338 zob1959=0341
+			zob1959=0344 zob1959=0381 zob1959=0528 zob1959=0537
+			zob1959=0590-0597 zob1959=0623 zob1959=0624
+			zob1959=0633 zob1959=0645 zob1959=0704 zob1959=0724
+			zob1959=0801 zob1959=0803 zob1959=0804 zob1959=0805
+			zob1959=0807 zob1959=0821 zob1959=0824
+			zob1959=0829-0833 zob1959=0836 zob1959=0838
+			zob1959=0840 zob1959=0841 zob1959=0954 zob1959=0988
+			zob1959=1128 zob1959=1180-1185 zob1959=1260
+			zob1959=1269 zob1959=1296 zob1959=1336 zob1959=1341
+			zob1959=1342 zob1959=1372 zob1959=1460 zob1959=1471
+			zob1959=1565 zob1959=1566 zob1959=1575 zob1959=1580
+			zob1959=1673 zob1959=1683 zob1959=1753 zob1959=1765
+			zob1959=2016 zob1959=2026 zob1959=2289 zob1959=2310
+			zob1959=2529 zob1959=2548 zob1959=2566 zob1959=2762
+			zob1959=2982 zob1959=2983 zob1959=3115 zob1959=3250)
     (zinbun-oracle-page . 55)
     (=zinbun-oracle	. 01198)	; &ZOB-1198;
     ))
@@ -14039,7 +14039,7 @@
      ((=>zinbun-oracle	  . 01198)	; &A-ZOB-1198;
       ))
     (shuowen-radical	. 108)	; 羽
-    (sources		zob1968=1774 zob1968=1808 zob1968=1863 zob1968=2951)
+    (sources		zob1959=1774 zob1959=1808 zob1959=1863 zob1959=2951)
     (zinbun-oracle-page . 56)
     (=zinbun-oracle	. 01199)	; &ZOB-1199;
     ))
@@ -14060,8 +14060,8 @@
      ((=>zinbun-oracle	  . 01200)	; &A-ZOB-1200;
       ))
     (shuowen-radical	. 108)	; 羽
-    (sources		zob1968=1681 zob1968=1818 zob1968=2024 zob1968=2040
-			zob1968=2284 zob1968=2398 zob1968=2617 zob1968=2683)
+    (sources		zob1959=1681 zob1959=1818 zob1959=2024 zob1959=2040
+			zob1959=2284 zob1959=2398 zob1959=2617 zob1959=2683)
     (zinbun-oracle-page . 56)
     (=zinbun-oracle	. 01200)	; &ZOB-1200;
     ))
@@ -14070,12 +14070,12 @@
      ((=>zinbun-oracle	  . 01200)	; &A-ZOB-1200;
       ))
     (shuowen-radical	. 108)	; 羽
-    (sources		zob1968=2001 zob1968=2008 zob1968=2009 zob1968=2011
-			zob1968=2017 zob1968=2023 zob1968=2025
-			zob1968=2027-2030 zob1968=2034 zob1968=2036
-			zob1968=2038 zob1968=2041 zob1968=2042 zob1968=2047
-			zob1968=2049 zob1968=2114 zob1968=2252 zob1968=2253
-			zob1968=2893 zob1968=2938)
+    (sources		zob1959=2001 zob1959=2008 zob1959=2009 zob1959=2011
+			zob1959=2017 zob1959=2023 zob1959=2025
+			zob1959=2027-2030 zob1959=2034 zob1959=2036
+			zob1959=2038 zob1959=2041 zob1959=2042 zob1959=2047
+			zob1959=2049 zob1959=2114 zob1959=2252 zob1959=2253
+			zob1959=2893 zob1959=2938)
     (zinbun-oracle-page . 56)
     (=zinbun-oracle	. 01201)	; &ZOB-1201;
     ))
@@ -14122,20 +14122,20 @@
     ))
 (define-char
   '((shuowen-radical	. 109)	; 隹
-    (sources		zob1968=0021 zob1968=0026 zob1968=0027 zob1968=0036
-			zob1968=0040 zob1968=0046 zob1968=0074 zob1968=0145
-			zob1968=0163 zob1968=0164 zob1968=0208 zob1968=0265
-			zob1968=0278 zob1968=0286 zob1968=0300 zob1968=0329
-			zob1968=0330 zob1968=0332 zob1968=0431 zob1968=0445
-			zob1968=0485 zob1968=0490 zob1968=0533 zob1968=0546
-			zob1968=0553 zob1968=0637 zob1968=0649-0654
-			zob1968=0687 zob1968=0714 zob1968=0732 zob1968=0742
-			zob1968=0795 zob1968=0832 zob1968=0877 zob1968=0878
-			zob1968=0903 zob1968=0936 zob1968=1083 zob1968=1085
-			zob1968=1087 zob1968=1088 zob1968=1090 zob1968=1174
-			zob1968=1402 zob1968=2141 zob1968=2147 zob1968=2370
-			zob1968=2528 zob1968=2939 zob1968=3096 zob1968=3099
-			zob1968=3126 zob1968=3127 zob1968=3251)
+    (sources		zob1959=0021 zob1959=0026 zob1959=0027 zob1959=0036
+			zob1959=0040 zob1959=0046 zob1959=0074 zob1959=0145
+			zob1959=0163 zob1959=0164 zob1959=0208 zob1959=0265
+			zob1959=0278 zob1959=0286 zob1959=0300 zob1959=0329
+			zob1959=0330 zob1959=0332 zob1959=0431 zob1959=0445
+			zob1959=0485 zob1959=0490 zob1959=0533 zob1959=0546
+			zob1959=0553 zob1959=0637 zob1959=0649-0654
+			zob1959=0687 zob1959=0714 zob1959=0732 zob1959=0742
+			zob1959=0795 zob1959=0832 zob1959=0877 zob1959=0878
+			zob1959=0903 zob1959=0936 zob1959=1083 zob1959=1085
+			zob1959=1087 zob1959=1088 zob1959=1090 zob1959=1174
+			zob1959=1402 zob1959=2141 zob1959=2147 zob1959=2370
+			zob1959=2528 zob1959=2939 zob1959=3096 zob1959=3099
+			zob1959=3126 zob1959=3127 zob1959=3251)
     (zinbun-oracle-page . 56)
     (=zinbun-oracle	. 01204)	; &ZOB-1204;
     (<-Oracle-Bones
@@ -14155,14 +14155,14 @@
      ((=>zinbun-oracle	  . 01205)	; &A-ZOB-1205;
       ))
     (shuowen-radical	. 109)	; 隹
-    (sources		zob1968=0043 zob1968=0259 zob1968=0264 zob1968=0274
-			zob1968=0279 zob1968=0282 zob1968=0283
-			zob1968=0294-0298 zob1968=0302 zob1968=0345
-			zob1968=0346 zob1968=0366 zob1968=0367 zob1968=0427
-			zob1968=0665 zob1968=0917 zob1968=0941 zob1968=2115
-			zob1968=2863 zob1968=2875 zob1968=2925 zob1968=2927
-			zob1968=2928 zob1968=3113 zob1968=3125 zob1968=3129
-			zob1968=3250)
+    (sources		zob1959=0043 zob1959=0259 zob1959=0264 zob1959=0274
+			zob1959=0279 zob1959=0282 zob1959=0283
+			zob1959=0294-0298 zob1959=0302 zob1959=0345
+			zob1959=0346 zob1959=0366 zob1959=0367 zob1959=0427
+			zob1959=0665 zob1959=0917 zob1959=0941 zob1959=2115
+			zob1959=2863 zob1959=2875 zob1959=2925 zob1959=2927
+			zob1959=2928 zob1959=3113 zob1959=3125 zob1959=3129
+			zob1959=3250)
     (zinbun-oracle-page . 56)
     (=zinbun-oracle	. 01205)	; &ZOB-1205;
     ))
@@ -14171,15 +14171,15 @@
      ((=>zinbun-oracle	  . 01205)	; &A-ZOB-1205;
       ))
     (shuowen-radical	. 109)	; 隹
-    (sources		zob1968=0299)
+    (sources		zob1959=0299)
     (zinbun-oracle-page . 56)
     (=zinbun-oracle	. 01206)	; &ZOB-1206;
     ))
 (define-char
   '((shuowen-radical	. 109)	; 隹
-    (sources		zob1968=0291 zob1968=0345 zob1968=0379-0383
-			zob1968=2153 zob1968=2993 zob1968=3076 zob1968=3152
-			zob1968=3157 zob1968=3226 zob1968=3230)
+    (sources		zob1959=0291 zob1959=0345 zob1959=0379-0383
+			zob1959=2153 zob1959=2993 zob1959=3076 zob1959=3152
+			zob1959=3157 zob1959=3226 zob1959=3230)
     (zinbun-oracle-page . 56)
     (=zinbun-oracle	. 01207)	; &ZOB-1207;
     (<-Oracle-Bones
@@ -14188,7 +14188,7 @@
     ))
 (define-char
   '((shuowen-radical	. 109)	; 隹
-    (sources		zob1968=0421)
+    (sources		zob1959=0421)
     (zinbun-oracle-page . 56)
     (=zinbun-oracle	. 01208)	; &ZOB-1208;
     (<-Oracle-Bones
@@ -14201,7 +14201,7 @@
     ))
 (define-char
   '((shuowen-radical	. 109)	; 隹
-    (sources		zob1968=0050 zob1968=0427 zob1968=2129 zob1968=2146)
+    (sources		zob1959=0050 zob1959=0427 zob1959=2129 zob1959=2146)
     (zinbun-oracle-page . 56)
     (=zinbun-oracle	. 01209)	; &ZOB-1209;
     (<-Oracle-Bones
@@ -14215,7 +14215,7 @@
     ))
 (define-char
   '((shuowen-radical	. 109)	; 隹
-    (sources		zob1968=2018 zob1968=2216)
+    (sources		zob1959=2018 zob1959=2216)
     (zinbun-oracle-page . 56)
     (=zinbun-oracle	. 01211)	; &ZOB-1211;
     (<-Oracle-Bones
@@ -14232,7 +14232,7 @@
     ))
 (define-char
   '((shuowen-radical	. 109)	; 隹
-    (sources		zob1968=0317 zob1968=2942)
+    (sources		zob1959=0317 zob1959=2942)
     (zinbun-oracle-page . 56)
     (=zinbun-oracle	. 01213)	; &ZOB-1213;
     (<-Oracle-Bones
@@ -14277,7 +14277,7 @@
     ))
 (define-char
   '((shuowen-radical	. 109)	; 隹
-    (sources		zob1968=2129 zob1968=2362 zob1968=2367)
+    (sources		zob1959=2129 zob1959=2362 zob1959=2367)
     (zinbun-oracle-page . 57)
     (=zinbun-oracle	. 01218)	; &ZOB-1218;
     (<-Oracle-Bones
@@ -14293,7 +14293,7 @@
     ))
 (define-char
   '((shuowen-radical	. 109)	; 隹
-    (sources		zob1968=0632)
+    (sources		zob1959=0632)
     (zinbun-oracle-page . 57)
     (=zinbun-oracle	. 01219)	; &ZOB-1219;
     (<-Oracle-Bones
@@ -14347,7 +14347,7 @@
     ))
 (define-char
   '((shuowen-radical	. 109)	; 隹
-    (sources		zob1968=1852)
+    (sources		zob1959=1852)
     (zinbun-oracle-page . 57)
     (=zinbun-oracle	. 01223)	; &ZOB-1223;
     ))
@@ -14408,9 +14408,9 @@
     ))
 (define-char
   '((shuowen-radical	. 111)	; 萑
-    (sources		zob1968=0012 zob1968=0277 zob1968=0289 zob1968=0344
-			zob1968=1764 zob1968=1939 zob1968=2024 zob1968=2062
-			zob1968=3047)
+    (sources		zob1959=0012 zob1959=0277 zob1959=0289 zob1959=0344
+			zob1959=1764 zob1959=1939 zob1959=2024 zob1959=2062
+			zob1959=3047)
     (zinbun-oracle-page . 57)
     (=zinbun-oracle	. 01235)	; &ZOB-1235;
     (<-Oracle-Bones
@@ -14419,7 +14419,7 @@
     ))
 (define-char
   '((shuowen-radical	. 111)	; 萑
-    (sources		zob1968=1878)
+    (sources		zob1959=1878)
     (zinbun-oracle-page . 57)
     (=zinbun-oracle	. 01236)	; &ZOB-1236;
     (<-Oracle-Bones
@@ -14440,7 +14440,7 @@
     ))
 (define-char
   '((shuowen-radical	. 111)	; 萑
-    (sources		zob1968=1933 zob1968=2227)
+    (sources		zob1959=1933 zob1959=2227)
     (zinbun-oracle-page . 57)
     (=zinbun-oracle	. 01238)	; &ZOB-1238;
     (<-Oracle-Bones
@@ -14473,7 +14473,7 @@
     ))
 (define-char
   '((shuowen-radical	. 113)	; 苜
-    (sources		zob1968=0006 zob1968=0706 zob1968=1541)
+    (sources		zob1959=0006 zob1959=0706 zob1959=1541)
     (zinbun-oracle-page . 58)
     (=zinbun-oracle	. 01241)	; &ZOB-1241;
     (<-Oracle-Bones
@@ -14482,7 +14482,7 @@
     ))
 (define-char
   '((shuowen-radical	. 113)	; 苜
-    (sources		zob1968=0363)
+    (sources		zob1959=0363)
     (zinbun-oracle-page . 58)
     (=zinbun-oracle	. 01242)	; &ZOB-1242;
     ))
@@ -14493,11 +14493,11 @@
     ))
 (define-char
   '((shuowen-radical	. 114)	; 羊
-    (sources		zob1968=0078 zob1968=0083 zob1968=0089 zob1968=1350
-			zob1968=1354 zob1968=1558 zob1968=1813 zob1968=1829
-			zob1968=1840 zob1968=1911 zob1968=1912 zob1968=1948
-			zob1968=2292 zob1968=2299 zob1968=2728 zob1968=2999
-			zob1968=3014 zob1968=3024 zob1968=3066)
+    (sources		zob1959=0078 zob1959=0083 zob1959=0089 zob1959=1350
+			zob1959=1354 zob1959=1558 zob1959=1813 zob1959=1829
+			zob1959=1840 zob1959=1911 zob1959=1912 zob1959=1948
+			zob1959=2292 zob1959=2299 zob1959=2728 zob1959=2999
+			zob1959=3014 zob1959=3024 zob1959=3066)
     (zinbun-oracle-page . 58)
     (=zinbun-oracle	. 01244)	; &ZOB-1244;
     (<-Oracle-Bones
@@ -14511,13 +14511,13 @@
     ))
 (define-char
   '((shuowen-radical	. 114)	; 羊
-    (sources		zob1968=0002 zob1968=0752 zob1968=0874)
+    (sources		zob1959=0002 zob1959=0752 zob1959=0874)
     (zinbun-oracle-page . 58)
     (=zinbun-oracle	. 01246)	; &ZOB-1246;
     ))
 (define-char
   '((shuowen-radical	. 114)	; 羊
-    (sources		zob1968=2149)
+    (sources		zob1959=2149)
     (zinbun-oracle-page . 58)
     (=zinbun-oracle	. 01247)	; &ZOB-1247;
     ))
@@ -14533,10 +14533,10 @@
     ))
 (define-char
   '((shuowen-radical	. 114)	; 羊
-    (sources		zob1968=1877 zob1968=1908 zob1968=1916 zob1968=2572
-			zob1968=2577 zob1968=2578 zob1968=2726 zob1968=2729
-			zob1968=2730 zob1968=2731 zob1968=2732 zob1968=2733
-			zob1968=2734)
+    (sources		zob1959=1877 zob1959=1908 zob1959=1916 zob1959=2572
+			zob1959=2577 zob1959=2578 zob1959=2726 zob1959=2729
+			zob1959=2730 zob1959=2731 zob1959=2732 zob1959=2733
+			zob1959=2734)
     (zinbun-oracle-page . 58)
     (=zinbun-oracle	. 01250)	; &ZOB-1250;
     (<-Oracle-Bones
@@ -14572,14 +14572,14 @@
      ((=>zinbun-oracle	  . 01252)	; &A-ZOB-1252;
       ))
     (shuowen-radical	. 114)	; 羊
-    (sources		zob1968=0044 zob1968=0049 zob1968=0077 zob1968=0082
-			zob1968=0090 zob1968=0337 zob1968=0366 zob1968=0367
-			zob1968=0368 zob1968=0371 zob1968=0395 zob1968=0451
-			zob1968=0756 zob1968=0917 zob1968=0938 zob1968=0941
-			zob1968=0942 zob1968=0984 zob1968=1194 zob1968=1358
-			zob1968=1629 zob1968=1631 zob1968=1793 zob1968=3001
-			zob1968=3013 zob1968=3099 zob1968=3142 zob1968=3147
-			zob1968=3248)
+    (sources		zob1959=0044 zob1959=0049 zob1959=0077 zob1959=0082
+			zob1959=0090 zob1959=0337 zob1959=0366 zob1959=0367
+			zob1959=0368 zob1959=0371 zob1959=0395 zob1959=0451
+			zob1959=0756 zob1959=0917 zob1959=0938 zob1959=0941
+			zob1959=0942 zob1959=0984 zob1959=1194 zob1959=1358
+			zob1959=1629 zob1959=1631 zob1959=1793 zob1959=3001
+			zob1959=3013 zob1959=3099 zob1959=3142 zob1959=3147
+			zob1959=3248)
     (zinbun-oracle-page . 58)
     (=zinbun-oracle	. 01252)	; &ZOB-1252;
     ))
@@ -14588,8 +14588,8 @@
      ((=>zinbun-oracle	  . 01252)	; &A-ZOB-1252;
       ))
     (shuowen-radical	. 114)	; 羊
-    (sources		zob1968=1799 zob1968=1888 zob1968=1889 zob1968=1891
-			zob1968=1892 zob1968=2051 zob1968=2865)
+    (sources		zob1959=1799 zob1959=1888 zob1959=1889 zob1959=1891
+			zob1959=1892 zob1959=2051 zob1959=2865)
     (zinbun-oracle-page . 58)
     (=zinbun-oracle	. 01253)	; &ZOB-1253;
     ))
@@ -14598,14 +14598,14 @@
      ((=>zinbun-oracle	  . 01252)	; &A-ZOB-1252;
       ))
     (shuowen-radical	. 114)	; 羊
-    (sources		zob1968=2265 zob1968=2277 zob1968=2279 zob1968=2313
-			zob1968=2318 zob1968=2324 zob1968=2366 zob1968=3047)
+    (sources		zob1959=2265 zob1959=2277 zob1959=2279 zob1959=2313
+			zob1959=2318 zob1959=2324 zob1959=2366 zob1959=3047)
     (zinbun-oracle-page . 58)
     (=zinbun-oracle	. 01254)	; &ZOB-1254;
     ))
 (define-char
   '((shuowen-radical	. 114)	; 羊
-    (sources		zob1968=1876 zob1968=2142)
+    (sources		zob1959=1876 zob1959=2142)
     (zinbun-oracle-page . 58)
     (=zinbun-oracle	. 01255)	; &ZOB-1255;
     (<-Oracle-Bones
@@ -14633,7 +14633,7 @@
      ((=>zinbun-oracle	  . 01256)	; &A-ZOB-1256;
       ))
     (shuowen-radical	. 114)	; 羊
-    (sources		zob1968=1818 zob1968=2742)
+    (sources		zob1959=1818 zob1959=2742)
     (zinbun-oracle-page . 58)
     (=zinbun-oracle	. 01256)	; &ZOB-1256;
     ))
@@ -14642,13 +14642,13 @@
      ((=>zinbun-oracle	  . 01256)	; &A-ZOB-1256;
       ))
     (shuowen-radical	. 114)	; 羊
-    (sources		zob1968=0022 zob1968=0023 zob1968=0024)
+    (sources		zob1959=0022 zob1959=0023 zob1959=0024)
     (zinbun-oracle-page . 58)
     (=zinbun-oracle	. 01257)	; &ZOB-1257;
     ))
 (define-char
   '((shuowen-radical	. 114)	; 羊
-    (sources		zob1968=2299)
+    (sources		zob1959=2299)
     (zinbun-oracle-page . 58)
     (=zinbun-oracle	. 01258)	; &ZOB-1258;
     ))
@@ -14659,7 +14659,7 @@
     ))
 (define-char
   '((shuowen-radical	. 114)	; 羊
-    (sources		zob1968=1579 zob1968=1581)
+    (sources		zob1959=1579 zob1959=1581)
     (zinbun-oracle-page . 58)
     (=zinbun-oracle	. 01260)	; &ZOB-1260;
     (<-Oracle-Bones
@@ -14675,7 +14675,7 @@
     ))
 (define-char
   '((shuowen-radical	. 114)	; 羊
-    (sources		zob1968=0092 zob1968=1353 zob1968=2300)
+    (sources		zob1959=0092 zob1959=1353 zob1959=2300)
     (zinbun-oracle-page . 58)
     (=zinbun-oracle	. 01261)	; &ZOB-1261;
     (<-Oracle-Bones
@@ -14691,18 +14691,18 @@
     ))
 (define-char
   '((shuowen-radical	. 114)	; 羊
-    (sources		zob1968=0001 zob1968=0014 zob1968=0017 zob1968=0024
-			zob1968=0025 zob1968=0055 zob1968=0097 zob1968=0098
-			zob1968=0099 zob1968=0393 zob1968=0713 zob1968=0759
-			zob1968=0845 zob1968=1254 zob1968=1259 zob1968=1334
-			zob1968=1343-1346 zob1968=1376 zob1968=1541
-			zob1968=1582 zob1968=1583 zob1968=1791 zob1968=1816
-			zob1968=1819 zob1968=1821 zob1968=1822 zob1968=1892
-			zob1968=1902 zob1968=1906 zob1968=1908 zob1968=1911
-			zob1968=1912 zob1968=2260 zob1968=2261 zob1968=2293
-			zob1968=2315 zob1968=2366 zob1968=2577 zob1968=2978
-			zob1968=3017 zob1968=3061 zob1968=3062 zob1968=3254
-			zob1968=3255)
+    (sources		zob1959=0001 zob1959=0014 zob1959=0017 zob1959=0024
+			zob1959=0025 zob1959=0055 zob1959=0097 zob1959=0098
+			zob1959=0099 zob1959=0393 zob1959=0713 zob1959=0759
+			zob1959=0845 zob1959=1254 zob1959=1259 zob1959=1334
+			zob1959=1343-1346 zob1959=1376 zob1959=1541
+			zob1959=1582 zob1959=1583 zob1959=1791 zob1959=1816
+			zob1959=1819 zob1959=1821 zob1959=1822 zob1959=1892
+			zob1959=1902 zob1959=1906 zob1959=1908 zob1959=1911
+			zob1959=1912 zob1959=2260 zob1959=2261 zob1959=2293
+			zob1959=2315 zob1959=2366 zob1959=2577 zob1959=2978
+			zob1959=3017 zob1959=3061 zob1959=3062 zob1959=3254
+			zob1959=3255)
     (zinbun-oracle-page . 59)
     (=zinbun-oracle	. 01263)	; &ZOB-1263;
     (<-Oracle-Bones
@@ -14743,7 +14743,7 @@
     ))
 (define-char
   '((shuowen-radical	. 115)	; 羴
-    (sources		zob1968=0450)
+    (sources		zob1959=0450)
     (zinbun-oracle-page . 59)
     (=zinbun-oracle	. 01269)	; &ZOB-1269;
     (<-Oracle-Bones
@@ -14836,7 +14836,7 @@
     ))
 (define-char
   '((shuowen-radical	. 119)	; 鳥
-    (sources		zob1968=2927)
+    (sources		zob1959=2927)
     (zinbun-oracle-page . 59)
     (=zinbun-oracle	. 01281)	; &ZOB-1281;
     (<-Oracle-Bones
@@ -14887,14 +14887,14 @@
     ))
 (define-char
   '((shuowen-radical	. 121)	; 𠦒
-    (sources		zob1968=0261 zob1968=0275 zob1968=0276 zob1968=0393
-			zob1968=0474 zob1968=0975 zob1968=2006 zob1968=2012
-			zob1968=2026 zob1968=2037 zob1968=2044 zob1968=2049
-			zob1968=2051 zob1968=2052 zob1968=2055 zob1968=2059
-			zob1968=2066 zob1968=2071 zob1968=2089 zob1968=2092
-			zob1968=2116 zob1968=2120-2126 zob1968=2131
-			zob1968=2132 zob1968=2133 zob1968=2287 zob1968=2549
-			zob1968=2893 zob1968=3027 zob1968=3078)
+    (sources		zob1959=0261 zob1959=0275 zob1959=0276 zob1959=0393
+			zob1959=0474 zob1959=0975 zob1959=2006 zob1959=2012
+			zob1959=2026 zob1959=2037 zob1959=2044 zob1959=2049
+			zob1959=2051 zob1959=2052 zob1959=2055 zob1959=2059
+			zob1959=2066 zob1959=2071 zob1959=2089 zob1959=2092
+			zob1959=2116 zob1959=2120-2126 zob1959=2131
+			zob1959=2132 zob1959=2133 zob1959=2287 zob1959=2549
+			zob1959=2893 zob1959=3027 zob1959=3078)
     (zinbun-oracle-page . 60)
     (=zinbun-oracle	. 01289)	; &ZOB-1289;
     (<-Oracle-Bones
@@ -14908,7 +14908,7 @@
     ))
 (define-char
   '((shuowen-radical	. 121)	; 𠦒
-    (sources		zob1968=0263 zob1968=1845)
+    (sources		zob1959=0263 zob1959=1845)
     (zinbun-oracle-page . 60)
     (=zinbun-oracle	. 01291)	; &ZOB-1291;
     (<-Oracle-Bones
@@ -14927,10 +14927,10 @@
     ))
 (define-char
   '((shuowen-radical	. 121)	; 𠦒
-    (sources		zob1968=0044 zob1968=0047 zob1968=0077 zob1968=0344
-			zob1968=0901 zob1968=0915 zob1968=0951 zob1968=1630
-			zob1968=2154 zob1968=2522 zob1968=2523 zob1968=2525
-			zob1968=2532)
+    (sources		zob1959=0044 zob1959=0047 zob1959=0077 zob1959=0344
+			zob1959=0901 zob1959=0915 zob1959=0951 zob1959=1630
+			zob1959=2154 zob1959=2522 zob1959=2523 zob1959=2525
+			zob1959=2532)
     (zinbun-oracle-page . 60)
     (=zinbun-oracle	. 01294)	; &ZOB-1294;
     (<-Oracle-Bones
@@ -14951,14 +14951,14 @@
     ))
 (define-char
   '((shuowen-radical	. 122)	; 冓
-    (sources		zob1968=0100 zob1968=0171 zob1968=0178 zob1968=0184
-			zob1968=0310 zob1968=1401 zob1968=1402 zob1968=1405
-			zob1968=1460 zob1968=1462 zob1968=1630 zob1968=1690
-			zob1968=1700 zob1968=1790 zob1968=1962 zob1968=1978
-			zob1968=1984 zob1968=1986 zob1968=1998 zob1968=2050
-			zob1968=2053 zob1968=2060 zob1968=2065 zob1968=2263
-			zob1968=2280 zob1968=2284 zob1968=2316 zob1968=2383
-			zob1968=3098 zob1968=3207)
+    (sources		zob1959=0100 zob1959=0171 zob1959=0178 zob1959=0184
+			zob1959=0310 zob1959=1401 zob1959=1402 zob1959=1405
+			zob1959=1460 zob1959=1462 zob1959=1630 zob1959=1690
+			zob1959=1700 zob1959=1790 zob1959=1962 zob1959=1978
+			zob1959=1984 zob1959=1986 zob1959=1998 zob1959=2050
+			zob1959=2053 zob1959=2060 zob1959=2065 zob1959=2263
+			zob1959=2280 zob1959=2284 zob1959=2316 zob1959=2383
+			zob1959=3098 zob1959=3207)
     (zinbun-oracle-page . 60)
     (=zinbun-oracle	. 01296)	; &ZOB-1296;
     (<-Oracle-Bones
@@ -14967,7 +14967,7 @@
     ))
 (define-char
   '((shuowen-radical	. 122)	; 冓
-    (sources		zob1968=2161)
+    (sources		zob1959=2161)
     (zinbun-oracle-page . 60)
     (=zinbun-oracle	. 01297)	; &ZOB-1297;
     (<-Oracle-Bones
@@ -14976,7 +14976,7 @@
     ))
 (define-char
   '((shuowen-radical	. 122)	; 冓
-    (sources		zob1968=0347 zob1968=0348)
+    (sources		zob1959=0347 zob1959=0348)
     (zinbun-oracle-page . 60)
     (=zinbun-oracle	. 01298)	; &ZOB-1298;
     (<-Oracle-Bones
@@ -14985,7 +14985,7 @@
     ))
 (define-char
   '((shuowen-radical	. 122)	; 冓
-    (sources		zob1968=0335)
+    (sources		zob1959=0335)
     (zinbun-oracle-page . 60)
     (=zinbun-oracle	. 01299)	; &ZOB-1299;
     (<-Oracle-Bones
@@ -15011,7 +15011,7 @@
     ))
 (define-char
   '((shuowen-radical	. 123)	; 幺
-    (sources		zob1968=3031)
+    (sources		zob1959=3031)
     (zinbun-oracle-page . 61)
     (=zinbun-oracle	. 01302)	; &ZOB-1302;
     (<-Oracle-Bones
@@ -15027,21 +15027,21 @@
     ))
 (define-char
   '((shuowen-radical	. 124)	; 𢆶
-    (sources		zob1968=0164 zob1968=0329 zob1968=0347 zob1968=0533
-			zob1968=0552 zob1968=0616 zob1968=0672 zob1968=0878
-			zob1968=1070 zob1968=1089 zob1968=1090 zob1968=1821
-			zob1968=1865 zob1968=1875 zob1968=1901 zob1968=1902
-			zob1968=1921-1924 zob1968=1944 zob1968=1988
-			zob1968=1997 zob1968=2116 zob1968=2164 zob1968=2264
-			zob1968=2275 zob1968=2287 zob1968=2294 zob1968=2297
-			zob1968=2335 zob1968=2344 zob1968=2345 zob1968=2347
-			zob1968=2348 zob1968=2352 zob1968=2353 zob1968=2355
-			zob1968=2386 zob1968=2614 zob1968=2568 zob1968=2572
-			zob1968=2577 zob1968=2579 zob1968=2615 zob1968=2689
-			zob1968=2690 zob1968=2697 zob1968=2709 zob1968=2719
-			zob1968=2718 zob1968=2722 zob1968=2723 zob1968=2725
-			zob1968=2735 zob1968=2737 zob1968=2874 zob1968=2892
-			zob1968=2925 zob1968=2927 zob1968=2928)
+    (sources		zob1959=0164 zob1959=0329 zob1959=0347 zob1959=0533
+			zob1959=0552 zob1959=0616 zob1959=0672 zob1959=0878
+			zob1959=1070 zob1959=1089 zob1959=1090 zob1959=1821
+			zob1959=1865 zob1959=1875 zob1959=1901 zob1959=1902
+			zob1959=1921-1924 zob1959=1944 zob1959=1988
+			zob1959=1997 zob1959=2116 zob1959=2164 zob1959=2264
+			zob1959=2275 zob1959=2287 zob1959=2294 zob1959=2297
+			zob1959=2335 zob1959=2344 zob1959=2345 zob1959=2347
+			zob1959=2348 zob1959=2352 zob1959=2353 zob1959=2355
+			zob1959=2386 zob1959=2614 zob1959=2568 zob1959=2572
+			zob1959=2577 zob1959=2579 zob1959=2615 zob1959=2689
+			zob1959=2690 zob1959=2697 zob1959=2709 zob1959=2719
+			zob1959=2718 zob1959=2722 zob1959=2723 zob1959=2725
+			zob1959=2735 zob1959=2737 zob1959=2874 zob1959=2892
+			zob1959=2925 zob1959=2927 zob1959=2928)
     (zinbun-oracle-page . 61)
     (=zinbun-oracle	. 01303)	; &ZOB-1303;
     (<-Oracle-Bones
@@ -15137,7 +15137,7 @@
     ))
 (define-char
   '((shuowen-radical	. 124)	; 𢆶
-    (sources		zob1968=1462)
+    (sources		zob1959=1462)
     (zinbun-oracle-page . 61)
     (=zinbun-oracle	. 01311)	; &ZOB-1311;
     ))
@@ -15148,40 +15148,40 @@
     ))
 (define-char
   '((shuowen-radical	. 125)	; 叀
-    (sources		zob1968=1632 zob1968=1683 zob1968=1784 zob1968=1971
-			zob1968=1807 zob1968=1808 zob1968=1810-1813
-			zob1968=1821 zob1968=1829 zob1968=1836 zob1968=1840
-			zob1968=1848 zob1968=1682 zob1968=1863
-			zob1968=1866-1869 zob1968=1871 zob1968=1875
-			zob1968=1877-1880 zob1968=1884 zob1968=1894
-			zob1968=1896 zob1968=1902 zob1968=1908 zob1968=1911
-			zob1968=1912 zob1968=1914 zob1968=1916 zob1968=1917
-			zob1968=1918 zob1968=1920 zob1968=1921 zob1968=1928
-			zob1968=1930 zob1968=1941 zob1968=1994 zob1968=1996
-			zob1968=2001 zob1968=2003 zob1968=2020 zob1968=2024
-			zob1968=2026 zob1968=2039 zob1968=2044 zob1968=2047
-			zob1968=2048 zob1968=2049 zob1968=2052 zob1968=2054
-			zob1968=2057 zob1968=2059 zob1968=2060 zob1968=2062
-			zob1968=2065 zob1968=2070 zob1968=2071 zob1968=2073
-			zob1968=2074 zob1968=2081 zob1968=2086 zob1968=2089
-			zob1968=2094 zob1968=2097-2100 zob1968=2103
-			zob1968=2104 zob1968=2112 zob1968=2114 zob1968=2117
-			zob1968=2119 zob1968=2120 zob1968=2123 zob1968=2127
-			zob1968=2146 zob1968=2148 zob1968=2168 zob1968=2204
-			zob1968=2219 zob1968=2221 zob1968=2223 zob1968=2230
-			zob1968=2233 zob1968=2235 zob1968=2244-2247
-			zob1968=2265 zob1968=2284 zob1968=2308 zob1968=2309
-			zob1968=2316 zob1968=2342 zob1968=2346 zob1968=2348
-			zob1968=2376 zob1968=2523 zob1968=2532 zob1968=3533
-			zob1968=3534 zob1968=2537 zob1968=2541 zob1968=2544
-			zob1968=2577 zob1968=2578 zob1968=2579 zob1968=2582
-			zob1968=2586 zob1968=2688 zob1968=2689 zob1968=2693
-			zob1968=2696 zob1968=2697 zob1968=2700 zob1968=2707
-			zob1968=2715 zob1968=2720 zob1968=2722 zob1968=2723
-			zob1968=2725 zob1968=2728 zob1968=2731 zob1968=2732
-			zob1968=2734 zob1968=2736 zob1968=2889 zob1968=2893
-			zob1968=2941 zob1968=2945 zob1968=3049 zob1968=3053
-			zob1968=3074 zob1968=3136)
+    (sources		zob1959=1632 zob1959=1683 zob1959=1784 zob1959=1971
+			zob1959=1807 zob1959=1808 zob1959=1810-1813
+			zob1959=1821 zob1959=1829 zob1959=1836 zob1959=1840
+			zob1959=1848 zob1959=1682 zob1959=1863
+			zob1959=1866-1869 zob1959=1871 zob1959=1875
+			zob1959=1877-1880 zob1959=1884 zob1959=1894
+			zob1959=1896 zob1959=1902 zob1959=1908 zob1959=1911
+			zob1959=1912 zob1959=1914 zob1959=1916 zob1959=1917
+			zob1959=1918 zob1959=1920 zob1959=1921 zob1959=1928
+			zob1959=1930 zob1959=1941 zob1959=1994 zob1959=1996
+			zob1959=2001 zob1959=2003 zob1959=2020 zob1959=2024
+			zob1959=2026 zob1959=2039 zob1959=2044 zob1959=2047
+			zob1959=2048 zob1959=2049 zob1959=2052 zob1959=2054
+			zob1959=2057 zob1959=2059 zob1959=2060 zob1959=2062
+			zob1959=2065 zob1959=2070 zob1959=2071 zob1959=2073
+			zob1959=2074 zob1959=2081 zob1959=2086 zob1959=2089
+			zob1959=2094 zob1959=2097-2100 zob1959=2103
+			zob1959=2104 zob1959=2112 zob1959=2114 zob1959=2117
+			zob1959=2119 zob1959=2120 zob1959=2123 zob1959=2127
+			zob1959=2146 zob1959=2148 zob1959=2168 zob1959=2204
+			zob1959=2219 zob1959=2221 zob1959=2223 zob1959=2230
+			zob1959=2233 zob1959=2235 zob1959=2244-2247
+			zob1959=2265 zob1959=2284 zob1959=2308 zob1959=2309
+			zob1959=2316 zob1959=2342 zob1959=2346 zob1959=2348
+			zob1959=2376 zob1959=2523 zob1959=2532 zob1959=3533
+			zob1959=3534 zob1959=2537 zob1959=2541 zob1959=2544
+			zob1959=2577 zob1959=2578 zob1959=2579 zob1959=2582
+			zob1959=2586 zob1959=2688 zob1959=2689 zob1959=2693
+			zob1959=2696 zob1959=2697 zob1959=2700 zob1959=2707
+			zob1959=2715 zob1959=2720 zob1959=2722 zob1959=2723
+			zob1959=2725 zob1959=2728 zob1959=2731 zob1959=2732
+			zob1959=2734 zob1959=2736 zob1959=2889 zob1959=2893
+			zob1959=2941 zob1959=2945 zob1959=3049 zob1959=3053
+			zob1959=3074 zob1959=3136)
     (zinbun-oracle-page . 61)
     (=zinbun-oracle	. 01313)	; &ZOB-1313;
     (<-Oracle-Bones
@@ -15190,22 +15190,22 @@
     ))
 (define-char
   '((shuowen-radical	. 125)	; 叀
-    (sources		zob1968=0030 zob1968=0037 zob1968=0039 zob1968=0068
-			zob1968=0087 zob1968=0143 zob1968=0167 zob1968=0262
-			zob1968=0274 zob1968=0287 zob1968=0359 zob1968=0364
-			zob1968=0398 zob1968=0414 zob1968=0415 zob1968=0417
-			zob1968=0432 zob1968=0451 zob1968=0520 zob1968=0535
-			zob1968=0562 zob1968=0627 zob1968=0633 zob1968=0685
-			zob1968=0845 zob1968=0878 zob1968=0882 zob1968=0901
-			zob1968=0903 zob1968=0905 zob1968=0915 zob1968=0944
-			zob1968=0947 zob1968=0953 zob1968=0965 zob1968=1295
-			zob1968=1342 zob1968=1343 zob1968=1353 zob1968=1400
-			zob1968=1497 zob1968=1566 zob1968=1579 zob1968=1584
-			zob1968=1634 zob1968=1635 zob1968=1673 zob1968=1674
-			zob1968=1690 zob1968=1696 zob1968=1702 zob1968=1730
-			zob1968=1731 zob1968=3016 zob1968=3036 zob1968=3074
-			zob1968=3140 zob1968=3143 zob1968=3149 zob1968=3154
-			zob1968=3157 zob1968=3158 zob1968=3223 zob1968=3230)
+    (sources		zob1959=0030 zob1959=0037 zob1959=0039 zob1959=0068
+			zob1959=0087 zob1959=0143 zob1959=0167 zob1959=0262
+			zob1959=0274 zob1959=0287 zob1959=0359 zob1959=0364
+			zob1959=0398 zob1959=0414 zob1959=0415 zob1959=0417
+			zob1959=0432 zob1959=0451 zob1959=0520 zob1959=0535
+			zob1959=0562 zob1959=0627 zob1959=0633 zob1959=0685
+			zob1959=0845 zob1959=0878 zob1959=0882 zob1959=0901
+			zob1959=0903 zob1959=0905 zob1959=0915 zob1959=0944
+			zob1959=0947 zob1959=0953 zob1959=0965 zob1959=1295
+			zob1959=1342 zob1959=1343 zob1959=1353 zob1959=1400
+			zob1959=1497 zob1959=1566 zob1959=1579 zob1959=1584
+			zob1959=1634 zob1959=1635 zob1959=1673 zob1959=1674
+			zob1959=1690 zob1959=1696 zob1959=1702 zob1959=1730
+			zob1959=1731 zob1959=3016 zob1959=3036 zob1959=3074
+			zob1959=3140 zob1959=3143 zob1959=3149 zob1959=3154
+			zob1959=3157 zob1959=3158 zob1959=3223 zob1959=3230)
     (zinbun-oracle-page . 61)
     (=zinbun-oracle	. 01314)	; &ZOB-1314;
     (<-Oracle-Bones
@@ -15222,7 +15222,7 @@
     ))
 (define-char
   '((shuowen-radical	. 125)	; 叀
-    (sources		zob1968=1958 zob1968=2927)
+    (sources		zob1959=1958 zob1959=2927)
     (zinbun-oracle-page . 62)
     (=zinbun-oracle	. 01317)	; &ZOB-1317;
     ))
@@ -15256,25 +15256,25 @@
     ))
 (define-char
   '((shuowen-radical	. 129)	; 𠬪
-    (sources		zob1968=0138 zob1968=0140 zob1968=0141 zob1968=0145
-			zob1968=0147 zob1968=0149 zob1968=0151 zob1968=0154
-			zob1968=0331 zob1968=0344 zob1968=0348 zob1968=0354
-			zob1968=0361 zob1968=0624 zob1968=0695 zob1968=0721
-			zob1968=0727 zob1968=0766 zob1968=0776 zob1968=0780
-			zob1968=0781 zob1968=0784-0787 zob1968=0789
-			zob1968=0790 zob1968=0793 zob1968=0795-0799
-			zob1968=0820 zob1968=0891 zob1968=0906 zob1968=0919
-			zob1968=0949 zob1968=1363 zob1968=1790 zob1968=1792
-			zob1968=1800 zob1968=1806 zob1968=1807 zob1968=1811
-			zob1968=1815 zob1968=1838 zob1968=1848 zob1968=1855
-			zob1968=1857 zob1968=1858 zob1968=1859 zob1968=1861
-			zob1968=1878 zob1968=1881 zob1968=1883
-			zob1968=1886-1891 zob1968=1894-1900 zob1968=1926
-			zob1968=1930 zob1968=1931 zob1968=1932 zob1968=1933
-			zob1968=2040 zob1968=2062 zob1968=2111 zob1968=2171
-			zob1968=2215 zob1968=2217 zob1968=2255 zob1968=2359
-			zob1968=2363 zob1968=2523 zob1968=2525 zob1968=2888
-			zob1968=2890 zob1968=2951 zob1968=3109 zob1968=3118)
+    (sources		zob1959=0138 zob1959=0140 zob1959=0141 zob1959=0145
+			zob1959=0147 zob1959=0149 zob1959=0151 zob1959=0154
+			zob1959=0331 zob1959=0344 zob1959=0348 zob1959=0354
+			zob1959=0361 zob1959=0624 zob1959=0695 zob1959=0721
+			zob1959=0727 zob1959=0766 zob1959=0776 zob1959=0780
+			zob1959=0781 zob1959=0784-0787 zob1959=0789
+			zob1959=0790 zob1959=0793 zob1959=0795-0799
+			zob1959=0820 zob1959=0891 zob1959=0906 zob1959=0919
+			zob1959=0949 zob1959=1363 zob1959=1790 zob1959=1792
+			zob1959=1800 zob1959=1806 zob1959=1807 zob1959=1811
+			zob1959=1815 zob1959=1838 zob1959=1848 zob1959=1855
+			zob1959=1857 zob1959=1858 zob1959=1859 zob1959=1861
+			zob1959=1878 zob1959=1881 zob1959=1883
+			zob1959=1886-1891 zob1959=1894-1900 zob1959=1926
+			zob1959=1930 zob1959=1931 zob1959=1932 zob1959=1933
+			zob1959=2040 zob1959=2062 zob1959=2111 zob1959=2171
+			zob1959=2215 zob1959=2217 zob1959=2255 zob1959=2359
+			zob1959=2363 zob1959=2523 zob1959=2525 zob1959=2888
+			zob1959=2890 zob1959=2951 zob1959=3109 zob1959=3118)
     (zinbun-oracle-page . 62)
     (=zinbun-oracle	. 01321)	; &ZOB-1321;
     (<-Oracle-Bones
@@ -15283,12 +15283,12 @@
     ))
 (define-char
   '((shuowen-radical	. 129)	; 𠬪
-    (sources		zob1968=1790 zob1968=1800 zob1968=1806 zob1968=1807
-			zob1968=1811 zob1968=1815 zob1968=1838 zob1968=1855
-			zob1968=18571 zob1968=1858 zob1968=1861
-			zob1968=1878 zob1968=1881 zob1968=1883
-			zob1968=1886-1890 zob1968=1895-1900 zob1968=2062
-			zob1968=2523 zob1968=2525 zob1968=2888)
+    (sources		zob1959=1790 zob1959=1800 zob1959=1806 zob1959=1807
+			zob1959=1811 zob1959=1815 zob1959=1838 zob1959=1855
+			zob1959=18571 zob1959=1858 zob1959=1861
+			zob1959=1878 zob1959=1881 zob1959=1883
+			zob1959=1886-1890 zob1959=1895-1900 zob1959=2062
+			zob1959=2523 zob1959=2525 zob1959=2888)
     (zinbun-oracle-page . 62)
     (=zinbun-oracle	. 01322)	; &ZOB-1322;
     (<-Oracle-Bones
@@ -15301,7 +15301,7 @@
     ))
 (define-char
   '((shuowen-radical	. 129)	; 𠬪
-    (sources		zob1968=2951)
+    (sources		zob1959=2951)
     (zinbun-oracle-page . 62)
     (=zinbun-oracle	. 01323)	; &ZOB-1323;
     (<-Oracle-Bones
@@ -15330,7 +15330,7 @@
     ))
 (define-char
   '((shuowen-radical	. 129)	; 𠬪
-    (sources		zob1968=2215)
+    (sources		zob1959=2215)
     (zinbun-oracle-page . 62)
     (=zinbun-oracle	. 01325)	; &ZOB-1325;
     (<-Oracle-Bones
@@ -15343,8 +15343,8 @@
     ))
 (define-char
   '((shuowen-radical	. 129)	; 𠬪
-    (sources		zob1968=0331 zob1968=0354 zob1968=0624 zob1968=0781
-			zob1968=0785 zob1968=0891 zob1968=0906 zob1968=0919)
+    (sources		zob1959=0331 zob1959=0354 zob1959=0624 zob1959=0781
+			zob1959=0785 zob1959=0891 zob1959=0906 zob1959=0919)
     (zinbun-oracle-page . 62)
     (=zinbun-oracle	. 01326)	; &ZOB-1326;
     (<-Oracle-Bones
@@ -15359,7 +15359,7 @@
     ))
 (define-char
   '((shuowen-radical	. 129)	; 𠬪
-    (sources		zob1968=0344)
+    (sources		zob1959=0344)
     (zinbun-oracle-page . 62)
     (=zinbun-oracle	. 01327)	; &ZOB-1327;
     (<-Oracle-Bones
@@ -15374,8 +15374,8 @@
     ))
 (define-char
   '((shuowen-radical	. 129)	; 𠬪
-    (sources		zob1968=1926 zob1968=1931 zob1968=1932 zob1968=2359
-			zob1968=2363)
+    (sources		zob1959=1926 zob1959=1931 zob1959=1932 zob1959=2359
+			zob1959=2363)
     (zinbun-oracle-page . 62)
     (=zinbun-oracle	. 01328)	; &ZOB-1328;
     (<-Oracle-Bones
@@ -15416,10 +15416,10 @@
     ))
 (define-char
   '((shuowen-radical	. 129)	; 𠬪
-    (sources		zob1968=0138 zob1968=0145 zob1968=1047 zob1968=0149
-			zob1968=0721 zob1968=0727 zob1968=0784 zob1968=0789
-			zob1968=0790 zob1968=0796 zob1968=0949 zob1968=1363
-			zob1968=1930 zob1968=1933 zob1968=2890)
+    (sources		zob1959=0138 zob1959=0145 zob1959=1047 zob1959=0149
+			zob1959=0721 zob1959=0727 zob1959=0784 zob1959=0789
+			zob1959=0790 zob1959=0796 zob1959=0949 zob1959=1363
+			zob1959=1930 zob1959=1933 zob1959=2890)
     (zinbun-oracle-page . 63)
     (=zinbun-oracle	. 01331)	; &ZOB-1331;
     (<-Oracle-Bones
@@ -15432,7 +15432,7 @@
     ))
 (define-char
   '((shuowen-radical	. 129)	; 𠬪
-    (sources		zob1968=0140 zob1968=0141 zob1968=0787)
+    (sources		zob1959=0140 zob1959=0141 zob1959=0787)
     (zinbun-oracle-page . 63)
     (=zinbun-oracle	. 01332)	; &ZOB-1332;
     (<-Oracle-Bones
@@ -15452,17 +15452,17 @@
     ))
 (define-char
   '((shuowen-radical	. 129)	; 𠬪
-    (sources		zob1968=0008 zob1968=0011 zob1968=0039 zob1968=0048
-			zob1968=0086 zob1968=0117 zob1968=0129 zob1968=0130
-			zob1968=0156 zob1968=0173 zob1968=0194 zob1968=0204
-			zob1968=0206 zob1968=0265 zob1968=0299 zob1968=0353
-			zob1968=0394 zob1968=0533 zob1968=0534-0540
-			zob1968=0623 zob1968=0628 zob1968=0766 zob1968=0778
-			zob1968=0783 zob1968=0807 zob1968=0829 zob1968=0858
-			zob1968=0859 zob1968=0885 zob1968=0891 zob1968=0951
-			zob1968=0957 zob1968=0958 zob1968=0972 zob1968=0992
-			zob1968=1060 zob1968=1094 zob1968=1102-1111
-			zob1968=1125 zob1968=3248)
+    (sources		zob1959=0008 zob1959=0011 zob1959=0039 zob1959=0048
+			zob1959=0086 zob1959=0117 zob1959=0129 zob1959=0130
+			zob1959=0156 zob1959=0173 zob1959=0194 zob1959=0204
+			zob1959=0206 zob1959=0265 zob1959=0299 zob1959=0353
+			zob1959=0394 zob1959=0533 zob1959=0534-0540
+			zob1959=0623 zob1959=0628 zob1959=0766 zob1959=0778
+			zob1959=0783 zob1959=0807 zob1959=0829 zob1959=0858
+			zob1959=0859 zob1959=0885 zob1959=0891 zob1959=0951
+			zob1959=0957 zob1959=0958 zob1959=0972 zob1959=0992
+			zob1959=1060 zob1959=1094 zob1959=1102-1111
+			zob1959=1125 zob1959=3248)
     (zinbun-oracle-page . 63)
     (=zinbun-oracle	. 01334)	; &ZOB-1334;
     (<-Oracle-Bones
@@ -15481,7 +15481,7 @@
     ))
 (define-char
   '((shuowen-radical	. 131)	; 歺
-    (sources		zob1968=3170 zob1968=3239)
+    (sources		zob1959=3170 zob1959=3239)
     (zinbun-oracle-page . 63)
     (=zinbun-oracle	. 01337)	; &ZOB-1337;
     (<-Oracle-Bones
@@ -15490,7 +15490,7 @@
     ))
 (define-char
   '((shuowen-radical	. 131)	; 歺
-    (sources		zob1968=0675)
+    (sources		zob1959=0675)
     (zinbun-oracle-page . 63)
     (=zinbun-oracle	. 01338)	; &ZOB-1338;
     ))
@@ -15501,9 +15501,9 @@
     ))
 (define-char
   '((shuowen-radical	. 132)	; 死
-    (sources		zob1968=0446 zob1968=0452 zob1968=0453 zob1968=0455
-			zob1968=0458 zob1968=0467 zob1968=0993 zob1968=0994
-			zob1968=3248)
+    (sources		zob1959=0446 zob1959=0452 zob1959=0453 zob1959=0455
+			zob1959=0458 zob1959=0467 zob1959=0993 zob1959=0994
+			zob1959=3248)
     (zinbun-oracle-page . 63)
     (=zinbun-oracle	. 01340)	; &ZOB-1340;
     (<-Oracle-Bones
@@ -15512,7 +15512,7 @@
     ))
 (define-char
   '((shuowen-radical	. 132)	; 死
-    (sources		zob1968=1969)
+    (sources		zob1959=1969)
     (zinbun-oracle-page . 63)
     (=zinbun-oracle	. 01341)	; &ZOB-1341;
     ))
@@ -15523,8 +15523,8 @@
     ))
 (define-char
   '((shuowen-radical	. 133)	; 冎
-    (sources		zob1968=1096 zob1968=1264 zob1968=1285 zob1968=1290
-			zob1968=1333 zob1968=1546 zob1968=1571 zob1968=2370)
+    (sources		zob1959=1096 zob1959=1264 zob1959=1285 zob1959=1290
+			zob1959=1333 zob1959=1546 zob1959=1571 zob1959=2370)
     (zinbun-oracle-page . 63)
     (=zinbun-oracle	. 01343)	; &ZOB-1343;
     (<-Oracle-Bones
@@ -15578,7 +15578,7 @@
     ))
 (define-char
   '((shuowen-radical	. 137)	; 刀
-    (sources		zob1968=1094)
+    (sources		zob1959=1094)
     (zinbun-oracle-page . 63)
     (=zinbun-oracle	. 01350)	; &ZOB-1350;
     (<-Oracle-Bones
@@ -15608,7 +15608,7 @@
     ))
 (define-char
   '((shuowen-radical	. 137)	; 刀
-    (sources		zob1968=2363)
+    (sources		zob1959=2363)
     (zinbun-oracle-page . 64)
     (=zinbun-oracle	. 01354)	; &ZOB-1354;
     (<-Oracle-Bones
@@ -15625,7 +15625,7 @@
     ))
 (define-char
   '((shuowen-radical	. 137)	; 刀
-    (sources		zob1968=3153 zob1968=3154)
+    (sources		zob1959=3153 zob1959=3154)
     (zinbun-oracle-page . 64)
     (=zinbun-oracle	. 01356)	; &ZOB-1356;
     (<-Oracle-Bones
@@ -15735,7 +15735,7 @@
     ))
 (define-char
   '((shuowen-radical	. 137)	; 刀
-    (sources		zob1968=3016)
+    (sources		zob1959=3016)
     (zinbun-oracle-page . 64)
     (=zinbun-oracle	. 01363)	; &ZOB-1363;
     ))
@@ -15824,7 +15824,7 @@
     ))
 (define-char
   '((shuowen-radical	. 141)	; 耒
-    (sources		zob1968=0705)
+    (sources		zob1959=0705)
     (zinbun-oracle-page . 65)
     (=zinbun-oracle	. 01380)	; &ZOB-1380;
     (<-Oracle-Bones
@@ -15833,7 +15833,7 @@
     ))
 (define-char
   '((shuowen-radical	. 142)	; 𧢲
-    (sources		zob1968=0670 zob1968=0932)
+    (sources		zob1959=0670 zob1959=0932)
     (zinbun-oracle-page . 65)
     (=zinbun-oracle	. 01381)	; &ZOB-1381;
     (<-Oracle-Bones
@@ -15875,7 +15875,7 @@
     ))
 (define-char
   '((shuowen-radical	. 143)	; 竹
-    (sources		zob1968=0365 zob1968=0559 zob1968=1350)
+    (sources		zob1959=0365 zob1959=0559 zob1959=1350)
     (zinbun-oracle-page . 66)
     (=zinbun-oracle	. 01386)	; &ZOB-1386;
     (<-Oracle-Bones
@@ -15935,7 +15935,7 @@
     ))
 (define-char
   '((shuowen-radical	. 145)	; 丌
-    (sources		zob1968=1876 zob1968=1879)
+    (sources		zob1959=1876 zob1959=1879)
     (zinbun-oracle-page . 66)
     (=zinbun-oracle	. 01394)	; &ZOB-1394;
     (<-Oracle-Bones
@@ -15955,8 +15955,8 @@
      ((=>zinbun-oracle	  . 01395)	; &A-ZOB-1395;
       ))
     (shuowen-radical	. 145)	; 丌
-    (sources		zob1968=0387 zob1968=0424 zob1968=0766 zob1968=1468
-			zob1968=2307 zob1968=2512 zob1968=2522 zob1968=2535)
+    (sources		zob1959=0387 zob1959=0424 zob1959=0766 zob1959=1468
+			zob1959=2307 zob1959=2512 zob1959=2522 zob1959=2535)
     (zinbun-oracle-page . 66)
     (=zinbun-oracle	. 01395)	; &ZOB-1395;
     (<-Oracle-Bones
@@ -15992,7 +15992,7 @@
      ((=>zinbun-oracle	  . 01398)	; &A-ZOB-1398;
       ))
     (shuowen-radical	. 147)	; 工
-    (sources		zob1968=0060)
+    (sources		zob1959=0060)
     (zinbun-oracle-page . 66)
     (=zinbun-oracle	. 01398)	; &ZOB-1398;
     ))
@@ -16001,13 +16001,13 @@
      ((=>zinbun-oracle	  . 01398)	; &A-ZOB-1398;
       ))
     (shuowen-radical	. 147)	; 工
-    (sources		zob1968=1633 zob1968=3246)
+    (sources		zob1959=1633 zob1959=3246)
     (zinbun-oracle-page . 66)
     (=zinbun-oracle	. 01399)	; &ZOB-1399;
     ))
 (define-char
   '((shuowen-radical	. 147)	; 工
-    (sources		zob1968=2982 zob1968=3060 zob1968=3067)
+    (sources		zob1959=2982 zob1959=3060 zob1959=3067)
     (zinbun-oracle-page . 66)
     (=zinbun-oracle	. 01400)	; &ZOB-1400;
     (<-Oracle-Bones
@@ -16020,23 +16020,23 @@
     ))
 (define-char
   '((shuowen-radical	. 147)	; 工
-    (sources		zob1968=1958)
+    (sources		zob1959=1958)
     (zinbun-oracle-page . 66)
     (=zinbun-oracle	. 01401)	; &ZOB-1401;
     ))
 (define-char
   '((shuowen-radical	. 147)	; 工
-    (sources		zob1968=0332 zob1968=0338 zob1968=0351 zob1968=0352
-			zob1968=0692 zob1968=0893 zob1968=0898 zob1968=0901
-			zob1968=0902 zob1968=0903 zob1968=0932)
+    (sources		zob1959=0332 zob1959=0338 zob1959=0351 zob1959=0352
+			zob1959=0692 zob1959=0893 zob1959=0898 zob1959=0901
+			zob1959=0902 zob1959=0903 zob1959=0932)
     (zinbun-oracle-page . 66)
     (=zinbun-oracle	. 01402)	; &ZOB-1402;
     ))
 (define-char
   '((shuowen-radical	. 147)	; 工
-    (sources		zob1968=0330 zob1968=0349 zob1968=0709 zob1968=0892
-			zob1968=0894-0897 zob1968=0899 zob1968=0900
-			zob1968=0904 zob1968=0926 zob1968=0931 zob1968=1092)
+    (sources		zob1959=0330 zob1959=0349 zob1959=0709 zob1959=0892
+			zob1959=0894-0897 zob1959=0899 zob1959=0900
+			zob1959=0904 zob1959=0926 zob1959=0931 zob1959=1092)
     (zinbun-oracle-page . 66)
     (=zinbun-oracle	. 01403)	; &ZOB-1403;
     ))
@@ -16052,7 +16052,7 @@
     ))
 (define-char
   '((shuowen-radical	. 149)	; 巫
-    (sources		zob1968=0122 zob1968=2298 zob1968=3221)
+    (sources		zob1959=0122 zob1959=2298 zob1959=3221)
     (zinbun-oracle-page . 66)
     (=zinbun-oracle	. 01406)	; &ZOB-1406;
     (<-Oracle-Bones
@@ -16084,22 +16084,22 @@
     ))
 (define-char
   '((shuowen-radical	. 151)	; 曰
-    (sources		zob1968=0017 zob1968=0046 zob1968=0051 zob1968=0066
-			zob1968=0080 zob1968=0120 zob1968=0122 zob1968=0134
-			zob1968=0156 zob1968=0157 zob1968=0165 zob1968=0333
-			zob1968=0337 zob1968=0338 zob1968=0352 zob1968=0370
-			zob1968=0376 zob1968=0401 zob1968=0422 zob1968=0463
-			zob1968=0469 zob1968=0515 zob1968=0522 zob1968=0546
-			zob1968=0555 zob1968=0595 zob1968=0662 zob1968=0737
-			zob1968=0838 zob1968=0848 zob1968=0897 zob1968=0932
-			zob1968=1065-1070 zob1968=1073 zob1968=1077
-			zob1968=1078 zob1968=1080-1083 zob1968=1088
-			zob1968=1093 zob1968=1157 zob1968=1170 zob1968=1356
-			zob1968=1460 zob1968=1464 zob1968=1535 zob1968=1544
-			zob1968=1661 zob1968=1978 zob1968=2897 zob1968=2910
-			zob1968=2917 zob1968=2925 zob1968=2827 zob1968=2928
-			zob1968=2929 zob1968=2943 zob1968=3031 zob1968=3099
-			zob1968=3220)
+    (sources		zob1959=0017 zob1959=0046 zob1959=0051 zob1959=0066
+			zob1959=0080 zob1959=0120 zob1959=0122 zob1959=0134
+			zob1959=0156 zob1959=0157 zob1959=0165 zob1959=0333
+			zob1959=0337 zob1959=0338 zob1959=0352 zob1959=0370
+			zob1959=0376 zob1959=0401 zob1959=0422 zob1959=0463
+			zob1959=0469 zob1959=0515 zob1959=0522 zob1959=0546
+			zob1959=0555 zob1959=0595 zob1959=0662 zob1959=0737
+			zob1959=0838 zob1959=0848 zob1959=0897 zob1959=0932
+			zob1959=1065-1070 zob1959=1073 zob1959=1077
+			zob1959=1078 zob1959=1080-1083 zob1959=1088
+			zob1959=1093 zob1959=1157 zob1959=1170 zob1959=1356
+			zob1959=1460 zob1959=1464 zob1959=1535 zob1959=1544
+			zob1959=1661 zob1959=1978 zob1959=2897 zob1959=2910
+			zob1959=2917 zob1959=2925 zob1959=2827 zob1959=2928
+			zob1959=2929 zob1959=2943 zob1959=3031 zob1959=3099
+			zob1959=3220)
     (zinbun-oracle-page . 67)
     (=zinbun-oracle	. 01411)	; &ZOB-1411;
     (<-Oracle-Bones
@@ -16136,7 +16136,7 @@
     ))
 (define-char
   '((shuowen-radical	. 152)	; 乃
-    (sources		zob1968=0652 zob1968=1886 zob1968=2240)
+    (sources		zob1959=0652 zob1959=1886 zob1959=2240)
     (zinbun-oracle-page . 67)
     (=zinbun-oracle	. 01415)	; &ZOB-1415;
     (<-Oracle-Bones
@@ -16175,7 +16175,7 @@
      ((=>zinbun-oracle	  . 01418)	; &A-ZOB-1418;
       ))
     (shuowen-radical	. 153)	; 丂
-    (sources		zob1968=2370 zob1968=2868 zob1968=2914)
+    (sources		zob1959=2370 zob1959=2868 zob1959=2914)
     (zinbun-oracle-page . 67)
     (=zinbun-oracle	. 01418)	; &ZOB-1418;
     (<-Oracle-Bones
@@ -16211,7 +16211,7 @@
      ((=>zinbun-oracle	  . 01420)	; &A-ZOB-1420;
       ))
     (shuowen-radical	. 155)	; 兮
-    (sources		zob1968=2368)
+    (sources		zob1959=2368)
     (zinbun-oracle-page . 67)
     (=zinbun-oracle	. 01421)	; &ZOB-1421;
     ))
@@ -16222,17 +16222,17 @@
     ))
 (define-char
   '((shuowen-radical	. 155)	; 兮
-    (sources		zob1968=0035 zob1968=0115 zob1968=0158 zob1968=0159
-			zob1968=0160 zob1968=0261 zob1968=0271 zob1968=0282
-			zob1968=0287 zob1968=0299 zob1968=0303 zob1968=0326
-			zob1968=0387 zob1968=0400-0411 zob1968=0449
-			zob1968=0703 zob1968=0752 zob1968=0768 zob1968=0792
-			zob1968=0892-0895 zob1968=0902 zob1968=0952
-			zob1968=0954-0962 zob1968=0979 zob1968=1633
-			zob1968=1636 zob1968=1954 zob1968=2142 zob1968=2152
-			zob1968=2156 zob1968=2158 zob1968=2894 zob1968=2945
-			zob1968=3101 zob1968=3143 zob1968=3155 zob1968=3191
-			zob1968=3230 zob1968=3241 zob1968=3246)
+    (sources		zob1959=0035 zob1959=0115 zob1959=0158 zob1959=0159
+			zob1959=0160 zob1959=0261 zob1959=0271 zob1959=0282
+			zob1959=0287 zob1959=0299 zob1959=0303 zob1959=0326
+			zob1959=0387 zob1959=0400-0411 zob1959=0449
+			zob1959=0703 zob1959=0752 zob1959=0768 zob1959=0792
+			zob1959=0892-0895 zob1959=0902 zob1959=0952
+			zob1959=0954-0962 zob1959=0979 zob1959=1633
+			zob1959=1636 zob1959=1954 zob1959=2142 zob1959=2152
+			zob1959=2156 zob1959=2158 zob1959=2894 zob1959=2945
+			zob1959=3101 zob1959=3143 zob1959=3155 zob1959=3191
+			zob1959=3230 zob1959=3241 zob1959=3246)
     (zinbun-oracle-page . 67)
     (=zinbun-oracle	. 01423)	; &ZOB-1423;
     (<-Oracle-Bones
@@ -16267,7 +16267,7 @@
      ((=>zinbun-oracle	  . 01425)	; &A-ZOB-1425;
       ))
     (shuowen-radical	. 157)	; 亏
-    (sources		zob1968=0106)
+    (sources		zob1959=0106)
     (zinbun-oracle-page . 67)
     (=zinbun-oracle	. 01425)	; &ZOB-1425;
     ))
@@ -16276,7 +16276,7 @@
      ((=>zinbun-oracle	  . 01425)	; &A-ZOB-1425;
       ))
     (shuowen-radical	. 157)	; 亏
-    (sources		zob1968=3242)
+    (sources		zob1959=3242)
     (zinbun-oracle-page . 67)
     (=zinbun-oracle	. 01426)	; &ZOB-1426;
     ))
@@ -16306,9 +16306,9 @@
      ((=>zinbun-oracle	  . 01429)	; &A-ZOB-1429;
       ))
     (shuowen-radical	. 159)	; 喜
-    (sources		zob1968=0404 zob1968=1098 zob1968=1299 zob1968=1311
-			zob1968=1430 zob1968=1431 zob1968=1560 zob1968=1563
-			zob1968=1572)
+    (sources		zob1959=0404 zob1959=1098 zob1959=1299 zob1959=1311
+			zob1959=1430 zob1959=1431 zob1959=1560 zob1959=1563
+			zob1959=1572)
     (zinbun-oracle-page . 68)
     (=zinbun-oracle	. 01429)	; &ZOB-1429;
     (<-Oracle-Bones
@@ -16317,7 +16317,7 @@
     ))
 (define-char
   '((shuowen-radical	. 160)	; 壴
-    (sources		zob1968=0935 zob1968=0962 zob1968=1465 zob1968=2269)
+    (sources		zob1959=0935 zob1959=0962 zob1959=1465 zob1959=2269)
     (zinbun-oracle-page . 68)
     (=zinbun-oracle	. 01430)	; &ZOB-1430;
     (<-Oracle-Bones
@@ -16326,7 +16326,7 @@
     ))
 (define-char
   '((shuowen-radical	. 160)	; 壴
-    (sources		zob1968=1732)
+    (sources		zob1959=1732)
     (zinbun-oracle-page . 68)
     (=zinbun-oracle	. 01431)	; &ZOB-1431;
     (<-Oracle-Bones
@@ -16335,8 +16335,8 @@
     ))
 (define-char
   '((shuowen-radical	. 160)	; 壴
-    (sources		zob1968=0459 zob1968=0461 zob1968=0462 zob1968=0464
-			zob1968=0678 zob1968=0825 zob1968=0992)
+    (sources		zob1959=0459 zob1959=0461 zob1959=0462 zob1959=0464
+			zob1959=0678 zob1959=0825 zob1959=0992)
     (zinbun-oracle-page . 68)
     (=zinbun-oracle	. 01432)	; &ZOB-1432;
     (<-Oracle-Bones
@@ -16345,7 +16345,7 @@
     ))
 (define-char
   '((shuowen-radical	. 161)	; 鼓
-    (sources		zob1968=1369 zob1968=1839 zob1968=1886)
+    (sources		zob1959=1369 zob1959=1839 zob1959=1886)
     (zinbun-oracle-page . 68)
     (=zinbun-oracle	. 01433)	; &ZOB-1433;
     (<-Oracle-Bones
@@ -16409,8 +16409,8 @@
      ((=>zinbun-oracle	  . 01441)	; &A-ZOB-1441;
       ))
     (shuowen-radical	. 165)	; 豐
-    (sources		zob1968=0870 zob1968=1879 zob1968=1881 zob1968=1882
-			zob1968=2315 zob1968=3039)
+    (sources		zob1959=0870 zob1959=1879 zob1959=1881 zob1959=1882
+			zob1959=2315 zob1959=3039)
     (zinbun-oracle-page . 68)
     (=zinbun-oracle	. 01441)	; &ZOB-1441;
     (<-Oracle-Bones
@@ -16454,8 +16454,8 @@
     ))
 (define-char
   '((shuowen-radical	. 168)	; 虎
-    (sources		zob1968=0031 zob1968=0377 zob1968=2115 zob1968=2151
-			zob1968=2925)
+    (sources		zob1959=0031 zob1959=0377 zob1959=2115 zob1959=2151
+			zob1959=2925)
     (zinbun-oracle-page . 68)
     (=zinbun-oracle	. 01445)	; &ZOB-1445;
     (<-Oracle-Bones
@@ -16476,8 +16476,8 @@
     ))
 (define-char
   '((shuowen-radical	. 168)	; 虎
-    (sources		zob1968=1262 zob1968=1263 zob1968=2297 zob1968=2331
-			zob1968=2741 zob1968=2742)
+    (sources		zob1959=1262 zob1959=1263 zob1959=2297 zob1959=2331
+			zob1959=2741 zob1959=2742)
     (zinbun-oracle-page . 68)
     (=zinbun-oracle	. 01447)	; &ZOB-1447;
     (<-Oracle-Bones
@@ -16490,13 +16490,13 @@
     ))
 (define-char
   '((shuowen-radical	. 168)	; 虎
-    (sources		zob1968=0281)
+    (sources		zob1959=0281)
     (zinbun-oracle-page . 68)
     (=zinbun-oracle	. 01448)	; &ZOB-1448;
     ))
 (define-char
   '((shuowen-radical	. 168)	; 虎
-    (sources		zob1968=1843 zob1968=1850)
+    (sources		zob1959=1843 zob1959=1850)
     (zinbun-oracle-page . 69)
     (=zinbun-oracle	. 01449)	; &ZOB-1449;
     (<-Oracle-Bones
@@ -16527,13 +16527,13 @@
     ))
 (define-char
   '((shuowen-radical	. 168)	; 虎
-    (sources		zob1968=2127)
+    (sources		zob1959=2127)
     (zinbun-oracle-page . 69)
     (=zinbun-oracle	. 01451)	; &ZOB-1451;
     ))
 (define-char
   '((shuowen-radical	. 168)	; 虎
-    (sources		zob1968=3027)
+    (sources		zob1959=3027)
     (zinbun-oracle-page . 69)
     (=zinbun-oracle	. 01452)	; &ZOB-1452;
     ))
@@ -16544,7 +16544,7 @@
     ))
 (define-char
   '((shuowen-radical	. 169)	; 虤
-    (sources		zob1968=2329)
+    (sources		zob1959=2329)
     (zinbun-oracle-page . 69)
     (=zinbun-oracle	. 01454)	; &ZOB-1454;
     (<-Oracle-Bones
@@ -16569,17 +16569,17 @@
     ))
 (define-char
   '((shuowen-radical	. 170)	; 皿
-    (sources		zob1968=2532)
+    (sources		zob1959=2532)
     (zinbun-oracle-page . 69)
     (=zinbun-oracle	. 01457)	; &ZOB-1457;
     ))
 (define-char
   '((shuowen-radical	. 170)	; 皿
-    (sources		zob1968=1932 zob1968=1996 zob1968=2029 zob1968=2034
-			zob1968=2035 zob1968=2065 zob1968=2068 zob1968=2076
-			zob1968=2078 zob1968=2083 zob1968=2090 zob1968=2093
-			zob1968=2094 zob1968=2096 zob1968=2097 zob1968=2098
-			zob1968=2113 zob1968=2342)
+    (sources		zob1959=1932 zob1959=1996 zob1959=2029 zob1959=2034
+			zob1959=2035 zob1959=2065 zob1959=2068 zob1959=2076
+			zob1959=2078 zob1959=2083 zob1959=2090 zob1959=2093
+			zob1959=2094 zob1959=2096 zob1959=2097 zob1959=2098
+			zob1959=2113 zob1959=2342)
     (zinbun-oracle-page . 69)
     (=zinbun-oracle	. 01458)	; &ZOB-1458;
     (<-Oracle-Bones
@@ -16626,7 +16626,7 @@
     ))
 (define-char
   '((shuowen-radical	. 170)	; 皿
-    (sources		zob1968=1339)
+    (sources		zob1959=1339)
     (zinbun-oracle-page . 69)
     (=zinbun-oracle	. 01462)	; &ZOB-1462;
     (<-Oracle-Bones
@@ -16676,7 +16676,7 @@
     ))
 (define-char
   '((shuowen-radical	. 170)	; 皿
-    (sources		zob1968=3220)
+    (sources		zob1959=3220)
     (zinbun-oracle-page . 69)
     (=zinbun-oracle	. 01468)	; &ZOB-1468;
     (<-Oracle-Bones
@@ -16685,7 +16685,7 @@
     ))
 (define-char
   '((shuowen-radical	. 170)	; 皿
-    (sources		zob1968=1852)
+    (sources		zob1959=1852)
     (zinbun-oracle-page . 69)
     (=zinbun-oracle	. 01469)	; &ZOB-1469;
     (<-Oracle-Bones
@@ -16694,7 +16694,7 @@
     ))
 (define-char
   '((shuowen-radical	. 170)	; 皿
-    (sources		zob1968=2490)
+    (sources		zob1959=2490)
     (zinbun-oracle-page . 70)
     (=zinbun-oracle	. 01470)	; &ZOB-1470;
     (<-Oracle-Bones
@@ -16725,13 +16725,13 @@
     ))
 (define-char
   '((shuowen-radical	. 170)	; 皿
-    (sources		zob1968=2400)
+    (sources		zob1959=2400)
     (zinbun-oracle-page . 70)
     (=zinbun-oracle	. 01472)	; &ZOB-1472;
     ))
 (define-char
   '((shuowen-radical	. 170)	; 皿
-    (sources		zob1968=0454)
+    (sources		zob1959=0454)
     (zinbun-oracle-page . 70)
     (=zinbun-oracle	. 01473)	; &ZOB-1473;
     ))
@@ -16852,8 +16852,8 @@
     ))
 (define-char
   '((shuowen-radical	. 172)	; 去
-    (sources		zob1968=0878 zob1968=0888 zob1968=0889 zob1968=0890
-			zob1968=3140)
+    (sources		zob1959=0878 zob1959=0888 zob1959=0889 zob1959=0890
+			zob1959=3140)
     (zinbun-oracle-page . 71)
     (=zinbun-oracle	. 01497)	; &ZOB-1497;
     (<-Oracle-Bones
@@ -16874,7 +16874,7 @@
     ))
 (define-char
   '((shuowen-radical	. 173)	; 血
-    (sources		zob1968=1584)
+    (sources		zob1959=1584)
     (zinbun-oracle-page . 71)
     (=zinbun-oracle	. 01499)	; &ZOB-1499;
     (<-Oracle-Bones
@@ -16883,7 +16883,7 @@
     ))
 (define-char
   '((shuowen-radical	. 173)	; 血
-    (sources		zob1968=1272)
+    (sources		zob1959=1272)
     (zinbun-oracle-page . 71)
     (=zinbun-oracle	. 01500)	; &ZOB-1500;
     (<-Oracle-Bones
@@ -16896,7 +16896,7 @@
     ))
 (define-char
   '((shuowen-radical	. 173)	; 血
-    (sources		zob1968=1687 zob1968=1994)
+    (sources		zob1959=1687 zob1959=1994)
     (zinbun-oracle-page . 71)
     (=zinbun-oracle	. 01501)	; &ZOB-1501;
     (<-Oracle-Bones
@@ -16928,7 +16928,7 @@
     ))
 (define-char
   '((shuowen-radical	. 173)	; 血
-    (sources		zob1968=2893)
+    (sources		zob1959=2893)
     (zinbun-oracle-page . 71)
     (=zinbun-oracle	. 01506)	; &ZOB-1506;
     (<-Oracle-Bones
@@ -16988,7 +16988,7 @@
      ((=>zinbun-oracle	  . 01511)	; &A-ZOB-1511;
       ))
     (shuowen-radical	. 177)	; 井
-    (sources		zob1968=0278 zob1968=0460)
+    (sources		zob1959=0278 zob1959=0460)
     (zinbun-oracle-page . 71)
     (=zinbun-oracle	. 01511)	; &ZOB-1511;
     (<-Oracle-Bones
@@ -17021,7 +17021,7 @@
     ))
 (define-char
   '((shuowen-radical	. 177)	; 井
-    (sources		zob1968=0293)
+    (sources		zob1959=0293)
     (zinbun-oracle-page . 71)
     (=zinbun-oracle	. 01514)	; &ZOB-1514;
     (<-Oracle-Bones
@@ -17059,8 +17059,8 @@
      ((=>zinbun-oracle	  . 01518)	; &A-ZOB-1518;
       ))
     (shuowen-radical	. 178)	; 皀
-    (sources		zob1968=1943 zob1968=1945 zob1968=2268 zob1968=2285
-			zob1968=2305 zob1968=2307 zob1968=3074 zob1968=3077)
+    (sources		zob1959=1943 zob1959=1945 zob1959=2268 zob1959=2285
+			zob1959=2305 zob1959=2307 zob1959=3074 zob1959=3077)
     (zinbun-oracle-page . 72)
     (=zinbun-oracle	. 01518)	; &ZOB-1518;
     ))
@@ -17069,10 +17069,10 @@
      ((=>zinbun-oracle	  . 01518)	; &A-ZOB-1518;
       ))
     (shuowen-radical	. 178)	; 皀
-    (sources		zob1968=1549 zob1968=1557 zob1968=1561 zob1968=1578
-			zob1968=1587 zob1968=1589-1592 zob1968=1597
-			zob1968=1598 zob1968=1603 zob1968=1605 zob1968=1609
-			zob1968=1610 zob1968=1612 zob1968=1628 zob1968=1637)
+    (sources		zob1959=1549 zob1959=1557 zob1959=1561 zob1959=1578
+			zob1959=1587 zob1959=1589-1592 zob1959=1597
+			zob1959=1598 zob1959=1603 zob1959=1605 zob1959=1609
+			zob1959=1610 zob1959=1612 zob1959=1628 zob1959=1637)
     (zinbun-oracle-page . 72)
     (=zinbun-oracle	. 01519)	; &ZOB-1519;
     ))
@@ -17083,7 +17083,7 @@
     ))
 (define-char
   '((shuowen-radical	. 178)	; 皀
-    (sources		zob1968=1945 zob1968=3099 zob1968=3114 zob1968=3246)
+    (sources		zob1959=1945 zob1959=3099 zob1959=3114 zob1959=3246)
     (zinbun-oracle-page . 72)
     (=zinbun-oracle	. 01521)	; &ZOB-1521;
     (<-Oracle-Bones
@@ -17100,7 +17100,7 @@
     ))
 (define-char
   '((shuowen-radical	. 178)	; 皀
-    (sources		zob1968=2152 zob1968=2742)
+    (sources		zob1959=2152 zob1959=2742)
     (zinbun-oracle-page . 72)
     (=zinbun-oracle	. 01523)	; &ZOB-1523;
     (<-Oracle-Bones
@@ -17131,8 +17131,8 @@
     ))
 (define-char
   '((shuowen-radical	. 179)	; 鬯
-    (sources		zob1968=1264 zob1968=1807 zob1968=1810 zob1968=1857
-			zob1968=2210)
+    (sources		zob1959=1264 zob1959=1807 zob1959=1810 zob1959=1857
+			zob1959=2210)
     (zinbun-oracle-page . 72)
     (=zinbun-oracle	. 01527)	; &ZOB-1527;
     (<-Oracle-Bones
@@ -17197,7 +17197,7 @@
     ))
 (define-char
   '((shuowen-radical	. 180)	; 食
-    (sources		zob1968=2312 zob1968=2313)
+    (sources		zob1959=2312 zob1959=2313)
     (zinbun-oracle-page . 72)
     (=zinbun-oracle	. 01533)	; &ZOB-1533;
     ))
@@ -17216,27 +17216,27 @@
     ))
 (define-char
   '((shuowen-radical	. 181)	; 亼
-    (sources		zob1968=0009 zob1968=0121 zob1968=0223 zob1968=0239
-			zob1968=0240 zob1968=0245 zob1968=0247 zob1968=0248
-			zob1968=0252 zob1968=0267 zob1968=0523 zob1968=0538
-			zob1968=0568 zob1968=0607 zob1968=0622 zob1968=0664
-			zob1968=0741 zob1968=0788 zob1968=0806 zob1968=0824
-			zob1968=0908 zob1968=0927 zob1968=0946 zob1968=0963
-			zob1968=0983 zob1968=1091 zob1968=1130 zob1968=1178
-			zob1968=1189 zob1968=1191 zob1968=1355 zob1968=1363
-			zob1968=1373 zob1968=1382 zob1968=1389 zob1968=1403
-			zob1968=1410 zob1968=1431 zob1968=1446-1449
-			zob1968=1534 zob1968=1619 zob1968=1621 zob1968=1699
-			zob1968=1749 zob1968=1750 zob1968=1753 zob1968=1791
-			zob1968=1869 zob1968=2136 zob1968=2204 zob1968=2237
-			zob1968=2250 zob1968=2529 zob1968=2735 zob1968=2788
-			zob1968=2790 zob1968=2794 zob1968=2795 zob1968=2797
-			zob1968=2800 zob1968=2801 zob1968=2802 zob1968=2804
-			zob1968=2808 zob1968=2810 zob1968=2816 zob1968=2826
-			zob1968=2828 zob1968=2830 zob1968=2831 zob1968=2837
-			zob1968=2843 zob1968=2844 zob1968=2847 zob1968=2891
-			zob1968=2914 zob1968=3054 zob1968=3099 zob1968=3184
-			zob1968=3245)
+    (sources		zob1959=0009 zob1959=0121 zob1959=0223 zob1959=0239
+			zob1959=0240 zob1959=0245 zob1959=0247 zob1959=0248
+			zob1959=0252 zob1959=0267 zob1959=0523 zob1959=0538
+			zob1959=0568 zob1959=0607 zob1959=0622 zob1959=0664
+			zob1959=0741 zob1959=0788 zob1959=0806 zob1959=0824
+			zob1959=0908 zob1959=0927 zob1959=0946 zob1959=0963
+			zob1959=0983 zob1959=1091 zob1959=1130 zob1959=1178
+			zob1959=1189 zob1959=1191 zob1959=1355 zob1959=1363
+			zob1959=1373 zob1959=1382 zob1959=1389 zob1959=1403
+			zob1959=1410 zob1959=1431 zob1959=1446-1449
+			zob1959=1534 zob1959=1619 zob1959=1621 zob1959=1699
+			zob1959=1749 zob1959=1750 zob1959=1753 zob1959=1791
+			zob1959=1869 zob1959=2136 zob1959=2204 zob1959=2237
+			zob1959=2250 zob1959=2529 zob1959=2735 zob1959=2788
+			zob1959=2790 zob1959=2794 zob1959=2795 zob1959=2797
+			zob1959=2800 zob1959=2801 zob1959=2802 zob1959=2804
+			zob1959=2808 zob1959=2810 zob1959=2816 zob1959=2826
+			zob1959=2828 zob1959=2830 zob1959=2831 zob1959=2837
+			zob1959=2843 zob1959=2844 zob1959=2847 zob1959=2891
+			zob1959=2914 zob1959=3054 zob1959=3099 zob1959=3184
+			zob1959=3245)
     (zinbun-oracle-page . 72)
     (=zinbun-oracle	. 01536)	; &ZOB-1536;
     (<-Oracle-Bones
@@ -17245,7 +17245,7 @@
     ))
 (define-char
   '((shuowen-radical	. 181)	; 亼
-    (sources		zob1968=0615 zob1968=0915 zob1968=0919)
+    (sources		zob1959=0615 zob1959=0915 zob1959=0919)
     (zinbun-oracle-page . 73)
     (=zinbun-oracle	. 01537)	; &ZOB-1537;
     (<-Oracle-Bones
@@ -17258,7 +17258,7 @@
     ))
 (define-char
   '((shuowen-radical	. 181)	; 亼
-    (sources		zob1968=2890 zob1968=2945)
+    (sources		zob1959=2890 zob1959=2945)
     (zinbun-oracle-page . 73)
     (=zinbun-oracle	. 01538)	; &ZOB-1538;
     (<-Oracle-Bones
@@ -17271,7 +17271,7 @@
     ))
 (define-char
   '((shuowen-radical	. 181)	; 亼
-    (sources		zob1968=1091)
+    (sources		zob1959=1091)
     (zinbun-oracle-page . 73)
     (=zinbun-oracle	. 01539)	; &ZOB-1539;
     (<-Oracle-Bones
@@ -17284,18 +17284,18 @@
     ))
 (define-char
   '((shuowen-radical	. 181)	; 亼
-    (sources		zob1968=0173 zob1968=0319 zob1968=0599 zob1968=0603
-			zob1968=0631 zob1968=0819 zob1968=0823 zob1968=0825
-			zob1968=0945 zob1968=1067 zob1968=1364-1367
-			zob1968=1370 zob1968=1444 zob1968=1445 zob1968=1462
-			zob1968=1588 zob1968=1686 zob1968=1701 zob1968=1810
-			zob1968=1863 zob1968=1958 zob1968=1987 zob1968=1990
-			zob1968=2004 zob1968=2007 zob1968=2013 zob1968=2037
-			zob1968=2046 zob1968=2245 zob1968=2298 zob1968=2308
-			zob1968=2373 zob1968=2377 zob1968=2378 zob1968=2384
-			zob1968=2386 zob1968=2393 zob1968=2400 zob1968=2737
-			zob1968=2889 zob1968=2931 zob1968=3038 zob1968=3044
-			zob1968=3089 zob1968=3121 zob1968=3123 zob1968=3153)
+    (sources		zob1959=0173 zob1959=0319 zob1959=0599 zob1959=0603
+			zob1959=0631 zob1959=0819 zob1959=0823 zob1959=0825
+			zob1959=0945 zob1959=1067 zob1959=1364-1367
+			zob1959=1370 zob1959=1444 zob1959=1445 zob1959=1462
+			zob1959=1588 zob1959=1686 zob1959=1701 zob1959=1810
+			zob1959=1863 zob1959=1958 zob1959=1987 zob1959=1990
+			zob1959=2004 zob1959=2007 zob1959=2013 zob1959=2037
+			zob1959=2046 zob1959=2245 zob1959=2298 zob1959=2308
+			zob1959=2373 zob1959=2377 zob1959=2378 zob1959=2384
+			zob1959=2386 zob1959=2393 zob1959=2400 zob1959=2737
+			zob1959=2889 zob1959=2931 zob1959=3038 zob1959=3044
+			zob1959=3089 zob1959=3121 zob1959=3123 zob1959=3153)
     (zinbun-oracle-page . 73)
     (=zinbun-oracle	. 01540)	; &ZOB-1540;
     (<-Oracle-Bones
@@ -17308,7 +17308,7 @@
     ))
 (define-char
   '((shuowen-radical	. 181)	; 亼
-    (sources		zob1968=3111)
+    (sources		zob1959=3111)
     (zinbun-oracle-page . 73)
     (=zinbun-oracle	. 01541)	; &ZOB-1541;
     (<-Oracle-Bones
@@ -17321,30 +17321,30 @@
     ))
 (define-char
   '((shuowen-radical	. 181)	; 亼
-    (sources		zob1968=0180 zob1968=0201 zob1968=0213 zob1968=0219
-			zob1968=0222 zob1968=0236 zob1968=0237 zob1968=0238
-			zob1968=0243 zob1968=0249 zob1968=0374 zob1968=0438
-			zob1968=0564 zob1968=0614 zob1968=0748 zob1968=1161
-			zob1968=1376 zob1968=1377 zob1968=1379 zob1968=1380
-			zob1968=1381 zob1968=1384 zob1968=1386 zob1968=1388
-			zob1968=1412 zob1968=1425 zob1968=1430 zob1968=1432
-			zob1968=1433 zob1968=1435 zob1968=1436 zob1968=1437
-			zob1968=1439 zob1968=1440 zob1968=1456 zob1968=1461
-			zob1968=1477 zob1968=1514 zob1968=1551 zob1968=1598
-			zob1968=1605-1608 zob1968=1610 zob1968=1611
-			zob1968=1613 zob1968=1615 zob1968=1617 zob1968=1618
-			zob1968=1623 zob1968=1687 zob1968=1703-1707
-			zob1968=1709 zob1968=1710 zob1968=1712-1517
-			zob1968=1717 zob1968=1718 zob1968=1739 zob1968=1740
-			zob1968=1741 zob1968=1743 zob1968=1745-
-			zob1968=1748 zob1968=1773 zob1968=1776 zob1968=1871
-			zob1968=2251 zob1968=2398 zob1968=2400 zob1968=2789
-			zob1968=2792 zob1968=2799 zob1968=2803 zob1968=2805
-			zob1968=2806 zob1968=2807 zob1968=2813 zob1968=2814
-			zob1968=2815 zob1968=2817 zob1968=2820
-			zob1968=2822-2825 zob1968=2829 zob1968=2832-2835
-			zob1968=2838-2841 zob1968=2858 zob1968=2868
-			zob1968=2946 zob1968=3114)
+    (sources		zob1959=0180 zob1959=0201 zob1959=0213 zob1959=0219
+			zob1959=0222 zob1959=0236 zob1959=0237 zob1959=0238
+			zob1959=0243 zob1959=0249 zob1959=0374 zob1959=0438
+			zob1959=0564 zob1959=0614 zob1959=0748 zob1959=1161
+			zob1959=1376 zob1959=1377 zob1959=1379 zob1959=1380
+			zob1959=1381 zob1959=1384 zob1959=1386 zob1959=1388
+			zob1959=1412 zob1959=1425 zob1959=1430 zob1959=1432
+			zob1959=1433 zob1959=1435 zob1959=1436 zob1959=1437
+			zob1959=1439 zob1959=1440 zob1959=1456 zob1959=1461
+			zob1959=1477 zob1959=1514 zob1959=1551 zob1959=1598
+			zob1959=1605-1608 zob1959=1610 zob1959=1611
+			zob1959=1613 zob1959=1615 zob1959=1617 zob1959=1618
+			zob1959=1623 zob1959=1687 zob1959=1703-1707
+			zob1959=1709 zob1959=1710 zob1959=1712-1517
+			zob1959=1717 zob1959=1718 zob1959=1739 zob1959=1740
+			zob1959=1741 zob1959=1743 zob1959=1745-
+			zob1959=1748 zob1959=1773 zob1959=1776 zob1959=1871
+			zob1959=2251 zob1959=2398 zob1959=2400 zob1959=2789
+			zob1959=2792 zob1959=2799 zob1959=2803 zob1959=2805
+			zob1959=2806 zob1959=2807 zob1959=2813 zob1959=2814
+			zob1959=2815 zob1959=2817 zob1959=2820
+			zob1959=2822-2825 zob1959=2829 zob1959=2832-2835
+			zob1959=2838-2841 zob1959=2858 zob1959=2868
+			zob1959=2946 zob1959=3114)
     (zinbun-oracle-page . 73)
     (=zinbun-oracle	. 01542)	; &ZOB-1542;
     (<-Oracle-Bones
@@ -17357,7 +17357,7 @@
     ))
 (define-char
   '((shuowen-radical	. 181)	; 亼
-    (sources		zob1968=0304 zob1968=1988 zob1968=2529)
+    (sources		zob1959=0304 zob1959=1988 zob1959=2529)
     (zinbun-oracle-page . 73)
     (=zinbun-oracle	. 01543)	; &ZOB-1543;
     (<-Oracle-Bones
@@ -17370,7 +17370,7 @@
     ))
 (define-char
   '((shuowen-radical	. 181)	; 亼
-    (sources		zob1968=0209)
+    (sources		zob1959=0209)
     (zinbun-oracle-page . 73)
     (=zinbun-oracle	. 01544)	; &ZOB-1544;
     (<-Oracle-Bones
@@ -17383,7 +17383,7 @@
     ))
 (define-char
   '((shuowen-radical	. 181)	; 亼
-    (sources		zob1968=0009)
+    (sources		zob1959=0009)
     (zinbun-oracle-page . 73)
     (=zinbun-oracle	. 01545)	; &ZOB-1545;
     (<-Oracle-Bones
@@ -17444,10 +17444,10 @@
     ))
 (define-char
   '((shuowen-radical	. 184)	; 入
-    (sources		zob1968=0431 zob1968=0530 zob1968=0932 zob1968=0943
-			zob1968=0956 zob1968=1633 zob1968=1803 zob1968=1811
-			zob1968=1965 zob1968=2046 zob1968=2056 zob1968=2075
-			zob1968=3001 zob1968=3134)
+    (sources		zob1959=0431 zob1959=0530 zob1959=0932 zob1959=0943
+			zob1959=0956 zob1959=1633 zob1959=1803 zob1959=1811
+			zob1959=1965 zob1959=2046 zob1959=2056 zob1959=2075
+			zob1959=3001 zob1959=3134)
     (zinbun-oracle-page . 74)
     (=zinbun-oracle	. 01554)	; &ZOB-1554;
     (<-Oracle-Bones
@@ -17468,8 +17468,8 @@
     ))
 (define-char
   '((shuowen-radical	. 184)	; 入
-    (sources		zob1968=0039 zob1968=0245 zob1968=0260 zob1968=0419
-			zob1968=0433 zob1968=0830 zob1968=0856 zob1968=0857)
+    (sources		zob1959=0039 zob1959=0245 zob1959=0260 zob1959=0419
+			zob1959=0433 zob1959=0830 zob1959=0856 zob1959=0857)
     (zinbun-oracle-page . 74)
     (=zinbun-oracle	. 01556)	; &ZOB-1556;
     (<-Oracle-Bones
@@ -17486,8 +17486,8 @@
     ))
 (define-char
   '((shuowen-radical	. 185)	; 缶
-    (sources		zob1968=0364 zob1968=2153 zob1968=3075 zob1968=3112
-			zob1968=3150 zob1968=3211)
+    (sources		zob1959=0364 zob1959=2153 zob1959=3075 zob1959=3112
+			zob1959=3150 zob1959=3211)
     (zinbun-oracle-page . 74)
     (=zinbun-oracle	. 01558)	; &ZOB-1558;
     (<-Oracle-Bones
@@ -17496,7 +17496,7 @@
     ))
 (define-char
   '((shuowen-radical	. 186)	; 矢
-    (sources		zob1968=0417 zob1968=0418 zob1968=0420 zob1968=0915)
+    (sources		zob1959=0417 zob1959=0418 zob1959=0420 zob1959=0915)
     (zinbun-oracle-page . 74)
     (=zinbun-oracle	. 01559)	; &ZOB-1559;
     (<-Oracle-Bones
@@ -17510,9 +17510,9 @@
     ))
 (define-char
   '((shuowen-radical	. 186)	; 矢
-    (sources		zob1968=0340 zob1968=0341 zob1968=1157 zob1968=1341
-			zob1968=1762 zob1968=2127 zob1968=2128 zob1968=2132
-			zob1968=2139)
+    (sources		zob1959=0340 zob1959=0341 zob1959=1157 zob1959=1341
+			zob1959=1762 zob1959=2127 zob1959=2128 zob1959=2132
+			zob1959=2139)
     (zinbun-oracle-page . 74)
     (=zinbun-oracle	. 01561)	; &ZOB-1561;
     (<-Oracle-Bones
@@ -17521,16 +17521,16 @@
     ))
 (define-char
   '((shuowen-radical	. 186)	; 矢
-    (sources		zob1968=2265)
+    (sources		zob1959=2265)
     (zinbun-oracle-page . 74)
     (=zinbun-oracle	. 01562)	; &ZOB-1562;
     ))
 (define-char
   '((shuowen-radical	. 186)	; 矢
-    (sources		zob1968=0268 zob1968=0269 zob1968=0389 zob1968=0421
-			zob1968=0422 zob1968=0452 zob1968=0457 zob1968=0750
-			zob1968=0970 zob1968=3137 zob1968=3139 zob1968=3145
-			zob1968=3148 zob1968=3226)
+    (sources		zob1959=0268 zob1959=0269 zob1959=0389 zob1959=0421
+			zob1959=0422 zob1959=0452 zob1959=0457 zob1959=0750
+			zob1959=0970 zob1959=3137 zob1959=3139 zob1959=3145
+			zob1959=3148 zob1959=3226)
     (zinbun-oracle-page . 74)
     (=zinbun-oracle	. 01563)	; &ZOB-1563;
     (<-Oracle-Bones
@@ -17539,7 +17539,7 @@
     ))
 (define-char
   '((shuowen-radical	. 186)	; 矢
-    (sources		zob1968=0423)
+    (sources		zob1959=0423)
     (zinbun-oracle-page . 74)
     (=zinbun-oracle	. 01564)	; &ZOB-1564;
     ))
@@ -17588,20 +17588,20 @@
     ))
 (define-char
   '((shuowen-radical	. 186)	; 矢
-    (sources		zob1968=1089)
+    (sources		zob1959=1089)
     (zinbun-oracle-page . 74)
     (=zinbun-oracle	. 01569)	; &ZOB-1569;
     ))
 (define-char
   '((shuowen-radical	. 186)	; 矢
-    (sources		zob1968=1096 zob1968=2284 zob1968=2370 zob1968=2550
-			zob1968=2551 zob1968=2552)
+    (sources		zob1959=1096 zob1959=2284 zob1959=2370 zob1959=2550
+			zob1959=2551 zob1959=2552)
     (zinbun-oracle-page . 74)
     (=zinbun-oracle	. 01570)	; &ZOB-1570;
     ))
 (define-char
   '((shuowen-radical	. 186)	; 矢
-    (sources		zob1968=0888 zob1968=0889 zob1968=2154 zob1968=2216)
+    (sources		zob1959=0888 zob1959=0889 zob1959=2154 zob1959=2216)
     (zinbun-oracle-page . 74)
     (=zinbun-oracle	. 01571)	; &ZOB-1571;
     ))
@@ -17672,7 +17672,7 @@
     ))
 (define-char
   '((shuowen-radical	. 187)	; 高
-    (sources		zob1968=1806 zob1968=2367 zob1968=3194)
+    (sources		zob1959=1806 zob1959=2367 zob1959=3194)
     (zinbun-oracle-page . 75)
     (=zinbun-oracle	. 01585)	; &ZOB-1585;
     (<-Oracle-Bones
@@ -17721,7 +17721,7 @@
     ))
 (define-char
   '((shuowen-radical	. 187)	; 高
-    (sources		zob1968=2281 zob1968=2358)
+    (sources		zob1959=2281 zob1959=2358)
     (zinbun-oracle-page . 75)
     (=zinbun-oracle	. 01589)	; &ZOB-1589;
     (<-Oracle-Bones
@@ -17748,7 +17748,7 @@
     ))
 (define-char
   '((shuowen-radical	. 187)	; 高
-    (sources		zob1968=1786)
+    (sources		zob1959=1786)
     (zinbun-oracle-page . 75)
     (=zinbun-oracle	. 01591)	; &ZOB-1591;
     (<-Oracle-Bones
@@ -17777,7 +17777,7 @@
     ))
 (define-char
   '((shuowen-radical	. 187)	; 高
-    (sources		zob1968=1828)
+    (sources		zob1959=1828)
     (zinbun-oracle-page . 75)
     (=zinbun-oracle	. 01593)	; &ZOB-1593;
     ))
@@ -17803,7 +17803,7 @@
     ))
 (define-char
   '((shuowen-radical	. 188)	; 冂
-    (sources		zob1968=0075)
+    (sources		zob1959=0075)
     (zinbun-oracle-page . 75)
     (=zinbun-oracle	. 01596)	; &ZOB-1596;
     (<-Oracle-Bones
@@ -17812,8 +17812,8 @@
     ))
 (define-char
   '((shuowen-radical	. 190)	; 京
-    (sources		zob1968=1195 zob1968=1564 zob1968=1929 zob1968=2363
-			zob1968=2512)
+    (sources		zob1959=1195 zob1959=1564 zob1959=1929 zob1959=2363
+			zob1959=2512)
     (zinbun-oracle-page . 75)
     (=zinbun-oracle	. 01597)	; &ZOB-1597;
     (<-Oracle-Bones
@@ -17822,7 +17822,7 @@
     ))
 (define-char
   '((shuowen-radical	. 190)	; 京
-    (sources		zob1968=0440)
+    (sources		zob1959=0440)
     (zinbun-oracle-page . 76)
     (=zinbun-oracle	. 01598)	; &ZOB-1598;
     (<-Oracle-Bones
@@ -17838,19 +17838,19 @@
     ))
 (define-char
   '((shuowen-radical	. 190)	; 京
-    (sources		zob1968=2373 zob1968=3127)
+    (sources		zob1959=2373 zob1959=3127)
     (zinbun-oracle-page . 76)
     (=zinbun-oracle	. 01599)	; &ZOB-1599;
     ))
 (define-char
   '((shuowen-radical	. 190)	; 京
-    (sources		zob1968=3030)
+    (sources		zob1959=3030)
     (zinbun-oracle-page . 76)
     (=zinbun-oracle	. 01600)	; &ZOB-1600;
     ))
 (define-char
   '((shuowen-radical	. 190)	; 京
-    (sources		zob1968=0461 zob1968=2477)
+    (sources		zob1959=0461 zob1959=2477)
     (zinbun-oracle-page . 76)
     (=zinbun-oracle	. 01601)	; &ZOB-1601;
     ))
@@ -17941,7 +17941,7 @@
     ))
 (define-char
   '((shuowen-radical	. 191)	; 亯
-    (sources		zob1968=0384 zob1968=1839 zob1968=2311 zob1968=2350)
+    (sources		zob1959=0384 zob1959=1839 zob1959=2311 zob1959=2350)
     (zinbun-oracle-page . 76)
     (=zinbun-oracle	. 01619)	; &ZOB-1619;
     (<-Oracle-Bones
@@ -17950,10 +17950,10 @@
     ))
 (define-char
   '((shuowen-radical	. 191)	; 亯
-    (sources		zob1968=0277 zob1968=0351 zob1968=0362 zob1968=0364
-			zob1968=0777 zob1968=0778 zob1968=0924 zob1968=0985
-			zob1968=1074 zob1968=2153 zob1968=2327 zob1968=2521
-			zob1968=2863 zob1968=2879 zob1968=2880 zob1968=3220)
+    (sources		zob1959=0277 zob1959=0351 zob1959=0362 zob1959=0364
+			zob1959=0777 zob1959=0778 zob1959=0924 zob1959=0985
+			zob1959=1074 zob1959=2153 zob1959=2327 zob1959=2521
+			zob1959=2863 zob1959=2879 zob1959=2880 zob1959=3220)
     (zinbun-oracle-page . 76)
     (=zinbun-oracle	. 01620)	; &ZOB-1620;
     (<-Oracle-Bones
@@ -18019,7 +18019,7 @@
      ((=>zinbun-oracle	  . 01627)	; &A-ZOB-1627;
       ))
     (shuowen-radical	. 194)	; 㐭
-    (sources		zob1968=0559 zob1968=0632)
+    (sources		zob1959=0559 zob1959=0632)
     (zinbun-oracle-page . 77)
     (=zinbun-oracle	. 01627)	; &ZOB-1627;
     (<-Oracle-Bones
@@ -18028,7 +18028,7 @@
     ))
 (define-char
   '((shuowen-radical	. 195)	; 嗇
-    (sources		zob1968=3119)
+    (sources		zob1959=3119)
     (zinbun-oracle-page . 77)
     (=zinbun-oracle	. 01628)	; &ZOB-1628;
     (<-Oracle-Bones
@@ -18057,26 +18057,26 @@
     ))
 (define-char
   '((shuowen-radical	. 196)	; 來
-    (sources		zob1968=0080 zob1968=0090 zob1968=0304 zob1968=0316
-			zob1968=0337 zob1968=0363 zob1968=0367 zob1968=0371
-			zob1968=0372 zob1968=0373 zob1968=0374 zob1968=0570
-			zob1968=0581 zob1968=0617 zob1968=0636 zob1968=0683
-			zob1968=0761 zob1968=0785 zob1968=0860 zob1968=0926
-			zob1968=0927 zob1968=0929 zob1968=0930 zob1968=0932
-			zob1968=0933 zob1968=0934 zob1968=0936 zob1968=0938
-			zob1968=0939 zob1968=0943 zob1968=0974-0978
-			zob1968=0980 zob1968=0983 zob1968=0987 zob1968=1114
-			zob1968=1187 zob1968=1214 zob1968=1224 zob1968=1326
-			zob1968=1361 zob1968=1364 zob1968=1365 zob1968=1366
-			zob1968=1367 zob1968=1430 zob1968=1509 zob1968=1588
-			zob1968=1631 zob1968=1971 zob1968=1811 zob1968=1831
-			zob1968=1945 zob1968=2226 zob1968=2291 zob1968=2295
-			zob1968=2307 zob1968=2519 zob1968=2520 zob1968=2522
-			zob1968=2536 zob1968=2538 zob1968=2867 zob1968=2869
-			zob1968=2870 zob1968=2872 zob1968=2873 zob1968=2925
-			zob1968=2927-2930 zob1968=2932-2935 zob1968=2938
-			zob1968=2939 zob1968=2940 zob1968=2986 zob1968=2994
-			zob1968=3053 zob1968=3124)
+    (sources		zob1959=0080 zob1959=0090 zob1959=0304 zob1959=0316
+			zob1959=0337 zob1959=0363 zob1959=0367 zob1959=0371
+			zob1959=0372 zob1959=0373 zob1959=0374 zob1959=0570
+			zob1959=0581 zob1959=0617 zob1959=0636 zob1959=0683
+			zob1959=0761 zob1959=0785 zob1959=0860 zob1959=0926
+			zob1959=0927 zob1959=0929 zob1959=0930 zob1959=0932
+			zob1959=0933 zob1959=0934 zob1959=0936 zob1959=0938
+			zob1959=0939 zob1959=0943 zob1959=0974-0978
+			zob1959=0980 zob1959=0983 zob1959=0987 zob1959=1114
+			zob1959=1187 zob1959=1214 zob1959=1224 zob1959=1326
+			zob1959=1361 zob1959=1364 zob1959=1365 zob1959=1366
+			zob1959=1367 zob1959=1430 zob1959=1509 zob1959=1588
+			zob1959=1631 zob1959=1971 zob1959=1811 zob1959=1831
+			zob1959=1945 zob1959=2226 zob1959=2291 zob1959=2295
+			zob1959=2307 zob1959=2519 zob1959=2520 zob1959=2522
+			zob1959=2536 zob1959=2538 zob1959=2867 zob1959=2869
+			zob1959=2870 zob1959=2872 zob1959=2873 zob1959=2925
+			zob1959=2927-2930 zob1959=2932-2935 zob1959=2938
+			zob1959=2939 zob1959=2940 zob1959=2986 zob1959=2994
+			zob1959=3053 zob1959=3124)
     (zinbun-oracle-page . 77)
     (=zinbun-oracle	. 01633)	; &ZOB-1633;
     (<-Oracle-Bones
@@ -18085,7 +18085,7 @@
     ))
 (define-char
   '((shuowen-radical	. 196)	; 來
-    (sources		zob1968=0363)
+    (sources		zob1959=0363)
     (zinbun-oracle-page . 77)
     (=zinbun-oracle	. 01634)	; &ZOB-1634;
     (<-Oracle-Bones
@@ -18146,7 +18146,7 @@
     ))
 (define-char
   '((shuowen-radical	. 198)	; 夊
-    (sources		zob1968=0330 zob1968=3122)
+    (sources		zob1959=0330 zob1959=3122)
     (zinbun-oracle-page . 78)
     (=zinbun-oracle	. 01642)	; &ZOB-1642;
     (<-Oracle-Bones
@@ -18155,13 +18155,13 @@
     ))
 (define-char
   '((shuowen-radical	. 198)	; 夊
-    (sources		zob1968=0153)
+    (sources		zob1959=0153)
     (zinbun-oracle-page . 78)
     (=zinbun-oracle	. 01643)	; &ZOB-1643;
     ))
 (define-char
   '((shuowen-radical	. 198)	; 夊
-    (sources		zob1968=2361)
+    (sources		zob1959=2361)
     (zinbun-oracle-page . 78)
     (=zinbun-oracle	. 01644)	; &ZOB-1644;
     (<-Oracle-Bones
@@ -18206,9 +18206,9 @@
      ((=>zinbun-oracle	  . 01648)	; &A-ZOB-1648;
       ))
     (shuowen-radical	. 199)	; 舛
-    (sources		zob1968=0121 zob1968=1356 zob1968=1853 zob1968=1954
-			zob1968=1955 zob1968=2260 zob1968=3078 zob1968=3084
-			zob1968=3085 zob1968=3098 zob1968=3158)
+    (sources		zob1959=0121 zob1959=1356 zob1959=1853 zob1959=1954
+			zob1959=1955 zob1959=2260 zob1959=3078 zob1959=3084
+			zob1959=3085 zob1959=3098 zob1959=3158)
     (zinbun-oracle-page . 78)
     (=zinbun-oracle	. 01648)	; &ZOB-1648;
     (<-Oracle-Bones
@@ -18217,14 +18217,14 @@
     ))
 (define-char
   '((shuowen-radical	. 199)	; 舛
-    (sources		zob1968=1930)
+    (sources		zob1959=1930)
     (zinbun-oracle-page . 78)
     (=zinbun-oracle	. 01649)	; &ZOB-1649;
     ))
 (define-char
   '((shuowen-radical	. 201)	; 韋
-    (sources		zob1968=0137 zob1968=0557 zob1968=0558 zob1968=0749
-			zob1968=0817 zob1968=0939 zob1968=2141)
+    (sources		zob1959=0137 zob1959=0557 zob1959=0558 zob1959=0749
+			zob1959=0817 zob1959=0939 zob1959=2141)
     (zinbun-oracle-page . 78)
     (=zinbun-oracle	. 01650)	; &ZOB-1650;
     (<-Oracle-Bones
@@ -18233,7 +18233,7 @@
     ))
 (define-char
   '((shuowen-radical	. 203)	; 夂
-    (sources		zob1968=0054 zob1968=3027)
+    (sources		zob1959=0054 zob1959=3027)
     (zinbun-oracle-page . 78)
     (=zinbun-oracle	. 01651)	; &ZOB-1651;
     (<-Oracle-Bones
@@ -18277,8 +18277,8 @@
     ))
 (define-char
   '((shuowen-radical	. 205)	; 桀
-    (sources		zob1968=0331 zob1968=0908 zob1968=0915 zob1968=0917
-			zob1968=0918)
+    (sources		zob1959=0331 zob1959=0908 zob1959=0915 zob1959=0917
+			zob1959=0918)
     (zinbun-oracle-page . 78)
     (=zinbun-oracle	. 01655)	; &ZOB-1655;
     (<-Oracle-Bones
@@ -18287,7 +18287,7 @@
     ))
 (define-char
   '((shuowen-radical	. 206)	; 木
-    (sources		zob1968=2391 zob1968=2520)
+    (sources		zob1959=2391 zob1959=2520)
     (zinbun-oracle-page . 79)
     (=zinbun-oracle	. 01656)	; &ZOB-1656;
     (<-Oracle-Bones
@@ -18308,7 +18308,7 @@
     ))
 (define-char
   '((shuowen-radical	. 206)	; 木
-    (sources		zob1968=2315 zob1968=2335)
+    (sources		zob1959=2315 zob1959=2335)
     (zinbun-oracle-page . 79)
     (=zinbun-oracle	. 01658)	; &ZOB-1658;
     (<-Oracle-Bones
@@ -18468,7 +18468,7 @@
     ))
 (define-char
   '((shuowen-radical	. 206)	; 木
-    (sources		zob1968=3099 zob1968=3100)
+    (sources		zob1959=3099 zob1959=3100)
     (zinbun-oracle-page . 79)
     (=zinbun-oracle	. 01678)	; &ZOB-1678;
     (<-Oracle-Bones
@@ -18511,7 +18511,7 @@
     ))
 (define-char
   '((shuowen-radical	. 206)	; 木
-    (sources		zob1968=1926)
+    (sources		zob1959=1926)
     (zinbun-oracle-page . 80)
     (=zinbun-oracle	. 01683)	; &ZOB-1683;
     (<-Oracle-Bones
@@ -18520,8 +18520,8 @@
     ))
 (define-char
   '((shuowen-radical	. 206)	; 木
-    (sources		zob1968=2069 zob1968=2082 zob1968=2925 zob1968=2927
-			zob1968=2928)
+    (sources		zob1959=2069 zob1959=2082 zob1959=2925 zob1959=2927
+			zob1959=2928)
     (zinbun-oracle-page . 80)
     (=zinbun-oracle	. 01684)	; &ZOB-1684;
     (<-Oracle-Bones
@@ -18597,7 +18597,7 @@
     ))
 (define-char
   '((shuowen-radical	. 206)	; 木
-    (sources		zob1968=1842 zob1968=2214)
+    (sources		zob1959=1842 zob1959=2214)
     (zinbun-oracle-page . 80)
     (=zinbun-oracle	. 01689)	; &ZOB-1689;
     ))
@@ -18718,9 +18718,9 @@
     ))
 (define-char
   '((shuowen-radical	. 207)	; 東
-    (sources		zob1968=0302 zob1968=0413 zob1968=0428 zob1968=0783
-			zob1968=0784 zob1968=2058 zob1968=2890 zob1968=3099
-			zob1968=3113 zob1968=3155 zob1968=3220)
+    (sources		zob1959=0302 zob1959=0413 zob1959=0428 zob1959=0783
+			zob1959=0784 zob1959=2058 zob1959=2890 zob1959=3099
+			zob1959=3113 zob1959=3155 zob1959=3220)
     (zinbun-oracle-page . 81)
     (=zinbun-oracle	. 01713)	; &ZOB-1713;
     (<-Oracle-Bones
@@ -18741,7 +18741,7 @@
     ))
 (define-char
   '((shuowen-radical	. 207)	; 東
-    (sources		zob1968=2006)
+    (sources		zob1959=2006)
     (zinbun-oracle-page . 81)
     (=zinbun-oracle	. 01715)	; &ZOB-1715;
     (<-Oracle-Bones
@@ -18790,7 +18790,7 @@
     ))
 (define-char
   '((shuowen-radical	. 207)	; 東
-    (sources		zob1968=3016)
+    (sources		zob1959=3016)
     (zinbun-oracle-page . 81)
     (=zinbun-oracle	. 01719)	; &ZOB-1719;
     (<-Oracle-Bones
@@ -18841,7 +18841,7 @@
     ))
 (define-char
   '((shuowen-radical	. 207)	; 東
-    (sources		zob1968=0783 zob1968=0784)
+    (sources		zob1959=0783 zob1959=0784)
     (zinbun-oracle-page . 81)
     (=zinbun-oracle	. 01723)	; &ZOB-1723;
     (<-Oracle-Bones
@@ -18872,7 +18872,7 @@
     ))
 (define-char
   '((shuowen-radical	. 207)	; 東
-    (sources		zob1968=0701 zob1968=2289 zob1968=2993)
+    (sources		zob1959=0701 zob1959=2289 zob1959=2993)
     (zinbun-oracle-page . 82)
     (=zinbun-oracle	. 01727)	; &ZOB-1727;
     (<-Oracle-Bones
@@ -18903,7 +18903,7 @@
     ))
 (define-char
   '((shuowen-radical	. 208)	; 林
-    (sources		zob1968=1930 zob1968=2308)
+    (sources		zob1959=1930 zob1959=2308)
     (zinbun-oracle-page . 82)
     (=zinbun-oracle	. 01731)	; &ZOB-1731;
     (<-Oracle-Bones
@@ -18936,7 +18936,7 @@
     ))
 (define-char
   '((shuowen-radical	. 208)	; 林
-    (sources		zob1968=0363 zob1968=1091)
+    (sources		zob1959=0363 zob1959=1091)
     (zinbun-oracle-page . 82)
     (=zinbun-oracle	. 01735)	; &ZOB-1735;
     (<-Oracle-Bones
@@ -18985,7 +18985,7 @@
     ))
 (define-char
   '((shuowen-radical	. 208)	; 林
-    (sources		zob1968=2894)
+    (sources		zob1959=2894)
     (zinbun-oracle-page . 82)
     (=zinbun-oracle	. 01741)	; &ZOB-1741;
     (<-Oracle-Bones
@@ -19003,7 +19003,7 @@
     ))
 (define-char
   '((shuowen-radical	. 208)	; 林
-    (sources		zob1968=3071)
+    (sources		zob1959=3071)
     (zinbun-oracle-page . 82)
     (=zinbun-oracle	. 01742)	; &ZOB-1742;
     ))
@@ -19024,7 +19024,7 @@
     ))
 (define-char
   '((shuowen-radical	. 208)	; 林
-    (sources		zob1968=2052)
+    (sources		zob1959=2052)
     (zinbun-oracle-page . 82)
     (=zinbun-oracle	. 01744)	; &ZOB-1744;
     ))
@@ -19075,32 +19075,32 @@
     ))
 (define-char
   '((shuowen-radical	. 209)	; 才
-    (sources		zob1968=0100 zob1968=0185 zob1968=0327 zob1968=0335
-			zob1968=0384 zob1968=0387 zob1968=0411 zob1968=0706
-			zob1968=0766 zob1968=1074 zob1968=1161 zob1968=1255
-			zob1968=1264 zob1968=1268 zob1968=1277 zob1968=1285
-			zob1968=1286 zob1968=1327 zob1968=1345 zob1968=1415
-			zob1968=1423 zob1968=1441 zob1968=1450 zob1968=1455
-			zob1968=1458 zob1968=1532 zob1968=1533 zob1968=1544
-			zob1968=1548 zob1968=1553 zob1968=1562 zob1968=1583
-			zob1968=1593 zob1968=1601 zob1968=1618 zob1968=1625
-			zob1968=1649 zob1968=1667 zob1968=1769 zob1968=1799
-			zob1968=1802 zob1968=1812 zob1968=1823 zob1968=1824
-			zob1968=1835 zob1968=1886 zob1968=1932 zob1968=1944
-			zob1968=1958 zob1968=2120 zob1968=2141 zob1968=2164
-			zob1968=2165 zob1968=2274 zob1968=2326 zob1968=2329
-			zob1968=2373 zob1968=2400 zob1968=2475 zob1968=2476
-			zob1968=2504 zob1968=2511 zob1968=2513 zob1968=2741
-			zob1968=2753 zob1968=2758 zob1968=2762 zob1968=2763
-			zob1968=2766 zob1968=2806 zob1968=2812 zob1968=2865
-			zob1968=2877 zob1968=2878 zob1968=2880 zob1968=2894
-			zob1968=2896 zob1968=2902 zob1968=2913 zob1968=2915
-			zob1968=2919 zob1968=2920 zob1968=2923 zob1968=2924
-			zob1968=2926 zob1968=2942 zob1968=2945 zob1968=2947
-			zob1968=2957 zob1968=2959 zob1968=2984 zob1968=2998
-			zob1968=3016 zob1968=3074 zob1968=3089 zob1968=3099
-			zob1968=3110 zob1968=3113 zob1968=3131 zob1968=3217
-			zob1968=3253)
+    (sources		zob1959=0100 zob1959=0185 zob1959=0327 zob1959=0335
+			zob1959=0384 zob1959=0387 zob1959=0411 zob1959=0706
+			zob1959=0766 zob1959=1074 zob1959=1161 zob1959=1255
+			zob1959=1264 zob1959=1268 zob1959=1277 zob1959=1285
+			zob1959=1286 zob1959=1327 zob1959=1345 zob1959=1415
+			zob1959=1423 zob1959=1441 zob1959=1450 zob1959=1455
+			zob1959=1458 zob1959=1532 zob1959=1533 zob1959=1544
+			zob1959=1548 zob1959=1553 zob1959=1562 zob1959=1583
+			zob1959=1593 zob1959=1601 zob1959=1618 zob1959=1625
+			zob1959=1649 zob1959=1667 zob1959=1769 zob1959=1799
+			zob1959=1802 zob1959=1812 zob1959=1823 zob1959=1824
+			zob1959=1835 zob1959=1886 zob1959=1932 zob1959=1944
+			zob1959=1958 zob1959=2120 zob1959=2141 zob1959=2164
+			zob1959=2165 zob1959=2274 zob1959=2326 zob1959=2329
+			zob1959=2373 zob1959=2400 zob1959=2475 zob1959=2476
+			zob1959=2504 zob1959=2511 zob1959=2513 zob1959=2741
+			zob1959=2753 zob1959=2758 zob1959=2762 zob1959=2763
+			zob1959=2766 zob1959=2806 zob1959=2812 zob1959=2865
+			zob1959=2877 zob1959=2878 zob1959=2880 zob1959=2894
+			zob1959=2896 zob1959=2902 zob1959=2913 zob1959=2915
+			zob1959=2919 zob1959=2920 zob1959=2923 zob1959=2924
+			zob1959=2926 zob1959=2942 zob1959=2945 zob1959=2947
+			zob1959=2957 zob1959=2959 zob1959=2984 zob1959=2998
+			zob1959=3016 zob1959=3074 zob1959=3089 zob1959=3099
+			zob1959=3110 zob1959=3113 zob1959=3131 zob1959=3217
+			zob1959=3253)
     (zinbun-oracle-page . 83)
     (=zinbun-oracle	. 01754)	; &ZOB-1754;
     (<-Oracle-Bones
@@ -19109,7 +19109,7 @@
     ))
 (define-char
   '((shuowen-radical	. 209)	; 才
-    (sources		zob1968=1162)
+    (sources		zob1959=1162)
     (zinbun-oracle-page . 83)
     (=zinbun-oracle	. 01755)	; &ZOB-1755;
     (<-Oracle-Bones
@@ -19122,7 +19122,7 @@
     ))
 (define-char
   '((shuowen-radical	. 209)	; 才
-    (sources		zob1968=2947)
+    (sources		zob1959=2947)
     (zinbun-oracle-page . 83)
     (=zinbun-oracle	. 01756)	; &ZOB-1756;
     (<-Oracle-Bones
@@ -19173,14 +19173,14 @@
     ))
 (define-char
   '((shuowen-radical	. 211)	; 之
-    (sources		zob1968=0050 zob1968=0162 zob1968=0168 zob1968=0169
-			zob1968=0328 zob1968=0427 zob1968=0467 zob1968=0605
-			zob1968=0649 zob1968=0662 zob1968=0838 zob1968=1193
-			zob1968=1363 zob1968=1374 zob1968=1377 zob1968=1390
-			zob1968=1391 zob1968=1411 zob1968=1885 zob1968=1886
-			zob1968=1945 zob1968=1973 zob1968=1988 zob1968=2142
-			zob1968=2146 zob1968=2149 zob1968=3055 zob1968=3123
-			zob1968=3131 zob1968=3146 zob1968=3251)
+    (sources		zob1959=0050 zob1959=0162 zob1959=0168 zob1959=0169
+			zob1959=0328 zob1959=0427 zob1959=0467 zob1959=0605
+			zob1959=0649 zob1959=0662 zob1959=0838 zob1959=1193
+			zob1959=1363 zob1959=1374 zob1959=1377 zob1959=1390
+			zob1959=1391 zob1959=1411 zob1959=1885 zob1959=1886
+			zob1959=1945 zob1959=1973 zob1959=1988 zob1959=2142
+			zob1959=2146 zob1959=2149 zob1959=3055 zob1959=3123
+			zob1959=3131 zob1959=3146 zob1959=3251)
     (zinbun-oracle-page . 83)
     (=zinbun-oracle	. 01764)	; &ZOB-1764;
     (<-Oracle-Bones
@@ -19196,39 +19196,39 @@
      ((=>zinbun-oracle	  . 01765)	; &A-ZOB-1765;
       ))
     (shuowen-radical	. 211)	; 之
-    (sources		zob1968=0001 zob1968=0006 zob1968=0011 zob1968=0016
-			zob1968=0017 zob1968=0019 zob1968=0027
-			zob1968=0032-0035 zob1968=0038 zob1968=0039
-			zob1968=0046 zob1968=0048 zob1968=0049 zob1968=0052
-			zob1968=0054 zob1968=0059 zob1968=0082 zob1968=0083
-			zob1968=0104-0110 zob1968=0119 zob1968=0134
-			zob1968=0135 zob1968=0151 zob1968=0165 zob1968=0175
-			zob1968=0209 zob1968=0231 zob1968=0258 zob1968=0282
-			zob1968=0327 zob1968=0331 zob1968=0332 zob1968=0333
-			zob1968=0337 zob1968=0349 zob1968=0354 zob1968=0370
-			zob1968=0373 zob1968=0376 zob1968=0377 zob1968=0411
-			zob1968=0421 zob1968=0433 zob1968=0440 zob1968=0443
-			zob1968=0446 zob1968=0453 zob1968=0470 zob1968=0510
-			zob1968=0515 zob1968=0545 zob1968=0585 zob1968=0624
-			zob1968=0630 zob1968=0635 zob1968=0688 zob1968=0707
-			zob1968=0708 zob1968=0711 zob1968=0715 zob1968=0721
-			zob1968=0724 zob1968=0725 zob1968=0735 zob1968=0738
-			zob1968=0745 zob1968=0758 zob1968=0759 zob1968=0769
-			zob1968=0770 zob1968=0772 zob1968=0774 zob1968=0775
-			zob1968=0781 zob1968=0785 zob1968=0794 zob1968=0808
-			zob1968=0814 zob1968=0848 zob1968=0891 zob1968=0906
-			zob1968=0919 zob1968=0932 zob1968=0933 zob1968=0934
-			zob1968=0936 zob1968=0939 zob1968=0963 zob1968=0964
-			zob1968=0978 zob1968=0980 zob1968=0984 zob1968=0996
-			zob1968=0997 zob1968=1071 zob1968=1075 zob1968=1086
-			zob1968=1092 zob1968=1095 zob1968=1123 zob1968=1140
-			zob1968=1170 zob1968=1178 zob1968=1271 zob1968=1342
-			zob1968=1350 zob1968=1378 zob1968=1413 zob1968=1437
-			zob1968=1519 zob1968=1630 zob1968=1713 zob1968=1754
-			zob1968=1822 zob1968=2995 zob1968=2996 zob1968=3002
-			zob1968=3004 zob1968=3009 zob1968=3072 zob1968=3106
-			zob1968=3119 zob1968=3138 zob1968=3142 zob1968=3168
-			zob1968=3169 zob1968=3171 zob1968=3194 zob1968=3232)
+    (sources		zob1959=0001 zob1959=0006 zob1959=0011 zob1959=0016
+			zob1959=0017 zob1959=0019 zob1959=0027
+			zob1959=0032-0035 zob1959=0038 zob1959=0039
+			zob1959=0046 zob1959=0048 zob1959=0049 zob1959=0052
+			zob1959=0054 zob1959=0059 zob1959=0082 zob1959=0083
+			zob1959=0104-0110 zob1959=0119 zob1959=0134
+			zob1959=0135 zob1959=0151 zob1959=0165 zob1959=0175
+			zob1959=0209 zob1959=0231 zob1959=0258 zob1959=0282
+			zob1959=0327 zob1959=0331 zob1959=0332 zob1959=0333
+			zob1959=0337 zob1959=0349 zob1959=0354 zob1959=0370
+			zob1959=0373 zob1959=0376 zob1959=0377 zob1959=0411
+			zob1959=0421 zob1959=0433 zob1959=0440 zob1959=0443
+			zob1959=0446 zob1959=0453 zob1959=0470 zob1959=0510
+			zob1959=0515 zob1959=0545 zob1959=0585 zob1959=0624
+			zob1959=0630 zob1959=0635 zob1959=0688 zob1959=0707
+			zob1959=0708 zob1959=0711 zob1959=0715 zob1959=0721
+			zob1959=0724 zob1959=0725 zob1959=0735 zob1959=0738
+			zob1959=0745 zob1959=0758 zob1959=0759 zob1959=0769
+			zob1959=0770 zob1959=0772 zob1959=0774 zob1959=0775
+			zob1959=0781 zob1959=0785 zob1959=0794 zob1959=0808
+			zob1959=0814 zob1959=0848 zob1959=0891 zob1959=0906
+			zob1959=0919 zob1959=0932 zob1959=0933 zob1959=0934
+			zob1959=0936 zob1959=0939 zob1959=0963 zob1959=0964
+			zob1959=0978 zob1959=0980 zob1959=0984 zob1959=0996
+			zob1959=0997 zob1959=1071 zob1959=1075 zob1959=1086
+			zob1959=1092 zob1959=1095 zob1959=1123 zob1959=1140
+			zob1959=1170 zob1959=1178 zob1959=1271 zob1959=1342
+			zob1959=1350 zob1959=1378 zob1959=1413 zob1959=1437
+			zob1959=1519 zob1959=1630 zob1959=1713 zob1959=1754
+			zob1959=1822 zob1959=2995 zob1959=2996 zob1959=3002
+			zob1959=3004 zob1959=3009 zob1959=3072 zob1959=3106
+			zob1959=3119 zob1959=3138 zob1959=3142 zob1959=3168
+			zob1959=3169 zob1959=3171 zob1959=3194 zob1959=3232)
     (zinbun-oracle-page . 83)
     (=zinbun-oracle	. 01765)	; &ZOB-1765;
     ))
@@ -19237,10 +19237,10 @@
      ((=>zinbun-oracle	  . 01765)	; &A-ZOB-1765;
       ))
     (shuowen-radical	. 211)	; 之
-    (sources		zob1968=3010 zob1968=3012 zob1968=3014 zob1968=3016
-			zob1968=3017 zob1968=3019 zob1968=3024 zob1968=3026
-			zob1968=3044 zob1968=3113 zob1968=3124 zob1968=3168
-			zob1968=3231)
+    (sources		zob1959=3010 zob1959=3012 zob1959=3014 zob1959=3016
+			zob1959=3017 zob1959=3019 zob1959=3024 zob1959=3026
+			zob1959=3044 zob1959=3113 zob1959=3124 zob1959=3168
+			zob1959=3231)
     (zinbun-oracle-page . 84)
     (=zinbun-oracle	. 01766)	; &ZOB-1766;
     ))
@@ -19249,13 +19249,13 @@
      ((=>zinbun-oracle	  . 01765)	; &A-ZOB-1765;
       ))
     (shuowen-radical	. 211)	; 之
-    (sources		zob1968=3247)
+    (sources		zob1959=3247)
     (zinbun-oracle-page . 84)
     (=zinbun-oracle	. 01767)	; &ZOB-1767;
     ))
 (define-char
   '((shuowen-radical	. 211)	; 之
-    (sources		zob1968=0250)
+    (sources		zob1959=0250)
     (zinbun-oracle-page . 84)
     (=zinbun-oracle	. 01768)	; &ZOB-1768;
     ))
@@ -19271,19 +19271,19 @@
     ))
 (define-char
   '((shuowen-radical	. 211)	; 之
-    (sources		zob1968=0134 zob1968=0277-0280 zob1968=0294
-			zob1968=0304 zob1968=0308-0312 zob1968=0314
-			zob1968=0343 zob1968=0390 zob1968=0711
-			zob1968=0870-0874 zob1968=0877 zob1968=0879
-			zob1968=0882 zob1968=0888 zob1968=0905 zob1968=0924
-			zob1968=1460 zob1968=1463 zob1968=1630 zob1968=1758
-			zob1968=1763 zob1968=1970 zob1968=1982 zob1968=2006
-			zob1968=2007 zob1968=2026 zob1968=2049 zob1968=2061
-			zob1968=2070 zob1968=2162 zob1968=2390 zob1968=2514
-			zob1968=2515 zob1968=2517 zob1968=2866 zob1968=2867
-			zob1968=2869-2873 zob1968=2925 zob1968=2927-2930
-			zob1968=2932 zob1968=2933 zob1968=2935-2938
-			zob1968=2958 zob1968=2987 zob1968=3055)
+    (sources		zob1959=0134 zob1959=0277-0280 zob1959=0294
+			zob1959=0304 zob1959=0308-0312 zob1959=0314
+			zob1959=0343 zob1959=0390 zob1959=0711
+			zob1959=0870-0874 zob1959=0877 zob1959=0879
+			zob1959=0882 zob1959=0888 zob1959=0905 zob1959=0924
+			zob1959=1460 zob1959=1463 zob1959=1630 zob1959=1758
+			zob1959=1763 zob1959=1970 zob1959=1982 zob1959=2006
+			zob1959=2007 zob1959=2026 zob1959=2049 zob1959=2061
+			zob1959=2070 zob1959=2162 zob1959=2390 zob1959=2514
+			zob1959=2515 zob1959=2517 zob1959=2866 zob1959=2867
+			zob1959=2869-2873 zob1959=2925 zob1959=2927-2930
+			zob1959=2932 zob1959=2933 zob1959=2935-2938
+			zob1959=2958 zob1959=2987 zob1959=3055)
     (zinbun-oracle-page . 84)
     (=zinbun-oracle	. 01771)	; &ZOB-1771;
     (<-Oracle-Bones
@@ -19322,17 +19322,17 @@
     ))
 (define-char
   '((shuowen-radical	. 213)	; 出
-    (sources		zob1968=0134 zob1968=0262 zob1968=0313 zob1968=0315
-			zob1968=0350 zob1968=0353 zob1968=0468 zob1968=0874
-			zob1968=1271 zob1968=1272 zob1968=1319 zob1968=1326
-			zob1968=1342 zob1968=1350 zob1968=1361 zob1968=1363
-			zob1968=1365 zob1968=1372 zob1968=1422 zob1968=1427
-			zob1968=1428 zob1968=1442 zob1968=1443 zob1968=1454
-			zob1968=1546 zob1968=1564 zob1968=1600 zob1968=1637
-			zob1968=1638 zob1968=1639 zob1968=1641 zob1968=1666
-			zob1968=2136 zob1968=2140 zob1968=2142 zob1968=2283
-			zob1968=2536 zob1968=2124 zob1968=3133 zob1968=3140
-			zob1968=3228 zob1968=3241)
+    (sources		zob1959=0134 zob1959=0262 zob1959=0313 zob1959=0315
+			zob1959=0350 zob1959=0353 zob1959=0468 zob1959=0874
+			zob1959=1271 zob1959=1272 zob1959=1319 zob1959=1326
+			zob1959=1342 zob1959=1350 zob1959=1361 zob1959=1363
+			zob1959=1365 zob1959=1372 zob1959=1422 zob1959=1427
+			zob1959=1428 zob1959=1442 zob1959=1443 zob1959=1454
+			zob1959=1546 zob1959=1564 zob1959=1600 zob1959=1637
+			zob1959=1638 zob1959=1639 zob1959=1641 zob1959=1666
+			zob1959=2136 zob1959=2140 zob1959=2142 zob1959=2283
+			zob1959=2536 zob1959=2124 zob1959=3133 zob1959=3140
+			zob1959=3228 zob1959=3241)
     (zinbun-oracle-page . 84)
     (=zinbun-oracle	. 01775)	; &ZOB-1775;
     (<-Oracle-Bones
@@ -19353,9 +19353,9 @@
     ))
 (define-char
   '((shuowen-radical	. 214)	; 𣎵
-    (sources		zob1968=0725 zob1968=0981 zob1968=1136 zob1968=1932
-			zob1968=2061 zob1968=2070 zob1968=2267 zob1968=2283
-			zob1968=2890 zob1968=3124)
+    (sources		zob1959=0725 zob1959=0981 zob1959=1136 zob1959=1932
+			zob1959=2061 zob1959=2070 zob1959=2267 zob1959=2283
+			zob1959=2890 zob1959=3124)
     (zinbun-oracle-page . 84)
     (=zinbun-oracle	. 01777)	; &ZOB-1777;
     (<-Oracle-Bones
@@ -19364,7 +19364,7 @@
     ))
 (define-char
   '((shuowen-radical	. 214)	; 𣎵
-    (sources		zob1968=2056)
+    (sources		zob1959=2056)
     (zinbun-oracle-page . 84)
     (=zinbun-oracle	. 01778)	; &ZOB-1778;
     (<-Oracle-Bones
@@ -19377,7 +19377,7 @@
     ))
 (define-char
   '((shuowen-radical	. 214)	; 𣎵
-    (sources		zob1968=2006)
+    (sources		zob1959=2006)
     (zinbun-oracle-page . 84)
     (=zinbun-oracle	. 01779)	; &ZOB-1779;
     (<-Oracle-Bones
@@ -19458,7 +19458,7 @@
     ))
 (define-char
   '((shuowen-radical	. 214)	; 𣎵
-    (sources		zob1968=0981)
+    (sources		zob1959=0981)
     (zinbun-oracle-page . 85)
     (=zinbun-oracle	. 01785)	; &ZOB-1785;
     (<-Oracle-Bones
@@ -19495,7 +19495,7 @@
     ))
 (define-char
   '((shuowen-radical	. 214)	; 𣎵
-    (sources		zob1968=1685)
+    (sources		zob1959=1685)
     (zinbun-oracle-page . 85)
     (=zinbun-oracle	. 01788)	; &ZOB-1788;
     (<-Oracle-Bones
@@ -19525,8 +19525,8 @@
     ))
 (define-char
   '((shuowen-radical	. 215)	; 生
-    (sources		zob1968=1823 zob1968=2141 zob1968=2300 zob1968=3025
-			zob1968=3146 zob1968=3155)
+    (sources		zob1959=1823 zob1959=2141 zob1959=2300 zob1959=3025
+			zob1959=3146 zob1959=3155)
     (zinbun-oracle-page . 85)
     (=zinbun-oracle	. 01791)	; &ZOB-1791;
     (<-Oracle-Bones
@@ -19577,7 +19577,7 @@
     ))
 (define-char
   '((shuowen-radical	. 224)	; 束
-    (sources		zob1968=3244)
+    (sources		zob1959=3244)
     (zinbun-oracle-page . 85)
     (=zinbun-oracle	. 01796)	; &ZOB-1796;
     (<-Oracle-Bones
@@ -19586,19 +19586,19 @@
     ))
 (define-char
   '((shuowen-radical	. 224)	; 束
-    (sources		zob1968=0751 zob1968=1235)
+    (sources		zob1959=0751 zob1959=1235)
     (zinbun-oracle-page . 85)
     (=zinbun-oracle	. 01797)	; &ZOB-1797;
     ))
 (define-char
   '((shuowen-radical	. 224)	; 束
-    (sources		zob1968=3118)
+    (sources		zob1959=3118)
     (zinbun-oracle-page . 85)
     (=zinbun-oracle	. 01798)	; &ZOB-1798;
     ))
 (define-char
   '((shuowen-radical	. 224)	; 束
-    (sources		zob1968=3029)
+    (sources		zob1959=3029)
     (zinbun-oracle-page . 85)
     (=zinbun-oracle	. 01799)	; &ZOB-1799;
     ))
@@ -19654,7 +19654,7 @@
     ))
 (define-char
   '((shuowen-radical	. 226)	; 囗
-    (sources		zob1968=3146)
+    (sources		zob1959=3146)
     (zinbun-oracle-page . 86)
     (=zinbun-oracle	. 01809)	; &ZOB-1809;
     (<-Oracle-Bones
@@ -19703,13 +19703,13 @@
     ))
 (define-char
   '((shuowen-radical	. 226)	; 囗
-    (sources		zob1968=3114)
+    (sources		zob1959=3114)
     (zinbun-oracle-page . 86)
     (=zinbun-oracle	. 01815)	; &ZOB-1815;
     ))
 (define-char
   '((shuowen-radical	. 226)	; 囗
-    (sources		zob1968=2537)
+    (sources		zob1959=2537)
     (zinbun-oracle-page . 86)
     (=zinbun-oracle	. 01816)	; &ZOB-1816;
     ))
@@ -19753,7 +19753,7 @@
     ))
 (define-char
   '((shuowen-radical	. 228)	; 貝
-    (sources		zob1968=0013)
+    (sources		zob1959=0013)
     (zinbun-oracle-page . 86)
     (=zinbun-oracle	. 01824)	; &ZOB-1824;
     (<-Oracle-Bones
@@ -19775,13 +19775,13 @@
     ))
 (define-char
   '((shuowen-radical	. 228)	; 貝
-    (sources		zob1968=2541)
+    (sources		zob1959=2541)
     (zinbun-oracle-page . 86)
     (=zinbun-oracle	. 01827)	; &ZOB-1827;
     ))
 (define-char
   '((shuowen-radical	. 228)	; 貝
-    (sources		zob1968=3145)
+    (sources		zob1959=3145)
     (zinbun-oracle-page . 86)
     (=zinbun-oracle	. 01828)	; &ZOB-1828;
     (<-Oracle-Bones
@@ -19806,22 +19806,22 @@
      ((=>zinbun-oracle	  . 01830)	; &A-ZOB-1830;
       ))
     (shuowen-radical	. 228)	; 貝
-    (sources		zob1968=0001 zob1968=0003 zob1968=0053 zob1968=0077
-			zob1968=0079 zob1968=0083 zob1968=0085 zob1968=0089
-			zob1968=0090 zob1968=0127 zob1968=0133 zob1968=0143
-			zob1968=0160 zob1968=0207-0210 zob1968=0225
-			zob1968=0281 zob1968=0304 zob1968=0317 zob1968=0318
-			zob1968=0320 zob1968=0323 zob1968=0341 zob1968=0344
-			zob1968=0393 zob1968=0409 zob1968=0415 zob1968=0431
-			zob1968=0445 zob1968=0525-0532 zob1968=0730
-			zob1968=0743 zob1968=0763 zob1968=0775 zob1968=0816
-			zob1968=0832 zob1968=0838 zob1968=0846 zob1968=0847
-			zob1968=0852-0855 zob1968=0861 zob1968=0879
-			zob1968=0909 zob1968=0915 zob1968=0924 zob1968=0927
-			zob1968=0941 zob1968=0993 zob1968=1088 zob1968=1090
-			zob1968=1091 zob1968=1093 zob1968=1094 zob1968=1101
-			zob1968=1108 zob1968=1111-1118 zob1968=1133
-			zob1968=1150)
+    (sources		zob1959=0001 zob1959=0003 zob1959=0053 zob1959=0077
+			zob1959=0079 zob1959=0083 zob1959=0085 zob1959=0089
+			zob1959=0090 zob1959=0127 zob1959=0133 zob1959=0143
+			zob1959=0160 zob1959=0207-0210 zob1959=0225
+			zob1959=0281 zob1959=0304 zob1959=0317 zob1959=0318
+			zob1959=0320 zob1959=0323 zob1959=0341 zob1959=0344
+			zob1959=0393 zob1959=0409 zob1959=0415 zob1959=0431
+			zob1959=0445 zob1959=0525-0532 zob1959=0730
+			zob1959=0743 zob1959=0763 zob1959=0775 zob1959=0816
+			zob1959=0832 zob1959=0838 zob1959=0846 zob1959=0847
+			zob1959=0852-0855 zob1959=0861 zob1959=0879
+			zob1959=0909 zob1959=0915 zob1959=0924 zob1959=0927
+			zob1959=0941 zob1959=0993 zob1959=1088 zob1959=1090
+			zob1959=1091 zob1959=1093 zob1959=1094 zob1959=1101
+			zob1959=1108 zob1959=1111-1118 zob1959=1133
+			zob1959=1150)
     (zinbun-oracle-page . 87)
     (=zinbun-oracle	. 01830)	; &ZOB-1830;
     ))
@@ -19830,7 +19830,7 @@
      ((=>zinbun-oracle	  . 01830)	; &A-ZOB-1830;
       ))
     (shuowen-radical	. 228)	; 貝
-    (sources		zob1968=0711)
+    (sources		zob1959=0711)
     (zinbun-oracle-page . 87)
     (=zinbun-oracle	. 01831)	; &ZOB-1831;
     ))
@@ -19839,34 +19839,34 @@
      ((=>zinbun-oracle	  . 01830)	; &A-ZOB-1830;
       ))
     (shuowen-radical	. 228)	; 貝
-    (sources		zob1968=1251 zob1968=1252 zob1968=1258 zob1968=1262
-			zob1968=1267 zob1968=1274-1280 zob1968=1282-1287
-			zob1968=1290 zob1968=1293 zob1968=1298-1307
-			zob1968=1310 zob1968=1311 zob1968=1313-1322
-			zob1968=1329 zob1968=1332-1335 zob1968=1337
-			zob1968=1351 zob1968=1352 zob1968=1442 zob1968=1472
-			zob1968=1545 zob1968=1546 zob1968=1548 zob1968=1549
-			zob1968=1550 zob1968=1557 zob1968=1559-1563
-			zob1968=1569-1572 zob1968=1574-1578 zob1968=1591
-			zob1968=1592 zob1968=1593 zob1968=1609 zob1968=1612
-			zob1968=1688 zob1968=1689 zob1968=1690 zob1968=1767
-			zob1968=1820 zob1968=1834 zob1968=1835 zob1968=1836
-			zob1968=2119 zob1968=2329 zob1968=2360 zob1968=2386
-			zob1968=2565 zob1968=2569 zob1968=2573 zob1968=2574
-			zob1968=2575 zob1968=2583-2586 zob1968=2589-2602
-			zob1968=2604 zob1968=2605 zob1968=2606 zob1968=2609
-			zob1968=2612 zob1968=2613 zob1968=2616-2628
-			zob1968=2630-2633 zob1968=2635-2644 zob1968=2647
-			zob1968=2648 zob1968=2649 zob1968=2652 zob1968=2655
-			zob1968=2658 zob1968=2659 zob1968=2660 zob1968=2662
-			zob1968=2663 zob1968=2665-2683 zob1968=2885
-			zob1968=3249 zob1968=3254)
+    (sources		zob1959=1251 zob1959=1252 zob1959=1258 zob1959=1262
+			zob1959=1267 zob1959=1274-1280 zob1959=1282-1287
+			zob1959=1290 zob1959=1293 zob1959=1298-1307
+			zob1959=1310 zob1959=1311 zob1959=1313-1322
+			zob1959=1329 zob1959=1332-1335 zob1959=1337
+			zob1959=1351 zob1959=1352 zob1959=1442 zob1959=1472
+			zob1959=1545 zob1959=1546 zob1959=1548 zob1959=1549
+			zob1959=1550 zob1959=1557 zob1959=1559-1563
+			zob1959=1569-1572 zob1959=1574-1578 zob1959=1591
+			zob1959=1592 zob1959=1593 zob1959=1609 zob1959=1612
+			zob1959=1688 zob1959=1689 zob1959=1690 zob1959=1767
+			zob1959=1820 zob1959=1834 zob1959=1835 zob1959=1836
+			zob1959=2119 zob1959=2329 zob1959=2360 zob1959=2386
+			zob1959=2565 zob1959=2569 zob1959=2573 zob1959=2574
+			zob1959=2575 zob1959=2583-2586 zob1959=2589-2602
+			zob1959=2604 zob1959=2605 zob1959=2606 zob1959=2609
+			zob1959=2612 zob1959=2613 zob1959=2616-2628
+			zob1959=2630-2633 zob1959=2635-2644 zob1959=2647
+			zob1959=2648 zob1959=2649 zob1959=2652 zob1959=2655
+			zob1959=2658 zob1959=2659 zob1959=2660 zob1959=2662
+			zob1959=2663 zob1959=2665-2683 zob1959=2885
+			zob1959=3249 zob1959=3254)
     (zinbun-oracle-page . 87)
     (=zinbun-oracle	. 01832)	; &ZOB-1832;
     ))
 (define-char
   '((shuowen-radical	. 228)	; 貝
-    (sources		zob1968=2357)
+    (sources		zob1959=2357)
     (zinbun-oracle-page . 87)
     (=zinbun-oracle	. 01833)	; &ZOB-1833;
     ))
@@ -19888,7 +19888,7 @@
     ))
 (define-char
   '((shuowen-radical	. 228)	; 貝
-    (sources		zob1968=0281)
+    (sources		zob1959=0281)
     (zinbun-oracle-page . 87)
     (=zinbun-oracle	. 01836)	; &ZOB-1836;
     (<-Oracle-Bones
@@ -19897,7 +19897,7 @@
     ))
 (define-char
   '((shuowen-radical	. 228)	; 貝
-    (sources		zob1968=2363)
+    (sources		zob1959=2363)
     (zinbun-oracle-page . 87)
     (=zinbun-oracle	. 01837)	; &ZOB-1837;
     (<-Oracle-Bones
@@ -19910,13 +19910,13 @@
     ))
 (define-char
   '((shuowen-radical	. 228)	; 貝
-    (sources		zob1968=1969)
+    (sources		zob1959=1969)
     (zinbun-oracle-page . 87)
     (=zinbun-oracle	. 01838)	; &ZOB-1838;
     ))
 (define-char
   '((shuowen-radical	. 228)	; 貝
-    (sources		zob1968=2062)
+    (sources		zob1959=2062)
     (zinbun-oracle-page . 87)
     (=zinbun-oracle	. 01839)	; &ZOB-1839;
     ))
@@ -19947,8 +19947,8 @@
     ))
 (define-char
   '((shuowen-radical	. 229)	; 邑
-    (sources		zob1968=0136 zob1968=0455 zob1968=0625 zob1968=0626
-			zob1968=1156 zob1968=3035 zob1968=3238)
+    (sources		zob1959=0136 zob1959=0455 zob1959=0625 zob1959=0626
+			zob1959=1156 zob1959=3035 zob1959=3238)
     (zinbun-oracle-page . 88)
     (=zinbun-oracle	. 01845)	; &ZOB-1845;
     (<-Oracle-Bones
@@ -20046,42 +20046,42 @@
     ))
 (define-char
   '((shuowen-radical	. 231)	; 日
-    (sources		zob1968=0136 zob1968=0162 zob1968=0171 zob1968=0173
-			zob1968=0191-0194 zob1968=0202 zob1968=0264
-			zob1968=0267 zob1968=0302 zob1968=0319 zob1968=0322
-			zob1968=0516 zob1968=0519 zob1968=0563 zob1968=0591
-			zob1968=0599 zob1968=0602-0605 zob1968=0631
-			zob1968=0819 zob1968=0823 zob1968=0825 zob1968=0831
-			zob1968=0833 zob1968=0834 zob1968=0841 zob1968=0842
-			zob1968=0872 zob1968=0932 zob1968=0936 zob1968=0945
-			zob1968=1008 zob1968=1067 zob1968=1073 zob1968=1084
-			zob1968=1102 zob1968=1185 zob1968=1364-1368
-			zob1968=1370 zob1968=1372 zob1968=1373 zob1968=1411
-			zob1968=1412 zob1968=1444 zob1968=1445 zob1968=1462
-			zob1968=1576 zob1968=1588 zob1968=1589 zob1968=1590
-			zob1968=1681 zob1968=1686 zob1968=1701 zob1968=1774
-			zob1968=1791 zob1968=1803 zob1968=1810 zob1968=1811
-			zob1968=1818 zob1968=1820 zob1968=1863 zob1968=1948
-			zob1968=1958 zob1968=1987 zob1968=1988 zob1968=1990
-			zob1968=2000 zob1968=2001 zob1968=2004
-			zob1968=2007-2017 zob1968=2019-2030 zob1968=2033
-			zob1968=2034 zob1968=2036 zob1968=2037 zob1968=2038
-			zob1968=2041 zob1968=2042 zob1968=2046-2049
-			zob1968=2059 zob1968=2072 zob1968=2092 zob1968=2110
-			zob1968=2114 zob1968=2215 zob1968=2216 zob1968=2245
-			zob1968=2252 zob1968=2253 zob1968=2284 zob1968=2298
-			zob1968=2303 zob1968=2305 zob1968=2307 zob1968=2308
-			zob1968=2326 zob1968=2344 zob1968=2373 zob1968=2377
-			zob1968=2378 zob1968=2384 zob1968=2386 zob1968=2393
-			zob1968=2397 zob1968=2398 zob1968=2400 zob1968=2521
-			zob1968=2542 zob1968=2565 zob1968=2566 zob1968=2567
-			zob1968=2570 zob1968=2573 zob1968=2582 zob1968=2593
-			zob1968=2630 zob1968=2632 zob1968=2737 zob1968=2889
-			zob1968=2931 zob1968=2991 zob1968=3038 zob1968=3044
-			zob1968=3068 zob1968=3079 zob1968=3089-3092
-			zob1968=3094 zob1968=3095 zob1968=3097-3100
-			zob1968=3104 zob1968=3113 zob1968=3114 zob1968=3121
-			zob1968=3123 zob1968=3153 zob1968=3207)
+    (sources		zob1959=0136 zob1959=0162 zob1959=0171 zob1959=0173
+			zob1959=0191-0194 zob1959=0202 zob1959=0264
+			zob1959=0267 zob1959=0302 zob1959=0319 zob1959=0322
+			zob1959=0516 zob1959=0519 zob1959=0563 zob1959=0591
+			zob1959=0599 zob1959=0602-0605 zob1959=0631
+			zob1959=0819 zob1959=0823 zob1959=0825 zob1959=0831
+			zob1959=0833 zob1959=0834 zob1959=0841 zob1959=0842
+			zob1959=0872 zob1959=0932 zob1959=0936 zob1959=0945
+			zob1959=1008 zob1959=1067 zob1959=1073 zob1959=1084
+			zob1959=1102 zob1959=1185 zob1959=1364-1368
+			zob1959=1370 zob1959=1372 zob1959=1373 zob1959=1411
+			zob1959=1412 zob1959=1444 zob1959=1445 zob1959=1462
+			zob1959=1576 zob1959=1588 zob1959=1589 zob1959=1590
+			zob1959=1681 zob1959=1686 zob1959=1701 zob1959=1774
+			zob1959=1791 zob1959=1803 zob1959=1810 zob1959=1811
+			zob1959=1818 zob1959=1820 zob1959=1863 zob1959=1948
+			zob1959=1958 zob1959=1987 zob1959=1988 zob1959=1990
+			zob1959=2000 zob1959=2001 zob1959=2004
+			zob1959=2007-2017 zob1959=2019-2030 zob1959=2033
+			zob1959=2034 zob1959=2036 zob1959=2037 zob1959=2038
+			zob1959=2041 zob1959=2042 zob1959=2046-2049
+			zob1959=2059 zob1959=2072 zob1959=2092 zob1959=2110
+			zob1959=2114 zob1959=2215 zob1959=2216 zob1959=2245
+			zob1959=2252 zob1959=2253 zob1959=2284 zob1959=2298
+			zob1959=2303 zob1959=2305 zob1959=2307 zob1959=2308
+			zob1959=2326 zob1959=2344 zob1959=2373 zob1959=2377
+			zob1959=2378 zob1959=2384 zob1959=2386 zob1959=2393
+			zob1959=2397 zob1959=2398 zob1959=2400 zob1959=2521
+			zob1959=2542 zob1959=2565 zob1959=2566 zob1959=2567
+			zob1959=2570 zob1959=2573 zob1959=2582 zob1959=2593
+			zob1959=2630 zob1959=2632 zob1959=2737 zob1959=2889
+			zob1959=2931 zob1959=2991 zob1959=3038 zob1959=3044
+			zob1959=3068 zob1959=3079 zob1959=3089-3092
+			zob1959=3094 zob1959=3095 zob1959=3097-3100
+			zob1959=3104 zob1959=3113 zob1959=3114 zob1959=3121
+			zob1959=3123 zob1959=3153 zob1959=3207)
     (zinbun-oracle-page . 89)
     (=zinbun-oracle	. 01857)	; &ZOB-1857;
     (<-Oracle-Bones
@@ -20114,7 +20114,7 @@
     ))
 (define-char
   '((shuowen-radical	. 231)	; 日
-    (sources		zob1968=1836)
+    (sources		zob1959=1836)
     (zinbun-oracle-page . 89)
     (=zinbun-oracle	. 01860)	; &ZOB-1860;
     (<-Oracle-Bones
@@ -20167,12 +20167,12 @@
      ((=>zinbun-oracle	  . 01864)	; &A-ZOB-1864;
       ))
     (shuowen-radical	. 231)	; 日
-    (sources		zob1968=0091 zob1968=0188 zob1968=0189 zob1968=0279
-			zob1968=0280 zob1968=0581 zob1968=0829 zob1968=0830
-			zob1968=1410 zob1968=2271 zob1968=2295 zob1968=2395
-			zob1968=2396 zob1968=2398 zob1968=2399 zob1968=2535
-			zob1968=3043 zob1968=3087 zob1968=3088 zob1968=3089
-			zob1968=3155 zob1968=3250)
+    (sources		zob1959=0091 zob1959=0188 zob1959=0189 zob1959=0279
+			zob1959=0280 zob1959=0581 zob1959=0829 zob1959=0830
+			zob1959=1410 zob1959=2271 zob1959=2295 zob1959=2395
+			zob1959=2396 zob1959=2398 zob1959=2399 zob1959=2535
+			zob1959=3043 zob1959=3087 zob1959=3088 zob1959=3089
+			zob1959=3155 zob1959=3250)
     (zinbun-oracle-page . 89)
     (=zinbun-oracle	. 01865)	; &ZOB-1865;
     ))
@@ -20181,7 +20181,7 @@
      ((=>zinbun-oracle	  . 01864)	; &A-ZOB-1864;
       ))
     (shuowen-radical	. 231)	; 日
-    (sources		zob1968=0185)
+    (sources		zob1959=0185)
     (zinbun-oracle-page . 89)
     (=zinbun-oracle	. 01866)	; &ZOB-1866;
     ))
@@ -20190,7 +20190,7 @@
      ((=>zinbun-oracle	  . 01864)	; &A-ZOB-1864;
       ))
     (shuowen-radical	. 231)	; 日
-    (sources		zob1968=0186)
+    (sources		zob1959=0186)
     (zinbun-oracle-page . 89)
     (=zinbun-oracle	. 01867)	; &ZOB-1867;
     ))
@@ -20204,7 +20204,7 @@
     ))
 (define-char
   '((shuowen-radical	. 231)	; 日
-    (sources		zob1968=3055 zob1968=3099)
+    (sources		zob1959=3055 zob1959=3099)
     (zinbun-oracle-page . 89)
     (=zinbun-oracle	. 01869)	; &ZOB-1869;
     (<-Oracle-Bones
@@ -20257,7 +20257,7 @@
     ))
 (define-char
   '((shuowen-radical	. 231)	; 日
-    (sources		zob1968=1682 zob1968=1774 zob1968=1775 zob1968=2113)
+    (sources		zob1959=1682 zob1959=1774 zob1959=1775 zob1959=2113)
     (zinbun-oracle-page . 90)
     (=zinbun-oracle	. 01875)	; &ZOB-1875;
     (<-Oracle-Bones
@@ -20333,7 +20333,7 @@
     ))
 (define-char
   '((shuowen-radical	. 234)	; 㫃
-    (sources		zob1968=2048 zob1968=2159)
+    (sources		zob1959=2048 zob1959=2159)
     (zinbun-oracle-page . 90)
     (=zinbun-oracle	. 01887)	; &ZOB-1887;
     (<-Oracle-Bones
@@ -20350,15 +20350,15 @@
     ))
 (define-char
   '((shuowen-radical	. 234)	; 㫃
-    (sources		zob1968=1251 zob1968=1255 zob1968=1256 zob1968=1262
-			zob1968=1263 zob1968=1275 zob1968=1276 zob1968=1278
-			zob1968=1280 zob1968=1301 zob1968=1302 zob1968=1308
-			zob1968=1312 zob1968=1329 zob1968=1331 zob1968=1332
-			zob1968=1334 zob1968=1341 zob1968=1352 zob1968=1364
-			zob1968=1367 zob1968=1368 zob1968=1371 zob1968=1423
-			zob1968=1424 zob1968=1429 zob1968=1433 zob1968=1439
-			zob1968=1444 zob1968=1450 zob1968=1471-1475
-			zob1968=1546 zob1968=1618 zob1968=1619 zob1968=3123)
+    (sources		zob1959=1251 zob1959=1255 zob1959=1256 zob1959=1262
+			zob1959=1263 zob1959=1275 zob1959=1276 zob1959=1278
+			zob1959=1280 zob1959=1301 zob1959=1302 zob1959=1308
+			zob1959=1312 zob1959=1329 zob1959=1331 zob1959=1332
+			zob1959=1334 zob1959=1341 zob1959=1352 zob1959=1364
+			zob1959=1367 zob1959=1368 zob1959=1371 zob1959=1423
+			zob1959=1424 zob1959=1429 zob1959=1433 zob1959=1439
+			zob1959=1444 zob1959=1450 zob1959=1471-1475
+			zob1959=1546 zob1959=1618 zob1959=1619 zob1959=3123)
     (zinbun-oracle-page . 90)
     (=zinbun-oracle	. 01889)	; &ZOB-1889;
     (<-Oracle-Bones
@@ -20367,7 +20367,7 @@
     ))
 (define-char
   '((shuowen-radical	. 234)	; 㫃
-    (sources		zob1968=0281 zob1968=2534)
+    (sources		zob1959=0281 zob1959=2534)
     (zinbun-oracle-page . 90)
     (=zinbun-oracle	. 01890)	; &ZOB-1890;
     (<-Oracle-Bones
@@ -20434,13 +20434,13 @@
     ))
 (define-char
   '((shuowen-radical	. 234)	; 㫃
-    (sources		zob1968=3124 zob1968=3163)
+    (sources		zob1959=3124 zob1959=3163)
     (zinbun-oracle-page . 91)
     (=zinbun-oracle	. 01894)	; &ZOB-1894;
     ))
 (define-char
   '((shuowen-radical	. 234)	; 㫃
-    (sources		zob1968=0559 zob1968=0565 zob1968=3250)
+    (sources		zob1959=0559 zob1959=0565 zob1959=3250)
     (zinbun-oracle-page . 91)
     (=zinbun-oracle	. 01895)	; &ZOB-1895;
     ))
@@ -20476,7 +20476,7 @@
     ))
 (define-char
   '((shuowen-radical	. 235)	; 冥
-    (sources		zob1968=0678 zob1968=0687 zob1968=0992)
+    (sources		zob1959=0678 zob1959=0687 zob1959=0992)
     (zinbun-oracle-page . 91)
     (=zinbun-oracle	. 01902)	; &ZOB-1902;
     (<-Oracle-Bones
@@ -20485,7 +20485,7 @@
     ))
 (define-char
   '((shuowen-radical	. 235)	; 冥
-    (sources		zob1968=0988)
+    (sources		zob1959=0988)
     (zinbun-oracle-page . 91)
     (=zinbun-oracle	. 01903)	; &ZOB-1903;
     ))
@@ -20499,7 +20499,7 @@
     ))
 (define-char
   '((shuowen-radical	. 236)	; 晶
-    (sources		zob1968=0700)
+    (sources		zob1959=0700)
     (zinbun-oracle-page . 91)
     (=zinbun-oracle	. 01905)	; &ZOB-1905;
     (<-Oracle-Bones
@@ -20518,68 +20518,68 @@
     ))
 (define-char
   '((shuowen-radical	. 237)	; 月
-    (sources		zob1968=0001 zob1968=0004 zob1968=0005 zob1968=0009
-			zob1968=0037 zob1968=0068 zob1968=0076 zob1968=0083
-			zob1968=0084 zob1968=0107 zob1968=0116 zob1968=0122
-			zob1968=0123 zob1968=0127 zob1968=0147 zob1968=0157
-			zob1968=0171 zob1968=0187 zob1968=0197 zob1968=0200
-			zob1968=0203 zob1968=0205 zob1968=0210 zob1968=0211
-			zob1968=0212 zob1968=0216 zob1968=0218 zob1968=0219
-			zob1968=0222 zob1968=0226 zob1968=0227 zob1968=0229
-			zob1968=0232 zob1968=0244 zob1968=0251 zob1968=0258
-			zob1968=0263 zob1968=0269 zob1968=0271 zob1968=0306
-			zob1968=0324 zob1968=0329 zob1968=0335 zob1968=0343
-			zob1968=0364 zob1968=0371 zob1968=0383 zob1968=0386
-			zob1968=0387 zob1968=0393 zob1968=0394 zob1968=0401
-			zob1968=0441 zob1968=0449 zob1968=0465 zob1968=0520
-			zob1968=0549 zob1968=0573 zob1968=0596 zob1968=0606
-			zob1968=0607 zob1968=0608 zob1968=0609-0612
-			zob1968=0632 zob1968=0672 zob1968=0727 zob1968=0742
-			zob1968=0773 zob1968=0782 zob1968=0784 zob1968=0796
-			zob1968=0799 zob1968=0800 zob1968=0818 zob1968=0825
-			zob1968=0853 zob1968=0855 zob1968=0866 zob1968=0906
-			zob1968=0911 zob1968=0919 zob1968=0927 zob1968=0949
-			zob1968=0963 zob1968=0966 zob1968=0995 zob1968=1162
-			zob1968=1163 zob1968=1168 zob1968=1172 zob1968=1177
-			zob1968=1192 zob1968=1251 zob1968=1255 zob1968=1257
-			zob1968=1263 zob1968=1264 zob1968=1268 zob1968=1271
-			zob1968=1272 zob1968=1275 zob1968=1277 zob1968=1279
-			zob1968=1283 zob1968=1286 zob1968=1291 zob1968=1299
-			zob1968=1310 zob1968=1319 zob1968=1322 zob1968=1324
-			zob1968=1325 zob1968=1328 zob1968=1345 zob1968=1353
-			zob1968=1357 zob1968=1360-1363 zob1968=1372
-			zob1968=1390 zob1968=1391 zob1968=1401 zob1968=1402
-			zob1968=1415 zob1968=1418 zob1968=1424 zob1968=1426
-			zob1968=1427 zob1968=1428 zob1968=1438 zob1968=1439
-			zob1968=1441 zob1968=1442 zob1968=1450 zob1968=1451
-			zob1968=1455 zob1968=1458 zob1968=1467 zob1968=1470
-			zob1968=1474 zob1968=1518 zob1968=1521 zob1968=1527
-			zob1968=1529 zob1968=1530 zob1968=1531 zob1968=1533
-			zob1968=1542 zob1968=1544 zob1968=1546 zob1968=1548
-			zob1968=1553 zob1968=1554 zob1968=1558 zob1968=1559
-			zob1968=1562 zob1968=1569 zob1968=1573 zob1968=1583
-			zob1968=1588 zob1968=1592 zob1968=1597 zob1968=1598
-			zob1968=1599 zob1968=1601 zob1968=1602 zob1968=1603
-			zob1968=1605 zob1968=1606 zob1968=1608 zob1968=1611
-			zob1968=1618 zob1968=1625 zob1968=1627 zob1968=1630
-			zob1968=1637 zob1968=1649 zob1968=1667 zob1968=1694
-			zob1968=1707 zob1968=1708 zob1968=1716 zob1968=1718
-			zob1968=1719 zob1968=1737 zob1968=1761 zob1968=1765
-			zob1968=1767 zob1968=1769 zob1968=1771 zob1968=2136
-			zob1968=2311 zob1968=2376 zob1968=2741 zob1968=2758
-			zob1968=2766 zob1968=2806 zob1968=2878 zob1968=2880
-			zob1968=2894 zob1968=2896 zob1968=2902 zob1968=2913
-			zob1968=2919 zob1968=2923 zob1968=2924 zob1968=2926
-			zob1968=2942 zob1968=2945 zob1968=2957 zob1968=2959
-			zob1968=2991 zob1968=3001 zob1968=3002 zob1968=3004
-			zob1968=3016 zob1968=3054 zob1968=3055 zob1968=3060
-			zob1968=3061 zob1968=3074 zob1968=3075 zob1968=3092
-			zob1968=3099 zob1968=3101 zob1968=3111 zob1968=3118
-			zob1968=3135 zob1968=3143 zob1968=3146 zob1968=3166
-			zob1968=3170 zob1968=3172 zob1968=3173 zob1968=3178
-			zob1968=3194 zob1968=3220 zob1968=3226 zob1968=3237
-			zob1968=3242 zob1968=3245 zob1968=3250 zob1968=3253
-			zob1968=3256)
+    (sources		zob1959=0001 zob1959=0004 zob1959=0005 zob1959=0009
+			zob1959=0037 zob1959=0068 zob1959=0076 zob1959=0083
+			zob1959=0084 zob1959=0107 zob1959=0116 zob1959=0122
+			zob1959=0123 zob1959=0127 zob1959=0147 zob1959=0157
+			zob1959=0171 zob1959=0187 zob1959=0197 zob1959=0200
+			zob1959=0203 zob1959=0205 zob1959=0210 zob1959=0211
+			zob1959=0212 zob1959=0216 zob1959=0218 zob1959=0219
+			zob1959=0222 zob1959=0226 zob1959=0227 zob1959=0229
+			zob1959=0232 zob1959=0244 zob1959=0251 zob1959=0258
+			zob1959=0263 zob1959=0269 zob1959=0271 zob1959=0306
+			zob1959=0324 zob1959=0329 zob1959=0335 zob1959=0343
+			zob1959=0364 zob1959=0371 zob1959=0383 zob1959=0386
+			zob1959=0387 zob1959=0393 zob1959=0394 zob1959=0401
+			zob1959=0441 zob1959=0449 zob1959=0465 zob1959=0520
+			zob1959=0549 zob1959=0573 zob1959=0596 zob1959=0606
+			zob1959=0607 zob1959=0608 zob1959=0609-0612
+			zob1959=0632 zob1959=0672 zob1959=0727 zob1959=0742
+			zob1959=0773 zob1959=0782 zob1959=0784 zob1959=0796
+			zob1959=0799 zob1959=0800 zob1959=0818 zob1959=0825
+			zob1959=0853 zob1959=0855 zob1959=0866 zob1959=0906
+			zob1959=0911 zob1959=0919 zob1959=0927 zob1959=0949
+			zob1959=0963 zob1959=0966 zob1959=0995 zob1959=1162
+			zob1959=1163 zob1959=1168 zob1959=1172 zob1959=1177
+			zob1959=1192 zob1959=1251 zob1959=1255 zob1959=1257
+			zob1959=1263 zob1959=1264 zob1959=1268 zob1959=1271
+			zob1959=1272 zob1959=1275 zob1959=1277 zob1959=1279
+			zob1959=1283 zob1959=1286 zob1959=1291 zob1959=1299
+			zob1959=1310 zob1959=1319 zob1959=1322 zob1959=1324
+			zob1959=1325 zob1959=1328 zob1959=1345 zob1959=1353
+			zob1959=1357 zob1959=1360-1363 zob1959=1372
+			zob1959=1390 zob1959=1391 zob1959=1401 zob1959=1402
+			zob1959=1415 zob1959=1418 zob1959=1424 zob1959=1426
+			zob1959=1427 zob1959=1428 zob1959=1438 zob1959=1439
+			zob1959=1441 zob1959=1442 zob1959=1450 zob1959=1451
+			zob1959=1455 zob1959=1458 zob1959=1467 zob1959=1470
+			zob1959=1474 zob1959=1518 zob1959=1521 zob1959=1527
+			zob1959=1529 zob1959=1530 zob1959=1531 zob1959=1533
+			zob1959=1542 zob1959=1544 zob1959=1546 zob1959=1548
+			zob1959=1553 zob1959=1554 zob1959=1558 zob1959=1559
+			zob1959=1562 zob1959=1569 zob1959=1573 zob1959=1583
+			zob1959=1588 zob1959=1592 zob1959=1597 zob1959=1598
+			zob1959=1599 zob1959=1601 zob1959=1602 zob1959=1603
+			zob1959=1605 zob1959=1606 zob1959=1608 zob1959=1611
+			zob1959=1618 zob1959=1625 zob1959=1627 zob1959=1630
+			zob1959=1637 zob1959=1649 zob1959=1667 zob1959=1694
+			zob1959=1707 zob1959=1708 zob1959=1716 zob1959=1718
+			zob1959=1719 zob1959=1737 zob1959=1761 zob1959=1765
+			zob1959=1767 zob1959=1769 zob1959=1771 zob1959=2136
+			zob1959=2311 zob1959=2376 zob1959=2741 zob1959=2758
+			zob1959=2766 zob1959=2806 zob1959=2878 zob1959=2880
+			zob1959=2894 zob1959=2896 zob1959=2902 zob1959=2913
+			zob1959=2919 zob1959=2923 zob1959=2924 zob1959=2926
+			zob1959=2942 zob1959=2945 zob1959=2957 zob1959=2959
+			zob1959=2991 zob1959=3001 zob1959=3002 zob1959=3004
+			zob1959=3016 zob1959=3054 zob1959=3055 zob1959=3060
+			zob1959=3061 zob1959=3074 zob1959=3075 zob1959=3092
+			zob1959=3099 zob1959=3101 zob1959=3111 zob1959=3118
+			zob1959=3135 zob1959=3143 zob1959=3146 zob1959=3166
+			zob1959=3170 zob1959=3172 zob1959=3173 zob1959=3178
+			zob1959=3194 zob1959=3220 zob1959=3226 zob1959=3237
+			zob1959=3242 zob1959=3245 zob1959=3250 zob1959=3253
+			zob1959=3256)
     (zinbun-oracle-page . 91)
     (=zinbun-oracle	. 01907)	; &ZOB-1907;
     (<-Oracle-Bones
@@ -20626,7 +20626,7 @@
      ((=>zinbun-oracle	  . 01910)	; &A-ZOB-1910;
       ))
     (shuowen-radical	. 239)	; 明
-    (sources		zob1968=3016)
+    (sources		zob1959=3016)
     (zinbun-oracle-page . 92)
     (=zinbun-oracle	. 01911)	; &ZOB-1911;
     ))
@@ -20635,13 +20635,13 @@
      ((=>zinbun-oracle	  . 01910)	; &A-ZOB-1910;
       ))
     (shuowen-radical	. 239)	; 明
-    (sources		zob1968=3113)
+    (sources		zob1959=3113)
     (zinbun-oracle-page . 92)
     (=zinbun-oracle	. 01912)	; &ZOB-1912;
     ))
 (define-char
   '((shuowen-radical	. 239)	; 明
-    (sources		zob1968=0081)
+    (sources		zob1959=0081)
     (zinbun-oracle-page . 92)
     (=zinbun-oracle	. 01913)	; &ZOB-1913;
     ))
@@ -20684,23 +20684,23 @@
      ((=>zinbun-oracle	  . 01918)	; &A-ZOB-1918;
       ))
     (shuowen-radical	. 241)	; 夕
-    (sources		zob1968=0078 zob1968=0132 zob1968=0166 zob1968=0201
-			zob1968=0213 zob1968=0229 zob1968=0241 zob1968=0242
-			zob1968=0243 zob1968=0246 zob1968=0315 zob1968=0374
-			zob1968=0438 zob1968=0468 zob1968=0564 zob1968=0613
-			zob1968=0614 zob1968=0748 zob1968=0801 zob1968=0864
-			zob1968=0895 zob1968=1037 zob1968=1074 zob1968=1130
-			zob1968=1161 zob1968=1193 zob1968=1289 zob1968=1351
-			zob1968=1352 zob1968=1371 zob1968=1374 zob1968=1377
-			zob1968=1378 zob1968=1380 zob1968=1390
-			zob1968=1430-1434 zob1968=1437 zob1968=1439
-			zob1968=1441 zob1968=1456 zob1968=1514 zob1968=1561
-			zob1968=1562 zob1968=1598 zob1968=1605-1615
-			zob1968=1623 zob1968=1686 zob1968=1687 zob1968=1703
-			zob1968=1707 zob1968=1709 zob1968=1710 zob1968=1711
-			zob1968=1713 zob1968=1718 zob1968=1719 zob1968=1738
-			zob1968=1746-1749 zob1968=1773 zob1968=1776
-			zob1968=1811 zob1968=1840 zob1968=3180)
+    (sources		zob1959=0078 zob1959=0132 zob1959=0166 zob1959=0201
+			zob1959=0213 zob1959=0229 zob1959=0241 zob1959=0242
+			zob1959=0243 zob1959=0246 zob1959=0315 zob1959=0374
+			zob1959=0438 zob1959=0468 zob1959=0564 zob1959=0613
+			zob1959=0614 zob1959=0748 zob1959=0801 zob1959=0864
+			zob1959=0895 zob1959=1037 zob1959=1074 zob1959=1130
+			zob1959=1161 zob1959=1193 zob1959=1289 zob1959=1351
+			zob1959=1352 zob1959=1371 zob1959=1374 zob1959=1377
+			zob1959=1378 zob1959=1380 zob1959=1390
+			zob1959=1430-1434 zob1959=1437 zob1959=1439
+			zob1959=1441 zob1959=1456 zob1959=1514 zob1959=1561
+			zob1959=1562 zob1959=1598 zob1959=1605-1615
+			zob1959=1623 zob1959=1686 zob1959=1687 zob1959=1703
+			zob1959=1707 zob1959=1709 zob1959=1710 zob1959=1711
+			zob1959=1713 zob1959=1718 zob1959=1719 zob1959=1738
+			zob1959=1746-1749 zob1959=1773 zob1959=1776
+			zob1959=1811 zob1959=1840 zob1959=3180)
     (zinbun-oracle-page . 92)
     (=zinbun-oracle	. 01918)	; &ZOB-1918;
     ))
@@ -20709,25 +20709,25 @@
      ((=>zinbun-oracle	  . 01918)	; &A-ZOB-1918;
       ))
     (shuowen-radical	. 241)	; 夕
-    (sources		zob1968=0180 zob1968=0215 zob1968=0219 zob1968=0222
-			zob1968=0236-0240 zob1968=1376 zob1968=1379
-			zob1968=1381-1388 zob1968=1407 zob1968=1412
-			zob1968=1435 zob1968=1436 zob1968=1440 zob1968=1442
-			zob1968=1443 zob1968=1457 zob1968=1461 zob1968=1477
-			zob1968=1551 zob1968=1617 zob1968=1618 zob1968=1698
-			zob1968=1704 zob1968=1705 zob1968=1712 zob1968=1714
-			zob1968=1715 zob1968=1717 zob1968=1720 zob1968=1721
-			zob1968=1727 zob1968=1739-1745 zob1968=1871
-			zob1968=1878 zob1968=1899 zob1968=1946 zob1968=1965
-			zob1968=2239 zob1968=2251 zob1968=2264 zob1968=2308
-			zob1968=2362 zob1968=2370 zob1968=2391 zob1968=2398
-			zob1968=2400 zob1968=2520 zob1968=2636 zob1968=2639
-			zob1968=2788-2795 zob1968=2799 zob1968=2802-2807
-			zob1968=2811-2829 zob1968=2831-2835
-			zob1968=2838-2842 zob1968=2846 zob1968=2849
-			zob1968=2850 zob1968=2855 zob1968=2858 zob1968=2860
-			zob1968=2868 zob1968=2915 zob1968=2946 zob1968=2982
-			zob1968=3055 zob1968=3114 zob1968=3166 zob1968=3200)
+    (sources		zob1959=0180 zob1959=0215 zob1959=0219 zob1959=0222
+			zob1959=0236-0240 zob1959=1376 zob1959=1379
+			zob1959=1381-1388 zob1959=1407 zob1959=1412
+			zob1959=1435 zob1959=1436 zob1959=1440 zob1959=1442
+			zob1959=1443 zob1959=1457 zob1959=1461 zob1959=1477
+			zob1959=1551 zob1959=1617 zob1959=1618 zob1959=1698
+			zob1959=1704 zob1959=1705 zob1959=1712 zob1959=1714
+			zob1959=1715 zob1959=1717 zob1959=1720 zob1959=1721
+			zob1959=1727 zob1959=1739-1745 zob1959=1871
+			zob1959=1878 zob1959=1899 zob1959=1946 zob1959=1965
+			zob1959=2239 zob1959=2251 zob1959=2264 zob1959=2308
+			zob1959=2362 zob1959=2370 zob1959=2391 zob1959=2398
+			zob1959=2400 zob1959=2520 zob1959=2636 zob1959=2639
+			zob1959=2788-2795 zob1959=2799 zob1959=2802-2807
+			zob1959=2811-2829 zob1959=2831-2835
+			zob1959=2838-2842 zob1959=2846 zob1959=2849
+			zob1959=2850 zob1959=2855 zob1959=2858 zob1959=2860
+			zob1959=2868 zob1959=2915 zob1959=2946 zob1959=2982
+			zob1959=3055 zob1959=3114 zob1959=3166 zob1959=3200)
     (zinbun-oracle-page . 92)
     (=zinbun-oracle	. 01919)	; &ZOB-1919;
     ))
@@ -20736,7 +20736,7 @@
      ((=>zinbun-oracle	  . 01918)	; &A-ZOB-1918;
       ))
     (shuowen-radical	. 241)	; 夕
-    (sources		zob1968=2891)
+    (sources		zob1959=2891)
     (zinbun-oracle-page . 92)
     (=zinbun-oracle	. 01920)	; &ZOB-1920;
     ))
@@ -20804,8 +20804,8 @@
     ))
 (define-char
   '((shuowen-radical	. 242)	; 多
-    (sources		zob1968=0157 zob1968=0395 zob1968=0967 zob1968=1374
-			zob1968=1518 zob1968=1988 zob1968=2160)
+    (sources		zob1959=0157 zob1959=0395 zob1959=0967 zob1959=1374
+			zob1959=1518 zob1959=1988 zob1959=2160)
     (zinbun-oracle-page . 93)
     (=zinbun-oracle	. 01928)	; &ZOB-1928;
     (<-Oracle-Bones
@@ -20852,7 +20852,7 @@
     ))
 (define-char
   '((shuowen-radical	. 242)	; 多
-    (sources		zob1968=0734)
+    (sources		zob1959=0734)
     (zinbun-oracle-page . 93)
     (=zinbun-oracle	. 01932)	; &ZOB-1932;
     (<-Oracle-Bones
@@ -20865,7 +20865,7 @@
     ))
 (define-char
   '((shuowen-radical	. 242)	; 多
-    (sources		zob1968=2363 zob1968=3161)
+    (sources		zob1959=2363 zob1959=3161)
     (zinbun-oracle-page . 93)
     (=zinbun-oracle	. 01933)	; &ZOB-1933;
     (<-Oracle-Bones
@@ -20890,7 +20890,7 @@
     ))
 (define-char
   '((shuowen-radical	. 242)	; 多
-    (sources		zob1968=0341)
+    (sources		zob1959=0341)
     (zinbun-oracle-page . 93)
     (=zinbun-oracle	. 01935)	; &ZOB-1935;
     (<-Oracle-Bones
@@ -20981,7 +20981,7 @@
     ))
 (define-char
   '((shuowen-radical	. 242)	; 多
-    (sources		zob1968=1824)
+    (sources		zob1959=1824)
     (zinbun-oracle-page . 93)
     (=zinbun-oracle	. 01942)	; &ZOB-1942;
     (<-Oracle-Bones
@@ -20994,7 +20994,7 @@
     ))
 (define-char
   '((shuowen-radical	. 242)	; 多
-    (sources		zob1968=1164 zob1968=2160)
+    (sources		zob1959=1164 zob1959=2160)
     (zinbun-oracle-page . 93)
     (=zinbun-oracle	. 01943)	; &ZOB-1943;
     (<-Oracle-Bones
@@ -21007,7 +21007,7 @@
     ))
 (define-char
   '((shuowen-radical	. 242)	; 多
-    (sources		zob1968=2534)
+    (sources		zob1959=2534)
     (zinbun-oracle-page . 93)
     (=zinbun-oracle	. 01944)	; &ZOB-1944;
     (<-Oracle-Bones
@@ -21022,7 +21022,7 @@
     ))
 (define-char
   '((shuowen-radical	. 242)	; 多
-    (sources		zob1968=0432)
+    (sources		zob1959=0432)
     (zinbun-oracle-page . 93)
     (=zinbun-oracle	. 01945)	; &ZOB-1945;
     ))
@@ -21036,7 +21036,7 @@
     ))
 (define-char
   '((shuowen-radical	. 244)	; 𢎘
-    (sources		zob1968=0274)
+    (sources		zob1959=0274)
     (zinbun-oracle-page . 94)
     (=zinbun-oracle	. 01947)	; &ZOB-1947;
     (<-Oracle-Bones
@@ -21069,8 +21069,8 @@
      ((=>zinbun-oracle	  . 00644)	; &A-ZOB-0644;
       ))
     (shuowen-radical	. 246)	; 卣
-    (sources		zob1968=0131 zob1968=0282 zob1968=0525 zob1968=1765
-			zob1968=1857 zob1968=2091 zob1968=2998 zob1968=3014)
+    (sources		zob1959=0131 zob1959=0282 zob1959=0525 zob1959=1765
+			zob1959=1857 zob1959=2091 zob1959=2998 zob1959=3014)
     (zinbun-oracle-page . 94)
     (=zinbun-oracle	. 01951)	; &ZOB-1951;
     (<-Oracle-Bones
@@ -21079,7 +21079,7 @@
     ))
 (define-char
   '((shuowen-radical	. 246)	; 卣
-    (sources		zob1968=2998)
+    (sources		zob1959=2998)
     (zinbun-oracle-page . 94)
     (=zinbun-oracle	. 01952)	; &ZOB-1952;
     (<-Oracle-Bones
@@ -21092,7 +21092,7 @@
     ))
 (define-char
   '((shuowen-radical	. 246)	; 卣
-    (sources		zob1968=1355 zob1968=1446)
+    (sources		zob1959=1355 zob1959=1446)
     (zinbun-oracle-page . 94)
     (=zinbun-oracle	. 01953)	; &ZOB-1953;
     ))
@@ -21136,7 +21136,7 @@
     ))
 (define-char
   '((shuowen-radical	. 246)	; 卣
-    (sources		zob1968=1901)
+    (sources		zob1959=1901)
     (zinbun-oracle-page . 94)
     (=zinbun-oracle	. 01961)	; &ZOB-1961;
     (<-Oracle-Bones
@@ -21192,8 +21192,8 @@
     ))
 (define-char
   '((shuowen-radical	. 250)	; 鼎
-    (sources		zob1968=0099 zob1968=2291 zob1968=3103 zob1968=3108
-			zob1968=3154 zob1968=3165 zob1968=3239)
+    (sources		zob1959=0099 zob1959=2291 zob1959=3103 zob1959=3108
+			zob1959=3154 zob1959=3165 zob1959=3239)
     (zinbun-oracle-page . 95)
     (=zinbun-oracle	. 01969)	; &ZOB-1969;
     (<-Oracle-Bones
@@ -21249,7 +21249,7 @@
     ))
 (define-char
   '((shuowen-radical	. 251)	; 克
-    (sources		zob1968=0156 zob1968=0260)
+    (sources		zob1959=0156 zob1959=0260)
     (zinbun-oracle-page . 95)
     (=zinbun-oracle	. 01976)	; &ZOB-1976;
     (<-Oracle-Bones
@@ -21258,7 +21258,7 @@
     ))
 (define-char
   '((shuowen-radical	. 251)	; 克
-    (sources		zob1968=0459)
+    (sources		zob1959=0459)
     (zinbun-oracle-page . 95)
     (=zinbun-oracle	. 01977)	; &ZOB-1977;
     (<-Oracle-Bones
@@ -21284,7 +21284,7 @@
     ))
 (define-char
   '((shuowen-radical	. 252)	; 彔
-    (sources		zob1968=1839 zob1968=1844 zob1968=2039 zob1968=2351)
+    (sources		zob1959=1839 zob1959=1844 zob1959=2039 zob1959=2351)
     (zinbun-oracle-page . 95)
     (=zinbun-oracle	. 01980)	; &ZOB-1980;
     (<-Oracle-Bones
@@ -21293,7 +21293,7 @@
     ))
 (define-char
   '((shuowen-radical	. 252)	; 彔
-    (sources		zob1968=2161)
+    (sources		zob1959=2161)
     (zinbun-oracle-page . 95)
     (=zinbun-oracle	. 01981)	; &ZOB-1981;
     ))
@@ -21339,10 +21339,10 @@
     ))
 (define-char
   '((shuowen-radical	. 253)	; 禾
-    (sources		zob1968=1926 zob1968=1931 zob1968=1932 zob1968=1935
-			zob1968=2261 zob1968=2357 zob1968=2358 zob1968=2359
-			zob1968=2361-2366 zob1968=2368 zob1968=2370
-			zob1968=2982 zob1968=2983)
+    (sources		zob1959=1926 zob1959=1931 zob1959=1932 zob1959=1935
+			zob1959=2261 zob1959=2357 zob1959=2358 zob1959=2359
+			zob1959=2361-2366 zob1959=2368 zob1959=2370
+			zob1959=2982 zob1959=2983)
     (zinbun-oracle-page . 95)
     (=zinbun-oracle	. 01990)	; &ZOB-1990;
     (<-Oracle-Bones
@@ -21377,7 +21377,7 @@
     ))
 (define-char
   '((shuowen-radical	. 253)	; 禾
-    (sources		zob1968=2272 zob1968=2573)
+    (sources		zob1959=2272 zob1959=2573)
     (zinbun-oracle-page . 96)
     (=zinbun-oracle	. 01994)	; &ZOB-1994;
     (<-Oracle-Bones
@@ -21392,14 +21392,14 @@
     ))
 (define-char
   '((shuowen-radical	. 253)	; 禾
-    (sources		zob1968=0137-0142 zob1968=0145-0150 zob1968=0164
-			zob1968=0304 zob1968=0721 zob1968=0727 zob1968=0784
-			zob1968=0787 zob1968=0789 zob1968=0790 zob1968=0791
-			zob1968=0793 zob1968=0795 zob1968=0796 zob1968=0949
-			zob1968=1363 zob1968=1927-1930 zob1968=1933
-			zob1968=1934 zob1968=1936 zob1968=1938 zob1968=1940
-			zob1968=1941 zob1968=1943 zob1968=2062 zob1968=2890
-			zob1968=3045 zob1968=3118)
+    (sources		zob1959=0137-0142 zob1959=0145-0150 zob1959=0164
+			zob1959=0304 zob1959=0721 zob1959=0727 zob1959=0784
+			zob1959=0787 zob1959=0789 zob1959=0790 zob1959=0791
+			zob1959=0793 zob1959=0795 zob1959=0796 zob1959=0949
+			zob1959=1363 zob1959=1927-1930 zob1959=1933
+			zob1959=1934 zob1959=1936 zob1959=1938 zob1959=1940
+			zob1959=1941 zob1959=1943 zob1959=2062 zob1959=2890
+			zob1959=3045 zob1959=3118)
     (zinbun-oracle-page . 96)
     (=zinbun-oracle	. 01995)	; &ZOB-1995;
     (<-Oracle-Bones
@@ -21419,7 +21419,7 @@
      ((=>zinbun-oracle	  . 01996)	; &A-ZOB-1996;
       ))
     (shuowen-radical	. 253)	; 禾
-    (sources		zob1968=0304 zob1968=1988 zob1968=2362 zob1968=2367)
+    (sources		zob1959=0304 zob1959=1988 zob1959=2362 zob1959=2367)
     (zinbun-oracle-page . 96)
     (=zinbun-oracle	. 01996)	; &ZOB-1996;
     ))
@@ -21428,7 +21428,7 @@
      ((=>zinbun-oracle	  . 01996)	; &A-ZOB-1996;
       ))
     (shuowen-radical	. 253)	; 禾
-    (sources		zob1968=2529)
+    (sources		zob1959=2529)
     (zinbun-oracle-page . 96)
     (=zinbun-oracle	. 01997)	; &ZOB-1997;
     ))
@@ -21459,7 +21459,7 @@
     ))
 (define-char
   '((shuowen-radical	. 253)	; 禾
-    (sources		zob1968=0143)
+    (sources		zob1959=0143)
     (zinbun-oracle-page . 96)
     (=zinbun-oracle	. 02001)	; &ZOB-2001;
     (<-Oracle-Bones
@@ -21482,7 +21482,7 @@
     ))
 (define-char
   '((shuowen-radical	. 253)	; 禾
-    (sources		zob1968=2979)
+    (sources		zob1959=2979)
     (zinbun-oracle-page . 96)
     (=zinbun-oracle	. 02002)	; &ZOB-2002;
     (<-Oracle-Bones
@@ -21521,7 +21521,7 @@
     ))
 (define-char
   '((shuowen-radical	. 253)	; 禾
-    (sources		zob1968=3074)
+    (sources		zob1959=3074)
     (zinbun-oracle-page . 96)
     (=zinbun-oracle	. 02005)	; &ZOB-2005;
     ))
@@ -21600,8 +21600,8 @@
     ))
 (define-char
   '((shuowen-radical	. 255)	; 黍
-    (sources		zob1968=0140 zob1968=0141 zob1968=0143 zob1968=0144
-			zob1968=0787 zob1968=0788 zob1968=0792 zob1968=2368)
+    (sources		zob1959=0140 zob1959=0141 zob1959=0143 zob1959=0144
+			zob1959=0787 zob1959=0788 zob1959=0792 zob1959=2368)
     (zinbun-oracle-page . 97)
     (=zinbun-oracle	. 02020)	; &ZOB-2020;
     (<-Oracle-Bones
@@ -21618,7 +21618,7 @@
     ))
 (define-char
   '((shuowen-radical	. 257)	; 米
-    (sources		zob1968=3131)
+    (sources		zob1959=3131)
     (zinbun-oracle-page . 97)
     (=zinbun-oracle	. 02023)	; &ZOB-2023;
     (<-Oracle-Bones
@@ -21627,7 +21627,7 @@
     ))
 (define-char
   '((shuowen-radical	. 257)	; 米
-    (sources		zob1968=1593)
+    (sources		zob1959=1593)
     (zinbun-oracle-page . 97)
     (=zinbun-oracle	. 02024)	; &ZOB-2024;
     ))
@@ -21644,9 +21644,9 @@
      ((=>zinbun-oracle	  . 02026)	; &A-ZOB-2026;
       ))
     (shuowen-radical	. 259)	; 臼
-    (sources		zob1968=0342 zob1968=0343 zob1968=0424 zob1968=0895
-			zob1968=0931 zob1968=2146 zob1968=2265 zob1968=2519
-			zob1968=2523 zob1968=2530 zob1968=2535 zob1968=2546)
+    (sources		zob1959=0342 zob1959=0343 zob1959=0424 zob1959=0895
+			zob1959=0931 zob1959=2146 zob1959=2265 zob1959=2519
+			zob1959=2523 zob1959=2530 zob1959=2535 zob1959=2546)
     (zinbun-oracle-page . 97)
     (=zinbun-oracle	. 02026)	; &ZOB-2026;
     ))
@@ -21655,7 +21655,7 @@
      ((=>zinbun-oracle	  . 02026)	; &A-ZOB-2026;
       ))
     (shuowen-radical	. 259)	; 臼
-    (sources		zob1968=0940)
+    (sources		zob1959=0940)
     (zinbun-oracle-page . 97)
     (=zinbun-oracle	. 02027)	; &ZOB-2027;
     ))
@@ -21721,7 +21721,7 @@
     ))
 (define-char
   '((shuowen-radical	. 269)	; 宀
-    (sources		zob1968=0765 zob1968=1272 zob1968=1361 zob1968=1794)
+    (sources		zob1959=0765 zob1959=1272 zob1959=1361 zob1959=1794)
     (zinbun-oracle-page . 97)
     (=zinbun-oracle	. 02037)	; &ZOB-2037;
     (<-Oracle-Bones
@@ -21750,8 +21750,8 @@
     ))
 (define-char
   '((shuowen-radical	. 269)	; 宀
-    (sources		zob1968=2027 zob1968=2030 zob1968=2033 zob1968=2034
-			zob1968=2044 zob1968=2133 zob1968=2493 zob1968=2503)
+    (sources		zob1959=2027 zob1959=2030 zob1959=2033 zob1959=2034
+			zob1959=2044 zob1959=2133 zob1959=2493 zob1959=2503)
     (zinbun-oracle-page . 97)
     (=zinbun-oracle	. 02040)	; &ZOB-2040;
     (<-Oracle-Bones
@@ -21800,7 +21800,7 @@
     ))
 (define-char
   '((shuowen-radical	. 269)	; 宀
-    (sources		zob1968=2291)
+    (sources		zob1959=2291)
     (zinbun-oracle-page . 98)
     (=zinbun-oracle	. 02046)	; &ZOB-2046;
     (<-Oracle-Bones
@@ -21849,7 +21849,7 @@
      ((=>zinbun-oracle	  . 02050)	; &A-ZOB-2050;
       ))
     (shuowen-radical	. 269)	; 宀
-    (sources		zob1968=0379)
+    (sources		zob1959=0379)
     (zinbun-oracle-page . 98)
     (=zinbun-oracle	. 02051)	; &ZOB-2051;
     ))
@@ -21858,7 +21858,7 @@
      ((=>zinbun-oracle	  . 02050)	; &A-ZOB-2050;
       ))
     (shuowen-radical	. 269)	; 宀
-    (sources		zob1968=3099)
+    (sources		zob1959=3099)
     (zinbun-oracle-page . 98)
     (=zinbun-oracle	. 02052)	; &ZOB-2052;
     ))
@@ -21884,8 +21884,8 @@
     ))
 (define-char
   '((shuowen-radical	. 269)	; 宀
-    (sources		zob1968=0716 zob1968=1249 zob1968=3014 zob1968=3122
-			zob1968=3171)
+    (sources		zob1959=0716 zob1959=1249 zob1959=3014 zob1959=3122
+			zob1959=3171)
     (zinbun-oracle-page . 98)
     (=zinbun-oracle	. 02055)	; &ZOB-2055;
     (<-Oracle-Bones
@@ -21910,11 +21910,11 @@
     ))
 (define-char
   '((shuowen-radical	. 269)	; 宀
-    (sources		zob1968=0100 zob1968=0102 zob1968=0174 zob1968=0335
-			zob1968=0763 zob1968=1799 zob1968=1808 zob1968=1812
-			zob1968=1830 zob1968=1901 zob1968=1943 zob1968=2268
-			zob1968=2274 zob1968=2283 zob1968=2285 zob1968=2295
-			zob1968=2297 zob1968=2298 zob1968=2568)
+    (sources		zob1959=0100 zob1959=0102 zob1959=0174 zob1959=0335
+			zob1959=0763 zob1959=1799 zob1959=1808 zob1959=1812
+			zob1959=1830 zob1959=1901 zob1959=1943 zob1959=2268
+			zob1959=2274 zob1959=2283 zob1959=2285 zob1959=2295
+			zob1959=2297 zob1959=2298 zob1959=2568)
     (zinbun-oracle-page . 98)
     (=zinbun-oracle	. 02057)	; &ZOB-2057;
     ))
@@ -21940,7 +21940,7 @@
     ))
 (define-char
   '((shuowen-radical	. 269)	; 宀
-    (sources		zob1968=1326)
+    (sources		zob1959=1326)
     (zinbun-oracle-page . 98)
     (=zinbun-oracle	. 02061)	; &ZOB-2061;
     (<-Oracle-Bones
@@ -21963,7 +21963,7 @@
     ))
 (define-char
   '((shuowen-radical	. 269)	; 宀
-    (sources		zob1968=2044)
+    (sources		zob1959=2044)
     (zinbun-oracle-page . 98)
     (=zinbun-oracle	. 02062)	; &ZOB-2062;
     (<-Oracle-Bones
@@ -21987,7 +21987,7 @@
     ))
 (define-char
   '((shuowen-radical	. 269)	; 宀
-    (sources		zob1968=0264)
+    (sources		zob1959=0264)
     (zinbun-oracle-page . 98)
     (=zinbun-oracle	. 02063)	; &ZOB-2063;
     (<-Oracle-Bones
@@ -21996,7 +21996,7 @@
     ))
 (define-char
   '((shuowen-radical	. 269)	; 宀
-    (sources		zob1968=0838)
+    (sources		zob1959=0838)
     (zinbun-oracle-page . 98)
     (=zinbun-oracle	. 02064)	; &ZOB-2064;
     (<-Oracle-Bones
@@ -22012,8 +22012,8 @@
     ))
 (define-char
   '((shuowen-radical	. 269)	; 宀
-    (sources		zob1968=2015 zob1968=2066 zob1968=2117 zob1968=2164
-			zob1968=2493 zob1968=2504)
+    (sources		zob1959=2015 zob1959=2066 zob1959=2117 zob1959=2164
+			zob1959=2493 zob1959=2504)
     (zinbun-oracle-page . 99)
     (=zinbun-oracle	. 02065)	; &ZOB-2065;
     (<-Oracle-Bones
@@ -22022,7 +22022,7 @@
     ))
 (define-char
   '((shuowen-radical	. 269)	; 宀
-    (sources		zob1968=1800)
+    (sources		zob1959=1800)
     (zinbun-oracle-page . 99)
     (=zinbun-oracle	. 02066)	; &ZOB-2066;
     (<-Oracle-Bones
@@ -22139,7 +22139,7 @@
     ))
 (define-char
   '((shuowen-radical	. 269)	; 宀
-    (sources		zob1968=0955)
+    (sources		zob1959=0955)
     (zinbun-oracle-page . 99)
     (=zinbun-oracle	. 02073)	; &ZOB-2073;
     (<-Oracle-Bones
@@ -22155,49 +22155,49 @@
     ))
 (define-char
   '((shuowen-radical	. 269)	; 宀
-    (sources		zob1968=0623)
+    (sources		zob1959=0623)
     (zinbun-oracle-page . 99)
     (=zinbun-oracle	. 02074)	; &ZOB-2074;
     ))
 (define-char
   '((shuowen-radical	. 269)	; 宀
-    (sources		zob1968=1997)
+    (sources		zob1959=1997)
     (zinbun-oracle-page . 99)
     (=zinbun-oracle	. 02075)	; &ZOB-2075;
     ))
 (define-char
   '((shuowen-radical	. 269)	; 宀
-    (sources		zob1968=2330)
+    (sources		zob1959=2330)
     (zinbun-oracle-page . 99)
     (=zinbun-oracle	. 02076)	; &ZOB-2076;
     ))
 (define-char
   '((shuowen-radical	. 269)	; 宀
-    (sources		zob1968=2369)
+    (sources		zob1959=2369)
     (zinbun-oracle-page . 99)
     (=zinbun-oracle	. 02077)	; &ZOB-2077;
     ))
 (define-char
   '((shuowen-radical	. 269)	; 宀
-    (sources		zob1968=0458 zob1968=0902)
+    (sources		zob1959=0458 zob1959=0902)
     (zinbun-oracle-page . 99)
     (=zinbun-oracle	. 02078)	; &ZOB-2078;
     ))
 (define-char
   '((shuowen-radical	. 269)	; 宀
-    (sources		zob1968=0881)
+    (sources		zob1959=0881)
     (zinbun-oracle-page . 99)
     (=zinbun-oracle	. 02079)	; &ZOB-2079;
     ))
 (define-char
   '((shuowen-radical	. 269)	; 宀
-    (sources		zob1968=2054)
+    (sources		zob1959=2054)
     (zinbun-oracle-page . 99)
     (=zinbun-oracle	. 02080)	; &ZOB-2080;
     ))
 (define-char
   '((shuowen-radical	. 269)	; 宀
-    (sources		zob1968=3180)
+    (sources		zob1959=3180)
     (zinbun-oracle-page . 99)
     (=zinbun-oracle	. 02081)	; &ZOB-2081;
     ))
@@ -22523,11 +22523,11 @@
     ))
 (define-char
   '((shuowen-radical	. 270)	; 宮
-    (sources		zob1968=1944 zob1968=2028 zob1968=2029 zob1968=2034
-			zob1968=2060 zob1968=2066 zob1968=2073 zob1968=2074
-			zob1968=2078 zob1968=2079 zob1968=2087-2092
-			zob1968=2095 zob1968=2096 zob1968=2505 zob1968=2506
-			zob1968=2875 zob1968=2931)
+    (sources		zob1959=1944 zob1959=2028 zob1959=2029 zob1959=2034
+			zob1959=2060 zob1959=2066 zob1959=2073 zob1959=2074
+			zob1959=2078 zob1959=2079 zob1959=2087-2092
+			zob1959=2095 zob1959=2096 zob1959=2505 zob1959=2506
+			zob1959=2875 zob1959=2931)
     (zinbun-oracle-page . 102)
     (=zinbun-oracle	. 02146)	; &ZOB-2146;
     (<-Oracle-Bones
@@ -22577,7 +22577,7 @@
     ))
 (define-char
   '((shuowen-radical	. 273)	; 㝱
-    (sources		zob1968=0445 zob1968=0448 zob1968=0551 zob1968=3071)
+    (sources		zob1959=0445 zob1959=0448 zob1959=0551 zob1959=3071)
     (zinbun-oracle-page . 102)
     (=zinbun-oracle	. 02152)	; &ZOB-2152;
     (<-Oracle-Bones
@@ -22610,9 +22610,9 @@
      ((=>zinbun-oracle	  . 02155)	; &A-ZOB-2155;
       ))
     (shuowen-radical	. 274)	; 𤕫
-    (sources		zob1968=0438 zob1968=0439-0443 zob1968=0446
-			zob1968=0447 zob1968=0896 zob1968=1779 zob1968=3016
-			zob1968=3176 zob1968=3239)
+    (sources		zob1959=0438 zob1959=0439-0443 zob1959=0446
+			zob1959=0447 zob1959=0896 zob1959=1779 zob1959=3016
+			zob1959=3176 zob1959=3239)
     (zinbun-oracle-page . 102)
     (=zinbun-oracle	. 02155)	; &ZOB-2155;
     ))
@@ -22621,19 +22621,19 @@
      ((=>zinbun-oracle	  . 02155)	; &A-ZOB-2155;
       ))
     (shuowen-radical	. 274)	; 𤕫
-    (sources		zob1968=1641)
+    (sources		zob1959=1641)
     (zinbun-oracle-page . 102)
     (=zinbun-oracle	. 02156)	; &ZOB-2156;
     ))
 (define-char
   '((shuowen-radical	. 274)	; 𤕫
-    (sources		zob1968=0449 zob1968=0468 zob1968=0990)
+    (sources		zob1959=0449 zob1959=0468 zob1959=0990)
     (zinbun-oracle-page . 102)
     (=zinbun-oracle	. 02157)	; &ZOB-2157;
     ))
 (define-char
   '((shuowen-radical	. 274)	; 𤕫
-    (sources		zob1968=0457)
+    (sources		zob1959=0457)
     (zinbun-oracle-page . 102)
     (=zinbun-oracle	. 02158)	; &ZOB-2158;
     ))
@@ -22739,13 +22739,13 @@
     ))
 (define-char
   '((shuowen-radical	. 276)	; 𠔼
-    (sources		zob1968=0245)
+    (sources		zob1959=0245)
     (zinbun-oracle-page . 103)
     (=zinbun-oracle	. 02179)	; &ZOB-2179;
     ))
 (define-char
   '((shuowen-radical	. 276)	; 𠔼
-    (sources		zob1968=3016)
+    (sources		zob1959=3016)
     (zinbun-oracle-page . 103)
     (=zinbun-oracle	. 02180)	; &ZOB-2180;
     (<-Oracle-Bones
@@ -22762,7 +22762,7 @@
     ))
 (define-char
   '((shuowen-radical	. 276)	; 𠔼
-    (sources		zob1968=0189 zob1968=3250)
+    (sources		zob1959=0189 zob1959=3250)
     (zinbun-oracle-page . 103)
     (=zinbun-oracle	. 02182)	; &ZOB-2182;
     (<-Oracle-Bones
@@ -22790,7 +22790,7 @@
     ))
 (define-char
   '((shuowen-radical	. 278)	; 㒳
-    (sources		zob1968=1868)
+    (sources		zob1959=1868)
     (zinbun-oracle-page . 104)
     (=zinbun-oracle	. 02185)	; &ZOB-2185;
     (<-Oracle-Bones
@@ -22828,7 +22828,7 @@
     ))
 (define-char
   '((shuowen-radical	. 279)	; 网
-    (sources		zob1968=0289)
+    (sources		zob1959=0289)
     (zinbun-oracle-page . 104)
     (=zinbun-oracle	. 02190)	; &ZOB-2190;
     (<-Oracle-Bones
@@ -22837,13 +22837,13 @@
     ))
 (define-char
   '((shuowen-radical	. 279)	; 网
-    (sources		zob1968=2138)
+    (sources		zob1959=2138)
     (zinbun-oracle-page . 104)
     (=zinbun-oracle	. 02192)	; &ZOB-2192;
     ))
 (define-char
   '((shuowen-radical	. 279)	; 网
-    (sources		zob1968=0455 zob1968=2111 zob1968=2116)
+    (sources		zob1959=0455 zob1959=2111 zob1959=2116)
     (zinbun-oracle-page . 104)
     (=zinbun-oracle	. 02193)	; &ZOB-2193;
     (<-Oracle-Bones
@@ -22865,7 +22865,7 @@
     ))
 (define-char
   '((shuowen-radical	. 279)	; 网
-    (sources		zob1968=0291 zob1968=0305 zob1968=0675 zob1968=0766)
+    (sources		zob1959=0291 zob1959=0305 zob1959=0675 zob1959=0766)
     (zinbun-oracle-page . 104)
     (=zinbun-oracle	. 02195)	; &ZOB-2195;
     (<-Oracle-Bones
@@ -22928,10 +22928,10 @@
     ))
 (define-char
   '((shuowen-radical	. 281)	; 巾
-    (sources		zob1968=0119 zob1968=0124 zob1968=0286 zob1968=0401
-			zob1968=0417 zob1968=0459 zob1968=0466 zob1968=0679
-			zob1968=0835 zob1968=0957 zob1968=1073 zob1968=1101
-			zob1968=3025 zob1968=3170)
+    (sources		zob1959=0119 zob1959=0124 zob1959=0286 zob1959=0401
+			zob1959=0417 zob1959=0459 zob1959=0466 zob1959=0679
+			zob1959=0835 zob1959=0957 zob1959=1073 zob1959=1101
+			zob1959=3025 zob1959=3170)
     (zinbun-oracle-page . 104)
     (=zinbun-oracle	. 02203)	; &ZOB-2203;
     (<-Oracle-Bones
@@ -23188,7 +23188,7 @@
     ))
 (define-char
   '((shuowen-radical	. 281)	; 巾
-    (sources		zob1968=0053)
+    (sources		zob1959=0053)
     (zinbun-oracle-page . 105)
     (=zinbun-oracle	. 02221)	; &ZOB-2221;
     (<-Oracle-Bones
@@ -23275,8 +23275,8 @@
     ))
 (define-char
   '((shuowen-radical	. 281)	; 巾
-    (sources		zob1968=0463 zob1968=0465 zob1968=0989 zob1968=0992
-			zob1968=3251)
+    (sources		zob1959=0463 zob1959=0465 zob1959=0989 zob1959=0992
+			zob1959=3251)
     (zinbun-oracle-page . 105)
     (=zinbun-oracle	. 02227)	; &ZOB-2227;
     (<-Oracle-Bones
@@ -23325,8 +23325,8 @@
     ))
 (define-char
   '((shuowen-radical	. 281)	; 巾
-    (sources		zob1968=0277 zob1968=0278 zob1968=0460 zob1968=0461
-			zob1968=0462)
+    (sources		zob1959=0277 zob1959=0278 zob1959=0460 zob1959=0461
+			zob1959=0462)
     (zinbun-oracle-page . 106)
     (=zinbun-oracle	. 02231)	; &ZOB-2231;
     (<-Oracle-Bones
@@ -23474,7 +23474,7 @@
     ))
 (define-char
   '((shuowen-radical	. 281)	; 巾
-    (sources		zob1968=3166)
+    (sources		zob1959=3166)
     (zinbun-oracle-page . 106)
     (=zinbun-oracle	. 02238)	; &ZOB-2238;
     (<-Oracle-Bones
@@ -23545,19 +23545,19 @@
     ))
 (define-char
   '((shuowen-radical	. 281)	; 巾
-    (sources		zob1968=1091)
+    (sources		zob1959=1091)
     (zinbun-oracle-page . 106)
     (=zinbun-oracle	. 02242)	; &ZOB-2242;
     ))
 (define-char
   '((shuowen-radical	. 281)	; 巾
-    (sources		zob1968=1092)
+    (sources		zob1959=1092)
     (zinbun-oracle-page . 106)
     (=zinbun-oracle	. 02243)	; &ZOB-2243;
     ))
 (define-char
   '((shuowen-radical	. 281)	; 巾
-    (sources		zob1968=0459)
+    (sources		zob1959=0459)
     (zinbun-oracle-page . 106)
     (=zinbun-oracle	. 02244)	; &ZOB-2244;
     ))
@@ -23593,7 +23593,7 @@
     ))
 (define-char
   '((shuowen-radical	. 281)	; 巾
-    (sources		zob1968=3245)
+    (sources		zob1959=3245)
     (zinbun-oracle-page . 106)
     (=zinbun-oracle	. 02251)	; &ZOB-2251;
     (<-Oracle-Bones
@@ -23620,7 +23620,7 @@
     ))
 (define-char
   '((shuowen-radical	. 281)	; 巾
-    (sources		zob1968=0131 zob1968=1628)
+    (sources		zob1959=0131 zob1959=1628)
     (zinbun-oracle-page . 107)
     (=zinbun-oracle	. 02255)	; &ZOB-2255;
     ))
@@ -23658,7 +23658,7 @@
      ((=>zinbun-oracle	  . 02258)	; &A-ZOB-2258;
       ))
     (shuowen-radical	. 284)	; 白
-    (sources		zob1968=0001 zob1968=1860 zob1968=3062)
+    (sources		zob1959=0001 zob1959=1860 zob1959=3062)
     (zinbun-oracle-page . 107)
     (=zinbun-oracle	. 02258)	; &ZOB-2258;
     (<-Oracle-Bones
@@ -23675,7 +23675,7 @@
       )
      ((=zinbun-oracle	  . 00293)	; &ZOB-0293;
       ))
-    (sources		zob1968=0001)
+    (sources		zob1959=0001)
     (zinbun-oracle-page . 107)
     (=zinbun-oracle	. 02259)	; &ZOB-2259;
     (<-Oracle-Bones
@@ -23696,7 +23696,7 @@
       )
      ((=zinbun-oracle	  . 01302)	; &ZOB-1302;
       ))
-    (sources		zob1968=3031)
+    (sources		zob1959=3031)
     (zinbun-oracle-page . 107)
     (=zinbun-oracle	. 02260)	; &ZOB-2260;
     (<-Oracle-Bones
@@ -23824,7 +23824,7 @@
       )
      ((=ucs		  . #x72AC)	; 犬
       ))
-    (sources		zob1968=1860)
+    (sources		zob1959=1860)
     (zinbun-oracle-page . 107)
     (=zinbun-oracle	. 02266)	; &ZOB-2266;
     (<-Oracle-Bones
@@ -23954,7 +23954,7 @@
       )
      ((=ucs		  . #x5C6E)	; 屮
       ))
-    (sources		zob1968=2269)
+    (sources		zob1959=2269)
     (zinbun-oracle-page . 107)
     (=zinbun-oracle	. 02273)	; &ZOB-2273;
     ))
@@ -23984,15 +23984,15 @@
     ))
 (define-char
   '((shuowen-radical	. 287)	; 人
-    (sources		zob1968=0122 zob1968=0268 zob1968=0269 zob1968=0338
-			zob1968=0345 zob1968=0400 zob1968=0433 zob1968=0449
-			zob1968=0621 zob1968=0636 zob1968=0723 zob1968=1310
-			zob1968=1350 zob1968=1357 zob1968=1887-1890
-			zob1968=1893 zob1968=2141 zob1968=2147 zob1968=2154
-			zob1968=2219 zob1968=2289 zob1968=2307 zob1968=2345
-			zob1968=2359 zob1968=2894 zob1968=3050 zob1968=3053
-			zob1968=3057 zob1968=3124 zob1968=3146 zob1968=3167
-			zob1968=3246)
+    (sources		zob1959=0122 zob1959=0268 zob1959=0269 zob1959=0338
+			zob1959=0345 zob1959=0400 zob1959=0433 zob1959=0449
+			zob1959=0621 zob1959=0636 zob1959=0723 zob1959=1310
+			zob1959=1350 zob1959=1357 zob1959=1887-1890
+			zob1959=1893 zob1959=2141 zob1959=2147 zob1959=2154
+			zob1959=2219 zob1959=2289 zob1959=2307 zob1959=2345
+			zob1959=2359 zob1959=2894 zob1959=3050 zob1959=3053
+			zob1959=3057 zob1959=3124 zob1959=3146 zob1959=3167
+			zob1959=3246)
     (zinbun-oracle-page . 108)
     (=zinbun-oracle	. 02276)	; &ZOB-2276;
     (<-Oracle-Bones
@@ -24009,7 +24009,7 @@
       )
      ((=ucs		  . #x65B9)	; 方
       ))
-    (sources		zob1968=2144 zob1968=2947)
+    (sources		zob1959=2144 zob1959=2947)
     (zinbun-oracle-page . 108)
     (=zinbun-oracle	. 02277)	; &ZOB-2277;
     (<-Oracle-Bones
@@ -24022,7 +24022,7 @@
     ))
 (define-char
   '((shuowen-radical	. 287)	; 人
-    (sources		zob1968=3016)
+    (sources		zob1959=3016)
     (zinbun-oracle-page . 108)
     (=zinbun-oracle	. 02278)	; &ZOB-2278;
     ))
@@ -24054,7 +24054,7 @@
       )
      ((=gt-k		  . 01160)	; &GT-K01160;
       ))
-    (sources		zob1968=0686)
+    (sources		zob1959=0686)
     (zinbun-oracle-page . 108)
     (=zinbun-oracle	. 02281)	; &ZOB-2281;
     (<-Oracle-Bones
@@ -24114,7 +24114,7 @@
       )
      ((=zinbun-oracle	  . 00936)	; &ZOB-0936;
       ))
-    (sources		zob1968=1555 zob1968=1833 zob1968=2386 zob1968=3030)
+    (sources		zob1959=1555 zob1959=1833 zob1959=2386 zob1959=3030)
     (zinbun-oracle-page . 108)
     (=zinbun-oracle	. 02285)	; &ZOB-2285;
     (<-Oracle-Bones
@@ -24131,7 +24131,7 @@
       )
      ((=zinbun-oracle	  . 00936)	; &ZOB-0936;
       ))
-    (sources		zob1968=2998)
+    (sources		zob1959=2998)
     (zinbun-oracle-page . 108)
     (=zinbun-oracle	. 02286)	; &ZOB-2286;
     (<-Oracle-Bones
@@ -24184,9 +24184,9 @@
     ))
 (define-char
   '((shuowen-radical	. 287)	; 人
-    (sources		zob1968=0985 zob1968=1690 zob1968=1691 zob1968=1697
-			zob1968=1740-1743 zob1968=1758 zob1968=1760
-			zob1968=1768-1772 zob1968=2504)
+    (sources		zob1959=0985 zob1959=1690 zob1959=1691 zob1959=1697
+			zob1959=1740-1743 zob1959=1758 zob1959=1760
+			zob1959=1768-1772 zob1959=2504)
     (zinbun-oracle-page . 108)
     (=zinbun-oracle	. 02291)	; &ZOB-2291;
     (<-Oracle-Bones
@@ -24305,18 +24305,18 @@
      ((=>zinbun-oracle	  . 02305)	; &A-ZOB-2305;
       ))
     (shuowen-radical	. 287)	; 人
-    (sources		zob1968=0111 zob1968=0331 zob1968=0340 zob1968=0348
-			zob1968=0358 zob1968=0361 zob1968=0363 zob1968=0411
-			zob1968=0767 zob1968=0891 zob1968=0892 zob1968=0893
-			zob1968=0901 zob1968=0902 zob1968=0905 zob1968=0910
-			zob1968=1780 zob1968=1781 zob1968=1789 zob1968=1793
-			zob1968=1815 zob1968=1892 zob1968=2100 zob1968=2142
-			zob1968=2146 zob1968=2149 zob1968=2265 zob1968=2277
-			zob1968=2302 zob1968=2303 zob1968=2307 zob1968=2317
-			zob1968=2319 zob1968=2327 zob1968=2334 zob1968=2366
-			zob1968=2523 zob1968=2525 zob1968=2574 zob1968=2601
-			zob1968=3002 zob1968=3016 zob1968=3046 zob1968=3047
-			zob1968=3048 zob1968=3051 zob1968=3220 zob1968=3226)
+    (sources		zob1959=0111 zob1959=0331 zob1959=0340 zob1959=0348
+			zob1959=0358 zob1959=0361 zob1959=0363 zob1959=0411
+			zob1959=0767 zob1959=0891 zob1959=0892 zob1959=0893
+			zob1959=0901 zob1959=0902 zob1959=0905 zob1959=0910
+			zob1959=1780 zob1959=1781 zob1959=1789 zob1959=1793
+			zob1959=1815 zob1959=1892 zob1959=2100 zob1959=2142
+			zob1959=2146 zob1959=2149 zob1959=2265 zob1959=2277
+			zob1959=2302 zob1959=2303 zob1959=2307 zob1959=2317
+			zob1959=2319 zob1959=2327 zob1959=2334 zob1959=2366
+			zob1959=2523 zob1959=2525 zob1959=2574 zob1959=2601
+			zob1959=3002 zob1959=3016 zob1959=3046 zob1959=3047
+			zob1959=3048 zob1959=3051 zob1959=3220 zob1959=3226)
     (zinbun-oracle-page . 109)
     (=zinbun-oracle	. 02305)	; &ZOB-2305;
     ))
@@ -24325,7 +24325,7 @@
      ((=>zinbun-oracle	  . 02305)	; &A-ZOB-2305;
       ))
     (shuowen-radical	. 287)	; 人
-    (sources		zob1968=2476)
+    (sources		zob1959=2476)
     (zinbun-oracle-page . 109)
     (=zinbun-oracle	. 02306)	; &ZOB-2306;
     ))
@@ -24378,7 +24378,7 @@
      ((=>zinbun-oracle	  . 02309)	; &A-ZOB-2309;
       ))
     (shuowen-radical	. 287)	; 人
-    (sources		zob1968=0987 zob1968=2993)
+    (sources		zob1959=0987 zob1959=2993)
     (zinbun-oracle-page . 109)
     (=zinbun-oracle	. 02310)	; &ZOB-2310;
     ))
@@ -24564,7 +24564,7 @@
     ))
 (define-char
   '((shuowen-radical	. 289)	; 匕
-    (sources		zob1968=0984 zob1968=1824 zob1968=3068 zob1968=3077)
+    (sources		zob1959=0984 zob1959=1824 zob1959=3068 zob1959=3077)
     (zinbun-oracle-page . 111)
     (=zinbun-oracle	. 02343)	; &ZOB-2343;
     (<-Oracle-Bones
@@ -24609,7 +24609,7 @@
     ))
 (define-char
   '((shuowen-radical	. 289)	; 匕
-    (sources		zob1968=0735 zob1968=2300)
+    (sources		zob1959=0735 zob1959=2300)
     (zinbun-oracle-page . 111)
     (=zinbun-oracle	. 02347)	; &ZOB-2347;
     (<-Oracle-Bones
@@ -24661,7 +24661,7 @@
      ((=>zinbun-oracle	  . 02350)	; &A-ZOB-2350;
       ))
     (shuowen-radical	. 289)	; 匕
-    (sources		zob1968=1791 zob1968=3017 zob1968=3025)
+    (sources		zob1959=1791 zob1959=3017 zob1959=3025)
     (zinbun-oracle-page . 111)
     (=zinbun-oracle	. 02350)	; &ZOB-2350;
     ))
@@ -24670,8 +24670,8 @@
      ((=>zinbun-oracle	  . 02350)	; &A-ZOB-2350;
       ))
     (shuowen-radical	. 289)	; 匕
-    (sources		zob1968=0036 zob1968=0046 zob1968=0050 zob1968=2308
-			zob1968=3002 zob1968=3023 zob1968=3024 zob1968=3240)
+    (sources		zob1959=0036 zob1959=0046 zob1959=0050 zob1959=2308
+			zob1959=3002 zob1959=3023 zob1959=3024 zob1959=3240)
     (zinbun-oracle-page . 111)
     (=zinbun-oracle	. 02351)	; &ZOB-2351;
     ))
@@ -24692,7 +24692,7 @@
      ((=>zinbun-oracle	  . 02352)	; &A-ZOB-2352;
       ))
     (shuowen-radical	. 289)	; 匕
-    (sources		zob1968=1550 zob1968=1684 zob1968=1818 zob1968=2584)
+    (sources		zob1959=1550 zob1959=1684 zob1959=1818 zob1959=2584)
     (zinbun-oracle-page . 111)
     (=zinbun-oracle	. 02352)	; &ZOB-2352;
     ))
@@ -24701,7 +24701,7 @@
      ((=>zinbun-oracle	  . 02352)	; &A-ZOB-2352;
       ))
     (shuowen-radical	. 289)	; 匕
-    (sources		zob1968=1822 zob1968=3020 zob1968=3021)
+    (sources		zob1959=1822 zob1959=3020 zob1959=3021)
     (zinbun-oracle-page . 111)
     (=zinbun-oracle	. 02353)	; &ZOB-2353;
     ))
@@ -24722,7 +24722,7 @@
      ((=>zinbun-oracle	  . 02354)	; &A-ZOB-2354;
       ))
     (shuowen-radical	. 289)	; 匕
-    (sources		zob1968=1819 zob1968=1820 zob1968=1823 zob1968=2296)
+    (sources		zob1959=1819 zob1959=1820 zob1959=1823 zob1959=2296)
     (zinbun-oracle-page . 111)
     (=zinbun-oracle	. 02354)	; &ZOB-2354;
     ))
@@ -24731,13 +24731,13 @@
      ((=>zinbun-oracle	  . 02354)	; &A-ZOB-2354;
       ))
     (shuowen-radical	. 289)	; 匕
-    (sources		zob1968=3022)
+    (sources		zob1959=3022)
     (zinbun-oracle-page . 111)
     (=zinbun-oracle	. 02355)	; &ZOB-2355;
     ))
 (define-char
   '((shuowen-radical	. 289)	; 匕
-    (sources		zob1968=2567 zob1968=2585 zob1968=3004)
+    (sources		zob1959=2567 zob1959=2585 zob1959=3004)
     (zinbun-oracle-page . 111)
     (=zinbun-oracle	. 02356)	; &ZOB-2356;
     (<-Oracle-Bones
@@ -24765,7 +24765,7 @@
      ((=>zinbun-oracle	  . 02357)	; &A-ZOB-2357;
       ))
     (shuowen-radical	. 289)	; 匕
-    (sources		zob1968=2586)
+    (sources		zob1959=2586)
     (zinbun-oracle-page . 111)
     (=zinbun-oracle	. 02357)	; &ZOB-2357;
     ))
@@ -24774,7 +24774,7 @@
      ((=>zinbun-oracle	  . 02357)	; &A-ZOB-2357;
       ))
     (shuowen-radical	. 289)	; 匕
-    (sources		zob1968=0051 zob1968=1821 zob1968=2999 zob1968=3026)
+    (sources		zob1959=0051 zob1959=1821 zob1959=2999 zob1959=3026)
     (zinbun-oracle-page . 111)
     (=zinbun-oracle	. 02358)	; &ZOB-2358;
     ))
@@ -24804,16 +24804,16 @@
     ))
 (define-char
   '((shuowen-radical	. 290)	; 从
-    (sources		zob1968=0165 zob1968=0294 zob1968=0306 zob1968=0331
-			zob1968=0338 zob1968=0379 zob1968=0389 zob1968=0412
-			zob1968=0423 zob1968=0427 zob1968=0428 zob1968=0450
-			zob1968=0814 zob1968=0906 zob1968=0907 zob1968=0908
-			zob1968=0910 zob1968=0915 zob1968=0917 zob1968=0919
-			zob1968=0961 zob1968=0970 zob1968=1118 zob1968=1952
-			zob1968=2044 zob1968=2056 zob1968=2061 zob1968=2077
-			zob1968=2091 zob1968=2119 zob1968=2120 zob1968=2135
-			zob1968=2155 zob1968=2156 zob1968=2157 zob1968=2391
-			zob1968=2527 zob1968=3135 zob1968=3145)
+    (sources		zob1959=0165 zob1959=0294 zob1959=0306 zob1959=0331
+			zob1959=0338 zob1959=0379 zob1959=0389 zob1959=0412
+			zob1959=0423 zob1959=0427 zob1959=0428 zob1959=0450
+			zob1959=0814 zob1959=0906 zob1959=0907 zob1959=0908
+			zob1959=0910 zob1959=0915 zob1959=0917 zob1959=0919
+			zob1959=0961 zob1959=0970 zob1959=1118 zob1959=1952
+			zob1959=2044 zob1959=2056 zob1959=2061 zob1959=2077
+			zob1959=2091 zob1959=2119 zob1959=2120 zob1959=2135
+			zob1959=2155 zob1959=2156 zob1959=2157 zob1959=2391
+			zob1959=2527 zob1959=3135 zob1959=3145)
     (zinbun-oracle-page . 111)
     (=zinbun-oracle	. 02361)	; &ZOB-2361;
     (<-Oracle-Bones
@@ -24838,9 +24838,9 @@
     ))
 (define-char
   '((shuowen-radical	. 292)	; 北
-    (sources		zob1968=0080 zob1968=0784 zob1968=1920 zob1968=3016
-			zob1968=3055 zob1968=3089 zob1968=3099 zob1968=3113
-			zob1968=3132 zob1968=3191)
+    (sources		zob1959=0080 zob1959=0784 zob1959=1920 zob1959=3016
+			zob1959=3055 zob1959=3089 zob1959=3099 zob1959=3113
+			zob1959=3132 zob1959=3191)
     (zinbun-oracle-page . 111)
     (=zinbun-oracle	. 02364)	; &ZOB-2364;
     (<-Oracle-Bones
