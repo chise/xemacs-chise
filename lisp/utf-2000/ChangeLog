@@ -1,3 +1,52 @@
+2014-05-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Oracle-Bones.el: Use `zob1959' instead of `zob1968'.
+
+2014-05-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R115-Grain.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some representative
+	  (detailed) glyph-images of Hanyo-Denshi/{JA|JB|JD}.
+	(A-M-25032): New abstract node.
+	(M-25032): Unify H7-C45D; add `<-denotational' for A-M-25032.
+	(U-0002579B): Add `<-denotational' for A-M-25032; omit `<-unknown'
+	for M-25032.
+	(U+414A): Apply new glyph-image conventions.
+	(U+7A01): Likewise.
+	(U+7A11): Use `->denotational' instead of `->subsumptive'.
+	(U+7A1C): Likewise.
+	(J0-6347): Separate K0-7056.
+	(C1-6560): Unify K0-7056.
+	(U-00025802): Integrate M-25161, H7-C9A2 and CB09305.
+	(U+7A3E): Apply new glyph-image conventions.
+	(U+7A3F): Likewise.
+	(A-HDU+7A42): New abstract node.
+	(U+7A42): Add `<-denotational' for A-HDU+7A42.
+	(U+7A43): Apply new glyph-image conventions.
+	(U+4177): Use `->denotational' instead of `->subsumptive'.
+	(U+4178): Likewise.
+	(U+4179): Integrate M-25260.
+	(U+417B): Apply new glyph-image conventions.
+	(U+417C): Use `->denotational' instead of `->subsumptive'.
+	(A-HDU+7A50): New abstract node.
+	(U+7A50): Add `<-denotational' for A-HDU+7A50.
+	(U+7A54): Use `->denotational' instead of `->subsumptive'.
+	(U+7A55): Apply new glyph-image conventions.
+	(U+417F): Use `->denotational' instead of `->subsumptive'.
+	(U-0002588E): Likewise.
+	(A-HDU+7A57): New abstract node.
+	(U+7A57): Add `<-denotational' for A-HDU+7A57.
+	(U-000258DD): Use `->denotational' instead of `->subsumptive'.
+	(U-000258DE): Likewise.
+	(U+4189): Integrate M-25368.
+	(U-000258F0): Apply new glyph-image conventions.
+	(U+7A6E): Likewise.
+	(U-00025902): Likewise.
+	(U+418D): Likewise.
+	(U-00025906): Likewise.
+	(U-0002590A): Use `->denotational' instead of `->subsumptive'.
+
 2014-05-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R113-Spirit.el:
