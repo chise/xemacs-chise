@@ -5384,8 +5384,8 @@
 	)
        ((=ucs		    . #x5DFE)	; 巾
 	)
-       ((=ucs@unicode	    . #x7AE0)	; &GT-33228;
-	(=jis-x0208	    . #x3E4F)	; &GT-33228; [30-47]
+       ((=ucs@unicode	    . #x7AE0)	; &HD-JA-3E4F;
+	(=jis-x0208	    . #x3E4F)	; &HD-JA-3E4F; [30-47]
 	(=gb2312	    . #x5542)	; &I-G0-5542; [53-34]
 	(=ks-x1001	    . #x6D71)	; &I-K0-6D71; [77-81]
 	(=cns11643-1	    . #x5D7D)	; &I-C1-5D7D; [61-93]
@@ -5411,9 +5411,9 @@
 	  )
 	 ((=ucs		      . #x5DFE)	; 巾
 	  )
-	 ((==ucs@jis	      . #x7AE0)	; &R-GT-33228;
-	  (==ucs@ks	      . #x7AE0)	; &R-GT-33228;
-	  (==jis-x0208	      . #x3E4F)	; &R-GT-33228; [30-47]
+	 ((==ucs@jis	      . #x7AE0)	; &R-HD-JA-3E4F;
+	  (==ucs@ks	      . #x7AE0)	; &R-HD-JA-3E4F;
+	  (==jis-x0208	      . #x3E4F)	; &R-HD-JA-3E4F; [30-47]
 	  ))
 	(==ucs@jis	    . #x5E5B)	; &R-AJ1-19343;
 	(==adobe-japan1-5   . 19343)	; &R-AJ1-19343;
