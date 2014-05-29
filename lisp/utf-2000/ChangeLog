@@ -1,3 +1,7 @@
+2014-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R116-Cave.el: Add Hanyo-Denshi/JA code points.
+
 2014-05-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Oracle-Bones.el: Use `zob1959' instead of `zob1968'.
