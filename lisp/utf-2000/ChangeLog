@@ -1,3 +1,17 @@
+2014-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R117-Stand.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some representative
+	  (detailed) glyph-images of Hanyo-Denshi/{JA|JB}.
+	(U-00025A73): Apply new glyph-image conventions.
+	(U+7AE2): Likewise.
+
+2014-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+50B9): Apply new glyph-image
+	conventions.
+
 2014-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R116-Cave.el: Add Hanyo-Denshi/JA code points.
