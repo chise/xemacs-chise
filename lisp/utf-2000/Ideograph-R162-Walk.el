@@ -7623,7 +7623,7 @@
     (=daikanwa		. 38888)	; &I-M-38888;
     (=jef-china3	. #x67C5)	; &I-JC3-67C5;
     (<-same
-     ((=ucs@jis		  . #x7AE2)	; &GT-33237;
+     ((=ucs@unicode	  . #x7AE2)	; &GT-33237;
       (=jis-x0208	  . #x636F)	; &GT-33237; [67-79]
       (=jis-x0213-1	  . #x636F)	; &I-JX1-636F; [67-79]
       (=daikanwa	  . 25770)	; &I-M-25770;
