@@ -1,3 +1,7 @@
+2014-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Oracle-Bones.el (ZOB-{02367..02380}): New characters.
+
 2014-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R117-Stand.el:
