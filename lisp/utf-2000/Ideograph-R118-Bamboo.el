@@ -2694,6 +2694,11 @@
       )
      ((ideographic-strokes . 6)
       (total-strokes	   . 11)
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x7B6C)	; 筬
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
       (=ucs@unicode	  . #x7B6C)	; &HD-JA-642D;
       (=jis-x0208	  . #x642D)	; &HD-JA-642D; [68-13]
       (=ks-x1001	  . #x607E)	; &I-K0-607E; [64-94]
@@ -12324,6 +12329,19 @@
     (=hanyo-denshi/ja	. #x645C)	; &I-HD-JA-645C; [68-60]
     (=gt		. 34490)	; &I-GT-34490;
     (=gt-pj-1		. #x645C)	; &I-GT-34490; [68-60]
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7C58)	; 籘
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@jis	  . #x7C58)	; &R-HD-JA-645C;
+      (==jis-x0208	  . #x645C)	; &R-HD-JA-645C; [68-60]
+      (==jis-x0213-1	  . #x645C)	; &R-HD-JA-645C; [68-60]
+      (==hanyo-denshi/ja  . #x645C)	; &R-HD-JA-645C; [68-60]
+      )
+     ((==gt		  . 34490)	; &R-GT-34490;
+      ))
     ))
 (define-char
   '((<-denotational
