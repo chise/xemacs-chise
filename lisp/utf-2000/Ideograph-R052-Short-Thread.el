@@ -431,6 +431,33 @@
     (=ucs		. #x386D)	; 㡭
     (->subsumptive
      ((=daikanwa	  . 09215)	; &M-09215;
+      (=shinjigen	  .  6056)	; &M-09215;
+      (<-formed
+       ((=daikanwa	    . 27997)	; &M-27997;
+	))
+      (<-formed*sources
+       shuowen)
+      (<-original@shinjigen/1ed
+       ((=ucs@jis	    . #x7E7C)	; &HD-JA-656B;
+	(=ucs@ks	    . #x7E7C)	; &HD-JA-656B;
+	(=jis-x0208	    . #x656B)	; &HD-JA-656B; [69-75]
+	(=ks-x1001	    . #x4D29)	; &I-K0-4D29; [45-09]
+	(=jis-x0213-1	    . #x656B)	; &I-JX1-656B; [69-75]
+	(=shinjigen@1ed	    .  6055)	; &HD-JA-656B;
+	))
+      (<-original@shinjigen/1ed*sources
+       shinjigen@1ed)
+      (<-original@shinjigen/rev
+       ((=daikanwa	    . 27997)	; &M-27997;
+	(=shinjigen@rev	    .  6055)	; &M-27997;
+	))
+      (<-original@shinjigen/rev*sources
+       shinjigen@rev)
+      (<-same
+       ((=daikanwa	    . 27997)	; &M-27997;
+	))
+      (<-same*sources
+       shuowen daikanwa)
       )
      ((=ucs@unicode	  . #x386D)	; &C3-465E;
       (=cns11643-3	  . #x465E)	; &C3-465E; [38-62]
@@ -443,6 +470,12 @@
      ((ideographic-strokes . 11)
       (total-strokes	   . 14)
       (=daikanwa	  . 09216)	; &M-09216;
+      (<-ancient
+       ((=gt		    . 35333)	; &GT-35333;
+	(=daikanwa	    . 27407)	; &I-M-27407;
+	))
+      (<-ancient*sources
+       shuowen daikanwa)
       )
      ((ideographic-strokes . 12)
       (total-strokes	   . 15)
