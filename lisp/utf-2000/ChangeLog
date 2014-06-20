@@ -1,3 +1,12 @@
+2014-06-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R120-Silk.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some representative
+	  (detailed) glyph-images of Hanyo-Denshi/{JA|JB}.
+	(JSP-5373): Unify S-6050; add `<-vulgar' for J0-457D.
+	(J0-466C): Add `<-vulgar' for J0-656A.
+
 2014-06-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R052-Short-Thread.el (M-09215): Unify S-6056; add
