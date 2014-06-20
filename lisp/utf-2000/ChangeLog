@@ -1,3 +1,15 @@
+2014-06-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R052-Short-Thread.el (M-09215): Unify S-6056; add
+	`<-formed' and `<-same' for M-27997; add
+	`<-original@shinjigen/1ed' for J0-656B; add
+	`<-original@shinjigen/rev' for M-27997.
+	(M-09216): Add `<-ancient' for GT-35333.
+
+2014-06-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (G-UU+55B2): Add ideographic-structure.
+
 2014-06-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R119-Rice.el:
