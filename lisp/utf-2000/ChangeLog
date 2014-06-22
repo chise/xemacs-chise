@@ -1,3 +1,15 @@
+2014-06-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Oracle-Bones.el (ZOB-{02381..02402}): New characters.
+
+	* Ideograph-R201-Yellow.el (U+9EC4): Use `->subsumptive' to
+	separate representative nodes.
+
+2014-06-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (shuowen-radicals): Add ?裘, ?老, ?毛, ?毳, ?尸,
+	?尺, ?尾, ?履, ?舟 and ?方.
+
 2014-06-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R120-Silk.el:
