@@ -308,6 +308,16 @@
     (=ucs		. #x26A15)	; 𦨕
     (=cns11643-6	. #x3B4A)	; &I-C6-3B4A; [27-42]
     (=daikanwa		. 30371)	; &I-M-30371;
+    (=hanziku-8		. #xCFF4)	; &I-HZK08-CFF4;
+    (=cbeta		. 08817)	; &I-CB08817;
+    (->subsumptive
+     ((==daikanwa	  . 30371)	; &R-M-30371;
+      )
+     ((==ucs@iso	  . #x26A15)	; &R-U-00026A15;
+      )
+     ((==ucs@cns	  . #x26A15)	; &R-CU+26A15;
+      (==cns11643-6	  . #x3B4A)	; &R-CU+26A15; [27-42]
+      ))
     ))
 (define-char
   '((ideographic-radical . 137)	; ⾈
