@@ -1,3 +1,12 @@
+2014-06-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Oracle-Bones.el (A-ZOB-01237): New abstract character.
+	(ZOB-01237): Add `<-denotational' for A-ZOB-01237.
+	(ZOB-{02403..02486}): New characters.
+
+	* char-db-util.el (shuowen-radicals): Add ?儿, ?兄, ?兂, ?皃, ?𠑹,
+	?先, ?秃, ?見, ?覞 and ?欠.
+
 2014-06-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R137-Boat.el (U-00026A15): Unify H8-CFF4 and CB08817;
