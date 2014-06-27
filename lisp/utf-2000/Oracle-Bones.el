@@ -25891,3 +25891,92 @@
     (zinbun-oracle-page . 117)
     (=zinbun-oracle	. 02486)	; &ZOB-2486;
     ))
+(define-char
+  '((shuowen-radical	. 321)	; 㱃
+    (zinbun-oracle-page . 117)
+    (=zinbun-oracle	. 02487)	; &ZOB-2487;
+    (<-Oracle-Bones
+     ((=ucs		  . #x3C43)	; 㱃
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 321)	; 㱃
+    (zinbun-oracle-page . 117)
+    (=zinbun-oracle	. 02488)	; &ZOB-2488;
+    ))
+(define-char
+  '((shuowen-radical	. 321)	; 㱃
+    (zinbun-oracle-page . 117)
+    (=zinbun-oracle	. 02489)	; &ZOB-2489;
+    ))
+(define-char
+  '((shuowen-radical	. 322)	; 㳄
+    (zinbun-oracle-page . 117)
+    (=zinbun-oracle	. 02490)	; &ZOB-2490;
+    (<-Oracle-Bones
+     ((=ucs		  . #x76D7)	; 盗
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 323)	; 旡
+    (zinbun-oracle-page . 117)
+    (=zinbun-oracle	. 02491)	; &ZOB-2491;
+    (<-Oracle-Bones
+     ((=ucs		  . #x65E1)	; 旡
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 323)	; 旡
+    (zinbun-oracle-page . 117)
+    (=zinbun-oracle	. 02492)	; &ZOB-2492;
+    ))
+(define-char
+  '((shuowen-radical	. 323)	; 旡
+    (zinbun-oracle-page . 117)
+    (=zinbun-oracle	. 02493)	; &ZOB-2493;
+    ))
+(define-char
+  '((shuowen-radical	. 323)	; 旡
+    (zinbun-oracle-page . 117)
+    (=zinbun-oracle	. 02494)	; &ZOB-2494;
+    ))
+(define-char
+  '((shuowen-radical	. 324)	; 頁
+    (zinbun-oracle-page . 118)
+    (=zinbun-oracle	. 02495)	; &ZOB-2495;
+    (<-Oracle-Bones
+     ((=ucs		  . #x9801)	; 頁
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 324)	; 頁
+    (zinbun-oracle-page . 118)
+    (=zinbun-oracle	. 02496)	; &ZOB-2496;
+    (<-Oracle-Bones
+     ((=ucs		  . #x4ACF)	; 䫏
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 325)	; 𦣻
+    (zinbun-oracle-page . 118)
+    (=zinbun-oracle	. 02497)	; &ZOB-2497;
+    (<-Oracle-Bones
+     ((=ucs		  . #x268FB)	; 𦣻
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 326)	; 面
+    (zinbun-oracle-page . 118)
+    (=zinbun-oracle	. 02498)	; &ZOB-2498;
+    (<-Oracle-Bones
+     ((=ucs		  . #x9762)	; 面
+      ))
+    ))
+(define-char
+  '((shuowen-radical	. 330)	; 須
+    (zinbun-oracle-page . 118)
+    (=zinbun-oracle	. 02499)	; &ZOB-2499;
+    (<-Oracle-Bones
+     ((=ucs		  . #x9808)	; 須
+      ))
+    ))
