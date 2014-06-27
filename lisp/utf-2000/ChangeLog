@@ -1,3 +1,10 @@
+2014-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Oracle-Bones.el (ZOB-{02487..02499}): New characters.
+
+	* char-db-util.el (shuowen-radicals): Add ?㱃, ?㳄, ?旡, ?頁, ?𦣻,
+	?面, ?丏, ?首, ?𥄉 and ?須.
+
 2014-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R123-Sheep.el:
