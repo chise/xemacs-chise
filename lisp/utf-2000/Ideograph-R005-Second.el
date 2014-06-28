@@ -2276,10 +2276,10 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	  (=ucs		      . #x2FF0)	; ⿰
 	  )
-	 ((==ucs@jis/1990     . #x7FC1)	; &R-GT-36866;
-	  (==ucs@jis/2000     . #x7FC1)	; &R-GT-36866;
-	  (==ucs@jis/2004     . #x7FC1)	; &R-GT-36866;
-	  (==jis-x0213-1      . #x3227)	; &R-GT-36866; [18-07]
+	 ((==ucs@jis/1990     . #x7FC1)	; &R-HD-JA-3227;
+	  (==ucs@jis/2000     . #x7FC1)	; &R-HD-JA-3227;
+	  (==ucs@jis/2004     . #x7FC1)	; &R-HD-JA-3227;
+	  (==jis-x0213-1      . #x3227)	; &R-HD-JA-3227; [18-07]
 	  )
 	 ((=ucs		      . #x4E5A)	; 乚
 	  ))
