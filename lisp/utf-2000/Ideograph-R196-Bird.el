@@ -41,6 +41,15 @@
     ))
 (define-char
   '((ideographic-radical . 196)	; ⿃
+    (ideographic-strokes . 0)
+    (total-strokes	 . 7)
+    (=big5-cdp		. #x8CBB)	; &CDP-8CBB;
+    (<-simplified@component
+     ((=ucs		  . #x9CE5)	; 鳥
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 196)	; ⿃
     (ideographic-strokes . 1)
     (total-strokes	 . 12)
     (=ucs		. #x9CE6)	; 鳦
@@ -163,7 +172,7 @@
     (=gt-k		. 10368)	; &I-GT-K10368;
     (=gt-pj-1		. #x726A)	; &I-GT-63560; [82-74]
     (=daikanwa		. 46643)	; &I-M-46643;
-    (=shinjigen@rev	.  9648)	; 鳧
+    (=shinjigen		.  9648)	; 鳧
     ))
 (define-char
   '((ideographic-radical . 196)	; ⿃
@@ -178,6 +187,12 @@
     (=gt-k		. 05302)	; &I-GT-K05302;
     (=gt-pj-1		. #x726B)	; &I-GT-63540; [82-75]
     (=daikanwa		. 46644)	; &I-M-46644;
+    (<-vulgar
+     ((=ucs		  . #x9CE7)	; 鳧
+      (=daikanwa	  . 46643)	; &I-M-46643;
+      ))
+    (<-vulgar*sources
+     zhengzitong daikanwa)
     ))
 (define-char
   '((ideographic-radical . 196)	; ⿃
