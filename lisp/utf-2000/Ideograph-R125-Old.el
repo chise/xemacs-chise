@@ -52,6 +52,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=ucs		. #x8003)	; 考
+    (=>>hanyo-denshi/ja . #x394D)	; 考 [25-45]
     (=>>hanyo-denshi/ft . #x303C)	; 考 [16-28]
     (->subsumptive
      ((=decomposition@hanyo-denshi
@@ -67,15 +68,50 @@
       (=big5		  . #xA6D2)	; &I-B-A6D2;
       (=hanyo-denshi/ft	  . #x303C)	; &I-HD-FT-303C; [16-28]
       (=daikanwa	  . 28843)	; &I-M-28843;
+      (->subsumptive
+       ((==daikanwa	    . 28843)	; &R-M-28843;
+	)
+       ((==jis-x0208@1978   . #x394D)	; &R-HD-FT-303C; [25-45]
+	(==jis-x0208@1983   . #x394D)	; &R-HD-FT-303C; [25-45]
+	(==hanyo-denshi/ft  . #x303C)	; &R-HD-FT-303C; [16-28]
+	)
+       ((==ucs@cns	    . #x8003)	; &R-CU+8003;
+	(==cns11643-1	    . #x4853)	; &R-CU+8003; [40-51]
+	)
+       ((==ucs@unicode	    . #x8003)	; &R-UU+8003;
+	(==gb2312	    . #x3F3C)	; &R-UU+8003; [31-28]
+	))
       )
-     ((=ucs@jis		  . #x8003)	; &GT-37305;
-      (=ks-x1001	  . #x4D45)	; &GT-37305; [45-37]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8003)	; 考
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=ucs@jis		  . #x8003)	; &HD-JA-394D;
+      (=ucs@ks		  . #x8003)	; &HD-JA-394D;
+      (=ks-x1001	  . #x4D45)	; &HD-JA-394D; [45-37]
       (=jis-x0208@1990	  . #x394D)	; &I-J90-394D; [25-45]
       (=jis-x0213-1	  . #x394D)	; &I-JX1-394D; [25-45]
+      (=hanyo-denshi/ja	  . #x394D)	; &I-HD-JA-394D; [25-45]
       (=gt		  . 37305)	; &I-GT-37305;
       (=gt-k		  . 01611)	; &I-GT-K01611;
       (=gt-pj-1		  . #x394D)	; &I-GT-37305; [25-45]
-      (=shinjigen	  .  6339)	; &GT-37305;
+      (=shinjigen@1ed	  .  6339)	; &HD-JA-394D;
+      (=shinjigen@rev	  .  6340)	; &HD-JA-394D;
+      (->subsumptive
+       ((==ucs@ks	    . #x8003)	; &R-K0-4D45;
+	(==ks-x1001	    . #x4D45)	; &R-K0-4D45; [45-37]
+	(==shinjigen@1ed    .  6339)	; &R-K0-4D45;
+	(==shinjigen@rev    .  6340)	; &R-K0-4D45;
+	)
+       ((==ucs@jis	    . #x8003)	; &R-HD-JA-394D;
+	(==jis-x0208@1990   . #x394D)	; &R-HD-JA-394D; [25-45]
+	(==jis-x0213-1	    . #x394D)	; &R-HD-JA-394D; [25-45]
+	(==hanyo-denshi/ja  . #x394D)	; &R-HD-JA-394D; [25-45]
+	)
+       ((==gt		    . 37305)	; &R-GT-37305;
+	(==gt-k		    . 01611)	; &R-GT-37305;
+	))
       ))
     ))
 (define-char
