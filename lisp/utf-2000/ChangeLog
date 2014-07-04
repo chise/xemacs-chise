@@ -1,3 +1,18 @@
+2014-07-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R127-Plow.el: Add Hanyo-Denshi/JA code points.
+
+	* Ideograph-R009-Man.el (U+344D): Use `->denotational' instead of
+	`->subsumptive'.
+	(GU+344D): New node.
+
+2014-07-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R125-Old.el (J83-394D): Use `->subsumptive' to add
+	representative nodes.
+	(J90-394D): Unify HD-JA2545; use `->subsumptive' to add
+	representative nodes.
+
 2014-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R124-Feather.el: Add Hanyo-Denshi/JA code points.
