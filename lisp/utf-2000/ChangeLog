@@ -13,6 +13,9 @@
 	(J90-394D): Unify HD-JA2545; use `->subsumptive' to add
 	representative nodes.
 
+	* Ideograph-R030-Mouth.el (U+54F5): Apply new glyph-image
+	conventions.
+
 2014-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R124-Feather.el: Add Hanyo-Denshi/JA code points.
