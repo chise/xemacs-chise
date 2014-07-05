@@ -1,3 +1,10 @@
+2014-07-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+4F74): Apply new conventions for glyph
+	granularity.
+	(U-00020267): Likewise.
+	(U+506E): Likewise.
+
 2014-07-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R127-Plow.el: Add Hanyo-Denshi/JA code points.
