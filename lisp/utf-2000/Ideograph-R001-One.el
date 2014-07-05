@@ -1631,8 +1631,8 @@
     (=gb2312		. #x3454)	; &I-G0-3454; [20-52]
     (=hanziku-1		. #xA7AD)	; &I-HZK01-A7AD;
     (<-simplified@CN
-     ((=ucs@unicode	  . #x53E2)	; &UU+53E2;
-      (=gb12345		  . #x3454)	; &UU+53E2; [20-52]
+     ((=ucs		  . #x53E2)	; 叢
+      (=gb12345		  . #x3454)	; 叢 [20-52]
       ))
     ))
 (define-char
