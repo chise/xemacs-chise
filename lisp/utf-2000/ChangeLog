@@ -1,5 +1,8 @@
 2014-07-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R031-Enclosure.el (U+361D): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R009-Man.el (U+4F74): Apply new conventions for glyph
 	granularity.
 	(U-00020267): Likewise.
