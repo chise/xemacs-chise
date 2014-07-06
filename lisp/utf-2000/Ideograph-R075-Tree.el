@@ -23848,40 +23848,42 @@
   '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
+    (hanyu-dazidian	2 1288 18)
     (=ucs		. #x6A37)	; 樷
+    (=jis-x0212		. #x4522)	; &I-JSP-4522; [37-02]
+    (=cns11643-3	. #x5138)	; &I-C3-5138; [49-24]
+    (=daikanwa		. 15492)	; &I-M-15492;
+    (=shinjigen		.  0933)	; 樷
+    (=hanziku-4		. #xB161)	; &I-HZK04-B161;
+    (<-vulgar
+     ((=ucs		  . #x53E2)	; 叢
+      (=jis-x0208	  . #x4151)	; &I-J90-4151; [33-49]
+      (=shinjigen	  .  0932)	; 叢
+      ))
+    (<-vulgar*sources
+     shinjigen)
+    (->synonyms@jiyun
+     ((=ucs@cns		  . #x457A)	; &C7-5872;
+      (=cns11643-7	  . #x5872)	; &C7-5872; [56-82]
+      (=daikanwa	  . 32547)	; &I-M-32547;
+      ))
+    (->synonyms@jiyun*sources
+     jiyun daikanwa)
+    (->synonyms@zhengzitong
+     ((=ucs		  . #x53E2)	; 叢
+      (=daikanwa	  . 03220)	; &I-M-03220;
+      ))
+    (->synonyms@zhengzitong*sources
+     zhengzitong jiyun daikanwa)
     (->subsumptive
-     ((=ucs@jis		  . #x6A37)	; &JSP-4522;
-      (=jis-x0212	  . #x4522)	; &JSP-4522; [37-02]
-      (=cns11643-3	  . #x5138)	; &I-C3-5138; [49-24]
-      (=daikanwa	  . 15492)	; &I-M-15492;
-      (=shinjigen	  .  0933)	; &JSP-4522;
-      (<-vulgar
-       ((=ucs@jis	    . #x53E2)	; &AJ1-02771;
-	(=ucs@ks	    . #x53E2)	; &AJ1-02771;
-	(=adobe-japan1-0    . 02771)	; &AJ1-02771;
-	(=jis-x0208	    . #x4151)	; &I-J90-4151; [33-49]
-	(=shinjigen	    .  0932)	; &AJ1-02771;
-	))
-      (<-vulgar*sources
-       shinjigen)
-      (->synonyms@jiyun
-       ((=cns11643-7	    . #x5872)	; &C7-5872; [56-82]
-	(=daikanwa	    . 32547)	; &I-M-32547;
-	))
-      (->synonyms@jiyun*sources
-       jiyun daikanwa)
-      (->synonyms@zhengzitong
-       ((=ucs@jis	    . #x53E2)	; &AJ1-02771;
-	(=ucs@ks	    . #x53E2)	; &AJ1-02771;
-	(=adobe-japan1-0    . 02771)	; &AJ1-02771;
-	(=daikanwa	    . 03220)	; &I-M-03220;
-	))
-      (->synonyms@zhengzitong*sources
-       zhengzitong jiyun daikanwa)
+     ((==ucs@cns	  . #x6A37)	; &R-JSP-4522;
+      (==ucs@jis	  . #x6A37)	; &R-JSP-4522;
+      (==jis-x0212	  . #x4522)	; &R-JSP-4522; [37-02]
+      (==cns11643-3	  . #x5138)	; &R-JSP-4522; [49-24]
+      (==daikanwa	  . 15492)	; &R-JSP-4522;
+      (==shinjigen	  .  0933)	; &R-JSP-4522;
       )
-     ((hanyu-dazidian	  2 1288 18)
-      (=ucs@unicode	  . #x6A37)	; &HZK04-B161;
-      (=hanziku-4	  . #xB161)	; &HZK04-B161;
+     ((==ucs@unicode	  . #x6A37)	; &R-UU+6A37;
       ))
     ))
 (define-char
