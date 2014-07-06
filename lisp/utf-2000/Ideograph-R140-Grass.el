@@ -48127,19 +48127,29 @@
     (=ucs		. #x4579)	; 䕹
     ))
 (define-char
-  '((=>ucs		. #x457A)	; 䕺
+  '((ideographic-radical . 140)	; ⾋
+    (ideographic-strokes . 18)
+    (=ucs		. #x457A)	; 䕺
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x457A)	; 䕺
+      ))
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 18)
     (total-strokes	 . 22)
+    (=ucs@cns		. #x457A)	; &C7-5872;
     (=cns11643-7	. #x5872)	; &C7-5872; [56-82]
     (=daikanwa		. 32547)	; &I-M-32547;
     ))
 (define-char
-  '((morohashi-daikanwa	32547 0 1)
+  '((<-denotational
+     ((=ucs		  . #x457A)	; 䕺
+      ))
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 18)
     (total-strokes	 . 21)
-    (=ucs		. #x457A)	; 䕺
+    (=ucs@unicode	. #x457A)	; &UU+457A;
     ))
 (define-char
   '((=>ucs		. #x2710F)	; 𧄏
