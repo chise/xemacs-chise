@@ -1,3 +1,10 @@
+2014-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R140-Grass.el (U+457A): Use `->denotational'.
+
+	* Ideograph-R075-Tree.el (U+6A37): Apply new conventions for glyph
+	granularity.
+
 2014-07-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R013-Down-Box.el (U+6700): Apply new conventions for
