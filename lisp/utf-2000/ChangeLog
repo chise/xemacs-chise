@@ -1,5 +1,12 @@
 2014-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R073-Say.el (U+6700): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R014-Cover.el (U+51A3): Apply new conventions for
+	glyph granularity.
+	(U+6700): Likewise.
+
 	* Ideograph-R140-Grass.el (U+457A): Use `->denotational'.
 
 	* Ideograph-R075-Tree.el (U+6A37): Apply new conventions for glyph
