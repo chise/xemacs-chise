@@ -1,3 +1,8 @@
+2014-07-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (U-000200FD): Apply new conventions for
+	glyph granularity.
+
 2014-07-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R003-Dot.el (U+4E3E): Apply new conventions for glyph
