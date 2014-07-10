@@ -1,5 +1,21 @@
 2014-07-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R008-Lid.el (GT-K01444): Apply new conventions for
+	glyph granularity.
+	(BC-8BAA): Likewise.
+	(GT-K02128): Likewise.
+	(U+4EA8): Likewise.
+	(BC-8C4D): Likewise.
+	(U+4EAB): Likewise.
+	(GT-K04733): Likewise.
+	(U+4EAD): Likewise.
+	(U+4EAF): Likewise.
+	(U-00020158): Likewise.
+	(U-00020169): Likewise.
+	(U-00020179): Likewise.
+	(U-0002018C): Likewise.
+	(U-00020199): Likewise.
+
 	* Ideograph-R005-Second.el (U+4E5F): Apply new conventions for
 	glyph granularity.
 	(U+340C): Likewise.
