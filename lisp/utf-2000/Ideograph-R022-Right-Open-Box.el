@@ -69,6 +69,7 @@
   '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (hanyu-dazidian	1 82 6)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (=ucs		  . #x2FF7)	; ⿷
@@ -78,31 +79,38 @@
      ((=ucs		  . #x4E5F)	; 也
       ))
     (=ucs		. #x531C)	; 匜
+    (=adobe-japan1-5	. 16800)	; &I-AJ1-16800;
+    (=jis-x0212		. #x3426)	; &I-JSP-3426; [20-06]
+    (=iso-ir165		. #x7A28)	; &I-EGB-7A28; [90-08]
+    (=cns11643-2	. #x214D)	; &I-C2-214D; [01-45]
+    (=jis-x0213-1	. #x2E6D)	; &I-JX1-2E6D; [14-77]
     (=big5		. #xC96C)	; &I-B-C96C;
+    (=daikanwa		. 02598)	; &I-M-02598;
+    (=shinjigen		.  0787)	; 匜
+    (=jef-china3	. #x45B1)	; &I-JC3-45B1;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x531C)	; 匜
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (hanyu-dazidian	  1 82 6)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
 	(=ucs		    . #x2FF7)	; ⿷
 	)
        ((=ucs		    . #x531A)	; 匚
 	)
-       ((=ucs@unicode	    . #x4E5F)	; &AJ1-03829;
-	(=adobe-japan1-0    . 03829)	; &AJ1-03829;
+       ((==ucs@unicode	    . #x4E5F)	; &R-AJ1-03829;
+	(==adobe-japan1-0   . 03829)	; &R-AJ1-03829;
 	))
-      (=ucs@unicode	  . #x531C)	; &AJ1-16800;
-      (=adobe-japan1-5	  . 16800)	; &AJ1-16800;
-      (=jis-x0212	  . #x3426)	; &I-JSP-3426; [20-06]
-      (=iso-ir165	  . #x7A28)	; &I-EGB-7A28; [90-08]
-      (=jis-x0213-1	  . #x2E6D)	; &I-JX1-2E6D; [14-77]
-      (=daikanwa	  . 02598)	; &I-M-02598;
-      (=shinjigen	  .  0787)	; &AJ1-16800;
-      (=jef-china3	  . #x45B1)	; &I-JC3-45B1;
+      (==ucs@unicode	  . #x531C)	; &R-AJ1-16800;
+      (==adobe-japan1-5	  . 16800)	; &R-AJ1-16800;
+      (==jis-x0212	  . #x3426)	; &R-AJ1-16800; [20-06]
+      (==iso-ir165	  . #x7A28)	; &R-AJ1-16800; [90-08]
+      (==jis-x0213-1	  . #x2E6D)	; &R-AJ1-16800; [14-77]
+      (==daikanwa	  . 02598)	; &R-AJ1-16800;
+      (==shinjigen	  .  0787)	; &R-AJ1-16800;
+      (==jef-china3	  . #x45B1)	; &R-AJ1-16800;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
@@ -110,10 +118,11 @@
 	)
        ((=ucs		    . #x531A)	; 匚
 	)
-       ((=cns11643-1	    . #x443E)	; &C1-443E; [36-30]
+       ((==ucs@cns	    . #x4E5F)	; &R-CU+4E5F;
+	(==cns11643-1	    . #x443E)	; &R-CU+4E5F; [36-30]
 	))
-      (=ucs@cns		  . #x531C)	; &C2-214D;
-      (=cns11643-2	  . #x214D)	; &C2-214D; [01-45]
+      (==ucs@cns	  . #x531C)	; &R-CU+531C;
+      (==cns11643-2	  . #x214D)	; &R-CU+531C; [01-45]
       ))
     ))
 (define-char
