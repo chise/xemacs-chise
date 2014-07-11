@@ -1324,6 +1324,7 @@
      ((=ucs		  . #x5206)	; 分
       ))
     (=ucs		. #x21D73)	; 𡵳
+    (=cbeta		. 03791)	; &I-CB03791;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1331,11 +1332,16 @@
 	)
        ((=ucs		    . #x5C71)	; 山
 	)
-       ((=ucs@ks	    . #x5206)	; &MJ007456;
+       ((==ucs@ks	    . #x5206)	; &MJ007456;
 	(=mj		    . 007456)	; &MJ007456;
 	))
-      (=ucs@iso		  . #x21D73)	; &CB03791;
-      (=cbeta		  . 03791)	; &CB03791;
+      (==ucs@iso	  . #x21D73)	; &R-CB03791;
+      (==cbeta		  . #x0ECF)	; &R-CB03791;
+      (->subsumptive
+       ((===cbeta	    . #x0ECF)	; &R2-CB03791;
+	)
+       ((===ucs@iso	    . #x21D73)	; &R2-U-00021D73;
+	))
       ))
     ))
 (define-char
