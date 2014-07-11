@@ -1,3 +1,47 @@
+2014-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R022-Right-Open-Box.el (U+531C): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R018-Knife.el (U+5206): Apply new conventions for
+	glyph granularity.
+	(U+5235): Likewise.
+
+	* Ideograph-R012-Eight.el (U+516B): Apply new conventions for
+	glyph granularity.
+	(U+516C): Likewise.
+	(U+516E): Likewise.
+	(U+5173): Likewise.
+	(U+5172): Likewise.
+	(U+34B8): Likewise.
+	(U+517C): Likewise.
+	(U+517E): Likewise.
+	(U+5180): Likewise.
+
+	* Ideograph-R010-Legs.el (U+514A): Apply new conventions for glyph
+	granularity.
+	(U+514C): Likewise.
+	(U+5156): Likewise.
+	(U+5157): Likewise.
+	(U+515D): Likewise.
+
+	* Ideograph-R009-Man.el (U+4EC8): Apply new conventions for glyph
+	granularity.
+	(U+4ED6): Likewise.
+	(U-000201B5): Likewise.
+	(U+4EFD): Likewise.
+	(U+4F00): Likewise.
+	(U-000201DC): Likewise.
+	(U-00020200): Likewise.
+	(U+4F7E): Likewise.
+	(U-0002022A): Likewise.
+	(U+4FBB): Likewise.
+	(U+500A): Likewise.
+	(U+505C): Likewise.
+	(U+5090): Likewise.
+	(U-000202F9): Likewise.
+	(U+509F): Likewise.
+
 2014-07-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R014-Cover.el (U+51A1): Apply new conventions for
