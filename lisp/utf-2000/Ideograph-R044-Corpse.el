@@ -1590,6 +1590,9 @@
      ((=ucs		  . #x8C56)	; 豖
       ))
     (=ucs		. #x3798)	; 㞘
+    (=cns11643-6	. #x3E6B)	; &I-C6-3E6B; [30-75]
+    (=daikanwa		. 07732)	; &I-M-07732;
+    (=cbeta		. 05465)	; &I-CB05465;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -1597,10 +1600,10 @@
 	)
        ((=ucs		    . #x5C38)	; 尸
 	)
-       ((=daikanwa	    . 36338)	; &M-36338;
+       ((==daikanwa	    . 36338)	; &R-M-36338;
 	))
-      (=daikanwa	  . 07732)	; &M-07732;
-      (=cbeta		  . 05465)	; &I-CB05465;
+      (==daikanwa	  . 07732)	; &R-M-07732;
+      (==cbeta		  . #x1559)	; &R-M-07732;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -1608,9 +1611,9 @@
 	)
        ((=ucs		    . #x5C38)	; 尸
 	)
-       ((=ucs@unicode	    . #x8C56)	; &UU+8C56;
+       ((==ucs@unicode	    . #x8C56)	; &R-UU+8C56;
 	))
-      (=ucs@unicode	  . #x3798)	; &UU+3798;
+      (==ucs@unicode	  . #x3798)	; &R-UU+3798;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -1618,9 +1621,11 @@
 	)
        ((=ucs		    . #x5C38)	; 尸
 	)
-       ((=cns11643-2	    . #x286B)	; &C2-286B; [08-75]
+       ((==ucs@cns	    . #x8C56)	; &R-CU+8C56;
+	(==cns11643-2	    . #x286B)	; &R-CU+8C56; [08-75]
 	))
-      (=cns11643-6	  . #x3E6B)	; &C6-3E6B; [30-75]
+      (==ucs@cns	  . #x3798)	; &R-CU+3798;
+      (==cns11643-6	  . #x3E6B)	; &R-CU+3798; [30-75]
       ))
     ))
 (define-char
