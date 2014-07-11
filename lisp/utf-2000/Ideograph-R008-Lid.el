@@ -4607,7 +4607,8 @@
        ((==ucs@unicode	    . #x4EAD)	; &R-AJ1-03070;
 	(==adobe-japan1-0   . 03070)	; &R-AJ1-03070;
 	)
-       ((==adobe-japan1-0   . 03831)	; &R-AJ1-03831;
+       ((==ucs@unicode	    . #x591C)	; &R-AJ1-03831;
+	(==adobe-japan1-0   . 03831)	; &R-AJ1-03831;
 	))
       (==ucs@iso	  . #x20199)	; &R-CB00833;
       (==cbeta		  . #x0341)	; &R-CB00833;
