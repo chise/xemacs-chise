@@ -1,5 +1,10 @@
 2014-07-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R019-Power.el (U+52DC): Apply new conventions for
+	glyph granularity.
+
+2014-07-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R008-Lid.el (GT-K01444): Apply new conventions for
 	glyph granularity.
 	(BC-8BAA): Likewise.
