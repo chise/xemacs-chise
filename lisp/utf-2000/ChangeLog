@@ -1,5 +1,12 @@
 2014-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R031-Enclosure.el (U+56E1): Apply new conventions for
+	glyph granularity.
+	(U+56F6): Likewise.
+	(U+5702): Likewise.
+
+2014-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R046-Mountain.el (U-00021D73): Apply new conventions
 	for glyph granularity.
 
