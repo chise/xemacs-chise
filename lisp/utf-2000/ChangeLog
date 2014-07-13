@@ -1,5 +1,12 @@
 2014-07-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R111-Arrow.el (U+77E3): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R078-Death.el (U-00023A19): Use `->subsumptive'.
+
+2014-07-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R010-Legs.el (IU+204DA): Use `->subsumptive' to add
 	representative node.
 
