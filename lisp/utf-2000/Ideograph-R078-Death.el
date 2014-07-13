@@ -2061,25 +2061,36 @@
      ((=ucs		  . #x59D4)	; 委
       ))
     (=ucs		. #x23A19)	; 𣨙
+    (=cns11643-4	. #x3848)	; &I-C4-3848; [24-40]
     (=daikanwa		. 16487)	; &I-M-16487;
     (=hanziku-4		. #xC5D4)	; &I-HZK04-C5D4;
     (=cbeta		. 04401)	; &I-CB04401;
-    ))
-(define-char
-  '((=>ucs		. #x23A19)	; 𣨙
-    (morohashi-daikanwa	16487 0 1)
-    (ideographic-radical . 78)	; ⽍
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x6B79)	; 歹
+	)
+       ((==ucs@unicode	    . #x59D4)	; &R-AJ1-01173;
+	(==adobe-japan1-0   . 01173)	; &R-AJ1-01173;
+	))
+      (==ucs@iso	  . #x23A19)	; &R-M-16487;
+      (==daikanwa	  . 16487)	; &R-M-16487;
+      (==cbeta		  . #x1131)	; &R-M-16487;
       )
-     ((=ucs		  . #x6B79)	; 歹
-      )
-     ((=cns11643-1	  . #x4C67)	; &C1-4C67; [44-71]
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x6B79)	; 歹
+	)
+       ((==ucs@cns	    . #x59D4)	; &R-CU+59D4;
+	(==cns11643-1	    . #x4C67)	; &R-CU+59D4; [44-71]
+	))
+      (==ucs@cns	  . #x23A19)	; &R-CU+23A19;
+      (==cns11643-4	  . #x3848)	; &R-CU+23A19; [24-40]
       ))
-    (=cns11643-4	. #x3848)	; &C4-3848; [24-40]
     ))
 (define-char
   '((ideographic-radical . 78)	; ⽍
