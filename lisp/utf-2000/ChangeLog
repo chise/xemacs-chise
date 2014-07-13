@@ -1,3 +1,16 @@
+2014-07-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (A-HDU+66A0): New abstract node.
+	(U+66A0): Add `<-denotational' for A-HDU+66A0; apply new
+	conventions for glyph granularity.
+	(HD-JT-B2BA): Likewise.
+
+	* Ideograph-R061-Heart.el (U+5FE9): Apply new conventions for
+	glyph granularity.
+	(U-000226D4): Use `->denotational' to integrate U-0002F8A4.
+	(U-0002F8A4): Add `<-denotational' for U-000226D4.
+	(U+39A8): Apply new conventions for glyph granularity.
+
 2014-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R031-Enclosure.el (U+56E1): Apply new conventions for
