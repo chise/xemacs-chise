@@ -3432,6 +3432,19 @@
       )
      ((=ucs@cns		  . #x862D)	; &GT-43909;
       (=cns11643-1	  . #x7B22)	; &GT-43909; [91-02]
+      (=daikanwa	  . 32519)	; &I-M-32519;
       ))
     (=ucs@iso		. #x204DA)	; &U-000204DA;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gt-k		    . 01606)	; &GT-K01606;
+	)
+       ((==ucs@cns	    . #x862D)	; &R-GT-43909;
+	(==cns11643-1	    . #x7B22)	; &R-GT-43909; [91-02]
+	))
+      (==ucs@iso	  . #x204DA)	; &R-U-000204DA;
+      ))
     ))
