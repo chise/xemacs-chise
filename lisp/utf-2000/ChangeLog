@@ -1,5 +1,17 @@
 2014-07-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (U+53C8): Apply new conventions for
+	glyph granularity.
+	(U-00020B1C): Likewise.
+	(U+53CF): Likewise.
+	(U+53D3): Likewise.
+	(U+53D6): Likewise.
+	(U+53DC): Likewise.
+	(U-0002F8D4): Likewise.
+	(U+53E2): Likewise.
+
+2014-07-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R072-Sun.el (A-HDU+66A0): New abstract node.
 	(U+66A0): Add `<-denotational' for A-HDU+66A0; apply new
 	conventions for glyph granularity.
