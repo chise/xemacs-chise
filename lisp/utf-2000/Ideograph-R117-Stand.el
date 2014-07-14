@@ -1077,50 +1077,47 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (=ucs		. #x7AE5)	; 童
-    (=big5		. #xB5A3)	; &I-B-B5A3;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x7AE5)	; 童
-      ))
-    (ideographic-radical . 117)	; ⽴
-    (ideographic-strokes . 7)
-    (total-strokes	 . 12)
-    (=ucs@unicode	. #x7AE5)	; &GT-33246;
-    (=jis-x0208		. #x4638)	; &GT-33246; [38-24]
+    (=jis-x0208		. #x4638)	; &I-J90-4638; [38-24]
     (=gb2312		. #x4D2F)	; &I-G0-4D2F; [45-15]
     (=ks-x1001		. #x545B)	; &I-K0-545B; [52-59]
     (=cns11643-1	. #x6129)	; &I-C1-6129; [65-09]
     (=jis-x0213-1	. #x4638)	; &I-JX1-4638; [38-24]
+    (=big5		. #xB5A3)	; &I-B-B5A3;
     (=gt		. 33246)	; &I-GT-33246;
     (=gt-k		. 09115)	; &I-GT-K09115;
     (=gt-pj-1		. #x4638)	; &I-GT-33246; [38-24]
     (=daikanwa		. 25775)	; &I-M-25775;
-    (=shinjigen@rev	.  5740)	; &GT-33246;
+    (=shinjigen@rev	.  5740)	; 童
     (->subsumptive
-     ((==ucs@jis	  . #x7AE5)	; &R-GT-33246;
-      (==ucs@ks		  . #x7AE5)	; &R-GT-33246;
+     ((==ucs@unicode	  . #x7AE5)	; &R-GT-33246;
+      (==gb2312		  . #x4D2F)	; &R-GT-33246; [45-15]
       (==ks-x1001	  . #x545B)	; &R-GT-33246; [52-59]
       (==jis-x0208	  . #x4638)	; &R-GT-33246; [38-24]
+      (==cns11643-1	  . #x6129)	; &R-GT-33246; [65-09]
       (==jis-x0213-1	  . #x4638)	; &R-GT-33246; [38-24]
       (==gt		  . 33246)	; &R-GT-33246;
       (==gt-k		  . 09115)	; &R-GT-33246;
       (==daikanwa	  . 25775)	; &R-GT-33246;
       (==shinjigen@rev	  .  5740)	; &R-GT-33246;
+      (->subsumptive
+       ((===daikanwa	    . #x64AF)	; &R2-M-25775;
+	)
+       ((===jis-x0208	    . #x4638)	; &R2-J90-4638; [38-24]
+	(===jis-x0213-1	    . #x4638)	; &R2-J90-4638; [38-24]
+	)
+       ((===ucs@ks	    . #x7AE5)	; &R2-K0-545B;
+	(===ks-x1001	    . #x545B)	; &R2-K0-545B; [52-59]
+	)
+       ((===gt		    . #x81DE)	; &R2-GT-33246;
+	(===gt-k	    . #x239B)	; &R2-GT-33246;
+	)
+       ((===ucs@unicode	    . #x7AE5)	; &R2-UU+7AE5;
+	)
+       ((===cns11643-1	    . #x6129)	; &R2-C1-6129; [65-09]
+	))
       )
-     ((==ucs@unicode	  . #x7AE5)	; &R-UU+7AE5;
-      (==gb2312		  . #x4D2F)	; &R-UU+7AE5; [45-15]
-      (==cns11643-1	  . #x6129)	; &R-UU+7AE5; [65-09]
+     ((=jef-china3	  . #x5DDB)	; &JC3-5DDB;
       ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x7AE5)	; 童
-      ))
-    (ideographic-radical . 117)	; ⽴
-    (ideographic-strokes . 7)
-    (total-strokes	 . 12)
-    (=jef-china3	. #x5DDB)	; &JC3-5DDB;
     ))
 (define-char
   '((ideographic-radical . 117)	; ⽴
