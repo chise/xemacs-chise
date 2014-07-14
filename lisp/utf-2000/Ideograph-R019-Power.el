@@ -5087,13 +5087,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x7AE5)	; &GT-33246;
-	(=jis-x0208	    . #x4638)	; &GT-33246; [38-24]
-	(=gb2312	    . #x4D2F)	; &I-G0-4D2F; [45-15]
-	(=ks-x1001	    . #x545B)	; &I-K0-545B; [52-59]
-	(=cns11643-1	    . #x6129)	; &I-C1-6129; [65-09]
-	(=jis-x0213-1	    . #x4638)	; &I-JX1-4638; [38-24]
-	(=daikanwa	    . 25775)	; &I-M-25775;
+       ((=ucs		    . #x7AE5)	; 童
 	)
        ((=ucs		    . #x529B)	; 力
 	))
