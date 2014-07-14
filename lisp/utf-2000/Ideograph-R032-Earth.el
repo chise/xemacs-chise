@@ -9953,6 +9953,27 @@
      ((=ucs		  . #x5C03)	; 尃
       ))
     (=ucs		. #x365B)	; 㙛
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x365B)	; 㙛
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=ucs@unicode	  . #x5C03)	; &AJ1-17537;
+      (=adobe-japan1-5	  . 17537)	; &AJ1-17537;
+      ))
+    (=ucs@unicode	. #x365B)	; &C3-4053;
+    (=cns11643-3	. #x4053)	; &C3-4053; [32-51]
+    (=daikanwa		. 05337)	; &I-M-05337;
+    (=cbeta		. 01243)	; &I-CB01243;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -9960,12 +9981,19 @@
 	)
        ((=gt-k		    . 00199)	; &GT-K00199;
 	)
-       ((=ucs@unicode	    . #x5C03)	; &AJ1-17537;
-	(=adobe-japan1-5    . 17537)	; &AJ1-17537;
+       ((==ucs@unicode	    . #x5C03)	; &R-AJ1-17537;
+	(==adobe-japan1-5   . 17537)	; &R-AJ1-17537;
 	))
-      (=ucs@unicode	  . #x365B)	; &M-05337;
-      (=daikanwa	  . 05337)	; &M-05337;
-      (=cbeta		  . 01243)	; &I-CB01243;
+      (==ucs@unicode	  . #x365B)	; &R-M-05337;
+      (==daikanwa	  . 05337)	; &R-M-05337;
+      (==cbeta		  . #x04DB)	; &R-M-05337;
+      (->subsumptive
+       ((===daikanwa	    . #x14D9)	; &R2-M-05337;
+	)
+       ((===cbeta	    . #x04DB)	; &R2-CB01243;
+	)
+       ((===ucs@unicode	    . #x365B)	; &R2-UU+365B;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -9973,10 +10001,11 @@
 	)
        ((=gt-k		    . 00199)	; &GT-K00199;
 	)
-       ((=ucs@cns	    . #x5C03)	; &C2-2E6B;
-	(=cns11643-2	    . #x2E6B)	; &C2-2E6B; [14-75]
+       ((==ucs@cns	    . #x5C03)	; &R-CU+5C03;
+	(==cns11643-2	    . #x2E6B)	; &R-CU+5C03; [14-75]
 	))
-      (=cns11643-3	  . #x4053)	; &C3-4053; [32-51]
+      (==ucs@cns	  . #x365B)	; &R-CU+365B;
+      (==cns11643-3	  . #x4053)	; &R-CU+365B; [32-51]
       ))
     ))
 (define-char
