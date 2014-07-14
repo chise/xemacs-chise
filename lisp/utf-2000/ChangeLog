@@ -1,5 +1,20 @@
 2014-07-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R040-Roof.el (U+5BAE): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R075-Tree.el (U+3B6C): Apply new conventions for glyph
+	granularity.
+	(U+68ED): Likewise.
+	(U+6901): Likewise.
+	(U+3B83): Use `->subsumptive'.
+	(U+69C0): Apply new conventions for glyph granularity.
+	(U+69C1): Likewise.
+	(U+69E8): Likewise.
+
+	* Ideograph-R019-Power.el (U+52ED): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R111-Arrow.el (U+77E3): Apply new conventions for
 	glyph granularity.
 
