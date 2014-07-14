@@ -1,5 +1,27 @@
 2014-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R128-Ear.el Add Hanyo-Denshi/JA code points.
+	(U+8033): Apply new conventions for glyph granularity.
+	(U+8056): Likewise.
+	(U+8061): Likewise.
+	(U+8070): Likewise.
+	(U+8074): Likewise.
+	(U+8077): Likewise.
+	(U+807D): Likewise.
+	(U+807E): Likewise.
+
+	* Ideograph-R009-Man.el (U+4F19): Apply new conventions for glyph
+	granularity.
+	(U+4F5E): Likewise.
+	(U-0002020D): Likewise.
+	(U-00020233): Likewise.
+	(U+4FDF): Likewise.
+	(U+502D): Likewise.
+	(U+503F): Likewise.
+	(U-00020295): Likewise.
+	(U+5085): Likewise.
+	(U+50EE): Likewise.
+
 	* Ideograph-R050-Turban.el (U+5E62): Apply new conventions for
 	glyph granularity.
 
