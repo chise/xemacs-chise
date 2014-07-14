@@ -1,5 +1,23 @@
 2014-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R031-Enclosure.el (U+5711): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R123-Sheep.el (U-000263A7): Apply new conventions for
+	glyph granularity.
+	(U-000263AB): Likewise.
+
+	* Ideograph-R041-Inch.el (U+5C03): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R032-Earth.el (U+365B): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R024-Ten.el (U+535A): Apply new conventions for glyph
+	granularity.
+
+2014-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R128-Ear.el Add Hanyo-Denshi/JA code points.
 	(U+8033): Apply new conventions for glyph granularity.
 	(U+8056): Likewise.
