@@ -283,81 +283,84 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=ucs		. #x43CC)	; 䏌
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x43CC)	; 䏌
-      ))
-    (ideographic-radical . 130)	; ⾁
-    (ideographic-strokes . 2)
-    (total-strokes	 . 6)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x516B)	; 八
-      )
-     ((name		  . "CJK RADICAL MEAT")
-      (=ucs		  . #x2EBC)	; ⺼
-      ))
-    (=>>ucs@unicode	. #x43CC)	; &G-GT-37861;
-    (=>>gt		. 37861)	; &G-GT-37861;
-    (=>>daikanwa	. 29245)	; &G-GT-37861;
+    (=cns11643-4	. #x232D)	; &I-C4-232D; [03-13]
+    (=gt		. 37861)	; &I-GT-37861;
+    (=gt-pj-6		. #x3921)	; &I-GT-37861; [25-01]
+    (=daikanwa		. 29245)	; &I-M-29245;
+    (=cbeta		. 13213)	; &I-CB13213;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x516B)	; &MJ007273;
-	(=ucs@ks	    . #x516B)	; &MJ007273;
-	(=mj		    . 007273)	; &MJ007273;
+       ((=ucs		    . #x516B)	; 八
 	)
        ((=big5-cdp	    . #x8958)	; &CDP-8958;
 	))
-      (=gt		  . 37861)	; &GT-37861;
-      (=gt-pj-6		  . #x3921)	; &GT-37861; [25-01]
-      (=daikanwa	  . 29245)	; &I-M-29245;
+      (=>>ucs@unicode	  . #x43CC)	; &G-GT-37861;
+      (=>>gt		  . 37861)	; &G-GT-37861;
+      (=>>daikanwa	  . 29245)	; &G-GT-37861;
+      (->subsumptive
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((==ucs@jis	      . #x516B)	; &R-MJ007273;
+	  (==ucs@ks	      . #x516B)	; &R-MJ007273;
+	  (==mj		      . 007273)	; &R-MJ007273;
+	  )
+	 ((=big5-cdp	      . #x8958)	; &CDP-8958;
+	  ))
+	(==gt		    . 37861)	; &R-GT-37861;
+	(==daikanwa	    . 29245)	; &R-GT-37861;
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((==ucs@unicode      . #x516B)	; &MJ007274;
+	  (=mj		      . 007274)	; &MJ007274;
+	  )
+	 ((=big5-cdp	      . #x8958)	; &CDP-8958;
+	  ))
+	(==ucs@unicode	    . #x43CC)	; &R-UU+43CC;
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((==ucs@cns	      . #x516B)	; &R-CU+516B;
+	  (==cns11643-1	      . #x442C)	; &R-CU+516B; [36-12]
+	  )
+	 ((=big5-cdp	      . #x8A73)	; &CDP-8A73;
+	  ))
+	(==ucs@cns	    . #x43CC)	; &R-CU+43CC;
+	(==cns11643-4	    . #x232D)	; &R-CU+43CC; [03-13]
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x516B)	; &MJ007274;
-	(=mj		    . 007274)	; &MJ007274;
+       ((=ucs		    . #x516B)	; 八
 	)
-       ((=big5-cdp	    . #x8958)	; &CDP-8958;
+       ((=ucs		    . #x6708)	; 月
 	))
-      (=ucs@unicode	  . #x43CC)	; &UU+43CC;
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=cns11643-1	    . #x442C)	; &C1-442C; [36-12]
-	)
-       ((=big5-cdp	    . #x8A73)	; &CDP-8A73;
+      (=>>cbeta		  . 13213)	; &G-CB13213;
+      (->subsumptive
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((==ucs@jis	      . #x516B)	; &R-MJ007273;
+	  (==ucs@ks	      . #x516B)	; &R-MJ007273;
+	  (==mj		      . 007273)	; &R-MJ007273;
+	  )
+	 ((=ucs		      . #x6708)	; 月
+	  ))
+	(==cbeta	    . #x339D)	; &R-CB13213;
 	))
-      (=cns11643-4	  . #x232D)	; &C4-232D; [03-13]
       ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x43CC)	; 䏌
-      ))
-    (ideographic-radical . 130)	; ⾁
-    (ideographic-strokes . 2)
-    (total-strokes	 . 6)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs@jis		  . #x516B)	; &MJ007273;
-      (=ucs@ks		  . #x516B)	; &MJ007273;
-      (=mj		  . 007273)	; &MJ007273;
-      )
-     ((=ucs		  . #x6708)	; 月
-      ))
-    (=cbeta		. 13213)	; &CB13213;
     ))
 (define-char
   '((ideographic-radical . 130)	; ⾁
