@@ -1,4 +1,28 @@
+2014-07-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R173-Rain.el (U+970D): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R152-Pig.el (U+8C55): Apply new conventions for glyph
+	granularity.
+	(U-0002F9D2): Likewise.
+	(U+8C56): Likewise.
+
+	* Ideograph-R124-Feather.el (U+7FC1): Apply new conventions for
+	glyph granularity.
+	(U+7FC2): Likewise.
+	(U+7FE3): Likewise.
+	(U+7FEF): Likewise.
+
 2014-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R140-Grass.el (U+82AE): Apply new conventions for
+	glyph granularity.
+	(U+82EA): Use `->denotational' and `->subsumptive'.
+	(U+862D): Apply new conventions for glyph granularity.
+
+	* Ideograph-R130-Meat.el (U+43CC): Apply new conventions for glyph
+	granularity.
 
 	* Ideograph-R031-Enclosure.el (U+5711): Apply new conventions for
 	glyph granularity.
