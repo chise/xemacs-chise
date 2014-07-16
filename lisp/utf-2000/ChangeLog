@@ -1,5 +1,10 @@
 2014-07-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R027-Cliff.el (U+5387): Apply new conventions for
+	glyph granularity.
+
+2014-07-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R075-Tree.el (U+6754): Apply new conventions for glyph
 	granularity.
 
