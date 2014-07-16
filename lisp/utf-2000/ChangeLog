@@ -1,5 +1,14 @@
 2014-07-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R075-Tree.el (U+6754): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R050-Turban.el (U+5E02): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R004-Slash.el (U+4E47): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R189-Tall.el (U+9AD8): Apply new conventions for glyph
 	granularity.
 	(U+9AD9): Likewise.
