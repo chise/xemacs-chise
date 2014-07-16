@@ -931,6 +931,7 @@
   '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
+    (hanyu-dazidian	2 1160 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -940,24 +941,29 @@
      ((=ucs		  . #x4E47)	; 乇
       ))
     (=ucs		. #x6754)	; 杔
+    (=adobe-japan1-5	. 17766)	; &I-AJ1-17766;
+    (=jis-x0212		. #x427C)	; &I-JSP-427C; [34-92]
+    (=cns11643-3	. #x2644)	; &I-C3-2644; [06-36]
+    (=jis-x0213-2	. #x2E40)	; &I-JX2-2E40; [14-32]
+    (=daikanwa		. 14467)	; &I-M-14467;
+    (=hanziku-3		. #xECDF)	; &I-HZK03-ECDF;
+    (=cbeta		. 03384)	; &I-CB03384;
     (->subsumptive
-     ((hanyu-dazidian	  2 1160 8)
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
        ((=gt-k		    . 00495)	; &GT-K00495;
 	)
-       ((=ucs@unicode	    . #x4E47)	; &AJ1-17239;
-	(=adobe-japan1-5    . 17239)	; &AJ1-17239;
+       ((==ucs@unicode	    . #x4E47)	; &R-AJ1-17239;
+	(==adobe-japan1-5   . 17239)	; &R-AJ1-17239;
 	))
-      (=ucs@unicode	  . #x6754)	; &AJ1-17766;
-      (=adobe-japan1-5	  . 17766)	; &AJ1-17766;
-      (=jis-x0212	  . #x427C)	; &I-JSP-427C; [34-92]
-      (=jis-x0213-2	  . #x2E40)	; &I-JX2-2E40; [14-32]
-      (=daikanwa	  . 14467)	; &I-M-14467;
-      (=hanziku-3	  . #xECDF)	; &I-HZK03-ECDF;
-      (=cbeta		  . 03384)	; &I-CB03384;
+      (==ucs@unicode	  . #x6754)	; &R-AJ1-17766;
+      (==adobe-japan1-5	  . 17766)	; &R-AJ1-17766;
+      (==jis-x0212	  . #x427C)	; &R-AJ1-17766; [34-92]
+      (==jis-x0213-2	  . #x2E40)	; &R-AJ1-17766; [14-32]
+      (==daikanwa	  . 14467)	; &R-AJ1-17766;
+      (==cbeta		  . #x0D38)	; &R-AJ1-17766;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -965,13 +971,12 @@
 	)
        ((=gt-k		    . 00495)	; &GT-K00495;
 	)
-       ((=ucs@cns	    . #x4E47)	; &JX2-2129;
-	(=ucs@jis	    . #x4E47)	; &JX2-2129;
-	(=jis-x0212	    . #x3032)	; &JX2-2129; [16-18]
-	(=cns11643-2	    . #x2128)	; &I-C2-2128; [01-08]
-	(=jis-x0213-2	    . #x2129)	; &I-JX2-2129; [01-09]
+       ((==ucs@cns	    . #x4E47)	; &R-JSP-3032;
+	(==ucs@jis	    . #x4E47)	; &R-JSP-3032;
+	(==jis-x0213-2	    . #x2129)	; &R-JSP-3032; [01-09]
 	))
-      (=cns11643-3	  . #x2644)	; &C3-2644; [06-36]
+      (==ucs@cns	  . #x6754)	; &R-CU+6754;
+      (==cns11643-3	  . #x2644)	; &R-CU+6754; [06-36]
       ))
     ))
 (define-char
