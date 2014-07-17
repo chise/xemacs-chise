@@ -1,3 +1,9 @@
+2014-07-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (A-BC-8C4D): New abstract character.
+	(BC-8C4D): Add `<-denotational' for A-BC-8C4D.
+	(U+4EB3): Apply new conventions for glyph granularity.
+
 2014-07-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R027-Cliff.el (U+5387): Apply new conventions for
