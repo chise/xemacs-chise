@@ -147,22 +147,28 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=ucs		. #x386F)	; 㡯
+    (=cns11643-3	. #x2360)	; &I-C3-2360; [03-64]
+    (=daikanwa		. 09225)	; &I-M-09225;
+    (=shinjigen		.  1810)	; 㡯
+    (<-ancient
+     ((=ucs		  . #x5B85)	; 宅
+      (=jis-x0208	  . #x4270)	; &I-J90-4270; [34-80]
+      (=shinjigen	  .  1809)	; 宅
+      ))
+    (<-ancient*sources
+     shinjigen)
     (->subsumptive
-     ((=daikanwa	  . 09225)	; &M-09225;
-      (=shinjigen	  .  1810)	; &M-09225;
-      (<-ancient
-       ((=ucs@jis	    . #x5B85)	; &AJ1-02896;
-	(=ucs@ks	    . #x5B85)	; &AJ1-02896;
-	(=adobe-japan1-0    . 02896)	; &AJ1-02896;
-	(=jis-x0208	    . #x4270)	; &I-J90-4270; [34-80]
-	(=shinjigen	    .  1809)	; &AJ1-02896;
+     ((==ucs@unicode	  . #x386F)	; &R-M-09225;
+      (==daikanwa	  . 09225)	; &R-M-09225;
+      (==shinjigen	  .  1810)	; &R-M-09225;
+      (->subsumptive
+       ((===daikanwa	    . #x2409)	; &R2-M-09225;
+	)
+       ((===ucs@unicode	    . #x386F)	; &R2-UU+386F;
 	))
-      (<-ancient*sources
-       shinjigen)
       )
-     ((=ucs@unicode	  . #x386F)	; &UU+386F;
-      )
-     ((=cns11643-3	  . #x2360)	; &C3-2360; [03-64]
+     ((==ucs@cns	  . #x386F)	; &R-CU+386F;
+      (==cns11643-3	  . #x2360)	; &R-CU+386F; [03-64]
       ))
     ))
 (define-char
