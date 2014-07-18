@@ -1,3 +1,20 @@
+2014-07-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ruimoku6.el (RUI6-E018): Apply new conventions for glyph
+	granularity.
+	(RUI6-E036): Likewise.
+	(RUI6-E061): Modify a component.
+	(RUI6-E065): Apply new conventions for glyph granularity.
+
+	* Ideograph-R144-Walk-Enclosure.el (U-000275F8): Apply new
+	conventions for glyph granularity.
+
+	* Ideograph-R140-Grass.el (U+83D0): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R053-Dotted-Cliff.el (U+386F): Apply new conventions
+	for glyph granularity.
+
 2014-07-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R008-Lid.el (A-BC-8C4D): New abstract character.
