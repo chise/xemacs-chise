@@ -439,11 +439,19 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
     (=ucs		. #x275F8)	; 𧗸
+    (=cns11643-4	. #x4724)	; &I-C4-4724; [39-04]
+    (=daikanwa		. 34065)	; &I-M-34065;
     (->subsumptive
-     ((=ucs@iso		  . #x275F8)	; &M-34065;
-      (=daikanwa	  . 34065)	; &M-34065;
+     ((==ucs@iso	  . #x275F8)	; &R-M-34065;
+      (==daikanwa	  . 34065)	; &R-M-34065;
+      (->subsumptive
+       ((===daikanwa	    . #x8511)	; &R2-M-34065;
+	)
+       ((===ucs@iso	    . #x275F8)	; &R2-U-000275F8;
+	))
       )
-     ((=cns11643-4	  . #x4724)	; &C4-4724; [39-04]
+     ((==ucs@cns	  . #x275F8)	; &R-CU+275F8;
+      (==cns11643-4	  . #x4724)	; &R-CU+275F8; [39-04]
       ))
     ))
 (define-char
