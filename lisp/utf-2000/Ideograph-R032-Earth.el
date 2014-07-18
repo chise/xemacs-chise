@@ -5499,6 +5499,7 @@
   '((ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (hanyu-dazidian	1 445 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -5508,25 +5509,52 @@
      ((=ucs		  . #x518F)	; 冏
       ))
     (=ucs		. #x57DB)	; 埛
+    (=cns11643-3	. #x3032)	; &I-C3-3032; [16-18]
+    (=hanziku-2		. #xABBE)	; &I-HZK02-ABBE;
+    (=cbeta		. 05739)	; &I-CB05739;
     ))
 (define-char
-  '((=>ucs		. #x57DB)	; 埛
+  '((<-denotational
+     ((=ucs		  . #x57DB)	; 埛
+      ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (hanyu-dazidian	1 445 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x571F)	; 土
+     ((=gt-k		  . 00199)	; &GT-K00199;
       )
-     ((=ucs@cns		  . #x518F)	; &C2-232C;
-      (=cns11643-2	  . #x232C)	; &C2-232C; [03-12]
+     ((==ucs@cns	  . #x518F)	; &R-AJ1-04223;
+      (==ucs@jis	  . #x518F)	; &R-AJ1-04223;
+      (==adobe-japan1-0	  . 04223)	; &R-AJ1-04223;
       ))
-    (=cns11643-3	. #x3032)	; &C3-3032; [16-18]
-    (=hanziku-2		. #xABBE)	; &I-HZK02-ABBE;
-    (=cbeta		. 05739)	; &I-CB05739;
+    (==ucs@cns		. #x57DB)	; &R-CB05739;
+    (==cns11643-3	. #x3032)	; &R-CB05739; [16-18]
+    (==cbeta		. #x166B)	; &R-CB05739;
+    (->subsumptive
+     ((===cbeta		  . #x166B)	; &R2-CB05739;
+      )
+     ((===cns11643-3	  . #x3032)	; &R2-C3-3032; [16-18]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x57DB)	; 埛
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 00199)	; &GT-K00199;
+      )
+     ((==ucs@unicode	  . #x518F)	; &R-UU+518F;
+      ))
+    (==ucs@unicode	. #x57DB)	; &R-UU+57DB;
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
