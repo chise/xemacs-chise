@@ -1,4 +1,27 @@
+2014-07-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R149-Speech.el (U+8A00): Apply new conventions for
+	glyph granularity.
+	(U+8A01): Likewise; omit `<-denotational'.
+	(RUI6-E036): Apply new conventions for glyph granularity.
+	(U-000279F9): Use `->subsumptive'.
+	(U+470C): Apply new conventions for glyph granularity.
+	(RUI6-E01F): Likewise.
+	(RUI6-E065): Likewise.
+
+	* Ideograph-R032-Earth.el (U+57DB): Use `->denotational' and
+	`->subsumptive'.
+
 2014-07-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R078-Death.el (U-00023A0C): Apply new conventions for
+	glyph granularity.
+	(U-00023A39): Likewise.
+
+	* Ideograph-R040-Roof.el (U+5B83): Apply new conventions for glyph
+	granularity.
+	(U+5B85): Likewise.
+	(U-00021A46): Likewise.
 
 	* ruimoku6.el (RUI6-E018): Apply new conventions for glyph
 	granularity.
