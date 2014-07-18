@@ -1795,21 +1795,22 @@
   '((ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (hanyu-dazidian	2 1388 2)
     (=ucs		. #x23A0C)	; 𣨌
+    (=cns11643-6	. #x4071)	; &I-C6-4071; [32-81]
+    (=daikanwa		. 16470)	; &I-M-16470;
+    (=hanziku-4		. #xC5AF)	; &I-HZK04-C5AF;
+    (<-same
+     ((=ucs		  . #x5501)	; 唁
+      (=daikanwa	  . 03690)	; &I-M-03690;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 16470)	; &M-16470;
-      (<-same
-       ((=ucs@jis	    . #x5501)	; &AJ1-17365;
-	(=adobe-japan1-5    . 17365)	; &AJ1-17365;
-	(=daikanwa	    . 03690)	; &I-M-03690;
-	))
-      (<-same*sources
-       jiyun daikanwa)
+     ((==daikanwa	  . 16470)	; &R-M-16470;
       )
-     ((hanyu-dazidian	  2 1388 2)
-      (=ucs@iso		  . #x23A0C)	; &C6-4071;
-      (=cns11643-6	  . #x4071)	; &C6-4071; [32-81]
-      (=hanziku-4	  . #xC5AF)	; &I-HZK04-C5AF;
+     ((==ucs@iso	  . #x23A0C)	; &R-U-00023A0C;
+      (==cns11643-6	  . #x4071)	; &R-U-00023A0C; [32-81]
       ))
     ))
 (define-char
@@ -2784,21 +2785,36 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (=ucs		. #x23A39)	; 𣨹
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23A39)	; 𣨹
+      ))
+    (ideographic-radical . 78)	; ⽍
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (hanyu-dazidian	2 1391 15)
+    (=ucs@iso		. #x23A39)	; &C6-5375;
+    (=cns11643-6	. #x5375)	; &C6-5375; [51-85]
+    (=daikanwa		. 16528)	; &I-M-16528;
+    (=hanziku-4		. #xC65D)	; &I-HZK04-C65D;
+    (<-same
+     ((=ucs		  . #x5501)	; 唁
+      (=daikanwa	  . 03690)	; &I-M-03690;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 16528)	; &M-16528;
-      (<-same
-       ((=ucs@jis	    . #x5501)	; &AJ1-17365;
-	(=adobe-japan1-5    . 17365)	; &AJ1-17365;
-	(=daikanwa	    . 03690)	; &I-M-03690;
+     ((==ucs@iso	  . #x23A39)	; &R-M-16528;
+      (==cns11643-6	  . #x5375)	; &R-M-16528; [51-85]
+      (==daikanwa	  . 16528)	; &R-M-16528;
+      (->subsumptive
+       ((===daikanwa	    . #x4090)	; &R2-M-16528;
+	)
+       ((===cns11643-6	    . #x5375)	; &R2-C6-5375; [51-85]
+	)
+       ((===ucs@iso	    . #x23A39)	; &R2-U-00023A39;
 	))
-      (<-same*sources
-       jiyun daikanwa)
-      )
-     ((=cns11643-6	  . #x5375)	; &C6-5375; [51-85]
-      )
-     ((hanyu-dazidian	  2 1391 15)
-      (=ucs@iso		  . #x23A39)	; &HZK04-C65D;
-      (=hanziku-4	  . #xC65D)	; &HZK04-C65D;
       ))
     ))
 (define-char
