@@ -13732,25 +13732,41 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (hanyu-dazidian	1 30 9)
-    (=ucs		. #x83D0)	; 菐
-    (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-	(=ucs		    . #x2FF3)	; ⿳
-	)
-       ((=ucs		    . #x4E1A)	; 业
-	)
-       ((=ucs		    . #x4491)	; 䒑
-	)
-       ((=ucs		    . #x592B)	; 夫
-	))
-      (=ucs@unicode	  . #x83D0)	; &JX2-763C;
-      (=jis-x0212	  . #x583A)	; &JX2-763C; [56-26]
-      (=jis-x0213-2	  . #x763C)	; &I-JX2-763C; [86-28]
-      (=big5-cdp	  . #x8D48)	; &I-CDP-8D48;
-      (=daikanwa	  . 31164)	; &I-M-31164;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
       )
-     ((=cns11643-5	  . #x3B6F)	; &C5-3B6F; [27-79]
+     ((=ucs		  . #x4E1A)	; 业
+      )
+     ((=ucs		  . #x4491)	; 䒑
+      )
+     ((=ucs		  . #x592B)	; 夫
+      ))
+    (=ucs		. #x83D0)	; 菐
+    (=jis-x0212		. #x583A)	; &JX2-763C; [56-26]
+    (=cns11643-5	. #x3B6F)	; &C5-3B6F; [27-79]
+    (=jis-x0213-2	. #x763C)	; &I-JX2-763C; [86-28]
+    (=big5-cdp		. #x8D48)	; &I-CDP-8D48;
+    (=daikanwa		. 31164)	; &I-M-31164;
+    (->subsumptive
+     ((==ucs@unicode	  . #x83D0)	; &R-JSP-583A;
+      (==jis-x0212	  . #x583A)	; &R-JSP-583A; [56-26]
+      (==jis-x0213-2	  . #x763C)	; &R-JSP-583A; [86-28]
+      (==big5-cdp	  . #x8D48)	; &R-JSP-583A;
+      (==daikanwa	  . 31164)	; &R-JSP-583A;
+      (->subsumptive
+       ((===daikanwa	    . #x79BC)	; &R2-M-31164;
+	)
+       ((===jis-x0212	    . #x583A)	; &R2-JX2-763C; [56-26]
+	(===jis-x0213-2	    . #x763C)	; &R2-JX2-763C; [86-28]
+	)
+       ((===ucs@unicode	    . #x83D0)	; &R2-UU+83D0;
+	)
+       ((===big5-cdp	    . #x8D48)	; &R2-CDP-8D48;
+	))
+      )
+     ((==ucs@cns	  . #x83D0)	; &R-CU+83D0;
+      (==cns11643-5	  . #x3B6F)	; &R-CU+83D0; [27-79]
       ))
     ))
 (define-char
