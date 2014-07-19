@@ -1,5 +1,16 @@
 2014-07-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R120-Silk.el (U+7CF8): Apply new conventions for glyph
+	granularity.
+	(U-0002035E): Likewise.
+
+2014-07-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el (U+5701): Apply new conventions for
+	glyph granularity.
+	(U+571D): Likewise.
+	(U+571E): Likewise.
+
 	* Ideograph-R149-Speech.el (U+8A00): Apply new conventions for
 	glyph granularity.
 	(U+8A01): Likewise; omit `<-denotational'.
