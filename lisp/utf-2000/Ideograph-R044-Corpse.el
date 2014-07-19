@@ -508,6 +508,9 @@
      ((=ucs		  . #x7ACB)	; 立
       ))
     (=ucs		. #x3790)	; 㞐
+    (=cns11643-3	. #x2852)	; &I-C3-2852; [08-50]
+    (=daikanwa		. 07664)	; &I-M-07664;
+    (=cbeta		. 05464)	; &I-CB05464;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -515,41 +518,21 @@
 	)
        ((=ucs		    . #x5C38)	; 尸
 	)
-       ((=ucs@unicode	    . #x7ACB)	; &GT-33181;
-	(=jis-x0208	    . #x4E29)	; &GT-33181; [46-09]
-	(=gb2312	    . #x4122)	; &I-G0-4122; [33-02]
-	(=ks-x1001	    . #x5821)	; &I-K0-5821; [56-01]
-	(=cns11643-1	    . #x4721)	; &I-C1-4721; [39-01]
-	(=jis-x0213-1	    . #x4E29)	; &I-JX1-4E29; [46-09]
-	(=daikanwa	    . 25721)	; &I-M-25721;
+       ((==ucs@unicode	    . #x7ACB)	; &R-GT-33181;
+	(==jis-x0208	    . #x4E29)	; &R-GT-33181; [46-09]
 	))
-      (=ucs@unicode	  . #x3790)	; &C3-2852;
-      (=cns11643-3	  . #x2852)	; &C3-2852; [08-50]
-      (=daikanwa	  . 07664)	; &I-M-07664;
-      (=cbeta		  . 05464)	; &I-CB05464;
+      (==ucs@unicode	  . #x3790)	; &R-M-07664;
+      (==cns11643-3	  . #x2852)	; &R-M-07664; [08-50]
+      (==daikanwa	  . 07664)	; &R-M-07664;
+      (==cbeta		  . #x1558)	; &R-M-07664;
       (->subsumptive
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	  (=ucs		      . #x2FF8)	; ⿸
-	  )
-	 ((=ucs		      . #x5C38)	; 尸
-	  )
-	 ((==ucs@jis	      . #x7ACB)	; &R-GT-33181;
-	  (==ucs@ks	      . #x7ACB)	; &R-GT-33181;
-	  (==jis-x0208	      . #x4E29)	; &R-GT-33181; [46-09]
-	  ))
-	(==daikanwa	    . 07664)	; &R-M-07664;
+       ((===daikanwa	    . #x1DF0)	; &R2-M-07664;
 	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	  (=ucs		      . #x2FF8)	; ⿸
-	  )
-	 ((=ucs		      . #x5C38)	; 尸
-	  )
-	 ((==ucs@unicode      . #x7ACB)	; &R-UU+7ACB;
-	  ))
-	(==ucs@unicode	    . #x3790)	; &R-UU+3790;
-	(==cns11643-3	    . #x2852)	; &R-UU+3790; [08-50]
+       ((===cbeta	    . #x1558)	; &R2-CB05464;
+	)
+       ((===ucs@unicode	    . #x3790)	; &R2-UU+3790;
+	)
+       ((===cns11643-3	    . #x2852)	; &R2-C3-2852; [08-50]
 	))
       ))
     ))
