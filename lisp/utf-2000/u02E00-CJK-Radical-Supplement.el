@@ -763,6 +763,7 @@
       ))
     (<-simplified@CN/component/connect-right
      ((=ucs		  . #x7CF8)	; 糸
+      (=gb2312		  . #x7469)	; &I-G0-7469; [84-73]
       ))
     ))
 (define-char
