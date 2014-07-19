@@ -15781,8 +15781,8 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 19)
     (=ucs		. #x470C)	; 䜌
-    (=cns11643-5	. #x6952)	; 䜌 [73-50]
-    (=jis-x0213-2	. #x786B)	; 䜌 [88-75]
+    (=cns11643-5	. #x6952)	; &C5-6952; [73-50]
+    (=jis-x0213-2	. #x786B)	; &JX2-786B; [88-75]
     (=big5-cdp		. #x8BE7)	; &I-CDP-8BE7;
     (=daikanwa		. 35943)	; &I-M-35943;
     (->subsumptive
