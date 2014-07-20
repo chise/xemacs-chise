@@ -1,5 +1,59 @@
 2014-07-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R086-Fire.el (U+706B): Apply new conventions for glyph
+	granularity.
+	(U+706E): Likewise.
+	(U+706F): Likewise.
+	(U+7070): Likewise.
+	(U+7079): Use `->subsumptive'.
+	(U+707B): Likewise.
+	(U+3DA6): Likewise.
+	(U+70A5): Likewise.
+	(U+70AF): Apply new conventions for glyph granularity.
+	(U+70B2): Use `->subsumptive'.
+	(U-000241DA): Likewise.
+	(U+70F1): Apply new conventions for glyph granularity.
+	(U+3DBC): Likewise.
+	(U+7103): Likewise.
+	(U+3DBF): Use `->subsumptive'.
+	(U+712B): Apply new conventions for glyph granularity.
+	(U+712C): Use `->subsumptive'.
+	(U+7134): Apply new conventions for glyph granularity.
+	(U+7138): Use `->subsumptive'.
+	(U-000242F2): Apply new conventions for glyph granularity.
+	(U+7151): Likewise.
+	(U+7157): Use `->subsumptive'.
+	(U-000242B9): Apply new conventions for glyph granularity.
+	(U+717C): Likewise.
+	(U+717F): Use `->subsumptive'.
+	(U+718D): Apply new conventions for glyph granularity.
+	(U+71A2): Likewise.
+	(U+3DEE): Use `->subsumptive'.
+	(U+71A3): Apply new conventions for glyph granularity.
+	(U+71AE): Use `->denotational' and `->subsumptive'.
+	(U-0002435C): Use `->subsumptive'.
+	(U+71C8): Apply new conventions for glyph granularity.
+	(U+3DF5): Likewise.
+	(U+71CC): Likewise.
+	(U+71D1): Likewise.
+	(U-000243D9): Use `->subsumptive'.
+	(U+3DFF): Likewise.
+	(U+71FA): Apply new conventions for glyph granularity.
+	(U+7200): Likewise.
+	(U+3E0C): Likewise.
+	(RUI6-E018): Likewise.
+	(U+7225): Likewise.
+	(U-000244DD): Likewise.
+
+2014-07-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R019-Power.el (U+52CF): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R013-Down-Box.el (BC-8C58): Apply new conventions for
+	glyph granularity.
+	(U+518F): Likewise.
+
 	* ruimoku6.el (RUI6-E03C): Apply new conventions for glyph
 	granularity.
 
