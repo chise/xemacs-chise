@@ -2694,7 +2694,7 @@
     (total-strokes	 . 8)
     (=ucs@cns		. #x82AE)	; &C2-285A;
     (=cns11643-2	. #x285A)	; &C2-285A; [08-58]
-    (=daikanwa		. 30731)	; &M-30731;
+    (=daikanwa		. 30731)	; &I-M-30731;
     (=jef-china3	. #x61C9)	; &I-JC3-61C9;
     (->subsumptive
      ((==daikanwa	  . 30731)	; &R-M-30731;
