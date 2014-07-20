@@ -2636,6 +2636,7 @@
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (hanyu-dazidian	1 373 12)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -2645,6 +2646,12 @@
      ((=ucs		  . #x529B)	; 力
       ))
     (=ucs		. #x52CF)	; 勏
+    (=adobe-japan1-6	. 21211)	; &I-AJ1-21211;
+    (=jis-x0212		. #x336A)	; &I-JSP-336A; [19-74]
+    (=cns11643-3	. #x2F6A)	; &I-C3-2F6A; [15-74]
+    (=daikanwa		. 02376)	; &I-M-02376;
+    (=hanziku-1		. #xF2CF)	; &I-HZK01-F2CF;
+    (=jef-china3	. #x44E9)	; &I-JC3-44E9;
     ))
 (define-char
   '((<-denotational
@@ -2653,53 +2660,36 @@
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (=decomposition@cid
+     ((=ucs		  . #x52CF)	; 勏
+      )
+     ((=ucs		  . #xE0100)	; 󠄀
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x5485)	; &AJ1-21265;
-      (=adobe-japan1-6	  . 21265)	; &AJ1-21265;
+     ((==ucs@unicode	  . #x5485)	; &R-AJ1-21265;
+      (==adobe-japan1-6	  . 21265)	; &R-AJ1-21265;
       )
      ((=ucs		  . #x529B)	; 力
       ))
-    (=ucs@unicode	. #x52CF)	; &AJ1-21211;
-    (=adobe-japan1-6	. 21211)	; &AJ1-21211;
-    (=jis-x0212		. #x336A)	; &I-JSP-336A; [19-74]
-    (=cns11643-3	. #x2F6A)	; &I-C3-2F6A; [15-74]
-    (=daikanwa		. 02376)	; &I-M-02376;
-    (=jef-china3	. #x44E9)	; &I-JC3-44E9;
+    (==ucs@unicode	. #x52CF)	; &R-AJ1-21211;
+    (==adobe-japan1-6	. 21211)	; &R-AJ1-21211;
+    (==jis-x0212	. #x336A)	; &R-AJ1-21211; [19-74]
+    (==cns11643-3	. #x2F6A)	; &R-AJ1-21211; [15-74]
+    (==daikanwa		. 02376)	; &R-AJ1-21211;
+    (==jef-china3	. #x44E9)	; &R-AJ1-21211;
     (->subsumptive
-     ((=decomposition@cid
-       ((=ucs		    . #x52CF)	; 勏
-	)
-       ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs@jis	    . #x5485)	; &R-AJ1-21265;
-	(==adobe-japan1-6   . 21265)	; &R-AJ1-21265;
-	)
-       ((=ucs		    . #x529B)	; 力
-	))
-      (==ucs@jis	  . #x52CF)	; &R-AJ1-21211;
-      (==adobe-japan1-6	  . 21211)	; &R-AJ1-21211;
-      (==jis-x0212	  . #x336A)	; &R-AJ1-21211; [19-74]
-      (==daikanwa	  . 02376)	; &R-AJ1-21211;
+     ((===daikanwa	  . #x0948)	; &R2-M-02376;
       )
-     ((hanyu-dazidian	  1 373 12)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs@unicode	    . #x5485)	; &R-UU+5485;
-	)
-       ((=ucs		    . #x529B)	; 力
-	))
-      (==ucs@unicode	  . #x52CF)	; &HZK01-F2CF;
-      (==cns11643-3	  . #x2F6A)	; &HZK01-F2CF; [15-74]
-      (=hanziku-1	  . #xF2CF)	; &HZK01-F2CF;
+     ((===jis-x0212	  . #x336A)	; &R2-JSP-336A; [19-74]
+      )
+     ((===adobe-japan1-6  . #x52DB)	; &R2-AJ1-21211;
+      )
+     ((===ucs@unicode	  . #x52CF)	; &R2-UU+52CF;
+      )
+     ((===cns11643-3	  . #x2F6A)	; &R2-C3-2F6A; [15-74]
       ))
     ))
 (define-char
