@@ -1,3 +1,17 @@
+2014-07-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ruimoku6.el (RUI6-E03C): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R160-Bitter.el (U-00028410): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R117-Stand.el (U+7ACB): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R008-Lid.el (U+4EB2): Apply new conventions for glyph
+	granularity.
+
 2014-07-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R075-Tree.el (U+683E): Apply new conventions for glyph
