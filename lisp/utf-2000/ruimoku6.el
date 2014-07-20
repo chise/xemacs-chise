@@ -777,28 +777,31 @@
     (=ruimoku-v6	. #xE03B)	; &RUI6-E03B;
     ))
 (define-char
-  '((<-subsumptive
-     ((=>>ruimoku-v6	  . #xE03C)	; &G-RUI6-E03C;
-      ))
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((==ucs@jis	    . #x7ACB)	; &R-GT-33181;
-	(==ucs@ks	    . #x7ACB)	; &R-GT-33181;
-	(==jis-x0208	    . #x4E29)	; &R-GT-33181; [46-09]
-	)
-       ((=big5-cdp	    . #x8958)	; &CDP-8958;
-	))
+     ((=ucs		  . #x2668F)	; 𦚏
       )
      ((name		  . "CJK RADICAL KNIFE TWO")
       (=ucs		  . #x2E89)	; ⺉
       ))
     (=ruimoku-v6	. #xE03C)	; &RUI6-E03C;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((==ucs@iso	    . #x2668F)	; &R-U-0002668F;
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (==ruimoku-v6	  . #xE03C)	; &R-RUI6-E03C;
+      ))
     ))
 (define-char
   '((<-denotational
