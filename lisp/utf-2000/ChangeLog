@@ -1,3 +1,19 @@
+2014-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R130-Meat.el (U-0002668F): Add `ideographic-strokes'
+	and `total-strokes'; add ideographic-structure; use
+	`->subsumptive' to add abstract glyph image node.
+	(BC-8CA9): Apply new conventions for glyph granularity.
+
+	* Ideograph-R124-Feather.el (U+7FCB): Apply new conventions for
+	glyph granularity.
+	(U+7FCC): Likewise.
+
+	* Ideograph-R018-Knife.el (U+5256): Apply new conventions for
+	glyph granularity.
+	(U-00020752): Likewise.
+	(RUI6-E03C): Likewise.
+
 2014-07-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R086-Fire.el (U+706B): Apply new conventions for glyph
