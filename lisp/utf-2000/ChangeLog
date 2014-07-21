@@ -1,3 +1,64 @@
+2014-07-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el (U+5E5B): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R038-Woman.el (U+5973): Apply new conventions for
+	glyph granularity.
+	(AJ1-13828): Likewise.
+	(U+36A3): Likewise.
+	(U+5989): Likewise.
+	(U+59AC): Likewise.
+	(U+59AD): Likewise.
+	(U+59B7): Likewise.
+	(U+59B8): Likewise.
+	(U-000216DC): Likewise.
+	(U+36B2): Likewise.
+	(U+59BE): Likewise.
+	(U+59C4): Likewise.
+	(U+59CA): Likewise.
+	(U+59C9): Likewise.
+	(U-000216E0): Likewise.
+	(U+59D4): Likewise.
+	(U+36BC): Likewise.
+	(U+59D9): Likewise.
+	(U+59DF): Likewise.
+	(U+59E6): Likewise.
+	(U+59E7): Likewise.
+	(U+59F0): Likewise.
+	(U+59F9): Likewise.
+	(U+36D0): Likewise.
+	(U+5A27): Likewise.
+	(U+36DD): Likewise.
+	(U-00021762): Likewise.
+	(U+5A3F): Likewise.
+	(U+5A40): Likewise.
+	(U+36F1): Likewise.
+	(U+5A85): Likewise.
+	(U+5A86): Likewise.
+	(U+5A88): Likewise.
+	(U-0002179E): Likewise.
+	(U-0002179F): Likewise.
+	(U+36F9): Likewise.
+	(U+5AD0): Likewise.
+	(U+3717): Likewise.
+	(U+5AE9): Likewise.
+	(U+5AF0): Likewise.
+	(RUI6-E061): Copied from ruimoku6.el.
+	(U+372E): Apply new conventions for glyph granularity.
+	(U+5B32): Likewise.
+	(U-000218EA): Likewise.
+	(G-CU+3732): Separate G-CB06239.
+	(M-06869): Separate CB06239.
+	(C4-5F54): Use `->subsumptive' to add abstract glyph image node.
+	(UU+3732): Unify CB06239.
+	(U-000218FD): Apply new conventions for glyph granularity.
+	(U+5B3E): Likewise.
+	(U-0002190F): Likewise.
+	(U+3738): Likewise.
+	(U-00021922): Likewise.
+	(U+5B4F): Likewise.
+
 2014-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R130-Meat.el (U-0002668F): Add `ideographic-strokes'
