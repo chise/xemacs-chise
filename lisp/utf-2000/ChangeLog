@@ -1,5 +1,26 @@
 2014-07-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R117-Stand.el (BC-8BAE): Apply new conventions for
+	glyph granularity.
+	(U+7AE0): Likewise.
+
+	* Ideograph-R009-Man.el (U+4EC5): Apply new conventions for glyph
+	granularity.
+	(U+4F4D): Likewise.
+	(U+4F57): Likewise.
+	(U+4F82): Likewise.
+	(U+4F98): Likewise.
+	(U+4FE1): Likewise.
+	(U-00020255): Likewise.
+	(U+500D): Likewise.
+	(U-000202BA): Likewise.
+	(U+347E): Likewise.
+	(U+50BD): Likewise.
+	(U-0002035E): Likewise.
+	(U+50D5): Likewise.
+
+2014-07-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R050-Turban.el (U+5E5B): Apply new conventions for
 	glyph granularity.
 
