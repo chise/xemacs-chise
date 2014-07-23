@@ -1,3 +1,35 @@
+2014-07-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+53ED): Apply new conventions for
+	glyph granularity.
+	(U+53F9): Likewise.
+	(U-00020BCB): Likewise.
+	(U+5419): Use `->subsumptive' to add representative nodes.
+	(U+5429): Apply new conventions for glyph granularity.
+	(U+5483): Likewise.
+	(U+54A0): Likewise.
+	(U+54A1): Likewise.
+	(U+54B2): Likewise.
+	(U+54B4): Likewise.
+	(U+54FC): Likewise.
+	(U+54FE): Likewise.
+	(U+5509): Likewise.
+	(U+5529): Use `->subsumptive'.
+	(U+35A1): Apply new conventions for glyph granularity.
+	(U+553C): Likewise.
+	(U+5544): Likewise.
+	(U+5546): Likewise.
+	(U+554D): Likewise.
+	(U+55C3): Likewise.
+	(U+55E1): Likewise.
+	(U+562C): Likewise.
+	(U-00020F62): Likewise.
+	(U+5647): Likewise.
+	(U+5657): Likewise.
+	(U+56AF): Likewise.
+	(U-00021144): Likewise.
+	(U+56D2): Likewise.
+
 2014-07-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R117-Stand.el (BC-8BAE): Apply new conventions for
