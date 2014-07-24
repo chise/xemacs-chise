@@ -1,3 +1,85 @@
+2014-07-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R167-Gold.el (U+91DF): Apply new conventions for glyph
+	granularity.
+	(U+91FC): Likewise.
+	(GT-54023): Unify M-H0631.
+	(U+9206): Apply new conventions for glyph granularity.
+	(U+9210): Likewise.
+	(U-0002894F): Likewise.
+	(U+925B): Likewise.
+	(U+9268): Likewise.
+	(U-00028985): Likewise.
+	(U-0002899F): Likewise.
+	(U+492B): Likewise.
+	(U+92B3): Likewise.
+	(U+92B5): Likewise.
+	(U+92B8): Likewise.
+	(U+92CB): Likewise.
+	(U+92D1): Likewise.
+	(U+92D6): Likewise.
+	(U+92E1): Likewise.
+	(U+4930): Likewise.
+	(U+92F3): Likewise.
+	(U+92FB): Likewise.
+	(U+9302): Likewise.
+	(U-000289E7): Likewise.
+	(U-000289EE): Likewise.
+	(U-00028A2E): Likewise.
+	(U-000289F5): Likewise.
+	(U-000289FE): Likewise.
+	(U+9365): Likewise.
+	(U+9366): Likewise.
+	(U-00028A3A): Likewise.
+	(U+9381): Likewise.
+	(U-00028A79): Likewise.
+	(U-00028A75): Likewise.
+	(U+9395): Likewise.
+	(U+493F): Likewise.
+	(U-00028A89): Likewise.
+	(U+4940): Likewise.
+	(U+939C): Likewise.
+	(U-00028A8F): Likewise.
+	(U-00028A97): Likewise.
+	(U-00028AB7): Likewise.
+	(U+93CD): Likewise.
+	(U+93D5): Likewise.
+	(U+93E1): Likewise.
+	(U-00028AD4): Likewise.
+	(U-00028ADA): Likewise.
+	(U-00028B04): Likewise.
+	(U+93EE): Likewise.
+	(U-00028AF9): Likewise.
+	(U+93FA): Likewise.
+	(U+9405): Likewise.
+	(U+940C): Likewise.
+	(U+940D): Likewise.
+	(U+940F): Likewise.
+	(U+4956): Likewise.
+	(U+4957): Likewise.
+	(U+941C): Likewise.
+	(U-00028B1D): Likewise.
+	(U+4962): Likewise.
+	(U-00028B84): Likewise.
+	(U+9443): Likewise.
+	(U+944A): Likewise.
+	(U+496C): Likewise.
+	(U-00028B97): Likewise.
+	(U+9454): Likewise.
+	(U+4968): Likewise.
+	(U+4973): Likewise.
+	(U+9468): Likewise.
+	(U-00028BDF): Likewise.
+	(U+9471): Likewise.
+	(U-00028BFC): Likewise.
+	(U+9474): Likewise.
+	(U+9476): Likewise.
+	(U+9477): Likewise.
+	(U-00028C10): Likewise.
+	(U+9480): Likewise.
+	(U-00028C2F): Likewise.
+	(U+9484): Likewise.
+
 2014-07-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U+53ED): Apply new conventions for
