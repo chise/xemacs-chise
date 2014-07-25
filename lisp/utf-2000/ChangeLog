@@ -1,3 +1,12 @@
+2014-07-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R003-Dot.el (o-AJ1-13914): Changed from g1-AJ1-13914.
+
+	* Ideograph-R002-Line.el (o-AJ1-14301): Changed from g1-AJ1-14301.
+	(o-AJ1-15386): Changed from G-AJ1-15386.
+
+	* Ideograph-R006-Hook.el (o-CU+2010D): Changed from g1-CU+2010D.
+
 2014-07-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R167-Gold.el (U+91DF): Apply new conventions for glyph
