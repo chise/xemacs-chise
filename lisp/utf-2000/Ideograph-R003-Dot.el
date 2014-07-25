@@ -267,8 +267,7 @@
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (=>>adobe-japan1-4	. 13914)	; &G-AJ1-13914;
-    (=>>gt-k		. 00463)	; &G-AJ1-13914;
+    (=+>adobe-japan1-4	. 13914)	; &o-AJ1-13914;
     (<-formed@component
      ((=ucs		  . #x4E39)	; 丹
       ))
@@ -665,8 +664,8 @@
 	)
        ((=big5-cdp	    . #x8BF1)	; &CDP-8BF1;
 	))
-      (==ucs@unicode	  . #x4E3E)	; &R-UU+4E3E;
-      (==gb2312		  . #x3E59)	; &R-UU+4E3E; [30-57]
+      (==ucs@unicode	  . #x4E3E)	; &G-UU+4E3E;
+      (==gb2312		  . #x3E59)	; &G-UU+4E3E; [30-57]
       ))
     ))
 (define-char
@@ -680,7 +679,7 @@
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 12)
     (total-strokes	 . 13)
-    (=>>ucs@iso		. #x20084)	; &G-IU+20084;
+    (=>>ucs@iso		. #x20084)	; &g1-IU+20084;
     (->subsumptive
      ((=gt		  . 00147)	; &GT-00147;
       (=gt-pj-2		  . #x3072)	; &GT-00147; [16-82]
