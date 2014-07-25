@@ -77,7 +77,7 @@
     (ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
-    (=>>ucs@cns		. #x2010D)	; &G-CU+2010D;
+    (=+>ucs@cns		. #x2010D)	; &o-CU+2010D;
     (->subsumptive
      ((=daikanwa	  . 00227)	; &M-00227;
       )
