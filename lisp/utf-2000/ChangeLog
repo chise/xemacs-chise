@@ -1,5 +1,11 @@
 2014-07-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R007-Two.el (U+4E9F): Apply new conventions for glyph
+	granularity.
+	(U-0002013F): Likewise.
+
+2014-07-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R003-Dot.el (o-AJ1-13914): Changed from g1-AJ1-13914.
 
 	* Ideograph-R002-Line.el (o-AJ1-14301): Changed from g1-AJ1-14301.
