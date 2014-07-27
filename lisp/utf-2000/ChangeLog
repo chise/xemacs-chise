@@ -1,3 +1,12 @@
+2014-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (U+8034): Apply new conventions for
+	glyph granularity.
+	(U+4E75): Likewise.
+	(U-000200ED): Likewise.
+	(U+3424): Likewise.
+	(U+4E82): Likewise.
+
 2014-07-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R007-Two.el (U+4E9F): Apply new conventions for glyph
