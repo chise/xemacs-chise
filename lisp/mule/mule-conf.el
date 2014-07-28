@@ -140,8 +140,8 @@
 
   (make-charset
    '==adobe-japan1-0
-   "Adobe-Japan1-0 detailed glyph-images."
-   '(long-name "Adobe-Japan1-0 glyph-images"
+   "Adobe-Japan1-0 abstract glyph-forms."
+   '(long-name "Adobe-Japan1-0 abstract glyph-forms"
 	       chars 256
 	       dimension 2
 	       columns 2
@@ -151,8 +151,8 @@
 	       registry "AdobeJapan1-0$"))
   (make-charset
    '==adobe-japan1-1
-   "Adobe-Japan1-1 detailed glyph-images."
-   '(long-name "Adobe-Japan1-1 glyph-images"
+   "Adobe-Japan1-1 abstract glyph-forms."
+   '(long-name "Adobe-Japan1-1 abstract glyph-forms"
 	       chars 256
 	       dimension 2
 	       columns 2
@@ -162,8 +162,8 @@
 	       registry "AdobeJapan1-1$"))
   (make-charset
    '==adobe-japan1-2
-   "Adobe-Japan1-2 detailed glyph-images."
-   '(long-name "Adobe-Japan1-2 glyph-images"
+   "Adobe-Japan1-2 abstract glyph-forms."
+   '(long-name "Adobe-Japan1-2 abstract glyph-forms"
 	       chars 256
 	       dimension 2
 	       columns 2
@@ -173,8 +173,8 @@
 	       registry "AdobeJapan1-2$"))
   (make-charset
    '==adobe-japan1-3
-   "Adobe-Japan1-3 detailed glyph-images."
-   '(long-name "Adobe-Japan1-3 glyph-images"
+   "Adobe-Japan1-3 abstract glyph-forms."
+   '(long-name "Adobe-Japan1-3 abstract glyph-forms"
 	       chars 256
 	       dimension 2
 	       columns 2
@@ -184,8 +184,8 @@
 	       registry "AdobeJapan1-3$"))
   (make-charset
    '==adobe-japan1-4
-   "Adobe-Japan1-4 detailed glyph-images."
-   '(long-name "Adobe-Japan1-4 glyph-images"
+   "Adobe-Japan1-4 abstract glyph-forms."
+   '(long-name "Adobe-Japan1-4 abstract glyph-forms"
 	       chars 256
 	       dimension 2
 	       columns 2
@@ -195,8 +195,8 @@
 	       registry "AdobeJapan1-4$"))
   (make-charset
    '==adobe-japan1-5
-   "Adobe-Japan1-5 detailed glyph-images."
-   '(long-name "Adobe-Japan1-5 glyph-images"
+   "Adobe-Japan1-5 abstract glyph-forms."
+   '(long-name "Adobe-Japan1-5 abstract glyph-forms"
 	       chars 256
 	       dimension 2
 	       columns 2
@@ -206,8 +206,8 @@
 	       registry "AdobeJapan1-5$"))
   (make-charset
    '==adobe-japan1-6
-   "Adobe-Japan1-6 detailed glyph-images."
-   '(long-name "Adobe-Japan1-6 glyph-images"
+   "Adobe-Japan1-6 abstract glyph-forms."
+   '(long-name "Adobe-Japan1-6 abstract glyph-forms"
 	       chars 256
 	       dimension 2
 	       columns 2
@@ -217,91 +217,93 @@
 	       registry "AdobeJapan1-6$"))
   (define-charset-alias '==adobe-japan1 '==adobe-japan1-6)
 
-  (define-charset-alias '=>>>adobe-japan1-0 '=adobe-japan1-0)
-  (define-charset-alias '=>>>adobe-japan1-1 '=adobe-japan1-1)
-  (define-charset-alias '=>>>adobe-japan1-2 '=adobe-japan1-2)
-  (define-charset-alias '=>>>adobe-japan1-3 '=adobe-japan1-3)
-  (define-charset-alias '=>>>adobe-japan1-4 '=adobe-japan1-4)
-  (define-charset-alias '=>>>adobe-japan1-5 '=adobe-japan1-5)
-  (define-charset-alias '=>>>adobe-japan1-6 '=adobe-japan1-6)
-  ;; (make-charset
-  ;;  '=>>>adobe-japan1-0
-  ;;  "Adobe-Japan1-0 abstract glyph-forms"
-  ;;  '(long-name "Adobe-Japan1-0 abstract glyph-forms"
-  ;;              chars 256
-  ;;              dimension 2
-  ;;              columns 2
-  ;;              graphic 2
-  ;;              direction l2r
-  ;;              mother =adobe-japan1-0
-  ;;              registry "AdobeJapan1-0$"))
-  ;; (make-charset
-  ;;  '=>>>adobe-japan1-1
-  ;;  "Adobe-Japan1-1 abstract glyph-forms"
-  ;;  '(long-name "Adobe-Japan1-1 abstract glyph-forms"
-  ;;              chars 256
-  ;;              dimension 2
-  ;;              columns 2
-  ;;              graphic 2
-  ;;              direction l2r
-  ;;              mother =>>>adobe-japan1-0
-  ;;              registry "AdobeJapan1-1$"))
-  ;; (make-charset
-  ;;  '=>>>adobe-japan1-2
-  ;;  "Adobe-Japan1-2 abstract glyph-forms"
-  ;;  '(long-name "Adobe-Japan1-2 abstract glyph-forms"
-  ;;              chars 256
-  ;;              dimension 2
-  ;;              columns 2
-  ;;              graphic 2
-  ;;              direction l2r
-  ;;              mother =>>>adobe-japan1-1
-  ;;              registry "AdobeJapan1-2$"))
-  ;; (make-charset
-  ;;  '=>>>adobe-japan1-3
-  ;;  "Adobe-Japan1-3 abstract glyph-forms"
-  ;;  '(long-name "Adobe-Japan1-3 abstract glyph-forms"
-  ;;              chars 256
-  ;;              dimension 2
-  ;;              columns 2
-  ;;              graphic 2
-  ;;              direction l2r
-  ;;              mother =>>>adobe-japan1-2
-  ;;              registry "AdobeJapan1-3$"))
-  ;; (make-charset
-  ;;  '=>>>adobe-japan1-4
-  ;;  "Adobe-Japan1-4 abstract glyph-forms"
-  ;;  '(long-name "Adobe-Japan1-4 abstract glyph-forms"
-  ;;              chars 256
-  ;;              dimension 2
-  ;;              columns 2
-  ;;              graphic 2
-  ;;              direction l2r
-  ;;              mother =>>>adobe-japan1-3
-  ;;              registry "AdobeJapan1-4$"))
-  ;; (make-charset
-  ;;  '=>>>adobe-japan1-5
-  ;;  "Adobe-Japan1-5 abstract glyph-forms"
-  ;;  '(long-name "Adobe-Japan1-5 abstract glyph-forms"
-  ;;              chars 256
-  ;;              dimension 2
-  ;;              columns 2
-  ;;              graphic 2
-  ;;              direction l2r
-  ;;              mother =>>>adobe-japan1-4
-  ;;              registry "AdobeJapan1-5$"))
-  ;; (make-charset
-  ;;  '=>>>adobe-japan1-6
-  ;;  "Adobe-Japan1-6 abstract glyph-forms"
-  ;;  '(long-name "Adobe-Japan1-6 abstract glyph-forms"
-  ;;              chars 256
-  ;;              dimension 2
-  ;;              columns 2
-  ;;              graphic 2
-  ;;              direction l2r
-  ;;              mother =>>>adobe-japan1-5
-  ;;              registry "AdobeJapan1-6$"))
+  (define-charset-alias '=>>>adobe-japan1-0 '==adobe-japan1-0)
+  (define-charset-alias '=>>>adobe-japan1-1 '==adobe-japan1-1)
+  (define-charset-alias '=>>>adobe-japan1-2 '==adobe-japan1-2)
+  (define-charset-alias '=>>>adobe-japan1-3 '==adobe-japan1-3)
+  (define-charset-alias '=>>>adobe-japan1-4 '==adobe-japan1-4)
+  (define-charset-alias '=>>>adobe-japan1-5 '==adobe-japan1-5)
+  (define-charset-alias '=>>>adobe-japan1-6 '==adobe-japan1-6)
   (define-charset-alias '=>>>adobe-japan1 '=>>>adobe-japan1-6)
+
+  (make-charset
+   '===adobe-japan1-0
+   "Adobe-Japan1-0 detailed glyph-images."
+   '(long-name "Adobe-Japan1-0 glyph-images"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother ==adobe-japan1-0
+	       registry "AdobeJapan1-0$"))
+  (make-charset
+   '===adobe-japan1-1
+   "Adobe-Japan1-1 detailed glyph-images."
+   '(long-name "Adobe-Japan1-1 glyph-images"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother ===adobe-japan1-0
+	       registry "AdobeJapan1-1$"))
+  (make-charset
+   '===adobe-japan1-2
+   "Adobe-Japan1-2 detailed glyph-images."
+   '(long-name "Adobe-Japan1-2 glyph-images"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother ===adobe-japan1-1
+	       registry "AdobeJapan1-2$"))
+  (make-charset
+   '===adobe-japan1-3
+   "Adobe-Japan1-3 detailed glyph-images."
+   '(long-name "Adobe-Japan1-3 glyph-images"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother ===adobe-japan1-2
+	       registry "AdobeJapan1-3$"))
+  (make-charset
+   '===adobe-japan1-4
+   "Adobe-Japan1-4 detailed glyph-images."
+   '(long-name "Adobe-Japan1-4 glyph-images"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother ===adobe-japan1-3
+	       registry "AdobeJapan1-4$"))
+  (make-charset
+   '===adobe-japan1-5
+   "Adobe-Japan1-5 detailed glyph-images."
+   '(long-name "Adobe-Japan1-5 glyph-images"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother ===adobe-japan1-4
+	       registry "AdobeJapan1-5$"))
+  (make-charset
+   '===adobe-japan1-6
+   "Adobe-Japan1-6 detailed glyph-images."
+   '(long-name "Adobe-Japan1-6 glyph-images"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother ===adobe-japan1-5
+	       registry "AdobeJapan1-6$"))
+  (define-charset-alias '===adobe-japan1 '===adobe-japan1-6)
 
   (make-charset
    '=>>adobe-japan1-0
@@ -312,7 +314,7 @@
 	       columns 2
 	       graphic 2
 	       direction l2r
-	       mother =>>>adobe-japan1
+	       mother =adobe-japan1
 	       registry "AdobeJapan1-0$"))
   (make-charset
    '=>>adobe-japan1-1
@@ -391,7 +393,7 @@
 	       columns 2
 	       graphic 2
 	       direction l2r
-	       mother =>>adobe-japan1
+	       mother =adobe-japan1
 	       registry "AdobeJapan1-0$"))
   (make-charset
    '=+>adobe-japan1-1
@@ -766,7 +768,7 @@
 
   (make-charset
    '==jis-x0208
-   "JIS X 0208 detailed representative glyph-images (unchanged part)."
+   "JIS X 0208 abstract glyph-forms (unchanged part)."
    '(registry "jisx0208\\.1990"
 	      dimension 2
 	      chars 94
@@ -776,7 +778,7 @@
 	      graphic 0))
   (make-charset
    '==jis-x0208@1978
-   "JIS X 0208:1978 detailed representative glyph-images."
+   "JIS X 0208:1978 abstract glyph-forms."
    '(registry "jisx0208\\.1978"
 	      dimension 2
 	      chars 94
@@ -786,7 +788,7 @@
 	      graphic 0))
   (make-charset
    '==jis-x0208@1983
-   "JIS X 0208:1983 detailed representative glyph-images."
+   "JIS X 0208:1983 abstract glyph-forms."
    '(registry "jisx0208\\.1983"
 	      dimension 2
 	      chars 94
@@ -795,7 +797,7 @@
 	      graphic 0))
   (make-charset
    '==jis-x0208@1990
-   "JIS X 0208:1990 detailed representative glyph-images."
+   "JIS X 0208:1990 abstract glyph-forms."
    '(registry "jisx0208\\.1990"
 	      dimension 2
 	      chars 94
@@ -806,31 +808,31 @@
 
   (make-charset
    '==jis-x0213-1
-   "JIS X 0213 Plain 1 detailed representative glyph-images (unchanged part)."
+   "JIS X 0213 Plain 1 abstract glyph-forms (unchanged part)"
    '(registry "jisx0213\\(\\.[0-9]+\\)?-1"
 	      dimension 2
 	      chars 94
 	      mother =jis-x0213-1
 	      =>iso-ir 228
-              ;; final ?O
+	      ;; final ?O
 	      graphic 0
-              ;; partial t
+	      ;; partial t
 	      ))
   (make-charset
    '==jis-x0213-1@2000
-   "JIS X 0213:2000 Plain 1 detailed representative glyph-images."
+   "JIS X 0213:2000 Plain 1 abstract glyph-forms"
    '(registry "jisx0213\\(\\.2000\\)-1"
 	      dimension 2
 	      chars 94
 	      mother ==jis-x0213-1
 	      =>iso-ir 228
-              ;; final ?O
+	      ;; final ?O
 	      graphic 0
 	      ;; partial t
 	      ))
   (make-charset
    '==jis-x0213-1@2004
-   "JIS X 0213:2004 Plain 1 detailed representative glyph-images."
+   "JIS X 0213:2004 Plain 1 abstract glyph-forms"
    '(mother ==jis-x0213-1
 	    =>iso-ir 233
 	    ;; registry "jisx0213\\(\\.2004\\)-1"
@@ -840,7 +842,7 @@
 
   (make-charset
    '==jis-x0213-2
-   "JIS X 0213 Plain 2 detailed representative glyph-images."
+   "JIS X 0213 Plain 2 abstract glyph-forms"
    '(mother =jis-x0213-2
 	    =>iso-ir 229
 	    registry "jisx0213\\(\\.\\(2000\\|2004\\)\\)?-2"
@@ -899,96 +901,111 @@
 	      ;; final ?C
 	      graphic 0))
 
-  (define-charset-alias '=>>>jis-x0208      '=jis-x0208)
-  (define-charset-alias '=>>>jis-x0208@1978 '=jis-x0208@1978)
-  (define-charset-alias '=>>>jis-x0208@1983 '=jis-x0208@1983)
-  (define-charset-alias '=>>>jis-x0208@1990 '=jis-x0208@1990)
-  ;; (make-charset
-  ;;  '=>>>jis-x0208
-  ;;  "JIS X 0208 abstract glyph-forms (unchanged part)."
-  ;;  '(registry "jisx0208\\.1990"
-  ;;             dimension 2
-  ;;             chars 94
-  ;;             mother =jis-x0208
-  ;;             =>iso-ir 168
-  ;;             ;; final ?B
-  ;;             graphic 0))
-  ;; (make-charset
-  ;;  '=>>>jis-x0208@1978
-  ;;  "JIS X 0208:1978 abstract glyph-forms."
-  ;;  '(registry "jisx0208\\.1978"
-  ;;             dimension 2
-  ;;             chars 94
-  ;;             mother =>>>jis-x0208
-  ;;             =>iso-ir 42
-  ;;             ;; final ?@
-  ;;             graphic 0))
-  ;; (make-charset
-  ;;  '=>>>jis-x0208@1983
-  ;;  "JIS X 0208:1983 abstract glyph-forms."
-  ;;  '(registry "jisx0208\\.1983"
-  ;;             dimension 2
-  ;;             chars 94
-  ;;             mother =>>>jis-x0208
-  ;;             =>iso-ir 87
-  ;;             graphic 0))
-  ;; (make-charset
-  ;;  '=>>>jis-x0208@1990
-  ;;  "JIS X 0208:1990 abstract glyph-forms."
-  ;;  '(registry "jisx0208\\.1990"
-  ;;             dimension 2
-  ;;             chars 94
-  ;;             mother =>>>jis-x0208
-  ;;             =>iso-ir 168
-  ;;             ;; final ?B
-  ;;             graphic 0))
+  (define-charset-alias '=>>>jis-x0208      '==jis-x0208)
+  (define-charset-alias '=>>>jis-x0208@1978 '==jis-x0208@1978)
+  (define-charset-alias '=>>>jis-x0208@1983 '==jis-x0208@1983)
+  (define-charset-alias '=>>>jis-x0208@1990 '==jis-x0208@1990)
 
-  (define-charset-alias '=>>>jis-x0213-1      '=jis-x0213-1)
-  (define-charset-alias '=>>>jis-x0213-1@2000 '=jis-x0213-1@2000)
-  (define-charset-alias '=>>>jis-x0213-1@2004 '=jis-x0213-1@2004)
-  (define-charset-alias '=>>>jis-x0213-2      '=jis-x0213-2)
-  ;; (make-charset
-  ;;  '=>>>jis-x0213-1
-  ;;  "JIS X 0213 Plain 1 abstract glyph-forms (unchanged part)"
-  ;;  '(registry "jisx0213\\(\\.[0-9]+\\)?-1"
-  ;;             dimension 2
-  ;;             chars 94
-  ;;             mother =jis-x0213-1
-  ;;             =>iso-ir 228
-  ;;             ;; final ?O
-  ;;             graphic 0
-  ;;             ;; partial t
-  ;;             ))
-  ;; (make-charset
-  ;;  '=>>>jis-x0213-1@2000
-  ;;  "JIS X 0213:2000 Plain 1 abstract glyph-forms"
-  ;;  '(registry "jisx0213\\(\\.2000\\)-1"
-  ;;             dimension 2
-  ;;             chars 94
-  ;;             mother =>>>jis-x0213-1
-  ;;             =>iso-ir 228
-  ;;             ;; final ?O
-  ;;             graphic 0
-  ;;             ;; partial t
-  ;;             ))
-  ;; (make-charset
-  ;;  '=>>>jis-x0213-1@2004
-  ;;  "JIS X 0213:2004 Plain 1 abstract glyph-forms"
-  ;;  '(mother =>>>jis-x0213-1
-  ;;           =>iso-ir 233
-  ;;           ;; registry "jisx0213\\(\\.2004\\)-1"
-  ;;           dimension 2
-  ;;           chars 94
-  ;;           graphic 0))
-  ;; (make-charset
-  ;;  '=>>>jis-x0213-2
-  ;;  "JIS X 0213 Plain 2 abstract glyph-forms"
-  ;;  '(mother =jis-x0213-2
-  ;;           =>iso-ir 229
-  ;;           registry "jisx0213\\(\\.\\(2000\\|2004\\)\\)?-2"
-  ;;           dimension 2
-  ;;           chars 94
-  ;;           graphic 0))
+  (define-charset-alias '=>>>jis-x0213-1      '==jis-x0213-1)
+  (define-charset-alias '=>>>jis-x0213-1@2000 '==jis-x0213-1@2000)
+  (define-charset-alias '=>>>jis-x0213-1@2004 '==jis-x0213-1@2004)
+  (define-charset-alias '=>>>jis-x0213-2      '==jis-x0213-2)
+
+  (make-charset
+   '===jis-x0208
+   "JIS X 0208 detailed representative glyph-images (unchanged part)."
+   '(registry "jisx0208\\.1990"
+	      dimension 2
+	      chars 94
+	      mother ==jis-x0208
+	      =>iso-ir 168
+	      ;; final ?B
+	      graphic 0))
+  (make-charset
+   '===jis-x0208@1978
+   "JIS X 0208:1978 detailed representative glyph-images."
+   '(registry "jisx0208\\.1978"
+	      dimension 2
+	      chars 94
+	      mother ===jis-x0208
+	      =>iso-ir 42
+	      ;; final ?@
+	      graphic 0))
+  (make-charset
+   '===jis-x0208@1983
+   "JIS X 0208:1983 detailed representative glyph-images."
+   '(registry "jisx0208\\.1983"
+	      dimension 2
+	      chars 94
+	      mother ===jis-x0208
+	      =>iso-ir 87
+	      graphic 0))
+  (make-charset
+   '===jis-x0208@1990
+   "JIS X 0208:1990 detailed representative glyph-images."
+   '(registry "jisx0208\\.1990"
+	      dimension 2
+	      chars 94
+	      mother ===jis-x0208
+	      =>iso-ir 168
+	      ;; final ?B
+	      graphic 0))
+
+  (make-charset
+   '===jis-x0213-1
+   "JIS X 0213 Plain 1 detailed representative glyph-images (unchanged part)."
+   '(registry "jisx0213\\(\\.[0-9]+\\)?-1"
+	      dimension 2
+	      chars 94
+	      mother ==jis-x0213-1
+	      =>iso-ir 228
+              ;; final ?O
+	      graphic 0
+              ;; partial t
+	      ))
+  (make-charset
+   '===jis-x0213-1@2000
+   "JIS X 0213:2000 Plain 1 detailed representative glyph-images."
+   '(registry "jisx0213\\(\\.2000\\)-1"
+	      dimension 2
+	      chars 94
+	      mother ===jis-x0213-1
+	      =>iso-ir 228
+	      ;; final ?O
+	      graphic 0
+	      ;; partial t
+	      ))
+  (make-charset
+   '===jis-x0213-2
+   "JIS X 0213 Plain 2 detailed representative glyph-images."
+   '(mother ==jis-x0213-2
+	    =>iso-ir 229
+	    registry "jisx0213\\(\\.\\(2000\\|2004\\)\\)?-2"
+	    dimension 2
+	    chars 94
+	    graphic 0))
+
+  (make-charset
+   '===jis-x0212
+   "JIS X 0212 representative glyph-images."
+   '(registry "jisx0212"
+	      dimension 2
+	      chars 94
+	      mother ==jis-x0212
+	      =>iso-ir 159
+	      ;; final ?D
+	      graphic 0))
+
+  (make-charset
+   '===ks-x1001
+   "KS X 1001 representative glyph-images."
+   '(registry "ksc5601"
+	      dimension 2
+	      chars 94
+	      mother ==ks-x1001
+	      =>iso-ir 149
+	      ;; final ?C
+	      graphic 0))
 
   (make-charset
    '=>>jis-x0208
@@ -996,7 +1013,7 @@
    '(registry "jisx0208\\.1990"
 	      dimension 2
 	      chars 94
-	      mother =>>>jis-x0208
+	      mother =jis-x0208
 	      =>iso-ir 168
 	      ;; final ?B
 	      graphic 0))
@@ -1035,7 +1052,7 @@
    '(registry "jisx0213\\(\\.[0-9]+\\)?-1"
 	      dimension 2
 	      chars 94
-	      mother =>>>jis-x0213-1
+	      mother =jis-x0213-1
 	      =>iso-ir 228
               ;; final ?O
 	      graphic 0
@@ -1059,7 +1076,7 @@
    '(registry "jisx0213\\(\\.\\(2000\\|2004\\)\\)?-2"
 	      dimension 2
 	      chars 94
-	      mother =>>>jis-x0213-2
+	      mother =jis-x0213-2
 	      =>iso-ir 229
               ;; final ?P
 	      graphic 0))
@@ -1302,6 +1319,79 @@
 	      graphic 0))
 
   (make-charset
+   '===cns11643-1
+   "CNS 11643 Plane 1 representative glyph-images."
+   '(registry "CNS11643[.-]\\(.*[.-]\\)?1$"
+	      dimension 2
+	      chars 94
+	      mother ==cns11643-1
+	      =>iso-ir 171
+	      graphic 0))
+  (make-charset
+   '===cns11643-2
+   "CNS 11643 Plane 2 representative glyph-images."
+   '(registry "CNS11643[.-]\\(.*[.-]\\)?2$"
+	      dimension 2
+	      chars 94
+	      mother ==cns11643-2
+	      =>iso-ir 172
+	      graphic 0))
+  (make-charset
+   '===cns11643-3
+   "CNS 11643 Plane 3 representative glyph-images."
+   '(registry "CNS11643[.-]\\(.*[.-]\\)?3$"
+	      dimension 2
+	      chars 94
+	      mother ==cns11643-3
+	      =>iso-ir 183
+	      graphic 0))
+  (make-charset
+   '===cns11643-4
+   "CNS 11643 Plane 4 representative glyph-images."
+   '(registry "CNS11643[.-]\\(.*[.-]\\)?4$"
+	      dimension 2
+	      chars 94
+	      mother ==cns11643-4
+	      =>iso-ir 184
+	      graphic 0))
+  (make-charset
+   '===cns11643-5
+   "CNS 11643 Plane 5 representative glyph-images."
+   '(registry "CNS11643[.-]\\(.*[.-]\\)?5$"
+	      dimension 2
+	      chars 94
+	      mother ==cns11643-5
+	      =>iso-ir 185
+	      graphic 0))
+  (make-charset
+   '===cns11643-6
+   "CNS 11643 Plane 6 representative glyph-images."
+   '(registry "CNS11643[.-]\\(.*[.-]\\)?6$"
+	      dimension 2
+	      chars 94
+	      mother ==cns11643-6
+	      =>iso-ir 186
+	      graphic 0))
+  (make-charset
+   '===cns11643-7
+   "CNS 11643 Plane 7 representative glyph-images."
+   '(registry "CNS11643[.-]\\(.*[.-]\\)?7$"
+	      dimension 2
+	      chars 94
+	      mother ==cns11643-7
+	      =>iso-ir 187
+	      graphic 0))
+
+  (make-charset
+   '=>>cns11643-1
+   "CNS 11643 Plane 1 abstract glyphs."
+   '(registry "CNS11643[.-]\\(.*[.-]\\)?1$"
+	      dimension 2
+	      chars 94
+	      mother =cns11643-1
+	      =>iso-ir 184
+	      graphic 0))
+  (make-charset
    '=>>cns11643-4
    "CNS 11643 Plane 4 abstract glyphs."
    '(registry "CNS11643[.-]\\(.*[.-]\\)?4$"
@@ -1392,6 +1482,16 @@
   (define-charset-alias 'chinese-big5-cdp '=big5-cdp)
 
   (make-charset '==big5-cdp
+		"Abstract glyph-images of Big5-CDP"
+		'(long-name	"Big5-CDP glyph-forms"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"big5\\.cdp-0"
+		  mother	=big5-cdp))
+  (make-charset '===big5-cdp
 		"Representative glyph-images of Big5-CDP"
 		'(long-name	"Big5-CDP glyph-images"
 		  chars		256
@@ -1400,7 +1500,7 @@
 		  graphic	2
 		  direction	l2r
 		  registry	"big5\\.cdp-0"
-		  mother	=big5-cdp))
+		  mother	==big5-cdp))
 
   (make-charset '=>>big5-cdp
 		"Abstract glyphs of Big5-CDP"
@@ -1647,8 +1747,8 @@
 
   (make-charset
    '==hanyo-denshi/ja
-   "Han'you-Denshi/JA detailed glyph-images."
-   '(long-name "Han'you-Denshi/JA glyph-images"
+   "Han'you-Denshi/JA abstract glyph-forms."
+   '(long-name "Han'you-Denshi/JA glyph-forms"
 	       chars 94
 	       dimension 2
 	       columns 2
@@ -1658,8 +1758,8 @@
 	       mother =hanyo-denshi/ja))
   (make-charset
    '==hanyo-denshi/jb
-   "Han'you-Denshi/JB detailed glyph-images."
-   '(long-name "Han'you-Denshi/JB glyph-images"
+   "Han'you-Denshi/JB abstract glyph-forms."
+   '(long-name "Han'you-Denshi/JB glyph-forms"
 	       chars 94
 	       dimension 2
 	       columns 2
@@ -1669,8 +1769,8 @@
 	       mother =hanyo-denshi/jb))
   (make-charset
    '==hanyo-denshi/jc
-   "Han'you-Denshi/JC detailed glyph-images."
-   '(long-name "Han'you-Denshi/JC glyph-images"
+   "Han'you-Denshi/JC abstract glyph-forms."
+   '(long-name "Han'you-Denshi/JC glyph-forms"
 	       chars 94
 	       dimension 2
 	       columns 2
@@ -1680,8 +1780,8 @@
 	       mother =hanyo-denshi/jc))
   (make-charset
    '==hanyo-denshi/jd
-   "Han'you-Denshi/JD detailed glyph-images."
-   '(long-name "Han'you-Denshi/JD glyph-images"
+   "Han'you-Denshi/JD abstract glyph-forms."
+   '(long-name "Han'you-Denshi/JD glyph-forms"
 	       chars 94
 	       dimension 2
 	       columns 2
@@ -1691,8 +1791,8 @@
 	       mother =hanyo-denshi/jd))
   (make-charset
    '==hanyo-denshi/ft
-   "Han'you-Denshi/FT detailed glyph-images."
-   '(long-name "Han'you-Denshi/FT glyph-images"
+   "Han'you-Denshi/FT abstract glyph-forms."
+   '(long-name "Han'you-Denshi/FT glyph-forms"
 	       chars 94
 	       dimension 2
 	       columns 2
@@ -1702,7 +1802,7 @@
 	       mother =hanyo-denshi/ft))
   (make-charset
    '==hanyo-denshi/ia
-   "Han'you-Denshi/IA representative glyph-images."
+   "Han'you-Denshi/IA abstract glyph-forms."
    '(long-name "Han'you-Denshi/IA glyph-images"
 	       chars 94
 	       dimension 2
@@ -1713,8 +1813,8 @@
 	       mother =hanyo-denshi/ia))
   (make-charset
    '==hanyo-denshi/ib
-   "Han'you-Denshi/IB detailed glyph-images."
-   '(long-name "Han'you-Denshi/IB glyph-images"
+   "Han'you-Denshi/IB abstract glyph-forms."
+   '(long-name "Han'you-Denshi/IB glyph-forms"
 	       chars 94
 	       dimension 2
 	       columns 2
@@ -1724,8 +1824,8 @@
 	       mother =hanyo-denshi/ib))
   (make-charset
    '==hanyo-denshi/hg
-   "Han'you-Denshi/HG detailed glyph-images."
-   '(long-name "Han'you-Denshi/HG glyph-images"
+   "Han'you-Denshi/HG abstract glyph-forms."
+   '(long-name "Han'you-Denshi/HG glyph-forms"
 	       chars 94
 	       dimension 2
 	       columns 2
@@ -1735,7 +1835,7 @@
 	       mother =hanyo-denshi/hg))
   (make-charset
    '==hanyo-denshi/ip
-   "Han'you-Denshi/IP detailed glyph-images."
+   "Han'you-Denshi/IP abstract glyph-forms."
    '(long-name "Han'you-Denshi/IP glyph-images"
 	       chars 256
 	       dimension 2
@@ -1746,8 +1846,8 @@
 	       mother =hanyo-denshi/ip))
   (make-charset
    '==hanyo-denshi/jt
-   "JT (Juuki Touitsu Moji) detailed glyph-images."
-   '(long-name "Han'you-Denshi/JT glyph-images"
+   "JT (Juuki Touitsu Moji) abstract glyph-forms."
+   '(long-name "Han'you-Denshi/JT glyph-forms"
 	       chars 256
 	       dimension 2
 	       columns 2
@@ -1757,6 +1857,82 @@
 	       mother =hanyo-denshi/jt))
   (make-charset
    '==hanyo-denshi/ks
+   "KoSeki-touitsu-moji abstract glyph-forms."
+   '(long-name "Han'you-Denshi/KS glyph-forms"
+	       chars 256
+	       dimension 3
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =hanyo-denshi/ks))
+
+  (make-charset
+   '=koseki
+   "Representative glyph-images of KoSeki-touitsu-moji."
+   '(long-name "KoSeki-touitsu-moji"
+	       chars 256
+	       dimension 3
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =hanyo-denshi/ks))
+
+  (define-charset-alias '=>>>hanyo-denshi/ja '==hanyo-denshi/ja)
+  (define-charset-alias '=>>>hanyo-denshi/jb '==hanyo-denshi/jb)
+  (define-charset-alias '=>>>hanyo-denshi/jc '==hanyo-denshi/jc)
+  (define-charset-alias '=>>>hanyo-denshi/jd '==hanyo-denshi/jd)
+  (define-charset-alias '=>>>hanyo-denshi/ft '==hanyo-denshi/ft)
+  (define-charset-alias '=>>>hanyo-denshi/ib '==hanyo-denshi/ib)
+  (define-charset-alias '=>>>hanyo-denshi/hg '==hanyo-denshi/hg)
+  (define-charset-alias '=>>>hanyo-denshi/jt '==hanyo-denshi/jt)
+  (define-charset-alias '=>>>hanyo-denshi/ks '==hanyo-denshi/ks)
+
+  ;; (make-charset
+  ;;  '===hanyo-denshi/ja
+  ;;  "Han'you-Denshi/JA detailed glyph-images."
+  ;;  '(long-name "Han'you-Denshi/JA glyph-images"
+  ;;              chars 94
+  ;;              dimension 2
+  ;;              columns 2
+  ;;              graphic 2
+  ;;              direction l2r
+  ;;              registry "HanyoDenshi\\.JA-0$"
+  ;;              mother ==hanyo-denshi/ja))
+  (make-charset
+   '===hanyo-denshi/ft
+   "Han'you-Denshi/FT detailed glyph-images."
+   '(long-name "Han'you-Denshi/FT glyph-images"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.FT-0$"
+	       mother ==hanyo-denshi/ft))
+  (make-charset
+   '===hanyo-denshi/ib
+   "Han'you-Denshi/IB detailed glyph-images."
+   '(long-name "Han'you-Denshi/IB glyph-images"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.IB-0$"
+	       mother ==hanyo-denshi/ib))
+  (make-charset
+   '===hanyo-denshi/jt
+   "JT (Juuki Touitsu Moji) detailed glyph-images."
+   '(long-name "Han'you-Denshi/JT glyph-images"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JT-0$"
+	       mother ==hanyo-denshi/jt))
+  (make-charset
+   '===hanyo-denshi/ks
    "KoSeki-touitsu-moji detailed glyph-images."
    '(long-name "Han'you-Denshi/KS glyph-images"
 	       chars 256
@@ -1764,7 +1940,7 @@
 	       columns 2
 	       graphic 2
 	       direction l2r
-	       mother =hanyo-denshi/ks))
+	       mother ==hanyo-denshi/ks))
 
   (make-charset
    '=hanyo-denshi/ks/mf
@@ -1781,123 +1957,41 @@
 	       code-offset    ,(lsh #x6403 16)))
 
   (make-charset
-   '=koseki
-   "Representative glyph-images of KoSeki-touitsu-moji."
-   '(long-name "KoSeki-touitsu-moji"
+   '===mj
+   "Moji-Jouhou-Kiban detailed glyph-images."
+   '(long-name "MJ glyph-images"
 	       chars 256
-	       dimension 3
+	       dimension 2
 	       columns 2
 	       graphic 2
 	       direction l2r
-	       mother =hanyo-denshi/ks))
-
-  (define-charset-alias '=>>>hanyo-denshi/ja '=hanyo-denshi/ja)
-  ;; (make-charset
-  ;;  '=>>>hanyo-denshi/ja
-  ;;  "Han'you-Denshi/JA abstract glyph-forms"
-  ;;  '(long-name "Han'you-Denshi/JA glyph-forms"
-  ;;              chars 94
-  ;;              dimension 2
-  ;;              columns 2
-  ;;              graphic 2
-  ;;              direction l2r
-  ;;              registry "HanyoDenshi\\.JA-0$"
-  ;;              mother =hanyo-denshi/ja))
-  (define-charset-alias '=>>>hanyo-denshi/jb '=hanyo-denshi/jb)
-  ;; (make-charset
-  ;;  '=>>>hanyo-denshi/jb
-  ;;  "Han'you-Denshi/JB abstract glyph-forms"
-  ;;  '(long-name "Han'you-Denshi/JB glyph-forms"
-  ;;              chars 94
-  ;;              dimension 2
-  ;;              columns 2
-  ;;              graphic 2
-  ;;              direction l2r
-  ;;              registry "HanyoDenshi\\.JB-0$"
-  ;;              mother =hanyo-denshi/jb))
-  (define-charset-alias '=>>>hanyo-denshi/jc '=hanyo-denshi/jc)
-  ;; (make-charset
-  ;;  '=>>>hanyo-denshi/jc
-  ;;  "Han'you-Denshi/JC abstract glyph-forms"
-  ;;  '(long-name "Han'you-Denshi/JC glyph-forms"
-  ;;              chars 94
-  ;;              dimension 2
-  ;;              columns 2
-  ;;              graphic 2
-  ;;              direction l2r
-  ;;              registry "HanyoDenshi\\.JC-0$"
-  ;;              mother =hanyo-denshi/jc))
-  (define-charset-alias '=>>>hanyo-denshi/jd '=hanyo-denshi/jd)
-  ;; (make-charset
-  ;;  '=>>>hanyo-denshi/jd
-  ;;  "Han'you-Denshi/JD abstract glyph-forms"
-  ;;  '(long-name "Han'you-Denshi/JD glyph-forms"
-  ;;              chars 94
-  ;;              dimension 2
-  ;;              columns 2
-  ;;              graphic 2
-  ;;              direction l2r
-  ;;              registry "HanyoDenshi\\.JD-0$"
-  ;;              mother =hanyo-denshi/jd))
-  (define-charset-alias '=>>>hanyo-denshi/ft '=hanyo-denshi/ft)
-  ;; (make-charset
-  ;;  '=>>>hanyo-denshi/ft
-  ;;  "Han'you-Denshi/FT abstract glyph-forms"
-  ;;  '(long-name "Han'you-Denshi/FT glyph-forms"
-  ;;              chars 94
-  ;;              dimension 2
-  ;;              columns 2
-  ;;              graphic 2
-  ;;              direction l2r
-  ;;              registry "HanyoDenshi\\.FT-0$"
-  ;;              mother =hanyo-denshi/ft))
-  (define-charset-alias '=>>>hanyo-denshi/ib '=hanyo-denshi/ib)
-  ;; (make-charset
-  ;;  '=>>>hanyo-denshi/ib
-  ;;  "Han'you-Denshi/IB abstract glyph-forms"
-  ;;  '(long-name "Han'you-Denshi/IB glyph-forms"
-  ;;              chars 94
-  ;;              dimension 2
-  ;;              columns 2
-  ;;              graphic 2
-  ;;              direction l2r
-  ;;              registry "HanyoDenshi\\.IB-0$"
-  ;;              mother =hanyo-denshi/ib))
-  (define-charset-alias '=>>>hanyo-denshi/hg '=hanyo-denshi/hg)
-  ;; (make-charset
-  ;;  '=>>>hanyo-denshi/hg
-  ;;  "Han'you-Denshi/HG abstract glyph-forms"
-  ;;  '(long-name "Han'you-Denshi/HG glyph-forms"
-  ;;              chars 94
-  ;;              dimension 2
-  ;;              columns 2
-  ;;              graphic 2
-  ;;              direction l2r
-  ;;              registry "HanyoDenshi\\.HG-0$"
-  ;;              mother =hanyo-denshi/hg))
-  (define-charset-alias '=>>>hanyo-denshi/jt '=hanyo-denshi/jt)
-  ;; (make-charset
-  ;;  '=>>>hanyo-denshi/jt
-  ;;  "JT (Juuki Touitsu Moji) abstract glyph-forms"
-  ;;  '(long-name "Han'you-Denshi/JT glyph-forms"
-  ;;              chars 256
-  ;;              dimension 2
-  ;;              columns 2
-  ;;              graphic 2
-  ;;              direction l2r
-  ;;              registry "HanyoDenshi\\.JT-0$"
-  ;;              mother =hanyo-denshi/jt))
-  (define-charset-alias '=>>>hanyo-denshi/ks '=hanyo-denshi/ks)
-  ;; (make-charset
-  ;;  '=>>>hanyo-denshi/ks
-  ;;  "KoSeki-touitsu-moji abstract glyph-forms"
-  ;;  '(long-name "Han'you-Denshi/KS glyph-forms"
-  ;;              chars 256
-  ;;              dimension 3
-  ;;              columns 2
-  ;;              graphic 2
-  ;;              direction l2r
-  ;;              mother =hanyo-denshi/ks))
+	       mother ==mj))
+  (make-charset
+   '===mj-0
+   "MJ detailed glyph-images plane 0"
+   '(long-name "MJ glyph-images-0"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "mj-0$"
+	       mother ===mj
+	       min-code	0
+	       max-code	#xFFFF))
+  (make-charset
+   '===mj-1
+   "MJ detailed glyph-images plane 1"
+   '(long-name "MJ glyph-images-1"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "mj-1$"
+	       mother ===mj
+	       min-code	#x10000
+	       code-offset #x10000))
 
   (make-charset
    '=>>mj
@@ -1920,7 +2014,7 @@
 	       graphic 2
 	       direction l2r
 	       registry "HanyoDenshi\\.JA-0$"
-	       mother =>>>hanyo-denshi/ja))
+	       mother =hanyo-denshi/ja))
   (make-charset
    '=>>hanyo-denshi/jb
    "Han'you-Denshi/JB abstract glyphs"
@@ -1931,7 +2025,7 @@
 	       graphic 2
 	       direction l2r
 	       registry "HanyoDenshi\\.JB-0$"
-	       mother =>>>hanyo-denshi/jb))
+	       mother =hanyo-denshi/jb))
   (make-charset
    '=>>hanyo-denshi/jc
    "Han'you-Denshi/JC abstract glyphs"
@@ -1942,7 +2036,7 @@
 	       graphic 2
 	       direction l2r
 	       registry "HanyoDenshi\\.JC-0$"
-	       mother =>>>hanyo-denshi/jc))
+	       mother =hanyo-denshi/jc))
   (make-charset
    '=>>hanyo-denshi/jd
    "Han'you-Denshi/JD abstract glyphs"
@@ -1953,7 +2047,7 @@
 	       graphic 2
 	       direction l2r
 	       registry "HanyoDenshi\\.JD-0$"
-	       mother =>>>hanyo-denshi/jd))
+	       mother =hanyo-denshi/jd))
   (make-charset
    '=>>hanyo-denshi/ft
    "Han'you-Denshi/FT abstract glyphs"
@@ -1964,7 +2058,7 @@
 	       graphic 2
 	       direction l2r
 	       registry "HanyoDenshi\\.FT-0$"
-	       mother =>>>hanyo-denshi/ft))
+	       mother =hanyo-denshi/ft))
   (make-charset
    '=>>hanyo-denshi/ia
    "Han'you-Denshi/IA abstract glyphs"
@@ -1986,7 +2080,7 @@
 	       graphic 2
 	       direction l2r
 	       registry "HanyoDenshi\\.IB-0$"
-	       mother =>>>hanyo-denshi/ib))
+	       mother =hanyo-denshi/ib))
   (make-charset
    '=>>hanyo-denshi/hg
    "Han'you-Denshi/HG abstract glyphs"
@@ -1997,7 +2091,7 @@
 	       graphic 2
 	       direction l2r
 	       registry "HanyoDenshi\\.HG-0$"
-	       mother =>>>hanyo-denshi/hg))
+	       mother =hanyo-denshi/hg))
   (make-charset
    '=>>hanyo-denshi/ip
    "Han'you-Denshi/IP abstract glyphs"
@@ -2019,7 +2113,7 @@
 	       graphic 2
 	       direction l2r
 	       registry "HanyoDenshi\\.JT-0$"
-	       mother =>>>hanyo-denshi/jt))
+	       mother =hanyo-denshi/jt))
   (make-charset
    '=>>hanyo-denshi/ks
    "Han'you-Denshi/KS abstract glyphs"
@@ -2029,7 +2123,7 @@
 	       columns 2
 	       graphic 2
 	       direction l2r
-	       mother =>>>hanyo-denshi/ks))
+	       mother =hanyo-denshi/ks))
 
   (make-charset '=gt
 		"GT 2000"
@@ -2044,6 +2138,15 @@
 		  max-code	,(+ (lsh #x6100 16) 67547)
 		  code-offset	,(lsh #x6100 16)))
   (make-charset '==gt
+		"GT 2000 abstract glyph-forms."
+		'(long-name     "GT abstract glyph-forms"
+		  chars         256
+		  dimension     3
+		  columns       2
+		  graphic       2
+		  direction     l2r
+		  mother        =gt))
+  (make-charset '===gt
 		"GT 2000 detailed glyph-images."
 		'(long-name	"GT glyph-images"
 		  chars		256
@@ -2051,21 +2154,12 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  mother	=gt
+		  mother	==gt
                   ;; min-code	1
                   ;; max-code	67392
 		  ))
   (define-charset-alias 'ideograph-gt '=gt)
-  (define-charset-alias '=>>>gt '=gt)
-  ;; (make-charset '=>>>gt
-  ;;               "GT 2000 abstract glyph-forms"
-  ;;               '(long-name     "GT abstract glyph-forms"
-  ;;                 chars         256
-  ;;                 dimension     3
-  ;;                 columns       2
-  ;;                 graphic       2
-  ;;                 direction     l2r
-  ;;                 mother        =gt))
+  (define-charset-alias '=>>>gt '==gt)
   (make-charset '=>>gt
 		"GT 2000 abstract glyphs"
 		'(long-name	"GT abstract glyphs"
@@ -2074,7 +2168,7 @@
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  mother	=>>>gt))
+		  mother	=gt))
   (define-charset-alias '<=>gt '=>>gt)
   (define-charset-alias '<==>gt '=>>gt)
   (make-charset '=+>gt
@@ -2109,7 +2203,7 @@
 		  code-offset	,(lsh #x6110 16)))
   (define-charset-alias 'ideograph-gt-k '=gt-k)
   (make-charset '==gt-k
-		"Representative glyph-images of GT-K"
+		"Abstract glyph-images of GT-K"
 		'(long-name	"GT-K glyph-images"
 		  chars		256
 		  dimension	2
@@ -2117,6 +2211,15 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=gt-k))
+  (make-charset '===gt-k
+		"Representative glyph-images of GT-K"
+		'(long-name	"GT-K glyph-images"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	==gt-k))
   (make-charset '=>>gt-k
 		"abstract glyphs of GT-K"
 		'(long-name	"GT-K abstract glyphs"
@@ -2241,8 +2344,8 @@
 		  direction	l2r))
 
   (make-charset '==daikanwa
-		"Daikanwa detailed glyph-images."
-		'(long-name	"Daikanwa detailed glyph-images"
+		"Daikanwa glyph-images."
+		'(long-name	"Daikanwa glyph-images"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -2268,6 +2371,35 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=daikanwa/ho))
+
+  (make-charset '===daikanwa
+		"Daikanwa detailed glyph-images."
+		'(long-name	"Daikanwa detailed glyph-images"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"Daikanwa\\(\\.[0-9]+\\)?-3"
+		  mother	==daikanwa))
+  (make-charset '===daikanwa/+p
+		"Daikanwa detailed glyph-images (ddddd')"
+		'(long-name	"Daikanwa detailed glyphs-images (ddddd')"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	==daikanwa/+p))
+  (make-charset '===daikanwa/ho
+		"Daikanwa detailed glyph-images (Hokan)"
+		'(long-name	"Daikanwa-ho detailed glyph-images"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	==daikanwa/ho))
 
   (make-charset '=>>daikanwa
 		"Daikanwa abstract glyphs"
@@ -2469,7 +2601,24 @@
 		  columns	2
 		  direction	l2r))
   (define-charset-alias 'ideograph-cbeta '=cbeta)
-
+  (make-charset '==cbeta "CBETA private characters"
+		'(long-name	"CBETA PUA glyph-images"
+		  chars		256
+		  dimension	2
+		  registry	"cbeta-0"
+		  graphic	2
+		  columns	2
+		  direction	l2r
+		  mother	=cbeta))
+  (make-charset '===cbeta "CBETA private characters"
+		'(long-name	"CBETA PUA glyph-images"
+		  chars		256
+		  dimension	2
+		  registry	"cbeta-0"
+		  graphic	2
+		  columns	2
+		  direction	l2r
+		  mother	==cbeta))
   (make-charset '=>>cbeta "CBETA abstract glyphs"
 		'(long-name	"CBETA glyphs"
 		  chars		256
@@ -2517,6 +2666,26 @@
 		  max-code	#xE8FFFF
 		  code-offset	#xE80000))
   (define-charset-alias 'china3-jef '=jef-china3)
+  (make-charset '==jef-china3
+		"JEF + CHINA3 abstract glyph-images."
+		'(long-name	"JEF + CHINA3"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"china3jef-0"
+		  mother	=jef-china3))
+  (make-charset '===jef-china3
+		"JEF + CHINA3 glyph-images."
+		'(long-name	"JEF-CHINA3 glyph-images"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"china3jef-0"
+		  mother	==jef-china3))
 
   (make-charset '=ruimoku-v6
 		"private characters used in RUIMOKU Version.6"
@@ -2531,6 +2700,16 @@
 		  min-code	#xE90000 ; #xE000
 		  max-code	#xE908FF ; #xE8FF
 		  code-offset	,(- #xE90000 #xE000)))
+  (make-charset '==ruimoku-v6
+		"RUIMOKU Version.6 glyph-images."
+		'(long-name	"RUI6 glyph-images."
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"rui6-0"
+		  mother	=ruimoku-v6))
   (make-charset '=>>ruimoku-v6
 		"RUIMOKU Version.6 glyphs"
 		'(long-name	"RUI6 glyphs"
@@ -2822,87 +3001,6 @@
 		  =>iso-ir	177
 		  mother	=>>ucs@unicode))
 
-  ;; (make-charset '=>>>ucs@iso
-  ;;               "Representative glyph-forms of ISO/IEC 10646"
-  ;;               '(long-name     "UCS glyph-forms for UCS"
-  ;;                 chars         256
-  ;;                 dimension     3
-  ;;                 columns       2
-  ;;                 graphic       2
-  ;;                 direction     l2r
-  ;;                 =>iso-ir      177
-  ;;                 mother        =>>ucs@iso))
-  ;; (make-charset '=>>>ucs@unicode
-  ;;               "Representative glyph-forms of Unicode"
-  ;;               '(long-name     "UCS glyph-forms for Unicode"
-  ;;                 chars         256
-  ;;                 dimension     3
-  ;;                 columns       2
-  ;;                 graphic       2
-  ;;                 direction     l2r
-  ;;                 =>iso-ir      177
-  ;;                 mother        =>>>ucs@iso))
-  ;; (make-charset '=>>>ucs@jis
-  ;;               "UCS Representative glyph-forms for JIS X0208/0212/0213"
-  ;;               '(long-name     "UCS glyph-forms for JIS"
-  ;;                 chars         256
-  ;;                 dimension     3
-  ;;                 columns       2
-  ;;                 graphic       2
-  ;;                 direction     l2r
-  ;;                 =>iso-ir      177
-  ;;                 mother        =>>>ucs@unicode))
-  ;; (make-charset '=>>>ucs@jis/1990
-  ;;               "UCS Representative glyph-forms for JIS X 0208/0212:1990"
-  ;;               '(long-name     "UCS glyph-forms for JIS:1990"
-  ;;                 chars         256
-  ;;                 dimension     3
-  ;;                 columns       2
-  ;;                 graphic       2
-  ;;                 direction     l2r
-  ;;                 =>iso-ir      177
-  ;;                 mother        =>>>ucs@jis))
-  ;; (make-charset '=>>>ucs@jis/2000
-  ;;               "UCS Representative glyph-forms for JIS X 0213:2000"
-  ;;               '(long-name     "UCS glyph-forms for JIS:2000"
-  ;;                 chars         256
-  ;;                 dimension     3
-  ;;                 columns       2
-  ;;                 graphic       2
-  ;;                 direction     l2r
-  ;;                 =>iso-ir      177
-  ;;                 mother        =>>>ucs@jis))
-  ;; (make-charset '=>>>ucs@jis/2004
-  ;;               "UCS Representative glyph-forms for JIS X 0213:2004"
-  ;;               '(long-name     "UCS glyph-forms for JIS:2004"
-  ;;                 chars         256
-  ;;                 dimension     3
-  ;;                 columns       2
-  ;;                 graphic       2
-  ;;                 direction     l2r
-  ;;                 =>iso-ir      177
-  ;;                 mother        =>>>ucs@jis))
-  ;; (make-charset '=>>>ucs@ks
-  ;;               "UCS Representative glyph-forms for Korean Standards"
-  ;;               '(long-name     "UCS glyph-forms for KS"
-  ;;                 chars         256
-  ;;                 dimension     3
-  ;;                 columns       2
-  ;;                 graphic       2
-  ;;                 direction     l2r
-  ;;                 =>iso-ir      177
-  ;;                 mother        =>>>ucs@unicode))
-  ;; (make-charset '=>>>ucs@cns
-  ;;               "UCS Representative glyph-forms for CNS 11643 sources"
-  ;;               '(long-name     "UCS glyph-forms for CNS"
-  ;;                 chars         256
-  ;;                 dimension     3
-  ;;                 columns       2
-  ;;                 graphic       2
-  ;;                 direction     l2r
-  ;;                 =>iso-ir      177
-  ;;                 mother        =>>>ucs@unicode))
-
   (make-charset '=ucs@iso
 		"ISO/IEC 10646 for its representative glyphs"
 		'(long-name	"UCS for ISO"
@@ -2913,9 +3011,7 @@
 		  direction	l2r
 		  =>iso-ir	177
                   mother	=>>ucs@iso
-		  ;; mother	=>>>ucs@iso
 		  ))
-  (define-charset-alias '=>>>ucs@iso '=ucs@iso)
   (make-charset '=ucs@unicode
 		"Unicode for its representative glyphs"
 		'(long-name	"UCS for Unicode"
@@ -2926,7 +3022,6 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=ucs@iso))
-  (define-charset-alias '=>>>ucs@unicode '=ucs@unicode)
   (make-charset '=ucs@gb
 		"ISO/IEC 10646 for GB"
 		'(long-name	"UCS for GB"
@@ -3161,25 +3256,27 @@
 		  mother	=ucs@big5))
 
   (make-charset '==ucs@iso
-		"ISO/IEC 10646 for its representative glyph-images."
-		'(long-name	"ISO rep-image for UCS"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=ucs@iso))
+		"Representative glyph-forms of ISO/IEC 10646."
+		'(long-name     "UCS glyph-forms for UCS"
+		  chars         256
+		  dimension     3
+		  columns       2
+		  graphic       2
+		  direction     l2r
+		  =>iso-ir      177
+		  mother        =>>ucs@iso))
+  (define-charset-alias '=>>>ucs@iso '==ucs@iso)
   (make-charset '==ucs@unicode
-		"Unicode for its representative glyph-images."
-		'(long-name	"UCS for Unicode"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	==ucs@iso))
+		"Representative glyph-forms of Unicode."
+		'(long-name     "UCS glyph-forms for Unicode"
+		  chars         256
+		  dimension     3
+		  columns       2
+		  graphic       2
+		  direction     l2r
+		  =>iso-ir      177
+		  mother        ==ucs@iso))
+  (define-charset-alias '=>>>ucs@unicode '==ucs@unicode)
   (make-charset '==ucs@gb
 		"ISO/IEC 10646 for GB"
 		'(long-name	"UCS for GB"
@@ -3202,15 +3299,15 @@
 		  min-code	#x0000
 		  max-code	#xFFFF))
   (make-charset '==ucs@cns
-		"ISO/IEC 10646 for CNS 11643"
-		'(long-name	"UCS for CNS"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	==ucs@unicode))
+		"UCS Representative glyph-forms for CNS 11643 sources."
+		'(long-name     "UCS glyph-forms for CNS"
+		  chars         256
+		  dimension     3
+		  columns       2
+		  graphic       2
+		  direction     l2r
+		  =>iso-ir      177
+		  mother        ==ucs@unicode))
   (make-charset '==ucs-bmp@cns
 		"ISO/IEC 10646 BMP for CNS"
 		'(long-name	"BMP for CNS"
@@ -3223,47 +3320,47 @@
 		  min-code	#x0000
 		  max-code	#xFFFF))
   (make-charset '==ucs@jis
-		"ISO/IEC 10646 for JIS X0208/0212/0213"
-		'(long-name	"UCS for JIS"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	==ucs@unicode))
+		"UCS Representative glyph-forms for JIS X0208/0212/0213."
+		'(long-name     "UCS glyph-forms for JIS"
+		  chars         256
+		  dimension     3
+		  columns       2
+		  graphic       2
+		  direction     l2r
+		  =>iso-ir      177
+		  mother        ==ucs@unicode))
   (make-charset '==ucs@jis/1990
-		"ISO/IEC 10646 for JIS X 0208/0212:1990"
-		'(long-name	"UCS for JIS:1990"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	==ucs@jis))
+		"UCS Representative glyph-forms for JIS X 0208/0212:1990."
+		'(long-name     "UCS glyph-forms for JIS:1990"
+		  chars         256
+		  dimension     3
+		  columns       2
+		  graphic       2
+		  direction     l2r
+		  =>iso-ir      177
+		  mother        ==ucs@jis))
   (make-charset '==ucs@jis/2000
-		"ISO/IEC 10646 for JIS X 0213:2000"
-		'(long-name	"UCS for JIS:2000"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	==ucs@jis))
+		"UCS Representative glyph-forms for JIS X 0213:2000."
+		'(long-name     "UCS glyph-forms for JIS:2000"
+		  chars         256
+		  dimension     3
+		  columns       2
+		  graphic       2
+		  direction     l2r
+		  =>iso-ir      177
+		  mother        ==ucs@jis))
   (make-charset '==ucs@jis/2004
-		"ISO/IEC 10646 for JIS X 0213:2004"
-		'(long-name	"UCS for JIS:2004"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	==ucs@jis))
+		"UCS Representative glyph-forms for JIS X 0213:2004."
+		'(long-name     "UCS glyph-forms for JIS:2004"
+		  chars         256
+		  dimension     3
+		  columns       2
+		  graphic       2
+		  direction     l2r
+		  =>iso-ir      177
+		  mother        ==ucs@jis))
   (make-charset '==ucs@JP
-		"UCS for common glyph-images used in Japan."
+		"UCS for common glyph-forms used in Japan."
 		'(long-name	"UCS for Japan"
 		  chars		256
 		  dimension	3
@@ -3273,7 +3370,7 @@
 		  =>iso-ir	177
 		  mother	==ucs@jis/2004))
   (make-charset '==ucs@JP/hanazono
-		"Japanese glyph-images of Hanazono Mincho."
+		"Japanese glyph-forms of Hanazono Mincho."
 		'(long-name	"UCS for Hana-Min"
 		  chars		256
 		  dimension	3
@@ -3283,15 +3380,15 @@
 		  =>iso-ir	177
 		  mother	==ucs@JP))
   (make-charset '==ucs@ks
-		"ISO/IEC 10646 for Korean Standards."
-		'(long-name	"UCS for KS"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	==ucs@unicode))
+		"UCS Representative glyph-forms for Korean Standards."
+		'(long-name     "UCS glyph-forms for KS"
+		  chars         256
+		  dimension     3
+		  columns       2
+		  graphic       2
+		  direction     l2r
+		  =>iso-ir      177
+		  mother        ==ucs@unicode))
   (make-charset '==ucs-bmp@ks
 		"ISO/IEC 10646 BMP for KS."
 		'(long-name	"BMP for KS"
@@ -3313,6 +3410,47 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	==ucs@cns))
+
+  (make-charset '===ucs@iso
+		"ISO/IEC 10646-2 representative glyph-images."
+		'(long-name	"ISO rep-images for UCS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	==ucs@iso))
+  (make-charset '===ucs@unicode
+		"Unicode for its representative glyph-images."
+		'(long-name	"UCS for Unicode"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	===ucs@iso))
+  (make-charset '===ucs@gb
+		"UCS representative glyph-images of GB."
+		'(long-name	"UCS rep-images for GB"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	===ucs@unicode))
+  (make-charset '===ucs@ks
+		"UCS representative glyph-images of Korean Standards."
+		'(long-name	"UCS rep-images for KS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	===ucs@unicode))
 
   (make-charset '=ucs-itaiji-084
 		"uXXXX-itaiji-084 glyph-images of GlyphWiki"
@@ -3415,6 +3553,21 @@
 	       direction l2r
 	       registry "-zh-.*-ucs-0"
 	       mother ==ucs@gb
+	       min-code #x2E00
+               max-code #x9FA5
+	       ;; max-code #xA4CF
+	       ))
+  (make-charset
+   '===ucs-bmp-cjk@gb
+   "CJK Characters in BMP with GB representative glyph-images."
+   '(long-name "CJK in BMP@GB"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-zh-.*-ucs-0"
+	       mother ===ucs@gb
 	       min-code #x2E00
                max-code #x9FA5
 	       ;; max-code #xA4CF
@@ -3588,6 +3741,19 @@
 	       direction l2r
 	       registry "\\(iso10646\\|ucs02\\)-2$"
 	       mother ==ucs@iso
+	       min-code #x20000 max-code #x2A6D6
+	       code-offset #x20000))
+  (make-charset
+   '===ucs-sip-ext-b@iso
+   "CJK Ideographs Extension B (ISO/IEC 10646-2)"
+   '(long-name "UCS CJK Ext-B"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "\\(iso10646\\|ucs02\\)-2$"
+	       mother ===ucs@iso
 	       min-code #x20000 max-code #x2A6D6
 	       code-offset #x20000))
   )
