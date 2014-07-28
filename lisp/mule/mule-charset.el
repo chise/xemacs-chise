@@ -407,9 +407,40 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==jis-x0208@1983
 	  ==jis-x0208@1978
 	  ==jis-x0213-1@2000
+	  ==jis-x0213-2
 	  ==jis-x0212
 	  ==ks-x1001
+	  ==ruimoku-v6
 	  ==daikanwa
+	  ==cbeta
+	  ==jef-china3
+	  ===mj-0
+	  ===mj-1
+          ===jis-x0208@1990
+	  ===jis-x0213-1
+	  ===jis-x0213-2
+	  ===big5-cdp
+	  ===ucs-bmp-cjk@gb
+          ===adobe-japan1-6
+	  ===cns11643-1
+	  ===cns11643-2
+	  ===cns11643-3
+	  ===cns11643-4
+	  ===cns11643-5
+	  ===cns11643-6
+	  ===cns11643-7
+	  ;; ===hanyo-denshi/ja
+	  ===hanyo-denshi/ft
+	  ===hanyo-denshi/ib
+	  ===hanyo-denshi/jt
+	  ===jis-x0208@1983
+	  ===jis-x0208@1978
+	  ===jis-x0212
+	  ===ks-x1001
+	  ===daikanwa
+	  ===ucs-sip-ext-b@iso
+	  ===cbeta
+	  ===jef-china3
 	  ;; ucs-sip
 	  =>>big5-cdp
 	  =>>jis-x0208
