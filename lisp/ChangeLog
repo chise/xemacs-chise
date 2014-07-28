@@ -1,3 +1,141 @@
+2014-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (==adobe-japan1-*): Indicate abstract
+	glyph-forms instead of detailed glyph-images.
+	(=>>>adobe-japan1-*): Indicate `==adobe-japan1-*' instead of
+	`=adobe-japan1-*'.
+	(===adobe-japan1-0): New coded-charset for XEmacs CHISE.
+	(===adobe-japan1-1): Ditto.
+	(===adobe-japan1-2): Ditto.
+	(===adobe-japan1-3): Ditto.
+	(===adobe-japan1-4): Ditto.
+	(===adobe-japan1-5): Ditto.
+	(===adobe-japan1-6): Ditto.
+	(=>>adobe-japan1-0): Use `=adobe-japan1' instead of
+	`=>>>adobe-japan1' as the mother.
+	(=+>adobe-japan1-0): Use `=adobe-japan1' instead of
+	`=>>adobe-japan1' as the mother.
+	(==jis-x0208): Indicate abstract glyph-forms instead of detailed
+	glyph-images.
+	(==jis-x0208@1978): Ditto.
+	(==jis-x0208@1983): Ditto.
+	(==jis-x0208@1990): Ditto.
+	(==jis-x0213-1): Ditto.
+	(==jis-x0213-1@2000): Ditto.
+	(==jis-x0213-1@2004): Ditto.
+	(==jis-x0213-2): Ditto.
+	(=>>>jis-x0208): Indicate `==jis-x0208' instead of `=jis-x0208'.
+	(=>>>jis-x0208@1978): Indicate `==jis-x0208@1978' instead of
+	`=jis-x0208@1978'.
+	(=>>>jis-x0208@1983): Indicate `==jis-x0208@1983' instead of
+	`=jis-x0208@1983'.
+	(=>>>jis-x0208@1990): Indicate `==jis-x0208@1990' instead of
+	`=jis-x0208@1990'.
+	(=>>>jis-x0213-1): Indicate `==jis-x0213-1' instead of
+	`=jis-x0213-1'.
+	(=>>>jis-x0213-1@2000): Indicate `==jis-x0213-1@2000' instead of
+	`=jis-x0213-1@2000'.
+	(=>>>jis-x0213-1@2004): Indicate `==jis-x0213-1@2004' instead of
+	`=jis-x0213-1@2004'.
+	(=>>>jis-x0213-2): Indicate `==jis-x0213-2' instead of
+	`=jis-x0213-2'.
+	(===jis-x0208): New coded-charset for XEmacs CHISE.
+	(===jis-x0208@1978): Ditto.
+	(===jis-x0208@1983): Ditto.
+	(===jis-x0208@1990): Ditto.
+	(===jis-x0213-1): Ditto.
+	(===jis-x0213-1@2000): Ditto.
+	(===jis-x0213-2): Ditto.
+	(===jis-x0212): Ditto.
+	(===ks-x1001): Ditto.
+	(=>>jis-x0208): Use `=jis-x0208' instead of `=>>>jis-x0208' as the
+	mother.
+	(=>>jis-x0213-1): Use `=jis-x0213-1' instead of `=>>>jis-x0213-1'
+	as the mother.
+	(=>>jis-x0213-2): Use `=jis-x0213-2' instead of `=>>>jis-x0213-2'
+	as the mother.
+	(===cns11643-1): New coded-charset for XEmacs CHISE.
+	(===cns11643-2): Ditto.
+	(===cns11643-3): Ditto.
+	(===cns11643-4): Ditto.
+	(===cns11643-5): Ditto.
+	(===cns11643-6): Ditto.
+	(===cns11643-7): Ditto.
+	(=>>cns11643-1): Ditto.
+	(==big5-cdp): Indicate abstract glyph-images instead of
+	representative glyph-images.
+	(===big5-cdp): New coded-charset for XEmacs CHISE.
+	(==hanyo-denshi/*): Indicate abstract glyph-forms instead of
+	detailed glyph-images.
+	(=>>>hanyo-denshi/*): Indicate `==hanyo-denshi/*' instead of
+	`=hanyo-denshi/*'.
+	(===hanyo-denshi/ft): New coded-charset for XEmacs CHISE.
+	(===hanyo-denshi/ib): Ditto.
+	(===hanyo-denshi/jt): Ditto.
+	(===hanyo-denshi/ks): Ditto.
+	(===mj): Ditto.
+	(===mj-0): Ditto.
+	(===mj-1): Ditto.
+	(=>>hanyo-denshi/*): Use `=hanyo-denshi/*' instead of
+	`=>>>hanyo-denshi/*' as its mother.
+	(==gt): Indicate abstract glyph-forms instead of detailed
+	glyph-images.
+	(===gt): New coded-charset for XEmacs CHISE.
+	(=>>>gt): Indicates `==gt' instead of `=gt'.
+	(=>>gt): Use `=gt' instead of `=>>>gt' as the mother.
+	(==gt-k): Indicate abstract glyph-forms instead of detailed
+	glyph-images.
+	(===gt-k): New coded-charset for XEmacs CHISE.
+	(==daikanwa): Indicates glyph-images instead of detailed
+	glyph-images.
+	(===daikanwa): New coded-charset for XEmacs CHISE.
+	(===daikanwa/+p): Ditto.
+	(===daikanwa/ho): Ditto.
+	(==cbeta): Ditto.
+	(===cbeta): Ditto.
+	(==jef-china3): Ditto.
+	(===jef-china3): Ditto.
+	(==ruimoku-v6): Ditto.
+	(==ucs@iso): Indicate representative glyph-forms instead of
+	representative glyph-images.
+	(=>>>ucs@iso): Indicates `==ucs@iso' instead of `=ucs@iso'.
+	(==ucs@unicode): Indicate representative glyph-forms instead of
+	representative glyph-images.
+	(=>>>ucs@unicode): Indicates `==ucs@unicode' instead of
+	`=ucs@unicode'.
+	(==ucs@cns): Indicate representative glyph-forms instead of
+	representative glyph-images.
+	(==ucs@jis): Ditto.
+	(==ucs@jis/1990): Ditto.
+	(==ucs@jis/2000): Ditto.
+	(==ucs@jis/2004): Ditto.
+	(==ucs@ks): Ditto.
+	(===ucs@iso): New coded-charset for XEmacs CHISE.
+	(===ucs@unicode): Ditto.
+	(===ucs@gb): Ditto.
+	(===ucs@ks): Ditto.
+	(===ucs-bmp-cjk@gb): Ditto.
+	(===ucs-sip-ext-b@iso): Ditto.
+
+2014-07-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`==jis-x0213-2', `==ruimoku-v6', `==cbeta', `==jef-china3',
+	`===mj-0', `===mj-1', `===jis-x0208@1990', `===jis-x0213-1',
+	`===jis-x0213-2', `===big5-cdp', `===ucs-bmp-cjk@gb',
+	`===adobe-japan1-6', `===cns11643-1', `===cns11643-2',
+	`===cns11643-3', `===cns11643-4', `===cns11643-5',
+	`===cns11643-6', `===cns11643-7', `===hanyo-denshi/ft',
+	`===hanyo-denshi/ib', `===hanyo-denshi/jt', `===jis-x0208@1983',
+	`===jis-x0208@1978', `===jis-x0212', `===ks-x1001', `===daikanwa',
+	`===ucs-sip-ext-b@iso', `===cbeta' and `===jef-china3'.
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	- Use "&G-[NAME];" for `==[NAME]' instead of `=>>[NAME]'.
+	- Use "&R-[NAME];" for `===[NAME]' instead of `==[NAME]'.
+	- Use "&g1-[NAME];" for `=>>[NAME]'.
+	- Abolish "&g2-[NAME];".
+
 2014-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=ucs@big5): Use `=ucs@cns' instead of
