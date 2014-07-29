@@ -1,5 +1,40 @@
 2014-07-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R011-Enter.el (U+5165): Apply new conventions for
+	glyph granularity.
+	(U-000204DB): Likewise.
+	(U+5166): Likewise.
+	(U-000204DC): Likewise.
+	(U-000204DD): Likewise.
+	(U-000204DE): Likewise.
+	(U+34B0): Likewise.
+	(U-000204DF): Likewise.
+	(U+5168): Likewise.
+	(U-000204E0): Likewise.
+	(U+34B2): Likewise.
+	(U-000204E1): Likewise.
+	(U-000204E3): Likewise.
+	(U-000201D2): Likewise.
+	(U-000204E2): Likewise.
+	(U-000204E4): Likewise.
+	(U+34B4): Likewise.
+	(U-000204E7): Likewise.
+	(U-000204E6): Likewise.
+	(U-000204E5): Likewise.
+	(BC-8C62): Likewise; omit `<-denotational' for U+34B3.
+	(U+5169): Apply new conventions for glyph granularity.
+	(U+516A): Likewise.
+	(U-000204EB): Likewise.
+	(U-000204ED): Likewise.
+	(U-000204EE): Likewise.
+	(U-000204F1): Likewise.
+	(U-000204F3): Likewise.
+	(U-000204F4): Likewise.
+	(U-000204F7): Likewise.
+	(U-000204F6): Likewise.
+	(U-000204FD): Likewise.
+	(U-000204FF): Likewise.
+
 	* Ideograph-R017-Open-Box.el (M-01822): Unify U+34D9; apply new
 	conventions for glyph granularity.
 	(U+342B): Apply new conventions for glyph granularity.
@@ -33,6 +68,14 @@
 	(U+5192): Likewise.
 	(U+5195): Likewise.
 	(U+34BC): Likewise.
+
+	* Ideograph-R010-Legs.el (U+5145): Apply new conventions for glyph
+	granularity.
+	(U+514D): Likewise.
+	(U+5154): Likewise.
+	(U+515E): Likewise.
+	(U-000204A8): Likewise.
+	(G-AJ1-08394): Use `->subsumptive' to add representative nodes.
 
 2014-07-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
