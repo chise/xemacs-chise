@@ -98,6 +98,7 @@
    ?裘 ?老 ?毛 ?毳 ?尸 ?尺 ?尾 ?履 ?舟 ?方 ; 310
    ?儿 ?兄 ?兂 ?皃 ?𠑹 ?先 ?秃 ?見 ?覞 ?欠 ; 320
    ?㱃 ?㳄 ?旡 ?頁 ?𦣻 ?面 ?丏 ?首 ?𥄉 ?須 ; 330
+   ?彡 ?彣 ?文 ?髟 ?后 ?司 ?卮 ?卩 ?印 ?色 ; 340
    ])
 
 (defun shuowen-radical (number)
@@ -276,17 +277,26 @@
     =>>>ucs@unicode
     ==ucs@iso
     ==ucs@unicode
+    ;; ==ucs@cns
     ==gb2312
     ==ks-x1001
     ==cns11643-1
     ==cns11643-2
     ==cns11643-3
+    ==cns11643-4
+    ==cns11643-5
+    ==cns11643-6
+    ==cns11643-7
     ==gt
     ==jis-x0208@1990
+    ;; ==jis-x0208@1983
+    ;; ==jis-x0208@1978
     ==gt-k
     =ucs@iso
     =ucs@unicode
     =ucs@cns
+    ==big5-cdp
+    ==cbeta
     =>>big5-cdp
     =>>gt-k
     =+>gt
@@ -623,26 +633,27 @@
 		     =shinjigen@1ed ==shinjigen@1ed
 		     =shinjigen@rev ==shinjigen@rev
 		     =shinjigen/+p@rev ==shinjigen/+p@rev
-		     ==daikanwa/ho
+		     ===daikanwa/ho ==daikanwa/ho
 		     =daikanwa/ho =>>daikanwa/ho =>daikanwa/ho))
 	"(%-18s .  %04d)\t; %c")
        ((eq name '=shinjigen@1ed/24pr)
 	"(%-18s . %04d)\t; %c")
-       ((or (memq name '(==daikanwa
-			 =daikanwa =>>daikanwa =>daikanwa
+       ((or (memq name '(===daikanwa
+			 ==daikanwa =daikanwa =>>daikanwa =>daikanwa
 			 =daikanwa@rev1 =daikanwa@rev2
 			 =daikanwa/+p ==daikanwa/+p =>>daikanwa/+p
 			 =daikanwa/+2p =>>daikanwa/+2p
-			 =gt ==gt ; =>>>gt
+			 =gt ==gt ===gt
 			 =>>gt =+>gt =>gt
-			 =gt-k ==gt-k =>>gt-k =>gt-k
-			 =adobe-japan1-0 ==adobe-japan1-0 ; =>>>adobe-japan1-0
-			 =adobe-japan1-1 ==adobe-japan1-1 ; =>>>adobe-japan1-1
-			 =adobe-japan1-2 ==adobe-japan1-2 ; =>>>adobe-japan1-2
-			 =adobe-japan1-3 ==adobe-japan1-3 ; =>>>adobe-japan1-3
-			 =adobe-japan1-4 ==adobe-japan1-4 ; =>>>adobe-japan1-4
-			 =adobe-japan1-5 ==adobe-japan1-5 ; =>>>adobe-japan1-5
-			 =adobe-japan1-6 ==adobe-japan1-6 ; =>>>adobe-japan1-6
+			 =gt-k ==gt-k ===gt-k
+			 =>>gt-k =>gt-k
+			 =adobe-japan1-0 ==adobe-japan1-0 ===adobe-japan1-0
+			 =adobe-japan1-1 ==adobe-japan1-1 ===adobe-japan1-1
+			 =adobe-japan1-2 ==adobe-japan1-2 ===adobe-japan1-2
+			 =adobe-japan1-3 ==adobe-japan1-3 ===adobe-japan1-3
+			 =adobe-japan1-4 ==adobe-japan1-4 ===adobe-japan1-4
+			 =adobe-japan1-5 ==adobe-japan1-5 ===adobe-japan1-5
+			 =adobe-japan1-6 ==adobe-japan1-6 ===adobe-japan1-6
 			 =>>adobe-japan1-0 =+>adobe-japan1-0
 			 =>>adobe-japan1-1 =+>adobe-japan1-1
 			 =>>adobe-japan1-2 =+>adobe-japan1-2
@@ -650,16 +661,16 @@
 			 =>>adobe-japan1-4 =+>adobe-japan1-4
 			 =>>adobe-japan1-5 =+>adobe-japan1-5
 			 =>>adobe-japan1-6 =+>adobe-japan1-6
-			 =cbeta =>>cbeta
+			 =cbeta ==cbeta ===cbeta =>>cbeta
 			 =zinbun-oracle =>zinbun-oracle))
             ;; (string-match "^=adobe-" (symbol-name name))
 	    )
 	"(%-18s . %05d)\t; %c")
        ((memq name '(=hanyo-denshi/ks
-		     ==hanyo-denshi/ks ; =>>>hanyo-denshi/ks
+		     ==hanyo-denshi/ks ===hanyo-denshi/ks
 		     =>>hanyo-denshi/ks
 		     =koseki
-		     =mj ==mj =>>mj
+		     =mj ==mj ===mj =>>mj
 		     =zihai mojikyo))
 	"(%-18s . %06d)\t; %c")
        ((>= (charset-dimension name) 2)
