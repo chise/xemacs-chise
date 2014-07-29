@@ -976,6 +976,15 @@
 	      ;; partial t
 	      ))
   (make-charset
+   '===jis-x0213-1@2004
+   "JIS X 0213:2004 Plain 1 detailed representative glyph-images."
+   '(mother ===jis-x0213-1
+	    =>iso-ir 233
+	    ;; registry "jisx0213\\(\\.2004\\)-1"
+	    dimension 2
+	    chars 94
+	    graphic 0))
+  (make-charset
    '===jis-x0213-2
    "JIS X 0213 Plain 2 detailed representative glyph-images."
    '(mother ==jis-x0213-2
@@ -1920,6 +1929,17 @@
 	       direction l2r
 	       registry "HanyoDenshi\\.IB-0$"
 	       mother ==hanyo-denshi/ib))
+  (make-charset
+   '===hanyo-denshi/hg
+   "Han'you-Denshi/HG detailed glyph-images."
+   '(long-name "Han'you-Denshi/HG glyph-images"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.HG-0$"
+	       mother ==hanyo-denshi/hg))
   (make-charset
    '===hanyo-denshi/jt
    "JT (Juuki Touitsu Moji) detailed glyph-images."
