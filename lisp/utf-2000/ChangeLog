@@ -1,5 +1,11 @@
 2014-07-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R016-Table.el (BC-865B): Apply new conventions for
+	glyph granularity.
+	(U+51F2): Likewise.
+
+2014-07-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R011-Enter.el (U+5165): Apply new conventions for
 	glyph granularity.
 	(U-000204DB): Likewise.
