@@ -1,5 +1,41 @@
 2014-07-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R008-Lid.el (U+4EA1): Apply new conventions for glyph
+	granularity.
+	(U+4EA4): Likewise.
+	(U+4EA5): Likewise.
+	(U+4EA6): Likewise.
+	(U+342B): Likewise.
+	(U+342C): Likewise.
+	(U+4EAC): Likewise.
+	(U+342D): Likewise.
+	(U-0002014C): Likewise.
+	(U+4EAE): Likewise.
+	(U+4EAF): Likewise.
+	(U+4EB0): Likewise.
+	(U+7AD2): Likewise.
+	(BC-8DEB): Likewise.
+	(U+4EB3): Likewise.
+	(U-00020156): Likewise.
+	(U-0002015E): Likewise.
+	(U-00020159): Likewise.
+	(U-00020161): Likewise.
+	(U-00020166): Likewise.
+	(U-00020169): Likewise.
+	(U+4EB4): Likewise.
+	(U+4EB6): Likewise.
+	(U+342E): Likewise.
+	(U-00020179): Likewise.
+	(U-0002018A): Likewise.
+	(U-0002018C): Likewise.
+	(U-0002018E): Likewise.
+	(U-00020192): Likewise.
+	(U+342F): Likewise.
+	(U-00020199): Likewise.
+	(U-0002019C): Likewise.
+	(U-0002019B): Use `->subsumptive' to add representative node.
+	(UU+4EB9): Apply new conventions for glyph granularity.
+
 	* Ideograph-R014-Cover.el (U+51A4): Apply new conventions for
 	glyph granularity.
 	(U+51A5): Likewise.
