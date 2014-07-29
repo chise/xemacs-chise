@@ -60,6 +60,14 @@
 
 2014-07-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (shuowen-radicals): Add ?彡, ?彣, ?文, ?髟, ?后,
+	?司, ?卮, ?卩, ?印 and ?色.
+	(char-db-coded-charset-priority-list): Add `==cns11643-{4..7}',
+	`==big5-cdp' and `==cbeta'.
+	(char-db-insert-ccs-feature): Support `===daikanwa/ho',
+	`===daikanwa', `===gt', `===gt-k', `===adobe-japan1-{0..6}',
+	`==cbeta', `===cbeta', `===hanyo-denshi/ks' and `===mj'.
+
 	* Ideograph-R003-Dot.el (o-AJ1-13914): Changed from g1-AJ1-13914.
 
 	* Ideograph-R002-Line.el (o-AJ1-14301): Changed from g1-AJ1-14301.
