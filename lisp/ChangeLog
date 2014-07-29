@@ -1,3 +1,14 @@
+2014-07-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`===hanyo-denshi/hg'.
+
+2014-07-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (===jis-x0213-1@2004): New coded-charset for
+	XEmacs CHISE.
+	(===hanyo-denshi/hg): Ditto.
+
 2014-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (==adobe-japan1-*): Indicate abstract
