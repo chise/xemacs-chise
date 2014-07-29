@@ -1,3 +1,31 @@
+2014-07-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R017-Open-Box.el (M-01822): Unify U+34D9; apply new
+	conventions for glyph granularity.
+	(U+342B): Apply new conventions for glyph granularity.
+	(G-AJ1-20082): Use `->subsumptive' to add representative nodes.
+
+	* Ideograph-R015-Ice.el (U-000205B1): Apply new conventions for
+	glyph granularity.
+	(U+51B4): Likewise.
+	(MJ007368): New character.
+	(U+34CF): Apply new conventions for glyph granularity.
+	(U+51C6): Likewise.
+	(U+51C9): Likewise.
+	(U+51CA): Likewise.
+	(U+51CC): Likewise.
+	(U+51D5): Likewise.
+	(U+51D6): Likewise.
+	(U+51D7): Likewise.
+	(U+51DC): Likewise.
+	(U+51DB): Likewise.
+
+	* Ideograph-R012-Eight.el (U+516D): Apply new conventions for
+	glyph granularity.
+	(U-00020502): Likewise.
+	(UU+517E): Likewise.
+	(U+34B9): Likewise.
+
 2014-07-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R013-Down-Box.el (U+5190): Apply new conventions for
