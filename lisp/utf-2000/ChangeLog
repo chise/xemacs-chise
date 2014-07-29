@@ -1,5 +1,9 @@
 2014-07-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R014-Cover.el (U+51A4): Apply new conventions for
+	glyph granularity.
+	(U+51A5): Likewise.
+
 	* Ideograph-R016-Table.el (BC-865B): Apply new conventions for
 	glyph granularity.
 	(U+51F2): Likewise.
