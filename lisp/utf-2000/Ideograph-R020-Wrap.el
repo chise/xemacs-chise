@@ -352,15 +352,15 @@
       (=gt-pj-11	  . #x527B)	; &GT-00176; [50-91]
       (=daikanwa	  . 00129)	; &I-M-00129;
       (<-same
-       ((=daikanwa	    . 02502)	; &R-GT-03212;
+       ((=daikanwa	    . 02502)	; &G-GT-03212;
 	))
       (<-same*sources
        daikanwa)
       )
      ((ideographic-radical . 20)	; ⼓
       (ideographic-strokes . 2)
-      (==gt		  . 03212)	; &R-GT-03212;
-      (=daikanwa	  . 02502)	; &R-GT-03212;
+      (==gt		  . 03212)	; &G-GT-03212;
+      (=daikanwa	  . 02502)	; &G-GT-03212;
       (<-same
        ((=gt		    . 00176)	; &GT-00176;
 	(=daikanwa	    . 00129)	; &I-M-00129;
@@ -467,16 +467,19 @@
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (hanyu-dazidian	1 257 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
       (=ucs		  . #x2FF9)	; ⿹
       )
      ((=ucs		  . #x52F9)	; 勹
       )
-     ((=>>ucs@unicode	  . #x4EA1)	; &G-AJ1-03682;
-      (=>>adobe-japan1-0  . 03682)	; &G-AJ1-03682;
+     ((=ucs@unicode	  . #x4EA1)	; &G0-4D76;
+      (=gb2312		  . #x4D76)	; &G0-4D76; [45-86]
       ))
-    (=>>ucs@unicode	. #x5304)	; &G-UU+5304;
+    (=ucs@unicode	. #x5304)	; &C3-2222;
+    (=cns11643-3	. #x2222)	; &C3-2222; [02-02]
+    (=hanziku-1		. #xDB41)	; &I-HZK01-DB41;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
@@ -484,28 +487,16 @@
 	)
        ((=ucs		    . #x52F9)	; 勹
 	)
-       ((=ucs@cns	    . #x4EA1)	; &MJ006463;
-	(=ucs@jis	    . #x4EA1)	; &MJ006463;
-	(=ucs@ks	    . #x4EA1)	; &MJ006463;
-	(=mj		    . 006463)	; &MJ006463;
+       ((==ucs@cns	    . #x4EA1)	; &G-CU+4EA1;
+	(==cns11643-1	    . #x4441)	; &G-CU+4EA1; [36-33]
 	))
-      (=cns11643-3	  . #x2222)	; &C3-2222; [02-02]
+      (==ucs@cns	  . #x5304)	; &G-CU+5304;
+      (==cns11643-3	  . #x2222)	; &G-CU+5304; [02-02]
       (->subsumptive
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-	  (=ucs		      . #x2FF4)	; ⿴
-	  )
-	 ((=ucs		      . #x52F9)	; 勹
-	  )
-	 ((==ucs@cns	      . #x4EA1)	; &R-CU+4EA1;
-	  (==cns11643-1	      . #x4441)	; &R-CU+4EA1; [36-33]
-	  ))
-	(==ucs@cns	    . #x5304)	; &R-CU+5304;
-	(==cns11643-3	    . #x2222)	; &R-CU+5304; [02-02]
+       ((===cns11643-3	    . #x2222)	; &R-C3-2222; [02-02]
 	))
       )
-     ((hanyu-dazidian	  1 257 5)
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
 	(=ucs		    . #x2FF9)	; ⿹
 	)
@@ -514,8 +505,7 @@
        ((=ucs@unicode	    . #x4EA1)	; &G0-4D76;
 	(=gb2312	    . #x4D76)	; &G0-4D76; [45-86]
 	))
-      (=ucs@unicode	  . #x5304)	; &HZK01-DB41;
-      (=hanziku-1	  . #xDB41)	; &HZK01-DB41;
+      (==ucs@unicode	  . #x5304)	; &G-UU+5304;
       ))
     ))
 (define-char
@@ -1610,26 +1600,27 @@
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (=>>ucs@jis		. #x5313)	; &G-AJ1-21221;
-    (=>>ucs@cns		. #x5313)	; &G-AJ1-21221;
-    (=>>adobe-japan1-6	. 21221)	; &G-AJ1-21221;
-    (=>>daikanwa	. 02556)	; &G-AJ1-21221;
+    (hanyu-dazidian	1 260 17)
+    (=ucs@cns		. #x5313)	; &AJ1-21221;
+    (=ucs@jis		. #x5313)	; &AJ1-21221;
+    (=adobe-japan1-6	. 21221)	; &AJ1-21221;
+    (=jis-x0212		. #x3423)	; &I-JSP-3423; [20-03]
+    (=cns11643-6	. #x5074)	; &I-C6-5074; [48-84]
+    (=daikanwa		. 02556)	; &I-M-02556;
+    (=hanziku-1		. #xDBCF)	; &I-HZK01-DBCF;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5313)	; 匓
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=ucs@jis		  . #x5313)	; &AJ1-21221;
-      (=adobe-japan1-6	  . 21221)	; &AJ1-21221;
-      (=jis-x0212	  . #x3423)	; &I-JSP-3423; [20-03]
-      (=daikanwa	  . 02556)	; &I-M-02556;
+      (==ucs@jis	  . #x5313)	; &G-AJ1-21221;
+      (==adobe-japan1-6	  . 21221)	; &G-AJ1-21221;
+      (==jis-x0212	  . #x3423)	; &G-AJ1-21221; [20-03]
+      (==daikanwa	  . 02556)	; &G-AJ1-21221;
       )
-     ((=ucs@cns		  . #x5313)	; &C6-5074;
-      (=cns11643-6	  . #x5074)	; &C6-5074; [48-84]
-      )
-     ((hanyu-dazidian	  1 260 17)
-      (=hanziku-1	  . #xDBCF)	; &HZK01-DBCF;
+     ((==ucs@cns	  . #x5313)	; &G-CU+5313;
+      (==cns11643-6	  . #x5074)	; &G-CU+5313; [48-84]
       ))
     ))
 (define-char
@@ -1645,11 +1636,11 @@
       )
      ((=ucs		  . #x52F9)	; 勹
       )
-     ((=>>big5-cdp	  . #x8AD4)	; &G-CDP-8AD4;
+     ((=>>big5-cdp	  . #x8AD4)	; &g1-CDP-8AD4;
       ))
-    (=>>ucs@unicode	. #x5313)	; &G-UU+5313;
+    (=ucs@unicode	. #x5313)	; &UU+5313;
     (->subsumptive
-     ((=ucs@unicode	  . #x5313)	; &UU+5313;
+     ((==ucs@unicode	  . #x5313)	; &G-UU+5313;
       ))
     ))
 (define-char
