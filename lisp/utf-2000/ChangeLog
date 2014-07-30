@@ -1,3 +1,10 @@
+2014-07-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R022-Right-Open-Box.el (U+531F): Apply new conventions
+	for glyph granularity.
+	(U+532C): Likewise.
+	(U+5335): Likewise.
+
 2014-07-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R021-Spoon.el (U+5316): Apply new conventions for
