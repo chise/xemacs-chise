@@ -1,5 +1,15 @@
 2014-07-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R023-Hiding-Enclosure.el (U+5339): Apply new
+	conventions for glyph granularity.
+	(U+533A): Likewise.
+	(U+533B): Likewise.
+	(U+533C): Likewise.
+	(U+533D): Likewise.
+	(U-00020976): Likewise.
+	(U+533E): Likewise.
+	(U+5340): Likewise.
+
 	* Ideograph-R022-Right-Open-Box.el (U+531F): Apply new conventions
 	for glyph granularity.
 	(U+532C): Likewise.
