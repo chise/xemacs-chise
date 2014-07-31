@@ -331,7 +331,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=cns11643-5	    . #x212E)	; &C5-212E; [01-14]
+       ((==ucs@cns	    . #x20AD3)	; &G-CU+20AD3;
+	(==cns11643-5	    . #x212E)	; &G-CU+20AD3; [01-14]
 	)
        ((=ucs		    . #x513F)	; 儿
 	))
