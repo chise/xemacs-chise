@@ -430,6 +430,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ===cns11643-6
 	  ===cns11643-7
 	  ;; ===hanyo-denshi/ja
+	  ===hanyo-denshi/jb
 	  ===hanyo-denshi/ft
 	  ===hanyo-denshi/ib
 	  ===hanyo-denshi/hg
