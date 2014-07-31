@@ -10,6 +10,37 @@
 
 2014-07-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R024-Ten.el (U-0002F82C): Apply new conventions for
+	glyph granularity.
+	(U+5352): Likewise.
+	(U+5359): Likewise.
+
+	* Ideograph-R019-Power.el (U+52B5): Apply new conventions for
+	glyph granularity.
+	(U+52BE): Likewise.
+	(AJ1-13866): Likewise; unify U-0002B751.
+	(U+351C): Apply new conventions for glyph granularity.
+	(U+52C6): Likewise.
+	(U+52C7): Likewise.
+	(U+52CC): Likewise.
+	(U+52CD): Likewise.
+	(U+52D8): Likewise.
+	(U+52DD): Likewise.
+	(U+52E0): Likewise.
+	(U-00020895): Likewise.
+	(U+52E2): Likewise.
+	(U+52E4): Likewise.
+	(U+52E6): Likewise.
+	(U+52E7): Likewise.
+	(U+52EC): Likewise.
+	(UU+52ED): Likewise.
+	(U+52EF): Likewise.
+	(U+52F3): Likewise.
+	(UU+52F6): Likewise.
+	(U+52F8): Likewise.
+
+2014-07-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R023-Hiding-Enclosure.el (U+5339): Apply new
 	conventions for glyph granularity.
 	(U+533A): Likewise.
