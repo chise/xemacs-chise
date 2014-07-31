@@ -427,6 +427,8 @@
 	  (=+>jis-x0208@1978		       "o-J78-" 4 X)
 	  (=+>adobe-japan1		       "o-AJ1-" 5 d)
 	  (=+>gt				"o-GT-" 5 d)
+	  (=+>hanyo-denshi/ft		     "o-HD-FT-" 4 X)
+	  (=+>hanyo-denshi/jt		     "o-HD-JT-" 4 X)
 	  ( =>jis-x0208@1997			 "J97-" 4 X)
 	  ( =>jis-x0208@1997			"A-J0-" 4 X)
 	  ( =>jis-x0213-1@2000		       "A-JX1-" 4 X)
