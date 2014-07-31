@@ -1,3 +1,16 @@
+2014-07-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `=+>hanyo-denshi/ft' and `=+>hanyo-denshi/jt'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`===hanyo-denshi/jb'.
+
+	* mule/mule-conf.el (===hanyo-denshi/jb): New coded-charset for
+	XEmacs CHISE.
+	(=+>hanyo-denshi/ft): Ditto.
+	(=+>hanyo-denshi/jt): Ditto.
+
 2014-07-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
