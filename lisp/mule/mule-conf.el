@@ -1908,6 +1908,17 @@
   ;;              registry "HanyoDenshi\\.JA-0$"
   ;;              mother ==hanyo-denshi/ja))
   (make-charset
+   '===hanyo-denshi/jb
+   "Han'you-Denshi/JB detailed glyph-images."
+   '(long-name "Han'you-Denshi/JB glyph-images"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JB-0$"
+	       mother ==hanyo-denshi/jb))
+  (make-charset
    '===hanyo-denshi/ft
    "Han'you-Denshi/FT detailed glyph-images."
    '(long-name "Han'you-Denshi/FT glyph-images"
@@ -2012,6 +2023,29 @@
 	       mother ===mj
 	       min-code	#x10000
 	       code-offset #x10000))
+
+  (make-charset
+   '=+>hanyo-denshi/ft
+   "Han'you-Denshi/FT abstract glyphs"
+   '(long-name "Han'you-Denshi/FT glyphs"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.FT-0$"
+	       mother =hanyo-denshi/ft))
+  (make-charset
+   '=+>hanyo-denshi/jt
+   "JT (Juuki Touitsu Moji) unified abstract glyphs."
+   '(long-name "Han'you-Denshi/JT unified glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JT-0$"
+	       mother =hanyo-denshi/jt))
 
   (make-charset
    '=>>mj
