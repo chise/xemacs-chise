@@ -219,7 +219,8 @@ UCS-REGEXP is a regular expression to match against
 							     ==ucs@cns
 							     ==ucs@ks)))
 				   (char-feature drep-chr '=>ucs))
-			      ucs)))
+			      ucs))
+		     (not (eq (char-feature drep-chr '=>ucs*) ucs)))
 	    (if (or ucs-code (null drep-ucs-ccs))
 		(unless (eq (char-feature drep-chr '=>ucs) ucs)
 		  (put-char-attribute drep-chr '=>ucs ucs))
