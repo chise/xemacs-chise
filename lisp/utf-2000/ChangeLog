@@ -1,3 +1,17 @@
+2014-08-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R036-Evening.el (U-00020199): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R029-Again.el (U+53CD): Apply new conventions for
+	glyph granularity.
+	(U+53DF): Likewise.
+	(BC-8D4C): Likewise.
+	(U-00020B56): Likewise.
+	(U-00020B63): Likewise.
+	(U+FA0E): Likewise.
+	(RUI6-E047): Likewise.
+
 2014-07-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R028-Private.el (U-00020AD3): Apply new conventions
