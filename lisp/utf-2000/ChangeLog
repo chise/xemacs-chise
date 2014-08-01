@@ -118,6 +118,11 @@
 
 2014-07-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* read-maps.el (mapping-table-read-file): If a glyph-image object
+	has a feature `=>ucs*' and its value is equal to ucs, don't add
+	`=>ucs' into the glyph-image object even if its `ucs' value is not
+	equal to ucs.
+
 	* Ideograph-R011-Enter.el (U+5165): Apply new conventions for
 	glyph granularity.
 	(U-000204DB): Likewise.
