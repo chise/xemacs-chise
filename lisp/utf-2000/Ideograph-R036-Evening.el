@@ -357,7 +357,7 @@
     (total-strokes	 . 8)
     (=daikanwa		. 05763)	; &M-05763;
     (->subsumptive
-     ((==daikanwa	  . 05763)	; &R-M-05763;
+     ((==daikanwa	  . 05763)	; &G-M-05763;
       ))
     ))
 (define-char
@@ -386,31 +386,31 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (==ucs@unicode	  . #x591C)	; &R-AJ1-03831;
-      (==adobe-japan1-0	  . 03831)	; &R-AJ1-03831;
-      (==gb2312		  . #x5239)	; &R-AJ1-03831; [50-25]
-      (==ks-x1001	  . #x6528)	; &R-AJ1-03831; [69-08]
-      (==jis-x0208	  . #x4C6B)	; &R-AJ1-03831; [44-75]
-      (==cns11643-1	  . #x4C5F)	; &R-AJ1-03831; [44-63]
-      (==jis-x0213-1	  . #x4C6B)	; &R-AJ1-03831; [44-75]
-      (==gt		  . 07291)	; &R-AJ1-03831;
-      (==gt-k		  . 03842)	; &R-AJ1-03831;
-      (==shinjigen	  .  1548)	; &R-AJ1-03831;
+      (==ucs@unicode	  . #x591C)	; &G-AJ1-03831;
+      (==adobe-japan1-0	  . 03831)	; &G-AJ1-03831;
+      (==gb2312		  . #x5239)	; &G-AJ1-03831; [50-25]
+      (==ks-x1001	  . #x6528)	; &G-AJ1-03831; [69-08]
+      (==jis-x0208	  . #x4C6B)	; &G-AJ1-03831; [44-75]
+      (==cns11643-1	  . #x4C5F)	; &G-AJ1-03831; [44-63]
+      (==jis-x0213-1	  . #x4C6B)	; &G-AJ1-03831; [44-75]
+      (==gt		  . 07291)	; &G-AJ1-03831;
+      (==gt-k		  . 03842)	; &G-AJ1-03831;
+      (==shinjigen	  .  1548)	; &G-AJ1-03831;
       (->subsumptive
-       ((===jis-x0208	    . #x4C6B)	; &R2-J90-4C6B; [44-75]
-	(===jis-x0213-1	    . #x4C6B)	; &R2-J90-4C6B; [44-75]
+       ((===jis-x0208	    . #x4C6B)	; &R-J90-4C6B; [44-75]
+	(===jis-x0213-1	    . #x4C6B)	; &R-J90-4C6B; [44-75]
 	)
-       ((===adobe-japan1-0  . #x0EF7)	; &R2-AJ1-03831;
+       ((===adobe-japan1-0  . 03831)	; &R-AJ1-03831;
 	)
-       ((===ucs@ks	    . #x591C)	; &R2-K0-6528;
-	(===ks-x1001	    . #x6528)	; &R2-K0-6528; [69-08]
+       ((===ucs@ks	    . #x591C)	; &R-K0-6528;
+	(===ks-x1001	    . #x6528)	; &R-K0-6528; [69-08]
 	)
-       ((===gt		    . #x1C7B)	; &R2-GT-07291;
-	(===gt-k	    . #x0F02)	; &R2-GT-07291;
+       ((===gt		    . 07291)	; &R-GT-07291;
+	(===gt-k	    . 03842)	; &R-GT-07291;
 	)
-       ((===ucs@unicode	    . #x591C)	; &R2-UU+591C;
+       ((===ucs@unicode	    . #x591C)	; &R-UU+591C;
 	)
-       ((===cns11643-1	    . #x4C5F)	; &R2-C1-4C5F; [44-63]
+       ((===cns11643-1	    . #x4C5F)	; &R-C1-4C5F; [44-63]
 	))
       ))
     ))
@@ -1084,13 +1084,13 @@
 	  )
 	 ((=ucs		      . #xE0100)	; 󠄀
 	  ))
-	(==ucs@jis	    . #x5923)	; &R-AJ1-19304;
-	(==adobe-japan1-5   . 19304)	; &R-AJ1-19304;
-	(==jis-x0212	    . #x3869)	; &R-AJ1-19304; [24-73]
-	(==daikanwa	    . 05803)	; &R-AJ1-19304;
-	(==shinjigen	    .  1553)	; &R-AJ1-19304;
+	(==ucs@jis	    . #x5923)	; &G-AJ1-19304;
+	(==adobe-japan1-5   . 19304)	; &G-AJ1-19304;
+	(==jis-x0212	    . #x3869)	; &G-AJ1-19304; [24-73]
+	(==daikanwa	    . 05803)	; &G-AJ1-19304;
+	(==shinjigen	    .  1553)	; &G-AJ1-19304;
 	)
-       ((==ucs@unicode	    . #x5923)	; &R-UU+5923;
+       ((==ucs@unicode	    . #x5923)	; &G-UU+5923;
 	))
       )
      ((ideographic-strokes . 10)
@@ -1370,6 +1370,14 @@
     ))
 (define-char
   '((ideographic-radical@ucs . 8)	; ⼇
+    (ideographic-radical@daikanwa . 36)	; ⼣
+    (=ucs		. #x20199)	; 𠆙
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20199)	; 𠆙
+      ))
+    (ideographic-radical@ucs . 8)	; ⼇
     (ideographic-strokes@ucs . 15)
     (ideographic-radical@ucs*sources
      ucs)
@@ -1386,11 +1394,11 @@
       )
      ((=ucs		  . #x591C)	; 夜
       ))
-    (=ucs		. #x20199)	; 𠆙
+    (=+>ucs@iso		. #x20199)	; &o-IU+20199;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x20199)	; 𠆙
+     ((=+>ucs@iso	  . #x20199)	; &o-IU+20199;
       ))
     (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 14)
@@ -1409,12 +1417,12 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@unicode	    . #x4EAD)	; &R-AJ1-03070;
-	(==adobe-japan1-0   . 03070)	; &R-AJ1-03070;
+       ((==ucs@unicode	    . #x4EAD)	; &G-AJ1-03070;
+	(==adobe-japan1-0   . 03070)	; &G-AJ1-03070;
 	)
-       ((==daikanwa	    . 05763)	; &R-M-05763;
+       ((==daikanwa	    . 05763)	; &G-M-05763;
 	))
-      (==daikanwa	  . 05824)	; &R-M-05824;
+      (==daikanwa	  . 05824)	; &G-M-05824;
       ))
     ))
 (define-char
