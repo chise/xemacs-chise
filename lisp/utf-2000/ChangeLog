@@ -1,5 +1,11 @@
 2014-07-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R028-Private.el (U-00020AD3): Apply new conventions
+	for glyph granularity.
+	(IU+21FEE): Likewise.
+
+2014-07-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R026-Seal.el (U+5371): Apply new conventions for glyph
 	granularity.
 	(U+5377): Likewise.
