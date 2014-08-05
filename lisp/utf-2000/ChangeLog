@@ -1,5 +1,8 @@
 2014-08-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R026-Seal.el (G-M-02865): Unify G-MJ007892 and
+	G-KS033160; separate G-IU+2F82F and G-C6-2A23.
+
 	* Ideograph-R036-Evening.el (U-00020199): Apply new conventions
 	for glyph granularity.
 
