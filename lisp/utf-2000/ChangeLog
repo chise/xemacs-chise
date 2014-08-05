@@ -1,5 +1,41 @@
 2014-08-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el (U+5203): Apply new conventions for
+	glyph granularity.
+	(U+5205): Likewise.
+	(U+5207): Likewise.
+	(U+5213): Likewise.
+	(G-AJ1-02419): Likewise.
+	(U+5224): Likewise.
+	(U+5238): Likewise.
+	(U+523B): Likewise.
+	(U-000206F3): Likewise.
+	(U+523C): Likewise.
+	(U+5246): Likewise.
+	(U+34EA): Likewise.
+	(U+524A): Likewise.
+	(U+524D): Likewise.
+	(U+524F): Likewise.
+	(U+5256): Likewise.
+	(U+5260): Likewise.
+	(U+5264): Likewise.
+	(U+5242): Use `->subsumptive' to add abstract glyph-image node.
+	(U+526A): Apply new conventions for glyph granularity.
+	(U+5270): Likewise.
+	(U+5271): Likewise.
+	(U+5272): Likewise.
+	(U+5273): Likewise.
+	(U+5277): Likewise.
+	(U+5279): Likewise.
+	(U+5280): Likewise.
+	(U+5281): Likewise.
+	(U+5288): Likewise.
+	(U+5291): Likewise.
+	(U+5292): Likewise.
+	(U-00020804): Likewise.
+	(U-00020807): Likewise.
+	(U+5298): Likewise.
+
 	* Ideograph-R026-Seal.el (G-M-02865): Unify G-MJ007892 and
 	G-KS033160; separate G-IU+2F82F and G-C6-2A23.
 
