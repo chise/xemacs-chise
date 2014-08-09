@@ -1,3 +1,7 @@
+2014-08-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (U+4E44): Unify BC-8A4A.
+
 2014-08-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (U+5203): Apply new conventions for
