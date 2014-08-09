@@ -1,3 +1,15 @@
+2014-08-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (==jis-x0208@1978/-4pr): New coded-charset for
+	XEmacs CHISE.
+	(==jis-x0208@1978/1pr): Ditto.
+	(==jis-x0208@1978/2-pr): Ditto.
+
+2014-07-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `===jis-x0213-1@2004'.
+
 2014-07-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
