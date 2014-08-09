@@ -787,6 +787,41 @@
 	      ;; final ?@
 	      graphic 0))
   (make-charset
+   '==jis-x0208@1978/-4pr
+   "JIS X 0208:1978, 1st - 3rd impressions."
+   '(registry "jisx0208\\.1978"
+	      dimension 2
+	      chars 94
+	      mother ==jis-x0208@1978
+	      =>iso-ir 42
+	      ;; final ?@
+	      graphic 0
+	      ;; partial t
+	      ))
+  (make-charset
+   '==jis-x0208@1978/1pr
+   "JIS X 0208:1978, 1st impression."
+   '(registry "jisx0208\\.1978"
+	      =>iso-ir 42
+	      dimension 2
+	      chars 94
+	      mother ==jis-x0208@1978/-4pr
+	      ;; final ?@
+	      graphic 0))
+  (make-charset
+   '==jis-x0208@1978/2-pr
+   "JIS X 0208:1978, 2nd impression or later."
+   '(registry "jisx0208\\.1978"
+	      dimension 2
+	      chars 94
+              ;; mother =jis-x0208@1978/1er-pr
+	      mother ==jis-x0208@1978
+              =>iso-ir 42
+	      ;; final ?@
+	      graphic 0
+	      ;; partial t
+	      ))
+    (make-charset
    '==jis-x0208@1983
    "JIS X 0208:1983 abstract glyph-forms."
    '(registry "jisx0208\\.1983"
