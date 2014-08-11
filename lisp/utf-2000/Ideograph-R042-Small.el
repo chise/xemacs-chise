@@ -49,23 +49,6 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5C0F)	; 小
-      ))
-    (ideographic-radical . 42)	; ⼩
-    (ideographic-strokes . 0)
-    (total-strokes	 . 3)
-    (=decomposition@cid
-     ((=ucs		  . #x5C0F)	; 小
-      )
-     ((=ucs		  . #xE0102)	; 󠄂
-      ))
-    (=adobe-japan1-4	. 13834)	; &AJ1-13834;
-    (<-formed@component/connect-below
-     ((=ucs		  . #x5C0F)	; 小
-      ))
-    ))
-(define-char
-  '((<-denotational
      ((=adobe-japan1-4	  . 13833)	; &AJ1-13833;
       ))
     (name		. "CJK RADICAL SMALL ONE")
@@ -81,6 +64,29 @@
       ))
     (<-identical@component
      ((=adobe-japan1-4	  . 13833)	; &AJ1-13833;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5C0F)	; 小
+      ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=decomposition@cid
+     ((=ucs		  . #x5C0F)	; 小
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
+    (=adobe-japan1-4	. 13834)	; &AJ1-13834;
+    (=big5-cdp		. #x89B2)	; &CDP-89B2;
+    (<-formed@component/connect-below
+     ((=ucs		  . #x5C0F)	; 小
+      ))
+    (->subsumptive
+     ((===adobe-japan1-4  . 13834)	; &R-AJ1-13834;
+      )
+     ((===big5-cdp	  . #x89B2)	; &R-CDP-89B2;
       ))
     ))
 (define-char
@@ -115,7 +121,7 @@
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
-    (=>>ucs@unicode	. #x5C10)	; &G-UU+5C10;
+    (=+>ucs@unicode	. #x5C10)	; &o-UU+5C10;
     (->subsumptive
      ((=daikanwa	  . 07474)	; &M-07474;
       )
