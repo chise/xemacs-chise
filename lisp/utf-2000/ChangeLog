@@ -1,5 +1,58 @@
 2014-08-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R040-Roof.el (U+5B80): Apply new conventions for glyph
+	granularity.
+	(U+5B81): Likewise.
+	(U+5B82): Likewise.
+	(U+5B87): Likewise.
+	(U+5B88): Likewise.
+	(U+5B89): Likewise.
+	(UU+5B90): Likewise.
+	(U+5B93): Likewise.
+	(U+5B9C): Likewise.
+	(CU+5B90): Likewise.
+	(U+5BA7): Likewise.
+	(U+5BA8): Likewise.
+	(U-00021A04): Likewise.
+	(U+5BB2): Likewise.
+	(U+5BB3): Likewise.
+	(U+5BB5): Likewise.
+	(U+5BB6): Likewise.
+	(U+5BBA): Likewise.
+	(GT-08980): Unify U-0002BCCD.
+	(U+5BC0): Apply new conventions for glyph granularity.
+	(U-0002F86D): Likewise.
+	(U+5BC7): Likewise.
+	(U+5BCB): Likewise.
+	(U+5BCE): Likewise.
+	(U+5BD0): Likewise.
+	(U+3763): Likewise.
+	(U+5BD2): Likewise.
+	(GT-09094): Likewise.
+	(U-00021A5C): Likewise.
+	(U+5BD7): Likewise.
+	(U+5BDB): Likewise.
+	(GT-09129): Likewise.
+	(U+5BDE): Likewise.
+	(U+5BE2): Likewise.
+	(U+5BE5): Likewise.
+	(U+5BE7): Likewise.
+	(U+5BE8): Likewise.
+	(U+376C): Likewise.
+	(RUI6-E03B): Likewise.
+	(U+5BEC): Likewise.
+	(U+5BF1): Likewise.
+	(U+5BF3): Likewise.
+	(U+5BF4): Likewise.
+	(U+5BF5): Likewise.
+	(IU+21AF8): Likewise.
+	(IU+21B17): Likewise.
+
+2014-08-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (U-0002047A): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R008-Lid.el (U-0002015A): Apply new conventions for
 	glyph granularity.
 
