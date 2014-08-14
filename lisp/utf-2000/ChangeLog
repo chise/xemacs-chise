@@ -1,3 +1,12 @@
+2014-08-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (R-M-09212): Separate R-IU+20179.
+
+2014-08-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R042-Small.el (AJ1-13834): Unify BC-89B2.
+	(U+5C10): Apply new conventions for glyph granularity.
+
 2014-08-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R040-Roof.el (U+5B80): Apply new conventions for glyph
