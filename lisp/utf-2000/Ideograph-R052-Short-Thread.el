@@ -78,9 +78,9 @@
     (<-same*sources
      jiyun daikanwa)
     (->subsumptive
-     ((==daikanwa	  . 09192)	; &R-M-09192;
+     ((==daikanwa	  . 09192)	; &G-M-09192;
       )
-     ((==ucs@iso	  . #x221B0)	; &R-U-000221B0;
+     ((==ucs@iso	  . #x221B0)	; &G-IU-000221B0;
       ))
     ))
 (define-char
@@ -356,6 +356,14 @@
     ))
 (define-char
   '((ideographic-radical@ucs . 8)	; ⼇
+    (ideographic-radical@daikanwa . 52)	; ⼳
+    (=ucs		. #x20179)	; 𠅹
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20179)	; 𠅹
+      ))
+    (ideographic-radical@ucs . 8)	; ⼇
     (ideographic-strokes@ucs . 11)
     (ideographic-radical@daikanwa . 52)	; ⼳
     (ideographic-strokes@daikanwa . 10)
@@ -369,26 +377,31 @@
       )
      ((=ucs		  . #x221B0)	; 𢆰
       ))
-    (=ucs		. #x20179)	; 𠅹
-    (=daikanwa		. 09212)	; &I-M-09212;
+    (=ucs@iso		. #x20179)	; &M-09212;
+    (=daikanwa		. 09212)	; &M-09212;
     (=hanziku-1		. #xE1F4)	; &I-HZK01-E1F4;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@unicode	    . #x4EAD)	; &R-AJ1-03070;
-	(==adobe-japan1-0   . 03070)	; &R-AJ1-03070;
+       ((==ucs@unicode	    . #x4EAD)	; &G-AJ1-03070;
+	(==adobe-japan1-0   . 03070)	; &G-AJ1-03070;
 	)
-       ((=ucs		    . #x221B0)	; 𢆰
+       ((==daikanwa	    . 09192)	; &G-M-09192;
 	))
-      (==ucs@iso	  . #x20179)	; &R-M-09212;
-      (==daikanwa	  . 09212)	; &R-M-09212;
-      (->subsumptive
-       ((===daikanwa	    . #x23FC)	; &R2-M-09212;
+      (==daikanwa	  . 09212)	; &G-M-09212;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((===ucs@iso	    . #x20179)	; &R2-U-00020179;
+       ((==ucs@unicode	    . #x4EAD)	; &G-AJ1-03070;
+	(==adobe-japan1-0   . 03070)	; &G-AJ1-03070;
+	)
+       ((==ucs@iso	    . #x221B0)	; &G-IU-000221B0;
 	))
+      (==ucs@iso	  . #x20179)	; &G-IU-00020179;
       ))
     ))
 (define-char
