@@ -1,5 +1,15 @@
 2014-08-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R047-River.el (BC-8BED): Apply new conventions for
+	glyph granularity.
+	(U+5DE1): Likewise.
+	(IU+21FEE): Likewise.
+
+	* Ideograph-R052-Short-Thread.el (U-00020179): Apply new
+	conventions for glyph granularity.
+
+2014-08-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R008-Lid.el (R-M-09212): Separate R-IU+20179.
 
 2014-08-10  MORIOKA Tomohiko  <tomo.git@chise.org>
