@@ -1,3 +1,13 @@
+2014-08-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (U+5396): Apply new conventions for
+	glyph granularity.
+	(U+5397): Likewise.
+	(U+53A6): Likewise.
+	(U+53A7): Likewise.
+	(U+53A9): Likewise.
+	(U-00020A9A): Likewise.
+
 2014-08-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R047-River.el (BC-8BED): Apply new conventions for
