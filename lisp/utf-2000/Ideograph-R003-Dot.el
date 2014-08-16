@@ -629,7 +629,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
 	(=ucs		    . #x2FF3)	; ⿳
 	)
-       ((=big5-cdp	    . #x89B2)	; &CDP-89B2;
+       ((=adobe-japan1-4    . 13834)	; &AJ1-13834;
 	)
        ((=ucs		    . #x4E00)	; 一
 	)
@@ -654,7 +654,7 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
 	  (=ucs		      . #x2FF3)	; ⿳
 	  )
-	 ((=big5-cdp	      . #x89B2)	; &CDP-89B2;
+	 ((=adobe-japan1-4    . 13834)	; &AJ1-13834;
 	  )
 	 ((=ucs		      . #x4E00)	; 一
 	  )
