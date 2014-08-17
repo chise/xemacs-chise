@@ -696,6 +696,14 @@
   '((ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 9)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E1A)	; 业
+      )
+     ((=ucs		  . #x22189)	; 𢆉
+      ))
     (=ucs		. #x4E35)	; 丵
     (->subsumptive
      ((=decomposition@cid
@@ -704,14 +712,6 @@
        ((=ucs		    . #xE0100)	; 󠄀
 	))
       (hanyu-dazidian	  1 30 6)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x4E1A)	; 业
-	)
-       ((=big5-cdp	    . #x8B75)	; &RUI6-E00E;
-	))
       (=ucs@unicode	  . #x4E35)	; &AJ1-21075;
       (=adobe-japan1-6	  . 21075)	; &AJ1-21075;
       (=jis-x0212	  . #x302E)	; &I-JSP-302E; [16-14]
@@ -720,7 +720,15 @@
       (=gt-pj-2		  . #x3063)	; &I-GT-00124; [16-67]
       (=daikanwa	  . 00087)	; &I-M-00087;
       )
-     ((=big5-cdp	  . #x8AA8)	; &CDP-8AA8;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x4E1A)	; 业
+	)
+       ((=gt-k		    . 01438)	; &GT-K01438;
+	))
+      (=big5-cdp	  . #x8AA8)	; &CDP-8AA8;
       ))
     ))
 (define-char
