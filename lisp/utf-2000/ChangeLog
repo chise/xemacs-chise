@@ -1,3 +1,20 @@
+2014-08-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R041-Inch.el (U+5BFD): Apply new conventions for glyph
+	granularity.
+	(AJ1-17535): Unify GT-K02782.
+	(UU+5BFD): Unify GT-K02781.
+	(U+5C06): Apply new conventions for glyph granularity.
+	(U+5C07): Likewise.
+	(U+5C0A): Likewise.
+	(U-00021B35): Likewise.
+	(U+5C0E): Likewise.
+	(U-00021B51): Likewise.
+
+	* Ideograph-R002-Line.el (U+4E35): Add ideographic-structure.
+	(UU+4E35): Omit `ideographic-structure'.
+	(BC-8AA8): Add `ideographic-structure'.
+
 2014-08-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R027-Cliff.el (U+5396): Apply new conventions for
