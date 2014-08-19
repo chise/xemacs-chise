@@ -1,3 +1,71 @@
+2014-08-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (U+5FCD): Apply new conventions for
+	glyph granularity.
+	(U-000225BB): Likewise; add `<-ancient' for M-10636.
+	(U+6035): Apply new conventions for glyph granularity.
+	(U+6054): Likewise.
+	(U+605D): Likewise.
+	(U+6062): Likewise.
+	(U+606E): Likewise.
+	(U+393A): Likewise.
+	(CU+607E): Likewise.
+	(U+6084): Likewise.
+	(U+392F): Likewise.
+	(U+6090): Likewise.
+	(U+6098): Likewise.
+	(U+609B): Likewise.
+	(RUI6-E048): Likewise.
+	(U+3944): Likewise.
+	(U+60BE): Likewise.
+	(U+60C5): Likewise.
+	(U+60DD): Likewise.
+	(U+395B): Likewise.
+	(U+6107): Likewise.
+	(U+6108): Likewise.
+	(U+6109): Likewise.
+	(U+610E): Likewise.
+	(U+610F): Likewise.
+	(U+6111): Likewise.
+	(U+6116): Likewise.
+	(U+611B): Likewise.
+	(U+612E): Likewise.
+	(U+396F): Likewise.
+	(U+6132): Likewise.
+	(U+3972): Likewise.
+	(U+613D): Likewise.
+	(U+6145): Likewise.
+	(U+614C): Likewise.
+	(RUI6-E05F): Likewise.
+	(U+6154): Likewise.
+	(U+6167): Likewise.
+	(U+6168): Likewise.
+	(U+6168): Likewise.
+	(U+616A): Likewise.
+	(U+6174): Likewise.
+	(U+6176): Likewise.
+	(U+617A): Likewise.
+	(U+6180): Likewise.
+	(U+6182): Likewise.
+	(U+6190): Likewise.
+	(U+61A7): Likewise.
+	(U+61AF): Likewise.
+	(U+61B2): Likewise.
+	(U+61B6): Likewise.
+	(U+61BA): Likewise.
+	(U+61CA): Likewise.
+	(U+61CD): Likewise.
+	(U+61D5): Likewise.
+	(U+61DE): Likewise.
+	(U-0002F8AF): Add `<-denotational' for U+61DE.
+	(U+61E1): Apply new conventions for glyph granularity.
+	(U+61EE): Likewise.
+	(U+61EF): Likewise.
+	(U+61F2): Likewise.
+	(U+39A3): Likewise.
+	(U+61FD): Likewise.
+	(U+61FF): Likewise.
+
 2014-08-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R041-Inch.el (U+5BFD): Apply new conventions for glyph
