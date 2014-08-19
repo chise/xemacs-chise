@@ -39,11 +39,11 @@
 	)
        ((=ucs		    . #xE0102)	; 󠄂
 	))
-      (==ucs@iso	  . #x20AD3)	; &G-MJ031959;
-      (==mj		  . 031959)	; &G-MJ031959;
-      (==big5-cdp	  . #x8B7E)	; &G-MJ031959;
-      (==hanyo-denshi/ks  . 035360)	; &G-MJ031959;
-      (==daikanwa	  . 03058)	; &G-MJ031959;
+      (==ucs@iso	  . #x20AD3)	; &g2-MJ031959;
+      (==mj		  . 031959)	; &g2-MJ031959;
+      (==big5-cdp	  . #x8B7E)	; &g2-MJ031959;
+      (==hanyo-denshi/ks  . 035360)	; &g2-MJ031959;
+      (==daikanwa	  . 03058)	; &g2-MJ031959;
       (->subsumptive
        ((===daikanwa	    . 03058)	; &R-M-03058;
 	)
@@ -57,8 +57,8 @@
        ((===ucs@iso	    . #x20AD3)	; &R-U-00020AD3;
 	))
       )
-     ((==ucs@cns	  . #x20AD3)	; &G-CU+20AD3;
-      (==cns11643-5	  . #x212E)	; &G-CU+20AD3; [01-14]
+     ((==ucs@cns	  . #x20AD3)	; &g2-CU+20AD3;
+      (==cns11643-5	  . #x212E)	; &g2-CU+20AD3; [01-14]
       ))
     ))
 (define-char
@@ -93,11 +93,11 @@
     (=jis-x0213-2	. #x2359)	; &I-JX2-2359; [03-57]
     (=hanyo-denshi/jd	. #x2359)	; &I-HD-JD-2359; [03-57]
     (->subsumptive
-     ((==ucs@jis	  . #x20AD3)	; &G-MJ031960;
-      (==mj		  . 031960)	; &G-MJ031960;
-      (==adobe-japan1-5	  . 17337)	; &G-MJ031960;
-      (==jis-x0213-2	  . #x2359)	; &G-MJ031960; [03-57]
-      (==hanyo-denshi/jd  . #x2359)	; &G-MJ031960; [03-57]
+     ((==ucs@jis	  . #x20AD3)	; &g2-MJ031960;
+      (==mj		  . 031960)	; &g2-MJ031960;
+      (==adobe-japan1-5	  . 17337)	; &g2-MJ031960;
+      (==jis-x0213-2	  . #x2359)	; &g2-MJ031960; [03-57]
+      (==hanyo-denshi/jd  . #x2359)	; &g2-MJ031960; [03-57]
       (->subsumptive
        ((===jis-x0213-2	    . #x2359)	; &R-JX2-2359; [03-57]
 	)
@@ -514,10 +514,10 @@
       (=cns11643-6	  . #x237E)	; &C6-237E; [03-94]
       (=daikanwa	  . 03081)	; &I-M-03081;
       (->subsumptive
-       ((==daikanwa	    . 03081)	; &G-M-03081;
+       ((==daikanwa	    . 03081)	; &g2-M-03081;
 	)
-       ((==ucs@cns	    . #x21FEE)	; &G-CU+21FEE;
-	(==cns11643-6	    . #x237E)	; &G-CU+21FEE; [03-94]
+       ((==ucs@cns	    . #x21FEE)	; &g2-CU+21FEE;
+	(==cns11643-6	    . #x237E)	; &g2-CU+21FEE; [03-94]
 	))
       )
      ((ideographic-radical . 47)	; ⼮
@@ -528,8 +528,8 @@
       (=daikanwa	  . 08682)	; &M-08682;
       (=hanziku-3	  . #xE041)	; &I-HZK03-E041;
       (->subsumptive
-       ((==ucs@iso	    . #x21FEE)	; &G-M-08682;
-	(==daikanwa	    . 08682)	; &G-M-08682;
+       ((==ucs@iso	    . #x21FEE)	; &g2-M-08682;
+	(==daikanwa	    . 08682)	; &g2-M-08682;
 	(->subsumptive
 	 ((===daikanwa	      . 08682)	; &R-M-08682;
 	  )
