@@ -79,7 +79,7 @@
      ((=ucs		  . #xE0102)	; 󠄂
       ))
     (=adobe-japan1-4	. 13834)	; &AJ1-13834;
-    (=big5-cdp		. #x89B2)	; &CDP-89B2;
+    (=big5-cdp		. #x89B2)	; &I-CDP-89B2;
     (<-formed@component/connect-below
      ((=ucs		  . #x5C0F)	; 小
       ))
