@@ -1000,9 +1000,10 @@
 	)
        ((=ucs		    . #x58EB)	; 士
 	)
-       ((==daikanwa	    . 07445)	; &R-M-07445;
+       ((==ucs@ks	    . #x5C0A)	; &g2-MJ010275;
+	(==mj		    . 010275)	; &g2-MJ010275;
 	))
-      (==daikanwa	  . 05678)	; &R-M-05678;
+      (==daikanwa	  . 05678)	; &g2-M-05678;
       ))
     ))
 (define-char
@@ -1030,11 +1031,11 @@
 	)
        ((=ucs		    . #x58EB)	; 士
 	)
-       ((==ucs@cns	    . #x5C0A)	; &R-CU+5C0A;
-	(==cns11643-1	    . #x5E71)	; &R-CU+5C0A; [62-81]
+       ((==ucs@cns	    . #x5C0A)	; &g2-CU+5C0A;
+	(==cns11643-1	    . #x5E71)	; &g2-CU+5C0A; [62-81]
 	))
-      (==ucs@cns	  . #x58FF)	; &R-CU+58FF;
-      (==cns11643-2	  . #x4F7A)	; &R-CU+58FF; [47-90]
+      (==ucs@cns	  . #x58FF)	; &g2-CU+58FF;
+      (==cns11643-2	  . #x4F7A)	; &g2-CU+58FF; [47-90]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1042,9 +1043,9 @@
 	)
        ((=ucs		    . #x58EB)	; 士
 	)
-       ((==ucs@unicode	    . #x5C0A)	; &R-UU+5C0A;
+       ((==ucs@unicode	    . #x5C0A)	; &g2-UU+5C0A;
 	))
-      (==ucs@unicode	  . #x58FF)	; &R-UU+58FF;
+      (==ucs@unicode	  . #x58FF)	; &g2-UU+58FF;
       ))
     ))
 (define-char
