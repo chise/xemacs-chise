@@ -1350,6 +1350,7 @@
 	  (=ucs		      . #x2FF0)	; ⿰
 	  )
 	 ((==ucs@unicode      . #x8F9B)	; &G-GT-51557;
+	  (==jis-x0208	      . #x3F49)	; &G-GT-51557; [31-41]
 	  )
 	 ((=ucs		      . #x4E5A)	; 乚
 	  ))
@@ -2467,7 +2468,8 @@
 	 ((name		      . "CJK RADICAL PAW ONE")
 	  (=ucs		      . #x2EA4)	; ⺤
 	  )
-	 ((==ucs@unicode      . #x5B88)	; &G-UU+5B88;
+	 ((==ucs@unicode      . #x5B88)	; &G-AJ1-02325;
+	  (==adobe-japan1-0   . 02325)	; &G-AJ1-02325;
 	  ))
 	)
        ((=ucs		    . #x4E5A)	; 乚
@@ -2496,7 +2498,7 @@
 	(=jis-x0213-2	    . #x702A)	; &I-JX2-702A; [80-10]
 	(=daikanwa	    . 19655)	; &I-M-19655;
 	)
-       ((==ucs@unicode	    . #x5B88)	; &G-UU+5B88;
+       ((=ucs		    . #x5B88)	; 守
 	))
       )
      ((=ucs		  . #x4E5A)	; 乚
