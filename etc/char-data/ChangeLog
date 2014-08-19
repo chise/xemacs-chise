@@ -1,3 +1,9 @@
+2014-08-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* JC3-to-UCS.txt (JC3-43D5): Map to U+514D instead of U+FA32.
+	(JC3-44D4): Map to U+52C7 instead of U+FA76.
+	(JC3-46F7): Map to U+5606 instead of U+FA37.
+
 2014-05-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* B-to-UCS.txt (B-A1E3): Don't map to U+223C.
