@@ -170,6 +170,10 @@
 	* Ideograph-R008-Lid.el (U-0002015A): Apply new conventions for
 	glyph granularity.
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`==ruimoku-v6'.
+	(char-db-insert-ccs-feature): Add setting for `===daikanwa/+p'.
+
 2014-08-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R004-Slash.el (U+4E44): Unify BC-8A4A.
