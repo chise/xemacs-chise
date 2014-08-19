@@ -127,7 +127,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (=+>ucs@unicode	. #x5203)	; &o-AJ1-13858;
-    (=big5		. #xA462)	; &o-AJ1-13858;
+    (=big5		. #xA462)	; &I-B-A462;
     (=+>adobe-japan1-4	. 13858)	; &o-AJ1-13858;
     (=+>gt		. 02406)	; &o-AJ1-13858;
     (->subsumptive
