@@ -65,9 +65,9 @@
     (=gt-k		. 01371)	; &I-GT-K01371;
     (=gt-pj-k1		. #x4A55)	; &CDP-865B; [42-53]
     (->subsumptive
-     ((==gt-k		  . 01371)	; &G-GT-K01371;
+     ((==gt-k		  . 01371)	; &g2-GT-K01371;
       )
-     ((==big5-cdp	  . #x865B)	; &G-CDP-865B;
+     ((==big5-cdp	  . #x865B)	; &g2-CDP-865B;
       ))
     ))
 (define-char
@@ -1342,7 +1342,7 @@
     (total-strokes	 . 12)
     (=ucs@unicode	. #x51F2)	; &UU+51F2;
     (->subsumptive
-     ((==ucs@unicode	  . #x51F2)	; &G-UU+51F2;
+     ((==ucs@unicode	  . #x51F2)	; &g2-UU+51F2;
       ))
     ))
 (define-char
