@@ -664,8 +664,8 @@
 	)
        ((=big5-cdp	    . #x8BF1)	; &CDP-8BF1;
 	))
-      (==ucs@unicode	  . #x4E3E)	; &G-UU+4E3E;
-      (==gb2312		  . #x3E59)	; &G-UU+4E3E; [30-57]
+      (==ucs@unicode	  . #x4E3E)	; &g2-UU+4E3E;
+      (==gb2312		  . #x3E59)	; &g2-UU+4E3E; [30-57]
       ))
     ))
 (define-char
