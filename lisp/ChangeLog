@@ -1,3 +1,8 @@
+2014-08-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Use
+	"&g2-[NAME];" instead of "&G-[NAME];" for `==[NAME]'.
+
 2014-08-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (==jis-x0208@1978/-4pr): New coded-charset for
