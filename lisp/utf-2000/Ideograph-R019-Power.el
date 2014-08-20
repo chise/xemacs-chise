@@ -2479,17 +2479,44 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=daikanwa	  . 05714)	; &M-05714;
+     ((=ucs		  . #x590C)	; 夌
       )
      ((=ucs		  . #x529B)	; 力
       ))
     (=ucs		. #x2086D)	; 𠡭
-    (->subsumptive
-     ((=daikanwa	  . 02369)	; &M-02369;
-      (=cbeta		  . 03620)	; &I-CB03620;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2086D)	; 𠡭
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@iso		  . #x2086D)	; &C4-2B74;
-      (=cns11643-4	  . #x2B74)	; &C4-2B74; [11-84]
+     ((=ucs@cns		  . #x590C)	; &C2-2623;
+      (=cns11643-2	  . #x2623)	; &C2-2623; [06-03]
+      (=daikanwa	  . 05714)	; &I-M-05714;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=ucs@iso		. #x2086D)	; &C4-2B74;
+    (=cns11643-4	. #x2B74)	; &C4-2B74; [11-84]
+    (=daikanwa		. 02369)	; &I-M-02369;
+    (=cbeta		. 03620)	; &I-CB03620;
+    (->subsumptive
+     ((==daikanwa	  . 02369)	; &g2-M-02369;
+      (==cbeta		  . 03620)	; &g2-M-02369;
+      )
+     ((==ucs@iso	  . #x2086D)	; &g2-IU-0002086D;
+      (==cns11643-4	  . #x2B74)	; &g2-IU-0002086D; [11-84]
+      (->subsumptive
+       ((===ucs@iso	    . #x2086D)	; &R-U-0002086D;
+	)
+       ((===cns11643-4	    . #x2B74)	; &R-C4-2B74; [11-84]
+	))
       ))
     ))
 (define-char
@@ -3809,7 +3836,7 @@
       )
      ((=ucs		  . #x6708)	; 月
       )
-     ((=>>big5-cdp	  . #x8C75)	; &g1-CDP-8C75;
+     ((=+>ucs@unicode	  . #x52B5)	; &o-UU+52B5;
       ))
     (=+>ucs@unicode	. #x52DD)	; &o-J0-3E21;
     (=+>jis-x0208	. #x3E21)	; &o-J0-3E21; [30-01]
@@ -4195,7 +4222,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>>ucs@unicode	  . #x7FCF)	; &g1-UU+7FCF;
+     ((=ucs@unicode	  . #x7FCF)	; &C2-3841;
+      (=cns11643-2	  . #x3841)	; &C2-3841; [24-33]
       )
      ((=ucs		  . #x529B)	; 力
       ))
@@ -5912,11 +5940,13 @@
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
-    (=>>ucs@iso		. #x208BA)	; &g1-IU+208BA;
+    (=ucs@iso		. #x208BA)	; &C5-5A7D;
+    (=cns11643-5	. #x5A7D)	; &C5-5A7D; [58-93]
     (->subsumptive
-     ((=ucs@iso		  . #x208BA)	; &U-000208BA;
+     ((==ucs@iso	  . #x208BA)	; &g2-IU-000208BA;
       )
-     ((=cns11643-5	  . #x5A7D)	; &C5-5A7D; [58-93]
+     ((==ucs@cns	  . #x208BA)	; &g2-CU+208BA;
+      (==cns11643-5	  . #x5A7D)	; &g2-CU+208BA; [58-93]
       ))
     ))
 (define-char
