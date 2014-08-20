@@ -4352,8 +4352,11 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>>ucs@unicode	  . #x8096)	; &g1-J0-3E53;
-      (=>>jis-x0208	  . #x3E53)	; &g1-J0-3E53; [30-51]
+     ((=ucs@unicode	  . #x8096)	; &GT-37891;
+      (=jis-x0208	  . #x3E53)	; &GT-37891; [30-51]
+      (=gb2312		  . #x5024)	; &I-G0-5024; [48-04]
+      (=cns11643-1	  . #x4B39)	; &I-C1-4B39; [43-25]
+      (=jis-x0213-1	  . #x3E53)	; &I-JX1-3E53; [30-51]
       )
      ((name		  . "CJK RADICAL KNIFE TWO")
       (=ucs		  . #x2E89)	; ⺉
@@ -4385,10 +4388,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x8096)	; &GT-37891;
-	(=jis-x0208	    . #x3E53)	; &GT-37891; [30-51]
-	(=gb2312	    . #x5024)	; &I-G0-5024; [48-04]
-	(=jis-x0213-1	    . #x3E53)	; &I-JX1-3E53; [30-51]
+       ((==ucs@unicode	    . #x8096)	; &g2-GT-37891;
+	(==jis-x0208	    . #x3E53)	; &g2-GT-37891; [30-51]
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
@@ -4421,7 +4422,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=cns11643-1	    . #x4B39)	; &C1-4B39; [43-25]
+       ((==ucs@cns	    . #x8096)	; &g2-CU+8096;
+	(==cns11643-1	    . #x4B39)	; &g2-CU+8096; [43-25]
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
@@ -8588,7 +8590,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>>ucs@unicode	  . #x7FCF)	; &g1-UU+7FCF;
+     ((=ucs@unicode	  . #x7FCF)	; &C2-3841;
+      (=cns11643-2	  . #x3841)	; &C2-3841; [24-33]
       )
      ((name		  . "CJK RADICAL KNIFE TWO")
       (=ucs		  . #x2E89)	; ⺉
@@ -8601,7 +8604,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x7FCF)	; &UU+7FCF;
+       ((==ucs@unicode	    . #x7FCF)	; &g2-UU+7FCF;
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
@@ -8612,8 +8615,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@cns	    . #x7FCF)	; &C2-3841;
-	(=cns11643-2	    . #x3841)	; &C2-3841; [24-33]
+       ((==ucs@cns	    . #x7FCF)	; &g2-CU+7FCF;
+	(==cns11643-2	    . #x3841)	; &g2-CU+7FCF; [24-33]
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
@@ -9885,7 +9888,7 @@
      ((name		  . "CJK RADICAL KNIFE TWO")
       (=ucs		  . #x2E89)	; ⺉
       ))
-    (=>>daikanwa	. 02215)	; &g1-M-02215;
+    (=>>daikanwa	. 02215)	; &G-M-02215;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -11054,7 +11057,6 @@
 (define-char
   '((ideographic-radical . 18)	; ⼑
     (=ucs		. #x20807)	; 𠠇
-    (=+>adobe-japan1-5	. 17319)	; 𠠇
     ))
 (define-char
   '((<-denotational
@@ -11063,10 +11065,7 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
-    (=>>ucs@iso		. #x20807)	; &g1-HD-KS-6680;
-    (=>>mj		. 031474)	; &g1-HD-KS-6680;
-    (=>>hanyo-denshi/ks . 026240)	; &g1-HD-KS-6680;
-    (=>>daikanwa	. 02256)	; &g1-HD-KS-6680;
+    (=+>ucs@iso		. #x20807)	; &o-IU+20807;
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x20807)	; 𠠇
@@ -11088,11 +11087,10 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
-    (=>>ucs@jis		. #x20807)	; &g1-AJ1-17319;
-    (=>>ucs@cns		. #x20807)	; &g1-AJ1-17319;
-    (=>>adobe-japan1-5	. 17319)	; &g1-AJ1-17319;
-    (=>>jis-x0213-2	. #x233F)	; &g1-AJ1-17319; [03-31]
-    (=>>hanyo-denshi/jd . #x233F)	; &g1-AJ1-17319; [03-31]
+    (=+>ucs@jis		. #x20807)	; &o-JX2-233F;
+    (=+>ucs@cns		. #x20807)	; &o-JX2-233F;
+    (=+>jis-x0213-2	. #x233F)	; &o-JX2-233F; [03-31]
+    (=+>adobe-japan1-5	. 17319)	; &o-JX2-233F;
     (->subsumptive
      ((=ucs@cns		  . #x20807)	; &C7-213F;
       (=cns11643-7	  . #x213F)	; &C7-213F; [01-31]
