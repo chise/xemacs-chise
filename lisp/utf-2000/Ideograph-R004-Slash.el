@@ -1669,10 +1669,12 @@
     (=hanyo-denshi/ks/mf . #x00B0)	; &I-KSMF-00176;
     (=daikanwa		. 00148)	; &I-M-00148;
     (<-vulgar
-     ((=ucs@jis		  . #x864E)	; &GT-44178;
+     ((=ucs@cns		  . #x864E)	; &GT-44178;
+      (=ucs@jis		  . #x864E)	; &GT-44178;
       (=ucs@ks		  . #x864E)	; &GT-44178;
       (=jis-x0208	  . #x3857)	; &GT-44178; [24-55]
       (=ks-x1001	  . #x7B5B)	; &I-K0-7B5B; [91-59]
+      (=cns11643-1	  . #x4F4D)	; &I-C1-4F4D; [47-45]
       (=jis-x0213-1	  . #x3857)	; &I-JX1-3857; [24-55]
       (=daikanwa	  . 32675)	; &I-M-32675;
       ))
