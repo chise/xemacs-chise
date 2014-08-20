@@ -1,5 +1,15 @@
 2014-08-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el (UU+524A): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+	(UU+5279): Likewise.
+	(U-00020807): Apply new conventions for glyph granularity.
+
+2014-08-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (U-00020525): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R003-Dot.el (U-00020084): Apply new conventions for
 	glyph granularity.
 
