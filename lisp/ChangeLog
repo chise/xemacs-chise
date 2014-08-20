@@ -1,5 +1,16 @@
 2014-08-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* mule/mule-conf.el (=>>>ucs@cns): Indicate `==ucs@cns' instead of
+	`=ucs@cns'.
+	(=>>>ucs@jis): Indicate `==ucs@jis' instead of `=ucs@jis'.
+	(=>>>ucs@jis/1990): Indicate `==ucs@jis/1990' instead of
+	`=ucs@jis/1990'.
+	(=>>>ucs@jis/2000): Indicate `==ucs@jis/2000' instead of
+	`=ucs@jis/2000'.
+	(=>>>ucs@jis/2004): Indicate `==ucs@jis/2004' instead of
+	`=ucs@jis/2004'.
+	(=>>>ucs@ks): Indicate `==ucs@ks' instead of `=ucs@ks'.
+
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Use
 	"&g2-[NAME];" instead of "&G-[NAME];" for `==[NAME]'.
 
