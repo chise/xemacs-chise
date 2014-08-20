@@ -3154,7 +3154,6 @@
 		  =>iso-ir	177
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-cns '=ucs@cns)
-  (define-charset-alias '=>>>ucs@cns '=ucs@cns)
   (make-charset '=ucs@cns/fw
 		"ISO/IEC 10646 for CNS 11643 with fullwidth"
 		'(long-name	"UCS for CNS-fullwidth"
@@ -3187,7 +3186,6 @@
 		  =>iso-ir	177
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-jis '=ucs@jis)
-  (define-charset-alias '=>>>ucs@jis '=ucs@jis)
   (make-charset '=ucs@jis/fw
 		"ISO/IEC 10646 for JIS X0208/0212/0213 with fullwidth"
 		'(long-name	"UCS for JIS-fullwidth"
@@ -3231,7 +3229,6 @@
 		  mother	=ucs@jis))
   (define-charset-alias '=ucs@jis-1990 '=ucs@jis/1990)
   (define-charset-alias '=ucs-jis-1990 '=ucs@jis/1990)
-  (define-charset-alias '=>>>ucs@jis/1990 '=ucs@jis/1990)
   (make-charset '=ucs@jis/2000
 		"ISO/IEC 10646 for JIS X 0213:2000"
 		'(long-name	"UCS for JIS:2000"
@@ -3244,7 +3241,6 @@
 		  mother	=ucs@jis))
   (define-charset-alias '=ucs@jis-2000 '=ucs@jis/2000)
   (define-charset-alias '=ucs-jis-2000 '=ucs@jis/2000)
-  (define-charset-alias '=>>>ucs@jis/2000 '=ucs@jis/2000)
   (make-charset '=ucs@jis/2004
 		"ISO/IEC 10646 for JIS X 0213:2004"
 		'(long-name	"UCS for JIS:2004"
@@ -3255,7 +3251,6 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=ucs@jis))
-  (define-charset-alias '=>>>ucs@jis/2004 '=ucs@jis/2004)
   (make-charset '=ucs@JP
 		"UCS for common glyphs used in Japan"
 		'(long-name	"UCS for Japan"
@@ -3288,7 +3283,6 @@
 		  =>iso-ir	177
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-ks '=ucs@ks)
-  (define-charset-alias '=>>>ucs@ks '=ucs@ks)
   (make-charset '=ucs@ks/2012
 		"Mapping for Korean Standards in ISO/IEC 10646:2012"
 		'(long-name	"UCS:2012 for KS"
@@ -3397,6 +3391,7 @@
 		  direction     l2r
 		  =>iso-ir      177
 		  mother        ==ucs@unicode))
+  (define-charset-alias '=>>>ucs@cns '==ucs@cns)
   (make-charset '==ucs-bmp@cns
 		"ISO/IEC 10646 BMP for CNS"
 		'(long-name	"BMP for CNS"
@@ -3418,6 +3413,7 @@
 		  direction     l2r
 		  =>iso-ir      177
 		  mother        ==ucs@unicode))
+  (define-charset-alias '=>>>ucs@jis '==ucs@jis)
   (make-charset '==ucs@jis/1990
 		"UCS Representative glyph-forms for JIS X 0208/0212:1990."
 		'(long-name     "UCS glyph-forms for JIS:1990"
@@ -3428,6 +3424,7 @@
 		  direction     l2r
 		  =>iso-ir      177
 		  mother        ==ucs@jis))
+  (define-charset-alias '=>>>ucs@jis/1990 '==ucs@jis/1990)
   (make-charset '==ucs@jis/2000
 		"UCS Representative glyph-forms for JIS X 0213:2000."
 		'(long-name     "UCS glyph-forms for JIS:2000"
@@ -3438,6 +3435,7 @@
 		  direction     l2r
 		  =>iso-ir      177
 		  mother        ==ucs@jis))
+  (define-charset-alias '=>>>ucs@jis/2000 '==ucs@jis/2000)
   (make-charset '==ucs@jis/2004
 		"UCS Representative glyph-forms for JIS X 0213:2004."
 		'(long-name     "UCS glyph-forms for JIS:2004"
@@ -3448,6 +3446,7 @@
 		  direction     l2r
 		  =>iso-ir      177
 		  mother        ==ucs@jis))
+  (define-charset-alias '=>>>ucs@jis/2004 '==ucs@jis/2004)
   (make-charset '==ucs@JP
 		"UCS for common glyph-forms used in Japan."
 		'(long-name	"UCS for Japan"
@@ -3478,6 +3477,7 @@
 		  direction     l2r
 		  =>iso-ir      177
 		  mother        ==ucs@unicode))
+  (define-charset-alias '=>>>ucs@ks '==ucs@ks)
   (make-charset '==ucs-bmp@ks
 		"ISO/IEC 10646 BMP for KS."
 		'(long-name	"BMP for KS"
