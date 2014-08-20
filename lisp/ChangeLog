@@ -1,3 +1,8 @@
+2014-08-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Use
+	"&G-[NAME];" instead of "&g1-[NAME];" for `=>>[NAME]'.
+
 2014-08-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=>>>ucs@cns): Indicate `==ucs@cns' instead of
