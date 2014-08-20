@@ -1960,39 +1960,38 @@
     (ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 26)
     (total-strokes	 . 28)
-    (=>>ucs@cns		. #x2096C)	; &C7-6443;
+    (hanyu-dazidian	1 91 10)
     (=ucs@cns		. #x2096C)	; &C7-6443;
     (=cns11643-7	. #x6443)	; &C7-6443; [68-35]
-    (=>>daikanwa	. 02671)	; &C7-6443;
-    (->subsumptive
-     ((=daikanwa	  . 02671)	; &M-02671;
-      (<-Zhouwen
-       ((=ucs@jis	    . #x531B)	; &AJ1-21223;
-	(=adobe-japan1-6    . 21223)	; &AJ1-21223;
-	(=daikanwa	    . 02597)	; &I-M-02597;
-	)
-       ((=ucs@jis	    . #x67E9)	; &GT-18571;
-	(=ucs@ks	    . #x67E9)	; &GT-18571;
-	(=jis-x0208	    . #x5B4D)	; &GT-18571; [59-45]
-	(=ks-x1001	    . #x4F2F)	; &I-K0-4F2F; [47-15]
-	(=cns11643-1	    . #x5161)	; &I-C1-5161; [49-65]
-	(=jis-x0213-1	    . #x5B4D)	; &I-JX1-5B4D; [59-45]
-	(=daikanwa	    . 14650)	; &I-M-14650;
-	))
-      (<-Zhouwen*sources
-       jiyun daikanwa)
-      (<-Zhouwen@shuowen
-       ((=ucs@jis	    . #x531B)	; &AJ1-21223;
-	(=adobe-japan1-6    . 21223)	; &AJ1-21223;
-	(=daikanwa	    . 02597)	; &I-M-02597;
-	))
-      (<-Zhouwen@shuowen*sources
-       shuowen yupian jiyun daikanwa)
+    (=daikanwa		. 02671)	; &I-M-02671;
+    (=hanziku-1		. #xB6C1)	; &I-HZK01-B6C1;
+    (<-Zhouwen
+     ((=ucs@jis		  . #x531B)	; &AJ1-21223;
+      (=adobe-japan1-6	  . 21223)	; &AJ1-21223;
+      (=daikanwa	  . 02597)	; &I-M-02597;
       )
-     ((hanyu-dazidian	  1 91 10)
-      (==ucs@cns	  . #x2096C)	; &HZK01-B6C1;
-      (==cns11643-7	  . #x6443)	; &HZK01-B6C1; [68-35]
-      (=hanziku-1	  . #xB6C1)	; &HZK01-B6C1;
+     ((=ucs@jis		  . #x67E9)	; &GT-18571;
+      (=ucs@ks		  . #x67E9)	; &GT-18571;
+      (=jis-x0208	  . #x5B4D)	; &GT-18571; [59-45]
+      (=ks-x1001	  . #x4F2F)	; &I-K0-4F2F; [47-15]
+      (=cns11643-1	  . #x5161)	; &I-C1-5161; [49-65]
+      (=jis-x0213-1	  . #x5B4D)	; &I-JX1-5B4D; [59-45]
+      (=daikanwa	  . 14650)	; &I-M-14650;
+      ))
+    (<-Zhouwen*sources
+     jiyun daikanwa)
+    (<-Zhouwen@shuowen
+     ((=ucs@jis		  . #x531B)	; &AJ1-21223;
+      (=adobe-japan1-6	  . 21223)	; &AJ1-21223;
+      (=daikanwa	  . 02597)	; &I-M-02597;
+      ))
+    (<-Zhouwen@shuowen*sources
+     shuowen yupian jiyun daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 02671)	; &g2-M-02671;
+      )
+     ((==ucs@cns	  . #x2096C)	; &g2-CU+2096C;
+      (==cns11643-7	  . #x6443)	; &g2-CU+2096C; [68-35]
       ))
     ))
 (define-char
@@ -2002,9 +2001,9 @@
     (ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 26)
     (total-strokes	 . 28)
-    (=>>ucs@iso		. #x2096C)	; &g1-IU+2096C;
+    (=ucs@iso		. #x2096C)	; &U-0002096C;
     (->subsumptive
-     ((=ucs@iso		  . #x2096C)	; &U-0002096C;
+     ((==ucs@iso	  . #x2096C)	; &g2-IU-0002096C;
       ))
     ))
 (define-char
