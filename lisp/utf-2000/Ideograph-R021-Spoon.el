@@ -290,14 +290,14 @@
     (ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (=>>ucs@unicode	. #x5317)	; &g1-AJ1-03706;
-    (=>>adobe-japan1-0	. 03706)	; &g1-AJ1-03706;
-    (=>>jis-x0208	. #x4B4C)	; &g1-AJ1-03706; [43-44]
-    (=>>cns11643-1	. #x4621)	; &g1-AJ1-03706; [38-01]
-    (=>>jis-x0213-1	. #x4B4C)	; &g1-AJ1-03706; [43-44]
-    (=>>gt		. 03302)	; &g1-AJ1-03706;
-    (=>>gt-k		. 01003)	; &g1-AJ1-03706;
-    (=>>daikanwa	. 02574)	; &g1-AJ1-03706;
+    (=>>ucs@unicode	. #x5317)	; &G-AJ1-03706;
+    (=>>adobe-japan1-0	. 03706)	; &G-AJ1-03706;
+    (=>>jis-x0208	. #x4B4C)	; &G-AJ1-03706; [43-44]
+    (=>>cns11643-1	. #x4621)	; &G-AJ1-03706; [38-01]
+    (=>>jis-x0213-1	. #x4B4C)	; &G-AJ1-03706; [43-44]
+    (=>>gt		. 03302)	; &G-AJ1-03706;
+    (=>>gt-k		. 01003)	; &G-AJ1-03706;
+    (=>>daikanwa	. 02574)	; &G-AJ1-03706;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5317)	; 北
