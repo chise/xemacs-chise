@@ -100,9 +100,9 @@
     (<-simplified@JP/old*sources
      daikanwa)
     (->subsumptive
-     ((==big5-cdp	  . #x8BED)	; &G-GT-10942;
-      (==gt		  . 10942)	; &G-GT-10942;
-      (==daikanwa	  . 08674)	; &G-GT-10942;
+     ((==big5-cdp	  . #x8BED)	; &g2-GT-10942;
+      (==gt		  . 10942)	; &g2-GT-10942;
+      (==daikanwa	  . 08674)	; &g2-GT-10942;
       ))
     ))
 (define-char
@@ -235,14 +235,14 @@
 	)
        ((=ucs		    . #xE0102)	; 󠄂
 	))
-      (==ucs@unicode	  . #x5DE1)	; &G-AJ1-02414;
-      (==adobe-japan1-0	  . 02414)	; &G-AJ1-02414;
-      (==gb2312		  . #x5132)	; &G-AJ1-02414; [49-18]
-      (==jis-x0208	  . #x3D64)	; &G-AJ1-02414; [29-68]
-      (==jis-x0213-1	  . #x3D64)	; &G-AJ1-02414; [29-68]
-      (==hanyo-denshi/ja  . #x3D64)	; &G-AJ1-02414; [29-68]
-      (==gt		  . 10953)	; &G-AJ1-02414;
-      (==daikanwa/+p	  . 08680)	; &G-AJ1-02414;
+      (==ucs@unicode	  . #x5DE1)	; &g2-AJ1-02414;
+      (==adobe-japan1-0	  . 02414)	; &g2-AJ1-02414;
+      (==gb2312		  . #x5132)	; &g2-AJ1-02414; [49-18]
+      (==jis-x0208	  . #x3D64)	; &g2-AJ1-02414; [29-68]
+      (==jis-x0213-1	  . #x3D64)	; &g2-AJ1-02414; [29-68]
+      (==hanyo-denshi/ja  . #x3D64)	; &g2-AJ1-02414; [29-68]
+      (==gt		  . 10953)	; &g2-AJ1-02414;
+      (==daikanwa/+p	  . 08680)	; &g2-AJ1-02414;
       (->subsumptive
        ((===daikanwa/+p	    . 08680)	; &R-M-p08680;
 	)
@@ -334,10 +334,10 @@
       (=cns11643-6	  . #x237E)	; &C6-237E; [03-94]
       (=daikanwa	  . 03081)	; &I-M-03081;
       (->subsumptive
-       ((==daikanwa	    . 03081)	; &G-M-03081;
+       ((==daikanwa	    . 03081)	; &g2-M-03081;
 	)
-       ((==ucs@cns	    . #x21FEE)	; &G-CU+21FEE;
-	(==cns11643-6	    . #x237E)	; &G-CU+21FEE; [03-94]
+       ((==ucs@cns	    . #x21FEE)	; &g2-CU+21FEE;
+	(==cns11643-6	    . #x237E)	; &g2-CU+21FEE; [03-94]
 	))
       )
      ((ideographic-radical . 47)	; ⼮
@@ -348,8 +348,8 @@
       (=daikanwa	  . 08682)	; &M-08682;
       (=hanziku-3	  . #xE041)	; &I-HZK03-E041;
       (->subsumptive
-       ((==ucs@iso	    . #x21FEE)	; &G-M-08682;
-	(==daikanwa	    . 08682)	; &G-M-08682;
+       ((==ucs@iso	    . #x21FEE)	; &g2-M-08682;
+	(==daikanwa	    . 08682)	; &g2-M-08682;
 	(->subsumptive
 	 ((===daikanwa	      . 08682)	; &R-M-08682;
 	  )
@@ -650,7 +650,7 @@
      ((=ucs@iso		  . #x22002)	; &M-08701;
       (=daikanwa	  . 08701)	; &M-08701;
       (->subsumptive
-       ((==daikanwa	    . 08701)	; &G-M-08701;
+       ((==daikanwa	    . 08701)	; &g2-M-08701;
 	)
        ((hanyu-dazidian	    2 1098 15)
 	(==ucs@iso	    . #x22002)	; &HZK03-E060;
