@@ -78,9 +78,9 @@
     (<-same*sources
      jiyun daikanwa)
     (->subsumptive
-     ((==daikanwa	  . 09192)	; &G-M-09192;
+     ((==daikanwa	  . 09192)	; &g2-M-09192;
       )
-     ((==ucs@iso	  . #x221B0)	; &G-IU-000221B0;
+     ((==ucs@iso	  . #x221B0)	; &g2-IU-000221B0;
       ))
     ))
 (define-char
@@ -385,23 +385,23 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@unicode	    . #x4EAD)	; &G-AJ1-03070;
-	(==adobe-japan1-0   . 03070)	; &G-AJ1-03070;
+       ((==ucs@unicode	    . #x4EAD)	; &g2-AJ1-03070;
+	(==adobe-japan1-0   . 03070)	; &g2-AJ1-03070;
 	)
-       ((==daikanwa	    . 09192)	; &G-M-09192;
+       ((==daikanwa	    . 09192)	; &g2-M-09192;
 	))
-      (==daikanwa	  . 09212)	; &G-M-09212;
+      (==daikanwa	  . 09212)	; &g2-M-09212;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@unicode	    . #x4EAD)	; &G-AJ1-03070;
-	(==adobe-japan1-0   . 03070)	; &G-AJ1-03070;
+       ((==ucs@unicode	    . #x4EAD)	; &g2-AJ1-03070;
+	(==adobe-japan1-0   . 03070)	; &g2-AJ1-03070;
 	)
-       ((==ucs@iso	    . #x221B0)	; &G-IU-000221B0;
+       ((==ucs@iso	    . #x221B0)	; &g2-IU-000221B0;
 	))
-      (==ucs@iso	  . #x20179)	; &G-IU-00020179;
+      (==ucs@iso	  . #x20179)	; &g2-IU-00020179;
       ))
     ))
 (define-char
