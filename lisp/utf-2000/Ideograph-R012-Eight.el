@@ -505,7 +505,7 @@
 	)
        ((=ucs		    . #x516B)	; 八
 	))
-      (=>>daikanwa	  . 01456)	; &g1-M-01456;
+      (=>>daikanwa	  . 01456)	; &G-M-01456;
       (->subsumptive
        ((==daikanwa	    . 01456)	; &g2-M-01456;
 	))
@@ -518,7 +518,7 @@
 	)
        ((=ucs		    . #x516B)	; 八
 	))
-      (=>>ucs@iso	  . #x20502)	; &g1-IU+20502;
+      (=>>ucs@iso	  . #x20502)	; &G-IU+20502;
       (->subsumptive
        ((==ucs@iso	    . #x20502)	; &g2-IU-00020502;
 	)
@@ -1829,16 +1829,18 @@
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (=>>ucs@iso		. #x20525)	; &g1-IU+20525;
+    (hanyu-dazidian	1 250 8)
+    (=ucs@iso		. #x20525)	; &C6-465B;
+    (=cns11643-6	. #x465B)	; &C6-465B; [38-59]
+    (=daikanwa		. 01493)	; &I-M-01493;
+    (=hanziku-1		. #xD9C0)	; &I-HZK01-D9C0;
     (->subsumptive
-     ((=daikanwa	  . 01493)	; &M-01493;
+     ((==daikanwa	  . 01493)	; &g2-M-01493;
       )
-     ((=cns11643-6	  . #x465B)	; &C6-465B; [38-59]
+     ((==ucs@cns	  . #x20525)	; &g2-CU+20525;
+      (==cns11643-6	  . #x465B)	; &g2-CU+20525; [38-59]
       )
-     ((hanyu-dazidian	  1 250 8)
-      (=hanziku-1	  . #xD9C0)	; &HZK01-D9C0;
-      )
-     ((=ucs@iso		  . #x20525)	; &U-00020525;
+     ((==ucs@iso	  . #x20525)	; &g2-IU-00020525;
       ))
     ))
 (define-char
