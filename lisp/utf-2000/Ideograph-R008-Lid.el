@@ -999,7 +999,8 @@
       )
      ((=ucs		  . #x20AD3)	; 𠫓
       )
-     ((=>>gt		  . 10942)	; &g1-GT-10942;
+     ((=big5-cdp	  . #x8BED)	; &GT-10942;
+      (=daikanwa	  . 08674)	; &I-M-08674;
       ))
     (=ucs		. #x342C)	; 㐬
     (->subsumptive
@@ -1012,7 +1013,8 @@
        ((=ucs@jis	    . #x20AD3)	; &MJ031960;
 	(=mj		    . 031960)	; &MJ031960;
 	)
-       ((=>>gt		    . 10942)	; &g1-GT-10942;
+       ((=big5-cdp	    . #x8BED)	; &GT-10942;
+	(=daikanwa	    . 08674)	; &I-M-08674;
 	))
       (=ucs@unicode	  . #x342C)	; &AJ1-17246;
       (=adobe-japan1-5	  . 17246)	; &AJ1-17246;
@@ -1033,8 +1035,7 @@
 	 ((=ucs@jis	      . #x20AD3)	; &MJ031960;
 	  (=mj		      . 031960)	; &MJ031960;
 	  )
-	 ((=big5-cdp	      . #x8BED)	; &GT-10942;
-	  (=daikanwa	      . 08674)	; &I-M-08674;
+	 ((==daikanwa	      . 08674)	; &g2-GT-10942;
 	  ))
 	(==ucs@unicode	    . #x342C)	; &g2-AJ1-17246;
 	(==adobe-japan1-5   . 17246)	; &g2-AJ1-17246;
@@ -2316,7 +2317,7 @@
       )
      ((=ucs		  . #x51E0)	; 几
       ))
-    (=>>daikanwa	. 00314)	; &g1-M-00314;
+    (=>>daikanwa	. 00314)	; &G-M-00314;
     (->subsumptive
      ((ideographic-radical . 8)	; ⼇
       (=daikanwa	  . 00314)	; &M-00314;
@@ -4044,8 +4045,8 @@
 	)
        ((=ucs		    . #x767D)	; 白
 	))
-      (=>>ucs@iso	  . #x2018C)	; &g1-IU+2018C;
-      (=>>daikanwa	  . 00334)	; &g1-IU+2018C;
+      (=>>ucs@iso	  . #x2018C)	; &G-IU+2018C;
+      (=>>daikanwa	  . 00334)	; &G-IU+2018C;
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
@@ -4078,7 +4079,7 @@
 	)
        ((=ucs		    . #x767D)	; 白
 	))
-      (=>>ucs@cns	  . #x2018C)	; &g1-CU+2018C;
+      (=>>ucs@cns	  . #x2018C)	; &G-CU+2018C;
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
