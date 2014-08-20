@@ -1067,7 +1067,7 @@
       )
      ((=ucs		  . #x51E0)	; 几
       ))
-    (=>>daikanwa	. 00314)	; &g1-M-00314;
+    (=>>daikanwa	. 00314)	; &G-M-00314;
     (->subsumptive
      ((ideographic-radical . 8)	; ⼇
       (=daikanwa	  . 00314)	; &M-00314;
