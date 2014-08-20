@@ -1,5 +1,16 @@
 2014-08-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R020-Wrap.el (CU+5313): Add `ideographic-structure'.
+	(g2-JU+5313): Likewise; use `->subsumptive' to add representative
+	nodes.
+
+	* Ideograph-R022-Right-Open-Box.el (U-0002096C): Apply new
+	conventions for glyph granularity.
+
+	* Ideograph-R019-Power.el (U-0002086D): Apply new conventions for
+	glyph granularity.
+	(U-000208BA): Likewise.
+
 	* Ideograph-R018-Knife.el (UU+524A): Apply new conventions for
 	glyph granularity for components of ideographic-structure.
 	(UU+5279): Likewise.
