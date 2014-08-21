@@ -2751,8 +2751,7 @@
     (=daikanwa		. 01397)	; &I-M-01397;
     (=hanziku-1		. #xDECA)	; &I-HZK01-DECA;
     (<-same
-     ((=ucs@unicode	  . #x51C9)	; &AJ1-04241;
-      (=adobe-japan1-0	  . 04241)	; &AJ1-04241;
+     ((=ucs		  . #x51C9)	; 凉
       (=daikanwa	  . 01665)	; &I-M-01665;
       ))
     (<-same*sources
