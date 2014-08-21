@@ -1,5 +1,16 @@
 2014-08-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R037-Big.el (g2-JU+3691): Use `->subsumptive' to add
+	representative nodes.
+	(U+5953): Apply new conventions for glyph granularity.
+	(U+595A): Likewise.
+	(U-00021669): Likewise.
+	(U-00021678): Likewise.
+
+	* Ideograph-R023-Hiding-Enclosure.el (IU+20976): Apply new
+	conventions for glyph granularity for components of
+	ideographic-structure.
+
 	* Ideograph-R020-Wrap.el (CU+5313): Add `ideographic-structure'.
 	(g2-JU+5313): Likewise; use `->subsumptive' to add representative
 	nodes.
