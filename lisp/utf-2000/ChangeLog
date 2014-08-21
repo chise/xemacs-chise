@@ -1,4 +1,21 @@
+2014-08-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R043-Lame.el (U+5C28): Apply new conventions for glyph
+	granularity.
+
 2014-08-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R054-Long-Stride.el (U+5EF6): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R035-Go-Slowly.el (U+590B): Apply new conventions for
+	glyph granularity.
+	(U+590C): Likewise.
+	(U+590F): Likewise.
+
+	* Ideograph-R015-Ice.el (U+51CC): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+	(U-000205F4): Apply new conventions for glyph granularity.
 
 	* Ideograph-R037-Big.el (g2-JU+3691): Use `->subsumptive' to add
 	representative nodes.
