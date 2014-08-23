@@ -1,3 +1,21 @@
+2014-08-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R058-Snout.el (U+5F50): Apply new conventions for
+	glyph granularity.
+	(U+5F56): Likewise.
+	(U+5F5C): Likewise.
+	(CU+5F60): Likewise.
+
+	* Ideograph-R037-Big.el (o-GT-07490): Apply new conventions for
+	glyph granularity.
+	(A-BC-8BD3): Likewise.
+
+	* Ideograph-R019-Power.el (U+52B9): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R008-Lid.el (U-0002018E): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
 2014-08-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R066-Rap.el (U+6548): Apply new conventions for glyph
