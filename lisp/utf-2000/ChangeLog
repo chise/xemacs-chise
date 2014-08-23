@@ -1,5 +1,18 @@
 2014-08-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R066-Rap.el (U+6548): Apply new conventions for glyph
+	granularity.
+	(U+6562): Likewise.
+	(U+6575): Likewise.
+	(U+6577): Likewise.
+	(U+657A): Likewise.
+
+	* Ideograph-R005-Second.el (IU+200ED): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+	(JU+4E7F): Likewise.
+
+2014-08-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R043-Lame.el (U+5C28): Apply new conventions for glyph
 	granularity.
 
