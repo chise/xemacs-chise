@@ -1416,7 +1416,11 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=>>gt		    . 25225)	; &g1-GT-25225;
+       ((=ucs@jis	    . #x722B)	; &GT-25225;
+	(=jis-x0212	    . #x4A48)	; &JX2-702A; [42-40]
+	(=cns11643-4	    . #x2151)	; &I-C4-2151; [01-49]
+	(=jis-x0213-2	    . #x702A)	; &I-JX2-702A; [80-10]
+	(=daikanwa	    . 19655)	; &I-M-19655;
 	)
        ((=ucs		    . #x53E3)	; 口
 	))
@@ -1437,7 +1441,23 @@
     (<-ancient*sources
      yupian daikanwa)
     (->subsumptive
-     ((==ucs@iso	  . #x200ED)	; &g2-M-00193;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((==ucs@cns	      . #x722B)	; &g2-CU+722B;
+	  (==cns11643-4	      . #x2151)	; &g2-CU+722B; [01-49]
+	  )
+	 ((=ucs		      . #x53E3)	; 口
+	  ))
+	)
+       ((=ucs		    . #x4E5A)	; 乚
+	))
+      (==ucs@iso	  . #x200ED)	; &g2-M-00193;
       (==cns11643-6	  . #x293F)	; &g2-M-00193; [09-31]
       (==daikanwa	  . 00193)	; &g2-M-00193;
       (->subsumptive
@@ -1456,10 +1476,8 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (=ucs		      . #x2FF1)	; ⿱
 	  )
-	 ((=ucs@jis	      . #x722B)	; &GT-25225;
-	  (=jis-x0212	      . #x4A48)	; &GT-25225; [42-40]
-	  (=jis-x0213-2	      . #x702A)	; &I-JX2-702A; [80-10]
-	  (=daikanwa	      . 19655)	; &I-M-19655;
+	 ((==ucs@jis	      . #x722B)	; &g2-GT-25225;
+	  (==jis-x0213-2      . #x702A)	; &g2-GT-25225; [80-10]
 	  )
 	 ((=ucs		      . #x53E3)	; 口
 	  ))
@@ -2059,7 +2077,8 @@
 	(=ucs		    . #x2FF1)	; ⿱
 	)
        ((=ucs@jis	    . #x722B)	; &GT-25225;
-	(=jis-x0212	    . #x4A48)	; &GT-25225; [42-40]
+	(=jis-x0212	    . #x4A48)	; &JX2-702A; [42-40]
+	(=cns11643-4	    . #x2151)	; &I-C4-2151; [01-49]
 	(=jis-x0213-2	    . #x702A)	; &I-JX2-702A; [80-10]
 	(=daikanwa	    . 19655)	; &I-M-19655;
 	)
@@ -2089,10 +2108,8 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (=ucs		      . #x2FF1)	; ⿱
 	  )
-	 ((=ucs@jis	      . #x722B)	; &GT-25225;
-	  (=jis-x0212	      . #x4A48)	; &GT-25225; [42-40]
-	  (=jis-x0213-2	      . #x702A)	; &I-JX2-702A; [80-10]
-	  (=daikanwa	      . 19655)	; &I-M-19655;
+	 ((==ucs@jis	      . #x722B)	; &g2-GT-25225;
+	  (==jis-x0213-2      . #x702A)	; &g2-GT-25225; [80-10]
 	  )
 	 ((==ucs@cns	      . #x7CF8)	; &g2-GT-35079;
 	  (==ucs@jis	      . #x7CF8)	; &g2-GT-35079;
@@ -2494,7 +2511,8 @@
 	(=ucs		    . #x2FF1)	; ⿱
 	)
        ((=ucs@jis	    . #x722B)	; &GT-25225;
-	(=jis-x0212	    . #x4A48)	; &GT-25225; [42-40]
+	(=jis-x0212	    . #x4A48)	; &JX2-702A; [42-40]
+	(=cns11643-4	    . #x2151)	; &I-C4-2151; [01-49]
 	(=jis-x0213-2	    . #x702A)	; &I-JX2-702A; [80-10]
 	(=daikanwa	    . 19655)	; &I-M-19655;
 	)
