@@ -2246,25 +2246,25 @@
     ))
 (define-char
   '((<-denotational
+     ((=>big5-cdp	  . #x8BD3)	; &A-CDP-8BD3;
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (=+>gt		. 07490)	; &o-GT-07490;
+    ))
+(define-char
+  '((<-denotational
      ((=+>gt		  . 07490)	; &o-GT-07490;
       ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=>>gt		. 07490)	; &G-GT-07490;
-    (=>>gt-k		. 06722)	; &G-GT-07490;
+    (=gt		. 07490)	; &GT-07490;
+    (=gt-k		. 06722)	; &I-GT-K06722;
+    (=gt-pj-9		. #x4F48)	; &GT-07490; [47-40]
     (->subsumptive
-     ((=gt		  . 07490)	; &GT-07490;
-      (=gt-k		  . 06722)	; &I-GT-K06722;
-      (=gt-pj-9		  . #x4F48)	; &GT-07490; [47-40]
+     ((==gt		  . 07490)	; &g2-GT-07490;
+      (==gt-k		  . 06722)	; &g2-GT-07490;
       ))
-    ))
-(define-char
-  '((<-denotational
-     ((=>big5-cdp	  . #x8BD3)	; &A-CDP-8BD3;
-      ))
-    (ideographic-radical . 37)	; ⼤
-    (=+>gt		. 07490)	; &o-GT-07490;
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
@@ -2736,37 +2736,37 @@
     ))
 (define-char
   '((<-denotational
+     ((=big5-cdp	  . #x8BD3)	; &CDP-8BD3;
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (=gt-k		. 08041)	; &GT-K08041;
+    (=gt-pj-k1		. #x314B)	; &GT-K08041; [17-43]
+    (<-formed@component/connect-right
+     ((=big5-cdp	  . #x8BD3)	; &CDP-8BD3;
+      ))
+    (->subsumptive
+     ((==gt-k		  . 08041)	; &g2-GT-K08041;
+      (<-formed@component/connect-right
+       ((==big5-cdp	    . #x8BD3)	; &g2-CDP-8BD3;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
      ((=>big5-cdp	  . #x8BD3)	; &A-CDP-8BD3;
       ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=>>big5-cdp	. #x8BD3)	; &G-CDP-8BD3;
-    (=>>gt-k		. 08042)	; &G-CDP-8BD3;
+    (=big5-cdp		. #x8BD3)	; &CDP-8BD3;
+    (=gt-k		. 08042)	; &I-GT-K08042;
+    (=gt-pj-k1		. #x444B)	; &CDP-8BD3; [36-43]
     (->subsumptive
-     ((=gt-k		  . 08042)	; &GT-K08042;
-      (=gt-pj-k1	  . #x444B)	; &GT-K08042; [36-43]
+     ((==gt-k		  . 08042)	; &g2-GT-K08042;
       )
-     ((=big5-cdp	  . #x8BD3)	; &CDP-8BD3;
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=big5-cdp	  . #x8BD3)	; &CDP-8BD3;
-      ))
-    (ideographic-radical . 37)	; ⼤
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (=>>gt-k		. 08041)	; &G-GT-K08041;
-    (<-formed@component/connect-right
-     ((=>>big5-cdp	  . #x8BD3)	; &G-CDP-8BD3;
-      ))
-    (->subsumptive
-     ((=gt-k		  . 08041)	; &GT-K08041;
-      (=gt-pj-k1	  . #x314B)	; &GT-K08041; [17-43]
-      (<-formed@component/connect-right
-       ((=big5-cdp	    . #x8BD3)	; &CDP-8BD3;
-	))
+     ((==big5-cdp	  . #x8BD3)	; &g2-CDP-8BD3;
       ))
     ))
 (define-char
