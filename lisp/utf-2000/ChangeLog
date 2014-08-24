@@ -1,3 +1,10 @@
+2014-08-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R044-Corpse.el (BC-8D70): Apply new conventions for
+	glyph granularity.
+	(g2-M-07732): Use `->subsumptive' to add representative nodes.
+	(U+5C65): Apply new conventions for glyph granularity.
+
 2014-08-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R058-Snout.el (U+5F50): Apply new conventions for
