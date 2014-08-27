@@ -78,6 +78,7 @@
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (hanyu-dazidian	1 365 7)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -87,6 +88,10 @@
      ((=ucs		  . #x529B)	; 力
       ))
     (=ucs		. #x529D)	; 劝
+    (=gb2312		. #x4830)	; &I-G0-4830; [40-16]
+    (=cns11643-3	. #x2154)	; &I-C3-2154; [01-52]
+    (=daikanwa		. 02293)	; &I-M-02293;
+    (=hanziku-1		. #xF145)	; &I-HZK01-F145;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -96,22 +101,17 @@
 	)
        ((=ucs		    . #x529B)	; 力
 	))
-      (=ucs@unicode	  . #x529D)	; &C3-2154;
-      (=gb2312		  . #x4830)	; &C3-2154; [40-16]
-      (=cns11643-3	  . #x2154)	; &I-C3-2154; [01-52]
-      (=daikanwa	  . 02293)	; &I-M-02293;
-      )
-     ((hanyu-dazidian	  1 365 7)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
+      (==ucs@unicode	  . #x529D)	; &g2-M-02293;
+      (==gb2312		  . #x4830)	; &g2-M-02293; [40-16]
+      (==cns11643-3	  . #x2154)	; &g2-M-02293; [01-52]
+      (==daikanwa	  . 02293)	; &g2-M-02293;
+      (->subsumptive
+       ((===daikanwa	    . 02293)	; &R-M-02293;
 	)
-       ((=ucs@unicode	    . #x53C8)	; &AJ1-03746;
-	(=adobe-japan1-0    . 03746)	; &AJ1-03746;
+       ((===ucs@unicode	    . #x529D)	; &R-UU+529D;
 	)
-       ((=ucs		    . #x529B)	; 力
+       ((===cns11643-3	    . #x2154)	; &R-C3-2154; [01-52]
 	))
-      (=hanziku-1	  . #xF145)	; &HZK01-F145;
       ))
     ))
 (define-char
