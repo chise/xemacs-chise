@@ -1,3 +1,13 @@
+2014-08-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (U+5383): Use <CJK RADICAL KNIFE ONE>
+	instead of BC-8B5B in `ideographic-structure'.
+	(o-UU+5396): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(CU+53A6): Likewise.
+	(U+53A9): Likewise.
+	(IU+20A9A): Likewise.
+
 2014-08-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R019-Power.el (U+529D): Apply new conventions for
