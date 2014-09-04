@@ -306,7 +306,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x8B5B)	; &CDP-8B5B;
+     ((=ucs		  . #x2008A)	; 𠂊
       )
      ((=big5-cdp	  . #x8BFE)	; &CDP-8BFE;
       ))
