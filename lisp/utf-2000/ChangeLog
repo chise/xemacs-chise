@@ -1,5 +1,29 @@
 2014-08-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (U-00020B1B): Apply new conventions for
+	glyph granularity.
+	(U+53CD): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+53CE): Apply new conventions for glyph granularity.
+	(U+53D7): Likewise.
+	(U+53DB): Likewise.
+	(U+53DE): Likewise.
+	(U-00020B63): Likewise.
+	(U-00020B90): Likewise.
+
+	* Ideograph-R018-Knife.el (<CJK RADICAL KNIFE ONE>): Copied from
+	u02E00-CJK-Radical-Supplement.el.
+	(GT-K00089): Add U-0002008A into
+	`<-formed@component/connect-below'.
+	(BC-8B5B): Unify U-00002008A; delete `=>ucs' for U+2E88; use
+	`<-formed@component' instead of `<-formed@component/connect-below'
+	for U+5200.
+	(BC-8B6C): New character; add `<-denotational' for U-00002008A.
+	(U+520D): Use `->denotational' and `->subsumptive' to separate
+	glyph and glyph-image nodes.
+
+2014-08-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R027-Cliff.el (U+5383): Use <CJK RADICAL KNIFE ONE>
 	instead of BC-8B5B in `ideographic-structure'.
 	(o-UU+5396): Apply new conventions for glyph granularity for
