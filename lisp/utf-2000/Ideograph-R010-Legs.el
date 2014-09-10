@@ -1163,6 +1163,14 @@
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x2008A)	; 𠂊
+      )
+     ((=big5-cdp	  . #x8BCB)	; &CDP-8BCB;
+      ))
     (=ucs@unicode	. #x514D)	; &MJ007229;
     (=mj		. 007229)	; &MJ007229;
     (=gb2312		. #x4362)	; &I-G0-4362; [35-66]
@@ -1184,15 +1192,7 @@
        ((===mj		    . 007229)	; &R-MJ007229;
 	))
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=big5-cdp	    . #x8B5B)	; &CDP-8B5B;
-	)
-       ((=big5-cdp	    . #x8BCB)	; &CDP-8BCB;
-	))
-      (==ucs@unicode	  . #x514D)	; &g2-UU+514D;
+     ((==ucs@unicode	  . #x514D)	; &g2-UU+514D;
       (==gb2312		  . #x4362)	; &g2-UU+514D; [35-66]
       (==cns11643-1	  . #x492D)	; &g2-UU+514D; [41-13]
       (->subsumptive
@@ -1327,7 +1327,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x8B5B)	; &CDP-8B5B;
+     ((name		  . "CJK RADICAL KNIFE ONE")
+      (=ucs		  . #x2E88)	; ⺈
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
