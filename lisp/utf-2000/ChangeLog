@@ -1,3 +1,13 @@
+2014-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R073-Say.el (CB04456): Apply new conventions for glyph
+	granularity.
+	(U+66F4): Likewise.
+	(UU+66F7): Likewise.
+	(U+5195): Likewise.
+	(U+66FE): Likewise.
+	(U+6701): Likewise.
+
 2014-09-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R071-Not.el (U+65E1): Apply new conventions for glyph
