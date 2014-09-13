@@ -1,3 +1,32 @@
+2014-09-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (g2-JU+5FF8): Use `->subsumptive' to add
+	representative nodes.
+	(g2-JU+601F): Likewise.
+	(g2-JU+604B): Likewise.
+	(U-0002264A): Apply new conventions for glyph granularity.
+	(g2-UU+6097): Use `->subsumptive' to add representative nodes.
+	(UU+3944): Apply new conventions for glyph granularity.
+	(JU+60C7): Use `->subsumptive' to add representative nodes.
+	(UU+60C7): Likewise.
+	(U+60D4): Apply new conventions for glyph granularity.
+	(U-00022724): Likewise.
+	(g2-MJ011751): Separate g2-C1-6378.
+	(g2-JU+6127): Use `->subsumptive' to add representative nodes.
+	(g2-JU+6135): Likewise.
+	(g2-JU+6160): Likewise.
+	(g2-JU+6165): Likewise.
+	(g2-UU+61A4): Likewise.
+	(g2-KU+61A4): Likewise.
+	(g2-UU+61A9): Likewise.
+	(g2-IU+2283E): Likewise.
+	(g2-M-11261): Likewise.
+	(U-00022865): Apply new conventions for glyph granularity.
+	(U-0002F8B0): Likewise.
+	(U-00022903): Likewise.
+	(UU+39A4): Use `->subsumptive' to add representative nodes.
+	(JU+61FF): Likewise.
+
 2014-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R073-Say.el (CB04456): Apply new conventions for glyph
