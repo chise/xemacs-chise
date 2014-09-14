@@ -1,3 +1,9 @@
+2014-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R087-Claw.el (U+722B): Apply new conventions for glyph
+	granularity.
+	(BC-8CC5): Likewise.
+
 2014-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (shuowen-radicals): Add ?𠨍, ?辟, ?勹, ?包, ?茍,
