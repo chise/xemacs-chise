@@ -1,3 +1,11 @@
+2014-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (shuowen-radicals): Add ?𠨍, ?辟, ?勹, ?包, ?茍,
+	?鬼, ?甶, ?厶, ?嵬 and ?山.
+
+	* Oracle-Bones.el (ZOB-00607): Add `<-Oracle-Bones' for ⿲彳㣈攴.
+	(ZOB-{02500..02541}): New characters.
+
 2014-09-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (g2-JU+5FF8): Use `->subsumptive' to add
