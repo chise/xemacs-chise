@@ -1,5 +1,46 @@
 2014-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Oracle-Bones.el (A-ZOB-00942): New abstract character.
+	(ZOB-00942): Add `<-denotational' for A-ZOB-00942.
+	(ZOB-{02542..02555}): New characters.
+
+	* Ideograph-R078-Death.el (U+6B7A): Unify BC-8DAC.
+	(U-000239C3): Apply new conventions for glyph granularity.
+	(U+6B7F): Likewise.
+	(U+6B81): Likewise.
+	(U-000239D2): Likewise.
+	(U-000239F8): Likewise.
+	(IU+23A0C): Use `->subsumptive' to add representative nodes.
+	(U+6B8F): Apply new conventions for glyph granularity.
+	(U-00023A0F): Likewise.
+	(g2-IU+23A19): Use `->subsumptive' to add representative nodes.
+	(U+6B94): Apply new conventions for glyph granularity.
+	(U-00023A1B): Likewise.
+	(U+3C70): Likewise.
+	(IU+23A45): Likewise.
+	(U-00023A46): Likewise.
+	(U-00023A4D): Likewise.
+	(U+6BA7): Likewise.
+	(U+6BA9): Likewise.
+	(U-00023A7A): Likewise.
+	(U-0002A697): Likewise.
+	(U-00023A7E): Likewise.
+	(U+3C7B): Likewise.
+
+	* Ideograph-R076-Lack.el (U-0002F8EF): Apply new conventions for
+	glyph granularity.
+	(U+6B22): Likewise.
+	(U-000238CB): Likewise.
+	(U+6B46): Likewise.
+	(U+6B49): Likewise.
+	(U-000238FA): Likewise.
+	(U+6B4E): Likewise.
+	(g2-JU+6B50): Use `->subsumptive' to add representative nodes.
+	(U+6B54): Apply new conventions for glyph granularity.
+	(CU+6B61): Likewise.
+	(g2-JU+6B61): Use `->subsumptive' to add representative nodes.
+	(U-00023941): Apply new conventions for glyph granularity.
+
 	* Ideograph-R087-Claw.el (U+722B): Apply new conventions for glyph
 	granularity.
 	(BC-8CC5): Likewise.
