@@ -1571,7 +1571,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
       )
-     ((=ucs@jis		  . #x722B)	; &GT-25225;
+     ((=ucs@cns		  . #x722B)	; &GT-25225;
+      (=ucs@jis		  . #x722B)	; &GT-25225;
       (=jis-x0212	  . #x4A48)	; &GT-25225; [42-40]
       (=cns11643-4	  . #x2151)	; &I-C4-2151; [01-49]
       (=jis-x0213-2	  . #x702A)	; &I-JX2-702A; [80-10]
