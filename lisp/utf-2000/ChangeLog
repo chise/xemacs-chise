@@ -1,3 +1,40 @@
+2014-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (U+6600): Apply new conventions for glyph
+	granularity.
+	(U+660E): Likewise.
+	(U+663F): Likewise.
+	(U+6648): Likewise.
+	(U+66FB): Likewise.
+	(U+6659): Likewise.
+	(U+3AF3): Likewise.
+	(U+6674): Likewise.
+	(U+6677): Likewise.
+	(U+3AFD): Likewise.
+	(U+668E): Likewise.
+	(U+6690): Likewise.
+	(U+6691): Likewise.
+	(U+669C): Likewise.
+	(U+66A0): Likewise.
+	(U-00023284): Likewise.
+	(U+66B9): Likewise.
+	(U-0002329F): Likewise.
+	(U+66C1): Likewise.
+	(U+66D5): Likewise.
+	(U+66D6): Likewise.
+	(U+66DA): Likewise.
+	(U+3B26): Likewise.
+	(U+66DC): Likewise.
+	(U+66E8): Likewise.
+	(IU+23313): Likewise.
+
+2014-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R095-Profound.el (U+7384): Apply new conventions for
+	glyph granularity.
+	(U+7387): Likewise.
+	(U-000248E8): Likewise.
+
 2014-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Oracle-Bones.el (A-ZOB-00942): New abstract character.
