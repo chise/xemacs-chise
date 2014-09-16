@@ -1,5 +1,26 @@
 2014-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Oracle-Bones.el (ZOB-00057): Modify a component.
+	(ZOB-00079): Likewise.
+	(ZOB-00144): Use ZOB-02258 instead of "白" in
+	`ideographic-structure'; use ZOB-02607 instead of "豕" in
+	`ideographic-structure'.
+	(ZOB-00147): Use ZOB-02607 instead of "豕" in
+	`ideographic-structure'.
+	(ZOB-00351): Use ZOB-02258 instead of "白" in
+	`ideographic-structure'.
+	(ZOB-00461): Likewise.
+	(ZOB-00556): Use ZOB-02607 instead of "豕" in
+	`ideographic-structure'.
+	(ZOB-02262): Likewise.
+	(ZOB-{02556..02638}): New characters.
+
+2014-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (shuowen-radicals): Add ?屾, ?屵, ?广, ?厂, ?丸,
+	?危, ?石, ?長, ?勿, ?冄, ?而, ?豕, ?㣇, ?彑, ?豚, ?豸, ?𤉡, ?易,
+	?象 and ?馬.
+
 	* Ideograph-R072-Sun.el (U+6600): Apply new conventions for glyph
 	granularity.
 	(U+660E): Likewise.
