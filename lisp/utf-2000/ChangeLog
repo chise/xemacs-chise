@@ -1,4 +1,32 @@
+2014-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R102-Field.el (U+7561): Apply new conventions for
+	glyph granularity.
+
 2014-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U-00021259): Apply new conventions for
+	glyph granularity.
+	(U+5793): Likewise.
+	(U+3648): Likewise.
+	(U+57F9): Likewise.
+	(U+5809): Likewise.
+	(U-00021375): Likewise.
+	(CU+3659): Likewise.
+	(UU+5858): Likewise.
+	(U+5859): Likewise.
+	(U+5861): Likewise.
+	(U+5875): Likewise.
+	(U+5883): Likewise.
+	(U+588C): Likewise.
+	(U+588D): Likewise.
+	(U+58AB): Likewise.
+	(UU+58C7): Likewise.
+	(U+58C8): Likewise.
+	(U+58CA): Likewise.
+	(UU+58D9): Likewise.
+	(U+58DF): Likewise.
+	(U+58E0): Likewise.
 
 	* Oracle-Bones.el (ZOB-00057): Modify a component.
 	(ZOB-00079): Likewise.
