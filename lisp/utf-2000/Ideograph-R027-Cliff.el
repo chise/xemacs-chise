@@ -2409,6 +2409,7 @@
        ((=ucs@unicode	    . #x771E)	; &HD-JA-6243;
 	(=jis-x0208	    . #x6243)	; &HD-JA-6243; [66-35]
 	(=ks-x1001	    . #x7258)	; &I-K0-7258; [82-56]
+	(=cns11643-3	    . #x3759)	; &I-C3-3759; [23-57]
 	(=jis-x0213-1	    . #x6243)	; &I-JX1-6243; [66-35]
 	(=daikanwa	    . 23235)	; &I-M-23235;
 	))
@@ -2422,19 +2423,16 @@
 	  )
 	 ((=ucs		      . #x5382)	; 厂
 	  )
-	 ((==daikanwa	      . 23235)	; &g2-M-23235;
-	  ))
-	(==daikanwa	    . 02998)	; &g2-M-02998;
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	  (=ucs		      . #x2FF8)	; ⿸
-	  )
-	 ((=ucs		      . #x5382)	; 厂
-	  )
-	 ((==ucs@unicode      . #x771E)	; &g2-GT-29751;
+	 ((==ucs@unicode      . #x771E)	; &g2-HD-JA-6243;
+	  (==jis-x0208	      . #x6243)	; &g2-HD-JA-6243; [66-35]
 	  ))
 	(==gt		    . 03801)	; &g2-GT-03801;
+	(==daikanwa	    . 02998)	; &g2-GT-03801;
+	(->subsumptive
+	 ((===daikanwa	      . 02998)	; &R-M-02998;
+	  )
+	 ((===gt	      . 03801)	; &R-GT-03801;
+	  ))
 	))
       ))
     ))
