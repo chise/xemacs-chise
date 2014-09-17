@@ -681,7 +681,7 @@
 	)
        ((=big5-cdp	    . #x89BC)	; &CDP-89BC;
 	)
-       ((=big5-cdp	    . #x8BDE)	; &CDP-8BDE;
+       ((=ucs		    . #x2BA4F)	; 𫩏
 	))
       ))
     (=ucs		. #x4E34)	; 临
