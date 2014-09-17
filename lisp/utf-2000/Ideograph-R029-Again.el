@@ -2649,6 +2649,27 @@
     (=cns11643-6	. #x3D69)	; &I-C6-3D69; [29-73]
     ))
 (define-char
+  '((ideographic-radical . 29)	; ⼜
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x38C7)	; 㣇
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ucs		. #x2BA41)	; 𫩁
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2BA41)	; 𫩁
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (=ucs@iso		. #x2BA41)	; &U-0002BA41;
+    ))
+(define-char
   '((ideographic-radical@ucs . 73)	; ⽈
     (ideographic-strokes@ucs . 8)
     (ideographic-radical@ucs*sources
