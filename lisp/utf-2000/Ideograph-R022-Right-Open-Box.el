@@ -244,7 +244,8 @@
 	)
        ((=ucs		    . #x531A)	; 匚
 	)
-       ((==ucs@unicode	    . #x4EA2)	; &g2-UU+4EA2;
+       ((==ucs@unicode	    . #x4EA2)	; &g2-AJ1-04111;
+	(==adobe-japan1-0   . 04111)	; &g2-AJ1-04111;
 	))
       (==ucs@unicode	  . #x531F)	; &g2-AJ1-19203;
       (==adobe-japan1-5	  . 19203)	; &g2-AJ1-19203;
