@@ -1,5 +1,46 @@
 2014-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Oracle-Bones.el (ZOB-01250): Use U-0002C66E instead of "⿱⺷牛".
+	(ZOB-{02639..02719}): New characters.
+
+	* Ideograph-R111-Arrow.el (BC-8BC7): Apply new conventions for
+	glyph granularity.
+	(U-000253A9): Likewise.
+
+	* Ideograph-R109-Eye.el (g2-JU+76F2): Use `->subsumptive' to add
+	representative nodes.
+	(U+7701): Apply new conventions for glyph granularity.
+	(U+771E): Likewise.
+	(U+771F): Likewise.
+	(U+7737): Likewise.
+	(U+775B): Likewise.
+	(U+77AC): Likewise.
+	(U+77B3): Likewise.
+
+	* char-db-util.el (shuowen-radicals): Add ?𢊁, ?鹿, ?麤, ?㲋, ?兔,
+	?萈, ?犬, ?㹜, ?鼠 and ?能.
+
+	* Ideograph-R212-Dragon.el (U+9F8D): Apply new conventions for
+	glyph granularity.
+	(U+9F90): Likewise.
+	(U-0002A697): Likewise.
+	(U+9F94): Likewise.
+	(U+9F95): Likewise.
+
+	* Ideograph-R031-Enclosure.el (g2-UU+56E1): Use `->subsumptive' to
+	add representative nodes.
+	(g2-UU+56E5): Likewise.
+	(U+56EE): Apply new conventions for glyph granularity.
+	(U+5700): Likewise.
+	(JU+5702): Use `->subsumptive' to add representative nodes.
+	(U+570D): Apply new conventions for glyph granularity.
+	(g2-UU+5711): Use `->subsumptive' to add representative nodes.
+	(JU+5716): Apply new conventions for glyph granularity.
+	(g2-JU+571D): Use `->subsumptive' to add representative nodes.
+
+	* Ideograph-R027-Cliff.el (GT-03801): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R102-Field.el (U+7561): Apply new conventions for
 	glyph granularity.
 
