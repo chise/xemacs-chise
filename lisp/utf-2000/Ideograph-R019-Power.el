@@ -371,6 +371,7 @@
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (hanyu-dazidian	1 367 9)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -380,6 +381,12 @@
      ((=ucs		  . #x529B)	; 力
       ))
     (=ucs		. #x52A5)	; 劥
+    (=adobe-japan1-6	. 21202)	; &I-AJ1-21202;
+    (=jis-x0212		. #x335A)	; &I-JSP-335A; [19-58]
+    (=cns11643-4	. #x223F)	; &I-C4-223F; [02-31]
+    (=daikanwa		. 02306)	; &I-M-02306;
+    (=hanziku-1		. #xF1A9)	; &I-HZK01-F1A9;
+    (=jef-china3	. #x44DA)	; &I-JC3-44DA;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x52A5)	; 劥
@@ -390,21 +397,33 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x4EA2)	; &AJ1-04111;
-	(=adobe-japan1-0    . 04111)	; &AJ1-04111;
+       ((==ucs@unicode	    . #x4EA2)	; &g2-AJ1-04111;
+	(==adobe-japan1-0   . 04111)	; &g2-AJ1-04111;
 	)
        ((=ucs		    . #x529B)	; 力
 	))
-      (=ucs@jis		  . #x52A5)	; &AJ1-21202;
-      (=adobe-japan1-6	  . 21202)	; &AJ1-21202;
-      (=jis-x0212	  . #x335A)	; &I-JSP-335A; [19-58]
-      (=daikanwa	  . 02306)	; &I-M-02306;
-      (=jef-china3	  . #x44DA)	; &I-JC3-44DA;
+      (==ucs@jis	  . #x52A5)	; &g2-AJ1-21202;
+      (==adobe-japan1-6	  . 21202)	; &g2-AJ1-21202;
+      (==jis-x0212	  . #x335A)	; &g2-AJ1-21202; [19-58]
+      (==daikanwa	  . 02306)	; &g2-AJ1-21202;
+      (==jef-china3	  . #x44DA)	; &g2-AJ1-21202;
+      (->subsumptive
+       ((===daikanwa	    . 02306)	; &R-M-02306;
+	)
+       ((===jis-x0212	    . #x335A)	; &R-JSP-335A; [19-58]
+	)
+       ((===adobe-japan1-6  . 21202)	; &R-AJ1-21202;
+	)
+       ((===jef-china3	    . #x44DA)	; &R-JC3-44DA;
+	))
       )
-     ((hanyu-dazidian	  1 367 9)
-      (=ucs@unicode	  . #x52A5)	; &C4-223F;
-      (=cns11643-4	  . #x223F)	; &C4-223F; [02-31]
-      (=hanziku-1	  . #xF1A9)	; &I-HZK01-F1A9;
+     ((==ucs@unicode	  . #x52A5)	; &g2-UU+52A5;
+      (==cns11643-4	  . #x223F)	; &g2-UU+52A5; [02-31]
+      (->subsumptive
+       ((===ucs@unicode	    . #x52A5)	; &R-UU+52A5;
+	)
+       ((===cns11643-4	    . #x223F)	; &R-C4-223F; [02-31]
+	))
       ))
     ))
 (define-char
