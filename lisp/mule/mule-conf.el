@@ -2717,6 +2717,15 @@
 		  columns	2
 		  direction	l2r
 		  mother	=cbeta))
+  (make-charset '=>cbeta "CBETA abstract characters"
+		'(long-name	"CBETA characters"
+		  chars		256
+		  dimension	2
+		  registry	"cbeta-0"
+		  graphic	2
+		  columns	2
+		  direction	l2r
+		  mother	=cbeta))
 
   (make-charset '=zinbun-oracle
 		"Oracle Bones Script"
