@@ -1,3 +1,176 @@
+2014-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (BC-8AFC): Apply new conventions for glyph
+	granularity.
+	(U+4EDE): Likewise.
+	(U+4EFF): Likewise.
+	(U+4F07): Likewise.
+	(U+4F09): Likewise.
+	(U+343B): Likewise.
+	(U-000201D2): Likewise.
+	(U+4F28): Likewise.
+	(U-000201D0): Likewise.
+	(U+4F22): Likewise.
+	(U-000204E2): Likewise.
+	(U+4F2D): Likewise.
+	(U+4F60): Likewise.
+	(U+4F47): Likewise.
+	(U+4F2B): Likewise.
+	(U+4F4D): Likewise.
+	(JU+4F4E): Likewise.
+	(U+344A): Likewise.
+	(G-UU+4F74): Likewise.
+	(U+4F7A): Likewise.
+	(U+4F7C): Likewise.
+	(U+4F7D): Likewise.
+	(U+4F7E): Likewise.
+	(U+4F7F): Likewise.
+	(U+4F85): Likewise.
+	(U+4F92): Likewise.
+	(U+4F9D): Likewise.
+	(U+344F): Likewise.
+	(U+4FAF): Likewise.
+	(U-00020230): Likewise.
+	(U+4FB4): Likewise.
+	(U+4FB5): Likewise.
+	(g2-UU+4FBB): Use `->subsumptive' to add representative nodes.
+	(U+4FBF): Apply new conventions for glyph granularity.
+	(U+4FC0): Likewise.
+	(U+4FCA): Likewise.
+	(U+4FCD): Likewise.
+	(U+4FCF): Likewise.
+	(U+4FDE): Likewise.
+	(U-0002023D): Likewise.
+	(U+4FF2): Likewise.
+	(U+4FFC): Likewise.
+	(U+4FFF): Likewise.
+	(U+5005): Likewise.
+	(U+500F): Likewise.
+	(U+5010): Likewise.
+	(U+5018): Likewise.
+	(U+501E): Likewise.
+	(U+5020): Likewise.
+	(U+5025): Likewise.
+	(U+5026): Likewise.
+	(U+5029): Likewise.
+	(U+5030): Likewise.
+	(U+5038): Likewise.
+	(U+5040): Likewise.
+	(U+5042): Likewise.
+	(U+5043): Likewise.
+	(U+5049): Likewise.
+	(U+5050): Likewise.
+	(U+5057): Likewise.
+	(U+5059): Likewise.
+	(U+5060): Likewise.
+	(U+5062): Likewise.
+	(U+5063): Likewise.
+	(U-000202B3): Likewise.
+	(U+3470): Likewise.
+	(U+506F): Likewise.
+	(U+5078): Likewise.
+	(U+5077): Likewise.
+	(U-000202EB): Likewise.
+	(U+5081): Likewise.
+	(U+3474): Likewise.
+	(U+508D): Likewise.
+	(U+508E): Likewise.
+	(U+508F): Likewise.
+	(U+5091): Likewise.
+	(U-000202F6): Likewise.
+	(U+5092): Likewise.
+	(U+5099): Likewise.
+	(U+509A): Likewise.
+	(U+509C): Likewise.
+	(JU+509F): Use `->subsumptive' to add representative nodes.
+	(UU+50A1): Apply new conventions for glyph granularity.
+	(U-00020367): Likewise.
+	(U-00020318): Likewise.
+	(U+50A2): Likewise.
+	(U+50AC): Likewise.
+	(U+50AD): Likewise.
+	(IU+2032E): Likewise.
+	(U-00020330): Likewise.
+	(U+50B9): Likewise.
+	(U+50BB): Likewise.
+	(U+5099): Likewise.
+	(U+3480): Likewise.
+	(U+50C3): Likewise.
+	(U+50C7): Likewise.
+	(U+50C8): Likewise.
+	(U-00020368): Likewise.
+	(U+50CF): Likewise.
+	(U+50D2): Likewise.
+	(U-00020371): Likewise.
+	(U+50D4): Likewise.
+	(U+3488): Likewise.
+	(U+50EA): Likewise.
+	(U+50EC): Likewise.
+	(U+50ED): Likewise.
+	(U-000203B9): Likewise.
+	(U+348E): Likewise.
+	(U+50F2): Likewise.
+	(U+3491): Likewise.
+	(U+50FB): Likewise.
+	(U+50FE): Likewise.
+	(U+5103): Likewise.
+	(U+5104): Likewise.
+	(U-000203BD): Likewise.
+	(U-000203BE): Likewise.
+	(U+510B): Likewise.
+	(U-000203C4): Likewise.
+	(U+510D): Likewise.
+	(U-000203E2): Likewise.
+	(UU+5110): Likewise.
+	(U+5115): Likewise.
+	(U+511B): Likewise.
+	(U+511C): Likewise.
+	(U-00020400): Likewise.
+	(U-00020409): Likewise.
+	(UU+349E): Likewise.
+	(U+512A): Likewise.
+	(U-0002040B): Likewise.
+	(U-0002040D): Likewise.
+	(U-0002040E): Likewise.
+	(U+512C): Likewise.
+	(U-0002041D): Likewise.
+	(U+512D): Likewise.
+	(U+512F): Likewise.
+	(U+5131): Likewise.
+	(U+5132): Likewise.
+	(U-0002043A): Likewise.
+	(U-00020429): Likewise.
+	(U-0002043F): Likewise.
+	(U-0002044D): Likewise.
+	(U+5137): Likewise.
+	(U+34A7): Likewise.
+	(U+513A): Likewise.
+	(U-00020459): Likewise.
+	(U-00020461): Likewise.
+	(U-0002045F): Likewise.
+	(U+513C): Likewise.
+
+	* Ideograph-R007-Two.el (U-0002013F): Apply new conventions for
+	glyph granularity.
+
+2014-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Oracle-Bones.el (ZOB-00744): Add `ideographic-structure'.
+	(ZOB-02610): Likewise.
+	(ZOB-02614): Likewise.
+	(ZOB-02644): Likewise.
+	(ZOB-02645): Likewise.
+	(ZOB-02650): Use ZOB-02607 instead of ZOB-02719 as a component.
+	(ZOB-{02720..02727}): New characters.
+
+	* Ideograph-R019-Power.el (U+52A5): Apply new conventions for
+	glyph granularity.
+
+2014-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (U-0002BA41): New character.
+	(IU+2BA41): New character.
+
 2014-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Oracle-Bones.el (ZOB-01250): Use U-0002C66E instead of "⿱⺷牛".
