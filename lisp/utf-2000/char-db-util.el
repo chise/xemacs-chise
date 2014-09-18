@@ -318,6 +318,7 @@
     =>>ruimoku-v6
     ==ruimoku-v6
     =jef-china3
+    =>cbeta
     =shinjigen
     =big5-cdp-var-3
     =big5-cdp-var-5))
@@ -667,7 +668,7 @@
 			 =>>adobe-japan1-4 =+>adobe-japan1-4
 			 =>>adobe-japan1-5 =+>adobe-japan1-5
 			 =>>adobe-japan1-6 =+>adobe-japan1-6
-			 =cbeta ==cbeta ===cbeta =>>cbeta
+			 =>cbeta =cbeta =>>cbeta ==cbeta ===cbeta
 			 =zinbun-oracle =>zinbun-oracle))
             ;; (string-match "^=adobe-" (symbol-name name))
 	    )
