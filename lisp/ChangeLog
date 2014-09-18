@@ -1,3 +1,19 @@
+2014-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=ucs-sip-ext-b): Fix registry.
+	(=ucs-sip@iso): New coded-charset for XEmacs CHISE.
+	(=ucs-sip-ext-b@iso): Fix registry.
+	(==ucs-sip-ext-b@iso): Ditto.
+	(===ucs-sip-ext-b@iso): Ditto.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=ucs-sip@iso'.
+
+2014-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>cbeta'.
+
 2014-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
