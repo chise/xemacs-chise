@@ -350,6 +350,7 @@
 	  (===jis-x0208@1978		       "R-J78-" 4 X)
 	  ( =koseki			      "KOSEKI-" 6 d)
 	  ( =cbeta				   "CB" 5 d)
+	  (=>cbeta				 "A-CB" 5 d)
 	  (==cbeta				"g2-CB" 5 d)
 	  (===cbeta				 "R-CB" 5 d)
 	  ( =hanziku-1			       "HZK01-" 4 X)
