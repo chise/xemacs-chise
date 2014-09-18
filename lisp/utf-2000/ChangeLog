@@ -1,4 +1,25 @@
+2014-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Oracle-Bones.el (ZOB-02267): Compact `ideographic-structure'.
+	(ZOB-02644): Modify `ideographic-structure'.
+	(ZOB-02727): Add `ideographic-structure'.
+	(ZOB-{02728..02745}): New characters.
+
+2014-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>cbeta'.
+	(char-db-insert-ccs-feature): Add setting for `=>cbeta'.
+
 2014-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (A-UU+34B9): New abstract node.
+	(C7-4D3D): Use A-UU+34B9 instead of U+34B9 as the mother.
+	(UU+34B9): Likewise.
+	(A-C7-4D3E): New abstract node.
+	(U-0002F813): Use A-C7-4D3E instead of U+34B9 as the mother.
+	(g2-M-01505): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
 
 	* Ideograph-R009-Man.el (BC-8AFC): Apply new conventions for glyph
 	granularity.
