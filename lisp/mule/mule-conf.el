@@ -3811,9 +3811,22 @@
 	       columns 2
 	       graphic 2
 	       direction l2r
-	       registry "\\(iso10646\\|ucs02\\)-2$"
+	       registry "\\(iso10646\\|ucs00\\)-2$"
 	       mother ucs
 	       min-code #x20000 max-code #x2A6D6
+	       code-offset #x20000))
+  (make-charset
+   '=ucs-sip@iso
+   "CJK Ideographs Extension B (ISO/IEC 10646-2)"
+   '(long-name "UCS CJK Ext-B"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "ucs00-2$"
+	       mother =ucs@iso
+	       min-code #x20000 max-code #x2FFFF
 	       code-offset #x20000))
   (make-charset
    '=ucs-sip-ext-b@iso
@@ -3824,7 +3837,7 @@
 	       columns 2
 	       graphic 2
 	       direction l2r
-	       registry "\\(iso10646\\|ucs02\\)-2$"
+	       registry "\\(iso10646\\|ucs00\\)-2$"
 	       mother =ucs@iso
 	       min-code #x20000 max-code #x2A6D6
 	       code-offset #x20000))
@@ -3837,7 +3850,7 @@
 	       columns 2
 	       graphic 2
 	       direction l2r
-	       registry "\\(iso10646\\|ucs02\\)-2$"
+	       registry "\\(iso10646\\|ucs00\\)-2$"
 	       mother ==ucs@iso
 	       min-code #x20000 max-code #x2A6D6
 	       code-offset #x20000))
@@ -3850,7 +3863,7 @@
 	       columns 2
 	       graphic 2
 	       direction l2r
-	       registry "\\(iso10646\\|ucs02\\)-2$"
+	       registry "\\(iso10646\\|ucs00\\)-2$"
 	       mother ===ucs@iso
 	       min-code #x20000 max-code #x2A6D6
 	       code-offset #x20000))
