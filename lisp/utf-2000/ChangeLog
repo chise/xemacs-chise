@@ -1,4 +1,24 @@
+2014-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (shuowen-radicals): Add ?熊, ?火, ?炎, ?黑, ?囪,
+	?焱, ?炙, ?赤, ?大 and ?亦.
+
 2014-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R079-Weapon.el (U+6BB3): Apply new conventions for
+	glyph granularity.
+	(BC-8AD4): Likewise.
+	(U-00023A8F): Likewise.
+	(U-00023A98): Use `->denotational' to integrate BC-8AD4; apply new
+	conventions for glyph granularity.
+	(CB00906): Apply new conventions for glyph granularity.
+	(U-00023AE2): Likewise.
+
+	* Ideograph-R076-Lack.el (U+3C20): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R008-Lid.el (U+4EA2): Apply new conventions for glyph
+	granularity.
 
 	* Oracle-Bones.el (ZOB-02267): Compact `ideographic-structure'.
 	(ZOB-02644): Modify `ideographic-structure'.
