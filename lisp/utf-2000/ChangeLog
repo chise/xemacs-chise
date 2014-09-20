@@ -1,5 +1,10 @@
 2014-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Oracle-Bones.el (ZOB-02764): Map to U-000233E6 instead of
+	"⿱火木".
+
+2014-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Oracle-Bones.el (ZOB-00015): Modify a component.
 	(ZOB-00019): Likewise.
 	(ZOB-00145): Likewise.
