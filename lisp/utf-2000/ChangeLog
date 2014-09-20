@@ -1,3 +1,47 @@
+2014-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Oracle-Bones.el (ZOB-00015): Modify a component.
+	(ZOB-00019): Likewise.
+	(ZOB-00145): Likewise.
+	(ZOB-00253): Likewise.
+	(ZOB-00281): Likewise.
+	(ZOB-00472): Likewise.
+	(ZOB-00508): Likewise.
+	(ZOB-00578): Add `ideographic-structure'; map to U-0002BB60
+	instead of "⿱止土".
+	(ZOB-00584): Modify a component.
+	(ZOB-00724): Add `ideographic-structure'.
+	(ZOB-00746): Likewise.
+	(A-ZOB-01439): New abstract character.
+	(ZOB-01439): Add `<-denotational' for A-ZOB-01439.
+	(ZOB-01544): Add `ideographic-structure'.
+	(ZOB-01651): Likewise.
+	(ZOB-01652): Likewise.
+	(ZOB-01654): Likewise.
+	(ZOB-01667): Likewise.
+	(ZOB-01771): Likewise; map to U-0002BB60 instead of "⿱止土".
+	(ZOB-02287): Modify a component.
+	(A-ZOB-02288): New abstract character.
+	(ZOB-02288): Add `<-denotational' for A-ZOB-02288.
+	(ZOB-02299): Add `ideographic-structure'.
+	(ZOB-02614): Fix a component.
+	(ZOB-02738): Modify a component.
+	(ZOB-{02746..02791}): New characters.
+
+	* Ideograph-R181-Leaf.el (U-0002F9FF): Add `<-denotational' for
+	U+980B; apply new conventions for glyph granularity.
+	(U+983B): Apply new conventions for glyph granularity.
+	(U-00029548): Likewise.
+	(CU+9867): Likewise.
+	(U-00029572): Likewise.
+
+	* Ideograph-R116-Cave.el (U+7A7A): Apply new conventions for glyph
+	granularity.
+	(U-000259B2): Likewise.
+	(U+7AA8): Likewise.
+
+	* Ideograph-R032-Earth.el (U-0002BB60): New character.
+
 2014-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R070-Square.el (U+65B9): Apply new conventions for
