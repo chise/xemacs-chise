@@ -1,5 +1,32 @@
 2014-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R070-Square.el (U+65B9): Apply new conventions for
+	glyph granularity.
+	(AJ1-20135): Unify S-3248; add `<-original' for U+65C1.
+	(U+65BD): Apply new conventions for glyph granularity.
+	(U+65BE): Likewise.
+	(U-000230DF): Likewise.
+	(U+65C1): Likewise.
+	(U+65C4): Likewise.
+	(UU+65C5): Likewise.
+	(U-000230E8): Likewise.
+	(U+65C6): Likewise.
+	(U-000230E9): Likewise.
+	(U+65C9): Likewise.
+	(U+65CB): Likewise.
+	(U+65CC): Likewise.
+	(U+65CF): Likewise.
+	(UU+65D2): Likewise.
+	(U+65D7): Likewise.
+	(U+65D9): Likewise.
+	(U-0002311D): Likewise.
+	(U+65DA): Likewise.
+	(U-0002311E): Likewise.
+	(U+65DB): Likewise.
+	(U-0002311F): Likewise.
+	(U-00023122): Likewise.
+	(U-00029572): Likewise.
+
 	* char-db-util.el (shuowen-radicals): Add ?熊, ?火, ?炎, ?黑, ?囪,
 	?焱, ?炙, ?赤, ?大 and ?亦.
 
