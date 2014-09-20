@@ -28460,14 +28460,7 @@
     (zinbun-oracle-page . 130)
     (=zinbun-oracle	. 02764)	; &ZOB-2764;
     (<-Oracle-Bones
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x706B)	; 火
-	)
-       ((=ucs		    . #x6728)	; 木
-	))
+     ((=ucs		  . #x233E6)	; 𣏦
       ))
     ))
 (define-char
