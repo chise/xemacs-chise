@@ -1,4 +1,21 @@
+2014-09-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Oracle-Bones.el: Use "𫳅" instead of "⿱宀羊".
+	(ZOB-00401): Modify a component.
+	(ZOB-00596): Likewise.
+	(ZOB-01506): Add `ideographic-structure'.
+	(ZOB-01654): Likewise.
+	(ZOB-{02792..02832}): New characters.
+
 2014-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R094-Dog.el (U-0002472A): Unify H4-BA75.
+	(U+3E85): Unify H4-BFBD; apply new conventions for glyph
+	granularity.
+	(U+7337): Apply new conventions for glyph granularity.
+	(U+734F): Likewise.
+	(U+7350): Likewise.
+	(U+7366): Likewise.
 
 	* Oracle-Bones.el (ZOB-02764): Map to U-000233E6 instead of
 	"⿱火木".
