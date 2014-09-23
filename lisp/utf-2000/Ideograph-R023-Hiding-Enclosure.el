@@ -451,12 +451,15 @@
     (=gt-pj-1		. #x3065)	; &I-GT-03344; [16-69]
     (=shinjigen		.  8537)	; &MJ007820;
     (<-simplified@CN
-     ((=ucs@unicode	  . #x91AB)	; &UU+91AB;
-      (=gb12345		  . #x523D)	; &UU+91AB; [50-29]
+     ((=ucs@unicode	  . #x91AB)	; &GT-53782;
+      (=jis-x0208	  . #x6E50)	; &GT-53782; [78-48]
+      (=ks-x1001	  . #x6C22)	; &I-K0-6C22; [76-02]
+      (=jis-x0213-1	  . #x6E50)	; &I-JX1-6E50; [78-48]
+      (=gb12345		  . #x523D)	; &GT-53782; [50-29]
+      (=daikanwa	  . 40006)	; &I-M-40006;
       ))
     (<-simplified@JP/Jouyou
-     ((=ucs@jis		  . #x91AB)	; &GT-53782;
-      (=ucs@ks		  . #x91AB)	; &GT-53782;
+     ((=ucs@unicode	  . #x91AB)	; &GT-53782;
       (=jis-x0208	  . #x6E50)	; &GT-53782; [78-48]
       (=ks-x1001	  . #x6C22)	; &I-K0-6C22; [76-02]
       (=jis-x0213-1	  . #x6E50)	; &I-JX1-6E50; [78-48]
