@@ -2245,6 +2245,20 @@
     (=daikanwa		. 49008)	; &I-M-49008;
     ))
 (define-char
+  '((ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5927)	; 大
+      )
+     ((=ucs		  . #x8C55)	; 豕
+      ))
+    (=ucs		. #x2BBE6)	; 𫯦
+    ))
+(define-char
   '((<-denotational
      ((=>big5-cdp	  . #x8BD3)	; &A-CDP-8BD3;
       ))
