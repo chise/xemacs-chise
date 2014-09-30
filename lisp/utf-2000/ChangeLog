@@ -1,3 +1,27 @@
+2014-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Oracle-Bones.el (ZOB-{02833..02870}): New characters.
+
+2014-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R157-Foot.el (U+8E2A): Apply new conventions for glyph
+	granularity.
+	(U+8E44): Likewise.
+	(UU+8E4A): Likewise.
+	(U+8E4F): Likewise.
+	(U+8E5E): Likewise.
+	(U-00029548): Likewise.
+	(U+8E91): Likewise.
+	(CU+8EA0): Likewise.
+	(CU+4830): Likewise.
+	(U+8EAA): Likewise.
+
+	* Ideograph-R091-Slice.el (U-000245C7): Apply new conventions for
+	glyph granularity.
+	(UU+7253): Likewise.
+
+	* Ideograph-R037-Big.el (U-0002BBE6): New character.
+
 2014-09-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Oracle-Bones.el: Use "𫳅" instead of "⿱宀羊".
