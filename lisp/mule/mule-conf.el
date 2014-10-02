@@ -3842,6 +3842,18 @@
 	       min-code #x20000 max-code #x2A6D6
 	       code-offset #x20000))
   (make-charset
+   '==ucs-sip@iso
+   "ISO representative abstract-glyph-images of ISO/IEC 10646 Plane 2"
+   '(long-name "SIP abstract glyph-images"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "\\(ucs00\\)-2$"
+	       mother ==ucs@iso
+	       code-offset #x20000))
+  (make-charset
    '==ucs-sip-ext-b@iso
    "CJK Ideographs Extension B (ISO/IEC 10646-2)"
    '(long-name "UCS CJK Ext-B"
