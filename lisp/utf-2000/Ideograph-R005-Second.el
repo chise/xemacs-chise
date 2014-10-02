@@ -360,8 +360,11 @@
     (=big5-cdp		. #x8973)	; &I-CDP-8973;
     (=jef-china3	. #x81C9)	; &I-JC3-81C9;
     (<-simplified@CN
-     ((=ucs@unicode	  . #x7FD2)	; &UU+7FD2;
-      (=gb12345		  . #x4F30)	; &UU+7FD2; [47-16]
+     ((=ucs@unicode	  . #x7FD2)	; &HD-JA-3D2C;
+      (=jis-x0208	  . #x3D2C)	; &HD-JA-3D2C; [29-12]
+      (=cns11643-1	  . #x5C64)	; &I-C1-5C64; [60-68]
+      (=jis-x0213-1	  . #x3D2C)	; &I-JX1-3D2C; [29-12]
+      (=gb12345		  . #x4F30)	; &HD-JA-3D2C; [47-16]
       ))
     ))
 (define-char
