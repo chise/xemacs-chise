@@ -483,7 +483,7 @@
     (=mj		. 009419)	; &MJ009419;
     (=cns11643-1	. #x546E)	; &I-C1-546E; [52-78]
     (=hanyo-denshi/ks	. 065510)	; &MJ009419;
-    (=daikanwa		. 05720)	; &M-05720;
+    (=daikanwa		. 05720)	; &I-M-05720;
     (->subsumptive
      ((==daikanwa	  . 05720)	; &g2-M-05720;
       )
