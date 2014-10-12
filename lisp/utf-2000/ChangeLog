@@ -1,5 +1,18 @@
 2014-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R040-Roof.el (U-000219C8): Apply new conventions for
+	glyph granularity.
+	(UU+5BA3): Likewise.
+	(U+5BAA): Likewise.
+	(U-0002BCC5): New character.
+	(U+5BAC): Apply new conventions for glyph granularity.
+	(IU+2F86D): Use `->subsumptive' to add representative nodes.
+	(U+5BC4): Apply new conventions for glyph granularity.
+	(UU+5BC7): Likewise.
+	(UU+5BDD): Likewise.
+	(IU+21A7E): Likewise.
+	(U-0002F86F): Likewise.
+
 	* Ideograph-R120-Silk.el (U+7D04): Apply new conventions for glyph
 	granularity.
 	(JU+7D46): Likewise.
