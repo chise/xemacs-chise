@@ -1,3 +1,41 @@
+2014-10-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R121-Jar.el (U+4343): Apply new conventions for glyph
+	granularity.
+	(U+7F3E): Likewise.
+	(U+7F50): Likewise.
+
+	* Ideograph-R123-Sheep.el (U-0002C66E): New character.
+
+	* Ideograph-R117-Stand.el (U+7AD2): Apply new conventions for
+	glyph granularity.
+	(UU+7ADC): Likewise.
+	(UU+7ADD): Likewise.
+	(UU+7ADF): Likewise.
+	(IU+25A73): Likewise.
+	(U+7AE2): Likewise.
+	(U+7AE3): Likewise.
+	(U-00025AA6): Likewise.
+	(U-00025AA7): Likewise.
+	(U+41D2): Likewise.
+
+	* Ideograph-R038-Woman.el (UU+5989): Use `->subsumptive' to add
+	representative nodes.
+	(JU+5992): Likewise.
+	(U+59A5): Apply new conventions for glyph granularity.
+	(UU+59AC): Use `->subsumptive' to add representative nodes.
+	(JU+59AD): Likewise.
+	(U+59D9): Apply new conventions for glyph granularity.
+	(U+36EF): Likewise.
+	(U+5ABE): Likewise.
+	(U+5AE1): Likewise.
+	(U+3732): Likewise.
+	(U-000218FD): Likewise.
+	(g2-M-06889): Use `->subsumptive' to add representative nodes.
+	(G-IU+2190F): Likewise.
+	(g2-M-06890): Likewise.
+	(U+3739): Apply new conventions for glyph granularity.
+
 2014-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R040-Roof.el (U-000219C8): Apply new conventions for
