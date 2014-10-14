@@ -1,3 +1,131 @@
+2014-10-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U-0002BA4F): New character.
+	(U+53EB): Apply new conventions for glyph granularity.
+	(U+53F1): Likewise.
+	(U+53FA): Likewise.
+	(U+5402): Likewise.
+	(U+540F): Likewise.
+	(U+3569): Likewise.
+	(U+542A): Likewise.
+	(U+542D): Likewise.
+	(o-CU+5448): Likewise.
+	(U+356F): Likewise.
+	(U+543A): Likewise.
+	(RUI6-E035): Likewise.
+	(U+545F): Likewise.
+	(U+5471): Likewise.
+	(U-00020C1A): Likewise.
+	(U+54AC): Likewise.
+	(U+54B3): Likewise.
+	(U+54B9): Likewise.
+	(U+54C0): Likewise.
+	(U+54CA): Likewise.
+	(U+54CE): Likewise.
+	(U+54E4): Likewise.
+	(U+54E8): Likewise.
+	(U+54F4): Likewise.
+	(UU+54F7): Use `->subsumptive' to add representative nodes.
+	(U+54F8): Apply new conventions for glyph granularity.
+	(U+54FD): Likewise.
+	(U+5506): Likewise.
+	(U+550C): Likewise.
+	(U+552C): Likewise.
+	(U+5537): Likewise.
+	(U+554B): Likewise.
+	(U+554C): Likewise.
+	(U+5550): Likewise.
+	(U+35A8): Likewise.
+	(U+555A): Likewise.
+	(U+555D): Likewise.
+	(JC3-9FFA): Map to U+35AB.
+	(CB04014): Likewise.
+	(U-00020D71): Apply new conventions for glyph granularity.
+	(U+5568): Likewise.
+	(CB00087): Likewise.
+	(U+557B): Likewise.
+	(U+557C): Likewise.
+	(U+5584): Likewise.
+	(U+5591): Likewise.
+	(UU+5593): Use `->subsumptive' to add representative nodes.
+	(U+5599): Apply new conventions for glyph granularity.
+	(UU+55A7): Likewise.
+	(U+55A8): Likewise.
+	(U+55A9): Likewise.
+	(UU+55BB): Likewise.
+	(U+55AB): Likewise.
+	(U+55AD): Likewise.
+	(U+55B0): Likewise.
+	(U+55B2): Likewise.
+	(U+55B3): Likewise.
+	(U+35D2): Likewise.
+	(U-00020E04): Likewise.
+	(U+55C1): Likewise.
+	(U+55C2): Likewise.
+	(U-00020E40): Likewise.
+	(g2-UU+55C3): Likewise.
+	(U+55C4): Likewise.
+	(UU+55CF): Likewise.
+	(U+55D4): Likewise.
+	(U+55D7): Likewise.
+	(U+55D8): Likewise.
+	(U+55D9): Likewise.
+	(IU+20E54): Likewise.
+	(U+55DD): Likewise.
+	(U+5606): Likewise.
+	(U+55FE): Likewise.
+	(U+5600): Likewise.
+	(U+5605): Likewise.
+	(U+5606): Likewise.
+	(U+5610): Likewise.
+	(U-00020EF1): Likewise.
+	(U+561B): Likewise.
+	(U+561C): Likewise.
+	(CB03989): Map to U-0002BAE0.
+	(CB03993): Apply new conventions for glyph granularity.
+	(U+35F1): Likewise.
+	(U+5634): Likewise.
+	(U+35F4): Likewise.
+	(U+5642): Likewise.
+	(U+5646): Likewise.
+	(U+5649): Likewise.
+	(U+564A): Likewise.
+	(U+5651): Likewise.
+	(U-0002018A): Likewise.
+	(U+5659): Likewise.
+	(U-00020FEE): Likewise.
+	(U+5662): Likewise.
+	(U+566B): Likewise.
+	(U+566F): Likewise.
+	(U+5673): Likewise.
+	(U+5677): Likewise.
+	(U+567E): Likewise.
+	(U+567F): Likewise.
+	(UU+5680): Likewise.
+	(UU+5681): Likewise.
+	(U+5684): Likewise.
+	(U+5686): Likewise.
+	(U+568C): Likewise.
+	(U+5698): Likewise.
+	(U+56A4): Likewise.
+	(U+56A8): Likewise.
+	(U-000210E7): Likewise.
+	(U+56AB): Likewise.
+	(U+56AC): Likewise.
+	(UU+56AF): Likewise.
+	(UU+56B2): Likewise.
+	(U+56B4): Likewise.
+	(U-00021122): Likewise.
+	(U-00021135): Likewise.
+	(U+56BE): Likewise.
+	(U+56C3): Likewise.
+	(U+56C4): Likewise.
+	(U+56C7): Likewise.
+	(U+56C8): Likewise.
+	(U-00021167): Likewise.
+	(U+56D0): Likewise.
+	(U+361B): Likewise.
+
 2014-10-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R121-Jar.el (U+4343): Apply new conventions for glyph
