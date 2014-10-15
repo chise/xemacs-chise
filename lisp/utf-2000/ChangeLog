@@ -1,3 +1,53 @@
+2014-10-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R140-Grass.el (U+82B3): Apply new conventions for
+	glyph granularity.
+	(U+82F1): Likewise.
+	(U+8336): Likewise.
+	(UU+833A): Likewise.
+	(U+8344): Likewise.
+	(UU+44BE): Likewise.
+	(U+8362): Likewise.
+	(U+8398): Likewise.
+	(U+839F): Likewise.
+	(U+83C0): Likewise.
+	(U+83D8): Likewise.
+	(U+83E7): Likewise.
+	(U+83EA): Likewise.
+	(U+840F): Likewise.
+	(U+8411): Likewise.
+	(U+44E5): Likewise.
+	(U+8476): Likewise.
+	(RUI6-E03E): Likewise.
+	(U+8497): Likewise.
+	(U+849E): Likewise.
+	(U+84A6): Likewise.
+	(U+84BA): Likewise.
+	(U+84BF): Likewise.
+	(U+84C2): Likewise.
+	(U+84C4): Likewise.
+	(U+84CE): Likewise.
+	(U+84D3): Likewise.
+	(U+8500): Likewise.
+	(U+8517): Likewise.
+	(U+851B): Likewise.
+	(U+8524): Likewise.
+	(U+856B): Likewise.
+	(U+455D): Likewise.
+	(U+858F): Likewise.
+	(U+859B): Likewise.
+	(U+85A6): Likewise.
+	(U+85A8): Likewise.
+	(U+85AA): Likewise.
+	(U+85A9): Likewise.
+	(U+85BC): Likewise.
+	(U+85D9): Likewise.
+	(U+8617): Likewise.
+	(U+8618): Likewise.
+	(U+8629): Likewise.
+	(U+8638): Likewise.
+	(U+8640): Likewise.
+
 2014-10-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U-0002BA4F): New character.
