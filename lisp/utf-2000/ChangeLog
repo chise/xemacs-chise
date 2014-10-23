@@ -1,3 +1,20 @@
+2014-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R174-Blue.el (U+5568): Apply new conventions for glyph
+	granularity.
+	(U-000291D7): Likewise.
+	(U+9755): Likewise.
+	(U+9756): Likewise.
+	(U+9757): Likewise.
+	(U+9758): Likewise.
+	(U+975A): Likewise.
+	(U+975B): Likewise.
+	(U+975C): Likewise.
+	(U-000291DE): Likewise.
+	(U+975D): Likewise.
+	(U-000291E0): Likewise.
+	(U-000291E3): Likewise.
+
 2014-10-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R140-Grass.el (U+82B3): Apply new conventions for
