@@ -443,6 +443,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ===ks-x1001
 	  ===daikanwa
 	  ===ucs-sip-ext-b@iso
+	  ===ucs-sip@iso
 	  ===cbeta
 	  ===jef-china3
 	  ;; ucs-sip
