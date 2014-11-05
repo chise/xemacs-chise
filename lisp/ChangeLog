@@ -1,3 +1,8 @@
+2014-10-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`===ucs-sip@iso'.
+
 2014-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (===ucs-sip@iso): New coded-charset for XEmacs
