@@ -1644,6 +1644,7 @@
   '((ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (hanyu-dazidian	1 298 6)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1653,6 +1654,11 @@
      ((=ucs		  . #x677E)	; 松
       ))
     (=ucs		. #x51C7)	; 凇
+    (=gb2312		. #x5A21)	; &I-G0-5A21; [58-01]
+    (=cns11643-3	. #x2F5E)	; &I-C3-2F5E; [15-62]
+    (=daikanwa		. 01663)	; &I-M-01663;
+    (=hanziku-1		. #xE37A)	; &I-HZK01-E37A;
+    (=jef-china3	. #x8CF0)	; &I-JC3-8CF0;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1660,11 +1666,16 @@
 	)
        ((=ucs		    . #x51AB)	; 冫
 	)
-       ((=ucs@ks	    . #x677E)	; &MJ013668;
+       ((==ucs@ks	    . #x677E)	; &MJ013668;
 	(=mj		    . 013668)	; &MJ013668;
 	))
-      (=daikanwa	  . 01663)	; &M-01663;
-      (=jef-china3	  . #x8CF0)	; &I-JC3-8CF0;
+      (==daikanwa	  . 01663)	; &g2-M-01663;
+      (==jef-china3	  . #x8CF0)	; &g2-M-01663;
+      (->subsumptive
+       ((===daikanwa	    . 01663)	; &R-M-01663;
+	)
+       ((===jef-china3	    . #x8CF0)	; &R-JC3-8CF0;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1672,23 +1683,23 @@
 	)
        ((=ucs		    . #x51AB)	; 冫
 	)
-       ((=cns11643-1	    . #x4E34)	; &C1-4E34; [46-20]
+       ((==ucs@cns	    . #x677E)	; &g2-CU+677E;
+	(==cns11643-1	    . #x4E34)	; &g2-CU+677E; [46-20]
 	))
-      (=cns11643-3	  . #x2F5E)	; &C3-2F5E; [15-62]
+      (==ucs@cns	  . #x51C7)	; &g2-CU+51C7;
+      (==cns11643-3	  . #x2F5E)	; &g2-CU+51C7; [15-62]
       )
-     ((hanyu-dazidian	  1 298 6)
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
        ((=ucs		    . #x51AB)	; 冫
 	)
-       ((=ucs@unicode	    . #x677E)	; &MJ013667;
-	(=mj		    . 013667)	; &MJ013667;
+       ((==ucs@unicode	    . #x677E)	; &g2-MJ013667;
+	(==mj		    . 013667)	; &g2-MJ013667;
 	))
-      (=ucs@unicode	  . #x51C7)	; &G0-5A21;
-      (=gb2312		  . #x5A21)	; &G0-5A21; [58-01]
-      (=hanziku-1	  . #xE37A)	; &I-HZK01-E37A;
+      (==ucs@unicode	  . #x51C7)	; &g2-UU+51C7;
+      (==gb2312		  . #x5A21)	; &g2-UU+51C7; [58-01]
       ))
     ))
 (define-char
