@@ -1,3 +1,12 @@
+2014-11-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R033-Scholar.el (U+58EC): Add `sound@ja/on/go' and
+	`sound@ja/on/kan'.
+	(UU+58EC): Add `->mistakable' for U-0002123C.
+
+	* Ideograph-R032-Earth.el (U-0002123C): Add `sound@ja/on/go' and
+	`sound@ja/on/kan'; unify BC-8BBC.
+
 2014-11-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R015-Ice.el (U+51C7): Apply new conventions for glyph
