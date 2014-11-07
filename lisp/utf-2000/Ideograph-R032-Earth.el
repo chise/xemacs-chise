@@ -47,8 +47,11 @@
   '((ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
+    (sound@ja/on/go	"tyAu")
+    (sound@ja/on/kan	"tei")
     (=ucs		. #x2123C)	; 𡈼
     (=cns11643-4	. #x2148)	; &I-C4-2148; [01-40]
+    (=big5-cdp		. #x8BBC)	; &I-CDP-8BBC;
     (=daikanwa		. 04869)	; &I-M-04869;
     ))
 (define-char
@@ -12389,7 +12392,8 @@
 	)
        ((=gt-k		    . 00199)	; &GT-K00199;
 	)
-       ((==ucs@unicode	    . #x5EB6)	; &g2-UU+5EB6;
+       ((==ucs@unicode	    . #x5EB6)	; &g2-MJ011015;
+	(==mj		    . 011015)	; &g2-MJ011015;
 	))
       (==ucs@unicode	  . #x588C)	; &g2-AJ1-21359;
       (==adobe-japan1-6	  . 21359)	; &g2-AJ1-21359;
