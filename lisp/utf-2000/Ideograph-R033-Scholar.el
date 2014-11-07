@@ -23,6 +23,8 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 417 1)
+    (sound@ja/on/go	"niN")
+    (sound@ja/on/kan	"ziN")
     (=ucs		. #x58EC)	; 壬
     (=big5		. #xA4D0)	; &I-B-A4D0;
     ))
@@ -57,6 +59,12 @@
     (=gt-pj-1		. #x3F51)	; &I-GT-07136; [31-49]
     (=daikanwa		. 05639)	; &I-M-05639;
     (=shinjigen		.  1525)	; &AJ1-02583;
+    (->mistakable
+     ((=ucs		  . #x2123C)	; 𡈼
+      (=daikanwa	  . 04869)	; &I-M-04869;
+      ))
+    (->mistakable*sources
+     zihui-biansi-2char daikanwa)
     ))
 (define-char
   '((<-denotational
