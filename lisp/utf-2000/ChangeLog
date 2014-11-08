@@ -1,5 +1,17 @@
 2014-11-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R072-Sun.el (U+664B): Add `<-simplified@CN' and
+	`<-simplified@misc' for U+6649.
+
+	* Ideograph-R030-Mouth.el (U+5510): Apply new conventions for
+	glyph granularity.
+	(U+5603): Likewise.
+	(U+5604): Likewise.
+	(U-00020F22): Unify CB08110.
+	(U+569D): Apply new conventions for glyph granularity.
+
+2014-11-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R033-Scholar.el (U+58EC): Add `sound@ja/on/go' and
 	`sound@ja/on/kan'.
 	(UU+58EC): Add `->mistakable' for U-0002123C.
