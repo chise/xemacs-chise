@@ -3045,6 +3045,17 @@
     (=gt-pj-1		. #x3F38)	; &I-GT-17581; [31-24]
     (=daikanwa		. 13899)	; &I-M-13899;
     (=shinjigen		.  3323)	; 晋
+    (<-simplified@CN
+     ((=ucs		  . #x6649)	; 晉
+      (=gb12345		  . #x3D7A)	; 晉 [29-90]
+      ))
+    (<-simplified@misc
+     ((=ucs		  . #x6649)	; 晉
+      (=jis-x0208	  . #x5A69)	; &I-J90-5A69; [58-73]
+      (=shinjigen	  .  3324)	; 晉
+      ))
+    (<-simplified@misc*sources
+     shinjigen)
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
