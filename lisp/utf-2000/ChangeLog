@@ -1,3 +1,17 @@
+2014-11-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (U-0002239D): Add `<-ancient' for U+5F48.
+	(U-000223AC): Apply new conventions for glyph granularity.
+	(U-0002AABA): New character; unify CB10485.
+	(A-BC-8B7D): Apply new conventions for glyph granularity.
+	(U+5F2D): Likewise.
+	(U+5F31): Likewise.
+	(U+5F37): Add `<-simplified@misc' for U+5F3A.
+	(U+5F3A): Unify H3-CC44; add `<-original' for U+5F37; add
+	`<-vulgar' for U+5F37.
+	(UU+5F45): Apply new conventions for glyph granularity.
+	(U-0002244B): Likewise.
+
 2014-11-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R072-Sun.el (U+664B): Add `<-simplified@CN' and
