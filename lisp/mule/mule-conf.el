@@ -1954,6 +1954,17 @@
 	       registry "HanyoDenshi\\.JB-0$"
 	       mother ==hanyo-denshi/jb))
   (make-charset
+   '===hanyo-denshi/jd
+   "Han'you-Denshi/JD abstract glyph-forms."
+   '(long-name "Han'you-Denshi/JD glyph-forms"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.JD-0$"
+	       mother ==hanyo-denshi/jd))
+  (make-charset
    '===hanyo-denshi/ft
    "Han'you-Denshi/FT detailed glyph-images."
    '(long-name "Han'you-Denshi/FT glyph-images"
