@@ -1,4 +1,17 @@
+2014-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R212-Dragon.el (U+9F8E): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R193-Cauldron.el (U+9B32): Apply new conventions for
+	glyph granularity.
+	(U-00029C54): Likewise.
+	(U-0002244B): Likewise.
+
 2014-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (U+9F8E): Apply new conventions for
+	glyph granularity; integrate JC3-70A9.
 
 	* Ideograph-R053-Dotted-Cliff.el (U+5E7F): Apply new conventions
 	for glyph granularity.
