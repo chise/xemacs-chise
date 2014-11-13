@@ -1,5 +1,49 @@
 2014-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R146-West.el (U+8981): Apply new conventions for glyph
+	granularity.
+	(UU+8988): Likewise.
+
+	* Ideograph-R141-Tiger.el (U+864E): Apply new conventions for
+	glyph granularity.
+	(U+865E): Likewise.
+
+	* Ideograph-R124-Feather.el (U-00026407): Apply new conventions
+	for glyph granularity.
+	(U+437F): Likewise.
+	(U+7FC5): Likewise.
+	(U+7FC6): Likewise.
+	(U+7FC7): Likewise.
+	(U+7FC9): Likewise.
+	(U+7FCA): Likewise.
+	(U+7FCE): Likewise.
+	(U+7FCF): Likewise.
+	(U+7FD2): Likewise.
+	(U+7FD4): Likewise.
+	(U+7FDC): Likewise.
+	(U+7FDF): Likewise.
+	(U+7FE0): Likewise.
+	(U+7FE1): Likewise.
+	(U+4392): Likewise.
+	(U+7FED): Likewise.
+	(U+7FE6): Likewise.
+	(U+7FE8): Likewise.
+	(U+7FEB): Likewise.
+	(U+7FEC): Likewise.
+	(U+7FF1): Likewise.
+	(U+7FF2): Likewise.
+	(U+7FF3): Likewise.
+	(U+7FF7): Likewise.
+	(U+7FFB): Likewise.
+	(U+7FFE): Likewise.
+	(U+8000): Likewise.
+
+	* Ideograph-R005-Second.el (g2-JU+8034): Unify g2-KU+8034; use
+	`->subsumptive' to add representative nodes.
+	(g2-UU+8034): Use `->subsumptive' to add representative nodes.
+
+2014-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R128-Ear.el (U+8033): Apply new conventions for glyph
 	granularity.
 	(U+8034): Likewise.
