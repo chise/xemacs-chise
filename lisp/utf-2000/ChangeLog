@@ -1,5 +1,11 @@
 2014-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R149-Speech.el (U+8AF8): Apply new conventions for
+	glyph granularity.
+	(U+8B8B): Likewise.
+
+	* Ideograph-R102-Field.el (U+757A): Unify BC-8DAA.
+
 	* Ideograph-R146-West.el (U+8981): Apply new conventions for glyph
 	granularity.
 	(UU+8988): Likewise.
