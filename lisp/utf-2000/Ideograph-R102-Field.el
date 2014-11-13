@@ -2807,6 +2807,7 @@
     (=jis-x0212		. #x4D3E)	; &I-JSP-4D3E; [45-30]
     (=cns11643-3	. #x427B)	; &I-C3-427B; [34-91]
     (=jis-x0213-2	. #x7140)	; &I-JX2-7140; [81-32]
+    (=big5-cdp		. #x8DAA)	; &I-CDP-8DAA;
     (=daikanwa		. 21895)	; &I-M-21895;
     (=jef-china3	. #x5AD6)	; &I-JC3-5AD6;
     ))
