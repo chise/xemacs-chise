@@ -1,3 +1,8 @@
+2014-11-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R142-Insect.el (U+8755): Apply new conventions for
+	glyph granularity.
+
 2014-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R149-Speech.el (U+8AF8): Apply new conventions for
