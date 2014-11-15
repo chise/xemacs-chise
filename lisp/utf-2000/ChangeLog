@@ -1,3 +1,33 @@
+2014-11-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R156-Run.el (U+8D73): Apply new conventions for glyph
+	granularity.
+	(U+8D82): Likewise.
+	(U+8D99): Likewise.
+	(U-00027F1A): Likewise.
+	(U+8DA2): Likewise.
+	(U+8DA5): Likewise.
+	(U-00027F2F): Likewise.
+	(U-00020804): Add `sound@ja/on/go' and `sound@ja/on/kan'.
+	(G-M-02254): Unify G-GT-02901 instead of GT-02901.
+	(M-02254): Unify GT-02901 instead of G-GT-02901.
+	(M-37235): Add `<-formed' and `<-same' for M-12258.
+	(U-0002F9D9): Apply new conventions for glyph granularity.
+	(U+47BE): Likewise.
+	(U+47C6): Likewise.
+	(U-00027F92): Likewise.
+	(U+8DAF): Likewise.
+
+	* Ideograph-R018-Knife.el (g2-UU+5288): Apply new conventions for
+	glyph granularity for a component of ideographic-structure.
+	(U-00020804): Add `sound@ja/on/go' and `sound@ja/on/kan'.
+	(G-M-02254): Unify G-GT-02901 instead of GT-02901.
+	(M-02254): Unify GT-02901 instead of g2-GT-02901.
+	(M-37235): Add `<-formed' and `<-same' for M-12258.
+	(C7-3373): Unify U-0002F9D9.
+	(g2-C7-3373): Unify g2-IU+2F9D9 instead of U-0002F9D9; use
+	`->subsumptive' to add representative nodes.
+
 2014-11-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R075-Tree.el (g2-UU+6A98): Apply new conventions for
