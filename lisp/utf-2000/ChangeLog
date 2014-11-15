@@ -1,3 +1,11 @@
+2014-11-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (g2-UU+6A98): Apply new conventions for
+	glyph granularity for a component of ideographic-structure.
+
+	* Ideograph-R009-Man.el (g2-UU+50FB): Apply new conventions for
+	glyph granularity for a component of ideographic-structure.
+
 2014-11-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R142-Insect.el (U+8755): Apply new conventions for
