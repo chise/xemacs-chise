@@ -10183,12 +10183,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x8F9F)	; &GT-51571;
-      (=jis-x0208	  . #x6D64)	; &GT-51571; [77-68]
-      (=gb2312		  . #x3159)	; &I-G0-3159; [17-57]
-      (=cns11643-1	  . #x6728)	; &I-C1-6728; [71-08]
-      (=jis-x0213-1	  . #x6D64)	; &I-JX1-6D64; [77-68]
-      (=daikanwa	  . 38642)	; &I-M-38642;
+     ((==ucs@unicode	  . #x8F9F)	; &g2-GT-51571;
+      (==jis-x0208	  . #x6D64)	; &g2-GT-51571; [77-68]
       )
      ((=ucs		  . #x5200)	; 刀
       ))
@@ -11034,6 +11030,8 @@
     (ideographic-strokes@ucs/compat*sources
      daikanwa=37235)
     (total-strokes	 . 16)
+    (sound@ja/on/go	"dEu")
+    (sound@ja/on/kan	"tEu")
     (=ucs		. #x20804)	; 𠠄
     ))
 (define-char
@@ -11066,20 +11064,30 @@
     (ideographic-strokes@r156*sources
      daikanwa=37235)
     (total-strokes	 . 16)
-    (=gt		. 02901)	; &GT-02901;
-    (=gt-pj-2		. #x437B)	; &GT-02901; [35-91]
-    (=>>daikanwa	. 02254)	; &GT-02901;
+    (=>>gt		. 02901)	; &G-GT-02901;
+    (=>>daikanwa	. 02254)	; &G-GT-02901;
     (->subsumptive
      ((ideographic-radical . 18)	; ⼑
       (ideographic-strokes . 14)
-      (==gt		  . 02901)	; &g2-GT-02901;
-      (=daikanwa	  . 02254)	; &g2-GT-02901;
+      (=gt		  . 02901)	; &GT-02901;
+      (=gt-pj-2		  . #x437B)	; &GT-02901; [35-91]
+      (=daikanwa	  . 02254)	; &I-M-02254;
       )
      ((ideographic-radical . 156)	; ⾛
       (ideographic-strokes . 9)
       (=gt		  . 49806)	; &GT-49806;
       (=gt-pj-7		  . #x4637)	; &GT-49806; [38-23]
       (=daikanwa	  . 37235)	; &I-M-37235;
+      (<-formed
+       ((=daikanwa	    . 12258)	; &M-12258;
+	))
+      (<-formed*sources
+       jiyun)
+      (<-same
+       ((=daikanwa	    . 12258)	; &M-12258;
+	))
+      (<-same*sources
+       jiyun daikanwa)
       ))
     ))
 (define-char
@@ -11087,6 +11095,7 @@
      ((=>ucs@iso	  . #x20804)	; &A-IU+20804;
       (=>ucs@cns	  . #x2F9D9)	; &A-IU+20804;
       ))
+    (=>ucs*		. #x20804)	; 𠠄
     (ideographic-radical@ucs . 18)	; ⼑
     (ideographic-strokes@ucs . 14)
     (ideographic-radical@ucs/compat . 156)	; ⾛
@@ -11094,20 +11103,25 @@
     (ideographic-radical@ucs/compat*sources
      cns gt)
     (total-strokes	 . 16)
-    (=ucs@iso		. #x20804)	; &GT-49807;
-    (=ucs@cns		. #x2F9D9)	; &GT-49807;
-    (=cns11643-7	. #x3373)	; &GT-49807; [19-83]
+    (=ucs		. #x2F9D9)	; 𠠄
+    (=ucs@iso		. #x20804)	; 𠠄
+    (=ucs@cns		. #x2F9D9)	; 𠠄
+    (=cns11643-7	. #x3373)	; &I-C7-3373; [19-83]
     (=gt		. 49807)	; &I-GT-49807;
     (=gt-pj-10		. #x3B63)	; &I-GT-49807; [27-67]
     (->subsumptive
      ((==ucs@iso	  . #x20804)	; &g2-GT-49807;
       (==gt		  . 49807)	; &g2-GT-49807;
       )
-     ((=>ucs*		  . #x20804)	; 𠠄
-      (ideographic-radical . 156)	; ⾛
+     ((ideographic-radical . 156)	; ⾛
       (ideographic-strokes . 9)
-      (=ucs		  . #x2F9D9)	; 𠠄
-      (==cns11643-7	  . #x3373)	; 𠠄 [19-83]
+      (==ucs@iso	  . #x2F9D9)	; &g2-IU-0002F9D9;
+      (==cns11643-7	  . #x3373)	; &g2-IU-0002F9D9; [19-83]
+      (->subsumptive
+       ((===cns11643-7	    . #x3373)	; &R-C7-3373; [19-83]
+	)
+       ((===ucs@iso	    . #x2F9D9)	; &R-U-0002F9D9;
+	))
       ))
     ))
 (define-char
