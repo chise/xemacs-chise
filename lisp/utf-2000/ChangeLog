@@ -1,5 +1,14 @@
 2014-11-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R160-Bitter.el (U+8F9B): Apply new conventions for
+	glyph granularity.
+	(U-0002840B): Likewise.
+	(U+8F9F): Likewise.
+	(U+8FA4): Likewise.
+	(U-00028432): Likewise.
+	(U+8FAD): Likewise.
+	(U-00028441): Likewise.
+
 	* Ideograph-R156-Run.el (U+8D73): Apply new conventions for glyph
 	granularity.
 	(U+8D82): Likewise.
