@@ -1,3 +1,10 @@
+2014-08-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R024-Ten.el (GT-K01380): Add `<-denotational' for
+	U-00022189; moved to Ideograph-R051-Dry.el.
+	(GT-K01438): Likewise; add `<-formed@component' for U-00022189.
+	(RUI6-E00E): Unify U-00022189; moved to Ideograph-R051-Dry.el.
+
 2014-11-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R160-Bitter.el (U+8F9B): Apply new conventions for
