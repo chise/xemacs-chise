@@ -2830,6 +2830,16 @@
 		  direction	l2r
 		  registry	"rui6-0"
 		  mother	=ruimoku-v6))
+  (make-charset '===ruimoku-v6
+		"RUIMOKU Version.6 representative glyph-images."
+		'(long-name	"RUI6 rep-glyph-images."
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"rui6-0"
+		  mother	==ruimoku-v6))
   (make-charset '=>>ruimoku-v6
 		"RUIMOKU Version.6 glyphs"
 		'(long-name	"RUI6 glyphs"
