@@ -1,3 +1,12 @@
+2014-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R051-Dry.el (U-00022189): Unify BC-8B75 and RUI6-E00E;
+	add `sound@ja/on/go' and `sound@ja/on/kan'; add
+	`<-simplified@component' for U+5C70.
+	(GT-K01380): Moved from Ideograph-R024-Ten.el.
+	(GT-K01438): Likewise.
+	(U+5E78): Apply new conventions for glyph granularity.
+
 2014-08-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R024-Ten.el (GT-K01380): Add `<-denotational' for
