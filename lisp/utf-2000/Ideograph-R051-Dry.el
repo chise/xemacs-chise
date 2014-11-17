@@ -42,9 +42,50 @@
   '((ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (sound@ja/on/go	"niN")
+    (sound@ja/on/kan	"ziN")
+    (sources		ruimoku=A016219-00020)
     (=ucs		. #x22189)	; 𢆉
     (=cns11643-4	. #x2178)	; &I-C4-2178; [01-88]
+    (=big5-cdp		. #x8B75)	; &I-CDP-8B75;
     (=daikanwa		. 09166)	; &I-M-09166;
+    (=ruimoku-v6	. #xE00E)	; &I-RUI6-E00E;
+    (<-simplified@component
+     ((=ucs		  . #x5C70)	; 屰
+      ))
+    (<-simplified@component*note "different from M-09166 (C4-2178, U+22189).")
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22189)	; 𢆉
+      ))
+    (ideographic-radical . 51)	; ⼲
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=gt-k		. 01380)	; &GT-K01380;
+    (=gt-pj-k2		. #x4769)	; &GT-K01380; [39-73]
+    (<-formed@component/connect-right
+     ((=ucs		  . #x22189)	; 𢆉
+      ))
+    (<-simplified@component
+     ((=ucs		  . #x5C70)	; 屰
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22189)	; 𢆉
+      ))
+    (ideographic-radical . 51)	; ⼲
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=gt-k		. 01438)	; &GT-K01438;
+    (=gt-pj-k1		. #x3648)	; &GT-K01438; [22-40]
+    (<-formed@component
+     ((=ucs		  . #x22189)	; 𢆉
+      ))
+    (<-simplified@component
+     ((=ucs		  . #x5C70)	; 屰
+      ))
     ))
 (define-char
   '((ideographic-radical . 51)	; ⼲
@@ -348,14 +389,11 @@
     (ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=>>ucs@unicode	. #x5E78)	; &G-AJ1-01982;
-    (=>>adobe-japan1-0	. 01982)	; &G-AJ1-01982;
-    (=>>jis-x0208	. #x392C)	; &G-AJ1-01982; [25-12]
-    (=>>jis-x0213-1	. #x392C)	; &G-AJ1-01982; [25-12]
-    (=>>hanyo-denshi/ja . #x392C)	; &G-AJ1-01982; [25-12]
-    (=>>gt		. 11561)	; &G-AJ1-01982;
-    (=>>gt-k		. 03701)	; &G-AJ1-01982;
-    (=>>daikanwa	. 09176)	; &G-AJ1-01982;
+    (=+>ucs@unicode	. #x5E78)	; &o-J0-392C;
+    (=+>jis-x0208	. #x392C)	; &o-J0-392C; [25-12]
+    (=+>jis-x0213-1	. #x392C)	; &o-J0-392C; [25-12]
+    (=+>adobe-japan1-0	. 01982)	; &o-J0-392C;
+    (=+>gt		. 11561)	; &o-J0-392C;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5E78)	; 幸
