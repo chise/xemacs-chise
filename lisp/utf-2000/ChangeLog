@@ -1,4 +1,28 @@
+2014-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R170-Mound.el (U+9675): Use `->denotational' and
+	`->subsumptive'.
+	(RUI6-E05F): Apply new conventions for glyph granularity.
+
+	* Ideograph-R200-Hemp.el (U+9EBB): Apply new conventions for glyph
+	granularity.
+	(U+9EBC): Likewise.
+
+	* Ideograph-R163-City.el (U+90DE): Apply new conventions for glyph
+	granularity.
+	(IU+2872E): Likewise.
+	(U+9130): Likewise.
+	(RUI6-E03F): Likewise.
+
+	* Ideograph-R108-Dish.el (U+76D4): Apply new conventions for glyph
+	granularity.
+	(RUI6-E04F): Likewise.
+
 2014-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+5011): Apply new conventions for glyph
+	granularity.
+	(RUI6-E01B): Likewise.
 
 	* Ideograph-R051-Dry.el (U-00022189): Unify BC-8B75 and RUI6-E00E;
 	add `sound@ja/on/go' and `sound@ja/on/kan'; add
