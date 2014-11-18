@@ -1,5 +1,23 @@
 2014-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R189-Tall.el (U-00029ACF): Apply new conventions for
+	glyph granularity.
+	(U-00029AE0): Likewise.
+	(RUI6-E033): Likewise.
+	(U-00029AE7): Likewise.
+	(U-00029AEF): Likewise.
+	(U-00029AF0): Likewise.
+	(IU+29AF1): Likewise.
+
+	* Ideograph-R072-Sun.el (G-GT-K03318): New abstract node to
+	integrate GT-K03318 and GT-K03616.
+
+	* Ideograph-R030-Mouth.el (U+554F): Apply new conventions for
+	glyph granularity.
+	(U+5556): Likewise.
+	(U+5557): Likewise.
+	(U-000210B0): Likewise.
+
 	* Ideograph-R170-Mound.el (U+9675): Use `->denotational' and
 	`->subsumptive'.
 	(RUI6-E05F): Apply new conventions for glyph granularity.
