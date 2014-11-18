@@ -493,6 +493,7 @@
 	  (===cns11643-7			"R-C7-" 4 X)
 	  (==ucs@JP/hanazono		   "g2-hanaJU+" 4 X)
 	  (==ruimoku-v6			     "g2-RUI6-" 4 X)
+	  (===ruimoku-v6		      "R-RUI6-" 4 X)
 	  ( china3-jef				 "JC3-" 4 X)
 	  (==jef-china3			      "g2-JC3-" 4 X)
 	  (===jef-china3		       "R-JC3-" 4 X)
