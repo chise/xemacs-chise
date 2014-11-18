@@ -1,3 +1,13 @@
+2014-11-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`===ruimoku-v6'.
+
+2014-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `===ruimoku-v6'.
+
 2014-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (===ruimoku-v6): New coded-charset for XEmacs
