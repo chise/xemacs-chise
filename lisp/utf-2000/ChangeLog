@@ -1,3 +1,12 @@
+2014-11-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (<CJK RADICAL KNIFE ONE>): Use BC-8B5B
+	instead of U-0002008A as the mother; add `ideographic-radical',
+	`ideographic-strokes' and `total-strokes'.
+	(U-0002008A): Separate BC-8B5B.
+	(GT-K00089): Use BC-8B5B instead of U-0002008A as the mother.
+	(BC-8B6C): Add `<-formed@component' for U+5200.
+
 2014-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ruimoku6.el (RUI6-E000): Add ZOB-02523 into `<-unknown'.
