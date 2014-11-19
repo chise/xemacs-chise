@@ -82,12 +82,15 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x2008A)	; 𠂊
+     ((=big5-cdp	  . #x8B5B)	; &CDP-8B5B;
       ))
     (name		. "CJK RADICAL KNIFE ONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
     (=ucs		. #x2E88)	; ⺈
     (=gt-k		. 00091)	; &I-GT-K00091;
     (=gt-pj-k1		. #x3234)	; ⺈ [18-20]
@@ -95,13 +98,27 @@
      ((=ucs		  . #x5200)	; 刀
       ))
     (<-identical@component/connect-below
-     ((=ucs		  . #x2008A)	; 𠂊
+     ((=big5-cdp	  . #x8B5B)	; &CDP-8B5B;
       ))
     ))
 (define-char
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=ucs		. #x2008A)	; 𠂊
+    ))
+(define-char
   '((<-denotational
-     ((name		  . "CJK RADICAL KNIFE ONE")
-      (=ucs		  . #x2E88)	; ⺈
+     ((=ucs		  . #x2008A)	; 𠂊
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=ucs@iso		. #x2008A)	; &U-0002008A;
+    ))
+(define-char
+  '((<-denotational
+     ((=big5-cdp	  . #x8B6C)	; &CDP-8B6C;
       ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 0)
@@ -118,10 +135,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 18)	; ⼑
+  '((<-denotational
+     ((=ucs		  . #x2008A)	; 𠂊
+      ))
+    (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (=ucs		. #x2008A)	; 𠂊
     (=big5-cdp		. #x8B5B)	; &CDP-8B5B;
     (<-formed@component
      ((=ucs		  . #x5200)	; 刀
@@ -134,16 +153,10 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (=ucs@iso		. #x2008A)	; &U-0002008A;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x2008A)	; 𠂊
-      ))
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 0)
-    (total-strokes	 . 2)
     (=big5-cdp		. #x8B6C)	; &CDP-8B6C;
+    (<-formed@component
+     ((=ucs		  . #x5200)	; 刀
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
