@@ -175,13 +175,21 @@
     (ideographic-radical . 193)	; ⿀
     (ideographic-strokes . 3)
     (total-strokes	 . 13)
-    (=>>ucs@iso		. #x29C2C)	; &G-IU+29C2C;
+    (sources		ruimoku=A016374-00004)
+    (=ucs@iso		. #x29C2C)	; &RUI6-E00A;
+    (=cns11643-6	. #x5A4E)	; &RUI6-E00A; [58-46]
+    (=ruimoku-v6	. #xE00A)	; &I-RUI6-E00A;
     (->subsumptive
-     ((sources		  ruimoku=A016374-00004)
-      (=ucs@iso		  . #x29C2C)	; &RUI6-E00A;
-      (=ruimoku-v6	  . #xE00A)	; &RUI6-E00A;
+     ((==ucs@iso	  . #x29C2C)	; &g2-IU-00029C2C;
+      (==ruimoku-v6	  . #xE00A)	; &g2-IU-00029C2C;
+      (->subsumptive
+       ((===ucs@iso	    . #x29C2C)	; &R-U-00029C2C;
+	)
+       ((===ruimoku-v6	    . #xE00A)	; &R-RUI6-E00A;
+	))
       )
-     ((=cns11643-6	  . #x5A4E)	; &C6-5A4E; [58-46]
+     ((==ucs@cns	  . #x29C2C)	; &g2-CU+29C2C;
+      (==cns11643-6	  . #x5A4E)	; &g2-CU+29C2C; [58-46]
       ))
     ))
 (define-char
