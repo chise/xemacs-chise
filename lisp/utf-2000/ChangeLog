@@ -1,5 +1,89 @@
 2014-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ruimoku6.el (RUI6-E000): Add ZOB-02523 into `<-unknown'.
+	(U-00021A5C): Apply new conventions for glyph granularity.
+	(U-00029C2C): Likewise.
+	(RUI6-E00E): Unify U-00022189.
+	(U-00020E04): Apply new conventions for glyph granularity.
+	(RUI6-E01B): Likewise.
+	(U-0002B522): Likewise.
+	(RUI6-E027): Likewise.
+	(RUI6-E02F): Likewise.
+	(RUI6-E033): Likewise.
+	(RUI6-E035): Likewise.
+	(RUI6-E037): Likewise.
+	(RUI6-E03B): Likewise.
+	(RUI6-E03E): Likewise.
+	(RUI6-E03F): Likewise.
+	(RUI6-E047): Likewise.
+	(RUI6-E048): Likewise.
+	(RUI6-E04F): Likewise.
+	(RUI6-E05F): Likewise.
+
+	* Ideograph-R193-Cauldron.el (U-00029C2C): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R169-Gate.el (U+9580): Apply new conventions for glyph
+	granularity.
+	(U+9592): Likewise.
+	(U+9593): Likewise.
+	(U+499F): Likewise.
+	(U-0002B522): Likewise.
+	(U+95BB): Likewise.
+
+	* Ideograph-R085-Water.el (U+6C7E): Apply new conventions for
+	glyph granularity.
+	(UU+6C97): Likewise.
+	(U+6CBF): Likewise.
+	(UU+3CD8): Likewise.
+	(U+6D2F): Likewise.
+	(U+6D3E): Likewise.
+	(U-0002F902): Likewise.
+	(UU+6DB2): Likewise.
+	(U+6DDE): Likewise.
+	(U+6DEE): Likewise.
+	(UU+6DEF): Likewise.
+	(U-00023DA2): Likewise.
+	(U+6E27): Likewise.
+	(U+6E5B): Likewise.
+	(U+6E67): Likewise.
+	(UU+6ECB): Likewise.
+	(U+6E96): Likewise.
+	(U+6EA6): Likewise.
+	(UU+6EAA): Likewise.
+	(U+6EC2): Likewise.
+	(U+6EDA): Likewise.
+	(UU+6EDD): Likewise.
+	(U+6EFE): Likewise.
+	(U+6F20): Likewise.
+	(U+6F33): Likewise.
+	(UU+6F45): Likewise.
+	(U+6F54): Likewise.
+	(U+6F57): Likewise.
+	(U+6F5B): Likewise.
+	(U+6F7C): Likewise.
+	(U+6F7E): Likewise.
+	(UU+6F88): Likewise.
+	(U+6FC8): Likewise.
+	(U+6FE0): Likewise.
+	(U+6FE9): Likewise.
+	(U+6FEA): Likewise.
+	(UU+6FF1): Likewise.
+	(U+6FF5): Likewise.
+	(JU+7001): Likewise.
+	(UU+7007): Likewise.
+	(U+7019): Likewise.
+	(U+7027): Likewise.
+	(HD-IB2290): Don't relate with U+FAD9.
+	(HD-IB2291): Likewise.
+	(U-0002F917): Apply new conventions for glyph granularity.
+	(U+704C): Likewise.
+	(U+704A): Likewise.
+	(UU+7058): Likewise.
+	(CU+24166): Likewise.
+
+2014-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R189-Tall.el (U-00029ACF): Apply new conventions for
 	glyph granularity.
 	(U-00029AE0): Likewise.
