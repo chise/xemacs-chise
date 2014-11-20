@@ -14,6 +14,15 @@
 	(GT-K00089): Omitted [defined in Ideograph-R018-Knife.el].
 	(BC-8B5B): Likewise.
 
+	* Ideograph-R134-Mortar.el (U+81FD): Apply new conventions for
+	glyph granularity.
+	(UU+81FD): Unify BC-8D77.
+	(CB07105): Add `<-denotational' for U+81FD; omit `<-unknown' for
+	U+81FD.
+	(U+8200): Apply new conventions for glyph granularity.
+	(U-0002695D): Unify JU+8200 and JSP-566D.
+	(M-30184): Separate JU+8200 and JSP-566D.
+
 2014-11-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (<CJK RADICAL KNIFE ONE>): Use BC-8B5B
