@@ -1,5 +1,21 @@
 2014-11-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R195-Fish.el (U+9B5D): Unify BC-8ADE; add
+	`ideographic-structure'.
+	(U+9BDC): Apply new conventions for glyph granularity.
+	(UU+9C30): Likewise.
+	(IU+29EDB): Likewise.
+	(U-00029EE0): Likewise.
+	(CU+9C6F): Likewise.
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL KNIFE ONE>): Add
+	`<-denotational' for BC-8B5B; add `ideographic-radical',
+	`ideographic-strokes' and `total-strokes'.
+	(GT-K00089): Omitted [defined in Ideograph-R018-Knife.el].
+	(BC-8B5B): Likewise.
+
+2014-11-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R018-Knife.el (<CJK RADICAL KNIFE ONE>): Use BC-8B5B
 	instead of U-0002008A as the mother; add `ideographic-radical',
 	`ideographic-strokes' and `total-strokes'.
