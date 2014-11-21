@@ -1765,30 +1765,13 @@
     (<-same*sources
      zihui-bu daikanwa)
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs@jis	    . #x96B9)	; &g2-GT-56353;
-	(==jis-x0208	    . #x7032)	; &g2-GT-56353; [80-18]
-	)
-       ((=ucs		    . #x4E5A)	; 乚
-	))
-      (==gt		  . 00263)	; &g2-GT-00263;
-      (==daikanwa	  . 00196)	; &g2-GT-00263;
+     ((===daikanwa	  . 00196)	; &R-M-00196;
       )
-     ((==ucs@cns	  . #x200F2)	; &g2-CU+200F2;
-      (==cns11643-6	  . #x2E4D)	; &g2-CU+200F2; [14-45]
+     ((===gt		  . 00263)	; &R-GT-00263;
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs@unicode	    . #x96B9)	; &g2-UU+96B9;
-	)
-       ((=ucs		    . #x4E5A)	; 乚
-	))
-      (==ucs@iso	  . #x200F2)	; &g2-IU-000200F2;
+     ((===cns11643-6	  . #x2E4D)	; &R-C6-2E4D; [14-45]
+      )
+     ((===ucs@iso	  . #x200F2)	; &R-U-000200F2;
       ))
     ))
 (define-char
