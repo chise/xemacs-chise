@@ -1,5 +1,36 @@
 2014-11-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R172-Short-Tailed-Bird.el (U+96B9): Apply new
+	conventions for glyph granularity.
+	(U+96C6): Likewise.
+	(U+96D1): Likewise.
+	(IU+28FCF): Likewise.
+	(U-00028FD3): Likewise.
+	(U+49FD): Likewise.
+	(IU+28FF2): Likewise.
+	(U-00029006): Likewise.
+	(U-0002900C): Likewise.
+	(U-0002900D): Likewise.
+	(RUI6-E037): Likewise.
+	(CU+96D7): Likewise.
+	(U+96DA): Likewise.
+	(U+96DC): Likewise.
+	(U-00029020): Likewise.
+	(UU+96E2): Likewise.
+	(U+FA68): Likewise.
+	(U-00029035): Likewise.
+	(U-0002903B): Likewise.
+	(U-00029046): Likewise.
+	(IU+2906B): Likewise.
+	(U+96E7): Likewise.
+
+	* Ideograph-R030-Mouth.el (U+552E): Apply new conventions for
+	glyph granularity.
+	(U+552F): Likewise.
+	(U+35D6): Use `->denotational' and `->subsumptive'.
+
+2014-11-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R005-Second.el (U-000200F2): Apply new conventions for
 	glyph granularity.
 
