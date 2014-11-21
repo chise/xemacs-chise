@@ -14,7 +14,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x8B5B)	; &CDP-8B5B;
+     ((=ucs		  . #x2008A)	; 𠂊
       )
      ((=big5-cdp	  . #x89BD)	; &CDP-89BD;
       ))
@@ -106,17 +106,17 @@
       (=shinjigen@1ed	  .  9918)	; &GT-66712;
       (=shinjigen@rev	  .  9917)	; &GT-66712;
       (->subsumptive
-       ((==ucs@jis	    . #x9F9C)	; &R-J90-737D;
-	(==ucs@ks	    . #x9F9C)	; &R-J90-737D;
-	(==jis-x0208@1983   . #x737D)	; &R-J90-737D; [83-93]
-	(==ks-x1001	    . #x4F4F)	; &R-J90-737D; [47-47]
-	(==jis-x0208@1990   . #x737D)	; &R-J90-737D; [83-93]
-	(==jis-x0213-1	    . #x737D)	; &R-J90-737D; [83-93]
-	(==daikanwa	    . 48847)	; &R-J90-737D;
-	(==shinjigen@1ed    .  9918)	; &R-J90-737D;
-	(==shinjigen@rev    .  9917)	; &R-J90-737D;
+       ((==ucs@jis	    . #x9F9C)	; &g2-J90-737D;
+	(==ucs@ks	    . #x9F9C)	; &g2-J90-737D;
+	(==jis-x0208@1983   . #x737D)	; &g2-J90-737D; [83-93]
+	(==ks-x1001	    . #x4F4F)	; &g2-J90-737D; [47-47]
+	(==jis-x0208@1990   . #x737D)	; &g2-J90-737D; [83-93]
+	(==jis-x0213-1	    . #x737D)	; &g2-J90-737D; [83-93]
+	(==daikanwa	    . 48847)	; &g2-J90-737D;
+	(==shinjigen@1ed    .  9918)	; &g2-J90-737D;
+	(==shinjigen@rev    .  9917)	; &g2-J90-737D;
 	)
-       ((==gt		    . 66712)	; &R-GT-66712;
+       ((==gt		    . 66712)	; &g2-GT-66712;
 	))
       )
      ((=ucs@cns		  . #x9F9C)	; &C1-733F;
@@ -136,14 +136,14 @@
     (=jis-x0208@1978	. #x737D)	; &HD-FT-342D; [83-93]
     (=hanyo-denshi/ft	. #x342D)	; &I-HD-FT-342D; [20-13]
     (->subsumptive
-     ((==jis-x0208@1978	  . #x737D)	; &R-J78-737D; [83-93]
+     ((==jis-x0208@1978	  . #x737D)	; &g2-J78-737D; [83-93]
       )
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x9F9C)	; 龜
 	)
        ((=ucs		    . #xE0105)	; 󠄅
 	))
-      (==hanyo-denshi/ft  . #x342D)	; &R-HD-FT-342D; [20-13]
+      (==hanyo-denshi/ft  . #x342D)	; &g2-HD-FT-342D; [20-13]
       ))
     ))
 (define-char
@@ -194,9 +194,9 @@
       (<-original*sources
        zhengzitong daikanwa shinjigen@1ed)
       (->subsumptive
-       ((==daikanwa	    . 48848)	; &R-M-48848;
+       ((==daikanwa	    . 48848)	; &g2-M-48848;
 	)
-       ((==shinjigen@1ed    .  9919)	; &R-SJG1-9919;
+       ((==shinjigen@1ed    .  9919)	; &g2-SJG1-9919;
 	))
       )
      ((=shinjigen@rev	  .  9918)	; &SJG2-9918;
