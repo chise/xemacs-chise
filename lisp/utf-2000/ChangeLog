@@ -1,3 +1,8 @@
+2014-11-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R034-Go.el (U+5909): Apply new conventions for glyph
+	granularity.
+
 2014-11-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R172-Short-Tailed-Bird.el (U+96B9): Apply new
