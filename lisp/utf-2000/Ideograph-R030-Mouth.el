@@ -3907,19 +3907,22 @@
       (=hanyo-denshi/jt	  . #xAEAF)	; &I-HD-JT-AEAF;
       (=daikanwa	  . 03363)	; &I-M-03363;
       (<-formed
-       ((=hanyo-denshi/ib   . #x2422)	; &HD-IB-2422; [04-02]
+       ((=ucs@ks	    . #x901E)	; &HD-IB-2422;
+	(=ks-x1001	    . #x5641)	; &HD-IB-2422; [54-33]
 	(=daikanwa	    . 38896)	; &I-M-38896;
 	))
       (<-formed*sources
        jiyun shiwen)
       (<-same
-       ((=hanyo-denshi/ib   . #x2422)	; &HD-IB-2422; [04-02]
+       ((=ucs@ks	    . #x901E)	; &HD-IB-2422;
+	(=ks-x1001	    . #x5641)	; &HD-IB-2422; [54-33]
 	(=daikanwa	    . 38896)	; &I-M-38896;
 	))
       (<-same*sources
        jiyun shiwen daikanwa)
       (->original
-       ((=hanyo-denshi/ib   . #x2422)	; &HD-IB-2422; [04-02]
+       ((=ucs@ks	    . #x901E)	; &HD-IB-2422;
+	(=ks-x1001	    . #x5641)	; &HD-IB-2422; [54-33]
 	(=daikanwa	    . 38896)	; &I-M-38896;
 	))
       (->original*sources
@@ -41526,7 +41529,8 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs@unicode	  . #x905D)	; &UU+905D;
+     ((=ucs@unicode	  . #x905D)	; &HD-IB-296C;
+      (=hanyo-denshi/ib	  . #x296C)	; &HD-IB-296C; [09-76]
       ))
     (=ucs@unicode	. #x5683)	; &UU+5683;
     ))
