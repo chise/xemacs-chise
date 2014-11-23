@@ -770,25 +770,28 @@
   '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (hanyu-dazidian	1 85 16)
     (=ucs		. #x20942)	; 𠥂
+    (=cns11643-6	. #x2F32)	; &I-C6-2F32; [15-18]
+    (=daikanwa		. 02628)	; &I-M-02628;
+    (=hanziku-1		. #xB5A4)	; &I-HZK01-B5A4;
+    (<-same
+     ((=ucs		  . #x67E9)	; 柩
+      (=daikanwa	  . 14650)	; &I-M-14650;
+      ))
+    (<-same*sources
+     shuowen-changjian daikanwa)
     (->subsumptive
-     ((=cns11643-6	  . #x2F32)	; &C6-2F32; [15-18]
-      (=daikanwa	  . 02628)	; &I-M-02628;
-      (<-same
-       ((=ucs@jis	    . #x67E9)	; &GT-18571;
-	(=ucs@ks	    . #x67E9)	; &GT-18571;
-	(=jis-x0208	    . #x5B4D)	; &GT-18571; [59-45]
-	(=ks-x1001	    . #x4F2F)	; &I-K0-4F2F; [47-15]
-	(=cns11643-1	    . #x5161)	; &I-C1-5161; [49-65]
-	(=jis-x0213-1	    . #x5B4D)	; &I-JX1-5B4D; [59-45]
-	(=daikanwa	    . 14650)	; &I-M-14650;
+     ((==ucs@cns	  . #x20942)	; &g2-M-02628;
+      (==cns11643-6	  . #x2F32)	; &g2-M-02628; [15-18]
+      (==daikanwa	  . 02628)	; &g2-M-02628;
+      (->subsumptive
+       ((===daikanwa	    . 02628)	; &R-M-02628;
+	)
+       ((===cns11643-6	    . #x2F32)	; &R-C6-2F32; [15-18]
 	))
-      (<-same*sources
-       shuowen-changjian daikanwa)
       )
-     ((hanyu-dazidian	  1 85 16)
-      (=ucs@iso		  . #x20942)	; &HZK01-B5A4;
-      (=hanziku-1	  . #xB5A4)	; &HZK01-B5A4;
+     ((==ucs@iso	  . #x20942)	; &g2-IU-00020942;
       ))
     ))
 (define-char
@@ -1300,40 +1303,35 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-	(=ucs		    . #x2FF7)	; ⿷
-	)
-       ((=ucs		    . #x531A)	; 匚
-	)
-       ((==ucs@jis	    . #x6DEE)	; &g2-GT-22468;
-	(==ucs@ks	    . #x6DEE)	; &g2-GT-22468;
-	(==jis-x0208	    . #x5E4E)	; &g2-GT-22468; [62-46]
-	))
-      (==ucs@jis	  . #x532F)	; &g2-AJ1-04304;
-      (==ucs@ks		  . #x532F)	; &g2-AJ1-04304;
+      (==ucs@unicode	  . #x532F)	; &g2-AJ1-04304;
       (==adobe-japan1-0	  . 04304)	; &g2-AJ1-04304;
       (==ks-x1001	  . #x7C5D)	; &g2-AJ1-04304; [92-61]
       (==jis-x0208	  . #x523B)	; &g2-AJ1-04304; [50-27]
+      (==cns11643-1	  . #x633E)	; &g2-AJ1-04304; [67-30]
       (==jis-x0213-1	  . #x523B)	; &g2-AJ1-04304; [50-27]
+      (==gb12345	  . #x3B63)	; &g2-AJ1-04304; [27-67]
       (==gt		  . 03391)	; &g2-AJ1-04304;
       (==gt-k		  . 10296)	; &g2-AJ1-04304;
       (==daikanwa	  . 02644)	; &g2-AJ1-04304;
       (==shinjigen	  .  0793)	; &g2-AJ1-04304;
-      )
-     ((==ucs@cns	  . #x532F)	; &g2-CU+532F;
-      (==cns11643-1	  . #x633E)	; &g2-CU+532F; [67-30]
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-	(=ucs		    . #x2FF7)	; ⿷
+      (->subsumptive
+       ((===daikanwa	    . 02644)	; &R-M-02644;
 	)
-       ((=ucs		    . #x531A)	; 匚
+       ((===jis-x0208	    . #x523B)	; &R-J90-523B; [50-27]
+	(===jis-x0213-1	    . #x523B)	; &R-J90-523B; [50-27]
 	)
-       ((==ucs@unicode	    . #x6DEE)	; &g2-UU+6DEE;
+       ((===adobe-japan1-0  . 04304)	; &R-AJ1-04304;
+	)
+       ((===ucs@ks	    . #x532F)	; &R-K0-7C5D;
+	(===ks-x1001	    . #x7C5D)	; &R-K0-7C5D; [92-61]
+	)
+       ((===gt		    . 03391)	; &R-GT-03391;
+	(===gt-k	    . 10296)	; &R-GT-03391;
+	)
+       ((===cns11643-1	    . #x633E)	; &R-C1-633E; [67-30]
+	)
+       ((===ucs@unicode	    . #x532F)	; &R-UU+532F;
 	))
-      (==ucs@unicode	  . #x532F)	; &g2-UU+532F;
-      (==gb12345	  . #x3B63)	; &g2-UU+532F; [27-67]
       ))
     ))
 (define-char
@@ -1694,7 +1692,8 @@
 	)
        ((=ucs		    . #x531A)	; 匚
 	)
-       ((=daikanwa	    . 36824)	; &M-36824;
+       ((==ucs@jis	    . #x27DA0)	; &g2-JX2-792F;
+	(==jis-x0213-2	    . #x792F)	; &g2-JX2-792F; [89-15]
 	))
       (==ucs@jis	  . #x5335)	; &g2-AJ1-17329;
       (==adobe-japan1-5	  . 17329)	; &g2-AJ1-17329;
@@ -1971,12 +1970,7 @@
       (=adobe-japan1-6	  . 21223)	; &AJ1-21223;
       (=daikanwa	  . 02597)	; &I-M-02597;
       )
-     ((=ucs@jis		  . #x67E9)	; &GT-18571;
-      (=ucs@ks		  . #x67E9)	; &GT-18571;
-      (=jis-x0208	  . #x5B4D)	; &GT-18571; [59-45]
-      (=ks-x1001	  . #x4F2F)	; &I-K0-4F2F; [47-15]
-      (=cns11643-1	  . #x5161)	; &I-C1-5161; [49-65]
-      (=jis-x0213-1	  . #x5B4D)	; &I-JX1-5B4D; [59-45]
+     ((=ucs		  . #x67E9)	; 柩
       (=daikanwa	  . 14650)	; &I-M-14650;
       ))
     (<-Zhouwen*sources
