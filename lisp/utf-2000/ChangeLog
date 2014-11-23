@@ -1,5 +1,11 @@
 2014-11-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R022-Right-Open-Box.el (U-00020942): Apply new
+	conventions for glyph granularity.
+	(U+532F): Likewise.
+
+2014-11-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R034-Go.el (U+5909): Apply new conventions for glyph
 	granularity.
 
