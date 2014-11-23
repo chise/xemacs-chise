@@ -46610,13 +46610,9 @@
     (=daikanwa		. 32479)	; &I-M-32479;
     (=shinjigen		.  3860)	; &C1-7B21;
     (<-vulgar
-     ((=ucs@unicode	  . #x6A97)	; &GT-20138;
-      (=jis-x0208	  . #x5D21)	; &GT-20138; [61-01]
-      (=gb2312		  . #x695E)	; &I-G0-695E; [73-62]
-      (=ks-x1001	  . #x5B7C)	; &I-K0-5B7C; [59-92]
-      (=jis-x0213-1	  . #x5D21)	; &I-JX1-5D21; [61-01]
-      (=daikanwa	  . 15669)	; &I-M-15669;
-      (=shinjigen	  .  3858)	; &GT-20138;
+     ((=ucs		  . #x6A97)	; 檗
+      (=jis-x0208	  . #x5D21)	; &I-J90-5D21; [61-01]
+      (=shinjigen	  .  3858)	; 檗
       ))
     (<-vulgar*sources
      shinjigen)
