@@ -1,3 +1,12 @@
+2014-11-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R039-Child.el (U+5B57): Apply new conventions for
+	glyph granularity.
+	(U+5B64): Likewise.
+	(U+5B69): Likewise.
+	(U+5B7C): Likewise.
+	(U+5B7D): Likewise.
+
 2014-11-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R022-Right-Open-Box.el (U-00020942): Apply new
