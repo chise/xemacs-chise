@@ -1896,7 +1896,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@unicode	    . #x8864)	; &g2-UU+8864;
+       ((==ucs@unicode	    . #x8864)	; &g2-JSP-5C33;
+	(==jis-x0213-2	    . #x7828)	; &g2-JSP-5C33; [88-08]
 	)
        ((=ucs		    . #x5200)	; 刀
 	))
