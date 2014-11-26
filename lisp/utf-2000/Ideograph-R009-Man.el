@@ -40823,7 +40823,12 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=ucs@unicode	  . #x8CD3)	; 賓
+     ((=ucs@unicode	  . #x8CD3)	; &JX1-7C38;
+      (=ucs@jis		  . #xFA64)	; &JX1-7C38;
+      (=ks-x1001	  . #x5E39)	; &JX1-7C38; [62-25]
+      (=cns11643-1	  . #x6B33)	; &I-C1-6B33; [75-19]
+      (=jis-x0213-1	  . #x7C38)	; &I-JX1-7C38; [92-24]
+      (=daikanwa	  . 36788)	; &I-M-36788;
       ))
     (=ucs@unicode	. #x5110)	; &AJ1-14346;
     (=adobe-japan1-4	. 14346)	; &AJ1-14346;
@@ -40847,7 +40852,7 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((==ucs@unicode	    . #x8CD3)	; &g2-UU+8CD3;
+       ((=ucs		    . #xFA64)	; 賓
 	))
       (==ucs@unicode	  . #x5110)	; &g2-AJ1-14346;
       (==adobe-japan1-4	  . 14346)	; &g2-AJ1-14346;
