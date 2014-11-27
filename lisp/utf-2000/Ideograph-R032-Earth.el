@@ -11248,9 +11248,7 @@
       )
      ((=gt-k		  . 00199)	; &GT-K00199;
       )
-     ((=ucs@jis		  . #x8200)	; &JSP-566D;
-      (=jis-x0212	  . #x566D)	; &JSP-566D; [54-77]
-      (=daikanwa	  . 30184)	; &I-M-30184;
+     ((=daikanwa	  . 30184)	; &M-30184;
       ))
     (=daikanwa		. 05384)	; &M-05384;
     (=cbeta		. 00693)	; &I-CB00693;
@@ -14693,7 +14691,8 @@
       )
      ((=gt-k		  . 00199)	; &GT-K00199;
       )
-     ((=hanyo-denshi/ib	  . #x2428)	; &HD-IB-2428; [04-08]
+     ((=ucs@ks		  . #x9042)	; &HD-IB-2428;
+      (=ks-x1001	  . #x6244)	; &HD-IB-2428; [66-36]
       (=daikanwa	  . 38985)	; &I-M-38985;
       ))
     (=daikanwa		. 05507)	; &M-05507;
@@ -16083,7 +16082,12 @@
       )
      ((=ucs		  . #x571F)	; 土
       )
-     ((=ucs		  . #xFA64)	; 賓
+     ((=ucs@unicode	  . #x8CD3)	; &JX1-7C38;
+      (=ucs@jis		  . #xFA64)	; &JX1-7C38;
+      (=ks-x1001	  . #x5E39)	; &JX1-7C38; [62-25]
+      (=cns11643-1	  . #x6B33)	; &I-C1-6B33; [75-19]
+      (=jis-x0213-1	  . #x7C38)	; &I-JX1-7C38; [92-24]
+      (=daikanwa	  . 36788)	; &I-M-36788;
       ))
     (=ucs@iso		. #x214A8)	; &C4-557E;
     (=cns11643-4	. #x557E)	; &C4-557E; [53-94]
@@ -16095,22 +16099,18 @@
 	)
        ((=gt-k		    . 00199)	; &GT-K00199;
 	)
-       ((==ucs@unicode	    . #xFA64)	; &g2-JX1-7C38;
-	(==ucs@ks	    . #x8CD3)	; &g2-JX1-7C38;
-	(==jis-x0213-1	    . #x7C38)	; &g2-JX1-7C38; [92-24]
+       ((=ucs		    . #xFA64)	; 賓
 	))
+      (==ucs@iso	  . #x214A8)	; &g2-M-05570;
+      (==cns11643-4	  . #x557E)	; &g2-M-05570; [53-94]
       (==daikanwa	  . 05570)	; &g2-M-05570;
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
+      (->subsumptive
+       ((===daikanwa	    . 05570)	; &R-M-05570;
 	)
-       ((=gt-k		    . 00199)	; &GT-K00199;
+       ((===ucs@iso	    . #x214A8)	; &R-U-000214A8;
 	)
-       ((==ucs@unicode	    . #x8CD3)	; &g2-UU+8CD3;
+       ((===cns11643-4	    . #x557E)	; &R-C4-557E; [53-94]
 	))
-      (==ucs@iso	  . #x214A8)	; &g2-IU-000214A8;
-      (==cns11643-4	  . #x557E)	; &g2-IU-000214A8; [53-94]
       ))
     ))
 (define-char
