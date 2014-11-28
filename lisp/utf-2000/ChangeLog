@@ -1,3 +1,16 @@
+2014-11-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R154-Shell.el (U+8CD3): Apply new conventions for
+	glyph granularity.
+	(U+8CD4): Likewise.
+	(U-00027DA0): Likewise.
+
+	* Ideograph-R041-Inch.el (KU+5C0A): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R032-Earth.el (IU+214A8): Apply new conventions for
+	glyph granularity.
+
 2014-11-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R039-Child.el (U+5B57): Apply new conventions for
