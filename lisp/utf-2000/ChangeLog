@@ -1,3 +1,47 @@
+2014-11-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R162-Walk.el (U+8FBC): Apply new conventions for glyph
+	granularity.
+	(U+8FC5): Likewise.
+	(U+8FD4): Likewise.
+	(U+8FF7): Likewise.
+	(U+8FF9): Likewise.
+	(U+9000): Likewise.
+	(U+9011): Likewise.
+	(U+901E): Likewise.
+	(U+901F): Likewise.
+	(U+9021): Likewise.
+	(U+902E): Likewise.
+	(UU+9032): Likewise.
+	(U+9036): Likewise.
+	(U+9038): Likewise.
+	(U+9039): Likewise.
+	(U+9042): Likewise.
+	(UU+904F): Likewise.
+	(U+9052): Likewise.
+	(U+9056): Likewise.
+	(U+905D): Likewise.
+	(U-0002857D): Likewise.
+	(U-00028586): Likewise.
+	(U+9069): Likewise.
+	(U+906E): Likewise.
+	(U+906F): Likewise.
+	(U+9074): Likewise.
+	(U+9075): Likewise.
+	(U-000285D5): Likewise.
+	(U-000285C1): Likewise.
+	(U-000285C2): Likewise.
+	(U-000285CB): Likewise.
+	(UU+907F): Likewise.
+	(U+9080): Likewise.
+	(U-000285EE): Likewise.
+	(U-00028608): Likewise.
+	(U+9089): Likewise.
+	(U-00028623): Likewise.
+	(U-0002862E): Likewise.
+	(U-00028658): Likewise.
+	(U+908F): Likewise.
+
 2014-11-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R154-Shell.el (U+8CD3): Apply new conventions for
