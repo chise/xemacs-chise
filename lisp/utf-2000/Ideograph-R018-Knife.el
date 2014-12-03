@@ -9416,7 +9416,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@unicode	    . #x7126)	; &g2-UU+7126;
+       ((==ucs@unicode	    . #x7126)	; &g2-GT-24496;
+	(==jis-x0208	    . #x3E47)	; &g2-GT-24496; [30-39]
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
