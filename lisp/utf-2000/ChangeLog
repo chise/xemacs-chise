@@ -1,3 +1,38 @@
+2014-12-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R145-Clothes.el (U+8864): Apply new conventions for
+	glyph granularity.
+	(U+461A): Likewise.
+	(U+88D7): Likewise.
+	(U-0002767E): Likewise.
+	(U-00027689): Likewise.
+	(U+88F4): Likewise.
+	(U+88FA): Likewise.
+	(UU+4644): Likewise.
+	(U+8910): Likewise.
+	(U-000276E0): Likewise.
+	(U+4648): Likewise.
+	(U+8918): Likewise.
+	(U-0002772F): Likewise.
+	(U+892B): Likewise.
+	(U+8935): Likewise.
+	(U+8936): Likewise.
+	(U+4654): Likewise.
+	(U+8956): Likewise.
+	(U+895C): Likewise.
+	(U-00027779): Likewise.
+	(U-00027781): Likewise.
+	(U+896F): Likewise.
+	(U+897A): Likewise.
+	(U+4670): Likewise.
+
+	* Ideograph-R058-Snout.el (U+38C8): Apply new conventions for
+	glyph granularity; add `<-construed@chu' for U+8086.
+
+	* Ideograph-R029-Again.el (U-00020B7E): Apply new conventions for
+	glyph granularity.
+	(U-00020B87): Likewise.
+
 2014-11-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R162-Walk.el (U+8FBC): Apply new conventions for glyph
