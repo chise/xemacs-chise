@@ -3122,24 +3122,27 @@
   '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
+    (hanyu-dazidian	1 401 14)
     (=ucs		. #x20B7E)	; 𠭾
+    (=cns11643-6	. #x5B3D)	; &I-C6-5B3D; [59-29]
+    (=daikanwa		. 03209)	; &I-M-03209;
+    (=hanziku-1		. #xF8A3)	; &I-HZK01-F8A3;
+    (<-ancient
+     ((=ucs		  . #x38C8)	; 㣈
+      (=daikanwa	  . 09946)	; &I-M-09946;
+      ))
+    (<-ancient*sources
+     shuowen daikanwa)
+    (<-ancient@jiyun
+     ((=ucs		  . #x38C8)	; 㣈
+      ))
     (->subsumptive
-     ((=daikanwa	  . 03209)	; &M-03209;
-      (<-ancient
-       ((=daikanwa	    . 09946)	; &M-09946;
-	))
-      (<-ancient*sources
-       shuowen daikanwa)
-      (<-ancient@jiyun
-       ((=daikanwa	    . 09946)	; &M-09946;
-	))
+     ((==daikanwa	  . 03209)	; &g2-M-03209;
       )
-     ((hanyu-dazidian	  1 401 14)
-      (=hanziku-1	  . #xF8A3)	; &HZK01-F8A3;
+     ((==ucs@iso	  . #x20B7E)	; &g2-IU-00020B7E;
       )
-     ((=ucs@iso		  . #x20B7E)	; &U-00020B7E;
-      )
-     ((=cns11643-6	  . #x5B3D)	; &C6-5B3D; [59-29]
+     ((==ucs@cns	  . #x20B7E)	; &g2-CU+20B7E;
+      (==cns11643-6	  . #x5B3D)	; &g2-CU+20B7E; [59-29]
       ))
     ))
 (define-char
@@ -3356,24 +3359,27 @@
   '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
+    (hanyu-dazidian	1 402 6)
     (=ucs		. #x20B87)	; 𠮇
+    (=cns11643-7	. #x2C55)	; &I-C7-2C55; [12-53]
+    (=daikanwa		. 03216)	; &I-M-03216;
+    (=hanziku-1		. #xF8BB)	; &I-HZK01-F8BB;
+    (<-ancient
+     ((=ucs		  . #x38C8)	; 㣈
+      (=daikanwa	  . 09946)	; &I-M-09946;
+      ))
+    (<-ancient*sources
+     kangxi daikanwa)
+    (<-ancient@kangxi
+     ((=ucs		  . #x38C8)	; 㣈
+      ))
     (->subsumptive
-     ((=daikanwa	  . 03216)	; &M-03216;
-      (<-ancient
-       ((=daikanwa	    . 09946)	; &M-09946;
-	))
-      (<-ancient*sources
-       kangxi daikanwa)
-      (<-ancient@kangxi
-       ((=daikanwa	    . 09946)	; &M-09946;
-	))
+     ((==daikanwa	  . 03216)	; &g2-M-03216;
       )
-     ((=ucs@iso		  . #x20B87)	; &U-00020B87;
+     ((==ucs@iso	  . #x20B87)	; &g2-IU-00020B87;
       )
-     ((hanyu-dazidian	  1 402 6)
-      (=hanziku-1	  . #xF8BB)	; &HZK01-F8BB;
-      )
-     ((=cns11643-7	  . #x2C55)	; &C7-2C55; [12-53]
+     ((==ucs@cns	  . #x20B87)	; &g2-CU+20B87;
+      (==cns11643-7	  . #x2C55)	; &g2-CU+20B87; [12-53]
       ))
     ))
 (define-char
