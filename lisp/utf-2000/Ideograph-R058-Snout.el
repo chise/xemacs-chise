@@ -13,8 +13,8 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=ucs@jis		. #x5F50)	; &AJ1-14521;
-    (=adobe-japan1-4	. 14521)	; &I-AJ1-14521;
-    (=jis-x0212		. #x3C77)	; &AJ1-14521; [28-87]
+    (=adobe-japan1-4	. 14521)	; &AJ1-14521;
+    (=jis-x0212		. #x3C77)	; &I-JSP-3C77; [28-87]
     (=cns11643-3	. #x2140)	; &I-C3-2140; [01-32]
     (=big5-cdp		. #x8A6E)	; &I-CDP-8A6E;
     (=gt		. 12503)	; &I-GT-12503;
@@ -127,7 +127,7 @@
     (=daikanwa		. 09909)	; &I-M-09909;
     (<-same
      ((=ucs@jis		  . #x5F50)	; &AJ1-14521;
-      (=adobe-japan1-4	  . 14521)	; &I-AJ1-14521;
+      (=adobe-japan1-4	  . 14521)	; &AJ1-14521;
       (=daikanwa	  . 09908)	; &I-M-09908;
       ))
     (<-same*sources
@@ -550,7 +550,7 @@
       (=ucs		  . #x2FF1)	; ⿱
       )
      ((=ucs@jis		  . #x5F50)	; &AJ1-14521;
-      (=adobe-japan1-4	  . 14521)	; &I-AJ1-14521;
+      (=adobe-japan1-4	  . 14521)	; &AJ1-14521;
       )
      ((=ucs		  . #x27C28)	; 𧰨
       ))
@@ -1065,27 +1065,35 @@
     (total-strokes	 . 16)
     (sound@ja/on	"si" "i")
     (=ucs		. #x38C8)	; 㣈
+    (=cns11643-4	. #x5031)	; &I-C4-5031; [48-17]
+    (=gt		. 12554)	; &I-GT-12554;
+    (=gt-pj-3		. #x4A40)	; &I-GT-12554; [42-32]
+    (=daikanwa		. 09946)	; &I-M-09946;
+    (=hanziku-3		. #xC1EC)	; &I-HZK03-C1EC;
+    (<-construed@chu
+     ((=ucs		  . #x8086)	; 肆
+      ))
+    (->ancient@jiyun
+     ((=ucs		  . #x20B7E)	; 𠭾
+      (=daikanwa	  . 03209)	; &I-M-03209;
+      ))
+    (->ancient@jiyun*sources
+     jiyun daikanwa)
+    (->ancient@kangxi
+     ((=ucs		  . #x20B87)	; 𠮇
+      (=daikanwa	  . 03216)	; &I-M-03216;
+      ))
+    (->ancient@kangxi*sources
+     kangxi daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 09946)	; &M-09946;
-      (->ancient@jiyun
-       ((=daikanwa	    . 03209)	; &M-03209;
-	))
-      (->ancient@jiyun*sources
-       jiyun daikanwa)
-      (->ancient@kangxi
-       ((=daikanwa	    . 03216)	; &M-03216;
-	))
-      (->ancient@kangxi*sources
-       kangxi daikanwa)
+     ((==daikanwa	  . 09946)	; &g2-M-09946;
       )
-     ((=cns11643-4	  . #x5031)	; &C4-5031; [48-17]
+     ((==ucs@cns	  . #x38C8)	; &g2-CU+38C8;
+      (==cns11643-4	  . #x5031)	; &g2-CU+38C8; [48-17]
       )
-     ((=gt		  . 12554)	; &GT-12554;
-      (=gt-pj-3		  . #x4A40)	; &GT-12554; [42-32]
+     ((==gt		  . 12554)	; &g2-GT-12554;
       )
-     ((=ucs@unicode	  . #x38C8)	; &UU+38C8;
-      )
-     ((=hanziku-3	  . #xC1EC)	; &HZK03-C1EC;
+     ((==ucs@unicode	  . #x38C8)	; &g2-UU+38C8;
       ))
     ))
 (define-char
