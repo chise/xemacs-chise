@@ -1987,6 +1987,17 @@
 	       registry "HanyoDenshi\\.FT-0$"
 	       mother ==hanyo-denshi/ft))
   (make-charset
+   '===hanyo-denshi/ia
+   "Han'you-Denshi/IA detailed glyph-images."
+   '(long-name "Han'you-Denshi/IA glyph-images"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.IA-0$"
+	       mother ==hanyo-denshi/ia))
+  (make-charset
    '===hanyo-denshi/ib
    "Han'you-Denshi/IB detailed glyph-images."
    '(long-name "Han'you-Denshi/IB glyph-images"
