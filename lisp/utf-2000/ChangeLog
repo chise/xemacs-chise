@@ -1,3 +1,15 @@
+2014-12-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R123-Sheep.el (U+7FB2): Use `->denotational'; add
+	ideographic-structure.
+	(U-000263C1): Use `->denotational'.
+	(C4-5254): Use `{ideographic|total}-strokes@ucs' instead of
+	`{ideographic|total}-strokes'; add
+	`{ideographic|total}-strokes@cns'; add `ideographic-structure';
+	add `<-vulgar' for J0-663C.
+	(IU+263C1): Unify S-6287; add `ideographic-structure'; add
+	`<-wrong' for J0-663C.
+
 2014-12-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U+564D): Apply new conventions for
