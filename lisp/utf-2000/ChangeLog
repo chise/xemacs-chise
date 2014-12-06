@@ -1,3 +1,10 @@
+2014-12-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R062-Halberd.el (A-BC-8DBA): New node.
+	(BC-8DBA): New character.
+	(U+6227): Apply new conventions for glyph granularity.
+	(U+622A): Likewise.
+
 2014-12-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R123-Sheep.el (U+7FB2): Use `->denotational'; add
