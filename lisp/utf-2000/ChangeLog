@@ -1,3 +1,33 @@
+2014-12-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R086-Fire.el (U+70AD): Apply new conventions for glyph
+	granularity.
+	(U+70B3): Likewise.
+	(RUI6-E02F): Likewise.
+	(U+70F1): Use `->subsumptive' instead of `->denotational'.
+	(U+7126): Apply new conventions for glyph granularity.
+	(U+7133): Likewise.
+	(U+7134): Likewise.
+	(U-00024272): New character.
+	(U+7152): Apply new conventions for glyph granularity.
+	(HD-KS216430): Likewise.
+	(U+3DD4): Likewise.
+	(U+7190): Likewise.
+	(U+7194): Likewise.
+	(U+7196): Likewise.
+	(UU+71A2): Likewise.
+	(U+71BE): Likewise.
+	(U+71D0): Likewise.
+	(U+71E7): Likewise.
+	(U-00024443): Likewise.
+	(U+7225): Likewise.
+	(A-M-19638): New node.
+	(G-M-19638): New node.
+	(M-19638): Add `<-denotational' for G-M-19638; add
+	ideographic-structure; unify H6-D1BD.
+	(U-000244DA): Separate H6-D1BD; add `<-denotational' for
+	A-M-19638; add ideographic-structure.
+
 2014-12-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R062-Halberd.el (A-BC-8DBA): New node.
