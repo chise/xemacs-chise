@@ -1,3 +1,18 @@
+2014-12-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R198-Deer.el (U+4D21): Apply new conventions for glyph
+	granularity.
+	(U+9E97): Likewise.
+	(U+9E9E): Likewise.
+	(U+9E9F): Likewise.
+
+	* Ideograph-R030-Mouth.el (U+56C7): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R009-Man.el (U-0002041A): Apply new conventions for
+	glyph granularity.
+	(U+5137): Likewise.
+
 2014-12-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R086-Fire.el (U+70AD): Apply new conventions for glyph
