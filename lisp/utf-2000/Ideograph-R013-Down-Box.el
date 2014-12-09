@@ -1166,7 +1166,6 @@
       )
      ((=big5-cdp	  . #x8958)	; &CDP-8958;
       ))
-    (=>>ucs@unicode	. #x5190)	; &AJ1-06235;
     (=ucs@unicode	. #x5190)	; &AJ1-06235;
     (=adobe-japan1-0	. 06235)	; &AJ1-06235;
     (=jis-x0208		. #x666E)	; &I-J90-666E; [70-78]
@@ -1190,8 +1189,8 @@
       )
      ((=ucs		  . #x66F0)	; 曰
       )
-     ((name		  . "CJK RADICAL MEAT")
-      (=ucs		  . #x2EBC)	; ⺼
+     ((=big5-cdp	  . #x8A73)	; &GT-37857;
+      (=daikanwa	  . 29237)	; &I-M-29237;
       ))
     (=ucs@cns		. #x5190)	; &C3-2755;
     (=cns11643-3	. #x2755)	; &C3-2755; [07-53]
@@ -1228,7 +1227,7 @@
 	)
        ((=cns11643-1	    . #x454B)	; &C1-454B; [37-43]
 	)
-       ((=big5-cdp	    . #x8A73)	; &CDP-8A73;
+       ((==big5-cdp	    . #x8A73)	; &g2-CDP-8A73;
 	))
       (==big5-cdp	  . #x8CCB)	; &g2-CDP-8CCB;
       )
