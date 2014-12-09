@@ -1,3 +1,8 @@
+2014-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R013-Down-Box.el (U+5190): Apply new conventions for
+	glyph granularity.
+
 2014-12-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R198-Deer.el (U+4D21): Apply new conventions for glyph
