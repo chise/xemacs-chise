@@ -381,6 +381,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =big5-cdp-var-3
 	  =big5-cdp-var-5
 	  ==jis-x0208@1990
+	  ==ucs-radicals@unicode
 	  ==ucs-bmp-cjk@gb
           ==ucs-bmp-cjk@JP/hanazono
 	  ==ucs-sip-ext-b@iso
@@ -454,6 +455,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>>jis-x0213-1@2004
 	  =>jis-x0208
 	  =>jis-x0213-1
+	  =>daikanwa
 	  ucs-bmp
 	  ==>ucs-bmp-cjk@bucs
 	  =>ucs-bmp-cjk@unicode
