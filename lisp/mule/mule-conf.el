@@ -3642,6 +3642,18 @@
 	       mother =ucs@unicode
 	       min-code #x2E00 max-code #x2FFF))
   (make-charset
+   '==ucs-radicals@unicode
+   "CJK Radicals of UCS"
+   '(long-name "UCS-Radicals"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-zhRadicals-.*-ucs-0"
+	       mother ==ucs@unicode
+	       min-code #x2E00 max-code #x2FFF))
+  (make-charset
    '=ucs-hangul
    "Hangul Syllables of UCS"
    '(long-name "UCS-Hangul-Syllables"
