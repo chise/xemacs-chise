@@ -1,3 +1,39 @@
+2014-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL MEAT>): Use
+	BC-8A73 instead of o-GT-37857 as the mother.
+
+	* Ideograph-R130-Meat.el (A-M-29237): Unify A-UU+2EBC and
+	A-GT-37857 instead of o-GT-37857; apply new conventions for glyph
+	granularity.
+	(BC-8A73): Apply new conventions for glyph granularity.
+	(<CJK RADICAL MEAT>): Add `<-identical@component/connect-right'
+	for BC-8A73.
+	(BC-8958): Add `<-identical@component/connect-above' for BC-8A73.
+	(BC-88F0): Apply new conventions for glyph granularity.
+	(U+808A): Likewise.
+	(BC-8C4F): Likewise.
+	(U+8090): Likewise.
+	(U+8095): Likewise.
+	(U+8096): Likewise.
+	(U+80B2): Likewise.
+	(U-0002664D): Use `->subsumptive'.
+	(U+80D6): Apply new conventions for glyph granularity.
+	(U+80DE): Likewise.
+	(U-0002668D): Likewise.
+	(BC-8CA9): Add ideographic-structure.
+	(U+80F3): Apply new conventions for glyph granularity.
+	(U+810A): Likewise.
+	(U-00026778): Likewise; unify BC-85C4.
+	(U-00026803): Use `->subsumptive'.
+	(U+81C6): Apply new conventions for glyph granularity.
+	(U+81C8): Likewise.
+	(U+4445): Likewise.
+	(U-00024443): Likewise.
+	(U-00026883): Likewise.
+	(U+81D7): Likewise.
+	(U-000268BD): Likewise.
+
 2014-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R013-Down-Box.el (U+5190): Apply new conventions for
