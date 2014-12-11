@@ -959,7 +959,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=+>gt		  . 37857)	; &o-GT-37857;
+     ((=big5-cdp	  . #x8A73)	; &GT-37857;
+      (=daikanwa	  . 29237)	; &I-M-29237;
       ))
     (name		. "CJK RADICAL MEAT")
     (general-category	symbol other) ; Informative Category
@@ -973,7 +974,7 @@
      ((=ucs		  . #x8089)	; 肉
       ))
     (<-identical@component/connect-right
-     ((=gt		  . 37857)	; &GT-37857;
+     ((=big5-cdp	  . #x8A73)	; &GT-37857;
       (=daikanwa	  . 29237)	; &I-M-29237;
       ))
     ))
