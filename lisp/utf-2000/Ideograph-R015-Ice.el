@@ -3005,7 +3005,8 @@
 	)
        ((=ucs		    . #x51AB)	; 冫
 	)
-       ((==ucs@unicode	    . #x5D14)	; &g2-UU+5D14;
+       ((==ucs@unicode	    . #x5D14)	; &g2-AJ1-04688;
+	(==adobe-japan1-0   . 04688)	; &g2-AJ1-04688;
 	))
       (==ucs@unicode	  . #x51D7)	; &g2-M-01699;
       (==cns11643-2	  . #x416A)	; &g2-M-01699; [33-74]
