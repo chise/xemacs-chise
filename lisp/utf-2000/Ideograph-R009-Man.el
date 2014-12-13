@@ -18920,7 +18920,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((==ucs@unicode	    . #x96B9)	; &g2-UU+96B9;
+       ((==ucs@unicode	    . #x96B9)	; &g2-GT-56353;
+	(==jis-x0208	    . #x7032)	; &g2-GT-56353; [80-18]
 	))
       (==ucs@unicode	  . #x5020)	; &g2-M-00782;
       (==cns11643-2	  . #x2D79)	; &g2-M-00782; [13-89]
