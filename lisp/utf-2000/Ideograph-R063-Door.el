@@ -457,13 +457,22 @@
 	)
        ((=ucs		    . #xE0103)	; 󠄃
 	))
-      (==ucs@ks		  . #x623F)	; &R-HD-JT-B1D3;
-      (==ks-x1001	  . #x5B2E)	; &R-HD-JT-B1D3; [59-14]
-      (==hanyo-denshi/jt  . #xB1D3)	; &R-HD-JT-B1D3;
-      (==daikanwa	  . 11714)	; &R-HD-JT-B1D3;
-      )
-     ((==ucs@cns	  . #x623F)	; &R-CU+623F;
-      (==cns11643-1	  . #x4D52)	; &R-CU+623F; [45-50]
+      (==ucs@cns	  . #x623F)	; &g2-HD-JT-B1D3;
+      (==ucs@ks		  . #x623F)	; &g2-HD-JT-B1D3;
+      (==ks-x1001	  . #x5B2E)	; &g2-HD-JT-B1D3; [59-14]
+      (==cns11643-1	  . #x4D52)	; &g2-HD-JT-B1D3; [45-50]
+      (==hanyo-denshi/jt  . #xB1D3)	; &g2-HD-JT-B1D3;
+      (==daikanwa	  . 11714)	; &g2-HD-JT-B1D3;
+      (->subsumptive
+       ((===daikanwa	    . 11714)	; &R-M-11714;
+	)
+       ((===hanyo-denshi/jt . #xB1D3)	; &R-HD-JT-B1D3;
+	)
+       ((===ucs@ks	    . #x623F)	; &R-K0-5B2E;
+	(===ks-x1001	    . #x5B2E)	; &R-K0-5B2E; [59-14]
+	)
+       ((===cns11643-1	    . #x4D52)	; &R-C1-4D52; [45-50]
+	))
       ))
     ))
 (define-char
@@ -1043,8 +1052,6 @@
     (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (=>>ucs@jis		. #x6246)	; &JX2-2C76;
-    (=>>ucs@cns		. #x6246)	; &JX2-2C76;
     (=ucs@cns		. #x6246)	; &JX2-2C76;
     (=ucs@jis		. #x6246)	; &JX2-2C76;
     (=jis-x0212		. #x3F36)	; &JX2-2C76; [31-22]
@@ -1052,13 +1059,20 @@
     (=jis-x0213-2	. #x2C76)	; &I-JX2-2C76; [12-86]
     (=daikanwa		. 11742)	; &I-M-11742;
     (->subsumptive
-     ((==ucs@jis	  . #x6246)	; &R-JSP-3F36;
-      (==jis-x0212	  . #x3F36)	; &R-JSP-3F36; [31-22]
-      (==jis-x0213-2	  . #x2C76)	; &R-JSP-3F36; [12-86]
-      (==daikanwa	  . 11742)	; &R-JSP-3F36;
-      )
-     ((==ucs@cns	  . #x6246)	; &R-CU+6246;
-      (==cns11643-2	  . #x2F32)	; &R-CU+6246; [15-18]
+     ((==ucs@cns	  . #x6246)	; &g2-JSP-3F36;
+      (==ucs@jis	  . #x6246)	; &g2-JSP-3F36;
+      (==jis-x0212	  . #x3F36)	; &g2-JSP-3F36; [31-22]
+      (==cns11643-2	  . #x2F32)	; &g2-JSP-3F36; [15-18]
+      (==jis-x0213-2	  . #x2C76)	; &g2-JSP-3F36; [12-86]
+      (==daikanwa	  . 11742)	; &g2-JSP-3F36;
+      (->subsumptive
+       ((===daikanwa	    . 11742)	; &R-M-11742;
+	)
+       ((===jis-x0212	    . #x3F36)	; &R-JX2-2C76; [31-22]
+	(===jis-x0213-2	    . #x2C76)	; &R-JX2-2C76; [12-86]
+	)
+       ((===cns11643-2	    . #x2F32)	; &R-C2-2F32; [15-18]
+	))
       ))
     ))
 (define-char
