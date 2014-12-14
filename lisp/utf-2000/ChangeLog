@@ -1,3 +1,8 @@
+2014-12-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (g2-UU+96B9): Add abstract
+	glyph-image node.
+
 2014-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL MEAT>): Use
