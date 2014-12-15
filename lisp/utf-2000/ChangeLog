@@ -1,5 +1,49 @@
 2014-12-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R164-Wine.el (U+9149): Apply new conventions for glyph
+	granularity.
+	(U+9158): Likewise.
+	(U+9167): Likewise.
+	(U+916D): Likewise.
+	(U+918A): Likewise.
+	(U+9194): Likewise.
+	(U+9195): Likewise.
+	(U+919E): Likewise.
+	(U+91A6): Likewise.
+	(U+91AB): Likewise.
+	(U+91AC): Likewise.
+	(U+91A4): Likewise.
+	(U+91B1): Likewise.
+	(U+9197): Likewise.
+	(U+91B6): Likewise.
+	(U+91B7): Likewise.
+	(U+91B8): Likewise.
+	(U-0002CAB9): New character.
+	(U+91BB): Apply new conventions for glyph granularity.
+	(U+91BC): Likewise.
+	(U+91BD): Likewise.
+	(U+91C0): Likewise.
+	(U+91C2): Likewise.
+	(U+91C3): Likewise.
+	(U+91C5): Likewise.
+
+	* Ideograph-R063-Door.el (CU+623F): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R062-Halberd.el (U+6220): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R050-Turban.el (U+5E1D): Apply new conventions for
+	glyph granularity.
+	(U+5E1F): Likewise.
+	(U+5E29): Likewise.
+	(U+5E2D): Likewise.
+	(U+5E37): Likewise.
+	(U+5E4E): Likewise.
+	(U+5E4F): Likewise.
+	(U+5E5F): Likewise.
+	(UU+5E6E): Likewise.
+
 	* Ideograph-R059-Bristle.el (U+5F6B): Apply new conventions for
 	glyph granularity.
 	(U+5F70): Likewise.
