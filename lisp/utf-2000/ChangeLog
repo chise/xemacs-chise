@@ -1,5 +1,9 @@
 2014-12-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R068-Dipper.el (U+6599): Apply new conventions for
+	glyph granularity.
+	(HD-KS151460): Likewise.
+
 	* Ideograph-R069-Axe.el (JU+65B0): Apply new conventions for glyph
 	granularity.
 
