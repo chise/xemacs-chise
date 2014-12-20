@@ -1,5 +1,41 @@
 2014-12-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R046-Mountain.el (U+5C79): Apply new conventions for
+	glyph granularity.
+	(U+5C90): Likewise.
+	(U-00021D73): Likewise.
+	(U+5CA0): Likewise.
+	(U+5CA8): Likewise.
+	(U+5CAB): Likewise.
+	(U+5CAC): Likewise.
+	(U+5CB6): Likewise.
+	(U+5CB7): Likewise.
+	(U+5CBB): Likewise.
+	(U+5D14): Likewise.
+	(U+5D43): Likewise.
+	(U+5D4E): Likewise.
+	(U+FA11): Likewise.
+	(U+5D60): Likewise.
+	(U+5D61): Likewise.
+	(UU+5D69): Likewise.
+	(JU+37F4): Likewise.
+	(JU+5D6F): Likewise.
+	(U+5D70): Likewise.
+	(IU+21EBF): Likewise.
+	(U+5D82): Likewise.
+	(U-00021EEC): Likewise.
+	(JU+5DB0): Likewise.
+	(CU+3815): Likewise.
+	(UU+5DB2): Likewise.
+	(JU+5DB4): Likewise.
+	(U+5DBB): Likewise.
+	(U-00021F49): Likewise.
+	(JU+5DD7): Likewise.
+	(JU+5DD8): Likewise.
+	(U+5DD8): Likewise.
+
+2014-12-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R068-Dipper.el (U+6599): Apply new conventions for
 	glyph granularity.
 	(HD-KS151460): Likewise.
