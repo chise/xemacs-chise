@@ -285,7 +285,7 @@
     (=ucs@unicode	. #xFA42)	; &AJ1-13334;
     (=adobe-japan1-4	. 13334)	; &AJ1-13334;
     (=jis-x0213-1	. #x752B)	; &I-JX1-752B; [85-11]
-    (=daikanwa		. 13725)	; &M-13725;
+    (=daikanwa		. 13725)	; &I-M-13725;
     (->subsumptive
      ((==daikanwa	  . 13725)	; &g2-M-13725;
       )
