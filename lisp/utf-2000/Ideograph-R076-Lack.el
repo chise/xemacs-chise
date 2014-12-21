@@ -4092,7 +4092,7 @@
     (=ucs		. #x2F8F1)	; 歔
     (=ucs@unicode	. #x6B54)	; 歔
     (=ucs@cns		. #x2F8F1)	; 歔
-    (=iso-ir165		. #x2E55)	; &EGB-2E55; [14-53]
+    (=iso-ir165		. #x2E55)	; &I-EGB-2E55; [14-53]
     (=cns11643-7	. #x2378)	; &I-C7-2378; [03-88]
     (=shinjigen		.  3944)	; 歔
     (<-wrong
