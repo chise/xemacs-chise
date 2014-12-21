@@ -1,3 +1,16 @@
+2014-12-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ruimoku6.el (RUI6-E05E): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R030-Mouth.el (U+541D): Apply new conventions for
+	glyph granularity.
+	(U+5445): Likewise.
+	(U-00020CF5): Likewise.
+	(U+557C): Likewise.
+	(U+55FA): Likewise.
+	(U+35E9): Use `->denotational' and `->subsumptive'.
+
 2014-12-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el (U+5C79): Apply new conventions for
