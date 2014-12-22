@@ -1,3 +1,12 @@
+2014-12-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R077-Stop.el (g2-BC-8960): Use `->subsumptive' to add
+	representative nodes.
+
+	* Ideograph-R061-Heart.el (JC3-4DDB): Apply new conventions for
+	glyph granularity.
+	(g2-RUI6-E05F): Modify `ideographic-structure'.
+
 2014-12-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ruimoku6.el (RUI6-E05E): Apply new conventions for glyph
