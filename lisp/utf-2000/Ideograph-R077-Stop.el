@@ -73,11 +73,16 @@
 	)
        ((=ucs		    . #xE0102)	; 󠄂
 	))
-      (==big5-cdp	  . #x8960)	; &R-HD-KS-184490;
-      (==hanyo-denshi/ks  . 184490)	; &R-HD-KS-184490;
-      (=hanyo-denshi/ks/mf . #x4811)	; &R-HD-KS-184490;
+      (==big5-cdp	  . #x8960)	; &g2-HD-KS-184490;
+      (==hanyo-denshi/ks  . 184490)	; &g2-HD-KS-184490;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 184490)	; &KSMF-18449;
+	(=hanyo-denshi/ks/mf . #x4811)	; &KSMF-18449;
+	)
+       ((===big5-cdp	    . #x8960)	; &R-CDP-8960;
+	))
       )
-     ((==gt-k		  . 00182)	; &R-GT-K00182;
+     ((==gt-k		  . 00182)	; &g2-GT-K00182;
       ))
     ))
 (define-char
@@ -1828,10 +1833,10 @@
     (<-same*sources
      chuanpian daikanwa)
     (->subsumptive
-     ((==daikanwa	  . 16344)	; &R-M-16344;
+     ((==daikanwa	  . 16344)	; &g2-M-16344;
       )
-     ((==ucs@iso	  . #x2399F)	; &R-U-0002399F;
-      (==cns11643-7	  . #x2E78)	; &R-U-0002399F; [14-88]
+     ((==ucs@iso	  . #x2399F)	; &g2-IU-0002399F;
+      (==cns11643-7	  . #x2E78)	; &g2-IU-0002399F; [14-88]
       ))
     ))
 (define-char
