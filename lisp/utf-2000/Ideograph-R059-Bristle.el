@@ -708,15 +708,15 @@
       (==gt-k		  . 07831)	; &g2-AJ1-13928;
       (==daikanwa	  . 09995)	; &g2-AJ1-13928;
       (->subsumptive
-       ((===daikanwa	  . 09995)	; &g2-AJ1-13928;
+       ((===daikanwa	    . 09995)	; &R-M-09995;
 	)
-       ((===adobe-japan1-4	  . 13928)	; &g2-AJ1-13928;
+       ((===adobe-japan1-4  . 13928)	; &R-AJ1-13928;
 	)
-       ((===ucs@ks		  . #x5F6B)	; &g2-AJ1-13928;
-	(===ks-x1001	  . #x7041)	; &g2-AJ1-13928; [80-33]
+       ((===ucs@ks	    . #x5F6B)	; &R-K0-7041;
+	(===ks-x1001	    . #x7041)	; &R-K0-7041; [80-33]
 	)
-       ((===gt		  . 12606)	; &g2-AJ1-13928;
-	(===gt-k		  . 07831)	; &g2-AJ1-13928;
+       ((===gt		    . 12606)	; &R-GT-12606;
+	(===gt-k	    . 07831)	; &R-GT-12606;
 	))
       )
      ((==ucs@iso	  . #x2F89A)	; &g2-IU-0002F89A;
@@ -1023,11 +1023,11 @@
     (=jis-x0213-1	. #x3E34)	; &I-JX1-3E34; [30-20]
     (=big5		. #xB9FC)	; &I-B-B9FC;
     (=hanyo-denshi/ja	. #x3E34)	; &I-HD-JA-3E34; [30-20]
+    (=hanyo-denshi/jt	. #xB12A)	; &I-HD-JT-B12A;
     (=gt		. 12630)	; &I-GT-12630;
     (=gt-pj-1		. #x3E34)	; &I-GT-12630; [30-20]
     (=daikanwa		. 10015)	; &I-M-10015;
     (=shinjigen		.  2323)	; 彰
-    (=hanyo-denshi/jt	. #xB12A)	; &HD-JT-B12A;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5F70)	; 彰
@@ -1069,17 +1069,17 @@
 	))
       )
      ((=decomposition@hanyo-denshi
-       ((=ucs		  . #x5F70)	; 彰
+       ((=ucs		    . #x5F70)	; 彰
 	)
-       ((=ucs		  . #xE0102)	; 󠄂
+       ((=ucs		    . #xE0102)	; 󠄂
 	))
-      (==hanyo-denshi/jt	. #xB12A)	; &HD-JT-B12A;
-      (=shinjigen		.  2324)	; &HD-JT-B12A;
-      (=jef-china3	. #x4DA9)	; &I-JC3-4DA9;
+      (==hanyo-denshi/jt  . #xB12A)	; &g2-HD-JT-B12A;
+      (=shinjigen	  .  2324)	; &g2-HD-JT-B12A;
+      (=jef-china3	  . #x4DA9)	; &g2-HD-JT-B12A;
       (->subsumptive
-       ((===hanyo-denshi/jt	. #xB12A)	; &HD-JT-B12A;
+       ((===hanyo-denshi/jt . #xB12A)	; &R-HD-JT-B12A;
 	)
-       ((===jef-china3	. #x4DA9)	; &I-JC3-4DA9;
+       ((===jef-china3	    . #x4DA9)	; &R-JC3-4DA9;
 	))
       ))
     ))
