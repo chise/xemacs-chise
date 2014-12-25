@@ -1,3 +1,23 @@
+2014-12-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R015-Ice.el (G-UU+51B4): Add `ideographic-structure';
+	unify AJ1-13787 instead of G-AJ1-13787.
+	(g2-UU+51B4): Unify g2-AJ1-13787 instead of AJ1-13787; separate
+	C3-227C.
+
+2014-12-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R092-Fang.el (U+7259): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R046-Mountain.el (g2-IU+21F49): Apply new conventions
+	for glyph granularity for a component of ideographic-structure.
+
+	* Ideograph-R009-Man.el (U+4F22): Apply new conventions for glyph
+	granularity.
+	(g2-UU+5115): Apply new conventions for glyph granularity for a
+	component of ideographic-structure.
+
 2014-12-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R101-Use.el (U+752F): Apply new conventions for glyph
