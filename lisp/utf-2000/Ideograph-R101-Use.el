@@ -341,28 +341,37 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (=ucs		. #x752F)	; 甯
+    (=adobe-japan1-2	. 08434)	; &I-AJ1-08434;
+    (=gb2312		. #x6538)	; &I-G0-6538; [69-24]
+    (=jis-x0212		. #x4D2A)	; &I-JSP-4D2A; [45-10]
+    (=cns11643-2	. #x3E30)	; &I-C2-3E30; [30-16]
+    (=jis-x0213-1	. #x7849)	; &I-JX1-7849; [88-41]
     (=big5		. #xDAAC)	; &I-B-DAAC;
+    (=daikanwa		. 21717)	; &I-M-21717;
+    (=jef-china3	. #x4ABD)	; &I-JC3-4ABD;
     (->subsumptive
-     ((=ucs@unicode	  . #x752F)	; &AJ1-08434;
-      (=adobe-japan1-2	  . 08434)	; &AJ1-08434;
-      (=gb2312		  . #x6538)	; &I-G0-6538; [69-24]
-      (=jis-x0212	  . #x4D2A)	; &I-JSP-4D2A; [45-10]
-      (=jis-x0213-1	  . #x7849)	; &I-JX1-7849; [88-41]
-      (=daikanwa	  . 21717)	; &I-M-21717;
-      (=jef-china3	  . #x4ABD)	; &I-JC3-4ABD;
+     ((==ucs@unicode	  . #x752F)	; &g2-AJ1-08434;
+      (==adobe-japan1-2	  . 08434)	; &g2-AJ1-08434;
+      (==gb2312		  . #x6538)	; &g2-AJ1-08434; [69-24]
+      (==jis-x0212	  . #x4D2A)	; &g2-AJ1-08434; [45-10]
+      (==jis-x0213-1	  . #x7849)	; &g2-AJ1-08434; [88-41]
+      (==daikanwa	  . 21717)	; &g2-AJ1-08434;
+      (==jef-china3	  . #x4ABD)	; &g2-AJ1-08434;
       (->subsumptive
-       ((==ucs@jis	    . #x752F)	; &R-AJ1-08434;
-	(==adobe-japan1-2   . 08434)	; &R-AJ1-08434;
-	(==jis-x0212	    . #x4D2A)	; &R-AJ1-08434; [45-10]
-	(==jis-x0213-1	    . #x7849)	; &R-AJ1-08434; [88-41]
-	(==daikanwa	    . 21717)	; &R-AJ1-08434;
+       ((===daikanwa	    . 21717)	; &R-M-21717;
 	)
-       ((==ucs@unicode	    . #x752F)	; &R-UU+752F;
-	(==gb2312	    . #x6538)	; &R-UU+752F; [69-24]
+       ((===jis-x0212	    . #x4D2A)	; &R-JX1-7849; [45-10]
+	(===jis-x0213-1	    . #x7849)	; &R-JX1-7849; [88-41]
+	)
+       ((===adobe-japan1-2  . 08434)	; &R-AJ1-08434;
+	)
+       ((===jef-china3	    . #x4ABD)	; &R-JC3-4ABD;
+	)
+       ((===ucs@unicode	    . #x752F)	; &R-UU+752F;
 	))
       )
-     ((=ucs@cns		  . #x752F)	; &C2-3E30;
-      (=cns11643-2	  . #x3E30)	; &C2-3E30; [30-16]
+     ((==ucs@cns	  . #x752F)	; &g2-CU+752F;
+      (==cns11643-2	  . #x3E30)	; &g2-CU+752F; [30-16]
       ))
     ))
 (define-char
