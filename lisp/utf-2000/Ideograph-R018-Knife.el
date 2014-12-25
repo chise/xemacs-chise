@@ -10690,8 +10690,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x9F4A)	; &AJ1-07457;
-	(=adobe-japan1-0    . 07457)	; &AJ1-07457;
+       ((==ucs@unicode	    . #x9F4A)	; &g2-AJ1-07457;
+	(==adobe-japan1-0   . 07457)	; &g2-AJ1-07457;
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
