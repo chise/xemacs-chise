@@ -5904,7 +5904,8 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (=ucs		      . #x2FF1)	; ⿱
 	  )
-	 ((==ucs@unicode      . #x5FB9)	; &g2-UU+5FB9;
+	 ((==ucs@unicode      . #x5FB9)	; &g2-GT-12920;
+	  (==daikanwa	      . 10245)	; &g2-GT-12920;
 	  )
 	 ((=ucs		      . #x529B)	; 力
 	  ))
@@ -5912,12 +5913,15 @@
 	(==adobe-japan1-6   . 21219)	; &g2-AJ1-21219;
 	(==jis-x0212	    . #x3379)	; &g2-AJ1-21219; [19-89]
 	(==daikanwa	    . 02475)	; &g2-AJ1-21219;
+	(==jef-china3	    . #x44D6)	; &g2-AJ1-21219;
 	(->subsumptive
 	 ((===daikanwa	      . 02475)	; &R-M-02475;
 	  )
 	 ((===jis-x0212	      . #x3379)	; &R-JSP-3379; [19-89]
 	  )
 	 ((===adobe-japan1-6  . 21219)	; &R-AJ1-21219;
+	  )
+	 ((===jef-china3      . #x44D6)	; &R-JC3-44D6;
 	  )
 	 ((===ucs@unicode     . #x52F6)	; &R-UU+52F6;
 	  ))
