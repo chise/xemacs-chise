@@ -482,8 +482,8 @@
 	)
        ((=ucs		    . #x51F5)	; 凵
 	)
-       ((=ucs@unicode	    . #x6587)	; &AJ1-03592;
-	(=adobe-japan1-0    . 03592)	; &AJ1-03592;
+       ((==ucs@unicode	    . #x6587)	; &g2-AJ1-03592;
+	(==adobe-japan1-0   . 03592)	; &g2-AJ1-03592;
 	))
       (==daikanwa	  . 01822)	; &g2-M-01822;
       )
