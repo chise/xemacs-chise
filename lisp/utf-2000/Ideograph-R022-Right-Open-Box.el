@@ -1847,33 +1847,19 @@
 	)
        ((=ucs		    . #x531A)	; 匚
 	)
-       ((==ucs@jis	    . #x77BF)	; &g2-GT-30367;
-	(==ucs@ks	    . #x77BF)	; &g2-GT-30367;
+       ((==ucs@unicode	    . #x77BF)	; &g2-GT-30367;
 	(==jis-x0208	    . #x625A)	; &g2-GT-30367; [66-58]
 	))
+      (==ucs@unicode	  . #x5337)	; &g2-M-02666;
+      (==cns11643-2	  . #x686A)	; &g2-M-02666; [72-74]
       (==daikanwa	  . 02666)	; &g2-M-02666;
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-	(=ucs		    . #x2FF7)	; ⿷
+      (->subsumptive
+       ((===daikanwa	    . 02666)	; &R-M-02666;
 	)
-       ((=ucs		    . #x531A)	; 匚
+       ((===cns11643-2	    . #x686A)	; &R-C2-686A; [72-74]
 	)
-       ((==ucs@cns	    . #x77BF)	; &g2-CU+77BF;
-	(==cns11643-1	    . #x766D)	; &g2-CU+77BF; [86-77]
+       ((===ucs@unicode	    . #x5337)	; &R-UU+5337;
 	))
-      (==ucs@cns	  . #x5337)	; &g2-CU+5337;
-      (==cns11643-2	  . #x686A)	; &g2-CU+5337; [72-74]
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-	(=ucs		    . #x2FF7)	; ⿷
-	)
-       ((=ucs		    . #x531A)	; 匚
-	)
-       ((==ucs@unicode	    . #x77BF)	; &g2-UU+77BF;
-	))
-      (==ucs@unicode	  . #x5337)	; &g2-UU+5337;
       ))
     ))
 (define-char
