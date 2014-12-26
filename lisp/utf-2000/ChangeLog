@@ -1,5 +1,8 @@
 2014-12-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R109-Eye.el (U+77BF): Apply new conventions for glyph
+	granularity.
+
 	* Ideograph-R055-Two-Hands.el (UU+5F03): Apply new conventions for
 	glyph granularity.
 
