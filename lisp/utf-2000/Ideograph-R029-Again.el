@@ -3194,7 +3194,8 @@
 	  )
 	 ((=gt-k	      . 00488)	; &GT-K00488;
 	  )
-	 ((=ucs		      . #x96B9)	; 隹
+	 ((==ucs@unicode      . #x96B9)	; &g2-GT-56353;
+	  (==jis-x0208	      . #x7032)	; &g2-GT-56353; [80-18]
 	  ))
 	)
        ((==ucs@unicode	    . #x53C8)	; &g2-AJ1-03746;
@@ -3216,10 +3217,11 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	  (=ucs		      . #x2FF0)	; ⿰
 	  )
-	 ((=ucs@unicode	      . #x6587)	; &AJ1-03592;
-	  (=adobe-japan1-0    . 03592)	; &AJ1-03592;
+	 ((==ucs@unicode      . #x6587)	; &g2-AJ1-03592;
+	  (==adobe-japan1-0   . 03592)	; &g2-AJ1-03592;
 	  )
-	 ((=ucs		      . #x96B9)	; 隹
+	 ((==ucs@unicode      . #x96B9)	; &g2-GT-56353;
+	  (==jis-x0208	      . #x7032)	; &g2-GT-56353; [80-18]
 	  ))
 	)
        ((==ucs@unicode	    . #x53C8)	; &g2-AJ1-03746;
