@@ -1,7 +1,27 @@
+2014-12-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (g2-IU+FA0E): Apply new conventions for
+	glyph granularity for a component of ideographic-structure.
+	(g2-UU+FA0E): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+
+	* Ideograph-R022-Right-Open-Box.el (U+5337): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R018-Knife.el (g2-JU+5264): Apply new conventions for
+	glyph granularity for a component of ideographic-structure.
+	(g2-AJ1-20084): Likewise.
+
+	* Ideograph-R017-Open-Box.el (g2-M-01822): Apply new conventions
+	for glyph granularity for a component of ideographic-structure.
+
 2014-12-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R109-Eye.el (U+77BF): Apply new conventions for glyph
 	granularity.
+
+	* Ideograph-R019-Power.el (g2-UU+52F6): Unify g2-JC3-44D6.
+	(R-JC3-44D6): New representative node.
 
 	* Ideograph-R055-Two-Hands.el (UU+5F03): Apply new conventions for
 	glyph granularity.
