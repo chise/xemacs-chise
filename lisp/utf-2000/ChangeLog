@@ -1,5 +1,21 @@
 2014-12-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R067-Script.el (U+9F50): Apply new conventions for
+	glyph granularity; use `ideographic-{radical|strokes}@daikanwa'
+	instead of `ideographic-{radical|strokes}@cns';
+
+	* Ideograph-R060-Step.el (JU+5F7D): Apply new conventions for
+	glyph granularity.
+	(U+5F8C): Likewise.
+	(U+5F96): Likewise.
+	(U+5F9D): Likewise.
+	(U+5FAD): Likewise.
+	(U+5FAE): Likewise.
+	(U+5FAF): Likewise.
+	(U+5FB5): Likewise.
+	(UU+5FB9): Likewise.
+	(U+5FC2): Likewise.
+
 	* Ideograph-R029-Again.el (g2-IU+FA0E): Apply new conventions for
 	glyph granularity for a component of ideographic-structure.
 	(g2-UU+FA0E): Apply new conventions for glyph granularity for
