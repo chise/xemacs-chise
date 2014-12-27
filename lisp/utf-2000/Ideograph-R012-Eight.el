@@ -528,6 +528,21 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E37)	; 丷
+      )
+     ((=big5-cdp	  . #x8A60)	; &CDP-8A60;
+      ))
+    (=ucs		. #x516F)	; 兯
+    (=gb12345		. #x7D67)	; 兯 [93-71]
+    ))
+(define-char
   '((ideographic-radical@ucs . 12)	; ⼋
     (ideographic-strokes@ucs . 2)
     (ideographic-radical@ucs*sources
@@ -549,21 +564,6 @@
       ))
     (<-vulgar*sources
      daikanwa shinjigen)
-    ))
-(define-char
-  '((ideographic-radical . 12)	; ⼋
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x4E37)	; 丷
-      )
-     ((=big5-cdp	  . #x8A60)	; &CDP-8A60;
-      ))
-    (=ucs		. #x516F)	; 兯
-    (=gb12345		. #x7D67)	; 兯 [93-71]
     ))
 (define-char
   '((ideographic-radical . 12)	; ⼋
