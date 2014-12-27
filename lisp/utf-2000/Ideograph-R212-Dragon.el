@@ -18,7 +18,7 @@
     (=cns11643-1	. #x733E)	; &I-C1-733E; [83-30]
     (=jis-x0213-1	. #x4E36)	; &I-JX1-4E36; [46-22]
     (=gb12345		. #x417A)	; &HD-FT-3C5D; [33-90]
-    (=hanyo-denshi/ft	. #x3C5D)	; &HD-FT-3C5D; [28-61]
+    (=hanyo-denshi/ft	. #x3C5D)	; &I-HD-FT-3C5D; [28-61]
     (=gt		. 66672)	; &I-GT-66672;
     (=gt-pj-1		. #x4E36)	; &I-GT-66672; [46-22]
     (=daikanwa		. 48818)	; &I-M-48818;
