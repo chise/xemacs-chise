@@ -18258,15 +18258,6 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 61)	; ⼼
-    (ideographic-radical@daikanwa . 72)	; ⽇
-    (ideographic-strokes . 12)
-    (total-strokes	 . 16)
-    (=ucs		. #x22870)	; 𢡰
-    (=daikanwa		. 14189)	; &I-M-14189;
-    (=hanziku-6		. #xE5CE)	; &I-HZK06-E5CE;
-    ))
-(define-char
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
@@ -18338,6 +18329,15 @@
     (<-unknown
      ((=daikanwa	  . 11188)	; &M-11188;
       ))
+    ))
+(define-char
+  '((ideographic-radical@ucs . 61)	; ⼼
+    (ideographic-radical@daikanwa . 72)	; ⽇
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (=ucs		. #x22870)	; 𢡰
+    (=daikanwa		. 14189)	; &I-M-14189;
+    (=hanziku-6		. #xE5CE)	; &I-HZK06-E5CE;
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
