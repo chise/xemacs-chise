@@ -1,5 +1,16 @@
 2014-12-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R074-Moon.el (g2-C4-296A): Use `==ucs@iso' instead of
+	`==ucs@unicode' for g2-IU+23367.
+	(UU+6717): Apply new conventions for glyph granularity.
+	(U+671A): Likewise.
+	(U+671E): Likewise.
+	(U-00023385): Likewise.
+	(U+6726): Likewise.
+	(U+6727): Likewise.
+
+2014-12-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R067-Script.el (U+9F50): Apply new conventions for
 	glyph granularity; use `ideographic-{radical|strokes}@daikanwa'
 	instead of `ideographic-{radical|strokes}@cns';
