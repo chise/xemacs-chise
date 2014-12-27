@@ -1462,19 +1462,6 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 66)	; ⽁
-    (ideographic-strokes@ucs . 6)
-    (ideographic-radical@ucs*sources
-     cns11643 ucs)
-    (ideographic-radical@daikanwa . 135)	; ⾆
-    (ideographic-strokes@daikanwa . 4)
-    (total-strokes	 . 10)
-    (=ucs		. #x654C)	; 敌
-    (=gb2312		. #x3550)	; &I-G0-3550; [21-48]
-    (=cns11643-4	. #x2D44)	; &I-C4-2D44; [13-36]
-    (=daikanwa		. 30285)	; &I-M-30285;
-    ))
-(define-char
   '((ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
@@ -1497,6 +1484,19 @@
     (total-strokes	 . 10)
     (=ucs		. #x22F1D)	; 𢼝
     (=cns11643-6	. #x3824)	; &I-C6-3824; [24-04]
+    ))
+(define-char
+  '((ideographic-radical@ucs . 66)	; ⽁
+    (ideographic-strokes@ucs . 6)
+    (ideographic-radical@ucs*sources
+     cns11643 ucs)
+    (ideographic-radical@daikanwa . 135)	; ⾆
+    (ideographic-strokes@daikanwa . 4)
+    (total-strokes	 . 10)
+    (=ucs		. #x654C)	; 敌
+    (=gb2312		. #x3550)	; &I-G0-3550; [21-48]
+    (=cns11643-4	. #x2D44)	; &I-C4-2D44; [13-36]
+    (=daikanwa		. 30285)	; &I-M-30285;
     ))
 (define-char
   '((ideographic-radical . 66)	; ⽁
