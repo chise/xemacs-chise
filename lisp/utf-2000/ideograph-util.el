@@ -270,6 +270,12 @@
 	      testers (cdr testers)
 	      defaulters (cdr defaulters))))))
 
+(defun char-daikanwa-radical (char &optional radical ignore-sisters)
+  (or (and (encode-char char '=daikanwa@rev2 'defined-only)
+	   (or (get-char-attribute char 'ideographic-radical@daikanwa)
+	       (get-char-attribute char 'ideographic-radical)))
+      (char-ideographic-radical char radical ignore-sisters)))
+
 (defun char-daikanwa-strokes (char &optional radical)
   (unless radical
     (setq radical ideographic-radical))
@@ -287,7 +293,7 @@
     (setq radical ideographic-radical))
   (if (or (null radical)
           (eq (or (get-char-attribute char 'ideographic-radical)
-                  (char-ideographic-radical char radical t))
+                  (char-daikanwa-radical char radical t))
               radical))
       (let ((ret (or (encode-char char '=daikanwa@rev2 'defined-only)
                      ;; (encode-char char '=daikanwa 'defined-only)
