@@ -283,24 +283,6 @@
     (=big5		. #xC9ED)	; &I-B-C9ED;
     ))
 (define-char
-  '((ideographic-radical@ucs . 72)	; ⽇
-    (ideographic-strokes@ucs . 3)
-    (ideographic-radical@daikanwa . 31)	; ⼞
-    (ideographic-strokes@daikanwa . 4)
-    (total-strokes	 . 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (=ucs		  . #x2FF4)	; ⿴
-      )
-     ((=ucs		  . #x56D7)	; 囗
-      )
-     ((=ucs		  . #x65E5)	; 日
-      ))
-    (=ucs		. #x2314D)	; 𣅍
-    (=daikanwa		. 04731)	; &I-M-04731;
-    (=cbeta		. 03191)	; &I-CB03191;
-    ))
-(define-char
   '((ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
@@ -674,6 +656,24 @@
     (total-strokes	 . 7)
     (=ucs		. #x65F8)	; 旸
     (=iso-ir165		. #x7C39)	; &I-EGB-7C39; [92-25]
+    ))
+(define-char
+  '((ideographic-radical@ucs . 72)	; ⽇
+    (ideographic-strokes@ucs . 3)
+    (ideographic-radical@daikanwa . 31)	; ⼞
+    (ideographic-strokes@daikanwa . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
+    (=ucs		. #x2314D)	; 𣅍
+    (=daikanwa		. 04731)	; &I-M-04731;
+    (=cbeta		. 03191)	; &I-CB03191;
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
