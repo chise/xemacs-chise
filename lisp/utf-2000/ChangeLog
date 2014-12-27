@@ -26,6 +26,10 @@
 	(U-0002A5D1): Likewise.
 	(U-0002A5D2): Likewise.
 
+	* ideograph-util.el (char-daikanwa-radical): New function.
+	(char-daikanwa): Use `char-daikanwa-radical' instead of
+	`char-ideographic-radical'.
+
 2014-12-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R074-Moon.el (g2-C4-296A): Use `==ucs@iso' instead of
