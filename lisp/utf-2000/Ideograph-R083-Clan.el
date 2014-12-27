@@ -38,17 +38,21 @@
     (=daikanwa		. 17027)	; &I-M-17027;
     (=jef-china3	. #x55A8)	; &I-JC3-55A8;
     (->subsumptive
-     ((==daikanwa	  . 17027)	; &R-M-17027;
+     ((==ucs@cns	  . #x6C10)	; &g2-M-17027;
+      (==cns11643-1	  . #x4662)	; &g2-M-17027; [38-66]
+      (==daikanwa	  . 17027)	; &g2-M-17027;
+      (->subsumptive
+       ((===daikanwa	    . 17027)	; &R-M-17027;
+	)
+       ((===cns11643-1	    . #x4662)	; &R-C1-4662; [38-66]
+	))
       )
-     ((==ucs@cns	  . #x6C10)	; &R-CU+6C10;
-      (==cns11643-1	  . #x4662)	; &R-CU+6C10; [38-66]
-      )
-     ((==ucs@jis	  . #x6C10)	; &R-JSP-4649;
+     ((==ucs@jis	  . #x6C10)	; &g2-JSP-4649;
       (==ucs@JP/hanazono  . nil)
-      (==jis-x0212	  . #x4649)	; &R-JSP-4649; [38-41]
-      (==jis-x0213-1	  . #x764F)	; &R-JSP-4649; [86-47]
+      (==jis-x0212	  . #x4649)	; &g2-JSP-4649; [38-41]
+      (==jis-x0213-1	  . #x764F)	; &g2-JSP-4649; [86-47]
       )
-     ((==ucs@JP/hanazono  . #x6C10)	; &R-hanaJU+6C10;
+     ((==ucs@JP/hanazono  . #x6C10)	; &g2-hanaJU+6C10;
       ))
     ))
 (define-char
@@ -111,25 +115,34 @@
     (total-strokes	 . 8)
     (=ucs		. #x6C13)	; 氓
     (=big5		. #xAA5D)	; &I-B-AA5D;
-    (=>>hanyo-denshi/ft . #x366B)	; 氓 [22-75]
+    (=+>hanyo-denshi/ft . #x366B)	; 氓 [22-75]
     (->subsumptive
-     ((=ks-x1001	  . #x586C)	; &M-17030; [56-76]
-      (=daikanwa	  . 17030)	; &I-M-17030;
-      )
-     ((=decomposition@hanyo-denshi
-       ((=ucs		    . #x6C13)	; 氓
-	)
-       ((=ucs		    . #xE0102)	; 󠄂
-	))
-      (=ucs@jis		  . #x6C13)	; &I-J90-5D62;
+     ((=ucs@jis		  . #x6C13)	; &I-J90-5D62;
       (=jis-x0208@1990	  . #x5D62)	; &I-J90-5D62; [61-66]
       (=jis-x0213-1	  . #x5D62)	; &I-JX1-5D62; [61-66]
       (=hanyo-denshi/ja	  . #x5D62)	; &I-HD-JA-5D62; [61-66]
+      (=daikanwa	  . 17030)	; &I-M-17030;
       (=shinjigen	  .  4040)	; &I-J90-5D62;
+      (->subsumptive
+       ((==daikanwa	    . 17030)	; &g2-M-17030;
+	)
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x6C13)	; 氓
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(==ucs@jis	    . #x6C13)	; &g2-HD-JA-5D62;
+	(==jis-x0208@1990   . #x5D62)	; &g2-HD-JA-5D62; [61-66]
+	(==jis-x0213-1	    . #x5D62)	; &g2-HD-JA-5D62; [61-66]
+	(==hanyo-denshi/ja  . #x5D62)	; &g2-HD-JA-5D62; [61-66]
+	(==shinjigen	    .  4040)	; &g2-HD-JA-5D62;
+	))
       )
-     ((=ucs@cns		  . #x6C13)	; &HD-FT-366B;
+     ((=ucs@unicode	  . #x6C13)	; &HD-FT-366B;
       (=jis-x0208@1978	  . #x5D62)	; &HD-FT-366B; [61-66]
+      (=gb2312		  . #x4325)	; &I-G0-4325; [35-05]
       (=jis-x0208@1983	  . #x5D62)	; &I-J83-5D62; [61-66]
+      (=ks-x1001	  . #x586C)	; &I-K0-586C; [56-76]
       (=cns11643-1	  . #x4E40)	; &I-C1-4E40; [46-32]
       (=hanyo-denshi/ft	  . #x366B)	; &I-HD-FT-366B; [22-75]
       (=gt		  . 21808)	; &I-GT-21808;
@@ -140,18 +153,28 @@
 	  )
 	 ((=ucs		      . #xE0103)	; 󠄃
 	  ))
-	(==jis-x0208@1978   . #x5D62)	; &R-HD-FT-366B; [61-66]
-	(==jis-x0208@1983   . #x5D62)	; &R-HD-FT-366B; [61-66]
-	(==hanyo-denshi/ft  . #x366B)	; &R-HD-FT-366B; [22-75]
+	(==ucs@cns	    . #x6C13)	; &g2-HD-FT-366B;
+	(==jis-x0208@1978   . #x5D62)	; &g2-HD-FT-366B; [61-66]
+	(==jis-x0208@1983   . #x5D62)	; &g2-HD-FT-366B; [61-66]
+	(==cns11643-1	    . #x4E40)	; &g2-HD-FT-366B; [46-32]
+	(==hanyo-denshi/ft  . #x366B)	; &g2-HD-FT-366B; [22-75]
+	(==gt		    . 21808)	; &g2-HD-FT-366B;
+	(->subsumptive
+	 ((===jis-x0208@1978  . #x5D62)	; &R-HD-FT-366B; [61-66]
+	  (===jis-x0208@1983  . #x5D62)	; &R-HD-FT-366B; [61-66]
+	  (===hanyo-denshi/ft . #x366B)	; &R-HD-FT-366B; [22-75]
+	  )
+	 ((===gt	      . 21808)	; &R-GT-21808;
+	  )
+	 ((===cns11643-1      . #x4E40)	; &R-C1-4E40; [46-32]
+	  ))
 	)
-       ((==gt		    . 21808)	; &R-GT-21808;
+       ((==ucs@unicode	    . #x6C13)	; &g2-UU+6C13;
+	(==gb2312	    . #x4325)	; &g2-UU+6C13; [35-05]
 	)
-       ((==ucs@cns	    . #x6C13)	; &R-CU+6C13;
-	(==cns11643-1	    . #x4E40)	; &R-CU+6C13; [46-32]
+       ((==ucs@ks	    . #x6C13)	; &g2-K0-586C;
+	(==ks-x1001	    . #x586C)	; &g2-K0-586C; [56-76]
 	))
-      )
-     ((=ucs@unicode	  . #x6C13)	; &G0-4325;
-      (=gb2312		  . #x4325)	; &G0-4325; [35-05]
       ))
     ))
 (define-char
