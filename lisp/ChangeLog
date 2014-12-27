@@ -1,5 +1,11 @@
 2014-12-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* mule/mule-conf.el (===hanyo-denshi/jc): New coded-charset for
+	XEmacs CHISE.
+	(===hanyo-denshi/jd): Fix DOC.
+
+2014-12-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
 	setting for `===hanyo-denshi/ip'.
 
