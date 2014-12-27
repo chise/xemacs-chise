@@ -1,3 +1,31 @@
+2014-12-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R096-Jade.el (U+7409): Apply new conventions for glyph
+	granularity.
+	(U+740A): Likewise.
+	(U+742E): Likewise.
+	(U+744B): Likewise.
+	(U+7462): Likewise.
+	(U+746F): Likewise.
+	(U+748B): Likewise.
+	(UU+74A1): Likewise.
+	(UU+74B0): Unify K0-7C3B.
+	(JU+74B0): Apply new conventions for glyph granularity.
+	(U+74C1): Likewise.
+	(U+74CA): Likewise.
+	(CU+74CE): Likewise.
+	(U+74CF): Likewise.
+	(CU+74D7): Likewise.
+	(U+74D8): Likewise.
+
+	* Ideograph-R210-Even.el (U+9F4A): Apply new conventions for glyph
+	granularity.
+	(U+9F50): Likewise.
+	(U+9F4B): Likewise.
+	(U-0002019C): Likewise.
+	(U-0002A5D1): Likewise.
+	(U-0002A5D2): Likewise.
+
 2014-12-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R074-Moon.el (g2-C4-296A): Use `==ucs@iso' instead of
@@ -8,6 +36,10 @@
 	(U-00023385): Likewise.
 	(U+6726): Likewise.
 	(U+6727): Likewise.
+
+	* Ideograph-R083-Clan.el (JU+6C10): Apply new conventions for
+	glyph granularity.
+	(U+6C13): Likewise.
 
 2014-12-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
