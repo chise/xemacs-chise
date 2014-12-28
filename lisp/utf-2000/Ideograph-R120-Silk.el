@@ -1131,11 +1131,11 @@
 (define-char
   '((ideographic-radical@ucs . 4)	; ⼃
     (ideographic-strokes@ucs . 7)
-    (ideographic-radical@cns . 120)	; ⽷
-    (ideographic-strokes@cns . 4)
-    (total-strokes@cns	     . 10)
-    (ideographic-radical@cns*sources
+    (ideographic-radical@daikanwa . 120)	; ⽷
+    (ideographic-strokes@daikanwa . 4)
+    (ideographic-radical@daikanwa*sources
      daikanwa cns11643)
+    (total-strokes@cns	     . 10)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 309 8)
     (=ucs		. #x200B3)	; 𠂳
