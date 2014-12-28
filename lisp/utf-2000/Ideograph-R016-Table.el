@@ -1380,10 +1380,8 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 1)	; ⼀
-    (ideographic-strokes@ucs . 11)
-    (ideographic-radical@daikanwa . 16)	; ⼏
-    (ideographic-strokes@daikanwa . 10)
+  '((ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (hanyu-dazidian	1 26 14)
     (ideographic-structure
