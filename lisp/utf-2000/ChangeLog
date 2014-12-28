@@ -1,5 +1,33 @@
 2014-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R150-Valley.el (U+8C3F): Apply new conventions for
+	glyph granularity.
+	(UU+8C41): Likewise.
+	(U+8C45): Likewise.
+
+	* Ideograph-R147-See.el (UU+8996): Apply new conventions for glyph
+	granularity.
+	(U+89AA): Likewise.
+
+	* Ideograph-R101-Use.el (U-000200B5): Omit
+	`ideographic-{radical|strokes}@ucs' [based on ISO/IEC 10646:2014].
+
+	* Ideograph-R030-Mouth.el (U-0002067C): Omit
+	`ideographic-{radical|strokes}@ucs' [based on ISO/IEC 10646:2014].
+	(JU+5467): Apply new conventions for glyph granularity.
+	(U-00020048): Use `ideographic-{radical|strokes}@daikanwa' instead
+	of `ideographic-{radical|strokes}@cns'.
+	(IU+20048): Likewise; add `<-same' and `<-formed@Zetian' for
+	U+541B.
+
+	* Ideograph-R017-Open-Box.el (U-0002067C): Omit
+	`ideographic-{radical|strokes}@ucs' [based on ISO/IEC 10646:2014];
+	moved to Ideograph-R030-Mouth.el.
+
+	* Ideograph-R008-Lid.el (U-00020179): Omit
+	`ideographic-{radical|strokes}@ucs' [based on ISO/IEC 10646:2014];
+	moved to Ideograph-R052-Short-Thread.el.
+
 	* Ideograph-R144-Walk-Enclosure.el (U-000275FA): Apply new
 	conventions for glyph granularity.
 
