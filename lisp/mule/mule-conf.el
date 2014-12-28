@@ -1923,14 +1923,24 @@
 
   (make-charset
    '=koseki
-   "Representative glyph-images of KoSeki-touitsu-moji."
-   '(long-name "KoSeki-touitsu-moji"
+   "Abstract glyph-forms of KoSeki-touitsu-moji."
+   '(long-name "KoSeki-touitsu-moji glyph-forms"
 	       chars 256
 	       dimension 3
 	       columns 2
 	       graphic 2
 	       direction l2r
 	       mother =hanyo-denshi/ks))
+  (make-charset
+   '==koseki
+   "Representative glyph-images of KoSeki-touitsu-moji."
+   '(long-name "KoSeki-touitsu-moji glyph-images"
+	       chars 256
+	       dimension 3
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =koseki))
 
   (define-charset-alias '=>>>hanyo-denshi/ja '==hanyo-denshi/ja)
   (define-charset-alias '=>>>hanyo-denshi/jb '==hanyo-denshi/jb)
