@@ -1420,9 +1420,9 @@
      ((=ucs		  . #x6700)	; 最
       ))
     (=>ucs*		. #x6700)	; 最
-    (ideographic-radical@ucs . 73)	; ⽈
-    (ideographic-strokes@ucs . 8)
-    (ideographic-radical@ucs*sources
+    (ideographic-radical@daikanwa . 73)	; ⽈
+    (ideographic-strokes@daikanwa . 8)
+    (ideographic-radical@daikanwa*sources
      daikanwa jisx0208/c cns11643-6 ucs)
     (ideographic-radical@shinjigen . 29)	; ⼜
     (ideographic-strokes@shinjigen . 10)
