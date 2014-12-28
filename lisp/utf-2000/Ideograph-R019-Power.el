@@ -226,8 +226,7 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 9)	; ⼈
-    (ideographic-radical@daikanwa . 19)	; ⼒
+  '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 113 4)
