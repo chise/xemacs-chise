@@ -1,3 +1,8 @@
+2014-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=koseki): Fix DOC.
+	(==koseki): New coded-charset for XEmacs CHISE.
+
 2014-12-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (===hanyo-denshi/jc): New coded-charset for
