@@ -320,17 +320,6 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 17)	; ⼐
-    (ideographic-strokes@ucs . 3)
-    (ideographic-radical@daikanwa . 30)	; ⼝
-    (ideographic-strokes@daikanwa . 2)
-    (total-strokes	 . 5)
-    (hanyu-dazidian	1 307 7)
-    (=ucs		. #x2067C)	; 𠙼
-    (=daikanwa		. 03266)	; &I-M-03266;
-    (=hanziku-1		. #xE561)	; &I-HZK01-E561;
-    ))
-(define-char
   '((ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
