@@ -355,18 +355,15 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 8)	; ⼇
-    (ideographic-radical@daikanwa . 52)	; ⼳
+  '((ideographic-radical . 52)	; ⼳
     (=ucs		. #x20179)	; 𠅹
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x20179)	; 𠅹
       ))
-    (ideographic-radical@ucs . 8)	; ⼇
-    (ideographic-strokes@ucs . 11)
-    (ideographic-radical@daikanwa . 52)	; ⼳
-    (ideographic-strokes@daikanwa . 10)
+    (ideographic-radical . 52)	; ⼳
+    (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (hanyu-dazidian	1 291 4)
     (ideographic-structure
