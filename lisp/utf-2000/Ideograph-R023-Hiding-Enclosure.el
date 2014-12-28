@@ -520,11 +520,11 @@
     (=ucs@iso		. #x20971)	; &C6-2637;
     (=cns11643-6	. #x2637)	; &C6-2637; [06-23]
     (=daikanwa		. 02681)	; &I-M-02681;
-    (<-Zetian
+    (<-formed@Zetian
      ((=ucs@unicode	  . #x6708)	; &MJ013520;
       (=mj		  . 013520)	; &MJ013520;
       ))
-    (<-Zetian*sources
+    (<-formed@Zetian*sources
      zihui-bu)
     (<-same
      ((=ucs@unicode	  . #x6708)	; &MJ013520;
