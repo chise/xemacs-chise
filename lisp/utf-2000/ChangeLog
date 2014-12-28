@@ -1,3 +1,28 @@
+2014-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R144-Walk-Enclosure.el (U-000275FA): Apply new
+	conventions for glyph granularity.
+
+	* Ideograph-R052-Short-Thread.el (U-00020179): Omit
+	`ideographic-{radical|strokes}@ucs' [based on ISO/IEC 10646:2014].
+
+	* Ideograph-R023-Hiding-Enclosure.el (IU+20971): Use
+	`<-formed@Zetian' instead of `<-Zetian'.
+
+2014-12-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R120-Silk.el (U-000200B3): Use
+	`ideographic-{radical|strokes}@daikanwa' instead of
+	`ideographic-{radical|strokes}@cns'.
+
+	* Ideograph-R077-Stop.el (U-0002398F): Omit
+	`ideographic-{radical|strokes}@ucs' [based on ISO/IEC 10646:2014];
+	moved to Ideograph-R056-Shoot.el.
+
+	* Ideograph-R062-Halberd.el (U-000203B6): Omit
+	`ideographic-{radical|strokes}@ucs' [based on ISO/IEC 10646:2014];
+	apply new conventions for glyph granularity.
+
 2014-12-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R142-Insect.el (U-00020474): Omit
