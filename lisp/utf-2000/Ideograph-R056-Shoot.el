@@ -483,10 +483,8 @@
     (=daikanwa		. 09683)	; &I-M-09683;
     ))
 (define-char
-  '((ideographic-radical@ucs . 77)	; ⽌
-    (ideographic-strokes@ucs . 9)
-    (ideographic-radical@daikanwa . 56)	; ⼷
-    (ideographic-strokes@daikanwa . 10)
+  '((ideographic-radical . 56)	; ⼷
+    (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (hanyu-dazidian	1 560 3)
     (=ucs		. #x2398F)	; 𣦏
