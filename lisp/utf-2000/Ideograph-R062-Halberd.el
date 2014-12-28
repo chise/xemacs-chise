@@ -1544,16 +1544,7 @@
     (=daikanwa		. 11625)	; &I-M-11625;
     ))
 (define-char
-  '((ideographic-radical@ucs . 9)	; ⼈
-    (ideographic-strokes@ucs . 11)
-    (ideographic-radical@daikanwa . 62)	; ⼽
-    (ideographic-strokes@daikanwa . 9)
-    (ideographic-radical@daikanwa*sources
-     daikanwa cns11643)
-    (ideographic-strokes@daikanwa*sources
-     daikanwa)
-    (total-strokes	 . 13)
-    (hanyu-dazidian	1 206 18)
+  '((ideographic-radical . 62)	; ⼽
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -1570,7 +1561,33 @@
      ((=ucs		  . #x4EBA)	; 人
       ))
     (=ucs		. #x203B6)	; 𠎶
-    (=cns11643-5	. #x3F46)	; &I-C5-3F46; [31-38]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x203B6)	; 𠎶
+      ))
+    (ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (hanyu-dazidian	1 206 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x672A)	; 未
+	)
+       ((=ucs@unicode	    . #x6210)	; &AJ1-02642;
+	(=adobe-japan1-0    . 02642)	; &AJ1-02642;
+	))
+      )
+     ((=ucs		  . #x4EBA)	; 人
+      ))
+    (=ucs@iso		. #x203B6)	; &C5-3F46;
+    (=cns11643-5	. #x3F46)	; &C5-3F46; [31-38]
     (=daikanwa		. 11626)	; &I-M-11626;
     (=hanziku-1		. #xD0CF)	; &I-HZK01-D0CF;
     ))
