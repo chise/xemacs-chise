@@ -1,5 +1,15 @@
 2014-12-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R142-Insect.el (U-00020474): Omit
+	`ideographic-{radical|strokes}@ucs' [based on ISO/IEC 10646:2014].
+
+	* Ideograph-R056-Shoot.el (U-0002398F): Omit
+	`ideographic-{radical|strokes}@ucs' [based on ISO/IEC 10646:2014].
+
+	* Ideograph-R014-Cover.el (U-0002F8D4): Use
+	`ideographic-{radical|strokes}@daikanwa' instead of
+	`ideographic-{radical|strokes}@ucs'.
+
 	* Ideograph-R096-Jade.el (U+7409): Apply new conventions for glyph
 	granularity.
 	(U+740A): Likewise.
