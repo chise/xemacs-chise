@@ -1,5 +1,23 @@
 2014-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R073-Say.el (U-0002F8D4): Use
+	`ideographic-{radical|strokes}@daikanwa' instead of
+	`ideographic-{radical|strokes}@ucs'.
+
+	* Ideograph-R019-Power.el (U-000201AE): Omit
+	`ideographic-radical@ucs' [based on ISO/IEC 10646:2014].
+
+	* Ideograph-R016-Table.el (U-00020049): Omit
+	`ideographic-{radical|strokes}@ucs' [based on ISO/IEC 10646:2014].
+
+	* Ideograph-R013-Down-Box.el (U-0002F8D4): Use
+	`ideographic-{radical|strokes}@daikanwa' instead of
+	`ideographic-{radical|strokes}@ucs'.
+
+	* Ideograph-R004-Slash.el (U-000200B5): Omit
+	`ideographic-{radical|strokes}@ucs' [based on ISO/IEC 10646:2014];
+	moved to Ideograph-R101-Use.el.
+
 	* Ideograph-R150-Valley.el (U+8C3F): Apply new conventions for
 	glyph granularity.
 	(UU+8C41): Likewise.
