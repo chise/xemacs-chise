@@ -1372,17 +1372,6 @@
     (=hanziku-4		. #xD3B4)	; &HZK04-D3B4;
     ))
 (define-char
-  '((ideographic-radical@ucs . 77)	; ⽌
-    (ideographic-strokes@ucs . 9)
-    (ideographic-radical@daikanwa . 56)	; ⼷
-    (ideographic-strokes@daikanwa . 10)
-    (total-strokes	 . 13)
-    (hanyu-dazidian	1 560 3)
-    (=ucs		. #x2398F)	; 𣦏
-    (=daikanwa		. 09684)	; &I-M-09684;
-    (=hanziku-2		. #xC342)	; &I-HZK02-C342;
-    ))
-(define-char
   '((ideographic-radical . 77)	; ⽌
     (=ucs		. #x6B70)	; 歰
     ))
