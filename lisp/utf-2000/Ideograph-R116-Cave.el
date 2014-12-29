@@ -251,7 +251,7 @@
     (total-strokes	 . 8)
     (=>>ucs@unicode	. #x7A7A)	; &G-UU+7A7A;
     (=shinjigen		.  5682)	; &G-UU+7A7A;
-    (=jef-china3	. #x5DCC)	; &JC3-5DCC;
+    (=jef-china3	. #x5DCC)	; &I-JC3-5DCC;
     (->subsumptive
      ((==ucs@unicode	  . #x7A7A)	; &g2-UU+7A7A;
       (==gb2312		  . #x3F55)	; &g2-UU+7A7A; [31-53]
