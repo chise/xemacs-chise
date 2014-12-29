@@ -1,5 +1,15 @@
 2014-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el (U-00020049): Omit
+	`ideographic-{radical|strokes}@ucs' [based on ISO/IEC 10646:2014];
+	moved to Ideograph-R016-Table.el.
+	(U-00020048): Use `ideographic-{radical|strokes}@daikanwa' instead
+	of `ideographic-{radical|strokes}@cns'.
+	(IU+20048): Likewise; add `<-same' and `<-formed@Zetian' for
+	U+541B.
+
+2014-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R073-Say.el (U-0002F8D4): Use
 	`ideographic-{radical|strokes}@daikanwa' instead of
 	`ideographic-{radical|strokes}@ucs'.
