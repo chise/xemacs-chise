@@ -1,3 +1,10 @@
+2014-12-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R011-Enter.el (U-000201D2): Fix
+	`ideographic-structure'.
+	(g2-M-01429): Ditto.
+	(g2-IU+201D2): Ditto.
+
 2014-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R001-One.el (U-00020049): Omit
