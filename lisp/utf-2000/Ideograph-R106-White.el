@@ -174,6 +174,11 @@
     (ideographic-radical . 106)	; ⽩
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
+    (=decomposition@hanyo-denshi
+     ((=ucs		  . #x7684)	; 的
+      )
+     ((=ucs		  . #xE0102)	; 󠄂
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -196,24 +201,20 @@
     (=daikanwa		. 22692)	; &I-M-22692;
     (=shinjigen		.  5199)	; &HD-JA-452A;
     (->subsumptive
-     ((==daikanwa	  . 22692)	; &R-M-22692;
+     ((===daikanwa	  . 22692)	; &R-M-22692;
       )
-     ((=decomposition@hanyo-denshi
-       ((=ucs		    . #x7684)	; 的
-	)
-       ((=ucs		    . #xE0102)	; 󠄂
-	))
-      (==ucs@unicode	  . #x7684)	; &R-HD-JA-452A;
-      (==gb2312		  . #x3544)	; &R-HD-JA-452A; [21-36]
-      (==ks-x1001	  . #x6E5C)	; &R-HD-JA-452A; [78-60]
-      (==jis-x0208	  . #x452A)	; &R-HD-JA-452A; [37-10]
-      (==cns11643-1	  . #x4E7B)	; &R-HD-JA-452A; [46-91]
-      (==jis-x0213-1	  . #x452A)	; &R-HD-JA-452A; [37-10]
-      (==hanyo-denshi/ja  . #x452A)	; &R-HD-JA-452A; [37-10]
-      (==shinjigen	  .  5199)	; &R-HD-JA-452A;
+     ((===jis-x0208	  . #x452A)	; &R-J90-452A; [37-10]
+      (===jis-x0213-1	  . #x452A)	; &R-J90-452A; [37-10]
       )
-     ((==gt		  . 29087)	; &R-GT-29087;
-      (==gt-k		  . 03780)	; &R-GT-29087;
+     ((===ucs@ks	  . #x7684)	; &R-K0-6E5C;
+      (===ks-x1001	  . #x6E5C)	; &R-K0-6E5C; [78-60]
+      )
+     ((===ucs@unicode	  . #x7684)	; &R-UU+7684;
+      )
+     ((===cns11643-1	  . #x4E7B)	; &R-C1-4E7B; [46-91]
+      )
+     ((===gt		  . 29087)	; &R-GT-29087;
+      (===gt-k		  . 03780)	; &R-GT-29087;
       ))
     ))
 (define-char
