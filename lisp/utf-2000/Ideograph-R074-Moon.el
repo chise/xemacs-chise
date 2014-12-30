@@ -2050,8 +2050,7 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 130)	; ⾁
-    (ideographic-radical@daikanwa . 74)	; ⽉
+  '((ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
     (hanyu-dazidian	3 2115 13)
