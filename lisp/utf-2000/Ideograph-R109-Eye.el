@@ -3178,32 +3178,34 @@
     (=daikanwa		. 23327)	; &I-M-23327;
     ))
 (define-char
-  '((ideographic-radical@ucs . 9)	; ⼈
-    (ideographic-strokes@ucs . 10)
-    (total-strokes@ucs	     . 12)
-    (ideographic-radical@cns . 109)	; ⽬
-    (ideographic-strokes@cns . 6)
-    (total-strokes@cns	     . 11)
-    (ideographic-radical@cns*sources
-     daikanwa cns11643)
+  '((ideographic-radical@daikanwa . 109)	; ⽬
+    (ideographic-radical@misc . 9)	; ⼈
     (=ucs		. #x2032A)	; 𠌪
     (->subsumptive
      ((ideographic-radical@daikanwa . 109)	; ⽬
       (ideographic-strokes@daikanwa . 6)
+      (ideographic-radical@daikanwa*sources
+       daikanwa cns11643)
       (ideographic-radical@misc . 9)	; ⼈
       (ideographic-strokes@misc . 9)
       (total-strokes	   . 11)
       (hanyu-dazidian	  1 189 5)
-      (=daikanwa	  . 23328)	; &M-23328;
+      (=cns11643-5	  . #x3421)	; &C5-3421; [20-01]
+      (=daikanwa	  . 23328)	; &I-M-23328;
       (=hanziku-1	  . #xCD57)	; &I-HZK01-CD57;
+      (->subsumptive
+       ((==ucs@cns	    . #x2032A)	; &g2-M-23328;
+	(==cns11643-5	    . #x3421)	; &g2-M-23328; [20-01]
+	(==daikanwa	    . 23328)	; &g2-M-23328;
+	(->subsumptive
+	 ((===daikanwa	      . 23328)	; &R-M-23328;
+	  )
+	 ((===cns11643-5      . #x3421)	; &R-C5-3421; [20-01]
+	  ))
+	))
       )
      ((ideographic-radical . 109)	; ⽬
       (ideographic-strokes . 6)
-      (total-strokes	   . 11)
-      (=cns11643-5	  . #x3421)	; &C5-3421; [20-01]
-      )
-     ((ideographic-radical . 9)	; ⼈
-      (ideographic-strokes . 10)
       (total-strokes	   . 12)
       (=ucs@iso		  . #x2032A)	; &U-0002032A;
       ))
