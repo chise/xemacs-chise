@@ -4037,6 +4037,29 @@
     ))
 (define-char
   '((ideographic-radical . 102)	; ⽥
+    (ideographic-strokes . 15)
+    (total-strokes	 . 20)
+    (=ucs		. #x2AF64)	; 𪽤
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2AF64)	; 𪽤
+      ))
+    (ideographic-radical . 102)	; ⽥
+    (ideographic-strokes . 15)
+    (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x757E)	; 畾
+      )
+     ((=ucs		  . #x4E14)	; 且
+      ))
+    (=ucs@iso		. #x2AF64)	; &U-0002AF64;
+    ))
+(define-char
+  '((ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 16)
     (total-strokes	 . 21)
     (hanyu-dazidian	4 2555 9)
