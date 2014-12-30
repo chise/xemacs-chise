@@ -13654,16 +13654,6 @@
     (=gb12345		. #x7C4A)	; 膶 [92-42]
     ))
 (define-char
-  '((ideographic-radical@ucs . 130)	; ⾁
-    (ideographic-radical@daikanwa . 74)	; ⽉
-    (ideographic-strokes . 13)
-    (total-strokes	 . 17)
-    (hanyu-dazidian	3 2115 13)
-    (=ucs		. #x26856)	; 𦡖
-    (=daikanwa		. 14407)	; &I-M-14407;
-    (=hanziku-6		. #xB3AA)	; &I-HZK06-B3AA;
-    ))
-(define-char
   '((ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
