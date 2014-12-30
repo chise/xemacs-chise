@@ -1,5 +1,36 @@
 2014-12-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R130-Meat.el (U-00026856): Omit
+	`ideographic-radical@ucs' [based on ISO/IEC 10646:2014]; moved to
+	Ideograph-R074-Moon.el.
+
+	* Ideograph-R122-Net.el (U+7F54): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R109-Eye.el (U-0002032A): Use
+	`ideographic-radical@misc' instead of `ideographic-radical@ucs'
+	[based on ISO/IEC 10646:2014]; use `ideographic-radical@daikanwa'
+	instead of `ideographic-radical@cns'; apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R106-White.el (UU+7684): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R102-Field.el (U-0002AF64): New character.
+
+	* Ideograph-R009-Man.el (U-000201AE): Omit
+	`ideographic-radical@ucs' [based on ISO/IEC 10646:2014]; moved to
+	Ideograph-R019-Power.el.
+	(U-000201D2): Fix ideographic-structure.
+	(U-0002032A): Use `ideographic-radical@misc' instead of
+	`ideographic-radical@ucs' [based on ISO/IEC 10646:2014]; apply new
+	conventions for glyph granularity.
+	(U-000203B6): Omit `ideographic-{radical|strokes}@ucs' [based on
+	ISO/IEC 10646:2014]; apply new conventions for glyph granularity;
+	moved to Ideograph-R062-Halberd.el.
+	(U-00020474): Omit `ideographic-{radical|strokes}@ucs' [based on
+	ISO/IEC 10646:2014]; moved to Ideograph-R142-Insect.el.
+
 	* Ideograph-R074-Moon.el (U-00026856): Omit
 	`ideographic-radical@ucs' [based on ISO/IEC 10646:2014].
 
