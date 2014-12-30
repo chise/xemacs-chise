@@ -1,5 +1,8 @@
 2014-12-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R074-Moon.el (U-00026856): Omit
+	`ideographic-radical@ucs' [based on ISO/IEC 10646:2014].
+
 	* Ideograph-R011-Enter.el (U-000201D2): Fix
 	`ideographic-structure'.
 	(g2-M-01429): Ditto.
