@@ -1,5 +1,26 @@
 2014-12-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R082-Fur.el (U+6BDB): Apply new conventions for glyph
+	granularity.
+	(U-00023B39): Likewise.
+	(U+6BE1): Unify S-4034; add `<-vulgar' for UU+6C08.
+	(U+3C96): Apply new conventions for glyph granularity.
+	(UU+3C99): Likewise.
+	(U+3C9A): Likewise.
+	(IU+23BDC): Likewise.
+	(IU+23BC8): Likewise.
+	(U-00023BDF): Likewise.
+	(U+6C03): Likewise.
+	(U+3CAA): Likewise.
+	(U+6C08): Likewise.
+	(U+6C0A): Likewise.
+	(U+6C0B): Likewise.
+	(U-00023C1B): Likewise.
+	(UU+3CB1): Add `<-same' for IU+23C2B.
+	(G-CB00626): New node to integrate CB00626 and CB02517.
+	(CB02517): New character.
+	(CU+3CB2): Separate CB00626.
+
 	* Ideograph-R107-Skin.el (JU+76B6): Apply new conventions for
 	glyph granularity.
 
