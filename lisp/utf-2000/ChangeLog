@@ -1,3 +1,38 @@
+2014-12-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R107-Skin.el (JU+76B6): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R104-Sickness.el (UU+75BC): Apply new conventions for
+	glyph granularity.
+	(U+75CE): Likewise.
+	(U+3F93): Likewise.
+	(CU+3F94): Likewise.
+	(UU+75DC): Likewise.
+	(CU+3F9B): Likewise.
+	(U-00024DC8): Likewise.
+	(CU+24DC9): Likewise.
+	(CU+761B): Likewise.
+	(U-00024E34): Likewise.
+	(U-00024E35): Likewise.
+	(U+7626): Likewise.
+	(U+75E9): Likewise.
+	(U+7627): Likewise.
+	(CU+24E3F): Likewise.
+	(U+7634): Likewise.
+	(U+763C): Likewise.
+	(U+7652): Likewise.
+	(U+7658): Likewise.
+
+	* Ideograph-R029-Again.el (U-00020B65): Apply new conventions for
+	glyph granularity.
+	(U-00020B66): Likewise.
+	(U-00020B67): Likewise.
+	(U-00020B68): Likewise.
+	(U-00020B6E): Likewise.
+	(U-0002F8D4): Use `ideographic-{radical|strokes}@daikanwa' instead
+	of `ideographic-{radical|strokes}@ucs'.
+
 2014-12-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R130-Meat.el (U-00026856): Omit
