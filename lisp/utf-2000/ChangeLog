@@ -1,3 +1,10 @@
+2015-01-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R015-Ice.el (g2-CU+51DC): Apply new conventions for
+	glyph granularity for a component of ideographic-structure.
+	(g2-CU+51DB): Likewise.
+	(g2-UU+51DB): Likewise.
+
 2014-12-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R098-Tile.el (CU+74EF): Add `<-vulgar' for UU+750C;
