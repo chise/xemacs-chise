@@ -1,3 +1,86 @@
+2015-01-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R118-Bamboo.el (UU+7BC0): Apply new conventions for
+	glyph granularity.
+	(UU+7BED): Likewise.
+	(U+7C2A): Likewise.
+	(C1-7A26): Likewise.
+	(U+7C50): Likewise.
+	(U+7C58): Likewise.
+	(U+7C60): Likewise.
+	(U+426F): Likewise.
+	(UU+7C6C): Likewise.
+
+	* Ideograph-R115-Grain.el (U+414A): Apply new conventions for
+	glyph granularity.
+	(U+7A01): Likewise.
+	(U+7A1F): Likewise.
+	(U+7A3C): Likewise.
+	(U+7A3E): Likewise.
+	(U+7A3F): Likewise.
+	(U+7A43): Likewise.
+	(CU+4178): Likewise.
+	(U+4179): Likewise.
+	(U+7A55): Likewise.
+	(UU+7A6B): Likewise.
+	(U+7A63): Likewise.
+	(U-000258F0): Likewise.
+	(U+418D): Likewise.
+	(U-00025906): Likewise.
+	(IU+2590A): Likewise.
+
+	* Ideograph-R113-Spirit.el (UU+793C): Apply new conventions for
+	glyph granularity.
+	(UU+793E): Likewise.
+	(UU+7940): Likewise.
+	(UU+7941): Likewise.
+	(UU+7947): Likewise.
+	(UU+7948): Likewise.
+	(UU+7949): Likewise.
+	(UU+7950): Likewise.
+	(UU+7955): Likewise.
+	(UU+7956): Likewise.
+	(JU+7957): Likewise.
+	(UU+795A): Likewise.
+	(UU+795B): Likewise.
+	(UU+795C): Likewise.
+	(UU+795D): Likewise.
+	(UU+795E): Likewise.
+	(UU+7960): Likewise.
+	(U+7962): Likewise.
+	(UU+7965): Likewise.
+	(UU+797A): Likewise.
+	(UU+797F): Likewise.
+	(UU+7984): Likewise.
+	(U+7980): Likewise.
+	(UU+7985): Likewise.
+	(JU+798D): Likewise.
+	(UU+798E): Likewise.
+	(UU+798F): Likewise.
+	(UU+7994): Likewise.
+	(UU+7998): Likewise.
+	(U+799B): Likewise.
+	(UU+79A7): Likewise.
+	(UU+79AA): Likewise.
+	(UU+79AE): Likewise.
+	(UU+79B0): Likewise.
+	(UU+79B1): Likewise.
+	(U+79B3): Likewise.
+
+2015-01-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R112-Stone.el (U+783F): Apply new conventions for
+	glyph granularity.
+	(U+786B): Likewise.
+	(UU+78A3): Likewise.
+	(UU+78C1): Likewise.
+	(U+78C5): Likewise.
+	(U+78E8): Likewise.
+	(UU+7926): Likewise.
+
+	* Ideograph-R030-Mouth.el (U+56B0): Apply new conventions for
+	glyph granularity.
+
 2015-01-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R015-Ice.el (g2-CU+51DC): Apply new conventions for
