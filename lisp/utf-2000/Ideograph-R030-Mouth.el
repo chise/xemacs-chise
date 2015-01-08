@@ -45350,26 +45350,18 @@
      ((=ucs		  . #x78E8)	; 磨
       ))
     (=ucs		. #x56B0)	; 嚰
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x56B0)	; 嚰
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x53E3)	; 口
+	)
+       ((==ucs@unicode	    . #x78E8)	; &g2-HD-JA-4B61;
+	(==jis-x0208	    . #x4B61)	; &g2-HD-JA-4B61; [43-65]
+	))
+      (==ucs@unicode	  . #x56B0)	; &g2-UU+56B0;
       ))
-    (ideographic-radical . 30)	; ⼝
-    (ideographic-strokes . 16)
-    (total-strokes	 . 19)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x53E3)	; 口
-      )
-     ((=ucs@unicode	  . #x78E8)	; &HD-JA-4B61;
-      (=jis-x0208	  . #x4B61)	; &HD-JA-4B61; [43-65]
-      (=gb2312		  . #x4425)	; &I-G0-4425; [36-05]
-      (=jis-x0213-1	  . #x4B61)	; &I-JX1-4B61; [43-65]
-      ))
-    (=ucs@unicode	. #x56B0)	; &UU+56B0;
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
