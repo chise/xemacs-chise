@@ -1048,7 +1048,7 @@
     (=ks-x1001		. #x6965)	; &C1-663E; [73-69]
     (=cns11643-1	. #x663E)	; &I-C1-663E; [70-30]
     (=big5		. #xB8B7)	; &I-B-B8B7;
-    (=daikanwa		. 32723)	; &M-32723;
+    (=daikanwa		. 32723)	; &I-M-32723;
     (=jef-china3	. #x63AC)	; &I-JC3-63AC;
     (->subsumptive
      ((==ucs@ks		  . #x865E)	; &g2-M-32723;
