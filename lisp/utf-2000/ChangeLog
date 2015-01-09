@@ -1,3 +1,16 @@
+2015-01-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R136-Oppose.el (U+821E): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R119-Rice.el (U+7C80): Apply new conventions for glyph
+	granularity.
+	(U+7C89): Likewise.
+	(U+7CAE): Likewise.
+	(U+7CC2): Likewise.
+	(UU+7CD6): Likewise.
+	(UU+7CF5): Likewise.
+
 2015-01-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R118-Bamboo.el (UU+7BC0): Apply new conventions for
