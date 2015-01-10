@@ -1,5 +1,15 @@
 2015-01-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R181-Leaf.el (GT-58224): Separate C3-4552.
+	(UU+980B): Separate U-0002F9FE, CU+2F9FE and C6-5A33; unify
+	C3-4552; use `->subsumptive' to integrate g2-C3-4552 and C6-5A33.
+	(U-00029460): Apply new conventions for glyph granularity.
+	(U-0002F9FF): Likewise.
+	(UU+9819): Unify JC3-6CE7.
+
+	* Ideograph-R176-Face.el (U-0002921D): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R137-Boat.el (U+8258): Apply new conventions for glyph
 	granularity.
 
