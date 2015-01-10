@@ -1,3 +1,8 @@
+2015-01-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R137-Boat.el (U+8258): Apply new conventions for glyph
+	granularity.
+
 2015-01-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R136-Oppose.el (U+821E): Apply new conventions for
