@@ -30,51 +30,51 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 7)
     (=ucs		. #x826F)	; 良
-    (=big5		. #xA87D)	; &I-B-A87D;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x826F)	; 良
-      ))
-    (ideographic-radical . 138)	; ⾉
-    (ideographic-strokes . 1)
-    (total-strokes	 . 7)
-    (=ucs@unicode	. #x826F)	; &GT-39586;
-    (=jis-x0208		. #x4E49)	; &GT-39586; [46-41]
+    (=jis-x0208		. #x4E49)	; &I-J90-4E49; [46-41]
     (=gb2312		. #x413C)	; &I-G0-413C; [33-28]
     (=ks-x1001		. #x555E)	; &I-K0-555E; [53-62]
     (=cns11643-1	. #x4B40)	; &I-C1-4B40; [43-32]
     (=jis-x0213-1	. #x4E49)	; &I-JX1-4E49; [46-41]
+    (=big5		. #xA87D)	; &I-B-A87D;
     (=gt		. 39586)	; &I-GT-39586;
     (=gt-k		. 02672)	; &I-GT-K02672;
     (=gt-pj-1		. #x4E49)	; &I-GT-39586; [46-41]
     (=daikanwa		. 30597)	; &I-M-30597;
-    (=shinjigen		.  6671)	; &GT-39586;
+    (=shinjigen		.  6671)	; 良
     (->subsumptive
-     ((==ucs@jis	  . #x826F)	; &R-GT-39586;
-      (==ucs@ks		  . #x826F)	; &R-GT-39586;
-      (==ks-x1001	  . #x555E)	; &R-GT-39586; [53-62]
-      (==jis-x0208	  . #x4E49)	; &R-GT-39586; [46-41]
-      (==jis-x0213-1	  . #x4E49)	; &R-GT-39586; [46-41]
-      (==gt		  . 39586)	; &R-GT-39586;
-      (==gt-k		  . 02672)	; &R-GT-39586;
-      (==daikanwa	  . 30597)	; &R-GT-39586;
-      (==shinjigen	  .  6671)	; &R-GT-39586;
+     ((==ucs@unicode	  . #x826F)	; &g2-GT-39586;
+      (==gb2312		  . #x413C)	; &g2-GT-39586; [33-28]
+      (==ks-x1001	  . #x555E)	; &g2-GT-39586; [53-62]
+      (==jis-x0208	  . #x4E49)	; &g2-GT-39586; [46-41]
+      (==cns11643-1	  . #x4B40)	; &g2-GT-39586; [43-32]
+      (==jis-x0213-1	  . #x4E49)	; &g2-GT-39586; [46-41]
+      (==gt		  . 39586)	; &g2-GT-39586;
+      (==gt-k		  . 02672)	; &g2-GT-39586;
+      (==daikanwa	  . 30597)	; &g2-GT-39586;
+      (==shinjigen	  .  6671)	; &g2-GT-39586;
+      (->subsumptive
+       ((===daikanwa	    . 30597)	; &R-M-30597;
+	)
+       ((===jis-x0208	    . #x4E49)	; &R-J90-4E49; [46-41]
+	(===jis-x0213-1	    . #x4E49)	; &R-J90-4E49; [46-41]
+	)
+       ((===ucs@ks	    . #x826F)	; &R-K0-555E;
+	(===ks-x1001	    . #x555E)	; &R-K0-555E; [53-62]
+	)
+       ((===gt		    . 39586)	; &R-GT-39586;
+	(===gt-k	    . 02672)	; &R-GT-39586;
+	)
+       ((===ucs@unicode	    . #x826F)	; &R-UU+826F;
+	)
+       ((===cns11643-1	    . #x4B40)	; &R-C1-4B40; [43-32]
+	)
+       ((===gt		    . 39586)	; &R-GT-39586;
+	(===gt-k	    . 02672)	; &R-GT-39586;
+	))
       )
-     ((==ucs@unicode	  . #x826F)	; &R-UU+826F;
-      (==gb2312		  . #x413C)	; &R-UU+826F; [33-28]
-      (==cns11643-1	  . #x4B40)	; &R-UU+826F; [43-32]
+     ((=gt-k		  . 02674)	; &GT-K02674;
+      (=gt-pj-k1	  . #x3B7A)	; &GT-K02674; [27-90]
       ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x826F)	; 良
-      ))
-    (ideographic-radical . 138)	; ⾉
-    (ideographic-strokes . 1)
-    (total-strokes	 . 7)
-    (=gt-k		. 02674)	; &GT-K02674;
-    (=gt-pj-k1		. #x3B7A)	; &GT-K02674; [27-90]
     ))
 (define-char
   '((<-denotational
@@ -86,20 +86,13 @@
     (=gt-k		. 02673)	; &GT-K02673;
     (=gt-pj-k1		. #x374D)	; &GT-K02673; [23-45]
     (<-formed@component/connect-right
-     ((=ucs@unicode	  . #x826F)	; &GT-39586;
-      (=jis-x0208	  . #x4E49)	; &GT-39586; [46-41]
-      (=gb2312		  . #x413C)	; &I-G0-413C; [33-28]
-      (=ks-x1001	  . #x555E)	; &I-K0-555E; [53-62]
-      (=cns11643-1	  . #x4B40)	; &I-C1-4B40; [43-32]
-      (=jis-x0213-1	  . #x4E49)	; &I-JX1-4E49; [46-41]
-      (=daikanwa	  . 30597)	; &I-M-30597;
+     ((=ucs		  . #x826F)	; 良
       ))
     (->subsumptive
-     ((==gt-k		  . 02673)	; &R-GT-K02673;
+     ((==gt-k		  . 02673)	; &g2-GT-K02673;
       (<-formed@component/connect-right
-       ((==ucs@jis	    . #x826F)	; &R-GT-39586;
-	(==ucs@ks	    . #x826F)	; &R-GT-39586;
-	(==jis-x0208	    . #x4E49)	; &R-GT-39586; [46-41]
+       ((==ucs@unicode	    . #x826F)	; &g2-GT-39586;
+	(==jis-x0208	    . #x4E49)	; &g2-GT-39586; [46-41]
 	))
       ))
     ))
@@ -115,18 +108,12 @@
      ((=gt-k		  . 02673)	; &GT-K02673;
       ))
     (<-simplified@component/connect-right
-     ((=ucs@unicode	  . #x826F)	; &GT-39586;
-      (=jis-x0208	  . #x4E49)	; &GT-39586; [46-41]
-      (=gb2312		  . #x413C)	; &I-G0-413C; [33-28]
-      (=ks-x1001	  . #x555E)	; &I-K0-555E; [53-62]
-      (=cns11643-1	  . #x4B40)	; &I-C1-4B40; [43-32]
-      (=jis-x0213-1	  . #x4E49)	; &I-JX1-4E49; [46-41]
-      (=daikanwa	  . 30597)	; &I-M-30597;
+     ((=ucs		  . #x826F)	; 良
       ))
     (->subsumptive
-     ((==big5-cdp	  . #x8C42)	; &R-CDP-8C42;
+     ((==big5-cdp	  . #x8C42)	; &g2-CDP-8C42;
       (<-simplified@component
-       ((==gt-k		    . 02673)	; &R-GT-K02673;
+       ((==gt-k		    . 02673)	; &g2-GT-K02673;
 	))
       ))
     ))
