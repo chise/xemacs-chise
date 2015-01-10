@@ -1,3 +1,11 @@
+2015-01-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R138-Stopping.el (U+826F): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R030-Mouth.el (g2-UU+54F4): Apply new conventions for
+	glyph granularity for a component of ideographic-structure.
+
 2015-01-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R181-Leaf.el (GT-58224): Separate C3-4552.
