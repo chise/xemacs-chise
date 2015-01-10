@@ -4770,7 +4770,9 @@
     (total-strokes	 . 10)
     (=daikanwa		. 38817)	; &M-38817;
     (<-ancient
-     ((=daikanwa	  . 10098)	; &M-10098;
+     ((=ucs@cns		  . #x5F8C)	; &HD-KS-114130;
+      (=cns11643-1	  . #x5125)	; &HD-KS-114130; [49-05]
+      (=daikanwa	  . 10098)	; &I-M-10098;
       ))
     (<-ancient*sources
      yupian daikanwa)
