@@ -311,12 +311,12 @@
     (=hanziku-8		. #xCFF4)	; &I-HZK08-CFF4;
     (=cbeta		. 08817)	; &I-CB08817;
     (->subsumptive
-     ((==daikanwa	  . 30371)	; &R-M-30371;
+     ((==daikanwa	  . 30371)	; &g2-M-30371;
       )
-     ((==ucs@iso	  . #x26A15)	; &R-U-00026A15;
+     ((==ucs@iso	  . #x26A15)	; &g2-IU-00026A15;
       )
-     ((==ucs@cns	  . #x26A15)	; &R-CU+26A15;
-      (==cns11643-6	  . #x3B4A)	; &R-CU+26A15; [27-42]
+     ((==ucs@cns	  . #x26A15)	; &g2-CU+26A15;
+      (==cns11643-6	  . #x3B4A)	; &g2-CU+26A15; [27-42]
       ))
     ))
 (define-char
@@ -2521,32 +2521,33 @@
     (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
-    (=>>ucs@jis/2004	. #x8258)	; &G-JX3-675B;
-    (=>>ucs@cns		. #x8258)	; &G-JX3-675B;
-    (=>>jis-x0213-1@2004 . #x675B)	; &G-JX3-675B; [71-59]
-    (=>>hanyo-denshi/hg . #x304B)	; &G-JX3-675B; [16-43]
-    (=>>daikanwa	. 30511)	; &G-JX3-675B;
+    (=ucs@cns		. #x8258)	; &HD-HG-304B;
+    (=ucs@jis/2004	. #x8258)	; &HD-HG-304B;
+    (=cns11643-1	. #x717C)	; &HD-HG-304B; [81-92]
+    (=jis-x0213-1@2004	. #x675B)	; &I-JX3-675B; [71-59]
+    (=hanyo-denshi/hg	. #x304B)	; &I-HD-HG-304B; [16-43]
+    (=daikanwa		. 30511)	; &I-M-30511;
+    (=shinjigen		.  6661)	; &HD-HG-304B;
     (->subsumptive
-     ((=ucs@jis/2004	  . #x8258)	; &HD-HG-304B;
-      (=jis-x0213-1@2004  . #x675B)	; &HD-HG-304B; [71-59]
-      (=hanyo-denshi/hg	  . #x304B)	; &I-HD-HG-304B; [16-43]
-      (=daikanwa	  . 30511)	; &I-M-30511;
-      (=shinjigen	  .  6661)	; &HD-HG-304B;
-      (->subsumptive
-       ((==daikanwa	    . 30511)	; &R-M-30511;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8258)	; 艘
 	)
-       ((=decomposition@hanyo-denshi
-	 ((=ucs		      . #x8258)	; 艘
-	  )
-	 ((=ucs		      . #xE0103)	; 󠄃
-	  ))
-	(==ucs@jis/2004	    . #x8258)	; &R-HD-HG-304B;
-	(==jis-x0213-1@2004 . #x675B)	; &R-HD-HG-304B; [71-59]
-	(==hanyo-denshi/hg  . #x304B)	; &R-HD-HG-304B; [16-43]
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==ucs@jis/2004	  . #x8258)	; &g2-HD-HG-304B;
+      (==jis-x0213-1@2004 . #x675B)	; &g2-HD-HG-304B; [71-59]
+      (==hanyo-denshi/hg  . #x304B)	; &g2-HD-HG-304B; [16-43]
+      (==daikanwa	  . 30511)	; &g2-HD-HG-304B;
+      (==shinjigen	  .  6661)	; &g2-HD-HG-304B;
+      (->subsumptive
+       ((===daikanwa	    . 30511)	; &R-M-30511;
+	)
+       ((===jis-x0213-1@2004 . #x675B)	; &R-JX3-675B; [71-59]
+	(===hanyo-denshi/hg . #x304B)	; &R-JX3-675B; [16-43]
 	))
       )
-     ((=ucs@cns		  . #x8258)	; &C1-717C;
-      (=cns11643-1	  . #x717C)	; &C1-717C; [81-92]
+     ((==ucs@cns	  . #x8258)	; &g2-CU+8258;
+      (==cns11643-1	  . #x717C)	; &g2-CU+8258; [81-92]
       ))
     ))
 (define-char
@@ -2556,20 +2557,21 @@
     (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
-    (=>>ucs@unicode	. #x8258)	; &G-J0-675B;
-    (=>>jis-x0208	. #x675B)	; &G-J0-675B; [71-59]
-    (=>>jis-x0213-1@2000 . #x675B)	; &G-J0-675B; [71-59]
-    (=>>gt		. 39430)	; &G-J0-675B;
+    (=ucs@unicode	. #x8258)	; &GT-39430;
+    (=jis-x0208		. #x675B)	; &GT-39430; [71-59]
+    (=gb2312		. #x4B52)	; &I-G0-4B52; [43-50]
+    (=jis-x0213-1@2000	. #x675B)	; &I-JX1-675B; [71-59]
+    (=gt		. 39430)	; &I-GT-39430;
+    (=gt-pj-1		. #x675B)	; &I-GT-39430; [71-59]
     (->subsumptive
-     ((=ucs@jis/1990	  . #x8258)	; &GT-39430;
-      (=ucs@jis/2000	  . #x8258)	; &GT-39430;
-      (=jis-x0208	  . #x675B)	; &GT-39430; [71-59]
-      (=jis-x0213-1@2000  . #x675B)	; &I-JX1-675B; [71-59]
-      (=gt		  . 39430)	; &I-GT-39430;
-      (=gt-pj-1		  . #x675B)	; &I-GT-39430; [71-59]
+     ((==ucs@jis/1990	  . #x8258)	; &g2-GT-39430;
+      (==ucs@jis/2000	  . #x8258)	; &g2-GT-39430;
+      (==jis-x0208	  . #x675B)	; &g2-GT-39430; [71-59]
+      (==jis-x0213-1@2000 . #x675B)	; &g2-GT-39430; [71-59]
+      (==gt		  . 39430)	; &g2-GT-39430;
       )
-     ((=ucs@unicode	  . #x8258)	; &G0-4B52;
-      (=gb2312		  . #x4B52)	; &G0-4B52; [43-50]
+     ((==ucs@unicode	  . #x8258)	; &g2-UU+8258;
+      (==gb2312		  . #x4B52)	; &g2-UU+8258; [43-50]
       ))
     ))
 (define-char
