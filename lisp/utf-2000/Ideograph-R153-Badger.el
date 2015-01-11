@@ -2091,13 +2091,20 @@
     (=hanyo-denshi/jb	. #x5F27)	; &I-HD-JB-5F27; [63-07]
     (=daikanwa		. 36653)	; &I-M-36653;
     (->subsumptive
-     ((==ucs@jis/1990	  . #x8C9B)	; &R-HD-JB-5F27;
-      (==jis-x0212	  . #x5F27)	; &R-HD-JB-5F27; [63-07]
-      (==hanyo-denshi/jb  . #x5F27)	; &R-HD-JB-5F27; [63-07]
-      (==daikanwa	  . 36653)	; &R-HD-JB-5F27;
-      )
-     ((==ucs@cns	  . #x8C9B)	; &R-CU+8C9B;
-      (==cns11643-3	  . #x614D)	; &R-CU+8C9B; [65-45]
+     ((==ucs@cns	  . #x8C9B)	; &g2-HD-JB-5F27;
+      (==ucs@jis/1990	  . #x8C9B)	; &g2-HD-JB-5F27;
+      (==jis-x0212	  . #x5F27)	; &g2-HD-JB-5F27; [63-07]
+      (==cns11643-3	  . #x614D)	; &g2-HD-JB-5F27; [65-45]
+      (==hanyo-denshi/jb  . #x5F27)	; &g2-HD-JB-5F27; [63-07]
+      (==daikanwa	  . 36653)	; &g2-HD-JB-5F27;
+      (->subsumptive
+       ((===daikanwa	    . 36653)	; &R-M-36653;
+	)
+       ((===jis-x0212	    . #x5F27)	; &R-JSP-5F27; [63-07]
+	(===hanyo-denshi/jb . #x5F27)	; &R-JSP-5F27; [63-07]
+	)
+       ((===cns11643-3	    . #x614D)	; &R-C3-614D; [65-45]
+	))
       ))
     ))
 (define-char
@@ -2111,12 +2118,15 @@
     (=jis-x0213-2	. #x792A)	; &HD-JD-792A; [89-10]
     (=hanyo-denshi/jd	. #x792A)	; &I-HD-JD-792A; [89-10]
     (->subsumptive
-     ((==ucs@jis/2000	  . #x8C9B)	; &R-HD-JD-792A;
-      (==ucs@jis/2004	  . #x8C9B)	; &R-HD-JD-792A;
-      (==jis-x0213-2	  . #x792A)	; &R-HD-JD-792A; [89-10]
-      (==hanyo-denshi/jd  . #x792A)	; &R-HD-JD-792A; [89-10]
-      )
-     ((==ucs@unicode	  . #x8C9B)	; &R-UU+8C9B;
+     ((==ucs@unicode	  . #x8C9B)	; &g2-HD-JD-792A;
+      (==jis-x0213-2	  . #x792A)	; &g2-HD-JD-792A; [89-10]
+      (==hanyo-denshi/jd  . #x792A)	; &g2-HD-JD-792A; [89-10]
+      (->subsumptive
+       ((===jis-x0213-2	    . #x792A)	; &R-JX2-792A; [89-10]
+	(===hanyo-denshi/jd . #x792A)	; &R-JX2-792A; [89-10]
+	)
+       ((===ucs@unicode	    . #x8C9B)	; &R-UU+8C9B;
+	))
       ))
     ))
 (define-char
