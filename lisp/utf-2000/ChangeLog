@@ -1,5 +1,18 @@
 2015-01-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R171-Slave.el (U-00028F7C): Apply new conventions for
+	glyph granularity.
+	(U-00028F83): Likewise.
+
+	* Ideograph-R153-Badger.el (CU+8C9B): Apply new conventions for
+	glyph granularity.
+	(UU+8C9B): Likewise.
+
+	* Ideograph-R152-Pig.el (U+8C6A): Apply new conventions for glyph
+	granularity.
+
+2015-01-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R138-Stopping.el (U+826F): Apply new conventions for
 	glyph granularity.
 
