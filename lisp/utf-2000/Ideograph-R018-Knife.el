@@ -5205,25 +5205,27 @@
       (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x5255)	; 剕
-    (=>>jis-x0213-2	. #x2339)	; 剕 [03-25]
+    (=adobe-japan1-5	. 17313)	; &I-AJ1-17313;
+    (=jis-x0212		. #x3340)	; &I-JSP-3340; [19-32]
+    (=cns11643-2	. #x2E2E)	; &I-C2-2E2E; [14-14]
+    (=jis-x0213-2	. #x2339)	; &I-JX2-2339; [03-25]
     (=big5		. #xD0EB)	; &I-B-D0EB;
-    (=>>daikanwa	. 02033)	; 剕
+    (=daikanwa		. 02033)	; &I-M-02033;
+    (=shinjigen		.  0668)	; 剕
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@jis	    . #x975E)	; &GT-57172;
-	(=jis-x0208	    . #x4873)	; &GT-57172; [40-83]
-	(=ks-x1001	    . #x5E2A)	; &I-K0-5E2A; [62-10]
-	(=jis-x0213-1	    . #x4873)	; &I-JX1-4873; [40-83]
-	(=daikanwa	    . 42585)	; &I-M-42585;
+       ((==ucs@jis	    . #x975E)	; &g2-GT-57172;
+	(==ucs@ks	    . #x975E)	; &g2-GT-57172;
+	(==jis-x0208	    . #x4873)	; &g2-GT-57172; [40-83]
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=daikanwa	  . 02033)	; &M-02033;
-      (=shinjigen	  .  0668)	; &M-02033;
+      (==daikanwa	  . 02033)	; &g2-M-02033;
+      (==shinjigen	  .  0668)	; &g2-M-02033;
       )
      ((=decomposition@cid
        ((=ucs		    . #x5255)	; 剕
@@ -5234,30 +5236,37 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@cns	    . #x975E)	; &C1-4F66;
-	(=cns11643-1	    . #x4F66)	; &C1-4F66; [47-70]
+       ((==ucs@cns	    . #x975E)	; &g2-CU+975E;
+	(==cns11643-1	    . #x4F66)	; &g2-CU+975E; [47-70]
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@cns		  . #x5255)	; &AJ1-17313;
-      (=ucs@jis		  . #x5255)	; &AJ1-17313;
-      (=adobe-japan1-5	  . 17313)	; &AJ1-17313;
-      (=jis-x0212	  . #x3340)	; &I-JSP-3340; [19-32]
-      (=cns11643-2	  . #x2E2E)	; &I-C2-2E2E; [14-14]
-      (=jis-x0213-2	  . #x2339)	; &I-JX2-2339; [03-25]
+      (==ucs@cns	  . #x5255)	; &g2-AJ1-17313;
+      (==ucs@jis	  . #x5255)	; &g2-AJ1-17313;
+      (==adobe-japan1-5	  . 17313)	; &g2-AJ1-17313;
+      (==jis-x0212	  . #x3340)	; &g2-AJ1-17313; [19-32]
+      (==cns11643-2	  . #x2E2E)	; &g2-AJ1-17313; [14-14]
+      (==jis-x0213-2	  . #x2339)	; &g2-AJ1-17313; [03-25]
+      (->subsumptive
+       ((===jis-x0212	    . #x3340)	; &R-JX2-2339; [19-32]
+	(===jis-x0213-2	    . #x2339)	; &R-JX2-2339; [03-25]
+	)
+       ((===adobe-japan1-5  . 17313)	; &R-AJ1-17313;
+	)
+       ((===cns11643-2	    . #x2E2E)	; &R-C2-2E2E; [14-14]
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x975E)	; &G0-3747;
-	(=gb2312	    . #x3747)	; &G0-3747; [23-39]
+       ((==ucs@unicode	    . #x975E)	; &g2-UU+975E;
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@unicode	  . #x5255)	; &UU+5255;
+      (==ucs@unicode	  . #x5255)	; &g2-UU+5255;
       ))
     ))
 (define-char
