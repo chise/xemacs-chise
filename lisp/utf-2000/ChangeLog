@@ -1,5 +1,18 @@
 2015-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R175-Wrong.el (U+975E): Apply new conventions for
+	glyph granularity.
+	(U-000291F0): Likewise.
+	(U-000291FC): Likewise.
+
+	* Ideograph-R140-Grass.el (U+8352): Apply new conventions for
+	glyph granularity.
+	(o-UU+FAB3): New node; add `<-denotational' for U+8352.
+	(U+FAB3): New character; add `<-denotational' for o-UU+FAB3.
+
+	* Ideograph-R038-Woman.el (U-0002190F): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
 	* Ideograph-R011-Enter.el (U-000204FF): Apply new conventions for
 	glyph granularity for components of ideographic-structure.
 
