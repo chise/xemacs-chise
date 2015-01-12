@@ -1,4 +1,33 @@
+2015-01-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+5561): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R022-Right-Open-Box.el (U+532A): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R018-Knife.el (U+5255): Apply new conventions for
+	glyph granularity.
+
 2015-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R124-Feather.el (U+7FE1): Apply new conventions for
+	glyph granularity.
+	(g2-GT-37100): Apply new conventions for glyph granularity for a
+	component of ideographic-structure.
+	(g2-UU+7FE1): Likewise.
+
+2015-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (g2-UU+4FCD): Apply new conventions for
+	glyph granularity for a component of ideographic-structure.
+	(U+4FF3): Apply new conventions for glyph granularity.
+	(U+348E): Likewise.
+	(g2-UU+511B): Apply new conventions for glyph granularity for a
+	component of ideographic-structure.
+	(g2-CU+511B): Likewise.
+	(g2-JU+511B): Add `ideographic-structure'.
+	(U+512B): Apply new conventions for glyph granularity.
 
 	* Ideograph-R175-Wrong.el (U+975E): Apply new conventions for
 	glyph granularity.
