@@ -19522,7 +19522,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=adobe-japan1-4	  . 13828)	; &AJ1-13828;
+     ((=ucs		  . #x5973)	; 女
       )
      ((=ucs		  . #x859B)	; 薛
       ))
@@ -19541,7 +19541,9 @@
       )
      ((=adobe-japan1-4	  . 13828)	; &AJ1-13828;
       )
-     ((=daikanwa	  . 32123)	; &M-32123;
+     ((=ucs@cns		  . #x859B)	; &C1-7531;
+      (=cns11643-1	  . #x7531)	; &C1-7531; [85-17]
+      (=daikanwa	  . 32123)	; &I-M-32123;
       ))
     (=ucs@cns		. #x2190F)	; &C7-4D51;
     (=cns11643-7	. #x4D51)	; &C7-4D51; [45-49]
@@ -19604,7 +19606,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=adobe-japan1-4    . 13828)	; &AJ1-13828;
+       ((==adobe-japan1-4   . 13828)	; &g2-AJ1-13828;
 	)
        ((==ucs@unicode	    . #x859B)	; &g2-GT-42766;
 	(==jis-x0208	    . #x692D)	; &g2-GT-42766; [73-13]
@@ -19635,7 +19637,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=daikanwa	  . 32123)	; &M-32123;
+     ((=ucs@cns		  . #x859B)	; &C1-7531;
+      (=cns11643-1	  . #x7531)	; &C1-7531; [85-17]
+      (=daikanwa	  . 32123)	; &I-M-32123;
       )
      ((=ucs		  . #x5973)	; 女
       ))
