@@ -1,5 +1,11 @@
 2015-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R009-Man.el (g2-UU+5063): Apply new conventions for
+	glyph granularity for a component of ideographic-structure.
+
+	* Ideograph-R008-Lid.el (g2-IU+20192): Apply new conventions for
+	glyph granularity for a component of ideographic-structure.
+
 	* Ideograph-R159-Cart.el (U+8ED4): Apply new conventions for glyph
 	granularity.
 	(UU+8F44): Likewise.
