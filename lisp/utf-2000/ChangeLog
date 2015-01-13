@@ -1,3 +1,14 @@
+2015-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R159-Cart.el (U+8ED4): Apply new conventions for glyph
+	granularity.
+	(UU+8F44): Likewise.
+
+2015-01-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R125-Old.el (U+8003): Apply new conventions for glyph
+	granularity.
+
 2015-01-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U+5561): Apply new conventions for
