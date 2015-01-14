@@ -1,5 +1,8 @@
 2015-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (HD-KS046190): Use `->subsumptive' to
+	add representative nodes.
+
 	* Ideograph-R009-Man.el (g2-UU+5063): Apply new conventions for
 	glyph granularity for a component of ideographic-structure.
 
