@@ -22694,7 +22694,8 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((==ucs@unicode	    . #x97F3)	; &g2-UU+97F3;
+       ((==ucs@unicode	    . #x97F3)	; &g2-GT-58109;
+	(==jis-x0208	    . #x323B)	; &g2-GT-58109; [18-27]
 	))
       (==ucs@unicode	  . #x5591)	; &g2-MJ008448;
       (==mj		  . 008448)	; &g2-MJ008448;
@@ -22733,13 +22734,17 @@
        ((=ucs		    . #x53E3)	; 口
 	)
        ((=gt		    . 58108)	; &GT-58108;
-	(=daikanwa	    . 43265)	; &I-M-43265;
 	))
       (=mj		  . 008449)	; &MJ008449;
       (==hanyo-denshi/ks  . 046190)	; &MJ008449;
-      (=hanyo-denshi/ks/mf . #x120B)	; &I-KSMF-04619;
       (==shinjigen@1ed	  .  1133)	; &MJ008449;
       (==shinjigen@rev	  .  1135)	; &MJ008449;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 046190)	; &KSMF-04619;
+	(=hanyo-denshi/ks/mf . #x120B)	; &KSMF-04619;
+	)
+       ((===mj		    . 008449)	; &R-MJ008449;
+	))
       ))
     ))
 (define-char
