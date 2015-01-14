@@ -1,5 +1,11 @@
 2015-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R180-Sound.el (U+97F3): Apply new conventions for
+	glyph granularity.
+	(U+9800): Likewise.
+
+2015-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R030-Mouth.el (HD-KS046190): Use `->subsumptive' to
 	add representative nodes.
 
