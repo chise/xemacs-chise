@@ -307,7 +307,7 @@
     (ideographic-radical@ucs . 160)	; ⾟
     (ideographic-strokes@ucs . 6)
     (ideographic-radical@ucs*sources
-     daikanwa=38638 cns11643-3=4477)
+     daikanwa=38638 cns11643-3=4477 shinjigen)
     (ideographic-radical@ucs/compat . 135)	; ⾆
     (ideographic-strokes@ucs/compat . 7)
     (ideographic-radical@ucs/compat*sources
@@ -349,8 +349,10 @@
     (<-vulgar@zhengzitong*sources
      zhengzitong daikanwa)
     (->subsumptive
-     ((==ucs@jis	  . #x8F9E)	; &g2-GT-51568;
+     ((==ucs@unicode	  . #x8F9E)	; &g2-GT-51568;
+      (==gb2312		  . #x3447)	; &g2-GT-51568; [20-39]
       (==jis-x0208	  . #x3C2D)	; &g2-GT-51568; [28-13]
+      (==cns11643-3	  . #x4477)	; &g2-GT-51568; [36-87]
       (==jis-x0213-1	  . #x3C2D)	; &g2-GT-51568; [28-13]
       (==gt		  . 51568)	; &g2-GT-51568;
       (==shinjigen	  .  8199)	; &g2-GT-51568;
@@ -362,13 +364,20 @@
        ((ideographic-radical . 135)	; ⾆
 	(ideographic-strokes . 7)
 	(=daikanwa	    . 30307)	; &M-30307;
+	)
+       ((===jis-x0208	    . #x3C2D)	; &R-J90-3C2D; [28-13]
+	(===jis-x0213-1	    . #x3C2D)	; &R-J90-3C2D; [28-13]
+	)
+       ((===gt		    . 51568)	; &R-GT-51568;
+	)
+       ((ideographic-radical . 160)	; ⾟
+	(ideographic-strokes . 6)
+	(===ucs@unicode	    . #x8F9E)	; &R-UU+8F9E;
+	)
+       ((ideographic-radical . 160)	; ⾟
+	(ideographic-strokes . 6)
+	(===cns11643-3	    . #x4477)	; &R-C3-4477; [36-87]
 	))
-      )
-     ((ideographic-radical . 160)	; ⾟
-      (ideographic-strokes . 6)
-      (==ucs@unicode	  . #x8F9E)	; &g2-UU+8F9E;
-      (==gb2312		  . #x3447)	; &g2-UU+8F9E; [20-39]
-      (==cns11643-3	  . #x4477)	; &g2-UU+8F9E; [36-87]
       ))
     ))
 (define-char
