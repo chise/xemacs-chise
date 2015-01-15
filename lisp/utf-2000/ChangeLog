@@ -1,3 +1,11 @@
+2015-01-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R160-Bitter.el (UU+8F9E): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R135-Tongue.el (UU+8F9E): Apply new conventions for
+	glyph granularity.
+
 2015-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R127-Plow.el (JU+8012): Apply new conventions for
