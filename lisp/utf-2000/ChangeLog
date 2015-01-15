@@ -1,3 +1,12 @@
+2015-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R127-Plow.el (JU+8012): Apply new conventions for
+	glyph granularity.
+	(CU+8015): Likewise.
+	(CU+8017): Likewise.
+	(JU+8018): Likewise.
+	(JU+801C): Likewise.
+
 2015-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R180-Sound.el (U+97F3): Apply new conventions for
