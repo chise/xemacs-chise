@@ -463,7 +463,7 @@
     (ideographic-radical@ucs . 160)	; ⾟
     (ideographic-strokes@ucs . 6)
     (ideographic-radical@ucs*sources
-     daikanwa=38638 cns11643-3=4477)
+     daikanwa=38638 cns11643-3=4477 shinjigen)
     (ideographic-radical@ucs/compat . 135)	; ⾆
     (ideographic-strokes@ucs/compat . 7)
     (ideographic-radical@ucs/compat*sources
@@ -505,11 +505,13 @@
     (<-vulgar@zhengzitong*sources
      zhengzitong daikanwa)
     (->subsumptive
-     ((==ucs@jis	  . #x8F9E)	; &R-GT-51568;
-      (==jis-x0208	  . #x3C2D)	; &R-GT-51568; [28-13]
-      (==jis-x0213-1	  . #x3C2D)	; &R-GT-51568; [28-13]
-      (==gt		  . 51568)	; &R-GT-51568;
-      (==shinjigen	  .  8199)	; &R-GT-51568;
+     ((==ucs@unicode	  . #x8F9E)	; &g2-GT-51568;
+      (==gb2312		  . #x3447)	; &g2-GT-51568; [20-39]
+      (==jis-x0208	  . #x3C2D)	; &g2-GT-51568; [28-13]
+      (==cns11643-3	  . #x4477)	; &g2-GT-51568; [36-87]
+      (==jis-x0213-1	  . #x3C2D)	; &g2-GT-51568; [28-13]
+      (==gt		  . 51568)	; &g2-GT-51568;
+      (==shinjigen	  .  8199)	; &g2-GT-51568;
       (->subsumptive
        ((ideographic-radical . 160)	; ⾟
 	(ideographic-strokes . 6)
@@ -518,13 +520,20 @@
        ((ideographic-radical . 135)	; ⾆
 	(ideographic-strokes . 7)
 	(=daikanwa	    . 30307)	; &M-30307;
+	)
+       ((===jis-x0208	    . #x3C2D)	; &R-J90-3C2D; [28-13]
+	(===jis-x0213-1	    . #x3C2D)	; &R-J90-3C2D; [28-13]
+	)
+       ((===gt		    . 51568)	; &R-GT-51568;
+	)
+       ((ideographic-radical . 160)	; ⾟
+	(ideographic-strokes . 6)
+	(===ucs@unicode	    . #x8F9E)	; &R-UU+8F9E;
+	)
+       ((ideographic-radical . 160)	; ⾟
+	(ideographic-strokes . 6)
+	(===cns11643-3	    . #x4477)	; &R-C3-4477; [36-87]
 	))
-      )
-     ((ideographic-radical . 160)	; ⾟
-      (ideographic-strokes . 6)
-      (==ucs@unicode	  . #x8F9E)	; &R-UU+8F9E;
-      (==gb2312		  . #x3447)	; &R-UU+8F9E; [20-39]
-      (==cns11643-3	  . #x4477)	; &R-UU+8F9E; [36-87]
       ))
     ))
 (define-char
@@ -923,12 +932,12 @@
     (=gt		. 39223)	; &I-GT-39223;
     (=gt-pj-1		. #x345C)	; &I-GT-39223; [20-60]
     (->subsumptive
-     ((==ucs@jis	  . #x8218)	; &R-GT-39223;
-      (==jis-x0208	  . #x345C)	; &R-GT-39223; [20-60]
-      (==jis-x0213-1	  . #x345C)	; &R-GT-39223; [20-60]
-      (==gt		  . 39223)	; &R-GT-39223;
-      (=daikanwa	  . 30326)	; &R-GT-39223;
-      (=shinjigen	  .  9276)	; &R-GT-39223;
+     ((==ucs@jis	  . #x8218)	; &g2-GT-39223;
+      (==jis-x0208	  . #x345C)	; &g2-GT-39223; [20-60]
+      (==jis-x0213-1	  . #x345C)	; &g2-GT-39223; [20-60]
+      (==gt		  . 39223)	; &g2-GT-39223;
+      (=daikanwa	  . 30326)	; &g2-GT-39223;
+      (=shinjigen	  .  9276)	; &g2-GT-39223;
       (<-vulgar
        ((=ucs		    . #xFA2C)	; 館
 	(=shinjigen	    .  9275)	; 館
