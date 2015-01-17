@@ -1,3 +1,29 @@
+2015-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R182-Wind.el (U+98A8): Apply new conventions for glyph
+	granularity.
+	(U+6A92): Likewise.
+	(U-00029609): Likewise.
+	(U+4B13): Likewise.
+	(U-00029643): Likewise.
+	(U+98CC): Use `->denotational' and `->subsumptive'.
+
+2015-01-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R177-Leather.el (U-000292B8): Apply new conventions
+	for glyph granularity.
+	(U-00029339): Likewise.
+	(U+97C4): Likewise.
+	(U+97C9): Likewise.
+
+	* Ideograph-R030-Mouth.el (U-00020DD5): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R016-Table.el (U+51EC): Unify S-9212.
+
+	* Ideograph-R009-Man.el (U+5051): Apply new conventions for glyph
+	granularity.
+
 2015-01-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R160-Bitter.el (UU+8F9E): Apply new conventions for
