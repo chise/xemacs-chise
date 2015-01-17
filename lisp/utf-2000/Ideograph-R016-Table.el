@@ -710,18 +710,16 @@
     (=adobe-japan1-2	. 08397)	; &I-AJ1-08397;
     (=cns11643-3	. #x245B)	; &I-C3-245B; [04-59]
     (=daikanwa		. 01765)	; &I-M-01765;
+    (=shinjigen		.  9212)	; 凬
     (=hanziku-1		. #xDF53)	; &I-HZK01-DF53;
     (=jef-china3	. #x44AC)	; &I-JC3-44AC;
     (<-ancient
-     ((=ucs@unicode	  . #x98A8)	; &GT-58717;
-      (=jis-x0208	  . #x4977)	; &GT-58717; [41-87]
-      (=ks-x1001	  . #x7926)	; &I-K0-7926; [89-06]
-      (=jis-x0213-1	  . #x4977)	; &I-JX1-4977; [41-87]
-      (=daikanwa	  . 43756)	; &I-M-43756;
-      (=shinjigen	  .  9211)	; &GT-58717;
+     ((=ucs		  . #x98A8)	; 風
+      (=jis-x0208	  . #x4977)	; &I-J90-4977; [41-87]
+      (=shinjigen	  .  9211)	; 風
       ))
     (<-ancient*sources
-     shinjigen@1ed)
+     shinjigen)
     ))
 (define-char
   '((ideographic-radical . 16)	; ⼏
