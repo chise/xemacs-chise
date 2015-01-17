@@ -24843,6 +24843,7 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (hanyu-dazidian	1 658 7)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -24852,24 +24853,30 @@
      ((=ucs		  . #x98A8)	; 風
       ))
     (=ucs		. #x20DD5)	; 𠷕
+    (=cns11643-6	. #x473C)	; &I-C6-473C; [39-28]
+    (=daikanwa		. 03988)	; &I-M-03988;
+    (=hanziku-2		. #xD9C2)	; &I-HZK02-D9C2;
+    (=cbeta		. 03504)	; &I-CB03504;
     (->subsumptive
-     ((hanyu-dazidian	  1 658 7)
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@unicode	    . #x98A8)	; &GT-58717;
-	(=jis-x0208	    . #x4977)	; &GT-58717; [41-87]
-	(=ks-x1001	    . #x7926)	; &I-K0-7926; [89-06]
-	(=jis-x0213-1	    . #x4977)	; &I-JX1-4977; [41-87]
-	(=daikanwa	    . 43756)	; &I-M-43756;
+       ((==ucs@unicode	    . #x98A8)	; &g2-GT-58717;
+	(==jis-x0208	    . #x4977)	; &g2-GT-58717; [41-87]
 	))
-      (=ucs@iso		  . #x20DD5)	; &M-03988;
-      (=daikanwa	  . 03988)	; &M-03988;
-      (=hanziku-2	  . #xD9C2)	; &I-HZK02-D9C2;
-      (=cbeta		  . 03504)	; &I-CB03504;
+      (==ucs@iso	  . #x20DD5)	; &g2-M-03988;
+      (==daikanwa	  . 03988)	; &g2-M-03988;
+      (==cbeta		  . 03504)	; &g2-M-03988;
+      (->subsumptive
+       ((===daikanwa	    . 03988)	; &R-M-03988;
+	)
+       ((===ucs@iso	    . #x20DD5)	; &R-U-00020DD5;
+	)
+       ((===cbeta	    . 03504)	; &R-CB03504;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -24877,9 +24884,11 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=cns11643-1	    . #x5378)	; &C1-5378; [51-88]
+       ((==ucs@cns	    . #x98A8)	; &g2-CU+98A8;
+	(==cns11643-1	    . #x5378)	; &g2-CU+98A8; [51-88]
 	))
-      (=cns11643-6	  . #x473C)	; &C6-473C; [39-28]
+      (==ucs@cns	  . #x20DD5)	; &g2-CU+20DD5;
+      (==cns11643-6	  . #x473C)	; &g2-CU+20DD5; [39-28]
       ))
     ))
 (define-char
