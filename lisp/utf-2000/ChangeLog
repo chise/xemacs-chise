@@ -1,5 +1,9 @@
 2015-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R075-Tree.el (U+6953): Apply new conventions for glyph
+	granularity.
+	(U+6A92): Likewise.
+
 	* Ideograph-R182-Wind.el (U+98A8): Apply new conventions for glyph
 	granularity.
 	(U+6A92): Likewise.
