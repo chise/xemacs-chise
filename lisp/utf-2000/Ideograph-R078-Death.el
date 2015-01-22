@@ -181,16 +181,50 @@
     ))
 (define-char
   '((ideographic-radical . 78)	; ⽍
+    (=ucs		. #x239BC)	; 𣦼
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x239BC)	; 𣦼
+      ))
+    (ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
-    (=ucs		. #x239BC)	; 𣦼
-    (=cns11643-4	. #x244D)	; &I-C4-244D; [04-45]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL DEATH")
+      (=ucs		  . #x2E9E)	; ⺞
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ucs@iso		. #x239BC)	; &C4-244D;
+    (=cns11643-4	. #x244D)	; &C4-244D; [04-45]
+    (=big5-cdp		. #x8DAD)	; &I-CDP-8DAD;
     (=daikanwa		. 16370)	; &I-M-16370;
     (<-same
      ((=daikanwa	  . 16369)	; &M-16369;
       ))
     (<-same*sources
      zhengzitong daikanwa)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x239BC)	; 𣦼
+      ))
+    (ideographic-radical . 78)	; ⽍
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6B79)	; 歹
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=cbeta		. 09967)	; &CB09967;
     ))
 (define-char
   '((ideographic-radical . 78)	; ⽍
