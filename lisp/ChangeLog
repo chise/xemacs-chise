@@ -1,3 +1,8 @@
+2015-01-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`===hanyo-denshi/ia'.
+
 2014-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=koseki): Fix DOC.
