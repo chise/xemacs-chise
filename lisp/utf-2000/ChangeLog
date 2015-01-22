@@ -1,3 +1,20 @@
+2015-01-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R191-Fight.el (U+4C17): Apply new conventions for
+	glyph granularity.
+	(IU+29C19): Likewise.
+
+	* Ideograph-R187-Horse.el (CU+4BA5): Apply new conventions for
+	glyph granularity.
+	(CU+299A7): Likewise.
+	(U-000299B8): Likewise.
+	(U-000299BB): Likewise.
+
+2015-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R192-Sacrificial-Wine.el (IU+29C28): Omit
+	`=>>ucs@iso'.
+
 2015-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R075-Tree.el (U+6953): Apply new conventions for glyph
