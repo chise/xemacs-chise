@@ -294,27 +294,27 @@
     (ideographic-radical . 191)	; ⾾
     (ideographic-strokes . 10)
     (total-strokes	 . 20)
-    (=>>ucs@unicode	. #x4C17)	; &G-HD-IA-2822;
-    (=>>hanyo-denshi/ia . #x2822)	; &G-HD-IA-2822; [08-02]
-    (=>>daikanwa	. 45648)	; &G-HD-IA-2822;
+    (=ucs@unicode	. #x4C17)	; &HD-IA-2822;
+    (=cns11643-7	. #x517D)	; &HD-IA-2822; [49-93]
+    (=hanyo-denshi/ia	. #x2822)	; &I-HD-IA-2822; [08-02]
+    (=daikanwa		. 45648)	; &I-M-45648;
     (->subsumptive
-     ((=daikanwa	  . 45648)	; &M-45648;
+     ((==daikanwa	  . 45648)	; &g2-M-45648;
       )
-     ((=ucs@unicode	  . #x4C17)	; &HD-IA-2822;
-      (=cns11643-7	  . #x517D)	; &HD-IA-2822; [49-93]
-      (=hanyo-denshi/ia	  . #x2822)	; &I-HD-IA-2822; [08-02]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x4C17)	; 䰗
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@unicode	  . #x4C17)	; &g2-HD-IA-2822;
+      (==cns11643-7	  . #x517D)	; &g2-HD-IA-2822; [49-93]
+      (==hanyo-denshi/ia  . #x2822)	; &g2-HD-IA-2822; [08-02]
       (->subsumptive
-       ((=decomposition@hanyo-denshi
-	 ((=ucs		      . #x4C17)	; 䰗
-	  )
-	 ((=ucs		      . #xE0101)	; 󠄁
-	  ))
-	(==hanyo-denshi/ia  . #x2822)	; &R-HD-IA-2822; [08-02]
+       ((===hanyo-denshi/ia . #x2822)	; &MCS-000F54F0; [08-02]
 	)
-       ((==ucs@unicode	    . #x4C17)	; &R-UU+4C17;
+       ((===ucs@unicode	    . #x4C17)	; &R-UU+4C17;
 	)
-       ((==ucs@cns	    . #x4C17)	; &R-CU+4C17;
-	(==cns11643-7	    . #x517D)	; &R-CU+4C17; [49-93]
+       ((===cns11643-7	    . #x517D)	; &R-C7-517D; [49-93]
 	))
       ))
     ))
@@ -325,17 +325,29 @@
     (ideographic-radical . 191)	; ⾾
     (ideographic-strokes . 11)
     (total-strokes	 . 21)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x4C17)	; 䰗
-      )
-     ((=ucs		  . #xE0102)	; 󠄂
-      ))
     (sound@ja/kun/name	"kuzi" "kuti" "^guti")
     (sound@ja/kun/place "kuzi" "kuzu")
     (=ucs@jis		. #x4C17)	; &HD-JC-7E3E;
     (=jis-x0213-1	. #x7E3E)	; &HD-JC-7E3E; [94-30]
     (=hanyo-denshi/jc	. #x7E3E)	; &I-HD-JC-7E3E; [94-30]
     (=jef-china3	. #x6EB8)	; &I-JC3-6EB8;
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x4C17)	; 䰗
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@jis	  . #x4C17)	; &g2-HD-JC-7E3E;
+      (==jis-x0213-1	  . #x7E3E)	; &g2-HD-JC-7E3E; [94-30]
+      (==hanyo-denshi/jc  . #x7E3E)	; &g2-HD-JC-7E3E; [94-30]
+      (==jef-china3	  . #x6EB8)	; &g2-HD-JC-7E3E;
+      (->subsumptive
+       ((===jis-x0213-1	    . #x7E3E)	; &R-JX1-7E3E; [94-30]
+	(===hanyo-denshi/jc . #x7E3E)	; &R-JX1-7E3E; [94-30]
+	)
+       ((===jef-china3	    . #x6EB8)	; &R-JC3-6EB8;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 191)	; ⾾
@@ -479,14 +491,13 @@
     (ideographic-radical . 191)	; ⾾
     (ideographic-strokes . 12)
     (total-strokes	 . 22)
-    (=>>ucs@iso		. #x29C19)	; &C7-5A49;
     (=ucs@iso		. #x29C19)	; &C7-5A49;
     (=cns11643-7	. #x5A49)	; &C7-5A49; [58-41]
     (->subsumptive
-     ((==ucs@iso	  . #x29C19)	; &R-U-00029C19;
+     ((==ucs@iso	  . #x29C19)	; &g2-IU-00029C19;
       )
-     ((==ucs@cns	  . #x29C19)	; &R-CU+29C19;
-      (==cns11643-7	  . #x5A49)	; &R-CU+29C19; [58-41]
+     ((==ucs@cns	  . #x29C19)	; &g2-CU+29C19;
+      (==cns11643-7	  . #x5A49)	; &g2-CU+29C19; [58-41]
       ))
     ))
 (define-char
