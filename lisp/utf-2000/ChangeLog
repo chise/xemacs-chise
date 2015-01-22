@@ -1,5 +1,15 @@
 2015-01-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R103-Bolt-Of-Cloth.el (U+758C): Use `->denotational'
+	to integrate GT-K03980 and GT-K06360.
+	(UU+758C): Unify GT-K03979.
+
+2015-01-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R078-Death.el (U-000239BC): Use `->denotational' to
+	integrate CB09967; add ideographic-structure.
+	(IU+239BC): Unify BC-8DAD.
+
 	* Ideograph-R191-Fight.el (U+4C17): Apply new conventions for
 	glyph granularity.
 	(IU+29C19): Likewise.
