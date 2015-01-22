@@ -435,6 +435,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ;; ===hanyo-denshi/ja
 	  ===hanyo-denshi/jb
 	  ===hanyo-denshi/ft
+	  ===hanyo-denshi/ia
 	  ===hanyo-denshi/ib
 	  ===hanyo-denshi/hg
 	  ===hanyo-denshi/ip
