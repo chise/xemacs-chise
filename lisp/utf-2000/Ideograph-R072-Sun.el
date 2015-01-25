@@ -3016,17 +3016,36 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ucs		. #x6649)	; 晉
-    (=jis-x0208		. #x5A69)	; &I-J90-5A69; [58-73]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6649)	; 晉
+      ))
+    (ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (=ucs@unicode	. #x6649)	; &GT-17580;
+    (=jis-x0208		. #x5A69)	; &GT-17580; [58-73]
     (=ks-x1001		. #x724B)	; &I-K0-724B; [82-43]
     (=cns11643-1	. #x556C)	; &I-C1-556C; [53-76]
     (=jis-x0213-1	. #x5A69)	; &I-JX1-5A69; [58-73]
-    (=gb12345		. #x3D7A)	; 晉 [29-90]
+    (=gb12345		. #x3D7A)	; &GT-17580; [29-90]
     (=big5		. #xAECA)	; &I-B-AECA;
     (=gt		. 17580)	; &I-GT-17580;
     (=gt-k		. 06599)	; &I-GT-K06599;
     (=gt-pj-1		. #x5A69)	; &I-GT-17580; [58-73]
     (=daikanwa		. 13898)	; &I-M-13898;
-    (=shinjigen		.  3324)	; 晉
+    (=shinjigen		.  3324)	; &GT-17580;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6649)	; 晉
+      ))
+    (=>ucs*		. #x6649)	; 晉
+    (ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (=ucs		. #x2F8CD)	; 晉
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
@@ -3044,13 +3063,22 @@
     (=daikanwa		. 13899)	; &I-M-13899;
     (=shinjigen		.  3323)	; 晋
     (<-simplified@CN
-     ((=ucs		  . #x6649)	; 晉
-      (=gb12345		  . #x3D7A)	; 晉 [29-90]
+     ((=ucs@unicode	  . #x6649)	; &GT-17580;
+      (=jis-x0208	  . #x5A69)	; &GT-17580; [58-73]
+      (=ks-x1001	  . #x724B)	; &I-K0-724B; [82-43]
+      (=cns11643-1	  . #x556C)	; &I-C1-556C; [53-76]
+      (=jis-x0213-1	  . #x5A69)	; &I-JX1-5A69; [58-73]
+      (=gb12345		  . #x3D7A)	; &GT-17580; [29-90]
+      (=daikanwa	  . 13898)	; &I-M-13898;
       ))
     (<-simplified@misc
-     ((=ucs		  . #x6649)	; 晉
-      (=jis-x0208	  . #x5A69)	; &I-J90-5A69; [58-73]
-      (=shinjigen	  .  3324)	; 晉
+     ((=ucs@unicode	  . #x6649)	; &GT-17580;
+      (=jis-x0208	  . #x5A69)	; &GT-17580; [58-73]
+      (=ks-x1001	  . #x724B)	; &I-K0-724B; [82-43]
+      (=cns11643-1	  . #x556C)	; &I-C1-556C; [53-76]
+      (=jis-x0213-1	  . #x5A69)	; &I-JX1-5A69; [58-73]
+      (=daikanwa	  . 13898)	; &I-M-13898;
+      (=shinjigen	  .  3324)	; &GT-17580;
       ))
     (<-simplified@misc*sources
      shinjigen)
@@ -8014,21 +8042,39 @@
   '((ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 12)
     (=ucs		. #x3B1C)	; 㬜
+    (=adobe-japan1-5	. 17757)	; &I-AJ1-17757;
+    (=cns11643-3	. #x507C)	; &I-C3-507C; [48-92]
+    (=jis-x0213-2	. #x2E34)	; &I-JX2-2E34; [14-20]
+    (=daikanwa		. 14164)	; &I-M-14164;
+    (=shinjigen		.  3325)	; 㬜
+    (<-original
+     ((=ucs@unicode	  . #x6649)	; &GT-17580;
+      (=jis-x0208	  . #x5A69)	; &GT-17580; [58-73]
+      (=ks-x1001	  . #x724B)	; &I-K0-724B; [82-43]
+      (=cns11643-1	  . #x556C)	; &I-C1-556C; [53-76]
+      (=jis-x0213-1	  . #x5A69)	; &I-JX1-5A69; [58-73]
+      (=daikanwa	  . 13898)	; &I-M-13898;
+      (=shinjigen	  .  3324)	; &GT-17580;
+      ))
+    (<-original*sources
+     shinjigen)
     (->subsumptive
-     ((=daikanwa	  . 14164)	; &M-14164;
+     ((==daikanwa	  . 14164)	; &g2-M-14164;
       )
-     ((=ucs@unicode	  . #x3B1C)	; &AJ1-17757;
-      (=adobe-japan1-5	  . 17757)	; &AJ1-17757;
-      (=cns11643-3	  . #x507C)	; &I-C3-507C; [48-92]
-      (=jis-x0213-2	  . #x2E34)	; &I-JX2-2E34; [14-20]
-      (=shinjigen	  .  3325)	; &AJ1-17757;
-      (<-original
-       ((=ucs		    . #x6649)	; 晉
-	(=jis-x0208	    . #x5A69)	; &I-J90-5A69; [58-73]
-	(=shinjigen	    .  3324)	; 晉
+     ((==ucs@unicode	  . #x3B1C)	; &g2-AJ1-17757;
+      (==adobe-japan1-5	  . 17757)	; &g2-AJ1-17757;
+      (==cns11643-3	  . #x507C)	; &g2-AJ1-17757; [48-92]
+      (==jis-x0213-2	  . #x2E34)	; &g2-AJ1-17757; [14-20]
+      (==shinjigen	  .  3325)	; &g2-AJ1-17757;
+      (->subsumptive
+       ((===jis-x0213-2	    . #x2E34)	; &R-JX2-2E34; [14-20]
+	)
+       ((===adobe-japan1-5  . 17757)	; &R-AJ1-17757;
+	)
+       ((===ucs@unicode	    . #x3B1C)	; &R-UU+3B1C;
+	)
+       ((===cns11643-3	    . #x507C)	; &R-C3-507C; [48-92]
 	))
-      (<-original*sources
-       shinjigen)
       ))
     ))
 (define-char
