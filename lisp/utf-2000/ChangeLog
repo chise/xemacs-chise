@@ -1,3 +1,16 @@
+2015-01-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R178-Tanned-Leather.el (U+97D1): Apply new conventions
+	for glyph granularity.
+	(U+97D9): Likewise.
+	(U+97DE): Likewise.
+	(U-000293D5): Likewise.
+	(U+97E1): Likewise.
+
+	* Ideograph-R072-Sun.el (U+6649): Use `->denotational' to
+	integrate U-0002F8CD.
+	(U+3B1C): Apply new conventions for glyph granularity.
+
 2015-01-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R103-Bolt-Of-Cloth.el (U+758C): Use `->denotational'
