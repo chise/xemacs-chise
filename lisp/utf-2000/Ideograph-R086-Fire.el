@@ -8181,8 +8181,8 @@
       (==jis-x0213-2	  . #x6F77)	; &g2-HD-IA-245F; [79-87]
       (==hanyo-denshi/ia  . #x245F)	; &g2-HD-IA-245F; [04-63]
       (->subsumptive
-       ((===jis-x0213-2	    . #x6F77)	; &R-JX2-6F77; [79-87]
-	(===hanyo-denshi/ia . #x245F)	; &R-JX2-6F77; [04-63]
+       ((===jis-x0213-2	    . #x6F77)	; &R-HD-IA-245F; [79-87]
+	(===hanyo-denshi/ia . #x245F)	; &R-HD-IA-245F; [04-63]
 	)
        ((===ucs@unicode	    . #x3DD4)	; &R-UU+3DD4;
 	))
