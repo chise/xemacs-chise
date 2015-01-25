@@ -310,7 +310,7 @@
       (==cns11643-7	  . #x517D)	; &g2-HD-IA-2822; [49-93]
       (==hanyo-denshi/ia  . #x2822)	; &g2-HD-IA-2822; [08-02]
       (->subsumptive
-       ((===hanyo-denshi/ia . #x2822)	; &MCS-000F54F0; [08-02]
+       ((===hanyo-denshi/ia . #x2822)	; &R-HD-IA-2822; [08-02]
 	)
        ((===ucs@unicode	    . #x4C17)	; &R-UU+4C17;
 	)
