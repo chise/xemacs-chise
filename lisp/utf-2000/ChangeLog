@@ -1,3 +1,14 @@
+2015-01-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R167-Gold.el (U+9271): Apply new conventions for glyph
+	granularity.
+	(U+9366): Likewise.
+	(UU+9395): Likewise.
+	(U-00028A8F): Likewise.
+	(g2-JC3-6BC7): New node.
+	(UU+944A): Apply new conventions for glyph granularity.
+	(UU+945B): Likewise.
+
 2015-01-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R178-Tanned-Leather.el (U+97D1): Apply new conventions
