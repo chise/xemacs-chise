@@ -393,11 +393,12 @@
       (total-strokes	   . 21)
       (=ucs@cns		  . #x4D1C)	; &C7-5729;
       (=cns11643-7	  . #x5729)	; &C7-5729; [55-09]
+      (=daikanwa	  . 47560)	; &I-M-47560;
       (->subsumptive
-       ((=daikanwa	    . 47560)	; &M-47560;
+       ((==daikanwa	    . 47560)	; &g2-M-47560;
 	)
-       ((==ucs@cns	    . #x4D1C)	; &R-CU+4D1C;
-	(==cns11643-7	    . #x5729)	; &R-CU+4D1C; [55-09]
+       ((==ucs@cns	    . #x4D1C)	; &g2-CU+4D1C;
+	(==cns11643-7	    . #x5729)	; &g2-CU+4D1C; [55-09]
 	))
       )
      ((ideographic-strokes . 9)
@@ -496,17 +497,19 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 22)
     (=ucs		. #x2A27A)	; 𪉺
+    (=cns11643-7	. #x5A73)	; &I-C7-5A73; [58-83]
+    (=daikanwa		. 47568)	; &I-M-47568;
     (->subsumptive
-     ((=daikanwa	  . 47568)	; &M-47568;
-      )
-     ((=ucs@iso		  . #x2A27A)	; &C7-5A73;
-      (=cns11643-7	  . #x5A73)	; &C7-5A73; [58-83]
+     ((==ucs@iso	  . #x2A27A)	; &g2-M-47568;
+      (==daikanwa	  . 47568)	; &g2-M-47568;
       (->subsumptive
-       ((==ucs@iso	    . #x2A27A)	; &R-U-0002A27A;
+       ((===daikanwa	    . 47568)	; &R-M-47568;
 	)
-       ((==ucs@cns	    . #x2A27A)	; &R-CU+2A27A;
-	(==cns11643-7	    . #x5A73)	; &R-CU+2A27A; [58-83]
+       ((===ucs@iso	    . #x2A27A)	; &R-U-0002A27A;
 	))
+      )
+     ((==ucs@cns	  . #x2A27A)	; &g2-CU+2A27A;
+      (==cns11643-7	  . #x5A73)	; &g2-CU+2A27A; [58-83]
       ))
     ))
 (define-char
