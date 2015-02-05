@@ -33715,9 +33715,23 @@
       )
      ((=ucs@unicode	  . #x98E2)	; &GT-59033;
       (=jis-x0208	  . #x3532)	; &GT-59033; [21-18]
+      (=cns11643-1	  . #x586A)	; &I-C1-586A; [56-74]
       (=jis-x0213-1	  . #x3532)	; &I-JX1-3532; [21-18]
       ))
     (=ucs@iso		. #x20343)	; &U-00020343;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL PERSON")
+	(=ucs		    . #x2E85)	; ⺅
+	)
+       ((==ucs@unicode	    . #x98E2)	; &g2-GT-59033;
+	(==jis-x0208	    . #x3532)	; &g2-GT-59033; [21-18]
+	))
+      (==ucs@iso	  . #x20343)	; &g2-IU-00020343;
+      ))
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
