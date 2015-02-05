@@ -1,3 +1,44 @@
+2015-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R202-Millet.el (U-0002A411): Apply new conventions for
+	glyph granularity.
+
+2015-02-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R201-Yellow.el (IU+2A3DC): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R197-Salt.el (U+4D1C): Apply new conventions for glyph
+	granularity.
+	(U-0002A27A): Likewise.
+
+2015-02-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R184-Eat.el (U+98E2): Apply new conventions for glyph
+	granularity.
+	(U+98EB): Likewise.
+	(U+98ED): Likewise.
+	(U+98F4): Likewise.
+	(U+98FC): Likewise.
+	(U+4B34): Likewise.
+	(U+98FE): Likewise.
+	(U+9905): Likewise.
+	(U+4B37): Likewise.
+	(U+9909): Likewise.
+	(U+4B39): Likewise.
+	(U+4B3A): Likewise.
+	(U-000296DB): Likewise.
+	(U+4B3B): Likewise.
+	(U+9913): Likewise.
+	(U+9914): Likewise.
+	(U+9918): Likewise.
+	(UU+991D): Likewise.
+	(U+9928): Likewise.
+	(U+9952): Likewise.
+
+	* Ideograph-R009-Man.el (IU+20343): Use `->subsumptive' to add
+	abstract glyph-form node.
+
 2015-01-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R167-Gold.el (U+9271): Apply new conventions for glyph
