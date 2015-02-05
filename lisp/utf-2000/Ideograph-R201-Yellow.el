@@ -610,10 +610,10 @@
      ((=ucs@iso		  . #x2A3CB)	; &C7-5254;
       (=cns11643-7	  . #x5254)	; &C7-5254; [50-52]
       (->subsumptive
-       ((==ucs@iso	    . #x2A3CB)	; &R-U-0002A3CB;
+       ((==ucs@iso	    . #x2A3CB)	; &g2-IU-0002A3CB;
 	)
-       ((==ucs@cns	    . #x2A3CB)	; &R-CU+2A3CB;
-	(==cns11643-7	    . #x5254)	; &R-CU+2A3CB; [50-52]
+       ((==ucs@cns	    . #x2A3CB)	; &g2-CU+2A3CB;
+	(==cns11643-7	    . #x5254)	; &g2-CU+2A3CB; [50-52]
 	))
       ))
     ))
@@ -640,10 +640,10 @@
      ((=ucs@iso		  . #x2A3CD)	; &C7-5256;
       (=cns11643-7	  . #x5256)	; &C7-5256; [50-54]
       (->subsumptive
-       ((==ucs@iso	    . #x2A3CD)	; &R-U-0002A3CD;
+       ((==ucs@iso	    . #x2A3CD)	; &g2-IU-0002A3CD;
 	)
-       ((==ucs@cns	    . #x2A3CD)	; &R-CU+2A3CD;
-	(==cns11643-7	    . #x5256)	; &R-CU+2A3CD; [50-54]
+       ((==ucs@cns	    . #x2A3CD)	; &g2-CU+2A3CD;
+	(==cns11643-7	    . #x5256)	; &g2-CU+2A3CD; [50-54]
 	))
       ))
     ))
@@ -799,10 +799,13 @@
      ((=ucs@iso		  . #x2A3DC)	; &C7-5B23;
       (=cns11643-7	  . #x5B23)	; &C7-5B23; [59-03]
       (->subsumptive
-       ((==ucs@cns	    . #x2A3DC)	; &R-CU+2A3DC;
-	(==cns11643-7	    . #x5B23)	; &R-CU+2A3DC; [59-03]
-	)
-       ((==ucs@iso	    . #x2A3DC)	; &R-U-0002A3DC;
+       ((==ucs@iso	    . #x2A3DC)	; &g2-IU-0002A3DC;
+	(==cns11643-7	    . #x5B23)	; &g2-IU-0002A3DC; [59-03]
+	(->subsumptive
+	 ((===cns11643-7      . #x5B23)	; &R-C7-5B23; [59-03]
+	  )
+	 ((===ucs@iso	      . #x2A3DC)	; &R-U-0002A3DC;
+	  ))
 	))
       ))
     ))
@@ -1014,10 +1017,10 @@
     (=ucs@iso		. #x2A3E7)	; &C7-6179;
     (=cns11643-7	. #x6179)	; &C7-6179; [65-89]
     (->subsumptive
-     ((==ucs@iso	  . #x2A3E7)	; &R-U-0002A3E7;
+     ((==ucs@iso	  . #x2A3E7)	; &g2-IU-0002A3E7;
       )
-     ((==ucs@cns	  . #x2A3E7)	; &R-CU+2A3E7;
-      (==cns11643-7	  . #x6179)	; &R-CU+2A3E7; [65-89]
+     ((==ucs@cns	  . #x2A3E7)	; &g2-CU+2A3E7;
+      (==cns11643-7	  . #x6179)	; &g2-CU+2A3E7; [65-89]
       ))
     ))
 (define-char
