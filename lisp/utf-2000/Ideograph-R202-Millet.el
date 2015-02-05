@@ -436,9 +436,9 @@
      ((=ucs@iso		  . #x2A409)	; &M-48024;
       (=daikanwa	  . 48024)	; &M-48024;
       (->subsumptive
-       ((==daikanwa	    . 48024)	; &R-M-48024;
+       ((==daikanwa	    . 48024)	; &g2-M-48024;
 	)
-       ((==ucs@iso	    . #x2A409)	; &R-U-0002A409;
+       ((==ucs@iso	    . #x2A409)	; &g2-IU-0002A409;
 	))
       )
      ((=cns11643-7	  . #x5735)	; &C7-5735; [55-21]
@@ -660,15 +660,18 @@
     (ideographic-radical . 202)	; ⿉
     (ideographic-strokes . 14)
     (total-strokes	 . 26)
-    (=>>ucs@cns		. #x2A411)	; &C7-6340;
     (=ucs@cns		. #x2A411)	; &C7-6340;
     (=cns11643-7	. #x6340)	; &C7-6340; [67-32]
-    (=>>daikanwa	. 48034)	; &C7-6340;
+    (=daikanwa		. 48034)	; &I-M-48034;
     (->subsumptive
-     ((=daikanwa	  . 48034)	; &M-48034;
-      )
-     ((==ucs@cns	  . #x2A411)	; &R-CU+2A411;
-      (==cns11643-7	  . #x6340)	; &R-CU+2A411; [67-32]
+     ((==ucs@cns	  . #x2A411)	; &g2-M-48034;
+      (==cns11643-7	  . #x6340)	; &g2-M-48034; [67-32]
+      (==daikanwa	  . 48034)	; &g2-M-48034;
+      (->subsumptive
+       ((===daikanwa	    . 48034)	; &R-M-48034;
+	)
+       ((===cns11643-7	    . #x6340)	; &R-C7-6340; [67-32]
+	))
       ))
     ))
 (define-char
