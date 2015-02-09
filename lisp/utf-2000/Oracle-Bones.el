@@ -5390,7 +5390,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
       (=ucs		  . #x2FF5)	; ⿵
       )
-     ((=daikanwa	  . 41208)	; &M-41208;
+     ((==daikanwa	  . 41208)	; &g2-M-41208;
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       ))
