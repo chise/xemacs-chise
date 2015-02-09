@@ -1678,6 +1678,7 @@
       ))
     (<-simplified@CN/component
      ((=ucs		  . #x9F4A)	; 齊
+      (=gb12345		  . #x466B)	; 齊 [38-75]
       ))
     ))
 (define-char
