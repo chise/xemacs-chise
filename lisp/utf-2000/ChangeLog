@@ -1,3 +1,22 @@
+2015-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R211-Tooth.el (U+9F69): Apply new conventions for
+	glyph granularity.
+	(CU+4DAB): Likewise.
+
+	* Ideograph-R203-Black.el (U+9EEF): Apply new conventions for
+	glyph granularity.
+	(U-0002A48C): Likewise.
+
+2015-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R209-Nose.el (U-0002A5A4): Apply new conventions for
+	glyph granularity.
+	(U-0002A5BE): Likewise.
+
+	* Ideograph-R199-Wheat.el (UU+4D42): Apply new conventions for
+	glyph granularity.
+
 2015-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R208-Rat.el (UU+4D86): Apply new conventions for glyph
