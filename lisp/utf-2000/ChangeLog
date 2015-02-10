@@ -1,5 +1,29 @@
 2015-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R205-Frog.el (U-0002A4D2): Apply new conventions for
+	glyph granularity.
+	(U-0002A4DC): Likewise.
+	(U-0002A4E2): Likewise.
+	(U+4D77): Likewise.
+	(U-0002A4E5): Likewise.
+	(U-0002A4ED): Likewise.
+	(U-0002A4F2): Likewise.
+	(U-0002A4F4): Likewise.
+	(U-0002A4F3): Likewise.
+
+	* Ideograph-R194-Ghost.el (U-00029CD9): Apply new conventions for
+	glyph granularity.
+	(U-00029CF9): Likewise.
+	(IU+29CFA): Likewise.
+	(U-00029D1B): Likewise.
+	(U-00029D22): Likewise.
+	(U-00029D37): Likewise.
+	(U-00029D34): Likewise.
+	(IU+29D3A): Likewise.
+	(U-00029D3F): Likewise.
+
+2015-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R196-Bird.el (U+9D09): Apply new conventions for glyph
 	granularity.
 	(CU+4CC1): Likewise.
