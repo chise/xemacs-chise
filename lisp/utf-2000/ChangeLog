@@ -1,5 +1,13 @@
 2015-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R196-Bird.el (U+9D09): Apply new conventions for glyph
+	granularity.
+	(CU+4CC1): Likewise.
+	(CU+2A13E): Likewise.
+	(IU+2A13E): Modify `ideographic-strokes' and `total-strokes'.
+	(U+9E1B): Apply new conventions for glyph granularity.
+	(CU+2A23B): Likewise.
+
 	* Ideograph-R211-Tooth.el (U+9F69): Apply new conventions for
 	glyph granularity.
 	(CU+4DAB): Likewise.
