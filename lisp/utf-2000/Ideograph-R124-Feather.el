@@ -5107,11 +5107,6 @@
     (ideographic-radical . 124)	; ⽻
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x7FEB)	; 翫
-      )
-     ((=ucs		  . #xE0103)	; 󠄃
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -5131,9 +5126,16 @@
     (=hanyo-denshi/ft	. #x316A)	; &I-HD-FT-316A; [17-74]
     (=daikanwa		. 28766)	; &I-M-28766;
     (->subsumptive
-     ((==ucs@jis/2004	  . #x7FEB)	; &g2-MJ020716;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7FEB)	; 翫
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==ucs@jis/2004	  . #x7FEB)	; &g2-MJ020716;
+      (==ucs@ks		  . #x7FEB)	; &g2-MJ020716;
       (==mj		  . 020716)	; &g2-MJ020716;
       (==jis-x0208@1978	  . #x3465)	; &g2-MJ020716; [20-69]
+      (==ks-x1001	  . #x6851)	; &g2-MJ020716; [72-49]
       (==jis-x0213-1@2004 . #x3465)	; &g2-MJ020716; [20-69]
       (==hanyo-denshi/ft  . #x316A)	; &g2-MJ020716; [17-74]
       (==daikanwa	  . 28766)	; &g2-MJ020716;
@@ -5145,10 +5147,10 @@
 	(===hanyo-denshi/ft . #x316A)	; &R-HD-FT-316A; [17-74]
 	)
        ((===mj		    . 020716)	; &R-MJ020716;
+	)
+       ((===ucs@ks	    . #x7FEB)	; &R-K0-6851;
+	(===ks-x1001	    . #x6851)	; &R-K0-6851; [72-49]
 	))
-      )
-     ((==ucs@ks		  . #x7FEB)	; &g2-K0-6851;
-      (==ks-x1001	  . #x6851)	; &g2-K0-6851; [72-49]
       ))
     ))
 (define-char
@@ -7417,11 +7419,6 @@
     (ideographic-radical . 124)	; ⽻
     (ideographic-strokes . 14)
     (total-strokes	 . 20)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x8000)	; 耀
-      )
-     ((=ucs		  . #xE0103)	; 󠄃
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -7442,7 +7439,12 @@
     (=gt-pj-6		. #x3522)	; &I-GT-37281; [21-02]
     (=daikanwa		. 28828)	; &I-M-28828;
     (->subsumptive
-     ((ideographic-structure
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8000)	; 耀
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
