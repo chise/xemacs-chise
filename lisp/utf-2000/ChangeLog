@@ -1,3 +1,9 @@
+2015-02-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (UU+514E): Apply new conventions for
+	glyph granularity.
+	(U-0002F80F): Likewise.
+
 2015-02-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R130-Meat.el: Add Hanyo-Denshi/JA code points.
