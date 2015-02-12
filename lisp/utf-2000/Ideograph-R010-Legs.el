@@ -1227,16 +1227,6 @@
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (=decomposition@cid
-     ((=ucs		  . #x514E)	; 兎
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x514E)	; 兎
-      )
-     ((=ucs		  . #xE0103)	; 󠄃
-      ))
     (hanyu-dazidian	1 270 5)
     (=ucs@unicode	. #x514E)	; &MJ007231;
     (=mj		. 007231)	; &MJ007231;
@@ -1256,22 +1246,41 @@
     (<-vulgar*sources
      zhengzitong daikanwa)
     (->subsumptive
-     ((==daikanwa	  . 01359)	; &g2-M-01359;
+     ((=decomposition@cid
+       ((=ucs		    . #x514E)	; 兎
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x514E)	; 兎
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==ucs@unicode	  . #x514E)	; &g2-MJ007231;
+      (==mj		  . 007231)	; &g2-MJ007231;
+      (==adobe-japan1-4	  . 13949)	; &g2-MJ007231;
+      (==jis-x0213-1@2004 . #x4546)	; &g2-MJ007231; [37-38]
+      (==hanyo-denshi/ft  . #x3D32)	; &g2-MJ007231; [29-18]
+      (==gt		  . 01764)	; &g2-MJ007231;
+      (==daikanwa	  . 01359)	; &g2-MJ007231;
+      (==shinjigen	  .  0469)	; &g2-MJ007231;
+      (->subsumptive
+       ((===daikanwa	    . 01359)	; &R-M-01359;
+	)
+       ((===gt		    . 01764)	; &R-GT-01764;
+	)
+       ((===jis-x0213-1@2004 . #x4546)	; &R-HD-FT-3D32; [37-38]
+	(===hanyo-denshi/ft . #x3D32)	; &R-HD-FT-3D32; [29-18]
+	)
+       ((===adobe-japan1-4  . 13949)	; &R-AJ1-13949;
+	)
+       ((===mj		    . 007231)	; &R-MJ007231;
+	)
+       ((===ucs@unicode	    . #x514E)	; &R-UU+514E;
+	))
       )
      ((==ucs@cns	  . #x514E)	; &g2-CU+514E;
       (==cns11643-3	  . #x2454)	; &g2-CU+514E; [04-52]
-      )
-     ((==gt		  . 01764)	; &g2-GT-01764;
-      )
-     ((==ucs@jis/2004	  . #x514E)	; &g2-HD-FT-3D32;
-      (==jis-x0213-1@2004 . #x4546)	; &g2-HD-FT-3D32; [37-38]
-      (==hanyo-denshi/ft  . #x3D32)	; &g2-HD-FT-3D32; [29-18]
-      (==shinjigen	  .  0469)	; &g2-HD-FT-3D32;
-      )
-     ((==mj		  . 007231)	; &g2-MJ007231;
-      (==adobe-japan1-4	  . 13949)	; &g2-MJ007231;
-      )
-     ((==ucs@unicode	  . #x514E)	; &g2-UU+514E;
       ))
     ))
 (define-char
@@ -1627,16 +1636,6 @@
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (=decomposition@cid
-     ((=ucs		  . #x5154)	; 兔
-      )
-     ((=ucs		  . #xE0100)	; 󠄀
-      ))
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x5154)	; 兔
-      )
-     ((=ucs		  . #xE0105)	; 󠄅
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (=ucs		  . #x2FF7)	; ⿷
@@ -1654,16 +1653,37 @@
     (=daikanwa		. 01368)	; &I-M-01368;
     (=shinjigen		.  0468)	; 兔
     (->subsumptive
-     ((==adobe-japan1-0	  . 07814)	; &g2-AJ1-07814;
-      (==jis-x0208@1978	  . #x513D)	; &g2-AJ1-07814; [49-29]
-      (==hanyo-denshi/ft  . #x334A)	; &g2-AJ1-07814; [19-42]
-      (==daikanwa	  . 01368)	; &g2-AJ1-07814;
-      )
-     ((==ucs@cns	  . #x2F80F)	; &g2-CU+2F80F;
-      (==cns11643-3	  . #x2753)	; &g2-CU+2F80F; [07-51]
-      )
-     ((==ucs@iso	  . #x2F80F)	; &g2-MJ007241;
+     ((=decomposition@cid
+       ((=ucs		    . #x5154)	; 兔
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x5154)	; 兔
+	)
+       ((=ucs		    . #xE0105)	; 󠄅
+	))
+      (==ucs@iso	  . #x2F80F)	; &g2-MJ007241;
       (==mj		  . 007241)	; &g2-MJ007241;
+      (==adobe-japan1-0	  . 07814)	; &g2-MJ007241;
+      (==jis-x0208@1978	  . #x513D)	; &g2-MJ007241; [49-29]
+      (==cns11643-3	  . #x2753)	; &g2-MJ007241; [07-51]
+      (==hanyo-denshi/ft  . #x334A)	; &g2-MJ007241; [19-42]
+      (==daikanwa	  . 01368)	; &g2-MJ007241;
+      (->subsumptive
+       ((===daikanwa	    . 01368)	; &R-M-01368;
+	)
+       ((===jis-x0208@1978  . #x513D)	; &R-HD-FT-334A; [49-29]
+	(===hanyo-denshi/ft . #x334A)	; &R-HD-FT-334A; [19-42]
+	)
+       ((===adobe-japan1-0  . 07814)	; &R-AJ1-07814;
+	)
+       ((===cns11643-3	    . #x2753)	; &R-C3-2753; [07-51]
+	)
+       ((===ucs@iso	    . #x2F80F)	; &R-U-0002F80F;
+	)
+       ((===mj		    . 007241)	; &R-MJ007241;
+	))
       ))
     ))
 (define-char
