@@ -1204,8 +1204,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x8096)	; &GT-37891;
-      (=jis-x0208	  . #x3E53)	; &GT-37891; [30-51]
+     ((=ucs@unicode	  . #x8096)	; &HD-JA-3E53;
+      (=jis-x0208	  . #x3E53)	; &HD-JA-3E53; [30-51]
       (=gb2312		  . #x5024)	; &I-G0-5024; [48-04]
       (=cns11643-1	  . #x4B39)	; &I-C1-4B39; [43-25]
       (=jis-x0213-1	  . #x3E53)	; &I-JX1-3E53; [30-51]
@@ -1219,8 +1219,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@unicode	    . #x8096)	; &g2-GT-37891;
-	(==jis-x0208	    . #x3E53)	; &g2-GT-37891; [30-51]
+       ((==ucs@unicode	    . #x8096)	; &g2-HD-JA-3E53;
+	(==jis-x0208	    . #x3E53)	; &g2-HD-JA-3E53; [30-51]
 	)
        ((==ucs@unicode	    . #x6BDB)	; &g2-GT-21495;
 	(==jis-x0208	    . #x4C53)	; &g2-GT-21495; [44-51]
