@@ -452,15 +452,15 @@
       (=daikanwa	  . 16740)	; &I-M-16740;
       (=shinjigen	  .  6433)	; &HD-JA-5D5A;
       (<-ancient
-       ((=ucs@unicode	    . #x80B2)	; &GT-37901;
-	(=ucs@cns	    . #x2F982)	; &GT-37901;
-	(=jis-x0208	    . #x3069)	; &GT-37901; [16-73]
+       ((=ucs@unicode	    . #x80B2)	; &HD-JA-3069;
+	(=ucs@cns	    . #x2F982)	; &HD-JA-3069;
+	(=jis-x0208	    . #x3069)	; &HD-JA-3069; [16-73]
 	(=gb2312	    . #x537D)	; &I-G0-537D; [51-93]
 	(=ks-x1001	    . #x6B40)	; &I-K0-6B40; [75-32]
 	(=cns11643-6	    . #x2D69)	; &I-C6-2D69; [13-73]
 	(=jis-x0213-1	    . #x3069)	; &I-JX1-3069; [16-73]
 	(=daikanwa	    . 29318)	; &I-M-29318;
-	(=shinjigen	    .  6431)	; &GT-37901;
+	(=shinjigen	    .  6431)	; &HD-JA-3069;
 	))
       (<-ancient*sources
        shinjigen)
