@@ -3423,7 +3423,7 @@
 
 2014-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* Ideograph-R128-Ear.el Add Hanyo-Denshi/JA code points.
+	* Ideograph-R128-Ear.el: Add Hanyo-Denshi/JA code points.
 	(U+8033): Apply new conventions for glyph granularity.
 	(U+8056): Likewise.
 	(U+8061): Likewise.
