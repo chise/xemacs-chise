@@ -1,5 +1,17 @@
 2015-02-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R130-Meat.el: Add Hanyo-Denshi/JA code points.
+	(HD-FT2462): Use `->subsumptive' to add g2-HD-FT2462; move
+	`=decomposition@hanyo-denshi' to g2-HD-FT2462.
+	(HD-JB5460): Add `=decomposition@hanyo-denshi'.
+	(U+81DF): Apply new conventions for glyph granularity.
+
+	* Ideograph-R124-Feather.el (KU+7FEB): Apply new conventions for
+	glyph granularity.
+	(HD-FT1934): Move `=decomposition@hanyo-denshi' to g2-HD-FT1934.
+
+2015-02-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R129-Brush.el (U+8087): Apply new conventions for
 	glyph granularity.
 	(J0-4825): Unify HD-JA4005.
