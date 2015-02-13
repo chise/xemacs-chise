@@ -1,5 +1,10 @@
 2015-02-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R037-Big.el (UU+3691): Apply new conventions for glyph
+	granularity.
+
+2015-02-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R010-Legs.el (UU+514E): Apply new conventions for
 	glyph granularity.
 	(U-0002F80F): Likewise.
