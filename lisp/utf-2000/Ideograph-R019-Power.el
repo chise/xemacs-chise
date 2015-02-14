@@ -5756,11 +5756,6 @@
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x52F5)	; 勵
-      )
-     ((=ucs		  . #xE0102)	; 󠄂
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -5780,11 +5775,26 @@
      ((==ucs@cns	  . #x52F5)	; &g2-M-02472;
       (==cns11643-1	  . #x7344)	; &g2-M-02472; [83-36]
       (==daikanwa	  . 02472)	; &g2-M-02472;
+      (->subsumptive
+       ((===daikanwa	    . 02472)	; &R-M-02472;
+	)
+       ((===cns11643-1	    . #x7344)	; &R-C1-7344; [83-36]
+	))
       )
-     ((==mj		  . 007737)	; &g2-MJ007737;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x52F5)	; 勵
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==mj		  . 007737)	; &g2-MJ007737;
       (==hanyo-denshi/ks  . 028720)	; &g2-MJ007737;
-      (=hanyo-denshi/ks/mf . #x0B38)	; &g2-MJ007737;
       (==shinjigen	  .  0716)	; &g2-MJ007737;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 028720)	; &KSMF-02872;
+	(=hanyo-denshi/ks/mf . #x0B38)	; &KSMF-02872;
+	)
+       ((===mj		    . 007737)	; &R-MJ007737;
+	))
       ))
     ))
 (define-char
