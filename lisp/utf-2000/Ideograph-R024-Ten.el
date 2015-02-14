@@ -973,7 +973,6 @@
      ((=ucs		  . #x5341)	; 十
       ))
     (=ucs		. #xFA35)	; 卑
-    (=>>ucs@unicode	. #x5351)	; 卑
     (=ucs@unicode	. #x5351)	; 卑
     (=ucs@jis		. #xFA35)	; 卑
     (=adobe-japan1-4	. 13378)	; &I-AJ1-13378;
@@ -1001,7 +1000,6 @@
      ((=ucs		  . #xE0101)	; 󠄁
       ))
     (=ucs		. #x2F82D)	; 卑
-    (=>>ucs@jis		. #x5351)	; 卑
     (=ucs@jis		. #x5351)	; 卑
     (=adobe-japan1-0	. 03440)	; &I-AJ1-03440;
     (=jis-x0208		. #x485C)	; &I-J90-485C; [40-60]
