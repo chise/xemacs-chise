@@ -1285,7 +1285,6 @@
       )
      ((=ucs		  . #xE0100)	; 󠄀
       ))
-    (=>>ucs@jis		. #x516A)	; &AJ1-04216;
     (=ucs@jis		. #x516A)	; &AJ1-04216;
     (=adobe-japan1-0	. 04216)	; &AJ1-04216;
     (=jis-x0208		. #x5141)	; &I-J90-5141; [49-33]
@@ -1358,6 +1357,7 @@
 	))
       ))
     (=ucs@unicode	. #x516A)	; &C3-2B37;
+    (=ucs@JP/hanazono	. nil)
     (=cns11643-3	. #x2B37)	; &C3-2B37; [11-23]
     (->subsumptive
      ((ideographic-structure
@@ -1376,6 +1376,7 @@
 	  ))
 	))
       (==ucs@unicode	  . #x516A)	; &g2-UU+516A;
+      (==ucs@JP/hanazono  . nil)
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
