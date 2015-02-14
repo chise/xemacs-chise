@@ -1,5 +1,8 @@
 2015-02-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R063-Door.el (U+6241): Apply new conventions for glyph
+	granularity.
+
 	* Ideograph-R023-Hiding-Enclosure.el (U+5338): Apply new
 	conventions for glyph granularity.
 	(CU+533F): Likewise.
