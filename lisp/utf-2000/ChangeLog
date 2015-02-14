@@ -1,5 +1,21 @@
 2015-02-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R023-Hiding-Enclosure.el (U+5338): Apply new
+	conventions for glyph granularity.
+	(CU+533F): Likewise.
+	(AJ1-20087): Likewise.
+
+	* Ideograph-R019-Power.el (o-JU+52E4): New node.
+	(JU+52E4): Use o-JU+52E4 instead of U+52E4 as the mother; apply
+	new conventions for glyph granularity.
+
+	* Ideograph-R024-Ten.el (U+FA35): Omit `=>>ucs@unicode'.
+	(U+2F82D): Omit `=>>ucs@jis'.
+
+	* Ideograph-R005-Second.el (KU+4E73): Apply new conventions for
+	glyph granularity.
+	(UU+4E73): Likewise.
+
 	* Ideograph-R011-Enter.el (JU+516A): Omit `=>>ucs@jis'.
 
 2015-02-14  MORIOKA Tomohiko  <tomo.git@chise.org>
