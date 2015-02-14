@@ -1,5 +1,7 @@
 2015-02-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R003-Dot.el (U-0002F801): Omit `=>>ucs@unicode'.
+
 	* Ideograph-R019-Power.el (CU+52F5): Apply new conventions for
 	glyph granularity.
 
