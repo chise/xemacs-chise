@@ -93,7 +93,6 @@
      ((=ucs		  . #xE0100)	; 󠄀
       ))
     (=ucs		. #x2F801)	; 丸
-    (=>>ucs@unicode	. #x4E38)	; 丸
     (=ucs@unicode	. #x4E38)	; 丸
     (=ucs@cns		. #x2F801)	; 丸
     (=adobe-japan1-0	. 01561)	; &I-AJ1-01561;
