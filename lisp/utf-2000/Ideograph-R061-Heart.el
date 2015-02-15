@@ -5986,7 +5986,6 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs		. #xFA3D)	; 悔
-    (=>>ucs@unicode	. #x6094)	; 悔
     (=ucs@unicode	. #x6094)	; 悔
     (=ucs@jis		. #xFA3D)	; 悔
     (=gb2312		. #x3B5A)	; &I-G0-3B5A; [27-58]
