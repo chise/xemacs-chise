@@ -6984,7 +6984,6 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs		. #xFA45)	; 海
-    (=>>ucs@unicode	. #x6D77)	; 海
     (=ucs@unicode	. #x6D77)	; 海
     (=ucs@jis		. #xFA45)	; 海
     (=gb2312		. #x3A23)	; &I-G0-3A23; [26-03]
