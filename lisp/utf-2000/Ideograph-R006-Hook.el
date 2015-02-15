@@ -343,6 +343,7 @@
   '((ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
+    (hanyu-dazidian	1 128 12)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -352,42 +353,38 @@
      ((=ucs		  . #x4E01)	; 丁
       ))
     (=ucs		. #x20116)	; 𠄖
-    (=>>daikanwa	. 00237)	; 𠄖
+    (=cns11643-5	. #x2330)	; &I-C5-2330; [03-16]
+    (=daikanwa		. 00237)	; &I-M-00237;
+    (=hanziku-1		. #xBE59)	; &I-HZK01-BE59;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@jis	    . #x4EE4)	; &AJ1-04009;
-	(=ucs@ks	    . #x4EE4)	; &AJ1-04009;
-	(=adobe-japan1-0    . 04009)	; &AJ1-04009;
+       ((==ucs@jis	    . #x4EE4)	; &g2-AJ1-04009;
+	(==ucs@ks	    . #x4EE4)	; &g2-AJ1-04009;
+	(==adobe-japan1-0   . 04009)	; &g2-AJ1-04009;
 	)
        ((=ucs		    . #x4E01)	; 丁
 	))
-      (=daikanwa	  . 00237)	; &M-00237;
+      (==daikanwa	  . 00237)	; &g2-M-00237;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=cns11643-1	    . #x456F)	; &C1-456F; [37-79]
+       ((==ucs@cns	    . #x4EE4)	; &GT-K01023;
+	(=gt-k		    . 01023)	; &GT-K01023;
 	)
        ((=ucs		    . #x4E01)	; 丁
 	))
-      (=ucs@iso		  . #x20116)	; &C5-2330;
-      (=cns11643-5	  . #x2330)	; &C5-2330; [03-16]
-      )
-     ((hanyu-dazidian	  1 128 12)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
+      (==ucs@iso	  . #x20116)	; &g2-IU-00020116;
+      (==cns11643-5	  . #x2330)	; &g2-IU-00020116; [03-16]
+      (->subsumptive
+       ((===cns11643-5	    . #x2330)	; &R-C5-2330; [03-16]
 	)
-       ((=ucs@unicode	    . #x4EE4)	; &G0-416E;
-	(=gb2312	    . #x416E)	; &G0-416E; [33-78]
-	)
-       ((=ucs		    . #x4E01)	; 丁
+       ((===ucs@iso	    . #x20116)	; &R-U-00020116;
 	))
-      (=hanziku-1	  . #xBE59)	; &HZK01-BE59;
       ))
     ))
 (define-char
