@@ -412,7 +412,6 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
-    (=>>ucs@unicode	. #x7940)	; &HD-FT-3761;
     (=ucs@unicode	. #x7940)	; &HD-FT-3761;
     (=gb2312		. #x6C6B)	; &HD-FT-3761; [76-75]
     (=cns11643-1	. #x4F24)	; &I-C1-4F24; [47-04]
@@ -427,6 +426,7 @@
        ((=ucs		    . #xE0105)	; 󠄅
 	))
       (==ucs@unicode	  . #x7940)	; &g2-HD-FT-3761;
+      (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x6C6B)	; &g2-HD-FT-3761; [76-75]
       (==cns11643-1	  . #x4F24)	; &g2-HD-FT-3761; [47-04]
       (==hanyo-denshi/ft  . #x3761)	; &g2-HD-FT-3761; [23-65]
@@ -2077,7 +2077,6 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
-    (=>>ucs@unicode	. #x795A)	; &HD-FT-3764;
     (=ucs@unicode	. #x795A)	; &HD-FT-3764;
     (=gb2312		. #x6C71)	; &HD-FT-3764; [76-81]
     (=cns11643-1	. #x5731)	; &I-C1-5731; [55-17]
@@ -2089,6 +2088,7 @@
        ((=ucs		    . #xE0102)	; 󠄂
 	))
       (==ucs@unicode	  . #x795A)	; &g2-HD-FT-3764;
+      (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x6C71)	; &g2-HD-FT-3764; [76-81]
       (==cns11643-1	  . #x5731)	; &g2-HD-FT-3764; [55-17]
       (==hanyo-denshi/ft  . #x3764)	; &g2-HD-FT-3764; [23-68]
