@@ -1,5 +1,7 @@
 2015-02-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R072-Sun.el (U-0002F8D2): Omit `=>>ucs@jis'.
+
 	* Ideograph-R060-Step.el (U+5FA7): Apply new conventions for glyph
 	granularity.
 
@@ -47,6 +49,8 @@
 2015-02-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R003-Dot.el (U-0002F801): Omit `=>>ucs@unicode'.
+
+	* Ideograph-R174-Blue.el: Add Hanyo-Denshi/IB code point.
 
 	* Ideograph-R019-Power.el (CU+52F5): Apply new conventions for
 	glyph granularity.
