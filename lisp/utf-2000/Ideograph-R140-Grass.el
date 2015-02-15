@@ -32030,6 +32030,45 @@
     ))
 (define-char
   '((ideographic-radical . 140)	; ⾋
+    (=ucs		. #x26C0C)	; 𦰌
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x26C0C)	; 𦰌
+      ))
+    (ideographic-radical . 140)	; ⾋
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (=ucs@iso		. #x26C0C)	; &U-00026C0C;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x26C0C)	; 𦰌
+      ))
+    (ideographic-radical . 140)	; ⾋
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (=gt-k		. 06724)	; &GT-K06724;
+    (=gt-pj-9		. #x554E)	; &GT-K06724; [53-46]
+    (<-simplified@component
+     ((=ucs		  . #x5807)	; 堇
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=gt-k		  . 06724)	; &GT-K06724;
+      ))
+    (ideographic-radical . 140)	; ⾋
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (=gt-k		. 06725)	; &GT-K06725;
+    (=gt-pj-k1		. #x3523)	; &GT-K06725; [21-03]
+    (<-formed@component/connect-right
+     ((=gt-k		  . 06724)	; &GT-K06724;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (=ucs		. #x26E0C)	; 𦸌
