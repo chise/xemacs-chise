@@ -1938,16 +1938,15 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x2F877)	; 屠
-    (=>>ucs@jis/2004	. #x5C60)	; 屠
-    (=>>ucs@ks		. #x5C60)	; 屠
     (=ucs@jis/2004	. #x5C60)	; 屠
     (=ucs@ks		. #x5C60)	; 屠
     (=adobe-japan1-0	. 07754)	; &I-AJ1-07754;
     (=jis-x0208@1978	. #x454B)	; &I-J78-454B; [37-43]
     (=ks-x1001		. #x5375)	; &I-K0-5375; [51-85]
+    (=cns11643-6	. #x477B)	; &I-C6-477B; [39-91]
     (=jis-x0213-1@2004	. #x454B)	; &I-JX3-454B; [37-43]
     (=hanyo-denshi/ft	. #x326A)	; &I-HD-FT-326A; [18-74]
-    (=>>daikanwa	. 07761)	; 屠
+    (=daikanwa		. 07761)	; &I-M-07761;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5C60)	; 屠
@@ -1966,10 +1965,22 @@
       (==ks-x1001	  . #x5375)	; &g2-AJ1-07754; [51-85]
       (==jis-x0213-1@2004 . #x454B)	; &g2-AJ1-07754; [37-43]
       (==hanyo-denshi/ft  . #x326A)	; &g2-AJ1-07754; [18-74]
-      (=daikanwa	  . 07761)	; &g2-AJ1-07754;
+      (==daikanwa	  . 07761)	; &g2-AJ1-07754;
+      (->subsumptive
+       ((===daikanwa	    . 07761)	; &R-M-07761;
+	)
+       ((===jis-x0208@1978  . #x454B)	; &R-HD-FT-326A; [37-43]
+	(===jis-x0213-1@2004 . #x454B)	; &R-HD-FT-326A; [37-43]
+	(===hanyo-denshi/ft . #x326A)	; &R-HD-FT-326A; [18-74]
+	)
+       ((===adobe-japan1-0  . 07754)	; &R-AJ1-07754;
+	)
+       ((===ucs@ks	    . #x5C60)	; &R-K0-5375;
+	(===ks-x1001	    . #x5375)	; &R-K0-5375; [51-85]
+	))
       )
-     ((==ucs@iso	  . #x2F877)	; &C6-477B;
-      (=cns11643-6	  . #x477B)	; &C6-477B; [39-91]
+     ((==ucs@iso	  . #x2F877)	; &g2-IU-0002F877;
+      (==cns11643-6	  . #x477B)	; &g2-IU-0002F877; [39-91]
       ))
     ))
 (define-char
