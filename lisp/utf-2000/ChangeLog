@@ -1,5 +1,28 @@
 2015-02-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R060-Step.el (U+5FA7): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R061-Heart.el (U+FA3D): Omit `=>>ucs@unicode'.
+
+	* Ideograph-R059-Bristle.el (JU+4FEE): Omit `=>>ucs@jis'.
+
+	* Ideograph-R044-Corpse.el (U-0002F877): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R031-Enclosure.el (U+56F9): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R038-Woman.el (U+599F): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R015-Ice.el (U+51B7): Apply new conventions for glyph
+	granularity.
+	(U+51D4): Likewise.
+
+	* Ideograph-R006-Hook.el (U-00020116): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R063-Door.el (U+6241): Apply new conventions for glyph
 	granularity.
 
