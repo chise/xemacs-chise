@@ -1,3 +1,22 @@
+2015-02-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R140-Grass.el (U-00026C0C): New character.
+	(GT-K06724): New character; add `<-denotational' for U-00026C0C.
+	(GT-K06725): New character; add `<-denotational' for GT-K06724.
+
+	* Ideograph-R085-Water.el (U+FA45): Omit `=>>ucs@unicode'.
+
+	* Ideograph-R082-Fur.el (U-00023B39): Apply new conventions for
+	glyph granularity to component "令" in ideographic-structure.
+
+	* Ideograph-R066-Rap.el (U+FA41): Omit `=>>ucs@unicode'.
+	(JU+6556): Omit `=>>ucs@jis' and `=>>ucs@ks'; apply new
+	conventions for glyph granularity.
+
+	* Ideograph-R046-Mountain.el (U+5D22): Apply new conventions for
+	glyph granularity.
+	(U+5D76): Likewise.
+
 2015-02-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R072-Sun.el (U-0002F8D2): Omit `=>>ucs@jis'.
