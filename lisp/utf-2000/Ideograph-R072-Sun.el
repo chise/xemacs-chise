@@ -1765,7 +1765,6 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (=ucs		. #x2F8D2)	; 冒
-    (=>>ucs@jis		. #x5192)	; 冒
     (=ucs@jis		. #x5192)	; 冒
     (=adobe-japan1-0	. 03695)	; &I-AJ1-03695;
     (=jis-x0208		. #x4B41)	; &I-J90-4B41; [43-33]
