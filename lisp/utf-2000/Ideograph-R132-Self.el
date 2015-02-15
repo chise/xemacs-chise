@@ -160,7 +160,6 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (=ucs		. #xFA5C)	; 臭
-    (=>>ucs@unicode	. #x81ED)	; 臭
     (=ucs@unicode	. #x81ED)	; 臭
     (=ucs@jis		. #xFA5C)	; 臭
     (=gb2312		. #x3374)	; &I-G0-3374; [19-84]
