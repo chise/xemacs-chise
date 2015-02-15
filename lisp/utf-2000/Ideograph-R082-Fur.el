@@ -387,9 +387,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@jis	    . #x4EE4)	; &AJ1-04009;
-	(=ucs@ks	    . #x4EE4)	; &AJ1-04009;
-	(=adobe-japan1-0    . 04009)	; &AJ1-04009;
+       ((==ucs@jis	    . #x4EE4)	; &g2-AJ1-04009;
+	(==ucs@ks	    . #x4EE4)	; &g2-AJ1-04009;
+	(==adobe-japan1-0   . 04009)	; &g2-AJ1-04009;
 	)
        ((==ucs@unicode	    . #x6BDB)	; &g2-GT-21495;
 	(==jis-x0208	    . #x4C53)	; &g2-GT-21495; [44-51]
@@ -406,7 +406,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=cns11643-1	    . #x456F)	; &C1-456F; [37-79]
+       ((==ucs@cns	    . #x4EE4)	; &GT-K01023;
+	(=gt-k		    . 01023)	; &GT-K01023;
 	)
        ((=ucs		    . #x6BDB)	; 毛
 	))
@@ -416,7 +417,8 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	  (=ucs		      . #x2FF0)	; ⿰
 	  )
-	 ((=cns11643-1	      . #x456F)	; &C1-456F; [37-79]
+	 ((==ucs@cns	      . #x4EE4)	; &GT-K01023;
+	  (=gt-k	      . 01023)	; &GT-K01023;
 	  )
 	 ((==ucs@unicode      . #x6BDB)	; &g2-GT-21495;
 	  (==jis-x0208	      . #x4C53)	; &g2-GT-21495; [44-51]
@@ -427,7 +429,8 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	  (=ucs		      . #x2FF0)	; ⿰
 	  )
-	 ((=cns11643-1	      . #x456F)	; &C1-456F; [37-79]
+	 ((==ucs@cns	      . #x4EE4)	; &GT-K01023;
+	  (=gt-k	      . 01023)	; &GT-K01023;
 	  )
 	 ((==ucs@cns	      . #x6BDB)	; &g2-CU+6BDB;
 	  (==cns11643-1	      . #x4553)	; &g2-CU+6BDB; [37-51]
