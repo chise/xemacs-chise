@@ -1,5 +1,55 @@
 2015-02-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R211-Tooth.el (U-0002039C): New character [copied from
+	Ideograph-R009-Man.el].
+
+	* Ideograph-R188-Bone.el (U+9AC8): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R132-Self.el (U+FA5C): Omit `=>>ucs@unicode'.
+
+2015-02-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R113-Spirit.el (UU+7940): Omit `=>>ucs@unicode'.
+	(UU+795A): Likewise.
+
+	* Ideograph-R075-Tree.el (U-0002352D): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R064-Hand.el (U+63A1): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R018-Knife.el (U+5222): Apply new conventions for
+	glyph granularity.
+	(U+526E): Likewise.
+	(U+5275): Likewise.
+
+	* Ideograph-R009-Man.el (U+4EE4): Apply new conventions for glyph
+	granularity.
+	(U+4F36): Likewise.
+	(U+4FDD): Likewise.
+	(U+5009): Likewise.
+	(UU+5043): Likewise.
+	(U+504F): Likewise.
+	(U+5080): Likewise.
+	(U+5096): Likewise.
+	(U-00020300): Likewise.
+	(JU+50B2): Likewise.
+	(MJ007094): Likewise.
+	(U-0002039C): Use `ideographic-radical@ucs/code' instead of
+	`ideographic-radical'; add `ideographic-{radical|strokes}@ucs',
+	`ideographic-strokes@ucs/code' and `total-strokes'; apply new
+	conventions for glyph granularity.
+	(U-000203D3): Use `ideographic-{radical|strokes}@ucs/code' instead
+	of `ideographic-{radical|strokes}@ucs'; apply new conventions for
+	glyph granularity.
+	(U-000203E7): Use `ideographic-{radical|strokes}@ucs/code' instead
+	of `ideographic-{radical|strokes}@ucs'; use
+	`ideographic-{radical|strokes}@daikanwa' instead of
+	`ideographic-{radical|strokes}@cns'; apply new conventions for
+	glyph granularity.
+	(U-00020450): Apply new conventions for glyph granularity.
+
 	* Ideograph-R140-Grass.el (U-00026C0C): New character.
 	(GT-K06724): New character; add `<-denotational' for U-00026C0C.
 	(GT-K06725): New character; add `<-denotational' for GT-K06724.
