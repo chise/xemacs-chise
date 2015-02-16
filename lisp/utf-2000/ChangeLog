@@ -1,5 +1,33 @@
 2015-02-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R203-Black.el (U+FA3A): Omit `=>>ucs@unicode'.
+
+	* Ideograph-R124-Feather.el (JU+7FCE): Apply new conventions for
+	glyph granularity.
+	(g2-CU+7FCE): Apply new conventions for glyph granularity to
+	component "令" in ideographic-structure.
+	(g2-UU+7FCE): Apply new conventions for glyph granularity to
+	component "令" in ideographic-structure.
+	(U+7FE9): Apply new conventions for glyph granularity.
+
+	* Ideograph-R032-Earth.el (U+5774): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R030-Mouth.el (U+5446): Apply new conventions for
+	glyph granularity.
+	(U+5464): Likewise.
+	(U+55C6): Likewise.
+	(JU+55F7): Likewise.
+	(AJ1-19254): Likewise.
+	(U-000203E7): Use `ideographic-{radical|strokes}@ucs/code' instead
+	of `ideographic-{radical|strokes}@ucs'; use
+	`ideographic-{radical|strokes}@daikanwa' instead of
+	`ideographic-{radical|strokes}@cns'; apply new conventions for
+	glyph granularity.
+	(U-000203D3): Use `ideographic-{radical|strokes}@ucs/code' instead
+	of `ideographic-{radical|strokes}@ucs'; apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R211-Tooth.el (U-0002039C): New character [copied from
 	Ideograph-R009-Man.el].
 
