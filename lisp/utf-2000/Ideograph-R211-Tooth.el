@@ -969,6 +969,36 @@
     (=gb2312		. #x7636)	; &I-G0-7636; [86-22]
     ))
 (define-char
+  '((ideographic-radical@ucs . 211)	; ⿒
+    (ideographic-strokes@ucs . 5)
+    (ideographic-radical@ucs/code . 9)	; ⼈
+    (ideographic-strokes@ucs/code . 12)
+    (total-strokes	 . 14)
+    (hanyu-dazidian	1 216 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x20692)	; 𠚒
+      )
+     ((=ucs		  . #x4EE4)	; 令
+      ))
+    (=ucs		. #x2039C)	; 𠎜
+    (=hanziku-1		. #xD2C9)	; &I-HZK01-D2C9;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x20692)	; 𠚒
+	)
+       ((==ucs@unicode	    . #x4EE4)	; &GT-K01022;
+	(=gt-k		    . 01022)	; &GT-K01022;
+	))
+      (==ucs@iso	  . #x2039C)	; &g2-IU-0002039C;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 211)	; ⿒
     (ideographic-strokes . 6)
     (total-strokes	 . 21)
