@@ -1,3 +1,7 @@
+2015-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R142-Insect.el (J2004U+8755): Unify HD-FT1830.
+
 2015-02-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R203-Black.el (U+FA3A): Omit `=>>ucs@unicode'.
