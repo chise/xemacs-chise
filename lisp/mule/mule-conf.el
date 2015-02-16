@@ -3,7 +3,7 @@
 ;; Copyright (C) 1995,1999 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1997, 1999, 2000, 2002, 2003, 2004, 2005, 2006, 2008,
-;;   2009, 2010, 2011, 2012, 2013, 2014 MORIOKA Tomohiko
+;;   2009, 2010, 2011, 2012, 2013, 2014, 2015 MORIOKA Tomohiko
 
 ;; Keywords: mule, multilingual, character set, coding system
 
@@ -3083,97 +3083,6 @@
 		  =>iso-ir	177
 		  mother	=+>ucs@unicode))
 
-  (make-charset '=>>ucs@iso
-		"Representative abstract-glyphs of ISO/IEC 10646"
-		'(long-name	"UCS abstract glyphs for UCS"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=+>ucs@iso))
-  (make-charset '=>>ucs@unicode
-		"Representative abstract-glyphs of Unicode"
-		'(long-name	"Unicode abstract glyphs"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=>>ucs@iso))
-  (make-charset '=>>ucs@jis
-		"UCS Representative abstract-glyphs for JIS X0208/0212/0213"
-		'(long-name	"UCS abstract glyphs for JIS"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=>>ucs@unicode))
-  (make-charset '=>>ucs@jis/1990
-		"UCS Representative glyphs for JIS X 0208/0212:1990"
-		'(long-name	"UCS glyphs for JIS:1990"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=>>ucs@jis))
-  (make-charset '=>>ucs@jis/2000
-		"UCS Representative glyphs for JIS X 0213:2000"
-		'(long-name	"UCS glyphs for JIS:2000"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=>>ucs@jis))
-  (make-charset '=>>ucs@jis/2004
-		"UCS Representative glyphs for JIS X 0213:2004"
-		'(long-name	"UCS glyphs for JIS:2004"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=>>ucs@jis))
-  (make-charset '=>>ucs@JP
-		"UCS abstract-glyphs based on Japanese style glyphs"
-		'(long-name	"UCS glyphs for JP"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=>>ucs@jis/2004))
-  (make-charset '=>>ucs@ks
-		"UCS Representative glyphs for Korean Standards"
-		'(long-name	"UCS glyphs for KS"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=>>ucs@unicode))
-  (make-charset '=>>ucs@cns
-		"UCS Representative glyphs for CNS 11643 sources"
-		'(long-name	"UCS glyphs for CNS"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=>>ucs@unicode))
-
   (make-charset '=ucs@iso
 		"ISO/IEC 10646 for its representative glyphs"
 		'(long-name	"UCS for ISO"
@@ -3183,7 +3092,7 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
-                  mother	=>>ucs@iso
+                  mother	=+>ucs@iso
 		  ))
   (make-charset '=ucs@unicode
 		"Unicode for its representative glyphs"
@@ -3421,6 +3330,97 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=ucs@big5))
+
+  (make-charset '=>>ucs@iso
+		"Representative abstract-glyphs of ISO/IEC 10646"
+		'(long-name	"UCS abstract glyphs for UCS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=ucs@iso))
+  (make-charset '=>>ucs@unicode
+		"Representative abstract-glyphs of Unicode"
+		'(long-name	"Unicode abstract glyphs"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@iso))
+  (make-charset '=>>ucs@jis
+		"UCS Representative abstract-glyphs for JIS X0208/0212/0213"
+		'(long-name	"UCS abstract glyphs for JIS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@unicode))
+  (make-charset '=>>ucs@jis/1990
+		"UCS Representative glyphs for JIS X 0208/0212:1990"
+		'(long-name	"UCS glyphs for JIS:1990"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@jis))
+  (make-charset '=>>ucs@jis/2000
+		"UCS Representative glyphs for JIS X 0213:2000"
+		'(long-name	"UCS glyphs for JIS:2000"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@jis))
+  (make-charset '=>>ucs@jis/2004
+		"UCS Representative glyphs for JIS X 0213:2004"
+		'(long-name	"UCS glyphs for JIS:2004"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@jis))
+  (make-charset '=>>ucs@JP
+		"UCS abstract-glyphs based on Japanese style glyphs"
+		'(long-name	"UCS glyphs for JP"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@jis/2004))
+  (make-charset '=>>ucs@ks
+		"UCS Representative glyphs for Korean Standards"
+		'(long-name	"UCS glyphs for KS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@unicode))
+  (make-charset '=>>ucs@cns
+		"UCS Representative glyphs for CNS 11643 sources"
+		'(long-name	"UCS glyphs for CNS"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>>ucs@unicode))
 
   (make-charset '==ucs@iso
 		"Representative glyph-forms of ISO/IEC 10646."
