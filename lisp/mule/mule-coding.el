@@ -5,7 +5,7 @@
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1995 Sun Microsystems.
 ;; Copyright (C) 1997, 1999, 2002, 2003, 2004, 2005, 2006, 2008, 2009,
-;;   2010, 2011, 2012, 2013, 2014 MORIOKA Tomohiko
+;;   2010, 2011, 2012, 2013, 2014, 2015 MORIOKA Tomohiko
 
 ;; This file is part of XEmacs.
 
@@ -449,15 +449,6 @@
 	  (=+>ucs@jis/1990		      "o-J90U+" 4 X)
 	  (=+>ucs@cns				"o-CU+" 4 X)
 	  (=+>ucs@ks				"o-KU+" 4 X)
-	  (=>>ucs@iso			        "G-IU+" 4 X)
-	  (=>>ucs@unicode		        "G-UU+" 4 X)
-	  (=>>ucs@jis			        "G-JU+" 4 X)
-	  (=>>ucs@ks			        "G-KU+" 4 X)
-	  (=>>ucs@cns			        "G-CU+" 4 X)
-	  (=>>ucs@jis/2004		      "G-J04U+" 4 X)
-	  (=>>ucs@jis/2000		      "G-J00U+" 4 X)
-	  (=>>ucs@jis/1990		      "G-J90U+" 4 X)
-	  (=>>ucs@JP			       "G-dJU+" 4 X)
 	  ( =ucs@iso				   "U-" 8 X)
 	  ( =ucs@unicode			  "UU+" 4 X)
 	  ( =ucs@unicode			  "UU-" 8 X)
@@ -472,6 +463,15 @@
 	  ( =ucs@ks				  "KU-" 8 X)
 	  ( =ucs@JP				 "dJU+" 4 X)
 	  ( =ucs@JP/hanazono		      "hanaJU+" 4 X)
+	  (=>>ucs@iso			        "G-IU+" 4 X)
+	  (=>>ucs@unicode		        "G-UU+" 4 X)
+	  (=>>ucs@jis			        "G-JU+" 4 X)
+	  (=>>ucs@ks			        "G-KU+" 4 X)
+	  (=>>ucs@cns			        "G-CU+" 4 X)
+	  (=>>ucs@jis/2004		      "G-J04U+" 4 X)
+	  (=>>ucs@jis/2000		      "G-J00U+" 4 X)
+	  (=>>ucs@jis/1990		      "G-J90U+" 4 X)
+	  (=>>ucs@JP			       "G-dJU+" 4 X)
 	  (==ucs@iso			       "g2-IU-" 8 X)
 	  (==ucs@unicode		       "g2-UU+" 4 X)
 	  (==ucs@cns			       "g2-CU+" 4 X)
