@@ -155,7 +155,6 @@
       ))
     (hanyu-dazidian	1 487 3)
     (=ucs		. #xFA3A)	; 墨
-    (=>>ucs@unicode	. #x58A8)	; 墨
     (=ucs@unicode	. #x58A8)	; 墨
     (=ucs@jis		. #xFA3A)	; 墨
     (=adobe-japan1-4	. 13387)	; &I-AJ1-13387;
