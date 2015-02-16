@@ -1,3 +1,13 @@
+2015-02-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	Prefer `=ucs@FOO' to `=>>ucs@FOO'.
+
+	* mule/mule-conf.el (=ucs@iso): Use `=+>ucs@iso' instead of
+	`=>>ucs@iso' as the mother.
+	(=>>ucs@iso): Use `=ucs@iso' instead of `=+>ucs@iso' as the
+	mother.
+
 2015-01-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
