@@ -1,5 +1,12 @@
 2015-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R026-Seal.el (UU+5373): Apply new conventions for
+	glyph granularity.
+	(JU+5377): Likewise.
+	(UU+537F): Likewise.
+
+2015-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R027-Cliff.el (JU+5396): Apply new conventions for
 	glyph granularity.
 
