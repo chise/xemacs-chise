@@ -1,3 +1,14 @@
+2015-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (BC-8C4E): Omit `=>ucs' for U+53C8.
+
+2015-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (UU+4E0E): Apply new conventions for glyph
+	granularity.
+	(JU+4E0E): Likewise.
+	(CU+4E11): Likewise.
+
 2015-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (JU+5060): Move `=decomposition@cid' to
