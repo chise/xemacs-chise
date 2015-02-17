@@ -152,6 +152,17 @@
      ((=ucs		  . #x53C8)	; 又
       ))
     (=cbeta		. 04552)	; &CB04552;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+	(=ucs		    . #x2FF6)	; ⿶
+	)
+       ((=ucs		    . #x51F5)	; 凵
+	)
+       ((=gt-k		    . 00064)	; &GT-K00064;
+	))
+      (==cbeta		  . 04552)	; &g2-CB04552;
+      ))
     ))
 (define-char
   '((ideographic-radical . 17)	; ⼐
@@ -631,11 +642,6 @@
     (ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (=decomposition@cid
-     ((=ucs		  . #x51FD)	; 函
-      )
-     ((=ucs		  . #xE0100)	; 󠄀
-      ))
     (=ucs@jis		. #x51FD)	; &AJ1-03381;
     (=ucs@ks		. #x51FD)	; &AJ1-03381;
     (=adobe-japan1-0	. 03381)	; &AJ1-03381;
@@ -648,20 +654,35 @@
     (=daikanwa		. 01826)	; &I-M-01826;
     (=shinjigen		.  0584)	; &AJ1-03381;
     (->subsumptive
-     ((==daikanwa	  . 01826)	; &g2-M-01826;
-      )
-     ((==ucs@jis	  . #x51FD)	; &g2-J90-4821;
-      (==jis-x0208	  . #x4821)	; &g2-J90-4821; [40-01]
-      (==jis-x0213-1	  . #x4821)	; &g2-J90-4821; [40-01]
-      (==shinjigen	  .  0584)	; &g2-J90-4821;
-      )
-     ((==ucs@ks		  . #x51FD)	; &g2-K0-795E;
-      (==ks-x1001	  . #x795E)	; &g2-K0-795E; [89-62]
-      )
-     ((==gt		  . 02383)	; &g2-GT-02383;
-      (==gt-k		  . 03799)	; &g2-GT-02383;
-      )
-     ((==adobe-japan1-0	  . 03381)	; &g2-AJ1-03381;
+     ((=decomposition@cid
+       ((=ucs		    . #x51FD)	; 函
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x51FD)	; &g2-AJ1-03381;
+      (==ucs@ks		  . #x51FD)	; &g2-AJ1-03381;
+      (==adobe-japan1-0	  . 03381)	; &g2-AJ1-03381;
+      (==ks-x1001	  . #x795E)	; &g2-AJ1-03381; [89-62]
+      (==jis-x0208	  . #x4821)	; &g2-AJ1-03381; [40-01]
+      (==jis-x0213-1	  . #x4821)	; &g2-AJ1-03381; [40-01]
+      (==gt		  . 02383)	; &g2-AJ1-03381;
+      (==gt-k		  . 03799)	; &g2-AJ1-03381;
+      (==daikanwa	  . 01826)	; &g2-AJ1-03381;
+      (==shinjigen	  .  0584)	; &g2-AJ1-03381;
+      (->subsumptive
+       ((===daikanwa	    . 01826)	; &R-M-01826;
+	)
+       ((===jis-x0208	    . #x4821)	; &R-J90-4821; [40-01]
+	(===jis-x0213-1	    . #x4821)	; &R-J90-4821; [40-01]
+	)
+       ((===ucs@ks	    . #x51FD)	; &R-K0-795E;
+	(===ks-x1001	    . #x795E)	; &R-K0-795E; [89-62]
+	)
+       ((===gt		    . 02383)	; &R-GT-02383;
+	(===gt-k	    . 03799)	; &R-GT-02383;
+	)
+       ((===adobe-japan1-0  . 03381)	; &R-AJ1-03381;
+	))
       ))
     ))
 (define-char
