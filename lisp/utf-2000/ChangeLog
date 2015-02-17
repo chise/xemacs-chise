@@ -1,5 +1,15 @@
 2015-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R027-Cliff.el (JU+5396): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R017-Open-Box.el (CB04552): Use `->subsumptive' to add
+	representative node.
+	(JU+51FD): Apply new conventions for glyph granularity.
+
+	* Ideograph-R010-Legs.el (J90U+514E): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R029-Again.el (BC-8C4E): Omit `=>ucs' for U+53C8.
 
 2015-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
