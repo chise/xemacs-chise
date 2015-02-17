@@ -1290,16 +1290,6 @@
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (=decomposition@cid
-     ((=ucs		  . #x514E)	; 兎
-      )
-     ((=ucs		  . #xE0100)	; 󠄀
-      ))
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x514E)	; 兎
-      )
-     ((=ucs		  . #xE0102)	; 󠄂
-      ))
     (=ucs@jis/1990	. #x514E)	; &MJ007232;
     (=ucs@jis/2000	. #x514E)	; &MJ007232;
     (=ucs@ks		. #x514E)	; &MJ007232;
@@ -1313,18 +1303,39 @@
     (=gt-pj-1		. #x4546)	; &I-GT-01782; [37-38]
     (=jef-china3	. #x43DA)	; &I-JC3-43DA;
     (->subsumptive
-     ((==ucs@jis/1990	  . #x514E)	; &g2-HD-JA-4546;
-      (==ucs@jis/2000	  . #x514E)	; &g2-HD-JA-4546;
-      (==jis-x0208	  . #x4546)	; &g2-HD-JA-4546; [37-38]
-      (==jis-x0213-1@2000 . #x4546)	; &g2-HD-JA-4546; [37-38]
-      (==hanyo-denshi/ja  . #x4546)	; &g2-HD-JA-4546; [37-38]
-      )
-     ((==ucs@ks		  . #x514E)	; &g2-MJ007232;
+     ((=decomposition@cid
+       ((=ucs		    . #x514E)	; 兎
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x514E)	; 兎
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@jis/1990	  . #x514E)	; &g2-MJ007232;
+      (==ucs@jis/2000	  . #x514E)	; &g2-MJ007232;
+      (==ucs@ks		  . #x514E)	; &g2-MJ007232;
       (==mj		  . 007232)	; &g2-MJ007232;
+      (==adobe-japan1-0	  . 03136)	; &g2-MJ007232;
       (==ks-x1001	  . #x774D)	; &g2-MJ007232; [87-45]
+      (==jis-x0208	  . #x4546)	; &g2-MJ007232; [37-38]
+      (==jis-x0213-1@2000 . #x4546)	; &g2-MJ007232; [37-38]
+      (==hanyo-denshi/ja  . #x4546)	; &g2-MJ007232; [37-38]
       (==gt		  . 01782)	; &g2-MJ007232;
-      )
-     ((==adobe-japan1-0	  . 03136)	; &g2-AJ1-03136;
+      (->subsumptive
+       ((===jis-x0208	    . #x4546)	; &R-J90-4546; [37-38]
+	(===jis-x0213-1@2000 . #x4546)	; &R-J90-4546; [37-38]
+	)
+       ((===mj		    . 007232)	; &R-MJ007232;
+	)
+       ((===ucs@ks	    . #x514E)	; &R-K0-774D;
+	(===ks-x1001	    . #x774D)	; &R-K0-774D; [87-45]
+	)
+       ((===gt		    . 01782)	; &R-GT-01782;
+	)
+       ((===adobe-japan1-0  . 03136)	; &R-AJ1-03136;
+	))
       ))
     ))
 (define-char
