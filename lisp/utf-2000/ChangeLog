@@ -1,5 +1,9 @@
 2015-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R009-Man.el (JU+5060): Move `=decomposition@cid' to
+	g2-JU+5060.
+	(JU+5070): Apply new conventions for glyph granularity.
+
 	* Ideograph-R142-Insect.el (J2004U+8755): Unify HD-FT1830.
 
 2015-02-15  MORIOKA Tomohiko  <tomo.git@chise.org>
