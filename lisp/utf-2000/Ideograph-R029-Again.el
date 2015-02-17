@@ -56,8 +56,7 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x53C8)	; 又
-    (ideographic-radical . 29)	; ⼜
+  '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (=big5-cdp		. #x8C4E)	; &CDP-8C4E;
