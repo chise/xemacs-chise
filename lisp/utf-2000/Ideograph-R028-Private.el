@@ -68,16 +68,6 @@
     (ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (=decomposition@cid
-     ((=ucs		  . #x20AD3)	; 𠫓
-      )
-     ((=ucs		  . #xE0100)	; 󠄀
-      ))
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x20AD3)	; 𠫓
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -93,13 +83,24 @@
     (=jis-x0213-2	. #x2359)	; &I-JX2-2359; [03-57]
     (=hanyo-denshi/jd	. #x2359)	; &I-HD-JD-2359; [03-57]
     (->subsumptive
-     ((==ucs@jis	  . #x20AD3)	; &g2-MJ031960;
+     ((=decomposition@cid
+       ((=ucs		    . #x20AD3)	; 𠫓
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x20AD3)	; 𠫓
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@jis	  . #x20AD3)	; &g2-MJ031960;
       (==mj		  . 031960)	; &g2-MJ031960;
       (==adobe-japan1-5	  . 17337)	; &g2-MJ031960;
       (==jis-x0213-2	  . #x2359)	; &g2-MJ031960; [03-57]
       (==hanyo-denshi/jd  . #x2359)	; &g2-MJ031960; [03-57]
       (->subsumptive
        ((===jis-x0213-2	    . #x2359)	; &R-JX2-2359; [03-57]
+	(===hanyo-denshi/jd . #x2359)	; &R-JX2-2359; [03-57]
 	)
        ((===adobe-japan1-5  . 17337)	; &R-AJ1-17337;
 	)
