@@ -1,5 +1,22 @@
 2015-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R133-Arrive.el (UU+81F4): Unify HD-JA3555.
+
+	* Ideograph-R130-Meat.el (g2-JU+8129): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R108-Dish.el (R-JX1-786A): Unify R-HD-JC8874.
+
+	* Ideograph-R075-Tree.el (R-JX1-7623): Unify R-HD-JC8603.
+
+	* Ideograph-R073-Say.el (R-JX2-2E37): Unify R-HD-JD1423.
+
+	* Ideograph-R053-Dotted-Cliff.el (R-JX1-742F): Unify R-HD-JC8415.
+
+	* Ideograph-R040-Roof.el (R-JX1-4F5A): Unify R-HD-JC4758.
+
+	* Ideograph-R009-Man.el (R-JX1-2E46): Unify R-HD-JC1438.
+
 	* Ideograph-R028-Private.el (JU+20AD3): Apply new conventions for
 	glyph granularity.
 
