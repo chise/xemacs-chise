@@ -120,18 +120,54 @@
     (ideographic-radical . 133)	; ⾄
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
-    (=ucs@unicode	. #x81F4)	; &GT-39001;
-    (=ucs@cns		. #x26936)	; &GT-39001;
-    (=jis-x0208		. #x4357)	; &GT-39001; [35-55]
+    (=ucs@unicode	. #x81F4)	; &HD-JA-4357;
+    (=ucs@cns		. #x26936)	; &HD-JA-4357;
+    (=jis-x0208		. #x4357)	; &HD-JA-4357; [35-55]
     (=gb2312		. #x5642)	; &I-G0-5642; [54-34]
     (=ks-x1001		. #x7648)	; &I-K0-7648; [86-40]
     (=cns11643-6	. #x3B3A)	; &I-C6-3B3A; [27-26]
     (=jis-x0213-1	. #x4357)	; &I-JX1-4357; [35-55]
+    (=hanyo-denshi/ja	. #x4357)	; &I-HD-JA-4357; [35-55]
     (=gt		. 39001)	; &I-GT-39001;
     (=gt-k		. 06736)	; &I-GT-K06736;
     (=gt-pj-1		. #x4357)	; &I-GT-39001; [35-55]
     (=daikanwa		. 30149)	; &I-M-30149;
-    (=shinjigen		.  6603)	; &GT-39001;
+    (=shinjigen		.  6603)	; &HD-JA-4357;
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x81F4)	; 致
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@unicode	  . #x81F4)	; &g2-HD-JA-4357;
+      (==ucs@cns	  . #x26936)	; &g2-HD-JA-4357;
+      (==gb2312		  . #x5642)	; &g2-HD-JA-4357; [54-34]
+      (==ks-x1001	  . #x7648)	; &g2-HD-JA-4357; [86-40]
+      (==jis-x0208	  . #x4357)	; &g2-HD-JA-4357; [35-55]
+      (==cns11643-6	  . #x3B3A)	; &g2-HD-JA-4357; [27-26]
+      (==jis-x0213-1	  . #x4357)	; &g2-HD-JA-4357; [35-55]
+      (==hanyo-denshi/ja  . #x4357)	; &g2-HD-JA-4357; [35-55]
+      (==gt		  . 39001)	; &g2-HD-JA-4357;
+      (==gt-k		  . 06736)	; &g2-HD-JA-4357;
+      (==daikanwa	  . 30149)	; &g2-HD-JA-4357;
+      (==shinjigen	  .  6603)	; &g2-HD-JA-4357;
+      (->subsumptive
+       ((===daikanwa	    . 30149)	; &R-M-30149;
+	)
+       ((===jis-x0208	    . #x4357)	; &R-J90-4357; [35-55]
+	(===jis-x0213-1	    . #x4357)	; &R-J90-4357; [35-55]
+	)
+       ((===ucs@unicode	    . #x81F4)	; &R-UU+81F4;
+	)
+       ((===ucs@ks	    . #x81F4)	; &R-K0-7648;
+	(===ks-x1001	    . #x7648)	; &R-K0-7648; [86-40]
+	)
+       ((===cns11643-6	    . #x3B3A)	; &R-C6-3B3A; [27-26]
+	)
+       ((===gt		    . 39001)	; &R-GT-39001;
+	(===gt-k	    . 06736)	; &R-GT-39001;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 133)	; ⾄
