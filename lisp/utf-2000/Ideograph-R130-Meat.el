@@ -6280,7 +6280,12 @@
     (=shinjigen@1ed	.  6495)	; 脩
     (=shinjigen@rev	.  6497)	; 脩
     (->subsumptive
-     ((==ucs@jis	  . #x8129)	; &g2-HD-JA-667B;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8129)	; 脩
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@jis	  . #x8129)	; &g2-HD-JA-667B;
       (==ucs@ks		  . #x8129)	; &g2-HD-JA-667B;
       (==ks-x1001	  . #x623B)	; &g2-HD-JA-667B; [66-27]
       (==jis-x0208	  . #x667B)	; &g2-HD-JA-667B; [70-91]
@@ -6308,6 +6313,7 @@
       (==cns11643-1	  . #x5C6C)	; &g2-CU+8129; [60-76]
       )
      ((==ucs@unicode	  . #x8129)	; &g2-UU+8129;
+      (==ucs@JP/hanazono  . nil)
       (==iso-ir165	  . #x2C78)	; &g2-UU+8129; [12-88]
       ))
     ))
