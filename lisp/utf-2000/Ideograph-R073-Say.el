@@ -919,6 +919,7 @@
       (==hanyo-denshi/jd  . #x2E37)	; &g2-MJ013508; [14-23]
       (->subsumptive
        ((===jis-x0213-2	    . #x2E37)	; &R-JX2-2E37; [14-23]
+	(===hanyo-denshi/jd . #x2E37)	; &R-JX2-2E37; [14-23]
 	)
        ((===mj		    . 013508)	; &R-MJ013508;
 	))
