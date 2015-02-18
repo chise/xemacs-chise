@@ -37900,6 +37900,7 @@
       (==hanyo-denshi/jc  . #x2E46)	; &MJ007111; [14-38]
       (->subsumptive
        ((===jis-x0213-1	    . #x2E46)	; &R-JX1-2E46; [14-38]
+	(===hanyo-denshi/jc . #x2E46)	; &R-JX1-2E46; [14-38]
 	)
        ((===adobe-japan1-5  . 16786)	; &R-AJ1-16786;
 	)
