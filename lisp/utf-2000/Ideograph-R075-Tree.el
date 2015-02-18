@@ -20956,6 +20956,7 @@
       (==hanyo-denshi/jc  . #x7623)	; &g2-AJ1-16912; [86-03]
       (->subsumptive
        ((===jis-x0213-1	    . #x7623)	; &R-JX1-7623; [86-03]
+	(===hanyo-denshi/jc . #x7623)	; &R-JX1-7623; [86-03]
 	)
        ((===adobe-japan1-5  . 16912)	; &R-AJ1-16912;
 	))
