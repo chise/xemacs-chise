@@ -9400,6 +9400,7 @@
       (==hanyo-denshi/jc  . #x7A6D)	; &g2-AJ1-08601; [90-77]
       (->subsumptive
        ((===jis-x0213-1	    . #x7A6D)	; &R-JX1-7A6D; [90-77]
+	(===hanyo-denshi/jc . #x7A6D)	; &R-JX1-7A6D; [90-77]
 	)
        ((===adobe-japan1-2  . 08601)	; &R-AJ1-08601;
 	)
@@ -23332,6 +23333,7 @@
       (==hanyo-denshi/jd  . #x7656)	; &g2-HD-JD-7656; [86-54]
       (->subsumptive
        ((===jis-x0213-2	    . #x7656)	; &R-JX2-7656; [86-54]
+	(===hanyo-denshi/jd . #x7656)	; &R-JX2-7656; [86-54]
 	)
        ((===ucs@unicode	    . #x8497)	; &R-UU+8497;
 	))
@@ -25979,6 +25981,7 @@
       (==hanyo-denshi/jd  . #x765A)	; &g2-HD-JD-765A; [86-58]
       (->subsumptive
        ((===jis-x0213-2	    . #x765A)	; &R-JX2-765A; [86-58]
+	(===hanyo-denshi/jd . #x765A)	; &R-JX2-765A; [86-58]
 	)
        ((===ucs@unicode	    . #x84CE)	; &R-UU+84CE;
 	))
