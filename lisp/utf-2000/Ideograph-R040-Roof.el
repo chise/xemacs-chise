@@ -7044,6 +7044,7 @@
       (==hanyo-denshi/jc  . #x4F5A)	; &g2-AJ1-20302; [47-58]
       (->subsumptive
        ((===jis-x0213-1	    . #x4F5A)	; &R-JX1-4F5A; [47-58]
+	(===hanyo-denshi/jc . #x4F5A)	; &R-JX1-4F5A; [47-58]
 	)
        ((===adobe-japan1-5  . 20302)	; &R-AJ1-20302;
 	))
