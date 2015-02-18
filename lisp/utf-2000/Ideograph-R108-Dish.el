@@ -735,6 +735,7 @@
 	(==hanyo-denshi/jc  . #x786A)	; &g2-HD-JC-786A; [88-74]
 	(->subsumptive
 	 ((===jis-x0213-1     . #x786A)	; &R-JX1-786A; [88-74]
+	  (===hanyo-denshi/jc . #x786A)	; &R-JX1-786A; [88-74]
 	  )
 	 ((===ucs@unicode     . #x76D4)	; &R-UU+76D4;
 	  ))
