@@ -1,5 +1,10 @@
 2015-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R028-Private.el (JU+20AD3): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R015-Ice.el (R-JX1-2E56): Unify R-HD-JC1454.
+
 	* Ideograph-R026-Seal.el (UU+5373): Apply new conventions for
 	glyph granularity.
 	(JU+5377): Likewise.
