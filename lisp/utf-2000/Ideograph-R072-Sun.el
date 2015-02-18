@@ -80,8 +80,8 @@
     (=shinjigen		.  8973)	; 旧
     (=hanziku-4		. #xDBA9)	; &I-HZK04-DBA9;
     (<-simplified@JP/Jouyou
-     ((=ucs@jis		  . #x820A)	; &GT-39126;
-      (=jis-x0208	  . #x6751)	; &GT-39126; [71-49]
+     ((=ucs@unicode	  . #x820A)	; &HD-JA-6751;
+      (=jis-x0208	  . #x6751)	; &HD-JA-6751; [71-49]
       (=ks-x1001	  . #x4F41)	; &I-K0-4F41; [47-33]
       (=jis-x0213-1	  . #x6751)	; &I-JX1-6751; [71-49]
       ))
