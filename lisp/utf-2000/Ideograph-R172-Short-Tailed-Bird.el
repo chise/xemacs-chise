@@ -851,11 +851,28 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 12)
     (=ucs		. #x96C8)	; 雈
-    (->subsumptive
-     ((=daikanwa	  . 41980)	; &M-41980;
+    (=cns11643-2	. #x414A)	; &I-C2-414A; [33-42]
+    (=daikanwa		. 41980)	; &I-M-41980;
+    (->mistakable
+     ((=daikanwa	  . 32021)	; &M-32021;
       )
-     ((=ucs@unicode	  . #x96C8)	; &C2-414A;
-      (=cns11643-2	  . #x414A)	; &C2-414A; [33-42]
+     ((=ucs@cns		  . #x8411)	; &C2-3F60;
+      (=cns11643-2	  . #x3F60)	; &C2-3F60; [31-64]
+      (=daikanwa	  . 31272)	; &I-M-31272;
+      ))
+    (->mistakable*sources
+     zhonghua-dazidian)
+    (->subsumptive
+     ((==ucs@unicode	  . #x96C8)	; &g2-M-41980;
+      (==cns11643-2	  . #x414A)	; &g2-M-41980; [33-42]
+      (==daikanwa	  . 41980)	; &g2-M-41980;
+      (->subsumptive
+       ((===daikanwa	    . 41980)	; &R-M-41980;
+	)
+       ((===ucs@unicode	    . #x96C8)	; &R-UU+96C8;
+	)
+       ((===cns11643-2	    . #x414A)	; &R-C2-414A; [33-42]
+	))
       ))
     ))
 (define-char
