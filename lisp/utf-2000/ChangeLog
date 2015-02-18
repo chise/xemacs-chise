@@ -1,3 +1,16 @@
+2015-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (U+96C8): Apply new
+	conventions for glyph granularity; add `->mistakable' for M-32021
+	and CU+8411.
+
+	* Ideograph-R140-Grass.el (R-JX1-7A6D): Unify R-HD-JC9077.
+	(R-JX2-7656): Unify R-HD-JD8654.
+	(R-JX2-765A): Unify R-HD-JD8658.
+
+	* Ideograph-R022-Right-Open-Box.el (U+5336): Use `->denotational'
+	and `->subsumptive'.
+
 2015-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R133-Arrive.el (UU+81F4): Unify HD-JA3555.
