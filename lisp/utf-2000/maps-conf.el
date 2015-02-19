@@ -257,3 +257,21 @@
      (put-char-attribute c '=>jis-x0213-1 v))
    nil)
  '=>jis-x0208)
+
+(let (dg-chr)
+  (map-char-attribute
+   (lambda (c v)
+     (when (setq dg-chr (decode-char '===jis-x0213-1@2000 v))
+       (unless (eq c dg-chr)
+	 (put-char-attribute dg-chr '===hanyo-denshi/jc v)))
+     nil)
+   '==hanyo-denshi/jc)
+  (map-char-attribute
+   (lambda (c v)
+     (when (setq dg-chr (decode-char '===jis-x0213-2 v))
+       (unless (eq c dg-chr)
+	 (put-char-attribute dg-chr '===hanyo-denshi/jd v)))
+     nil)
+   '==hanyo-denshi/jd)
+  )
+
