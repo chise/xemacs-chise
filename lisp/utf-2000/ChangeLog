@@ -1,5 +1,15 @@
 2015-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R134-Mortar.el (U+820A): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R032-Earth.el (R-JX1-2F65): Unify R-HD-JC1569.
+	(UU+58E0): Add R-JC3-48C3.
+	(MJ009371): Use `->subsumptive' to add representative nodes.
+
+	* Ideograph-R030-Mouth.el (U+56BF): Use `->denotational' and
+	`->subsumptive'.
+
 	* Ideograph-R172-Short-Tailed-Bird.el (U+96C8): Apply new
 	conventions for glyph granularity; add `->mistakable' for M-32021
 	and CU+8411.
@@ -14,6 +24,10 @@
 2015-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R133-Arrive.el (UU+81F4): Unify HD-JA3555.
+
+	* maps-conf.el:
+	- Add code to add `===hanyo-denshi/jc' to `===jis-x0213-1@2000'.
+	- Add code to add `===hanyo-denshi/jd' to `===jis-x0213-2'.
 
 	* Ideograph-R130-Meat.el (g2-JU+8129): Add
 	`=decomposition@hanyo-denshi'.
