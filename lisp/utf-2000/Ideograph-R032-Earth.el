@@ -16889,10 +16889,13 @@
 	 ((===daikanwa	      . 05592)	; &R-M-05592;
 	  )
 	 ((===jis-x0213-1     . #x2F65)	; &R-JX1-2F65; [15-69]
+	  (===hanyo-denshi/jc . #x2F65)	; &R-JX1-2F65; [15-69]
 	  )
 	 ((===adobe-japan1-5  . 16823)	; &R-AJ1-16823;
 	  )
 	 ((===mj	      . 009370)	; &R-MJ009370;
+	  )
+	 ((===jef-china3      . #x48C3)	; &R-JC3-48C3;
 	  )
 	 ((===ucs@unicode     . #x58E0)	; &R-UU+58E0;
 	  ))
@@ -16925,8 +16928,15 @@
 	))
       (=mj		  . 009371)	; &MJ009371;
       (==hanyo-denshi/ks  . 064180)	; &MJ009371;
-      (=hanyo-denshi/ks/mf . #x1912)	; &I-KSMF-06418;
       (==cbeta		  . 00102)	; &MJ009371;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 064180)	; &KSMF-06418;
+	(=hanyo-denshi/ks/mf . #x1912)	; &KSMF-06418;
+	)
+       ((===mj		    . 009371)	; &R-MJ009371;
+	)
+       ((===cbeta	    . 00102)	; &R-CB00102;
+	))
       ))
     ))
 (define-char
