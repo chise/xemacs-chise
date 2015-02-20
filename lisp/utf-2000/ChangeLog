@@ -1,3 +1,11 @@
+2015-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (BUCS+514E): Unify IWDS1-0331.
+
+	* Ideograph-R005-Second.el (IWDS1-0340): New abstract component.
+	(U+4E59): Add `<-denotational' for IWDS1-0340.
+	(U-000200C9): Ditto.
+
 2015-02-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* chise-subr.el (char-db-feature-domains): Delete `jis/alt'
