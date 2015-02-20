@@ -1,3 +1,15 @@
+2015-02-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* chise-subr.el (char-db-feature-domains): Delete `jis/alt'
+	because it has been already unused.
+
+2015-02-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el: Omit characters in `@ucs/code' domain.
+	(U-0002039C): Moved to Ideograph-R211-Tooth.el.
+	(U-000203D3): Moved to Ideograph-R030-Mouth.el.
+	(U-000203E7): Moved to Ideograph-R030-Mouth.el.
+
 2015-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R134-Mortar.el (U+820A): Apply new conventions for
