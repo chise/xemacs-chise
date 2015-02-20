@@ -37504,12 +37504,12 @@
     (=big5		. #xB9CA)	; &I-B-B9CA;
     ))
 (define-char
-  '((ideographic-radical@ucs/code . 9)	; ⼈
-    (ideographic-strokes@ucs/code . 13)
-    (ideographic-radical@daikanwa . 30)	; ⼝
+  '((ideographic-radical@daikanwa . 30)	; ⼝
     (ideographic-strokes@daikanwa . 12)
     (ideographic-radical@daikanwa*sources
      daikanwa cns11643 ucs)
+    (ideographic-radical@ucs/code . 9)	; ⼈
+    (ideographic-strokes@ucs/code . 13)
     (total-strokes	 . 15)
     (hanyu-dazidian	1 223 8)
     (ideographic-structure
@@ -37643,14 +37643,14 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs/code . 9)	; ⼈
-    (ideographic-strokes@ucs/code . 13)
-    (ideographic-radical@daikanwa . 30)	; ⼝
+  '((ideographic-radical@daikanwa . 30)	; ⼝
     (ideographic-strokes@daikanwa . 12)
     (ideographic-radical@daikanwa*sources
      daikanwa ucs)
     (ideographic-strokes@daikanwa*sources
      daikanwa ucs)
+    (ideographic-radical@ucs/code . 9)	; ⼈
+    (ideographic-strokes@ucs/code . 13)
     (total-strokes	 . 15)
     (hanyu-dazidian	1 223 9)
     (ideographic-structure
