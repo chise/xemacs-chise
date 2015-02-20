@@ -1208,6 +1208,7 @@
 (define-char
   '((ideographic-radical . 10)	; ⼉
     (==>ucs@bucs	. #x514E)	; &BUCS+514E;
+    (=>iwds-1		.  0331)	; &BUCS+514E;
     ))
 (define-char
   '((<-denotational
