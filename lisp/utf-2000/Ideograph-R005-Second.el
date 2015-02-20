@@ -3,6 +3,15 @@
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
+    (=>iwds-1		.  0340)	; &IWDS1-340;
+    ))
+(define-char
+  '((<-denotational
+     ((=>iwds-1		  .  0340)	; &IWDS1-340;
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 0)
+    (total-strokes	 . 1)
     (hanyu-dazidian	1 47 4)
     (sound@ja/kun	"kinoto")
     (sound@ja/name	"oto")
@@ -22,7 +31,10 @@
     (=shinjigen		.  0056)	; 乙
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
+  '((<-denotational
+     ((=>iwds-1		  .  0340)	; &IWDS1-340;
+      ))
+    (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
     (hanyu-dazidian	1 48 4)
