@@ -1,4 +1,16 @@
+2015-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (IWDS1-0340): Unify UC+4E59.
+	(U+4E59): Use `<-denotational@component' instead of
+	`<-denotational'.
+	(U-000200C9): Ditto.
+
 2015-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R020-Wrap.el (BUCS+52FB): Unify IWDS1-0048.
+
+	* Ideograph-R018-Knife.el (BUCS+5203): Unify IWDS1-0106; add
+	`ideographic-strokes' and `total-strokes'.
 
 	* Ideograph-R010-Legs.el (BUCS+514E): Unify IWDS1-0331.
 
