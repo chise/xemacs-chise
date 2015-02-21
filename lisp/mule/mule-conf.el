@@ -2957,6 +2957,17 @@
 		  graphic	2
 		  direction	l2r))
 
+  (make-charset '=>ucs@component
+		"UCS encoding for abstract components of IWDS-1."
+		'(long-name	"UCS for IWDS-1 abstract components"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=ucs))
+
   (make-charset '=>ucs@hanyo-denshi
 		"UCS abstract characters based on Han'you-Denshi collection."
 		'(long-name	"UCS base characters of Han'you-Denshi"
@@ -3837,6 +3848,21 @@
 	       direction l2r
 	       registry "-zh-.*-ucs-0"
 	       mother =>ucs@unicode
+	       min-code #x2E00
+               max-code #x9FA5
+	       ;; max-code #xA4CF
+	       ))
+  (make-charset
+   '=>ucs-bmp-cjk@component
+   "CJK Characters in BMP for IWDS-1 abstract components."
+   '(long-name "CJK in BMP@component"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-ja-.*-ucs-0"
+	       mother =>ucs@component
 	       min-code #x2E00
                max-code #x9FA5
 	       ;; max-code #xA4CF
