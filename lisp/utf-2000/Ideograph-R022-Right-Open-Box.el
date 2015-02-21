@@ -3,6 +3,17 @@
   '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (=>ucs@component	. #x531A)	; &IWDS1-209;
+    (=>iwds-1		.  0209)	; &IWDS1-209;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x531A)	; &IWDS1-209;
+      (=>iwds-1		  .  0209)	; &IWDS1-209;
+      ))
+    (ideographic-radical . 22)	; ⼕
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
     (hanyu-dazidian	1 81 3)
     (=ucs		. #x531A)	; 匚
     (=adobe-japan1-0	. 04302)	; &I-AJ1-04302;
