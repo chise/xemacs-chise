@@ -3,11 +3,13 @@
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
+    (=>ucs@component	. #x4E59)	; &IWDS1-340;
     (=>iwds-1		.  0340)	; &IWDS1-340;
     ))
 (define-char
-  '((<-denotational
-     ((=>iwds-1		  .  0340)	; &IWDS1-340;
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E59)	; &IWDS1-340;
+      (=>iwds-1		  .  0340)	; &IWDS1-340;
       ))
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 0)
@@ -31,8 +33,9 @@
     (=shinjigen		.  0056)	; 乙
     ))
 (define-char
-  '((<-denotational
-     ((=>iwds-1		  .  0340)	; &IWDS1-340;
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E59)	; &IWDS1-340;
+      (=>iwds-1		  .  0340)	; &IWDS1-340;
       ))
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 0)
