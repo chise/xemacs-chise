@@ -17,7 +17,11 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 23)	; ⼖
+  '((<-denotational@component
+     ((=>ucs@component	  . #x531A)	; &IWDS1-209;
+      (=>iwds-1		  .  0209)	; &IWDS1-209;
+      ))
+    (ideographic-radical . 23)	; ⼖
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 81 4)
