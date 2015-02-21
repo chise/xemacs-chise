@@ -4,7 +4,7 @@
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1996 Sun Microsystems.
 ;; Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2007, 2008,
-;;   2009, 2010, 2011, 2012, 2013, 2014 MORIOKA Tomohiko
+;;   2009, 2010, 2011, 2012, 2013, 2014, 2015 MORIOKA Tomohiko
 
 ;; Author: Unknown
 ;; Keywords: i18n, mule, internal
@@ -283,9 +283,9 @@ DESCRIPTION (string) is the description string of the charset."
 	  =jis-x0208-1990
 	  =ucs-radicals
 	  =ucs-radicals@unicode
-	  =ucs-bmp-cjk@gb
-          ;; =ucs-bmp-cjk@JP
+	  ;; =ucs-bmp-cjk@JP
 	  =ucs-bmp-cjk@JP/hanazono
+	  =ucs-bmp-cjk@gb
 	  =ucs-bmp-cjk-compat
           =ucs-bmp-cjk-compat@unicode
           japanese-jisx0208-1978
@@ -382,9 +382,9 @@ DESCRIPTION (string) is the description string of the charset."
 	  =big5-cdp-var-5
 	  ==jis-x0208@1990
 	  ==ucs-radicals@unicode
+	  ==ucs-bmp-cjk@JP/hanazono
 	  ==ucs-bmp-cjk@gb
-          ==ucs-bmp-cjk@JP/hanazono
-	  ==ucs-sip-ext-b@iso
+          ==ucs-sip-ext-b@iso
 	  ==mj-0
 	  ==mj-1
 	  ==hanyo-denshi/ja
@@ -420,8 +420,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  ===mj-0
 	  ===mj-1
           ===jis-x0208@1990
-	  ===jis-x0213-1
-	  ===jis-x0213-2
 	  ===big5-cdp
 	  ===ucs-bmp-cjk@gb
           ===adobe-japan1-6
@@ -434,12 +432,16 @@ DESCRIPTION (string) is the description string of the charset."
 	  ===cns11643-7
 	  ;; ===hanyo-denshi/ja
 	  ===hanyo-denshi/jb
+	  ===hanyo-denshi/jc
+	  ===hanyo-denshi/jd
 	  ===hanyo-denshi/ft
 	  ===hanyo-denshi/ia
 	  ===hanyo-denshi/ib
 	  ===hanyo-denshi/hg
 	  ===hanyo-denshi/ip
 	  ===hanyo-denshi/jt
+	  ===jis-x0213-1
+	  ===jis-x0213-2
 	  ===jis-x0208@1983
 	  ===jis-x0208@1978
 	  ===jis-x0212
