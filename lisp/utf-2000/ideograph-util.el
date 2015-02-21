@@ -1,7 +1,7 @@
 ;;; ideograph-util.el --- Ideographic Character Database utility
 
 ;; Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2007, 2008,
-;;   2009, 2010, 2012, 2014 MORIOKA Tomohiko.
+;;   2009, 2010, 2012, 2014, 2015 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Chaon model, ISO/IEC 10646, Unicode, UCS-4, MULE.
@@ -321,8 +321,11 @@
 		(setq depth 0))
 	      (catch 'tag
 		(let ((rest
-		       (append (get-char-attribute char '->subsumptive)
-			       (get-char-attribute char '->denotational)))
+		       (append
+			(get-char-attribute char '->subsumptive)
+			(get-char-attribute char '->denotational)
+			(get-char-attribute char '->denotational@component)
+			))
 		      (i 0)
 		      sc lnum)
 		  (setq checked (cons char checked))
@@ -345,8 +348,11 @@
 		    (setq checked (cons sc checked)
 			  rest (cdr rest)))
 		  (setq rest
-			(append (get-char-attribute char '<-subsumptive)
-				(get-char-attribute char '<-denotational)))
+			(append
+			 (get-char-attribute char '<-subsumptive)
+			 (get-char-attribute char '<-denotational)
+			 (get-char-attribute char '<-denotational@component)
+			 ))
 		  (while rest
 		    (setq sc (car rest))
 		    (when (setq ret (char-daikanwa sc radical checked depth))
