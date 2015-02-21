@@ -169,6 +169,7 @@
       (==ucs@unicode	  . #x5387)	; &g2-AJ1-21237;
       (==adobe-japan1-6	  . 21237)	; &g2-AJ1-21237;
       (==jis-x0212	  . #x3444)	; &g2-AJ1-21237; [20-36]
+      (==cns11643-4	  . #x2167)	; &g2-AJ1-21237; [01-71]
       (==daikanwa	  . 02895)	; &g2-AJ1-21237;
       (==jef-china3	  . #x45D8)	; &g2-AJ1-21237;
       (->subsumptive
@@ -181,20 +182,9 @@
        ((===jef-china3	    . #x45D8)	; &R-JC3-45D8;
 	)
        ((===ucs@unicode	    . #x5387)	; &R-UU+5387;
-	))
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	(=ucs		    . #x2FF8)	; ⿸
 	)
-       ((=ucs		    . #x5382)	; 厂
-	)
-       ((==ucs@cns	    . #x4E47)	; &g2-JSP-3032;
-	(==ucs@jis	    . #x4E47)	; &g2-JSP-3032;
-	(==jis-x0213-2	    . #x2129)	; &g2-JSP-3032; [01-09]
+       ((===cns11643-4	    . #x2167)	; &R-C4-2167; [01-71]
 	))
-      (==ucs@cns	  . #x5387)	; &g2-CU+5387;
-      (==cns11643-4	  . #x2167)	; &g2-CU+5387; [01-71]
       ))
     ))
 (define-char
