@@ -114,6 +114,7 @@
     (==>ucs@bucs	. #x52FB)	; &BUCS+52FB;
     (=ucs@big5		. #x52FB)	; &BUCS+52FB;
     (=big5		. #xA4C3)	; &BUCS+52FB;
+    (=>iwds-1		.  0048)	; &BUCS+52FB;
     ))
 (define-char
   '((<-denotational
