@@ -870,6 +870,17 @@
   '((ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (=>ucs@component	. #x58FD)	; &IWDS1-330;
+    (=>iwds-1		.  0330)	; &IWDS1-330;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x58FD)	; &IWDS1-330;
+      (=>iwds-1		  .  0330)	; &IWDS1-330;
+      ))
+    (ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
     (hanyu-dazidian	1 483 10)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
@@ -938,7 +949,11 @@
     (=daikanwa		. 05677)	; &I-M-05677;
     ))
 (define-char
-  '((ideographic-radical@ucs . 33)	; ⼠
+  '((<-denotational
+     ((=>ucs@component	  . #x58FD)	; &IWDS1-330;
+      (=>iwds-1		  .  0330)	; &IWDS1-330;
+      ))
+    (ideographic-radical@ucs . 33)	; ⼠
     (ideographic-radical@cns . 41)	; ⼨
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
