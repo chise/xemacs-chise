@@ -51,6 +51,9 @@
 	`<-denotational'.
 	(U-000200C9): Ditto.
 
+	* ideograph-util.el (char-daikanwa): Use
+	`->denotational@component' and `<-denotational@component'.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>iwds-1'.
 	(char-db-decode-isolated-char): If `(decode-char ccs code-point)'
