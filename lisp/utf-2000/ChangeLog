@@ -1,5 +1,32 @@
 2015-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R041-Inch.el (U+5900): Add `<-denotational' for
+	IWDS1-0330.
+
+	* Ideograph-R030-Mouth.el (U-00020B9F): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R033-Scholar.el (IWDS1-0330): New abstract component.
+	(U+58FD): Add `<-denotational' for IWDS1-0330.
+	(U+5900): Ditto.
+
+	* Ideograph-R024-Ten.el (IWDS1-0037): New abstract component.
+	(U+5341): Add `<-denotational@component' for IWDS1-0037.
+	(U+5349): Unify IWDS1-0154.
+	(o-IU+2F82C): Unify U-00020984; apply new conventions for glyph
+	granularity.
+	(IWDS1-0287): New abstract component; unify BUCS+5351.
+	(U+5351): Add `<-denotational' for BUCS+5351.
+	(U-00024C1E): Likewise; apply new conventions for glyph
+	granularity.
+	(IWDS1-0251): New abstract component.
+	(U+5355): Add `<-denotational' for IWDS1-0251.
+	(U+5358): Likewise.
+
+	* Ideograph-R009-Man.el (U+4ED7): Apply new conventions for glyph
+	granularity.
+	(U+4F4F): Likewise.
+
 	* Ideograph-R027-Cliff.el (U+5387): Apply new conventions for
 	glyph granularity.
 
