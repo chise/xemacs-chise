@@ -1,5 +1,46 @@
 2015-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R023-Hiding-Enclosure.el (U+5338): Add
+	`<-denotational@component' for IWDS1-0209.
+
+	* Ideograph-R022-Right-Open-Box.el (IWDS1-0209): New abstract
+	component.
+	(U+531A): Add `<-denotational@component' for IWDS1-0209.
+
+	* Ideograph-R021-Spoon.el (J97-5238): Add
+	`<-denotational@component' for IWDS1-0141; unify IWDS1-0140.
+
+	* Ideograph-R003-Dot.el (U+4E3B): Add `<-denotational@component'
+	for IWDS1-0201; apply new conventions for glyph granularity.
+	(IWDS1-0201): New abstract component.
+
+	* Ideograph-R001-One.el (IWDS1-0141): New abstract component.
+	(U+4E03): Add `<-denotational@component' for IWDS1-0141; apply new
+	conventions for glyph granularity.
+	(U+4E06): Add `<-denotational@component' for IWDS1-0150.
+	(IWDS1-0248): New abstract component.
+	(U+4E08): Add `<-denotational' for IWDS1-0248; apply new
+	conventions for glyph granularity.
+	(IWDS1-0326): New abstract component.
+	(U+4E0F): Add `<-denotational@component' for IWDS1-0326; add
+	`sound@ja/on/go' and `sound@ja/on/kan'; add `->mistakable' for
+	U+4E10.
+	(U+4E10): Add `<-denotational@component' for IWDS1-0326; use
+	`sound@ja/on/jiyun' instead of `sound@ja/on'; add
+	`sound@ja/on/go/zihui' and `sound@ja/on/kan/zihui'.
+	(U-0002000B): Add `<-denotational' for IWDS1-0248; apply new
+	conventions for glyph granularity.
+	(U-0002000D): Add `<-denotational' for J97-5242; use
+	`ideographic-strokes@ucs' and `total-strokes@ucs' instead of
+	`ideographic-strokes' and `total-strokes'; unify GT-00962 and
+	M-00032.
+	(U+4E14): Add `<-denotational@component' for IWDS1-0114.
+	(J97-5242): Separate U+4E17; unify IWDS1-0144.
+	(GT-00962): Unify U-0002000D; use `ideographic-strokes@daikanwa'
+	and `total-strokes@daikanwa' instead of `ideographic-strokes' and
+	`total-strokes'; add `<-ancient' and `<-same' for U+4E16.
+	(U+4E17): Use J97-5242 instead of BUCS+4E16 as the mother.
+
 	* Ideograph-R005-Second.el (IWDS1-0340): Unify UC+4E59.
 	(U+4E59): Use `<-denotational@component' instead of
 	`<-denotational'.
