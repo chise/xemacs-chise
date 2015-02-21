@@ -2948,6 +2948,15 @@
 		  =>iso-ir	177
 		  mother	=ucs))
 
+  (make-charset '=>iwds-1
+		"The IRG Working Document Series 1: List of UCV of Ideograhs."
+		'(long-name	"IWDS 1: List of UCV"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r))
+
   (make-charset '=>ucs@hanyo-denshi
 		"UCS abstract characters based on Han'you-Denshi collection."
 		'(long-name	"UCS base characters of Han'you-Denshi"
