@@ -1,5 +1,10 @@
 2015-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R027-Cliff.el (U+5387): Apply new conventions for
+	glyph granularity.
+
+2015-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R023-Hiding-Enclosure.el (U+5338): Add
 	`<-denotational@component' for IWDS1-0209.
 
