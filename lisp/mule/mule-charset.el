@@ -463,6 +463,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ucs-bmp
 	  ==>ucs-bmp-cjk@bucs
 	  =>ucs-bmp-cjk@unicode
+          =>ucs-bmp-cjk@component
           =+>ucs-bmp-cjk@unicode
           =+>ucs-bmp-cjk-compat@jis
 	  ;; =>>ucs@unicode
