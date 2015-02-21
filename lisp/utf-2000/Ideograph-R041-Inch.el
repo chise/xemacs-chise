@@ -1134,7 +1134,11 @@
     (=daikanwa		. 07458)	; &I-M-07458;
     ))
 (define-char
-  '((ideographic-radical@ucs . 33)	; ⼠
+  '((<-denotational
+     ((=>ucs@component	  . #x58FD)	; &IWDS1-330;
+      (=>iwds-1		  .  0330)	; &IWDS1-330;
+      ))
+    (ideographic-radical@ucs . 33)	; ⼠
     (ideographic-radical@cns . 41)	; ⼨
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
