@@ -1,7 +1,7 @@
 ;;; char-db-util.el --- Character Database utility -*- coding: utf-8-er; -*-
 
-;; Copyright (C) 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006,
-;;   2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014 MORIOKA Tomohiko.
+;; Copyright (C) 1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,
+;;   2008,2009,2010,2011,2012,2013,2014,2015 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Character Database, ISO/IEC 10646, UCS, Unicode, MULE.
@@ -262,6 +262,7 @@
     =>jis-x0213-1@2004
     =>jis-x0213-2
     ==>ucs@bucs
+    =>iwds-1
     =>ucs@hanyo-denshi
     =>ucs@iso
     =>ucs@unicode
@@ -620,7 +621,10 @@
 		 (decode-builtin-char '=gt ret))
 		(t
 		 (decode-builtin-char ccs code-point))))
-    (cond ((and (<= 0 (char-int ret))
+    (cond ((null ret)
+	   (or (decode-char ccs code-point)
+	       (define-char (list (cons ccs code-point)))))
+	  ((and (<= 0 (char-int ret))
 		(<= (char-int ret) #x1F))
 	   (decode-char '=ucs (+ #x2400 (char-int ret))))
 	  ((= (char-int ret) #x7F)
@@ -635,7 +639,8 @@
     (insert
      (format
       (cond
-       ((memq name '(==shinjigen
+       ((memq name '(=>iwds-1
+		     ==shinjigen
 		     =shinjigen
 		     =shinjigen@1ed ==shinjigen@1ed
 		     =shinjigen@rev ==shinjigen@rev
@@ -855,6 +860,12 @@
 				       line-breaking
 				       ccss readable)
       (setq attributes (delq '<-denotational attributes)))
+    (when (and (memq '<-denotational@component attributes)
+	       (setq value (get-char-attribute char '<-denotational@component)))
+      (char-db-insert-relation-feature char '<-denotational@component value
+				       line-breaking
+				       ccss readable)
+      (setq attributes (delq '<-denotational@component attributes)))
     (when (and (memq 'name attributes)
 	       (setq value (get-char-attribute char 'name)))
       (insert (format
