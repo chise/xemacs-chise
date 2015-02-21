@@ -1,3 +1,21 @@
+2015-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>iwds-1'.
+
+2015-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=>iwds-1): New coded-charset for XEmacs
+	CHISE.
+
+2015-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	- Prefer `=ucs-bmp-cjk@JP/hanazono' to `=ucs-bmp-cjk@gb'.
+	- Prefer `==ucs-bmp-cjk@JP/hanazono' to `==ucs-bmp-cjk@gb'.
+	- Prefer `===hanyo-denshi/jc' to `===jis-x0213-1'.
+	- Prefer `===hanyo-denshi/jd' to `===jis-x0213-2'.
+
 2015-02-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist):
