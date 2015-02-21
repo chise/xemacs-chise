@@ -160,7 +160,10 @@
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
     (==>ucs@bucs	. #x5203)	; &BUCS+5203;
+    (=>iwds-1		.  0106)	; &BUCS+5203;
     ))
 (define-char
   '((<-denotational
