@@ -5,6 +5,14 @@
 	`<-denotational'.
 	(U-000200C9): Ditto.
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>iwds-1'.
+	(char-db-decode-isolated-char): If `(decode-char ccs code-point)'
+	returns nil, define it to avoid error as a workaround.
+	(char-db-insert-ccs-feature): Support `=>iwds-1'.
+	(insert-char-attributes): Format `<-denotational@component' like
+	`<-denotational'.
+
 2015-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R020-Wrap.el (BUCS+52FB): Unify IWDS1-0048.
