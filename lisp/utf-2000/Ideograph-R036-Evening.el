@@ -323,7 +323,9 @@
     ))
 (define-char
   '((<-denotational
-     ((==>ucs@bucs	  . #x5306)	; &BUCS+5306;
+     ((=>ucs@component	  . #x56F1)	; &IWDS1-361;
+      (=ucs@big5	  . #x56EA)	; &IWDS1-361;
+      (=>iwds-1		  .  0361)	; &IWDS1-361;
       ))
     (ideographic-radical@ucs . 31)	; ⼞
     (ideographic-radical@ucs*sources
