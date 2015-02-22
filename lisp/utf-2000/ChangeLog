@@ -1,4 +1,29 @@
+2015-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R025-Divination.el (U+5367): Add `<-denotational' for
+	IWDS1-0043; add `<-vulgar' for U+81E5.
+
 2015-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R036-Evening.el (U+56F1): Use IWDS1-0361 instead of
+	BUCS+5306 as the mother.
+
+	* Ideograph-R031-Enclosure.el (B-A777): Unify IWDS1-0361; add
+	`<-denotational' for BUCS+5306.
+	(U+56F1): Use IWDS1-0361 instead of BUCS+5306 as the mother.
+	(U+56EA): Add `<-denotational' for IWDS1-0361; separate B-A777.
+
+	* Ideograph-R004-Slash.el (U-00020087): Add
+	`<-denotational@component' for IWDS1-0037.
+	(U+4E47): Apply new conventions for glyph granularity.
+	(U+4E48): Add `<-denotational' for IWDS1-0129; add `<-vulgar' for
+	U+5E7A.
+	(U+4E49): Apply new conventions for glyph granularity.
+	(BC-8C66): New character; integrate GT-K00591 and GT-K00754.
+	(U+4E51): Add `<-denotational' for IWDS1-0328; apply new
+	conventions for glyph granularity.
+
+	* Ideograph-R072-Sun.el (CB04040): New character.
 
 	* Ideograph-R041-Inch.el (U+5900): Add `<-denotational' for
 	IWDS1-0330.
