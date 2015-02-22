@@ -377,6 +377,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  chinese-big5-1
 	  chinese-big5-2
           ;; =zihai-17xx
+	  =ucs-bmp-var-002
 	  =ucs-bmp-itaiji-084
 	  =big5-cdp-var-3
 	  =big5-cdp-var-5
