@@ -666,7 +666,10 @@
     (=cns11643-6	. #x2A22)	; &I-C6-2A22; [10-02]
     ))
 (define-char
-  '((ideographic-radical@ucs . 25)	; ⼘
+  '((<-denotational
+     ((=>iwds-1		  .  0043)	; &IWDS1-043;
+      ))
+    (ideographic-radical@ucs . 25)	; ⼘
     (ideographic-strokes@ucs . 6)
     (total-strokes@ucs	     . 8)
     (ideographic-radical@ucs*sources
@@ -690,6 +693,12 @@
     (=jis-x0213-2	. #x2354)	; &I-JX2-2354; [03-52]
     (=daikanwa		. 02808)	; &I-M-02808;
     (=hanziku-7		. #xEECB)	; &I-HZK07-EECB;
+    (<-vulgar
+     ((=ucs		  . #x81E5)	; 臥
+      (=daikanwa	  . 30071)	; &I-M-30071;
+      ))
+    (<-vulgar*sources
+     zhengzitong daikanwa)
     ))
 (define-char
   '((ideographic-radical . 25)	; ⼘
