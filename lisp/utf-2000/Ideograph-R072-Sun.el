@@ -644,6 +644,23 @@
      shinjigen@1ed)
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x573C)	; 圼
+      ))
+    (ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((=ucs		  . #x5DE5)	; 工
+      ))
+    (=cbeta		. 04040)	; &CB04040;
+    ))
+(define-char
   '((ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
