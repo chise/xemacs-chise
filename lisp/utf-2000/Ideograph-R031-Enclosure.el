@@ -913,6 +913,20 @@
   '((<-denotational
      ((==>ucs@bucs	  . #x5306)	; &BUCS+5306;
       ))
+    (ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (=>ucs@component	. #x56F1)	; &IWDS1-361;
+    (=ucs@big5		. #x56EA)	; &IWDS1-361;
+    (=big5		. #xA777)	; &IWDS1-361;
+    (=>iwds-1		.  0361)	; &IWDS1-361;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x56F1)	; &IWDS1-361;
+      (=ucs@big5	  . #x56EA)	; &IWDS1-361;
+      (=>iwds-1		  .  0361)	; &IWDS1-361;
+      ))
     (ideographic-radical@ucs . 31)	; ⼞
     (ideographic-radical@ucs*sources
      daikanwa ucs)
@@ -948,6 +962,27 @@
     (=ucs@unicode	. #x56F1)	; &G0-3451;
     (=gb2312		. #x3451)	; &G0-3451; [20-49]
     (=jef-china3	. #x8CD8)	; &I-JC3-8CD8;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x56F1)	; &IWDS1-361;
+      (=ucs@big5	  . #x56EA)	; &IWDS1-361;
+      (=>iwds-1		  .  0361)	; &IWDS1-361;
+      ))
+    (ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (hanyu-dazidian	1 715 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=big5-cdp	  . #x8CC8)	; &CDP-8CC8;
+      )
+     ((=big5-cdp	  . #x89D5)	; &CDP-89D5;
+      ))
+    (=ucs		. #x56EA)	; 囪
+    (=cns11643-1	. #x4959)	; &I-C1-4959; [41-57]
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
@@ -1520,23 +1555,6 @@
       (=ucs@iso		  . #x211C5)	; &HZK12-EC7D;
       (=hanziku-12	  . #xEC7D)	; &HZK12-EC7D;
       ))
-    ))
-(define-char
-  '((ideographic-radical . 31)	; ⼞
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (hanyu-dazidian	1 715 6)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (=ucs		  . #x2FF4)	; ⿴
-      )
-     ((=big5-cdp	  . #x8CC8)	; &CDP-8CC8;
-      )
-     ((=big5-cdp	  . #x89D5)	; &CDP-89D5;
-      ))
-    (=ucs		. #x56EA)	; 囪
-    (=cns11643-1	. #x4959)	; &I-C1-4959; [41-57]
-    (=big5		. #xA777)	; &I-B-A777;
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
