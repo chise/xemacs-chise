@@ -2,6 +2,16 @@
 (define-char
   '((ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 0)
+    (=>ucs@component	. #x72AC)	; &IWDS1-239;
+    (=>iwds-1		.  0239)	; &IWDS1-239;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x72AC)	; &IWDS1-239;
+      (=>iwds-1		  .  0239)	; &IWDS1-239;
+      ))
+    (ideographic-radical . 94)	; ⽝
+    (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=ucs		. #x72AC)	; 犬
     (=jis-x0208		. #x3824)	; &I-J90-3824; [24-04]
