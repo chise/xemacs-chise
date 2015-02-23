@@ -4724,8 +4724,7 @@
      ((name		  . "CJK RADICAL WALK ONE")
       (=ucs		  . #x2ECD)	; ⻍
       )
-     ((=ucs@unicode	  . #x5723)	; &AJ1-14419;
-      (=adobe-japan1-4	  . 14419)	; &AJ1-14419;
+     ((=ucs		  . #x5723)	; 圣
       ))
     (=shinjigen		.  2338)	; &SJG2-2338;
     (<-vulgar
@@ -4735,6 +4734,19 @@
       ))
     (<-vulgar*sources
      shinjigen)
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+	(=ucs		    . #x2FFA)	; ⿺
+	)
+       ((name		    . "CJK RADICAL WALK ONE")
+	(=ucs		    . #x2ECD)	; ⻍
+	)
+       ((==ucs@unicode	    . #x5723)	; &g2-AJ1-14419;
+	(==adobe-japan1-4   . 14419)	; &g2-AJ1-14419;
+	))
+      (==shinjigen	  .  2338)	; &g2-SJG2-2338;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -7588,7 +7600,7 @@
     (=hanyo-denshi/ft	. #x3240)	; &I-HD-FT-3240; [18-32]
     (=daikanwa		. 38887)	; &I-M-38887;
     (<-synonyms
-     ((=mj		  . 006633)	; &MJ006633;
+     ((=ucs		  . #x4F4F)	; 住
       (=daikanwa	  . 00505)	; &I-M-00505;
       ))
     (<-synonyms*sources
