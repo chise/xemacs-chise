@@ -373,6 +373,7 @@
 	  ( =hanziku-2				"HZK2-" 4 X)
 	  ( =hanyo-denshi/ks/mf			"KSMF-" 5 d)
 	  ( =ucs-var-002		      "U-v002+" 4 X)
+	  ( =ucs-var-003		      "U-v003+" 4 X)
 	  ( =ucs-itaiji-084		      "U-i084+" 4 X)
 	  ( =big5-cdp-var-3		    "CDP-var3-" 4 X)
 	  ( =big5-cdp-var-5		    "CDP-var5-" 4 X)
