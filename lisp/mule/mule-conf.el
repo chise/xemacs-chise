@@ -3668,6 +3668,29 @@
 		  =>iso-ir	177
 		  mother	===ucs@unicode))
 
+  (make-charset '=ucs-var-001
+		"uXXXX-var-001 glyph-images of GlyphWiki"
+		'(long-name	"UCS-var-001"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs))
+  (make-charset '=ucs-bmp-var-001
+		"uXXXX-var-001 glyph-images in BMP"
+		'(long-name	"UCS-BMP-var-001"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs-var-001
+		  min-code #x2E00
+		  max-code #x9FA5
+		  registry "ucs\\.var001-0"))
   (make-charset '=ucs-var-002
 		"uXXXX-var-002 glyph-images of GlyphWiki"
 		'(long-name	"UCS-var-002"
