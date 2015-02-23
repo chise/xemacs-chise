@@ -3691,6 +3691,29 @@
 		  min-code #x2E00
 		  max-code #x9FA5
 		  registry "ucs\\.var002-0"))
+  (make-charset '=ucs-var-003
+		"uXXXX-var-003 glyph-images of GlyphWiki"
+		'(long-name	"UCS-var-003"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs))
+  (make-charset '=ucs-bmp-var-003
+		"uXXXX-var-003 glyph-images in BMP"
+		'(long-name	"UCS-BMP-var-003"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs-var-003
+		  min-code #x2E00
+		  max-code #x9FA5
+		  registry "ucs\\.var003-0"))
   (make-charset '=ucs-itaiji-084
 		"uXXXX-itaiji-084 glyph-images of GlyphWiki"
 		'(long-name	"UCS-itaiji-084"
