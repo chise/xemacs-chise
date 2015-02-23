@@ -35,7 +35,19 @@
     (=big5-cdp		. #x8DDB)	; &I-CDP-8DDB;
     ))
 (define-char
-  '((ideographic-radical@ucs . 25)	; ⼘
+  '((ideographic-radical . 131)	; ⾂
+    (ideographic-strokes . 2)
+    (total-strokes	 . 8)
+    (==>ucs@bucs	. #x81E5)	; &BUCS+81E5;
+    (=>ucs@component	. #x81E5)	; &BUCS+81E5;
+    (=>iwds-1		.  0043)	; &BUCS+81E5;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x81E5)	; &BUCS+81E5;
+      (=>ucs@component	  . #x81E5)	; &BUCS+81E5;
+      ))
+    (ideographic-radical@ucs . 25)	; ⼘
     (ideographic-strokes@ucs . 6)
     (total-strokes@ucs	     . 8)
     (ideographic-radical@ucs*sources
@@ -59,6 +71,12 @@
     (=jis-x0213-2	. #x2354)	; &I-JX2-2354; [03-52]
     (=daikanwa		. 02808)	; &I-M-02808;
     (=hanziku-7		. #xEECB)	; &I-HZK07-EECB;
+    (<-vulgar
+     ((=ucs		  . #x81E5)	; 臥
+      (=daikanwa	  . 30071)	; &I-M-30071;
+      ))
+    (<-vulgar*sources
+     zhengzitong daikanwa)
     ))
 (define-char
   '((ideographic-radical . 131)	; ⾂
@@ -74,7 +92,11 @@
     (=jef-china3	. #x60DF)	; &I-JC3-60DF;
     ))
 (define-char
-  '((ideographic-radical . 131)	; ⾂
+  '((<-denotational
+     ((==>ucs@bucs	  . #x81E5)	; &BUCS+81E5;
+      (=>ucs@component	  . #x81E5)	; &BUCS+81E5;
+      ))
+    (ideographic-radical . 131)	; ⾂
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
     (=ucs		. #x81E5)	; 臥
