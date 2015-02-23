@@ -1,7 +1,22 @@
 2015-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R162-Walk.el (S-2338): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R131-Minister.el (BUCS+81E5): New abstract character.
+	(U+5367): Add `<-denotational' for BUCS+81E5; add `<-vulgar' for
+	U+81E5.
+	(U+81E5): Add `<-denotational' for BUCS+81E5.
+
+	* Ideograph-R075-Tree.el (BUCS+672C): New abstract character.
+	(U+672C): Add `<-denotational' for BUCS+672C.
+	(U+6754): Apply new conventions for glyph granularity.
+
 	* Ideograph-R025-Divination.el (U+5367): Add `<-denotational' for
 	IWDS1-0043; add `<-vulgar' for U+81E5.
+
+	* Ideograph-R086-Fire.el (g2-CU+7079): Omit
+	`ideographic-structure'.
 
 2015-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
