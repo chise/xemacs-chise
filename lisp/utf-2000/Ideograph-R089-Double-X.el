@@ -116,6 +116,18 @@
   '((ideographic-radical . 89)	; ⽘
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (==>ucs@bucs	. #x723D)	; &BUCS+723D;
+    (=>ucs@component	. #x723D)	; &BUCS+723D;
+    (=>iwds-1		.  0108)	; &BUCS+723D;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x723D)	; &BUCS+723D;
+      (=>ucs@component	  . #x723D)	; &BUCS+723D;
+      ))
+    (ideographic-radical . 89)	; ⽘
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
     (=ucs		. #x723D)	; 爽
     (=jis-x0208		. #x4156)	; &I-J90-4156; [33-54]
     (=gb2312		. #x4B2C)	; &I-G0-4B2C; [43-12]
@@ -127,7 +139,7 @@
     (=gt-k		. 07814)	; &I-GT-K07814;
     (=gt-pj-1		. #x4156)	; &I-GT-25362; [33-54]
     (=daikanwa		. 19746)	; &I-M-19746;
-    (=shinjigen@rev	.  1587)	; 爽
+    (=shinjigen		.  1587)	; 爽
     ))
 (define-char
   '((ideographic-radical . 89)	; ⽘
