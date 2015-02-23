@@ -168,7 +168,11 @@
     (=jef-china3	. #x41AE)	; &I-JC3-41AE;
     ))
 (define-char
-  '((ideographic-radical . 2)	; ⼁
+  '((<-denotational
+     ((=>ucs@component	  . #x723F)	; &IWDS1-363;
+      (=>iwds-1		  .  0363)	; &IWDS1-363;
+      ))
+    (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (=ucs		. #x4E2C)	; 丬
