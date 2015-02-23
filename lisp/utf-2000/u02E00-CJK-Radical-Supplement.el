@@ -436,20 +436,6 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5183)	; 冃
-      ))
-    (name*		. "ideographic component hood")
-    (=>ucs		. #x2E9C)	; ⺜
-    (ideographic-radical . 13)	; ⼌
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (=big5-cdp		. #x8A78)	; &CDP-8A78;
-    (<-same@component/connect-below
-     ((=ucs		  . #x5183)	; 冃
-      ))
-    ))
-(define-char
-  '((<-denotational
      ((=ucs		  . #x6708)	; 月
       ))
     (name		. "CJK RADICAL MOON")
