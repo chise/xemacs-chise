@@ -298,7 +298,11 @@
     (=hanziku-1		. #xAEE7)	; &I-HZK01-AEE7;
     ))
 (define-char
-  '((ideographic-radical . 6)	; ⼅
+  '((<-denotational
+     ((==>ucs@bucs	  . #x722D)	; &BUCS+722D;
+      (=>ucs@component	  . #x722D)	; &BUCS+722D;
+      ))
+    (ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 324 12)
