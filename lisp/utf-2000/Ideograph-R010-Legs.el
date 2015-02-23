@@ -1208,11 +1208,13 @@
 (define-char
   '((ideographic-radical . 10)	; ⼉
     (==>ucs@bucs	. #x514E)	; &BUCS+514E;
+    (=>ucs@component	. #x5154)	; &BUCS+514E;
     (=>iwds-1		.  0331)	; &BUCS+514E;
     ))
 (define-char
   '((<-denotational
      ((==>ucs@bucs	  . #x514E)	; &BUCS+514E;
+      (=>ucs@component	  . #x5154)	; &BUCS+514E;
       ))
     (ideographic-radical . 10)	; ⼉
     (sound@ja/kun	"usagi" "u")
@@ -1632,6 +1634,7 @@
 (define-char
   '((<-denotational
      ((==>ucs@bucs	  . #x514E)	; &BUCS+514E;
+      (=>ucs@component	  . #x5154)	; &BUCS+514E;
       ))
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 6)
