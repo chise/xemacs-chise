@@ -723,18 +723,7 @@
        ((===ucs@unicode	    . #x7079)	; &R-UU+7079;
 	))
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs@cns	    . #x706B)	; &g2-CU+706B;
-	(==cns11643-1	    . #x4556)	; &g2-CU+706B; [37-54]
-	)
-       ((==ucs@cns	    . #x4E47)	; &g2-JSP-3032;
-	(==ucs@jis	    . #x4E47)	; &g2-JSP-3032;
-	(==jis-x0213-2	    . #x2129)	; &g2-JSP-3032; [01-09]
-	))
-      (==ucs@cns	  . #x7079)	; &g2-CU+7079;
+     ((==ucs@cns	  . #x7079)	; &g2-CU+7079;
       (==cns11643-3	  . #x265E)	; &g2-CU+7079; [06-62]
       ))
     ))
