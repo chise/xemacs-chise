@@ -1,4 +1,17 @@
+2015-02-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R089-Double-X.el (BUCS+723D): New abstract character.
+	(U+723D): Add `<-denotational' for BUCS+723D.
+
 2015-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R094-Dog.el (IWDS1-0239): New abstract component.
+	(U+72AC): Add `<-denotational@component' for IWDS1-0239.
+
+2015-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (U+6031): Apply new conventions for
+	glyph granularity.
 
 	* Ideograph-R162-Walk.el (S-2338): Apply new conventions for glyph
 	granularity.
