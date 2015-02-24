@@ -251,9 +251,21 @@
     (=daikanwa		. 08725)	; &I-M-08725;
     ))
 (define-char
-  '((ideographic-radical . 48)	; ⼯
+  '((<-denotational
+     ((=>ucs@component	  . #x5723)	; &IWDS1-087;
+      (=>iwds-1		  .  0087)	; &IWDS1-087;
+      ))
+    (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x89E1)	; &CDP-89E1;
+      )
+     ((=ucs		  . #x5DE5)	; 工
+      ))
     (=ucs		. #x22016)	; 𢀖
     ))
 (define-char
