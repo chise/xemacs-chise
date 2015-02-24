@@ -1,3 +1,41 @@
+2015-02-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R048-Work.el (U-00022016): Add `<-denotational' for
+	IWDS1-0087; add `ideographic-structure'.
+
+2015-02-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R189-Tall.el (U-00029AF0): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R037-Big.el (U+5927): Add `<-denotational@component'
+	for IWDS1-0239.
+	(IWDS1-0008): New abstract component.
+	(U+5929): Add `<-denotational@component' for IWDS1-0008.
+	(U+592D): Ditto.
+	(U+5932): Add `<-denotational' for BUCS+672C.
+	(IWDS1-0147): New abstract component.
+	(U+593E): Add `<-denotational@component' for IWDS1-0147; add
+	`->mistakable' for U+3692.
+	(U+3692): Add `<-denotational@component' for IWDS1-0147; apply new
+	conventions for glyph granularity.
+	(BUCS+5944): New abstract character.
+	(U+5944): Add `<-denotational' for BUCS+5944; add `sound@ja/on';
+	apply new conventions for glyph granularity.
+	(U-00021639): Add `<-denotational' for BUCS+5944; use
+	`->denotational' and `->subsumptive'.
+	(U-00021641): Add `<-denotational' for BUCS+723D.
+	(BUCS+5967): New abstract character.
+	(U+5965): Add `<-denotational' for BUCS+5967; apply new
+	conventions for glyph granularity.
+	(U+5967): Likewise.
+
+	* Ideograph-R024-Ten.el (U+534B): Unify S-0025; add `<-vulgar' for
+	U+4E16.
+	(BUCS+5351): Unify A-UC+5351.
+	(IWDS1-0251): Unify UC+5358.
+	(U+5359): Apply new conventions for glyph granularity.
+
 2015-02-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R087-Claw.el (BUCS+722D): New abstract character.
