@@ -918,7 +918,7 @@
     (total-strokes	 . 7)
     (=>ucs@component	. #x56F1)	; &IWDS1-361;
     (=ucs@big5		. #x56EA)	; &IWDS1-361;
-    (=big5		. #xA777)	; &IWDS1-361;
+    (=big5		. #xA777)	; &I-B-A777;
     (=>iwds-1		.  0361)	; &IWDS1-361;
     ))
 (define-char
