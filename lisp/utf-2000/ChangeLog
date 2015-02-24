@@ -1,5 +1,40 @@
 2015-02-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R087-Claw.el (BUCS+722D): New abstract character.
+	(U+722D): Add `<-denotational' for BUCS+722D.
+
+	* Ideograph-R052-Short-Thread.el (BUCS+5E7A): New abstract
+	character.
+	(U+5E7A): Add `<-denotational' for BUCS+5E7A.
+
+	* Ideograph-R020-Wrap.el (BUCS+52FB): Unify A-UC+52FB.
+	(U+5306): Use `->denotational' to integrate U-0002F82A.
+	(A-J0-5232): Unify U+5306.
+	(U+56F1): Use IWDS1-0361 instead of BUCS+5306 as the mother.
+
+	* Ideograph-R013-Down-Box.el (BC-8A78): Omit `=>ucs' for U+2E9C.
+	(U+5184): Apply new conventions for glyph granularity; unify
+	IWDS1-0078.
+	(UU+5184): Unify IWDS1-0079.
+	(GT-K00688): New character.
+	(BC-89FA): New character.
+	(U+34BC): Add `<-denotational@component' for IWDS1-0302; add
+	`sound@ja/on/{kan|go}/{p1|p2}'.
+	(IWDS1-0302): New abstract component.
+
+	* Ideograph-R010-Legs.el (BUCS+514E): Unify A-UC+5154.
+
+	* Ideograph-R006-Hook.el (U+4E89): Add `<-denotational' for
+	BUCS+722D.
+
+	* Ideograph-R002-Line.el (U+4E2C): Add `<-denotational' for
+	IWDS1-0363.
+
+	* Ideograph-R001-One.el (IWDS1-0248): Unify BUCS+4E08 and
+	A-UC+4E08.
+	(IWDS1-0144): Unify A-UC+4E17.
+	(UU+4E17): Add `<-ancient' for U+4E16.
+
 	* Ideograph-R089-Double-X.el (BUCS+723D): New abstract character.
 	(U+723D): Add `<-denotational' for BUCS+723D.
 
