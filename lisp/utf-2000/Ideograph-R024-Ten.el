@@ -592,7 +592,15 @@
     (=jis-x0212		. #x3438)	; &I-JSP-3438; [20-24]
     (=cns11643-3	. #x232A)	; &I-C3-232A; [03-10]
     (=daikanwa		. 02714)	; &I-M-02714;
+    (=shinjigen		.  0025)	; 卋
     (=hanziku-1		. #xB06C)	; &I-HZK01-B06C;
+    (<-vulgar
+     ((=ucs		  . #x4E16)	; 世
+      (=jis-x0208	  . #x4024)	; &I-J90-4024; [32-04]
+      (=shinjigen	  .  0023)	; 世
+      ))
+    (<-vulgar*sources
+     shinjigen)
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
@@ -977,11 +985,13 @@
 (define-char
   '((ideographic-radical . 24)	; ⼗
     (==>ucs@bucs	. #x5351)	; &BUCS+5351;
+    (=>ucs@component	. #x5351)	; &BUCS+5351;
     (=>iwds-1		.  0287)	; &BUCS+5351;
     ))
 (define-char
   '((<-denotational
      ((==>ucs@bucs	  . #x5351)	; &BUCS+5351;
+      (=>ucs@component	  . #x5351)	; &BUCS+5351;
       ))
     (ideographic-radical . 24)	; ⼗
     (=ucs		. #x5351)	; 卑
@@ -1058,6 +1068,7 @@
 (define-char
   '((<-denotational
      ((==>ucs@bucs	  . #x5351)	; &BUCS+5351;
+      (=>ucs@component	  . #x5351)	; &BUCS+5351;
       ))
     (ideographic-radical . 24)	; ⼗
     (=ucs		. #x24C1E)	; 𤰞
@@ -1313,11 +1324,13 @@
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
+    (=>ucs@component	. #x5358)	; &IWDS1-251;
     (=>iwds-1		.  0251)	; &IWDS1-251;
     ))
 (define-char
   '((<-denotational
-     ((=>iwds-1		  .  0251)	; &IWDS1-251;
+     ((=>ucs@component	  . #x5358)	; &IWDS1-251;
+      (=>iwds-1		  .  0251)	; &IWDS1-251;
       ))
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 6)
@@ -1422,7 +1435,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>iwds-1		  .  0251)	; &IWDS1-251;
+     ((=>ucs@component	  . #x5358)	; &IWDS1-251;
+      (=>iwds-1		  .  0251)	; &IWDS1-251;
       ))
     (script		JP Jouyou Ideograph)
     (ideographic-radical . 24)	; ⼗
@@ -1510,7 +1524,6 @@
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (hanyu-dazidian	1 65 7)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1520,7 +1533,31 @@
      ((=ucs		  . #x5341)	; 十
       ))
     (=ucs		. #x5359)	; 卙
-    (=adobe-japan1-6	. 21233)	; &I-AJ1-21233;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5359)	; 卙
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (hanyu-dazidian	1 65 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x751A)	; &GT-27811;
+      (=jis-x0208	  . #x3F53)	; &GT-27811; [31-51]
+      (=gb2312		  . #x4975)	; &I-G0-4975; [41-85]
+      (=ks-x1001	  . #x6424)	; &I-K0-6424; [68-04]
+      (=cns11643-1	  . #x5249)	; &I-C1-5249; [50-41]
+      (=jis-x0213-1	  . #x3F53)	; &I-JX1-3F53; [31-51]
+      (=daikanwa	  . 21648)	; &I-M-21648;
+      )
+     ((=ucs		  . #x5341)	; 十
+      ))
+    (=ucs@unicode	. #x5359)	; &AJ1-21233;
+    (=adobe-japan1-6	. 21233)	; &AJ1-21233;
     (=jis-x0212		. #x3439)	; &I-JSP-3439; [20-25]
     (=cns11643-4	. #x3060)	; &I-C4-3060; [16-64]
     (=daikanwa		. 02757)	; &I-M-02757;
@@ -1536,11 +1573,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@jis	    . #x751A)	; &GT-27811;
-	(=jis-x0208	    . #x3F53)	; &GT-27811; [31-51]
-	(=ks-x1001	    . #x6424)	; &I-K0-6424; [68-04]
-	(=jis-x0213-1	    . #x3F53)	; &I-JX1-3F53; [31-51]
-	(=daikanwa	    . 21648)	; &I-M-21648;
+       ((==ucs@jis	    . #x751A)	; &g2-GT-27811;
+	(==ucs@ks	    . #x751A)	; &g2-GT-27811;
+	(==jis-x0208	    . #x3F53)	; &g2-GT-27811; [31-51]
 	)
        ((=ucs		    . #x5341)	; 十
 	))
@@ -1563,7 +1598,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=cns11643-1	    . #x5249)	; &C1-5249; [50-41]
+       ((==ucs@cns	    . #x751A)	; &g2-CU+751A;
+	(==cns11643-1	    . #x5249)	; &g2-CU+751A; [50-41]
 	)
        ((=ucs		    . #x5341)	; 十
 	))
@@ -1574,8 +1610,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x751A)	; &G0-4975;
-	(=gb2312	    . #x4975)	; &G0-4975; [41-85]
+       ((==ucs@unicode	    . #x751A)	; &g2-UU+751A;
 	)
        ((=ucs		    . #x5341)	; 十
 	))
