@@ -3,6 +3,18 @@
   '((ideographic-radical . 52)	; ⼳
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (==>ucs@bucs	. #x5E7A)	; &BUCS+5E7A;
+    (=>ucs@component	. #x5E7A)	; &BUCS+5E7A;
+    (=>iwds-1		.  0129)	; &BUCS+5E7A;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5E7A)	; &BUCS+5E7A;
+      (=>ucs@component	  . #x5E7A)	; &BUCS+5E7A;
+      ))
+    (ideographic-radical . 52)	; ⼳
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
     (=ucs		. #x5E7A)	; 幺
     (=adobe-japan1-0	. 04739)	; &I-AJ1-04739;
     (=jis-x0208		. #x5676)	; &I-J90-5676; [54-86]
