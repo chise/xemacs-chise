@@ -3305,7 +3305,6 @@
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (hanyu-dazidian	1 373 18)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -3315,7 +3314,31 @@
      ((=ucs		  . #x529B)	; 力
       ))
     (=ucs		. #x52D8)	; 勘
-    (=adobe-japan1-0	. 01510)	; &I-AJ1-01510;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x52D8)	; 勘
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (hanyu-dazidian	1 373 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x751A)	; &GT-27811;
+      (=jis-x0208	  . #x3F53)	; &GT-27811; [31-51]
+      (=gb2312		  . #x4975)	; &I-G0-4975; [41-85]
+      (=ks-x1001	  . #x6424)	; &I-K0-6424; [68-04]
+      (=cns11643-1	  . #x5249)	; &I-C1-5249; [50-41]
+      (=jis-x0213-1	  . #x3F53)	; &I-JX1-3F53; [31-51]
+      (=daikanwa	  . 21648)	; &I-M-21648;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=ucs@unicode	. #x52D8)	; &AJ1-01510;
+    (=adobe-japan1-0	. 01510)	; &AJ1-01510;
     (=jis-x0208		. #x342A)	; &I-J90-342A; [20-10]
     (=gb2312		. #x3F31)	; &I-G0-3F31; [31-17]
     (=ks-x1001		. #x4A6B)	; &I-K0-4A6B; [42-75]
@@ -3326,7 +3349,7 @@
     (=gt-k		. 07734)	; &I-GT-K07734;
     (=gt-pj-1		. #x342A)	; &I-GT-03062; [20-10]
     (=daikanwa		. 02393)	; &I-M-02393;
-    (=shinjigen		.  0738)	; 勘
+    (=shinjigen		.  0738)	; &AJ1-01510;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x52D8)	; 勘
@@ -3337,11 +3360,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@jis	    . #x751A)	; &GT-27811;
-	(=jis-x0208	    . #x3F53)	; &GT-27811; [31-51]
-	(=ks-x1001	    . #x6424)	; &I-K0-6424; [68-04]
-	(=jis-x0213-1	    . #x3F53)	; &I-JX1-3F53; [31-51]
-	(=daikanwa	    . 21648)	; &I-M-21648;
+       ((==ucs@jis	    . #x751A)	; &g2-GT-27811;
+	(==ucs@ks	    . #x751A)	; &g2-GT-27811;
+	(==jis-x0208	    . #x3F53)	; &g2-GT-27811; [31-51]
 	)
        ((=ucs		    . #x529B)	; 力
 	))
@@ -3369,19 +3390,20 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x751A)	; &G0-4975;
-	(=gb2312	    . #x4975)	; &G0-4975; [41-85]
+       ((==ucs@unicode	    . #x751A)	; &g2-UU+751A;
 	)
        ((=ucs		    . #x529B)	; 力
 	))
       (==ucs@unicode	  . #x52D8)	; &g2-UU+52D8;
+      (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x3F31)	; &g2-UU+52D8; [31-17]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=cns11643-1	    . #x5249)	; &C1-5249; [50-41]
+       ((==ucs@cns	    . #x751A)	; &g2-CU+751A;
+	(==cns11643-1	    . #x5249)	; &g2-CU+751A; [50-41]
 	)
        ((=ucs		    . #x529B)	; 力
 	))
