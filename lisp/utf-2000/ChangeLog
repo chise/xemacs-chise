@@ -1,5 +1,40 @@
 2015-02-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R042-Small.el (U+5C20): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R038-Woman.el (BUCS+5A41): New abstract character.
+	(U+5A04): Add `<-denotational' for BUCS+5A41; apply new
+	conventions for glyph granularity.
+	(IWDS1-0348): New abstract component.
+	(U+5A41): Add `<-denotational' for IWDS1-0348; apply new
+	conventions for glyph granularity.
+	(U-00021764): Add `<-denotational' for IWDS1-0348; apply new
+	conventions for glyph granularity.
+	(U+5A85): Apply new conventions for glyph granularity.
+
+	* Ideograph-R140-Grass.el (U+8294): Apply new conventions for
+	glyph granularity.
+	(U+44E3): Add `<-denotational@component' for IWDS1-0302; add
+	`sound@ja/on'; apply new conventions for glyph granularity.
+
+	* Ideograph-R033-Scholar.el (U+58EF): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R099-Sweet.el (U+751A): Apply new conventions for
+	glyph granularity.
+	(U+3F4E): Use `->denotational' and `->subsumptive'.
+	(U-00024BC9): Likewise.
+
+	* Ideograph-R040-Roof.el (U+5BC9): Add `<-denotational' for
+	IWDS1-0304; apply new conventions for glyph granularity.
+	(BUCS+5BEC): New abstract character.
+	(U+5BDB): Add `<-denotational' for BUCS+5BEC.
+	(GT-09129): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+5BEC): Add `<-denotational' for BUCS+5BEC.
+	(UU+5BEC): Apply new conventions for glyph granularity.
+
 	* Ideograph-R048-Work.el (U-00022016): Add `<-denotational' for
 	IWDS1-0087; add `ideographic-structure'.
 
