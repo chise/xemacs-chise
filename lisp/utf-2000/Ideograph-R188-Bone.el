@@ -100,17 +100,38 @@
 (define-char
   '((ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 2)
-    (total-strokes	 . 12)
     (=ucs		. #x4BC7)	; 䯇
-    (=daikanwa		. 45102)	; &I-M-45102;
     ))
 (define-char
-  '((=>ucs		. #x4BC7)	; 䯇
-    (morohashi-daikanwa	45102 0 0)
+  '((<-denotational
+     ((=ucs		  . #x4BC7)	; 䯇
+      ))
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 2)
     (total-strokes	 . 12)
+    (=ucs@cns		. #x4BC7)	; &C3-402E;
     (=cns11643-3	. #x402E)	; &C3-402E; [32-14]
+    (=daikanwa		. 45102)	; &I-M-45102;
+    (->subsumptive
+     ((==daikanwa	  . 45102)	; &g2-M-45102;
+      )
+     ((==ucs@cns	  . #x4BC7)	; &g2-CU+4BC7;
+      (==cns11643-3	  . #x402E)	; &g2-CU+4BC7; [32-14]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4BC7)	; 䯇
+      ))
+    (ideographic-radical . 188)	; ⾻
+    (ideographic-strokes . 2)
+    (total-strokes	 . 11)
+    (=ucs@unicode	. #x4BC7)	; &UU+4BC7;
+    (=ucs@JP/hanazono	. nil)
+    (->subsumptive
+     ((==ucs@unicode	  . #x4BC7)	; &g2-UU+4BC7;
+      (==ucs@JP/hanazono  . nil)
+      ))
     ))
 (define-char
   '((=>ucs		. #x9AA9)	; 骩
