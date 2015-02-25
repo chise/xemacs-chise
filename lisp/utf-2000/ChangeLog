@@ -1,5 +1,19 @@
 2015-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el (BUCS+5203): Unify UC+5203.
+	(U+5204): Apply new conventions for glyph granularity.
+	(U-0002F81E): Add `<-vulgar' for GT-02406.
+	(U+5266): Apply new conventions for glyph granularity.
+	(U+5294): Likewise.
+
+	* Ideograph-R011-Enter.el (JU+5169): Use `->subsumptive' to add
+	representative glyph-images.
+	(UU+5169): Likewise.
+	(U-00020306): Copied from Ideograph-R009-Man.el.
+	(U-000204F3): Add `<-denotational' for U-00020306; add
+	ideographic-structure; unify H1-C948.
+	(IU+20306): Copied from Ideograph-R009-Man.el.
+
 	* Ideograph-R047-River.el (U+5DDF): Add `<-denotational@component'
 	for IWDS1-0345; apply new conventions for glyph granularity; add
 	`<-same' for CU+219EC.
