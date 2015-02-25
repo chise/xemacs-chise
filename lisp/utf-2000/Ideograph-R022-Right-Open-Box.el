@@ -682,6 +682,7 @@
   '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (hanyu-dazidian	1 86 10)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (=ucs		  . #x2FF7)	; ⿷
@@ -691,28 +692,43 @@
      ((=ucs		  . #x58EF)	; 壯
       ))
     (=ucs		. #x5328)	; 匨
+    (=adobe-japan1-6	. 21227)	; &I-AJ1-21227;
+    (=jis-x0212		. #x342B)	; &I-JSP-342B; [20-11]
+    (=cns11643-4	. #x284E)	; &I-C4-284E; [08-46]
+    (=daikanwa		. 02624)	; &I-M-02624;
+    (=hanziku-1		. #xB5BE)	; &I-HZK01-B5BE;
+    (=jef-china3	. #x45B8)	; &I-JC3-45B8;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5328)	; 匨
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (hanyu-dazidian	  1 86 10)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
 	(=ucs		    . #x2FF7)	; ⿷
 	)
        ((=ucs		    . #x531A)	; 匚
 	)
-       ((=ucs@unicode	    . #x58EF)	; &AJ1-04532;
-	(=adobe-japan1-0    . 04532)	; &AJ1-04532;
+       ((==ucs@unicode	    . #x58EF)	; &g2-AJ1-04532;
+	(==adobe-japan1-0   . 04532)	; &g2-AJ1-04532;
 	))
-      (=ucs@unicode	  . #x5328)	; &AJ1-21227;
-      (=adobe-japan1-6	  . 21227)	; &AJ1-21227;
-      (=jis-x0212	  . #x342B)	; &I-JSP-342B; [20-11]
-      (=daikanwa	  . 02624)	; &I-M-02624;
-      (=hanziku-1	  . #xB5BE)	; &I-HZK01-B5BE;
-      (=jef-china3	  . #x45B8)	; &I-JC3-45B8;
+      (==ucs@unicode	  . #x5328)	; &g2-AJ1-21227;
+      (==adobe-japan1-6	  . 21227)	; &g2-AJ1-21227;
+      (==jis-x0212	  . #x342B)	; &g2-AJ1-21227; [20-11]
+      (==daikanwa	  . 02624)	; &g2-AJ1-21227;
+      (==jef-china3	  . #x45B8)	; &g2-AJ1-21227;
+      (->subsumptive
+       ((===daikanwa	    . 02624)	; &R-M-02624;
+	)
+       ((===jis-x0212	    . #x342B)	; &R-JSP-342B; [20-11]
+	)
+       ((===adobe-japan1-6  . 21227)	; &R-AJ1-21227;
+	)
+       ((===ucs@unicode	    . #x5328)	; &R-UU+5328;
+	)
+       ((===jef-china3	    . #x45B8)	; &R-JC3-45B8;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
@@ -720,9 +736,11 @@
 	)
        ((=ucs		    . #x531A)	; 匚
 	)
-       ((=cns11643-1	    . #x4967)	; &C1-4967; [41-71]
+       ((==ucs@cns	    . #x58EF)	; &g2-CU+58EF;
+	(==cns11643-1	    . #x4967)	; &g2-CU+58EF; [41-71]
 	))
-      (=cns11643-4	  . #x284E)	; &C4-284E; [08-46]
+      (==ucs@cns	  . #x5328)	; &g2-CU+5328;
+      (==cns11643-4	  . #x284E)	; &g2-CU+5328; [08-46]
       ))
     ))
 (define-char
