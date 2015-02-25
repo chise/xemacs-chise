@@ -15,9 +15,18 @@
     (ideographic-radical . 43)	; ⼪
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (=ucs@cns		. #x5C22)	; &C1-4452;
-    (=cns11643-1	. #x4452)	; &C1-4452; [36-50]
+    (=ucs@cns		. #x5C22)	; &GT-09497;
+    (=cns11643-1	. #x4452)	; &GT-09497; [36-50]
+    (=gt		. 09497)	; &I-GT-09497;
+    (=gt-pj-3		. #x3258)	; &I-GT-09497; [18-56]
     (=daikanwa		. 07538)	; &I-M-07538;
+    (->subsumptive
+     ((==gt		  . 09497)	; &g2-GT-09497;
+      (==daikanwa	  . 07538)	; &g2-GT-09497;
+      )
+     ((==ucs@cns	  . #x5C22)	; &g2-CU+5C22;
+      (==cns11643-1	  . #x4452)	; &g2-CU+5C22; [36-50]
+      ))
     ))
 (define-char
   '((<-denotational
@@ -75,8 +84,8 @@
       (=jis-x0213-1	  . #x4F5D)	; &I-JX1-4F5D; [47-61]
       (=daikanwa	  . 07540)	; &I-M-07540;
       (<-same
-       ((=ucs@cns	    . #x5C22)	; &C1-4452;
-	(=cns11643-1	    . #x4452)	; &C1-4452; [36-50]
+       ((=ucs@cns	    . #x5C22)	; &GT-09497;
+	(=cns11643-1	    . #x4452)	; &GT-09497; [36-50]
 	(=daikanwa	    . 07538)	; &I-M-07538;
 	))
       (<-same*sources
@@ -101,8 +110,8 @@
     (total-strokes	 . 4)
     (=big5-cdp		. #x8DEF)	; &CDP-8DEF;
     (<-formed@component
-     ((=ucs@cns		  . #x5C22)	; &C1-4452;
-      (=cns11643-1	  . #x4452)	; &C1-4452; [36-50]
+     ((=ucs@cns		  . #x5C22)	; &GT-09497;
+      (=cns11643-1	  . #x4452)	; &GT-09497; [36-50]
       (=daikanwa	  . 07538)	; &I-M-07538;
       ))
     (<-identical@component
@@ -131,8 +140,8 @@
     (->subsumptive
      ((=daikanwa	  . 07541)	; &M-07541;
       (<-same
-       ((=ucs@cns	    . #x5C22)	; &C1-4452;
-	(=cns11643-1	    . #x4452)	; &C1-4452; [36-50]
+       ((=ucs@cns	    . #x5C22)	; &GT-09497;
+	(=cns11643-1	    . #x4452)	; &GT-09497; [36-50]
 	(=daikanwa	    . 07538)	; &I-M-07538;
 	))
       (<-same*sources
@@ -174,8 +183,8 @@
     (sound@ja/on	"wAu")
     (=daikanwa		. 07542)	; &M-07542;
     (<-same
-     ((=ucs@cns		  . #x5C22)	; &C1-4452;
-      (=cns11643-1	  . #x4452)	; &C1-4452; [36-50]
+     ((=ucs@cns		  . #x5C22)	; &GT-09497;
+      (=cns11643-1	  . #x4452)	; &GT-09497; [36-50]
       (=daikanwa	  . 07538)	; &I-M-07538;
       ))
     (<-same*sources
