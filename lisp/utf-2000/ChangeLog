@@ -1,5 +1,14 @@
 2015-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R064-Hand.el (g2-CU+62CB): Add R-JC3-4FB8 as a
+	representative glyph-image.
+	(U+6430): Apply new conventions for glyph granularity.
+
+	* Ideograph-R043-Lame.el (CU+5C22): Unify GT-09497.
+
+	* Ideograph-R001-One.el (U+4E13): Add `<-denotational' for
+	BUCS+5C08.
+
 	* Ideograph-R053-Dotted-Cliff.el (BUCS+5EC9): New super abstract
 	character.
 	(U+5EC9): Add `<-denotational' for BUCS+5EC9.
