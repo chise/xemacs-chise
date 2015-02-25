@@ -1,4 +1,26 @@
+2015-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (IWDS1-0087): New abstract component.
+	(U+5723): Add `<-denotational' for IWDS1-0087; apply new
+	conventions for glyph granularity; add `<-same@shuowen-yizheng'
+	for CU+4BC7; add `<-same@zhengzitong' for JU+6430; add
+	`<-simplified@CN' for UU+8056; add `<-vulgar' for CU+8056.
+	(U+573C): Use `->denotational' to integrate CB04040; unify
+	IWDS1-0088.
+	(U+5807): Use `->denotational' to integrate var002U+5807; unify
+	IWDS1-0276.
+	(var002U+5807): New character.
+
 2015-02-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R188-Bone.el (U+4BC7): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R055-Two-Hands.el (UU+5F09): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R022-Right-Open-Box.el (U+5328): Apply new conventions
+	for glyph granularity.
 
 	* Ideograph-R042-Small.el (U+5C20): Apply new conventions for
 	glyph granularity.
