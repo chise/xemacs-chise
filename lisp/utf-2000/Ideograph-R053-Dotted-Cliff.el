@@ -4481,6 +4481,18 @@
   '((ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (==>ucs@bucs	. #x5EC9)	; &BUCS+5EC9;
+    (=>ucs@component	. #x5EC9)	; &BUCS+5EC9;
+    (=>iwds-1		.  0337)	; &BUCS+5EC9;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5EC9)	; &BUCS+5EC9;
+      (=>ucs@component	  . #x5EC9)	; &BUCS+5EC9;
+      ))
+    (ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
     (=ucs		. #x5EC9)	; 廉
     (=big5		. #xB747)	; &I-B-B747;
     ))
@@ -4528,6 +4540,10 @@
 	)
        ((===ucs@ks	    . #x5EC9)	; &R-K0-562F;
 	(===ks-x1001	    . #x562F)	; &R-K0-562F; [54-15]
+	)
+       ((=>ucs*		    . #x5EC9)	; 廉
+	(=ucs		    . #xF9A2)	; 廉
+	(=ks-x1001	    . #x6675)	; &I-K0-6675; [70-85]
 	))
       ))
     ))
