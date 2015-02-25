@@ -1,5 +1,10 @@
 2015-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R047-River.el (U+5DDF): Add `<-denotational@component'
+	for IWDS1-0345; apply new conventions for glyph granularity; add
+	`<-same' for CU+219EC.
+	(CB08935): Add `ideographic-structure'.
+
 	* Ideograph-R040-Roof.el (U-000219EC): Use `->denotational' and
 	`->subsumptive'.
 
