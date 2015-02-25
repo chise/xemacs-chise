@@ -1228,7 +1228,10 @@
      daikanwa shinjigen)
     ))
 (define-char
-  '((ideographic-radical . 1)	; ⼀
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5C08)	; &BUCS+5C08;
+      ))
+    (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 10 5)
@@ -2495,7 +2498,8 @@
     (=gt-pj-2		. #x3041)	; &I-GT-00076; [16-33]
     (=daikanwa		. 00048)	; &I-M-00048;
     (<-ancient
-     ((=daikanwa	  . 39763)	; &M-39763;
+     ((=ucs		  . #x9149)	; 酉
+      (=daikanwa	  . 39763)	; &I-M-39763;
       ))
     (<-ancient*sources
      daikanwa)
@@ -2578,8 +2582,7 @@
     (=daikanwa		. 00051)	; &I-M-00051;
     (=jef-china3	. #x41A3)	; &I-JC3-41A3;
     (<-simplified@CN
-     ((=ucs@unicode	  . #x5169)	; &C1-4C25;
-      (=cns11643-1	  . #x4C25)	; &C1-4C25; [44-05]
+     ((=ucs		  . #x5169)	; 兩
       (=gb12345		  . #x413D)	; 兩 [33-29]
       ))
     ))
