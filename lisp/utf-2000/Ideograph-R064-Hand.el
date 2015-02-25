@@ -2069,7 +2069,8 @@
     (=daikanwa		. 11901)	; &I-M-11901;
     (=shinjigen		.  2893)	; 抛
     (<-vulgar
-     ((=daikanwa	  . 11948)	; &M-11948;
+     ((=ucs		  . #x62CB)	; 拋
+      (=daikanwa	  . 11948)	; &I-M-11948;
       (=shinjigen	  .  2892)	; 拋
       ))
     (<-vulgar*sources
@@ -2949,7 +2950,7 @@
     (=gt		. 15095)	; &I-GT-15095;
     (=gt-pj-1		. #x5943)	; &I-GT-15095; [57-35]
     (=daikanwa		. 11947)	; &I-M-11947;
-    (=shinjigen@rev	.  2887)	; 拊
+    (=shinjigen		.  2887)	; 拊
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
@@ -2958,7 +2959,7 @@
     (=ucs		. #x62CB)	; 拋
     (=cns11643-1	. #x4D61)	; &I-C1-4D61; [45-65]
     (=big5		. #xA9DF)	; &I-B-A9DF;
-    (=daikanwa		. 11948)	; &M-11948;
+    (=daikanwa		. 11948)	; &I-M-11948;
     (=shinjigen		.  2892)	; 拋
     (=jef-china3	. #x4FB8)	; &I-JC3-4FB8;
     (->subsumptive
@@ -2971,9 +2972,12 @@
        ((===daikanwa	    . 11948)	; &R-M-11948;
 	)
        ((===cns11643-1	    . #x4D61)	; &R-C1-4D61; [45-65]
+	)
+       ((===jef-china3	    . #x4FB8)	; &R-JC3-4FB8;
 	))
       )
      ((==ucs@unicode	  . #x62CB)	; &g2-UU+62CB;
+      (==ucs@JP/hanazono  . nil)
       ))
     ))
 (define-char
@@ -14177,15 +14181,24 @@
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (=ucs@cns		. #x6430)	; &JSP-4055;
+    (=ucs@jis		. #x6430)	; &JSP-4055;
+    (=jis-x0212		. #x4055)	; &JSP-4055; [32-53]
+    (=cns11643-2	. #x4332)	; &I-C2-4332; [35-18]
+    (=big5		. #xDDAC)	; &I-B-DDAC;
+    (=daikanwa		. 12511)	; &I-M-12511;
     (->subsumptive
-     ((=ucs@jis		  . #x6430)	; &JSP-4055;
-      (=ucs@big5	  . #x6430)	; &JSP-4055;
-      (=jis-x0212	  . #x4055)	; &JSP-4055; [32-53]
-      (=big5		  . #xDDAC)	; &I-B-DDAC;
-      (=daikanwa	  . 12511)	; &I-M-12511;
+     ((==ucs@jis	  . #x6430)	; &g2-JSP-4055;
+      (==jis-x0212	  . #x4055)	; &g2-JSP-4055; [32-53]
+      (==daikanwa	  . 12511)	; &g2-JSP-4055;
+      (->subsumptive
+       ((===daikanwa	    . 12511)	; &R-M-12511;
+	)
+       ((===jis-x0212	    . #x4055)	; &R-JSP-4055; [32-53]
+	))
       )
-     ((=ucs@cns		  . #x6430)	; &C2-4332;
-      (=cns11643-2	  . #x4332)	; &C2-4332; [35-18]
+     ((==ucs@cns	  . #x6430)	; &g2-CU+6430;
+      (==cns11643-2	  . #x4332)	; &g2-CU+6430; [35-18]
       ))
     ))
 (define-char
@@ -14196,6 +14209,11 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs@unicode	. #x6430)	; &UU+6430;
+    (=ucs@JP/hanazono	. nil)
+    (->subsumptive
+     ((==ucs@unicode	  . #x6430)	; &g2-UU+6430;
+      (==ucs@JP/hanazono  . nil)
+      ))
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
