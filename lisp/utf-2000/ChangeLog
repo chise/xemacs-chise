@@ -1,5 +1,19 @@
 2015-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R009-Man.el (U+4EED): Apply new conventions for glyph
+	granularity.
+	(U+4FFA): Likewise.
+	(U+5006): Likewise.
+	(U+5061): Likewise.
+	(U+506C): Likewise.
+	(U+507B): Likewise.
+	(U+5095): Likewise.
+	(U-00020306): Moved to Ideograph-R011-Enter.el.
+	(IU+20306): Likewise.
+	(H1-C948): Likewise; unify U-000204F3.
+	(U+50C2): Apply new conventions for glyph granularity.
+	(S-0429): Likewise.
+
 	* Ideograph-R018-Knife.el (BUCS+5203): Unify UC+5203.
 	(U+5204): Apply new conventions for glyph granularity.
 	(U-0002F81E): Add `<-vulgar' for GT-02406.
