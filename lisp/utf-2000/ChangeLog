@@ -13,6 +13,13 @@
 
 2015-02-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R172-Short-Tailed-Bird.el (IWDS1-0304): New abstract
+	component.
+	(U+96BA): Add `<-denotational' for IWDS1-0304; apply new
+	conventions for glyph granularity.
+
+2015-02-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R188-Bone.el (U+4BC7): Use `->denotational' and
 	`->subsumptive'.
 
