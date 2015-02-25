@@ -1,5 +1,10 @@
 2015-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R040-Roof.el (U-000219EC): Use `->denotational' and
+	`->subsumptive'.
+
+2015-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R064-Hand.el (g2-CU+62CB): Add R-JC3-4FB8 as a
 	representative glyph-image.
 	(U+6430): Apply new conventions for glyph granularity.
