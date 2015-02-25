@@ -937,8 +937,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x58EF)	; &AJ1-04532;
-      (=adobe-japan1-0	  . 04532)	; &AJ1-04532;
+     ((=ucs		  . #x58EF)	; 壯
       )
      ((=ucs@unicode	  . #x5EFE)	; &MJ011120;
       (=mj		  . 011120)	; &MJ011120;
@@ -960,6 +959,37 @@
       ))
     (<-vulgar*sources
      shinjigen)
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((==ucs@unicode	    . #x58EF)	; &g2-AJ1-04532;
+	(==adobe-japan1-0   . 04532)	; &g2-AJ1-04532;
+	)
+       ((=ucs@unicode	    . #x5EFE)	; &MJ011120;
+	(=mj		    . 011120)	; &MJ011120;
+	))
+      (==ucs@unicode	  . #x5F09)	; &g2-AJ1-04765;
+      (==adobe-japan1-0	  . 04765)	; &g2-AJ1-04765;
+      (==jis-x0208	  . #x5732)	; &g2-AJ1-04765; [55-18]
+      (==jis-x0213-1	  . #x5732)	; &g2-AJ1-04765; [55-18]
+      (==gt		  . 12125)	; &g2-AJ1-04765;
+      (==shinjigen	  .  1585)	; &g2-AJ1-04765;
+      (==cbeta		  . 04455)	; &g2-AJ1-04765;
+      (->subsumptive
+       ((===jis-x0208	    . #x5732)	; &R-J90-5732; [55-18]
+	(===jis-x0213-1	    . #x5732)	; &R-J90-5732; [55-18]
+	)
+       ((===adobe-japan1-0  . 04765)	; &R-AJ1-04765;
+	)
+       ((===ucs@unicode	    . #x5F09)	; &R-UU+5F09;
+	)
+       ((===gt		    . 12125)	; &R-GT-12125;
+	)
+       ((===cbeta	    . 04455)	; &R-CB04455;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 55)	; ⼶
