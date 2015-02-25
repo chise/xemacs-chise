@@ -373,23 +373,6 @@
     ))
 (define-char
   '((ideographic-radical . 41)	; ⼨
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (=ucs		. #x5C02)	; 専
-    (=adobe-japan1-0	. 02704)	; &I-AJ1-02704;
-    (=jis-x0208		. #x406C)	; &I-J90-406C; [32-76]
-    (=jis-x0213-1	. #x406C)	; &I-JX1-406C; [32-76]
-    (=gt		. 09348)	; &I-GT-09348;
-    (=gt-k		. 05353)	; &I-GT-K05353;
-    (=gt-pj-1		. #x406C)	; &I-GT-09348; [32-76]
-    (<-simplified@JP/Jouyou
-     ((=ucs@unicode	  . #x5C08)	; &AJ1-04642;
-      (=adobe-japan1-0	  . 04642)	; &AJ1-04642;
-      (=jis-x0208	  . #x5573)	; &I-J90-5573; [53-83]
-      ))
-    ))
-(define-char
-  '((ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs		. #x5C03)	; 尃
@@ -637,6 +620,22 @@
     ))
 (define-char
   '((ideographic-radical . 41)	; ⼨
+    (==>ucs@bucs	. #x5C08)	; &BUCS+5C08;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5C08)	; &BUCS+5C08;
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (=>ucs@component	. #x5C08)	; &IWDS1-387;
+    (=>iwds-1		.  0387)	; &IWDS1-387;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x5C08)	; &IWDS1-387;
+      (=>iwds-1		  .  0387)	; &IWDS1-387;
+      ))
+    (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (=ucs		. #x5C08)	; 專
@@ -695,6 +694,27 @@
     (=hanyo-denshi/jt	. #xB041)	; &I-HD-JT-B041;
     (=shinjigen		.  1884)	; &MJ010273;
     (=jef-china3	. #x4ACE)	; &I-JC3-4ACE;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x5C08)	; &IWDS1-387;
+      (=>iwds-1		  .  0387)	; &IWDS1-387;
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (=ucs		. #x5C02)	; 専
+    (=adobe-japan1-0	. 02704)	; &I-AJ1-02704;
+    (=jis-x0208		. #x406C)	; &I-J90-406C; [32-76]
+    (=jis-x0213-1	. #x406C)	; &I-JX1-406C; [32-76]
+    (=gt		. 09348)	; &I-GT-09348;
+    (=gt-k		. 05353)	; &I-GT-K05353;
+    (=gt-pj-1		. #x406C)	; &I-GT-09348; [32-76]
+    (<-simplified@JP/Jouyou
+     ((=ucs@unicode	  . #x5C08)	; &AJ1-04642;
+      (=adobe-japan1-0	  . 04642)	; &AJ1-04642;
+      (=jis-x0208	  . #x5573)	; &I-J90-5573; [53-83]
+      ))
     ))
 (define-char
   '((ideographic-radical . 41)	; ⼨
