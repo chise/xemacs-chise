@@ -1,5 +1,23 @@
 2015-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R053-Dotted-Cliff.el (BUCS+5EC9): New super abstract
+	character.
+	(U+5EC9): Add `<-denotational' for BUCS+5EC9.
+	(KU+5EC9): Integrate U+F9A2.
+
+	* Ideograph-R041-Inch.el (U+5C02): Add `<-denotational' for
+	IWDS1-0387.
+	(BUCS+5C08): New super abstract character.
+	(IWDS1-0387): New abstract component.
+	(U+5C08): Add `<-denotational' for IWDS1-0387.
+
+	* Ideograph-R008-Lid.el (U+342C): Add `<-denotational@component'
+	for IWDS1-0345.
+	(U+4EB3): Apply new conventions for glyph granularity.
+	(U+4EB7): Add `<-denotational' for BUCS+5EC9.
+	(U-00020187): Apply new conventions for glyph granularity.
+	(IWDS1-0345): New abstract component.
+
 	* Ideograph-R090-Half-Tree-Trunk.el (IWDS1-0363): New abstract
 	component.
 	(U+723F): Add `<-denotational' for IWDS1-0363; apply new
