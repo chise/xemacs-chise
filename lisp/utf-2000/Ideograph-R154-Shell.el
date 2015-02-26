@@ -2368,7 +2368,7 @@
     (hanyu-dazidian	6 3644 1)
     (=ucs		. #x8CD4)	; 賔
     (=cns11643-3	. #x4972)	; &I-C3-4972; [41-82]
-    (=daikanwa		. 36789)	; &M-36789;
+    (=daikanwa		. 36789)	; &I-M-36789;
     (=shinjigen		.  7911)	; 賔
     (=hanziku-9		. #xF460)	; &I-HZK09-F460;
     (=cbeta		. 06710)	; &I-CB06710;
