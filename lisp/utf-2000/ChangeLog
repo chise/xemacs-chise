@@ -1,3 +1,15 @@
+2015-03-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R015-Ice.el (U+51D0): Apply new conventions for glyph
+	granularity.
+	(U-00020611): New character.
+	(AJ1-14294): New character.
+	(MJ007413): Modify strokes.
+	(UU+51DE): Likewise.
+	(AJ1-20081): Likewise.
+
+	* Ideograph-R012-Eight.el (IU+20509): Unify GT-01899.
+
 2015-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R010-Legs.el (UU+514D): Add
