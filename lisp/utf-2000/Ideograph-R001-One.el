@@ -706,6 +706,7 @@
      ((=ucs		  . #x4E00)	; 一
       ))
     (=ucs@unicode	. #x4E0E)	; &MJ006311;
+    (=ucs@JP/hanazono	. nil)
     (=mj		. 006311)	; &MJ006311;
     (=adobe-japan1-5	. 20073)	; &I-AJ1-20073;
     (=gb2312		. #x536B)	; &I-G0-536B; [51-75]
@@ -986,6 +987,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
     (=ucs@unicode	. #x4E11)	; &GT-00035;
+    (=ucs@JP/hanazono	. nil)
     (=gb2312		. #x3373)	; &GT-00035; [19-83]
     (=big5-cdp		. #x89D2)	; &I-CDP-89D2;
     (=gt		. 00035)	; &I-GT-00035;
@@ -1201,6 +1203,7 @@
      ((=ucs		  . #x4E00)	; 一
       ))
     (=ucs@unicode	. #x4E12)	; &C4-2139;
+    (=ucs@JP/hanazono	. nil)
     (=cns11643-4	. #x2139)	; &C4-2139; [01-25]
     (=jef-china3	. #x41A8)	; &I-JC3-41A8;
     ))
