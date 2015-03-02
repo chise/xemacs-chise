@@ -893,8 +893,10 @@
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (=ucs@iso		. #x20509)	; &C6-2357;
-    (=cns11643-6	. #x2357)	; &C6-2357; [03-55]
+    (=ucs@iso		. #x20509)	; &GT-01899;
+    (=cns11643-6	. #x2357)	; &GT-01899; [03-55]
+    (=gt		. 01899)	; &I-GT-01899;
+    (=gt-pj-2		. #x3C43)	; &I-GT-01899; [28-35]
     (=daikanwa		. 48931)	; &I-M-48931;
     ))
 (define-char
@@ -914,8 +916,8 @@
     (=gt-pj-9		. #x4F4B)	; &I-GT-01905; [47-43]
     (=gt-pj-k1		. #x322C)	; &AJ1-17299; [18-12]
     (<-formed@component/connect-below
-     ((=ucs@iso		  . #x20509)	; &C6-2357;
-      (=cns11643-6	  . #x2357)	; &C6-2357; [03-55]
+     ((=ucs@iso		  . #x20509)	; &GT-01899;
+      (=cns11643-6	  . #x2357)	; &GT-01899; [03-55]
       (=daikanwa	  . 48931)	; &I-M-48931;
       ))
     ))
