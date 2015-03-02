@@ -1,3 +1,12 @@
+2015-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (UU+514D): Add
+	`(=ucs@JP/hanazono . nil)'.
+	(g2-UU+514D): Add `(==ucs@JP/hanazono . nil)'.
+
+	* Ideograph-R009-Man.el (U-0002B746): Unify GT-00487 and MH-0009;
+	use U+4ECA instead of A-M-00358 as the mother.
+
 2015-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (U+4EED): Apply new conventions for glyph
