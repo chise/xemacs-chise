@@ -1,5 +1,10 @@
 2015-03-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el: Add `(=ucs@JP/hanazono . nil)' for
+	`=ucs@unicode' objects which does not subsume `=ucs@JP' objects.
+
+2015-03-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R015-Ice.el (U+51D0): Apply new conventions for glyph
 	granularity.
 	(U-00020611): New character.
