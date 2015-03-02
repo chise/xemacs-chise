@@ -1172,6 +1172,7 @@
      ((=big5-cdp	  . #x8BCB)	; &CDP-8BCB;
       ))
     (=ucs@unicode	. #x514D)	; &MJ007229;
+    (=ucs@JP/hanazono	. nil)
     (=mj		. 007229)	; &MJ007229;
     (=gb2312		. #x4362)	; &I-G0-4362; [35-66]
     (=ks-x1001		. #x5873)	; &I-K0-5873; [56-83]
@@ -1193,6 +1194,7 @@
 	))
       )
      ((==ucs@unicode	  . #x514D)	; &g2-UU+514D;
+      (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x4362)	; &g2-UU+514D; [35-66]
       (==cns11643-1	  . #x492D)	; &g2-UU+514D; [41-13]
       (->subsumptive
