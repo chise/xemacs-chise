@@ -44,10 +44,25 @@
 	(==jis-x0213-2	    . #x2125)	; &g2-AJ1-17237; [01-05]
 	(==daikanwa	    . 00068)	; &g2-AJ1-17237;
 	(==shinjigen	    .  0031)	; &g2-AJ1-17237;
+	(->subsumptive
+	 ((===daikanwa	      . 00068)	; &R-M-00068;
+	  )
+	 ((===jis-x0213-2     . #x2125)	; &R-JX2-2125; [01-05]
+	  )
+	 ((===adobe-japan1-5  . 17237)	; &R-AJ1-17237;
+	  )
+	 ((===ucs@unicode     . #x4E29)	; &R-UU+4E29;
+	  ))
 	)
        ((==big5-cdp	    . #x8BA3)	; &g2-GT-00102;
 	(==gt		    . 00102)	; &g2-GT-00102;
 	(==gt-k		    . 00069)	; &g2-GT-00102;
+	(->subsumptive
+	 ((===big5-cdp	      . #x8BA3)	; &R-CDP-8BA3;
+	  )
+	 ((===gt	      . 00102)	; &R-GT-00102;
+	  (===gt-k	      . 00069)	; &R-GT-00102;
+	  ))
 	))
       )
      ((=ucs@cns		  . #x4E29)	; &C4-2127;
@@ -331,20 +346,26 @@
       (=adobe-japan1-4	  . 15386)	; &I-AJ1-15386;
       (=hanyo-denshi/ib	  . #x2D26)	; &I-HD-IB-2D26; [13-06]
       (->subsumptive
-       ((=decomposition@hanyo-denshi
-	 ((=ucs		      . #x4E30)	; 丰
-	  )
-	 ((=ucs		      . #xE0103)	; 󠄃
-	  ))
-	(==mj		    . 006351)	; &g2-MJ006351;
-	(==hanyo-denshi/ib  . #x2D26)	; &g2-MJ006351; [13-06]
-	)
        ((=decomposition@cid
 	 ((=ucs		      . #x4E30)	; 丰
 	  )
 	 ((=ucs		      . #xE0101)	; 󠄁
 	  ))
-	(==adobe-japan1-4   . 15386)	; &g2-AJ1-15386;
+	(=decomposition@hanyo-denshi
+	 ((=ucs		      . #x4E30)	; 丰
+	  )
+	 ((=ucs		      . #xE0103)	; 󠄃
+	  ))
+	(==mj		    . 006351)	; &g2-MJ006351;
+	(==adobe-japan1-4   . 15386)	; &g2-MJ006351;
+	(==hanyo-denshi/ib  . #x2D26)	; &g2-MJ006351; [13-06]
+	(->subsumptive
+	 ((===adobe-japan1-4  . 15386)	; &R-AJ1-15386;
+	  )
+	 ((===hanyo-denshi/ib . #x2D26)	; &R-HD-IB-2D26; [13-06]
+	  )
+	 ((===mj	      . 006351)	; &R-MJ006351;
+	  ))
 	))
       )
      ((=ucs@cns		  . #x4E30)	; &C1-4464;
@@ -417,8 +438,8 @@
       (->subsumptive
        ((===daikanwa	    . 00077)	; &R-M-00077;
 	)
-       ((===jis-x0208	    . #x5025)	; &R-J90-5025; [48-05]
-	(===jis-x0213-1	    . #x5025)	; &R-J90-5025; [48-05]
+       ((===jis-x0208	    . #x5025)	; &R-J0-5025; [48-05]
+	(===jis-x0213-1	    . #x5025)	; &R-J0-5025; [48-05]
 	)
        ((===adobe-japan1-0  . 04094)	; &R-AJ1-04094;
 	)
