@@ -275,3 +275,20 @@
    '==hanyo-denshi/jd)
   )
 
+(let (j-chr)
+  (map-char-attribute
+   (lambda (c v)
+     (if (and (setq j-chr (decode-char '=ucs@JP v))
+	      (not (eq j-chr c))
+	      (null (encode-char c '=ucs)))
+	 (put-char-attribute c '=ucs@JP/hanazono nil))
+     nil)
+   '=ucs@unicode)
+  (map-char-attribute
+   (lambda (c v)
+     (if (and (setq j-chr (decode-char '==ucs@JP v))
+	      (not (eq j-chr c)))
+	 (put-char-attribute c '==ucs@JP/hanazono nil))
+     nil)
+   '==ucs@unicode)
+  )
