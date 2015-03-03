@@ -1,7 +1,13 @@
 2015-03-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* Ideograph-R001-One.el: Add `(=ucs@JP/hanazono . nil)' for
-	`=ucs@unicode' objects which does not subsume `=ucs@JP' objects.
+	* Ideograph-R002-Line.el (U+4E31): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R001-One.el: Add `(=ucs@JP/hanazono . nil)' to each
+	`=ucs@unicode' object differs from `=ucs@JP' objects.
+
+	* maps-conf.el: Add code to set `(=ucs@JP/hanazono . nil)' into
+	each `=ucs@unicode' object differs from `=ucs@JP' object.
 
 2015-03-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
