@@ -989,8 +989,8 @@
       (->subsumptive
        ((===daikanwa	    . 00279)	; &R-M-00279;
 	)
-       ((===jis-x0208	    . #x5034)	; &R-J90-5034; [48-20]
-	(===jis-x0213-1	    . #x5034)	; &R-J90-5034; [48-20]
+       ((===jis-x0208	    . #x5034)	; &R-J0-5034; [48-20]
+	(===jis-x0213-1	    . #x5034)	; &R-J0-5034; [48-20]
 	)
        ((===adobe-japan1-0  . 04109)	; &R-AJ1-04109;
 	)
@@ -1009,9 +1009,11 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (=ucs@unicode	. #x4E9F)	; &G0-583D;
+    (=ucs@JP/hanazono	. nil)
     (=gb2312		. #x583D)	; &G0-583D; [56-29]
     (->subsumptive
      ((==ucs@unicode	  . #x4E9F)	; &g2-UU+4E9F;
+      (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x583D)	; &g2-UU+4E9F; [56-29]
       ))
     ))
