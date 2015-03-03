@@ -1,5 +1,8 @@
 2015-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R002-Line.el: Add some representative nodes.
+	(AJ1-15386): Apply new conventions for glyph granularity.
+
 	* Ideograph-R007-Two.el (UU+4E9F): Add `(=ucs@JP/hanazono . nil)'.
 	(g2-UU+4E9F): Add `(==ucs@JP/hanazono . nil)'.
 
