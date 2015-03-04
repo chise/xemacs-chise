@@ -1,3 +1,15 @@
+2015-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (U+4EA1): Apply new conventions for glyph
+	granularity.
+	(U-00020143): Likewise.
+	(U+4EB0): Use `->subsumptive' instead of `->denotational'.
+	(U-00020187): Apply new conventions for glyph granularity.
+
+	* Ideograph-R005-Second.el: Add some representative nodes.
+	(U+4E62): Apply new conventions for glyph granularity.
+	(GT-00270): Add `<-formed' and `<-same' for M-11041.
+
 2015-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R002-Line.el: Add some representative nodes.
