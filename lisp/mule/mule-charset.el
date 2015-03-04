@@ -422,7 +422,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==jef-china3
 	  ===mj-0
 	  ===mj-1
-          ===jis-x0208@1990
+          ===jis-x0208
+	  ===jis-x0208@1990
 	  ===big5-cdp
 	  ===ucs-bmp-cjk@gb
           ===adobe-japan1-6
