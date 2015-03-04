@@ -996,7 +996,7 @@
    '(registry "jisx0208\\.1978"
 	      dimension 2
 	      chars 94
-	      mother ===jis-x0208
+	      mother ==jis-x0208@1978
 	      =>iso-ir 42
 	      ;; final ?@
 	      graphic 0))
@@ -1006,7 +1006,7 @@
    '(registry "jisx0208\\.1983"
 	      dimension 2
 	      chars 94
-	      mother ===jis-x0208
+	      mother ==jis-x0208@1983
 	      =>iso-ir 87
 	      graphic 0))
   (make-charset
@@ -1015,7 +1015,7 @@
    '(registry "jisx0208\\.1990"
 	      dimension 2
 	      chars 94
-	      mother ===jis-x0208
+	      mother ==jis-x0208@1990
 	      =>iso-ir 168
 	      ;; final ?B
 	      graphic 0))
@@ -1038,7 +1038,7 @@
    '(registry "jisx0213\\(\\.2000\\)-1"
 	      dimension 2
 	      chars 94
-	      mother ===jis-x0213-1
+	      mother ==jis-x0213-1@2000
 	      =>iso-ir 228
 	      ;; final ?O
 	      graphic 0
@@ -1047,7 +1047,7 @@
   (make-charset
    '===jis-x0213-1@2004
    "JIS X 0213:2004 Plain 1 detailed representative glyph-images."
-   '(mother ===jis-x0213-1
+   '(mother ==jis-x0213-1@2004
 	    =>iso-ir 233
 	    ;; registry "jisx0213\\(\\.2004\\)-1"
 	    dimension 2
@@ -3646,7 +3646,7 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
-		  mother	===ucs@iso))
+		  mother	==ucs@unicode))
   (make-charset '===ucs@gb
 		"UCS representative glyph-images of GB."
 		'(long-name	"UCS rep-images for GB"
@@ -3666,7 +3666,7 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
-		  mother	===ucs@unicode))
+		  mother	==ucs@ks))
 
   (make-charset '=ucs-var-001
 		"uXXXX-var-001 glyph-images of GlyphWiki"
