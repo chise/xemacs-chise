@@ -1,3 +1,31 @@
+2015-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `===hanyo-denshi/ks', `===jis-x0208' and
+	`===jis-x0213-1'; use "&R-J00X1-hhhh;" instead of "&R-JX1-hhhh;"
+	as the entity-reference for `===jis-x0213-1@2000'; use
+	"&R-JX1-hhhh;" as the entity-reference for `===jis-x0213-1'.
+
+2015-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`===jis-x0208'.
+
+	* mule/mule-conf.el (===jis-x0208@1978): Use `==jis-x0208@1978'
+	instead of `===jis-x0208' as the mother.
+	(===jis-x0208@1983): Use `==jis-x0208@1983' instead of
+	`===jis-x0208' as the mother.
+	(===jis-x0208@1990): Use `==jis-x0208@1990' instead of
+	`===jis-x0208' as the mother.
+	(===jis-x0213-1@2000): Use `==jis-x0213-1@2000' instead of
+	`===jis-x0213-1' as the mother.
+	(===jis-x0213-1@2004): Use `==jis-x0213-1@2004' instead of
+	`===jis-x0213-1' as the mother.
+	(===ucs@unicode): Use `==ucs@unicode' instead of `===ucs@iso' as
+	the mother.
+	(===ucs@ks): Use `==ucs@ks' instead of `===ucs@unicode' as the
+	mother.
+
 2015-02-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
