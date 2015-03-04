@@ -1,5 +1,8 @@
 2015-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el: Add some representative nodes.
+	(MJ006340): Apply new conventions for glyph granularity.
+
 	* Ideograph-R008-Lid.el (U+4EA1): Apply new conventions for glyph
 	granularity.
 	(U-00020143): Likewise.
