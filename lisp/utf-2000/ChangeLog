@@ -1,5 +1,21 @@
 2015-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R073-Say.el: Add some representative nodes.
+	(UU+6700): Move U-0002F8D4 to g2-JU+2F8D4.
+	(UU+3479): Unify GT-18099 and GT-K09926.
+	(U-0002F8D5): Apply new conventions for glyph granularity.
+
+	* Ideograph-R020-Wrap.el: Add some representative nodes.
+	(U-0002F82A): Unify GT-03218.
+	(U+5311): Apply new conventions for glyph granularity.
+
+	* Ideograph-R019-Power.el: Add some representative nodes.
+	(U+52A3): Apply new conventions for glyph granularity.
+	(U+52B7): Likewise.
+	(JU+52C6): Likewise.
+	(U+52E8): Likewise.
+	(U+52F7): Likewise.
+
 	* Ideograph-R025-Divination.el (U+535E): Apply new conventions for
 	glyph granularity.
 
