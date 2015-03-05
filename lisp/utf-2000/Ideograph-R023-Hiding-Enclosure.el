@@ -56,8 +56,8 @@
       (->subsumptive
        ((===daikanwa	    . 02672)	; &R-M-02672;
 	)
-       ((===jis-x0208	    . #x523E)	; &R-J90-523E; [50-30]
-	(===jis-x0213-1	    . #x523E)	; &R-J90-523E; [50-30]
+       ((===jis-x0208	    . #x523E)	; &R-J0-523E; [50-30]
+	(===jis-x0213-1	    . #x523E)	; &R-J0-523E; [50-30]
 	)
        ((===adobe-japan1-0  . 04307)	; &R-AJ1-04307;
 	)
@@ -134,8 +134,8 @@
 	(->subsumptive
 	 ((===daikanwa	      . 02673)	; &R-M-02673;
 	  )
-	 ((===hanyo-denshi/ks . 030150)	; &KSMF-03015;
-	  (=hanyo-denshi/ks/mf . #x0BC7)	; &KSMF-03015;
+	 ((===hanyo-denshi/ks . 030150)	; &R-HD-KS-030150;
+	  (=hanyo-denshi/ks/mf . #x0BC7)	; &R-HD-KS-030150;
 	  )
 	 ((===mj	      . 007817)	; &R-MJ007817;
 	  ))
@@ -445,8 +445,8 @@
       (==mj		  . 007821)	; &g2-MJ007821;
       (==hanyo-denshi/ks  . 030470)	; &g2-MJ007821;
       (->subsumptive
-       ((===hanyo-denshi/ks . 030470)	; &KSMF-03047;
-	(=hanyo-denshi/ks/mf . #x0BE7)	; &KSMF-03047;
+       ((===hanyo-denshi/ks . 030470)	; &R-HD-KS-030470;
+	(=hanyo-denshi/ks/mf . #x0BE7)	; &R-HD-KS-030470;
 	)
        ((===mj		    . 007821)	; &R-MJ007821;
 	))
@@ -522,8 +522,8 @@
       (==gt-k		  . 02502)	; &g2-AJ1-01193;
       (==shinjigen	  .  8537)	; &g2-AJ1-01193;
       (->subsumptive
-       ((===jis-x0208	    . #x3065)	; &R-J90-3065; [16-69]
-	(===jis-x0213-1	    . #x3065)	; &R-J90-3065; [16-69]
+       ((===jis-x0208	    . #x3065)	; &R-J0-3065; [16-69]
+	(===jis-x0213-1	    . #x3065)	; &R-J0-3065; [16-69]
 	)
        ((===adobe-japan1-0  . 01193)	; &R-AJ1-01193;
 	)
@@ -1062,8 +1062,8 @@
       (=mj		  . 007828)	; &MJ007828;
       (==hanyo-denshi/ks  . 030840)	; &MJ007828;
       (->subsumptive
-       ((===hanyo-denshi/ks . 030840)	; &KSMF-03084;
-	(=hanyo-denshi/ks/mf . #x0C0C)	; &KSMF-03084;
+       ((===hanyo-denshi/ks . 030840)	; &R-HD-KS-030840;
+	(=hanyo-denshi/ks/mf . #x0C0C)	; &R-HD-KS-030840;
 	)
        ((===mj		    . 007828)	; &R-MJ007828;
 	))
@@ -1123,6 +1123,7 @@
       (=mj		  . 012122)	; &MJ012122;
       ))
     (=ucs@unicode	. #x533E)	; &G0-5852;
+    (=ucs@JP/hanazono	. nil)
     (=gb2312		. #x5852)	; &G0-5852; [56-50]
     (->subsumptive
      ((ideographic-structure
@@ -1214,8 +1215,8 @@
       (->subsumptive
        ((===daikanwa	    . 02690)	; &R-M-02690;
 	)
-       ((===hanyo-denshi/ks . 030800)	; &KSMF-03080;
-	(=hanyo-denshi/ks/mf . #x0C08)	; &KSMF-03080;
+       ((===hanyo-denshi/ks . 030800)	; &R-HD-KS-030800;
+	(=hanyo-denshi/ks/mf . #x0C08)	; &R-HD-KS-030800;
 	)
        ((===mj		    . 007831)	; &R-MJ007831;
 	)
@@ -1376,8 +1377,8 @@
       (->subsumptive
        ((===daikanwa	    . 02691)	; &R-M-02691;
 	)
-       ((===hanyo-denshi/ks . 030850)	; &KSMF-03085;
-	(=hanyo-denshi/ks/mf . #x0C0D)	; &KSMF-03085;
+       ((===hanyo-denshi/ks . 030850)	; &R-HD-KS-030850;
+	(=hanyo-denshi/ks/mf . #x0C0D)	; &R-HD-KS-030850;
 	)
        ((===mj		    . 007833)	; &R-MJ007833;
 	)
