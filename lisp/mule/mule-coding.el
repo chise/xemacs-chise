@@ -485,6 +485,7 @@
 	  (==ucs@ks			       "g2-KU+" 4 X)
 	  (===ucs@iso				 "R-U-" 8 X)
 	  (===ucs@unicode			"R-UU+" 4 X)
+	  (===ucs@gb				"R-GU+" 4 X)
 	  (===ucs@ks				"R-KU+" 4 X)
 	  (==cns11643-1			       "g2-C1-" 4 X)
 	  (==cns11643-2			       "g2-C2-" 4 X)
