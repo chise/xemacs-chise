@@ -1,5 +1,25 @@
 2015-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R028-Private.el (U+53C0): Apply new conventions for
+	glyph granularity.
+	(U+53C5): Likewise.
+
+	* Ideograph-R027-Cliff.el: Add some representative nodes.
+	(U+53A5): Apply new conventions for glyph granularity.
+	(U+53AF): Likewise.
+	(CU+53B2): Likewise.
+
+	* Ideograph-R017-Open-Box.el (U+51F6): Apply new conventions for
+	glyph granularity.
+	(U-00020679): Likewise.
+	(U-0002067B): Likewise.
+	(U-0002067E): Likewise.
+	(U+34D9): Likewise.
+	(U+342B): Likewise.
+
+	* Ideograph-R008-Lid.el (U+342B): Use `->subsumptive' instead of
+	`->denotational'.
+
 	* Ideograph-R026-Seal.el: Add some representative nodes.
 	(U+5370): Apply new conventions for glyph granularity.
 	(U+5378): Likewise.
