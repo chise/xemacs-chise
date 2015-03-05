@@ -1,5 +1,16 @@
 2015-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R014-Cover.el: Add some representative nodes.
+	(JU+5199): Apply new conventions for glyph granularity.
+	(U+51A5): Use `->subsumptive' instead of `->denotational'.
+	(UU+6700): Move U-0002F8D4 to g2-JU+2F8D4.
+
+	* Ideograph-R021-Spoon.el: Add some representative nodes.
+	(U-0002F82B): Unify GT-03303.
+
+	* Ideograph-R013-Down-Box.el: Add some representative nodes.
+	(UU+6700): Move U-0002F8D4 to g2-JU+2F8D4.
+
 	* Ideograph-R015-Ice.el: Add some representative nodes.
 
 2015-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
