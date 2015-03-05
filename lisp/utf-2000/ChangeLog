@@ -1,5 +1,14 @@
 2015-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R025-Divination.el (U+535E): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R016-Table.el (U+51F2): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R001-One.el (U-0002003C): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R014-Cover.el: Add some representative nodes.
 	(JU+5199): Apply new conventions for glyph granularity.
 	(U+51A5): Use `->subsumptive' instead of `->denotational'.
