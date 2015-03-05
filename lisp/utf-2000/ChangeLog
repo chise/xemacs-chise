@@ -1,5 +1,37 @@
 2015-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R026-Seal.el: Add some representative nodes.
+	(U+5370): Apply new conventions for glyph granularity.
+	(U+5378): Likewise.
+
+	* Ideograph-R022-Right-Open-Box.el: Add some representative nodes.
+	(U+531B): Apply new conventions for glyph granularity.
+	(U+5327): Likewise.
+	(U+532A): Likewise.
+	(U+532F): Likewise.
+	(CU+2096C): Likewise.
+
+2015-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R024-Ten.el: Add some representative nodes.
+	(U-00020992): Use `->denotational' and `->subsumptive'.
+	(IU+20992): Unify GT-03498.
+	(IU+24C1E): Unify GT-03509.
+	(U+535B): Apply new conventions for glyph granularity.
+
+	* Ideograph-R004-Slash.el: Add some representative nodes.
+	(U+4E42): Apply new conventions for glyph granularity.
+	(U+4E45): Likewise.
+	(UU+53CA): Use `ideographic-{radical|strokes}@daikanwa' and
+	`total-strokes@daikanwa' instead of
+	`ideographic-{radical|strokes}@ucs' and `total-strokes@ucs'; move
+	U-0002F836 to g2-UU+53CA; apply new conventions for glyph
+	granularity.
+	(U+4E4B): Apply new conventions for glyph granularity.
+	(GT-00177): Unify U-00020090 and BC-87DF.
+	(U+4E4F): Apply new conventions for glyph granularity.
+	(U+3406): Likewise.
+
 	* Ideograph-R073-Say.el: Add some representative nodes.
 	(UU+6700): Move U-0002F8D4 to g2-JU+2F8D4.
 	(UU+3479): Unify GT-18099 and GT-K09926.
