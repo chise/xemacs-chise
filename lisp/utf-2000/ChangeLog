@@ -1,5 +1,20 @@
 2015-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el: Add some representative nodes.
+	(UU+53CA): Use `ideographic-{radical|strokes}@daikanwa' and
+	`total-strokes@daikanwa' instead of
+	`ideographic-{radical|strokes}@ucs' and `total-strokes@ucs'; move
+	U-0002F836 to g2-UU+53CA; apply new conventions for glyph
+	granularity; apply new conventions for glyph granularity.
+	(g2-IU+20B1C): Separate g2-CU+20B1C.
+	(U+53D2): Apply new conventions for glyph granularity.
+	(U-0002F837): Unify GT-03987 and GT-K02969.
+	(U+53DB): Apply new conventions for glyph granularity.
+	(UU+6700): Move U-0002F8D4 to g2-JU+2F8D4.
+	(U-00021A9E): Apply new conventions for glyph granularity.
+	(AJ1-08410): Omit IU+FA0E.
+	(U-00020B96): Apply new conventions for glyph granularity.
+
 	* Ideograph-R028-Private.el (U+53C0): Apply new conventions for
 	glyph granularity.
 	(U+53C5): Likewise.
