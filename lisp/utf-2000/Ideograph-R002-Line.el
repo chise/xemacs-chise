@@ -736,7 +736,9 @@
     (=hanziku-1		. #xAA56)	; &I-HZK01-AA56;
     (=jef-china3	. #x82AF)	; &I-JC3-82AF;
     (<-simplified@CN
-     ((=gb12345		  . #x4159)	; &GT-38930; [33-57]
+     ((=ucs@unicode	  . #x81E8)	; &GT-38930;
+      (=cns11643-1	  . #x7527)	; &GT-38930; [85-07]
+      (=gb12345		  . #x4159)	; &GT-38930; [33-57]
       ))
     ))
 (define-char
