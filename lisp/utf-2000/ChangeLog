@@ -1,3 +1,52 @@
+2015-03-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el: Add some representative nodes.
+	(U+4ECA): Apply new conventions for glyph granularity.
+	(U+4EE5): Likewise.
+	(U+4EEF): Likewise.
+	(U+4EF1): Likewise.
+	(UU+4F0B): Likewise.
+	(U-000201CF): Likewise.
+	(U+4F35): Likewise.
+	(U+4F3C): Likewise.
+	(U+4F5F): Likewise.
+	(U+4F7D): Likewise.
+	(U+4F8C): Likewise.
+	(U+4F9D): Use `->subsumptive' instead of `->denotational'.
+	(U+4FB9): Apply new conventions for glyph granularity.
+	(U+4FC2): Likewise.
+	(U+4FD2): Likewise.
+	(UU+4FDB): Likewise.
+	(U+4FEF): Likewise.
+	(U+4FF8): Likewise.
+	(U+4FFD): Likewise.
+	(U+5007): Likewise.
+	(U+500C): Likewise.
+	(U+5016): Likewise.
+	(U+5023): Likewise.
+	(U+5025): Likewise.
+	(U+5027): Likewise.
+	(U+346A): Likewise.
+	(U+5046): Likewise.
+	(o-UU+5070): Likewise.
+	(U+503B): Likewise.
+	(U+5083): Likewise.
+	(U+509B): Likewise.
+	(U+50A0): Likewise.
+	(U+347A): Likewise.
+	(U+50BE): Likewise.
+	(U+50E2): Likewise.
+	(U+50E6): Likewise.
+	(U+50EF): Likewise.
+	(U+50F1): Likewise.
+	(U+50F6): Likewise.
+	(U+5101): Likewise.
+	(U+510C): Likewise.
+	(U+5133): Likewise.
+	(U+5134): Likewise.
+	(U+5135): Likewise.
+	(U+5138): Likewise.
+
 2015-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el: Add some representative nodes.
