@@ -1,5 +1,26 @@
 2015-03-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R037-Big.el: Add some representative nodes.
+	(U+3690): Apply new conventions for glyph granularity.
+	(U+3691): Likewise.
+	(U+3693): Likewise.
+	(U+5941): Likewise.
+	(U+5951): Likewise.
+	(U+5952): Likewise.
+	(U+5955): Likewise.
+	(U-00021619): Likewise.
+	(mother of M-05925): Unify A-M-05925.
+	(U-00021636): Apply new conventions for glyph granularity.
+	(U+595C): Likewise.
+	(U+595E): Likewise.
+	(IU+21639): Unify GT-07492 and GT-K08253.
+	(U-0002162C): Apply new conventions for glyph granularity.
+	(U-00021643): Likewise.
+	(U+5960): Likewise.
+	(U+596A): Likewise.
+	(U+596E): Likewise.
+	(U+596F): Likewise.
+
 	* Ideograph-R009-Man.el: Add some representative nodes.
 	(U+4ECA): Apply new conventions for glyph granularity.
 	(U+4EE5): Likewise.
