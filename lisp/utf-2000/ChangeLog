@@ -1,3 +1,82 @@
+2015-03-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el: Add some representative nodes.
+	(U+3563): Apply new conventions for glyph granularity.
+	(U-0002B758): New character.
+	(U+541F): Apply new conventions for glyph granularity.
+	(U+356C): Likewise.
+	(U+542B): Likewise.
+	(U+356E): Likewise.
+	(U+5435): Likewise.
+	(U+5436): Likewise.
+	(U+5450): Likewise.
+	(U+3571): Likewise.
+	(U-0002F83F): Likewise.
+	(U+546C): Likewise.
+	(U-00020C0F): Use `->subsumptive'.
+	(U-00020C57): Apply new conventions for glyph granularity.
+	(U+54E5): Likewise.
+	(U+5505): Likewise.
+	(U+550D): Likewise.
+	(U+5533): Likewise.
+	(U+5538): Likewise.
+	(U+5558): Likewise.
+	(U+35A9): Likewise.
+	(U+5566): Likewise.
+	(U+35B6): Likewise.
+	(U+5580): Likewise.
+	(U-00020DB9): Likewise.
+	(U+35BF): Likewise.
+	(o-UU+55AB): Likewise.
+	(U-0002F848): Likewise.
+	(U+55C9): Likewise.
+	(U+55FD): Likewise.
+	(U+55FF): Likewise.
+	(A-CU+5605): Likewise.
+	(U+5607): Likewise.
+	(U+35E6): Likewise.
+	(U+5653): Likewise.
+	(U+5618): Likewise.
+	(U-00020F6B): Likewise.
+	(U+5637): Likewise.
+	(UU+35F4): Likewise.
+	(UU+5642): Likewise.
+	(o-UU+5644): Likewise.
+	(U+35F5): Likewise.
+	(U+5648): Likewise.
+	(U+564B): Likewise.
+	(J2004U+564C): Likewise.
+	(U+35F6): Likewise.
+	(U+5651): Likewise.
+	(U-00020FC6): Likewise.
+	(U-00020FAE): Likewise.
+	(U+565D): Likewise.
+	(U-00020F97): Likewise.
+	(U+5661): Likewise.
+	(U+566D): Likewise.
+	(U+35FF): Likewise.
+	(U+5671): Likewise.
+	(U+5678): Likewise.
+	(U+567A): Likewise.
+	(U+5693): Likewise.
+	(U-000210C3): Likewise.
+	(U+56A0): Likewise.
+	(U+56A5): Likewise.
+	(U+3611): Likewise.
+	(U+56A9): Likewise.
+	(U+56AE): Likewise.
+	(U+56AF): Likewise.
+	(U+56B2): Likewise.
+	(U+56B5): Likewise.
+	(U+56B7): Likewise.
+	(U+56C1): Likewise.
+	(U-00021126): Likewise.
+	(U-00021157): Likewise.
+	(U+56C9): Likewise.
+	(U-0002115F): Likewise.
+	(U+56D1): Likewise.
+	(U+56D3): Likewise.
+
 2015-03-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R037-Big.el: Add some representative nodes.
