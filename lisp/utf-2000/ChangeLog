@@ -1,3 +1,34 @@
+2015-03-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R019-Power.el (U+52E2): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+2015-03-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el: Add some representative nodes.
+	(U+5207): Apply new conventions for glyph granularity.
+	(U+5218): Likewise.
+	(U+5224): Likewise.
+	(U-000206E0): Likewise.
+	(U+5231): Likewise.
+	(U+5233): Likewise.
+	(U+5239): Likewise.
+	(U+524E): Likewise.
+	(g2-UU+524F): Omit `ideographic-structure'.
+	(U+5259): Apply new conventions for glyph granularity.
+	(U+525C): Likewise.
+	(U+5270): Likewise.
+	(IU+2F822): Likewise.
+	(o-JU+5272): Likewise.
+	(UU+5277): Move U-0002F823 to g2-UU+5277.
+	(g2-UU+5279): Omit `ideographic-structure'.
+	(U+5282): Apply new conventions for glyph granularity.
+	(U+5288): Use `->subsumptive' instead of `->denotational'.
+	(U+5289): Apply new conventions for glyph granularity.
+	(U+528C): Likewise.
+	(U+5296): Likewise.
+	(U+529A): Likewise.
+
 2015-03-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el: Add some representative nodes.
