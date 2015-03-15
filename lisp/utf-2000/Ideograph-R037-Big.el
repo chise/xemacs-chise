@@ -2726,9 +2726,9 @@
     (total-strokes	 . 11)
     (hanyu-dazidian	1 543 13)
     (=ucs		. #x595E)	; 奞
-    (=adobe-japan1-6	. 21384)	; &AJ1-21384;
+    (=adobe-japan1-6	. 21384)	; &I-AJ1-21384;
     (=jis-x0212		. #x3879)	; &I-JSP-3879; [24-89]
-    (=cns11643-3	. #x347D)	; &C3-347D; [20-93]
+    (=cns11643-3	. #x347D)	; &I-C3-347D; [20-93]
     (=big5-cdp		. #x8CDC)	; &I-CDP-8CDC;
     (=daikanwa		. 05945)	; &I-M-05945;
     (=jef-china3	. #x48E6)	; &I-JC3-48E6;
