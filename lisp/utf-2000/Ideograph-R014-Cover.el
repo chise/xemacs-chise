@@ -196,8 +196,7 @@
     (=daikanwa		. 01570)	; &I-M-01570;
     (=shinjigen		.  1871)	; &AJ1-02296;
     (<-simplified@JP/Jouyou
-     ((=ucs@jis		  . #x5BEB)	; &AJ1-04636;
-      (=ucs@ks		  . #x5BEB)	; &AJ1-04636;
+     ((=ucs@unicode	  . #x5BEB)	; &AJ1-04636;
       (=adobe-japan1-0	  . 04636)	; &AJ1-04636;
       (=jis-x0208	  . #x556D)	; &I-J90-556D; [53-77]
       ))
@@ -248,9 +247,9 @@
     (=ucs@JP/hanazono	. nil)
     (=gb2312		. #x5034)	; &G0-5034; [48-20]
     (<-simplified@CN
-     ((=ucs@unicode	  . #x5BEB)	; &C1-6C51;
-      (=cns11643-1	  . #x6C51)	; &C1-6C51; [76-49]
-      (=gb12345		  . #x5034)	; &C1-6C51; [48-20]
+     ((=ucs@unicode	  . #x5BEB)	; &AJ1-04636;
+      (=adobe-japan1-0	  . 04636)	; &AJ1-04636;
+      (=gb12345		  . #x5034)	; &AJ1-04636; [48-20]
       ))
     (->subsumptive
      ((==ucs@unicode	  . #x5199)	; &g2-UU+5199;
@@ -1293,12 +1292,10 @@
     (=shinjigen		.  1853)	; 冨
     (=hanziku-1		. #xE4DC)	; &I-HZK01-E4DC;
     (<-vulgar
-     ((=ucs@jis		  . #x5BCC)	; &AJ1-03531;
-      (=ucs@ks		  . #x5BCC)	; &AJ1-03531;
-      (=adobe-japan1-0	  . 03531)	; &AJ1-03531;
+     ((=ucs		  . #x5BCC)	; 富
       (=jis-x0208	  . #x4959)	; &I-J90-4959; [41-57]
       (=daikanwa	  . 07230)	; &I-M-07230;
-      (=shinjigen	  .  1852)	; &AJ1-03531;
+      (=shinjigen	  .  1852)	; 富
       ))
     (<-vulgar*sources
      zhengzitong daikanwa shinjigen@1ed)
@@ -1588,8 +1585,7 @@
       ))
     (=shinjigen		.  1873)	; &SJG2-1873;
     (<-vulgar
-     ((=ucs@jis		  . #x5BEB)	; &AJ1-04636;
-      (=ucs@ks		  . #x5BEB)	; &AJ1-04636;
+     ((=ucs@unicode	  . #x5BEB)	; &AJ1-04636;
       (=adobe-japan1-0	  . 04636)	; &AJ1-04636;
       (=jis-x0208	  . #x556D)	; &I-J90-556D; [53-77]
       (=shinjigen	  .  1872)	; &AJ1-04636;
