@@ -103,6 +103,13 @@
      ((==big5-cdp	  . #x8BED)	; &g2-GT-10942;
       (==gt		  . 10942)	; &g2-GT-10942;
       (==daikanwa	  . 08674)	; &g2-GT-10942;
+      (->subsumptive
+       ((===daikanwa	    . 08674)	; &R-M-08674;
+	)
+       ((===big5-cdp	    . #x8BED)	; &R-CDP-8BED;
+	)
+       ((===gt		    . 10942)	; &R-GT-10942;
+	))
       ))
     ))
 (define-char
@@ -246,8 +253,8 @@
       (->subsumptive
        ((===daikanwa/+p	    . 08680)	; &R-M-p08680;
 	)
-       ((===jis-x0208	    . #x3D64)	; &R-J90-3D64; [29-68]
-	(===jis-x0213-1	    . #x3D64)	; &R-J90-3D64; [29-68]
+       ((===jis-x0208	    . #x3D64)	; &R-J0-3D64; [29-68]
+	(===jis-x0213-1	    . #x3D64)	; &R-J0-3D64; [29-68]
 	)
        ((===adobe-japan1-0  . 02414)	; &R-AJ1-02414;
 	)
@@ -647,7 +654,6 @@
   '((<-denotational
      ((=ucs		  . #x5DE2)	; 巢
       ))
-    (=>ucs*		. #x5DE2)	; 巢
     (ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
@@ -659,8 +665,10 @@
       )
      ((=big5-cdp	  . #x8850)	; &CDP-8850;
       ))
-    (=ucs		. #x2F882)	; 巢
-    (=cns11643-6	. #x5C49)	; &I-C6-5C49; [60-41]
+    (=ucs@cns		. #x2F882)	; &GT-10977;
+    (=cns11643-6	. #x5C49)	; &GT-10977; [60-41]
+    (=gt		. 10977)	; &I-GT-10977;
+    (=gt-pj-3		. #x3E33)	; &I-GT-10977; [30-19]
     (=daikanwa		. 08700)	; &I-M-08700;
     (<-original
      ((=ucs@unicode	  . #x5DE2)	; &AJ1-13362;
@@ -669,6 +677,20 @@
       ))
     (<-original*sources
      zhengzitong daikanwa)
+    (->subsumptive
+     ((=>ucs*		  . #x5DE2)	; 巢
+      (=ucs		  . #x2F882)	; 巢
+      (==cns11643-6	  . #x5C49)	; 巢 [60-41]
+      (==gt		  . 10977)	; 巢
+      (==daikanwa	  . 08700)	; 巢
+      (->subsumptive
+       ((===daikanwa	    . 08700)	; &R-M-08700;
+	)
+       ((===cns11643-6	    . #x5C49)	; &R-C6-5C49; [60-41]
+	)
+       ((===gt		    . 10977)	; &R-GT-10977;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 47)	; ⼮
