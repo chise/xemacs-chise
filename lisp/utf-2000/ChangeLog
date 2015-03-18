@@ -1,5 +1,8 @@
 2015-03-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el (U-00020030): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R019-Power.el (U+52A3): Apply new conventions for
 	glyph granularity for components of ideographic-structure.
 
