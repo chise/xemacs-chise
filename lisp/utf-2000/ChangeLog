@@ -1,3 +1,11 @@
+2015-03-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R041-Inch.el: Add some representative nodes.
+	(U+5BFE): Apply new conventions for glyph granularity.
+	(U+5C04): Likewise.
+	(U+5C06): Likewise.
+	(UU+5C0A): Likewise.
+
 2015-03-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (UU+525C): Add `ideographic-structure';
