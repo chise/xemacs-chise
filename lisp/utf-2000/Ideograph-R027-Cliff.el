@@ -1958,10 +1958,9 @@
     (=shinjigen		.  2192)	; 厠
     (=hanziku-1		. #xB378)	; &I-HZK01-B378;
     (<-vulgar
-     ((=ucs@jis		  . #x5EC1)	; &AJ1-04743;
-      (=adobe-japan1-0	  . 04743)	; &AJ1-04743;
+     ((=ucs		  . #x5EC1)	; 廁
       (=jis-x0208	  . #x567A)	; &I-J90-567A; [54-90]
-      (=shinjigen	  .  2191)	; &AJ1-04743;
+      (=shinjigen	  .  2191)	; 廁
       ))
     (<-vulgar*sources
      shinjigen)
@@ -3508,10 +3507,9 @@
     (=hanziku-1		. #xB3DB)	; &I-HZK01-B3DB;
     (=cbeta		. 00637)	; &I-CB00637;
     (<-vulgar
-     ((=ucs@jis		  . #x5EDD)	; &AJ1-04750;
-      (=adobe-japan1-0	  . 04750)	; &AJ1-04750;
+     ((=ucs		  . #x5EDD)	; 廝
       (=jis-x0208	  . #x5723)	; &I-J90-5723; [55-03]
-      (=shinjigen	  .  2212)	; &AJ1-04750;
+      (=shinjigen	  .  2212)	; 廝
       ))
     (<-vulgar*sources
      shinjigen)
