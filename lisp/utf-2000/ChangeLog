@@ -1,3 +1,9 @@
+2015-03-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (UU+525C): Add `ideographic-structure';
+	apply new conventions for glyph granularity for components of
+	ideographic-structure.
+
 2015-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U+567B): Apply new conventions for
