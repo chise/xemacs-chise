@@ -1,5 +1,11 @@
 2015-03-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R047-River.el: Add some representative nodes.
+	(C6-5C49): Unify GT-10977; apply new conventions for glyph
+	granularity;
+
+2015-03-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R001-One.el (U-00020030): Apply new conventions for
 	glyph granularity.
 
