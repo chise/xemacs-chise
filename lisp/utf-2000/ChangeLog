@@ -1,3 +1,8 @@
+2015-03-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R019-Power.el (U+52A3): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
 2015-03-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R041-Inch.el: Add some representative nodes.
