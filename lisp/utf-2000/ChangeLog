@@ -1,5 +1,90 @@
 2015-03-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R043-Lame.el: Add some representative nodes.
+	(GT-K00221): New character.
+	(U+5C24): Apply new conventions for glyph granularity.
+	(JU+5C28): Likewise.
+	(U+5C2C): Likewise.
+	(U+5C2D): Likewise.
+	(U+5C2E): Likewise.
+	(U+5C30): Likewise.
+	(U+5C31): Likewise.
+	(JU+5C32): Likewise.
+	(U+5C35): Likewise.
+	(U-00021C17): Likewise.
+
+	* Ideograph-R040-Roof.el: Add some representative nodes.
+	(U+5B84): Apply new conventions for glyph granularity.
+	(U+5B86): Likewise.
+	(U+5B8A): Likewise.
+	(U+5B8B): Likewise.
+	(U+5B8C): Likewise.
+	(U+5B8D): Likewise.
+	(U+5B8E): Likewise.
+	(U+5B8F): Likewise.
+	(U+5B91): Likewise.
+	(U+5B94): Likewise.
+	(U+5B95): Likewise.
+	(U+5B96): Likewise.
+	(U+5B97): Likewise.
+	(U+5B98): Likewise.
+	(U+5B99): Likewise.
+	(U+5B9A): Likewise.
+	(U+5B9B): Likewise.
+	(CU+5B90): Unify GT-08924.
+	(U+5B9D): Apply new conventions for glyph granularity.
+	(U+5B9F): Likewise.
+	(U+5BA2): Likewise.
+	(U+5BA4): Likewise.
+	(U+5BA5): Likewise.
+	(U+5BA6): Likewise.
+	(U+5BA9): Likewise.
+	(U+5BAD): Likewise.
+	(U+5BAF): Likewise.
+	(U+5BB0): Likewise.
+	(U+5BB1): Likewise.
+	(U+5BB4): Likewise.
+	(U+5BB6): Likewise.
+	(U+5BB7): Likewise.
+	(U+5BB8): Likewise.
+	(U+5BB9): Likewise.
+	(U+5BBC): Likewise.
+	(U+5BBF): Likewise.
+	(U+375B): Likewise.
+	(U+5BC1): Likewise.
+	(U+5BC2): Likewise.
+	(UU+5BC3): Likewise.
+	(U+5BC5): Likewise.
+	(U+5BC6): Likewise.
+	(U+3761): Likewise.
+	(U+5BCC): Likewise.
+	(U+5BCD): Likewise.
+	(U+5BCF): Likewise.
+	(U+3762): Likewise.
+	(U+5BD3): Likewise.
+	(U+5BD4): Likewise.
+	(JU+5BD6): Likewise.
+	(U+5BD9): Likewise.
+	(U+5BDA): Likewise.
+	(U+5BDF): Likewise.
+	(UU+5BE0): Likewise.
+	(U+5BE1): Likewise.
+	(U+5BE4): Likewise.
+	(U+5BE6): Likewise.
+	(U+5BE9): Likewise.
+	(U+5BEB): Likewise.
+	(CU+5BEC): Unify GT-09206.
+	(U+5BEE): Apply new conventions for glyph granularity.
+	(U+376B): Likewise.
+	(U-00021ABA): Likewise.
+	(U+5BEF): Likewise.
+	(U+5BF0): Likewise.
+	(UU+5BF3): Likewise.
+	(U+5BF6): Likewise.
+
+	* Ideograph-R019-Power.el (g2-IU+2B751): Use g2-JU+57F7 instead of
+	G-JU+57F7 in `ideographic-structure'.
+
 	* Ideograph-R049-Oneself.el (U+382F): Apply new conventions for
 	glyph granularity.
 	(U+5DFB): Likewise.
