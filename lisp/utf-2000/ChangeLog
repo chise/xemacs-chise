@@ -1,3 +1,64 @@
+2015-03-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R038-Woman.el: Add some representative nodes.
+	(U+5984): Apply new conventions for glyph granularity.
+	(U+5997): Likewise.
+	(U+5999): Likewise.
+	(U+599B): Likewise.
+	(U+59A8): Likewise.
+	(U+59C8): Likewise.
+	(U+59D2): Likewise.
+	(U+59D8): Likewise.
+	(U+59E3): Likewise.
+	(U+59F2): Likewise.
+	(U+59FF): Likewise.
+	(U+5A0D): Likewise.
+	(U+5A11): Likewise.
+	(U+5A17): Likewise.
+	(U+5A18): Likewise.
+	(U+5A1E): Likewise.
+	(U+5A29): Likewise.
+	(U+5A30): Likewise.
+	(U+5A35): Likewise.
+	(U+5A36): Likewise.
+	(U-00021764): Unify GT-08104.
+	(U+5A44): Apply new conventions for glyph granularity.
+	(U+5A47): Likewise.
+	(U+5A48): Likewise.
+	(U+5A49): Likewise.
+	(U+5A5E): Likewise.
+	(U+5A67): Likewise.
+	(U+5A6C): Likewise.
+	(U+5A77): Likewise.
+	(U+5A7B): Likewise.
+	(U+5A7E): Likewise.
+	(U+5A8B): Likewise.
+	(U+5A90): Likewise.
+	(U+5AA7): Likewise.
+	(U+5AB5): Likewise.
+	(U+5AB8): Likewise.
+	(U+5ABB): Likewise.
+	(U+5AC1): Likewise.
+	(U+5AC6): Likewise.
+	(U+5AC9): Likewise.
+	(U+5ACB): Likewise.
+	(U+5ACC): Likewise.
+	(U+5ACF): Likewise.
+	(U+5ADC): Likewise.
+	(U+5AEA): Likewise.
+	(U+5AF6): Likewise.
+	(U+5B00): Likewise.
+	(U+5B16): Likewise.
+	(U+5B17): Likewise.
+	(U+5B1D): Likewise.
+	(U+5B22): Likewise.
+	(U+5B25): Likewise.
+	(U+5B2A): Likewise.
+	(U+5B38): Likewise.
+	(U+5B43): Likewise.
+	(U+5B4B): Likewise.
+	(U+5B4C): Likewise.
+
 2015-03-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (U+526B): Apply new conventions for
