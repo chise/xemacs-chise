@@ -1,5 +1,18 @@
 2015-03-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el (U+526B): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R009-Man.el (U+4EEF): Apply new conventions for glyph
+	granularity.
+	(U+4FD5): Likewise.
+	(UU+5007): Likewise.
+	(U-000202EA): Likewise.
+	(U+347B): Likewise.
+	(U+50E6): Likewise.
+
+2015-03-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R030-Mouth.el (U+550D): Apply new conventions for
 	glyph granularity.
 	(UU+5558): Likewise.
