@@ -1,5 +1,132 @@
 2015-03-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el: Add some representative nodes.
+	(U+5726): Apply new conventions for glyph granularity.
+	(U-00021241): Likewise.
+	(U+5734): Likewise.
+	(U+5745): Likewise.
+	(U+5747): Likewise.
+	(U+3628): Likewise.
+	(U+574A): Likewise.
+	(U+574B): Likewise.
+	(U+574C): Likewise.
+	(U+574E): Likewise.
+	(U+5751): Likewise.
+	(U+5768): Likewise.
+	(U+5779): Likewise.
+	(U+577D): Likewise.
+	(U+577E): Likewise.
+	(C1+504D): Unify GT-K05599.
+	(U+5783): Apply new conventions for glyph granularity.
+	(U+5C2D): Likewise.
+	(U-000212E1): New character.
+	(H2-A9D5): New character.
+	(U+5790): Apply new conventions for glyph granularity.
+	(U+5794): Likewise.
+	(U+579E): Likewise.
+	(U+57A8): Likewise.
+	(U+57B5): Likewise.
+	(H2-AB43): New character.
+	(U-0002341F): Apply new conventions for glyph granularity.
+	(U+57B8): Likewise.
+	(U+3640): Likewise.
+	(U+57C1): Likewise.
+	(U+57C8): Likewise.
+	(U+57CC): Likewise.
+	(U+57CF): Likewise.
+	(U+57D2): Likewise.
+	(U+57D3): Likewise.
+	(U-000212F3): Likewise.
+	(U+57D7): Likewise.
+	(U+57DB): Likewise.
+	(U+57DD): Likewise.
+	(U+57DE): Likewise.
+	(U+57E3): Likewise.
+	(U-00021328): Likewise.
+	(U+57E5): Likewise.
+	(U+57E6): Likewise.
+	(U+57E9): Likewise.
+	(U+57F0): Likewise.
+	(U+57F4): Likewise.
+	(U+57F6): Likewise.
+	(U+57F7): Likewise.
+	(U+57FB): Likewise.
+	(U+57FE): Likewise.
+	(U+5803): Likewise.
+	(U+5806): Likewise.
+	(U+580D): Likewise.
+	(U-00021355): Likewise.
+	(U+364D): Likewise.
+	(U+5814): Likewise.
+	(U+581F): Likewise.
+	(U+364F): Likewise.
+	(U+582A): Likewise.
+	(U+582C): Likewise.
+	(U+5830): Likewise.
+	(U+5831): Likewise.
+	(U+5832): Likewise.
+	(U-00021372): Likewise.
+	(U+583A): Likewise.
+	(U-00021395): Likewise.
+	(U-00021390): Likewise.
+	(U+5849): Likewise.
+	(U+3659): Likewise.
+	(U+5850): Likewise.
+	(U+5855): Likewise.
+	(U+585A): Likewise.
+	(U+585E): Likewise.
+	(U+585F): Likewise.
+	(U+5863): Likewise.
+	(U+5867): Likewise.
+	(CB05673): Likewise.
+	(U+5876): Likewise.
+	(U+587A): Likewise.
+	(U+587E): Likewise.
+	(U+5880): Likewise.
+	(U+5881): Likewise.
+	(U+5887): Likewise.
+	(U+5888): Likewise.
+	(U+5889): Likewise.
+	(U+588A): Likewise.
+	(U+588B): Likewise.
+	(U-000213F2): Likewise.
+	(U+5894): Likewise.
+	(U-0002141E): Likewise.
+	(U+589C): Likewise.
+	(U+3668): Likewise.
+	(JU+589E): Likewise.
+	(U+589F): Likewise.
+	(U+58A2): Likewise.
+	(U+58A9): Likewise.
+	(U+58AA): Likewise.
+	(UU+58AB): Likewise.
+	(U+58AC): Likewise.
+	(U+58AD): Likewise.
+	(UU+58BA): Likewise.
+	(U+58BC): Likewise.
+	(U-0002145E): Likewise.
+	(U-00021460): Likewise.
+	(U+3671): Likewise.
+	(U+58C1): Likewise.
+	(U+58C2): Likewise.
+	(U+58C5): Likewise.
+	(U+3674): Likewise.
+	(U+58CC): Likewise.
+	(UU+58D2): Likewise.
+	(U+58D5): Likewise.
+	(U-00021490): Likewise.
+	(U-000214AF): Likewise.
+	(U-000214B2): Likewise.
+	(U+367B): Likewise.
+	(U-000214E4): Likewise.
+	(U+58DE): Likewise.
+	(U-000214D8): Likewise.
+	(U+58E3): Likewise.
+	(U+58E4): Likewise.
+	(U+58E7): Likewise.
+	(U+58EA): Likewise.
+	(U-00021519): Likewise.
+
 	* Ideograph-R038-Woman.el: Add some representative nodes.
 	(U+5984): Apply new conventions for glyph granularity.
 	(U+5997): Likewise.
