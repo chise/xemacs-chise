@@ -1,5 +1,56 @@
 2015-03-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R053-Dotted-Cliff.el (U+5E80): Apply new conventions
+	for glyph granularity.
+	(U+5E81): Likewise.
+	(U+5E83): Likewise.
+	(U+5E84): Likewise.
+	(U+5E87): Likewise.
+	(U+5E8A): Likewise.
+	(U+5E8B): Likewise.
+	(U+5E8E): Likewise.
+	(U+5E8F): Likewise.
+	(U+5E97): Likewise.
+	(U+5E99): Likewise.
+	(U+5E9A): Likewise.
+	(U+5E9C): Likewise.
+	(U+5EA0): Likewise.
+	(U+5EA2): Likewise.
+	(U+5EA5): Likewise.
+	(U+5EA6): Likewise.
+	(U+5EA8): Likewise.
+	(U+5EAA): Likewise.
+	(U+5EAB): Likewise.
+	(U+5EAC): Likewise.
+	(U+5EB5): Likewise.
+	(U+5EB7): Likewise.
+	(U+5EB9): Likewise.
+	(U+5EBD): Likewise.
+	(U+5EC1): Likewise.
+	(U+5EC2): Likewise.
+	(U+5EC3): Likewise.
+	(U-00022281): Likewise.
+	(U+5ECC): Likewise.
+	(U+5ECF): Likewise.
+	(U+5ED0): Likewise.
+	(U+5ED1): Likewise.
+	(U+5ED2): Likewise.
+	(U+5ED3): Likewise.
+	(U-000222AE): Likewise.
+	(U+5EDB): Likewise.
+	(U+5EDD): Likewise.
+	(U+5EDE): Likewise.
+	(U+5EE1): Likewise.
+	(U+5EE2): Likewise.
+	(U+5EE5): Likewise.
+	(U+5EEB): Likewise.
+	(U+5EEC): Likewise.
+	(U+5EF0): Likewise.
+	(U+5EF1): Likewise.
+	(U+5EF3): Likewise.
+
+2015-03-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R032-Earth.el: Add some representative nodes.
 	(U+5726): Apply new conventions for glyph granularity.
 	(U-00021241): Likewise.
