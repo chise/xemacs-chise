@@ -1,3 +1,20 @@
+2015-03-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el: Add some representative nodes.
+	(U+5F1E): Apply new conventions for glyph granularity.
+	(U+5F22): Likewise.
+	(U+5F25): Likewise.
+	(U+5F26): Likewise.
+	(U+5F27): Likewise.
+	(U-000223DA): Unify GT-12309.
+	(U+5F2F): Apply new conventions for glyph granularity.
+	(U+5F30): Likewise.
+	(U+5F34): Likewise.
+	(U+5F36): Likewise.
+	(U+5F3F): Likewise.
+	(U+5F40): Likewise.
+	(U+5F4E): Likewise.
+
 2015-03-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R053-Dotted-Cliff.el (U+5E80): Apply new conventions
