@@ -1,3 +1,9 @@
+2015-03-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+4FBA): Apply new conventions for glyph
+	granularity.
+	(U-000203F0): Likewise.
+
 2015-03-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R057-Bow.el: Add some representative nodes.
