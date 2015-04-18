@@ -1,3 +1,9 @@
+2015-04-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el: Add some representative nodes.
+	(U-00020261): Apply new conventions for glyph granularity.
+	(U+50F0): Likewise.
+
 2015-04-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el: Add some representative nodes.
