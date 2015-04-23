@@ -1,3 +1,9 @@
+2015-04-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R078-Death.el: Add some representative nodes.
+	(U-000239D1): Apply new conventions for glyph granularity.
+	(U+6BAC): Likewise.
+
 2015-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R077-Stop.el: Add some representative nodes.
