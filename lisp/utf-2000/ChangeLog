@@ -1,3 +1,35 @@
+2015-04-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R079-Weapon.el: Add some representative nodes.
+	(U+6BB4): Apply new conventions for glyph granularity.
+	(U+6BB5): Likewise.
+	(U-00023A85): Likewise.
+	(U+3C7F): Likewise.
+	(U+6BB7): Likewise.
+	(U+6BBA): Likewise.
+	(U-00023A8A): New character.
+	(U+6BB8): Apply new conventions for glyph granularity.
+	(U+6BB9): Likewise.
+	(U+6BBB): Likewise.
+	(U+6BBC): Likewise.
+	(U+6BBD): Likewise.
+	(U+6BBF): Likewise.
+	(U-00023AA0): Likewise.
+	(U+6BC0): Likewise.
+	(U+6BC1): Likewise.
+	(U-00023AAE): Likewise.
+	(U-00023AB0): Likewise.
+	(U+6BC3): Likewise.
+	(U+6BC4): Likewise.
+	(U-00023AB7): Likewise.
+	(U+6BC5): Likewise.
+	(U+6BC6): Likewise.
+	(U+6BC7): Likewise.
+	(U+6BC8): Likewise.
+	(U-00023AD6): Likewise.
+	(U+6BC9): Likewise.
+	(U-00023ADA): Likewise.
+
 2015-04-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R078-Death.el: Add some representative nodes.
