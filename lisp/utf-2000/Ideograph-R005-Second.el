@@ -1709,34 +1709,30 @@
      ((=ucs		  . #x4E59)	; 乙
       ))
     (=ucs		. #x4E77)	; 乷
+    (=ks-x1001		. #x5F2D)	; &I-K0-5F2D; [63-13]
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x6C99)	; &GT-21980;
-	(=ucs@ks	    . #x6C99)	; &GT-21980;
-	(=jis-x0208	    . #x3A3B)	; &GT-21980; [26-27]
-	(=ks-x1001	    . #x5E5E)	; &I-K0-5E5E; [62-62]
-	(=jis-x0213-1	    . #x3A3B)	; &I-JX1-3A3B; [26-27]
-	(=daikanwa	    . 17212)	; &I-M-17212;
+       ((==ucs@jis	    . #x6C99)	; &g2-GT-21980;
+	(==ucs@ks	    . #x6C99)	; &g2-GT-21980;
+	(==jis-x0208	    . #x3A3B)	; &g2-GT-21980; [26-27]
 	)
        ((=ucs		    . #x4E59)	; 乙
 	))
-      (=ucs@ks		  . #x4E77)	; &K0-5F2D;
-      (=ks-x1001	  . #x5F2D)	; &K0-5F2D; [63-13]
+      (==ucs@ks		  . #x4E77)	; &g2-K0-5F2D;
+      (==ks-x1001	  . #x5F2D)	; &g2-K0-5F2D; [63-13]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x6C99)	; &C1-4A67;
-	(=gb2312	    . #x4933)	; &C1-4A67; [41-19]
-	(=cns11643-1	    . #x4A67)	; &I-C1-4A67; [42-71]
+       ((==ucs@unicode	    . #x6C99)	; &g2-UU+6C99;
 	)
        ((=ucs		    . #x4E59)	; 乙
 	))
-      (=ucs@unicode	  . #x4E77)	; &UU+4E77;
+      (==ucs@unicode	  . #x4E77)	; &g2-UU+4E77;
       ))
     ))
 (define-char
