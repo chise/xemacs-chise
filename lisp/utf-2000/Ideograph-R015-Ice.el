@@ -1883,12 +1883,10 @@
     (=hanziku-1		. #xE3BF)	; &I-HZK01-E3BF;
     (=cbeta		. 00289)	; &I-CB00289;
     (<-vulgar
-     ((=ucs@jis		  . #x6DBC)	; &GT-22670;
-      (=jis-x0208	  . #x4E43)	; &GT-22670; [46-35]
-      (=jis-x0213-1	  . #x4E43)	; &I-JX1-4E43; [46-35]
-      (=daikanwa	  . 17606)	; &I-M-17606;
-      (=shinjigen@1ed	  .  4308)	; &GT-22670;
-      (=shinjigen@rev	  .  4309)	; &GT-22670;
+     ((=ucs		  . #x6DBC)	; 涼
+      (=jis-x0208	  . #x4E43)	; &I-J90-4E43; [46-35]
+      (=shinjigen@1ed	  .  4308)	; 涼
+      (=shinjigen@rev	  .  4309)	; 涼
       ))
     (<-vulgar*sources
      shinjigen@1ed shinjigen@rev)
