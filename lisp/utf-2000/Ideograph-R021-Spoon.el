@@ -754,7 +754,7 @@
       )
      ((=ucs		  . #x5315)	; 匕
       )
-     ((=big5-cdp	  . #x8CE8)	; &CDP-8CE8;
+     ((=ucs		  . #x21FFA)	; 𡿺
       ))
     (=ucs		. #x5318)	; 匘
     (=adobe-japan1-6	. 21222)	; &I-AJ1-21222;
