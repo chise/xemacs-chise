@@ -12211,7 +12211,7 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=big5-cdp	  . #x8BD5)	; &CDP-8BD5;
+     ((=ucs		  . #x8980)	; 覀
       ))
     (=ucs		. #x4FA1)	; 価
     (=adobe-japan1-0	. 01345)	; &I-AJ1-01345;
@@ -48988,7 +48988,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
 	(=ucs		    . #x2FF3)	; ⿳
 	)
-       ((=big5-cdp	    . #x8BD5)	; &CDP-8BD5;
+       ((=ucs		    . #x8980)	; 覀
 	)
        ((=ucs		    . #x57DF)	; 域
 	)
@@ -49004,18 +49004,6 @@
 (define-char
   '((ideographic-radical . 9)	; ⼈
     (hanyu-dazidian	1 128 7)
-    (ideographic-structure
-     (:cdp-combinator	4)
-     ((=ucs		  . #x4E00)	; 一
-      )
-     ((=ucs		  . #x4E28)	; 丨
-      )
-     ((=big5-cdp	  . #x89A6)	; &CDP-89A6;
-      )
-     ((=ucs		  . #x4E00)	; 一
-      )
-     ((=ucs		  . #x4EBA)	; 人
-      ))
     (=ucs		. #x201EC)	; 𠇬
     (=hanziku-1		. #xBE54)	; &I-HZK01-BE54;
     ))
