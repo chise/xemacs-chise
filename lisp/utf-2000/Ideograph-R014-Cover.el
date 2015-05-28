@@ -1598,10 +1598,18 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (hanyu-dazidian	1 306 4)
+    (sound@ja/on	"eN")
     (=ucs		. #x2059C)	; 𠖜
     (=cns11643-6	. #x5A7C)	; &I-C6-5A7C; [58-92]
     (=daikanwa		. 01599)	; &I-M-01599;
     (=hanziku-1		. #xE4FD)	; &I-HZK01-E4FD;
+    (<-ancient
+     ((=ks-x1001	  . #x6655)	; &C1-6475; [70-53]
+      (=cns11643-1	  . #x6475)	; &I-C1-6475; [68-85]
+      (=daikanwa	  . 19203)	; &I-M-19203;
+      ))
+    (<-ancient*sources
+     zhengzitong daikanwa)
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
