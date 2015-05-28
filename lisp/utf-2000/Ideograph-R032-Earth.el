@@ -9724,9 +9724,30 @@
   '((ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (sound@ja/on	"iN")
     (=ucs		. #x2136F)	; 𡍯
     (=cns11643-6	. #x4744)	; &I-C6-4744; [39-36]
     (=daikanwa		. 05281)	; &I-M-05281;
+    (<-Small-Seal
+     ((=ucs@cns		  . #x5794)	; &AJ1-21334;
+      (=ucs@jis		  . #x5794)	; &AJ1-21334;
+      (=adobe-japan1-6	  . 21334)	; &AJ1-21334;
+      (=daikanwa	  . 05041)	; &I-M-05041;
+      ))
+    (<-Small-Seal*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x2136F)	; &g2-M-05281;
+      (==cns11643-6	  . #x4744)	; &g2-M-05281; [39-36]
+      (==daikanwa	  . 05281)	; &g2-M-05281;
+      (->subsumptive
+       ((===daikanwa	    . 05281)	; &R-M-05281;
+	)
+       ((===ucs@iso	    . #x2136F)	; &R-U-0002136F;
+	)
+       ((===cns11643-6	    . #x4744)	; &R-C6-4744; [39-36]
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
@@ -16121,9 +16142,27 @@
   '((ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (sound@ja/on	"kei")
     (=ucs		. #x21432)	; 𡐲
     (=cns11643-7	. #x2167)	; &I-C7-2167; [01-71]
     (=daikanwa		. 48995)	; &I-M-48995;
+    (<-original
+     ((=daikanwa	  . 34777)	; &M-34777;
+      ))
+    (<-original*sources
+     daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x21432)	; &g2-M-48995;
+      (==cns11643-7	  . #x2167)	; &g2-M-48995; [01-71]
+      (==daikanwa	  . 48995)	; &g2-M-48995;
+      (->subsumptive
+       ((===daikanwa	    . 48995)	; &R-M-48995;
+	)
+       ((===ucs@iso	    . #x21432)	; &R-U-00021432;
+	)
+       ((===cns11643-7	    . #x2167)	; &R-C7-2167; [01-71]
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x21433)	; 𡐳
