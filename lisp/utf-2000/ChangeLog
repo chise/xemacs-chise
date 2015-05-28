@@ -1,4 +1,21 @@
+2015-05-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (U+38B4): Add `sound@ja/on'; add
+	`<-ancient' for U+897F; add representative nodes.
+	(U-0002243D): Use `->denotational'.
+
+	* Ideograph-R032-Earth.el (U-0002136F): Add `sound@ja/on'; add
+	`<-Small-Seal' for JU+5794; add representative nodes.
+	(U-00021432): Add `sound@ja/on'; add `<-original' for M-34777; add
+	representative nodes.
+
 2015-05-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R014-Cover.el (U-0002059C): Add `sound@ja/on'; add
+	`<-ancient' for K0-6655.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=daikanwa/+p'.
 
 	* Ideograph-R047-River.el (U-00021FFA): New character.
 
