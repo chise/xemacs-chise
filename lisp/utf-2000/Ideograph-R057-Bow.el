@@ -1679,9 +1679,28 @@
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (sound@ja/on	"sei")
     (=ucs		. #x38B4)	; 㢴
     (=cns11643-6	. #x307A)	; &I-C6-307A; [16-90]
     (=daikanwa		. 09776)	; &I-M-09776;
+    (<-ancient
+     ((=ucs		  . #x897F)	; 西
+      (=daikanwa	  . 34763)	; &I-M-34763;
+      ))
+    (<-ancient*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x38B4)	; &g2-M-09776;
+      (==cns11643-6	  . #x307A)	; &g2-M-09776; [16-90]
+      (==daikanwa	  . 09776)	; &g2-M-09776;
+      (->subsumptive
+       ((===daikanwa	    . 09776)	; &R-M-09776;
+	)
+       ((===ucs@unicode	    . #x38B4)	; &R-UU+38B4;
+	)
+       ((===cns11643-6	    . #x307A)	; &R-C6-307A; [16-90]
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
@@ -4237,7 +4256,18 @@
     (=ucs		. #x2243D)	; 𢐽
     ))
 (define-char
-  '((=>ucs		. #x2243D)	; 𢐽
+  '((<-denotational
+     ((=ucs		  . #x2243D)	; 𢐽
+      ))
+    (ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 16)
+    (total-strokes	 . 19)
+    (=ucs@iso		. #x2243D)	; &U-0002243D;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2243D)	; 𢐽
+      ))
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
