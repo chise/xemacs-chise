@@ -1,3 +1,15 @@
+2015-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+5566): Apply new conventions for
+	glyph granularity.
+	(U-00020F44): Likewise.
+
+2015-05-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ruimoku6.el (g2-RUI6-E03F): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+	(U-0002A894): Apply new conventions for glyph granularity.
+
 2015-05-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R057-Bow.el (U+38B4): Add `sound@ja/on'; add
