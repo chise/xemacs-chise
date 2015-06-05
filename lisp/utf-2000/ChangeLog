@@ -1,3 +1,10 @@
+2015-06-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R131-Minister.el (U-000268DD): Add `sound@ja/on'; add
+	`->ancient' for JU+9824 and M-44500'.
+	(U-000268DE): Add `<-same' for U-000268DD.
+	(U+81E8): Apply new conventions for glyph granularity.
+
 2015-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R075-Tree.el: Add some representative nodes.
