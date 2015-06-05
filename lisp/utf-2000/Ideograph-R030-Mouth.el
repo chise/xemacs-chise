@@ -27073,12 +27073,14 @@
     (=shinjigen@rev	.  1136)	; &AJ1-01254;
     (<-simplified@JP/Jouyou
      ((=ucs@jis		  . #x71DF)	; &GT-24957;
+      (=ucs@ks		  . #x71DF)	; &GT-24957;
       (=jis-x0208	  . #x535B)	; &GT-24957; [51-59]
       (=ks-x1001	  . #x673D)	; &I-K0-673D; [71-29]
       (=cns11643-1	  . #x7432)	; &I-C1-7432; [84-18]
       (=jis-x0213-1	  . #x535B)	; &I-JX1-535B; [51-59]
       (=daikanwa	  . 19457)	; &I-M-19457;
       (=shinjigen@1ed	  .  1135)	; &GT-24957;
+      (=shinjigen@rev	  .  1137)	; &GT-24957;
       ))
     (<-simplified@JP/Jouyou*sources
      JP/Jouyou shinjigen@1ed)
