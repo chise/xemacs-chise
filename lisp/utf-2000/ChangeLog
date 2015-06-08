@@ -1,3 +1,8 @@
+2015-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U-00020444): Apply new conventions for
+	glyph granularity.
+
 2015-06-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R131-Minister.el (U-000268DD): Add `sound@ja/on'; add
