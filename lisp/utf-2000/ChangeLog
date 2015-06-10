@@ -1,5 +1,69 @@
 2015-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R086-Fire.el: Add some representative nodes.
+	(UU+7070): Unify S-4552.
+	(U-00024186): Apply new conventions for glyph granularity; unify
+	S-4553; add `<-original' for UU+7070.
+	(U+7075): Apply new conventions for glyph granularity.
+	(U+7078): Likewise.
+	(U+707C): Likewise.
+	(U+707E): Likewise.
+	(U+7086): Likewise.
+	(U+7089): Likewise.
+	(U+708A): Likewise.
+	(U+7092): Likewise.
+	(U+7095): Likewise.
+	(U+7096): Likewise.
+	(U+70AB): Likewise.
+	(U+70AD): Likewise.
+	(U+70B7): Likewise.
+	(U+70F9): Likewise.
+	(U+70FA): Likewise.
+	(U+710C): Likewise.
+	(U+710F): Likewise.
+	(U+7119): Likewise.
+	(U+711E): Likewise.
+	(U+7120): Likewise.
+	(U-00024263): Likewise.
+	(U+7130): Likewise.
+	(U+7114): Likewise.
+	(U+713F): Likewise.
+	(U+7141): Likewise.
+	(U+714E): Likewise.
+	(U+7156): Likewise.
+	(U+7159): Likewise.
+	(U+3DD1): Likewise.
+	(U+715A): Likewise.
+	(U+715C): Likewise.
+	(U+7165): Likewise.
+	(U-0002F91D): Add `<-same' for U+707E.
+	(U-000242F1): Unify GT-24576 and GT-K10536.
+	(U+717D): Apply new conventions for glyph granularity.
+	(U+7187): Likewise.
+	(U+719F): Likewise.
+	(U+71A0): Likewise.
+	(U+71B1): Likewise.
+	(U+71BF): Likewise.
+	(U+71C1): Likewise.
+	(U+71C4): Likewise.
+	(U+71C4): Likewise.
+	(U+71C9): Likewise.
+	(U+71CB): Likewise.
+	(U+71D3): Likewise.
+	(U+71D6): Likewise.
+	(U-000243EF): Likewise.
+	(U+71DF): Likewise.
+	(U+71E0): Likewise.
+	(U+71EE): Likewise.
+	(U+71FF): Likewise.
+	(U+7207): Likewise.
+	(U+7215): Likewise.
+	(U+720E): Likewise.
+	(U+7213): Likewise.
+	(U+721D): Likewise.
+	(U+721F): Likewise.
+	(U+7228): Likewise.
+
 	* Ideograph-R009-Man.el (U-00020444): Apply new conventions for
 	glyph granularity.
 
