@@ -1,5 +1,143 @@
 2015-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R064-Hand.el: Add some representative nodes.
+	(U+6252): Apply new conventions for glyph granularity.
+	(U+6256): Likewise.
+	(U+6260): Likewise.
+	(U+6268): Likewise.
+	(U+626E): Likewise.
+	(U+6279): Likewise.
+	(U+627A): Likewise.
+	(U+627B): Likewise.
+	(U+627E): Likewise.
+	(U+627F): Likewise.
+	(U+6283): Likewise.
+	(U+6284): Likewise.
+	(U+6290): Likewise.
+	(U+6291): Likewise.
+	(U+6295): Likewise.
+	(U+6297): Likewise.
+	(U+62AC): Likewise.
+	(U+62C4): Use `->subsumptive' instead of `->denotational'.
+	(U+62C9): Apply new conventions for glyph granularity.
+	(U+62CE): Likewise.
+	(U+62D5): Likewise.
+	(U+62D7): Likewise.
+	(U+62DC): Likewise.
+	(U+62E0): Likewise.
+	(U+62E1): Likewise.
+	(U+62EA): Likewise.
+	(U+62F3): Likewise.
+	(U+62F4): Likewise.
+	(U+62F7): Likewise.
+	(U+6308): Likewise.
+	(U+6309): Likewise.
+	(U+6313): Likewise.
+	(U+6316): Likewise.
+	(U+6318): Likewise.
+	(U+6327): Likewise.
+	(U+6328): Likewise.
+	(U+6329): Likewise.
+	(U+6332): Likewise.
+	(U+633B): Likewise.
+	(U+633C): Likewise.
+	(U+633D): Likewise.
+	(U+634E): Likewise.
+	(U+6357): Likewise.
+	(U+6358): Likewise.
+	(U+635C): Likewise.
+	(U+636C): Likewise.
+	(U+636E): Likewise.
+	(U+637B): Likewise.
+	(U+637D): Likewise.
+	(U+6380): Likewise.
+	(U+6382): Likewise.
+	(U+638A): Likewise.
+	(U+6392): Likewise.
+	(UU+6396): Likewise.
+	(U+639F): Likewise.
+	(U+63A0): Likewise.
+	(U+63A2): Likewise.
+	(U+63A7): Likewise.
+	(U+63A8): Likewise.
+	(U+63AB): Likewise.
+	(U+63AE): Likewise.
+	(U+63BE): Likewise.
+	(U+63C3): Likewise.
+	(U+63C4): Likewise.
+	(U+63CE): Likewise.
+	(U+63D3): Likewise.
+	(U+63D5): Likewise.
+	(U+63D6): Likewise.
+	(U+63E9): Likewise.
+	(U+63EC): Likewise.
+	(U+63F3): Likewise.
+	(U+63F5): Likewise.
+	(U-00022C15): Likewise.
+	(U+63F6): Likewise.
+	(U+63F8): Likewise.
+	(U+640F): Likewise.
+	(U+6412): Likewise.
+	(U+641E): Likewise.
+	(U+642A): Likewise.
+	(U+642C): Likewise.
+	(U+6434): Likewise.
+	(U+6436): Likewise.
+	(U+643A): Likewise.
+	(U+643D): Likewise.
+	(U+643E): Likewise.
+	(U+643F): Likewise.
+	(U+6442): Likewise.
+	(U+644E): Likewise.
+	(U+645B): Likewise.
+	(U+6461): Likewise.
+	(U+6467): Likewise.
+	(U+6469): Likewise.
+	(U+646F): Likewise.
+	(U+647A): Likewise.
+	(U+6483): Likewise.
+	(U+3A40): Likewise.
+	(U+6485): Likewise.
+	(U+6492): Likewise.
+	(U+6499): Likewise.
+	(U+649B): Likewise.
+	(U+64A5): Likewise.
+	(U+64AC): Likewise.
+	(U+64AD): Likewise.
+	(U+64B3): Likewise.
+	(U+64C1): Likewise.
+	(U+64C4): Likewise.
+	(U+64D4): Likewise.
+	(U+3A57): Use `->subsumptive'.
+	(U+64D5): Apply new conventions for glyph granularity.
+	(U+64D7): Likewise.
+	(U+64D8): Likewise.
+	(U+64DA): Likewise.
+	(U+64E0): Likewise.
+	(U+64E1): Likewise.
+	(U+64E2): Likewise.
+	(U+64EF): Likewise.
+	(U+64F0): Likewise.
+	(U+64FD): Likewise.
+	(U+6500): Likewise.
+	(U+6501): Likewise.
+	(U+6509): Likewise.
+	(U+6513): Likewise.
+	(U+6518): Likewise.
+	(U-00022E6C): Likewise.
+	(U+651B): Likewise.
+	(U+3A73): Likewise.
+	(U+651C): Likewise.
+	(U+651D): Likewise.
+	(U+651E): Likewise.
+	(U+651F): Likewise.
+	(U+6522): Likewise.
+	(U+6523): Likewise.
+	(U+6524): Likewise.
+	(U+652B): Likewise.
+
+2015-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R086-Fire.el: Add some representative nodes.
 	(UU+7070): Unify S-4552.
 	(U-00024186): Apply new conventions for glyph granularity; unify
