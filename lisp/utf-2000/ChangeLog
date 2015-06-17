@@ -1,3 +1,183 @@
+2015-06-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el: Add some representative nodes.
+	(U+6C3A): Apply new conventions for glyph granularity.
+	(U-00023C75): Likewise.
+	(U+6C4A): Likewise.
+	(U+6C52): Likewise.
+	(U+6C74): Likewise.
+	(U+6C76): Likewise.
+	(U+6C86): Likewise.
+	(U+3CC4): Unify BC-8D58 and M-17203; add ideographic-structure;
+	add `sound@ja/on'; add `<-same' for UU+6D8E; add ->mistakable' for
+	KU+6B21.
+	(U+6C92): Apply new conventions for glyph granularity.
+	(U+6C98): Likewise.
+	(U+6C99): Likewise.
+	(U+6CA1): Likewise.
+	(U+6CAD): Likewise.
+	(U+6CB1): Likewise.
+	(U+6CB2): Use `->subsumptive'; add `<-formed' for U+6CB1.
+	(U+6CC5): Apply new conventions for glyph granularity.
+	(U+6CCD): Likewise.
+	(U+6CD2): Likewise.
+	(U+6CD7): Likewise.
+	(U+6CDB): Likewise.
+	(U+6CE0): Likewise.
+	(U+6CE3): Likewise.
+	(U+6CEB): Likewise.
+	(U+6CEC): Likewise.
+	(U+6CF2): Likewise.
+	(U+6D00): Likewise.
+	(U+6D12): Likewise.
+	(U+6D24): Likewise.
+	(U+6D28): Likewise.
+	(U+6D31): Likewise.
+	(U+6D5A): Likewise.
+	(U+6D5B): Likewise.
+	(U+6D63): Likewise.
+	(U+6D64): Likewise.
+	(U+6D67): Likewise.
+	(U+6D6A): Likewise.
+	(U+6D7C): Likewise.
+	(U+6D89): Likewise.
+	(U+6D8E): Likewise.
+	(U+6D94): Likewise.
+	(U+6D96): Likewise.
+	(U+6D97): Likewise.
+	(U+6D99): Likewise.
+	(U+6DAA): Likewise.
+	(U+6DAB): Likewise.
+	(U+6DAC): Likewise.
+	(U-00023D7A): Use `->subsumptive'; add `<-vulgar' for U+6CB1.
+	(U+6DB4): Apply new conventions for glyph granularity.
+	(U+6DBC): Likewise.
+	(U+6DBF): Likewise.
+	(U+6DC0): Likewise.
+	(U+6DD5): Likewise.
+	(U+6DD9): Likewise.
+	(U+3CFA): Unify M-17652, S-4360 and H5-A5D3; add `<-vulgar' for
+	U+6E38.
+	(U+6DE1): Apply new conventions for glyph granularity.
+	(U+6DE4): Likewise.
+	(U+6DE9): Likewise.
+	(U+6DEB): Likewise.
+	(U+6DEC): Likewise.
+	(U+6DF0): Likewise.
+	(U+6DF1): Likewise.
+	(U+6DF3): Likewise.
+	(U-00023D9F): Likewise.
+	(U+6E08): Likewise.
+	(U+6E09): Likewise.
+	(U+6E19): Likewise.
+	(U+6E1D): Likewise.
+	(U+6E1F): Likewise.
+	(U+6E21): Likewise.
+	(U+3D11): Likewise.
+	(U+6E32): Likewise.
+	(U+6E38): Likewise.
+	(U+6E39): Likewise.
+	(U+6E3A): Likewise.
+	(U+6E4A): Likewise.
+	(U+6E4C): Likewise.
+	(U+6E52): Likewise.
+	(U+6E53): Likewise.
+	(U+6E54): Likewise.
+	(U-00023E08): Likewise.
+	(U+6E6E): Likewise.
+	(U+6E7B): Likewise.
+	(U+6E6E): Likewise.
+	(U+6E7E): Likewise.
+	(U+6E8F): Likewise.
+	(U+6E9F): Likewise.
+	(U+6EA2): Likewise.
+	(JU+6EAA): Likewise.
+	(U+6EB1): Likewise.
+	(U+6EB6): Likewise.
+	(U+6EC0): Likewise.
+	(U+6EC3): Likewise.
+	(U+3D31): Use `->denotational' and `->subsumptive'.
+	(U+6EC4): Apply new conventions for glyph granularity.
+	(U+6EC7): Likewise.
+	(U+6EC8): Likewise.
+	(U+6ED3): Likewise.
+	(U+6ED5): Likewise.
+	(U+6ED9): Likewise.
+	(U+6ECC): Likewise.
+	(U+6EEB): Likewise.
+	(U+6EEC): Likewise.
+	(U+6EEE): Likewise.
+	(U+6EF2): Likewise.
+	(U+6EF4): Likewise.
+	(U+6EF8): Likewise.
+	(U+6EFB): Likewise.
+	(U+6EFD): Likewise.
+	(U+6EFF): Likewise.
+	(U+6F09): Likewise.
+	(U+6F10): Likewise.
+	(U+6F11): Likewise.
+	(U+6E89): Likewise.
+	(U+6F13): Likewise.
+	(U+6F14): Likewise.
+	(U+6F1B): Likewise.
+	(U+6F25): Likewise.
+	(U+6F26): Likewise.
+	(U+6F29): Likewise.
+	(U+6F2F): Likewise.
+	(U+6F31): Likewise.
+	(U+6F3B): Likewise.
+	(U+6F3C): Likewise.
+	(U+6F4F): Likewise.
+	(U+6F52): Likewise.
+	(U+6F61): Likewise.
+	(U-00023F54): Add `sound@ja/on'; add `<-original' for CU+6E6E.
+	(U+6F78): Apply new conventions for glyph granularity.
+	(U+6F82): Likewise.
+	(U+6F8B): Likewise.
+	(U+6F96): Likewise.
+	(U+6F9F): Likewise.
+	(U+6FA3): Add `<-original' for U+6D63.
+	(U+6FA4): Apply new conventions for glyph granularity.
+	(U+6FAA): Likewise.
+	(U+3D64): Likewise.
+	(U+6FB1): Likewise.
+	(U+6FB3): Likewise.
+	(U+6FB5): Likewise.
+	(U+6FB6): Likewise.
+	(U+6FB9): Likewise.
+	(U+6FBC): Likewise.
+	(U+6FC0): Likewise.
+	(U+6FC9): Likewise.
+	(U+6FCA): Likewise.
+	(U+6FD8): Likewise.
+	(U+6FDB): Likewise.
+	(U+6FDF): Likewise.
+	(U+701E): Likewise.
+	(U+6FEF): Likewise.
+	(U+6FF0): Likewise.
+	(U+7009): Likewise.
+	(U+700A): Likewise.
+	(U+700B): Likewise.
+	(U+700D): Likewise.
+	(U+7015): Likewise.
+	(U+701B): Likewise.
+	(U+7020): Likewise.
+	(U+702F): Likewise.
+	(U+7037): Likewise.
+	(U+703A): Likewise.
+	(U+703C): Likewise.
+	(U+7044): Likewise.
+	(U+7047): Likewise.
+	(U+7048): Likewise.
+	(U+7049): Likewise.
+	(U+704B): Likewise.
+	(U+7051): Likewise.
+	(U+7055): Likewise.
+	(U+705D): Likewise.
+	(U+7063): Likewise.
+	(U+7064): Likewise.
+	(U+7065): Likewise.
+
 2015-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R064-Hand.el: Add some representative nodes.
