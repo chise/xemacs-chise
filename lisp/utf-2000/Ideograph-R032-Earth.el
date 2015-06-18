@@ -15663,7 +15663,7 @@
     (=daikanwa		. 05474)	; &M-H0099;
     (=daikanwa/ho	.  0099)	; &M-H0099;
     (->formed
-     ((=daikanwa	  . 21507)	; &M-21507;
+     ((=ucs		  . #x3F29)	; 㼩
       ))
     (->formed*sources
      jiyun daikanwa=05474)
