@@ -869,22 +869,27 @@
   '((ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (hanyu-dazidian	2 1442 4)
     (=ucs		. #x23969)	; 𣥩
+    (=daikanwa		. 16296)	; &I-M-16296;
+    (<-same
+     ((=ucs		  . #x6D89)	; 涉
+      (=daikanwa	  . 17530)	; &I-M-17530;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 16296)	; &M-16296;
-      (<-same
-       ((=ucs@jis	    . #x6D89)	; &JX1-766C;
-	(=ks-x1001	    . #x606F)	; &JX1-766C; [64-79]
-	(=jis-x0213-1	    . #x766C)	; &I-JX1-766C; [86-76]
-	(=daikanwa	    . 17530)	; &I-M-17530;
-	))
-      (<-same*sources
-       zhengzitong daikanwa)
+     ((==daikanwa	  . 16296)	; &g2-M-16296;
       )
-     ((hanyu-dazidian	  2 1442 4)
-      (=ucs@iso		  . #x23969)	; &C6-385A;
-      (=cns11643-6	  . #x385A)	; &C6-385A; [24-58]
-      (=hanziku-4	  . #xD351)	; &I-HZK04-D351;
+     ((==ucs@iso	  . #x23969)	; &g2-IU-00023969;
+      (==cns11643-6	  . #x385A)	; &g2-IU-00023969; [24-58]
+      (->subsumptive
+       ((===cns11643-6	    . #x385A)	; &R-C6-385A; [24-58]
+	)
+       ((=hanziku-4	    . #xD351)	; &HZK04-D351;
+	)
+       ((===ucs@iso	    . #x23969)	; &R-U-00023969;
+	))
       ))
     ))
 (define-char
@@ -1197,22 +1202,28 @@
   '((ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (hanyu-dazidian	2 1442 21)
     (=ucs		. #x2397F)	; 𣥿
+    (=cns11643-6	. #x4A42)	; &I-C6-4A42; [42-34]
+    (=daikanwa		. 16315)	; &I-M-16315;
+    (<-ancient
+     ((=ucs		  . #x6D89)	; 涉
+      (=daikanwa	  . 17530)	; &I-M-17530;
+      ))
+    (<-ancient*sources
+     jiyun daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 16315)	; &M-16315;
-      (<-ancient
-       ((=ucs@jis	    . #x6D89)	; &JX1-766C;
-	(=ks-x1001	    . #x606F)	; &JX1-766C; [64-79]
-	(=jis-x0213-1	    . #x766C)	; &I-JX1-766C; [86-76]
-	(=daikanwa	    . 17530)	; &I-M-17530;
-	))
-      (<-ancient*sources
-       jiyun daikanwa)
+     ((==daikanwa	  . 16315)	; &g2-M-16315;
       )
-     ((hanyu-dazidian	  2 1442 21)
-      (=ucs@iso		  . #x2397F)	; &C6-4A42;
-      (=cns11643-6	  . #x4A42)	; &C6-4A42; [42-34]
-      (=hanziku-4	  . #xD362)	; &I-HZK04-D362;
+     ((==ucs@iso	  . #x2397F)	; &g2-IU-0002397F;
+      (==cns11643-6	  . #x4A42)	; &g2-IU-0002397F; [42-34]
+      (->subsumptive
+       ((===cns11643-6	    . #x4A42)	; &R-C6-4A42; [42-34]
+	)
+       ((=hanziku-4	    . #xD362)	; &HZK04-D362;
+	)
+       ((===ucs@iso	    . #x2397F)	; &R-U-0002397F;
+	))
       ))
     ))
 (define-char
