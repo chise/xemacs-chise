@@ -1,3 +1,8 @@
+2015-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Use
+	`=gb2312' instead of `chinese-gb2312'; add setting for `==ucs@gb'.
+
 2015-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
