@@ -180,6 +180,10 @@
 
 2015-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R077-Stop.el (U-00023969): Apply new conventions for
+	glyph granularity.
+	(U-0002397F): Likewise.
+
 	* Ideograph-R064-Hand.el: Add some representative nodes.
 	(U+6252): Apply new conventions for glyph granularity.
 	(U+6256): Likewise.
