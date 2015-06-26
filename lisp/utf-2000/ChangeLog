@@ -1,3 +1,8 @@
+2015-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R086-Fire.el (U+714A): Use `->denotational' and
+	`->subsumptive'; add `<-formed' for UU+6684.
+
 2015-06-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R085-Water.el: Add some representative nodes.
