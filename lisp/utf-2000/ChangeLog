@@ -1,5 +1,25 @@
 2015-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R098-Tile.el: Add some representative nodes.
+	(U+74E6): Apply new conventions for glyph granularity.
+	(U+74EB): Likewise.
+	(U+74EE): Likewise.
+	(U+74F0): Likewise.
+	(U+74F4): Likewise.
+	(U+3F29): Unify M-21507; add `<-formed' and `<-same' for M-05474;
+	add `<-vulgar' for M-23005.
+	(U+7504): Apply new conventions for glyph granularity.
+	(U+7511): Likewise.
+	(U+7512): Likewise.
+	(U+7513): Likewise.
+	(U+7517): Likewise.
+
+	* Ideograph-R085-Water.el (U+6F01): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R075-Tree.el (U-0002340E): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R086-Fire.el (U+714A): Use `->denotational' and
 	`->subsumptive'; add `<-formed' for UU+6684.
 
