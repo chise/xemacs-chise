@@ -20747,7 +20747,7 @@
       )
      ((=ucs		  . #x29D4B)	; 𩵋
       ))
-    (=>>hanyo-denshi/ib . #x273F)	; &G-HD-IB-273F; [07-31]
+    (=hanyo-denshi/ib	. #x273F)	; &HD-IB-273F; [07-31]
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x6F01)	; 漁
@@ -20761,10 +20761,10 @@
        ((name		    . "CJK RADICAL WATER ONE")
 	(=ucs		    . #x2EA1)	; ⺡
 	)
-       ((=ucs@iso	    . #x29D4B)	; 𩵋
-	(=daikanwa	    . 45958)	; 𩵋
+       ((==ucs@iso	    . #x29D4B)	; &g2-GT-61771;
+	(==daikanwa	    . 45958)	; &g2-GT-61771;
 	))
-      (=hanyo-denshi/ib	  . #x273F)	; &HD-IB-273F; [07-31]
+      (==hanyo-denshi/ib  . #x273F)	; &g2-HD-IB-273F; [07-31]
       ))
     ))
 (define-char
