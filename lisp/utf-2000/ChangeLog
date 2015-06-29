@@ -1,5 +1,10 @@
 2015-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R103-Bolt-Of-Cloth.el (U-00024D21): Unify GT-28249;
+	add representative nodes.
+
+2015-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R009-Man.el (U+504B): Add `ideographic-structure'.
 	(UU+504B): Add representative nodes.
 	(M-01053): Likewise.
