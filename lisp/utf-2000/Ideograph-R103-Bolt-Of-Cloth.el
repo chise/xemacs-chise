@@ -310,7 +310,26 @@
     (total-strokes	 . 16)
     (=ucs		. #x24D21)	; 𤴡
     (=cns11643-7	. #x2552)	; &I-C7-2552; [05-50]
+    (=gt		. 28249)	; &I-GT-28249;
+    (=gt-pj-5		. #x355B)	; &I-GT-28249; [21-59]
     (=daikanwa		. 22011)	; &I-M-22011;
+    (->subsumptive
+     ((==ucs@iso	  . #x24D21)	; &g2-GT-28249;
+      (==cns11643-7	  . #x2552)	; &g2-GT-28249; [05-50]
+      (==gt		  . 28249)	; &g2-GT-28249;
+      (==daikanwa	  . 22011)	; &g2-GT-28249;
+      (->subsumptive
+       ((===daikanwa	    . 22011)	; &R-M-22011;
+	)
+       ((===ucs@iso	    . #x24D21)	; &R-U-00024D21;
+	)
+       ((=hanziku-7	    . #xE4CC)	; &HZK07-E4CC;
+	)
+       ((===cns11643-7	    . #x2552)	; &R-C7-2552; [05-50]
+	)
+       ((===gt		    . 28249)	; &R-GT-28249;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 103)	; ⽦
