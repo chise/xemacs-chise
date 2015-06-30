@@ -1,3 +1,23 @@
+2015-06-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+5097): Apply new conventions for glyph
+	granularity.
+	(U-000202FB): Likewise.
+	(U-0002032B): Likewise.
+
+2015-06-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R044-Corpse.el: Add some representative nodes.
+	(U+663C): Apply new conventions for glyph granularity.
+	(U+5C51): Likewise.
+	(U+5C5B): Likewise.
+	(U-0002F877): Likewise.
+	(U+5C6C): Likewise.
+
+	* Ideograph-R032-Earth.el (U+583A): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+	(U+5840): Apply new conventions for glyph granularity.
+
 2015-06-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (U+529A): Apply new conventions for
