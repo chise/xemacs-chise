@@ -1,3 +1,8 @@
+2015-06-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (U+529A): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
 2015-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R103-Bolt-Of-Cloth.el (U-00024D21): Unify GT-28249;
