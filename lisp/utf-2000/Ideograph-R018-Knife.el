@@ -12289,9 +12289,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@jis	    . #x5C6C)	; &AJ1-04657;
-	(=ucs@ks	    . #x5C6C)	; &AJ1-04657;
-	(=adobe-japan1-0    . 04657)	; &AJ1-04657;
+       ((==ucs@jis	    . #x5C6C)	; &g2-AJ1-04657;
+	(==ucs@ks	    . #x5C6C)	; &g2-AJ1-04657;
+	(==adobe-japan1-0   . 04657)	; &g2-AJ1-04657;
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
@@ -12315,8 +12315,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x5C6C)	; &C1-7A68;
-	(=cns11643-1	    . #x7A68)	; &C1-7A68; [90-72]
+       ((==ucs@unicode	    . #x5C6C)	; &g2-UU+5C6C;
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
