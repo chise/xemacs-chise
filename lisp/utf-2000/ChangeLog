@@ -1,5 +1,51 @@
 2015-06-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R072-Sun.el: Add some representative nodes.
+	(IU+23140): Apply new conventions for glyph granularity.
+	(U+65FC): Likewise.
+	(U+6600): Likewise.
+	(U+6609): Likewise.
+	(U+660A): Likewise.
+	(U+660D): Likewise.
+	(U+660E): Likewise.
+	(U+6611): Likewise.
+	(U+6616): Likewise.
+	(U+661E): Likewise.
+	(U+6621): Likewise.
+	(U+6624): Likewise.
+	(U+6631): Likewise.
+	(U+663C): Likewise.
+	(U+664F): Likewise.
+	(U+6652): Likewise.
+	(U+6657): Likewise.
+	(U+665A): Likewise.
+	(U+6665): Likewise.
+	(U+666C): Likewise.
+	(U+666F): Likewise.
+	(U+667E): Likewise.
+	(U+6680): Likewise.
+	(U+667C): Likewise.
+	(U+6684): Likewise.
+	(U+3B07): Likewise.
+	(U+669A): Likewise.
+	(U+669D): Likewise.
+	(U-0002325C): Likewise.
+	(U+66AD): Likewise.
+	(U+66B2): Likewise.
+	(U+66BB): Likewise.
+	(UU+3B1A): Likewise.
+	(U+66BE): Likewise.
+	(U+66C8): Likewise.
+	(U+66CC): Likewise.
+	(U+66E2): Likewise.
+	(U+66E9): Likewise.
+	(U+66EC): Likewise.
+	(U+66EF): Likewise.
+
+	* Ideograph-R030-Mouth.el (U+55F6): Add some representative nodes.
+	(U+56D1): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+
 	* Ideograph-R009-Man.el (U+5097): Apply new conventions for glyph
 	granularity.
 	(U-000202FB): Likewise.
