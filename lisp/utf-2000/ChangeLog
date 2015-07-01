@@ -1,5 +1,38 @@
 2015-06-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R102-Field.el: Add some representative nodes.
+	(U+753F): Apply new conventions for glyph granularity.
+	(U+7546): Likewise.
+	(U+7547): Likewise.
+	(U+754C): Likewise.
+	(U+7552): Likewise.
+	(UU+7559): Likewise.
+	(U+755C): Likewise.
+	(U+755D): Likewise.
+	(U+755E): Likewise.
+	(U+755F): Likewise.
+	(U+7562): Likewise.
+	(U+7569): Likewise.
+	(U+756E): Unify S-5045; add `<-original@shinjigen' for U+755D; add
+	`<-original@shuowen' for U+755E.
+	(U+756F): Apply new conventions for glyph granularity.
+	(U-0002F938): Unify GT-28054 and GT-K08992.
+	(U+7574): Apply new conventions for glyph granularity.
+	(U+7581): Likewise.
+	(U-00024D01): Likewise.
+
+	* Ideograph-R050-Turban.el: Add some representative nodes.
+	(U+5E18): Apply new conventions for glyph granularity.
+	(U+5E30): Likewise.
+	(U+5E32): Likewise.
+	(U+5E35): Likewise.
+	(U+5E4B): Likewise.
+	(CU+5E55): Likewise.
+	(U+5E5C): Likewise.
+	(U+5E68): Likewise.
+	(U-0002F888): Likewise.
+	(U+5E6A): Likewise.
+
 	* Ideograph-R072-Sun.el: Add some representative nodes.
 	(IU+23140): Apply new conventions for glyph granularity.
 	(U+65FC): Likewise.
