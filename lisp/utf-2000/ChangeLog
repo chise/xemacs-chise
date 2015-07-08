@@ -1,5 +1,9 @@
 2015-07-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (JU+55CC): Add representative nodes.
+	(g2-UU+55CC): Add `ideographic-structure'.
+	(U+5682): Apply new conventions for glyph granularity.
+
 	* Ideograph-R038-Woman.el (U+372E): Apply new conventions for
 	glyph granularity.
 
