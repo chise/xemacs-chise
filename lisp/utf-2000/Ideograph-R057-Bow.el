@@ -3507,9 +3507,9 @@
       (==gt		  . 12419)	; &g2-AJ1-08370;
       (==jef-china3	  . #x4CF6)	; &g2-AJ1-08370;
       (->subsumptive
-       ((===jis-x0212	    . #x3C74)	; &R-JX1-743A; [28-84]
-	(===jis-x0213-1	    . #x743A)	; &R-JX1-743A; [84-26]
-	(===hanyo-denshi/jb . #x3C74)	; &R-JX1-743A; [28-84]
+       ((===jis-x0212	    . #x3C74)	; &R-HD-JB-3C74; [28-84]
+	(===jis-x0213-1	    . #x743A)	; &R-HD-JB-3C74; [84-26]
+	(===hanyo-denshi/jb . #x3C74)	; &R-HD-JB-3C74; [28-84]
 	)
        ((===adobe-japan1-2  . 08370)	; &R-AJ1-08370;
 	)
