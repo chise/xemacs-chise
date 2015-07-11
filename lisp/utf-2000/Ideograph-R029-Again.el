@@ -681,6 +681,7 @@
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (hanyu-dazidian	1 393 3)
     (=ucs		. #x53CE)	; 収
     (=adobe-japan1-0	. 02345)	; &I-AJ1-02345;
     (=adobe-japan1-4	. 13455)	; &I-AJ1-13455;
@@ -694,15 +695,11 @@
     (=hanziku-1		. #xF6D2)	; &I-HZK01-F6D2;
     (=cbeta		. 01495)	; &I-CB01495;
     (<-simplified@JP/Jouyou
-     ((=ucs@jis		  . #x6536)	; &J90-5A40;
-      (=jis-x0208	  . #x5A40)	; &J90-5A40; [58-32]
-      (=jis-x0213-1	  . #x5A40)	; &I-JX1-5A40; [58-32]
-      (=daikanwa	  . 13110)	; &I-M-13110;
+     ((=ucs		  . #x6536)	; 收
+      (=jis-x0208	  . #x5A40)	; &I-J90-5A40; [58-32]
       ))
     (<-vulgar
-     ((=ucs@jis		  . #x6536)	; &J90-5A40;
-      (=jis-x0208	  . #x5A40)	; &J90-5A40; [58-32]
-      (=jis-x0213-1	  . #x5A40)	; &I-JX1-5A40; [58-32]
+     ((=ucs		  . #x6536)	; 收
       (=daikanwa	  . 13110)	; &I-M-13110;
       ))
     (<-vulgar*sources
@@ -713,7 +710,6 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (hanyu-dazidian	  1 393 3)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
@@ -2349,8 +2345,8 @@
       (->subsumptive
        ((===daikanwa	    . 03176)	; &R-M-03176;
 	)
-       ((===jis-x0213-1@2004 . #x5257)	; &R-JX3-5257; [50-55]
-	(===hanyo-denshi/hg . #x3048)	; &R-JX3-5257; [16-40]
+       ((===jis-x0213-1@2004 . #x5257)	; &R-HD-HG-3048; [50-55]
+	(===hanyo-denshi/hg . #x3048)	; &R-HD-HG-3048; [16-40]
 	)
        ((===gt		    . 04022)	; &R-GT-04022;
 	(===gt-k	    . 06578)	; &R-GT-04022;
