@@ -3435,9 +3435,9 @@
       (->subsumptive
        ((===daikanwa	    . 00421)	; &R-M-00421;
 	)
-       ((===jis-x0212	    . #x3052)	; &R-JX2-213F; [16-50]
-	(===jis-x0213-2	    . #x213F)	; &R-JX2-213F; [01-31]
-	(===hanyo-denshi/jb . #x3052)	; &R-JX2-213F; [16-50]
+       ((===jis-x0212	    . #x3052)	; &R-HD-JB-3052; [16-50]
+	(===jis-x0213-2	    . #x213F)	; &R-HD-JB-3052; [01-31]
+	(===hanyo-denshi/jb . #x3052)	; &R-HD-JB-3052; [16-50]
 	)
        ((===mj		    . 006558)	; &R-MJ006558;
 	)
@@ -5924,9 +5924,9 @@
       (->subsumptive
        ((===daikanwa	    . 00471)	; &R-M-00471;
 	)
-       ((===jis-x0212	    . #x305F)	; &R-JX1-2E2D; [16-63]
-	(===jis-x0213-1	    . #x2E2D)	; &R-JX1-2E2D; [14-13]
-	(===hanyo-denshi/jb . #x305F)	; &R-JX1-2E2D; [16-63]
+       ((===jis-x0212	    . #x305F)	; &R-HD-JB-305F; [16-63]
+	(===jis-x0213-1	    . #x2E2D)	; &R-HD-JB-305F; [14-13]
+	(===hanyo-denshi/jb . #x305F)	; &R-HD-JB-305F; [16-63]
 	)
        ((===adobe-japan1-4  . 14316)	; &R-AJ1-14316;
 	)
@@ -9825,9 +9825,9 @@
       (->subsumptive
        ((===daikanwa	    . 00568)	; &R-M-00568;
 	)
-       ((===jis-x0212	    . #x3079)	; &R-JX2-2149; [16-89]
-	(===jis-x0213-2	    . #x2149)	; &R-JX2-2149; [01-41]
-	(===hanyo-denshi/jb . #x3079)	; &R-JX2-2149; [16-89]
+       ((===jis-x0212	    . #x3079)	; &R-HD-JB-3079; [16-89]
+	(===jis-x0213-2	    . #x2149)	; &R-HD-JB-3079; [01-41]
+	(===hanyo-denshi/jb . #x3079)	; &R-HD-JB-3079; [16-89]
 	)
        ((===adobe-japan1-4  . 14320)	; &R-AJ1-14320;
 	)
@@ -10041,9 +10041,9 @@
       (->subsumptive
        ((===daikanwa	    . 00571)	; &R-M-00571;
 	)
-       ((===jis-x0212	    . #x307A)	; &R-JX2-214A; [16-90]
-	(===jis-x0213-2	    . #x214A)	; &R-JX2-214A; [01-42]
-	(===hanyo-denshi/jb . #x307A)	; &R-JX2-214A; [16-90]
+       ((===jis-x0212	    . #x307A)	; &R-HD-JB-307A; [16-90]
+	(===jis-x0213-2	    . #x214A)	; &R-HD-JB-307A; [01-42]
+	(===hanyo-denshi/jb . #x307A)	; &R-HD-JB-307A; [16-90]
 	)
        ((===adobe-japan1-4  . 14321)	; &R-AJ1-14321;
 	)
@@ -19943,12 +19943,10 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x653E)	; &C1-4D73;
-	(=gb2312	    . #x3745)	; &C1-4D73; [23-37]
-	(=cns11643-1	    . #x4D73)	; &I-C1-4D73; [45-83]
+       ((==ucs@unicode	    . #x653E)	; &g2-AJ1-03660;
+	(==adobe-japan1-0   . 03660)	; &g2-AJ1-03660;
 	))
       (==ucs@unicode	  . #x5023)	; &g2-AJ1-03647;
-      (==ucs@ks		  . #x5023)	; &g2-AJ1-03647;
       (==adobe-japan1-0	  . 03647)	; &g2-AJ1-03647;
       (==ks-x1001	  . #x5B27)	; &g2-AJ1-03647; [59-07]
       (==jis-x0208	  . #x4A6F)	; &g2-AJ1-03647; [42-79]
@@ -25721,9 +25719,9 @@
 	)
        ((===mj		    . 006945)	; &R-MJ006945;
 	)
-       ((===jis-x0212	    . #x3174)	; &R-JX2-2167; [17-84]
-	(===jis-x0213-2	    . #x2167)	; &R-JX2-2167; [01-71]
-	(===hanyo-denshi/jb . #x3174)	; &R-JX2-2167; [17-84]
+       ((===jis-x0212	    . #x3174)	; &R-HD-JB-3174; [17-84]
+	(===jis-x0213-2	    . #x2167)	; &R-HD-JB-3174; [01-71]
+	(===hanyo-denshi/jb . #x3174)	; &R-HD-JB-3174; [17-84]
 	)
        ((===adobe-japan1-2  . 08388)	; &R-AJ1-08388;
 	))
@@ -35510,10 +35508,13 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=gt		  . 16787)	; &GT-16787;
-      (=daikanwa	  . 13245)	; &I-M-13245;
+     ((=ucs@jis		  . #x655D)	; &AJ1-05070;
+      (=adobe-japan1-0	  . 05070)	; &AJ1-05070;
       ))
     (=daikanwa		. 01082)	; &M-01082;
+    (->subsumptive
+     ((==daikanwa	  . 01082)	; &g2-M-01082;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -39229,8 +39230,8 @@
       (->subsumptive
        ((===daikanwa/ho	    .  0022)	; &R-M-H0022;
 	)
-       ((===jis-x0212	    . #x3251)	; &R-JSP-3251; [18-49]
-	(===hanyo-denshi/jb . #x3251)	; &R-JSP-3251; [18-49]
+       ((===jis-x0212	    . #x3251)	; &R-HD-JB-3251; [18-49]
+	(===hanyo-denshi/jb . #x3251)	; &R-HD-JB-3251; [18-49]
 	)
        ((===adobe-japan1-6  . 21164)	; &R-AJ1-21164;
 	)
@@ -41495,9 +41496,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x656B)	; &C3-414B;
-	(=gb2312	    . #x6B38)	; &C3-414B; [75-24]
-	(=cns11643-3	    . #x414B)	; &I-C3-414B; [33-43]
+       ((==ucs@unicode	    . #x656B)	; &g2-AJ1-17721;
+	(==adobe-japan1-5   . 17721)	; &g2-AJ1-17721;
 	))
       (==ucs@unicode	  . #x510C)	; &g2-AJ1-19167;
       (==adobe-japan1-5	  . 19167)	; &g2-AJ1-19167;
@@ -43630,9 +43630,9 @@
       (==hanyo-denshi/jb  . #x3255)	; &MJ007161; [18-53]
       (==cbeta		  . 01425)	; &MJ007161;
       (->subsumptive
-       ((===jis-x0212	    . #x3255)	; &R-JX2-2324; [18-53]
-	(===jis-x0213-2	    . #x2324)	; &R-JX2-2324; [03-04]
-	(===hanyo-denshi/jb . #x3255)	; &R-JX2-2324; [18-53]
+       ((===jis-x0212	    . #x3255)	; &R-HD-JB-3255; [18-53]
+	(===jis-x0213-2	    . #x2324)	; &R-HD-JB-3255; [03-04]
+	(===hanyo-denshi/jb . #x3255)	; &R-HD-JB-3255; [18-53]
 	)
        ((===adobe-japan1-4  . 14347)	; &R-AJ1-14347;
 	)
@@ -44998,7 +44998,6 @@
     (=ucs		. #x2040D)	; 𠐍
     (=cns11643-4	. #x5566)	; &I-C4-5566; [53-70]
     (=daikanwa		. 01264)	; &I-M-01264;
-    (=hanziku-1		. #xD672)	; &I-HZK01-D672;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -45007,12 +45006,14 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x6578)	; &GT-16891;
-	(=ks-x1001	    . #x6226)	; &GT-16891; [66-06]
+       ((==ucs@ks	    . #x6578)	; &g2-K0-6226;
+	(==ks-x1001	    . #x6226)	; &g2-K0-6226; [66-06]
 	))
       (==daikanwa	  . 01264)	; &g2-M-01264;
       (->subsumptive
        ((===daikanwa	    . 01264)	; &R-M-01264;
+	)
+       ((=hanziku-1	    . #xD672)	; &HZK01-D672;
 	))
       )
      ((ideographic-structure
@@ -45022,7 +45023,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=cns11643-1	    . #x6D30)	; &C1-6D30; [77-16]
+       ((==ucs@cns	    . #x6578)	; &g2-CU+6578;
+	(==cns11643-1	    . #x6D30)	; &g2-CU+6578; [77-16]
 	))
       (==ucs@iso	  . #x2040D)	; &g2-IU-0002040D;
       (==cns11643-4	  . #x5566)	; &g2-IU-0002040D; [53-70]
