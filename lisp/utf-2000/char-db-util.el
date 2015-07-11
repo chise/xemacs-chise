@@ -297,7 +297,7 @@
     ==gt
     ==jis-x0208@1990
     ;; ==jis-x0208@1983
-    ;; ==jis-x0208@1978
+    ==jis-x0208@1978
     ==gt-k
     =ucs@iso
     =ucs@unicode
