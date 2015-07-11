@@ -1,3 +1,20 @@
+2015-07-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`==jis-x0208@1978'.
+
+2015-07-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (U+53CE): Apply new conventions for
+	glyph granularity for U+6536.
+
+	* Ideograph-R009-Man.el (g2-UU+5023): Apply new conventions for
+	glyph granularity for components of ideographic-structure; omit
+	`==ucs@ks'.
+	(g2-UU+510C): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U-0002040D): Likewise.
+
 2015-07-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (JU+55CC): Add representative nodes.
