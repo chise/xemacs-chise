@@ -1960,6 +1960,7 @@
     (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (hanyu-dazidian	1 371 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1969,13 +1970,40 @@
      ((=ucs		  . #x529B)	; 力
       ))
     (=ucs		. #x52C5)	; 勅
+    (=adobe-japan1-0	. 03032)	; &I-AJ1-03032;
+    (=jis-x0208		. #x443C)	; &I-J90-443C; [36-28]
+    (=ks-x1001		. #x764F)	; &I-K0-764F; [86-47]
+    (=cns11643-3	. #x2B46)	; &I-C3-2B46; [11-38]
+    (=jis-x0213-1	. #x443C)	; &I-JX1-443C; [36-28]
+    (=gt		. 03019)	; &I-GT-03019;
+    (=gt-k		. 05145)	; &I-GT-K05145;
+    (=gt-pj-1		. #x443C)	; &I-GT-03019; [36-28]
+    (=daikanwa		. 02354)	; &I-M-02354;
+    (=shinjigen		.  0727)	; 勅
+    (=cbeta		. 00330)	; &I-CB00330;
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x6555)	; 敕
+      (=jis-x0208	  . #x5A45)	; &I-J90-5A45; [58-37]
+      ))
+    (<-vulgar
+     ((=ucs@unicode	  . #x52D1)	; &AJ1-17326;
+      (=adobe-japan1-5	  . 17326)	; &AJ1-17326;
+      (=daikanwa	  . 02380)	; &I-M-02380;
+      ))
+    (<-vulgar*sources
+     zhengzitong daikanwa)
+    (->synonyms
+     ((=ucs		  . #x6555)	; 敕
+      (=daikanwa	  . 13225)	; &I-M-13225;
+      ))
+    (->synonyms*sources
+     jiyun zhengzitong daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x52C5)	; 勅
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (hanyu-dazidian	  1 371 2)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
@@ -1984,40 +2012,39 @@
 	)
        ((=ucs		    . #x529B)	; 力
 	))
-      (=ucs@unicode	  . #x52C5)	; &AJ1-03032;
-      (=adobe-japan1-0	  . 03032)	; &AJ1-03032;
-      (=jis-x0208	  . #x443C)	; &I-J90-443C; [36-28]
-      (=ks-x1001	  . #x764F)	; &I-K0-764F; [86-47]
-      (=cns11643-3	  . #x2B46)	; &I-C3-2B46; [11-38]
-      (=jis-x0213-1	  . #x443C)	; &I-JX1-443C; [36-28]
-      (=gt		  . 03019)	; &I-GT-03019;
-      (=gt-k		  . 05145)	; &I-GT-K05145;
-      (=gt-pj-1		  . #x443C)	; &I-GT-03019; [36-28]
-      (=daikanwa	  . 02354)	; &I-M-02354;
-      (=shinjigen	  .  0727)	; &AJ1-03032;
-      (=hanziku-1	  . #xF263)	; &I-HZK01-F263;
-      (=cbeta		  . 00330)	; &I-CB00330;
-      (<-simplified@JP/Jouyou
-       ((=ucs@jis	    . #x6555)	; &J90-5A45;
-	(=jis-x0208	    . #x5A45)	; &J90-5A45; [58-37]
-	(=jis-x0213-1	    . #x5A45)	; &I-JX1-5A45; [58-37]
-	(=daikanwa	    . 13225)	; &I-M-13225;
+      (==ucs@unicode	  . #x52C5)	; &g2-AJ1-03032;
+      (==adobe-japan1-0	  . 03032)	; &g2-AJ1-03032;
+      (==ks-x1001	  . #x764F)	; &g2-AJ1-03032; [86-47]
+      (==jis-x0208	  . #x443C)	; &g2-AJ1-03032; [36-28]
+      (==cns11643-3	  . #x2B46)	; &g2-AJ1-03032; [11-38]
+      (==jis-x0213-1	  . #x443C)	; &g2-AJ1-03032; [36-28]
+      (==gt		  . 03019)	; &g2-AJ1-03032;
+      (==gt-k		  . 05145)	; &g2-AJ1-03032;
+      (==daikanwa	  . 02354)	; &g2-AJ1-03032;
+      (==shinjigen	  .  0727)	; &g2-AJ1-03032;
+      (==cbeta		  . 00330)	; &g2-AJ1-03032;
+      (->subsumptive
+       ((===daikanwa	    . 02354)	; &R-M-02354;
+	)
+       ((===jis-x0208	    . #x443C)	; &R-J0-443C; [36-28]
+	(===jis-x0213-1	    . #x443C)	; &R-J0-443C; [36-28]
+	)
+       ((===adobe-japan1-0  . 03032)	; &R-AJ1-03032;
+	)
+       ((===cns11643-3	    . #x2B46)	; &R-C3-2B46; [11-38]
+	)
+       ((===gt		    . 03019)	; &R-GT-03019;
+	(===gt-k	    . 05145)	; &R-GT-03019;
+	)
+       ((===ucs@ks	    . #x52C5)	; &R-K0-764F;
+	(===ks-x1001	    . #x764F)	; &R-K0-764F; [86-47]
+	)
+       ((===ucs@unicode	    . #x52C5)	; &R-UU+52C5;
+	)
+       ((=hanziku-1	    . #xF263)	; &HZK01-F263;
+	)
+       ((===cbeta	    . 00330)	; &R-CB00330;
 	))
-      (<-vulgar
-       ((=ucs@unicode	    . #x52D1)	; &AJ1-17326;
-	(=adobe-japan1-5    . 17326)	; &AJ1-17326;
-	(=daikanwa	    . 02380)	; &I-M-02380;
-	))
-      (<-vulgar*sources
-       zhengzitong daikanwa)
-      (->synonyms
-       ((=ucs@jis	    . #x6555)	; &J90-5A45;
-	(=jis-x0208	    . #x5A45)	; &J90-5A45; [58-37]
-	(=jis-x0213-1	    . #x5A45)	; &I-JX1-5A45; [58-37]
-	(=daikanwa	    . 13225)	; &I-M-13225;
-	))
-      (->synonyms*sources
-       jiyun zhengzitong daikanwa)
       ))
     ))
 (define-char
