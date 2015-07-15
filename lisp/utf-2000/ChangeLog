@@ -1,3 +1,53 @@
+2015-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U-000210A1): Use `->subsumptive'.
+
+2015-07-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R086-Fire.el (U+7225): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R079-Weapon.el (U-00023AC1): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R066-Rap.el: Add some representative nodes.
+	(U+6536): Apply new conventions for glyph granularity.
+	(U+6537): Likewise.
+	(UU+6538): Likewise.
+	(U+6539): Likewise.
+	(U+653A): Likewise.
+	(U+653E): Likewise.
+	(U+653F): Likewise.
+	(U+6545): Likewise.
+	(U+6558): Likewise.
+	(U+6555): Likewise.
+	(U+6557): Likewise.
+	(U+655D): Likewise.
+	(U+6563): Likewise.
+	(U+6566): Likewise.
+	(U+3A9A): Use `<-same' for U+6563 instead of `<-unknown' for
+	UU+6563.
+	(U+656B): Apply new conventions for glyph granularity.
+	(U+3A9F): Likewise.
+	(U+6570): Likewise.
+	(U+6572): Likewise.
+	(U+3AA3): Likewise.
+	(U-00022FBE): Likewise.
+	(U+6578): Likewise.
+	(U-00022FD9): Likewise.
+	(U-00022FE8): Likewise.
+	(U+6574): Likewise.
+	(U+6582): Likewise.
+	(U+6583): Likewise.
+
+	* Ideograph-R064-Hand.el (M-12677): Add representative nodes.
+
+	* Ideograph-R050-Turban.el (U+5E63): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R019-Power.el (U+52C5): Apply new conventions for
+	glyph granularity.
+
 2015-07-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
