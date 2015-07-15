@@ -539,7 +539,7 @@
     (total-strokes	 . 10)
     (=ucs@unicode	. #x6BBA)	; &GT-21319;
     (=ucs@JP/hanazono	. nil)
-    (=jis-x0208		. #x3B26)	; &J90-3B26; [27-06]
+    (=jis-x0208		. #x3B26)	; &GT-21319; [27-06]
     (=jis-x0213-1	. #x3B26)	; &I-JX1-3B26; [27-06]
     (=gb12345		. #x4931)	; &GT-21319; [41-17]
     (=gt		. 21319)	; &I-GT-21319;
@@ -2310,19 +2310,24 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
     (=ucs		. #x23AC1)	; 𣫁
+    (=cns11643-7	. #x2F22)	; &I-C7-2F22; [15-02]
+    (=daikanwa		. 16689)	; &I-M-16689;
+    (<-same
+     ((=ucs		  . #x6572)	; 敲
+      (=daikanwa	  . 13337)	; &I-M-13337;
+      ))
+    (<-same*sources
+     zihui-bu daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 16689)	; &M-16689;
-      (<-same
-       ((=ucs@jis	    . #x6572)	; &AJ1-05071;
-	(=ucs@ks	    . #x6572)	; &AJ1-05071;
-	(=adobe-japan1-0    . 05071)	; &AJ1-05071;
-	(=daikanwa	    . 13337)	; &I-M-13337;
-	))
-      (<-same*sources
-       zihui-bu daikanwa)
+     ((==daikanwa	  . 16689)	; &g2-M-16689;
       )
-     ((=ucs@iso		  . #x23AC1)	; &C7-2F22;
-      (=cns11643-7	  . #x2F22)	; &C7-2F22; [15-02]
+     ((==ucs@iso	  . #x23AC1)	; &g2-IU-00023AC1;
+      (==cns11643-7	  . #x2F22)	; &g2-IU-00023AC1; [15-02]
+      (->subsumptive
+       ((===cns11643-7	    . #x2F22)	; &R-C7-2F22; [15-02]
+	)
+       ((===ucs@iso	    . #x23AC1)	; &R-U-00023AC1;
+	))
       ))
     ))
 (define-char
