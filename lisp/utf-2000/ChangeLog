@@ -1,5 +1,8 @@
 2015-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (U+58AA): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
 	* Ideograph-R030-Mouth.el (U-000210A1): Use `->subsumptive'.
 
 2015-07-10  MORIOKA Tomohiko  <tomo.git@chise.org>
