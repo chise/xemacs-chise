@@ -884,7 +884,8 @@
     (<-same*sources
      jiyun daikanwa)
     (<-vulgar
-     ((=daikanwa	  . 23005)	; &M-23005;
+     ((=hanyo-denshi/jt	  . #xB63A)	; &HD-JT-B63A;
+      (=daikanwa	  . 23005)	; &I-M-23005;
       ))
     (<-vulgar*sources
      zhengzitong daikanwa)
