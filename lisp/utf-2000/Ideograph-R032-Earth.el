@@ -575,9 +575,9 @@
       (->subsumptive
        ((===daikanwa	    . 04895)	; &R-M-04895;
 	)
-       ((===jis-x0212	    . #x3738)	; &R-JX1-2F46; [23-24]
-	(===jis-x0213-1	    . #x2F46)	; &R-JX1-2F46; [15-38]
-	(===hanyo-denshi/jb . #x3738)	; &R-JX1-2F46; [23-24]
+       ((===jis-x0212	    . #x3738)	; &R-HD-JB-3738; [23-24]
+	(===jis-x0213-1	    . #x2F46)	; &R-HD-JB-3738; [15-38]
+	(===hanyo-denshi/jb . #x3738)	; &R-HD-JB-3738; [23-24]
 	)
        ((===adobe-japan1-4  . 14422)	; &R-AJ1-14422;
 	)
@@ -9855,10 +9855,8 @@
     (=shinjigen		.  5033)	; 堺
     (=cbeta		. 01948)	; &I-CB01948;
     (<-formed
-     ((=ucs@jis		  . #x754C)	; &J90-3326;
-      (=jis-x0208	  . #x3326)	; &J90-3326; [19-06]
-      (=jis-x0213-1	  . #x3326)	; &I-JX1-3326; [19-06]
-      (=daikanwa	  . 21775)	; &I-M-21775;
+     ((=ucs		  . #x754C)	; 界
+      (=jis-x0208	  . #x3326)	; &I-J90-3326; [19-06]
       (=shinjigen	  .  5031)	; 界
       ))
     (<-formed*sources
@@ -14047,9 +14045,9 @@
       (==jis-x0213-2	  . #x252B)	; &MJ009271; [05-11]
       (==hanyo-denshi/jb  . #x3842)	; &MJ009271; [24-34]
       (->subsumptive
-       ((===jis-x0212	    . #x3842)	; &R-JX2-252B; [24-34]
-	(===jis-x0213-2	    . #x252B)	; &R-JX2-252B; [05-11]
-	(===hanyo-denshi/jb . #x3842)	; &R-JX2-252B; [24-34]
+       ((===jis-x0212	    . #x3842)	; &R-HD-JB-3842; [24-34]
+	(===jis-x0213-2	    . #x252B)	; &R-HD-JB-3842; [05-11]
+	(===hanyo-denshi/jb . #x3842)	; &R-HD-JB-3842; [24-34]
 	)
        ((===adobe-japan1-5  . 17455)	; &R-AJ1-17455;
 	)
@@ -15439,14 +15437,13 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x6566)	; &J90-4658;
-	(=jis-x0208	    . #x4658)	; &J90-4658; [38-56]
-	(=jis-x0213-1	    . #x4658)	; &I-JX1-4658; [38-56]
-	(=daikanwa	    . 13276)	; &I-M-13276;
+       ((==ucs@jis	    . #x6566)	; &g2-J90-4658;
+	(==jis-x0208	    . #x4658)	; &g2-J90-4658; [38-56]
 	)
        ((=ucs		    . #x571F)	; 土
 	))
       (==ucs@jis	  . #x58AA)	; &g2-JX2-2530;
+      (==ucs@JP/hanazono  . nil)
       (==jis-x0213-2	  . #x2530)	; &g2-JX2-2530; [05-16]
       (==daikanwa	  . 05471)	; &g2-JX2-2530;
       (->subsumptive
@@ -15464,9 +15461,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x6566)	; &C1-5F55;
-	(=gb2312	    . #x3658)	; &C1-5F55; [22-56]
-	(=cns11643-1	    . #x5F55)	; &I-C1-5F55; [63-53]
+       ((==ucs@unicode	    . #x6566)	; &g2-AJ1-03248;
+	(==adobe-japan1-0   . 03248)	; &g2-AJ1-03248;
 	)
        ((=ucs		    . #x571F)	; 土
 	))
@@ -17702,9 +17698,9 @@
       (==jis-x0213-1	  . #x2F61)	; &g2-MJ009350; [15-65]
       (==hanyo-denshi/jb  . #x3856)	; &g2-MJ009350; [24-54]
       (->subsumptive
-       ((===jis-x0212	    . #x3856)	; &R-JX1-2F61; [24-54]
-	(===jis-x0213-1	    . #x2F61)	; &R-JX1-2F61; [15-65]
-	(===hanyo-denshi/jb . #x3856)	; &R-JX1-2F61; [24-54]
+       ((===jis-x0212	    . #x3856)	; &R-HD-JB-3856; [24-54]
+	(===jis-x0213-1	    . #x2F61)	; &R-HD-JB-3856; [15-65]
+	(===hanyo-denshi/jb . #x3856)	; &R-HD-JB-3856; [24-54]
 	)
        ((===adobe-japan1-5  . 16822)	; &R-AJ1-16822;
 	)
