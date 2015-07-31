@@ -1,3 +1,26 @@
+2015-07-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R108-Dish.el: Add some representative nodes.
+	(U-0002504B): Unify 29417, GT-K05615 and S-5245; add `<-original'
+	for U+76CD.
+	(U+76C7): Unify GT-29418, GT-K05605 and S-5246; use `<-same'
+	instead of `<-unknown' for U-0002504B; add `<-vulgar' for U+76CD.
+	(U+76CA): Apply new conventions for glyph granularity.
+	(U+76D7): Likewise.
+	(U+76DC): Likewise.
+	(U-00025077): Unify M-23017.
+	(U-00025078): Integrate M-23018.
+	(U-00025079): Unify M-23021.
+	(U-0002507A): Unify M-23022; add `<-same' for U+9193.
+	(U+4005): Integrate M-23023.
+	(UU+76DF): Apply new conventions for glyph granularity.
+	(U-0002507B): Unify M-23025.
+	(U+76E3): Apply new conventions for glyph granularity.
+	(U-00025088): Unify M-23035.
+	(U+76E4): Apply new conventions for glyph granularity.
+	(U-0002508A): Unify M-23038.
+	(U+76E6): Apply new conventions for glyph granularity.
+
 2015-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (U+58AA): Apply new conventions for
