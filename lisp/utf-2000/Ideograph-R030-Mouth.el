@@ -40821,6 +40821,7 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
+    (hanyu-dazidian	1 691 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -40830,6 +40831,8 @@
      ((=ucs		  . #x6B47)	; 歇
       ))
     (=ucs		. #x20FD2)	; 𠿒
+    (=daikanwa		. 04373)	; &I-M-04373;
+    (=cbeta		. 01231)	; &I-CB01231;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -40837,28 +40840,33 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@jis	    . #x6B47)	; &GT-20735;
-	(=jis-x0208	    . #x5D3C)	; &GT-20735; [61-28]
-	(=ks-x1001	    . #x7A4E)	; &I-K0-7A4E; [90-46]
-	(=cns11643-1	    . #x6458)	; &I-C1-6458; [68-56]
-	(=jis-x0213-1	    . #x5D3C)	; &I-JX1-5D3C; [61-28]
-	(=daikanwa	    . 16141)	; &I-M-16141;
+       ((==ucs@cns	    . #x6B47)	; &g2-GT-20735;
+	(==ucs@jis	    . #x6B47)	; &g2-GT-20735;
+	(==ucs@ks	    . #x6B47)	; &g2-GT-20735;
+	(==jis-x0208	    . #x5D3C)	; &g2-GT-20735; [61-28]
 	))
-      (=daikanwa	  . 04373)	; &M-04373;
-      (=cbeta		  . 01231)	; &I-CB01231;
+      (==daikanwa	  . 04373)	; &g2-M-04373;
+      (==cbeta		  . 01231)	; &g2-M-04373;
+      (->subsumptive
+       ((===daikanwa	    . 04373)	; &R-M-04373;
+	)
+       ((===cbeta	    . 01231)	; &R-CB01231;
+	))
       )
-     ((hanyu-dazidian	  1 691 4)
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@unicode	    . #x6B47)	; &G0-502A;
-	(=gb2312	    . #x502A)	; &G0-502A; [48-10]
+       ((==ucs@unicode	    . #x6B47)	; &g2-UU+6B47;
 	))
-      (=ucs@iso		  . #x20FD2)	; &HZK02-E072;
-      (=hanziku-2	  . #xE072)	; &HZK02-E072;
+      (==ucs@iso	  . #x20FD2)	; &g2-IU-00020FD2;
+      (->subsumptive
+       ((===ucs@iso	    . #x20FD2)	; &R-U-00020FD2;
+	)
+       ((=hanziku-2	    . #xE072)	; &HZK02-E072;
+	))
       ))
     ))
 (define-char
