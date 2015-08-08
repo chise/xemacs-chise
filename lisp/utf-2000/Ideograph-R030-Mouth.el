@@ -32484,11 +32484,9 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@cns	    . #x6B36)	; &JSP-456E;
-	(=ucs@jis	    . #x6B36)	; &JSP-456E;
-	(=jis-x0212	    . #x456E)	; &JSP-456E; [37-78]
-	(=cns11643-2	    . #x363A)	; &I-C2-363A; [22-26]
-	(=daikanwa	    . 16086)	; &I-M-16086;
+       ((==ucs@cns	    . #x6B36)	; &g2-JSP-456E;
+	(==ucs@jis	    . #x6B36)	; &g2-JSP-456E;
+	(==daikanwa	    . 16086)	; &g2-JSP-456E;
 	))
       (==ucs@cns	  . #x55FD)	; &g2-AJ1-04425;
       (==ucs@jis	  . #x55FD)	; &g2-AJ1-04425;
@@ -32522,7 +32520,7 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@unicode	    . #x6B36)	; &UU+6B36;
+       ((==ucs@unicode	    . #x6B36)	; &g2-UU+6B36;
 	))
       (==ucs@unicode	  . #x55FD)	; &g2-UU+55FD;
       (==ucs@JP/hanazono  . nil)
