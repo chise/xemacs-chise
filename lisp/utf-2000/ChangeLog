@@ -1,3 +1,18 @@
+2015-08-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R082-Fur.el: Add some representative nodes.
+	(U+6BE6): Apply new conventions for glyph granularity.
+	(U+6BEB): Likewise.
+	(U+6BEE): Likewise.
+	(U+6BF3): Likewise.
+	(U+6BF9): Likewise.
+	(U+6BFF): Likewise.
+	(U+6C04): Likewise.
+	(U+6C05): Likewise.
+	(U+3CAF): Likewise.
+	(U+6C0D): Likewise.
+	(U+6C0E): Likewise.
+
 2015-08-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R076-Lack.el: Add some representative nodes.
