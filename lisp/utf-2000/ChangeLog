@@ -1,3 +1,10 @@
+2015-08-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+503C): Apply new conventions for glyph
+	granularity.
+	(U-000202DD): Likewise.
+	(U-00020469): Likewise.
+
 2015-08-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R082-Fur.el: Add some representative nodes.
