@@ -38463,7 +38463,19 @@
   '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 20)
     (total-strokes	 . 24)
+    (hanyu-dazidian	2 1325 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6728)	; 木
+      )
+     ((=ucs		  . #x77CD)	; 矍
+      ))
     (=ucs		. #x6B14)	; 欔
+    (=cns11643-3	. #x6074)	; &I-C3-6074; [64-84]
+    (=daikanwa		. 15955)	; &I-M-15955;
+    (=cbeta		. 05753)	; &I-CB05753;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -38471,28 +38483,24 @@
 	)
        ((=gt-k		    . 00495)	; &GT-K00495;
 	)
-       ((=ucs@jis	    . #x77CD)	; &GT-30443;
-	(=jis-x0208	    . #x625F)	; &GT-30443; [66-63]
-	(=jis-x0213-1	    . #x625F)	; &I-JX1-625F; [66-63]
-	(=daikanwa	    . 23792)	; &I-M-23792;
+       ((==ucs@unicode	    . #x77CD)	; &g2-GT-30443;
+	(==jis-x0208	    . #x625F)	; &g2-GT-30443; [66-63]
 	))
-      (=daikanwa	  . 15955)	; &M-15955;
-      (=cbeta		  . 05753)	; &I-CB05753;
+      (==ucs@unicode	  . #x6B14)	; &g2-M-15955;
+      (==cns11643-3	  . #x6074)	; &g2-M-15955; [64-84]
+      (==daikanwa	  . 15955)	; &g2-M-15955;
+      (==cbeta		  . 05753)	; &g2-M-15955;
+      (->subsumptive
+       ((===daikanwa	    . 15955)	; &R-M-15955;
+	)
+       ((===cbeta	    . 05753)	; &R-CB05753;
+	)
+       ((===cns11643-3	    . #x6074)	; &R-C3-6074; [64-84]
+	)
+       ((===ucs@unicode	    . #x6B14)	; &R-UU+6B14;
+	))
       )
-     ((hanyu-dazidian	  2 1325 14)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=gt-k		    . 00495)	; &GT-K00495;
-	)
-       ((=ucs@unicode	    . #x77CD)	; &C2-6946;
-	(=gb2312	    . #x5B47)	; &C2-6946; [59-39]
-	(=cns11643-2	    . #x6946)	; &I-C2-6946; [73-38]
-	))
-      (=ucs@unicode	  . #x6B14)	; &C3-6074;
-      (=cns11643-3	  . #x6074)	; &C3-6074; [64-84]
-      (=hanziku-4	  . #xB8D4)	; &I-HZK04-B8D4;
+     ((=hanziku-4	  . #xB8D4)	; &HZK04-B8D4;
       ))
     ))
 (define-char
