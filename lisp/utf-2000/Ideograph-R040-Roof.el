@@ -7152,36 +7152,39 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (=ucs		. #x5BE0)	; 寠
+    (=adobe-japan1-5	. 19323)	; &I-AJ1-19323;
+    (=jis-x0212		. #x3A64)	; &I-JSP-3A64; [26-68]
+    (=cns11643-2	. #x4965)	; &I-C2-4965; [41-69]
     (=big5		. #xE17E)	; &I-B-E17E;
+    (=daikanwa		. 07285)	; &I-M-07285;
+    (=shinjigen		.  1860)	; 寠
+    (=jef-china3	. #x4AC3)	; &I-JC3-4AC3;
     (->subsumptive
-     ((=ucs@unicode	  . #x5BE0)	; &AJ1-19323;
-      (=adobe-japan1-5	  . 19323)	; &AJ1-19323;
-      (=jis-x0212	  . #x3A64)	; &I-JSP-3A64; [26-68]
-      (=daikanwa	  . 07285)	; &I-M-07285;
-      (=jef-china3	  . #x4AC3)	; &I-JC3-4AC3;
+     ((=decomposition@cid
+       ((=ucs		    . #x5BE0)	; 寠
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x5BE0)	; &g2-AJ1-19323;
+      (==adobe-japan1-5	  . 19323)	; &g2-AJ1-19323;
+      (==jis-x0212	  . #x3A64)	; &g2-AJ1-19323; [26-68]
+      (==daikanwa	  . 07285)	; &g2-AJ1-19323;
+      (==shinjigen	  .  1860)	; &g2-AJ1-19323;
+      (==jef-china3	  . #x4AC3)	; &g2-AJ1-19323;
       (->subsumptive
-       ((=decomposition@cid
-	 ((=ucs		      . #x5BE0)	; 寠
-	  )
-	 ((=ucs		      . #xE0100)	; 󠄀
-	  ))
-	(==ucs@unicode	    . #x5BE0)	; &g2-AJ1-19323;
-	(==adobe-japan1-5   . 19323)	; &g2-AJ1-19323;
-	(==jis-x0212	    . #x3A64)	; &g2-AJ1-19323; [26-68]
-	(==daikanwa	    . 07285)	; &g2-AJ1-19323;
-	(->subsumptive
-	 ((===daikanwa	      . 07285)	; &R-M-07285;
-	  )
-	 ((===jis-x0212	      . #x3A64)	; &R-JSP-3A64; [26-68]
-	  )
-	 ((===adobe-japan1-5  . 19323)	; &R-AJ1-19323;
-	  )
-	 ((===ucs@unicode     . #x5BE0)	; &R-UU+5BE0;
-	  ))
+       ((===daikanwa	    . 07285)	; &R-M-07285;
+	)
+       ((===jis-x0212	    . #x3A64)	; &R-JSP-3A64; [26-68]
+	)
+       ((===adobe-japan1-5  . 19323)	; &R-AJ1-19323;
+	)
+       ((===jef-china3	    . #x4AC3)	; &R-JC3-4AC3;
+	)
+       ((===ucs@unicode	    . #x5BE0)	; &R-UU+5BE0;
 	))
       )
-     ((=ucs@cns		  . #x5BE0)	; &C2-4965;
-      (=cns11643-2	  . #x4965)	; &C2-4965; [41-69]
+     ((==ucs@cns	  . #x5BE0)	; &g2-CU+5BE0;
+      (==cns11643-2	  . #x4965)	; &g2-CU+5BE0; [41-69]
       ))
     ))
 (define-char
