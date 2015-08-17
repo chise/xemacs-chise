@@ -26204,6 +26204,7 @@
      daikanwa)
     (ideographic-strokes@cns . 10)
     (total-strokes@cns	     . 13)
+    (hanyu-dazidian	1 662 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -26213,6 +26214,9 @@
      ((=ucs		  . #x7A86)	; 窆
       ))
     (=ucs		. #x20DD6)	; 𠷖
+    (=cns11643-5	. #x3E22)	; &I-C5-3E22; [30-02]
+    (=daikanwa		. 03995)	; &I-M-03995;
+    (=cbeta		. 03312)	; &I-CB03312;
     (->subsumptive
      ((ideographic-strokes . 9)
       (total-strokes	   . 12)
@@ -26222,25 +26226,35 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@jis	    . #x7A86)	; &JSP-5155;
-	(=jis-x0212	    . #x5155)	; &JSP-5155; [49-53]
-	(=daikanwa	    . 25459)	; &I-M-25459;
+       ((==ucs@jis	    . #x7A86)	; &g2-JSP-5155;
+	(==daikanwa	    . 25459)	; &g2-JSP-5155;
 	))
-      (=daikanwa	  . 03995)	; &M-03995;
-      (=cbeta		  . 03312)	; &I-CB03312;
+      (==daikanwa	  . 03995)	; &g2-M-03995;
+      (==cbeta		  . 03312)	; &g2-M-03995;
+      (->subsumptive
+       ((===daikanwa	    . 03995)	; &R-M-03995;
+	)
+       ((===cbeta	    . 03312)	; &R-CB03312;
+	))
       )
-     ((hanyu-dazidian	  1 662 5)
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=cns11643-2	    . #x3159)	; &C2-3159; [17-57]
+       ((==ucs@cns	    . #x7A86)	; &g2-CU+7A86;
+	(==cns11643-2	    . #x3159)	; &g2-CU+7A86; [17-57]
 	))
-      (=ucs@iso		  . #x20DD6)	; &C5-3E22;
-      (=cns11643-5	  . #x3E22)	; &C5-3E22; [30-02]
-      (=hanziku-2	  . #xDAA3)	; &I-HZK02-DAA3;
+      (==ucs@iso	  . #x20DD6)	; &g2-IU-00020DD6;
+      (==cns11643-5	  . #x3E22)	; &g2-IU-00020DD6; [30-02]
+      (->subsumptive
+       ((===cns11643-5	    . #x3E22)	; &R-C5-3E22; [30-02]
+	)
+       ((===ucs@iso	    . #x20DD6)	; &R-U-00020DD6;
+	)
+       ((=hanziku-2	    . #xDAA3)	; &HZK02-DAA3;
+	))
       ))
     ))
 (define-char
