@@ -1,3 +1,9 @@
+2015-08-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R091-Slice.el: Add some representative nodes.
+	(U+724F): Apply new conventions for glyph granularity.
+	(U+7255): Use `->denotational' and `->subsumptive'.
+
 2015-08-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R115-Grain.el: Add some representative nodes.
