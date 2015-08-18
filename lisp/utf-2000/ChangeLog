@@ -1,3 +1,32 @@
+2015-08-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R109-Eye.el: Add some representative nodes.
+	(U+76F2): Apply new conventions for glyph granularity.
+	(U+76F4): Likewise.
+	(U+7707): Likewise.
+	(U+7714): Likewise.
+	(U+7739): Likewise.
+	(U+7746): Likewise.
+	(U+7756): Likewise.
+	(U+7762): Likewise.
+	(U+776A): Likewise.
+	(U-00025220): New character.
+	(U+779A): Apply new conventions for glyph granularity.
+	(U+77B5): Likewise.
+	(U+77BE): Likewise.
+	(U+77C7): Likewise.
+	(U+77CD): Likewise.
+	(U+77D9): Likewise.
+
+	* Ideograph-R086-Fire.el (U+7076): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R040-Roof.el (U+5BE0): Apply new conventions for glyph
+	granularity; unify S-1860.
+
+	* Ideograph-R030-Mouth.el (U-00020DD6): Apply new conventions for
+	glyph granularity.
+
 2015-08-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R050-Turban.el (U+3867): Apply new conventions for
