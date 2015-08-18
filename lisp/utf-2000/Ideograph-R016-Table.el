@@ -934,6 +934,14 @@
     (ideographic-radical@daikanwa . 16)	; ⼏
     (ideographic-strokes@daikanwa . 6)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=adobe-japan1-4	  . 13834)	; &AJ1-13834;
+      )
+     ((=gt-k		  . 01457)	; &GT-K01457;
+      ))
     (=ucs		. #x9F21)	; 鼡
     (=adobe-japan1-0	. 07454)	; &I-AJ1-07454;
     (=jis-x0208		. #x736B)	; &I-J90-736B; [83-75]
