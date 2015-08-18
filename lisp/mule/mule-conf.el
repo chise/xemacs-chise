@@ -1489,6 +1489,15 @@
 	      =>iso-ir 172
 	      graphic 0))
   (make-charset
+   '=>cns11643-5
+   "CNS 11643 Plane 5 abstract characters."
+   '(registry "CNS11643[.-]\\(.*[.-]\\)?5$"
+	      dimension 2
+	      chars 94
+	      mother =cns11643-5
+	      =>iso-ir 185
+	      graphic 0))
+  (make-charset
    '=>cns11643-6
    "CNS 11643 Plane 6 abstract characters."
    '(registry "CNS11643[.-]\\(.*[.-]\\)?6$"
