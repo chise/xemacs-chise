@@ -1,5 +1,68 @@
 2015-08-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R115-Grain.el: Add some representative nodes.
+	(U+79D2): Apply new conventions for glyph granularity.
+	(U-0002577B): Likewise.
+	(U+79E2): Likewise.
+	(U+79EA): Likewise.
+	(U+7A02): Likewise.
+	(U+7A07): Likewise.
+	(U+7A09): Likewise.
+	(U+7A0D): Likewise.
+	(U+7A11): Likewise.
+	(U+7A14): Likewise.
+	(U+7A15): Likewise.
+	(U+7A19): Likewise.
+	(U+7A1A): Likewise.
+	(U+7A1C): Likewise.
+	(U+7A21): Likewise.
+	(U+7A27): Likewise.
+	(U+7A2F): Likewise.
+	(U+7A40): Likewise.
+	(U+7A34): Likewise.
+	(U+7A35): Likewise.
+	(U+7A37): Likewise.
+	(U+7A38): Likewise.
+	(U+7A39): Likewise.
+	(U+7A3A): Likewise.
+	(U+7A3D): Likewise.
+	(KU+7A3D): Unify U-00025874 and C7-3061.
+	(U+7A3E): Apply new conventions for glyph granularity.
+	(U+7A3F): Likewise.
+	(U+7A40): Likewise.
+	(U+7A45): Likewise.
+	(U+7A48): Likewise.
+	(U-0002586A): Integrate M-25258.
+	(U-0002586B): Unify M-25259.
+	(U+417A): Apply new conventions for glyph granularity; unify
+	S-5604; add `<-formed' for U+79D2.
+	(U-00025888): Unify M-25275.
+	(U+7A49): Apply new conventions for glyph granularity; unify
+	S-5636; add `<-formed' for U+7A1A.
+	(U+7A56): Apply new conventions for glyph granularity.
+	(U+7A5C): Likewise.
+	(U+7A5F): Likewise.
+	(U+7A67): Likewise.
+	(U+4188): Likewise.
+	(U+7A70): Likewise.
+
+	* Ideograph-R085-Water.el (U+6F25): Unify S-4450; add `<-formed'
+	for U+7AAA.
+
+	* Ideograph-R075-Tree.el (U-0002353B): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R032-Earth.el (U+5817): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R009-Man.el (U-000202B2): Apply new conventions for
+	glyph granularity.
+	(U+50D2): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U-00020445): Apply new conventions for glyph granularity.
+
+2015-08-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R109-Eye.el: Add some representative nodes.
 	(U+76F2): Apply new conventions for glyph granularity.
 	(U+76F4): Likewise.
@@ -26,6 +89,8 @@
 
 	* Ideograph-R030-Mouth.el (U-00020DD6): Apply new conventions for
 	glyph granularity.
+
+	* Ideograph-R016-Table.el (U+9F21): Add `ideographic-structure'.
 
 2015-08-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
