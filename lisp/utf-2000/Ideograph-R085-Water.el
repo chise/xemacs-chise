@@ -21831,7 +21831,15 @@
     (=jis-x0213-2	. #x6F2F)	; &I-JX2-6F2F; [79-15]
     (=big5		. #xE270)	; &I-B-E270;
     (=daikanwa		. 18158)	; &I-M-18158;
+    (=shinjigen		.  4450)	; 漥
     (=jef-china3	. #x56F1)	; &I-JC3-56F1;
+    (<-formed
+     ((=ucs		  . #x7AAA)	; 窪
+      (=jis-x0208	  . #x3726)	; &I-J90-3726; [23-06]
+      (=shinjigen	  .  4449)	; 窪
+      ))
+    (<-formed*sources
+     shinjigen)
     (->subsumptive
      ((=>>ucs@jis	  . #x6F25)	; &G-AJ1-17980;
       (=>>ucs@cns	  . #x6F25)	; &G-AJ1-17980;
@@ -21843,6 +21851,7 @@
 	(==adobe-japan1-5   . 17980)	; &g2-AJ1-17980;
 	(==jis-x0213-2	    . #x6F2F)	; &g2-AJ1-17980; [79-15]
 	(==daikanwa	    . 18158)	; &g2-AJ1-17980;
+	(==shinjigen	    .  4450)	; &g2-AJ1-17980;
 	(==jef-china3	    . #x56F1)	; &g2-AJ1-17980;
 	(->subsumptive
 	 ((===daikanwa	      . 18158)	; &R-M-18158;
