@@ -102,6 +102,7 @@
       (=shinjigen	  .  1953)	; &AJ1-03246;
       )
      ((=ucs@unicode	  . #x5C6F)	; &C1-453A;
+      (=ucs@JP/hanazono	  . nil)
       (=gb2312		  . #x4D4D)	; &C1-453A; [45-45]
       (=cns11643-1	  . #x453A)	; &I-C1-453A; [37-26]
       (=big5		  . #xA4D9)	; &I-B-A4D9;
