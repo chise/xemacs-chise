@@ -36196,25 +36196,56 @@
     (=ucs		. #x5630)	; 嘰
     (=big5		. #xBC54)	; &I-B-BC54;
     (->subsumptive
-     ((=decomposition@cid
-       ((=ucs		    . #x5630)	; 嘰
-	)
-       ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=cns11643-1	    . #x5E7D)	; &GT-11608; [62-93]
+       ((=ucs@jis	    . #x5E7E)	; &AJ1-01586;
+	(=ucs@ks	    . #x5E7E)	; &AJ1-01586;
+	(=adobe-japan1-0    . 01586)	; &AJ1-01586;
 	))
+      (=ucs@cns		  . #x5630)	; &AJ1-17394;
       (=ucs@jis		  . #x5630)	; &AJ1-17394;
       (=adobe-japan1-5	  . 17394)	; &AJ1-17394;
       (=jis-x0212	  . #x3635)	; &I-JSP-3635; [22-21]
       (=cns11643-1	  . #x6C3E)	; &I-C1-6C3E; [76-30]
       (=jis-x0213-2	  . #x2440)	; &I-JX2-2440; [04-32]
       (=daikanwa	  . 04247)	; &I-M-04247;
+      (->subsumptive
+       ((=decomposition@cid
+	 ((=ucs		      . #x5630)	; 嘰
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((=ucs		      . #x53E3)	; 口
+	  )
+	 ((==ucs@cns	      . #x5E7E)	; &g2-GT-11608;
+	  (==cns11643-1	      . #x5E7D)	; &g2-GT-11608; [62-93]
+	  ))
+	(==ucs@cns	    . #x5630)	; &g2-AJ1-17394;
+	(==ucs@jis	    . #x5630)	; &g2-AJ1-17394;
+	(==adobe-japan1-5   . 17394)	; &g2-AJ1-17394;
+	(==jis-x0212	    . #x3635)	; &g2-AJ1-17394; [22-21]
+	(==cns11643-1	    . #x6C3E)	; &g2-AJ1-17394; [76-30]
+	(==jis-x0213-2	    . #x2440)	; &g2-AJ1-17394; [04-32]
+	(==daikanwa	    . 04247)	; &g2-AJ1-17394;
+	(->subsumptive
+	 ((===daikanwa	      . 04247)	; &R-M-04247;
+	  )
+	 ((===jis-x0212	      . #x3635)	; &R-JX2-2440; [22-21]
+	  (===jis-x0213-2     . #x2440)	; &R-JX2-2440; [04-32]
+	  )
+	 ((===adobe-japan1-5  . 17394)	; &R-AJ1-17394;
+	  )
+	 ((===cns11643-1      . #x6C3E)	; &R-C1-6C3E; [76-30]
+	  ))
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
