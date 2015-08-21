@@ -891,18 +891,38 @@
     (hanyu-dazidian	2 1094 6)
     (=ucs		. #x221BB)	; 𢆻
     (=cns11643-6	. #x295E)	; &I-C6-295E; [09-62]
-    (=hanziku-3		. #xDF74)	; &I-HZK03-DF74;
     (<-ancient
      ((=ucs@jis		  . #x5E7E)	; &AJ1-01586;
+      (=ucs@ks		  . #x5E7E)	; &AJ1-01586;
       (=adobe-japan1-0	  . 01586)	; &AJ1-01586;
       (=daikanwa	  . 09208)	; &I-M-09208;
       ))
     (<-ancient*sources
      yupian jiyun daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 01775)	; &M-01775;
+     ((ideographic-radical . 16)	; ⼏
+      (ideographic-strokes . 6)
+      (==ucs@cns	  . #x221BB)	; &M-01775;
+      (==cns11643-6	  . #x295E)	; &M-01775; [09-62]
+      (=daikanwa	  . 01775)	; &M-01775;
+      (->subsumptive
+       ((===daikanwa	    . 01775)	; &R-M-01775;
+	)
+       ((===cns11643-6	    . #x295E)	; &R-C6-295E; [09-62]
+	))
       )
-     ((=daikanwa	  . 09200)	; &M-09200;
+     ((ideographic-radical . 52)	; ⼳
+      (ideographic-strokes . 5)
+      (=daikanwa	  . 09200)	; &M-09200;
+      )
+     ((ideographic-radical . 52)	; ⼳
+      (ideographic-strokes . 5)
+      (==ucs@iso	  . #x221BB)	; &g2-IU-000221BB;
+      (->subsumptive
+       ((===ucs@iso	    . #x221BB)	; &R-U-000221BB;
+	)
+       ((=hanziku-3	    . #xDF74)	; &HZK03-DF74;
+	))
       ))
     ))
 (define-char
