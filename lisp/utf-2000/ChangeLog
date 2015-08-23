@@ -1,3 +1,19 @@
+2015-08-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R033-Scholar.el (JU+58F3): Add representative nodes.
+	(A-UU+58F3): New abstract node.
+	(UU+58F3): Use A-UU+58F3 instead of U+58F3 as the mother; add
+	representative nodes.
+
+2015-08-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (JU+6AE4): Apply new conventions for
+	glyph granularity for components of ideographic-structure; add
+	representative nodes.
+	(UU+6AE4): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(UU+6AE9): Unify S-3844; add `<-vulgar' for U+6A90.
+
 2015-08-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R118-Bamboo.el: Add some representative nodes.
