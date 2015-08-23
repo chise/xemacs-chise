@@ -1,3 +1,55 @@
+2015-08-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R118-Bamboo.el: Add some representative nodes.
+	(U+7B07): Apply new conventions for glyph granularity.
+	(U+7B12): Likewise.
+	(U+7B20): Likewise.
+	(U+7B2D): Likewise.
+	(U+7B4C): Likewise.
+	(U+7B64): Likewise.
+	(U+7B66): Likewise.
+	(U+7B72): Likewise.
+	(U+7B73): Likewise.
+	(U+7B75): Likewise.
+	(U-00025B91): Likewise.
+	(U+7B8E): Likewise.
+	(U+7B90): Likewise.
+	(U+7B9C): Likewise.
+	(U+7BA1): Likewise.
+	(U+7BAD): Likewise.
+	(U+7BAF): Likewise.
+	(U+7BB5): Likewise.
+	(U+7BC6): Likewise.
+	(U+7BC7): Likewise.
+	(U+7BCB): Likewise.
+	(U+7BCF): Likewise.
+	(U+7BD9): Likewise.
+	(U+7BDA): Likewise.
+	(U+7BDB): Likewise.
+	(U+7BE0): Likewise.
+	(U+7BEA): Likewise.
+	(U+7C11): Likewise.
+	(U+7BF0): Likewise.
+	(U+7BF2): Likewise.
+	(U+7BF4): Likewise.
+	(U+7C06): Likewise.
+	(U+7C07): Likewise.
+	(U+7C0F): Likewise.
+	(U+7C20): Likewise.
+	(U+7C27): Likewise.
+	(U+7C37): Likewise.
+	(U+7C3A): Likewise.
+	(U+7C3E): Likewise.
+	(U+7C3F): Likewise.
+	(U+7C4A): Likewise.
+	(U+7C4F): Likewise.
+	(U+7C57): Likewise.
+	(U+7C5C): Likewise.
+	(U+7C67): Likewise.
+	(U+7C6C): Likewise.
+	(U+7C6D): Likewise.
+	(U+7C6E): Likewise.
+
 2015-08-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R052-Short-Thread.el (U-000221BB): Apply new
