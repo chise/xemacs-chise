@@ -1,5 +1,10 @@
 2015-08-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R072-Sun.el (U+66EA): Use `->subsumptive'.
+
+	* Ideograph-R038-Woman.el (U-00021922): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
 	* Ideograph-R009-Man.el (U+5133): Apply new conventions for glyph
 	granularity.
 	(U+5138): Apply new conventions for glyph granularity for
