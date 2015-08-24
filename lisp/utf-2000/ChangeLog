@@ -1,5 +1,9 @@
 2015-08-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R132-Self.el (U+81EF): Apply new conventions for glyph
+	granularity.
+	(U+81F1): Likewise.
+
 	* Ideograph-R090-Half-Tree-Trunk.el (U+7245): Apply new
 	conventions for glyph granularity.
 
