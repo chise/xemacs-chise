@@ -1,5 +1,15 @@
 2015-08-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R090-Half-Tree-Trunk.el (U+7245): Apply new
+	conventions for glyph granularity.
+
+	* Ideograph-R081-Compare.el (U+6BD6): Apply new conventions for
+	glyph granularity.
+	(U+6BDA): Likewise.
+
+	* Ideograph-R018-Knife.el (U+5296): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R033-Scholar.el (JU+58F3): Add representative nodes.
 	(A-UU+58F3): New abstract node.
 	(UU+58F3): Use A-UU+58F3 instead of U+58F3 as the mother; add
