@@ -276,12 +276,32 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
     (=ucs		. #x81EF)	; 臯
+    (=cns11643-3	. #x3E47)	; &I-C3-3E47; [30-39]
+    (=gt		. 38964)	; &I-GT-38964;
+    (=gt-k		. 09506)	; &I-GT-K09506;
+    (=gt-pj-6		. #x4150)	; &I-GT-38964; [33-48]
+    (=daikanwa		. 30119)	; &I-M-30119;
+    (=jef-china3	. #x60E4)	; &I-JC3-60E4;
     (->subsumptive
-     ((=cns11643-3	  . #x3E47)	; &C3-3E47; [30-39]
-      (=daikanwa	  . 30119)	; &I-M-30119;
-      (=jef-china3	  . #x60E4)	; &I-JC3-60E4;
+     ((==ucs@cns	  . #x81EF)	; &g2-GT-38964;
+      (==cns11643-3	  . #x3E47)	; &g2-GT-38964; [30-39]
+      (==gt		  . 38964)	; &g2-GT-38964;
+      (==gt-k		  . 09506)	; &g2-GT-38964;
+      (==daikanwa	  . 30119)	; &g2-GT-38964;
+      (==jef-china3	  . #x60E4)	; &g2-GT-38964;
+      (->subsumptive
+       ((===daikanwa	    . 30119)	; &R-M-30119;
+	)
+       ((===cns11643-3	    . #x3E47)	; &R-C3-3E47; [30-39]
+	)
+       ((===gt		    . 38964)	; &R-GT-38964;
+	(===gt-k	    . 09506)	; &R-GT-38964;
+	)
+       ((===jef-china3	    . #x60E4)	; &R-JC3-60E4;
+	))
       )
-     ((=ucs@unicode	  . #x81EF)	; &UU+81EF;
+     ((==ucs@unicode	  . #x81EF)	; &g2-UU+81EF;
+      (==ucs@JP/hanazono  . nil)
       ))
     ))
 (define-char
@@ -337,15 +357,28 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (=ucs		. #x81F1)	; 臱
+    (=jis-x0212		. #x5665)	; &I-JSP-5665; [54-69]
+    (=cns11643-4	. #x4C62)	; &I-C4-4C62; [44-66]
+    (=big5-cdp		. #x8BEF)	; &I-CDP-8BEF;
+    (=daikanwa		. 30124)	; &I-M-30124;
     (->subsumptive
-     ((=ucs@jis		  . #x81F1)	; &JSP-5665;
-      (=jis-x0212	  . #x5665)	; &JSP-5665; [54-69]
-      (=big5-cdp	  . #x8BEF)	; &I-CDP-8BEF;
-      (=daikanwa	  . 30124)	; &I-M-30124;
+     ((==ucs@jis	  . #x81F1)	; &g2-JSP-5665;
+      (==jis-x0212	  . #x5665)	; &g2-JSP-5665; [54-69]
+      (==big5-cdp	  . #x8BEF)	; &g2-JSP-5665;
+      (==daikanwa	  . 30124)	; &g2-JSP-5665;
+      (->subsumptive
+       ((===daikanwa	    . 30124)	; &R-M-30124;
+	)
+       ((===jis-x0212	    . #x5665)	; &R-JSP-5665; [54-69]
+	)
+       ((===big5-cdp	    . #x8BEF)	; &R-CDP-8BEF;
+	))
       )
-     ((=cns11643-4	  . #x4C62)	; &C4-4C62; [44-66]
+     ((==ucs@cns	  . #x81F1)	; &g2-CU+81F1;
+      (==cns11643-4	  . #x4C62)	; &g2-CU+81F1; [44-66]
       )
-     ((=ucs@unicode	  . #x81F1)	; &UU+81F1;
+     ((==ucs@unicode	  . #x81F1)	; &g2-UU+81F1;
+      (==ucs@JP/hanazono  . nil)
       ))
     ))
 (define-char
