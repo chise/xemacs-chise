@@ -677,8 +677,8 @@
     (=gb2312		. #x3E59)	; &I-G0-3E59; [30-57]
     (=hanziku-1		. #xADBF)	; &I-HZK01-ADBF;
     (<-simplified@CN
-     ((=ucs@unicode	  . #x8209)	; &GT-39114;
-      (=gb12345		  . #x3E59)	; &GT-39114; [30-57]
+     ((=ucs		  . #x8209)	; 舉
+      (=gb12345		  . #x3E59)	; 舉 [30-57]
       ))
     (->subsumptive
      ((ideographic-structure
