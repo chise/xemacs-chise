@@ -1,5 +1,10 @@
 2015-08-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ruimoku6.el (g2-RUI6-E047): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+
+2015-08-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R122-Net.el (U-00026273): Apply new conventions for
 	glyph granularity.
 	(U+7F55): Likewise.
