@@ -1,3 +1,22 @@
+2015-08-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R122-Net.el (U-00026273): Apply new conventions for
+	glyph granularity.
+	(U+7F55): Likewise.
+	(U+7F5B): Likewise.
+	(U+7F5C): Likewise.
+	(U+7F66): Likewise.
+	(U+7F6A): Likewise.
+	(U+7F6E): Likewise.
+	(U+7F70): Likewise; unify S-0694.
+	(U+7F78): Apply new conventions for glyph granularity; add
+	`<-formed' and `<-same' for U+7F70; add `<-vulgar' for U+7F70.
+	(U+7F79): Apply new conventions for glyph granularity.
+	(U+7F7E): Likewise.
+	(U+7F7F): Likewise.
+	(U+7F82): Likewise.
+	(U+7F85): Likewise.
+
 2015-08-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R088-Father.el (U+7238): Apply new conventions for
