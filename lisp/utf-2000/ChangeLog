@@ -1,5 +1,9 @@
 2015-08-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R134-Mortar.el: Add some representative nodes.
+	(U+8209): Apply new conventions for glyph granularity.
+	(U-00026999): Likewise.
+
 	* ruimoku6.el (g2-RUI6-E047): Apply new conventions for glyph
 	granularity for components of ideographic-structure.
 
