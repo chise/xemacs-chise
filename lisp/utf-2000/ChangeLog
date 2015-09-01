@@ -1,5 +1,58 @@
 2015-08-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R137-Boat.el: Add some representative nodes.
+	(U+821F): Apply new conventions for glyph granularity.
+	(U+8221): Likewise.
+	(U+8222): Likewise.
+	(U+8229): Likewise.
+	(U+822A): Likewise.
+	(U+822B): Likewise.
+	(U+822C): Likewise.
+	(U+822E): Likewise.
+	(U+8232): Likewise.
+	(U+8233): Likewise.
+	(U+8234): Likewise.
+	(U+8235): Likewise; add `<-formed' for U+67C1.
+	(U+4468): Apply new conventions for glyph granularity; unify
+	S-3563 and CB03374; add `<-formed' for U+67C1.
+	(U+8236): Apply new conventions for glyph granularity.
+	(U+8237): Likewise.
+	(U+8238): Likewise.
+	(U+8239): Likewise.
+	(U+823A): Likewise.
+	(U+823C): Likewise.
+	(U+8240): Likewise.
+	(U+8243): Likewise.
+	(U+8244): Likewise.
+	(U+8245): Likewise.
+	(U+8246): Likewise.
+	(U+8247): Likewise.
+	(U+8249): Likewise.
+	(U+824B): Likewise.
+	(U+4476): Likewise.
+	(U+824E): Likewise.
+	(U+824F): Likewise.
+	(U+447A): Likewise.
+	(U+8255): Likewise; unify S-6647; add `<-formed' for U+822B.
+	(U+8256): Apply new conventions for glyph granularity.
+	(U+8257): Likewise.
+	(U+8259): Likewise.
+	(U+825A): Likewise.
+	(U+825C): Likewise.
+	(U+825D): Likewise.
+	(U+825F): Likewise.
+	(U+8260): Likewise.
+	(U+8262): Likewise.
+	(U+8263): Likewise.
+	(U+8264): Likewise.
+	(U+8266): Likewise.
+	(U+8268): Likewise.
+	(U+826A): Likewise.
+	(U+826B): Likewise.
+	(U+826D): Likewise.
+
+2015-08-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R116-Cave.el: Add some representative nodes.
 	(U+7A74): Apply new conventions for glyph granularity.
 	(U+7A75): Likewise.
