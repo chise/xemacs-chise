@@ -2528,7 +2528,11 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=daikanwa	  . 30918)	; &M-30918;
+     ((=ucs@cns		  . #x8338)	; &C1-5775;
+      (=ucs@ks		  . #x8338)	; &C1-5775;
+      (=ks-x1001	  . #x6947)	; &C1-5775; [73-39]
+      (=cns11643-1	  . #x5775)	; &I-C1-5775; [55-85]
+      (=daikanwa	  . 30918)	; &I-M-30918;
       )
      ((=ucs		  . #x6BDB)	; 毛
       ))
@@ -2541,7 +2545,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=daikanwa	    . 30918)	; &M-30918;
+       ((==daikanwa	    . 30918)	; &g2-M-30918;
 	)
        ((==ucs@unicode	    . #x6BDB)	; &g2-GT-21495;
 	(==jis-x0208	    . #x4C53)	; &g2-GT-21495; [44-51]
@@ -2552,7 +2556,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=daikanwa	    . 30918)	; &M-30918;
+       ((==daikanwa	    . 30918)	; &g2-M-30918;
 	)
        ((==ucs@cns	    . #x6BDB)	; &g2-CU+6BDB;
 	(==cns11643-1	    . #x4553)	; &g2-CU+6BDB; [37-51]
@@ -2572,12 +2576,27 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x8338)	; &G0-4857;
-      (=gb2312		  . #x4857)	; &G0-4857; [40-55]
+     ((=ucs@unicode	  . #x8338)	; &GT-40140;
+      (=jis-x0208	  . #x427B)	; &GT-40140; [34-91]
+      (=gb2312		  . #x4857)	; &I-G0-4857; [40-55]
+      (=jis-x0213-1	  . #x427B)	; &I-JX1-427B; [34-91]
       )
      ((=ucs		  . #x6BDB)	; 毛
       ))
     (=ucs@unicode	. #x3CA8)	; &UU+3CA8;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((==ucs@unicode	    . #x8338)	; &g2-UU+8338;
+	)
+       ((==ucs@unicode	    . #x6BDB)	; &g2-GT-21495;
+	(==jis-x0208	    . #x4C53)	; &g2-GT-21495; [44-51]
+	))
+      (==ucs@unicode	  . #x3CA8)	; &g2-UU+3CA8;
+      (==ucs@JP/hanazono  . nil)
+      ))
     ))
 (define-char
   '((ideographic-radical . 82)	; ⽑
