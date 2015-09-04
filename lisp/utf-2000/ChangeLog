@@ -1,3 +1,9 @@
+2015-09-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R082-Fur.el (CU+3CA8): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+	(UU+3CA8): Add representative nodes.
+
 2015-08-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R137-Boat.el: Add some representative nodes.
