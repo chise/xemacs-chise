@@ -38094,13 +38094,33 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt-k		  . 00495)	; &GT-K00495;
+     ((=ucs		  . #x6728)	; 木
       )
      ((=ucs@cns		  . #x85CD)	; &MJ023039;
+      (=ucs@ks		  . #x85CD)	; &MJ023039;
       (=mj		  . 023039)	; &MJ023039;
       ))
     (=ucs@iso		. #x23829)	; &CB04776;
     (=cbeta		. 04776)	; &CB04776;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gt-k		    . 00495)	; &GT-K00495;
+	)
+       ((==ucs@cns	    . #x85CD)	; &g2-MJ023039;
+	(==ucs@ks	    . #x85CD)	; &g2-MJ023039;
+	(==mj		    . 023039)	; &g2-MJ023039;
+	))
+      (==ucs@iso	  . #x23829)	; &g2-CB04776;
+      (==cbeta		  . 04776)	; &g2-CB04776;
+      (->subsumptive
+       ((===ucs@iso	    . #x23829)	; &R-U-00023829;
+	)
+       ((===cbeta	    . 04776)	; &R-CB04776;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 75)	; ⽊
