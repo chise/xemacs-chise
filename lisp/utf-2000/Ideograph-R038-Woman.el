@@ -21648,7 +21648,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=adobe-japan1-4	  . 13828)	; &AJ1-13828;
+     ((=ucs		  . #x5973)	; 女
       )
      ((=ucs		  . #x862D)	; 蘭
       ))
@@ -21665,10 +21665,12 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=adobe-japan1-4	  . 13828)	; &AJ1-13828;
+     ((=ucs		  . #x5973)	; 女
       )
      ((=ucs@cns		  . #x862D)	; &GT-43909;
-      (=cns11643-1	  . #x7B22)	; &GT-43909; [91-02]
+      (=ucs@ks		  . #x862D)	; &GT-43909;
+      (=ks-x1001	  . #x5535)	; &GT-43909; [53-21]
+      (=cns11643-1	  . #x7B22)	; &I-C1-7B22; [91-02]
       (=daikanwa	  . 32519)	; &I-M-32519;
       ))
     (=ucs@cns		. #x5B4F)	; &C3-6073;
@@ -21708,7 +21710,8 @@
 	(==cns11643-1	    . #x444C)	; &g2-CU+5973; [36-44]
 	)
        ((==ucs@cns	    . #x862D)	; &g2-GT-43909;
-	(==cns11643-1	    . #x7B22)	; &g2-GT-43909; [91-02]
+	(==ucs@ks	    . #x862D)	; &g2-GT-43909;
+	(==ks-x1001	    . #x5535)	; &g2-GT-43909; [53-21]
 	))
       (==ucs@cns	  . #x5B4F)	; &g2-CU+5B4F;
       (==cns11643-3	  . #x6073)	; &g2-CU+5B4F; [64-83]
@@ -21725,10 +21728,10 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=adobe-japan1-4	  . 13828)	; &AJ1-13828;
+     ((=ucs		  . #x5973)	; 女
       )
      ((=ucs@unicode	  . #x862D)	; &GT-43788;
-      (=ks-x1001	  . #x5535)	; &GT-43788; [53-21]
+      (=gb12345		  . #x403C)	; &GT-43788; [32-28]
       ))
     (=ucs@unicode	. #x5B4F)	; &CB05463;
     (=cbeta		. 05463)	; &CB05463;
@@ -21739,7 +21742,7 @@
 	)
        ((==adobe-japan1-4   . 13828)	; &g2-AJ1-13828;
 	)
-       ((==ucs@unicode	    . #x862D)	; &g2-UU+862D;
+       ((==ucs@unicode	    . #x862D)	; &g2-GT-43788;
 	))
       (==ucs@unicode	  . #x5B4F)	; &g2-CB05463;
       (==cbeta		  . 05463)	; &g2-CB05463;
