@@ -844,13 +844,23 @@
 	      graphic 0
 	      partial t))
   (make-charset
+   '==jis-x0208@1978/4-pr
+   "JIS X 0208:1978, 4th impression or later."
+   '(registry "jisx0208\\.1978"
+	      dimension 2
+	      chars 94
+	      mother ==jis-x0208@1978/2-pr
+              =>iso-ir 42
+	      ;; final ?@
+	      graphic 0
+	      partial t))
+  (make-charset
    '==jis-x0208@1978/5pr
    "JIS X 0208:1978, 5th impression."
    '(registry "jisx0208\\.1978"
 	      dimension 2
 	      chars 94
-              ;; mother ==jis-x0208@1978/4-pr
-              mother ==jis-x0208@1978/2-pr
+	      mother ==jis-x0208@1978/4-pr
               =>iso-ir 42
 	      ;; final ?@
 	      graphic 0
