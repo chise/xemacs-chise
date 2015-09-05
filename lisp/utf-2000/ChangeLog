@@ -1,5 +1,26 @@
 2015-09-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R101-Use.el (U-00024C0E): Apply new conventions for
+	glyph granularity.
+	(U-00024C0F): Likewise.
+
+	* Ideograph-R050-Turban.el (U+5E6A): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+	(U+5E6D): Add representative nodes.
+
+	* Ideograph-R038-Woman.el (U+5B4F): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R030-Mouth.el (U+54CE): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+	(U+3615): Add representative nodes.
+	(U+56C8): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(CUU+56D2): Add representative nodes.
+
+	* Ideograph-R009-Man.el: Add some representative nodes.
+	(U+5087): Apply new conventions for glyph granularity.
+
 	* Ideograph-R075-Tree.el (IU+23829): Apply new conventions for
 	glyph granularity for components of ideographic-structure; add
 	representative nodes.
