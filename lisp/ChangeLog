@@ -1,3 +1,8 @@
+2015-09-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (==daikanwa/+2p): New coded-charset for XEmacs
+	CHISE.
+
 2015-09-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (==jis-x0208@1978/4-pr): New coded-charset for
