@@ -2558,6 +2558,15 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=daikanwa/+p))
+  (make-charset '==daikanwa/+2p
+		"Daikanwa detailed glyph-images (ddddd'')"
+		'(long-name	"Daikanwa glyph-images ddddd''"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=daikanwa/+2p))
   (make-charset '==daikanwa/ho
 		"Daikanwa detailed glyph-images (Hokan)"
 		'(long-name	"Daikanwa-ho detailed glyph-images"
