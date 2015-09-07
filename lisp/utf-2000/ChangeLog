@@ -1,3 +1,7 @@
+2015-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* README.en (Character Reference): Add `yunxuejicheng'.
+
 2015-09-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R010-Legs.el: Add some representative nodes.
