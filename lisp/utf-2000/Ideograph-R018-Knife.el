@@ -12257,24 +12257,65 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 21)
     (total-strokes	 . 23)
-    (hanyu-dazidian	1 363 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8821)	; 蠡
+      )
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
+      ))
     (=ucs		. #x5299)	; 劙
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5299)	; 劙
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 21)
+    (total-strokes	 . 23)
+    (hanyu-dazidian	1 363 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x8821)	; &HD-FT-3938;
+      (=jis-x0208	  . #x6A42)	; &HD-FT-3938; [74-34]
+      (=gb2312		  . #x733B)	; &I-G0-733B; [83-27]
+      (=cns11643-1	  . #x7B26)	; &I-C1-7B26; [91-06]
+      (=jis-x0213-1	  . #x6A42)	; &I-JX1-6A42; [74-34]
+      (=daikanwa	  . 33796)	; &I-M-33796;
+      )
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
+      ))
+    (=ucs@unicode	. #x5299)	; &C2-6E7E;
+    (=cns11643-2	. #x6E7E)	; &C2-6E7E; [78-94]
     (=big5		. #xF7D1)	; &I-B-F7D1;
+    (=daikanwa		. 02283)	; &I-M-02283;
     (->subsumptive
-     ((=ucs@unicode	  . #x5299)	; &M-02283;
-      (=daikanwa	  . 02283)	; &M-02283;
+     ((==ucs@unicode	  . #x5299)	; &g2-M-02283;
+      (==ucs@JP/hanazono  . nil)
+      (==daikanwa	  . 02283)	; &g2-M-02283;
+      (->subsumptive
+       ((===daikanwa	    . 02283)	; &R-M-02283;
+	)
+       ((===ucs@unicode	    . #x5299)	; &R-UU+5299;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=cns11643-1	    . #x7B26)	; &HD-FT-3938; [91-06]
+       ((==ucs@cns	    . #x8821)	; &g2-HD-FT-3938;
+	(==hanyo-denshi/ft  . #x3938)	; &g2-HD-FT-3938; [25-24]
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (=ucs@cns		  . #x5299)	; &C2-6E7E;
-      (=cns11643-2	  . #x6E7E)	; &C2-6E7E; [78-94]
+      (==ucs@cns	  . #x5299)	; &g2-CU+5299;
+      (==cns11643-2	  . #x6E7E)	; &g2-CU+5299; [78-94]
       ))
     ))
 (define-char
