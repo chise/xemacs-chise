@@ -33597,6 +33597,14 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
     (hanyu-dazidian	2 1311 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6728)	; 木
+      )
+     ((=ucs		  . #x871C)	; 蜜
+      ))
     (=ucs		. #x6AC1)	; 櫁
     (=jis-x0208		. #x5C6A)	; &I-J90-5C6A; [60-74]
     (=cns11643-3	. #x577A)	; &I-C3-577A; [55-90]
@@ -33628,9 +33636,8 @@
 	)
        ((=gt-k		    . 00495)	; &GT-K00495;
 	)
-       ((=ucs@unicode	    . #x871C)	; &C1-6A6D;
-	(=gb2312	    . #x435B)	; &C1-6A6D; [35-59]
-	(=cns11643-1	    . #x6A6D)	; &I-C1-6A6D; [74-77]
+       ((==ucs@unicode	    . #x871C)	; &g2-GT-44848;
+	(==jis-x0208	    . #x4C2A)	; &g2-GT-44848; [44-10]
 	))
       (==ucs@unicode	  . #x6AC1)	; &g2-GT-20256;
       (==jis-x0208	  . #x5C6A)	; &g2-GT-20256; [60-74]
