@@ -44,7 +44,7 @@ describes meaning of keys:
 		tongwen-tongkao (doubun-tsuukou)	$BF1J8DL9M(B
 		yupian (gyokuhen)			$B6LJS(B
 		pianhai (henkai)			$BJS3$(B
-		pianhai-leibian (henkai-ruihen)		$BJS3$$(CW>x:(B
+		pianhai-leibian (henkai-ruihen)		$BJS3$$(GyK$(Cx:(B
 		yunhai (inkai)				$B1$2q(B
 		yunhai-bei (inkaiho)			$B1$2qJd(B
 		zihui (jii)				$B;zWC(B
@@ -68,7 +68,7 @@ describes meaning of keys:
 		shuowen-tongxun-dingsheng
 			(setsumon-tsuukun-teisei)	$B@bJ8DL71Djfa(B
 		shuowen					$B@bJ8(B
-		shuowen-zhu (danchuu)			$(C`c$BJ82r;zCm!JCJCp!K(B
+		shuowen-zhu (danchuu)			~$BJ82r;zCm!JCJCp!K(B
 		shuowen-changjian			$B@bJ8D9d5(B
 		songyuan-yilai-suzipu
 			(sougen-irai-zokujifu)		$BAW850JMhB/;zIh(B
@@ -78,7 +78,8 @@ describes meaning of keys:
 		lunheng (ronkou)			$BO@9U(B
 		hougen
 		(jigakushinan)				$B;z3X;XFn(B
-		zengyun (zouin)				$(Cqrj$(B
+		zengyun (zouin)				$(O/]1$(B
+		yunxuejicheng (ingakushuusei)		$B1$U\=8@.(B
 
 
 ** Features
