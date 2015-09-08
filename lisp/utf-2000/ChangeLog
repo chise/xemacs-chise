@@ -1,4 +1,209 @@
+2015-09-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R142-Insect.el: Add some representative nodes.
+	(UU+8671): Add `<-vulgar' for U+8768.
+	(U-00027227): New character; unify GT-K04911.
+	(U+8675): Apply new conventions for glyph granularity.
+	(U-0002722A): Likewise.
+	(U+867B): Likewise.
+	(U+868A): Likewise.
+	(U+868B): Likewise; add `<-vulgar' for CU+8739.
+	(U+8695): Apply new conventions for glyph granularity.
+	(U+8698): Likewise.
+	(U+869C): Likewise.
+	(U+86A1): Likewise.
+	(U+86A3): Likewise.
+	(U+86A4): Likewise.
+	(U+86B3): Likewise.
+	(U+86BF): Likewise.
+	(U+86C0): Likewise.
+	(U+86C7): Likewise.
+	(U-0002726E): Likewise.
+	(U+86C9): Likewise.
+	(U+86DF): Likewise.
+	(U+86EE): Likewise.
+	(U+86F8): Likewise.
+	(U+86FB): Likewise.
+	(U+8703): Likewise.
+	(U+8708): Likewise.
+	(U+870B): Likewise.
+	(U+8711): Likewise.
+	(U+8712): Likewise.
+	(U+8713): Likewise.
+	(U+8719): Likewise.
+	(U+871A): Likewise.
+	(U+871C): Likewise.
+	(U+8739): Use `->denotational' and `->subsumptive'.
+	(U+873B): Apply new conventions for glyph granularity.
+	(U+873C): Likewise.
+	(U+873F): Likewise.
+	(U+8745): Likewise; unify S-7122; add `<-formed' for UU+8836.
+	(U+8753): Apply new conventions for glyph granularity.
+	(U+8759): Likewise.
+	(U+875D): Likewise.
+	(U+8763): Likewise.
+	(U+8764): Likewise.
+	(U+8768): Likewise.
+	(U+8771): Likewise.
+	(U+8782): Likewise.
+	(U+8783): Likewise.
+	(U+8787): Likewise.
+	(U+8789): Likewise.
+	(U+878D): Likewise.
+	(U+8793): Likewise.
+	(U+8797): Likewise.
+	(U+879F): Likewise.
+	(U+87AD): Likewise.
+	(U+87AF): Likewise.
+	(U+87B1): Likewise.
+	(U+87BA): Likewise.
+	(U+87BE): Likewise.
+	(U+87C0): Likewise.
+	(U+87C4): Likewise.
+	(U+45EA): Likewise.
+	(U+87C9): Likewise.
+	(U+87D2): Likewise.
+	(U+87D9): Likewise.
+	(U+87E5): Likewise.
+	(U+87ED): Likewise.
+	(U+87F6): Likewise.
+	(U+87F8): Likewise.
+	(U+87FA): Likewise.
+	(U+87FE): Likewise.
+	(U+87FF): Likewise.
+	(U+8801): Likewise.
+	(U+880D): Likewise.
+	(U+8810): Likewise.
+	(U+8819): Likewise.
+	(U+8813): Likewise.
+	(U+8814): Likewise.
+	(U+8816): Likewise.
+	(U+8821): Likewise.
+	(U+8830): Likewise.
+	(U+8832): Likewise.
+	(U+8835): Likewise.
+	(U+8836): Likewise.
+	(U+883B): Likewise.
+	(U+883C): Likewise.
+
+	* Ideograph-R140-Grass.el: Add some representative nodes.
+	(U+827E): Apply new conventions for glyph granularity.
+	(U+8292): Likewise.
+	(U+829D): Likewise.
+	(U+82A1): Likewise.
+	(U+82A6): Likewise.
+	(U+82A9): Likewise.
+	(U+82AC): Likewise.
+	(U+82B1): Likewise.
+	(U+82B8): Likewise.
+	(U-0002F995): Likewise.
+	(U+82FD): Likewise.
+	(U-0002F999): Likewise.
+	(U+44B3): Likewise.
+	(U+8328): Likewise.
+	(U+832B): Likewise.
+	(U+8338): Likewise.
+	(U+8343): Likewise.
+	(U+8352): Likewise.
+	(U+837F): Likewise.
+	(U+8384): Likewise.
+	(U+8394): Likewise.
+	(U+83AC): Likewise.
+	(U+8323): Likewise.
+	(U+83C1): Likewise.
+	(U+83C9): Likewise.
+	(U+83DF): Likewise.
+	(U+83E1): Likewise.
+	(U+83F2): Likewise.
+	(U+83F6): Likewise.
+	(U+83F7): Likewise.
+	(U+840F): Likewise.
+	(U+8415): Likewise.
+	(U+8417): Likewise.
+	(U+8425): Likewise.
+	(U+842F): Likewise.
+	(U+8452): Likewise.
+	(U+845A): Likewise.
+	(U+845C): Likewise.
+	(U+8465): Likewise.
+	(U+8475): Likewise.
+	(U+847A): Likewise.
+	(U+847C): Likewise.
+	(U+8499): Likewise.
+	(U+84C1): Likewise.
+	(U+84C4): Likewise.
+	(U+84D1): Use `->denotational' and `->subsumptive'.
+	(U+84EC): Apply new conventions for glyph granularity.
+	(U+84F1): Likewise.
+	(U+8532): Likewise.
+	(U+84FA): Likewise.
+	(U+84FB): Likewise.
+	(U+84FC): Likewise.
+	(U+84FF): Likewise.
+	(U+8506): Likewise.
+	(U+8507): Likewise.
+	(U+8508): Likewise.
+	(CU+8508): Unify S-5603; add `<-formed' for U+79D2.
+	(U+850C): Apply new conventions for glyph granularity.
+	(U+850E): Likewise.
+	(U+8511): Likewise.
+	(U+8518): Likewise.
+	(U+851F): Likewise.
+	(U+8525): Likewise.
+	(U+852C): Likewise.
+	(U+852D): Likewise.
+	(U+8534): Likewise.
+	(U+853D): Likewise.
+	(U+853F): Likewise.
+	(U+8541): Likewise.
+	(U-0002F9AB): Likewise.
+	(U+8549): Likewise.
+	(U+8555): Likewise.
+	(U+8557): Likewise.
+	(U+855E): Likewise.
+	(U+8560): Likewise.
+	(U+8568): Likewise.
+	(U+8579): Likewise.
+	(U+857A): Likewise.
+	(U+857F): Likewise.
+	(U+8581): Likewise.
+	(U+8584): Likewise.
+	(U+8590): Likewise.
+	(U+8599): Likewise.
+	(U+859C): Likewise.
+	(U+859D): Likewise.
+	(U+85A6): Likewise.
+	(U+85AA): Likewise.
+	(U+85A9): Likewise.
+	(U+85AF): Likewise.
+	(U+85BA): Likewise.
+	(U+85C9): Likewise.
+	(U+85CD): Likewise.
+	(U+85D5): Likewise.
+	(U+85DD): Likewise.
+	(U+85E4): Likewise.
+	(U+85E6): Likewise.
+	(U+85E8): Likewise.
+	(U+85ED): Likewise.
+	(U+85F7): Likewise.
+	(U+85F9): Likewise.
+	(U+85FA): Likewise.
+	(U+8600): Likewise.
+	(U+8622): Likewise.
+	(U+8611): Likewise.
+	(U+8617): Likewise.
+	(U+861B): Likewise.
+	(U+862D): Likewise.
+	(U+8630): Likewise.
+	(U+8636): Likewise.
+	(U+8639): Likewise.
+	(U+8640): Likewise.
+	(U-00027144): Likewise.
+
 2015-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R155-Red.el (U-00027E58): Unify GT-49534 and
+	GT-K04681.
 
 	* Ideograph-R143-Blood.el: Add some representative nodes.
 	(U+65E0): Apply new conventions for glyph granularity.
