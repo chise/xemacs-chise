@@ -22,6 +22,9 @@
     (total-strokes	 . 8)
     (=ucs		. #x27E58)	; 𧹘
     (=cns11643-6	. #x2E31)	; &I-C6-2E31; [14-17]
+    (=gt		. 49534)	; &I-GT-49534;
+    (=gt-k		. 04681)	; &I-GT-K04681;
+    (=gt-pj-7		. #x4369)	; &I-GT-49534; [35-73]
     (=daikanwa		. 49742)	; &I-M-49742;
     ))
 (define-char
@@ -122,6 +125,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
     (=ucs@unicode	. #x8D67)	; &C1-5D4F;
+    (=ucs@JP/hanazono	. nil)
     (=gb2312		. #x7476)	; &C1-5D4F; [84-86]
     (=cns11643-1	. #x5D4F)	; &I-C1-5D4F; [61-47]
     (=big5		. #xB369)	; &I-B-B369;
@@ -315,6 +319,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 15)
     (=ucs@unicode	. #x8D6D)	; &C1-6F35;
+    (=ucs@JP/hanazono	. nil)
     (=gb2312		. #x7477)	; &C1-6F35; [84-87]
     (=cns11643-1	. #x6F35)	; &I-C1-6F35; [79-21]
     ))
