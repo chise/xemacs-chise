@@ -1,5 +1,12 @@
 2015-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R143-Blood.el: Add some representative nodes.
+	(U+65E0): Apply new conventions for glyph granularity.
+	(U+8844): Likewise.
+	(U+8848): Likewise.
+
+2015-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R150-Valley.el: Add some representative nodes.
 	(U-00027BAB): Unify GT-48552 and GT-K03314.
 	(U+8C3D): Apply new conventions for glyph granularity.
