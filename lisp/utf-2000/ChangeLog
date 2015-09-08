@@ -1,5 +1,13 @@
 2015-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R150-Valley.el: Add some representative nodes.
+	(U-00027BAB): Unify GT-48552 and GT-K03314.
+	(U+8C3D): Apply new conventions for glyph granularity.
+	(U+8C3E): Likewise.
+
+	* Ideograph-R146-West.el: Add some representative nodes.
+	(U+8980): Apply new conventions for glyph granularity.
+
 	* README.en (Character Reference): Add `yunxuejicheng'.
 
 2015-09-06  MORIOKA Tomohiko  <tomo.git@chise.org>
