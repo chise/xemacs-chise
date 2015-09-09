@@ -32697,12 +32697,10 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@jis	    . #x8CAA)	; &GT-49150;
-	(=jis-x0208	    . #x6C45)	; &GT-49150; [76-37]
-	(=ks-x1001	    . #x7731)	; &I-K0-7731; [87-17]
-	(=cns11643-1	    . #x5D4D)	; &I-C1-5D4D; [61-45]
-	(=jis-x0213-1	    . #x6C45)	; &I-JX1-6C45; [76-37]
-	(=daikanwa	    . 36680)	; &I-M-36680;
+       ((==ucs@cns	    . #x8CAA)	; &g2-GT-49150;
+	(==ucs@jis	    . #x8CAA)	; &g2-GT-49150;
+	(==ucs@ks	    . #x8CAA)	; &g2-GT-49150;
+	(==jis-x0208	    . #x6C45)	; &g2-GT-49150; [76-37]
 	))
       (==ucs@cns	  . #x55FF)	; &g2-AJ1-21292;
       (==ucs@jis	  . #x55FF)	; &g2-AJ1-21292;
@@ -32729,8 +32727,7 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@unicode	    . #x8CAA)	; &UU+8CAA;
-	(=gb12345	    . #x4C30)	; &UU+8CAA; [44-16]
+       ((==ucs@unicode	    . #x8CAA)	; &g2-UU+8CAA;
 	))
       (==ucs@unicode	  . #x55FF)	; &g2-UU+55FF;
       (==ucs@JP/hanazono  . nil)
@@ -41792,9 +41789,8 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@jis	    . #x8C66)	; &GT-48799;
-	(=jis-x0212	    . #x5E75)	; &GT-48799; [62-85]
-	(=daikanwa	    . 36391)	; &I-M-36391;
+       ((==ucs@jis	    . #x8C66)	; &g2-GT-48799;
+	(==daikanwa	    . 36391)	; &g2-GT-48799;
 	))
       (==ucs@jis	  . #x5671)	; &g2-MJ008693;
       (==mj		  . 008693)	; &g2-MJ008693;
@@ -41821,7 +41817,7 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@unicode	    . #x8C66)	; &UU+8C66;
+       ((==ucs@unicode	    . #x8C66)	; &g2-UU+8C66;
 	))
       (==ucs@unicode	  . #x5671)	; &g2-UU+5671;
       (==ucs@JP/hanazono  . nil)
@@ -41838,7 +41834,7 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=jef-china3	    . #x65E6)	; &JC3-65E6;
+       ((==jef-china3	    . #x65E6)	; &g2-JC3-65E6;
 	))
       (=mj		  . 008694)	; &MJ008694;
       (==hanyo-denshi/jt  . #xAF18)	; &MJ008694;
@@ -41857,8 +41853,8 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@cns	    . #x8C66)	; &C2-475D;
-	(=cns11643-2	    . #x475D)	; &C2-475D; [39-61]
+       ((==ucs@cns	    . #x8C66)	; &g2-CU+8C66;
+	(==cns11643-2	    . #x475D)	; &g2-CU+8C66; [39-61]
 	))
       (==ucs@cns	  . #x5671)	; &g2-CU+5671;
       (==cns11643-1	  . #x7044)	; &g2-CU+5671; [80-36]
