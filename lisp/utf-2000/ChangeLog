@@ -1,5 +1,12 @@
 2015-09-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R071-Not.el (U+65E0): Apply new conventions for glyph
+	granularity.
+	(GT-K00534): New character.
+	(UU+65E3): Unify S-3262; add `<-formed' for UU+FA42.
+	(U+65E2): Apply new conventions for glyph granularity.
+	(U+FA42): Unify S-3261.
+
 	* Ideograph-R142-Insect.el: Add some representative nodes.
 	(UU+8671): Add `<-vulgar' for U+8768.
 	(U-00027227): New character; unify GT-K04911.
