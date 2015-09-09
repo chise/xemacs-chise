@@ -187,12 +187,8 @@
     (=daikanwa		. 00231)	; &I-M-00231;
     (=shinjigen		.  0067)	; 予
     (<-simplified@JP/Jouyou
-     ((=ucs@jis		  . #x8C6B)	; &GT-48859;
-      (=ucs@ks		  . #x8C6B)	; &GT-48859;
-      (=jis-x0208	  . #x502E)	; &GT-48859; [48-14]
-      (=ks-x1001	  . #x6763)	; &I-K0-6763; [71-67]
-      (=jis-x0213-1	  . #x502E)	; &I-JX1-502E; [48-14]
-      (=daikanwa	  . 36425)	; &I-M-36425;
+     ((=ucs		  . #x8C6B)	; 豫
+      (=jis-x0208	  . #x502E)	; &I-J90-502E; [48-14]
       ))
     ))
 (define-char
