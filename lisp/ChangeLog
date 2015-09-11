@@ -1,3 +1,15 @@
+2015-09-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=ucs-bmp-var-001): Use #x9FCC instead of
+	#x9FA5 as the value of `max-code'.
+	(=ucs-bmp-var-002): Likewise.
+	(=ucs-bmp-var-003): Likewise.
+	(=ucs-bmp-itaiji-084): Likewise.
+	(=ucs-bmp-cjk@JP): Likewise.
+	(=ucs-bmp-cjk@JP/hanazono): Likewise.
+	(==ucs-bmp-cjk@JP/hanazono): Likewise.
+	(=>ucs-bmp-cjk@component): Likewise.
+
 2015-09-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (==daikanwa/+2p): New coded-charset for XEmacs
