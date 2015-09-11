@@ -1,3 +1,36 @@
+2015-09-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R154-Shell.el: Add some representative nodes.
+	(U+8CA8): Apply new conventions for glyph granularity.
+	(U+8CAA): Likewise.
+	(U+8CAF): Likewise.
+	(U+8CB6): Likewise.
+	(U+8CC5): Likewise.
+	(U+8CC7): Likewise.
+	(U+8CCA): Likewise.
+	(U+8CDD): Likewise.
+	(U+8CE0): Likewise.
+	(U+8CE1): Likewise.
+	(U-00027DA0): Unify GT-49295.
+	(U+8CE8): Apply new conventions for glyph granularity.
+	(U+8CFC): Likewise.
+	(U+8CFD): Likewise.
+	(U+8CFF): Likewise.
+	(U+8D04): Likewise.
+	(U+8D05): Likewise.
+	(U+8D07): Likewise.
+	(U+8D0B): Likewise.
+	(U+8D0D): Likewise.
+	(U+8D0F): Likewise.
+	(U+8D13): Likewise.
+	(U+8D17): Likewise.
+	(JU+8D17): Add `->formed' for JU+5050; add `->synonyms' for
+	U+9D08.
+	(U+8D1B): Apply new conventions for glyph granularity.
+	(U-0002F9D6): Add `<-same' for U-00025AD4; delete `<-unknown' for
+	M-36985.
+	(M-36985): Unify U-00025AD4; don't map to U-0002F9D6.
+
 2015-09-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R152-Pig.el: Add some representative nodes.
