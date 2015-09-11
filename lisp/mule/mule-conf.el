@@ -3717,7 +3717,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-var-001
 		  min-code #x2E00
-		  max-code #x9FA5
+		  max-code #x9FCC
 		  registry "ucs\\.var001-0"))
   (make-charset '=ucs-var-002
 		"uXXXX-var-002 glyph-images of GlyphWiki"
@@ -3740,7 +3740,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-var-002
 		  min-code #x2E00
-		  max-code #x9FA5
+		  max-code #x9FCC
 		  registry "ucs\\.var002-0"))
   (make-charset '=ucs-var-003
 		"uXXXX-var-003 glyph-images of GlyphWiki"
@@ -3763,7 +3763,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-var-003
 		  min-code #x2E00
-		  max-code #x9FA5
+		  max-code #x9FCC
 		  registry "ucs\\.var003-0"))
   (make-charset '=ucs-itaiji-084
 		"uXXXX-itaiji-084 glyph-images of GlyphWiki"
@@ -3786,7 +3786,7 @@
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-084
 		  min-code #x2E00
-		  max-code #x9FA5
+		  max-code #x9FCC
 		  registry "ucs\\.itaiji084-0"))
 
   (make-charset
@@ -3850,6 +3850,7 @@
 	       mother ucs-bmp
 	       min-code #x2E00
 	       max-code #x9FA5
+	       ;; max-code #x9FCC
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -3865,6 +3866,7 @@
 	       mother =ucs@gb
 	       min-code #x2E00
                max-code #x9FA5
+	       ;; max-code #x9FCC
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -3880,6 +3882,7 @@
 	       mother ==ucs@gb
 	       min-code #x2E00
                max-code #x9FA5
+	       ;; max-code #x9FCC
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -3895,6 +3898,7 @@
 	       mother ===ucs@gb
 	       min-code #x2E00
                max-code #x9FA5
+	       ;; max-code #x9FCC
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -3909,7 +3913,7 @@
 	       registry "-ja-.*-ucs-0"
 	       mother =ucs@JP
 	       min-code #x2E00
-               max-code #x9FA5
+               max-code #x9FCC
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -3924,7 +3928,7 @@
 	       registry "-ja-.*-ucs-0"
 	       mother =ucs@JP/hanazono
 	       min-code #x2E00
-               max-code #x9FA5
+               max-code #x9FCC
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -3939,7 +3943,7 @@
 	       registry "-ja-.*-ucs-0"
 	       mother ==ucs@JP/hanazono
 	       min-code #x2E00
-               max-code #x9FA5
+               max-code #x9FCC
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -3955,6 +3959,7 @@
 	       mother =+>ucs@unicode
 	       min-code #x2E00
                max-code #x9FA5
+	       ;; max-code #x9FCC
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -3970,6 +3975,7 @@
 	       mother =>ucs@unicode
 	       min-code #x2E00
                max-code #x9FA5
+	       ;; max-code #x9FCC
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -3984,7 +3990,7 @@
 	       registry "-ja-.*-ucs-0"
 	       mother =>ucs@component
 	       min-code #x2E00
-               max-code #x9FA5
+               max-code #x9FCC
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
@@ -4000,6 +4006,7 @@
 	       mother ==>ucs@bucs
 	       min-code #x2E00
                max-code #x9FA5
+	       ;; max-code #x9FCC
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
