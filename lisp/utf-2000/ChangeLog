@@ -1,3 +1,24 @@
+2015-09-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R152-Pig.el: Add some representative nodes.
+	(U+8C55): Use `->denotational' to integrate U-0002F9D2.
+	(U-0002F9D2): Unify GT-48746.
+	(U+8C56): Unify GT-48748 and GT-K03969.
+	(U+8C57): Apply new conventions for glyph granularity.
+	(JU+8C58): Unify S-7816; add `<-vulgar' for U+8C5A.
+	(U+8C5A): Apply new conventions for glyph granularity.
+	(U+8C5B): Likewise.
+	(U+8C59): Likewise.
+	(U+8C61): Likewise.
+	(U-00027C3C): Likewise; unify S-7819; add `<-vulgar' for U+8C61.
+	(U+8C63): Apply new conventions for glyph granularity.
+	(U+8C66): Likewise.
+	(U+8C69): Likewise.
+	(UU+8C6A): Add ideographic-structure.
+	(S-7826): New character.
+	(U+8C6B): Apply new conventions for glyph granularity.
+	(JU+8C6C): Add `<-original' for U+FA16.
+
 2015-09-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (U+5287): Apply new conventions for
