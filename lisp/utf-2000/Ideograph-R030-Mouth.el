@@ -50506,6 +50506,15 @@
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 20)
     (total-strokes	 . 23)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs@unicode	  . #x737B)	; &C1-7978;
+      (=cns11643-1	  . #x7978)	; &C1-7978; [89-88]
+      ))
     (=ucs@unicode	. #x56D0)	; &C4-6A43;
     (=ucs@JP/hanazono	. nil)
     (=cns11643-4	. #x6A43)	; &C4-6A43; [74-35]
@@ -50516,8 +50525,7 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@unicode	    . #x737B)	; &UU+737B;
-	(=gb12345	    . #x4F57)	; &UU+737B; [47-55]
+       ((==ucs@unicode	    . #x737B)	; &g2-UU+737B;
 	))
       (==ucs@unicode	  . #x56D0)	; &g2-UU+56D0;
       (==ucs@JP/hanazono  . nil)
@@ -50528,7 +50536,8 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=cns11643-1	    . #x7978)	; &C1-7978; [89-88]
+       ((==ucs@cns	    . #x737B)	; &g2-CU+737B;
+	(==cns11643-1	    . #x7978)	; &g2-CU+737B; [89-88]
 	))
       (==ucs@cns	  . #x56D0)	; &g2-CU+56D0;
       (==cns11643-4	  . #x6A43)	; &g2-CU+56D0; [74-35]
