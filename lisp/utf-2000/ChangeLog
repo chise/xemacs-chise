@@ -1,10 +1,18 @@
 2015-09-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R009-Man.el (JU+5050): Add `<-formed' and `<-same' for
+	JU+8D17.
+	(CU+2045F): Add representative nodes.
+
 	* Ideograph-R046-Mountain.el (U+5DDA): Apply new conventions for
 	glyph granularity.
 
 	* Ideograph-R030-Mouth.el (UU+56D0): Apply new conventions for
 	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R012-Eight.el: Add some representative nodes.
+	(U-00020507): Omitted [defined in Ideograph-R162-Walk.el].
+	(U+9FB9): Apply new conventions for glyph granularity.
 
 	* Ideograph-R154-Shell.el: Add some representative nodes.
 	(U+8CA8): Apply new conventions for glyph granularity.
