@@ -437,10 +437,11 @@
     (=daikanwa/ho	.  0007)	; 亊
     (=shinjigen		.  0071)	; 亊
     (<-vulgar
-     ((=ucs		  . #x4E8B)	; 事
+     ((=ucs@unicode	  . #x4E8B)	; &AJ1-02244;
+      (=adobe-japan1-0	  . 02244)	; &AJ1-02244;
       (=jis-x0208	  . #x3B76)	; &I-J90-3B76; [27-86]
       (=daikanwa	  . 00241)	; &I-M-00241;
-      (=shinjigen	  .  0069)	; 事
+      (=shinjigen	  .  0069)	; &AJ1-02244;
       ))
     (<-vulgar*sources
      songyuan-yilai-suzipu daikanwa shinjigen@1ed)
@@ -475,7 +476,17 @@
     (sound@ja/kun	"koto")
     (sound@ja/on/go	"zi")
     (=ucs		. #x4E8B)	; 事
-    (=adobe-japan1-0	. 02244)	; &I-AJ1-02244;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E8B)	; 事
+      ))
+    (ideographic-radical . 6)	; ⼅
+    (ideographic-strokes . 7)
+    (total-strokes	 . 8)
+    (=>ucs@iwds-1	. #x4E8B)	; &AJ1-02244;
+    (=ucs@unicode	. #x4E8B)	; &AJ1-02244;
+    (=adobe-japan1-0	. 02244)	; &AJ1-02244;
     (=jis-x0208		. #x3B76)	; &I-J90-3B76; [27-86]
     (=gb2312		. #x4A42)	; &I-G0-4A42; [42-34]
     (=ks-x1001		. #x5E40)	; &I-K0-5E40; [62-32]
@@ -486,7 +497,16 @@
     (=gt-k		. 03726)	; &I-GT-K03726;
     (=gt-pj-1		. #x3B76)	; &I-GT-00319; [27-86]
     (=daikanwa		. 00241)	; &I-M-00241;
-    (=shinjigen		.  0069)	; 事
+    (=shinjigen		.  0069)	; &AJ1-02244;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E8B)	; 事
+      ))
+    (ideographic-radical . 6)	; ⼅
+    (ideographic-strokes . 7)
+    (total-strokes	 . 8)
+    (===hng-khi		. 02280)	; &HNG-KHI02280;
     ))
 (define-char
   '((ideographic-radical . 6)	; ⼅
