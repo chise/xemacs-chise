@@ -5561,17 +5561,18 @@
   '((ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (=>ucs@hanyo-denshi . #x710F)	; &A-HDU+710F;
+    (=ucs		. #x710F)	; 焏
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@hanyo-denshi . #x710F)	; &A-HDU+710F;
+     ((=ucs		  . #x710F)	; 焏
       ))
     (ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (=ucs		. #x710F)	; 焏
-    (=adobe-japan1-2	. 08537)	; &I-AJ1-08537;
+    (=>ucs@iwds-1	. #x710F)	; &AJ1-08537;
+    (=ucs@unicode	. #x710F)	; &AJ1-08537;
+    (=adobe-japan1-2	. 08537)	; &AJ1-08537;
     (=jis-x0212		. #x4969)	; &I-JSP-4969; [41-73]
     (=cns11643-3	. #x3733)	; &I-C3-3733; [23-19]
     (=jis-x0213-1	. #x774C)	; &I-JX1-774C; [87-44]
@@ -5616,7 +5617,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@hanyo-denshi . #x710F)	; &A-HDU+710F;
+     ((=ucs		  . #x710F)	; 焏
       ))
     (ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 7)
@@ -11647,6 +11648,7 @@
      ((=ucs		  . #x706B)	; 火
       )
      ((=ucs@jis/2004	  . #x9022)	; &HD-FT-3152;
+      (=ucs@ks		  . #x9022)	; &HD-FT-3152;
       (=ks-x1001	  . #x5C71)	; &HD-FT-3152; [60-81]
       (=jis-x0213-1@2004  . #x3029)	; &I-JX3-3029; [16-09]
       (=daikanwa	  . 38901)	; &I-M-38901;
@@ -11676,10 +11678,8 @@
 	)
        ((=gt-k		    . 00405)	; &GT-K00405;
 	)
-       ((=ucs@jis/2004	    . #x9022)	; &HD-FT-3152;
-	(=ks-x1001	    . #x5C71)	; &HD-FT-3152; [60-81]
-	(=jis-x0213-1@2004  . #x3029)	; &I-JX3-3029; [16-09]
-	(=daikanwa	    . 38901)	; &I-M-38901;
+       ((==ucs@ks	    . #x9022)	; &g2-M-38901;
+	(==daikanwa	    . 38901)	; &g2-M-38901;
 	))
       (==ucs@ks		  . #x71A2)	; &g2-K0-5C6C;
       (==ks-x1001	  . #x5C6C)	; &g2-K0-5C6C; [60-76]
@@ -11705,7 +11705,8 @@
       )
      ((=ucs		  . #x706B)	; 火
       )
-     ((=cns11643-1	  . #x5D61)	; &C1-5D61; [61-65]
+     ((=ucs@cns		  . #x9022)	; &C1-5D61;
+      (=cns11643-1	  . #x5D61)	; &C1-5D61; [61-65]
       ))
     (=ucs@cns		. #x71A2)	; &C3-4D2A;
     (=cns11643-3	. #x4D2A)	; &C3-4D2A; [45-10]
