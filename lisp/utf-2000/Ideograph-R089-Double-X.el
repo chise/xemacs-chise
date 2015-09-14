@@ -185,7 +185,6 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (=ucs		. #x723E)	; 爾
-    (=>ucs@hanyo-denshi . #x723E)	; 爾
     ))
 (define-char
   '((<-denotational
