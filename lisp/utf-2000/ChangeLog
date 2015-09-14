@@ -1,3 +1,26 @@
+2015-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R162-Walk.el: Add some representative nodes.
+	(U-00020507): Use `ideographic-{radical|strokes}@daikanwa' instead
+	of `ideographic-{radical|strokes}@cns'; use
+	`ideographic-{radical|strokes}@ucs/code' instead of
+	`ideographic-{radical|strokes}@ucs'; apply new conventions for
+	glyph granularity.
+	(U+8FF0): Apply new conventions for glyph granularity.
+	(U-000284B0): Use `->denotational' and `->subsumptive'.
+	(U+900E): Apply new conventions for glyph granularity.
+	(U+9019): Likewise.
+	(M-38905): Unify S-8238.
+	(U+9039): Apply new conventions for glyph granularity.
+	(KU+9041): Likewise.
+	(U+904D): Likewise.
+	(U+9052): Likewise.
+	(U+9055): Likewise.
+	(U+905C): Likewise.
+	(U+9072): Likewise.
+	(U+9077): Likewise.
+	(U+908F): Likewise.
+
 2015-09-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (JU+5050): Add `<-formed' and `<-same' for
