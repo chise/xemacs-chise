@@ -2794,6 +2794,15 @@
 	    hzk-max (+ hzk-min 65535))
       (setq i (1+ i))))
 
+  (make-charset '===hng-khi "HNG:妙法蓮華經卷五（今西本）"
+		'(long-name "HNG/宮廷今西"
+		  chars		256
+		  dimension	2
+		  registry	"hngkhi-0"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
+
   (make-charset '=cbeta "CBETA private characters"
 		'(long-name	"CBETA PUA"
 		  chars		256
@@ -2957,7 +2966,7 @@
 
   ;; (make-charset
   ;;  '=zihai-17xx
-  ;;  "ZhongHua-ZiHai (pp.1700$B!A(B1781) glyph-images"
+  ;;  "ZhongHua-ZiHai (pp.1700〜1781) glyph-images"
   ;;  '(long-name "ZhongHua-ZiHai pp.17xx"
   ;;              chars 256
   ;;              dimension 2
