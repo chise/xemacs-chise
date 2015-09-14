@@ -361,6 +361,7 @@
 	  (=>cbeta				 "A-CB" 5 d)
 	  (==cbeta				"g2-CB" 5 d)
 	  (===cbeta				 "R-CB" 5 d)
+	  (===hng-khi			     "HNG-KHI-" 5 d)
 	  ( =hanziku-1			       "HZK01-" 4 X)
 	  ( =hanziku-2			       "HZK02-" 4 X)
 	  ( =hanziku-3			       "HZK03-" 4 X)
