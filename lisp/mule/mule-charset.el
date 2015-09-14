@@ -454,6 +454,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ===ucs-sip-ext-b@iso
 	  ===ucs-sip@iso
 	  ===ruimoku-v6
+	  ===hng-khi
 	  ===cbeta
 	  ===jef-china3
 	  ;; ucs-sip
