@@ -3017,6 +3017,17 @@
 		  graphic	2
 		  direction	l2r))
 
+  (make-charset '=>ucs@iwds-1
+		"UCS abstract characters based on IWDS-1."
+		'(long-name	"UCS based on IWDS-1"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=ucs))
+
   (make-charset '=>ucs@component
 		"UCS encoding for abstract components of IWDS-1."
 		'(long-name	"UCS for IWDS-1 abstract components"
