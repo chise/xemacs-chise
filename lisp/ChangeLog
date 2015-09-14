@@ -1,3 +1,12 @@
+2015-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=>ucs@iwds-1): New coded-charset for XEmacs
+	CHISE.
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Use
+	"&HNG-KHI<d><d><d><d>;" instead of "&HNG-KHI-<d><d><d><d>;" for
+	`===hng-khi'.
+
 2015-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
