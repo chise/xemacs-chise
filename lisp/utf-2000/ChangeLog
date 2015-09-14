@@ -1,5 +1,22 @@
 2015-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R086-Fire.el: Don't use `=>ucs@hanyo-denshi'; use
+	abstract characters of `=ucs' as base characters of any IVSes; use
+	`=>ucs@iwds-1' instead of `=ucs' to indicate abstract characters
+	based on IWDS-1.
+	(g2-KU+71A2): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+
+	* Ideograph-R075-Tree.el (U+6765): Add `<-denotational' for
+	BUCS+4F86; add HNG-KHI0245-0.
+
+2015-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el: Don't use `=>ucs@hanyo-denshi'; use
+	abstract characters of `=ucs' as base characters of any IVSes; use
+	`=>ucs@iwds-1' instead of `=ucs' to indicate abstract characters
+	based on IWDS-1.
+
 	* Ideograph-R089-Double-X.el (U+723E): Delete
 	`=>ucs@hanyo-denshi'.
 
