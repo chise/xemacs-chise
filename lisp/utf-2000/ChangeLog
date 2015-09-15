@@ -70,6 +70,9 @@
 	based on IWDS-1.
 	(U+6681): Apply new conventions for glyph granularity.
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs@iwds-1'.
+
 	* Ideograph-R086-Fire.el: Don't use `=>ucs@hanyo-denshi'; use
 	abstract characters of `=ucs' as base characters of any IVSes; use
 	`=>ucs@iwds-1' instead of `=ucs' to indicate abstract characters
