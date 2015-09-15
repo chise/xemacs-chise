@@ -5345,26 +5345,33 @@
   '((ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
-    (=>ucs@hanyo-denshi . #x7A42)	; &A-HDU+7A42;
+    (=ucs		. #x7A42)	; 穂
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@hanyo-denshi . #x7A42)	; &A-HDU+7A42;
+     ((=ucs		  . #x7A42)	; 穂
       ))
     (ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
-    (=ucs		. #x7A42)	; 穂
-    (=jis-x0208		. #x4A66)	; &I-J90-4A66; [42-70]
+    (=>ucs@iwds-1	. #x7A42)	; &HD-JA-4A66;
+    (=ucs@unicode	. #x7A42)	; &HD-JA-4A66;
+    (=jis-x0208		. #x4A66)	; &HD-JA-4A66; [42-70]
     (=cns11643-3	. #x4D57)	; &I-C3-4D57; [45-55]
     (=jis-x0213-1	. #x4A66)	; &I-JX1-4A66; [42-70]
     (=hanyo-denshi/ja	. #x4A66)	; &I-HD-JA-4A66; [42-70]
     (=gt		. 32528)	; &I-GT-32528;
     (=gt-pj-1		. #x4A66)	; &I-GT-32528; [42-70]
-    (=daikanwa/+p	. 25236)	; 穂
+    (=daikanwa/+p	. 25236)	; &HD-JA-4A66;
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x7A57)	; 穗
-      (=jis-x0208	  . #x634F)	; &I-J90-634F; [67-47]
+     ((=>ucs@iwds-1	  . #x7A57)	; &HD-JA-634F;
+      (=ucs@unicode	  . #x7A57)	; &HD-JA-634F;
+      (=jis-x0208	  . #x634F)	; &HD-JA-634F; [67-47]
+      (=gb2312		  . #x4B6B)	; &I-G0-4B6B; [43-75]
+      (=ks-x1001	  . #x6234)	; &I-K0-6234; [66-20]
+      (=cns11643-1	  . #x7454)	; &I-C1-7454; [84-52]
+      (=jis-x0213-1	  . #x634F)	; &I-JX1-634F; [67-47]
+      (=daikanwa	  . 25298)	; &I-M-25298;
       ))
     ))
 (define-char
@@ -6128,17 +6135,18 @@
   '((ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
-    (=>ucs@hanyo-denshi . #x7A50)	; &A-HDU+7A50;
+    (=ucs		. #x7A50)	; 穐
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@hanyo-denshi . #x7A50)	; &A-HDU+7A50;
+     ((=ucs		  . #x7A50)	; 穐
       ))
     (ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
-    (=ucs		. #x7A50)	; 穐
-    (=jis-x0208		. #x302C)	; &I-J90-302C; [16-12]
+    (=>ucs@iwds-1	. #x7A50)	; &HD-JA-302C;
+    (=ucs@unicode	. #x7A50)	; &HD-JA-302C;
+    (=jis-x0208		. #x302C)	; &HD-JA-302C; [16-12]
     (=jis-x0213-1	. #x302C)	; &I-JX1-302C; [16-12]
     (=hanyo-denshi/ja	. #x302C)	; &I-HD-JA-302C; [16-12]
     (=gt		. 32582)	; &I-GT-32582;
@@ -6471,17 +6479,18 @@
   '((ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
-    (=>ucs@hanyo-denshi . #x7A57)	; &A-HDU+7A57;
+    (=ucs		. #x7A57)	; 穗
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@hanyo-denshi . #x7A57)	; &A-HDU+7A57;
+     ((=ucs		  . #x7A57)	; 穗
       ))
     (ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
-    (=ucs		. #x7A57)	; 穗
-    (=jis-x0208		. #x634F)	; &I-J90-634F; [67-47]
+    (=>ucs@iwds-1	. #x7A57)	; &HD-JA-634F;
+    (=ucs@unicode	. #x7A57)	; &HD-JA-634F;
+    (=jis-x0208		. #x634F)	; &HD-JA-634F; [67-47]
     (=gb2312		. #x4B6B)	; &I-G0-4B6B; [43-75]
     (=ks-x1001		. #x6234)	; &I-K0-6234; [66-20]
     (=cns11643-1	. #x7454)	; &I-C1-7454; [84-52]
@@ -6491,7 +6500,7 @@
     (=gt		. 32645)	; &I-GT-32645;
     (=gt-pj-1		. #x634F)	; &I-GT-32645; [67-47]
     (=daikanwa		. 25298)	; &I-M-25298;
-    (=shinjigen		.  5657)	; 穗
+    (=shinjigen		.  5657)	; &HD-JA-634F;
     ))
 (define-char
   '((ideographic-radical . 115)	; ⽲
@@ -6722,9 +6731,15 @@
     (=shinjigen		.  5658)	; &HD-JB-5149;
     (=jef-china3	. #x5DC0)	; &I-JC3-5DC0;
     (<-formed
-     ((=ucs		  . #x7A57)	; 穗
-      (=jis-x0208	  . #x634F)	; &I-J90-634F; [67-47]
-      (=shinjigen	  .  5657)	; 穗
+     ((=>ucs@iwds-1	  . #x7A57)	; &HD-JA-634F;
+      (=ucs@unicode	  . #x7A57)	; &HD-JA-634F;
+      (=jis-x0208	  . #x634F)	; &HD-JA-634F; [67-47]
+      (=gb2312		  . #x4B6B)	; &I-G0-4B6B; [43-75]
+      (=ks-x1001	  . #x6234)	; &I-K0-6234; [66-20]
+      (=cns11643-1	  . #x7454)	; &I-C1-7454; [84-52]
+      (=jis-x0213-1	  . #x634F)	; &I-JX1-634F; [67-47]
+      (=daikanwa	  . 25298)	; &I-M-25298;
+      (=shinjigen	  .  5657)	; &HD-JA-634F;
       ))
     (<-formed*sources
      shinjigen)
