@@ -1,5 +1,18 @@
 2015-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R017-Open-Box.el (U+51FA): Add HNG-KHI0268-0.
+
+	* Ideograph-R016-Table.el (AJ1-14041): Add HNG-KHI0011-0.
+
+	* Ideograph-R012-Eight.el: Add glyph-images of HNG-KHI.
+
+	* Ideograph-R010-Legs.el: Add glyph-images of HNG-KHI.
+
+	* Ideograph-R140-Grass.el: Don't use `=>ucs@hanyo-denshi'; use
+	abstract characters of `=ucs' as base characters of any IVSes; use
+	`=>ucs@iwds-1' instead of `=ucs' to indicate abstract characters
+	based on IWDS-1.
+
 	* Ideograph-R011-Enter.el (g2-UU+5165): Add HNG-KHI0261-0.
 
 2015-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
@@ -5796,7 +5809,7 @@
 
 2014-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* char-db-util.el (shuowen-radicals): Add ?屾, ?屵, ?广, ?厂, ?丸,
+	* char-db-util.el (shuowen-radicals): Add ?𡳈, ?屵, ?广, ?厂, ?丸,
 	?危, ?石, ?長, ?勿, ?冄, ?而, ?豕, ?㣇, ?彑, ?豚, ?豸, ?𤉡, ?易,
 	?象 and ?馬.
 
@@ -29753,7 +29766,7 @@
 	`zinbun-oracle-page'; add `<-Oracle-Bones' for U+91C7.
 
 	* char-db-util.el (shuowen-radicals): Add ?木, ?東, ?林, ?才, ?叒,
-	?之, ?帀, ?出, ?𣎵, ?生, ?乇, ?𠂹, ?𠌶, ?華, ?𥝌, ?稽, ?巢, ?桼,
+	?之, ?帀, ?出, ?𣎵, ?生, ?乇, ?𠂹, ?𠌶, ?華, ?𥝌, ?稽, ?巢, ?&g2-AJ1-01209;,
 	?束, ?櫂, ?囗, ?員, ?貝, ?邑 and ?𨛜.
 
 2007-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
