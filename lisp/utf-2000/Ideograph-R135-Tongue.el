@@ -521,8 +521,8 @@
 	(ideographic-strokes . 7)
 	(=daikanwa	    . 30307)	; &M-30307;
 	)
-       ((===jis-x0208	    . #x3C2D)	; &R-J90-3C2D; [28-13]
-	(===jis-x0213-1	    . #x3C2D)	; &R-J90-3C2D; [28-13]
+       ((===jis-x0208	    . #x3C2D)	; &R-J0-3C2D; [28-13]
+	(===jis-x0213-1	    . #x3C2D)	; &R-J0-3C2D; [28-13]
 	)
        ((===gt		    . 51568)	; &R-GT-51568;
 	)
@@ -651,6 +651,7 @@
       (=cns11643-1	  . #x4D3F)	; &I-C1-4D3F; [45-31]
       ))
     (=ucs@unicode	. #x8214)	; &G0-4C72;
+    (=ucs@JP/hanazono	. nil)
     (=gb2312		. #x4C72)	; &G0-4C72; [44-82]
     ))
 (define-char
@@ -917,54 +918,94 @@
     (ideographic-radical . 135)	; ⾆
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
-    (=>ucs@hanyo-denshi . #x8218)	; &A-HDU+8218;
+    (=ucs		. #x8218)	; 舘
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@hanyo-denshi . #x8218)	; &A-HDU+8218;
+     ((=ucs		  . #x8218)	; 舘
       ))
     (ideographic-radical . 135)	; ⾆
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
-    (=ucs		. #x8218)	; 舘
-    (=jis-x0208		. #x345C)	; &I-J90-345C; [20-60]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x820D)	; 舍
+      )
+     ((=ucs		  . #x5B98)	; 官
+      ))
+    (=>ucs@iwds-1	. #x8218)	; &GT-39223;
+    (=ucs@unicode	. #x8218)	; &GT-39223;
+    (=jis-x0208		. #x345C)	; &GT-39223; [20-60]
+    (=iso-ir165		. #x2F75)	; &I-EGB-2F75; [15-85]
+    (=cns11643-3	. #x524A)	; &I-C3-524A; [50-42]
     (=jis-x0213-1	. #x345C)	; &I-JX1-345C; [20-60]
     (=gt		. 39223)	; &I-GT-39223;
     (=gt-pj-1		. #x345C)	; &I-GT-39223; [20-60]
+    (=daikanwa		. 30326)	; &I-M-30326;
+    (=shinjigen		.  9276)	; &GT-39223;
+    (<-vulgar
+     ((=ucs		  . #xFA2C)	; 館
+      (=shinjigen	  .  9275)	; 館
+      ))
+    (<-vulgar*sources
+     shinjigen)
     (->subsumptive
-     ((==ucs@jis	  . #x8218)	; &g2-GT-39223;
+     ((==ucs@unicode	  . #x8218)	; &g2-GT-39223;
+      (==iso-ir165	  . #x2F75)	; &g2-GT-39223; [15-85]
       (==jis-x0208	  . #x345C)	; &g2-GT-39223; [20-60]
+      (==cns11643-3	  . #x524A)	; &g2-GT-39223; [50-42]
       (==jis-x0213-1	  . #x345C)	; &g2-GT-39223; [20-60]
       (==gt		  . 39223)	; &g2-GT-39223;
-      (=daikanwa	  . 30326)	; &g2-GT-39223;
-      (=shinjigen	  .  9276)	; &g2-GT-39223;
-      (<-vulgar
-       ((=ucs		    . #xFA2C)	; 館
-	(=shinjigen	    .  9275)	; 館
+      (==daikanwa	  . 30326)	; &g2-GT-39223;
+      (==shinjigen	  .  9276)	; &g2-GT-39223;
+      (->subsumptive
+       ((===daikanwa	    . 30326)	; &R-M-30326;
+	)
+       ((===jis-x0208	    . #x345C)	; &R-J0-345C; [20-60]
+	(===jis-x0213-1	    . #x345C)	; &R-J0-345C; [20-60]
+	)
+       ((===gt		    . 39223)	; &R-GT-39223;
+	)
+       ((===cns11643-3	    . #x524A)	; &R-C3-524A; [50-42]
+	)
+       ((===ucs@unicode	    . #x8218)	; &R-UU+8218;
 	))
-      (<-vulgar*sources
-       shinjigen)
-      )
-     ((==ucs@unicode	  . #x8218)	; &C3-524A;
-      (=iso-ir165	  . #x2F75)	; &C3-524A; [15-85]
-      (=cns11643-3	  . #x524A)	; &I-C3-524A; [50-42]
       ))
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@hanyo-denshi . #x8218)	; &A-HDU+8218;
+     ((=ucs		  . #x8218)	; 舘
       ))
     (ideographic-radical . 135)	; ⾆
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
-    (=>>hanyo-denshi/ib . #x2A63)	; &G-HD-IB-2A63; [10-67]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x820E)	; 舎
+      )
+     ((=ucs		  . #x5B98)	; 官
+      ))
+    (=hanyo-denshi/ib	. #x2A63)	; &HD-IB-2A63; [10-67]
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x8218)	; 舘
 	)
        ((=ucs		    . #xE0103)	; 󠄃
 	))
-      (=hanyo-denshi/ib	  . #x2A63)	; &HD-IB-2A63; [10-67]
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x820E)	; 舎
+	)
+       ((==ucs@unicode	    . #x5B98)	; &g2-AJ1-01517;
+	(==adobe-japan1-0   . 01517)	; &g2-AJ1-01517;
+	))
+      (==hanyo-denshi/ib  . #x2A63)	; &g2-HD-IB-2A63; [10-67]
       ))
     ))
 (define-char
