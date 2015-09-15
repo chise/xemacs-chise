@@ -44144,20 +44144,21 @@
 (define-char
   '((ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 14)
-    (=>ucs@hanyo-denshi . #x85CD)	; &A-HDU+85CD;
-    ))
-(define-char
-  '((<-denotational
-     ((=>ucs@hanyo-denshi . #x85CD)	; &A-HDU+85CD;
-      ))
-    (ideographic-radical . 140)	; ⾋
-    (ideographic-strokes . 14)
     (=ucs		. #x85CD)	; 藍
-    (=big5		. #xC2C5)	; &I-B-C2C5;
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x85CD)	; 藍
+      ))
+    (ideographic-radical . 140)	; ⾋
+    (ideographic-strokes . 14)
+    (=>ucs@iwds-1	. #x85CD)	; &A-IWDSU+85CD;
+    (=big5		. #xC2C5)	; &A-IWDSU+85CD;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x85CD)	; &A-IWDSU+85CD;
+      (=big5		  . #xC2C5)	; &A-IWDSU+85CD;
       ))
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 14)
@@ -44239,7 +44240,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x85CD)	; 藍
+     ((=>ucs@iwds-1	  . #x85CD)	; &A-IWDSU+85CD;
+      (=big5		  . #xC2C5)	; &A-IWDSU+85CD;
       ))
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 14)
@@ -44255,7 +44257,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@hanyo-denshi . #x85CD)	; &A-HDU+85CD;
+     ((=ucs		  . #x85CD)	; 藍
       ))
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 14)
