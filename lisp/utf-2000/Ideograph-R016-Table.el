@@ -150,11 +150,6 @@
     (ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
-    (=decomposition@cid
-     ((=ucs		  . #x51E1)	; 凡
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
       (=ucs		  . #x2FF5)	; ⿵
@@ -165,6 +160,20 @@
       ))
     (=adobe-japan1-4	. 14041)	; &AJ1-14041;
     (=shinjigen		.  0567)	; &AJ1-14041;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x51E1)	; 凡
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==adobe-japan1-4	  . 14041)	; &g2-AJ1-14041;
+      (==shinjigen	  .  0567)	; &g2-AJ1-14041;
+      (->subsumptive
+       ((===adobe-japan1-4  . 14041)	; &R-AJ1-14041;
+	)
+       ((===hng-khi	    . 00110)	; &HNG-KHI00110;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
