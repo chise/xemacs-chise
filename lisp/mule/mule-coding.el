@@ -446,6 +446,7 @@
 	  ( =>zinbun-oracle		       "A-ZOB-" 4 d)
 	  (==>ucs@bucs				"BUCS+" 4 X)
 	  ( =>iwds-1			       "IWDS1-" 3 d)
+	  ( =>ucs@iwds-1		     "A-IWDSU+" 4 X)
 	  ( =>ucs@hanyo-denshi		       "A-HDU+" 4 X)
 	  ( =>ucs@hanyo-denshi		    "A-HD-UCS+" 4 X)
 	  ( =>ucs@iso				"A-IU+" 4 X)
