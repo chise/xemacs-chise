@@ -1,5 +1,11 @@
 2015-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R020-Wrap.el (U+52FF): Add HNG-KHI0281-0.
+
+	* Ideograph-R014-Cover.el (CU+6700): Add HNG-KHI0087-0.
+
+	* Ideograph-R013-Down-Box.el (CU+6700): Add HNG-KHI0087-0.
+
 	* Ideograph-R017-Open-Box.el (U+51FA): Add HNG-KHI0268-0.
 
 	* Ideograph-R016-Table.el (AJ1-14041): Add HNG-KHI0011-0.
@@ -29766,7 +29772,7 @@
 	`zinbun-oracle-page'; add `<-Oracle-Bones' for U+91C7.
 
 	* char-db-util.el (shuowen-radicals): Add ?木, ?東, ?林, ?才, ?叒,
-	?之, ?帀, ?出, ?𣎵, ?生, ?乇, ?𠂹, ?𠌶, ?華, ?𥝌, ?稽, ?巢, ?&g2-AJ1-01209;,
+	?之, ?帀, ?出, ?𣎵, ?生, ?乇, ?𠂹, ?𠌶, ?華, ?𥝌, ?稽, ?巢, ?印,
 	?束, ?櫂, ?囗, ?員, ?貝, ?邑 and ?𨛜.
 
 2007-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
