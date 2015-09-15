@@ -686,17 +686,18 @@
     ))
 (define-char
   '((ideographic-radical . 118)	; ⽵
-    (=>ucs@hanyo-denshi . #x7B11)	; &A-HDU+7B11;
+    (=ucs		. #x7B11)	; 笑
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@hanyo-denshi . #x7B11)	; &A-HDU+7B11;
+     ((=ucs		  . #x7B11)	; 笑
       ))
     (ideographic-radical . 118)	; ⽵
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
-    (=ucs		. #x7B11)	; 笑
-    (=jis-x0208		. #x3E50)	; &I-J90-3E50; [30-48]
+    (=>ucs@iwds-1	. #x7B11)	; &HD-JA-3E50;
+    (=ucs@unicode	. #x7B11)	; &HD-JA-3E50;
+    (=jis-x0208		. #x3E50)	; &HD-JA-3E50; [30-48]
     (=gb2312		. #x5026)	; &I-G0-5026; [48-06]
     (=ks-x1001		. #x6145)	; &I-K0-6145; [65-37]
     (=cns11643-1	. #x573D)	; &I-C1-573D; [55-29]
@@ -707,7 +708,7 @@
     (=gt-k		. 06471)	; &I-GT-K06471;
     (=gt-pj-1		. #x3E50)	; &I-GT-33399; [30-48]
     (=daikanwa		. 25885)	; &I-M-25885;
-    (=shinjigen		.  5753)	; 笑
+    (=shinjigen		.  5753)	; &HD-JA-3E50;
     ))
 (define-char
   '((ideographic-radical . 118)	; ⽵
