@@ -1,6 +1,16 @@
 2015-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R135-Tongue.el: Don't use `=>ucs@hanyo-denshi'; use
+	abstract characters of `=ucs' as base characters of any IVSes; use
+	`=>ucs@iwds-1' instead of `=ucs' to indicate abstract characters
+	based on IWDS-1.
+	(U+8218): Apply new conventions for glyph granularity.
+
+	* Ideograph-R073-Say.el (CU+6700): Add HNG-KHI0087-0.
+
 	* Ideograph-R020-Wrap.el (U+52FF): Add HNG-KHI0281-0.
+
+	* Ideograph-R029-Again.el (CU+6700): Add HNG-KHI0087-0.
 
 	* Ideograph-R014-Cover.el (CU+6700): Add HNG-KHI0087-0.
 
