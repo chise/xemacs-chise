@@ -324,7 +324,8 @@
     =>cbeta
     =shinjigen
     =big5-cdp-var-3
-    =big5-cdp-var-5))
+    =big5-cdp-var-5
+    =>ucs@iwds-1))
 
 
 ;;; @ char-db formatters
