@@ -1,3 +1,7 @@
+2015-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R011-Enter.el (g2-UU+5165): Add HNG-KHI0261-0.
+
 2015-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R118-Bamboo.el: Don't use `=>ucs@hanyo-denshi'; use
