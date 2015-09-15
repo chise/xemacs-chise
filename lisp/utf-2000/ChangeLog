@@ -1,5 +1,42 @@
 2015-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R118-Bamboo.el: Don't use `=>ucs@hanyo-denshi'; use
+	abstract characters of `=ucs' as base characters of any IVSes; use
+	`=>ucs@iwds-1' instead of `=ucs' to indicate abstract characters
+	based on IWDS-1.
+
+	* Ideograph-R115-Grain.el: Don't use `=>ucs@hanyo-denshi'; use
+	abstract characters of `=ucs' as base characters of any IVSes; use
+	`=>ucs@iwds-1' instead of `=ucs' to indicate abstract characters
+	based on IWDS-1.
+
+	* Ideograph-R094-Dog.el: Add some representative nodes.
+	(U+72E1): Apply new conventions for glyph granularity.
+	(U+72FB): Likewise.
+	(U+72FC): Likewise.
+	(U+7307): Likewise.
+	(U+730B): Likewise.
+	(U+731C): Likewise.
+	(UU+732A): Unify S-4805.
+	(U+7324): Apply new conventions for glyph granularity.
+	(U+732A): Likewise.
+	(U+733A): Likewise.
+	(U+733B): Likewise.
+	(U+733D): Likewise.
+	(U+734D): Likewise.
+	(U+7352): Likewise.
+	(U+7358): Likewise.
+	(U+3E94): Likewise.
+	(U+735D): Likewise.
+	(U+7372): Likewise.
+	(U+737B): Likewise.
+
+	* Ideograph-R072-Sun.el: Don't use `=>ucs@hanyo-denshi'; use
+	abstract characters of `=ucs' as base characters of any IVSes; use
+	`=>ucs@iwds-1' instead of `=ucs' to indicate abstract characters
+	based on IWDS-1.
+	(U+6681): Apply new conventions for glyph granularity.
+
 	* Ideograph-R086-Fire.el: Don't use `=>ucs@hanyo-denshi'; use
 	abstract characters of `=ucs' as base characters of any IVSes; use
 	`=>ucs@iwds-1' instead of `=ucs' to indicate abstract characters
