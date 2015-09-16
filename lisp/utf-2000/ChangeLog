@@ -1,5 +1,8 @@
 2015-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R021-Spoon.el: Add glyph-images of HNG-KHI.
+	(U-0002F82B): Add `<-same' for U+5317.
+
 	* Ideograph-R024-Ten.el: Add glyph-images of HNG-KHI.
 
 	* Ideograph-R019-Power.el: Add glyph-images of HNG-KHI.
