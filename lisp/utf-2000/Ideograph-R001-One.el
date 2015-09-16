@@ -2492,7 +2492,8 @@
     (=daikanwa		. 00046)	; &I-M-00046;
     (=shinjigen		.  0483)	; 両
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x5169)	; 兩
+     ((=ucs@unicode	  . #x5169)	; &AJ1-04215;
+      (=adobe-japan1-0	  . 04215)	; &AJ1-04215;
       (=jis-x0208	  . #x5140)	; &I-J90-5140; [49-32]
       ))
     ))
@@ -2920,8 +2921,9 @@
     (=daikanwa		. 00051)	; &I-M-00051;
     (=jef-china3	. #x41A3)	; &I-JC3-41A3;
     (<-simplified@CN
-     ((=ucs		  . #x5169)	; 兩
-      (=gb12345		  . #x413D)	; 兩 [33-29]
+     ((=ucs@unicode	  . #x5169)	; &AJ1-04215;
+      (=adobe-japan1-0	  . 04215)	; &AJ1-04215;
+      (=gb12345		  . #x413D)	; &AJ1-04215; [33-29]
       ))
     ))
 (define-char
