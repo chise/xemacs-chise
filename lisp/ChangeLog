@@ -1,3 +1,19 @@
+2015-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	- Use "&HNG010-<d><d><d><d><d>;" instead of
+	  "&HNG-KHI<d><d><d><d><d>;" for `===hng-khi'.
+	- Add setting for `===hng-khm' and `=ucs-itaiji-002'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=ucs-bmp-itaiji-002' and `===hng-khm'.
+
+	* mule/mule-conf.el (===hng-khi): Use "hng-10$" instead of
+	"hngkhi-0" as the suffix of registry.
+	(===hng-khm): New coded-charset for XEmacs CHISE.
+	(=ucs-itaiji-002): Ditto.
+	(=ucs-bmp-itaiji-002): Ditto.
+
 2015-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
