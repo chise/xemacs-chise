@@ -405,6 +405,11 @@
       )
      ((==ucs@cns	  . #x4E5F)	; &g2-CU+4E5F;
       (==cns11643-1	  . #x443E)	; &g2-CU+4E5F; [36-30]
+      (->subsumptive
+       ((===cns11643-1	    . #x443E)	; &R-C1-443E; [36-30]
+	)
+       ((===hng-kak	    . 02650)	; &HNG017-02650;
+	))
       ))
     ))
 (define-char
@@ -3017,6 +3022,8 @@
 	(===gt-k	    . 10402)	; &R-GT-00286;
 	)
        ((===ucs@unicode	    . #x4E82)	; &R-UU+4E82;
+	)
+       ((===hng-kak	    . 02660)	; &HNG017-02660;
 	))
       )
      ((ideographic-structure
