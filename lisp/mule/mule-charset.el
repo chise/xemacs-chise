@@ -380,6 +380,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =ucs-bmp-var-001
 	  =ucs-bmp-var-002
 	  =ucs-bmp-var-003
+	  =ucs-bmp-itaiji-002
 	  =ucs-bmp-itaiji-084
 	  =big5-cdp-var-3
 	  =big5-cdp-var-5
@@ -455,6 +456,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ===ucs-sip@iso
 	  ===ruimoku-v6
 	  ===hng-khi
+	  ===hng-khm
 	  ===cbeta
 	  ===jef-china3
 	  ;; ucs-sip
