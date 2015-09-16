@@ -2809,7 +2809,16 @@
 		'(long-name "HNG/宮廷今西"
 		  chars		256
 		  dimension	2
-		  registry	"hngkhi-0"
+		  registry	"hng-10$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
+
+  (make-charset '===hng-khm "HNG:妙法蓮華經卷三（守屋本）"
+		'(long-name "HNG/宮廷守屋"
+		  chars		256
+		  dimension	2
+		  registry	"hng-11$"
 		  graphic	2
 		  columns	2
 		  direction	l2r))
@@ -3796,6 +3805,29 @@
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.var003-0"))
+  (make-charset '=ucs-itaiji-002
+		"uXXXX-itaiji-002 glyphs of GlyphWiki"
+		'(long-name	"UCS-itaiji-002"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs))
+  (make-charset '=ucs-bmp-itaiji-002
+		"uXXXX-itaiji-002 glyph-images in BMP"
+		'(long-name	"UCS-BMP-itaiji-002"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs-itaiji-002
+		  min-code #x2E00
+		  max-code #x9FCC
+		  registry "ucs\\.itaiji002-0"))
   (make-charset '=ucs-itaiji-084
 		"uXXXX-itaiji-084 glyph-images of GlyphWiki"
 		'(long-name	"UCS-itaiji-084"
