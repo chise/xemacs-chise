@@ -1,5 +1,7 @@
 2015-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R004-Slash.el: Add glyph-images of HNG-KHM.
+
 	* Ideograph-R005-Second.el: Add glyph-images of HNG-KHM.
 
 	* Ideograph-R008-Lid.el (g2-UU+4EA6): Add HNG-KHM0177-0.
