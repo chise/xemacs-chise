@@ -220,7 +220,7 @@
 	)
        ((===ucs@unicode	    . #x4E5D)	; &R-UU+4E5D;
 	)
-       ((===hng-khi	    . 00020)	; &HNG-KHI00020;
+       ((===hng-khi	    . 00020)	; &HNG010-00020;
 	))
       ))
     ))
@@ -398,7 +398,9 @@
 	)
        ((===ucs@unicode	    . #x4E5F)	; &R-UU+4E5F;
 	)
-       ((===hng-khi	    . 00010)	; &HNG-KHI00010;
+       ((===hng-khi	    . 00010)	; &HNG010-00010;
+	)
+       ((===hng-khm	    . 01700)	; &HNG011-01700;
 	))
       )
      ((==ucs@cns	  . #x4E5F)	; &g2-CU+4E5F;
@@ -1848,7 +1850,11 @@
     (=gt-pj-2		. #x315D)	; &I-GT-00261; [17-61]
     (=daikanwa		. 00194)	; &I-M-00194;
     (=shinjigen		.  0065)	; 乹
-    (=hanziku-1		. #xAFA3)	; &I-HZK01-AFA3;
+    (<-formed
+     ((=ucs		  . #x4E7E)	; 乾
+      ))
+    (<-formed*sources
+     hng)
     (<-vulgar
      ((=ucs		  . #x4E7E)	; 乾
       (=jis-x0208	  . #x3425)	; &I-J90-3425; [20-05]
@@ -1857,6 +1863,31 @@
       ))
     (<-vulgar*sources
      jiyun zhengzitong daikanwa shinjigen)
+    (->subsumptive
+     ((==ucs@unicode	  . #x4E79)	; &g2-AJ1-19143;
+      (==adobe-japan1-5	  . 19143)	; &g2-AJ1-19143;
+      (==jis-x0212	  . #x303B)	; &g2-AJ1-19143; [16-27]
+      (==cns11643-3	  . #x2B23)	; &g2-AJ1-19143; [11-03]
+      (==gt		  . 00261)	; &g2-AJ1-19143;
+      (==daikanwa	  . 00194)	; &g2-AJ1-19143;
+      (==shinjigen	  .  0065)	; &g2-AJ1-19143;
+      (=hanziku-1	  . #xAFA3)	; &g2-AJ1-19143;
+      (->subsumptive
+       ((===daikanwa	    . 00194)	; &R-M-00194;
+	)
+       ((===jis-x0212	    . #x303B)	; &R-JSP-303B; [16-27]
+	)
+       ((===adobe-japan1-5  . 19143)	; &R-AJ1-19143;
+	)
+       ((===cns11643-3	    . #x2B23)	; &R-C3-2B23; [11-03]
+	)
+       ((===gt		    . 00261)	; &R-GT-00261;
+	)
+       ((===ucs@unicode	    . #x4E79)	; &R-UU+4E79;
+	))
+      )
+     ((===hng-khm	  . 01690)	; &HNG011-01690;
+      ))
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
@@ -2944,7 +2975,13 @@
      ((=ucs		  . #x4E82)	; 亂
       ))
     (ideographic-radical . 5)	; ⼄
-    (===hng-khi		. 02270)	; &HNG-KHI02270;
+    (===hng-khi		. 02270)	; &HNG010-02270;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E82)	; 亂
+      ))
+    (===hng-khm		. 00020)	; &HNG011-00020;
     ))
 (define-char
   '((<-denotational
