@@ -1,5 +1,13 @@
 2015-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R020-Wrap.el (g2-UU+52FF): Add HNG-KHM0226-0.
+
+	* Ideograph-R019-Power.el: Add glyph-images of HNG-KHM.
+
+	* Ideograph-R012-Eight.el: Add glyph-images of HNG-KHM.
+
+2015-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R008-Lid.el: Add glyph-images of HNG-KAK.
 
 	* Ideograph-R006-Hook.el (UU+4E8B): Add HNG-KAK0267-0.
