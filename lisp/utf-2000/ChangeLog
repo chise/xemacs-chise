@@ -1,5 +1,7 @@
 2015-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R008-Lid.el: Add glyph-images of HNG-KAK.
+
 	* Ideograph-R006-Hook.el (UU+4E8B): Add HNG-KAK0267-0.
 
 	* Ideograph-R004-Slash.el: Add glyph-images of HNG-KAK.
