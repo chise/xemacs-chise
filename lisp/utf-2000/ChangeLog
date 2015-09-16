@@ -1,5 +1,18 @@
 2015-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R009-Man.el: Add glyph-images of HNG-KHI.
+	(U+3445): Add `<-original' for U+4F5C.
+	(U+4FC5): Apply new conventions for glyph granularity.
+	(U+5048): Likewise.
+
+	* Ideograph-R007-Two.el: Add glyph-images of HNG-KAK.
+
+	* Ideograph-R005-Second.el: Add glyph-images of HNG-KAK.
+
+	* Ideograph-R003-Dot.el (g2-UU+4E3B): Add HNG-KAK0001-0.
+
+	* Ideograph-R002-Line.el (g2-UU+4E2D): Add HNG-KAK0262-0.
+
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`===hng-kak' as decimal.
 
