@@ -2813,12 +2813,19 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
-
   (make-charset '===hng-khm "HNG:妙法蓮華經卷三（守屋本）"
 		'(long-name "HNG/宮廷守屋"
 		  chars		256
 		  dimension	2
 		  registry	"hng-11$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
+  (make-charset '===hng-kak "HNG:開成石經孝經"
+		'(long-name "HNG/開成孝經"
+		  chars		256
+		  dimension	2
+		  registry	"hng-17$"
 		  graphic	2
 		  columns	2
 		  direction	l2r))
