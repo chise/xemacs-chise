@@ -48,6 +48,8 @@
        ((===ucs@unicode	    . #x529B)	; &R-UU+529B;
 	)
        ((===hng-khi	    . 02800)	; &HNG010-02800;
+	)
+       ((===hng-khm	    . 02230)	; &HNG011-02230;
 	))
       ))
     ))
@@ -400,6 +402,8 @@
 	)
        ((===ucs@unicode	    . #x52A3)	; &R-UU+52A3;
 	))
+      )
+     ((===hng-khm	  . 00100)	; &HNG011-00100;
       ))
     ))
 (define-char
@@ -691,6 +695,15 @@
     (===hng-khi		. 00140)	; &HNG010-00140;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x52A9)	; 助
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (===hng-khm		. 00090)	; &HNG011-00090;
+    ))
+(define-char
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
@@ -815,6 +828,8 @@
        ((===ucs@unicode	    . #x52AB)	; &R-UU+52AB;
 	)
        ((===hng-khi	    . 02750)	; &HNG010-02750;
+	)
+       ((===hng-khm	    . 02240)	; &HNG011-02240;
 	))
       ))
     ))
@@ -3444,6 +3459,8 @@
 	))
       )
      ((===hng-khi	  . 02790)	; &HNG010-02790;
+      )
+     ((===hng-khm	  . 02220)	; &HNG011-02220;
       ))
     ))
 (define-char
@@ -4242,6 +4259,13 @@
      ((=ucs		  . #x52DD)	; 勝
       ))
     (ideographic-radical . 19)	; ⼒
+    (===hng-khm		. 02200)	; &HNG011-02200;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x52DD)	; 勝
+      ))
+    (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (ideographic-structure
@@ -4546,6 +4570,15 @@
       )
      ((===hng-khi	  . 00150)	; &HNG010-00150;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x52E4)	; 勤
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (===hng-khm		. 02250)	; &HNG011-02250;
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
@@ -6757,6 +6790,8 @@
        ((===mj		    . 007741)	; &R-MJ007741;
 	)
        ((===cns11643-1	    . #x7961)	; &R-C1-7961; [89-65]
+	)
+       ((===hng-khm	    . 00110)	; &HNG011-00110;
 	))
       ))
     ))
