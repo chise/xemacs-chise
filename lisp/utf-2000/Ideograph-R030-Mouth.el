@@ -39497,6 +39497,7 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (hanyu-dazidian	1 680 7)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -39506,6 +39507,8 @@
      ((=ucs		  . #x7434)	; 琴
       ))
     (=ucs		. #x5656)	; 噖
+    (=cns11643-3	. #x4B3F)	; &I-C3-4B3F; [43-31]
+    (=daikanwa		. 04344)	; &I-M-04344;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -39513,28 +39516,35 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@jis	    . #x7434)	; &GT-26940;
-	(=jis-x0208	    . #x3657)	; &GT-26940; [22-55]
-	(=ks-x1001	    . #x5056)	; &I-K0-5056; [48-54]
-	(=cns11643-1	    . #x6064)	; &I-C1-6064; [64-68]
-	(=jis-x0213-1	    . #x3657)	; &I-JX1-3657; [22-55]
-	(=daikanwa	    . 21079)	; &I-M-21079;
+       ((==ucs@cns	    . #x7434)	; &g2-GT-26940;
+	(==ucs@jis	    . #x7434)	; &g2-GT-26940;
+	(==ucs@ks	    . #x7434)	; &g2-GT-26940;
+	(==jis-x0208	    . #x3657)	; &g2-GT-26940; [22-55]
 	))
-      (=cns11643-3	  . #x4B3F)	; &C3-4B3F; [43-31]
-      (=daikanwa	  . 04344)	; &I-M-04344;
+      (==ucs@cns	  . #x5656)	; &g2-M-04344;
+      (==cns11643-3	  . #x4B3F)	; &g2-M-04344; [43-31]
+      (==daikanwa	  . 04344)	; &g2-M-04344;
+      (->subsumptive
+       ((===daikanwa	    . 04344)	; &R-M-04344;
+	)
+       ((===cns11643-3	    . #x4B3F)	; &R-C3-4B3F; [43-31]
+	))
       )
-     ((hanyu-dazidian	  1 680 7)
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@unicode	    . #x7434)	; &G0-4759;
-	(=gb2312	    . #x4759)	; &G0-4759; [39-57]
+       ((==ucs@unicode	    . #x7434)	; &g2-UU+7434;
 	))
-      (=ucs@unicode	  . #x5656)	; &HZK02-DE4F;
-      (=hanziku-2	  . #xDE4F)	; &HZK02-DE4F;
+      (==ucs@unicode	  . #x5656)	; &g2-UU+5656;
+      (==ucs@JP/hanazono  . nil)
+      (->subsumptive
+       ((===ucs@unicode	    . #x5656)	; &R-UU+5656;
+	)
+       ((=hanziku-2	    . #xDE4F)	; &HZK02-DE4F;
+	))
       ))
     ))
 (define-char
