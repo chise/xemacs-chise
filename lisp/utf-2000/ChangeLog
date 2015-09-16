@@ -1,5 +1,15 @@
 2015-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R024-Ten.el: Add glyph-images of HNG-KHI.
+
+	* Ideograph-R019-Power.el: Add glyph-images of HNG-KHI.
+
+	* Ideograph-R018-Knife.el: Add glyph-images of HNG-KHI.
+
+	* Ideograph-R006-Hook.el: Add glyph-images of HNG-KHM.
+	(U-i002+4E8B): New character to integrate HNG-KHI0228-0 and
+	HNG-KHM0172-0.
+
 	* Ideograph-R004-Slash.el: Add glyph-images of HNG-KHM.
 
 	* Ideograph-R005-Second.el: Add glyph-images of HNG-KHM.
