@@ -1615,8 +1615,7 @@
     (=daikanwa		. 14489)	; &I-M-14489;
     (=shinjigen		.  0240)	; 来
     (<-simplified@JP/Jouyou
-     ((=ucs@unicode	  . #x4F86)	; &AJ1-04141;
-      (=adobe-japan1-0	  . 04141)	; &AJ1-04141;
+     ((=ucs		  . #x4F86)	; 來
       (=jis-x0208	  . #x5054)	; &I-J90-5054; [48-52]
       ))
     (->subsumptive
@@ -1646,7 +1645,7 @@
        ((===ucs@unicode	    . #x6765)	; &R-UU+6765;
 	))
       )
-     ((===hng-khi	  . 02450)	; &HNG-KHI02450;
+     ((===hng-khi	  . 02450)	; &HNG010-02450;
       ))
     ))
 (define-char
@@ -24008,8 +24007,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #xFA42)	; &AJ1-13334;
-      (=adobe-japan1-4	  . 13334)	; &AJ1-13334;
+     ((=ucs		  . #xFA42)	; 既
       )
      ((=ucs		  . #x6728)	; 木
       ))
@@ -24056,7 +24054,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs		    . #xFA42)	; 既
+       ((==ucs@unicode	    . #xFA42)	; &g2-AJ1-13334;
+	(==adobe-japan1-4   . 13334)	; &g2-AJ1-13334;
 	)
        ((=ucs		    . #x6728)	; 木
 	))
