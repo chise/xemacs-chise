@@ -1,5 +1,16 @@
 2015-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `===hng-sys'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`===hng-sys'.
+
+	* mule/mule-conf.el (===hng-sys): New coded-charset for XEmacs
+	CHISE.
+
+2015-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* mule/mule-coding.el (coded-charset-entity-reference-alist):
 	- Use "&HNG010-<d><d><d><d><d>;" instead of
 	  "&HNG-KHI<d><d><d><d><d>;" for `===hng-khi'.
