@@ -1,5 +1,11 @@
 2015-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R017-Open-Box.el (g2-UU+51FA): Add HNG-KHM0212-0.
+
+	* Ideograph-R011-Enter.el: Add glyph-images of HNG-KHM.
+
+	* Ideograph-R010-Legs.el: Add glyph-images of HNG-KHM.
+
 	* Ideograph-R020-Wrap.el (g2-UU+52FF): Add HNG-KHM0226-0.
 
 	* Ideograph-R019-Power.el: Add glyph-images of HNG-KHM.
