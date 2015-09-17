@@ -293,8 +293,7 @@
     (=shinjigen		.  3262)	; &AJ1-13701;
     (=jef-china3	. #x50F4)	; &I-JC3-50F4;
     (<-formed
-     ((=ucs@unicode	  . #xFA42)	; &AJ1-13334;
-      (=adobe-japan1-4	  . 13334)	; &AJ1-13334;
+     ((=ucs		  . #xFA42)	; 既
       (=shinjigen	  .  3261)	; 既
       ))
     (<-formed*sources
@@ -343,7 +342,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=ucs		. #xFA42)	; 既
-    (=adobe-japan1-4	. 13334)	; &AJ1-13334;
+    (=adobe-japan1-4	. 13334)	; &I-AJ1-13334;
     (=jis-x0213-1	. #x752B)	; &I-JX1-752B; [85-11]
     (=daikanwa		. 13725)	; &I-M-13725;
     (=shinjigen		.  3261)	; 既
