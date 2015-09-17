@@ -1,5 +1,8 @@
 2015-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (char-db-insert-ccs-feature): Format
+	`===hng-tsu' as decimal.
+
 	* Ideograph-R075-Tree.el (JU+69E9): Apply new conventions for
 	glyph granularity for components of ideographic-structure.
 
