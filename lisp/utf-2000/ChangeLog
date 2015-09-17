@@ -2,6 +2,9 @@
 
 	* Ideograph-R006-Hook.el: Add glyph-images of HNG-SYS.
 
+	* char-db-util.el (char-db-insert-ccs-feature): Format
+	`===hng-sys' as decimal.
+
 	* Ideograph-R017-Open-Box.el (g2-UU+51FA): Add HNG-KHM0212-0.
 
 	* Ideograph-R011-Enter.el: Add glyph-images of HNG-KHM.
