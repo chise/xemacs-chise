@@ -119,6 +119,11 @@
      ((==ucs@unicode	  . #x51F6)	; &g2-UU+51F6;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x5057)	; &g2-UU+51F6; [48-55]
+      (->subsumptive
+       ((===ucs@unicode	    . #x51F6)	; &R-UU+51F6;
+	)
+       ((===hng-kak	    . 00250)	; &HNG017-00250;
+	))
       ))
     ))
 (define-char
