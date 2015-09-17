@@ -47,6 +47,9 @@
 
 	* Ideograph-R017-Open-Box.el (g2-UU+51F6): Add HNG-KAK0025-0.
 
+	* Ideograph-R012-Eight.el: Add glyph-images of HNG-KAK.
+	(U-v001+516C): New character to integrate HNG-KAK0290-0.
+
 	* Ideograph-R015-Ice.el (U+51B0): Add HNG-KAK0023-0.
 
 2015-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
