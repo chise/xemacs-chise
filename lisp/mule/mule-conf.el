@@ -2837,6 +2837,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-tsu "HNG:通典卷一"
+		'(long-name "HNG/通典卷一"
+		  chars		256
+		  dimension	2
+		  registry	"hng-24$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
 
   (make-charset '=cbeta "CBETA private characters"
 		'(long-name	"CBETA PUA"
