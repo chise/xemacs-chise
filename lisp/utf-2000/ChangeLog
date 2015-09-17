@@ -1,3 +1,54 @@
+2015-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R096-Jade.el:
+	- Add some representative nodes.
+	- Don't use `=>ucs@hanyo-denshi'; use abstract characters of
+	  `=ucs' as base characters of any IVSes; use `=>ucs@iwds-1'
+	  instead of `=ucs' to indicate abstract characters based on
+	  IWDS-1.
+	(U+73CE): Apply new conventions for glyph granularity.
+	(U+73D3): Likewise.
+	(U+73E5): Likewise.
+	(U+73ED): Likewise.
+	(UU+7409): Likewise.
+	(U-00024957): Unify M-20991 and S1-4906; add `<-original' for
+	CU+7409.
+	(U+7400): Apply new conventions for glyph granularity.
+	(U+7405): Likewise.
+	(U+741B): Likewise.
+	(U+7422): Likewise.
+	(U+742C): Likewise.
+	(U+742F): Likewise.
+	(U+7432): Likewise.
+	(U+7439): Use `->subsumptive'; unify S1-4920 and S2-4919; add
+	`<-vulgar' for U+7434.
+	(U+7434): Apply new conventions for glyph granularity.
+	(U+744D): Likewise.
+	(U+7451): Likewise.
+	(U+745C): Likewise.
+	(U+745F): Likewise.
+	(U-000249B4): Likewise.
+	(U+7467): Likewise.
+	(U+7471): Likewise.
+	(U+7472): Likewise.
+	(U+7480): Likewise.
+	(U+7486): Likewise.
+	(U+7487): Likewise.
+	(U+748F): Likewise.
+	(U+7498): Likewise.
+	(U+749A): Likewise.
+	(U+749F): Likewise.
+	(U+74A7): Likewise.
+	(U+74A9): Likewise.
+	(U+74AE): Likewise.
+	(U+74B1): Likewise.
+	(U+74BB): Likewise.
+	(U+74DB): Likewise.
+
+	* Ideograph-R017-Open-Box.el (g2-UU+51F6): Add HNG-KAK0025-0.
+
+	* Ideograph-R015-Ice.el (U+51B0): Add HNG-KAK0023-0.
+
 2015-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el: Add glyph-images of HNG-KHM.
