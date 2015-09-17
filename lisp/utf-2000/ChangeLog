@@ -1,5 +1,10 @@
 2015-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R075-Tree.el (JU+69E9): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+2015-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R096-Jade.el:
 	- Add some representative nodes.
 	- Don't use `=>ucs@hanyo-denshi'; use abstract characters of
