@@ -2829,6 +2829,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-sys "HNG:瑜伽師地論卷三十（S.5309）"
+		'(long-name "HNG/S5309"
+		  chars		256
+		  dimension	2
+		  registry	"hng-22$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
 
   (make-charset '=cbeta "CBETA private characters"
 		'(long-name	"CBETA PUA"
