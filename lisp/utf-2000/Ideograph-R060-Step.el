@@ -2233,10 +2233,9 @@
     (=daikanwa		. 10155)	; &I-M-10155;
     (=shinjigen		.  0242)	; 徠
     (<-ancient
-     ((=ucs@unicode	  . #x4F86)	; &AJ1-04141;
-      (=adobe-japan1-0	  . 04141)	; &AJ1-04141;
+     ((=ucs		  . #x4F86)	; 來
       (=jis-x0208	  . #x5054)	; &I-J90-5054; [48-52]
-      (=shinjigen	  .  0241)	; &AJ1-04141;
+      (=shinjigen	  .  0241)	; 來
       ))
     (<-ancient*sources
      shinjigen)
