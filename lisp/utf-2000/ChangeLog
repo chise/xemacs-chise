@@ -4,6 +4,13 @@
 	- Add glyph-images of HNG-TSU.
 	- Add some representative nodes.
 
+	* Ideograph-R058-Snout.el: Add some representative nodes.
+	(U+5F57): Apply new conventions for glyph granularity.
+	(U+5F58): Likewise.
+	(U+5F5B): Likewise.
+	(U+5F5D): Likewise.
+	(U-0002F898): Likewise.
+
 	* Ideograph-R016-Table.el (UU+51E1): Add HNG-TSU0517-0.
 
 	* Ideograph-R004-Slash.el (g2-UU+53CA): Add HNG-HOD0809-0.
