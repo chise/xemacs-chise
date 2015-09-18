@@ -4,6 +4,8 @@
 	- Add glyph-images of HNG-TSU.
 	- Add some representative nodes.
 
+	* Ideograph-R016-Table.el (UU+51E1): Add HNG-TSU0517-0.
+
 	* Ideograph-R004-Slash.el (g2-UU+53CA): Add HNG-HOD0809-0.
 
 2015-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
