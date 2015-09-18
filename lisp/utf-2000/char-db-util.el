@@ -678,8 +678,8 @@
 			 =>>adobe-japan1-6 =+>adobe-japan1-6
 			 =>cbeta =cbeta =>>cbeta ==cbeta ===cbeta
 			 =zinbun-oracle =>zinbun-oracle
-			 ===hng-khi ===hng-khm ===hng-kak ===hng-sys
-			 ===hng-tsu))
+			 ===hng-khi ===hng-khm ===hng-kak
+			 ===hng-sys ===hng-tsu ===hng-hod))
             ;; (string-match "^=adobe-" (symbol-name name))
 	    )
 	"(%-18s . %05d)\t; %c")
