@@ -11,6 +11,12 @@
 	(U+5F5D): Likewise.
 	(U-0002F898): Likewise.
 
+	* Ideograph-R080-Do-Not.el: Add some representative nodes.
+	(U-00023AED): Apply new conventions for glyph granularity.
+
+	* Ideograph-R072-Sun.el (HD-JT-B2BE): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
 	* Ideograph-R016-Table.el (UU+51E1): Add HNG-TSU0517-0.
 
 	* Ideograph-R004-Slash.el (g2-UU+53CA): Add HNG-HOD0809-0.
