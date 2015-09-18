@@ -2845,6 +2845,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-hod "HNG:法藏和尚傳（高山寺本）"
+		'(long-name "HNG/法藏和尚"
+		  chars		256
+		  dimension	2
+		  registry	"hng-30$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
 
   (make-charset '=cbeta "CBETA private characters"
 		'(long-name	"CBETA PUA"
