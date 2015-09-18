@@ -8996,17 +8996,11 @@
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x66C1)	; 曁
-      )
-     ((=ucs		  . #xE0104)	; 󠄄
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #xFA42)	; &AJ1-13334;
-      (=adobe-japan1-4	  . 13334)	; &AJ1-13334;
+     ((=ucs		  . #xFA42)	; 既
       )
      ((=ucs		  . #x65E6)	; 旦
       ))
