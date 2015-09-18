@@ -1,5 +1,9 @@
 2015-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el:
+	- Add glyph-images of HNG-TSU.
+	- Add some representative nodes.
+
 	* Ideograph-R004-Slash.el (g2-UU+53CA): Add HNG-HOD0809-0.
 
 2015-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
