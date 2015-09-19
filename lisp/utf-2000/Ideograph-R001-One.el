@@ -2043,8 +2043,8 @@
 	)
        ((=ucs		    . #x4E00)	; 一
 	)
-       ((=ucs@unicode	    . #x5185)	; &AJ1-03258;
-	(=adobe-japan1-0    . 03258)	; &AJ1-03258;
+       ((==ucs@unicode	    . #x5185)	; &g2-AJ1-03258;
+	(==adobe-japan1-0   . 03258)	; &g2-AJ1-03258;
 	))
       (==ucs@unicode	  . #x4E19)	; &g2-MJ006327;
       (==mj		  . 006327)	; &g2-MJ006327;
