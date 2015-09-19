@@ -2853,6 +2853,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-gok "HNG:後漢書光武帝紀"
+		'(long-name "HNG/光武帝紀"
+		  chars		256
+		  dimension	2
+		  registry	"hng-31$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
 
   (make-charset '=cbeta "CBETA private characters"
 		'(long-name	"CBETA PUA"
