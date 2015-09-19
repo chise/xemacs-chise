@@ -1,5 +1,10 @@
 2015-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (char-db-insert-ccs-feature): Format
+	`===hng-gok' as decimal.
+
+2015-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R029-Again.el: Add glyph-images of HNG-HOD.
 	(U+53C9): Apply new conventions for glyph granularity.
 
