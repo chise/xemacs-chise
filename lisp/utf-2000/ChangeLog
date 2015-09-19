@@ -1,5 +1,8 @@
 2015-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el: Add glyph-images of HNG-HOD.
+	(U+53C9): Apply new conventions for glyph granularity.
+
 	* Ideograph-R001-One.el:
 	- Add glyph-images of HNG-TSU.
 	- Add some representative nodes.
