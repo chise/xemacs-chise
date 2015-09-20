@@ -1,3 +1,14 @@
+2015-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `===hng-k24'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`===hng-k24'.
+
+	* mule/mule-conf.el (===hng-k24): New coded-charset for XEmacs
+	CHISE.
+
 2015-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
@@ -8,7 +19,6 @@
 
 	* mule/mule-conf.el (===hng-gok): New coded-charset for XEmacs
 	CHISE.
-
 2015-09-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
