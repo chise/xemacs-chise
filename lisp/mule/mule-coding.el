@@ -368,6 +368,7 @@
 	  (===hng-tsu			      "HNG024-" 5 d)
 	  (===hng-hod			      "HNG030-" 5 d)
 	  (===hng-gok			      "HNG031-" 5 d)
+	  (===hng-k24			      "HNG037-" 5 d)
 	  ( =hanziku-1			       "HZK01-" 4 X)
 	  ( =hanziku-2			       "HZK02-" 4 X)
 	  ( =hanziku-3			       "HZK03-" 4 X)
