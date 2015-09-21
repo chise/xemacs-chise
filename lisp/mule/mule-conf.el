@@ -2877,6 +2877,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-kbk "HNG:日本書紀 卷二（寛文九年版）"
+		'(long-name "HNG/寛九紀2"
+		  chars		256
+		  dimension	2
+		  registry	"hng-43$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
 
   (make-charset '=cbeta "CBETA private characters"
 		'(long-name	"CBETA PUA"
