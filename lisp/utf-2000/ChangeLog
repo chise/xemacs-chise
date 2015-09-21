@@ -1,5 +1,11 @@
 2015-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R050-Turban.el (U+5E0B): Add representative nodes.
+
+	* Ideograph-R006-Hook.el (U-i002+4E8B): Add HNG-K240436-0.
+
+	* Ideograph-R004-Slash.el: Add glyph-images of HNG-K24.
+
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`===hng-k24' as decimal.
 
