@@ -2893,6 +2893,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-skk "HNG:華嚴經卷二十（晉本高麗古版）"
+		'(long-name "HNG/古麗華20"
+		  chars		256
+		  dimension	2
+		  registry	"hng-46$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
 
   (make-charset '=cbeta "CBETA private characters"
 		'(long-name	"CBETA PUA"
