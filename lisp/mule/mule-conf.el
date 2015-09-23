@@ -2885,6 +2885,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-sik "HNG:花嚴經卷八（新羅本寫本）"
+		'(long-name "HNG/花嚴新羅"
+		  chars		256
+		  dimension	2
+		  registry	"hng-44$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
 
   (make-charset '=cbeta "CBETA private characters"
 		'(long-name	"CBETA PUA"
