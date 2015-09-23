@@ -1,5 +1,10 @@
 2015-09-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (char-db-insert-ccs-feature): Format
+	`===hng-skk' as decimal.
+
+2015-09-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R007-Two.el: Add glyph-images of HNG-SIK.
 
 	* Ideograph-R004-Slash.el: Add glyph-images of HNG-SIK.
