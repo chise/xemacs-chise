@@ -4673,6 +4673,14 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=jis-x0208@1978	. #x5563)	; &J78-5563; [53-67]
+    (->subsumptive
+     ((==jis-x0208@1978	  . #x5563)	; &g2-J78-5563; [53-67]
+      (->subsumptive
+       ((===jis-x0208@1978  . #x5563)	; &R-J78-5563; [53-67]
+	)
+       ((===hng-gok	    . 05300)	; &HNG031-05300;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 40)	; ⼧
