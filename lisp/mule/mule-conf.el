@@ -2901,6 +2901,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-kyu "HNG:初麗瑜5"
+		'(long-name "HNG/瑜伽師地論卷五（高麗初彫本）"
+		  chars		256
+		  dimension	2
+		  registry	"hng-47$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
 
   (make-charset '=cbeta "CBETA private characters"
 		'(long-name	"CBETA PUA"
