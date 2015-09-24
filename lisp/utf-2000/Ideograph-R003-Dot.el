@@ -368,6 +368,8 @@
 	(===gt-k	    . 00948)	; &R-GT-00137;
 	)
        ((===jef-china3	    . #x41B3)	; &R-JC3-41B3;
+	)
+       ((===hng-skk	    . 00010)	; &HNG046-00010;
 	))
       )
      ((=decomposition@cid
