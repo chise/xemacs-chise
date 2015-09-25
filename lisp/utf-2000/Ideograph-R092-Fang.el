@@ -41,8 +41,8 @@
 	(==jis-x0213-1@2004 . #x3267)	; &g2-MJ016801; [18-71]
 	(==hanyo-denshi/hg  . #x3026)	; &g2-MJ016801; [16-06]
 	(->subsumptive
-	 ((===jis-x0213-1@2004 . #x3267)	; &R-JX3-3267; [18-71]
-	  (===hanyo-denshi/hg . #x3026)	; &R-JX3-3267; [16-06]
+	 ((===jis-x0213-1@2004 . #x3267)	; &R-HD-HG-3026; [18-71]
+	  (===hanyo-denshi/hg . #x3026)	; &R-HD-HG-3026; [16-06]
 	  )
 	 ((===mj	      . 016801)	; &R-MJ016801;
 	  )
@@ -65,8 +65,8 @@
       (==gt		  . 25560)	; &MJ016802;
       (==gt-k		  . 00900)	; &MJ016802;
       (->subsumptive
-       ((===jis-x0208	    . #x3267)	; &R-J90-3267; [18-71]
-	(===jis-x0213-1@2000 . #x3267)	; &R-J90-3267; [18-71]
+       ((===jis-x0208	    . #x3267)	; &R-J0-3267; [18-71]
+	(===jis-x0213-1@2000 . #x3267)	; &R-J0-3267; [18-71]
 	)
        ((===mj		    . 016802)	; &R-MJ016802;
 	)
@@ -87,21 +87,42 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x3E26)	; 㸦
-    (ideographic-radical . 92)	; ⽛
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (=daikanwa		. 19910)	; &M-19910;
-    ))
-(define-char
-  '((morohashi-daikanwa	19910 0 0)
-    (ideographic-radical . 92)	; ⽛
+  '((ideographic-radical . 92)	; ⽛
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 13 1)
     (=ucs		. #x3E26)	; 㸦
     (=cns11643-3	. #x216A)	; &I-C3-216A; [01-74]
     (=big5-cdp		. #x88DC)	; &I-CDP-88DC;
+    (=daikanwa		. 19910)	; &I-M-19910;
+    (<-vulgar
+     ((=ucs		  . #x4E92)	; 互
+      (=daikanwa	  . 00255)	; &I-M-00255;
+      ))
+    (<-vulgar*sources
+     guangyun daikanwa)
+    (->mistakable
+     ((=ucs		  . #x7259)	; 牙
+      (=daikanwa	  . 19909)	; &I-M-19909;
+      ))
+    (->mistakable*sources
+     kangxi-biansi-2char daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 19910)	; &g2-M-19910;
+      )
+     ((==ucs@cns	  . #x3E26)	; &g2-CU+3E26;
+      (==cns11643-3	  . #x216A)	; &g2-CU+3E26; [01-74]
+      )
+     ((==ucs@unicode	  . #x3E26)	; &g2-CDP-88DC;
+      (==big5-cdp	  . #x88DC)	; &g2-CDP-88DC;
+      (->subsumptive
+       ((===big5-cdp	    . #x88DC)	; &R-CDP-88DC;
+	)
+       ((===ucs@unicode	    . #x3E26)	; &R-UU+3E26;
+	))
+      )
+     ((===hng-kyu	  . 00020)	; &HNG047-00020;
+      ))
     ))
 (define-char
   '((ideographic-radical@ucs . 92)	; ⽛
@@ -223,19 +244,30 @@
   '((ideographic-radical . 92)	; ⽛
     (ideographic-strokes . 8)
     (=ucs		. #x725A)	; 牚
+    (=jis-x0212		. #x4A57)	; &I-JSP-4A57; [42-55]
+    (=iso-ir165		. #x2C37)	; &I-EGB-2C37; [12-23]
+    (=cns11643-2	. #x3D6B)	; &I-C2-3D6B; [29-75]
     (=big5		. #xDA67)	; &I-B-DA67;
+    (=daikanwa		. 19919)	; &I-M-19919;
     (->subsumptive
      ((total-strokes	   . 12)
-      (=cns11643-2	  . #x3D6B)	; &C2-3D6B; [29-75]
-      (=daikanwa	  . 19919)	; &I-M-19919;
+      (==ucs@cns	  . #x725A)	; &g2-M-19919;
+      (==cns11643-2	  . #x3D6B)	; &g2-M-19919; [29-75]
+      (==daikanwa	  . 19919)	; &g2-M-19919;
+      (->subsumptive
+       ((===daikanwa	    . 19919)	; &R-M-19919;
+	)
+       ((===cns11643-2	    . #x3D6B)	; &R-C2-3D6B; [29-75]
+	))
       )
      ((total-strokes	   . 12)
-      (=ucs@unicode	  . #x725A)	; &EGB-2C37;
-      (=iso-ir165	  . #x2C37)	; &EGB-2C37; [12-23]
+      (==ucs@unicode	  . #x725A)	; &g2-UU+725A;
+      (==ucs@JP/hanazono  . nil)
+      (==iso-ir165	  . #x2C37)	; &g2-UU+725A; [12-23]
       )
      ((total-strokes	   . 13)
-      (=ucs@jis		  . #x725A)	; &JSP-4A57;
-      (=jis-x0212	  . #x4A57)	; &JSP-4A57; [42-55]
+      (==ucs@jis	  . #x725A)	; &g2-JSP-4A57;
+      (==jis-x0212	  . #x4A57)	; &g2-JSP-4A57; [42-55]
       ))
     ))
 (define-char
