@@ -748,9 +748,10 @@
 	)
        ((=gt-k		    . 00495)	; &GT-K00495;
 	)
-       ((=ucs@jis/1990	    . #x53C9)	; &AJ1-02085;
-	(=ucs@jis/2000	    . #x53C9)	; &AJ1-02085;
-	(=adobe-japan1-0    . 02085)	; &AJ1-02085;
+       ((==ucs@jis/1990	    . #x53C9)	; &g2-AJ1-02085;
+	(==ucs@jis/2000	    . #x53C9)	; &g2-AJ1-02085;
+	(==ucs@ks	    . #x53C9)	; &g2-AJ1-02085;
+	(==adobe-japan1-0   . 02085)	; &g2-AJ1-02085;
 	))
       (==ucs@jis	  . #x6748)	; &g2-JSP-427A;
       (==jis-x0212	  . #x427A)	; &g2-JSP-427A; [34-90]
@@ -769,8 +770,8 @@
 	)
        ((=gt-k		    . 00495)	; &GT-K00495;
 	)
-       ((=ucs@unicode	    . #x53C9)	; &AJ1-20281;
-	(=adobe-japan1-5    . 20281)	; &AJ1-20281;
+       ((==ucs@unicode	    . #x53C9)	; &g2-AJ1-20281;
+	(==adobe-japan1-5   . 20281)	; &g2-AJ1-20281;
 	))
       (==ucs@unicode	  . #x6748)	; &g2-UU+6748;
       (==ucs@JP/hanazono  . nil)
