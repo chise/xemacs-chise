@@ -1,5 +1,8 @@
 2015-09-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (char-db-insert-ccs-feature): Format
+	`===hng-wan' as decimal.
+
 	* Ideograph-R006-Hook.el: Add glyph-images of HNG-KSK.
 
 	* Ideograph-R004-Slash.el: Add glyph-images of HNG-KSK.
