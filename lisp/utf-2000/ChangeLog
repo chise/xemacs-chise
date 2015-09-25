@@ -1,5 +1,7 @@
 2015-09-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R007-Two.el: Add glyph-images of HNG-WAN.
+
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`===hng-wan' as decimal.
 
