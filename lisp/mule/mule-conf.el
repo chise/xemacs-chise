@@ -2909,6 +2909,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-ksk "HNG:華嚴經卷六（高麗再彫本）"
+		'(long-name "HNG/再麗華6"
+		  chars		256
+		  dimension	2
+		  registry	"hng-48$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
 
   (make-charset '=cbeta "CBETA private characters"
 		'(long-name	"CBETA PUA"
