@@ -269,6 +269,8 @@
        ((===hng-sik	    . 00020)	; &HNG044-00020;
 	)
        ((===hng-skk	    . 00030)	; &HNG046-00030;
+	)
+       ((===hng-ksk	    . 01390)	; &HNG048-01390;
 	))
       )
      ((===hng-khi	  . 02250)	; &HNG010-02250;
@@ -928,6 +930,8 @@
        ((===hng-sik	    . 01400)	; &HNG044-01400;
 	)
        ((===hng-skk	    . 01500)	; &HNG046-01500;
+	)
+       ((===hng-ksk	    . 01400)	; &HNG048-01400;
 	))
       ))
     ))
@@ -2416,6 +2420,15 @@
       )
      ((===hng-skk	  . 01490)	; &HNG046-01490;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E57)	; 乗
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 8)
+    (total-strokes	 . 9)
+    (===hng-ksk		. 00010)	; &HNG048-00010;
     ))
 (define-char
   '((<-denotational
