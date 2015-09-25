@@ -262,28 +262,30 @@
      cns11643-3 daikanwa)
     (total-strokes	 . 4)
     (=ucs		. #x5185)	; 内
-    (=>>jis-x0208	. #x4662)	; 内 [38-66]
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x5185)	; 内
-      ))
-    (=>ucs*		. #x5167)	; 內
-    (ideographic-radical . 13)	; ⼌
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (=ucs		. #x2F814)	; 內
+    (=ucs@cns		. #x2F814)	; 内
+    (=adobe-japan1-0	. 03258)	; &I-AJ1-03258;
+    (=jis-x0208		. #x4662)	; &I-J90-4662; [38-66]
+    (=gb2312		. #x445A)	; &I-G0-445A; [36-58]
+    (=cns11643-3	. #x2148)	; &I-C3-2148; [01-40]
     (=cns11643-6	. #x2150)	; &I-C6-2150; [01-48]
-    (=gt		. 01982)	; &I-GT-01982;
-    (=gt-pj-2		. #x3D2C)	; &I-GT-01982; [29-12]
+    (=jis-x0213-1	. #x4662)	; &I-JX1-4662; [38-66]
+    (=big5-cdp		. #x8C57)	; &I-CDP-8C57;
+    (=gt		. 01983)	; &I-GT-01983;
+    (=gt-k		. 00547)	; &I-GT-K00547;
+    (=gt-pj-1		. #x4662)	; &I-GT-01983; [38-66]
     (=daikanwa		. 01512)	; &I-M-01512;
+    (=daikanwa/+p	. 00366)	; 内
+    (=shinjigen		.  0481)	; 内
+    (<-same
+     ((=ucs		  . #x5167)	; 內
+      ))
+    (<-same*sources
+     daikanwa=00366/+p)
     (<-vulgar
-     ((=ucs@JP		  . #x5167)	; &AJ1-13966;
-      (=adobe-japan1-4	  . 13966)	; &AJ1-13966;
-      (=daikanwa	  . 01418)	; &I-M-01418;
+     ((=ucs		  . #x5167)	; 內
       ))
     (<-vulgar*sources
-     daikanwa)
+     daikanwa=01512)
     ))
 (define-char
   '((<-denotational
@@ -297,16 +299,70 @@
       )
      ((=ucs		  . #xE0100)	; 󠄀
       ))
-    (=ucs@unicode	. #x5185)	; &AJ1-03258;
-    (=adobe-japan1-0	. 03258)	; &AJ1-03258;
-    (=jis-x0208		. #x4662)	; &I-J90-4662; [38-66]
-    (=gb2312		. #x445A)	; &I-G0-445A; [36-58]
-    (=jis-x0213-1	. #x4662)	; &I-JX1-4662; [38-66]
-    (=big5-cdp		. #x8C57)	; &I-CDP-8C57;
-    (=gt		. 01983)	; &I-GT-01983;
-    (=gt-k		. 00547)	; &I-GT-K00547;
-    (=gt-pj-1		. #x4662)	; &I-GT-01983; [38-66]
-    (=shinjigen		.  0481)	; &AJ1-03258;
+    (==ucs@unicode	. #x5185)	; &g2-AJ1-03258;
+    (==adobe-japan1-0	. 03258)	; &g2-AJ1-03258;
+    (==gb2312		. #x445A)	; &g2-AJ1-03258; [36-58]
+    (==jis-x0208	. #x4662)	; &g2-AJ1-03258; [38-66]
+    (==jis-x0213-1	. #x4662)	; &g2-AJ1-03258; [38-66]
+    (==big5-cdp		. #x8C57)	; &g2-AJ1-03258;
+    (==gt		. 01983)	; &g2-AJ1-03258;
+    (==gt-k		. 00547)	; &g2-AJ1-03258;
+    (==shinjigen	.  0481)	; &g2-AJ1-03258;
+    (->subsumptive
+     ((===jis-x0208	  . #x4662)	; &R-J0-4662; [38-66]
+      (===jis-x0213-1	  . #x4662)	; &R-J0-4662; [38-66]
+      )
+     ((===adobe-japan1-0  . 03258)	; &R-AJ1-03258;
+      )
+     ((===big5-cdp	  . #x8C57)	; &R-CDP-8C57;
+      )
+     ((===gt		  . 01983)	; &R-GT-01983;
+      (===gt-k		  . 00547)	; &R-GT-01983;
+      )
+     ((===ucs@unicode	  . #x5185)	; &R-UU+5185;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5185)	; 内
+      ))
+    (=>ucs*		. #x5167)	; 內
+    (ideographic-radical@ucs . 13)	; ⼌
+    (ideographic-strokes@ucs . 2)
+    (ideographic-radical@ucs*sources
+     daikanwa=01512 cns11643-6 ucs)
+    (ideographic-radical@cns . 9)	; ⼈
+    (ideographic-strokes@cns . 2)
+    (ideographic-radical@cns*sources
+     cns11643-3 daikanwa=00366/+p)
+    (total-strokes	 . 4)
+    (=ucs		. #x2F814)	; 內
+    (==cns11643-6	. #x2150)	; 內 [01-48]
+    (=gt		. 01982)	; &I-GT-01982;
+    (=gt-pj-2		. #x3D2C)	; &I-GT-01982; [29-12]
+    (==daikanwa		. 01512)	; 內
+    (==daikanwa/+p	. 00366)	; 內
+    (->subsumptive
+     ((ideographic-radical . 13)	; ⼌
+      (ideographic-strokes . 2)
+      (===daikanwa	  . 01512)	; &R-M-01512;
+      )
+     ((ideographic-radical . 13)	; ⼌
+      (ideographic-strokes . 2)
+      (===cns11643-6	  . #x2150)	; &R-C6-2150; [01-48]
+      )
+     ((===gt		  . 01982)	; &R-GT-01982;
+      )
+     ((ideographic-radical . 13)	; ⼌
+      (ideographic-strokes . 2)
+      (===ucs@iso	  . #x2F814)	; &R-U-0002F814;
+      )
+     ((ideographic-radical . 9)	; ⼈
+      (ideographic-strokes . 2)
+      (===daikanwa/+p	  . 00366)	; &R-M-p00366;
+      )
+     ((===hng-kak	  . 00180)	; &HNG017-00180;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2240,7 +2296,7 @@
        ((===cns11643-1	    . #x5E32)	; &R-C1-5E32; [62-18]
 	))
       )
-     ((===hng-khi	  . 00870)	; &HNG-KHI00870;
+     ((===hng-khi	  . 00870)	; &HNG010-00870;
       ))
     ))
 (define-char
