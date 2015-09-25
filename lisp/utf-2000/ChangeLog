@@ -1,5 +1,14 @@
 2015-09-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R075-Tree.el (UU+6748): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R008-Lid.el: Add glyph-images of HNG-KYU.
+
+	* Ideograph-R007-Two.el: Add glyph-images of HNG-KYU.
+
+	* Ideograph-R006-Hook.el: Add glyph-images of HNG-KYU.
+
 	* Ideograph-R010-Legs.el: Add glyph-images of HNG-KAK.
 
 	* Ideograph-R040-Roof.el (J78-5563): Add HNG-GOK0530-0.
