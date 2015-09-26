@@ -274,6 +274,8 @@
 	))
       )
      ((===hng-khi	  . 02250)	; &HNG010-02250;
+      )
+     ((===hng-kss	  . 02250)	; &HNG064-02250;
       ))
     ))
 (define-char
@@ -427,6 +429,8 @@
 	)
        ((===hng-skk	    . 00020)	; &HNG046-00020;
 	))
+      )
+     ((===hng-kss	  . 00020)	; &HNG064-00020;
       )
      ((=decomposition@cid
        ((=ucs		    . #x4E45)	; 久
@@ -932,6 +936,8 @@
        ((===hng-skk	    . 01500)	; &HNG046-01500;
 	)
        ((===hng-ksk	    . 01400)	; &HNG048-01400;
+	)
+       ((===hng-kss	    . 02260)	; &HNG064-02260;
 	))
       ))
     ))
@@ -2429,6 +2435,13 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 9)
     (===hng-ksk		. 00010)	; &HNG048-00010;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E57)	; 乗
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (===hng-kss		. 02270)	; &HNG064-02270;
     ))
 (define-char
   '((<-denotational
