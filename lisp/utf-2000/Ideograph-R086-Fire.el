@@ -10998,12 +10998,9 @@
     (=daikanwa		. 19319)	; &I-M-19319;
     (=shinjigen		.  8720)	; 熔
     (<-vulgar
-     ((=ucs@jis		  . #x9394)	; &GT-54811;
-      (=jis-x0208	  . #x6F30)	; &GT-54811; [79-16]
-      (=ks-x1001	  . #x694A)	; &I-K0-694A; [73-42]
-      (=jis-x0213-1	  . #x6F30)	; &I-JX1-6F30; [79-16]
-      (=daikanwa	  . 40704)	; &I-M-40704;
-      (=shinjigen	  .  8719)	; &GT-54811;
+     ((=ucs		  . #x9394)	; 鎔
+      (=jis-x0208	  . #x6F30)	; &I-J90-6F30; [79-16]
+      (=shinjigen	  .  8719)	; 鎔
       ))
     (<-vulgar*sources
      shinjigen)
