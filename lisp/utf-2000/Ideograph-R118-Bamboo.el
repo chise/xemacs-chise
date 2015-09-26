@@ -6724,11 +6724,21 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (=ucs		. #x25BFD)	; 𥯽
+    (=cns11643-7	. #x2643)	; &I-C7-2643; [06-35]
+    (=daikanwa		. 26294)	; &I-M-26294;
     (->subsumptive
-     ((=daikanwa	  . 26294)	; &M-26294;
-      )
-     ((=ucs@iso		  . #x25BFD)	; &C7-2643;
-      (=cns11643-7	  . #x2643)	; &C7-2643; [06-35]
+     ((==ucs@iso	  . #x25BFD)	; &g2-M-26294;
+      (==cns11643-7	  . #x2643)	; &g2-M-26294; [06-35]
+      (==daikanwa	  . 26294)	; &g2-M-26294;
+      (->subsumptive
+       ((===daikanwa	    . 26294)	; &R-M-26294;
+	)
+       ((===cns11643-7	    . #x2643)	; &R-C7-2643; [06-35]
+	)
+       ((===ucs@iso	    . #x25BFD)	; &R-U-00025BFD;
+	)
+       ((=hanziku-8	    . #xC06B)	; &HZK08-C06B;
+	))
       ))
     ))
 (define-char
