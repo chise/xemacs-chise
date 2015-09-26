@@ -76,6 +76,8 @@
        ((===hng-skk	    . 01330)	; &HNG046-01330;
 	)
        ((===hng-ksk	    . 01210)	; &HNG048-01210;
+	)
+       ((===hng-wan	    . 01540)	; &HNG049-01540;
 	))
       ))
     ))
@@ -291,6 +293,8 @@
      ((===hng-tsu	  . 04370)	; &HNG024-04370;
       )
      ((===hng-sik	  . 01300)	; &HNG044-01300;
+      )
+     ((===hng-wan	  . 01520)	; &HNG049-01520;
       )
      ((==ucs@cns	  . #x4E03)	; &g2-CU+4E03;
       (==cns11643-1	  . #x4424)	; &g2-CU+4E03; [36-04]
@@ -610,6 +614,8 @@
        ((===hng-skk	    . 01470)	; &HNG046-01470;
 	)
        ((===hng-ksk	    . 01280)	; &HNG048-01280;
+	)
+       ((===hng-wan	    . 01510)	; &HNG049-01510;
 	))
       ))
     ))
@@ -679,6 +685,8 @@
        ((===hng-skk	    . 01430)	; &HNG046-01430;
 	)
        ((===hng-ksk	    . 01270)	; &HNG048-01270;
+	)
+       ((===hng-wan	    . 01500)	; &HNG049-01500;
 	))
       ))
     ))
@@ -741,6 +749,8 @@
        ((===hng-kbk	    . 03720)	; &HNG043-03720;
 	)
        ((===hng-sik	    . 01320)	; &HNG044-01320;
+	)
+       ((===hng-wan	    . 01530)	; &HNG049-01530;
 	))
       )
      ((===hng-khi	  . 02190)	; &HNG010-02190;
@@ -944,6 +954,8 @@
        ((===hng-skk	    . 01440)	; &HNG046-01440;
 	)
        ((===hng-ksk	    . 01330)	; &HNG048-01330;
+	)
+       ((===hng-wan	    . 01570)	; &HNG049-01570;
 	))
       ))
     ))
@@ -1793,6 +1805,8 @@
 	))
       )
      ((===hng-kbk	  . 03780)	; &HNG043-03780;
+      )
+     ((===hng-wan	  . 01492)	; &HNG049-01492;
       ))
     ))
 (define-char
@@ -1949,6 +1963,8 @@
      ((===hng-tsu	  . 04350)	; &HNG024-04350;
       )
      ((===hng-ksk	  . 01300)	; &HNG048-01300;
+      )
+     ((===hng-wan	  . 01491)	; &HNG049-01491;
       ))
     ))
 (define-char
@@ -2004,6 +2020,8 @@
        ((===hng-khm	    . 01630)	; &HNG011-01630;
 	)
        ((===hng-tsu	    . 04310)	; &HNG024-04310;
+	)
+       ((===hng-wan	    . 00010)	; &HNG049-00010;
 	))
       )
      ((===hng-khi	  . 02200)	; &HNG010-02200;
@@ -3326,16 +3344,6 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
-    (=decomposition@cid
-     ((=ucs		  . #x4E26)	; 並
-      )
-     ((=ucs		  . #xE0100)	; 󠄀
-      ))
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x4E26)	; 並
-      )
-     ((=ucs		  . #xE0102)	; 󠄂
-      ))
     (hanyu-dazidian	1 246 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -3362,12 +3370,51 @@
     (=daikanwa		. 00054)	; &I-M-00054;
     (=shinjigen		.  5732)	; &MJ006341;
     (<-simplified@JP/Jouyou
-     ((=ucs@unicode	  . #x7ADD)	; &GT-33217;
-      (=jis-x0208	  . #x636D)	; &GT-33217; [67-77]
-      (=ks-x1001	  . #x5C3D)	; &I-K0-5C3D; [60-29]
-      (=cns11643-3	  . #x3324)	; &I-C3-3324; [19-04]
-      (=jis-x0213-1	  . #x636D)	; &I-JX1-636D; [67-77]
-      (=daikanwa	  . 25752)	; &I-M-25752;
+     ((=ucs		  . #x7ADD)	; 竝
+      (=jis-x0208	  . #x636D)	; &I-J90-636D; [67-77]
+      ))
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x4E26)	; 並
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x4E26)	; 並
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@unicode	  . #x4E26)	; &g2-MJ006341;
+      (==mj		  . 006341)	; &g2-MJ006341;
+      (==adobe-japan1-0	  . 03602)	; &g2-MJ006341;
+      (==iso-ir165	  . #x2C76)	; &g2-MJ006341; [12-86]
+      (==jis-x0208	  . #x4A42)	; &g2-MJ006341; [42-34]
+      (==cns11643-1	  . #x4B64)	; &g2-MJ006341; [43-68]
+      (==jis-x0213-1	  . #x4A42)	; &g2-MJ006341; [42-34]
+      (==hanyo-denshi/ja  . #x4A42)	; &g2-MJ006341; [42-34]
+      (==gt		  . 00084)	; &g2-MJ006341;
+      (==gt-k		  . 03817)	; &g2-MJ006341;
+      (==daikanwa	  . 00054)	; &g2-MJ006341;
+      (==shinjigen	  .  5732)	; &g2-MJ006341;
+      (->subsumptive
+       ((===daikanwa	    . 00054)	; &R-M-00054;
+	)
+       ((===jis-x0208	    . #x4A42)	; &R-J0-4A42; [42-34]
+	(===jis-x0213-1	    . #x4A42)	; &R-J0-4A42; [42-34]
+	)
+       ((===adobe-japan1-0  . 03602)	; &R-AJ1-03602;
+	)
+       ((===mj		    . 006341)	; &R-MJ006341;
+	)
+       ((===cns11643-1	    . #x4B64)	; &R-C1-4B64; [43-68]
+	)
+       ((===gt		    . 00084)	; &R-GT-00084;
+	(===gt-k	    . 03817)	; &R-GT-00084;
+	)
+       ((===ucs@unicode	    . #x4E26)	; &R-UU+4E26;
+	)
+       ((===hng-wan	    . 00910)	; &HNG049-00910;
+	))
       ))
     ))
 (define-char
