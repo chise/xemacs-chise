@@ -2805,6 +2805,14 @@
 	    hzk-max (+ hzk-min 65535))
       (setq i (1+ i))))
 
+  (make-charset '===hng-jou "HNG:誠實論卷八（P.2179）"
+		'(long-name "HNG/P2179"
+		  chars		256
+		  dimension	2
+		  registry	"hng-1$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-khi "HNG:妙法蓮華經卷五（今西本）"
 		'(long-name "HNG/宮廷今西"
 		  chars		256
