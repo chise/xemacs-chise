@@ -2933,6 +2933,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-kyo "HNG:教行信証卷四（親鸞自筆）"
+		'(long-name "HNG/教行信証"
+		  chars		256
+		  dimension	2
+		  registry	"hng-66$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
 
   (make-charset '=cbeta "CBETA private characters"
 		'(long-name	"CBETA PUA"
