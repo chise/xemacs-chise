@@ -471,6 +471,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ===hng-ksk ; 48
 	  ===hng-wan ; 49
 	  ===hng-kss ; 64
+	  ===hng-kyo ; 66
 	  ===cbeta
 	  ===jef-china3
 	  ;; ucs-sip
