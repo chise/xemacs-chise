@@ -1,5 +1,35 @@
 2015-09-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el: Add glyph-images of HNG-KYO.
+
+	* Ideograph-R117-Stand.el (U+7ACD): Apply new conventions for
+	glyph granularity.
+	(U+7ACF): Likewise.
+	(U+7AD1): Likewise.
+	(U+7AD3): Likewise.
+	(U+7AD5): Likewise.
+	(U+7AD9): Likewise.
+	(U+7ADA): Likewise; add `<-formed' for U+4F47.
+	(U+7ADB): Apply new conventions for glyph granularity.
+	(U+7ADD): Likewise.
+	(U+7ADF): Likewise.
+	(U+7AE1): Likewise.
+	(U+7AE6): Likewise.
+	(U+7AE7): Likewise.
+	(U+7AE8): Likewise.
+	(U+7AE9): Likewise.
+	(U+7AEA): Likewise.
+	(U+7AEC): Likewise.
+	(U+7AED): Likewise.
+	(U+7AEF): Likewise.
+	(U+7AF0): Likewise.
+	(U+7AF1): Likewise.
+	(U+7AF4): Likewise.
+	(U+7AF6): Likewise.
+	(U+7AF8): Likewise.
+
+2015-09-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`===hng-kss' as decimal.
 
