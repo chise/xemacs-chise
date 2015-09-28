@@ -361,6 +361,7 @@
 	  (=>cbeta				 "A-CB" 5 d)
 	  (==cbeta				"g2-CB" 5 d)
 	  (===cbeta				 "R-CB" 5 d)
+	  (===hng-jou			      "HNG001-" 5 d)
 	  (===hng-khi			      "HNG010-" 5 d)
 	  (===hng-khm			      "HNG011-" 5 d)
 	  (===hng-kak			      "HNG017-" 5 d)
