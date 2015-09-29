@@ -93,6 +93,8 @@
 	)
        ((===ucs@unicode	    . #x4E86)	; &R-UU+4E86;
 	)
+       ((===hng-keg	    . 02350)	; &HNG002-02350;
+	)
        ((===hng-khm	    . 01710)	; &HNG011-01710;
 	)
        ((===hng-sys	    . 02060)	; &HNG022-02060;
@@ -588,6 +590,8 @@
     (total-strokes	 . 8)
     (=ucs-itaiji-002	. #x4E8B)	; &U-i002+4E8B;
     (->subsumptive
+     ((===hng-keg	  . 02340)	; &HNG002-02340;
+      )
      ((===hng-khi	  . 02280)	; &HNG010-02280;
       )
      ((===hng-khm	  . 01720)	; &HNG011-01720;
