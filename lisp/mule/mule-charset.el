@@ -456,6 +456,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ===ucs-sip@iso
 	  ===ruimoku-v6
 	  ===hng-jou ; 01
+	  ===hng-keg ; 02
 	  ===hng-khi ; 10
 	  ===hng-khm ; 11
 	  ===hng-kak ; 17
