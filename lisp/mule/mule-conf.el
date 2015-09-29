@@ -2813,6 +2813,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-keg "HNG:華嚴經卷十六（S.2067）"
+		'(long-name "HNG/S2067"
+		  chars		256
+		  dimension	2
+		  registry	"hng-2$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-khi "HNG:妙法蓮華經卷五（今西本）"
 		'(long-name "HNG/宮廷今西"
 		  chars		256
