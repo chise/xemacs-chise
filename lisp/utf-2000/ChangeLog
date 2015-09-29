@@ -1,5 +1,20 @@
 2015-09-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el: Add glyph-images of HNG-JOU.
+
+	* Ideograph-R009-Man.el: Add glyph-images of HNG-KAK.
+	(U+5185): Apply new conventions for glyph granularity.
+	(U-000202B1): Likewise.
+	(U+5064): Likewise.
+	(U+50A1): Likewise.
+	(U-00020399): Likewise.
+	(U+5112): Likewise.
+	(U+513D): Likewise.
+
+	* Ideograph-R007-Two.el: Add glyph-images of HNG-KEG.
+
+	* Ideograph-R006-Hook.el: Add glyph-images of HNG-KEG.
+
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`===hng-keg' as decimal.
 
