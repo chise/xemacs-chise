@@ -1,5 +1,21 @@
 2015-09-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R127-Plow.el (U+8016): Apply new conventions for glyph
+	granularity.
+	(U+8026): Likewise.
+	(U+8028): Likewise.
+	(U+802C): Likewise.
+	(U+802E): Likewise.
+	(U+43B1): Likewise.
+	(CU+43B1): Unify S-6360; add `<-vulgar' for JU+8019.
+	(U+8030): Apply new conventions for glyph granularity.
+
+	* Ideograph-R018-Knife.el: Add glyph-images of HNG-SMK.
+	(U-000206F4): Add `ideographic-structure'; add `<-same' for
+	U+5239.
+
+	* Ideograph-R004-Slash.el: Add glyph-images of HNG-KEG.
+
 	* Ideograph-R001-One.el: Add glyph-images of HNG-JOU.
 
 	* Ideograph-R009-Man.el: Add glyph-images of HNG-KAK.
