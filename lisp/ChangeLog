@@ -1,6 +1,11 @@
 2015-09-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>cns11643-5'.
+
+2015-09-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
 	setting for `===hng-keg'.
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
