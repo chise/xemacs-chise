@@ -1,5 +1,10 @@
 2015-09-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>cns11643-5'.
+
+2015-09-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R127-Plow.el (U+8016): Apply new conventions for glyph
 	granularity.
 	(U+8026): Likewise.
