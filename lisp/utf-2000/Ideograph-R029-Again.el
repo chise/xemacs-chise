@@ -35,6 +35,8 @@
 	)
        ((===gt-k	    . 00065)	; &R-GT-K00065;
 	)
+       ((===hng-khi	    . 02910)	; &HNG010-02910;
+	)
        ((===hng-hod	    . 08120)	; &HNG030-08120;
 	))
       )
@@ -331,6 +333,8 @@
        ((===cns11643-6	    . #x2161)	; &R-C6-2161; [01-65]
 	)
        ((===ucs@unicode	    . #x53CA)	; &R-UU+53CA;
+	)
+       ((===hng-khi	    . 02900)	; &HNG010-02900;
 	)
        ((===hng-hod	    . 08090)	; &HNG030-08090;
 	))
@@ -1646,6 +1650,8 @@
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x4821)	; &g2-UU+53D6; [40-01]
       )
+     ((===hng-khi	  . 02880)	; &HNG010-02880;
+      )
      ((===hng-hod	  . 08080)	; &HNG030-08080;
       ))
     ))
@@ -1741,6 +1747,23 @@
        ((===hng-hod	    . 08070)	; &HNG030-08070;
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x53D7)	; 受
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8BB8)	; &CDP-8BB8;
+      )
+     ((=ucs		  . #x4E08)	; 丈
+      ))
+    (===hng-khi		. 02890)	; &HNG010-02890;
     ))
 (define-char
   '((<-denotational
