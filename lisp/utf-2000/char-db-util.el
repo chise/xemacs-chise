@@ -311,6 +311,7 @@
     =>big5-cdp
     =>daikanwa
     =>daikanwa/ho
+    =>cns11643-5
     =>cns11643-7
     =big5
     =big5-eten
