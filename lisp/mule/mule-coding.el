@@ -540,6 +540,7 @@
 	  (=>>daikanwa/+p		        "G-M-p" 5 d)
 	  (=>daikanwa				 "A-M-" 5 d)
 	  (=>daikanwa/ho			"A-M-H" 4 d)
+	  (=>cns11643-5				"A-C5-" 4 X)
 	  (=>cns11643-7				"A-C7-" 4 X)
 	  (=>big5-cdp			       "A-CDP-" 4 X)
 	  ( =jis-x0208@1978/i1		       "J78i1-" 4 X)
