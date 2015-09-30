@@ -2821,6 +2821,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-dng "HNG:大般涅槃經卷十一（S.81）"
+		'(long-name "HNG/S81"
+		  chars		256
+		  dimension	2
+		  registry	"hng-3$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-khi "HNG:妙法蓮華經卷五（今西本）"
 		'(long-name "HNG/宮廷今西"
 		  chars		256
