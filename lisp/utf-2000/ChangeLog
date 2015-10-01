@@ -1,5 +1,59 @@
 2015-09-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R164-Wine.el: Add some representative nodes.
+	(U+914A): Apply new conventions for glyph granularity.
+	(U+914B): Likewise.
+	(U+914C): Likewise.
+	(U+914D): Likewise.
+	(U+914E): Likewise.
+	(U+914F): Likewise.
+	(U+9152): Likewise.
+	(U+9153): Likewise.
+	(U+9156): Likewise.
+	(U+9157): Likewise.
+	(U+9154): Likewise.
+	(U+915A): Likewise.
+	(S1-8541): New character.
+	(U+9161): Apply new conventions for glyph granularity.
+	(U+9162): Likewise.
+	(U+9163): Likewise.
+	(U+9165): Likewise.
+	(U+9169): Likewise.
+	(U+916A): Likewise.
+	(U+916C): Likewise.
+	(U+9172): Likewise.
+	(U+9173): Likewise.
+	(U+9174): Likewise.
+	(U+9175): Likewise.
+	(U+9177): Likewise.
+	(U+9181): Likewise.
+	(U+9182): Likewise.
+	(U+9186): Unify S-5254; add `<-formed' for U+76DE.
+	(U+9189): Apply new conventions for glyph granularity.
+	(U+918B): Likewise.
+	(U+918D): Likewise.
+	(U+9191): Likewise.
+	(U+9192): Likewise.
+	(U+4908): Likewise; unify S2-8541; add `<-vulgar' for C2-637B.
+	(U+91A1): Apply new conventions for glyph granularity.
+	(U+91A2): Likewise.
+	(U+91AA): Likewise.
+	(U+91AE): Likewise.
+	(U+91AF): Likewise.
+	(U+91B3): Likewise.
+	(U+91B4): Likewise.
+	(U+91B5): Likewise.
+	(U+91BA): Likewise.
+	(U+91BF): Likewise.
+	(U+91C1): Likewise.
+	(U+91C4): Likewise.
+
+	* Ideograph-R162-Walk.el (U-0002855B): Use `->denotational'.
+	(JU+9080): Apply new conventions for glyph granularity.
+
+	* Ideograph-R001-One.el (U-00020010): New character; unify
+	BC-8C48.
+
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`===hng-dng' as decimal.
 
