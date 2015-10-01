@@ -1372,14 +1372,7 @@
       )
      ((=ucs		  . #x531A)	; 匚
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=big5-cdp	    . #x8C48)	; &CDP-8C48;
-	)
-       ((=ucs		    . #x8D1D)	; 贝
-	))
+     ((=ucs		  . #x8D35)	; 贵
       ))
     (=ucs		. #x532E)	; 匮
     (=gb2312		. #x5851)	; &I-G0-5851; [56-49]
