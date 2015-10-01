@@ -1,11 +1,71 @@
 2015-10-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R003-Dot.el: Add glyph-images of HNG-DNG.
+
+	* Ideograph-R027-Cliff.el (U+53AD): Apply new conventions for
+	glyph granularity.
+	(U+53B4): Likewise.
+
 	* Ideograph-R001-One.el: Add glyph-images of HNG-MAM.
 
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`===hng-mam' as decimal.
 
 2015-09-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R167-Gold.el: Add some representative nodes.
+	(U+91DE): Apply new conventions for glyph granularity.
+	(U+91EF): Likewise.
+	(U+91FC): Likewise; add HNG-KCJ1208-3.
+	(U+9214): Apply new conventions for glyph granularity.
+	(U+9216): Likewise.
+	(U+9242): Likewise.
+	(BC-8D69): Unify U-0002896B.
+	(U+9278): Apply new conventions for glyph granularity.
+	(U+9292): Likewise.
+	(U+9293): Likewise.
+	(U+92A5): Likewise.
+	(U+92A8): Likewise.
+	(U-0002F9E9): Likewise; add `<-denotational' for U+92D8.
+	(U+92B7): Apply new conventions for glyph granularity.
+	(U+92CC): Likewise.
+	(U+92CE): Likewise.
+	(U+92D0): Likewise.
+	(U+92D8): Likewise; add `<-vulgar' for U-0002F9E9.
+	(U+9332): Apply new conventions for glyph granularity.
+	(U+9306): Likewise.
+	(U+931C): Likewise.
+	(U+931D): Likewise.
+	(U+931E): Likewise.
+	(U+9320): Likewise.
+	(UU+9325): Likewise.
+	(U+FA28): Likewise.
+	(U+934D): Likewise.
+	(U+9357): Likewise.
+	(U+9367): Likewise.
+	(U+936A): Likewise.
+	(U+938A): Likewise.
+	(o-UU+938B): Likewise.
+	(U+9394): Likewise.
+	(U+9397): Likewise.
+	(U+93AE): Likewise.
+	(U+93B0): Likewise.
+	(U+93B9): Likewise.
+	(U+93C5): Likewise.
+	(U+93C7): Likewise.
+	(U+93C9): Likewise.
+	(U+93CB): Likewise.
+	(U+93DE): Likewise.
+	(U+93FB): Likewise.
+	(U+940E): Likewise.
+	(U+9415): Likewise.
+	(U+9438): Likewise.
+	(U+943B): Likewise.
+	(U+943F): Likewise.
+	(U+9463): Likewise.
+	(U+946D): Likewise.
+	(U+9472): Likewise.
+	(U+9483): Likewise.
 
 	* Ideograph-R049-Oneself.el (o-HD-JT-B098): Apply new conventions
 	for glyph granularity.
