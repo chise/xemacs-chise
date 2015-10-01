@@ -1,5 +1,16 @@
 2015-09-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R049-Oneself.el (o-HD-JT-B098): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R030-Mouth.el: Add glyph-images of HNG-KHI.
+	(U+5688): Apply new conventions for glyph granularity.
+
+	* Ideograph-R022-Right-Open-Box.el (U+532E): Use "贵" instead of
+	"⿱𠀐贝" in `ideographic-structure'.
+
+2015-09-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R164-Wine.el: Add some representative nodes.
 	(U+914A): Apply new conventions for glyph granularity.
 	(U+914B): Likewise.
