@@ -2829,6 +2829,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-mam "HNG:摩訶摩耶經卷上（P.2160）"
+		'(long-name "HNG/P2160"
+		  chars		256
+		  dimension	2
+		  registry	"hng-5$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-khi "HNG:妙法蓮華經卷五（今西本）"
 		'(long-name "HNG/宮廷今西"
 		  chars		256
