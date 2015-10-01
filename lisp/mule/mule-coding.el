@@ -364,6 +364,7 @@
 	  (===hng-jou			      "HNG001-" 5 d)
 	  (===hng-keg			      "HNG002-" 5 d)
 	  (===hng-dng			      "HNG003-" 5 d)
+	  (===hng-mam			      "HNG005-" 5 d)
 	  (===hng-khi			      "HNG010-" 5 d)
 	  (===hng-khm			      "HNG011-" 5 d)
 	  (===hng-kak			      "HNG017-" 5 d)
