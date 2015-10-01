@@ -1,3 +1,8 @@
+2015-10-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-insert-ccs-feature): Format
+	`===hng-mam' as decimal.
+
 2015-09-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R049-Oneself.el (o-HD-JT-B098): Apply new conventions
