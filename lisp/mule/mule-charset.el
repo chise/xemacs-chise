@@ -461,6 +461,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ===hng-mam ; 05
 	  ===hng-drt ; 06
 	  ===hng-kgk ; 07
+	  ===hng-myz ; 08
 	  ===hng-khi ; 10
 	  ===hng-khm ; 11
 	  ===hng-kak ; 17
