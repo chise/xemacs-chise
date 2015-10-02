@@ -680,7 +680,7 @@
 			 =>cbeta =cbeta =>>cbeta ==cbeta ===cbeta
 			 =zinbun-oracle =>zinbun-oracle
 			 ===hng-jou ===hng-keg ===hng-dng ===hng-mam
-			 ===hng-drt
+			 ===hng-drt ===hng-kgk
 			 ===hng-khi ===hng-khm ===hng-kak
 			 ===hng-sys ===hng-tsu
 			 ===hng-hod ===hng-gok ===hng-k24
