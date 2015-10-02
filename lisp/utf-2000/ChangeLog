@@ -1,5 +1,14 @@
 2015-10-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R094-Dog.el (U+7312): Apply new conventions for glyph
+	granularity; add HNG-KHI0110-0.
+
+	* Ideograph-R007-Two.el: Add glyph-images of HNG-DRT.
+
+	* Ideograph-R005-Second.el: Add glyph-images of HNG-DRT.
+
+	* Ideograph-R004-Slash.el: Add glyph-images of HNG-DRT.
+
 	* Ideograph-R003-Dot.el: Add glyph-images of HNG-DNG.
 
 	* Ideograph-R027-Cliff.el (U+53AD): Apply new conventions for
