@@ -2845,6 +2845,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-kgk "HNG:賢劫經卷二（正倉院本）"
+		'(long-name "HNG/賢劫經二"
+		  chars		256
+		  dimension	2
+		  registry	"hng-7$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-khi "HNG:妙法蓮華經卷五（今西本）"
 		'(long-name "HNG/宮廷今西"
 		  chars		256
