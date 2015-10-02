@@ -2853,6 +2853,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-myz "HNG:妙法蓮華經卷五（P.2334）"
+		'(long-name "HNG/P2334"
+		  chars		256
+		  dimension	2
+		  registry	"hng-8$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-khi "HNG:妙法蓮華經卷五（今西本）"
 		'(long-name "HNG/宮廷今西"
 		  chars		256
