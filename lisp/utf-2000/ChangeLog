@@ -9,6 +9,11 @@
 
 	* Ideograph-R004-Slash.el: Add glyph-images of HNG-DRT.
 
+	* char-db-util.el (char-db-insert-ccs-feature): Format
+	`===hng-drt' as decimal.
+
+2015-10-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R003-Dot.el: Add glyph-images of HNG-DNG.
 
 	* Ideograph-R027-Cliff.el (U+53AD): Apply new conventions for
