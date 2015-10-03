@@ -2885,6 +2885,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-sok "HNG:花嚴經卷八（守屋本）"
+		'(long-name "HNG/花嚴守屋"
+		  chars		256
+		  dimension	2
+		  registry	"hng-15$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-kak "HNG:開成石經孝經"
 		'(long-name "HNG/開成孝經"
 		  chars		256
