@@ -4100,7 +4100,6 @@
     (=ucs		. #x2018E)	; 𠆎
     (=cns11643-5	. #x5353)	; &I-C5-5353; [51-51]
     (=daikanwa		. 00335)	; &I-M-00335;
-    (=hanziku-1		. #xE27B)	; &I-HZK01-E27B;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
@@ -4138,6 +4137,8 @@
 	(==adobe-japan1-0   . 03746)	; &g2-AJ1-03746;
 	))
       (==ucs@iso	  . #x2018E)	; &g2-IU-0002018E;
+      )
+     ((=hanziku-1	  . #xE27B)	; &HZK01-E27B;
       ))
     ))
 (define-char
