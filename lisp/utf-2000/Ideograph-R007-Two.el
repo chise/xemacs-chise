@@ -1326,7 +1326,6 @@
     (=gt		. 00373)	; &I-GT-00373;
     (=gt-pj-9		. #x5128)	; &I-GT-00373; [49-08]
     (=daikanwa		. 00285)	; &I-M-00285;
-    (=hanziku-1		. #xA9A1)	; &I-HZK01-A9A1;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1350,6 +1349,11 @@
 	  (==adobe-japan1-4   . 13528)	; &g2-AJ1-13528;
 	  ))
 	(==daikanwa	    . 00285)	; &g2-M-00285;
+	(->subsumptive
+	 ((===daikanwa	      . 00285)	; &R-M-00285;
+	  )
+	 ((=hanziku-1	      . #xA9A1)	; &HZK01-A9A1;
+	  ))
 	)
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
