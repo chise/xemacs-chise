@@ -1,9 +1,37 @@
 2015-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R182-Wind.el (U+98B0): Apply new conventions for glyph
+	granularity.
+	(U+6A92): Add representative node.
+	(U+98CB): Apply new conventions for glyph granularity.
+	(U+98CC): Add representative nodes.
+
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`===hng-sok' as decimal.
 
 2015-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R136-Oppose.el: Add Hanyo-Denshi/JA code points.
+	(U+821B): Apply new conventions for glyph granularity.
+	(U+821C): Likewise.
+	(U+821D): Likewise.
+	(U-000269FF): Likewise.
+
+	* Ideograph-R075-Tree.el (U+685D): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+	(U-00023753): Apply new conventions for glyph granularity.
+
+	* Ideograph-R032-Earth.el (U+589C): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R009-Man.el (U+50E2): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+	(UU+50F2): Likewise.
+
+	* Ideograph-R008-Lid.el (IU+2015E): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R007-Two.el: Add glyph-images of HNG-KDA.
 
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`===hng-kda' as decimal.
