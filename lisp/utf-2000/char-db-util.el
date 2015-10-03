@@ -681,7 +681,8 @@
 			 =zinbun-oracle =>zinbun-oracle
 			 ===hng-jou ===hng-keg ===hng-dng ===hng-mam
 			 ===hng-drt ===hng-kgk ===hng-myz ===hng-kda
-			 ===hng-khi ===hng-khm ===hng-kak
+			 ===hng-khi ===hng-khm ===hng-sok
+			 ===hng-kak
 			 ===hng-sys ===hng-tsu
 			 ===hng-hod ===hng-gok ===hng-k24
 			 ===hng-kcj ===hng-kbk ===hng-sik
