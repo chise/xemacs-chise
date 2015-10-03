@@ -2371,7 +2371,6 @@
       ))
     (=ucs@iso		. #x2015E)	; &C6-3531;
     (=cns11643-6	. #x3531)	; &C6-3531; [21-17]
-    (=hanziku-1		. #xE15B)	; &I-HZK01-E15B;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
@@ -2381,15 +2380,17 @@
 	(=gb2312	    . #x596F)	; &GT-00375; [57-79]
 	(=daikanwa	    . 00286)	; &I-M-00286;
 	)
-       ((=ucs@unicode	    . #x821B)	; &GT-39240;
-	(=jis-x0208	    . #x4124)	; &GT-39240; [33-04]
-	(=gb2312	    . #x6236)	; &I-G0-6236; [66-22]
-	(=jis-x0213-1	    . #x4124)	; &I-JX1-4124; [33-04]
-	(=daikanwa	    . 30338)	; &I-M-30338;
+       ((==ucs@unicode	    . #x821B)	; &g2-HD-JA-4124;
+	(==jis-x0208	    . #x4124)	; &g2-HD-JA-4124; [33-04]
 	)
        ((=ucs		    . #x51E0)	; 几
 	))
       (==ucs@iso	  . #x2015E)	; &g2-IU-0002015E;
+      (->subsumptive
+       ((===ucs@iso	    . #x2015E)	; &R-U-0002015E;
+	)
+       ((=hanziku-1	    . #xE15B)	; &HZK01-E15B;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
@@ -2399,7 +2400,8 @@
 	(=gb2312	    . #x596F)	; &GT-00375; [57-79]
 	(=daikanwa	    . 00286)	; &I-M-00286;
 	)
-       ((=cns11643-1	    . #x4860)	; &C1-4860; [40-64]
+       ((==ucs@cns	    . #x821B)	; &g2-CU+821B;
+	(==cns11643-1	    . #x4860)	; &g2-CU+821B; [40-64]
 	)
        ((=ucs		    . #x51E0)	; 几
 	))
