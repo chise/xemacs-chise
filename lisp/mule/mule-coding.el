@@ -368,6 +368,7 @@
 	  (===hng-drt			      "HNG006-" 5 d)
 	  (===hng-kgk			      "HNG007-" 5 d)
 	  (===hng-myz			      "HNG008-" 5 d)
+	  (===hng-kda			      "HNG009-" 5 d)
 	  (===hng-khi			      "HNG010-" 5 d)
 	  (===hng-khm			      "HNG011-" 5 d)
 	  (===hng-kak			      "HNG017-" 5 d)
