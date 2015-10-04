@@ -256,7 +256,12 @@
     (=daikanwa		. 00099)	; &I-M-00099;
     (=shinjigen		.  0041)	; 丹
     (->subsumptive
-     ((==ucs@unicode	  . #x4E39)	; &g2-AJ1-02926;
+     ((=decomposition@cid
+       ((=ucs		    . #x4E39)	; 丹
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x4E39)	; &g2-AJ1-02926;
       (==adobe-japan1-0	  . 02926)	; &g2-AJ1-02926;
       (==gb2312		  . #x3524)	; &g2-AJ1-02926; [21-04]
       (==ks-x1001	  . #x5321)	; &g2-AJ1-02926; [51-01]
