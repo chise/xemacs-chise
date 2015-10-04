@@ -2893,6 +2893,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-yhk "HNG:瑜伽法鏡經（S.2423）"
+		'(long-name "HNG/S2423"
+		  chars		256
+		  dimension	2
+		  registry	"hng-16$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-kak "HNG:開成石經孝經"
 		'(long-name "HNG/開成孝經"
 		  chars		256
