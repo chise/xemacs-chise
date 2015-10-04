@@ -1798,9 +1798,7 @@
     (=gt-pj-4		. #x307E)	; &I-GT-18463; [16-94]
     (=daikanwa		. 14492)	; &I-M-14492;
     (<-ancient
-     ((=ucs@jis		  . #x56F0)	; &AJ1-02068;
-      (=ucs@ks		  . #x56F0)	; &AJ1-02068;
-      (=adobe-japan1-0	  . 02068)	; &AJ1-02068;
+     ((=ucs		  . #x56F0)	; 困
       (=daikanwa	  . 04717)	; &I-M-04717;
       ))
     (<-ancient*sources
