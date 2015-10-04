@@ -1,5 +1,13 @@
 2015-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R008-Lid.el (U-0002018E): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R007-Two.el (U-0002013F): Apply new conventions for
+	glyph granularity.
+
+2015-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R001-One.el: Add glyph-images of HNG-SOK.
 
 	* Ideograph-R182-Wind.el (U+98B0): Apply new conventions for glyph
