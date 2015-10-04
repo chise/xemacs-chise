@@ -232,7 +232,12 @@
     (=shinjigen@1ed	.  0046)	; 乃
     (=shinjigen@rev	.  0047)	; 乃
     (->subsumptive
-     ((==ucs@unicode	  . #x4E43)	; &g2-AJ1-03307;
+     ((=decomposition@cid
+       ((=ucs		    . #x4E43)	; 乃
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x4E43)	; &g2-AJ1-03307;
       (==adobe-japan1-0	  . 03307)	; &g2-AJ1-03307;
       (==gb2312		  . #x444B)	; &g2-AJ1-03307; [36-43]
       (==ks-x1001	  . #x522C)	; &g2-AJ1-03307; [50-12]
@@ -1231,7 +1236,12 @@
     (=shinjigen@1ed	.  0050)	; 乎
     (=shinjigen@rev	.  0051)	; 乎
     (->subsumptive
-     ((==ucs@unicode	  . #x4E4E)	; &g2-AJ1-01911;
+     ((=decomposition@cid
+       ((=ucs		    . #x4E4E)	; 乎
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x4E4E)	; &g2-AJ1-01911;
       (==adobe-japan1-0	  . 01911)	; &g2-AJ1-01911;
       (==gb2312		  . #x3A75)	; &g2-AJ1-01911; [26-85]
       (==ks-x1001	  . #x7B3A)	; &g2-AJ1-01911; [91-26]
