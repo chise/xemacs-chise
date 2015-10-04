@@ -372,6 +372,7 @@
 	  (===hng-khi			      "HNG010-" 5 d)
 	  (===hng-khm			      "HNG011-" 5 d)
 	  (===hng-sok			      "HNG015-" 5 d)
+	  (===hng-yhk			      "HNG016-" 5 d)
 	  (===hng-kak			      "HNG017-" 5 d)
 	  (===hng-sys			      "HNG022-" 5 d)
 	  (===hng-tsu			      "HNG024-" 5 d)
