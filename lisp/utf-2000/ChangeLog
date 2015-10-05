@@ -1,5 +1,14 @@
 2015-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R027-Cliff.el (UU+53A9): Move H1-B3A3 to a
+	representative glyph-image node.
+
+	* Ideograph-R005-Second.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 abstract glyph-forms.
+	(AJ1-04101): Move `=decomposition@cid' to g2-AJ1-04101.
+
+	* Ideograph-R003-Dot.el: Add glyph-images of HNG-NTO.
+
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`===hng-nto' as decimal.
 
