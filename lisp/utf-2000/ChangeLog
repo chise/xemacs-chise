@@ -1,5 +1,17 @@
 2015-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R038-Woman.el (U+36D0): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+	(U+5AF0): Likewise.
+
+	* Ideograph-R032-Earth.el (U+5748): Apply new conventions for
+	glyph granularity.
+	(U+5860): Likewise.
+
+	* Ideograph-R009-Man.el (M-00634): Use `<-subsumptive' for
+	g2-UU+77E6 instead of `<-denotational' for UU+77E6.
+	(U+50E3): Apply new conventions for glyph granularity.
+
 	* Ideograph-R071-Not.el:
 	- Add some Adobe-Japan1 code points.
 	- Add `=decomposition@cid' for some Adobe-Japan1 abstract
