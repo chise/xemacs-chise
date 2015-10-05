@@ -1,5 +1,20 @@
 2015-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R004-Slash.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 abstract glyph-forms.
+
+	* Ideograph-R003-Dot.el (g2-AJ1-02926): Add `=decomposition@cid'.
+
+	* Ideograph-R002-Line.el (g2-AJ1-02980): Add `=decomposition@cid'.
+
+	* Ideograph-R001-One.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 abstract glyph-forms.
+
+	* Ideograph-R185-Head.el (U-00029810): Unify H12-A6CA.
+	(U-00029821): New character.
+
+	* Ideograph-R006-Hook.el: Add glyph-images of HNG-YHK.
+
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`===hng-yhk' as decimal.
 
