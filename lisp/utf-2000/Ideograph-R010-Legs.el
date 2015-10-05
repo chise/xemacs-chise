@@ -1897,8 +1897,8 @@
 	)
        ((=gt-k		    . 00534)	; &GT-K00534;
 	)
-       ((==ucs@unicode	    . #x65E1)	; &g2-HD-JA-5A5C;
-	(==jis-x0208	    . #x5A5C)	; &g2-HD-JA-5A5C; [58-60]
+       ((==ucs@unicode	    . #x65E1)	; &g2-AJ1-05089;
+	(==adobe-japan1-0   . 05089)	; &g2-AJ1-05089;
 	))
       (==ucs@unicode	  . #x5153)	; &g2-UU+5153;
       (==ucs@JP/hanazono  . nil)
