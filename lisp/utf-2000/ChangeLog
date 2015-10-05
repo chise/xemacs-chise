@@ -3,6 +3,11 @@
 	* Ideograph-R027-Cliff.el (UU+53A9): Move H1-B3A3 to a
 	representative glyph-image node.
 
+	* Ideograph-R071-Not.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 abstract
+	  glyph-forms.
+
 	* Ideograph-R005-Second.el: Add `=decomposition@cid' for some
 	Adobe-Japan1 abstract glyph-forms.
 	(AJ1-04101): Move `=decomposition@cid' to g2-AJ1-04101.
