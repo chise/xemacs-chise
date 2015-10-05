@@ -33865,7 +33865,7 @@
      ((=ucs		  . #x53E3)	; 口
       )
      ((=ucs@unicode	  . #x65E2)	; &AJ1-01591;
-      (=adobe-japan1-0	  . 01591)	; &I-AJ1-01591;
+      (=adobe-japan1-0	  . 01591)	; &AJ1-01591;
       ))
     (=ucs@unicode	. #x5605)	; &UU+5605;
     (=ucs@JP/hanazono	. nil)
