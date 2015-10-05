@@ -191,7 +191,12 @@
     (=daikanwa		. 00167)	; &I-M-00167;
     (=shinjigen		.  0057)	; 九
     (->subsumptive
-     ((==ucs@unicode	  . #x4E5D)	; &g2-AJ1-01757;
+     ((=decomposition@cid
+       ((=ucs		    . #x4E5D)	; 九
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x4E5D)	; &g2-AJ1-01757;
       (==adobe-japan1-0	  . 01757)	; &g2-AJ1-01757;
       (==gb2312		  . #x3E45)	; &g2-AJ1-01757; [30-37]
       (==ks-x1001	  . #x4E7A)	; &g2-AJ1-01757; [46-90]
@@ -1191,7 +1196,12 @@
       (=jis-x0208	  . #x502C)	; &I-J90-502C; [48-12]
       ))
     (->subsumptive
-     ((==ucs@unicode	  . #x4E71)	; &g2-AJ1-03930;
+     ((=decomposition@cid
+       ((=ucs		    . #x4E71)	; 乱
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x4E71)	; &g2-AJ1-03930;
       (==adobe-japan1-0	  . 03930)	; &g2-AJ1-03930;
       (==gb2312		  . #x4252)	; &g2-AJ1-03930; [34-50]
       (==jis-x0208	  . #x4D70)	; &g2-AJ1-03930; [45-80]
@@ -1917,7 +1927,12 @@
     (<-vulgar*sources
      jiyun zhengzitong daikanwa shinjigen)
     (->subsumptive
-     ((==ucs@unicode	  . #x4E79)	; &g2-AJ1-19143;
+     ((=decomposition@cid
+       ((=ucs		    . #x4E79)	; 乹
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x4E79)	; &g2-AJ1-19143;
       (==adobe-japan1-5	  . 19143)	; &g2-AJ1-19143;
       (==jis-x0212	  . #x303B)	; &g2-AJ1-19143; [16-27]
       (==cns11643-3	  . #x2B23)	; &g2-AJ1-19143; [11-03]
@@ -2288,7 +2303,12 @@
     (=daikanwa		. 00204)	; &I-M-00204;
     (=shinjigen		.  0064)	; 乾
     (->subsumptive
-     ((==ucs@unicode	  . #x4E7E)	; &g2-AJ1-01505;
+     ((=decomposition@cid
+       ((=ucs		    . #x4E7E)	; 乾
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x4E7E)	; &g2-AJ1-01505;
       (==adobe-japan1-0	  . 01505)	; &g2-AJ1-01505;
       (==gb2312		  . #x472C)	; &g2-AJ1-01505; [39-12]
       (==ks-x1001	  . #x4B6B)	; &g2-AJ1-01505; [43-75]
@@ -3008,11 +3028,6 @@
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 12)
     (total-strokes	 . 13)
-    (=decomposition@cid
-     ((=ucs		  . #x4E82)	; 亂
-      )
-     ((=ucs		  . #xE0100)	; 󠄀
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -3033,7 +3048,12 @@
     (=daikanwa		. 00214)	; &I-M-00214;
     (=shinjigen		.  0061)	; &AJ1-04101;
     (->subsumptive
-     ((==ucs@jis	  . #x4E82)	; &g2-AJ1-04101;
+     ((=decomposition@cid
+       ((=ucs		    . #x4E82)	; 亂
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x4E82)	; &g2-AJ1-04101;
       (==ucs@ks		  . #x4E82)	; &g2-AJ1-04101;
       (==adobe-japan1-0	  . 04101)	; &g2-AJ1-04101;
       (==ks-x1001	  . #x552F)	; &g2-AJ1-04101; [53-15]
