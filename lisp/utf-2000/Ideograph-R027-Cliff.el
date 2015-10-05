@@ -810,6 +810,23 @@
     (=ucs		. #x253A6)	; 𥎦
     (=cns11643-6	. #x263F)	; &I-C6-263F; [06-31]
     (=daikanwa		. 02928)	; &I-M-02928;
+    (<-ancient
+     ((=ucs		  . #x77E6)	; 矦
+      ))
+    (<-ancient*sources
+     shuowen daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x253A6)	; &g2-M-02928;
+      (==cns11643-6	  . #x263F)	; &g2-M-02928; [06-31]
+      (==daikanwa	  . 02928)	; &g2-M-02928;
+      (->subsumptive
+       ((===daikanwa	    . 02928)	; &R-M-02928;
+	)
+       ((===cns11643-6	    . #x263F)	; &R-C6-263F; [06-31]
+	)
+       ((===ucs@iso	    . #x253A6)	; &R-U-000253A6;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
