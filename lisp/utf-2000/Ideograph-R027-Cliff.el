@@ -2891,7 +2891,6 @@
     (=hanyo-denshi/ja	. #x3139)	; &I-HD-JA-3139; [17-25]
     (=gt		. 03790)	; &I-GT-03790;
     (=gt-pj-1		. #x3139)	; &I-GT-03790; [17-25]
-    (=hanziku-1		. #xB3A3)	; &I-HZK01-B3A3;
     (=jef-china3	. #x45E4)	; &I-JC3-45E4;
     (->subsumptive
      ((ideographic-strokes . 9)
@@ -2907,6 +2906,11 @@
       (==ucs@unicode	  . #x53A9)	; &g2-UU+53A9;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x3E47)	; &g2-UU+53A9; [30-39]
+      (->subsumptive
+       ((===ucs@unicode	    . #x53A9)	; &R-UU+53A9;
+	)
+       ((=hanziku-1	    . #xB3A3)	; &HZK01-B3A3;
+	))
       )
      ((ideographic-strokes . 10)
       (total-strokes	   . 12)
@@ -2955,8 +2959,8 @@
 	)
        ((=ucs		    . #x5382)	; 厂
 	)
-       ((==ucs@jis	    . #x65E2)	; &g2-HD-JA-347B;
-	(==jis-x0208	    . #x347B)	; &g2-HD-JA-347B; [20-91]
+       ((==ucs@jis	    . #x65E2)	; &g2-AJ1-01591;
+	(==adobe-japan1-0   . 01591)	; &g2-AJ1-01591;
 	))
       (==adobe-japan1-4	  . 13412)	; &g2-AJ1-13412;
       (==jis-x0208@1983	  . #x3139)	; &g2-AJ1-13412; [17-25]
