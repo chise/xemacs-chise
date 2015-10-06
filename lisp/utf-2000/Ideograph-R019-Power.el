@@ -3613,7 +3613,8 @@
      ((name		  . "CJK RADICAL SUN")
       (=ucs		  . #x2E9C)	; ⺜
       )
-     ((=ucs		  . #x52A9)	; 助
+     ((=ucs@unicode	  . #x52A9)	; &AJ1-02431;
+      (=adobe-japan1-0	  . 02431)	; &AJ1-02431;
       ))
     (=mj		. 007694)	; &MJ007694;
     (=adobe-japan1-4	. 14107)	; &I-AJ1-14107;
@@ -3642,24 +3643,15 @@
     (ideographic-radical@cns . 73)	; ⽈
     (ideographic-strokes@cns . 7)
     (total-strokes	 . 11)
-    (=decomposition@cid
-     ((=ucs		  . #x52D7)	; 勗
-      )
-     ((=ucs		  . #xE0100)	; 󠄀
-      ))
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x52D7)	; 勗
-      )
-     ((=ucs		  . #xE0102)	; 󠄂
-      ))
     (hanyu-dazidian	2 1512 12)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=cns11643-1	  . #x454B)	; &C1-454B; [37-43]
+     ((=ucs		  . #x66F0)	; 曰
       )
-     ((=ucs		  . #x52A9)	; 助
+     ((=ucs@unicode	  . #x52A9)	; &AJ1-02431;
+      (=adobe-japan1-0	  . 02431)	; &AJ1-02431;
       ))
     (=ucs@unicode	. #x52D7)	; &MJ007695;
     (=mj		. 007695)	; &MJ007695;
@@ -3671,6 +3663,50 @@
     (=hanyo-denshi/ja	. #x5228)	; &I-HD-JA-5228; [50-08]
     (=gt		. 03066)	; &I-GT-03066;
     (=gt-pj-1		. #x5228)	; &I-GT-03066; [50-08]
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x52D7)	; 勗
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x52D7)	; 勗
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((==ucs@cns	    . #x66F0)	; &g2-CU+66F0;
+	(==cns11643-1	    . #x454B)	; &g2-CU+66F0; [37-43]
+	)
+       ((=ucs@unicode	    . #x52A9)	; &AJ1-02431;
+	(=adobe-japan1-0    . 02431)	; &AJ1-02431;
+	))
+      (==ucs@unicode	  . #x52D7)	; &g2-MJ007695;
+      (==mj		  . 007695)	; &g2-MJ007695;
+      (==adobe-japan1-0	  . 04285)	; &g2-MJ007695;
+      (==jis-x0208	  . #x5228)	; &g2-MJ007695; [50-08]
+      (==cns11643-1	  . #x5B2B)	; &g2-MJ007695; [59-11]
+      (==jis-x0213-1	  . #x5228)	; &g2-MJ007695; [50-08]
+      (==hanyo-denshi/ja  . #x5228)	; &g2-MJ007695; [50-08]
+      (==gt		  . 03066)	; &g2-MJ007695;
+      (->subsumptive
+       ((===jis-x0208	    . #x5228)	; &R-J0-5228; [50-08]
+	(===jis-x0213-1	    . #x5228)	; &R-J0-5228; [50-08]
+	)
+       ((===adobe-japan1-0  . 04285)	; &R-AJ1-04285;
+	)
+       ((===mj		    . 007695)	; &R-MJ007695;
+	)
+       ((===cns11643-1	    . #x5B2B)	; &R-C1-5B2B; [59-11]
+	)
+       ((===gt		    . 03066)	; &R-GT-03066;
+	)
+       ((===ucs@unicode	    . #x52D7)	; &R-UU+52D7;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
