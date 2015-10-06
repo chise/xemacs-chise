@@ -1,5 +1,8 @@
 2015-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (char-db-insert-ccs-feature): Format
+	`===hng-nkm' as decimal.
+
 	* Ideograph-R027-Cliff.el (U-000253A6): Add `<-ancient' for
 	U+77E6; Add representative nodes.
 
