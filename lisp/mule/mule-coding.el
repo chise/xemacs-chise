@@ -379,6 +379,7 @@
 	  (===hng-hod			      "HNG030-" 5 d)
 	  (===hng-gok			      "HNG031-" 5 d)
 	  (===hng-nto			      "HNG034-" 5 d)
+	  (===hng-nkm			      "HNG036-" 5 d)
 	  (===hng-k24			      "HNG037-" 5 d)
 	  (===hng-kcj			      "HNG042-" 5 d)
 	  (===hng-kbk			      "HNG043-" 5 d)
