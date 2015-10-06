@@ -1,6 +1,17 @@
 2015-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `===hng-nkm'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`===hng-nkm'.
+
+	* mule/mule-conf.el (===hng-nkm): New coded-charset for XEmacs
+	CHISE.
+
+2015-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
 	setting for `===hng-nto'.
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
