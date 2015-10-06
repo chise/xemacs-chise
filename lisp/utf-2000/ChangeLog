@@ -1,3 +1,11 @@
+2015-10-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R073-Say.el:
+	- Add some Adobe-Japan1 code points.
+	- Add some representative nodes.
+	(CU+6700): Apply new conventions for glyph granularity.
+	(U+3B31): Likewise.
+
 2015-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (char-db-insert-ccs-feature): Format
