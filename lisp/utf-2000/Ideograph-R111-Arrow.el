@@ -195,31 +195,62 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 111)	; ⽮
-    (ideographic-strokes . 4)
+  '((ideographic-radical@ucs . 111)	; ⽮
+    (ideographic-strokes@ucs . 4)
+    (ideographic-radical@ucs*sources
+     daikanwa=23937 cns11643 ucs)
+    (ideographic-strokes@ucs*sources
+     daikanwa=23937 ucs)
+    (ideographic-radical@r009 . 9)	; ⼈
+    (ideographic-strokes@r009 . 7)
+    (ideographic-radical@r009*sources
+     daikanwa=00634)
+    (ideographic-strokes@r009*sources
+     daikanwa=00634)
     (total-strokes	 . 9)
     (=ucs		. #x77E6)	; 矦
-    (=jis-x0212		. #x4F46)	; &JX2-7236; [47-38]
+    (=jis-x0212		. #x4F46)	; &I-JSP-4F46; [47-38]
     (=cns11643-3	. #x2E36)	; &I-C3-2E36; [14-22]
     (=jis-x0213-2	. #x7236)	; &I-JX2-7236; [82-22]
     (=big5-cdp		. #x8AC7)	; &I-CDP-8AC7;
-    (=daikanwa		. 23937)	; &I-M-23937;
     (=jef-china3	. #x5BE9)	; &I-JC3-5BE9;
+    (<-original
+     ((=ucs		  . #x4FAF)	; 侯
+      ))
+    (<-original*sources
+     zihui daikanwa=00634)
+    (<-same
+     ((=ucs		  . #x4FAF)	; 侯
+      ))
+    (<-same*sources
+     zhengzitong daikanwa=23937)
+    (->ancient
+     ((=ucs		  . #x253A6)	; 𥎦
+      ))
+    (->ancient*sources
+     shuowen daikanwa=23937)
     (->subsumptive
      ((==ucs@unicode	  . #x77E6)	; &g2-JSP-4F46;
       (==jis-x0212	  . #x4F46)	; &g2-JSP-4F46; [47-38]
       (==jis-x0213-2	  . #x7236)	; &g2-JSP-4F46; [82-22]
-      (==daikanwa	  . 23937)	; &g2-JSP-4F46;
       (==jef-china3	  . #x5BE9)	; &g2-JSP-4F46;
       (->subsumptive
-       ((===daikanwa	    . 23937)	; &R-M-23937;
+       ((ideographic-radical . 111)	; ⽮
+	(ideographic-strokes . 4)
+	(=daikanwa	    . 23937)	; &M-23937;
+	)
+       ((ideographic-radical . 9)	; ⼈
+	(ideographic-strokes . 7)
+	(=daikanwa	    . 00634)	; &M-00634;
 	)
        ((===jis-x0212	    . #x4F46)	; &R-JX2-7236; [47-38]
 	(===jis-x0213-2	    . #x7236)	; &R-JX2-7236; [82-22]
 	)
        ((===jef-china3	    . #x5BE9)	; &R-JC3-5BE9;
 	)
-       ((===ucs@unicode	    . #x77E6)	; &R-UU+77E6;
+       ((ideographic-radical . 111)	; ⽮
+	(ideographic-strokes . 4)
+	(===ucs@unicode	    . #x77E6)	; &R-UU+77E6;
 	)
        ((===hng-kak	    . 02750)	; &HNG017-02750;
 	))
@@ -230,7 +261,9 @@
       (->subsumptive
        ((===big5-cdp	    . #x8AC7)	; &R-CDP-8AC7;
 	)
-       ((===cns11643-3	    . #x2E36)	; &R-C3-2E36; [14-22]
+       ((ideographic-radical . 111)	; ⽮
+	(ideographic-strokes . 4)
+	(===cns11643-3	    . #x2E36)	; &R-C3-2E36; [14-22]
 	))
       ))
     ))
