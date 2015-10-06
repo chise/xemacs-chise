@@ -1,5 +1,44 @@
 2015-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R027-Cliff.el (U-000253A6): Add `<-ancient' for
+	U+77E6; Add representative nodes.
+
+	* Ideograph-R031-Enclosure.el:
+	- Add glyph-images of HNG-KHI.
+	- Add some representative nodes.
+	(U+56DA): Apply new conventions for glyph granularity.
+	(U+56E6): Likewise.
+	(U+56E7): Likewise.
+	(U+56F0): Likewise.
+	(U+56F3): Likewise.
+	(U+56F7): Likewise.
+	(U+5708): Likewise.
+	(U+5709): Likewise.
+	(U+570A): Likewise.
+	(U+570F): Likewise.
+	(U+5716): Likewise.
+	(U+571B): Likewise.
+	(U+571C): Likewise.
+
+	* Ideograph-R029-Again.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 abstract glyph-forms.
+	(AJ1-02337): Move `=decomposition@cid' to g2-AJ1-02337.
+	(CU+6700): Apply new conventions for glyph granularity.
+
+	* Ideograph-R014-Cover.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 abstract glyph-forms.
+	(AJ1-02296): Move `=decomposition@cid' to g2-AJ1-02296.
+	(CU+6700): Apply new conventions for glyph granularity.
+
+	* Ideograph-R013-Down-Box.el (CU+5190): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+	(GT-02034): Add representative nodes.
+	(o-CU+5195): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(CU+6700): Apply new conventions for glyph granularity.
+
+2015-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R038-Woman.el (U+36D0): Apply new conventions for
 	glyph granularity for components of ideographic-structure.
 	(U+5AF0): Likewise.
