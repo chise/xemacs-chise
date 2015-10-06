@@ -2949,6 +2949,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-nkm "HNG:日本書紀 卷二十四（兼右本）"
+		'(long-name "HNG/兼右紀24"
+		  chars		256
+		  dimension	2
+		  registry	"hng-36$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-k24 "HNG:日本書紀 卷二十四（寛文九年版）"
 		'(long-name "HNG/寛九紀24"
 		  chars		256
