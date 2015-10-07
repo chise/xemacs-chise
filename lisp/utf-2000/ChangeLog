@@ -18,7 +18,22 @@
 	(U+96A9): Likewise.
 	(U+96AE): Likewise.
 
+	* Ideograph-R162-Walk.el: Add some representative nodes.
+
+	* Ideograph-R142-Insect.el (RUI6-E013): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R133-Arrive.el (U+5230): Add HNG-KCJ0471-0,
+	HNG-KHM0214-0 and HNG-SMK0347-0.
+	(U+81FB): Apply new conventions for glyph granularity.
+
 2015-10-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U+57C5): Use `->subsumptive'; unify
+	S-8858; add `<-formed' for U+9632.
+
+	* Ideograph-R001-One.el: Add glyph-images of HNG-NKM.
+	(U+4E12): Apply new conventions for glyph granularity.
 
 	* Ideograph-R073-Say.el:
 	- Add some Adobe-Japan1 code points.
