@@ -3029,6 +3029,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-kmi "HNG:弥勒上生經（高山寺本）"
+		'(long-name "HNG/弥勒上生"
+		  chars		256
+		  dimension	2
+		  registry	"hng-55$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-kss "HNG:華嚴信種義（明惠自筆）"
 		'(long-name "HNG/華嚴信種"
 		  chars		256
