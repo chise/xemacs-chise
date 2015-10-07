@@ -2122,7 +2122,8 @@
     (=shinjigen		.  0727)	; 勅
     (=cbeta		. 00330)	; &I-CB00330;
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x6555)	; 敕
+     ((=ucs@unicode	  . #x6555)	; &AJ1-05066;
+      (=adobe-japan1-0	  . 05066)	; &AJ1-05066;
       (=jis-x0208	  . #x5A45)	; &I-J90-5A45; [58-37]
       ))
     (<-vulgar
@@ -2133,7 +2134,8 @@
     (<-vulgar*sources
      zhengzitong daikanwa)
     (->synonyms
-     ((=ucs		  . #x6555)	; 敕
+     ((=ucs@unicode	  . #x6555)	; &AJ1-05066;
+      (=adobe-japan1-0	  . 05066)	; &AJ1-05066;
       (=daikanwa	  . 13225)	; &I-M-13225;
       ))
     (->synonyms*sources
