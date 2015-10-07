@@ -82,6 +82,8 @@
 	)
        ((===hng-tsu	    . 04230)	; &HNG024-04230;
 	)
+       ((===hng-nkm	    . 04160)	; &HNG036-04160;
+	)
        ((===hng-kbk	    . 03690)	; &HNG043-03690;
 	)
        ((===hng-sik	    . 01250)	; &HNG044-01250;
@@ -166,6 +168,8 @@
        ((===ucs@unicode	    . #x4E01)	; &R-UU+4E01;
 	)
        ((===hng-tsu	    . 04320)	; &HNG024-04320;
+	)
+       ((===hng-nkm	    . 04200)	; &HNG036-04200;
 	))
       ))
     ))
@@ -319,6 +323,8 @@
      ((===hng-sok	  . 00010)	; &HNG015-00010;
       )
      ((===hng-tsu	  . 04370)	; &HNG024-04370;
+      )
+     ((===hng-nkm	  . 04180)	; &HNG036-04180;
       )
      ((===hng-sik	  . 01300)	; &HNG044-01300;
       )
@@ -538,6 +544,8 @@
 	)
        ((===hng-tsu	    . 00010)	; &HNG024-00010;
 	)
+       ((===hng-nkm	    . 04260)	; &HNG036-04260;
+	)
        ((===hng-kbk	    . 03770)	; &HNG043-03770;
 	))
       )
@@ -652,6 +660,8 @@
 	)
        ((===hng-tsu	    . 04280)	; &HNG024-04280;
 	)
+       ((===hng-nkm	    . 04170)	; &HNG036-04170;
+	)
        ((===hng-kbk	    . 03750)	; &HNG043-03750;
 	)
        ((===hng-sik	    . 01290)	; &HNG044-01290;
@@ -738,6 +748,8 @@
 	)
        ((===hng-tsu	    . 04330)	; &HNG024-04330;
 	)
+       ((===hng-nkm	    . 04210)	; &HNG036-04210;
+	)
        ((===hng-kbk	    . 03710)	; &HNG043-03710;
 	)
        ((===hng-sik	    . 01360)	; &HNG044-01360;
@@ -814,6 +826,8 @@
        ((===hng-kak	    . 02580)	; &HNG017-02580;
 	)
        ((===hng-tsu	    . 04340)	; &HNG024-04340;
+	)
+       ((===hng-nkm	    . 04190)	; &HNG036-04190;
 	)
        ((===hng-kbk	    . 03720)	; &HNG043-03720;
 	)
@@ -1032,6 +1046,8 @@
        ((===hng-kak	    . 02550)	; &HNG017-02550;
 	)
        ((===hng-tsu	    . 04250)	; &HNG024-04250;
+	)
+       ((===hng-nkm	    . 04220)	; &HNG036-04220;
 	)
        ((===hng-kbk	    . 03730)	; &HNG043-03730;
 	)
@@ -1521,49 +1537,57 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (=+>ucs@jis		. #x4E12)	; &o-JX2-2124;
-    (=+>jis-x0213-2	. #x2124)	; &o-JX2-2124; [01-04]
-    (=+>adobe-japan1-5	. 17236)	; &o-JX2-2124;
-    (=+>gt		. 00034)	; &o-JX2-2124;
-    (->subsumptive
-     ((=daikanwa	  . 00028)	; &M-00028;
-      (<-vulgar
-       ((=ucs@cns	    . #x4E11)	; &MJ006315;
-	(=ucs@jis	    . #x4E11)	; &MJ006315;
-	(=ucs@ks	    . #x4E11)	; &MJ006315;
-	(=mj		    . 006315)	; &MJ006315;
-	(=daikanwa	    . 00023)	; &I-M-00023;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+	(=ucs		    . #x2FF9)	; ⿹
+	)
+       ((=ucs		    . #x200CC)	; 𠃌
+	)
+       ((=ucs		    . #x3405)	; 㐅
 	))
-      (<-vulgar*sources
-       daikanwa)
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=ucs@jis		. #x4E12)	; &AJ1-17236;
+    (=adobe-japan1-5	. 17236)	; &AJ1-17236;
+    (=jis-x0212		. #x3025)	; &I-JSP-3025; [16-05]
+    (=jis-x0213-2	. #x2124)	; &I-JX2-2124; [01-04]
+    (=gt		. 00034)	; &I-GT-00034;
+    (=gt-pj-2		. #x3032)	; &I-GT-00034; [16-18]
+    (=daikanwa		. 00028)	; &I-M-00028;
+    (<-vulgar
+     ((=ucs@cns		  . #x4E11)	; &MJ006315;
+      (=ucs@jis		  . #x4E11)	; &MJ006315;
+      (=ucs@ks		  . #x4E11)	; &MJ006315;
+      (=mj		  . 006315)	; &MJ006315;
+      (=daikanwa	  . 00023)	; &I-M-00023;
+      ))
+    (<-vulgar*sources
+     daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 00028)	; &g2-M-00028;
+      )
+     ((==gt		  . 00034)	; &g2-GT-00034;
       )
      ((=decomposition@cid
        ((=ucs		    . #x4E12)	; 丒
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
+      (==ucs@jis	  . #x4E12)	; &g2-AJ1-17236;
+      (==adobe-japan1-5	  . 17236)	; &g2-AJ1-17236;
+      (==jis-x0212	  . #x3025)	; &g2-AJ1-17236; [16-05]
+      (==jis-x0213-2	  . #x2124)	; &g2-AJ1-17236; [01-04]
+      (->subsumptive
+       ((===jis-x0212	    . #x3025)	; &R-JX2-2124; [16-05]
+	(===jis-x0213-2	    . #x2124)	; &R-JX2-2124; [01-04]
 	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
-	  (=ucs		      . #x2FF9)	; ⿹
-	  )
-	 ((=ucs		      . #x200CC)	; 𠃌
-	  )
-	 ((=ucs		      . #x3405)	; 㐅
-	  ))
-	)
-       ((=ucs		    . #x4E00)	; 一
+       ((===adobe-japan1-5  . 17236)	; &R-AJ1-17236;
 	))
-      (=ucs@jis		  . #x4E12)	; &AJ1-17236;
-      (=adobe-japan1-5	  . 17236)	; &AJ1-17236;
-      (=jis-x0212	  . #x3025)	; &I-JSP-3025; [16-05]
-      (=jis-x0213-2	  . #x2124)	; &I-JX2-2124; [01-04]
-      )
-     ((=gt		  . 00034)	; &GT-00034;
-      (=gt-pj-2		  . #x3032)	; &GT-00034; [16-18]
       ))
     ))
 (define-char
@@ -1585,6 +1609,21 @@
     (=ucs@JP/hanazono	. nil)
     (=cns11643-4	. #x2139)	; &C4-2139; [01-25]
     (=jef-china3	. #x41A8)	; &I-JC3-41A8;
+    (->subsumptive
+     ((==ucs@unicode	  . #x4E12)	; &g2-UU+4E12;
+      (==ucs@JP/hanazono  . nil)
+      (==cns11643-4	  . #x2139)	; &g2-UU+4E12; [01-25]
+      (==jef-china3	  . #x41A8)	; &g2-UU+4E12;
+      (->subsumptive
+       ((===cns11643-4	    . #x2139)	; &R-C4-2139; [01-25]
+	)
+       ((===jef-china3	    . #x41A8)	; &R-JC3-41A8;
+	)
+       ((===ucs@unicode	    . #x4E12)	; &R-UU+4E12;
+	))
+      )
+     ((===hng-nkm	  . 04240)	; &HNG036-04240;
+      ))
     ))
 (define-char
   '((ideographic-radical@ucs . 12)	; ⼋
@@ -1808,6 +1847,8 @@
        ((===hng-kak	    . 02610)	; &HNG017-02610;
 	)
        ((===hng-tsu	    . 04360)	; &HNG024-04360;
+	)
+       ((===hng-nkm	    . 04250)	; &HNG036-04250;
 	))
       )
      ((===hng-kbk	  . 03760)	; &HNG043-03760;
@@ -1915,6 +1956,8 @@
 	)
        ((===hng-sok	    . 01222)	; &HNG015-01222;
 	)
+       ((===hng-nkm	    . 10632)	; &HNG036-10632;
+	)
        ((===hng-kyo	    . 01970)	; &HNG066-01970;
 	))
       )
@@ -1984,6 +2027,8 @@
        ((===hng-khm	    . 05962)	; &HNG011-05962;
 	)
        ((===hng-sok	    . 01221)	; &HNG015-01221;
+	)
+       ((===hng-nkm	    . 10631)	; &HNG036-10631;
 	)
        ((===hng-sik	    . 01330)	; &HNG044-01330;
 	)
@@ -2287,6 +2332,8 @@
        ((===cns11643-1	    . #x455F)	; &R-C1-455F; [37-63]
 	)
        ((===gt		    . 00051)	; &R-GT-00051;
+	)
+       ((===hng-nkm	    . 04230)	; &HNG036-04230;
 	))
       )
      ((ideographic-structure
