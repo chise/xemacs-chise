@@ -1993,7 +1993,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=ucs		. #x6B36)	; 欶
-    (=jis-x0212		. #x456E)	; &JSP-456E; [37-78]
+    (=jis-x0212		. #x456E)	; &I-JSP-456E; [37-78]
     (=cns11643-2	. #x363A)	; &I-C2-363A; [22-26]
     (=big5		. #xD5D6)	; &I-B-D5D6;
     (=daikanwa		. 16086)	; &I-M-16086;
