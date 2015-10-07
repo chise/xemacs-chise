@@ -388,6 +388,7 @@
 	  (===hng-kyu			      "HNG047-" 5 d)
 	  (===hng-ksk			      "HNG048-" 5 d)
 	  (===hng-wan			      "HNG049-" 5 d)
+	  (===hng-okd			      "HNG050-" 5 d)
 	  (===hng-kss			      "HNG064-" 5 d)
 	  (===hng-kyo			      "HNG066-" 5 d)
 	  (===hng-smk			      "HNG074-" 5 d)
