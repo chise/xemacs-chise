@@ -1,5 +1,25 @@
 2015-10-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R170-Mound.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/JA.
+	- Add some representative nodes.
+	(U+962C): Apply new conventions for glyph granularity.
+	(U+9631): Unify S-5686; add `<-original' for U+7A7D.
+	(U+9632): Apply new conventions for glyph granularity.
+	(U+9654): Likewise.
+	(U+9656): Likewise.
+	(U+9657): Likewise.
+	(U+9666): Likewise.
+	(U+966D): Likewise.
+	(U+9683): Likewise.
+	(U+96A6): Likewise.
+	(U+96A9): Likewise.
+	(U+96AE): Likewise.
+
+2015-10-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R073-Say.el:
 	- Add some Adobe-Japan1 code points.
 	- Add some representative nodes.
@@ -87,6 +107,14 @@
 
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`===hng-nto' as decimal.
+
+2015-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R208-Rat.el: Add some representative nodes.
+	(U+9F21): Add `ideographic-structure'.
+	(U+9F22): Apply new conventions for glyph granularity.
+	(U+9F26): Likewise.
+	(U+9F2C): Likewise.
 
 2015-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
