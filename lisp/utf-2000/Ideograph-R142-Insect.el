@@ -1906,18 +1906,19 @@
       )
      ((=ucs		  . #x866B)	; 虫
       ))
-    (=>>ruimoku-v6	. #xE013)	; &G-RUI6-E013;
+    (sources		ruimoku=A021610-00006)
+    (=ruimoku-v6	. #xE013)	; &RUI6-E013;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=cns11643-1	    . #x454B)	; &C1-454B; [37-43]
+       ((==ucs@cns	    . #x66F0)	; &g2-CU+66F0;
+	(==cns11643-1	    . #x454B)	; &g2-CU+66F0; [37-43]
 	)
        ((=ucs		    . #x866B)	; 虫
 	))
-      (sources		  ruimoku=A021610-00006)
-      (=ruimoku-v6	  . #xE013)	; &RUI6-E013;
+      (==ruimoku-v6	  . #xE013)	; &g2-RUI6-E013;
       ))
     ))
 (define-char
