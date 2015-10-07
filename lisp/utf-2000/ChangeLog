@@ -1,5 +1,10 @@
 2015-10-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R066-Rap.el: Add some representative nodes.
+	(U+3A85): Unify S-3412; add `<-original' for U+66F4.
+	(U+6555): Apply new conventions for glyph granularity.
+	(U+6574): Likewise.
+
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`===hng-kmi' as decimal.
 
