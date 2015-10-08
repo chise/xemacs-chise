@@ -1,5 +1,13 @@
 2015-10-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R077-Stop.el: Add some Adobe-Japan1-0 code points.
+	(U-00023945): Apply new conventions for glyph granularity.
+	(U+3C58): Likewise.
+	(U-000239B1): Likewise.
+
+	* Ideograph-R008-Lid.el (U-0002019A): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R106-White.el (U+768E): Apply new conventions for
 	glyph granularity.
 	(U+7690): Likewise.
