@@ -3172,6 +3172,7 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
+    (hanyu-dazidian	1 19 12)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -3181,25 +3182,29 @@
      ((=ucs		  . #x6B64)	; 此
       ))
     (=ucs		. #x20022)	; 𠀢
+    (=cns11643-5	. #x232F)	; &I-C5-232F; [03-15]
+    (=gt		. 00070)	; &I-GT-00070;
+    (=gt-pj-2		. #x3040)	; &I-GT-00070; [16-32]
+    (=daikanwa		. 00047)	; &I-M-00047;
     (->subsumptive
-     ((hanyu-dazidian	  1 19 12)
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
        ((=ucs		    . #x4E00)	; 一
 	)
-       ((=ucs@unicode	    . #x6B64)	; &GT-20888;
-	(=jis-x0208	    . #x3A21)	; &GT-20888; [26-01]
-	(=gb2312	    . #x344B)	; &I-G0-344B; [20-43]
-	(=ks-x1001	    . #x732E)	; &I-K0-732E; [83-14]
-	(=jis-x0213-1	    . #x3A21)	; &I-JX1-3A21; [26-01]
-	(=daikanwa	    . 16259)	; &I-M-16259;
+       ((==ucs@unicode	    . #x6B64)	; &g2-AJ1-02065;
+	(==adobe-japan1-0   . 02065)	; &g2-AJ1-02065;
 	))
-      (=gt		  . 00070)	; &GT-00070;
-      (=gt-pj-2		  . #x3040)	; &GT-00070; [16-32]
-      (=daikanwa	  . 00047)	; &I-M-00047;
-      (=hanziku-1	  . #xA7F6)	; &I-HZK01-A7F6;
+      (==gt		  . 00070)	; &g2-GT-00070;
+      (==daikanwa	  . 00047)	; &g2-GT-00070;
+      (->subsumptive
+       ((===daikanwa	    . 00047)	; &R-M-00047;
+	)
+       ((===gt		    . 00070)	; &R-GT-00070;
+	)
+       ((=hanziku-1	    . #xA7F6)	; &HZK01-A7F6;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -3207,10 +3212,16 @@
 	)
        ((=ucs		    . #x4E00)	; 一
 	)
-       ((=cns11643-1	    . #x483A)	; &C1-483A; [40-26]
+       ((==ucs@cns	    . #x6B64)	; &g2-CU+6B64;
+	(==cns11643-1	    . #x483A)	; &g2-CU+6B64; [40-26]
 	))
-      (=ucs@iso		  . #x20022)	; &C5-232F;
-      (=cns11643-5	  . #x232F)	; &C5-232F; [03-15]
+      (==ucs@iso	  . #x20022)	; &g2-IU-00020022;
+      (==cns11643-5	  . #x232F)	; &g2-IU-00020022; [03-15]
+      (->subsumptive
+       ((===cns11643-5	    . #x232F)	; &R-C5-232F; [03-15]
+	)
+       ((===ucs@iso	    . #x20022)	; &R-U-00020022;
+	))
       ))
     ))
 (define-char
