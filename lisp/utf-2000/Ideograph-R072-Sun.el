@@ -3269,8 +3269,16 @@
     (=cns11643-3	. #x3149)	; &I-C3-3149; [17-41]
     (=jis-x0213-1	. #x7538)	; &I-JX1-7538; [85-24]
     (=daikanwa		. 13897)	; &I-M-13897;
+    (=shinjigen		.  5208)	; 晈
     (=cbeta		. 00151)	; &I-CB00151;
     (=jef-china3	. #x51D0)	; &I-JC3-51D0;
+    (<-formed
+     ((=ucs		  . #x768E)	; 皎
+      (=jis-x0208	  . #x6229)	; &I-J90-6229; [66-09]
+      (=shinjigen	  .  5207)	; 皎
+      ))
+    (<-formed*sources
+     shinjigen)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -3285,6 +3293,7 @@
       (==adobe-japan1-5	  . 16887)	; &g2-AJ1-16887;
       (==jis-x0213-1	  . #x7538)	; &g2-AJ1-16887; [85-24]
       (==daikanwa	  . 13897)	; &g2-AJ1-16887;
+      (==shinjigen	  .  5208)	; &g2-AJ1-16887;
       (==cbeta		  . 00151)	; &g2-AJ1-16887;
       (->subsumptive
        ((===daikanwa	    . 13897)	; &R-M-13897;
