@@ -1,5 +1,13 @@
 2015-10-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R072-Sun.el (U+6648): Unify S-5208; add `<-formed' for
+	U+768E.
+
+	* Ideograph-R007-Two.el (U+4E9B): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R006-Hook.el: Add glyph-images of HNG-ZKD.
+
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`===hng-zkd' as decimal.
 
