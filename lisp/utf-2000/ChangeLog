@@ -1,5 +1,35 @@
 2015-10-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R106-White.el (U+768E): Apply new conventions for
+	glyph granularity.
+	(U+7690): Likewise.
+	(UU+7690): Add `<-formed' for U+768B.
+	(U+7696): Apply new conventions for glyph granularity.
+	(U-00024F95): Likewise; add `<-original' for U+66FF; add `<-same'
+	for U-0002F8D5 and U+3B31.
+	(U+769C): Apply new conventions for glyph granularity.
+	(U+76A0): Likewise.
+	(U+76A1): Likewise.
+	(U+76A5): Likewise.
+	(U+76A6): Likewise.
+	(U+76AD): Likewise.
+
+	* Ideograph-R031-Enclosure.el (U+56FF): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R030-Mouth.el (UU+5470): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+	(U+5472): Apply new conventions for glyph granularity.
+	(U+54CA): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+5559): Apply new conventions for glyph granularity.
+	(U-00020DB9): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(UU+5651): Likewise.
+
+	* Ideograph-R001-One.el (U-00020022): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R072-Sun.el (U+6648): Unify S-5208; add `<-formed' for
 	U+768E.
 
