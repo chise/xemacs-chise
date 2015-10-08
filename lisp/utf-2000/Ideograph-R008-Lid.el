@@ -4514,77 +4514,40 @@
   '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 16)
     (total-strokes	 . 18)
+    (hanyu-dazidian	1 294 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
       )
      ((=ucs		  . #x4EA0)	; 亠
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x76EE)	; 目
-	)
-       ((=ucs		    . #x76EE)	; 目
-	))
+     ((=ucs		  . #x4020)	; 䀠
       )
      ((=ucs		  . #x6B7B)	; 死
       ))
     (=ucs		. #x2019A)	; 𠆚
+    (=daikanwa		. 00340)	; &I-M-00340;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
 	(=ucs		    . #x2FF3)	; ⿳
 	)
-       ((=ucs@jis	    . #x4EA0)	; &AJ1-04110;
-	(=adobe-japan1-0    . 04110)	; &AJ1-04110;
+       ((=ucs		    . #x4EA0)	; 亠
 	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=ucs		      . #x76EE)	; 目
-	  )
-	 ((=ucs		      . #x76EE)	; 目
-	  ))
+       ((=ucs		    . #x4020)	; 䀠
 	)
-       ((=ucs@unicode	    . #x6B7B)	; &GT-21012;
-	(=jis-x0208	    . #x3B60)	; &GT-21012; [27-64]
-	(=gb2312	    . #x4B40)	; &I-G0-4B40; [43-32]
-	(=ks-x1001	    . #x5E5D)	; &I-K0-5E5D; [62-61]
-	(=jis-x0213-1	    . #x3B60)	; &I-JX1-3B60; [27-64]
-	(=daikanwa	    . 16365)	; &I-M-16365;
+       ((=ucs@unicode	    . #x6B7B)	; &AJ1-02222;
+	(=adobe-japan1-0    . 02222)	; &AJ1-02222;
 	))
-      (=daikanwa	  . 00340)	; &M-00340;
-      )
-     ((hanyu-dazidian	  1 294 5)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-	(=ucs		    . #x2FF3)	; ⿳
+      (==ucs@iso	  . #x2019A)	; &g2-M-00340;
+      (==daikanwa	  . 00340)	; &g2-M-00340;
+      (->subsumptive
+       ((===daikanwa	    . 00340)	; &R-M-00340;
 	)
-       ((=ucs@unicode	    . #x4EA0)	; &GT-00375;
-	(=gb2312	    . #x596F)	; &GT-00375; [57-79]
-	(=daikanwa	    . 00286)	; &I-M-00286;
+       ((===ucs@iso	    . #x2019A)	; &R-U-0002019A;
 	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=ucs		      . #x76EE)	; 目
-	  )
-	 ((=ucs		      . #x76EE)	; 目
-	  ))
-	)
-       ((=ucs@unicode	    . #x6B7B)	; &GT-21012;
-	(=jis-x0208	    . #x3B60)	; &GT-21012; [27-64]
-	(=gb2312	    . #x4B40)	; &I-G0-4B40; [43-32]
-	(=ks-x1001	    . #x5E5D)	; &I-K0-5E5D; [62-61]
-	(=jis-x0213-1	    . #x3B60)	; &I-JX1-3B60; [27-64]
-	(=daikanwa	    . 16365)	; &I-M-16365;
+       ((=hanziku-1	    . #xE2B8)	; &HZK01-E2B8;
 	))
-      (==ucs@iso	  . #x2019A)	; &HZK01-E2B8;
-      (=hanziku-1	  . #xE2B8)	; &HZK01-E2B8;
       ))
     ))
 (define-char
