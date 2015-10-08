@@ -3037,6 +3037,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-zkd "HNG:續高僧傳（五月一日經）（天平寫經）"
+		'(long-name "HNG/五一續高"
+		  chars		256
+		  dimension	2
+		  registry	"hng-56$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-kss "HNG:華嚴信種義（明惠自筆）"
 		'(long-name "HNG/華嚴信種"
 		  chars		256
