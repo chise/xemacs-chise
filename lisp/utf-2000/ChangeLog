@@ -1,3 +1,8 @@
+2015-10-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-insert-ccs-feature): Format
+	`===hng-zkd' as decimal.
+
 2015-10-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R005-Second.el: Add glyph-images of HNG-KMI.
