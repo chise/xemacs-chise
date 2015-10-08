@@ -1,5 +1,9 @@
 2015-10-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R005-Second.el: Add glyph-images of HNG-KMI.
+
+2015-10-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R066-Rap.el: Add some representative nodes.
 	(U+3A85): Unify S-3412; add `<-original' for U+66F4.
 	(U+6555): Apply new conventions for glyph granularity.
