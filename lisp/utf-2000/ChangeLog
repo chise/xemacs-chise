@@ -1,5 +1,10 @@
 2015-10-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R034-Go.el (U+5905): Apply new conventions for glyph
+	granularity.
+
+2015-10-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R077-Stop.el: Add some Adobe-Japan1-0 code points.
 	(U-00023945): Apply new conventions for glyph granularity.
 	(U+3C58): Likewise.
