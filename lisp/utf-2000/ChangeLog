@@ -1,5 +1,32 @@
 2015-10-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R195-Fish.el: Add some representative nodes.
+	(U-00029D4B): Apply new conventions for glyph granularity.
+	(U+9B5E): Likewise.
+	(U+9B76): Likewise.
+	(JU+9B9D): Unify S-9640; add `<-vulgar' for JU+9C76.
+	(U+9BAB): Apply new conventions for glyph granularity.
+	(U+9BB9): Likewise.
+	(U+9BBB): Likewise.
+	(U+9BBE): Likewise.
+	(U+9BC7): Likewise.
+	(U+9BD6): Likewise.
+	(JU+9BD7): Unify S-9639; add `<-original' for JU+9C76.
+	(U+9BE1): Apply new conventions for glyph granularity.
+	(U+9BE5): Likewise.
+	(U+9C18): Likewise.
+	(U+9C1A): Likewise.
+	(U+9C27): Likewise.
+	(U+9C29): Likewise.
+	(U+9C3A): Likewise.
+	(U+9C41): Likewise.
+	(U+9C45): Likewise.
+	(U+9C4A): Likewise.
+	(U+9C4F): Likewise.
+	(U+9C63): Likewise.
+	(U+9C6D): Likewise.
+	(U+9C76): Likewise.
+
 	* Ideograph-R034-Go.el (U+5905): Apply new conventions for glyph
 	granularity.
 
