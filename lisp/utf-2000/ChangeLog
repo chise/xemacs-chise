@@ -1,3 +1,19 @@
+2015-10-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ruimoku6.el (RUI6-E013): Apply new conventions for glyph
+	granularity.
+	(RUI6-E038): Map to U-0002A75D.
+	(RUI6-E051): Use "日" instead of "曰" in `ideographic-structure'.
+
+	* Ideograph-R074-Moon.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add some representative nodes.
+	(U+670E): Apply new conventions for glyph granularity.
+	(U+F929): Likewise.
+	(U+6719): Likewise.
+	(U+671C): Likewise.
+	(U+6722): Likewise.
+
 2015-10-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R195-Fish.el: Add some representative nodes.
