@@ -1,5 +1,15 @@
 2015-10-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R075-Tree.el (U+3B70): Use `->subsumptive'.
+	(U+6B1B): Apply new conventions for glyph granularity.
+
+	* Ideograph-R030-Mouth.el (U+56AF): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R006-Hook.el: Add glyph-images of HNG-JYU.
+
+2015-10-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* ruimoku6.el (RUI6-E013): Apply new conventions for glyph
 	granularity.
 	(RUI6-E038): Map to U-0002A75D.
