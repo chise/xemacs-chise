@@ -2885,6 +2885,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-hok "HNG:妙法蓮華經卷八（S.2577）"
+		'(long-name "HNG/S2577"
+		  chars		256
+		  dimension	2
+		  registry	"hng-13$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-sok "HNG:花嚴經卷八（守屋本）"
 		'(long-name "HNG/花嚴守屋"
 		  chars		256
