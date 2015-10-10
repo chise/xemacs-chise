@@ -1,3 +1,8 @@
+2015-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-insert-ccs-feature): Format
+	`===hng-hok' as decimal.
+
 2015-10-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R075-Tree.el (U+3B70): Use `->subsumptive'.
