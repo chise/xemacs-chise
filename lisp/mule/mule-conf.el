@@ -3045,6 +3045,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-jyu "HNG:成唯識論卷十（寛治二年刊本）"
+		'(long-name "HNG/成唯識10"
+		  chars		256
+		  dimension	2
+		  registry	"hng-58$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-kss "HNG:華嚴信種義（明惠自筆）"
 		'(long-name "HNG/華嚴信種"
 		  chars		256
