@@ -716,30 +716,53 @@
     (ideographic-radical . 146)	; ⾑
     (ideographic-strokes . 13)
     (total-strokes	 . 19)
+    (=ucs@cns		. #x8987)	; &HD-IB-2269;
+    (=cns11643-3	. #x5B2F)	; &HD-IB-2269; [59-15]
+    (=hanyo-denshi/ib	. #x2269)	; &I-HD-IB-2269; [02-73]
+    (=daikanwa		. 34790)	; &I-M-34790;
+    (=shinjigen@1ed	.  3454)	; &HD-IB-2269;
+    (=shinjigen/+p@rev	.  7480)	; &HD-IB-2269;
+    (=jef-china3	. #x64BB)	; &I-JC3-64BB;
+    (<-vulgar
+     ((=ucs		  . #x9738)	; 霸
+      (=jis-x0208	  . #x5B31)	; &I-J90-5B31; [59-17]
+      (=shinjigen@1ed	  .  3453)	; 霸
+      (=shinjigen@rev	  .  3454)	; 霸
+      ))
+    (<-vulgar*sources
+     shinjigen@1ed)
     (->subsumptive
      ((=gt		  . 46843)	; &GT-46843;
       (=gt-pj-6		  . #x7254)	; &GT-46843; [82-52]
-      (=daikanwa	  . 34790)	; &I-M-34790;
-      (=shinjigen@1ed	  .  3454)	; &GT-46843;
-      (<-vulgar
-       ((=gt		    . 57028)	; &GT-57028;
-	(=daikanwa	    . 42490)	; &I-M-42490;
-	(=shinjigen@1ed	    .  3453)	; &GT-57028;
+      (==daikanwa	  . 34790)	; &GT-46843;
+      (==shinjigen@1ed	  .  3454)	; &GT-46843;
+      (==shinjigen/+p@rev .  7480)	; &GT-46843;
+      (->subsumptive
+       ((===daikanwa	    . 34790)	; &R-M-34790;
+	)
+       ((===gt		    . 46843)	; &R-GT-46843;
 	))
-      (<-vulgar*sources
-       shinjigen@1ed)
       )
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x8987)	; 覇
 	)
        ((=ucs		    . #xE0103)	; 󠄃
 	))
-      (=cns11643-3	  . #x5B2F)	; &HD-IB-2269; [59-15]
-      (=hanyo-denshi/ib	  . #x2269)	; &I-HD-IB-2269; [02-73]
-      (=gt		  . 46845)	; &I-GT-46845;
-      (=gt-pj-11	  . #x3E23)	; &I-GT-46845; [30-03]
-      (=shinjigen/+p@rev  .  7480)	; &HD-IB-2269;
-      (=jef-china3	  . #x64BB)	; &I-JC3-64BB;
+      (==ucs@cns	  . #x8987)	; &g2-HD-IB-2269;
+      (==cns11643-3	  . #x5B2F)	; &g2-HD-IB-2269; [59-15]
+      (==hanyo-denshi/ib  . #x2269)	; &g2-HD-IB-2269; [02-73]
+      (=gt		  . 46845)	; &g2-HD-IB-2269;
+      (=gt-pj-11	  . #x3E23)	; &g2-HD-IB-2269; [30-03]
+      (==jef-china3	  . #x64BB)	; &g2-HD-IB-2269;
+      (->subsumptive
+       ((===hanyo-denshi/ib . #x2269)	; &R-HD-IB-2269; [02-73]
+	)
+       ((===cns11643-3	    . #x5B2F)	; &R-C3-5B2F; [59-15]
+	)
+       ((===jef-china3	    . #x64BB)	; &R-JC3-64BB;
+	)
+       ((===gt		    . 46845)	; &R-GT-46845;
+	))
       ))
     ))
 (define-char
@@ -749,22 +772,37 @@
     (ideographic-radical . 146)	; ⾑
     (ideographic-strokes . 13)
     (total-strokes	 . 19)
+    (=ucs@unicode	. #x8987)	; &GT-46844;
+    (=jis-x0208		. #x4746)	; &GT-46844; [39-38]
+    (=ks-x1001		. #x782E)	; &I-K0-782E; [88-14]
+    (=jis-x0213-1	. #x4746)	; &I-JX1-4746; [39-38]
+    (=gt		. 46844)	; &I-GT-46844;
+    (=gt-pj-1		. #x4746)	; &I-GT-46844; [39-38]
+    (=shinjigen@rev	.  7480)	; &GT-46844;
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x9738)	; 霸
+      (=jis-x0208	  . #x5B31)	; &I-J90-5B31; [59-17]
+      ))
     (->subsumptive
      ((=gt		  . 46846)	; &GT-46846;
       (=gt-pj-11	  . #x3E44)	; &GT-46846; [30-36]
       )
-     ((=ucs@unicode	  . #x8987)	; &GT-46844;
-      (=jis-x0208	  . #x4746)	; &GT-46844; [39-38]
-      (=ks-x1001	  . #x782E)	; &I-K0-782E; [88-14]
-      (=jis-x0213-1	  . #x4746)	; &I-JX1-4746; [39-38]
-      (=gt		  . 46844)	; &I-GT-46844;
-      (=gt-pj-1		  . #x4746)	; &I-GT-46844; [39-38]
-      (=shinjigen@rev	  .  7480)	; &GT-46844;
-      (<-simplified@JP/Jouyou
-       ((=ucs@unicode	    . #x9738)	; &GT-57027;
-	(=jis-x0208	    . #x5B31)	; &GT-57027; [59-17]
-	(=gb2312	    . #x3054)	; &I-G0-3054; [16-52]
-	(=jis-x0213-1	    . #x5B31)	; &I-JX1-5B31; [59-17]
+     ((==ucs@unicode	  . #x8987)	; &g2-GT-46844;
+      (==ks-x1001	  . #x782E)	; &g2-GT-46844; [88-14]
+      (==jis-x0208	  . #x4746)	; &g2-GT-46844; [39-38]
+      (==jis-x0213-1	  . #x4746)	; &g2-GT-46844; [39-38]
+      (==gt		  . 46844)	; &g2-GT-46844;
+      (==shinjigen@rev	  .  7480)	; &g2-GT-46844;
+      (->subsumptive
+       ((===jis-x0208	    . #x4746)	; &R-J0-4746; [39-38]
+	(===jis-x0213-1	    . #x4746)	; &R-J0-4746; [39-38]
+	)
+       ((===gt		    . 46844)	; &R-GT-46844;
+	)
+       ((===ucs@ks	    . #x8987)	; &R-K0-782E;
+	(===ks-x1001	    . #x782E)	; &R-K0-782E; [88-14]
+	)
+       ((===ucs@unicode	    . #x8987)	; &R-UU+8987;
 	))
       ))
     ))
