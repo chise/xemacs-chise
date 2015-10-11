@@ -653,47 +653,49 @@
 	"(%-18s .  %04d)\t; %c")
        ((eq name '=shinjigen@1ed/24pr)
 	"(%-18s . %04d)\t; %c")
-       ((or (memq name '(===daikanwa
-			 ==daikanwa =daikanwa =>>daikanwa =>daikanwa
-			 =daikanwa@rev1 =daikanwa@rev2
-			 =daikanwa/+p ==daikanwa/+p ===daikanwa/+p
-			 =>>daikanwa/+p
-			 =daikanwa/+2p =>>daikanwa/+2p
-			 =gt ==gt ===gt
-			 =>>gt =+>gt =>gt
-			 =gt-k ==gt-k ===gt-k
-			 =>>gt-k =>gt-k
-			 =adobe-japan1-0 ==adobe-japan1-0 ===adobe-japan1-0
-			 =adobe-japan1-1 ==adobe-japan1-1 ===adobe-japan1-1
-			 =adobe-japan1-2 ==adobe-japan1-2 ===adobe-japan1-2
-			 =adobe-japan1-3 ==adobe-japan1-3 ===adobe-japan1-3
-			 =adobe-japan1-4 ==adobe-japan1-4 ===adobe-japan1-4
-			 =adobe-japan1-5 ==adobe-japan1-5 ===adobe-japan1-5
-			 =adobe-japan1-6 ==adobe-japan1-6 ===adobe-japan1-6
-			 =>>adobe-japan1-0 =+>adobe-japan1-0
-			 =>>adobe-japan1-1 =+>adobe-japan1-1
-			 =>>adobe-japan1-2 =+>adobe-japan1-2
-			 =>>adobe-japan1-3 =+>adobe-japan1-3
-			 =>>adobe-japan1-4 =+>adobe-japan1-4
-			 =>>adobe-japan1-5 =+>adobe-japan1-5
-			 =>>adobe-japan1-6 =+>adobe-japan1-6
-			 =>cbeta =cbeta =>>cbeta ==cbeta ===cbeta
-			 =zinbun-oracle =>zinbun-oracle
-			 ===hng-jou ===hng-keg ===hng-dng ===hng-mam
-			 ===hng-drt ===hng-kgk ===hng-myz ===hng-kda
-			 ===hng-khi ===hng-khm ===hng-hok ===hng-sok
-			 ===hng-yhk ===hng-kak
-			 ===hng-sys ===hng-tsu
-			 ===hng-hod ===hng-gok ===hng-nto
-			 ===hng-nkm ===hng-k24
-			 ===hng-kcj ===hng-kbk ===hng-sik
-			 ===hng-skk ===hng-kyu ===hng-ksk ===hng-wan
-			 ===hng-okd ===hng-kmi
-			 ===hng-zkd ===hng-jyu
-			 ===hng-kss ===hng-kyo
-			 ===hng-smk))
-            ;; (string-match "^=adobe-" (symbol-name name))
-	    )
+       ((or
+	 (memq name
+	       '(===daikanwa
+		 ==daikanwa =daikanwa =>>daikanwa =>daikanwa
+		 =daikanwa@rev1 =daikanwa@rev2
+		 =daikanwa/+p ==daikanwa/+p ===daikanwa/+p
+		 =>>daikanwa/+p
+		 =daikanwa/+2p =>>daikanwa/+2p
+		 =gt ==gt ===gt
+		 =>>gt =+>gt =>gt
+		 =gt-k ==gt-k ===gt-k
+		 =>>gt-k =>gt-k
+		 =adobe-japan1-0 ==adobe-japan1-0 ===adobe-japan1-0
+		 =adobe-japan1-1 ==adobe-japan1-1 ===adobe-japan1-1
+		 =adobe-japan1-2 ==adobe-japan1-2 ===adobe-japan1-2
+		 =adobe-japan1-3 ==adobe-japan1-3 ===adobe-japan1-3
+		 =adobe-japan1-4 ==adobe-japan1-4 ===adobe-japan1-4
+		 =adobe-japan1-5 ==adobe-japan1-5 ===adobe-japan1-5
+		 =adobe-japan1-6 ==adobe-japan1-6 ===adobe-japan1-6
+		 =>>adobe-japan1-0 =+>adobe-japan1-0
+		 =>>adobe-japan1-1 =+>adobe-japan1-1
+		 =>>adobe-japan1-2 =+>adobe-japan1-2
+		 =>>adobe-japan1-3 =+>adobe-japan1-3
+		 =>>adobe-japan1-4 =+>adobe-japan1-4
+		 =>>adobe-japan1-5 =+>adobe-japan1-5
+		 =>>adobe-japan1-6 =+>adobe-japan1-6
+		 =>cbeta =cbeta =>>cbeta ==cbeta ===cbeta
+		 =zinbun-oracle =>zinbun-oracle
+		 ===hng-jou ===hng-keg ===hng-dng ===hng-mam
+		 ===hng-drt ===hng-kgk ===hng-myz ===hng-kda
+		 ===hng-khi ===hng-khm ===hng-hok ===hng-kyd ===hng-sok
+		 ===hng-yhk ===hng-kak
+		 ===hng-sys ===hng-tsu
+		 ===hng-hod ===hng-gok ===hng-nto
+		 ===hng-nkm ===hng-k24
+		 ===hng-kcj ===hng-kbk ===hng-sik
+		 ===hng-skk ===hng-kyu ===hng-ksk ===hng-wan
+		 ===hng-okd ===hng-kmi
+		 ===hng-zkd ===hng-jyu
+		 ===hng-kss ===hng-kyo
+		 ===hng-smk))
+	 ;; (string-match "^=adobe-" (symbol-name name))
+	 )
 	"(%-18s . %05d)\t; %c")
        ((memq name '(=hanyo-denshi/ks
 		     ==hanyo-denshi/ks ===hanyo-denshi/ks
