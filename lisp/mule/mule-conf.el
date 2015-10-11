@@ -2893,6 +2893,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-kyd "HNG:漢書楊雄傳（上野本）"
+		'(long-name "HNG/漢書楊雄"
+		  chars		256
+		  dimension	2
+		  registry	"hng-14$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-sok "HNG:花嚴經卷八（守屋本）"
 		'(long-name "HNG/花嚴守屋"
 		  chars		256
