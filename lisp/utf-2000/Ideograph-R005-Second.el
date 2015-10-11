@@ -229,6 +229,8 @@
 	)
        ((===hng-khi	    . 00020)	; &HNG010-00020;
 	)
+       ((===hng-kyd	    . 08670)	; &HNG014-08670;
+	)
        ((===hng-hod	    . 06930)	; &HNG030-06930;
 	)
        ((===hng-kmi	    . 02220)	; &HNG055-02220;
@@ -426,6 +428,8 @@
        ((===cns11643-1	    . #x443E)	; &R-C1-443E; [36-30]
 	)
        ((===hng-drt	    . 00030)	; &HNG006-00030;
+	)
+       ((===hng-kyd	    . 08680)	; &HNG014-08680;
 	)
        ((===hng-kak	    . 02650)	; &HNG017-02650;
 	)
@@ -2341,6 +2345,8 @@
 	)
        ((===ucs@unicode	    . #x4E7E)	; &R-UU+4E7E;
 	)
+       ((===hng-kyd	    . 00080)	; &HNG014-00080;
+	)
        ((===hng-kss	    . 00030)	; &HNG064-00030;
 	))
       ))
@@ -3099,6 +3105,31 @@
      ((=ucs		  . #x4E82)	; 亂
       ))
     (===hng-khm		. 00020)	; &HNG011-00020;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E82)	; 亂
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	(=ucs		    . #x2FF3)	; ⿳
+	)
+       ((name		    . "CJK RADICAL PAW ONE")
+	(=ucs		    . #x2EA4)	; ⺤
+	)
+       ((=ucs		    . #x9FB4)	; 龴
+	)
+       ((=ucs		    . #x20541)	; 𠕁
+	))
+      )
+     ((=ucs		  . #x4E5A)	; 乚
+      ))
+    (===hng-kyd		. 08690)	; &HNG014-08690;
     ))
 (define-char
   '((<-denotational
