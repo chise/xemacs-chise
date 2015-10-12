@@ -1,6 +1,17 @@
 2015-10-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `===hng-kar'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`===hng-kar'.
+
+	* mule/mule-conf.el (===hng-kar): New coded-charset for XEmacs
+	CHISE.
+
+2015-10-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
 	setting for `===hng-kyd'.
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
