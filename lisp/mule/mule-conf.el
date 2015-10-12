@@ -2925,6 +2925,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-kar "HNG:開成石經論語"
+		'(long-name "HNG/開成論語"
+		  chars		256
+		  dimension	2
+		  registry	"hng-18$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-sys "HNG:瑜伽師地論卷三十（S.5309）"
 		'(long-name "HNG/S5309"
 		  chars		256
