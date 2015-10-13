@@ -471,6 +471,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ===hng-yhk ; 16
 	  ===hng-kak ; 17
 	  ===hng-kar ; 18
+	  ===hng-kae ; 19
 	  ===hng-sys ; 22
 	  ===hng-tsu ; 24
 	  ===hng-hod ; 30
