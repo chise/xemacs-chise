@@ -684,7 +684,7 @@
 		 ===hng-jou ===hng-keg ===hng-dng ===hng-mam
 		 ===hng-drt ===hng-kgk ===hng-myz ===hng-kda
 		 ===hng-khi ===hng-khm ===hng-hok ===hng-kyd ===hng-sok
-		 ===hng-yhk ===hng-kak ===hng-kar
+		 ===hng-yhk ===hng-kak ===hng-kar ===hng-kae
 		 ===hng-sys ===hng-tsu
 		 ===hng-hod ===hng-gok ===hng-nto
 		 ===hng-nkm ===hng-k24
