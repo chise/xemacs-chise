@@ -2957,6 +2957,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-tzj "HNG:阿毘達磨毘婆沙論卷百七（東禪寺版）"
+		'(long-name "HNG/東禪毘婆"
+		  chars		256
+		  dimension	2
+		  registry	"hng-25$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-hod "HNG:法藏和尚傳（高山寺本）"
 		'(long-name "HNG/法藏和尚"
 		  chars		256
