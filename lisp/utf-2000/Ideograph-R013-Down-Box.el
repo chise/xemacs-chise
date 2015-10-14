@@ -1133,21 +1133,31 @@
   '((ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (hanyu-dazidian	1 100 13)
     (sound@ja/on	"tan")
     (=ucs		. #x20551)	; 𠕑
+    (=cns11643-6	. #x2621)	; &I-C6-2621; [06-01]
+    (=daikanwa		. 01530)	; &I-M-01530;
+    (<-ancient
+     ((=ucs@unicode	  . #x4E39)	; &AJ1-02926;
+      (=adobe-japan1-0	  . 02926)	; &AJ1-02926;
+      (=daikanwa	  . 00099)	; &I-M-00099;
+      ))
+    (<-ancient*sources
+     wuyinjiyun daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 01530)	; &M-01530;
-      (<-ancient
-       ((=ucs		    . #x4E39)	; 丹
-	(=daikanwa	    . 00099)	; &I-M-00099;
+     ((==ucs@iso	  . #x20551)	; &g2-M-01530;
+      (==cns11643-6	  . #x2621)	; &g2-M-01530; [06-01]
+      (==daikanwa	  . 01530)	; &g2-M-01530;
+      (->subsumptive
+       ((===daikanwa	    . 01530)	; &R-M-01530;
+	)
+       ((===cns11643-6	    . #x2621)	; &R-C6-2621; [06-01]
+	)
+       ((===ucs@iso	    . #x20551)	; &R-U-00020551;
+	)
+       ((=hanziku-1	    . #xB8AA)	; &HZK01-B8AA;
 	))
-      (<-ancient*sources
-       wuyinjiyun daikanwa)
-      )
-     ((hanyu-dazidian	  1 100 13)
-      (=ucs@iso		  . #x20551)	; &C6-2621;
-      (=cns11643-6	  . #x2621)	; &C6-2621; [06-01]
-      (=hanziku-1	  . #xB8AA)	; &I-HZK01-B8AA;
       ))
     ))
 (define-char
