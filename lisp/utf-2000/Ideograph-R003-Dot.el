@@ -237,13 +237,21 @@
     ))
 (define-char
   '((ideographic-radical . 3)	; ⼂
+    (=ucs		. #x4E39)	; 丹
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E39)	; 丹
+      ))
+    (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 44 1)
     (sound@ja/kun	"ni")
     (sound@ja/on	"tan")
-    (=ucs		. #x4E39)	; 丹
-    (=adobe-japan1-0	. 02926)	; &I-AJ1-02926;
+    (=>ucs@iwds-1	. #x4E39)	; &AJ1-02926;
+    (=ucs@unicode	. #x4E39)	; &AJ1-02926;
+    (=adobe-japan1-0	. 02926)	; &AJ1-02926;
     (=jis-x0208		. #x4330)	; &I-J90-4330; [35-16]
     (=gb2312		. #x3524)	; &I-G0-3524; [21-04]
     (=ks-x1001		. #x5321)	; &I-K0-5321; [51-01]
@@ -254,7 +262,7 @@
     (=gt-k		. 00460)	; &I-GT-K00460;
     (=gt-pj-1		. #x4330)	; &I-GT-00136; [35-16]
     (=daikanwa		. 00099)	; &I-M-00099;
-    (=shinjigen		.  0041)	; 丹
+    (=shinjigen		.  0041)	; &AJ1-02926;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x4E39)	; 丹
@@ -295,8 +303,6 @@
 	(=ks-x1001	    . #x552E)	; &I-K0-552E; [53-14]
 	)
        ((===hng-dng	    . 00030)	; &HNG003-00030;
-	)
-       ((===hng-nto	    . 00020)	; &HNG034-00020;
 	))
       ))
     ))
@@ -312,6 +318,24 @@
     (<-formed@component
      ((=ucs		  . #x4E39)	; 丹
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E39)	; 丹
+      ))
+    (ideographic-radical . 3)	; ⼂
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      )
+     ((=ucs@unicode	  . #x4E39)	; &AJ1-02926;
+      (=adobe-japan1-0	  . 02926)	; &AJ1-02926;
+      ))
+    (===hng-kae		. 00010)	; &HNG019-00010;
     ))
 (define-char
   '((<-denotational
@@ -481,6 +505,8 @@
 	)
        ((===hng-kak	    . 00010)	; &HNG017-00010;
 	)
+       ((===hng-kae	    . 03990)	; &HNG019-03990;
+	)
        ((===hng-nto	    . 04180)	; &HNG034-04180;
 	))
       ))
@@ -554,6 +580,16 @@
     (total-strokes	 . 5)
     (=gt		. 00141)	; &GT-00141;
     (=gt-pj-11		. #x4A5B)	; &GT-00141; [42-59]
+    (<-formed
+     ((=ucs		  . #x4E39)	; 丹
+      )
+     ((=ucs		  . #x821F)	; 舟
+      ))
+    (->subsumptive
+     ((==gt		  . 00141)	; &g2-GT-00141;
+      )
+     ((===hng-nto	  . 00020)	; &HNG034-00020;
+      ))
     ))
 (define-char
   '((ideographic-radical . 3)	; ⼂
