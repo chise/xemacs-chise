@@ -1,5 +1,20 @@
 2015-10-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R086-Fire.el (U+3E0C): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R075-Tree.el (U+3BEA): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R013-Down-Box.el (U-00020551): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R003-Dot.el: Add glyph-images of HNG-KAE.
+	(GT-00141): Add `<-formed' for U+4E39 and U+821F.
+	(HNG-NTO0002-0): Map to GT-00141 instead of g2-UU+4E39.
+
+2015-10-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R009-Man.el (U-000203E1): Apply new conventions for
 	glyph granularity.
 
