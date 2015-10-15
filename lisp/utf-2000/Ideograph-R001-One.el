@@ -2564,8 +2564,8 @@
     (=gb2312		. #x4B3F)	; &I-G0-4B3F; [43-31]
     (=hanziku-1		. #xA7B2)	; &I-HZK01-A7B2;
     (<-simplified@CN
-     ((=ucs@unicode	  . #x7D72)	; &UU+7D72;
-      (=gb12345		  . #x4B3F)	; &UU+7D72; [43-31]
+     ((=ucs		  . #x7D72)	; 絲
+      (=gb12345		  . #x4B3F)	; 絲 [43-31]
       ))
     ))
 (define-char
