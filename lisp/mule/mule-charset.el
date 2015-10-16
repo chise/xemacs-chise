@@ -476,6 +476,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ===hng-tsu ; 24
 	  ===hng-tzj ; 25
 	  ===hng-hos ; 26
+	  ===hng-nak ; 28
 	  ===hng-hod ; 30
 	  ===hng-gok ; 31
 	  ===hng-nto ; 34
