@@ -2973,6 +2973,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-nak "HNG:華嚴孔目（高山寺本）"
+		'(long-name "HNG/華厳孔目"
+		  chars		256
+		  dimension	2
+		  registry	"hng-28$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-hod "HNG:法藏和尚傳（高山寺本）"
 		'(long-name "HNG/法藏和尚"
 		  chars		256
