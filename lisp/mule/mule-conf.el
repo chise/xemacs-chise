@@ -730,7 +730,7 @@
    '=jis-x0213-1@2004
    "JIS X 0213:2004 Plain 1"
    '(iso-ir 233
-	    registry "jisx0213\\(\\.2004\\)-1"
+	    registry "jisx0213\\.2004-1"
 	    dimension 2
 	    chars 94
 	    mother =jis-x0213-1
@@ -925,7 +925,7 @@
    "JIS X 0213:2004 Plain 1 abstract glyph-forms"
    '(mother ==jis-x0213-1
 	    =>iso-ir 233
-	    ;; registry "jisx0213\\(\\.2004\\)-1"
+	    registry "jisx0213\\.2004-1"
 	    dimension 2
 	    chars 94
 	    graphic 0))
@@ -1070,7 +1070,7 @@
    "JIS X 0213:2004 Plain 1 detailed representative glyph-images."
    '(mother ==jis-x0213-1@2004
 	    =>iso-ir 233
-	    ;; registry "jisx0213\\(\\.2004\\)-1"
+	    registry "jisx0213\\.2004-1"
 	    dimension 2
 	    chars 94
 	    graphic 0))
@@ -1182,7 +1182,7 @@
   (make-charset
    '=>>jis-x0213-1@2004
    "JIS X 0213:2004 Plain 1 abstract glyphs"
-   '(registry "jisx0213\\(\\.2004\\)-1"
+   '(registry "jisx0213\\.2004-1"
 	      dimension 2
 	      chars 94
 	      mother =>>jis-x0213-1
@@ -1258,7 +1258,7 @@
   (make-charset
    '=+>jis-x0213-1@2004
    "JIS X 0213:2004 Plain 1 unified abstract glyphs"
-   '(registry "jisx0213\\(\\.2004\\)-1"
+   '(registry "jisx0213\\.2004-1"
 	      dimension 2
 	      chars 94
 	      mother =+>jis-x0213-1
@@ -1321,7 +1321,7 @@
   (make-charset
    '=>jis-x0213-1@2004
    "JIS X 0213:2004 Plain 1 abstract characters"
-   '(registry "jisx0213\\(\\.2004\\)-1"
+   '(registry "jisx0213\\.2004-1"
 	      dimension 2
 	      chars 94
 	      mother =>jis-x0213-1
