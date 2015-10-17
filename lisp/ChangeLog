@@ -1,3 +1,17 @@
+2015-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=jis-x0213-1@2004): Use "jisx0213\\.2004-1"
+	instead of "jisx0213\\(\\.2004\\)-1" as the registry.
+	(==jis-x0213-1@2004): Add registry to specify "jisx0213\\.2004-1".
+	(===jis-x0213-1@2004): Likewise.
+	(=>>jis-x0213-1@2004): Use "jisx0213\\.2004-1" instead of
+	"jisx0213\\(\\.2004\\)-1" as the registry.
+	(=+>jis-x0213-1@2004): Likewise.
+	(=>jis-x0213-1@2004): Likewise.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`===jis-x0213-1@2004'.
+
 2015-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
