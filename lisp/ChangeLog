@@ -1,3 +1,14 @@
+2015-10-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `===hng-ink'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`===hng-ink'.
+
+	* mule/mule-conf.el (===hng-ink): New coded-charset for XEmacs
+	CHISE.
+
 2015-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
