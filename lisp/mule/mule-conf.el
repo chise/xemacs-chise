@@ -3037,6 +3037,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-nkk "HNG:日本書紀 卷二（兼方本）"
+		'(long-name "HNG/兼方紀2"
+		  chars		256
+		  dimension	2
+		  registry	"hng-39$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-kcj "HNG:日本書紀 卷二（慶長十五年版）"
 		'(long-name "HNG/慶長紀2"
 		  chars		256
