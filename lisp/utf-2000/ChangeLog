@@ -1,3 +1,8 @@
+2015-10-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-insert-ccs-feature): Format
+	`===hng-ink' as decimal.
+
 2015-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (U+4FC2): Apply new conventions for glyph
