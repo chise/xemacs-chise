@@ -3005,6 +3005,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-ink "HNG:日本書紀 卷二十四（岩崎本）"
+		'(long-name "HNG/岩崎紀24"
+		  chars		256
+		  dimension	2
+		  registry	"hng-33$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-nto "HNG:日本書紀 卷二十四（圖書寮本）"
 		'(long-name "HNG/圖書紀24"
 		  chars		256
