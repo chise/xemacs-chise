@@ -689,7 +689,7 @@
 		 ===hng-hos ===hng-nak ===hng-jhk
 		 ===hng-hod ===hng-gok ===hng-ink ===hng-nto
 		 ===hng-nkm ===hng-k24 ===hng-nkk
-		 ===hng-kcj ===hng-kbk ===hng-sik
+		 ===hng-kcc ===hng-kcj ===hng-kbk ===hng-sik
 		 ===hng-skk ===hng-kyu ===hng-ksk ===hng-wan
 		 ===hng-okd ===hng-kmi
 		 ===hng-zkd ===hng-jyu
@@ -701,7 +701,7 @@
        ((memq name '(=hanyo-denshi/ks
 		     ==hanyo-denshi/ks ===hanyo-denshi/ks
 		     =>>hanyo-denshi/ks
-		     =koseki
+		     =koseki ==koseki
 		     =mj ==mj ===mj =>>mj
 		     =zihai mojikyo))
 	"(%-18s . %06d)\t; %c")
