@@ -344,22 +344,29 @@
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (=+>adobe-japan1-4	. 13914)	; &o-AJ1-13914;
-    (<-formed@component
-     ((=ucs		  . #x4E39)	; 丹
-      ))
+    (=adobe-japan1-4	. 13914)	; &AJ1-13914;
     (->subsumptive
-     ((=gt-k		  . 00462)	; &GT-K00462;
-      (=gt-pj-k2	  . #x436D)	; &GT-K00462; [35-77]
-      )
      ((=decomposition@cid
        ((=ucs		    . #x4E39)	; 丹
 	)
        ((=ucs		    . #xE0101)	; 󠄁
 	))
-      (=adobe-japan1-4	  . 13914)	; &AJ1-13914;
-      (=gt-k		  . 00463)	; &I-GT-K00463;
-      (=gt-pj-k1	  . #x3B42)	; &AJ1-13914; [27-34]
+      (==adobe-japan1-4	  . 13914)	; &g2-AJ1-13914;
+      (=gt-k		  . 00463)	; &g2-AJ1-13914;
+      (=gt-pj-k1	  . #x3B42)	; &g2-AJ1-13914; [27-34]
+      (->subsumptive
+       ((===adobe-japan1-4  . 13914)	; &R-AJ1-13914;
+	)
+       ((===gt-k	    . 00463)	; &R-GT-K00463;
+	)
+       ((===hng-kcc	    . 00010)	; &HNG041-00010;
+	))
+      )
+     ((=gt-k		  . 00462)	; &GT-K00462;
+      (=gt-pj-k2	  . #x436D)	; &GT-K00462; [35-77]
+      (<-formed@component
+       ((=ucs		    . #x4E39)	; 丹
+	))
       ))
     ))
 (define-char
@@ -511,6 +518,8 @@
 	)
        ((===hng-nto	    . 04180)	; &HNG034-04180;
 	))
+      )
+     ((===hng-kcc	  . 03830)	; &HNG041-03830;
       ))
     ))
 (define-char
