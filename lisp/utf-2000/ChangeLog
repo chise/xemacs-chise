@@ -1,5 +1,7 @@
 2015-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R003-Dot.el: Add glyph-images of HNG-KCC.
+
 	* Ideograph-R008-Lid.el: Add glyph-images of HNG-NKK.
 	(MJ056865): New character to integrate HNG-NKK0330-0 and
 	g2-KOSEKI-002080.
