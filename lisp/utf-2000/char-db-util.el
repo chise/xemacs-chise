@@ -691,7 +691,7 @@
 		 ===hng-nkm ===hng-k24 ===hng-nkk
 		 ===hng-kcc ===hng-kcj ===hng-kbk ===hng-sik
 		 ===hng-skk ===hng-kyu ===hng-ksk ===hng-wan
-		 ===hng-okd ===hng-kmi
+		 ===hng-okd ===hng-wad ===hng-kmi
 		 ===hng-zkd ===hng-jyu
 		 ===hng-kss ===hng-kyo
 		 ===hng-smk))
