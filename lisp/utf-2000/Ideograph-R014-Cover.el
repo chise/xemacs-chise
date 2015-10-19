@@ -1502,7 +1502,7 @@
       (==adobe-japan1-5	  . 20143)	; &g2-MJ013505;
       (==cns11643-1	  . #x5E32)	; &g2-MJ013505; [62-18]
       (==hanyo-denshi/ks  . 019090)	; &g2-MJ013505;
-      (==koseki		  . #x4A92)	; &g2-MJ013505;
+      (==koseki		  . 019090)	; &g2-MJ013505;
       (==daikanwa	  . 01597)	; &g2-MJ013505;
       (==shinjigen	  .  0926)	; &g2-MJ013505;
       (->subsumptive
