@@ -2088,7 +2088,6 @@
     (=ucs		. #x204FD)	; 𠓽
     (=cns11643-5	. #x5A72)	; &I-C5-5A72; [58-82]
     (=daikanwa		. 01448)	; &I-M-01448;
-    (=hanziku-1		. #xD5F8)	; &I-HZK01-D5F8;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -2098,9 +2097,7 @@
 	(==ucs@ks	    . #x5165)	; &g2-AJ1-03286;
 	(==adobe-japan1-0   . 03286)	; &g2-AJ1-03286;
 	)
-       ((=jis-x0208@1978    . #x475A)	; &M-38398; [39-58]
-	(=jis-x0208@1983    . #x475A)	; &I-J83-475A; [39-58]
-	(=daikanwa	    . 38398)	; &I-M-38398;
+       ((==daikanwa	    . 38398)	; &g2-M-38398;
 	))
       (==daikanwa	  . 01448)	; &g2-M-01448;
       )
@@ -2112,10 +2109,11 @@
 	(==ucs@ks	    . #x5165)	; &g2-AJ1-03286;
 	(==adobe-japan1-0   . 03286)	; &g2-AJ1-03286;
 	)
-       ((=ucs@jis	    . #x8F29)	; &GT-51245;
-	(=ks-x1001	    . #x5B54)	; &GT-51245; [59-52]
-	(=jis-x0208@1990    . #x475A)	; &I-J90-475A; [39-58]
-	(=jis-x0213-1	    . #x475A)	; &I-JX1-475A; [39-58]
+       ((==ucs@jis/1990	    . #x8F29)	; &g2-GT-51245;
+	(==ucs@jis/2000	    . #x8F29)	; &g2-GT-51245;
+	(==ucs@jis/2004	    . #x8F29)	; &g2-GT-51245;
+	(==ucs@ks	    . #x8F29)	; &g2-GT-51245;
+	(==jis-x0213-1	    . #x475A)	; &g2-GT-51245; [39-58]
 	))
       (==ucs@iso	  . #x204FD)	; &g2-IU-000204FD;
       )
@@ -2123,10 +2121,21 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
+       ((==ucs@jis	    . #x5165)	; &g2-AJ1-03286;
+	(==ucs@ks	    . #x5165)	; &g2-AJ1-03286;
+	(==adobe-japan1-0   . 03286)	; &g2-AJ1-03286;
+	)
+       ((==ucs@unicode	    . #x8F29)	; &g2-UU+8F29;
+	))
+      (=hanziku-1	  . #xD5F8)	; &HZK01-D5F8;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
        ((==ucs@unicode	    . #x5165)	; &g2-UU+5165;
 	)
-       ((=ucs@unicode	    . #x8F29)	; &UU+8F29;
-	(=gb12345	    . #x3132)	; &UU+8F29; [17-18]
+       ((==ucs@unicode	    . #x8F29)	; &g2-UU+8F29;
 	))
       (==ucs@cns	  . #x204FD)	; &g2-CU+204FD;
       (==cns11643-5	  . #x5A72)	; &g2-CU+204FD; [58-82]
