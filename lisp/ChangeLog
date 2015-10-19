@@ -1,3 +1,14 @@
+2015-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `==koseki' and `===hng-kcc'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`===hng-kcc'.
+
+	* mule/mule-conf.el (===hng-kcc): New coded-charset for XEmacs
+	CHISE.
+
 2015-10-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
