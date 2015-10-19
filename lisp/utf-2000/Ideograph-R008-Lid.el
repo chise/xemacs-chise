@@ -166,6 +166,26 @@
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (=mj		. 056865)	; &MJ056865;
+    (=koseki		. 002080)	; &MJ056865;
+    (<-formed
+     ((=mj		  . 006462)	; &MJ006462;
+      ))
+    (->subsumptive
+     ((==mj		  . 056865)	; &g2-MJ056865;
+      (->subsumptive
+       ((===mj		    . 056865)	; &R-MJ056865;
+	)
+       ((===hng-nkk	    . 03300)	; &HNG039-03300;
+	))
+      )
+     ((==koseki		  . 002080)	; &g2-KOSEKI-002080;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 280 1)
@@ -710,6 +730,8 @@
 	))
       )
      ((===hng-kak	  . 00030)	; &HNG017-00030;
+      )
+     ((===hng-nkk	  . 09981)	; &HNG039-09981;
       ))
     ))
 (define-char
@@ -869,6 +891,23 @@
       ))
     (=ucs		. #x20146)	; 𠅆
     (=hanziku-1		. #xE071)	; &I-HZK01-E071;
+    ))
+(define-char
+  '((ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x2008A)	; 𠂊
+      )
+     ((=ucs		  . #x4E8C)	; 二
+      ))
+    (===hng-nkk		. 09982)	; &HNG039-09982;
+    (<-formed
+     ((=ucs		  . #x4EA6)	; 亦
+      ))
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
