@@ -3117,6 +3117,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-wad "HNG:大般若經卷二百五十（和銅經）"
+		'(long-name "HNG/和銅250"
+		  chars		256
+		  dimension	2
+		  registry	"hng-54$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-kmi "HNG:弥勒上生經（高山寺本）"
 		'(long-name "HNG/弥勒上生"
 		  chars		256
