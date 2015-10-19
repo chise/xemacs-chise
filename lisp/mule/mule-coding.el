@@ -401,6 +401,7 @@
 	  (===hng-ksk			      "HNG048-" 5 d)
 	  (===hng-wan			      "HNG049-" 5 d)
 	  (===hng-okd			      "HNG050-" 5 d)
+	  (===hng-wad			      "HNG054-" 5 d)
 	  (===hng-kmi			      "HNG055-" 5 d)
 	  (===hng-zkd			      "HNG056-" 5 d)
 	  (===hng-jyu			      "HNG058-" 5 d)
