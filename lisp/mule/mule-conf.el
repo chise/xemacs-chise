@@ -3141,6 +3141,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-doh "HNG:金剛大教王經卷一（高山寺本）"
+		'(long-name "HNG/金剛大教"
+		  chars		256
+		  dimension	2
+		  registry	"hng-57$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-jyu "HNG:成唯識論卷十（寛治二年刊本）"
 		'(long-name "HNG/成唯識10"
 		  chars		256
