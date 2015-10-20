@@ -692,7 +692,7 @@
 		 ===hng-kcc ===hng-kcj ===hng-kbk ===hng-sik
 		 ===hng-skk ===hng-kyu ===hng-ksk ===hng-wan
 		 ===hng-okd ===hng-wad ===hng-kmi
-		 ===hng-zkd ===hng-jyu
+		 ===hng-zkd ===hng-doh ===hng-jyu
 		 ===hng-kss ===hng-kyo
 		 ===hng-smk))
 	 ;; (string-match "^=adobe-" (symbol-name name))
