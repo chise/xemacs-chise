@@ -25320,11 +25320,6 @@
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x559E)	; 喞
-      )
-     ((=ucs		  . #xE0102)	; 󠄂
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -25342,7 +25337,12 @@
     (=hanyo-denshi/ks	. 045360)	; &MJ008470;
     (=daikanwa		. 03961)	; &I-M-03961;
     (->subsumptive
-     ((==ucs@unicode	  . #x559E)	; &g2-MJ008470;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x559E)	; 喞
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@unicode	  . #x559E)	; &g2-MJ008470;
       (==ucs@JP/hanazono  . nil)
       (==mj		  . 008470)	; &g2-MJ008470;
       (==cns11643-3	  . #x3A40)	; &g2-MJ008470; [26-32]
