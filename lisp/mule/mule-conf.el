@@ -3157,6 +3157,14 @@
 		  graphic	2
 		  columns	2
 		  direction	l2r))
+  (make-charset '===hng-tzs "HNG:佛説大教王經卷一（東禪寺版日本寫本）"
+		'(long-name "HNG/佛説大教"
+		  chars		256
+		  dimension	2
+		  registry	"hng-60$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
   (make-charset '===hng-kss "HNG:華嚴信種義（明惠自筆）"
 		'(long-name "HNG/華嚴信種"
 		  chars		256
