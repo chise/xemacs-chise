@@ -1,5 +1,10 @@
 2015-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R009-Man.el (U-00020421): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R005-Second.el: Add glyph-images of HNG-DOH.
+
 	* Ideograph-R142-Insect.el (U+8812): Unify S1-6185 and S2-6187;
 	add `<-vulgar' for M-27944; add `<-vulgar@shinjigen/1ed' for
 	S1-6183.
@@ -16,8 +21,8 @@
 
 2015-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* Ideograph-R030-Mouth.el (KS045360): Move
-	`=decomposition@hanyo-denshi' to g2-KS045360.
+	* Ideograph-R030-Mouth.el (HD-KS045360): Move
+	`=decomposition@hanyo-denshi' to g2-HD-KS045360.
 
 2015-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
