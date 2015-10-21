@@ -223,11 +223,21 @@
   '((ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
+    (=ucs		. #x4E88)	; 予
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E88)	; 予
+      ))
+    (ideographic-radical . 6)	; ⼅
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
     (hanyu-dazidian	1 52 2)
     (sound@ja/kun	"arakazi-me" "kane-te")
     (sound@ja/on	"yo")
-    (=ucs		. #x4E88)	; 予
-    (=adobe-japan1-0	. 03879)	; &I-AJ1-03879;
+    (=>ucs@iwds-1	. #x4E88)	; &AJ1-03879;
+    (=ucs@unicode	. #x4E88)	; &AJ1-03879;
+    (=adobe-japan1-0	. 03879)	; &AJ1-03879;
     (=jis-x0208		. #x4D3D)	; &I-J90-4D3D; [45-29]
     (=gb2312		. #x5368)	; &I-G0-5368; [51-72]
     (=ks-x1001		. #x6578)	; &I-K0-6578; [69-88]
@@ -238,11 +248,20 @@
     (=gt-k		. 00505)	; &I-GT-K00505;
     (=gt-pj-1		. #x4D3D)	; &I-GT-00312; [45-29]
     (=daikanwa		. 00231)	; &I-M-00231;
-    (=shinjigen		.  0067)	; 予
+    (=shinjigen		.  0067)	; &AJ1-03879;
     (<-simplified@JP/Jouyou
      ((=ucs		  . #x8C6B)	; 豫
       (=jis-x0208	  . #x502E)	; &I-J90-502E; [48-14]
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E88)	; 予
+      ))
+    (ideographic-radical . 6)	; ⼅
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
+    (===hng-tzs		. 00050)	; &HNG060-00050;
     ))
 (define-char
   '((ideographic-radical . 6)	; ⼅
@@ -621,6 +640,8 @@
      ((===hng-zkd	  . 05780)	; &HNG056-05780;
       )
      ((===hng-jyu	  . 01100)	; &HNG058-01100;
+      )
+     ((===hng-tzs	  . 03790)	; &HNG060-03790;
       )
      ((===hng-kss	  . 02300)	; &HNG064-02300;
       )
