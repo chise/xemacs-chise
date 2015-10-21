@@ -1,7 +1,18 @@
 2015-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R142-Insect.el (U+8812): Unify S1-6185 and S2-6187;
+	add `<-vulgar' for M-27944; add `<-vulgar@shinjigen/1ed' for
+	S1-6183.
+
 	* char-db-util.el (char-db-insert-ccs-feature): Format
 	`===hng-doh' as decimal.
+
+	* Ideograph-R094-Dog.el:
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/KS.
+	- Add some representative nodes.
+
+	* Ideograph-R072-Sun.el (U-000232A1): Use `->subsumptive'.
 
 2015-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
