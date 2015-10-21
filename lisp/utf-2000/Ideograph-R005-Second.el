@@ -237,6 +237,8 @@
 	)
        ((===hng-kmi	    . 02220)	; &HNG055-02220;
 	)
+       ((===hng-doh	    . 00030)	; &HNG057-00030;
+	)
        ((===hng-kss	    . 02280)	; &HNG064-02280;
 	)
        ((===hng-smk	    . 00030)	; &HNG074-00030;
@@ -337,7 +339,6 @@
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (hanyu-dazidian	1 50 7)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -347,12 +348,22 @@
       )
      ((=ucs		  . #x4E59)	; 乙
       ))
+    (=ucs		. #x4E5E)	; 乞
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E5E)	; 乞
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (hanyu-dazidian	1 50 7)
     (sound@ja/kun	"ko+H5")
     (sound@ja/on	"kotu")
     (sound@ja/on/go	"koti")
     (sound@ja/on/kan	"kitu")
-    (=ucs		. #x4E5E)	; 乞
-    (=adobe-japan1-0	. 01956)	; &I-AJ1-01956;
+    (=ucs@unicode	. #x4E5E)	; &AJ1-01956;
+    (=adobe-japan1-0	. 01956)	; &AJ1-01956;
     (=jis-x0208		. #x3870)	; &I-J90-3870; [24-80]
     (=gb2312		. #x4672)	; &I-G0-4672; [38-82]
     (=ks-x1001		. #x4B77)	; &I-K0-4B77; [43-87]
@@ -363,7 +374,26 @@
     (=gt-k		. 00170)	; &I-GT-K00170;
     (=gt-pj-1		. #x3870)	; &I-GT-00230; [24-80]
     (=daikanwa		. 00170)	; &I-M-00170;
-    (=shinjigen		.  0058)	; 乞
+    (=shinjigen		.  0058)	; &AJ1-01956;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E5E)	; 乞
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name*		  . "ideographic component person for top")
+      (=ucs		  . #x20089)	; 𠂉
+      )
+     ((name		  . "CJK RADICAL SECOND THREE")
+      (=ucs		  . #x2E84)	; ⺄
+      ))
+    (===hng-doh		. 00040)	; &HNG057-00040;
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
@@ -439,6 +469,8 @@
 	)
        ((===hng-hod	    . 06940)	; &HNG030-06940;
 	))
+      )
+     ((===hng-doh	  . 00020)	; &HNG057-00020;
       )
      ((===hng-kss	  . 02290)	; &HNG064-02290;
       ))
