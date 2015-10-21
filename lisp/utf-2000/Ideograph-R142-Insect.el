@@ -15781,6 +15781,19 @@
     (=jis-x0212		. #x5B70)	; &I-JSP-5B70; [59-80]
     (=cns11643-3	. #x5D25)	; &I-C3-5D25; [61-05]
     (=daikanwa		. 33743)	; &I-M-33743;
+    (=shinjigen@1ed	.  6185)	; 蠒
+    (=shinjigen@rev	.  6187)	; 蠒
+    (<-vulgar
+     ((=daikanwa	  . 27944)	; &M-27944;
+      (=shinjigen@rev	  .  6185)	; &M-27944;
+      ))
+    (<-vulgar*sources
+     jiyun daikanwa shinjigen@rev)
+    (<-vulgar@shinjigen/1ed
+     ((=shinjigen@1ed	  .  6183)	; &SJG1-6183;
+      ))
+    (<-vulgar@shinjigen/1ed*sources
+     shinjigen@1ed)
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
