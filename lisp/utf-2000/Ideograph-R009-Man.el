@@ -46791,6 +46791,7 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
+    (hanyu-dazidian	1 233 7)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -46801,8 +46802,10 @@
      ((=ucs		  . #x8F29)	; 輩
       ))
     (=ucs		. #x20421)	; 𠐡
+    (=cns11643-4	. #x5568)	; &I-C4-5568; [53-72]
+    (=daikanwa		. 01268)	; &I-M-01268;
     (->subsumptive
-     ((=daikanwa	  . 01268)	; &M-01268;
+     ((==daikanwa	  . 01268)	; &g2-M-01268;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -46811,22 +46814,20 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@cns	    . #x8F29)	; &C1-6F45;
-	(=cns11643-1	    . #x6F45)	; &C1-6F45; [79-37]
+       ((==ucs@cns	    . #x8F29)	; &g2-CU+8F29;
+	(==cns11643-1	    . #x6F45)	; &g2-CU+8F29; [79-37]
 	))
-      (=ucs@cns		  . #x20421)	; &C4-5568;
-      (=cns11643-4	  . #x5568)	; &C4-5568; [53-72]
+      (==ucs@cns	  . #x20421)	; &g2-CU+20421;
+      (==cns11643-4	  . #x5568)	; &g2-CU+20421; [53-72]
       )
-     ((hanyu-dazidian	  1 233 7)
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x8F29)	; &UU+8F29;
-	(=gb12345	    . #x3132)	; &UU+8F29; [17-18]
+       ((==ucs@unicode	    . #x8F29)	; &g2-UU+8F29;
 	))
       (=hanziku-1	  . #xD654)	; &HZK01-D654;
       )
@@ -46837,12 +46838,13 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@jis	    . #x8F29)	; &GT-51245;
-	(=ks-x1001	    . #x5B54)	; &GT-51245; [59-52]
-	(=jis-x0208@1990    . #x475A)	; &I-J90-475A; [39-58]
-	(=jis-x0213-1	    . #x475A)	; &I-JX1-475A; [39-58]
+       ((==ucs@jis/1990	    . #x8F29)	; &g2-GT-51245;
+	(==ucs@jis/2000	    . #x8F29)	; &g2-GT-51245;
+	(==ucs@jis/2004	    . #x8F29)	; &g2-GT-51245;
+	(==ucs@ks	    . #x8F29)	; &g2-GT-51245;
+	(==jis-x0213-1	    . #x475A)	; &g2-GT-51245; [39-58]
 	))
-      (=ucs@iso		  . #x20421)	; &U-00020421;
+      (==ucs@iso	  . #x20421)	; &g2-IU-00020421;
       ))
     ))
 (define-char
