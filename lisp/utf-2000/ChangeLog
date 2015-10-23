@@ -1,3 +1,10 @@
+2015-10-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el: Add glyph-images of HNG-KHI.
+	(U+58AE): Apply new conventions for glyph granularity.
+	(U-00021426): Likewise.
+	(U+58AF): Likewise.
+
 2015-10-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el (U-00021E01): New character.
