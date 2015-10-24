@@ -12393,6 +12393,7 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (hanyu-dazidian	1 154 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -12403,14 +12404,17 @@
      ((=ucs		  . #x5982)	; 如
       ))
     (=ucs		. #x4F9E)	; 侞
+    (=adobe-japan1-5	. 19151)	; &I-AJ1-19151;
+    (=jis-x0212		. #x312D)	; &I-JSP-312D; [17-13]
+    (=cns11643-2	. #x2547)	; &I-C2-2547; [05-39]
     (=big5		. #xCBC7)	; &I-B-CBC7;
+    (=daikanwa		. 00610)	; &I-M-00610;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x4F9E)	; 侞
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (hanyu-dazidian	  1 154 11)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
@@ -12418,13 +12422,22 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x5982)	; &AJ1-03287;
-	(=adobe-japan1-0    . 03287)	; &AJ1-03287;
+       ((==ucs@unicode	    . #x5982)	; &g2-AJ1-03287;
+	(==adobe-japan1-0   . 03287)	; &g2-AJ1-03287;
 	))
-      (=ucs@unicode	  . #x4F9E)	; &AJ1-19151;
-      (=adobe-japan1-5	  . 19151)	; &AJ1-19151;
-      (=jis-x0212	  . #x312D)	; &I-JSP-312D; [17-13]
-      (=daikanwa	  . 00610)	; &I-M-00610;
+      (==ucs@unicode	  . #x4F9E)	; &g2-AJ1-19151;
+      (==adobe-japan1-5	  . 19151)	; &g2-AJ1-19151;
+      (==jis-x0212	  . #x312D)	; &g2-AJ1-19151; [17-13]
+      (==daikanwa	  . 00610)	; &g2-AJ1-19151;
+      (->subsumptive
+       ((===daikanwa	    . 00610)	; &R-M-00610;
+	)
+       ((===jis-x0212	    . #x312D)	; &R-JSP-312D; [17-13]
+	)
+       ((===adobe-japan1-5  . 19151)	; &R-AJ1-19151;
+	)
+       ((===ucs@unicode	    . #x4F9E)	; &R-UU+4F9E;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -12433,11 +12446,11 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@cns	    . #x5982)	; &C1-4771;
-	(=cns11643-1	    . #x4771)	; &C1-4771; [39-81]
+       ((==ucs@cns	    . #x5982)	; &g2-CU+5982;
+	(==cns11643-1	    . #x4771)	; &g2-CU+5982; [39-81]
 	))
-      (=ucs@cns		  . #x4F9E)	; &C2-2547;
-      (=cns11643-2	  . #x2547)	; &C2-2547; [05-39]
+      (==ucs@cns	  . #x4F9E)	; &g2-CU+4F9E;
+      (==cns11643-2	  . #x2547)	; &g2-CU+4F9E; [05-39]
       ))
     ))
 (define-char
