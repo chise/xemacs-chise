@@ -1232,10 +1232,18 @@
     (ideographic-radical@cns . 41)	; ⼨
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (hanyu-dazidian	1 490 1)
     (=ucs		. #x5900)	; 夀
+    (=cns11643-6	. #x5C2F)	; &I-C6-5C2F; [60-15]
+    (=daikanwa		. 07459)	; &I-M-07459;
+    (<-same
+     ((=ucs		  . #x58FD)	; 壽
+      (=daikanwa	  . 05672)	; &I-M-05672;
+      ))
+    (<-same*sources
+     cihai daikanwa)
     (->subsumptive
-     ((hanyu-dazidian	  1 490 1)
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
@@ -1243,11 +1251,23 @@
 	)
        ((=ucs		    . #x540B)	; 吋
 	))
-      (=ucs@unicode	  . #x5900)	; &M-07459;
-      (=daikanwa	  . 07459)	; &M-07459;
-      (=hanziku-2	  . #xB4D5)	; &I-HZK02-B4D5;
+      (==ucs@unicode	  . #x5900)	; &g2-M-07459;
+      (==daikanwa	  . 07459)	; &g2-M-07459;
+      (->subsumptive
+       ((===daikanwa	    . 07459)	; &R-M-07459;
+	)
+       ((===ucs@unicode	    . #x5900)	; &R-UU+5900;
+	)
+       ((=hanziku-2	    . #xB4D5)	; &HZK02-B4D5;
+	))
       )
-     ((=cns11643-6	  . #x5C2F)	; &C6-5C2F; [60-15]
+     ((==ucs@cns	  . #x5900)	; &g2-CU+5900;
+      (==cns11643-6	  . #x5C2F)	; &g2-CU+5900; [60-15]
+      (->subsumptive
+       ((===cns11643-6	    . #x5C2F)	; &R-C6-5C2F; [60-15]
+	)
+       ((===hng-khi	    . 03240)	; &HNG010-03240;
+	))
       ))
     ))
 (define-char
