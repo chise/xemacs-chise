@@ -1,5 +1,17 @@
 2015-10-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R035-Go-Slowly.el (U+590A): Apply new conventions for
+	glyph granularity.
+	(U+590D): Likewise.
+	(U+5912): Likewise.
+	(U+5913): Likewise.
+
+	* Ideograph-R033-Scholar.el (U+5900): Apply new conventions for
+	glyph granularity; add `<-same' for U+58FD; add HNG-KHI0324-0.
+
+	* Ideograph-R012-Eight.el (U+5173): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R009-Man.el (CU+510D): Apply new conventions for glyph
 	granularity for components of ideographic-structure.
 
