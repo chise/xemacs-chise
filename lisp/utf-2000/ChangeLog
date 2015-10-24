@@ -1,5 +1,11 @@
 2015-10-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R036-Evening.el (U+591A): Add HNG-KHI0325-0.
+	(UU+5923): Apply new conventions for glyph granularity.
+	(U+5924): Likewise.
+
+2015-10-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R035-Go-Slowly.el (U+590A): Apply new conventions for
 	glyph granularity.
 	(U+590D): Likewise.
