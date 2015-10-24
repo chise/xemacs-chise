@@ -1,5 +1,11 @@
 2015-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R038-Woman.el: Add glyph-images of HNG-KHI.
+
+	* Ideograph-R037-Big.el:
+	- Add glyph-images of HNG-KHI.
+	- Add some representative nodes.
+
 	* Ideograph-R009-Man.el (U+4F9E): Apply new conventions for glyph
 	granularity.
 
