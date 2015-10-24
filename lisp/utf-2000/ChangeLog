@@ -1,4 +1,12 @@
+2015-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+4F9E): Apply new conventions for glyph
+	granularity.
+
 2015-10-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R041-Inch.el (U+5900): Apply new conventions for glyph
+	granularity; add `<-same' for U+58FD; add HNG-KHI0324-0.
 
 	* Ideograph-R036-Evening.el (U+591A): Add HNG-KHI0325-0.
 	(UU+5923): Apply new conventions for glyph granularity.
