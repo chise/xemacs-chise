@@ -1,3 +1,15 @@
+2015-10-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el: Add glyph-images of HNG-KHI.
+	(U+5B9E): Apply new conventions for glyph granularity.
+
+	* Ideograph-R039-Child.el: Add glyph-images of HNG-KHI.
+	(U+6588): Apply new conventions for glyph granularity.
+	(U+5B6B): Likewise.
+	(U+5B6E): Likewise.
+	(U+5B70): Likewise.
+	(U+5B7F): Likewise.
+
 2015-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U+541E): Apply new conventions for
