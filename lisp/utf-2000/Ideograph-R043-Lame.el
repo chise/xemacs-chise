@@ -1396,6 +1396,14 @@
   '((ideographic-radical . 43)	; ⼪
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EAC)	; 京
+      )
+     ((=ucs		  . #x5C24)	; 尤
+      ))
     (=ucs		. #x5C31)	; 就
     (=adobe-japan1-0	. 02348)	; &I-AJ1-02348;
     (=jis-x0208		. #x3D22)	; &I-J90-3D22; [29-02]
@@ -1669,6 +1677,30 @@
     (<-unknown
      ((=ucs@jis		  . #x5C32)	; &AJ1-21454;
       (=adobe-japan1-6	  . 21454)	; &AJ1-21454;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 43)	; ⼪
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EB0)	; 亰
+      )
+     ((=ucs		  . #x5C24)	; 尤
+      ))
+    (=koseki		. 086490)	; &KOSEKI-086490;
+    (<-formed
+     ((=ucs		  . #x5C31)	; 就
+      ))
+    (<-formed*sources
+     hng)
+    (->subsumptive
+     ((==koseki		  . 086490)	; &g2-KOSEKI-086490;
+      )
+     ((===hng-khi	  . 03470)	; &HNG010-03470;
       ))
     ))
 (define-char
