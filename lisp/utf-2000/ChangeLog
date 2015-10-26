@@ -1,5 +1,8 @@
 2015-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R043-Lame.el (U+5C31): Add `ideographic-structure'.
+	(KOSEKI-086490): New character; add HNG-KHI0347-0.
+
 	* Ideograph-R042-Small.el: Add glyph-images of HNG-KHI.
 
 2015-10-25  MORIOKA Tomohiko  <tomo.git@chise.org>
