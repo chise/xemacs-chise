@@ -2379,8 +2379,7 @@
     (->subsumptive
      ((=daikanwa	  . 14406)	; &M-14406;
       (<-ancient
-       ((=ucs@jis	    . #x97B6)	; &JSP-6751;
-	(=jis-x0212	    . #x6751)	; &JSP-6751; [71-49]
+       ((=ucs		    . #x97B6)	; 鞶
 	(=daikanwa	    . 42977)	; &I-M-42977;
 	))
       (<-ancient*sources
