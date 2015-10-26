@@ -15148,8 +15148,7 @@
     (<-synonyms*sources
      shuowen-tongxundingsheng shangshu shangshu-zhuan daikanwa)
     (->formed
-     ((=ucs@jis		  . #x5B6B)	; &AJ1-02841;
-      (=ucs@ks		  . #x5B6B)	; &AJ1-02841;
+     ((=ucs@unicode	  . #x5B6B)	; &AJ1-02841;
       (=adobe-japan1-0	  . 02841)	; &AJ1-02841;
       (=daikanwa	  . 06987)	; &I-M-06987;
       ))
@@ -17987,10 +17986,7 @@
     (total-strokes	 . 15)
     (=daikanwa		. 39110)	; &M-39110;
     (<-wrong
-     ((=ucs@jis		  . #x9706)	; &GT-56793;
-      (=jis-x0208	  . #x703D)	; &GT-56793; [80-29]
-      (=ks-x1001	  . #x6F7D)	; &I-K0-6F7D; [79-93]
-      (=jis-x0213-1	  . #x703D)	; &I-JX1-703D; [80-29]
+     ((=ucs		  . #x9706)	; 霆
       (=daikanwa	  . 42299)	; &I-M-42299;
       ))
     (<-wrong*sources
@@ -19562,10 +19558,7 @@
     (total-strokes	 . 16)
     (=daikanwa		. 39148)	; &M-39148;
     (<-same
-     ((=ucs@jis		  . #x9706)	; &GT-56793;
-      (=jis-x0208	  . #x703D)	; &GT-56793; [80-29]
-      (=ks-x1001	  . #x6F7D)	; &I-K0-6F7D; [79-93]
-      (=jis-x0213-1	  . #x703D)	; &I-JX1-703D; [80-29]
+     ((=ucs		  . #x9706)	; 霆
       (=daikanwa	  . 42299)	; &I-M-42299;
       ))
     (<-same*sources
@@ -22806,10 +22799,7 @@
     (total-strokes	 . 19)
     (=daikanwa		. 39231)	; &M-39231;
     (<-same
-     ((=ucs@unicode	  . #x8F26)	; &GT-51261;
-      (=jis-x0208	  . #x6D53)	; &GT-51261; [77-51]
-      (=ks-x1001	  . #x5626)	; &I-K0-5626; [54-06]
-      (=jis-x0213-1	  . #x6D53)	; &I-JX1-6D53; [77-51]
+     ((=ucs		  . #x8F26)	; 輦
       (=daikanwa	  . 38393)	; &I-M-38393;
       ))
     (<-same*sources
