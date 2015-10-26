@@ -16,6 +16,39 @@
     (=gt-pj-1		. #x3E2E)	; &I-GT-09423; [30-14]
     (=daikanwa		. 07473)	; &I-M-07473;
     (=shinjigen		.  1901)	; 小
+    (->subsumptive
+     ((==ucs@unicode	  . #x5C0F)	; &g2-AJ1-02454;
+      (==adobe-japan1-0	  . 02454)	; &g2-AJ1-02454;
+      (==gb2312		  . #x5021)	; &g2-AJ1-02454; [48-01]
+      (==ks-x1001	  . #x6133)	; &g2-AJ1-02454; [65-19]
+      (==jis-x0208	  . #x3E2E)	; &g2-AJ1-02454; [30-14]
+      (==cns11643-1	  . #x4451)	; &g2-AJ1-02454; [36-49]
+      (==jis-x0213-1	  . #x3E2E)	; &g2-AJ1-02454; [30-14]
+      (==gt		  . 09423)	; &g2-AJ1-02454;
+      (==gt-k		  . 00186)	; &g2-AJ1-02454;
+      (==daikanwa	  . 07473)	; &g2-AJ1-02454;
+      (==shinjigen	  .  1901)	; &g2-AJ1-02454;
+      (->subsumptive
+       ((===daikanwa	    . 07473)	; &R-M-07473;
+	)
+       ((===jis-x0208	    . #x3E2E)	; &R-J0-3E2E; [30-14]
+	(===jis-x0213-1	    . #x3E2E)	; &R-J0-3E2E; [30-14]
+	)
+       ((===adobe-japan1-0  . 02454)	; &R-AJ1-02454;
+	)
+       ((===cns11643-1	    . #x4451)	; &R-C1-4451; [36-49]
+	)
+       ((===gt		    . 09423)	; &R-GT-09423;
+	(===gt-k	    . 00186)	; &R-GT-09423;
+	)
+       ((===ucs@ks	    . #x5C0F)	; &R-K0-6133;
+	(===ks-x1001	    . #x6133)	; &R-K0-6133; [65-19]
+	)
+       ((===ucs@unicode	    . #x5C0F)	; &R-UU+5C0F;
+	)
+       ((===hng-khi	    . 03460)	; &HNG010-03460;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -143,7 +176,16 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (=ucs		. #x5C11)	; 少
-    (=adobe-japan1-0	. 02455)	; &I-AJ1-02455;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5C11)	; 少
+      ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (=ucs@unicode	. #x5C11)	; &AJ1-02455;
+    (=adobe-japan1-0	. 02455)	; &AJ1-02455;
     (=jis-x0208		. #x3E2F)	; &I-J90-3E2F; [30-15]
     (=gb2312		. #x4959)	; &I-G0-4959; [41-57]
     (=ks-x1001		. #x6134)	; &I-K0-6134; [65-20]
@@ -154,7 +196,7 @@
     (=gt-k		. 00446)	; &I-GT-K00446;
     (=gt-pj-1		. #x3E2F)	; &I-GT-09425; [30-15]
     (=daikanwa		. 07475)	; &I-M-07475;
-    (=shinjigen		.  1902)	; 少
+    (=shinjigen		.  1902)	; &AJ1-02455;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5C11)	; 少
@@ -196,6 +238,15 @@
        ((===ucs@unicode	    . #x5C11)	; &R-UU+5C11;
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5C11)	; 少
+      ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (===hng-khi		. 00430)	; &HNG010-00430;
     ))
 (define-char
   '((ideographic-radical . 42)	; ⼩
