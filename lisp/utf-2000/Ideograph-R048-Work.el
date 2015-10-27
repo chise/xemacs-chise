@@ -321,6 +321,7 @@
      ((=ucs		  . #xE0102)	; 󠄂
       ))
     (=ucs@unicode	. #x5DE9)	; &HD-KS-098790;
+    (=ucs@JP/hanazono	. nil)
     (=gb2312		. #x392E)	; &HD-KS-098790; [25-14]
     (=hanyo-denshi/ks	. 098790)	; &HD-KS-098790;
     (=hanyo-denshi/ks/mf . #x2697)	; &I-KSMF-09879;
@@ -435,14 +436,35 @@
      ((=ucs		  . #x5DEE)	; 差
       ))
     (ideographic-radical . 48)	; ⼯
+    (=>ucs@iwds-1	. #x5DEE)	; &o-J0-3A39;
+    (=+>ucs@unicode	. #x5DEE)	; &o-J0-3A39;
+    (=+>ucs@jis		. #x5DEE)	; &o-J0-3A39;
+    (=+>jis-x0208	. #x3A39)	; &o-J0-3A39; [26-25]
+    (=+>jis-x0213-1	. #x3A39)	; &o-J0-3A39; [26-25]
+    (=+>adobe-japan1-0	. 02089)	; &o-J0-3A39;
+    (=+>gt		. 11011)	; &o-J0-3A39;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x5DEE)	; &o-J0-3A39;
+      (=+>ucs@unicode	  . #x5DEE)	; &o-J0-3A39;
+      (=+>ucs@jis	  . #x5DEE)	; &o-J0-3A39;
+      (=+>jis-x0208	  . #x3A39)	; &o-J0-3A39; [26-25]
+      ))
+    (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=decomposition@cid
-     ((=ucs		  . #x5DEE)	; 差
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs		  . #xE0100)	; 󠄀
+     ((=big5-cdp	  . #x8CCC)	; &CDP-8CCC;
+      )
+     ((=ucs		  . #x5DE5)	; 工
       ))
+    (=ucs@cns		. #x5DEE)	; &AJ1-02089;
     (=ucs@jis		. #x5DEE)	; &AJ1-02089;
+    (=ucs@ks		. #x5DEE)	; &AJ1-02089;
     (=adobe-japan1-0	. 02089)	; &AJ1-02089;
     (=jis-x0208		. #x3A39)	; &I-J90-3A39; [26-25]
     (=ks-x1001		. #x732C)	; &I-K0-732C; [83-12]
@@ -454,6 +476,57 @@
     (=gt-pj-1		. #x3A39)	; &I-GT-11011; [26-25]
     (=daikanwa		. 08732)	; &I-M-08732;
     (=shinjigen		.  2067)	; &AJ1-02089;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x5DEE)	; 差
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x5DEE)	; &g2-AJ1-02089;
+      (==ucs@jis	  . #x5DEE)	; &g2-AJ1-02089;
+      (==ucs@ks		  . #x5DEE)	; &g2-AJ1-02089;
+      (==adobe-japan1-0	  . 02089)	; &g2-AJ1-02089;
+      (==ks-x1001	  . #x732C)	; &g2-AJ1-02089; [83-12]
+      (==jis-x0208	  . #x3A39)	; &g2-AJ1-02089; [26-25]
+      (==cns11643-1	  . #x5538)	; &g2-AJ1-02089; [53-24]
+      (==jis-x0213-1	  . #x3A39)	; &g2-AJ1-02089; [26-25]
+      (==gt		  . 11011)	; &g2-AJ1-02089;
+      (==gt-k		  . 06433)	; &g2-AJ1-02089;
+      (==daikanwa	  . 08732)	; &g2-AJ1-02089;
+      (==shinjigen	  .  2067)	; &g2-AJ1-02089;
+      (->subsumptive
+       ((===daikanwa	    . 08732)	; &R-M-08732;
+	)
+       ((===jis-x0208	    . #x3A39)	; &R-J0-3A39; [26-25]
+	(===jis-x0213-1	    . #x3A39)	; &R-J0-3A39; [26-25]
+	)
+       ((===adobe-japan1-0  . 02089)	; &R-AJ1-02089;
+	)
+       ((===cns11643-1	    . #x5538)	; &R-C1-5538; [53-24]
+	)
+       ((===gt		    . 11011)	; &R-GT-11011;
+	(===gt-k	    . 06433)	; &R-GT-11011;
+	)
+       ((===ucs@ks	    . #x5DEE)	; &R-K0-732C;
+	(===ks-x1001	    . #x732C)	; &R-K0-732C; [83-12]
+	)
+       ((===hng-khi	    . 06321)	; &HNG010-06321;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x5DEE)	; &o-J0-3A39;
+      (=+>ucs@unicode	  . #x5DEE)	; &o-J0-3A39;
+      (=+>ucs@jis	  . #x5DEE)	; &o-J0-3A39;
+      (=+>jis-x0208	  . #x3A39)	; &o-J0-3A39; [26-25]
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (=ucs@unicode	. #x5DEE)	; &G0-326E;
+    (=ucs@JP/hanazono	. nil)
+    (=gb2312		. #x326E)	; &G0-326E; [18-78]
     ))
 (define-char
   '((<-denotational
@@ -462,8 +535,15 @@
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=ucs@unicode	. #x5DEE)	; &G0-326E;
-    (=gb2312		. #x326E)	; &G0-326E; [18-78]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=big5-cdp	  . #x8CCC)	; &CDP-8CCC;
+      )
+     ((=ucs		  . #x5338)	; 匸
+      ))
+    (===hng-khi		. 06322)	; &HNG010-06322;
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
