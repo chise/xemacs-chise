@@ -16,6 +16,39 @@
     (=gt-pj-1		. #x3B33)	; &I-GT-09897; [27-19]
     (=daikanwa		. 07869)	; &I-M-07869;
     (=shinjigen		.  1955)	; 山
+    (->subsumptive
+     ((==ucs@unicode	  . #x5C71)	; &g2-AJ1-02177;
+      (==adobe-japan1-0	  . 02177)	; &g2-AJ1-02177;
+      (==gb2312		  . #x493D)	; &g2-AJ1-02177; [41-29]
+      (==ks-x1001	  . #x5F23)	; &g2-AJ1-02177; [63-03]
+      (==jis-x0208	  . #x3B33)	; &g2-AJ1-02177; [27-19]
+      (==cns11643-1	  . #x4454)	; &g2-AJ1-02177; [36-52]
+      (==jis-x0213-1	  . #x3B33)	; &g2-AJ1-02177; [27-19]
+      (==gt		  . 09897)	; &g2-AJ1-02177;
+      (==gt-k		  . 00271)	; &g2-AJ1-02177;
+      (==daikanwa	  . 07869)	; &g2-AJ1-02177;
+      (==shinjigen	  .  1955)	; &g2-AJ1-02177;
+      (->subsumptive
+       ((===daikanwa	    . 07869)	; &R-M-07869;
+	)
+       ((===jis-x0208	    . #x3B33)	; &R-J0-3B33; [27-19]
+	(===jis-x0213-1	    . #x3B33)	; &R-J0-3B33; [27-19]
+	)
+       ((===adobe-japan1-0  . 02177)	; &R-AJ1-02177;
+	)
+       ((===cns11643-1	    . #x4454)	; &R-C1-4454; [36-52]
+	)
+       ((===gt		    . 09897)	; &R-GT-09897;
+	(===gt-k	    . 00271)	; &R-GT-09897;
+	)
+       ((===ucs@ks	    . #x5C71)	; &R-K0-5F23;
+	(===ks-x1001	    . #x5F23)	; &R-K0-5F23; [63-03]
+	)
+       ((===ucs@unicode	    . #x5C71)	; &R-UU+5C71;
+	)
+       ((===hng-khi	    . 03490)	; &HNG010-03490;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
@@ -6825,6 +6858,11 @@
      ((==ucs@unicode	  . #x5D1B)	; &g2-UU+5D1B;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x6148)	; &g2-UU+5D1B; [65-40]
+      (->subsumptive
+       ((===ucs@unicode	    . #x5D1B)	; &R-UU+5D1B;
+	)
+       ((===hng-khi	    . 00450)	; &HNG010-00450;
+	))
       ))
     ))
 (define-char
@@ -10747,7 +10785,9 @@
 	)
        ((=ucs		    . #x5C71)	; 山
 	)
-       ((=ucs@jis	    . #x5DEE)	; &AJ1-02089;
+       ((=ucs@cns	    . #x5DEE)	; &AJ1-02089;
+	(=ucs@jis	    . #x5DEE)	; &AJ1-02089;
+	(=ucs@ks	    . #x5DEE)	; &AJ1-02089;
 	(=adobe-japan1-0    . 02089)	; &AJ1-02089;
 	))
       (=ucs@jis		  . #x5D73)	; &AJ1-04698;
