@@ -1,5 +1,18 @@
 2015-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R067-Script.el (U+6588): Apply new conventions for
+	glyph granularity.
+	(U+658A): Likewise.
+	(U+658E): Likewise.
+	(U+6590): Likewise.
+	(U+6595): Likewise.
+
+	* Ideograph-R044-Corpse.el: Add glyph-images of HNG-KHI.
+	(U+5C3C): Apply new conventions for glyph granularity.
+	(HNG-KHI0348-0): New character.
+	(CB00112): Unify U-00021C31; add `<-formed' for U+5C3C; add
+	HNG-JOU0053-0.
+
 	* Ideograph-R043-Lame.el (U+5C31): Add `ideographic-structure'.
 	(KOSEKI-086490): New character; add HNG-KHI0347-0.
 
