@@ -1,5 +1,11 @@
 2015-10-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R049-Oneself.el (U+5DF2): Add HNG-KHI0634-2 and
+	HNG-KHI0633-2.
+	(U+5DF3): Add HNG-KHI0633-1 and HNG-KHI0634-1.
+
+	* Ideograph-R075-Tree.el (U+6751): Unify S1-3482.
+
 	* Ideograph-R041-Inch.el: Add glyph-images of HNG-KHI.
 	(U-00021BA7): Unify M-07531; add `<-ancient' for M-30116 and
 	UU+66C1.
