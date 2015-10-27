@@ -1,5 +1,14 @@
 2015-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U+5462): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R009-Man.el (U+4F32): Apply new conventions for glyph
+	granularity.
+	(C1-4B6E): Unify CU+4F8D; add representative node.
+
+2015-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R067-Script.el (U+6588): Apply new conventions for
 	glyph granularity.
 	(U+658A): Likewise.
