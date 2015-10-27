@@ -6915,7 +6915,14 @@
      ((=ucs		  . #x5C3C)	; 尼
       ))
     (=ucs		. #x5462)	; 呢
+    (=adobe-japan1-5	. 17350)	; &I-AJ1-17350;
+    (=gb2312		. #x4458)	; &I-G0-4458; [36-56]
+    (=jis-x0212		. #x3475)	; &I-JSP-3475; [20-85]
+    (=cns11643-1	. #x4C51)	; &I-C1-4C51; [44-49]
+    (=jis-x0213-2	. #x2369)	; &I-JX2-2369; [03-73]
     (=big5		. #xA94F)	; &I-B-A94F;
+    (=daikanwa		. 03430)	; &I-M-03430;
+    (=jef-china3	. #x46B4)	; &I-JC3-46B4;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5462)	; 呢
@@ -6928,16 +6935,28 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@unicode	    . #x5C3C)	; &AJ1-03276;
-	(=adobe-japan1-0    . 03276)	; &AJ1-03276;
+       ((==ucs@unicode	    . #x5C3C)	; &g2-AJ1-03276;
+	(==adobe-japan1-0   . 03276)	; &g2-AJ1-03276;
 	))
-      (=ucs@unicode	  . #x5462)	; &AJ1-17350;
-      (=adobe-japan1-5	  . 17350)	; &AJ1-17350;
-      (=gb2312		  . #x4458)	; &I-G0-4458; [36-56]
-      (=jis-x0212	  . #x3475)	; &I-JSP-3475; [20-85]
-      (=jis-x0213-2	  . #x2369)	; &I-JX2-2369; [03-73]
-      (=daikanwa	  . 03430)	; &I-M-03430;
-      (=jef-china3	  . #x46B4)	; &I-JC3-46B4;
+      (==ucs@unicode	  . #x5462)	; &g2-AJ1-17350;
+      (==adobe-japan1-5	  . 17350)	; &g2-AJ1-17350;
+      (==gb2312		  . #x4458)	; &g2-AJ1-17350; [36-56]
+      (==jis-x0212	  . #x3475)	; &g2-AJ1-17350; [20-85]
+      (==jis-x0213-2	  . #x2369)	; &g2-AJ1-17350; [03-73]
+      (==daikanwa	  . 03430)	; &g2-AJ1-17350;
+      (==jef-china3	  . #x46B4)	; &g2-AJ1-17350;
+      (->subsumptive
+       ((===daikanwa	    . 03430)	; &R-M-03430;
+	)
+       ((===jis-x0212	    . #x3475)	; &R-JX2-2369; [20-85]
+	(===jis-x0213-2	    . #x2369)	; &R-JX2-2369; [03-73]
+	)
+       ((===adobe-japan1-5  . 17350)	; &R-AJ1-17350;
+	)
+       ((===jef-china3	    . #x46B4)	; &R-JC3-46B4;
+	)
+       ((===ucs@unicode	    . #x5462)	; &R-UU+5462;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -6945,9 +6964,11 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=cns11643-1	    . #x4647)	; &C1-4647; [38-39]
+       ((==ucs@cns	    . #x5C3C)	; &g2-CU+5C3C;
+	(==cns11643-1	    . #x4647)	; &g2-CU+5C3C; [38-39]
 	))
-      (=cns11643-1	  . #x4C51)	; &C1-4C51; [44-49]
+      (==ucs@cns	  . #x5462)	; &g2-CU+5462;
+      (==cns11643-1	  . #x4C51)	; &g2-CU+5462; [44-49]
       ))
     ))
 (define-char
