@@ -1,3 +1,9 @@
+2015-10-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R041-Inch.el: Add glyph-images of HNG-KHI.
+	(U-00021BA7): Unify M-07531; add `<-ancient' for M-30116 and
+	UU+66C1.
+
 2015-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U+5462): Apply new conventions for
