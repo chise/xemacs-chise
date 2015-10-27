@@ -973,7 +973,7 @@
     (=gt-k		. 02601)	; &I-GT-K02601;
     (=gt-pj-1		. #x423C)	; &I-GT-18415; [34-28]
     (=daikanwa		. 14464)	; &I-M-14464;
-    (=shinjigen@rev	.  3482)	; 村
+    (=shinjigen		.  3482)	; 村
     ))
 (define-char
   '((ideographic-radical . 75)	; ⽊
