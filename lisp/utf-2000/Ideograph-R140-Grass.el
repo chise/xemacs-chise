@@ -10043,9 +10043,15 @@
      ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA5E")
       (=ucs		  . #xFA5E)	; 艹
       )
-     ((=cns11643-1	  . #x4779)	; &C1-4779; [39-89]
+     ((=ucs@cns		  . #x5BFA)	; &C1-4779;
+      (=cns11643-1	  . #x4779)	; &C1-4779; [39-89]
       ))
+    (=ucs@cns		. #x44C1)	; &C3-3360;
     (=cns11643-3	. #x3360)	; &C3-3360; [19-64]
+    (->subsumptive
+     ((==ucs@cns	  . #x44C1)	; &g2-CU+44C1;
+      (==cns11643-3	  . #x3360)	; &g2-CU+44C1; [19-64]
+      ))
     ))
 (define-char
   '((ideographic-radical . 140)	; ⾋
