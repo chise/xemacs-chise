@@ -1,5 +1,11 @@
 2015-10-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R009-Man.el (U-0002028A): Apply new conventions for
+	glyph granularity; unify S-9236.
+	(U-000202E1): Apply new conventions for glyph granularity.
+
+2015-10-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R048-Work.el: Add glyph-images of HNG-KHI.
 
 	* Ideograph-R046-Mountain.el: Add glyph-images of HNG-KHI.
