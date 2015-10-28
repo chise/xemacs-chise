@@ -1,3 +1,30 @@
+2015-10-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R159-Cart.el: Add mappings for Big5 code points.
+	(U+8ECF): Unify JC3-66ED.
+	(U+8ED1): Unify JC3-99B9.
+	(U+4848): Apply new conventions for glyph granularity; unify
+	S-8138 and CB07274; add `<-original' for U+8F03; add H9-DABA.
+	(U+484E): Apply new conventions for glyph granularity.
+	(U-000282CF): Unify S-8133, H9-DB7C and CB07276; add `<-vulgar'
+	for U+8EEB.
+	(U+8EF0): Apply new conventions for glyph granularity.
+	(U+8EF9): Unify JC3-66EE.
+	(U+8EFA): Unify JC3-99BA.
+	(U+8F0F): Apply new conventions for glyph granularity.
+	(U+8F19): Use `->subsumptive'; add `<-vulgar' for U+8F12.
+	(U+8F21): Unify S-8185; add `<-original' for U+8F57.
+	(U+8F28): Apply new conventions for glyph granularity.
+	(U+8F2D): Unify S-8122 and CB00365; add `<-original' for U+8EDF.
+	(U+8F41): Apply new conventions for glyph granularity.
+	(U+8F58): Unify JC3-66FA.
+	(U+8F65): Apply new conventions for glyph granularity.
+
+	* Ideograph-R140-Grass.el (C3-3360): Unify CU+44C1; add a
+	representative node.
+
+	* Ideograph-R082-Fur.el (U-00023B60): Use `->subsumptive'.
+
 2015-10-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (U-0002028A): Apply new conventions for
