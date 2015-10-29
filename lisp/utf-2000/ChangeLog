@@ -1,5 +1,14 @@
 2015-10-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U+5538): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+	(U+55B0): Likewise.
+	(U+5577): Apply new conventions for glyph granularity.
+	(U+35E5): Likewise.
+	(U-00020FEE): Likewise.
+
+2015-10-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R159-Cart.el: Add mappings for Big5 code points.
 	(U+8ECF): Unify JC3-66ED.
 	(U+8ED1): Unify JC3-99B9.
