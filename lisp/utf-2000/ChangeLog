@@ -1,5 +1,11 @@
 2015-10-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (UU+5831): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R031-Enclosure.el (U+5709): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
 	* Ideograph-R053-Dotted-Cliff.el: Add glyph-images of HNG-KHI.
 
 	* Ideograph-R090-Half-Tree-Trunk.el (U+7240): Add HNG-KHI0050-2.
