@@ -1,5 +1,10 @@
 2015-10-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R011-Enter.el (g2-CU+516A): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+2015-10-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R032-Earth.el (UU+5831): Apply new conventions for
 	glyph granularity for components of ideographic-structure.
 
