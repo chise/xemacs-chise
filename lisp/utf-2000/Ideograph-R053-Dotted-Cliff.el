@@ -575,6 +575,8 @@
 	)
        ((===ucs@unicode	    . #x5E8A)	; &R-UU+5E8A;
 	))
+      )
+     ((===hng-khi	  . 00501)	; &HNG010-00501;
       ))
     ))
 (define-char
@@ -2190,6 +2192,8 @@
 	)
        ((===ucs@unicode	    . #x5EA6)	; &R-UU+5EA6;
 	))
+      )
+     ((===hng-khi	  . 03560)	; &HNG010-03560;
       ))
     ))
 (define-char
@@ -2310,6 +2314,8 @@
        ((===ucs@unicode	    . #x5EA7)	; &R-UU+5EA7;
 	)
        ((===cns11643-1	    . #x553D)	; &R-C1-553D; [53-29]
+	)
+       ((===hng-khi	    . 03570)	; &HNG010-03570;
 	))
       ))
     ))
@@ -7013,6 +7019,8 @@
        ((===ucs@unicode	    . #x5EDF)	; &R-UU+5EDF;
 	)
        ((===cns11643-1	    . #x6C5B)	; &R-C1-6C5B; [76-59]
+	)
+       ((===hng-khi	    . 00490)	; &HNG010-00490;
 	))
       ))
     ))
@@ -7286,13 +7294,13 @@
      ((=ucs		  . #x5EE3)	; 廣
       ))
     (ideographic-radical . 53)	; ⼴
-    (ideographic-strokes . 11)
-    (total-strokes	 . 14)
     (=+>ucs@unicode	. #x5EE3)	; &o-AJ1-20115;
     (=+>adobe-japan1-4	. 14127)	; &o-AJ1-20115;
     (=+>adobe-japan1-5	. 20115)	; &o-AJ1-20115;
     (->subsumptive
-     ((=ucs@unicode	  . #x5EE3)	; &MJ011076;
+     ((ideographic-strokes . 11)
+      (total-strokes	   . 14)
+      (=ucs@unicode	  . #x5EE3)	; &MJ011076;
       (=ucs@JP/hanazono	  . nil)
       (=mj		  . 011076)	; &MJ011076;
       (=adobe-japan1-4	  . 14127)	; &I-AJ1-14127;
@@ -7326,7 +7334,13 @@
 	  ))
 	))
       )
-     ((=adobe-japan1-5	  . 20115)	; &AJ1-20115;
+     ((ideographic-strokes . 12)
+      (total-strokes	   . 15)
+      (===hng-khi	  . 03580)	; &HNG010-03580;
+      )
+     ((ideographic-strokes . 11)
+      (total-strokes	   . 14)
+      (=adobe-japan1-5	  . 20115)	; &AJ1-20115;
       (=hanyo-denshi/jt	  . #xB0E2)	; &I-HD-JT-B0E2;
       (->subsumptive
        ((=decomposition@cid
