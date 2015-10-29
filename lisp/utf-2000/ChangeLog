@@ -1,4 +1,11 @@
+2015-10-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R090-Half-Tree-Trunk.el (U+7240): Add HNG-KHI0050-2.
+
 2015-10-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R060-Step.el (C3-3566): Unify CU+38E5; add a
+	representative node.
 
 	* Ideograph-R030-Mouth.el (U+5538): Apply new conventions for
 	glyph granularity for components of ideographic-structure.
