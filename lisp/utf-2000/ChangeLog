@@ -1,6 +1,13 @@
 2015-10-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R053-Dotted-Cliff.el: Add glyph-images of HNG-KHI.
+
 	* Ideograph-R090-Half-Tree-Trunk.el (U+7240): Add HNG-KHI0050-2.
+
+	* Ideograph-R050-Turban.el: Add glyph-images of HNG-KHI.
+	(U+5E08): Apply new conventions for glyph granularity.
+	(KOSEKI-100790): New character to integrate HNG-KHI0351-0.
+	(U+5E61): Apply new conventions for glyph granularity.
 
 2015-10-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
