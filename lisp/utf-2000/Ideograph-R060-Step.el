@@ -2451,9 +2451,15 @@
       )
      ((=ucs		  . #x5F73)	; 彳
       )
-     ((=cns11643-1	  . #x4B6E)	; &C1-4B6E; [43-78]
+     ((=ucs@cns		  . #x4F8D)	; &C1-4B6E;
+      (=cns11643-1	  . #x4B6E)	; &C1-4B6E; [43-78]
       ))
+    (=ucs@cns		. #x38E5)	; &C3-3566;
     (=cns11643-3	. #x3566)	; &C3-3566; [21-70]
+    (->subsumptive
+     ((==ucs@cns	  . #x38E5)	; &g2-CU+38E5;
+      (==cns11643-3	  . #x3566)	; &g2-CU+38E5; [21-70]
+      ))
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
