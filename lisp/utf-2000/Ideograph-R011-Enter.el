@@ -1534,8 +1534,8 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	  (=ucs		      . #x2FF0)	; ⿰
 	  )
-	 ((=ucs@unicode	      . #x6708)	; &MJ013520;
-	  (=mj		      . 013520)	; &MJ013520;
+	 ((==ucs@unicode      . #x6708)	; &g2-MJ013520;
+	  (==mj		      . 013520)	; &g2-MJ013520;
 	  )
 	 ((=ucs		      . #x5DDC)	; 巜
 	  ))
