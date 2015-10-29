@@ -354,8 +354,7 @@
     (=cns11643-6	. #x3528)	; &I-C6-3528; [21-08]
     (=hanziku-3		. #xD0D4)	; &I-HZK03-D0D4;
     (<-original
-     ((=ucs@jis		  . #x5E78)	; &AJ1-01982;
-      (=ucs@ks		  . #x5E78)	; &AJ1-01982;
+     ((=ucs@unicode	  . #x5E78)	; &AJ1-01982;
       (=adobe-japan1-0	  . 01982)	; &AJ1-01982;
       (=daikanwa	  . 09176)	; &I-M-09176;
       ))
