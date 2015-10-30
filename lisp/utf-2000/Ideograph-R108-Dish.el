@@ -2314,7 +2314,7 @@
       )
      ((=ucs		  . #x76BF)	; 皿
       ))
-    (=>>ruimoku-v6	. #xE046)	; &G-RUI6-E046;
+    (=ruimoku-v6	. #xE046)	; &RUI6-E046;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -2337,15 +2337,15 @@
 	    (=jis-x0213-1	. #x6948)	; &I-JX1-6948; [73-40]
 	    (=daikanwa		. 32674)	; &I-M-32674;
 	    )
-	   ((=ucs@jis		. #x5E78)	; &AJ1-01982;
-	    (=ucs@ks		. #x5E78)	; &AJ1-01982;
-	    (=adobe-japan1-0	. 01982)	; &AJ1-01982;
+	   ((==ucs@jis		. #x5E78)	; &g2-AJ1-01982;
+	    (==ucs@ks		. #x5E78)	; &g2-AJ1-01982;
+	    (==adobe-japan1-0	. 01982)	; &g2-AJ1-01982;
 	    ))
 	  ))
 	)
        ((=ucs		    . #x76BF)	; 皿
 	))
-      (=ruimoku-v6	  . #xE046)	; &RUI6-E046;
+      (==ruimoku-v6	  . #xE046)	; &g2-RUI6-E046;
       ))
     ))
 (define-char
