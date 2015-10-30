@@ -1801,7 +1801,7 @@
     (=daikanwa		. 02347)	; &I-M-02347;
     (=hanziku-1		. #xF1EC)	; &I-HZK01-F1EC;
     (<-simplified@CN
-     ((=ucs@unicode	  . #x52E2)	; &UU+52E2;
+     ((=ucs		  . #x52E2)	; 勢
       (=gb12345		  . #x4A46)	; 勢 [42-38]
       ))
     ))
