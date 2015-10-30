@@ -1,5 +1,19 @@
 2015-10-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R075-Tree.el (U+681E): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+
+	* Ideograph-R074-Moon.el (UU+6727): Omit G-UU+6727.
+
+	* Ideograph-R055-Two-Hands.el (U+5F08): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R023-Hiding-Enclosure.el (U-00020971): Apply new
+	conventions for glyph granularity.
+
+	* Ideograph-R022-Right-Open-Box.el (CB06935): Add `<-denotational'
+	for U-00020971.
+
 	* Ideograph-R011-Enter.el (g2-CU+516A): Apply new conventions for
 	glyph granularity for components of ideographic-structure.
 
