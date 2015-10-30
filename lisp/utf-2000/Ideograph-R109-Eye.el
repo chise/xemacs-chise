@@ -459,7 +459,7 @@
     (=ucs@unicode	. #x76F4)	; &C1-4E7E;
     (=ucs@JP/hanazono	. nil)
     (=gb2312		. #x5631)	; &C1-4E7E; [54-17]
-    (=cns11643-1	. #x4E7E)	; &C1-4E7E; [46-94]
+    (=cns11643-1	. #x4E7E)	; &I-C1-4E7E; [46-94]
     (->subsumptive
      ((==ucs@unicode	  . #x76F4)	; &g2-UU+76F4;
       (==ucs@JP/hanazono  . nil)
@@ -5174,8 +5174,8 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
     (=ucs		. #x776A)	; 睪
-    (=jis-x0212		. #x4F23)	; &JX2-7227; [47-03]
-    (=cns11643-1	. #x6548)	; &C1-6548; [69-40]
+    (=jis-x0212		. #x4F23)	; &I-JSP-4F23; [47-03]
+    (=cns11643-1	. #x6548)	; &I-C1-6548; [69-40]
     (=jis-x0213-2	. #x7227)	; &I-JX2-7227; [82-07]
     (=big5		. #xB841)	; &I-B-B841;
     (=daikanwa		. 23466)	; &I-M-23466;
