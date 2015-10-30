@@ -1,3 +1,8 @@
+2015-10-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R108-Dish.el (RUI6-E046): Apply new conventions for
+	glyph granularity.
+
 2015-10-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R075-Tree.el (U+681E): Apply new conventions for glyph
