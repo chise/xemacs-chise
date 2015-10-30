@@ -550,32 +550,43 @@
     (ideographic-radical . 23)	; ⼖
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (hanyu-dazidian	1 70 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x5338)	; 匸
+      )
+     ((=ucs		  . #x51FA)	; 出
+      ))
     (=ucs@iso		. #x20971)	; &C6-2637;
     (=cns11643-6	. #x2637)	; &C6-2637; [06-23]
     (=daikanwa		. 02681)	; &I-M-02681;
     (<-formed@Zetian
-     ((=ucs@unicode	  . #x6708)	; &MJ013520;
-      (=mj		  . 013520)	; &MJ013520;
+     ((=ucs		  . #x6708)	; 月
       ))
     (<-formed@Zetian*sources
      zihui-bu)
     (<-same
-     ((=ucs@unicode	  . #x6708)	; &MJ013520;
-      (=mj		  . 013520)	; &MJ013520;
+     ((=ucs		  . #x6708)	; 月
       (=daikanwa	  . 14330)	; &I-M-14330;
       ))
     (<-same*sources
      zihui-bu daikanwa)
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x20971)	; 𠥱
+    (->subsumptive
+     ((==ucs@iso	  . #x20971)	; &g2-M-02681;
+      (==cns11643-6	  . #x2637)	; &g2-M-02681; [06-23]
+      (==daikanwa	  . 02681)	; &g2-M-02681;
+      (->subsumptive
+       ((===daikanwa	    . 02681)	; &R-M-02681;
+	)
+       ((===cns11643-6	    . #x2637)	; &R-C6-2637; [06-23]
+	)
+       ((===ucs@iso	    . #x20971)	; &R-U-00020971;
+	))
+      )
+     ((=hanziku-1	  . #xB273)	; &HZK01-B273;
       ))
-    (ideographic-radical . 23)	; ⼖
-    (ideographic-strokes . 5)
-    (total-strokes	 . 7)
-    (hanyu-dazidian	1 70 10)
-    (=hanziku-1		. #xB273)	; &HZK01-B273;
     ))
 (define-char
   '((ideographic-radical . 23)	; ⼖
