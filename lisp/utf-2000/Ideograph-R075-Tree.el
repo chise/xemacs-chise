@@ -6910,8 +6910,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@jis	    . #x5E75)	; &AJ1-04737;
-	(=adobe-japan1-0    . 04737)	; &AJ1-04737;
+       ((==ucs@jis	    . #x5E75)	; &g2-AJ1-04737;
+	(==adobe-japan1-0   . 04737)	; &g2-AJ1-04737;
 	)
        ((=ucs		    . #x6728)	; 木
 	))
@@ -6922,7 +6922,6 @@
       (==gt-k		  . 06602)	; &g2-GT-18694;
       (==daikanwa	  . 14708)	; &g2-GT-18694;
       (==shinjigen	  .  3593)	; &g2-GT-18694;
-      (=hanziku-3	  . #xF3AE)	; &g2-GT-18694;
       (->subsumptive
        ((===daikanwa	    . 14708)	; &R-M-14708;
 	)
@@ -6931,13 +6930,15 @@
 	)
        ((===gt		    . 18694)	; &R-GT-18694;
 	(===gt-k	    . 06602)	; &R-GT-18694;
+	)
+       ((=hanziku-3	    . #xF3AE)	; &HZK03-F3AE;
 	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x5E75)	; &UU+5E75;
+       ((==ucs@unicode	    . #x5E75)	; &g2-UU+5E75;
 	)
        ((=ucs		    . #x6728)	; 木
 	))
@@ -6948,8 +6949,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@cns	    . #x5E75)	; &C2-223B;
-	(=cns11643-2	    . #x223B)	; &C2-223B; [02-27]
+       ((==ucs@cns	    . #x5E75)	; &g2-CU+5E75;
+	(==cns11643-2	    . #x223B)	; &g2-CU+5E75; [02-27]
 	)
        ((=ucs		    . #x6728)	; 木
 	))
