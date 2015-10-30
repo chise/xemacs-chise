@@ -10804,11 +10804,10 @@
     (=shinjigen@1ed	.  1140)	; 咯
     (=shinjigen@rev	.  1142)	; 咯
     (<-formed
-     ((=ucs@jis		  . #x5580)	; &AJ1-04400;
-      (=adobe-japan1-0	  . 04400)	; &AJ1-04400;
+     ((=ucs		  . #x5580)	; 喀
       (=jis-x0208	  . #x533D)	; &I-J90-533D; [51-29]
-      (=shinjigen@1ed	  .  1139)	; &AJ1-04400;
-      (=shinjigen@rev	  .  1141)	; &AJ1-04400;
+      (=shinjigen@1ed	  .  1139)	; 喀
+      (=shinjigen@rev	  .  1141)	; 喀
       ))
     (<-formed*sources
      shinjigen@1ed shinjigen@rev)
@@ -23107,7 +23106,7 @@
      ((=ucs		  . #x5BA2)	; 客
       ))
     (=ucs		. #x5580)	; 喀
-    (=adobe-japan1-0	. 04400)	; &AJ1-04400;
+    (=adobe-japan1-0	. 04400)	; &I-AJ1-04400;
     (=jis-x0208		. #x533D)	; &I-J90-533D; [51-29]
     (=gb2312		. #x3F26)	; &I-G0-3F26; [31-06]
     (=ks-x1001		. #x4B53)	; &I-K0-4B53; [43-51]
@@ -23115,10 +23114,10 @@
     (=jis-x0213-1	. #x533D)	; &I-JX1-533D; [51-29]
     (=big5		. #xB3D8)	; &I-B-B3D8;
     (=gt		. 04874)	; &I-GT-04874;
-    (=gt-pj-1		. #x533D)	; &AJ1-04400; [51-29]
+    (=gt-pj-1		. #x533D)	; &I-GT-04874; [51-29]
     (=daikanwa		. 03896)	; &I-M-03896;
-    (=shinjigen@1ed	.  1139)	; &AJ1-04400;
-    (=shinjigen@rev	.  1141)	; &AJ1-04400;
+    (=shinjigen@1ed	.  1139)	; 喀
+    (=shinjigen@rev	.  1141)	; 喀
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5580)	; 喀
