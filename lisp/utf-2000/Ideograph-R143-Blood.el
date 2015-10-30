@@ -393,11 +393,10 @@
     (=shinjigen@1ed	.  1141)	; 衉
     (=shinjigen@rev	.  1143)	; 衉
     (<-formed
-     ((=ucs@jis		  . #x5580)	; &AJ1-04400;
-      (=adobe-japan1-0	  . 04400)	; &AJ1-04400;
+     ((=ucs		  . #x5580)	; 喀
       (=jis-x0208	  . #x533D)	; &I-J90-533D; [51-29]
-      (=shinjigen@1ed	  .  1139)	; &AJ1-04400;
-      (=shinjigen@rev	  .  1141)	; &AJ1-04400;
+      (=shinjigen@1ed	  .  1139)	; 喀
+      (=shinjigen@rev	  .  1141)	; 喀
       ))
     (<-formed*sources
      shinjigen@1ed shinjigen@rev)
