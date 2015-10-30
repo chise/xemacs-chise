@@ -540,13 +540,21 @@
     (=hanziku-1		. #xB574)	; &I-HZK01-B574;
     ))
 (define-char
-  '((ideographic-radical . 22)	; ⼕
-    (ideographic-strokes . 5)
-    (total-strokes	 . 7)
-    (=cbeta		. 06935)	; &CB06935;
-    (<-unknown
+  '((<-denotational
      ((=ucs		  . #x20971)	; 𠥱
       ))
+    (ideographic-radical . 22)	; ⼕
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x531A)	; 匚
+      )
+     ((=ucs		  . #x51FA)	; 出
+      ))
+    (=cbeta		. 06935)	; &CB06935;
     ))
 (define-char
   '((ideographic-radical . 22)	; ⼕
