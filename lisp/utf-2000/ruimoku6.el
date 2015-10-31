@@ -1152,9 +1152,9 @@
   '((=ruimoku-v6	. #xE045)	; &RUI6-E045;
     ))
 (define-char
-  '((<-subsumptive
-     ((=>>ruimoku-v6	  . #xE046)	; &G-RUI6-E046;
-      ))
+  '((ideographic-radical . 108)	; ⽫
+    (ideographic-strokes . 16)
+    (total-strokes	 . 21)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -1170,21 +1170,47 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
 	  (=ucs		      . #x2FF8)	; ⿸
 	  )
-	 ((=ucs@unicode	      . #x864D)	; &GT-44176;
-	  (=jis-x0208	      . #x6948)	; &GT-44176; [73-40]
-	  (=gb2312	      . #x722E)	; &I-G0-722E; [82-14]
-	  (=jis-x0213-1	      . #x6948)	; &I-JX1-6948; [73-40]
-	  (=daikanwa	      . 32674)	; &I-M-32674;
+	 ((=ucs		      . #x864D)	; 虍
 	  )
-	 ((=ucs@jis	      . #x5E78)	; &AJ1-01982;
-	  (=ucs@ks	      . #x5E78)	; &AJ1-01982;
-	  (=adobe-japan1-0    . 01982)	; &AJ1-01982;
+	 ((=ucs		      . #x5E78)	; 幸
 	  ))
 	))
       )
      ((=ucs		  . #x76BF)	; 皿
       ))
     (=ruimoku-v6	. #xE046)	; &RUI6-E046;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((name		      . "CJK RADICAL PERSON")
+	  (=ucs		      . #x2E85)	; ⺅
+	  )
+	 ((ideographic-structure
+	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	    (=ucs		. #x2FF8)	; ⿸
+	    )
+	   ((=ucs@unicode	. #x864D)	; &GT-44176;
+	    (=jis-x0208		. #x6948)	; &GT-44176; [73-40]
+	    (=gb2312		. #x722E)	; &I-G0-722E; [82-14]
+	    (=jis-x0213-1	. #x6948)	; &I-JX1-6948; [73-40]
+	    (=daikanwa		. 32674)	; &I-M-32674;
+	    )
+	   ((==ucs@jis		. #x5E78)	; &g2-AJ1-01982;
+	    (==ucs@ks		. #x5E78)	; &g2-AJ1-01982;
+	    (==adobe-japan1-0	. 01982)	; &g2-AJ1-01982;
+	    ))
+	  ))
+	)
+       ((=ucs		    . #x76BF)	; 皿
+	))
+      (==ruimoku-v6	  . #xE046)	; &g2-RUI6-E046;
+      ))
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
