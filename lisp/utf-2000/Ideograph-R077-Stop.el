@@ -751,6 +751,21 @@
     ))
 (define-char
   '((ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6B62)	; 止
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
+    (=ucs		. #x2395C)	; 𣥜
+    (=cbeta		. 10550)	; &I-CB10550;
+    ))
+(define-char
+  '((ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x3C52)	; 㱒
