@@ -1,5 +1,9 @@
 2015-10-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R026-Seal.el (U+536A): Unify CB07098.
+
+2015-10-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* ruimoku6.el (RUI6-E046): Apply new conventions for glyph
 	granularity.
 
