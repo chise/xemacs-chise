@@ -388,6 +388,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==ucs-radicals@unicode
 	  ==ucs-bmp-cjk@JP/hanazono
 	  ==ucs-bmp-cjk@gb
+          ==ucs-bmp-cjk-compat@gb
+          ==ucs-bmp-cjk-compat@JP
           ==ucs-sip-ext-b@iso
 	  ==mj-0
 	  ==mj-1
