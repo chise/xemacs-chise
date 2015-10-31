@@ -1,5 +1,52 @@
 2015-10-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ruimoku6.el (RUI6-E046): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R184-Eat.el: Add some representative nodes.
+	(U+98DF): Apply new conventions for glyph granularity.
+	(U-00029680): Likewise.
+	(U-00029681): Likewise.
+	(U-0002028A): Likewise.
+	(U+98E0): Likewise.
+	(U-0002967F): Unify S-9237; add `<-vulgar' for U+98DF.
+	(U+98E1): Apply new conventions for glyph granularity.
+	(U+98E3): Likewise.
+	(U+98E5): Likewise.
+	(U+98E6): Likewise.
+	(U+98E7): Likewise.
+	(U+98EE): Likewise.
+	(U+98F2): Likewise.
+	(U+98EF): Likewise.
+	(U+98F1): Likewise.
+	(U+98F3): Likewise.
+	(U+98F6): Likewise.
+	(U-000296B4): Likewise; integrate CB11258.
+	(U+98FD): Apply new conventions for glyph granularity.
+	(U+9907): Likewise.
+	(U+9908): Likewise.
+	(U+990A): Likewise.
+	(U+990C): Likewise.
+	(U+9910): Likewise.
+	(U+991A): Likewise.
+	(U+991F): Likewise.
+	(U+9920): Likewise.
+	(U+9922): Likewise.
+	(U+9924): Likewise.
+	(U+9927): Likewise.
+	(U+9934): Likewise.
+	(U+9935): Likewise.
+	(U+994E): Likewise.
+	(U+9957): Likewise.
+	(U+9958): Likewise.
+	(U-000297CB): Likewise.
+	(U+9959): Likewise.
+
+	* Ideograph-R167-Gold.el (U+FA28): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+
+	* Ideograph-R162-Walk.el (C1-584F): Add HNG-KHI0193-0.
+
 	* Ideograph-R108-Dish.el (RUI6-E046): Apply new conventions for
 	glyph granularity.
 
