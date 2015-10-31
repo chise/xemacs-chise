@@ -1,5 +1,30 @@
 2015-10-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R177-Leather.el (U+976B): Apply new conventions for
+	glyph granularity.
+	(U+976D): Likewise.
+	(U+9771): Likewise.
+	(U+9774): Likewise.
+	(U+9779): Likewise.
+	(U+977D): Likewise.
+	(U+978D): Likewise.
+	(U+9796): Likewise.
+	(U+9798): Likewise.
+	(U+979A): Likewise.
+	(U+979F): Likewise.
+	(U+97AB): Likewise.
+	(U+97AC): Likewise.
+	(U+97B1): Likewise.
+	(U+97B2): Likewise.
+	(U+97B4): Likewise.
+	(U+97B5): Likewise.
+	(U+97B6): Likewise.
+	(U+97B9): Likewise.
+	(C3-5E74): Unify S-9053; add `<-original' for UU+9774.
+
+	* Ideograph-R077-Stop.el (U-0002395C): New character; unify
+	CB10550.
+
 	* Ideograph-R026-Seal.el (U+536A): Unify CB07098.
 
 2015-10-30  MORIOKA Tomohiko  <tomo.git@chise.org>
