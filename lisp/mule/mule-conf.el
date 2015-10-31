@@ -4468,6 +4468,34 @@
 	       max-code #xFAFF
 	       ))
   (make-charset
+   '==ucs-bmp-cjk-compat@gb
+   "CJK Compatibility Ideographs of Unicode representatives"
+   '(long-name "CJK Compatibility Ideographs of Unicode"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-zh-.*-ucs-0"
+	       mother ==ucs@gb
+	       min-code #xF900
+	       max-code #xFAFF
+	       ))
+  (make-charset
+   '==ucs-bmp-cjk-compat@JP
+   "CJK Compatibility Ideographs for common glyph-forms used in Japan."
+   '(long-name "CJK Compatibility Ideographs for Japan"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-ja-.*-ucs-0"
+	       mother ==ucs@JP
+	       min-code #xF900
+	       max-code #xFAFF
+	       ))
+  (make-charset
    '=+>ucs-bmp-cjk-compat@jis
    "CJK Compatibility Ideographs of JIS representatives unified glyphs"
    '(long-name "JIS unified glyphs for CJK Compat chars"
