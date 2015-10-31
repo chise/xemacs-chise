@@ -1,3 +1,29 @@
+2015-10-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R163-City.el: Add some representative nodes.
+	(U+90A8): Apply new conventions for glyph granularity; add
+	`<-original' for U+6751.
+	(U+90AA): Apply new conventions for glyph granularity.
+	(M-39323): Unify U-0002868C and H10-B5D1.
+	(U+90CE): Apply new conventions for glyph granularity.
+	(U+90DE): Likewise.
+	(U+90ED): Likewise.
+	(U+90F0): Likewise.
+	(U+90FE): Likewise.
+	(U+9110): Likewise.
+	(U+9115): Likewise.
+	(U+9117): Likewise.
+	(U+911C): Likewise.
+	(U+9127): Likewise.
+	(U+912D): Likewise.
+	(U+912E): Likewise.
+	(U+9137): Likewise.
+	(U+913A): Likewise.
+	(U+913C): Likewise.
+	(U+9146): Likewise.
+	(U+9147): Likewise.
+	(U+9148): Likewise.
+
 2015-10-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R177-Leather.el (U+976B): Apply new conventions for
