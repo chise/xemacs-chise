@@ -5059,7 +5059,7 @@
     (=hanyo-denshi/ja	. #x4E59)	; &I-HD-JA-4E59; [46-57]
     (=gt		. 56267)	; &I-GT-56267;
     (=gt-pj-1		. #x4E59)	; &I-GT-56267; [46-57]
-    (=daikanwa		. 41847)	; 隣
+    (=daikanwa		. 41847)	; &I-M-41847;
     (=shinjigen		.  8932)	; 隣
     (=cbeta		. 00444)	; &I-CB00444;
     (->subsumptive
