@@ -88,6 +88,7 @@
     (=gb12345		. #x7D39)	; 卪 [93-25]
     (=big5-cdp		. #x8D7A)	; &I-CDP-8D7A;
     (=daikanwa		. 02838)	; &I-M-02838;
+    (=cbeta		. 07098)	; &I-CB07098;
     ))
 (define-char
   '((ideographic-radical . 26)	; ⼙
