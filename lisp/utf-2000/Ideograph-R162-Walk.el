@@ -5209,7 +5209,14 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (=ucs@cns		. #x8FF4)	; &C1-584F;
     (=cns11643-1	. #x584F)	; &C1-584F; [56-47]
+    (->subsumptive
+     ((==ucs@cns	  . #x8FF4)	; &g2-CU+8FF4;
+      (==cns11643-1	  . #x584F)	; &g2-CU+8FF4; [56-47]
+      )
+     ((===hng-khi	  . 01930)	; &HNG010-01930;
+      ))
     ))
 (define-char
   '((ideographic-radical . 162)	; ⾡
