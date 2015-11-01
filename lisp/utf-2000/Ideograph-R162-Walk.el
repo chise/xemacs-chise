@@ -13294,6 +13294,15 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (===hng-khi		. 05840)	; &HNG010-05840;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x904D)	; 遍
+      ))
+    (ideographic-radical . 162)	; ⾡
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
     (=cns11643-1	. #x6735)	; &C1-6735; [71-21]
     ))
 (define-char
