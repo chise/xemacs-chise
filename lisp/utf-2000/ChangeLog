@@ -1,5 +1,9 @@
 2015-11-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R060-Step.el: Add glyph-images of HNG-KHI.
+
+	* Ideograph-R057-Bow.el: Add glyph-images of HNG-KHI.
+
 	* Ideograph-R162-Walk.el (U+904D): Add HNG-KHI0584-0.
 
 2015-10-31  MORIOKA Tomohiko  <tomo.git@chise.org>
