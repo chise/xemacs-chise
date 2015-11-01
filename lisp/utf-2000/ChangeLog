@@ -1,3 +1,7 @@
+2015-11-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R162-Walk.el (U+904D): Add HNG-KHI0584-0.
+
 2015-10-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R163-City.el: Add some representative nodes.
