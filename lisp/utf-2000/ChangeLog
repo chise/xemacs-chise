@@ -32,6 +32,10 @@
 	(U+9147): Likewise.
 	(U+9148): Likewise.
 
+	* Ideograph-R036-Evening.el (U-00021589): Unify CB09238; add
+	`ideographic-strokes' and `total-strokes'; add representative
+	nodes.
+
 2015-10-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R177-Leather.el (U+976B): Apply new conventions for
