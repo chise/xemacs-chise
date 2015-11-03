@@ -18351,7 +18351,12 @@
     (=gt-pj-1		. #x5330)	; &I-GT-04696; [51-16]
     (=jef-china3	. #x70BB)	; &I-JC3-70BB;
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x5539)	; 唹
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x5539)	; 唹
 	)
        ((=ucs		    . #xE0102)	; 󠄂
@@ -18362,16 +18367,15 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((==ucs@jis	    . #x65BC)	; &g2-AJ1-01305;
-	(==ucs@ks	    . #x65BC)	; &g2-AJ1-01305;
+       ((==ucs@unicode	    . #x65BC)	; &g2-AJ1-01305;
 	(==adobe-japan1-0   . 01305)	; &g2-AJ1-01305;
 	))
-      (==ucs@jis/1990	  . #x5539)	; &g2-MJ008357;
-      (==ucs@jis/2000	  . #x5539)	; &g2-MJ008357;
-      (==ucs@jis/2004	  . #x5539)	; &g2-MJ008357;
+      (==ucs@unicode	  . #x5539)	; &g2-MJ008357;
       (==mj		  . 008357)	; &g2-MJ008357;
+      (==adobe-japan1-0	  . 04387)	; &g2-MJ008357;
       (==jis-x0208@1983	  . #x5330)	; &g2-MJ008357; [51-16]
       (==jis-x0208@1990	  . #x5330)	; &g2-MJ008357; [51-16]
+      (==cns11643-2	  . #x3428)	; &g2-MJ008357; [20-08]
       (==jis-x0213-1	  . #x5330)	; &g2-MJ008357; [51-16]
       (==hanyo-denshi/ja  . #x5330)	; &g2-MJ008357; [51-16]
       (==gt		  . 04696)	; &g2-MJ008357;
@@ -18380,40 +18384,16 @@
 	(===jis-x0208@1990  . #x5330)	; &R-J90-5330; [51-16]
 	(===jis-x0213-1	    . #x5330)	; &R-J90-5330; [51-16]
 	)
+       ((===adobe-japan1-0  . 04387)	; &R-AJ1-04387;
+	)
        ((===mj		    . 008357)	; &R-MJ008357;
 	)
        ((===gt		    . 04696)	; &R-GT-04696;
+	)
+       ((===cns11643-2	    . #x3428)	; &R-C2-3428; [20-08]
+	)
+       ((===ucs@unicode	    . #x5539)	; &R-UU+5539;
 	))
-      )
-     ((=decomposition@cid
-       ((=ucs		    . #x5539)	; 唹
-	)
-       ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (==adobe-japan1-0	  . 04387)	; &g2-AJ1-04387;
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x53E3)	; 口
-	)
-       ((==ucs@unicode	    . #x65BC)	; &g2-UU+65BC;
-	))
-      (==ucs@unicode	  . #x5539)	; &g2-UU+5539;
-      (==ucs@JP/hanazono  . nil)
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x53E3)	; 口
-	)
-       ((==ucs@cns	    . #x65BC)	; &g2-CU+65BC;
-	(==cns11643-1	    . #x4D75)	; &g2-CU+65BC; [45-85]
-	))
-      (==ucs@cns	  . #x5539)	; &g2-CU+5539;
-      (==cns11643-2	  . #x3428)	; &g2-CU+5539; [20-08]
       ))
     ))
 (define-char
