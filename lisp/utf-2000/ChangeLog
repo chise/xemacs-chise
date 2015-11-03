@@ -1,3 +1,9 @@
+2015-11-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (U+3AD0): Apply new conventions for glyph
+	granularity; unify BC-8AB7.
+	(U+66CE): Apply new conventions for glyph granularity.
+
 2015-11-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R060-Step.el: Add glyph-images of HNG-KHI.
