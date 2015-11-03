@@ -1,3 +1,123 @@
+2015-11-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R078-Death.el (U+6B7B): Apply new conventions for
+	glyph granularity.
+	(U-00023A3B): Likewise.
+
+	* Ideograph-R076-Lack.el (U-00023917): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R070-Square.el: Add some representative nodes.
+	(UU+65BC): Apply new conventions for glyph granularity.
+	(U+65BF): Likewise.
+	(U+65C2): Likewise.
+	(U+65C8): Likewise.
+	(U+65CE): Likewise.
+	(U+65D0): Likewise.
+	(U+65D4): Likewise.
+	(U+65D6): Likewise.
+	(U+65DF): Likewise.
+
+	* Ideograph-R061-Heart.el: Add some representative nodes.
+	(U+5FD8): Apply new conventions for glyph granularity.
+	(U+5FD9): Likewise.
+	(U+5FDC): Likewise.
+	(U+5FDE): Likewise.
+	(U+5FEA): Likewise.
+	(U+5FF5): Likewise.
+	(U+5FFA): Likewise.
+	(U+5FFC): Likewise.
+	(U+5FFF): Likewise.
+	(U+601C): Likewise.
+	(U+604B): Likewise.
+	(U+6063): Likewise.
+	(U+6065): Likewise.
+	(U+6071): Likewise.
+	(U+6082): Likewise.
+	(U+608B): Likewise.
+	(U+609B): Likewise.
+	(U+60A2): Likewise.
+	(U+60A5): Likewise.
+	(U+60A8): Likewise.
+	(U+60B0): Likewise.
+	(U+60B1): Likewise.
+	(U+60B2): Likewise.
+	(U+60B4): Likewise.
+	(U+60BB): Likewise.
+	(U+60C2): Likewise.
+	(U+60C7): Likewise.
+	(U+60CA): Likewise.
+	(U+60D8): Likewise.
+	(U+60DE): Likewise.
+	(U+60DF): Likewise.
+	(U+60F7): Likewise.
+	(U+6103): Likewise.
+	(U+610C): Likewise.
+	(U+610D): Likewise.
+	(U+6115): Likewise.
+	(U+6116): Likewise.
+	(U+6119): Likewise.
+	(U+611C): Likewise.
+	(U+6128): Likewise.
+	(U+612B): Likewise.
+	(U+6131): Likewise.
+	(U+6134): Likewise.
+	(U+6139): Likewise.
+	(U+6147): Likewise.
+	(U+6149): Likewise.
+	(U-000227E1): Likewise.
+	(U+6158): Likewise.
+	(U+615E): Likewise.
+	(U+6167): Likewise.
+	(U+6172): Likewise.
+	(U+6175): Likewise.
+	(U+6177): Likewise.
+	(U+617E): Likewise.
+	(U-000227F7): Likewise; add `<-vulgar' for U+61A3; add
+	HNG-KHI0353-0.
+	(U+618A): Apply new conventions for glyph granularity.
+	(U+6194): Likewise.
+	(U+619D): Likewise.
+	(U+61A0): Likewise.
+	(U+61AB): Likewise.
+	(U+61AC): Likewise.
+	(U+61C7): Likewise.
+	(U-00022846): Likewise.
+	(U+61C9): Likewise.
+	(U+61CF): Likewise.
+	(U+61D0): Likewise.
+	(U+61E3): Likewise.
+	(U+61E7): Likewise.
+	(U+61E9): Likewise.
+	(U+61F7): Likewise.
+	(U+61FC): Likewise.
+	(U+61FE): Likewise.
+	(U+61FF): Likewise.
+	(U+6200): Likewise.
+	(U+6201): Likewise.
+	(U+6204): Likewise.
+	(U+6207): Likewise.
+
+	* Ideograph-R054-Long-Stride.el (U+5EF4): Apply new conventions
+	for glyph granularity.
+	(U+5EF7): Likewise.
+	(U+5EF8): Likewise.
+	(U+5EF9): Likewise.
+	(U+5EFB): Likewise.
+	(U+5EFC): Likewise.
+	(U+5EFD): Likewise.
+
+	* Ideograph-R030-Mouth.el (U+5539): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R009-Man.el (U+4FB9): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+	(U+5002): Apply new conventions for glyph granularity.
+	(U+5016): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U-000202F6): Likewise.
+	(U-000202FD): Apply new conventions for glyph granularity.
+
 2015-11-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R072-Sun.el (U+3AD0): Apply new conventions for glyph
