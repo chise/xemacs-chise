@@ -4649,20 +4649,19 @@
     (ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
+    (=gt		. 20791)	; &GT-20791;
+    (=gt-pj-4		. #x4052)	; &GT-20791; [32-50]
+    (=daikanwa		. 16196)	; &I-M-16196;
+    (<-same
+     ((=ucs		  . #x98EE)	; 飮
+      (=daikanwa	  . 44063)	; &I-M-44063;
+      ))
+    (<-same*sources
+     chuci chuci-zhu daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 16196)	; &M-16196;
-      (<-same
-       ((=ucs@jis	    . #x98EE)	; &GT-59113;
-	(=jis-x0208	    . #x5D3B)	; &GT-59113; [61-27]
-	(=ks-x1001	    . #x6B66)	; &I-K0-6B66; [75-70]
-	(=jis-x0213-1	    . #x5D3B)	; &I-JX1-5D3B; [61-27]
-	(=daikanwa	    . 44063)	; &I-M-44063;
-	))
-      (<-same*sources
-       chuci chuci-zhu daikanwa)
+     ((==daikanwa	  . 16196)	; &g2-M-16196;
       )
-     ((=gt		  . 20791)	; &GT-20791;
-      (=gt-pj-4		  . #x4052)	; &GT-20791; [32-50]
+     ((==gt		  . 20791)	; &g2-GT-20791;
       ))
     ))
 (define-char
@@ -4672,10 +4671,13 @@
     (ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
+    (=ucs@iso		. #x23917)	; &C7-237C;
+    (=cns11643-7	. #x237C)	; &C7-237C; [03-92]
     (->subsumptive
-     ((=ucs@iso		  . #x23917)	; &U-00023917;
+     ((==ucs@iso	  . #x23917)	; &g2-IU-00023917;
       )
-     ((=cns11643-7	  . #x237C)	; &C7-237C; [03-92]
+     ((==ucs@cns	  . #x23917)	; &g2-CU+23917;
+      (==cns11643-7	  . #x237C)	; &g2-CU+23917; [03-92]
       ))
     ))
 (define-char
