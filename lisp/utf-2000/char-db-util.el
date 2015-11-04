@@ -324,6 +324,7 @@
     =jef-china3
     =>cbeta
     =shinjigen
+    =ucs-itaiji-002
     =big5-cdp-var-3
     =big5-cdp-var-5
     =>ucs@iwds-1))
