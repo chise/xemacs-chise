@@ -717,8 +717,37 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (=ucs		. #x253CF)	; 𥏏
-    (=cns11643-6	. #x4C2C)	; &I-C6-4C2C; [44-12]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x253CF)	; 𥏏
+      ))
+    (ideographic-radical . 111)	; ⽮
+    (ideographic-strokes . 7)
+    (total-strokes	 . 12)
+    (=ucs@iso		. #x253CF)	; &C6-4C2C;
+    (=cns11643-6	. #x4C2C)	; &C6-4C2C; [44-12]
     (=daikanwa		. 23977)	; &I-M-23977;
+    (<-wrong
+     ((=ucs@unicode	  . #x6BB9)	; &M-16634;
+      (=daikanwa	  . 16634)	; &M-16634;
+      ))
+    (<-wrong*sources
+     zhengzitong kangxi daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x253CF)	; &g2-M-23977;
+      (==daikanwa	  . 23977)	; &g2-M-23977;
+      (->subsumptive
+       ((===daikanwa	    . 23977)	; &R-M-23977;
+	)
+       ((===ucs@iso	    . #x253CF)	; &R-U-000253CF;
+	)
+       ((=hanziku-1	    . #xB656)	; &HZK01-B656;
+	))
+      )
+     ((==ucs@cns	  . #x253CF)	; &g2-CU+253CF;
+      (==cns11643-6	  . #x4C2C)	; &g2-CU+253CF; [44-12]
+      ))
     ))
 (define-char
   '((ideographic-radical . 111)	; ⽮
