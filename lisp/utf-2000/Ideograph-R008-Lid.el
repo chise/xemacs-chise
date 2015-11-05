@@ -4575,8 +4575,8 @@
 	)
        ((=ucs		    . #x4020)	; 䀠
 	)
-       ((=ucs@unicode	    . #x6B7B)	; &AJ1-02222;
-	(=adobe-japan1-0    . 02222)	; &AJ1-02222;
+       ((==ucs@unicode	    . #x6B7B)	; &g2-AJ1-02222;
+	(==adobe-japan1-0   . 02222)	; &g2-AJ1-02222;
 	))
       (==ucs@iso	  . #x2019A)	; &g2-M-00340;
       (==daikanwa	  . 00340)	; &g2-M-00340;
