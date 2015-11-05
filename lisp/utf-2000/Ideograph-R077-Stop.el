@@ -1091,8 +1091,7 @@
     (=daikanwa		. 16304)	; &I-M-16304;
     (=hanziku-4		. #xD35E)	; &I-HZK04-D35E;
     (<-ancient
-     ((=ucs@unicode	  . #x6B7B)	; &AJ1-02222;
-      (=adobe-japan1-0	  . 02222)	; &AJ1-02222;
+     ((=ucs		  . #x6B7B)	; 死
       (=daikanwa	  . 16365)	; &I-M-16365;
       ))
     (<-ancient*sources
