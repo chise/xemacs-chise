@@ -22724,13 +22724,6 @@
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 15)
     (total-strokes	 . 19)
-    (=ucs		. #x22936)	; 𢤶
-    (=cns11643-5	. #x6777)	; &I-C5-6777; [71-87]
-    ))
-(define-char
-  '((ideographic-radical . 61)	; ⼼
-    (ideographic-strokes . 15)
-    (total-strokes	 . 19)
     (=cbeta		. 01393)	; &CB01393;
     ))
 (define-char
@@ -23309,15 +23302,64 @@
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
+    (=ucs		. #x22936)	; 𢤶
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22936)	; 𢤶
+      ))
+    (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 16)
     (total-strokes	 . 20)
+    (=ucs@iso		. #x22936)	; &M-11466;
     (=daikanwa		. 11466)	; &M-11466;
+    (->subsumptive
+     ((==ucs@iso	  . #x22936)	; &g2-M-11466;
+      (==daikanwa	  . 11466)	; &g2-M-11466;
+      (->subsumptive
+       ((===daikanwa	    . 11466)	; &R-M-11466;
+	)
+       ((===ucs@iso	    . #x22936)	; &R-U-00022936;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22936)	; 𢤶
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 15)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x3C7F)	; 㱿
+      )
+     ((=ucs		  . #x6018)	; 怘
+      ))
+    (=ucs@cns		. #x22936)	; &C5-6777;
+    (=cns11643-5	. #x6777)	; &C5-6777; [71-87]
+    (->subsumptive
+     ((==ucs@cns	  . #x22936)	; &g2-CU+22936;
+      (==cns11643-5	  . #x6777)	; &g2-CU+22936; [71-87]
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 16)
     (total-strokes	 . 20)
-    (=daikanwa		. 11467)	; &M-11467;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7BE4)	; 篤
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (=ucs		. #x22937)	; 𢤷
+    (=daikanwa		. 11467)	; &I-M-11467;
+    (=hanziku-6		. #xE9BD)	; &I-HZK06-E9BD;
     ))
 (define-char
   '((=>ucs		. #x22943)	; 𢥃
