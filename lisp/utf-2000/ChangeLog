@@ -1,5 +1,22 @@
 2015-11-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R063-Door.el: Add some representative nodes.
+	(U+623D): Apply new conventions for glyph granularity.
+	(U+623F): Likewise.
+	(U+6247): Likewise.
+	(U+6248): Likewise.
+	(U+6249): Likewise.
+
+	* Ideograph-R001-One.el (A-M-00052): New abstract node to
+	integrate U-0002B826 and U-00020A44.
+	(U-0002B826): New character; add HNG-KHI0396-0.
+	(GT-00073): Separate U-00020A44 and C6-255E; unify IU+2B826; add
+	`<-denotational' for U-0002B826; add `<-vulgar' for UU+6240; add
+	representative nodes.
+	(U-00020A44): Separate GT-00073 and M-00052; add `<-same' for
+	U-0002B826; add representative nodes.
+	(GT-00072): Add `ideographic-structure'.
+
 	* Ideograph-R075-Tree.el (U+6B07): Apply new conventions for glyph
 	granularity for components of ideographic-structure.
 
