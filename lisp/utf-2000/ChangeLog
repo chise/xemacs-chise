@@ -1,11 +1,21 @@
 2015-11-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R111-Arrow.el (U-000253CF): Apply new conventions for
+	glyph granularity.
+	(IU+253CF): Add `<-wrong' for UU+6BB9.
+
 	* Ideograph-R063-Door.el: Add some representative nodes.
 	(U+623D): Apply new conventions for glyph granularity.
 	(U+623F): Likewise.
 	(U+6247): Likewise.
 	(U+6248): Likewise.
 	(U+6249): Likewise.
+
+	* Ideograph-R061-Heart.el (U-00022936): Apply new conventions for
+	glyph granularity; integrate M-11466.
+	(M-11466): Unify IU+22936.
+	(M-11467): Unify U-00022937 and H6-E9BD; add
+	`ideographic-structure'.
 
 	* Ideograph-R001-One.el (A-M-00052): New abstract node to
 	integrate U-0002B826 and U-00020A44.
