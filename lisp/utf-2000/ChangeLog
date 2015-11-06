@@ -1,3 +1,15 @@
+2015-11-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el: Add glyph-images of HNG-KHI.
+
+	* Ideograph-R065-Branch.el (U+652F): Apply new conventions for
+	glyph granularity; add HNG-KHI0080-0.
+
+2015-11-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (U-0002019A): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
 2015-11-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R111-Arrow.el (U-000253CF): Apply new conventions for
