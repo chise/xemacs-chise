@@ -93,7 +93,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=ucs		. #x6B7B)	; 死
-    (=adobe-japan1-0	. 02222)	; &AJ1-02222;
+    (=adobe-japan1-0	. 02222)	; &I-AJ1-02222;
     (=jis-x0208		. #x3B60)	; &I-J90-3B60; [27-64]
     (=gb2312		. #x4B40)	; &I-G0-4B40; [43-32]
     (=ks-x1001		. #x5E5D)	; &I-K0-5E5D; [62-61]
