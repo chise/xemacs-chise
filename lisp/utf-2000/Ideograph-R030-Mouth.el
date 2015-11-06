@@ -24242,6 +24242,7 @@
 	(==ucs@jis/1990	    . #x8036)	; &g2-GT-37579;
 	(==ucs@jis/2000	    . #x8036)	; &g2-GT-37579;
 	(==ucs@jis/2004	    . #x8036)	; &g2-GT-37579;
+	(==ucs@ks	    . #x8036)	; &g2-GT-37579;
 	(==jis-x0213-1	    . #x4C6D)	; &g2-GT-37579; [44-77]
 	))
       (==ucs@cns	  . #x35BF)	; &g2-M-03929;
@@ -24262,7 +24263,7 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((==ucs@unicode	    . #x8036)	; &g2-K0-652D;
+       ((==ucs@unicode	    . #x8036)	; &g2-J83-4C6D;
 	))
       (==ucs@unicode	  . #x35BF)	; &g2-UU+35BF;
       (==ucs@JP/hanazono  . nil)
@@ -43453,8 +43454,7 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@unicode	    . #x65B0)	; &G0-5042;
-	(=gb2312	    . #x5042)	; &G0-5042; [48-34]
+       ((==ucs@unicode	    . #x65B0)	; &g2-UU+65B0;
 	))
       (==ucs@unicode	  . #x567A)	; &g2-UU+567A;
       (==ucs@JP/hanazono  . nil)
