@@ -1,5 +1,40 @@
 2015-11-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R128-Ear.el: Add some representative nodes.
+	(U+8035): Apply new conventions for glyph granularity.
+	(U+8036): Likewise.
+	(U+8037): Likewise.
+	(U+8039): Likewise.
+	(U+803A): Likewise.
+	(U+803B): Likewise.
+	(U+803C): Likewise.
+	(U+803D): Likewise.
+	(U+803E): Likewise.
+	(U+803F): Likewise.
+	(U+8043): Likewise.
+	(U+8046): Likewise.
+	(U+804A): Likewise.
+	(U+8052): Likewise.
+	(U+8060): Likewise.
+	(U+8056): Unify S-6389 instead of S-6387.
+	(U+8058): Apply new conventions for glyph granularity.
+	(U+805A): Likewise.
+	(U+805E): Likewise.
+	(U+805F): Likewise.
+	(U+8062): Likewise.
+	(U+8064): Likewise.
+	(U+8066): Likewise.
+	(U+8068): Add `<-vulgar' for U+806F.
+	(U+806F): Apply new conventions for glyph granularity.
+	(U+8071): Likewise.
+	(U+8072): Likewise.
+	(U+8073): Likewise.
+	(U+8075): Likewise.
+	(U+8076): Likewise.
+	(U-i002+8076): New character.
+	(U+8079): Apply new conventions for glyph granularity.
+	(U+807B): Likewise.
+
 	* Ideograph-R009-Man.el (U-000203ED): Apply new conventions for
 	glyph granularity.
 
