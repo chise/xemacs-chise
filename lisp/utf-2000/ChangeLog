@@ -1,5 +1,22 @@
 2015-11-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R137-Boat.el (GT-K01126): New character; add
+	`<-formed@component' for U+821F.
+	(U+822C): Separate abstract node to integrate U+822C-itaiji-003.
+	(U+822C-itaiji-003): New character.
+
+	* Ideograph-R030-Mouth.el (U+35BB): Apply new conventions for
+	glyph granularity.
+	(JU+5634): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+569B): Use `->subsumptive'.
+
+	* Ideograph-R009-Man.el (U+3471): Apply new conventions for glyph
+	granularity.
+	(U+3492): Likewise.
+
+	* Ideograph-R005-Second.el (U-00020105): Use `->subsumptive'.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=ucs-var-001', `=ucs-var-002', `=ucs-itaiji-001',
 	`=ucs-itaiji-003' and `=ucs-itaiji-008'.
