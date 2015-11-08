@@ -1,5 +1,26 @@
 2015-11-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R073-Say.el: Add glyph-images of HNG-KHI.
+	(MJ013511): New character; unify HD-JT-AD8C.
+
+	* Ideograph-R046-Mountain.el (U+5DAA): Apply new conventions for
+	glyph granularity.
+	(U+5DAB): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+
+	* Ideograph-R044-Corpse.el (U+378B): Apply new conventions for
+	glyph granularity.
+	(U+378B-itaiji-001): New character; add `<-denotational' for
+	U+378B; add `<-formed@component' for U-00020B1D.
+
+	* Ideograph-R037-Big.el (U+5932): Add HNG-KHI0429-0.
+
+	* Ideograph-R026-Seal.el (U+5369): Integrate BC-8B5A and BC-89A7.
+
+	* Ideograph-R012-Eight.el (U+5171): Use `->denotational' to
+	integrate U+5171-var-001.
+	(U+5171-var-001): New character.
+
 	* Ideograph-R074-Moon.el: Add glyph-images of HNG-KHI.
 
 	* Ideograph-R029-Again.el (CU+66FC): Add HNG-KHI0424-0.
