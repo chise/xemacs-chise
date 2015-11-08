@@ -272,6 +272,25 @@
     ))
 (define-char
   '((ideographic-radical . 176)	; ⾯
+    (ideographic-strokes . 5)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x9762)	; 面
+      )
+     ((=ucs		  . #x4E14)	; 且
+      ))
+    (=mj		. 059002)	; &MJ059002;
+    (=koseki		. 483370)	; &MJ059002;
+    (=cbeta		. 04132)	; &I-CB04132;
+    (<-formed
+     ((=ucs		  . #x4EB6)	; 亶
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 176)	; ⾯
     (ideographic-strokes . 6)
     (total-strokes	 . 15)
     (=ucs		. #x29219)	; 𩈙
