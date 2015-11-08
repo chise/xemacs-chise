@@ -4172,6 +4172,29 @@
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.var003-0"))
+  (make-charset '=ucs-itaiji-001
+		"uXXXX-itaiji-001 glyphs of GlyphWiki"
+		'(long-name	"UCS-itaiji-001"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs))
+  (make-charset '=ucs-bmp-itaiji-001
+		"uXXXX-itaiji-001 glyph-images in BMP"
+		'(long-name	"UCS-BMP-itaiji-001"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs-itaiji-001
+		  min-code #x2E00
+		  max-code #x9FCC
+		  registry "ucs\\.itaiji001-0"))
   (make-charset '=ucs-itaiji-002
 		"uXXXX-itaiji-002 glyphs of GlyphWiki"
 		'(long-name	"UCS-itaiji-002"
@@ -4195,6 +4218,52 @@
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.itaiji002-0"))
+  (make-charset '=ucs-itaiji-003
+		"uXXXX-itaiji-003 glyphs of GlyphWiki"
+		'(long-name	"UCS-itaiji-003"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs))
+  (make-charset '=ucs-bmp-itaiji-003
+		"uXXXX-itaiji-003 glyph-images in BMP"
+		'(long-name	"UCS-BMP-itaiji-003"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs-itaiji-003
+		  min-code #x2E00
+		  max-code #x9FCC
+		  registry "ucs\\.itaiji003-0"))
+  (make-charset '=ucs-itaiji-008
+		"uXXXX-itaiji-008 glyphs of GlyphWiki"
+		'(long-name	"UCS-itaiji-008"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs))
+  (make-charset '=ucs-bmp-itaiji-008
+		"uXXXX-itaiji-008 glyph-images in BMP"
+		'(long-name	"UCS-BMP-itaiji-008"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs-itaiji-008
+		  min-code #x2E00
+		  max-code #x9FCC
+		  registry "ucs\\.itaiji008-0"))
   (make-charset '=ucs-itaiji-084
 		"uXXXX-itaiji-084 glyph-images of GlyphWiki"
 		'(long-name	"UCS-itaiji-084"
