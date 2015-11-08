@@ -1,3 +1,21 @@
+2015-11-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R074-Moon.el: Add glyph-images of HNG-KHI.
+
+	* Ideograph-R029-Again.el (CU+66FC): Add HNG-KHI0424-0.
+
+2015-11-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R176-Face.el (MJ059002): New character; unify
+	KOSEKI-483370 and CB04132; add `<-formed' for U+4EB6.
+
+	* Ideograph-R071-Not.el (UU+65E2): Add HNG-KHI0084-0.
+
+	* Ideograph-R070-Square.el: Add glyph-images of HNG-KHI.
+
+	* Ideograph-R024-Ten.el (U+535B): Apply new conventions for glyph
+	granularity.
+
 2015-11-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ruimoku6.el (RUI6-E072): Add `<-denotational' for U-0002C686;
