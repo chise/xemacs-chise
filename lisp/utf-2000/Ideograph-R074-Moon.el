@@ -178,6 +178,8 @@
 	(===ks-x1001	    . #x6A73)	; &R-K0-6A73; [74-83]
 	)
        ((===ucs@unicode	    . #x6709)	; &R-UU+6709;
+	)
+       ((===hng-khi	    . 04260)	; &HNG010-04260;
 	))
       )
      ((ideographic-structure
@@ -449,6 +451,23 @@
     (=hanyo-denshi/jt	. #xB2DE)	; &HD-JT-B2DE;
     (=daikanwa		. 14345)	; &I-M-14345;
     (=jef-china3	. #x52B4)	; &I-JC3-52B4;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x670D)	; 服
+      ))
+    (ideographic-radical . 74)	; ⽉
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6708)	; 月
+      )
+     ((=ucs-itaiji-001	  . #x378B)	; &U-i001+378B;
+      ))
+    (===hng-khi		. 04250)	; &HNG010-04250;
     ))
 (define-char
   '((<-denotational
