@@ -1,5 +1,9 @@
 2015-11-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=ucs-var-001', `=ucs-var-002', `=ucs-itaiji-001',
+	`=ucs-itaiji-003' and `=ucs-itaiji-008'.
+
 	* Ideograph-R073-Say.el: Add glyph-images of HNG-KHI.
 	(MJ013511): New character; unify HD-JT-AD8C.
 
