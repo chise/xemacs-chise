@@ -14221,7 +14221,11 @@
      ((=ucs		  . #x696D)	; 業
       ))
     (=ucs		. #x5DAA)	; 嶪
+    (=ks-x1001		. #x6575)	; &I-K0-6575; [69-85]
+    (=cns11643-2	. #x566F)	; &I-C2-566F; [54-79]
     (=big5		. #xE965)	; &I-B-E965;
+    (=daikanwa		. 08506)	; &I-M-08506;
+    (=jef-china3	. #x4BAC)	; &I-JC3-4BAC;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -14229,16 +14233,23 @@
 	)
        ((=ucs		    . #x5C71)	; 山
 	)
-       ((=ucs@unicode	    . #x696D)	; &GT-19258;
-	(=jis-x0208	    . #x3648)	; &GT-19258; [22-40]
-	(=ks-x1001	    . #x6576)	; &I-K0-6576; [69-86]
-	(=jis-x0213-1	    . #x3648)	; &I-JX1-3648; [22-40]
-	(=daikanwa	    . 15170)	; &I-M-15170;
+       ((==ucs@unicode	    . #x696D)	; &g2-GT-19258;
+	(==jis-x0208	    . #x3648)	; &g2-GT-19258; [22-40]
 	))
-      (=ucs@unicode	  . #x5DAA)	; &M-08506;
-      (=ks-x1001	  . #x6575)	; &M-08506; [69-85]
-      (=daikanwa	  . 08506)	; &I-M-08506;
-      (=jef-china3	  . #x4BAC)	; &I-JC3-4BAC;
+      (==ucs@unicode	  . #x5DAA)	; &g2-M-08506;
+      (==ks-x1001	  . #x6575)	; &g2-M-08506; [69-85]
+      (==daikanwa	  . 08506)	; &g2-M-08506;
+      (==jef-china3	  . #x4BAC)	; &g2-M-08506;
+      (->subsumptive
+       ((===daikanwa	    . 08506)	; &R-M-08506;
+	)
+       ((===ucs@ks	    . #x5DAA)	; &R-K0-6575;
+	(===ks-x1001	    . #x6575)	; &R-K0-6575; [69-85]
+	)
+       ((===ucs@unicode	    . #x5DAA)	; &R-UU+5DAA;
+	)
+       ((===jef-china3	    . #x4BAC)	; &R-JC3-4BAC;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -14246,10 +14257,11 @@
 	)
        ((=ucs		    . #x5C71)	; 山
 	)
-       ((=cns11643-1	    . #x6446)	; &C1-6446; [68-38]
+       ((==ucs@cns	    . #x696D)	; &g2-CU+696D;
+	(==cns11643-1	    . #x6446)	; &g2-CU+696D; [68-38]
 	))
-      (=ucs@cns		  . #x5DAA)	; &C2-566F;
-      (=cns11643-2	  . #x566F)	; &C2-566F; [54-79]
+      (==ucs@cns	  . #x5DAA)	; &g2-CU+5DAA;
+      (==cns11643-2	  . #x566F)	; &g2-CU+5DAA; [54-79]
       ))
     ))
 (define-char
@@ -14283,11 +14295,8 @@
 	)
        ((=ucs		    . #x5C71)	; 山
 	)
-       ((=ucs@unicode	    . #x696D)	; &GT-19258;
-	(=jis-x0208	    . #x3648)	; &GT-19258; [22-40]
-	(=ks-x1001	    . #x6576)	; &I-K0-6576; [69-86]
-	(=jis-x0213-1	    . #x3648)	; &I-JX1-3648; [22-40]
-	(=daikanwa	    . 15170)	; &I-M-15170;
+       ((==ucs@unicode	    . #x696D)	; &g2-GT-19258;
+	(==jis-x0208	    . #x3648)	; &g2-GT-19258; [22-40]
 	))
       (==ucs@jis	  . #x5DAB)	; &g2-AJ1-21488;
       (==adobe-japan1-6	  . 21488)	; &g2-AJ1-21488;
@@ -14313,15 +14322,16 @@
 	)
        ((=ucs		    . #x5C71)	; 山
 	)
-       ((=cns11643-1	    . #x6446)	; &C1-6446; [68-38]
+       ((==ucs@cns	    . #x696D)	; &g2-CU+696D;
+	(==cns11643-1	    . #x6446)	; &g2-CU+696D; [68-38]
 	))
       (==ucs@cns	  . #x5DAB)	; &g2-CB03544;
       (==cns11643-3	  . #x505B)	; &g2-CB03544; [48-59]
       (==cbeta		  . 03544)	; &g2-CB03544;
       (->subsumptive
-       ((===cbeta	    . 03544)	; &R-CB03544;
-	)
        ((===cns11643-3	    . #x505B)	; &R-C3-505B; [48-59]
+	)
+       ((===cbeta	    . 03544)	; &R-CB03544;
 	))
       ))
     ))
