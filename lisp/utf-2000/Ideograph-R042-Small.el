@@ -184,6 +184,7 @@
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
+    (=>ucs@iwds-1	. #x5C11)	; &AJ1-02455;
     (=ucs@unicode	. #x5C11)	; &AJ1-02455;
     (=adobe-japan1-0	. 02455)	; &AJ1-02455;
     (=jis-x0208		. #x3E2F)	; &I-J90-3E2F; [30-15]
@@ -246,7 +247,18 @@
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
-    (===hng-khi		. 00430)	; &HNG010-00430;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x23942)	; 𣥂
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=ucs-itaiji-001	. #x5C11)	; &U-i001+5C11;
+    (->subsumptive
+     ((===hng-khi	  . 00430)	; &HNG010-00430;
+      ))
     ))
 (define-char
   '((ideographic-radical . 42)	; ⼩
