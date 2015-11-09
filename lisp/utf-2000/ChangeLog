@@ -1,5 +1,12 @@
 2015-11-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R042-Small.el (UU+5C11): Add `=>ucs@iwds-1'.
+	(U+5C11-itaiji-001): New character.
+	(HNG-KHI0043-0): Use `<-subsumptive' for U+5C11-itaiji-001 instead
+	of `<-denotational' for U+5C11.
+
+2015-11-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R137-Boat.el (GT-K01126): New character; add
 	`<-formed@component' for U+821F.
 	(U+822C): Separate abstract node to integrate U+822C-itaiji-003.
