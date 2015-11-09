@@ -12833,7 +12833,8 @@
     (=ks-x1001		. #x6967)	; &M-38991; [73-71]
     (=daikanwa		. 38991)	; &I-M-38991;
     (<-synonyms
-     ((=cns11643-1	  . #x6373)	; &C1-6373; [67-83]
+     ((=ucs@unicode	  . #x611A)	; &AJ1-01770;
+      (=adobe-japan1-0	  . 01770)	; &AJ1-01770;
       (=daikanwa	  . 10946)	; &I-M-10946;
       ))
     (<-synonyms*sources
