@@ -1,3 +1,330 @@
+2015-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R120-Silk.el: Add some representative nodes.
+	(U+7CFA): Apply new conventions for glyph granularity.
+	(U+7CFB): Likewise.
+	(U+7CFE): Likewise.
+	(U-00025F86): Likewise.
+	(U+7D00): Likewise.
+	(U+7D02): Likewise.
+	(U+7D03): Likewise.
+	(U+7D04): Likewise.
+	(U+7D05): Likewise.
+	(U+7D06): Likewise.
+	(U+7D07): Likewise.
+	(U+7D08): Likewise.
+	(U+7D09): Likewise.
+	(U-0002F96B): Add `<-denotational' for U-00025F86.
+	(U+7D1A): Apply new conventions for glyph granularity.
+	(U+7D0A): Likewise.
+	(U+7D0B): Likewise.
+	(U+7D0D): Likewise.
+	(U+7D0F): Likewise.
+	(U+7D10): Likewise.
+	(U+7D11): Likewise.
+	(U+7D12): Likewise.
+	(U+7D13): Likewise.
+	(U+7D15): Likewise.
+	(U+7D16): Likewise.
+	(U+7D17): Likewise.
+	(U+7D18): Likewise.
+	(U+7D19): Likewise.
+	(U+7D1B): Likewise.
+	(U+7D1C): Likewise.
+	(U+7D1D): Likewise.
+	(U+7D1E): Likewise.
+	(U+7D20): Likewise.
+	(U+7D21): Likewise.
+	(U+7D22): Likewise.
+	(U+7D23): Likewise.
+	(U+7D26): Likewise.
+	(U+7D2A): Likewise.
+	(U+7D2B): Likewise.
+	(U+7D2C): Likewise.
+	(U+7D2D): Likewise.
+	(U+7D2E): Likewise.
+	(U+7D2F): Likewise.
+	(U+7D30): Likewise.
+	(U+7D31): Likewise.
+	(U+7D32): Likewise.
+	(U+7D33): Likewise.
+	(U+7D35): Likewise.
+	(U+7D39): Likewise.
+	(U+7D3A): Likewise.
+	(U+7D3C): Likewise.
+	(U+7D3D): Likewise.
+	(U+7D3E): Likewise.
+	(U+7D3F): Likewise.
+	(U+7D40): Likewise.
+	(U+7D41): Likewise.
+	(U+7D42): Likewise.
+	(U+7D43): Likewise.
+	(U+7D44): Likewise.
+	(U+7D45): Likewise.
+	(U+7D46): Likewise.
+	(U+7D47): Likewise.
+	(U+7D48): Likewise.
+	(U+7D4C): Likewise.
+	(U+7D4B): Likewise.
+	(U+7D4D): Likewise.
+	(U+7D4E): Likewise.
+	(U+7D4F): Likewise.
+	(U+7D50): Likewise.
+	(U+7D51): Likewise.
+	(U+42D6): Likewise.
+	(U+7D53): Likewise.
+	(U+7D56): Likewise.
+	(U+7D57): Likewise.
+	(U+7D59): Likewise.
+	(U+7D5A): Likewise.
+	(U+7D5C): Likewise.
+	(U+7D5D): Likewise.
+	(U+7D5E): Likewise.
+	(U+7D61): Likewise.
+	(U+7D62): Likewise.
+	(U+7D63): Likewise.
+	(U+7D65): Likewise.
+	(U+7D66): Likewise.
+	(U+7D67): Likewise.
+	(U+7D68): Likewise.
+	(U+7D6A): Likewise.
+	(U+7D6B): Likewise; unify S-6025; add `<-formed' for U+7D2F.
+	(U+7D6E): Apply new conventions for glyph granularity.
+	(U+7D70): Likewise.
+	(U+7D71): Likewise.
+	(U+7D72): Likewise.
+	(U+42DD): Likewise.
+	(U+7D75): Likewise.
+	(U+7D76): Likewise.
+	(CB09125): New character; unify S-6059; add `<-vulgar' for U+7D79.
+	(U+7D5B): Apply new conventions for glyph granularity.
+	(U+7D78): Likewise; unify S1-6184 and S2-6186; add `<-formed' for
+	M-27944.
+	(U+7D79): Apply new conventions for glyph granularity.
+	(U+7D7A): Likewise.
+	(U+7D7B): Likewise.
+	(U+7D7D): Likewise.
+	(U+7D7F): Likewise.
+	(U+7D81): Likewise.
+	(U+7D82): Likewise.
+	(U+7D83): Likewise.
+	(U+7D85): Likewise.
+	(U+7D86): Likewise.
+	(U+7D88): Likewise.
+	(U+7D89): Likewise.
+	(U+7D8B): Likewise.
+	(U+7D8C): Likewise.
+	(U+7D8D): Likewise.
+	(U+7D8F): Likewise.
+	(U+7D91): Likewise.
+	(U+7D93): Likewise.
+	(U+7D96): Likewise.
+	(U+7D99): Likewise.
+	(U+7D97): Likewise.
+	(U+7D9A): Likewise.
+	(U+7D9B): Likewise.
+	(A-CB02133): New abstract character to integrate S-5960 and
+	CB02133.
+	(S-5960): New character; add `<-vulgar' for U+7D72.
+	(CB02133): New character.
+	(U+7D9C): Apply new conventions for glyph granularity.
+	(U+7D9D): Likewise.
+	(U+7D9E): Likewise.
+	(U+7D9F): Likewise.
+	(U+7DA0): Likewise.
+	(U+7DD1): Likewise.
+	(U+7DA2): Likewise.
+	(U+7DA3): Likewise.
+	(U+7DA6): Likewise.
+	(U+7DA7): Likewise.
+	(U+7DAA): Likewise.
+	(U+7DAB): Likewise.
+	(U+7DAC): Likewise.
+	(U+7DAD): Likewise.
+	(U+7DAE): Likewise.
+	(U+7DAF): Likewise.
+	(U+7DB0): Likewise.
+	(U+7DB1): Likewise.
+	(U+7DB2): Likewise.
+	(U+7DB4): Likewise.
+	(U+7DB5): Likewise.
+	(U+7DB6): Likewise.
+	(U+7DB7): Likewise.
+	(U+7DB8): Likewise.
+	(U+7DBA): Likewise.
+	(U+7DBB): Likewise.
+	(U+7DBD): Likewise.
+	(U+7DBE): Likewise.
+	(U+7DBF): Likewise.
+	(U+7DC0): Likewise.
+	(U+7DC2): Likewise.
+	(U+7DC3): Likewise.
+	(U+7DC4): Likewise.
+	(U+7DC5): Likewise.
+	(U+7DC6): Likewise.
+	(U+7DC7): Likewise.
+	(U+7DCA): Likewise.
+	(U+7DCB): Likewise.
+	(U+7DCC): Likewise.
+	(U+7DCD): Likewise.
+	(U+7DCE): Likewise.
+	(U+7DCF): Likewise.
+	(U+7DD2): Likewise.
+	(U+7DD5): Likewise.
+	(U+7DD6): Likewise.
+	(U+7DD7): Likewise.
+	(U+7DD8): Likewise.
+	(U+7DD9): Likewise.
+	(U+7DDA): Likewise.
+	(U+7DDC): Likewise; add `<-formed' for U+7DBF.
+	(U+7DDD): Apply new conventions for glyph granularity.
+	(U+7DDE): Likewise.
+	(U+7E00): Likewise.
+	(U+7DE0): Likewise.
+	(U+7DE1): Likewise.
+	(U+7DE2): Likewise.
+	(U+7DE3): Likewise.
+	(U+7E01): Likewise.
+	(U+7DE4): Likewise.
+	(U+7DE5): Likewise.
+	(U+7DE6): Likewise.
+	(U+7DE8): Likewise.
+	(U+7DE9): Likewise.
+	(U+7DEA): Likewise.
+	(U+7DEB): Likewise.
+	(U+7DEC): Likewise.
+	(U+7DED): Likewise.
+	(U+7DEF): Likewise.
+	(U+7DF1): Likewise.
+	(U+7DF2): Likewise.
+	(U+7DF4): Likewise.
+	(U+7DF5): Likewise.
+	(U+7DF6): Likewise.
+	(U+7DF9): Likewise.
+	(U+7DFA): Likewise.
+	(U+7DFB): Likewise.
+	(U+4302): Likewise.
+	(U+7DC7): Likewise.
+	(U+7E04): Likewise.
+	(U+7E05): Likewise.
+	(U+7E08): Likewise.
+	(U+7E09): Likewise.
+	(U+7E0A): Likewise.
+	(U+7E0B): Likewise.
+	(U+7E10): Likewise.
+	(U+7E12): Likewise.
+	(U+7E15): Likewise.
+	(U+7E17): Likewise.
+	(U+7E1B): Likewise.
+	(U+7E1C): Likewise.
+	(U+7E1E): Likewise.
+	(U+7E1F): Likewise.
+	(U+7E20): Likewise.
+	(U+7E21): Likewise.
+	(U+7E22): Likewise.
+	(U+7E26): Likewise.
+	(U+7E27): Likewise.
+	(U+7E2B): Likewise.
+	(U+7E28): Likewise.
+	(U+7E2C): Likewise.
+	(U+7E2D): Likewise.
+	(U+7E2E): Likewise.
+	(U+7E2F): Likewise.
+	(U+7E31): Likewise.
+	(U+7E32): Likewise.
+	(U+7E33): Likewise.
+	(U+7E35): Likewise.
+	(U+7E36): Likewise.
+	(U+7E37): Likewise.
+	(U+7E39): Likewise.
+	(U+7E3A): Likewise.
+	(U+7E3B): Likewise.
+	(U+7E3D): Likewise.
+	(U+7E3E): Likewise.
+	(U+7E3F): Likewise.
+	(U+7E41): Likewise.
+	(U+7E43): Likewise.
+	(U+7E44): Likewise.
+	(U+7E45): Likewise.
+	(U+7E46): Likewise.
+	(U+7E47): Likewise.
+	(U+7E48): Likewise.
+	(U+7E66): Likewise.
+	(U+7E4A): Likewise.
+	(U+7E4B): Likewise.
+	(U+7E4D): Likewise.
+	(U+7E4E): Likewise.
+	(U+7E50): Likewise.
+	(U+7E55): Likewise.
+	(U+7E56): Likewise.
+	(U+7E58): Likewise.
+	(U+7E59): Likewise.
+	(U+7E5A): Likewise.
+	(U+7E5D): Likewise.
+	(U+7E5E): Likewise.
+	(U+7E5F): Likewise.
+	(U+7E61): Likewise.
+	(U+7E62): Likewise.
+	(U+7E65): Likewise.
+	(U+7E67): Likewise.
+	(U+7E69): Likewise.
+	(U+7E6A): Likewise.
+	(U+7E6B): Likewise.
+	(M-27944): Unify S2-6185; add `ideographic-structure'.
+	(S1-6182): New character.
+	(S1-6183): New character.
+	(C1-7860): Unify CU+7E6D; add `ideographic-structure'.
+	(U+7E6D): Apply new conventions for glyph granularity.
+	(UU+7E6D): Unify S2-6184.
+	(U+7E6E): Apply new conventions for glyph granularity.
+	(U+7E6F): Likewise.
+	(U+7E70): Likewise.
+	(U+7E73): Likewise.
+	(U+7E75): Likewise.
+	(U+7E79): Likewise.
+	(U+8FAE): Likewise; use `ideographic-{radical|strokes}@daikanwa'
+	instead of `ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+	(U+7E7B): Apply new conventions for glyph granularity.
+	(U+7E7C): Likewise.
+	(U+7E7D): Likewise.
+	(U-0002F970): Likewise.
+	(U+7E7F): Likewise.
+	(U+7E81): Likewise.
+	(U+7E82): Likewise.
+	(U+7E83): Likewise.
+	(U+7E86): Likewise.
+	(U+7E87): Likewise.
+	(U+7E88): Likewise.
+	(U+7E89): Likewise.
+	(U+7E8D): Likewise.
+	(U+7E8E): Likewise.
+	(U+7E8F): Likewise.
+	(U+7E90): Likewise.
+	(U+432B): Likewise.
+	(U+7E91): Likewise.
+	(U+7E92): Likewise.
+	(U-000261DA): Likewise.
+	(U+7E93): Likewise.
+	(U-000261E8): Likewise.
+	(U+7E94): Likewise.
+	(U+7E95): Likewise.
+	(U+7E96): Likewise.
+	(U+7E9B): Likewise.
+	(U+7E98): Likewise.
+	(U+7E9A): Likewise.
+	(U+7E9C): Likewise.
+	(U+7E9D): Likewise.
+	(U+7E9E): Likewise.
+
+	* Ideograph-R072-Sun.el (U+6614): Use `->denotational' to add
+	U+6614-var-001.
+	(U+6614-var-001): New character.
+	(M-14056): Add representative node.
+	(U+3B05-var-002): New character; add `<-denotational' for U+3B05.
+	(UU+3B05): Add representative node.
+	(U-000232F5): Use `->subsumptive'.
+
 2015-11-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R042-Small.el (UU+5C11): Add `=>ucs@iwds-1'.
