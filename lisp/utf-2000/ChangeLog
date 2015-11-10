@@ -1,5 +1,19 @@
 2015-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R164-Wine.el (U-000288A9): Apply new conventions for
+	glyph granularity; unify S-7528 and CB06658; add `<-formed' for
+	JU+89F4.
+
+	* Ideograph-R148-Horn.el: Add some representative nodes.
+	(U+89D6): Apply new conventions for glyph granularity.
+	(U+89DA): Likewise.
+	(U+89DC): Likewise.
+	(U+89E3-itaiji-008): New character.
+	(U+89F3): Apply new conventions for glyph granularity.
+	(U+89F9): Likewise.
+	(U+89FD): Likewise.
+	(U+89FF): Likewise.
+
 	* Ideograph-R120-Silk.el: Add some representative nodes.
 	(U+7CFA): Apply new conventions for glyph granularity.
 	(U+7CFB): Likewise.
