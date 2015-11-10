@@ -13345,15 +13345,31 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (=ucs		. #x3707)	; 㜇
+    (=cns11643-4	. #x3C61)	; &I-C4-3C61; [28-65]
     (=daikanwa		. 06570)	; &I-M-06570;
-    ))
-(define-char
-  '((=>ucs		. #x3707)	; 㜇
-    (morohashi-daikanwa	6570 0 0)
-    (ideographic-radical . 38)	; ⼥
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
-    (=cns11643-4	. #x3C61)	; &C4-3C61; [28-65]
+    (=shinjigen		.  2458)	; 㜇
+    (<-vulgar
+     ((=ucs@unicode	  . #x605A)	; &AJ1-04822;
+      (=adobe-japan1-0	  . 04822)	; &AJ1-04822;
+      (=jis-x0208	  . #x576B)	; &I-J90-576B; [55-75]
+      (=shinjigen	  .  2456)	; &AJ1-04822;
+      ))
+    (<-vulgar*sources
+     shinjigen)
+    (->subsumptive
+     ((==ucs@unicode	  . #x3707)	; &g2-M-06570;
+      (==daikanwa	  . 06570)	; &g2-M-06570;
+      (->subsumptive
+       ((===daikanwa	    . 06570)	; &R-M-06570;
+	)
+       ((===ucs@unicode	    . #x3707)	; &R-UU+3707;
+	)
+       ((=hanziku-3	    . #xDAAC)	; &HZK03-DAAC;
+	))
+      )
+     ((==ucs@cns	  . #x3707)	; &g2-CU+3707;
+      (==cns11643-4	  . #x3C61)	; &g2-CU+3707; [28-65]
+      ))
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
