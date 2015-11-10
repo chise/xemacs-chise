@@ -1627,7 +1627,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
     (=ucs		. #x98EE)	; 飮
-    (=jis-x0208		. #x5D3B)	; &J90-5D3B; [61-27]
+    (=jis-x0208		. #x5D3B)	; &I-J90-5D3B; [61-27]
     (=ks-x1001		. #x6B66)	; &I-K0-6B66; [75-70]
     (=jis-x0213-1	. #x5D3B)	; &I-JX1-5D3B; [61-27]
     (=gt		. 59113)	; &I-GT-59113;
