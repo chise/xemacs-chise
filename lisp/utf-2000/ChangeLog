@@ -1,3 +1,31 @@
+2015-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el: Add glyph-images of HNG-KHI.
+	(U+6821): Apply new conventions for glyph granularity.
+	(U+68C3): Likewise; unify S-3656; add `<-vulgar' for U+68A8.
+	(U+697C): Apply new conventions for glyph granularity.
+	(U+697D): Likewise.
+	(U+3BB5): Likewise.
+	(U-000235F3): Unify S-3817; add `<-vulgar' for U+6A39.
+	(U+6A80): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+6A8F): Apply new conventions for glyph granularity.
+	(U-00023780): New character.
+	(U+3BF8): Unify M-15728.
+	(U-00023786): Unify M-15771.
+	(U-00023787): Unify M-15772.
+	(U-00023788): New character.
+	(U-0002377B): Unify M-15774.
+	(U-0002377E): Integrate M-15780.
+	(U-0002377C): Unify M-15782.
+
+	* Ideograph-R064-Hand.el (U+630D): Use `->denotational' and
+	`->subsumptive'; add `<-avoiding-taboo' and `<-interchangeable'
+	for UU+6821; add HNG-KHI0089-0.
+
+	* Ideograph-R038-Woman.el (U+3707): Use `->subsumptive'; unify
+	S-2458; add `<-vulgar' for UU+605A.
+
 2015-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R164-Wine.el (U-000288A9): Apply new conventions for
