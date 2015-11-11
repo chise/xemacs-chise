@@ -147,7 +147,7 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
 	  (=ucs		      . #x2FF7)	; ⿷
 	  )
-	 ((=ucs@unicode	      . #x5338)	; &UU+5338;
+	 ((==ucs@unicode      . #x5338)	; &g2-UU+5338;
 	  )
 	 ((=ucs		      . #x513F)	; 儿
 	  ))
