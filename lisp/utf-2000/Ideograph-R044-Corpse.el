@@ -60,6 +60,19 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x5C38)	; 尸
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=gt-k		. 00304)	; &GT-K00304;
+    (=gt-pj-k1		. #x367C)	; &GT-K00304; [22-92]
+    (<-formed@component
+     ((=ucs		  . #x5C38)	; 尸
+      ))
+    ))
+(define-char
   '((ideographic-radical@ucs . 44)	; ⼫
     (ideographic-strokes@ucs . 1)
     (ideographic-radical@ucs*sources
@@ -236,7 +249,7 @@
      ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
       (=ucs		  . #x2FFB)	; ⿻
       )
-     ((=ucs		  . #x5C38)	; 尸
+     ((=gt-k		  . 00304)	; &GT-K00304;
       )
      ((=gt-k		  . 00145)	; &GT-K00145;
       ))
