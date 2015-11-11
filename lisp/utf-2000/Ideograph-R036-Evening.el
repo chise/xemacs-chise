@@ -369,6 +369,12 @@
     (=cns11643-6	. #x266D)	; &I-C6-266D; [06-77]
     (=daikanwa		. 05761)	; &I-M-05761;
     (=hanziku-3		. #xADC6)	; &I-HZK03-ADC6;
+    (<-ancient
+     ((=ucs		  . #x4EA6)	; 亦
+      (=daikanwa	  . 00293)	; &I-M-00293;
+      ))
+    (<-ancient*sources
+     zihui-bu daikanwa)
     ))
 (define-char
   '((<-denotational
@@ -392,6 +398,29 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=cns11643-3	. #x2548)	; &C3-2548; [05-40]
+    ))
+(define-char
+  '((ideographic-radical . 36)	; ⼣
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs@iso		  . #x2008A)	; &U-0002008A;
+      )
+     ((=ucs		  . #x4E8C)	; 二
+      ))
+    (=ucs-itaiji-001	. #x2158B)	; &U-i001+2158B;
+    (<-formed
+     ((=ucs		  . #x2158B)	; 𡖋
+      ))
+    (->subsumptive
+     ((===hng-nkk	  . 09982)	; &HNG039-09982;
+      (<-formed
+       ((=ucs		    . #x4EA6)	; 亦
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
