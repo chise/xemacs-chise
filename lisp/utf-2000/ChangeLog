@@ -1,3 +1,7 @@
+2015-11-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (U+4E1A-itaiji-001): New character.
+
 2015-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R023-Hiding-Enclosure.el (g2-GT-03429): Apply new
