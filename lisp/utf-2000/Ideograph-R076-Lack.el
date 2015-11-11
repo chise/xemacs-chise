@@ -153,6 +153,8 @@
        ((===cns11643-6	    . #x2523)	; &R-C6-2523; [05-03]
 	)
        ((===ucs@unicode	    . #x6B21)	; &R-UU+6B21;
+	)
+       ((===hng-khi	    . 04420)	; &HNG010-04420;
 	))
       ))
     ))
@@ -184,6 +186,13 @@
     ))
 (define-char
   '((ideographic-radical . 76)	; ⽋
+    (==>ucs@bucs	. #x6B61)	; &BUCS+6B61;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x6B61)	; &BUCS+6B61;
+      ))
+    (ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=ucs		. #x6B22)	; 欢
@@ -209,6 +218,26 @@
        ((==ucs@unicode	    . #x6B22)	; &g2-UU+6B22;
 	(==gb2312	    . #x3B36)	; &g2-UU+6B22; [27-22]
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x6B61)	; &BUCS+6B61;
+      ))
+    (ideographic-radical . 76)	; ⽋
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-itaiji-001	  . #x8411)	; &U-i001+8411;
+      )
+     ((=ucs		  . #x6B20)	; 欠
+      ))
+    (===hng-khi		. 04440)	; &HNG010-04440;
+    (<-formed
+     ((=ucs		  . #x6B61)	; 歡
       ))
     ))
 (define-char
@@ -1853,6 +1882,8 @@
      ((==ucs@unicode	  . #x6B32)	; &g2-UU+6B32;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x537B)	; &g2-UU+6B32; [51-91]
+      )
+     ((===hng-khi	  . 04430)	; &HNG010-04430;
       ))
     ))
 (define-char
@@ -3868,6 +3899,8 @@
      ((==ucs@unicode	  . #x6B4C)	; &g2-UU+6B4C;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x3868)	; &g2-UU+6B4C; [24-72]
+      )
+     ((===hng-khi	  . 04450)	; &HNG010-04450;
       ))
     ))
 (define-char
@@ -4300,6 +4333,8 @@
        ((===gt		    . 20780)	; &R-GT-20780;
 	(===gt-k	    . 11150)	; &R-GT-20780;
 	))
+      )
+     ((===hng-khi	  . 04460)	; &HNG010-04460;
       ))
     ))
 (define-char
@@ -4681,7 +4716,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 76)	; ⽋
+  '((<-denotational
+     ((==>ucs@bucs	  . #x6B61)	; &BUCS+6B61;
+      ))
+    (ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (=ucs		. #x6B53)	; 歓
@@ -5767,7 +5805,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 76)	; ⽋
+  '((<-denotational
+     ((==>ucs@bucs	  . #x6B61)	; &BUCS+6B61;
+      ))
+    (ideographic-radical . 76)	; ⽋
     (=ucs		. #x6B61)	; 歡
     (=big5		. #xC577)	; &I-B-C577;
     ))
