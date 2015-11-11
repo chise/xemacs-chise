@@ -4304,9 +4304,20 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=big5-cdp	  . #x88BC)	; &CDP-88BC;
+      )
+     ((=ucs		  . #x4E1A)	; 业
+      ))
     (=gt		. 00092)	; &GT-00092;
     (=gt-k		. 08114)	; &I-GT-K08114;
     (=gt-pj-11		. #x487C)	; &GT-00092; [40-92]
+    (<-formed
+     ((=ucs		  . #x865A)	; 虚
+      ))
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
