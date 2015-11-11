@@ -3944,6 +3944,19 @@
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
+    (=ucs		. #x2C037)	; 𬀷
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2C037)	; 𬀷
+      ))
+    (ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (=ucs-itaiji-001	. #x2C037)	; &U-i001+2C037;
+    ))
+(define-char
+  '((ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=ucs		. #x231B2)	; 𣆲
@@ -4813,6 +4826,40 @@
     (total-strokes	 . 11)
     (=ucs		. #x231E2)	; 𣇢
     (=cns11643-5	. #x3274)	; &I-C5-3274; [18-84]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2C037)	; 𬀷
+      ))
+    (ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name*		  . "ideographic component person for top")
+      (=ucs		  . #x20089)	; 𠂉
+      )
+     ((=ucs		  . #x661C)	; 昜
+      ))
+    (=>ucs@iwds-1	. #x2C037)	; &CDP-8CBE;
+    (=ucs@iso		. #x2C037)	; &CDP-8CBE;
+    (=big5-cdp		. #x8CBE)	; &CDP-8CBE;
+    (=gt-k		. 08647)	; &I-GT-K08647;
+    (=gt-pj-k1		. #x3068)	; &CDP-8CBE; [16-72]
+    (->subsumptive
+     ((==ucs@iso	  . #x2C037)	; &g2-CDP-8CBE;
+      (==big5-cdp	  . #x8CBE)	; &g2-CDP-8CBE;
+      (==gt-k		  . 08647)	; &g2-CDP-8CBE;
+      (->subsumptive
+       ((===big5-cdp	    . #x8CBE)	; &R-CDP-8CBE;
+	)
+       ((===gt-k	    . 08647)	; &R-GT-K08647;
+	)
+       ((===ucs@iso	    . #x2C037)	; &R-U-0002C037;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
