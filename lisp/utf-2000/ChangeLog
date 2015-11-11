@@ -1,5 +1,11 @@
 2015-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R023-Hiding-Enclosure.el (g2-GT-03429): Apply new
+	conventions for glyph granularity for components of
+	ideographic-structure.
+
+2015-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R075-Tree.el: Add glyph-images of HNG-KHI.
 	(U+6821): Apply new conventions for glyph granularity.
 	(U+68C3): Likewise; unify S-3656; add `<-vulgar' for U+68A8.
