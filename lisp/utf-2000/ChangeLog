@@ -1,5 +1,32 @@
 2015-11-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R076-Lack.el: Add glyph-images of HNG-KHI.
+	(BUCS+6B61): New abstract node.
+	(U+6B22): Add `<-denotational' for BUCS+6B61.
+	(HNG-KHI0444-0): Likewise.
+	(U+6B53): Likewise.
+	(U+6B61): Likewise.
+
+	* Ideograph-R072-Sun.el (U-0002C037): New character.
+	(U+2C037-itaiji-001): New character.
+	(IU+2C037): Unify BC-8CBE and GT-K08647.
+
+	* Ideograph-R044-Corpse.el (GT-K00304): New character.
+	(U+378B-itaiji-001): Use GT-K00304 instead of U+5C38 in
+	`ideographic-structure'.
+
+	* Ideograph-R036-Evening.el (U-0002158B): Add `<-ancient' for
+	U+4EA6.
+	(U+2158B-itaiji-001): New character; add `<-formed' for
+	U-0002158B; add HNG-NKK0998-2.
+
+	* Ideograph-R032-Earth.el (HNG-KHI0032-0): Use U+378B-itaiji-001
+	instead of "⿸尸&GT-K00145;" in `ideographic-structure'.
+	(U+5872): Add ideographic-structure.
+	(UU+5872): Add `ideographic-structure'; add representative nodes.
+	(HNG-KHI0321-0): Add `ideographic-structure'.
+	(HNG-KHI0317-0): Changed to an abstract glyph of UU+5875.
+
 	* Ideograph-R001-One.el (U+4E1A-itaiji-001): New character.
 
 2015-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
