@@ -2615,6 +2615,15 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
+    (=ucs-itaiji-001	. #x4E1A)	; &U-i001+4E1A;
+    (<-unknown
+     ((=ucs		  . #x4E1A)	; 业
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
     (=gt		. 00039)	; &GT-00039;
     (=gt-pj-9		. #x4228)	; &GT-00039; [34-08]
     ))
