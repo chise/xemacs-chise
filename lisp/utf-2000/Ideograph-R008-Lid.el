@@ -896,23 +896,6 @@
   '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (ideographic-structure
-     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
-      (=ucs		  . #x2FFB)	; ⿻
-      )
-     ((=ucs		  . #x2008A)	; 𠂊
-      )
-     ((=ucs		  . #x4E8C)	; 二
-      ))
-    (===hng-nkk		. 09982)	; &HNG039-09982;
-    (<-formed
-     ((=ucs		  . #x4EA6)	; 亦
-      ))
-    ))
-(define-char
-  '((ideographic-radical . 8)	; ⼇
-    (ideographic-strokes . 4)
-    (total-strokes	 . 6)
     (=gt-k		. 02128)	; &GT-K02128;
     (=gt-pj-k2		. #x444C)	; &GT-K02128; [36-44]
     (<-simplified@component/connect-below
