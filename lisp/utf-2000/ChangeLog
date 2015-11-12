@@ -1,3 +1,11 @@
+2015-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R039-Child.el (A-IWDSU+5B64): Apply new conventions
+	for glyph granularity.
+	(U+5B64-itaiji-002): New character.
+	(HNG-KHI0039-0): Use U+5B64-itaiji-002 instead of U+5B64 as the
+	mother.
+
 2015-11-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R066-Rap.el (U+6534-itaiji-001): New character.
