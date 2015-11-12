@@ -1,9 +1,30 @@
 2015-11-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R066-Rap.el (U+6534-itaiji-001): New character.
+	(U+6534-itaiji-002): New character.
+
+	* Ideograph-R062-Halberd.el: Add glyph-images of HNG-KHI.
+	(U+6209): Apply new conventions for glyph granularity.
+	(U+620E): Likewise.
+	(U-000229B6): Add `<-vulgar' for U+6212.
+	(U+621D): Apply new conventions for glyph granularity.
+	(U+621E): Likewise.
+	(U+6221): Likewise.
+	(U+622E): Likewise.
+	(U+6233): Likewise.
+
+	* Ideograph-R056-Shoot.el (U+5F0D): Apply new conventions for
+	glyph granularity.
+	(U+229B6-itaiji-001): New character.
+	(U+5F11): Apply new conventions for glyph granularity.
+
 	* Ideograph-R001-One.el (GT-00092): Add `ideographic-structure';
 	add `<-formed' for U+865A.
 
 2015-11-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=ucs-itaiji-004' and `=ucs-itaiji-005'.
 
 	* Ideograph-R076-Lack.el: Add glyph-images of HNG-KHI.
 	(BUCS+6B61): New abstract node.
