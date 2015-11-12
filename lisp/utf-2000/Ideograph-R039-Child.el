@@ -777,18 +777,20 @@
      ((=ucs		  . #x74DC)	; 瓜
       ))
     (=>ucs@iwds-1	. #x5B64)	; &A-IWDSU+5B64;
-    (=+>ucs@unicode	. #x5B64)	; &A-IWDSU+5B64;
+    (=>ucs@unicode	. #x5B64)	; &A-IWDSU+5B64;
     (->subsumptive
      ((ideographic-strokes . 5)
       (total-strokes	   . 8)
-      (=>>ucs@unicode	  . #x5B64)	; &G-HD-KS-135BA;
-      (=>>hanyo-denshi/ks . 079290)	; &G-HD-KS-135BA;
-      (=>>daikanwa	  . 06966)	; &G-HD-KS-135BA;
+      (=ucs@unicode	  . #x5B64)	; &HD-KS-079290;
+      (=ucs@JP/hanazono	  . nil)
+      (=gb2312		  . #x3942)	; &HD-KS-079290; [25-34]
+      (=cns11643-1	  . #x4C76)	; &I-C1-4C76; [44-86]
+      (=hanyo-denshi/ks	  . 079290)	; &HD-KS-079290;
+      (=daikanwa	  . 06966)	; &I-M-06966;
+      (=shinjigen	  .  1791)	; &HD-KS-079290;
       (->subsumptive
-       ((=ucs@unicode	    . #x5B64)	; &G0-3942;
-	(=ucs@JP/hanazono   . nil)
-	(=gb2312	    . #x3942)	; &G0-3942; [25-34]
-	(=daikanwa	    . 06966)	; &I-M-06966;
+       ((=>>ucs@unicode	    . #x5B64)	; &G-UU+5B64;
+	(=>>daikanwa	    . 06966)	; &G-UU+5B64;
 	(->subsumptive
 	 ((==daikanwa	      . 06966)	; &g2-M-06966;
 	  )
@@ -802,12 +804,12 @@
 	  )
 	 ((=ucs		      . #xE0102)	; 󠄂
 	  ))
-	(=hanyo-denshi/ks   . 079290)	; &HD-KS-079290;
-	(=hanyo-denshi/ks/mf . #x1EF9)	; &HD-KS-079290;
-	(=shinjigen	    .  1791)	; &HD-KS-079290;
+	(==hanyo-denshi/ks  . 079290)	; &g2-HD-KS-079290;
+	(=hanyo-denshi/ks/mf . #x1EF9)	; &g2-HD-KS-079290;
+	(==shinjigen	    .  1791)	; &g2-HD-KS-079290;
 	)
-       ((=ucs@cns	    . #x5B64)	; &C1-4C76;
-	(=cns11643-1	    . #x4C76)	; &C1-4C76; [44-86]
+       ((==ucs@cns	    . #x5B64)	; &g2-CU+5B64;
+	(==cns11643-1	    . #x4C76)	; &g2-CU+5B64; [44-86]
 	))
       )
      ((ideographic-strokes . 6)
@@ -850,7 +852,10 @@
       )
      ((=ucs		  . #x722A)	; 爪
       ))
-    (===hng-khi		. 00390)	; &HNG010-00390;
+    (=ucs-itaiji-002	. #x5B64)	; &U-i002+5B64;
+    (->subsumptive
+     ((===hng-khi	  . 00390)	; &HNG010-00390;
+      ))
     ))
 (define-char
   '((ideographic-radical . 39)	; ⼦
