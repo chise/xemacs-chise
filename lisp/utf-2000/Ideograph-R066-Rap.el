@@ -62,6 +62,44 @@
     ))
 (define-char
   '((ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5DF3)	; 巳
+      )
+     ((=ucs		  . #x3405)	; 㐅
+      ))
+    (=ucs-itaiji-001	. #x6534)	; &U-i001+6534;
+    (<-formed
+     ((=ucs		  . #x6534)	; 攴
+      )
+     ((=ucs		  . #x6535)	; 攵
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs		  . #x6535)	; 攵
+      ))
+    (=ucs-itaiji-002	. #x6534)	; &U-i002+6534;
+    (<-formed
+     ((=ucs		  . #x6534)	; 攴
+      )
+     ((=ucs		  . #x6535)	; 攵
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=ucs		. #x6536)	; 收
