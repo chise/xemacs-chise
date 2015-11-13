@@ -1,5 +1,17 @@
 2015-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R061-Heart.el: Add glyph-images of HNG-KHI.
+	(U-0002B779): New character.
+	(U+392C): Unify S-2457; add `<-formed' for UU+605A.
+	(U-0002AAEC): New character; unify KOSEKI-118240 and GT-13176.
+	(U+6056): Unify S-2437; add `<-original' for U+601D.
+	(U-00022663): New character.
+	(U+6091): Unify S-2450; add `<-ancient' for U+6016.
+	(U+3943): Apply new conventions for glyph granularity.
+	(U-000226C5): Unify S-2433 and H6-DEE0; add `<-formed' for U+6019.
+
+2015-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R039-Child.el (A-IWDSU+5B64): Apply new conventions
 	for glyph granularity.
 	(U+5B64-itaiji-002): New character.
