@@ -4594,8 +4594,9 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=ucs@unicode	. #x5BC3)	; &HD-JA-5563;
-    (=jis-x0208@1983	. #x5563)	; &HD-JA-5563; [53-67]
+    (=ucs@unicode	. #x5BC3)	; &AJ1-04626;
+    (=adobe-japan1-0	. 04626)	; &AJ1-04626;
+    (=jis-x0208@1983	. #x5563)	; &I-J83-5563; [53-67]
     (=jis-x0208@1990	. #x5563)	; &I-J90-5563; [53-67]
     (=cns11643-3	. #x3541)	; &I-C3-3541; [21-33]
     (=jis-x0213-1	. #x5563)	; &I-JX1-5563; [53-67]
