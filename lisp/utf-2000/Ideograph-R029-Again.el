@@ -613,19 +613,18 @@
     (=hanziku-1		. #xF6D8)	; &I-HZK01-F6D8;
     (=cbeta		. 04639)	; &I-CB04639;
     (<-simplified@CN
-     ((=gb12345		  . #x4B2B)	; &C1-7764; [43-11]
+     ((=ucs		  . #x96D9)	; 雙
+      (=gb12345		  . #x4B2B)	; 雙 [43-11]
       ))
     (<-simplified@JP/Jouyou
-     ((=ucs@jis		  . #x96D9)	; &I-J90-5256;
-      (=jis-x0208@1990	  . #x5256)	; &I-J90-5256; [50-54]
-      (=jis-x0213-1	  . #x5256)	; &I-JX1-5256; [50-54]
+     ((=ucs		  . #x96D9)	; 雙
+      (=jis-x0208	  . #x5256)	; &I-J90-5256; [50-54]
       ))
     (<-vulgar
-     ((=jis-x0208@1978	  . #x5256)	; &M-42116; [50-54]
-      (=jis-x0208@1983	  . #x5256)	; &I-J83-5256; [50-54]
-      (=ks-x1001	  . #x642A)	; &I-K0-642A; [68-10]
+     ((=ucs		  . #x96D9)	; 雙
+      (=jis-x0208	  . #x5256)	; &I-J90-5256; [50-54]
       (=daikanwa	  . 42116)	; &I-M-42116;
-      (=shinjigen	  .  0903)	; &M-42116;
+      (=shinjigen	  .  0903)	; 雙
       ))
     (<-vulgar*sources
      yunhai daikanwa shinjigen@1ed)
