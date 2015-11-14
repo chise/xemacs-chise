@@ -1,13 +1,36 @@
 2015-11-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R037-Big.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 abstract glyph-forms.
+	(AJ1-20106): Move `=decomposition@cid' to g2-AJ1-20106.
+
 	* Ideograph-R039-Child.el (g2-AJ1-02208): Add
 	`=decomposition@cid'.
+
+	* Ideograph-R026-Seal.el (g2-AJ1-04316): Add `=decomposition@cid'.
+
+	* Ideograph-R024-Ten.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 abstract glyph-forms.
+
+	* Ideograph-R018-Knife.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 abstract glyph-forms.
 
 	* Ideograph-R017-Open-Box.el (g2-AJ1-02394): Add
 	`=decomposition@cid'.
 
+	* Ideograph-R012-Eight.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 abstract glyph-forms.
+
 	* Ideograph-R007-Two.el: Add `=decomposition@cid' for some
 	Adobe-Japan1 abstract glyph-forms.
+
+2015-11-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R114-Track.el (U+79BA): Use `->denotational' to
+	integrate U+79BA-itaiji-001.
+	(U+79BA-itaiji-001): New character.
+	(U+79BB): Apply new conventions for glyph granularity.
+	(U+79BD): Likewise.
 
 2015-11-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
