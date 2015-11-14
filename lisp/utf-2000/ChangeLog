@@ -1,3 +1,14 @@
+2015-11-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R039-Child.el (g2-AJ1-02208): Add
+	`=decomposition@cid'.
+
+	* Ideograph-R017-Open-Box.el (g2-AJ1-02394): Add
+	`=decomposition@cid'.
+
+	* Ideograph-R007-Two.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 abstract glyph-forms.
+
 2015-11-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R124-Feather.el: Add some representative nodes.
