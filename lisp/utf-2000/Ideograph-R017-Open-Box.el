@@ -329,7 +329,12 @@
     (=daikanwa		. 01811)	; &I-M-01811;
     (=shinjigen		.  0581)	; 出
     (->subsumptive
-     ((==ucs@unicode	  . #x51FA)	; &g2-AJ1-02394;
+     ((=decomposition@cid
+       ((=ucs		    . #x51FA)	; 出
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x51FA)	; &g2-AJ1-02394;
       (==adobe-japan1-0	  . 02394)	; &g2-AJ1-02394;
       (==gb2312		  . #x3376)	; &g2-AJ1-02394; [19-86]
       (==ks-x1001	  . #x7573)	; &g2-AJ1-02394; [85-83]
