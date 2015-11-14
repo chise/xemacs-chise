@@ -17,7 +17,12 @@
     (=daikanwa		. 06930)	; &I-M-06930;
     (=shinjigen		.  1773)	; 子
     (->subsumptive
-     ((==ucs@unicode	  . #x5B50)	; &g2-AJ1-02208;
+     ((=decomposition@cid
+       ((=ucs		    . #x5B50)	; 子
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x5B50)	; &g2-AJ1-02208;
       (==adobe-japan1-0	  . 02208)	; &g2-AJ1-02208;
       (==gb2312		  . #x5753)	; &g2-AJ1-02208; [55-51]
       (==ks-x1001	  . #x6D2D)	; &g2-AJ1-02208; [77-13]
