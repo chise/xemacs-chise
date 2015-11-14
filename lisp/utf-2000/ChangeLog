@@ -1,3 +1,19 @@
+2015-11-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R124-Feather.el: Add some representative nodes.
+	(JU+7FC5): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(JU+7FC6): Apply new conventions for glyph granularity.
+	(U+7FCA): Likewise.
+	(UU+7FD2): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U-00026474): Use `->denotational' and `->subsumptive'.
+	(U-0002C686): New character.
+	(RUI6-E072): Map to U-0002C686.
+	(UU+7FF3): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+7FFC): Apply new conventions for glyph granularity.
+
 2015-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el: Add glyph-images of HNG-KHI.
