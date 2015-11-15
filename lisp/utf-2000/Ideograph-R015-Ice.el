@@ -253,7 +253,12 @@
     (->vulgar*sources
      zhengzitong daikanwa)
     (->subsumptive
-     ((==ucs@unicode	  . #x51B0)	; &g2-AJ1-04237;
+     ((=decomposition@cid
+       ((=ucs		    . #x51B0)	; 冰
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x51B0)	; &g2-AJ1-04237;
       (==adobe-japan1-0	  . 04237)	; &g2-AJ1-04237;
       (==gb2312		  . #x3179)	; &g2-AJ1-04237; [17-89]
       (==jis-x0208	  . #x5156)	; &g2-AJ1-04237; [49-54]
@@ -4023,11 +4028,6 @@
     (ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (=decomposition@cid
-     ((=ucs		  . #x51DE)	; 凞
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -4049,7 +4049,12 @@
     (=adobe-japan1-5	. 20307)	; &AJ1-20307;
     (=jis-x0213-1	. #x775A)	; &I-JX1-775A; [87-58]
     (->subsumptive
-     ((==ucs@jis	  . #xFA15)	; &g2-AJ1-20307;
+     ((=decomposition@cid
+       ((=ucs		    . #x51DE)	; 凞
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@jis	  . #xFA15)	; &g2-AJ1-20307;
       (==adobe-japan1-5	  . 20307)	; &g2-AJ1-20307;
       (==jis-x0213-1	  . #x775A)	; &g2-AJ1-20307; [87-58]
       (->subsumptive
