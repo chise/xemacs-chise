@@ -1,9 +1,18 @@
+2015-11-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (R-IU+20804): Add `ideographic-radical'
+	and `ideographic-strokes'.
+	(R-GT-49807): Likewise.
+
 2015-11-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R022-Right-Open-Box.el (C3-5C34): Unify CU+5336.
 	(UU+5336): Move H1-B6B8 to a glyph-image node.
 
 2015-11-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R133-Arrive.el (g2-AJ1-03192): Add
+	`=decomposition@cid'.
 
 	* Ideograph-R040-Roof.el (UU+5BC3): Unify AJ1-04626 [it was lost
 	caused by editing mistake maybe].
@@ -39,6 +48,23 @@
 	Adobe-Japan1 abstract glyph-forms.
 
 2015-11-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R141-Tiger.el (BC-88BC): New character; unify
+	GT-K01853; add `<-formed' for U+864D.
+	(U+8650): Apply new conventions for glyph granularity.
+	(U+8653): Likewise.
+	(U+8654): Likewise.
+	(U+865A): Likewise.
+	(U+865D): Likewise.
+	(M-32715): Map to U-000271B8.
+	(JU+865F): Unify K0-7B5C.
+	(UU+865F): Separate K0-7B5C.
+	(U+8660): Apply new conventions for glyph granularity.
+	(U+8661): Likewise.
+	(U+8663): Likewise.
+	(U+8664): Likewise.
+	(U+8667): Likewise.
+	(U+8669): Likewise.
 
 	* Ideograph-R114-Track.el (U+79BA): Use `->denotational' to
 	integrate U+79BA-itaiji-001.
