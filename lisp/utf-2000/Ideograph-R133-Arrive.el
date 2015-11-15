@@ -53,7 +53,12 @@
     (=daikanwa		. 01950)	; &I-M-01950;
     (=shinjigen		.  6602)	; 到
     (->subsumptive
-     ((==ucs@unicode	  . #x5230)	; &g2-AJ1-03192;
+     ((=decomposition@cid
+       ((=ucs		    . #x5230)	; 到
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x5230)	; &g2-AJ1-03192;
       (==adobe-japan1-0	  . 03192)	; &g2-AJ1-03192;
       (==gb2312		  . #x353D)	; &g2-AJ1-03192; [21-29]
       (==ks-x1001	  . #x5370)	; &g2-AJ1-03192; [51-80]
