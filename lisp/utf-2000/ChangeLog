@@ -1,5 +1,8 @@
 2015-11-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R040-Roof.el (UU+5BC3): Unify AJ1-04626 [it was lost
+	caused by editing mistake maybe].
+
 	* Ideograph-R037-Big.el: Add `=decomposition@cid' for some
 	Adobe-Japan1 abstract glyph-forms.
 	(AJ1-20106): Move `=decomposition@cid' to g2-AJ1-20106.
