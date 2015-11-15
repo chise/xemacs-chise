@@ -1430,11 +1430,8 @@
     (<-ancient
      ((=daikanwa	  . 30116)	; &M-30116;
       )
-     ((=ucs@unicode	  . #x66C1)	; &HD-JA-5A7A;
-      (=jis-x0208	  . #x5A7A)	; &HD-JA-5A7A; [58-90]
-      (=cns11643-3	  . #x5123)	; &I-C3-5123; [49-03]
-      (=jis-x0213-1	  . #x5A7A)	; &I-JX1-5A7A; [58-90]
-      (=daikanwa	  . 14165)	; &I-M-14165;
+     ((=ucs@unicode	  . #x66C1)	; &AJ1-05119;
+      (=adobe-japan1-0	  . 05119)	; &AJ1-05119;
       ))
     (<-ancient$_1*sources
      shuowen daikanwa)
