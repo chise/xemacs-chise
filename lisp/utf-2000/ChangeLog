@@ -1,5 +1,14 @@
 2015-11-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R134-Mortar.el (UU+820A): Unify AJ1-06300.
+
+	* Ideograph-R106-White.el (UU+7684): Unify AJ1-03108; apply new
+	conventions for glyph granularity.
+
+	* Ideograph-R081-Compare.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R038-Woman.el (U+5A6B): Use `->subsumptive'.
+
 	* Ideograph-R018-Knife.el (R-IU+20804): Add `ideographic-radical'
 	and `ideographic-strokes'.
 	(R-GT-49807): Likewise.
