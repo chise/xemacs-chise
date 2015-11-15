@@ -10418,24 +10418,33 @@
      ((=ucs		  . #x6606)	; 昆
       ))
     (=ucs		. #x5A6B)	; 婫
+    (=cns11643-3	. #x352B)	; &I-C3-352B; [21-11]
     (=daikanwa		. 06438)	; &I-M-06438;
     (=cbeta		. 01093)	; &I-CB01093;
-    ))
-(define-char
-  '((=>ucs		. #x5A6B)	; 婫
-    (morohashi-daikanwa	6438 0 0)
-    (ideographic-radical . 38)	; ⼥
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=adobe-japan1-4    . 13828)	; &AJ1-13828;
+	)
+       ((==ucs@unicode	    . #x6606)	; &g2-AJ1-02075;
+	(==adobe-japan1-0   . 02075)	; &g2-AJ1-02075;
+	))
+      (==ucs@unicode	  . #x5A6B)	; &g2-M-06438;
+      (==daikanwa	  . 06438)	; &g2-M-06438;
+      (==cbeta		  . 01093)	; &g2-M-06438;
+      (->subsumptive
+       ((===daikanwa	    . 06438)	; &R-M-06438;
+	)
+       ((===ucs@unicode	    . #x5A6B)	; &R-UU+5A6B;
+	)
+       ((===cbeta	    . 01093)	; &R-CB01093;
+	))
       )
-     ((=ucs		  . #x5973)	; 女
-      )
-     ((=cns11643-1	  . #x4D7A)	; &C1-4D7A; [45-90]
+     ((==ucs@cns	  . #x5A6B)	; &g2-CU+5A6B;
+      (==cns11643-3	  . #x352B)	; &g2-CU+5A6B; [21-11]
       ))
-    (=cns11643-3	. #x352B)	; &C3-352B; [21-11]
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
