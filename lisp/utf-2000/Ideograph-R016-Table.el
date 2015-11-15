@@ -90,11 +90,6 @@
     (ideographic-strokes@cns . 2)
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
-    (=decomposition@cid
-     ((=ucs		  . #x51E1)	; 凡
-      )
-     ((=ucs		  . #xE0100)	; 󠄀
-      ))
     (hanyu-dazidian	1 276 3)
     (ideographic-radical*sources daikanwa shinjigen ucs)
     (ideographic-structure
@@ -119,7 +114,12 @@
     (=daikanwa		. 01739)	; &I-M-01739;
     (=shinjigen		.  0566)	; &AJ1-03724;
     (->subsumptive
-     ((==ucs@unicode	  . #x51E1)	; &g2-AJ1-03724;
+     ((=decomposition@cid
+       ((=ucs		    . #x51E1)	; 凡
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x51E1)	; &g2-AJ1-03724;
       (==adobe-japan1-0	  . 03724)	; &g2-AJ1-03724;
       (==gb2312		  . #x3732)	; &g2-AJ1-03724; [23-18]
       (==ks-x1001	  . #x5B6D)	; &g2-AJ1-03724; [59-77]
