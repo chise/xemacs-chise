@@ -12338,9 +12338,13 @@
      ((==ucs@iso	  . #x20804)	; &g2-GT-49807;
       (==gt		  . 49807)	; &g2-GT-49807;
       (->subsumptive
-       ((===gt		    . 49807)	; &R-GT-49807;
+       ((ideographic-radical . 18)	; ⼑
+	(ideographic-strokes . 14)
+	(===ucs@iso	    . #x20804)	; &R-U-00020804;
 	)
-       ((===ucs@iso	    . #x20804)	; &R-U-00020804;
+       ((ideographic-radical . 156)	; ⾛
+	(ideographic-strokes . 9)
+	(===gt		    . 49807)	; &R-GT-49807;
 	))
       )
      ((ideographic-radical . 156)	; ⾛
