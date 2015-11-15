@@ -1,7 +1,18 @@
 2015-11-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R022-Right-Open-Box.el (C3-5C34): Unify CU+5336.
+	(UU+5336): Move H1-B6B8 to a glyph-image node.
+
+2015-11-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R040-Roof.el (UU+5BC3): Unify AJ1-04626 [it was lost
 	caused by editing mistake maybe].
+
+	* Ideograph-R016-Table.el (AJ1-03724): Move `=decomposition@cid'
+	to g2-AJ1-03724.
+
+	* Ideograph-R015-Ice.el (g2-AJ1-04237): Add `=decomposition@cid'.
+	(AJ1-20307): Move `=decomposition@cid' to g2-AJ1-20307.
 
 	* Ideograph-R037-Big.el: Add `=decomposition@cid' for some
 	Adobe-Japan1 abstract glyph-forms.
