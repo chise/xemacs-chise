@@ -9999,13 +9999,8 @@
      ((name		  . "CJK RADICAL HEART ONE")
       (=ucs		  . #x2E96)	; ⺖
       )
-     ((=ucs@unicode	  . #x6614)	; &GT-17450;
-      (=jis-x0208	  . #x404E)	; &GT-17450; [32-46]
-      (=gb2312		  . #x4E74)	; &I-G0-4E74; [46-84]
-      (=ks-x1001	  . #x602E)	; &I-K0-602E; [64-14]
-      (=cns11643-1	  . #x4D77)	; &I-C1-4D77; [45-87]
-      (=jis-x0213-1	  . #x404E)	; &I-JX1-404E; [32-46]
-      (=daikanwa	  . 13816)	; &I-M-13816;
+     ((=ucs@unicode	  . #x6614)	; &AJ1-02674;
+      (=adobe-japan1-0	  . 02674)	; &AJ1-02674;
       ))
     (=ucs@unicode	. #x60DC)	; &AJ1-02671;
     (=adobe-japan1-0	. 02671)	; &AJ1-02671;
