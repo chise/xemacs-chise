@@ -658,11 +658,9 @@
     (=ucs		. #x6740)	; 杀
     (=gb2312		. #x4931)	; &I-G0-4931; [41-17]
     (<-simplified@CN
-     ((=ucs@unicode	  . #x6BBA)	; &GT-21319;
-      (=jis-x0208	  . #x3B26)	; &GT-21319; [27-06]
-      (=jis-x0213-1	  . #x3B26)	; &I-JX1-3B26; [27-06]
-      (=gb12345		  . #x4931)	; &GT-21319; [41-17]
-      (=daikanwa	  . 16629)	; &I-M-16629;
+     ((=ucs@unicode	  . #x6BBA)	; &AJ1-02164;
+      (=adobe-japan1-0	  . 02164)	; &AJ1-02164;
+      (=gb12345		  . #x4931)	; &AJ1-02164; [41-17]
       ))
     (->subsumptive
      ((==ucs@unicode	  . #x6740)	; &g2-UU+6740;
