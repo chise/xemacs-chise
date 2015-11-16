@@ -1,5 +1,28 @@
 2015-11-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R172-Short-Tailed-Bird.el (U+96BB): Apply new
+	conventions for glyph granularity.
+	(U+96BC): Likewise.
+	(U+96BD): Likewise; unify S-8957; add `<-vulgar' for U+96CB.
+	(U+96C1): Apply new conventions for glyph granularity.
+	(U+96C4): Likewise.
+	(U+96C5): Likewise.
+	(U+96C7): Likewise.
+	(U+8411-itaiji-001): New character.
+	(U+96CB): Apply new conventions for glyph granularity.
+	(U+96CD): Likewise.
+	(U+96CE): Likewise.
+	(U+49FA): Likewise.
+	(U+96D2): Likewise.
+	(U+96D5): Likewise.
+	(U+96D9): Likewise.
+	(U+96DB): Likewise.
+	(U+96DD): Likewise.
+	(U+96DE): Likewise.
+	(U+96DF): Likewise.
+
+2015-11-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R140-Grass.el (CU+5348): Add `ideographic-structure'.
 	(UU+82DF): Likewise.
 	(HD-KS344440): Likewise; add representative node.
