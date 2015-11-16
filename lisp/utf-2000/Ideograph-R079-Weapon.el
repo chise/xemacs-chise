@@ -537,16 +537,17 @@
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (=ucs@unicode	. #x6BBA)	; &GT-21319;
+    (=ucs@unicode	. #x6BBA)	; &AJ1-02164;
     (=ucs@JP/hanazono	. nil)
-    (=jis-x0208		. #x3B26)	; &GT-21319; [27-06]
+    (=adobe-japan1-0	. 02164)	; &AJ1-02164;
+    (=jis-x0208		. #x3B26)	; &I-J90-3B26; [27-06]
     (=jis-x0213-1	. #x3B26)	; &I-JX1-3B26; [27-06]
-    (=gb12345		. #x4931)	; &GT-21319; [41-17]
+    (=gb12345		. #x4931)	; &AJ1-02164; [41-17]
     (=gt		. 21319)	; &I-GT-21319;
     (=gt-k		. 06440)	; &I-GT-K06440;
     (=gt-pj-1		. #x3B26)	; &I-GT-21319; [27-06]
     (=daikanwa		. 16629)	; &I-M-16629;
-    (=shinjigen		.  3996)	; &GT-21319;
+    (=shinjigen		.  3996)	; &AJ1-02164;
     (<-simplified@JP/Jouyou
      ((=ucs		  . #xF970)	; 殺
       ))
@@ -557,18 +558,21 @@
     (<-vulgar*sources
      daikanwa)
     (->subsumptive
-     ((==ucs@jis	  . #x6BBA)	; &g2-GT-21319;
-      (==jis-x0208	  . #x3B26)	; &g2-GT-21319; [27-06]
-      (==jis-x0213-1	  . #x3B26)	; &g2-GT-21319; [27-06]
-      (==gt		  . 21319)	; &g2-GT-21319;
-      (==gt-k		  . 06440)	; &g2-GT-21319;
-      (==daikanwa	  . 16629)	; &g2-GT-21319;
-      (==shinjigen	  .  3996)	; &g2-GT-21319;
+     ((==ucs@jis	  . #x6BBA)	; &g2-AJ1-02164;
+      (==adobe-japan1-0	  . 02164)	; &g2-AJ1-02164;
+      (==jis-x0208	  . #x3B26)	; &g2-AJ1-02164; [27-06]
+      (==jis-x0213-1	  . #x3B26)	; &g2-AJ1-02164; [27-06]
+      (==gt		  . 21319)	; &g2-AJ1-02164;
+      (==gt-k		  . 06440)	; &g2-AJ1-02164;
+      (==daikanwa	  . 16629)	; &g2-AJ1-02164;
+      (==shinjigen	  .  3996)	; &g2-AJ1-02164;
       (->subsumptive
        ((===daikanwa	    . 16629)	; &R-M-16629;
 	)
        ((===jis-x0208	    . #x3B26)	; &R-J0-3B26; [27-06]
 	(===jis-x0213-1	    . #x3B26)	; &R-J0-3B26; [27-06]
+	)
+       ((===adobe-japan1-0  . 02164)	; &R-AJ1-02164;
 	)
        ((===gt		    . 21319)	; &R-GT-21319;
 	(===gt-k	    . 06440)	; &R-GT-21319;
