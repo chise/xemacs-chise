@@ -909,25 +909,54 @@
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (hanyu-dazidian	1 71 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs		  . #x65E8)	; 旨
+      ))
     (=ucs		. #x20A4A)	; 𠩊
+    (=cns11643-6	. #x2A27)	; &I-C6-2A27; [10-07]
+    (=daikanwa		. 02932)	; &I-M-02932;
+    (<-ancient
+     ((=ucs		  . #x65E8)	; 旨
+      (=daikanwa	  . 13738)	; &I-M-13738;
+      ))
+    (<-ancient*sources
+     jiyun daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 02932)	; &M-02932;
-      (<-ancient
-       ((=ucs@unicode	    . #x65E8)	; &GT-17370;
-	(=jis-x0208	    . #x3B5D)	; &GT-17370; [27-61]
-	(=gb2312	    . #x563C)	; &I-G0-563C; [54-28]
-	(=ks-x1001	    . #x7229)	; &I-K0-7229; [82-09]
-	(=jis-x0213-1	    . #x3B5D)	; &I-JX1-3B5D; [27-61]
-	(=daikanwa	    . 13738)	; &I-M-13738;
+     ((==daikanwa	  . 02932)	; &g2-M-02932;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x5382)	; 厂
+	)
+       ((==ucs@cns	    . #x65E8)	; &g2-CU+65E8;
+	(==cns11643-1	    . #x482F)	; &g2-CU+65E8; [40-15]
 	))
-      (<-ancient*sources
-       jiyun daikanwa)
+      (==ucs@cns	  . #x20A4A)	; &g2-CU+20A4A;
+      (==cns11643-6	  . #x2A27)	; &g2-CU+20A4A; [10-07]
       )
-     ((=cns11643-6	  . #x2A27)	; &C6-2A27; [10-07]
-      )
-     ((hanyu-dazidian	  1 71 13)
-      (=ucs@iso		  . #x20A4A)	; &HZK01-B2B8;
-      (=hanziku-1	  . #xB2B8)	; &HZK01-B2B8;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x5382)	; 厂
+	)
+       ((==ucs@unicode	    . #x65E8)	; &g2-AJ1-02219;
+	(==adobe-japan1-0   . 02219)	; &g2-AJ1-02219;
+	))
+      (==ucs@iso	  . #x20A4A)	; &g2-IU-00020A4A;
+      (->subsumptive
+       ((===ucs@iso	    . #x20A4A)	; &R-U-00020A4A;
+	)
+       ((=hanziku-1	    . #xB2B8)	; &HZK01-B2B8;
+	))
       ))
     ))
 (define-char
