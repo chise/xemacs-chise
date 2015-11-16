@@ -278,8 +278,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  greek-iso8859-7
 	  thai-tis620
 	  =jis-x0208
+	  =jis-x0208@1983
 	  chinese-gb2312
-	  japanese-jisx0208
 	  =jis-x0208-1990
 	  =ucs-radicals
 	  =ucs-radicals@unicode
