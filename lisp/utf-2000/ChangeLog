@@ -1,5 +1,42 @@
 2015-11-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R140-Grass.el (CU+5348): Add `ideographic-structure'.
+	(UU+82DF): Likewise.
+	(HD-KS344440): Likewise; add representative node.
+
+2015-11-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R079-Weapon.el (UU+6BBA): Unify AJ1-02164.
+
+	* Ideograph-R077-Stop.el (U+6B62): Separate UU+6B62.
+	(BC-8960): Use `<-formed' for UU+6B62 instead of
+	`<-formed@component' for U+6B62; add HNG-KHI0448-0.
+	(U+9FB0): Unify BC-8B68; apply new conventions for glyph
+	granularity.
+	(GT-K00455): Add HNG-KHI0093-0.
+	(UU+6B64): Add `=>ucs@iwds-1'.
+	(MJ057888): New character; add HNG-KHI0449-0.
+
+	* Ideograph-R063-Door.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 abstract glyph-forms.
+	(U+623B): Apply new conventions for glyph granularity.
+	(CU+6241): Unify AJ1-07991.
+	(CU+6248): Unify AJ1-07874.
+	(U+6249): Apply new conventions for glyph granularity.
+	(CU+6249): Unify AJ1-07779.
+
+	* Ideograph-R050-Turban.el (U-00028E94): New character; add
+	HNG-KHI0447-0.
+
+	* Ideograph-R046-Mountain.el (U+5CD5): Apply new conventions for
+	glyph granularity.
+	(U+5D10): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+
+	* Ideograph-R010-Legs.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 abstract glyph-forms.
+	(AJ1-21178): Move `=decomposition@cid' to g2-AJ1-21178.
+
 	* Ideograph-R134-Mortar.el (UU+820A): Unify AJ1-06300.
 
 	* Ideograph-R106-White.el (UU+7684): Unify AJ1-03108; apply new
