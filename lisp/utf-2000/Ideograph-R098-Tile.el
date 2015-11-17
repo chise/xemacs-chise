@@ -106,6 +106,16 @@
     (=cns11643-2	. #x2831)	; &I-C2-2831; [08-17]
     (=big5		. #xCD6F)	; &I-B-CD6F;
     (=daikanwa		. 21448)	; &I-M-21448;
+    (=shinjigen@1ed	.  6228)	; 瓨
+    (=shinjigen@rev	.  6229)	; 瓨
+    (<-vulgar
+     ((=ucs		  . #x7F38)	; 缸
+      (=jis-x0208	  . #x657D)	; &I-J90-657D; [69-93]
+      (=shinjigen@1ed	  .  6227)	; 缸
+      (=shinjigen@rev	  .  6228)	; 缸
+      ))
+    (<-vulgar*sources
+     shinjigen@1ed shinjigen@rev)
     ))
 (define-char
   '((ideographic-radical . 98)	; ⽡
@@ -2912,25 +2922,30 @@
     (ideographic-strokes . 16)
     (total-strokes	 . 21)
     (=ucs		. #x24BA6)	; 𤮦
+    (=cns11643-7	. #x5371)	; &I-C7-5371; [51-81]
+    (=daikanwa		. 21624)	; &I-M-21624;
+    (<-formed
+     ((=ucs		  . #x58DC)	; 壜
+      ))
+    (<-formed*sources
+     jiyun)
+    (<-same
+     ((=ucs		  . #x58DC)	; 壜
+      (=daikanwa	  . 05588)	; &I-M-05588;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 21624)	; &M-21624;
-      (<-formed
-       ((=ucs@unicode	    . #x58DC)	; &AJ1-04529;
-	(=adobe-japan1-0    . 04529)	; &AJ1-04529;
+     ((==ucs@iso	  . #x24BA6)	; &g2-M-21624;
+      (==daikanwa	  . 21624)	; &g2-M-21624;
+      (->subsumptive
+       ((===daikanwa	    . 21624)	; &R-M-21624;
+	)
+       ((===ucs@iso	    . #x24BA6)	; &R-U-00024BA6;
 	))
-      (<-formed*sources
-       jiyun)
-      (<-same
-       ((=ucs@unicode	    . #x58DC)	; &AJ1-04529;
-	(=adobe-japan1-0    . 04529)	; &AJ1-04529;
-	(=daikanwa	    . 05588)	; &I-M-05588;
-	))
-      (<-same*sources
-       jiyun daikanwa)
       )
-     ((=ucs@iso		  . #x24BA6)	; &U-00024BA6;
-      )
-     ((=cns11643-7	  . #x5371)	; &C7-5371; [51-81]
+     ((==ucs@cns	  . #x24BA6)	; &g2-CU+24BA6;
+      (==cns11643-7	  . #x5371)	; &g2-CU+24BA6; [51-81]
       ))
     ))
 (define-char
