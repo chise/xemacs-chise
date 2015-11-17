@@ -22709,10 +22709,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@jis		  . #x6BD2)	; &GT-21446;
-      (=jis-x0208	  . #x4647)	; &GT-21446; [38-39]
-      (=jis-x0213-1	  . #x4647)	; &I-JX1-4647; [38-39]
-      (=daikanwa	  . 16730)	; &I-M-16730;
+     ((=ucs@jis		  . #x6BD2)	; &AJ1-03231;
+      (=adobe-japan1-0	  . 03231)	; &AJ1-03231;
       )
      ((=ucs@jis		  . #x7E23)	; &GT-35730;
       (=jis-x0208	  . #x6551)	; &GT-35730; [69-49]
