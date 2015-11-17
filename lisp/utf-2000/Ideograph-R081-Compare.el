@@ -46,6 +46,11 @@
       )
      ((==ucs@cns	  . #x6BD4)	; &g2-CU+6BD4;
       (==cns11643-1	  . #x4552)	; &g2-CU+6BD4; [37-50]
+      (->subsumptive
+       ((===cns11643-1	    . #x4552)	; &R-C1-4552; [37-50]
+	)
+       ((===hng-khi	    . 04540)	; &HNG010-04540;
+	))
       ))
     ))
 (define-char
@@ -219,17 +224,41 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x6BD7)	; 毗
+    (=adobe-japan1-5	. 16925)	; &I-AJ1-16925;
+    (=gb2312		. #x457E)	; &I-G0-457E; [37-94]
+    (=ks-x1001		. #x5D71)	; &I-K0-5D71; [61-81]
+    (=cns11643-1	. #x5176)	; &I-C1-5176; [49-86]
+    (=jis-x0213-1	. #x764C)	; &I-JX1-764C; [86-44]
     (=big5		. #xAC73)	; &I-B-AC73;
+    (=daikanwa		. 16752)	; &I-M-16752;
+    (=jef-china3	. #x54F9)	; &I-JC3-54F9;
     (->subsumptive
-     ((=ucs@unicode	  . #x6BD7)	; &AJ1-16925;
-      (=adobe-japan1-5	  . 16925)	; &AJ1-16925;
-      (=gb2312		  . #x457E)	; &I-G0-457E; [37-94]
-      (=ks-x1001	  . #x5D71)	; &I-K0-5D71; [61-81]
-      (=jis-x0213-1	  . #x764C)	; &I-JX1-764C; [86-44]
-      (=daikanwa	  . 16752)	; &I-M-16752;
-      (=jef-china3	  . #x54F9)	; &I-JC3-54F9;
+     ((==ucs@unicode	  . #x6BD7)	; &g2-AJ1-16925;
+      (==adobe-japan1-5	  . 16925)	; &g2-AJ1-16925;
+      (==gb2312		  . #x457E)	; &g2-AJ1-16925; [37-94]
+      (==ks-x1001	  . #x5D71)	; &g2-AJ1-16925; [61-81]
+      (==jis-x0213-1	  . #x764C)	; &g2-AJ1-16925; [86-44]
+      (==daikanwa	  . 16752)	; &g2-AJ1-16925;
+      (==jef-china3	  . #x54F9)	; &g2-AJ1-16925;
+      (->subsumptive
+       ((===daikanwa	    . 16752)	; &R-M-16752;
+	)
+       ((===jis-x0213-1	    . #x764C)	; &R-JX1-764C; [86-44]
+	)
+       ((===adobe-japan1-5  . 16925)	; &R-AJ1-16925;
+	)
+       ((===jef-china3	    . #x54F9)	; &R-JC3-54F9;
+	)
+       ((===ucs@ks	    . #x6BD7)	; &R-K0-5D71;
+	(===ks-x1001	    . #x5D71)	; &R-K0-5D71; [61-81]
+	)
+       ((===ucs@unicode	    . #x6BD7)	; &R-UU+6BD7;
+	))
       )
-     ((=cns11643-1	  . #x5176)	; &C1-5176; [49-86]
+     ((==ucs@cns	  . #x6BD7)	; &g2-CU+6BD7;
+      (==cns11643-1	  . #x5176)	; &g2-CU+6BD7; [49-86]
+      )
+     ((===hng-khi	  . 00960)	; &HNG010-00960;
       ))
     ))
 (define-char
