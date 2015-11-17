@@ -131,6 +131,8 @@
 	(===ks-x1001	    . #x5E5D)	; &R-K0-5E5D; [62-61]
 	)
        ((===ucs@unicode	    . #x6B7B)	; &R-UU+6B7B;
+	)
+       ((===hng-khi	    . 04500)	; &HNG010-04500;
 	))
       )
      ((==ucs@cns	  . #x6B7B)	; &g2-CU+6B7B;
