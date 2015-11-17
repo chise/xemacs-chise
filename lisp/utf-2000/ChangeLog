@@ -1,3 +1,22 @@
+2015-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el:
+	- Add glyph-images of HNG-KHI.
+	- Add some Adobe-Japan1-0 code points.
+	(U+65F6): Apply new conventions for glyph granularity.
+
+2015-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U+58DC): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R027-Cliff.el (U-00020A4A): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R082-Fur.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R080-Do-Not.el: Add some Adobe-Japan1-0 code points.
+
 2015-11-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R172-Short-Tailed-Bird.el (U+96BB): Apply new
