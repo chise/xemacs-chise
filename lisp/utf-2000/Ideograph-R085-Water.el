@@ -2114,10 +2114,10 @@
        ((name		    . "CJK RADICAL WATER ONE")
 	(=ucs		    . #x2EA1)	; ⺡
 	)
-       ((==ucs@cns	    . #x6B20)	; &g2-GT-20571;
-	(==ucs@jis	    . #x6B20)	; &g2-GT-20571;
-	(==ucs@ks	    . #x6B20)	; &g2-GT-20571;
-	(==jis-x0208	    . #x3767)	; &g2-GT-20571; [23-71]
+       ((==ucs@cns	    . #x6B20)	; &g2-AJ1-01853;
+	(==ucs@jis	    . #x6B20)	; &g2-AJ1-01853;
+	(==ucs@ks	    . #x6B20)	; &g2-AJ1-01853;
+	(==adobe-japan1-0   . 01853)	; &g2-AJ1-01853;
 	))
       (==ucs@cns	  . #x3CC4)	; &g2-M-17203;
       (==cns11643-3	  . #x265A)	; &g2-M-17203; [06-58]
