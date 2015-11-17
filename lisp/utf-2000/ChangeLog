@@ -1,5 +1,30 @@
 2015-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R079-Weapon.el: Add glyph-images of HNG-KHI.
+	(MJ057924): New character.
+	(U+6BBF): Separate UU+6BBF to integrate HNG-KHI0094-0.
+
+	* Ideograph-R078-Death.el (g2-UU+6B7B): Add HNG-KHI0450-0.
+
+	* Ideograph-R076-Lack.el: Add some Adobe-Japan1-0 code points.
+	(U-00023932): Apply new conventions for glyph granularity.
+
+	* Ideograph-R009-Man.el (U+4EF3): Apply new conventions for glyph
+	granularity.
+	(U-0002020B): Likewise.
+	(U+5031): Likewise.
+	(U+5082): Likewise.
+	(U-000202F5): Likewise.
+	(U+3476): Likewise.
+	(U+347A): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U-0002032F): Apply new conventions for glyph granularity.
+	(U+50B7): Likewise.
+	(U-0002036B): Add `ideographic-structure'.
+	(U+50DB): Apply new conventions for glyph granularity.
+	(U+50F1): Likewise.
+	(U+3495): Likewise.
+
 	* Ideograph-R072-Sun.el:
 	- Add glyph-images of HNG-KHI.
 	- Add some Adobe-Japan1-0 code points.
