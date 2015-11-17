@@ -1,3 +1,7 @@
+2015-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R081-Compare.el: Add glyph-images of HNG-KHI.
+
 2015-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R079-Weapon.el: Add glyph-images of HNG-KHI.
