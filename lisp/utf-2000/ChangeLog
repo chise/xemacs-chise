@@ -1,5 +1,12 @@
 2015-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R098-Tile.el (U+74E8): Unify S1-6228 and S2-6229; add
+	`<-vulgar' for U+7F38.
+	(U-00024BA6): Apply new conventions for glyph granularity.
+
+	* Ideograph-R083-Clan.el (U+6C11): Apply new conventions for glyph
+	granularity.
+
 	* Ideograph-R081-Compare.el: Add glyph-images of HNG-KHI.
 
 2015-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
