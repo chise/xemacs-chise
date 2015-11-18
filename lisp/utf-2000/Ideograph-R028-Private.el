@@ -123,6 +123,8 @@
     (=ucs		. #x20AD4)	; 𠫔
     (=cns11643-6	. #x213C)	; &I-C6-213C; [01-28]
     (=big5-cdp		. #x89AC)	; &I-CDP-89AC;
+    (=gt-k		. 00345)	; &I-GT-K00345;
+    (=gt-pj-2		. #x4B5D)	; 𠫔 [43-61]
     (=daikanwa		. 03059)	; &I-M-03059;
     ))
 (define-char
@@ -581,6 +583,24 @@
     (total-strokes	 . 6)
     (hanyu-dazidian	1 386 1)
     (=hanziku-1		. #xF56B)	; &HZK01-F56B;
+    ))
+(define-char
+  '((ideographic-radical . 28)	; ⼛
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x20AD4)	; 𠫔
+      )
+     ((=big5-cdp	  . #x8BED)	; &GT-10942;
+      (=daikanwa	  . 08674)	; &I-M-08674;
+      ))
+    (=ucs-itaiji-001	. #x342C)	; &U-i001+342C;
+    (<-formed
+     ((=ucs		  . #x342C)	; 㐬
+      ))
     ))
 (define-char
   '((ideographic-radical . 28)	; ⼛
