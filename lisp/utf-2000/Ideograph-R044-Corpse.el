@@ -1768,28 +1768,48 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (=ucs		. #x5C5A)	; 屚
+    (=adobe-japan1-6	. 21456)	; &I-AJ1-21456;
+    (=jis-x0212		. #x3A78)	; &I-JSP-3A78; [26-88]
+    (=cns11643-4	. #x3135)	; &I-C4-3135; [17-21]
+    (=big5-cdp		. #x8DA4)	; &I-CDP-8DA4;
+    (=daikanwa		. 07731)	; &I-M-07731;
+    (=shinjigen		.  4447)	; 屚
+    (<-original
+     ((=ucs		  . #x6F0F)	; 漏
+      (=jis-x0208	  . #x4F33)	; &I-J90-4F33; [47-19]
+      (=shinjigen	  .  4446)	; 漏
+      ))
+    (<-original*sources
+     shinjigen)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5C5A)	; 屚
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=ucs@unicode	  . #x5C5A)	; &AJ1-21456;
-      (=adobe-japan1-6	  . 21456)	; &AJ1-21456;
-      (=jis-x0212	  . #x3A78)	; &I-JSP-3A78; [26-88]
-      (=daikanwa	  . 07731)	; &I-M-07731;
-      (=shinjigen	  .  4447)	; &AJ1-21456;
-      (<-original
-       ((=ucs@unicode	    . #x6F0F)	; &AJ1-04057;
-	(=adobe-japan1-0    . 04057)	; &AJ1-04057;
-	(=jis-x0208	    . #x4F33)	; &I-J90-4F33; [47-19]
-	(=shinjigen	    .  4446)	; &AJ1-04057;
+      (==ucs@unicode	  . #x5C5A)	; &g2-AJ1-21456;
+      (==adobe-japan1-6	  . 21456)	; &g2-AJ1-21456;
+      (==jis-x0212	  . #x3A78)	; &g2-AJ1-21456; [26-88]
+      (==daikanwa	  . 07731)	; &g2-AJ1-21456;
+      (==shinjigen	  .  4447)	; &g2-AJ1-21456;
+      (->subsumptive
+       ((===daikanwa	    . 07731)	; &R-M-07731;
+	)
+       ((===jis-x0212	    . #x3A78)	; &R-JSP-3A78; [26-88]
+	)
+       ((===adobe-japan1-6  . 21456)	; &R-AJ1-21456;
+	)
+       ((===ucs@unicode	    . #x5C5A)	; &R-UU+5C5A;
 	))
-      (<-original*sources
-       shinjigen)
       )
-     ((=cns11643-4	  . #x3135)	; &C4-3135; [17-21]
-      (=big5-cdp	  . #x8DA4)	; &I-CDP-8DA4;
+     ((==ucs@cns	  . #x5C5A)	; &g2-CDP-8DA4;
+      (==cns11643-4	  . #x3135)	; &g2-CDP-8DA4; [17-21]
+      (==big5-cdp	  . #x8DA4)	; &g2-CDP-8DA4;
+      (->subsumptive
+       ((===big5-cdp	    . #x8DA4)	; &R-CDP-8DA4;
+	)
+       ((===cns11643-4	    . #x3135)	; &R-C4-3135; [17-21]
+	))
       ))
     ))
 (define-char
