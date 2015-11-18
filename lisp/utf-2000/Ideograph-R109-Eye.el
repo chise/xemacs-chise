@@ -1003,11 +1003,67 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (hanyu-dazidian	4 2476 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x76EE)	; 目
+      )
+     ((=ucs		  . #x6708)	; 月
+      ))
+    (sound@ja/on/go	"myou")
+    (sound@ja/on/kan	"mei")
     (=ucs		. #x7700)	; 眀
     (=jis-x0212		. #x4E5A)	; &I-JSP-4E5A; [46-58]
     (=cns11643-4	. #x2A59)	; &I-C4-2A59; [10-57]
     (=daikanwa		. 23178)	; &I-M-23178;
-    (=hanziku-7		. #xA9E7)	; &I-HZK07-A9E7;
+    (<-same
+     ((=ucs		  . #x660E)	; 明
+      (=daikanwa	  . 13805)	; &I-M-13805;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x76EE)	; 目
+	)
+       ((=mj		    . 013519)	; &MJ013519;
+	))
+      (==daikanwa	  . 23178)	; &g2-M-23178;
+      (->subsumptive
+       ((===daikanwa	    . 23178)	; &R-M-23178;
+	)
+       ((===hng-khi	    . 04150)	; &HNG010-04150;
+	(<-formed
+	 ((=ucs		      . #x660E)	; 明
+	  ))
+	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x76EE)	; 目
+	)
+       ((==ucs@unicode	    . #x6708)	; &g2-MJ013520;
+	(==mj		    . 013520)	; &g2-MJ013520;
+	))
+      (==ucs@unicode	  . #x7700)	; &g2-JSP-4E5A;
+      (==jis-x0212	  . #x4E5A)	; &g2-JSP-4E5A; [46-58]
+      (==cns11643-4	  . #x2A59)	; &g2-JSP-4E5A; [10-57]
+      (->subsumptive
+       ((===jis-x0212	    . #x4E5A)	; &R-JSP-4E5A; [46-58]
+	)
+       ((===cns11643-4	    . #x2A59)	; &R-C4-2A59; [10-57]
+	)
+       ((===ucs@unicode	    . #x7700)	; &R-UU+7700;
+	)
+       ((=hanziku-7	    . #xA9E7)	; &HZK07-A9E7;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 109)	; ⽬
@@ -4914,14 +4970,7 @@
     (=daikanwa		. 23450)	; &I-M-23450;
     (=jef-china3	. #x5BD5)	; &I-JC3-5BD5;
     (<-error@jis/x0208
-     ((=ucs@jis/1990	  . #x96CE)	; &GT-56413;
-      (=ucs@jis/2000	  . #x96CE)	; &GT-56413;
-      (=ucs@jis/2004	  . #x96CE)	; &GT-56413;
-      (=ucs@ks		  . #x96CE)	; &GT-56413;
-      (=jis-x0208@1983	  . #x7033)	; &GT-56413; [80-19]
-      (=ks-x1001	  . #x6E51)	; &I-K0-6E51; [78-49]
-      (=jis-x0213-1	  . #x7033)	; &I-JX1-7033; [80-19]
-      (=daikanwa	  . 42001)	; &I-M-42001;
+     ((=ucs		  . #x96CE)	; 雎
       ))
     (<-error@jis/x0208*sources
      jis-x0208/1978/errata jis-x0208/1997)
