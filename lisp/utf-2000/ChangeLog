@@ -1,5 +1,45 @@
 2015-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R087-Claw.el: Add some representative nodes.
+	(UU+7235): Apply new conventions for glyph granularity.
+
+	* Ideograph-R084-Steam.el: Add some Adobe-Japan1-0 code points.
+	(U+6C14): Add `<-ancient' for U+6C23 and UU+4E5E; add `<-formed'
+	for UU+4E5E; add `<-interchangeable' for UU+4E5E and U+5303; add
+	`<-same' for U+6C23, UU+4E5E and U+7081; add `->formed' for
+	U+7081.
+	(U+6C23): Add HNG-KHI0097-0.
+	(U+6C26): Apply new conventions for glyph granularity.
+	(U+6C28): Likewise.
+	(U+6C2E): Likewise.
+	(U-00023C66): Likewise; unify S-4046; add `<-formed' for U+6C1B.
+
+	* Ideograph-R080-Do-Not.el: Add glyph-images of HNG-KHI.
+
+	* Ideograph-R042-Small.el (U+5C12): Add HNG-KHI0483-0.
+
+	* Ideograph-R121-Jar.el (U+7F38): Apply new conventions for glyph
+	granularity.
+	(U+7F3C): Likewise.
+	(U+7F3A): Likewise; unify AJ1-06157.
+	(U+7F3D): Apply new conventions for glyph granularity.
+	(U+7F3E): Likewise.
+	(U+7F3F): Likewise.
+	(U+7F44): Likewise.
+	(U+7F45): Likewise.
+	(U+7F47): Likewise.
+	(U+7F4E): Likewise.
+	(U+7F4F): Likewise.
+	(U+7F50): Likewise.
+
+	* Ideograph-R086-Fire.el (U+7081): Use `->subsumptive'; unify
+	S-4044; add `<-formed' for U+6C23.
+	(U+70BA): Add HNG-KHI0481-0.
+
+	* Ideograph-R109-Eye.el (U+7700): Add HNG-KHI0415-0.; add
+	ideographic-structure; add `sound@ja/on/kan' and `sound@ja/on/go';
+	add `<-same' for U+660E.
+
 	* Ideograph-R098-Tile.el (U+74E8): Unify S1-6228 and S2-6229; add
 	`<-vulgar' for U+7F38.
 	(U-00024BA6): Apply new conventions for glyph granularity.
