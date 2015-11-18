@@ -1,5 +1,9 @@
 2015-11-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R072-Sun.el (U-0002B783): New character.
+
+	* Ideograph-R071-Not.el (U+65E0): Add HNG-KHI0413-0.
+
 	* Ideograph-R030-Mouth.el: Add some representative nodes.
 	(U+5421): Apply new conventions for glyph granularity.
 	(U+356E): Apply new conventions for glyph granularity for
