@@ -594,8 +594,7 @@
       )
      ((=ucs		  . #x20AD4)	; 𠫔
       )
-     ((=big5-cdp	  . #x8BED)	; &GT-10942;
-      (=daikanwa	  . 08674)	; &I-M-08674;
+     ((=ucs		  . #x2BDA7)	; 𫶧
       ))
     (=ucs-itaiji-001	. #x342C)	; &U-i001+342C;
     (<-formed
