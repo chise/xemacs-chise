@@ -107,6 +107,29 @@
      shinjigen)
     ))
 (define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5197)	; &BUCS+5197;
+      ))
+    (ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL KNIFE ONE")
+      (=ucs		  . #x2E88)	; ⺈
+      )
+     ((=ucs		  . #x51E0)	; 几
+      ))
+    (=ucs-itaiji-001	. #x5197)	; &U-i001+5197;
+    (<-formed
+     ((=ucs		  . #x5197)	; 冗
+      )
+     ((=ucs		  . #x5198)	; 冘
+      ))
+    ))
+(define-char
   '((ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
