@@ -1,3 +1,32 @@
+2015-11-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el: Add some representative nodes.
+	(U+5421): Apply new conventions for glyph granularity.
+	(U+356E): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+35B8): Apply new conventions for glyph granularity.
+	(CU+55C1): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U-00020ED7): Use `->subsumptive'.
+	(U+5617): Apply new conventions for glyph granularity.
+	(U+5618): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(UU+5659): Likewise.
+	(U-00020FD8): Apply new conventions for glyph granularity.
+	(U+5690): Use `->subsumptive'.
+
+2015-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R028-Private.el (U-00020AD4): Unify GT-00345.
+	(U+342C-itaiji-001): New character.
+
+	* Ideograph-R014-Cover.el (U+5197-itaiji-001): New character.
+
+	* Ideograph-R013-Down-Box.el (U+34BC-itaiji-004): New character.
+
+	* Ideograph-R008-Lid.el (UU+4EA4): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+
 2015-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R087-Claw.el: Add some representative nodes.
