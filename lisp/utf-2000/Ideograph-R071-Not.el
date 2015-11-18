@@ -62,6 +62,11 @@
 	)
        ((===jef-china3	    . #x82A3)	; &R-JC3-82A3;
 	))
+      )
+     ((===hng-khi	  . 04130)	; &HNG010-04130;
+      (<-formed
+       ((=ucs		    . #x7121)	; 無
+	))
       ))
     ))
 (define-char
