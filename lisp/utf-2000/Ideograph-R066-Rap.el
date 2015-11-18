@@ -77,6 +77,13 @@
      ((=ucs		  . #x6534)	; 攴
       )
      ((=ucs		  . #x6535)	; 攵
+      )
+     ((=ucs		  . #x20B1B)	; 𠬛
+      )
+     ((=ucs		  . #x6BB3)	; 殳
+      ))
+    (<-same
+     ((=ucs-itaiji-001	  . #x20B1B)	; &U-i001+20B1B;
       ))
     ))
 (define-char
