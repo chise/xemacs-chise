@@ -201,6 +201,8 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (=big5-cdp		. #x8BF1)	; &CDP-8BF1;
+    (=gt-k		. 00287)	; &I-GT-K00287;
+    (=gt-pj-k1		. #x3931)	; &CDP-8BF1; [25-17]
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁
