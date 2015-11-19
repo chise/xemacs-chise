@@ -1,5 +1,14 @@
 2015-11-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R086-Fire.el: Add glyph-images of HNG-KHI.
+	(U+7210): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R032-Earth.el (U+579A): Separate UU+579A to integrate
+	U+579A-var-002.
+	(U+579A-var-002): New character.
+	(U+582F): Separate UU+582F to integrate U+582F-var-002.
+	(U+582F-var-002): New character.
+
 	* Ideograph-R046-Mountain.el (U+3820): Apply new conventions for
 	glyph granularity.
 
