@@ -1011,8 +1011,7 @@
       )
      ((=ucs		  . #x20AD3)	; 𠫓
       )
-     ((=big5-cdp	  . #x8BED)	; &GT-10942;
-      (=daikanwa	  . 08674)	; &I-M-08674;
+     ((=ucs		  . #x2BDA7)	; 𫶧
       ))
     (=ucs		. #x342C)	; 㐬
     (->subsumptive
@@ -1025,8 +1024,7 @@
        ((=ucs@jis	    . #x20AD3)	; &MJ031960;
 	(=mj		    . 031960)	; &MJ031960;
 	)
-       ((=big5-cdp	    . #x8BED)	; &GT-10942;
-	(=daikanwa	    . 08674)	; &I-M-08674;
+       ((=ucs		    . #x2BDA7)	; 𫶧
 	))
       (=ucs@unicode	  . #x342C)	; &AJ1-17246;
       (=adobe-japan1-5	  . 17246)	; &AJ1-17246;
@@ -1047,7 +1045,8 @@
 	 ((=ucs@jis	      . #x20AD3)	; &MJ031960;
 	  (=mj		      . 031960)	; &MJ031960;
 	  )
-	 ((==daikanwa	      . 08674)	; &g2-GT-10942;
+	 ((==ucs@iso	      . #x2BDA7)	; &g2-GT-10942;
+	  (==daikanwa	      . 08674)	; &g2-GT-10942;
 	  ))
 	(==ucs@unicode	    . #x342C)	; &g2-AJ1-17246;
 	(==adobe-japan1-5   . 17246)	; &g2-AJ1-17246;
@@ -1080,10 +1079,22 @@
        ((=ucs@iso	    . #x20AD3)	; &MJ031959;
 	(=mj		    . 031959)	; &MJ031959;
 	)
-       ((=big5-cdp	    . #x8BED)	; &GT-10942;
-	(=daikanwa	    . 08674)	; &I-M-08674;
+       ((=ucs		    . #x2BDA7)	; 𫶧
 	))
       (=big5-cdp	  . #x8C50)	; &CDP-8C50;
+      (->subsumptive
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((==ucs@iso	      . #x20AD3)	; &g2-MJ031959;
+	  (==mj		      . 031959)	; &g2-MJ031959;
+	  )
+	 ((==ucs@iso	      . #x2BDA7)	; &g2-GT-10942;
+	  (==daikanwa	      . 08674)	; &g2-GT-10942;
+	  ))
+	(==big5-cdp	    . #x8C50)	; &g2-CDP-8C50;
+	))
       ))
     ))
 (define-char
