@@ -87,7 +87,8 @@
   '((ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (=big5-cdp		. #x8BED)	; &GT-10942;
+    (=ucs		. #x2BDA7)	; 𫶧
+    (=big5-cdp		. #x8BED)	; &I-CDP-8BED;
     (=gt		. 10942)	; &I-GT-10942;
     (=gt-pj-3		. #x3D75)	; &I-GT-10942; [29-85]
     (=daikanwa		. 08674)	; &I-M-08674;
@@ -100,11 +101,14 @@
     (<-simplified@JP/old*sources
      daikanwa)
     (->subsumptive
-     ((==big5-cdp	  . #x8BED)	; &g2-GT-10942;
+     ((==ucs@iso	  . #x2BDA7)	; &g2-GT-10942;
+      (==big5-cdp	  . #x8BED)	; &g2-GT-10942;
       (==gt		  . 10942)	; &g2-GT-10942;
       (==daikanwa	  . 08674)	; &g2-GT-10942;
       (->subsumptive
        ((===daikanwa	    . 08674)	; &R-M-08674;
+	)
+       ((===ucs@iso	    . #x2BDA7)	; &R-U-0002BDA7;
 	)
        ((===big5-cdp	    . #x8BED)	; &R-CDP-8BED;
 	)
