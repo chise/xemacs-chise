@@ -1,5 +1,21 @@
 2015-11-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U+562B): Use `->subsumptive'.
+	(U+56A7): Apply new conventions for glyph granularity.
+
+	* Ideograph-R002-Line.el (BC-8BF1): Unify GT-K00287.
+
+2015-11-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R047-River.el (BC-8BED): Unify U-0002BDA7.
+
+	* Ideograph-R029-Again.el (A-IWDSU+20B1B): New abstract node.
+	(IU+20B1B): Use A-IWDSU+20B1B instead of U-00020B1B as the mother.
+	(BC-8BA1): Likewise.
+	(U+20B1B-itaiji-001): New character.
+
+	* Ideograph-R008-Lid.el (BC-8C50): Add representative glyph node.
+
 	* Ideograph-R072-Sun.el (U-0002B783): New character.
 
 	* Ideograph-R071-Not.el (U+65E0): Add HNG-KHI0413-0.
