@@ -16140,6 +16140,18 @@
      ((=ucs		  . #x76E7)	; 盧
       ))
     (=ucs		. #x3820)	; 㠠
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3820)	; 㠠
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 16)
+    (total-strokes	 . 19)
+    (=ucs@unicode	. #x3820)	; &C4-5F5A;
+    (=cns11643-4	. #x5F5A)	; &C4-5F5A; [63-58]
+    (=daikanwa		. 08597)	; &I-M-08597;
+    (=cbeta		. 06885)	; &I-CB06885;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -16147,15 +16159,15 @@
 	)
        ((=ucs		    . #x5C71)	; 山
 	)
-       ((=ucs@unicode	    . #x76E7)	; &GT-29541;
-	(=jis-x0208	    . #x623A)	; &GT-29541; [66-26]
-	(=jis-x0213-1	    . #x623A)	; &I-JX1-623A; [66-26]
-	(=daikanwa	    . 23050)	; &I-M-23050;
+       ((==ucs@unicode	    . #x76E7)	; &g2-GT-29541;
+	(==jis-x0208	    . #x623A)	; &g2-GT-29541; [66-26]
 	))
-      (=ucs@unicode	  . #x3820)	; &M-08597;
-      (=daikanwa	  . 08597)	; &M-08597;
+      (==daikanwa	  . 08597)	; &g2-M-08597;
       )
-     ((=cbeta		  . 06885)	; &CB06885;
+     ((==ucs@unicode	  . #x3820)	; &g2-UU+3820;
+      (==ucs@JP/hanazono  . nil)
+      )
+     ((==cbeta		  . 06885)	; &g2-CB06885;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -16163,9 +16175,11 @@
 	)
        ((=ucs		    . #x5C71)	; 山
 	)
-       ((=cns11643-1	    . #x714D)	; &C1-714D; [81-45]
+       ((==ucs@cns	    . #x76E7)	; &g2-CU+76E7;
+	(==cns11643-1	    . #x714D)	; &g2-CU+76E7; [81-45]
 	))
-      (=cns11643-4	  . #x5F5A)	; &C4-5F5A; [63-58]
+      (==ucs@cns	  . #x3820)	; &g2-CU+3820;
+      (==cns11643-4	  . #x5F5A)	; &g2-CU+3820; [63-58]
       ))
     ))
 (define-char
