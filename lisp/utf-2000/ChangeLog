@@ -1,5 +1,25 @@
 2015-11-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R164-Wine.el (U+914B): Separate A-IWDSU+914B.
+	(KU+914B): Use A-IWDSU+914B instead of U+914B as the mother.
+	(UU+914B): Likewise.
+	(U+914B-itaiji-001): New character.
+
+	* Ideograph-R085-Water.el: Add glyph-images of HNG-KHI.
+	(U+6CAD): Add ideographic-structure.
+	(UU+6CAD): Unify CB02963.
+	(U+3CD2): Unify S-4154; add `<-formed' for U+6CD5.
+	(U+704B): Unify S-4153; add `<-ancient' for U+6CD5.
+
+	* Ideograph-R075-Tree.el (U+3BE0): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R039-Child.el (BUCS+5B5F): New abstract node.
+	(U+5B5F): Add `<-denotational' for BUCS+5B5F; add
+	`ideographic-structure'.
+
+2015-11-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R086-Fire.el: Add glyph-images of HNG-KHI.
 	(U+7210): Use `->denotational' and `->subsumptive'.
 
