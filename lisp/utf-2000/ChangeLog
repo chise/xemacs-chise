@@ -1,4 +1,67 @@
+2015-11-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R196-Bird.el: Add some representative nodes.
+	(U+9CE9): Apply new conventions for glyph granularity.
+	(U+9CF9): Likewise.
+	(U+9D0B): Likewise.
+	(U+9D17): Likewise.
+	(U+4CC4): Likewise.
+	(U+9D2A): Likewise.
+	(U+9D33): Likewise.
+	(U+9D43): Likewise.
+	(U+9D48): Likewise.
+	(U+9D4A): Likewise.
+	(U+9D54): Likewise.
+	(U+9D62): Likewise.
+	(U+9D69): Likewise.
+	(U+9D73): Likewise.
+	(U+9D77): Likewise.
+	(U+9D7C): Likewise.
+	(U+9D7E): Likewise.
+	(U+9D84): Likewise.
+	(U+9D8A): Likewise.
+	(U+9D8E): Likewise.
+	(U+9D95): Likewise.
+	(U+9D99): Likewise.
+	(U+9DAC): Likewise.
+	(U+9DAE): Likewise.
+	(U+9DB1): Likewise.
+	(U+9DB2): Likewise.
+	(U+9DB9): Likewise.
+	(U+9DCF): Likewise.
+	(U+9DC7): Likewise.
+	(U+9DC9): Likewise.
+	(U+9DD4): Likewise.
+	(U+9DD5): Likewise.
+	(U+9DD6): Likewise.
+	(U+9DF4): Likewise.
+	(U+9DF9): Likewise.
+	(U+4D07): Likewise.
+	(U+9DFE): Likewise.
+	(U+9E0A): Likewise.
+	(U+9E16): Likewise.
+	(U+9E1C): Likewise.
+
+	* Ideograph-R108-Dish.el: Add glyph-images of HNG-KHI.
+	(U+5B5F-itaiji-002): New character.
+	(U-0002505E): Unify S-5258; add `<-vulgar' for U+76E1.
+	(BUCS+76E7): New abstract node.
+	(U+76E7): Apply new conventions for glyph granularity; add
+	`<-denotational' for BUCS+76E7;
+	(U+76E7-itaiji-002): New character; add `<-denotational' for
+	BUCS+76E7;
+	(MJ058152): Likewise; add `<-same' for U+76E7-itaiji-002.
+
 2015-11-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R025-Divination.el (U+5362): Add `<-denotational' for
+	BUCS+76E7; add `<-simplified@CN' for UU+76E7.
+
+	* Ideograph-R009-Man.el: Add some representative nodes.
+	(U+4F83): Apply new conventions for glyph granularity.
+	(U-0002022D): Likewise.
+	(U+3484): Likewise.
+	(U-00020433): Likewise.
 
 	* Ideograph-R164-Wine.el (U+914B): Separate A-IWDSU+914B.
 	(KU+914B): Use A-IWDSU+914B instead of U+914B as the mother.
