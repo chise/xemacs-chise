@@ -670,8 +670,23 @@
     ))
 (define-char
   '((ideographic-radical . 39)	; ⼦
+    (==>ucs@bucs	. #x5B5F)	; &BUCS+5B5F;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5B5F)	; &BUCS+5B5F;
+      ))
+    (ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B50)	; 子
+      )
+     ((=ucs		  . #x76BF)	; 皿
+      ))
     (=ucs		. #x5B5F)	; 孟
     (=adobe-japan1-0	. 03806)	; &I-AJ1-03806;
     (=jis-x0208		. #x4C52)	; &I-J90-4C52; [44-50]
