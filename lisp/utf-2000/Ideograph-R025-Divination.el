@@ -288,7 +288,10 @@
     (=cns11643-6	. #x224C)	; &I-C6-224C; [02-44]
     ))
 (define-char
-  '((ideographic-radical . 25)	; ⼘
+  '((<-denotational
+     ((==>ucs@bucs	  . #x76E7)	; &BUCS+76E7;
+      ))
+    (ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 93 3)
@@ -304,6 +307,15 @@
     (=ucs		. #x5362)	; 卢
     (=gb2312		. #x422C)	; &I-G0-422C; [34-12]
     (=hanziku-1		. #xB6FA)	; &I-HZK01-B6FA;
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x76E7)	; &GT-29541;
+      (=jis-x0208	  . #x623A)	; &GT-29541; [66-26]
+      (=ks-x1001	  . #x5654)	; &I-K0-5654; [54-52]
+      (=cns11643-1	  . #x714D)	; &I-C1-714D; [81-45]
+      (=jis-x0213-1	  . #x623A)	; &I-JX1-623A; [66-26]
+      (=gb12345		  . #x422C)	; &GT-29541; [34-12]
+      (=daikanwa	  . 23050)	; &I-M-23050;
+      ))
     ))
 (define-char
   '((ideographic-radical . 25)	; ⼘
