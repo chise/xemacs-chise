@@ -104,6 +104,17 @@
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 2)
     (total-strokes	 . 9)
+    (=>ucs@iwds-1	. #x914B)	; &A-IWDSU+914B;
+    (=>ucs@unicode	. #x914B)	; &A-IWDSU+914B;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x914B)	; &A-IWDSU+914B;
+      (=>ucs@unicode	  . #x914B)	; &A-IWDSU+914B;
+      ))
+    (ideographic-radical . 164)	; ⾣
+    (ideographic-strokes . 2)
+    (total-strokes	 . 9)
     (=ucs@jis/2004	. #x914B)	; &HD-FT-3233;
     (=ucs@ks		. #x914B)	; &HD-FT-3233;
     (=jis-x0208@1978	. #x3D36)	; &HD-FT-3233; [29-22]
@@ -146,7 +157,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x914B)	; 酋
+     ((=>ucs@iwds-1	  . #x914B)	; &A-IWDSU+914B;
+      (=>ucs@unicode	  . #x914B)	; &A-IWDSU+914B;
       ))
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 2)
@@ -200,6 +212,18 @@
 	)
        ((===jef-china3	    . #x43E9)	; &R-JC3-43E9;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x914B)	; 酋
+      ))
+    (ideographic-radical . 164)	; ⾣
+    (ideographic-strokes . 2)
+    (total-strokes	 . 9)
+    (=ucs-itaiji-001	. #x914B)	; &U-i001+914B;
+    (<-formed
+     ((=ucs		  . #x914B)	; 酋
       ))
     ))
 (define-char
