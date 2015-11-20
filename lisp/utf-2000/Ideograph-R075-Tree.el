@@ -27716,6 +27716,10 @@
      ((=ucs		  . #x727D)	; 牽
       ))
     (=ucs		. #x3BE0)	; 㯠
+    (=cns11643-3	. #x4C4B)	; &I-C3-4C4B; [44-43]
+    (=gt		. 19689)	; &I-GT-19689;
+    (=gt-pj-4		. #x394A)	; &I-GT-19689; [25-42]
+    (=daikanwa/+p	. 15485)	; 㯠
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -27723,15 +27727,18 @@
 	)
        ((=gt-k		    . 00495)	; &GT-K00495;
 	)
-       ((=ucs@jis/2004	    . #x727D)	; &GT-25686;
-	(=ucs@ks	    . #x727D)	; &GT-25686;
-	(=ks-x1001	    . #x4C32)	; &GT-25686; [44-18]
-	(=jis-x0213-1@2004  . #x3823)	; &I-JX3-3823; [24-03]
-	(=daikanwa	    . 20025)	; &I-M-20025;
+       ((==ucs@cns	    . #x727D)	; &g2-GT-25686;
+	(==ucs@jis/2004	    . #x727D)	; &g2-GT-25686;
+	(==ucs@ks	    . #x727D)	; &g2-GT-25686;
+	(==daikanwa	    . 20025)	; &g2-GT-25686;
 	))
-      (=gt		  . 19689)	; &GT-19689;
-      (=gt-pj-4		  . #x394A)	; &GT-19689; [25-42]
-      (=daikanwa/+p	  . 15485)	; &GT-19689;
+      (==gt		  . 19689)	; &g2-GT-19689;
+      (==daikanwa/+p	  . 15485)	; &g2-GT-19689;
+      (->subsumptive
+       ((===daikanwa/+p	    . 15485)	; &R-M-p15485;
+	)
+       ((===gt		    . 19689)	; &R-GT-19689;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -27739,11 +27746,16 @@
 	)
        ((=gt-k		    . 00495)	; &GT-K00495;
 	)
-       ((=ucs@unicode	    . #x727D)	; &C1-5B74;
-	(=cns11643-1	    . #x5B74)	; &C1-5B74; [59-84]
+       ((==ucs@unicode	    . #x727D)	; &g2-UU+727D;
 	))
-      (=ucs@unicode	  . #x3BE0)	; &C3-4C4B;
-      (=cns11643-3	  . #x4C4B)	; &C3-4C4B; [44-43]
+      (==ucs@unicode	  . #x3BE0)	; &g2-UU+3BE0;
+      (==ucs@JP/hanazono  . nil)
+      (==cns11643-3	  . #x4C4B)	; &g2-UU+3BE0; [44-43]
+      (->subsumptive
+       ((===cns11643-3	    . #x4C4B)	; &R-C3-4C4B; [44-43]
+	)
+       ((===ucs@unicode	    . #x3BE0)	; &R-UU+3BE0;
+	))
       ))
     ))
 (define-char
