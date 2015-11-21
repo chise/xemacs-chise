@@ -1,5 +1,17 @@
 2015-11-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R093-Cow.el: Add glyph-images of HNG-KHI.
+	(U+7262): Apply new conventions for glyph granularity.
+	(U+7268): Likewise.
+	(U+7277): Likewise.
+	(U+727D): Likewise.
+	(U+7280): Likewise.
+	(U-0002F924): Add `<-denotational' for U+7280.
+	(U+7289): Apply new conventions for glyph granularity.
+	(U+72A2): Likewise.
+
+2015-11-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R196-Bird.el: Add some representative nodes.
 	(U+9CE9): Apply new conventions for glyph granularity.
 	(U+9CF9): Likewise.
