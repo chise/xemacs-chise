@@ -93,8 +93,7 @@
     (=gt-pj-3		. #x3D75)	; &I-GT-10942; [29-85]
     (=daikanwa		. 08674)	; &I-M-08674;
     (<-simplified@JP/old
-     ((=ucs@jis		  . #x8A13)	; &AJ1-01799;
-      (=adobe-japan1-0	  . 01799)	; &AJ1-01799;
+     ((=ucs		  . #x8A13)	; 訓
       (=jis-x0208	  . #x3731)	; &I-J90-3731; [23-17]
       (=daikanwa	  . 35238)	; &I-M-35238;
       ))
