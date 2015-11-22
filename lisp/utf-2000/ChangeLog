@@ -1,3 +1,15 @@
+2015-11-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+5661): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+2015-11-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R094-Dog.el: Add glyph-images of HNG-KHI.
+	(BUCS+731B): New character.
+	(U+731B): Add `<-denotational' for BUCS+731B; add
+	`ideographic-structure'.
+
 2015-11-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R093-Cow.el: Add glyph-images of HNG-KHI.
@@ -32850,7 +32862,7 @@
 
 2007-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* char-db-util.el (shuowen-radicals): Add ?𦥑, ?𨈼, ?爨, ?革, ?鬲,
+	* char-db-util.el (shuowen-radicals): Add ?𦥑, ?䠫, ?爨, ?革, ?鬲,
 	?䰜, ?爪, ?𠃨, ?鬥, ?又, ?𠂇, ?㕜, ?  支, ?𦘒, ?聿, ?畫, ?隶, ?堅,
 	?臣, ?殳, ?殺, ?𠘧, ?寸, ?皮 , ?瓪, ?  攴, ?敎, ?卜, ?用, ?爻 and
 	?㸚.
