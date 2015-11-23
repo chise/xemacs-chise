@@ -112,6 +112,8 @@
      ((==ucs@cns	  . #x751A)	; &g2-CU+751A;
       (==cns11643-1	  . #x5249)	; &g2-CU+751A; [50-41]
       )
+     ((===hng-khi	  . 04880)	; &HNG010-04880;
+      )
      ((==ucs@unicode	  . #x751A)	; &g2-UU+751A;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x4975)	; &g2-UU+751A; [41-85]
