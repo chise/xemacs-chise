@@ -1,5 +1,17 @@
 2015-11-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R099-Sweet.el (UU+751A): Add HNG-KHI0488-0.
+
+	* Ideograph-R072-Sun.el (U+66D5): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+
+	* Ideograph-R050-Turban.el (U+5E68): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R009-Man.el (U+50A0): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+	(U+510B): Likewise.
+
 	* Ideograph-R030-Mouth.el (U+5661): Apply new conventions for
 	glyph granularity for components of ideographic-structure.
 
