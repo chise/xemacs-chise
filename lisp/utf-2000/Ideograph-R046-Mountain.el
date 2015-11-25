@@ -649,6 +649,24 @@
   '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((name		  . "IDEOGRAPHIC ITERATION MARK")
+      (=ucs		  . #x3005)	; 々
+      ))
+    (=ucs		. #x37AE)	; 㞮
+    (<-formed
+     ((=ucs		  . #x51FA)	; 出
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
     (=ucs		. #x5C7F)	; 屿
     (=gb2312		. #x536C)	; &I-G0-536C; [51-76]
     ))
