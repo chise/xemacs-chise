@@ -379,9 +379,10 @@
     (=daikanwa		. 05703)	; &I-M-05703;
     (=shinjigen		.  3201)	; &AJ1-03617;
     (<-simplified@JP/Jouyou
-     ((=ucs@jis		  . #x8B8A)	; &GT-48488;
+     ((=ucs@unicode	  . #x8B8A)	; &GT-48488;
       (=jis-x0208	  . #x5A4E)	; &GT-48488; [58-46]
       (=ks-x1001	  . #x5C28)	; &I-K0-5C28; [60-08]
+      (=cns11643-1	  . #x7C48)	; &I-C1-7C48; [92-40]
       (=jis-x0213-1	  . #x5A4E)	; &I-JX1-5A4E; [58-46]
       (=daikanwa	  . 36117)	; &I-M-36117;
       ))
@@ -440,7 +441,6 @@
       ))
     (=ucs@cns		. #x5909)	; &C3-2B79;
     (=cns11643-3	. #x2B79)	; &C3-2B79; [11-89]
-    (=hanziku-3		. #xAEED)	; &I-HZK03-AEED;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -449,11 +449,12 @@
        ((==ucs@unicode	    . #x4EA6)	; &g2-AJ1-03744;
 	(==adobe-japan1-0   . 03744)	; &g2-AJ1-03744;
 	)
-       ((=ucs@unicode	    . #x590A)	; &C3-213A;
-	(=cns11643-3	    . #x213A)	; &C3-213A; [01-26]
+       ((==ucs@unicode	    . #x590A)	; &g2-CDP-8A71;
 	))
       (==ucs@cns	  . #x5909)	; &g2-CU+5909;
       (==cns11643-3	  . #x2B79)	; &g2-CU+5909; [11-89]
+      )
+     ((=hanziku-3	  . #xAEED)	; &HZK03-AEED;
       ))
     ))
 (define-char
