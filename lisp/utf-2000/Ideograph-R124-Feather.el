@@ -7410,7 +7410,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=cns11643-1	    . #x606C)	; &C1-606C; [64-76]
+       ((==ucs@cns	    . #x756A)	; &g2-CU+756A;
+	(==cns11643-1	    . #x606C)	; &g2-CU+756A; [64-76]
 	)
        ((=ucs		    . #xFA1E)	; 羽
 	))
@@ -7466,7 +7467,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=cns11643-1	    . #x606C)	; &C1-606C; [64-76]
+       ((==ucs@cns	    . #x756A)	; &g2-CU+756A;
+	(==cns11643-1	    . #x606C)	; &g2-CU+756A; [64-76]
 	)
        ((=ucs@unicode	    . #x7FBD)	; &GT-36833;
 	(=jis-x0208	    . #x3129)	; &GT-36833; [17-09]
