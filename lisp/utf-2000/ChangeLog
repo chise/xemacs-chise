@@ -1,5 +1,9 @@
 2015-11-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R111-Arrow.el (CB08101): New character.
+
+	* Ideograph-R101-Use.el: Add some Adobe-Japan1-0 code points.
+
 	* Ideograph-R037-Big.el (U-0002BBDD): New character.
 
 	* Ideograph-R015-Ice.el (U+51DD): Apply new conventions for glyph
