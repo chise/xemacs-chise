@@ -167,6 +167,23 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=ucs		  . #x4E0A)	; 上
+      )
+     ((=ucs		  . #x77E2)	; 矢
+      ))
+    (=cbeta		. 08101)	; &CB08101;
+    (<-formed
+     ((=ucs		  . #x20915)	; 𠤕
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 111)	; ⽮
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs		  . #x77E2)	; 矢
       )
      ((=ucs		  . #x5EFE)	; 廾
