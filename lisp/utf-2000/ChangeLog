@@ -1,10 +1,29 @@
 2015-11-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R105-Dotted-Tent.el (U+7678): Apply new conventions
+	for glyph granularity.
+	(U+767C): Likewise.
+	(U-00024F32): Add HNG-KHI0497-0.
+
 	* Ideograph-R032-Earth.el (U+583A): Add `ideographic-structure'.
 	(U+58A2): Apply new conventions for glyph granularity for
 	components of ideographic-structure.
 
 2015-11-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R123-Sheep.el (U+7F96): Apply new conventions for
+	glyph granularity.
+	(U+7F97): Add S-6270; add `<-vulgar' for JU+7F8C.
+	(U+7FA1): Apply new conventions for glyph granularity.
+	(U-0002638C): Likewise.
+	(U+7FAA): Likewise.
+	(U-000263A4): Likewise.
+	(U+7FAD): Likewise.
+	(U+7FAF): Likewise.
+	(U+7FB4): Likewise.
+	(U+7FB8): Likewise.
+	(U+8B71): Likewise.
+	(U-000263DE): Use `->subsumptive'.
 
 	* Ideograph-R102-Field.el: Add some Adobe-Japan1-0 code points.
 	(A-M-49335): Unify U-00024C83.
@@ -16,6 +35,14 @@
 	(U+7524): Likewise.
 	(U-0002F934): Add `<-denotational' for U+7524.
 	(U+7527): Apply new conventions for glyph granularity.
+
+	* Ideograph-R096-Jade.el: Add glyph-images of HNG-KHI.
+	(BUCS+7460): New abstract node.
+	(U+7460): Add `<-denotational' for BUCS+7460; unify H3-E74A and
+	CB00222.
+	(HNG-KHI0114-0): New character; add `<-denotational' for
+	BUCS+7460; add `<-formed' for U+7460.
+	(U+74A2): Add `<-denotational' for BUCS+7460.
 
 	* Ideograph-R062-Halberd.el (U-0002298F): Add
 	`ideographic-structure'.
