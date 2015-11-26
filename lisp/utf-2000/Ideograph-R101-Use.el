@@ -4,6 +4,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (=ucs		. #x7528)	; 用
+    (=adobe-japan1-0	. 03899)	; &I-AJ1-03899;
     (=jis-x0208		. #x4D51)	; &I-J90-4D51; [45-49]
     (=gb2312		. #x5343)	; &I-G0-5343; [51-35]
     (=ks-x1001		. #x6944)	; &I-K0-6944; [73-36]
@@ -14,7 +15,7 @@
     (=gt-k		. 01016)	; &I-GT-K01016;
     (=gt-pj-1		. #x4D51)	; &I-GT-27874; [45-49]
     (=daikanwa		. 21703)	; &I-M-21703;
-    (=shinjigen@rev	.  5014)	; 用
+    (=shinjigen		.  5014)	; 用
     ))
 (define-char
   '((=>ucs		. #x7529)	; 甩
@@ -68,6 +69,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
     (=ucs		. #x752B)	; 甫
+    (=adobe-japan1-0	. 03635)	; &I-AJ1-03635;
     (=jis-x0208		. #x4A63)	; &I-J90-4A63; [42-67]
     (=gb2312		. #x3826)	; &I-G0-3826; [24-06]
     (=ks-x1001		. #x5C4B)	; &I-K0-5C4B; [60-43]
@@ -78,13 +80,14 @@
     (=gt-k		. 02646)	; &I-GT-K02646;
     (=gt-pj-1		. #x4A63)	; &I-GT-27877; [42-67]
     (=daikanwa		. 21706)	; &I-M-21706;
-    (=shinjigen@rev	.  5015)	; 甫
+    (=shinjigen		.  5015)	; 甫
     ))
 (define-char
   '((ideographic-radical . 101)	; ⽤
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
     (=ucs		. #x752C)	; 甬
+    (=adobe-japan1-0	. 05708)	; &I-AJ1-05708;
     (=jis-x0208		. #x6135)	; &I-J90-6135; [65-21]
     (=gb2312		. #x702E)	; &I-G0-702E; [80-14]
     (=ks-x1001		. #x6945)	; &I-K0-6945; [73-37]
@@ -95,7 +98,7 @@
     (=gt-k		. 02719)	; &I-GT-K02719;
     (=gt-pj-1		. #x6135)	; &I-GT-27879; [65-21]
     (=daikanwa		. 21707)	; &I-M-21707;
-    (=shinjigen@rev	.  5016)	; 甬
+    (=shinjigen		.  5016)	; 甬
     ))
 (define-char
   '((ideographic-radical . 101)	; ⽤
