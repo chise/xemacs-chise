@@ -209,6 +209,14 @@
   '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5341)	; 十
+      )
+     ((=ucs		  . #x6208)	; 戈
+      ))
     (=ucs		. #x2298F)	; 𢦏
     (=cns11643-4	. #x2272)	; &I-C4-2272; [02-82]
     (=jis-x0213-2	. #x2C72)	; &I-JX2-2C72; [12-82]
