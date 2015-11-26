@@ -465,7 +465,13 @@
     (=cns11643-6	. #x2630)	; &C6-2630; [06-16]
     ))
 (define-char
-  '((=>ucs		. #x20915)	; 𠤕
+  '((ideographic-radical . 21)	; ⼔
+    (=ucs		. #x20915)	; 𠤕
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20915)	; 𠤕
+      ))
     (ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
@@ -480,23 +486,9 @@
     (=daikanwa		. 02577)	; &M-02577;
     ))
 (define-char
-  '((morohashi-daikanwa	2577 0 0)
-    (ideographic-radical . 21)	; ⼔
-    (ideographic-strokes . 5)
-    (total-strokes	 . 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x5315)	; 匕
-      )
-     ((=ucs		  . #x77E2)	; 矢
+  '((<-denotational
+     ((=ucs		  . #x20915)	; 𠤕
       ))
-    (=ucs		. #x20915)	; 𠤕
-    ))
-(define-char
-  '((=>ucs		. #x20915)	; 𠤕
-    (morohashi-daikanwa	2577 0 1)
     (ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
@@ -509,23 +501,17 @@
       )
      ((=ucs		  . #x77E2)	; 矢
       ))
-    (=big5-cdp		. #x8CCA)	; &CDP-8CCA;
-    ))
-(define-char
-  '((=>ucs		. #x20915)	; 𠤕
-    (morohashi-daikanwa	2577 0 2)
-    (ideographic-radical . 21)	; ⼔
-    (ideographic-strokes . 5)
-    (total-strokes	 . 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x5315)	; 匕
-      )
-     ((=ucs		  . #x77E2)	; 矢
-      ))
+    (=ucs@iso		. #x20915)	; &C6-2632;
     (=cns11643-6	. #x2632)	; &C6-2632; [06-18]
+    (=big5-cdp		. #x8CCA)	; &I-CDP-8CCA;
+    (->subsumptive
+     ((==ucs@iso	  . #x20915)	; &g2-IU-00020915;
+      )
+     ((==big5-cdp	  . #x8CCA)	; &g2-CDP-8CCA;
+      )
+     ((==ucs@cns	  . #x20915)	; &g2-CU+20915;
+      (==cns11643-6	  . #x2632)	; &g2-CU+20915; [06-18]
+      ))
     ))
 (define-char
   '((ideographic-radical . 21)	; ⼔
