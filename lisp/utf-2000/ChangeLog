@@ -1,3 +1,9 @@
+2015-11-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U+583A): Add `ideographic-structure'.
+	(U+58A2): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+
 2015-11-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R102-Field.el: Add some Adobe-Japan1-0 code points.
