@@ -1,5 +1,24 @@
 2015-11-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R102-Field.el: Add some Adobe-Japan1-0 code points.
+	(A-M-49335): Unify U-00024C83.
+	(C6-4B57): Separate U-00024C83; unify IU+24C83 instead; add
+	`=>ucs@iwds-1'.
+
+	* Ideograph-R100-Life.el (U+751F): Add HNG-KHI0489-0.
+	(U+7522): Apply new conventions for glyph granularity.
+	(U+7524): Likewise.
+	(U-0002F934): Add `<-denotational' for U+7524.
+	(U+7527): Apply new conventions for glyph granularity.
+
+	* Ideograph-R062-Halberd.el (U-0002298F): Add
+	`ideographic-structure'.
+
+	* Ideograph-R021-Spoon.el (U-00020915): Use `->denotational' and
+	`->subsumptive'.
+
+2015-11-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R111-Arrow.el (CB08101): New character.
 
 	* Ideograph-R101-Use.el: Add some Adobe-Japan1-0 code points.
