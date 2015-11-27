@@ -1,5 +1,19 @@
 2015-11-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R122-Net.el (U+7F59): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R124-Feather.el (U+7FFB): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R103-Bolt-Of-Cloth.el: Add some Adobe-Japan1-0 code
+	points.
+	(BUCS+7591): New abstract node.
+	(U+7591): Add `<-denotational' for BUCS+7591; add representative
+	nodes.
+	(HNG-KHI0494-0): New character; add `<-denotational' for
+	BUCS+7591; add `<-formed' for U+7591.
+
 	* Ideograph-R105-Dotted-Tent.el (U+7678): Apply new conventions
 	for glyph granularity.
 	(U+767C): Likewise.
