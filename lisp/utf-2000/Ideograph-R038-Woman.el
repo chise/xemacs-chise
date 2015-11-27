@@ -7886,6 +7886,7 @@
     (=ucs		. #x5A29)	; 娩
     (=>jis-x0208	. #x4A5A)	; 娩 [42-58]
     (=>jis-x0213-1	. #x4A5A)	; 娩 [42-58]
+    (=big5		. #xAE59)	; &I-B-AE59;
     (->subsumptive
      ((ideographic-strokes . 7)
       (total-strokes	   . 10)
