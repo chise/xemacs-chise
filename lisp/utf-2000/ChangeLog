@@ -1,5 +1,27 @@
 2015-11-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R075-Tree.el (U+6A43): Apply new conventions for glyph
+	granularity.
+	(U-00023745): Likewise.
+
+	* Ideograph-R038-Woman.el (U+5A29): Unify B-AE59.
+
+	* Ideograph-R030-Mouth.el (U+5643): Apply new conventions for
+	glyph granularity.
+	(U+35F6): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+5669): Add `ideographic-structure'; unify S-1258.
+	(U+566A): Apply new conventions for glyph granularity; add
+	`<-vulgar' for U+8B5F.
+
+	* Ideograph-R009-Man.el (U-000202BE): Apply new conventions for
+	glyph granularity.
+	(U+50E0): Likewise.
+	(U+5101): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+5117): Apply new conventions for glyph granularity.
+	(U-00020426): Likewise.
+
 	* Ideograph-R156-Run.el (U+8D73): Apply new conventions for glyph
 	granularity.
 	(U+8D91): Likewise.
