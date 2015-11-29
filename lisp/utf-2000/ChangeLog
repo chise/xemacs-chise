@@ -1,4 +1,19 @@
+2015-11-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+5679): Separate UU+5679 to sync with
+	U+7576.
+
+	* Ideograph-R018-Knife.el (U+5277): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+	(U+528F): Separate UU+528F to sync with U+7576.
+
+	* Ideograph-R009-Man.el (U+5105): Separate UU+5105 to sync with
+	U+7576.
+
 2015-11-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R164-Wine.el (U+9168): Apply new conventions for glyph
+	granularity.
 
 	* Ideograph-R075-Tree.el (U+6A43): Apply new conventions for glyph
 	granularity.
