@@ -9473,7 +9473,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=daikanwa	    . 21684)	; &M-21684;
+       ((==daikanwa	    . 21684)	; &g2-M-21684;
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
@@ -9502,8 +9502,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x7522)	; &C1-5C28;
-	(=cns11643-1	    . #x5C28)	; &C1-5C28; [60-08]
+       ((==ucs@unicode	    . #x7522)	; &g2-UU+7522;
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
@@ -9538,8 +9537,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x7523)	; &C3-3745;
-	(=cns11643-3	    . #x3745)	; &C3-3745; [23-37]
+       ((==ucs@unicode	    . #x7523)	; &g2-GT-27847;
+	(==jis-x0208	    . #x3B3A)	; &g2-GT-27847; [27-26]
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
@@ -11716,9 +11715,6 @@
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 13)
-    (total-strokes	 . 15)
-    (hanyu-dazidian	1 358 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -11729,8 +11725,28 @@
       (=ucs		  . #x2E89)	; ⺉
       ))
     (=ucs		. #x528F)	; 劏
-    (=gb12345		. #x7C24)	; 劏 [92-04]
-    (=hanziku-1		. #xEFBF)	; &I-HZK01-EFBF;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x528F)	; 劏
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 13)
+    (total-strokes	 . 15)
+    (hanyu-dazidian	1 358 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x7576)	; &AJ1-05723;
+      (=adobe-japan1-0	  . 05723)	; &AJ1-05723;
+      )
+     ((name		  . "CJK RADICAL KNIFE TWO")
+      (=ucs		  . #x2E89)	; ⺉
+      ))
+    (=ucs@unicode	. #x528F)	; &HZK01-EFBF;
+    (=gb12345		. #x7C24)	; &HZK01-EFBF; [92-04]
+    (=hanziku-1		. #xEFBF)	; &HZK01-EFBF;
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
