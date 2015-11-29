@@ -1797,16 +1797,21 @@
     (ideographic-strokes@cns . 9)
     (total-strokes	 . 13)
     (=ucs		. #x9168)	; 酨
+    (=cns11643-2	. #x4279)	; &I-C2-4279; [34-89]
+    (=big5		. #xDD73)	; &I-B-DD73;
+    (=daikanwa		. 39842)	; &I-M-39842;
     (->subsumptive
      ((ideographic-radical . 164)	; ⾣
       (ideographic-strokes . 6)
-      (=daikanwa	  . 39842)	; &M-39842;
+      (==daikanwa	  . 39842)	; &g2-M-39842;
       )
      ((ideographic-radical . 62)	; ⼽
       (ideographic-strokes . 9)
-      (=cns11643-2	  . #x4279)	; &C2-4279; [34-89]
+      (==ucs@cns	  . #x9168)	; &g2-CU+9168;
+      (==cns11643-2	  . #x4279)	; &g2-CU+9168; [34-89]
       )
-     ((=ucs@unicode	  . #x9168)	; &UU+9168;
+     ((==ucs@unicode	  . #x9168)	; &g2-UU+9168;
+      (==ucs@JP/hanazono  . nil)
       ))
     ))
 (define-char
