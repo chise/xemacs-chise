@@ -1,3 +1,10 @@
+2015-11-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R101-Use.el (U+7528): Add HNG-KHI0115-0.
+
+	* Ideograph-R042-Small.el (U-0002F874): Use `<-denotational' for
+	U+5F53; apply new conventions for glyph granularity.
+
 2015-11-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U+5679): Separate UU+5679 to sync with
