@@ -1,3 +1,16 @@
+2015-11-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R058-Snout.el (U+5F51): Separate UU+5F51 to integrate
+	U+5F51-itaiji-001.
+	(UU+5F51): Add `=>ucs@iwds-1'.
+	(U+5F51-itaiji-001): New character.
+	(U-00022450): Add `<-same' for U+5F53.
+	(U+5F53): Separate UU+5F53.
+
+	* Ideograph-R040-Roof.el (U+5B90): Add `ideographic-structure'.
+	(UU+5B90): Likewise.
+	(C4-225B): Likewise.
+
 2015-11-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R101-Use.el (U+7528): Add HNG-KHI0115-0.
