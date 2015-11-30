@@ -231,9 +231,9 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
     (=ucs		. #x7522)	; 產
-    (=cns11643-1	. #x5C28)	; &C1-5C28; [60-08]
+    (=cns11643-1	. #x5C28)	; &I-C1-5C28; [60-08]
     (=big5		. #xB2A3)	; &I-B-B2A3;
-    (=daikanwa		. 21684)	; &M-21684;
+    (=daikanwa		. 21684)	; &I-M-21684;
     (=shinjigen		.  5010)	; 產
     (=jef-china3	. #x5ABF)	; &I-JC3-5ABF;
     (->subsumptive
@@ -264,7 +264,7 @@
     (=ucs		. #x7523)	; 産
     (=jis-x0208		. #x3B3A)	; &I-J90-3B3A; [27-26]
     (=ks-x1001		. #x5F27)	; &I-K0-5F27; [63-07]
-    (=cns11643-3	. #x3745)	; &C3-3745; [23-37]
+    (=cns11643-3	. #x3745)	; &I-C3-3745; [23-37]
     (=jis-x0213-1	. #x3B3A)	; &I-JX1-3B3A; [27-26]
     (=gb12345		. #x327A)	; 産 [18-90]
     (=gt		. 27847)	; &I-GT-27847;
@@ -274,7 +274,7 @@
     (=shinjigen		.  5009)	; 産
     (<-same
      ((=ucs		  . #x7522)	; 產
-      (=daikanwa	  . 21684)	; &M-21684;
+      (=daikanwa	  . 21684)	; &I-M-21684;
       ))
     (<-same*sources
      daikanwa)
