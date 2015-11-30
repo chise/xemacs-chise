@@ -574,22 +574,33 @@
       ))
     ))
 (define-char
-  '((=>ucs*		. #x5F53)	; 当
+  '((<-denotational
+     ((=ucs		  . #x5F53)	; 当
+      ))
+    (=>ucs*		. #x5F53)	; 当
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=ucs		. #x2F874)	; 当
+    (=cns11643-6	. #x244B)	; &I-C6-244B; [04-43]
+    (=daikanwa		. 07486)	; &I-M-07486;
+    (<-simplified
+     ((=ucs@unicode	  . #x7576)	; &AJ1-05723;
+      (=adobe-japan1-0	  . 05723)	; &AJ1-05723;
+      (=daikanwa	  . 21890)	; &I-M-21890;
+      ))
+    (<-simplified*sources
+     daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 07486)	; &M-07486;
-      (<-simplified
-       ((=ucs		    . #x7576)	; 當
-	(=daikanwa	    . 21890)	; &I-M-21890;
-	))
-      (<-simplified*sources
-       daikanwa)
+     ((==daikanwa	  . 07486)	; &g2-M-07486;
       )
-     ((=ucs@iso		  . #x2F874)	; &C6-244B;
-      (=cns11643-6	  . #x244B)	; &C6-244B; [04-43]
+     ((==ucs@iso	  . #x2F874)	; &g2-IU-0002F874;
+      (==cns11643-6	  . #x244B)	; &g2-IU-0002F874; [04-43]
+      (->subsumptive
+       ((===cns11643-6	    . #x244B)	; &R-C6-244B; [04-43]
+	)
+       ((===ucs@iso	    . #x2F874)	; &R-U-0002F874;
+	))
       ))
     ))
 (define-char
