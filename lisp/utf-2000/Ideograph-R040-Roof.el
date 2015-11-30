@@ -1115,6 +1115,14 @@
     ))
 (define-char
   '((ideographic-radical . 40)	; ⼧
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs		  . #x5F51)	; 彑
+      ))
     (=ucs		. #x5B90)	; 宐
     ))
 (define-char
@@ -1124,6 +1132,14 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs-itaiji-001	  . #x5F51)	; &U-i001+5F51;
+      ))
     (=ucs@unicode	. #x5B90)	; &AJ1-21432;
     (=adobe-japan1-6	. 21432)	; &AJ1-21432;
     (=jis-x0212		. #x3A4C)	; &I-JSP-3A4C; [26-44]
@@ -1156,6 +1172,8 @@
        ((===adobe-japan1-6  . 21432)	; &R-AJ1-21432;
 	)
        ((===ucs@unicode	    . #x5B90)	; &R-UU+5B90;
+	)
+       ((=hanziku-3	    . #xB8C7)	; &HZK03-B8C7;
 	))
       ))
     ))
@@ -1169,6 +1187,15 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=cns11643-4*note	"C4-225B does note have unique UCS code-point.")
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs@unicode	  . #x5F51)	; &AJ1-04779;
+      (=adobe-japan1-0	  . 04779)	; &AJ1-04779;
+      ))
     (=cns11643-4	. #x225B)	; &C4-225B; [02-59]
     (=shinjigen@1ed	.  1817)	; &C4-225B;
     (<-original
