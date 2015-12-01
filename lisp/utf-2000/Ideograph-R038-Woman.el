@@ -14542,7 +14542,7 @@
     (=gt-pj-1		. #x3C3B)	; &I-GT-08286; [28-27]
     (=daikanwa		. 06611)	; &I-M-06611;
     (=shinjigen		.  1720)	; 嫉
-    (<-formed@s=envy
+    (<-formed
      ((=ucs		  . #x3475)	; 㑵
       ))
     (->subsumptive
