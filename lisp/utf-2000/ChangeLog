@@ -1,5 +1,14 @@
 2015-11-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R062-Halberd.el (U+9168): Apply new conventions for
+	glyph granularity.
+	(U-000229DC): Likewise.
+
+	* Ideograph-R038-Woman.el (U+5AC9): Use `<-formed' instead of
+	`<-formed@s=envy' for U+3475.
+
+2015-11-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R009-Man.el (U+3475): Use `<-interchangeable' instead
 	of `->synonyms@s=illness' for JU+75BE; use `<-original' and
 	`->formed' instead of `<-original@s=envy' and `->formed@s=envy'
