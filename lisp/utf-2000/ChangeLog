@@ -1,3 +1,12 @@
+2015-12-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R102-Field.el: Add glyph-images of HNG-KHI.
+
+	* Ideograph-R078-Death.el (U+3C6D): Apply new conventions for
+	glyph granularity.
+	(U-00023A5D): Likewise.
+	(U-00023A5E): Likewise.
+
 2015-11-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R062-Halberd.el (U+9168): Apply new conventions for
