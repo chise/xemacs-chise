@@ -1,5 +1,10 @@
 2015-11-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R009-Man.el (U+3475): Use `<-interchangeable' instead
+	of `->synonyms@s=illness' for JU+75BE; use `<-original' and
+	`->formed' instead of `<-original@s=envy' and `->formed@s=envy'
+	for U+5AC9.
+
 	* Ideograph-R058-Snout.el (U+5F51): Separate UU+5F51 to integrate
 	U+5F51-itaiji-001.
 	(UU+5F51): Add `=>ucs@iwds-1'.
