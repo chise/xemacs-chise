@@ -29863,28 +29863,26 @@
     (=daikanwa		. 00949)	; &I-M-00949;
     (=shinjigen		.  1721)	; 㑵
     (=cbeta		. 08689)	; &I-CB08689;
-    (<-original@s=envy
+    (<-interchangeable
+     ((=ucs@jis		  . #x75BE)	; &AJ1-02284;
+      (=adobe-japan1-0	  . 02284)	; &AJ1-02284;
+      (=daikanwa	  . 22112)	; &I-M-22112;
+      ))
+    (<-interchangeable*sources
+     zhengzitong daikanwa)
+    (<-original
      ((=ucs		  . #x5AC9)	; 嫉
       (=jis-x0208	  . #x3C3B)	; &I-J90-3C3B; [28-27]
       (=shinjigen	  .  1720)	; 嫉
       ))
-    (<-original@s=envy*sources
+    (<-original*sources
      shinjigen)
-    (->formed@s=envy
+    (->formed
      ((=ucs		  . #x5AC9)	; 嫉
       (=daikanwa	  . 06611)	; &I-M-06611;
       ))
-    (->formed@s=envy*sources
+    (->formed*sources
      shuowen daikanwa)
-    (->synonyms@s=illness
-     ((=ucs@jis		  . #x75BE)	; &GT-28350;
-      (=jis-x0208	  . #x3C40)	; &GT-28350; [28-32]
-      (=ks-x1001	  . #x7270)	; &I-K0-7270; [82-80]
-      (=jis-x0213-1	  . #x3C40)	; &I-JX1-3C40; [28-32]
-      (=daikanwa	  . 22112)	; &I-M-22112;
-      ))
-    (->synonyms@s=illness*sources
-     zhengzitong daikanwa)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
