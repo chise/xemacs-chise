@@ -2220,7 +2220,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
     (=ucs		. #x6BC8)	; 毈
-    (=adobe-japan1-5	. 17900)	; &AJ1-17900;
+    (=adobe-japan1-5	. 17900)	; &I-AJ1-17900;
     (=cns11643-2	. #x576F)	; &I-C2-576F; [55-79]
     (=jis-x0213-2	. #x6E27)	; &I-JX2-6E27; [78-07]
     (=big5		. #xE9E4)	; &I-B-E9E4;
