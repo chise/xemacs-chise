@@ -5791,8 +5791,7 @@
     (=cns11643-7	. #x4E23)	; &I-C7-4E23; [46-03]
     (=daikanwa		. 16235)	; &I-M-16235;
     (<-same
-     ((=ucs@jis		  . #x8AE4)	; &AJ1-06691;
-      (=adobe-japan1-0	  . 06691)	; &AJ1-06691;
+     ((=ucs		  . #x8AE4)	; 諤
       (=daikanwa	  . 35713)	; &I-M-35713;
       ))
     (<-same*sources
