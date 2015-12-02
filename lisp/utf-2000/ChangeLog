@@ -1,3 +1,14 @@
+2015-12-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+3457): Apply new conventions for glyph
+	granularity.
+	(U+5055): Likewise.
+
+2015-12-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R019-Power.el (U+52D3): Apply new conventions for
+	glyph granularity.
+
 2015-12-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R020-Wrap.el (U+5311): Apply new conventions for glyph
