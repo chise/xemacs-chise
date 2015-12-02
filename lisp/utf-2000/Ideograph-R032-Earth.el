@@ -9459,6 +9459,12 @@
      ((=ucs		  . #x7686)	; 皆
       ))
     (=ucs		. #x5826)	; 堦
+    (=adobe-japan1-5	. 19294)	; &I-AJ1-19294;
+    (=jis-x0212		. #x3827)	; &I-JSP-3827; [24-07]
+    (=cns11643-3	. #x3A4C)	; &I-C3-3A4C; [26-44]
+    (=daikanwa		. 05261)	; &I-M-05261;
+    (=cbeta		. 02098)	; &I-CB02098;
+    (=jef-china3	. #x48AA)	; &I-JC3-48AA;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5826)	; 堦
@@ -9471,20 +9477,30 @@
 	)
        ((=gt-k		    . 00199)	; &GT-K00199;
 	)
-       ((=ucs@unicode	    . #x7686)	; &GT-29091;
-	(=jis-x0208	    . #x3327)	; &GT-29091; [19-07]
-	(=gb2312	    . #x3D54)	; &I-G0-3D54; [29-52]
-	(=ks-x1001	    . #x4B4B)	; &I-K0-4B4B; [43-43]
-	(=jis-x0213-1	    . #x3327)	; &I-JX1-3327; [19-07]
-	(=daikanwa	    . 22699)	; &I-M-22699;
+       ((==ucs@unicode	    . #x7686)	; &g2-GT-29091;
+	(==jis-x0208	    . #x3327)	; &g2-GT-29091; [19-07]
 	))
-      (=ucs@unicode	  . #x5826)	; &AJ1-19294;
-      (=adobe-japan1-5	  . 19294)	; &AJ1-19294;
-      (=jis-x0212	  . #x3827)	; &I-JSP-3827; [24-07]
-      (=daikanwa	  . 05261)	; &I-M-05261;
-      (=hanziku-2	  . #xAF47)	; &I-HZK02-AF47;
-      (=cbeta		  . 02098)	; &I-CB02098;
-      (=jef-china3	  . #x48AA)	; &I-JC3-48AA;
+      (==ucs@unicode	  . #x5826)	; &g2-AJ1-19294;
+      (==adobe-japan1-5	  . 19294)	; &g2-AJ1-19294;
+      (==jis-x0212	  . #x3827)	; &g2-AJ1-19294; [24-07]
+      (==daikanwa	  . 05261)	; &g2-AJ1-19294;
+      (==cbeta		  . 02098)	; &g2-AJ1-19294;
+      (==jef-china3	  . #x48AA)	; &g2-AJ1-19294;
+      (->subsumptive
+       ((===daikanwa	    . 05261)	; &R-M-05261;
+	)
+       ((===jis-x0212	    . #x3827)	; &R-JSP-3827; [24-07]
+	)
+       ((===adobe-japan1-5  . 19294)	; &R-AJ1-19294;
+	)
+       ((===cbeta	    . 02098)	; &R-CB02098;
+	)
+       ((===jef-china3	    . #x48AA)	; &R-JC3-48AA;
+	)
+       ((===ucs@unicode	    . #x5826)	; &R-UU+5826;
+	)
+       ((=hanziku-2	    . #xAF47)	; &HZK02-AF47;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -9492,10 +9508,11 @@
 	)
        ((=gt-k		    . 00199)	; &GT-K00199;
 	)
-       ((=ucs@cns	    . #x7686)	; &C1-5255;
-	(=cns11643-1	    . #x5255)	; &C1-5255; [50-53]
+       ((==ucs@cns	    . #x7686)	; &g2-CU+7686;
+	(==cns11643-1	    . #x5255)	; &g2-CU+7686; [50-53]
 	))
-      (=cns11643-3	  . #x3A4C)	; &C3-3A4C; [26-44]
+      (==ucs@cns	  . #x5826)	; &g2-CU+5826;
+      (==cns11643-3	  . #x3A4C)	; &g2-CU+5826; [26-44]
       ))
     ))
 (define-char
