@@ -1,5 +1,8 @@
 2015-12-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (U+5826): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R009-Man.el (U+3457): Apply new conventions for glyph
 	granularity.
 	(U+5055): Likewise.
