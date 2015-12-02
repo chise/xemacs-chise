@@ -3340,34 +3340,38 @@
      ((=ucs		  . #x529B)	; 力
       ))
     (=ucs		. #x52D3)	; 勓
+    (=cns11643-2	. #x3371)	; &I-C2-3371; [19-81]
     (=big5		. #xD46E)	; &I-B-D46E;
+    (=daikanwa		. 02387)	; &I-M-02387;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x7686)	; &GT-29091;
-	(=jis-x0208	    . #x3327)	; &GT-29091; [19-07]
-	(=gb2312	    . #x3D54)	; &I-G0-3D54; [29-52]
-	(=ks-x1001	    . #x4B4B)	; &I-K0-4B4B; [43-43]
-	(=jis-x0213-1	    . #x3327)	; &I-JX1-3327; [19-07]
-	(=daikanwa	    . 22699)	; &I-M-22699;
+       ((==ucs@unicode	    . #x7686)	; &g2-GT-29091;
+	(==jis-x0208	    . #x3327)	; &g2-GT-29091; [19-07]
 	)
        ((=ucs		    . #x529B)	; 力
 	))
-      (=ucs@unicode	  . #x52D3)	; &M-02387;
-      (=daikanwa	  . 02387)	; &M-02387;
+      (==ucs@unicode	  . #x52D3)	; &g2-M-02387;
+      (==daikanwa	  . 02387)	; &g2-M-02387;
+      (->subsumptive
+       ((===daikanwa	    . 02387)	; &R-M-02387;
+	)
+       ((===ucs@unicode	    . #x52D3)	; &R-UU+52D3;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@cns	    . #x7686)	; &C1-5255;
-	(=cns11643-1	    . #x5255)	; &C1-5255; [50-53]
+       ((==ucs@cns	    . #x7686)	; &g2-CU+7686;
+	(==cns11643-1	    . #x5255)	; &g2-CU+7686; [50-53]
 	)
        ((=ucs		    . #x529B)	; 力
 	))
-      (=cns11643-2	  . #x3371)	; &C2-3371; [19-81]
+      (==ucs@cns	  . #x52D3)	; &g2-CU+52D3;
+      (==cns11643-2	  . #x3371)	; &g2-CU+52D3; [19-81]
       ))
     ))
 (define-char
