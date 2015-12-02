@@ -1,5 +1,8 @@
 2015-12-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R020-Wrap.el (U+5311): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+
 	* Ideograph-R102-Field.el: Add glyph-images of HNG-KHI.
 
 	* Ideograph-R078-Death.el (U+3C6D): Apply new conventions for
