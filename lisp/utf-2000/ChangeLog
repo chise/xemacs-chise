@@ -1,5 +1,17 @@
 2015-12-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R061-Heart.el: Add some representative nodes.
+	(g2-RUI6-E048): Omit `ideographic-structure'.
+	(U+6108): Add ideographic-structure.
+	(o-KU+6108): New abstract node to integrate J2004U+6108 and
+	K0-6A6F.
+	(J2004U+6108): Use o-KU+6108 instead of U+6108 as the mother;
+	separate K0-6A6F.
+	(o-UU+6108): New abstract node to integrate HD-JT-B190 and
+	UU+6108.
+	(HD-JT-B190): Use o-UU+6108 instead of U+6108 as the mother.
+	(UU+6108): Likewise.
+
 	* Ideograph-R032-Earth.el (U+5826): Apply new conventions for
 	glyph granularity.
 
