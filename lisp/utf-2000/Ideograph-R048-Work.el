@@ -351,6 +351,20 @@
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5DE5)	; 工
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (=ucs		. #x2201B)	; 𢀛
+    ))
+(define-char
+  '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x2201C)	; 𢀜
@@ -591,6 +605,33 @@
     (total-strokes	 . 12)
     (=ucs		. #x5DEF)	; 巯
     (=gb2312		. #x5B4F)	; &I-G0-5B4F; [59-47]
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x8A79)	; &BUCS+8A79;
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x5383)	; 厃
+	)
+       ((=ucs		    . #x513F)	; 儿
+	))
+      )
+     ((=ucs		  . #x2201B)	; 𢀛
+      ))
+    (=ucs-itaiji-001	. #x8A79)	; &U-i001+8A79;
+    (<-formed
+     ((=ucs		  . #x8A79)	; 詹
+      ))
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
