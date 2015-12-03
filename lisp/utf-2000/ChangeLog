@@ -1,5 +1,10 @@
 2015-12-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R048-Work.el (U-0002201B): New character.
+	(U+8A79-itaiji-001): New character.
+
+2015-12-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R061-Heart.el: Add some representative nodes.
 	(g2-RUI6-E048): Omit `ideographic-structure'.
 	(U+6108): Add ideographic-structure.
