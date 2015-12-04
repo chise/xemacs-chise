@@ -379,12 +379,9 @@
     (=daikanwa		. 05703)	; &I-M-05703;
     (=shinjigen		.  3201)	; &AJ1-03617;
     (<-simplified@JP/Jouyou
-     ((=ucs@unicode	  . #x8B8A)	; &GT-48488;
-      (=jis-x0208	  . #x5A4E)	; &GT-48488; [58-46]
-      (=ks-x1001	  . #x5C28)	; &I-K0-5C28; [60-08]
-      (=cns11643-1	  . #x7C48)	; &I-C1-7C48; [92-40]
-      (=jis-x0213-1	  . #x5A4E)	; &I-JX1-5A4E; [58-46]
-      (=daikanwa	  . 36117)	; &I-M-36117;
+     ((=ucs@unicode	  . #x8B8A)	; &AJ1-05075;
+      (=adobe-japan1-0	  . 05075)	; &AJ1-05075;
+      (=jis-x0208	  . #x5A4E)	; &I-J90-5A4E; [58-46]
       ))
     (->subsumptive
      ((=decomposition@cid
