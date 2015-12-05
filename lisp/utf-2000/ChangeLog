@@ -1,3 +1,21 @@
+2015-12-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R109-Eye.el: Add glyph-images of HNG-KHI.
+	(U-000251A2): Use `->denotational' and `->subsumptive'.
+	(UU+251A2): Unify S-5302; add `<-original' for U+773C.
+	(U+7761): Use `->denotational' and `->subsumptive'; separate
+	UU+7761.
+	(U+778B): Use `->denotational' and `->subsumptive'.
+	(BUCS+77BB): New abstract node.
+	(U+77BB): Use `->subsumptive'; add `<-denotational' for BUCS+77BB.
+
+	* Ideograph-R050-Turban.el (U+5E2C): Unify S1-7388 and S2-7387;
+	add `<-formed' for U+88D9.
+
+2015-12-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R123-Sheep.el (UU+8B71): Unify AJ1-06190.
+
 2015-12-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R106-White.el: Add glyph-images of HNG-KHI.
