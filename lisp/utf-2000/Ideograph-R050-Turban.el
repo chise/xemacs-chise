@@ -2781,8 +2781,17 @@
     (=ucs		. #x5E2C)	; 帬
     (=cns11643-3	. #x3069)	; &I-C3-3069; [16-73]
     (=daikanwa		. 08920)	; &I-M-08920;
+    (=shinjigen@1ed	.  7388)	; 帬
+    (=shinjigen/+p@rev	.  7387)	; 帬
     (=hanziku-2		. #xEAD0)	; &I-HZK02-EAD0;
     (=cbeta		. 00319)	; &I-CB00319;
+    (<-formed
+     ((=ucs		  . #x88D9)	; 裙
+      (=jis-x0208	  . #x6A65)	; &I-J90-6A65; [74-69]
+      (=shinjigen	  .  7386)	; 裙
+      ))
+    (<-formed*sources
+     shinjigen)
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
