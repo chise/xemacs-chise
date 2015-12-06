@@ -1552,10 +1552,10 @@
 	)
        ((=ucs		    . #x52F9)	; 勹
 	)
-       ((==ucs@cns	    . #x8EAC)	; &g2-GT-50812;
-	(==ucs@jis	    . #x8EAC)	; &g2-GT-50812;
-	(==ucs@ks	    . #x8EAC)	; &g2-GT-50812;
-	(==jis-x0208	    . #x6D3B)	; &g2-GT-50812; [77-27]
+       ((==ucs@cns	    . #x8EAC)	; &g2-AJ1-06842;
+	(==ucs@jis	    . #x8EAC)	; &g2-AJ1-06842;
+	(==ucs@ks	    . #x8EAC)	; &g2-AJ1-06842;
+	(==adobe-japan1-0   . 06842)	; &g2-AJ1-06842;
 	))
       (==ucs@cns	  . #x5311)	; &g2-AJ1-19202;
       (==ucs@jis	  . #x5311)	; &g2-AJ1-19202;
