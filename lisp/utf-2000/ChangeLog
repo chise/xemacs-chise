@@ -1,3 +1,8 @@
+2015-12-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (U+4E83): Apply new conventions for
+	glyph granularity.
+
 2015-12-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R109-Eye.el: Add glyph-images of HNG-KHI.
