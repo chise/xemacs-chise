@@ -1,3 +1,19 @@
+2015-12-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+5628): Apply new conventions for
+	glyph granularity.
+
+2015-12-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ruimoku6.el (RUI6-E016): Use `<-denotational' instead of
+	`<-subsumptive' for U-00024F08; apply new conventions for glyph
+	granularity.
+
+2015-12-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el (KOSEKI-100790): Unify MJ057421; add
+	ideographic-structure.
+
 2015-12-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R162-Walk.el (JU+9011): Add M-07161 and UU+6C42 into
