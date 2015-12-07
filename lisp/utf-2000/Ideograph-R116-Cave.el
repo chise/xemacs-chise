@@ -332,6 +332,8 @@
 	)
        ((==ucs@cns	    . #x7A7A)	; &g2-CU+7A7A;
 	(==cns11643-1	    . #x4F28)	; &g2-CU+7A7A; [47-08]
+	)
+       ((===hng-khi	    . 05140)	; &HNG010-05140;
 	))
       )
      ((=>>ucs@unicode	  . #x7A7A)	; &G-UU+7A7A;
@@ -2832,6 +2834,11 @@
       )
      ((==ucs@cns	  . #x7A9F)	; &g2-CU+7A9F;
       (==cns11643-1	  . #x6564)	; &g2-CU+7A9F; [69-68]
+      (->subsumptive
+       ((===cns11643-1	    . #x6564)	; &R-C1-6564; [69-68]
+	)
+       ((===hng-khi	    . 06381)	; &HNG010-06381;
+	))
       )
      ((==ucs@unicode	  . #x7A9F)	; &g2-UU+7A9F;
       (==ucs@JP/hanazono  . nil)
@@ -3865,6 +3872,8 @@
        ((===jis-x0208@1978  . #x3567)	; &R-J83-3567; [21-71]
 	(===jis-x0208@1983  . #x3567)	; &R-J83-3567; [21-71]
 	))
+      )
+     ((===hng-khi	  . 01290)	; &HNG010-01290;
       )
      ((==ucs@unicode	  . #x7AAE)	; &g2-UU+7AAE;
       (==ucs@JP/hanazono  . nil)
