@@ -13963,10 +13963,10 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((==ucs@cns	    . #x8EAB)	; &g2-GT-50811;
-	(==ucs@jis	    . #x8EAB)	; &g2-GT-50811;
-	(==ucs@ks	    . #x8EAB)	; &g2-GT-50811;
-	(==jis-x0208	    . #x3F48)	; &g2-GT-50811; [31-40]
+       ((==ucs@cns	    . #x8EAB)	; &g2-AJ1-02574;
+	(==ucs@jis	    . #x8EAB)	; &g2-AJ1-02574;
+	(==ucs@ks	    . #x8EAB)	; &g2-AJ1-02574;
+	(==adobe-japan1-0   . 02574)	; &g2-AJ1-02574;
 	))
       (==ucs@iso	  . #x20CB3)	; &g2-M-03650;
       (==daikanwa	  . 03650)	; &g2-M-03650;
@@ -36524,6 +36524,9 @@
      ((=ucs		  . #x7C9B)	; 粛
       ))
     (=ucs		. #x5628)	; 嘨
+    (=adobe-japan1-5	. 17390)	; &I-AJ1-17390;
+    (=cns11643-3	. #x4630)	; &I-C3-4630; [38-16]
+    (=jis-x0213-2	. #x243C)	; &I-JX2-243C; [04-28]
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5628)	; 嘨
@@ -36536,13 +36539,19 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@unicode	    . #x7C9B)	; &GT-37838;
-	(=jis-x0208	    . #x3D4D)	; &GT-37838; [29-45]
-	(=jis-x0213-1	    . #x3D4D)	; &I-JX1-3D4D; [29-45]
+       ((==ucs@unicode	    . #x7C9B)	; &g2-GT-37838;
+	(==jis-x0208	    . #x3D4D)	; &g2-GT-37838; [29-45]
 	))
-      (=ucs@unicode	  . #x5628)	; &AJ1-17390;
-      (=adobe-japan1-5	  . 17390)	; &AJ1-17390;
-      (=jis-x0213-2	  . #x243C)	; &I-JX2-243C; [04-28]
+      (==ucs@unicode	  . #x5628)	; &g2-AJ1-17390;
+      (==adobe-japan1-5	  . 17390)	; &g2-AJ1-17390;
+      (==jis-x0213-2	  . #x243C)	; &g2-AJ1-17390; [04-28]
+      (->subsumptive
+       ((===jis-x0213-2	    . #x243C)	; &R-JX2-243C; [04-28]
+	)
+       ((===adobe-japan1-5  . 17390)	; &R-AJ1-17390;
+	)
+       ((===ucs@unicode	    . #x5628)	; &R-UU+5628;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -36550,9 +36559,11 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=cns11643-3	    . #x383E)	; &C3-383E; [24-30]
+       ((==ucs@cns	    . #x7C9B)	; &g2-CU+7C9B;
+	(==cns11643-3	    . #x383E)	; &g2-CU+7C9B; [24-30]
 	))
-      (=cns11643-3	  . #x4630)	; &C3-4630; [38-16]
+      (==ucs@cns	  . #x5628)	; &g2-CU+5628;
+      (==cns11643-3	  . #x4630)	; &g2-CU+5628; [38-16]
       ))
     ))
 (define-char
