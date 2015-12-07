@@ -296,22 +296,24 @@
     (=ruimoku-v6	. #xE015)	; &RUI6-E015;
     ))
 (define-char
-  '((<-subsumptive
+  '((<-denotational
      ((=ucs		  . #x24F08)	; 𤼈
       ))
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-      (=ucs		  . #x2FF8)	; ⿸
-      )
-     ((=ucs@unicode	  . #x7592)	; &C3-225B;
-      (=gb2312		  . #x705A)	; &C3-225B; [80-58]
-      (=cns11643-3	  . #x225B)	; &I-C3-225B; [02-59]
-      )
-     ((=ucs		  . #x8208)	; 興
-      ))
+    (ideographic-radical . 104)	; ⽧
+    (ideographic-strokes . 16)
+    (total-strokes	 . 21)
     (sources		ruimoku=A2003-10051-00005)
     (=ucs@iso		. #x24F08)	; &RUI6-E016;
     (=ruimoku-v6	. #xE016)	; &RUI6-E016;
+    (->subsumptive
+     ((==ucs@iso	  . #x24F08)	; &g2-IU-00024F08;
+      (==ruimoku-v6	  . #xE016)	; &g2-IU-00024F08;
+      (->subsumptive
+       ((===ruimoku-v6	    . #xE016)	; &R-RUI6-E016;
+	)
+       ((===ucs@iso	    . #x24F08)	; &R-U-00024F08;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 134)	; ⾅
@@ -541,9 +543,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@jis	    . #x8A00)	; &g2-GT-47348;
-	(==ucs@ks	    . #x8A00)	; &g2-GT-47348;
-	(==jis-x0208	    . #x3840)	; &g2-GT-47348; [24-32]
+       ((==ucs@jis	    . #x8A00)	; &g2-AJ1-01908;
+	(==ucs@ks	    . #x8A00)	; &g2-AJ1-01908;
+	(==adobe-japan1-0   . 01908)	; &g2-AJ1-01908;
 	)
        ((==ucs@unicode	    . #x83D0)	; &g2-JSP-583A;
 	(==jis-x0213-2	    . #x763C)	; &g2-JSP-583A; [86-28]
@@ -1274,16 +1276,7 @@
       ))
     (=ruimoku-v6	. #xE048)	; &RUI6-E048;
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs@unicode	    . #x8EAB)	; &G0-496D;
-	(=gb2312	    . #x496D)	; &G0-496D; [41-77]
-	)
-       ((=ucs		    . #x5FC3)	; 心
-	))
-      (==ruimoku-v6	  . #xE048)	; &g2-RUI6-E048;
+     ((==ruimoku-v6	  . #xE048)	; &g2-RUI6-E048;
       ))
     ))
 (define-char
@@ -1630,9 +1623,9 @@
        ((==ucs@iso	    . #x275F8)	; &g2-M-34065;
 	(==daikanwa	    . 34065)	; &g2-M-34065;
 	)
-       ((==ucs@jis	    . #x8A00)	; &g2-GT-47348;
-	(==ucs@ks	    . #x8A00)	; &g2-GT-47348;
-	(==jis-x0208	    . #x3840)	; &g2-GT-47348; [24-32]
+       ((==ucs@jis	    . #x8A00)	; &g2-AJ1-01908;
+	(==ucs@ks	    . #x8A00)	; &g2-AJ1-01908;
+	(==adobe-japan1-0   . 01908)	; &g2-AJ1-01908;
 	))
       (==ruimoku-v6	  . #xE065)	; &g2-RUI6-E065;
       ))
