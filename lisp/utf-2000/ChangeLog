@@ -1,5 +1,16 @@
 2015-12-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R162-Walk.el (JU+9011): Add M-07161 and UU+6C42 into
+	`->formed'; use `->interchangeable' instead of `<-synonyms'.
+
+	* Ideograph-R117-Stand.el (g2-UU+7ACB): Add HNG-KHI0515-0.
+
+	* Ideograph-R116-Cave.el: Add glyph-images of HNG-KHI.
+
+	* Ideograph-R018-Knife.el (U+8085-itaiji-002): New character.
+
+2015-12-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R005-Second.el (U+4E83): Apply new conventions for
 	glyph granularity.
 
