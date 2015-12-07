@@ -2726,10 +2726,32 @@
     (ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=koseki		. 100790)	; &KOSEKI-100790;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x382F)	; &MJ000945;
+      (=mj		  . 000945)	; &MJ000945;
+      )
+     ((=ucs		  . #x5E00)	; 帀
+      ))
+    (=mj		. 057421)	; &MJ057421;
+    (=koseki		. 100790)	; &MJ057421;
     (->subsumptive
-     ((==koseki		  . 100790)	; &g2-KOSEKI-100790;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((==gt-k		    . 01484)	; &g2-GT-K01484;
+	)
+       ((==ucs@unicode	    . #x5E00)	; &g2-AJ1-14497;
+	(==adobe-japan1-4   . 14497)	; &g2-AJ1-14497;
+	))
+      (==mj		  . 057421)	; &g2-MJ057421;
+      (==koseki		  . 100790)	; &g2-MJ057421;
       (->subsumptive
+       ((===mj		    . 057421)	; &R-MJ057421;
+	)
        ((===hng-khi	    . 03510)	; &HNG010-03510;
 	))
       ))
