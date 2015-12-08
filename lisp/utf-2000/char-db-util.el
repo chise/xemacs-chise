@@ -326,6 +326,7 @@
     =shinjigen
     =ucs-var-001
     =ucs-var-002
+    =ucs-var-003
     =ucs-itaiji-001
     =ucs-itaiji-002
     =ucs-itaiji-003
