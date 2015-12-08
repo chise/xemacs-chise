@@ -1,5 +1,17 @@
 2015-12-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R140-Grass.el (U+82D0): Use `->denotational' and
+	`->subsumptive'; add HNG-KHI0518-0.
+	(U+44AD): Add HNG-KHI0516-0.
+	(U+8345): Separate A-UU+8345 to integrate HD-KS346040.
+	(HD-KS346040): New character; unify MJ021866; add HNG-KHI0132-0.
+
+	* Ideograph-R018-Knife.el (U+5206-var-002): New character.
+	(HNG-KHM0213-0): Use `->subsumptive' for U+5206-var-002 instead of
+	`<-denotational' for U+5206.
+
+2015-12-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R030-Mouth.el (U+5628): Apply new conventions for
 	glyph granularity.
 
