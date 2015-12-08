@@ -709,7 +709,10 @@
       )
      ((=big5-cdp	  . #x8B6C)	; &CDP-8B6C;
       ))
-    (===hng-khm		. 02130)	; &HNG011-02130;
+    (=ucs-var-002	. #x5206)	; &U-v002+5206;
+    (->subsumptive
+     ((===hng-khm	  . 02130)	; &HNG011-02130;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
