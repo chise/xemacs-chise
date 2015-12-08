@@ -1,3 +1,12 @@
+2015-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R154-Shell.el (U+8CD4): Separate UU+8CD4 to integrate
+	HD-KS417120.
+	(UU+8CD4): Add `=>ucs@iwds-1'; add `ideographic-structure'.
+	(HD-KS417120): New character; unify MJ058790.
+
+	* Ideograph-R032-Earth.el (U-00021264): New character.
+
 2015-12-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R140-Grass.el (U+82D0): Use `->denotational' and
