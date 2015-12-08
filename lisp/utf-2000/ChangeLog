@@ -9,10 +9,19 @@
 	`<-subsumptive' for U-00024F08; apply new conventions for glyph
 	granularity.
 
+	* Ideograph-R124-Feather.el (M-28802): Apply new conventions for
+	glyph granularity for components of ideographic-structure; add
+	representative node.
+	(g2-UU+7FF7): Omit `ideographic-structure'.
+
+	* Ideograph-R111-Arrow.el (U+77E5): Add HNG-KHI0507-0.
+
 2015-12-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R050-Turban.el (KOSEKI-100790): Unify MJ057421; add
 	ideographic-structure.
+
+	* Ideograph-R049-Oneself.el (UU+382F): Unify GT-K01484.
 
 2015-12-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
