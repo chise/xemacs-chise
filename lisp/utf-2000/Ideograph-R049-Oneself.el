@@ -258,6 +258,8 @@
     (=jis-x0213-2	. #x286F)	; &I-JX2-286F; [08-79]
     (=big5-cdp		. #x8BAD)	; &I-CDP-8BAD;
     (=hanyo-denshi/jd	. #x286F)	; &I-HD-JD-286F; [08-79]
+    (=gt-k		. 01484)	; &I-GT-K01484;
+    (=gt-pj-9		. #x4D66)	; &MJ000945; [45-70]
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x382F)	; 㠯
@@ -287,6 +289,8 @@
 	)
        ((===ucs@unicode	    . #x382F)	; &R-UU+382F;
 	))
+      )
+     ((==gt-k		  . 01484)	; &g2-GT-K01484;
       ))
     ))
 (define-char
