@@ -7,6 +7,9 @@
 
 	* Ideograph-R032-Earth.el (U-00021264): New character.
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=ucs-var-003'.
+
 2015-12-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R140-Grass.el (U+82D0): Use `->denotational' and
