@@ -2546,13 +2546,36 @@
     ))
 (define-char
   '((ideographic-radical . 154)	; ⾙
+    (=ucs		. #x8CD4)	; 賔
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8CD4)	; 賔
+      ))
+    (ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
     (hanyu-dazidian	6 3644 1)
-    (=ucs		. #x8CD4)	; 賔
-    (=cns11643-3	. #x4972)	; &I-C3-4972; [41-82]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x200DC)	; 𠃜
+	)
+       ((=ucs		    . #x8C9D)	; 貝
+	))
+      ))
+    (=>ucs@iwds-1	. #x8CD4)	; &C3-4972;
+    (=ucs@unicode	. #x8CD4)	; &C3-4972;
+    (=cns11643-3	. #x4972)	; &C3-4972; [41-82]
     (=daikanwa		. 36789)	; &I-M-36789;
-    (=shinjigen		.  7911)	; 賔
+    (=shinjigen		.  7911)	; &C3-4972;
     (=hanziku-9		. #xF460)	; &I-HZK09-F460;
     (=cbeta		. 06710)	; &I-CB06710;
     (<-vulgar
@@ -2582,6 +2605,44 @@
        ((===ucs@unicode	    . #x8CD4)	; &R-UU+8CD4;
 	)
        ((===cns11643-3	    . #x4972)	; &R-C3-4972; [41-82]
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8CD4)	; 賔
+      ))
+    (ideographic-radical . 154)	; ⾙
+    (ideographic-strokes . 6)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs		  . #x5C53)	; 屓
+      ))
+    (=mj		. 058790)	; &MJ058790;
+    (=hanyo-denshi/ks	. 417120)	; &MJ058790;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((==ucs@unicode	    . #x5B80)	; &g2-AJ1-04622;
+	(==adobe-japan1-0   . 04622)	; &g2-AJ1-04622;
+	)
+       ((=ucs@unicode	    . #x5C53)	; &AJ1-04653;
+	(=adobe-japan1-0    . 04653)	; &AJ1-04653;
+	))
+      (==mj		  . 058790)	; &g2-MJ058790;
+      (==hanyo-denshi/ks  . 417120)	; &g2-MJ058790;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 417120)	; &R-HD-KS-417120;
+	(=hanyo-denshi/ks/mf . #xA2F0)	; &R-HD-KS-417120;
+	)
+       ((===mj		    . 058790)	; &R-MJ058790;
 	))
       ))
     ))
