@@ -617,8 +617,9 @@
     (=ucs		. #x90A6)	; 邦
     (=big5		. #xA8B9)	; &I-B-A8B9;
     (->subsumptive
-     ((=ucs@unicode	  . #x90A6)	; &GT-52932;
-      (=jis-x0208	  . #x4B2E)	; &GT-52932; [43-14]
+     ((=ucs@unicode	  . #x90A6)	; &AJ1-03676;
+      (=adobe-japan1-0	  . 03676)	; &AJ1-03676;
+      (=jis-x0208	  . #x4B2E)	; &I-J90-4B2E; [43-14]
       (=gb2312		  . #x306E)	; &I-G0-306E; [16-78]
       (=ks-x1001	  . #x5B40)	; &I-K0-5B40; [59-32]
       (=jis-x0213-1	  . #x4B2E)	; &I-JX1-4B2E; [43-14]
@@ -626,13 +627,49 @@
       (=gt-k		  . 02649)	; &I-GT-K02649;
       (=gt-pj-1		  . #x4B2E)	; &I-GT-52932; [43-14]
       (=daikanwa	  . 39310)	; &I-M-39310;
-      (=shinjigen@1ed	  .  8417)	; &GT-52932;
-      (=shinjigen@rev	  .  8418)	; &GT-52932;
+      (=shinjigen@1ed	  .  8417)	; &AJ1-03676;
+      (=shinjigen@rev	  .  8418)	; &AJ1-03676;
+      (=jef-china3	  . #x67F9)	; &I-JC3-67F9;
+      (->subsumptive
+       ((==ucs@unicode	    . #x90A6)	; &g2-AJ1-03676;
+	(==adobe-japan1-0   . 03676)	; &g2-AJ1-03676;
+	(==gb2312	    . #x306E)	; &g2-AJ1-03676; [16-78]
+	(==ks-x1001	    . #x5B40)	; &g2-AJ1-03676; [59-32]
+	(==jis-x0208	    . #x4B2E)	; &g2-AJ1-03676; [43-14]
+	(==jis-x0213-1	    . #x4B2E)	; &g2-AJ1-03676; [43-14]
+	(==gt		    . 52932)	; &g2-AJ1-03676;
+	(==gt-k		    . 02649)	; &g2-AJ1-03676;
+	(==daikanwa	    . 39310)	; &g2-AJ1-03676;
+	(==shinjigen@1ed    .  8417)	; &g2-AJ1-03676;
+	(==shinjigen@rev    .  8418)	; &g2-AJ1-03676;
+	(->subsumptive
+	 ((===daikanwa	      . 39310)	; &R-M-39310;
+	  )
+	 ((===jis-x0208	      . #x4B2E)	; &R-J0-4B2E; [43-14]
+	  (===jis-x0213-1     . #x4B2E)	; &R-J0-4B2E; [43-14]
+	  )
+	 ((===adobe-japan1-0  . 03676)	; &R-AJ1-03676;
+	  )
+	 ((===gt	      . 52932)	; &R-GT-52932;
+	  (===gt-k	      . 02649)	; &R-GT-52932;
+	  )
+	 ((===ucs@ks	      . #x90A6)	; &R-K0-5B40;
+	  (===ks-x1001	      . #x5B40)	; &R-K0-5B40; [59-32]
+	  )
+	 ((===ucs@unicode     . #x90A6)	; &R-UU+90A6;
+	  ))
+	)
+       ((==jef-china3	    . #x67F9)	; &g2-JC3-67F9;
+	))
       )
-     ((=jef-china3	  . #x67F9)	; &JC3-67F9;
-      )
-     ((=cns11643-1	  . #x4B5A)	; &C1-4B5A; [43-58]
+     ((=ucs@cns		  . #x90A6)	; &C1-4B5A;
+      (=cns11643-1	  . #x4B5A)	; &C1-4B5A; [43-58]
       (=shinjigen@1ed	  .  8418)	; &C1-4B5A;
+      (->subsumptive
+       ((==ucs@cns	    . #x90A6)	; &g2-CU+90A6;
+	(==cns11643-1	    . #x4B5A)	; &g2-CU+90A6; [43-58]
+	(==shinjigen@1ed    .  8418)	; &g2-CU+90A6;
+	))
       ))
     ))
 (define-char
