@@ -9414,22 +9414,50 @@
     (=hanziku-5		. #xDDD1)	; &I-HZK05-DDD1;
     ))
 (define-char
-  '((=>ucs		. #x6374)	; 捴
-    (ideographic-radical . 64)	; ⼿
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (=ucs@jis		. #x6374)	; &JSP-3F7D;
-    (=jis-x0212		. #x3F7D)	; &JSP-3F7D; [31-93]
-    (=daikanwa		. 12212)	; &I-M-12212;
-    (=jef-china3	. #x4FD7)	; &I-JC3-4FD7;
-    ))
-(define-char
-  '((morohashi-daikanwa	12212 0 0)
-    (ideographic-radical . 64)	; ⼿
+  '((ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (=ucs		. #x6374)	; 捴
+    (=jis-x0212		. #x3F7D)	; &I-JSP-3F7D; [31-93]
     (=cns11643-3	. #x3632)	; &I-C3-3632; [22-18]
+    (=daikanwa		. 12212)	; &I-M-12212;
+    (=cbeta		. 07538)	; &I-CB07538;
+    (=jef-china3	. #x4FD7)	; &I-JC3-4FD7;
+    (<-same
+     ((=ucs@jis		  . #x6460)	; &AJ1-08468;
+      (=ucs@ks		  . #x6460)	; &AJ1-08468;
+      (=adobe-japan1-2	  . 08468)	; &AJ1-08468;
+      (=daikanwa	  . 12596)	; &I-M-12596;
+      ))
+    (<-same*sources
+     zihui daikanwa)
+    (->subsumptive
+     ((==ucs@jis	  . #x6374)	; &g2-JSP-3F7D;
+      (==jis-x0212	  . #x3F7D)	; &g2-JSP-3F7D; [31-93]
+      (==daikanwa	  . 12212)	; &g2-JSP-3F7D;
+      (==cbeta		  . 07538)	; &g2-JSP-3F7D;
+      (==jef-china3	  . #x4FD7)	; &g2-JSP-3F7D;
+      (->subsumptive
+       ((===daikanwa	    . 12212)	; &R-M-12212;
+	)
+       ((===jis-x0212	    . #x3F7D)	; &R-JSP-3F7D; [31-93]
+	)
+       ((===jef-china3	    . #x4FD7)	; &R-JC3-4FD7;
+	)
+       ((===cbeta	    . 07538)	; &R-CB07538;
+	))
+      )
+     ((==ucs@cns	  . #x6374)	; &g2-CU+6374;
+      (==cns11643-3	  . #x3632)	; &g2-CU+6374; [22-18]
+      )
+     ((===hng-khi	  . 03980)	; &HNG010-03980;
+      (<-formed
+       ((=ucs		    . #x7E3D)	; 總
+	))
+      )
+     ((==ucs@unicode	  . #x6374)	; &g2-UU+6374;
+      (==ucs@JP/hanazono  . nil)
+      ))
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
