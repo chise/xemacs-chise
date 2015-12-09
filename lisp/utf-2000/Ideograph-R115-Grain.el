@@ -502,13 +502,23 @@
     (=cns11643-3	. #x2E41)	; &I-C3-2E41; [14-33]
     (=jis-x0213-1	. #x7948)	; &I-JX1-7948; [89-40]
     (=daikanwa		. 24954)	; &I-M-24954;
+    (=shinjigen		.  5920)	; 秔
+    (=cbeta		. 00271)	; &I-CB00271;
     (=jef-china3	. #x5CF9)	; &I-JC3-5CF9;
+    (<-original
+     ((=ucs		  . #x7CB3)	; 粳
+      (=jis-x0208	  . #x646B)	; &I-J90-646B; [68-75]
+      (=shinjigen	  .  5919)	; 粳
+      ))
+    (<-original*sources
+     shinjigen)
     (->subsumptive
      ((==ucs@unicode	  . #x79D4)	; &g2-JSP-507A;
       (==jis-x0212	  . #x507A)	; &g2-JSP-507A; [48-90]
       (==cns11643-3	  . #x2E41)	; &g2-JSP-507A; [14-33]
       (==jis-x0213-1	  . #x7948)	; &g2-JSP-507A; [89-40]
       (==daikanwa	  . 24954)	; &g2-JSP-507A;
+      (==cbeta		  . 00271)	; &g2-JSP-507A;
       (==jef-china3	  . #x5CF9)	; &g2-JSP-507A;
       (->subsumptive
        ((===daikanwa	    . 24954)	; &R-M-24954;
@@ -518,9 +528,13 @@
 	)
        ((===jef-china3	    . #x5CF9)	; &R-JC3-5CF9;
 	)
+       ((===cbeta	    . 00271)	; &R-CB00271;
+	)
        ((===cns11643-3	    . #x2E41)	; &R-C3-2E41; [14-33]
 	)
        ((===ucs@unicode	    . #x79D4)	; &R-UU+79D4;
+	)
+       ((=hanziku-7	    . #xC24E)	; &HZK07-C24E;
 	))
       ))
     ))
@@ -2391,15 +2405,29 @@
     (=jis-x0212		. #x512D)	; &I-JSP-512D; [49-13]
     (=cns11643-3	. #x3D69)	; &I-C3-3D69; [29-73]
     (=daikanwa		. 25075)	; &I-M-25075;
+    (=shinjigen		.  5921)	; 稉
+    (=cbeta		. 08300)	; &I-CB08300;
+    (<-formed
+     ((=ucs		  . #x7CB3)	; 粳
+      (=jis-x0208	  . #x646B)	; &I-J90-646B; [68-75]
+      (=shinjigen	  .  5919)	; 粳
+      ))
+    (<-formed*sources
+     shinjigen)
     (->subsumptive
      ((==ucs@jis	  . #x7A09)	; &g2-JSP-512D;
       (==jis-x0212	  . #x512D)	; &g2-JSP-512D; [49-13]
       (==daikanwa	  . 25075)	; &g2-JSP-512D;
+      (==cbeta		  . 08300)	; &g2-JSP-512D;
       (->subsumptive
        ((===daikanwa	    . 25075)	; &R-M-25075;
 	)
        ((===jis-x0212	    . #x512D)	; &R-JSP-512D; [49-13]
+	)
+       ((===cbeta	    . 08300)	; &R-CB08300;
 	))
+      )
+     ((=hanziku-7	  . #xC465)	; &HZK07-C465;
       )
      ((==ucs@unicode	  . #x7A09)	; &g2-UU+7A09;
       (==ucs@JP/hanazono  . nil)
@@ -3790,7 +3818,35 @@
     (=gt		. 32451)	; &I-GT-32451;
     (=gt-pj-1		. #x3C6F)	; &I-GT-32451; [28-79]
     (=daikanwa		. 25174)	; &I-M-25174;
-    (=shinjigen@rev	.  5645)	; 種
+    (=shinjigen		.  5645)	; 種
+    (->subsumptive
+     ((==ucs@unicode	  . #x7A2E)	; &g2-GT-32451;
+      (==ks-x1001	  . #x707A)	; &g2-GT-32451; [80-90]
+      (==jis-x0208	  . #x3C6F)	; &g2-GT-32451; [28-79]
+      (==cns11643-1	  . #x6A21)	; &g2-GT-32451; [74-01]
+      (==jis-x0213-1	  . #x3C6F)	; &g2-GT-32451; [28-79]
+      (==gb12345	  . #x5656)	; &g2-GT-32451; [54-54]
+      (==gt		  . 32451)	; &g2-GT-32451;
+      (==daikanwa	  . 25174)	; &g2-GT-32451;
+      (==shinjigen	  .  5645)	; &g2-GT-32451;
+      (->subsumptive
+       ((===daikanwa	    . 25174)	; &R-M-25174;
+	)
+       ((===jis-x0208	    . #x3C6F)	; &R-J0-3C6F; [28-79]
+	(===jis-x0213-1	    . #x3C6F)	; &R-J0-3C6F; [28-79]
+	)
+       ((===cns11643-1	    . #x6A21)	; &R-C1-6A21; [74-01]
+	)
+       ((===gt		    . 32451)	; &R-GT-32451;
+	)
+       ((===ucs@ks	    . #x7A2E)	; &R-K0-707A;
+	(===ks-x1001	    . #x707A)	; &R-K0-707A; [80-90]
+	)
+       ((===ucs@unicode	    . #x7A2E)	; &R-UU+7A2E;
+	))
+      )
+     ((===hng-khi	  . 05130)	; &HNG010-05130;
+      ))
     ))
 (define-char
   '((ideographic-radical . 115)	; ⽲
@@ -5581,11 +5637,15 @@
     (=jis-x0212		. #x5140)	; &I-JSP-5140; [49-32]
     (=cns11643-3	. #x522A)	; &I-C3-522A; [50-10]
     (=daikanwa		. 25250)	; &I-M-25250;
+    (=shinjigen		.  5663)	; 穅
+    (=cbeta		. 00711)	; &I-CB00711;
     (=jef-china3	. #x5DBB)	; &I-JC3-5DBB;
     (->subsumptive
      ((==ucs@unicode	  . #x7A45)	; &g2-JSP-5140;
       (==jis-x0212	  . #x5140)	; &g2-JSP-5140; [49-32]
       (==daikanwa	  . 25250)	; &g2-JSP-5140;
+      (==shinjigen	  .  5663)	; &g2-JSP-5140;
+      (==cbeta		  . 00711)	; &g2-JSP-5140;
       (==jef-china3	  . #x5DBB)	; &g2-JSP-5140;
       (->subsumptive
        ((===daikanwa	    . 25250)	; &R-M-25250;
@@ -5594,7 +5654,11 @@
 	)
        ((===jef-china3	    . #x5DBB)	; &R-JC3-5DBB;
 	)
+       ((===cbeta	    . 00711)	; &R-CB00711;
+	)
        ((===ucs@unicode	    . #x7A45)	; &R-UU+7A45;
+	)
+       ((=hanziku-7	    . #xCBE3)	; &HZK07-CBE3;
 	))
       )
      ((==ucs@cns	  . #x7A45)	; &g2-CU+7A45;
