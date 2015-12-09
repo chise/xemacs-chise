@@ -1,3 +1,179 @@
+2015-12-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R149-Speech.el: Add some Adobe-Japan1-0 code points.
+	(U+8A04): Apply new conventions for glyph granularity.
+	(U+8A07): Likewise.
+	(U+8A0F): Likewise.
+	(U+8A11): Likewise.
+	(U+8A12): Likewise.
+	(U+8A15): Likewise.
+	(U+8A1E): Likewise.
+	(U+8A22): Likewise.
+	(U+8A26): Likewise.
+	(U+8A2C): Likewise.
+	(U+8A2F): Likewise.
+	(U+8A35): Likewise.
+	(U+8A37): Likewise.
+	(U+8A3D): Use `->subsumptive'; unify S-7611; add `<-formed' for
+	U+8A6C.
+	(U+8A3E): Apply new conventions for glyph granularity.
+	(U+8A40): Likewise.
+	(U+8A45): Likewise.
+	(U+8A49): Likewise.
+	(U+8A4D): Likewise.
+	(U+8A4E): Likewise.
+	(U+8A56): Likewise.
+	(U+8A57): Likewise.
+	(U+8A58): Likewise.
+	(U+8A75): Likewise.
+	(U+8A76): Likewise.
+	(U+8A77): Likewise.
+	(BUCS+8A79): New abstract node.
+	(U+8A79): Add `<-denotational' for BUCS+8A79; apply new
+	conventions for glyph granularity.
+	(U+8A7A): Apply new conventions for glyph granularity.
+	(U+8A7B): Likewise.
+	(U+8A7E): Likewise.
+	(U+8A7F): Likewise.
+	(U+8A83): Likewise.
+	(U+8A86): Likewise.
+	(U+8A8B): Likewise.
+	(U+8A8F): Likewise.
+	(U+8A90): Likewise.
+	(U+8A92): Likewise.
+	(U+8A95): Likewise.
+	(U+8A96): Likewise.
+	(U+8A99): Likewise.
+	(U-000279FC): Likewise.
+	(U+8AA7): Likewise.
+	(U+8AA9): Likewise.
+	(U+8AAA): Likewise.
+	(U+8AAE): Likewise.
+	(U+8AAF): Likewise.
+	(U+8AB6): Likewise.
+	(U+8ABB): Likewise.
+	(U+8ABE): Likewise.
+	(U+8AC3): Likewise.
+	(U+8AC6): Likewise.
+	(U+8AC8): Likewise.
+	(U+8AC9): Likewise.
+	(U-00027A5E): Likewise.
+	(U+8AD0): Likewise.
+	(U+8AD1): Likewise.
+	(U+8AD3): Likewise.
+	(U+8AD4): Likewise.
+	(U+8AD5): Likewise.
+	(U+8AD7): Likewise.
+	(U+8ADD): Likewise.
+	(U+8ADF): Likewise.
+	(U+8AEC): Likewise.
+	(U+8AF0): Likewise.
+	(U+8AF4): Likewise.
+	(U+8AF5): Likewise.
+	(U+8AF6): Likewise.
+	(U+8AFF): Likewise.
+	(U+8B01): Likewise.
+	(U-00027A7B): Likewise.
+	(U+8B05): Likewise.
+	(U+8B0B): Likewise.
+	(U+8B0D): Likewise.
+	(U+8B11): Likewise.
+	(U+8B16): Likewise.
+	(U+8B1C): Likewise.
+	(U+8B1E): Likewise.
+	(U+8B0A): Likewise.
+	(KOSEKI-406970): New character; unify MJ058757 and S-7721.
+	(U+8B2D): Apply new conventions for glyph granularity.
+	(U+8B37): Likewise.
+	(U+8B39): Likewise.
+	(U+8B3C): Likewise.
+	(U+8B3E): Likewise.
+	(U+8B42): Likewise.
+	(U+8B43): Likewise.
+	(U+8B45): Likewise.
+	(U+8B46): Likewise.
+	(U+470C): Likewise.
+	(KOSEKI-408560): New character; add `<-denotational' for U+470C;
+	unify MJ058764.
+	(U+8B48): Apply new conventions for glyph granularity.
+	(U+8B51): Likewise.
+	(U+8B52): Likewise.
+	(U+8B53): Likewise.
+	(U+8B54): Likewise.
+	(U+8B59): Likewise.
+	(JC3-65CE): Unify S-7762.
+	(U+8B4D): Apply new conventions for glyph granularity.
+	(U+8B5E): Likewise.
+	(U+8B63): Likewise.
+	(U+8B69): Likewise.
+	(U+8B6D): Likewise.
+	(U+8B76): Likewise.
+	(U+8B78): Likewise.
+	(U+8B79): Likewise.
+	(U+8B7E): Likewise.
+	(U+8B7F): Likewise.
+	(U+8B81): Likewise.
+	(U+8B84): Likewise.
+	(U+8B85): Likewise.
+	(U+471F): Likewise; unify S-7783; add `<-vulgar' for U+8B96.
+	(U+8B8A): Apply new conventions for glyph granularity.
+	(U+8B87): Likewise.
+	(U+8B8A): Likewise.
+	(U+8B8D): Likewise; unify S-1260; add `<-formed' for U+5669.
+	(U+8B8F): Apply new conventions for glyph granularity.
+	(U+8B95): Likewise.
+	(U+8B9C): Likewise.
+	(U+8B9E): Likewise.
+
+2015-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R163-City.el (U+90A6): Apply new conventions for glyph
+	granularity.
+	(UU+90A6): Unify AJ1-03676.
+
+	* Ideograph-R158-Body.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add some representative nodes.
+	(U+8EB2): Apply new conventions for glyph granularity.
+	(JU+8EB3): Add `ideographic-structure'; unify S-8103 and JC3-66E7;
+	add `<-original' for U+8EAC.
+	(UU+8EB3): Add `ideographic-structure'.
+	(U+8EB6): Apply new conventions for glyph granularity.
+	(U+8EBA): Likewise.
+	(U+8EBB): Likewise.
+	(U+8EBD): Likewise.
+	(U+8EC1): Likewise.
+	(U+8EC2): Likewise.
+	(U+8EC3): Likewise.
+	(U+8EC4): Likewise.
+	(U+8EC7): Likewise.
+	(U+8EC9): Likewise.
+
+	* Ideograph-R129-Brush.el (U+8081): Apply new conventions for
+	glyph granularity.
+	(BUCS+8085): New abstract node.
+	(U+7C9B): Add `<-denotational' for BUCS+8085; apply new
+	conventions for glyph granularity.
+	(U+8083): Add `<-denotational' for BUCS+8085; unify JC3-81CA.
+	(U+8085): Add `<-denotational' for BUCS+8085.
+	(U+8088): Apply new conventions for glyph granularity.
+
+	* Ideograph-R118-Bamboo.el: Add glyph-images of HNG-KHI.
+	(U+7B49): Apply new conventions for glyph granularity.
+	(BUCS+7BCC): New abstract node.
+	(U+7BCC): Add `<-denotational' for BUCS+7BCC; apply new
+	conventions for glyph granularity.
+	(HNG-KHI0130-0): New character; add `<-denotational' for
+	BUCS+7BCC.
+	(U+7BE9): Separate UU+7BE9 to integrate HNG-KHI0133-0.
+	(U+7C01): Unify S-5848; add `<-formed' for UU+7BE9.
+	(BUCS+7C2B): New abstract node.
+	(U+7C2B): Add `<-denotational' for BUCS+7C2B.
+	(HNG-KHI0134-0): New character; add `<-denotational' for
+	BUCS+7C2B.
+	(U+7BAB): Add `<-denotational' for BUCS+7C2B.
+	(U+7C6D): Unify S-5847; add `<-original' for UU+7BE9.
+
 2015-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R154-Shell.el (U+8CD4): Separate UU+8CD4 to integrate
