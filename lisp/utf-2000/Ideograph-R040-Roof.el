@@ -3172,19 +3172,38 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x21A03)	; 𡨃
-    (ideographic-radical . 40)	; ⼧
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
-    (=daikanwa		. 07161)	; &M-07161;
-    ))
-(define-char
-  '((morohashi-daikanwa	7161 0 0)
-    (ideographic-radical . 40)	; ⼧
+  '((ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs		. #x21A03)	; 𡨃
     (=cns11643-4	. #x2C44)	; &I-C4-2C44; [12-36]
+    (=daikanwa		. 07161)	; &I-M-07161;
+    (<-formed
+     ((=ucs@jis		  . #x9011)	; &GT-52080;
+      (=jis-x0208	  . #x6D73)	; &GT-52080; [77-83]
+      (=ks-x1001	  . #x4F47)	; &I-K0-4F47; [47-39]
+      (=jis-x0213-1	  . #x6D73)	; &I-JX1-6D73; [77-83]
+      (=daikanwa	  . 38878)	; &I-M-38878;
+      ))
+    (<-same
+     ((=ucs@unicode	  . #x6C42)	; &MJ015049;
+      (=mj		  . 015049)	; &MJ015049;
+      (=daikanwa	  . 17105)	; &I-M-17105;
+      ))
+    (<-same*sources
+     yupian daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x21A03)	; &g2-M-07161;
+      (==daikanwa	  . 07161)	; &g2-M-07161;
+      (->subsumptive
+       ((===daikanwa	    . 07161)	; &R-M-07161;
+	)
+       ((===ucs@iso	    . #x21A03)	; &R-U-00021A03;
+	))
+      )
+     ((==ucs@cns	  . #x21A03)	; &g2-CU+21A03;
+      (==cns11643-4	  . #x2C44)	; &g2-CU+21A03; [12-36]
+      ))
     ))
 (define-char
   '((ideographic-radical . 40)	; ⼧
@@ -5292,6 +5311,31 @@
        ((===cbeta	    . 05265)	; &R-CB05265;
 	)
        ((===ucs@unicode	    . #x5BC9)	; &R-UU+5BC9;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs		  . #x5C48)	; 屈
+      ))
+    (=cbeta		. 08765)	; &CB08765;
+    (->subsumptive
+     ((==cbeta		  . 08765)	; &g2-CB08765;
+      (->subsumptive
+       ((===cbeta	    . 08765)	; &R-CB08765;
+	)
+       ((===hng-khi	    . 06382)	; &HNG010-06382;
+	(<-formed
+	 ((=ucs		      . #x7A9F)	; 窟
+	  ))
 	))
       ))
     ))
