@@ -127,6 +127,57 @@
 
 2015-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R162-Walk.el (JU+9011): Use `<-interchangeable'
+	instead of `->interchangeable' for U+4EC7.
+
+	* Ideograph-R120-Silk.el: Add glyph-images of HNG-KHI.
+	(U+42C4): Apply new conventions for glyph granularity; separate
+	UU+42C4.
+	(UU+42C4): Add `=>ucs@iwds-1'; add `<-same' for M-27577.
+	(CB07560): New character; add `<-denotational' for U+42C4; add
+	HNG-KHI0140-0.
+	(BUCS+7D93): New abstract node.
+	(U+7D4C): Add `<-denotational' for BUCS+7D93.
+	(U+7ECF): Likewise.
+	(HNG-KHI0639-1): New character; add `<-denotational' for
+	BUCS+7D93.
+	(U+7D93): Add `<-denotational' for BUCS+7D93.
+	(U-00026030): New character; add HNG-KHI0639-2.
+	(BUCS+7DB2): New abstract node.
+	(U+7DB2): Add `<-denotational' for BUCS+7DB2.
+	(BUCS+7DE3): New abstract node.
+	(U+7DE3): Add `<-denotational' for BUCS+7DE3.
+	(U+7F18): Likewise.
+	(HNG-KHI0521-0): New character; add `<-denotational' for
+	BUCS+7DE3.
+	(U+7E01): Add `<-denotational' for BUCS+7DE3.
+	(U+7E52): Separate A-UU+7E52 to integrate HD-JT-B855.
+	(HD-JT-B855): New character; unify MJ020399; add HNG-KHI0142-0.
+	(U+7E5E): Separate UU+7E5E.
+	(UU+7E5E): Add `=>ucs@iwds-1'.
+	(HNG-KHI0137-0): New character; add `<-denotational' for U+7E5E.
+	(U-000261AF): Separate IU+261AF.
+	(HNG-KHI0138-0): New character; add `<-denotational' for
+	U-000261AF; add `<-formed' for U+7E7D.
+	(IU+261AF): Add `=>ucs@iwds-1'.
+
+	* Ideograph-R115-Grain.el (U+79D4): Unify S-5920 and CB00271; add
+	`<-original' for U+7CB3.
+	(U+7A09): Unify S-5921 and CB08300; add `<-formed' for U+7CB3.
+	(U+7A2E): Add HNG-KHI0513-0.
+	(U+7A45): Unify S-5663 and CB00711.
+
+	* Ideograph-R040-Roof.el (U-00021A03): Apply new conventions for
+	glyph granularity; add `<-formed' for JU+9011; add `<-same' for
+	UU+6C42.
+	(CB08765): New character; add HNG-KHI0638-2.
+
+	* Ideograph-R009-Man.el (U+4EC7): Add `<-formed' and
+	`<-interchangeable' for U+3ABA; add `<-same@ancient' and
+	`->interchangeable' for JU+9011; add `->formed' for CU+341C.
+	(U+4FAF-itaiji-002): New character; add `<-denotational' for
+	BUCS+4FAF.
+
 	* Ideograph-R163-City.el (U+90A6): Apply new conventions for glyph
 	granularity.
 	(UU+90A6): Unify AJ1-03676.
