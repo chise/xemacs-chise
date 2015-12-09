@@ -1,5 +1,9 @@
 2015-12-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R064-Hand.el (U+6374): Apply new conventions for glyph
+	granularity; unify CB07538; add `<-same' for JU+6460; add
+	HNG-KHI0398-0.
+
 	* Ideograph-R149-Speech.el: Add some Adobe-Japan1-0 code points.
 	(U+8A04): Apply new conventions for glyph granularity.
 	(U+8A07): Likewise.
