@@ -7772,11 +7772,18 @@
     (=gt-pj-1		. #x6D73)	; &I-GT-52080; [77-83]
     (=daikanwa		. 38878)	; &I-M-38878;
     (=shinjigen		.  8267)	; &GT-52080;
+    (<-interchangeable
+     ((=ucs		  . #x4EC7)	; 仇
+      (=daikanwa	  . 00355)	; &I-M-00355;
+      ))
+    (<-interchangeable*sources
+     shuowen shuowen-zhu shuowen-tongxundingsheng maoshi maoshi-zhuan daikanwa)
     (->formed
      ((=ucs		  . #x9CE9)	; 鳩
       (=daikanwa	  . 46648)	; &I-M-46648;
       )
-     ((=daikanwa	  . 07161)	; &M-07161;
+     ((=ucs		  . #x21A03)	; 𡨃
+      (=daikanwa	  . 07161)	; &I-M-07161;
       )
      ((=ucs@unicode	  . #x6C42)	; &MJ015049;
       (=mj		  . 015049)	; &MJ015049;
@@ -7790,12 +7797,6 @@
      shuowen-tongxun-dingsheng jingdian-shiwen daikanwa)
     (->formed*sources
      daikanwa)
-    (->interchangeable
-     ((=ucs		  . #x4EC7)	; 仇
-      (=daikanwa	  . 00355)	; &I-M-00355;
-      ))
-    (->interchangeable*sources
-     shuowen shuowen-zhu shuowen-tongxundingsheng maoshi maoshi-zhuan daikanwa)
     (->subsumptive
      ((==ucs@jis	  . #x9011)	; &g2-J90-6D73;
       (==jis-x0208	  . #x6D73)	; &g2-J90-6D73; [77-83]
