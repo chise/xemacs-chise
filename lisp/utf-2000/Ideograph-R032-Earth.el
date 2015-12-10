@@ -6585,6 +6585,9 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (===hng-khi		. 00310)	; &HNG010-00310;
+    (<-formed
+     ((=ucs		  . #x5782)	; 垂
+      ))
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
