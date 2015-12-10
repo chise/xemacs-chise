@@ -485,20 +485,36 @@
   '((ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (hanyu-dazidian	1 303 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=ucs		  . #x7C73)	; 米
+      ))
     (=ucs		. #x519E)	; 冞
+    (=cns11643-2	. #x254D)	; &I-C2-254D; [05-45]
     (=big5		. #xCBCD)	; &I-B-CBCD;
+    (=daikanwa		. 01577)	; &I-M-01577;
     (->subsumptive
-     ((hanyu-dazidian	  1 303 17)
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
        ((=ucs		    . #x5196)	; 冖
 	)
-       ((=ucs		    . #x7C73)	; 米
+       ((==ucs@unicode	    . #x7C73)	; &g2-AJ1-03606;
+	(==adobe-japan1-0   . 03606)	; &g2-AJ1-03606;
 	))
-      (=ucs@unicode	  . #x519E)	; &M-01577;
-      (=daikanwa	  . 01577)	; &M-01577;
+      (==ucs@unicode	  . #x519E)	; &g2-M-01577;
+      (==daikanwa	  . 01577)	; &g2-M-01577;
+      (->subsumptive
+       ((===daikanwa	    . 01577)	; &R-M-01577;
+	)
+       ((===ucs@unicode	    . #x519E)	; &R-UU+519E;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -506,10 +522,11 @@
 	)
        ((=ucs		    . #x5196)	; 冖
 	)
-       ((=cns11643-1	    . #x484D)	; &C1-484D; [40-45]
+       ((==ucs@cns	    . #x7C73)	; &g2-CU+7C73;
+	(==cns11643-1	    . #x484D)	; &g2-CU+7C73; [40-45]
 	))
-      (=ucs@cns		  . #x519E)	; &C2-254D;
-      (=cns11643-2	  . #x254D)	; &C2-254D; [05-45]
+      (==ucs@cns	  . #x519E)	; &g2-CU+519E;
+      (==cns11643-2	  . #x254D)	; &g2-CU+519E; [05-45]
       ))
     ))
 (define-char
