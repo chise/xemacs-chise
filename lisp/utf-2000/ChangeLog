@@ -1,5 +1,10 @@
 2015-12-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (HNG-KHI0031-0): Add `<-formed' for
+	U+5782.
+
+2015-12-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R064-Hand.el (U+6374): Apply new conventions for glyph
 	granularity; unify CB07538; add `<-same' for JU+6460; add
 	HNG-KHI0398-0.
