@@ -467,6 +467,44 @@
     (=gt-pj-1		. #x3561)	; &I-GT-21960; [21-65]
     (=daikanwa		. 17105)	; &I-M-17105;
     (=shinjigen		.  4054)	; &MJ015049;
+    (<-ancient
+     ((=ucs		  . #x88D8)	; 裘
+      (=daikanwa	  . 34312)	; &I-M-34312;
+      ))
+    (<-ancient*sources
+     shuowen-zhu daikanwa)
+    (<-formed
+     ((=ucs@jis		  . #x9011)	; &GT-52080;
+      (=jis-x0208	  . #x6D73)	; &GT-52080; [77-83]
+      (=ks-x1001	  . #x4F47)	; &I-K0-4F47; [47-39]
+      (=jis-x0213-1	  . #x6D73)	; &I-JX1-6D73; [77-83]
+      (=daikanwa	  . 38878)	; &I-M-38878;
+      ))
+    (<-interchangeable
+     ((=ucs		  . #x7A76)	; 究
+      (=daikanwa	  . 25409)	; &I-M-25409;
+      )
+     ((=ucs@jis		  . #x9011)	; &GT-52080;
+      (=jis-x0208	  . #x6D73)	; &GT-52080; [77-83]
+      (=ks-x1001	  . #x4F47)	; &I-K0-4F47; [47-39]
+      (=jis-x0213-1	  . #x6D73)	; &I-JX1-6D73; [77-83]
+      (=daikanwa	  . 38878)	; &I-M-38878;
+      )
+     ((=ucs@unicode	  . #x7403)	; &GT-26861;
+      (=jis-x0208	  . #x3565)	; &GT-26861; [21-69]
+      (=gb2312		  . #x4772)	; &I-G0-4772; [39-82]
+      (=ks-x1001	  . #x4F39)	; &I-K0-4F39; [47-25]
+      (=jis-x0213-1	  . #x3565)	; &I-JX1-3565; [21-69]
+      (=daikanwa	  . 21011)	; &I-M-21011;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_2*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_3*sources
+     xu-zihui-bu daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x6C42)	; 求
