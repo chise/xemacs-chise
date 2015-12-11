@@ -2022,6 +2022,21 @@
      ((=ucs		  . #x4E5D)	; 九
       ))
     (=ucs		. #x341C)	; 㐜
+    (=cns11643-4	. #x2835)	; &I-C4-2835; [08-21]
+    (=gt		. 00260)	; &I-GT-00260;
+    (=gt-pj-2		. #x315E)	; &I-GT-00260; [17-62]
+    (=daikanwa		. 00195)	; &I-M-00195;
+    (<-formed
+     ((=ucs		  . #x4EC7)	; 仇
+      ))
+    (<-formed*sources
+     jiyun)
+    (<-same
+     ((=ucs		  . #x4EC7)	; 仇
+      (=daikanwa	  . 00355)	; &I-M-00355;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -2031,14 +2046,24 @@
 	)
        ((=ucs		    . #x4E5D)	; 九
 	))
-      (=ucs@cns		  . #x341C)	; &GT-00260;
-      (=cns11643-4	  . #x2835)	; &GT-00260; [08-21]
-      (=gt		  . 00260)	; &I-GT-00260;
-      (=gt-pj-2		  . #x315E)	; &I-GT-00260; [17-62]
-      (=daikanwa	  . 00195)	; &I-M-00195;
+      (==ucs@cns	  . #x341C)	; &g2-GT-00260;
+      (==cns11643-4	  . #x2835)	; &g2-GT-00260; [08-21]
+      (==gt		  . 00260)	; &g2-GT-00260;
+      (==daikanwa	  . 00195)	; &g2-GT-00260;
+      (->subsumptive
+       ((===daikanwa	    . 00195)	; &R-M-00195;
+	)
+       ((===cns11643-4	    . #x2835)	; &R-C4-2835; [08-21]
+	)
+       ((===gt		    . 00260)	; &R-GT-00260;
+	))
       )
-     ((=ucs@unicode	  . #x341C)	; &HZK01-AFA4;
-      (=hanziku-1	  . #xAFA4)	; &HZK01-AFA4;
+     ((==ucs@unicode	  . #x341C)	; &g2-UU+341C;
+      (->subsumptive
+       ((===ucs@unicode	    . #x341C)	; &R-UU+341C;
+	)
+       ((=hanziku-1	    . #xAFA4)	; &HZK01-AFA4;
+	))
       ))
     ))
 (define-char
