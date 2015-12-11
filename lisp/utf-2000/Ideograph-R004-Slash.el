@@ -659,7 +659,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 4)	; ⼃
+  '((<-denotational
+     ((==>ucs@bucs	  . #x7FA9)	; &BUCS+7FA9;
+      ))
+    (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (hanyu-dazidian	1 42 10)
