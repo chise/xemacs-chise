@@ -13910,31 +13910,29 @@
     (=gt		. 25006)	; &I-GT-25006;
     (=gt-pj-1		. #x4E55)	; &I-GT-25006; [46-53]
     (=daikanwa		. 19417)	; &I-M-19417;
-    (<-formed@jiyun
-     ((=ucs@unicode	  . #x7CA6)	; &CDP-8CB9;
-      (=iso-ir165	  . #x2F7B)	; &CDP-8CB9; [15-91]
-      (=daikanwa	  . 26939)	; &I-M-26939;
+    (<-formed
+     ((=ucs		  . #x7CA6)	; 粦
       ))
-    (<-formed@jiyun*sources
+    (<-formed*sources
      jiyun)
-    (<-same@jiyun
-     ((=ucs@unicode	  . #x7CA6)	; &CDP-8CB9;
-      (=iso-ir165	  . #x2F7B)	; &CDP-8CB9; [15-91]
+    (<-same
+     ((=ucs		  . #x7CA6)	; 粦
       (=daikanwa	  . 26939)	; &I-M-26939;
+      )
+     ((=ucs@unicode	  . #x3DE0)	; &M-19267;
+      (=daikanwa	  . 19267)	; &M-19267;
       ))
-    (<-same@jiyun*sources
+    (<-same$_1*sources
      jiyun daikanwa)
-    (<-same@zhengzitong
-     ((=ucs@unicode	  . #x3DE0)	; &M-19267;
-      (=daikanwa	  . 19267)	; &M-19267;
-      ))
-    (<-same@zhengzitong*sources
+    (<-same$_2*sources
      zhengzitong daikanwa)
-    (<-vulgar@zhengzitong
+    (<-same*sources
+     daikanwa)
+    (<-vulgar
      ((=ucs@unicode	  . #x3DE0)	; &M-19267;
       (=daikanwa	  . 19267)	; &M-19267;
       ))
-    (<-vulgar@zhengzitong*sources
+    (<-vulgar*sources
      zhengzitong)
     (->subsumptive
      ((ideographic-strokes . 12)
