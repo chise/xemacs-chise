@@ -130,6 +130,20 @@
     ))
 (define-char
   '((ideographic-radical . 83)	; ⽒
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x6C0F)	; 氏
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=ucs		. #x2B795)	; 𫞕
+    ))
+(define-char
+  '((ideographic-radical . 83)	; ⽒
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=ucs		. #x6C12)	; 氒
