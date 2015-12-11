@@ -1,5 +1,28 @@
 2015-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R122-Net.el (U+7F51): Add `<-denotational' for
+	BUCS+7DB2.
+	(M-28206): Unify U-00020540; use
+	`ideographic-{radical|strokes}@daikanwa' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+
+2015-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el (UU+6C42): Add `<-ancient' for U+88D8;
+	add `<-formed' for JU+9011; add `<-interchangeable' for U+7A76,
+	JU+9011 and UU+7403.
+
+	* Ideograph-R083-Clan.el (U-0002B795): New character.
+
+	* Ideograph-R020-Wrap.el (U+530A): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R013-Down-Box.el (U-00020540): Use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; unify M-28206; add
+	`ideographic-{radical|strokes}@daikanwa'.
+
 	* Ideograph-R075-Tree.el (U+3BF2): Apply new conventions for glyph
 	granularity.
 
@@ -7,6 +30,46 @@
 	glyph granularity.
 
 2015-12-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R104-Sickness.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add some representative nodes.
+	(U+7592): Apply new conventions for glyph granularity.
+	(U+75A9): Use `->subsumptive'; unify S-5132; add `<-vulgar' for
+	U+7601.
+	(U+75BA): Apply new conventions for glyph granularity.
+	(U+75CC): Likewise.
+	(U+75CF): Likewise.
+	(U+75D7): Likewise.
+	(U+75DD): Likewise.
+	(U+75DF): Likewise.
+	(U+75EE): Likewise.
+	(U+75EF): Likewise.
+	(U+75F1): Likewise.
+	(U+75F9): Likewise.
+	(U+7608): Likewise.
+	(U+760A): Likewise.
+	(U+3FAE): Likewise.
+	(U+7612): Likewise.
+	(U+7613): Likewise.
+	(U+7615): Likewise.
+	(U+7618): Likewise.
+	(U+7619): Likewise.
+	(U+761B): Likewise.
+	(U+761C): Likewise.
+	(U+761E): Likewise.
+	(U+7623): Likewise.
+	(U+7625): Likewise.
+	(U+7629): Likewise.
+	(U+762D): Likewise.
+	(U+7633): Likewise.
+	(U+7635): Likewise.
+	(U+7643): Likewise.
+	(U+7659): Likewise.
+	(U+765F): Likewise.
+	(U+7665): Likewise.
+	(U-00024F08): Likewise.
+	(U+766D): Likewise.
 
 	* Ideograph-R032-Earth.el (HNG-KHI0031-0): Add `<-formed' for
 	U+5782.
