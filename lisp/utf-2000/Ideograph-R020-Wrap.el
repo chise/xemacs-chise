@@ -1072,6 +1072,7 @@
   '((ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (hanyu-dazidian	1 259 1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
       (=ucs		  . #x2FF9)	; ⿹
@@ -1081,21 +1082,39 @@
      ((=ucs		  . #x7C73)	; 米
       ))
     (=ucs		. #x530A)	; 匊
+    (=adobe-japan1-4	. 14364)	; &I-AJ1-14364;
+    (=jis-x0212		. #x337D)	; &I-JSP-337D; [19-93]
+    (=iso-ir165		. #x2E29)	; &I-EGB-2E29; [14-09]
+    (=cns11643-2	. #x2556)	; &I-C2-2556; [05-54]
+    (=jis-x0213-2	. #x234C)	; &I-JX2-234C; [03-44]
     (=big5		. #xCBD6)	; &I-B-CBD6;
+    (=daikanwa		. 02523)	; &I-M-02523;
+    (=jef-china3	. #x45A6)	; &I-JC3-45A6;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x530A)	; 匊
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (hanyu-dazidian	  1 259 1)
-      (=ucs@unicode	  . #x530A)	; &AJ1-14364;
-      (=adobe-japan1-4	  . 14364)	; &AJ1-14364;
-      (=jis-x0212	  . #x337D)	; &I-JSP-337D; [19-93]
-      (=iso-ir165	  . #x2E29)	; &I-EGB-2E29; [14-09]
-      (=jis-x0213-2	  . #x234C)	; &I-JX2-234C; [03-44]
-      (=daikanwa	  . 02523)	; &I-M-02523;
-      (=jef-china3	  . #x45A6)	; &I-JC3-45A6;
+      (==ucs@unicode	  . #x530A)	; &g2-AJ1-14364;
+      (==adobe-japan1-4	  . 14364)	; &g2-AJ1-14364;
+      (==jis-x0212	  . #x337D)	; &g2-AJ1-14364; [19-93]
+      (==iso-ir165	  . #x2E29)	; &g2-AJ1-14364; [14-09]
+      (==jis-x0213-2	  . #x234C)	; &g2-AJ1-14364; [03-44]
+      (==daikanwa	  . 02523)	; &g2-AJ1-14364;
+      (==jef-china3	  . #x45A6)	; &g2-AJ1-14364;
+      (->subsumptive
+       ((===daikanwa	    . 02523)	; &R-M-02523;
+	)
+       ((===jis-x0212	    . #x337D)	; &R-JX2-234C; [19-93]
+	(===jis-x0213-2	    . #x234C)	; &R-JX2-234C; [03-44]
+	)
+       ((===adobe-japan1-4  . 14364)	; &R-AJ1-14364;
+	)
+       ((===ucs@unicode	    . #x530A)	; &R-UU+530A;
+	)
+       ((===jef-china3	    . #x45A6)	; &R-JC3-45A6;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
@@ -1103,10 +1122,11 @@
 	)
        ((=ucs		    . #x52F9)	; 勹
 	)
-       ((=cns11643-1	    . #x484D)	; &C1-484D; [40-45]
+       ((==ucs@cns	    . #x7C73)	; &g2-CU+7C73;
+	(==cns11643-1	    . #x484D)	; &g2-CU+7C73; [40-45]
 	))
-      (=ucs@cns		  . #x530A)	; &C2-2556;
-      (=cns11643-2	  . #x2556)	; &C2-2556; [05-54]
+      (==ucs@cns	  . #x530A)	; &g2-CU+530A;
+      (==cns11643-2	  . #x2556)	; &g2-CU+530A; [05-54]
       ))
     ))
 (define-char
