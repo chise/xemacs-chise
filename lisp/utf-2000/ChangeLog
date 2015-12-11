@@ -1,5 +1,34 @@
 2015-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R143-Blood.el (BUCS+8846): New abstract node.
+	(B-B2B3): Changed to abstract node to integrate U+773E and U+8846.
+	(U+8846): Use `->denotational' and `->subsumptive'; add
+	HNG-KHI0505-0.
+
+	* Ideograph-R086-Fire.el (U+71D0): Use `<-formed' for U+7CA6
+	instead of `<-formed@jiyun' for UU+7CA6; use `<-same' for U+7CA6
+	and UU+3DE0 instead of `<-same@jiyun' for UU+7CA6 and
+	`<-same@zhengzitong' for UU+3DE0; use `<-vulgar' instead of
+	`<-vulgar@zhengzitong' for UU+3DE0.
+
+	* Ideograph-R037-Big.el (U-00021647): Separate A-IU+21647 to
+	integrate HNG-KHI0143-0.
+	(A-IU+21647): Add `=>ucs@iwds-1'.
+	(IU+21647): Use A-IU+21647 instead of U-00021647 as the mother;
+	add `<-same' for U+7F3A; add representative nodes.
+	(CU+21647): Use A-IU+21647 instead of U-00021647 as the mother;
+	add representative node.
+	(HNG-KHI0143-0): New character.
+
+	* Ideograph-R019-Power.el (g2-CU+52F7): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R005-Second.el (U+341C): Apply new conventions for
+	glyph granularity; add `<-formed' and `<-same' for U+4EC7.
+
+	* Ideograph-R004-Slash.el (U+4E49): Add `<-denotational' for
+	U+7FA9.
+
 	* Ideograph-R122-Net.el (U+7F51): Add `<-denotational' for
 	BUCS+7DB2.
 	(M-28206): Unify U-00020540; use
