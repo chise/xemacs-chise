@@ -1,5 +1,15 @@
 2015-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R103-Bolt-Of-Cloth.el (U+7591-itaiji-005): New
+	character.
+
+	* Ideograph-R033-Scholar.el (U+58F0): Add `<-denotational' for
+	BUCS+8072.
+
+	* Ideograph-R021-Spoon.el (U-0002A7E9): New character.
+
+2015-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R077-Stop.el (U-00023985): Apply new conventions for
 	glyph granularity.
 
