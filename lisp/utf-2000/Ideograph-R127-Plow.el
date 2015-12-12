@@ -1125,6 +1125,13 @@
     ))
 (define-char
   '((ideographic-radical . 127)	; ⽾
+    (==>ucs@bucs	. #x8028)	; &BUCS+8028;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x8028)	; &BUCS+8028;
+      ))
+    (ideographic-radical . 127)	; ⽾
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
     (ideographic-structure
@@ -1240,6 +1247,24 @@
     (=gb2312		. #x7171)	; &GT-37494; [81-81]
     (=gt		. 37494)	; &I-GT-37494;
     (=gt-pj-10		. #x314C)	; &I-GT-37494; [17-44]
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x8028)	; &BUCS+8028;
+      ))
+    (ideographic-radical . 127)	; ⽾
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8012)	; 耒
+      )
+     ((=ucs-itaiji-004	  . #x8FB1)	; &U-i004+8FB1;
+      ))
+    (===hng-khi		. 05290)	; &HNG010-05290;
+    (<-formed
+     ((=ucs		  . #x8028)	; 耨
+      ))
     ))
 (define-char
   '((ideographic-radical . 127)	; ⽾
