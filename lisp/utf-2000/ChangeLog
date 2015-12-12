@@ -1,4 +1,25 @@
+2015-12-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R128-Ear.el: Add glyph-images of HNG-KHI.
+	(BUCS+8070): New abstract node.
+	(U+8061): Add `<-denotational' for BUCS+8070.
+	(HNG-KHI0148-0): New character; add `<-denotational' for
+	BUCS+8070; add `<-formed' for U+8061 and U+8070.
+	(U+806A): Use `->subsumptive'; add `<-denotational' for BUCS+8070.
+	(U+8070): Add `<-denotational' for BUCS+8070.
+	(BUCS+8072): New abstract node.
+	(U+8072): Add `<-denotational' for BUCS+8072.
+	(HNG-KHI0531-0): New character; add `<-denotational' for
+	BUCS+8072; add `<-formed' for U+8072.
+
 2015-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R127-Plow.el (BUCS+8028): New abstract node.
+	(U+8028): Add `<-denotational' for BUCS+8028.
+	(HNG-KHI0529-0): New character; add `<-denotational' for
+	BUCS+8028; add `<-formed' for U+8028.
+
+	* Ideograph-R122-Net.el: Add glyph-images of HNG-KHI.
 
 	* Ideograph-R103-Bolt-Of-Cloth.el (U+7591-itaiji-005): New
 	character.
