@@ -245,7 +245,10 @@
     (=daikanwa		. 05644)	; &I-M-05644;
     ))
 (define-char
-  '((ideographic-radical . 33)	; ⼠
+  '((<-denotational
+     ((==>ucs@bucs	  . #x8072)	; &BUCS+8072;
+      ))
+    (ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 429 1)
