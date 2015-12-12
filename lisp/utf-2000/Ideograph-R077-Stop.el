@@ -1471,21 +1471,29 @@
   '((ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (hanyu-dazidian	2 1443 17)
     (=ucs		. #x23985)	; 𣦅
+    (=cns11643-6	. #x4A41)	; &I-C6-4A41; [42-33]
+    (=daikanwa		. 16322)	; &I-M-16322;
+    (<-same
+     ((=ucs		  . #x795F)	; 祟
+      (=daikanwa	  . 24674)	; &I-M-24674;
+      ))
+    (<-same*sources
+     longkanshoujian daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 16322)	; &M-16322;
-      (<-same
-       ((=cns11643-1	    . #x572C)	; &C1-572C; [55-12]
-	(=daikanwa	    . 24674)	; &I-M-24674;
+     ((==ucs@iso	  . #x23985)	; &g2-M-16322;
+      (==cns11643-6	  . #x4A41)	; &g2-M-16322; [42-33]
+      (==daikanwa	  . 16322)	; &g2-M-16322;
+      (->subsumptive
+       ((===daikanwa	    . 16322)	; &R-M-16322;
+	)
+       ((===cns11643-6	    . #x4A41)	; &R-C6-4A41; [42-33]
+	)
+       ((===ucs@iso	    . #x23985)	; &R-U-00023985;
 	))
-      (<-same*sources
-       longkanshoujian daikanwa)
       )
-     ((=ucs@iso		  . #x23985)	; &C6-4A41;
-      (=cns11643-6	  . #x4A41)	; &C6-4A41; [42-33]
-      )
-     ((hanyu-dazidian	  2 1443 17)
-      (=hanziku-4	  . #xD37E)	; &HZK04-D37E;
+     ((=hanziku-4	  . #xD37E)	; &HZK04-D37E;
       ))
     ))
 (define-char
@@ -2380,8 +2388,7 @@
     (=cns11643-7	. #x5B62)	; &I-C7-5B62; [59-66]
     (=daikanwa		. 16357)	; &I-M-16357;
     (<-same
-     ((=ucs@jis		  . #x8F61)	; &AJ1-01787;
-      (=adobe-japan1-0	  . 01787)	; &AJ1-01787;
+     ((=ucs		  . #x8F61)	; 轡
       (=daikanwa	  . 38587)	; &I-M-38587;
       ))
     (<-same*sources
@@ -2391,13 +2398,10 @@
       )
      ((=hanziku-4	  . #xD454)	; &HZK04-D454;
       )
+     ((==ucs@cns	  . #x239B1)	; &g2-CU+239B1;
+      (==cns11643-7	  . #x5B62)	; &g2-CU+239B1; [59-66]
+      )
      ((==ucs@iso	  . #x239B1)	; &g2-IU-000239B1;
-      (==cns11643-7	  . #x5B62)	; &g2-IU-000239B1; [59-66]
-      (->subsumptive
-       ((===cns11643-7	    . #x5B62)	; &R-C7-5B62; [59-66]
-	)
-       ((===ucs@iso	    . #x239B1)	; &R-U-000239B1;
-	))
       ))
     ))
 (define-char
