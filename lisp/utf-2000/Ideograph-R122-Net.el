@@ -1635,6 +1635,8 @@
      ((==ucs@unicode	  . #x7F6A)	; &g2-UU+7F6A;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x576F)	; &g2-UU+7F6A; [55-79]
+      )
+     ((===hng-khi	  . 05230)	; &HNG010-05230;
       ))
     ))
 (define-char
@@ -3196,15 +3198,14 @@
 	(===ks-x1001	    . #x547E)	; &R-K0-547E; [52-94]
 	))
       )
+     ((==ucs@cns	  . #x7F85)	; &g2-CU+7F85;
+      (==cns11643-1	  . #x7865)	; &g2-CU+7F85; [88-69]
+      )
      ((==ucs@unicode	  . #x7F85)	; &g2-UU+7F85;
       (==ucs@JP/hanazono  . nil)
-      (==cns11643-1	  . #x7865)	; &g2-UU+7F85; [88-69]
       (==gb12345	  . #x425E)	; &g2-UU+7F85; [34-62]
-      (->subsumptive
-       ((===cns11643-1	    . #x7865)	; &R-C1-7865; [88-69]
-	)
-       ((===ucs@unicode	    . #x7F85)	; &R-UU+7F85;
-	))
+      )
+     ((===hng-khi	  . 05240)	; &HNG010-05240;
       ))
     ))
 (define-char
