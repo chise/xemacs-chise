@@ -1,3 +1,26 @@
+2015-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R077-Stop.el (U-00023985): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R030-Mouth.el (U+5469): Apply new conventions for
+	glyph granularity.
+	(U+54AA): Likewise.
+	(U+54BE): Likewise.
+	(U+5664): Likewise.
+	(M-04480): Add representative nodes.
+	(IU+21054): Likewise.
+	(U+56B7): Apply new conventions for glyph granularity.
+
+	* Ideograph-R009-Man.el (U+4F17): Add `<-denotational' for
+	BUCS+8846.
+	(U+4F58): Apply new conventions for glyph granularity.
+	(U+4F6C): Likewise.
+	(U+4F8E): Likewise.
+	(U+50F3): Likewise.
+	(U+50F8): Likewise.
+	(U+5134): Likewise.
+
 2015-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R143-Blood.el (BUCS+8846): New abstract node.
