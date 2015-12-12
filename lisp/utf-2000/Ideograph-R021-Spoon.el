@@ -441,6 +441,20 @@
     (=adobe-japan1-4	. 13697)	; &AJ1-13697;
     ))
 (define-char
+  '((ideographic-radical . 21)	; ⼔
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5315)	; 匕
+      )
+     ((=ucs		  . #x5929)	; 天
+      ))
+    (=ucs		. #x2A7E9)	; 𪟩
+    ))
+(define-char
   '((=>ucs		. #x20911)	; 𠤑
     (ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 5)
