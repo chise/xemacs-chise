@@ -4948,6 +4948,7 @@
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
+    (hanyu-dazidian	1 379 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -4957,43 +4958,63 @@
      ((=ucs		  . #x529B)	; 力
       ))
     (=ucs		. #x52E1)	; 勡
+    (=adobe-japan1-5	. 19198)	; &I-AJ1-19198;
+    (=jis-x0212		. #x3370)	; &I-JSP-3370; [19-80]
+    (=cns11643-3	. #x4044)	; &I-C3-4044; [32-36]
+    (=daikanwa		. 02421)	; &I-M-02421;
+    (=cbeta		. 04829)	; &I-CB04829;
+    (=jef-china3	. #x44F0)	; &I-JC3-44F0;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=cns11643-1	    . #x5C41)	; &C1-5C41; [60-33]
-	(=daikanwa	    . 24694)	; &I-M-24694;
+       ((==ucs@cns	    . #x7968)	; &g2-M-24694;
+	(==daikanwa	    . 24694)	; &g2-M-24694;
 	)
        ((=ucs		    . #x529B)	; 力
 	))
-      (=cns11643-3	  . #x4044)	; &C3-4044; [32-36]
-      (=daikanwa	  . 02421)	; &I-M-02421;
+      (==ucs@cns	  . #x52E1)	; &g2-M-02421;
+      (==cns11643-3	  . #x4044)	; &g2-M-02421; [32-36]
+      (==daikanwa	  . 02421)	; &g2-M-02421;
+      (->subsumptive
+       ((===daikanwa	    . 02421)	; &R-M-02421;
+	)
+       ((===cns11643-3	    . #x4044)	; &R-C3-4044; [32-36]
+	))
       )
      ((=decomposition@cid
        ((=ucs		    . #x52E1)	; 勡
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (hanyu-dazidian	  1 379 3)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x7968)	; &GT-31700;
-	(=jis-x0208	    . #x493C)	; &GT-31700; [41-28]
-	(=gb2312	    . #x4631)	; &I-G0-4631; [38-17]
-	(=ks-x1001	    . #x7879)	; &I-K0-7879; [88-89]
-	(=jis-x0213-1	    . #x493C)	; &I-JX1-493C; [41-28]
+       ((==ucs@unicode	    . #x7968)	; &g2-AJ1-03502;
+	(==adobe-japan1-0   . 03502)	; &g2-AJ1-03502;
 	)
        ((=ucs		    . #x529B)	; 力
 	))
-      (=ucs@unicode	  . #x52E1)	; &AJ1-19198;
-      (=adobe-japan1-5	  . 19198)	; &AJ1-19198;
-      (=jis-x0212	  . #x3370)	; &I-JSP-3370; [19-80]
-      (=hanziku-1	  . #xF3E9)	; &I-HZK01-F3E9;
-      (=cbeta		  . 04829)	; &I-CB04829;
-      (=jef-china3	  . #x44F0)	; &I-JC3-44F0;
+      (==ucs@unicode	  . #x52E1)	; &g2-AJ1-19198;
+      (==adobe-japan1-5	  . 19198)	; &g2-AJ1-19198;
+      (==jis-x0212	  . #x3370)	; &g2-AJ1-19198; [19-80]
+      (==cbeta		  . 04829)	; &g2-AJ1-19198;
+      (==jef-china3	  . #x44F0)	; &g2-AJ1-19198;
+      (->subsumptive
+       ((===jis-x0212	    . #x3370)	; &R-JSP-3370; [19-80]
+	)
+       ((===adobe-japan1-5  . 19198)	; &R-AJ1-19198;
+	)
+       ((===jef-china3	    . #x44F0)	; &R-JC3-44F0;
+	)
+       ((===ucs@unicode	    . #x52E1)	; &R-UU+52E1;
+	)
+       ((=hanziku-1	    . #xF3E9)	; &HZK01-F3E9;
+	)
+       ((===cbeta	    . 04829)	; &R-CB04829;
+	))
       ))
     ))
 (define-char
