@@ -1,5 +1,29 @@
 2015-12-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R104-Sickness.el: Add glyph-images of HNG-KHI.
+	(BUCS+7661): New abstract node.
+	(U+75F4): Add `<-denotational' for BUCS+7661.
+	(HNG-KHI0118-0): New character; add `<-denotational' for
+	BUCS+7661; add `<-formed' for U+7661.
+	(BUCS+7648): New abstract node.
+	(U+7648): Add `<-denotational' for BUCS+7648.
+	(HNG-KHI0120-0): New character; add `<-denotational' for
+	BUCS+7648; add `<-formed' for U+7648.
+	(U+7661): Add `<-denotational' for BUCS+7661.
+
+	* Ideograph-R041-Inch.el (KOSEKI-084490): New character; unify
+	MJ057348; add `<-formed' for U+8FB1; add U+8FB1-itaiji-004.
+	(U-00021B3D): Apply new conventions for glyph granularity.
+
+	* Ideograph-R046-Mountain.el (U+37FD): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R057-Bow.el (U-000223BF): New character; unify
+	CB07145.
+	(KOSEKI-111200): New character; unify MJ057470; add `<-formed' for
+	U+5F42 and U+767C.
+	(U+5F42): Use `->subsumptive'.
+
 	* Ideograph-R128-Ear.el: Add glyph-images of HNG-KHI.
 	(BUCS+8070): New abstract node.
 	(U+8061): Add `<-denotational' for BUCS+8070.
