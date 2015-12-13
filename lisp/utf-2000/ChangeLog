@@ -1,5 +1,7 @@
 2015-12-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R064-Hand.el (U-00022DCB): Use `->subsumptive'.
+
 	* Ideograph-R075-Tree.el (U-000235B7): Apply new conventions for
 	glyph granularity.
 	(U+69C8): Add `<-denotational' for BUCS+8028.
