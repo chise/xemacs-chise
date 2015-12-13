@@ -23725,25 +23725,7 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x22DCB)	; 𢷋
-    (ideographic-radical . 64)	; ⼿
-    (ideographic-strokes . 14)
-    (total-strokes	 . 17)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x624C)	; 扌
-      )
-     ((=cns11643-6	  . #x5C30)	; &C6-5C30; [60-16]
-      (=daikanwa	  . 07456)	; &I-M-07456;
-      ))
-    (=cns11643-5	. #x5B56)	; &C5-5B56; [59-54]
-    (=daikanwa		. 12849)	; &I-M-12849;
-    ))
-(define-char
-  '((morohashi-daikanwa	12849 0 0)
-    (ideographic-radical . 64)	; ⼿
+  '((ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
     (hanyu-dazidian	3 1974 6)
@@ -23756,7 +23738,43 @@
      ((=ucs		  . #x21B3D)	; 𡬽
       ))
     (=ucs		. #x22DCB)	; 𢷋
-    (=hanziku-5		. #xECA3)	; &I-HZK05-ECA3;
+    (=cns11643-5	. #x5B56)	; &I-C5-5B56; [59-54]
+    (=daikanwa		. 12849)	; &I-M-12849;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x624C)	; 扌
+	)
+       ((==ucs@cns	    . #x21B3D)	; &g2-M-07456;
+	(==daikanwa	    . 07456)	; &g2-M-07456;
+	))
+      (==ucs@cns	  . #x22DCB)	; &g2-M-12849;
+      (==cns11643-5	  . #x5B56)	; &g2-M-12849; [59-54]
+      (==daikanwa	  . 12849)	; &g2-M-12849;
+      (->subsumptive
+       ((===daikanwa	    . 12849)	; &R-M-12849;
+	)
+       ((===cns11643-5	    . #x5B56)	; &R-C5-5B56; [59-54]
+	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x624C)	; 扌
+	)
+       ((==ucs@cns	    . #x21B3D)	; &g2-M-07456;
+	(==daikanwa	    . 07456)	; &g2-M-07456;
+	))
+      (==ucs@iso	  . #x22DCB)	; &g2-IU-00022DCB;
+      (->subsumptive
+       ((===ucs@iso	    . #x22DCB)	; &R-U-00022DCB;
+	)
+       ((=hanziku-5	    . #xECA3)	; &HZK05-ECA3;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
