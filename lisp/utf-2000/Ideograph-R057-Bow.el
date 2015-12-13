@@ -922,6 +922,30 @@
       )
      ((=ucs		  . #x5F13)	; 弓
       )
+     ((=ucs		  . #x6535)	; 攵
+      ))
+    (=ucs		. #x223BF)	; 𢎿
+    (=cbeta		. 07145)	; &I-CB07145;
+    (->subsumptive
+     ((==ucs@iso	  . #x223BF)	; &g2-CB07145;
+      (==cbeta		  . 07145)	; &g2-CB07145;
+      (->subsumptive
+       ((===ucs@iso	    . #x223BF)	; &R-U-000223BF;
+	)
+       ((===cbeta	    . 07145)	; &R-CB07145;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      )
      ((=ucs		  . #x6BB3)	; 殳
       ))
     (=>big5-cdp		. #x8B7D)	; &A-CB05942;
@@ -2967,6 +2991,30 @@
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E1A)	; 业
+      )
+     ((=ucs		  . #x223BF)	; 𢎿
+      ))
+    (=mj		. 057470)	; &MJ057470;
+    (=koseki		. 111200)	; &MJ057470;
+    (<-formed
+     ((=ucs		  . #x5F42)	; 彂
+      )
+     ((=ucs		  . #x767C)	; 發
+      ))
+    (->subsumptive
+     ((==mj		  . 057470)	; &g2-MJ057470;
+      (==koseki		  . 111200)	; &g2-MJ057470;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (=ucs		. #x2240A)	; 𢐊
@@ -3253,13 +3301,13 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (=ucs		. #x5F42)	; 彂
-    ))
-(define-char
-  '((=>ucs		. #x5F42)	; 彂
-    (ideographic-radical . 57)	; ⼸
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
-    (=cns11643-3	. #x4122)	; &C3-4122; [33-02]
+    (=cns11643-3	. #x4122)	; &I-C3-4122; [33-02]
+    (->subsumptive
+     ((==ucs@unicode	  . #x5F42)	; &g2-UU+5F42;
+      )
+     ((==ucs@cns	  . #x5F42)	; &g2-CU+5F42;
+      (==cns11643-3	  . #x4122)	; &g2-CU+5F42; [33-02]
+      ))
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
