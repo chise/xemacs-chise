@@ -1,3 +1,38 @@
+2015-12-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (U-000235B7): Apply new conventions for
+	glyph granularity.
+	(U+69C8): Add `<-denotational' for BUCS+8028.
+	(U+3BF9): Use `->subsumptive'.
+
+2015-12-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R125-Old.el: Add glyph-images of HNG-KHI.
+	(U+8001): Apply new conventions for glyph granularity; separate
+	UU+8001.
+	(UU+8001): Add `=>ucs@iwds-1'.
+	(HNG-KHI0145-0): New character; add `<-denotational' for U+8001.
+	(U-000264BF): New character.
+	(IU+264BF): New character; add `<-denotational' for U-000264BF;
+	add `=>ucs@iwds-1'; add H7-EAC5.
+	(HNG-KHI0146-0): New character; add `<-denotational' for
+	U-000264BF; add `<-formed' for U+8006.
+
+	* Ideograph-R124-Feather.el (U+7FF2): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R050-Turban.el (U+5E56): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R030-Mouth.el (U+35EB): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R019-Power.el (U+52E1): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R018-Knife.el (U+527D): Apply new conventions for
+	glyph granularity.
+
 2015-12-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R104-Sickness.el: Add glyph-images of HNG-KHI.
