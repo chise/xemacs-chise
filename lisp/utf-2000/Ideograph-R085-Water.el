@@ -29793,6 +29793,9 @@
      ((=ucs		  . #x21B3D)	; 𡬽
       ))
     (=ucs		. #x3D71)	; 㵱
+    (=cns11643-4	. #x565E)	; &I-C4-565E; [54-62]
+    (=daikanwa		. 18497)	; &I-M-18497;
+    (=cbeta		. 00579)	; &I-CB00579;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -29801,11 +29804,17 @@
        ((name		    . "CJK RADICAL WATER ONE")
 	(=ucs		    . #x2EA1)	; ⺡
 	)
-       ((=cns11643-6	    . #x5C30)	; &C6-5C30; [60-16]
-	(=daikanwa	    . 07456)	; &I-M-07456;
+       ((==ucs@cns	    . #x21B3D)	; &g2-M-07456;
+	(==daikanwa	    . 07456)	; &g2-M-07456;
 	))
-      (=cns11643-4	  . #x565E)	; &C4-565E; [54-62]
-      (=daikanwa	  . 18497)	; &I-M-18497;
+      (==ucs@cns	  . #x3D71)	; &g2-M-18497;
+      (==cns11643-4	  . #x565E)	; &g2-M-18497; [54-62]
+      (==daikanwa	  . 18497)	; &g2-M-18497;
+      (->subsumptive
+       ((===daikanwa	    . 18497)	; &R-M-18497;
+	)
+       ((===cns11643-4	    . #x565E)	; &R-C4-565E; [54-62]
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -29814,10 +29823,15 @@
        ((name		    . "CJK RADICAL WATER ONE")
 	(=ucs		    . #x2EA1)	; ⺡
 	)
-       ((=ucs@iso	    . #x21B3D)	; &U-00021B3D;
+       ((==ucs@iso	    . #x21B3D)	; &g2-IU-00021B3D;
 	))
-      (=ucs@unicode	  . #x3D71)	; &CB00579;
-      (=cbeta		  . 00579)	; &CB00579;
+      (==ucs@unicode	  . #x3D71)	; &g2-CB00579;
+      (==cbeta		  . 00579)	; &g2-CB00579;
+      (->subsumptive
+       ((===ucs@unicode	    . #x3D71)	; &R-UU+3D71;
+	)
+       ((===cbeta	    . 00579)	; &R-CB00579;
+	))
       ))
     ))
 (define-char
