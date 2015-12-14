@@ -84,13 +84,38 @@
     (=cns11643-3	. #x2A5C)	; &I-C3-2A5C; [10-60]
     (=jis-x0213-2	. #x2354)	; &I-JX2-2354; [03-52]
     (=daikanwa		. 02808)	; &I-M-02808;
-    (=hanziku-7		. #xEECB)	; &I-HZK07-EECB;
     (<-vulgar
      ((=ucs		  . #x81E5)	; 臥
       (=daikanwa	  . 30071)	; &I-M-30071;
       ))
     (<-vulgar*sources
      zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x5367)	; &g2-AJ1-17333;
+      (==adobe-japan1-5	  . 17333)	; &g2-AJ1-17333;
+      (==gb2312		  . #x4E54)	; &g2-AJ1-17333; [46-52]
+      (==cns11643-3	  . #x2A5C)	; &g2-AJ1-17333; [10-60]
+      (==jis-x0213-2	  . #x2354)	; &g2-AJ1-17333; [03-52]
+      (==daikanwa	  . 02808)	; &g2-AJ1-17333;
+      (->subsumptive
+       ((===daikanwa	    . 02808)	; &R-M-02808;
+	)
+       ((===jis-x0213-2	    . #x2354)	; &R-JX2-2354; [03-52]
+	)
+       ((===adobe-japan1-5  . 17333)	; &R-AJ1-17333;
+	)
+       ((===cns11643-3	    . #x2A5C)	; &R-C3-2A5C; [10-60]
+	)
+       ((===ucs@unicode	    . #x5367)	; &R-UU+5367;
+	)
+       ((=hanziku-7	    . #xEECB)	; &HZK07-EECB;
+	))
+      )
+     ((===hng-khi	  . 02850)	; &HNG010-02850;
+      (<-formed
+       ((=ucs		    . #x81E5)	; 臥
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 131)	; ⾂
