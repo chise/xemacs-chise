@@ -1,5 +1,16 @@
 2015-12-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R138-Stopping.el (U+826F): Add HNG-KHI0539-0.
+
+	* Ideograph-R131-Minister.el (U+5367): Add HNG-KHI0285-0.
+
+	* Ideograph-R085-Water.el (U+3D71): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R025-Divination.el (U+5367): Add HNG-KHI0285-0.
+
+2015-12-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R064-Hand.el (U-00022DCB): Use `->subsumptive'.
 
 	* Ideograph-R075-Tree.el (U-000235B7): Apply new conventions for
