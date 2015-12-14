@@ -1,4 +1,12 @@
+2015-12-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R137-Boat.el (UU+822C): Add `ideographic-structure'.
+	(HNG-KHI0154-0): New character; add `<-denotational' for U+822C.
+
 2015-12-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R087-Claw.el (RUI6-E030): Apply new conventions for
+	glyph granularity.
 
 	* Ideograph-R138-Stopping.el (U+826F): Add HNG-KHI0539-0.
 
