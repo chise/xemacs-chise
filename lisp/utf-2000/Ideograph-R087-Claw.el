@@ -884,7 +884,7 @@
       )
      ((=ucs		  . #x8863)	; 衣
       ))
-    (=>>ruimoku-v6	. #xE030)	; &G-RUI6-E030;
+    (=ruimoku-v6	. #xE030)	; &RUI6-E030;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -893,15 +893,10 @@
        ((name		    . "CJK RADICAL PAW ONE")
 	(=ucs		    . #x2EA4)	; ⺤
 	)
-       ((=ucs@unicode	    . #x8863)	; &GT-45972;
-	(=jis-x0208	    . #x3061)	; &GT-45972; [16-65]
-	(=gb2312	    . #x5242)	; &I-G0-5242; [50-34]
-	(=ks-x1001	    . #x6B7D)	; &I-K0-6B7D; [75-93]
-	(=cns11643-1	    . #x4868)	; &I-C1-4868; [40-72]
-	(=jis-x0213-1	    . #x3061)	; &I-JX1-3061; [16-65]
-	(=daikanwa	    . 34091)	; &I-M-34091;
+       ((==ucs@unicode	    . #x8863)	; &g2-J90-3061;
+	(==jis-x0208	    . #x3061)	; &g2-AJ1-01189; [16-65]
 	))
-      (=ruimoku-v6	  . #xE030)	; &RUI6-E030;
+      (==ruimoku-v6	  . #xE030)	; &g2-RUI6-E030;
       ))
     ))
 (define-char
