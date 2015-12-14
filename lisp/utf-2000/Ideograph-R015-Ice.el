@@ -3532,8 +3532,8 @@
 	)
        ((=ucs		    . #x51AB)	; 冫
 	)
-       ((==ucs@unicode	    . #x7A1F)	; &g2-GT-32415;
-	(==jis-x0208	    . #x6348)	; &g2-GT-32415; [67-40]
+       ((==ucs@unicode	    . #x7A1F)	; &g2-AJ1-05915;
+	(==adobe-japan1-0   . 05915)	; &g2-AJ1-05915;
 	))
       (==ucs@unicode	  . #x51DC)	; &g2-AJ1-08284;
       (==adobe-japan1-1	  . 08284)	; &g2-AJ1-08284;
