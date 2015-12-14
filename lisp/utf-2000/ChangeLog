@@ -1,5 +1,19 @@
 2015-12-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R139-Color.el (U+8272): Add HNG-KHI0540-0.
+
+	* Ideograph-R132-Self.el (U+81EA): Add HNG-KHI0535-0.
+
+	* Ideograph-R135-Tongue.el (U+820E): Add HNG-KHI0538-0.
+
+	* Ideograph-R126-And.el (U+800C): Add HNG-KHI0528-0.
+
+	* Ideograph-R034-Go.el (U+821B-itaiji-005): New character; add
+	`<-denotational' for U-0002B763; add `<-formed' for U+821B.
+
+	* Ideograph-R012-Eight.el (U-0002B930): New character.
+	(HNG-KHI0537-0): New character.
+
 	* Ideograph-R137-Boat.el (UU+822C): Add `ideographic-structure'.
 	(HNG-KHI0154-0): New character; add `<-denotational' for U+822C.
 
