@@ -2072,6 +2072,79 @@
     ))
 (define-char
   '((ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+	(=ucs		    . #x2FF2)	; ⿲
+	)
+       ((name		    . "HANGZHOU NUMERAL TWO")
+	(=ucs		    . #x3022)	; 〢
+	)
+       ((=ucs		    . #x4E0E)	; 与
+	)
+       ((=gt-k		    . 00308)	; &GT-K00308;
+	))
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x516B)	; 八
+      ))
+    (=ucs		. #x2B930)	; 𫤰
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2B930)	; 𫤰
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (=ucs@iso		. #x2B930)	; &U-0002B930;
+    ))
+(define-char
+  '((ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+	(=ucs		    . #x2FF2)	; ⿲
+	)
+       ((=big5-cdp	    . #x8BC0)	; &CDP-8BC0;
+	)
+       ((=ucs@unicode	    . #x4E0E)	; &MJ006311;
+	(=mj		    . 006311)	; &MJ006311;
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+	  (=ucs		      . #x2FF9)	; ⿹
+	  )
+	 ((=ucs		      . #x200CC)	; 𠃌
+	  )
+	 ((=ucs		      . #x4E28)	; 丨
+	  ))
+	))
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x516B)	; 八
+      ))
+    (===hng-khi		. 05370)	; &HNG010-05370;
+    (<-formed
+     ((=ucs		  . #x2B930)	; 𫤰
+      )
+     ((=ucs		  . #x8207)	; 與
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (hanyu-dazidian	1 250 9)
