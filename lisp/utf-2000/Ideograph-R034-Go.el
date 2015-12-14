@@ -208,6 +208,26 @@
     (=daikanwa		. 05697)	; &I-M-05697;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x2B763)	; 𫝣
+      ))
+    (ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5902)	; 夂
+      )
+     ((=big5-cdp	  . #x8BF1)	; &CDP-8BF1;
+      ))
+    (=ucs-itaiji-005	. #x821B)	; &U-i005+821B;
+    (<-formed
+     ((=ucs		  . #x821B)	; 舛
+      ))
+    ))
+(define-char
   '((ideographic-radical . 34)	; ⼡
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
