@@ -1,3 +1,32 @@
+2015-12-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U-0002BA4F): Unify GT-K00625.
+	(U-0002BA51): New character.
+	(U-00020C25): New character; add HNG-KHI0549-0.
+	(HNG-KHI0549-0): New glyph-image; add `<-formed' for U+82E5.
+	(U+35EB): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+5678): Apply new conventions for glyph granularity.
+
+	* Ideograph-R009-Man.el (U+4F9D): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+	(U+4FAF-itaiji-002): Use GT-K01352 instead of "⿱一夫".
+	(U+50BA): Apply new conventions for glyph granularity.
+	(U+50BE): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+50C4): Apply new conventions for glyph granularity.
+	(U+50EF): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U-000203BC): Apply new conventions for glyph granularity.
+	(U+511B): Separate UU+511B.
+	(UU+511B): Add `=>ucs@iwds-1'.
+	(HNG-KHI0006-0): New character; add `<-denotational' for U+511B;
+	add `<-formed' for U+821E.
+	(U-00020406): Apply new conventions for glyph granularity.
+	(U-0002040B): Likewise.
+
+	* Ideograph-R001-One.el (U+4E07): Add HNG-KHI0222-0.
+
 2015-12-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R123-Sheep.el: Add glyph-images of HNG-KHI.
