@@ -114,6 +114,29 @@
     (=ucs		. #x3B30)	; 㬰
     (=cns11643-3	. #x2374)	; &I-C3-2374; [03-84]
     (=daikanwa		. 14281)	; &I-M-14281;
+    (<-vulgar
+     ((=ucs		  . #x81FE)	; 臾
+      (=daikanwa	  . 30178)	; &I-M-30178;
+      ))
+    (<-vulgar*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x3B30)	; &g2-M-14281;
+      (==cns11643-3	  . #x2374)	; &g2-M-14281; [03-84]
+      (==daikanwa	  . 14281)	; &g2-M-14281;
+      (->subsumptive
+       ((===daikanwa	    . 14281)	; &R-M-14281;
+	)
+       ((===cns11643-3	    . #x2374)	; &R-C3-2374; [03-84]
+	)
+       ((===ucs@unicode	    . #x3B30)	; &R-UU+3B30;
+	))
+      )
+     ((===hng-khi	  . 01530)	; &HNG010-01530;
+      (<-formed
+       ((=ucs		    . #x81FE)	; 臾
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈
