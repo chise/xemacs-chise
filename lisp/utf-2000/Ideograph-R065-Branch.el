@@ -54,6 +54,27 @@
     ))
 (define-char
   '((ideographic-radical . 65)	; ⽀
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=mj		. 057580)	; &MJ057580;
+    (=koseki		. 146610)	; &MJ057580;
+    (<-formed
+     ((=ucs		  . #x652F)	; 支
+      )
+     ((=ucs		  . #x6534)	; 攴
+      ))
+    (->subsumptive
+     ((==mj		  . 057580)	; &g2-MJ057580;
+      (==koseki		  . 146610)	; &g2-MJ057580;
+      (->subsumptive
+       ((===mj		    . 057580)	; &R-MJ057580;
+	)
+       ((=ucs-itaiji-002    . #x652F)	; &U-i002+652F;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 65)	; ⽀
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=ucs		. #x22EB5)	; 𢺵
