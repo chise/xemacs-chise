@@ -1,5 +1,38 @@
 2015-12-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R123-Sheep.el: Add glyph-images of HNG-KHI.
+	(GT-K01352): Don't use `morohashi-daikanwa'; add
+	`<-simplified@component' for U+7F8E; add `ideographic-structure'.
+	(BUCS+7FA9): New abstract node.
+	(U+7FA9): Add `<-denotational' for BUCS+7FA9.
+	(HNG-KHI0526-0): New character; add `<-denotational' for
+	BUCS+7FA9; add `<-formed' for U+7FA9.
+	(U+7FAE): Apply new conventions for glyph granularity.
+	(U+7FB4): Separate UU+7FB4.
+	(U+7FB4-var-002): New character; add `<-denotational' for U+7FB4.
+	(U+7FBC): Use `->denotational' and `->subsumptive'.
+	(HNG-KHI0144-0): New character; add `<-denotational' for U+7FBC.
+
+	* Ideograph-R119-Rice.el: Add some Adobe-Japan1-0 code points.
+	(U+7C86): Apply new conventions for glyph granularity.
+	(U+7C87): Likewise.
+	(U+7C9C): Likewise.
+	(U+7CA6): Likewise.
+	(U+7CB0): Likewise.
+	(U+7CB6): Likewise.
+	(U+7CBC): Likewise.
+	(U+7CC9): Likewise.
+	(U+7CCF): Likewise.
+	(U+7CDD): Likewise.
+	(U-0002F967): Likewise.
+	(U+42A0): Likewise.
+
+	* Ideograph-R075-Tree.el (U-00023624): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R073-Say.el (U+3B30): Add `<-vulgar' for U+81FE; add
+	HNG-KHI0153-0.
+
 	* Ideograph-R115-Grain.el (U+79D5): Apply new conventions for
 	glyph granularity.
 	(UU+7A1F): Unify AJ1-05915.
