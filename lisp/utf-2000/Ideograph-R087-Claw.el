@@ -893,8 +893,8 @@
        ((name		    . "CJK RADICAL PAW ONE")
 	(=ucs		    . #x2EA4)	; ⺤
 	)
-       ((==ucs@unicode	    . #x8863)	; &g2-J90-3061;
-	(==jis-x0208	    . #x3061)	; &g2-AJ1-01189; [16-65]
+       ((==ucs@unicode	    . #x8863)	; &g2-AJ1-01189;
+	(==adobe-japan1-0   . 01189)	; &g2-AJ1-01189;
 	))
       (==ruimoku-v6	  . #xE030)	; &g2-RUI6-E030;
       ))
