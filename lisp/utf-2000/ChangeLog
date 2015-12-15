@@ -1,5 +1,55 @@
 2015-12-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R115-Grain.el (U+79D5): Apply new conventions for
+	glyph granularity.
+	(UU+7A1F): Unify AJ1-05915.
+	(U+7A4E): Apply new conventions for glyph granularity; unify
+	AJ1-01265.
+
+	* Ideograph-R112-Stone.el: Add some representative nodes.
+	(U+782C): Apply new conventions for glyph granularity.
+	(U+782D): Likewise.
+	(U+784F): Likewise.
+	(U+786B): Likewise.
+	(U+787A): Likewise.
+	(CB11909): New character; add `<-denotational' for U+787A.
+	(U+788C): Apply new conventions for glyph granularity.
+	(U+788E): Likewise.
+	(U+78BF): Likewise.
+	(U+78C7): Likewise.
+	(U+78CE): Likewise.
+	(U+78D0): Likewise.
+	(U+78D4): Likewise.
+	(U+78E4): Likewise.
+	(U+78EF): Likewise.
+
+2015-12-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R136-Oppose.el (U+821E): Separate UU+821E.
+	(UU+821E): Add `=>ucs@iwds-1'.
+	(U+821E-itaiji-003): New character; add `<-denotational' for
+	U+821E.
+
+	* Ideograph-R109-Eye.el (M-23116): Unify U-000250EE.
+	(M-23117): Unify U-000250F0.
+	(BUCS+8846): New abstract character.
+	(B-B2B3): Changed to abstract character; add `<-denotational' for
+	BUCS+8846.
+	(U+773E): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for B-B2B3.
+	(UU+773E): Unify S1-7318; add `<-original' for UU+8846.
+	(HD-KS261040): New character; unify MJ058166 and S2-7317; add
+	`<-denotational' for U+773E; add `<-original' for UU+8846.
+	(U-0002516B): Unify S2-7318; add `<-ancient' for JU+773E and
+	UU+8846.
+
+	* Ideograph-R086-Fire.el (U-0002442B): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R065-Branch.el (KOSEKI-146610): New character; unify
+	MJ057580; add `<-formed' for U+652F and U+6534; add
+	U+652F-itaiji-002.
+
 	* Ideograph-R139-Color.el (U+8272): Add HNG-KHI0540-0.
 
 	* Ideograph-R132-Self.el (U+81EA): Add HNG-KHI0535-0.
