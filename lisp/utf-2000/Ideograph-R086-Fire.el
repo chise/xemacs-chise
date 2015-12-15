@@ -6955,8 +6955,8 @@
 	)
        ((=gt-k		    . 00405)	; &GT-K00405;
 	)
-       ((==ucs@unicode	    . #x80B2)	; &g2-HD-JA-3069;
-	(==jis-x0208	    . #x3069)	; &g2-HD-JA-3069; [16-73]
+       ((==ucs@unicode	    . #x80B2)	; &g2-AJ1-01197;
+	(==adobe-japan1-0   . 01197)	; &g2-AJ1-01197;
 	))
       (==ucs@unicode	  . #x7134)	; &g2-M-19146;
       (==daikanwa	  . 19146)	; &g2-M-19146;
@@ -8218,8 +8218,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((==ucs@unicode	    . #x8005)	; &g2-J90-3C54;
-	(==jis-x0208	    . #x3C54)	; &g2-J90-3C54; [28-52]
+       ((==ucs@unicode	    . #x8005)	; &g2-GT-37308;
+	(==jis-x0208	    . #x3C54)	; &g2-GT-37308; [28-52]
 	)
        ((==ucs@unicode	    . #x706B)	; &g2-GT-24152;
 	(==jis-x0208	    . #x3250)	; &g2-GT-24152; [18-48]
@@ -16382,25 +16382,29 @@
     (total-strokes	 . 18)
     (hanyu-dazidian	3 2243 8)
     (=ucs		. #x2442B)	; 𤐫
+    (=cns11643-7	. #x4053)	; &I-C7-4053; [32-51]
+    (=daikanwa		. 19514)	; &I-M-19514;
+    (=shinjigen		.  5552)	; 𤐫
+    (<-original
+     ((=ucs		  . #x7968)	; 票
+      (=jis-x0208	  . #x493C)	; &I-J90-493C; [41-28]
+      (=shinjigen	  .  5551)	; 票
+      ))
+    (<-original*sources
+     shinjigen)
     (->subsumptive
-     ((=daikanwa	  . 19514)	; &M-19514;
-      )
-     ((=shinjigen	  .  5552)	; &HZK06-D052;
-      (=hanziku-6	  . #xD052)	; &HZK06-D052;
-      (<-original
-       ((=ucs@unicode	    . #x7968)	; &GT-31700;
-	(=jis-x0208	    . #x493C)	; &GT-31700; [41-28]
-	(=gb2312	    . #x4631)	; &I-G0-4631; [38-17]
-	(=ks-x1001	    . #x7879)	; &I-K0-7879; [88-89]
-	(=jis-x0213-1	    . #x493C)	; &I-JX1-493C; [41-28]
-	(=shinjigen	    .  5551)	; &GT-31700;
+     ((==daikanwa	  . 19514)	; &g2-M-19514;
+      (==shinjigen	  .  5552)	; &g2-M-19514;
+      (->subsumptive
+       ((===daikanwa	    . 19514)	; &R-M-19514;
+	)
+       ((=hanziku-6	    . #xD052)	; &HZK06-D052;
 	))
-      (<-original*sources
-       shinjigen)
       )
-     ((=cns11643-7	  . #x4053)	; &C7-4053; [32-51]
+     ((==ucs@cns	  . #x2442B)	; &g2-CU+2442B;
+      (==cns11643-7	  . #x4053)	; &g2-CU+2442B; [32-51]
       )
-     ((=ucs@iso		  . #x2442B)	; &U-0002442B;
+     ((==ucs@iso	  . #x2442B)	; &g2-IU-0002442B;
       ))
     ))
 (define-char
