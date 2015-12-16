@@ -1,5 +1,35 @@
 2015-12-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R133-Arrive.el: Add glyph-images of HNG-KHI.
+	(U-0002693A): Add `<-vulgar' for U+26936.
+	(HNG-KHI0082-0): New character; add `<-formed' for U-0002693A and
+	U+81F4.
+	(U+81FA): Separate UU+81FA.
+	(UU+81FA): Add `=>ucs@iwds-1'; add `->mistakable' for U-0002693F
+	and U-00026942.
+	(HNG-KHI0152-0): New character; add `<-formed' for U+81FA.
+
+	* Ideograph-R113-Spirit.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add glyph-images of HNG-KHI.
+	- Add some representative nodes.
+	(GT-K00945): Use <CJK RADICAL SPIRIT ONE> instead of U+793A as the
+	mother.
+	(U+793B): Apply new conventions for glyph granularity.
+	(BC-8C6A): Likewise.
+	(U+7946): Likewise.
+	(U+7951): Likewise.
+	(U+7958): Likewise.
+	(U+4105): Likewise.
+	(U+7979): Likewise.
+	(U+797E): Likewise.
+	(U+7995): Likewise.
+	(U+7996): Likewise.
+	(U+799B): Likewise.
+	(U+79A8): Likewise.
+
+2015-12-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R030-Mouth.el (U-0002BA4F): Unify GT-K00625.
 	(U-0002BA51): New character.
 	(U-00020C25): New character; add HNG-KHI0549-0.
