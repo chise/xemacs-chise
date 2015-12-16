@@ -4329,9 +4329,38 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
-    (hanyu-dazidian	8 7 6)
     (=ucs		. #x20045)	; 𠁅
-    (=hanziku-12	. #xEB45)	; &I-HZK12-EB45;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20045)	; 𠁅
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 10)
+    (total-strokes	 . 11)
+    (hanyu-dazidian	8 7 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=big5-cdp	  . #x88BC)	; &CDP-88BC;
+      )
+     ((=ucs		  . #x5306)	; 匆
+      ))
+    (=ucs@iso		. #x20045)	; &U-00020045;
+    (->subsumptive
+     ((==ucs@iso	  . #x20045)	; &g2-IU-00020045;
+      (->subsumptive
+       ((===ucs@iso	    . #x20045)	; &R-U-00020045;
+	)
+       ((=hanziku-12	    . #xEB45)	; &HZK12-EB45;
+	))
+      )
+     ((===hng-khi	  . 05530)	; &HNG010-05530;
+      (<-formed
+       ((=ucs		    . #x8655)	; 處
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
@@ -4350,6 +4379,15 @@
     (=gt-pj-11		. #x487C)	; &GT-00092; [40-92]
     (<-formed
      ((=ucs		  . #x865A)	; 虚
+      ))
+    (->subsumptive
+     ((==gt		  . 00092)	; &g2-GT-00092;
+      (==gt-k		  . 08114)	; &g2-GT-00092;
+      )
+     ((===hng-khi	  . 05540)	; &HNG010-05540;
+      (<-formed
+       ((=ucs		    . #x865B)	; 虛
+	))
       ))
     ))
 (define-char
