@@ -1,5 +1,9 @@
 2015-12-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el (U-00020045): Apply new conventions for
+	glyph granularity; add HNG-KHI0553-0.
+	(GT-00092): Add HNG-KHI0554-0.
+
 	* Ideograph-R133-Arrive.el: Add glyph-images of HNG-KHI.
 	(U-0002693A): Add `<-vulgar' for U+26936.
 	(HNG-KHI0082-0): New character; add `<-formed' for U-0002693A and
