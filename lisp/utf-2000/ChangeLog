@@ -1,3 +1,14 @@
+2015-12-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R036-Evening.el (U-0002B763): New character.
+	(U+821B-itaiji-004): New character; add `<-denotational' for
+	U-0002B763; add `<-formed' for U+821B.
+	(IU+2B763): New character; add `=>ucs@iwds-1'; add
+	`<-denotational' for U-0002B763; add `<-formed' for U+821B.
+	(U+3C54): Apply new conventions for glyph granularity.
+	(U-000215B4): Likewise.
+	(U+5926): Likewise.
+
 2015-12-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R001-One.el (U-00020045): Apply new conventions for
