@@ -14,7 +14,37 @@
     (=gt-k		. 01622)	; &I-GT-K01622;
     (=gt-pj-1		. #x3B6A)	; &I-GT-38993; [27-74]
     (=daikanwa		. 30142)	; &I-M-30142;
-    (=shinjigen@rev	.  6601)	; 至
+    (=shinjigen		.  6601)	; 至
+    (->subsumptive
+     ((==ucs@unicode	  . #x81F3)	; &g2-GT-38993;
+      (==gb2312		  . #x5641)	; &g2-GT-38993; [54-33]
+      (==ks-x1001	  . #x7238)	; &g2-GT-38993; [82-24]
+      (==jis-x0208	  . #x3B6A)	; &g2-GT-38993; [27-74]
+      (==cns11643-1	  . #x485D)	; &g2-GT-38993; [40-61]
+      (==jis-x0213-1	  . #x3B6A)	; &g2-GT-38993; [27-74]
+      (==gt		  . 38993)	; &g2-GT-38993;
+      (==gt-k		  . 01622)	; &g2-GT-38993;
+      (==daikanwa	  . 30142)	; &g2-GT-38993;
+      (==shinjigen	  .  6601)	; &g2-GT-38993;
+      (->subsumptive
+       ((===daikanwa	    . 30142)	; &R-M-30142;
+	)
+       ((===jis-x0208	    . #x3B6A)	; &R-J0-3B6A; [27-74]
+	(===jis-x0213-1	    . #x3B6A)	; &R-J0-3B6A; [27-74]
+	)
+       ((===cns11643-1	    . #x485D)	; &R-C1-485D; [40-61]
+	)
+       ((===gt		    . 38993)	; &R-GT-38993;
+	(===gt-k	    . 01622)	; &R-GT-38993;
+	)
+       ((===ucs@ks	    . #x81F3)	; &R-K0-7238;
+	(===ks-x1001	    . #x7238)	; &R-K0-7238; [82-24]
+	)
+       ((===ucs@unicode	    . #x81F3)	; &R-UU+81F3;
+	)
+       ((===hng-khi	    . 05360)	; &HNG010-05360;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 133)	; ⾄
@@ -217,9 +247,54 @@
   '((ideographic-radical . 133)	; ⾄
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x81F3)	; 至
+      )
+     ((=ucs		  . #x6534)	; 攴
+      ))
     (=ucs		. #x2693A)	; 𦤺
     (=cns11643-6	. #x3B39)	; &I-C6-3B39; [27-25]
     (=daikanwa		. 30150)	; &I-M-30150;
+    (<-vulgar
+     ((=ucs		  . #x26936)	; 𦤶
+      (=daikanwa	  . 30146)	; &I-M-30146;
+      ))
+    (<-vulgar*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x2693A)	; &g2-M-30150;
+      (==cns11643-6	  . #x3B39)	; &g2-M-30150; [27-25]
+      (==daikanwa	  . 30150)	; &g2-M-30150;
+      (->subsumptive
+       ((===daikanwa	    . 30150)	; &R-M-30150;
+	)
+       ((===cns11643-6	    . #x3B39)	; &R-C6-3B39; [27-25]
+	)
+       ((===ucs@iso	    . #x2693A)	; &R-U-0002693A;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 133)	; ⾄
+    (ideographic-strokes . 4)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x81F3)	; 至
+      )
+     ((=mj		  . 057580)	; &MJ057580;
+      ))
+    (===hng-khi		. 00820)	; &HNG010-00820;
+    (<-formed
+     ((=ucs		  . #x2693A)	; 𦤺
+      )
+     ((=ucs		  . #x81F4)	; 致
+      ))
     ))
 (define-char
   '((ideographic-radical . 133)	; ⾄
@@ -311,9 +386,14 @@
     (=shinjigen@1ed	.  0951)	; 䑓
     (=jef-china3	. #x60EA)	; &I-JC3-60EA;
     (<-vulgar
-     ((=ucs		  . #x81FA)	; 臺
-      (=jis-x0208	  . #x674A)	; &I-J90-674A; [71-42]
-      (=shinjigen	  .  0950)	; 臺
+     ((=>ucs@iwds-1	  . #x81FA)	; &GT-39019;
+      (=ucs@unicode	  . #x81FA)	; &GT-39019;
+      (=jis-x0208	  . #x674A)	; &GT-39019; [71-42]
+      (=ks-x1001	  . #x5366)	; &I-K0-5366; [51-70]
+      (=cns11643-1	  . #x6A57)	; &I-C1-6A57; [74-55]
+      (=jis-x0213-1	  . #x674A)	; &I-JX1-674A; [71-42]
+      (=daikanwa	  . 30161)	; &I-M-30161;
+      (=shinjigen	  .  0950)	; &GT-39019;
       ))
     (<-vulgar*sources
      shinjigen@1ed)
@@ -338,20 +418,47 @@
     ))
 (define-char
   '((ideographic-radical . 133)	; ⾄
+    (=ucs		. #x81FA)	; 臺
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x81FA)	; 臺
+      ))
+    (ideographic-radical . 133)	; ⾄
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
-    (=ucs		. #x81FA)	; 臺
-    (=jis-x0208		. #x674A)	; &I-J90-674A; [71-42]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x5409)	; 吉
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=ucs		  . #x81F3)	; 至
+      ))
+    (=>ucs@iwds-1	. #x81FA)	; &GT-39019;
+    (=ucs@unicode	. #x81FA)	; &GT-39019;
+    (=jis-x0208		. #x674A)	; &GT-39019; [71-42]
     (=ks-x1001		. #x5366)	; &I-K0-5366; [51-70]
     (=cns11643-1	. #x6A57)	; &I-C1-6A57; [74-55]
     (=jis-x0213-1	. #x674A)	; &I-JX1-674A; [71-42]
-    (=gb12345		. #x4C28)	; 臺 [44-08]
+    (=gb12345		. #x4C28)	; &GT-39019; [44-08]
     (=big5		. #xBB4F)	; &I-B-BB4F;
     (=gt		. 39019)	; &I-GT-39019;
     (=gt-k		. 11234)	; &I-GT-K11234;
     (=gt-pj-1		. #x674A)	; &I-GT-39019; [71-42]
     (=daikanwa		. 30161)	; &I-M-30161;
-    (=shinjigen		.  0950)	; 臺
+    (=shinjigen		.  0950)	; &GT-39019;
+    (->mistakable
+     ((=ucs		  . #x2693F)	; 𦤿
+      (=daikanwa	  . 30154)	; &I-M-30154;
+      )
+     ((=ucs		  . #x26942)	; 𦥂
+      (=daikanwa	  . 30162)	; &I-M-30162;
+      ))
+    (->mistakable*sources
+     kangxi-biansi-3char daikanwa)
     ))
 (define-char
   '((ideographic-radical . 133)	; ⾄
@@ -360,6 +467,39 @@
     (=ucs		. #x26942)	; 𦥂
     (=cns11643-5	. #x4926)	; &I-C5-4926; [41-06]
     (=daikanwa		. 30162)	; &I-M-30162;
+    ))
+(define-char
+  '((ideographic-radical . 133)	; ⾄
+    (ideographic-strokes . 8)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=big5-cdp	    . #x8BF1)	; &CDP-8BF1;
+	)
+       ((=ucs		    . #x2BA4F)	; 𫩏
+	))
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x53B6)	; 厶
+	)
+       ((=ucs		    . #x571F)	; 土
+	))
+      ))
+    (===hng-khi		. 01520)	; &HNG010-01520;
+    (<-formed
+     ((=ucs		  . #x81FA)	; 臺
+      ))
     ))
 (define-char
   '((ideographic-radical . 133)	; ⾄
