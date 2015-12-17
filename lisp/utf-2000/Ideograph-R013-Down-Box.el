@@ -470,6 +470,34 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x5182)	; 冂
+      )
+     ((=ucs		  . #x4EBA)	; 人
+      ))
+    (=ucs		. #x2053F)	; 𠔿
+    (=big5-cdp		. #x8CAE)	; &I-CDP-8CAE;
+    (->subsumptive
+     ((==ucs@iso	  . #x2053F)	; &g2-IU-0002053F;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+	(=ucs		    . #x2FF5)	; ⿵
+	)
+       ((=big5-cdp	    . #x8BC0)	; &CDP-8BC0;
+	)
+       ((=gt-k		    . 00049)	; &GT-K00049;
+	))
+      (==big5-cdp	  . #x8CAE)	; &g2-CDP-8CAE;
+      ))
+    ))
+(define-char
   '((ideographic-radical@ucs . 13)	; ⼌
     (ideographic-strokes@ucs . 2)
     (ideographic-radical@daikanwa . 122)	; ⽹
