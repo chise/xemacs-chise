@@ -1924,13 +1924,6 @@
      ((=ucs		  . #x517C)	; 兼
       ))
     (ideographic-radical . 12)	; ⼋
-    (===hng-khi		. 02660)	; &HNG010-02660;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x517C)	; 兼
-      ))
-    (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (=decomposition@hanyo-denshi
@@ -2212,7 +2205,6 @@
     (=ucs@iso		. #x20525)	; &C6-465B;
     (=cns11643-6	. #x465B)	; &C6-465B; [38-59]
     (=daikanwa		. 01493)	; &I-M-01493;
-    (=hanziku-1		. #xD9C0)	; &I-HZK01-D9C0;
     (->subsumptive
      ((==daikanwa	  . 01493)	; &g2-M-01493;
       )
@@ -2220,6 +2212,40 @@
       (==cns11643-6	  . #x465B)	; &g2-CU+20525; [38-59]
       )
      ((==ucs@iso	  . #x20525)	; &g2-IU-00020525;
+      )
+     ((=hanziku-1	  . #xD9C0)	; &HZK01-D9C0;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20525)	; 𠔥
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (=mj		. 031011)	; &MJ031011;
+    (=hanyo-denshi/ks	. 017600)	; &MJ031011;
+    (=koseki		. 017600)	; &MJ031011;
+    (<-formed
+     ((=ucs		  . #x517C)	; 兼
+      ))
+    (->subsumptive
+     ((==mj		  . 031011)	; &g2-MJ031011;
+      (==hanyo-denshi/ks  . 017600)	; &g2-MJ031011;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 017600)	; &R-HD-KS-017600;
+	(=hanyo-denshi/ks/mf . #x06E0)	; &R-HD-KS-017600;
+	)
+       ((===mj		    . 031011)	; &R-MJ031011;
+	))
+      )
+     ((==koseki		  . 017600)	; &g2-KOSEKI-017600;
+      (->subsumptive
+       ((===hng-khi	    . 02660)	; &HNG010-02660;
+	(<-formed
+	 ((=ucs		      . #x517C)	; 兼
+	  ))
+	))
       ))
     ))
 (define-char
