@@ -1,5 +1,8 @@
 2015-12-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R013-Down-Box.el (U-0002053F): New character; unify
+	BC-8CAE.
+
 	* Ideograph-R027-Cliff.el (U-0002B755): New character.
 	(MJ059407): New character.
 
