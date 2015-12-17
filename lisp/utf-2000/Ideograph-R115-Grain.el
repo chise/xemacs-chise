@@ -5994,7 +5994,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
     (=ucs		. #x7A4E)	; 穎
-    (=adobe-japan1-0	. 01265)	; &AJ1-01265;
+    (=adobe-japan1-0	. 01265)	; &I-AJ1-01265;
     (=jis-x0208		. #x314F)	; &I-J90-314F; [17-47]
     (=ks-x1001		. #x6744)	; &I-K0-6744; [71-36]
     (=cns11643-1	. #x7159)	; &I-C1-7159; [81-57]
@@ -6002,9 +6002,9 @@
     (=gb12345		. #x5331)	; 穎 [51-17]
     (=big5		. #xBF6F)	; &I-B-BF6F;
     (=gt		. 32559)	; &I-GT-32559;
-    (=gt-pj-1		. #x314F)	; &AJ1-01265; [17-47]
+    (=gt-pj-1		. #x314F)	; &I-GT-32559; [17-47]
     (=daikanwa		. 25267)	; &I-M-25267;
-    (=shinjigen		.  5659)	; &AJ1-01265;
+    (=shinjigen		.  5659)	; 穎
     (->subsumptive
      ((==ucs@unicode	  . #x7A4E)	; &g2-AJ1-01265;
       (==adobe-japan1-0	  . 01265)	; &g2-AJ1-01265;
