@@ -1,3 +1,11 @@
+2015-12-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (U-0002B755): New character.
+	(MJ059407): New character.
+
+	* Ideograph-R025-Divination.el (U-000209DC): Apply new conventions
+	for glyph granularity.
+
 2015-12-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R012-Eight.el (HD-KS017600): New character; unify
