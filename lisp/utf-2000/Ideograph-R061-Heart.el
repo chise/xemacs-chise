@@ -153,7 +153,17 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (=ucs		. #x5FC5)	; 必
-    (=adobe-japan1-0	. 03486)	; &I-AJ1-03486;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5FC5)	; 必
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (=>ucs@iwds-1	. #x5FC5)	; &AJ1-03486;
+    (=ucs@unicode	. #x5FC5)	; &AJ1-03486;
+    (=adobe-japan1-0	. 03486)	; &AJ1-03486;
     (=jis-x0208		. #x492C)	; &I-J90-492C; [41-12]
     (=gb2312		. #x3158)	; &I-G0-3158; [17-56]
     (=ks-x1001		. #x7931)	; &I-K0-7931; [89-17]
@@ -164,7 +174,7 @@
     (=gt-k		. 00992)	; &I-GT-K00992;
     (=gt-pj-1		. #x492C)	; &I-GT-13002; [41-12]
     (=daikanwa		. 10299)	; &I-M-10299;
-    (=shinjigen		.  2390)	; 必
+    (=shinjigen		.  2390)	; &AJ1-03486;
     (->subsumptive
      ((==ucs@unicode	  . #x5FC5)	; &g2-AJ1-03486;
       (==adobe-japan1-0	  . 03486)	; &g2-AJ1-03486;
@@ -198,6 +208,15 @@
       )
      ((===hng-khi	  . 00650)	; &HNG010-00650;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5FC5)	; 必
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (=ucs-itaiji-001	. #x5FC5)	; &U-i001+5FC5;
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
