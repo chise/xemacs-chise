@@ -5536,10 +5536,26 @@
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B93)	; 宓
+      )
+     ((=ucs		  . #x866B)	; 虫
+      ))
+    (=ucs		. #x871C)	; 蜜
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x871C)	; 蜜
+      ))
+    (ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
-    (=ucs		. #x871C)	; 蜜
-    (=jis-x0208		. #x4C2A)	; &I-J90-4C2A; [44-10]
+    (=>ucs@iwds-1	. #x871C)	; &GT-44848;
+    (=ucs@unicode	. #x871C)	; &GT-44848;
+    (=jis-x0208		. #x4C2A)	; &GT-44848; [44-10]
     (=gb2312		. #x435B)	; &I-G0-435B; [35-59]
     (=ks-x1001		. #x5A4C)	; &I-K0-5A4C; [58-44]
     (=cns11643-1	. #x6A6D)	; &I-C1-6A6D; [74-77]
@@ -5549,8 +5565,8 @@
     (=gt-k		. 11182)	; &I-GT-K11182;
     (=gt-pj-1		. #x4C2A)	; &I-GT-44848; [44-10]
     (=daikanwa		. 33143)	; &I-M-33143;
-    (=shinjigen@1ed	.  7212)	; 蜜
-    (=shinjigen@rev	.  7213)	; 蜜
+    (=shinjigen@1ed	.  7212)	; &GT-44848;
+    (=shinjigen@rev	.  7213)	; &GT-44848;
     (->subsumptive
      ((==ucs@unicode	  . #x871C)	; &g2-GT-44848;
       (==gb2312		  . #x435B)	; &g2-GT-44848; [35-59]
@@ -5580,6 +5596,25 @@
        ((===ucs@unicode	    . #x871C)	; &R-UU+871C;
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x871C)	; 蜜
+      ))
+    (ideographic-radical . 142)	; ⾍
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs-itaiji-001	  . #x5FC5)	; &U-i001+5FC5;
+      )
+     ((=ucs		  . #x866B)	; 虫
+      ))
+    (===hng-khi		. 05550)	; &HNG010-05550;
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
