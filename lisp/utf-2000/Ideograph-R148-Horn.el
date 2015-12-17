@@ -1031,6 +1031,9 @@
     (<-formed
      ((=ucs		  . #x89E3)	; 解
       ))
+    (->subsumptive
+     ((===hng-khi	  . 05610)	; &HNG010-05610;
+      ))
     ))
 (define-char
   '((ideographic-radical . 148)	; ⾓
