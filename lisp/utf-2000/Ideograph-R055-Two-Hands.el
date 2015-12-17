@@ -130,8 +130,7 @@
     (=daikanwa		. 09588)	; &I-M-09588;
     (=shinjigen		.  2244)	; 弁
     (<-simplified@JP/Jouyou
-     ((=ucs@jis		  . #x8FA8)	; &AJ1-04277;
-      (=adobe-japan1-0	  . 04277)	; &AJ1-04277;
+     ((=ucs		  . #x8FA8)	; 辨
       (=jis-x0208	  . #x517E)	; &I-J90-517E; [49-94]
       )
      ((=ucs@jis		  . #x74E3)	; &AJ1-05689;
@@ -139,9 +138,7 @@
       (=adobe-japan1-0	  . 05689)	; &AJ1-05689;
       (=jis-x0208	  . #x6122)	; &I-J90-6122; [65-02]
       )
-     ((=ucs@jis		  . #x8FAF)	; &AJ1-06886;
-      (=ucs@ks		  . #x8FAF)	; &AJ1-06886;
-      (=adobe-japan1-0	  . 06886)	; &AJ1-06886;
+     ((=ucs		  . #x8FAF)	; 辯
       (=jis-x0208	  . #x6D67)	; &I-J90-6D67; [77-71]
       ))
     ))
