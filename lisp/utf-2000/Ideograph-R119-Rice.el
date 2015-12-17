@@ -2884,6 +2884,8 @@
       )
      ((==ucs@cns	  . #x7CBE)	; &g2-CU+7CBE;
       (==cns11643-1	  . #x6A34)	; &g2-CU+7CBE; [74-20]
+      )
+     ((===hng-khi	  . 05190)	; &HNG010-05190;
       ))
     ))
 (define-char
