@@ -1,5 +1,16 @@
 2015-12-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R073-Say.el (U+66FA): Unify MJ013494 and
+	KOSEKI-156720; add JC3-93CD.
+
+	* Ideograph-R072-Sun.el (BUCS+661F): New abstract node.
+	(U+661F): Add `<-denotational' for BUCS+661F.
+	(U+661F-itaiji-001): New character; add `<-denotational' for
+	BUCS+661F; add `<-formed' for U+661F.
+	(U+66D0): Add `<-denotational' for BUCS+661F.
+
+2015-12-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R013-Down-Box.el (U-0002053F): New character; unify
 	BC-8CAE.
 
