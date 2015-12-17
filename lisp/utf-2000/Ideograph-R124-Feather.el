@@ -2682,6 +2682,28 @@
     ))
 (define-char
   '((ideographic-radical . 124)	; ⽻
+    (ideographic-strokes . 5)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7FBD)	; 羽
+      )
+     ((=ucs		  . #x201CD)	; 𠇍
+      ))
+    (=mj		. 058356)	; &MJ058356;
+    (=koseki		. 320620)	; &MJ058356;
+    (<-formed
+     ((=ucs		  . #x7FCF)	; 翏
+      ))
+    (->subsumptive
+     ((==mj		  . 058356)	; &g2-MJ058356;
+      (==koseki		  . 320620)	; &g2-MJ058356;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 124)	; ⽻
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
     (=ucs		. #x26423)	; 𦐣
