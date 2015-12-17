@@ -1,5 +1,11 @@
 2015-12-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R012-Eight.el (HD-KS017600): New character; unify
+	KOSEKI-017600 and MJ031011; add `<-denotational' for U-00020525;
+	add `<-formed' for U+517C.
+	(HNG-KHI0266-0): Use g2-KOSEKI-017600 instead of U+517C as the
+	mother.
+
 	* Ideograph-R153-Badger.el (U+8C87): Unify BC-8D79.
 	(U+8C90): Apply new conventions for glyph granularity.
 	(U+8C9C): Likewise.
