@@ -426,17 +426,30 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (=ucs		. #x209DC)	; 𠧜
+    (=cns11643-6	. #x263C)	; &I-C6-263C; [06-28]
+    (=daikanwa		. 02793)	; &I-M-02793;
+    (<-same
+     ((=ucs@unicode	  . #x897F)	; &GT-46803;
+      (=jis-x0208	  . #x403E)	; &GT-46803; [32-30]
+      (=gb2312		  . #x4E77)	; &I-G0-4E77; [46-87]
+      (=ks-x1001	  . #x6024)	; &I-K0-6024; [64-04]
+      (=cns11643-1	  . #x4869)	; &I-C1-4869; [40-73]
+      (=jis-x0213-1	  . #x403E)	; &I-JX1-403E; [32-30]
+      (=daikanwa	  . 34763)	; &I-M-34763;
+      ))
+    (<-same*sources
+     zihui-bu daikanwa)
     (->subsumptive
-     ((=ucs@iso		  . #x209DC)	; &M-02793;
-      (=daikanwa	  . 02793)	; &M-02793;
-      (<-same
-       ((=ucs		    . #x897F)	; 西
-	(=daikanwa	    . 34763)	; &I-M-34763;
+     ((==ucs@iso	  . #x209DC)	; &g2-M-02793;
+      (==daikanwa	  . 02793)	; &g2-M-02793;
+      (->subsumptive
+       ((===daikanwa	    . 02793)	; &R-M-02793;
+	)
+       ((===ucs@iso	    . #x209DC)	; &R-U-000209DC;
 	))
-      (<-same*sources
-       zihui-bu daikanwa)
       )
-     ((=cns11643-6	  . #x263C)	; &C6-263C; [06-28]
+     ((==ucs@cns	  . #x209DC)	; &g2-CU+209DC;
+      (==cns11643-6	  . #x263C)	; &g2-CU+209DC; [06-28]
       ))
     ))
 (define-char
@@ -463,7 +476,12 @@
     (<-Zhouwen*sources
      shuowen daikanwa)
     (<-same
-     ((=ucs		  . #x897F)	; 西
+     ((=ucs@unicode	  . #x897F)	; &GT-46803;
+      (=jis-x0208	  . #x403E)	; &GT-46803; [32-30]
+      (=gb2312		  . #x4E77)	; &I-G0-4E77; [46-87]
+      (=ks-x1001	  . #x6024)	; &I-K0-6024; [64-04]
+      (=cns11643-1	  . #x4869)	; &I-C1-4869; [40-73]
+      (=jis-x0213-1	  . #x403E)	; &I-JX1-403E; [32-30]
       (=daikanwa	  . 34763)	; &I-M-34763;
       ))
     (<-same*sources
