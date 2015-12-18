@@ -1815,6 +1815,15 @@
 	       columns 2
 	       graphic 2
 	       direction l2r))
+  (make-charset
+   '=hanyo-denshi/tk
+   "TK (TouKi) part of Han'you-Denshi characters"
+   `(long-name "Han'you-Denshi/KS font encoding"
+	       chars 256
+	       dimension 3
+	       columns 2
+	       graphic 2
+	       direction l2r))
 
   (make-charset
    '==mj
@@ -2139,6 +2148,16 @@
 	       min-code	      ,(lsh #x6403 16)
 	       max-code	   ,(+ (lsh #x6403 16) #xFFFF)
 	       code-offset    ,(lsh #x6403 16)))
+  (make-charset
+   '=hanyo-denshi/tk/mf-01
+   "font encoding for TK (TouKi) characters"
+   `(long-name "Han'you-Denshi/TK font encoding"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "HanyoDenshi\\.TKMF-1$"))
 
   (make-charset
    '===mj
