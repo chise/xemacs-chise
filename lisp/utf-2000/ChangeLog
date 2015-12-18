@@ -1,5 +1,20 @@
 2015-12-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R079-Weapon.el (U-00023AB8): Apply new conventions for
+	glyph granularity.
+	(U+6BC9): Add `<-denotational' for BUCS+91AB.
+	(HNG-KHI0451-0): New character; add `<-denotational' for
+	BUCS+91AB; add `<-formed' for U+91AB and U+6BC9.
+
+	* Ideograph-R061-Heart.el (HNG-KHI0387-0): New character; add
+	`<-formed' for U+618D and U+9A55.
+	(U+618D): Add `ideographic-structure'.
+
+	* Ideograph-R043-Lame.el (KOSEKI-086490): Unify MJ057365.
+
+	* Ideograph-R023-Hiding-Enclosure.el (U+533B): Add
+	`<-denotational' for BUCS+91AB.
+
 	* Ideograph-R073-Say.el (U+66FA): Unify MJ013494 and
 	KOSEKI-156720; add JC3-93CD.
 
@@ -20,7 +35,17 @@
 	* Ideograph-R025-Divination.el (U-000209DC): Apply new conventions
 	for glyph granularity.
 
+	* ruimoku6.el (RUI6-E030): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R182-Wind.el (U+98A8): Add HNG-KHI0211-0.
+
+	* Ideograph-R158-Body.el (U+8EAB): Add HNG-KHI0579-0.
+
 2015-12-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R123-Sheep.el (U+7FA9-itaiji-001): New character; add
+	`<-denotational' for BUCS+7FA9; add `<-formed' for U+7FA9.
 
 	* Ideograph-R012-Eight.el (HD-KS017600): New character; unify
 	KOSEKI-017600 and MJ031011; add `<-denotational' for U-00020525;
