@@ -15883,6 +15883,26 @@
 (define-char
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=ucs		  . #x20CEE)	; 𠳮
+      ))
+    (===hng-khi		. 03870)	; &HNG010-03870;
+    (<-formed
+     ((=ucs		  . #x618D)	; 憍
+      )
+     ((=ucs		  . #x9A55)	; 驕
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -18951,6 +18971,15 @@
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=ucs		  . #x55AC)	; 喬
+      ))
     (=ucs		. #x618D)	; 憍
     (=jis-x0212		. #x3E60)	; &I-JSP-3E60; [30-64]
     (=cns11643-2	. #x5050)	; &I-C2-5050; [48-48]
