@@ -1,5 +1,8 @@
 2015-12-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el (JU+5298): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
 	* Ideograph-R079-Weapon.el (U-00023AB8): Apply new conventions for
 	glyph granularity.
 	(U+6BC9): Add `<-denotational' for BUCS+91AB.
