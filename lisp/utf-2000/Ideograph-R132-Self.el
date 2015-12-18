@@ -384,10 +384,28 @@
     ))
 (define-char
   '((ideographic-radical . 132)	; ⾃
+    (=ucs		. #x81F1)	; 臱
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x81F1)	; 臱
+      ))
+    (ideographic-radical . 132)	; ⾃
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
-    (=ucs		. #x81F1)	; 臱
-    (=jis-x0212		. #x5665)	; &I-JSP-5665; [54-69]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x81EA)	; 自
+      )
+     ((=ucs		  . #x7A74)	; 穴
+      )
+     ((=ucs		  . #x65B9)	; 方
+      ))
+    (=>ucs@iwds-1	. #x81F1)	; &JSP-5665;
+    (=ucs@unicode	. #x81F1)	; &JSP-5665;
+    (=jis-x0212		. #x5665)	; &JSP-5665; [54-69]
     (=cns11643-4	. #x4C62)	; &I-C4-4C62; [44-66]
     (=big5-cdp		. #x8BEF)	; &I-CDP-8BEF;
     (=daikanwa		. 30124)	; &I-M-30124;
@@ -410,6 +428,15 @@
      ((==ucs@unicode	  . #x81F1)	; &g2-UU+81F1;
       (==ucs@JP/hanazono  . nil)
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x81F1)	; 臱
+      ))
+    (ideographic-radical . 132)	; ⾃
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
+    (=ucs-itaiji-003	. #x81F1)	; &U-i003+81F1;
     ))
 (define-char
   '((ideographic-radical . 132)	; ⾃
