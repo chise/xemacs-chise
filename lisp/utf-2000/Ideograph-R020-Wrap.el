@@ -1672,12 +1672,16 @@
       )
      ((=ucs		  . #x52F9)	; 勹
       )
-     ((=ucs@unicode	  . #x8345)	; &GT-40184;
-      (=jis-x0208	  . #x6829)	; &GT-40184; [72-09]
-      (=iso-ir165	  . #x7E3E)	; &I-EGB-7E3E; [94-30]
-      (=jis-x0213-1	  . #x6829)	; &I-JX1-6829; [72-09]
+     ((=ucs@unicode	  . #x8345)	; &AJ1-06354;
+      (=adobe-japan1-0	  . 06354)	; &AJ1-06354;
       ))
     (=ucs@unicode	. #x5312)	; &UU+5312;
+    (->subsumptive
+     ((==ucs@unicode	  . #x5312)	; &g2-UU+5312;
+      (->subsumptive
+       ((===ucs@unicode	    . #x5312)	; &R-UU+5312;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 20)	; ⼓
