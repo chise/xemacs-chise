@@ -168,6 +168,7 @@
     =hanyo-denshi/hg
     =hanyo-denshi/jt
     =hanyo-denshi/ks
+    =hanyo-denshi/tk
     ;; ==mj
     ;; ==adobe-japan1-0
     ;; ==adobe-japan1-1
@@ -714,6 +715,8 @@
 		     =mj ==mj ===mj =>>mj
 		     =zihai mojikyo))
 	"(%-18s . %06d)\t; %c")
+       ((memq name '(=hanyo-denshi/tk))
+	"(%-18s . %08d)\t; %c")
        ((>= (charset-dimension name) 2)
 	"(%-18s . #x%04X)\t; %c")
        (t
