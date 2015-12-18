@@ -1692,14 +1692,16 @@
       )
      ((=ucs		  . #x5C24)	; 尤
       ))
-    (=koseki		. 086490)	; &KOSEKI-086490;
+    (=mj		. 057365)	; &MJ057365;
+    (=koseki		. 086490)	; &MJ057365;
     (<-formed
      ((=ucs		  . #x5C31)	; 就
       ))
     (<-formed*sources
      hng)
     (->subsumptive
-     ((==koseki		  . 086490)	; &g2-KOSEKI-086490;
+     ((==mj		  . 057365)	; &g2-MJ057365;
+      (==koseki		  . 086490)	; &g2-MJ057365;
       )
      ((===hng-khi	  . 03470)	; &HNG010-03470;
       ))
