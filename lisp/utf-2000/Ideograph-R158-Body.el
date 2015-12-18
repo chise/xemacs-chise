@@ -49,6 +49,8 @@
      ((==ucs@unicode	  . #x8EAB)	; &g2-UU+8EAB;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x496D)	; &g2-UU+8EAB; [41-77]
+      )
+     ((===hng-khi	  . 05790)	; &HNG010-05790;
       ))
     ))
 (define-char
