@@ -466,17 +466,14 @@
     (=daikanwa		. 00010)	; &I-M-00010;
     (=shinjigen		.  0012)	; 万
     (<-simplified@CN
-     ((=ucs@unicode	  . #x842C)	; &GT-41264;
-      (=jis-x0208	  . #x685F)	; &GT-41264; [72-63]
-      (=ks-x1001	  . #x583F)	; &I-K0-583F; [56-31]
-      (=jis-x0213-1	  . #x685F)	; &I-JX1-685F; [72-63]
-      (=gb12345		  . #x4D72)	; &GT-41264; [45-82]
+     ((=ucs@unicode	  . #x842C)	; &AJ1-06408;
+      (=adobe-japan1-0	  . 06408)	; &AJ1-06408;
+      (=gb12345		  . #x4D72)	; &AJ1-06408; [45-82]
       ))
     (<-simplified@JP/Jouyou
-     ((=ucs@unicode	  . #x842C)	; &GT-41264;
-      (=jis-x0208	  . #x685F)	; &GT-41264; [72-63]
-      (=ks-x1001	  . #x583F)	; &I-K0-583F; [56-31]
-      (=jis-x0213-1	  . #x685F)	; &I-JX1-685F; [72-63]
+     ((=ucs@unicode	  . #x842C)	; &AJ1-06408;
+      (=adobe-japan1-0	  . 06408)	; &AJ1-06408;
+      (=jis-x0208	  . #x685F)	; &I-J90-685F; [72-63]
       ))
     (<-simplified@ucs
      ((=ucs		  . #x842C)	; 萬
