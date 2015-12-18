@@ -1,5 +1,12 @@
 2015-12-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R013-Down-Box.el (U+5189-var-002): New character; add
+	`<-denotational' for U+5189.
+
+	* Ideograph-R019-Power.el (CU+52DF): Add representative nodes.
+	(UU+52DF): Likewise.
+	(UU+52F1): Likewise.
+
 	* Ideograph-R020-Wrap.el (UU+5312): Add representative nodes.
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
