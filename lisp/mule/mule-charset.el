@@ -318,6 +318,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =hanyo-denshi/ip
 	  =hanyo-denshi/jt
 	  =hanyo-denshi/ks/mf
+	  =hanyo-denshi/tk/mf-01
 	  =gt-pj-2
 	  =gt-pj-3
 	  =gt-pj-4
