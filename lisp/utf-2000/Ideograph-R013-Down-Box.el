@@ -581,6 +581,15 @@
     (=shinjigen		.  0514)	; &MJ007307;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x5189)	; 冉
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (=ucs-var-002	. #x5189)	; &U-v002+5189;
+    ))
+(define-char
   '((ideographic-radical . 13)	; ⼌
     (==>ucs@bucs	. #x518C)	; &BUCS+518C;
     ))
