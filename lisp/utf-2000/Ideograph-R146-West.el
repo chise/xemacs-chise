@@ -18,7 +18,16 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
     (=ucs		. #x897F)	; 西
-    (=jis-x0208		. #x403E)	; &I-J90-403E; [32-30]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x897F)	; 西
+      ))
+    (ideographic-radical . 146)	; ⾑
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (=ucs@unicode	. #x897F)	; &GT-46803;
+    (=jis-x0208		. #x403E)	; &GT-46803; [32-30]
     (=gb2312		. #x4E77)	; &I-G0-4E77; [46-87]
     (=ks-x1001		. #x6024)	; &I-K0-6024; [64-04]
     (=cns11643-1	. #x4869)	; &I-C1-4869; [40-73]
@@ -28,7 +37,7 @@
     (=gt-k		. 01651)	; &I-GT-K01651;
     (=gt-pj-1		. #x403E)	; &I-GT-46803; [32-30]
     (=daikanwa		. 34763)	; &I-M-34763;
-    (=shinjigen		.  7473)	; 西
+    (=shinjigen		.  7473)	; &GT-46803;
     (->subsumptive
      ((==ucs@jis	  . #x897F)	; &g2-GT-46803;
       (==ucs@ks		  . #x897F)	; &g2-GT-46803;
@@ -78,6 +87,33 @@
     ))
 (define-char
   '((<-denotational
+     ((=ucs		  . #x897F)	; 西
+      ))
+    (ideographic-radical . 146)	; ⾑
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (=mj		. 024197)	; &MJ024197;
+    (=big5-cdp		. #x8BD5)	; &I-CDP-8BD5;
+    (=hanyo-denshi/ib	. #x2879)	; &I-HD-IB-2879; [08-89]
+    (=koseki		. 395030)	; &MJ024197;
+    (->subsumptive
+     ((==mj		  . 024197)	; &g2-MJ024197;
+      (==big5-cdp	  . #x8BD5)	; &g2-MJ024197;
+      (==hanyo-denshi/ib  . #x2879)	; &g2-MJ024197; [08-89]
+      (==koseki		  . 395030)	; &g2-MJ024197;
+      (->subsumptive
+       ((===hanyo-denshi/ib . #x2879)	; &R-HD-IB-2879; [08-89]
+	)
+       ((===mj		    . 024197)	; &R-MJ024197;
+	)
+       ((===big5-cdp	    . #x8BD5)	; &R-CDP-8BD5;
+	)
+       ((===hng-khi	    . 01630)	; &HNG010-01630;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
      ((=ucs		  . #x8980)	; 覀
       ))
     (name		. "CJK RADICAL WEST ONE")
@@ -96,13 +132,13 @@
     (=ucs		. #x8980)	; 覀
     (=iso-ir165		. #x2F7A)	; &I-EGB-2F7A; [15-90]
     (=jis-x0213-2	. #x7845)	; &I-JX2-7845; [88-37]
-    (=big5-cdp		. #x8BD5)	; &I-CDP-8BD5;
     (<-formed@component
      ((=ucs		  . #x897F)	; 西
       ))
+    (<-identical@component
+     ((=mj		  . 024197)	; &MJ024197;
+      ))
     (->subsumptive
-     ((==big5-cdp	  . #x8BD5)	; &g2-CDP-8BD5;
-      )
      ((==ucs@jis	  . #x8980)	; &g2-JX2-7845;
       (==jis-x0213-2	  . #x7845)	; &g2-JX2-7845; [88-37]
       )
