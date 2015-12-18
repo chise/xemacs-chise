@@ -1,4 +1,33 @@
+2015-12-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R020-Wrap.el (UU+5312): Add representative nodes.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=hanyo-denshi/tk'.
+	(char-db-insert-ccs-feature): Add code for `=hanyo-denshi/tk'.
+
+	* Ideograph-R146-West.el (U+897F): Separate UU+897F.
+	(HD-IB0889): New character; unify MJ024197, KOSEKI-395030 and
+	BC-8BD5; add HNG-KHI0163-0.
+	(U+8980): Separate BC-8BD5; add `<-identical@component' for
+	MJ024197.
+
 2015-12-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R132-Self.el (U+81F1): Separate UU+81F1.
+	(UU+81F1): Add `=>ucs@iwds-1'.
+	(U+81F1-itaiji-003): New character; add `<-denotational' for
+	U+81F1.
+
+	* Ideograph-R119-Rice.el (U-00025F36): Apply new conventions for
+	glyph granularity.
+	(HNG-KHI0598-0): New character; add `<-denotational' for
+	BUCS+91CB; add `<-formed' for U+91CB and U-00025F36.
+
+	* Ideograph-R109-Eye.el (U+7758-itaiji-003): New character; add
+	`<-formed' for U+7758.
+	(KOSEKI-263340): New character; unify MJ058176; add `<-formed' for
+	U+776A.
 
 	* Ideograph-R018-Knife.el (JU+5298): Apply new conventions for
 	glyph granularity for components of ideographic-structure.
