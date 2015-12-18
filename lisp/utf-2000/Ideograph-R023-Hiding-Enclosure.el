@@ -374,7 +374,10 @@
     (=daikanwa		. 02679)	; &I-M-02679;
     ))
 (define-char
-  '((ideographic-radical . 23)	; ⼖
+  '((<-denotational
+     ((==>ucs@bucs	  . #x91AB)	; &BUCS+91AB;
+      ))
+    (ideographic-radical . 23)	; ⼖
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (=ucs		. #x533B)	; 医
