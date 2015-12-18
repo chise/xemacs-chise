@@ -1629,6 +1629,33 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
+       ((=ucs		    . #x672A)	; 未
+	)
+       ((=big5-cdp	    . #x89D9)	; &CDP-89D9;
+	))
+      ))
+    (=ucs-itaiji-001	. #x7FA9)	; &U-i001+7FA9;
+    (<-formed
+     ((=ucs		  . #x7FA9)	; 義
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x7FA9)	; &BUCS+7FA9;
+      ))
+    (ideographic-radical . 123)	; ⽺
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x2634C)	; 𦍌
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
        ((=ucs		    . #x793A)	; 示
 	)
        ((=big5-cdp	    . #x89D9)	; &CDP-89D9;
