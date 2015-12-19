@@ -1,5 +1,10 @@
 2015-12-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R120-Silk.el (UU+7E1F): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+2015-12-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R013-Down-Box.el (U+5189-var-002): New character; add
 	`<-denotational' for U+5189.
 
