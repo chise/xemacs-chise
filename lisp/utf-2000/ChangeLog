@@ -1,3 +1,8 @@
+2015-12-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R086-Fire.el (JU+71DF): Unify AJ1-04430.
+	(IU+2446B): Apply new conventions for glyph granularity.
+
 2015-12-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R120-Silk.el (UU+7E1F): Apply new conventions for
@@ -17,6 +22,8 @@
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=hanyo-denshi/tk'.
 	(char-db-insert-ccs-feature): Add code for `=hanyo-denshi/tk'.
+
+	* Ideograph-R168-Long.el (U+9577): Add HNG-KHI0602-0.
 
 	* Ideograph-R146-West.el (U+897F): Separate UU+897F.
 	(HD-IB0889): New character; unify MJ024197, KOSEKI-395030 and
