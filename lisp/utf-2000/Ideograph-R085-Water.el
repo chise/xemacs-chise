@@ -13129,6 +13129,66 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL WATER ONE")
+      (=ucs		  . #x2EA1)	; ⺡
+      )
+     ((=ucs		  . #x53C0)	; 叀
+      ))
+    (=ucs		. #x23DA3)	; 𣶣
+    (=cns11643-6	. #x4132)	; &I-C6-4132; [33-18]
+    (=daikanwa		. 17728)	; &I-M-17728;
+    (<-formed
+     ((=ucs@unicode	  . #x6F19)	; &C2-4B3F;
+      (=cns11643-2	  . #x4B3F)	; &C2-4B3F; [43-31]
+      (=daikanwa	  . 18136)	; &I-M-18136;
+      ))
+    (<-formed*sources
+     jiyun)
+    (<-same
+     ((=ucs@unicode	  . #x6F19)	; &C2-4B3F;
+      (=cns11643-2	  . #x4B3F)	; &C2-4B3F; [43-31]
+      (=daikanwa	  . 18136)	; &I-M-18136;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL WATER ONE")
+	(=ucs		    . #x2EA1)	; ⺡
+	)
+       ((==daikanwa	    . 03083)	; &g2-M-03083;
+	))
+      (==daikanwa	  . 17728)	; &g2-M-17728;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL WATER ONE")
+	(=ucs		    . #x2EA1)	; ⺡
+	)
+       ((==ucs@unicode	    . #x53C0)	; &g2-UU+53C0;
+	))
+      (==ucs@iso	  . #x23DA3)	; &g2-IU-00023DA3;
+      (==cns11643-6	  . #x4132)	; &g2-IU-00023DA3; [33-18]
+      (->subsumptive
+       ((===cns11643-6	    . #x4132)	; &R-C6-4132; [33-18]
+	)
+       ((===ucs@iso	    . #x23DA3)	; &R-U-00023DA3;
+	))
+      ))
+    ))
+(define-char
   '((=>ucs		. #x6E04)	; 渄
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 8)
@@ -13672,13 +13732,6 @@
     (total-strokes	 . 11)
     (=ucs		. #x23DA1)	; 𣶡
     (=cns11643-5	. #x333B)	; &I-C5-333B; [19-27]
-    ))
-(define-char
-  '((ideographic-radical . 85)	; ⽔
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (=ucs		. #x23DA3)	; 𣶣
-    (=cns11643-6	. #x4132)	; &I-C6-4132; [33-18]
     ))
 (define-char
   '((ideographic-radical . 85)	; ⽔
@@ -22354,12 +22407,108 @@
     ))
 (define-char
   '((ideographic-radical . 85)	; ⽔
+    (=ucs		. #x6F19)	; 漙
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6F19)	; 漙
+      ))
+    (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=ucs		. #x6F19)	; 漙
-    (=cns11643-2	. #x4B3F)	; &I-C2-4B3F; [43-31]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL WATER ONE")
+      (=ucs		  . #x2EA1)	; ⺡
+      )
+     ((=ucs		  . #x5C08)	; 專
+      ))
+    (=>ucs@unicode	. #x6F19)	; &A-UU+6F19;
+    (=>daikanwa		. 18136)	; &A-UU+6F19;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x6F19)	; &A-UU+6F19;
+      ))
+    (ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL WATER ONE")
+      (=ucs		  . #x2EA1)	; ⺡
+      )
+     ((=ucs@unicode	  . #x5C08)	; &AJ1-04642;
+      (=adobe-japan1-0	  . 04642)	; &AJ1-04642;
+      ))
+    (=ucs@unicode	. #x6F19)	; &C2-4B3F;
+    (=cns11643-2	. #x4B3F)	; &C2-4B3F; [43-31]
     (=big5		. #xE277)	; &I-B-E277;
     (=daikanwa		. 18136)	; &I-M-18136;
+    (->formed
+     ((=ucs		  . #x5718)	; 團
+      (=daikanwa	  . 04834)	; &I-M-04834;
+      )
+     ((=ucs		  . #x29142)	; 𩅂
+      (=daikanwa	  . 42431)	; &I-M-42431;
+      )
+     ((=ucs		  . #x23DA3)	; 𣶣
+      (=daikanwa	  . 17728)	; &I-M-17728;
+      )
+     ((=ucs		  . #x290D8)	; 𩃘
+      (=daikanwa	  . 42320)	; &I-M-42320;
+      ))
+    (->formed$_1*sources
+     kangxi)
+    (->formed$_2*sources
+     jiyun daikanwa)
+    (->formed$_3*sources
+     jiyun daikanwa)
+    (->formed$_4*sources
+     jiyun daikanwa)
+    (->formed*sources
+     daikanwa)
+    (->interchangeable
+     ((=ucs		  . #x5718)	; 團
+      (=daikanwa	  . 04834)	; &I-M-04834;
+      ))
+    (->interchangeable*sources
+     kangxi daikanwa)
+    (->mistakable
+     ((=ucs@unicode	  . #x6EA5)	; &HD-JA-5E70;
+      (=jis-x0208	  . #x5E70)	; &HD-JA-5E70; [62-80]
+      (=gb2312		  . #x645F)	; &I-G0-645F; [68-63]
+      (=ks-x1001	  . #x5D2A)	; &I-K0-5D2A; [61-10]
+      (=jis-x0213-1	  . #x5E70)	; &I-JX1-5E70; [62-80]
+      (=daikanwa	  . 17957)	; &I-M-17957;
+      ))
+    (->mistakable*sources
+     zihui-biansi-2char daikanwa)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6F19)	; 漙
+      ))
+    (ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL WATER ONE")
+      (=ucs		  . #x2EA1)	; ⺡
+      )
+     ((=ucs		  . #x5C02)	; 専
+      ))
+    (=ucs-itaiji-004	. #x6EA5)	; &U-i004+6EA5;
+    (<-formed
+     ((=ucs		  . #x6EA5)	; 溥
+      ))
     ))
 (define-char
   '((ideographic-radical . 85)	; ⽔
