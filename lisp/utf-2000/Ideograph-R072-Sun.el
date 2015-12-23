@@ -6676,7 +6676,8 @@
      ((=ucs		  . #x65E5)	; 日
       )
      ((=ucs@cns		  . #x82F1)	; &HD-IB-3B76;
-      (=cns11643-1	  . #x5341)	; &HD-IB-3B76; [51-33]
+      (=ks-x1001	  . #x6748)	; &HD-IB-3B76; [71-40]
+      (=cns11643-1	  . #x5341)	; &I-C1-5341; [51-33]
       (=daikanwa	  . 30808)	; &I-M-30808;
       ))
     (=ucs@cns		. #x668E)	; &HD-KS-158300;
@@ -6695,7 +6696,8 @@
 	)
        ((=ucs		    . #x65E5)	; 日
 	)
-       ((==hanyo-denshi/ib  . #x3B76)	; &g2-HD-IB-3B76; [27-86]
+       ((==ucs@ks	    . #x82F1)	; &g2-HD-IB-3B76;
+	(==hanyo-denshi/ib  . #x3B76)	; &g2-HD-IB-3B76; [27-86]
 	))
       (==hanyo-denshi/ks  . 158300)	; &g2-HD-KS-158300;
       (==daikanwa	  . 14048)	; &g2-HD-KS-158300;
