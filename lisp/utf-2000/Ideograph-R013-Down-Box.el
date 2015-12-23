@@ -1248,23 +1248,31 @@
     (ideographic-radical@cns*sources
      daikanwa cns11643)
     (total-strokes	 . 7)
+    (hanyu-dazidian	1 100 7)
     (=ucs		. #x20554)	; 𠕔
+    (=cns11643-6	. #x287A)	; &I-C6-287A; [08-90]
+    (=daikanwa		. 49525)	; &I-M-49525;
+    (<-formed
+     ((=ucs		  . #x2F980)	; 𣍟
+      ))
+    (<-same
+     ((=ucs		  . #x2F980)	; 𣍟
+      (=daikanwa	  . 29258)	; &I-M-29258;
+      ))
+    (<-same*sources
+     daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 49525)	; &M-49525;
-      (<-formed
-       ((=daikanwa	    . 29258)	; &M-29258;
-	))
-      (<-same
-       ((=daikanwa	    . 29258)	; &M-29258;
-	))
-      (<-same*sources
-       daikanwa)
+     ((==daikanwa	  . 49525)	; &g2-M-49525;
       )
-     ((hanyu-dazidian	  1 100 7)
-      (=ucs@iso		  . #x20554)	; &HZK01-B8A4;
-      (=hanziku-1	  . #xB8A4)	; &HZK01-B8A4;
+     ((==ucs@iso	  . #x20554)	; &g2-IU-00020554;
+      (->subsumptive
+       ((===ucs@iso	    . #x20554)	; &R-U-00020554;
+	)
+       ((=hanziku-1	    . #xB8A4)	; &HZK01-B8A4;
+	))
       )
-     ((=cns11643-6	  . #x287A)	; &C6-287A; [08-90]
+     ((==ucs@cns	  . #x20554)	; &g2-CU+20554;
+      (==cns11643-6	  . #x287A)	; &g2-CU+20554; [08-90]
       ))
     ))
 (define-char
