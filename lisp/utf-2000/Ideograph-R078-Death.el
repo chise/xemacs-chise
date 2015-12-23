@@ -1394,11 +1394,13 @@
     (=daikanwa		. 16436)	; &I-M-16436;
     (=hanziku-4		. #xC552)	; &I-HZK04-C552;
     (<-formed
-     ((=cns11643-1	  . #x662F)	; &C1-662F; [70-15]
+     ((=ks-x1001	  . #x552A)	; &C1-662F; [53-10]
+      (=cns11643-1	  . #x662F)	; &I-C1-662F; [70-15]
       (=daikanwa	  . 31362)	; &I-M-31362;
       ))
     (->formed@synonymous
-     ((=cns11643-1	  . #x662F)	; &C1-662F; [70-15]
+     ((=ks-x1001	  . #x552A)	; &C1-662F; [53-10]
+      (=cns11643-1	  . #x662F)	; &I-C1-662F; [70-15]
       (=daikanwa	  . 31362)	; &I-M-31362;
       ))
     (->formed@synonymous*sources
