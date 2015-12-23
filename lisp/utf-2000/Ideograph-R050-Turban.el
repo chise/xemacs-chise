@@ -5427,7 +5427,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=daikanwa	  . 31078)	; &M-31078;
+     ((=ks-x1001	  . #x5830)	; &I-K0-5830; [56-16]
+      (=cns11643-1	  . #x5C7B)	; &I-C1-5C7B; [60-91]
+      (=daikanwa	  . 31078)	; &C1-5C7B;
       )
      ((=ucs		  . #x5DFE)	; 巾
       ))
@@ -5471,11 +5473,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x83AB)	; &GT-40490;
-      (=jis-x0208	  . #x477C)	; &GT-40490; [39-92]
-      (=gb2312		  . #x442A)	; &I-G0-442A; [36-10]
-      (=ks-x1001	  . #x5830)	; &I-K0-5830; [56-16]
-      (=jis-x0213-1	  . #x477C)	; &I-JX1-477C; [39-92]
+     ((=ucs@unicode	  . #x83AB)	; &AJ1-03378;
+      (=adobe-japan1-0	  . 03378)	; &AJ1-03378;
       )
      ((=ucs		  . #x5DFE)	; 巾
       ))
@@ -5549,19 +5548,21 @@
     (ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=>>ucs@cns		. #x5E59)	; &G-CU+5E59;
-    (=>>daikanwa	. 09052)	; &G-CU+5E59;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      )
+     ((=ks-x1001	  . #x5830)	; &I-K0-5830; [56-16]
+      (=cns11643-1	  . #x5C7B)	; &I-C1-5C7B; [60-91]
+      (=daikanwa	  . 31078)	; &C1-5C7B;
+      ))
+    (=ucs@cns		. #x5E59)	; &C2-4978;
+    (=cns11643-2	. #x4978)	; &C2-4978; [41-88]
+    (=daikanwa		. 09052)	; &I-M-09052;
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x5DFE)	; 巾
-	)
-       ((=daikanwa	    . 31078)	; &M-31078;
-	))
-      (=daikanwa	  . 09052)	; &M-09052;
-      (=jef-china3	  . #x4CA8)	; &I-JC3-4CA8;
+     ((==daikanwa	  . 09052)	; &g2-M-09052;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -5569,10 +5570,10 @@
 	)
        ((=ucs		    . #x5DFE)	; 巾
 	)
-       ((=cns11643-1	    . #x5C7B)	; &C1-5C7B; [60-91]
+       ((==ucs@cns	    . #x83AB)	; &g2-CU+83AB;
 	))
-      (=ucs@cns		  . #x5E59)	; &C2-4978;
-      (=cns11643-2	  . #x4978)	; &C2-4978; [41-88]
+      (==ucs@cns	  . #x5E59)	; &g2-CU+5E59;
+      (==cns11643-2	  . #x4978)	; &g2-CU+5E59; [41-88]
       ))
     ))
 (define-char
@@ -5588,13 +5589,20 @@
       )
      ((=ucs		  . #x5DFE)	; 巾
       )
-     ((=ucs@unicode	  . #x83AB)	; &GT-40490;
-      (=jis-x0208	  . #x477C)	; &GT-40490; [39-92]
-      (=gb2312		  . #x442A)	; &I-G0-442A; [36-10]
-      (=ks-x1001	  . #x5830)	; &I-K0-5830; [56-16]
-      (=jis-x0213-1	  . #x477C)	; &I-JX1-477C; [39-92]
+     ((=ucs@unicode	  . #x83AB)	; &AJ1-03378;
+      (=adobe-japan1-0	  . 03378)	; &AJ1-03378;
       ))
     (=ucs@unicode	. #x5E59)	; &UU+5E59;
+    (=jef-china3	. #x4CA8)	; &UU+5E59;
+    (->subsumptive
+     ((==ucs@unicode	  . #x5E59)	; &g2-UU+5E59;
+      (==jef-china3	  . #x4CA8)	; &g2-UU+5E59;
+      (->subsumptive
+       ((===ucs@unicode	    . #x5E59)	; &R-UU+5E59;
+	)
+       ((===jef-china3	    . #x4CA8)	; &R-JC3-4CA8;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
@@ -7663,10 +7671,8 @@
       )
      ((=ucs		  . #x5DFE)	; 巾
       )
-     ((=ucs@unicode	  . #x8511)	; &GT-42131;
-      (=jis-x0208	  . #x4A4E)	; &GT-42131; [42-46]
-      (=gb2312		  . #x436F)	; &I-G0-436F; [35-79]
-      (=jis-x0213-1@2000  . #x4A4E)	; &I-JX1-4A4E; [42-46]
+     ((=ucs@unicode	  . #x8511)	; &AJ1-03614;
+      (=adobe-japan1-0	  . 03614)	; &AJ1-03614;
       ))
     (=ucs@unicode	. #x5E6D)	; &AJ1-17597;
     (=adobe-japan1-5	. 17597)	; &AJ1-17597;
@@ -7690,8 +7696,8 @@
 	)
        ((=ucs		    . #x5DFE)	; 巾
 	)
-       ((==ucs@unicode	    . #x8511)	; &g2-GT-42131;
-	(==jis-x0208	    . #x4A4E)	; &g2-GT-42131; [42-46]
+       ((==ucs@unicode	    . #x8511)	; &g2-AJ1-03614;
+	(==adobe-japan1-0   . 03614)	; &g2-AJ1-03614;
 	))
       (==ucs@unicode	  . #x5E6D)	; &g2-AJ1-17597;
       (==adobe-japan1-5	  . 17597)	; &g2-AJ1-17597;
