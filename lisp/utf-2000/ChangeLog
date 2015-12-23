@@ -1,4 +1,22 @@
+2015-12-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R062-Halberd.el (U+6214): Separate UU+6214.
+	(UU+6214): Add `=>ucs@iwds-1'.
+	(U+6214-itaiji-001): New character; add `<-denotational' for
+	U+6214.
+
 2015-12-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R164-Wine.el (BUCS+9149): New abstract node.
+	(U+9149): Add `<-denotational' for BUCS+9149.
+	(MJ058880): New character; unify KOSEKI-451380; add
+	`<-denotational' for BUCS+9149; add `<-formed' for U+9149.
+	(BUCS+9192): New abstract node.
+	(U+9192): Add `<-denotational' for BUCS+9192.
+	(HNG-KHI0196-0): New character; add `<-denotational' for
+	BUCS+9192; add `<-formed' for U+9192.
+	(BUCS+91AB): New abstract node.
+	(U+91AB): Add `<-denotational' for BUCS+91AB.
 
 	* Ideograph-R086-Fire.el (JU+71DF): Unify AJ1-04430.
 	(IU+2446B): Apply new conventions for glyph granularity.
@@ -32,6 +50,12 @@
 	MJ024197.
 
 2015-12-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R173-Rain.el (U-000290D8): Apply new conventions for
+	glyph granularity.
+	(U-00029142): Likewise.
+	(U+4A31): Use `->denotational' and `->subsumptive'; add
+	HNG-KHI0164-0.
 
 	* Ideograph-R132-Self.el (U+81F1): Separate UU+81F1.
 	(UU+81F1): Add `=>ucs@iwds-1'.
