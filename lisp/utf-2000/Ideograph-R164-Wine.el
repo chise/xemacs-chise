@@ -2,6 +2,14 @@
 (define-char
   '((ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 0)
+    (==>ucs@bucs	. #x9149)	; &BUCS+9149;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x9149)	; &BUCS+9149;
+      ))
+    (ideographic-radical . 164)	; ⾣
+    (ideographic-strokes . 0)
     (total-strokes	 . 7)
     (=ucs		. #x9149)	; 酉
     (=jis-x0208		. #x4653)	; &I-J90-4653; [38-51]
@@ -44,6 +52,23 @@
 	)
        ((===ucs@unicode	    . #x9149)	; &R-UU+9149;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x9149)	; &BUCS+9149;
+      ))
+    (ideographic-radical . 164)	; ⾣
+    (ideographic-strokes . 0)
+    (total-strokes	 . 8)
+    (=mj		. 058880)	; &MJ058880;
+    (=koseki		. 451380)	; &MJ058880;
+    (<-formed
+     ((=ucs		  . #x9149)	; 酉
+      ))
+    (->subsumptive
+     ((==mj		  . 058880)	; &g2-MJ058880;
+      (==koseki		  . 451380)	; &g2-MJ058880;
       ))
     ))
 (define-char
@@ -3757,8 +3782,23 @@
     ))
 (define-char
   '((ideographic-radical . 164)	; ⾣
+    (==>ucs@bucs	. #x9192)	; &BUCS+9192;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x9192)	; &BUCS+9192;
+      ))
+    (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x9149)	; 酉
+      )
+     ((=ucs		  . #x661F)	; 星
+      ))
     (=ucs		. #x9192)	; 醒
     (=jis-x0208		. #x4043)	; &I-J90-4043; [32-35]
     (=gb2312		. #x5051)	; &I-G0-5051; [48-49]
@@ -3798,6 +3838,26 @@
 	)
        ((===gt		    . 53714)	; &R-GT-53714;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x9192)	; &BUCS+9192;
+      ))
+    (ideographic-radical . 164)	; ⾣
+    (ideographic-strokes . 9)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=mj		  . 058880)	; &MJ058880;
+      )
+     ((=ucs-itaiji-001	  . #x661F)	; &U-i001+661F;
+      ))
+    (===hng-khi		. 01960)	; &HNG010-01960;
+    (<-formed
+     ((=ucs		  . #x9192)	; 醒
       ))
     ))
 (define-char
@@ -5179,6 +5239,13 @@
     ))
 (define-char
   '((ideographic-radical . 164)	; ⾣
+    (==>ucs@bucs	. #x91AB)	; &BUCS+91AB;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x91AB)	; &BUCS+91AB;
+      ))
+    (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
     (=ucs		. #x91AB)	; 醫
