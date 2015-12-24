@@ -1,9 +1,44 @@
 2015-12-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R112-Stone.el (BUCS+7919): New abstract node.
+	(U+788D): Add `<-denotational' for BUCS+7919.
+	(HNG-KHI0508-0): New character; add `<-denotational' for
+	BUCS+7919; add `<-formed' for U+7919.
+	(U+7919): Use `->subsumptive'; add `<-denotational' for BUCS+7919.
+
+	* Ideograph-R085-Water.el (U-00023DA3): Unify M-17728; add
+	`<-same' and `<-formed' for UU+6F19.
+	(U+6F19): Separate A-UU+6F19.
+	(U+6EA5-itaiji-004): New character; add `<-denotational' for
+	U+6F19; add `<-formed' for U+6EA5.
+
+	* Ideograph-R075-Tree.el (U+8363): Apply new conventions for glyph
+	granularity.
+	(U+6804): Likewise.
+	(UU+6967): Add representative nodes.
+	(U+69AE): Apply new conventions for glyph granularity.
+	(U+69C8): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(M-15625): Likewise; add representative nodes.
+	(CU+6A7D): Apply new conventions for glyph granularity for
+	components of ideographic-structure; add representative nodes.
+	(UU+6A7D): Likewise.
+
+	* Ideograph-R074-Moon.el (U-0002335F): Separate IU+2335F to
+	integrate U-0002F980.
+
+2015-12-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R013-Down-Box.el (U-00020554): Apply new conventions
+	for glyph granularity.
+
 	* Ideograph-R062-Halberd.el (U+6214): Separate UU+6214.
 	(UU+6214): Add `=>ucs@iwds-1'.
 	(U+6214-itaiji-001): New character; add `<-denotational' for
 	U+6214.
+
+	* Ideograph-R050-Turban.el (U+5E59): Apply new conventions for
+	glyph granularity.
 
 2015-12-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
