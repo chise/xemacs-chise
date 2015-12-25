@@ -1,3 +1,8 @@
+2015-12-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R108-Dish.el (U+76D6): Add `ideographic-structure';
+	unify CB02649; add `<-vulgar' for C1-6A64; add HNG-KHI0544-0.
+
 2015-12-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R112-Stone.el (BUCS+7919): New abstract node.
