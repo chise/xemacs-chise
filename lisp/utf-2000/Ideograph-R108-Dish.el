@@ -884,6 +884,14 @@
   '((ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x2634C)	; 𦍌
+      )
+     ((=ucs		  . #x76BF)	; 皿
+      ))
     (=ucs		. #x76D6)	; 盖
     (=jis-x0208		. #x6235)	; &I-J90-6235; [66-21]
     (=gb2312		. #x3847)	; &I-G0-3847; [24-39]
@@ -894,7 +902,53 @@
     (=gt-k		. 07960)	; &I-GT-K07960;
     (=gt-pj-1		. #x6235)	; &I-GT-29456; [66-21]
     (=daikanwa		. 22996)	; &I-M-22996;
-    (=shinjigen@rev	.  6919)	; 盖
+    (=shinjigen		.  6919)	; 盖
+    (=cbeta		. 02649)	; &I-CB02649;
+    (<-vulgar
+     ((=cns11643-1	  . #x6A64)	; &C1-6A64; [74-68]
+      (=daikanwa	  . 31652)	; &I-M-31652;
+      (=shinjigen	  .  6917)	; &C1-6A64;
+      ))
+    (<-vulgar*sources
+     shinjigen)
+    (->subsumptive
+     ((==ucs@unicode	  . #x76D6)	; &g2-GT-29456;
+      (==gb2312		  . #x3847)	; &g2-GT-29456; [24-39]
+      (==ks-x1001	  . #x4B4C)	; &g2-GT-29456; [43-44]
+      (==jis-x0208	  . #x6235)	; &g2-GT-29456; [66-21]
+      (==cns11643-3	  . #x3752)	; &g2-GT-29456; [23-50]
+      (==jis-x0213-1	  . #x6235)	; &g2-GT-29456; [66-21]
+      (==gt		  . 29456)	; &g2-GT-29456;
+      (==gt-k		  . 07960)	; &g2-GT-29456;
+      (==daikanwa	  . 22996)	; &g2-GT-29456;
+      (==shinjigen	  .  6919)	; &g2-GT-29456;
+      (==cbeta		  . 02649)	; &g2-GT-29456;
+      (->subsumptive
+       ((===daikanwa	    . 22996)	; &R-M-22996;
+	)
+       ((===jis-x0208	    . #x6235)	; &R-J0-6235; [66-21]
+	(===jis-x0213-1	    . #x6235)	; &R-J0-6235; [66-21]
+	)
+       ((===cns11643-3	    . #x3752)	; &R-C3-3752; [23-50]
+	)
+       ((===gt		    . 29456)	; &R-GT-29456;
+	(===gt-k	    . 07960)	; &R-GT-29456;
+	)
+       ((===ucs@ks	    . #x76D6)	; &R-K0-4B4C;
+	(===ks-x1001	    . #x4B4C)	; &R-K0-4B4C; [43-44]
+	)
+       ((===ucs@unicode	    . #x76D6)	; &R-UU+76D6;
+	)
+       ((=hanziku-7	    . #xBBBD)	; &HZK07-BBBD;
+	)
+       ((===cbeta	    . 02649)	; &R-CB02649;
+	))
+      )
+     ((===hng-khi	  . 05440)	; &HNG010-05440;
+      (<-formed
+       ((=ucs		    . #x84CB)	; 蓋
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
