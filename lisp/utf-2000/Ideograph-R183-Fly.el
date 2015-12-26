@@ -2,18 +2,39 @@
 (define-char
   '((ideographic-radical . 183)	; ⾶
     (ideographic-strokes . 0)
-    (total-strokes	 . 9)
     (=ucs		. #x98DB)	; 飛
-    (=jis-x0208		. #x4874)	; &I-J90-4874; [40-84]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x98DB)	; 飛
+      ))
+    (ideographic-radical . 183)	; ⾶
+    (ideographic-strokes . 0)
+    (total-strokes	 . 9)
+    (=>ucs@iwds-1	. #x98DB)	; &GT-59007;
+    (=ucs@unicode	. #x98DB)	; &GT-59007;
+    (=jis-x0208		. #x4874)	; &GT-59007; [40-84]
     (=ks-x1001		. #x5E2B)	; &I-K0-5E2B; [62-11]
     (=cns11643-1	. #x5379)	; &I-C1-5379; [51-89]
     (=jis-x0213-1	. #x4874)	; &I-JX1-4874; [40-84]
-    (=gb12345		. #x3749)	; 飛 [23-41]
+    (=gb12345		. #x3749)	; &GT-59007; [23-41]
     (=gt		. 59007)	; &I-GT-59007;
     (=gt-k		. 05163)	; &I-GT-K05163;
     (=gt-pj-1		. #x4874)	; &I-GT-59007; [40-84]
     (=daikanwa		. 44000)	; &I-M-44000;
-    (=shinjigen@rev	.  9232)	; 飛
+    (=shinjigen		.  9232)	; &GT-59007;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x98DB)	; 飛
+      ))
+    (ideographic-radical . 183)	; ⾶
+    (ideographic-strokes . 0)
+    (total-strokes	 . 9)
+    (=ucs-itaiji-002	. #x98DB)	; &U-i002+98DB;
+    (->subsumptive
+     ((===hng-khi	  . 02120)	; &HNG010-02120;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -37,8 +58,14 @@
     (=gb2312		. #x3749)	; &I-G0-3749; [23-41]
     (=jef-china3	. #x81F1)	; &I-JC3-81F1;
     (<-simplified@CN
-     ((=ucs		  . #x98DB)	; 飛
-      (=gb12345		  . #x3749)	; 飛 [23-41]
+     ((=>ucs@iwds-1	  . #x98DB)	; &GT-59007;
+      (=ucs@unicode	  . #x98DB)	; &GT-59007;
+      (=jis-x0208	  . #x4874)	; &GT-59007; [40-84]
+      (=ks-x1001	  . #x5E2B)	; &I-K0-5E2B; [62-11]
+      (=cns11643-1	  . #x5379)	; &I-C1-5379; [51-89]
+      (=jis-x0213-1	  . #x4874)	; &I-JX1-4874; [40-84]
+      (=gb12345		  . #x3749)	; &GT-59007; [23-41]
+      (=daikanwa	  . 44000)	; &I-M-44000;
       ))
     ))
 (define-char
