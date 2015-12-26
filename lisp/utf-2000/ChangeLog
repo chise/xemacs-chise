@@ -1,4 +1,67 @@
+2015-12-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R161-Morning.el (U+8FB0): Apply new conventions for
+	glyph granularity.
+	(BUCS+8FB1): New abstract node.
+	(U+8FB1): Add `<-denotational' for BUCS+8FB1; apply new
+	conventions for glyph granularity.
+
+	* Ideograph-R159-Cart.el: Add glyph-images of HNG-KHI.
+
 2015-12-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R196-Bird.el (U+9CE5): Separate UU+9CE5.
+	(UU+9CE5): Add `=>ucs@iwds-1'.
+	(HNG-KHI0214-0): New character; add `<-denotational' for U+9CE5.
+	(U+9CF4): Add HNG-KHI0022-0.
+	(BUCS+9DF2): New abstract node.
+	(U+9DF2): Add `<-denotational' for BUCS+9DF2; use `->subsumptive'.
+	(U+9E6B): Add `<-denotational' for BUCS+9DF2.
+	(HNG-KHI0629-0): New character; add `<-denotational' for
+	BUCS+9DF2; add `<-formed' for U+9DF2.
+
+	* Ideograph-R186-Fragrant.el (U+9999): Add HNG-KHI0627-0.
+	(U+999B): Apply new conventions for glyph granularity.
+
+	* Ideograph-R183-Fly.el (U+98DB): Separate UU+98DB.
+	(UU+98DB): Add `=>ucs@iwds-1'.
+	(U+98DB-itaiji-002): New character; add `<-denotational' for
+	U+98DB; add HNG-KHI0212-0.
+
+	* Ideograph-R176-Face.el (U+9762): Add HNG-KHI0208-0.
+	(U+9763): Unify S-9040; add `<-vulgar' for U+9762.
+
+	* Ideograph-R175-Wrong.el (U+975E): Add HNG-KHI0614-0.
+	(U+9760): Apply new conventions for glyph granularity.
+	(U+9761): Likewise.
+
+	* Ideograph-R172-Short-Tailed-Bird.el (U-00028FF3): Apply new
+	conventions for glyph granularity; unify MJ052611 and
+	KOSEKI-476900.
+
+	* Ideograph-R167-Gold.el: Add glyph-images of HNG-KHI.
+
+	* Ideograph-R166-Village.el (U+91CD): Add HNG-KHI0600-0.
+	(U+91CF): Add HNG-KHI0599-0.
+
+2015-12-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (g2-CU+53B2): Add
+	`ideographic-structure'.
+	(g2-MJ007965): Likewise.
+
+	* Ideograph-R009-Man.el: Add some representative nodes.
+	(U+4F59): Add `<-denotational' for BUCS+9918.
+	(U-0002A72C): New character.
+	(U+4F96): Separate UU+4F96.
+	(UU+4F96): Add `=>ucs@iwds-1'.
+	(U+4F96-itaiji-002): New character; add `<-denotational' for
+	U+4F96.
+	(U+505D): Apply new conventions for glyph granularity.
+	(U-0002033E): Likewise.
+	(U+50F7): Likewise.
+	(CU+3496): Add `<-same' for CU+85D5.
+	(U+511D): Apply new conventions for glyph granularity.
 
 	* Ideograph-R156-Run.el (HNG-KHI0577-0): New character; add
 	`<-denotational' for U+8D77.
