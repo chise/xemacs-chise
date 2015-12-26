@@ -401,7 +401,9 @@
      ((=ucs		  . #x53E3)	; 口
       )
      ((=ucs@cns		  . #x82F1)	; &HD-IB-3B76;
-      (=cns11643-1	  . #x5341)	; &HD-IB-3B76; [51-33]
+      (=ucs@ks		  . #x82F1)	; &HD-IB-3B76;
+      (=ks-x1001	  . #x6748)	; &HD-IB-3B76; [71-40]
+      (=cns11643-1	  . #x5341)	; &I-C1-5341; [51-33]
       (=daikanwa	  . 30808)	; &I-M-30808;
       ))
     (sources		ruimoku=A021761-00005)
@@ -414,7 +416,8 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((==hanyo-denshi/ib  . #x3B76)	; &g2-HD-IB-3B76; [27-86]
+       ((==ucs@ks	    . #x82F1)	; &g2-HD-IB-3B76;
+	(==hanyo-denshi/ib  . #x3B76)	; &g2-HD-IB-3B76; [27-86]
 	))
       (==ruimoku-v6	  . #xE01A)	; &g2-RUI6-E01A;
       )
