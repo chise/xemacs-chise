@@ -1321,7 +1321,7 @@
     (=ucs		. #x96CB)	; 雋
     (=jis-x0208		. #x7034)	; &I-J90-7034; [80-20]
     (=ks-x1001		. #x7166)	; &I-K0-7166; [81-70]
-    (=cns11643-1	. #x6755)	; &C1-6755; [71-53]
+    (=cns11643-1	. #x6755)	; &I-C1-6755; [71-53]
     (=jis-x0213-1	. #x7034)	; &I-JX1-7034; [80-20]
     (=gt		. 56394)	; &I-GT-56394;
     (=gt-k		. 09241)	; &I-GT-K09241;
@@ -2837,29 +2837,37 @@
     (total-strokes	 . 16)
     (sound@ja/on	"you")
     (=ucs		. #x28FF3)	; 𨿳
-    (=>>daikanwa	. 42081)	; 𨿳
+    (=mj		. 052611)	; &I-MJ052611;
+    (=cns11643-7	. #x2A59)	; &I-C7-2A59; [10-57]
+    (=koseki		. 476900)	; 𨿳
     (->subsumptive
-     ((=daikanwa	  . 42081)	; &M-42081;
-      (<-original
-       ((=big5-cdp	    . #x8BD2)	; &CDP-8BD2;
-	(=daikanwa	    . 41997)	; &I-M-41997;
+     ((==ucs@iso	  . #x28FF3)	; &g2-MJ052611;
+      (==mj		  . 052611)	; &g2-MJ052611;
+      (==cns11643-7	  . #x2A59)	; &g2-MJ052611; [10-57]
+      (==koseki		  . 476900)	; &g2-MJ052611;
+      (->subsumptive
+       ((=daikanwa	    . 42081)	; &M-42081;
+	(<-original
+	 ((=big5-cdp	      . #x8BD2)	; &CDP-8BD2;
+	  (=daikanwa	      . 41997)	; &I-M-41997;
+	  ))
+	(<-original*sources
+	 kangxi daikanwa)
+	)
+       ((=daikanwa	    . 49854)	; &M-49854;
+	(<-original
+	 ((=ucs		      . #x9DF9)	; 鷹
+	  (=daikanwa	      . 47377)	; &I-M-47377;
+	  ))
+	(<-original*sources
+	 daikanwa)
+	)
+       ((===mj		    . 052611)	; &R-MJ052611;
+	)
+       ((===cns11643-7	    . #x2A59)	; &R-C7-2A59; [10-57]
+	)
+       ((===ucs@iso	    . #x28FF3)	; &R-U-00028FF3;
 	))
-      (<-original*sources
-       kangxi daikanwa)
-      )
-     ((=daikanwa	  . 49854)	; &M-49854;
-      (<-original
-       ((=ucs@jis	    . #x9DF9)	; &GT-64483;
-	(=jis-x0208	    . #x426B)	; &GT-64483; [34-75]
-	(=ks-x1001	    . #x6B6D)	; &I-K0-6B6D; [75-77]
-	(=jis-x0213-1	    . #x426B)	; &I-JX1-426B; [34-75]
-	(=daikanwa	    . 47377)	; &I-M-47377;
-	))
-      (<-original*sources
-       daikanwa)
-      )
-     ((=ucs@iso		  . #x28FF3)	; &C7-2A59;
-      (=cns11643-7	  . #x2A59)	; &C7-2A59; [10-57]
       ))
     ))
 (define-char
