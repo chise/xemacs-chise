@@ -3002,21 +3002,59 @@
   '((ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 19)
     (total-strokes	 . 23)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6BB8)	; 殸
+      )
+     ((=ucs		  . #x767B)	; 登
+      ))
     (=ucs		. #x23AE4)	; 𣫤
+    (=cns11643-7	. #x5B64)	; &I-C7-5B64; [59-68]
+    (=daikanwa		. 16713)	; &I-M-16713;
+    (<-same
+     ((=ucs		  . #x9F1F)	; 鼟
+      (=daikanwa	  . 48382)	; &I-M-48382;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 16713)	; &M-16713;
-      (<-same
-       ((=ucs@jis	    . #x9F1F)	; &JSP-6D30;
-	(=jis-x0212	    . #x6D30)	; &JSP-6D30; [77-16]
-	(=cns11643-4	    . #x6D48)	; &I-C4-6D48; [77-40]
-	(=daikanwa	    . 48382)	; &I-M-48382;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((==ucs@jis	    . #x6BB8)	; &g2-JSP-4630;
+	(==daikanwa	    . 16633)	; &g2-JSP-4630;
+	)
+       ((=ucs@unicode	    . #x767B)	; &GT-29054;
+	(=jis-x0208	    . #x4550)	; &GT-29054; [37-48]
+	(=gb2312	    . #x3547)	; &I-G0-3547; [21-39]
+	(=ks-x1001	    . #x5474)	; &I-K0-5474; [52-84]
+	(=cns11643-1	    . #x6074)	; &I-C1-6074; [64-84]
+	(=jis-x0213-1	    . #x4550)	; &I-JX1-4550; [37-48]
+	(=daikanwa	    . 22668)	; &I-M-22668;
 	))
-      (<-same*sources
-       jiyun daikanwa)
+      (==daikanwa	  . 16713)	; &g2-M-16713;
       )
-     ((=cns11643-7	  . #x5B64)	; &C7-5B64; [59-68]
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((==ucs@unicode	    . #x6BB8)	; &g2-UU+6BB8;
+	)
+       ((=ucs@unicode	    . #x767B)	; &GT-29054;
+	(=jis-x0208	    . #x4550)	; &GT-29054; [37-48]
+	(=gb2312	    . #x3547)	; &I-G0-3547; [21-39]
+	(=ks-x1001	    . #x5474)	; &I-K0-5474; [52-84]
+	(=cns11643-1	    . #x6074)	; &I-C1-6074; [64-84]
+	(=jis-x0213-1	    . #x4550)	; &I-JX1-4550; [37-48]
+	(=daikanwa	    . 22668)	; &I-M-22668;
+	))
+      (==ucs@cns	  . #x23AE4)	; &g2-CU+23AE4;
+      (==cns11643-7	  . #x5B64)	; &g2-CU+23AE4; [59-68]
       )
-     ((=ucs@iso		  . #x23AE4)	; &U-00023AE4;
+     ((==ucs@iso	  . #x23AE4)	; &g2-IU-00023AE4;
       ))
     ))
 (define-char
