@@ -5427,9 +5427,11 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ks-x1001	  . #x5830)	; &I-K0-5830; [56-16]
+     ((=ucs@cns		  . #x83AB)	; &C1-5C7B;
+      (=ucs@ks		  . #x83AB)	; &C1-5C7B;
+      (=ks-x1001	  . #x5830)	; &C1-5C7B; [56-16]
       (=cns11643-1	  . #x5C7B)	; &I-C1-5C7B; [60-91]
-      (=daikanwa	  . 31078)	; &C1-5C7B;
+      (=daikanwa	  . 31078)	; &I-M-31078;
       )
      ((=ucs		  . #x5DFE)	; 巾
       ))
@@ -5554,9 +5556,11 @@
       )
      ((=ucs		  . #x5DFE)	; 巾
       )
-     ((=ks-x1001	  . #x5830)	; &I-K0-5830; [56-16]
+     ((=ucs@cns		  . #x83AB)	; &C1-5C7B;
+      (=ucs@ks		  . #x83AB)	; &C1-5C7B;
+      (=ks-x1001	  . #x5830)	; &C1-5C7B; [56-16]
       (=cns11643-1	  . #x5C7B)	; &I-C1-5C7B; [60-91]
-      (=daikanwa	  . 31078)	; &C1-5C7B;
+      (=daikanwa	  . 31078)	; &I-M-31078;
       ))
     (=ucs@cns		. #x5E59)	; &C2-4978;
     (=cns11643-2	. #x4978)	; &C2-4978; [41-88]
@@ -5571,6 +5575,7 @@
        ((=ucs		    . #x5DFE)	; 巾
 	)
        ((==ucs@cns	    . #x83AB)	; &g2-CU+83AB;
+	(==cns11643-1	    . #x5C7B)	; &g2-CU+83AB; [60-91]
 	))
       (==ucs@cns	  . #x5E59)	; &g2-CU+5E59;
       (==cns11643-2	  . #x4978)	; &g2-CU+5E59; [41-88]
