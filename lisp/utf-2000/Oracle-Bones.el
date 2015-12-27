@@ -647,7 +647,7 @@
 	    )
 	   ((=ucs		. #x2008A)	; 𠂊
 	    )
-	   ((=gt-k		. 00625)	; &GT-K00625;
+	   ((=ucs		. #x2BA4F)	; 𫩏
 	    )
 	   ((=ucs		. #x6BD4)	; 比
 	    ))
@@ -1151,8 +1151,8 @@
       )
      ((=ucs		  . #x58EC)	; 壬
       )
-     ((=cns11643-1	  . #x467C)	; &C1-467C; [38-92]
-      (=daikanwa	  . 24623)	; &I-M-24623;
+     ((==ucs@cns	  . #x793A)	; &g2-M-24623;
+      (==daikanwa	  . 24623)	; &g2-M-24623;
       ))
     (zinbun-oracle-page . 5)
     (=zinbun-oracle	. 00059)	; &ZOB-0059;
@@ -1293,11 +1293,7 @@
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
       )
-     ((=ucs@unicode	  . #x793A)	; &GT-31489;
-      (=jis-x0208	  . #x3C28)	; &GT-31489; [28-08]
-      (=gb2312		  . #x4A3E)	; &I-G0-4A3E; [42-30]
-      (=ks-x1001	  . #x6346)	; &I-K0-6346; [67-38]
-      (=jis-x0213-1	  . #x3C28)	; &I-JX1-3C28; [28-08]
+     ((=ucs		  . #x793A)	; 示
       )
      ((=zinbun-oracle	  . 00909)	; &ZOB-0909;
       ))
@@ -1339,8 +1335,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-1	  . #x467C)	; &C1-467C; [38-92]
-      (=daikanwa	  . 24623)	; &I-M-24623;
+     ((==ucs@cns	  . #x793A)	; &g2-M-24623;
+      (==daikanwa	  . 24623)	; &g2-M-24623;
       )
      ((=zinbun-oracle	  . 00909)	; &ZOB-0909;
       ))
@@ -1522,8 +1518,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-1	  . #x467C)	; &C1-467C; [38-92]
-      (=daikanwa	  . 24623)	; &I-M-24623;
+     ((==ucs@cns	  . #x793A)	; &g2-M-24623;
+      (==daikanwa	  . 24623)	; &g2-M-24623;
       )
      ((=ucs		  . #x679C)	; 果
       ))
@@ -1715,8 +1711,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
       (=ucs		  . #x2FF2)	; ⿲
       )
-     ((=cns11643-1	  . #x467C)	; &C1-467C; [38-92]
-      (=daikanwa	  . 24623)	; &I-M-24623;
+     ((==ucs@cns	  . #x793A)	; &g2-M-24623;
+      (==daikanwa	  . 24623)	; &g2-M-24623;
       )
      ((=ucs		  . #x571F)	; 土
       )
@@ -1988,11 +1984,8 @@
       )
      ((=zinbun-oracle	  . 00121)	; &ZOB-0121;
       )
-     ((=ucs@jis		  . #x7940)	; &HD-JA-632B;
-      (=jis-x0208	  . #x632B)	; &HD-JA-632B; [67-11]
-      (=ks-x1001	  . #x5E65)	; &I-K0-5E65; [62-69]
-      (=jis-x0213-1	  . #x632B)	; &I-JX1-632B; [67-11]
-      (=daikanwa	  . 24633)	; &I-M-24633;
+     ((=ucs@jis		  . #x7940)	; &AJ1-05886;
+      (=adobe-japan1-0	  . 05886)	; &AJ1-05886;
       ))
     (zinbun-oracle-page . 7)
     (=zinbun-oracle	. 00123)	; &ZOB-0123;
@@ -4427,8 +4420,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=cns11643-1	    . #x467C)	; &C1-467C; [38-92]
-	(=daikanwa	    . 24623)	; &I-M-24623;
+       ((==ucs@cns	    . #x793A)	; &g2-M-24623;
+	(==daikanwa	    . 24623)	; &g2-M-24623;
 	)
        ((=ucs		    . #x5DF3)	; 巳
 	))
@@ -6609,8 +6602,8 @@
 	)
        ((=gt-k		    . 00153)	; &GT-K00153;
 	)
-       ((=cns11643-1	    . #x467C)	; &C1-467C; [38-92]
-	(=daikanwa	    . 24623)	; &I-M-24623;
+       ((==ucs@cns	    . #x793A)	; &g2-M-24623;
+	(==daikanwa	    . 24623)	; &g2-M-24623;
 	))
       )
      ((=zinbun-oracle	  . 00315)	; &ZOB-0315;
