@@ -473,7 +473,10 @@
     (=cns11643-5	. #x4929)	; &I-C5-4929; [41-09]
     ))
 (define-char
-  '((ideographic-radical@ucs . 160)	; ⾟
+  '((<-denotational
+     ((==>ucs@bucs	  . #x8FAD)	; &BUCS+8FAD;
+      ))
+    (ideographic-radical@ucs . 160)	; ⾟
     (ideographic-strokes@ucs . 6)
     (ideographic-radical@ucs/compat . 135)	; ⾆
     (ideographic-strokes@ucs/compat . 7)
