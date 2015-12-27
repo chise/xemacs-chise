@@ -1,5 +1,33 @@
 2015-12-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R207-Drum.el (U+9F14): Unify JC3-6FE7; add
+	HNG-KHI0630-0.
+	(U+9F1F): Apply new conventions for glyph granularity.
+
+	* Ideograph-R170-Mound.el: Add glyph-images of HNG-KHI.
+	(BUCS+9664): New abstract node.
+	(U+9664): Add `<-denotational' for BUCS+9664.
+	(HNG-KHI0606-0): New character; add `<-denotational' for
+	BUCS+9664; add `<-formed' for U+9664.
+	(HNG-KHI0608-0): New character; add `<-formed' for U+96A0, U+96B1
+	and U-00028F06.
+	(BUCS+969B): New abstract node.
+	(U+969B): Use `->subsumptive'; add `<-denotational' for BUCS+969B.
+	(U+9645): Add `<-denotational' for BUCS+969B.
+	(HNG-KHI0205-0): New character; add `<-denotational' for
+	BUCS+969B; add `<-formed' for U+969B.
+	(U-00028F06): Apply new conventions for glyph granularity.
+
+	* Ideograph-R163-City.el (BUCS+90A3): New abstract node.
+	(U+90A3): Add `<-denotational' for BUCS+90A3.
+	(HNG-KHI0597-0): New character; add `<-denotational' for
+	BUCS+90A3; add `<-formed' for U+90A3.
+	(U+90E8): Apply new conventions for glyph granularity; add
+	HNG-KHI0195-0.
+
+	* Ideograph-R135-Tongue.el (U+8F9E): Add `<-denotational' for
+	BUCS+8FAD.
+
 	* Ideograph-R161-Morning.el (U+8FB0): Apply new conventions for
 	glyph granularity.
 	(BUCS+8FB1): New abstract node.
