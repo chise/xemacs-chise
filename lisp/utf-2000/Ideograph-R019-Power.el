@@ -4658,7 +4658,11 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=daikanwa	  . 31078)	; &M-31078;
+     ((=ucs@cns		  . #x83AB)	; &C1-5C7B;
+      (=ucs@ks		  . #x83AB)	; &C1-5C7B;
+      (=ks-x1001	  . #x5830)	; &C1-5C7B; [56-16]
+      (=cns11643-1	  . #x5C7B)	; &I-C1-5C7B; [60-91]
+      (=daikanwa	  . 31078)	; &I-M-31078;
       )
      ((=ucs		  . #x529B)	; 力
       ))
@@ -6101,7 +6105,10 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-1	  . #x655C)	; &C1-655C; [69-60]
+     ((=ucs@cns		  . #x842C)	; &C1-655C;
+      (=ucs@ks		  . #x842C)	; &C1-655C;
+      (=ks-x1001	  . #x583F)	; &C1-655C; [56-31]
+      (=cns11643-1	  . #x655C)	; &I-C1-655C; [69-60]
       (=daikanwa	  . 31339)	; &I-M-31339;
       )
      ((=ucs		  . #x529B)	; 力
@@ -6109,6 +6116,16 @@
     (=ucs@cns		. #x52F1)	; &C2-4F5C;
     (=cns11643-2	. #x4F5C)	; &C2-4F5C; [47-60]
     (=daikanwa		. 02459)	; &I-M-02459;
+    (->subsumptive
+     ((==ucs@cns	  . #x52F1)	; &g2-M-02459;
+      (==cns11643-2	  . #x4F5C)	; &g2-M-02459; [47-60]
+      (==daikanwa	  . 02459)	; &g2-M-02459;
+      (->subsumptive
+       ((===daikanwa	    . 02459)	; &R-M-02459;
+	)
+       ((===cns11643-2	    . #x4F5C)	; &R-C2-4F5C; [47-60]
+	))
+      ))
     ))
 (define-char
   '((<-denotational
