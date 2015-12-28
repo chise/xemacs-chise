@@ -1,5 +1,79 @@
 2015-12-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R160-Bitter.el (U-0002840C): Apply new conventions for
+	glyph granularity; add `<-original' and `<-wrong' for U+8F9B.
+	(U+8F9C): Apply new conventions for glyph granularity.
+	(U+8F9D): Use `->subsumptive'; add `<-Zhouwen' for UU+8FA4.
+	(HNG-KHI0187-0): New character; add `<-formed' for U+8F9D and
+	U+8FAD.
+	(BUCS+8FAD): New abstract node.
+	(U+8F9E): Add `<-denotational' for BUCS+8FAD.
+	(U+8FA0): Apply new conventions for glyph granularity.
+	(U+8FA1): Likewise.
+	(U+8FA4): Add `<-denotational' for BUCS+8FAD.
+	(U+8FA7): Apply new conventions for glyph granularity; add
+	`<-original' and `<-same' for U+8FA8.
+	(U+8FA8): Apply new conventions for glyph granularity.
+	(U-0002842B): Add `<-denotational' for BUCS+8B6C.
+	(HNG-KHI0565-0): New character; add `<-denotational' for
+	BUCS+8B6C; add `<-formed' for U-0002842B and U+8B6C.
+	(U+8FAD): Add `<-denotational' for BUCS+8FAD.
+	(U+8FAE): Copied from Ideograph-R120-Silk.el.
+	(U+8FAF): Apply new conventions for glyph granularity.
+	(HNG-KHI0186-0): New character; add `<-formed' for U+8FAF.
+
+	* Ideograph-R149-Speech.el: Add glyph-images of HNG-KHI.
+	(BUCS+8A2D): New abstract node.
+	(U+8A2D): Add `<-denotational' for BUCS+8A2D.
+	(U+8BBE): Likewise.
+	(HNG-KHI0569-0): New character; add `<-denotational' for
+	BUCS+8A2D; add `<-formed' for U+8A2D.
+	(BUCS+8A63): New abstract node.
+	(U+8A63): Add `<-denotational' for BUCS+8A63.
+	(U+8BE3): Likewise.
+	(HNG-KHI0174-0): New character; add `<-denotational' for
+	BUCS+8A63; add `<-formed' for U+8A63.
+	(U+8AAA): Separate UU+8AAA.
+	(MJ058743): New character; add `<-denotational' for U+8AAA; unify
+	HD-KS402930 and M-H0566; add `<-vulgar' for UU+8AAA; add
+	HNG-KHI0571-0.
+	(UU+8AAA): Add `=>ucs@iwds-1'.
+	(U+8B19): Separate A-UU+8B19.
+	(A-UU+8B19): Add `=>ucs@iwds-1'; unify B-C1BE.
+	(HNG-KHI0173-0): New character; add `<-denotational' for U+8B19.
+	(BUCS+8B2C): New abstract node.
+	(U+8B2C): Add `<-denotational' for BUCS+8B2C.
+	(U+8C2C): Likewise.
+	(HNG-KHI0169-0): New character; add `<-denotational' for
+	BUCS+8B2C; add `<-formed' for U+8B2C.
+	(BUCS+8B6C): New abstract node.
+	(U+8B6C): Add `<-denotational' for BUCS+8B6C.
+	(BUCS+8B70): New abstract node.
+	(U+8B70): Add `<-denotational' for BUCS+8B70.
+	(U+8BAE): Likewise.
+	(HNG-KHI0166-0): New character; add `<-denotational' for
+	BUCS+8B70; add `<-formed' for U+8B70.
+	(U+8B77): Apply new conventions for glyph granularity; separate
+	A-UU+8B77.
+	(A-UU+8B77): Add `=>ucs@iwds-1'; unify B-C540.
+	(HNG-KHI0172-0): New character; add `<-denotational' for U+8B77;
+	add `<-formed' for U+8B77.
+
+	* Ideograph-R144-Walk-Enclosure.el (U+884C): Add HNG-KHI0556-0.
+	(U+8851): Apply new conventions for glyph granularity.
+	(U+8852): Likewise.
+	(U+8853): Likewise.
+	(U+885B): Likewise.
+	(U+8860): Likewise.
+	(U+8862): Likewise.
+
+	* Ideograph-R079-Weapon.el (U-00023AE4): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R019-Power.el (CU+52F1): Add representative nodes.
+
+2015-12-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R207-Drum.el (U+9F14): Unify JC3-6FE7; add
 	HNG-KHI0630-0.
 	(U+9F1F): Apply new conventions for glyph granularity.
