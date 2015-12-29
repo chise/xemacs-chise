@@ -1,5 +1,18 @@
 2015-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R061-Heart.el (U+6171): Add `<-interchangeable' and
+	`->ancient' for U+5718.
+
+	* Ideograph-R041-Inch.el (MJ057348): Add `<-denotational' for
+	BUCS+8FB1; add HNG-KHI0582-0.
+	(UU+5C08): Add `<-formed' for U+5718; add `<-interchangeable' for
+	UU+5AE5, UU+8F49 and U+5718; add `->ancient' for U-000209E1; add
+	`->formed' for U+53C0.
+
+	* Ideograph-R032-Earth.el (U+587C): Add `<-formed' for U+750E and
+	U+5718; add `<-interchangeable' for UU+5C08 and U+5718; add
+	`<-same' for U+750E and U+5718.
+
 	* Ideograph-R187-Horse.el: Add some representative nodes.
 	(U+99EC): Apply new conventions for glyph granularity.
 	(U+99F0): Likewise.
@@ -25,6 +38,9 @@
 	granularity.
 	(UU+9392): Unify S-6371; add `<-formed' for S-6369.
 	(JC3-6AEF): New character; add `<-denotational' for U+9392.
+
+	* Ideograph-R134-Mortar.el (U+81FE): Apply new conventions for
+	glyph granularity.
 
 	* Ideograph-R127-Plow.el (CU+8028): Fix component of
 	`ideographic-structure'.
