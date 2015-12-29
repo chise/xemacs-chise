@@ -22783,7 +22783,13 @@
       (=jis-x0213-1	  . #x3F2B)	; &I-JX1-3F2B; [31-11]
       (=daikanwa	  . 38686)	; &I-M-38686;
       ))
+    (=shinjigen		.  6370)	; &JC3-53F6;
     (=jef-china3	. #x53F6)	; &JC3-53F6;
+    (<-original
+     ((=shinjigen	  .  6369)	; &SJG2-6369;
+      ))
+    (<-original*sources
+     shinjigen)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -22795,6 +22801,7 @@
 	(==ucs@ks	    . #x8FB1)	; &g2-GT-51624;
 	(==jis-x0208	    . #x3F2B)	; &g2-GT-51624; [31-11]
 	))
+      (==shinjigen	  .  6370)	; &g2-JC3-53F6;
       (==jef-china3	  . #x53F6)	; &g2-JC3-53F6;
       ))
     ))
