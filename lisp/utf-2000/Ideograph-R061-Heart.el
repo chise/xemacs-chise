@@ -17425,6 +17425,17 @@
     (=gt		. 14001)	; &I-GT-14001;
     (=gt-pj-1		. #x5855)	; &I-GT-14001; [56-53]
     (=daikanwa		. 11137)	; &I-M-11137;
+    (<-interchangeable
+     ((=ucs		  . #x5718)	; 團
+      (=daikanwa	  . 04834)	; &I-M-04834;
+      ))
+    (<-interchangeable*sources
+     zihui daikanwa)
+    (->ancient
+     ((=ucs		  . #x5718)	; 團
+      ))
+    (->ancient*sources
+     zihui)
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
