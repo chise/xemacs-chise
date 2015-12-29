@@ -10515,9 +10515,33 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 18)
     (=ucs		. #x9392)	; 鎒
-    (=jis-x0212		. #x652C)	; &I-JSP-652C; [69-12]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9392)	; 鎒
+      ))
+    (ideographic-radical . 167)	; ⾦
+    (ideographic-strokes . 10)
+    (total-strokes	 . 18)
+    (=ucs@unicode	. #x9392)	; &JSP-652C;
+    (=jis-x0212		. #x652C)	; &JSP-652C; [69-12]
     (=cns11643-2	. #x6421)	; &I-C2-6421; [68-01]
     (=daikanwa		. 40700)	; &I-M-40700;
+    (=shinjigen		.  6371)	; &JSP-652C;
+    (<-formed
+     ((=shinjigen	  .  6369)	; &SJG2-6369;
+      ))
+    (<-formed*sources
+     shinjigen)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9392)	; 鎒
+      ))
+    (ideographic-radical . 167)	; ⾦
+    (ideographic-strokes . 10)
+    (total-strokes	 . 18)
+    (=jef-china3	. #x6AEF)	; &JC3-6AEF;
     ))
 (define-char
   '((=>ucs		. #x9393)	; 鎓
