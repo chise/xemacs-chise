@@ -650,7 +650,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 41)	; ⼨
+  '((<-denotational
+     ((==>ucs@bucs	  . #x8FB1)	; &BUCS+8FB1;
+      ))
+    (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=mj		. 057348)	; &MJ057348;
@@ -678,6 +681,12 @@
        ((=ucs		    . #x5BF8)	; 寸
 	))
       (=ucs-itaiji-004	  . #x8FB1)	; &U-i004+8FB1;
+      (->subsumptive
+       ((===hng-khi	    . 05820)	; &HNG010-05820;
+	(<-formed
+	 ((=ucs		      . #x8FB1)	; 辱
+	  ))
+	))
       ))
     ))
 (define-char
@@ -804,12 +813,52 @@
     (=gt-pj-1		. #x5573)	; &I-GT-09367; [53-83]
     (=daikanwa		. 07439)	; &I-M-07439;
     (=shinjigen		.  1885)	; &AJ1-04642;
+    (<-formed
+     ((=ucs		  . #x5718)	; 團
+      ))
+    (<-formed*sources
+     jiyun zhouli-zhu)
+    (<-interchangeable
+     ((=ucs@unicode	  . #x5AE5)	; &AJ1-17512;
+      (=adobe-japan1-5	  . 17512)	; &AJ1-17512;
+      (=daikanwa	  . 06662)	; &I-M-06662;
+      )
+     ((=ucs@unicode	  . #x8F49)	; &GT-51399;
+      (=jis-x0208	  . #x6D5B)	; &GT-51399; [77-59]
+      (=ks-x1001	  . #x6F2E)	; &I-K0-6F2E; [79-14]
+      (=cns11643-1	  . #x774B)	; &I-C1-774B; [87-43]
+      (=jis-x0213-1	  . #x6D5B)	; &I-JX1-6D5B; [77-59]
+      (=daikanwa	  . 38507)	; &I-M-38507;
+      )
+     ((=ucs		  . #x5718)	; 團
+      (=daikanwa	  . 04834)	; &I-M-04834;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-zhu daikanwa)
+    (<-interchangeable$_2*sources
+     shuowen-tongxun-dingsheng guangya daikanwa)
+    (<-interchangeable$_3*sources
+     shuowen-tongxun-dingsheng jiyun zhouli-zhu daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
     (<-vulgar
      ((=mj		  . 010273)	; &MJ010273;
       (=shinjigen	  .  1884)	; &MJ010273;
       ))
     (<-vulgar*sources
      shinjigen)
+    (->ancient
+     ((=ucs		  . #x209E1)	; 𠧡
+      (=daikanwa	  . 02801)	; &I-M-02801;
+      ))
+    (->ancient*sources
+     pianhai daikanwa)
+    (->formed
+     ((=ucs		  . #x53C0)	; 叀
+      (=daikanwa	  . 03083)	; &I-M-03083;
+      ))
+    (->formed*sources
+     yupian daikanwa)
     ))
 (define-char
   '((<-denotational
