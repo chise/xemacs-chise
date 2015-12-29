@@ -13988,6 +13988,40 @@
     (=big5		. #xE157)	; &I-B-E157;
     (=daikanwa		. 05400)	; &I-M-05400;
     (=jef-china3	. #x97DE)	; &I-JC3-97DE;
+    (<-formed
+     ((=ucs		  . #x750E)	; 甎
+      )
+     ((=ucs		  . #x5718)	; 團
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-formed$_2*sources
+     jiyun)
+    (<-interchangeable
+     ((=ucs@unicode	  . #x5C08)	; &AJ1-04642;
+      (=adobe-japan1-0	  . 04642)	; &AJ1-04642;
+      (=daikanwa	  . 07439)	; &I-M-07439;
+      )
+     ((=ucs		  . #x5718)	; 團
+      (=daikanwa	  . 04834)	; &I-M-04834;
+      ))
+    (<-interchangeable$_1*sources
+     maoshi-shu daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
+    (<-same
+     ((=ucs		  . #x750E)	; 甎
+      (=daikanwa	  . 21589)	; &I-M-21589;
+      )
+     ((=ucs		  . #x5718)	; 團
+      (=daikanwa	  . 04834)	; &I-M-04834;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same$_2*sources
+     jiyun daikanwa)
+    (<-same*sources
+     daikanwa)
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
