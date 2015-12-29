@@ -1,3 +1,52 @@
+2015-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R187-Horse.el: Add some representative nodes.
+	(U+99EC): Apply new conventions for glyph granularity.
+	(U+99F0): Likewise.
+	(U+99F9): Likewise.
+	(U+9A02): Likewise.
+	(U+9A0C): Likewise.
+	(U+9A10): Likewise.
+	(U+9A11): Likewise.
+	(U+9A19): Likewise.
+	(U+9A1A): Likewise.
+	(U+9A2B): Likewise.
+	(U+9A2D): Likewise.
+	(U+9A30): Likewise.
+	(U+9A31): Likewise.
+	(U+9A47): Likewise.
+	(U+9A3E): Likewise.
+	(JU+9A58): Unify S-9415; add `<-original' for U+9A3E.
+	(U+9A5B): Apply new conventions for glyph granularity.
+	(U+9A5F): Likewise.
+	(U+9A6A): Likewise.
+
+	* Ideograph-R167-Gold.el (U+9392): Apply new conventions for glyph
+	granularity.
+	(UU+9392): Unify S-6371; add `<-formed' for S-6369.
+	(JC3-6AEF): New character; add `<-denotational' for U+9392.
+
+	* Ideograph-R127-Plow.el (CU+8028): Fix component of
+	`ideographic-structure'.
+	(S-6369): Likewise.
+	(UU+8028): Likewise.
+
+2015-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (JC3-53F6): Unify S-6370; add
+	`<-original' for S-6369.
+
+	* Ideograph-R030-Mouth.el: Add some representative nodes.
+	(U+54BC): Separate A-UU+54BC.
+	(A-UU+54BC): Add `=>ucs@iwds-1'.
+	(MJ057153): New character; add `<-denotational' for U+54BC; unify
+	HD-KS041770.
+	(CB03993): Apply new conventions for glyph granularity.
+	(U-00020F7F): Likewise.
+	(U-000210A0): Use `->denotational' and `->subsumptive'.
+	(U+56C0): Apply new conventions for glyph granularity.
+	(U-00021176): Likewise.
+
 2015-12-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R162-Walk.el:
