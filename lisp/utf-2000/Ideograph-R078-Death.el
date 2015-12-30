@@ -3303,24 +3303,29 @@
   '((ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
+    (hanyu-dazidian	2 899 4)
     (=ucs		. #x23A47)	; 𣩇
+    (=cns11643-6	. #x5D7C)	; &I-C6-5D7C; [61-92]
+    (=daikanwa		. 16545)	; &I-M-16545;
+    (<-same
+     ((=ucs		  . #x8150)	; 腐
+      (=daikanwa	  . 29625)	; &I-M-29625;
+      ))
+    (<-same*sources
+     zihui-bu daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 16545)	; &M-16545;
-      (<-same
-       ((=ucs@jis	    . #x8150)	; &GT-38538;
-	(=jis-x0208	    . #x4965)	; &GT-38538; [41-69]
-	(=ks-x1001	    . #x5D2F)	; &I-K0-5D2F; [61-15]
-	(=jis-x0213-1	    . #x4965)	; &I-JX1-4965; [41-69]
-	(=daikanwa	    . 29625)	; &I-M-29625;
+     ((==ucs@iso	  . #x23A47)	; &g2-M-16545;
+      (==daikanwa	  . 16545)	; &g2-M-16545;
+      (->subsumptive
+       ((===daikanwa	    . 16545)	; &R-M-16545;
+	)
+       ((===ucs@iso	    . #x23A47)	; &R-U-00023A47;
+	)
+       ((=hanziku-3	    . #xB4FB)	; &HZK03-B4FB;
 	))
-      (<-same*sources
-       zihui-bu daikanwa)
       )
-     ((hanyu-dazidian	  2 899 4)
-      (=ucs@iso		  . #x23A47)	; &HZK03-B4FB;
-      (=hanziku-3	  . #xB4FB)	; &HZK03-B4FB;
-      )
-     ((=cns11643-6	  . #x5D7C)	; &C6-5D7C; [61-92]
+     ((==ucs@cns	  . #x23A47)	; &g2-CU+23A47;
+      (==cns11643-6	  . #x5D7C)	; &g2-CU+23A47; [61-92]
       ))
     ))
 (define-char
