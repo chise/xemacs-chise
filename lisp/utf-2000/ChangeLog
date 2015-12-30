@@ -1,3 +1,11 @@
+2015-12-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R078-Death.el (U-00023A47): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R073-Say.el (U+3B30): Unify S-6611; add UU+81FE into
+	`<-vulgar'.
+
 2015-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (U+6171): Add `<-interchangeable' and
