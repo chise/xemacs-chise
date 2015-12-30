@@ -114,14 +114,26 @@
     (=ucs		. #x3B30)	; 㬰
     (=cns11643-3	. #x2374)	; &I-C3-2374; [03-84]
     (=daikanwa		. 14281)	; &I-M-14281;
+    (=shinjigen		.  6611)	; 㬰
     (<-vulgar
      ((=ucs@jis		  . #x81FE)	; &GT-39042;
       (=jis-x0208	  . #x674C)	; &GT-39042; [71-44]
       (=jis-x0213-1	  . #x674C)	; &I-JX1-674C; [71-44]
       (=daikanwa	  . 30178)	; &I-M-30178;
+      (=shinjigen@rev	  .  6610)	; &GT-39042;
+      )
+     ((=ucs@unicode	  . #x81FE)	; &C1-4F3B;
+      (=gb2312		  . #x7427)	; &C1-4F3B; [84-07]
+      (=ks-x1001	  . #x6B2C)	; &I-K0-6B2C; [75-12]
+      (=cns11643-1	  . #x4F3B)	; &I-C1-4F3B; [47-27]
+      (=shinjigen@1ed	  .  6610)	; &C1-4F3B;
       ))
+    (<-vulgar$_1*sources
+     zhengzitong daikanwa shinjigen@rev)
+    (<-vulgar$_2*sources
+     shinjigen@1ed)
     (<-vulgar*sources
-     zhengzitong daikanwa)
+     zhengzitong daikanwa shinjigen@1ed shinjigen@rev)
     (->subsumptive
      ((==ucs@unicode	  . #x3B30)	; &g2-M-14281;
       (==cns11643-3	  . #x2374)	; &g2-M-14281; [03-84]
