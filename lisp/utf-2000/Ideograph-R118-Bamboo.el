@@ -571,17 +571,61 @@
   '((ideographic-radical . 118)	; ⽵
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7AF9)	; 竹
+      )
+     ((=ucs		  . #x5C6F)	; 屯
+      ))
     (=ucs		. #x25AF1)	; 𥫱
-    (=jis-x0213-2	. #x7340)	; &I-JX2-7340; [83-32]
-    (=daikanwa		. 25874)	; &I-M-25874;
-    ))
-(define-char
-  '((=>ucs		. #x25AF1)	; 𥫱
-    (morohashi-daikanwa	25874 0 1)
-    (ideographic-radical . 118)	; ⽵
-    (ideographic-strokes . 4)
-    (total-strokes	 . 10)
-    (=cns11643-4	. #x2E74)	; &C4-2E74; [14-84]
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((name		    . "CJK RADICAL BAMBOO")
+	(=ucs		    . #x2EAE)	; ⺮
+	)
+       ((=ucs@jis	    . #x5C6F)	; &AJ1-03246;
+	(=ucs@ks	    . #x5C6F)	; &AJ1-03246;
+	(=adobe-japan1-0    . 03246)	; &AJ1-03246;
+	))
+      (=ucs@iso		  . #x25AF1)	; &JX2-7340;
+      (=jis-x0213-2	  . #x7340)	; &JX2-7340; [83-32]
+      (=daikanwa	  . 25874)	; &M-25874;
+      (->subsumptive
+       ((==ucs@iso	    . #x25AF1)	; &g2-JX2-7340;
+	(==jis-x0213-2	    . #x7340)	; &g2-JX2-7340; [83-32]
+	(==daikanwa	    . 25874)	; &g2-JX2-7340;
+	(->subsumptive
+	 ((===daikanwa	      . 25874)	; &R-M-25874;
+	  )
+	 ((===jis-x0213-2     . #x7340)	; &R-JX2-7340; [83-32]
+	  )
+	 ((===ucs@iso	      . #x25AF1)	; &R-U-00025AF1;
+	  ))
+	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((name		    . "CJK RADICAL BAMBOO")
+	(=ucs		    . #x2EAE)	; ⺮
+	)
+       ((=ucs@unicode	    . #x5C6F)	; &C1-453A;
+	(=gb2312	    . #x4D4D)	; &C1-453A; [45-45]
+	(=cns11643-1	    . #x453A)	; &I-C1-453A; [37-26]
+	))
+      (=ucs@cns		  . #x25AF1)	; &C4-2E74;
+      (=cns11643-4	  . #x2E74)	; &C4-2E74; [14-84]
+      (->subsumptive
+       ((==ucs@cns	    . #x25AF1)	; &g2-CU+25AF1;
+	(==cns11643-4	    . #x2E74)	; &g2-CU+25AF1; [14-84]
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 118)	; ⽵
