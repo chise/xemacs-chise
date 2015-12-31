@@ -1195,9 +1195,77 @@
     (=jis-x0212		. #x367E)	; &I-JSP-367E; [22-94]
     (=cns11643-3	. #x252A)	; &I-C3-252A; [05-10]
     (=daikanwa		. 04714)	; &I-M-04714;
-    (=hanziku-2		. #xE4FE)	; &I-HZK02-E4FE;
     (=cbeta		. 04414)	; &I-CB04414;
     (=jef-china3	. #x47C0)	; &I-JC3-47C0;
+    (<-formed
+     ((=ucs		  . #x628F)	; 抏
+      (=daikanwa	  . 11881)	; &I-M-11881;
+      )
+     ((=ucs		  . #x5718)	; 團
+      (=daikanwa	  . 04834)	; &I-M-04834;
+      ))
+    (<-formed$_1*sources
+     jiyun daikanwa)
+    (<-formed$_2*sources
+     jiyun)
+    (<-formed*sources
+     daikanwa)
+    (<-interchangeable
+     ((=ucs		  . #x5713)	; 圓
+      (=daikanwa	  . 04819)	; &I-M-04819;
+      )
+     ((=ucs		  . #x5718)	; 團
+      (=daikanwa	  . 04834)	; &I-M-04834;
+      ))
+    (<-interchangeable$_1*sources
+     zhuangzi-jijie daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
+    (<-same
+     ((=ucs		  . #x5213)	; 刓
+      (=daikanwa	  . 01895)	; &I-M-01895;
+      )
+     ((=ucs		  . #x5718)	; 團
+      (=daikanwa	  . 04834)	; &I-M-04834;
+      ))
+    (<-same$_1*sources
+     guangyun daikanwa)
+    (<-same$_2*sources
+     jiyun daikanwa)
+    (<-same*sources
+     daikanwa)
+    (->mistakable
+     ((=daikanwa	  . 04718)	; &M-04718;
+      ))
+    (->mistakable*sources
+     kangxi-biansi-2char daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x56ED)	; &g2-AJ1-19273;
+      (==adobe-japan1-5	  . 19273)	; &g2-AJ1-19273;
+      (==gb2312		  . #x5430)	; &g2-AJ1-19273; [52-16]
+      (==jis-x0212	  . #x367E)	; &g2-AJ1-19273; [22-94]
+      (==cns11643-3	  . #x252A)	; &g2-AJ1-19273; [05-10]
+      (==daikanwa	  . 04714)	; &g2-AJ1-19273;
+      (==cbeta		  . 04414)	; &g2-AJ1-19273;
+      (==jef-china3	  . #x47C0)	; &g2-AJ1-19273;
+      (->subsumptive
+       ((===daikanwa	    . 04714)	; &R-M-04714;
+	)
+       ((===jis-x0212	    . #x367E)	; &R-JSP-367E; [22-94]
+	)
+       ((===adobe-japan1-5  . 19273)	; &R-AJ1-19273;
+	)
+       ((===cns11643-3	    . #x252A)	; &R-C3-252A; [05-10]
+	)
+       ((===jef-china3	    . #x47C0)	; &R-JC3-47C0;
+	)
+       ((===ucs@unicode	    . #x56ED)	; &R-UU+56ED;
+	)
+       ((=hanziku-2	    . #xE4FE)	; &HZK02-E4FE;
+	)
+       ((===cbeta	    . 04414)	; &R-CB04414;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
@@ -4715,6 +4783,95 @@
     (=gt-pj-1		. #x5425)	; &I-GT-06086; [52-05]
     (=daikanwa		. 04834)	; &I-M-04834;
     (=shinjigen		.  1307)	; 團
+    (<-ancient
+     ((=ucs		  . #x6171)	; 慱
+      ))
+    (<-formed
+     ((=ucs@unicode	  . #x6F19)	; &C2-4B3F;
+      (=cns11643-2	  . #x4B3F)	; &C2-4B3F; [43-31]
+      (=daikanwa	  . 18136)	; &I-M-18136;
+      ))
+    (<-formed*sources
+     maoshi)
+    (<-interchangeable
+     ((=ucs@unicode	  . #x6F19)	; &C2-4B3F;
+      (=cns11643-2	  . #x4B3F)	; &C2-4B3F; [43-31]
+      (=daikanwa	  . 18136)	; &I-M-18136;
+      ))
+    (<-interchangeable*sources
+     maoshi daikanwa)
+    (->formed
+     ((=ucs		  . #x56ED)	; 园
+      (=daikanwa	  . 04714)	; &I-M-04714;
+      )
+     ((=ucs		  . #x587C)	; 塼
+      (=daikanwa	  . 05400)	; &I-M-05400;
+      )
+     ((=ucs@unicode	  . #x5C08)	; &AJ1-04642;
+      (=adobe-japan1-0	  . 04642)	; &AJ1-04642;
+      (=daikanwa	  . 07439)	; &I-M-07439;
+      )
+     ((=ucs		  . #x9853)	; 顓
+      (=daikanwa	  . 43600)	; &I-M-43600;
+      ))
+    (->formed$_1*sources
+     zhengzitong shiji-zhu)
+    (->formed$_2*sources
+     zhouli jiyun)
+    (->formed$_3*sources
+     zhengzitong)
+    (->formed$_4*sources
+     jiyun)
+    (->formed$_5*sources
+     jiyun)
+    (->formed$_6*sources
+     jiyun)
+    (->formed*sources
+     daikanwa)
+    (->interchangeable
+     ((=daikanwa	  . 12642)	; &M-12642;
+      )
+     ((=ucs@unicode	  . #x5C08)	; &AJ1-04642;
+      (=adobe-japan1-0	  . 04642)	; &AJ1-04642;
+      (=daikanwa	  . 07439)	; &I-M-07439;
+      )
+     ((=ucs		  . #x9853)	; 顓
+      (=daikanwa	  . 43600)	; &I-M-43600;
+      )
+     ((=ucs		  . #x56ED)	; 园
+      (=daikanwa	  . 04714)	; &I-M-04714;
+      )
+     ((=ucs		  . #x587C)	; 塼
+      (=daikanwa	  . 05400)	; &I-M-05400;
+      )
+     ((=ucs		  . #x63E3)	; 揣
+      (=daikanwa	  . 12371)	; &I-M-12371;
+      )
+     ((=ucs		  . #x6566)	; 敦
+      (=daikanwa	  . 13276)	; &I-M-13276;
+      )
+     ((=ucs		  . #x6171)	; 慱
+      (=daikanwa	  . 11137)	; &I-M-11137;
+      )
+     ((=ucs		  . #x6476)	; 摶
+      (=daikanwa	  . 12642)	; &M-12642;
+      ))
+    (->interchangeable$_1*sources
+     zhengzitong shiji-zhu daikanwa)
+    (->interchangeable$_2*sources
+     zhouli jiyun daikanwa)
+    (->interchangeable$_3*sources
+     zhengzitong daikanwa)
+    (->interchangeable$_4*sources
+     jiyun daikanwa)
+    (->interchangeable$_5*sources
+     jiyun daikanwa)
+    (->interchangeable$_7*sources
+     jiyun daikanwa)
+    (->interchangeable$_8*sources
+     zhengzitong daikanwa)
+    (->interchangeable*sources
+     daikanwa)
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
