@@ -1,5 +1,9 @@
 2015-12-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R118-Bamboo.el (U-00025AF1): Use `->subsumptive'.
+
+2015-12-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R078-Death.el (U-00023A47): Apply new conventions for
 	glyph granularity.
 
