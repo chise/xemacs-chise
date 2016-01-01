@@ -1,5 +1,12 @@
 2015-12-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R160-Bitter.el: Add mappings for Big5 code points.
+
+	* Ideograph-R009-Man.el (g2-CU+3464): Add `ideographic-structure'.
+	(M-01316): Add representative node.
+	(A-IU+20458): New abstract node.
+	(IU+20458): Use A-IU+20458 instead of A-IU+20458 as the mother.
+
 	* Ideograph-R161-Morning.el: Add mappings for Big5 code points.
 
 2015-12-30  MORIOKA Tomohiko  <tomo.git@chise.org>
