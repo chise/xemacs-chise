@@ -1,3 +1,29 @@
+2016-01-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R181-Leaf.el: Add some Adobe-Japan1-0 code points.
+	(U+9804): Apply new conventions for glyph granularity.
+	(U+9816): Likewise.
+	(U+981C): Unify S-9167; add `<-vulgar' for U+9837.
+	(U+981F): Unify S-9179; add `<-original' for U+984D.
+	(J90-7075): Unify J90U+9824, J2000U+9824 and J2004U+9824 instead
+	of JU+9824; add `<-ancient' for U-000268DD; add `<-same' for
+	U-000268DD; add `->mistakable' for U+9823.
+	(U+9826): Apply new conventions for glyph granularity.
+	(U+9832): Likewise.
+	(A-J0-7078): New abstract node.
+	(U+9839): Add `<-denotational' for A-J0-7078.
+	(U+983D): Likewise; delete `morohashi-daikanwa'.
+	(U+983B): Apply new conventions for glyph granularity.
+	(U+9825): Likewise; unify JC3-6CED; add `<-vulgar' for
+	J2004U+9824.
+	(U+9847): Apply new conventions for glyph granularity.
+	(U+9853): Add `<-formed' for U+5718; add `<-interchangeable' for
+	UU+5C08 and U+5718.
+	(U+9862): Apply new conventions for glyph granularity.
+	(U+9865): Likewise.
+	(U+9866): Likewise.
+	(CU+9867): Likewise.
+
 2015-12-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R160-Bitter.el: Add mappings for Big5 code points.
