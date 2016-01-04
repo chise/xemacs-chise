@@ -1,5 +1,13 @@
 2016-01-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R164-Wine.el (UU+91AB): Unify AJ1-06957.
+
+2016-01-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R028-Private.el (U+53B7): Unify S-6442; add
+	`<-original' for U+80B1.
+	(U+53C0): Add `<-formed' for UU+5C08.
+
 	* Ideograph-R180-Sound.el (g2-UU+97F3): Add HNG-KHI0615-0.
 	(U+97F4): Apply new conventions for glyph granularity.
 	(U+97F5): Likewise.
