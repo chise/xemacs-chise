@@ -2088,11 +2088,10 @@
     (=shinjigen		.  1705)	; 聟
     (=cbeta		. 00414)	; &I-CB00414;
     (<-vulgar
-     ((=ucs@unicode	  . #x58FB)	; &AJ1-04535;
-      (=adobe-japan1-0	  . 04535)	; &AJ1-04535;
+     ((=ucs		  . #x58FB)	; 壻
       (=jis-x0208	  . #x5466)	; &I-J90-5466; [52-70]
       (=daikanwa	  . 05664)	; &I-M-05664;
-      (=shinjigen	  .  1704)	; &AJ1-04535;
+      (=shinjigen	  .  1704)	; 壻
       ))
     (<-vulgar*sources
      goonruiju daikanwa shinjigen)
