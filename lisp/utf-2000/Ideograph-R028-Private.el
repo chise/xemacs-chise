@@ -178,6 +178,14 @@
     (=jis-x0213-2	. #x235A)	; &I-JX2-235A; [03-58]
     (=big5-cdp		. #x8CEB)	; &I-CDP-8CEB;
     (=daikanwa		. 03062)	; &I-M-03062;
+    (=shinjigen		.  6442)	; 厷
+    (<-original
+     ((=ucs		  . #x80B1)	; 肱
+      (=jis-x0208	  . #x394F)	; &I-J90-394F; [25-47]
+      (=shinjigen	  .  6441)	; 肱
+      ))
+    (<-original*sources
+     shinjigen)
     ))
 (define-char
   '((ideographic-radical . 28)	; ⼛
@@ -665,6 +673,10 @@
     (=jis-x0213-2	. #x235B)	; &I-JX2-235B; [03-59]
     (=daikanwa		. 03083)	; &I-M-03083;
     (=jef-china3	. #x8BF1)	; &I-JC3-8BF1;
+    (<-formed
+     ((=ucs@unicode	  . #x5C08)	; &AJ1-04642;
+      (=adobe-japan1-0	  . 04642)	; &AJ1-04642;
+      ))
     (->subsumptive
      ((==daikanwa	  . 03083)	; &g2-M-03083;
       (==jef-china3	  . #x8BF1)	; &g2-M-03083;
