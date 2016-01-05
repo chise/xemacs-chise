@@ -2587,7 +2587,7 @@
      ((=ucs		  . #x5DFE)	; 巾
       )
      ((=ucs@unicode	  . #x8096)	; &AJ1-02491;
-      (=adobe-japan1-0	  . 02491)	; &I-AJ1-02491;
+      (=adobe-japan1-0	  . 02491)	; &AJ1-02491;
       ))
     (=ucs@unicode	. #x5E29)	; &C2-2E75;
     (=cns11643-2	. #x2E75)	; &C2-2E75; [14-85]
