@@ -1276,7 +1276,7 @@
       (=ucs		  . #x2FF0)	; ⿰
       )
      ((=ucs@unicode	  . #x8096)	; &AJ1-02491;
-      (=adobe-japan1-0	  . 02491)	; &I-AJ1-02491;
+      (=adobe-japan1-0	  . 02491)	; &AJ1-02491;
       )
      ((=ucs		  . #x6BDB)	; 毛
       ))
