@@ -4450,7 +4450,7 @@
      ((=ucs		  . #x5C71)	; 山
       )
      ((=ucs@unicode	  . #x8096)	; &AJ1-02491;
-      (=adobe-japan1-0	  . 02491)	; &I-AJ1-02491;
+      (=adobe-japan1-0	  . 02491)	; &AJ1-02491;
       ))
     (=ucs@unicode	. #x5CED)	; &HD-FT-355C;
     (=ucs@JP/hanazono	. nil)
