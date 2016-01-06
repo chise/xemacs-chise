@@ -1722,38 +1722,57 @@
   '((ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (=ucs		. #x5380)	; 厀
-    (->subsumptive
-     ((hanyu-dazidian	  1 319 5)
-      (=ucs@unicode	  . #x5380)	; &GT-03666;
-      (=gt		  . 03666)	; &GT-03666;
-      (=gt-k		  . 10921)	; &I-GT-K10921;
-      (=gt-pj-2		  . #x4974)	; &GT-03666; [41-84]
-      (=daikanwa	  . 02883)	; &I-M-02883;
-      (=hanziku-1	  . #xE7C7)	; &I-HZK01-E7C7;
+    (hanyu-dazidian	1 319 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-3	  . #x4047)	; &C3-4047; [32-39]
+     ((=ucs		  . #x687C)	; 桼
+      )
+     ((=ucs		  . #x5369)	; 卩
+      ))
+    (=ucs		. #x5380)	; 厀
+    (=cns11643-3	. #x4047)	; &I-C3-4047; [32-39]
+    (=gt		. 03666)	; &I-GT-03666;
+    (=gt-k		. 10921)	; &I-GT-K10921;
+    (=gt-pj-2		. #x4974)	; &I-GT-03666; [41-84]
+    (=daikanwa		. 02883)	; &I-M-02883;
+    (=shinjigen		.  6555)	; 厀
+    (<-original
+     ((=ucs		  . #x819D)	; 膝
+      (=jis-x0208	  . #x4928)	; &I-J90-4928; [41-08]
+      (=shinjigen	  .  6554)	; 膝
+      ))
+    (<-original*sources
+     shinjigen)
+    (->subsumptive
+     ((==ucs@unicode	  . #x5380)	; &g2-GT-03666;
+      (==gt		  . 03666)	; &g2-GT-03666;
+      (==gt-k		  . 10921)	; &g2-GT-03666;
+      (==daikanwa	  . 02883)	; &g2-GT-03666;
+      (->subsumptive
+       ((===daikanwa	    . 02883)	; &R-M-02883;
+	)
+       ((===gt		    . 03666)	; &R-GT-03666;
+	(===gt-k	    . 10921)	; &R-GT-03666;
+	)
+       ((===ucs@unicode	    . #x5380)	; &R-UU+5380;
+	)
+       ((=hanziku-1	    . #xE7C7)	; &HZK01-E7C7;
+	))
+      )
+     ((==ucs@cns	  . #x5380)	; &g2-CU+5380;
+      (==cns11643-3	  . #x4047)	; &g2-CU+5380; [32-39]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x687C)	; &UU+687C;
+       ((==ucs@unicode	    . #x687C)	; &g2-UU+687C;
 	)
        ((=ucs		    . #x5369)	; 卩
 	))
-      (=shinjigen	  .  6555)	; &SJG2-6555;
-      (<-original
-       ((=ucs@unicode	    . #x819D)	; &GT-38575;
-	(=jis-x0208	    . #x4928)	; &GT-38575; [41-08]
-	(=gb2312	    . #x4F25)	; &I-G0-4F25; [47-05]
-	(=ks-x1001	    . #x6323)	; &I-K0-6323; [67-03]
-	(=jis-x0213-1	    . #x4928)	; &I-JX1-4928; [41-08]
-	(=daikanwa	    . 29837)	; &I-M-29837;
-	(=shinjigen	    .  6554)	; &GT-38575;
-	))
-      (<-original*sources
-       shinjigen)
+      (==shinjigen	  .  6555)	; &g2-SJG2-6555;
       ))
     ))
 (define-char
