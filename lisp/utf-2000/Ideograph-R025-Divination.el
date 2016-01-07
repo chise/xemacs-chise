@@ -662,15 +662,27 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (=ucs		. #x209E1)	; 𠧡
+    (=cns11643-6	. #x297B)	; &I-C6-297B; [09-91]
     (=daikanwa		. 02801)	; &I-M-02801;
-    ))
-(define-char
-  '((=>ucs		. #x209E1)	; 𠧡
-    (morohashi-daikanwa	2801 0 0)
-    (ideographic-radical . 25)	; ⼘
-    (ideographic-strokes . 6)
-    (total-strokes	 . 8)
-    (=cns11643-6	. #x297B)	; &C6-297B; [09-91]
+    (<-ancient
+     ((=ucs@unicode	  . #x5C08)	; &AJ1-04642;
+      (=adobe-japan1-0	  . 04642)	; &AJ1-04642;
+      (=daikanwa	  . 07439)	; &I-M-07439;
+      ))
+    (<-ancient*sources
+     kangxi daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x209E1)	; &g2-M-02801;
+      (==daikanwa	  . 02801)	; &g2-M-02801;
+      (->subsumptive
+       ((===daikanwa	    . 02801)	; &R-M-02801;
+	)
+       ((===ucs@iso	    . #x209E1)	; &R-U-000209E1;
+	))
+      )
+     ((==ucs@cns	  . #x209E1)	; &g2-CU+209E1;
+      (==cns11643-6	  . #x297B)	; &g2-CU+209E1; [09-91]
+      ))
     ))
 (define-char
   '((ideographic-radical . 25)	; ⼘
