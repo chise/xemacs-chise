@@ -1,5 +1,21 @@
 2016-01-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R064-Hand.el (U-00022B4D): Add `<-ancient' for U+63E3.
+	(U+63E3): Add `<-formed' for U+6566; add `<-interchangeable' for
+	UU+525F, UU+6376, U+6476 and U+5718; add `<-same' for U+6566; add
+	`->ancient' for U-00022B4D; add `->formed' for UU+3A9C; add
+	`->formed*sources*note' about a typo of Daikanwa.
+	(U+6476): Apply new conventions for glyph granularity.
+
+	* Ideograph-R025-Divination.el (U-000209E1): Use `->subsumptive';
+	add `<-ancient' for UU+5C08.
+
+	* Ideograph-R009-Man.el (U+4FF7): Apply new conventions for glyph
+	granularity.
+	(U+5004): Likewise.
+	(U+5066): Likewise.
+	(U+3477): Likewise.
+
 	* ruimoku6.el (g2-RUI6-E072): Apply new conventions for glyph
 	granularity for components of ideographic-structure.
 
