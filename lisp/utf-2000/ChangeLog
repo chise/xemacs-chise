@@ -1,5 +1,23 @@
 2016-01-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R184-Eat.el: Add glyph-images of HNG-KHI.
+	(BUCS+9918): New abstract node.
+	(U+9918): Add `<-denotational' for BUCS+9918.
+	(U+9980): Likewise.
+	(HNG-KHI0624-0): New character; add `<-denotational' for
+	BUCS+9918; add `<-formed' for U+9918.
+	(JU+991A): Unify S-6440; add `<-formed' for U+80B4.
+	(U+4275): Use `->subsumptive'; unify S-9307; add `<-original' for
+	JU+994C.
+
+	* Ideograph-R066-Rap.el (U+6566): Add `<-formed' for M-11227; add
+	`<-interchangeable' for M-35729, UU+60C7, UU+8AC4, M-05864,
+	UU+711E, JU+7763, U+41CF, IU+25AF1, JU+5C6F, UU+6BBF, U+81C0,
+	M-11227 and U+5718; add `<-same' for M-13433.
+	(U+3A9C): Use `->denotational' and `->subsumptive'.
+
+2016-01-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R064-Hand.el (U-00022B4D): Add `<-ancient' for U+63E3.
 	(U+63E3): Add `<-formed' for U+6566; add `<-interchangeable' for
 	UU+525F, UU+6376, U+6476 and U+5718; add `<-same' for U+6566; add
