@@ -925,9 +925,10 @@
     (=+>hanyo-denshi/ft . #x3274)	; 頓 [18-84]
     (->subsumptive
      ((=ucs@jis		  . #x9813)	; &AJ1-03252;
+      (=ucs@ks		  . #x9813)	; &AJ1-03252;
       (=adobe-japan1-0	  . 03252)	; &AJ1-03252;
       (=jis-x0208	  . #x465C)	; &I-J90-465C; [38-60]
-      (=ks-x1001	  . #x544B)	; &JX1-465C; [52-43]
+      (=ks-x1001	  . #x544B)	; &I-K0-544B; [52-43]
       (=jis-x0213-1	  . #x465C)	; &I-JX1-465C; [38-60]
       (=hanyo-denshi/ft	  . #x3274)	; &I-HD-FT-3274; [18-84]
       (=gt		  . 58245)	; &I-GT-58245;
@@ -3020,7 +3021,7 @@
     (=ucs@jis		. #xFA6A)	; 頻
     (=ucs@JP/hanazono	. nil)
     (=adobe-japan1-0	. 07788)	; &I-AJ1-07788;
-    (=jis-x0208@1978	. #x4951)	; &JX1-7D7B; [41-49]
+    (=jis-x0208@1978	. #x4951)	; &I-J78-4951; [41-49]
     (=ks-x1001		. #x5E3A)	; &I-K0-5E3A; [62-26]
     (=cns11643-1	. #x7322)	; &I-C1-7322; [83-02]
     (=jis-x0213-1	. #x7D7B)	; &I-JX1-7D7B; [93-91]
@@ -3083,7 +3084,7 @@
     (=jef-china3	. #x6CFB)	; &I-JC3-6CFB;
     (<-simplified@JP/Jouyou
      ((=ucs		  . #xFA6A)	; 頻
-      (=jis-x0208@1978	  . #x4951)	; &JX1-7D7B; [41-49]
+      (=jis-x0208@1978	  . #x4951)	; &I-J78-4951; [41-49]
       ))
     (->subsumptive
      ((==ucs@jis/1990	  . #x983B)	; &g2-AJ1-03523;
@@ -4010,7 +4011,8 @@
     (=gt		. 58506)	; &I-GT-58506;
     (=gt-pj-1		. #x707B)	; &I-GT-58506; [80-91]
     (=daikanwa		. 43576)	; &I-M-43576;
-    (=shinjigen@rev	.  9188)	; 顋
+    (=shinjigen		.  9188)	; 顋
+    (=cbeta		. 02466)	; &I-CB02466;
     ))
 (define-char
   '((ideographic-radical . 181)	; ⾴
