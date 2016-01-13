@@ -1,3 +1,8 @@
+2016-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (UU+554B): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
 2016-01-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (IU+2043A): Modify to sync with U+FA6A;
