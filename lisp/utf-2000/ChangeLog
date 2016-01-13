@@ -1,3 +1,9 @@
+2016-01-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (M-00822): Add representative nodes.
+	(UU+5038): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+
 2016-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (UU+554B): Apply new conventions for
