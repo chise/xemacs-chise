@@ -9333,20 +9333,14 @@
     (=daikanwa		. 46530)	; &I-M-46530;
     (=shinjigen		.  6571)	; 鱠
     (<-formed
-     ((=ucs@unicode	  . #x81BE)	; &GT-38708;
-      (=jis-x0208	  . #x673A)	; &GT-38708; [71-26]
-      (=ks-x1001	  . #x7C6C)	; &I-K0-7C6C; [92-76]
-      (=jis-x0213-1	  . #x673A)	; &I-JX1-673A; [71-26]
-      (=daikanwa	  . 29937)	; &I-M-29937;
-      (=shinjigen	  .  6570)	; &GT-38708;
+     ((=ucs		  . #x81BE)	; 膾
+      (=jis-x0208	  . #x673A)	; &I-J90-673A; [71-26]
+      (=shinjigen	  .  6570)	; 膾
       ))
     (<-formed*sources
      shinjigen)
     (<-same@s=namasu
-     ((=ucs@unicode	  . #x81BE)	; &GT-38708;
-      (=jis-x0208	  . #x673A)	; &GT-38708; [71-26]
-      (=ks-x1001	  . #x7C6C)	; &I-K0-7C6C; [92-76]
-      (=jis-x0213-1	  . #x673A)	; &I-JX1-673A; [71-26]
+     ((=ucs		  . #x81BE)	; 膾
       (=daikanwa	  . 29937)	; &I-M-29937;
       ))
     (<-same@s=namasu*sources
