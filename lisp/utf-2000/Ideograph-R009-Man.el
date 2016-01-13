@@ -23060,8 +23060,18 @@
       (=daikanwa	  . 40116)	; &I-M-40116;
       ))
     (=daikanwa		. 00822)	; &M-00822;
-    (=hanziku-1		. #xCBB1)	; &I-HZK01-CBB1;
     (=cbeta		. 04177)	; &I-CB04177;
+    (->subsumptive
+     ((==daikanwa	  . 00822)	; &g2-M-00822;
+      (==cbeta		  . 04177)	; &g2-M-00822;
+      (->subsumptive
+       ((===daikanwa	    . 00822)	; &R-M-00822;
+	)
+       ((===cbeta	    . 04177)	; &R-CB04177;
+	)
+       ((=hanziku-1	    . #xCBB1)	; &HZK01-CBB1;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -23070,7 +23080,21 @@
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL PERSON")
+      (=ucs		  . #x2E85)	; ⺅
+      )
+     ((=ucs@unicode	  . #x91C7)	; &GT-53946;
+      (=gb2312		  . #x3249)	; &GT-53946; [18-41]
+      (=jis-x0208@1983	  . #x3A53)	; &I-J83-3A53; [26-51]
+      (=cns11643-1	  . #x4F59)	; &I-C1-4F59; [47-57]
+      (=jis-x0213-1	  . #x3A53)	; &I-JX1-3A53; [26-51]
+      ))
     (=ucs@unicode	. #x5038)	; &C3-2F54;
+    (=ucs@JP/hanazono	. nil)
     (=cns11643-3	. #x2F54)	; &C3-2F54; [15-52]
     (->subsumptive
      ((ideographic-structure
@@ -23080,10 +23104,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x91C7)	; &GT-53946;
-	(=gb2312	    . #x3249)	; &GT-53946; [18-41]
-	(=jis-x0208@1983    . #x3A53)	; &I-J83-3A53; [26-51]
-	(=jis-x0213-1	    . #x3A53)	; &I-JX1-3A53; [26-51]
+       ((==ucs@unicode	    . #x91C7)	; &g2-GT-53946;
+	(==jis-x0213-1	    . #x3A53)	; &g2-GT-53946; [26-51]
 	))
       (==ucs@unicode	  . #x5038)	; &g2-UU+5038;
       )
@@ -23094,7 +23116,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=cns11643-1	    . #x4F59)	; &C1-4F59; [47-57]
+       ((==ucs@cns	    . #x91C7)	; &g2-CU+91C7;
+	(==cns11643-1	    . #x4F59)	; &g2-CU+91C7; [47-57]
 	))
       (==ucs@cns	  . #x5038)	; &g2-CU+5038;
       (==cns11643-3	  . #x2F54)	; &g2-CU+5038; [15-52]
