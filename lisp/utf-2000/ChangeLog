@@ -1,5 +1,19 @@
 2016-01-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R140-Grass.el: Add some Adobe-Japan1-0 code points.
+	(HNG-KHI0542-0): New character; add `<-formed' for U+82E6.
+	(HNG-KHI0155-0): New character; add `<-denotational' for U+8349.
+	(HNG-KHI0552-0): New character; add `<-denotational' for U+8457.
+	(HNG-KHI0543-2): New character; add `<-denotational' for
+	U-00026D2D; add `<-formed' for UU+85D0.
+	(HNG-KHI0545-0): New character; add `<-formed' for U+85A9.
+	(HNG-KHI0551-0): New character; add `<-denotational' for U+8584.
+	(HNG-KHI0543-3): New character; add `<-denotational' for
+	U-00026F9C; add `<-formed' for UU+85D0.
+	(HNG-KHI0156-0): New character; add `<-denotational' for U+85B0.
+	(HNG-KHI0550-0): New character; add `<-denotational' for U+85E5.
+	(HNG-KHI0547-0): New character; add `<-denotational' for U+8607.
+
 	* Ideograph-R009-Man.el (M-00822): Add representative nodes.
 	(UU+5038): Apply new conventions for glyph granularity for
 	components of ideographic-structure.
