@@ -5529,16 +5529,44 @@
   '((ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7CF8)	; 糸
+      )
+     ((=ucs		  . #x5938)	; 夸
+      ))
     (=ucs		. #x7D5D)	; 絝
-    (=jis-x0212		. #x5369)	; &I-JSP-5369; [51-73]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7D5D)	; 絝
+      ))
+    (ideographic-radical . 120)	; ⽷
+    (ideographic-strokes . 6)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7CF8)	; 糸
+      )
+     ((=ucs@unicode	  . #x5938)	; &AJ1-04547;
+      (=adobe-japan1-0	  . 04547)	; &AJ1-04547;
+      ))
+    (=ucs@unicode	. #x7D5D)	; &JSP-5369;
+    (=jis-x0212		. #x5369)	; &JSP-5369; [51-73]
     (=cns11643-3	. #x3E2F)	; &I-C3-3E2F; [30-15]
-    (=gb12345		. #x672B)	; 絝 [71-11]
+    (=gb12345		. #x672B)	; &JSP-5369; [71-11]
     (=daikanwa		. 27420)	; &I-M-27420;
+    (=shinjigen		.  6035)	; &JSP-5369;
     (=jef-china3	. #x5FA8)	; &I-JC3-5FA8;
     (->subsumptive
      ((==ucs@jis	  . #x7D5D)	; &g2-JSP-5369;
       (==jis-x0212	  . #x5369)	; &g2-JSP-5369; [51-73]
       (==daikanwa	  . 27420)	; &g2-JSP-5369;
+      (==shinjigen	  .  6035)	; &g2-JSP-5369;
       (==jef-china3	  . #x5FA8)	; &g2-JSP-5369;
       (->subsumptive
        ((===daikanwa	    . 27420)	; &R-M-27420;
@@ -5554,6 +5582,23 @@
      ((==ucs@unicode	  . #x7D5D)	; &g2-UU+7D5D;
       (==ucs@JP/hanazono  . nil)
       (==gb12345	  . #x672B)	; &g2-UU+7D5D; [71-11]
+      (->subsumptive
+       ((===ucs@unicode	    . #x7D5D)	; &R-UU+7D5D;
+	)
+       ((=hanziku-9	    . #xBE67)	; &HZK09-BE67;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7D5D)	; 絝
+      ))
+    (ideographic-radical . 120)	; ⽷
+    (ideographic-strokes . 6)
+    (total-strokes	 . 12)
+    (=cbeta		. 08337)	; &CB08337;
+    (->subsumptive
+     ((==cbeta		  . 08337)	; &g2-CB08337;
       ))
     ))
 (define-char
