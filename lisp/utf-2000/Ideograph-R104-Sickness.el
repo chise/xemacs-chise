@@ -4080,12 +4080,21 @@
     (=cns11643-3	. #x427C)	; &I-C3-427C; [34-92]
     (=jis-x0213-2	. #x7155)	; &I-JX2-7155; [81-53]
     (=daikanwa		. 22248)	; &I-M-22248;
+    (=shinjigen		.  6516)	; 痮
+    (<-formed
+     ((=ucs		  . #x8139)	; 脹
+      (=jis-x0208	  . #x4431)	; &I-J90-4431; [36-17]
+      (=shinjigen	  .  6515)	; 脹
+      ))
+    (<-formed*sources
+     shinjigen)
     (->subsumptive
      ((==ucs@unicode	  . #x75EE)	; &g2-JSP-4D5F;
       (==jis-x0212	  . #x4D5F)	; &g2-JSP-4D5F; [45-63]
       (==cns11643-3	  . #x427C)	; &g2-JSP-4D5F; [34-92]
       (==jis-x0213-2	  . #x7155)	; &g2-JSP-4D5F; [81-53]
       (==daikanwa	  . 22248)	; &g2-JSP-4D5F;
+      (==shinjigen	  .  6516)	; &g2-JSP-4D5F;
       (->subsumptive
        ((===daikanwa	    . 22248)	; &R-M-22248;
 	)
