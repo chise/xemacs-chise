@@ -645,7 +645,24 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=ucs		. #x5938)	; 夸
-    (=adobe-japan1-0	. 04547)	; &I-AJ1-04547;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5938)	; 夸
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5927)	; 大
+      )
+     ((=ucs		  . #x4E8F)	; 亏
+      ))
+    (=ucs@unicode	. #x5938)	; &AJ1-04547;
+    (=adobe-japan1-0	. 04547)	; &AJ1-04547;
     (=jis-x0208		. #x5472)	; &I-J90-5472; [52-82]
     (=gb2312		. #x3F64)	; &I-G0-3F64; [31-68]
     (=cns11643-1	. #x476B)	; &I-C1-476B; [39-75]
@@ -655,7 +672,34 @@
     (=gt-k		. 01718)	; &I-GT-K01718;
     (=gt-pj-1		. #x5472)	; &I-GT-07386; [52-82]
     (=daikanwa		. 05854)	; &I-M-05854;
-    (=shinjigen		.  1565)	; 夸
+    (=shinjigen		.  1565)	; &AJ1-04547;
+    (->subsumptive
+     ((==ucs@unicode	  . #x5938)	; &g2-AJ1-04547;
+      (==adobe-japan1-0	  . 04547)	; &g2-AJ1-04547;
+      (==gb2312		  . #x3F64)	; &g2-AJ1-04547; [31-68]
+      (==jis-x0208	  . #x5472)	; &g2-AJ1-04547; [52-82]
+      (==cns11643-1	  . #x476B)	; &g2-AJ1-04547; [39-75]
+      (==jis-x0213-1	  . #x5472)	; &g2-AJ1-04547; [52-82]
+      (==gt		  . 07386)	; &g2-AJ1-04547;
+      (==gt-k		  . 01718)	; &g2-AJ1-04547;
+      (==daikanwa	  . 05854)	; &g2-AJ1-04547;
+      (==shinjigen	  .  1565)	; &g2-AJ1-04547;
+      (->subsumptive
+       ((===daikanwa	    . 05854)	; &R-M-05854;
+	)
+       ((===jis-x0208	    . #x5472)	; &R-J0-5472; [52-82]
+	(===jis-x0213-1	    . #x5472)	; &R-J0-5472; [52-82]
+	)
+       ((===adobe-japan1-0  . 04547)	; &R-AJ1-04547;
+	)
+       ((===cns11643-1	    . #x476B)	; &R-C1-476B; [39-75]
+	)
+       ((===gt		    . 07386)	; &R-GT-07386;
+	(===gt-k	    . 01718)	; &R-GT-07386;
+	)
+       ((===ucs@unicode	    . #x5938)	; &R-UU+5938;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
