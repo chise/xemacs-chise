@@ -1,3 +1,21 @@
+2016-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R165-Distinguish.el: Add mappings for Big5 code
+	points.
+	(UU+91C8): Delete `=>ucs@iwds-1'.
+	(U+91CB): Separate UU+91CB.
+
+	* Ideograph-R037-Big.el (U+5938): Separate UU+5938.
+
+2016-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R120-Silk.el (U+7D5D): Separate UU+7D5D.
+	(UU+7D5D): Unify S-6035.
+	(CB08337): New character; add `<-denotational' for U+7D5D.
+
+	* Ideograph-R104-Sickness.el (U+75EE): Unify S-6516; add
+	`<-formed' for U+8139.
+
 2016-01-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R140-Grass.el: Add some Adobe-Japan1-0 code points.
