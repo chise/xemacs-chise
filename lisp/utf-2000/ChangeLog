@@ -1,5 +1,8 @@
 2016-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R050-Turban.el (U+3853): Unify S-7418 and CB07144; add
+	`<-original' for U+890C.
+
 	* Ideograph-R165-Distinguish.el: Add mappings for Big5 code
 	points.
 	(UU+91C8): Delete `=>ucs@iwds-1'.
