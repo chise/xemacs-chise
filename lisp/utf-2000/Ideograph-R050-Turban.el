@@ -4207,9 +4207,44 @@
   '((ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      )
+     ((=ucs		  . #x8ECD)	; 軍
+      ))
     (=ucs		. #x3853)	; 㡓
     (=cns11643-3	. #x3B3C)	; &I-C3-3B3C; [27-28]
     (=daikanwa		. 08988)	; &I-M-08988;
+    (=shinjigen		.  7418)	; 㡓
+    (=cbeta		. 07144)	; &I-CB07144;
+    (<-original
+     ((=ucs		  . #x890C)	; 褌
+      (=jis-x0208	  . #x6A6E)	; &I-J90-6A6E; [74-78]
+      (=shinjigen	  .  7417)	; 褌
+      ))
+    (<-original*sources
+     shinjigen)
+    (->subsumptive
+     ((==ucs@unicode	  . #x3853)	; &g2-M-08988;
+      (==cns11643-3	  . #x3B3C)	; &g2-M-08988; [27-28]
+      (==daikanwa	  . 08988)	; &g2-M-08988;
+      (==shinjigen	  .  7418)	; &g2-M-08988;
+      (==cbeta		  . 07144)	; &g2-M-08988;
+      (->subsumptive
+       ((===daikanwa	    . 08988)	; &R-M-08988;
+	)
+       ((===cns11643-3	    . #x3B3C)	; &R-C3-3B3C; [27-28]
+	)
+       ((===ucs@unicode	    . #x3853)	; &R-UU+3853;
+	)
+       ((=hanziku-2	    . #xEBF6)	; &HZK02-EBF6;
+	)
+       ((===cbeta	    . 07144)	; &R-CB07144;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
