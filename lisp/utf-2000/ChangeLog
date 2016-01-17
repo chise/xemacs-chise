@@ -1,3 +1,12 @@
+2016-01-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R117-Stand.el (U+41CF): Unify M-25789; add `<-Liwen'
+	and `->original' for U-00025AC9.
+	(U-00025AC8): Unify M-25835.
+	(U-00025ACE): Unify M-25838.
+	(U-00025AC9): Unify M-25838'; add `<-ancient' for U+41CF and
+	UU+60C7; add `<-original' for U+41CF; add `->Liwen' for U+41CF.
+
 2016-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R050-Turban.el (U+3853): Unify S-7418 and CB07144; add
