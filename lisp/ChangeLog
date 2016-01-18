@@ -1,3 +1,13 @@
+2016-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>mj'.
+
+2016-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=mj): Fix `dimension'.  (=>mj): New
+	coded-charset for XEmacs CHISE.
+
 2015-12-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
