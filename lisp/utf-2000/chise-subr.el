@@ -217,6 +217,7 @@
 (defun char-ucs (char)
   "Return code-point of UCS."
   (or (encode-char char '=ucs 'defined-only)
+      (char-feature char '=ucs)
       (char-feature char '=>ucs)))
 
 ;;;###autoload
