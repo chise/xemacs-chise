@@ -1614,6 +1614,13 @@
 
 2015-11-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* read-maps.el (mapping-table-read-file): Modify for
+	`char-feature'.
+
+	* chise-subr.el (char-ucs): Modify for `char-feature'.
+
+2015-11-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R111-Arrow.el (CB08101): New character.
 
 	* Ideograph-R101-Use.el: Add some Adobe-Japan1-0 code points.
