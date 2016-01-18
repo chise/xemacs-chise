@@ -5,7 +5,7 @@
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1995 Sun Microsystems.
 ;; Copyright (C) 1997, 1999, 2002, 2003, 2004, 2005, 2006, 2008, 2009,
-;;   2010, 2011, 2012, 2013, 2014, 2015 MORIOKA Tomohiko
+;;   2010, 2011, 2012, 2013, 2014, 2015, 2016 MORIOKA Tomohiko
 
 ;; This file is part of XEmacs.
 
@@ -502,6 +502,7 @@
 	  (==>ucs@bucs				"BUCS+" 4 X)
 	  ( =>iwds-1			       "IWDS1-" 3 d)
 	  ( =>ucs@iwds-1		     "A-IWDSU+" 4 X)
+	  ( =>mj				 "A-MJ" 6 d)
 	  ( =>ucs@hanyo-denshi		       "A-HDU+" 4 X)
 	  ( =>ucs@hanyo-denshi		    "A-HD-UCS+" 4 X)
 	  ( =>ucs@iso				"A-IU+" 4 X)
