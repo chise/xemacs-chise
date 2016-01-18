@@ -1637,7 +1637,7 @@
    "Moji-Jouhou-Kiban characters"
    `(long-name "Moji-Jouhou-Kiban"
 	       chars 256
-	       dimension 2
+	       dimension 3
 	       columns 2
 	       graphic 2
 	       direction l2r
@@ -1675,6 +1675,17 @@
 	       mother =mj
 	       min-code	#x10000
 	       code-offset #x10000))
+  (make-charset
+   '=>mj
+   "Moji-Jouhou-Kiban abstract characters"
+   `(long-name "Moji-Jouhou-Kiban"
+	       chars 256
+	       dimension 3
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =mj
+	       ))
 
   (make-charset
    '=hanyo-denshi/ja
