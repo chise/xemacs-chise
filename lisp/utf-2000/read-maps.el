@@ -1,6 +1,6 @@
 ;;; read-maps.el --- Read mapping-tables.
 
-;; Copyright (C) 2002, 2003, 2004, 2005, 2006, 2008, 2012, 2014
+;; Copyright (C) 2002, 2003, 2004, 2005, 2006, 2008, 2012, 2014, 2015
 ;;   MORIOKA Tomohiko
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
@@ -178,7 +178,9 @@ UCS-REGEXP is a regular expression to match against
                             ;; ((eq ucs-ccs '=ucs@ks)
                             ;;  (encode-char chr '=ucs@ks/fw 'defined-only))
                             (t
-			     (char-feature chr '=>ucs))))
+			     (or (char-feature chr '=ucs)
+				 (char-feature chr '=>ucs))
+			     )))
 			  ucs-code)))
 	    (put-char-attribute chr ucs-ccs ucs-code))
 	  (when (and ucs
@@ -191,10 +193,14 @@ UCS-REGEXP is a regular expression to match against
 							    =ucs@big5
 							    =ucs@ks
 							    )))
-				       (char-feature chr '=>ucs)))
+				       (or (char-feature chr '=ucs)
+					   (char-feature chr '=>ucs))
+				       ))
 			      ucs)))
 	    (if (or ucs-code (null ucs-ccs))
-		(unless (eq (char-feature chr '=>ucs) ucs)
+		(unless (eq (or (char-feature chr '=ucs)
+				(char-feature chr '=>ucs))
+			    ucs)
 		  (put-char-attribute chr '=>ucs ucs))
 	      (unless (eq (encode-char chr ucs-ccs 'defined-only)
 			  ucs)
@@ -218,11 +224,15 @@ UCS-REGEXP is a regular expression to match against
 							     ==ucs@gb
 							     ==ucs@cns
 							     ==ucs@ks)))
-				   (char-feature drep-chr '=>ucs))
+				   (or (char-feature drep-chr '=ucs)
+				       (char-feature drep-chr '=>ucs))
+				   )
 			      ucs))
 		     (not (eq (char-feature drep-chr '=>ucs*) ucs)))
 	    (if (or ucs-code (null drep-ucs-ccs))
-		(unless (eq (char-feature drep-chr '=>ucs) ucs)
+		(unless (eq (or (char-feature drep-chr '=ucs)
+				(char-feature drep-chr '=>ucs))
+			    ucs)
 		  (put-char-attribute drep-chr '=>ucs ucs))
 	      (unless (eq (encode-char drep-chr drep-ucs-ccs 'defined-only)
 			  ucs)
