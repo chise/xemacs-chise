@@ -1,3 +1,9 @@
+2015-11-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* chartab.c (Fchar_feature): When argument ATTRIBUTE is a CCS and
+	whose name is =>FOO, don't try to find =FOO; fix problem when
+	argument ATTRIBUTE is ==>FOO.
+
 2013-05-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* text-coding.c (COMPOSE_ADD_CHAR): Use
