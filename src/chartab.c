@@ -3413,6 +3413,7 @@ Return DEFAULT-VALUE if the value is not exist.
   if (!UNBOUNDP (ret))
     return ret;
 
+#if 0
   if (NILP (feature_rel_max)
       || (INTP (feature_rel_max) &&
 	  XINT (feature_rel_max) > 0))
@@ -3437,6 +3438,7 @@ Return DEFAULT-VALUE if the value is not exist.
 	    return ret;
 	}
     }
+#endif
 
   if ( !(EQ (attribute, Q_identical)) &&
        !(EQ (attribute, Q_subsumptive_from)) &&
@@ -3445,11 +3447,13 @@ Return DEFAULT-VALUE if the value is not exist.
 	  || (INTP (char_rel_max) &&
 	      XINT (char_rel_max) > 0)) ) )
     {
+#if 0
       Lisp_String* name = symbol_name (XSYMBOL (attribute));
       Bufbyte *name_str = string_data (name);
 
       if ( (name_str[0] != '=') || (name_str[1] == '>') )
 	{
+#endif
 	  ret = find_char_feature_in_family (character, Q_identical,
 					     attribute, feature_rel_max);
 	  if (!UNBOUNDP (ret))
@@ -3464,7 +3468,9 @@ Return DEFAULT-VALUE if the value is not exist.
 					     attribute, feature_rel_max);
 	  if (!UNBOUNDP (ret))
 	    return ret;
+#if 0
 	}
+#endif
     }
   return default_value;
 }
