@@ -1,3 +1,9 @@
+2016-01-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>mj'.
+	(char-db-insert-ccs-feature): Support `=>mj'.
+
 2016-01-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R117-Stand.el (U+41CF): Unify M-25789; add `<-Liwen'
