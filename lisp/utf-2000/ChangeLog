@@ -1,5 +1,10 @@
 2016-01-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R020-Wrap.el (U+530B): Separate UU+530B.
+	(A-MJ057082): New character; add `<-denotational' for U+530B; add
+	MJ057082.
+	(MJ057082): Unify KOSEKI-029330.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>mj'.
 	(char-db-insert-ccs-feature): Support `=>mj'.
