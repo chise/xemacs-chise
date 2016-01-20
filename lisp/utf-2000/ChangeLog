@@ -1,3 +1,8 @@
+2016-01-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R019-Power.el (CU+52F7): Modify a component of
+	`ideographic-structure'.
+
 2016-01-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R020-Wrap.el (U+530B): Separate UU+530B.
