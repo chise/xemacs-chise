@@ -1,4 +1,24 @@
+2016-01-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R164-Wine.el: Add mappings for Big5 code points.
+	(U+48E9): Apply new conventions for glyph granularity.
+	(A-M-39898): New abstract node.
+	(U-00028852): New character; add `<-denotational' for A-M-39898.
+	(M-39898): Add `<-denotational' for U-00028852; don't map to
+	U+9184.
+	(U+9184): Add `<-denotational' for A-M-39898.
+	(UU+9195): Unify S-8527; add `<-formed' for UU+9187.
+	(BUCS+919E): New abstract node.
+	(B+C1DF): Likewise; add `<-denotational' for BUCS+919E; unify
+	BU+919E.
+	(U+919E): Add `<-denotational' for BU+919E.
+	(U+9196): Likewise; apply new conventions for glyph granularity.
+	(U+915D): Add `<-denotational' for BU+919E; add `<-simplified@CN'
+	for U+9196.
+
 2016-01-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (g2-UU+56B7): Separate g2-C1-7962.
 
 	* Ideograph-R019-Power.el (CU+52F7): Modify a component of
 	`ideographic-structure'.
