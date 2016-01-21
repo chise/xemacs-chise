@@ -1,5 +1,72 @@
 2016-01-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R145-Clothes.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Add glyph-images of HNG-KHI.
+	(U+8869): Apply new conventions for glyph granularity.
+	(U+886E): Likewise.
+	(U+886F): Likewise.
+	(BUCS+8870): New abstract node.
+	(U+8870): Add `<-denotational' for BUCS+8870.
+	(HNG-KHI0160-0): New character; add `<-denotational' for
+	BUCS+8870; add `<-formed' for U+8870.
+	(U+8871): Apply new conventions for glyph granularity.
+	(U+8879): Likewise.
+	(U+887B): Likewise.
+	(U+8880): Likewise.
+	(U+8898): Likewise.
+	(U+889A): Likewise.
+	(U+889B): Likewise.
+	(U+889F): Likewise.
+	(U+88A0): Likewise.
+	(U+88A8): Likewise.
+	(U+88AA): Likewise.
+	(U+88BA): Likewise.
+	(U+88BC): Likewise.
+	(U+88BD): Likewise.
+	(U+88BE): Likewise.
+	(U+88C0): Likewise.
+	(U+88E0): Likewise; unify S-7387; add `<-original' for U+88D9.
+	(U+88DB): Apply new conventions for glyph granularity.
+	(U+8931-itaiji-005): New character; add `<-formed' for U+8931.
+	(U+4633): Apply new conventions for glyph granularity.
+	(U+88E7): Likewise.
+	(U+88E9): Likewise; unify S-7419 and CB01375; add `<-vulgar' for
+	U+890C.
+	(U+88EF): Apply new conventions for glyph granularity.
+	(U+88F0): Likewise.
+	(U+88F1): Likewise.
+	(U+88F5): Likewise.
+	(U+4641): Likewise.
+	(U+8906): Likewise.
+	(U+890E): Likewise.
+	(U+890F): Likewise.
+	(U-000276DB): Likewise.
+	(U+891C): Likewise.
+	(U+8930): Likewise.
+	(U+8931): Likewise.
+	(U+8932): Likewise.
+	(U+8931-itaiji-004): New character; add `<-formed' for U+8931.
+	(U+8937): Apply new conventions for glyph granularity.
+	(U+8940): Likewise.
+	(U+8945): Likewise.
+	(U+8946): Likewise.
+	(U+8949): Likewise.
+	(U+894F): Likewise.
+	(U+8957): Likewise.
+	(U+895B): Likewise.
+	(U+4665): Likewise.
+	(U+8961): Likewise.
+	(U+8962): Likewise.
+	(U+896E): Likewise.
+	(U+8973): Likewise.
+	(M-34740): Add representative node.
+	(U+897B): Apply new conventions for glyph granularity.
+	(U+897C): Likewise.
+	(U+897D): Likewise.
+
+2016-01-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R164-Wine.el: Add mappings for Big5 code points.
 	(U+48E9): Apply new conventions for glyph granularity.
 	(A-M-39898): New abstract node.
