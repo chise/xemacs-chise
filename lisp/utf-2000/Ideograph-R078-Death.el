@@ -1418,14 +1418,27 @@
     (=ucs		. #x239F4)	; 𣧴
     (=cns11643-6	. #x3862)	; &I-C6-3862; [24-66]
     (=daikanwa		. 16437)	; &I-M-16437;
-    (=hanziku-4		. #xC4F5)	; &I-HZK04-C4F5;
     (<-same
-     ((=ucs@unicode	  . #x8174)	; &AJ1-06262;
+     ((=ucs@jis		  . #x8174)	; &AJ1-06262;
       (=adobe-japan1-0	  . 06262)	; &AJ1-06262;
       (=daikanwa	  . 29713)	; &I-M-29713;
       ))
     (<-same*sources
      pianhai daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x239F4)	; &g2-M-16437;
+      (==cns11643-6	  . #x3862)	; &g2-M-16437; [24-66]
+      (==daikanwa	  . 16437)	; &g2-M-16437;
+      (->subsumptive
+       ((===daikanwa	    . 16437)	; &R-M-16437;
+	)
+       ((===cns11643-6	    . #x3862)	; &R-C6-3862; [24-66]
+	)
+       ((===ucs@iso	    . #x239F4)	; &R-U-000239F4;
+	)
+       ((=hanziku-4	    . #xC4F5)	; &HZK04-C4F5;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 78)	; ⽍
