@@ -1,3 +1,7 @@
+2016-01-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R003-Dot.el (U+4E37): Unify GT-K00150.
+
 2016-01-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (UU+5721): Add `ideographic-structure'.
