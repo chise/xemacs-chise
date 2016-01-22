@@ -43,6 +43,23 @@
     (=adobe-japan1-4	. 13981)	; &I-AJ1-13981;
     (=gb12345		. #x7D65)	; 丷 [93-69]
     (=big5-cdp		. #x8B55)	; &I-CDP-8B55;
+    (=gt-k		. 00150)	; &I-GT-K00150;
+    (=gt-pj-k1		. #x3249)	; 丷 [18-41]
+    (->subsumptive
+     ((==ucs@unicode	  . #x4E37)	; &g2-AJ1-13981;
+      (==adobe-japan1-4	  . 13981)	; &g2-AJ1-13981;
+      (==gb12345	  . #x7D65)	; &g2-AJ1-13981; [93-69]
+      (==big5-cdp	  . #x8B55)	; &g2-AJ1-13981;
+      (->subsumptive
+       ((===adobe-japan1-4  . 13981)	; &R-AJ1-13981;
+	)
+       ((===big5-cdp	    . #x8B55)	; &R-CDP-8B55;
+	)
+       ((===ucs@unicode	    . #x4E37)	; &R-UU+4E37;
+	))
+      )
+     ((==gt-k		  . 00150)	; &g2-GT-K00150;
+      ))
     ))
 (define-char
   '((ideographic-radical . 3)	; ⼂
