@@ -1,5 +1,12 @@
 2016-01-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (UU+5721): Add `ideographic-structure'.
+	(U+5721-var-002): New character.
+	(HNG-KHI0316-0): Use `<-subsumptive' for U+5721-var-002 instead of
+	`<-denotational' for U+5721.
+
+2016-01-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R078-Death.el (U-000239F4): Add representative nodes.
 
 2016-01-20  MORIOKA Tomohiko  <tomo.git@chise.org>
