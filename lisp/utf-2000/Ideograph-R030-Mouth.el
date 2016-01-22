@@ -37043,7 +37043,8 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=cns11643-1	  . #x615E)	; &C1-615E; [65-62]
+     ((=ucs@cns		  . #x83EF)	; &C1-615E;
+      (=cns11643-1	  . #x615E)	; &C1-615E; [65-62]
       (=daikanwa	  . 31214)	; &I-M-31214;
       ))
     (=ucs@cns		. #x5629)	; &MJ008611;
@@ -37052,7 +37053,16 @@
     (=hanyo-denshi/ks	. 048620)	; &MJ008611;
     (=daikanwa		. 04235)	; &I-M-04235;
     (->subsumptive
-     ((==ucs@cns	  . #x5629)	; &g2-M-04235;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x53E3)	; 口
+	)
+       ((==ucs@cns	    . #x83EF)	; &g2-M-31214;
+	(==daikanwa	    . 31214)	; &g2-M-31214;
+	))
+      (==ucs@cns	  . #x5629)	; &g2-M-04235;
       (==cns11643-1	  . #x6C37)	; &g2-M-04235; [76-23]
       (==daikanwa	  . 04235)	; &g2-M-04235;
       (->subsumptive
