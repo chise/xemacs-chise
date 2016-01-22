@@ -76,6 +76,14 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 417 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
     (=>ucs@iwds-1	. #x5721)	; &AJ1-13952;
     (=ucs@unicode	. #x5721)	; &AJ1-13952;
     (=adobe-japan1-4	. 13952)	; &AJ1-13952;
@@ -92,7 +100,18 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
-    (===hng-khi		. 03160)	; &HNG010-03160;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=ucs-var-002	. #x5721)	; &U-v002+5721;
+    (->subsumptive
+     ((===hng-khi	  . 03160)	; &HNG010-03160;
+      ))
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
