@@ -1,3 +1,7 @@
+2016-01-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R078-Death.el (U-000239F4): Add representative nodes.
+
 2016-01-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R145-Clothes.el:
