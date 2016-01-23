@@ -1,5 +1,8 @@
 2016-01-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (g2-CU+5629): Add
+	`ideographic-structure'.
+
 	* Ideograph-R003-Dot.el (U+4E37): Unify GT-K00150.
 
 2016-01-21  MORIOKA Tomohiko  <tomo.git@chise.org>
