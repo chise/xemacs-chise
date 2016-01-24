@@ -1,3 +1,39 @@
+2016-01-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R140-Grass.el (U+838A): Add `ideographic-structure'.
+	(CU+838A): Likewise.
+	(g2-M-31035): Likewise.
+	(CU+838A): Likewise.
+	(UU+838A): Likewise; add representative nodes.
+	(U+83D3): Add `ideographic-structure'; separate A-UU+83D3.
+	(A-UU+83D3): Add `=>ucs@iwds-1'.
+	(CU+83D3): Add `ideographic-structure'.
+	(HNG-KHI0158-0): New character; add `<-denotational' for U+83D3.
+	(UU+83D3): Add `ideographic-structure'.
+	(U+83E9): Separate A-UU+83E9 and B-B5D0.
+	(A-UU+83E9): Unify B-B5D0; add `ideographic-structure'.
+	(CU+83E9): Add `ideographic-structure'; add representative nodes.
+	(HNG-KHI0546-0): New character; add `<-denotational' for U+83E9.
+	(UU+83E9): Add `ideographic-structure'.
+	(g2-UU+83E9): Likewise.
+	(C1-615E): Unify CU+83EF; add representative nodes; add
+	HNG-KHI0548-0.
+	(U+8514): Add `ideographic-structure'.
+	(CU+8514): Likewise; add `<-same' for M-31170.
+	(HNG-KHI0157-0): New character; add `<-denotational' for U+8514.
+	(UU+8514): Add `ideographic-structure'.
+	(U+85D0): Likewise; apply new conventions for glyph granularity.
+	(HNG-KHI0543-1): New character; add `<-denotational' for U+85D0.
+
+2016-01-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R104-Sickness.el (U+3F75): Separate A-UU+3F75.
+	(A-UU+3F75): Apply new conventions for glyph granularity; add
+	`=>ucs@iwds-1'.
+	(UU+3F75): Unify CB00982; add `<-vulgar' for CU+838A.
+	(HNG-KHI0541-0): New character; add `<-denotational' for U+3F75;
+	add `<-formed' for U+8358 and U+838A.
+
 2016-01-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (g2-CU+5629): Add
