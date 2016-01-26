@@ -1,3 +1,11 @@
+2016-01-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (U+3553): Add `ideographic-structure';
+	add UU+3553.
+
+	* Ideograph-R015-Ice.el (U+51B3): Apply new conventions for glyph
+	granularity.
+
 2016-01-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U+5437): Apply new conventions for
