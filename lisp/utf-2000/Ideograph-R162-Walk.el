@@ -5590,20 +5590,14 @@
     (=daikanwa		. 38827)	; &I-M-38827;
     (=shinjigen		.  8003)	; &GT-51996;
     (<-original
-     ((=ucs@jis		  . #x8DE1)	; &GT-50150;
-      (=jis-x0208	  . #x4057)	; &GT-50150; [32-55]
-      (=ks-x1001	  . #x6E66)	; &I-K0-6E66; [78-70]
-      (=jis-x0213-1	  . #x4057)	; &I-JX1-4057; [32-55]
-      (=daikanwa	  . 37493)	; &I-M-37493;
-      (=shinjigen	  .  8002)	; &GT-50150;
+     ((=ucs		  . #x8DE1)	; 跡
+      (=jis-x0208	  . #x4057)	; &I-J90-4057; [32-55]
+      (=shinjigen	  .  8002)	; 跡
       ))
     (<-original*sources
      shinjigen)
     (<-same
-     ((=ucs@jis		  . #x8DE1)	; &GT-50150;
-      (=jis-x0208	  . #x4057)	; &GT-50150; [32-55]
-      (=ks-x1001	  . #x6E66)	; &I-K0-6E66; [78-70]
-      (=jis-x0213-1	  . #x4057)	; &I-JX1-4057; [32-55]
+     ((=ucs		  . #x8DE1)	; 跡
       (=daikanwa	  . 37493)	; &I-M-37493;
       ))
     (<-same*sources
@@ -22434,7 +22428,8 @@
     (<-same*sources
      zhengzitong shuowen@daxuben zhengyun chuci hanshu hanshu-zhu daikanwa)
     (<-synonyms
-     ((=cns11643-1	  . #x7732)	; &C1-7732; [87-18]
+     ((=ucs@cns		  . #x85D0)	; &C1-7732;
+      (=cns11643-1	  . #x7732)	; &C1-7732; [87-18]
       (=daikanwa	  . 32267)	; &I-M-32267;
       ))
     (<-synonyms*sources
