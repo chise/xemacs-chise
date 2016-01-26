@@ -1,5 +1,10 @@
 2016-01-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U+5437): Apply new conventions for
+	glyph granularity.
+
+2016-01-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R172-Short-Tailed-Bird.el (U+96D6): Use
 	`->subsumptive'; add HNG-KHI0610-0.
 	(JU+96E3): Add HNG-KHI0611-0.
