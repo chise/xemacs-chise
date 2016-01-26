@@ -1,3 +1,9 @@
+2016-01-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (U+96D6): Use
+	`->subsumptive'; add HNG-KHI0610-0.
+	(JU+96E3): Add HNG-KHI0611-0.
+
 2016-01-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R140-Grass.el (U+838A): Add `ideographic-structure'.
