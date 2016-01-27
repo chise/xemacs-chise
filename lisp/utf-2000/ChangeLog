@@ -1,3 +1,58 @@
+2016-01-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R157-Foot.el: Add some representative nodes.
+	(U+8DB9): Apply new conventions for glyph granularity.
+	(U+8DBB): Likewise.
+	(U+8DCE): Likewise.
+	(U+8DDA): Likewise.
+	(U+8DE1): Likewise.
+	(U+8DE4): Likewise.
+	(U+8DE7): Likewise.
+	(U+8DBC): Likewise.
+	(U+8DF4): Likewise.
+	(U+8E04): Likewise.
+	(U+8E06): Likewise.
+	(U+8E09): Likewise.
+	(U+47FD): Likewise.
+	(U+8E0C): Likewise.
+	(U+8E20): Likewise.
+	(U+8E23): Likewise.
+	(U+8E30): Likewise.
+	(U+8E31): Likewise.
+	(U+8E38): Likewise.
+	(U+8E47): Likewise.
+	(g2-HD-FT2567): Separate UU+8E4A and G0-7568.
+	(M-37750): Separate JU+8E4B, JSP-602D, JX2-794C and HD-JB6413.
+	(S-8026): Unify JU+8E4B, JSP-602D, JX2-794C and HD-JB6413.
+	(U+8E4C): Apply new conventions for glyph granularity.
+	(U+8E4E): Likewise.
+	(U+8E50): Likewise.
+	(U+8E5C): Likewise.
+	(U+8E60): Likewise.
+	(U+8E61): Likewise.
+	(U+8E62): Likewise.
+	(U+8E63): Likewise.
+	(U+8E71): Likewise.
+	(U+8E72): Likewise.
+	(U+8E74): Likewise.
+	(U+8E75): Likewise.
+	(U+8E76): Likewise.
+	(U+8E83): Likewise.
+	(U+8E84): Likewise.
+	(U+8E8B): Likewise.
+	(U+8E8D): Likewise.
+	(U+8E94): Likewise.
+	(U+8E95): Likewise.
+	(U+8E98): Likewise.
+	(U+8E9D): Likewise.
+	(U+8E9E): Likewise.
+	(U+8EA1): Likewise.
+	(U+8EA7): Likewise.
+	(U+8EA9): Likewise.
+
+	* Ideograph-R046-Mountain.el (U-00021FB0): Apply new conventions
+	for glyph granularity.
+
 2016-01-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R130-Meat.el: Add some Adobe-Japan1-0 code points.
