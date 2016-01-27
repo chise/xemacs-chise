@@ -3644,6 +3644,7 @@
     (=jis-x0212		. #x3D34)	; &I-JSP-3D34; [29-20]
     (=jis-x0213-1	. #x7443)	; &I-JX1-7443; [84-35]
     (=daikanwa		. 10204)	; &I-M-10204;
+    (=shinjigen		.  2374)	; &AJ1-14528;
     (=jef-china3	. #x4DBE)	; &I-JC3-4DBE;
     (->subsumptive
      ((==daikanwa	  . 10204)	; &g2-M-10204;
@@ -3653,6 +3654,7 @@
      ((==ucs@jis	  . #x5FAF)	; &g2-JSP-3D34;
       (==jis-x0212	  . #x3D34)	; &g2-JSP-3D34; [29-20]
       (==jis-x0213-1	  . #x7443)	; &g2-JSP-3D34; [84-35]
+      (==shinjigen	  .  2374)	; &g2-JSP-3D34;
       (->subsumptive
        ((===jis-x0212	    . #x3D34)	; &R-JX1-7443; [29-20]
 	(===jis-x0213-1	    . #x7443)	; &R-JX1-7443; [84-35]
