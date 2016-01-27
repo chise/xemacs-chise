@@ -49214,6 +49214,7 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 17)
     (total-strokes	 . 20)
+    (hanyu-dazidian	1 705 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -49223,6 +49224,9 @@
      ((=ucs		  . #x8E47)	; 蹇
       ))
     (=ucs		. #x21113)	; 𡄓
+    (=cns11643-5	. #x6B6F)	; &I-C5-6B6F; [75-79]
+    (=daikanwa		. 04582)	; &I-M-04582;
+    (=cbeta		. 02916)	; &I-CB02916;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -49230,30 +49234,24 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@jis	    . #x8E47)	; &GT-50425;
-	(=ucs@ks	    . #x8E47)	; &GT-50425;
-	(=jis-x0208	    . #x6D21)	; &GT-50425; [77-01]
-	(=ks-x1001	    . #x4B74)	; &I-K0-4B74; [43-84]
-	(=jis-x0213-1	    . #x6D21)	; &I-JX1-6D21; [77-01]
-	(=daikanwa	    . 37741)	; &I-M-37741;
+       ((==ucs@unicode	    . #x8E47)	; &g2-GT-50425;
+	(==jis-x0208	    . #x6D21)	; &g2-GT-50425; [77-01]
 	))
-      (=daikanwa	  . 04582)	; &M-04582;
-      (=cbeta		  . 02916)	; &I-CB02916;
-      )
-     ((hanyu-dazidian	  1 705 5)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
+      (==ucs@iso	  . #x21113)	; &g2-M-04582;
+      (==cns11643-5	  . #x6B6F)	; &g2-M-04582; [75-79]
+      (==daikanwa	  . 04582)	; &g2-M-04582;
+      (==cbeta		  . 02916)	; &g2-M-04582;
+      (->subsumptive
+       ((===daikanwa	    . 04582)	; &R-M-04582;
 	)
-       ((=ucs		    . #x53E3)	; 口
+       ((===cbeta	    . 02916)	; &R-CB02916;
 	)
-       ((=ucs@unicode	    . #x8E47)	; &C2-5F6B;
-	(=gb2312	    . #x653F)	; &C2-5F6B; [69-31]
-	(=cns11643-2	    . #x5F6B)	; &I-C2-5F6B; [63-75]
+       ((===cns11643-5	    . #x6B6F)	; &R-C5-6B6F; [75-79]
+	)
+       ((===ucs@iso	    . #x21113)	; &R-U-00021113;
+	)
+       ((=hanziku-2	    . #xE35C)	; &HZK02-E35C;
 	))
-      (=ucs@iso		  . #x21113)	; &C5-6B6F;
-      (=cns11643-5	  . #x6B6F)	; &C5-6B6F; [75-79]
-      (=hanziku-2	  . #xE35C)	; &I-HZK02-E35C;
       ))
     ))
 (define-char
