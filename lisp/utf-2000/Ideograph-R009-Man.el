@@ -49503,6 +49503,7 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 17)
     (total-strokes	 . 19)
+    (hanyu-dazidian	1 238 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -49513,6 +49514,9 @@
      ((=ucs		  . #x8E47)	; 蹇
       ))
     (=ucs		. #x2043B)	; 𠐻
+    (=cns11643-5	. #x674A)	; &I-C5-674A; [71-42]
+    (=daikanwa		. 01292)	; &I-M-01292;
+    (=cbeta		. 00951)	; &I-CB00951;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -49521,31 +49525,24 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@jis	    . #x8E47)	; &GT-50425;
-	(=ucs@ks	    . #x8E47)	; &GT-50425;
-	(=jis-x0208	    . #x6D21)	; &GT-50425; [77-01]
-	(=ks-x1001	    . #x4B74)	; &I-K0-4B74; [43-84]
-	(=jis-x0213-1	    . #x6D21)	; &I-JX1-6D21; [77-01]
-	(=daikanwa	    . 37741)	; &I-M-37741;
+       ((==ucs@unicode	    . #x8E47)	; &g2-GT-50425;
+	(==jis-x0208	    . #x6D21)	; &g2-GT-50425; [77-01]
 	))
-      (=daikanwa	  . 01292)	; &M-01292;
-      (=cbeta		  . 00951)	; &I-CB00951;
-      )
-     ((hanyu-dazidian	  1 238 2)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
+      (==ucs@iso	  . #x2043B)	; &g2-M-01292;
+      (==cns11643-5	  . #x674A)	; &g2-M-01292; [71-42]
+      (==daikanwa	  . 01292)	; &g2-M-01292;
+      (==cbeta		  . 00951)	; &g2-M-01292;
+      (->subsumptive
+       ((===daikanwa	    . 01292)	; &R-M-01292;
 	)
-       ((name		    . "CJK RADICAL PERSON")
-	(=ucs		    . #x2E85)	; ⺅
+       ((===cbeta	    . 00951)	; &R-CB00951;
 	)
-       ((=ucs@unicode	    . #x8E47)	; &C2-5F6B;
-	(=gb2312	    . #x653F)	; &C2-5F6B; [69-31]
-	(=cns11643-2	    . #x5F6B)	; &I-C2-5F6B; [63-75]
+       ((===cns11643-5	    . #x674A)	; &R-C5-674A; [71-42]
+	)
+       ((===ucs@iso	    . #x2043B)	; &R-U-0002043B;
+	)
+       ((=hanziku-1	    . #xD752)	; &HZK01-D752;
 	))
-      (=ucs@iso		  . #x2043B)	; &C5-674A;
-      (=cns11643-5	  . #x674A)	; &C5-674A; [71-42]
-      (=hanziku-1	  . #xD752)	; &I-HZK01-D752;
       ))
     ))
 (define-char
