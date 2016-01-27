@@ -1,5 +1,87 @@
 2016-01-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R130-Meat.el: Add some Adobe-Japan1-0 code points.
+	(U+808E): Apply new conventions for glyph granularity.
+	(U-0002F980): Add `<-denotational' for U-0002335F; apply new
+	conventions for glyph granularity.
+	(U+8093): Apply new conventions for glyph granularity.
+	(U-00020554): Likewise.
+	(U+80A6): Likewise.
+	(U+80A7): Use `->subsumptive'.
+	(U+80AB): Apply new conventions for glyph granularity.
+	(U+80BB): Use `->subsumptive'; add HNG-KHI0533-0.
+	(U+80B8): Apply new conventions for glyph granularity.
+	(U+80B9): Likewise.
+	(U+80C8): Likewise.
+	(U+80CA): Likewise.
+	(U+80CC): Add HNG-KHI0149-0.
+	(U+80D1): Apply new conventions for glyph granularity.
+	(U+80D8): Likewise.
+	(U+80DC): Likewise; add `<-original' for U+8165.
+	(U+80F2): Apply new conventions for glyph granularity.
+	(U+80F7): Use `->subsumptive'; unify S-6477; add `<-formed' for
+	U+80F8.
+	(U+80FA): Apply new conventions for glyph granularity.
+	(U+43FB): Likewise.
+	(M-29455): Unify JPU+43FB, MJ003817 and KOSEKI-328630; add
+	HNG-KHI0534-0.
+	(U+8103): Apply new conventions for glyph granularity.
+	(U+8118): Likewise.
+	(U+43F0): Likewise.
+	(U+8127): Likewise.
+	(BUCS+8129): New abstract node.
+	(U+8129): Add `<-denotational' for BUCS+8129.
+	(HNG-KHI0532-0): New character; add `<-denotational' for
+	BUCS+8129; add `<-formed' for U+8129.
+	(U+812B): Apply new conventions for glyph granularity; separate
+	UU+812B.
+	(UU+812B): Add `=>ucs@iwds-1'; unify S-6501.
+	(MJ058383): New character; unify KOSEKI-329800; add
+	`<-denotational' for U+812B; add HNG-KHI0151-0.
+	(U+8131): Unify S-6500.
+	(U+812C): Apply new conventions for glyph granularity.
+	(U+813A): Likewise.
+	(U+813D): Likewise.
+	(U+4408): Likewise.
+	(U+8160): Likewise.
+	(U+8161): Likewise.
+	(U+8173): Likewise.
+	(UU+8173): Unify S-6493; add `<-original' for U+811A.
+	(U+4417): Apply new conventions for glyph granularity.
+	(U+8181): Likewise.
+	(U+441C): Likewise.
+	(U+8190): Likewise.
+	(BUCS+8183): New abstract node; unify B-E3A6.
+	(U+8183): Apply new conventions for glyph granularity; move B-E3A6
+	to BUCS+8183; add `<-denotational' for BUCS+8183.
+	(U+817D): Apply new conventions for glyph granularity; add
+	`<-denotational' for BUCS+8183.
+	(U+8186): Apply new conventions for glyph granularity.
+	(U+818E): Likewise.
+	(U+81B2): Likewise.
+	(U+81BB): Likewise.
+	(U+81CB): Likewise.
+	(U+81C3): Likewise.
+	(U+81CE): Likewise.
+	(U+81CF): Likewise.
+	(U-00026878): Likewise; unify S-6561; add `<-vulgar' for U+81A9.
+	(U+81D5): Apply new conventions for glyph granularity.
+	(U+81DB): Likewise.
+	(U+81DD): Likewise.
+	(U+81DE): Likewise.
+	(U+81E1): Likewise.
+
+	* Ideograph-R037-Big.el (U+592C): Add
+	`sound@ja/on/{kan|go}/p={guai4|jue2}'; apply new conventions for
+	glyph granularity; add `<-same' for U+53CF; add `->formed' for
+	U-000223B9; add `->interchangeable' for UU+6C7A.
+	(U-000215D2): Add `sound@ja/on'; apply new conventions for glyph
+	granularity; add `<-vulgar' for U+53CF; add GT-07368 and
+	GT-K00741.
+	(U-00021686): Use `->subsumptive'.
+
+2016-01-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R060-Step.el (JU+5FAF): Unify S-2374.
 
 	* Ideograph-R027-Cliff.el (U+3553): Add `ideographic-structure';
