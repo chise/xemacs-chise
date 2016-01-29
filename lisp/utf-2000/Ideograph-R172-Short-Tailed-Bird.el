@@ -4170,6 +4170,14 @@
   '((ideographic-radical . 172)	; ⾫
     (ideographic-strokes . 11)
     (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x79BB)	; 离
+      )
+     ((=ucs		  . #x96B9)	; 隹
+      ))
     (=ucs		. #x96E2)	; 離
     ))
 (define-char
@@ -4179,6 +4187,18 @@
     (ideographic-radical . 172)	; ⾫
     (ideographic-strokes . 11)
     (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x79BB)	; &JX2-726E;
+      (=gb2312		  . #x406B)	; &JX2-726E; [32-75]
+      (=jis-x0212	  . #x5073)	; &I-JSP-5073; [48-83]
+      (=jis-x0213-2	  . #x726E)	; &I-JX2-726E; [82-78]
+      (=daikanwa	  . 24888)	; &I-M-24888;
+      )
+     ((=ucs		  . #x96B9)	; 隹
+      ))
     (=ucs@unicode	. #x96E2)	; &GT-56604;
     (=jis-x0208		. #x4E25)	; &GT-56604; [46-05]
     (=ks-x1001		. #x576E)	; &I-K0-576E; [55-78]
@@ -4216,11 +4236,22 @@
     (ideographic-radical . 172)	; ⾫
     (ideographic-strokes . 11)
     (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@cns		  . #x79BB)	; &C2-3766;
+      (=cns11643-2	  . #x3766)	; &C2-3766; [23-70]
+      )
+     ((=ucs		  . #x96B9)	; 隹
+      ))
     (=ucs@cns		. #x96E2)	; &C1-7762;
     (=cns11643-1	. #x7762)	; &C1-7762; [87-66]
     (->subsumptive
      ((==ucs@cns	  . #x96E2)	; &g2-CU+96E2;
       (==cns11643-1	  . #x7762)	; &g2-CU+96E2; [87-66]
+      )
+     ((===hng-khi	  . 02060)	; &HNG010-02060;
       ))
     ))
 (define-char
