@@ -1,3 +1,9 @@
+2016-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (U+96E2): Add
+	ideographic-structure.
+	(CU+96E2): Add HNG-KHI0206-0.
+
 2016-01-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U-00021113): Apply new conventions for
