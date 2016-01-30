@@ -581,12 +581,10 @@
     (=shinjigen		.  4081)	; 决
     (=cbeta		. 00804)	; &I-CB00804;
     (<-vulgar
-     ((=ucs@unicode	  . #x6C7A)	; &GT-21966;
-      (=jis-x0208	  . #x3768)	; &GT-21966; [23-72]
-      (=ks-x1001	  . #x4C3D)	; &I-K0-4C3D; [44-29]
-      (=jis-x0213-1	  . #x3768)	; &I-JX1-3768; [23-72]
+     ((=ucs		  . #x6C7A)	; 決
+      (=jis-x0208	  . #x3768)	; &I-J90-3768; [23-72]
       (=daikanwa	  . 17174)	; &I-M-17174;
-      (=shinjigen	  .  4080)	; &GT-21966;
+      (=shinjigen	  .  4080)	; 決
       ))
     (<-vulgar*sources
      yupian daikanwa shinjigen@1ed)
