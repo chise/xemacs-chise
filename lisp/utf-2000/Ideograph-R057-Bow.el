@@ -734,16 +734,31 @@
     (total-strokes	 . 7)
     (hanyu-dazidian	2 992 12)
     (=ucs		. #x223B9)	; 𢎹
+    (=cns11643-5	. #x2431)	; &I-C5-2431; [04-17]
     (=daikanwa		. 09735)	; &I-M-09735;
-    (=hanziku-3		. #xCABD)	; &I-HZK03-CABD;
-    ))
-(define-char
-  '((=>ucs		. #x223B9)	; 𢎹
-    (morohashi-daikanwa	9735 0 0)
-    (ideographic-radical . 57)	; ⼸
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (=cns11643-5	. #x2431)	; &C5-2431; [04-17]
+    (<-formed
+     ((=ucs		  . #x592C)	; 夬
+      ))
+    (<-same
+     ((=ucs		  . #x592C)	; 夬
+      (=daikanwa	  . 05836)	; &I-M-05836;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x223B9)	; &g2-M-09735;
+      (==daikanwa	  . 09735)	; &g2-M-09735;
+      (->subsumptive
+       ((===daikanwa	    . 09735)	; &R-M-09735;
+	)
+       ((===ucs@iso	    . #x223B9)	; &R-U-000223B9;
+	)
+       ((=hanziku-3	    . #xCABD)	; &HZK03-CABD;
+	))
+      )
+     ((==ucs@cns	  . #x223B9)	; &g2-CU+223B9;
+      (==cns11643-5	  . #x2431)	; &g2-CU+223B9; [04-17]
+      ))
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
