@@ -1,3 +1,14 @@
+2016-01-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el (U+6C7A): Apply new conventions for
+	glyph granularity; add `<-interchangeable' for U+592C; add
+	`<-same' for U+592C and UU+6289.
+	(U+6E4F): Add `<-same' for U+6CAC and M-18254; add `->mistakable'
+	for U+9808; add HNG-KHI0618-0.
+
+	* Ideograph-R057-Bow.el (U-000223B9): Use `->subsumptive'; add
+	`<-formed' and `<-same' for U+592C.
+
 2016-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R172-Short-Tailed-Bird.el (U+96E2): Add
