@@ -2754,20 +2754,51 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=ucs		. #x20BC1)	; 𠯁
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20BC1)	; 𠯁
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (hanyu-dazidian	1 584 3)
+    (=ucs@iso		. #x20BC1)	; &M-03318;
+    (=daikanwa		. 03318)	; &M-03318;
+    (<-vulgar
+     ((=ucs		  . #x8DB3)	; 足
+      (=daikanwa	  . 37365)	; &I-M-37365;
+      ))
+    (<-vulgar*sources
+     songyuan-yilai-suzipu daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 03318)	; &M-03318;
-      (<-vulgar
-       ((=ucs		    . #x8DB3)	; 足
-	(=daikanwa	    . 37365)	; &I-M-37365;
+     ((==daikanwa	  . 03318)	; &g2-M-03318;
+      )
+     ((==ucs@iso	  . #x20BC1)	; &g2-IU-00020BC1;
+      (->subsumptive
+       ((===ucs@iso	    . #x20BC1)	; &R-U-00020BC1;
+	)
+       ((=hanziku-2	    . #xCAB1)	; &HZK02-CAB1;
 	))
-      (<-vulgar*sources
-       songyuan-yilai-suzipu daikanwa)
       )
-     ((hanyu-dazidian	  1 584 3)
-      (=ucs@iso		  . #x20BC1)	; &HZK02-CAB1;
-      (=hanziku-2	  . #xCAB1)	; &HZK02-CAB1;
-      )
-     ((=cns11643-6	  . #x242A)	; &C6-242A; [04-10]
+     ((===hng-khi	  . 05780)	; &HNG010-05780;
+      (<-formed
+       ((=ucs		    . #x8DB3)	; 足
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20BC1)	; 𠯁
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (=ucs@cns		. #x20BC1)	; &C6-242A;
+    (=cns11643-6	. #x242A)	; &C6-242A; [04-10]
+    (->subsumptive
+     ((==ucs@cns	  . #x20BC1)	; &g2-CU+20BC1;
+      (==cns11643-6	  . #x242A)	; &g2-CU+20BC1; [04-10]
       ))
     ))
 (define-char
