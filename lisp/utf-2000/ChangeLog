@@ -1,3 +1,8 @@
+2016-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U-00020BC1): Apply new conventions for
+	glyph granularity; add HNG-KHI0578-0.
+
 2016-01-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R085-Water.el (U+6C7A): Apply new conventions for
