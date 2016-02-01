@@ -716,7 +716,7 @@
 		     =mj ==mj ===mj =>>mj =>mj
 		     =zihai mojikyo))
 	"(%-18s . %06d)\t; %c")
-       ((memq name '(=hanyo-denshi/tk))
+       ((memq name '(=hanyo-denshi/tk ==hanyo-denshi/tk))
 	"(%-18s . %08d)\t; %c")
        ((>= (charset-dimension name) 2)
 	"(%-18s . #x%04X)\t; %c")
