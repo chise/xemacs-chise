@@ -3,7 +3,7 @@
 ;; Copyright (C) 1995,1999 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1997, 1999, 2000, 2002, 2003, 2004, 2005, 2006, 2008,
-;;   2009, 2010, 2011, 2012, 2013, 2014, 2015 MORIOKA Tomohiko
+;;   2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016 MORIOKA Tomohiko
 
 ;; Keywords: mule, multilingual, character set, coding system
 
@@ -1820,7 +1820,7 @@
   (make-charset
    '=hanyo-denshi/ks
    "KS (KoSeki) part of Han'you-Denshi characters"
-   `(long-name "Han'you-Denshi/KS font encoding"
+   `(long-name "Han'you-Denshi/KS"
 	       chars 256
 	       dimension 3
 	       columns 2
@@ -1829,7 +1829,7 @@
   (make-charset
    '=hanyo-denshi/tk
    "TK (TouKi) part of Han'you-Denshi characters"
-   `(long-name "Han'you-Denshi/KS font encoding"
+   `(long-name "Han'you-Denshi/TK"
 	       chars 256
 	       dimension 3
 	       columns 2
@@ -1993,6 +1993,16 @@
 	       graphic 2
 	       direction l2r
 	       mother =hanyo-denshi/ks))
+  (make-charset
+   '==hanyo-denshi/tk
+   "TK (TouKi) part of Han'you-Denshi abstract glyph-forms."
+   `(long-name "Han'you-Denshi/TK glyph-forms"
+	       chars 256
+	       dimension 3
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =hanyo-denshi/tk))
 
   (make-charset
    '=koseki
