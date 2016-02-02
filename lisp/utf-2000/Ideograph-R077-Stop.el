@@ -2070,20 +2070,35 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
     (=ucs		. #x2399D)	; 𣦝
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2399D)	; 𣦝
+      ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (hanyu-dazidian	2 1446 2)
+    (=ucs@iso		. #x2399D)	; &C7-2E79;
+    (=cns11643-7	. #x2E79)	; &C7-2E79; [14-89]
+    (=daikanwa		. 16342)	; &I-M-16342;
+    (<-same
+     ((=ucs@jis		  . #x8E72)	; &GT-50590;
+      (=jis-x0208	  . #x6D2D)	; &GT-50590; [77-13]
+      (=jis-x0213-1	  . #x6D2D)	; &I-JX1-6D2D; [77-13]
+      (=daikanwa	  . 37874)	; &I-M-37874;
+      ))
+    (<-same*sources
+     yupian daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 16342)	; &M-16342;
-      (<-same
-       ((=daikanwa	    . 37874)	; &M-37874;
-	))
-      (<-same*sources
-       yupian daikanwa)
+     ((==daikanwa	  . 16342)	; &g2-M-16342;
       )
-     ((=ucs@iso		  . #x2399D)	; &U-0002399D;
+     ((==ucs@iso	  . #x2399D)	; &g2-IU-0002399D;
       )
-     ((=cns11643-7	  . #x2E79)	; &C7-2E79; [14-89]
+     ((==ucs@cns	  . #x2399D)	; &g2-CU+2399D;
+      (==cns11643-7	  . #x2E79)	; &g2-CU+2399D; [14-89]
       )
-     ((hanyu-dazidian	  2 1446 2)
-      (=hanziku-4	  . #xD3F1)	; &HZK04-D3F1;
+     ((=hanziku-4	  . #xD3F1)	; &HZK04-D3F1;
       ))
     ))
 (define-char
