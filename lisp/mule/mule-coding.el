@@ -290,6 +290,7 @@
 	  (==hanyo-denshi/ip		    "g2-HD-IP-" 4 X)
 	  (==hanyo-denshi/jt		    "g2-HD-JT-" 4 X)
 	  (==hanyo-denshi/ks		    "g2-HD-KS-" 6 d)
+	  (==hanyo-denshi/tk		    "g2-HD-TK-" 8 d)
 	  (===hanyo-denshi/jb		     "R-HD-JB-" 4 X)
 	  (===hanyo-denshi/ft		     "R-HD-FT-" 4 X)
 	  (===hanyo-denshi/ia		     "R-HD-IA-" 4 X)
