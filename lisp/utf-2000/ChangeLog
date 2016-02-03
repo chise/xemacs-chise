@@ -1,3 +1,9 @@
+2016-02-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R157-Foot.el (U+8DEA): Separate UU+8DEA.
+	(HNG-KHI0182-0): New character; add `<-denotational' for U+8DEA.
+	(U-000280DF): Apply new conventions for glyph granularity.
+
 2016-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R077-Stop.el (U-0002399D): Apply new conventions for
