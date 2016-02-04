@@ -1,3 +1,13 @@
+2016-02-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R109-Eye.el (U+7779): Use `->denotational'.
+
+2016-02-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R181-Leaf.el: Add glyph-images of HNG-KHI.
+	(U+9858-itaiji-002): New character; add `<-formed' for U+9858; add
+	HNG-KHI0620-0.
+
 2016-02-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R157-Foot.el (U+8DEA): Separate UU+8DEA.
