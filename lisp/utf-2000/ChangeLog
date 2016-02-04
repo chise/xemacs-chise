@@ -1,5 +1,10 @@
 2016-02-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U+56D5): Apply new conventions for
+	glyph granularity.
+
+2016-02-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R109-Eye.el (U+7779): Use `->denotational'.
 
 2016-02-02  MORIOKA Tomohiko  <tomo.git@chise.org>
