@@ -1,3 +1,31 @@
+2016-02-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R173-Rain.el: Add glyph-images of HNG-KHI.
+	(U+96E8): Apply new conventions for glyph granularity.
+	(U+970A): Likewise.
+	(U+9732): Likewise.
+	(U+9748): Likewise.
+	(HD-TK01097100): New character; add `<-denotational' for U+9748.
+	(HD-TK01097180): Likewise; add HNG-KHI0613-0.
+
+	* Ideograph-R147-See.el (U+8990): Apply new conventions for glyph
+	granularity.
+	(U+8994): Unify S-7488; add `<-vulgar' for JU+8993.
+	(U+899B): Apply new conventions for glyph granularity.
+	(U+899C): Likewise.
+	(U+89A6): Likewise.
+	(JU+89A9): Add `<-ancient' for JU+7779.
+	(U+89A7): Apply new conventions for glyph granularity.
+	(U+89B3): Likewise.
+	(U+89B6): Likewise.
+	(U+89B7): Likewise.
+	(U+89BD): Likewise.
+	(U+89BF): Likewise.
+	(U+89C0): Likewise.
+
+	* Ideograph-R086-Fire.el (JU+7075): Unify S-9007; add `<-vulgar'
+	for UU+9748.
+
 2016-02-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U+56D5): Apply new conventions for
