@@ -6247,7 +6247,14 @@
     (=hanziku-7		. #xAFA7)	; &I-HZK07-AFA7;
     ))
 (define-char
-  '((=>ucs		. #x7779)	; 睹
+  '((ideographic-radical . 109)	; ⽬
+    (=ucs		. #x7779)	; 睹
+    (=big5		. #xB840)	; &I-B-B840;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7779)	; 睹
+      ))
     (ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
@@ -6255,19 +6262,21 @@
     (=jis-x0208		. #x6251)	; &GT-30110; [66-49]
     (=ks-x1001		. #x5429)	; &I-K0-5429; [52-09]
     (=jis-x0213-1	. #x6251)	; &I-JX1-6251; [66-49]
-    (=big5		. #xB840)	; &I-B-B840;
     (=gt		. 30110)	; &I-GT-30110;
     (=gt-pj-1		. #x6251)	; &I-GT-30110; [66-49]
     (=daikanwa		. 23519)	; &I-M-23519;
-    (=shinjigen@rev	.  5337)	; &GT-30110;
+    (=shinjigen		.  5337)	; &GT-30110;
     ))
 (define-char
-  '((morohashi-daikanwa	23519 0 2)
+  '((<-denotational
+     ((=ucs		  . #x7779)	; 睹
+      ))
     (ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
-    (=ucs		. #x7779)	; 睹
-    (=gb2312		. #x3643)	; &I-G0-3643; [22-35]
+    (=ucs@unicode	. #x7779)	; &C1-6547;
+    (=ucs@JP/hanazono	. nil)
+    (=gb2312		. #x3643)	; &C1-6547; [22-35]
     (=cns11643-1	. #x6547)	; &I-C1-6547; [69-39]
     ))
 (define-char
