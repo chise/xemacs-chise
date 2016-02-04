@@ -641,11 +641,24 @@
     (=cns11643-3	. #x2662)	; &I-C3-2662; [06-66]
     (=jis-x0213-1	. #x7744)	; &I-JX1-7744; [87-36]
     (=daikanwa		. 18868)	; &I-M-18868;
+    (=shinjigen		.  9007)	; &JX1-7744;
+    (<-vulgar
+     ((=ucs@unicode	  . #x9748)	; &GT-57085;
+      (=jis-x0208	  . #x704D)	; &GT-57085; [80-45]
+      (=ks-x1001	  . #x5644)	; &I-K0-5644; [54-36]
+      (=cns11643-1	  . #x7C71)	; &I-C1-7C71; [92-81]
+      (=jis-x0213-1	  . #x704D)	; &I-JX1-704D; [80-45]
+      (=daikanwa	  . 42532)	; &I-M-42532;
+      (=shinjigen	  .  9006)	; &GT-57085;
+      ))
+    (<-vulgar*sources
+     shinjigen)
     (->subsumptive
      ((==ucs@jis	  . #x7075)	; &g2-JSP-4946;
       (==jis-x0212	  . #x4946)	; &g2-JSP-4946; [41-38]
       (==jis-x0213-1	  . #x7744)	; &g2-JSP-4946; [87-36]
       (==daikanwa	  . 18868)	; &g2-JSP-4946;
+      (==shinjigen	  .  9007)	; &g2-JSP-4946;
       (->subsumptive
        ((===daikanwa	    . 18868)	; &R-M-18868;
 	)
