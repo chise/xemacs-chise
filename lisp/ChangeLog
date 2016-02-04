@@ -3,6 +3,12 @@
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
 	setting for `==hanyo-denshi/tk'.
 
+2016-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=hanyo-denshi/ks): Fix `long-name'.
+	(=hanyo-denshi/tk): Fix `long-name'.
+	(==hanyo-denshi/tk): New coded-charset for XEmacs CHISE.
+
 2016-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
