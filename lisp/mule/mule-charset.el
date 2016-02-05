@@ -4,7 +4,7 @@
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1996 Sun Microsystems.
 ;; Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2007, 2008,
-;;   2009, 2010, 2011, 2012, 2013, 2014, 2015 MORIOKA Tomohiko
+;;   2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016 MORIOKA Tomohiko
 
 ;; Author: Unknown
 ;; Keywords: i18n, mule, internal
@@ -384,6 +384,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =ucs-bmp-itaiji-001
 	  =ucs-sip-itaiji-001
 	  =ucs-bmp-itaiji-002
+	  =ucs-sip-itaiji-002
 	  =ucs-bmp-itaiji-003
 	  =ucs-bmp-itaiji-004
 	  =ucs-bmp-itaiji-005
