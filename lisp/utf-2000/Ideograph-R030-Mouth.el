@@ -49378,7 +49378,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x8B65)	; &CDP-8B65;
+     ((=ucs		  . #x2696F)	; 𦥯
       )
      ((=ucs@big5	  . #x544A)	; &J97-3970;
       (=>jis-x0208	  . #x3970)	; &J97-3970; [25-80]
@@ -49402,7 +49402,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x8B65)	; &CDP-8B65;
+     ((=ucs		  . #x2696F)	; 𦥯
       )
      ((=ucs		  . #x543F)	; 吿
       ))
@@ -49423,7 +49423,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x8B65)	; &CDP-8B65;
+     ((=ucs		  . #x2696F)	; 𦥯
       )
      ((=ucs		  . #x544A)	; 告
       ))
