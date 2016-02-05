@@ -3979,7 +3979,19 @@
   '((ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 24)
     (total-strokes	 . 30)
+    (hanyu-dazidian	5 3140 23)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7F8A)	; 羊
+      )
+     ((=ucs		  . #x9748)	; 靈
+      ))
     (=ucs		. #x263F0)	; 𦏰
+    (=cns11643-7	. #x655E)	; &I-C7-655E; [69-62]
+    (=daikanwa		. 28612)	; &I-M-28612;
+    (=cbeta		. 05201)	; &I-CB05201;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -3987,30 +3999,10 @@
 	)
        ((=gt-k		    . 01701)	; &GT-K01701;
 	)
-       ((=ucs@unicode	    . #x9748)	; &GT-57085;
-	(=jis-x0208	    . #x704D)	; &GT-57085; [80-45]
-	(=ks-x1001	    . #x5644)	; &I-K0-5644; [54-36]
-	(=jis-x0213-1	    . #x704D)	; &I-JX1-704D; [80-45]
-	(=daikanwa	    . 42532)	; &I-M-42532;
+       ((==ucs@unicode	    . #x9748)	; &g2-GT-57085;
+	(==jis-x0208	    . #x704D)	; &g2-GT-57085; [80-45]
 	))
-      (=daikanwa	  . 28612)	; &M-28612;
-      )
-     ((hanyu-dazidian	  5 3140 23)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=big5-cdp	    . #x8970)	; &CDP-8970;
-	)
-       ((=ucs@unicode	    . #x9748)	; &GT-57085;
-	(=jis-x0208	    . #x704D)	; &GT-57085; [80-45]
-	(=ks-x1001	    . #x5644)	; &I-K0-5644; [54-36]
-	(=jis-x0213-1	    . #x704D)	; &I-JX1-704D; [80-45]
-	(=daikanwa	    . 42532)	; &I-M-42532;
-	))
-      (=ucs@iso		  . #x263F0)	; &CB05201;
-      (=hanziku-8	  . #xE0D9)	; &CB05201;
-      (=cbeta		  . 05201)	; &I-CB05201;
+      (==daikanwa	  . 28612)	; &g2-M-28612;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -4018,9 +4010,30 @@
 	)
        ((=big5-cdp	    . #x8970)	; &CDP-8970;
 	)
-       ((=cns11643-1	    . #x7C71)	; &C1-7C71; [92-81]
+       ((==ucs@unicode	    . #x9748)	; &g2-GT-57085;
+	(==jis-x0208	    . #x704D)	; &g2-GT-57085; [80-45]
 	))
-      (=cns11643-7	  . #x655E)	; &C7-655E; [69-62]
+      (==ucs@iso	  . #x263F0)	; &g2-CB05201;
+      (==cbeta		  . 05201)	; &g2-CB05201;
+      (->subsumptive
+       ((===ucs@iso	    . #x263F0)	; &R-U-000263F0;
+	)
+       ((=hanziku-8	    . #xE0D9)	; &HZK08-E0D9;
+	)
+       ((===cbeta	    . 05201)	; &R-CB05201;
+	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=big5-cdp	    . #x8970)	; &CDP-8970;
+	)
+       ((==ucs@cns	    . #x9748)	; &g2-CU+9748;
+	(==cns11643-1	    . #x7C71)	; &g2-CU+9748; [92-81]
+	))
+      (==ucs@cns	  . #x263F0)	; &g2-CU+263F0;
+      (==cns11643-7	  . #x655E)	; &g2-CU+263F0; [69-62]
       ))
     ))
 (define-char
