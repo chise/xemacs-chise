@@ -1,3 +1,8 @@
+2016-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (U+8411-itaiji-002): New
+	character; add `<-formed' for U+96DA and U+8411.
+
 2016-02-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R123-Sheep.el (U-000263F0): Apply new conventions for
