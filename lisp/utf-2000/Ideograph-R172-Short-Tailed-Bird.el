@@ -1107,6 +1107,8 @@
      ((=ucs		  . #x96DA)	; 雚
       )
      ((=ucs		  . #x8411)	; 萑
+      )
+     ((=ucs-itaiji-002	  . #x8411)	; &U-i002+8411;
       ))
     ))
 (define-char
@@ -1617,6 +1619,25 @@
     (=ucs		. #x96CF)	; 雏
     (=gb2312		. #x337B)	; &I-G0-337B; [19-91]
     (=cns11643-4	. #x4157)	; &I-C4-4157; [33-55]
+    ))
+(define-char
+  '((ideographic-radical . 172)	; ⾫
+    (ideographic-strokes . 5)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E1A)	; 业
+      )
+     ((=ucs		  . #x96B9)	; 隹
+      ))
+    (=ucs-itaiji-002	. #x8411)	; &U-i002+8411;
+    (<-formed
+     ((=ucs		  . #x96DA)	; 雚
+      )
+     ((=ucs		  . #x8411)	; 萑
+      ))
     ))
 (define-char
   '((=>ucs		. #x49FB)	; 䧻
