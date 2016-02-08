@@ -305,7 +305,17 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (=ucs		. #x5F17)	; 弗
-    (=adobe-japan1-0	. 03574)	; &I-AJ1-03574;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5F17)	; 弗
+      ))
+    (ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=>ucs@iwds-1	. #x5F17)	; &AJ1-03574;
+    (=ucs@unicode	. #x5F17)	; &AJ1-03574;
+    (=adobe-japan1-0	. 03574)	; &AJ1-03574;
     (=jis-x0208		. #x4A26)	; &I-J90-4A26; [42-06]
     (=gb2312		. #x3825)	; &I-G0-3825; [24-05]
     (=ks-x1001		. #x5D57)	; &I-K0-5D57; [61-55]
@@ -316,7 +326,16 @@
     (=gt-k		. 00996)	; &I-GT-K00996;
     (=gt-pj-1		. #x4A26)	; &I-GT-12238; [42-06]
     (=daikanwa		. 09708)	; &I-M-09708;
-    (=shinjigen		.  2268)	; 弗
+    (=shinjigen		.  2268)	; &AJ1-03574;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5F17)	; 弗
+      ))
+    (ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=ucs-itaiji-002	. #x5F17)	; &U-i002+5F17;
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
