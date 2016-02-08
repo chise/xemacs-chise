@@ -1,4 +1,37 @@
+2016-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (U+6182): Separate A-UU+6182.
+	(A-UU+6182): Add `=>ucs@iwds-1'.
+	(U+6182-itaiji-003): New character; add `<-denotational' for
+	U+6182.
+
+	* Ideograph-R009-Man.el: Add glyph-images of HNG-KHM.
+	(U+4F0E): Separate UU+4F0E.
+	(U+4F0E-var-001): New character; add `<-denotational' for U+4F0E;
+	add HNG-KHM0185-0.
+	(HNG-KHI0239-0): Use U+4F0E-var-001 instead of U+4F0E as the
+	mother.
+	(U+4F5B): Separate UU+4F5B.
+	(U+4F5B-itaiji-002): New character; add `<-denotational' for
+	U+4F5B; add HNG-KHM0186-0.
+	(HNG-KHI0242-0): Use U+4F5B-itaiji-002 instead of U+4F5B as the
+	mother.
+	(A-HDU+512A): Unify U+512A; use `=ucs' instead of
+	`=>ucs@hanyo-denshi'.
+	(A-J0-4D25): Separate U+512A; unify A-UU+512A; add `=>ucs@iwds-1'.
+	(HNG-KHM0005-0): New character; add `<-denotational' for U+512A.
+
 2016-02-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R065-Branch.el (U+652F): Separate UU+652F.
+	(U+652F-itaiji-004): New character; add `<-denotational' for
+	U+652F.
+	(HNG-KHI0080-0): Use MJ057580 instead of U+652F as the mother.
+
+	* Ideograph-R057-Bow.el (U+5F17): Separate UU+5F17.
+	(UU+5F17): Add `=>ucs@iwds-1'.
+	(U+5F17-itaiji-002): New character; add `<-denotational' for
+	U+5F17.
 
 	* Ideograph-R134-Mortar.el (U-0002696F): New character; unify
 	JX2-755D and BC-8B65.
