@@ -49852,7 +49852,6 @@
      ((=ucs		  . #x95CD)	; 闍
       ))
     (=ucs		. #x21122)	; 𡄢
-    (=cbeta		. 03537)	; &I-CB03537;
     ))
 (define-char
   '((<-denotational
@@ -49862,6 +49861,17 @@
     (ideographic-strokes . 17)
     (total-strokes	 . 20)
     (hanyu-dazidian	1 705 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs@jis		  . #x95CD)	; &GT-55680;
+      (=jis-x0208	  . #x6F6B)	; &GT-55680; [79-75]
+      (=jis-x0213-1	  . #x6F6B)	; &I-JX1-6F6B; [79-75]
+      (=daikanwa	  . 41434)	; &I-M-41434;
+      ))
     (=daikanwa		. 04599)	; &M-04599;
     (->subsumptive
      ((ideographic-structure
@@ -49870,7 +49880,7 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=daikanwa	    . 41434)	; &M-41434;
+       ((==daikanwa	    . 41434)	; &g2-M-41434;
 	))
       (==daikanwa	  . 04599)	; &g2-M-04599;
       )
@@ -49880,9 +49890,8 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@jis	    . #x95CD)	; &GT-55680;
-	(=jis-x0208	    . #x6F6B)	; &GT-55680; [79-75]
-	(=jis-x0213-1	    . #x6F6B)	; &I-JX1-6F6B; [79-75]
+       ((==ucs@jis	    . #x95CD)	; &g2-GT-55680;
+	(==jis-x0208	    . #x6F6B)	; &g2-GT-55680; [79-75]
 	))
       (=hanziku-2	  . #xE35D)	; &HZK02-E35D;
       ))
@@ -49903,7 +49912,13 @@
      ((=ucs@unicode	  . #x95CD)	; &GT-55641;
       (=cns11643-2	  . #x5B53)	; &GT-55641; [59-51]
       ))
-    (=ucs@iso		. #x21122)	; &U-00021122;
+    (=ucs@iso		. #x21122)	; &CB03537;
+    (=cbeta		. 03537)	; &CB03537;
+    (->subsumptive
+     ((==cbeta		  . 03537)	; &g2-CB03537;
+      )
+     ((==ucs@iso	  . #x21122)	; &g2-IU-00021122;
+      ))
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
@@ -52558,10 +52573,12 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs@jis		  . #x95DE)	; &JX1-7D5A;
+     ((=ucs@cns		  . #x95DE)	; &JX1-7D5A;
+      (=ucs@jis		  . #x95DE)	; &JX1-7D5A;
       (=jis-x0212	  . #x663F)	; &JX1-7D5A; [70-31]
       (=cns11643-2	  . #x6A53)	; &I-C2-6A53; [74-51]
       (=jis-x0213-1	  . #x7D5A)	; &I-JX1-7D5A; [93-58]
+      (=daikanwa	  . 41484)	; &I-M-41484;
       ))
     (=cns11643-3	. #x602D)	; &GT-05858; [64-13]
     (=gt		. 05858)	; &I-GT-05858;
