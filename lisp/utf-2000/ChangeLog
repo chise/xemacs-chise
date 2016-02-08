@@ -1,5 +1,15 @@
 2016-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U-00021122): Separate CB03537.
+	(M-04599): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(IU+21122): Unify CB03537.
+
+	* Ideograph-R020-Wrap.el (U+5302): Add representative nodes.
+	(U+5302-itaiji-001): New character; add `<-formed' for U+5302.
+
+2016-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R061-Heart.el (U+6182): Separate A-UU+6182.
 	(A-UU+6182): Add `=>ucs@iwds-1'.
 	(U+6182-itaiji-003): New character; add `<-denotational' for
