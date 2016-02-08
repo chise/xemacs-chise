@@ -1,3 +1,15 @@
+2016-02-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R134-Mortar.el (U-0002696F): New character; unify
+	JX2-755D and BC-8B65.
+	(U+2696F-itaiji-002): New character; add `<-formed' for
+	U-0002696F.
+
+2016-02-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el (HNG-KHI0470-0): Use U+66F7-itaiji-004
+	instead of "⿱日⿹勹匸" in `ideographic-structure'.
+
 2016-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R172-Short-Tailed-Bird.el (U+8411-itaiji-002): New
