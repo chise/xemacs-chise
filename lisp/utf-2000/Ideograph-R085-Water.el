@@ -13327,21 +13327,7 @@
      ((name		  . "CJK RADICAL WATER ONE")
       (=ucs		  . #x2EA1)	; ⺡
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x65E5)	; 日
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
-	  (=ucs		      . #x2FF9)	; ⿹
-	  )
-	 ((=ucs		      . #x52F9)	; 勹
-	  )
-	 ((=ucs		      . #x5338)	; 匸
-	  ))
-	))
+     ((=ucs-itaiji-004	  . #x66F7)	; &U-i004+66F7;
       ))
     (===hng-khi		. 04700)	; &HNG010-04700;
     ))
