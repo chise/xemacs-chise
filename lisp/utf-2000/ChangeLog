@@ -1,3 +1,8 @@
+2016-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R189-Tall.el (IU+29AE0): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
 2016-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R053-Dotted-Cliff.el (U+5EE3-var-003): New character;
