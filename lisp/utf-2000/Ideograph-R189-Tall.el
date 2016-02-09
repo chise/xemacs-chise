@@ -608,7 +608,6 @@
     (=ucs@iso		. #x29AE0)	; &C5-6E76;
     (=cns11643-5	. #x6E76)	; &C5-6E76; [78-86]
     (=daikanwa		. 45337)	; &I-M-45337;
-    (=hanziku-1		. #xE2BD)	; &I-HZK01-E2BD;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -617,8 +616,8 @@
        ((==ucs@iso	    . #x29ACF)	; &g2-CDP-8AE6;
 	(==daikanwa	    . 45329)	; &g2-CDP-8AE6;
 	)
-       ((=ucs@unicode	    . #x592C)	; &AJ1-04544;
-	(=adobe-japan1-0    . 04544)	; &AJ1-04544;
+       ((==ucs@unicode	    . #x592C)	; &g2-AJ1-04544;
+	(==adobe-japan1-0   . 04544)	; &g2-AJ1-04544;
 	))
       (==ucs@iso	  . #x29AE0)	; &g2-M-45337;
       (==daikanwa	  . 45337)	; &g2-M-45337;
@@ -626,6 +625,8 @@
        ((===daikanwa	    . 45337)	; &R-M-45337;
 	)
        ((===ucs@iso	    . #x29AE0)	; &R-U-00029AE0;
+	)
+       ((=hanziku-1	    . #xE2BD)	; &HZK01-E2BD;
 	))
       )
      ((ideographic-structure
@@ -635,8 +636,8 @@
        ((==ucs@iso	    . #x29ACF)	; &g2-CDP-8AE6;
 	(==daikanwa	    . 45329)	; &g2-CDP-8AE6;
 	)
-       ((=ucs@cns	    . #x592C)	; &C2-213B;
-	(=cns11643-2	    . #x213B)	; &C2-213B; [01-27]
+       ((==ucs@cns	    . #x592C)	; &g2-CU+592C;
+	(==cns11643-2	    . #x213B)	; &g2-CU+592C; [01-27]
 	))
       (==ucs@cns	  . #x29AE0)	; &g2-CU+29AE0;
       (==cns11643-5	  . #x6E76)	; &g2-CU+29AE0; [78-86]
