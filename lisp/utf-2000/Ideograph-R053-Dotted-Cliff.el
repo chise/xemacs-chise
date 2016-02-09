@@ -7294,6 +7294,15 @@
      ((=ucs		  . #x5EE3)	; 廣
       ))
     (ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (=ucs-var-003	. #x5EE3)	; &U-v003+5EE3;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5EE3)	; 廣
+      ))
+    (ideographic-radical . 53)	; ⼴
     (=+>ucs@unicode	. #x5EE3)	; &o-AJ1-20115;
     (=+>adobe-japan1-4	. 14127)	; &o-AJ1-20115;
     (=+>adobe-japan1-5	. 20115)	; &o-AJ1-20115;
