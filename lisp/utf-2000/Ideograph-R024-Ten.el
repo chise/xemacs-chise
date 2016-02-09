@@ -64,6 +64,8 @@
        ((===ucs@unicode	    . #x5341)	; &R-UU+5341;
 	)
        ((===hng-khi	    . 02840)	; &HNG010-02840;
+	)
+       ((===hng-khm	    . 02280)	; &HNG011-02280;
 	))
       ))
     ))
@@ -223,6 +225,8 @@
        ((===ucs@unicode	    . #x5343)	; &R-UU+5343;
 	)
        ((===hng-khi	    . 02830)	; &HNG010-02830;
+	)
+       ((===hng-khm	    . 02300)	; &HNG011-02300;
 	))
       ))
     ))
@@ -312,6 +316,20 @@
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
+    (==>ucs@bucs	. #x5347)	; &BUCS+5347;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5347)	; &BUCS+5347;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (=ucs		. #x5347)	; 升
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5347)	; 升
+      ))
+    (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 33 5)
@@ -323,8 +341,9 @@
       )
      ((=ucs		  . #x5EFE)	; 廾
       ))
-    (=ucs		. #x5347)	; 升
-    (=adobe-japan1-0	. 02443)	; &I-AJ1-02443;
+    (=>ucs@iwds-1	. #x5347)	; &AJ1-02443;
+    (=ucs@unicode	. #x5347)	; &AJ1-02443;
+    (=adobe-japan1-0	. 02443)	; &AJ1-02443;
     (=jis-x0208		. #x3E23)	; &I-J90-3E23; [30-03]
     (=gb2312		. #x497D)	; &I-G0-497D; [41-93]
     (=ks-x1001		. #x632E)	; &I-K0-632E; [67-14]
@@ -335,7 +354,35 @@
     (=gt-k		. 00445)	; &I-GT-K00445;
     (=gt-pj-1		. #x3E23)	; &I-GT-03458; [30-03]
     (=daikanwa		. 02702)	; &I-M-02702;
-    (=shinjigen		.  0813)	; 升
+    (=shinjigen		.  0813)	; &AJ1-02443;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5347)	; &BUCS+5347;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x2008A)	; 𠂊
+      )
+     ((=ucs		  . #x5341)	; 十
+      ))
+    (=>mj		. 057261)	; &A-MJ057261;
+    (<-formed
+     ((=ucs		  . #x3688)	; 㚈
+      )
+     ((=ucs		  . #x5347)	; 升
+      ))
+    (->subsumptive
+     ((=ucs-itaiji-003	  . #x5347)	; &U-i003+5347;
+      )
+     ((=mj		  . 057261)	; &MJ057261;
+      (=koseki		  . 065900)	; &MJ057261;
+      ))
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
@@ -1570,6 +1617,8 @@
 	))
       )
      ((===hng-khi	  . 00190)	; &HNG010-00190;
+      )
+     ((===hng-khm	  . 02290)	; &HNG011-02290;
       ))
     ))
 (define-char
