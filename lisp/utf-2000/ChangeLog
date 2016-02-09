@@ -1,5 +1,22 @@
 2016-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R053-Dotted-Cliff.el (U+5EE3-var-003): New character;
+	add `<-denotational' for U+5EE3.
+
+	* Ideograph-R075-Tree.el (U+6765-var-003): New node to integrate
+	HNG-KHI0245-0 and HNG-KHM0195-0; add `<-subsumptive' for U+6765.
+	(HNG-KHM0195-0): New glyph-image.
+
+	* Ideograph-R073-Say.el (UU+66F7): Add ideographic-structure.
+	(U+66F7-itaiji-004): New character; add `<-denotational' for
+	U+66F7.
+	(HD-FT2237): Add representative nodes.
+
+	* Ideograph-R021-Spoon.el (g2-JU+5316): Add HNG-KHM0178-0.
+	(U-0002F82B): Add HNG-KHM0227-0.
+
+	* Ideograph-R018-Knife.el (g2-UU+34DB): Add HNG-KHM0221-0.
+
 	* Ideograph-R030-Mouth.el (U-00021122): Separate CB03537.
 	(M-04599): Apply new conventions for glyph granularity for
 	components of ideographic-structure.
