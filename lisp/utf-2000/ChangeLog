@@ -1,5 +1,30 @@
 2016-02-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R147-See.el: Add glyph-images of HNG-KHI.
+	(BUCS+89BA): New abstract node.
+	(U+899A): Add `<-denotational' for BUCS+89BA.
+	(HNG-KHI0165-0): New character; add `<-denotational' for
+	BUCS+89BA.
+	(U+89C9): Add `<-denotational' for BUCS+89BA.
+	(g2-UU+89A9): Add HNG-KHM0120-0.
+	(BUCS+89C0): New abstract node.
+	(U+89B3): Add `<-denotational' for BUCS+89C0.
+	(U+89C2): Likewise.
+	(HNG-KHI0560-0): New character; add `<-denotational' for
+	BUCS+89C0; add `<-formed' for U+89C0.
+	(U+89BA): Add `<-denotational' for BUCS+89BA.
+	(U+89C0): Add `<-denotational' for BUCS+89C0.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`==jis-x0212'.
+
+	* Ideograph-R031-Enclosure.el: Add glyph-images of HNG-KHM.
+	(U+5712): Separate A-UU+5712.
+	(U+5712-var-002): New character; use `<-denotational' for U+5712;
+	add HNG-KHM0018-0.
+	(HNG-KHI0312-0): Use U+5712-var-002 instead of UU+5712 as the
+	mother.
+
 	* Ideograph-R028-Private.el (U+53BB): Add HNG-KHM0232-0.
 
 2016-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
