@@ -1,5 +1,11 @@
 2016-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el: Add glyph-images of HNG-KHM.
+
+	* Ideograph-R026-Seal.el (g2-UU+5373): Add HNG-KHM0231-0.
+
+	* Ideograph-R004-Slash.el (g2-UU+53CA): Add HNG-KHM0235-0.
+
 	* Ideograph-R024-Ten.el: Add glyph-images of HNG-KHM.
 	(BUCS+5347): New abstract node.
 	(U+5347): Separate UU+5347; add `<-denotational' for BUCS+5347.
