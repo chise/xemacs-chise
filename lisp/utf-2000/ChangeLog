@@ -1,4 +1,15 @@
+2016-02-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R028-Private.el (U+53BB): Add HNG-KHM0232-0.
+
 2016-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R056-Shoot.el (U+2298F-itaiji-001): New character; add
+	`<-formed' for U-0002298F.
+	(U+38A4): New character; add HNG-KHM0241-0.
+
+	* Ideograph-R040-Roof.el (U-00021A15): New character; add
+	`<-formed' for U+51A5.
 
 	* Ideograph-R029-Again.el: Add glyph-images of HNG-KHM.
 
