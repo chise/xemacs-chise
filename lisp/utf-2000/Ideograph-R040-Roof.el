@@ -4321,6 +4321,33 @@
     (=cns11643-5	. #x2D22)	; &I-C5-2D22; [13-02]
     ))
 (define-char
+  '((ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs		  . #x65E6)	; 旦
+      )
+     ((=gt-k		  . 00059)	; &GT-K00059;
+      ))
+    (=ucs		. #x21A15)	; 𡨕
+    (<-formed
+     ((=ucs		  . #x51A5)	; 冥
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x21A15)	; &g2-IU-00021A15;
+      (->subsumptive
+       ((===ucs@iso	    . #x21A15)	; &R-U-00021A15;
+	)
+       ((=hanziku-3	    . #xBBCF)	; &HZK03-BBCF;
+	))
+      ))
+    ))
+(define-char
   '((=>ucs		. #x21A22)	; 𡨢
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 8)
