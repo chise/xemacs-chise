@@ -1,5 +1,24 @@
 2016-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R024-Ten.el: Add glyph-images of HNG-KHM.
+	(BUCS+5347): New abstract node.
+	(U+5347): Separate UU+5347; add `<-denotational' for BUCS+5347.
+	(UU+5347): Add `=>ucs@iwds-1'.
+	(A-MJ057261): New abstract character; add `<-denotational' for
+	BUCS+5347; add `<-formed' for U+3688 and U+5347.
+	(U+5347-itaiji-003): New character; add `<-subsumptive' for
+	A-MJ057261.
+	(MJ057261): Likewise; unify KOSEKI-065900.
+
+2016-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R168-Long.el: Add mappings for Big5 code points.
+
+	* Ideograph-R143-Blood.el (UU+8846): Add HNG-KHM0456-0.
+
+	* Ideograph-R036-Evening.el (U+3688): New character; unify
+	MJ000558 and KOSEKI-031450; add `<-formed' for U+5347.
+
 	* Ideograph-R189-Tall.el (IU+29AE0): Apply new conventions for
 	glyph granularity for components of ideographic-structure.
 
