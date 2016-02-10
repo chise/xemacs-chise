@@ -180,6 +180,7 @@
     ==jis-x0208
     ==jis-x0213-1
     ==jis-x0213-2
+    ==jis-x0212
     ==hanyo-denshi/ja
     ==hanyo-denshi/jb
     ==hanyo-denshi/jc
