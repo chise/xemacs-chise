@@ -380,6 +380,7 @@ DESCRIPTION (string) is the description string of the charset."
           ;; =zihai-17xx
 	  =ucs-bmp-var-001
 	  =ucs-bmp-var-002
+	  =ucs-sip-var-002
 	  =ucs-bmp-var-003
 	  =ucs-bmp-itaiji-001
 	  =ucs-sip-itaiji-001
