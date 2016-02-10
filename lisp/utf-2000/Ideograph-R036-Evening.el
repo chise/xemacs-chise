@@ -139,6 +139,35 @@
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5915)	; 夕
+      )
+     ((=ucs		  . #x5341)	; 十
+      ))
+    (=ucs		. #x3688)	; 㚈
+    (=mj		. 000558)	; &I-MJ000558;
+    (=koseki		. 031450)	; 㚈
+    (<-formed
+     ((=ucs		  . #x5347)	; 升
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x3688)	; &g2-MJ000558;
+      (==mj		  . 000558)	; &g2-MJ000558;
+      (==koseki		  . 031450)	; &g2-MJ000558;
+      (->subsumptive
+       ((===mj		    . 000558)	; &R-MJ000558;
+	)
+       ((===ucs@unicode	    . #x3688)	; &R-UU+3688;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (hanyu-dazidian	2 861 7)
