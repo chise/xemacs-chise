@@ -4189,6 +4189,17 @@
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.var002-0"))
+  (make-charset '=ucs-sip-var-002
+		"uXXXX-var-002 glyph-images in SIP"
+		'(long-name	"UCS-SIP-var-002"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs-var-002
+		  min-code #x20000 max-code #x2FFFF
+		  registry "ucs00\\.var002-2"))
   (make-charset '=ucs-var-003
 		"uXXXX-var-003 glyph-images of GlyphWiki"
 		'(long-name	"UCS-var-003"
