@@ -15167,7 +15167,7 @@
 	  )
 	 ((==ucs@cns	      . #x5F50)	; &g2-GT-12503;
 	  (==ucs@jis	      . #x5F50)	; &g2-GT-12503;
-	  (==daikanwa	      . 09908)	; &g2-GT-12503;
+	  (==jis-x0212	      . #x3C77)	; &g2-GT-12503; [28-87]
 	  )
 	 ((==ucs@unicode      . #x706B)	; &g2-GT-24152;
 	  (==jis-x0208	      . #x3250)	; &g2-GT-24152; [18-48]
@@ -25322,9 +25322,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x5F66)	; &C3-2C50;
-	(=gb2312	    . #x5165)	; &C3-2C50; [49-69]
-	(=cns11643-3	    . #x2C50)	; &I-C3-2C50; [12-48]
+       ((==ucs@unicode	    . #x5F66)	; &g2-AJ1-03481;
+	(==adobe-japan1-0   . 03481)	; &g2-AJ1-03481;
 	))
       (==ucs@unicode	  . #x5050)	; &g2-UU+5050;
       (==ucs@JP/hanazono  . nil)
@@ -29373,7 +29372,7 @@
 	(=ucs		    . #x2E85)	; ⺅
 	)
        ((==ucs@jis	    . #x8652)	; &g2-JSP-5A39;
-	(==daikanwa	    . 32682)	; &g2-JSP-5A39;
+	(==jis-x0212	    . #x5A39)	; &g2-JSP-5A39; [58-25]
 	))
       (==daikanwa	  . 00931)	; &g2-M-00931;
       )
@@ -38184,7 +38183,8 @@
      ((name		  . "CJK RADICAL PERSON")
       (=ucs		  . #x2E85)	; ⺅
       )
-     ((=cns11643-1	  . #x6143)	; &C1-6143; [65-35]
+     ((=ucs@cns		  . #x5584)	; &C1-6143;
+      (=cns11643-1	  . #x6143)	; &C1-6143; [65-35]
       ))
     (=ucs@cns		. #x50D0)	; &C3-456B;
     (=cns11643-3	. #x456B)	; &C3-456B; [37-75]
@@ -46948,6 +46948,15 @@
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
     (hanyu-dazidian	1 235 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL PERSON")
+      (=ucs		  . #x2E85)	; ⺅
+      )
+     ((=ucs		  . #x81F1)	; 臱
+      ))
     (=ucs		. #x20408)	; 𠐈
     (=cns11643-7	. #x3678)	; &I-C7-3678; [22-88]
     (=daikanwa		. 01247)	; &I-M-01247;
@@ -46960,7 +46969,7 @@
 	(=ucs		    . #x2E85)	; ⺅
 	)
        ((==ucs@jis	    . #x81F1)	; &g2-JSP-5665;
-	(==daikanwa	    . 30124)	; &g2-JSP-5665;
+	(==jis-x0212	    . #x5665)	; &g2-JSP-5665; [54-69]
 	))
       (==daikanwa	  . 01247)	; &g2-M-01247;
       )
@@ -49079,7 +49088,7 @@
 	(=ucs		    . #x2E85)	; ⺅
 	)
        ((==ucs@jis	    . #x8931)	; &g2-JSP-5C65;
-	(==daikanwa	    . 34514)	; &g2-JSP-5C65;
+	(==jis-x0212	    . #x5C65)	; &g2-JSP-5C65; [60-69]
 	))
       (==ucs@cns	  . #x20426)	; &g2-M-01282;
       (==cns11643-4	  . #x5A6A)	; &g2-M-01282; [58-74]
