@@ -10760,14 +10760,24 @@
       )
      ((=ucs		  . #x8DB3)	; 足
       )
-     ((=>>ucs@jis	  . #x95D2)	; &G-JU+95D2;
-      (=>>daikanwa	  . 41450)	; &G-JU+95D2;
+     ((=ucs@jis		  . #x95D2)	; &JSP-663A;
+      (=jis-x0212	  . #x663A)	; &JSP-663A; [70-26]
+      (=daikanwa	  . 41450)	; &I-M-41450;
       ))
     (=ucs@jis		. #x8EA2)	; &JSP-604B;
     (=jis-x0212		. #x604B)	; &JSP-604B; [64-43]
     (=daikanwa		. 38012)	; &I-M-38012;
     (->subsumptive
-     ((==daikanwa	  . 38012)	; &g2-M-38012;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL FOOT")
+	(=ucs		    . #x2ECA)	; ⻊
+	)
+       ((==daikanwa	    . 41450)	; &g2-M-41450;
+	))
+      (==daikanwa	  . 38012)	; &g2-M-38012;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -10776,8 +10786,8 @@
        ((name		    . "CJK RADICAL FOOT")
 	(=ucs		    . #x2ECA)	; ⻊
 	)
-       ((=ucs@jis	    . #x95D2)	; &JSP-663A;
-	(=jis-x0212	    . #x663A)	; &JSP-663A; [70-26]
+       ((==ucs@jis	    . #x95D2)	; &g2-JSP-663A;
+	(==jis-x0212	    . #x663A)	; &g2-JSP-663A; [70-26]
 	))
       (==ucs@jis	  . #x8EA2)	; &g2-JSP-604B;
       (==jis-x0212	  . #x604B)	; &g2-JSP-604B; [64-43]
