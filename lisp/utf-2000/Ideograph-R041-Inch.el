@@ -1380,6 +1380,11 @@
     (=ucs		. #x5900)	; 夀
     (=cns11643-6	. #x5C2F)	; &I-C6-5C2F; [60-15]
     (=daikanwa		. 07459)	; &I-M-07459;
+    (<-formed
+     ((=ucs		  . #x58FD)	; 壽
+      ))
+    (<-formed*sources
+     hng)
     (<-same
      ((=ucs		  . #x58FD)	; 壽
       (=daikanwa	  . 05672)	; &I-M-05672;
@@ -1412,6 +1417,8 @@
 	)
        ((===hng-khi	    . 03240)	; &HNG010-03240;
 	))
+      )
+     ((===hng-khm	  . 00220)	; &HNG011-00220;
       ))
     ))
 (define-char
