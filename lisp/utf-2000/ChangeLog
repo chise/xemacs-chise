@@ -1,4 +1,19 @@
+2016-02-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el: Add glyph-images of HNG-KHM.
+	(U-00020BB7): Add `<-formed' for U+5409.
+	(U+544A): Add `<-formed' for U+543F.
+	(U+54B8): Separate UU+54B8.
+	(HNG-KHM0343-0): New character; add `<-denotational' for U+54B8.
+	(U+54C0): Separate UU+54C0.
+	(HNG-KHM0237-0): New character; add `<-denotational' for U+54C0.
+	(UU+55BB): Add `<-formed' for U+55A9.
+
 2016-02-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (g2-UU+5050): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+	(U-00020408): Add `ideographic-structure'.
 
 	* Ideograph-R166-Village.el: Add mappings for Big5 code points.
 	(U+91D0): Apply new conventions for glyph granularity.
