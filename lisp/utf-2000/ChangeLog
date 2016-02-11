@@ -1,5 +1,28 @@
 2016-02-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R166-Village.el: Add mappings for Big5 code points.
+	(U+91D0): Apply new conventions for glyph granularity.
+
+	* Ideograph-R157-Foot.el (JU+8EA2): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+2016-02-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R089-Double-X.el (U+723B): Use `->denotational' and
+	`->subsumptive'.
+	(MJ056856): New character; add `<-denotational' for U+723B; unify
+	AJ1-14156, KOSEKI-001510 and GT-K00542.
+
+	* Ideograph-R050-Turban.el: Add glyph-images of HNG-KHM.
+	(U+5E00): Add `<-formed' and `->vulgar' for U+531D.
+	(MJ057421): Unify HD-KS100790.
+
+	* Ideograph-R041-Inch.el (U+5900): Add `<-formed' for U+58FD; add
+	HNG-KHM0022-0.
+
+	* Ideograph-R033-Scholar.el (U+5900): Add `<-formed' for U+58FD;
+	add HNG-KHM0022-0.
+
 	* Ideograph-R147-See.el: Add glyph-images of HNG-KHI.
 	(BUCS+89BA): New abstract node.
 	(U+899A): Add `<-denotational' for BUCS+89BA.
