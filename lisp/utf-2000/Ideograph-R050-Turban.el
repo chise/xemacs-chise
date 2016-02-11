@@ -52,6 +52,17 @@
     (=shinjigen		.  2079)	; 帀
     (=cbeta		. 00038)	; &I-CB00038;
     (=jef-china3	. #x4BF7)	; &I-JC3-4BF7;
+    (<-formed
+     ((=ucs		  . #x531D)	; 匝
+      ))
+    (<-formed*sources
+     hng)
+    (->vulgar
+     ((=ucs		  . #x531D)	; 匝
+      (=daikanwa	  . 02599)	; &I-M-02599;
+      ))
+    (->vulgar*sources
+     yunhai daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x5E00)	; &g2-AJ1-14497;
       (==adobe-japan1-4	  . 14497)	; &g2-AJ1-14497;
@@ -80,6 +91,8 @@
        ((===ucs@unicode	    . #x5E00)	; &R-UU+5E00;
 	)
        ((===hng-khi	    . 00460)	; &HNG010-00460;
+	)
+       ((===hng-khm	    . 02970)	; &HNG011-02970;
 	)
        ((===cbeta	    . 00038)	; &R-CB00038;
 	))
@@ -872,6 +885,8 @@
        ((===ucs@unicode	    . #x5E0C)	; &R-UU+5E0C;
 	)
        ((===hng-khi	    . 00470)	; &HNG010-00470;
+	)
+       ((===hng-khm	    . 03000)	; &HNG011-03000;
 	))
       ))
     ))
@@ -1815,6 +1830,8 @@
        ((===ucs@unicode	    . #x5E1D)	; &R-UU+5E1D;
 	)
        ((===cns11643-1	    . #x5074)	; &R-C1-5074; [48-84]
+	)
+       ((===hng-khm	    . 00340)	; &HNG011-00340;
 	))
       ))
     ))
@@ -2733,6 +2750,7 @@
      ((=ucs		  . #x5E00)	; 帀
       ))
     (=mj		. 057421)	; &MJ057421;
+    (=hanyo-denshi/ks	. 100790)	; &MJ057421;
     (=koseki		. 100790)	; &MJ057421;
     (->subsumptive
      ((ideographic-structure
@@ -2745,11 +2763,17 @@
 	(==adobe-japan1-4   . 14497)	; &g2-AJ1-14497;
 	))
       (==mj		  . 057421)	; &g2-MJ057421;
+      (==hanyo-denshi/ks  . 100790)	; &g2-MJ057421;
       (==koseki		  . 100790)	; &g2-MJ057421;
       (->subsumptive
+       ((===hanyo-denshi/ks . 100790)	; &R-HD-KS-100790;
+	(=hanyo-denshi/ks/mf . #x275F)	; &R-HD-KS-100790;
+	)
        ((===mj		    . 057421)	; &R-MJ057421;
 	)
        ((===hng-khi	    . 03510)	; &HNG010-03510;
+	)
+       ((===hng-khm	    . 02990)	; &HNG011-02990;
 	))
       ))
     ))
@@ -3614,6 +3638,8 @@
        ((===ucs@unicode	    . #x5E38)	; &R-UU+5E38;
 	)
        ((===hng-khi	    . 03500)	; &HNG010-03500;
+	)
+       ((===hng-khm	    . 02980)	; &HNG011-02980;
 	))
       ))
     ))
