@@ -4344,19 +4344,32 @@
       )
      ((=ucs		  . #x5306)	; 匆
       ))
-    (=ucs@iso		. #x20045)	; &U-00020045;
+    (=ucs@iso		. #x20045)	; &MJ058590;
+    (=mj		. 058590)	; &MJ058590;
+    (=hanyo-denshi/ks	. 372080)	; &MJ058590;
+    (<-formed
+     ((=ucs		  . #x8655)	; 處
+      ))
+    (<-formed*sources
+     hng)
     (->subsumptive
-     ((==ucs@iso	  . #x20045)	; &g2-IU-00020045;
+     ((==ucs@iso	  . #x20045)	; &g2-MJ058590;
+      (==mj		  . 058590)	; &g2-MJ058590;
+      (==hanyo-denshi/ks  . 372080)	; &g2-MJ058590;
       (->subsumptive
+       ((===hanyo-denshi/ks . 372080)	; &R-HD-KS-372080;
+	(=hanyo-denshi/ks/mf . #x9158)	; &R-HD-KS-372080;
+	)
+       ((===mj		    . 058590)	; &R-MJ058590;
+	)
        ((===ucs@iso	    . #x20045)	; &R-U-00020045;
 	)
        ((=hanziku-12	    . #xEB45)	; &HZK12-EB45;
 	))
       )
+     ((===hng-khm	  . 05090)	; &HNG011-05090;
+      )
      ((===hng-khi	  . 05530)	; &HNG010-05530;
-      (<-formed
-       ((=ucs		    . #x8655)	; 處
-	))
       ))
     ))
 (define-char
@@ -4376,15 +4389,18 @@
     (=gt-pj-11		. #x487C)	; &GT-00092; [40-92]
     (<-formed
      ((=ucs		  . #x865A)	; 虚
+      )
+     ((=ucs		  . #x865B)	; 虛
       ))
+    (<-formed*sources
+     hng)
     (->subsumptive
      ((==gt		  . 00092)	; &g2-GT-00092;
       (==gt-k		  . 08114)	; &g2-GT-00092;
       )
+     ((===hng-khm	  . 01170)	; &HNG011-01170;
+      )
      ((===hng-khi	  . 05540)	; &HNG010-05540;
-      (<-formed
-       ((=ucs		    . #x865B)	; 虛
-	))
       ))
     ))
 (define-char
