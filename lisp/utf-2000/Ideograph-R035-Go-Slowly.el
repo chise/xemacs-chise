@@ -451,16 +451,17 @@
     (ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=>>ucs@cns		. #x3687)	; &G-CDP-88E7;
-    (=>>big5-cdp	. #x88E7)	; &G-CDP-88E7;
-    (=>>daikanwa	. 05718)	; &G-CDP-88E7;
+    (=ucs@cns		. #x3687)	; &C4-2861;
+    (=cns11643-4	. #x2861)	; &C4-2861; [08-65]
+    (=big5-cdp		. #x88E7)	; &I-CDP-88E7;
+    (=daikanwa		. 05718)	; &I-M-05718;
     (->subsumptive
-     ((=daikanwa	  . 05718)	; &M-05718;
+     ((==daikanwa	  . 05718)	; &g2-M-05718;
       )
-     ((=big5-cdp	  . #x88E7)	; &CDP-88E7;
+     ((==big5-cdp	  . #x88E7)	; &g2-CDP-88E7;
       )
-     ((=ucs@cns		  . #x3687)	; &C4-2861;
-      (=cns11643-4	  . #x2861)	; &C4-2861; [08-65]
+     ((==ucs@cns	  . #x3687)	; &g2-CU+3687;
+      (==cns11643-4	  . #x2861)	; &g2-CU+3687; [08-65]
       ))
     ))
 (define-char
@@ -470,7 +471,16 @@
     (ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=ucs@unicode	. #x3687)	; &UU+3687;
+    (=ucs@unicode	. #x3687)	; &HD-KS-065500;
+    (=hanyo-denshi/ks	. 065500)	; &HD-KS-065500;
+    (->subsumptive
+     ((==ucs@JP		  . #x3687)	; &g2-HD-KS-065500;
+      (==hanyo-denshi/ks  . 065500)	; &g2-HD-KS-065500;
+      (=hanyo-denshi/ks/mf . #x1996)	; &g2-HD-KS-065500;
+      )
+     ((==ucs@unicode	  . #x3687)	; &g2-UU+3687;
+      (==ucs@JP/hanazono  . nil)
+      ))
     ))
 (define-char
   '((ideographic-radical . 35)	; ⼢
