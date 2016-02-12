@@ -1,5 +1,15 @@
 2016-02-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R036-Evening.el (UU+591A): Add HNG-KHM0265-0.
+	(g2-M-05763): Add HNG-KHM0023-0.
+
+2016-02-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (U+4EA5): Separate UU+4EA5.
+	(UU+4EA5): Add `=>ucs@iwds-1'.
+	(U+4EA5-itaiji-005): New character; add `<-denotational' for
+	U+4EA5.
+
 	* Ideograph-R030-Mouth.el: Add glyph-images of HNG-KHM.
 	(U-00020BB7): Add `<-formed' for U+5409.
 	(U+544A): Add `<-formed' for U+543F.
