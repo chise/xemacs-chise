@@ -219,6 +219,15 @@
     (=ucs-itaiji-001	. #x5FC5)	; &U-i001+5FC5;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x5FC5)	; 必
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (=ucs-itaiji-002	. #x5FC5)	; &U-i002+5FC5;
+    ))
+(define-char
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
