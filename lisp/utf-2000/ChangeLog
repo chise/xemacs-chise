@@ -1,5 +1,49 @@
 2016-02-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R169-Gate.el: Add glyph-images of HNG-KHI.
+	(U+958B): Apply new conventions for glyph granularity; separate
+	UU+958B.
+	(U+958C): Apply new conventions for glyph granularity.
+	(U+958D): Likewise.
+	(U+9594): Likewise.
+	(U+9596): Likewise.
+	(U+959D): Likewise.
+	(U+95A1): Likewise.
+	(U+95A2): Likewise.
+	(U-0002F9EE): Add `<-denotational' for U+958B; apply new
+	conventions for glyph granularity.
+	(U+95AB): Apply new conventions for glyph granularity.
+	(U+95AC): Likewise.
+	(U+95BA): Likewise.
+	(U+95BC): Likewise.
+	(U+95C3): Likewise.
+	(U+95C7): Likewise.
+	(U+95C8): Likewise.
+	(U+95CC): Likewise.
+	(U+95CD): Likewise.
+	(U-00028D7B): New character; add HNG-KHI0203-0.
+	(U+95D1): Apply new conventions for glyph granularity.
+	(U+95D2): Likewise.
+	(U+95D9): Likewise.
+	(U+95DE): Likewise.
+	(U+95E4): Likewise.
+	(U+95E5): Likewise.
+
+	* Ideograph-R061-Heart.el (U+5FC5-itaiji-002): New character; add
+	`<-denotational' for U+5FC5.
+
+	* Ideograph-R109-Eye.el: Add glyph-images of HNG-KHM.
+	(U+76F8-var-001): New glyph node to integrate HNG-KHI0504-0 and
+	HNG-KHM0455-0; add `<-subsumptive' for U+76F8.
+	(U+7700): Add `<-formed' for U+660E.
+	(U+7758): Use `->denotational' and `->subsumptive'.
+	(HNG-KHM0458-0): New character; add `<-formed' for U+777A.
+	(U+777A): Use `->subsumptive'.
+	(U-00025211): Add representative nodes.
+	(U+77BB-itaiji-001): New character to integrate HNG-KHI0122-0 and
+	HNG-KHM0097-0; add `<-denotational' for BUCS+77BB; add `<-formed'
+	for U+77BB.
+
 	* Ideograph-R036-Evening.el (UU+591A): Add HNG-KHM0265-0.
 	(g2-M-05763): Add HNG-KHM0023-0.
 
