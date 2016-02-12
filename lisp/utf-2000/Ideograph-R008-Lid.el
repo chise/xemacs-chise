@@ -544,11 +544,21 @@
   '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (=ucs		. #x4EA5)	; 亥
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4EA5)	; 亥
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
     (hanyu-dazidian	1 283 5)
     (sound@ja/kun	"inosisi" "i")
     (sound@ja/on	"gai")
-    (=ucs		. #x4EA5)	; 亥
-    (=mj		. 006470)	; &I-MJ006470;
+    (=>ucs@iwds-1	. #x4EA5)	; &MJ006470;
+    (=ucs@unicode	. #x4EA5)	; &MJ006470;
+    (=mj		. 006470)	; &MJ006470;
     (=adobe-japan1-0	. 01195)	; &I-AJ1-01195;
     (=jis-x0208		. #x3067)	; &I-J90-3067; [16-71]
     (=gb2312		. #x3A25)	; &I-G0-3A25; [26-05]
@@ -562,7 +572,7 @@
     (=gt-k		. 01560)	; &I-GT-K01560;
     (=gt-pj-1		. #x3067)	; &I-GT-00387; [16-71]
     (=daikanwa		. 00292)	; &I-M-00292;
-    (=shinjigen		.  0094)	; 亥
+    (=shinjigen		.  0094)	; &MJ006470;
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x4EA5)	; 亥
@@ -653,6 +663,15 @@
        ((===ucs@unicode	    . #x4EA5)	; &R-UU+4EA5;
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4EA5)	; 亥
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=ucs-itaiji-005	. #x4EA5)	; &U-i005+4EA5;
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
