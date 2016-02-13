@@ -146,7 +146,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 67)	; ⽂
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5B78)	; &BUCS+5B78;
+      ))
+    (ideographic-radical@ucs . 67)	; ⽂
     (ideographic-strokes@ucs . 3)
     (ideographic-radical@ucs*sources
      daikanwa ucs)
