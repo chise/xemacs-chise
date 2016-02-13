@@ -1,3 +1,67 @@
+2016-02-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R144-Walk-Enclosure.el (g2-UU+884C): Add
+	HNG-KHM0510-0.
+
+	* Ideograph-R142-Insect.el (HNG-KHM0118-0): New character; add
+	`<-denotational' for U+871C.
+	(U+87BA): Add HNG-KHM0119-0.
+
+	* Ideograph-R103-Bolt-Of-Cloth.el (U+7591-itaiji-006): New
+	character; add `<-denotational' for BUCS+7591.
+
+	* Ideograph-R059-Bristle.el (U+5F63): Apply new conventions for
+	glyph granularity.
+	(U+5F64): Likewise.
+	(U-0002248A): Likewise.
+	(U+5F65): Likewise.
+	(U+5F66): Likewise.
+	(U+5F71): Likewise.
+	(U+5F72): Likewise.
+
+	* Ideograph-R037-Big.el: Add glyph-images of HNG-KHM.
+	(U+5931-var-001): New glyph node to integrate HNG-KHI0327-0 and
+	HNG-KHM0268-0; add `<-subsumptive' for U+5931.
+
+	* Ideograph-R035-Go-Slowly.el (U+3687): Apply new conventions for
+	glyph granularity.
+	(UU+3687): Unify HD-KS065500.
+
+	* Ideograph-R032-Earth.el (U-000212AE): New character.
+	(U+212AE-var-002): New character; add `<-denotational' for
+	U-000212AE.
+	(IU+212AE): Likewise.
+	(H2-A9D5): Use `<-subsumptive' for g2-IU+212AE instead of
+	`<-denotational' for U-000212E1.
+	(U+3644): Unify S-8887; add `<-formed' for U+965B.
+	(U+5826): Unify S-8904; add `<-formed' for U+968E.
+	(UU+582F): Add representative nodes.
+
+	* Ideograph-R030-Mouth.el (U+55B4): Apply new conventions for
+	glyph granularity.
+	(U+3613): Use `->subsumptive'.
+
+	* Ideograph-R001-One.el (IU+20045): Unify MJ058590 and
+	HD-KS372080; add `<-formed' for U+8655; add HNG-KHM0509-0.
+	(GT-00092): Add U+865B into `<-formed'; add HNG-KHM0117-0.
+
+	* Ideograph-R038-Woman.el: Add glyph-images of HNG-KHM.
+	(U+5999): Separate UU+5999.
+	(UU+5999): Add `=>ucs@iwds-1'.
+	(U+5999-itaiji-001): New character to integrate HNG-KHI0334-0 and
+	HNG-KHM0273-0; add `<-denotational' for U+5999.
+	(U+59DF): Separate UU+59DF.
+	(UU+59DF): Add `=>ucs@iwds-1'.
+	(HNG-KHM0024-0): New character; add `<-denotational' for U+59DF.
+	(U+5A01): Apply new conventions for glyph granularity; separate
+	UU+5A01.
+	(UU+5A01): Add `=>ucs@iwds-1'.
+	(HNG-KHM0340-0): New character; add `<-denotational' for U+5A01.
+	(U+5A11): Separate UU+5A11.
+	(UU+5A11): Add `=>ucs@iwds-1'.
+	(HNG-KHI0336-0): Use `<-denotational' instead of `<-subsumptive'
+	for U+5A11.
+
 2016-02-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R169-Gate.el: Add glyph-images of HNG-KHI.
