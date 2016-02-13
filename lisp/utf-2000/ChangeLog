@@ -1,3 +1,40 @@
+2016-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R170-Mound.el: Add mappings for Big5 code points.
+	(U+9638): Apply new conventions for glyph granularity.
+	(JU+9638): Unify S-8855; add `<-formed' for U+9628.
+	(U+963D): Unify JC3-68BB.
+	(U+9641): Unify S-8864; add `<-vulgar' for U+9640.
+	(U+9658): Unify JC3-68C3.
+	(U+9661): Unify JC3-68C4.
+	(U-00028E5F): Unify S-8871; add `<-original' for U+964B.
+	(U+967C): Apply new conventions for glyph granularity.
+	(JU+967C): Unify JC3-68C8.
+	(U+9682): Unify S-8889; add `<-vulgar' for U+9670.
+	(U+9684): Unify JC3-68CB.
+	(U+9689): Use `->subsumptive'.
+	(JU+9689): Unify JC3-68CD.
+	(U+9694): Use `->denotational' and `->subsumptive'.
+	(M-41783): Unify JC3-68D0.
+	(U-00028EF6): Apply new conventions for glyph granularity.
+	(U+96A4): Unify JC3-68D5.
+
+2016-02-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R067-Script.el (U+6588): Add `<-denotational' for
+	BUCS+5B78.
+
+	* Ideograph-R039-Child.el (g2-UU+5B50): Add HNG-KHM0276-0.
+	(BUCS+5B78): New abstract node.
+	(U+6588): Add `<-denotational' for BUCS+5B78.
+	(HNG-KHM0027-0): New character; add `<-denotational' for
+	BUCS+5B78.
+	(U+5B66): Add `<-denotational' for BUCS+5B78.
+	(U+5B78): Likewise.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=ucs-itaiji-006'.
+
 2016-02-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R144-Walk-Enclosure.el (g2-UU+884C): Add
