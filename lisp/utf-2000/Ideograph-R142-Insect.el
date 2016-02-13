@@ -5617,6 +5617,25 @@
     (===hng-khi		. 05550)	; &HNG010-05550;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x871C)	; 蜜
+      ))
+    (ideographic-radical . 142)	; ⾍
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs-itaiji-002	  . #x5FC5)	; &U-i002+5FC5;
+      )
+     ((=ucs		  . #x866B)	; 虫
+      ))
+    (===hng-khm		. 01180)	; &HNG011-01180;
+    ))
+(define-char
   '((ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
@@ -11737,6 +11756,8 @@
 	)
        ((===gt		    . 45279)	; &R-GT-45279;
 	))
+      )
+     ((===hng-khm	  . 01190)	; &HNG011-01190;
       )
      ((==ucs@unicode	  . #x87BA)	; &g2-UU+87BA;
       (==ucs@JP/hanazono  . nil)
