@@ -1,3 +1,21 @@
+2016-02-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R193-Cauldron.el (S-9507): Unify HD-KS516930.
+	(UU+9B33): Apply new conventions for glyph granularity.
+
+2016-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el: Add glyph-images of HNG-KHM.
+	(U+661C): Separate UU+661C.
+	(UU+661C): Add `=>ucs@iwds-1'.
+	(U+661C-itaiji-001): New character; add `<-denotational' for
+	U+661C.
+	(U+3B0C): Apply new conventions for glyph granularity.
+	(U+66A2): Separate UU+66A2.
+	(UU+66A2): Add `=>ucs@iwds-1'.
+	(HNG-KHM0367-0): New character; add `<-formed' for U+669D and
+	U+7791.
+
 2016-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R004-Slash.el (U+4E4B): Separate UU+4E4B.
