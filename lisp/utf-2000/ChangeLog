@@ -1,5 +1,10 @@
 2016-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R004-Slash.el (U+4E4B): Separate UU+4E4B.
+	(UU+4E4B): Add `=>ucs@iwds-1'.
+	(U+4E4B-itaiji-004): New character; add `<-denotational' for
+	U+4E4B.
+
 	* Ideograph-R170-Mound.el: Add mappings for Big5 code points.
 	(U+9638): Apply new conventions for glyph granularity.
 	(JU+9638): Unify S-8855; add `<-formed' for U+9628.
