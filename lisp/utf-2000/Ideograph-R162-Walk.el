@@ -39,7 +39,8 @@
     (=cns11643-6	. #x233B)	; &I-C6-233B; [03-27]
     (=daikanwa		. 38701)	; &I-M-38701;
     (<-same
-     ((=ucs		  . #x4E4B)	; 之
+     ((=ucs@unicode	  . #x4E4B)	; &AJ1-03309;
+      (=adobe-japan1-0	  . 03309)	; &AJ1-03309;
       (=daikanwa	  . 00125)	; &I-M-00125;
       ))
     (<-same*sources
