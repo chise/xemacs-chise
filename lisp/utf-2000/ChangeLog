@@ -1,5 +1,14 @@
 2016-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R052-Short-Thread.el (U+5E7D): Add HNG-KHM0035-0.
+
+	* Ideograph-R046-Mountain.el (g2-UU+5C71): Add HNG-KHM0296-0.
+
+	* Ideograph-R112-Stone.el (U+7834): Add HNG-KHM0462-0.
+	(HNG-KHM0461-0): New character; add `<-denotational' for
+	BUCS+7919.
+	(U+78E8): Add HNG-KHM0099-0.
+
 	* Ideograph-R024-Ten.el (U-00020991): Separate IU+20991.
 	(CB07083): New character; add `<-denotational' for U-00020991.
 
