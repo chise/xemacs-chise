@@ -47,6 +47,8 @@
        ((===ucs@unicode	    . #x5C0F)	; &R-UU+5C0F;
 	)
        ((===hng-khi	    . 03460)	; &HNG010-03460;
+	)
+       ((===hng-khm	    . 02920)	; &HNG011-02920;
 	))
       ))
     ))
@@ -258,6 +260,8 @@
     (=ucs-itaiji-001	. #x5C11)	; &U-i001+5C11;
     (->subsumptive
      ((===hng-khi	  . 00430)	; &HNG010-00430;
+      )
+     ((===hng-khm	  . 02930)	; &HNG011-02930;
       ))
     ))
 (define-char
