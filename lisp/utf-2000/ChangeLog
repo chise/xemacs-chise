@@ -1,3 +1,77 @@
+2016-02-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R043-Lame.el (MJ057365): Add HNG-KHM0031-0.
+
+2016-02-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R041-Inch.el: Add glyph-images of HNG-KHM.
+	(U+5BF8): Separate UU+5BF8.
+	(UU+5BF8): Add `=>ucs@iwds-1'.
+	(U+5BF8-itaiji-001): New character; add `<-denotational' for
+	U+5BF8.
+	(U-0002A9F7): New character.
+	(A-UU+5BFD): New node; add `<-denotational' for U+5BFD.
+	(U+5BFD-itaiji-003): New character; add `<-denotational' for
+	A-UU+5BFD.
+	(UU+5BFD): Use A-UU+5BFD instead of U+5BFD as the mother.
+	(BC-8BC3): New character; add `<-denotational' for U-0002A9F7;
+	unify GT-K02773.
+	(A-UU+5C06): New node; add `<-denotational' for U+5C06; unify
+	A-CU+2F873, A-C6-3667, A-GT-09354 and A-M-07437.
+	(CU+2F873): Use A-UU+5C06 instead of U+5C06 as the mother.
+	(UU+5C06): Likewise.
+	(A-JU+5C06): New node; add `<-denotational' for U+5C06; unify
+	A-J0-3E2D, A-GT-09355 and A-GT-K06466.
+	(JU+5C06): Use A-JU+5C06 instead of U+5C06 as the mother.
+	(HNG-KHM0289-0): New character; add `<-denotational' for
+	A-JU+5C06.
+	(BUCS+5C0A): New abstract node.
+	(U+5C0A): Add `<-denotational' for BUCS+5C0A; don't subsume
+	HNG-KHI0345-0.
+	(A-MJ057359): New abstract character; add `<-denotational' for
+	BUCS+5C0A; add `<-formed' for U+5C0A; move HNG-KHI0345-0 from
+	U+5C0A; add MJ057359 and HNG-KHM0291-0.
+	(HNG-KHI0042-0): Use `<-subsumptive' for UU+5C0B instead of
+	`<-denotational' for U+5C0B.
+	(UU+5C0B): Subsume HNG-KHI0042-0 and HNG-KHM0288-0.
+
+	* Ideograph-R040-Roof.el: Add glyph-images of HNG-KHM.
+	(U+374E): Separate UU+374E.
+	(UU+374E): Add `=>ucs@iwds-1'.
+	(HNG-KHM0283-0): New character.
+	(U-00021A1C): Use `->subsumptive'; separate IU+21A1C.
+	(IU+21A1C): Add `=>ucs@iwds-1'; add `<-vulgar' for U+5BC2.
+	(HNG-KHM0281-0): New character; add `<-denotational' for
+	U-00021A1C; add `<-formed' for U+5BC2.
+	(U+5BE6-var-001): New character to subsume HNG-KHI0340-0 and
+	HNG-KHM0277-0; add `<-denotational' for U+5BE6.
+
+	* Ideograph-R032-Earth.el: Add glyph-images of HNG-KHM.
+	(U+5721-var-002): Add `<-formed' for U+571F; add HNG-KHM0263-0.
+	(U+5728): Separate UU+5728.
+	(g2-UU+5728): Don't subsume HNG-KHI0319-0; add HNG-KHM0258-0.
+	(U+5728-itaiji-002): New character; add `<-denotational' for
+	U+5728; move HNG-KHI0319-0 from g2-UU+5728.
+	(HNG-KHI0031-0): Moved to Ideograph-R046-Mountain.el.
+	(U+5872-itaiji-001): New character to integrate HNG-KHI0321-0 and
+	HNG-KHM0259-0; add `<-denotational' for U+5872; add `<-formed' for
+	U+5834.
+	(HNG-KHI0321-0): Use `<-subsumptive' for U+5872-itaiji-001 instead
+	of `<-denotational' for U+5872.
+	(HNG-KHM0262-1): New character; add `<-denotational' for U+5875.
+	(U+58CA): Separate UU+58CA.
+	(UU+58CA): Add `=>ucs@iwds-1'.
+	(U+58CA-itaiji-002): New character; add `<-denotational' for
+	U+58CA; add HNG-KHM0019-0.
+
+	* Ideograph-R046-Mountain.el (U-00021E01): Omit
+	`ideographic-strokes' and `total-strokes'.
+	(IU+21E01): New character; add `<-denotational' for U-00021E01;
+	unify BC-88DE.
+	(U+21E01-var-003): New character; add `<-denotational' for
+	U-00021E01; add `<-formed' for U+5782; subsume HNG-KHI0031-0 and
+	HNG-KHM0257-0.
+
 2016-02-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R154-Shell.el (U+8CAB): Apply new conventions for
