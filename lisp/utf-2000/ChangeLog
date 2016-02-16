@@ -1,4 +1,25 @@
+2016-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R044-Corpse.el: Add glyph-images of HNG-KHM.
+	(U+5C3C): Separate UU+5C3C.
+	(UU+5C3C): Add `=>ucs@unicode'.
+	(U+5C3C-itaiji-002): New character to subsume HNG-KHI0348-0 and
+	HNG-KHM0033-0; add `<-denotational' for U+5C3C; add `<-formed' for
+	U+5C3C.
+	(HNG-KHI0348-0): Use `<-subsumptive' for U+5C3C-itaiji-002.
+	(BUCS+5C6C): New abstract node.
+	(U+5C5E): Add `<-denotational' for BUCS+5C6C.
+	(A-MJ057371): New abstract character to subsume MJ057371 and
+	HNG-KHM0295-0; add `<-denotational' for BUCS+5C6C; add `<-formed'
+	for U+5C5E and U+5C6C.
+	(MJ057371): New character; add `<-subsumptive' for A-MJ057371;
+	unify KOSEKI-088400.
+	(U+5C6C): Add `<-denotational' for BUCS+5C6C.
+
 2016-02-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R042-Small.el (g2-UU+5C0F): Add HNG-KHM0292-0.
+	(U+5C11-itaiji-001): Add HNG-KHM0293-0.
 
 	* Ideograph-R043-Lame.el (MJ057365): Add HNG-KHM0031-0.
 
