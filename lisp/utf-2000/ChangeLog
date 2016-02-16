@@ -1,5 +1,18 @@
 2016-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R074-Moon.el: Add glyph-images of HNG-KHM.
+
+	* Ideograph-R070-Square.el: Add glyph-images of HNG-KHM.
+
+	* Ideograph-R069-Axe.el: Add glyph-images of HNG-KHM.
+
+	* Ideograph-R065-Branch.el (U+652F-itaiji-004): Add HNG-KHM0057-0.
+
+2016-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R014-Cover.el (U-0002057E): Add `<-same' for U+51A5.
+	(UU+519D): Add `<-same' for U+5B9C; add HNG-KHM0280-0.
+
 	* Ideograph-R052-Short-Thread.el (U+5E7D): Add HNG-KHM0035-0.
 
 	* Ideograph-R046-Mountain.el (g2-UU+5C71): Add HNG-KHM0296-0.
