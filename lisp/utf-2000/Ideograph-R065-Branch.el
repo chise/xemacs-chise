@@ -67,6 +67,12 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=ucs-itaiji-004	. #x652F)	; &U-i004+652F;
+    (->subsumptive
+     ((===hng-khm	  . 00570)	; &HNG011-00570;
+      (<-formed
+       ((=ucs		    . #x652F)	; 支
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 65)	; ⽀
