@@ -1017,12 +1017,21 @@
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (hanyu-dazidian	1 515 9)
     (=ucs		. #x20991)	; 𠦑
-    (=cns11643-6	. #x2639)	; &I-C6-2639; [06-25]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20991)	; 𠦑
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (hanyu-dazidian	1 515 9)
+    (=ucs@iso		. #x20991)	; &C6-2639;
+    (=cns11643-6	. #x2639)	; &C6-2639; [06-25]
     (=big5-cdp		. #x88D8)	; &I-CDP-88D8;
     (=daikanwa		. 02732)	; &I-M-02732;
-    (=shinjigen@1ed	.  0911)	; 𠦑
+    (=shinjigen		.  0911)	; &C6-2639;
     (<-vulgar
      ((=ucs		  . #x53D4)	; 叔
       (=jis-x0208	  . #x3D47)	; &I-J90-3D47; [29-39]
@@ -1030,7 +1039,16 @@
       (=shinjigen	  .  0910)	; 叔
       ))
     (<-vulgar*sources
-     yupian daikanwa shinjigen@1ed)
+     yupian daikanwa shinjigen)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20991)	; 𠦑
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (=cbeta		. 07083)	; &CB07083;
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
