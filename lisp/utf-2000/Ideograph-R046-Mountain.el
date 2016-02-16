@@ -4089,6 +4089,27 @@
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
+    (=ucs		. #x21E01)	; 𡸁
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21E01)	; 𡸁
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes@ucs . 7)
+    (total-strokes@ucs	     . 10)
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (=ucs@iso		. #x21E01)	; &CDP-88DE;
+    (=big5-cdp		. #x88DE)	; &CDP-88DE;
+    (->subsumptive
+     ((==ucs@iso	  . #x21E01)	; &g2-IU-00021E01;
+      )
+     ((==big5-cdp	  . #x88DE)	; &g2-CDP-88DE;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs		. #x37C7)	; 㟇
@@ -5704,10 +5725,23 @@
     (=iso-ir165		. #x2F70)	; &I-EGB-2F70; [15-80]
     ))
 (define-char
-  '((ideographic-radical . 46)	; ⼭
+  '((<-denotational
+     ((=ucs		  . #x21E01)	; 𡸁
+      ))
+    (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=ucs		. #x21E01)	; 𡸁
+    (=ucs-var-003	. #x21E01)	; &U-v003+21E01;
+    (<-formed
+     ((=ucs		  . #x5782)	; 垂
+      ))
+    (<-formed*sources
+     hng)
+    (->subsumptive
+     ((===hng-khi	  . 00310)	; &HNG010-00310;
+      )
+     ((===hng-khm	  . 02570)	; &HNG011-02570;
+      ))
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
