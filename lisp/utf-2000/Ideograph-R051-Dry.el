@@ -363,6 +363,35 @@
       ))
     (<-vulgar*sources
      zhengzitong daikanwa shinjigen)
+    (->subsumptive
+     ((==ucs@unicode	  . #x5E76)	; &g2-AJ1-04738;
+      (==adobe-japan1-0	  . 04738)	; &g2-AJ1-04738;
+      (==gb2312		  . #x3222)	; &g2-AJ1-04738; [18-02]
+      (==jis-x0208	  . #x5675)	; &g2-AJ1-04738; [54-85]
+      (==cns11643-1	  . #x477E)	; &g2-AJ1-04738; [39-94]
+      (==jis-x0213-1	  . #x5675)	; &g2-AJ1-04738; [54-85]
+      (==gt		  . 11554)	; &g2-AJ1-04738;
+      (==gt-k		  . 01721)	; &g2-AJ1-04738;
+      (==daikanwa	  . 09170)	; &g2-AJ1-04738;
+      (==shinjigen	  .  2157)	; &g2-AJ1-04738;
+      (->subsumptive
+       ((===daikanwa	    . 09170)	; &R-M-09170;
+	)
+       ((===jis-x0208	    . #x5675)	; &R-J0-5675; [54-85]
+	(===jis-x0213-1	    . #x5675)	; &R-J0-5675; [54-85]
+	)
+       ((===adobe-japan1-0  . 04738)	; &R-AJ1-04738;
+	)
+       ((===cns11643-1	    . #x477E)	; &R-C1-477E; [39-94]
+	)
+       ((===gt		    . 11554)	; &R-GT-11554;
+	(===gt-k	    . 01721)	; &R-GT-11554;
+	)
+       ((===ucs@unicode	    . #x5E76)	; &R-UU+5E76;
+	)
+       ((===hng-khm	    . 03010)	; &HNG011-03010;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
