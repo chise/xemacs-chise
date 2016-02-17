@@ -1,3 +1,15 @@
+2016-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R060-Step.el: Add glyph-images of HNG-KHM.
+	(MJ057488): New character to subsume HNG-KHI0052-0 and
+	HNG-KHM0313-0; unify KOSEKI-114240; add `<-formed' for U+5F93 and
+	U+5F9E.
+	(JU+5FAE): Don't subsume HNG-KHI0364-0.
+	(U-00022544): New character; add `<-formed' for U+5FAE; add
+	HNG-KHI0364-0 and HNG-KHM0311-0.
+
+	* Ideograph-R162-Walk.el (UU+904D): Add HNG-KHM0551-0.
+
 2016-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R073-Say.el: Add glyph-images of HNG-KHM.
