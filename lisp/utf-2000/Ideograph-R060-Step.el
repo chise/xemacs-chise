@@ -461,6 +461,14 @@
   '((ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F73)	; 彳
+      )
+     ((=ucs		  . #x76AE)	; 皮
+      ))
     (=ucs		. #x5F7C)	; 彼
     (=adobe-japan1-0	. 03444)	; &I-AJ1-03444;
     (=jis-x0208		. #x4860)	; &I-J90-4860; [40-64]
@@ -503,9 +511,11 @@
 	(===ks-x1001	    . #x7928)	; &R-K0-7928; [89-08]
 	)
        ((===ucs@unicode	    . #x5F7C)	; &R-UU+5F7C;
-	)
-       ((===hng-khi	    . 03630)	; &HNG010-03630;
 	))
+      )
+     ((===hng-khi	  . 03630)	; &HNG010-03630;
+      )
+     ((===hng-khm	  . 03090)	; &HNG011-03090;
       ))
     ))
 (define-char
@@ -674,16 +684,34 @@
     (ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x5F80)	; 往
-      )
-     ((=ucs		  . #xE0103)	; 󠄃
-      ))
     (=adobe-japan1-4	. 13661)	; &AJ1-13661;
     (=hanyo-denshi/jt	. #xB12F)	; &I-HD-JT-B12F;
     (=daikanwa		. 10073)	; &I-M-10073;
     (=shinjigen		.  2332)	; &AJ1-13661;
     (=jef-china3	. #x4DAF)	; &I-JC3-4DAF;
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5F80)	; 往
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==adobe-japan1-4	  . 13661)	; &g2-AJ1-13661;
+      (==hanyo-denshi/jt  . #xB12F)	; &g2-AJ1-13661;
+      (==daikanwa	  . 10073)	; &g2-AJ1-13661;
+      (==shinjigen	  .  2332)	; &g2-AJ1-13661;
+      (==jef-china3	  . #x4DAF)	; &g2-AJ1-13661;
+      (->subsumptive
+       ((===daikanwa	    . 10073)	; &R-M-10073;
+	)
+       ((===hanyo-denshi/jt . #xB12F)	; &R-HD-JT-B12F;
+	)
+       ((===adobe-japan1-4  . 13661)	; &R-AJ1-13661;
+	)
+       ((===jef-china3	    . #x4DAF)	; &R-JC3-4DAF;
+	)
+       ((===hng-khm	    . 03150)	; &HNG011-03150;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -1205,6 +1233,8 @@
        ((===ucs@ks	    . #x5F8C)	; &R-K0-7D2D;
 	(===ks-x1001	    . #x7D2D)	; &R-K0-7D2D; [93-13]
 	))
+      )
+     ((===hng-khm	  . 03100)	; &HNG011-03100;
       )
      ((===hng-khi	  . 03620)	; &HNG010-03620;
       ))
@@ -1780,10 +1810,22 @@
        ((=big5-cdp	    . #x8961)	; &CDP-8961;
 	))
       ))
-    (===hng-khi		. 00520)	; &HNG010-00520;
-    (<-same
-     ((=ucs@unicode	  . #x5F9E)	; &AJ1-04794;
-      (=adobe-japan1-0	  . 04794)	; &AJ1-04794;
+    (=mj		. 057488)	; &MJ057488;
+    (=koseki		. 114240)	; &MJ057488;
+    (<-formed
+     ((=ucs		  . #x5F93)	; 従
+      )
+     ((=ucs		  . #x5F9E)	; 從
+      ))
+    (<-formed*sources
+     hng)
+    (->subsumptive
+     ((==mj		  . 057488)	; &g2-MJ057488;
+      (==koseki		  . 114240)	; &g2-MJ057488;
+      )
+     ((===hng-khi	  . 00520)	; &HNG010-00520;
+      )
+     ((===hng-khm	  . 03130)	; &HNG011-03130;
       ))
     ))
 (define-char
@@ -1908,6 +1950,8 @@
        ((===ucs@unicode	    . #x5F97)	; &R-UU+5F97;
 	)
        ((===hng-khi	    . 03610)	; &HNG010-03610;
+	)
+       ((===hng-khm	    . 03140)	; &HNG011-03140;
 	))
       ))
     ))
@@ -3026,6 +3070,8 @@
        ((===ucs@unicode	    . #x5FA9)	; &R-UU+5FA9;
 	)
        ((===hng-khi	    . 03600)	; &HNG010-03600;
+	)
+       ((===hng-khm	    . 03080)	; &HNG011-03080;
 	))
       ))
     ))
@@ -3593,8 +3639,6 @@
 	)
        ((===jef-china3	    . #x4DBD)	; &R-JC3-4DBD;
 	))
-      )
-     ((===hng-khi	  . 03640)	; &HNG010-03640;
       ))
     ))
 (define-char
@@ -3806,6 +3850,24 @@
     (=ucs		. #x22547)	; 𢕇
     (=cns11643-6	. #x5256)	; &I-C6-5256; [50-54]
     (=daikanwa		. 10213)	; &I-M-10213;
+    ))
+(define-char
+  '((ideographic-radical . 60)	; ⼻
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (=ucs		. #x22544)	; 𢕄
+    (<-formed
+     ((=ucs		  . #x5FAE)	; 微
+      ))
+    (<-formed*sources
+     hng)
+    (->subsumptive
+     ((==ucs@iso	  . #x22544)	; &g2-IU-00022544;
+      )
+     ((===hng-khi	  . 03640)	; &HNG010-03640;
+      )
+     ((===hng-khm	  . 03110)	; &HNG011-03110;
+      ))
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
@@ -4169,6 +4231,8 @@
        ((===ucs@unicode	    . #x5FB3)	; &R-UU+5FB3;
 	)
        ((===hng-khi	    . 03650)	; &HNG010-03650;
+	)
+       ((===hng-khm	    . 03120)	; &HNG011-03120;
 	))
       ))
     ))
