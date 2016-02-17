@@ -13808,6 +13808,8 @@
      ((==ucs@unicode	  . #x904D)	; &g2-UU+904D;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x3169)	; &g2-UU+904D; [17-73]
+      )
+     ((===hng-khm	  . 05510)	; &HNG011-05510;
       ))
     ))
 (define-char
