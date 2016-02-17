@@ -2144,6 +2144,13 @@
     ))
 (define-char
   '((ideographic-radical . 53)	; ⼴
+    (==>ucs@bucs	. #x5EA6)	; &BUCS+5EA6;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5EA6)	; &BUCS+5EA6;
+      ))
+    (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (=ucs		. #x5EA6)	; 度
@@ -2158,6 +2165,7 @@
     (=gt-k		. 05152)	; &I-GT-K05152;
     (=gt-pj-1		. #x4559)	; &I-GT-11725; [37-57]
     (=daikanwa		. 09313)	; &I-M-09313;
+    (=shinjigen		.  0917)	; 度
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5EA6)	; 度
@@ -2174,6 +2182,7 @@
       (==gt		  . 11725)	; &g2-AJ1-03155;
       (==gt-k		  . 05152)	; &g2-AJ1-03155;
       (==daikanwa	  . 09313)	; &g2-AJ1-03155;
+      (==shinjigen	  .  0917)	; &g2-AJ1-03155;
       (->subsumptive
        ((===daikanwa	    . 09313)	; &R-M-09313;
 	)
@@ -2192,8 +2201,40 @@
 	)
        ((===ucs@unicode	    . #x5EA6)	; &R-UU+5EA6;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5EA6)	; &BUCS+5EA6;
+      ))
+    (ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
       )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x5E7F)	; 广
+	)
+       ((=ucs		    . #x5EFF)	; 廿
+	))
+      )
+     ((=ucs		  . #x6535)	; 攵
+      ))
+    (=ucs-itaiji-002	. #x5EA6)	; &U-i002+5EA6;
+    (<-formed
+     ((=ucs		  . #x5EA6)	; 度
+      ))
+    (<-formed*sources
+     hng)
+    (->subsumptive
      ((===hng-khi	  . 03560)	; &HNG010-03560;
+      )
+     ((===hng-khm	  . 03040)	; &HNG011-03040;
       ))
     ))
 (define-char
@@ -2316,6 +2357,8 @@
        ((===cns11643-1	    . #x553D)	; &R-C1-553D; [53-29]
 	)
        ((===hng-khi	    . 03570)	; &HNG010-03570;
+	)
+       ((===hng-khm	    . 03020)	; &HNG011-03020;
 	))
       ))
     ))
@@ -7368,6 +7411,8 @@
 	 ((===adobe-japan1-5  . 20115)	; &R-AJ1-20115;
 	  )
 	 ((===hanyo-denshi/jt . #xB0E2)	; &R-HD-JT-B0E2;
+	  )
+	 ((===hng-khm	      . 03030)	; &HNG011-03030;
 	  ))
 	))
       ))
