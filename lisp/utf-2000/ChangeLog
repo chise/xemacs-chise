@@ -1,5 +1,18 @@
 2016-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R073-Say.el: Add glyph-images of HNG-KHM.
+
+	* Ideograph-R053-Dotted-Cliff.el: Add glyph-images of HNG-KHM.
+	(BUCS+5EA6): New abstract node.
+	(U+5EA6): Add `<-denotational' for BUCS+5EA6; unify S-0917.
+	(U+5EA6-itaiji-002): New character to subsume HNG-KHI0356-0 and
+	HNG-KHM0304-0; add `<-denotational' for BUCS+5EA6; add `<-formed'
+	for U+5EA6.
+
+	* Ideograph-R051-Dry.el (UU+5E76): Add HNG-KHM0301-0.
+
+	* Ideograph-R040-Roof.el (g2-JU+3761): Add HNG-KHM0382-0.
+
 	* Ideograph-R074-Moon.el: Add glyph-images of HNG-KHM.
 
 	* Ideograph-R070-Square.el: Add glyph-images of HNG-KHM.
