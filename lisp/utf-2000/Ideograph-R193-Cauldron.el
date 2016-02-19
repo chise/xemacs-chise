@@ -566,6 +566,37 @@
     (=cns11643-7	. #x3637)	; &C7-3637; [22-23]
     ))
 (define-char
+  '((ideographic-radical . 193)	; ⿀
+    (ideographic-strokes . 6)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=big5-cdp	  . #x88BC)	; &CDP-88BC;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x53E3)	; 口
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+	  (=ucs		      . #x2FFB)	; ⿻
+	  )
+	 ((=ucs		      . #x5182)	; 冂
+	  )
+	 ((=ucs		      . #x22189)	; 𢆉
+	  ))
+	))
+      ))
+    (=ucs-itaiji-001	. #x9B33)	; &U-i001+9B33;
+    (<-formed
+     ((=ucs		  . #x9B33)	; 鬳
+      ))
+    ))
+(define-char
   '((=>ucs		. #x9B34)	; 鬴
     (ideographic-radical . 193)	; ⿀
     (ideographic-strokes . 7)
