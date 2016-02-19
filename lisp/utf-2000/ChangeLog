@@ -1,3 +1,8 @@
+2016-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R193-Cauldron.el (U+9B33-itaiji-001): New character;
+	add `<-formed' for U+9B33.
+
 2016-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R060-Step.el: Add glyph-images of HNG-KHM.
