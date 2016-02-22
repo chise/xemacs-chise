@@ -1,3 +1,27 @@
+2016-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (U+5F13): Separate UU+5F13.
+	(U+5F13-var-002): New character; add `<-denotational' for U+5F13.
+	(U+5F15): Separate UU+5F15.
+	(HD-TK01029270): New character; add `<-denotational' for U+5F15;
+	add HNG-KHM0307-0.
+	(U-000223A5): Separate IU+223A5.
+	(A-BC-8CC4): New abstract character; add `<-denotational' for
+	U-000223A5.
+	(BC-8CC4): New character; add `<-subsumptive' for A-BC-8CC4.
+	(U+223A5-var-001): Likewise.
+	(U+5F1F): Separate UU+5F1F.
+	(U+5F1F-itaiji-004): New character; add `<-denotational' for
+	U+5F1F; add HNG-KHM0306-0.
+	(JU+5F25): Don't subsume HNG-KHI0359-0.
+	(HD-TK01029400): New character; add `<-denotational' for U+5F25;
+	subsume HNG-KHM0305-0 and HNG-KHI0359-0.
+	(U+5F31): New character; add `<-denotational' for U+5F31; add
+	HNG-KHM0037-0.
+	(U+5F3A): Separate UU+5F3A.
+	(U+5F3A-var-004): New character; add `<-denotational' for U+5F3A;
+	add `<-formed' for U+5F37; add HNG-KHM0036-0.
+
 2016-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R193-Cauldron.el (U+9B33-itaiji-001): New character;
