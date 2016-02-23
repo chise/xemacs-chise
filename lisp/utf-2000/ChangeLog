@@ -1,3 +1,15 @@
+2016-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R094-Dog.el: Add glyph-images of HNG-KHM.
+	(U+7336-itaiji-001): New character to subsume HNG-KHI0107-0 and
+	HNG-KHM0430-0.
+	(U+7372): Separate A-UU+7372.
+	(A-UU+7372): New abstract character; add `=>ucs@iwds-1'.
+	(HNG-KHM0091-0): New character; add `<-denotational' for U+7372.
+	(U-000248C9): Separate IU+248C9 and C7-4E40.
+	(HNG-KHM0429-0): New character; add `<-denotational' for
+	U-000248C9; add `<-formed' for U+737B.
+
 2016-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R057-Bow.el (U+5F13): Separate UU+5F13.
