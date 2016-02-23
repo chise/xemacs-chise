@@ -1,11 +1,56 @@
 2016-02-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R061-Heart.el: Add glyph-images of HNG-KHM.
+	(U+225BB-itaiji-001): New character; add `<-formed' for
+	U-000225BB.
+	(U+225BB-itaiji-002): Likewise.
+	(U+225BB-itaiji-003): Likewise.
+	(U-000225CC): Unify S-2448 and H6-D7A3; add `<-formed' and
+	`<-same' for U+6015.
+	(BUCS+5FEB): New abstract node.
+	(U+5FEB): Apply new conventions for glyph granularity; add
+	`<-denotational' for BUCS+5FEB.
+	(HNG-KHM0333-0): New character; add `<-denotational' for
+	BUCS+5FEB; add `<-formed' for U+5FEB.
+	(U-000225D8): Unify S-2409; add `<-formed' and `<-same' for
+	U+5FFD.
+	(U+60A3-var-001): New glyph node to subsume HNG-KHI0380-0 and
+	HNG-KHM0051-0; add `<-subsumptive' for U+60A3.
+	(U+60D1): Separate UU+60D1.
+	(HNG-KHM0045-0): New character; add `<-denotational' for U+60D1.
+	(U+60D3): Separate A-UU+60D3.
+	(HNG-KHM0338-0): New character; add `<-denotational' for U+60D3.
+	(U+611B-itaiji-001): New character to subsume HNG-KHM0326-0; add
+	`<-denotational' for U+611B.
+	(U+6167-var-001): New character to subsume HNG-KHI0389-0 and
+	HNG-KHM0320-0; add `<-denotational' for U+6167.
+	(U+6176): Separate A-UU+6176.
+	(A-UU+6176): Add `=>ucs@iwds-1'.
+	(HNG-KHM0323-0): New character; add `<-denotational' for U+6176.
+	(HNG-KHI0372-0): Fix `ideographic-strokes' and `total-strokes';
+	modify `ideographic-structure'.
+	(U+6182-itaiji-003): Add HNG-KHM0328-0.
+	(HNG-KHM0339-0): New character; add `<-denotational' for U+61C8.
+	(MJ057525): New character; add `<-denotational' for U+61D0; unify
+	HD-KS126860; add HNG-KHM0321-0.
+
+	* Ideograph-R001-One.el (A-M-00052): Add `<-denotational' for
+	BUCS+6240.
+	(IU+2B826): Add `=>ucs@iwds-1'.
+	(HNG-KHM0344-0): New character; add `<-denotational' for
+	U-0002B826; add `<-formed' for U+6240.
+
 	* Ideograph-R063-Door.el (BUCS+6240): New abstract node.
 	(U+6240): Add `<-denotational' for BUCS+6240.
 	(UU+6240): Unify S-3224.
 	(JU+6240): Unify S-3223.
 
 2016-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R140-Grass.el (U+84A6): Separate A-UU+84A6.
+	(A-UU+84A6): Add `=>ucs@iwds-1'.
+	(U+84A6-itaiji-002): New character; add `<-denotational' for
+	U+84A6.
 
 	* Ideograph-R112-Stone.el (U+77F3-itaiji-004): New character; add
 	`<-formed' for U+6238 and U+77F3.
