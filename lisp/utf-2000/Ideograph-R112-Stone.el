@@ -18,6 +18,17 @@
     ))
 (define-char
   '((ideographic-radical . 112)	; ⽯
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=ucs-itaiji-004	. #x77F3)	; &U-i004+77F3;
+    (<-formed
+     ((=ucs		  . #x6238)	; 戸
+      )
+     ((=ucs		  . #x77F3)	; 石
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 1)
     (total-strokes	 . 6)
     (=ucs		. #x25415)	; 𥐕
