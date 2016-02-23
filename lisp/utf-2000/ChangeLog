@@ -1,4 +1,21 @@
+2016-02-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R063-Door.el (BUCS+6240): New abstract node.
+	(U+6240): Add `<-denotational' for BUCS+6240.
+	(UU+6240): Unify S-3224.
+	(JU+6240): Unify S-3223.
+
 2016-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R112-Stone.el (U+77F3-itaiji-004): New character; add
+	`<-formed' for U+6238 and U+77F3.
+
+	* Ideograph-R062-Halberd.el: Add glyph-images of HNG-KHM.
+
+2016-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el (U-0002122D): Use `->subsumptive';
+	unify S-7639; add `<-vulgar' for U+7344.
 
 	* Ideograph-R094-Dog.el: Add glyph-images of HNG-KHM.
 	(U+7336-itaiji-001): New character to subsume HNG-KHI0107-0 and
