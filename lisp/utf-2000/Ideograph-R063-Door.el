@@ -593,6 +593,13 @@
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
+    (==>ucs@bucs	. #x6240)	; &BUCS+6240;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x6240)	; &BUCS+6240;
+      ))
+    (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ucs		. #x6240)	; 所
@@ -620,6 +627,7 @@
     (=gt-k		. 03740)	; &I-GT-K03740;
     (=gt-pj-3		. #x5B3C)	; &I-GT-14778; [59-28]
     (=daikanwa		. 11715)	; &I-M-11715;
+    (=shinjigen		.  3224)	; &HD-IB-232F;
     (=jef-china3	. #x50E2)	; &I-JC3-50E2;
     ))
 (define-char
@@ -637,6 +645,7 @@
     (=gt		. 14779)	; &I-GT-14779;
     (=gt-k		. 03741)	; &I-GT-K03741;
     (=gt-pj-1		. #x3D6A)	; &I-GT-14779; [29-74]
+    (=shinjigen		.  3223)	; &AJ1-02420;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x6240)	; 所
@@ -655,6 +664,7 @@
       (==hanyo-denshi/ja  . #x3D6A)	; &g2-AJ1-02420; [29-74]
       (==gt		  . 14779)	; &g2-AJ1-02420;
       (==gt-k		  . 03741)	; &g2-AJ1-02420;
+      (==shinjigen	  .  3223)	; &g2-AJ1-02420;
       (->subsumptive
        ((===jis-x0208	    . #x3D6A)	; &R-J0-3D6A; [29-74]
 	(===jis-x0213-1	    . #x3D6A)	; &R-J0-3D6A; [29-74]
