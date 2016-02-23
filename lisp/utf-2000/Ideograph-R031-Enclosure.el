@@ -4883,7 +4883,8 @@
     (->formed*sources
      daikanwa)
     (->interchangeable
-     ((=daikanwa	  . 12642)	; &M-12642;
+     ((=ucs		  . #x6476)	; 摶
+      (=daikanwa	  . 12642)	; &I-M-12642;
       )
      ((=ucs@unicode	  . #x5C08)	; &AJ1-04642;
       (=adobe-japan1-0	  . 04642)	; &AJ1-04642;
@@ -4908,7 +4909,7 @@
       (=daikanwa	  . 11137)	; &I-M-11137;
       )
      ((=ucs		  . #x6476)	; 摶
-      (=daikanwa	  . 12642)	; &M-12642;
+      (=daikanwa	  . 12642)	; &I-M-12642;
       ))
     (->interchangeable$_1*sources
      zhengzitong shiji-zhu daikanwa)
@@ -5382,21 +5383,32 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x2122D)	; 𡈭
-    (ideographic-radical . 31)	; ⼞
-    (ideographic-strokes . 14)
-    (total-strokes	 . 17)
-    (=daikanwa		. 04855)	; &M-04855;
-    ))
-(define-char
-  '((morohashi-daikanwa	4855 0 0)
-    (ideographic-radical . 31)	; ⼞
+  '((ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
     (hanyu-dazidian	1 727 4)
     (=ucs		. #x2122D)	; 𡈭
     (=cns11643-7	. #x373C)	; &I-C7-373C; [23-28]
-    (=hanziku-2		. #xE7C9)	; &I-HZK02-E7C9;
+    (=daikanwa		. 04855)	; &I-M-04855;
+    (=shinjigen		.  7639)	; 𡈭
+    (<-vulgar
+     ((=ucs		  . #x7344)	; 獄
+      (=jis-x0208	  . #x3976)	; &I-J90-3976; [25-86]
+      (=shinjigen	  .  7638)	; 獄
+      ))
+    (<-vulgar*sources
+     shinjigen)
+    (->subsumptive
+     ((==daikanwa	  . 04855)	; &g2-M-04855;
+      (==shinjigen	  .  7639)	; &g2-M-04855;
+      )
+     ((==ucs@iso	  . #x2122D)	; &g2-IU-0002122D;
+      )
+     ((==ucs@cns	  . #x2122D)	; &g2-CU+2122D;
+      (==cns11643-7	  . #x373C)	; &g2-CU+2122D; [23-28]
+      )
+     ((=hanziku-2	  . #xE7C9)	; &HZK02-E7C9;
+      ))
     ))
 (define-char
   '((=>ucs		. #x21231)	; 𡈱
