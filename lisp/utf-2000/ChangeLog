@@ -1,5 +1,18 @@
 2016-02-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R159-Cart.el (U+8ED7): Separate UU+8ED7.
+	(U+8ED7-itaiji-001): New character; add `<-formed' for U+8ED7.
+	(MJ058827): New character; unify KOSEKI-433120; add `<-formed' for
+	U+8ED7.
+
+2016-02-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el (U+6534-itaiji-002): Add U-0002A832 into
+	`<-formed'.
+
+	* Ideograph-R049-Oneself.el (g2-UU+5DF2): Add HNG-KHM0599-1.
+	(g2-UU+5DF3): Add HNG-KHM0599-2.
+
 	* Ideograph-R061-Heart.el: Add glyph-images of HNG-KHM.
 	(U+225BB-itaiji-001): New character; add `<-formed' for
 	U-000225BB.
