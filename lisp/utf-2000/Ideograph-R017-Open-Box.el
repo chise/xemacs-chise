@@ -424,7 +424,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 17)	; ⼐
+  '((<-denotational
+     ((==>ucs@bucs	  . #x64CA)	; &BUCS+64CA;
+      ))
+    (ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 307 3)
@@ -439,6 +442,10 @@
     (=ucs		. #x51FB)	; 击
     (=gb2312		. #x3B77)	; &I-G0-3B77; [27-87]
     (=hanziku-1		. #xE55D)	; &I-HZK01-E55D;
+    (<-simplified@CN
+     ((=ucs		  . #x64CA)	; 擊
+      (=gb12345		  . #x3B77)	; 擊 [27-87]
+      ))
     ))
 (define-char
   '((ideographic-radical . 17)	; ⼐
