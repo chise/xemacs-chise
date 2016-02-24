@@ -468,7 +468,24 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
     (=ucs		. #x8ED7)	; 軗
-    (=cns11643-2	. #x3962)	; &I-C2-3962; [25-66]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8ED7)	; 軗
+      ))
+    (ideographic-radical . 159)	; ⾞
+    (ideographic-strokes . 4)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8ECA)	; 車
+      )
+     ((=ucs		  . #x6BB3)	; 殳
+      ))
+    (=ucs@unicode	. #x8ED7)	; &C2-3962;
+    (=cns11643-2	. #x3962)	; &C2-3962; [25-66]
     (=big5		. #xD7DF)	; &I-B-D7DF;
     (=daikanwa		. 38197)	; &I-M-38197;
     (->subsumptive
@@ -1039,6 +1056,53 @@
     (total-strokes	 . 8)
     (=ucs		. #x8F70)	; 轰
     (=gb2312		. #x3A64)	; &I-G0-3A64; [26-68]
+    ))
+(define-char
+  '((ideographic-radical . 159)	; ⾞
+    (ideographic-strokes . 4)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8ECA)	; 車
+      )
+     ((=ucs-itaiji-002	  . #x6534)	; &U-i002+6534;
+      ))
+    (=ucs-itaiji-001	. #x8ED7)	; &U-i001+8ED7;
+    (<-formed
+     ((=ucs		  . #x8ED7)	; 軗
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 159)	; ⾞
+    (ideographic-strokes . 4)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8ECA)	; 車
+      )
+     ((=ucs		  . #x2A832)	; 𪠲
+      ))
+    (=mj		. 058827)	; &MJ058827;
+    (=koseki		. 433120)	; &MJ058827;
+    (<-formed
+     ((=ucs		  . #x8ED7)	; 軗
+      ))
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x8ECA)	; 車
+	)
+       ((==ucs@iso	    . #x2A832)	; &g2-IU-0002A832;
+	))
+      (==mj		  . 058827)	; &g2-MJ058827;
+      (==koseki		  . 433120)	; &g2-MJ058827;
+      ))
     ))
 (define-char
   '((ideographic-radical . 159)	; ⾞
