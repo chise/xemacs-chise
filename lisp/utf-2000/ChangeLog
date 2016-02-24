@@ -1,5 +1,11 @@
 2016-02-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R072-Sun.el (UU+661C): Add `ideographic-structure'.
+	(U+661C-itaiji-001): Likewise.
+
+	* Ideograph-R017-Open-Box.el (U+51FB): Add `<-denotational' for
+	BUCS+64CA; add `<-simplified@CN' for U+64CA.
+
 	* Ideograph-R159-Cart.el (U+8ED7): Separate UU+8ED7.
 	(U+8ED7-itaiji-001): New character; add `<-formed' for U+8ED7.
 	(MJ058827): New character; unify KOSEKI-433120; add `<-formed' for
