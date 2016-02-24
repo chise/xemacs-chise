@@ -2266,6 +2266,14 @@
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x65E6)	; 旦
+      )
+     ((=ucs		  . #x52FF)	; 勿
+      ))
     (=>ucs@iwds-1	. #x661C)	; &AJ1-05099;
     (=ucs@unicode	. #x661C)	; &AJ1-05099;
     (=adobe-japan1-0	. 05099)	; &AJ1-05099;
@@ -2286,6 +2294,14 @@
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x20007)	; 𠀇
+      )
+     ((=ucs		  . #x52FF)	; 勿
+      ))
     (=ucs-itaiji-001	. #x661C)	; &U-i001+661C;
     ))
 (define-char
