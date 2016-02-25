@@ -184,7 +184,6 @@
     ))
 (define-char
   '((ideographic-radical . 71)	; ⽆
-    (ideographic-strokes . 5)
     (=ucs		. #x65E2)	; 既
     ))
 (define-char
@@ -193,6 +192,24 @@
       ))
     (ideographic-radical . 71)	; ⽆
     (ideographic-strokes . 5)
+    (=>ucs@iwds-1	. #x65E2)	; &A-IWDSU+65E2;
+    (=>ucs@unicode	. #x65E2)	; &A-IWDSU+65E2;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x65E2)	; &A-IWDSU+65E2;
+      (=>ucs@unicode	  . #x65E2)	; &A-IWDSU+65E2;
+      ))
+    (ideographic-radical . 71)	; ⽆
+    (ideographic-strokes . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=big5-cdp	  . #x8B7C)	; &CDP-8B7C;
+      )
+     ((=ucs		  . #x65E1)	; 旡
+      ))
     (=ucs@unicode	. #x65E2)	; &AJ1-01591;
     (=adobe-japan1-0	. 01591)	; &AJ1-01591;
     (=jis-x0208		. #x347B)	; &I-J90-347B; [20-91]
@@ -265,17 +282,44 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x65E2)	; 既
+     ((=>ucs@iwds-1	  . #x65E2)	; &A-IWDSU+65E2;
+      (=>ucs@unicode	  . #x65E2)	; &A-IWDSU+65E2;
       ))
     (ideographic-radical . 71)	; ⽆
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x65E2)	; 既
-      )
-     ((=ucs		  . #xE0103)	; 󠄃
-      ))
     (=hanyo-denshi/jt	. #xB27A)	; &HD-JT-B27A;
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x65E2)	; 既
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==hanyo-denshi/jt  . #xB27A)	; &g2-HD-JT-B27A;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x65E2)	; 既
+      ))
+    (ideographic-radical . 71)	; ⽆
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (=mj		. 057647)	; &MJ057647;
+    (=koseki		. 154190)	; &MJ057647;
+    (<-formed
+     ((=ucs@unicode	  . #x65E2)	; &AJ1-01591;
+      (=adobe-japan1-0	  . 01591)	; &AJ1-01591;
+      ))
+    (->subsumptive
+     ((==mj		  . 057647)	; &g2-MJ057647;
+      (==koseki		  . 154190)	; &g2-MJ057647;
+      )
+     ((===hng-khm	  . 03650)	; &HNG011-03650;
+      (<-formed
+       ((=ucs		    . #x65E3)	; 旣
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 71)	; ⽆
