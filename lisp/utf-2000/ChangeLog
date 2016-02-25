@@ -1,3 +1,39 @@
+2016-02-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R140-Grass.el (HNG-KHI0550-0): Use U+6A02-itaiji-001
+	instead of U+6A02 as a component of `ideographic-structure'.
+
+	* Ideograph-R137-Boat.el (U+822C-itaiji-004): New character; add
+	`<-denotational' for U+822C.
+
+	* Ideograph-R071-Not.el (U+65E2): Separate A-UU+65E2.
+	(A-UU+65E2): Add `=>ucs@iwds-1'.
+	(MJ057647): New character; add `<-denotational' for U+65E2; unify
+	KOSEKI-154190; add `<-formed' for UU+65E2; add HNG-KHM0365-0.
+
+	* Ideograph-R064-Hand.el: Add glyph-images of HNG-KHM.
+	(U+63DA): Separate UU+63DA.
+	(UU+63DA): Add `=>ucs@iwds-1'.
+	(HNG-KHM0056-0): New character; add `<-denotational' for U+63DA.
+	(U+640D): Separate UU+640D.
+	(MJ012599): New character; add `<-denotational' for U+640D; unify
+	HD-KS139720 and MH-0210; add `<-vulgar' for UU+640D; add
+	HNG-KHM0053-0.
+	(BUCS+64CA): New abstract node.
+	(U+6483): Add `<-denotational' for BUCS+64CA.
+	(HNG-KHI0078-0): Use BUCS+64CA instead of U+6483 as the mother;
+	add `<-formed' for U+6483 and U+64CA.
+	(HNG-KHM0351-0): New character; add `<-denotational' for
+	BUCS+64CA; add `<-formed' for U+6483 and U+64CA.
+	(U+64CA): Add `<-denotational' for BUCS+64CA.
+
+	* Ideograph-R037-Big.el (U+5932): Add `<-formed' for U+672C.
+	(g2-UU+5932): Add HNG-KHM0388-0.
+
+	* Ideograph-R029-Again.el (U+20B1B-itaiji-002): New character; add
+	`<-denotational' for U-00020B1B; add `<-formed' for IU+20B1B,
+	BC-8BA1, U+6BB3, U+6534 and U+6535.
+
 2016-02-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R072-Sun.el (UU+661C): Add `ideographic-structure'.
