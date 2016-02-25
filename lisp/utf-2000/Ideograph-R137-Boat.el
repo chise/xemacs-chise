@@ -822,6 +822,23 @@
     (===hng-khi		. 01540)	; &HNG010-01540;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x822C)	; 般
+      ))
+    (ideographic-radical . 137)	; ⾈
+    (ideographic-strokes . 5)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 01126)	; &GT-K01126;
+      )
+     ((=ucs-itaiji-002	  . #x20B1B)	; &U-i002+20B1B;
+      ))
+    (=ucs-itaiji-004	. #x822C)	; &U-i004+822C;
+    ))
+(define-char
   '((ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
