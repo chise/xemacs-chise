@@ -535,6 +535,11 @@
     (=gt-k		. 01040)	; &I-GT-K01040;
     (=gt-pj-1		. #x5471)	; &I-GT-07381; [52-81]
     (=daikanwa		. 05845)	; &I-M-05845;
+    (<-formed
+     ((=ucs		  . #x672C)	; 本
+      ))
+    (<-formed*sources
+     hng)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5932)	; 夲
@@ -568,6 +573,8 @@
        ((===ucs@unicode	    . #x5932)	; &R-UU+5932;
 	)
        ((===hng-khi	    . 04290)	; &HNG010-04290;
+	)
+       ((===hng-khm	    . 03880)	; &HNG011-03880;
 	))
       ))
     ))
