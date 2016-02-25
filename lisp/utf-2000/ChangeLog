@@ -1,3 +1,22 @@
+2016-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el: Add glyph-images of HNG-KHM.
+	(U+6771-var-001): New glyph node to subsume HNG-KHI0441-0 and
+	HNG-KHM0391-0; add `<-subsumptive' for U+6771.
+	(U+6797-itaiji-001): New glyph node to subsume HNG-KHI0436-0 and
+	HNG-KHM0065-0; add `<-subsumptive' for U+6797.
+	(U+68C4): Separate o-UU+68C4.
+	(HNG-KHM0069-0): New character; add `<-denotational' for U+68C4.
+	(HNG-KHM0384-0): New character; add `<-denotational' for U+6975.
+	(HNG-KHM0393-0): New character; add `<-denotational' for U+69C3.
+	(U+6A02): Separate UU+6A02.
+	(UU+6A02): Add `=>ucs@iwds-1'; don't subsume HNG-KHI0433-0.
+	(U+6A02-itaiji-001): New character to subsume HNG-KHI0433-0 and
+	HNG-KHM0392-0; add `<-denotational' for U+6A02.
+	(HNG-KHM0066-0): New character; add `<-denotational' for U+6A13.
+	(U+23780-var-001): New character to subsume HNG-KHI0432-0 and
+	HNG-KHM0068-0; add `<-denotational' for U-00023780.
+
 2016-02-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R140-Grass.el (HNG-KHI0550-0): Use U+6A02-itaiji-001
