@@ -6518,11 +6518,23 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 21)
     (=ucs		. #x4C77)	; 䱷
+    (=cns11643-3	. #x5F30)	; &I-C3-5F30; [63-16]
+    (=daikanwa		. 46380)	; &M-46380;
+    (=cbeta		. 04596)	; &I-CB04596;
     (->subsumptive
-     ((=ucs@unicode	  . #x4C77)	; &M-46380;
-      (=daikanwa	  . 46380)	; &M-46380;
+     ((==ucs@unicode	  . #x4C77)	; &g2-M-46380;
+      (==daikanwa	  . 46380)	; &g2-M-46380;
+      (==cbeta		  . 04596)	; &g2-M-46380;
+      (->subsumptive
+       ((===daikanwa	    . 46380)	; &R-M-46380;
+	)
+       ((===ucs@unicode	    . #x4C77)	; &R-UU+4C77;
+	)
+       ((===cbeta	    . 04596)	; &R-CB04596;
+	))
       )
-     ((=cns11643-3	  . #x5F30)	; &C3-5F30; [63-16]
+     ((==ucs@cns	  . #x4C77)	; &g2-CU+4C77;
+      (==cns11643-3	  . #x5F30)	; &g2-CU+4C77; [63-16]
       ))
     ))
 (define-char
