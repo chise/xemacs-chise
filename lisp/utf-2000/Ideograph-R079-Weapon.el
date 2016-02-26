@@ -631,18 +631,22 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=ucs		. #x23A8B)	; 𣪋
+    (=cns11643-4	. #x324C)	; &I-C4-324C; [18-44]
+    (=daikanwa		. 16630)	; &I-M-16630;
+    (<-same
+     ((=ucs@unicode	  . #x6551)	; &AJ1-01657;
+      (=adobe-japan1-0	  . 01657)	; &AJ1-01657;
+      (=daikanwa	  . 13221)	; &I-M-13221;
+      ))
+    (<-same*sources
+     zihui daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 16630)	; &M-16630;
-      (<-same
-       ((=ucs		    . #x6551)	; 救
-	(=daikanwa	    . 13221)	; &I-M-13221;
-	))
-      (<-same*sources
-       zihui daikanwa)
+     ((==daikanwa	  . 16630)	; &g2-M-16630;
       )
-     ((=ucs@iso		  . #x23A8B)	; &U-00023A8B;
+     ((==ucs@iso	  . #x23A8B)	; &g2-IU-00023A8B;
       )
-     ((=cns11643-4	  . #x324C)	; &C4-324C; [18-44]
+     ((==ucs@cns	  . #x23A8B)	; &g2-CU+23A8B;
+      (==cns11643-4	  . #x324C)	; &g2-CU+23A8B; [18-44]
       ))
     ))
 (define-char
@@ -3025,7 +3029,7 @@
 	(=ucs		    . #x2FF1)	; ⿱
 	)
        ((==ucs@jis	    . #x6BB8)	; &g2-JSP-4630;
-	(==daikanwa	    . 16633)	; &g2-JSP-4630;
+	(==jis-x0212	    . #x4630)	; &g2-JSP-4630; [38-16]
 	)
        ((=ucs@unicode	    . #x767B)	; &GT-29054;
 	(=jis-x0208	    . #x4550)	; &GT-29054; [37-48]
