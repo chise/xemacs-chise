@@ -539,6 +539,8 @@
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x5040)	; &g2-UU+6B23; [48-32]
       (==shinjigen	  .  3911)	; &g2-UU+6B23;
+      )
+     ((===hng-khm	  . 00710)	; &HNG011-00710;
       ))
     ))
 (define-char
@@ -1888,6 +1890,8 @@
      ((==ucs@unicode	  . #x6B32)	; &g2-UU+6B32;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x537B)	; &g2-UU+6B32; [51-91]
+      )
+     ((===hng-khm	  . 03960)	; &HNG011-03960;
       )
      ((===hng-khi	  . 04430)	; &HNG010-04430;
       ))
@@ -4384,6 +4388,8 @@
       )
      ((==adobe-japan1-0	  . 02933)	; &g2-AJ1-02933;
       )
+     ((===hng-khm	  . 03940)	; &HNG011-03940;
+      )
      ((===hng-khi	  . 04460)	; &HNG010-04460;
       ))
     ))
@@ -5967,6 +5973,8 @@
      ((==ucs@unicode	  . #x6B61)	; &g2-UU+6B61;
       (==ucs@JP/hanazono  . nil)
       (==gb12345	  . #x3B36)	; &g2-UU+6B61; [27-22]
+      )
+     ((===hng-khm	  . 03950)	; &HNG011-03950;
       ))
     ))
 (define-char
