@@ -3046,7 +3046,9 @@
     (=daikanwa		. 08930)	; &I-M-08930;
     (=shinjigen		.  3959)	; &AJ1-13429;
     (<-simplified@JP/Jouyou
-     ((=ucs@jis		  . #x6B78)	; &MJ014849;
+     ((=ucs@cns		  . #x6B78)	; &MJ014849;
+      (=ucs@jis		  . #x6B78)	; &MJ014849;
+      (=ucs@ks		  . #x6B78)	; &MJ014849;
       (=mj		  . 014849)	; &MJ014849;
       (=jis-x0208	  . #x5D45)	; &I-J90-5D45; [61-37]
       ))
