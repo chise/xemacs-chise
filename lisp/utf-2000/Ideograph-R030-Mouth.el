@@ -11619,6 +11619,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (hanyu-dazidian	2 1404 2)
+    (=>ucs@iwds-1	. #x54B8)	; &AJ1-04366;
     (=ucs@unicode	. #x54B8)	; &AJ1-04366;
     (=adobe-japan1-0	. 04366)	; &AJ1-04366;
     (=jis-x0208		. #x5279)	; &I-J90-5279; [50-89]
