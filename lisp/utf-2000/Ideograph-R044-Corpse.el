@@ -162,7 +162,7 @@
       )
      ((=ucs		  . #x5315)	; 匕
       ))
-    (=>ucs@unicode	. #x5C3C)	; &AJ1-03276;
+    (=>ucs@iwds-1	. #x5C3C)	; &AJ1-03276;
     (=ucs@unicode	. #x5C3C)	; &AJ1-03276;
     (=adobe-japan1-0	. 03276)	; &AJ1-03276;
     (=jis-x0208		. #x4674)	; &I-J90-4674; [38-84]
