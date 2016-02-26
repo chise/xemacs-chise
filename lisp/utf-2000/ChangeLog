@@ -1,5 +1,31 @@
 2016-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R066-Rap.el: Add glyph-images of HNG-KHM.
+	(U+6551): Separate UU+6551.
+	(UU+6551): Add `=>ucs@iwds-1'; don't subsume HNG-KHI0406-0.
+	(HD-TK01036590): New character; add `<-denotational' for U+6551;
+	subsume g2-HD-TK01036590, HNG-KHI0406-0 and HNG-KHM0357-0.
+	(U+656C-itaiji-001): New character to subsume HNG-KHM0353-0 and
+	HNG-KHI0403-0; add `<-denotational' for U+656C.
+	(U-00022FBE): Don't unify JU+6577, AJ1-03537, J0-495F, GT-16902
+	and M-13359'; unify MJ057611 and KOSEKI-149590; add `<-formed' for
+	U+6577; add HNG-KHM0354-0.
+	(JU+6577): Separate U-00022FBE and C6-5D4B.
+	(IU+22FD9): Add `<-formed' for U+6578; add HNG-KHM0356-0.
+
+	* Ideograph-R038-Woman.el (U-00021764): Separate IU+21764.
+	(IU+21764): Add `=>ucs@iwds-1'.
+	(A-MJ057303): New abstract node.
+	(MJ057303): New character; add `<-subsumptive' for A-MJ057303;
+	unify HD-KS073700.
+	(U+21764-itaiji-001): New character; add `<-subsumptive' for
+	A-MJ057303.
+
+2016-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R079-Weapon.el (U-00023A8B): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R075-Tree.el: Add glyph-images of HNG-KHM.
 	(U+6771-var-001): New glyph node to subsume HNG-KHI0441-0 and
 	HNG-KHM0391-0; add `<-subsumptive' for U+6771.
