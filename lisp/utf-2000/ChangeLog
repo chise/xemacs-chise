@@ -1,3 +1,18 @@
+2016-02-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R078-Death.el (U+6B7B): Add HNG-KHM0401-0.
+
+	* Ideograph-R073-Say.el (CU+66FC): Don't subsume HNG-KHI0424-0.
+
+	* Ideograph-R029-Again.el (CU+66FC): Don't subsume HNG-KHI0424-0.
+
+	* Ideograph-R030-Mouth.el (UU+54B8): Add `=>ucs@iwds-1'.
+
+	* Ideograph-R044-Corpse.el (UU+5C3C): Add `=>ucs@iwds-1'.
+
+	* Ideograph-R195-Fish.el (U+4C77): Apply new conventions for glyph
+	granularity; unify CB04596.
+
 2016-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R076-Lack.el: Add glyph-images of HNG-KHM.
