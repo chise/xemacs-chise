@@ -1,5 +1,7 @@
 2016-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R076-Lack.el: Add glyph-images of HNG-KHM.
+
 	* Ideograph-R066-Rap.el: Add glyph-images of HNG-KHM.
 	(U+6551): Separate UU+6551.
 	(UU+6551): Add `=>ucs@iwds-1'; don't subsume HNG-KHI0406-0.
