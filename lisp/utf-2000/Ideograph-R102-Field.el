@@ -2232,12 +2232,22 @@
 (define-char
   '((ideographic-radical . 102)	; ⽥
     (=ucs		. #x7570)	; 異
-    (=>jis-x0208	. #x305B)	; 異 [16-59]
-    (=>jis-x0213-1	. #x305B)	; 異 [16-59]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x7570)	; 異
+      ))
+    (ideographic-radical . 102)	; ⽥
+    (=>ucs@iwds-1	. #x7570)	; &J97-305B;
+    (=>ucs@unicode	. #x7570)	; &J97-305B;
+    (=>jis-x0208	. #x305B)	; &J97-305B; [16-59]
+    (=>jis-x0213-1	. #x305B)	; &J97-305B; [16-59]
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x7570)	; &J97-305B;
+      (=>ucs@unicode	  . #x7570)	; &J97-305B;
+      (=>jis-x0208	  . #x305B)	; &J97-305B; [16-59]
       ))
     (ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 6)
@@ -2738,7 +2748,9 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x7570)	; 異
+     ((=>ucs@iwds-1	  . #x7570)	; &J97-305B;
+      (=>ucs@unicode	  . #x7570)	; &J97-305B;
+      (=>jis-x0208	  . #x305B)	; &J97-305B; [16-59]
       ))
     (=>ucs*		. #x7570)	; 異
     (ideographic-radical . 102)	; ⽥
