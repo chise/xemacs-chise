@@ -24503,6 +24503,15 @@
      ((=ucs		  . #x5048)	; 偈
       ))
     (ideographic-radical . 9)	; ⼈
+    (=>ucs@iwds-1	. #x5048)	; &A-IWDSU+5048;
+    (=>ucs@unicode	. #x5048)	; &A-IWDSU+5048;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x5048)	; &A-IWDSU+5048;
+      (=>ucs@unicode	  . #x5048)	; &A-IWDSU+5048;
+      ))
+    (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 191 1)
@@ -24531,7 +24540,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5048)	; 偈
+     ((=>ucs@iwds-1	  . #x5048)	; &A-IWDSU+5048;
+      (=>ucs@unicode	  . #x5048)	; &A-IWDSU+5048;
       ))
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 8)
