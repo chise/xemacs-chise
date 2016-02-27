@@ -12,6 +12,7 @@
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (=>ucs@iwds-1	. #x5F13)	; &AJ1-01655;
     (=ucs@unicode	. #x5F13)	; &AJ1-01655;
     (=adobe-japan1-0	. 01655)	; &AJ1-01655;
     (=jis-x0208		. #x355D)	; &I-J90-355D; [21-61]
@@ -153,6 +154,7 @@
       )
      ((=ucs		  . #x4E28)	; 丨
       ))
+    (=>ucs@iwds-1	. #x5F15)	; &AJ1-01214;
     (=ucs@unicode	. #x5F15)	; &AJ1-01214;
     (=adobe-japan1-0	. 01214)	; &AJ1-01214;
     (=jis-x0208		. #x307A)	; &I-J90-307A; [16-90]
@@ -2226,11 +2228,22 @@
      ((=ucs		  . #x223A5)	; 𢎥
       ))
     (=ucs		. #x5F31)	; 弱
-    (=big5		. #xAE7A)	; &I-B-AE7A;
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x5F31)	; 弱
+      ))
+    (ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (=>ucs@iwds-1	. #x5F31)	; &A-IWDSU+5F31;
+    (=>ucs@unicode	. #x5F31)	; &A-IWDSU+5F31;
+    (=big5		. #xAE7A)	; &A-IWDSU+5F31;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x5F31)	; &A-IWDSU+5F31;
+      (=>ucs@unicode	  . #x5F31)	; &A-IWDSU+5F31;
       ))
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 7)
@@ -2282,7 +2295,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5F31)	; 弱
+     ((=>ucs@iwds-1	  . #x5F31)	; &A-IWDSU+5F31;
+      (=>ucs@unicode	  . #x5F31)	; &A-IWDSU+5F31;
       ))
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 7)
