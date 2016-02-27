@@ -1,5 +1,40 @@
 2016-02-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R102-Field.el (U+7570): Separate A-UU+7570 and
+	A-J0-305B.
+	(A-UU+7570): Unify A-J0-305B; add `=>ucs@iwds-1'.
+
+	* Ideograph-R075-Tree.el (U+67D4): Separate UU+67D4.
+	(UU+67D4): Add `=>ucs@iwds-1'; don't subsume HNG-KHI0435-0.
+	(HNG-KHI0435-0): Use `<-denotational' instead of `<-subsumptive'
+	for U+67D4.
+
+	* Ideograph-R074-Moon.el (U+670D): Separate A-UU+670D and
+	A-J0-497E.
+	(A-UU+670D): Unify A-J0-497E; add `=>ucs@iwds-1'.
+
+	* Ideograph-R057-Bow.el (UU+5F13): Add `=>ucs@iwds-1'.
+	(UU+5F15): Ditto.
+	(U+5F31): Separate A-UU+5F31.
+	(A-UU+5F31): Add `=>ucs@iwds-1'.
+
+	* Ideograph-R019-Power.el (U+52A3): Separate UU+52A3.
+	(UU+52A3): Add `=>ucs@iwds-1'; don't subsume HNG-KHM0010-0.
+	(HNG-KHM0010-0): Use `<-denotational' instead of `<-subsumptive'
+	for U+52A3.
+	(UU+52D2): Add `=>ucs@iwds-1'.
+
+	* Ideograph-R018-Knife.el (U+5239): Don't subsume HNG-KHI0012-0.
+	(U-000206F4): Separate A-IU+206F4.
+	(A-IU+206F4): Add `=>ucs@iwds-1'; separate IU+206F4.
+	(HNG-KHI0012-0): Use `<-denotational' for U-000206F4 instead of
+	`<-subsumptive' for g2-UU+5239; add `<-formed' for U+5239.
+
+	* Ideograph-R009-Man.el (A-UU+5048): New abstract node; add
+	`=>ucs@iwds-1'.
+	(UU+5048): Use A-UU+5048 instead of U+5048 as the mother.
+	(HD-FT2070): Likewise.
+
 	* Ideograph-R078-Death.el (U+6B7B): Add HNG-KHM0401-0.
 
 	* Ideograph-R073-Say.el (CU+66FC): Don't subsume HNG-KHI0424-0.
