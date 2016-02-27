@@ -7224,23 +7224,6 @@
      ((=ucs		  . #x3B05)	; 㬅
       ))
     (ideographic-radical . 72)	; ⽇
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=big5-cdp	  . #x8CBF)	; &CDP-8CBF;
-      )
-     ((=ucs		  . #x4E07)	; 万
-      ))
-    (=ucs-var-002	. #x3B05)	; &U-v002+3B05;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x3B05)	; 㬅
-      ))
-    (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (ideographic-structure
@@ -7277,6 +7260,31 @@
 	)
        ((=hanziku-4	    . #xE3CE)	; &HZK04-E3CE;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3B05)	; 㬅
+      ))
+    (ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8CBF)	; &CDP-8CBF;
+      )
+     ((=ucs		  . #x4E07)	; 万
+      ))
+    (=ucs-var-002	. #x3B05)	; &U-v002+3B05;
+    (<-formed
+     ((=ucs		  . #x66FC)	; 曼
+      ))
+    (<-formed*sources
+     hng)
+    (->subsumptive
+     ((===hng-khi	  . 04240)	; &HNG010-04240;
       ))
     ))
 (define-char
