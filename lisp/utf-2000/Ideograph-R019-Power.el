@@ -322,7 +322,6 @@
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (hanyu-dazidian	1 367 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -332,7 +331,27 @@
      ((=ucs		  . #x529B)	; 力
       ))
     (=ucs		. #x52A3)	; 劣
-    (=adobe-japan1-0	. 04028)	; &I-AJ1-04028;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x52A3)	; 劣
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (hanyu-dazidian	1 367 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x5C11)	; &AJ1-02455;
+      (=adobe-japan1-0	  . 02455)	; &AJ1-02455;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=>ucs@iwds-1	. #x52A3)	; &AJ1-04028;
+    (=ucs@unicode	. #x52A3)	; &AJ1-04028;
+    (=adobe-japan1-0	. 04028)	; &AJ1-04028;
     (=jis-x0208		. #x4E74)	; &I-J90-4E74; [46-84]
     (=gb2312		. #x4153)	; &I-G0-4153; [33-51]
     (=ks-x1001		. #x562B)	; &I-K0-562B; [54-11]
@@ -343,7 +362,7 @@
     (=gt-k		. 01707)	; &I-GT-K01707;
     (=gt-pj-1		. #x4E74)	; &I-GT-02964; [46-84]
     (=daikanwa		. 02302)	; &I-M-02302;
-    (=shinjigen		.  0707)	; 劣
+    (=shinjigen		.  0707)	; &AJ1-04028;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x52A3)	; 劣
@@ -402,9 +421,24 @@
 	)
        ((===ucs@unicode	    . #x52A3)	; &R-UU+52A3;
 	))
-      )
-     ((===hng-khm	  . 00100)	; &HNG011-00100;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x52A3)	; 劣
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-001	  . #x5C11)	; &U-i001+5C11;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (===hng-khm		. 00100)	; &HNG011-00100;
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
@@ -3281,6 +3315,7 @@
       )
      ((=ucs		  . #x529B)	; 力
       ))
+    (=>ucs@iwds-1	. #x52D2)	; &AJ1-07150;
     (=ucs@unicode	. #x52D2)	; &AJ1-07150;
     (=adobe-japan1-0	. 07150)	; &AJ1-07150;
     (=jis-x0208		. #x7055)	; &I-J90-7055; [80-53]
