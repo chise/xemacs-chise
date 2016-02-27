@@ -1,5 +1,10 @@
 2016-02-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R072-Sun.el (U+3B05-var-002): Add `<-formed' for
+	U+66FC; subsume HNG-KHI0424-0.
+
+2016-02-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R102-Field.el (U+7570): Separate A-UU+7570 and
 	A-J0-305B.
 	(A-UU+7570): Unify A-J0-305B; add `=>ucs@iwds-1'.
