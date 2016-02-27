@@ -1,3 +1,10 @@
+2016-02-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (UU+5831): Add `=>ucs@iwds-1'.
+	(U+5854): Separate A-UU+5854 and B-B6F0.
+	(A-UU+5854): Unify B-B6F0; add `=>ucs@iwds-1'.
+	(UU+5857): Add `=>ucs@iwds-1'.
+
 2016-02-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R072-Sun.el (U+3B05-var-002): Add `<-formed' for
