@@ -1037,6 +1037,31 @@
     ))
 (define-char
   '((ideographic-radical . 148)	; ⾓
+    (ideographic-strokes . 5)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x89D2)	; 角
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((name		    . "CJK RADICAL KNIFE ONE")
+	(=ucs		    . #x2E88)	; ⺈
+	)
+       ((=ucs		    . #x5E72)	; 干
+	))
+      ))
+    (===hng-khm		. 05180)	; &HNG011-05180;
+    (<-formed
+     ((=ucs		  . #x89E3)	; 解
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 148)	; ⾓
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
     (=ucs		. #x278E1)	; 𧣡
@@ -2948,6 +2973,13 @@
     (=ucs@unicode	. #x89F8)	; &UU+89F8;
     (=ucs@JP/hanazono	. nil)
     (=gb12345		. #x3425)	; &UU+89F8; [20-05]
+    (->subsumptive
+     ((==ucs@unicode	  . #x89F8)	; &g2-UU+89F8;
+      (==ucs@JP/hanazono  . nil)
+      (==gb12345	  . #x3425)	; &g2-UU+89F8; [20-05]
+      )
+     ((===hng-khm	  . 05170)	; &HNG011-05170;
+      ))
     ))
 (define-char
   '((ideographic-radical . 148)	; ⾓
