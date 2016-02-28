@@ -1,11 +1,38 @@
 2016-02-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R077-Stop.el: Add glyph-images of HNG-KHM.
+	(U+6B63): Separate A-UU+6B63.
+	(A-UU+6B63): Add `=>ucs@iwds-1'.
+	(HNG-KHM0398-0): New character; add `<-denotational' for U+6B63.
+	(MJ057888): Add `<-formed' for UU+6B64; add HNG-KHM0399-0.
+	(U+6B78): Separate A-UU+6B78 and B-C26B.
+	(A-UU+6B78): Unify B-C26B; add `=>ucs@iwds-1'.
+	(HNG-KHM0400-0): New character; add `<-denotational' for U+6B78.
+
+2016-02-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R041-Inch.el (A-IWDSU+5C06): New abstract node.
+	(A-UU+5C06): Use A-IWDSU+5C06 instead of U+5C06 as the mother.
+	(HNG-KHM0289-0): Use U+5C06 instead of A-JU+5C06 as the mother.
+	(A-JU+5C06): Use A-IWDSU+5C06 instead of U+5C06 as the mother.
+
 	* Ideograph-R032-Earth.el (UU+5831): Add `=>ucs@iwds-1'.
 	(U+5854): Separate A-UU+5854 and B-B6F0.
 	(A-UU+5854): Unify B-B6F0; add `=>ucs@iwds-1'.
 	(UU+5857): Add `=>ucs@iwds-1'.
 
 2016-02-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R156-Run.el: Add glyph-images of HNG-KHM.
+	(U+8D77-var-001): New character to subsume HNG-KHI0577-0 and
+	HNG-KHM0126-0.
+	(HNG-KHM0127-0): New character; add `<-formed' for U+8D85.
+	(U+8DA3-var-002): New character to subsume HNG-KHI0576-0 and
+	HNG-KHM0535-0.
+
+	* Ideograph-R148-Horn.el (HNG-KHM0518-0): New character; add
+	`<-formed' for U+89E3.
+	(UU+89F8): Add HNG-KHM0517-0.
 
 	* Ideograph-R072-Sun.el (U+3B05-var-002): Add `<-formed' for
 	U+66FC; subsume HNG-KHI0424-0.
