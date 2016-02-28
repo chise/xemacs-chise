@@ -319,23 +319,6 @@
       ))
     (ideographic-radical . 156)	; ⾛
     (ideographic-strokes . 3)
-    (total-strokes	 . 9)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
-      (=ucs		  . #x2FFA)	; ⿺
-      )
-     ((=ucs		  . #x8D71)	; 赱
-      )
-     ((=ucs		  . #x5DF3)	; 巳
-      ))
-    (===hng-khi		. 05770)	; &HNG010-05770;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x8D77)	; 起
-      ))
-    (ideographic-radical . 156)	; ⾛
-    (ideographic-strokes . 3)
     (total-strokes	 . 10)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
@@ -353,6 +336,28 @@
     (=shinjigen@1ed	.  7960)	; &GT-49592;
     (=shinjigen@rev	.  7959)	; &GT-49592;
     (=jef-china3	. #x66BA)	; &I-JC3-66BA;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8D77)	; 起
+      ))
+    (ideographic-radical . 156)	; ⾛
+    (ideographic-strokes . 3)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x8D71)	; 赱
+      )
+     ((=ucs		  . #x5DF3)	; 巳
+      ))
+    (=ucs-var-001	. #x8D77)	; &U-v001+8D77;
+    (->subsumptive
+     ((===hng-khi	  . 05770)	; &HNG010-05770;
+      )
+     ((===hng-khm	  . 01260)	; &HNG011-01260;
+      ))
     ))
 (define-char
   '((ideographic-radical . 156)	; ⾛
@@ -1140,6 +1145,23 @@
     (=gt		. 49648)	; &I-GT-49648;
     (=gt-pj-7		. #x447C)	; &I-GT-49648; [36-92]
     (=daikanwa		. 37115)	; &I-M-37115;
+    ))
+(define-char
+  '((ideographic-radical . 156)	; ⾛
+    (ideographic-strokes . 5)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x8D71)	; 赱
+      )
+     ((=ucs		  . #x20BA6)	; 𠮦
+      ))
+    (===hng-khm		. 01270)	; &HNG011-01270;
+    (<-formed
+     ((=ucs		  . #x8D85)	; 超
+      ))
     ))
 (define-char
   '((ideographic-radical . 156)	; ⾛
@@ -2407,7 +2429,12 @@
       )
      ((=ucs		  . #x53D6)	; 取
       ))
-    (===hng-khi		. 05760)	; &HNG010-05760;
+    (=ucs-var-002	. #x8DA3)	; &U-v002+8DA3;
+    (->subsumptive
+     ((===hng-khi	  . 05760)	; &HNG010-05760;
+      )
+     ((===hng-khm	  . 05350)	; &HNG011-05350;
+      ))
     ))
 (define-char
   '((ideographic-radical . 156)	; ⾛
