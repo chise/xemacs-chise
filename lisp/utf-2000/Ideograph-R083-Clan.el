@@ -75,7 +75,17 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (=ucs		. #x6C11)	; 民
-    (=jis-x0208		. #x4C31)	; &I-J90-4C31; [44-17]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6C11)	; 民
+      ))
+    (ideographic-radical . 83)	; ⽒
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (=>ucs@iwds-1	. #x6C11)	; &GT-21804;
+    (=ucs@unicode	. #x6C11)	; &GT-21804;
+    (=jis-x0208		. #x4C31)	; &GT-21804; [44-17]
     (=gb2312		. #x4371)	; &I-G0-4371; [35-81]
     (=ks-x1001		. #x5A45)	; &I-K0-5A45; [58-37]
     (=cns11643-1	. #x4661)	; &I-C1-4661; [38-65]
@@ -85,7 +95,7 @@
     (=gt-k		. 01008)	; &I-GT-K01008;
     (=gt-pj-1		. #x4C31)	; &I-GT-21804; [44-17]
     (=daikanwa		. 17028)	; &I-M-17028;
-    (=shinjigen		.  4039)	; 民
+    (=shinjigen		.  4039)	; &GT-21804;
     (->subsumptive
      ((==ucs@unicode	  . #x6C11)	; &g2-GT-21804;
       (==gb2312		  . #x4371)	; &g2-GT-21804; [35-81]
@@ -127,6 +137,15 @@
     (<-identical@component
      ((=ucs		  . #x6C11)	; 民
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6C11)	; 民
+      ))
+    (ideographic-radical . 83)	; ⽒
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (===hng-khm		. 04040)	; &HNG011-04040;
     ))
 (define-char
   '((ideographic-radical . 83)	; ⽒
