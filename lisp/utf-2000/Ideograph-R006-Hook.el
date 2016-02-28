@@ -556,7 +556,6 @@
     (ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
-    (=>ucs@iwds-1	. #x4E8B)	; &AJ1-02244;
     (=ucs@unicode	. #x4E8B)	; &AJ1-02244;
     (=adobe-japan1-0	. 02244)	; &AJ1-02244;
     (=jis-x0208		. #x3B76)	; &I-J90-3B76; [27-86]
