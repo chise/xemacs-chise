@@ -25625,6 +25625,7 @@
       )
      ((=ucs		  . #x53E3)	; 口
       ))
+    (=>ucs@iwds-1	. #x559C)	; &AJ1-01578;
     (=ucs@unicode	. #x559C)	; &AJ1-01578;
     (=adobe-japan1-0	. 01578)	; &AJ1-01578;
     (=jis-x0208		. #x346E)	; &I-J90-346E; [20-78]
@@ -25682,20 +25683,6 @@
      ((=ucs		  . #x559C)	; 喜
       ))
     (ideographic-radical . 30)	; ⼝
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (=decomposition@cid
-     ((=ucs		  . #x559C)	; 喜
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
-    (=adobe-japan1-5	. 20091)	; &AJ1-20091;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x559C)	; 喜
-      ))
-    (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (ideographic-structure
@@ -25714,6 +25701,23 @@
      ((=ucs		  . #x53E3)	; 口
       ))
     (===hng-khi		. 02970)	; &HNG010-02970;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x559C)	; 喜
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (=adobe-japan1-5	. 20091)	; &AJ1-20091;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x559C)	; 喜
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==adobe-japan1-5	  . 20091)	; &g2-AJ1-20091;
+      ))
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
