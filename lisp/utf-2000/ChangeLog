@@ -1,5 +1,11 @@
 2016-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R024-Ten.el (A-BC-8BF8): New abstract node; add
+	`<-formed' for U-00020992.
+	(U+20992-itaiji-001): New character; add `<-denotational' for
+	A-BC-8BF8.
+	(BC-8BF8): Use A-BC-8BF8 instead of U-00020992 as the mother.
+
 	* Ideograph-R006-Hook.el (UU+4E8B): Delete `=>ucs@iwds-1'.
 
 2016-02-27  MORIOKA Tomohiko  <tomo.git@chise.org>
