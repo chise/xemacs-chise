@@ -1096,15 +1096,6 @@
     (=big5-cdp		. #x88FE)	; &CDP-88FE;
     ))
 (define-char
-  '((<-denotational
-     ((=ucs		  . #x20992)	; 𠦒
-      ))
-    (ideographic-radical . 24)	; ⼗
-    (ideographic-strokes . 6)
-    (total-strokes	 . 8)
-    (=big5-cdp		. #x8BF8)	; &CDP-8BF8;
-    ))
-(define-char
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
@@ -1571,6 +1562,31 @@
     (=jis-x0213-2	. #x2353)	; &I-JX2-2353; [03-51]
     (=big5-cdp		. #x8C49)	; &I-CDP-8C49;
     (=jef-china3	. #x73FC)	; &I-JC3-73FC;
+    ))
+(define-char
+  '((ideographic-radical . 24)	; ⼗
+    (=>big5-cdp		. #x8BF8)	; &A-CDP-8BF8;
+    (<-formed
+     ((=ucs		  . #x20992)	; 𠦒
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8BF8)	; &A-CDP-8BF8;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (=ucs-itaiji-001	. #x20992)	; &U-i001+20992;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8BF8)	; &A-CDP-8BF8;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (=big5-cdp		. #x8BF8)	; &CDP-8BF8;
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
