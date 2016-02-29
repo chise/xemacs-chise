@@ -1,4 +1,51 @@
+2016-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R006-Hook.el (UU+4E8B): Delete `=>ucs@iwds-1'.
+
 2016-02-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R114-Track.el (U+79BB): Separate A-UU+79BB and B-D6C3.
+	(A-UU+79BB): Unify B-D6C3; add `=>ucs@iwds-1'.
+	(U+79BB-itaiji-001): New character; add `<-denotational' for
+	U+79BB.
+
+	* Ideograph-R103-Bolt-Of-Cloth.el (U+7591-itaiji-006): Add
+	HNG-KHM0095-0.
+
+	* Ideograph-R079-Weapon.el (HNG-KHM0402-0): New character; add
+	`<-denotational' for U+6BBF.
+	(U+6BC0): Separate UU+6BC0.
+	(UU+6BC0): Add `=>ucs@iwds-1'.
+	(HNG-KHM0073-0): New character; add `<-denotational' for U+6BC0.
+
+	* Ideograph-R066-Rap.el (U+656C): Separate A-UU+656C and B-B771.
+	(A-UU+656C): Unify B-B771; add `=>ucs@iwds-1'.
+
+	* Ideograph-R057-Bow.el (UU+5F13): Delete `=>ucs@iwds-1'.
+	(UU+5F15): Delete `=>ucs@iwds-1'.
+	(o-JU+5F25): New abstract node.
+	(JU+5F25): Use o-JU+5F25 instead of U+5F25 as the mother.
+	(HD-TK01029400): Likewise.
+	(U+5F31): Unify A-UU+5F31 and B-AE7A; delete `=>ucs@iwds-1'.
+	(o-UU+5F31): New abstract node.
+	(UU+5F31): Use o-UU+5F31 instead of A-UU+5F31 as the mother.
+	(U+5F31-var-003): Use o-UU+5F31 instead of U+5F31 as the mother.
+
+	* Ideograph-R019-Power.el (UU+52A9): Add `=>ucs@iwds-1'; subsume
+	HNG-KHM0009-0.
+
+	* Ideograph-R030-Mouth.el (UU+559C): Add `=>ucs@iwds-1'.
+
+	* Ideograph-R005-Second.el (HNG-KHM0002-0): Use BUCS+4E82 instead
+	of U+4E82 as the mother; add `<-formed' for U+4E82.
+	(HNG-KYD0869-0): Likewise.
+	(HNG-KHI0227-0): Likewise.
+
+	* Ideograph-R083-Clan.el (U+6C11): Separate UU+6C11.
+	(UU+6C11): Add `=>ucs@iwds-1'.
+	(HNG-KHM0404-0): New character.
+
+	* Ideograph-R081-Compare.el (g2-CU+6BD4): Add HNG-KHM0403-0.
 
 	* Ideograph-R077-Stop.el: Add glyph-images of HNG-KHM.
 	(U+6B63): Separate A-UU+6B63.
