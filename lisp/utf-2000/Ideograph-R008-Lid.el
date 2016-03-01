@@ -1024,6 +1024,13 @@
       (=>iwds-1		  .  0345)	; &IWDS1-345;
       ))
     (ideographic-radical . 8)	; ⼇
+    (=ucs		. #x342C)	; 㐬
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x342C)	; 㐬
+      ))
+    (ideographic-radical . 8)	; ⼇
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -1032,7 +1039,8 @@
       )
      ((=ucs		  . #x2BDA7)	; 𫶧
       ))
-    (=ucs		. #x342C)	; 㐬
+    (=>ucs@iwds-1	. #x342C)	; &A-IWDSU+342C;
+    (=>ucs@unicode	. #x342C)	; &A-IWDSU+342C;
     (->subsumptive
      ((ideographic-strokes . 5)
       (total-strokes	   . 7)
