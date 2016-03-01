@@ -92,11 +92,13 @@
     (=cns11643-3	. #x2370)	; &I-C3-2370; [03-80]
     (=daikanwa		. 13451)	; &I-M-13451;
     (<-simplified@CN
-     ((=ucs		  . #x9F4A)	; 齊
-      (=gb12345		  . #x466B)	; 齊 [38-75]
+     ((=ucs@unicode	  . #x9F4A)	; &AJ1-07457;
+      (=adobe-japan1-0	  . 07457)	; &AJ1-07457;
+      (=gb12345		  . #x466B)	; &AJ1-07457; [38-75]
       ))
     (<-vulgar
-     ((=ucs		  . #x9F4A)	; 齊
+     ((=ucs@unicode	  . #x9F4A)	; &AJ1-07457;
+      (=adobe-japan1-0	  . 07457)	; &AJ1-07457;
       (=daikanwa	  . 48560)	; &I-M-48560;
       ))
     (<-vulgar*sources
@@ -129,8 +131,9 @@
      ((=ucs		  . #x9F50)	; 齐
       ))
     (<-simplified@CN/component
-     ((=ucs		  . #x9F4A)	; 齊
-      (=gb12345		  . #x466B)	; 齊 [38-75]
+     ((=ucs@unicode	  . #x9F4A)	; &AJ1-07457;
+      (=adobe-japan1-0	  . 07457)	; &AJ1-07457;
+      (=gb12345		  . #x466B)	; &AJ1-07457; [38-75]
       ))
     ))
 (define-char
@@ -224,7 +227,8 @@
     (=daikanwa		. 13454)	; &I-M-13454;
     (=shinjigen		.  9880)	; 斉
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x9F4A)	; 齊
+     ((=ucs@unicode	  . #x9F4A)	; &AJ1-07457;
+      (=adobe-japan1-0	  . 07457)	; &AJ1-07457;
       (=jis-x0208	  . #x736E)	; &I-J90-736E; [83-78]
       ))
     (->subsumptive
