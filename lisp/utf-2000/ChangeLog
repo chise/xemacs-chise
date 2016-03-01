@@ -1,3 +1,8 @@
+2016-02-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R028-Private.el (U+342C-itaiji-001): Add
+	`<-denotational' for U+342C; omit `<-formed' for U+342C.
+
 2016-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R024-Ten.el (A-BC-8BF8): New abstract node; add
@@ -9,6 +14,12 @@
 	* Ideograph-R006-Hook.el (UU+4E8B): Delete `=>ucs@iwds-1'.
 
 2016-02-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (U+96E2): Split A-UU+96E2.
+	(A-UU+96E2): Add `=>ucs@iwds-1'.
+	(CU+96E2): Don't subsume HNG-KHI0206-0.
+	(HNG-KHI0206-0): Use `<-denotational' for U+96E2 instead of
+	`<-subsumptive' for CU+96E2.
 
 	* Ideograph-R114-Track.el (U+79BB): Separate A-UU+79BB and B-D6C3.
 	(A-UU+79BB): Unify B-D6C3; add `=>ucs@iwds-1'.
