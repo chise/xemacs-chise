@@ -4189,8 +4189,6 @@
     ))
 (define-char
   '((ideographic-radical . 172)	; ⾫
-    (ideographic-strokes . 11)
-    (total-strokes	 . 19)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -4204,6 +4202,26 @@
 (define-char
   '((<-denotational
      ((=ucs		  . #x96E2)	; 離
+      ))
+    (ideographic-radical . 172)	; ⾫
+    (ideographic-strokes . 11)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x79BB)	; &A-IWDSU+79BB;
+      (=>ucs@unicode	  . #x79BB)	; &A-IWDSU+79BB;
+      )
+     ((=ucs		  . #x96B9)	; 隹
+      ))
+    (=>ucs@iwds-1	. #x96E2)	; &A-IWDSU+96E2;
+    (=>ucs@unicode	. #x96E2)	; &A-IWDSU+96E2;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x96E2)	; &A-IWDSU+96E2;
+      (=>ucs@unicode	  . #x96E2)	; &A-IWDSU+96E2;
       ))
     (ideographic-radical . 172)	; ⾫
     (ideographic-strokes . 11)
@@ -4252,7 +4270,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x96E2)	; 離
+     ((=>ucs@iwds-1	  . #x96E2)	; &A-IWDSU+96E2;
+      (=>ucs@unicode	  . #x96E2)	; &A-IWDSU+96E2;
       ))
     (ideographic-radical . 172)	; ⾫
     (ideographic-strokes . 11)
@@ -4271,9 +4290,24 @@
     (->subsumptive
      ((==ucs@cns	  . #x96E2)	; &g2-CU+96E2;
       (==cns11643-1	  . #x7762)	; &g2-CU+96E2; [87-66]
-      )
-     ((===hng-khi	  . 02060)	; &HNG010-02060;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x96E2)	; 離
+      ))
+    (ideographic-radical . 172)	; ⾫
+    (ideographic-strokes . 9)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-itaiji-001	  . #x79BB)	; &U-i001+79BB;
+      )
+     ((=ucs		  . #x96B9)	; 隹
+      ))
+    (===hng-khi		. 02060)	; &HNG010-02060;
     ))
 (define-char
   '((ideographic-radical . 172)	; ⾫
