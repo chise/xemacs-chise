@@ -1,5 +1,8 @@
 2016-02-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R008-Lid.el (U+342C): Separate A-UU+342C.
+	(A-UU+342C): Add `=>ucs@iwds-1'.
+
 	* Ideograph-R028-Private.el (U+342C-itaiji-001): Add
 	`<-denotational' for U+342C; omit `<-formed' for U+342C.
 
