@@ -10138,10 +10138,8 @@
       )
      ((=ucs		  . #x7592)	; 疒
       )
-     ((=ucs@jis/2004	  . #x6108)	; &HD-FT-333E;
-      (=jis-x0208@1978	  . #x4C7C)	; &HD-FT-333E; [44-92]
-      (=jis-x0213-1@2004  . #x4C7C)	; &I-JX3-4C7C; [44-92]
-      (=daikanwa	  . 10904)	; &I-M-10904;
+     ((=ucs@jis/2004	  . #x6108)	; &AJ1-07802;
+      (=adobe-japan1-0	  . 07802)	; &AJ1-07802;
       ))
     (=jis-x0208@1978	. #x4C7E)	; &HD-FT-333F; [44-94]
     (=hanyo-denshi/ft	. #x333F)	; &I-HD-FT-333F; [19-31]
@@ -10161,8 +10159,8 @@
        ((==ucs@unicode	    . #x7592)	; &g2-JSP-4D46;
 	(==jis-x0213-1	    . #x784C)	; &g2-JSP-4D46; [88-44]
 	)
-       ((==ucs@jis/2004	    . #x6108)	; &g2-HD-FT-333E;
-	(==hanyo-denshi/ft  . #x333E)	; &g2-HD-FT-333E; [19-30]
+       ((==ucs@jis/2004	    . #x6108)	; &g2-AJ1-07802;
+	(==adobe-japan1-0   . 07802)	; &g2-AJ1-07802;
 	))
       (==jis-x0208@1978	  . #x4C7E)	; &g2-HD-FT-333F; [44-94]
       (==hanyo-denshi/ft  . #x333F)	; &g2-HD-FT-333F; [19-31]
