@@ -1,3 +1,9 @@
+2016-03-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R105-Dotted-Tent.el (U+767C): Separate UU+767C.
+	(U-00024F32): Add `<-formed' for U+767C; add HNG-KHM0446-0.
+	(g2-IU+24F32): Move HNG-KHI0497-0 to U-00024F32.
+
 2016-02-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R008-Lid.el (U+342C): Separate A-UU+342C.
