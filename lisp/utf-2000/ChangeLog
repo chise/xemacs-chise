@@ -1,3 +1,20 @@
+2016-03-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R101-Use.el (U+752B): Separate UU+752B.
+
+2016-03-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R102-Field.el (U-00024C14): Add GT-K01770.
+	(GT-K03345): New character; add `<-denotational' for U+752B; add
+	`<-formed@component' for UU+752B and U-00024C14.
+
+	* Ideograph-R075-Tree.el (U+3B87): Add representative nodes.
+
+	* Ideograph-R009-Man.el (JU+50AF): Add representative nodes.
+	(U-00020372): Apply new conventions for glyph granularity.
+	(U+50FD): Likewise.
+	(IU+20423): Add representative nodes.
+
 2016-03-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R105-Dotted-Tent.el (U+767C): Separate UU+767C.
