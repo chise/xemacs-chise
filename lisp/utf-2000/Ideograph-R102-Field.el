@@ -138,6 +138,21 @@
     (total-strokes	 . 6)
     (=ucs		. #x24C14)	; 𤰔
     (=big5-cdp		. #x8DEE)	; &I-CDP-8DEE;
+    (->subsumptive
+     ((==ucs@iso	  . #x24C14)	; &g2-CDP-8DEE;
+      (==big5-cdp	  . #x8DEE)	; &g2-CDP-8DEE;
+      (->subsumptive
+       ((===big5-cdp	    . #x8DEE)	; &R-CDP-8DEE;
+	)
+       ((===ucs@iso	    . #x24C14)	; &R-U-00024C14;
+	))
+      )
+     ((=gt-k		  . 01770)	; &GT-K01770;
+      (=gt-pj-k1	  . #x323A)	; &GT-K01770; [18-26]
+      (<-identical@component/connect-below
+       ((==ucs@iso	    . #x24C14)	; &g2-CDP-8DEE;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 102)	; ⽥
@@ -315,6 +330,30 @@
     (=ucs		. #x3F57)	; 㽗
     (=cns11643-3	. #x2672)	; &I-C3-2672; [06-82]
     (=jis-x0213-2	. #x7134)	; &I-JX2-7134; [81-20]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x752B)	; 甫
+      ))
+    (ideographic-radical . 102)	; ⽥
+    (ideographic-strokes . 2)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x24C14)	; 𤰔
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=gt-k		. 03345)	; &GT-K03345;
+    (=gt-pj-k2		. #x3534)	; &GT-K03345; [21-20]
+    (<-formed@component
+     ((=ucs@unicode	  . #x752B)	; &AJ1-03635;
+      (=adobe-japan1-0	  . 03635)	; &AJ1-03635;
+      )
+     ((=ucs		  . #x24C14)	; 𤰔
+      ))
     ))
 (define-char
   '((ideographic-radical . 102)	; ⽥
