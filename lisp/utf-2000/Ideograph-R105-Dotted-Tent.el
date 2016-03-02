@@ -129,8 +129,12 @@
     (=gt-pj-1		. #x482F)	; &I-GT-29048; [40-15]
     (=daikanwa/+p	. 22662)	; 発
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x767C)	; 發
-      (=jis-x0208	  . #x6224)	; &I-J90-6224; [66-04]
+     ((=ucs@unicode	  . #x767C)	; &GT-29057;
+      (=jis-x0208	  . #x6224)	; &GT-29057; [66-04]
+      (=ks-x1001	  . #x5B21)	; &I-K0-5B21; [59-01]
+      (=cns11643-1	  . #x6075)	; &I-C1-6075; [64-85]
+      (=jis-x0213-1	  . #x6224)	; &I-JX1-6224; [66-04]
+      (=daikanwa	  . 22669)	; &I-M-22669;
       ))
     ))
 (define-char
@@ -207,18 +211,43 @@
   '((ideographic-radical . 105)	; ⽨
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7676)	; 癶
+      )
+     ((=>big5-cdp	  . #x8B7D)	; &A-CB05942;
+      ))
     (=ucs		. #x767C)	; 發
-    (=jis-x0208		. #x6224)	; &I-J90-6224; [66-04]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x767C)	; 發
+      ))
+    (ideographic-radical . 105)	; ⽨
+    (ideographic-strokes . 7)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7676)	; 癶
+      )
+     ((=big5-cdp	  . #x8B7D)	; &CDP-8B7D;
+      ))
+    (=ucs@unicode	. #x767C)	; &GT-29057;
+    (=jis-x0208		. #x6224)	; &GT-29057; [66-04]
     (=ks-x1001		. #x5B21)	; &I-K0-5B21; [59-01]
     (=cns11643-1	. #x6075)	; &I-C1-6075; [64-85]
     (=jis-x0213-1	. #x6224)	; &I-JX1-6224; [66-04]
-    (=gb12345		. #x3722)	; 發 [23-02]
+    (=gb12345		. #x3722)	; &GT-29057; [23-02]
     (=big5		. #xB56F)	; &I-B-B56F;
     (=gt		. 29057)	; &I-GT-29057;
     (=gt-k		. 09215)	; &I-GT-K09215;
     (=gt-pj-1		. #x6224)	; &I-GT-29057; [66-04]
     (=daikanwa		. 22669)	; &I-M-22669;
-    (=shinjigen		.  5194)	; 發
+    (=shinjigen		.  5194)	; &GT-29057;
     (->subsumptive
      ((==ucs@cns	  . #x767C)	; &g2-GT-29057;
       (==ucs@jis	  . #x767C)	; &g2-GT-29057;
@@ -290,6 +319,11 @@
     (total-strokes	 . 12)
     (=ucs		. #x24F32)	; 𤼲
     (=cns11643-6	. #x4B68)	; &I-C6-4B68; [43-72]
+    (<-formed
+     ((=ucs		  . #x767C)	; 發
+      ))
+    (<-formed*sources
+     hng)
     (<-same
      ((=ucs		  . #x767C)	; 發
       ))
@@ -297,15 +331,14 @@
      ((==ucs@iso	  . #x24F32)	; &g2-IU-00024F32;
       (==cns11643-6	  . #x4B68)	; &g2-IU-00024F32; [43-72]
       (->subsumptive
-       ((===hng-khi	    . 04970)	; &HNG010-04970;
-	(<-formed
-	 ((=ucs		      . #x767C)	; 發
-	  ))
-	)
        ((===cns11643-6	    . #x4B68)	; &R-C6-4B68; [43-72]
 	)
        ((===ucs@iso	    . #x24F32)	; &R-U-00024F32;
 	))
+      )
+     ((===hng-khi	  . 04970)	; &HNG010-04970;
+      )
+     ((===hng-khm	  . 04460)	; &HNG011-04460;
       ))
     ))
 (define-char
