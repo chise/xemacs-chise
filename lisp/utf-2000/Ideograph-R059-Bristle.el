@@ -296,7 +296,7 @@
     (=daikanwa		. 09979)	; &I-M-09979;
     (<-vulgar
      ((=ucs		  . #x5F65)	; 彥
-      (=daikanwa	  . 09980)	; &M-09980;
+      (=daikanwa	  . 09980)	; &I-M-09980;
       ))
     (<-vulgar*sources
      zhengzitong daikanwa)
@@ -333,7 +333,7 @@
     (=adobe-japan1-4	. 13996)	; &I-AJ1-13996;
     (=cns11643-1	. #x507D)	; &I-C1-507D; [48-93]
     (=big5		. #xABDB)	; &I-B-ABDB;
-    (=daikanwa		. 09980)	; &M-09980;
+    (=daikanwa		. 09980)	; &I-M-09980;
     (=shinjigen		.  2313)	; 彥
     (=jef-china3	. #x4DA1)	; &I-JC3-4DA1;
     (->subsumptive
@@ -384,7 +384,7 @@
       ))
     (<-vulgar
      ((=ucs		  . #x5F65)	; 彥
-      (=daikanwa	  . 09980)	; &M-09980;
+      (=daikanwa	  . 09980)	; &I-M-09980;
       ))
     (<-vulgar*sources
      zhengzitong daikanwa)
