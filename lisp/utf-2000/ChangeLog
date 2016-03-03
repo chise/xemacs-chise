@@ -1,5 +1,10 @@
 2016-03-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R019-Power.el (U+52F4): Apply new conventions for
+	glyph granularity.
+
+2016-03-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R101-Use.el (U+752B): Separate UU+752B.
 
 2016-03-01  MORIOKA Tomohiko  <tomo.git@chise.org>
