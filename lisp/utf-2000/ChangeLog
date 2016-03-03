@@ -4,6 +4,8 @@
 
 2016-03-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R181-Leaf.el (g2-AJ1-01266): Add `=decomposition@cid'.
+
 	* Ideograph-R102-Field.el (U-00024C14): Add GT-K01770.
 	(GT-K03345): New character; add `<-denotational' for U+752B; add
 	`<-formed@component' for UU+752B and U-00024C14.
