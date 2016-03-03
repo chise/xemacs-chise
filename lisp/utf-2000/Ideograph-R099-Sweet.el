@@ -14,7 +14,37 @@
     (=gt-k		. 00908)	; &I-GT-K00908;
     (=gt-pj-1		. #x3445)	; &I-GT-27803; [20-37]
     (=daikanwa		. 21643)	; &I-M-21643;
-    (=shinjigen@rev	.  5006)	; 甘
+    (=shinjigen		.  5006)	; 甘
+    (->subsumptive
+     ((==ucs@unicode	  . #x7518)	; &g2-GT-27803;
+      (==gb2312		  . #x384A)	; &g2-GT-27803; [24-42]
+      (==ks-x1001	  . #x4A76)	; &g2-GT-27803; [42-86]
+      (==jis-x0208	  . #x3445)	; &g2-GT-27803; [20-37]
+      (==cns11643-1	  . #x466C)	; &g2-GT-27803; [38-76]
+      (==jis-x0213-1	  . #x3445)	; &g2-GT-27803; [20-37]
+      (==gt		  . 27803)	; &g2-GT-27803;
+      (==gt-k		  . 00908)	; &g2-GT-27803;
+      (==daikanwa	  . 21643)	; &g2-GT-27803;
+      (==shinjigen	  .  5006)	; &g2-GT-27803;
+      (->subsumptive
+       ((===daikanwa	    . 21643)	; &R-M-21643;
+	)
+       ((===jis-x0208	    . #x3445)	; &R-J0-3445; [20-37]
+	(===jis-x0213-1	    . #x3445)	; &R-J0-3445; [20-37]
+	)
+       ((===cns11643-1	    . #x466C)	; &R-C1-466C; [38-76]
+	)
+       ((===gt		    . 27803)	; &R-GT-27803;
+	(===gt-k	    . 00908)	; &R-GT-27803;
+	)
+       ((===ucs@ks	    . #x7518)	; &R-K0-4A76;
+	(===ks-x1001	    . #x4A76)	; &R-K0-4A76; [42-86]
+	)
+       ((===ucs@unicode	    . #x7518)	; &R-UU+7518;
+	)
+       ((===hng-khm	    . 04350)	; &HNG011-04350;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x24BBA)	; 𤮺
@@ -112,8 +142,6 @@
      ((==ucs@cns	  . #x751A)	; &g2-CU+751A;
       (==cns11643-1	  . #x5249)	; &g2-CU+751A; [50-41]
       )
-     ((===hng-khi	  . 04880)	; &HNG010-04880;
-      )
      ((==ucs@unicode	  . #x751A)	; &g2-UU+751A;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x4975)	; &g2-UU+751A; [41-85]
@@ -142,6 +170,24 @@
     (=ucs		. #x24BC4)	; 𤯄
     (=daikanwa		. 21651)	; &I-M-21651;
     (=hanziku-6		. #xF2F7)	; &I-HZK06-F2F7;
+    ))
+(define-char
+  '((ideographic-radical . 99)	; ⽢
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (=mj		. 058077)	; &MJ058077;
+    (=koseki		. 242810)	; &MJ058077;
+    (<-formed
+     ((=ucs		  . #x751A)	; 甚
+      ))
+    (->subsumptive
+     ((==mj		  . 058077)	; &g2-MJ058077;
+      (==koseki		  . 242810)	; &g2-MJ058077;
+      )
+     ((===hng-khm	  . 04360)	; &HNG011-04360;
+      )
+     ((===hng-khi	  . 04880)	; &HNG010-04880;
+      ))
     ))
 (define-char
   '((ideographic-radical . 99)	; ⽢
