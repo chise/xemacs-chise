@@ -10175,7 +10175,7 @@
       ))
     (=>ucs@iwds-1	. #x8345)	; &A-IWDSU+8345;
     (=>ucs@unicode	. #x8345)	; &A-IWDSU+8345;
-    (=big5		. #xD3AF)	; &A-IWDSU+8345;
+    (=big5		. #xD3AF)	; &I-B-D3AF;
     ))
 (define-char
   '((<-denotational
@@ -52207,12 +52207,10 @@
      ((name		  . "CJK RADICAL GRASS TWO")
       (=ucs		  . #x2EBF)	; ⺿
       )
-     ((=ucs@cns		  . #x6167)	; &HD-FT-3175;
-      (=ucs@ks		  . #x6167)	; &HD-FT-3175;
-      (=jis-x0208@1978	  . #x3745)	; &HD-FT-3175; [23-37]
-      (=ks-x1001	  . #x7B34)	; &I-K0-7B34; [91-20]
-      (=cns11643-1	  . #x6C64)	; &I-C1-6C64; [76-68]
-      (=daikanwa	  . 11116)	; &I-M-11116;
+     ((=ucs@cns		  . #x6167)	; &AJ1-13741;
+      (=ucs@ks		  . #x6167)	; &AJ1-13741;
+      (=adobe-japan1-0	  . 07669)	; &AJ1-13741;
+      (=adobe-japan1-4	  . 13741)	; &I-AJ1-13741;
       ))
     (=ucs@iso		. #x2705C)	; &U-0002705C;
     ))
