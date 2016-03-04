@@ -1,4 +1,42 @@
+2016-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R026-Seal.el (U+5371): Apply new conventions for glyph
+	granularity.
+
 2016-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el: Add glyph-images of HNG-KHM.
+	(U+6C7A): Separate UU+6C7A.
+	(UU+6C7A): Add `=>ucs@iwds-1'.
+	(HNG-KHM0081-0): New character; add `<-denotational' for U+6C7A.
+	(U+6C99-itaiji-002): New character to subsume HNG-KHI0467-0 and
+	HNG-KHM0413-0; add `<-denotational' for U+6C99.
+	(U+6D41-itaiji-001): New character to subsume HNG-KHI0474-0 and
+	HNG-KHM0077-0; add `<-denotational' for U+6D41.
+	(UU+6D44): Delete `=>ucs@iwds-1'.
+	(U+6D95): Separate UU+6D95.
+	(UU+6D95): Add `=>ucs@iwds-1'.
+	(HNG-KHM0085-0): New character; add `<-denotational' for U+6D95.
+	(U-00023D40): Add `<-formed' and `<-vulgar' for U+6D85.
+	(g2-IU+23D40): Move HNG-KHI0469-0 to U-00023D40.
+	(HNG-KHM0416-0): New character; add `<-denotational' for U+6DE8.
+	(HNG-KHM0417-0): New character; add `<-denotational' for U+6DF1.
+	(U+6E07-itaiji-001): New character to subsume HNG-KHI0470-0 and
+	HNG-KHM0084-0; add `<-denotational' for U+6E07; add `<-formed' for
+	U+6E34.
+	(U+6E1B): Separate UU+6E1B.
+	(UU+6E1B): Add `=>ucs@iwds-1'.
+	(HNG-KHM0421-0): New character; add `<-denotational' for U+6E1B.
+	(U+6EC5): Separate UU+6EC5.
+	(UU+6EC5): Add `=>ucs@iwds-1'.
+	(HNG-KHM0420-0): New character; add `<-denotational' for U+6EC5.
+	(U+6EFF-itaiji-003): New character to subsume HNG-KHI0457-0 and
+	HNG-KHM0407-0; add `<-denotational' for U+6EFF.
+	(U+6F14): Separate UU+6F14.
+	(HNG-KHM0418-0): New character; add `<-denotational' for U+6F14.
+	(U+6FDF): Separate UU+6FDF.
+	(UU+6FDF): Add `=>ucs@iwds-1'.
+	(HNG-KHM0080-0): New character; add `<-denotational' for U+6FDF.
 
 	* Ideograph-R003-Dot.el (A-M-00097): New abstract character.
 	(GT-00135): Separate U+3005, AJ1-00657, J0-2139, G0-2129 and
