@@ -63,7 +63,10 @@
     (=ucs		. #x3004)	; 〄
     ))
 (define-char
-  '((name		. "IDEOGRAPHIC ITERATION MARK")
+  '((<-denotational
+     ((=>daikanwa	  . 00097)	; &A-M-00097;
+      ))
+    (name		. "IDEOGRAPHIC ITERATION MARK")
     (script		Ideograph symbol)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
@@ -77,11 +80,6 @@
     (=gb2312		. #x2129)	; &I-G0-2129; [01-09]
     (=jis-x0213-1	. #x2139)	; &I-JX1-2139; [01-25]
     (=big5-eten		. #xC6E0)	; &I-B-C6E0;
-    (=gt		. 00135)	; &I-GT-00135;
-    (=gt-k		. 00282)	; &I-GT-K00282;
-    (=gt-pj-2		. #x306C)	; &I-GT-00135; [16-76]
-    (=daikanwa		. 00097)	; &I-M-00097;
-    (=cbeta		. 02728)	; &I-CB02728;
     ))
 (define-char
   '((name		. "IDEOGRAPHIC CLOSING MARK")
@@ -343,6 +341,7 @@
       (=ucs		  . #x301C)	; 〜
       ))
     (=ucs@unicode	. #x301C)	; &UU+301C;
+    (=ucs@JP/hanazono	. nil)
     ))
 (define-char
   '((<-denotational
