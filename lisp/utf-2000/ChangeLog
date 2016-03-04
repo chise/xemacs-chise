@@ -1,4 +1,32 @@
+2016-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R099-Sweet.el (U+7518): Add HNG-KHM0435-0.
+	(UU+751A): Don't subsume HNG-KHI0488-0.
+	(MJ058077): New character; unify KOSEKI-242810; add `<-formed' for
+	U+751A; add HNG-KHM0436-0; subsume HNG-KHI0488-0.
+
+	* Ideograph-R040-Roof.el (U+5BC5): Separate UU+5BC5.
+	(UU+5BC5): Add `=>ucs@iwds-1'.
+	(HD-TK01022120): New character; add `<-denotational' for U+5BC5.
+
+	* Ideograph-R009-Man.el (g2-JU+5050): Apply new conventions for
+	glyph granularity for a component of ideographic-structure.
+	(U+5122): Apply new conventions for glyph granularity.
+
 2016-03-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL HEART TWO>): Use
+	U+38FA instead of JU+38FA as the mother.
+	(<CJK RADICAL SPIRIT ONE>): Add `ideographic-radical',
+	`ideographic-strokes' and `total-strokes'.
+	(<CJK RADICAL SPIRIT TWO>): Add `<-identical@component' for
+	U+793B.
+
+	* Ideograph-R210-Even.el (U+9F4A): Separate UU+9F4A.
+	(UU+9F4A): Add `=>ucs@iwds-1'.
+	(U+9F4A-itaiji-003): New character; add `<-denotational' for
+	U+9F4A.
+	(U+9F4E): Apply new conventions for glyph granularity.
 
 	* Ideograph-R019-Power.el (U+52F4): Apply new conventions for
 	glyph granularity.
@@ -117,6 +145,10 @@
 	(U+5854): Separate A-UU+5854 and B-B6F0.
 	(A-UU+5854): Unify B-B6F0; add `=>ucs@iwds-1'.
 	(UU+5857): Add `=>ucs@iwds-1'.
+
+	* u03000-CJK-Symbols-and-Punctuation.el (<IDEOGRAPHIC ITERATION
+	MARK>): Add `<-denotational' for M-00097; separate GT-00135,
+	GT-K00282, M-00097 and CB02728.
 
 2016-02-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
