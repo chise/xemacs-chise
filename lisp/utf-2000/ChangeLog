@@ -1,5 +1,12 @@
 2016-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R003-Dot.el (A-M-00097): New abstract character.
+	(GT-00135): Separate U+3005, AJ1-00657, J0-2139, G0-2129 and
+	BC-C6E0; unify U-000206A4; add `<-same' for <IDEOGRAPHIC ITERATION
+	MARK>; add `<-denotational' for A-M-00097.
+	(<IDEOGRAPHIC ITERATION MARK>): Separate GT-00135, GT-K00282,
+	M-00097 and CB02728; add `<-denotational' for A-M-00097.
+
 	* Ideograph-R099-Sweet.el (U+7518): Add HNG-KHM0435-0.
 	(UU+751A): Don't subsume HNG-KHI0488-0.
 	(MJ058077): New character; unify KOSEKI-242810; add `<-formed' for
