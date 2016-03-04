@@ -365,8 +365,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs@jis		  . #x38FA)	; &JX2-2C3B;
-      (=jis-x0213-2	  . #x2C3B)	; &JX2-2C3B; [12-27]
+     ((=ucs		  . #x38FA)	; 㣺
       ))
     (name		. "CJK RADICAL HEART TWO")
     (general-category	symbol other) ; Informative Category
@@ -374,8 +373,8 @@
     (mirrored		. nil)
     (=ucs		. #x2E97)	; ⺗
     (<-identical@component/connect-above
-     ((=ucs@jis		  . #x38FA)	; &JX2-2C3B;
-      (=jis-x0213-2	  . #x2C3B)	; &JX2-2C3B; [12-27]
+     ((=ucs@jis		  . #x38FA)	; &AJ1-13852;
+      (=adobe-japan1-4	  . 13852)	; &AJ1-13852;
       ))
     ))
 (define-char
@@ -666,6 +665,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ideographic-radical . 113)	; ⽰
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
     (=ucs		. #x2EAC)	; ⺬
     (<-identical@component/connect-right
      ((=ucs		  . #x793A)	; 示
@@ -680,6 +682,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2EAD)	; ⺭
+    (<-identical@component
+     ((=ucs		  . #x793B)	; 礻
+      ))
     (<-identical@component/connect-right
      ((=ucs		  . #x793B)	; 礻
       ))
@@ -1663,8 +1668,9 @@
      ((=ucs		  . #x9F50)	; 齐
       ))
     (<-simplified@CN/component
-     ((=ucs		  . #x9F4A)	; 齊
-      (=gb12345		  . #x466B)	; 齊 [38-75]
+     ((=ucs@unicode	  . #x9F4A)	; &AJ1-07457;
+      (=adobe-japan1-0	  . 07457)	; &AJ1-07457;
+      (=gb12345		  . #x466B)	; &AJ1-07457; [38-75]
       ))
     ))
 (define-char
