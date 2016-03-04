@@ -1,5 +1,9 @@
 2016-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R015-Ice.el (U+51CF): Unify S1-4324 and S2-4325; add
+	`<-vulgar' for UU+6E1B.
+	(U+51D3): Apply new conventions for glyph granularity.
+
 	* Ideograph-R026-Seal.el (U+5371): Apply new conventions for glyph
 	granularity.
 
