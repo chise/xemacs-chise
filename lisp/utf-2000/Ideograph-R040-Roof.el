@@ -3272,15 +3272,20 @@
   '((ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs		  . #x6C42)	; 求
+      ))
     (=ucs		. #x21A03)	; 𡨃
     (=cns11643-4	. #x2C44)	; &I-C4-2C44; [12-36]
     (=daikanwa		. 07161)	; &I-M-07161;
     (<-formed
-     ((=ucs@jis		  . #x9011)	; &GT-52080;
-      (=jis-x0208	  . #x6D73)	; &GT-52080; [77-83]
-      (=ks-x1001	  . #x4F47)	; &I-K0-4F47; [47-39]
-      (=jis-x0213-1	  . #x6D73)	; &I-JX1-6D73; [77-83]
-      (=daikanwa	  . 38878)	; &I-M-38878;
+     ((=ucs@jis		  . #x9011)	; &AJ1-06898;
+      (=adobe-japan1-0	  . 06898)	; &AJ1-06898;
       ))
     (<-same
      ((=ucs@unicode	  . #x6C42)	; &MJ015049;
