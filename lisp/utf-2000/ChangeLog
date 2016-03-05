@@ -1,5 +1,19 @@
 2016-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R050-Turban.el (U+5E56): Separate UU+5E56.
+
+	* Ideograph-R046-Mountain.el (U+5D57): Separate UU+5D57.
+	(UU+5D57): Add `=>ucs@iwds-1'; add `<-vulgar' for UU+6B72.
+	(HNG-KHM0072-0): New character; add `<-denotational' for U+5D57;
+	add `<-formed' for U+6B73.
+	(U+37FD): Separate UU+37FD.
+
+	* Ideograph-R019-Power.el (U+52E1): Separate UU+52E1.
+
+	* Ideograph-R018-Knife.el (U+527D): Separate UU+527D.
+
+2016-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R015-Ice.el (U+51CF): Unify S1-4324 and S2-4325; add
 	`<-vulgar' for UU+6E1B.
 	(U+51D3): Apply new conventions for glyph granularity.
