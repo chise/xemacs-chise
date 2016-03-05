@@ -17,7 +17,12 @@
     (=daikanwa		. 10295)	; &I-M-10295;
     (=shinjigen		.  2389)	; 心
     (->subsumptive
-     ((==ucs@unicode	  . #x5FC3)	; &g2-AJ1-02554;
+     ((=decomposition@cid
+       ((=ucs		    . #x5FC3)	; 心
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x5FC3)	; &g2-AJ1-02554;
       (==adobe-japan1-0	  . 02554)	; &g2-AJ1-02554;
       (==gb2312		  . #x5044)	; &g2-AJ1-02554; [48-36]
       (==ks-x1001	  . #x637D)	; &g2-AJ1-02554; [67-93]
@@ -67,6 +72,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=ucs		. #x5FC4)	; 忄
+    (=adobe-japan1-4	. 14530)	; &I-AJ1-14530;
     (=gb2312		. #x6260)	; &I-G0-6260; [66-64]
     (=jis-x0212		. #x3D38)	; &I-JSP-3D38; [29-24]
     (=cns11643-4	. #x2136)	; &I-C4-2136; [01-22]
@@ -125,29 +131,50 @@
   '((<-denotational
      ((=ucs		  . #x38FA)	; 㣺
       ))
-    (ideographic-radical . 61)	; ⼼
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (=ucs@jis		. #x38FA)	; &JX2-2C3B;
-    (=jis-x0213-2	. #x2C3B)	; &JX2-2C3B; [12-27]
-    (=big5-cdp		. #x8CD9)	; &I-CDP-8CD9;
-    (<-formed@component/connect-above
-     ((=ucs		  . #x5FC3)	; 心
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs@jis		  . #x38FA)	; &JX2-2C3B;
-      (=jis-x0213-2	  . #x2C3B)	; &JX2-2C3B; [12-27]
-      ))
     (name		. "CJK RADICAL HEART TWO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2E97)	; ⺗
     (<-identical@component/connect-above
-     ((=ucs@jis		  . #x38FA)	; &JX2-2C3B;
-      (=jis-x0213-2	  . #x2C3B)	; &JX2-2C3B; [12-27]
+     ((=ucs@jis		  . #x38FA)	; &AJ1-13852;
+      (=adobe-japan1-4	  . 13852)	; &AJ1-13852;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x38FA)	; 㣺
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=ucs@jis		. #x38FA)	; &AJ1-13852;
+    (=adobe-japan1-4	. 13852)	; &AJ1-13852;
+    (=jis-x0213-2	. #x2C3B)	; &I-JX2-2C3B; [12-27]
+    (=big5-cdp		. #x8CD9)	; &I-CDP-8CD9;
+    (<-formed@component/connect-above
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (<-identical@component
+     ((name		  . "CJK RADICAL HEART TWO")
+      (=ucs		  . #x2E97)	; ⺗
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8CD9)	; &g2-CDP-8CD9;
+      )
+     ((=decomposition@cid
+       ((=ucs		    . #x38FA)	; 㣺
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x38FA)	; &g2-AJ1-13852;
+      (==adobe-japan1-4	  . 13852)	; &g2-AJ1-13852;
+      (==jis-x0213-2	  . #x2C3B)	; &g2-AJ1-13852; [12-27]
+      (->subsumptive
+       ((===jis-x0213-2	    . #x2C3B)	; &R-JX2-2C3B; [12-27]
+	)
+       ((===adobe-japan1-4  . 13852)	; &R-AJ1-13852;
+	))
       ))
     ))
 (define-char
@@ -178,7 +205,12 @@
     (=daikanwa		. 10299)	; &I-M-10299;
     (=shinjigen		.  2390)	; &AJ1-03486;
     (->subsumptive
-     ((==ucs@unicode	  . #x5FC5)	; &g2-AJ1-03486;
+     ((=decomposition@cid
+       ((=ucs		    . #x5FC5)	; 必
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x5FC5)	; &g2-AJ1-03486;
       (==adobe-japan1-0	  . 03486)	; &g2-AJ1-03486;
       (==gb2312		  . #x3158)	; &g2-AJ1-03486; [17-56]
       (==ks-x1001	  . #x7931)	; &g2-AJ1-03486; [89-17]
@@ -305,6 +337,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (=ucs		. #x5FC9)	; 忉
+    (=adobe-japan1-4	. 14531)	; &I-AJ1-14531;
     (=gb2312		. #x6261)	; &I-G0-6261; [66-65]
     (=jis-x0212		. #x3D3B)	; &I-JSP-3D3B; [29-27]
     (=cns11643-2	. #x215C)	; &I-C2-215C; [01-60]
@@ -313,18 +346,26 @@
     (=daikanwa		. 10305)	; &I-M-10305;
     (=jef-china3	. #x4DEC)	; &I-JC3-4DEC;
     (->subsumptive
-     ((==ucs@unicode	  . #x5FC9)	; &g2-JSP-3D3B;
-      (==gb2312		  . #x6261)	; &g2-JSP-3D3B; [66-65]
-      (==jis-x0212	  . #x3D3B)	; &g2-JSP-3D3B; [29-27]
-      (==cns11643-2	  . #x215C)	; &g2-JSP-3D3B; [01-60]
-      (==jis-x0213-1	  . #x7446)	; &g2-JSP-3D3B; [84-38]
-      (==daikanwa	  . 10305)	; &g2-JSP-3D3B;
-      (==jef-china3	  . #x4DEC)	; &g2-JSP-3D3B;
+     ((=decomposition@cid
+       ((=ucs		    . #x5FC9)	; 忉
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x5FC9)	; &g2-AJ1-14531;
+      (==adobe-japan1-4	  . 14531)	; &g2-AJ1-14531;
+      (==gb2312		  . #x6261)	; &g2-AJ1-14531; [66-65]
+      (==jis-x0212	  . #x3D3B)	; &g2-AJ1-14531; [29-27]
+      (==cns11643-2	  . #x215C)	; &g2-AJ1-14531; [01-60]
+      (==jis-x0213-1	  . #x7446)	; &g2-AJ1-14531; [84-38]
+      (==daikanwa	  . 10305)	; &g2-AJ1-14531;
+      (==jef-china3	  . #x4DEC)	; &g2-AJ1-14531;
       (->subsumptive
        ((===daikanwa	    . 10305)	; &R-M-10305;
 	)
        ((===jis-x0212	    . #x3D3B)	; &R-JX1-7446; [29-27]
 	(===jis-x0213-1	    . #x7446)	; &R-JX1-7446; [84-38]
+	)
+       ((===adobe-japan1-4  . 14531)	; &R-AJ1-14531;
 	)
        ((===cns11643-2	    . #x215C)	; &R-C2-215C; [01-60]
 	)
@@ -449,10 +490,11 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (=+>ucs@unicode	. #x5FCD)	; &o-GT-13085;
-    (=big5		. #xA7D4)	; &o-GT-13085;
-    (=+>hanyo-denshi/jt . #xB149)	; &o-GT-13085;
-    (=+>gt		. 13085)	; &o-GT-13085;
+    (=+>ucs@unicode	. #x5FCD)	; &o-AJ1-13969;
+    (=big5		. #xA7D4)	; &o-AJ1-13969;
+    (=+>adobe-japan1-4	. 13969)	; &o-AJ1-13969;
+    (=+>hanyo-denshi/jt . #xB149)	; &o-AJ1-13969;
+    (=+>gt		. 13085)	; &o-AJ1-13969;
     (->subsumptive
      ((=ucs@cns		  . #x5FCD)	; &C1-4A36;
       (=cns11643-1	  . #x4A36)	; &C1-4A36; [42-22]
@@ -464,9 +506,10 @@
 	(==cns11643-1	    . #x4A36)	; &g2-CU+5FCD; [42-22]
 	))
       )
-     ((=ucs@unicode	  . #x5FCD)	; &HD-JT-B149;
+     ((=ucs@unicode	  . #x5FCD)	; &AJ1-13969;
       (=ucs@JP/hanazono	  . nil)
-      (=gb2312		  . #x484C)	; &HD-JT-B149; [40-44]
+      (=adobe-japan1-4	  . 13969)	; &AJ1-13969;
+      (=gb2312		  . #x484C)	; &I-G0-484C; [40-44]
       (=ks-x1001	  . #x6C5B)	; &I-K0-6C5B; [76-59]
       (=hanyo-denshi/jt	  . #xB149)	; &I-HD-JT-B149;
       (=gt		  . 13085)	; &I-GT-13085;
@@ -479,20 +522,23 @@
 	  )
 	 ((=ucs		      . #xE0104)	; 󠄄
 	  ))
-	(==ucs@unicode	    . #x5FCD)	; &g2-HD-JT-B149;
+	(==ucs@unicode	    . #x5FCD)	; &g2-AJ1-13969;
 	(==ucs@JP/hanazono  . nil)
-	(==gb2312	    . #x484C)	; &g2-HD-JT-B149; [40-44]
-	(==ks-x1001	    . #x6C5B)	; &g2-HD-JT-B149; [76-59]
-	(==hanyo-denshi/jt  . #xB149)	; &g2-HD-JT-B149;
-	(==gt		    . 13085)	; &g2-HD-JT-B149;
-	(==gt-k		    . 02629)	; &g2-HD-JT-B149;
+	(==adobe-japan1-4   . 13969)	; &g2-AJ1-13969;
+	(==gb2312	    . #x484C)	; &g2-AJ1-13969; [40-44]
+	(==ks-x1001	    . #x6C5B)	; &g2-AJ1-13969; [76-59]
+	(==hanyo-denshi/jt  . #xB149)	; &g2-AJ1-13969;
+	(==gt		    . 13085)	; &g2-AJ1-13969;
+	(==gt-k		    . 02629)	; &g2-AJ1-13969;
 	(->subsumptive
+	 ((===hanyo-denshi/jt . #xB149)	; &R-HD-JT-B149;
+	  )
+	 ((===adobe-japan1-4  . 13969)	; &R-AJ1-13969;
+	  )
 	 ((===ucs@unicode     . #x5FCD)	; &R-UU+5FCD;
 	  )
 	 ((===ucs@ks	      . #x5FCD)	; &R-K0-6C5B;
 	  (===ks-x1001	      . #x6C5B)	; &R-K0-6C5B; [76-59]
-	  )
-	 ((===hanyo-denshi/jt . #xB149)	; &R-HD-JT-B149;
 	  )
 	 ((===gt	      . 13085)	; &R-GT-13085;
 	  (===gt-k	      . 02629)	; &R-GT-13085;
@@ -534,7 +580,12 @@
     (=gt-pj-1		. #x4726)	; &I-GT-13086; [39-06]
     (=daikanwa/+p	. 10312)	; 忍
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x5FCD)	; 忍
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x5FCD)	; 忍
 	)
        ((=ucs		    . #xE0102)	; 󠄂
@@ -810,7 +861,12 @@
     (=daikanwa		. 10331)	; &I-M-10331;
     (=shinjigen		.  2395)	; 志
     (->subsumptive
-     ((==ucs@unicode	  . #x5FD7)	; &g2-AJ1-02212;
+     ((=decomposition@cid
+       ((=ucs		    . #x5FD7)	; 志
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x5FD7)	; &g2-AJ1-02212;
       (==adobe-japan1-0	  . 02212)	; &g2-AJ1-02212;
       (==gb2312		  . #x563E)	; &g2-AJ1-02212; [54-30]
       (==ks-x1001	  . #x7224)	; &g2-AJ1-02212; [82-04]
@@ -860,15 +916,34 @@
     (=ucs		. #x5FD8)	; 忘
     (=big5		. #xA7D1)	; &I-B-A7D1;
     (->subsumptive
-     ((=decomposition@hanyo-denshi
-       ((=ucs		    . #x5FD8)	; 忘
-	)
-       ((=ucs		    . #xE0103)	; 󠄃
-	))
-      (=ks-x1001	  . #x584E)	; &HD-KS-116710; [56-46]
-      (=hanyo-denshi/ks	  . 116710)	; &HD-KS-116710;
-      (=hanyo-denshi/ks/mf . #x2D97)	; &I-KSMF-11671;
+     ((=ucs@ks		  . #x5FD8)	; &AJ1-14033;
+      (=adobe-japan1-4	  . 14033)	; &AJ1-14033;
+      (=ks-x1001	  . #x584E)	; &I-K0-584E; [56-46]
+      (=hanyo-denshi/ks	  . 116710)	; &AJ1-14033;
       (=daikanwa	  . 10333)	; &I-M-10333;
+      (->subsumptive
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x5FD8)	; 忘
+	  )
+	 ((=ucs		      . #xE0103)	; 󠄃
+	  ))
+	(==ucs@ks	    . #x5FD8)	; &g2-AJ1-14033;
+	(==adobe-japan1-4   . 14033)	; &g2-AJ1-14033;
+	(==ks-x1001	    . #x584E)	; &g2-AJ1-14033; [56-46]
+	(==hanyo-denshi/ks  . 116710)	; &g2-AJ1-14033;
+	(==daikanwa	    . 10333)	; &g2-AJ1-14033;
+	(->subsumptive
+	 ((===daikanwa	      . 10333)	; &R-M-10333;
+	  )
+	 ((===hanyo-denshi/ks . 116710)	; &R-HD-KS-116710;
+	  (=hanyo-denshi/ks/mf . #x2D97)	; &R-HD-KS-116710;
+	  )
+	 ((===adobe-japan1-4  . 14033)	; &R-AJ1-14033;
+	  )
+	 ((===ucs@ks	      . #x5FD8)	; &R-K0-584E;
+	  (===ks-x1001	      . #x584E)	; &R-K0-584E; [56-46]
+	  ))
+	))
       )
      ((=ucs@unicode	  . #x5FD8)	; &AJ1-03688;
       (=ucs@JP/hanazono	  . nil)
@@ -882,7 +957,12 @@
       (=gt-k		  . 02651)	; &I-GT-K02651;
       (=gt-pj-1		  . #x4B3A)	; &I-GT-13099; [43-26]
       (->subsumptive
-       ((=decomposition@hanyo-denshi
+       ((=decomposition@cid
+	 ((=ucs		      . #x5FD8)	; 忘
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(=decomposition@hanyo-denshi
 	 ((=ucs		      . #x5FD8)	; 忘
 	  )
 	 ((=ucs		      . #xE0102)	; 󠄂
@@ -921,14 +1001,27 @@
     (=ucs		. #x5FD9)	; 忙
     (=big5		. #xA6A3)	; &I-B-A6A3;
     (->subsumptive
-     ((=decomposition@hanyo-denshi
-       ((=ucs		    . #x5FD9)	; 忙
-	)
-       ((=ucs		    . #xE0103)	; 󠄃
-	))
-      (=hanyo-denshi/ks	  . 116510)	; &HD-KS-116510;
-      (=hanyo-denshi/ks/mf . #x2D83)	; &HD-KS-116510;
+     ((=adobe-japan1-4	  . 14034)	; &AJ1-14034;
+      (=hanyo-denshi/ks	  . 116510)	; &AJ1-14034;
       (=daikanwa	  . 10334)	; &I-M-10334;
+      (->subsumptive
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x5FD9)	; 忙
+	  )
+	 ((=ucs		      . #xE0103)	; 󠄃
+	  ))
+	(==adobe-japan1-4   . 14034)	; &g2-AJ1-14034;
+	(==hanyo-denshi/ks  . 116510)	; &g2-AJ1-14034;
+	(==daikanwa	    . 10334)	; &g2-AJ1-14034;
+	(->subsumptive
+	 ((===daikanwa	      . 10334)	; &R-M-10334;
+	  )
+	 ((===hanyo-denshi/ks . 116510)	; &R-HD-KS-116510;
+	  (=hanyo-denshi/ks/mf . #x2D83)	; &R-HD-KS-116510;
+	  )
+	 ((===adobe-japan1-4  . 14034)	; &R-AJ1-14034;
+	  ))
+	))
       )
      ((=ucs@unicode	  . #x5FD9)	; &AJ1-03689;
       (=adobe-japan1-0	  . 03689)	; &AJ1-03689;
@@ -941,7 +1034,12 @@
       (=gt		  . 13029)	; &I-GT-13029;
       (=gt-pj-1		  . #x4B3B)	; &I-GT-13029; [43-27]
       (->subsumptive
-       ((=decomposition@hanyo-denshi
+       ((=decomposition@cid
+	 ((=ucs		      . #x5FD9)	; 忙
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(=decomposition@hanyo-denshi
 	 ((=ucs		      . #x5FD9)	; 忙
 	  )
 	 ((=ucs		      . #xE0102)	; 󠄂
@@ -1177,7 +1275,12 @@
       (=jis-x0208	  . #x5866)	; &I-J90-5866; [56-70]
       ))
     (->subsumptive
-     ((==ucs@unicode	  . #x5FDC)	; &g2-AJ1-01312;
+     ((=decomposition@cid
+       ((=ucs		    . #x5FDC)	; 応
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x5FDC)	; &g2-AJ1-01312;
       (==adobe-japan1-0	  . 01312)	; &g2-AJ1-01312;
       (==jis-x0208	  . #x317E)	; &g2-AJ1-01312; [17-94]
       (==cns11643-3	  . #x2577)	; &g2-AJ1-01312; [05-87]
@@ -1249,6 +1352,32 @@
     (=gt-pj-1		. #x575B)	; &I-GT-13168; [55-59]
     (=daikanwa		. 10348)	; &I-M-10348;
     (=shinjigen		.  2417)	; &AJ1-04806;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x5FDD)	; 忝
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x5FDD)	; &g2-AJ1-04806;
+      (==adobe-japan1-0	  . 04806)	; &g2-AJ1-04806;
+      (==jis-x0208	  . #x575B)	; &g2-AJ1-04806; [55-59]
+      (==jis-x0213-1	  . #x575B)	; &g2-AJ1-04806; [55-59]
+      (==gt		  . 13168)	; &g2-AJ1-04806;
+      (==gt-k		  . 03875)	; &g2-AJ1-04806;
+      (==daikanwa	  . 10348)	; &g2-AJ1-04806;
+      (==shinjigen	  .  2417)	; &g2-AJ1-04806;
+      (->subsumptive
+       ((===daikanwa	    . 10348)	; &R-M-10348;
+	)
+       ((===jis-x0208	    . #x575B)	; &R-J0-575B; [55-59]
+	(===jis-x0213-1	    . #x575B)	; &R-J0-575B; [55-59]
+	)
+       ((===adobe-japan1-0  . 04806)	; &R-AJ1-04806;
+	)
+       ((===gt		    . 13168)	; &R-GT-13168;
+	(===gt-k	    . 03875)	; &R-GT-13168;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -1257,10 +1386,25 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (=ucs@unicode	. #x5FDD)	; &C1-4D3F;
+    (=ucs@unicode	. #x5FDD)	; &AJ1-20118;
     (=ucs@JP/hanazono	. nil)
-    (=gb2312		. #x6343)	; &C1-4D3F; [67-35]
+    (=adobe-japan1-5	. 20118)	; &AJ1-20118;
+    (=gb2312		. #x6343)	; &I-G0-6343; [67-35]
     (=cns11643-1	. #x4D3F)	; &I-C1-4D3F; [45-31]
+    (->subsumptive
+     ((==ucs@unicode	  . #x5FDD)	; &g2-AJ1-20118;
+      (==ucs@JP/hanazono  . nil)
+      (==adobe-japan1-5	  . 20118)	; &g2-AJ1-20118;
+      (==gb2312		  . #x6343)	; &g2-AJ1-20118; [67-35]
+      (==cns11643-1	  . #x4D3F)	; &g2-AJ1-20118; [45-31]
+      (->subsumptive
+       ((===adobe-japan1-5  . 20118)	; &R-AJ1-20118;
+	)
+       ((===cns11643-1	    . #x4D3F)	; &R-C1-4D3F; [45-31]
+	)
+       ((===ucs@unicode	    . #x5FDD)	; &R-UU+5FDD;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -1292,7 +1436,12 @@
     (=daikanwa		. 10350)	; &I-M-10350;
     (=jef-china3	. #x4DC7)	; &I-JC3-4DC7;
     (->subsumptive
-     ((==ucs@jis	  . #x5FDE)	; &g2-AJ1-08453;
+     ((=decomposition@cid
+       ((=ucs		    . #x5FDE)	; 忞
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x5FDE)	; &g2-AJ1-08453;
       (==adobe-japan1-2	  . 08453)	; &g2-AJ1-08453;
       (==jis-x0212	  . #x3D42)	; &g2-AJ1-08453; [29-34]
       (==jis-x0213-1	  . #x7447)	; &g2-AJ1-08453; [84-39]
@@ -1369,6 +1518,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x5FE1)	; 忡
+    (=adobe-japan1-4	. 14532)	; &I-AJ1-14532;
     (=gb2312		. #x6267)	; &I-G0-6267; [66-71]
     (=jis-x0212		. #x3D43)	; &I-JSP-3D43; [29-35]
     (=cns11643-2	. #x237D)	; &I-C2-237D; [03-93]
@@ -1497,6 +1647,7 @@
      ((=ucs		  . #x5FC3)	; 心
       ))
     (=ucs		. #x5FE9)	; 忩
+    (=adobe-japan1-4	. 14533)	; &I-AJ1-14533;
     (=jis-x0212		. #x3D46)	; &I-JSP-3D46; [29-38]
     (=cns11643-3	. #x287E)	; &I-C3-287E; [08-94]
     (=jis-x0213-1	. #x7449)	; &I-JX1-7449; [84-41]
@@ -1513,17 +1664,20 @@
 	)
        ((=ucs		    . #x5FC3)	; 心
 	))
-      (==ucs@jis	  . #x5FE9)	; &g2-JSP-3D46;
-      (==jis-x0212	  . #x3D46)	; &g2-JSP-3D46; [29-38]
-      (==jis-x0213-1	  . #x7449)	; &g2-JSP-3D46; [84-41]
-      (==daikanwa	  . 10366)	; &g2-JSP-3D46;
-      (==cbeta		  . 00784)	; &g2-JSP-3D46;
-      (==jef-china3	  . #x4DC9)	; &g2-JSP-3D46;
+      (==ucs@jis	  . #x5FE9)	; &g2-AJ1-14533;
+      (==adobe-japan1-4	  . 14533)	; &g2-AJ1-14533;
+      (==jis-x0212	  . #x3D46)	; &g2-AJ1-14533; [29-38]
+      (==jis-x0213-1	  . #x7449)	; &g2-AJ1-14533; [84-41]
+      (==daikanwa	  . 10366)	; &g2-AJ1-14533;
+      (==cbeta		  . 00784)	; &g2-AJ1-14533;
+      (==jef-china3	  . #x4DC9)	; &g2-AJ1-14533;
       (->subsumptive
        ((===daikanwa	    . 10366)	; &R-M-10366;
 	)
        ((===jis-x0212	    . #x3D46)	; &R-JX1-7449; [29-38]
 	(===jis-x0213-1	    . #x7449)	; &R-JX1-7449; [84-41]
+	)
+       ((===adobe-japan1-4  . 14533)	; &R-AJ1-14533;
 	)
        ((===cbeta	    . 00784)	; &R-CB00784;
 	)
@@ -1570,7 +1724,12 @@
     (=daikanwa		. 10367)	; &I-M-10367;
     (=jef-china3	. #x9FC6)	; &I-JC3-9FC6;
     (->subsumptive
-     ((==ucs@jis	  . #x5FEA)	; &g2-AJ1-19356;
+     ((=decomposition@cid
+       ((=ucs		    . #x5FEA)	; 忪
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x5FEA)	; &g2-AJ1-19356;
       (==ucs@JP/hanazono  . nil)
       (==adobe-japan1-5	  . 19356)	; &g2-AJ1-19356;
       (==jis-x0212	  . #x3D47)	; &g2-AJ1-19356; [29-39]
@@ -1643,7 +1802,12 @@
     (=daikanwa		. 10369)	; &I-M-10369;
     (=shinjigen		.  2405)	; 快
     (->subsumptive
-     ((==ucs@unicode	  . #x5FEB)	; &g2-AJ1-01399;
+     ((=decomposition@cid
+       ((=ucs		    . #x5FEB)	; 快
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x5FEB)	; &g2-AJ1-01399;
       (==adobe-japan1-0	  . 01399)	; &g2-AJ1-01399;
       (==gb2312		  . #x3F6C)	; &g2-AJ1-01399; [31-76]
       (==ks-x1001	  . #x7661)	; &g2-AJ1-01399; [86-65]
@@ -1720,11 +1884,31 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x5FED)	; 忭
+    (=adobe-japan1-4	. 14534)	; &I-AJ1-14534;
     (=gb2312		. #x626D)	; &I-G0-626D; [66-77]
     (=jis-x0212		. #x3D49)	; &I-JSP-3D49; [29-41]
     (=cns11643-2	. #x2379)	; &I-C2-2379; [03-89]
     (=big5		. #xCAD9)	; &I-B-CAD9;
     (=daikanwa		. 10372)	; &I-M-10372;
+    (->subsumptive
+     ((==ucs@unicode	  . #x5FED)	; &g2-AJ1-14534;
+      (==adobe-japan1-4	  . 14534)	; &g2-AJ1-14534;
+      (==gb2312		  . #x626D)	; &g2-AJ1-14534; [66-77]
+      (==jis-x0212	  . #x3D49)	; &g2-AJ1-14534; [29-41]
+      (==cns11643-2	  . #x2379)	; &g2-AJ1-14534; [03-89]
+      (==daikanwa	  . 10372)	; &g2-AJ1-14534;
+      (->subsumptive
+       ((===daikanwa	    . 10372)	; &R-M-10372;
+	)
+       ((===jis-x0212	    . #x3D49)	; &R-JSP-3D49; [29-41]
+	)
+       ((===adobe-japan1-4  . 14534)	; &R-AJ1-14534;
+	)
+       ((===cns11643-2	    . #x2379)	; &R-C2-2379; [03-89]
+	)
+       ((===ucs@unicode	    . #x5FED)	; &R-UU+5FED;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -1925,7 +2109,12 @@
     (=ucs		. #x5FF3)	; 忳
     (=big5		. #xCADC)	; &I-B-CADC;
     (->subsumptive
-     ((=ucs@jis		  . #x5FF3)	; &AJ1-17624;
+     ((=decomposition@cid
+       ((=ucs		    . #x5FF3)	; 忳
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@jis		  . #x5FF3)	; &AJ1-17624;
       (=adobe-japan1-5	  . 17624)	; &AJ1-17624;
       (=jis-x0212	  . #x3D4D)	; &I-JSP-3D4D; [29-45]
       (=jis-x0213-2	  . #x2C44)	; &I-JX2-2C44; [12-36]
@@ -1968,7 +2157,12 @@
     (=daikanwa		. 10390)	; &I-M-10390;
     (=shinjigen		.  2419)	; 念
     (->subsumptive
-     ((==ucs@cns	  . #x5FF5)	; &g2-AJ1-03302;
+     ((=decomposition@cid
+       ((=ucs		    . #x5FF5)	; 念
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x5FF5)	; &g2-AJ1-03302;
       (==ucs@jis	  . #x5FF5)	; &g2-AJ1-03302;
       (==ucs@ks		  . #x5FF5)	; &g2-AJ1-03302;
       (==adobe-japan1-0	  . 03302)	; &g2-AJ1-03302;
@@ -2079,7 +2273,12 @@
     (=daikanwa		. 10397)	; &I-M-10397;
     (=shinjigen		.  2411)	; &AJ1-04804;
     (->subsumptive
-     ((==ucs@cns	  . #x5FF8)	; &g2-AJ1-04804;
+     ((=decomposition@cid
+       ((=ucs		    . #x5FF8)	; 忸
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x5FF8)	; &g2-AJ1-04804;
       (==ucs@jis	  . #x5FF8)	; &g2-AJ1-04804;
       (==adobe-japan1-0	  . 04804)	; &g2-AJ1-04804;
       (==jis-x0208	  . #x5759)	; &g2-AJ1-04804; [55-57]
@@ -2153,7 +2352,12 @@
     (=daikanwa		. 10400)	; &I-M-10400;
     (=jef-china3	. #x4DF5)	; &I-JC3-4DF5;
     (->subsumptive
-     ((==ucs@cns	  . #x5FFA)	; &g2-AJ1-21539;
+     ((=decomposition@cid
+       ((=ucs		    . #x5FFA)	; 忺
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x5FFA)	; &g2-AJ1-21539;
       (==ucs@jis	  . #x5FFA)	; &g2-AJ1-21539;
       (==adobe-japan1-6	  . 21539)	; &g2-AJ1-21539;
       (==jis-x0212	  . #x3D4F)	; &g2-AJ1-21539; [29-47]
@@ -2206,6 +2410,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x5FFC)	; 忼
+    (=adobe-japan1-4	. 14535)	; &I-AJ1-14535;
     (=jis-x0212		. #x3D50)	; &I-JSP-3D50; [29-48]
     (=cns11643-3	. #x257A)	; &I-C3-257A; [05-90]
     (=jis-x0213-2	. #x2C45)	; &I-JX2-2C45; [12-37]
@@ -2221,19 +2426,22 @@
     (<-original*sources
      shinjigen)
     (->subsumptive
-     ((==ucs@unicode	  . #x5FFC)	; &g2-JSP-3D50;
-      (==jis-x0212	  . #x3D50)	; &g2-JSP-3D50; [29-48]
-      (==cns11643-3	  . #x257A)	; &g2-JSP-3D50; [05-90]
-      (==jis-x0213-2	  . #x2C45)	; &g2-JSP-3D50; [12-37]
-      (==daikanwa	  . 10403)	; &g2-JSP-3D50;
-      (==shinjigen	  .  2648)	; &g2-JSP-3D50;
-      (==cbeta		  . 02638)	; &g2-JSP-3D50;
-      (==jef-china3	  . #x91D3)	; &g2-JSP-3D50;
+     ((==ucs@unicode	  . #x5FFC)	; &g2-AJ1-14535;
+      (==adobe-japan1-4	  . 14535)	; &g2-AJ1-14535;
+      (==jis-x0212	  . #x3D50)	; &g2-AJ1-14535; [29-48]
+      (==cns11643-3	  . #x257A)	; &g2-AJ1-14535; [05-90]
+      (==jis-x0213-2	  . #x2C45)	; &g2-AJ1-14535; [12-37]
+      (==daikanwa	  . 10403)	; &g2-AJ1-14535;
+      (==shinjigen	  .  2648)	; &g2-AJ1-14535;
+      (==cbeta		  . 02638)	; &g2-AJ1-14535;
+      (==jef-china3	  . #x91D3)	; &g2-AJ1-14535;
       (->subsumptive
        ((===daikanwa	    . 10403)	; &R-M-10403;
 	)
        ((===jis-x0212	    . #x3D50)	; &R-JX2-2C45; [29-48]
 	(===jis-x0213-2	    . #x2C45)	; &R-JX2-2C45; [12-37]
+	)
+       ((===adobe-japan1-4  . 14535)	; &R-AJ1-14535;
 	)
        ((===cbeta	    . 02638)	; &R-CB02638;
 	)
@@ -2277,7 +2485,12 @@
     (=daikanwa		. 10405)	; &I-M-10405;
     (=shinjigen		.  2408)	; 忽
     (->subsumptive
-     ((==ucs@unicode	  . #x5FFD)	; &g2-AJ1-02060;
+     ((=decomposition@cid
+       ((=ucs		    . #x5FFD)	; 忽
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x5FFD)	; &g2-AJ1-02060;
       (==adobe-japan1-0	  . 02060)	; &g2-AJ1-02060;
       (==gb2312		  . #x3A76)	; &g2-AJ1-02060; [26-86]
       (==ks-x1001	  . #x7B6C)	; &g2-AJ1-02060; [91-76]
@@ -2366,7 +2579,12 @@
     (=daikanwa		. 10408)	; &I-M-10408;
     (=shinjigen		.  2422)	; 忿
     (->subsumptive
-     ((==ucs@jis	  . #x5FFF)	; &g2-AJ1-04808;
+     ((=decomposition@cid
+       ((=ucs		    . #x5FFF)	; 忿
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x5FFF)	; &g2-AJ1-04808;
       (==ucs@ks		  . #x5FFF)	; &g2-AJ1-04808;
       (==adobe-japan1-0	  . 04808)	; &g2-AJ1-04808;
       (==ks-x1001	  . #x5D48)	; &g2-AJ1-04808; [61-40]
@@ -2682,7 +2900,12 @@
     (total-strokes	 . 8)
     (=ucs		. #x6007)	; 怇
     (->subsumptive
-     ((=ucs@jis		  . #x6007)	; &AJ1-19357;
+     ((=decomposition@cid
+       ((=ucs		    . #x6007)	; 怇
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@jis		  . #x6007)	; &AJ1-19357;
       (=adobe-japan1-5	  . 19357)	; &AJ1-19357;
       (=jis-x0212	  . #x3D51)	; &I-JSP-3D51; [29-49]
       (=cns11643-3	  . #x2878)	; &I-C3-2878; [08-88]
@@ -2792,20 +3015,50 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (=ucs		. #x600F)	; 怏
+    (=adobe-japan1-0	. 04820)	; &I-AJ1-04820;
+    (=jis-x0208		. #x5769)	; &I-J90-5769; [55-73]
+    (=gb2312		. #x6273)	; &I-G0-6273; [66-83]
+    (=ks-x1001		. #x6468)	; &I-K0-6468; [68-72]
+    (=cns11643-1	. #x4D44)	; &I-C1-4D44; [45-36]
+    (=jis-x0213-1	. #x5769)	; &I-JX1-5769; [55-73]
     (=big5		. #xA9C2)	; &I-B-A9C2;
+    (=gt		. 13111)	; &I-GT-13111;
+    (=gt-pj-1		. #x5769)	; &I-GT-13111; [55-73]
+    (=daikanwa		. 10434)	; &I-M-10434;
+    (=shinjigen		.  2453)	; 怏
     (->subsumptive
-     ((=ucs@unicode	  . #x600F)	; &AJ1-04820;
-      (=adobe-japan1-0	  . 04820)	; &AJ1-04820;
-      (=jis-x0208	  . #x5769)	; &I-J90-5769; [55-73]
-      (=gb2312		  . #x6273)	; &I-G0-6273; [66-83]
-      (=ks-x1001	  . #x6468)	; &I-K0-6468; [68-72]
-      (=jis-x0213-1	  . #x5769)	; &I-JX1-5769; [55-73]
-      (=gt		  . 13111)	; &I-GT-13111;
-      (=gt-pj-1		  . #x5769)	; &I-GT-13111; [55-73]
-      (=daikanwa	  . 10434)	; &I-M-10434;
-      (=shinjigen	  .  2453)	; &AJ1-04820;
+     ((=decomposition@cid
+       ((=ucs		    . #x600F)	; 怏
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x600F)	; &g2-AJ1-04820;
+      (==adobe-japan1-0	  . 04820)	; &g2-AJ1-04820;
+      (==gb2312		  . #x6273)	; &g2-AJ1-04820; [66-83]
+      (==ks-x1001	  . #x6468)	; &g2-AJ1-04820; [68-72]
+      (==jis-x0208	  . #x5769)	; &g2-AJ1-04820; [55-73]
+      (==jis-x0213-1	  . #x5769)	; &g2-AJ1-04820; [55-73]
+      (==gt		  . 13111)	; &g2-AJ1-04820;
+      (==daikanwa	  . 10434)	; &g2-AJ1-04820;
+      (==shinjigen	  .  2453)	; &g2-AJ1-04820;
+      (->subsumptive
+       ((===daikanwa	    . 10434)	; &R-M-10434;
+	)
+       ((===jis-x0208	    . #x5769)	; &R-J0-5769; [55-73]
+	(===jis-x0213-1	    . #x5769)	; &R-J0-5769; [55-73]
+	)
+       ((===adobe-japan1-0  . 04820)	; &R-AJ1-04820;
+	)
+       ((===gt		    . 13111)	; &R-GT-13111;
+	)
+       ((===ucs@ks	    . #x600F)	; &R-K0-6468;
+	(===ks-x1001	    . #x6468)	; &R-K0-6468; [68-72]
+	)
+       ((===ucs@unicode	    . #x600F)	; &R-UU+600F;
+	))
       )
-     ((=cns11643-1	  . #x4D44)	; &C1-4D44; [45-36]
+     ((==ucs@cns	  . #x600F)	; &g2-CU+600F;
+      (==cns11643-1	  . #x4D44)	; &g2-CU+600F; [45-36]
       ))
     ))
 (define-char
@@ -2878,21 +3131,53 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x6012)	; 怒
+    (=adobe-japan1-0	. 03158)	; &I-AJ1-03158;
+    (=jis-x0208		. #x455C)	; &I-J90-455C; [37-60]
+    (=gb2312		. #x452D)	; &I-G0-452D; [37-13]
+    (=ks-x1001		. #x5241)	; &I-K0-5241; [50-33]
+    (=cns11643-1	. #x5127)	; &I-C1-5127; [49-07]
+    (=jis-x0213-1	. #x455C)	; &I-JX1-455C; [37-60]
     (=big5		. #xABE3)	; &I-B-ABE3;
+    (=gt		. 13296)	; &I-GT-13296;
+    (=gt-k		. 05153)	; &I-GT-K05153;
+    (=gt-pj-1		. #x455C)	; &I-GT-13296; [37-60]
+    (=daikanwa		. 10439)	; &I-M-10439;
+    (=shinjigen		.  2446)	; 怒
     (->subsumptive
-     ((=ucs@unicode	  . #x6012)	; &AJ1-03158;
-      (=adobe-japan1-0	  . 03158)	; &AJ1-03158;
-      (=jis-x0208	  . #x455C)	; &I-J90-455C; [37-60]
-      (=gb2312		  . #x452D)	; &I-G0-452D; [37-13]
-      (=ks-x1001	  . #x5241)	; &I-K0-5241; [50-33]
-      (=jis-x0213-1	  . #x455C)	; &I-JX1-455C; [37-60]
-      (=gt		  . 13296)	; &I-GT-13296;
-      (=gt-k		  . 05153)	; &I-GT-K05153;
-      (=gt-pj-1		  . #x455C)	; &I-GT-13296; [37-60]
-      (=daikanwa	  . 10439)	; &I-M-10439;
-      (=shinjigen	  .  2446)	; &AJ1-03158;
+     ((=decomposition@cid
+       ((=ucs		    . #x6012)	; 怒
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6012)	; &g2-AJ1-03158;
+      (==adobe-japan1-0	  . 03158)	; &g2-AJ1-03158;
+      (==gb2312		  . #x452D)	; &g2-AJ1-03158; [37-13]
+      (==ks-x1001	  . #x5241)	; &g2-AJ1-03158; [50-33]
+      (==jis-x0208	  . #x455C)	; &g2-AJ1-03158; [37-60]
+      (==jis-x0213-1	  . #x455C)	; &g2-AJ1-03158; [37-60]
+      (==gt		  . 13296)	; &g2-AJ1-03158;
+      (==gt-k		  . 05153)	; &g2-AJ1-03158;
+      (==daikanwa	  . 10439)	; &g2-AJ1-03158;
+      (==shinjigen	  .  2446)	; &g2-AJ1-03158;
+      (->subsumptive
+       ((===daikanwa	    . 10439)	; &R-M-10439;
+	)
+       ((===jis-x0208	    . #x455C)	; &R-J0-455C; [37-60]
+	(===jis-x0213-1	    . #x455C)	; &R-J0-455C; [37-60]
+	)
+       ((===adobe-japan1-0  . 03158)	; &R-AJ1-03158;
+	)
+       ((===gt		    . 13296)	; &R-GT-13296;
+	(===gt-k	    . 05153)	; &R-GT-13296;
+	)
+       ((===ucs@ks	    . #x6012)	; &R-K0-5241;
+	(===ks-x1001	    . #x5241)	; &R-K0-5241; [50-33]
+	)
+       ((===ucs@unicode	    . #x6012)	; &R-UU+6012;
+	))
       )
-     ((=cns11643-1	  . #x5127)	; &C1-5127; [49-07]
+     ((==ucs@cns	  . #x6012)	; &g2-CU+6012;
+      (==cns11643-1	  . #x5127)	; &g2-CU+6012; [49-07]
       ))
     ))
 (define-char
@@ -2912,14 +3197,33 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (=ucs		. #x6013)	; 怓
+    (=adobe-japan1-6	. 21541)	; &I-AJ1-21541;
+    (=jis-x0212		. #x3D54)	; &I-JSP-3D54; [29-52]
+    (=cns11643-2	. #x266B)	; &I-C2-266B; [06-75]
     (=big5		. #xCCAC)	; &I-B-CCAC;
+    (=daikanwa		. 10441)	; &I-M-10441;
     (->subsumptive
-     ((=ucs@unicode	  . #x6013)	; &AJ1-21541;
-      (=adobe-japan1-6	  . 21541)	; &AJ1-21541;
-      (=jis-x0212	  . #x3D54)	; &I-JSP-3D54; [29-52]
-      (=daikanwa	  . 10441)	; &I-M-10441;
+     ((=decomposition@cid
+       ((=ucs		    . #x6013)	; 怓
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6013)	; &g2-AJ1-21541;
+      (==adobe-japan1-6	  . 21541)	; &g2-AJ1-21541;
+      (==jis-x0212	  . #x3D54)	; &g2-AJ1-21541; [29-52]
+      (==daikanwa	  . 10441)	; &g2-AJ1-21541;
+      (->subsumptive
+       ((===daikanwa	    . 10441)	; &R-M-10441;
+	)
+       ((===jis-x0212	    . #x3D54)	; &R-JSP-3D54; [29-52]
+	)
+       ((===adobe-japan1-6  . 21541)	; &R-AJ1-21541;
+	)
+       ((===ucs@unicode	    . #x6013)	; &R-UU+6013;
+	))
       )
-     ((=cns11643-2	  . #x266B)	; &C2-266B; [06-75]
+     ((==ucs@cns	  . #x6013)	; &g2-CU+6013;
+      (==cns11643-2	  . #x266B)	; &g2-CU+6013; [06-75]
       ))
     ))
 (define-char
@@ -2999,7 +3303,12 @@
     (=daikanwa		. 10448)	; &I-M-10448;
     (=shinjigen		.  2447)	; 怕
     (->subsumptive
-     ((==ucs@unicode	  . #x6015)	; &g2-AJ1-04817;
+     ((=decomposition@cid
+       ((=ucs		    . #x6015)	; 怕
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6015)	; &g2-AJ1-04817;
       (==adobe-japan1-0	  . 04817)	; &g2-AJ1-04817;
       (==gb2312		  . #x4542)	; &g2-AJ1-04817; [37-34]
       (==jis-x0208	  . #x5766)	; &g2-AJ1-04817; [55-70]
@@ -3058,7 +3367,12 @@
     (=daikanwa		. 10450)	; &I-M-10450;
     (=shinjigen		.  2449)	; 怖
     (->subsumptive
-     ((==ucs@unicode	  . #x6016)	; &g2-AJ1-03535;
+     ((=decomposition@cid
+       ((=ucs		    . #x6016)	; 怖
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6016)	; &g2-AJ1-03535;
       (==adobe-japan1-0	  . 03535)	; &g2-AJ1-03535;
       (==gb2312		  . #x3240)	; &g2-AJ1-03535; [18-32]
       (==ks-x1001	  . #x7857)	; &g2-AJ1-03535; [88-55]
@@ -3096,6 +3410,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (=ucs		. #x6017)	; 怗
+    (=adobe-japan1-4	. 14536)	; &I-AJ1-14536;
     (=jis-x0212		. #x3D56)	; &I-JSP-3D56; [29-54]
     (=iso-ir165		. #x7C65)	; &I-EGB-7C65; [92-69]
     (=cns11643-2	. #x2662)	; &I-C2-2662; [06-66]
@@ -3139,7 +3454,12 @@
     (=daikanwa		. 10454)	; &I-M-10454;
     (=shinjigen		.  2432)	; 怙
     (->subsumptive
-     ((==ucs@unicode	  . #x6019)	; &g2-AJ1-04811;
+     ((=decomposition@cid
+       ((=ucs		    . #x6019)	; 怙
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6019)	; &g2-AJ1-04811;
       (==adobe-japan1-0	  . 04811)	; &g2-AJ1-04811;
       (==gb2312		  . #x626F)	; &g2-AJ1-04811; [66-79]
       (==jis-x0208	  . #x5760)	; &g2-AJ1-04811; [55-64]
@@ -3188,6 +3508,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (=ucs		. #x601A)	; 怚
+    (=adobe-japan1-4	. 14537)	; &I-AJ1-14537;
     (=jis-x0212		. #x3D58)	; &I-JSP-3D58; [29-56]
     (=cns11643-2	. #x2664)	; &I-C2-2664; [06-68]
     (=big5		. #xCCA5)	; &I-B-CCA5;
@@ -3260,7 +3581,12 @@
     (=daikanwa		. 10461)	; &I-M-10461;
     (=shinjigen		.  2454)	; 怜
     (->subsumptive
-     ((==ucs@jis	  . #x601C)	; &g2-AJ1-04015;
+     ((=decomposition@cid
+       ((=ucs		    . #x601C)	; 怜
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x601C)	; &g2-AJ1-04015;
       (==ucs@ks		  . #x601C)	; &g2-AJ1-04015;
       (==adobe-japan1-0	  . 04015)	; &g2-AJ1-04015;
       (==ks-x1001	  . #x563B)	; &g2-AJ1-04015; [54-27]
@@ -3309,7 +3635,12 @@
     (=daikanwa		. 10462)	; &I-M-10462;
     (=shinjigen		.  2436)	; 思
     (->subsumptive
-     ((==ucs@unicode	  . #x601D)	; &g2-AJ1-02213;
+     ((=decomposition@cid
+       ((=ucs		    . #x601D)	; 思
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x601D)	; &g2-AJ1-02213;
       (==adobe-japan1-0	  . 02213)	; &g2-AJ1-02213;
       (==gb2312		  . #x4B3C)	; &g2-AJ1-02213; [43-28]
       (==ks-x1001	  . #x5E56)	; &g2-AJ1-02213; [62-54]
@@ -3358,6 +3689,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (=ucs		. #x22609)	; 𢘉
+    (=adobe-japan1-4	. 15443)	; &I-AJ1-15443;
     (=cns11643-4	. #x264A)	; &I-C4-264A; [06-42]
     (=daikanwa		. 10464)	; &I-M-10464;
     (=cbeta		. 04205)	; &I-CB04205;
@@ -3409,7 +3741,12 @@
     (->subsumptive
      ((==daikanwa	  . 10468)	; &g2-M-10468;
       )
-     ((==ucs@jis	  . #x601F)	; &g2-AJ1-21542;
+     ((=decomposition@cid
+       ((=ucs		    . #x601F)	; 怟
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x601F)	; &g2-AJ1-21542;
       (==adobe-japan1-6	  . 21542)	; &g2-AJ1-21542;
       (==jis-x0212	  . #x3D59)	; &g2-AJ1-21542; [29-57]
       (->subsumptive
@@ -3450,7 +3787,12 @@
     (=daikanwa		. 10469)	; &I-M-10469;
     (=shinjigen		.  2441)	; 怠
     (->subsumptive
-     ((==ucs@unicode	  . #x6020)	; &g2-AJ1-02869;
+     ((=decomposition@cid
+       ((=ucs		    . #x6020)	; 怠
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6020)	; &g2-AJ1-02869;
       (==adobe-japan1-0	  . 02869)	; &g2-AJ1-02869;
       (==gb2312		  . #x3521)	; &g2-AJ1-02869; [21-01]
       (==ks-x1001	  . #x773D)	; &g2-AJ1-02869; [87-29]
@@ -3553,16 +3895,48 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x6025)	; 急
-      )
-     ((=ucs		  . #xE0103)	; 󠄃
-      ))
-    (=ks-x1001		. #x5061)	; &HD-JT-B158; [48-65]
+    (=ucs@cns		. #x6025)	; &AJ1-13712;
+    (=ucs@ks		. #x6025)	; &AJ1-13712;
+    (=adobe-japan1-4	. 13712)	; &AJ1-13712;
+    (=ks-x1001		. #x5061)	; &I-K0-5061; [48-65]
     (=cns11643-1	. #x512A)	; &I-C1-512A; [49-10]
     (=hanyo-denshi/jt	. #xB158)	; &I-HD-JT-B158;
     (=daikanwa		. 10475)	; &I-M-10475;
     (=jef-china3	. #x4DCA)	; &I-JC3-4DCA;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x6025)	; 急
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x6025)	; 急
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==ucs@cns	  . #x6025)	; &g2-AJ1-13712;
+      (==ucs@ks		  . #x6025)	; &g2-AJ1-13712;
+      (==adobe-japan1-4	  . 13712)	; &g2-AJ1-13712;
+      (==ks-x1001	  . #x5061)	; &g2-AJ1-13712; [48-65]
+      (==cns11643-1	  . #x512A)	; &g2-AJ1-13712; [49-10]
+      (==hanyo-denshi/jt  . #xB158)	; &g2-AJ1-13712;
+      (==daikanwa	  . 10475)	; &g2-AJ1-13712;
+      (==jef-china3	  . #x4DCA)	; &g2-AJ1-13712;
+      (->subsumptive
+       ((===daikanwa	    . 10475)	; &R-M-10475;
+	)
+       ((===hanyo-denshi/jt . #xB158)	; &R-HD-JT-B158;
+	)
+       ((===adobe-japan1-4  . 13712)	; &R-AJ1-13712;
+	)
+       ((===cns11643-1	    . #x512A)	; &R-C1-512A; [49-10]
+	)
+       ((===jef-china3	    . #x4DCA)	; &R-JC3-4DCA;
+	)
+       ((===ucs@ks	    . #x6025)	; &R-K0-5061;
+	(===ks-x1001	    . #x5061)	; &R-K0-5061; [48-65]
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -3571,11 +3945,6 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x6025)	; 急
-      )
-     ((=ucs		  . #xE0102)	; 󠄂
-      ))
     (=ucs@unicode	. #x6025)	; &MJ011473;
     (=mj		. 011473)	; &MJ011473;
     (=adobe-japan1-0	. 01656)	; &I-AJ1-01656;
@@ -3586,6 +3955,40 @@
     (=gt		. 13234)	; &I-GT-13234;
     (=gt-k		. 05054)	; &I-GT-K05054;
     (=gt-pj-1		. #x355E)	; &I-GT-13234; [21-62]
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x6025)	; 急
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x6025)	; 急
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@unicode	  . #x6025)	; &g2-MJ011473;
+      (==mj		  . 011473)	; &g2-MJ011473;
+      (==adobe-japan1-0	  . 01656)	; &g2-MJ011473;
+      (==gb2312		  . #x3C31)	; &g2-MJ011473; [28-17]
+      (==jis-x0208	  . #x355E)	; &g2-MJ011473; [21-62]
+      (==jis-x0213-1	  . #x355E)	; &g2-MJ011473; [21-62]
+      (==hanyo-denshi/ja  . #x355E)	; &g2-MJ011473; [21-62]
+      (==gt		  . 13234)	; &g2-MJ011473;
+      (==gt-k		  . 05054)	; &g2-MJ011473;
+      (->subsumptive
+       ((===jis-x0208	    . #x355E)	; &R-J0-355E; [21-62]
+	(===jis-x0213-1	    . #x355E)	; &R-J0-355E; [21-62]
+	)
+       ((===adobe-japan1-0  . 01656)	; &R-AJ1-01656;
+	)
+       ((===mj		    . 011473)	; &R-MJ011473;
+	)
+       ((===gt		    . 13234)	; &R-GT-13234;
+	(===gt-k	    . 05054)	; &R-GT-13234;
+	)
+       ((===ucs@unicode	    . #x6025)	; &R-UU+6025;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -3608,6 +4011,30 @@
     (=gt-pj-1		. #x5768)	; &I-GT-13187; [55-72]
     (=daikanwa		. 10476)	; &I-M-10476;
     (=shinjigen		.  2452)	; &AJ1-04819;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x6026)	; 怦
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x6026)	; &g2-AJ1-04819;
+      (==adobe-japan1-0	  . 04819)	; &g2-AJ1-04819;
+      (==jis-x0208	  . #x5768)	; &g2-AJ1-04819; [55-72]
+      (==jis-x0213-1	  . #x5768)	; &g2-AJ1-04819; [55-72]
+      (==gt		  . 13187)	; &g2-AJ1-04819;
+      (==daikanwa	  . 10476)	; &g2-AJ1-04819;
+      (==shinjigen	  .  2452)	; &g2-AJ1-04819;
+      (->subsumptive
+       ((===daikanwa	    . 10476)	; &R-M-10476;
+	)
+       ((===jis-x0208	    . #x5768)	; &R-J0-5768; [55-72]
+	(===jis-x0213-1	    . #x5768)	; &R-J0-5768; [55-72]
+	)
+       ((===adobe-japan1-0  . 04819)	; &R-AJ1-04819;
+	)
+       ((===gt		    . 13187)	; &R-GT-13187;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -3810,7 +4237,12 @@
     (=daikanwa		. 10491)	; &I-M-10491;
     (=shinjigen		.  2431)	; 怯
     (->subsumptive
-     ((==ucs@unicode	  . #x602F)	; &g2-AJ1-01705;
+     ((=decomposition@cid
+       ((=ucs		    . #x602F)	; 怯
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x602F)	; &g2-AJ1-01705;
       (==adobe-japan1-0	  . 01705)	; &g2-AJ1-01705;
       (==gb2312		  . #x4753)	; &g2-AJ1-01705; [39-51]
       (==ks-x1001	  . #x4C25)	; &g2-AJ1-01705; [44-05]
@@ -3909,8 +4341,9 @@
     (=shinjigen		.  2521)	; &AJ1-04815;
     (=cbeta		. 00229)	; &I-CB00229;
     (<-vulgar
-     ((=ucs@jis		  . #x60A4)	; &JSP-3D79;
-      (=ks-x1001	  . #x7542)	; &JSP-3D79; [85-34]
+     ((=ucs@jis		  . #x60A4)	; &AJ1-14542;
+      (=ucs@ks		  . #x60A4)	; &AJ1-14542;
+      (=adobe-japan1-4	  . 14542)	; &AJ1-14542;
       (=jis-x0212	  . #x3D79)	; &I-JSP-3D79; [29-89]
       (=daikanwa	  . 10693)	; &I-M-10693;
       )
@@ -3919,6 +4352,40 @@
       ))
     (<-vulgar*sources
      zhengzitong daikanwa shinjigen)
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x6031)	; 怱
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6031)	; &g2-AJ1-04815;
+      (==adobe-japan1-0	  . 04815)	; &g2-AJ1-04815;
+      (==jis-x0208	  . #x5764)	; &g2-AJ1-04815; [55-68]
+      (==cns11643-3	  . #x2C5B)	; &g2-AJ1-04815; [12-59]
+      (==jis-x0213-1	  . #x5764)	; &g2-AJ1-04815; [55-68]
+      (==gt		  . 13281)	; &g2-AJ1-04815;
+      (==gt-k		  . 05242)	; &g2-AJ1-04815;
+      (==daikanwa	  . 10494)	; &g2-AJ1-04815;
+      (==shinjigen	  .  2521)	; &g2-AJ1-04815;
+      (==cbeta		  . 00229)	; &g2-AJ1-04815;
+      (->subsumptive
+       ((===daikanwa	    . 10494)	; &R-M-10494;
+	)
+       ((===jis-x0208	    . #x5764)	; &R-J0-5764; [55-68]
+	(===jis-x0213-1	    . #x5764)	; &R-J0-5764; [55-68]
+	)
+       ((===adobe-japan1-0  . 04815)	; &R-AJ1-04815;
+	)
+       ((===cbeta	    . 00229)	; &R-CB00229;
+	)
+       ((===cns11643-3	    . #x2C5B)	; &R-C3-2C5B; [12-59]
+	)
+       ((===gt		    . 13281)	; &R-GT-13281;
+	(===gt-k	    . 05242)	; &R-GT-13281;
+	)
+       ((===ucs@unicode	    . #x6031)	; &R-UU+6031;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -3934,6 +4401,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (=ucs		. #x6033)	; 怳
+    (=adobe-japan1-4	. 14538)	; &I-AJ1-14538;
     (=jis-x0212		. #x3D5C)	; &I-JSP-3D5C; [29-60]
     (=cns11643-2	. #x2663)	; &I-C2-2663; [06-67]
     (=jis-x0213-1	. #x744D)	; &I-JX1-744D; [84-45]
@@ -3973,7 +4441,12 @@
     (=big5		. #xA9C5)	; &I-B-A9C5;
     (=daikanwa		. 10498)	; &I-M-10498;
     (->subsumptive
-     ((==ucs@jis	  . #x6035)	; &g2-AJ1-16863;
+     ((=decomposition@cid
+       ((=ucs		    . #x6035)	; 怵
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x6035)	; &g2-AJ1-16863;
       (==adobe-japan1-5	  . 16863)	; &g2-AJ1-16863;
       (==jis-x0212	  . #x3D5D)	; &g2-AJ1-16863; [29-61]
       (==jis-x0213-1	  . #x744E)	; &g2-AJ1-16863; [84-46]
@@ -4254,29 +4727,55 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x3917)	; 㤗
-    (=>>adobe-japan1-5	. 17625)	; 㤗
-    (=>>jis-x0213-2	. #x2C46)	; 㤗 [12-38]
-    (=>>hanyo-denshi/ia . #x227A)	; 㤗 [02-90]
-    (=>>hanyo-denshi/jt . #xC0E4)	; 㤗
+    (=+>jis-x0213-2	. #x2C46)	; 㤗 [12-38]
+    (=+>adobe-japan1-5	. 17625)	; 㤗
+    (=+>hanyo-denshi/jt . #xC0E4)	; 㤗
     (->subsumptive
-     ((=decomposition@hanyo-denshi
-       ((=ucs		    . #x3917)	; 㤗
-	)
-       ((=ucs		    . #xE0101)	; 󠄁
-	))
-      (=ucs@jis		  . #x3917)	; &AJ1-17625;
+     ((=ucs@jis		  . #x3917)	; &AJ1-17625;
       (=adobe-japan1-5	  . 17625)	; &AJ1-17625;
       (=jis-x0213-2	  . #x2C46)	; &I-JX2-2C46; [12-38]
       (=hanyo-denshi/ia	  . #x227A)	; &I-HD-IA-227A; [02-90]
-      )
-     ((=decomposition@hanyo-denshi
-       ((=ucs		    . #x3917)	; 㤗
-	)
-       ((=ucs		    . #xE0102)	; 󠄂
+      (->subsumptive
+       ((=decomposition@cid
+	 ((=ucs		      . #x3917)	; 㤗
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(=decomposition@hanyo-denshi
+	 ((=ucs		      . #x3917)	; 㤗
+	  )
+	 ((=ucs		      . #xE0101)	; 󠄁
+	  ))
+	(==ucs@jis	    . #x3917)	; &g2-AJ1-17625;
+	(==adobe-japan1-5   . 17625)	; &g2-AJ1-17625;
+	(==jis-x0213-2	    . #x2C46)	; &g2-AJ1-17625; [12-38]
+	(==hanyo-denshi/ia  . #x227A)	; &g2-AJ1-17625; [02-90]
+	(->subsumptive
+	 ((===jis-x0213-2     . #x2C46)	; &R-HD-IA-227A; [12-38]
+	  (===hanyo-denshi/ia . #x227A)	; &R-HD-IA-227A; [02-90]
+	  )
+	 ((===adobe-japan1-5  . 17625)	; &R-AJ1-17625;
+	  ))
 	))
-      (=ucs@unicode	  . #x3917)	; &HD-JT-C0E4;
+      )
+     ((=ucs@unicode	  . #x3917)	; &HD-JT-C0E4;
       (=ucs@JP/hanazono	  . nil)
       (=hanyo-denshi/jt	  . #xC0E4)	; &HD-JT-C0E4;
+      (->subsumptive
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x3917)	; 㤗
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(==ucs@unicode	    . #x3917)	; &g2-HD-JT-C0E4;
+	(==ucs@JP/hanazono  . nil)
+	(==hanyo-denshi/jt  . #xC0E4)	; &g2-HD-JT-C0E4;
+	(->subsumptive
+	 ((===hanyo-denshi/jt . #xC0E4)	; &R-HD-JT-C0E4;
+	  )
+	 ((===ucs@unicode     . #x3917)	; &R-UU+3917;
+	  ))
+	))
       ))
     ))
 (define-char
@@ -4438,6 +4937,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ucs		. #x6041)	; 恁
+    (=big5		. #xD1A1)	; &I-B-D1A1;
     (->subsumptive
      ((=ucs@unicode	  . #x6041)	; &AJ1-04823;
       (=adobe-japan1-0	  . 04823)	; &AJ1-04823;
@@ -4445,11 +4945,41 @@
       (=gb2312		  . #x6D25)	; &I-G0-6D25; [77-05]
       (=ks-x1001	  . #x6C76)	; &I-K0-6C76; [76-86]
       (=jis-x0213-1	  . #x576C)	; &I-JX1-576C; [55-76]
-      (=big5		  . #xD1A1)	; &I-B-D1A1;
       (=gt		  . 13401)	; &I-GT-13401;
       (=gt-pj-1		  . #x576C)	; &I-GT-13401; [55-76]
       (=daikanwa	  . 10518)	; &I-M-10518;
       (=shinjigen	  .  2459)	; &AJ1-04823;
+      (->subsumptive
+       ((=decomposition@cid
+	 ((=ucs		      . #x6041)	; 恁
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(==ucs@unicode	    . #x6041)	; &g2-AJ1-04823;
+	(==adobe-japan1-0   . 04823)	; &g2-AJ1-04823;
+	(==gb2312	    . #x6D25)	; &g2-AJ1-04823; [77-05]
+	(==ks-x1001	    . #x6C76)	; &g2-AJ1-04823; [76-86]
+	(==jis-x0208	    . #x576C)	; &g2-AJ1-04823; [55-76]
+	(==jis-x0213-1	    . #x576C)	; &g2-AJ1-04823; [55-76]
+	(==gt		    . 13401)	; &g2-AJ1-04823;
+	(==daikanwa	    . 10518)	; &g2-AJ1-04823;
+	(==shinjigen	    .  2459)	; &g2-AJ1-04823;
+	(->subsumptive
+	 ((===daikanwa	      . 10518)	; &R-M-10518;
+	  )
+	 ((===jis-x0208	      . #x576C)	; &R-J0-576C; [55-76]
+	  (===jis-x0213-1     . #x576C)	; &R-J0-576C; [55-76]
+	  )
+	 ((===adobe-japan1-0  . 04823)	; &R-AJ1-04823;
+	  )
+	 ((===gt	      . 13401)	; &R-GT-13401;
+	  )
+	 ((===ucs@ks	      . #x6041)	; &R-K0-6C76;
+	  (===ks-x1001	      . #x6C76)	; &R-K0-6C76; [76-86]
+	  )
+	 ((===ucs@unicode     . #x6041)	; &R-UU+6041;
+	  ))
+	))
       )
      ((=ucs@cns		  . #x6041)	; &C2-2F23;
       (=cns11643-2	  . #x2F23)	; &C2-2F23; [15-03]
@@ -4509,7 +5039,12 @@
     (=daikanwa		. 10521)	; &I-M-10521;
     (=shinjigen		.  2489)	; &AJ1-04831;
     (->subsumptive
-     ((==ucs@unicode	  . #x6043)	; &g2-AJ1-04831;
+     ((=decomposition@cid
+       ((=ucs		    . #x6043)	; 恃
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6043)	; &g2-AJ1-04831;
       (==adobe-japan1-0	  . 04831)	; &g2-AJ1-04831;
       (==gb2312		  . #x4A51)	; &g2-AJ1-04831; [42-49]
       (==ks-x1001	  . #x633E)	; &g2-AJ1-04831; [67-30]
@@ -4620,7 +5155,12 @@
       (=jis-x0208	  . #x5771)	; &I-J90-5771; [55-81]
       ))
     (->subsumptive
-     ((==ucs@unicode	  . #x6052)	; &g2-AJ1-01987;
+     ((=decomposition@cid
+       ((=ucs		    . #x6052)	; 恒
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6052)	; &g2-AJ1-01987;
       (==adobe-japan1-0	  . 01987)	; &g2-AJ1-01987;
       (==gb2312		  . #x3A63)	; &g2-AJ1-01987; [26-67]
       (==ks-x1001	  . #x7976)	; &g2-AJ1-01987; [89-86]
@@ -4711,16 +5251,37 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (=ucs		. #x6049)	; 恉
+    (=adobe-japan1-5	. 19358)	; &I-AJ1-19358;
+    (=jis-x0212		. #x3D61)	; &I-JSP-3D61; [29-65]
+    (=cns11643-2	. #x2A48)	; &I-C2-2A48; [10-40]
     (=big5		. #xCEC7)	; &I-B-CEC7;
+    (=daikanwa		. 10532)	; &I-M-10532;
+    (=jef-china3	. #x4DFD)	; &I-JC3-4DFD;
     (->subsumptive
-     ((=ucs@unicode	  . #x6049)	; &AJ1-19358;
-      (=adobe-japan1-5	  . 19358)	; &AJ1-19358;
-      (=jis-x0212	  . #x3D61)	; &I-JSP-3D61; [29-65]
-      (=daikanwa	  . 10532)	; &I-M-10532;
-      (=jef-china3	  . #x4DFD)	; &I-JC3-4DFD;
+     ((=decomposition@cid
+       ((=ucs		    . #x6049)	; 恉
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6049)	; &g2-AJ1-19358;
+      (==adobe-japan1-5	  . 19358)	; &g2-AJ1-19358;
+      (==jis-x0212	  . #x3D61)	; &g2-AJ1-19358; [29-65]
+      (==daikanwa	  . 10532)	; &g2-AJ1-19358;
+      (==jef-china3	  . #x4DFD)	; &g2-AJ1-19358;
+      (->subsumptive
+       ((===daikanwa	    . 10532)	; &R-M-10532;
+	)
+       ((===jis-x0212	    . #x3D61)	; &R-JSP-3D61; [29-65]
+	)
+       ((===adobe-japan1-5  . 19358)	; &R-AJ1-19358;
+	)
+       ((===jef-china3	    . #x4DFD)	; &R-JC3-4DFD;
+	)
+       ((===ucs@unicode	    . #x6049)	; &R-UU+6049;
+	))
       )
-     ((=ucs@cns		  . #x6049)	; &C2-2A48;
-      (=cns11643-2	  . #x2A48)	; &C2-2A48; [10-40]
+     ((==ucs@cns	  . #x6049)	; &g2-CU+6049;
+      (==cns11643-2	  . #x2A48)	; &g2-CU+6049; [10-40]
       ))
     ))
 (define-char
@@ -4803,7 +5364,12 @@
       (=jis-x0208	  . #x5878)	; &I-J90-5878; [56-88]
       ))
     (->subsumptive
-     ((==ucs@cns	  . #x604B)	; &g2-AJ1-04032;
+     ((=decomposition@cid
+       ((=ucs		    . #x604B)	; 恋
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x604B)	; &g2-AJ1-04032;
       (==ucs@jis	  . #x604B)	; &g2-AJ1-04032;
       (==adobe-japan1-0	  . 04032)	; &g2-AJ1-04032;
       (==jis-x0208	  . #x4E78)	; &g2-AJ1-04032; [46-88]
@@ -4920,16 +5486,42 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (=ucs		. #x604C)	; 恌
+    (=adobe-japan1-5	. 17629)	; &I-AJ1-17629;
+    (=jis-x0212		. #x3D62)	; &I-JSP-3D62; [29-66]
+    (=cns11643-2	. #x2A4A)	; &I-C2-2A4A; [10-42]
+    (=jis-x0213-2	. #x2C4B)	; &I-JX2-2C4B; [12-43]
+    (=big5		. #xCEC9)	; &I-B-CEC9;
+    (=daikanwa		. 10541)	; &I-M-10541;
+    (=jef-china3	. #x4DFE)	; &I-JC3-4DFE;
     (->subsumptive
-     ((=daikanwa	  . 10541)	; &M-10541;
-      (=jef-china3	  . #x4DFE)	; &I-JC3-4DFE;
+     ((==daikanwa	  . 10541)	; &g2-M-10541;
+      (==jef-china3	  . #x4DFE)	; &g2-M-10541;
+      (->subsumptive
+       ((===daikanwa	    . 10541)	; &R-M-10541;
+	)
+       ((===jef-china3	    . #x4DFE)	; &R-JC3-4DFE;
+	))
       )
-     ((=ucs@unicode	  . #x604C)	; &AJ1-17629;
-      (=adobe-japan1-5	  . 17629)	; &AJ1-17629;
-      (=jis-x0212	  . #x3D62)	; &I-JSP-3D62; [29-66]
-      (=cns11643-2	  . #x2A4A)	; &I-C2-2A4A; [10-42]
-      (=jis-x0213-2	  . #x2C4B)	; &I-JX2-2C4B; [12-43]
-      (=big5		  . #xCEC9)	; &I-B-CEC9;
+     ((=decomposition@cid
+       ((=ucs		    . #x604C)	; 恌
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x604C)	; &g2-AJ1-17629;
+      (==adobe-japan1-5	  . 17629)	; &g2-AJ1-17629;
+      (==jis-x0212	  . #x3D62)	; &g2-AJ1-17629; [29-66]
+      (==cns11643-2	  . #x2A4A)	; &g2-AJ1-17629; [10-42]
+      (==jis-x0213-2	  . #x2C4B)	; &g2-AJ1-17629; [12-43]
+      (->subsumptive
+       ((===jis-x0212	    . #x3D62)	; &R-JX2-2C4B; [29-66]
+	(===jis-x0213-2	    . #x2C4B)	; &R-JX2-2C4B; [12-43]
+	)
+       ((===adobe-japan1-5  . 17629)	; &R-AJ1-17629;
+	)
+       ((===cns11643-2	    . #x2A4A)	; &R-C2-2A4A; [10-42]
+	)
+       ((===ucs@unicode	    . #x604C)	; &R-UU+604C;
+	))
       ))
     ))
 (define-char
@@ -5037,6 +5629,14 @@
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5DE9)	; 巩
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
     (=ucs		. #x6050)	; 恐
     (=big5		. #xAEA3)	; &I-B-AEA3;
     ))
@@ -5047,6 +5647,15 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x5DE9)	; &HD-KS-098790;
+      (=gb2312		  . #x392E)	; &HD-KS-098790; [25-14]
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
     (=ucs@unicode	. #x6050)	; &AJ1-01706;
     (=adobe-japan1-0	. 01706)	; &AJ1-01706;
     (=jis-x0208		. #x3632)	; &I-J90-3632; [22-18]
@@ -5058,6 +5667,39 @@
     (=gt-pj-1		. #x3632)	; &I-GT-13351; [22-18]
     (=daikanwa		. 10552)	; &I-M-10552;
     (=shinjigen		.  2469)	; &AJ1-01706;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x6050)	; 恐
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6050)	; &g2-AJ1-01706;
+      (==adobe-japan1-0	  . 01706)	; &g2-AJ1-01706;
+      (==gb2312		  . #x3F56)	; &g2-AJ1-01706; [31-54]
+      (==ks-x1001	  . #x4D70)	; &g2-AJ1-01706; [45-80]
+      (==jis-x0208	  . #x3632)	; &g2-AJ1-01706; [22-18]
+      (==jis-x0213-1	  . #x3632)	; &g2-AJ1-01706; [22-18]
+      (==gt		  . 13351)	; &g2-AJ1-01706;
+      (==gt-k		  . 06402)	; &g2-AJ1-01706;
+      (==daikanwa	  . 10552)	; &g2-AJ1-01706;
+      (==shinjigen	  .  2469)	; &g2-AJ1-01706;
+      (->subsumptive
+       ((===daikanwa	    . 10552)	; &R-M-10552;
+	)
+       ((===jis-x0208	    . #x3632)	; &R-J0-3632; [22-18]
+	(===jis-x0213-1	    . #x3632)	; &R-J0-3632; [22-18]
+	)
+       ((===adobe-japan1-0  . 01706)	; &R-AJ1-01706;
+	)
+       ((===gt		    . 13351)	; &R-GT-13351;
+	(===gt-k	    . 06402)	; &R-GT-13351;
+	)
+       ((===ucs@ks	    . #x6050)	; &R-K0-4D70;
+	(===ks-x1001	    . #x4D70)	; &R-K0-4D70; [45-80]
+	)
+       ((===ucs@unicode	    . #x6050)	; &R-UU+6050;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -5067,6 +5709,9 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=shinjigen		.  2470)	; &SJG2-2470;
+    (->subsumptive
+     ((==shinjigen	  .  2470)	; &g2-SJG2-2470;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -5075,7 +5720,47 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@jis		  . #x5DE9)	; &AJ1-17587;
+      (=adobe-japan1-5	  . 17587)	; &AJ1-17587;
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (=adobe-japan1-4	. 13721)	; &AJ1-13721;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x6050)	; 恐
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==adobe-japan1-4	  . 13721)	; &g2-AJ1-13721;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6050)	; 恐
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@cns		  . #x5DE9)	; &C4-2263;
+      (=cns11643-4	  . #x2263)	; &C4-2263; [02-67]
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (=ucs@cns		. #x6050)	; &C1-5545;
     (=cns11643-1	. #x5545)	; &C1-5545; [53-37]
+    (->subsumptive
+     ((==ucs@cns	  . #x6050)	; &g2-CU+6050;
+      (==cns11643-1	  . #x5545)	; &g2-CU+6050; [53-37]
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -5120,19 +5805,94 @@
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=ucs		  . #x5371)	; 危
+      ))
+    (=ucs		. #x6051)	; 恑
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6051)	; 恑
+      ))
+    (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=ucs		. #x6051)	; 恑
-    (->subsumptive
-     ((=ucs@ks		  . #x6051)	; &M-10556;
-      (=daikanwa	  . 10556)	; &M-10556;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x6051)	; &AJ1-21546;
-      (=adobe-japan1-6	  . 21546)	; &AJ1-21546;
-      (=jis-x0212	  . #x3D63)	; &I-JSP-3D63; [29-67]
-      (=cns11643-3	  . #x2C57)	; &I-C3-2C57; [12-55]
-      (=cbeta		  . 05095)	; &I-CB05095;
-      (=jef-china3	  . #x4EA2)	; &I-JC3-4EA2;
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=ucs@unicode	  . #x5371)	; &MJ007888;
+      (=mj		  . 007888)	; &MJ007888;
+      ))
+    (=ucs@unicode	. #x6051)	; &AJ1-21546;
+    (=adobe-japan1-6	. 21546)	; &AJ1-21546;
+    (=jis-x0212		. #x3D63)	; &I-JSP-3D63; [29-67]
+    (=cns11643-3	. #x2C57)	; &I-C3-2C57; [12-55]
+    (=daikanwa		. 10556)	; &I-M-10556;
+    (=cbeta		. 05095)	; &I-CB05095;
+    (=jef-china3	. #x4EA2)	; &I-JC3-4EA2;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL HEART ONE")
+	(=ucs		    . #x2E96)	; ⺖
+	)
+       ((==ucs@ks	    . #x5371)	; &g2-AJ1-13696;
+	(==adobe-japan1-4   . 13696)	; &g2-AJ1-13696;
+	))
+      (==ucs@ks		  . #x6051)	; &g2-M-10556;
+      (==daikanwa	  . 10556)	; &g2-M-10556;
+      (->subsumptive
+       ((===daikanwa	    . 10556)	; &R-M-10556;
+	)
+       ((===ucs@ks	    . #x6051)	; &R-KU+6051;
+	))
+      )
+     ((=decomposition@cid
+       ((=ucs		    . #x6051)	; 恑
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL HEART ONE")
+	(=ucs		    . #x2E96)	; ⺖
+	)
+       ((==ucs@unicode	    . #x5371)	; &g2-MJ007888;
+	(==mj		    . 007888)	; &g2-MJ007888;
+	))
+      (==ucs@unicode	  . #x6051)	; &g2-AJ1-21546;
+      (==adobe-japan1-6	  . 21546)	; &g2-AJ1-21546;
+      (==jis-x0212	  . #x3D63)	; &g2-AJ1-21546; [29-67]
+      (==cns11643-3	  . #x2C57)	; &g2-AJ1-21546; [12-55]
+      (==cbeta		  . 05095)	; &g2-AJ1-21546;
+      (==jef-china3	  . #x4EA2)	; &g2-AJ1-21546;
+      (->subsumptive
+       ((===jis-x0212	    . #x3D63)	; &R-JSP-3D63; [29-67]
+	)
+       ((===adobe-japan1-6  . 21546)	; &R-AJ1-21546;
+	)
+       ((===cns11643-3	    . #x2C57)	; &R-C3-2C57; [12-55]
+	)
+       ((===jef-china3	    . #x4EA2)	; &R-JC3-4EA2;
+	)
+       ((===ucs@unicode	    . #x6051)	; &R-UU+6051;
+	)
+       ((===cbeta	    . 05095)	; &R-CB05095;
+	))
       ))
     ))
 (define-char
@@ -5140,22 +5900,33 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (=ucs		. #x6053)	; 恓
+    (=cns11643-2	. #x2A46)	; &I-C2-2A46; [10-38]
     (=big5		. #xCEC5)	; &I-B-CEC5;
+    (=daikanwa		. 10557)	; &I-M-10557;
+    (=shinjigen		.  2552)	; 恓
+    (=jef-china3	. #x8CE1)	; &I-JC3-8CE1;
+    (<-vulgar
+     ((=ucs		  . #x60BD)	; 悽
+      (=jis-x0208	  . #x582E)	; &I-J90-582E; [56-14]
+      (=shinjigen	  .  2551)	; 悽
+      ))
+    (<-vulgar*sources
+     shinjigen)
     (->subsumptive
-     ((=daikanwa	  . 10557)	; &M-10557;
+     ((==daikanwa	  . 10557)	; &g2-M-10557;
       )
-     ((=ucs@unicode	  . #x6053)	; &C2-2A46;
-      (=cns11643-2	  . #x2A46)	; &C2-2A46; [10-38]
-      (=shinjigen	  .  2552)	; &C2-2A46;
-      (=jef-china3	  . #x8CE1)	; &I-JC3-8CE1;
-      (<-vulgar
-       ((=ucs@unicode	    . #x60BD)	; &AJ1-04855;
-	(=adobe-japan1-0    . 04855)	; &AJ1-04855;
-	(=jis-x0208	    . #x582E)	; &I-J90-582E; [56-14]
-	(=shinjigen	    .  2551)	; &AJ1-04855;
+     ((==ucs@unicode	  . #x6053)	; &g2-UU+6053;
+      (==ucs@JP/hanazono  . nil)
+      (==cns11643-2	  . #x2A46)	; &g2-UU+6053; [10-38]
+      (==shinjigen	  .  2552)	; &g2-UU+6053;
+      (==jef-china3	  . #x8CE1)	; &g2-UU+6053;
+      (->subsumptive
+       ((===cns11643-2	    . #x2A46)	; &R-C2-2A46; [10-38]
+	)
+       ((===ucs@unicode	    . #x6053)	; &R-UU+6053;
+	)
+       ((===jef-china3	    . #x8CE1)	; &R-JC3-8CE1;
 	))
-      (<-vulgar*sources
-       shinjigen)
       ))
     ))
 (define-char
@@ -5170,7 +5941,12 @@
     (=daikanwa		. 10558)	; &I-M-10558;
     (=jef-china3	. #x4EA3)	; &I-JC3-4EA3;
     (->subsumptive
-     ((==ucs@jis	  . #x6054)	; &g2-AJ1-19359;
+     ((=decomposition@cid
+       ((=ucs		    . #x6054)	; 恔
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x6054)	; &g2-AJ1-19359;
       (==adobe-japan1-5	  . 19359)	; &g2-AJ1-19359;
       (==jis-x0212	  . #x3D64)	; &g2-AJ1-19359; [29-68]
       (==daikanwa	  . 10558)	; &g2-AJ1-19359;
@@ -5215,20 +5991,50 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ucs		. #x6055)	; 恕
+    (=adobe-japan1-0	. 02436)	; &I-AJ1-02436;
+    (=jis-x0208		. #x3D7A)	; &I-J90-3D7A; [29-90]
+    (=gb2312		. #x4B21)	; &I-G0-4B21; [43-01]
+    (=ks-x1001		. #x5F70)	; &I-K0-5F70; [63-80]
+    (=cns11643-1	. #x5546)	; &I-C1-5546; [53-38]
+    (=jis-x0213-1	. #x3D7A)	; &I-JX1-3D7A; [29-90]
     (=big5		. #xAEA4)	; &I-B-AEA4;
+    (=gt		. 13395)	; &I-GT-13395;
+    (=gt-pj-1		. #x3D7A)	; &I-GT-13395; [29-90]
+    (=daikanwa		. 10560)	; &I-M-10560;
+    (=shinjigen		.  2494)	; 恕
     (->subsumptive
-     ((=ucs@unicode	  . #x6055)	; &AJ1-02436;
-      (=adobe-japan1-0	  . 02436)	; &AJ1-02436;
-      (=jis-x0208	  . #x3D7A)	; &I-J90-3D7A; [29-90]
-      (=gb2312		  . #x4B21)	; &I-G0-4B21; [43-01]
-      (=ks-x1001	  . #x5F70)	; &I-K0-5F70; [63-80]
-      (=jis-x0213-1	  . #x3D7A)	; &I-JX1-3D7A; [29-90]
-      (=gt		  . 13395)	; &I-GT-13395;
-      (=gt-pj-1		  . #x3D7A)	; &I-GT-13395; [29-90]
-      (=daikanwa	  . 10560)	; &I-M-10560;
-      (=shinjigen	  .  2494)	; &AJ1-02436;
+     ((=decomposition@cid
+       ((=ucs		    . #x6055)	; 恕
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6055)	; &g2-AJ1-02436;
+      (==adobe-japan1-0	  . 02436)	; &g2-AJ1-02436;
+      (==gb2312		  . #x4B21)	; &g2-AJ1-02436; [43-01]
+      (==ks-x1001	  . #x5F70)	; &g2-AJ1-02436; [63-80]
+      (==jis-x0208	  . #x3D7A)	; &g2-AJ1-02436; [29-90]
+      (==jis-x0213-1	  . #x3D7A)	; &g2-AJ1-02436; [29-90]
+      (==gt		  . 13395)	; &g2-AJ1-02436;
+      (==daikanwa	  . 10560)	; &g2-AJ1-02436;
+      (==shinjigen	  .  2494)	; &g2-AJ1-02436;
+      (->subsumptive
+       ((===daikanwa	    . 10560)	; &R-M-10560;
+	)
+       ((===jis-x0208	    . #x3D7A)	; &R-J0-3D7A; [29-90]
+	(===jis-x0213-1	    . #x3D7A)	; &R-J0-3D7A; [29-90]
+	)
+       ((===adobe-japan1-0  . 02436)	; &R-AJ1-02436;
+	)
+       ((===gt		    . 13395)	; &R-GT-13395;
+	)
+       ((===ucs@ks	    . #x6055)	; &R-K0-5F70;
+	(===ks-x1001	    . #x5F70)	; &R-K0-5F70; [63-80]
+	)
+       ((===ucs@unicode	    . #x6055)	; &R-UU+6055;
+	))
       )
-     ((=cns11643-1	  . #x5546)	; &C1-5546; [53-38]
+     ((==ucs@cns	  . #x6055)	; &g2-CU+6055;
+      (==cns11643-1	  . #x5546)	; &g2-CU+6055; [53-38]
       ))
     ))
 (define-char
@@ -5320,6 +6126,38 @@
     (=gt-pj-1		. #x576B)	; &I-GT-13323; [55-75]
     (=daikanwa		. 10566)	; &I-M-10566;
     (=shinjigen		.  2456)	; &AJ1-04822;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x605A)	; 恚
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x605A)	; &g2-AJ1-04822;
+      (==adobe-japan1-0	  . 04822)	; &g2-AJ1-04822;
+      (==gb2312		  . #x6D23)	; &g2-AJ1-04822; [77-03]
+      (==jis-x0208	  . #x576B)	; &g2-AJ1-04822; [55-75]
+      (==cns11643-2	  . #x2F21)	; &g2-AJ1-04822; [15-01]
+      (==jis-x0213-1	  . #x576B)	; &g2-AJ1-04822; [55-75]
+      (==gt		  . 13323)	; &g2-AJ1-04822;
+      (==gt-k		  . 06589)	; &g2-AJ1-04822;
+      (==daikanwa	  . 10566)	; &g2-AJ1-04822;
+      (==shinjigen	  .  2456)	; &g2-AJ1-04822;
+      (->subsumptive
+       ((===daikanwa	    . 10566)	; &R-M-10566;
+	)
+       ((===jis-x0208	    . #x576B)	; &R-J0-576B; [55-75]
+	(===jis-x0213-1	    . #x576B)	; &R-J0-576B; [55-75]
+	)
+       ((===adobe-japan1-0  . 04822)	; &R-AJ1-04822;
+	)
+       ((===cns11643-2	    . #x2F21)	; &R-C2-2F21; [15-01]
+	)
+       ((===gt		    . 13323)	; &R-GT-13323;
+	(===gt-k	    . 06589)	; &R-GT-13323;
+	)
+       ((===ucs@unicode	    . #x605A)	; &R-UU+605A;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -5382,7 +6220,12 @@
        ((==ucs@ks	    . #x605D)	; &g2-K0-4E3F;
 	(==ks-x1001	    . #x4E3F)	; &g2-K0-4E3F; [46-31]
 	)
-       ((==ucs@jis	    . #x605D)	; &g2-AJ1-08454;
+       ((=decomposition@cid
+	 ((=ucs		      . #x605D)	; 恝
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(==ucs@jis	    . #x605D)	; &g2-AJ1-08454;
 	(==adobe-japan1-2   . 08454)	; &g2-AJ1-08454;
 	(==jis-x0212	    . #x3D67)	; &g2-AJ1-08454; [29-71]
 	(->subsumptive
@@ -5465,6 +6308,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (=ucs		. #x6061)	; 恡
+    (=adobe-japan1-4	. 14539)	; &I-AJ1-14539;
     (=jis-x0212		. #x3D68)	; &I-JSP-3D68; [29-72]
     (=cns11643-3	. #x2C61)	; &I-C3-2C61; [12-65]
     (=daikanwa		. 10576)	; &I-M-10576;
@@ -5490,39 +6334,47 @@
     (=+>jis-x0208@1978	. #x327A)	; &o-J78-327A; [18-90]
     (=+>jis-x0213-1@2004 . #x327A)	; &o-J78-327A; [18-90]
     (=big5		. #xABEC)	; &o-J78-327A;
+    (=+>adobe-japan1-0	. 07648)	; &o-J78-327A;
+    (=+>adobe-japan1-5	. 20269)	; &o-J78-327A;
     (=+>hanyo-denshi/ft . #x3161)	; &o-J78-327A; [17-65]
     (->subsumptive
-     ((=ucs@unicode	  . #x6062)	; &HD-FT-3161;
+     ((=ucs@unicode	  . #x6062)	; &AJ1-07648;
       (=ucs@JP/hanazono	  . nil)
-      (=jis-x0208@1978	  . #x327A)	; &HD-FT-3161; [18-90]
+      (=adobe-japan1-0	  . 07648)	; &AJ1-07648;
+      (=jis-x0208@1978	  . #x327A)	; &I-J78-327A; [18-90]
       (=gb2312		  . #x3B56)	; &I-G0-3B56; [27-54]
       (=hanyo-denshi/ft	  . #x3161)	; &I-HD-FT-3161; [17-65]
       (=daikanwa	  . 10577)	; &I-M-10577;
       (->subsumptive
-       ((==jis-x0208@1978   . #x327A)	; &g2-M-10577; [18-90]
-	(==daikanwa	    . 10577)	; &g2-M-10577;
-	(->subsumptive
-	 ((===daikanwa	      . 10577)	; &R-M-10577;
-	  )
-	 ((===jis-x0208@1978  . #x327A)	; &R-J78-327A; [18-90]
-	  ))
-	)
        ((=decomposition@hanyo-denshi
 	 ((=ucs		      . #x6062)	; 恢
 	  )
 	 ((=ucs		      . #xE0105)	; 󠄅
 	  ))
-	(==hanyo-denshi/ft  . #x3161)	; &g2-HD-FT-3161; [17-65]
+	(==adobe-japan1-0   . 07648)	; &g2-AJ1-07648;
+	(==jis-x0208@1978   . #x327A)	; &g2-AJ1-07648; [18-90]
+	(==hanyo-denshi/ft  . #x3161)	; &g2-AJ1-07648; [17-65]
+	(==daikanwa	    . 10577)	; &g2-AJ1-07648;
+	(->subsumptive
+	 ((===daikanwa	      . 10577)	; &R-M-10577;
+	  )
+	 ((===jis-x0208@1978  . #x327A)	; &R-J78-327A; [18-90]
+	  )
+	 ((===hanyo-denshi/ft . #x3161)	; &R-HD-FT-3161; [17-65]
+	  )
+	 ((===adobe-japan1-0  . 07648)	; &R-AJ1-07648;
+	  ))
 	)
        ((==ucs@unicode	    . #x6062)	; &g2-UU+6062;
 	(==ucs@JP/hanazono  . nil)
 	(==gb2312	    . #x3B56)	; &g2-UU+6062; [27-54]
 	))
       )
-     ((=ucs@cns		  . #x6062)	; &HD-HG-3028;
-      (=ucs@jis/2004	  . #x6062)	; &HD-HG-3028;
-      (=ucs@ks		  . #x6062)	; &HD-HG-3028;
-      (=ks-x1001	  . #x7C61)	; &HD-HG-3028; [92-65]
+     ((=ucs@cns		  . #x6062)	; &AJ1-20269;
+      (=ucs@jis/2004	  . #x6062)	; &AJ1-20269;
+      (=ucs@ks		  . #x6062)	; &AJ1-20269;
+      (=adobe-japan1-5	  . 20269)	; &AJ1-20269;
+      (=ks-x1001	  . #x7C61)	; &I-K0-7C61; [92-65]
       (=cns11643-1	  . #x5130)	; &I-C1-5130; [49-16]
       (=jis-x0213-1@2004  . #x327A)	; &I-JX3-327A; [18-90]
       (=hanyo-denshi/hg	  . #x3028)	; &I-HD-HG-3028; [16-08]
@@ -5532,14 +6384,17 @@
 	  )
 	 ((=ucs		      . #xE0104)	; 󠄄
 	  ))
-	(==ucs@jis/2004	    . #x6062)	; &g2-HD-HG-3028;
-	(==ucs@ks	    . #x6062)	; &g2-HD-HG-3028;
-	(==ks-x1001	    . #x7C61)	; &g2-HD-HG-3028; [92-65]
-	(==jis-x0213-1@2004 . #x327A)	; &g2-HD-HG-3028; [18-90]
-	(==hanyo-denshi/hg  . #x3028)	; &g2-HD-HG-3028; [16-08]
+	(==ucs@jis/2004	    . #x6062)	; &g2-AJ1-20269;
+	(==ucs@ks	    . #x6062)	; &g2-AJ1-20269;
+	(==adobe-japan1-5   . 20269)	; &g2-AJ1-20269;
+	(==ks-x1001	    . #x7C61)	; &g2-AJ1-20269; [92-65]
+	(==jis-x0213-1@2004 . #x327A)	; &g2-AJ1-20269; [18-90]
+	(==hanyo-denshi/hg  . #x3028)	; &g2-AJ1-20269; [16-08]
 	(->subsumptive
 	 ((===jis-x0213-1@2004 . #x327A)	; &R-HD-HG-3028; [18-90]
 	  (===hanyo-denshi/hg . #x3028)	; &R-HD-HG-3028; [16-08]
+	  )
+	 ((===adobe-japan1-5  . 20269)	; &R-AJ1-20269;
 	  )
 	 ((===ucs@ks	      . #x6062)	; &R-K0-7C61;
 	  (===ks-x1001	      . #x7C61)	; &R-K0-7C61; [92-65]
@@ -5557,11 +6412,6 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x6062)	; 恢
-      )
-     ((=ucs		  . #xE0103)	; 󠄃
-      ))
     (=ucs@jis/1990	. #x6062)	; &AJ1-01402;
     (=ucs@jis/2000	. #x6062)	; &AJ1-01402;
     (=adobe-japan1-0	. 01402)	; &AJ1-01402;
@@ -5572,6 +6422,39 @@
     (=gt		. 13227)	; &I-GT-13227;
     (=gt-pj-1		. #x327A)	; &I-GT-13227; [18-90]
     (=jef-china3	. #x4EEA)	; &I-JC3-4EEA;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x6062)	; 恢
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x6062)	; 恢
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==ucs@jis/1990	  . #x6062)	; &g2-AJ1-01402;
+      (==ucs@jis/2000	  . #x6062)	; &g2-AJ1-01402;
+      (==adobe-japan1-0	  . 01402)	; &g2-AJ1-01402;
+      (==jis-x0208@1983	  . #x327A)	; &g2-AJ1-01402; [18-90]
+      (==jis-x0208@1990	  . #x327A)	; &g2-AJ1-01402; [18-90]
+      (==jis-x0213-1@2000 . #x327A)	; &g2-AJ1-01402; [18-90]
+      (==hanyo-denshi/ja  . #x327A)	; &g2-AJ1-01402; [18-90]
+      (==gt		  . 13227)	; &g2-AJ1-01402;
+      (==jef-china3	  . #x4EEA)	; &g2-AJ1-01402;
+      (->subsumptive
+       ((===jis-x0208@1983  . #x327A)	; &R-J83-327A; [18-90]
+	)
+       ((===jis-x0208@1990  . #x327A)	; &R-J90-327A; [18-90]
+	(===jis-x0213-1@2000 . #x327A)	; &R-J90-327A; [18-90]
+	)
+       ((===adobe-japan1-0  . 01402)	; &R-AJ1-01402;
+	)
+       ((===gt		    . 13227)	; &R-GT-13227;
+	)
+       ((===jef-china3	    . #x4EEA)	; &R-JC3-4EEA;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -5622,7 +6505,12 @@
     (=daikanwa		. 10580)	; &I-M-10580;
     (=shinjigen		.  2487)	; &AJ1-04830;
     (->subsumptive
-     ((==ucs@jis	  . #x6063)	; &g2-AJ1-04830;
+     ((=decomposition@cid
+       ((=ucs		    . #x6063)	; 恣
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x6063)	; &g2-AJ1-04830;
       (==ucs@ks		  . #x6063)	; &g2-AJ1-04830;
       (==adobe-japan1-0	  . 04830)	; &g2-AJ1-04830;
       (==ks-x1001	  . #x6D30)	; &g2-AJ1-04830; [77-16]
@@ -5772,6 +6660,7 @@
     (total-strokes	 . 10)
     (=ucs		. #x6065)	; 恥
     (=adobe-japan1-0	. 02959)	; &I-AJ1-02959;
+    (=adobe-japan1-4	. 13476)	; &I-AJ1-13476;
     (=jis-x0208		. #x4351)	; &I-J90-4351; [35-49]
     (=ks-x1001		. #x763B)	; &I-K0-763B; [86-27]
     (=cns11643-1	. #x5544)	; &I-C1-5544; [53-36]
@@ -5784,7 +6673,12 @@
     (->subsumptive
      ((==daikanwa	  . 10585)	; &g2-M-10585;
       )
-     ((==ucs@cns	  . #x6065)	; &g2-AJ1-02959;
+     ((=decomposition@cid
+       ((=ucs		    . #x6065)	; 恥
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x6065)	; &g2-AJ1-02959;
       (==ucs@jis/1990	  . #x6065)	; &g2-AJ1-02959;
       (==ucs@jis/2000	  . #x6065)	; &g2-AJ1-02959;
       (==ucs@jis/2004	  . #x6065)	; &g2-AJ1-02959;
@@ -5810,14 +6704,17 @@
 	(===ks-x1001	    . #x763B)	; &R-K0-763B; [86-27]
 	))
       )
-     ((==ucs@unicode	  . #x6065)	; &g2-J83-4351;
+     ((==ucs@unicode	  . #x6065)	; &g2-AJ1-13476;
       (==ucs@JP/hanazono  . nil)
-      (==jis-x0208@1978	  . #x4351)	; &g2-J83-4351; [35-49]
-      (==jis-x0208@1983	  . #x4351)	; &g2-J83-4351; [35-49]
+      (==adobe-japan1-4	  . 13476)	; &g2-AJ1-13476;
+      (==jis-x0208@1978	  . #x4351)	; &g2-AJ1-13476; [35-49]
+      (==jis-x0208@1983	  . #x4351)	; &g2-AJ1-13476; [35-49]
       (->subsumptive
        ((===jis-x0208@1978  . #x4351)	; &R-J78-4351; [35-49]
 	)
        ((===jis-x0208@1983  . #x4351)	; &R-J83-4351; [35-49]
+	)
+       ((===adobe-japan1-4  . 13476)	; &R-AJ1-13476;
 	)
        ((===ucs@unicode	    . #x6065)	; &R-UU+6065;
 	))
@@ -5957,8 +6854,46 @@
       (=gt-pj-1		  . #x5777)	; &I-GT-13294; [55-87]
       (=daikanwa	  . 10595)	; &I-M-10595;
       (=shinjigen	  .  2498)	; &AJ1-04834;
+      (->subsumptive
+       ((=decomposition@cid
+	 ((=ucs		      . #x606C)	; 恬
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(==ucs@unicode	    . #x606C)	; &g2-AJ1-04834;
+	(==adobe-japan1-0   . 04834)	; &g2-AJ1-04834;
+	(==gb2312	    . #x4C71)	; &g2-AJ1-04834; [44-81]
+	(==ks-x1001	    . #x5238)	; &g2-AJ1-04834; [50-24]
+	(==jis-x0208	    . #x5777)	; &g2-AJ1-04834; [55-87]
+	(==jis-x0213-1	    . #x5777)	; &g2-AJ1-04834; [55-87]
+	(==gt		    . 13294)	; &g2-AJ1-04834;
+	(==gt-k		    . 05245)	; &g2-AJ1-04834;
+	(==daikanwa	    . 10595)	; &g2-AJ1-04834;
+	(==shinjigen	    .  2498)	; &g2-AJ1-04834;
+	(->subsumptive
+	 ((===daikanwa	      . 10595)	; &R-M-10595;
+	  )
+	 ((===jis-x0208	      . #x5777)	; &R-J0-5777; [55-87]
+	  (===jis-x0213-1     . #x5777)	; &R-J0-5777; [55-87]
+	  )
+	 ((===adobe-japan1-0  . 04834)	; &R-AJ1-04834;
+	  )
+	 ((===gt	      . 13294)	; &R-GT-13294;
+	  (===gt-k	      . 05245)	; &R-GT-13294;
+	  )
+	 ((===ucs@ks	      . #x606C)	; &R-K0-5238;
+	  (===ks-x1001	      . #x5238)	; &R-K0-5238; [50-24]
+	  )
+	 ((===ucs@unicode     . #x606C)	; &R-UU+606C;
+	  ))
+	))
       )
-     ((=cns11643-1	  . #x5133)	; &C1-5133; [49-19]
+     ((=ucs@cns		  . #x606C)	; &C1-5133;
+      (=cns11643-1	  . #x5133)	; &C1-5133; [49-19]
+      (->subsumptive
+       ((==ucs@cns	    . #x606C)	; &g2-CU+606C;
+	(==cns11643-1	    . #x5133)	; &g2-CU+606C; [49-19]
+	))
       ))
     ))
 (define-char
@@ -6005,7 +6940,12 @@
     (=daikanwa		. 10596)	; &I-M-10596;
     (=shinjigen		.  2472)	; &AJ1-01707;
     (->subsumptive
-     ((==ucs@unicode	  . #x606D)	; &g2-AJ1-01707;
+     ((=decomposition@cid
+       ((=ucs		    . #x606D)	; 恭
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x606D)	; &g2-AJ1-01707;
       (==adobe-japan1-0	  . 01707)	; &g2-AJ1-01707;
       (==gb2312		  . #x3927)	; &g2-AJ1-01707; [25-07]
       (==ks-x1001	  . #x4D71)	; &g2-AJ1-01707; [45-81]
@@ -6140,7 +7080,12 @@
     (=daikanwa		. 10601)	; &I-M-10601;
     (=shinjigen		.  2495)	; 息
     (->subsumptive
-     ((==ucs@unicode	  . #x606F)	; &g2-AJ1-02825;
+     ((=decomposition@cid
+       ((=ucs		    . #x606F)	; 息
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x606F)	; &g2-AJ1-02825;
       (==adobe-japan1-0	  . 02825)	; &g2-AJ1-02825;
       (==gb2312		  . #x4F22)	; &g2-AJ1-02825; [47-02]
       (==ks-x1001	  . #x6353)	; &g2-AJ1-02825; [67-51]
@@ -6220,7 +7165,12 @@
     (=daikanwa		. 10605)	; &I-M-10605;
     (=jef-china3	. #x4EA6)	; &I-JC3-4EA6;
     (->subsumptive
-     ((==ucs@jis	  . #x6071)	; &g2-AJ1-21549;
+     ((=decomposition@cid
+       ((=ucs		    . #x6071)	; 恱
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x6071)	; &g2-AJ1-21549;
       (==adobe-japan1-6	  . 21549)	; &g2-AJ1-21549;
       (==jis-x0212	  . #x3D6A)	; &g2-AJ1-21549; [29-74]
       (==daikanwa	  . 10605)	; &g2-AJ1-21549;
@@ -6425,7 +7375,12 @@
      ((=ucs		  . #xFA3D)	; 悔
       ))
     (->subsumptive
-     ((==ucs@iso	  . #x2F8A3)	; &g2-AJ1-01401;
+     ((=decomposition@cid
+       ((=ucs		    . #x6094)	; 悔
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@iso	  . #x2F8A3)	; &g2-AJ1-01401;
       (==ucs@jis	  . #x6094)	; &g2-AJ1-01401;
       (==adobe-japan1-0	  . 01401)	; &g2-AJ1-01401;
       (==jis-x0208	  . #x3279)	; &g2-AJ1-01401; [18-89]
@@ -6461,21 +7416,69 @@
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
+    (=ucs		. #x6075)	; 恵
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6075)	; 恵
+      ))
+    (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (=ucs		. #x6075)	; 恵
-    (=adobe-japan1-0	. 01817)	; &I-AJ1-01817;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x24C14)	; 𤰔
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (=ucs@unicode	. #x6075)	; &AJ1-01817;
+    (=adobe-japan1-0	. 01817)	; &AJ1-01817;
     (=jis-x0208		. #x3743)	; &I-J90-3743; [23-35]
     (=cns11643-3	. #x307B)	; &I-C3-307B; [16-91]
     (=jis-x0213-1	. #x3743)	; &I-JX1-3743; [23-35]
     (=gt		. 13362)	; &I-GT-13362;
     (=gt-k		. 06413)	; &I-GT-K06413;
     (=gt-pj-1		. #x3743)	; &I-GT-13362; [23-35]
-    (=daikanwa/+p	. 10618)	; 恵
+    (=daikanwa/+p	. 10618)	; &AJ1-01817;
     (<-simplified@JP/Jouyou
      ((=ucs@unicode	  . #x60E0)	; &AJ1-04851;
       (=adobe-japan1-0	  . 04851)	; &AJ1-04851;
       (=jis-x0208	  . #x582A)	; &I-J90-582A; [56-10]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6075)	; 恵
+      ))
+    (=>ucs*		. #x6075)	; 恵
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 03345)	; &GT-K03345;
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (=ucs		. #xFA6B)	; 恵
+    (=adobe-japan1-4	. 13740)	; &I-AJ1-13740;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x6075)	; 恵
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@unicode	  . #xFA6B)	; &g2-AJ1-13740;
+      (==adobe-japan1-4	  . 13740)	; &g2-AJ1-13740;
+      (->subsumptive
+       ((===adobe-japan1-4  . 13740)	; &R-AJ1-13740;
+	)
+       ((===ucs@unicode	    . #xFA6B)	; &R-UU+FA6B;
+	))
       ))
     ))
 (define-char
@@ -6621,18 +7624,6 @@
      ((=ucs		  . #x607E)	; 恾
       ))
     (ideographic-radical . 61)	; ⼼
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (=ucs@jis		. #x607E)	; &AJ1-21550;
-    (=ucs@JP/hanazono	. nil)
-    (=adobe-japan1-6	. 21550)	; &AJ1-21550;
-    (=jis-x0212		. #x3D6B)	; &I-JSP-3D6B; [29-75]
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x607E)	; 恾
-      ))
-    (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs@cns		. #x607E)	; &C3-3076;
@@ -6650,10 +7641,39 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x607E)	; 恾
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (=ucs@jis		. #x607E)	; &AJ1-21550;
+    (=ucs@JP/hanazono	. nil)
+    (=adobe-japan1-6	. 21550)	; &AJ1-21550;
+    (=jis-x0212		. #x3D6B)	; &I-JSP-3D6B; [29-75]
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x607E)	; 恾
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x607E)	; &g2-AJ1-21550;
+      (==ucs@JP/hanazono  . nil)
+      (==adobe-japan1-6	  . 21550)	; &g2-AJ1-21550;
+      (==jis-x0212	  . #x3D6B)	; &g2-AJ1-21550; [29-75]
+      (->subsumptive
+       ((===jis-x0212	    . #x3D6B)	; &R-JSP-3D6B; [29-75]
+	)
+       ((===adobe-japan1-6  . 21550)	; &R-AJ1-21550;
+	))
+      ))
+    ))
+(define-char
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=ucs		. #x607F)	; 恿
+    (=adobe-japan1-4	. 14540)	; &I-AJ1-14540;
     (=gb2312		. #x5341)	; &I-G0-5341; [51-33]
     (=jis-x0212		. #x3D6C)	; &I-JSP-3D6C; [29-76]
     (=cns11643-1	. #x5A3C)	; &I-C1-5A3C; [58-28]
@@ -6684,19 +7704,43 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs		. #x6081)	; 悁
+    (=adobe-japan1-0	. 04837)	; &I-AJ1-04837;
+    (=jis-x0208		. #x577A)	; &I-J90-577A; [55-90]
+    (=cns11643-2	. #x2F28)	; &I-C2-2F28; [15-08]
+    (=jis-x0213-1	. #x577A)	; &I-JX1-577A; [55-90]
     (=big5		. #xD1A6)	; &I-B-D1A6;
+    (=gt		. 13330)	; &I-GT-13330;
+    (=gt-pj-1		. #x577A)	; &I-GT-13330; [55-90]
+    (=daikanwa		. 10623)	; &I-M-10623;
+    (=shinjigen		.  2506)	; 悁
     (->subsumptive
-     ((=ucs@unicode	  . #x6081)	; &AJ1-04837;
-      (=adobe-japan1-0	  . 04837)	; &AJ1-04837;
-      (=jis-x0208	  . #x577A)	; &I-J90-577A; [55-90]
-      (=jis-x0213-1	  . #x577A)	; &I-JX1-577A; [55-90]
-      (=gt		  . 13330)	; &I-GT-13330;
-      (=gt-pj-1		  . #x577A)	; &I-GT-13330; [55-90]
-      (=daikanwa	  . 10623)	; &I-M-10623;
-      (=shinjigen	  .  2506)	; &AJ1-04837;
+     ((=decomposition@cid
+       ((=ucs		    . #x6081)	; 悁
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6081)	; &g2-AJ1-04837;
+      (==adobe-japan1-0	  . 04837)	; &g2-AJ1-04837;
+      (==jis-x0208	  . #x577A)	; &g2-AJ1-04837; [55-90]
+      (==jis-x0213-1	  . #x577A)	; &g2-AJ1-04837; [55-90]
+      (==gt		  . 13330)	; &g2-AJ1-04837;
+      (==daikanwa	  . 10623)	; &g2-AJ1-04837;
+      (==shinjigen	  .  2506)	; &g2-AJ1-04837;
+      (->subsumptive
+       ((===daikanwa	    . 10623)	; &R-M-10623;
+	)
+       ((===jis-x0208	    . #x577A)	; &R-J0-577A; [55-90]
+	(===jis-x0213-1	    . #x577A)	; &R-J0-577A; [55-90]
+	)
+       ((===adobe-japan1-0  . 04837)	; &R-AJ1-04837;
+	)
+       ((===gt		    . 13330)	; &R-GT-13330;
+	)
+       ((===ucs@unicode	    . #x6081)	; &R-UU+6081;
+	))
       )
-     ((=ucs@cns		  . #x6081)	; &C2-2F28;
-      (=cns11643-2	  . #x2F28)	; &C2-2F28; [15-08]
+     ((==ucs@cns	  . #x6081)	; &g2-CU+6081;
+      (==cns11643-2	  . #x2F28)	; &g2-CU+6081; [15-08]
       ))
     ))
 (define-char
@@ -6712,7 +7756,12 @@
     (->subsumptive
      ((==daikanwa	  . 10624)	; &g2-M-10624;
       )
-     ((==ucs@jis	  . #x6082)	; &g2-AJ1-21551;
+     ((=decomposition@cid
+       ((=ucs		    . #x6082)	; 悂
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x6082)	; &g2-AJ1-21551;
       (==adobe-japan1-6	  . 21551)	; &g2-AJ1-21551;
       (==jis-x0212	  . #x3D6D)	; &g2-AJ1-21551; [29-77]
       (==jef-china3	  . #x4EA7)	; &g2-AJ1-21551;
@@ -6776,6 +7825,30 @@
     (=gt-pj-1		. #x5821)	; &I-GT-13396; [56-01]
     (=daikanwa		. 10627)	; &I-M-10627;
     (=shinjigen		.  2517)	; &AJ1-04842;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x6084)	; 悄
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x6084)	; &g2-AJ1-04842;
+      (==adobe-japan1-0	  . 04842)	; &g2-AJ1-04842;
+      (==jis-x0208	  . #x5821)	; &g2-AJ1-04842; [56-01]
+      (==jis-x0213-1	  . #x5821)	; &g2-AJ1-04842; [56-01]
+      (==gt		  . 13396)	; &g2-AJ1-04842;
+      (==daikanwa	  . 10627)	; &g2-AJ1-04842;
+      (==shinjigen	  .  2517)	; &g2-AJ1-04842;
+      (->subsumptive
+       ((===daikanwa	    . 10627)	; &R-M-10627;
+	)
+       ((===jis-x0208	    . #x5821)	; &R-J0-5821; [56-01]
+	(===jis-x0213-1	    . #x5821)	; &R-J0-5821; [56-01]
+	)
+       ((===adobe-japan1-0  . 04842)	; &R-AJ1-04842;
+	)
+       ((===gt		    . 13396)	; &R-GT-13396;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -6791,6 +7864,7 @@
     (=big5		. #xAEA8)	; &I-B-AEA8;
     (->subsumptive
      ((==ucs@unicode	  . #x6084)	; &g2-UU+6084;
+      (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x4744)	; &g2-UU+6084; [39-36]
       )
      ((==ucs@cns	  . #x6084)	; &g2-CU+6084;
@@ -6825,15 +7899,43 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs		. #x6085)	; 悅
+    (=adobe-japan1-2	. 08455)	; &I-AJ1-08455;
+    (=ks-x1001		. #x666D)	; &I-K0-666D; [70-77]
+    (=cns11643-1	. #x5550)	; &I-C1-5550; [53-48]
+    (=daikanwa		. 10629)	; &I-M-10629;
+    (=shinjigen		.  2504)	; 悅
+    (=jef-china3	. #x4EA8)	; &I-JC3-4EA8;
     (->subsumptive
-     ((=adobe-japan1-2	  . 08455)	; &AJ1-08455;
-      (=ks-x1001	  . #x666D)	; &I-K0-666D; [70-77]
-      (=daikanwa	  . 10629)	; &I-M-10629;
-      (=shinjigen	  .  2504)	; &AJ1-08455;
-      (=jef-china3	  . #x4EA8)	; &I-JC3-4EA8;
+     ((=decomposition@cid
+       ((=ucs		    . #x6085)	; 悅
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@ks		  . #x6085)	; &g2-AJ1-08455;
+      (==adobe-japan1-2	  . 08455)	; &g2-AJ1-08455;
+      (==ks-x1001	  . #x666D)	; &g2-AJ1-08455; [70-77]
+      (==daikanwa	  . 10629)	; &g2-AJ1-08455;
+      (==shinjigen	  .  2504)	; &g2-AJ1-08455;
+      (==jef-china3	  . #x4EA8)	; &g2-AJ1-08455;
+      (->subsumptive
+       ((===daikanwa	    . 10629)	; &R-M-10629;
+	)
+       ((===adobe-japan1-2  . 08455)	; &R-AJ1-08455;
+	)
+       ((===jef-china3	    . #x4EA8)	; &R-JC3-4EA8;
+	)
+       ((===ucs@ks	    . #x6085)	; &R-K0-666D;
+	(===ks-x1001	    . #x666D)	; &R-K0-666D; [70-77]
+	))
       )
-     ((=ucs@unicode	  . #x6085)	; &C1-5550;
-      (=cns11643-1	  . #x5550)	; &C1-5550; [53-48]
+     ((==ucs@unicode	  . #x6085)	; &g2-UU+6085;
+      (==ucs@JP/hanazono  . nil)
+      (==cns11643-1	  . #x5550)	; &g2-UU+6085; [53-48]
+      (->subsumptive
+       ((===cns11643-1	    . #x5550)	; &R-C1-5550; [53-48]
+	)
+       ((===ucs@unicode	    . #x6085)	; &R-UU+6085;
+	))
       ))
     ))
 (define-char
@@ -7023,7 +8125,12 @@
     (=shinjigen		.  2531)	; 悋
     (=cbeta		. 00385)	; &I-CB00385;
     (->subsumptive
-     ((==ucs@jis	  . #x608B)	; &g2-AJ1-04848;
+     ((=decomposition@cid
+       ((=ucs		    . #x608B)	; 悋
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x608B)	; &g2-AJ1-04848;
       (==adobe-japan1-0	  . 04848)	; &g2-AJ1-04848;
       (==jis-x0208	  . #x5827)	; &g2-AJ1-04848; [56-07]
       (==jis-x0213-1	  . #x5827)	; &g2-AJ1-04848; [56-07]
@@ -7147,6 +8254,24 @@
     (=adobe-japan1-6	. 21554)	; &AJ1-21554;
     (=jis-x0212		. #x3D71)	; &I-JSP-3D71; [29-81]
     (=daikanwa		. 10647)	; &I-M-10647;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x608E)	; 悎
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x608E)	; &g2-AJ1-21554;
+      (==adobe-japan1-6	  . 21554)	; &g2-AJ1-21554;
+      (==jis-x0212	  . #x3D71)	; &g2-AJ1-21554; [29-81]
+      (==daikanwa	  . 10647)	; &g2-AJ1-21554;
+      (->subsumptive
+       ((===daikanwa	    . 10647)	; &R-M-10647;
+	)
+       ((===jis-x0212	    . #x3D71)	; &R-JSP-3D71; [29-81]
+	)
+       ((===adobe-japan1-6  . 21554)	; &R-AJ1-21554;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -7307,6 +8432,7 @@
     (=ucs		. #xFA3D)	; 悔
     (=ucs@unicode	. #x6094)	; 悔
     (=ucs@jis		. #xFA3D)	; 悔
+    (=adobe-japan1-4	. 13326)	; &I-AJ1-13326;
     (=gb2312		. #x3B5A)	; &I-G0-3B5A; [27-58]
     (=ks-x1001		. #x7C62)	; &I-K0-7C62; [92-66]
     (=cns11643-1	. #x554E)	; &I-C1-554E; [53-46]
@@ -7314,6 +8440,36 @@
     (=big5		. #xAEAC)	; &I-B-AEAC;
     (=daikanwa		. 10659)	; &I-M-10659;
     (=jef-china3	. #x4EAD)	; &I-JC3-4EAD;
+    (->subsumptive
+     ((==ucs@unicode	  . #x6094)	; &g2-AJ1-13326;
+      (==ucs@jis	  . #xFA3D)	; &g2-AJ1-13326;
+      (==ucs@JP/hanazono  . nil)
+      (==adobe-japan1-4	  . 13326)	; &g2-AJ1-13326;
+      (==gb2312		  . #x3B5A)	; &g2-AJ1-13326; [27-58]
+      (==ks-x1001	  . #x7C62)	; &g2-AJ1-13326; [92-66]
+      (==cns11643-1	  . #x554E)	; &g2-AJ1-13326; [53-46]
+      (==jis-x0213-1	  . #x7450)	; &g2-AJ1-13326; [84-48]
+      (==daikanwa	  . 10659)	; &g2-AJ1-13326;
+      (==jef-china3	  . #x4EAD)	; &g2-AJ1-13326;
+      (->subsumptive
+       ((===daikanwa	    . 10659)	; &R-M-10659;
+	)
+       ((===jis-x0213-1	    . #x7450)	; &R-JX1-7450; [84-48]
+	)
+       ((===adobe-japan1-4  . 13326)	; &R-AJ1-13326;
+	)
+       ((===jef-china3	    . #x4EAD)	; &R-JC3-4EAD;
+	)
+       ((===ucs@ks	    . #x6094)	; &R-K0-7C62;
+	(===ks-x1001	    . #x7C62)	; &R-K0-7C62; [92-66]
+	)
+       ((===cns11643-1	    . #x554E)	; &R-C1-554E; [53-46]
+	)
+       ((===ucs@unicode	    . #x6094)	; &R-UU+6094;
+	)
+       ((===ucs@unicode	    . #xFA3D)	; &R-UU+FA3D;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -7373,6 +8529,20 @@
      ((=ucs		  . #x6097)	; 悗
       ))
     (ideographic-radical . 61)	; ⼼
+    (=+>ucs@unicode	. #x6097)	; &o-JX1-5824;
+    (=+>jis-x0208@1983	. #x5824)	; &o-JX1-5824; [56-04]
+    (=+>jis-x0208@1990	. #x5824)	; &o-JX1-5824; [56-04]
+    (=+>jis-x0213-1	. #x5824)	; &o-JX1-5824; [56-04]
+    (=+>adobe-japan1-0	. 04845)	; &o-JX1-5824;
+    (=+>adobe-japan1-4	. 14128)	; &o-JX1-5824;
+    (=+>gt		. 13424)	; &o-JX1-5824;
+    ))
+(define-char
+  '((<-denotational
+     ((=+>ucs@unicode	  . #x6097)	; &o-JX1-5824;
+      (=+>jis-x0213-1	  . #x5824)	; &o-JX1-5824; [56-04]
+      ))
+    (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs@unicode	. #x6097)	; &AJ1-04845;
@@ -7389,7 +8559,12 @@
     (->subsumptive
      ((==daikanwa	  . 10664)	; &g2-M-10664;
       )
-     ((==ucs@unicode	  . #x6097)	; &g2-AJ1-04845;
+     ((=decomposition@cid
+       ((=ucs		    . #x6097)	; 悗
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6097)	; &g2-AJ1-04845;
       (==adobe-japan1-0	  . 04845)	; &g2-AJ1-04845;
       (==jis-x0208@1983	  . #x5824)	; &g2-AJ1-04845; [56-04]
       (==jis-x0208@1990	  . #x5824)	; &g2-AJ1-04845; [56-04]
@@ -7413,12 +8588,40 @@
     ))
 (define-char
   '((<-denotational
+     ((=+>ucs@unicode	  . #x6097)	; &o-JX1-5824;
+      (=+>jis-x0213-1	  . #x5824)	; &o-JX1-5824; [56-04]
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (=adobe-japan1-4	. 14128)	; &AJ1-14128;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x6097)	; 悗
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==adobe-japan1-4	  . 14128)	; &g2-AJ1-14128;
+      ))
+    ))
+(define-char
+  '((<-denotational
      ((=ucs		  . #x6097)	; 悗
       ))
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=jis-x0208@1978	. #x5824)	; &J78-5824; [56-04]
+    (=adobe-japan1-0	. 07828)	; &AJ1-07828;
+    (=jis-x0208@1978	. #x5824)	; &I-J78-5824; [56-04]
+    (->subsumptive
+     ((==adobe-japan1-0	  . 07828)	; &g2-AJ1-07828;
+      (==jis-x0208@1978	  . #x5824)	; &g2-AJ1-07828; [56-04]
+      (->subsumptive
+       ((===jis-x0208@1978  . #x5824)	; &R-J78-5824; [56-04]
+	)
+       ((===adobe-japan1-0  . 07828)	; &R-AJ1-07828;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x2267E)	; 𢙾
@@ -7454,7 +8657,12 @@
     (=daikanwa		. 10666)	; &I-M-10666;
     (=jef-china3	. #x4DD1)	; &I-JC3-4DD1;
     (->subsumptive
-     ((==ucs@jis	  . #x6098)	; &g2-AJ1-21557;
+     ((=decomposition@cid
+       ((=ucs		    . #x6098)	; 悘
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x6098)	; &g2-AJ1-21557;
       (==ucs@JP/hanazono  . nil)
       (==adobe-japan1-6	  . 21557)	; &g2-AJ1-21557;
       (==jis-x0212	  . #x3D75)	; &g2-AJ1-21557; [29-85]
@@ -7598,7 +8806,12 @@
     (=gt-pj-1		. #x5822)	; &I-GT-13393; [56-02]
     (=shinjigen		.  2519)	; &AJ1-04843;
     (->subsumptive
-     ((==ucs@jis	  . #x609B)	; &g2-AJ1-04843;
+     ((=decomposition@cid
+       ((=ucs		    . #x609B)	; 悛
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x609B)	; &g2-AJ1-04843;
       (==ucs@ks		  . #x609B)	; &g2-AJ1-04843;
       (==adobe-japan1-0	  . 04843)	; &g2-AJ1-04843;
       (==ks-x1001	  . #x6E79)	; &g2-AJ1-04843; [78-89]
@@ -7682,19 +8895,60 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs		. #x609E)	; 悞
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x609E)	; 悞
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (=ucs@unicode	. #x609E)	; &AJ1-21558;
+    (=adobe-japan1-6	. 21558)	; &AJ1-21558;
     (=jis-x0212		. #x3D77)	; &I-JSP-3D77; [29-87]
+    (=cns11643-3	. #x3127)	; &I-C3-3127; [17-07]
     (=jis-x0213-1	. #x7452)	; &I-JX1-7452; [84-50]
     (=daikanwa		. 10679)	; &I-M-10679;
     (=cbeta		. 00386)	; &I-CB00386;
     (=jef-china3	. #x4EB1)	; &I-JC3-4EB1;
+    (->subsumptive
+     ((==ucs@unicode	  . #x609E)	; &g2-AJ1-21558;
+      (==adobe-japan1-6	  . 21558)	; &g2-AJ1-21558;
+      (==jis-x0212	  . #x3D77)	; &g2-AJ1-21558; [29-87]
+      (==jis-x0213-1	  . #x7452)	; &g2-AJ1-21558; [84-50]
+      (==daikanwa	  . 10679)	; &g2-AJ1-21558;
+      (==cbeta		  . 00386)	; &g2-AJ1-21558;
+      (==jef-china3	  . #x4EB1)	; &g2-AJ1-21558;
+      (->subsumptive
+       ((===daikanwa	    . 10679)	; &R-M-10679;
+	)
+       ((===jis-x0212	    . #x3D77)	; &R-JX1-7452; [29-87]
+	(===jis-x0213-1	    . #x7452)	; &R-JX1-7452; [84-50]
+	)
+       ((===adobe-japan1-6  . 21558)	; &R-AJ1-21558;
+	)
+       ((===ucs@unicode	    . #x609E)	; &R-UU+609E;
+	)
+       ((===cbeta	    . 00386)	; &R-CB00386;
+	)
+       ((===jef-china3	    . #x4EB1)	; &R-JC3-4EB1;
+	))
+      )
+     ((==ucs@cns	  . #x609E)	; &g2-CU+609E;
+      (==cns11643-3	  . #x3127)	; &g2-CU+609E; [17-07]
+      ))
     ))
 (define-char
-  '((=>ucs		. #x609E)	; 悞
-    (morohashi-daikanwa	10679 0 0)
+  '((<-denotational
+     ((=ucs		  . #x609E)	; 悞
+      ))
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=cns11643-3	. #x3127)	; &C3-3127; [17-07]
+    (=adobe-japan1-4	. 14541)	; &AJ1-14541;
+    (->subsumptive
+     ((==adobe-japan1-4	  . 14541)	; &g2-AJ1-14541;
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -7724,7 +8978,12 @@
     (=daikanwa		. 10680)	; &I-M-10680;
     (=shinjigen		.  2512)	; &AJ1-01947;
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x609F)	; 悟
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x609F)	; 悟
 	)
        ((=ucs		    . #xE0101)	; 󠄁
@@ -7922,7 +9181,12 @@
     (=daikanwa		. 10690)	; &I-M-10690;
     (=jef-china3	. #x4EB3)	; &I-JC3-4EB3;
     (->subsumptive
-     ((==ucs@unicode	  . #x60A2)	; &g2-AJ1-21559;
+     ((=decomposition@cid
+       ((=ucs		    . #x60A2)	; 悢
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x60A2)	; &g2-AJ1-21559;
       (==adobe-japan1-6	  . 21559)	; &g2-AJ1-21559;
       (==jis-x0212	  . #x3D78)	; &g2-AJ1-21559; [29-88]
       (==cns11643-2	  . #x2F24)	; &g2-AJ1-21559; [15-04]
@@ -7961,7 +9225,12 @@
     (=daikanwa		. 10691)	; &I-M-10691;
     (=shinjigen		.  2510)	; 患
     (->subsumptive
-     ((==ucs@unicode	  . #x60A3)	; &g2-AJ1-01521;
+     ((=decomposition@cid
+       ((=ucs		    . #x60A3)	; 患
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x60A3)	; &g2-AJ1-01521;
       (==adobe-japan1-0	  . 01521)	; &g2-AJ1-01521;
       (==gb2312		  . #x3B3C)	; &g2-AJ1-01521; [27-28]
       (==ks-x1001	  . #x7C34)	; &g2-AJ1-01521; [92-20]
@@ -8025,10 +9294,30 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (=ucs@jis		. #x60A4)	; &JSP-3D79;
-    (=ks-x1001		. #x7542)	; &JSP-3D79; [85-34]
+    (=ucs@jis		. #x60A4)	; &AJ1-14542;
+    (=ucs@ks		. #x60A4)	; &AJ1-14542;
+    (=adobe-japan1-4	. 14542)	; &AJ1-14542;
+    (=ks-x1001		. #x7542)	; &I-K0-7542; [85-34]
     (=jis-x0212		. #x3D79)	; &I-JSP-3D79; [29-89]
     (=daikanwa		. 10693)	; &I-M-10693;
+    (->subsumptive
+     ((==ucs@jis	  . #x60A4)	; &g2-AJ1-14542;
+      (==ucs@ks		  . #x60A4)	; &g2-AJ1-14542;
+      (==adobe-japan1-4	  . 14542)	; &g2-AJ1-14542;
+      (==ks-x1001	  . #x7542)	; &g2-AJ1-14542; [85-34]
+      (==jis-x0212	  . #x3D79)	; &g2-AJ1-14542; [29-89]
+      (==daikanwa	  . 10693)	; &g2-AJ1-14542;
+      (->subsumptive
+       ((===daikanwa	    . 10693)	; &R-M-10693;
+	)
+       ((===jis-x0212	    . #x3D79)	; &R-JSP-3D79; [29-89]
+	)
+       ((===adobe-japan1-4  . 14542)	; &R-AJ1-14542;
+	)
+       ((===ucs@ks	    . #x60A4)	; &R-K0-7542;
+	(===ks-x1001	    . #x7542)	; &R-K0-7542; [85-34]
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -8047,8 +9336,8 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (=cns11643-3	. #x3572)	; &C3-3572; [21-82]
-    (=cbeta		. 04160)	; &I-CB04160;
+    (=big5-cdp		. #x8BDD)	; &CDP-8BDD;
+    (=shinjigen		.  2520)	; &CDP-8BDD;
     ))
 (define-char
   '((<-denotational
@@ -8057,8 +9346,28 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (=big5-cdp		. #x8BDD)	; &CDP-8BDD;
-    (=shinjigen		.  2520)	; &CDP-8BDD;
+    (=ucs@cns		. #x60A4)	; &AJ1-15392;
+    (=adobe-japan1-4	. 15392)	; &AJ1-15392;
+    (=cns11643-3	. #x3572)	; &I-C3-3572; [21-82]
+    (=cbeta		. 04160)	; &I-CB04160;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x60A4)	; 悤
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@cns	  . #x60A4)	; &g2-AJ1-15392;
+      (==adobe-japan1-4	  . 15392)	; &g2-AJ1-15392;
+      (==cns11643-3	  . #x3572)	; &g2-AJ1-15392; [21-82]
+      (==cbeta		  . 04160)	; &g2-AJ1-15392;
+      (->subsumptive
+       ((===adobe-japan1-4  . 15392)	; &R-AJ1-15392;
+	)
+       ((===cns11643-3	    . #x3572)	; &R-C3-3572; [21-82]
+	)
+       ((===cbeta	    . 04160)	; &R-CB04160;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -8079,7 +9388,12 @@
     (=daikanwa		. 10695)	; &I-M-10695;
     (=jef-china3	. #x4DD2)	; &I-JC3-4DD2;
     (->subsumptive
-     ((==ucs@jis	  . #x60A5)	; &g2-AJ1-21560;
+     ((=decomposition@cid
+       ((=ucs		    . #x60A5)	; 悥
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x60A5)	; &g2-AJ1-21560;
       (==adobe-japan1-6	  . 21560)	; &g2-AJ1-21560;
       (==jis-x0212	  . #x3D7A)	; &g2-AJ1-21560; [29-90]
       (==daikanwa	  . 10695)	; &g2-AJ1-21560;
@@ -8268,7 +9582,12 @@
     (=daikanwa		. 10712)	; &I-M-10712;
     (=jef-china3	. #x4DD3)	; &I-JC3-4DD3;
     (->subsumptive
-     ((==ucs@cns	  . #x60A8)	; &g2-AJ1-17631;
+     ((=decomposition@cid
+       ((=ucs		    . #x60A8)	; 您
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x60A8)	; &g2-AJ1-17631;
       (==ucs@jis	  . #x60A8)	; &g2-AJ1-17631;
       (==adobe-japan1-5	  . 17631)	; &g2-AJ1-17631;
       (==jis-x0212	  . #x3D7B)	; &g2-AJ1-17631; [29-91]
@@ -8450,6 +9769,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (=ucs		. #x60B0)	; 悰
+    (=adobe-japan1-4	. 14543)	; &I-AJ1-14543;
     (=ks-x1001		. #x7075)	; &I-K0-7075; [80-85]
     (=jis-x0212		. #x3D7C)	; &I-JSP-3D7C; [29-92]
     (=iso-ir165		. #x7C68)	; &I-EGB-7C68; [92-72]
@@ -8468,15 +9788,18 @@
        ((===cns11643-2	    . #x3539)	; &R-C2-3539; [21-25]
 	))
       )
-     ((==ucs@unicode	  . #x60B0)	; &g2-JSP-3D7C;
-      (==ks-x1001	  . #x7075)	; &g2-JSP-3D7C; [80-85]
-      (==jis-x0212	  . #x3D7C)	; &g2-JSP-3D7C; [29-92]
-      (==iso-ir165	  . #x7C68)	; &g2-JSP-3D7C; [92-72]
-      (==jis-x0213-2	  . #x2C51)	; &g2-JSP-3D7C; [12-49]
-      (==jef-china3	  . #x4EB4)	; &g2-JSP-3D7C;
+     ((==ucs@unicode	  . #x60B0)	; &g2-AJ1-14543;
+      (==adobe-japan1-4	  . 14543)	; &g2-AJ1-14543;
+      (==ks-x1001	  . #x7075)	; &g2-AJ1-14543; [80-85]
+      (==jis-x0212	  . #x3D7C)	; &g2-AJ1-14543; [29-92]
+      (==iso-ir165	  . #x7C68)	; &g2-AJ1-14543; [92-72]
+      (==jis-x0213-2	  . #x2C51)	; &g2-AJ1-14543; [12-49]
+      (==jef-china3	  . #x4EB4)	; &g2-AJ1-14543;
       (->subsumptive
        ((===jis-x0212	    . #x3D7C)	; &R-JX2-2C51; [29-92]
 	(===jis-x0213-2	    . #x2C51)	; &R-JX2-2C51; [12-49]
+	)
+       ((===adobe-japan1-4  . 14543)	; &R-AJ1-14543;
 	)
        ((===jef-china3	    . #x4EB4)	; &R-JC3-4EB4;
 	)
@@ -8509,7 +9832,12 @@
        ((===jef-china3	    . #x4EB5)	; &R-JC3-4EB5;
 	))
       )
-     ((==ucs@cns	  . #x60B1)	; &g2-AJ1-17633;
+     ((=decomposition@cid
+       ((=ucs		    . #x60B1)	; 悱
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x60B1)	; &g2-AJ1-17633;
       (==ucs@jis	  . #x60B1)	; &g2-AJ1-17633;
       (==adobe-japan1-5	  . 17633)	; &g2-AJ1-17633;
       (==jis-x0212	  . #x3D7D)	; &g2-AJ1-17633; [29-93]
@@ -8535,6 +9863,7 @@
     (total-strokes	 . 12)
     (=ucs		. #x60B2)	; 悲
     (=adobe-japan1-0	. 03445)	; &I-AJ1-03445;
+    (=adobe-japan1-4	. 13491)	; &I-AJ1-13491;
     (=jis-x0208		. #x4861)	; &I-J90-4861; [40-65]
     (=gb2312		. #x312F)	; &I-G0-312F; [17-15]
     (=ks-x1001		. #x5D68)	; &I-K0-5D68; [61-72]
@@ -8547,18 +9876,26 @@
     (=daikanwa		. 10720)	; &I-M-10720;
     (=shinjigen		.  2564)	; 悲
     (->subsumptive
-     ((==jis-x0208@1978	  . #x4861)	; &g2-M-10720; [40-65]
-      (==jis-x0208@1983	  . #x4861)	; &g2-M-10720; [40-65]
-      (==daikanwa	  . 10720)	; &g2-M-10720;
+     ((==adobe-japan1-4	  . 13491)	; &g2-AJ1-13491;
+      (==jis-x0208@1978	  . #x4861)	; &g2-AJ1-13491; [40-65]
+      (==jis-x0208@1983	  . #x4861)	; &g2-AJ1-13491; [40-65]
+      (==daikanwa	  . 10720)	; &g2-AJ1-13491;
       (->subsumptive
        ((===daikanwa	    . 10720)	; &R-M-10720;
 	)
        ((===jis-x0208@1978  . #x4861)	; &R-J78-4861; [40-65]
 	)
        ((===jis-x0208@1983  . #x4861)	; &R-J83-4861; [40-65]
+	)
+       ((===adobe-japan1-4  . 13491)	; &R-AJ1-13491;
 	))
       )
-     ((==ucs@jis/1990	  . #x60B2)	; &g2-AJ1-03445;
+     ((=decomposition@cid
+       ((=ucs		    . #x60B2)	; 悲
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis/1990	  . #x60B2)	; &g2-AJ1-03445;
       (==ucs@jis/2000	  . #x60B2)	; &g2-AJ1-03445;
       (==ucs@jis/2004	  . #x60B2)	; &g2-AJ1-03445;
       (==ucs@ks		  . #x60B2)	; &g2-AJ1-03445;
@@ -8709,6 +10046,41 @@
       ))
     (<-ancient*sources
      shinjigen)
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x60B3)	; 悳
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x60B3)	; &g2-AJ1-04807;
+      (==ucs@jis	  . #x60B3)	; &g2-AJ1-04807;
+      (==ucs@ks		  . #x60B3)	; &g2-AJ1-04807;
+      (==adobe-japan1-0	  . 04807)	; &g2-AJ1-04807;
+      (==ks-x1001	  . #x536D)	; &g2-AJ1-04807; [51-77]
+      (==jis-x0208	  . #x575C)	; &g2-AJ1-04807; [55-60]
+      (==cns11643-3	  . #x3B54)	; &g2-AJ1-04807; [27-52]
+      (==jis-x0213-1	  . #x575C)	; &g2-AJ1-04807; [55-60]
+      (==gt		  . 13735)	; &g2-AJ1-04807;
+      (==gt-k		  . 09185)	; &g2-AJ1-04807;
+      (==daikanwa	  . 10724)	; &g2-AJ1-04807;
+      (==shinjigen	  .  2386)	; &g2-AJ1-04807;
+      (->subsumptive
+       ((===daikanwa	    . 10724)	; &R-M-10724;
+	)
+       ((===jis-x0208	    . #x575C)	; &R-J0-575C; [55-60]
+	(===jis-x0213-1	    . #x575C)	; &R-J0-575C; [55-60]
+	)
+       ((===adobe-japan1-0  . 04807)	; &R-AJ1-04807;
+	)
+       ((===cns11643-3	    . #x3B54)	; &R-C3-3B54; [27-52]
+	)
+       ((===gt		    . 13735)	; &R-GT-13735;
+	(===gt-k	    . 09185)	; &R-GT-13735;
+	)
+       ((===ucs@ks	    . #x60B3)	; &R-K0-536D;
+	(===ks-x1001	    . #x536D)	; &R-K0-536D; [51-77]
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -8751,16 +10123,36 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (=ucs		. #x226F3)	; 𢛳
+    (=adobe-japan1-5	. 17632)	; &I-AJ1-17632;
+    (=jis-x0213-2	. #x2C50)	; &I-JX2-2C50; [12-48]
+    (=big5-cdp		. #x8BB3)	; &I-CDP-8BB3;
+    (=gt		. 13738)	; &I-GT-13738;
+    (=gt-k		. 09311)	; &I-GT-K09311;
+    (=gt-pj-9		. #x4D6C)	; &I-GT-13738; [45-76]
     (->subsumptive
-     ((=ucs@jis		  . #x226F3)	; &AJ1-17632;
-      (=adobe-japan1-5	  . 17632)	; &AJ1-17632;
-      (=jis-x0213-2	  . #x2C50)	; &I-JX2-2C50; [12-48]
-      (=big5-cdp	  . #x8BB3)	; &I-CDP-8BB3;
-      (=gt		  . 13738)	; &I-GT-13738;
-      (=gt-k		  . 09311)	; &I-GT-K09311;
-      (=gt-pj-9		  . #x4D6C)	; &I-GT-13738; [45-76]
+     ((=decomposition@cid
+       ((=ucs		    . #x226F3)	; 𢛳
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x226F3)	; &g2-AJ1-17632;
+      (==adobe-japan1-5	  . 17632)	; &g2-AJ1-17632;
+      (==jis-x0213-2	  . #x2C50)	; &g2-AJ1-17632; [12-48]
+      (==big5-cdp	  . #x8BB3)	; &g2-AJ1-17632;
+      (==gt		  . 13738)	; &g2-AJ1-17632;
+      (==gt-k		  . 09311)	; &g2-AJ1-17632;
+      (->subsumptive
+       ((===jis-x0213-2	    . #x2C50)	; &R-JX2-2C50; [12-48]
+	)
+       ((===adobe-japan1-5  . 17632)	; &R-AJ1-17632;
+	)
+       ((===big5-cdp	    . #x8BB3)	; &R-CDP-8BB3;
+	)
+       ((===gt		    . 13738)	; &R-GT-13738;
+	(===gt-k	    . 09311)	; &R-GT-13738;
+	))
       )
-     ((=ucs@iso		  . #x226F3)	; &U-000226F3;
+     ((==ucs@iso	  . #x226F3)	; &g2-IU-000226F3;
       ))
     ))
 (define-char
@@ -8780,7 +10172,12 @@
     (=daikanwa		. 10726)	; &I-M-10726;
     (=shinjigen		.  2549)	; 悴
     (->subsumptive
-     ((==ucs@unicode	  . #x60B4)	; &g2-AJ1-04853;
+     ((=decomposition@cid
+       ((=ucs		    . #x60B4)	; 悴
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x60B4)	; &g2-AJ1-04853;
       (==adobe-japan1-0	  . 04853)	; &g2-AJ1-04853;
       (==gb2312		  . #x6332)	; &g2-AJ1-04853; [67-18]
       (==ks-x1001	  . #x757C)	; &g2-AJ1-04853; [85-92]
@@ -8853,7 +10250,12 @@
     (->subsumptive
      ((==daikanwa	  . 10729)	; &g2-M-10729;
       )
-     ((==ucs@unicode	  . #x60B6)	; &g2-AJ1-03825;
+     ((=decomposition@cid
+       ((=ucs		    . #x60B6)	; 悶
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x60B6)	; &g2-AJ1-03825;
       (==adobe-japan1-0	  . 03825)	; &g2-AJ1-03825;
       (==ks-x1001	  . #x5A3F)	; &g2-AJ1-03825; [58-31]
       (==jis-x0208	  . #x4C65)	; &g2-AJ1-03825; [44-69]
@@ -8942,6 +10344,28 @@
     (=jis-x0212		. #x3D7E)	; &I-JSP-3D7E; [29-94]
     (=cns11643-2	. #x3544)	; &I-C2-3544; [21-36]
     (=daikanwa		. 10732)	; &I-M-10732;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x60B7)	; 悷
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x60B7)	; &g2-AJ1-21561;
+      (==ucs@jis	  . #x60B7)	; &g2-AJ1-21561;
+      (==adobe-japan1-6	  . 21561)	; &g2-AJ1-21561;
+      (==jis-x0212	  . #x3D7E)	; &g2-AJ1-21561; [29-94]
+      (==cns11643-2	  . #x3544)	; &g2-AJ1-21561; [21-36]
+      (==daikanwa	  . 10732)	; &g2-AJ1-21561;
+      (->subsumptive
+       ((===daikanwa	    . 10732)	; &R-M-10732;
+	)
+       ((===jis-x0212	    . #x3D7E)	; &R-JSP-3D7E; [29-94]
+	)
+       ((===adobe-japan1-6  . 21561)	; &R-AJ1-21561;
+	)
+       ((===cns11643-2	    . #x3544)	; &R-C2-3544; [21-36]
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -8962,20 +10386,50 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (=ucs		. #x60B8)	; 悸
+    (=adobe-japan1-0	. 04850)	; &I-AJ1-04850;
+    (=jis-x0208		. #x5829)	; &I-J90-5829; [56-09]
+    (=gb2312		. #x3C42)	; &I-G0-3C42; [28-34]
+    (=ks-x1001		. #x4C7B)	; &I-K0-4C7B; [44-91]
+    (=cns11643-1	. #x5A4E)	; &I-C1-5A4E; [58-46]
+    (=jis-x0213-1	. #x5829)	; &I-JX1-5829; [56-09]
     (=big5		. #xB1AA)	; &I-B-B1AA;
+    (=gt		. 13476)	; &I-GT-13476;
+    (=gt-pj-1		. #x5829)	; &I-GT-13476; [56-09]
+    (=daikanwa		. 10733)	; &I-M-10733;
+    (=shinjigen		.  2535)	; 悸
     (->subsumptive
-     ((=ucs@unicode	  . #x60B8)	; &AJ1-04850;
-      (=adobe-japan1-0	  . 04850)	; &AJ1-04850;
-      (=jis-x0208	  . #x5829)	; &I-J90-5829; [56-09]
-      (=gb2312		  . #x3C42)	; &I-G0-3C42; [28-34]
-      (=ks-x1001	  . #x4C7B)	; &I-K0-4C7B; [44-91]
-      (=jis-x0213-1	  . #x5829)	; &I-JX1-5829; [56-09]
-      (=gt		  . 13476)	; &I-GT-13476;
-      (=gt-pj-1		  . #x5829)	; &I-GT-13476; [56-09]
-      (=daikanwa	  . 10733)	; &I-M-10733;
-      (=shinjigen	  .  2535)	; &AJ1-04850;
+     ((=decomposition@cid
+       ((=ucs		    . #x60B8)	; 悸
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x60B8)	; &g2-AJ1-04850;
+      (==adobe-japan1-0	  . 04850)	; &g2-AJ1-04850;
+      (==gb2312		  . #x3C42)	; &g2-AJ1-04850; [28-34]
+      (==ks-x1001	  . #x4C7B)	; &g2-AJ1-04850; [44-91]
+      (==jis-x0208	  . #x5829)	; &g2-AJ1-04850; [56-09]
+      (==jis-x0213-1	  . #x5829)	; &g2-AJ1-04850; [56-09]
+      (==gt		  . 13476)	; &g2-AJ1-04850;
+      (==daikanwa	  . 10733)	; &g2-AJ1-04850;
+      (==shinjigen	  .  2535)	; &g2-AJ1-04850;
+      (->subsumptive
+       ((===daikanwa	    . 10733)	; &R-M-10733;
+	)
+       ((===jis-x0208	    . #x5829)	; &R-J0-5829; [56-09]
+	(===jis-x0213-1	    . #x5829)	; &R-J0-5829; [56-09]
+	)
+       ((===adobe-japan1-0  . 04850)	; &R-AJ1-04850;
+	)
+       ((===gt		    . 13476)	; &R-GT-13476;
+	)
+       ((===ucs@ks	    . #x60B8)	; &R-K0-4C7B;
+	(===ks-x1001	    . #x4C7B)	; &R-K0-4C7B; [44-91]
+	)
+       ((===ucs@unicode	    . #x60B8)	; &R-UU+60B8;
+	))
       )
-     ((=cns11643-1	  . #x5A4E)	; &C1-5A4E; [58-46]
+     ((==ucs@cns	  . #x60B8)	; &g2-CU+60B8;
+      (==cns11643-1	  . #x5A4E)	; &g2-CU+60B8; [58-46]
       ))
     ))
 (define-char
@@ -9025,7 +10479,12 @@
     (=daikanwa		. 10737)	; &I-M-10737;
     (=jef-china3	. #x4EB7)	; &I-JC3-4EB7;
     (->subsumptive
-     ((==ucs@jis	  . #x60BB)	; &g2-AJ1-19361;
+     ((=decomposition@cid
+       ((=ucs		    . #x60BB)	; 悻
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x60BB)	; &g2-AJ1-19361;
       (==adobe-japan1-5	  . 19361)	; &g2-AJ1-19361;
       (==jis-x0212	  . #x3E21)	; &g2-AJ1-19361; [30-01]
       (==daikanwa	  . 10737)	; &g2-AJ1-19361;
@@ -9152,19 +10611,48 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (=ucs		. #x60BD)	; 悽
+    (=adobe-japan1-0	. 04855)	; &I-AJ1-04855;
+    (=jis-x0208		. #x582E)	; &I-J90-582E; [56-14]
+    (=ks-x1001		. #x7424)	; &I-K0-7424; [84-04]
+    (=cns11643-1	. #x5A44)	; &I-C1-5A44; [58-36]
+    (=jis-x0213-1	. #x582E)	; &I-JX1-582E; [56-14]
     (=big5		. #xB17E)	; &I-B-B17E;
+    (=gt		. 13539)	; &I-GT-13539;
+    (=gt-pj-1		. #x582E)	; &I-GT-13539; [56-14]
+    (=daikanwa		. 10744)	; &I-M-10744;
+    (=shinjigen		.  2551)	; 悽
     (->subsumptive
-     ((=ucs@unicode	  . #x60BD)	; &AJ1-04855;
-      (=adobe-japan1-0	  . 04855)	; &AJ1-04855;
-      (=jis-x0208	  . #x582E)	; &I-J90-582E; [56-14]
-      (=ks-x1001	  . #x7424)	; &I-K0-7424; [84-04]
-      (=jis-x0213-1	  . #x582E)	; &I-JX1-582E; [56-14]
-      (=gt		  . 13539)	; &I-GT-13539;
-      (=gt-pj-1		  . #x582E)	; &I-GT-13539; [56-14]
-      (=daikanwa	  . 10744)	; &I-M-10744;
-      (=shinjigen	  .  2551)	; &AJ1-04855;
+     ((=decomposition@cid
+       ((=ucs		    . #x60BD)	; 悽
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x60BD)	; &g2-AJ1-04855;
+      (==adobe-japan1-0	  . 04855)	; &g2-AJ1-04855;
+      (==ks-x1001	  . #x7424)	; &g2-AJ1-04855; [84-04]
+      (==jis-x0208	  . #x582E)	; &g2-AJ1-04855; [56-14]
+      (==jis-x0213-1	  . #x582E)	; &g2-AJ1-04855; [56-14]
+      (==gt		  . 13539)	; &g2-AJ1-04855;
+      (==daikanwa	  . 10744)	; &g2-AJ1-04855;
+      (==shinjigen	  .  2551)	; &g2-AJ1-04855;
+      (->subsumptive
+       ((===daikanwa	    . 10744)	; &R-M-10744;
+	)
+       ((===jis-x0208	    . #x582E)	; &R-J0-582E; [56-14]
+	(===jis-x0213-1	    . #x582E)	; &R-J0-582E; [56-14]
+	)
+       ((===adobe-japan1-0  . 04855)	; &R-AJ1-04855;
+	)
+       ((===gt		    . 13539)	; &R-GT-13539;
+	)
+       ((===ucs@ks	    . #x60BD)	; &R-K0-7424;
+	(===ks-x1001	    . #x7424)	; &R-K0-7424; [84-04]
+	)
+       ((===ucs@unicode	    . #x60BD)	; &R-UU+60BD;
+	))
       )
-     ((=cns11643-1	  . #x5A44)	; &C1-5A44; [58-36]
+     ((==ucs@cns	  . #x60BD)	; &g2-CU+60BD;
+      (==cns11643-1	  . #x5A44)	; &g2-CU+60BD; [58-36]
       ))
     ))
 (define-char
@@ -9192,7 +10680,12 @@
       (=>>jis-x0213-2	  . #x2C53)	; &G-AJ1-17634; [12-51]
       (=>>daikanwa	  . 10746)	; &G-AJ1-17634;
       (->subsumptive
-       ((==ucs@jis	    . #x60BE)	; &g2-AJ1-17634;
+       ((=decomposition@cid
+	 ((=ucs		      . #x60BE)	; 悾
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(==ucs@jis	    . #x60BE)	; &g2-AJ1-17634;
 	(==adobe-japan1-5   . 17634)	; &g2-AJ1-17634;
 	(==jis-x0212	    . #x3E22)	; &g2-AJ1-17634; [30-02]
 	(==jis-x0213-2	    . #x2C53)	; &g2-AJ1-17634; [12-51]
@@ -9264,7 +10757,12 @@
     (=daikanwa		. 10751)	; &I-M-10751;
     (=jef-china3	. #x4EB8)	; &I-JC3-4EB8;
     (->subsumptive
-     ((==ucs@jis	  . #x60C2)	; &g2-AJ1-21562;
+     ((=decomposition@cid
+       ((=ucs		    . #x60C2)	; 惂
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x60C2)	; &g2-AJ1-21562;
       (==ucs@ks		  . #x60C2)	; &g2-AJ1-21562;
       (==adobe-japan1-6	  . 21562)	; &g2-AJ1-21562;
       (==jis-x0212	  . #x3E23)	; &g2-AJ1-21562; [30-03]
@@ -9358,15 +10856,42 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x60C5)	; 情
-      )
-     ((=ucs		  . #xE0103)	; 󠄃
-      ))
-    (=ks-x1001		. #x6F57)	; &HD-JT-B172; [79-55]
+    (=ucs@ks		. #x60C5)	; &AJ1-13842;
+    (=adobe-japan1-4	. 13842)	; &AJ1-13842;
+    (=ks-x1001		. #x6F57)	; &I-K0-6F57; [79-55]
     (=hanyo-denshi/jt	. #xB172)	; &I-HD-JT-B172;
     (=daikanwa		. 10756)	; &I-M-10756;
     (=jef-china3	. #x4EB9)	; &I-JC3-4EB9;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x60C5)	; 情
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x60C5)	; 情
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==ucs@ks		  . #x60C5)	; &g2-AJ1-13842;
+      (==adobe-japan1-4	  . 13842)	; &g2-AJ1-13842;
+      (==ks-x1001	  . #x6F57)	; &g2-AJ1-13842; [79-55]
+      (==hanyo-denshi/jt  . #xB172)	; &g2-AJ1-13842;
+      (==daikanwa	  . 10756)	; &g2-AJ1-13842;
+      (==jef-china3	  . #x4EB9)	; &g2-AJ1-13842;
+      (->subsumptive
+       ((===daikanwa	    . 10756)	; &R-M-10756;
+	)
+       ((===hanyo-denshi/jt . #xB172)	; &R-HD-JT-B172;
+	)
+       ((===adobe-japan1-4  . 13842)	; &R-AJ1-13842;
+	)
+       ((===jef-china3	    . #x4EB9)	; &R-JC3-4EB9;
+	)
+       ((===ucs@ks	    . #x60C5)	; &R-K0-6F57;
+	(===ks-x1001	    . #x6F57)	; &R-K0-6F57; [79-55]
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -9387,7 +10912,12 @@
     (=gt-pj-1		. #x3E70)	; &I-GT-13531; [30-80]
     (=daikanwa/+p	. 10756)	; &AJ1-02520;
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x60C5)	; 情
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x60C5)	; 情
 	)
        ((=ucs		    . #xE0102)	; 󠄂
@@ -9438,6 +10968,30 @@
     (=gt-pj-1		. #x582F)	; &I-GT-13554; [56-15]
     (=daikanwa		. 10757)	; &I-M-10757;
     (=shinjigen		.  2555)	; &AJ1-04856;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x60C6)	; 惆
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x60C6)	; &g2-AJ1-04856;
+      (==adobe-japan1-0	  . 04856)	; &g2-AJ1-04856;
+      (==jis-x0208	  . #x582F)	; &g2-AJ1-04856; [56-15]
+      (==jis-x0213-1	  . #x582F)	; &g2-AJ1-04856; [56-15]
+      (==gt		  . 13554)	; &g2-AJ1-04856;
+      (==daikanwa	  . 10757)	; &g2-AJ1-04856;
+      (==shinjigen	  .  2555)	; &g2-AJ1-04856;
+      (->subsumptive
+       ((===daikanwa	    . 10757)	; &R-M-10757;
+	)
+       ((===jis-x0208	    . #x582F)	; &R-J0-582F; [56-15]
+	(===jis-x0213-1	    . #x582F)	; &R-J0-582F; [56-15]
+	)
+       ((===adobe-japan1-0  . 04856)	; &R-AJ1-04856;
+	)
+       ((===gt		    . 13554)	; &R-GT-13554;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -9493,7 +11047,12 @@
     (=daikanwa		. 10759)	; &I-M-10759;
     (=shinjigen		.  2562)	; &AJ1-03247;
     (->subsumptive
-     ((==ucs@unicode	  . #x60C7)	; &g2-AJ1-03247;
+     ((=decomposition@cid
+       ((=ucs		    . #x60C7)	; 惇
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x60C7)	; &g2-AJ1-03247;
       (==adobe-japan1-0	  . 03247)	; &g2-AJ1-03247;
       (==ks-x1001	  . #x5443)	; &g2-AJ1-03247; [52-35]
       (==iso-ir165	  . #x7C66)	; &g2-AJ1-03247; [92-70]
@@ -9612,7 +11171,12 @@
     (=daikanwa		. 10767)	; &I-M-10767;
     (=jef-china3	. #x4EBA)	; &I-JC3-4EBA;
     (->subsumptive
-     ((==ucs@unicode	  . #x60CA)	; &g2-AJ1-21564;
+     ((=decomposition@cid
+       ((=ucs		    . #x60CA)	; 惊
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x60CA)	; &g2-AJ1-21564;
       (==adobe-japan1-6	  . 21564)	; &g2-AJ1-21564;
       (==gb2312		  . #x3E2A)	; &g2-AJ1-21564; [30-10]
       (==jis-x0212	  . #x3E27)	; &g2-AJ1-21564; [30-07]
@@ -9677,26 +11241,49 @@
     (=cns11643-6	. #x4872)	; &C6-4872; [40-82]
     ))
 (define-char
-  '((=>ucs		. #x60CB)	; 惋
+  '((ideographic-radical . 61)	; ⼼
+    (=ucs		. #x60CB)	; 惋
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x60CB)	; 惋
+      ))
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=ucs@jis		. #x60CB)	; &JX1-7453;
-    (=ucs@big5		. #x60CB)	; &JX1-7453;
-    (=jis-x0212		. #x3E28)	; &JX1-7453; [30-08]
+    (=ucs@unicode	. #x60CB)	; &AJ1-14544;
+    (=adobe-japan1-4	. 14544)	; &AJ1-14544;
+    (=gb2312		. #x4D6F)	; &I-G0-4D6F; [45-79]
+    (=jis-x0212		. #x3E28)	; &I-JSP-3E28; [30-08]
+    (=cns11643-1	. #x5A41)	; &I-C1-5A41; [58-33]
     (=jis-x0213-1	. #x7453)	; &I-JX1-7453; [84-51]
     (=big5		. #xB17B)	; &I-B-B17B;
     (=daikanwa		. 10771)	; &I-M-10771;
     (=jef-china3	. #x4EBB)	; &I-JC3-4EBB;
-    ))
-(define-char
-  '((morohashi-daikanwa	10771 0 0)
-    (ideographic-radical . 61)	; ⼼
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (=ucs		. #x60CB)	; 惋
-    (=gb2312		. #x4D6F)	; &I-G0-4D6F; [45-79]
-    (=cns11643-1	. #x5A41)	; &I-C1-5A41; [58-33]
+    (->subsumptive
+     ((==ucs@unicode	  . #x60CB)	; &g2-AJ1-14544;
+      (==adobe-japan1-4	  . 14544)	; &g2-AJ1-14544;
+      (==gb2312		  . #x4D6F)	; &g2-AJ1-14544; [45-79]
+      (==jis-x0212	  . #x3E28)	; &g2-AJ1-14544; [30-08]
+      (==cns11643-1	  . #x5A41)	; &g2-AJ1-14544; [58-33]
+      (==jis-x0213-1	  . #x7453)	; &g2-AJ1-14544; [84-51]
+      (==daikanwa	  . 10771)	; &g2-AJ1-14544;
+      (==jef-china3	  . #x4EBB)	; &g2-AJ1-14544;
+      (->subsumptive
+       ((===daikanwa	    . 10771)	; &R-M-10771;
+	)
+       ((===jis-x0212	    . #x3E28)	; &R-JX1-7453; [30-08]
+	(===jis-x0213-1	    . #x7453)	; &R-JX1-7453; [84-51]
+	)
+       ((===adobe-japan1-4  . 14544)	; &R-AJ1-14544;
+	)
+       ((===jef-china3	    . #x4EBB)	; &R-JC3-4EBB;
+	)
+       ((===cns11643-1	    . #x5A41)	; &R-C1-5A41; [58-33]
+	)
+       ((===ucs@unicode	    . #x60CB)	; &R-UU+60CB;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -9917,7 +11504,12 @@
     (=daikanwa		. 10789)	; &I-M-10789;
     (=shinjigen		.  2573)	; &AJ1-04077;
     (->subsumptive
-     ((==ucs@unicode	  . #x60D1)	; &g2-AJ1-04077;
+     ((=decomposition@cid
+       ((=ucs		    . #x60D1)	; 惑
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x60D1)	; &g2-AJ1-04077;
       (==adobe-japan1-0	  . 04077)	; &g2-AJ1-04077;
       (==gb2312		  . #x3B73)	; &g2-AJ1-04077; [27-83]
       (==ks-x1001	  . #x7B63)	; &g2-AJ1-04077; [91-67]
@@ -10057,6 +11649,30 @@
     (=gt-pj-1		. #x582B)	; &I-GT-13496; [56-11]
     (=daikanwa		. 10795)	; &I-M-10795;
     (=shinjigen		.  2537)	; &AJ1-04852;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x60D3)	; 惓
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x60D3)	; &g2-AJ1-04852;
+      (==adobe-japan1-0	  . 04852)	; &g2-AJ1-04852;
+      (==jis-x0208	  . #x582B)	; &g2-AJ1-04852; [56-11]
+      (==jis-x0213-1	  . #x582B)	; &g2-AJ1-04852; [56-11]
+      (==gt		  . 13496)	; &g2-AJ1-04852;
+      (==daikanwa	  . 10795)	; &g2-AJ1-04852;
+      (==shinjigen	  .  2537)	; &g2-AJ1-04852;
+      (->subsumptive
+       ((===daikanwa	    . 10795)	; &R-M-10795;
+	)
+       ((===jis-x0208	    . #x582B)	; &R-J0-582B; [56-11]
+	(===jis-x0213-1	    . #x582B)	; &R-J0-582B; [56-11]
+	)
+       ((===adobe-japan1-0  . 04852)	; &R-AJ1-04852;
+	)
+       ((===gt		    . 13496)	; &R-GT-13496;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -10156,7 +11772,12 @@
     (=big5		. #xD558)	; &I-B-D558;
     (=daikanwa		. 10800)	; &I-M-10800;
     (->subsumptive
-     ((==ucs@unicode	  . #x60D4)	; &g2-AJ1-16866;
+     ((=decomposition@cid
+       ((=ucs		    . #x60D4)	; 惔
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x60D4)	; &g2-AJ1-16866;
       (==adobe-japan1-5	  . 16866)	; &g2-AJ1-16866;
       (==jis-x0212	  . #x3E2B)	; &g2-AJ1-16866; [30-11]
       (==jis-x0213-1	  . #x7454)	; &g2-AJ1-16866; [84-52]
@@ -10289,16 +11910,42 @@
     (=ucs		. #x60D8)	; 惘
     (=big5		. #xB1A6)	; &I-B-B1A6;
     (->subsumptive
-     ((=ucs@jis		  . #x60D8)	; &AJ1-04858;
+     ((=ucs@jis/1990	  . #x60D8)	; &AJ1-04858;
+      (=ucs@jis/2000	  . #x60D8)	; &AJ1-04858;
+      (=ucs@jis/2004	  . #x60D8)	; &AJ1-04858;
       (=adobe-japan1-0	  . 04858)	; &AJ1-04858;
       (=jis-x0208@1990	  . #x5831)	; &I-J90-5831; [56-17]
       (=jis-x0213-1	  . #x5831)	; &I-JX1-5831; [56-17]
       (=daikanwa	  . 10809)	; &I-M-10809;
       (=shinjigen	  .  2567)	; &AJ1-04858;
+      (->subsumptive
+       ((=decomposition@cid
+	 ((=ucs		      . #x60D8)	; 惘
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(==ucs@jis/1990	    . #x60D8)	; &g2-AJ1-04858;
+	(==ucs@jis/2000	    . #x60D8)	; &g2-AJ1-04858;
+	(==ucs@jis/2004	    . #x60D8)	; &g2-AJ1-04858;
+	(==adobe-japan1-0   . 04858)	; &g2-AJ1-04858;
+	(==jis-x0208@1990   . #x5831)	; &g2-AJ1-04858; [56-17]
+	(==jis-x0213-1	    . #x5831)	; &g2-AJ1-04858; [56-17]
+	(==daikanwa	    . 10809)	; &g2-AJ1-04858;
+	(==shinjigen	    .  2567)	; &g2-AJ1-04858;
+	(->subsumptive
+	 ((===daikanwa	      . 10809)	; &R-M-10809;
+	  )
+	 ((===jis-x0208@1990  . #x5831)	; &R-J90-5831; [56-17]
+	  (===jis-x0213-1     . #x5831)	; &R-J90-5831; [56-17]
+	  )
+	 ((===adobe-japan1-0  . 04858)	; &R-AJ1-04858;
+	  ))
+	))
       )
-     ((=ucs@unicode	  . #x60D8)	; &GT-13585;
+     ((=ucs@unicode	  . #x60D8)	; &AJ1-13539;
       (=ucs@JP/hanazono	  . nil)
-      (=jis-x0208@1978	  . #x5831)	; &GT-13585; [56-17]
+      (=adobe-japan1-4	  . 13539)	; &AJ1-13539;
+      (=jis-x0208@1978	  . #x5831)	; &I-J78-5831; [56-17]
       (=gb2312		  . #x632F)	; &I-G0-632F; [67-15]
       (=jis-x0208@1983	  . #x5831)	; &I-J83-5831; [56-17]
       (=cns11643-1	  . #x5A4A)	; &I-C1-5A4A; [58-42]
@@ -10314,15 +11961,18 @@
 	 ((===cns11643-1      . #x5A4A)	; &R-C1-5A4A; [58-42]
 	  ))
 	)
-       ((==ucs@unicode	    . #x60D8)	; &g2-J83-5831;
+       ((==ucs@unicode	    . #x60D8)	; &g2-AJ1-13539;
 	(==ucs@JP/hanazono  . nil)
-	(==jis-x0208@1978   . #x5831)	; &g2-J83-5831; [56-17]
-	(==gb2312	    . #x632F)	; &g2-J83-5831; [67-15]
-	(==jis-x0208@1983   . #x5831)	; &g2-J83-5831; [56-17]
+	(==adobe-japan1-4   . 13539)	; &g2-AJ1-13539;
+	(==jis-x0208@1978   . #x5831)	; &g2-AJ1-13539; [56-17]
+	(==gb2312	    . #x632F)	; &g2-AJ1-13539; [67-15]
+	(==jis-x0208@1983   . #x5831)	; &g2-AJ1-13539; [56-17]
 	(->subsumptive
 	 ((===jis-x0208@1978  . #x5831)	; &R-J78-5831; [56-17]
 	  )
 	 ((===jis-x0208@1983  . #x5831)	; &R-J83-5831; [56-17]
+	  )
+	 ((===adobe-japan1-4  . 13539)	; &R-AJ1-13539;
 	  )
 	 ((===ucs@unicode     . #x60D8)	; &R-UU+60D8;
 	  ))
@@ -10365,6 +12015,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (=ucs		. #x60DB)	; 惛
+    (=adobe-japan1-4	. 14545)	; &I-AJ1-14545;
     (=jis-x0212		. #x3E2E)	; &I-JSP-3E2E; [30-14]
     (=cns11643-2	. #x3543)	; &I-C2-3543; [21-35]
     (=jis-x0213-2	. #x2C56)	; &I-JX2-2C56; [12-54]
@@ -10430,6 +12081,42 @@
     (=gt-pj-1		. #x404B)	; &I-GT-13541; [32-43]
     (=daikanwa		. 10814)	; &I-M-10814;
     (=shinjigen		.  2553)	; &AJ1-02671;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x60DC)	; 惜
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x60DC)	; &g2-AJ1-02671;
+      (==adobe-japan1-0	  . 02671)	; &g2-AJ1-02671;
+      (==gb2312		  . #x4F27)	; &g2-AJ1-02671; [47-07]
+      (==ks-x1001	  . #x602D)	; &g2-AJ1-02671; [64-13]
+      (==jis-x0208	  . #x404B)	; &g2-AJ1-02671; [32-43]
+      (==cns11643-1	  . #x5A48)	; &g2-AJ1-02671; [58-40]
+      (==jis-x0213-1	  . #x404B)	; &g2-AJ1-02671; [32-43]
+      (==gt		  . 13541)	; &g2-AJ1-02671;
+      (==gt-k		  . 07805)	; &g2-AJ1-02671;
+      (==daikanwa	  . 10814)	; &g2-AJ1-02671;
+      (==shinjigen	  .  2553)	; &g2-AJ1-02671;
+      (->subsumptive
+       ((===daikanwa	    . 10814)	; &R-M-10814;
+	)
+       ((===jis-x0208	    . #x404B)	; &R-J0-404B; [32-43]
+	(===jis-x0213-1	    . #x404B)	; &R-J0-404B; [32-43]
+	)
+       ((===adobe-japan1-0  . 02671)	; &R-AJ1-02671;
+	)
+       ((===cns11643-1	    . #x5A48)	; &R-C1-5A48; [58-40]
+	)
+       ((===gt		    . 13541)	; &R-GT-13541;
+	(===gt-k	    . 07805)	; &R-GT-13541;
+	)
+       ((===ucs@ks	    . #x60DC)	; &R-K0-602D;
+	(===ks-x1001	    . #x602D)	; &R-K0-602D; [64-13]
+	)
+       ((===ucs@unicode	    . #x60DC)	; &R-UU+60DC;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -10462,11 +12149,6 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x60DD)	; 惝
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
     (=ucs@jis		. #x60DD)	; &AJ1-16867;
     (=adobe-japan1-5	. 16867)	; &AJ1-16867;
     (=jis-x0212		. #x3E2F)	; &I-JSP-3E2F; [30-15]
@@ -10474,6 +12156,36 @@
     (=hanyo-denshi/jb	. #x3E2F)	; &I-HD-JB-3E2F; [30-15]
     (=daikanwa		. 10815)	; &I-M-10815;
     (=jef-china3	. #x4EC0)	; &I-JC3-4EC0;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x60DD)	; 惝
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x60DD)	; 惝
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@jis	  . #x60DD)	; &g2-AJ1-16867;
+      (==adobe-japan1-5	  . 16867)	; &g2-AJ1-16867;
+      (==jis-x0212	  . #x3E2F)	; &g2-AJ1-16867; [30-15]
+      (==jis-x0213-1	  . #x7456)	; &g2-AJ1-16867; [84-54]
+      (==hanyo-denshi/jb  . #x3E2F)	; &g2-AJ1-16867; [30-15]
+      (==daikanwa	  . 10815)	; &g2-AJ1-16867;
+      (==jef-china3	  . #x4EC0)	; &g2-AJ1-16867;
+      (->subsumptive
+       ((===daikanwa	    . 10815)	; &R-M-10815;
+	)
+       ((===jis-x0212	    . #x3E2F)	; &R-HD-JB-3E2F; [30-15]
+	(===jis-x0213-1	    . #x7456)	; &R-HD-JB-3E2F; [84-54]
+	(===hanyo-denshi/jb . #x3E2F)	; &R-HD-JB-3E2F; [30-15]
+	)
+       ((===adobe-japan1-5  . 16867)	; &R-AJ1-16867;
+	)
+       ((===jef-china3	    . #x4EC0)	; &R-JC3-4EC0;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -10495,6 +12207,7 @@
        ((=ucs		    . #xE0102)	; 󠄂
 	))
       (==ucs@unicode	  . #x60DD)	; &g2-HD-JT-B176;
+      (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x632E)	; &g2-HD-JT-B176; [67-14]
       (==hanyo-denshi/jt  . #xB176)	; &g2-HD-JT-B176;
       (->subsumptive
@@ -10541,7 +12254,12 @@
     (=daikanwa		. 10818)	; &I-M-10818;
     (=jef-china3	. #x4EC1)	; &I-JC3-4EC1;
     (->subsumptive
-     ((==ucs@cns	  . #x60DE)	; &g2-AJ1-08457;
+     ((=decomposition@cid
+       ((=ucs		    . #x60DE)	; 惞
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x60DE)	; &g2-AJ1-08457;
       (==ucs@jis	  . #x60DE)	; &g2-AJ1-08457;
       (==adobe-japan1-2	  . 08457)	; &g2-AJ1-08457;
       (==jis-x0212	  . #x3E30)	; &g2-AJ1-08457; [30-16]
@@ -10590,7 +12308,12 @@
     (=daikanwa		. 10820)	; &I-M-10820;
     (=shinjigen		.  2533)	; 惟
     (->subsumptive
-     ((==ucs@unicode	  . #x60DF)	; &g2-AJ1-01176;
+     ((=decomposition@cid
+       ((=ucs		    . #x60DF)	; 惟
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x60DF)	; &g2-AJ1-01176;
       (==adobe-japan1-0	  . 01176)	; &g2-AJ1-01176;
       (==gb2312		  . #x4E29)	; &g2-AJ1-01176; [46-09]
       (==ks-x1001	  . #x6A6E)	; &g2-AJ1-01176; [74-78]
@@ -10649,11 +12372,6 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x60E0)	; 惠
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
     (=ucs@unicode	. #x60E0)	; &AJ1-04851;
     (=adobe-japan1-0	. 04851)	; &AJ1-04851;
     (=jis-x0208		. #x582A)	; &I-J90-582A; [56-10]
@@ -10674,6 +12392,48 @@
       ))
     (<-vulgar*sources
      shinjigen)
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x60E0)	; 惠
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x60E0)	; 惠
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@unicode	  . #x60E0)	; &g2-AJ1-04851;
+      (==adobe-japan1-0	  . 04851)	; &g2-AJ1-04851;
+      (==gb2312		  . #x3B5D)	; &g2-AJ1-04851; [27-61]
+      (==ks-x1001	  . #x7B33)	; &g2-AJ1-04851; [91-19]
+      (==jis-x0208	  . #x582A)	; &g2-AJ1-04851; [56-10]
+      (==cns11643-1	  . #x5F2D)	; &g2-AJ1-04851; [63-13]
+      (==jis-x0213-1	  . #x582A)	; &g2-AJ1-04851; [56-10]
+      (==hanyo-denshi/ja  . #x582A)	; &g2-AJ1-04851; [56-10]
+      (==gt		  . 13651)	; &g2-AJ1-04851;
+      (==gt-k		  . 09187)	; &g2-AJ1-04851;
+      (==daikanwa	  . 10822)	; &g2-AJ1-04851;
+      (==shinjigen	  .  2480)	; &g2-AJ1-04851;
+      (->subsumptive
+       ((===daikanwa	    . 10822)	; &R-M-10822;
+	)
+       ((===jis-x0208	    . #x582A)	; &R-J0-582A; [56-10]
+	(===jis-x0213-1	    . #x582A)	; &R-J0-582A; [56-10]
+	)
+       ((===adobe-japan1-0  . 04851)	; &R-AJ1-04851;
+	)
+       ((===cns11643-1	    . #x5F2D)	; &R-C1-5F2D; [63-13]
+	)
+       ((===gt		    . 13651)	; &R-GT-13651;
+	(===gt-k	    . 09187)	; &R-GT-13651;
+	)
+       ((===ucs@ks	    . #x60E0)	; &R-K0-7B33;
+	(===ks-x1001	    . #x7B33)	; &R-K0-7B33; [91-19]
+	)
+       ((===ucs@unicode	    . #x60E0)	; &R-UU+60E0;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -11058,6 +12818,29 @@
       (=jis-x0212	  . #x3E32)	; &I-JSP-3E32; [30-18]
       (=cns11643-3	  . #x3B59)	; &I-C3-3B59; [27-57]
       (=daikanwa	  . 10846)	; &I-M-10846;
+      (->subsumptive
+       ((=decomposition@cid
+	 ((=ucs		      . #x60E5)	; 惥
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(==ucs@unicode	    . #x60E5)	; &g2-AJ1-21568;
+	(==adobe-japan1-6   . 21568)	; &g2-AJ1-21568;
+	(==jis-x0212	    . #x3E32)	; &g2-AJ1-21568; [30-18]
+	(==cns11643-3	    . #x3B59)	; &g2-AJ1-21568; [27-57]
+	(==daikanwa	    . 10846)	; &g2-AJ1-21568;
+	(->subsumptive
+	 ((===daikanwa	      . 10846)	; &R-M-10846;
+	  )
+	 ((===jis-x0212	      . #x3E32)	; &R-JSP-3E32; [30-18]
+	  )
+	 ((===adobe-japan1-6  . 21568)	; &R-AJ1-21568;
+	  )
+	 ((===cns11643-3      . #x3B59)	; &R-C3-3B59; [27-57]
+	  )
+	 ((===ucs@unicode     . #x60E5)	; &R-UU+60E5;
+	  ))
+	))
       )
      ((ideographic-strokes . 9)
       (total-strokes	   . 13)
@@ -11109,6 +12892,32 @@
     (=jis-x0213-1	. #x577C)	; &I-JX1-577C; [55-92]
     (=gt		. 13493)	; &I-GT-13493;
     (=gt-pj-1		. #x577C)	; &I-GT-13493; [55-92]
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x60E7)	; 惧
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x60E7)	; &g2-AJ1-04839;
+      (==adobe-japan1-0	  . 04839)	; &g2-AJ1-04839;
+      (==gb2312		  . #x3E65)	; &g2-AJ1-04839; [30-69]
+      (==jis-x0208	  . #x577C)	; &g2-AJ1-04839; [55-92]
+      (==cns11643-3	  . #x3576)	; &g2-AJ1-04839; [21-86]
+      (==jis-x0213-1	  . #x577C)	; &g2-AJ1-04839; [55-92]
+      (==gt		  . 13493)	; &g2-AJ1-04839;
+      (->subsumptive
+       ((===jis-x0208	    . #x577C)	; &R-J0-577C; [55-92]
+	(===jis-x0213-1	    . #x577C)	; &R-J0-577C; [55-92]
+	)
+       ((===adobe-japan1-0  . 04839)	; &R-AJ1-04839;
+	)
+       ((===cns11643-3	    . #x3576)	; &R-C3-3576; [21-86]
+	)
+       ((===gt		    . 13493)	; &R-GT-13493;
+	)
+       ((===ucs@unicode	    . #x60E7)	; &R-UU+60E7;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x22716)	; 𢜖
@@ -11161,6 +12970,33 @@
       ))
     (<-vulgar*sources
      daikanwa)
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x60E8)	; 惨
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x60E8)	; &g2-AJ1-02178;
+      (==adobe-japan1-0	  . 02178)	; &g2-AJ1-02178;
+      (==gb2312		  . #x3252)	; &g2-AJ1-02178; [18-50]
+      (==jis-x0208	  . #x3B34)	; &g2-AJ1-02178; [27-20]
+      (==jis-x0213-1	  . #x3B34)	; &g2-AJ1-02178; [27-20]
+      (==gt		  . 13517)	; &g2-AJ1-02178;
+      (==daikanwa	  . 10850)	; &g2-AJ1-02178;
+      (==shinjigen	  .  2543)	; &g2-AJ1-02178;
+      (->subsumptive
+       ((===daikanwa	    . 10850)	; &R-M-10850;
+	)
+       ((===jis-x0208	    . #x3B34)	; &R-J0-3B34; [27-20]
+	(===jis-x0213-1	    . #x3B34)	; &R-J0-3B34; [27-20]
+	)
+       ((===adobe-japan1-0  . 02178)	; &R-AJ1-02178;
+	)
+       ((===gt		    . 13517)	; &R-GT-13517;
+	)
+       ((===ucs@unicode	    . #x60E8)	; &R-UU+60E8;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -11341,20 +13177,50 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x60F0)	; 惰
+    (=adobe-japan1-0	. 02854)	; &I-AJ1-02854;
+    (=jis-x0208		. #x4246)	; &I-J90-4246; [34-38]
+    (=gb2312		. #x3668)	; &I-G0-3668; [22-72]
+    (=ks-x1001		. #x7667)	; &I-K0-7667; [86-71]
+    (=cns11643-1	. #x5F32)	; &I-C1-5F32; [63-18]
+    (=jis-x0213-1	. #x4246)	; &I-JX1-4246; [34-38]
     (=big5		. #xB46B)	; &I-B-B46B;
+    (=gt		. 13712)	; &I-GT-13712;
+    (=gt-pj-1		. #x4246)	; &I-GT-13712; [34-38]
+    (=daikanwa		. 10855)	; &I-M-10855;
+    (=shinjigen		.  2608)	; 惰
     (->subsumptive
-     ((=ucs@unicode	  . #x60F0)	; &AJ1-02854;
-      (=adobe-japan1-0	  . 02854)	; &AJ1-02854;
-      (=jis-x0208	  . #x4246)	; &I-J90-4246; [34-38]
-      (=gb2312		  . #x3668)	; &I-G0-3668; [22-72]
-      (=ks-x1001	  . #x7667)	; &I-K0-7667; [86-71]
-      (=jis-x0213-1	  . #x4246)	; &I-JX1-4246; [34-38]
-      (=gt		  . 13712)	; &I-GT-13712;
-      (=gt-pj-1		  . #x4246)	; &I-GT-13712; [34-38]
-      (=daikanwa	  . 10855)	; &I-M-10855;
-      (=shinjigen	  .  2608)	; &AJ1-02854;
+     ((=decomposition@cid
+       ((=ucs		    . #x60F0)	; 惰
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x60F0)	; &g2-AJ1-02854;
+      (==adobe-japan1-0	  . 02854)	; &g2-AJ1-02854;
+      (==gb2312		  . #x3668)	; &g2-AJ1-02854; [22-72]
+      (==ks-x1001	  . #x7667)	; &g2-AJ1-02854; [86-71]
+      (==jis-x0208	  . #x4246)	; &g2-AJ1-02854; [34-38]
+      (==jis-x0213-1	  . #x4246)	; &g2-AJ1-02854; [34-38]
+      (==gt		  . 13712)	; &g2-AJ1-02854;
+      (==daikanwa	  . 10855)	; &g2-AJ1-02854;
+      (==shinjigen	  .  2608)	; &g2-AJ1-02854;
+      (->subsumptive
+       ((===daikanwa	    . 10855)	; &R-M-10855;
+	)
+       ((===jis-x0208	    . #x4246)	; &R-J0-4246; [34-38]
+	(===jis-x0213-1	    . #x4246)	; &R-J0-4246; [34-38]
+	)
+       ((===adobe-japan1-0  . 02854)	; &R-AJ1-02854;
+	)
+       ((===gt		    . 13712)	; &R-GT-13712;
+	)
+       ((===ucs@ks	    . #x60F0)	; &R-K0-7667;
+	(===ks-x1001	    . #x7667)	; &R-K0-7667; [86-71]
+	)
+       ((===ucs@unicode	    . #x60F0)	; &R-UU+60F0;
+	))
       )
-     ((=cns11643-1	  . #x5F32)	; &C1-5F32; [63-18]
+     ((==ucs@cns	  . #x60F0)	; &g2-CU+60F0;
+      (==cns11643-1	  . #x5F32)	; &g2-CU+60F0; [63-18]
       ))
     ))
 (define-char
@@ -11390,6 +13256,14 @@
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x76F8)	; 相
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
     (=ucs		. #x60F3)	; 想
     ))
 (define-char
@@ -11399,6 +13273,7 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (=>ucs@iwds-1	. #x60F3)	; &AJ1-02781;
     (=ucs@unicode	. #x60F3)	; &AJ1-02781;
     (=adobe-japan1-0	. 02781)	; &AJ1-02781;
     (=jis-x0208		. #x415B)	; &I-J90-415B; [33-59]
@@ -11412,7 +13287,12 @@
     (=daikanwa		. 10858)	; &I-M-10858;
     (=shinjigen		.  2606)	; &AJ1-02781;
     (->subsumptive
-     ((==ucs@unicode	  . #x60F3)	; &g2-AJ1-02781;
+     ((=decomposition@cid
+       ((=ucs		    . #x60F3)	; 想
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x60F3)	; &g2-AJ1-02781;
       (==adobe-japan1-0	  . 02781)	; &g2-AJ1-02781;
       (==gb2312		  . #x4F6B)	; &g2-AJ1-02781; [47-75]
       (==ks-x1001	  . #x5F4C)	; &g2-AJ1-02781; [63-44]
@@ -11491,16 +13371,36 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x60F5)	; 惵
+    (=adobe-japan1-5	. 17638)	; &I-AJ1-17638;
+    (=jis-x0212		. #x3E34)	; &I-JSP-3E34; [30-20]
+    (=cns11643-2	. #x3B67)	; &I-C2-3B67; [27-71]
+    (=jis-x0213-2	. #x2C59)	; &I-JX2-2C59; [12-57]
     (=big5		. #xD944)	; &I-B-D944;
+    (=daikanwa		. 10861)	; &I-M-10861;
     (->subsumptive
-     ((=ucs@unicode	  . #x60F5)	; &AJ1-17638;
-      (=adobe-japan1-5	  . 17638)	; &AJ1-17638;
-      (=jis-x0212	  . #x3E34)	; &I-JSP-3E34; [30-20]
-      (=jis-x0213-2	  . #x2C59)	; &I-JX2-2C59; [12-57]
-      (=daikanwa	  . 10861)	; &I-M-10861;
+     ((=decomposition@cid
+       ((=ucs		    . #x60F5)	; 惵
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x60F5)	; &g2-AJ1-17638;
+      (==adobe-japan1-5	  . 17638)	; &g2-AJ1-17638;
+      (==jis-x0212	  . #x3E34)	; &g2-AJ1-17638; [30-20]
+      (==jis-x0213-2	  . #x2C59)	; &g2-AJ1-17638; [12-57]
+      (==daikanwa	  . 10861)	; &g2-AJ1-17638;
+      (->subsumptive
+       ((===daikanwa	    . 10861)	; &R-M-10861;
+	)
+       ((===jis-x0212	    . #x3E34)	; &R-JX2-2C59; [30-20]
+	(===jis-x0213-2	    . #x2C59)	; &R-JX2-2C59; [12-57]
+	)
+       ((===adobe-japan1-5  . 17638)	; &R-AJ1-17638;
+	)
+       ((===ucs@unicode	    . #x60F5)	; &R-UU+60F5;
+	))
       )
-     ((=ucs@cns		  . #x60F5)	; &C2-3B67;
-      (=cns11643-2	  . #x3B67)	; &C2-3B67; [27-71]
+     ((==ucs@cns	  . #x60F5)	; &g2-CU+60F5;
+      (==cns11643-2	  . #x3B67)	; &g2-CU+60F5; [27-71]
       ))
     ))
 (define-char
@@ -11553,7 +13453,12 @@
       (->subsumptive
        ((==daikanwa	    . 10864)	; &g2-M-10864;
 	)
-       ((==ucs@jis	    . #x60F7)	; &g2-AJ1-04863;
+       ((=decomposition@cid
+	 ((=ucs		      . #x60F7)	; 惷
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(==ucs@jis	    . #x60F7)	; &g2-AJ1-04863;
 	(==adobe-japan1-0   . 04863)	; &g2-AJ1-04863;
 	(==jis-x0208	    . #x5836)	; &g2-AJ1-04863; [56-22]
 	(==jis-x0213-1	    . #x5836)	; &g2-AJ1-04863; [56-22]
@@ -11579,6 +13484,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x60F8)	; 惸
+    (=adobe-japan1-4	. 14546)	; &I-AJ1-14546;
     (=jis-x0212		. #x3E35)	; &I-JSP-3E35; [30-21]
     (=cns11643-2	. #x3B69)	; &I-C2-3B69; [27-73]
     (=jis-x0213-1	. #x7457)	; &I-JX1-7457; [84-55]
@@ -11614,11 +13520,6 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x60F9)	; 惹
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
     (=ucs@unicode	. #x60F9)	; &AJ1-02322;
     (=adobe-japan1-0	. 02322)	; &AJ1-02322;
     (=jis-x0208		. #x3C66)	; &I-J90-3C66; [28-70]
@@ -11628,6 +13529,39 @@
     (=hanyo-denshi/ja	. #x3C66)	; &I-HD-JA-3C66; [28-70]
     (=gt		. 13678)	; &I-GT-13678;
     (=gt-pj-1		. #x3C66)	; &I-GT-13678; [28-70]
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x60F9)	; 惹
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x60F9)	; 惹
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@unicode	  . #x60F9)	; &g2-AJ1-02322;
+      (==adobe-japan1-0	  . 02322)	; &g2-AJ1-02322;
+      (==gb2312		  . #x4847)	; &g2-AJ1-02322; [40-39]
+      (==ks-x1001	  . #x6529)	; &g2-AJ1-02322; [69-09]
+      (==jis-x0208	  . #x3C66)	; &g2-AJ1-02322; [28-70]
+      (==jis-x0213-1	  . #x3C66)	; &g2-AJ1-02322; [28-70]
+      (==hanyo-denshi/ja  . #x3C66)	; &g2-AJ1-02322; [28-70]
+      (==gt		  . 13678)	; &g2-AJ1-02322;
+      (->subsumptive
+       ((===jis-x0208	    . #x3C66)	; &R-J0-3C66; [28-70]
+	(===jis-x0213-1	    . #x3C66)	; &R-J0-3C66; [28-70]
+	)
+       ((===adobe-japan1-0  . 02322)	; &R-AJ1-02322;
+	)
+       ((===gt		    . 13678)	; &R-GT-13678;
+	)
+       ((===ucs@ks	    . #x60F9)	; &R-K0-6529;
+	(===ks-x1001	    . #x6529)	; &R-K0-6529; [69-09]
+	)
+       ((===ucs@unicode	    . #x60F9)	; &R-UU+60F9;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -11720,6 +13654,28 @@
     (=jis-x0212		. #x3E36)	; &I-JSP-3E36; [30-22]
     (=cns11643-2	. #x3B6A)	; &I-C2-3B6A; [27-74]
     (=daikanwa		. 10872)	; &I-M-10872;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x60FC)	; 惼
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x60FC)	; &g2-AJ1-21569;
+      (==ucs@jis	  . #x60FC)	; &g2-AJ1-21569;
+      (==adobe-japan1-6	  . 21569)	; &g2-AJ1-21569;
+      (==jis-x0212	  . #x3E36)	; &g2-AJ1-21569; [30-22]
+      (==cns11643-2	  . #x3B6A)	; &g2-AJ1-21569; [27-74]
+      (==daikanwa	  . 10872)	; &g2-AJ1-21569;
+      (->subsumptive
+       ((===daikanwa	    . 10872)	; &R-M-10872;
+	)
+       ((===jis-x0212	    . #x3E36)	; &R-JSP-3E36; [30-22]
+	)
+       ((===adobe-japan1-6  . 21569)	; &R-AJ1-21569;
+	)
+       ((===cns11643-2	    . #x3B6A)	; &R-C2-3B6A; [27-74]
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -11884,21 +13840,44 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x6100)	; 愀
+    (=adobe-japan1-0	. 04864)	; &I-AJ1-04864;
+    (=jis-x0208		. #x5837)	; &I-J90-5837; [56-23]
+    (=gb2312		. #x6338)	; &I-G0-6338; [67-24]
+    (=cns11643-1	. #x5F3A)	; &I-C1-5F3A; [63-26]
+    (=jis-x0213-1	. #x5837)	; &I-JX1-5837; [56-23]
     (=big5		. #xB473)	; &I-B-B473;
+    (=gt		. 13681)	; &I-GT-13681;
+    (=gt-pj-1		. #x5837)	; &I-GT-13681; [56-23]
+    (=daikanwa		. 10884)	; &I-M-10884;
+    (=shinjigen		.  2602)	; 愀
     (->subsumptive
-     ((=daikanwa	  . 10884)	; &M-10884;
+     ((==daikanwa	  . 10884)	; &g2-M-10884;
       )
-     ((=ucs@unicode	  . #x6100)	; &GT-13681;
-      (=jis-x0208	  . #x5837)	; &GT-13681; [56-23]
-      (=gb2312		  . #x6338)	; &I-G0-6338; [67-24]
-      (=jis-x0213-1	  . #x5837)	; &I-JX1-5837; [56-23]
-      (=gt		  . 13681)	; &I-GT-13681;
-      (=gt-pj-1		  . #x5837)	; &I-GT-13681; [56-23]
-      (=shinjigen	  .  2602)	; &GT-13681;
+     ((=decomposition@cid
+       ((=ucs		    . #x6100)	; 愀
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6100)	; &g2-AJ1-04864;
+      (==adobe-japan1-0	  . 04864)	; &g2-AJ1-04864;
+      (==gb2312		  . #x6338)	; &g2-AJ1-04864; [67-24]
+      (==jis-x0208	  . #x5837)	; &g2-AJ1-04864; [56-23]
+      (==jis-x0213-1	  . #x5837)	; &g2-AJ1-04864; [56-23]
+      (==gt		  . 13681)	; &g2-AJ1-04864;
+      (==shinjigen	  .  2602)	; &g2-AJ1-04864;
+      (->subsumptive
+       ((===jis-x0208	    . #x5837)	; &R-J0-5837; [56-23]
+	(===jis-x0213-1	    . #x5837)	; &R-J0-5837; [56-23]
+	)
+       ((===adobe-japan1-0  . 04864)	; &R-AJ1-04864;
+	)
+       ((===gt		    . 13681)	; &R-GT-13681;
+	)
+       ((===ucs@unicode	    . #x6100)	; &R-UU+6100;
+	))
       )
-     ((=adobe-japan1-0	  . 04864)	; &AJ1-04864;
-      )
-     ((=cns11643-1	  . #x5F3A)	; &C1-5F3A; [63-26]
+     ((==ucs@cns	  . #x6100)	; &g2-CU+6100;
+      (==cns11643-1	  . #x5F3A)	; &g2-CU+6100; [63-26]
       ))
     ))
 (define-char
@@ -11906,23 +13885,52 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (=ucs		. #x6101)	; 愁
+    (=adobe-japan1-0	. 02351)	; &I-AJ1-02351;
+    (=jis-x0208		. #x3D25)	; &I-J90-3D25; [29-05]
+    (=gb2312		. #x336E)	; &I-G0-336E; [19-78]
+    (=ks-x1001		. #x617E)	; &I-K0-617E; [65-94]
+    (=cns11643-1	. #x637A)	; &I-C1-637A; [67-90]
+    (=jis-x0213-1	. #x3D25)	; &I-JX1-3D25; [29-05]
     (=big5		. #xB754)	; &I-B-B754;
+    (=gt		. 13850)	; &I-GT-13850;
+    (=gt-k		. 10219)	; &I-GT-K10219;
+    (=gt-pj-1		. #x3D25)	; &I-GT-13850; [29-05]
+    (=daikanwa		. 10885)	; &I-M-10885;
+    (=shinjigen		.  2600)	; 愁
     (->subsumptive
-     ((=daikanwa	  . 10885)	; &M-10885;
+     ((==daikanwa	  . 10885)	; &g2-M-10885;
       )
-     ((=adobe-japan1-0	  . 02351)	; &AJ1-02351;
+     ((=decomposition@cid
+       ((=ucs		    . #x6101)	; 愁
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6101)	; &g2-AJ1-02351;
+      (==adobe-japan1-0	  . 02351)	; &g2-AJ1-02351;
+      (==gb2312		  . #x336E)	; &g2-AJ1-02351; [19-78]
+      (==ks-x1001	  . #x617E)	; &g2-AJ1-02351; [65-94]
+      (==jis-x0208	  . #x3D25)	; &g2-AJ1-02351; [29-05]
+      (==jis-x0213-1	  . #x3D25)	; &g2-AJ1-02351; [29-05]
+      (==gt		  . 13850)	; &g2-AJ1-02351;
+      (==gt-k		  . 10219)	; &g2-AJ1-02351;
+      (==shinjigen	  .  2600)	; &g2-AJ1-02351;
+      (->subsumptive
+       ((===jis-x0208	    . #x3D25)	; &R-J0-3D25; [29-05]
+	(===jis-x0213-1	    . #x3D25)	; &R-J0-3D25; [29-05]
+	)
+       ((===adobe-japan1-0  . 02351)	; &R-AJ1-02351;
+	)
+       ((===gt		    . 13850)	; &R-GT-13850;
+	(===gt-k	    . 10219)	; &R-GT-13850;
+	)
+       ((===ucs@ks	    . #x6101)	; &R-K0-617E;
+	(===ks-x1001	    . #x617E)	; &R-K0-617E; [65-94]
+	)
+       ((===ucs@unicode	    . #x6101)	; &R-UU+6101;
+	))
       )
-     ((=ucs@unicode	  . #x6101)	; &GT-13850;
-      (=jis-x0208	  . #x3D25)	; &GT-13850; [29-05]
-      (=gb2312		  . #x336E)	; &I-G0-336E; [19-78]
-      (=ks-x1001	  . #x617E)	; &I-K0-617E; [65-94]
-      (=jis-x0213-1	  . #x3D25)	; &I-JX1-3D25; [29-05]
-      (=gt		  . 13850)	; &I-GT-13850;
-      (=gt-k		  . 10219)	; &I-GT-K10219;
-      (=gt-pj-1		  . #x3D25)	; &I-GT-13850; [29-05]
-      (=shinjigen	  .  2600)	; &GT-13850;
-      )
-     ((=cns11643-1	  . #x637A)	; &C1-637A; [67-90]
+     ((==ucs@cns	  . #x6101)	; &g2-CU+6101;
+      (==cns11643-1	  . #x637A)	; &g2-CU+6101; [67-90]
       ))
     ))
 (define-char
@@ -11995,7 +14003,12 @@
     (->subsumptive
      ((==daikanwa	  . 10891)	; &g2-M-10891;
       )
-     ((==ucs@unicode	  . #x6103)	; &g2-AJ1-04867;
+     ((=decomposition@cid
+       ((=ucs		    . #x6103)	; 愃
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6103)	; &g2-AJ1-04867;
       (==adobe-japan1-0	  . 04867)	; &g2-AJ1-04867;
       (==jis-x0208	  . #x583A)	; &g2-AJ1-04867; [56-26]
       (==cns11643-2	  . #x3B6D)	; &g2-AJ1-04867; [27-77]
@@ -12179,6 +14192,11 @@
       )
      ((ideographic-strokes . 10)
       (total-strokes	   . 13)
+      (=decomposition@cid
+       ((=ucs		    . #x6107)	; 愇
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
       (==ucs@jis	  . #x6107)	; &g2-AJ1-21571;
       (==ucs@JP/hanazono  . nil)
       (==adobe-japan1-6	  . 21571)	; &g2-AJ1-21571;
@@ -12263,22 +14281,29 @@
       )
      ((=ucs		  . #x5FC3)	; 心
       ))
-    (=ucs@jis/2004	. #x6108)	; &HD-FT-333E;
-    (=jis-x0208@1978	. #x4C7C)	; &HD-FT-333E; [44-92]
+    (=ucs@jis/2004	. #x6108)	; &AJ1-07802;
+    (=adobe-japan1-0	. 07802)	; &AJ1-07802;
+    (=jis-x0208@1978	. #x4C7C)	; &I-J78-4C7C; [44-92]
     (=jis-x0213-1@2004	. #x4C7C)	; &I-JX3-4C7C; [44-92]
     (=hanyo-denshi/ft	. #x333E)	; &I-HD-FT-333E; [19-30]
     (=daikanwa		. 10904)	; &I-M-10904;
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x6108)	; 愈
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x6108)	; 愈
 	)
        ((=ucs		    . #xE0103)	; 󠄃
 	))
-      (==ucs@jis/2004	  . #x6108)	; &g2-HD-FT-333E;
-      (==jis-x0208@1978	  . #x4C7C)	; &g2-HD-FT-333E; [44-92]
-      (==jis-x0213-1@2004 . #x4C7C)	; &g2-HD-FT-333E; [44-92]
-      (==hanyo-denshi/ft  . #x333E)	; &g2-HD-FT-333E; [19-30]
-      (==daikanwa	  . 10904)	; &g2-HD-FT-333E;
+      (==ucs@jis/2004	  . #x6108)	; &g2-AJ1-07802;
+      (==adobe-japan1-0	  . 07802)	; &g2-AJ1-07802;
+      (==jis-x0208@1978	  . #x4C7C)	; &g2-AJ1-07802; [44-92]
+      (==jis-x0213-1@2004 . #x4C7C)	; &g2-AJ1-07802; [44-92]
+      (==hanyo-denshi/ft  . #x333E)	; &g2-AJ1-07802; [19-30]
+      (==daikanwa	  . 10904)	; &g2-AJ1-07802;
       (->subsumptive
        ((===daikanwa	    . 10904)	; &R-M-10904;
 	)
@@ -12286,6 +14311,8 @@
 	)
        ((===jis-x0213-1@2004 . #x4C7C)	; &R-HD-FT-333E; [44-92]
 	(===hanyo-denshi/ft . #x333E)	; &R-HD-FT-333E; [19-30]
+	)
+       ((===adobe-japan1-0  . 07802)	; &R-AJ1-07802;
 	))
       ))
     ))
@@ -12386,7 +14413,12 @@
     (=gt-pj-1		. #x4C7C)	; &I-GT-13912; [44-92]
     (=jef-china3	. #x4EEB)	; &I-JC3-4EEB;
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x6108)	; 愈
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x6108)	; 愈
 	)
        ((=ucs		    . #xE0102)	; 󠄂
@@ -12453,15 +14485,42 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x6109)	; 愉
-      )
-     ((=ucs		  . #xE0103)	; 󠄃
-      ))
-    (=ks-x1001		. #x6A70)	; &HD-JT-B185; [74-80]
+    (=ucs@ks		. #x6109)	; &AJ1-14067;
+    (=adobe-japan1-4	. 14067)	; &AJ1-14067;
+    (=ks-x1001		. #x6A70)	; &I-K0-6A70; [74-80]
     (=hanyo-denshi/jt	. #xB185)	; &I-HD-JT-B185;
     (=daikanwa		. 10905)	; &I-M-10905;
     (=jef-china3	. #x4EC5)	; &I-JC3-4EC5;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x6109)	; 愉
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x6109)	; 愉
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==ucs@ks		  . #x6109)	; &g2-AJ1-14067;
+      (==adobe-japan1-4	  . 14067)	; &g2-AJ1-14067;
+      (==ks-x1001	  . #x6A70)	; &g2-AJ1-14067; [74-80]
+      (==hanyo-denshi/jt  . #xB185)	; &g2-AJ1-14067;
+      (==daikanwa	  . 10905)	; &g2-AJ1-14067;
+      (==jef-china3	  . #x4EC5)	; &g2-AJ1-14067;
+      (->subsumptive
+       ((===daikanwa	    . 10905)	; &R-M-10905;
+	)
+       ((===hanyo-denshi/jt . #xB185)	; &R-HD-JT-B185;
+	)
+       ((===adobe-japan1-4  . 14067)	; &R-AJ1-14067;
+	)
+       ((===jef-china3	    . #x4EC5)	; &R-JC3-4EC5;
+	)
+       ((===ucs@ks	    . #x6109)	; &R-K0-6A70;
+	(===ks-x1001	    . #x6A70)	; &R-K0-6A70; [74-80]
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -12482,7 +14541,12 @@
     (=gt-pj-1		. #x4C7B)	; &I-GT-13761; [44-91]
     (=daikanwa/+p	. 10905)	; &AJ1-03847;
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x6109)	; 愉
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x6109)	; 愉
 	)
        ((=ucs		    . #xE0102)	; 󠄂
@@ -12562,25 +14626,39 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x2273D)	; 𢜽
+    (=cns11643-5	. #x3846)	; &I-C5-3846; [24-38]
+    (=daikanwa		. 10909)	; &I-M-10909;
+    (=shinjigen		.  2536)	; 𢜽
+    (=cbeta		. 10081)	; &I-CB10081;
+    (<-formed
+     ((=ucs		  . #x60B8)	; 悸
+      (=jis-x0208	  . #x5829)	; &I-J90-5829; [56-09]
+      (=shinjigen	  .  2535)	; 悸
+      ))
+    (<-formed*sources
+     jiyun shinjigen)
+    (<-same
+     ((=ucs		  . #x60B8)	; 悸
+      (=daikanwa	  . 10733)	; &I-M-10733;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 10909)	; &M-10909;
-      )
-     ((=ucs@iso		  . #x2273D)	; &U-0002273D;
-      )
-     ((=cns11643-5	  . #x3846)	; &C5-3846; [24-38]
-      (=hanziku-6	  . #xE26B)	; &I-HZK06-E26B;
-      )
-     ((=shinjigen	  .  2536)	; &SJG2-2536;
-      (<-formed
-       ((=ucs@unicode	    . #x60B8)	; &AJ1-04850;
-	(=adobe-japan1-0    . 04850)	; &AJ1-04850;
-	(=jis-x0208	    . #x5829)	; &I-J90-5829; [56-09]
-	(=shinjigen	    .  2535)	; &AJ1-04850;
+     ((==ucs@iso	  . #x2273D)	; &g2-M-10909;
+      (==cns11643-5	  . #x3846)	; &g2-M-10909; [24-38]
+      (==daikanwa	  . 10909)	; &g2-M-10909;
+      (->subsumptive
+       ((===daikanwa	    . 10909)	; &R-M-10909;
+	)
+       ((===cns11643-5	    . #x3846)	; &R-C5-3846; [24-38]
+	)
+       ((===ucs@iso	    . #x2273D)	; &R-U-0002273D;
+	)
+       ((=hanziku-6	    . #xE26B)	; &HZK06-E26B;
 	))
-      (<-formed*sources
-       shinjigen)
       )
-     ((=cbeta		  . 10081)	; &CB10081;
+     ((==shinjigen	  .  2536)	; &g2-CB10081;
+      (==cbeta		  . 10081)	; &g2-CB10081;
       ))
     ))
 (define-char
@@ -12715,7 +14793,12 @@
     (=jis-x0212		. #x3E3B)	; &I-JSP-3E3B; [30-27]
     (=daikanwa		. 10918)	; &I-M-10918;
     (->subsumptive
-     ((==ucs@jis	  . #x610C)	; &g2-AJ1-21572;
+     ((=decomposition@cid
+       ((=ucs		    . #x610C)	; 愌
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x610C)	; &g2-AJ1-21572;
       (==adobe-japan1-6	  . 21572)	; &g2-AJ1-21572;
       (==jis-x0212	  . #x3E3B)	; &g2-AJ1-21572; [30-27]
       (==daikanwa	  . 10918)	; &g2-AJ1-21572;
@@ -12768,7 +14851,12 @@
      ((==ucs@cns	  . #x610D)	; &g2-CU+610D;
       (==cns11643-1	  . #x6425)	; &g2-CU+610D; [68-05]
       )
-     ((==ucs@jis	  . #x610D)	; &g2-AJ1-04871;
+     ((=decomposition@cid
+       ((=ucs		    . #x610D)	; 愍
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x610D)	; &g2-AJ1-04871;
       (==ucs@ks		  . #x610D)	; &g2-AJ1-04871;
       (==adobe-japan1-0	  . 04871)	; &g2-AJ1-04871;
       (==ks-x1001	  . #x5A40)	; &g2-AJ1-04871; [58-32]
@@ -12842,6 +14930,34 @@
     (=gt		. 13747)	; &I-GT-13747;
     (=gt-pj-1		. #x583F)	; &I-GT-13747; [56-31]
     (=shinjigen		.  2613)	; &AJ1-04872;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x610E)	; 愎
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x610E)	; &g2-AJ1-04872;
+      (==adobe-japan1-0	  . 04872)	; &g2-AJ1-04872;
+      (==gb2312		  . #x6339)	; &g2-AJ1-04872; [67-25]
+      (==ks-x1001	  . #x7834)	; &g2-AJ1-04872; [88-20]
+      (==jis-x0208	  . #x583F)	; &g2-AJ1-04872; [56-31]
+      (==jis-x0213-1	  . #x583F)	; &g2-AJ1-04872; [56-31]
+      (==gt		  . 13747)	; &g2-AJ1-04872;
+      (==shinjigen	  .  2613)	; &g2-AJ1-04872;
+      (->subsumptive
+       ((===jis-x0208	    . #x583F)	; &R-J0-583F; [56-31]
+	(===jis-x0213-1	    . #x583F)	; &R-J0-583F; [56-31]
+	)
+       ((===adobe-japan1-0  . 04872)	; &R-AJ1-04872;
+	)
+       ((===gt		    . 13747)	; &R-GT-13747;
+	)
+       ((===ucs@ks	    . #x610E)	; &R-K0-7834;
+	(===ks-x1001	    . #x7834)	; &R-K0-7834; [88-20]
+	)
+       ((===ucs@unicode	    . #x610E)	; &R-UU+610E;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -12849,6 +14965,7 @@
     (total-strokes	 . 13)
     (=ucs		. #x610F)	; 意
     (=adobe-japan1-0	. 01177)	; &I-AJ1-01177;
+    (=adobe-japan1-4	. 13639)	; &I-AJ1-13639;
     (=jis-x0208		. #x3055)	; &I-J90-3055; [16-53]
     (=gb2312		. #x5262)	; &I-G0-5262; [50-66]
     (=ks-x1001		. #x6B72)	; &I-K0-6B72; [75-82]
@@ -12862,7 +14979,12 @@
     (=shinjigen@1ed	.  2578)	; 意
     (=shinjigen@rev	.  2577)	; 意
     (->subsumptive
-     ((==ucs@unicode	  . #x610F)	; &g2-AJ1-01177;
+     ((=decomposition@cid
+       ((=ucs		    . #x610F)	; 意
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x610F)	; &g2-AJ1-01177;
       (==adobe-japan1-0	  . 01177)	; &g2-AJ1-01177;
       (==gb2312		  . #x5262)	; &g2-AJ1-01177; [50-66]
       (==ks-x1001	  . #x6B72)	; &g2-AJ1-01177; [75-82]
@@ -12895,7 +15017,13 @@
        ((===hng-khi	    . 03780)	; &HNG010-03780;
 	))
       )
-     ((=jef-china3	  . #x4DD9)	; &JC3-4DD9;
+     ((==adobe-japan1-4	  . 13639)	; &g2-AJ1-13639;
+      (=jef-china3	  . #x4DD9)	; &I-JC3-4DD9;
+      (->subsumptive
+       ((===adobe-japan1-4  . 13639)	; &R-AJ1-13639;
+	)
+       ((===jef-china3	    . #x4DD9)	; &R-JC3-4DD9;
+	))
       )
      ((===hng-khm	  . 00420)	; &HNG011-00420;
       ))
@@ -12970,7 +15098,12 @@
     (=daikanwa		. 10927)	; &I-M-10927;
     (=jef-china3	. #x4EEE)	; &I-JC3-4EEE;
     (->subsumptive
-     ((==ucs@unicode	  . #x6111)	; &g2-AJ1-08461;
+     ((=decomposition@cid
+       ((=ucs		    . #x6111)	; 愑
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6111)	; &g2-AJ1-08461;
       (==adobe-japan1-2	  . 08461)	; &g2-AJ1-08461;
       (==jis-x0212	  . #x3E3D)	; &g2-AJ1-08461; [30-29]
       (==daikanwa	  . 10927)	; &g2-AJ1-08461;
@@ -13078,6 +15211,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x6112)	; 愒
+    (=adobe-japan1-4	. 14547)	; &I-AJ1-14547;
     (=jis-x0212		. #x3E3E)	; &I-JSP-3E3E; [30-30]
     (=cns11643-1	. #x5F3B)	; &I-C1-5F3B; [63-27]
     (=jis-x0213-2	. #x2C5B)	; &I-JX2-2C5B; [12-59]
@@ -13129,6 +15263,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x6113)	; 愓
+    (=adobe-japan1-4	. 14548)	; &I-AJ1-14548;
     (=jis-x0212		. #x3E3F)	; &I-JSP-3E3F; [30-31]
     (=cns11643-2	. #x3B68)	; &I-C2-3B68; [27-72]
     (=jis-x0213-2	. #x2C5C)	; &I-JX2-2C5C; [12-60]
@@ -13137,25 +15272,39 @@
     (=jef-china3	. #x4EC7)	; &I-JC3-4EC7;
     ))
 (define-char
-  '((=>ucs		. #x6114)	; 愔
-    (ideographic-radical . 61)	; ⼼
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (=ucs@jis		. #x6114)	; &JSP-3E40;
-    (=ucs@big5		. #x6114)	; &JSP-3E40;
-    (=jis-x0212		. #x3E40)	; &JSP-3E40; [30-32]
-    (=big5		. #xD8FE)	; &I-B-D8FE;
-    (=daikanwa		. 10937)	; &I-M-10937;
-    (=jef-china3	. #x4EC8)	; &I-JC3-4EC8;
-    ))
-(define-char
-  '((morohashi-daikanwa	10937 0 0)
-    (ideographic-radical . 61)	; ⼼
+  '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x6114)	; 愔
+    (=adobe-japan1-4	. 14549)	; &I-AJ1-14549;
+    (=jis-x0212		. #x3E40)	; &I-JSP-3E40; [30-32]
     (=iso-ir165		. #x7C6A)	; &I-EGB-7C6A; [92-74]
     (=cns11643-2	. #x3B62)	; &I-C2-3B62; [27-66]
+    (=big5		. #xD8FE)	; &I-B-D8FE;
+    (=daikanwa		. 10937)	; &I-M-10937;
+    (=jef-china3	. #x4EC8)	; &I-JC3-4EC8;
+    (->subsumptive
+     ((==ucs@unicode	  . #x6114)	; &g2-AJ1-14549;
+      (==adobe-japan1-4	  . 14549)	; &g2-AJ1-14549;
+      (==jis-x0212	  . #x3E40)	; &g2-AJ1-14549; [30-32]
+      (==iso-ir165	  . #x7C6A)	; &g2-AJ1-14549; [92-74]
+      (==cns11643-2	  . #x3B62)	; &g2-AJ1-14549; [27-66]
+      (==daikanwa	  . 10937)	; &g2-AJ1-14549;
+      (==jef-china3	  . #x4EC8)	; &g2-AJ1-14549;
+      (->subsumptive
+       ((===daikanwa	    . 10937)	; &R-M-10937;
+	)
+       ((===jis-x0212	    . #x3E40)	; &R-JSP-3E40; [30-32]
+	)
+       ((===adobe-japan1-4  . 14549)	; &R-AJ1-14549;
+	)
+       ((===jef-china3	    . #x4EC8)	; &R-JC3-4EC8;
+	)
+       ((===cns11643-2	    . #x3B62)	; &R-C2-3B62; [27-66]
+	)
+       ((===ucs@unicode	    . #x6114)	; &R-UU+6114;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x2274B)	; 𢝋
@@ -13204,7 +15353,12 @@
     (=daikanwa		. 10939)	; &I-M-10939;
     (=shinjigen		.  2581)	; 愕
     (->subsumptive
-     ((==ucs@unicode	  . #x6115)	; &g2-AJ1-04860;
+     ((=decomposition@cid
+       ((=ucs		    . #x6115)	; 愕
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6115)	; &g2-AJ1-04860;
       (==adobe-japan1-0	  . 04860)	; &g2-AJ1-04860;
       (==gb2312		  . #x6335)	; &g2-AJ1-04860; [67-21]
       (==ks-x1001	  . #x6443)	; &g2-AJ1-04860; [68-35]
@@ -13259,7 +15413,12 @@
       (=>>adobe-japan1-5  . 19365)	; &G-AJ1-19365;
       (=>>daikanwa	  . 10940)	; &G-AJ1-19365;
       (->subsumptive
-       ((==ucs@jis	    . #x6116)	; &g2-AJ1-19365;
+       ((=decomposition@cid
+	 ((=ucs		      . #x6116)	; 愖
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(==ucs@jis	    . #x6116)	; &g2-AJ1-19365;
 	(==adobe-japan1-5   . 19365)	; &g2-AJ1-19365;
 	(==jis-x0212	    . #x3E41)	; &g2-AJ1-19365; [30-33]
 	(==daikanwa	    . 10940)	; &g2-AJ1-19365;
@@ -13346,7 +15505,12 @@
     (=daikanwa		. 10944)	; &I-M-10944;
     (=cbeta		. 04945)	; &I-CB04945;
     (->subsumptive
-     ((ideographic-structure
+     ((=decomposition@cid
+       ((=ucs		    . #x6119)	; 愙
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
@@ -13392,6 +15556,14 @@
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x79BA)	; 禺
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
     (=ucs		. #x611A)	; 愚
     ))
 (define-char
@@ -13401,6 +15573,21 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x79BA)	; &GT-32088;
+      (=ucs@unicode	  . #x79BA)	; &GT-32088;
+      (=jis-x0208	  . #x633C)	; &GT-32088; [67-28]
+      (=gb2312		  . #x582E)	; &I-G0-582E; [56-14]
+      (=cns11643-1	  . #x526E)	; &I-C1-526E; [50-78]
+      (=jis-x0213-1	  . #x633C)	; &I-JX1-633C; [67-28]
+      (=daikanwa	  . 24886)	; &I-M-24886;
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (=>ucs@iwds-1	. #x611A)	; &AJ1-01770;
     (=ucs@unicode	. #x611A)	; &AJ1-01770;
     (=adobe-japan1-0	. 01770)	; &AJ1-01770;
     (=jis-x0208		. #x3672)	; &I-J90-3672; [22-82]
@@ -13424,7 +15611,12 @@
        ((===cns11643-1	    . #x6373)	; &R-C1-6373; [67-83]
 	))
       )
-     ((==ucs@unicode	  . #x611A)	; &g2-AJ1-01770;
+     ((=decomposition@cid
+       ((=ucs		    . #x611A)	; 愚
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x611A)	; &g2-AJ1-01770;
       (==adobe-japan1-0	  . 01770)	; &g2-AJ1-01770;
       (==gb2312		  . #x535E)	; &g2-AJ1-01770; [51-62]
       (==ks-x1001	  . #x6957)	; &g2-AJ1-01770; [73-55]
@@ -13456,18 +15648,35 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-001	  . #x79BA)	; &U-i001+79BA;
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
     (===hng-khi		. 00660)	; &HNG010-00660;
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
     (=ucs		. #x611B)	; 愛
-    (=big5		. #xB752)	; &I-B-B752;
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x611B)	; 愛
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (=>ucs@iwds-1	. #x611B)	; &A-IWDSU+611B;
+    (=>ucs@unicode	. #x611B)	; &A-IWDSU+611B;
+    (=big5		. #xB752)	; &A-IWDSU+611B;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x611B)	; &A-IWDSU+611B;
+      (=>ucs@unicode	  . #x611B)	; &A-IWDSU+611B;
       ))
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 9)
@@ -13500,16 +15709,12 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x611B)	; 愛
+     ((=>ucs@iwds-1	  . #x611B)	; &A-IWDSU+611B;
+      (=>ucs@unicode	  . #x611B)	; &A-IWDSU+611B;
       ))
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x611B)	; 愛
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
     (=ucs@unicode	. #x611B)	; &MJ011752;
     (=mj		. 011752)	; &MJ011752;
     (=adobe-japan1-0	. 01130)	; &I-AJ1-01130;
@@ -13521,6 +15726,43 @@
     (=gt		. 13779)	; &I-GT-13779;
     (=gt-pj-1		. #x3026)	; &I-GT-13779; [16-06]
     (=shinjigen		.  2574)	; &MJ011752;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x611B)	; 愛
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x611B)	; 愛
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@unicode	  . #x611B)	; &g2-MJ011752;
+      (==mj		  . 011752)	; &g2-MJ011752;
+      (==adobe-japan1-0	  . 01130)	; &g2-MJ011752;
+      (==ks-x1001	  . #x6471)	; &g2-MJ011752; [68-81]
+      (==jis-x0208	  . #x3026)	; &g2-MJ011752; [16-06]
+      (==jis-x0213-1	  . #x3026)	; &g2-MJ011752; [16-06]
+      (==gb12345	  . #x302E)	; &g2-MJ011752; [16-14]
+      (==hanyo-denshi/ja  . #x3026)	; &g2-MJ011752; [16-06]
+      (==gt		  . 13779)	; &g2-MJ011752;
+      (==shinjigen	  .  2574)	; &g2-MJ011752;
+      (->subsumptive
+       ((===jis-x0208	    . #x3026)	; &R-J0-3026; [16-06]
+	(===jis-x0213-1	    . #x3026)	; &R-J0-3026; [16-06]
+	)
+       ((===adobe-japan1-0  . 01130)	; &R-AJ1-01130;
+	)
+       ((===mj		    . 011752)	; &R-MJ011752;
+	)
+       ((===gt		    . 13779)	; &R-GT-13779;
+	)
+       ((===ucs@ks	    . #x611B)	; &R-K0-6471;
+	(===ks-x1001	    . #x6471)	; &R-K0-6471; [68-81]
+	)
+       ((===ucs@unicode	    . #x611B)	; &R-UU+611B;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -13559,6 +15801,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x611C)	; 愜
+    (=adobe-japan1-4	. 14550)	; &I-AJ1-14550;
     (=jis-x0212		. #x3E44)	; &I-JSP-3E44; [30-36]
     (=cns11643-1	. #x5F2E)	; &I-C1-5F2E; [63-14]
     (=jis-x0213-1	. #x7458)	; &I-JX1-7458; [84-56]
@@ -13567,18 +15810,21 @@
     (=daikanwa		. 10949)	; &I-M-10949;
     (=jef-china3	. #x4ECB)	; &I-JC3-4ECB;
     (->subsumptive
-     ((==ucs@cns	  . #x611C)	; &g2-JSP-3E44;
-      (==ucs@jis	  . #x611C)	; &g2-JSP-3E44;
-      (==jis-x0212	  . #x3E44)	; &g2-JSP-3E44; [30-36]
-      (==cns11643-1	  . #x5F2E)	; &g2-JSP-3E44; [63-14]
-      (==jis-x0213-1	  . #x7458)	; &g2-JSP-3E44; [84-56]
-      (==daikanwa	  . 10949)	; &g2-JSP-3E44;
-      (==jef-china3	  . #x4ECB)	; &g2-JSP-3E44;
+     ((==ucs@cns	  . #x611C)	; &g2-AJ1-14550;
+      (==ucs@jis	  . #x611C)	; &g2-AJ1-14550;
+      (==adobe-japan1-4	  . 14550)	; &g2-AJ1-14550;
+      (==jis-x0212	  . #x3E44)	; &g2-AJ1-14550; [30-36]
+      (==cns11643-1	  . #x5F2E)	; &g2-AJ1-14550; [63-14]
+      (==jis-x0213-1	  . #x7458)	; &g2-AJ1-14550; [84-56]
+      (==daikanwa	  . 10949)	; &g2-AJ1-14550;
+      (==jef-china3	  . #x4ECB)	; &g2-AJ1-14550;
       (->subsumptive
        ((===daikanwa	    . 10949)	; &R-M-10949;
 	)
        ((===jis-x0212	    . #x3E44)	; &R-JX1-7458; [30-36]
 	(===jis-x0213-1	    . #x7458)	; &R-JX1-7458; [84-56]
+	)
+       ((===adobe-japan1-4  . 14550)	; &R-AJ1-14550;
 	)
        ((===cns11643-1	    . #x5F2E)	; &R-C1-5F2E; [63-14]
 	)
@@ -13622,24 +15868,48 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x611E)	; 愞
+    (=adobe-japan1-5	. 17641)	; &I-AJ1-17641;
+    (=jis-x0212		. #x3E45)	; &I-JSP-3E45; [30-37]
+    (=cns11643-3	. #x3B61)	; &I-C3-3B61; [27-65]
+    (=jis-x0213-2	. #x2C5E)	; &I-JX2-2C5E; [12-62]
+    (=daikanwa		. 10951)	; &I-M-10951;
+    (=shinjigen		.  2728)	; 愞
+    (=cbeta		. 01458)	; &I-CB01458;
+    (<-formed
+     ((=ucs		  . #x61E6)	; 懦
+      (=jis-x0208	  . #x586F)	; &I-J90-586F; [56-79]
+      (=shinjigen	  .  2727)	; 懦
+      ))
+    (<-formed*sources
+     shinjigen)
     (->subsumptive
-     ((=ucs@unicode	  . #x611E)	; &AJ1-17641;
-      (=adobe-japan1-5	  . 17641)	; &AJ1-17641;
-      (=jis-x0212	  . #x3E45)	; &I-JSP-3E45; [30-37]
-      (=jis-x0213-2	  . #x2C5E)	; &I-JX2-2C5E; [12-62]
-      (=daikanwa	  . 10951)	; &I-M-10951;
-      (=shinjigen	  .  2728)	; &AJ1-17641;
-      (=cbeta		  . 01458)	; &I-CB01458;
-      (<-formed
-       ((=ucs@unicode	    . #x61E6)	; &AJ1-04920;
-	(=adobe-japan1-0    . 04920)	; &AJ1-04920;
-	(=jis-x0208	    . #x586F)	; &I-J90-586F; [56-79]
-	(=shinjigen	    .  2727)	; &AJ1-04920;
+     ((=decomposition@cid
+       ((=ucs		    . #x611E)	; 愞
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (<-formed*sources
-       shinjigen)
+      (==ucs@unicode	  . #x611E)	; &g2-AJ1-17641;
+      (==adobe-japan1-5	  . 17641)	; &g2-AJ1-17641;
+      (==jis-x0212	  . #x3E45)	; &g2-AJ1-17641; [30-37]
+      (==jis-x0213-2	  . #x2C5E)	; &g2-AJ1-17641; [12-62]
+      (==daikanwa	  . 10951)	; &g2-AJ1-17641;
+      (==shinjigen	  .  2728)	; &g2-AJ1-17641;
+      (==cbeta		  . 01458)	; &g2-AJ1-17641;
+      (->subsumptive
+       ((===daikanwa	    . 10951)	; &R-M-10951;
+	)
+       ((===jis-x0212	    . #x3E45)	; &R-JX2-2C5E; [30-37]
+	(===jis-x0213-2	    . #x2C5E)	; &R-JX2-2C5E; [12-62]
+	)
+       ((===adobe-japan1-5  . 17641)	; &R-AJ1-17641;
+	)
+       ((===ucs@unicode	    . #x611E)	; &R-UU+611E;
+	)
+       ((===cbeta	    . 01458)	; &R-CB01458;
+	))
       )
-     ((=cns11643-3	  . #x3B61)	; &C3-3B61; [27-65]
+     ((==ucs@cns	  . #x611E)	; &g2-CU+611E;
+      (==cns11643-3	  . #x3B61)	; &g2-CU+611E; [27-65]
       ))
     ))
 (define-char
@@ -13669,7 +15939,12 @@
     (=daikanwa		. 10953)	; &I-M-10953;
     (=shinjigen		.  2583)	; 感
     (->subsumptive
-     ((==ucs@unicode	  . #x611F)	; &g2-AJ1-01522;
+     ((=decomposition@cid
+       ((=ucs		    . #x611F)	; 感
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x611F)	; &g2-AJ1-01522;
       (==adobe-japan1-0	  . 01522)	; &g2-AJ1-01522;
       (==gb2312		  . #x3850)	; &g2-AJ1-01522; [24-48]
       (==ks-x1001	  . #x4A6F)	; &g2-AJ1-01522; [42-79]
@@ -14027,6 +16302,15 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5179)	; 兹
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (=>ucs@iwds-1	. #x6148)	; &AJ1-02250;
     (=ucs@unicode	. #x6148)	; &AJ1-02250;
     (=adobe-japan1-0	. 02250)	; &AJ1-02250;
     (=jis-x0208		. #x3B7C)	; &I-J90-3B7C; [27-92]
@@ -14041,13 +16325,18 @@
     (=gt-pj-1		. #x3B7C)	; &I-GT-13846; [27-92]
     (=daikanwa/+p	. 10980)	; &AJ1-02250;
     (<-simplified@misc
-     ((=cns11643-3	  . #x4670)	; &HD-KS-124660; [38-80]
+     ((=ucs		  . #x2F8A6)	; 慈
       (=daikanwa	  . 11048)	; &I-M-11048;
       ))
     (<-simplified@misc*sources
      daikanwa)
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x6148)	; 慈
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x6148)	; 慈
 	)
        ((=ucs		    . #xE0102)	; 󠄂
@@ -14094,13 +16383,23 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x6148)	; 慈
-      )
-     ((=ucs		  . #xE0103)	; 󠄃
+    (=mj		. 011804)	; &MJ011804;
+    (=hanyo-denshi/ks	. 125550)	; &MJ011804;
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x6148)	; 慈
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==mj		  . 011804)	; &g2-MJ011804;
+      (==hanyo-denshi/ks  . 125550)	; &g2-MJ011804;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 125550)	; &R-HD-KS-125550;
+	(=hanyo-denshi/ks/mf . #x310B)	; &R-HD-KS-125550;
+	)
+       ((===mj		    . 011804)	; &R-MJ011804;
+	))
       ))
-    (=hanyo-denshi/ks	. 125550)	; &HD-KS-125550;
-    (=hanyo-denshi/ks/mf . #x310B)	; &HD-KS-125550;
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -14144,6 +16443,24 @@
     (<-simplified@JP/jis
      ((=ucs		  . #x619A)	; 憚
       (=jis-x0208	  . #x585F)	; &I-J90-585F; [56-63]
+      ))
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x60EE)	; 惮
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x60EE)	; &g2-AJ1-17637;
+      (==adobe-japan1-5	  . 17637)	; &g2-AJ1-17637;
+      (==jis-x0213-2	  . #x2C57)	; &g2-AJ1-17637; [12-55]
+      (==gt		  . 13717)	; &g2-AJ1-17637;
+      (->subsumptive
+       ((===jis-x0213-2	    . #x2C57)	; &R-JX2-2C57; [12-55]
+	)
+       ((===adobe-japan1-5  . 17637)	; &R-AJ1-17637;
+	)
+       ((===gt		    . 13717)	; &R-GT-13717;
+	))
       ))
     ))
 (define-char
@@ -14227,7 +16544,12 @@
       (=daikanwa	  . 10982)	; &I-M-10982;
       (=shinjigen	  .  2624)	; &AJ1-04876;
       (->subsumptive
-       ((==ucs@jis	    . #x6127)	; &g2-AJ1-04876;
+       ((=decomposition@cid
+	 ((=ucs		      . #x6127)	; 愧
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(==ucs@jis	    . #x6127)	; &g2-AJ1-04876;
 	(==ucs@ks	    . #x6127)	; &g2-AJ1-04876;
 	(==adobe-japan1-0   . 04876)	; &g2-AJ1-04876;
 	(==ks-x1001	    . #x4E57)	; &g2-AJ1-04876; [46-55]
@@ -14279,7 +16601,12 @@
     (=daikanwa		. 10983)	; &I-M-10983;
     (=shinjigen		.  2622)	; 愨
     (->subsumptive
-     ((==ucs@jis	  . #x6128)	; &g2-AJ1-04875;
+     ((=decomposition@cid
+       ((=ucs		    . #x6128)	; 愨
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x6128)	; &g2-AJ1-04875;
       (==adobe-japan1-0	  . 04875)	; &g2-AJ1-04875;
       (==jis-x0208	  . #x5842)	; &g2-AJ1-04875; [56-34]
       (==jis-x0213-1	  . #x5842)	; &g2-AJ1-04875; [56-34]
@@ -14340,7 +16667,12 @@
     (=daikanwa		. 10986)	; &I-M-10986;
     (=jef-china3	. #x4ECD)	; &I-JC3-4ECD;
     (->subsumptive
-     ((==ucs@cns	  . #x612B)	; &g2-AJ1-16868;
+     ((=decomposition@cid
+       ((=ucs		    . #x612B)	; 愫
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x612B)	; &g2-AJ1-16868;
       (==ucs@jis	  . #x612B)	; &g2-AJ1-16868;
       (==adobe-japan1-5	  . 16868)	; &g2-AJ1-16868;
       (==jis-x0212	  . #x3E48)	; &g2-AJ1-16868; [30-40]
@@ -14386,20 +16718,71 @@
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (=ucs		. #x612C)	; 愬
-    (=big5		. #xE1C2)	; &I-B-E1C2;
-    (->subsumptive
-     ((=daikanwa	  . 10988)	; &M-10988;
-      (=shinjigen	  .  2633)	; &M-10988;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x612C)	; &AJ1-04880;
-      (=adobe-japan1-0	  . 04880)	; &AJ1-04880;
-      (=jis-x0208	  . #x5847)	; &I-J90-5847; [56-39]
-      (=cns11643-2	  . #x4A29)	; &I-C2-4A29; [42-09]
-      (=jis-x0213-1	  . #x5847)	; &I-JX1-5847; [56-39]
-      (=gt		  . 13988)	; &I-GT-13988;
-      (=gt-k		  . 11206)	; &I-GT-K11206;
-      (=gt-pj-1		  . #x5847)	; &I-GT-13988; [56-39]
+     ((=ucs		  . #x6714)	; 朔
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (=ucs		. #x612C)	; 愬
+    (=adobe-japan1-0	. 04880)	; &I-AJ1-04880;
+    (=jis-x0208		. #x5847)	; &I-J90-5847; [56-39]
+    (=cns11643-2	. #x4A29)	; &I-C2-4A29; [42-09]
+    (=jis-x0213-1	. #x5847)	; &I-JX1-5847; [56-39]
+    (=big5		. #xE1C2)	; &I-B-E1C2;
+    (=gt		. 13988)	; &I-GT-13988;
+    (=gt-k		. 11206)	; &I-GT-K11206;
+    (=gt-pj-1		. #x5847)	; &I-GT-13988; [56-39]
+    (=daikanwa		. 10988)	; &I-M-10988;
+    (=shinjigen		.  2633)	; 愬
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((==hanyo-denshi/ks  . 161460)	; &g2-HD-KS-161460;
+	)
+       ((=ucs		    . #x5FC3)	; 心
+	))
+      (==daikanwa	  . 10988)	; &g2-M-10988;
+      (==shinjigen	  .  2633)	; &g2-M-10988;
+      )
+     ((=decomposition@cid
+       ((=ucs		    . #x612C)	; 愬
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((==ucs@unicode	    . #x6714)	; &g2-AJ1-02147;
+	(==adobe-japan1-0   . 02147)	; &g2-AJ1-02147;
+	)
+       ((=ucs		    . #x5FC3)	; 心
+	))
+      (==ucs@unicode	  . #x612C)	; &g2-AJ1-04880;
+      (==adobe-japan1-0	  . 04880)	; &g2-AJ1-04880;
+      (==jis-x0208	  . #x5847)	; &g2-AJ1-04880; [56-39]
+      (==cns11643-2	  . #x4A29)	; &g2-AJ1-04880; [42-09]
+      (==jis-x0213-1	  . #x5847)	; &g2-AJ1-04880; [56-39]
+      (==gt		  . 13988)	; &g2-AJ1-04880;
+      (==gt-k		  . 11206)	; &g2-AJ1-04880;
+      (->subsumptive
+       ((===jis-x0208	    . #x5847)	; &R-J0-5847; [56-39]
+	(===jis-x0213-1	    . #x5847)	; &R-J0-5847; [56-39]
+	)
+       ((===adobe-japan1-0  . 04880)	; &R-AJ1-04880;
+	)
+       ((===cns11643-2	    . #x4A29)	; &R-C2-4A29; [42-09]
+	)
+       ((===gt		    . 13988)	; &R-GT-13988;
+	(===gt-k	    . 11206)	; &R-GT-13988;
+	)
+       ((===ucs@unicode	    . #x612C)	; &R-UU+612C;
+	))
       ))
     ))
 (define-char
@@ -14575,7 +16958,12 @@
     (=cbeta		. 00391)	; &I-CB00391;
     (=jef-china3	. #x4ECF)	; &I-JC3-4ECF;
     (->subsumptive
-     ((==ucs@unicode	  . #x6131)	; &g2-AJ1-21575;
+     ((=decomposition@cid
+       ((=ucs		    . #x6131)	; 愱
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6131)	; &g2-AJ1-21575;
       (==adobe-japan1-6	  . 21575)	; &g2-AJ1-21575;
       (==jis-x0212	  . #x3E4A)	; &g2-AJ1-21575; [30-42]
       (==daikanwa	  . 10998)	; &g2-AJ1-21575;
@@ -14643,16 +17031,36 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x396F)	; 㥯
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
     (=ucs@jis		. #x396F)	; &AJ1-17643;
     (=adobe-japan1-5	. 17643)	; &AJ1-17643;
     (=jis-x0213-2	. #x2C60)	; &I-JX2-2C60; [12-64]
     (=hanyo-denshi/jd	. #x2C60)	; &I-HD-JD-2C60; [12-64]
     (=daikanwa		. 11002)	; &I-M-11002;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x396F)	; 㥯
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x396F)	; 㥯
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@jis	  . #x396F)	; &g2-AJ1-17643;
+      (==adobe-japan1-5	  . 17643)	; &g2-AJ1-17643;
+      (==jis-x0213-2	  . #x2C60)	; &g2-AJ1-17643; [12-64]
+      (==hanyo-denshi/jd  . #x2C60)	; &g2-AJ1-17643; [12-64]
+      (==daikanwa	  . 11002)	; &g2-AJ1-17643;
+      (->subsumptive
+       ((===daikanwa	    . 11002)	; &R-M-11002;
+	)
+       ((===jis-x0213-2	    . #x2C60)	; &R-JX2-2C60; [12-64]
+	(===hanyo-denshi/jd . #x2C60)	; &R-JX2-2C60; [12-64]
+	)
+       ((===adobe-japan1-5  . 17643)	; &R-AJ1-17643;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -14818,7 +17226,12 @@
     (=daikanwa		. 11008)	; &I-M-11008;
     (=shinjigen		.  2634)	; 愴
     (->subsumptive
-     ((==ucs@cns	  . #x6134)	; &g2-AJ1-04881;
+     ((=decomposition@cid
+       ((=ucs		    . #x6134)	; 愴
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x6134)	; &g2-AJ1-04881;
       (==ucs@jis	  . #x6134)	; &g2-AJ1-04881;
       (==ucs@ks		  . #x6134)	; &g2-AJ1-04881;
       (==adobe-japan1-0	  . 04881)	; &g2-AJ1-04881;
@@ -14885,7 +17298,12 @@
     (=daikanwa		. 11011)	; &I-M-11011;
     (=cbeta		. 00390)	; &I-CB00390;
     (->subsumptive
-     ((==ucs@jis	  . #x6135)	; &g2-AJ1-21576;
+     ((=decomposition@cid
+       ((=ucs		    . #x6135)	; 愵
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x6135)	; &g2-AJ1-21576;
       (==adobe-japan1-6	  . 21576)	; &g2-AJ1-21576;
       (==jis-x0212	  . #x3E4B)	; &g2-AJ1-21576; [30-43]
       (==daikanwa	  . 11011)	; &g2-AJ1-21576;
@@ -14929,15 +17347,33 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (=ucs		. #x6136)	; 愶
+    (=adobe-japan1-5	. 19367)	; &I-AJ1-19367;
+    (=jis-x0212		. #x3E4C)	; &I-JSP-3E4C; [30-44]
+    (=cns11643-2	. #x4270)	; &I-C2-4270; [34-80]
     (=big5		. #xDD6A)	; &I-B-DD6A;
+    (=daikanwa		. 11013)	; &I-M-11013;
     (->subsumptive
-     ((=ucs@unicode	  . #x6136)	; &AJ1-19367;
-      (=adobe-japan1-5	  . 19367)	; &AJ1-19367;
-      (=jis-x0212	  . #x3E4C)	; &I-JSP-3E4C; [30-44]
-      (=daikanwa	  . 11013)	; &I-M-11013;
+     ((=decomposition@cid
+       ((=ucs		    . #x6136)	; 愶
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6136)	; &g2-AJ1-19367;
+      (==adobe-japan1-5	  . 19367)	; &g2-AJ1-19367;
+      (==jis-x0212	  . #x3E4C)	; &g2-AJ1-19367; [30-44]
+      (==daikanwa	  . 11013)	; &g2-AJ1-19367;
+      (->subsumptive
+       ((===daikanwa	    . 11013)	; &R-M-11013;
+	)
+       ((===jis-x0212	    . #x3E4C)	; &R-JSP-3E4C; [30-44]
+	)
+       ((===adobe-japan1-5  . 19367)	; &R-AJ1-19367;
+	)
+       ((===ucs@unicode	    . #x6136)	; &R-UU+6136;
+	))
       )
-     ((=ucs@cns		  . #x6136)	; &C2-4270;
-      (=cns11643-2	  . #x4270)	; &C2-4270; [34-80]
+     ((==ucs@cns	  . #x6136)	; &g2-CU+6136;
+      (==cns11643-2	  . #x4270)	; &g2-CU+6136; [34-80]
       ))
     ))
 (define-char
@@ -15024,7 +17460,12 @@
     (=daikanwa		. 11019)	; &I-M-11019;
     (=jef-china3	. #x4ED1)	; &I-JC3-4ED1;
     (->subsumptive
-     ((==ucs@unicode	  . #x6139)	; &g2-AJ1-21577;
+     ((=decomposition@cid
+       ((=ucs		    . #x6139)	; 愹
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6139)	; &g2-AJ1-21577;
       (==adobe-japan1-6	  . 21577)	; &g2-AJ1-21577;
       (==jis-x0212	  . #x3E4E)	; &g2-AJ1-21577; [30-46]
       (==cns11643-6	  . #x5264)	; &g2-AJ1-21577; [50-68]
@@ -15083,15 +17524,34 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x613A)	; 愺
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
     (=ucs@unicode	. #x613A)	; &AJ1-17642;
     (=adobe-japan1-5	. 17642)	; &AJ1-17642;
     (=jis-x0213-2	. #x2C5F)	; &I-JX2-2C5F; [12-63]
     (=hanyo-denshi/jd	. #x2C5F)	; &I-HD-JD-2C5F; [12-63]
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x613A)	; 愺
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x613A)	; 愺
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@unicode	  . #x613A)	; &g2-AJ1-17642;
+      (==adobe-japan1-5	  . 17642)	; &g2-AJ1-17642;
+      (==jis-x0213-2	  . #x2C5F)	; &g2-AJ1-17642; [12-63]
+      (==hanyo-denshi/jd  . #x2C5F)	; &g2-AJ1-17642; [12-63]
+      (->subsumptive
+       ((===jis-x0213-2	    . #x2C5F)	; &R-JX2-2C5F; [12-63]
+	(===hanyo-denshi/jd . #x2C5F)	; &R-JX2-2C5F; [12-63]
+	)
+       ((===adobe-japan1-5  . 17642)	; &R-AJ1-17642;
+	)
+       ((===ucs@unicode	    . #x613A)	; &R-UU+613A;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -15120,22 +17580,126 @@
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=ucs		  . #x771E)	; 眞
+      ))
+    (=ucs		. #x613C)	; 愼
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x613C)	; 愼
+      ))
+    (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=ucs		. #x613C)	; 愼
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=ucs@unicode	  . #x771E)	; &HD-JA-6243;
+      (=jis-x0208	  . #x6243)	; &HD-JA-6243; [66-35]
+      (=ks-x1001	  . #x7258)	; &I-K0-7258; [82-56]
+      (=cns11643-3	  . #x3759)	; &I-C3-3759; [23-57]
+      (=jis-x0213-1	  . #x6243)	; &I-JX1-6243; [66-35]
+      (=daikanwa	  . 23235)	; &I-M-23235;
+      ))
+    (=ucs@unicode	. #x613C)	; &AJ1-04879;
+    (=adobe-japan1-0	. 04879)	; &AJ1-04879;
+    (=jis-x0208		. #x5846)	; &I-J90-5846; [56-38]
+    (=ks-x1001		. #x6365)	; &I-K0-6365; [67-69]
+    (=cns11643-3	. #x466C)	; &I-C3-466C; [38-76]
+    (=jis-x0213-1	. #x5846)	; &I-JX1-5846; [56-38]
+    (=gt		. 13857)	; &I-GT-13857;
+    (=gt-pj-1		. #x5846)	; &I-GT-13857; [56-38]
+    (=daikanwa		. 11024)	; &I-M-11024;
+    (=shinjigen		.  2631)	; &AJ1-04879;
     (->subsumptive
-     ((=daikanwa	  . 11024)	; &M-11024;
+     ((=decomposition@cid
+       ((=ucs		    . #x613C)	; 愼
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL HEART ONE")
+	(=ucs		    . #x2E96)	; ⺖
+	)
+       ((==ucs@unicode	    . #x771E)	; &g2-HD-JA-6243;
+	(==jis-x0208	    . #x6243)	; &g2-HD-JA-6243; [66-35]
+	))
+      (==ucs@unicode	  . #x613C)	; &g2-AJ1-04879;
+      (==adobe-japan1-0	  . 04879)	; &g2-AJ1-04879;
+      (==ks-x1001	  . #x6365)	; &g2-AJ1-04879; [67-69]
+      (==jis-x0208	  . #x5846)	; &g2-AJ1-04879; [56-38]
+      (==jis-x0213-1	  . #x5846)	; &g2-AJ1-04879; [56-38]
+      (==gt		  . 13857)	; &g2-AJ1-04879;
+      (==daikanwa	  . 11024)	; &g2-AJ1-04879;
+      (==shinjigen	  .  2631)	; &g2-AJ1-04879;
+      (->subsumptive
+       ((===daikanwa	    . 11024)	; &R-M-11024;
+	)
+       ((===jis-x0208	    . #x5846)	; &R-J0-5846; [56-38]
+	(===jis-x0213-1	    . #x5846)	; &R-J0-5846; [56-38]
+	)
+       ((===adobe-japan1-0  . 04879)	; &R-AJ1-04879;
+	)
+       ((===gt		    . 13857)	; &R-GT-13857;
+	)
+       ((===ucs@ks	    . #x613C)	; &R-K0-6365;
+	(===ks-x1001	    . #x6365)	; &R-K0-6365; [67-69]
+	)
+       ((===ucs@unicode	    . #x613C)	; &R-UU+613C;
+	))
       )
-     ((=ucs@unicode	  . #x613C)	; &AJ1-04879;
-      (=adobe-japan1-0	  . 04879)	; &AJ1-04879;
-      (=jis-x0208	  . #x5846)	; &I-J90-5846; [56-38]
-      (=ks-x1001	  . #x6365)	; &I-K0-6365; [67-69]
-      (=jis-x0213-1	  . #x5846)	; &I-JX1-5846; [56-38]
-      (=gt		  . 13857)	; &I-GT-13857;
-      (=gt-pj-1		  . #x5846)	; &I-GT-13857; [56-38]
-      (=shinjigen	  .  2631)	; &AJ1-04879;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL HEART ONE")
+	(=ucs		    . #x2E96)	; ⺖
+	)
+       ((==ucs@cns	    . #x771E)	; &g2-CU+771E;
+	(==cns11643-3	    . #x3759)	; &g2-CU+771E; [23-57]
+	))
+      (==ucs@cns	  . #x613C)	; &g2-CU+613C;
+      (==cns11643-3	  . #x466C)	; &g2-CU+613C; [38-76]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x613C)	; 愼
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-3	  . #x466C)	; &C3-466C; [38-76]
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=hanyo-denshi/jt	  . #xB651)	; &HD-JT-B651;
+      ))
+    (=adobe-japan1-4	. 13356)	; &AJ1-13356;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x614E)	; 慎
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==adobe-japan1-4	  . 13356)	; &g2-AJ1-13356;
       ))
     ))
 (define-char
@@ -15165,6 +17729,35 @@
      ((=ucs@unicode	  . #x613C)	; &AJ1-04879;
       (=adobe-japan1-0	  . 04879)	; &AJ1-04879;
       (=jis-x0208	  . #x5846)	; &I-J90-5846; [56-38]
+      ))
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x614E)	; 慎
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@iso	  . #x2F8A8)	; &g2-AJ1-02555;
+      (==ucs@jis	  . #x614E)	; &g2-AJ1-02555;
+      (==adobe-japan1-0	  . 02555)	; &g2-AJ1-02555;
+      (==jis-x0208	  . #x3F35)	; &g2-AJ1-02555; [31-21]
+      (==cns11643-6	  . #x5266)	; &g2-AJ1-02555; [50-70]
+      (==jis-x0213-1	  . #x3F35)	; &g2-AJ1-02555; [31-21]
+      (==gt		  . 13858)	; &g2-AJ1-02555;
+      (==daikanwa/+p	  . 11024)	; &g2-AJ1-02555;
+      (->subsumptive
+       ((===daikanwa/+p	    . 11024)	; &R-M-p11024;
+	)
+       ((===jis-x0208	    . #x3F35)	; &R-J0-3F35; [31-21]
+	(===jis-x0213-1	    . #x3F35)	; &R-J0-3F35; [31-21]
+	)
+       ((===adobe-japan1-0  . 02555)	; &R-AJ1-02555;
+	)
+       ((===cns11643-6	    . #x5266)	; &R-C6-5266; [50-70]
+	)
+       ((===gt		    . 13858)	; &R-GT-13858;
+	)
+       ((===ucs@iso	    . #x2F8A8)	; &R-U-0002F8A8;
+	))
       ))
     ))
 (define-char
@@ -15303,6 +17896,15 @@
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=ucs		  . #x5C03)	; 尃
+      ))
     (=ucs		. #x613D)	; 愽
     ))
 (define-char
@@ -15312,8 +17914,19 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=ucs@unicode	. #x613D)	; &AJ1-04882;
-    (=adobe-japan1-0	. 04882)	; &AJ1-04882;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=ucs@unicode	  . #x5C03)	; &AJ1-17537;
+      (=adobe-japan1-5	  . 17537)	; &AJ1-17537;
+      ))
+    (=ucs@unicode	. #x613D)	; &AJ1-13540;
+    (=adobe-japan1-0	. 04882)	; &AJ1-13540;
+    (=adobe-japan1-4	. 13540)	; &I-AJ1-13540;
     (=jis-x0208		. #x5849)	; &I-J90-5849; [56-41]
     (=cns11643-3	. #x412E)	; &I-C3-412E; [33-14]
     (=jis-x0213-1	. #x5849)	; &I-JX1-5849; [56-41]
@@ -15323,17 +17936,25 @@
     (=daikanwa		. 11028)	; &I-M-11028;
     (=cbeta		. 00397)	; &I-CB00397;
     (->subsumptive
-     ((==jis-x0208@1978	  . #x5849)	; &g2-M-11028; [56-41]
-      (==jis-x0208@1983	  . #x5849)	; &g2-M-11028; [56-41]
-      (==daikanwa	  . 11028)	; &g2-M-11028;
+     ((==adobe-japan1-4	  . 13540)	; &g2-AJ1-13540;
+      (==jis-x0208@1978	  . #x5849)	; &g2-AJ1-13540; [56-41]
+      (==jis-x0208@1983	  . #x5849)	; &g2-AJ1-13540; [56-41]
+      (==daikanwa	  . 11028)	; &g2-AJ1-13540;
       (->subsumptive
        ((===daikanwa	    . 11028)	; &R-M-11028;
 	)
        ((===jis-x0208@1978  . #x5849)	; &R-J83-5849; [56-41]
 	(===jis-x0208@1983  . #x5849)	; &R-J83-5849; [56-41]
+	)
+       ((===adobe-japan1-4  . 13540)	; &R-AJ1-13540;
 	))
       )
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x613D)	; 愽
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x613D)	; 愽
 	)
        ((=ucs		    . #xE0102)	; 󠄂
@@ -15369,32 +17990,84 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x613D)	; 愽
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #xE0103)	; 󠄃
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=hanyo-denshi/tk	  . 01023430)	; &HD-TK-01023430;
       ))
     (=hanyo-denshi/ft	. #x3578)	; &HD-FT-3578; [21-88]
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x613D)	; 愽
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL HEART ONE")
+	(=ucs		    . #x2E96)	; ⺖
+	)
+       ((==hanyo-denshi/tk  . 01023430)	; &g2-HD-TK-01023430;
+	(=hanyo-denshi/tk/mf-01 . #x0927)	; &g2-HD-TK-01023430;
+	))
+      (==hanyo-denshi/ft  . #x3578)	; &g2-HD-FT-3578; [21-88]
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (=ucs		. #x613E)	; 愾
+    (=adobe-japan1-0	. 04874)	; &I-AJ1-04874;
+    (=jis-x0208		. #x5841)	; &I-J90-5841; [56-33]
+    (=ks-x1001		. #x4B45)	; &I-K0-4B45; [43-37]
+    (=cns11643-1	. #x6422)	; &I-C1-6422; [68-02]
+    (=jis-x0213-1	. #x5841)	; &I-JX1-5841; [56-33]
+    (=gb12345		. #x6269)	; 愾 [66-73]
     (=big5		. #xB75A)	; &I-B-B75A;
+    (=gt		. 13799)	; &I-GT-13799;
+    (=gt-pj-1		. #x5841)	; &I-GT-13799; [56-33]
+    (=daikanwa		. 11029)	; &I-M-11029;
+    (=shinjigen		.  2626)	; 愾
     (->subsumptive
-     ((=ucs@unicode	  . #x613E)	; &AJ1-04874;
-      (=adobe-japan1-0	  . 04874)	; &AJ1-04874;
-      (=jis-x0208	  . #x5841)	; &I-J90-5841; [56-33]
-      (=ks-x1001	  . #x4B45)	; &I-K0-4B45; [43-37]
-      (=jis-x0213-1	  . #x5841)	; &I-JX1-5841; [56-33]
-      (=gb12345		  . #x6269)	; &AJ1-04874; [66-73]
-      (=gt		  . 13799)	; &I-GT-13799;
-      (=gt-pj-1		  . #x5841)	; &I-GT-13799; [56-33]
-      (=daikanwa	  . 11029)	; &I-M-11029;
-      (=shinjigen	  .  2626)	; &AJ1-04874;
+     ((=decomposition@cid
+       ((=ucs		    . #x613E)	; 愾
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x613E)	; &g2-AJ1-04874;
+      (==adobe-japan1-0	  . 04874)	; &g2-AJ1-04874;
+      (==ks-x1001	  . #x4B45)	; &g2-AJ1-04874; [43-37]
+      (==jis-x0208	  . #x5841)	; &g2-AJ1-04874; [56-33]
+      (==jis-x0213-1	  . #x5841)	; &g2-AJ1-04874; [56-33]
+      (==gb12345	  . #x6269)	; &g2-AJ1-04874; [66-73]
+      (==gt		  . 13799)	; &g2-AJ1-04874;
+      (==daikanwa	  . 11029)	; &g2-AJ1-04874;
+      (==shinjigen	  .  2626)	; &g2-AJ1-04874;
+      (->subsumptive
+       ((===daikanwa	    . 11029)	; &R-M-11029;
+	)
+       ((===jis-x0208	    . #x5841)	; &R-J0-5841; [56-33]
+	(===jis-x0213-1	    . #x5841)	; &R-J0-5841; [56-33]
+	)
+       ((===adobe-japan1-0  . 04874)	; &R-AJ1-04874;
+	)
+       ((===gt		    . 13799)	; &R-GT-13799;
+	)
+       ((===ucs@ks	    . #x613E)	; &R-K0-4B45;
+	(===ks-x1001	    . #x4B45)	; &R-K0-4B45; [43-37]
+	)
+       ((===ucs@unicode	    . #x613E)	; &R-UU+613E;
+	))
       )
-     ((=cns11643-1	  . #x6422)	; &C1-6422; [68-02]
+     ((==ucs@cns	  . #x613E)	; &g2-CU+613E;
+      (==cns11643-1	  . #x6422)	; &g2-CU+613E; [68-02]
       ))
     ))
 (define-char
@@ -15474,14 +18147,36 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (=ucs		. #x6141)	; 慁
+    (=adobe-japan1-5	. 17644)	; &I-AJ1-17644;
+    (=jis-x0212		. #x3E4F)	; &I-JSP-3E4F; [30-47]
+    (=cns11643-2	. #x4A2B)	; &I-C2-4A2B; [42-11]
+    (=jis-x0213-2	. #x2C61)	; &I-JX2-2C61; [12-65]
     (=big5		. #xE1C4)	; &I-B-E1C4;
+    (=daikanwa		. 11035)	; &I-M-11035;
     (->subsumptive
-     ((=ucs@unicode	  . #x6141)	; &AJ1-17644;
-      (=adobe-japan1-5	  . 17644)	; &AJ1-17644;
-      (=jis-x0212	  . #x3E4F)	; &I-JSP-3E4F; [30-47]
-      (=cns11643-2	  . #x4A2B)	; &I-C2-4A2B; [42-11]
-      (=jis-x0213-2	  . #x2C61)	; &I-JX2-2C61; [12-65]
-      (=daikanwa	  . 11035)	; &I-M-11035;
+     ((=decomposition@cid
+       ((=ucs		    . #x6141)	; 慁
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6141)	; &g2-AJ1-17644;
+      (==adobe-japan1-5	  . 17644)	; &g2-AJ1-17644;
+      (==jis-x0212	  . #x3E4F)	; &g2-AJ1-17644; [30-47]
+      (==cns11643-2	  . #x4A2B)	; &g2-AJ1-17644; [42-11]
+      (==jis-x0213-2	  . #x2C61)	; &g2-AJ1-17644; [12-65]
+      (==daikanwa	  . 11035)	; &g2-AJ1-17644;
+      (->subsumptive
+       ((===daikanwa	    . 11035)	; &R-M-11035;
+	)
+       ((===jis-x0212	    . #x3E4F)	; &R-JX2-2C61; [30-47]
+	(===jis-x0213-2	    . #x2C61)	; &R-JX2-2C61; [12-65]
+	)
+       ((===adobe-japan1-5  . 17644)	; &R-AJ1-17644;
+	)
+       ((===cns11643-2	    . #x4A2B)	; &R-C2-4A2B; [42-11]
+	)
+       ((===ucs@unicode	    . #x6141)	; &R-UU+6141;
+	))
       ))
     ))
 (define-char
@@ -15571,24 +18266,115 @@
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=ucs		. #x6144)	; 慄
-    (=big5		. #xB758)	; &I-B-B758;
-    (->subsumptive
-     ((=ucs@unicode	  . #x6144)	; &AJ1-04884;
-      (=adobe-japan1-0	  . 04884)	; &AJ1-04884;
-      (=jis-x0208	  . #x584B)	; &I-J90-584B; [56-43]
-      (=ks-x1001	  . #x5749)	; &I-K0-5749; [55-41]
-      (=jis-x0213-1	  . #x584B)	; &I-JX1-584B; [56-43]
-      (=gt		  . 13918)	; &I-GT-13918;
-      (=gt-pj-1		  . #x584B)	; &I-GT-13918; [56-43]
-      (=daikanwa	  . 11042)	; &I-M-11042;
-      (=shinjigen	  .  2640)	; &AJ1-04884;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-1	  . #x637E)	; &C1-637E; [67-94]
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=ucs		  . #x6817)	; 栗
+      ))
+    (=ucs		. #x6144)	; 慄
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6144)	; 慄
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=ucs@unicode	  . #x6817)	; &GT-18817;
+      (=jis-x0208	  . #x372A)	; &GT-18817; [23-10]
+      (=gb2312		  . #x4075)	; &I-G0-4075; [32-85]
+      (=ks-x1001	  . #x574A)	; &I-K0-574A; [55-42]
+      (=cns11643-1	  . #x5623)	; &I-C1-5623; [54-03]
+      (=jis-x0213-1	  . #x372A)	; &I-JX1-372A; [23-10]
+      (=daikanwa	  . 14695)	; &I-M-14695;
+      ))
+    (=ucs@unicode	. #x6144)	; &AJ1-04884;
+    (=adobe-japan1-0	. 04884)	; &AJ1-04884;
+    (=jis-x0208		. #x584B)	; &I-J90-584B; [56-43]
+    (=ks-x1001		. #x5749)	; &I-K0-5749; [55-41]
+    (=cns11643-1	. #x637E)	; &I-C1-637E; [67-94]
+    (=jis-x0213-1	. #x584B)	; &I-JX1-584B; [56-43]
+    (=big5		. #xB758)	; &I-B-B758;
+    (=gt		. 13918)	; &I-GT-13918;
+    (=gt-pj-1		. #x584B)	; &I-GT-13918; [56-43]
+    (=daikanwa		. 11042)	; &I-M-11042;
+    (=shinjigen		.  2640)	; &AJ1-04884;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x6144)	; 慄
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL HEART ONE")
+	(=ucs		    . #x2E96)	; ⺖
+	)
+       ((==ucs@unicode	    . #x6817)	; &g2-GT-18817;
+	(==jis-x0208	    . #x372A)	; &g2-GT-18817; [23-10]
+	))
+      (==ucs@unicode	  . #x6144)	; &g2-AJ1-04884;
+      (==adobe-japan1-0	  . 04884)	; &g2-AJ1-04884;
+      (==ks-x1001	  . #x5749)	; &g2-AJ1-04884; [55-41]
+      (==jis-x0208	  . #x584B)	; &g2-AJ1-04884; [56-43]
+      (==jis-x0213-1	  . #x584B)	; &g2-AJ1-04884; [56-43]
+      (==gt		  . 13918)	; &g2-AJ1-04884;
+      (==daikanwa	  . 11042)	; &g2-AJ1-04884;
+      (==shinjigen	  .  2640)	; &g2-AJ1-04884;
+      (->subsumptive
+       ((===daikanwa	    . 11042)	; &R-M-11042;
+	)
+       ((===jis-x0208	    . #x584B)	; &R-J0-584B; [56-43]
+	(===jis-x0213-1	    . #x584B)	; &R-J0-584B; [56-43]
+	)
+       ((===adobe-japan1-0  . 04884)	; &R-AJ1-04884;
+	)
+       ((===gt		    . 13918)	; &R-GT-13918;
+	)
+       ((===ucs@ks	    . #x6144)	; &R-K0-5749;
+	(===ks-x1001	    . #x5749)	; &R-K0-5749; [55-41]
+	)
+       ((===ucs@unicode	    . #x6144)	; &R-UU+6144;
+	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL HEART ONE")
+	(=ucs		    . #x2E96)	; ⺖
+	)
+       ((==ucs@cns	    . #x6817)	; &g2-CU+6817;
+	(==cns11643-1	    . #x5623)	; &g2-CU+6817; [54-03]
+	))
+      (==ucs@cns	  . #x6144)	; &g2-CU+6144;
+      (==cns11643-1	  . #x637E)	; &g2-CU+6144; [67-94]
       ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=ucs		  . #x86A4)	; 蚤
+      ))
     (=ucs		. #x6145)	; 慅
     ))
 (define-char
@@ -15598,24 +18384,73 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=+>ucs@jis		. #x6145)	; &o-AJ1-21578;
-    (=+>ucs@cns		. #x6145)	; &o-AJ1-21578;
-    (=big5		. #xDD69)	; &o-AJ1-21578;
-    (=+>adobe-japan1-6	. 21578)	; &o-AJ1-21578;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=ucs@cns		  . #x86A4)	; &GT-44405;
+      (=ucs@jis		  . #x86A4)	; &GT-44405;
+      (=ucs@ks		  . #x86A4)	; &GT-44405;
+      (=jis-x0208	  . #x4742)	; &GT-44405; [39-34]
+      (=ks-x1001	  . #x705E)	; &I-K0-705E; [80-62]
+      (=cns11643-1	  . #x5829)	; &I-C1-5829; [56-09]
+      (=jis-x0213-1	  . #x4742)	; &I-JX1-4742; [39-34]
+      (=daikanwa	  . 32893)	; &I-M-32893;
+      ))
+    (=ucs@cns		. #x6145)	; &AJ1-21578;
+    (=ucs@jis		. #x6145)	; &AJ1-21578;
+    (=adobe-japan1-6	. 21578)	; &AJ1-21578;
+    (=jis-x0212		. #x3E50)	; &I-JSP-3E50; [30-48]
+    (=cns11643-2	. #x426F)	; &I-C2-426F; [34-79]
+    (=big5		. #xDD69)	; &I-B-DD69;
+    (=daikanwa		. 11043)	; &I-M-11043;
     (->subsumptive
-     ((=ucs@cns		  . #x6145)	; &C2-426F;
-      (=cns11643-2	  . #x426F)	; &C2-426F; [34-79]
-      (=daikanwa	  . 11043)	; &I-M-11043;
-      (->subsumptive
-       ((==daikanwa	    . 11043)	; &g2-M-11043;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@cns	    . #x6145)	; &g2-CU+6145;
-	(==cns11643-2	    . #x426F)	; &g2-CU+6145; [34-79]
+       ((name		    . "CJK RADICAL HEART ONE")
+	(=ucs		    . #x2E96)	; ⺖
+	)
+       ((==ucs@cns	    . #x86A4)	; &g2-GT-44405;
+	(==daikanwa	    . 32893)	; &g2-GT-44405;
+	))
+      (==ucs@cns	  . #x6145)	; &g2-M-11043;
+      (==cns11643-2	  . #x426F)	; &g2-M-11043; [34-79]
+      (==daikanwa	  . 11043)	; &g2-M-11043;
+      (->subsumptive
+       ((===daikanwa	    . 11043)	; &R-M-11043;
+	)
+       ((===cns11643-2	    . #x426F)	; &R-C2-426F; [34-79]
 	))
       )
-     ((=ucs@jis		  . #x6145)	; &AJ1-21578;
-      (=adobe-japan1-6	  . 21578)	; &AJ1-21578;
-      (=jis-x0212	  . #x3E50)	; &I-JSP-3E50; [30-48]
+     ((=decomposition@cid
+       ((=ucs		    . #x6145)	; 慅
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL HEART ONE")
+	(=ucs		    . #x2E96)	; ⺖
+	)
+       ((==ucs@jis	    . #x86A4)	; &g2-J90-4742;
+	(==ucs@ks	    . #x86A4)	; &g2-J90-4742;
+	(==jis-x0208	    . #x4742)	; &g2-J90-4742; [39-34]
+	))
+      (==ucs@jis	  . #x6145)	; &g2-AJ1-21578;
+      (==adobe-japan1-6	  . 21578)	; &g2-AJ1-21578;
+      (==jis-x0212	  . #x3E50)	; &g2-AJ1-21578; [30-48]
+      (->subsumptive
+       ((===jis-x0212	    . #x3E50)	; &R-JSP-3E50; [30-48]
+	)
+       ((===adobe-japan1-6  . 21578)	; &R-AJ1-21578;
+	))
       ))
     ))
 (define-char
@@ -15625,8 +18460,31 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=ucs@unicode	  . #x86A4)	; &G0-5469;
+      (=gb2312		  . #x5469)	; &G0-5469; [52-73]
+      ))
     (=ucs@unicode	. #x6145)	; &UU+6145;
     (=ucs@JP/hanazono	. nil)
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL HEART ONE")
+	(=ucs		    . #x2E96)	; ⺖
+	)
+       ((==ucs@unicode	    . #x86A4)	; &g2-UU+86A4;
+	))
+      (==ucs@unicode	  . #x6145)	; &g2-UU+6145;
+      (==ucs@JP/hanazono  . nil)
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -15647,6 +18505,29 @@
     (=jis-x0213-2	. #x2C62)	; &I-JX2-2C62; [12-66]
     (=daikanwa		. 11044)	; &I-M-11044;
     (=jef-china3	. #x4ED3)	; &I-JC3-4ED3;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x6146)	; 慆
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x6146)	; &g2-AJ1-17645;
+      (==adobe-japan1-5	  . 17645)	; &g2-AJ1-17645;
+      (==jis-x0212	  . #x3E51)	; &g2-AJ1-17645; [30-49]
+      (==jis-x0213-2	  . #x2C62)	; &g2-AJ1-17645; [12-66]
+      (==daikanwa	  . 11044)	; &g2-AJ1-17645;
+      (==jef-china3	  . #x4ED3)	; &g2-AJ1-17645;
+      (->subsumptive
+       ((===daikanwa	    . 11044)	; &R-M-11044;
+	)
+       ((===jis-x0212	    . #x3E51)	; &R-JX2-2C62; [30-49]
+	(===jis-x0213-2	    . #x2C62)	; &R-JX2-2C62; [12-66]
+	)
+       ((===adobe-japan1-5  . 17645)	; &R-AJ1-17645;
+	)
+       ((===jef-china3	    . #x4ED3)	; &R-JC3-4ED3;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -15659,6 +18540,16 @@
     (=ucs@JP/hanazono	. nil)
     (=cns11643-2	. #x4273)	; &C2-4273; [34-83]
     (=big5		. #xDD6D)	; &I-B-DD6D;
+    (->subsumptive
+     ((==ucs@unicode	  . #x6146)	; &g2-UU+6146;
+      (==ucs@JP/hanazono  . nil)
+      (==cns11643-2	  . #x4273)	; &g2-UU+6146; [34-83]
+      (->subsumptive
+       ((===cns11643-2	    . #x4273)	; &R-C2-4273; [34-83]
+	)
+       ((===ucs@unicode	    . #x6146)	; &R-UU+6146;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -15676,7 +18567,12 @@
     (=daikanwa		. 11045)	; &I-M-11045;
     (=shinjigen		.  2618)	; 慇
     (->subsumptive
-     ((==ucs@jis	  . #x6147)	; &g2-AJ1-04873;
+     ((=decomposition@cid
+       ((=ucs		    . #x6147)	; 慇
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x6147)	; &g2-AJ1-04873;
       (==ucs@ks		  . #x6147)	; &g2-AJ1-04873;
       (==adobe-japan1-0	  . 04873)	; &g2-AJ1-04873;
       (==ks-x1001	  . #x6B5B)	; &g2-AJ1-04873; [75-59]
@@ -15738,23 +18634,80 @@
   '((<-denotational
      ((=ucs		  . #x6148)	; 慈
       ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x8332)	; 茲
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (=>mj		. 011803)	; &A-MJ011803;
+    (=>daikanwa		. 11048)	; &A-MJ011803;
+    ))
+(define-char
+  '((<-denotational
+     ((=>mj		  . 011803)	; &A-MJ011803;
+      ))
     (=>ucs*		. #x6148)	; 慈
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (=ucs		. #x2F8A6)	; 慈
+    (=mj		. 011803)	; &I-MJ011803;
+    (=cns11643-3	. #x4670)	; &I-C3-4670; [38-80]
+    (=hanyo-denshi/ks	. 124660)	; 慈
+    (=daikanwa		. 11048)	; &I-M-11048;
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x6148)	; 慈
 	)
        ((=ucs		    . #xE0104)	; 󠄄
 	))
-      (=cns11643-3	  . #x4670)	; &HD-KS-124660; [38-80]
-      (=hanyo-denshi/ks	  . 124660)	; &HD-KS-124660;
-      (=hanyo-denshi/ks/mf . #x30B2)	; &I-KSMF-12466;
-      (=daikanwa	  . 11048)	; &I-M-11048;
+      (==ucs@cns	  . #x2F8A6)	; &g2-MJ011803;
+      (==mj		  . 011803)	; &g2-MJ011803;
+      (==cns11643-3	  . #x4670)	; &g2-MJ011803; [38-80]
+      (==hanyo-denshi/ks  . 124660)	; &g2-MJ011803;
+      (==daikanwa	  . 11048)	; &g2-MJ011803;
+      (->subsumptive
+       ((===daikanwa	    . 11048)	; &R-M-11048;
+	)
+       ((===hanyo-denshi/ks . 124660)	; &R-HD-KS-124660;
+	(=hanyo-denshi/ks/mf . #x30B2)	; &R-HD-KS-124660;
+	)
+       ((===mj		    . 011803)	; &R-MJ011803;
+	)
+       ((===cns11643-3	    . #x4670)	; &R-C3-4670; [38-80]
+	))
       )
-     ((=ucs@iso		  . #x2F8A6)	; &U-0002F8A6;
+     ((==ucs@iso	  . #x2F8A6)	; &g2-IU-0002F8A6;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>mj		  . 011803)	; &A-MJ011803;
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x8332)	; &AJ1-06349;
+      (=adobe-japan1-0	  . 06349)	; &AJ1-06349;
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (=adobe-japan1-5	. 20064)	; &AJ1-20064;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x6148)	; 慈
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==adobe-japan1-5	  . 20064)	; &g2-AJ1-20064;
       ))
     ))
 (define-char
@@ -15768,7 +18721,12 @@
     (=big5		. #xDD66)	; &I-B-DD66;
     (=daikanwa		. 11049)	; &I-M-11049;
     (->subsumptive
-     ((==ucs@cns	  . #x6149)	; &g2-AJ1-21579;
+     ((=decomposition@cid
+       ((=ucs		    . #x6149)	; 慉
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x6149)	; &g2-AJ1-21579;
       (==ucs@jis	  . #x6149)	; &g2-AJ1-21579;
       (==adobe-japan1-6	  . 21579)	; &g2-AJ1-21579;
       (==jis-x0212	  . #x3E52)	; &g2-AJ1-21579; [30-50]
@@ -15814,6 +18772,11 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (=decomposition@cid
+     ((=ucs		  . #x614A)	; 慊
+      )
+     ((=ucs		  . #xE0100)	; 󠄀
+      ))
     (=decomposition@hanyo-denshi
      ((=ucs		  . #x614A)	; 慊
       )
@@ -15853,20 +18816,50 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (=ucs		. #x614B)	; 態
+    (=adobe-japan1-0	. 02870)	; &I-AJ1-02870;
+    (=jis-x0208		. #x4256)	; &I-J90-4256; [34-54]
+    (=ks-x1001		. #x773E)	; &I-K0-773E; [87-30]
+    (=cns11643-1	. #x6868)	; &I-C1-6868; [72-72]
+    (=jis-x0213-1	. #x4256)	; &I-JX1-4256; [34-54]
+    (=gb12345		. #x4C2C)	; 態 [44-12]
     (=big5		. #xBA41)	; &I-B-BA41;
+    (=gt		. 13997)	; &I-GT-13997;
+    (=gt-pj-1		. #x4256)	; &I-GT-13997; [34-54]
+    (=daikanwa		. 11052)	; &I-M-11052;
+    (=shinjigen		.  2636)	; 態
     (->subsumptive
-     ((=ucs@unicode	  . #x614B)	; &AJ1-02870;
-      (=adobe-japan1-0	  . 02870)	; &AJ1-02870;
-      (=jis-x0208	  . #x4256)	; &I-J90-4256; [34-54]
-      (=ks-x1001	  . #x773E)	; &I-K0-773E; [87-30]
-      (=jis-x0213-1	  . #x4256)	; &I-JX1-4256; [34-54]
-      (=gb12345		  . #x4C2C)	; &AJ1-02870; [44-12]
-      (=gt		  . 13997)	; &I-GT-13997;
-      (=gt-pj-1		  . #x4256)	; &I-GT-13997; [34-54]
-      (=daikanwa	  . 11052)	; &I-M-11052;
-      (=shinjigen	  .  2636)	; &AJ1-02870;
+     ((=decomposition@cid
+       ((=ucs		    . #x614B)	; 態
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x614B)	; &g2-AJ1-02870;
+      (==adobe-japan1-0	  . 02870)	; &g2-AJ1-02870;
+      (==ks-x1001	  . #x773E)	; &g2-AJ1-02870; [87-30]
+      (==jis-x0208	  . #x4256)	; &g2-AJ1-02870; [34-54]
+      (==jis-x0213-1	  . #x4256)	; &g2-AJ1-02870; [34-54]
+      (==gb12345	  . #x4C2C)	; &g2-AJ1-02870; [44-12]
+      (==gt		  . 13997)	; &g2-AJ1-02870;
+      (==daikanwa	  . 11052)	; &g2-AJ1-02870;
+      (==shinjigen	  .  2636)	; &g2-AJ1-02870;
+      (->subsumptive
+       ((===daikanwa	    . 11052)	; &R-M-11052;
+	)
+       ((===jis-x0208	    . #x4256)	; &R-J0-4256; [34-54]
+	(===jis-x0213-1	    . #x4256)	; &R-J0-4256; [34-54]
+	)
+       ((===adobe-japan1-0  . 02870)	; &R-AJ1-02870;
+	)
+       ((===gt		    . 13997)	; &R-GT-13997;
+	)
+       ((===ucs@ks	    . #x614B)	; &R-K0-773E;
+	(===ks-x1001	    . #x773E)	; &R-K0-773E; [87-30]
+	)
+       ((===ucs@unicode	    . #x614B)	; &R-UU+614B;
+	))
       )
-     ((=cns11643-1	  . #x6868)	; &C1-6868; [72-72]
+     ((==ucs@cns	  . #x614B)	; &g2-CU+614B;
+      (==cns11643-1	  . #x6868)	; &g2-CU+614B; [72-72]
       ))
     ))
 (define-char
@@ -15938,6 +18931,7 @@
     (=+>jis-x0213-1	. #x3932)	; &o-J0-3932; [25-18]
     (=big5		. #xB757)	; &o-J0-3932;
     (=+>adobe-japan1-0	. 01988)	; &o-J0-3932;
+    (=+>adobe-japan1-4	. 13764)	; &o-J0-3932;
     (=+>gt		. 13667)	; &o-J0-3932;
     ))
 (define-char
@@ -15956,6 +18950,24 @@
     (=hanyo-denshi/ks	. 124190)	; &HD-KS-124190;
     (=hanyo-denshi/ks/mf . #x3083)	; &HD-KS-124190;
     (=daikanwa		. 11057)	; &I-M-11057;
+    ))
+(define-char
+  '((<-denotational
+     ((=+>ucs@unicode	  . #x614C)	; &o-J0-3932;
+      (=+>jis-x0208	  . #x3932)	; &o-J0-3932; [25-18]
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (=adobe-japan1-4	. 13764)	; &AJ1-13764;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x614C)	; 慌
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==adobe-japan1-4	  . 13764)	; &g2-AJ1-13764;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -15999,7 +19011,12 @@
     (=gt		. 13667)	; &I-GT-13667;
     (=gt-pj-1		. #x3932)	; &I-GT-13667; [25-18]
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x614C)	; 慌
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x614C)	; 慌
 	)
        ((=ucs		    . #xE0102)	; 󠄂
@@ -16399,22 +19416,102 @@
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=ucs		. #x6153)	; 慓
-    (=big5		. #xE1C9)	; &I-B-E1C9;
-    (->subsumptive
-     ((=ucs@cns		  . #x6153)	; &C2-4A30;
-      (=cns11643-2	  . #x4A30)	; &C2-4A30; [42-16]
-      (=daikanwa	  . 11084)	; &I-M-11084;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x6153)	; &AJ1-04897;
-      (=adobe-japan1-0	  . 04897)	; &AJ1-04897;
-      (=jis-x0208	  . #x5858)	; &I-J90-5858; [56-56]
-      (=ks-x1001	  . #x7874)	; &I-K0-7874; [88-84]
-      (=iso-ir165	  . #x2E5A)	; &I-EGB-2E5A; [14-58]
-      (=jis-x0213-1	  . #x5858)	; &I-JX1-5858; [56-56]
-      (=gt		  . 14016)	; &I-GT-14016;
-      (=gt-pj-1		  . #x5858)	; &I-GT-14016; [56-56]
-      (=shinjigen	  .  2664)	; &AJ1-04897;
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=ucs		  . #x7968)	; 票
+      ))
+    (=ucs		. #x6153)	; 慓
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6153)	; 慓
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=ucs@unicode	  . #x7968)	; &AJ1-03502;
+      (=adobe-japan1-0	  . 03502)	; &AJ1-03502;
+      ))
+    (=ucs@unicode	. #x6153)	; &AJ1-04897;
+    (=adobe-japan1-0	. 04897)	; &AJ1-04897;
+    (=jis-x0208		. #x5858)	; &I-J90-5858; [56-56]
+    (=ks-x1001		. #x7874)	; &I-K0-7874; [88-84]
+    (=iso-ir165		. #x2E5A)	; &I-EGB-2E5A; [14-58]
+    (=cns11643-2	. #x4A30)	; &I-C2-4A30; [42-16]
+    (=jis-x0213-1	. #x5858)	; &I-JX1-5858; [56-56]
+    (=big5		. #xE1C9)	; &I-B-E1C9;
+    (=gt		. 14016)	; &I-GT-14016;
+    (=gt-pj-1		. #x5858)	; &I-GT-14016; [56-56]
+    (=daikanwa		. 11084)	; &I-M-11084;
+    (=shinjigen		.  2664)	; &AJ1-04897;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL HEART ONE")
+	(=ucs		    . #x2E96)	; ⺖
+	)
+       ((==ucs@cns	    . #x7968)	; &g2-M-24694;
+	(==daikanwa	    . 24694)	; &g2-M-24694;
+	))
+      (==ucs@cns	  . #x6153)	; &g2-M-11084;
+      (==cns11643-2	  . #x4A30)	; &g2-M-11084; [42-16]
+      (==daikanwa	  . 11084)	; &g2-M-11084;
+      (->subsumptive
+       ((===daikanwa	    . 11084)	; &R-M-11084;
+	)
+       ((===cns11643-2	    . #x4A30)	; &R-C2-4A30; [42-16]
+	))
+      )
+     ((=decomposition@cid
+       ((=ucs		    . #x6153)	; 慓
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL HEART ONE")
+	(=ucs		    . #x2E96)	; ⺖
+	)
+       ((==ucs@unicode	    . #x7968)	; &g2-AJ1-03502;
+	(==adobe-japan1-0   . 03502)	; &g2-AJ1-03502;
+	))
+      (==ucs@unicode	  . #x6153)	; &g2-AJ1-04897;
+      (==adobe-japan1-0	  . 04897)	; &g2-AJ1-04897;
+      (==ks-x1001	  . #x7874)	; &g2-AJ1-04897; [88-84]
+      (==iso-ir165	  . #x2E5A)	; &g2-AJ1-04897; [14-58]
+      (==jis-x0208	  . #x5858)	; &g2-AJ1-04897; [56-56]
+      (==jis-x0213-1	  . #x5858)	; &g2-AJ1-04897; [56-56]
+      (==gt		  . 14016)	; &g2-AJ1-04897;
+      (==shinjigen	  .  2664)	; &g2-AJ1-04897;
+      (->subsumptive
+       ((===jis-x0208	    . #x5858)	; &R-J0-5858; [56-56]
+	(===jis-x0213-1	    . #x5858)	; &R-J0-5858; [56-56]
+	)
+       ((===adobe-japan1-0  . 04897)	; &R-AJ1-04897;
+	)
+       ((===gt		    . 14016)	; &R-GT-14016;
+	)
+       ((===ucs@ks	    . #x6153)	; &R-K0-7874;
+	(===ks-x1001	    . #x7874)	; &R-K0-7874; [88-84]
+	)
+       ((===ucs@unicode	    . #x6153)	; &R-UU+6153;
+	))
       ))
     ))
 (define-char
@@ -16539,11 +19636,6 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x6155)	; 慕
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
     (=ucs@unicode	. #x6155)	; &AJ1-03641;
     (=adobe-japan1-0	. 03641)	; &AJ1-03641;
     (=jis-x0208		. #x4A69)	; &I-J90-4A69; [42-73]
@@ -16553,6 +19645,39 @@
     (=hanyo-denshi/ja	. #x4A69)	; &I-HD-JA-4A69; [42-73]
     (=gt		. 14023)	; &I-GT-14023;
     (=gt-pj-1		. #x4A69)	; &I-GT-14023; [42-73]
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x6155)	; 慕
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x6155)	; 慕
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@unicode	  . #x6155)	; &g2-AJ1-03641;
+      (==adobe-japan1-0	  . 03641)	; &g2-AJ1-03641;
+      (==gb2312		  . #x443D)	; &g2-AJ1-03641; [36-29]
+      (==ks-x1001	  . #x5937)	; &g2-AJ1-03641; [57-23]
+      (==jis-x0208	  . #x4A69)	; &g2-AJ1-03641; [42-73]
+      (==jis-x0213-1	  . #x4A69)	; &g2-AJ1-03641; [42-73]
+      (==hanyo-denshi/ja  . #x4A69)	; &g2-AJ1-03641; [42-73]
+      (==gt		  . 14023)	; &g2-AJ1-03641;
+      (->subsumptive
+       ((===jis-x0208	    . #x4A69)	; &R-J0-4A69; [42-73]
+	(===jis-x0213-1	    . #x4A69)	; &R-J0-4A69; [42-73]
+	)
+       ((===adobe-japan1-0  . 03641)	; &R-AJ1-03641;
+	)
+       ((===gt		    . 14023)	; &R-GT-14023;
+	)
+       ((===ucs@ks	    . #x6155)	; &R-K0-5937;
+	(===ks-x1001	    . #x5937)	; &R-K0-5937; [57-23]
+	)
+       ((===ucs@unicode	    . #x6155)	; &R-UU+6155;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x227E2)	; 𢟢
@@ -16633,7 +19758,12 @@
     (=daikanwa		. 11094)	; &I-M-11094;
     (=shinjigen		.  2544)	; 慘
     (->subsumptive
-     ((==ucs@jis	  . #x6158)	; &g2-AJ1-04887;
+     ((=decomposition@cid
+       ((=ucs		    . #x6158)	; 慘
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x6158)	; &g2-AJ1-04887;
       (==adobe-japan1-0	  . 04887)	; &g2-AJ1-04887;
       (==jis-x0208	  . #x584E)	; &g2-AJ1-04887; [56-46]
       (==jis-x0213-1	  . #x584E)	; &g2-AJ1-04887; [56-46]
@@ -16802,11 +19932,6 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x615D)	; 慝
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
     (=ucs@unicode	. #x615D)	; &AJ1-04896;
     (=adobe-japan1-0	. 04896)	; &AJ1-04896;
     (=jis-x0208		. #x5857)	; &I-J90-5857; [56-55]
@@ -16817,6 +19942,41 @@
     (=gt		. 14012)	; &I-GT-14012;
     (=gt-k		. 11207)	; &I-GT-K11207;
     (=gt-pj-1		. #x5857)	; &I-GT-14012; [56-55]
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x615D)	; 慝
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x615D)	; 慝
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@unicode	  . #x615D)	; &g2-AJ1-04896;
+      (==adobe-japan1-0	  . 04896)	; &g2-AJ1-04896;
+      (==gb2312		  . #x6D2B)	; &g2-AJ1-04896; [77-11]
+      (==ks-x1001	  . #x7764)	; &g2-AJ1-04896; [87-68]
+      (==jis-x0208	  . #x5857)	; &g2-AJ1-04896; [56-55]
+      (==jis-x0213-1	  . #x5857)	; &g2-AJ1-04896; [56-55]
+      (==hanyo-denshi/ja  . #x5857)	; &g2-AJ1-04896; [56-55]
+      (==gt		  . 14012)	; &g2-AJ1-04896;
+      (==gt-k		  . 11207)	; &g2-AJ1-04896;
+      (->subsumptive
+       ((===jis-x0208	    . #x5857)	; &R-J0-5857; [56-55]
+	(===jis-x0213-1	    . #x5857)	; &R-J0-5857; [56-55]
+	)
+       ((===adobe-japan1-0  . 04896)	; &R-AJ1-04896;
+	)
+       ((===gt		    . 14012)	; &R-GT-14012;
+	(===gt-k	    . 11207)	; &R-GT-14012;
+	)
+       ((===ucs@ks	    . #x615D)	; &R-K0-7764;
+	(===ks-x1001	    . #x7764)	; &R-K0-7764; [87-68]
+	)
+       ((===ucs@unicode	    . #x615D)	; &R-UU+615D;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x397E)	; 㥾
@@ -16853,7 +20013,12 @@
     (=daikanwa		. 11102)	; &I-M-11102;
     (=jef-china3	. #x4ED4)	; &I-JC3-4ED4;
     (->subsumptive
-     ((==ucs@unicode	  . #x615E)	; &g2-AJ1-19368;
+     ((=decomposition@cid
+       ((=ucs		    . #x615E)	; 慞
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x615E)	; &g2-AJ1-19368;
       (==adobe-japan1-5	  . 19368)	; &g2-AJ1-19368;
       (==jis-x0212	  . #x3E53)	; &g2-AJ1-19368; [30-51]
       (==cns11643-2	  . #x4A2C)	; &g2-AJ1-19368; [42-12]
@@ -16948,7 +20113,12 @@
 	(===jis-x0213-2	    . #x2C63)	; &R-JX2-2C63; [12-67]
 	))
       )
-     ((==adobe-japan1-5	  . 17646)	; &g2-AJ1-17646;
+     ((=decomposition@cid
+       ((=ucs		    . #x6160)	; 慠
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==adobe-japan1-5	  . 17646)	; &g2-AJ1-17646;
       ))
     ))
 (define-char
@@ -17072,15 +20242,33 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x6162)	; 慢
-      )
-     ((=ucs		  . #xE0103)	; 󠄃
-      ))
-    (=cns11643-1	. #x686A)	; &HD-KS-125010; [72-74]
-    (=hanyo-denshi/ks	. 125010)	; &HD-KS-125010;
-    (=hanyo-denshi/ks/mf . #x30D5)	; &I-KSMF-12501;
+    (=ucs@cns		. #x6162)	; &AJ1-20119;
+    (=adobe-japan1-5	. 20119)	; &AJ1-20119;
+    (=cns11643-1	. #x686A)	; &I-C1-686A; [72-74]
+    (=hanyo-denshi/ks	. 125010)	; &AJ1-20119;
     (=daikanwa		. 11110)	; &I-M-11110;
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x6162)	; 慢
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==ucs@cns	  . #x6162)	; &g2-AJ1-20119;
+      (==adobe-japan1-5	  . 20119)	; &g2-AJ1-20119;
+      (==cns11643-1	  . #x686A)	; &g2-AJ1-20119; [72-74]
+      (==hanyo-denshi/ks  . 125010)	; &g2-AJ1-20119;
+      (==daikanwa	  . 11110)	; &g2-AJ1-20119;
+      (->subsumptive
+       ((===daikanwa	    . 11110)	; &R-M-11110;
+	)
+       ((===hanyo-denshi/ks . 125010)	; &R-HD-KS-125010;
+	(=hanyo-denshi/ks/mf . #x30D5)	; &R-HD-KS-125010;
+	)
+       ((===adobe-japan1-5  . 20119)	; &R-AJ1-20119;
+	)
+       ((===cns11643-1	    . #x686A)	; &R-C1-686A; [72-74]
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -17089,11 +20277,6 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x6162)	; 慢
-      )
-     ((=ucs		  . #xE0102)	; 󠄂
-      ))
     (=ucs@unicode	. #x6162)	; &AJ1-03755;
     (=adobe-japan1-0	. 03755)	; &AJ1-03755;
     (=jis-x0208		. #x4B7D)	; &I-J90-4B7D; [43-93]
@@ -17103,6 +20286,39 @@
     (=hanyo-denshi/ja	. #x4B7D)	; &I-HD-JA-4B7D; [43-93]
     (=gt		. 14030)	; &I-GT-14030;
     (=gt-pj-1		. #x4B7D)	; &I-GT-14030; [43-93]
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x6162)	; 慢
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x6162)	; 慢
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@unicode	  . #x6162)	; &g2-AJ1-03755;
+      (==adobe-japan1-0	  . 03755)	; &g2-AJ1-03755;
+      (==gb2312		  . #x427D)	; &g2-AJ1-03755; [34-93]
+      (==ks-x1001	  . #x5837)	; &g2-AJ1-03755; [56-23]
+      (==jis-x0208	  . #x4B7D)	; &g2-AJ1-03755; [43-93]
+      (==jis-x0213-1	  . #x4B7D)	; &g2-AJ1-03755; [43-93]
+      (==hanyo-denshi/ja  . #x4B7D)	; &g2-AJ1-03755; [43-93]
+      (==gt		  . 14030)	; &g2-AJ1-03755;
+      (->subsumptive
+       ((===jis-x0208	    . #x4B7D)	; &R-J0-4B7D; [43-93]
+	(===jis-x0213-1	    . #x4B7D)	; &R-J0-4B7D; [43-93]
+	)
+       ((===adobe-japan1-0  . 03755)	; &R-AJ1-03755;
+	)
+       ((===gt		    . 14030)	; &R-GT-14030;
+	)
+       ((===ucs@ks	    . #x6162)	; &R-K0-5837;
+	(===ks-x1001	    . #x5837)	; &R-K0-5837; [56-23]
+	)
+       ((===ucs@unicode	    . #x6162)	; &R-UU+6162;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -17126,15 +20342,43 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (=ucs		. #x6164)	; 慤
+    (=adobe-japan1-5	. 19369)	; &I-AJ1-19369;
+    (=ks-x1001		. #x4A42)	; &I-K0-4A42; [42-34]
+    (=cns11643-3	. #x4B7C)	; &I-C3-4B7C; [43-92]
+    (=gb12345		. #x6D28)	; 慤 [77-08]
+    (=daikanwa		. 11112)	; &I-M-11112;
+    (=cbeta		. 00013)	; &I-CB00013;
     (->subsumptive
-     ((=adobe-japan1-5	  . 19369)	; &AJ1-19369;
-      (=ks-x1001	  . #x4A42)	; &I-K0-4A42; [42-34]
-      (=daikanwa	  . 11112)	; &I-M-11112;
-      (=cbeta		  . 00013)	; &I-CB00013;
+     ((=decomposition@cid
+       ((=ucs		    . #x6164)	; 慤
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@ks		  . #x6164)	; &g2-AJ1-19369;
+      (==adobe-japan1-5	  . 19369)	; &g2-AJ1-19369;
+      (==ks-x1001	  . #x4A42)	; &g2-AJ1-19369; [42-34]
+      (==daikanwa	  . 11112)	; &g2-AJ1-19369;
+      (==cbeta		  . 00013)	; &g2-AJ1-19369;
+      (->subsumptive
+       ((===daikanwa	    . 11112)	; &R-M-11112;
+	)
+       ((===adobe-japan1-5  . 19369)	; &R-AJ1-19369;
+	)
+       ((===ucs@ks	    . #x6164)	; &R-K0-4A42;
+	(===ks-x1001	    . #x4A42)	; &R-K0-4A42; [42-34]
+	)
+       ((===cbeta	    . 00013)	; &R-CB00013;
+	))
       )
-     ((=ucs@unicode	  . #x6164)	; &C3-4B7C;
-      (=cns11643-3	  . #x4B7C)	; &C3-4B7C; [43-92]
-      (=gb12345		  . #x6D28)	; &C3-4B7C; [77-08]
+     ((==ucs@unicode	  . #x6164)	; &g2-UU+6164;
+      (==ucs@JP/hanazono  . nil)
+      (==cns11643-3	  . #x4B7C)	; &g2-UU+6164; [43-92]
+      (==gb12345	  . #x6D28)	; &g2-UU+6164; [77-08]
+      (->subsumptive
+       ((===cns11643-3	    . #x4B7C)	; &R-C3-4B7C; [43-92]
+	)
+       ((===ucs@unicode	    . #x6164)	; &R-UU+6164;
+	))
       ))
     ))
 (define-char
@@ -17168,7 +20412,12 @@
     (=daikanwa		. 11114)	; &I-M-11114;
     (=shinjigen		.  2658)	; &AJ1-04893;
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x6165)	; 慥
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x6165)	; 慥
 	)
        ((=ucs		    . #xE0101)	; 󠄁
@@ -17262,33 +20511,38 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=ucs@cns		. #x6167)	; &HD-FT-3175;
-    (=ucs@ks		. #x6167)	; &HD-FT-3175;
-    (=jis-x0208@1978	. #x3745)	; &HD-FT-3175; [23-37]
+    (=ucs@cns		. #x6167)	; &AJ1-13741;
+    (=ucs@ks		. #x6167)	; &AJ1-13741;
+    (=adobe-japan1-0	. 07669)	; &AJ1-13741;
+    (=adobe-japan1-4	. 13741)	; &I-AJ1-13741;
+    (=jis-x0208@1978	. #x3745)	; &I-J78-3745; [23-37]
     (=ks-x1001		. #x7B34)	; &I-K0-7B34; [91-20]
     (=cns11643-1	. #x6C64)	; &I-C1-6C64; [76-68]
     (=hanyo-denshi/ft	. #x3175)	; &I-HD-FT-3175; [17-85]
     (=daikanwa		. 11116)	; &I-M-11116;
-    (=shinjigen@1ed	.  2646)	; &HD-FT-3175;
-    (=shinjigen/+p@rev	.  2646)	; &HD-FT-3175;
+    (=shinjigen@1ed	.  2646)	; &AJ1-13741;
+    (=shinjigen/+p@rev	.  2646)	; &AJ1-13741;
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x6167)	; 慧
 	)
        ((=ucs		    . #xE0104)	; 󠄄
 	))
-      (==ucs@ks		  . #x6167)	; &g2-HD-FT-3175;
-      (==jis-x0208@1978	  . #x3745)	; &g2-HD-FT-3175; [23-37]
-      (==ks-x1001	  . #x7B34)	; &g2-HD-FT-3175; [91-20]
-      (==hanyo-denshi/ft  . #x3175)	; &g2-HD-FT-3175; [17-85]
-      (==daikanwa	  . 11116)	; &g2-HD-FT-3175;
-      (==shinjigen@1ed	  .  2646)	; &g2-HD-FT-3175;
-      (==shinjigen/+p@rev .  2646)	; &g2-HD-FT-3175;
+      (==ucs@ks		  . #x6167)	; &g2-AJ1-07669;
+      (==adobe-japan1-0	  . 07669)	; &g2-AJ1-07669;
+      (==jis-x0208@1978	  . #x3745)	; &g2-AJ1-07669; [23-37]
+      (==ks-x1001	  . #x7B34)	; &g2-AJ1-07669; [91-20]
+      (==hanyo-denshi/ft  . #x3175)	; &g2-AJ1-07669; [17-85]
+      (==daikanwa	  . 11116)	; &g2-AJ1-07669;
+      (==shinjigen@1ed	  .  2646)	; &g2-AJ1-07669;
+      (==shinjigen/+p@rev .  2646)	; &g2-AJ1-07669;
       (->subsumptive
        ((===daikanwa	    . 11116)	; &R-M-11116;
 	)
        ((===jis-x0208@1978  . #x3745)	; &R-HD-FT-3175; [23-37]
 	(===hanyo-denshi/ft . #x3175)	; &R-HD-FT-3175; [17-85]
+	)
+       ((===adobe-japan1-0  . 07669)	; &R-AJ1-07669;
 	)
        ((===ucs@ks	    . #x6167)	; &R-K0-7B34;
 	(===ks-x1001	    . #x7B34)	; &R-K0-7B34; [91-20]
@@ -17296,6 +20550,8 @@
       )
      ((==ucs@cns	  . #x6167)	; &g2-CU+6167;
       (==cns11643-1	  . #x6C64)	; &g2-CU+6167; [76-68]
+      )
+     ((==adobe-japan1-4	  . 13741)	; &g2-AJ1-13741;
       ))
     ))
 (define-char
@@ -17332,7 +20588,12 @@
     (=shinjigen@rev	.  2646)	; &AJ1-01819;
     (=jef-china3	. #x4DC2)	; &I-JC3-4DC2;
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x6167)	; 慧
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x6167)	; 慧
 	)
        ((=ucs		    . #xE0103)	; 󠄃
@@ -17463,6 +20724,15 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=ucs		  . #x65E3)	; 旣
+      ))
     (=+>ucs@jis		. #xFA3E)	; &o-JU+FA3E;
     (=+>ucs@ks		. #x6168)	; &o-JU+FA3E;
     (=+>ucs@cns		. #xFA3E)	; &o-JU+FA3E;
@@ -17476,9 +20746,21 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=ucs@cns		. #xFA3E)	; &HD-KS-125630;
-    (=cns11643-4	. #x434E)	; &HD-KS-125630; [35-46]
-    (=hanyo-denshi/ks	. 125630)	; &HD-KS-125630;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=ucs@unicode	  . #x65E3)	; &AJ1-13701;
+      (=ucs@cns		  . #x2F8CB)	; &AJ1-13701;
+      (=adobe-japan1-4	  . 13701)	; &AJ1-13701;
+      ))
+    (=ucs@cns		. #xFA3E)	; &AJ1-13677;
+    (=adobe-japan1-4	. 13677)	; &AJ1-13677;
+    (=cns11643-4	. #x434E)	; &I-C4-434E; [35-46]
+    (=hanyo-denshi/ks	. 125630)	; &AJ1-13677;
     (=daikanwa		. 11122)	; &I-M-11122;
     (=jef-china3	. #x4ED6)	; &I-JC3-4ED6;
     (->subsumptive
@@ -17489,10 +20771,28 @@
 	)
        ((=ucs		    . #xE0107)	; 󠄇
 	))
-      (==hanyo-denshi/ks  . 125630)	; &g2-HD-KS-125630;
-      (=hanyo-denshi/ks/mf . #x3113)	; &g2-HD-KS-125630;
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL HEART ONE")
+	(=ucs		    . #x2E96)	; ⺖
+	)
+       ((==ucs@unicode	    . #x65E3)	; &g2-M-13724;
+	(==daikanwa	    . 13724)	; &g2-M-13724;
+	))
+      (==adobe-japan1-4	  . 13677)	; &g2-AJ1-13677;
+      (==hanyo-denshi/ks  . 125630)	; &g2-AJ1-13677;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 125630)	; &R-HD-KS-125630;
+	(=hanyo-denshi/ks/mf . #x3113)	; &R-HD-KS-125630;
+	)
+       ((===adobe-japan1-4  . 13677)	; &R-AJ1-13677;
+	))
       )
      ((==jef-china3	  . #x4ED6)	; &g2-JC3-4ED6;
+      )
+     ((=adobe-japan1-4	  . 13676)	; &AJ1-13676;
       )
      ((==ucs@cns	  . #xFA3E)	; &g2-CU+FA3E;
       (==cns11643-4	  . #x434E)	; &g2-CU+FA3E; [35-46]
@@ -17508,16 +20808,35 @@
     (total-strokes	 . 14)
     (=ucs		. #xFA3E)	; 慨
     (=ucs@ks		. #x6168)	; 慨
+    (=adobe-japan1-4	. 13328)	; &I-AJ1-13328;
     (=ks-x1001		. #x4B46)	; &I-K0-4B46; [43-38]
     (=jis-x0213-1	. #x745C)	; &I-JX1-745C; [84-60]
+    (->subsumptive
+     ((==ucs@unicode	  . #xFA3E)	; &g2-AJ1-13328;
+      (==ucs@ks		  . #x6168)	; &g2-AJ1-13328;
+      (==adobe-japan1-4	  . 13328)	; &g2-AJ1-13328;
+      (==ks-x1001	  . #x4B46)	; &g2-AJ1-13328; [43-38]
+      (==jis-x0213-1	  . #x745C)	; &g2-AJ1-13328; [84-60]
+      (->subsumptive
+       ((===jis-x0213-1	    . #x745C)	; &R-JX1-745C; [84-60]
+	)
+       ((===adobe-japan1-4  . 13328)	; &R-AJ1-13328;
+	)
+       ((===ucs@ks	    . #x6168)	; &R-K0-4B46;
+	(===ks-x1001	    . #x4B46)	; &R-K0-4B46; [43-38]
+	)
+       ((===ucs@unicode	    . #xFA3E)	; &R-UU+FA3E;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x6168)	; 慨
       ))
     (ideographic-radical . 61)	; ⼼
-    (=ucs@unicode	. #x6168)	; &AJ1-01426;
-    (=adobe-japan1-0	. 01426)	; &AJ1-01426;
+    (=ucs@unicode	. #x6168)	; &AJ1-13678;
+    (=adobe-japan1-0	. 01426)	; &AJ1-13678;
+    (=adobe-japan1-4	. 13678)	; &I-AJ1-13678;
     (=jis-x0208		. #x3334)	; &I-J90-3334; [19-20]
     (=gb2312		. #x3F2E)	; &I-G0-3F2E; [31-14]
     (=cns11643-1	. #x5F35)	; &I-C1-5F35; [63-21]
@@ -17531,9 +20850,15 @@
     (->subsumptive
      ((ideographic-strokes . 9)
       (total-strokes	   . 12)
-      (==ucs@unicode	  . #x6168)	; &g2-UU+6168;
+      (==ucs@unicode	  . #x6168)	; &g2-AJ1-13678;
       (==ucs@JP/hanazono  . nil)
-      (==gb2312		  . #x3F2E)	; &g2-UU+6168; [31-14]
+      (==adobe-japan1-4	  . 13678)	; &g2-AJ1-13678;
+      (==gb2312		  . #x3F2E)	; &g2-AJ1-13678; [31-14]
+      (->subsumptive
+       ((===adobe-japan1-4  . 13678)	; &R-AJ1-13678;
+	)
+       ((===ucs@unicode	    . #x6168)	; &R-UU+6168;
+	))
       )
      ((ideographic-strokes . 9)
       (total-strokes	   . 12)
@@ -17552,6 +20877,11 @@
       )
      ((ideographic-strokes . 10)
       (total-strokes	   . 13)
+      (=decomposition@cid
+       ((=ucs		    . #x6168)	; 慨
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
       (=decomposition@hanyo-denshi
        ((=ucs		    . #x6168)	; 慨
 	)
@@ -17573,6 +20903,10 @@
 	)
        ((===gt		    . 13800)	; &R-GT-13800;
 	))
+      )
+     ((ideographic-strokes . 10)
+      (total-strokes	   . 13)
+      (=adobe-japan1-4	  . 13422)	; &AJ1-13422;
       ))
     ))
 (define-char
@@ -17767,21 +21101,53 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (=ucs		. #x616E)	; 慮
+    (=adobe-japan1-0	. 03968)	; &I-AJ1-03968;
+    (=jis-x0208		. #x4E38)	; &I-J90-4E38; [46-24]
+    (=ks-x1001		. #x5567)	; &I-K0-5567; [53-71]
+    (=cns11643-1	. #x6C65)	; &I-C1-6C65; [76-69]
+    (=jis-x0213-1	. #x4E38)	; &I-JX1-4E38; [46-24]
+    (=gb12345		. #x4247)	; 慮 [34-39]
     (=big5		. #xBC7B)	; &I-B-BC7B;
+    (=gt		. 14186)	; &I-GT-14186;
+    (=gt-k		. 11957)	; &I-GT-K11957;
+    (=gt-pj-1		. #x4E38)	; &I-GT-14186; [46-24]
+    (=daikanwa		. 11132)	; &I-M-11132;
+    (=shinjigen		.  2672)	; 慮
     (->subsumptive
-     ((=ucs@unicode	  . #x616E)	; &AJ1-03968;
-      (=adobe-japan1-0	  . 03968)	; &AJ1-03968;
-      (=jis-x0208	  . #x4E38)	; &I-J90-4E38; [46-24]
-      (=ks-x1001	  . #x5567)	; &I-K0-5567; [53-71]
-      (=jis-x0213-1	  . #x4E38)	; &I-JX1-4E38; [46-24]
-      (=gb12345		  . #x4247)	; &AJ1-03968; [34-39]
-      (=gt		  . 14186)	; &I-GT-14186;
-      (=gt-k		  . 11957)	; &I-GT-K11957;
-      (=gt-pj-1		  . #x4E38)	; &I-GT-14186; [46-24]
-      (=daikanwa	  . 11132)	; &I-M-11132;
-      (=shinjigen	  .  2672)	; &AJ1-03968;
+     ((=decomposition@cid
+       ((=ucs		    . #x616E)	; 慮
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x616E)	; &g2-AJ1-03968;
+      (==adobe-japan1-0	  . 03968)	; &g2-AJ1-03968;
+      (==ks-x1001	  . #x5567)	; &g2-AJ1-03968; [53-71]
+      (==jis-x0208	  . #x4E38)	; &g2-AJ1-03968; [46-24]
+      (==jis-x0213-1	  . #x4E38)	; &g2-AJ1-03968; [46-24]
+      (==gb12345	  . #x4247)	; &g2-AJ1-03968; [34-39]
+      (==gt		  . 14186)	; &g2-AJ1-03968;
+      (==gt-k		  . 11957)	; &g2-AJ1-03968;
+      (==daikanwa	  . 11132)	; &g2-AJ1-03968;
+      (==shinjigen	  .  2672)	; &g2-AJ1-03968;
+      (->subsumptive
+       ((===daikanwa	    . 11132)	; &R-M-11132;
+	)
+       ((===jis-x0208	    . #x4E38)	; &R-J0-4E38; [46-24]
+	(===jis-x0213-1	    . #x4E38)	; &R-J0-4E38; [46-24]
+	)
+       ((===adobe-japan1-0  . 03968)	; &R-AJ1-03968;
+	)
+       ((===gt		    . 14186)	; &R-GT-14186;
+	(===gt-k	    . 11957)	; &R-GT-14186;
+	)
+       ((===ucs@ks	    . #x616E)	; &R-K0-5567;
+	(===ks-x1001	    . #x5567)	; &R-K0-5567; [53-71]
+	)
+       ((===ucs@unicode	    . #x616E)	; &R-UU+616E;
+	))
       )
-     ((=cns11643-1	  . #x6C65)	; &C1-6C65; [76-69]
+     ((==ucs@cns	  . #x616E)	; &g2-CU+616E;
+      (==cns11643-1	  . #x6C65)	; &g2-CU+616E; [76-69]
       ))
     ))
 (define-char
@@ -17841,7 +21207,12 @@
        ((===cns11643-1	    . #x6C6A)	; &R-C1-6C6A; [76-74]
 	))
       )
-     ((==ucs@unicode	  . #x6170)	; &g2-AJ1-01178;
+     ((=decomposition@cid
+       ((=ucs		    . #x6170)	; 慰
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6170)	; &g2-AJ1-01178;
       (==adobe-japan1-0	  . 01178)	; &g2-AJ1-01178;
       (==gb2312		  . #x4E3F)	; &g2-AJ1-01178; [46-31]
       (==ks-x1001	  . #x6A50)	; &g2-AJ1-01178; [74-48]
@@ -17931,7 +21302,12 @@
     (=big5		. #xE1CA)	; &I-B-E1CA;
     (=daikanwa		. 11138)	; &I-M-11138;
     (->subsumptive
-     ((==ucs@jis	  . #x6172)	; &g2-AJ1-21581;
+     ((=decomposition@cid
+       ((=ucs		    . #x6172)	; 慲
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x6172)	; &g2-AJ1-21581;
       (==adobe-japan1-6	  . 21581)	; &g2-AJ1-21581;
       (==jis-x0212	  . #x3E56)	; &g2-AJ1-21581; [30-54]
       (==daikanwa	  . 11138)	; &g2-AJ1-21581;
@@ -18067,6 +21443,11 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (=decomposition@cid
+     ((=ucs		  . #x6174)	; 慴
+      )
+     ((=ucs		  . #xE0100)	; 󠄀
+      ))
     (=ucs@jis		. #x6174)	; &AJ1-04891;
     (=adobe-japan1-0	. 04891)	; &AJ1-04891;
     (=jis-x0208		. #x5852)	; &I-J90-5852; [56-50]
@@ -18117,7 +21498,12 @@
     (=daikanwa		. 11144)	; &I-M-11144;
     (=shinjigen		.  2670)	; &AJ1-04898;
     (->subsumptive
-     ((==ucs@unicode	  . #x6175)	; &g2-AJ1-04898;
+     ((=decomposition@cid
+       ((=ucs		    . #x6175)	; 慵
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6175)	; &g2-AJ1-04898;
       (==adobe-japan1-0	  . 04898)	; &g2-AJ1-04898;
       (==gb2312		  . #x633C)	; &g2-AJ1-04898; [67-28]
       (==jis-x0208	  . #x5859)	; &g2-AJ1-04898; [56-57]
@@ -18208,7 +21594,12 @@
     (=gt-pj-1		. #x3744)	; &I-GT-14092; [23-36]
     (=shinjigen		.  2645)	; &AJ1-01818;
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x6176)	; 慶
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x6176)	; 慶
 	)
        ((=ucs		    . #xE0101)	; 󠄁
@@ -18271,7 +21662,12 @@
     (=daikanwa		. 11146)	; &I-M-11146;
     (=shinjigen		.  2647)	; 慷
     (->subsumptive
-     ((==ucs@unicode	  . #x6177)	; &g2-AJ1-04886;
+     ((=decomposition@cid
+       ((=ucs		    . #x6177)	; 慷
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6177)	; &g2-AJ1-04886;
       (==adobe-japan1-0	  . 04886)	; &g2-AJ1-04886;
       (==gb2312		  . #x3F36)	; &g2-AJ1-04886; [31-22]
       (==ks-x1001	  . #x4B2F)	; &g2-AJ1-04886; [43-15]
@@ -18313,14 +21709,36 @@
      ((=ucs		  . #x5FC3)	; 心
       ))
     (=ucs		. #x6178)	; 慸
+    (=adobe-japan1-6	. 21582)	; &I-AJ1-21582;
+    (=jis-x0212		. #x3E57)	; &I-JSP-3E57; [30-55]
+    (=cns11643-3	. #x4C21)	; &I-C3-4C21; [44-01]
+    (=daikanwa		. 11147)	; &I-M-11147;
+    (=cbeta		. 05803)	; &I-CB05803;
     (->subsumptive
-     ((=ucs@unicode	  . #x6178)	; &AJ1-21582;
-      (=adobe-japan1-6	  . 21582)	; &AJ1-21582;
-      (=jis-x0212	  . #x3E57)	; &I-JSP-3E57; [30-55]
-      (=daikanwa	  . 11147)	; &I-M-11147;
-      (=cbeta		  . 05803)	; &I-CB05803;
+     ((=decomposition@cid
+       ((=ucs		    . #x6178)	; 慸
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6178)	; &g2-AJ1-21582;
+      (==adobe-japan1-6	  . 21582)	; &g2-AJ1-21582;
+      (==jis-x0212	  . #x3E57)	; &g2-AJ1-21582; [30-55]
+      (==daikanwa	  . 11147)	; &g2-AJ1-21582;
+      (==cbeta		  . 05803)	; &g2-AJ1-21582;
+      (->subsumptive
+       ((===daikanwa	    . 11147)	; &R-M-11147;
+	)
+       ((===jis-x0212	    . #x3E57)	; &R-JSP-3E57; [30-55]
+	)
+       ((===adobe-japan1-6  . 21582)	; &R-AJ1-21582;
+	)
+       ((===ucs@unicode	    . #x6178)	; &R-UU+6178;
+	)
+       ((===cbeta	    . 05803)	; &R-CB05803;
+	))
       )
-     ((=cns11643-3	  . #x4C21)	; &C3-4C21; [44-01]
+     ((==ucs@cns	  . #x6178)	; &g2-CU+6178;
+      (==cns11643-3	  . #x4C21)	; &g2-CU+6178; [44-01]
       ))
     ))
 (define-char
@@ -18486,6 +21904,24 @@
     (=adobe-japan1-5	. 19370)	; &AJ1-19370;
     (=jis-x0212		. #x3E58)	; &I-JSP-3E58; [30-56]
     (=daikanwa		. 11157)	; &I-M-11157;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x617B)	; 慻
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x617B)	; &g2-AJ1-19370;
+      (==adobe-japan1-5	  . 19370)	; &g2-AJ1-19370;
+      (==jis-x0212	  . #x3E58)	; &g2-AJ1-19370; [30-56]
+      (==daikanwa	  . 11157)	; &g2-AJ1-19370;
+      (->subsumptive
+       ((===daikanwa	    . 11157)	; &R-M-11157;
+	)
+       ((===jis-x0212	    . #x3E58)	; &R-JSP-3E58; [30-56]
+	)
+       ((===adobe-japan1-5  . 19370)	; &R-AJ1-19370;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -18497,12 +21933,23 @@
     (=ucs@unicode	. #x617B)	; &C3-4668;
     (=ucs@JP/hanazono	. nil)
     (=cns11643-3	. #x4668)	; &C3-4668; [38-72]
+    (->subsumptive
+     ((==ucs@unicode	  . #x617B)	; &g2-UU+617B;
+      (==ucs@JP/hanazono  . nil)
+      (==cns11643-3	  . #x4668)	; &g2-UU+617B; [38-72]
+      (->subsumptive
+       ((===cns11643-3	    . #x4668)	; &R-C3-4668; [38-72]
+	)
+       ((===ucs@unicode	    . #x617B)	; &R-UU+617B;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (=ucs		. #x617C)	; 慼
+    (=adobe-japan1-4	. 14551)	; &I-AJ1-14551;
     (=jis-x0212		. #x3E59)	; &I-JSP-3E59; [30-57]
     (=cns11643-1	. #x6C69)	; &I-C1-6C69; [76-73]
     (=jis-x0213-2	. #x2C64)	; &I-JX2-2C64; [12-68]
@@ -18578,7 +22025,12 @@
     (=daikanwa		. 11163)	; &I-M-11163;
     (=shinjigen		.  2671)	; 慾
     (->subsumptive
-     ((==ucs@cns	  . #x617E)	; &g2-AJ1-03911;
+     ((=decomposition@cid
+       ((=ucs		    . #x617E)	; 慾
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x617E)	; &g2-AJ1-03911;
       (==ucs@jis	  . #x617E)	; &g2-AJ1-03911;
       (==ucs@ks		  . #x617E)	; &g2-AJ1-03911;
       (==adobe-japan1-0	  . 03911)	; &g2-AJ1-03911;
@@ -18671,6 +22123,11 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (=decomposition@cid
+     ((=ucs		  . #x6180)	; 憀
+      )
+     ((=ucs		  . #xE0100)	; 󠄀
+      ))
     (=ucs@jis		. #x6180)	; &AJ1-21583;
     (=adobe-japan1-6	. 21583)	; &AJ1-21583;
     (=jis-x0212		. #x3E5B)	; &I-JSP-3E5B; [30-59]
@@ -18728,6 +22185,29 @@
     (=ks-x1001		. #x7543)	; &I-K0-7543; [85-35]
     (=jis-x0212		. #x3E5C)	; &I-JSP-3E5C; [30-60]
     (=daikanwa		. 11169)	; &I-M-11169;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x6181)	; 憁
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x6181)	; &g2-AJ1-21584;
+      (==ucs@ks		  . #x6181)	; &g2-AJ1-21584;
+      (==adobe-japan1-6	  . 21584)	; &g2-AJ1-21584;
+      (==ks-x1001	  . #x7543)	; &g2-AJ1-21584; [85-35]
+      (==jis-x0212	  . #x3E5C)	; &g2-AJ1-21584; [30-60]
+      (==daikanwa	  . 11169)	; &g2-AJ1-21584;
+      (->subsumptive
+       ((===daikanwa	    . 11169)	; &R-M-11169;
+	)
+       ((===jis-x0212	    . #x3E5C)	; &R-JSP-3E5C; [30-60]
+	)
+       ((===adobe-japan1-6  . 21584)	; &R-AJ1-21584;
+	)
+       ((===ucs@ks	    . #x6181)	; &R-K0-7543;
+	(===ks-x1001	    . #x7543)	; &R-K0-7543; [85-35]
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -18819,7 +22299,12 @@
     (=gt-pj-1		. #x4D2B)	; &I-GT-14181; [45-11]
     (=shinjigen		.  2667)	; &MJ011891;
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x6182)	; 憂
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x6182)	; 憂
 	)
        ((=ucs		    . #xE0101)	; 󠄁
@@ -18909,10 +22394,38 @@
       (=adobe-japan1-6	  . 21585)	; &AJ1-21585;
       (=jis-x0212	  . #x3E5D)	; &I-JSP-3E5D; [30-61]
       (=daikanwa	  . 11172)	; &I-M-11172;
+      (->subsumptive
+       ((=decomposition@cid
+	 ((=ucs		      . #x6183)	; 憃
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(==ucs@jis	    . #x6183)	; &g2-AJ1-21585;
+	(==adobe-japan1-6   . 21585)	; &g2-AJ1-21585;
+	(==jis-x0212	    . #x3E5D)	; &g2-AJ1-21585; [30-61]
+	(==daikanwa	    . 11172)	; &g2-AJ1-21585;
+	(->subsumptive
+	 ((===daikanwa	      . 11172)	; &R-M-11172;
+	  )
+	 ((===jis-x0212	      . #x3E5D)	; &R-JSP-3E5D; [30-61]
+	  )
+	 ((===adobe-japan1-6  . 21585)	; &R-AJ1-21585;
+	  ))
+	))
       )
      ((=ucs@unicode	  . #x6183)	; &C2-5042;
       (=ucs@JP/hanazono	  . nil)
       (=cns11643-2	  . #x5042)	; &C2-5042; [48-34]
+      (->subsumptive
+       ((==ucs@unicode	    . #x6183)	; &g2-UU+6183;
+	(==ucs@JP/hanazono  . nil)
+	(==cns11643-2	    . #x5042)	; &g2-UU+6183; [48-34]
+	(->subsumptive
+	 ((===cns11643-2      . #x5042)	; &R-C2-5042; [48-34]
+	  )
+	 ((===ucs@unicode     . #x6183)	; &R-UU+6183;
+	  ))
+	))
       ))
     ))
 (define-char
@@ -18953,7 +22466,12 @@
     (->subsumptive
      ((==daikanwa	  . 11174)	; &g2-M-11174;
       )
-     ((==ucs@jis	  . #x6184)	; &g2-AJ1-21586;
+     ((=decomposition@cid
+       ((=ucs		    . #x6184)	; 憄
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x6184)	; &g2-AJ1-21586;
       (==adobe-japan1-6	  . 21586)	; &g2-AJ1-21586;
       (==jis-x0212	  . #x3E5E)	; &g2-AJ1-21586; [30-62]
       (->subsumptive
@@ -19149,6 +22667,35 @@
 	))
       (<-vulgar*sources
        shinjigen)
+      (->subsumptive
+       ((=decomposition@cid
+	 ((=ucs		      . #x6187)	; 憇
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(==ucs@unicode	    . #x6187)	; &g2-AJ1-04901;
+	(==adobe-japan1-0   . 04901)	; &g2-AJ1-04901;
+	(==jis-x0208	    . #x585C)	; &g2-AJ1-04901; [56-60]
+	(==jis-x0213-1	    . #x585C)	; &g2-AJ1-04901; [56-60]
+	(==gt		    . 14094)	; &g2-AJ1-04901;
+	(==daikanwa	    . 11187)	; &g2-AJ1-04901;
+	(==shinjigen	    .  2681)	; &g2-AJ1-04901;
+	(==cbeta	    . 02481)	; &g2-AJ1-04901;
+	(->subsumptive
+	 ((===daikanwa	      . 11187)	; &R-M-11187;
+	  )
+	 ((===jis-x0208	      . #x585C)	; &R-J0-585C; [56-60]
+	  (===jis-x0213-1     . #x585C)	; &R-J0-585C; [56-60]
+	  )
+	 ((===adobe-japan1-0  . 04901)	; &R-AJ1-04901;
+	  )
+	 ((===ucs@unicode     . #x6187)	; &R-UU+6187;
+	  )
+	 ((===gt	      . 14094)	; &R-GT-14094;
+	  )
+	 ((===cbeta	      . 02481)	; &R-CB02481;
+	  ))
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -19197,6 +22744,35 @@
     (=daikanwa/+p	. 11188)	; 憎
     (<-simplified@JP/Jouyou
      ((=ucs		  . #xFA3F)	; 憎
+      ))
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x618E)	; 憎
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@iso	  . #x2F8AB)	; &g2-AJ1-02816;
+      (==ucs@jis	  . #x618E)	; &g2-AJ1-02816;
+      (==adobe-japan1-0	  . 02816)	; &g2-AJ1-02816;
+      (==jis-x0208	  . #x417E)	; &g2-AJ1-02816; [33-94]
+      (==cns11643-4	  . #x4351)	; &g2-AJ1-02816; [35-49]
+      (==jis-x0213-1	  . #x417E)	; &g2-AJ1-02816; [33-94]
+      (==gt		  . 13995)	; &g2-AJ1-02816;
+      (==daikanwa/+p	  . 11188)	; &g2-AJ1-02816;
+      (->subsumptive
+       ((===daikanwa/+p	    . 11188)	; &R-M-p11188;
+	)
+       ((===jis-x0208	    . #x417E)	; &R-J0-417E; [33-94]
+	(===jis-x0213-1	    . #x417E)	; &R-J0-417E; [33-94]
+	)
+       ((===adobe-japan1-0  . 02816)	; &R-AJ1-02816;
+	)
+       ((===cns11643-4	    . #x4351)	; &R-C4-4351; [35-49]
+	)
+       ((===gt		    . 13995)	; &R-GT-13995;
+	)
+       ((===ucs@iso	    . #x2F8AB)	; &R-U-0002F8AB;
+	))
       ))
     ))
 (define-char
@@ -19386,7 +22962,12 @@
        ((===gt		    . 14269)	; &R-GT-14269;
 	))
       )
-     ((==ucs@jis	  . #x618A)	; &g2-AJ1-04905;
+     ((=decomposition@cid
+       ((=ucs		    . #x618A)	; 憊
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x618A)	; &g2-AJ1-04905;
       (==ucs@ks		  . #x618A)	; &g2-AJ1-04905;
       (==adobe-japan1-0	  . 04905)	; &g2-AJ1-04905;
       (==ks-x1001	  . #x5D69)	; &g2-AJ1-04905; [61-73]
@@ -19445,6 +23026,24 @@
     (=adobe-japan1-6	. 21587)	; &AJ1-21587;
     (=jis-x0212		. #x3E5F)	; &I-JSP-3E5F; [30-63]
     (=daikanwa		. 11197)	; &I-M-11197;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x618B)	; 憋
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x618B)	; &g2-AJ1-21587;
+      (==adobe-japan1-6	  . 21587)	; &g2-AJ1-21587;
+      (==jis-x0212	  . #x3E5F)	; &g2-AJ1-21587; [30-63]
+      (==daikanwa	  . 11197)	; &g2-AJ1-21587;
+      (->subsumptive
+       ((===daikanwa	    . 11197)	; &R-M-11197;
+	)
+       ((===jis-x0212	    . #x3E5F)	; &R-JSP-3E5F; [30-63]
+	)
+       ((===adobe-japan1-6  . 21587)	; &R-AJ1-21587;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -19557,6 +23156,7 @@
      ((=ucs		  . #x55AC)	; 喬
       ))
     (=ucs		. #x618D)	; 憍
+    (=adobe-japan1-4	. 14552)	; &I-AJ1-14552;
     (=jis-x0212		. #x3E60)	; &I-JSP-3E60; [30-64]
     (=cns11643-2	. #x5050)	; &I-C2-5050; [48-48]
     (=jis-x0213-1	. #x745D)	; &I-JX1-745D; [84-61]
@@ -19583,6 +23183,7 @@
     (total-strokes	 . 15)
     (=ucs		. #xFA3F)	; 憎
     (=ucs@ks		. #x618E)	; 憎
+    (=adobe-japan1-4	. 13363)	; &I-AJ1-13363;
     (=ks-x1001		. #x7173)	; &I-K0-7173; [81-83]
     (=jis-x0213-1	. #x745E)	; &I-JX1-745E; [84-62]
     (=daikanwa		. 11202)	; &I-M-11202;
@@ -19640,6 +23241,7 @@
   '((ideographic-radical . 61)	; ⼼
     (=ucs		. #x6190)	; 憐
     (=adobe-japan1-0	. 04033)	; &I-AJ1-04033;
+    (=adobe-japan1-4	. 14096)	; &I-AJ1-14096;
     (=jis-x0208		. #x4E79)	; &I-J90-4E79; [46-89]
     (=ks-x1001		. #x557B)	; &I-K0-557B; [53-91]
     (=cns11643-1	. #x6C6E)	; &I-C1-6C6E; [76-78]
@@ -19659,16 +23261,19 @@
 	)
        ((=ucs		    . #xE0103)	; 󠄃
 	))
-      (==ucs@unicode	  . #x6190)	; &g2-HD-KS-126170;
+      (==ucs@unicode	  . #x6190)	; &g2-AJ1-14096;
       (==ucs@JP/hanazono  . nil)
-      (==gb12345	  . #x412F)	; &g2-HD-KS-126170; [33-15]
-      (==hanyo-denshi/ks  . 126170)	; &g2-HD-KS-126170;
-      (==daikanwa	  . 11206)	; &g2-HD-KS-126170;
+      (==adobe-japan1-4	  . 14096)	; &g2-AJ1-14096;
+      (==gb12345	  . #x412F)	; &g2-AJ1-14096; [33-15]
+      (==hanyo-denshi/ks  . 126170)	; &g2-AJ1-14096;
+      (==daikanwa	  . 11206)	; &g2-AJ1-14096;
       (->subsumptive
        ((===daikanwa	    . 11206)	; &R-M-11206;
 	)
        ((===hanyo-denshi/ks . 126170)	; &R-HD-KS-126170;
 	(=hanyo-denshi/ks/mf . #x3149)	; &R-HD-KS-126170;
+	)
+       ((===adobe-japan1-4  . 14096)	; &R-AJ1-14096;
 	)
        ((===ucs@unicode	    . #x6190)	; &R-UU+6190;
 	))
@@ -19680,6 +23285,11 @@
       )
      ((ideographic-strokes . 13)
       (total-strokes	   . 16)
+      (=decomposition@cid
+       ((=ucs		    . #x6190)	; 憐
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
       (=decomposition@hanyo-denshi
        ((=ucs		    . #x6190)	; 憐
 	)
@@ -19811,7 +23421,12 @@
     (=daikanwa		. 11213)	; &I-M-11213;
     (=shinjigen		.  2688)	; 憔
     (->subsumptive
-     ((==ucs@unicode	  . #x6194)	; &g2-AJ1-04903;
+     ((=decomposition@cid
+       ((=ucs		    . #x6194)	; 憔
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6194)	; &g2-AJ1-04903;
       (==adobe-japan1-0	  . 04903)	; &g2-AJ1-04903;
       (==gb2312		  . #x633E)	; &g2-AJ1-04903; [67-30]
       (==ks-x1001	  . #x747B)	; &g2-AJ1-04903; [84-91]
@@ -20011,24 +23626,49 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (=ucs		. #x619C)	; 憜
+    (=adobe-japan1-6	. 21588)	; &I-AJ1-21588;
+    (=jis-x0212		. #x3E65)	; &I-JSP-3E65; [30-69]
+    (=cns11643-3	. #x4C29)	; &I-C3-4C29; [44-09]
+    (=daikanwa		. 11225)	; &I-M-11225;
+    (=shinjigen		.  2609)	; 憜
+    (=cbeta		. 00394)	; &I-CB00394;
+    (=jef-china3	. #x4EDC)	; &I-JC3-4EDC;
+    (<-original
+     ((=ucs		  . #x60F0)	; 惰
+      (=jis-x0208	  . #x4246)	; &I-J90-4246; [34-38]
+      (=shinjigen	  .  2608)	; 惰
+      ))
+    (<-original*sources
+     shinjigen)
     (->subsumptive
-     ((=ucs@unicode	  . #x619C)	; &AJ1-21588;
-      (=adobe-japan1-6	  . 21588)	; &AJ1-21588;
-      (=jis-x0212	  . #x3E65)	; &I-JSP-3E65; [30-69]
-      (=daikanwa	  . 11225)	; &I-M-11225;
-      (=shinjigen	  .  2609)	; &AJ1-21588;
-      (=cbeta		  . 00394)	; &I-CB00394;
-      (=jef-china3	  . #x4EDC)	; &I-JC3-4EDC;
-      (<-original
-       ((=ucs@unicode	    . #x60F0)	; &AJ1-02854;
-	(=adobe-japan1-0    . 02854)	; &AJ1-02854;
-	(=jis-x0208	    . #x4246)	; &I-J90-4246; [34-38]
-	(=shinjigen	    .  2608)	; &AJ1-02854;
+     ((=decomposition@cid
+       ((=ucs		    . #x619C)	; 憜
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (<-original*sources
-       shinjigen)
+      (==ucs@unicode	  . #x619C)	; &g2-AJ1-21588;
+      (==adobe-japan1-6	  . 21588)	; &g2-AJ1-21588;
+      (==jis-x0212	  . #x3E65)	; &g2-AJ1-21588; [30-69]
+      (==daikanwa	  . 11225)	; &g2-AJ1-21588;
+      (==shinjigen	  .  2609)	; &g2-AJ1-21588;
+      (==cbeta		  . 00394)	; &g2-AJ1-21588;
+      (==jef-china3	  . #x4EDC)	; &g2-AJ1-21588;
+      (->subsumptive
+       ((===daikanwa	    . 11225)	; &R-M-11225;
+	)
+       ((===jis-x0212	    . #x3E65)	; &R-JSP-3E65; [30-69]
+	)
+       ((===adobe-japan1-6  . 21588)	; &R-AJ1-21588;
+	)
+       ((===jef-china3	    . #x4EDC)	; &R-JC3-4EDC;
+	)
+       ((===ucs@unicode	    . #x619C)	; &R-UU+619C;
+	)
+       ((===cbeta	    . 00394)	; &R-CB00394;
+	))
       )
-     ((=cns11643-3	  . #x4C29)	; &C3-4C29; [44-09]
+     ((==ucs@cns	  . #x619C)	; &g2-CU+619C;
+      (==cns11643-3	  . #x4C29)	; &g2-CU+619C; [44-09]
       ))
     ))
 (define-char
@@ -20051,7 +23691,12 @@
     (=daikanwa		. 11226)	; &I-M-11226;
     (=jef-china3	. #x4DE0)	; &I-JC3-4DE0;
     (->subsumptive
-     ((==ucs@unicode	  . #x619D)	; &g2-AJ1-19373;
+     ((=decomposition@cid
+       ((=ucs		    . #x619D)	; 憝
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x619D)	; &g2-AJ1-19373;
       (==adobe-japan1-5	  . 19373)	; &g2-AJ1-19373;
       (==gb2312		  . #x6D2D)	; &g2-AJ1-19373; [77-13]
       (==jis-x0212	  . #x3E66)	; &g2-AJ1-19373; [30-70]
@@ -20089,15 +23734,51 @@
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (=ucs		. #x619F)	; 憟
-    (=big5		. #xE5A5)	; &I-B-E5A5;
-    (->subsumptive
-     ((=ucs@unicode	  . #x619F)	; &JSP-3E67;
-      (=jis-x0212	  . #x3E67)	; &JSP-3E67; [30-71]
-      (=daikanwa	  . 11228)	; &I-M-11228;
-      (=jef-china3	  . #x4EDD)	; &I-JC3-4EDD;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-2	  . #x504C)	; &C2-504C; [48-44]
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=ucs		  . #x7C9F)	; 粟
+      ))
+    (=ucs		. #x619F)	; 憟
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x619F)	; 憟
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (=ucs@unicode	. #x619F)	; &AJ1-14553;
+    (=adobe-japan1-4	. 14553)	; &AJ1-14553;
+    (=jis-x0212		. #x3E67)	; &I-JSP-3E67; [30-71]
+    (=cns11643-2	. #x504C)	; &I-C2-504C; [48-44]
+    (=big5		. #xE5A5)	; &I-B-E5A5;
+    (=daikanwa		. 11228)	; &I-M-11228;
+    (=jef-china3	. #x4EDD)	; &I-JC3-4EDD;
+    (->subsumptive
+     ((==ucs@unicode	  . #x619F)	; &g2-AJ1-14553;
+      (==adobe-japan1-4	  . 14553)	; &g2-AJ1-14553;
+      (==jis-x0212	  . #x3E67)	; &g2-AJ1-14553; [30-71]
+      (==daikanwa	  . 11228)	; &g2-AJ1-14553;
+      (==jef-china3	  . #x4EDD)	; &g2-AJ1-14553;
+      (->subsumptive
+       ((===daikanwa	    . 11228)	; &R-M-11228;
+	)
+       ((===jis-x0212	    . #x3E67)	; &R-JSP-3E67; [30-71]
+	)
+       ((===adobe-japan1-4  . 14553)	; &R-AJ1-14553;
+	)
+       ((===jef-china3	    . #x4EDD)	; &R-JC3-4EDD;
+	)
+       ((===ucs@unicode	    . #x619F)	; &R-UU+619F;
+	))
+      )
+     ((==ucs@cns	  . #x619F)	; &g2-CU+619F;
+      (==cns11643-2	  . #x504C)	; &g2-CU+619F; [48-44]
       ))
     ))
 (define-char
@@ -20131,7 +23812,12 @@
     (=daikanwa		. 11231)	; &I-M-11231;
     (=jef-china3	. #x4DE1)	; &I-JC3-4DE1;
     (->subsumptive
-     ((==ucs@cns	  . #x61A0)	; &g2-AJ1-21589;
+     ((=decomposition@cid
+       ((=ucs		    . #x61A0)	; 憠
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x61A0)	; &g2-AJ1-21589;
       (==ucs@jis	  . #x61A0)	; &g2-AJ1-21589;
       (==adobe-japan1-6	  . 21589)	; &g2-AJ1-21589;
       (==jis-x0212	  . #x3E68)	; &g2-AJ1-21589; [30-72]
@@ -20278,21 +23964,27 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (=ucs@unicode	. #x61A4)	; &AJ1-03584;
-    (=adobe-japan1-0	. 03584)	; &AJ1-03584;
+    (=ucs@unicode	. #x61A4)	; &AJ1-13501;
+    (=adobe-japan1-0	. 03584)	; &AJ1-13501;
+    (=adobe-japan1-4	. 13501)	; &I-AJ1-13501;
     (=jis-x0208		. #x4A30)	; &I-J90-4A30; [42-16]
     (=ks-x1001		. #x5D49)	; &I-K0-5D49; [61-41]
     (=cns11643-1	. #x6C73)	; &I-C1-6C73; [76-83]
     (=jis-x0213-1	. #x4A30)	; &I-JX1-4A30; [42-16]
-    (=gb12345		. #x375F)	; &AJ1-03584; [23-63]
+    (=gb12345		. #x375F)	; &AJ1-13501; [23-63]
     (=big5		. #xBCAB)	; &I-B-BCAB;
     (=hanyo-denshi/ja	. #x4A30)	; &I-HD-JA-4A30; [42-16]
     (=gt		. 14170)	; &I-GT-14170;
     (=gt-pj-1		. #x4A30)	; &I-GT-14170; [42-16]
     (=daikanwa		. 11239)	; &I-M-11239;
-    (=shinjigen		.  2700)	; &AJ1-03584;
+    (=shinjigen		.  2700)	; &AJ1-13501;
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x61A4)	; 憤
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x61A4)	; 憤
 	)
        ((=ucs		    . #xE0102)	; 󠄂
@@ -20333,6 +24025,8 @@
        ((===jis-x0208@1978  . #x4A30)	; &R-J83-4A30; [42-16]
 	(===jis-x0208@1983  . #x4A30)	; &R-J83-4A30; [42-16]
 	))
+      )
+     ((==adobe-japan1-4	  . 13501)	; &g2-AJ1-13501;
       ))
     ))
 (define-char
@@ -20340,15 +24034,39 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
     (=ucs		. #x61A5)	; 憥
+    (=adobe-japan1-5	. 17651)	; &I-AJ1-17651;
+    (=jis-x0212		. #x3E69)	; &I-JSP-3E69; [30-73]
+    (=cns11643-4	. #x5037)	; &I-C4-5037; [48-23]
+    (=jis-x0213-2	. #x2C6A)	; &I-JX2-2C6A; [12-74]
+    (=daikanwa		. 11240)	; &I-M-11240;
+    (=jef-china3	. #x4DE2)	; &I-JC3-4DE2;
     (->subsumptive
-     ((=ucs@unicode	  . #x61A5)	; &AJ1-17651;
-      (=adobe-japan1-5	  . 17651)	; &AJ1-17651;
-      (=jis-x0212	  . #x3E69)	; &I-JSP-3E69; [30-73]
-      (=jis-x0213-2	  . #x2C6A)	; &I-JX2-2C6A; [12-74]
-      (=daikanwa	  . 11240)	; &I-M-11240;
-      (=jef-china3	  . #x4DE2)	; &I-JC3-4DE2;
+     ((=decomposition@cid
+       ((=ucs		    . #x61A5)	; 憥
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x61A5)	; &g2-AJ1-17651;
+      (==adobe-japan1-5	  . 17651)	; &g2-AJ1-17651;
+      (==jis-x0212	  . #x3E69)	; &g2-AJ1-17651; [30-73]
+      (==jis-x0213-2	  . #x2C6A)	; &g2-AJ1-17651; [12-74]
+      (==daikanwa	  . 11240)	; &g2-AJ1-17651;
+      (==jef-china3	  . #x4DE2)	; &g2-AJ1-17651;
+      (->subsumptive
+       ((===daikanwa	    . 11240)	; &R-M-11240;
+	)
+       ((===jis-x0212	    . #x3E69)	; &R-JX2-2C6A; [30-73]
+	(===jis-x0213-2	    . #x2C6A)	; &R-JX2-2C6A; [12-74]
+	)
+       ((===adobe-japan1-5  . 17651)	; &R-AJ1-17651;
+	)
+       ((===jef-china3	    . #x4DE2)	; &R-JC3-4DE2;
+	)
+       ((===ucs@unicode	    . #x61A5)	; &R-UU+61A5;
+	))
       )
-     ((=cns11643-4	  . #x5037)	; &C4-5037; [48-23]
+     ((==ucs@cns	  . #x61A5)	; &g2-CU+61A5;
+      (==cns11643-4	  . #x5037)	; &g2-CU+61A5; [48-23]
       ))
     ))
 (define-char
@@ -20384,7 +24102,12 @@
     (=shinjigen		.  2692)	; 憧
     (=shinjigen/+p@rev	.  2692)	; 憧
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x61A7)	; 憧
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x61A7)	; 憧
 	)
        ((=ucs		    . #xE0101)	; 󠄁
@@ -20453,13 +24176,41 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (=ucs@cns		. #x61A8)	; &JX2-2C6B;
-    (=ucs@jis		. #x61A8)	; &JX2-2C6B;
-    (=jis-x0212		. #x3E6A)	; &JX2-2C6B; [30-74]
+    (=ucs@cns		. #x61A8)	; &AJ1-14554;
+    (=ucs@jis		. #x61A8)	; &AJ1-14554;
+    (=adobe-japan1-4	. 14554)	; &AJ1-14554;
+    (=jis-x0212		. #x3E6A)	; &I-JSP-3E6A; [30-74]
     (=cns11643-2	. #x5724)	; &I-C2-5724; [55-04]
     (=jis-x0213-2	. #x2C6B)	; &I-JX2-2C6B; [12-75]
     (=daikanwa		. 11244)	; &I-M-11244;
     (=jef-china3	. #x4DE3)	; &I-JC3-4DE3;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x61A8)	; 憨
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x61A8)	; &g2-AJ1-14554;
+      (==ucs@jis	  . #x61A8)	; &g2-AJ1-14554;
+      (==adobe-japan1-4	  . 14554)	; &g2-AJ1-14554;
+      (==jis-x0212	  . #x3E6A)	; &g2-AJ1-14554; [30-74]
+      (==cns11643-2	  . #x5724)	; &g2-AJ1-14554; [55-04]
+      (==jis-x0213-2	  . #x2C6B)	; &g2-AJ1-14554; [12-75]
+      (==daikanwa	  . 11244)	; &g2-AJ1-14554;
+      (==jef-china3	  . #x4DE3)	; &g2-AJ1-14554;
+      (->subsumptive
+       ((===daikanwa	    . 11244)	; &R-M-11244;
+	)
+       ((===jis-x0212	    . #x3E6A)	; &R-JX2-2C6B; [30-74]
+	(===jis-x0213-2	    . #x2C6B)	; &R-JX2-2C6B; [12-75]
+	)
+       ((===adobe-japan1-4  . 14554)	; &R-AJ1-14554;
+	)
+       ((===cns11643-2	    . #x5724)	; &R-C2-5724; [55-04]
+	)
+       ((===jef-china3	    . #x4DE3)	; &R-JC3-4DE3;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -20515,7 +24266,12 @@
       (->subsumptive
        ((==daikanwa	    . 11246)	; &g2-M-11246;
 	)
-       ((==ucs@unicode	    . #x61A9)	; &g2-AJ1-01820;
+       ((=decomposition@cid
+	 ((=ucs		      . #x61A9)	; 憩
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(==ucs@unicode	    . #x61A9)	; &g2-AJ1-01820;
 	(==adobe-japan1-0   . 01820)	; &g2-AJ1-01820;
 	(==gb2312	    . #x6D2C)	; &g2-AJ1-01820; [77-12]
 	(==ks-x1001	    . #x4C28)	; &g2-AJ1-01820; [44-08]
@@ -20636,7 +24392,12 @@
     (->subsumptive
      ((=daikanwa	  . 11251)	; &M-11251;
       )
-     ((=ucs@unicode	  . #x61AA)	; &AJ1-21590;
+     ((=decomposition@cid
+       ((=ucs		    . #x61AA)	; 憪
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs@unicode	  . #x61AA)	; &AJ1-21590;
       (=adobe-japan1-6	  . 21590)	; &AJ1-21590;
       (=jis-x0212	  . #x3E6B)	; &I-JSP-3E6B; [30-75]
       (=cns11643-2	  . #x504E)	; &I-C2-504E; [48-46]
@@ -20661,7 +24422,12 @@
     (->subsumptive
      ((==daikanwa	  . 11252)	; &g2-M-11252;
       )
-     ((==ucs@unicode	  . #x61AB)	; &g2-AJ1-04907;
+     ((=decomposition@cid
+       ((=ucs		    . #x61AB)	; 憫
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x61AB)	; &g2-AJ1-04907;
       (==adobe-japan1-0	  . 04907)	; &g2-AJ1-04907;
       (==ks-x1001	  . #x5A41)	; &g2-AJ1-04907; [58-33]
       (==jis-x0208	  . #x5862)	; &g2-AJ1-04907; [56-66]
@@ -20742,7 +24508,12 @@
     (->subsumptive
      ((==daikanwa	  . 11256)	; &g2-M-11256;
       )
-     ((==ucs@cns	  . #x61AC)	; &g2-AJ1-04902;
+     ((=decomposition@cid
+       ((=ucs		    . #x61AC)	; 憬
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x61AC)	; &g2-AJ1-04902;
       (==ucs@jis	  . #x61AC)	; &g2-AJ1-04902;
       (==ucs@ks		  . #x61AC)	; &g2-AJ1-04902;
       (==adobe-japan1-0	  . 04902)	; &g2-AJ1-04902;
@@ -21002,7 +24773,12 @@
       (=hanyo-denshi/ks	  . 127180)	; &AJ1-20120;
       (=daikanwa	  . 11269)	; &I-M-11269;
       (->subsumptive
-       ((==adobe-japan1-5   . 20120)	; &g2-AJ1-20120;
+       ((=decomposition@cid
+	 ((=ucs		      . #x61B2)	; 憲
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(==adobe-japan1-5   . 20120)	; &g2-AJ1-20120;
 	(==daikanwa	    . 11269)	; &g2-AJ1-20120;
 	(->subsumptive
 	 ((===daikanwa	      . 11269)	; &R-M-11269;
@@ -21027,7 +24803,12 @@
       (=shinjigen	  .  2684)	; &AJ1-13750;
       (=jef-china3	  . #x4DE4)	; &I-JC3-4DE4;
       (->subsumptive
-       ((=decomposition@hanyo-denshi
+       ((=decomposition@cid
+	 ((=ucs		      . #x61B2)	; 憲
+	  )
+	 ((=ucs		      . #xE0101)	; 󠄁
+	  ))
+	(=decomposition@hanyo-denshi
 	 ((=ucs		      . #x61B2)	; 憲
 	  )
 	 ((=ucs		      . #xE0106)	; 󠄆
@@ -21087,7 +24868,12 @@
     (=+>adobe-japan1-0	. 01873)	; &o-J0-377B;
     (=+>gt		. 14230)	; &o-J0-377B;
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x61B2)	; 憲
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x61B2)	; 憲
 	)
        ((=ucs		    . #xE0103)	; 󠄃
@@ -21504,7 +25290,12 @@
     (=daikanwa		. 11295)	; &I-M-11295;
     (=shinjigen		.  2706)	; 憶
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x61B6)	; 憶
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x61B6)	; 憶
 	)
        ((=ucs		    . #xE0101)	; 󠄁
@@ -21767,7 +25558,12 @@
       (=>>gt		  . 14259)	; &G-AJ1-04916;
       (=>>daikanwa	  . 11305)	; &G-AJ1-04916;
       (->subsumptive
-       ((==ucs@jis	    . #x61BA)	; &g2-AJ1-04916;
+       ((=decomposition@cid
+	 ((=ucs		      . #x61BA)	; 憺
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(==ucs@jis	    . #x61BA)	; &g2-AJ1-04916;
 	(==ucs@ks	    . #x61BA)	; &g2-AJ1-04916;
 	(==adobe-japan1-0   . 04916)	; &g2-AJ1-04916;
 	(==ks-x1001	    . #x533C)	; &g2-AJ1-04916; [51-28]
@@ -21858,17 +25654,41 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x61BC)	; 憼
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
     (=ucs@unicode	. #x61BC)	; &AJ1-16869;
     (=adobe-japan1-5	. 16869)	; &AJ1-16869;
     (=jis-x0212		. #x3E6F)	; &I-JSP-3E6F; [30-79]
     (=jis-x0213-1	. #x745F)	; &I-JX1-745F; [84-63]
     (=hanyo-denshi/jb	. #x3E6F)	; &I-HD-JB-3E6F; [30-79]
     (=jef-china3	. #x4DE5)	; &I-JC3-4DE5;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x61BC)	; 憼
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x61BC)	; 憼
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@unicode	  . #x61BC)	; &g2-AJ1-16869;
+      (==adobe-japan1-5	  . 16869)	; &g2-AJ1-16869;
+      (==jis-x0212	  . #x3E6F)	; &g2-AJ1-16869; [30-79]
+      (==jis-x0213-1	  . #x745F)	; &g2-AJ1-16869; [84-63]
+      (==hanyo-denshi/jb  . #x3E6F)	; &g2-AJ1-16869; [30-79]
+      (==jef-china3	  . #x4DE5)	; &g2-AJ1-16869;
+      (->subsumptive
+       ((===jis-x0212	    . #x3E6F)	; &R-HD-JB-3E6F; [30-79]
+	(===jis-x0213-1	    . #x745F)	; &R-HD-JB-3E6F; [84-63]
+	(===hanyo-denshi/jb . #x3E6F)	; &R-HD-JB-3E6F; [30-79]
+	)
+       ((===adobe-japan1-5  . 16869)	; &R-AJ1-16869;
+	)
+       ((===jef-china3	    . #x4DE5)	; &R-JC3-4DE5;
+	)
+       ((===ucs@unicode	    . #x61BC)	; &R-UU+61BC;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -22027,24 +25847,60 @@
     (=daikanwa		. 11319)	; &I-M-11319;
     ))
 (define-char
-  '((=>ucs		. #x61C2)	; 懂
-    (ideographic-radical . 61)	; ⼼
-    (ideographic-strokes . 13)
-    (total-strokes	 . 16)
-    (cns-total-strokes	. 17)
-    (=cns11643-1	. #x735D)	; &C1-735D; [83-61]
-    (=daikanwa		. 11320)	; &I-M-11320;
+  '((ideographic-radical . 61)	; ⼼
+    (=ucs		. #x61C2)	; 懂
+    (=big5		. #xC0B4)	; &I-B-C0B4;
     ))
 (define-char
-  '((morohashi-daikanwa	11320 0 2)
+  '((<-denotational
+     ((=ucs		  . #x61C2)	; 懂
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (total-strokes@cns	     . 17)
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (=ucs@cns		. #x61C2)	; &C1-735D;
+    (=cns11643-1	. #x735D)	; &C1-735D; [83-61]
+    (=daikanwa		. 11320)	; &I-M-11320;
+    (->subsumptive
+     ((==ucs@cns	  . #x61C2)	; &g2-M-11320;
+      (==cns11643-1	  . #x735D)	; &g2-M-11320; [83-61]
+      (==daikanwa	  . 11320)	; &g2-M-11320;
+      (->subsumptive
+       ((===daikanwa	    . 11320)	; &R-M-11320;
+	)
+       ((===cns11643-1	    . #x735D)	; &R-C1-735D; [83-61]
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x61C2)	; 懂
+      ))
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (=ucs		. #x61C2)	; 懂
+    (=ucs@unicode	. #x61C2)	; &AJ1-14555;
+    (=adobe-japan1-4	. 14555)	; &AJ1-14555;
     (=gb2312		. #x362E)	; &I-G0-362E; [22-14]
     (=jis-x0212		. #x3E72)	; &I-JSP-3E72; [30-82]
-    (=big5		. #xC0B4)	; &I-B-C0B4;
     (=jef-china3	. #x82BA)	; &I-JC3-82BA;
+    (->subsumptive
+     ((==ucs@unicode	  . #x61C2)	; &g2-AJ1-14555;
+      (==adobe-japan1-4	  . 14555)	; &g2-AJ1-14555;
+      (==gb2312		  . #x362E)	; &g2-AJ1-14555; [22-14]
+      (==jis-x0212	  . #x3E72)	; &g2-AJ1-14555; [30-82]
+      (==jef-china3	  . #x82BA)	; &g2-AJ1-14555;
+      (->subsumptive
+       ((===jis-x0212	    . #x3E72)	; &R-JSP-3E72; [30-82]
+	)
+       ((===adobe-japan1-4  . 14555)	; &R-AJ1-14555;
+	)
+       ((===ucs@unicode	    . #x61C2)	; &R-UU+61C2;
+	)
+       ((===jef-china3	    . #x82BA)	; &R-JC3-82BA;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -22112,19 +25968,43 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
     (=ucs		. #x61C6)	; 懆
+    (=adobe-japan1-0	. 04915)	; &I-AJ1-04915;
+    (=jis-x0208		. #x586A)	; &I-J90-586A; [56-74]
+    (=cns11643-2	. #x5728)	; &I-C2-5728; [55-08]
+    (=jis-x0213-1	. #x586A)	; &I-JX1-586A; [56-74]
     (=big5		. #xE97B)	; &I-B-E97B;
+    (=gt		. 14251)	; &I-GT-14251;
+    (=gt-pj-1		. #x586A)	; &I-GT-14251; [56-74]
+    (=daikanwa		. 11325)	; &I-M-11325;
+    (=shinjigen		.  2718)	; 懆
     (->subsumptive
-     ((=ucs@unicode	  . #x61C6)	; &AJ1-04915;
-      (=adobe-japan1-0	  . 04915)	; &AJ1-04915;
-      (=jis-x0208	  . #x586A)	; &I-J90-586A; [56-74]
-      (=jis-x0213-1	  . #x586A)	; &I-JX1-586A; [56-74]
-      (=gt		  . 14251)	; &I-GT-14251;
-      (=gt-pj-1		  . #x586A)	; &I-GT-14251; [56-74]
-      (=daikanwa	  . 11325)	; &I-M-11325;
-      (=shinjigen	  .  2718)	; &AJ1-04915;
+     ((=decomposition@cid
+       ((=ucs		    . #x61C6)	; 懆
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x61C6)	; &g2-AJ1-04915;
+      (==adobe-japan1-0	  . 04915)	; &g2-AJ1-04915;
+      (==jis-x0208	  . #x586A)	; &g2-AJ1-04915; [56-74]
+      (==jis-x0213-1	  . #x586A)	; &g2-AJ1-04915; [56-74]
+      (==gt		  . 14251)	; &g2-AJ1-04915;
+      (==daikanwa	  . 11325)	; &g2-AJ1-04915;
+      (==shinjigen	  .  2718)	; &g2-AJ1-04915;
+      (->subsumptive
+       ((===daikanwa	    . 11325)	; &R-M-11325;
+	)
+       ((===jis-x0208	    . #x586A)	; &R-J0-586A; [56-74]
+	(===jis-x0213-1	    . #x586A)	; &R-J0-586A; [56-74]
+	)
+       ((===adobe-japan1-0  . 04915)	; &R-AJ1-04915;
+	)
+       ((===gt		    . 14251)	; &R-GT-14251;
+	)
+       ((===ucs@unicode	    . #x61C6)	; &R-UU+61C6;
+	))
       )
-     ((=ucs@cns		  . #x61C6)	; &C2-5728;
-      (=cns11643-2	  . #x5728)	; &C2-5728; [55-08]
+     ((==ucs@cns	  . #x61C6)	; &g2-CU+61C6;
+      (==cns11643-2	  . #x5728)	; &g2-CU+61C6; [55-08]
       ))
     ))
 (define-char
@@ -22144,7 +26024,12 @@
     (=daikanwa		. 11326)	; &I-M-11326;
     (=shinjigen		.  2715)	; 懇
     (->subsumptive
-     ((==ucs@unicode	  . #x61C7)	; &g2-AJ1-02073;
+     ((=decomposition@cid
+       ((=ucs		    . #x61C7)	; 懇
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x61C7)	; &g2-AJ1-02073;
       (==adobe-japan1-0	  . 02073)	; &g2-AJ1-02073;
       (==ks-x1001	  . #x4A50)	; &g2-AJ1-02073; [42-48]
       (==jis-x0208	  . #x3A29)	; &g2-AJ1-02073; [26-09]
@@ -22258,6 +26143,39 @@
     (=gt-pj-1		. #x5868)	; &I-GT-14201; [56-72]
     (=daikanwa		. 11328)	; &I-M-11328;
     (=shinjigen		.  2710)	; &AJ1-04913;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x61C8)	; 懈
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x61C8)	; &g2-AJ1-04913;
+      (==ucs@jis	  . #x61C8)	; &g2-AJ1-04913;
+      (==ucs@ks		  . #x61C8)	; &g2-AJ1-04913;
+      (==adobe-japan1-0	  . 04913)	; &g2-AJ1-04913;
+      (==ks-x1001	  . #x7A2B)	; &g2-AJ1-04913; [90-11]
+      (==jis-x0208	  . #x5868)	; &g2-AJ1-04913; [56-72]
+      (==cns11643-1	  . #x705C)	; &g2-AJ1-04913; [80-60]
+      (==jis-x0213-1	  . #x5868)	; &g2-AJ1-04913; [56-72]
+      (==gt		  . 14201)	; &g2-AJ1-04913;
+      (==daikanwa	  . 11328)	; &g2-AJ1-04913;
+      (==shinjigen	  .  2710)	; &g2-AJ1-04913;
+      (->subsumptive
+       ((===daikanwa	    . 11328)	; &R-M-11328;
+	)
+       ((===jis-x0208	    . #x5868)	; &R-J0-5868; [56-72]
+	(===jis-x0213-1	    . #x5868)	; &R-J0-5868; [56-72]
+	)
+       ((===adobe-japan1-0  . 04913)	; &R-AJ1-04913;
+	)
+       ((===cns11643-1	    . #x705C)	; &R-C1-705C; [80-60]
+	)
+       ((===gt		    . 14201)	; &R-GT-14201;
+	)
+       ((===ucs@ks	    . #x61C8)	; &R-K0-7A2B;
+	(===ks-x1001	    . #x7A2B)	; &R-K0-7A2B; [90-11]
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -22398,7 +26316,12 @@
     (=daikanwa		. 11330)	; &I-M-11330;
     (=shinjigen		.  2393)	; 應
     (->subsumptive
-     ((==ucs@unicode	  . #x61C9)	; &g2-AJ1-04911;
+     ((=decomposition@cid
+       ((=ucs		    . #x61C9)	; 應
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x61C9)	; &g2-AJ1-04911;
       (==adobe-japan1-0	  . 04911)	; &g2-AJ1-04911;
       (==ks-x1001	  . #x6B6B)	; &g2-AJ1-04911; [75-75]
       (==jis-x0208	  . #x5866)	; &g2-AJ1-04911; [56-70]
@@ -22468,7 +26391,12 @@
     (=daikanwa		. 11332)	; &I-M-11332;
     (=shinjigen		.  2704)	; &AJ1-04910;
     (->subsumptive
-     ((==ucs@jis	  . #x61CA)	; &g2-AJ1-04910;
+     ((=decomposition@cid
+       ((=ucs		    . #x61CA)	; 懊
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x61CA)	; &g2-AJ1-04910;
       (==ucs@ks		  . #x61CA)	; &g2-AJ1-04910;
       (==adobe-japan1-0	  . 04910)	; &g2-AJ1-04910;
       (==ks-x1001	  . #x6778)	; &g2-AJ1-04910; [71-88]
@@ -22529,34 +26457,65 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
     (=ucs		. #x61CC)	; 懌
-    (=>>hanyo-denshi/ja . #x5864)	; 懌 [56-68]
-    (=>>hanyo-denshi/jt . #xB1B9)	; 懌
+    (=adobe-japan1-0	. 04909)	; &I-AJ1-04909;
+    (=jis-x0208		. #x5864)	; &I-J90-5864; [56-68]
+    (=cns11643-2	. #x572A)	; &I-C2-572A; [55-10]
+    (=jis-x0213-1	. #x5864)	; &I-JX1-5864; [56-68]
+    (=gb12345		. #x6278)	; 懌 [66-88]
+    (=big5		. #xE97D)	; &I-B-E97D;
+    (=hanyo-denshi/ja	. #x5864)	; &I-HD-JA-5864; [56-68]
+    (=hanyo-denshi/jt	. #xB1B9)	; &I-HD-JT-B1B9;
+    (=gt		. 14195)	; &I-GT-14195;
+    (=gt-pj-1		. #x5864)	; &I-GT-14195; [56-68]
+    (=daikanwa		. 11334)	; &I-M-11334;
+    (=shinjigen		.  2703)	; 懌
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x61CC)	; 懌
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x61CC)	; 懌
 	)
        ((=ucs		    . #xE0101)	; 󠄁
 	))
-      (=ucs@jis		  . #x61CC)	; &AJ1-04909;
-      (=adobe-japan1-0	  . 04909)	; &AJ1-04909;
-      (=jis-x0208	  . #x5864)	; &I-J90-5864; [56-68]
-      (=jis-x0213-1	  . #x5864)	; &I-JX1-5864; [56-68]
-      (=hanyo-denshi/ja	  . #x5864)	; &I-HD-JA-5864; [56-68]
-      (=gt		  . 14195)	; &I-GT-14195;
-      (=gt-pj-1		  . #x5864)	; &I-GT-14195; [56-68]
-      (=daikanwa	  . 11334)	; &I-M-11334;
+      (==ucs@jis	  . #x61CC)	; &g2-AJ1-04909;
+      (==adobe-japan1-0	  . 04909)	; &g2-AJ1-04909;
+      (==jis-x0208	  . #x5864)	; &g2-AJ1-04909; [56-68]
+      (==jis-x0213-1	  . #x5864)	; &g2-AJ1-04909; [56-68]
+      (==hanyo-denshi/ja  . #x5864)	; &g2-AJ1-04909; [56-68]
+      (==gt		  . 14195)	; &g2-AJ1-04909;
+      (==daikanwa	  . 11334)	; &g2-AJ1-04909;
+      (->subsumptive
+       ((===daikanwa	    . 11334)	; &R-M-11334;
+	)
+       ((===jis-x0208	    . #x5864)	; &R-J0-5864; [56-68]
+	(===jis-x0213-1	    . #x5864)	; &R-J0-5864; [56-68]
+	)
+       ((===adobe-japan1-0  . 04909)	; &R-AJ1-04909;
+	)
+       ((===gt		    . 14195)	; &R-GT-14195;
+	))
       )
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x61CC)	; 懌
 	)
        ((=ucs		    . #xE0102)	; 󠄂
 	))
-      (=ucs@iso		  . #x61CC)	; &HD-JT-B1B9;
-      (=cns11643-2	  . #x572A)	; &HD-JT-B1B9; [55-10]
-      (=gb12345		  . #x6278)	; &HD-JT-B1B9; [66-88]
-      (=big5		  . #xE97D)	; &I-B-E97D;
-      (=hanyo-denshi/jt	  . #xB1B9)	; &I-HD-JT-B1B9;
-      (=shinjigen	  .  2703)	; &HD-JT-B1B9;
+      (==ucs@unicode	  . #x61CC)	; &g2-HD-JT-B1B9;
+      (==ucs@JP/hanazono  . nil)
+      (==cns11643-2	  . #x572A)	; &g2-HD-JT-B1B9; [55-10]
+      (==gb12345	  . #x6278)	; &g2-HD-JT-B1B9; [66-88]
+      (==hanyo-denshi/jt  . #xB1B9)	; &g2-HD-JT-B1B9;
+      (==shinjigen	  .  2703)	; &g2-HD-JT-B1B9;
+      (->subsumptive
+       ((===hanyo-denshi/jt . #xB1B9)	; &R-HD-JT-B1B9;
+	)
+       ((===cns11643-2	    . #x572A)	; &R-C2-572A; [55-10]
+	)
+       ((===ucs@unicode	    . #x61CC)	; &R-UU+61CC;
+	))
       ))
     ))
 (define-char
@@ -22574,7 +26533,12 @@
     (=daikanwa		. 11335)	; &I-M-11335;
     (=shinjigen		.  2722)	; 懍
     (->subsumptive
-     ((==ucs@unicode	  . #x61CD)	; &g2-AJ1-04919;
+     ((=decomposition@cid
+       ((=ucs		    . #x61CD)	; 懍
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x61CD)	; &g2-AJ1-04919;
       (==adobe-japan1-0	  . 04919)	; &g2-AJ1-04919;
       (==jis-x0208	  . #x586E)	; &g2-AJ1-04919; [56-78]
       (==jis-x0213-1	  . #x586E)	; &g2-AJ1-04919; [56-78]
@@ -22618,8 +26582,9 @@
     (=daikanwa		. 11336)	; &I-M-11336;
     (=shinjigen		.  2701)	; 憤
     (<-original
-     ((=ucs@unicode	  . #x61A4)	; &AJ1-03584;
-      (=adobe-japan1-0	  . 03584)	; &AJ1-03584;
+     ((=ucs@unicode	  . #x61A4)	; &AJ1-13501;
+      (=adobe-japan1-0	  . 03584)	; &AJ1-13501;
+      (=adobe-japan1-4	  . 13501)	; &I-AJ1-13501;
       (=daikanwa	  . 11239)	; &I-M-11239;
       ))
     (<-original*sources
@@ -22648,7 +26613,12 @@
     (=daikanwa		. 11338)	; &I-M-11338;
     (=jef-china3	. #x4EE5)	; &I-JC3-4EE5;
     (->subsumptive
-     ((==ucs@unicode	  . #x61CF)	; &g2-AJ1-21594;
+     ((=decomposition@cid
+       ((=ucs		    . #x61CF)	; 懏
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x61CF)	; &g2-AJ1-21594;
       (==adobe-japan1-6	  . 21594)	; &g2-AJ1-21594;
       (==jis-x0212	  . #x3E74)	; &g2-AJ1-21594; [30-84]
       (==cns11643-3	  . #x5065)	; &g2-AJ1-21594; [48-69]
@@ -22834,6 +26804,7 @@
       )
      ((=ucs-itaiji-004	  . #x8931)	; &U-i004+8931;
       ))
+    (=>ucs@iwds-1	. #x61D0)	; &AJ1-01403;
     (=ucs@unicode	. #x61D0)	; &AJ1-01403;
     (=adobe-japan1-0	. 01403)	; &AJ1-01403;
     (=jis-x0208		. #x327B)	; &I-J90-327B; [18-91]
@@ -22848,7 +26819,12 @@
       (=jis-x0208	  . #x5867)	; &I-J90-5867; [56-71]
       ))
     (->subsumptive
-     ((==ucs@unicode	  . #x61D0)	; &g2-AJ1-01403;
+     ((=decomposition@cid
+       ((=ucs		    . #x61D0)	; 懐
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x61D0)	; &g2-AJ1-01403;
       (==adobe-japan1-0	  . 01403)	; &g2-AJ1-01403;
       (==jis-x0208	  . #x327B)	; &g2-AJ1-01403; [18-91]
       (==cns11643-3	  . #x506B)	; &g2-AJ1-01403; [48-75]
@@ -23065,7 +27041,12 @@
     (=daikanwa		. 11356)	; &I-M-11356;
     (=jef-china3	. #x4DE6)	; &I-JC3-4DE6;
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x61D5)	; 懕
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x61D5)	; 懕
 	)
        ((=ucs		    . #xE0101)	; 󠄁
@@ -23127,15 +27108,31 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
     (=ucs		. #x61E8)	; 懨
+    (=adobe-japan1-5	. 19378)	; &I-AJ1-19378;
+    (=cns11643-2	. #x5C71)	; &I-C2-5C71; [60-81]
+    (=gb12345		. #x627B)	; 懨 [66-91]
     (=big5		. #xECE6)	; &I-B-ECE6;
+    (=daikanwa		. 11357)	; &I-M-11357;
     (->subsumptive
-     ((=ucs@unicode	  . #x61E8)	; &AJ1-19378;
-      (=adobe-japan1-5	  . 19378)	; &AJ1-19378;
-      (=gb12345		  . #x627B)	; &AJ1-19378; [66-91]
-      (=daikanwa	  . 11357)	; &I-M-11357;
+     ((=decomposition@cid
+       ((=ucs		    . #x61E8)	; 懨
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x61E8)	; &g2-AJ1-19378;
+      (==adobe-japan1-5	  . 19378)	; &g2-AJ1-19378;
+      (==gb12345	  . #x627B)	; &g2-AJ1-19378; [66-91]
+      (==daikanwa	  . 11357)	; &g2-AJ1-19378;
+      (->subsumptive
+       ((===daikanwa	    . 11357)	; &R-M-11357;
+	)
+       ((===adobe-japan1-5  . 19378)	; &R-AJ1-19378;
+	)
+       ((===ucs@unicode	    . #x61E8)	; &R-UU+61E8;
+	))
       )
-     ((=ucs@cns		  . #x61E8)	; &C2-5C71;
-      (=cns11643-2	  . #x5C71)	; &C2-5C71; [60-81]
+     ((==ucs@cns	  . #x61E8)	; &g2-CU+61E8;
+      (==cns11643-2	  . #x5C71)	; &g2-CU+61E8; [60-81]
       ))
     ))
 (define-char
@@ -23339,6 +27336,29 @@
     (=jis-x0212		. #x3E76)	; &I-JSP-3E76; [30-86]
     (=cns11643-3	. #x545E)	; &I-C3-545E; [52-62]
     (=daikanwa		. 11372)	; &I-M-11372;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x61DC)	; 懜
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x61DC)	; &g2-AJ1-19375;
+      (==ucs@jis	  . #x61DC)	; &g2-AJ1-19375;
+      (==ucs@JP/hanazono  . nil)
+      (==adobe-japan1-5	  . 19375)	; &g2-AJ1-19375;
+      (==jis-x0212	  . #x3E76)	; &g2-AJ1-19375; [30-86]
+      (==cns11643-3	  . #x545E)	; &g2-AJ1-19375; [52-62]
+      (==daikanwa	  . 11372)	; &g2-AJ1-19375;
+      (->subsumptive
+       ((===daikanwa	    . 11372)	; &R-M-11372;
+	)
+       ((===jis-x0212	    . #x3E76)	; &R-JSP-3E76; [30-86]
+	)
+       ((===adobe-japan1-5  . 19375)	; &R-AJ1-19375;
+	)
+       ((===cns11643-3	    . #x545E)	; &R-C3-545E; [52-62]
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -23368,16 +27388,43 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
     (=ucs		. #x61DD)	; 懝
+    (=adobe-japan1-5	. 17655)	; &I-AJ1-17655;
+    (=jis-x0212		. #x3E77)	; &I-JSP-3E77; [30-87]
+    (=cns11643-3	. #x545D)	; &I-C3-545D; [52-61]
+    (=jis-x0213-2	. #x2C6F)	; &I-JX2-2C6F; [12-79]
+    (=daikanwa		. 11374)	; &I-M-11374;
+    (=cbeta		. 03892)	; &I-CB03892;
+    (=jef-china3	. #x4EE6)	; &I-JC3-4EE6;
     (->subsumptive
-     ((=ucs@unicode	  . #x61DD)	; &AJ1-17655;
-      (=adobe-japan1-5	  . 17655)	; &AJ1-17655;
-      (=jis-x0212	  . #x3E77)	; &I-JSP-3E77; [30-87]
-      (=jis-x0213-2	  . #x2C6F)	; &I-JX2-2C6F; [12-79]
-      (=daikanwa	  . 11374)	; &I-M-11374;
-      (=cbeta		  . 03892)	; &I-CB03892;
-      (=jef-china3	  . #x4EE6)	; &I-JC3-4EE6;
+     ((=decomposition@cid
+       ((=ucs		    . #x61DD)	; 懝
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x61DD)	; &g2-AJ1-17655;
+      (==adobe-japan1-5	  . 17655)	; &g2-AJ1-17655;
+      (==jis-x0212	  . #x3E77)	; &g2-AJ1-17655; [30-87]
+      (==jis-x0213-2	  . #x2C6F)	; &g2-AJ1-17655; [12-79]
+      (==daikanwa	  . 11374)	; &g2-AJ1-17655;
+      (==cbeta		  . 03892)	; &g2-AJ1-17655;
+      (==jef-china3	  . #x4EE6)	; &g2-AJ1-17655;
+      (->subsumptive
+       ((===daikanwa	    . 11374)	; &R-M-11374;
+	)
+       ((===jis-x0212	    . #x3E77)	; &R-JX2-2C6F; [30-87]
+	(===jis-x0213-2	    . #x2C6F)	; &R-JX2-2C6F; [12-79]
+	)
+       ((===adobe-japan1-5  . 17655)	; &R-AJ1-17655;
+	)
+       ((===jef-china3	    . #x4EE6)	; &R-JC3-4EE6;
+	)
+       ((===ucs@unicode	    . #x61DD)	; &R-UU+61DD;
+	)
+       ((===cbeta	    . 03892)	; &R-CB03892;
+	))
       )
-     ((=cns11643-3	  . #x545D)	; &C3-545D; [52-61]
+     ((==ucs@cns	  . #x61DD)	; &g2-CU+61DD;
+      (==cns11643-3	  . #x545D)	; &g2-CU+61DD; [52-61]
       ))
     ))
 (define-char
@@ -23431,7 +27478,12 @@
     (=jis-x0212		. #x3E78)	; &I-JSP-3E78; [30-88]
     (=gb12345		. #x7856)	; &AJ1-21595; [88-54]
     (->subsumptive
-     ((==ucs@jis	  . #x61DE)	; &g2-AJ1-21595;
+     ((=decomposition@cid
+       ((=ucs		    . #x61DE)	; 懞
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x61DE)	; &g2-AJ1-21595;
       (==adobe-japan1-6	  . 21595)	; &g2-AJ1-21595;
       (==jis-x0212	  . #x3E78)	; &g2-AJ1-21595; [30-88]
       (->subsumptive
@@ -23466,6 +27518,7 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
     (=ucs		. #x61DF)	; 懟
+    (=adobe-japan1-4	. 14556)	; &I-AJ1-14556;
     (=jis-x0212		. #x3E79)	; &I-JSP-3E79; [30-89]
     (=cns11643-2	. #x6154)	; &I-C2-6154; [65-52]
     (=jis-x0213-2	. #x2C70)	; &I-JX2-2C70; [12-80]
@@ -23511,7 +27564,12 @@
     (=daikanwa		. 11379)	; &I-M-11379;
     (=cbeta		. 01333)	; &I-CB01333;
     (->subsumptive
-     ((==ucs@jis	  . #x61E1)	; &g2-AJ1-21596;
+     ((=decomposition@cid
+       ((=ucs		    . #x61E1)	; 懡
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x61E1)	; &g2-AJ1-21596;
       (==adobe-japan1-6	  . 21596)	; &g2-AJ1-21596;
       (==jis-x0212	  . #x3E7A)	; &g2-AJ1-21596; [30-90]
       (==daikanwa	  . 11379)	; &g2-AJ1-21596;
@@ -23572,30 +27630,39 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
     (=ucs		. #x61E2)	; 懢
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x61E2)	; 懢
-      ))
-    (ideographic-radical . 61)	; ⼼
-    (ideographic-strokes . 14)
-    (total-strokes	 . 17)
-    (=ucs@jis		. #x61E2)	; &AJ1-19376;
-    (=adobe-japan1-5	. 19376)	; &AJ1-19376;
+    (=adobe-japan1-5	. 19376)	; &I-AJ1-19376;
     (=jis-x0212		. #x3E7B)	; &I-JSP-3E7B; [30-91]
     (=cns11643-3	. #x545B)	; &I-C3-545B; [52-59]
     (=daikanwa		. 11382)	; &I-M-11382;
     (=jef-china3	. #x4EE8)	; &I-JC3-4EE8;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x61E2)	; 懢
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x61E2)	; 懢
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x61E2)	; &g2-AJ1-19376;
+      (==ucs@jis	  . #x61E2)	; &g2-AJ1-19376;
+      (==adobe-japan1-5	  . 19376)	; &g2-AJ1-19376;
+      (==jis-x0212	  . #x3E7B)	; &g2-AJ1-19376; [30-91]
+      (==cns11643-3	  . #x545B)	; &g2-AJ1-19376; [52-59]
+      (==daikanwa	  . 11382)	; &g2-AJ1-19376;
+      (==jef-china3	  . #x4EE8)	; &g2-AJ1-19376;
+      (->subsumptive
+       ((===daikanwa	    . 11382)	; &R-M-11382;
+	)
+       ((===jis-x0212	    . #x3E7B)	; &R-JSP-3E7B; [30-91]
+	)
+       ((===adobe-japan1-5  . 19376)	; &R-AJ1-19376;
+	)
+       ((===cns11643-3	    . #x545B)	; &R-C3-545B; [52-59]
+	)
+       ((===jef-china3	    . #x4EE8)	; &R-JC3-4EE8;
+	))
+      )
+     ((==ucs@unicode	  . #x61E2)	; &g2-UU+61E2;
+      (==ucs@JP/hanazono  . nil)
       ))
-    (ideographic-radical . 61)	; ⼼
-    (ideographic-strokes . 14)
-    (total-strokes	 . 17)
-    (=ucs@unicode	. #x61E2)	; &UU+61E2;
-    (=ucs@JP/hanazono	. nil)
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -23621,7 +27688,12 @@
     (=daikanwa		. 11384)	; &I-M-11384;
     (=shinjigen		.  2737)	; 懣
     (->subsumptive
-     ((==ucs@jis	  . #x61E3)	; &g2-AJ1-04921;
+     ((=decomposition@cid
+       ((=ucs		    . #x61E3)	; 懣
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x61E3)	; &g2-AJ1-04921;
       (==adobe-japan1-0	  . 04921)	; &g2-AJ1-04921;
       (==jis-x0208	  . #x5870)	; &g2-AJ1-04921; [56-80]
       (==jis-x0213-1	  . #x5870)	; &g2-AJ1-04921; [56-80]
@@ -23688,20 +27760,50 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
     (=ucs		. #x61E6)	; 懦
+    (=adobe-japan1-0	. 04920)	; &I-AJ1-04920;
+    (=jis-x0208		. #x586F)	; &I-J90-586F; [56-79]
+    (=gb2312		. #x4533)	; &I-G0-4533; [37-19]
+    (=ks-x1001		. #x5157)	; &I-K0-5157; [49-55]
+    (=cns11643-1	. #x735F)	; &I-C1-735F; [83-63]
+    (=jis-x0213-1	. #x586F)	; &I-JX1-586F; [56-79]
     (=big5		. #xC0B6)	; &I-B-C0B6;
+    (=gt		. 14331)	; &I-GT-14331;
+    (=gt-pj-1		. #x586F)	; &I-GT-14331; [56-79]
+    (=daikanwa		. 11390)	; &I-M-11390;
+    (=shinjigen		.  2727)	; 懦
     (->subsumptive
-     ((=ucs@unicode	  . #x61E6)	; &AJ1-04920;
-      (=adobe-japan1-0	  . 04920)	; &AJ1-04920;
-      (=jis-x0208	  . #x586F)	; &I-J90-586F; [56-79]
-      (=gb2312		  . #x4533)	; &I-G0-4533; [37-19]
-      (=ks-x1001	  . #x5157)	; &I-K0-5157; [49-55]
-      (=jis-x0213-1	  . #x586F)	; &I-JX1-586F; [56-79]
-      (=gt		  . 14331)	; &I-GT-14331;
-      (=gt-pj-1		  . #x586F)	; &I-GT-14331; [56-79]
-      (=daikanwa	  . 11390)	; &I-M-11390;
-      (=shinjigen	  .  2727)	; &AJ1-04920;
+     ((=decomposition@cid
+       ((=ucs		    . #x61E6)	; 懦
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x61E6)	; &g2-AJ1-04920;
+      (==adobe-japan1-0	  . 04920)	; &g2-AJ1-04920;
+      (==gb2312		  . #x4533)	; &g2-AJ1-04920; [37-19]
+      (==ks-x1001	  . #x5157)	; &g2-AJ1-04920; [49-55]
+      (==jis-x0208	  . #x586F)	; &g2-AJ1-04920; [56-79]
+      (==jis-x0213-1	  . #x586F)	; &g2-AJ1-04920; [56-79]
+      (==gt		  . 14331)	; &g2-AJ1-04920;
+      (==daikanwa	  . 11390)	; &g2-AJ1-04920;
+      (==shinjigen	  .  2727)	; &g2-AJ1-04920;
+      (->subsumptive
+       ((===daikanwa	    . 11390)	; &R-M-11390;
+	)
+       ((===jis-x0208	    . #x586F)	; &R-J0-586F; [56-79]
+	(===jis-x0213-1	    . #x586F)	; &R-J0-586F; [56-79]
+	)
+       ((===adobe-japan1-0  . 04920)	; &R-AJ1-04920;
+	)
+       ((===gt		    . 14331)	; &R-GT-14331;
+	)
+       ((===ucs@ks	    . #x61E6)	; &R-K0-5157;
+	(===ks-x1001	    . #x5157)	; &R-K0-5157; [49-55]
+	)
+       ((===ucs@unicode	    . #x61E6)	; &R-UU+61E6;
+	))
       )
-     ((=cns11643-1	  . #x735F)	; &C1-735F; [83-63]
+     ((==ucs@cns	  . #x61E6)	; &g2-CU+61E6;
+      (==cns11643-1	  . #x735F)	; &g2-CU+61E6; [83-63]
       ))
     ))
 (define-char
@@ -23752,6 +27854,15 @@
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=ucs		  . #x5BE7)	; 寧
+      ))
     (=ucs		. #x61E7)	; 懧
     ))
 (define-char
@@ -23761,6 +27872,16 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=ucs@unicode	  . #x5BE7)	; &MJ010230;
+      (=mj		  . 010230)	; &MJ010230;
+      ))
     (=ucs@unicode	. #x61E7)	; &AJ1-21597;
     (=adobe-japan1-6	. 21597)	; &AJ1-21597;
     (=jis-x0212		. #x3E7C)	; &I-JSP-3E7C; [30-92]
@@ -23769,15 +27890,29 @@
     (=daikanwa		. 11395)	; &I-M-11395;
     (=shinjigen		.  2729)	; &AJ1-21597;
     (<-formed
-     ((=ucs@unicode	  . #x61E6)	; &AJ1-04920;
-      (=adobe-japan1-0	  . 04920)	; &AJ1-04920;
+     ((=ucs		  . #x61E6)	; 懦
       (=jis-x0208	  . #x586F)	; &I-J90-586F; [56-79]
-      (=shinjigen	  .  2727)	; &AJ1-04920;
+      (=shinjigen	  .  2727)	; 懦
       ))
     (<-formed*sources
      shinjigen)
     (->subsumptive
-     ((==ucs@unicode	  . #x61E7)	; &g2-AJ1-21597;
+     ((=decomposition@cid
+       ((=ucs		    . #x61E7)	; 懧
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL HEART ONE")
+	(=ucs		    . #x2E96)	; ⺖
+	)
+       ((==ucs@unicode	    . #x5BE7)	; &g2-MJ010230;
+	(==mj		    . 010230)	; &g2-MJ010230;
+	))
+      (==ucs@unicode	  . #x61E7)	; &g2-AJ1-21597;
       (==adobe-japan1-6	  . 21597)	; &g2-AJ1-21597;
       (==jis-x0212	  . #x3E7C)	; &g2-AJ1-21597; [30-92]
       (==cns11643-2	  . #x5C6D)	; &g2-AJ1-21597; [60-77]
@@ -23865,8 +28000,8 @@
      ((=ucs		  . #xFA40)	; 懲
       ))
     (<-simplified@JP/misc
-     ((=ucs@unicode	  . #x61F2)	; &M-11424;
-      (=ks-x1001	  . #x7324)	; &M-11424; [83-04]
+     ((=ucs@unicode	  . #x61F2)	; &AJ1-13930;
+      (=adobe-japan1-4	  . 13930)	; &AJ1-13930;
       (=daikanwa	  . 11424)	; &I-M-11424;
       ))
     (<-simplified@JP/misc*sources
@@ -23886,7 +28021,12 @@
        ((===gt		    . 14384)	; &R-GT-14384;
 	))
       )
-     ((==ucs@jis	  . #x61F2)	; &g2-AJ1-03012;
+     ((=decomposition@cid
+       ((=ucs		    . #x61F2)	; 懲
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x61F2)	; &g2-AJ1-03012;
       (==adobe-japan1-0	  . 03012)	; &g2-AJ1-03012;
       (==jis-x0208	  . #x4428)	; &g2-AJ1-03012; [36-08]
       (==jis-x0213-1	  . #x4428)	; &g2-AJ1-03012; [36-08]
@@ -23924,7 +28064,12 @@
       (=cns11643-2	  . #x615C)	; &I-C2-615C; [65-60]
       (=daikanwa	  . 11400)	; &I-M-11400;
       (->subsumptive
-       ((==ucs@jis	    . #x61E9)	; &g2-AJ1-21598;
+       ((=decomposition@cid
+	 ((=ucs		      . #x61E9)	; 懩
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(==ucs@jis	    . #x61E9)	; &g2-AJ1-21598;
 	(==adobe-japan1-6   . 21598)	; &g2-AJ1-21598;
 	(==jis-x0212	    . #x3E7D)	; &g2-AJ1-21598; [30-93]
 	(==daikanwa	    . 11400)	; &g2-AJ1-21598;
@@ -23961,6 +28106,24 @@
     (=adobe-japan1-5	. 19377)	; &AJ1-19377;
     (=jis-x0212		. #x3E7E)	; &I-JSP-3E7E; [30-94]
     (=daikanwa/+p	. 11400)	; &AJ1-19377;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x61E5)	; 懥
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x61E5)	; &g2-AJ1-19377;
+      (==adobe-japan1-5	  . 19377)	; &g2-AJ1-19377;
+      (==jis-x0212	  . #x3E7E)	; &g2-AJ1-19377; [30-94]
+      (==daikanwa/+p	  . 11400)	; &g2-AJ1-19377;
+      (->subsumptive
+       ((===daikanwa/+p	    . 11400)	; &R-M-p11400;
+	)
+       ((===jis-x0212	    . #x3E7E)	; &R-JSP-3E7E; [30-94]
+	)
+       ((===adobe-japan1-5  . 19377)	; &R-AJ1-19377;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -24087,6 +28250,14 @@
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5EE3)	; 廣
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
     (=ucs		. #x61EC)	; 懬
     ))
 (define-char
@@ -24096,17 +28267,69 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 15)
     (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=+>ucs@jis	  . #x5EE3)	; &o-J0-5722;
+      (=+>ucs@ks	  . #x5EE3)	; &o-J0-5722;
+      (=+>ucs@cns	  . #x5EE3)	; &o-J0-5722;
+      (=+>jis-x0208	  . #x5722)	; &o-J0-5722; [55-02]
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
     (=+>ucs@jis		. #x61EC)	; &o-AJ1-21599;
     (=+>ucs@cns		. #x61EC)	; &o-AJ1-21599;
     (=+>adobe-japan1-6	. 21599)	; &o-AJ1-21599;
     (->subsumptive
-     ((=ucs@jis		  . #x61EC)	; &AJ1-21599;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs@jis	    . #x5EE3)	; &MJ011077;
+	(=ucs@ks	    . #x5EE3)	; &MJ011077;
+	(=mj		    . 011077)	; &MJ011077;
+	)
+       ((=ucs		    . #x5FC3)	; 心
+	))
+      (=ucs@jis		  . #x61EC)	; &AJ1-21599;
       (=adobe-japan1-6	  . 21599)	; &AJ1-21599;
       (=jis-x0212	  . #x3F21)	; &I-JSP-3F21; [31-01]
       (=daikanwa	  . 11408)	; &I-M-11408;
+      (->subsumptive
+       ((=decomposition@cid
+	 ((=ucs		      . #x61EC)	; 懬
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(==ucs@jis	    . #x61EC)	; &g2-AJ1-21599;
+	(==adobe-japan1-6   . 21599)	; &g2-AJ1-21599;
+	(==jis-x0212	    . #x3F21)	; &g2-AJ1-21599; [31-01]
+	(==daikanwa	    . 11408)	; &g2-AJ1-21599;
+	(->subsumptive
+	 ((===daikanwa	      . 11408)	; &R-M-11408;
+	  )
+	 ((===jis-x0212	      . #x3F21)	; &R-JSP-3F21; [31-01]
+	  )
+	 ((===adobe-japan1-6  . 21599)	; &R-AJ1-21599;
+	  ))
+	))
       )
-     ((=ucs@cns		  . #x61EC)	; &C4-5F60;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs@cns	    . #x5EE3)	; &C1-6C5D;
+	(=cns11643-1	    . #x6C5D)	; &C1-6C5D; [76-61]
+	)
+       ((=ucs		    . #x5FC3)	; 心
+	))
+      (=ucs@cns		  . #x61EC)	; &C4-5F60;
       (=cns11643-4	  . #x5F60)	; &C4-5F60; [63-64]
+      (->subsumptive
+       ((==ucs@cns	    . #x61EC)	; &g2-CU+61EC;
+	(==cns11643-4	    . #x5F60)	; &g2-CU+61EC; [63-64]
+	))
       ))
     ))
 (define-char
@@ -24116,11 +28339,42 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=+>ucs@unicode	  . #x5EE3)	; &o-AJ1-20115;
+      (=+>adobe-japan1-4  . 14127)	; &o-AJ1-20115;
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
     (=ucs@unicode	. #x61EC)	; &UU+61EC;
     (=ucs@JP/hanazono	. nil)
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs@unicode	    . #x5EE3)	; &MJ011076;
+	(=mj		    . 011076)	; &MJ011076;
+	)
+       ((=ucs		    . #x5FC3)	; 心
+	))
+      (==ucs@unicode	  . #x61EC)	; &g2-UU+61EC;
+      (==ucs@JP/hanazono  . nil)
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=ucs		  . #x5EE3)	; 廣
+      ))
     (=ucs		. #x61ED)	; 懭
     ))
 (define-char
@@ -24130,19 +28384,77 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL HEART ONE")
+      (=ucs		  . #x2E96)	; ⺖
+      )
+     ((=+>ucs@jis	  . #x5EE3)	; &o-J0-5722;
+      (=+>ucs@ks	  . #x5EE3)	; &o-J0-5722;
+      (=+>ucs@cns	  . #x5EE3)	; &o-J0-5722;
+      (=+>jis-x0208	  . #x5722)	; &o-J0-5722; [55-02]
+      ))
     (=+>ucs@jis		. #x61ED)	; &o-AJ1-21600;
     (=+>ucs@cns		. #x61ED)	; &o-AJ1-21600;
     (=big5		. #xEFC9)	; &o-AJ1-21600;
     (=+>adobe-japan1-6	. 21600)	; &o-AJ1-21600;
     (->subsumptive
-     ((=ucs@jis		  . #x61ED)	; &AJ1-21600;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL HEART ONE")
+	(=ucs		    . #x2E96)	; ⺖
+	)
+       ((=ucs@jis	    . #x5EE3)	; &MJ011077;
+	(=ucs@ks	    . #x5EE3)	; &MJ011077;
+	(=mj		    . 011077)	; &MJ011077;
+	))
+      (=ucs@jis		  . #x61ED)	; &AJ1-21600;
       (=adobe-japan1-6	  . 21600)	; &AJ1-21600;
       (=jis-x0212	  . #x3F22)	; &I-JSP-3F22; [31-02]
       (=daikanwa	  . 11409)	; &I-M-11409;
       (=jef-china3	  . #x4EE9)	; &I-JC3-4EE9;
+      (->subsumptive
+       ((=decomposition@cid
+	 ((=ucs		      . #x61ED)	; 懭
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(==ucs@jis	    . #x61ED)	; &g2-AJ1-21600;
+	(==adobe-japan1-6   . 21600)	; &g2-AJ1-21600;
+	(==jis-x0212	    . #x3F22)	; &g2-AJ1-21600; [31-02]
+	(==daikanwa	    . 11409)	; &g2-AJ1-21600;
+	(==jef-china3	    . #x4EE9)	; &g2-AJ1-21600;
+	(->subsumptive
+	 ((===daikanwa	      . 11409)	; &R-M-11409;
+	  )
+	 ((===jis-x0212	      . #x3F22)	; &R-JSP-3F22; [31-02]
+	  )
+	 ((===adobe-japan1-6  . 21600)	; &R-AJ1-21600;
+	  )
+	 ((===jef-china3      . #x4EE9)	; &R-JC3-4EE9;
+	  ))
+	))
       )
-     ((=ucs@cns		  . #x61ED)	; &C2-6155;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL HEART ONE")
+	(=ucs		    . #x2E96)	; ⺖
+	)
+       ((=ucs@cns	    . #x5EE3)	; &C1-6C5D;
+	(=cns11643-1	    . #x6C5D)	; &C1-6C5D; [76-61]
+	))
+      (=ucs@cns		  . #x61ED)	; &C2-6155;
       (=cns11643-2	  . #x6155)	; &C2-6155; [65-53]
+      (->subsumptive
+       ((==ucs@cns	    . #x61ED)	; &g2-CU+61ED;
+	(==cns11643-2	    . #x6155)	; &g2-CU+61ED; [65-53]
+	))
       ))
     ))
 (define-char
@@ -24324,7 +28636,12 @@
     (=cns11643-4	. #x5F61)	; &I-C4-5F61; [63-65]
     (=daikanwa		. 11417)	; &I-M-11417;
     (->subsumptive
-     ((==ucs@unicode	  . #x61EF)	; &g2-AJ1-21601;
+     ((=decomposition@cid
+       ((=ucs		    . #x61EF)	; 懯
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x61EF)	; &g2-AJ1-21601;
       (==adobe-japan1-6	  . 21601)	; &g2-AJ1-21601;
       (==jis-x0212	  . #x3F23)	; &g2-AJ1-21601; [31-03]
       (==daikanwa	  . 11417)	; &g2-AJ1-21601;
@@ -24444,19 +28761,23 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 15)
     (total-strokes	 . 19)
-    (=ucs@unicode	. #x61F2)	; &M-11424;
+    (=ucs@unicode	. #x61F2)	; &AJ1-13930;
     (=ucs@JP/hanazono	. nil)
-    (=ks-x1001		. #x7324)	; &M-11424; [83-04]
-    (=gb12345		. #x334D)	; &M-11424; [19-45]
+    (=adobe-japan1-4	. 13930)	; &AJ1-13930;
+    (=ks-x1001		. #x7324)	; &I-K0-7324; [83-04]
+    (=gb12345		. #x334D)	; &AJ1-13930; [19-45]
     (=daikanwa		. 11424)	; &I-M-11424;
     (=jef-china3	. #x4DE8)	; &I-JC3-4DE8;
     (->subsumptive
-     ((==ucs@ks		  . #x61F2)	; &g2-M-11424;
-      (==ks-x1001	  . #x7324)	; &g2-M-11424; [83-04]
-      (==daikanwa	  . 11424)	; &g2-M-11424;
-      (==jef-china3	  . #x4DE8)	; &g2-M-11424;
+     ((==ucs@ks		  . #x61F2)	; &g2-AJ1-13930;
+      (==adobe-japan1-4	  . 13930)	; &g2-AJ1-13930;
+      (==ks-x1001	  . #x7324)	; &g2-AJ1-13930; [83-04]
+      (==daikanwa	  . 11424)	; &g2-AJ1-13930;
+      (==jef-china3	  . #x4DE8)	; &g2-AJ1-13930;
       (->subsumptive
        ((===daikanwa	    . 11424)	; &R-M-11424;
+	)
+       ((===adobe-japan1-4  . 13930)	; &R-AJ1-13930;
 	)
        ((===ucs@ks	    . #x61F2)	; &R-K0-7324;
 	(===ks-x1001	    . #x7324)	; &R-K0-7324; [83-04]
@@ -24478,13 +28799,27 @@
     (=+>ucs@jis		. #xFA40)	; &o-JX1-7461;
     (=+>ucs@cns		. #x61F2)	; &o-JX1-7461;
     (=+>jis-x0213-1	. #x7461)	; &o-JX1-7461; [84-65]
+    (=+>adobe-japan1-4	. 13369)	; &o-JX1-7461;
+    (=+>adobe-japan1-6	. 21072)	; &o-JX1-7461;
     (->subsumptive
      ((=>ucs*		  . #x61F2)	; 懲
       (=ucs		  . #xFA40)	; 懲
+      (=adobe-japan1-6	  . 21072)	; &I-AJ1-21072;
       (=jis-x0213-1	  . #x7461)	; &I-JX1-7461; [84-65]
       )
-     ((=ucs@cns		  . #x61F2)	; &C1-7834;
-      (=cns11643-1	  . #x7834)	; &C1-7834; [88-20]
+     ((=ucs@cns		  . #x61F2)	; &AJ1-13369;
+      (=adobe-japan1-4	  . 13369)	; &AJ1-13369;
+      (=cns11643-1	  . #x7834)	; &I-C1-7834; [88-20]
+      (->subsumptive
+       ((==ucs@cns	    . #x61F2)	; &g2-AJ1-13369;
+	(==adobe-japan1-4   . 13369)	; &g2-AJ1-13369;
+	(==cns11643-1	    . #x7834)	; &g2-AJ1-13369; [88-20]
+	(->subsumptive
+	 ((===adobe-japan1-4  . 13369)	; &R-AJ1-13369;
+	  )
+	 ((===cns11643-1      . #x7834)	; &R-C1-7834; [88-20]
+	  ))
+	))
       ))
     ))
 (define-char
@@ -24844,7 +29179,12 @@
        ((===ucs@unicode	    . #x39A4)	; &R-UU+39A4;
 	))
       )
-     ((==adobe-japan1-5	  . 20122)	; &g2-AJ1-20122;
+     ((=decomposition@cid
+       ((=ucs		    . #x39A4)	; 㦤
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==adobe-japan1-5	  . 20122)	; &g2-AJ1-20122;
       (==shinjigen	  .  2744)	; &g2-AJ1-20122;
       )
      ((==ucs@cns	  . #x39A4)	; &g2-CU+39A4;
@@ -24953,6 +29293,24 @@
     (=adobe-japan1-5	. 17656)	; &AJ1-17656;
     (=gb2312		. #x6342)	; &I-G0-6342; [67-34]
     (=jis-x0213-2	. #x2C71)	; &I-JX2-2C71; [12-81]
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x61F5)	; 懵
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x61F5)	; &g2-AJ1-17656;
+      (==adobe-japan1-5	  . 17656)	; &g2-AJ1-17656;
+      (==gb2312		  . #x6342)	; &g2-AJ1-17656; [67-34]
+      (==jis-x0213-2	  . #x2C71)	; &g2-AJ1-17656; [12-81]
+      (->subsumptive
+       ((===jis-x0213-2	    . #x2C71)	; &R-JX2-2C71; [12-81]
+	)
+       ((===adobe-japan1-5  . 17656)	; &R-AJ1-17656;
+	)
+       ((===ucs@unicode	    . #x61F5)	; &R-UU+61F5;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -25069,11 +29427,6 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x61F6)	; 懶
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
     (=ucs@jis		. #x61F6)	; &AJ1-04922;
     (=adobe-japan1-0	. 04922)	; &AJ1-04922;
     (=jis-x0208		. #x5871)	; &I-J90-5871; [56-81]
@@ -25093,6 +29446,45 @@
       ))
     (<-same@s=lazy*sources
      jiyun daikanwa)
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x61F6)	; 懶
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x61F6)	; 懶
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@cns	  . #x61F6)	; &g2-AJ1-04922;
+      (==ucs@jis	  . #x61F6)	; &g2-AJ1-04922;
+      (==ucs@ks		  . #x61F6)	; &g2-AJ1-04922;
+      (==adobe-japan1-0	  . 04922)	; &g2-AJ1-04922;
+      (==ks-x1001	  . #x547B)	; &g2-AJ1-04922; [52-91]
+      (==jis-x0208	  . #x5871)	; &g2-AJ1-04922; [56-81]
+      (==cns11643-1	  . #x7836)	; &g2-AJ1-04922; [88-22]
+      (==jis-x0213-1	  . #x5871)	; &g2-AJ1-04922; [56-81]
+      (==hanyo-denshi/ja  . #x5871)	; &g2-AJ1-04922; [56-81]
+      (==gt		  . 14456)	; &g2-AJ1-04922;
+      (==daikanwa	  . 11455)	; &g2-AJ1-04922;
+      (==shinjigen	  .  2739)	; &g2-AJ1-04922;
+      (->subsumptive
+       ((===daikanwa	    . 11455)	; &R-M-11455;
+	)
+       ((===jis-x0208	    . #x5871)	; &R-J0-5871; [56-81]
+	(===jis-x0213-1	    . #x5871)	; &R-J0-5871; [56-81]
+	)
+       ((===adobe-japan1-0  . 04922)	; &R-AJ1-04922;
+	)
+       ((===cns11643-1	    . #x7836)	; &R-C1-7836; [88-22]
+	)
+       ((===gt		    . 14456)	; &R-GT-14456;
+	)
+       ((===ucs@ks	    . #x61F6)	; &R-K0-547B;
+	(===ks-x1001	    . #x547B)	; &R-K0-547B; [52-91]
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -25122,7 +29514,12 @@
     (=daikanwa		. 11456)	; &I-M-11456;
     (=shinjigen		.  2709)	; 懷
     (->subsumptive
-     ((==ucs@jis	  . #x61F7)	; &g2-AJ1-04912;
+     ((=decomposition@cid
+       ((=ucs		    . #x61F7)	; 懷
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x61F7)	; &g2-AJ1-04912;
       (==ucs@ks		  . #x61F7)	; &g2-AJ1-04912;
       (==adobe-japan1-0	  . 04912)	; &g2-AJ1-04912;
       (==ks-x1001	  . #x7C63)	; &g2-AJ1-04912; [92-67]
@@ -25243,15 +29640,47 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 16)
     (total-strokes	 . 20)
-    (=ucs@jis		. #x61F8)	; &AJ1-01874;
-    (=adobe-japan1-0	. 01874)	; &AJ1-01874;
+    (=ucs@jis		. #x61F8)	; &AJ1-20121;
+    (=adobe-japan1-0	. 01874)	; &AJ1-20121;
+    (=adobe-japan1-5	. 20121)	; &I-AJ1-20121;
     (=jis-x0208		. #x377C)	; &I-J90-377C; [23-92]
     (=ks-x1001		. #x7A58)	; &I-K0-7A58; [90-56]
     (=jis-x0213-1	. #x377C)	; &I-JX1-377C; [23-92]
     (=gt		. 14472)	; &I-GT-14472;
     (=gt-pj-1		. #x377C)	; &I-GT-14472; [23-92]
     (=daikanwa		. 11462)	; &I-M-11462;
-    (=shinjigen		.  2738)	; &AJ1-01874;
+    (=shinjigen		.  2738)	; &AJ1-20121;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x61F8)	; 懸
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x61F8)	; &g2-AJ1-01874;
+      (==ucs@ks		  . #x61F8)	; &g2-AJ1-01874;
+      (==adobe-japan1-0	  . 01874)	; &g2-AJ1-01874;
+      (==ks-x1001	  . #x7A58)	; &g2-AJ1-01874; [90-56]
+      (==jis-x0208	  . #x377C)	; &g2-AJ1-01874; [23-92]
+      (==jis-x0213-1	  . #x377C)	; &g2-AJ1-01874; [23-92]
+      (==gt		  . 14472)	; &g2-AJ1-01874;
+      (==daikanwa	  . 11462)	; &g2-AJ1-01874;
+      (==shinjigen	  .  2738)	; &g2-AJ1-01874;
+      (->subsumptive
+       ((===daikanwa	    . 11462)	; &R-M-11462;
+	)
+       ((===jis-x0208	    . #x377C)	; &R-J0-377C; [23-92]
+	(===jis-x0213-1	    . #x377C)	; &R-J0-377C; [23-92]
+	)
+       ((===adobe-japan1-0  . 01874)	; &R-AJ1-01874;
+	)
+       ((===gt		    . 14472)	; &R-GT-14472;
+	)
+       ((===ucs@ks	    . #x61F8)	; &R-K0-7A58;
+	(===ks-x1001	    . #x7A58)	; &R-K0-7A58; [90-56]
+	))
+      )
+     ((==adobe-japan1-5	  . 20121)	; &g2-AJ1-20121;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -25711,7 +30140,12 @@
     (=daikanwa		. 11488)	; &I-M-11488;
     (=shinjigen		.  2746)	; 懼
     (->subsumptive
-     ((==ucs@unicode	  . #x61FC)	; &g2-AJ1-04927;
+     ((=decomposition@cid
+       ((=ucs		    . #x61FC)	; 懼
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x61FC)	; &g2-AJ1-04927;
       (==adobe-japan1-0	  . 04927)	; &g2-AJ1-04927;
       (==ks-x1001	  . #x4F2B)	; &g2-AJ1-04927; [47-11]
       (==jis-x0208	  . #x5876)	; &g2-AJ1-04927; [56-86]
@@ -25919,7 +30353,12 @@
     (=gt		. 14468)	; &I-GT-14468;
     (=gt-pj-1		. #x5875)	; &I-GT-14468; [56-85]
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x61FD)	; 懽
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x61FD)	; 懽
 	)
        ((=ucs		    . #xE0101)	; 󠄁
@@ -25948,6 +30387,7 @@
     (total-strokes	 . 21)
     (=ucs		. #x61FE)	; 懾
     (=adobe-japan1-0	. 04928)	; &I-AJ1-04928;
+    (=adobe-japan1-4	. 13541)	; &I-AJ1-13541;
     (=jis-x0208		. #x5877)	; &I-J90-5877; [56-87]
     (=cns11643-1	. #x7A6B)	; &I-C1-7A6B; [90-75]
     (=jis-x0213-1	. #x5877)	; &I-JX1-5877; [56-87]
@@ -25963,7 +30403,12 @@
      ((==gt		  . 14498)	; &g2-GT-14498;
       (==shinjigen	  .  2749)	; &g2-GT-14498;
       )
-     ((==ucs@jis/1990	  . #x61FE)	; &g2-AJ1-04928;
+     ((=decomposition@cid
+       ((=ucs		    . #x61FE)	; 懾
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis/1990	  . #x61FE)	; &g2-AJ1-04928;
       (==ucs@jis/2000	  . #x61FE)	; &g2-AJ1-04928;
       (==ucs@jis/2004	  . #x61FE)	; &g2-AJ1-04928;
       (==adobe-japan1-0	  . 04928)	; &g2-AJ1-04928;
@@ -25976,12 +30421,15 @@
        ((===adobe-japan1-0  . 04928)	; &R-AJ1-04928;
 	))
       )
-     ((==jis-x0208@1978	  . #x5877)	; &g2-J83-5877; [56-87]
-      (==jis-x0208@1983	  . #x5877)	; &g2-J83-5877; [56-87]
+     ((==adobe-japan1-4	  . 13541)	; &g2-AJ1-13541;
+      (==jis-x0208@1978	  . #x5877)	; &g2-AJ1-13541; [56-87]
+      (==jis-x0208@1983	  . #x5877)	; &g2-AJ1-13541; [56-87]
       (->subsumptive
        ((===jis-x0208@1978  . #x5877)	; &R-J78-5877; [56-87]
 	)
        ((===jis-x0208@1983  . #x5877)	; &R-J83-5877; [56-87]
+	)
+       ((===adobe-japan1-4  . 13541)	; &R-AJ1-13541;
 	))
       )
      ((==ucs@cns	  . #x61FE)	; &g2-CU+61FE;
@@ -26047,7 +30495,12 @@
     (=daikanwa		. 11501)	; &I-M-11501;
     (=shinjigen		.  2743)	; &AJ1-04925;
     (->subsumptive
-     ((=decomposition@hanyo-denshi
+     ((=decomposition@cid
+       ((=ucs		    . #x61FF)	; 懿
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
        ((=ucs		    . #x61FF)	; 懿
 	)
        ((=ucs		    . #xE0101)	; 󠄁
@@ -26160,7 +30613,12 @@
     (=daikanwa		. 11504)	; &I-M-11504;
     (=shinjigen		.  2502)	; &AJ1-04929;
     (->subsumptive
-     ((==ucs@jis	  . #x6200)	; &g2-AJ1-04929;
+     ((=decomposition@cid
+       ((=ucs		    . #x6200)	; 戀
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x6200)	; &g2-AJ1-04929;
       (==ucs@ks		  . #x6200)	; &g2-AJ1-04929;
       (==adobe-japan1-0	  . 04929)	; &g2-AJ1-04929;
       (==ks-x1001	  . #x557C)	; &g2-AJ1-04929; [53-92]
@@ -26228,7 +30686,12 @@
     (->subsumptive
      ((==daikanwa	  . 11505)	; &g2-M-11505;
       )
-     ((==ucs@unicode	  . #x6201)	; &g2-AJ1-21602;
+     ((=decomposition@cid
+       ((=ucs		    . #x6201)	; 戁
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6201)	; &g2-AJ1-21602;
       (==adobe-japan1-6	  . 21602)	; &g2-AJ1-21602;
       (==jis-x0212	  . #x3F24)	; &g2-AJ1-21602; [31-04]
       (==cns11643-2	  . #x6F28)	; &g2-AJ1-21602; [79-08]
@@ -26364,7 +30827,12 @@
     (=big5		. #xF7DB)	; &I-B-F7DB;
     (=daikanwa		. 11515)	; &I-M-11515;
     (->subsumptive
-     ((==ucs@unicode	  . #x6204)	; &g2-AJ1-19379;
+     ((=decomposition@cid
+       ((=ucs		    . #x6204)	; 戄
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6204)	; &g2-AJ1-19379;
       (==adobe-japan1-5	  . 19379)	; &g2-AJ1-19379;
       (==jis-x0212	  . #x3F26)	; &g2-AJ1-19379; [31-06]
       (==cns11643-2	  . #x6F2A)	; &g2-AJ1-19379; [79-10]
@@ -26528,7 +30996,12 @@
     (=daikanwa		. 11525)	; &I-M-11525;
     (=jef-china3	. #x4DE9)	; &I-JC3-4DE9;
     (->subsumptive
-     ((==ucs@unicode	  . #x6207)	; &g2-AJ1-19380;
+     ((=decomposition@cid
+       ((=ucs		    . #x6207)	; 戇
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x6207)	; &g2-AJ1-19380;
       (==adobe-japan1-5	  . 19380)	; &g2-AJ1-19380;
       (==ks-x1001	  . #x5354)	; &g2-AJ1-19380; [51-52]
       (==jis-x0212	  . #x3F27)	; &g2-AJ1-19380; [31-07]
