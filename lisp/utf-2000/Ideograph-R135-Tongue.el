@@ -646,7 +646,12 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x820C)	; 舌
+     ((=ucs@unicode	  . #x820C)	; &GT-39171;
+      (=jis-x0208	  . #x4065)	; &GT-39171; [32-69]
+      (=gb2312		  . #x4960)	; &I-G0-4960; [41-64]
+      (=ks-x1001	  . #x605F)	; &I-K0-605F; [64-63]
+      (=jis-x0213-1	  . #x4065)	; &I-JX1-4065; [32-69]
+      (=daikanwa	  . 30277)	; &I-M-30277;
       )
      ((=ucs@jis		  . #x5FDD)	; &AJ1-04806;
       (=adobe-japan1-0	  . 04806)	; &AJ1-04806;
@@ -673,9 +678,8 @@
       (=jis-x0213-1	  . #x4065)	; &I-JX1-4065; [32-69]
       (=daikanwa	  . 30277)	; &I-M-30277;
       )
-     ((=ucs@unicode	  . #x5FDD)	; &C1-4D3F;
-      (=gb2312		  . #x6343)	; &C1-4D3F; [67-35]
-      (=cns11643-1	  . #x4D3F)	; &I-C1-4D3F; [45-31]
+     ((=ucs@unicode	  . #x5FDD)	; &AJ1-20118;
+      (=adobe-japan1-5	  . 20118)	; &AJ1-20118;
       ))
     (=ucs@unicode	. #x8214)	; &G0-4C72;
     (=ucs@JP/hanazono	. nil)
@@ -694,9 +698,8 @@
       )
      ((=cns11643-1	  . #x485F)	; &C1-485F; [40-63]
       )
-     ((=ucs@unicode	  . #x5FDD)	; &C1-4D3F;
-      (=gb2312		  . #x6343)	; &C1-4D3F; [67-35]
-      (=cns11643-1	  . #x4D3F)	; &I-C1-4D3F; [45-31]
+     ((=ucs@unicode	  . #x5FDD)	; &AJ1-20118;
+      (=adobe-japan1-5	  . 20118)	; &AJ1-20118;
       ))
     (=cns11643-1	. #x6A59)	; &C1-6A59; [74-57]
     ))
