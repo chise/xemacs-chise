@@ -1,5 +1,24 @@
 2016-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R061-Heart.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 abstract
+	  glyph-forms.
+	(<CJK RADICAL HEART TWO>): Use U+38FA instead of JU+38FA as the
+	mother.
+	(JU+38FA): Add `<-identical@component' for <CJK RADICAL HEART
+	TWO>.
+	(UU+61D0): Add `=>ucs@iwds-1'.
+
+	* Ideograph-R040-Roof.el (U-00021A03): Add
+	`ideographic-structure'.
+
+	* Ideograph-R038-Woman.el (U-000218EA): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R009-Man.el (U+5088): Separate UU+5088.
+	(U+50C4): Separate UU+50C4.
+
 	* Ideograph-R050-Turban.el (U+5E56): Separate UU+5E56.
 
 	* Ideograph-R046-Mountain.el (U+5D57): Separate UU+5D57.
@@ -13,6 +32,9 @@
 	* Ideograph-R018-Knife.el (U+527D): Separate UU+527D.
 
 2016-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R135-Tongue.el (JU+8214): Apply new conventions for
+	glyph granularity for a component of ideographic-structure.
 
 	* Ideograph-R015-Ice.el (U+51CF): Unify S1-4324 and S2-4325; add
 	`<-vulgar' for UU+6E1B.
