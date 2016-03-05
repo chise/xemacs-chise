@@ -594,11 +594,10 @@
     (=shinjigen		.  8258)	; 廼
     (=cbeta		. 02626)	; &I-CB02626;
     (<-wrong
-     ((=ucs@jis		  . #x8FFA)	; &GT-52008;
-      (=jis-x0208	  . #x6D72)	; &GT-52008; [77-82]
-      (=jis-x0213-1	  . #x6D72)	; &I-JX1-6D72; [77-82]
-      (=daikanwa	  . 38831)	; &I-M-38831;
-      (=shinjigen	  .  8257)	; &GT-52008;
+     ((=ucs@jis		  . #x8FFA)	; &AJ1-06897;
+      (=adobe-japan1-0	  . 06897)	; &AJ1-06897;
+      (=jis-x0208	  . #x6D72)	; &I-J90-6D72; [77-82]
+      (=shinjigen	  .  8257)	; &AJ1-06897;
       ))
     (<-wrong*sources
      shinjigen)
