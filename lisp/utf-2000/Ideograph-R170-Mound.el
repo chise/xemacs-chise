@@ -4467,12 +4467,10 @@
     (=gt-pj-1		. #x3F6F)	; &I-GT-56080; [31-79]
     (=daikanwa/+p	. 41764)	; &GT-56080;
     (<-simplified@JP/Jouyou
-     ((=ucs@jis		  . #x96A8)	; &HD-JA-6E2E;
-      (=ucs@ks		  . #x96A8)	; &HD-JA-6E2E;
-      (=jis-x0208	  . #x6E2E)	; &HD-JA-6E2E; [78-14]
-      (=ks-x1001	  . #x624B)	; &I-K0-624B; [66-43]
-      (=jis-x0213-1	  . #x6E2E)	; &I-JX1-6E2E; [78-14]
-      (=daikanwa	  . 41871)	; &I-M-41871;
+     ((=ucs@jis		  . #x96A8)	; &AJ1-06923;
+      (=ucs@ks		  . #x96A8)	; &AJ1-06923;
+      (=adobe-japan1-0	  . 06923)	; &AJ1-06923;
+      (=jis-x0208	  . #x6E2E)	; &I-J90-6E2E; [78-14]
       ))
     ))
 (define-char
@@ -6777,15 +6775,16 @@
     (ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (=ucs@jis		. #x96A7)	; &GT-56258;
-    (=ucs@ks		. #x96A7)	; &GT-56258;
-    (=jis-x0208		. #x702B)	; &GT-56258; [80-11]
+    (=ucs@jis		. #x96A7)	; &AJ1-07108;
+    (=ucs@ks		. #x96A7)	; &AJ1-07108;
+    (=adobe-japan1-0	. 07108)	; &AJ1-07108;
+    (=jis-x0208		. #x702B)	; &I-J90-702B; [80-11]
     (=ks-x1001		. #x624A)	; &I-K0-624A; [66-42]
     (=jis-x0213-1	. #x702B)	; &I-JX1-702B; [80-11]
     (=gt		. 56258)	; &I-GT-56258;
     (=gt-pj-1		. #x702B)	; &I-GT-56258; [80-11]
     (=daikanwa		. 41870)	; &I-M-41870;
-    (=shinjigen		.  8931)	; &GT-56258;
+    (=shinjigen		.  8931)	; &AJ1-07108;
     (<-formed
      ((=ucs@ks		  . #x9083)	; &M-39191;
       (=ks-x1001	  . #x6245)	; &M-39191; [66-37]
@@ -6855,9 +6854,10 @@
     (ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (=ucs@jis		. #x96A8)	; &HD-JA-6E2E;
-    (=ucs@ks		. #x96A8)	; &HD-JA-6E2E;
-    (=jis-x0208		. #x6E2E)	; &HD-JA-6E2E; [78-14]
+    (=ucs@jis		. #x96A8)	; &AJ1-06923;
+    (=ucs@ks		. #x96A8)	; &AJ1-06923;
+    (=adobe-japan1-0	. 06923)	; &AJ1-06923;
+    (=jis-x0208		. #x6E2E)	; &I-J90-6E2E; [78-14]
     (=ks-x1001		. #x624B)	; &I-K0-624B; [66-43]
     (=jis-x0213-1	. #x6E2E)	; &I-JX1-6E2E; [78-14]
     (=hanyo-denshi/ja	. #x6E2E)	; &I-HD-JA-6E2E; [78-14]
@@ -7177,12 +7177,8 @@
      ((name		  . "CJK RADICAL MOUND TWO")
       (=ucs		  . #x2ED6)	; ⻖
       )
-     ((=ucs@unicode	  . #x723E)	; &HD-JA-3C24;
-      (=jis-x0208	  . #x3C24)	; &HD-JA-3C24; [28-04]
-      (=ks-x1001	  . #x6C33)	; &I-K0-6C33; [76-19]
-      (=cns11643-1	  . #x695F)	; &I-C1-695F; [73-63]
-      (=jis-x0213-1	  . #x3C24)	; &I-JX1-3C24; [28-04]
-      (=daikanwa	  . 19750)	; &I-M-19750;
+     ((=ucs@unicode	  . #x723E)	; &AJ1-02256;
+      (=adobe-japan1-0	  . 02256)	; &AJ1-02256;
       ))
     (=ucs@unicode	. #x96AC)	; &C2-6043;
     (=cns11643-2	. #x6043)	; &C2-6043; [64-35]
