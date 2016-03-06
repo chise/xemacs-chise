@@ -441,11 +441,8 @@
     (=daikanwa		. 01745)	; &I-M-01745;
     (=shinjigen		.  0568)	; 処
     (<-simplified@JP/Jouyou
-     ((=ucs@unicode	  . #x8655)	; &GT-44206;
-      (=jis-x0208	  . #x515D)	; &GT-44206; [49-61]
-      (=ks-x1001	  . #x7425)	; &I-K0-7425; [84-05]
-      (=jis-x0213-1	  . #x515D)	; &I-JX1-515D; [49-61]
-      (=daikanwa	  . 32697)	; &I-M-32697;
+     ((=ucs		  . #x8655)	; 處
+      (=jis-x0208	  . #x515D)	; &I-J90-515D; [49-61]
       ))
     ))
 (define-char
