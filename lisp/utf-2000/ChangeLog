@@ -1,3 +1,27 @@
+2016-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R201-Yellow.el (C3-396A): Unify CU+9EC4 and
+	HD-KS542250.
+	(U+9EC6): Apply new conventions for glyph granularity.
+	(U+9EC8): Likewise.
+	(U+9ECB): Likewise.
+	(UU+9ECC): Add representative nodes.
+
+	* Ideograph-R170-Mound.el (JU+96A7): Unify AJ1-07108.
+	(JU+96A8): Unify AJ1-06923.
+
+	* Ideograph-R085-Water.el (UU+6D25): Unify AJ1-03041.
+
+	* Ideograph-R075-Tree.el (U+6817): Separate UU+6817.
+	(U+3B9A): Apply new conventions for glyph granularity.
+	(U+6AD6): Likewise.
+	(CB01849): Likewise.
+
+	* Ideograph-R041-Inch.el (U+5C03): Add `ideographic-structure'.
+	(HD-TK01023430): New character; add `<-denotational' for U+5C03;
+	add U+5C03-var-001.
+	(U-00021B3D): Separate IU+21B3D.
+
 2016-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el:
