@@ -1,5 +1,40 @@
 2016-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R207-Drum.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 abstract
+	  glyph-forms.
+
+	* Ideograph-R134-Mortar.el (U-000269B9): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R113-Spirit.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 abstract
+	  glyph-forms.	
+	(<CJK RADICAL SPIRIT ONE>): Add `ideographic-radical',
+	`ideographic-strokes' and `total-strokes'.
+	(GT-K00945): Unify AJ1-19130; add `<-identical@component' for <CJK
+	RADICAL SPIRIT ONE>.
+	(<CJK RADICAL SPIRIT TWO>): Add `<-identical@component' for
+	U+793B.
+	(U+7968): Separate UU+7968.
+	(U-0002567F): Add ideographic-strokes and total-strokes.
+
+	* Ideograph-R094-Dog.el (U+72C4): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R086-Fire.el (UU+71A2): Apply new conventions for
+	glyph granularity for a component of ideographic-structure.
+
+	* Ideograph-R030-Mouth.el (U+5519): Apply new conventions for
+	glyph granularity.
+	(U+35DA): Likewise.
+	(U+560C): Separate UU+560C.
+	(U-00020F41): Apply new conventions for glyph granularity.
+
+2016-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R201-Yellow.el (C3-396A): Unify CU+9EC4 and
 	HD-KS542250.
 	(U+9EC6): Apply new conventions for glyph granularity.
