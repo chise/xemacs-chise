@@ -6764,7 +6764,12 @@
       )
      ((=cns11643-1	  . #x5D59)	; &C1-5D59; [61-57]
       ))
+    (=ucs@cns		. #x7FF4)	; &C2-5E52;
     (=cns11643-2	. #x5E52)	; &C2-5E52; [62-50]
+    (->subsumptive
+     ((==ucs@cns	  . #x7FF4)	; &g2-CU+7FF4;
+      (==cns11643-2	  . #x5E52)	; &g2-CU+7FF4; [62-50]
+      ))
     ))
 (define-char
   '((<-denotational
@@ -6783,11 +6788,15 @@
       (=cns11643-1	  . #x4851)	; &I-C1-4851; [40-49]
       (=jis-x0213-1	  . #x3129)	; &I-JX1-3129; [17-09]
       )
-     ((=ucs@unicode	  . #x9023)	; &GT-52060;
-      (=jis-x0208	  . #x4F22)	; &GT-52060; [47-02]
-      (=jis-x0213-1	  . #x4F22)	; &I-JX1-4F22; [47-02]
+     ((=ucs@unicode	  . #x9023)	; &AJ1-04040;
+      (=adobe-japan1-0	  . 04040)	; &AJ1-04040;
       ))
     (=ucs@unicode	. #x7FF4)	; &UU+7FF4;
+    (=ucs@JP/hanazono	. nil)
+    (->subsumptive
+     ((==ucs@unicode	  . #x7FF4)	; &g2-UU+7FF4;
+      (==ucs@JP/hanazono  . nil)
+      ))
     ))
 (define-char
   '((=>ucs		. #x26486)	; 𦒆
