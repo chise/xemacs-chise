@@ -1965,21 +1965,22 @@
     (ideographic-strokes . 16)
     (total-strokes	 . 22)
     (=ucs		. #x269B9)	; 𦦹
+    (=cns11643-7	. #x5867)	; &I-C7-5867; [56-71]
+    (=daikanwa		. 30265)	; &I-M-30265;
+    (<-same
+     ((=ucs@jis		  . #x947F)	; &AJ1-07059;
+      (=adobe-japan1-0	  . 07059)	; &AJ1-07059;
+      (=daikanwa	  . 41088)	; &I-M-41088;
+      ))
+    (<-same*sources
+     longkanshoujian daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 30265)	; &M-30265;
-      (<-same
-       ((=ucs@jis	    . #x947F)	; &J90-6F58;
-	(=jis-x0208	    . #x6F58)	; &J90-6F58; [79-56]
-	(=ks-x1001	    . #x733A)	; &I-K0-733A; [83-26]
-	(=jis-x0213-1	    . #x6F58)	; &I-JX1-6F58; [79-56]
-	(=daikanwa	    . 41088)	; &I-M-41088;
-	))
-      (<-same*sources
-       longkanshoujian daikanwa)
+     ((==daikanwa	  . 30265)	; &g2-M-30265;
       )
-     ((=ucs@iso		  . #x269B9)	; &U-000269B9;
+     ((==ucs@iso	  . #x269B9)	; &g2-IU-000269B9;
       )
-     ((=cns11643-7	  . #x5867)	; &C7-5867; [56-71]
+     ((==ucs@cns	  . #x269B9)	; &g2-CU+269B9;
+      (==cns11643-7	  . #x5867)	; &g2-CU+269B9; [56-71]
       ))
     ))
 (define-char
