@@ -1,3 +1,16 @@
+2016-03-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R124-Feather.el (C2-5E52): Unify CU+7FF4; add
+	representative node.
+	(UU+7FF4): Add representative node.
+
+2016-03-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R079-Weapon.el (U-00023ADE): Apply new conventions for
+	glyph granularity.
+	(U-00023AE9): Likewise.
+	(U-00023AEB): Likewise.
+
 2016-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R207-Drum.el:
