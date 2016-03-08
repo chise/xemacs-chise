@@ -1,3 +1,7 @@
+2016-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R088-Father.el (U+7236): Add HNG-KHM0427-0.
+
 2016-03-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R124-Feather.el (C2-5E52): Unify CU+7FF4; add
