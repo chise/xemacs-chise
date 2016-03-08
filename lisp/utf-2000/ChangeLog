@@ -1,5 +1,13 @@
 2016-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R086-Fire.el: Add glyph-images of HNG-KHM.
+	(U+70BA): Add `<-formed' for U+7232; add HNG-KHM0426-0.
+	(U+7167-itaiji-004): New character to subsume HNG-KHM0425-0 and
+	HNG-KHI0477-0; add `<-denotational' for U+7167; add `<-formed' for
+	U+7167.
+
+	* Ideograph-R071-Not.el (g2-JU+65E0): Add HNG-KHM0364-0.
+
 	* Ideograph-R088-Father.el (U+7236): Add HNG-KHM0427-0.
 
 2016-03-06  MORIOKA Tomohiko  <tomo.git@chise.org>
