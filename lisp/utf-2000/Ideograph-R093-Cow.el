@@ -146,26 +146,6 @@
     (=shinjigen		.  4735)	; 牟
     ))
 (define-char
-  '((<-denotational
-     ((==>ucs@bucs	  . #x725F)	; &BUCS+725F;
-      ))
-    (ideographic-radical . 93)	; ⽜
-    (ideographic-strokes . 1)
-    (total-strokes	 . 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=big5-cdp	  . #x8AAC)	; &CDP-8AAC;
-      )
-     ((=big5-cdp	  . #x8BF1)	; &CDP-8BF1;
-      ))
-    (===hng-khi		. 01060)	; &HNG010-01060;
-    (<-formed
-     ((=ucs		  . #x725F)	; 牟
-      ))
-    ))
-(define-char
   '((ideographic-radical . 93)	; ⽜
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
