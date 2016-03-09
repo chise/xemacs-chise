@@ -1,5 +1,10 @@
 2016-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R093-Cow.el (HNG-KHI0106-0): Moved to
+	Ideograph-R028-Private.el.
+
+2016-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R086-Fire.el: Add glyph-images of HNG-KHM.
 	(U+70BA): Add `<-formed' for U+7232; add HNG-KHM0426-0.
 	(U+7167-itaiji-004): New character to subsume HNG-KHM0425-0 and
