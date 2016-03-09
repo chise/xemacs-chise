@@ -1,5 +1,15 @@
 2016-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R100-Life.el (g2-UU+751F): Add HNG-KHM0437-0.
+
+	* Ideograph-R028-Private.el (U-00020ADA): Add `<-denotational' for
+	BUCS+725F; separate IU+20ADA.
+	(HNG-KHI0106-0): Moved from Ideograph-R093-Cow.el; add
+	`<-denotational' for U-00020ADA.
+	(IU+20ADA): Add `=>ucs@iwds-1'.
+	(HNG-KHM0088-0): New character; add `<-denotational' for
+	BUCS+725F; add `<-formed' for U-00020ADA and U+725F.
+
 	* Ideograph-R093-Cow.el (HNG-KHI0106-0): Moved to
 	Ideograph-R028-Private.el.
 
