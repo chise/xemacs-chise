@@ -735,6 +735,30 @@
     (=ucs-var-001	. #x5171)	; &U-v001+5171;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x5171)	; 共
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((name		  . "CJK RADICAL GRASS TWO")
+      (=ucs		  . #x2EBF)	; ⺿
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=gt-k		  . 00059)	; &GT-K00059;
+      ))
+    (=gt-k		. 02522)	; &GT-K02522;
+    (=gt-pj-k1		. #x3545)	; &GT-K02522; [21-37]
+    (<-formed@component/connect-above
+     ((=ucs		  . #x5171)	; 共
+      ))
+    ))
+(define-char
   '((ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
