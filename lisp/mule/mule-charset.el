@@ -522,6 +522,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ===hng-smk ; 74
 	  ===cbeta
 	  ===jef-china3
+	  ===ucs-bmp-cjk-compat@unicode
 	  ;; ucs-sip
 	  =>>big5-cdp
 	  =>>jis-x0208
