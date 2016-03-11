@@ -7200,11 +7200,9 @@
     (=shinjigen		.  5573)	; 福
     (=jef-china3	. #x5CE4)	; &I-JC3-5CE4;
     (<-formed
-     ((=ucs@jis/2004	  . #x903C)	; &HD-HG-3058;
-      (=jis-x0208@1978	  . #x492F)	; &HD-HG-3058; [41-15]
-      (=ks-x1001	  . #x793A)	; &I-K0-793A; [89-26]
-      (=jis-x0213-1@2004  . #x492F)	; &I-JX3-492F; [41-15]
-      (=daikanwa	  . 38973)	; &I-M-38973;
+     ((=ucs@jis/2004	  . #x903C)	; &AJ1-07783;
+      (=ucs@ks		  . #x903C)	; &AJ1-07783;
+      (=adobe-japan1-0	  . 07783)	; &AJ1-07783;
       ))
     (->subsumptive
      ((=decomposition@cid
