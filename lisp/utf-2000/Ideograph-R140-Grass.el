@@ -774,7 +774,6 @@
 (define-char
   '((ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 2)
-    (total-strokes	 . 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -783,23 +782,29 @@
       )
      ((=ucs		  . #x5196)	; 冖
       ))
-    (=>>gt-k		. 01418)	; &G-GT-K01418;
-    (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs@unicode	    . #x8279)	; &GT-39639;
-	(=gb2312	    . #x5C33)	; &GT-39639; [60-19]
-	(=jis-x0213-2	    . #x7576)	; &I-JX2-7576; [85-86]
-	)
-       ((=ucs		    . #x5196)	; 冖
-	))
-      (=gt-k		  . 01418)	; &GT-K01418;
-      (=gt-pj-k1	  . #x413C)	; &GT-K01418; [33-28]
-      (<-simplified@component
-       ((=big5-cdp	    . #x8BE3)	; &CDP-8BE3;
-	))
+    (=ucs		. #x2B1E6)	; 𫇦
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2B1E6)	; 𫇦
+      ))
+    (ideographic-radical . 140)	; ⾋
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL GRASS ONE")
+      (=ucs		  . #x2EBE)	; ⺾
+      )
+     ((=ucs		  . #x5196)	; 冖
+      ))
+    (=ucs@iso		. #x2B1E6)	; &GT-K01418;
+    (=gt-k		. 01418)	; &GT-K01418;
+    (=gt-pj-k1		. #x413C)	; &GT-K01418; [33-28]
+    (<-simplified@component
+     ((=ucs		  . #x241FE)	; 𤇾
       ))
     ))
 (define-char
