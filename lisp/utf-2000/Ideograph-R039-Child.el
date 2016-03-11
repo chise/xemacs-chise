@@ -1182,9 +1182,8 @@
     (=cns11643-6	. #x3022)	; &I-C6-3022; [16-02]
     (=daikanwa		. 06982)	; &I-M-06982;
     (<-Large-Seal
-     ((=ucs@ks		  . #x9032)	; &M-38943;
-      (=ks-x1001	  . #x7264)	; &M-38943; [82-68]
-      (=daikanwa	  . 38943)	; &I-M-38943;
+     ((=ucs@ks		  . #x9032)	; &AJ1-13855;
+      (=adobe-japan1-4	  . 13855)	; &AJ1-13855;
       ))
     ))
 (define-char
@@ -1247,12 +1246,9 @@
       (=daikanwa	  . 06987)	; &I-M-06987;
       (=shinjigen	  .  1792)	; &AJ1-02841;
       (<-formed
-       ((=ucs@jis/2004	    . #x905C)	; &HD-FT-324E;
-	(=ucs@ks	    . #x905C)	; &HD-FT-324E;
-	(=jis-x0208@1978    . #x423D)	; &HD-FT-324E; [34-29]
-	(=ks-x1001	    . #x6161)	; &I-K0-6161; [65-65]
-	(=jis-x0213-1@2004  . #x423D)	; &I-JX3-423D; [34-29]
-	(=daikanwa	    . 39038)	; &I-M-39038;
+       ((=ucs@jis/2004	    . #x905C)	; &AJ1-07726;
+	(=ucs@ks	    . #x905C)	; &AJ1-07726;
+	(=adobe-japan1-0    . 07726)	; &AJ1-07726;
 	))
       (->subsumptive
        ((=decomposition@cid
