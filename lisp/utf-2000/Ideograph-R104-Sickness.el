@@ -1255,6 +1255,8 @@
 	)
        ((===ucs@unicode	    . #x75B2)	; &R-UU+75B2;
 	))
+      )
+     ((===hng-khm	  . 04440)	; &HNG011-04440;
       ))
     ))
 (define-char
@@ -9674,6 +9676,26 @@
       )
      ((==ucs@cns	  . #x7648)	; &g2-CU+7648;
       (==cns11643-2	  . #x5D61)	; &g2-CU+7648; [61-65]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x7648)	; &BUCS+7648;
+      ))
+    (ideographic-radical . 104)	; ⽧
+    (ideographic-strokes . 12)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x7592)	; 疒
+      )
+     ((=ucs		  . #x24F32)	; 𤼲
+      ))
+    (===hng-khm		. 04450)	; &HNG011-04450;
+    (<-formed
+     ((=ucs		  . #x7648)	; 癈
       ))
     ))
 (define-char
