@@ -537,9 +537,8 @@
     (=daikanwa		. 38642)	; &I-M-38642;
     (=shinjigen		.  8202)	; 辟
     (<-formed
-     ((=ucs@ks		  . #x907F)	; &M-39163;
-      (=ks-x1001	  . #x792D)	; &M-39163; [89-13]
-      (=daikanwa	  . 39163)	; &I-M-39163;
+     ((=ucs@ks		  . #x907F)	; &AJ1-13991;
+      (=adobe-japan1-4	  . 13991)	; &AJ1-13991;
       ))
     (->subsumptive
      ((==ucs@unicode	  . #x8F9F)	; &g2-GT-51571;
