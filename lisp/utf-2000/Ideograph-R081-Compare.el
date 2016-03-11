@@ -56,11 +56,19 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 81)	; ⽐
+  '((<-denotational
+     ((==>ucs@bucs	  . #x7562)	; &BUCS+7562;
+      ))
+    (ideographic-radical . 81)	; ⽐
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=ucs		. #x6BD5)	; 毕
     (=gb2312		. #x314F)	; &I-G0-314F; [17-47]
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x7562)	; &AJ1-03487;
+      (=adobe-japan1-0	  . 03487)	; &AJ1-03487;
+      (=gb12345		  . #x314F)	; &AJ1-03487; [17-47]
+      ))
     ))
 (define-char
   '((ideographic-radical@ucs . 4)	; ⼃
