@@ -1,3 +1,8 @@
+2016-03-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R081-Compare.el (U+6BD5): Add `<-denotational' for
+	BUCS+7562; add `<-simplified@CN' for UU+7562.
+
 2016-03-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R012-Eight.el (GT-K02522): New character; add
