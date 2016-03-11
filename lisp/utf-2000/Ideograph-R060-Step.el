@@ -1680,11 +1680,24 @@
     (=cns11643-6	. #x3749)	; &I-C6-3749; [23-41]
     (=daikanwa		. 10124)	; &I-M-10124;
     (<-ancient
-     ((=ks-x1001	  . #x7757)	; &M-38892; [87-55]
+     ((=ucs@ks		  . #x901A)	; &AJ1-13939;
+      (=adobe-japan1-4	  . 13939)	; &AJ1-13939;
       (=daikanwa	  . 38892)	; &I-M-38892;
       ))
     (<-ancient*sources
      zihui-bei daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x224F6)	; &g2-M-10124;
+      (==cns11643-6	  . #x3749)	; &g2-M-10124; [23-41]
+      (==daikanwa	  . 10124)	; &g2-M-10124;
+      (->subsumptive
+       ((===daikanwa	    . 10124)	; &R-M-10124;
+	)
+       ((===cns11643-6	    . #x3749)	; &R-C6-3749; [23-41]
+	)
+       ((===ucs@iso	    . #x224F6)	; &R-U-000224F6;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
