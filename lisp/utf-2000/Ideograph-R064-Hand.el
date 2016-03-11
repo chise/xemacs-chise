@@ -4600,11 +4600,9 @@
     (=daikanwa		. 11988)	; &I-M-11988;
     (=shinjigen		.  2899)	; 括
     (<-formed
-     ((=ucs@jis		  . #x9002)	; &HD-JB-614B;
-      (=ks-x1001	  . #x4E41)	; &HD-JB-614B; [46-33]
-      (=jis-x0212	  . #x614B)	; &I-JSP-614B; [65-43]
-      (=jis-x0213-2	  . #x7977)	; &I-JX2-7977; [89-87]
-      (=daikanwa	  . 38844)	; &I-M-38844;
+     ((=ucs@jis		  . #x9002)	; &AJ1-15189;
+      (=ucs@ks		  . #x9002)	; &AJ1-15189;
+      (=adobe-japan1-4	  . 15189)	; &AJ1-15189;
       ))
     ))
 (define-char
