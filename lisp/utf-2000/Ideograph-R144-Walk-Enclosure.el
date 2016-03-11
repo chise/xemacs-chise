@@ -274,9 +274,8 @@
     (=shinjigen		.  7325)	; &C1-5D34;
     (=jef-china3	. #x63E7)	; &I-JC3-63E7;
     (<-formed
-     ((=ucs@ks		  . #x8FF0)	; &M-38803;
-      (=ks-x1001	  . #x627B)	; &M-38803; [66-91]
-      (=daikanwa	  . 38803)	; &I-M-38803;
+     ((=ucs@ks		  . #x8FF0)	; &AJ1-13822;
+      (=adobe-japan1-4	  . 13822)	; &AJ1-13822;
       ))
     (->subsumptive
      ((==ucs@ks		  . #x8853)	; &g2-M-34046;
