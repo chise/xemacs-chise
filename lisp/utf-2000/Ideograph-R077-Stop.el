@@ -497,7 +497,8 @@
     (=daikanwa		. 16268)	; &I-M-16268;
     (=hanziku-4		. #xD2F2)	; &I-HZK04-D2F2;
     (<-ancient
-     ((=ks-x1001	  . #x504E)	; &M-38752; [48-46]
+     ((=ucs@ks		  . #x8FD1)	; &AJ1-13730;
+      (=adobe-japan1-4	  . 13730)	; &AJ1-13730;
       (=daikanwa	  . 38752)	; &I-M-38752;
       ))
     (<-ancient*sources
@@ -1063,7 +1064,8 @@
     (=daikanwa		. 16297)	; &I-M-16297;
     (=hanziku-4		. #xD35A)	; &I-HZK04-D35A;
     (<-same
-     ((=ks-x1001	  . #x504E)	; &M-38752; [48-46]
+     ((=ucs@ks		  . #x8FD1)	; &AJ1-13730;
+      (=adobe-japan1-4	  . 13730)	; &AJ1-13730;
       (=daikanwa	  . 38752)	; &I-M-38752;
       ))
     (<-same*sources
