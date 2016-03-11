@@ -1,5 +1,16 @@
 2016-03-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R106-White.el: Add glyph-images of HNG-KHM.
+
+	* Ideograph-R104-Sickness.el (U+75B2): Add HNG-KHM0444-0.
+	(HNG-KHM0445-0): New character; add `<-denotational' for
+	BUCS+7648; add `<-formed' for U+7648.
+
+	* Ideograph-R075-Tree.el (U+3C05): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R060-Step.el (U-000224F6): Add representative nodes.
+
 	* Ideograph-R081-Compare.el (U+6BD5): Add `<-denotational' for
 	BUCS+7562; add `<-simplified@CN' for UU+7562.
 
