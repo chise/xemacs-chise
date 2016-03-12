@@ -605,7 +605,7 @@
     (=gt-k		. 01443)	; &GT-K01443;
     (=gt-pj-k1		. #x322A)	; &GT-K01443; [18-10]
     (<-simplified@misc
-     ((=big5-cdp	  . #x8BE3)	; &CDP-8BE3;
+     ((=ucs		  . #x241FE)	; 𤇾
       ))
     ))
 (define-char
@@ -4463,6 +4463,34 @@
   '((ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x708F)	; 炏
+      )
+     ((=ucs		  . #x5196)	; 冖
+      ))
+    (=ucs		. #x241FE)	; 𤇾
+    (=jis-x0213-2	. #x6F64)	; &I-JX2-6F64; [79-68]
+    (=big5-cdp		. #x8BE3)	; &I-CDP-8BE3;
+    (->subsumptive
+     ((==ucs@iso	  . #x241FE)	; &g2-JX2-6F64;
+      (==jis-x0213-2	  . #x6F64)	; &g2-JX2-6F64; [79-68]
+      (==big5-cdp	  . #x8BE3)	; &g2-JX2-6F64;
+      (->subsumptive
+       ((===jis-x0213-2	    . #x6F64)	; &R-JX2-6F64; [79-68]
+	)
+       ((===big5-cdp	    . #x8BE3)	; &R-CDP-8BE3;
+	)
+       ((===ucs@iso	    . #x241FE)	; &R-U-000241FE;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
     (=ucs		. #x24213)	; 𤈓
     ))
 (define-char
@@ -4497,12 +4525,6 @@
 	))
       (==ruimoku-v6	  . #xE02F)	; &g2-RUI6-E02F;
       ))
-    ))
-(define-char
-  '((ideographic-radical . 86)	; ⽕
-    (ideographic-strokes . 6)
-    (total-strokes	 . 10)
-    (=big5-cdp		. #x8BE3)	; &CDP-8BE3;
     ))
 (define-char
   '((ideographic-radical . 86)	; ⽕
@@ -11817,11 +11839,9 @@
       )
      ((=ucs		  . #x706B)	; 火
       )
-     ((=ucs@jis/2004	  . #x9022)	; &HD-FT-3152;
-      (=ucs@ks		  . #x9022)	; &HD-FT-3152;
-      (=ks-x1001	  . #x5C71)	; &HD-FT-3152; [60-81]
-      (=jis-x0213-1@2004  . #x3029)	; &I-JX3-3029; [16-09]
-      (=daikanwa	  . 38901)	; &I-M-38901;
+     ((=ucs@jis/2004	  . #x9022)	; &AJ1-08266;
+      (=ucs@ks		  . #x9022)	; &AJ1-08266;
+      (=adobe-japan1-0	  . 08266)	; &AJ1-08266;
       ))
     (=ucs@jis		. #x71A2)	; &JX2-6F7C;
     (=ucs@ks		. #x71A2)	; &JX2-6F7C;
@@ -11898,8 +11918,9 @@
       )
      ((=ucs		  . #x706B)	; 火
       )
-     ((=ucs@unicode	  . #x9022)	; &AJ1-01133;
-      (=adobe-japan1-0	  . 01133)	; &AJ1-01133;
+     ((=ucs@unicode	  . #x9022)	; &AJ1-13408;
+      (=adobe-japan1-0	  . 01133)	; &AJ1-13408;
+      (=adobe-japan1-4	  . 13408)	; &I-AJ1-13408;
       ))
     (=ucs@unicode	. #x71A2)	; &UU+71A2;
     (=ucs@JP/hanazono	. nil)
