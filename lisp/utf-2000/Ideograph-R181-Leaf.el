@@ -4545,6 +4545,7 @@
     (=jis-x0213-1	. #x7D7D)	; &I-JX1-7D7D; [93-93]
     (=gb12345		. #x7227)	; 顓 [82-07]
     (=daikanwa		. 43600)	; &I-M-43600;
+    (=jef-china3	. #x6CF1)	; &I-JC3-6CF1;
     (<-formed
      ((=ucs		  . #x5718)	; 團
       ))
@@ -4564,6 +4565,27 @@
      hanshu-zhu zhengzitong daikanwa)
     (<-interchangeable*sources
      daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x9853)	; &g2-JSP-682F;
+      (==jis-x0212	  . #x682F)	; &g2-JSP-682F; [72-15]
+      (==cns11643-1	  . #x7770)	; &g2-JSP-682F; [87-80]
+      (==jis-x0213-1	  . #x7D7D)	; &g2-JSP-682F; [93-93]
+      (==gb12345	  . #x7227)	; &g2-JSP-682F; [82-07]
+      (==daikanwa	  . 43600)	; &g2-JSP-682F;
+      (==jef-china3	  . #x6CF1)	; &g2-JSP-682F;
+      (->subsumptive
+       ((===daikanwa	    . 43600)	; &R-M-43600;
+	)
+       ((===jis-x0212	    . #x682F)	; &R-JX1-7D7D; [72-15]
+	(===jis-x0213-1	    . #x7D7D)	; &R-JX1-7D7D; [93-93]
+	)
+       ((===cns11643-1	    . #x7770)	; &R-C1-7770; [87-80]
+	)
+       ((===jef-china3	    . #x6CF1)	; &R-JC3-6CF1;
+	)
+       ((===ucs@unicode	    . #x9853)	; &R-UU+9853;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 181)	; ⾴
