@@ -1,3 +1,33 @@
+2016-03-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R141-Tiger.el (U+8655): Apply new conventions for
+	glyph granularity.
+	(U+458F): Likewise.
+
+	* Ideograph-R102-Field.el: Add glyph-images of HNG-KHM.
+	(U+7537): Separate UU+7537.
+	(GT-K01666): New character; add `<-denotational' for U+7537.
+	(U+7537-itaiji-003): New character to subsume HNG-KHI0491-0 and
+	HNG-KHM0093-0; add `<-denotational' for BUCS+7537; add `<-formed'
+	for U+7537.
+	(BUCS+7562): New abstract node.
+	(U+7562): Add `<-denotational' for BUCS+7562.
+	(A-BC-87C5): New abstract character; add `<-denotational' for
+	BUCS+7562; unify A-MJ058090.
+	(HNG-KHM0094-0): New character; add `<-denotational' for
+	A-MJ058090; add `<-formed' for U+7562.
+	(MJ058090): New character; add `<-denotational' for A-MJ058090;
+	unify BC-87C5 and KOSEKI-244450; add `<-formed' for U+7562.
+	(UU+7570): Apply new conventions for glyph granularity.
+	(HNG-KHM0441-0): New character; add `<-denotational' for U+7570.
+
+	* Ideograph-R089-Double-X.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 abstract
+	  glyph-forms.
+	(U+723C): Add `<-denotational' for BUCS+4FCE; add `<-vulgar' and
+	`<-wrong' for U+4FCE.
+
 2016-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R196-Bird.el (U+9DF8): Apply new conventions for glyph
