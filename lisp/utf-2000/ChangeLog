@@ -1,5 +1,36 @@
 2016-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R196-Bird.el (U+9DF8): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R108-Dish.el: Add glyph-images of HNG-KHM.
+	(U+76DB): Separate A-UU+76DB.
+	(A-UU+76DB): Add `=>ucs@iwds-1'.
+	(UU+76DB): Use A-UU+76DB instead of U+76DB as the mother; unify
+	S-5251.
+	(HNG-KHM0451-0): New character; add `<-denotational' for U+76DB.
+	(HD-JT-B63A): Use A-UU+76DB instead of U+76DB as the mother; unify
+	S-5252.
+
+	* Ideograph-R086-Fire.el (BC-8BE3): Unify U-000241FE and JX2-6F64.
+
+	* Ideograph-R080-Do-Not.el:
+	- Add glyph-images of HNG-KHM.
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 abstract
+	  glyph-forms.
+	(U+6BCE): Separate UU+6BCE.
+	(UU+6BCE): Unify S-4009.
+
+	* Ideograph-R032-Earth.el (U-0002145E): Apply new conventions for
+	glyph granularity.
+	(U+58BF): Apply new conventions for glyph granularity.
+
+	* Ideograph-R019-Power.el (U+52B3): Separate UU+52B3.
+	(U+52DE): Apply new conventions for glyph granularity.
+
+2016-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R140-Grass.el (G-GT-K01418): Unify U-0002B1E6; omit
 	`=>>gt-k' and `total-strokes'; use `->denotational' instead of
 	`->subsumptive'.
