@@ -1,3 +1,21 @@
+2016-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R140-Grass.el (G-GT-K01418): Unify U-0002B1E6; omit
+	`=>>gt-k' and `total-strokes'; use `->denotational' instead of
+	`->subsumptive'.
+
+	* Ideograph-R095-Profound.el (U+7385): Apply new conventions for
+	glyph granularity.
+	(U+7386): Likewise.
+
+	* Ideograph-R030-Mouth.el (M-04034): Add representative nodes.
+	(JU+55F9): Likewise.
+	(U+562E): Apply new conventions for glyph granularity.
+	(JU+5660): Add representative nodes.
+	(JU+5675): Likewise.
+
+	* Ideograph-R181-Leaf.el (U+9853): Unify JC3-6CF1.
+
 2016-03-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R106-White.el: Add glyph-images of HNG-KHM.
