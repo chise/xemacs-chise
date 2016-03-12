@@ -536,6 +536,8 @@
        ((===ucs@unicode	    . #x76CA)	; &R-UU+76CA;
 	)
        ((===hng-khi	    . 05010)	; &HNG010-05010;
+	)
+       ((===hng-khm	    . 04500)	; &HNG011-04500;
 	))
       ))
     ))
@@ -1037,13 +1039,17 @@
      ((=ucs		  . #x76DB)	; 盛
       ))
     (ideographic-radical . 108)	; ⽫
+    (=>ucs@iwds-1	. #x76DB)	; &A-IWDSU+76DB;
+    (=>ucs@unicode	. #x76DB)	; &A-IWDSU+76DB;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x76DB)	; &A-IWDSU+76DB;
+      (=>ucs@unicode	  . #x76DB)	; &A-IWDSU+76DB;
+      ))
+    (ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x76DB)	; 盛
-      )
-     ((=ucs		  . #xE0102)	; 󠄂
-      ))
     (=ucs@unicode	. #x76DB)	; &HD-JA-4039;
     (=jis-x0208		. #x4039)	; &HD-JA-4039; [32-25]
     (=gb2312		. #x4A22)	; &I-G0-4A22; [42-02]
@@ -1056,12 +1062,64 @@
     (=gt-k		. 08006)	; &I-GT-K08006;
     (=gt-pj-1		. #x4039)	; &I-GT-29465; [32-25]
     (=daikanwa/+p	. 23001)	; &HD-JA-4039;
+    (=shinjigen		.  5251)	; &HD-JA-4039;
     (<-simplified
      ((=hanyo-denshi/jt	  . #xB63A)	; &HD-JT-B63A;
       (=daikanwa	  . 23005)	; &I-M-23005;
       ))
     (<-simplified*sources
      daikanwa)
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x76DB)	; 盛
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@unicode	  . #x76DB)	; &g2-HD-JA-4039;
+      (==gb2312		  . #x4A22)	; &g2-HD-JA-4039; [42-02]
+      (==ks-x1001	  . #x607C)	; &g2-HD-JA-4039; [64-92]
+      (==jis-x0208	  . #x4039)	; &g2-HD-JA-4039; [32-25]
+      (==cns11643-1	  . #x5C36)	; &g2-HD-JA-4039; [60-22]
+      (==jis-x0213-1	  . #x4039)	; &g2-HD-JA-4039; [32-25]
+      (==hanyo-denshi/ja  . #x4039)	; &g2-HD-JA-4039; [32-25]
+      (==gt		  . 29465)	; &g2-HD-JA-4039;
+      (==gt-k		  . 08006)	; &g2-HD-JA-4039;
+      (==daikanwa/+p	  . 23001)	; &g2-HD-JA-4039;
+      (==shinjigen	  .  5251)	; &g2-HD-JA-4039;
+      (->subsumptive
+       ((===daikanwa/+p	    . 23001)	; &R-M-p23001;
+	)
+       ((===jis-x0208	    . #x4039)	; &R-J0-4039; [32-25]
+	(===jis-x0213-1	    . #x4039)	; &R-J0-4039; [32-25]
+	)
+       ((===cns11643-1	    . #x5C36)	; &R-C1-5C36; [60-22]
+	)
+       ((===gt		    . 29465)	; &R-GT-29465;
+	(===gt-k	    . 08006)	; &R-GT-29465;
+	)
+       ((===ucs@ks	    . #x76DB)	; &R-K0-607C;
+	(===ks-x1001	    . #x607C)	; &R-K0-607C; [64-92]
+	)
+       ((===ucs@unicode	    . #x76DB)	; &R-UU+76DB;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x76DB)	; 盛
+      ))
+    (ideographic-radical . 108)	; ⽫
+    (ideographic-strokes . 6)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x6210)	; 成
+      )
+     ((=ucs		  . #x76BF)	; 皿
+      ))
+    (===hng-khm		. 04510)	; &HNG011-04510;
     ))
 (define-char
   '((script		CN Simplified Ideograph)
@@ -1117,13 +1175,25 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x76DB)	; 盛
+     ((=>ucs@iwds-1	  . #x76DB)	; &A-IWDSU+76DB;
+      (=>ucs@unicode	  . #x76DB)	; &A-IWDSU+76DB;
       ))
     (ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (=hanyo-denshi/jt	. #xB63A)	; &HD-JT-B63A;
     (=daikanwa		. 23005)	; &I-M-23005;
+    (=shinjigen		.  5252)	; &HD-JT-B63A;
+    (->subsumptive
+     ((==hanyo-denshi/jt  . #xB63A)	; &g2-HD-JT-B63A;
+      (==daikanwa	  . 23005)	; &g2-HD-JT-B63A;
+      (==shinjigen	  .  5252)	; &g2-HD-JT-B63A;
+      (->subsumptive
+       ((===daikanwa	    . 23005)	; &R-M-23005;
+	)
+       ((===hanyo-denshi/jt . #xB63A)	; &R-HD-JT-B63A;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
@@ -1563,9 +1633,11 @@
 	(===ks-x1001	    . #x7257)	; &R-K0-7257; [82-55]
 	)
        ((===ucs@unicode	    . #x76E1)	; &R-UU+76E1;
-	)
-       ((===hng-khi	    . 05000)	; &HNG010-05000;
 	))
+      )
+     ((===hng-khi	  . 05000)	; &HNG010-05000;
+      )
+     ((===hng-khm	  . 04520)	; &HNG011-04520;
       ))
     ))
 (define-char
