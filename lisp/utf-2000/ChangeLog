@@ -1,5 +1,9 @@
 2016-03-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R113-Spirit.el (U+FA19): Add representative nodes.
+
+2016-03-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R141-Tiger.el (U+8655): Apply new conventions for
 	glyph granularity.
 	(U+458F): Likewise.
