@@ -3409,6 +3409,14 @@
   '((ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x793A)	; 示
+      )
+     ((=ucs		  . #x7533)	; 申
+      ))
     (=ucs		. #x795E)	; 神
     (=>jis-x0208@1997	. #x3F40)	; 神 [31-32]
     ))
@@ -3421,10 +3429,14 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
-    (=decomposition@cid
-     ((=ucs		  . #x795E)	; 神
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #xE0100)	; 󠄀
+     ((name		  . "CJK RADICAL SPIRIT ONE")
+      (=ucs		  . #x2EAC)	; ⺬
+      )
+     ((=ucs		  . #x7533)	; 申
       ))
     (=ucs		. #xFA19)	; 神
     (=ucs@ks		. #x795E)	; 神
@@ -3434,6 +3446,45 @@
     (=daikanwa		. 24673)	; &I-M-24673;
     (=jef-china3	. #x5CDA)	; &I-JC3-5CDA;
     (=ruimoku-v6	. #xE085)	; &I-RUI6-E085;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x795E)	; 神
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=adobe-japan1-5    . 19130)	; &AJ1-19130;
+	)
+       ((=ucs		    . #x7533)	; 申
+	))
+      (==ucs@unicode	  . #xFA19)	; &g2-AJ1-08580;
+      (==ucs@ks		  . #x795E)	; &g2-AJ1-08580;
+      (==adobe-japan1-2	  . 08580)	; &g2-AJ1-08580;
+      (==ks-x1001	  . #x636A)	; &g2-AJ1-08580; [67-74]
+      (==jis-x0213-1	  . #x793C)	; &g2-AJ1-08580; [89-28]
+      (==daikanwa	  . 24673)	; &g2-AJ1-08580;
+      (==jef-china3	  . #x5CDA)	; &g2-AJ1-08580;
+      (==ruimoku-v6	  . #xE085)	; &g2-AJ1-08580;
+      (->subsumptive
+       ((===daikanwa	    . 24673)	; &R-M-24673;
+	)
+       ((===jis-x0213-1	    . #x793C)	; &R-JX1-793C; [89-28]
+	)
+       ((===adobe-japan1-2  . 08580)	; &R-AJ1-08580;
+	)
+       ((===jef-china3	    . #x5CDA)	; &R-JC3-5CDA;
+	)
+       ((===ucs@ks	    . #x795E)	; &R-K0-636A;
+	(===ks-x1001	    . #x636A)	; &R-K0-636A; [67-74]
+	)
+       ((===ucs@unicode	    . #xFA19)	; &R-UU+FA19;
+	)
+       ((===ruimoku-v6	    . #xE085)	; &R-RUI6-E085;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -3442,6 +3493,14 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x793B)	; 礻
+      )
+     ((=ucs		  . #x7533)	; 申
+      ))
     (=ucs@unicode	. #x795E)	; &AJ1-02566;
     (=adobe-japan1-0	. 02566)	; &AJ1-02566;
     (=jis-x0208		. #x3F40)	; &I-J90-3F40; [31-32]
@@ -3462,6 +3521,15 @@
        ((=ucs		    . #x795E)	; 神
 	)
        ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((==ucs@unicode	    . #x793B)	; &g2-AJ1-14905;
+	(==adobe-japan1-4   . 14905)	; &g2-AJ1-14905;
+	)
+       ((=ucs		    . #x7533)	; 申
 	))
       (==ucs@unicode	  . #x795E)	; &g2-AJ1-02566;
       (==adobe-japan1-0	  . 02566)	; &g2-AJ1-02566;
