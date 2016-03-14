@@ -1,3 +1,33 @@
+2016-03-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R096-Jade.el: Add glyph-images of HNG-KHM.
+	(U+73CE): Apply new conventions for glyph granularity [GGG
+	ver.0.9.1].
+
+	* Ideograph-R057-Bow.el (U+5F25): Apply new conventions for glyph
+	granularity [GGG ver.0.9.1] for a component of
+	ideographic-structure.
+
+	* Ideograph-R042-Small.el (UU+5C12): Add `<-formed' for U+723E.
+	(g2-UU+5C12): Add HNG-KHM0428-0.
+	(U+5C13): Apply new conventions for glyph granularity [GGG
+	v.0.9.1]; unify S-4715; add `<-vulgar' for UU+723E.
+	(g2-S-4715): Unify U+5C13-var-002.
+	(U+5C14): Apply new conventions for glyph granularity [GGG
+	v.0.9.1].
+
+	* Ideograph-R009-Man.el (U+4F60): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+	(U-0002F804): Apply new conventions for glyph granularity [GGG
+	v.0.9.1].
+	(M-00997): Add representative node.
+	(M-01049): Likewise.
+	(U+50D7): Apply new conventions for glyph granularity.
+	(M-01179): Add representative nodes.
+	(M-01194): Likewise.
+	(JU+5119): Likewise.
+	(g2-IU+2041D): Likewise.
+
 2016-03-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R113-Spirit.el (U+FA19): Add representative nodes.
