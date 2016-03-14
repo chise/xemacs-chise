@@ -1415,9 +1415,8 @@
        ((=ucs@unicode	    . #x5F13)	; &AJ1-01655;
 	(=adobe-japan1-0    . 01655)	; &AJ1-01655;
 	)
-       ((=ucs@cns	    . #x5C13)	; &GT-09428;
-	(=cns11643-4	    . #x2173)	; &GT-09428; [01-83]
-	(=daikanwa	    . 07478)	; &I-M-07478;
+       ((==ucs@cns	    . #x5C13)	; &g2-GT-09428;
+	(==daikanwa	    . 07478)	; &g2-GT-09428;
 	))
       (==ucs@cns	  . #x5F25)	; &g2-AJ1-03835;
       (==ucs@jis	  . #x5F25)	; &g2-AJ1-03835;
@@ -1468,9 +1467,8 @@
 	)
        ((=ucs-var-002	    . #x5F13)	; &U-v002+5F13;
 	)
-       ((=ucs@cns	    . #x5C13)	; &GT-09428;
-	(=cns11643-4	    . #x2173)	; &GT-09428; [01-83]
-	(=daikanwa	    . 07478)	; &I-M-07478;
+       ((==ucs@cns	    . #x5C13)	; &g2-GT-09428;
+	(==daikanwa	    . 07478)	; &g2-GT-09428;
 	))
       (==hanyo-denshi/tk  . 01029400)	; &g2-HD-TK-01029400;
       (=hanyo-denshi/tk/mf-01 . #x0B7C)	; &g2-HD-TK-01029400;
@@ -1507,7 +1505,8 @@
        ((=ucs@unicode	    . #x5F13)	; &AJ1-01655;
 	(=adobe-japan1-0    . 01655)	; &AJ1-01655;
 	)
-       ((=adobe-japan1-4    . 14122)	; &AJ1-14122;
+       ((==ucs@cns	    . #x5C14)	; &g2-AJ1-14122;
+	(==adobe-japan1-4   . 14122)	; &g2-AJ1-14122;
 	))
       (==cbeta		  . 07460)	; &g2-CB07460;
       )
@@ -1518,9 +1517,8 @@
        ((=ucs@unicode	    . #x5F13)	; &AJ1-01655;
 	(=adobe-japan1-0    . 01655)	; &AJ1-01655;
 	)
-       ((=ucs@unicode	    . #x5C14)	; &G0-367B;
-	(=gb2312	    . #x367B)	; &G0-367B; [22-91]
-	(=daikanwa	    . 07479)	; &I-M-07479;
+       ((==ucs@unicode	    . #x5C14)	; &g2-M-07479;
+	(==daikanwa	    . 07479)	; &g2-M-07479;
 	))
       (==ucs@unicode	  . #x5F25)	; &g2-UU+5F25;
       (==ucs@JP/hanazono  . nil)
