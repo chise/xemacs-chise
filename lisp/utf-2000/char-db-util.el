@@ -337,8 +337,9 @@
     =ucs-itaiji-005
     =ucs-itaiji-006
     =ucs-itaiji-008
-    =big5-cdp-var-3
-    =big5-cdp-var-5
+    =big5-cdp-var-003
+    =big5-cdp-var-004
+    =big5-cdp-var-005
     =>ucs@iwds-1))
 
 
