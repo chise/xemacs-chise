@@ -1922,6 +1922,15 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL SPIRIT ONE")
+      (=ucs		  . #x2EAC)	; ⺬
+      )
+     ((=ucs		  . #x7533)	; 申
+      ))
     (=ucs		. #xFA19)	; 神
     (=ucs@ks		. #x795E)	; 神
     (=adobe-japan1-2	. 08580)	; &I-AJ1-08580;
@@ -1930,6 +1939,45 @@
     (=daikanwa		. 24673)	; &I-M-24673;
     (=jef-china3	. #x5CDA)	; &I-JC3-5CDA;
     (=ruimoku-v6	. #xE085)	; &I-RUI6-E085;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x795E)	; 神
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=adobe-japan1-5    . 19130)	; &AJ1-19130;
+	)
+       ((=ucs		    . #x7533)	; 申
+	))
+      (==ucs@unicode	  . #xFA19)	; &g2-AJ1-08580;
+      (==ucs@ks		  . #x795E)	; &g2-AJ1-08580;
+      (==adobe-japan1-2	  . 08580)	; &g2-AJ1-08580;
+      (==ks-x1001	  . #x636A)	; &g2-AJ1-08580; [67-74]
+      (==jis-x0213-1	  . #x793C)	; &g2-AJ1-08580; [89-28]
+      (==daikanwa	  . 24673)	; &g2-AJ1-08580;
+      (==jef-china3	  . #x5CDA)	; &g2-AJ1-08580;
+      (==ruimoku-v6	  . #xE085)	; &g2-AJ1-08580;
+      (->subsumptive
+       ((===daikanwa	    . 24673)	; &R-M-24673;
+	)
+       ((===jis-x0213-1	    . #x793C)	; &R-JX1-793C; [89-28]
+	)
+       ((===adobe-japan1-2  . 08580)	; &R-AJ1-08580;
+	)
+       ((===jef-china3	    . #x5CDA)	; &R-JC3-5CDA;
+	)
+       ((===ucs@ks	    . #x795E)	; &R-K0-636A;
+	(===ks-x1001	    . #x636A)	; &R-K0-636A; [67-74]
+	)
+       ((===ucs@unicode	    . #xFA19)	; &R-UU+FA19;
+	)
+       ((===ruimoku-v6	    . #xE085)	; &R-RUI6-E085;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
