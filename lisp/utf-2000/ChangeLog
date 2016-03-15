@@ -1,4 +1,27 @@
+2016-03-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list):
+	- Add `=big5-cdp-var-004'.
+	- Use `=big5-cdp-var-003' and `=big5-cdp-var-005' instead of
+	  `=big5-cdp-var-3' and `=big5-cdp-var-5'.
+
 2016-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ruimoku6.el (U+FA19): Add representative nodes.
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL WALK ONE>): Unify
+	AJ1-15184.
+
+	* Ideograph-R062-Halberd.el (U+6211): Separate UU+6211.
+	(UU+6211): Add `=>ucs@iwds-1'.
+	(U+6211-itaiji-002): New character; add `<-denotational' for
+	U+6211.
+
+2016-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+563F): Separate UU+563F.
+	(HNG-KHM0247-0): New character; add `<-denotational' for U+563F;
+	add `<-formed' for U+9ED8.
 
 	* Ideograph-R111-Arrow.el (g2-UU+77E5): Add HNG-KHM0460-0.
 
