@@ -3402,9 +3402,9 @@
   ;;              direction l2r
   ;;              registry "zihai\\.cp-17$"))
 
-  (make-charset '=big5-cdp-var-3
-		"Big5-CDP-var-3 glyph-images of GlyphWiki"
-		'(long-name     "Big5-CDP-var-3"
+  (make-charset '=big5-cdp-var-003
+		"Big5-CDP-var-003 glyph-images of GlyphWiki"
+		'(long-name     "Big5-CDP-var-003"
 		  chars         256
 		  dimension     2
 		  columns       2
@@ -3412,10 +3412,22 @@
 		  direction     l2r
 		  registry      "cdp\\.var-3$"
 		  mother        =big5-cdp))
+  (define-charset-alias '=big5-cdp-var-3 '=big5-cdp-var-003)
 
-  (make-charset '=big5-cdp-var-5
-		"Big5-CDP-var-5 glyph-images of GlyphWiki"
-		'(long-name     "Big5-CDP-var-5"
+  (make-charset '=big5-cdp-var-004
+		"Big5-CDP-var-004 glyph-images of GlyphWiki"
+		'(long-name     "Big5-CDP-var-004"
+		  chars         256
+		  dimension     2
+		  columns       2
+		  graphic       2
+		  direction     l2r
+		  registry      "cdp\\.var-4$"
+		  mother        =big5-cdp))
+
+  (make-charset '=big5-cdp-var-005
+		"Big5-CDP-var-005 glyph-images of GlyphWiki"
+		'(long-name     "Big5-CDP-var-005"
 		  chars         256
 		  dimension     2
 		  columns       2
@@ -3423,6 +3435,7 @@
 		  direction     l2r
 		  registry      "cdp\\.var-5$"
 		  mother        =big5-cdp))
+  (define-charset-alias '=big5-cdp-var-5 '=big5-cdp-var-005)
 
   (make-charset '==>ucs@bucs
 		"Basic Subset of Coded Character Sets (BUCS)"
