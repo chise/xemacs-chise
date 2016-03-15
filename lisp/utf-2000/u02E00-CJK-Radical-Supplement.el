@@ -1203,6 +1203,7 @@
     (total-strokes	 . 4)
     (=ucs		. #x2ECD)	; ⻍
     (=ucs@jis		. #x8FB6)	; ⻍
+    (=adobe-japan1-4	. 15184)	; &I-AJ1-15184;
     (=jis-x0212		. #x6134)	; &I-JSP-6134; [65-20]
     (=jis-x0213-2	. #x796A)	; &I-JX2-796A; [89-74]
     (=gt		. 51643)	; &I-GT-51643;
