@@ -38859,6 +38859,13 @@
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
+    (=ucs		. #x563F)	; 嘿
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x563F)	; 嘿
+      ))
+    (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (hanyu-dazidian	1 684 1)
@@ -38870,8 +38877,8 @@
       )
      ((=ucs		  . #x9ED1)	; 黑
       ))
-    (=ucs		. #x563F)	; 嘿
-    (=adobe-japan1-4	. 14400)	; &I-AJ1-14400;
+    (=ucs@unicode	. #x563F)	; &AJ1-14400;
+    (=adobe-japan1-4	. 14400)	; &AJ1-14400;
     (=gb2312		. #x3A59)	; &I-G0-3A59; [26-57]
     (=jis-x0212		. #x363D)	; &I-JSP-363D; [22-29]
     (=cns11643-1	. #x6C35)	; &I-C1-6C35; [76-21]
@@ -38879,6 +38886,26 @@
     (=big5		. #xBC4B)	; &I-B-BC4B;
     (=daikanwa		. 04283)	; &I-M-04283;
     (=jef-china3	. #x47A3)	; &I-JC3-47A3;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x563F)	; 嘿
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs		  . #x9ED2)	; 黒
+      ))
+    (===hng-khm		. 02470)	; &HNG011-02470;
+    (<-formed
+     ((=ucs		  . #x9ED8)	; 默
+      ))
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
