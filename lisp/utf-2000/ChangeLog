@@ -1,5 +1,7 @@
 2016-03-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R033-Scholar.el (U+58F4): Add representative nodes.
+
 	* char-db-util.el (char-db-coded-charset-priority-list):
 	- Add `=big5-cdp-var-004'.
 	- Use `=big5-cdp-var-003' and `=big5-cdp-var-005' instead of
