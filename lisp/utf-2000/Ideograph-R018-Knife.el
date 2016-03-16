@@ -953,16 +953,23 @@
       )
      ((=ucs		  . #x5200)	; 刀
       ))
-    (=koseki		. 021940)	; &KOSEKI-021940;
+    (=mj		. 007458)	; &MJ007458;
+    (=koseki		. 021940)	; &MJ007458;
     (<-formed
      ((=ucs		  . #x5207)	; 切
       ))
     (<-formed*sources
      hng koseki)
     (->subsumptive
-     ((===hng-khi	  . 02740)	; &HNG010-02740;
-      )
-     ((===hng-khm	  . 02190)	; &HNG011-02190;
+     ((==mj		  . 007458)	; &g2-MJ007458;
+      (==koseki		  . 021940)	; &g2-MJ007458;
+      (->subsumptive
+       ((===mj		    . 007458)	; &R-MJ007458;
+	)
+       ((===hng-khi	    . 02740)	; &HNG010-02740;
+	)
+       ((===hng-khm	    . 02190)	; &HNG011-02190;
+	))
       ))
     ))
 (define-char
