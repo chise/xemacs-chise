@@ -56,6 +56,14 @@
   '((ideographic-radical . 207)	; ⿎
     (ideographic-strokes . 0)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x58F4)	; 壴
+      )
+     ((=ucs		  . #x6534)	; 攴
+      ))
     (=ucs		. #x9F14)	; 鼔
     (=adobe-japan1-5	. 20046)	; &I-AJ1-20046;
     (=jis-x0212		. #x6D2A)	; &I-JSP-6D2A; [77-10]
@@ -67,6 +75,15 @@
        ((=ucs		    . #x9F14)	; 鼔
 	)
        ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gt-k		    . 05309)	; &GT-K05309;
+	)
+       ((==ucs@unicode	    . #x6534)	; &g2-AJ1-05058;
+	(==adobe-japan1-0   . 05058)	; &g2-AJ1-05058;
 	))
       (==ucs@unicode	  . #x9F14)	; &g2-AJ1-20046;
       (==adobe-japan1-5	  . 20046)	; &g2-AJ1-20046;
@@ -88,9 +105,25 @@
        ((===ucs@unicode	    . #x9F14)	; &R-UU+9F14;
 	))
       )
-     ((===hng-khi	  . 06300)	; &HNG010-06300;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((==ucs@unicode	    . #x58F4)	; &g2-AJ1-17467;
+	(==adobe-japan1-5   . 17467)	; &g2-AJ1-17467;
+	)
+       ((=ucs-var-001	    . #x6534)	; &U-v001+6534;
+	))
+      (=ucs-var-001	  . #x9F14)	; &U-v001+9F14;
       (<-formed
        ((=ucs		    . #x9F13)	; 鼓
+	))
+      (<-formed*sources
+       hng)
+      (->subsumptive
+       ((===hng-khi	    . 06300)	; &HNG010-06300;
+	)
+       ((===hng-khm	    . 05940)	; &HNG011-05940;
 	))
       ))
     ))
