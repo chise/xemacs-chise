@@ -16507,14 +16507,7 @@
     (zinbun-oracle-page . 69)
     (=zinbun-oracle	. 01450)	; &ZOB-1450;
     (<-Oracle-Bones
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
-	(=ucs		    . #x2FFA)	; ⿺
-	)
-       ((=ucs		    . #x864E)	; 虎
-	)
-       ((=ucs		    . #x7530)	; 田
-	))
+     ((=ucs		  . #x2C7ED)	; 𬟭
       ))
     ))
 (define-char
