@@ -1,5 +1,14 @@
 2016-03-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R157-Foot.el (U+8DF0): Separate A-UU+8DF0 to integrate
+	U-0002F9DC.
+	(A-UU+8DF0): Separate UU+8DF0.
+	(UU+8DF0): Add representative nodes.
+	(U+8DF3): Apply new conventions for glyph granularity.
+	(U-00028048): Likewise.
+	(U-0002F9DC): Add `<-denotational' for U+8DF0.
+	(U+8E22): Apply new conventions for glyph granularity.
+
 	* Ideograph-R018-Knife.el (KOSEKI-021940): Unify MJ007458.
 
 2016-03-15  MORIOKA Tomohiko  <tomo.git@chise.org>
