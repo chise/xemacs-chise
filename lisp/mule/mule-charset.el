@@ -399,7 +399,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  =big5-cdp-var-005
 	  =ucs-bmp-cjk-compat
           =ucs-bmp-cjk-compat@unicode
-          ==jis-x0208@1990
+          =ucs-sip@JP/hanazono
+	  ==jis-x0208@1990
 	  ==ucs-radicals@unicode
 	  ==ucs-bmp-cjk@JP/hanazono
 	  ==ucs-bmp-cjk@gb
