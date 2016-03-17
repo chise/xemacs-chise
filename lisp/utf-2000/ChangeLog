@@ -1,3 +1,24 @@
+2016-03-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Oracle-Bones.el (ZOB-01450): Use U-0002C7ED instead of "⿺虎田"
+	for `<-Oracle-Bones'.
+
+	* Ideograph-R207-Drum.el (U+9F14): Add U+9F14-var-001 to subsume
+	HNG-KHI0630-0 and HNG-KHM0594-0.
+
+2016-03-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R141-Tiger.el (U-0002C7ED): New character.
+	(IU+2C7ED): New character; add `<-denotational' for U-0002C7ED.
+	(hanaJU+2C7ED): Likewise.
+
+	* Ideograph-R066-Rap.el (U+6534): Apply new conventions for glyph
+	granularity; add U+6534-var-001.
+	(U-00022F67): Apply new conventions for glyph granularity.
+	(M-13267): Unify MJ037308 and KOSEKI-148590.
+	(CB01568): Don't use `<-denotational' for U-00022F67; add
+	`<-formed' for U-00022F67.
+
 2016-03-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R157-Foot.el (U+8DF0): Separate A-UU+8DF0 to integrate
