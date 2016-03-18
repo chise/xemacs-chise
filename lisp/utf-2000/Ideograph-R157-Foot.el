@@ -4292,10 +4292,12 @@
     (=big5		. #xBDF0)	; &I-B-BDF0;
     (=daikanwa		. 37648)	; &I-M-37648;
     (<-formed
-     ((=adobe-japan1-4	  . 13947)	; &AJ1-13947;
+     ((=ucs@ks		  . #x8FED)	; &AJ1-13947;
+      (=adobe-japan1-4	  . 13947)	; &AJ1-13947;
       ))
     (<-same
-     ((=adobe-japan1-4	  . 13947)	; &AJ1-13947;
+     ((=ucs@ks		  . #x8FED)	; &AJ1-13947;
+      (=adobe-japan1-4	  . 13947)	; &AJ1-13947;
       (=daikanwa	  . 38800)	; &I-M-38800;
       ))
     (<-same*sources
