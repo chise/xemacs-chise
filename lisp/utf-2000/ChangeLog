@@ -1,3 +1,51 @@
+2016-03-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R212-Dragon.el (U+9F8D): Separate A-UU+9F8D.
+	(A-UU+9F8D): Add `=>ucs@iwds-1'.
+	(UU+9F8D): Use A-UU+9F8D instead of U+9F8D as the mother; unify
+	S-9913 instead of S1-9913.
+	(HD-FT2861): Unify g2-S2-9913 instead of S2-9913.
+	(HNG-KHM0595-0): New character; add `<-denotational' for U+9F8D;
+	add `<-formed' for U+9F8D.
+	(CDP-89B0-var-004): New character; add `<-denotational' for
+	A-BC-89B0; add `<-formed@component/connect-left' for BC-89B0.
+	(A-BC-89B0): New abstract node.
+	(CB07631): New character; add `<-denotational' for A-BC-89B0.
+	(BC-89B0): Likewise.
+	(U+9F8F): Apply new conventions for glyph granularity.
+	(U+9F91): Likewise.
+	(U+9F92): Likewise.
+	(U+9F96): Likewise.
+	(U+9F97): Likewise.
+
+	* Ideograph-R203-Black.el (U+9ED4): Apply new conventions for
+	glyph granularity.
+	(U+9ED5): Likewise.
+	(UU+9EDB): Add representative nodes.
+	(U+9EDE): Apply new conventions for glyph granularity.
+	(HNG-KHM0424-0): New character; add `<-denotational' for U+9EDE.
+	(HD-FT2746): Add representative node.
+	(U+9EDF): Apply new conventions for glyph granularity.
+	(U+9EEC): Likewise.
+	(U+9EED): Likewise.
+	(U+9EEE): Likewise.
+	(UU+9EF1): Add representative nodes.
+	(U+9EF5): Apply new conventions for glyph granularity.
+	(U+9EF8): Likewise.
+
+2016-03-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R123-Sheep.el (U+7FA3): Separate UU+7FA3.
+	(UU+7FA3): Add `=>ucs@iwds-1'; add `<-original' for UU+7FA4.
+	(HNG-KHM0601-1): New character; add `<-denotational' for U+7FA3.
+	(U+7FA4): Separate UU+7FA4.
+	(HNG-KHM0601-2): New character; add `<-denotational' for U+7FA4;
+	add `<-formed' for U+7FA3.
+	(U+7FA9): Separate UU+7FA9.
+	(UU+7FA9): Add `=>ucs@iwds-1'.
+	(U+7FA9-itaiji-002): New character; add `<-denotational' for
+	U+7FA9; add HNG-KHM0484-0.
+
 2016-03-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Oracle-Bones.el (ZOB-01450): Use U-0002C7ED instead of "⿺虎田"
