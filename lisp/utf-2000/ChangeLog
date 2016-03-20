@@ -1,3 +1,8 @@
+2016-03-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (g2-M-15625): Apply new conventions for
+	glyph granularity for a component of ideographic-structure.
+
 2016-03-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R212-Dragon.el (U+9F8D): Separate A-UU+9F8D.
