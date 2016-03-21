@@ -5348,6 +5348,53 @@
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x866B)	; 虫
+      )
+     ((=ucs		  . #x828B)	; 芋
+      ))
+    (=ucs		. #x272EA)	; 𧋪
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x272EA)	; 𧋪
+      ))
+    (ideographic-radical . 142)	; ⾍
+    (ideographic-strokes . 7)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x866B)	; 虫
+      )
+     ((=cns11643-1	  . #x4B42)	; &C1-4B42; [43-34]
+      (=daikanwa	  . 30670)	; &I-M-30670;
+      ))
+    (=ucs@iso		. #x272EA)	; &U-000272EA;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x272EA)	; 𧋪
+      ))
+    (ideographic-radical . 142)	; ⾍
+    (ideographic-strokes . 7)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x866B)	; 虫
+      )
+     ((=ucs		  . #x2F990)	; 芋
+      ))
+    (=cbeta		. 10698)	; &CB10698;
+    ))
+(define-char
+  '((ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
     (=ucs		. #x8718)	; 蜘
