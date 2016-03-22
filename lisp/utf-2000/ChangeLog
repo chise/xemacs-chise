@@ -1,5 +1,9 @@
 2016-03-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R142-Insect.el (U-000272EA): New character.
+
+2016-03-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R075-Tree.el (g2-M-15625): Apply new conventions for
 	glyph granularity for a component of ideographic-structure.
 
@@ -11968,8 +11972,8 @@
 
 2014-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* char-db-util.el (shuowen-radicals): Add ?𡳈, ?屵, ?广, ?厂, ?丸,
-	?危, ?石, ?長, ?勿, ?冄, ?而, ?豕, ?㣇, ?彑, ?豚, ?豸, ?𤉡, ?易,
+	* char-db-util.el (shuowen-radicals): Add ?𡲲, ?屵, ?广, ?厂, ?丸,
+	?危, ?石, ?長, ?勿, ?冄, ?而, ?豕, ?&G-UU+5F52;, ?彑, ?豚, ?豸, ?𤉡, ?易,
 	?象 and ?馬.
 
 	* Ideograph-R072-Sun.el (U+6600): Apply new conventions for glyph
@@ -13394,7 +13398,7 @@
 
 	* Oracle-Bones.el (ZOB-{02487..02499}): New characters.
 
-	* char-db-util.el (shuowen-radicals): Add ?㱃, ?㳄, ?旡, ?頁, ?𦣻,
+	* char-db-util.el (shuowen-radicals): Add ?&g2-AJ1-02933;, ?㳄, ?旡, ?頁, ?𦣻,
 	?面, ?丏, ?首, ?𥄉 and ?須.
 
 2014-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
@@ -35956,7 +35960,7 @@
 
 2007-10-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* char-db-util.el (shuowen-radicals): Fix typo; swap ?畗 and ?𣆪
+	* char-db-util.el (shuowen-radicals): Fix typo; swap ?畗 and ?&R-MJ013494;
 	based on the big brother's version.
 
 	* Oracle-Bones.el (ZOB-{01598 - 01621}): New characters.
@@ -35997,7 +36001,7 @@
 
 	* char-db-util.el (shuowen-radicals): Add ?烏; add ?丶, ?丹, ?青,
 	?井, ?皀, ?鬯, ?食, ?亼, ?會, ?倉, ?入, ?缶, ?矢, ?高, ?冂, ?𩫏,
-	?京, ?亯, ?畗, ?𣆪, ?㐭, ?𠾂, ?來, ?麥, ?夊, ?舛, ?䑞, ?韋, ?弟,
+	?京, ?亯, ?畗, ?&R-MJ013494;, ?㐭, ?𠾂, ?來, ?麥, ?夊, ?舛, ?䑞, ?韋, ?弟,
 	?夂, ?久 and ?桀.
 
 2007-09-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
@@ -36136,7 +36140,7 @@
 
 	* char-db-util.el (shuowen-radicals): Add ?𠦒, ?冓, ?幺, ?𢆶, ?叀,
 	?玄, ?予, ?放, ?𠬪, ?𣦼, ?歺, ?死, ?冎, ?骨, ?肉, ?筋, ?刀, ?刃,
-	?㓞, ?丰, ?耒 and ?𧢓.
+	?&A-UU+34DE;, ?丰, ?耒 and ?&R-JX2-784A;.
 
 	* Oracle-Bones.el (ZOB-00010): Use ZOB-01263 in
 	`ideographic-structure'.
@@ -36306,7 +36310,7 @@
 
 2007-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* char-db-util.el (shuowen-radicals): Add ?𦥑, ?䠫, ?爨, ?革, ?鬲,
+	* char-db-util.el (shuowen-radicals): Add ?𦥑, ?&g2-M-49890;, ?爨, ?革, ?鬲,
 	?䰜, ?爪, ?𠃨, ?鬥, ?又, ?𠂇, ?㕜, ?  支, ?𦘒, ?聿, ?畫, ?隶, ?堅,
 	?臣, ?殳, ?殺, ?𠘧, ?寸, ?皮 , ?瓪, ?  攴, ?敎, ?卜, ?用, ?爻 and
 	?㸚.
