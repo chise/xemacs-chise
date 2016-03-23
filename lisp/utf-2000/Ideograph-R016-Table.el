@@ -184,6 +184,23 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x51E0)	; 几
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=ucs-var-002	. #x51E1)	; &U-v002+51E1;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x51E1)	; 凡
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
       (=ucs		  . #x2FF5)	; ⿵
       )
