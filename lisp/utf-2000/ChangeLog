@@ -1,3 +1,13 @@
+2016-03-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R016-Table.el (U+51E1-var-002): New character; add
+	`<-denotational' for U+51E1.
+
+	* Ideograph-R004-Slash.el (U-0002008E): New character.
+	(IU+2008E): Add `<-denotational' for U-0002008E.
+	(BC-88EE): Likewise.
+	(BC-8D41): Likewise.
+
 2016-03-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R142-Insect.el (U-000272EA): New character.
