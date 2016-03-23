@@ -879,6 +879,39 @@
   '((ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (=ucs		. #x2008E)	; 𠂎
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2008E)	; 𠂎
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=ucs@iso		. #x2008E)	; &U-0002008E;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2008E)	; 𠂎
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=big5-cdp		. #x88EE)	; &CDP-88EE;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2008E)	; 𠂎
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=big5-cdp		. #x8D41)	; &CDP-8D41;
+    ))
+(define-char
+  '((ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
     (=gt		. 00164)	; &GT-00164;
     (=gt-pj-9		. #x4A5B)	; &GT-00164; [42-59]
     ))
