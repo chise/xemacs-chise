@@ -101,9 +101,10 @@
     (<-same*sources
      zihui daikanwa)
     (<-vulgar
-     ((=ucs		  . #x536F)	; 卯
+     ((=ucs@unicode	  . #x536F)	; &AJ1-01230;
+      (=adobe-japan1-0	  . 01230)	; &AJ1-01230;
       (=jis-x0208	  . #x312C)	; &I-J90-312C; [17-12]
-      (=shinjigen	  .  0848)	; 卯
+      (=shinjigen	  .  0848)	; &AJ1-01230;
       ))
     (<-vulgar*sources
      shinjigen@1ed)
@@ -111,7 +112,8 @@
      ((=ucs		  . #x20A0D)	; 𠨍
       (=daikanwa	  . 02843)	; &I-M-02843;
       )
-     ((=ucs		  . #x536F)	; 卯
+     ((=ucs@unicode	  . #x536F)	; &AJ1-01230;
+      (=adobe-japan1-0	  . 01230)	; &AJ1-01230;
       (=daikanwa	  . 02847)	; &I-M-02847;
       ))
     (->mistakable*sources
