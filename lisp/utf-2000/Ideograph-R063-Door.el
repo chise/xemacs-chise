@@ -324,10 +324,11 @@
     (=daikanwa		. 11708)	; &I-M-11708;
     (=shinjigen		.  0849)	; 戼
     (<-original
-     ((=ucs		  . #x536F)	; 卯
+     ((=ucs@unicode	  . #x536F)	; &AJ1-01230;
+      (=adobe-japan1-0	  . 01230)	; &AJ1-01230;
       (=jis-x0208	  . #x312C)	; &I-J90-312C; [17-12]
       (=daikanwa	  . 02847)	; &I-M-02847;
-      (=shinjigen	  .  0848)	; 卯
+      (=shinjigen	  .  0848)	; &AJ1-01230;
       ))
     (<-original*sources
      zhengzitong daikanwa shinjigen)
