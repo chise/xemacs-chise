@@ -1,5 +1,8 @@
 2016-03-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el (BC-8C69): New character; add
+	`<-denotational' for U+536F.
+
 	* Ideograph-R102-Field.el (MJ017682): New character; unify
 	HD-KS244780; add `<-denotational' for U+7559.
 
