@@ -1350,6 +1350,34 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x536F)	; 卯
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x2008E)	; 𠂎
+      )
+     ((=ucs		  . #x5200)	; 刀
+      ))
+    (=big5-cdp		. #x8C69)	; &CDP-8C69;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=big5-cdp	    . #x88EE)	; &CDP-88EE;
+	)
+       ((=ucs		    . #x5200)	; 刀
+	))
+      (==big5-cdp	  . #x8C69)	; &g2-CDP-8C69;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
