@@ -1,3 +1,38 @@
+2016-03-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R118-Bamboo.el: Add `=decomposition@hanyo-denshi' for
+	some abstract glyph-forms of Hanyo-Denshi/JA.
+	(UU+7B11): Add representative nodes.
+
+	* Ideograph-R115-Grain.el: Add `=decomposition@hanyo-denshi' for
+	some abstract glyph-forms of Hanyo-Denshi/JA.
+	(UU+7A42): Add representative nodes.
+	(UU+7A50): Likewise.
+	(UU+7A57): Likewise.
+
+	* Ideograph-R096-Jade.el (UU+7459): Add representative nodes.
+	(g2-UU+7459): Add `=decomposition@hanyo-denshi'.
+
+2016-03-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R162-Walk.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 abstract
+	glyph-forms.
+	(U-0002856A): Apply new conventions for glyph granularity.
+	(U+9089): Separate A-IWDSU+9089.
+	(AJ1-14241): New character; add `<-denotational' for U+9089.
+	(AJ1-14244): Likewise.
+	(AJ1-14245): Likewise.
+	(AJ1-14249): Likewise.
+	(AJ1-14251): Likewise.
+	(AJ1-14252): Likewise.
+	(AJ1-14236): New character; add `<-denotational' for U+908A.
+	(AJ1-14239): Likewise.
+	(AJ1-14240): Likewise.
+	(AJ1-20234): Likewise.
+	(U-00028667): Apply new conventions for glyph granularity.
+
 2016-03-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R137-Boat.el:
