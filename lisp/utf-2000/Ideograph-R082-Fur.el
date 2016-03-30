@@ -1485,9 +1485,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((==ucs@jis	    . #x6C99)	; &g2-GT-21980;
-	(==ucs@ks	    . #x6C99)	; &g2-GT-21980;
-	(==jis-x0208	    . #x3A3B)	; &g2-GT-21980; [26-27]
+       ((==ucs@jis	    . #x6C99)	; &g2-AJ1-02091;
+	(==ucs@ks	    . #x6C99)	; &g2-AJ1-02091;
+	(==adobe-japan1-0   . 02091)	; &g2-AJ1-02091;
 	)
        ((==ucs@unicode	    . #x6BDB)	; &g2-AJ1-03807;
 	(==adobe-japan1-0   . 03807)	; &g2-AJ1-03807;
