@@ -1,3 +1,20 @@
+2016-03-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R178-Tanned-Leather.el:
+	- Add Hanyo-Denshi/KS code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/KS.
+	(U+97CB): Apply new conventions for glyph granularity.
+	(U+97CC): Likewise.
+	(U+97CD): Likewise.
+	(U+97CE): Likewise.
+	(U+97D0): Likewise.
+	(U+97D7): Likewise.
+	(U+97DD): Likewise.
+	(U+97E0): Likewise.
+	(U+97DB): Likewise.
+	(U+97E4): Likewise.
+
 2016-03-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R050-Turban.el (U+5E43): Apply new conventions for
