@@ -581,14 +581,11 @@
     (=shinjigen		.  4081)	; 决
     (=cbeta		. 00804)	; &I-CB00804;
     (<-vulgar
-     ((=>ucs@iwds-1	  . #x6C7A)	; &GT-21966;
-      (=ucs@unicode	  . #x6C7A)	; &GT-21966;
-      (=jis-x0208	  . #x3768)	; &GT-21966; [23-72]
-      (=ks-x1001	  . #x4C3D)	; &I-K0-4C3D; [44-29]
-      (=cns11643-1	  . #x4A6E)	; &I-C1-4A6E; [42-78]
-      (=jis-x0213-1	  . #x3768)	; &I-JX1-3768; [23-72]
+     ((=ucs@unicode	  . #x6C7A)	; &AJ1-01854;
+      (=adobe-japan1-0	  . 01854)	; &AJ1-01854;
+      (=jis-x0208	  . #x3768)	; &I-J90-3768; [23-72]
       (=daikanwa	  . 17174)	; &I-M-17174;
-      (=shinjigen	  .  4080)	; &GT-21966;
+      (=shinjigen	  .  4080)	; &AJ1-01854;
       ))
     (<-vulgar*sources
      yupian daikanwa shinjigen@1ed)
@@ -2570,16 +2567,11 @@
     (=hanziku-1		. #xE3C8)	; &I-HZK01-E3C8;
     (=jef-china3	. #x43FC)	; &I-JC3-43FC;
     (<-vulgar
-     ((=>ucs@iwds-1	  . #x6E1B)	; &GT-22742;
-      (=ucs@unicode	  . #x6E1B)	; &GT-22742;
-      (=jis-x0208	  . #x383A)	; &GT-22742; [24-26]
-      (=ks-x1001	  . #x4A75)	; &I-K0-4A75; [42-85]
-      (=iso-ir165	  . #x2D56)	; &I-EGB-2D56; [13-54]
-      (=cns11643-1	  . #x6035)	; &I-C1-6035; [64-21]
-      (=jis-x0213-1	  . #x383A)	; &I-JX1-383A; [24-26]
-      (=daikanwa	  . 17759)	; &I-M-17759;
-      (=shinjigen@1ed	  .  4323)	; &GT-22742;
-      (=shinjigen@rev	  .  4324)	; &GT-22742;
+     ((=ucs@unicode	  . #x6E1B)	; &AJ1-01902;
+      (=adobe-japan1-0	  . 01902)	; &AJ1-01902;
+      (=jis-x0208	  . #x383A)	; &I-J90-383A; [24-26]
+      (=shinjigen@1ed	  .  4323)	; &AJ1-01902;
+      (=shinjigen@rev	  .  4324)	; &AJ1-01902;
       ))
     (<-vulgar*sources
      shinjigen@1ed shinjigen@rev)
