@@ -284,12 +284,8 @@
     (->formed*sources
      jiyun daikanwa)
     (->interchangeable
-     ((=>ucs@iwds-1	  . #x6C7A)	; &GT-21966;
-      (=ucs@unicode	  . #x6C7A)	; &GT-21966;
-      (=jis-x0208	  . #x3768)	; &GT-21966; [23-72]
-      (=ks-x1001	  . #x4C3D)	; &I-K0-4C3D; [44-29]
-      (=cns11643-1	  . #x4A6E)	; &I-C1-4A6E; [42-78]
-      (=jis-x0213-1	  . #x3768)	; &I-JX1-3768; [23-72]
+     ((=ucs@unicode	  . #x6C7A)	; &AJ1-01854;
+      (=adobe-japan1-0	  . 01854)	; &AJ1-01854;
       (=daikanwa	  . 17174)	; &I-M-17174;
       ))
     (->interchangeable*sources
