@@ -110,9 +110,10 @@
       (<-same@jiyun*sources
        jiyun daikanwa)
       (<-same@zihui
-       ((=ucs@unicode	    . #x97CC)	; &M-43109;
-	(=gb12345	    . #x484D)	; &M-43109; [40-45]
-	(=daikanwa	    . 43109)	; &M-43109;
+       ((=ucs@unicode	    . #x97CC)	; &JX2-7C2B;
+	(=jis-x0212	    . #x675E)	; &I-JSP-675E; [71-62]
+	(=jis-x0213-2	    . #x7C2B)	; &I-JX2-7C2B; [92-11]
+	(=daikanwa	    . 43109)	; &JX2-7C2B;
 	))
       (<-same@zihui*sources
        jiyun zihui daikanwa)
