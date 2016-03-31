@@ -6982,14 +6982,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@iwds-1	  . #x6C99)	; &GT-21980;
-      (=ucs@unicode	  . #x6C99)	; &GT-21980;
-      (=jis-x0208	  . #x3A3B)	; &GT-21980; [26-27]
-      (=gb2312		  . #x4933)	; &I-G0-4933; [41-19]
-      (=ks-x1001	  . #x5E5E)	; &I-K0-5E5E; [62-62]
-      (=cns11643-1	  . #x4A67)	; &I-C1-4A67; [42-71]
-      (=jis-x0213-1	  . #x3A3B)	; &I-JX1-3A3B; [26-27]
-      (=daikanwa	  . 17212)	; &I-M-17212;
+     ((=ucs@unicode	  . #x6C99)	; &AJ1-02091;
+      (=adobe-japan1-0	  . 02091)	; &AJ1-02091;
       )
      ((=ucs		  . #x5973)	; 女
       ))
@@ -7017,9 +7011,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((==ucs@jis	    . #x6C99)	; &g2-GT-21980;
-	(==ucs@ks	    . #x6C99)	; &g2-GT-21980;
-	(==jis-x0208	    . #x3A3B)	; &g2-GT-21980; [26-27]
+       ((==ucs@jis	    . #x6C99)	; &g2-AJ1-02091;
+	(==ucs@ks	    . #x6C99)	; &g2-AJ1-02091;
+	(==adobe-japan1-0   . 02091)	; &g2-AJ1-02091;
 	)
        ((==ucs@unicode	    . #x5973)	; &g2-AJ1-02433;
 	(==adobe-japan1-0   . 02433)	; &g2-AJ1-02433;
