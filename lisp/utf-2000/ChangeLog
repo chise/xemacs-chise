@@ -1,3 +1,8 @@
+2016-03-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el (U+5E43): Apply new conventions for
+	glyph granularity.
+
 2016-03-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R083-Clan.el: Add some Adobe-Japan1-0 code points.
