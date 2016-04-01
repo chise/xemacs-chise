@@ -1,5 +1,11 @@
 2016-03-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R031-Enclosure.el (U+570D): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R005-Second.el (U+4E7C): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R178-Tanned-Leather.el:
 	- Add Hanyo-Denshi/KS code points.
 	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
