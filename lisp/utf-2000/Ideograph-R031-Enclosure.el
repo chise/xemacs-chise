@@ -3752,9 +3752,8 @@
 	)
        ((=ucs		    . #x56D7)	; 囗
 	)
-       ((=ucs@unicode	    . #x97CB)	; &GT-57812;
-	(=gb12345	    . #x4E24)	; &GT-57812; [46-04]
-	(=daikanwa	    . 43108)	; &GT-57812;
+       ((=>>ucs@unicode	    . #x97CB)	; &GT-57812;
+	(=gt		    . 57812)	; &GT-57812;
 	))
       (=>>ucs@unicode	  . #x570D)	; &G-AJ1-13528;
       (=>>mj		  . 008868)	; &G-AJ1-13528;
@@ -3771,6 +3770,15 @@
 	 ((=ucs		      . #x570D)	; 圍
 	  )
 	 ((=ucs		      . #xE0101)	; 󠄁
+	  ))
+	(ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	  (=ucs		      . #x2FF4)	; ⿴
+	  )
+	 ((=ucs		      . #x56D7)	; 囗
+	  )
+	 ((==ucs@unicode      . #x97CB)	; &g2-GT-57812;
+	  (==daikanwa	      . 43108)	; &g2-GT-57812;
 	  ))
 	(==ucs@ks	    . #x570D)	; &g2-AJ1-13528;
 	(==adobe-japan1-4   . 13528)	; &g2-AJ1-13528;
@@ -3840,10 +3848,9 @@
 	)
        ((=ucs		    . #x56D7)	; 囗
 	)
-       ((=ucs@jis	    . #x97CB)	; &GT-57813;
-	(=jis-x0208	    . #x706A)	; &GT-57813; [80-74]
-	(=ks-x1001	    . #x6A5F)	; &I-K0-6A5F; [74-63]
-	(=jis-x0213-1	    . #x706A)	; &I-JX1-706A; [80-74]
+       ((==ucs@jis	    . #x97CB)	; &g2-GT-57813;
+	(==ucs@ks	    . #x97CB)	; &g2-GT-57813;
+	(==jis-x0208	    . #x706A)	; &g2-GT-57813; [80-74]
 	))
       (=mj		  . 008869)	; &MJ008869;
       (==hanyo-denshi/ft  . #x3C6A)	; &MJ008869; [28-74]
@@ -5619,15 +5626,15 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
 	  (=ucs		      . #x2FF2)	; ⿲
 	  )
-	 ((==ucs@cns	      . #x7CF8)	; &g2-GT-35079;
-	  (==ucs@jis	      . #x7CF8)	; &g2-GT-35079;
-	  (==jis-x0208	      . #x3B65)	; &g2-GT-35079; [27-69]
+	 ((==ucs@cns	      . #x7CF8)	; &g2-AJ1-02227;
+	  (==ucs@jis	      . #x7CF8)	; &g2-AJ1-02227;
+	  (==adobe-japan1-0   . 02227)	; &g2-AJ1-02227;
 	  )
 	 ((==ucs@unicode      . #x8A00)	; &g2-UU+8A00;
 	  )
-	 ((==ucs@cns	      . #x7CF8)	; &g2-GT-35079;
-	  (==ucs@jis	      . #x7CF8)	; &g2-GT-35079;
-	  (==jis-x0208	      . #x3B65)	; &g2-GT-35079; [27-69]
+	 ((==ucs@cns	      . #x7CF8)	; &g2-AJ1-02227;
+	  (==ucs@jis	      . #x7CF8)	; &g2-AJ1-02227;
+	  (==adobe-japan1-0   . 02227)	; &g2-AJ1-02227;
 	  ))
 	))
       (==ucs@cns	  . #x571D)	; &g2-CU+571D;
