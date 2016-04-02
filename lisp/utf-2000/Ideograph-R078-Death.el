@@ -4333,7 +4333,8 @@
     (=daikanwa		. 16600)	; &I-M-16600;
     (=hanziku-4		. #xC9D3)	; &I-HZK04-C9D3;
     (<-same
-     ((=cns11643-2	  . #x5E69)	; &C2-5E69; [62-73]
+     ((=ucs@cns		  . #x85A4)	; &C2-5E69;
+      (=cns11643-2	  . #x5E69)	; &C2-5E69; [62-73]
       (=daikanwa	  . 32141)	; &I-M-32141;
       ))
     (<-same*sources
