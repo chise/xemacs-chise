@@ -1,3 +1,14 @@
+2016-04-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R169-Gate.el (U+95CA): Apply new conventions for glyph
+	granularity.
+
+2016-03-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U+5747): Apply new conventions for
+	glyph granularity [fixed about IWDS-1:48].
+	(U+57FF): Apply new conventions for glyph granularity.
+
 2016-03-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R031-Enclosure.el (U+570D): Apply new conventions for
