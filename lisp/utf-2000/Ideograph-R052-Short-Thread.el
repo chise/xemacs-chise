@@ -544,12 +544,10 @@
       (<-formed*sources
        shuowen)
       (<-original@shinjigen/1ed
-       ((=ucs@unicode	    . #x7E7C)	; &HD-JA-656B;
-	(=jis-x0208	    . #x656B)	; &HD-JA-656B; [69-75]
-	(=ks-x1001	    . #x4D29)	; &I-K0-4D29; [45-09]
-	(=cns11643-1	    . #x7A2B)	; &I-C1-7A2B; [90-11]
-	(=jis-x0213-1	    . #x656B)	; &I-JX1-656B; [69-75]
-	(=shinjigen@1ed	    .  6055)	; &HD-JA-656B;
+       ((=ucs@unicode	    . #x7E7C)	; &AJ1-06138;
+	(=adobe-japan1-0    . 06138)	; &AJ1-06138;
+	(=jis-x0208	    . #x656B)	; &I-J90-656B; [69-75]
+	(=shinjigen@1ed	    .  6055)	; &AJ1-06138;
 	))
       (<-original@shinjigen/1ed*sources
        shinjigen@1ed)
