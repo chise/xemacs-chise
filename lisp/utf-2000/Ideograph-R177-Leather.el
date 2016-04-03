@@ -105,15 +105,17 @@
       (=gt-pj-8		  . #x386F)	; &I-GT-57333; [24-79]
       (=daikanwa	  . 42715)	; &I-M-42715;
       (<-same@jiyun
-       ((=daikanwa	    . 29262)	; &M-29262;
+       ((=ucs@cns	    . #x8095)	; &C2-2474;
+	(=cns11643-2	    . #x2474)	; &C2-2474; [04-84]
+	(=daikanwa	    . 29262)	; &I-M-29262;
 	))
       (<-same@jiyun*sources
        jiyun daikanwa)
       (<-same@zihui
        ((=ucs@unicode	    . #x97CC)	; &JX2-7C2B;
-	(=jis-x0212	    . #x675E)	; &I-JSP-675E; [71-62]
+	(=jis-x0212	    . #x675E)	; &JX2-7C2B; [71-62]
 	(=jis-x0213-2	    . #x7C2B)	; &I-JX2-7C2B; [92-11]
-	(=daikanwa	    . 43109)	; &JX2-7C2B;
+	(=daikanwa	    . 43109)	; &I-M-43109;
 	))
       (<-same@zihui*sources
        jiyun zihui daikanwa)
