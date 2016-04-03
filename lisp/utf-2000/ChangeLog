@@ -1,5 +1,19 @@
 2016-04-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R179-Leek.el (U+97EE): Apply new conventions for glyph
+	granularity.
+	(CU+97EE): Unify HD-KS489820.
+	(U+97F2): Apply new conventions for glyph granularity.
+
+	* Ideograph-R109-Eye.el (U+770C): Apply new conventions for glyph
+	granularity.
+	(BC-8C6D): New character; add `<-denotational' for U+770C.
+
+	* Ideograph-R096-Jade.el (U+7403): Apply new conventions for glyph
+	granularity.
+
+2016-04-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R169-Gate.el (U+95CA): Apply new conventions for glyph
 	granularity.
 
