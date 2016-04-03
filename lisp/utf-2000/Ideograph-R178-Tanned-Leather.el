@@ -124,10 +124,10 @@
 	(=mj		    . 007450)	; &MJ007450;
 	))
       (=ucs@unicode	  . #x97CC)	; &JX2-7C2B;
-      (=jis-x0212	  . #x675E)	; &I-JSP-675E; [71-62]
+      (=jis-x0212	  . #x675E)	; &JX2-7C2B; [71-62]
       (=jis-x0213-2	  . #x7C2B)	; &I-JX2-7C2B; [92-11]
       (=gb12345		  . #x484D)	; &JX2-7C2B; [40-45]
-      (=daikanwa	  . 43109)	; &JX2-7C2B;
+      (=daikanwa	  . 43109)	; &I-M-43109;
       (=jef-china3	  . #x93B1)	; &I-JC3-93B1;
       (->subsumptive
        ((total-strokes	     . 12)
