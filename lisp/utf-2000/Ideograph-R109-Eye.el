@@ -1681,25 +1681,71 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (=ucs		. #x770C)	; 県
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x770C)	; 県
+      ))
+    (ideographic-radical . 109)	; ⽬
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (hanyu-dazidian	4 2478 4)
+    (=ucs@unicode	. #x770C)	; &GT-29668;
+    (=jis-x0208		. #x3829)	; &GT-29668; [24-09]
+    (=jis-x0213-1	. #x3829)	; &I-JX1-3829; [24-09]
+    (=gt		. 29668)	; &I-GT-29668;
+    (=gt-k		. 05063)	; &I-GT-K05063;
+    (=gt-pj-1		. #x3829)	; &I-GT-29668; [24-09]
+    (=daikanwa/+p	. 23210)	; &GT-29668;
+    (=shinjigen@1ed	.  6140)	; &GT-29668;
+    (=shinjigen@rev	.  6142)	; &GT-29668;
+    (<-simplified@JP/Jouyou
+     ((=ucs@jis		  . #x7E23)	; &AJ1-06112;
+      (=adobe-japan1-0	  . 06112)	; &AJ1-06112;
+      (=jis-x0208	  . #x6551)	; &I-J90-6551; [69-49]
+      ))
     (->subsumptive
-     ((=ucs@unicode	  . #x770C)	; &GT-29668;
-      (=jis-x0208	  . #x3829)	; &GT-29668; [24-09]
-      (=jis-x0213-1	  . #x3829)	; &I-JX1-3829; [24-09]
-      (=gt		  . 29668)	; &I-GT-29668;
-      (=gt-k		  . 05063)	; &I-GT-K05063;
-      (=gt-pj-1		  . #x3829)	; &I-GT-29668; [24-09]
-      (=daikanwa/+p	  . 23210)	; &GT-29668;
-      (=shinjigen@1ed	  .  6140)	; &GT-29668;
-      (<-simplified@JP/Jouyou
-       ((=ucs@jis	    . #x7E23)	; &GT-35730;
-	(=jis-x0208	    . #x6551)	; &GT-35730; [69-49]
-	(=ks-x1001	    . #x7A63)	; &I-K0-7A63; [90-67]
-	(=jis-x0213-1	    . #x6551)	; &I-JX1-6551; [69-49]
-	(=daikanwa	    . 27784)	; &I-M-27784;
+     ((==ucs@unicode	  . #x770C)	; &g2-GT-29668;
+      (==jis-x0208	  . #x3829)	; &g2-GT-29668; [24-09]
+      (==jis-x0213-1	  . #x3829)	; &g2-GT-29668; [24-09]
+      (==gt		  . 29668)	; &g2-GT-29668;
+      (==gt-k		  . 05063)	; &g2-GT-29668;
+      (==daikanwa/+p	  . 23210)	; &g2-GT-29668;
+      (==shinjigen@1ed	  .  6140)	; &g2-GT-29668;
+      (==shinjigen@rev	  .  6142)	; &g2-GT-29668;
+      (->subsumptive
+       ((===daikanwa/+p	    . 23210)	; &R-M-p23210;
+	)
+       ((===jis-x0208	    . #x3829)	; &R-J0-3829; [24-09]
+	(===jis-x0213-1	    . #x3829)	; &R-J0-3829; [24-09]
+	)
+       ((===gt		    . 29668)	; &R-GT-29668;
+	(===gt-k	    . 05063)	; &R-GT-29668;
+	)
+       ((===ucs@unicode	    . #x770C)	; &R-UU+770C;
 	))
       )
-     ((hanyu-dazidian	  4 2478 4)
-      (=hanziku-7	  . #xAA67)	; &HZK07-AA67;
+     ((=hanziku-7	  . #xAA67)	; &HZK07-AA67;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x770C)	; 県
+      ))
+    (ideographic-radical . 109)	; ⽬
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8BA5)	; &CDP-8BA5;
+      )
+     ((=ucs		  . #x5C0F)	; 小
+      ))
+    (=big5-cdp		. #x8C6D)	; &CDP-8C6D;
+    (->subsumptive
+     ((==big5-cdp	  . #x8C6D)	; &g2-CDP-8C6D;
       ))
     ))
 (define-char
