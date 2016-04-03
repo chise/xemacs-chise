@@ -20967,7 +20967,7 @@
     (total-strokes	 . 15)
     (=daikanwa		. 39093)	; &M-39093;
     (<-Liwen
-     ((=ucs@jis		  . #x947F)	; &AJ1-07059;
+     ((=ucs@unicode	  . #x947F)	; &AJ1-07059;
       (=adobe-japan1-0	  . 07059)	; &AJ1-07059;
       (=daikanwa	  . 41088)	; &I-M-41088;
       ))
@@ -24352,7 +24352,7 @@
     (<-different*sources
      zhengzitong daikanwa)
     (<-same
-     ((=ucs@jis		  . #x947F)	; &AJ1-07059;
+     ((=ucs@unicode	  . #x947F)	; &AJ1-07059;
       (=adobe-japan1-0	  . 07059)	; &AJ1-07059;
       (=daikanwa	  . 41088)	; &I-M-41088;
       ))
