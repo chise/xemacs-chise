@@ -1,3 +1,27 @@
+2016-04-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R079-Weapon.el: Add some Adobe-Japan1-0 code points.
+	(U+6BB6): Apply new conventions for glyph granularity.
+	(U-00023ADE): Separate IU+23ADE.
+	(IU+23ADE): Unify MJ038948, BC-8DD4 and KOSEKI-189400.
+	(U-00023ADF): Apply new conventions for glyph granularity.
+
+2016-04-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R130-Meat.el (U+8095): Separate A-UU+8095.
+	(o-UU+8095): Apply new conventions for glyph granularity.
+
+	* Ideograph-R107-Skin.el: Add some Adobe-Japan1-0 code points.
+	(U+76B4): Apply new conventions for glyph granularity.
+	(UU+76B4): Unify MJ018051 and S-5226.
+	(U+76B9): Unify S-5228; add `<-formed' for U+76B8.
+
+	* Ideograph-R093-Cow.el: Add some Adobe-Japan1-0 code points.
+	(U-00024683): Apply new conventions for glyph granularity.
+
+	* Ideograph-R075-Tree.el (U+67D2): Apply new conventions for glyph
+	granularity.
+
 2016-04-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R179-Leek.el (U+97EE): Apply new conventions for glyph
