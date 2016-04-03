@@ -4940,18 +4940,54 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x67D2)	; 柒
+    (=adobe-japan1-5	. 17779)	; &I-AJ1-17779;
+    (=gb2312		. #x4662)	; &I-G0-4662; [38-66]
+    (=ks-x1001		. #x7653)	; &I-K0-7653; [86-51]
+    (=jis-x0212		. #x433F)	; &I-JSP-433F; [35-31]
+    (=cns11643-1	. #x5170)	; &I-C1-5170; [49-80]
+    (=jis-x0213-2	. #x2E50)	; &I-JX2-2E50; [14-48]
     (=big5		. #xAC6D)	; &I-B-AC6D;
+    (=daikanwa		. 14620)	; &I-M-14620;
+    (=shinjigen@1ed	.  4425)	; 柒
+    (=shinjigen@rev	.  4427)	; 柒
+    (=jef-china3	. #x52ED)	; &I-JC3-52ED;
+    (<-vulgar
+     ((=ucs		  . #x6F06)	; 漆
+      (=jis-x0208	  . #x3C3F)	; &I-J90-3C3F; [28-31]
+      (=shinjigen@1ed	  .  4424)	; 漆
+      (=shinjigen@rev	  .  4426)	; 漆
+      ))
+    (<-vulgar*sources
+     shinjigen@1ed shinjigen@rev)
     (->subsumptive
-     ((=ucs@unicode	  . #x67D2)	; &AJ1-17779;
-      (=adobe-japan1-5	  . 17779)	; &AJ1-17779;
-      (=gb2312		  . #x4662)	; &I-G0-4662; [38-66]
-      (=ks-x1001	  . #x7653)	; &I-K0-7653; [86-51]
-      (=jis-x0212	  . #x433F)	; &I-JSP-433F; [35-31]
-      (=jis-x0213-2	  . #x2E50)	; &I-JX2-2E50; [14-48]
-      (=daikanwa	  . 14620)	; &I-M-14620;
-      (=jef-china3	  . #x52ED)	; &I-JC3-52ED;
+     ((==ucs@unicode	  . #x67D2)	; &g2-AJ1-17779;
+      (==adobe-japan1-5	  . 17779)	; &g2-AJ1-17779;
+      (==gb2312		  . #x4662)	; &g2-AJ1-17779; [38-66]
+      (==ks-x1001	  . #x7653)	; &g2-AJ1-17779; [86-51]
+      (==jis-x0212	  . #x433F)	; &g2-AJ1-17779; [35-31]
+      (==jis-x0213-2	  . #x2E50)	; &g2-AJ1-17779; [14-48]
+      (==daikanwa	  . 14620)	; &g2-AJ1-17779;
+      (==shinjigen@1ed	  .  4425)	; &g2-AJ1-17779;
+      (==shinjigen@rev	  .  4427)	; &g2-AJ1-17779;
+      (==jef-china3	  . #x52ED)	; &g2-AJ1-17779;
+      (->subsumptive
+       ((===daikanwa	    . 14620)	; &R-M-14620;
+	)
+       ((===jis-x0212	    . #x433F)	; &R-JX2-2E50; [35-31]
+	(===jis-x0213-2	    . #x2E50)	; &R-JX2-2E50; [14-48]
+	)
+       ((===adobe-japan1-5  . 17779)	; &R-AJ1-17779;
+	)
+       ((===jef-china3	    . #x52ED)	; &R-JC3-52ED;
+	)
+       ((===ucs@ks	    . #x67D2)	; &R-K0-7653;
+	(===ks-x1001	    . #x7653)	; &R-K0-7653; [86-51]
+	)
+       ((===ucs@unicode	    . #x67D2)	; &R-UU+67D2;
+	))
       )
-     ((=cns11643-1	  . #x5170)	; &C1-5170; [49-80]
+     ((==ucs@cns	  . #x67D2)	; &g2-CU+67D2;
+      (==cns11643-1	  . #x5170)	; &g2-CU+67D2; [49-80]
       ))
     ))
 (define-char
