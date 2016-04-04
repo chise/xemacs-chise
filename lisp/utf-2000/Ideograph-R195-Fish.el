@@ -9968,47 +9968,45 @@
     (=ucs		. #x29F2A)	; 𩼪
     (=cns11643-7	. #x607A)	; &I-C7-607A; [64-90]
     (->subsumptive
-     ((ideographic-radical . 85)	; ⽔
-      (ideographic-strokes . 22)
-      (=daikanwa	  . 18827)	; &M-18827;
-      (<-original
-       ((=ucs@unicode	    . #x6F01)	; &HD-JA-3579;
-	(=jis-x0208	    . #x3579)	; &HD-JA-3579; [21-89]
-	(=ks-x1001	    . #x655B)	; &I-K0-655B; [69-59]
-	(=cns11643-1	    . #x6955)	; &I-C1-6955; [73-53]
-	(=jis-x0213-1	    . #x3579)	; &I-JX1-3579; [21-89]
-	(=daikanwa	    . 18101)	; &I-M-18101;
-	))
-      (<-same
-       ((=ucs@unicode	    . #x6F01)	; &HD-JA-3579;
-	(=jis-x0208	    . #x3579)	; &HD-JA-3579; [21-89]
-	(=ks-x1001	    . #x655B)	; &I-K0-655B; [69-59]
-	(=cns11643-1	    . #x6955)	; &I-C1-6955; [73-53]
-	(=jis-x0213-1	    . #x3579)	; &I-JX1-3579; [21-89]
-	(=daikanwa	    . 18101)	; &I-M-18101;
-	))
-      (<-same*sources
-       guangyun daikanwa)
-      )
-     ((ideographic-radical . 195)	; ⿂
-      (ideographic-strokes . 14)
-      (=daikanwa	  . 46574)	; &M-46574;
-      (<-same
-       ((=ucs@unicode	    . #x6F01)	; &HD-JA-3579;
-	(=jis-x0208	    . #x3579)	; &HD-JA-3579; [21-89]
-	(=ks-x1001	    . #x655B)	; &I-K0-655B; [69-59]
-	(=cns11643-1	    . #x6955)	; &I-C1-6955; [73-53]
-	(=jis-x0213-1	    . #x3579)	; &I-JX1-3579; [21-89]
-	(=daikanwa	    . 18101)	; &I-M-18101;
+     ((==ucs@iso	  . #x29F2A)	; &g2-IU-00029F2A;
+      (==cns11643-7	  . #x607A)	; &g2-IU-00029F2A; [64-90]
+      (->subsumptive
+       ((ideographic-radical . 85)	; ⽔
+	(ideographic-strokes . 22)
+	(=daikanwa	    . 18827)	; &M-18827;
+	(<-original
+	 ((=ucs@unicode	      . #x6F01)	; &AJ1-01683;
+	  (=adobe-japan1-0    . 01683)	; &AJ1-01683;
+	  ))
+	(<-same
+	 ((=ucs@unicode	      . #x6F01)	; &AJ1-01683;
+	  (=adobe-japan1-0    . 01683)	; &AJ1-01683;
+	  (=daikanwa	      . 18101)	; &I-M-18101;
+	  ))
+	(<-same*sources
+	 guangyun daikanwa)
 	)
-       ((=ucs@unicode	    . #x4C77)	; &M-46380;
-	(=daikanwa	    . 46380)	; &M-46380;
+       ((ideographic-radical . 195)	; ⿂
+	(ideographic-strokes . 14)
+	(=daikanwa	    . 46574)	; &M-46574;
+	(<-same
+	 ((=ucs@unicode	      . #x6F01)	; &AJ1-01683;
+	  (=adobe-japan1-0    . 01683)	; &AJ1-01683;
+	  (=daikanwa	      . 18101)	; &I-M-18101;
+	  )
+	 ((=ucs@unicode	      . #x4C77)	; &M-46380;
+	  (=daikanwa	      . 46380)	; &M-46380;
+	  )
+	 ((=ucs		      . #x4C3B)	; 䰻
+	  (=daikanwa	      . 46002)	; &I-M-46002;
+	  ))
+	(<-same*sources
+	 shuowen jiyun daikanwa)
 	)
-       ((=ucs		    . #x4C3B)	; 䰻
-	(=daikanwa	    . 46002)	; &I-M-46002;
+       ((===cns11643-7	    . #x607A)	; &R-C7-607A; [64-90]
+	)
+       ((===ucs@iso	    . #x29F2A)	; &R-U-00029F2A;
 	))
-      (<-same*sources
-       shuowen jiyun daikanwa)
       ))
     ))
 (define-char
