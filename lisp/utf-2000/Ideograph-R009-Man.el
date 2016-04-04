@@ -6219,10 +6219,21 @@
 	)
        ((=ucs@unicode	    . #x74DC)	; &G0-394F;
 	(=gb2312	    . #x394F)	; &G0-394F; [25-47]
+	(=daikanwa	    . 21371)	; &I-M-21371;
 	))
       (=ucs@iso		  . #x201D7)	; &M-00468;
       (=daikanwa	  . 00468)	; &M-00468;
-      (=hanziku-1	  . #xBFD6)	; &I-HZK01-BFD6;
+      (->subsumptive
+       ((==ucs@iso	    . #x201D7)	; &g2-M-00468;
+	(==daikanwa	    . 00468)	; &g2-M-00468;
+	(->subsumptive
+	 ((===daikanwa	      . 00468)	; &R-M-00468;
+	  )
+	 ((===ucs@iso	      . #x201D7)	; &R-U-000201D7;
+	  )
+	 ((=hanziku-1	      . #xBFD6)	; &HZK01-BFD6;
+	  ))
+	))
       ))
     ))
 (define-char
