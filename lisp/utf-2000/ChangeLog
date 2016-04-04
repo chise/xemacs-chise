@@ -1,5 +1,25 @@
 2016-04-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R135-Tongue.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/JA.
+	(U+8210): Use `->subsumptive'.
+	(U+8211): Use `->denotational' and `->subsumptive'.
+	(U+8213): Use `->subsumptive'.
+	(UU+8213): Unify S-6631 and CB07248; add `<-formed' for UU+8210.
+	(U-000269E1): Use `->subsumptive'.
+	(U+8215): Likewise.
+
+	* Ideograph-R120-Silk.el: Add some Adobe-Japan1-0 code points.
+	(S2-6151): Unify MJ020327.
+
+	* Ideograph-R097-Melon.el: Add some Adobe-Japan1-0 code points.
+	(U+74DF): Apply new conventions for glyph granularity.
+	(U+74E4): Likewise.
+
+	* Ideograph-R009-Man.el (IU+201D7): Add representative nodes.
+
 	* Ideograph-R079-Weapon.el: Add some Adobe-Japan1-0 code points.
 	(U+6BB6): Apply new conventions for glyph granularity.
 	(U-00023ADE): Separate IU+23ADE.
