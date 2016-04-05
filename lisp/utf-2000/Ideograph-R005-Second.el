@@ -1676,7 +1676,6 @@
       (=jis-x0212	  . #x303A)	; &I-JSP-303A; [16-26]
       (=cns11643-4	  . #x2530)	; &I-C4-2530; [05-16]
       (=daikanwa	  . 00192)	; &I-M-00192;
-      (=hanziku-1	  . #xAF65)	; &I-HZK01-AF65;
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x4E75)	; 乵
@@ -1687,8 +1686,8 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	  (=ucs		      . #x2FF0)	; ⿰
 	  )
-	 ((==ucs@unicode      . #x8F9B)	; &g2-GT-51557;
-	  (==jis-x0208	      . #x3F49)	; &g2-GT-51557; [31-41]
+	 ((==ucs@unicode      . #x8F9B)	; &g2-AJ1-02575;
+	  (==adobe-japan1-0   . 02575)	; &g2-AJ1-02575;
 	  )
 	 ((=ucs		      . #x4E5A)	; 乚
 	  ))
@@ -1704,9 +1703,11 @@
 	  )
 	 ((===adobe-japan1-6  . 21080)	; &R-AJ1-21080;
 	  )
+	 ((===cns11643-4      . #x2530)	; &R-C4-2530; [05-16]
+	  )
 	 ((===ucs@unicode     . #x4E75)	; &R-UU+4E75;
 	  )
-	 ((===cns11643-4      . #x2530)	; &R-C4-2530; [05-16]
+	 ((=hanziku-1	      . #xAF65)	; &HZK01-AF65;
 	  ))
 	))
       )
