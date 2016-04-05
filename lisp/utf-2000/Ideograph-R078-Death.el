@@ -1167,8 +1167,10 @@
     (=daikanwa		. 16424)	; &I-M-16424;
     (=hanziku-4		. #xC4CC)	; &I-HZK04-C4CC;
     (<-ancient
-     ((=ucs@jis		  . #x9AB4)	; &JSP-695B;
+     ((=ucs@cns		  . #x9AB4)	; &JSP-695B;
+      (=ucs@jis		  . #x9AB4)	; &JSP-695B;
       (=jis-x0212	  . #x695B)	; &JSP-695B; [73-59]
+      (=cns11643-2	  . #x5B78)	; &I-C2-5B78; [59-88]
       (=daikanwa	  . 45147)	; &I-M-45147;
       ))
     (<-ancient*sources
