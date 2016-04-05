@@ -1,5 +1,10 @@
 2016-04-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R005-Second.el (UU+4E75): Move H1-AF65 to glyph-image
+	node.
+
+2016-04-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R195-Fish.el (U-00029F2A): Apply new conventions for
 	glyph granularity.
 
