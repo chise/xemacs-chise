@@ -1,3 +1,7 @@
+2016-04-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* JC3-to-UCS.txt (JC3-62C8): Map to U+851E instead of U+840B.
+
 2016-03-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* JC3-to-UCS.txt (JC3-9CB5): Map to U+91EA instead of U+91EC.
