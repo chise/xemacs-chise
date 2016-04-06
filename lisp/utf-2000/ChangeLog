@@ -1,4 +1,19 @@
+2016-04-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el (U+570A): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R015-Ice.el (U+51CA): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+
 2016-04-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R140-Grass.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/{JA|JB|JD}.
+	(U+851E): Apply new glyph-image conventions.
+	(JC3-62C8): Use U+851E instead of U+840B as the mother.
 
 	* Ideograph-R005-Second.el (UU+4E75): Move H1-AF65 to glyph-image
 	node.
