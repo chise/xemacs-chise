@@ -1,5 +1,18 @@
 2016-04-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R151-Bean.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R110-Spear.el: Add some Adobe-Japan1-0 code points.
+	(U+77DE): Apply new glyph-image conventions.
+
+	* Ideograph-R046-Mountain.el (A-MH-0156): Apply new glyph-image
+	conventions; unify U-0002BDA0.
+
+	* Ideograph-R018-Knife.el (U+5280): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+2016-04-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R031-Enclosure.el (U+570A): Apply new conventions for
 	glyph granularity for components of ideographic-structure.
 
