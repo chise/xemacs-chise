@@ -400,7 +400,8 @@
     (=daikanwa		. 38065)	; &I-M-38065;
     (=shinjigen		.  0190)	; 躰
     (<-vulgar
-     ((=ucs@jis		  . #x9AD4)	; &AJ1-07274;
+     ((=ucs@cns		  . #x9AD4)	; &AJ1-07274;
+      (=ucs@jis		  . #x9AD4)	; &AJ1-07274;
       (=adobe-japan1-0	  . 07274)	; &AJ1-07274;
       (=jis-x0208	  . #x7173)	; &I-J90-7173; [81-83]
       (=daikanwa	  . 45291)	; &I-M-45291;
