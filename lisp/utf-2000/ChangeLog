@@ -1,3 +1,31 @@
+2016-04-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R174-Blue.el: Add mappings for Big5 code points.
+	(U+9751): Apply new glyph-image conventions.
+	(U-0002B57B): New character.
+	(IU+2B57B): Likewise; add `<-denotational' for U-0002B57B; unify
+	MJ058998, KOSEKI-482680 and MH-0699.
+	(CU+2B57B): New character; add `<-denotational' for U-0002B57B.
+	(U+2B57B-var-001): New character; add `<-subsumptive' for
+	CU+2B57B.
+
+2016-04-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R135-Tongue.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R085-Water.el: Add some Adobe-Japan1-0 code points.
+	(U+3CD9): Apply new conventions for glyph granularity.
+	(g2-S1-4358): New glyph-form; use `<-subsumptive' for S1-4358;
+	unify U+6E1D-var-001.
+	(U-00023E62): Unify S-4266; add `<-original' for JU+6DB5.
+	(U-0002414D): Apply new conventions for glyph granularity; unify
+	S1-4431 and S2-4433; add `<-original' for U+6F15.
+	(U-00029F2A): Apply new conventions for glyph granularity.
+
+	* Ideograph-R009-Man.el (U+5029): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+	(U+50EA): Likewise.
+
 2016-04-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R151-Bean.el: Add some Adobe-Japan1-0 code points.
