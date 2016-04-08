@@ -1,4 +1,12 @@
+2016-04-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R160-Bitter.el: Add some Adobe-Japan1-0 code points.
+
 2016-04-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* u02E00-CJK-Radical-Supplement.el (BC-8A5C): Use U+9AA8 instead
+	of <CJK RADICAL BONE> as the mother; unify UU+9AA8; moved to
+	Ideograph-R188-Bone.el.
 
 	* Ideograph-R174-Blue.el: Add mappings for Big5 code points.
 	(U+9751): Apply new glyph-image conventions.
