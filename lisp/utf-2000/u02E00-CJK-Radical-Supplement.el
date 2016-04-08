@@ -1542,13 +1542,6 @@
     ))
 (define-char
   '((<-denotational
-     ((name		  . "CJK RADICAL BONE")
-      (=ucs		  . #x2EE3)	; ⻣
-      ))
-    (=big5-cdp		. #x8A5C)	; &CDP-8A5C;
-    ))
-(define-char
-  '((<-denotational
      ((=ucs		  . #x9B3C)	; 鬼
       ))
     (name		. "CJK RADICAL GHOST")
