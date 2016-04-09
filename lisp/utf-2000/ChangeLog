@@ -1,3 +1,16 @@
+2016-04-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R113-Spirit.el: Add glyph-images of HNG-KHM.
+
+2016-04-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R087-Claw.el (U+722F): Separate A-UU+722F.
+	(A-UU+722F): Add `=>ucs@iwds-1'.
+	(U+722F-var-001): New character; add `<-denotational' for
+	A-UU+722F.
+	(MJ058016): New character; add `<-denotational' for U+722F; unify
+	HD-KS221650.
+
 2016-04-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R160-Bitter.el: Add some Adobe-Japan1-0 code points.
