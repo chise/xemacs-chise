@@ -54,6 +54,8 @@
 	(===ks-x1001	    . #x6346)	; &R-K0-6346; [67-38]
 	)
        ((===ucs@unicode	    . #x793A)	; &R-UU+793A;
+	)
+       ((===hng-khm	    . 04640)	; &HNG011-04640;
 	))
       ))
     ))
@@ -214,6 +216,24 @@
       ))
     (<-ancient*sources
      jiyun daikanwa shinjigen)
+    (->subsumptive
+     ((==ucs@unicode	  . #xFA18)	; &g2-AJ1-08579;
+      (==adobe-japan1-2	  . 08579)	; &g2-AJ1-08579;
+      (==daikanwa	  . 24626)	; &g2-AJ1-08579;
+      (==shinjigen	  .  5507)	; &g2-AJ1-08579;
+      (==jef-china3	  . #x70E5)	; &g2-AJ1-08579;
+      (->subsumptive
+       ((===daikanwa	    . 24626)	; &R-M-24626;
+	)
+       ((===adobe-japan1-2  . 08579)	; &R-AJ1-08579;
+	)
+       ((===ucs@unicode	    . #xFA18)	; &R-UU+FA18;
+	)
+       ((===jef-china3	    . #x70E5)	; &R-JC3-70E5;
+	))
+      )
+     ((===hng-khm	  . 04630)	; &HNG011-04630;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2779,6 +2799,8 @@
 	)
        ((===ucs@unicode	    . #xFA50)	; &R-UU+FA50;
 	))
+      )
+     ((===hng-khm	  . 01000)	; &HNG011-01000;
       ))
     ))
 (define-char
@@ -3484,6 +3506,8 @@
 	)
        ((===ruimoku-v6	    . #xE085)	; &R-RUI6-E085;
 	))
+      )
+     ((===hng-khm	  . 04670)	; &HNG011-04670;
       ))
     ))
 (define-char
@@ -7308,6 +7332,8 @@
 	)
        ((===ucs@unicode	    . #xFA1B)	; &R-UU+FA1B;
 	))
+      )
+     ((===hng-khm	  . 04660)	; &HNG011-04660;
       ))
     ))
 (define-char
@@ -9917,6 +9943,8 @@
        ((===ucs@ks	    . #x79AA)	; &R-K0-6049;
 	(===ks-x1001	    . #x6049)	; &R-K0-6049; [64-41]
 	))
+      )
+     ((===hng-khm	  . 04650)	; &HNG011-04650;
       ))
     ))
 (define-char
