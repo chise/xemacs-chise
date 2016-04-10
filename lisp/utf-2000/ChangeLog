@@ -1,4 +1,29 @@
+2016-04-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+5471): Apply new glyph-image
+	conventions.
+	(U+5568): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U+55A1): Apply new glyph-image conventions.
+	(UU+55B2): Separate g2-CU+55B2 and g2-UU+55B2.
+	(U+55D7): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(U-00020EEC): Apply new glyph-image conventions.
+	(U+564A): Apply new glyph-image conventions.
+
 2016-04-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el (MJ057582): New character; unify
+	KOSEKI-146800; add `<-formed' for U+6538.
+
+	* Ideograph-R038-Woman.el (U-000218FD): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R009-Man.el (U-000201B8): Apply new glyph-image
+	conventions.
+	(U-0002035E): Use MJ057582 instead of "⿰&CDP-8B7A;攴" in
+	ideographic-structure; separate g2-C6-564E and g2-IU+2035E.
+	(U+5126): Apply new glyph-image conventions.
 
 	* Ideograph-R115-Grain.el (GT-K00899): New character; add
 	`<-denotational' for U+79BE.
