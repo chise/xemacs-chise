@@ -1,3 +1,22 @@
+2016-04-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R115-Grain.el (GT-K00899): New character; add
+	`<-denotational' for U+79BE.
+	(CB08298): New character.
+	(U+7A2E-var-001): New abstract glyph-form to subsume HNG-KHI0513-0
+	and HNG-KHM0469-0; add `<-subsumptive' for U+7A2E.
+	(U+7A31): Separate A-UU+7A31.
+	(A-UU+7A31): Add `=>ucs@iwds-1'.
+	(HNG-KHM0468-0): New character; add `<-denotational' for U+7A31.
+	(MJ058231): New character; add `<-formed' for U-25874, U+7A3D; add
+	HNG-KHM0102-0.
+	(U+7A4D): Add HNG-KHM0101-0.
+	(U-0002585E): New character.
+	(HD-TK01040730): New character; add `<-denotational' for
+	U-0002585E; unify CB02596.
+	(IU+2585E): New character; add `<-denotational' for U-0002585E;
+	add `=>ucs@iwds-1'; unify MJ058229 and HD-KS282530.
+
 2016-04-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R113-Spirit.el: Add glyph-images of HNG-KHM.
