@@ -11,7 +11,40 @@
 	(U-00020EEC): Apply new glyph-image conventions.
 	(U+564A): Apply new glyph-image conventions.
 
+	* Ideograph-R167-Gold.el:
+	- Add mappings for Big5 code points.
+	- Add some mappings to JEF-CHINA3 code points.
+	(UU+928F): Add `<-same' for MJ058905.
+	(A-M-40373): Apply new conventions for glyph granularity [changed
+	from G-M-40373 = G-CB11428]; unify A-MJ058905.
+	(M-40373): Unify MJ058905 and KOSEKI-458110.
+	(U+9295): Add `<-ancient' for UU+9435.
+	(U+92B9): Apply new glyph-image conventions; unify BE-F9D7.
+	(U+92C1): Apply new glyph-image conventions.
+	(JU+92C1): Unify S-8779 and JC3-99C9; add `<-formed' for U+9462.
+	(U+9310): Apply new glyph-image conventions.
+	(U+934A): Unify S-8681 and JC3-6ADB.
+	(U+936B): Unify S-8694 and JC3-69B4; add `<-formed' for U+936C.
+	(JU+9373): Unify S-8771; add `<-formed' for U+9451.
+	(U-00028A50): New character; unify MJ051819, KOSEKI-461800,
+	GT-54704, MH-0650 and S-8747; add `<-vulgar' for U+93E4.
+	(U+93B8): Use `->subsumptive'; unify S-8764 and CB04909; add
+	`<-vulgar' for U+942B.
+	(U+93D1): Apply new glyph-image conventions; unify HD-KS463690.
+	(g2-S-8737): Unify MJ027178 and g2-HD-KS463690.
+	(U+93E9): Unify S-8732; add `<-formed' for U+93E8.
+	(U+9418): Apply new glyph-image conventions; unify HD-JT-BE35.
+	(g2-HD-JT-BE35): Unify MJ027263, KOSEKI-464540 and S-8751.
+	(U+9452): Use `->subsumptive'; add `<-formed' for U+9451.
+	(U+945E): Use `->denotational' and `->subsumptive'.
+	(C6-6F5C): Unify CU+945E and S1-8780; add representative nodes.
+	(g2-S1-8780): Unify U+945E-var-002.
+
 2016-04-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R120-Silk.el (U-0002035E): Use MJ057582 instead of
+	"⿰&CDP-8B7A;攴" in ideographic-structure; separate g2-CU+2035E and
+	g2-IU+2035E.
 
 	* Ideograph-R066-Rap.el (MJ057582): New character; unify
 	KOSEKI-146800; add `<-formed' for U+6538.
@@ -41,6 +74,15 @@
 	U-0002585E; unify CB02596.
 	(IU+2585E): New character; add `<-denotational' for U-0002585E;
 	add `=>ucs@iwds-1'; unify MJ058229 and HD-KS282530.
+
+2016-04-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R190-Hair.el:
+	- Add mappings for Big5 code points.
+	- Add some mappings to JEF-CHINA3 code points.
+	(U+9AF3): Unify S-9465; add `<-formed' for U+9AE6.
+	(U+9B09): Apply new glyph-image conventions.
+	(U-00029B7E): Unify S-9466; add `<-formed' for U+9AE6.
 
 2016-04-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
