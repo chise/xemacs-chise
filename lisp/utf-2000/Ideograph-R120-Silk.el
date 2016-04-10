@@ -8886,35 +8886,19 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=big5-cdp	    . #x8B7A)	; &CDP-8B7A;
-	)
-       ((=ucs		    . #x6534)	; 攴
-	))
+     ((=mj		  . 057582)	; &MJ057582;
       )
      ((=ucs		  . #x7CF8)	; 糸
       ))
     (=ucs		. #x2035E)	; 𠍞
     (=cns11643-6	. #x564E)	; &I-C6-564E; [54-46]
     (=daikanwa		. 49471)	; &I-M-49471;
-    (=hanziku-1		. #xD1AF)	; &I-HZK01-D1AF;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
 	(=ucs		    . #x2FF8)	; ⿸
 	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=big5-cdp	      . #x8B7A)	; &CDP-8B7A;
-	  )
-	 ((=ucs@unicode	      . #x6534)	; &AJ1-05058;
-	  (=adobe-japan1-0    . 05058)	; &AJ1-05058;
-	  ))
+       ((==mj		    . 057582)	; &g2-MJ057582;
 	)
        ((==ucs@cns	    . #x7CF8)	; &g2-AJ1-02227;
 	(==ucs@jis	    . #x7CF8)	; &g2-AJ1-02227;
@@ -8922,28 +8906,22 @@
 	))
       (==daikanwa	  . 49471)	; &g2-M-49471;
       )
+     ((==ucs@cns	  . #x2035E)	; &g2-CU+2035E;
+      (==cns11643-6	  . #x564E)	; &g2-CU+2035E; [54-46]
+      )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
 	(=ucs		    . #x2FF8)	; ⿸
 	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=big5-cdp	      . #x8B7A)	; &CDP-8B7A;
-	  )
-	 ((=ucs@unicode	      . #x6534)	; &AJ1-05058;
-	  (=adobe-japan1-0    . 05058)	; &AJ1-05058;
-	  ))
+       ((==mj		    . 057582)	; &g2-MJ057582;
 	)
        ((==ucs@unicode	    . #x7CF8)	; &g2-UU+7CF8;
 	))
       (==ucs@iso	  . #x2035E)	; &g2-IU-0002035E;
-      (==cns11643-6	  . #x564E)	; &g2-IU-0002035E; [54-46]
       (->subsumptive
-       ((===cns11643-6	    . #x564E)	; &R-C6-564E; [54-46]
-	)
        ((===ucs@iso	    . #x2035E)	; &R-U-0002035E;
+	)
+       ((=hanziku-1	    . #xD1AF)	; &HZK01-D1AF;
 	))
       ))
     ))
