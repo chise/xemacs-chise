@@ -4289,9 +4289,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
 	(=ucs		    . #x2FF8)	; ⿸
 	)
-       ((=ucs@iso	    . #x201B8)	; &C4-2230;
-	(=cns11643-4	    . #x2230)	; &C4-2230; [02-16]
-	(=daikanwa	    . 00441)	; &I-M-00441;
+       ((==ucs@iso	    . #x201B8)	; &g2-M-00441;
+	(==daikanwa	    . 00441)	; &g2-M-00441;
 	)
        ((==ucs@unicode	    . #x8863)	; &g2-AJ1-01189;
 	(==adobe-japan1-0   . 01189)	; &g2-AJ1-01189;
