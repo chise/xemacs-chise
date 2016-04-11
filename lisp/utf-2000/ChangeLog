@@ -1,5 +1,30 @@
 2016-04-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ruimoku6.el (U+FA19): Add HNG-KHM0467-0.
+
+	* Ideograph-R188-Bone.el: Add mappings for Big5 code points.
+	(U+9AA8): Apply new glyph-image conventions.
+	(BC-8A5C): Map to U+9AA8 instead of <CJK RADICAL BONE>; unify
+	UU+9AA8.
+	(U+9AAC): Apply new glyph-image conventions.
+	(U+9AAE): Likewise.
+	(U+9AB2): Likewise.
+	(U+4BCA): Likewise.
+	(U+9AB5): Likewise.
+	(U+9AB8): Use `->denotational' and `->subsumptive'.
+	(JU+9AB8): Unify HD-KS511860.
+	(g2-HD-KS511860): Unify MJ028865.
+	(U+4BD2): Apply new glyph-image conventions.
+	(U+9AC3): Likewise.
+	(U+9AD4): Likewise.
+	(JU+9AD4): Unify AJ1-07274.
+	(U+9AD7): Apply new glyph-image conventions.
+
+2016-04-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R145-Clothes.el (g2-CU+2767E): Apply new conventions
+	for glyph granularity for a component of ideographic-structure.
+
 	* Ideograph-R030-Mouth.el (U+5471): Apply new glyph-image
 	conventions.
 	(U+5568): Apply new conventions for glyph granularity for
