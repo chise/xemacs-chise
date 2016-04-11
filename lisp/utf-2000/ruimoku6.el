@@ -491,8 +491,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
 	(=ucs		    . #x2FF5)	; ⿵
 	)
-       ((==ucs@unicode	    . #x9580)	; &g2-GT-55423;
-	(==jis-x0208	    . #x4C67)	; &g2-GT-55423; [44-71]
+       ((==ucs@unicode	    . #x9580)	; &g2-AJ1-03827;
+	(==adobe-japan1-0   . 03827)	; &g2-AJ1-03827;
 	)
        ((=ucs		    . #x4E32)	; 串
 	))
@@ -1977,6 +1977,8 @@
 	)
        ((===ruimoku-v6	    . #xE085)	; &R-RUI6-E085;
 	))
+      )
+     ((===hng-khm	  . 04670)	; &HNG011-04670;
       ))
     ))
 (define-char
