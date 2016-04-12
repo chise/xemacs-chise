@@ -1,3 +1,7 @@
+2016-04-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R117-Stand.el: Add glyph-images of HNG-KHM.
+
 2016-04-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R075-Tree.el (U+6A1A): Apply new glyph-image
