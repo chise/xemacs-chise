@@ -536,9 +536,28 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (=ucs		. #x223A8)	; 𢎨
-    (=cns11643-6	. #x227D)	; &I-C6-227D; [02-93]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x223A8)	; 𢎨
+      ))
+    (ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=>ucs@iwds-1	. #x223A8)	; &C6-227D;
+    (=ucs@iso		. #x223A8)	; &C6-227D;
+    (=cns11643-6	. #x227D)	; &C6-227D; [02-93]
     (=daikanwa		. 09715)	; &I-M-09715;
     (=cbeta		. 06689)	; &I-CB06689;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x223A8)	; 𢎨
+      ))
+    (ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=ucs-itaiji-001	. #x223A8)	; &U-i001+223A8;
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
