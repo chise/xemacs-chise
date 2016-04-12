@@ -1,3 +1,8 @@
+2016-04-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (U+6A1A): Apply new glyph-image
+	conventions.
+
 2016-04-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ruimoku6.el (U+FA19): Add HNG-KHM0467-0.
