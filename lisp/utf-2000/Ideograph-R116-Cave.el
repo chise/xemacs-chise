@@ -163,6 +163,11 @@
      ((==ucs@unicode	  . #x7A76)	; &g2-UU+7A76;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x3E3F)	; &g2-UU+7A76; [30-31]
+      (->subsumptive
+       ((===ucs@unicode	    . #x7A76)	; &R-UU+7A76;
+	)
+       ((===hng-khm	    . 01030)	; &HNG011-01030;
+	))
       ))
     ))
 (define-char
@@ -196,6 +201,66 @@
     (total-strokes	 . 7)
     (=ucs		. #x25924)	; 𥤤
     (=cns11643-5	. #x2470)	; &I-C5-2470; [04-80]
+    ))
+(define-char
+  '((ideographic-radical . 116)	; ⽳
+    (ideographic-strokes . 2)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7A74)	; 穴
+      )
+     ((=big5-cdp	  . #x8BC8)	; &CDP-8BC8;
+      ))
+    (=ucs		. #x2B7B9)	; 𫞹
+    (=mj		. 058241)	; &I-MJ058241;
+    (=hanyo-denshi/jt	. #xB76C)	; &I-HD-JT-B76C;
+    (=hanyo-denshi/ks	. 284520)	; 𫞹
+    (=koseki		. 284520)	; 𫞹
+    (<-formed
+     ((=ucs		  . #x7A7A)	; 空
+      ))
+    (->subsumptive
+     ((=>>mj		  . 058241)	; &G-HD-KS-45768;
+      (=>>hanyo-denshi/ks . 284520)	; &G-HD-KS-45768;
+      (->subsumptive
+       ((==mj		    . 058241)	; &g2-MJ058241;
+	(==hanyo-denshi/ks  . 284520)	; &g2-MJ058241;
+	(==koseki	    . 284520)	; &g2-MJ058241;
+	(->subsumptive
+	 ((===hanyo-denshi/ks . 284520)	; &R-HD-KS-284520;
+	  (=hanyo-denshi/ks/mf . #x6F24)	; &R-HD-KS-284520;
+	  )
+	 ((===mj	      . 058241)	; &R-MJ058241;
+	  ))
+	)
+       ((===hng-khi	    . 05140)	; &HNG010-05140;
+	)
+       ((===hng-khm	    . 04700)	; &HNG011-04700;
+	))
+      )
+     ((==ucs@iso	  . #x2B7B9)	; &MJ058240;
+      (=mj		  . 058240)	; &MJ058240;
+      (==hanyo-denshi/jt  . #xB76C)	; &MJ058240;
+      (=koseki		  . 284510)	; &MJ058240;
+      (->subsumptive
+       ((===hanyo-denshi/jt . #xB76C)	; &R-HD-JT-B76C;
+	)
+       ((===mj		    . 058240)	; &R-MJ058240;
+	)
+       ((===ucs@iso	    . #x2B7B9)	; &R-U-0002B7B9;
+	))
+      )
+     ((=mj		  . 060003)	; &MJ060003;
+      (=hanyo-denshi/jt	  . #xB76B)	; &I-HD-JT-B76B;
+      (->subsumptive
+       ((===hanyo-denshi/jt . #xB76B)	; &R-HD-JT-B76B;
+	)
+       ((===mj		    . 060003)	; &R-MJ060003;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 116)	; ⽳
@@ -332,8 +397,6 @@
 	)
        ((==ucs@cns	    . #x7A7A)	; &g2-CU+7A7A;
 	(==cns11643-1	    . #x4F28)	; &g2-CU+7A7A; [47-08]
-	)
-       ((===hng-khi	    . 05140)	; &HNG010-05140;
 	))
       )
      ((=>>ucs@unicode	  . #x7A7A)	; &G-UU+7A7A;
