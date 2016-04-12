@@ -926,6 +926,8 @@
        ((===ucs@unicode	    . #x7ADF)	; &R-UU+7ADF;
 	)
        ((===cns11643-1	    . #x5D7E)	; &R-C1-5D7E; [61-94]
+	)
+       ((===hng-khm	    . 01040)	; &HNG011-01040;
 	))
       ))
     ))
@@ -1299,6 +1301,11 @@
       )
      ((=shinjigen	  .  5741)	; &JC3-5DDB;
       (=jef-china3	  . #x5DDB)	; &JC3-5DDB;
+      (->subsumptive
+       ((===jef-china3	    . #x5DDB)	; &R-JC3-5DDB;
+	)
+       ((===hng-khm	    . 04710)	; &HNG011-04710;
+	))
       ))
     ))
 (define-char
