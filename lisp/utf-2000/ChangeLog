@@ -1,5 +1,24 @@
 2016-04-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R057-Bow.el (U-000223A8): Separate IU+223A8.
+	(IU+223A8): Add `=>ucs@iwds-1'.
+	(U+223A8-itaiji-001): New character; add `<-denotational' for
+	U-000223A8.
+
+	* Ideograph-R191-Fight.el: Add some Adobe-Japan1-0 code points.
+	(U+9B2B): Apply new glyph-image conventions.
+	(U+9B2D): Likewise.
+
+	* Ideograph-R030-Mouth.el (U+53F2): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R116-Cave.el (g2-UU+7A76): Add HNG-KHM0103-0.
+	(U-0002B7B9): New character; unify MJ058241, HD-JT-B76C,
+	HD-KS284520 and KOSEKI-284520; add `<-formed' for U+7A7A; add
+	G-MJ058241 to subsume g2-MJ058241, HNG-KHI0514-0 and
+	HNG-KHM0470-0; add MJ058240 and MJ060003.
+	(G-JU+7A7A): Move HNG-KHI0514-0 to G-MJ058241.
+
 	* Ideograph-R117-Stand.el: Add glyph-images of HNG-KHM.
 
 2016-04-11  MORIOKA Tomohiko  <tomo.git@chise.org>
