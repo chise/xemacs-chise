@@ -3082,6 +3082,11 @@
     (=daikanwa		. 26069)	; &I-M-26069;
     (=shinjigen		.  5822)	; 筭
     (=jef-china3	. #x5DFC)	; &I-JC3-5DFC;
+    (<-formed
+     ((=ucs		  . #x7B97)	; 算
+      ))
+    (<-formed*sources
+     hng)
     (<-original
      ((=ucs		  . #x7B97)	; 算
       (=jis-x0208	  . #x3B3B)	; &I-J90-3B3B; [27-27]
@@ -3126,9 +3131,8 @@
      ((==jef-china3	  . #x5DFC)	; &g2-JC3-5DFC;
       )
      ((===hng-khi	  . 05170)	; &HNG010-05170;
-      (<-formed
-       ((=ucs		    . #x7B97)	; 算
-	))
+      )
+     ((===hng-khm	  . 04750)	; &HNG011-04750;
       ))
     ))
 (define-char
@@ -12966,16 +12970,50 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 20)
     (=ucs		. #x7C4C)	; 籌
-    (=jis-x0208		. #x6456)	; &I-J90-6456; [68-54]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7C4C)	; 籌
+      ))
+    (ideographic-radical . 118)	; ⽵
+    (ideographic-strokes . 14)
+    (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7AF9)	; 竹
+      )
+     ((=ucs		  . #x58FD)	; 壽
+      ))
+    (=ucs@unicode	. #x7C4C)	; &GT-34375;
+    (=jis-x0208		. #x6456)	; &GT-34375; [68-54]
     (=ks-x1001		. #x7143)	; &I-K0-7143; [81-35]
     (=cns11643-1	. #x7A24)	; &I-C1-7A24; [90-04]
     (=jis-x0213-1	. #x6456)	; &I-JX1-6456; [68-54]
-    (=gb12345		. #x336F)	; 籌 [19-79]
+    (=gb12345		. #x336F)	; &GT-34375; [19-79]
     (=big5		. #xC477)	; &I-B-C477;
     (=gt		. 34375)	; &I-GT-34375;
     (=gt-pj-1		. #x6456)	; &I-GT-34375; [68-54]
     (=daikanwa		. 26675)	; &I-M-26675;
-    (=shinjigen@rev	.  5883)	; 籌
+    (=shinjigen		.  5883)	; &GT-34375;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7C4C)	; 籌
+      ))
+    (ideographic-radical . 118)	; ⽵
+    (ideographic-strokes . 14)
+    (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7AF9)	; 竹
+      )
+     ((=ucs		  . #x5900)	; 夀
+      ))
+    (===hng-khm		. 01050)	; &HNG011-01050;
     ))
 (define-char
   '((ideographic-radical . 118)	; ⽵
