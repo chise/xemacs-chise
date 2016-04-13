@@ -1192,30 +1192,32 @@
   '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (hanyu-dazidian	1 394 3)
     (=ucs		. #x355C)	; 㕜
+    (=cns11643-3	. #x2332)	; &I-C3-2332; [03-18]
+    (=daikanwa		. 03140)	; &I-M-03140;
+    (=shinjigen		.  0945)	; 㕜
+    (<-original
+     ((=ucs		  . #x53F2)	; 史
+      (=jis-x0208	  . #x3B4B)	; &I-J90-3B4B; [27-43]
+      (=daikanwa	  . 03249)	; &I-M-03249;
+      (=shinjigen	  .  0943)	; 史
+      ))
+    (<-original*sources
+     zhengzitong daikanwa shinjigen)
     (->subsumptive
-     ((=daikanwa	  . 03140)	; &M-03140;
-      (<-original
-       ((=adobe-japan1-4    . 13451)	; &AJ1-13451;
-	(=daikanwa	    . 03249)	; &I-M-03249;
-	))
-      (<-original*sources
-       zhengzitong daikanwa)
+     ((==daikanwa	  . 03140)	; &g2-M-03140;
       )
-     ((hanyu-dazidian	  1 394 3)
-      (=shinjigen	  .  0945)	; &HZK01-F6F2;
-      (=hanziku-1	  . #xF6F2)	; &HZK01-F6F2;
-      (<-original
-       ((=ucs@unicode	    . #x53F2)	; &AJ1-02201;
-	(=adobe-japan1-0    . 02201)	; &AJ1-02201;
-	(=jis-x0208@1990    . #x3B4B)	; &I-J90-3B4B; [27-43]
-	(=shinjigen	    .  0943)	; &AJ1-02201;
+     ((==ucs@unicode	  . #x355C)	; &g2-UU+355C;
+      (==cns11643-3	  . #x2332)	; &g2-UU+355C; [03-18]
+      (==shinjigen	  .  0945)	; &g2-UU+355C;
+      (->subsumptive
+       ((===cns11643-3	    . #x2332)	; &R-C3-2332; [03-18]
+	)
+       ((===ucs@unicode	    . #x355C)	; &R-UU+355C;
+	)
+       ((=hanziku-1	    . #xF6F2)	; &HZK01-F6F2;
 	))
-      (<-original*sources
-       shinjigen)
-      )
-     ((=ucs@unicode	  . #x355C)	; &C3-2332;
-      (=cns11643-3	  . #x2332)	; &C3-2332; [03-18]
       ))
     ))
 (define-char
