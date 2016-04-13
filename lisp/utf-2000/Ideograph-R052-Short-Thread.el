@@ -575,7 +575,7 @@
       (total-strokes	   . 14)
       (=daikanwa	  . 09216)	; &M-09216;
       (<-ancient
-       ((=gt		    . 35333)	; &GT-35333;
+       ((=ucs		    . #x7D55)	; 絕
 	(=daikanwa	    . 27407)	; &I-M-27407;
 	))
       (<-ancient*sources
