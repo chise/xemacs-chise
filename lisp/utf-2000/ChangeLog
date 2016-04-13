@@ -1,4 +1,26 @@
+2016-04-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=ucs-var-004'.
+
+	* Ideograph-R032-Earth.el (U+582F-var-004): New character; add
+	`<-denotational' for U+582F.
+
 2016-04-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R198-Deer.el: Add some Adobe-Japan1-0 code points.
+	(U+9E80): Apply new glyph-image conventions.
+	(U+9E82): Likewise.
+	(U+9E83): Likewise.
+	(U+9E84): Likewise.
+	(U+9E85): Likewise.
+	(U+9E87): Likewise.
+	(U+9E8E): Likewise.
+	(U+9E8F): Likewise.
+	(U+9E96): Likewise.
+	(U+9E98): Likewise.
+	(U+9E9B): Likewise.
+	(U+9EA4): Likewise.
 
 	* Ideograph-R119-Rice.el (U+FA1D): Add representative nodes.
 	(UU+7CBE): Add HNG-KHM0476-0.
