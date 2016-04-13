@@ -6546,6 +6546,26 @@
       )
      ((=cbeta		  . 08298)	; &CB08298;
       )
+     ((=ucs		  . #x65E8)	; 旨
+      ))
+    (=ucs-var-001	. #x2585E)	; &U-v001+2585E;
+    (<-formed
+     ((=ucs		  . #x7A3D)	; 稽
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2585E)	; 𥡞
+      ))
+    (ideographic-radical . 115)	; ⽲
+    (ideographic-strokes . 11)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=cbeta		  . 08298)	; &CB08298;
+      )
      ((=ucs		  . #x3AD6)	; 㫖
       ))
     (=hanyo-denshi/tk	. 01040730)	; &HD-TK-01040730;
@@ -6583,6 +6603,9 @@
     (=ucs@iso		. #x2585E)	; &MJ058229;
     (=mj		. 058229)	; &MJ058229;
     (=hanyo-denshi/ks	. 282530)	; &MJ058229;
+    (<-formed
+     ((=ucs		  . #x7A3D)	; 稽
+      ))
     (->subsumptive
      ((==hanyo-denshi/ks  . 282530)	; &g2-HD-KS-282530;
       (=hanyo-denshi/ks/mf . #x6E5D)	; &g2-HD-KS-282530;
