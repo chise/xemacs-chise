@@ -1,5 +1,17 @@
 2016-04-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R119-Rice.el (U+FA1D): Add representative nodes.
+	(UU+7CBE): Add HNG-KHM0476-0.
+
+2016-04-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R115-Grain.el (U+2585E-var-001): New character; add
+	`<-denotational' for U-0002585E; add `<-formed' for U+7A3D.
+	(IU+2585E): Add `<-formed' for U+7A3D.
+
+	* Ideograph-R029-Again.el (U+355C): Apply new glyph-image
+	conventions.
+
 	* Ideograph-R057-Bow.el (U-000223A8): Separate IU+223A8.
 	(IU+223A8): Add `=>ucs@iwds-1'.
 	(U+223A8-itaiji-001): New character; add `<-denotational' for
