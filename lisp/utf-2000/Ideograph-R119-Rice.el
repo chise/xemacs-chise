@@ -2840,6 +2840,31 @@
     (=gt-pj-5		. #x673B)	; &I-GT-34788; [71-27]
     (=daikanwa		. 26997)	; &I-M-26997;
     (=jef-china3	. #x5ED3)	; &I-JC3-5ED3;
+    (->subsumptive
+     ((==ucs@unicode	  . #xFA1D)	; &g2-AJ1-08590;
+      (==ucs@ks		  . #x7CBE)	; &g2-AJ1-08590;
+      (==adobe-japan1-2	  . 08590)	; &g2-AJ1-08590;
+      (==ks-x1001	  . #x6F71)	; &g2-AJ1-08590; [79-81]
+      (==gt		  . 34788)	; &g2-AJ1-08590;
+      (==gt-k		  . 11255)	; &g2-AJ1-08590;
+      (==daikanwa	  . 26997)	; &g2-AJ1-08590;
+      (==jef-china3	  . #x5ED3)	; &g2-AJ1-08590;
+      (->subsumptive
+       ((===daikanwa	    . 26997)	; &R-M-26997;
+	)
+       ((===adobe-japan1-2  . 08590)	; &R-AJ1-08590;
+	)
+       ((===gt		    . 34788)	; &R-GT-34788;
+	(===gt-k	    . 11255)	; &R-GT-34788;
+	)
+       ((===jef-china3	    . #x5ED3)	; &R-JC3-5ED3;
+	)
+       ((===ucs@ks	    . #x7CBE)	; &R-K0-6F71;
+	(===ks-x1001	    . #x6F71)	; &R-K0-6F71; [79-81]
+	)
+       ((===ucs@unicode	    . #xFA1D)	; &R-UU+FA1D;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2886,6 +2911,8 @@
       (==cns11643-1	  . #x6A34)	; &g2-CU+7CBE; [74-20]
       )
      ((===hng-khi	  . 05190)	; &HNG010-05190;
+      )
+     ((===hng-khm	  . 04760)	; &HNG011-04760;
       ))
     ))
 (define-char
