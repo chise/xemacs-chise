@@ -10151,6 +10151,15 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (=ucs-var-004	. #x582F)	; &U-v004+582F;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x582F)	; 堯
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
     (=ucs-var-003	. #x582F)	; &U-v003+582F;
     ))
 (define-char
