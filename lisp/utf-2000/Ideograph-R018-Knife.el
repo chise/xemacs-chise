@@ -2144,6 +2144,26 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x8272)	; 色
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5200)	; 刀
+      )
+     ((=ucs		  . #x5DF4)	; 巴
+      ))
+    (=big5-cdp		. #x8CEA)	; &CDP-8CEA;
+    (->subsumptive
+     ((==big5-cdp	  . #x8CEA)	; &g2-CDP-8CEA;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
