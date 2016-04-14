@@ -1,5 +1,7 @@
 2016-04-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R122-Net.el: Add glyph-images of HNG-KHM.
+
 	* Ideograph-R009-Man.el (U+5080): Apply new glyph-image
 	conventions.
 
