@@ -1,5 +1,15 @@
 2016-04-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R120-Silk.el: Add glyph-images of HNG-KHM.
+	(HD-TK01071750): New character; add `<-denotational' for U+7D50;
+	add HNG-KHM0107-0.
+	(U+7D55): Apply new glyph-image conventions.
+	(U+7D76): Add `<-wrong' for U+7D55; add HNG-KHM0480-0.
+	(U-00026030): Add `<-formed' for U+7D93; add HNG-KHM0482-0.
+	(HNG-KHM0481-0): New character; add `<-denotational' for U+7E5E.
+
+2016-04-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=ucs-var-004'.
 
