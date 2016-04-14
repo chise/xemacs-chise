@@ -3,6 +3,16 @@
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=ucs-var-004'.
 
+	* Ideograph-R118-Bamboo.el (U+7B6D): Add `<-formed' for U+7B97;
+	add HNG-KHM0475-0.
+	(U+7C4C): Separate UU+7C4C.
+	(HNG-KHM0105-0): New character; add `<-denotational' for U+7C4C.
+
+	* Ideograph-R169-Gate.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R018-Knife.el (BC-8CEA): New character; add
+	`<-denotational' for U+8272.
+
 	* Ideograph-R032-Earth.el (U+582F-var-004): New character; add
 	`<-denotational' for U+582F.
 
