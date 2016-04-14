@@ -1,3 +1,8 @@
+2016-04-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+5080): Apply new glyph-image
+	conventions.
+
 2016-04-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R120-Silk.el: Add glyph-images of HNG-KHM.
