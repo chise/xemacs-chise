@@ -27,6 +27,8 @@
 
 	* Ideograph-R169-Gate.el: Add some Adobe-Japan1-0 code points.
 
+	* Ideograph-R139-Color.el (U+8272): Separate UU+8272.
+
 	* Ideograph-R018-Knife.el (BC-8CEA): New character; add
 	`<-denotational' for U+8272.
 
