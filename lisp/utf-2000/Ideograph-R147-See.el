@@ -44,6 +44,8 @@
 	))
       )
      ((===hng-khi	  . 05590)	; &HNG010-05590;
+      )
+     ((===hng-khm	  . 05130)	; &HNG011-05130;
       ))
     ))
 (define-char
@@ -817,6 +819,73 @@
 	)
        ((=hanziku-9	    . #xF8F6)	; &HZK09-F8F6;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x89BA)	; &BUCS+89BA;
+      ))
+    (ideographic-radical . 147)	; ⾒
+    (ideographic-strokes . 12)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+	(=ucs		    . #x2FF6)	; ⿶
+	)
+       ((=big5-cdp	    . #x8B64)	; &CDP-8B64;
+	)
+       ((=ucs		    . #x4E0E)	; 与
+	))
+      )
+     ((=ucs		  . #x898B)	; 見
+      ))
+    (=>mj		. 060177)	; &A-MJ060177;
+    ))
+(define-char
+  '((<-denotational
+     ((=>mj		  . 060177)	; &A-MJ060177;
+      ))
+    (ideographic-radical . 147)	; ⾒
+    (ideographic-strokes . 11)
+    (total-strokes	 . 18)
+    (===hng-khm		. 05140)	; &HNG011-05140;
+    (<-formed
+     ((=ucs		  . #x89BA)	; 覺
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>mj		  . 060177)	; &A-MJ060177;
+      ))
+    (ideographic-radical . 147)	; ⾒
+    (ideographic-strokes . 12)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+	(=ucs		    . #x2FF6)	; ⿶
+	)
+       ((=big5-cdp	    . #x8B64)	; &CDP-8B64;
+	)
+       ((=ucs@jis	    . #x4E0E)	; &MJ006310;
+	(=mj		    . 006310)	; &MJ006310;
+	))
+      )
+     ((=ucs		  . #x898B)	; 見
+      ))
+    (=mj		. 060177)	; &MJ060177;
+    (<-formed
+     ((=ucs		  . #x89BA)	; 覺
+      ))
+    (->subsumptive
+     ((==mj		  . 060177)	; &g2-MJ060177;
       ))
     ))
 (define-char
@@ -1904,6 +1973,8 @@
      ((==ucs@unicode	  . #x89AA)	; &g2-UU+89AA;
       (==ucs@JP/hanazono  . nil)
       (==gb12345	  . #x4757)	; &g2-UU+89AA; [39-55]
+      )
+     ((===hng-khm	  . 05150)	; &HNG011-05150;
       ))
     ))
 (define-char
@@ -2800,6 +2871,14 @@
     (ideographic-radical . 147)	; ⾒
     (ideographic-strokes . 13)
     (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x2696F)	; 𦥯
+      )
+     ((=ucs		  . #x898B)	; 見
+      ))
     (=ucs		. #x89BA)	; 覺
     (=jis-x0208		. #x6B34)	; &I-J90-6B34; [75-20]
     (=ks-x1001		. #x4A46)	; &I-K0-4A46; [42-38]
@@ -3193,6 +3272,8 @@
 	)
        ((===ucs@unicode	    . #x89C0)	; &R-UU+89C0;
 	))
+      )
+     ((===hng-khm	  . 05160)	; &HNG011-05160;
       ))
     ))
 (define-char
