@@ -1,5 +1,31 @@
 2016-04-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R147-See.el: Add glyph-images of HNG-KHM.
+	(A-MJ060177): New abstract character; add `<-denotational' for
+	BUCS+89BA.
+	(HNG-KHM0514-0): New character; add `<-denotational' for
+	A-MJ060177.
+	(MJ060177): New character; add `<-denotational' for A-MJ060177;
+	add `<-formed' for U+89BA.
+
+	* Ideograph-R146-West.el (g2-UU+897F): Add HNG-KHM0603-0.
+
+	* Ideograph-R145-Clothes.el: Add glyph-images of HNG-KHM.
+	(HNG-KHM0511-0): New character; add `<-formed' for U-000276E0 and
+	U+88D3.
+	(U-000276E0): Add `ideographic-structure'.
+
+	* Ideograph-R124-Feather.el (GT-K02403): New character; add
+	`<-denotational' for GT-36834; add
+	`<-formed@component/connect-below' for GT-36834.
+	(A-MJ058354): New abstract character.
+	(MJ058354): New character; add `<-denotational' for A-MJ058354;
+	unify KOSEKI-320010; add `<-formed' for U+7FD2; add HNG-KHM0096-0.
+	(KU+7FD2): Unify S-6303.
+	(UU+7FD2): Unify S-6302.
+
+2016-04-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R122-Net.el: Add glyph-images of HNG-KHM.
 
 	* Ideograph-R009-Man.el (U+5080): Apply new glyph-image
