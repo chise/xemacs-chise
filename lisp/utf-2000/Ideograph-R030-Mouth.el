@@ -36997,9 +36997,8 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs@unicode	  . #x9EA5)	; &J90-734E;
-      (=jis-x0208	  . #x734E)	; &J90-734E; [83-46]
-      (=jis-x0213-1	  . #x734E)	; &I-JX1-734E; [83-46]
+     ((=ucs@unicode	  . #x9EA5)	; &AJ1-07425;
+      (=adobe-japan1-0	  . 07425)	; &AJ1-07425;
       ))
     (=ucs@unicode	. #x561C)	; &UU+561C;
     (=ucs@JP/hanazono	. nil)
