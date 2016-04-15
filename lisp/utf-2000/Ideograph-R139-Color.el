@@ -4,7 +4,16 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
     (=ucs		. #x8272)	; 色
-    (=jis-x0208		. #x3F27)	; &I-J90-3F27; [31-07]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8272)	; 色
+      ))
+    (ideographic-radical . 139)	; ⾊
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (=ucs@unicode	. #x8272)	; &GT-39592;
+    (=jis-x0208		. #x3F27)	; &GT-39592; [31-07]
     (=gb2312		. #x492B)	; &I-G0-492B; [41-11]
     (=ks-x1001		. #x5F64)	; &I-K0-5F64; [63-68]
     (=cns11643-1	. #x4863)	; &I-C1-4863; [40-67]
@@ -14,7 +23,7 @@
     (=gt-k		. 01646)	; &I-GT-K01646;
     (=gt-pj-1		. #x3F27)	; &I-GT-39592; [31-07]
     (=daikanwa		. 30602)	; &I-M-30602;
-    (=shinjigen		.  6674)	; 色
+    (=shinjigen		.  6674)	; &GT-39592;
     (->subsumptive
      ((==ucs@unicode	  . #x8272)	; &g2-GT-39592;
       (==gb2312		  . #x492B)	; &g2-GT-39592; [41-11]
