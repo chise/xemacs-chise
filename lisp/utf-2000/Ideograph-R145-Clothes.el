@@ -56,6 +56,8 @@
        ((===cns11643-1	    . #x4868)	; &R-C1-4868; [40-72]
 	))
       )
+     ((===hng-khm	  . 05120)	; &HNG011-05120;
+      )
      ((===hng-khi	  . 05570)	; &HNG010-05570;
       )
      ((=>ucs*		  . #x8863)	; 衣
@@ -7325,6 +7327,25 @@
     ))
 (define-char
   '((ideographic-radical . 145)	; ⾐
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8864)	; 衤
+      )
+     ((=ucs-itaiji-001	  . #x229B6)	; &U-i001+229B6;
+      ))
+    (===hng-khm		. 05110)	; &HNG011-05110;
+    (<-formed
+     ((=ucs		  . #x276E0)	; 𧛠
+      )
+     ((=ucs		  . #x88D3)	; 裓
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 145)	; ⾐
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (=ucs		. #x4643)	; 䙃
@@ -8298,6 +8319,14 @@
   '((ideographic-radical . 145)	; ⾐
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8864)	; 衤
+      )
+     ((=ucs		  . #x229B6)	; 𢦶
+      ))
     (=ucs		. #x276E0)	; 𧛠
     (=cns11643-7	. #x2853)	; &I-C7-2853; [08-51]
     (=daikanwa		. 34451)	; &I-M-34451;
