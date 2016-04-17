@@ -10120,10 +10120,35 @@
      ((=>daikanwa	  . 10725)	; &A-M-10725;
       ))
     (ideographic-radical . 61)	; ⼼
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
     (=ucs		. #x226F3)	; 𢛳
-    (=adobe-japan1-5	. 17632)	; &I-AJ1-17632;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x226F3)	; 𢛳
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	(=ucs		    . #x2FF3)	; ⿳
+	)
+       ((=ucs		    . #x5341)	; 十
+	)
+       ((name		    . "CJK RADICAL EYE")
+	(=ucs		    . #x2EAB)	; ⺫
+	)
+       ((=ucs		    . #x4E00)	; 一
+	))
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (=ucs@iso		. #x226F3)	; &AJ1-17632;
+    (=adobe-japan1-5	. 17632)	; &AJ1-17632;
     (=jis-x0213-2	. #x2C50)	; &I-JX2-2C50; [12-48]
     (=big5-cdp		. #x8BB3)	; &I-CDP-8BB3;
     (=gt		. 13738)	; &I-GT-13738;
@@ -10153,6 +10178,36 @@
 	))
       )
      ((==ucs@iso	  . #x226F3)	; &g2-IU-000226F3;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x226F3)	; 𢛳
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x5341)	; 十
+      )
+     ((name		  . "CJK RADICAL EYE")
+      (=ucs		  . #x2EAB)	; ⺫
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (=hanyo-denshi/tk	. 01032130)	; &HD-TK-01032130;
+    (=gt		. 13574)	; &HD-TK-01032130;
+    (=gt-k		. 08031)	; &I-GT-K08031;
+    (=gt-pj-9		. #x3753)	; &HD-TK-01032130; [23-51]
+    (->subsumptive
+     ((==hanyo-denshi/tk  . 01032130)	; &g2-HD-TK-01032130;
+      (=hanyo-denshi/tk/mf-01 . #x0C8D)	; &g2-HD-TK-01032130;
+      (==gt		  . 13574)	; &g2-HD-TK-01032130;
+      )
+     ((=ucs-var-002	  . #x226F3)	; &U-v002+226F3;
       ))
     ))
 (define-char
