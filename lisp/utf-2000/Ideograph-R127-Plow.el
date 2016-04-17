@@ -1250,6 +1250,23 @@
     ))
 (define-char
   '((<-denotational
+     ((=ucs		  . #x8028)	; 耨
+      ))
+    (ideographic-radical . 127)	; ⽾
+    (ideographic-strokes . 11)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x264E4)	; 𦓤
+      )
+     ((=mj		  . 057352)	; &MJ057352;
+      ))
+    (===hng-khm		. 04880)	; &HNG011-04880;
+    ))
+(define-char
+  '((<-denotational
      ((==>ucs@bucs	  . #x8028)	; &BUCS+8028;
       ))
     (ideographic-radical . 127)	; ⽾
