@@ -1549,7 +1549,6 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2EE4)	; ⻤
-    (=big5-cdp		. #x8A5D)	; &I-CDP-8A5D;
     (<-identical@component
      ((=ucs		  . #x9B3C)	; 鬼
       ))
