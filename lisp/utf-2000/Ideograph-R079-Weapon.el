@@ -693,6 +693,14 @@
   '((ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x58F0)	; 声
+      )
+     ((=ucs		  . #x6BB3)	; 殳
+      ))
     (=ucs		. #x6BB8)	; 殸
     (=jis-x0212		. #x4630)	; &I-JSP-4630; [38-16]
     (=cns11643-4	. #x324E)	; &I-C4-324E; [18-46]
@@ -1296,6 +1304,39 @@
       )
      ((=ucs@iso		  . #x2F8F7)	; &C6-4A4D;
       (=cns11643-6	  . #x4A4D)	; &C6-4A4D; [42-45]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 79)	; ⽎
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x58F0)	; 声
+      )
+     ((=ucs		  . #x2A832)	; 𪠲
+      ))
+    (=mj		. 057921)	; &MJ057921;
+    (=koseki		. 188820)	; &MJ057921;
+    (<-formed
+     ((=ucs		  . #x6BB8)	; 殸
+      ))
+    (<-formed*sources
+     koseki)
+    (<-formed@misc
+     ((=ucs@jis		  . #x78EC)	; &GT-31221;
+      (=jis-x0208	  . #x627E)	; &GT-31221; [66-94]
+      (=ks-x1001	  . #x4C64)	; &I-K0-4C64; [44-68]
+      (=jis-x0213-1	  . #x627E)	; &I-JX1-627E; [66-94]
+      (=daikanwa	  . 24454)	; &I-M-24454;
+      ))
+    (<-formed@misc*sources
+     mj)
+    (->subsumptive
+     ((==mj		  . 057921)	; &g2-MJ057921;
+      (==koseki		  . 188820)	; &g2-MJ057921;
       ))
     ))
 (define-char
@@ -2036,6 +2077,25 @@
 	)
        ((===ucs@iso	    . #x23AB7)	; &R-U-00023AB7;
 	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 79)	; ⽎
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-var-001	  . #x58F0)	; &U-v001+58F0;
+      )
+     ((=ucs-itaiji-002	  . #x6534)	; &U-i002+6534;
+      ))
+    (=ucs-itaiji-001	. #x6BB8)	; &U-i001+6BB8;
+    (<-formed
+     ((=mj		  . 057921)	; &MJ057921;
+      )
+     ((=ucs		  . #x6BB8)	; 殸
       ))
     ))
 (define-char
