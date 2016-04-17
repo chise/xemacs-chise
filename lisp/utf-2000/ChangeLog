@@ -1,4 +1,31 @@
+2016-04-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R033-Scholar.el (U+58F0): Separate UU+58F0.
+	(U+58F0-var-001): New character; add `<-denotational' for U+58F0.
+
 2016-04-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R194-Ghost.el: Add some Adobe-Japan1-0 code points.
+	(U+9B3C): Separate o-UU+9B3C.
+	(o-UU+9B3C): Add `=>ucs@iwds-1'.
+	(UU+9B3C): Unify BC-8A5D.
+	(<CJK RADICAL GHOST>): Separate BC-8A5D.
+	(A-MJ059079): New abstract character; add `<-denotational' for
+	U+9B3C.
+	(MJ059079): New character; add `<-subsumptive' for A-MJ059079;
+	unify HD-KS517760.
+	(U+9B3C-var-010): New character; add `<-subsumptive' for
+	A-MJ059079.
+	(C3-4A79): Unify CU+4C1F and S-9518; add `<-original' for JU+9B42.
+	(U+9B48): Apply new glyph-image conventions.
+	(U+9B54): Likewise.
+	(CU+9B54): Unify MJ029039, HD-JT-C006, KOSEKI-519290 and JC3-6EC4.
+	(HNG-KHM0593-0): New character; add `<-denotational' for U+9B54.
+	(U+9B56): Apply new glyph-image conventions.
+	(U+9B57): Likewise.
+
+	* Ideograph-R041-Inch.el (MJ057352): New character; add
+	`<-denotational' for U+8FB1; unify HD-KS084610.
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=ucs-var-010'.
