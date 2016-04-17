@@ -1,3 +1,45 @@
+2016-04-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=ucs-var-010'.
+
+	* Ideograph-R199-Wheat.el: Add some Adobe-Japan1-0 code points.
+	(U+9EB0): Apply new glyph-image conventions.
+
+2016-04-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R156-Run.el (U-00027EBA): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R140-Grass.el (U+82D0): Separate A-UU+82D0; add
+	`=>ucs@iwds-1'.
+	(HNG-KHM0472-0): New character; add `<-denotational' for U+82D0;
+	add `<-formed' for U+7B2C.
+	(UU+44AD): Add HNG-KHM0473-0; add `<-formed' for U+7B49.
+
+	* Ideograph-R127-Plow.el (HNG-KHM0488-0): New character; add
+	`<-denotational' for U+8028.
+
+	* Ideograph-R126-And.el (g2-UU+800C): Add HNG-KHM0487-0.
+
+	* Ideograph-R125-Old.el: Add glyph-images of HNG-KHM.
+
+	* Ideograph-R079-Weapon.el (U+6BB8): Add `ideographic-structure'.
+	(MJ057921): New character; unify KOSEKI-188820; add `<-formed' for
+	U+6BB8; add `<-formed@misc' for JU+78EC.
+	(U+6BB8-itaiji-001): New character; add `<-formed' for MJ057921
+	and U+6BB8.
+
+	* Ideograph-R061-Heart.el (U-000226F3): Separate IU+226F3.
+	(HD-TK01032130): New character; add `<-denotational' for
+	U-000226F3; unify GT-13574 and GT-K08031.
+	(U+226F3-var-002): New glyph-form; add `<-subsumptive' for
+	HD-TK01032130.
+
+2016-04-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* u02E00-CJK-Radical-Supplement.el (U+2EE4): Separate BC-8A5D.
+
 2016-04-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R197-Salt.el: Add some Adobe-Japan1-0 code points.
