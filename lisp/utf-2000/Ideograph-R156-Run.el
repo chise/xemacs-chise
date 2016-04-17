@@ -831,8 +831,38 @@
   '((ideographic-radical . 156)	; ⾛
     (ideographic-strokes . 5)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x8D70)	; 走
+      )
+     ((=ucs		  . #x72AE)	; 犮
+      ))
     (=ucs		. #x27EBA)	; 𧺺
-    (=cns11643-6	. #x4F34)	; &I-C6-4F34; [47-20]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x27EBA)	; 𧺺
+      ))
+    (ideographic-radical . 156)	; ⾛
+    (ideographic-strokes . 5)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x8D70)	; 走
+      )
+     ((=ucs@cns		  . #x72AE)	; &JX2-703B;
+      (=ucs@jis		  . #x72AE)	; &JX2-703B;
+      (=jis-x0212	  . #x4A6E)	; &JX2-703B; [42-78]
+      (=cns11643-2	  . #x2164)	; &I-C2-2164; [01-68]
+      (=jis-x0213-2	  . #x703B)	; &I-JX2-703B; [80-27]
+      (=daikanwa	  . 20236)	; &I-M-20236;
+      ))
+    (=ucs@iso		. #x27EBA)	; &C6-4F34;
+    (=cns11643-6	. #x4F34)	; &C6-4F34; [47-20]
     (=daikanwa		. 37091)	; &I-M-37091;
     (<-formed
      ((=daikanwa	  . 38736)	; &M-38736;
@@ -846,15 +876,26 @@
     (<-same@s1*sources
      guangyun jiyun daikanwa)
     (<-same@s2
-     ((=ucs@jis		  . #x9B43)	; &GT-61607;
-      (=jis-x0208	  . #x7231)	; &GT-61607; [82-17]
-      (=ks-x1001	  . #x5B26)	; &I-K0-5B26; [59-06]
-      (=cns11643-2	  . #x5624)	; &I-C2-5624; [54-04]
-      (=jis-x0213-1	  . #x7231)	; &I-JX1-7231; [82-17]
+     ((=ucs@cns		  . #x9B43)	; &AJ1-07302;
+      (=ucs@jis		  . #x9B43)	; &AJ1-07302;
+      (=ucs@ks		  . #x9B43)	; &AJ1-07302;
+      (=adobe-japan1-0	  . 07302)	; &AJ1-07302;
       (=daikanwa	  . 45806)	; &I-M-45806;
       ))
     (<-same@s2*sources
      zihui daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x27EBA)	; &g2-M-37091;
+      (==cns11643-6	  . #x4F34)	; &g2-M-37091; [47-20]
+      (==daikanwa	  . 37091)	; &g2-M-37091;
+      (->subsumptive
+       ((===daikanwa	    . 37091)	; &R-M-37091;
+	)
+       ((===cns11643-6	    . #x4F34)	; &R-C6-4F34; [47-20]
+	)
+       ((===ucs@iso	    . #x27EBA)	; &R-U-00027EBA;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 156)	; ⾛
