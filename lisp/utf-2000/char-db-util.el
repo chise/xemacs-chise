@@ -331,6 +331,7 @@
     =ucs-var-002
     =ucs-var-003
     =ucs-var-004
+    =ucs-var-010
     =ucs-itaiji-001
     =ucs-itaiji-002
     =ucs-itaiji-003
