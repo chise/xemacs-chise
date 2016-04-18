@@ -155,10 +155,6 @@
     (<-formed@component/connect-above
      ((=ucs		  . #x5FC3)	; 心
       ))
-    (<-identical@component
-     ((name		  . "CJK RADICAL HEART TWO")
-      (=ucs		  . #x2E97)	; ⺗
-      ))
     (->subsumptive
      ((==big5-cdp	  . #x8CD9)	; &g2-CDP-8CD9;
       )
