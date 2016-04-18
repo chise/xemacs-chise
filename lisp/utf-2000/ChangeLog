@@ -1,3 +1,13 @@
+2016-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (JU+38FA): Delete
+	`<-identical@component' for <CJK RADICAL HEART TWO> to avoid loop.
+
+	* Ideograph-R012-Eight.el (U-0002B930): Separate A-IU+2B930.
+	(A-IU+2B930): Add `=>ucs@iwds-1'.
+	(HNG-KHM0602-2): New character; add `<-denotational' for
+	U-0002B930; add `<-formed' for U+8207.
+
 2016-04-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R130-Meat.el (HNG-KHM0493-0): New character; add
