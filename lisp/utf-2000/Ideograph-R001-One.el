@@ -1158,9 +1158,8 @@
     (=daikanwa		. 00020)	; &I-M-00020;
     (=jef-china3	. #x82A6)	; &I-JC3-82A6;
     (<-simplified@CN
-     ((=ucs@unicode	  . #x8207)	; &AJ1-06299;
-      (=adobe-japan1-0	  . 06299)	; &AJ1-06299;
-      (=gb12345		  . #x536B)	; &AJ1-06299; [51-75]
+     ((=ucs		  . #x8207)	; 與
+      (=gb12345		  . #x536B)	; 與 [51-75]
       ))
     (->synonyms
      ((=ucs@unicode	  . #x8207)	; &AJ1-06299;
@@ -1227,8 +1226,7 @@
     (=gt-pj-1		. #x4D3F)	; &I-GT-00024; [45-31]
     (=shinjigen		.  6625)	; &MJ006310;
     (<-simplified@JP/Jouyou
-     ((=ucs@unicode	  . #x8207)	; &AJ1-06299;
-      (=adobe-japan1-0	  . 06299)	; &AJ1-06299;
+     ((=ucs		  . #x8207)	; 與
       (=jis-x0208	  . #x6750)	; &I-J90-6750; [71-48]
       ))
     (->subsumptive
