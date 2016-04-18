@@ -1,5 +1,11 @@
 2016-04-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R130-Meat.el (HNG-KHM0493-0): New character; add
+	`<-denotational' for U+43FB; add `<-formed' for U+80FD.
+	(U+8129-itaiji-001): New character to subsume HNG-KHI0532-0 and
+	HNG-KHM0494-0.
+	(MJ058383): Add HNG-KHM0495-0.
+
 	* Ideograph-R132-Self.el (U+81EA): Add HNG-KHM0496-0.
 
 2016-04-17  MORIOKA Tomohiko  <tomo.git@chise.org>
