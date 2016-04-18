@@ -1,5 +1,9 @@
 2016-04-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R132-Self.el (U+81EA): Add HNG-KHM0496-0.
+
+2016-04-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R033-Scholar.el (U+58F0): Separate UU+58F0.
 	(U+58F0-var-001): New character; add `<-denotational' for U+58F0.
 
