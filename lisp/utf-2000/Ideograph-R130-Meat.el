@@ -6142,6 +6142,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ucs@JP		. #x43FB)	; &MJ003817;
+    (=ucs@JP/hanazono	. nil)
     (=mj		. 003817)	; &MJ003817;
     (=koseki		. 328630)	; &MJ003817;
     (=daikanwa		. 29455)	; &I-M-29455;
@@ -6161,6 +6162,26 @@
       (<-formed
        ((=ucs		    . #x80FD)	; 能
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x43FB)	; 䏻
+      ))
+    (ideographic-radical . 130)	; ⾁
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x43CD)	; 䏍
+      )
+     ((=ucs		  . #x957F)	; 长
+      ))
+    (===hng-khm		. 04930)	; &HNG011-04930;
+    (<-formed
+     ((=ucs		  . #x80FD)	; 能
       ))
     ))
 (define-char
@@ -8062,9 +8083,16 @@
        ((=ucs		    . #x6709)	; 有
 	))
       ))
-    (===hng-khi		. 05320)	; &HNG010-05320;
+    (=ucs-itaiji-001	. #x8129)	; &U-i001+8129;
     (<-formed
      ((=ucs		  . #x8129)	; 脩
+      ))
+    (<-formed*sources
+     hng)
+    (->subsumptive
+     ((===hng-khi	  . 05320)	; &HNG010-05320;
+      )
+     ((===hng-khm	  . 04940)	; &HNG011-04940;
       ))
     ))
 (define-char
@@ -8200,6 +8228,8 @@
     (->subsumptive
      ((==mj		  . 058383)	; &g2-MJ058383;
       (==koseki		  . 329800)	; &g2-MJ058383;
+      )
+     ((===hng-khm	  . 04950)	; &HNG011-04950;
       )
      ((===hng-khi	  . 01510)	; &HNG010-01510;
       ))
