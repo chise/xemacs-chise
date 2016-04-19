@@ -70,6 +70,11 @@
     (=shinjigen		.  9451)	; 髙
     (=hanziku-12	. #xB9E2)	; &I-HZK12-B9E2;
     (=jef-china3	. #x6EA4)	; &I-JC3-6EA4;
+    (<-formed
+     ((=ucs		  . #x9AD8)	; 高
+      ))
+    (<-formed*sources
+     hng)
     (<-vulgar
      ((=ucs		  . #x9AD8)	; 高
       (=jis-x0208	  . #x3962)	; &I-J90-3962; [25-66]
@@ -100,6 +105,8 @@
        ((===ucs@unicode	    . #x9AD9)	; &R-UU+9AD9;
 	)
        ((===cns11643-4	    . #x362D)	; &R-C4-362D; [22-13]
+	)
+       ((===hng-khm	    . 05920)	; &HNG011-05920;
 	))
       )
      ((===hng-khi	  . 06280)	; &HNG010-06280;
