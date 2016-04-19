@@ -1,5 +1,16 @@
 2016-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R186-Fragrant.el (U+9999): Add HNG-KHM0591-0.
+
+	* Ideograph-R134-Mortar.el (U+8207): Apply new glyph-image
+	conventions; add HNG-KHM0602-1.
+
+	* Ideograph-R135-Tongue.el (U+820E): Add HNG-KHM0112-0.
+
+	* Ideograph-R133-Arrive.el (g2-UU+81F3): Add HNG-KHM0497-0.
+
+2016-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R061-Heart.el (JU+38FA): Delete
 	`<-identical@component' for <CJK RADICAL HEART TWO> to avoid loop.
 
