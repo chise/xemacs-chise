@@ -1,4 +1,10 @@
+2016-04-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R131-Minister.el (U+81E3): Add HNG-KHM0111-0.
+
 2016-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R189-Tall.el (U+9AD9): Add HNG-KHM0592-0.
 
 	* Ideograph-R009-Man.el (U+349C): Apply new glyph-image
 	conventions.
