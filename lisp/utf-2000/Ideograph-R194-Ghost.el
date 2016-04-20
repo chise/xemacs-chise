@@ -2459,11 +2459,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs@unicode	  . #x9EBB)	; &GT-65257;
-      (=jis-x0208	  . #x4B63)	; &GT-65257; [43-67]
-      (=gb2312		  . #x4269)	; &I-G0-4269; [34-73]
-      (=jis-x0213-1	  . #x4B63)	; &I-JX1-4B63; [43-67]
-      (=daikanwa	  . 47888)	; &I-M-47888;
+     ((=ucs@unicode	  . #x9EBB)	; &AJ1-03729;
+      (=adobe-japan1-0	  . 03729)	; &AJ1-03729;
       )
      ((=ucs-var-010	  . #x9B3C)	; &U-v010+9B3C;
       ))
@@ -2481,11 +2478,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs@unicode	  . #x9EBB)	; &GT-65257;
-      (=jis-x0208	  . #x4B63)	; &GT-65257; [43-67]
-      (=gb2312		  . #x4269)	; &I-G0-4269; [34-73]
-      (=jis-x0213-1	  . #x4B63)	; &I-JX1-4B63; [43-67]
-      (=daikanwa	  . 47888)	; &I-M-47888;
+     ((=ucs@unicode	  . #x9EBB)	; &AJ1-03729;
+      (=adobe-japan1-0	  . 03729)	; &AJ1-03729;
       )
      ((=>ucs@iwds-1	  . #x9B3C)	; &o-J0-3534;
       (=+>ucs@unicode	  . #x9B3C)	; &o-J0-3534;
@@ -2503,11 +2497,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
 	(=ucs		    . #x2FF8)	; ⿸
 	)
-       ((=ucs@unicode	    . #x9EBB)	; &GT-65257;
-	(=jis-x0208	    . #x4B63)	; &GT-65257; [43-67]
-	(=gb2312	    . #x4269)	; &I-G0-4269; [34-73]
-	(=jis-x0213-1	    . #x4B63)	; &I-JX1-4B63; [43-67]
-	(=daikanwa	    . 47888)	; &I-M-47888;
+       ((=ucs@unicode	    . #x9EBB)	; &AJ1-03729;
+	(=adobe-japan1-0    . 03729)	; &AJ1-03729;
 	)
        ((=ucs@jis	    . #x9B3C)	; &AJ1-01614;
 	(=adobe-japan1-0    . 01614)	; &AJ1-01614;
@@ -2525,11 +2516,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
 	(=ucs		    . #x2FF8)	; ⿸
 	)
-       ((=ucs@unicode	    . #x9EBB)	; &GT-65257;
-	(=jis-x0208	    . #x4B63)	; &GT-65257; [43-67]
-	(=gb2312	    . #x4269)	; &I-G0-4269; [34-73]
-	(=jis-x0213-1	    . #x4B63)	; &I-JX1-4B63; [43-67]
-	(=daikanwa	    . 47888)	; &I-M-47888;
+       ((=ucs@unicode	    . #x9EBB)	; &AJ1-03729;
+	(=adobe-japan1-0    . 03729)	; &AJ1-03729;
 	)
        ((=ucs@unicode	    . #x9B3C)	; &G0-396D;
 	(=gb2312	    . #x396D)	; &G0-396D; [25-77]
