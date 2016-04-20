@@ -521,6 +521,13 @@
 	)
        ((=hanziku-7	    . #xD1F8)	; &HZK07-D1F8;
 	))
+      )
+     ((===hng-khm	  . 05010)	; &HNG011-05010;
+      (<-formed
+       ((=ucs		    . #x8358)	; 荘
+	)
+       ((=ucs		    . #x838A)	; 莊
+	))
       ))
     ))
 (define-char
