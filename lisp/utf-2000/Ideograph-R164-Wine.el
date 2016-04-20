@@ -3954,22 +3954,37 @@
     (=cns11643-3	. #x532D)	; &I-C3-532D; [51-13]
     (=jis-x0213-2	. #x7A47)	; &I-JX2-7A47; [90-39]
     (=daikanwa		. 39926)	; &I-M-39926;
+    (=shinjigen		.  9767)	; 醎
+    (=cbeta		. 00367)	; &I-CB00367;
+    (<-vulgar
+     ((=ucs		  . #x9E79)	; 鹹
+      (=jis-x0208	  . #x7344)	; &I-J90-7344; [83-36]
+      (=shinjigen	  .  9766)	; 鹹
+      ))
+    (<-vulgar*sources
+     shinjigen)
     (->subsumptive
      ((==daikanwa	  . 39926)	; &g2-M-39926;
+      )
+     ((==ucs@cns	  . #x918E)	; &g2-CU+918E;
+      (==cns11643-3	  . #x532D)	; &g2-CU+918E; [51-13]
       )
      ((==ucs@jis	  . #x918E)	; &g2-JSP-6269;
       (==jis-x0212	  . #x6269)	; &g2-JSP-6269; [66-73]
       (==jis-x0213-2	  . #x7A47)	; &g2-JSP-6269; [90-39]
+      (==shinjigen	  .  9767)	; &g2-JSP-6269;
       (->subsumptive
        ((===jis-x0212	    . #x6269)	; &R-JX2-7A47; [66-73]
 	(===jis-x0213-2	    . #x7A47)	; &R-JX2-7A47; [90-39]
 	))
       )
-     ((==ucs@cns	  . #x918E)	; &g2-CU+918E;
-      (==cns11643-3	  . #x532D)	; &g2-CU+918E; [51-13]
-      )
      ((==ucs@unicode	  . #x918E)	; &g2-UU+918E;
       (==ucs@JP/hanazono  . nil)
+      (->subsumptive
+       ((===ucs@unicode	    . #x918E)	; &R-UU+918E;
+	)
+       ((=hanziku-9	    . #xE945)	; &HZK09-E945;
+	))
       ))
     ))
 (define-char
