@@ -1,5 +1,11 @@
 2016-04-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R104-Sickness.el (UU+3F75): Add HNG-KHM0501-0.
+
+	* Ideograph-R001-One.el (g2-UU+4E07): Add HNG-KHM0162-0.
+
+2016-04-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R131-Minister.el (U+81E3): Add HNG-KHM0111-0.
 
 2016-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
