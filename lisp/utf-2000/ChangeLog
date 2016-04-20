@@ -1,4 +1,25 @@
+2016-04-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL BONE>): Use
+	A-UU+9AA8 instead of U+9AA8 as the mother.
+
 2016-04-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R200-Hemp.el: Add some Adobe-Japan1-0 code points.
+	(U+9EBD): Apply new glyph-image conventions.
+
+	* Ideograph-R188-Bone.el (U+9AA8): Separate A-UU+9AA8.
+	(A-UU+9AA8): Add `=>ucs@iwds-1'.
+	(MJ059058): New character; add `<-denotational' for U+9AA8; unify
+	HD-KS511070.
+	(U+9AD4): Separate A-UU+9AD4.
+	(A-UU+9AD4): Add `=>ucs@iwds-1'.
+	(HNG-KHM0155-0): New character; add `<-denotational' for U+9AD4.
+
+	* Ideograph-R164-Wine.el (U+918E): Unify S-9767 and CB00367; add
+	`<-vulgar' for U+9E79.
+
+	* Ideograph-R139-Color.el (g2-UU+8272): Add HNG-KHM0498-0.
 
 	* Ideograph-R104-Sickness.el (UU+3F75): Add HNG-KHM0501-0.
 
