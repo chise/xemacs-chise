@@ -1529,7 +1529,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x9AA8)	; 骨
+     ((=>ucs@iwds-1	  . #x9AA8)	; &A-IWDSU+9AA8;
+      (=>ucs@unicode	  . #x9AA8)	; &A-IWDSU+9AA8;
       ))
     (name		. "CJK RADICAL BONE")
     (general-category	symbol other) ; Informative Category
