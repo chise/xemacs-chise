@@ -1,5 +1,10 @@
 2016-04-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R100-Life.el (BUCS+7522): New abstract node.
+	(A-J0-305B): Add `<-denotational' for BUCS+7522.
+	(U+7523-itaiji-002): New character; add `<-denotational' for
+	BUCS+7522; add `<-formed' for U+7523 and U+7522.
+
 	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL BONE>): Use
 	A-UU+9AA8 instead of U+9AA8 as the mother.
 
