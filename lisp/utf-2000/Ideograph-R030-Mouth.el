@@ -4219,7 +4219,10 @@
     (=hanziku-2		. #xCBF4)	; &I-HZK02-CBF4;
     ))
 (define-char
-  '((ideographic-radical . 30)	; ⼝
+  '((<-denotational
+     ((==>ucs@bucs	  . #x807D)	; &BUCS+807D;
+      ))
+    (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 591 2)
@@ -4243,6 +4246,14 @@
     (=gt-pj-1		. #x5261)	; &I-GT-04220; [50-65]
     (=daikanwa		. 03352)	; &I-M-03352;
     (=shinjigen		.  0984)	; 听
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x807D)	; &HD-JA-6665;
+      (=jis-x0208	  . #x6665)	; &HD-JA-6665; [70-69]
+      (=ks-x1001	  . #x7469)	; &I-K0-7469; [84-73]
+      (=jis-x0213-1	  . #x6665)	; &I-JX1-6665; [70-69]
+      (=gb12345		  . #x4C7D)	; &HD-JA-6665; [44-93]
+      (=daikanwa	  . 29211)	; &I-M-29211;
+      ))
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
@@ -10164,16 +10175,25 @@
      ((=ucs		  . #x53F3)	; 右
       ))
     (=ucs		. #x20C25)	; 𠰥
+    (=mj		. 021678)	; &I-MJ021678;
+    (=koseki		. 344380)	; 𠰥
+    (<-formed
+     ((=ucs		  . #x82E5)	; 若
+      ))
+    (<-formed*sources
+     hng)
     (->subsumptive
      ((==ucs@iso	  . #x20C25)	; &g2-IU-00020C25;
+      )
+     ((==mj		  . 021678)	; &g2-MJ021678;
+      (==koseki		  . 344380)	; &g2-MJ021678;
       (->subsumptive
-       ((===ucs@iso	    . #x20C25)	; &R-U-00020C25;
+       ((===mj		    . 021678)	; &R-MJ021678;
 	)
-       ((===hng-khi	    . 05490)	; &HNG010-05490;
-	(<-formed
-	 ((=ucs		      . #x82E5)	; 若
-	  ))
+       ((===hng-khm	    . 05000)	; &HNG011-05000;
 	))
+      )
+     ((===hng-khi	  . 05490)	; &HNG010-05490;
       ))
     ))
 (define-char
@@ -36911,11 +36931,8 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs@unicode	  . #x9EBB)	; &GT-65257;
-      (=jis-x0208	  . #x4B63)	; &GT-65257; [43-67]
-      (=gb2312		  . #x4269)	; &I-G0-4269; [34-73]
-      (=jis-x0213-1	  . #x4B63)	; &I-JX1-4B63; [43-67]
-      (=daikanwa	  . 47888)	; &I-M-47888;
+     ((=ucs@unicode	  . #x9EBB)	; &AJ1-03729;
+      (=adobe-japan1-0	  . 03729)	; &AJ1-03729;
       ))
     (=ucs@unicode	. #x561B)	; &MJ008604;
     (=ucs@JP/hanazono	. nil)
@@ -36934,8 +36951,8 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((==ucs@unicode	    . #x9EBB)	; &g2-GT-65257;
-	(==jis-x0208	    . #x4B63)	; &g2-GT-65257; [43-67]
+       ((==ucs@unicode	    . #x9EBB)	; &g2-AJ1-03729;
+	(==adobe-japan1-0   . 03729)	; &g2-AJ1-03729;
 	))
       (==ucs@unicode	  . #x561B)	; &g2-MJ008604;
       (==ucs@JP/hanazono  . nil)
