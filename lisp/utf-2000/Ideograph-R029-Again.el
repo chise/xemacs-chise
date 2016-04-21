@@ -534,6 +534,8 @@
 	(==adobe-japan1-0   . 03746)	; &g2-AJ1-03746;
 	))
       (==big5-cdp	  . #x8BA1)	; &g2-CDP-8BA1;
+      )
+     ((=ucs-var-003	  . #x20B1B)	; &U-v003+20B1B;
       ))
     ))
 (define-char
