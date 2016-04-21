@@ -1,3 +1,36 @@
+2016-04-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (BC-8BA1): Add U+20B1B-var-003.
+
+	* Ideograph-R128-Ear.el: Add glyph-images of HNG-KHM.
+	(HNG-KHM0490-0): New character; add `<-denotational' for
+	BUCS+8072; add `<-formed' for U+8072.
+	(MJ058370): New character; add `<-denotational' for BUCS+8072;
+	unify KOSEKI-325720; add `<-formed' for U+8072.
+	(BUCS+807D): New abstract node.
+	(U+8074): Add `<-denotational' for BUCS+807D.
+	(HNG-KHM0110-0): New character; add `<-denotational' for
+	BUCS+807D; add `<-formed' for U+8074 and U+807D.
+	(U+807D): Add `<-denotational' for BUCS+807D.
+
+2016-04-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+542C): Add `<-denotational' for
+	BUCS+807D; add `<-simplified@CN' for UU+807D.
+	(U-00020C25): Unify MJ021678 and KOSEKI-344380; add `<-formed' for
+	U+82E5; add HNG-KHM0500-0.
+
+	* Ideograph-R008-Lid.el (U+4EA7): Add `<-denotational' for
+	BUCS+7522; add `<-simplified@CN' for U+7523.
+
+	* Ideograph-R170-Mound.el (U+96A1-itaiji-001): New character; add
+	`<-formed' for U+96A1.
+
+	* Ideograph-R162-Walk.el:
+	- Add Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/{JA|JB}.
+
 2016-04-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R100-Life.el (BUCS+7522): New abstract node.
