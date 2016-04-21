@@ -842,7 +842,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 8)	; ⼇
+  '((<-denotational
+     ((==>ucs@bucs	  . #x7522)	; &BUCS+7522;
+      ))
+    (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 283 3)
@@ -864,6 +867,10 @@
     (=ucs		. #x4EA7)	; 产
     (=gb2312		. #x327A)	; &I-G0-327A; [18-90]
     (=hanziku-1		. #xE06E)	; &I-HZK01-E06E;
+    (<-simplified@CN
+     ((=ucs		  . #x7523)	; 産
+      (=gb12345		  . #x327A)	; 産 [18-90]
+      ))
     ))
 (define-char
   '((=>ucs		. #x4EA7)	; 产
