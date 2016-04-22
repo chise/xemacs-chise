@@ -1,5 +1,9 @@
 2016-04-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R160-Bitter.el (U+2842B-itaiji-001): New character to
+	subsume HNG-KHI0565-0 and HNG-KHM0519-0; add `<-denotational' for
+	BUCS+8B6C.
+
 	* Ideograph-R149-Speech.el: Add glyph-images of HNG-KHM.
 	(HNG-KHM0121-0): New character; `<-denotational' for BUCS+8A2D;
 	add `<-formed' for U+8A2D.
