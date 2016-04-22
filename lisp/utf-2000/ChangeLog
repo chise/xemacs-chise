@@ -1,5 +1,54 @@
 2016-04-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R149-Speech.el: Add glyph-images of HNG-KHM.
+	(HNG-KHM0121-0): New character; `<-denotational' for BUCS+8A2D;
+	add `<-formed' for U+8A2D.
+	(HNG-KHM0528-0): New character; `<-denotational' for BUCS+8A63;
+	add `<-formed' for U+8A63.
+	(U+8B58): Separate UU+8B58.
+	(HNG-KHM0523-0): New character; `<-denotational' for U+8B58.
+	(U+8B70): Separate UU+8B70.
+	(UU+8B70): Add `=>ucs@iwds-1'.
+	(HNG-KHM0529-0): Add `<-denotational' for U+8B70.
+	(U+8B77-itaiji-002): New character to subsume HNG-KHI0172-0 and
+	HNG-KHM0531-0; add `<-denotational' for U+8B77; add `<-formed' for
+	U+8B77.
+
+	* Ideograph-R140-Grass.el: Add glyph-images of HNG-KHM.
+	(BUCS+82E6): New abstract node.
+	(U+82E6): Add `<-denotational' for BUCS+82E6.
+	(U+82E6-itaiji-001): New character to subsume HNG-KHI0542-0 and
+	HNG-KHM0507-0; add `<-denotational' for BUCS+82E6.
+	(U+83E9-itaiji-001): New character to subsume HNG-KHM0506-0 and
+	HNG-KHI0546-0; add `<-denotational' for U+83E9.
+	(BUCS+840C): New abstract node.
+	(U+840C): Add `<-denotational' for BUCS+840C.
+	(HNG-KHM0116-0): New character; add `<-denotational' for
+	BUCS+840C; add `<-formed' for U+840C.
+	(U+8420): Add `<-denotational' for BUCS+840C.
+	(HNG-KHM0499-0): New character; add `<-denotational' for U+840E.
+	(U+8457-itaiji-001): New character to subsume HNG-KHI0552-0 and
+	HNG-KHM0114-0; add `<-denotational' for U+8457.
+	(BUCS+8499): New abstract node.
+	(U+8499): Add `<-denotational' for BUCS+8499.
+	(HNG-KHM0502-0): New character; add `<-denotational' for
+	BUCS+8499; add `<-formed' for U+8499.
+	(U+84EE): Separate A-UU+84EE.
+	(A-UU+84EE): Add `=>ucs@iwds-1'.
+	(A-MJ022604): New abstract character; add `<-denotational' for
+	U+84EE.
+	(HNG-KHM0508-0): New character; add `<-denotational' for
+	A-MJ022604.
+	(MJ022604): Likewise; unify HD-JT-BCFD and KOSEKI-355950.
+	(BUCS+85A9): New abstract node.
+	(U+85A9): Add `<-denotational' for BUCS+85A9.
+	(U+8428): Likewise.
+	(U+85A9-itaiji-003): New character to subsume HNG-KHM0504-0 and
+	HNG-KHI0545-0; add `<-denotational' for BUCS+85A9; add `<-formed'
+	for U+85A9.
+	(U+85D0-var-001): New character to subsume HNG-KHI0543-1 and
+	HNG-KHM0503-0; add `<-denotational' for U+85D0.
+
 	* Ideograph-R029-Again.el (BC-8BA1): Add U+20B1B-var-003.
 
 	* Ideograph-R128-Ear.el: Add glyph-images of HNG-KHM.
