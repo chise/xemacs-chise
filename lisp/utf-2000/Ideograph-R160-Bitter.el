@@ -1312,11 +1312,16 @@
       )
      ((=ucs		  . #x2840C)	; 𨐌
       ))
-    (===hng-khi		. 05650)	; &HNG010-05650;
+    (=ucs-itaiji-001	. #x2842B)	; &U-i001+2842B;
     (<-formed
      ((=ucs		  . #x2842B)	; 𨐫
       )
      ((=ucs		  . #x8B6C)	; 譬
+      ))
+    (->subsumptive
+     ((===hng-khi	  . 05650)	; &HNG010-05650;
+      )
+     ((===hng-khm	  . 05190)	; &HNG011-05190;
       ))
     ))
 (define-char
