@@ -46,6 +46,8 @@
 	(===ks-x1001	    . #x6373)	; &R-K0-6373; [67-83]
 	))
       )
+     ((===hng-khm	  . 05400)	; &HNG011-05400;
+      )
      ((==ucs@unicode	  . #x8EAB)	; &g2-UU+8EAB;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x496D)	; &g2-UU+8EAB; [41-77]
