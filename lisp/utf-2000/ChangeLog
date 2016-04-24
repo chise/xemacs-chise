@@ -1,5 +1,11 @@
 2016-04-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U-00020BC1): Separate o-IU+20BC1.
+	(U+20BC1-itaiji-001): New character to subsume HNG-KHM0539-0; add
+	`<-denotational' for U-00020BC1; add `<-formed' for U+8DB3.
+
+2016-04-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R094-Dog.el (U+72AE): Separate A-UU+72AE.
 	(A-UU+72AE): Add `=>ucs@iwds-1'.
 	(U+72AE-itaiji-001): New character; add `<-denotational' for
