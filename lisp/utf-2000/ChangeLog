@@ -1,5 +1,10 @@
 2016-04-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R094-Dog.el (U+72AE): Separate A-UU+72AE.
+	(A-UU+72AE): Add `=>ucs@iwds-1'.
+	(U+72AE-itaiji-001): New character; add `<-denotational' for
+	U+72AE.
+
 	* Ideograph-R202-Millet.el: Add some Adobe-Japan1-0 code points.
 	(U-0002A3EF): Unify S-9815; add `<-original' for U+9ECE.
 	(U+9ECF): Add `<-original' for U+7C98.
