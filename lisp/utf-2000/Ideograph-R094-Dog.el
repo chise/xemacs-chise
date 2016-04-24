@@ -71,6 +71,17 @@
     (ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
+    (=>ucs@iwds-1	. #x72AE)	; &A-IWDSU+72AE;
+    (=>ucs@unicode	. #x72AE)	; &A-IWDSU+72AE;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x72AE)	; &A-IWDSU+72AE;
+      (=>ucs@unicode	  . #x72AE)	; &A-IWDSU+72AE;
+      ))
+    (ideographic-radical . 94)	; ⽝
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
     (=ucs@cns		. #x72AE)	; &JX2-703B;
     (=ucs@jis		. #x72AE)	; &JX2-703B;
     (=jis-x0212		. #x4A6E)	; &JX2-703B; [42-78]
@@ -78,6 +89,37 @@
     (=jis-x0213-2	. #x703B)	; &I-JX2-703B; [80-27]
     (=big5		. #xC9A5)	; &I-B-C9A5;
     (=daikanwa		. 20236)	; &I-M-20236;
+    (->subsumptive
+     ((==ucs@cns	  . #x72AE)	; &g2-JSP-4A6E;
+      (==ucs@jis	  . #x72AE)	; &g2-JSP-4A6E;
+      (==jis-x0212	  . #x4A6E)	; &g2-JSP-4A6E; [42-78]
+      (==cns11643-2	  . #x2164)	; &g2-JSP-4A6E; [01-68]
+      (==jis-x0213-2	  . #x703B)	; &g2-JSP-4A6E; [80-27]
+      (==daikanwa	  . 20236)	; &g2-JSP-4A6E;
+      (->subsumptive
+       ((===daikanwa	    . 20236)	; &R-M-20236;
+	)
+       ((===jis-x0212	    . #x4A6E)	; &R-JX2-703B; [42-78]
+	(===jis-x0213-2	    . #x703B)	; &R-JX2-703B; [80-27]
+	)
+       ((===cns11643-2	    . #x2164)	; &R-C2-2164; [01-68]
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x72AE)	; &A-IWDSU+72AE;
+      (=>ucs@unicode	  . #x72AE)	; &A-IWDSU+72AE;
+      ))
+    (ideographic-radical . 94)	; ⽝
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (=ucs@unicode	. #x72AE)	; &UU+72AE;
+    (=ucs@JP/hanazono	. nil)
+    (->subsumptive
+     ((==ucs@unicode	  . #x72AE)	; &g2-UU+72AE;
+      (==ucs@JP/hanazono  . nil)
+      ))
     ))
 (define-char
   '((<-denotational
@@ -86,8 +128,15 @@
     (ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
-    (=ucs@unicode	. #x72AE)	; &UU+72AE;
-    (=ucs@JP/hanazono	. nil)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x72AC)	; 犬
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      ))
+    (=ucs-itaiji-001	. #x72AE)	; &U-i001+72AE;
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
