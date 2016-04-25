@@ -1,3 +1,15 @@
+2016-04-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (U+5202): Add BC-8969, BC-8968 and
+	BC-8BEA.
+
+	* Ideograph-R109-Eye.el (U+7758-itaiji-001): New character; add
+	`<-formed' for U+7758.
+	(UU+7758): Add `=>ucs@iwds-1'.
+	(GT-K10415): Use `<-subsumptive' for UU+7758 instead of
+	`<-denotational' for U+7758.
+	(U+7758-itaiji-003): Add `<-denotational' for U+7758.
+
 2016-04-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R077-Stop.el (U-00023942): Apply new glyph-image
