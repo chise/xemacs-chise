@@ -1,5 +1,10 @@
 2016-04-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R157-Foot.el: Add glyph-images of HNG-KHM.
+	(U+8DCB): Separate A-UU+8DCB.
+	(A-UU+8DCB): Add `=>ucs@iwds-1'.
+	(HNG-KHM0128-0): New character; add `<-denotational' for U+8DCB.
+
 	* Ideograph-R030-Mouth.el (U-00020BC1): Separate o-IU+20BC1.
 	(U+20BC1-itaiji-001): New character to subsume HNG-KHM0539-0; add
 	`<-denotational' for U-00020BC1; add `<-formed' for U+8DB3.
