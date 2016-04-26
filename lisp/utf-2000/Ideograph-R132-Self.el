@@ -441,6 +441,15 @@
     (=ucs-itaiji-003	. #x81F1)	; &U-i003+81F1;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x81F1)	; 臱
+      ))
+    (ideographic-radical . 132)	; ⾃
+    (ideographic-strokes . 7)
+    (total-strokes	 . 13)
+    (=ucs-itaiji-004	. #x81F1)	; &U-i004+81F1;
+    ))
+(define-char
   '((ideographic-radical . 132)	; ⾃
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
