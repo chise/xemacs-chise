@@ -120,6 +120,22 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 145)	; ⾐
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (=big5-cdp		. #x8845)	; &CDP-8845;
+    (=gt-k		. 01135)	; &I-GT-K01135;
+    (=gt-pj-k1		. #x6645)	; &CDP-8845; [70-37]
+    (->subsumptive
+     ((==gt-k		  . 01135)	; &g2-GT-K01135;
+      )
+     ((=gt-k		  . 01136)	; &GT-K01136;
+      (=gt-pj-k1	  . #x6B2C)	; &GT-K01136; [75-12]
+      )
+     ((==big5-cdp	  . #x8845)	; &g2-CDP-8845;
+      ))
+    ))
+(define-char
   '((=>ucs		. #x27608)	; 𧘈
     (ideographic-radical . 145)	; ⾐
     (ideographic-strokes . 2)
