@@ -1261,31 +1261,45 @@
     (ideographic-radical@ucs/compat . 159)	; ⾞
     (ideographic-strokes@ucs/compat . 2)
     (ideographic-radical@ucs/compat*sources
-     daikanwa=38180 cns11643-6=345D)
+     daikanwa=38180 cns11643-6=345D shinjigen)
     (ideographic-strokes@ucs/compat*sources
      daikanwa=38180)
     (total-strokes	 . 9)
     (sound@ja/on	"guN")
     (=ucs		. #x208DE)	; 𠣞
+    (=cns11643-6	. #x2F2A)	; &I-C6-2F2A; [15-10]
+    (=shinjigen		.  8114)	; 𠣞
     (<-original
      ((=ucs		  . #x8ECD)	; 軍
+      (=jis-x0208	  . #x3733)	; &I-J90-3733; [23-19]
       (=daikanwa	  . 38179)	; &I-M-38179;
+      (=shinjigen	  .  8113)	; 軍
       ))
     (<-original*sources
-     zhengzitong daikanwa)
+     zhengzitong daikanwa shinjigen)
     (->subsumptive
-     ((ideographic-radical . 20)	; ⼓
-      (ideographic-strokes . 7)
-      (=ucs@cns		  . #x208DE)	; &C6-2F2A;
-      (=cns11643-6	  . #x2F2A)	; &C6-2F2A; [15-10]
-      (=daikanwa	  . 02526)	; &I-M-02526;
-      )
-     ((=>ucs*		  . #x208DE)	; 𠣞
-      (ideographic-radical . 159)	; ⾞
-      (ideographic-strokes . 2)
-      (=ucs		  . #x2F9DD)	; 𠣞
-      (=cns11643-6	  . #x345D)	; &I-C6-345D; [20-61]
-      (=daikanwa	  . 38180)	; &I-M-38180;
+     ((==ucs@iso	  . #x208DE)	; &g2-IU-000208DE;
+      (==cns11643-6	  . #x2F2A)	; &g2-IU-000208DE; [15-10]
+      (==shinjigen	  .  8114)	; &g2-IU-000208DE;
+      (->subsumptive
+       ((ideographic-radical . 20)	; ⼓
+	(ideographic-strokes . 7)
+	(=daikanwa	    . 02526)	; &M-02526;
+	(->subsumptive
+	 ((===daikanwa	      . 02526)	; &R-M-02526;
+	  )
+	 ((===cns11643-6      . #x2F2A)	; &R-C6-2F2A; [15-10]
+	  )
+	 ((===ucs@iso	      . #x208DE)	; &R-U-000208DE;
+	  ))
+	)
+       ((=>ucs*		    . #x208DE)	; 𠣞
+	(ideographic-radical . 159)	; ⾞
+	(ideographic-strokes . 2)
+	(=ucs		    . #x2F9DD)	; 𠣞
+	(=cns11643-6	    . #x345D)	; &I-C6-345D; [20-61]
+	(=daikanwa	    . 38180)	; &I-M-38180;
+	))
       ))
     ))
 (define-char
