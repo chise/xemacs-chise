@@ -1,3 +1,21 @@
+2016-04-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (C5-364D): Unify IU+20321 instead of
+	UU+20321; add representative nodes.
+	(U-00020339): Apply new glyph-image conventions.
+	(IU+20339): Add `<-ancient' for UU+965F.
+
+	* Ideograph-R132-Self.el (U+81F1-itaiji-004): New character.
+
+2016-04-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R180-Sound.el (g2-UU+97F3): Add HNG-KHM0579-0.
+
+	* Ideograph-R176-Face.el (g2-UU+9762): Add HNG-KHM0578-0.
+
+	* Ideograph-R145-Clothes.el (BC-8845): New character; unify
+	GT-K01135; add GT-K01136.
+
 2016-04-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (U+5202): Add BC-8969, BC-8968 and
