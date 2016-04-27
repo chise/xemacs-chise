@@ -1,5 +1,18 @@
 2016-04-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R159-Cart.el: Add glyph-images of HNG-KHM.
+	(U-000208DE): Apply new glyph-image conventions; unify S-8114.
+	(HD-TK01088340): New character; add `<-denotational' for U+8F49.
+	(HNG-KHI0580-0): Use `<-subsumptive' for g2-HD-TK01088340 instead
+	of `<-denotational' for U+8F49.
+	(HNG-KHM0542-0): New glyph-image; add `<-subsumptive' for
+	g2-HD-TK01088340.
+
+2016-04-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R020-Wrap.el (U-000208DE): Apply new glyph-image
+	conventions; unify S-8114.
+
 	* Ideograph-R009-Man.el (C5-364D): Unify IU+20321 instead of
 	UU+20321; add representative nodes.
 	(U-00020339): Apply new glyph-image conventions.
