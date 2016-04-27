@@ -1,5 +1,10 @@
 2016-04-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R008-Lid.el (MJ056895): New character; add
+	`<-denotational' for U+4EAB; unify HD-KS003860.
+	(HNG-KAK0272-0): Use `<-subsumptive' for g2-MJ056895 instead of
+	`<-denotational' for U+4EAB.
+
 	* Ideograph-R160-Bitter.el (U+8F9B-itaiji-002): New character; add
 	`<-formed' for U+8F9B.
 	(U+8F9B-itaiji-003): Likewise.
