@@ -1350,7 +1350,20 @@
       )
      ((=ucs		  . #x5B50)	; 子
       ))
-    (===hng-kak		. 02720)	; &HNG017-02720;
+    (=mj		. 056895)	; &MJ056895;
+    (=hanyo-denshi/ks	. 003860)	; &MJ056895;
+    (->subsumptive
+     ((==mj		  . 056895)	; &g2-MJ056895;
+      (==hanyo-denshi/ks  . 003860)	; &g2-MJ056895;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 003860)	; &R-HD-KS-003860;
+	(=hanyo-denshi/ks/mf . #x0182)	; &R-HD-KS-003860;
+	)
+       ((===mj		    . 056895)	; &R-MJ056895;
+	)
+       ((===hng-kak	    . 02720)	; &HNG017-02720;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
