@@ -853,6 +853,46 @@
   '((ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (=>big5-cdp		. #x877E)	; &A-MJ057001;
+    (=>mj		. 057001)	; &A-MJ057001;
+    ))
+(define-char
+  '((<-denotational
+     ((=>mj		  . 057001)	; &A-MJ057001;
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (=big5-cdp-var-005	. #x877E)	; &CDP-v005-877E;
+    ))
+(define-char
+  '((<-denotational
+     ((=>mj		  . 057001)	; &A-MJ057001;
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (=mj		. 057001)	; &MJ057001;
+    (=big5-cdp		. #x877E)	; &I-CDP-877E;
+    (=koseki		. 017950)	; &MJ057001;
+    (<-formed
+     ((=ucs		  . #x5189)	; 冉
+      ))
+    (->subsumptive
+     ((==mj		  . 057001)	; &g2-MJ057001;
+      (==big5-cdp	  . #x877E)	; &g2-MJ057001;
+      (==koseki		  . 017950)	; &g2-MJ057001;
+      (->subsumptive
+       ((===mj		    . 057001)	; &R-MJ057001;
+	)
+       ((===big5-cdp	    . #x877E)	; &R-CDP-877E;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
       (=ucs		  . #x2FF5)	; ⿵
@@ -1281,6 +1321,26 @@
     (total-strokes	 . 7)
     (=ucs		. #x20553)	; 𠕓
     (=cns11643-5	. #x233A)	; &I-C5-233A; [03-26]
+    ))
+(define-char
+  '((ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x5182)	; 冂
+      )
+     ((=ucs		  . #x53E4)	; 古
+      ))
+    (=ucs		. #x2A78E)	; 𪞎
+    (=big5-cdp		. #x8C6C)	; &I-CDP-8C6C;
+    (->subsumptive
+     ((==ucs@iso	  . #x2A78E)	; &g2-IU-0002A78E;
+      )
+     ((==big5-cdp	  . #x8C6C)	; &g2-CDP-8C6C;
+      ))
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
