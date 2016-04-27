@@ -689,7 +689,7 @@
      ((name		  . "CJK RADICAL PAW ONE")
       (=ucs		  . #x2EA4)	; ⺤
       )
-     ((=big5-cdp	  . #x877E)	; &CDP-877E;
+     ((=mj		  . 057001)	; &MJ057001;
       ))
     (=mj		. 058016)	; &MJ058016;
     (=hanyo-denshi/ks	. 221650)	; &MJ058016;
