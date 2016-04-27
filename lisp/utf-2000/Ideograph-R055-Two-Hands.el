@@ -113,7 +113,10 @@
     (=big5-cdp		. #x8B6F)	; &I-CDP-8B6F;
     ))
 (define-char
-  '((ideographic-radical . 55)	; ⼶
+  '((<-denotational
+     ((==>ucs@bucs	  . #x8FA8)	; &BUCS+8FA8;
+      ))
+    (ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (=ucs		. #x5F01)	; 弁
