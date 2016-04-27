@@ -1,3 +1,31 @@
+2016-04-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R160-Bitter.el (U+8F9B-itaiji-002): New character; add
+	`<-formed' for U+8F9B.
+	(U+8F9B-itaiji-003): Likewise.
+	(BUCS+8F9F): New abstract node.
+	(U+8F9F): Add `<-denotational' for BUCS+8F9F.
+	(MJ058831): New character; add `<-denotational' for BUCS+8F9F;
+	unify KOSEKI-436990; add `<-formed' for U+8F9F; add HNG-KHM0133-0.
+	(U+8FA1-itaiji-001): New character; add `<-formed' for U+8FA1.
+	(U+8FA1): Unify JC3-67A1.
+	(BUCS+8FA8): New abstract node.
+	(U+8FA7): Add `<-denotational' for BUCS+8FA8.
+	(HNG-KHM0543-0): New character; add `<-denotational' for
+	BUCS+8FA8; add `<-formed' for U+8FA8.
+	(U+8FA8): Add `<-denotational' for BUCS+8FA8.
+
+	* Ideograph-R055-Two-Hands.el (U+5F01): Add `<-denotational' for
+	BUCS+8FA8.
+
+	* Ideograph-R013-Down-Box.el (A-BC-877E): New abstract character;
+	unify A-MJ057001.
+	(BC-877E-var-005): New character; add `<-denotational' for
+	A-MJ057001.
+	(MJ057001): Likewise; unify BC-877E and KOSEKI-017950; add
+	`<-formed' for U+5189.
+	(U-0002A78E): New character; unify BC-8C6C.
+
 2016-04-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R159-Cart.el: Add glyph-images of HNG-KHM.
