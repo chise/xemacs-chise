@@ -1,3 +1,30 @@
+2016-04-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R174-Blue.el (BUCS+975C): New abstract node.
+	(U+9759): Add `<-denotational' for BUCS+975C; apply new
+	glyph-image conventions.
+	(HNG-KHM0576-0): New character; add `<-denotational' for
+	BUCS+975C; add `<-formed' for U+9759 and U+975C.
+	(U+975C): Add `<-denotational' for BUCS+975C.
+
+	* Ideograph-R165-Distinguish.el (HNG-KHM0141-0): New character;
+	add `<-denotational' for BUCS+91CB; add `<-formed' for U+91CB.
+
+	* Ideograph-R187-Horse.el (U+9A5A): Separate A-UU+9A5A.
+	(A-UU+9A5A): Add `=>ucs@iwds-1'.
+	(HNG-KHM0154-0): New character; add `<-denotational' for U+9A5A.
+
+	* Ideograph-R172-Short-Tailed-Bird.el: Add glyph-images of
+	HNG-KHM.
+
+	* Ideograph-R166-Village.el: Add glyph-images of HNG-KHM.
+
+2016-04-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (U+5234): Apply new glyph-image
+	conventions.
+	(U+5241): Likewise.
+
 2016-04-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R168-Long.el (U+9577): Add HNG-KHM0560-0.
