@@ -1,5 +1,48 @@
 2016-04-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R168-Long.el (U+9577): Add HNG-KHM0560-0.
+
+	* Ideograph-R162-Walk.el: Add glyph-images of HNG-KHM.
+	(A-MJ058863): New abstract node; add `<-denotational' for
+	BUCS+9084.
+	(HNG-KHI0591-0): Use A-MJ058863 instead of BUCS+9084 as the
+	mother; use U+7758-itaiji-001 instead of U+7758-itaiji-003 in
+	`ideographic-structure'.
+	(MJ058863): New character; add `<-denotational' for A-MJ058863;
+	unify KOSEKI-443350.
+	(U+9000-var-002): New character to subsume HNG-KHI0583-0 and
+	HNG-KHM0544-0; add `<-denotational' for U+9000.
+	(MJ058857): Add `<-formed' for U+9060.
+	(CU+903A): Likewise.
+	(HNG-KHI0595-0): Use `<-subsumptive' for CU+903A instead of
+	`<-denotational' for U+903A.
+	(HNG-KHM0553-0): New character; add `<-denotational' for U+9047.
+	(A-MJ058856): New abstract character; add `<-denotational' for
+	U+904E.
+	(MJ058856): New character; add `<-denotational' for A-MJ058856;
+	unify HD-KS441950.
+	(U+904E-itaiji-002): New character to subsume HNG-KHI0594-0 and
+	HNG-KHM0554-0; add `<-denotational' for A-MJ058856.
+	(U+9084): Separate A-UU+9084.
+	(A-UU+9084): Add `=>ucs@iwds-1'.
+	(A-MJ058868): New abstract character; add `<-denotational' for
+	U+9084.
+	(HNG-KHM0546-0): New character; add `<-denotational' for
+	A-MJ058868.
+	(MJ058868): Likewise; unify HD-KS444050.
+	(A-MJ060240): New abstract character; add `<-denotational' for
+	U+908A.
+	(HNG-KHM0556-0): New character; add `<-denotational' for
+	A-MJ060240.
+	(HD-TK01090430): Likewise.
+	(AJ1-14236): Use A-MJ060240 instead of U+908A as the mother; unify
+	MJ060240, HD-JT-BD45 and HD-TK01090290.
+	(MJ026207): New glyph-form; add `<-subsumptive' for MJ060240;
+	unify HD-JT-C0D6.
+
+	* Ideograph-R149-Speech.el (U+8B2B): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
 	* Ideograph-R008-Lid.el (MJ056895): New character; add
 	`<-denotational' for U+4EAB; unify HD-KS003860.
 	(HNG-KAK0272-0): Use `<-subsumptive' for g2-MJ056895 instead of
