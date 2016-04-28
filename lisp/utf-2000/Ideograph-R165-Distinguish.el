@@ -203,6 +203,26 @@
     ))
 (define-char
   '((<-denotational
+     ((==>ucs@bucs	  . #x91CB)	; &BUCS+91CB;
+      ))
+    (ideographic-radical . 165)	; ⾤
+    (ideographic-strokes . 14)
+    (total-strokes	 . 21)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x91C6)	; 釆
+      )
+     ((=mj		  . 058176)	; &MJ058176;
+      ))
+    (===hng-khm		. 01410)	; &HNG011-01410;
+    (<-formed
+     ((=ucs		  . #x91CB)	; 釋
+      ))
+    ))
+(define-char
+  '((<-denotational
      ((=ucs		  . #x91C8)	; 釈
       ))
     (ideographic-radical . 165)	; ⾤
