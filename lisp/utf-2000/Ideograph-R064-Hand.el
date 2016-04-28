@@ -5805,25 +5805,14 @@
     (=daikanwa		. 12050)	; &I-M-12050;
     (=jef-china3	. #x4FC5)	; &I-JC3-4FC5;
     (<-avoiding-taboo
-     ((=>ucs@iwds-1	  . #x6821)	; &GT-18734;
-      (=ucs@unicode	  . #x6821)	; &GT-18734;
-      (=jis-x0208	  . #x393B)	; &GT-18734; [25-27]
-      (=gb2312		  . #x5023)	; &I-G0-5023; [48-03]
-      (=ks-x1001	  . #x4E68)	; &I-K0-4E68; [46-72]
-      (=cns11643-1	  . #x5577)	; &I-C1-5577; [53-87]
-      (=jis-x0213-1	  . #x393B)	; &I-JX1-393B; [25-27]
-      (=daikanwa	  . 14713)	; &I-M-14713;
+     ((=ucs@unicode	  . #x6821)	; &AJ1-01997;
+      (=adobe-japan1-0	  . 01997)	; &AJ1-01997;
       ))
     (<-avoiding-taboo*sources
      zhengzitong)
     (<-interchangeable
-     ((=>ucs@iwds-1	  . #x6821)	; &GT-18734;
-      (=ucs@unicode	  . #x6821)	; &GT-18734;
-      (=jis-x0208	  . #x393B)	; &GT-18734; [25-27]
-      (=gb2312		  . #x5023)	; &I-G0-5023; [48-03]
-      (=ks-x1001	  . #x4E68)	; &I-K0-4E68; [46-72]
-      (=cns11643-1	  . #x5577)	; &I-C1-5577; [53-87]
-      (=jis-x0213-1	  . #x393B)	; &I-JX1-393B; [25-27]
+     ((=ucs@unicode	  . #x6821)	; &AJ1-01997;
+      (=adobe-japan1-0	  . 01997)	; &AJ1-01997;
       (=daikanwa	  . 14713)	; &I-M-14713;
       ))
     (<-interchangeable*sources
