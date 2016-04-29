@@ -1,5 +1,20 @@
 2016-04-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R120-Silk.el (g2-MJ020327): Add
+	`ideographic-structure'.
+
+	* Ideograph-R087-Claw.el (BUCS+722D): Separate A-compU+722D and
+	IWDS1-0314.
+
+	* Ideograph-R033-Scholar.el (U+58F4): Separate UU+58F4.
+	(MJ009392): New character; use `<-denotational' for U+58F4; unify
+	HD-KS058120.
+
+	* Ideograph-R006-Hook.el (U+4E89): Use IWDS1-0314 instead of
+	BUCS+722D as the mother.
+	(U+4E89-itaiji-003): New character; use `<-denotational' for
+	BUCS+722D; use `<-formed' for U+4E89 and U+722D.
+
 	* Ideograph-R174-Blue.el (BUCS+975C): New abstract node.
 	(U+9759): Add `<-denotational' for BUCS+975C; apply new
 	glyph-image conventions.
