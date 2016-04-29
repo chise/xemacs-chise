@@ -3132,11 +3132,7 @@
     (=daikanwa		. 03193)	; &I-M-03193;
     (=hanziku-1		. #xF85E)	; &I-HZK01-F85E;
     (<-Zhouwen
-     ((=ucs@unicode	  . #x6851)	; &GT-18778;
-      (=jis-x0208	  . #x372C)	; &GT-18778; [23-12]
-      (=gb2312		  . #x4923)	; &I-G0-4923; [41-03]
-      (=ks-x1001	  . #x5F4D)	; &I-K0-5F4D; [63-45]
-      (=jis-x0213-1	  . #x372C)	; &I-JX1-372C; [23-12]
+     ((=ucs		  . #x6851)	; 桑
       (=daikanwa	  . 14772)	; &I-M-14772;
       ))
     (<-Zhouwen*sources
