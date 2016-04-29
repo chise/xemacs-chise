@@ -114,6 +114,17 @@
     (=ucs@JP/hanazono	. nil)
     (=gb2312		. #x3245)	; &C1-445F; [18-37]
     (=cns11643-1	. #x445F)	; &I-C1-445F; [36-63]
+    (->subsumptive
+     ((==ucs@unicode	  . #x624D)	; &g2-UU+624D;
+      (==ucs@JP/hanazono  . nil)
+      (==gb2312		  . #x3245)	; &g2-UU+624D; [18-37]
+      (==cns11643-1	  . #x445F)	; &g2-UU+624D; [36-63]
+      (->subsumptive
+       ((===cns11643-1	    . #x445F)	; &R-C1-445F; [36-63]
+	)
+       ((===ucs@unicode	    . #x624D)	; &R-UU+624D;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
