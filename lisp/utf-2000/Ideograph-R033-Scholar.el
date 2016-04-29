@@ -542,7 +542,6 @@
   '((ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (hanyu-dazidian	1 439 6)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -551,9 +550,19 @@
       )
      ((=ucs		  . #x8C46)	; 豆
       ))
-    (sound@ja/on	"syu" "tyu")
     (=ucs		. #x58F4)	; 壴
-    (=adobe-japan1-5	. 17467)	; &I-AJ1-17467;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x58F4)	; 壴
+      ))
+    (ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (hanyu-dazidian	1 439 6)
+    (sound@ja/on	"syu" "tyu")
+    (=ucs@unicode	. #x58F4)	; &AJ1-17467;
+    (=adobe-japan1-5	. 17467)	; &AJ1-17467;
     (=cns11643-2	. #x2960)	; &I-C2-2960; [09-64]
     (=jis-x0213-2	. #x2537)	; &I-JX2-2537; [05-23]
     (=big5		. #xCE5F)	; &I-B-CE5F;
@@ -595,7 +604,28 @@
     (=gt-k		. 05309)	; &GT-K05309;
     (=gt-pj-k1		. #x347E)	; &GT-K05309; [20-94]
     (<-formed@component/connect-right
+     ((=ucs@unicode	  . #x58F4)	; &AJ1-17467;
+      (=adobe-japan1-5	  . 17467)	; &AJ1-17467;
+      ))
+    ))
+(define-char
+  '((<-denotational
      ((=ucs		  . #x58F4)	; 壴
+      ))
+    (ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (=mj		. 009392)	; &MJ009392;
+    (=hanyo-denshi/ks	. 058120)	; &MJ009392;
+    (->subsumptive
+     ((==mj		  . 009392)	; &g2-MJ009392;
+      (==hanyo-denshi/ks  . 058120)	; &g2-MJ009392;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 058120)	; &R-HD-KS-058120;
+	(=hanyo-denshi/ks/mf . #x16B4)	; &R-HD-KS-058120;
+	)
+       ((===mj		    . 009392)	; &R-MJ009392;
+	))
       ))
     ))
 (define-char
