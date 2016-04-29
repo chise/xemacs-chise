@@ -5600,9 +5600,10 @@
     (ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
-    (=>ucs@iwds-1	. #x871C)	; &GT-44848;
-    (=ucs@unicode	. #x871C)	; &GT-44848;
-    (=jis-x0208		. #x4C2A)	; &GT-44848; [44-10]
+    (=>ucs@iwds-1	. #x871C)	; &AJ1-03766;
+    (=ucs@unicode	. #x871C)	; &AJ1-03766;
+    (=adobe-japan1-0	. 03766)	; &AJ1-03766;
+    (=jis-x0208		. #x4C2A)	; &I-J90-4C2A; [44-10]
     (=gb2312		. #x435B)	; &I-G0-435B; [35-59]
     (=ks-x1001		. #x5A4C)	; &I-K0-5A4C; [58-44]
     (=cns11643-1	. #x6A6D)	; &I-C1-6A6D; [74-77]
@@ -5612,25 +5613,28 @@
     (=gt-k		. 11182)	; &I-GT-K11182;
     (=gt-pj-1		. #x4C2A)	; &I-GT-44848; [44-10]
     (=daikanwa		. 33143)	; &I-M-33143;
-    (=shinjigen@1ed	.  7212)	; &GT-44848;
-    (=shinjigen@rev	.  7213)	; &GT-44848;
+    (=shinjigen@1ed	.  7212)	; &AJ1-03766;
+    (=shinjigen@rev	.  7213)	; &AJ1-03766;
     (->subsumptive
-     ((==ucs@unicode	  . #x871C)	; &g2-GT-44848;
-      (==gb2312		  . #x435B)	; &g2-GT-44848; [35-59]
-      (==ks-x1001	  . #x5A4C)	; &g2-GT-44848; [58-44]
-      (==jis-x0208	  . #x4C2A)	; &g2-GT-44848; [44-10]
-      (==cns11643-1	  . #x6A6D)	; &g2-GT-44848; [74-77]
-      (==jis-x0213-1	  . #x4C2A)	; &g2-GT-44848; [44-10]
-      (==gt		  . 44848)	; &g2-GT-44848;
-      (==gt-k		  . 11182)	; &g2-GT-44848;
-      (==daikanwa	  . 33143)	; &g2-GT-44848;
-      (==shinjigen@1ed	  .  7212)	; &g2-GT-44848;
-      (==shinjigen@rev	  .  7213)	; &g2-GT-44848;
+     ((==ucs@unicode	  . #x871C)	; &g2-AJ1-03766;
+      (==adobe-japan1-0	  . 03766)	; &g2-AJ1-03766;
+      (==gb2312		  . #x435B)	; &g2-AJ1-03766; [35-59]
+      (==ks-x1001	  . #x5A4C)	; &g2-AJ1-03766; [58-44]
+      (==jis-x0208	  . #x4C2A)	; &g2-AJ1-03766; [44-10]
+      (==cns11643-1	  . #x6A6D)	; &g2-AJ1-03766; [74-77]
+      (==jis-x0213-1	  . #x4C2A)	; &g2-AJ1-03766; [44-10]
+      (==gt		  . 44848)	; &g2-AJ1-03766;
+      (==gt-k		  . 11182)	; &g2-AJ1-03766;
+      (==daikanwa	  . 33143)	; &g2-AJ1-03766;
+      (==shinjigen@1ed	  .  7212)	; &g2-AJ1-03766;
+      (==shinjigen@rev	  .  7213)	; &g2-AJ1-03766;
       (->subsumptive
        ((===daikanwa	    . 33143)	; &R-M-33143;
 	)
        ((===jis-x0208	    . #x4C2A)	; &R-J0-4C2A; [44-10]
 	(===jis-x0213-1	    . #x4C2A)	; &R-J0-4C2A; [44-10]
+	)
+       ((===adobe-japan1-0  . 03766)	; &R-AJ1-03766;
 	)
        ((===gt		    . 44848)	; &R-GT-44848;
 	(===gt-k	    . 11182)	; &R-GT-44848;
