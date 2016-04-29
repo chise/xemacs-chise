@@ -330,13 +330,19 @@
 (define-char
   '((ideographic-radical . 87)	; ⽖
     (==>ucs@bucs	. #x722D)	; &BUCS+722D;
-    (=>ucs@component	. #x722D)	; &BUCS+722D;
-    (=>iwds-1		.  0314)	; &BUCS+722D;
     ))
 (define-char
   '((<-denotational
      ((==>ucs@bucs	  . #x722D)	; &BUCS+722D;
-      (=>ucs@component	  . #x722D)	; &BUCS+722D;
+      ))
+    (ideographic-radical . 87)	; ⽖
+    (=>ucs@component	. #x722D)	; &IWDS1-314;
+    (=>iwds-1		.  0314)	; &IWDS1-314;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x722D)	; &IWDS1-314;
+      (=>iwds-1		  .  0314)	; &IWDS1-314;
       ))
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 4)
