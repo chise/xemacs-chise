@@ -3172,8 +3172,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((==ucs@unicode	    . #x7ACB)	; &g2-GT-33181;
-	(==jis-x0208	    . #x4E29)	; &g2-GT-33181; [46-09]
+       ((==ucs@unicode	    . #x7ACB)	; &g2-AJ1-03953;
+	(==adobe-japan1-0   . 03953)	; &g2-AJ1-03953;
 	)
        ((==ucs@unicode	    . #x5973)	; &g2-AJ1-02433;
 	(==adobe-japan1-0   . 02433)	; &g2-AJ1-02433;
@@ -3208,8 +3208,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((==ucs@unicode	    . #x7ACB)	; &g2-GT-33181;
-	(==jis-x0208	    . #x4E29)	; &g2-GT-33181; [46-09]
+       ((==ucs@unicode	    . #x7ACB)	; &g2-AJ1-03953;
+	(==adobe-japan1-0   . 03953)	; &g2-AJ1-03953;
 	)
        ((==ucs@cns	    . #x5973)	; &g2-CU+5973;
 	(==cns11643-1	    . #x444C)	; &g2-CU+5973; [36-44]
