@@ -367,8 +367,8 @@
     ))
 (define-char
   '((<-denotational
-     ((==>ucs@bucs	  . #x722D)	; &BUCS+722D;
-      (=>ucs@component	  . #x722D)	; &BUCS+722D;
+     ((=>ucs@component	  . #x722D)	; &IWDS1-314;
+      (=>iwds-1		  .  0314)	; &IWDS1-314;
       ))
     (ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 5)
@@ -397,7 +397,9 @@
     (=shinjigen		.  4698)	; 争
     (=hanziku-1		. #xE8D1)	; &I-HZK01-E8D1;
     (<-simplified@CN
-     ((=gb12345		  . #x5579)	; &C1-4E68; [53-89]
+     ((=ucs@unicode	  . #x722D)	; &C1-4E68;
+      (=cns11643-1	  . #x4E68)	; &C1-4E68; [46-72]
+      (=gb12345		  . #x5579)	; &C1-4E68; [53-89]
       ))
     (<-simplified@JP/Jouyou
      ((=ucs@jis		  . #x722D)	; &GT-25238;
@@ -517,6 +519,20 @@
       ))
     (<-vulgar*sources
      songyuan-yilai-suzipu daikanwa shinjigen@1ed)
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x722D)	; &BUCS+722D;
+      ))
+    (ideographic-radical . 6)	; ⼅
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (=ucs-itaiji-003	. #x4E89)	; &U-i003+4E89;
+    (<-formed
+     ((=ucs		  . #x4E89)	; 争
+      )
+     ((=ucs		  . #x722D)	; 爭
+      ))
     ))
 (define-char
   '((ideographic-radical . 6)	; ⼅
