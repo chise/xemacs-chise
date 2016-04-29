@@ -1,3 +1,14 @@
+2016-04-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R118-Bamboo.el (U+7B8B): Apply new glyph-image
+	conventions.
+	(UU+7BAD): Unify AJ1-02721.
+
+2016-04-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R091-Slice.el (U+724B): Apply new glyph-image
+	conventions.
+
 2016-04-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R120-Silk.el (g2-MJ020327): Add
@@ -874,7 +885,7 @@
 	* Ideograph-R162-Walk.el:
 	- Add some Adobe-Japan1 code points.
 	- Add `=decomposition@cid' for some Adobe-Japan1 abstract
-	glyph-forms.
+	  glyph-forms.
 	(U-0002856A): Apply new conventions for glyph granularity.
 	(U+9089): Separate A-IWDSU+9089.
 	(AJ1-14241): New character; add `<-denotational' for U+9089.
