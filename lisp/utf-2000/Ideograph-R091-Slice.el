@@ -646,35 +646,59 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=ucs		. #x724B)	; 牋
+    (=adobe-japan1-0	. 05609)	; &I-AJ1-05609;
+    (=jis-x0208		. #x6030)	; &I-J90-6030; [64-16]
+    (=cns11643-2	. #x3D6A)	; &I-C2-3D6A; [29-74]
+    (=jis-x0213-1	. #x6030)	; &I-JX1-6030; [64-16]
     (=big5		. #xDA66)	; &I-B-DA66;
+    (=gt		. 25489)	; &I-GT-25489;
+    (=gt-k		. 09210)	; &I-GT-K09210;
+    (=gt-pj-1		. #x6030)	; &I-GT-25489; [64-16]
+    (=daikanwa		. 19849)	; &I-M-19849;
+    (=shinjigen		.  5825)	; 牋
+    (<-formed
+     ((=ucs		  . #x7B8B)	; 箋
+      (=jis-x0208	  . #x6435)	; &I-J90-6435; [68-21]
+      (=shinjigen	  .  5824)	; 箋
+      ))
+    (<-formed*sources
+     jiyun shinjigen)
+    (<-same
+     ((=ucs		  . #x7B8B)	; 箋
+      (=daikanwa	  . 26122)	; &I-M-26122;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (->ancient
+     ((=daikanwa	  . 15088)	; &M-15088;
+      ))
+    (->ancient*sources
+     yupian daikanwa)
     (->subsumptive
-     ((=ucs@unicode	  . #x724B)	; &GT-25489;
-      (=jis-x0208	  . #x6030)	; &GT-25489; [64-16]
-      (=jis-x0213-1	  . #x6030)	; &I-JX1-6030; [64-16]
-      (=gt		  . 25489)	; &I-GT-25489;
-      (=gt-k		  . 09210)	; &I-GT-K09210;
-      (=gt-pj-1		  . #x6030)	; &I-GT-25489; [64-16]
-      (=daikanwa	  . 19849)	; &I-M-19849;
-      (=shinjigen	  .  5825)	; &GT-25489;
-      (<-formed
-       ((=daikanwa	    . 26122)	; &M-26122;
-	(=shinjigen	    .  5824)	; &M-26122;
+     ((==ucs@unicode	  . #x724B)	; &g2-AJ1-05609;
+      (==adobe-japan1-0	  . 05609)	; &g2-AJ1-05609;
+      (==jis-x0208	  . #x6030)	; &g2-AJ1-05609; [64-16]
+      (==jis-x0213-1	  . #x6030)	; &g2-AJ1-05609; [64-16]
+      (==gt		  . 25489)	; &g2-AJ1-05609;
+      (==gt-k		  . 09210)	; &g2-AJ1-05609;
+      (==daikanwa	  . 19849)	; &g2-AJ1-05609;
+      (==shinjigen	  .  5825)	; &g2-AJ1-05609;
+      (->subsumptive
+       ((===daikanwa	    . 19849)	; &R-M-19849;
+	)
+       ((===jis-x0208	    . #x6030)	; &R-J0-6030; [64-16]
+	(===jis-x0213-1	    . #x6030)	; &R-J0-6030; [64-16]
+	)
+       ((===adobe-japan1-0  . 05609)	; &R-AJ1-05609;
+	)
+       ((===gt		    . 25489)	; &R-GT-25489;
+	(===gt-k	    . 09210)	; &R-GT-25489;
+	)
+       ((===ucs@unicode	    . #x724B)	; &R-UU+724B;
 	))
-      (<-formed*sources
-       jiyun shinjigen)
-      (<-same
-       ((=daikanwa	    . 26122)	; &M-26122;
-	))
-      (<-same*sources
-       jiyun daikanwa)
-      (->ancient
-       ((=daikanwa	    . 15088)	; &M-15088;
-	))
-      (->ancient*sources
-       yupian daikanwa)
       )
-     ((=ucs@cns		  . #x724B)	; &C2-3D6A;
-      (=cns11643-2	  . #x3D6A)	; &C2-3D6A; [29-74]
+     ((==ucs@cns	  . #x724B)	; &g2-CU+724B;
+      (==cns11643-2	  . #x3D6A)	; &g2-CU+724B; [29-74]
       ))
     ))
 (define-char
