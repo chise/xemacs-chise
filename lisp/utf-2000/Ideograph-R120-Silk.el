@@ -12064,8 +12064,8 @@
 	(==ucs@jis	    . #x7CF8)	; &g2-AJ1-02227;
 	(==adobe-japan1-0   . 02227)	; &g2-AJ1-02227;
 	)
-       ((==ucs@unicode	    . #x6771)	; &g2-GT-18504;
-	(==jis-x0208	    . #x456C)	; &g2-GT-18504; [37-76]
+       ((==ucs@unicode	    . #x6771)	; &g2-AJ1-03174;
+	(==adobe-japan1-0   . 03174)	; &g2-AJ1-03174;
 	))
       (==ucs@jis	  . #x7DF4)	; &g2-AJ1-04037;
       (==adobe-japan1-0	  . 04037)	; &g2-AJ1-04037;
@@ -16439,18 +16439,26 @@
       )
      ((=ucs		  . #x7CF8)	; 糸
       )
-     ((=ucs@unicode	  . #x8FB1)	; &GT-51624;
-      (=jis-x0208	  . #x3F2B)	; &GT-51624; [31-11]
-      (=gb2312		  . #x4868)	; &I-G0-4868; [40-72]
-      (=ks-x1001	  . #x6934)	; &I-K0-6934; [73-20]
-      (=jis-x0213-1	  . #x3F2B)	; &I-JX1-3F2B; [31-11]
-      (=daikanwa	  . 38686)	; &I-M-38686;
+     ((=ucs@unicode	  . #x8FB1)	; &AJ1-02545;
+      (=adobe-japan1-0	  . 02545)	; &AJ1-02545;
       ))
     (=mj		. 020327)	; &MJ020327;
     (=shinjigen@1ed	.  6149)	; &MJ020327;
     (=shinjigen@rev	.  6151)	; &MJ020327;
     (->subsumptive
-     ((==mj		  . 020327)	; &g2-MJ020327;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((==ucs@cns	    . #x7CF8)	; &g2-AJ1-02227;
+	(==ucs@jis	    . #x7CF8)	; &g2-AJ1-02227;
+	(==adobe-japan1-0   . 02227)	; &g2-AJ1-02227;
+	)
+       ((==ucs@jis	    . #x8FB1)	; &g2-AJ1-02545;
+	(==ucs@ks	    . #x8FB1)	; &g2-AJ1-02545;
+	(==adobe-japan1-0   . 02545)	; &g2-AJ1-02545;
+	))
+      (==mj		  . 020327)	; &g2-MJ020327;
       (==shinjigen@1ed	  .  6149)	; &g2-MJ020327;
       (==shinjigen@rev	  .  6151)	; &g2-MJ020327;
       ))
