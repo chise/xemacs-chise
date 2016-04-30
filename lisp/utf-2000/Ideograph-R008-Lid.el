@@ -2168,6 +2168,14 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (hanyu-dazidian	4 2707 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7ACB)	; 立
+      )
+     ((=ucs		  . #x6728)	; 木
+      ))
     (=ucs		. #x4EB2)	; 亲
     (=gb2312		. #x4757)	; &I-G0-4757; [39-55]
     (=cns11643-3	. #x2B24)	; &I-C3-2B24; [11-04]
@@ -2179,36 +2187,40 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((==ucs@unicode	    . #x7ACB)	; &g2-GT-33181;
-	(==jis-x0208	    . #x4E29)	; &g2-GT-33181; [46-09]
+       ((==ucs@unicode	    . #x7ACB)	; &g2-AJ1-03953;
+	(==adobe-japan1-0   . 03953)	; &g2-AJ1-03953;
 	)
        ((=ucs		    . #x6728)	; 木
 	))
       (==daikanwa	  . 00311)	; &g2-M-00311;
       )
-     ((==ucs@cns	  . #x4EB2)	; &g2-CDP-8BA7;
-      (==cns11643-3	  . #x2B24)	; &g2-CDP-8BA7; [11-04]
-      (==big5-cdp	  . #x8BA7)	; &g2-CDP-8BA7;
-      (==jef-china3	  . #x81D2)	; &g2-CDP-8BA7;
-      (->subsumptive
-       ((===big5-cdp	    . #x8BA7)	; &R-CDP-8BA7;
-	)
-       ((===jef-china3	    . #x81D2)	; &R-JC3-81D2;
-	)
-       ((===cns11643-3	    . #x2B24)	; &R-C3-2B24; [11-04]
-	))
-      )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((==ucs@unicode	    . #x7ACB)	; &g2-GT-33181;
-	(==jis-x0208	    . #x4E29)	; &g2-GT-33181; [46-09]
+       ((=ucs		    . #x7ACB)	; 立
 	)
        ((=ucs		    . #x6729)	; 朩
 	))
-      (==ucs@unicode	  . #x4EB2)	; &g2-UU+4EB2;
-      (==gb2312		  . #x4757)	; &g2-UU+4EB2; [39-55]
+      (=>>ucs@unicode	  . #x4EB2)	; &G-CDP-8BA7;
+      (=>>big5-cdp	  . #x8BA7)	; &G-CDP-8BA7;
+      (->subsumptive
+       ((==ucs@cns	    . #x4EB2)	; &g2-CDP-8BA7;
+	(==cns11643-3	    . #x2B24)	; &g2-CDP-8BA7; [11-04]
+	(==big5-cdp	    . #x8BA7)	; &g2-CDP-8BA7;
+	(==jef-china3	    . #x81D2)	; &g2-CDP-8BA7;
+	(->subsumptive
+	 ((===big5-cdp	      . #x8BA7)	; &R-CDP-8BA7;
+	  )
+	 ((===cns11643-3      . #x2B24)	; &R-C3-2B24; [11-04]
+	  )
+	 ((===jef-china3      . #x81D2)	; &R-JC3-81D2;
+	  ))
+	)
+       ((==ucs@unicode	    . #x4EB2)	; &g2-UU+4EB2;
+	(==ucs@JP/hanazono  . nil)
+	(==gb2312	    . #x4757)	; &g2-UU+4EB2; [39-55]
+	))
       ))
     ))
 (define-char
