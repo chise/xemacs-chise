@@ -1,3 +1,13 @@
+2016-04-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R212-Dragon.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R152-Pig.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R009-Man.el (U+5068): Apply new conventions for glyph
+	granularity.
+	(U+3489): Likewise.
+
 2016-04-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R161-Morning.el: Add some Adobe-Japan1-0 code points.
