@@ -13852,11 +13852,10 @@
     (=daikanwa		. 40710)	; &I-M-40710;
     (=shinjigen		.  9506)	; &JSP-652E;
     (<-formed
-     ((=ucs@jis		  . #x9B32)	; &GT-61436;
-      (=jis-x0208	  . #x722F)	; &GT-61436; [82-15]
-      (=jis-x0213-1	  . #x722F)	; &I-JX1-722F; [82-15]
-      (=daikanwa	  . 45672)	; &I-M-45672;
-      (=shinjigen	  .  9503)	; &GT-61436;
+     ((=ucs@jis		  . #x9B32)	; &AJ1-07300;
+      (=adobe-japan1-0	  . 07300)	; &AJ1-07300;
+      (=jis-x0208	  . #x722F)	; &I-J90-722F; [82-15]
+      (=shinjigen	  .  9503)	; &AJ1-07300;
       ))
     (<-formed*sources
      shinjigen)
