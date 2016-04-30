@@ -1,5 +1,37 @@
 2016-04-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R161-Morning.el: Add some Adobe-Japan1-0 code points.
+	(BUCS+8FB0): New abstract node.
+	(U+8FB0): Add `<-denotational' for BUCS+8FB0.
+	(MJ058835): New character; use `<-denotational' for BUCS+8FB0;
+	unify KOSEKI-437400; use `<-formed' for U+8FB0.
+
+	* Ideograph-R119-Rice.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 abstract
+	  glyph-forms.	
+	(U+7C7B): Apply new conventions for glyph granularity.
+	(UU+7C7B): Add `sound@ja/on'; add `<-same' for UU+985E.
+	(AJ1-14094): New character; add `<-denotational' for U+7C7B; unify
+	BC-8C59.
+	(U-00025E2D): Apply new conventions for glyph granularity.
+	(IU+25E2D): Add `sound@ja/on'; add `<-same' for UU+63AC.
+	(U-00025F36): Add `<-denotational' for BUCS+91CB; unify MJ044341
+	and KOSEKI-303470; add `<-formed' for U+91CB.
+
+	* Ideograph-R117-Stand.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R086-Fire.el (g2-CU+71D1): Omit
+	`ideographic-structure'.
+
+	* Ideograph-R015-Ice.el (U+51AB): Add representative nodes.
+	(JU+51C8): Likewise.
+
+	* Ideograph-R008-Lid.el (U+4EB2): Add ideographic-structure.
+	(G-UU+4EB2): New detailed glyph to subsume CU+4EB2 and UU+4EB2.
+
+2016-04-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R142-Insect.el (UU+871C): Unify AJ1-03766.
 
 	* Ideograph-R111-Arrow.el: Add some Adobe-Japan1-0 code points.
