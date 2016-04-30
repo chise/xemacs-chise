@@ -1,5 +1,25 @@
 2016-04-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R142-Insect.el (UU+871C): Unify AJ1-03766.
+
+	* Ideograph-R111-Arrow.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R113-Spirit.el (U-0002B7B4): New character.
+	(U+2B7B4-itaiji-002): New character; add `<-denotational' for
+	U-0002B7B4.
+	(MJ058205): Likewise; unify HD-KS276070; add `<-formed' for
+	U+796D.
+	(U-00025661): Apply new glyph-image conventions.
+	(CB00865): Add `<-denotational' for U-00025661; unify MH-0402; add
+	`<-vulgar' for JU+6834.
+	(IU+2B7B4): New character; add `<-denotational' for U-0002B7B4;
+	add `=>ucs@iwds-1'; unify MJ058207, HD-JT-B6D8 and KOSEKI-276350;
+	add `<-formed' for U+796D.
+	(MJ058209): New character; add `<-denotational' for U-0002B7B4;
+	unify HD-KS276370; add `<-formed' for U+796D.
+
+	* Ideograph-R064-Hand.el (UU+624D): Add representative nodes.
+
 	* Ideograph-R118-Bamboo.el (U+7B8B): Apply new glyph-image
 	conventions.
 	(UU+7BAD): Unify AJ1-02721.
