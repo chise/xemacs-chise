@@ -4691,7 +4691,7 @@
     (<-simplified@JP/Jouyou
      ((=ucs@unicode	  . #x985E)	; &AJ1-13396;
       (=ucs@jis		  . #xF9D0)	; &AJ1-13396;
-      (=adobe-japan1-4	  . 13396)	; &I-AJ1-13396;
+      (=adobe-japan1-4	  . 13396)	; &AJ1-13396;
       ))
     ))
 (define-char
@@ -5234,14 +5234,14 @@
     (=ucs@unicode	. #x985E)	; &AJ1-13396;
     (=ucs@jis		. #xF9D0)	; &AJ1-13396;
     (=ucs@JP/hanazono	. nil)
-    (=adobe-japan1-4	. 13396)	; &I-AJ1-13396;
+    (=adobe-japan1-4	. 13396)	; &AJ1-13396;
     (=ks-x1001		. #x573E)	; &I-K0-573E; [55-30]
     (=cns11643-1	. #x794B)	; &I-C1-794B; [89-43]
     (=jis-x0213-1	. #x7E24)	; &I-JX1-7E24; [94-04]
     (=gb12345		. #x4060)	; &AJ1-13396; [32-64]
     (=gt		. 58567)	; &I-GT-58567;
     (=gt-pj-8		. #x4237)	; &I-GT-58567; [34-23]
-    (=daikanwa		. 43636)	; &AJ1-13396;
+    (=daikanwa		. 43636)	; &I-M-43636;
     (=jef-china3	. #x6CF5)	; &I-JC3-6CF5;
     (->subsumptive
      ((==ucs@unicode	  . #x985E)	; &g2-AJ1-13396;
