@@ -1,3 +1,11 @@
+2016-05-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R119-Rice.el (U+7C7B): Add `<-denotational' for
+	BUCS+985E.
+	(UU+7C7B): Add `<-simplified@CN' for UU+985E.
+	(U+7C7B-itaiji-001): New character; use `<-denotational' for
+	BUCS+985E; use `<-formed' for U+7C7B.
+
 2016-04-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R085-Water.el (U+6E4F): Add `<-formed' for U+9808; add
