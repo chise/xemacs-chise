@@ -17096,6 +17096,11 @@
     (=daikanwa		. 17827)	; &I-M-17827;
     (=cbeta		. 00824)	; &I-CB00824;
     (=jef-china3	. #x56C9)	; &I-JC3-56C9;
+    (<-formed
+     ((=ucs		  . #x9808)	; 須
+      ))
+    (<-formed*sources
+     hng)
     (<-same
      ((=ucs		  . #x6CAC)	; 沬
       (=daikanwa	  . 17236)	; &I-M-17236;
@@ -17136,10 +17141,9 @@
        ((===cbeta	    . 00824)	; &R-CB00824;
 	))
       )
+     ((===hng-khm	  . 05810)	; &HNG011-05810;
+      )
      ((===hng-khi	  . 06180)	; &HNG010-06180;
-      (<-formed
-       ((=ucs		    . #x9808)	; 須
-	))
       ))
     ))
 (define-char
