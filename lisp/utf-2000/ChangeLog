@@ -1,5 +1,14 @@
 2016-04-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R085-Water.el (U+6E4F): Add `<-formed' for U+9808; add
+	HNG-KHM0581-0.
+
+	* Ideograph-R030-Mouth.el (U+5547): Apply new conventions for
+	glyph granularity.
+	(U+558D): Likewise.
+	(U+55B3): Likewise.
+	(U+55D3): Likewise.
+
 	* Ideograph-R182-Wind.el (U+98A8): Add HNG-KHM0586-0.
 
 	* Ideograph-R175-Wrong.el (U+975E): Add HNG-KHM0577-0.
