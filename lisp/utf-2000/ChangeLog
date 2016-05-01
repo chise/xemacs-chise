@@ -1,5 +1,11 @@
 2016-04-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R182-Wind.el (U+98A8): Add HNG-KHM0586-0.
+
+	* Ideograph-R175-Wrong.el (U+975E): Add HNG-KHM0577-0.
+
+2016-04-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R212-Dragon.el: Add some Adobe-Japan1-0 code points.
 
 	* Ideograph-R152-Pig.el: Add some Adobe-Japan1-0 code points.
