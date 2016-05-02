@@ -96,6 +96,8 @@
 	))
       )
      ((===hng-khi	  . 06190)	; &HNG010-06190;
+      )
+     ((===hng-khm	  . 01500)	; &HNG011-01500;
       ))
     ))
 (define-char
@@ -632,6 +634,8 @@
       (==ucs@JP/hanazono  . nil)
       (==gb12345	  . #x4B4C)	; &g2-UU+980C; [43-44]
       )
+     ((===hng-khm	  . 05850)	; &HNG011-05850;
+      )
      ((===hng-khi	  . 06210)	; &HNG010-06210;
       )
      ((==ucs@jis/1990	  . #x980C)	; &g2-AJ1-07180;
@@ -985,8 +989,23 @@
     ))
 (define-char
   '((ideographic-radical . 181)	; ⾴
+    (==>ucs@bucs	. #x9813)	; &BUCS+9813;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x9813)	; &BUCS+9813;
+      ))
+    (ideographic-radical . 181)	; ⾴
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5C6F)	; 屯
+      )
+     ((=ucs		  . #x9801)	; 頁
+      ))
     (=ucs		. #x9813)	; 頓
     (=+>hanyo-denshi/ft . #x3274)	; 頓 [18-84]
     (->subsumptive
@@ -1063,6 +1082,38 @@
 	  ))
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x9813)	; &BUCS+9813;
+      ))
+    (ideographic-radical . 181)	; ⾴
+    (ideographic-strokes . 4)
+    (total-strokes	 . 10)
+    (=ucs		. #x987F)	; 顿
+    (=gb2312		. #x3659)	; &I-G0-3659; [22-57]
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x9813)	; &C1-6761;
+      (=cns11643-1	  . #x6761)	; &C1-6761; [71-65]
+      (=gb12345		  . #x3659)	; &C1-6761; [22-57]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x9813)	; &BUCS+9813;
+      ))
+    (ideographic-radical . 181)	; ⾴
+    (ideographic-strokes . 4)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=big5-cdp	  . #x8AF0)	; &CDP-8AF0;
+      )
+     ((=ucs		  . #x9801)	; 頁
+      ))
+    (===hng-khm		. 01490)	; &HNG011-01490;
     ))
 (define-char
   '((ideographic-radical . 181)	; ⾴
@@ -1163,13 +1214,6 @@
     (total-strokes	 . 10)
     (=ucs		. #x987E)	; 顾
     (=gb2312		. #x394B)	; &I-G0-394B; [25-43]
-    ))
-(define-char
-  '((ideographic-radical . 181)	; ⾴
-    (ideographic-strokes . 4)
-    (total-strokes	 . 10)
-    (=ucs		. #x987F)	; 顿
-    (=gb2312		. #x3659)	; &I-G0-3659; [22-57]
     ))
 (define-char
   '((ideographic-radical . 181)	; ⾴
@@ -2735,6 +2779,8 @@
        ((===ucs@unicode	    . #x982D)	; &R-UU+982D;
 	))
       )
+     ((===hng-khm	  . 05840)	; &HNG011-05840;
+      )
      ((===hng-khi	  . 06170)	; &HNG010-06170;
       ))
     ))
@@ -3243,6 +3289,8 @@
 	)
        ((===jef-china3	    . #x6CFB)	; &R-JC3-6CFB;
 	))
+      )
+     ((===hng-khm	  . 01510)	; &HNG011-01510;
       ))
     ))
 (define-char
@@ -4672,6 +4720,21 @@
     ))
 (define-char
   '((ideographic-radical . 181)	; ⾴
+    (==>ucs@bucs	. #x985E)	; &BUCS+985E;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x985E)	; &BUCS+985E;
+      ))
+    (ideographic-radical . 181)	; ⾴
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7C7B)	; 类
+      )
+     ((=ucs		  . #x9801)	; 頁
+      ))
     (=ucs		. #x985E)	; 類
     ))
 (define-char
@@ -4681,6 +4744,17 @@
     (ideographic-radical . 181)	; ⾴
     (ideographic-strokes . 9)
     (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x7C7B)	; &C3-2E54;
+      (=gb2312		  . #x4060)	; &C3-2E54; [32-64]
+      (=cns11643-3	  . #x2E54)	; &I-C3-2E54; [14-52]
+      (=daikanwa	  . 26848)	; &I-M-26848;
+      )
+     ((=ucs		  . #x9801)	; 頁
+      ))
     (=ucs@jis		. #x985E)	; &AJ1-04008;
     (=adobe-japan1-0	. 04008)	; &AJ1-04008;
     (=jis-x0208		. #x4E60)	; &I-J90-4E60; [46-64]
@@ -4692,6 +4766,26 @@
      ((=ucs@unicode	  . #x985E)	; &AJ1-13396;
       (=ucs@jis		  . #xF9D0)	; &AJ1-13396;
       (=adobe-japan1-4	  . 13396)	; &AJ1-13396;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x985E)	; &BUCS+985E;
+      ))
+    (ideographic-radical . 181)	; ⾴
+    (ideographic-strokes . 9)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-itaiji-001	  . #x7C7B)	; &U-i001+7C7B;
+      )
+     ((=ucs		  . #x9801)	; 頁
+      ))
+    (===hng-khm		. 05800)	; &HNG011-05800;
+    (<-formed
+     ((=ucs		  . #x985E)	; 類
       ))
     ))
 (define-char
@@ -4764,33 +4858,6 @@
     (total-strokes	 . 15)
     (=ucs		. #x989D)	; 额
     (=gb2312		. #x366E)	; &I-G0-366E; [22-78]
-    ))
-(define-char
-  '((ideographic-radical . 181)	; ⾴
-    (ideographic-strokes . 9)
-    (total-strokes	 . 18)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x4E37)	; 丷
-	)
-       ((=ucs		    . #x8C9D)	; 貝
-	))
-      )
-     ((=ucs		  . #x9801)	; 頁
-      ))
-    (=ucs-itaiji-002	. #x9858)	; &U-i002+9858;
-    (<-formed
-     ((=ucs		  . #x9858)	; 願
-      ))
-    (->subsumptive
-     ((===hng-khi	  . 06200)	; &HNG010-06200;
-      ))
     ))
 (define-char
   '((ideographic-radical . 181)	; ⾴
@@ -4955,6 +5022,13 @@
     ))
 (define-char
   '((ideographic-radical . 181)	; ⾴
+    (==>ucs@bucs	. #x9858)	; &BUCS+9858;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x9858)	; &BUCS+9858;
+      ))
+    (ideographic-radical . 181)	; ⾴
     (ideographic-strokes . 10)
     (total-strokes	 . 19)
     (=ucs		. #x9858)	; 願
@@ -4968,6 +5042,40 @@
     (=gt-pj-1		. #x346A)	; &I-GT-58534; [20-74]
     (=daikanwa		. 43623)	; &I-M-43623;
     (=shinjigen@rev	.  9194)	; 願
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x9858)	; &BUCS+9858;
+      ))
+    (ideographic-radical . 181)	; ⾴
+    (ideographic-strokes . 9)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x4E37)	; 丷
+	)
+       ((=ucs		    . #x8C9D)	; 貝
+	))
+      )
+     ((=ucs		  . #x9801)	; 頁
+      ))
+    (=ucs-itaiji-002	. #x9858)	; &U-i002+9858;
+    (<-formed
+     ((=ucs		  . #x9858)	; 願
+      ))
+    (<-formed*sources
+     hng)
+    (->subsumptive
+     ((===hng-khi	  . 06200)	; &HNG010-06200;
+      )
+     ((===hng-khm	  . 05830)	; &HNG011-05830;
+      ))
     ))
 (define-char
   '((ideographic-radical . 181)	; ⾴
@@ -6696,6 +6804,37 @@
     (=gt-pj-1		. #x707D)	; &I-GT-58670; [80-93]
     (=daikanwa		. 43726)	; &I-M-43726;
     (=shinjigen		.  9186)	; 顯
+    (->subsumptive
+     ((==ucs@unicode	  . #x986F)	; &g2-AJ1-07190;
+      (==adobe-japan1-0	  . 07190)	; &g2-AJ1-07190;
+      (==ks-x1001	  . #x7A69)	; &g2-AJ1-07190; [90-73]
+      (==jis-x0208	  . #x707D)	; &g2-AJ1-07190; [80-93]
+      (==cns11643-1	  . #x7C4F)	; &g2-AJ1-07190; [92-47]
+      (==jis-x0213-1	  . #x707D)	; &g2-AJ1-07190; [80-93]
+      (==gb12345	  . #x4F54)	; &g2-AJ1-07190; [47-52]
+      (==gt		  . 58670)	; &g2-AJ1-07190;
+      (==daikanwa	  . 43726)	; &g2-AJ1-07190;
+      (==shinjigen	  .  9186)	; &g2-AJ1-07190;
+      (->subsumptive
+       ((===daikanwa	    . 43726)	; &R-M-43726;
+	)
+       ((===jis-x0208	    . #x707D)	; &R-J0-707D; [80-93]
+	(===jis-x0213-1	    . #x707D)	; &R-J0-707D; [80-93]
+	)
+       ((===adobe-japan1-0  . 07190)	; &R-AJ1-07190;
+	)
+       ((===cns11643-1	    . #x7C4F)	; &R-C1-7C4F; [92-47]
+	)
+       ((===gt		    . 58670)	; &R-GT-58670;
+	)
+       ((===ucs@ks	    . #x986F)	; &R-K0-7A69;
+	(===ks-x1001	    . #x7A69)	; &R-K0-7A69; [90-73]
+	)
+       ((===ucs@unicode	    . #x986F)	; &R-UU+986F;
+	))
+      )
+     ((===hng-khm	  . 05820)	; &HNG011-05820;
+      ))
     ))
 (define-char
   '((ideographic-radical . 181)	; ⾴
