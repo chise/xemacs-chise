@@ -10132,8 +10132,8 @@
      ((=ucs		  . #x582F)	; 堯
       ))
     (ideographic-radical . 32)	; ⼟
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -10149,8 +10149,8 @@
      ((=ucs		  . #x582F)	; 堯
       ))
     (ideographic-radical . 32)	; ⼟
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
     (=ucs-var-004	. #x582F)	; &U-v004+582F;
     ))
 (define-char
@@ -10158,8 +10158,8 @@
      ((=ucs		  . #x582F)	; 堯
       ))
     (ideographic-radical . 32)	; ⼟
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
     (=ucs-var-003	. #x582F)	; &U-v003+582F;
     ))
 (define-char
