@@ -1,5 +1,11 @@
 2016-05-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (U+582F-var-002): Fix strokes.
+	(U+582F-var-004): Likewise.
+	(U+582F-var-003): Likewise.
+
+2016-05-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R119-Rice.el (U+7C7B): Add `<-denotational' for
 	BUCS+985E.
 	(UU+7C7B): Add `<-simplified@CN' for UU+985E.
