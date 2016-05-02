@@ -1,4 +1,18 @@
+2016-05-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R185-Head.el (U+9996): Add HNG-KHM0153-0.
+
+	* Ideograph-R163-City.el: Add glyph-images of HNG-KHM.
+	(U+28697-itaiji-001): New character to subsume HNG-KHI0597-0 and
+	HNG-KHM0557-0; use `<-denotational' for BUCS+90A3; use `<-formed'
+	for U-00028697 and U+90A3.
+	(U-00028697): Add `<-denotational' for BUCS+90A3; apply new
+	conventions for glyph granularity.
+	(HNG-KHM0137-0): New character; use `<-denotational' for U+90ED.
+
 2016-05-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R146-West.el (g2-MJ024197): Add HNG-KHM0603-2.
 
 	* Ideograph-R032-Earth.el (U+582F-var-002): Fix strokes.
 	(U+582F-var-004): Likewise.
