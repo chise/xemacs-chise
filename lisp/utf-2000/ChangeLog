@@ -6,6 +6,20 @@
 
 2016-05-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R181-Leaf.el: Add glyph-images of HNG-KHM.
+	(BUCS+9813): New abstract node.
+	(U+9813): Add `<-denotational' for BUCS+9813.
+	(U+987F): Likewise; add `<-simplified@CN' for UU+9813.
+	(HNG-KHM0149-0): New character; add `<-denotational' for
+	BUCS+9813.
+	(BUCS+985E): New abstract node.
+	(U+985E): Add `<-denotational' for BUCS+985E.
+	(HNG-KHM0580-0): New character; add `<-denotational' for
+	BUCS+985E; add `<-formed' for U+985E.
+	(BUCS+9858): New abstract node.
+	(U+9858): Add `<-denotational' for BUCS+9858.
+	(U+9858-itaiji-002): Likewise; add HNG-KHM0583-0.
+
 	* Ideograph-R119-Rice.el (U+7C7B): Add `<-denotational' for
 	BUCS+985E.
 	(UU+7C7B): Add `<-simplified@CN' for UU+985E.
