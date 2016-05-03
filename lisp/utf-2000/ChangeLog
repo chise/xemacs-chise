@@ -1,5 +1,40 @@
 2016-05-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R193-Cauldron.el: Add some Adobe-Japan1-0 code points.
+	(HD-KS516930): Unify MJ059076.
+
+	* Ideograph-R184-Eat.el: Add glyph-images of HNG-KHM.
+	(U+9918-var-001): New character to subsume HNG-KHI0624-0 and
+	HNG-KHM0590-0; use `<-denotational' for BUCS+9918; use `<-formed'
+	for U+9918.
+	(U+9952): Separate A-UU+9952.
+	(A-UU+9952): Add `=>ucs@iwds-1'.
+	(o-UU+9952): Omitted.
+	(HNG-KHM0588-0): New character; use `<-denotational' for U+9952.
+	(HNG-KHI0623-0): Use U+9952 instead of o-UU+9952 as the mother.
+
+	* Ideograph-R173-Rain.el: Add glyph-images of HNG-KHM.
+	(BUCS+9707): New abstract node.
+	(U+9707): Add `<-denotational' for BUCS+9707.
+	(HNG-KHM0574-0): New character; add `<-denotational' for
+	BUCS+9707.
+
+	* Ideograph-R169-Gate.el: Add glyph-images of HNG-KHM.
+	(BUCS+95E5): New abstract node.
+	(U+95E5): Add `<-denotational' for BUCS+95E5.
+	(U+95FC): Likewise; add `<-simplified@CN' for UU+95E5.
+	(HNG-KHM0562-0): New character; add `<-formed' for U+95E5.
+
+2016-05-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R119-Rice.el (U+7CA5): Add representative nodes.
+
+	* Ideograph-R098-Tile.el: Add some Adobe-Japan1-0 code points.
+	(U+3F41): Apply new conventions for glyph granularity.
+
+	* Ideograph-R061-Heart.el (U+613F): Add `<-denotational' for
+	BUCS+9858; add `sound@ja/on'; add `<-simplified@CN' for U+9858.
+
 	* Ideograph-R185-Head.el (U+9996): Add HNG-KHM0153-0.
 
 	* Ideograph-R163-City.el: Add glyph-images of HNG-KHM.
