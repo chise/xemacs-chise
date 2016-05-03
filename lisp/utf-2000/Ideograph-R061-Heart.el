@@ -18122,9 +18122,13 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 61)	; ⼼
+  '((<-denotational
+     ((==>ucs@bucs	  . #x9858)	; &BUCS+9858;
+      ))
+    (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
+    (sound@ja/on	"geN")
     (=ucs		. #x613F)	; 愿
     (=adobe-japan1-0	. 04878)	; &I-AJ1-04878;
     (=jis-x0208		. #x5845)	; &I-J90-5845; [56-37]
@@ -18136,7 +18140,11 @@
     (=gt		. 13954)	; &I-GT-13954;
     (=gt-pj-1		. #x5845)	; &I-GT-13954; [56-37]
     (=daikanwa		. 11030)	; &I-M-11030;
-    (=shinjigen@rev	.  2628)	; 愿
+    (=shinjigen		.  2628)	; 愿
+    (<-simplified@CN
+     ((=ucs		  . #x9858)	; 願
+      (=gb12345		  . #x5438)	; 願 [52-24]
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
