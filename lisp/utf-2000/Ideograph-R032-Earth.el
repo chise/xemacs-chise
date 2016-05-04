@@ -16010,10 +16010,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs@unicode	  . #x968A)	; &HD-JA-4262;
-      (=jis-x0208	  . #x4262)	; &HD-JA-4262; [34-66]
-      (=cns11643-1	  . #x6269)	; &I-C1-6269; [66-73]
-      (=jis-x0213-1	  . #x4262)	; &I-JX1-4262; [34-66]
+     ((=ucs@unicode	  . #x968A)	; &AJ1-02882;
+      (=adobe-japan1-0	  . 02882)	; &AJ1-02882;
       )
      ((=ucs		  . #x571F)	; 土
       ))
@@ -16030,10 +16028,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x968A)	; &HD-JA-4262;
-      (=jis-x0208	  . #x4262)	; &HD-JA-4262; [34-66]
-      (=cns11643-1	  . #x6269)	; &I-C1-6269; [66-73]
-      (=jis-x0213-1	  . #x4262)	; &I-JX1-4262; [34-66]
+     ((=ucs@unicode	  . #x968A)	; &AJ1-02882;
+      (=adobe-japan1-0	  . 02882)	; &AJ1-02882;
       )
      ((=ucs		  . #x571F)	; 土
       ))
@@ -16064,8 +16060,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((==ucs@jis	    . #x968A)	; &g2-HD-JA-4262;
-	(==jis-x0208	    . #x4262)	; &g2-HD-JA-4262; [34-66]
+       ((==ucs@jis	    . #x968A)	; &g2-AJ1-02882;
+	(==adobe-japan1-0   . 02882)	; &g2-AJ1-02882;
 	)
        ((=ucs		    . #x571F)	; 土
 	))
