@@ -10022,8 +10022,18 @@
     (=gb2312		. #x763C)	; &C3-2772; [86-28]
     (=cns11643-3	. #x2772)	; &I-C3-2772; [07-82]
     (<-simplified@CN
-     ((=ucs@unicode	  . #x9EFD)	; &GT-65951;
-      (=gb12345		  . #x763C)	; &GT-65951; [86-28]
+     ((=ucs		  . #x9EFD)	; 黽
+      (=gb12345		  . #x763C)	; 黽 [86-28]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x9EFE)	; &g2-UU+9EFE;
+      (==gb2312		  . #x763C)	; &g2-UU+9EFE; [86-28]
+      (==cns11643-3	  . #x2772)	; &g2-UU+9EFE; [07-82]
+      (->subsumptive
+       ((===cns11643-3	    . #x2772)	; &R-C3-2772; [07-82]
+	)
+       ((===ucs@unicode	    . #x9EFE)	; &R-UU+9EFE;
+	))
       ))
     ))
 (define-char
