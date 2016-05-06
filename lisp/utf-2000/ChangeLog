@@ -1,3 +1,12 @@
+2016-05-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (UU+9EFE): Add representative nodes.
+
+2016-05-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+50F6): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+
 2016-05-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R112-Stone.el (JU+7926): Unify AJ1-05853.
