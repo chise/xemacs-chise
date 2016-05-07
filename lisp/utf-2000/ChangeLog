@@ -1,3 +1,7 @@
+2016-05-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R187-Horse.el (U+9A2D): Unify S-9400.
+
 2016-05-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (UU+9EFE): Add representative nodes.
