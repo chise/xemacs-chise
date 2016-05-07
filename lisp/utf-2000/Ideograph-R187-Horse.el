@@ -4830,6 +4830,7 @@
     (=jis-x0213-1	. #x7E2F)	; &I-JX1-7E2F; [94-15]
     (=gb12345		. #x666F)	; 騭 [70-79]
     (=daikanwa		. 44906)	; &I-M-44906;
+    (=shinjigen		.  9400)	; 騭
     (->subsumptive
      ((==ucs@unicode	  . #x9A2D)	; &g2-M-44906;
       (==ucs@JP/hanazono  . nil)
@@ -4847,6 +4848,7 @@
      ((==ucs@jis	  . #x9A2D)	; &g2-JSP-6945;
       (==jis-x0212	  . #x6945)	; &g2-JSP-6945; [73-37]
       (==jis-x0213-1	  . #x7E2F)	; &g2-JSP-6945; [94-15]
+      (==shinjigen	  .  9400)	; &g2-JSP-6945;
       (->subsumptive
        ((===jis-x0212	    . #x6945)	; &R-JX1-7E2F; [73-37]
 	(===jis-x0213-1	    . #x7E2F)	; &R-JX1-7E2F; [94-15]
