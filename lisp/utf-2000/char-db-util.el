@@ -1152,17 +1152,17 @@
 	    (setq strokes value)))
       (setq attributes (delq 'kangxi-strokes attributes))
       )
-    (when (and (memq 'japanese-radical attributes)
-	       (setq value (get-char-attribute char 'japanese-radical)))
-      (unless (eq value radical)
-	(insert (format "(japanese-radical\t . %S)\t; %c%s"
-			value
-			(ideographic-radical value)
-			line-breaking))
-	(or radical
-	    (setq radical value)))
-      (setq attributes (delq 'japanese-radical attributes))
-      )
+    ;; (when (and (memq 'japanese-radical attributes)
+    ;;            (setq value (get-char-attribute char 'japanese-radical)))
+    ;;   (unless (eq value radical)
+    ;;     (insert (format "(japanese-radical\t . %S)\t; %c%s"
+    ;;                     value
+    ;;                     (ideographic-radical value)
+    ;;                     line-breaking))
+    ;;     (or radical
+    ;;         (setq radical value)))
+    ;;   (setq attributes (delq 'japanese-radical attributes))
+    ;;   )
     (when (and (memq 'japanese-strokes attributes)
 	       (setq value (get-char-attribute char 'japanese-strokes)))
       (unless (eq value strokes)
@@ -1202,38 +1202,38 @@
     ;;         (setq radical value)))
     ;;   (setq attributes (delq 'shinjigen-1-radical attributes))
     ;;   )
-    (when (and (memq 'ideographic- attributes)
-	       (setq value (get-char-attribute char 'ideographic-)))
-      (insert "(ideographic-       ")
-      (setq lbs (concat "\n" (make-string (current-column) ?\ ))
-	    separator nil)
-      (while (consp value)
-	(setq cell (car value))
-	(if (integerp cell)
-	    (setq cell (decode-char '=ucs cell)))
-	(cond ((characterp cell)
-	       (if separator
-		   (insert lbs))
-	       (if readable
-		   (insert (format "%S" cell))
-		 (char-db-insert-char-spec cell readable))
-	       (setq separator lbs))
-	      ((consp cell)
-	       (if separator
-		   (insert lbs))
-	       (if (consp (car cell))
-		   (char-db-insert-char-spec cell readable)
-		 (char-db-insert-char-reference cell readable))
-	       (setq separator lbs))
-	      (t
-	       (if separator
-		   (insert separator))
-	       (insert (prin1-to-string cell))
-	       (setq separator " ")))
-	(setq value (cdr value)))
-      (insert ")")
-      (insert line-breaking)
-      (setq attributes (delq 'ideographic- attributes)))
+    ;; (when (and (memq 'ideographic- attributes)
+    ;;            (setq value (get-char-attribute char 'ideographic-)))
+    ;;   (insert "(ideographic-       ")
+    ;;   (setq lbs (concat "\n" (make-string (current-column) ?\ ))
+    ;;         separator nil)
+    ;;   (while (consp value)
+    ;;     (setq cell (car value))
+    ;;     (if (integerp cell)
+    ;;         (setq cell (decode-char '=ucs cell)))
+    ;;     (cond ((characterp cell)
+    ;;            (if separator
+    ;;                (insert lbs))
+    ;;            (if readable
+    ;;                (insert (format "%S" cell))
+    ;;              (char-db-insert-char-spec cell readable))
+    ;;            (setq separator lbs))
+    ;;           ((consp cell)
+    ;;            (if separator
+    ;;                (insert lbs))
+    ;;            (if (consp (car cell))
+    ;;                (char-db-insert-char-spec cell readable)
+    ;;              (char-db-insert-char-reference cell readable))
+    ;;            (setq separator lbs))
+    ;;           (t
+    ;;            (if separator
+    ;;                (insert separator))
+    ;;            (insert (prin1-to-string cell))
+    ;;            (setq separator " ")))
+    ;;     (setq value (cdr value)))
+    ;;   (insert ")")
+    ;;   (insert line-breaking)
+    ;;   (setq attributes (delq 'ideographic- attributes)))
     (when (and (memq 'total-strokes attributes)
 	       (setq value (get-char-attribute char 'total-strokes)))
       (insert (format "(total-strokes       . %S)%s"
@@ -1241,21 +1241,21 @@
 		      line-breaking))
       (setq attributes (delq 'total-strokes attributes))
       )
-    (when (and (memq '->ideograph attributes)
-	       (setq value (get-char-attribute char '->ideograph)))
-      (insert (format "(->ideograph\t%s)%s"
-		      (mapconcat (lambda (code)
-				   (cond ((symbolp code)
-					  (symbol-name code))
-					 ((integerp code)
-					  (format "#x%04X" code))
-					 (t
-					  (format "%s %S"
-						  line-breaking code))))
-				 value " ")
-		      line-breaking))
-      (setq attributes (delq '->ideograph attributes))
-      )
+    ;; (when (and (memq '->ideograph attributes)
+    ;;            (setq value (get-char-attribute char '->ideograph)))
+    ;;   (insert (format "(->ideograph\t%s)%s"
+    ;;                   (mapconcat (lambda (code)
+    ;;                                (cond ((symbolp code)
+    ;;                                       (symbol-name code))
+    ;;                                      ((integerp code)
+    ;;                                       (format "#x%04X" code))
+    ;;                                      (t
+    ;;                                       (format "%s %S"
+    ;;                                               line-breaking code))))
+    ;;                              value " ")
+    ;;                   line-breaking))
+    ;;   (setq attributes (delq '->ideograph attributes))
+    ;;   )
     ;; (when (and (memq '->decomposition attributes)
     ;;            (setq value (get-char-attribute char '->decomposition)))
     ;;   (insert (format "(->decomposition\t%s)%s"
@@ -1367,7 +1367,7 @@
 	       )
 	      ((or (eq name 'ideographic-structure)
 		   (eq name 'ideographic-combination)
-		   (eq name 'ideographic-)
+                   ;; (eq name 'ideographic-)
 		   (eq name '=decomposition)
 		   (char-feature-base-name= '=decomposition name)
 		   (char-feature-base-name= '=>decomposition name)
@@ -1380,34 +1380,34 @@
 	       (char-db-insert-relation-feature char name value
 						line-breaking
 						ccss readable))
-	      ((memq name '(ideograph=
-			    original-ideograph-of
-			    ancient-ideograph-of
-			    vulgar-ideograph-of
-			    wrong-ideograph-of
-			    ;; simplified-ideograph-of
-			    ideographic-variants
-			    ;; ideographic-different-form-of
-			    ))
-	       (insert (format "(%-18s%s " name line-breaking))
-	       (setq lbs (concat "\n" (make-string (current-column) ?\ ))
-		     separator nil)
-	       (while (consp value)
-		 (setq cell (car value))
-		 (if (and (consp cell)
-			  (consp (car cell)))
-		     (progn
-		       (if separator
-			   (insert lbs))
-		       (char-db-insert-alist cell readable)
-		       (setq separator lbs))
-		   (if separator
-		       (insert separator))
-		   (insert (prin1-to-string cell))
-		   (setq separator " "))
-		 (setq value (cdr value)))
-	       (insert ")")
-	       (insert line-breaking))
+              ;; ((memq name '(ideograph=
+              ;;               original-ideograph-of
+              ;;               ancient-ideograph-of
+              ;;               vulgar-ideograph-of
+              ;;               wrong-ideograph-of
+              ;;               ;; simplified-ideograph-of
+              ;;               ideographic-variants
+              ;;               ;; ideographic-different-form-of
+              ;;               ))
+              ;;  (insert (format "(%-18s%s " name line-breaking))
+              ;;  (setq lbs (concat "\n" (make-string (current-column) ?\ ))
+              ;;        separator nil)
+              ;;  (while (consp value)
+              ;;    (setq cell (car value))
+              ;;    (if (and (consp cell)
+              ;;             (consp (car cell)))
+              ;;        (progn
+              ;;          (if separator
+              ;;              (insert lbs))
+              ;;          (char-db-insert-alist cell readable)
+              ;;          (setq separator lbs))
+              ;;      (if separator
+              ;;          (insert separator))
+              ;;      (insert (prin1-to-string cell))
+              ;;      (setq separator " "))
+              ;;    (setq value (cdr value)))
+              ;;  (insert ")")
+              ;;  (insert line-breaking))
 	      ((consp value)
 	       (insert (format "(%-18s " name))
 	       (setq lbs (concat "\n" (make-string (current-column) ?\ ))
