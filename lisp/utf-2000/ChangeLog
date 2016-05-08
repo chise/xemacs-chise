@@ -1,4 +1,31 @@
+2016-05-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R204-Embroidery.el: Add some Adobe-Japan1-0 code
+	points.
+
+	* Ideograph-R170-Mound.el:
+	- Add glyph-images of HNG-KHM.
+	- Add some Adobe-Japan1-0 code points.
+	(U+9641): Add `<-formed' for U+9640.
+	(U+9664-itaiji-001): New character to subsume HNG-KHI0606-0 and
+	HNG-KHM0146-0; use `<-denotational' for BUCS+9664; use `<-formed'
+	for U+9664.
+	(HNG-KHM0144-0): New character; use `<-denotational' for
+	BUCS+969B; use `<-formed' for U+969B.
+	(U+96B2): Use `->subsumptive'; add `<-wrong' for U+9A2D.
+
+	* Ideograph-R167-Gold.el: Add some Adobe-Japan1-0 code points.
+
 2016-05-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R078-Death.el: Add some Adobe-Japan1-0 code points.
+	(U+6BB1): Unify S-3990; add `<-vulgar' for U+6BB2.
+
+	* char-db-util.el (insert-char-attributes): Eliminate codes for
+	`japanese-radical', `ideographic-', `->ideograph', `ideograph=',
+	`original-ideograph-of', `ancient-ideograph-of',
+	`vulgar-ideograph-of', `wrong-ideograph-of' and
+	`ideographic-variants'.
 
 	* Ideograph-R187-Horse.el (U+9A2D): Unify S-9400.
 
