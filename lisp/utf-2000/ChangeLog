@@ -1,3 +1,12 @@
+2016-05-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R090-Half-Tree-Trunk.el: Add some Adobe-Japan1-0 code
+	points.
+
+	* Ideograph-R032-Earth.el (U+58BB): Add representative nodes.
+
+	* Ideograph-R095-Profound.el: Add some Adobe-Japan1-0 code points.
+
 2016-05-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el (U+53DC): Apply new conventions for
