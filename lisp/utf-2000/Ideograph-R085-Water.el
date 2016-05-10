@@ -12639,12 +12639,9 @@
      ((name		  . "CJK RADICAL WATER ONE")
       (=ucs		  . #x2EA1)	; ⺡
       )
-     ((=ucs@jis		  . #x722D)	; &GT-25238;
-      (=ucs@ks		  . #x722D)	; &GT-25238;
-      (=jis-x0208	  . #x6027)	; &GT-25238; [64-07]
-      (=ks-x1001	  . #x6E33)	; &I-K0-6E33; [78-19]
-      (=jis-x0213-1	  . #x6027)	; &I-JX1-6027; [64-07]
-      (=daikanwa	  . 19663)	; &I-M-19663;
+     ((=ucs@jis		  . #x722D)	; &AJ1-05600;
+      (=ucs@ks		  . #x722D)	; &AJ1-05600;
+      (=adobe-japan1-0	  . 05600)	; &AJ1-05600;
       ))
     (=ucs@jis		. #x6DE8)	; &AJ1-05443;
     (=ucs@ks		. #x6DE8)	; &AJ1-05443;
