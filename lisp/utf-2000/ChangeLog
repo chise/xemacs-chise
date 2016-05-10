@@ -1,5 +1,8 @@
 2016-05-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (U+53DC): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
 	* Ideograph-R088-Father.el: Add some Adobe-Japan1-0 code points.
 
 2016-05-09  MORIOKA Tomohiko  <tomo.git@chise.org>
