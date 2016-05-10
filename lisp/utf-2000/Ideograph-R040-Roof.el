@@ -7306,8 +7306,8 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	  (=ucs		      . #x2FF0)	; ⿰
 	  )
-	 ((==ucs@unicode      . #x723F)	; &g2-GT-25375;
-	  (==jis-x0208	      . #x602D)	; &g2-GT-25375; [64-13]
+	 ((==ucs@unicode      . #x723F)	; &g2-AJ1-05606;
+	  (==adobe-japan1-0   . 05606)	; &g2-AJ1-05606;
 	  )
 	 ((=ucs		      . #x5408)	; 合
 	  ))
