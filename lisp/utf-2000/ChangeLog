@@ -1,5 +1,13 @@
 2016-05-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R214-Flute.el (U+9FA0): Unify AJ1-07473.
+	(U+9FA1): Apply new conventions for glyph granularity.
+	(U+9FA3): Likewise.
+
+	* Ideograph-R139-Color.el: Add some Adobe-Japan1-0 code points.
+
+2016-05-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R090-Half-Tree-Trunk.el: Add some Adobe-Japan1-0 code
 	points.
 
