@@ -942,7 +942,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=cns11643-1	    . #x4E63)	; &C1-4E63; [46-67]
+       ((=ucs		    . #x708E)	; 炎
 	)
        ((=ucs@cns	    . #x820C)	; &C1-485F;
 	(=cns11643-1	    . #x485F)	; &C1-485F; [40-63]
@@ -950,7 +950,17 @@
       (=ucs@iso		  . #x269E1)	; &C4-464E;
       (=cns11643-4	  . #x464E)	; &C4-464E; [38-46]
       (->subsumptive
-       ((==ucs@iso	    . #x269E1)	; &g2-IU-000269E1;
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((==ucs@cns	      . #x708E)	; &g2-CU+708E;
+	  (==cns11643-1	      . #x4E63)	; &g2-CU+708E; [46-67]
+	  )
+	 ((==ucs@cns	      . #x820C)	; &g2-CU+820C;
+	  (==cns11643-1	      . #x485F)	; &g2-CU+820C; [40-63]
+	  ))
+	(==ucs@iso	    . #x269E1)	; &g2-IU-000269E1;
 	(==cns11643-4	    . #x464E)	; &g2-IU-000269E1; [38-46]
 	(->subsumptive
 	 ((===cns11643-4      . #x464E)	; &R-C4-464E; [38-46]
@@ -994,7 +1004,7 @@
 	 ((==ucs@unicode      . #x820C)	; &g2-AJ1-02697;
 	  (==adobe-japan1-0   . 02697)	; &g2-AJ1-02697;
 	  )
-	 ((=gt		      . 24196)	; &GT-24196;
+	 ((==gt		      . 24196)	; &g2-GT-24196;
 	  ))
 	(==daikanwa	    . 30314)	; &g2-M-30314;
 	)
@@ -1005,12 +1015,8 @@
 	 ((==ucs@unicode      . #x820C)	; &g2-AJ1-02697;
 	  (==adobe-japan1-0   . 02697)	; &g2-AJ1-02697;
 	  )
-	 ((=ucs@unicode	      . #x708E)	; &J90-316A;
-	  (=jis-x0208	      . #x316A)	; &J90-316A; [17-74]
-	  (=gb2312	      . #x5157)	; &I-G0-5157; [49-55]
-	  (=ks-x1001	      . #x667A)	; &I-K0-667A; [70-90]
-	  (=jis-x0213-1	      . #x316A)	; &I-JX1-316A; [17-74]
-	  (=daikanwa	      . 18910)	; &I-M-18910;
+	 ((==ucs@unicode      . #x708E)	; &g2-AJ1-01292;
+	  (==adobe-japan1-0   . 01292)	; &g2-AJ1-01292;
 	  ))
 	(==ucs@unicode	    . #x8215)	; &g2-UU+8215;
 	(->subsumptive
@@ -1027,6 +1033,7 @@
 	)
        ((=ucs		    . #x708E)	; 炎
 	))
+      (=ucs@cns		  . #x8215)	; &C2-4D32;
       (=cns11643-2	  . #x4D32)	; &C2-4D32; [45-18]
       (->subsumptive
        ((ideographic-structure
@@ -1036,7 +1043,8 @@
 	 ((==ucs@cns	      . #x820C)	; &g2-CU+820C;
 	  (==cns11643-1	      . #x485F)	; &g2-CU+820C; [40-63]
 	  )
-	 ((=cns11643-1	      . #x4E63)	; &C1-4E63; [46-67]
+	 ((==ucs@cns	      . #x708E)	; &g2-CU+708E;
+	  (==cns11643-1	      . #x4E63)	; &g2-CU+708E; [46-67]
 	  ))
 	(==ucs@cns	    . #x8215)	; &g2-CU+8215;
 	(==cns11643-2	    . #x4D32)	; &g2-CU+8215; [45-18]
