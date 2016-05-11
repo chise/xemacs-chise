@@ -4843,9 +4843,9 @@
 	 ((name		      . "CJK RADICAL BAMBOO")
 	  (=ucs		      . #x2EAE)	; ⺮
 	  )
-	 ((==ucs@jis	      . #x7A7A)	; &g2-HD-JA-3675;
-	  (==ucs@ks	      . #x7A7A)	; &g2-HD-JA-3675;
-	  (==jis-x0208	      . #x3675)	; &g2-HD-JA-3675; [22-85]
+	 ((==ucs@jis	      . #x7A7A)	; &g2-AJ1-01773;
+	  (==ucs@ks	      . #x7A7A)	; &g2-AJ1-01773;
+	  (==adobe-japan1-0   . 01773)	; &g2-AJ1-01773;
 	  ))
 	(==ucs@jis	    . #x7B9C)	; &g2-GT-33667;
 	(==jis-x0208	    . #x6433)	; &g2-GT-33667; [68-19]
@@ -14670,6 +14670,7 @@
   '((ideographic-radical . 118)	; ⽵
     (ideographic-strokes . 17)
     (total-strokes	 . 23)
+    (sound@ja/on	"yaku")
     (=ucs		. #x7C65)	; 籥
     (=jis-x0208		. #x6460)	; &I-J90-6460; [68-64]
     (=cns11643-1	. #x7C40)	; &I-C1-7C40; [92-32]
@@ -14678,7 +14679,38 @@
     (=gt		. 34527)	; &I-GT-34527;
     (=gt-pj-1		. #x6460)	; &I-GT-34527; [68-64]
     (=daikanwa		. 26771)	; &I-M-26771;
+    (=shinjigen@1ed	.  9921)	; 籥
     (=shinjigen@rev	.  9920)	; 籥
+    (<-formed
+     ((=ucs		  . #x9FA0)	; 龠
+      (=jis-x0208	  . #x737E)	; &I-J90-737E; [83-94]
+      (=shinjigen@1ed	  .  9920)	; 龠
+      (=shinjigen@rev	  .  9919)	; 龠
+      ))
+    (<-formed*sources
+     shinjigen@1ed shinjigen@rev)
+    (->subsumptive
+     ((==ucs@unicode	  . #x7C65)	; &g2-GT-34527;
+      (==jis-x0208	  . #x6460)	; &g2-GT-34527; [68-64]
+      (==cns11643-1	  . #x7C40)	; &g2-GT-34527; [92-32]
+      (==jis-x0213-1	  . #x6460)	; &g2-GT-34527; [68-64]
+      (==gt		  . 34527)	; &g2-GT-34527;
+      (==daikanwa	  . 26771)	; &g2-GT-34527;
+      (==shinjigen@1ed	  .  9921)	; &g2-GT-34527;
+      (==shinjigen@rev	  .  9920)	; &g2-GT-34527;
+      (->subsumptive
+       ((===daikanwa	    . 26771)	; &R-M-26771;
+	)
+       ((===jis-x0208	    . #x6460)	; &R-J0-6460; [68-64]
+	(===jis-x0213-1	    . #x6460)	; &R-J0-6460; [68-64]
+	)
+       ((===cns11643-1	    . #x7C40)	; &R-C1-7C40; [92-32]
+	)
+       ((===gt		    . 34527)	; &R-GT-34527;
+	)
+       ((===ucs@unicode	    . #x7C65)	; &R-UU+7C65;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 118)	; ⽵
