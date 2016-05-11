@@ -1,4 +1,21 @@
+2016-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R206-Tripod.el (U+9F0E): Unify AJ1-03102.
+	(U-0002A502): Unify S-9850; add `<-vulgar' for U+9F0E.
+	(U+9F12): Apply new conventions for glyph granularity.
+
+	* Ideograph-R205-Frog.el: Add some Adobe-Japan1-0 code points.
+	(U+9F02): Apply new conventions for glyph granularity.
+	(U+9F03): Likewise.
+	(U+9F07): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R135-Tongue.el (g2-IU+269E1): Add
+	`ideographic-structure'.
+
 2016-05-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R118-Bamboo.el (U+7C65): Add `sound@ja/on'; add
+	`<-formed' for U+9FA0.
 
 	* Ideograph-R214-Flute.el (U+9FA0): Unify AJ1-07473.
 	(U+9FA1): Apply new conventions for glyph granularity.
