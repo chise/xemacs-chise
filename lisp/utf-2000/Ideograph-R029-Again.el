@@ -1620,6 +1620,7 @@
   '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (hanyu-dazidian	1 397 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -1629,24 +1630,45 @@
      ((=ucs		  . #x53CC)	; 双
       ))
     (=ucs		. #x53D5)	; 叕
+    (=adobe-japan1-5	. 17343)	; &I-AJ1-17343;
+    (=jis-x0212		. #x345C)	; &I-JSP-345C; [20-60]
+    (=cns11643-3	. #x276B)	; &I-C3-276B; [07-75]
+    (=jis-x0213-2	. #x235F)	; &I-JX2-235F; [03-63]
+    (=daikanwa		. 03157)	; &I-M-03157;
+    (=jef-china3	. #x80CA)	; &I-JC3-80CA;
     (->subsumptive
-     ((=ucs@jis/1990	  . #x53D5)	; &JSP-345C;
-      (=jis-x0212	  . #x345C)	; &JSP-345C; [20-60]
-      (=daikanwa	  . 03157)	; &I-M-03157;
-      (=jef-china3	  . #x80CA)	; &I-JC3-80CA;
+     ((==ucs@jis/1990	  . #x53D5)	; &g2-JSP-345C;
+      (==jis-x0212	  . #x345C)	; &g2-JSP-345C; [20-60]
+      (==daikanwa	  . 03157)	; &g2-JSP-345C;
+      (==jef-china3	  . #x80CA)	; &g2-JSP-345C;
+      (->subsumptive
+       ((===daikanwa	    . 03157)	; &R-M-03157;
+	)
+       ((===jis-x0212	    . #x345C)	; &R-JSP-345C; [20-60]
+	)
+       ((===jef-china3	    . #x80CA)	; &R-JC3-80CA;
+	))
       )
      ((=decomposition@cid
        ((=ucs		    . #x53D5)	; 叕
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (hanyu-dazidian	  1 397 4)
-      (=ucs@unicode	  . #x53D5)	; &AJ1-17343;
-      (=adobe-japan1-5	  . 17343)	; &AJ1-17343;
-      (=jis-x0213-2	  . #x235F)	; &I-JX2-235F; [03-63]
-      (=hanziku-1	  . #xF7B6)	; &I-HZK01-F7B6;
+      (==ucs@unicode	  . #x53D5)	; &g2-AJ1-17343;
+      (==adobe-japan1-5	  . 17343)	; &g2-AJ1-17343;
+      (==jis-x0213-2	  . #x235F)	; &g2-AJ1-17343; [03-63]
+      (->subsumptive
+       ((===jis-x0213-2	    . #x235F)	; &R-JX2-235F; [03-63]
+	)
+       ((===adobe-japan1-5  . 17343)	; &R-AJ1-17343;
+	)
+       ((===ucs@unicode	    . #x53D5)	; &R-UU+53D5;
+	)
+       ((=hanziku-1	    . #xF7B6)	; &HZK01-F7B6;
+	))
       )
-     ((=cns11643-3	  . #x276B)	; &C3-276B; [07-75]
+     ((==ucs@cns	  . #x53D5)	; &g2-CU+53D5;
+      (==cns11643-3	  . #x276B)	; &g2-CU+53D5; [07-75]
       ))
     ))
 (define-char
