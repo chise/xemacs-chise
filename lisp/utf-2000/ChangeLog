@@ -1,10 +1,59 @@
 2016-05-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R138-Stopping.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R109-Eye.el (U-000250E9): Apply new conventions for
+	glyph granularity; unify S-6670; add `<-original' for UU+826E.
+
+	* Ideograph-R091-Slice.el (U-000245C7): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R082-Fur.el (RUI6-E06D): Add representative node.
+
+	* Ideograph-R058-Snout.el (U+5F54): Apply new conventions for
+	glyph granularity.
+	(U+5F55): Likewise.
+
+	* Ideograph-R037-Big.el (U+5948): Apply new conventions for glyph
+	granularity.
+	(U+5951): Likewise.
+
+	* Ideograph-R029-Again.el (U+53D5): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R015-Ice.el: Use g2-UU+51AB instead of U+51AB in
 	`ideographic-structure' of abstract glyph-form objects.
 	(U+51C4): Apply new conventions for glyph granularity.
 
 2016-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R211-Tooth.el: Add some Adobe-Japan1-0 code points.
+	(U+9F53): Apply new conventions for glyph granularity.
+	(U+9F55): Likewise.
+	(U+9F56): Likewise.
+	(U+9F57): Likewise.
+	(U+9F58): Likewise.
+	(U+9F5A): Likewise.
+	(U+9F5D): Likewise.
+	(U+9F5E): Likewise.
+	(BUCS+9F60): New abstract character.
+	(U+9F60): Add `<-denotational' for BUCS+9F60.
+	(GT-66395): Use BUCS+9F60 instead of U+9F60 as the mother; add
+	`<-formed' for U+9F60.
+	(U+9F86): Add `<-denotational' for BUCS+9F60.
+	(U+9F68): Apply new conventions for glyph granularity.
+	(U+9F6D): Likewise.
+	(U+9F73): Likewise.
+	(U+9F75): Likewise.
+	(U+9F7A): Likewise.
+	(U+4DA5): Likewise.
+	(U+9F7D): Likewise.
+
+	* Ideograph-R174-Blue.el (g2-M-42566): Use g2-UU+53E3 instead of
+	U+53E3 in `ideographic-structure'.
+
+	* Ideograph-R167-Gold.el (U+931F): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
 
 	* Ideograph-R077-Stop.el (U+6B72): Apply new conventions for glyph
 	granularity.
