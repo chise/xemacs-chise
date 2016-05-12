@@ -73,11 +73,22 @@
       )
      ((=ucs		  . #x6BDB)	; 毛
       )
-     ((=ucs@unicode	  . #x67BC)	; &JSP-4336;
-      (=jis-x0212	  . #x4336)	; &JSP-4336; [35-22]
-      (=daikanwa	  . 14593)	; &I-M-14593;
+     ((=ucs		  . #x67BC)	; 枼
       ))
     (=ruimoku-v6	. #xE06D)	; &RUI6-E06D;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+	(=ucs		    . #x2FFA)	; ⿺
+	)
+       ((==ucs@unicode	    . #x6BDB)	; &g2-AJ1-03807;
+	(==adobe-japan1-0   . 03807)	; &g2-AJ1-03807;
+	)
+       ((==ucs@unicode	    . #x67BC)	; &g2-JSP-4336;
+	(==jis-x0212	    . #x4336)	; &g2-JSP-4336; [35-22]
+	))
+      (==ruimoku-v6	  . #xE06D)	; &g2-RUI6-E06D;
+      ))
     ))
 (define-char
   '((ideographic-radical . 82)	; ⽑
