@@ -1,3 +1,26 @@
+2016-05-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R015-Ice.el: Use g2-UU+51AB instead of U+51AB in
+	`ideographic-structure' of abstract glyph-form objects.
+	(U+51C4): Apply new conventions for glyph granularity.
+
+2016-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R077-Stop.el (U+6B72): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R063-Door.el (UU+623E): Add representative node.
+
+	* Ideograph-R060-Step.el (U+5FA4): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+
+	* Ideograph-R054-Long-Stride.el (U+5EFA): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R046-Mountain.el: Use g2-UU+5C71 instead of U+5C71 in
+	`ideographic-structure' of abstract glyph-form objects.
+	(U-00021EB8): Apply new conventions for glyph granularity.
+
 2016-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R151-Bean.el (U+8C54): Unify S-6681; add `<-original'
