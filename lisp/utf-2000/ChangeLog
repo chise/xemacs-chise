@@ -1,5 +1,17 @@
 2016-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R151-Bean.el (U+8C54): Unify S-6681; add `<-original'
+	for U+8277.
+
+	* Ideograph-R149-Speech.el (U+8AC7): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R116-Cave.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R087-Claw.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R005-Second.el (U+4E80): Add representative nodes.
+
 	* Ideograph-R206-Tripod.el (U+9F0E): Unify AJ1-03102.
 	(U-0002A502): Unify S-9850; add `<-vulgar' for U+9F0E.
 	(U+9F12): Apply new conventions for glyph granularity.
