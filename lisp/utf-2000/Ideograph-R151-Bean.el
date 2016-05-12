@@ -1089,7 +1089,36 @@
     (=jis-x0213-2	. #x787E)	; &I-JX2-787E; [88-94]
     (=big5		. #xC676)	; &I-B-C676;
     (=daikanwa		. 36332)	; &I-M-36332;
+    (=shinjigen		.  6681)	; 豔
     (=jef-china3	. #x65E0)	; &I-JC3-65E0;
+    (<-original
+     ((=ucs		  . #x8277)	; 艷
+      (=jis-x0208	  . #x6766)	; &I-J90-6766; [71-70]
+      (=shinjigen	  .  6680)	; 艷
+      ))
+    (<-original*sources
+     shinjigen)
+    (->subsumptive
+     ((==ucs@unicode	  . #x8C54)	; &g2-JSP-5E6D;
+      (==jis-x0212	  . #x5E6D)	; &g2-JSP-5E6D; [62-77]
+      (==cns11643-1	  . #x7D43)	; &g2-JSP-5E6D; [93-35]
+      (==jis-x0213-2	  . #x787E)	; &g2-JSP-5E6D; [88-94]
+      (==daikanwa	  . 36332)	; &g2-JSP-5E6D;
+      (==shinjigen	  .  6681)	; &g2-JSP-5E6D;
+      (==jef-china3	  . #x65E0)	; &g2-JSP-5E6D;
+      (->subsumptive
+       ((===daikanwa	    . 36332)	; &R-M-36332;
+	)
+       ((===jis-x0212	    . #x5E6D)	; &R-JX2-787E; [62-77]
+	(===jis-x0213-2	    . #x787E)	; &R-JX2-787E; [88-94]
+	)
+       ((===cns11643-1	    . #x7D43)	; &R-C1-7D43; [93-35]
+	)
+       ((===ucs@unicode	    . #x8C54)	; &R-UU+8C54;
+	)
+       ((===jef-china3	    . #x65E0)	; &R-JC3-65E0;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 151)	; ⾖
