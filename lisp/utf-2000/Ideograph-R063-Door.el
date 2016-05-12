@@ -460,6 +460,11 @@
     (=ucs@unicode	. #x623E)	; &G0-6C65;
     (=ucs@JP/hanazono	. nil)
     (=gb2312		. #x6C65)	; &G0-6C65; [76-69]
+    (->subsumptive
+     ((==ucs@unicode	  . #x623E)	; &g2-UU+623E;
+      (==ucs@JP/hanazono  . nil)
+      (==gb2312		  . #x6C65)	; &g2-UU+623E; [76-69]
+      ))
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
