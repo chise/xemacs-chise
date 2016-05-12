@@ -2866,17 +2866,47 @@
     (=daikanwa		. 00210)	; &I-M-00210;
     (=shinjigen@1ed	.  9917)	; 亀
     (=shinjigen@rev	.  9916)	; 亀
-    (=hanziku-12	. #xEBBD)	; &I-HZK12-EBBD;
     (<-vulgar
-     ((=ucs@jis		  . #x9F9C)	; &GT-66712;
-      (=ucs@ks		  . #x9F9C)	; &GT-66712;
+     ((=ucs@cns		  . #x9F9C)	; &GT-66712;
+      (=ucs@jis/1990	  . #x9F9C)	; &GT-66712;
+      (=ucs@jis/2000	  . #x9F9C)	; &GT-66712;
+      (=ucs@jis/2004	  . #x9F9C)	; &GT-66712;
       (=jis-x0208@1983	  . #x737D)	; &GT-66712; [83-93]
-      (=ks-x1001	  . #x4F4F)	; &I-K0-4F4F; [47-47]
+      (=cns11643-1	  . #x733F)	; &I-C1-733F; [83-31]
       (=jis-x0213-1	  . #x737D)	; &I-JX1-737D; [83-93]
       (=daikanwa	  . 48847)	; &I-M-48847;
       ))
     (<-vulgar*sources
      daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x4E80)	; &g2-AJ1-01615;
+      (==adobe-japan1-0	  . 01615)	; &g2-AJ1-01615;
+      (==jis-x0208	  . #x3535)	; &g2-AJ1-01615; [21-21]
+      (==cns11643-3	  . #x396C)	; &g2-AJ1-01615; [25-76]
+      (==jis-x0213-1	  . #x3535)	; &g2-AJ1-01615; [21-21]
+      (==gt		  . 66701)	; &g2-AJ1-01615;
+      (==gt-k		  . 07742)	; &g2-AJ1-01615;
+      (==daikanwa	  . 00210)	; &g2-AJ1-01615;
+      (==shinjigen@1ed	  .  9917)	; &g2-AJ1-01615;
+      (==shinjigen@rev	  .  9916)	; &g2-AJ1-01615;
+      (->subsumptive
+       ((===daikanwa	    . 00210)	; &R-M-00210;
+	)
+       ((===jis-x0208	    . #x3535)	; &R-J0-3535; [21-21]
+	(===jis-x0213-1	    . #x3535)	; &R-J0-3535; [21-21]
+	)
+       ((===adobe-japan1-0  . 01615)	; &R-AJ1-01615;
+	)
+       ((===cns11643-3	    . #x396C)	; &R-C3-396C; [25-76]
+	)
+       ((===gt		    . 66701)	; &R-GT-66701;
+	(===gt-k	    . 07742)	; &R-GT-66701;
+	)
+       ((===ucs@unicode	    . #x4E80)	; &R-UU+4E80;
+	)
+       ((=hanziku-12	    . #xEBBD)	; &HZK12-EBBD;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
