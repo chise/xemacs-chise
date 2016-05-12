@@ -30502,7 +30502,9 @@
     (total-strokes	 . 25)
     (=daikanwa		. 39266)	; &M-39266;
     (<-same
-     ((=daikanwa	  . 42540)	; &M-42540;
+     ((=ucs@cns		  . #x9749)	; &C2-7146;
+      (=cns11643-2	  . #x7146)	; &C2-7146; [81-38]
+      (=daikanwa	  . 42540)	; &I-M-42540;
       ))
     (<-same*sources
      longkanshoujian daikanwa)
