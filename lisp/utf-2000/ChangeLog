@@ -1,5 +1,18 @@
 2016-05-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ruimoku6.el (IU+20E04): Use g2-UU+53E3 instead of U+53E3 in
+	`ideographic-structure' of abstract glyph-form objects.
+	(g2-RUI6-E035): Likewise.
+	(g2-IU+2A894): Likewise.
+	(RUI6-E06D): Apply new conventions for glyph granularity.
+
+	* Ideograph-R213-Turtle.el (U+4E80): Add representative nodes.
+	(U+9F9C): Apply new conventions for glyph granularity.
+	(U+9F9D): Likewise.
+	(U+9F9E): Likewise.
+
+2016-05-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R138-Stopping.el: Add some Adobe-Japan1-0 code points.
 
 	* Ideograph-R109-Eye.el (U-000250E9): Apply new conventions for
