@@ -1,4 +1,17 @@
+2016-05-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R125-Old.el: Add some Adobe-Japan1-0 code points.
+	(U+800A): Unify S-6348; add `<-formed' for U+800B.
+
 2016-05-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (U+67BC): Apply new conventions for glyph
+	granularity.
+	(U+67F0): Likewise.
+	(U+6902): Likewise.
+	(U+3B88): Likewise.
+	(U+3B8F): Likewise.
+	(U+3BE2): Likewise.
 
 	* ruimoku6.el (IU+20E04): Use g2-UU+53E3 instead of U+53E3 in
 	`ideographic-structure' of abstract glyph-form objects.
