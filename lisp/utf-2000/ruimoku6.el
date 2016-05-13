@@ -414,7 +414,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs		    . #x53E3)	; 口
+       ((==ucs@unicode	    . #x53E3)	; &g2-AJ1-01969;
+	(==adobe-japan1-0   . 01969)	; &g2-AJ1-01969;
 	)
        ((==ucs@ks	    . #x82F1)	; &g2-HD-IB-3B76;
 	(==hanyo-denshi/ib  . #x3B76)	; &g2-HD-IB-3B76; [27-86]
@@ -425,7 +426,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs		    . #x53E3)	; 口
+       ((==ucs@unicode	    . #x53E3)	; &g2-AJ1-01969;
+	(==adobe-japan1-0   . 01969)	; &g2-AJ1-01969;
 	)
        ((==ucs@cns	    . #x82F1)	; &g2-CU+82F1;
 	(==cns11643-1	    . #x5341)	; &g2-CU+82F1; [51-33]
@@ -834,7 +836,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs		    . #x53E3)	; 口
+       ((==ucs@unicode	    . #x53E3)	; &g2-AJ1-01969;
+	(==adobe-japan1-0   . 01969)	; &g2-AJ1-01969;
 	)
        ((==ucs@unicode	    . #x6587)	; &g2-AJ1-03592;
 	(==adobe-japan1-0   . 03592)	; &g2-AJ1-03592;
@@ -1126,7 +1129,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs		    . #x53E3)	; 口
+       ((==ucs@unicode	    . #x53E3)	; &g2-AJ1-01969;
+	(==adobe-japan1-0   . 01969)	; &g2-AJ1-01969;
 	)
        ((==ucs@unicode	    . #x5ECC)	; &g2-AJ1-21504;
 	(==adobe-japan1-6   . 21504)	; &g2-AJ1-21504;
@@ -1753,11 +1757,22 @@
       )
      ((=ucs		  . #x6BDB)	; 毛
       )
-     ((=ucs@unicode	  . #x67BC)	; &JSP-4336;
-      (=jis-x0212	  . #x4336)	; &JSP-4336; [35-22]
-      (=daikanwa	  . 14593)	; &I-M-14593;
+     ((=ucs		  . #x67BC)	; 枼
       ))
     (=ruimoku-v6	. #xE06D)	; &RUI6-E06D;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+	(=ucs		    . #x2FFA)	; ⿺
+	)
+       ((==ucs@unicode	    . #x6BDB)	; &g2-AJ1-03807;
+	(==adobe-japan1-0   . 03807)	; &g2-AJ1-03807;
+	)
+       ((==ucs@unicode	    . #x67BC)	; &g2-JSP-4336;
+	(==jis-x0212	    . #x4336)	; &g2-JSP-4336; [35-22]
+	))
+      (==ruimoku-v6	  . #xE06D)	; &g2-RUI6-E06D;
+      ))
     ))
 (define-char
   '((ideographic-radical . 196)	; ⿃
