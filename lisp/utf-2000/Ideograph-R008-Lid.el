@@ -4659,7 +4659,6 @@
     (=ucs		. #x2019C)	; 𠆜
     (=cns11643-7	. #x4623)	; &I-C7-4623; [38-03]
     (=daikanwa		. 48577)	; &I-M-48577;
-    (=hanziku-1		. #xE2BA)	; &I-HZK01-E2BA;
     (->subsumptive
      ((ideographic-radical . 210)	; ⿑
       (ideographic-strokes . 8)
@@ -4669,17 +4668,19 @@
 	)
        ((==big5-cdp	    . #x8DEB)	; &g2-CDP-8DEB;
 	)
-       ((=ucs@unicode	    . #x59BB)	; &AJ1-02106;
-	(=adobe-japan1-0    . 02106)	; &AJ1-02106;
+       ((==ucs@unicode	    . #x59BB)	; &g2-AJ1-02106;
+	(==adobe-japan1-0   . 02106)	; &g2-AJ1-02106;
 	))
       (==daikanwa	  . 48577)	; &g2-M-48577;
       )
      ((==ucs@iso	  . #x2019C)	; &g2-IU-0002019C;
       (==cns11643-7	  . #x4623)	; &g2-IU-0002019C; [38-03]
       (->subsumptive
+       ((===cns11643-7	    . #x4623)	; &R-C7-4623; [38-03]
+	)
        ((===ucs@iso	    . #x2019C)	; &R-U-0002019C;
 	)
-       ((===cns11643-7	    . #x4623)	; &R-C7-4623; [38-03]
+       ((=hanziku-1	    . #xE2BA)	; &HZK01-E2BA;
 	))
       ))
     ))
