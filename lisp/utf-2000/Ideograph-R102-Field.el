@@ -4142,6 +4142,26 @@
     (=big5		. #xE6AE)	; &I-B-E6AE;
     (=daikanwa		. 21924)	; &I-M-21924;
     (=jef-china3	. #x5AC7)	; &I-JC3-5AC7;
+    (->subsumptive
+     ((==ucs@unicode	  . #x757E)	; &g2-JSP-4D42;
+      (==jis-x0212	  . #x4D42)	; &g2-JSP-4D42; [45-34]
+      (==cns11643-2	  . #x5236)	; &g2-JSP-4D42; [50-22]
+      (==jis-x0213-2	  . #x7142)	; &g2-JSP-4D42; [81-34]
+      (==daikanwa	  . 21924)	; &g2-JSP-4D42;
+      (==jef-china3	  . #x5AC7)	; &g2-JSP-4D42;
+      (->subsumptive
+       ((===daikanwa	    . 21924)	; &R-M-21924;
+	)
+       ((===jis-x0212	    . #x4D42)	; &R-JX2-7142; [45-34]
+	(===jis-x0213-2	    . #x7142)	; &R-JX2-7142; [81-34]
+	)
+       ((===cns11643-2	    . #x5236)	; &R-C2-5236; [50-22]
+	)
+       ((===jef-china3	    . #x5AC7)	; &R-JC3-5AC7;
+	)
+       ((===ucs@unicode	    . #x757E)	; &R-UU+757E;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 102)	; ⽥
