@@ -1,5 +1,46 @@
 2016-05-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R009-Man.el (U+36A2): Apply new conventions for glyph
+	granularity.
+	(U+4F2E): Likewise.
+	(U+4FC1): Likewise.
+	(U+5013): Likewise.
+	(U-0002028C): Likewise.
+	(U+5037): Likewise.
+	(U+505E): Likewise.
+	(U+5065): Likewise.
+	(U-000202F4): Likewise.
+	(U+50CE): Likewise.
+	(U+50FA): Likewise.
+
+	* Ideograph-R210-Even.el (U-0002019C): Apply new conventions for
+	glyph granularity for a component of ideographic-structure.
+
+	* Ideograph-R173-Rain.el: Add some Adobe-Japan1-0 code points.
+	(U+9741): Apply new conventions for glyph granularity; unify
+	S-8997; add `<-original' for U+96F7.
+
+	* Ideograph-R102-Field.el (U+757E): Add representative nodes.
+
+	* Ideograph-R050-Turban.el (U+5E11): Apply new glyph-image
+	conventions.
+	(U+5E67): Likewise.
+
+	* Ideograph-R049-Oneself.el (U+5DFD): Apply new glyph-image
+	conventions.
+
+	* Ideograph-R038-Woman.el (U+5974): Apply new glyph-image
+	conventions.
+	(U+36A2): Likewise.
+	(U+59BB): Likewise.
+	(g2-S-1631): Unify U+59BE-var-001.
+	(U+5B30): Likewise.
+
+	* Ideograph-R008-Lid.el (U-0002019C): Apply new conventions for
+	glyph granularity for a component of ideographic-structure.
+
+2016-05-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R125-Old.el: Add some Adobe-Japan1-0 code points.
 	(U+800A): Unify S-6348; add `<-formed' for U+800B.
 
