@@ -1,3 +1,36 @@
+2016-05-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R086-Fire.el: Add some Adobe-Japan1-0 code points.
+	(U-0002418E): Apply new conventions for glyph granularity.
+	(U+707E): Unify S1-4558 and S2-4559; add `<-formed' for U+707D;
+	unify JC3-93AE instead of JC3-90AF.
+	(g2-JU+707E): Separate g2-JC3-93AE.
+	(g2-UU+707E): Unify g2-JC3-93AE instead of g2-JC3-90AF.
+	(JC3-90AF): Changed to a glyph-image of g2-UU+707E.
+	(U+70D6): Apply new conventions for glyph granularity; unify
+	S1-4557 and S2-4558.
+	(U+712D): Apply new conventions for glyph granularity; unify
+	S1-4630 and S2-4628; add `<-vulgar' for M-19217.
+	(A-M-19192): New abstract node; add `<-denotational' for
+	BUCS+7199.
+	(BUCS+7199): New abstract node.
+	(U+7155): Add `<-denotational' for A-M-19192; unify S1-4625; add
+	`<-original' for U+7199.
+	(U+7199): Add `<-denotational' for A-M-19192; unify S1-4624 and
+	S2-4640.
+	(U-000242EE): Add `<-denotational' for BUCS+7199; unify S1-4626
+	and S2-4642; add `<-wrong' for U+7199.
+	(U+7188): Add `<-denotational' for BUCS+7199.
+	(M-19336): Unify S1-4598 and S2-4599; add `<-original' for U+70FD.
+	(JU+71A2): Unify S1-4599 and S2-4600; add `<-formed' for U+70FD.
+	(U+71D5): Apply new conventions for glyph granularity; separate
+	UU+71D5.
+	(UU+71D5): Add `=>ucs@iwds-1'.
+	(MJ058005): New character; add `<-denotational' for U+71D5; unify
+	HD-KS218190.
+	(U-000243D0): Apply new conventions for glyph granularity; unify
+	MJ040072.
+
 2016-05-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R039-Child.el (U+5B6A): Apply new conventions for
