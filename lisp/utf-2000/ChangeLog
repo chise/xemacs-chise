@@ -1,5 +1,9 @@
 2016-05-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R201-Yellow.el: Add some Adobe-Japan1-0 code points.
+
+2016-05-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R086-Fire.el: Add some Adobe-Japan1-0 code points.
 	(U-0002418E): Apply new conventions for glyph granularity.
 	(U+707E): Unify S1-4558 and S2-4559; add `<-formed' for U+707D;
