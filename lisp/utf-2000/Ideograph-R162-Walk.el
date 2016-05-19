@@ -10435,7 +10435,7 @@
     (=daikanwa		. 38886)	; &I-M-38886;
     (=shinjigen		.  8287)	; &AJ1-06903;
     (->formed
-     ((=adobe-japan1-0	  . 05624)	; &AJ1-05624;
+     ((=ucs		  . #x72C4)	; 狄
       (=daikanwa	  . 20290)	; &I-M-20290;
       ))
     (->formed*sources
