@@ -1,5 +1,9 @@
 2016-05-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R186-Fragrant.el: Add some Adobe-Japan1-0 code points.
+
+2016-05-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R019-Power.el: Use g2-UU+529B instead of U+529B in
 	`ideographic-structure' of abstract glyph-form objects.
 	(U+52AA): Apply new conventions for glyph granularity.
