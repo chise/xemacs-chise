@@ -1,3 +1,11 @@
+2016-05-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R019-Power.el: Use g2-UU+529B instead of U+529B in
+	`ideographic-structure' of abstract glyph-form objects.
+	(U+52AA): Apply new conventions for glyph granularity.
+	(C4-364C): Unify U-0002F827 instead of CU+2F827.
+	(g2-C4-364C): Unify g2-IU+2F827 instead of U-0002F827.
+
 2016-05-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R201-Yellow.el: Add some Adobe-Japan1-0 code points.
