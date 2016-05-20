@@ -1,3 +1,12 @@
+2016-05-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R192-Sacrificial-Wine.el: Add some Adobe-Japan1-0 code
+	points.
+
+	* Ideograph-R185-Head.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R203-Black.el: Add some Adobe-Japan1-0 code points.
+
 2016-05-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R186-Fragrant.el: Add some Adobe-Japan1-0 code points.
