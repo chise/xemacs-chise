@@ -1,3 +1,14 @@
+2016-05-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R150-Valley.el: Add some Adobe-Japan1-0 code points.
+	(GT-K02608): New character; add `<-denotational' for U+8C37; add
+	`<-formed@component/connect-right' for U+8C37.
+
+2016-05-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R094-Dog.el: Add some Adobe-Japan1-0 code points.
+	(U+3E85): Unify S1-4819 and S2-4821; add `<-original' for U+7334.
+
 2016-05-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R192-Sacrificial-Wine.el: Add some Adobe-Japan1-0 code
@@ -6,6 +17,9 @@
 	* Ideograph-R185-Head.el: Add some Adobe-Japan1-0 code points.
 
 	* Ideograph-R203-Black.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R046-Mountain.el (g2-M-08652): Add
+	`ideographic-structure'.
 
 2016-05-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
