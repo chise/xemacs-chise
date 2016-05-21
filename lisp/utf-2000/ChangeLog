@@ -1,5 +1,10 @@
 2016-05-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R130-Meat.el (U+43CD): Use `->subsumptive'.
+	(U+8099): Apply new conventions for glyph granularity.
+
+2016-05-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R150-Valley.el: Add some Adobe-Japan1-0 code points.
 	(GT-K02608): New character; add `<-denotational' for U+8C37; add
 	`<-formed@component/connect-right' for U+8C37.
