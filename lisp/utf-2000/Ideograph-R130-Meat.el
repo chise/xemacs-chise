@@ -592,19 +592,35 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=ucs		. #x43CD)	; 䏍
+    (=cns11643-6	. #x2549)	; &I-C6-2549; [05-41]
+    (=big5-cdp		. #x8B6A)	; &I-CDP-8B6A;
     (=gt		. 37859)	; &I-GT-37859;
     (=gt-k		. 01763)	; &I-GT-K01763;
     (=gt-pj-6		. #x3927)	; &I-GT-37859; [25-07]
     (=daikanwa		. 29251)	; &I-M-29251;
-    ))
-(define-char
-  '((=>ucs		. #x43CD)	; 䏍
-    (morohashi-daikanwa	29251 0 0)
-    (ideographic-radical . 130)	; ⾁
-    (ideographic-strokes . 2)
-    (total-strokes	 . 6)
-    (=cns11643-6	. #x2549)	; &C6-2549; [05-41]
-    (=big5-cdp		. #x8B6A)	; &I-CDP-8B6A;
+    (->subsumptive
+     ((==ucs@unicode	  . #x43CD)	; &g2-GT-37859;
+      (==gt		  . 37859)	; &g2-GT-37859;
+      (==gt-k		  . 01763)	; &g2-GT-37859;
+      (==daikanwa	  . 29251)	; &g2-GT-37859;
+      (->subsumptive
+       ((===daikanwa	    . 29251)	; &R-M-29251;
+	)
+       ((===gt		    . 37859)	; &R-GT-37859;
+	(===gt-k	    . 01763)	; &R-GT-37859;
+	)
+       ((===ucs@unicode	    . #x43CD)	; &R-UU+43CD;
+	))
+      )
+     ((==ucs@cns	  . #x43CD)	; &g2-CDP-8B6A;
+      (==cns11643-6	  . #x2549)	; &g2-CDP-8B6A; [05-41]
+      (==big5-cdp	  . #x8B6A)	; &g2-CDP-8B6A;
+      (->subsumptive
+       ((===big5-cdp	    . #x8B6A)	; &R-CDP-8B6A;
+	)
+       ((===cns11643-6	    . #x2549)	; &R-C6-2549; [05-41]
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 130)	; ⾁
@@ -1242,13 +1258,24 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x8099)	; 肙
+    (=cns11643-2	. #x2475)	; &I-C2-2475; [04-85]
+    (=jis-x0213-2	. #x7530)	; &JX2-7530; [85-16]
+    (=big5		. #xCB75)	; &I-B-CB75;
+    (=daikanwa		. 29269)	; &I-M-29269;
     (->subsumptive
-     ((=ucs@unicode	  . #x8099)	; &JX2-7530;
-      (=jis-x0213-2	  . #x7530)	; &JX2-7530; [85-16]
-      (=big5		  . #xCB75)	; &I-B-CB75;
-      (=daikanwa	  . 29269)	; &I-M-29269;
+     ((==ucs@unicode	  . #x8099)	; &g2-JX2-7530;
+      (==jis-x0213-2	  . #x7530)	; &g2-JX2-7530; [85-16]
+      (==daikanwa	  . 29269)	; &g2-JX2-7530;
+      (->subsumptive
+       ((===daikanwa	    . 29269)	; &R-M-29269;
+	)
+       ((===jis-x0213-2	    . #x7530)	; &R-JX2-7530; [85-16]
+	)
+       ((===ucs@unicode	    . #x8099)	; &R-UU+8099;
+	))
       )
-     ((=cns11643-2	  . #x2475)	; &C2-2475; [04-85]
+     ((==ucs@cns	  . #x8099)	; &g2-CU+8099;
+      (==cns11643-2	  . #x2475)	; &g2-CU+8099; [04-85]
       ))
     ))
 (define-char
