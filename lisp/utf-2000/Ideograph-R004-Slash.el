@@ -277,6 +277,8 @@
 	)
        ((===hng-khm	    . 01660)	; &HNG011-01660;
 	)
+       ((===hng-kar	    . 05030)	; &HNG018-05030;
+	)
        ((===hng-sik	    . 00020)	; &HNG044-00020;
 	)
        ((===hng-skk	    . 00030)	; &HNG046-00030;
@@ -443,6 +445,8 @@
        ((===hng-khi	    . 02240)	; &HNG010-02240;
 	)
        ((===hng-khm	    . 01680)	; &HNG011-01680;
+	)
+       ((===hng-kar	    . 05020)	; &HNG018-05020;
 	)
        ((===hng-skk	    . 00020)	; &HNG046-00020;
 	))
@@ -1002,6 +1006,8 @@
 	)
        ((===hng-kak	    . 02630)	; &HNG017-02630;
 	)
+       ((===hng-kar	    . 04920)	; &HNG018-04920;
+	)
        ((===hng-tzj	    . 01010)	; &HNG025-01010;
 	)
        ((===hng-k24	    . 04260)	; &HNG037-04260;
@@ -1347,6 +1353,8 @@
        ((===hng-myz	    . 01890)	; &HNG008-01890;
 	)
        ((===hng-kak	    . 02680)	; &HNG017-02680;
+	)
+       ((===hng-kar	    . 05160)	; &HNG018-05160;
 	)
        ((===hng-k24	    . 04290)	; &HNG037-04290;
 	))
@@ -2485,6 +2493,11 @@
     (=gt-pj-1		. #x3E68)	; &I-GT-00208; [30-72]
     (=daikanwa		. 00153)	; &I-M-00153;
     (=shinjigen		.  0054)	; &AJ1-02512;
+    (<-formed
+     ((=ucs		  . #x4E58)	; 乘
+      ))
+    (<-formed*sources
+     hng)
     (<-simplified@JP/Jouyou
      ((=ucs		  . #x4E58)	; 乘
       (=jis-x0208	  . #x502B)	; &I-J90-502B; [48-11]
@@ -2538,6 +2551,9 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 9)
     (===hng-ksk		. 00010)	; &HNG048-00010;
+    (<-formed
+     ((=ucs		  . #x4E58)	; 乘
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2545,6 +2561,9 @@
       ))
     (ideographic-radical . 4)	; ⼃
     (===hng-kss		. 02270)	; &HNG064-02270;
+    (<-formed
+     ((=ucs		  . #x4E58)	; 乘
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2552,6 +2571,9 @@
       ))
     (ideographic-radical . 4)	; ⼃
     (===hng-keg		. 02320)	; &HNG002-02320;
+    (<-formed
+     ((=ucs		  . #x4E58)	; 乘
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2561,6 +2583,21 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 10)
     (===hng-khm		. 01650)	; &HNG011-01650;
+    (<-formed
+     ((=ucs		  . #x4E58)	; 乘
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E57)	; 乗
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 9)
+    (total-strokes	 . 10)
+    (===hng-kar		. 05040)	; &HNG018-05040;
+    (<-formed
+     ((=ucs		  . #x4E58)	; 乘
+      ))
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃
