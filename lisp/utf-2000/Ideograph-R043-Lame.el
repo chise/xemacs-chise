@@ -434,6 +434,50 @@
     ))
 (define-char
   '((ideographic-radical . 43)	; ⼪
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (=ucs		. #x21BCE)	; 𡯎
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21BCE)	; 𡯎
+      ))
+    (ideographic-radical . 43)	; ⼪
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x5C22)	; 尢
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (=>ucs@iwds-1	. #x21BCE)	; &A-IWDSU+21BCE;
+    (=ucs@iso		. #x21BCE)	; &A-IWDSU+21BCE;
+    (->subsumptive
+     ((==ucs@iso	  . #x21BCE)	; &g2-IU-00021BCE;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21BCE)	; 𡯎
+      ))
+    (ideographic-radical . 43)	; ⼪
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x5C22)	; 尢
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (=big5-cdp		. #x85C1)	; &CDP-85C1;
+    ))
+(define-char
+  '((ideographic-radical . 43)	; ⼪
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x5C28)	; 尨
