@@ -11687,7 +11687,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=adobe-japan1-4	  . 13828)	; &AJ1-13828;
+     ((=ucs		  . #x5973)	; 女
       )
      ((=ucs		  . #x751A)	; 甚
       ))
@@ -11704,15 +11704,10 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=adobe-japan1-4	  . 13828)	; &AJ1-13828;
+     ((=ucs		  . #x5973)	; 女
       )
-     ((=ucs@unicode	  . #x751A)	; &GT-27811;
-      (=jis-x0208	  . #x3F53)	; &GT-27811; [31-51]
-      (=gb2312		  . #x4975)	; &I-G0-4975; [41-85]
-      (=ks-x1001	  . #x6424)	; &I-K0-6424; [68-04]
-      (=cns11643-1	  . #x5249)	; &I-C1-5249; [50-41]
-      (=jis-x0213-1	  . #x3F53)	; &I-JX1-3F53; [31-51]
-      (=daikanwa	  . 21648)	; &I-M-21648;
+     ((=ucs@unicode	  . #x751A)	; &AJ1-02585;
+      (=adobe-japan1-0	  . 02585)	; &AJ1-02585;
       ))
     (=ucs@unicode	. #x5A85)	; &C3-3A5B;
     (=cns11643-3	. #x3A5B)	; &C3-3A5B; [26-59]
@@ -11725,9 +11720,9 @@
 	)
        ((==adobe-japan1-4   . 13828)	; &g2-AJ1-13828;
 	)
-       ((==ucs@jis	    . #x751A)	; &g2-GT-27811;
-	(==ucs@ks	    . #x751A)	; &g2-GT-27811;
-	(==jis-x0208	    . #x3F53)	; &g2-GT-27811; [31-51]
+       ((==ucs@jis	    . #x751A)	; &g2-AJ1-02585;
+	(==ucs@ks	    . #x751A)	; &g2-AJ1-02585;
+	(==adobe-japan1-0   . 02585)	; &g2-AJ1-02585;
 	))
       (==daikanwa	  . 06479)	; &g2-M-06479;
       (==cbeta		  . 02919)	; &g2-M-06479;
