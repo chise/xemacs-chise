@@ -1774,13 +1774,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x751A)	; &GT-27811;
-      (=jis-x0208	  . #x3F53)	; &GT-27811; [31-51]
-      (=gb2312		  . #x4975)	; &I-G0-4975; [41-85]
-      (=ks-x1001	  . #x6424)	; &I-K0-6424; [68-04]
-      (=cns11643-1	  . #x5249)	; &I-C1-5249; [50-41]
-      (=jis-x0213-1	  . #x3F53)	; &I-JX1-3F53; [31-51]
-      (=daikanwa	  . 21648)	; &I-M-21648;
+     ((=ucs@unicode	  . #x751A)	; &AJ1-02585;
+      (=adobe-japan1-0	  . 02585)	; &AJ1-02585;
       )
      ((=ucs		  . #x5341)	; 十
       ))
@@ -1801,9 +1796,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@jis	    . #x751A)	; &g2-GT-27811;
-	(==ucs@ks	    . #x751A)	; &g2-GT-27811;
-	(==jis-x0208	    . #x3F53)	; &g2-GT-27811; [31-51]
+       ((==ucs@jis	    . #x751A)	; &g2-AJ1-02585;
+	(==ucs@ks	    . #x751A)	; &g2-AJ1-02585;
+	(==adobe-japan1-0   . 02585)	; &g2-AJ1-02585;
 	)
        ((=ucs		    . #x5341)	; 十
 	))
