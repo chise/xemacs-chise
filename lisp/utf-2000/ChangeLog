@@ -1,5 +1,36 @@
 2016-05-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R043-Lame.el (U-00021BCE): New character.
+	(IU+21BCE): Likewise; use `<-denotational' for U-00021BCE; add
+	`=>ucs@iwds-1'.
+	(BC-85C1): New character; use `<-denotational' for U-00021BCE.
+
+	* Ideograph-R038-Woman.el (U+5A85): Use U+5973 instead of
+	AJ1-13828 in `ideographic-structure'.
+	(UU+5A85): Likewise.
+
+	* Ideograph-R030-Mouth.el: Use g2-UU+53E3 instead of U+53E3 in
+	`ideographic-structure' of abstract glyph-forms.
+	(U-00020BA5): Add representative nodes; add U+20BA5-var-001.
+	(U+5433): Apply new conventions for glyph granularity.
+	(U-00020BF5): Likewise.
+	(U+5476): Likewise.
+	(U+35A0): Likewise.
+	(U+555B): Likewise.
+	(U+555C): Likewise.
+	(U+558B): Likewise.
+	(U-00020E3B): Likewise.
+	(U+55BF): Likewise.
+	(U+55DC): Likewise.
+	(U+5640): Likewise.
+	(U+5685): Likewise.
+	(U+56B6): Likewise.
+	(U+56CF): Unify S-6673; add `<-ancient' for U+8271.
+
+	* Ideograph-R009-Man.el (U+5061): Add `ideographic-structure'.
+	(UU+5061): Use U+4EBB instead of <CJK RADICAL PERSON> in
+	`ideographic-structure' of abstract glyph object.
+
 	* Ideograph-R004-Slash.el: Add glyph-images of HNG-KAR.
 
 2016-05-21  MORIOKA Tomohiko  <tomo.git@chise.org>
@@ -13412,8 +13443,8 @@
 
 2014-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* char-db-util.el (shuowen-radicals): Add ?𡲲, ?屵, ?广, ?厂, ?丸,
-	?危, ?石, ?長, ?勿, ?冄, ?而, ?豕, ?&G-UU+5F52;, ?彑, ?豚, ?豸, ?𤉡, ?易,
+	* char-db-util.el (shuowen-radicals): Add ?&J97-3C48;, ?屵, ?广, ?厂, ?丸,
+	?危, ?石, ?長, ?勿, ?冄, ?而, ?豕, ?&g2-AJ1-14521;, ?彑, ?豚, ?豸, ?𤉡, ?易,
 	?象 and ?馬.
 
 	* Ideograph-R072-Sun.el (U+6600): Apply new conventions for glyph
@@ -14838,7 +14869,7 @@
 
 	* Oracle-Bones.el (ZOB-{02487..02499}): New characters.
 
-	* char-db-util.el (shuowen-radicals): Add ?&g2-AJ1-02933;, ?㳄, ?旡, ?頁, ?𦣻,
+	* char-db-util.el (shuowen-radicals): Add ?&R-GT-20780;, ?㳄, ?旡, ?頁, ?𦣻,
 	?面, ?丏, ?首, ?𥄉 and ?須.
 
 2014-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
@@ -37400,7 +37431,7 @@
 
 2007-10-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* char-db-util.el (shuowen-radicals): Fix typo; swap ?畗 and ?&R-MJ013494;
+	* char-db-util.el (shuowen-radicals): Fix typo; swap ?畗 and ?&R-AJ1-08487;
 	based on the big brother's version.
 
 	* Oracle-Bones.el (ZOB-{01598 - 01621}): New characters.
@@ -37441,7 +37472,7 @@
 
 	* char-db-util.el (shuowen-radicals): Add ?烏; add ?丶, ?丹, ?青,
 	?井, ?皀, ?鬯, ?食, ?亼, ?會, ?倉, ?入, ?缶, ?矢, ?高, ?冂, ?𩫏,
-	?京, ?亯, ?畗, ?&R-MJ013494;, ?㐭, ?𠾂, ?來, ?麥, ?夊, ?舛, ?䑞, ?韋, ?弟,
+	?京, ?亯, ?畗, ?&R-AJ1-08487;, ?㐭, ?𠾂, ?來, ?麥, ?夊, ?舛, ?䑞, ?韋, ?弟,
 	?夂, ?久 and ?桀.
 
 2007-09-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
@@ -37580,7 +37611,7 @@
 
 	* char-db-util.el (shuowen-radicals): Add ?𠦒, ?冓, ?幺, ?𢆶, ?叀,
 	?玄, ?予, ?放, ?𠬪, ?𣦼, ?歺, ?死, ?冎, ?骨, ?肉, ?筋, ?刀, ?刃,
-	?&A-UU+34DE;, ?丰, ?耒 and ?&R-JX2-784A;.
+	?&A-UU+34DE;, ?丰, ?耒 and ?&R-M-34969;.
 
 	* Oracle-Bones.el (ZOB-00010): Use ZOB-01263 in
 	`ideographic-structure'.
@@ -37750,7 +37781,7 @@
 
 2007-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* char-db-util.el (shuowen-radicals): Add ?𦥑, ?&g2-M-49890;, ?爨, ?革, ?鬲,
+	* char-db-util.el (shuowen-radicals): Add ?𦥑, ?𨆛, ?爨, ?革, ?鬲,
 	?䰜, ?爪, ?𠃨, ?鬥, ?又, ?𠂇, ?㕜, ?  支, ?𦘒, ?聿, ?畫, ?隶, ?堅,
 	?臣, ?殳, ?殺, ?𠘧, ?寸, ?皮 , ?瓪, ?  攴, ?敎, ?卜, ?用, ?爻 and
 	?㸚.
