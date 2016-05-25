@@ -2973,6 +2973,16 @@
     (=cns11643-2	. #x6623)	; &I-C2-6623; [70-03]
     (=big5		. #xF277)	; &I-B-F277;
     (=daikanwa		. 21620)	; &I-M-21620;
+    (=shinjigen@1ed	.  6235)	; 甖
+    (=shinjigen@rev	.  6236)	; 甖
+    (<-formed
+     ((=ucs		  . #x7F4C)	; 罌
+      (=jis-x0208	  . #x6622)	; &I-J90-6622; [70-02]
+      (=shinjigen@1ed	  .  6234)	; 罌
+      (=shinjigen@rev	  .  6235)	; 罌
+      ))
+    (<-formed*sources
+     shinjigen@1ed shinjigen@rev)
     ))
 (define-char
   '((ideographic-radical . 98)	; ⽡
