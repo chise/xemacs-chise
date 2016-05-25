@@ -1,5 +1,8 @@
 2016-05-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R098-Tile.el (U+7516): Unify S1-6235 and S2-6236; add
+	`<-formed' for U+7F4C.
+
 	* Ideograph-R099-Sweet.el: Add some Adobe-Japan1-0 code points.
 	(U-00024BC9): Omit `ideographic-structure'.
 	(A-CU+24BC9): New abstract node; use `<-denotational' for
