@@ -231,6 +231,8 @@
 	)
        ((===hng-kyd	    . 08670)	; &HNG014-08670;
 	)
+       ((===hng-kar	    . 05150)	; &HNG018-05150;
+	)
        ((===hng-hos	    . 04250)	; &HNG026-04250;
 	)
        ((===hng-hod	    . 06930)	; &HNG030-06930;
@@ -393,7 +395,12 @@
      ((name		  . "CJK RADICAL SECOND THREE")
       (=ucs		  . #x2E84)	; ⺄
       ))
-    (===hng-doh		. 00040)	; &HNG057-00040;
+    (=ucs-var-001	. #x4E5E)	; &U-v001+4E5E;
+    (->subsumptive
+     ((===hng-kar	  . 05140)	; &HNG018-05140;
+      )
+     ((===hng-doh	  . 00040)	; &HNG057-00040;
+      ))
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
@@ -466,6 +473,8 @@
        ((===hng-kyd	    . 08680)	; &HNG014-08680;
 	)
        ((===hng-kak	    . 02650)	; &HNG017-02650;
+	)
+       ((===hng-kar	    . 05050)	; &HNG018-05050;
 	)
        ((===hng-hod	    . 06940)	; &HNG030-06940;
 	))
@@ -3236,6 +3245,8 @@
 	(=ucs		    . #xF91B)	; 亂
 	(=ks-x1001	    . #x516A)	; &I-K0-516A; [49-74]
 	))
+      )
+     ((===hng-kar	  . 05130)	; &HNG018-05130;
       ))
     ))
 (define-char
