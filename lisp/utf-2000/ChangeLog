@@ -1,3 +1,9 @@
+2016-05-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el: Add glyph-images of HNG-KAR.
+	(U+4E5E-var-001): New character to subsume HNG-KAR0514-0 and
+	HNG-DOH0004-0; add `<-denotational' for U+4E5E.
+
 2016-05-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R098-Tile.el (U+7516): Unify S1-6235 and S2-6236; add
