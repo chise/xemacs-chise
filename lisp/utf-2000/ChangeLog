@@ -1,5 +1,9 @@
 2016-05-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R007-Two.el: Add glyph-images of HNG-KAR.
+
+	* Ideograph-R006-Hook.el: Add glyph-images of HNG-KAR.
+
 	* Ideograph-R005-Second.el: Add glyph-images of HNG-KAR.
 	(U+4E5E-var-001): New character to subsume HNG-KAR0514-0 and
 	HNG-DOH0004-0; add `<-denotational' for U+4E5E.
