@@ -1,8 +1,27 @@
 2016-05-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R132-Self.el: Add some Adobe-Japan1-0 code points.
+
+2016-05-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R096-Jade.el: Add some Adobe-Japan1-0 code points.
+
 	* Ideograph-R007-Two.el: Add glyph-images of HNG-KAR.
 
 	* Ideograph-R006-Hook.el: Add glyph-images of HNG-KAR.
+
+	* Ideograph-R018-Knife.el: Use g2-UU+5200 instead of U+5200 in
+	`ideographic-structure' of abstract glyph-forms.
+	(U+34DE): Apply new conventions for glyph granularity.
+	(U+5248): Likewise.
+	(U-0002071F): Likewise.
+	(U+525D): Likewise.
+	(U+5261): Likewise.
+	(U+5265): Likewise.
+	(U-000202F4): Likewise.
+	(U+527F): Use `<-formed' instead of `<-same' for U-000207B0.
+	(U+528B): Apply new conventions for glyph granularity; add
+	`<-formed' for U-000207B0.
 
 	* Ideograph-R005-Second.el: Add glyph-images of HNG-KAR.
 	(U+4E5E-var-001): New character to subsume HNG-KAR0514-0 and
