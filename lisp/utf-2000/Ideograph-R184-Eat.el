@@ -232,11 +232,8 @@
 	)
        ((=big5-cdp	    . #x8AFC)	; &CDP-8AFC;
 	)
-       ((=ucs@unicode	    . #x7680)	; &GT-29075;
-	(=jis-x0208	    . #x6225)	; &GT-29075; [66-05]
-	(=cns11643-3	    . #x2674)	; &I-C3-2674; [06-84]
-	(=jis-x0213-1	    . #x6225)	; &I-JX1-6225; [66-05]
-	(=daikanwa	    . 22683)	; &I-M-22683;
+       ((==ucs@unicode	    . #x7680)	; &g2-AJ1-05786;
+	(==adobe-japan1-0   . 05786)	; &g2-AJ1-05786;
 	))
       (==ucs@iso	  . #x2028A)	; &g2-M-44018;
       (==daikanwa	  . 44018)	; &g2-M-44018;
@@ -255,7 +252,7 @@
 	)
        ((=big5-cdp	    . #x8AFC)	; &CDP-8AFC;
 	)
-       ((=big5-cdp	    . #x8ABE)	; &CDP-8ABE;
+       ((==big5-cdp	    . #x8ABE)	; &g2-CDP-8ABE;
 	))
       (==ucs@cns	  . #x2028A)	; &g2-CU+2028A;
       (==cns11643-6	  . #x3521)	; &g2-CU+2028A; [21-01]
