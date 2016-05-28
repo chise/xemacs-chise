@@ -1,4 +1,19 @@
+2016-05-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R109-Eye.el (JU+773E): Add representative nodes.
+	(UU+773E): Likewise.
+
+2016-05-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el: Add glyph-images of HNG-KAR.
+	(g2-GT-K01604): Omit `<-formed@component/connect-right'.
+
+	* Ideograph-R136-Oppose.el: Add some Adobe-Japan1-0 code points.
+
 2016-05-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R184-Eat.el (U-0002028A): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
 
 	* Ideograph-R132-Self.el: Add some Adobe-Japan1-0 code points.
 
