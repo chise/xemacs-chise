@@ -1,3 +1,14 @@
+2016-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R195-Fish.el: Add some Adobe-Japan1-0 code points.
+	(U+9B8C): Apply new conventions for glyph granularity; unify
+	S-9570; add `<-formed' for UU+9BC0.
+	(U+9BCB): Apply new conventions for glyph granularity; unify
+	S-9572; add `<-formed' for U+9BCA.
+	(U-00029DFA): Unify S-9549; add `<-formed' for U+9B92.
+	(U+9C1F): Unify S-9539; add `<-formed' for U+9B74.
+	(U+9C77): Unify S-9642; add `<-formed' for U+9C10.
+
 2016-05-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R109-Eye.el (JU+773E): Add representative nodes.
