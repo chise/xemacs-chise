@@ -1,3 +1,7 @@
+2016-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (U+5C39): Separate UU+5C39.
+
 2016-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R086-Fire.el (UU+7210): Add `ideographic-structure'.
