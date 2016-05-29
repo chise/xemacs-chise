@@ -2333,6 +2333,14 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 584 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs		  . #x5DDB)	; 巛
+      ))
     (=ucs		. #x20BB0)	; 𠮰
     (=cns11643-5	. #x2246)	; &I-C5-2246; [02-38]
     (=daikanwa		. 03295)	; &I-M-03295;
@@ -3013,6 +3021,23 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=ucs		. #x2B758)	; 𫝘
+    ))
+(define-char
+  '((ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs		  . #x5DDD)	; 川
+      ))
+    (=ucs-itaiji-002	. #x20BB0)	; &U-i002+20BB0;
+    (<-formed
+     ((=ucs		  . #x20BB0)	; 𠮰
+      ))
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
