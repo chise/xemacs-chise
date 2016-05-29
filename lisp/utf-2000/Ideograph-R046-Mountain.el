@@ -16322,6 +16322,15 @@
     (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs@unicode	  . #x76E7)	; &AJ1-05807;
+      (=adobe-japan1-0	  . 05807)	; &AJ1-05807;
+      ))
     (=ucs@unicode	. #x3820)	; &C4-5F5A;
     (=cns11643-4	. #x5F5A)	; &C4-5F5A; [63-58]
     (=daikanwa		. 08597)	; &I-M-08597;
@@ -16334,8 +16343,8 @@
        ((==ucs@unicode	    . #x5C71)	; &g2-AJ1-02177;
 	(==adobe-japan1-0   . 02177)	; &g2-AJ1-02177;
 	)
-       ((==ucs@unicode	    . #x76E7)	; &g2-GT-29541;
-	(==jis-x0208	    . #x623A)	; &g2-GT-29541; [66-26]
+       ((==ucs@unicode	    . #x76E7)	; &g2-AJ1-05807;
+	(==adobe-japan1-0   . 05807)	; &g2-AJ1-05807;
 	))
       (==daikanwa	  . 08597)	; &g2-M-08597;
       )
