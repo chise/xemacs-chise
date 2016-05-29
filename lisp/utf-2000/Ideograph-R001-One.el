@@ -2511,15 +2511,32 @@
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
+    (=ucs		. #x4E1A)	; 业
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E1A)	; 业
+      ))
+    (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 15 4)
-    (=ucs		. #x4E1A)	; 业
-    (=gb2312		. #x5235)	; &I-G0-5235; [50-21]
+    (=ucs@unicode	. #x4E1A)	; &G0-5235;
+    (=gb2312		. #x5235)	; &G0-5235; [50-21]
     (=big5-cdp		. #x8B60)	; &I-CDP-8B60;
     (<-simplified@CN
      ((=ucs		  . #x696D)	; 業
       (=gb12345		  . #x5235)	; 業 [50-21]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x4E1A)	; &g2-CDP-8B60;
+      (==gb2312		  . #x5235)	; &g2-CDP-8B60; [50-21]
+      (==big5-cdp	  . #x8B60)	; &g2-CDP-8B60;
+      (->subsumptive
+       ((===ucs@unicode	    . #x4E1A)	; &R-UU+4E1A;
+	)
+       ((===big5-cdp	    . #x8B60)	; &R-CDP-8B60;
+	))
       ))
     ))
 (define-char
@@ -3130,6 +3147,15 @@
      ((=ucs		  . #xE0101)	; 󠄁
       ))
     (=adobe-japan1-4	. 13697)	; &AJ1-13697;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E1A)	; 业
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (=big5-cdp		. #x8D6B)	; &CDP-8D6B;
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
