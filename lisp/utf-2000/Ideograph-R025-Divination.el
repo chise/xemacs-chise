@@ -306,15 +306,19 @@
       ))
     (=ucs		. #x5362)	; 卢
     (=gb2312		. #x422C)	; &I-G0-422C; [34-12]
-    (=hanziku-1		. #xB6FA)	; &I-HZK01-B6FA;
     (<-simplified@CN
-     ((=ucs@unicode	  . #x76E7)	; &GT-29541;
-      (=jis-x0208	  . #x623A)	; &GT-29541; [66-26]
-      (=ks-x1001	  . #x5654)	; &I-K0-5654; [54-52]
-      (=cns11643-1	  . #x714D)	; &I-C1-714D; [81-45]
-      (=jis-x0213-1	  . #x623A)	; &I-JX1-623A; [66-26]
-      (=gb12345		  . #x422C)	; &GT-29541; [34-12]
-      (=daikanwa	  . 23050)	; &I-M-23050;
+     ((=ucs@unicode	  . #x76E7)	; &AJ1-05807;
+      (=adobe-japan1-0	  . 05807)	; &AJ1-05807;
+      (=gb12345		  . #x422C)	; &AJ1-05807; [34-12]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x5362)	; &g2-UU+5362;
+      (==gb2312		  . #x422C)	; &g2-UU+5362; [34-12]
+      (->subsumptive
+       ((===ucs@unicode	    . #x5362)	; &R-UU+5362;
+	)
+       ((=hanziku-1	    . #xB6FA)	; &HZK01-B6FA;
+	))
       ))
     ))
 (define-char
