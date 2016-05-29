@@ -19025,6 +19025,15 @@
     (ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 16)
     (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x706B)	; 火
+      )
+     ((=ucs@unicode	  . #x76E7)	; &AJ1-05807;
+      (=adobe-japan1-0	  . 05807)	; &AJ1-05807;
+      ))
     (=ucs@unicode	. #x7210)	; &AJ1-05597;
     (=adobe-japan1-0	. 05597)	; &AJ1-05597;
     (=jis-x0208		. #x6024)	; &I-J90-6024; [64-04]
@@ -19045,8 +19054,8 @@
 	)
        ((=gt-k		    . 00405)	; &GT-K00405;
 	)
-       ((==ucs@unicode	    . #x76E7)	; &g2-GT-29541;
-	(==jis-x0208	    . #x623A)	; &g2-GT-29541; [66-26]
+       ((==ucs@unicode	    . #x76E7)	; &g2-AJ1-05807;
+	(==adobe-japan1-0   . 05807)	; &g2-AJ1-05807;
 	))
       (==ucs@unicode	  . #x7210)	; &g2-AJ1-05597;
       (==adobe-japan1-0	  . 05597)	; &g2-AJ1-05597;
