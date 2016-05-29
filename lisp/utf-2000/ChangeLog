@@ -1,6 +1,25 @@
 2016-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el (U+4E1A): Separate UU+4E1A.
+	(BC-8D6B): New character; add `<-denotational' for U+4E1A.
+
+	* Ideograph-R059-Bristle.el (JU+4FEE): Add HNG-KAR0026-0.
+
+	* Ideograph-R044-Corpse.el (U+5C39): Separate UU+5C39.
+	(MJ010330): New character; add `<-denotational' for U+5C39; unify
+	HD-JT-B053.
+
+2016-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R004-Slash.el (U+5C39): Separate UU+5C39.
+
+	* Ideograph-R030-Mouth.el (U-00020BB0): Add
+	`ideographic-structure'.
+	(U+20BB0-itaiji-002): New character; add `<-formed' for
+	U-00020BB0.
+
+	* Ideograph-R026-Seal.el (UU+537D): Separate CU+2F830 and C6-2F3D.
+	(U-0002F830): Unify C6-2F3D.
 
 2016-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
