@@ -1,4 +1,16 @@
+2016-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL TABLE>): Separate
+	BC-8D66, GT-02284 and GT-K00086; use `<-formed@component' instead
+	of `<-identical@component' for U+51E0; add `<-identical@component'
+	for U-00020628.
+
 2016-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R101-Use.el (U-00024C07): Apply new conventions for
+	glyph granularity.
+	(U+24C07-var-003): New character; use `<-denotational' for
+	U-00024C07.
 
 	* Ideograph-R049-Oneself.el (A-MJ057415): New abstract node; use
 	`<-denotational' for U+5DFB.
