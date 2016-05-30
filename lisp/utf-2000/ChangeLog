@@ -1,5 +1,7 @@
 2016-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R012-Eight.el: Add glyph-images of HNG-KAR.
+
 	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL TABLE>): Separate
 	BC-8D66, GT-02284 and GT-K00086; use `<-formed@component' instead
 	of `<-identical@component' for U+51E0; add `<-identical@component'
