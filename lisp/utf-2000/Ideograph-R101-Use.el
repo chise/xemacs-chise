@@ -345,15 +345,31 @@
      ((=ucs		  . #x24C07)	; 𤰇
       ))
     (ideographic-radical . 101)	; ⽤
+    (ideographic-strokes . 6)
+    (total-strokes	 . 11)
+    (=ucs-var-003	. #x24C07)	; &U-v003+24C07;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24C07)	; 𤰇
+      ))
+    (ideographic-radical . 101)	; ⽤
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
-    (=>>ucs@iso		. #x24C07)	; &G-CDP-8C73;
-    (=>>big5-cdp	. #x8C73)	; &G-CDP-8C73;
+    (=ucs@iso		. #x24C07)	; &C6-395D;
+    (=cns11643-6	. #x395D)	; &C6-395D; [25-61]
+    (=big5-cdp		. #x8C73)	; &I-CDP-8C73;
     (->subsumptive
-     ((=ucs@iso		  . #x24C07)	; &U-00024C07;
+     ((==ucs@iso	  . #x24C07)	; &g2-IU-00024C07;
       )
-     ((=cns11643-6	  . #x395D)	; &C6-395D; [25-61]
-      (=big5-cdp	  . #x8C73)	; &I-CDP-8C73;
+     ((==ucs@cns	  . #x24C07)	; &g2-CDP-8C73;
+      (==cns11643-6	  . #x395D)	; &g2-CDP-8C73; [25-61]
+      (==big5-cdp	  . #x8C73)	; &g2-CDP-8C73;
+      (->subsumptive
+       ((===big5-cdp	    . #x8C73)	; &R-CDP-8C73;
+	)
+       ((===cns11643-6	    . #x395D)	; &R-C6-395D; [25-61]
+	))
       ))
     ))
 (define-char
