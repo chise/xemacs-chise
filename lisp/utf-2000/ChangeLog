@@ -1,5 +1,13 @@
 2016-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R049-Oneself.el (A-MJ057415): New abstract node; use
+	`<-denotational' for U+5DFB.
+	(MJ057415): New character; use `<-subsumptive' for A-MJ057415;
+	unify HD-KS099280.
+	(o-HD-JT-B098): Unify A-MJ010799.
+	(HD-JT-B098): Unify MJ010799 and KOSEKI-099270.
+	(HD-JT-B099): Unify MJ059540.
+
 	* Ideograph-R001-One.el (U+4E1A): Separate UU+4E1A.
 	(BC-8D6B): New character; add `<-denotational' for U+4E1A.
 
