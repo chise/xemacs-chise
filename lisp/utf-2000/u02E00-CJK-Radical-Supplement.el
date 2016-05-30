@@ -109,12 +109,11 @@
     (mirrored		. nil)
     (total-strokes	 . 2)
     (=ucs		. #x2E87)	; ⺇
-    (=big5-cdp		. #x8D66)	; &I-CDP-8D66;
-    (=gt		. 02284)	; &I-GT-02284;
-    (=gt-k		. 00086)	; &I-GT-K00086;
-    (=gt-pj-9		. #x505D)	; &I-GT-02284; [48-61]
-    (<-identical@component
+    (<-formed@component
      ((=ucs		  . #x51E0)	; 几
+      ))
+    (<-identical@component
+     ((=ucs		  . #x20628)	; 𠘨
       ))
     ))
 (define-char
