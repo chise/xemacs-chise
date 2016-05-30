@@ -559,10 +559,51 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=ucs		  . #x20509)	; 𠔉
+      )
+     ((=ucs		  . #x5DF3)	; 巳
+      ))
+    (=>mj		. 057415)	; &A-MJ057415;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs@jis	    . #x20509)	; &AJ1-17299;
+	(=adobe-japan1-5    . 17299)	; &AJ1-17299;
+	)
+       ((=ucs		    . #x5DF3)	; 巳
+	))
+      (=mj		  . 057415)	; &MJ057415;
+      (=hanyo-denshi/ks	  . 099280)	; &MJ057415;
+      (->subsumptive
+       ((==mj		    . 057415)	; &g2-MJ057415;
+	(==hanyo-denshi/ks  . 099280)	; &g2-MJ057415;
+	(->subsumptive
+	 ((===hanyo-denshi/ks . 099280)	; &R-HD-KS-099280;
+	  (=hanyo-denshi/ks/mf . #x26C8)	; &R-HD-KS-099280;
+	  )
+	 ((===mj	      . 057415)	; &R-MJ057415;
+	  ))
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5DFB)	; 巻
+      ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs		  . #x9FB9)	; 龹
       )
      ((=ucs		  . #x5DF3)	; 巳
       ))
+    (=>mj		. 010799)	; &o-HD-JT-B098;
     (=+>hanyo-denshi/jt . #xB098)	; &o-HD-JT-B098;
     (->subsumptive
      ((ideographic-structure
@@ -574,7 +615,9 @@
 	)
        ((=ucs		    . #x5DF3)	; 巳
 	))
-      (=hanyo-denshi/jt	  . #xB098)	; &HD-JT-B098;
+      (=mj		  . 010799)	; &MJ010799;
+      (=hanyo-denshi/jt	  . #xB098)	; &I-HD-JT-B098;
+      (=koseki		  . 099270)	; &MJ010799;
       (->subsumptive
        ((=decomposition@hanyo-denshi
 	 ((=ucs		      . #x5DFB)	; 巻
@@ -590,9 +633,13 @@
 	  )
 	 ((=ucs		      . #x5DF3)	; 巳
 	  ))
-	(==hanyo-denshi/jt  . #xB098)	; &g2-HD-JT-B098;
+	(==mj		    . 010799)	; &g2-MJ010799;
+	(==hanyo-denshi/jt  . #xB098)	; &g2-MJ010799;
+	(==koseki	    . 099270)	; &g2-MJ010799;
 	(->subsumptive
 	 ((===hanyo-denshi/jt . #xB098)	; &R-HD-JT-B098;
+	  )
+	 ((===mj	      . 010799)	; &R-MJ010799;
 	  )
 	 ((===hng-khi	      . 02870)	; &HNG010-02870;
 	  ))
@@ -607,14 +654,21 @@
 	)
        ((=ucs		    . #x5DF3)	; 巳
 	))
-      (=hanyo-denshi/jt	  . #xB099)	; &HD-JT-B099;
+      (=mj		  . 059540)	; &MJ059540;
+      (=hanyo-denshi/jt	  . #xB099)	; &I-HD-JT-B099;
       (->subsumptive
        ((=decomposition@hanyo-denshi
 	 ((=ucs		      . #x5DFB)	; 巻
 	  )
 	 ((=ucs		      . #xE0102)	; 󠄂
 	  ))
-	(==hanyo-denshi/jt  . #xB099)	; &g2-HD-JT-B099;
+	(==mj		    . 059540)	; &g2-MJ059540;
+	(==hanyo-denshi/jt  . #xB099)	; &g2-MJ059540;
+	(->subsumptive
+	 ((===hanyo-denshi/jt . #xB099)	; &R-HD-JT-B099;
+	  )
+	 ((===mj	      . 059540)	; &R-MJ059540;
+	  ))
 	))
       ))
     ))
