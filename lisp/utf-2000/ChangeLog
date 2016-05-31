@@ -1,6 +1,30 @@
 2016-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R015-Ice.el (U+51B0): Add HNG-KAR0037-0.
+
+	* Ideograph-R010-Legs.el: Add glyph-images of HNG-KAR.
+
+2016-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R167-Gold.el (g2-UU+928B): Add
+	`ideographic-structure'.
+	(CU+928B): Add representative node.
+
 	* Ideograph-R012-Eight.el: Add glyph-images of HNG-KAR.
+
+	* Ideograph-R056-Shoot.el (U+5F0B): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R038-Woman.el (U+59D9): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R016-Table.el (<CJK RADICAL TABLE>): Separate BC-8D66,
+	GT-02284 and GT-K00086; use `<-formed@component' instead of
+	`<-identical@component' for U+51E0; add `<-identical@component'
+	for U-00020628.
+	(U-00020628): New character; unify JX2-2332, BC-8D66, GT-02284 and
+	GT-K00086; use `<-formed@component' for U+51E0.
+	(U-0002B95E): New character; unify BC-8DA7.
 
 	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL TABLE>): Separate
 	BC-8D66, GT-02284 and GT-K00086; use `<-formed@component' instead
@@ -8,6 +32,9 @@
 	for U-00020628.
 
 2016-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R140-Grass.el (U+83D0): Separate UU+83D0.
+	(U+83D0-var-002): New character; use `<-denotational' for U+83D0.
 
 	* Ideograph-R101-Use.el (U-00024C07): Apply new conventions for
 	glyph granularity.
