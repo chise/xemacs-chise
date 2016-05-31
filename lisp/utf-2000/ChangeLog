@@ -1,3 +1,7 @@
+2016-05-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R017-Open-Box.el: Add glyph-images of HNG-KAR.
+
 2016-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R015-Ice.el (U+51B0): Add HNG-KAR0037-0.
