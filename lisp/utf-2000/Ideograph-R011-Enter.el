@@ -60,6 +60,8 @@
        ((===hng-khi	    . 02610)	; &HNG010-02610;
 	)
        ((===hng-khm	    . 02050)	; &HNG011-02050;
+	)
+       ((===hng-kar	    . 05820)	; &HNG018-05820;
 	))
       ))
     ))
@@ -424,12 +426,10 @@
      cns11643-3 daikanwa)
     (total-strokes	 . 4)
     (=ucs		. #x5185)	; 内
-    (=ucs@cns		. #x2F814)	; 内
     (=adobe-japan1-0	. 03258)	; &I-AJ1-03258;
     (=jis-x0208		. #x4662)	; &I-J90-4662; [38-66]
     (=gb2312		. #x445A)	; &I-G0-445A; [36-58]
     (=cns11643-3	. #x2148)	; &I-C3-2148; [01-40]
-    (=cns11643-6	. #x2150)	; &I-C6-2150; [01-48]
     (=jis-x0213-1	. #x4662)	; &I-JX1-4662; [38-66]
     (=big5-cdp		. #x8C57)	; &I-CDP-8C57;
     (=gt		. 01983)	; &I-GT-01983;
@@ -464,7 +464,7 @@
      cns11643-3 daikanwa=00366/+p)
     (total-strokes	 . 4)
     (=ucs		. #x2F814)	; 內
-    (==cns11643-6	. #x2150)	; 內 [01-48]
+    (=cns11643-6	. #x2150)	; &I-C6-2150; [01-48]
     (=gt		. 01982)	; &I-GT-01982;
     (=gt-pj-2		. #x3D2C)	; &I-GT-01982; [29-12]
     (==daikanwa		. 01512)	; 內
@@ -1390,15 +1390,6 @@
        ((===cns11643-1	    . #x4C25)	; &R-C1-4C25; [44-05]
 	))
       ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x5169)	; 兩
-      ))
-    (ideographic-radical . 11)	; ⼊
-    (ideographic-strokes . 6)
-    (total-strokes	 . 8)
-    (===hng-khm		. 02060)	; &HNG011-02060;
     ))
 (define-char
   '((ideographic-radical@r009 . 9)	; ⼈
