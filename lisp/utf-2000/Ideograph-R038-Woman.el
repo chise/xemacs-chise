@@ -228,7 +228,9 @@
       (ideographic-strokes . 3)
       (=daikanwa	  . 00395)	; &M-00395;
       (<-ancient
-       ((=ucs		    . #xFA30)	; 侮
+       ((=ucs@unicode	    . #x4FAE)	; &AJ1-13382;
+	(=ucs@jis	    . #xFA30)	; &AJ1-13382;
+	(=adobe-japan1-4    . 13382)	; &AJ1-13382;
 	(=daikanwa	    . 00630)	; &I-M-00630;
 	))
       (<-ancient*sources
@@ -4541,7 +4543,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=adobe-japan1-4	  . 13828)	; &AJ1-13828;
+     ((=ucs		  . #x5973)	; 女
       )
      ((=ucs		  . #x4EFB)	; 任
       ))
@@ -4556,7 +4558,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=adobe-japan1-4    . 13828)	; &AJ1-13828;
+       ((=ucs		    . #x5973)	; 女
 	)
        ((=ucs@unicode	    . #x4EFB)	; &AJ1-03290;
 	(=adobe-japan1-0    . 03290)	; &AJ1-03290;
@@ -4598,8 +4600,8 @@
 	  )
 	 ((==adobe-japan1-4   . 13828)	; &g2-AJ1-13828;
 	  )
-	 ((=ucs@unicode	      . #x4EFB)	; &AJ1-03290;
-	  (=adobe-japan1-0    . 03290)	; &AJ1-03290;
+	 ((==ucs@unicode      . #x4EFB)	; &g2-AJ1-03290;
+	  (==adobe-japan1-0   . 03290)	; &g2-AJ1-03290;
 	  ))
 	(==ucs@unicode	    . #x59D9)	; &g2-AJ1-04571;
 	(==adobe-japan1-0   . 04571)	; &g2-AJ1-04571;
@@ -4635,21 +4637,13 @@
 	)
        ((=ucs		    . #x5973)	; 女
 	)
-       ((=cns11643-1	    . #x4736)	; &C1-4736; [39-22]
+       ((=ucs@cns	    . #x4EFB)	; &C1-4736;
+	(=cns11643-1	    . #x4736)	; &C1-4736; [39-22]
 	))
       (=ucs@cns		  . #x59D9)	; &C3-2C2D;
       (=cns11643-3	  . #x2C2D)	; &C3-2C2D; [12-13]
       (->subsumptive
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((==ucs@cns	      . #x5973)	; &g2-CU+5973;
-	  (==cns11643-1	      . #x444C)	; &g2-CU+5973; [36-44]
-	  )
-	 ((=cns11643-1	      . #x4736)	; &C1-4736; [39-22]
-	  ))
-	(==ucs@cns	    . #x59D9)	; &g2-CU+59D9;
+       ((==ucs@cns	    . #x59D9)	; &g2-CU+59D9;
 	(==cns11643-3	    . #x2C2D)	; &g2-CU+59D9; [12-13]
 	))
       ))
