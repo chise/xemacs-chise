@@ -656,6 +656,8 @@
     (=big5		. #xD169)	; &I-B-D169;
     (=daikanwa		. 07433)	; &I-M-07433;
     (->subsumptive
+     ((==daikanwa	  . 07433)	; &g2-M-07433;
+      )
      ((=decomposition@cid
        ((=ucs		    . #x5C03)	; 尃
 	)
@@ -664,10 +666,7 @@
       (==ucs@unicode	  . #x5C03)	; &g2-AJ1-17537;
       (==adobe-japan1-5	  . 17537)	; &g2-AJ1-17537;
       (==jis-x0213-2	  . #x282D)	; &g2-AJ1-17537; [08-13]
-      (==daikanwa	  . 07433)	; &g2-AJ1-17537;
       (->subsumptive
-       ((===daikanwa	    . 07433)	; &R-M-07433;
-	)
        ((===jis-x0213-2	    . #x282D)	; &R-JX2-282D; [08-13]
 	)
        ((===adobe-japan1-5  . 17537)	; &R-AJ1-17537;
