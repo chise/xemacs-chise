@@ -792,6 +792,34 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x5938)	; 夸
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5927)	; 大
+      )
+     ((=ucs		  . #x4E90)	; 亐
+      ))
+    (=mj		. 009469)	; &MJ009469;
+    (=hanyo-denshi/ks	. 067180)	; &MJ009469;
+    (->subsumptive
+     ((==mj		  . 009469)	; &g2-MJ009469;
+      (==hanyo-denshi/ks  . 067180)	; &g2-MJ009469;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 067180)	; &R-HD-KS-067180;
+	(=hanyo-denshi/ks/mf . #x1A3E)	; &R-HD-KS-067180;
+	)
+       ((===mj		    . 009469)	; &R-MJ009469;
+	))
+      ))
+    ))
+(define-char
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
