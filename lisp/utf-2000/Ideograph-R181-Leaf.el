@@ -3134,9 +3134,42 @@
   '((ideographic-radical . 181)	; ⾴
     (ideographic-strokes . 7)
     (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8C78)	; 豸
+      )
+     ((=ucs		  . #x9801)	; 頁
+      ))
     (=ucs		. #x4AC9)	; 䫉
     (=cns11643-3	. #x535E)	; &I-C3-535E; [51-62]
     (=daikanwa		. 43516)	; &I-M-43516;
+    (=shinjigen		.  7847)	; 䫉
+    (=cbeta		. 12198)	; &I-CB12198;
+    (<-formed
+     ((=ucs		  . #x8C8C)	; 貌
+      (=jis-x0208	  . #x4B46)	; &I-J90-4B46; [43-38]
+      (=shinjigen	  .  7845)	; 貌
+      ))
+    (<-formed*sources
+     shinjigen)
+    (->subsumptive
+     ((==ucs@unicode	  . #x4AC9)	; &g2-M-43516;
+      (==cns11643-3	  . #x535E)	; &g2-M-43516; [51-62]
+      (==daikanwa	  . 43516)	; &g2-M-43516;
+      (==shinjigen	  .  7847)	; &g2-M-43516;
+      (==cbeta		  . 12198)	; &g2-M-43516;
+      (->subsumptive
+       ((===daikanwa	    . 43516)	; &R-M-43516;
+	)
+       ((===cns11643-3	    . #x535E)	; &R-C3-535E; [51-62]
+	)
+       ((===ucs@unicode	    . #x4AC9)	; &R-UU+4AC9;
+	)
+       ((===cbeta	    . 12198)	; &R-CB12198;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 181)	; ⾴
