@@ -20328,11 +20328,28 @@
   '((ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL WATER ONE")
+      (=ucs		  . #x2EA1)	; ⺡
+      )
+     ((=ucs		  . #x8C48)	; 豈
+      ))
     (=ucs		. #x6EB0)	; 溰
     (=cns11643-2	. #x443B)	; &I-C2-443B; [36-27]
     (=big5		. #xDE55)	; &I-B-DE55;
     (=daikanwa		. 17976)	; &I-M-17976;
+    (=shinjigen		.  5213)	; 溰
     (=jef-china3	. #x56DC)	; &I-JC3-56DC;
+    (<-formed
+     ((=ucs		  . #x769A)	; 皚
+      (=jis-x0208	  . #x622D)	; &I-J90-622D; [66-13]
+      (=shinjigen	  .  5212)	; 皚
+      ))
+    (<-formed*sources
+     shinjigen)
     ))
 (define-char
   '((ideographic-radical . 85)	; ⽔
