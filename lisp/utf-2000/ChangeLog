@@ -1,8 +1,25 @@
 2016-05-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R050-Turban.el (U+5DFE): Add representative nodes.
+	- Use g2-UU+5DFE instead of U+5DFE in `ideographic-structure' of
+	  abstract glyph-forms.
+	(U+5E12): Apply new conventions for glyph granularity.
+
+	* Ideograph-R020-Wrap.el: Add glyph-images of HNG-KAR.
+	(U+530F): Separate UU+530F.
+	(HNG-KAR0046-0): New character; use `<-denotational' for U+530F.
+
 	* Ideograph-R017-Open-Box.el: Add glyph-images of HNG-KAR.
 
+	* Ideograph-R011-Enter.el: Add glyph-images of HNG-KAR.
+	(U+5185): Separate CU+2F814 and C6-2150.
+	(U-0002F814): Unify C6-2150; omit g2-C6-2150.
+	(HNG-KHM0206-0): Use `<-subsumptive' for KOSEKI-007530 instead of
+	`<-denotational' for U+5169; moved to Ideograph-R009-Man.el.
+
 2016-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R014-Cover.el: Add glyph-images of HNG-KAR.
 
 	* Ideograph-R015-Ice.el (U+51B0): Add HNG-KAR0037-0.
 
