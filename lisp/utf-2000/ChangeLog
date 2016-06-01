@@ -1,5 +1,37 @@
 2016-05-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R144-Walk-Enclosure.el: Add some Adobe-Japan1-0 code
+	points.
+
+	* Ideograph-R131-Minister.el: Add some Adobe-Japan1-0 code points.
+	(U+5367): Unify S-6595.
+	(M-30072): Unify U-000268DF.
+
+2016-05-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R101-Use.el (M-21714): Add representative node.
+
+	* Ideograph-R061-Heart.el (U+3951): Separate UU+3951.
+	(UU+3951): Add `=>ucs@iwds-1'.
+	(U+3951-itaiji-001): New character; add `<-denotational' for
+	U+3951.
+	(g2-AJ1-13540): Add `ideographic-structure'.
+	(g2-UU+613D): Likewise.
+	(g2-CU+613D): Likewise.
+	(CU+6182): Likewise.
+	(g2-M-11170): Likewise.
+	(g2-CU+6182): Likewise.
+	(UU+6182): Likewise.
+	(U+6182-itaiji-004): New character; add `<-denotational' for
+	U+6182.
+
+	* Ideograph-R041-Inch.el (g2-UU+5C03): Separate g2-M-07433.
+
+	* Ideograph-R037-Big.el (MJ009469): New character; use
+	`<-denotational' for U+5938; unify HD-KS067180.
+
+	* Ideograph-R025-Divination.el (U+5367): Unify S-6595.
+
 	* Ideograph-R050-Turban.el (U+5DFE): Add representative nodes.
 	- Use g2-UU+5DFE instead of U+5DFE in `ideographic-structure' of
 	  abstract glyph-forms.
