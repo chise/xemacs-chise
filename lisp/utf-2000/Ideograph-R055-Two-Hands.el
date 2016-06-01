@@ -111,6 +111,25 @@
     (=cns11643-4	. #x214D)	; &I-C4-214D; [01-45]
     (=jis-x0213-1	. #x7431)	; &I-JX1-7431; [84-17]
     (=big5-cdp		. #x8B6F)	; &I-CDP-8B6F;
+    (->subsumptive
+     ((==ucs@unicode	  . #x5F00)	; &g2-AJ1-16854;
+      (==adobe-japan1-5	  . 16854)	; &g2-AJ1-16854;
+      (==gb2312		  . #x3F2A)	; &g2-AJ1-16854; [31-10]
+      (==cns11643-4	  . #x214D)	; &g2-AJ1-16854; [01-45]
+      (==jis-x0213-1	  . #x7431)	; &g2-AJ1-16854; [84-17]
+      (==big5-cdp	  . #x8B6F)	; &g2-AJ1-16854;
+      (->subsumptive
+       ((===jis-x0213-1	    . #x7431)	; &R-JX1-7431; [84-17]
+	)
+       ((===adobe-japan1-5  . 16854)	; &R-AJ1-16854;
+	)
+       ((===big5-cdp	    . #x8B6F)	; &R-CDP-8B6F;
+	)
+       ((===cns11643-4	    . #x214D)	; &R-C4-214D; [01-45]
+	)
+       ((===ucs@unicode	    . #x5F00)	; &R-UU+5F00;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
