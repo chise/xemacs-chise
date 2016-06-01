@@ -778,12 +778,15 @@
     (=cns11643-3	. #x2A5C)	; &I-C3-2A5C; [10-60]
     (=jis-x0213-2	. #x2354)	; &I-JX2-2354; [03-52]
     (=daikanwa		. 02808)	; &I-M-02808;
+    (=shinjigen		.  6595)	; 卧
     (<-vulgar
      ((=ucs		  . #x81E5)	; 臥
+      (=jis-x0208	  . #x3269)	; &I-J90-3269; [18-73]
       (=daikanwa	  . 30071)	; &I-M-30071;
+      (=shinjigen	  .  6594)	; 臥
       ))
     (<-vulgar*sources
-     zhengzitong daikanwa)
+     zhengzitong daikanwa shinjigen)
     (->subsumptive
      ((==ucs@unicode	  . #x5367)	; &g2-AJ1-17333;
       (==adobe-japan1-5	  . 17333)	; &g2-AJ1-17333;
@@ -791,6 +794,7 @@
       (==cns11643-3	  . #x2A5C)	; &g2-AJ1-17333; [10-60]
       (==jis-x0213-2	  . #x2354)	; &g2-AJ1-17333; [03-52]
       (==daikanwa	  . 02808)	; &g2-AJ1-17333;
+      (==shinjigen	  .  6595)	; &g2-AJ1-17333;
       (->subsumptive
        ((===daikanwa	    . 02808)	; &R-M-02808;
 	)
