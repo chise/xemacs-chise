@@ -339,6 +339,9 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
     (=daikanwa		. 21714)	; &M-21714;
+    (->subsumptive
+     ((==daikanwa	  . 21714)	; &g2-M-21714;
+      ))
     ))
 (define-char
   '((<-denotational
