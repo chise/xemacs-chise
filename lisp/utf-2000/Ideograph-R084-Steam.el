@@ -4,7 +4,16 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=ucs		. #x6C14)	; 气
-    (=adobe-japan1-0	. 05378)	; &I-AJ1-05378;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6C14)	; 气
+      ))
+    (ideographic-radical . 84)	; ⽓
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=ucs@unicode	. #x6C14)	; &AJ1-05378;
+    (=adobe-japan1-0	. 05378)	; &AJ1-05378;
     (=jis-x0208		. #x5D63)	; &I-J90-5D63; [61-67]
     (=gb2312		. #x4678)	; &I-G0-4678; [38-88]
     (=cns11643-2	. #x2141)	; &I-C2-2141; [01-33]
@@ -14,7 +23,7 @@
     (=gt-k		. 00540)	; &I-GT-K00540;
     (=gt-pj-1		. #x5D63)	; &I-GT-21827; [61-67]
     (=daikanwa		. 17043)	; &I-M-17043;
-    (=shinjigen		.  4043)	; 气
+    (=shinjigen		.  4043)	; &AJ1-05378;
     (<-ancient
      ((=ucs		  . #x6C23)	; 氣
       )
@@ -59,6 +68,33 @@
       ))
     (->formed*sources
      shuowen-tongxun-dingsheng)
+    (->subsumptive
+     ((==ucs@unicode	  . #x6C14)	; &g2-AJ1-05378;
+      (==adobe-japan1-0	  . 05378)	; &g2-AJ1-05378;
+      (==gb2312		  . #x4678)	; &g2-AJ1-05378; [38-88]
+      (==jis-x0208	  . #x5D63)	; &g2-AJ1-05378; [61-67]
+      (==cns11643-2	  . #x2141)	; &g2-AJ1-05378; [01-33]
+      (==jis-x0213-1	  . #x5D63)	; &g2-AJ1-05378; [61-67]
+      (==gt		  . 21827)	; &g2-AJ1-05378;
+      (==gt-k		  . 00540)	; &g2-AJ1-05378;
+      (==daikanwa	  . 17043)	; &g2-AJ1-05378;
+      (==shinjigen	  .  4043)	; &g2-AJ1-05378;
+      (->subsumptive
+       ((===daikanwa	    . 17043)	; &R-M-17043;
+	)
+       ((===jis-x0208	    . #x5D63)	; &R-J0-5D63; [61-67]
+	(===jis-x0213-1	    . #x5D63)	; &R-J0-5D63; [61-67]
+	)
+       ((===adobe-japan1-0  . 05378)	; &R-AJ1-05378;
+	)
+       ((===cns11643-2	    . #x2141)	; &R-C2-2141; [01-33]
+	)
+       ((===gt		    . 21827)	; &R-GT-21827;
+	(===gt-k	    . 00540)	; &R-GT-21827;
+	)
+       ((===ucs@unicode	    . #x6C14)	; &R-UU+6C14;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -680,12 +716,11 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
 	(=ucs		    . #x2FF9)	; ⿹
 	)
-       ((=ucs		    . #x6C14)	; 气
+       ((==ucs@unicode	    . #x6C14)	; &g2-AJ1-05378;
+	(==adobe-japan1-0   . 05378)	; &g2-AJ1-05378;
 	)
-       ((=jis-x0208@1978    . #x4B5F)	; &GT-29425; [43-63]
-	(=jis-x0208@1983    . #x4B5F)	; &I-J83-4B5F; [43-63]
-	(=ks-x1001	    . #x5D4E)	; &I-K0-5D4E; [61-46]
-	(=daikanwa	    . 22959)	; &I-M-22959;
+       ((==ucs@ks	    . #x76C6)	; &GT-29425;
+	(=gt		    . 29425)	; &GT-29425;
 	))
       (==ucs@iso	  . #x23C66)	; &g2-M-17073;
       (==daikanwa	  . 17073)	; &g2-M-17073;
@@ -703,9 +738,11 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
 	(=ucs		    . #x2FF9)	; ⿹
 	)
-       ((=ucs		    . #x6C14)	; 气
+       ((==ucs@unicode	    . #x6C14)	; &g2-AJ1-05378;
+	(==adobe-japan1-0   . 05378)	; &g2-AJ1-05378;
 	)
-       ((=cns11643-1	    . #x5259)	; &C1-5259; [50-57]
+       ((==ucs@cns	    . #x76C6)	; &g2-CU+76C6;
+	(==cns11643-1	    . #x5259)	; &g2-CU+76C6; [50-57]
 	))
       (==ucs@cns	  . #x23C66)	; &g2-CU+23C66;
       (==cns11643-6	  . #x5432)	; &g2-CU+23C66; [52-18]
