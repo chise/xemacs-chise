@@ -4736,11 +4736,71 @@
   '((ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 5)
     (total-strokes	 . 13)
-    (=ucs		. #x2896B)	; 𨥫
-    (=big5-cdp		. #x8D69)	; &I-CDP-8D69;
-    (->subsumptive
-     ((==ucs@iso	  . #x2896B)	; &g2-IU-0002896B;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=ucs		  . #x536F)	; 卯
+      )
+     ((=ucs		  . #x91D1)	; 金
+      ))
+    (=ucs		. #x2896B)	; 𨥫
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2896B)	; 𨥫
+      ))
+    (ideographic-radical . 167)	; ⾦
+    (ideographic-strokes . 5)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x536F)	; &AJ1-01230;
+      (=adobe-japan1-0	  . 01230)	; &AJ1-01230;
+      )
+     ((=ucs		  . #x91D1)	; 金
+      ))
+    (=ucs@iso		. #x2896B)	; &JX2-7A57;
+    (=jis-x0213-2	. #x7A57)	; &JX2-7A57; [90-55]
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((==ucs@unicode	    . #x536F)	; &g2-AJ1-01230;
+	(==adobe-japan1-0   . 01230)	; &g2-AJ1-01230;
+	)
+       ((==ucs@unicode	    . #x91D1)	; &g2-AJ1-01754;
+	(==adobe-japan1-0   . 01754)	; &g2-AJ1-01754;
+	))
+      (==ucs@iso	  . #x2896B)	; &g2-JX2-7A57;
+      (==jis-x0213-2	  . #x7A57)	; &g2-JX2-7A57; [90-55]
+      (->subsumptive
+       ((===jis-x0213-2	    . #x7A57)	; &R-JX2-7A57; [90-55]
+	)
+       ((===ucs@iso	    . #x2896B)	; &R-U-0002896B;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2896B)	; 𨥫
+      ))
+    (ideographic-radical . 167)	; ⾦
+    (ideographic-strokes . 5)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8C69)	; &CDP-8C69;
+      )
+     ((=ucs		  . #x91D1)	; 金
+      ))
+    (=big5-cdp		. #x8D69)	; &CDP-8D69;
+    (->subsumptive
      ((==big5-cdp	  . #x8D69)	; &g2-CDP-8D69;
       ))
     ))
