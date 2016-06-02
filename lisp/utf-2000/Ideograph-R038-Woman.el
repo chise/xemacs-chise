@@ -12134,7 +12134,20 @@
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@jis/2004	  . #x53DB)	; &MJ008009;
+      (=ucs@ks		  . #x53DB)	; &MJ008009;
+      (=mj		  . 008009)	; &MJ008009;
+      )
+     ((=ucs		  . #x5973)	; 女
+      ))
     (=daikanwa		. 06494)	; &M-06494;
+    (->subsumptive
+     ((==daikanwa	  . 06494)	; &g2-M-06494;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -12147,9 +12160,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@cns		  . #x53DB)	; &MJ008010;
-      (=ucs@jis/1990	  . #x53DB)	; &MJ008010;
-      (=ucs@jis/2000	  . #x53DB)	; &MJ008010;
+     ((=ucs@unicode	  . #x53DB)	; &MJ008010;
       (=mj		  . 008010)	; &MJ008010;
       )
      ((=ucs		  . #x5973)	; 女
