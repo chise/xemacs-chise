@@ -1,5 +1,14 @@
 2016-06-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el: Add glyph-images of HNG-KAR.
+	(U+5289): Separate MJ007601, HD-KS025890, M-02224, UU+5289,
+	AJ1-03957, J0-4E2D, K0-5731, C1-6C2C, G1-4175, B-BC42, GT-02875,
+	GT-K11956 and S-0698.
+	(MJ007601): Unify HD-KS025890 and M-02224; add HNG-KAR0039-0.
+	(MJ007602): Use `<-denotational' instead of `<-subsumptive' for
+	U+5289; unify UU+5289, AJ1-03957, J0-4E2D, K0-5731, C1-6C2C,
+	G1-4175, B-BC42, GT-02875, GT-K11956 and S-0698.
+
 	* Ideograph-R162-Walk.el (U+8FD4): Apply new conventions for glyph
 	granularity.
 
