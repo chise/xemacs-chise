@@ -2,21 +2,61 @@
 (define-char
   '((ideographic-radical . 208)	; ⿏
     (ideographic-strokes . 0)
-    (total-strokes	 . 13)
     (=ucs		. #x9F20)	; 鼠
-    (->subsumptive
-     ((=ucs@unicode	  . #x9F20)	; &GT-66099;
-      (=jis-x0208	  . #x414D)	; &GT-66099; [33-45]
-      (=gb2312		  . #x4A73)	; &I-G0-4A73; [42-83]
-      (=ks-x1001	  . #x6029)	; &I-K0-6029; [64-09]
-      (=jis-x0213-1	  . #x414D)	; &I-JX1-414D; [33-45]
-      (=gt		  . 66099)	; &I-GT-66099;
-      (=gt-k		  . 10236)	; &I-GT-K10236;
-      (=gt-pj-1		  . #x414D)	; &I-GT-66099; [33-45]
-      (=daikanwa	  . 48390)	; &I-M-48390;
-      (=shinjigen	  .  9866)	; &GT-66099;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9F20)	; 鼠
+      ))
+    (ideographic-radical . 208)	; ⿏
+    (ideographic-strokes . 0)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=cns11643-1	  . #x6771)	; &C1-6771; [71-81]
+     ((=ucs		  . #x81FC)	; 臼
+      )
+     ((=big5-cdp	  . #x8D46)	; &CDP-8D46;
+      ))
+    (=ucs@unicode	. #x9F20)	; &GT-66099;
+    (=jis-x0208		. #x414D)	; &GT-66099; [33-45]
+    (=gb2312		. #x4A73)	; &I-G0-4A73; [42-83]
+    (=ks-x1001		. #x6029)	; &I-K0-6029; [64-09]
+    (=cns11643-1	. #x6771)	; &I-C1-6771; [71-81]
+    (=jis-x0213-1	. #x414D)	; &I-JX1-414D; [33-45]
+    (=gt		. 66099)	; &I-GT-66099;
+    (=gt-k		. 10236)	; &I-GT-K10236;
+    (=gt-pj-1		. #x414D)	; &I-GT-66099; [33-45]
+    (=daikanwa		. 48390)	; &I-M-48390;
+    (=shinjigen		.  9866)	; &GT-66099;
+    (->subsumptive
+     ((==ucs@unicode	  . #x9F20)	; &g2-GT-66099;
+      (==gb2312		  . #x4A73)	; &g2-GT-66099; [42-83]
+      (==ks-x1001	  . #x6029)	; &g2-GT-66099; [64-09]
+      (==jis-x0208	  . #x414D)	; &g2-GT-66099; [33-45]
+      (==jis-x0213-1	  . #x414D)	; &g2-GT-66099; [33-45]
+      (==gt		  . 66099)	; &g2-GT-66099;
+      (==gt-k		  . 10236)	; &g2-GT-66099;
+      (==daikanwa	  . 48390)	; &g2-GT-66099;
+      (==shinjigen	  .  9866)	; &g2-GT-66099;
+      (->subsumptive
+       ((===daikanwa	    . 48390)	; &R-M-48390;
+	)
+       ((===jis-x0208	    . #x414D)	; &R-J0-414D; [33-45]
+	(===jis-x0213-1	    . #x414D)	; &R-J0-414D; [33-45]
+	)
+       ((===gt		    . 66099)	; &R-GT-66099;
+	(===gt-k	    . 10236)	; &R-GT-66099;
+	)
+       ((===ucs@ks	    . #x9F20)	; &R-K0-6029;
+	(===ks-x1001	    . #x6029)	; &R-K0-6029; [64-09]
+	)
+       ((===ucs@unicode	    . #x9F20)	; &R-UU+9F20;
+	))
+      )
+     ((==ucs@cns	  . #x9F20)	; &g2-CU+9F20;
+      (==cns11643-1	  . #x6771)	; &g2-CU+9F20; [71-81]
       ))
     ))
 (define-char
@@ -608,15 +648,32 @@
     (ideographic-radical . 208)	; ⿏
     (ideographic-strokes . 5)
     (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x9F20)	; 鼠
+      )
+     ((=ucs		  . #x53EC)	; 召
+      ))
     (=ucs@cns		. #x9F26)	; &JSP-6D32;
     (=ucs@jis		. #x9F26)	; &JSP-6D32;
     (=jis-x0212		. #x6D32)	; &JSP-6D32; [77-18]
     (=cns11643-3	. #x5A2B)	; &I-C3-5A2B; [58-11]
     (=daikanwa		. 48416)	; &I-M-48416;
+    (=shinjigen		.  7838)	; &JSP-6D32;
+    (<-formed
+     ((=ucs		  . #x8C82)	; 貂
+      (=jis-x0208	  . #x6C3A)	; &I-J90-6C3A; [76-26]
+      (=shinjigen	  .  7837)	; 貂
+      ))
+    (<-formed*sources
+     shinjigen)
     (->subsumptive
      ((==ucs@jis	  . #x9F26)	; &g2-JSP-6D32;
       (==jis-x0212	  . #x6D32)	; &g2-JSP-6D32; [77-18]
       (==daikanwa	  . 48416)	; &g2-JSP-6D32;
+      (==shinjigen	  .  7838)	; &g2-JSP-6D32;
       (->subsumptive
        ((===daikanwa	    . 48416)	; &R-M-48416;
 	)
@@ -634,6 +691,14 @@
     (ideographic-radical . 208)	; ⿏
     (ideographic-strokes . 5)
     (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x9F20)	; 鼠
+      )
+     ((=ucs		  . #x53EC)	; 召
+      ))
     (=ucs@unicode	. #x9F26)	; &UU+9F26;
     (=ucs@JP/hanazono	. nil)
     (->subsumptive
