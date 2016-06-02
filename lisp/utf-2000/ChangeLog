@@ -1,4 +1,23 @@
+2016-06-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (U+5152): Add representative nodes.
+
+	* Ideograph-R208-Rat.el (U+9F20): Apply new conventions for glyph
+	granularity.
+	(JU+9F26): Unify S-7838; add `<-formed' for U+8C82.
+
+	* Ideograph-R167-Gold.el (U-0002896B): Separate IU+2896B and
+	BC-8D69.
+	(IU+2896B): Unify JX2-7A57; add `ideographic-structure'.
+	(BC-8D69): Add `ideographic-structure'.
+
 2016-06-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R106-White.el: Add some Adobe-Japan1-0 code points.
+	(U+7683): Unify BC-8DA3; add `<-original' for U+8C8C.
+	(U+768B): Separate UU+768B.
+	(J78/-4X-6228): New character; use `<-denotational' for U+768B;
+	unify CB06267.
 
 	* Ideograph-R018-Knife.el: Add glyph-images of HNG-KAR.
 	(U+5289): Separate MJ007601, HD-KS025890, M-02224, UU+5289,
