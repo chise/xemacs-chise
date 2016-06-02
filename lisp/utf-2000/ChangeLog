@@ -1,5 +1,35 @@
 2016-06-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R162-Walk.el (U+8FD4): Apply new conventions for glyph
+	granularity.
+
+2016-06-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R133-Arrive.el: Add some Adobe-Japan1-0 code points.
+	(U+5230): Add HNG-KAR0607-0.
+	(U+4453): Unify CB06210.
+
+	* Ideograph-R108-Dish.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R105-Dotted-Tent.el: Add some Adobe-Japan1-0 code
+	points.
+
+	* Ideograph-R084-Steam.el (U+6C14): Separate UU+6C14.
+	(U-00023C66): Use g2-UU+6C14 instead of U+6C14 in
+	`ideographic-structure' of abstract glyph-forms.
+
+	* Ideograph-R079-Weapon.el (U-00023AE4): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R046-Mountain.el (U+5CA1): Add representative nodes.
+
+	* Ideograph-R038-Woman.el (M-06494): Add `ideographic-structure';
+	add representative node.
+
+	* Ideograph-R029-Again.el (U+53CD): Apply new glyph-image
+	conventions.
+	(U+53DB): Likewise.
+
 	* Ideograph-R181-Leaf.el (U+4AC9): Unify S-7847 and CB12198; add
 	`<-formed' for U+8C8C.
 
