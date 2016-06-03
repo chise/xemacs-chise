@@ -7933,12 +7933,8 @@
       )
      ((=ucs		  . #x5B80)	; 宀
       )
-     ((=ucs@unicode	  . #x8CAB)	; &GT-49138;
-      (=jis-x0208	  . #x3453)	; &GT-49138; [20-51]
-      (=ks-x1001	  . #x4E3B)	; &I-K0-4E3B; [46-27]
-      (=cns11643-1	  . #x5D4B)	; &I-C1-5D4B; [61-43]
-      (=jis-x0213-1	  . #x3453)	; &I-JX1-3453; [20-51]
-      (=daikanwa	  . 36681)	; &I-M-36681;
+     ((=ucs@unicode	  . #x8CAB)	; &AJ1-01551;
+      (=adobe-japan1-0	  . 01551)	; &AJ1-01551;
       ))
     (=ucs@unicode	. #x5BE6)	; &AJ1-04632;
     (=adobe-japan1-0	. 04632)	; &AJ1-04632;
