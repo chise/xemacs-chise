@@ -1,5 +1,18 @@
 2016-06-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R094-Dog.el (U+72B2): Separate UU+72B2.
+	(UU+72B2): Add `<-formed' for UU+8C7A.
+
+	* Ideograph-R086-Fire.el (CU+71CC): Omit `ideographic-structure'.
+
+	* Ideograph-R030-Mouth.el (U+55E5): Separate UU+55E5.
+	(U+56A0): Separate UU+56A0.
+
+	* Ideograph-R032-Earth.el (U+572D): Add representative nodes.
+	(GT-K01597): New character; use `<-subsumptive' for U+572D; use
+	`<-formed@component/connect-right' for U+572D.
+	(U+5742): Apply new conventions for glyph granularity.
+
 	* Ideograph-R010-Legs.el (U+5152): Add representative nodes.
 
 	* Ideograph-R208-Rat.el (U+9F20): Apply new conventions for glyph
