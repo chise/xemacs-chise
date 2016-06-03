@@ -505,11 +505,9 @@
     (=big5-cdp		. #x8973)	; &I-CDP-8973;
     (=jef-china3	. #x81C9)	; &I-JC3-81C9;
     (<-simplified@CN
-     ((=ucs@unicode	  . #x7FD2)	; &HD-JA-3D2C;
-      (=jis-x0208	  . #x3D2C)	; &HD-JA-3D2C; [29-12]
-      (=cns11643-1	  . #x5C64)	; &I-C1-5C64; [60-68]
-      (=jis-x0213-1	  . #x3D2C)	; &I-JX1-3D2C; [29-12]
-      (=gb12345		  . #x4F30)	; &HD-JA-3D2C; [47-16]
+     ((=ucs@unicode	  . #x7FD2)	; &AJ1-02358;
+      (=adobe-japan1-0	  . 02358)	; &AJ1-02358;
+      (=gb12345		  . #x4F30)	; &AJ1-02358; [47-16]
       ))
     ))
 (define-char
@@ -2768,11 +2766,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x7FC1)	; &HD-JA-3227;
-      (=jis-x0208	  . #x3227)	; &HD-JA-3227; [18-07]
-      (=gb2312		  . #x4E4C)	; &I-G0-4E4C; [46-44]
-      (=cns11643-1	  . #x5751)	; &I-C1-5751; [55-49]
-      (=jis-x0213-1	  . #x3227)	; &I-JX1-3227; [18-07]
+     ((=ucs@unicode	  . #x7FC1)	; &AJ1-01319;
+      (=adobe-japan1-0	  . 01319)	; &AJ1-01319;
       )
      ((=ucs		  . #x4E5A)	; 乚
       ))
@@ -2807,8 +2802,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@unicode	    . #x7FC1)	; &g2-HD-JA-3227;
-	(==jis-x0213-1	    . #x3227)	; &g2-HD-JA-3227; [18-07]
+       ((==ucs@unicode	    . #x7FC1)	; &g2-AJ1-01319;
+	(==adobe-japan1-0   . 01319)	; &g2-AJ1-01319;
 	)
        ((=ucs		    . #x4E5A)	; 乚
 	))
