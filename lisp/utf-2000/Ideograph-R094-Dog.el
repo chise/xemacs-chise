@@ -2831,8 +2831,8 @@
        ((name		    . "CJK RADICAL DOG")
 	(=ucs		    . #x2EA8)	; ⺨
 	)
-       ((==ucs@unicode	    . #x91CC)	; &g2-GT-53968;
-	(==jis-x0208	    . #x4E24)	; &g2-GT-53968; [46-04]
+       ((==ucs@unicode	    . #x91CC)	; &g2-AJ1-03948;
+	(==adobe-japan1-0   . 03948)	; &g2-AJ1-03948;
 	))
       (==ucs@unicode	  . #x72F8)	; &g2-AJ1-02922;
       (==adobe-japan1-0	  . 02922)	; &g2-AJ1-02922;
