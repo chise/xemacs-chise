@@ -1,5 +1,11 @@
 2016-06-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R024-Ten.el: Add glyph-images of HNG-KAR.
+
+	* Ideograph-R025-Divination.el: Add glyph-images of HNG-KAR.
+
+2016-06-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R023-Hiding-Enclosure.el: Add glyph-images of HNG-KAR.
 
 	* Ideograph-R022-Right-Open-Box.el: Add glyph-images of HNG-KAR.
