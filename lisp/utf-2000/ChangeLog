@@ -1,5 +1,7 @@
 2016-06-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R021-Spoon.el (U+2F82B): Add HNG-KAR0048-0.
+
 	* Ideograph-R019-Power.el: Add glyph-images of HNG-KAR.
 	(HNG-KAR0612-0): New character; use `<-denotational' for U+52DD.
 	(U+52E4): Apply new conventions for glyph granularity.
