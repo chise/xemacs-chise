@@ -1,5 +1,16 @@
 2016-06-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R019-Power.el: Add glyph-images of HNG-KAR.
+	(HNG-KAR0612-0): New character; use `<-denotational' for U+52DD.
+	(U+52E4): Apply new conventions for glyph granularity.
+
+2016-06-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (JU+564F): Move `=decomposition@cid' to
+	g2-JU+564F.
+
+	* Ideograph-R166-Village.el: Add some Adobe-Japan1-0 code points.
+
 	* Ideograph-R153-Badger.el: Add some Adobe-Japan1-0 code points.
 	(U+8C83): Unify S-7844; add `<-vulgar' for U+8C8A.
 	(U+8C8D): Add `<-original' for U+72F8.
