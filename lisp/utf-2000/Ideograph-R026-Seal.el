@@ -548,6 +548,8 @@
 	(=hanyo-denshi/ks/mf . #x26BB)	; &R-HD-KS-099150;
 	)
        ((===mj		    . 007889)	; &R-MJ007889;
+	)
+       ((===hng-kar	    . 06270)	; &HNG018-06270;
 	))
       ))
     ))
@@ -658,6 +660,11 @@
     (=gt-pj-1		. #x4228)	; &I-GT-03633; [34-08]
     (=daikanwa		. 02855)	; &I-M-02855;
     (=shinjigen		.  0859)	; &MJ007891;
+    (<-formed
+     ((=ucs		  . #x537D)	; 卽
+      ))
+    (<-formed*sources
+     hng)
     (<-simplified@JP/Jouyou
      ((=ucs@unicode	  . #x537D)	; &AJ1-13365;
       (=adobe-japan1-4	  . 13365)	; &AJ1-13365;
@@ -711,6 +718,8 @@
        ((===hng-khi	    . 02860)	; &HNG010-02860;
 	)
        ((===hng-khm	    . 02310)	; &HNG011-02310;
+	)
+       ((===hng-kar	    . 06250)	; &HNG018-06250;
 	))
       ))
     ))
@@ -1602,6 +1611,8 @@
 	)
        ((===gt		    . 03656)	; &R-GT-03656;
 	))
+      )
+     ((===hng-kar	  . 06260)	; &HNG018-06260;
       ))
     ))
 (define-char
