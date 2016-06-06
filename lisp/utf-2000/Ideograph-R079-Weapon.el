@@ -1326,11 +1326,8 @@
     (<-formed*sources
      koseki)
     (<-formed@misc
-     ((=ucs@jis		  . #x78EC)	; &GT-31221;
-      (=jis-x0208	  . #x627E)	; &GT-31221; [66-94]
-      (=ks-x1001	  . #x4C64)	; &I-K0-4C64; [44-68]
-      (=jis-x0213-1	  . #x627E)	; &I-JX1-627E; [66-94]
-      (=daikanwa	  . 24454)	; &I-M-24454;
+     ((=ucs@jis		  . #x78EC)	; &AJ1-05875;
+      (=adobe-japan1-0	  . 05875)	; &AJ1-05875;
       ))
     (<-formed@misc*sources
      mj)
