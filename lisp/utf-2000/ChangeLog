@@ -10567,6 +10567,13 @@
 
 2015-03-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* maps-conf.el:
+	- Add `===hanyo-denshi/jb' for each glyph-image of `===jis-x0212'.
+	- Complete some glyph-images.
+	(glyph-form-feature-to-glyph-image-char-spec): New function.
+
+2015-03-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R018-Knife.el: Add some representative nodes.
 	(U+5207): Apply new conventions for glyph granularity.
 	(U+5218): Likewise.
