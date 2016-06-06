@@ -1,3 +1,9 @@
+2016-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el: Add glyph-images of HNG-KAR.
+
+	* Ideograph-R004-Slash.el (g2-UU+53CA): Add HNG-KAR0634-0.
+
 2016-06-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R049-Oneself.el (MJ059540): Add HNG-KAR0059-0.
