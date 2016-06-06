@@ -84,8 +84,8 @@
        ((==ucs@unicode	    . #x6BDB)	; &g2-AJ1-03807;
 	(==adobe-japan1-0   . 03807)	; &g2-AJ1-03807;
 	)
-       ((==ucs@unicode	    . #x67BC)	; &g2-JSP-4336;
-	(==jis-x0212	    . #x4336)	; &g2-JSP-4336; [35-22]
+       ((==ucs@unicode	    . #x67BC)	; &g2-AJ1-21742;
+	(==adobe-japan1-6   . 21742)	; &g2-AJ1-21742;
 	))
       (==ruimoku-v6	  . #xE06D)	; &g2-RUI6-E06D;
       ))
