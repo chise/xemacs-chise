@@ -261,6 +261,13 @@
 (let (dg-chr)
   (map-char-attribute
    (lambda (c v)
+     (when (setq dg-chr (decode-char '===jis-x0212 v))
+       (unless (eq c dg-chr)
+	 (put-char-attribute dg-chr '===hanyo-denshi/jb v)))
+     nil)
+   '==hanyo-denshi/jb)
+  (map-char-attribute
+   (lambda (c v)
      (when (setq dg-chr (decode-char '===jis-x0213-1@2000 v))
        (unless (eq c dg-chr)
 	 (put-char-attribute dg-chr '===hanyo-denshi/jc v)))
@@ -292,3 +299,106 @@
      nil)
    '==ucs@unicode)
   )
+
+(defun glyph-form-feature-to-glyph-image-char-spec (dg-fn
+						    code-point
+						    &optional
+						    rep-gi-fn dg-char)
+  (unless rep-gi-fn
+    (setq rep-gi-fn (intern (format "=%s" dg-fn))))
+  (unless dg-char
+    (setq dg-char (decode-char dg-fn code-point)))
+  (let (code)
+    (when (find-charset rep-gi-fn)
+      (cons (cons rep-gi-fn code-point)
+	    (cond
+	     ((eq dg-fn '==gt)
+	      (if (setq code (encode-char dg-char '==gt-k))
+		  (list (cons '===gt-k code)))
+	      )
+	     ((eq dg-fn '==hanyo-denshi/jc)
+	      (cond ((encode-char dg-char '==jis-x0213-1)
+		     (list (cons '===jis-x0213-1 code-point))
+		     )
+		    ((encode-char dg-char '==jis-x0213-1@2000)
+		     (list (cons '===jis-x0213-1@2000 code-point))
+		     ))
+	      )
+	     ((eq dg-fn '==hanyo-denshi/jd)
+	      (list (cons '===jis-x0213-2 code-point))
+	      )
+	     ((eq dg-fn '==jis-x0208)
+	      (cond ((encode-char dg-char '==jis-x0213-1)
+		     (list (cons '===jis-x0213-1 code-point))
+		     )
+		    ((encode-char dg-char '==jis-x0213-1@2000)
+		     (list (cons '===jis-x0213-1@2000 code-point))
+		     ))
+	      )
+	     ((eq dg-fn '==ks-x1001)
+	      (if (setq code (encode-char dg-char '==ucs@ks))
+		  (list (cons '===ucs@ks code)))
+	      ))))))
+
+(let (dest rep-gi-fn rep-gi spec target-dg-fns)
+  (dolist (fn (char-attribute-list))
+    (when (and (find-charset fn)
+	       (string-match "^==[^*=>]+$" (symbol-name fn)))
+      (setq dest (cons fn dest))))
+  (setq dest (sort dest
+		   (lambda (a b)
+		     (string< (symbol-name a)(symbol-name b)))))
+  (dolist (dg-fn dest)
+    (setq rep-gi-fn (intern (format "=%s" dg-fn)))
+    (when (find-charset rep-gi-fn)
+      (map-char-attribute
+       (lambda (c v)
+	 (setq rep-gi (decode-char rep-gi-fn v))
+	 (unless (or (and (eq dg-fn '==jis-x0208)
+			  (eq (get-char-attribute
+			       (decode-char '===jis-x0208@1990 v)
+			       '===jis-x0208@1990)
+			      v))
+		     (and (eq dg-fn '==jis-x0213-1)
+			  (eq (get-char-attribute
+			       (decode-char '===jis-x0213-1@2000 v)
+			       '===jis-x0213-1@2000)
+			     v))
+		     (and rep-gi
+			  (not (eq c rep-gi))))
+	   (if (get-char-attribute c '->subsumptive)
+	       (if (setq rep-gi
+			 (define-char
+                           (glyph-form-feature-to-glyph-image-char-spec
+			    dg-fn v rep-gi-fn c)
+			   ;; (list (cons rep-gi-fn v))
+			   ))
+		   (put-char-attribute rep-gi '<-subsumptive (list c)))
+	     (setq spec (char-attribute-alist c))
+	     (setq target-dg-fns nil)
+	     (dolist (fp spec)
+	       (unless (memq (car fp)
+			     '(==ks-x1001
+			       ==hanyo-denshi/jb
+			       ==hanyo-denshi/jc ==hanyo-denshi/jd
+			       ==gt-k))
+		 (when (find-charset (intern (format "=%s" (car fp))))
+		   (setq target-dg-fns (cons (car fp) target-dg-fns)))))
+	     (when (cdr target-dg-fns)
+	       (setq rep-gi
+		     (define-char
+		       (glyph-form-feature-to-glyph-image-char-spec
+			dg-fn v rep-gi-fn c)))
+	       (if rep-gi
+		   (put-char-attribute rep-gi '<-subsumptive (list c))))))
+	 nil)
+       dg-fn))))
+
+(let (chr ucs)
+  (map-char-attribute
+   (lambda (c v)
+     (when (and (setq chr (decode-char '=ks-x1001 v))
+		(setq ucs (encode-char chr '=ucs@ks)))
+       (put-char-attribute c '===ucs@ks ucs))
+     nil)
+   '===ks-x1001))
