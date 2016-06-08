@@ -1,3 +1,11 @@
+2016-06-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el: Add glyph-images of HNG-KAR.
+	(A-MJ057207): New abstract node.
+	(HNG-KAR0686-0): New character; use `<-denotational' for
+	A-MJ057207.
+	(MJ057207): Use A-MJ057207 instead of U+5716 as the mother.
+
 2016-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el: Add glyph-images of HNG-KAR.
