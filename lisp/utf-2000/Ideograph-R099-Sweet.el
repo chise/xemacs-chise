@@ -47,6 +47,8 @@
        ((===ucs@unicode	    . #x7518)	; &R-UU+7518;
 	)
        ((===hng-khm	    . 04350)	; &HNG011-04350;
+	)
+       ((===hng-kar	    . 02450)	; &HNG018-02450;
 	))
       ))
     ))
@@ -108,6 +110,7 @@
     (ideographic-radical . 99)	; ⽢
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
+    (=>ucs@iwds-1	. #x751A)	; &AJ1-02585;
     (=ucs@unicode	. #x751A)	; &AJ1-02585;
     (=adobe-japan1-0	. 02585)	; &AJ1-02585;
     (=jis-x0208		. #x3F53)	; &I-J90-3F53; [31-51]
@@ -153,6 +156,26 @@
      ((==ucs@unicode	  . #x751A)	; &g2-UU+751A;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x4975)	; &g2-UU+751A; [41-85]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x751A)	; 甚
+      ))
+    (ideographic-radical . 99)	; ⽢
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7518)	; 甘
+      )
+     ((=ucs		  . #x5339)	; 匹
+      ))
+    (=ucs-itaiji-004	. #x751A)	; &U-i004+751A;
+    (->subsumptive
+     ((===hng-kar	  . 10780)	; &HNG018-10780;
       ))
     ))
 (define-char
@@ -339,6 +362,11 @@
 	(===gt-k	    . 10324)	; &R-GT-27820;
 	)
        ((===ucs@unicode	    . #x751E)	; &R-UU+751E;
+	)
+       ((===hng-kar	    . 06840)	; &HNG018-06840;
+	(<-formed
+	 ((=ucs		      . #x5617)	; 嘗
+	  ))
 	))
       ))
     ))
