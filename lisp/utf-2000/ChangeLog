@@ -1,3 +1,14 @@
+2016-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R033-Scholar.el: Add glyph-images of HNG-KAR.
+
+2016-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R099-Sweet.el: Add glyph-images of HNG-KAR.
+	(U+751A): Add `=>ucs@iwds-1'.
+	(U+751A-itaiji-004): New character to subsume HNG-KAR1078-0; use
+	`<-denotational' for U+751A.
+
 2016-06-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R031-Enclosure.el: Add glyph-images of HNG-KAR.
