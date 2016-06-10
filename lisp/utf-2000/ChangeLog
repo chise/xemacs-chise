@@ -1,3 +1,7 @@
+2016-06-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R114-Track.el: Add some Adobe-Japan1-0 code points.
+
 2016-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R033-Scholar.el: Add glyph-images of HNG-KAR.
