@@ -1,5 +1,23 @@
 2016-06-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el: Add glyph-images of HNG-KAR.
+	(HNG-KAR0643-0): New character; use `<-denotational' for U+5449.
+	(HNG-KHM0237-0): Use `<-subsumptive' for UU+54C0 instead of
+	`<-denotational' for U+54C0.
+	(U+54ED): Separate UU+54ED.
+	(HNG-KAR0683-0): Use `<-denotational' for U+54ED.
+	(A-M-03829): New abstract node.
+	(U+555A): Add `<-denotational' for A-M-03829.
+	(U-00020DF0): New character; use `<-denotational' for A-M-03829;
+	use `<-formed' for U+555A.
+	(MJ008401): New character; use `<-denotational' for U-00020DF0;
+	unify HD-KS044550.
+	(IU+20DF0): New character; use `<-denotational' for U-00020DF0.
+	(HNG-KAR0667-0): New character; use `<-denotational' for U+55BB;
+	use `<-formed' for U+55A9.
+
+2016-06-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R114-Track.el: Add some Adobe-Japan1-0 code points.
 
 2016-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
