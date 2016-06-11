@@ -1,5 +1,23 @@
 2016-06-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R132-Self.el: Add glyph-images of HNG-KAR.
+	(U+5961-itaiji-001): New character to subsume HNG-KAR0083-0; use
+	`<-formed' for U+5961.
+
+	* Ideograph-R112-Stone.el: Add some Adobe-Japan1-0 code points.
+	(U+77F4): Unify S-5450; add `<-original' for U+7887.
+	(U+40A3): Unify M-24097.
+	(UU+784F): Unify S-5408.
+	(U+7897): Add `<-vulgar' for U+76CC.
+	(U+78BB): Unify S-5465; add `<-formed' for U+78BA.
+	(U+78C7): Unify S-5414; add `<-formed' for U+7812.
+
+	* Ideograph-R108-Dish.el (U+76CC): Unify S-5247.
+
+	* Ideograph-R075-Tree.el: Add some Adobe-Japan1-6 code points.
+
+2016-06-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R037-Big.el: Add glyph-images of HNG-KAR.
 
 	* Ideograph-R036-Evening.el: Add glyph-images of HNG-KAR.
