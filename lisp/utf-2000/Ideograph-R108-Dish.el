@@ -676,7 +676,29 @@
     (=cns11643-3	. #x325B)	; &I-C3-325B; [18-59]
     (=jis-x0213-1	. #x7868)	; &I-JX1-7868; [88-72]
     (=daikanwa		. 22979)	; &I-M-22979;
+    (=shinjigen		.  5247)	; 盌
     (=jef-china3	. #x9BED)	; &I-JC3-9BED;
+    (->subsumptive
+     ((==ucs@unicode	  . #x76CC)	; &g2-JSP-4E4D;
+      (==jis-x0212	  . #x4E4D)	; &g2-JSP-4E4D; [46-45]
+      (==cns11643-3	  . #x325B)	; &g2-JSP-4E4D; [18-59]
+      (==jis-x0213-1	  . #x7868)	; &g2-JSP-4E4D; [88-72]
+      (==daikanwa	  . 22979)	; &g2-JSP-4E4D;
+      (==shinjigen	  .  5247)	; &g2-JSP-4E4D;
+      (==jef-china3	  . #x9BED)	; &g2-JSP-4E4D;
+      (->subsumptive
+       ((===daikanwa	    . 22979)	; &R-M-22979;
+	)
+       ((===jis-x0212	    . #x4E4D)	; &R-JX1-7868; [46-45]
+	(===jis-x0213-1	    . #x7868)	; &R-JX1-7868; [88-72]
+	)
+       ((===cns11643-3	    . #x325B)	; &R-C3-325B; [18-59]
+	)
+       ((===ucs@unicode	    . #x76CC)	; &R-UU+76CC;
+	)
+       ((===jef-china3	    . #x9BED)	; &R-JC3-9BED;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
