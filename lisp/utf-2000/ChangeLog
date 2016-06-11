@@ -1,3 +1,19 @@
+2016-06-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R038-Woman.el: Add glyph-images of HNG-KAR.
+	(HNG-KAR07210): New character; use `<-denotational' for U+5A66.
+
+	* Ideograph-R032-Earth.el: Add glyph-images of HNG-KAR.
+	(U-0002125F): Apply new conventions for glyph granularity; add
+	`<-vulgar' for U+58EF.
+	(U+582A): Separate UU+582A.
+	(UU+582A): Add `=>ucs@iwds-1'.
+	(HNG-KAR0074-0): New character; use `<-denotational' for U+582A.
+	(UU+582F): Add HNG-KAR0697-5 [additional glyph].
+	(HNG-KAR0697-0): New character; use `<-denotational' for U+582F.
+	(U+589D): Unify S-5483; add `<-formed' for U+78FD.
+	(U+58BD): Use `->subsumptive'; add `<-formed' for U+78FD.
+
 2016-06-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R132-Self.el: Add glyph-images of HNG-KAR.
