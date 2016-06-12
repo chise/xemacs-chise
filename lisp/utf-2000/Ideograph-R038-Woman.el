@@ -3812,7 +3812,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (=ucs		. #x59CB)	; 始
-    (=adobe-japan1-0	. 02205)	; &AJ1-02205;
+    (=adobe-japan1-0	. 02205)	; &I-AJ1-02205;
     (=jis-x0208		. #x3B4F)	; &I-J90-3B4F; [27-47]
     (=gb2312		. #x4A3C)	; &I-G0-4A3C; [42-28]
     (=ks-x1001		. #x6337)	; &I-K0-6337; [67-23]
