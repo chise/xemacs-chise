@@ -1,5 +1,13 @@
 2016-06-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R154-Shell.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R005-Second.el (g2-IU+200ED): Use g2-UU+53E3 instead
+	of U+53E3 in `ideographic-structure'.
+	(g2-GT-00253): Likewise.
+
+2016-06-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R033-Scholar.el (U+58F5): Separate UU+58F5.
 	(U+58F5-var-002): New character; use `<-denotational' for U+58F5.
 
