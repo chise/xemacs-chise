@@ -1,5 +1,13 @@
 2016-06-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R033-Scholar.el (U+58F5): Separate UU+58F5.
+	(U+58F5-var-002): New character; use `<-denotational' for U+58F5.
+
+	* Ideograph-R050-Turban.el (U+5E1A): Separate A-UU+5E1A.
+	(A-UU+5E1A): Add `=>ucs@iwds-1'.
+	(U+5E1A-itaiji-004): New character; use `<-denotational' for
+	U+5E1A.
+
 	* Ideograph-R038-Woman.el: Add glyph-images of HNG-KAR.
 	(HNG-KAR07210): New character; use `<-denotational' for U+5A66.
 
