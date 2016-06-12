@@ -1779,10 +1779,8 @@
     (=gt		. 00253)	; &I-GT-00253;
     (=gt-pj-2		. #x315C)	; &I-GT-00253; [17-60]
     (=daikanwa		. 00193)	; &I-M-00193;
-    (=hanziku-1		. #xAF62)	; &I-HZK01-AF62;
     (<-ancient
-     ((=ucs@unicode	  . #x59CB)	; &AJ1-02205;
-      (=adobe-japan1-0	  . 02205)	; &AJ1-02205;
+     ((=ucs		  . #x59CB)	; 始
       (=daikanwa	  . 06166)	; &I-M-06166;
       ))
     (<-ancient*sources
@@ -1799,7 +1797,8 @@
 	 ((==ucs@cns	      . #x722B)	; &g2-CU+722B;
 	  (==cns11643-4	      . #x2151)	; &g2-CU+722B; [01-49]
 	  )
-	 ((=ucs		      . #x53E3)	; 口
+	 ((==ucs@unicode      . #x53E3)	; &g2-AJ1-01969;
+	  (==adobe-japan1-0   . 01969)	; &g2-AJ1-01969;
 	  ))
 	)
        ((=ucs		    . #x4E5A)	; 乚
@@ -1826,12 +1825,18 @@
 	 ((==ucs@jis	      . #x722B)	; &g2-GT-25225;
 	  (==jis-x0213-2      . #x702A)	; &g2-GT-25225; [80-10]
 	  )
-	 ((=ucs		      . #x53E3)	; 口
+	 ((==ucs@unicode      . #x53E3)	; &g2-AJ1-01969;
+	  (==adobe-japan1-0   . 01969)	; &g2-AJ1-01969;
 	  ))
 	)
        ((=ucs		    . #x4E5A)	; 乚
 	))
       (==gt		  . 00253)	; &g2-GT-00253;
+      (->subsumptive
+       ((===gt		    . 00253)	; &R-GT-00253;
+	)
+       ((=hanziku-1	    . #xAF62)	; &HZK01-AF62;
+	))
       ))
     ))
 (define-char
