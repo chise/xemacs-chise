@@ -1,5 +1,39 @@
 2016-06-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R009-Man.el: Add glyph-images of HNG-KAR.
+	(U+5185): Separate CU+2F814 and C6-2150.
+	(U-0002F814): Unify C6-2150.
+	(A-MJ006527): New abstract node; use `<-denotational' for U+4EDE;
+	unify o-HD-FT2065.
+	(U-00020209): Add `<-denotational' for BUCS+4F83.
+	(U+4FAE): Separate A-UU+4FAE and A-J0-496E; omit
+	`ideographic-structure'.
+	(A-UU+4FAE): Add `=>ucs@iwds-1'; unify A-J0-496E.
+	(o-UU+4FAE): New abstract node; use `<-denotational' for
+	A-UU+4FAE.
+	(U-0002F805): Use o-UU+4FAE instead of U+4FAE as the mother.
+	(U+4FAE-itaiji-001): New character to subsume HNG-KAK0013-0 and
+	HNG-KAR0562-0; use `<-denotational' for U+4FAE.
+	(MJ007269): New character; use `<-denotational' for U+5169; unify
+	HD-JT-ADC7 and KOSEKI-007530; use `<-formed' for UU+5169; add
+	g2-MJ007269 and g2-KOSEKI-007530.
+	(g2-KOSEKI-007530): Unify u+5169-var-002; add HNG-KHM0206-0 and
+	HNG-KAR0580-0.
+	(U-00020213): Add `<-formed' for U+5006.
+	(UU+4FAE): Use o-UU+4FAE instead of U+4FAE as the mother; add
+	representative nodes; move U+FA30 to abstract glyph-form node.
+	(HNG-KAR0565-0): New character; use `<-denotational' for U+5026.
+	(U+5069): Apply new conventions for glyph granularity.
+	(U+3474): Likewise.
+	(U+5099-var-001): New character to subsume HNG-KAK0273-0 and
+	HNG-KAR0571-0; use `<-denotational' for U+5099.
+	(U+50D5): Separate UU+50D5.
+	(HNG-KAR0013-0): New character; use `<-denotational' for U+50D5.
+	(U+50E8): Apply new conventions for glyph granularity.
+	(U-000203D9): Likewise.
+
+2016-06-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R124-Feather.el:
 	- Add some Adobe-Japan1-0 code points.
 	- Use g2-UU+7FBD instead of UU+7FBD in `ideographic-structure' of
