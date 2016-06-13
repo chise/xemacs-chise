@@ -1,3 +1,12 @@
+2016-06-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R124-Feather.el:
+	- Add some Adobe-Japan1-0 code points.
+	- Use g2-UU+7FBD instead of UU+7FBD in `ideographic-structure' of
+	  abstract glyph-forms.
+	(A-BC-8ACB): New abstract node to subsume M-28634 and BC-8ACB; use
+	`<-denotational' for U-00026407.
+
 2016-06-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R154-Shell.el: Add some Adobe-Japan1-0 code points.
