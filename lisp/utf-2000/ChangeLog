@@ -1,3 +1,17 @@
+2016-06-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R039-Child.el: Add glyph-images of HNG-KAR.
+	(HNG-KHM0027-0): Add `<-formed' for U-0002B76F and U+5B78.
+	(U-0002B76F): New character; use `<-denotational' for BUCS+5B78.
+	(HNG-KAR1429-2): New character; use `<-denotational' for
+	U-0002B76F; use `<-formed' for U+5B78.
+	(A-UU+5B64): Separate A-IWDSU+5B64.
+	(A-IWDSU+5B64): Unify o-UU+5B64, o-J0-3849, o-AJ1-01917 and
+	o-GT-08770.
+	(HNG-KAR0752-0): New character; use `<-denotational' for
+	A-UU+5B64.
+	(HNG-KAR0751-0): New character; use `<-denotational' for U+5B70.
+
 2016-06-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el: Add glyph-images of HNG-KAR.
