@@ -1,3 +1,18 @@
+2016-06-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el: Add glyph-images of HNG-KAR.
+	(A-M-07156): Unify BUCS+5BAE.
+	(U+5BAB): Add `<-formed' for U+5BAE.
+	(UU+5BB9): Add `=>ucs@iwds-1'.
+	(HNG-KAR0757-0): New character; use `<-denotational' for U+5BB9.
+	(U+5BE1): Separate UU+5BE1.
+	(UU+5BE1): Add `=>ucs@iwds-1'.
+	(HNG-KAR0754-0): New character; use `<-denotational' for U+5BE1.
+
+	* Ideograph-R029-Again.el (U-0002A7CA): New character.
+	(U+2A7CA-itaiji-001): New character; use `<-denotational' for
+	U-0002A7CA.
+
 2016-06-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R039-Child.el: Add glyph-images of HNG-KAR.
