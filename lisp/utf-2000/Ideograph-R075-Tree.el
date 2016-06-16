@@ -28509,12 +28509,13 @@
       )
      ((=ucs		  . #x5C07)	; 將
       ))
-    (=>>ucs@unicode	. #x3BCD)	; &G-AJ1-17848;
-    (=>>adobe-japan1-5	. 17848)	; &G-AJ1-17848;
-    (=>>jis-x0213-2	. #x2F48)	; &G-AJ1-17848; [15-40]
-    (=>>hanyo-denshi/jd . #x2F48)	; &G-AJ1-17848; [15-40]
-    (=>>daikanwa	. 15379)	; &G-AJ1-17848;
-    (=>>cbeta		. 05677)	; &G-AJ1-17848;
+    (=ucs@unicode	. #x3BCD)	; &AJ1-17848;
+    (=adobe-japan1-5	. 17848)	; &AJ1-17848;
+    (=cns11643-3	. #x4C5C)	; &I-C3-4C5C; [44-60]
+    (=jis-x0213-2	. #x2F48)	; &I-JX2-2F48; [15-40]
+    (=hanyo-denshi/jd	. #x2F48)	; &I-HD-JD-2F48; [15-40]
+    (=daikanwa		. 15379)	; &I-M-15379;
+    (=cbeta		. 05677)	; &I-CB05677;
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x3BCD)	; 㯍
@@ -28527,15 +28528,27 @@
 	)
        ((=gt-k		    . 00495)	; &GT-K00495;
 	)
-       ((=ucs@unicode	    . #x5C07)	; &MJ010271;
-	(=mj		    . 010271)	; &MJ010271;
+       ((==ucs@unicode	    . #x5C07)	; &g2-MJ010271;
+	(==mj		    . 010271)	; &g2-MJ010271;
 	))
-      (=ucs@unicode	  . #x3BCD)	; &AJ1-17848;
-      (=adobe-japan1-5	  . 17848)	; &AJ1-17848;
-      (=jis-x0213-2	  . #x2F48)	; &I-JX2-2F48; [15-40]
-      (=hanyo-denshi/jd	  . #x2F48)	; &I-HD-JD-2F48; [15-40]
-      (=daikanwa	  . 15379)	; &I-M-15379;
-      (=cbeta		  . 05677)	; &I-CB05677;
+      (==ucs@unicode	  . #x3BCD)	; &g2-AJ1-17848;
+      (==adobe-japan1-5	  . 17848)	; &g2-AJ1-17848;
+      (==jis-x0213-2	  . #x2F48)	; &g2-AJ1-17848; [15-40]
+      (==hanyo-denshi/jd  . #x2F48)	; &g2-AJ1-17848; [15-40]
+      (==daikanwa	  . 15379)	; &g2-AJ1-17848;
+      (==cbeta		  . 05677)	; &g2-AJ1-17848;
+      (->subsumptive
+       ((===daikanwa	    . 15379)	; &R-M-15379;
+	)
+       ((===jis-x0213-2	    . #x2F48)	; &R-JX2-2F48; [15-40]
+	(===hanyo-denshi/jd . #x2F48)	; &R-JX2-2F48; [15-40]
+	)
+       ((===adobe-japan1-5  . 17848)	; &R-AJ1-17848;
+	)
+       ((===ucs@unicode	    . #x3BCD)	; &R-UU+3BCD;
+	)
+       ((===cbeta	    . 05677)	; &R-CB05677;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -28543,9 +28556,11 @@
 	)
        ((=gt-k		    . 00495)	; &GT-K00495;
 	)
-       ((=cns11643-1	    . #x5972)	; &C1-5972; [57-82]
+       ((==ucs@cns	    . #x5C07)	; &g2-CU+5C07;
+	(==cns11643-1	    . #x5972)	; &g2-CU+5C07; [57-82]
 	))
-      (=cns11643-3	  . #x4C5C)	; &C3-4C5C; [44-60]
+      (==ucs@cns	  . #x3BCD)	; &g2-CU+3BCD;
+      (==cns11643-3	  . #x4C5C)	; &g2-CU+3BCD; [44-60]
       ))
     ))
 (define-char
