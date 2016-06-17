@@ -1,5 +1,8 @@
 2016-06-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R086-Fire.el (U-0002422B): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R043-Lame.el: Add glyph-images of HNG-KAR.
 
 	* Ideograph-R009-Man.el (U-000203EE): Separate IU+203EE.
