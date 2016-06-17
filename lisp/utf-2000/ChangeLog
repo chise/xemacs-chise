@@ -1,5 +1,9 @@
 2016-06-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R043-Lame.el: Add glyph-images of HNG-KAR.
+
+	* Ideograph-R009-Man.el (U-000203EE): Separate IU+203EE.
+
 	* Ideograph-R041-Inch.el: Add glyph-images of HNG-KAR.
 	(HNG-KAR0778-0): New character; use `<-denotational' for
 	A-IWDSU+5C06.
