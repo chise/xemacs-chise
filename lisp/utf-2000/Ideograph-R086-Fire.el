@@ -5501,22 +5501,32 @@
   '((ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (hanyu-dazidian	1 400 5)
     (=ucs		. #x2422B)	; 𤈫
+    (=cns11643-6	. #x414E)	; &I-C6-414E; [33-46]
+    (=daikanwa		. 19065)	; &I-M-19065;
+    (=cbeta		. 05337)	; &I-CB05337;
+    (<-original
+     ((=ucs		  . #x5C09)	; 尉
+      (=daikanwa	  . 07440)	; &I-M-07440;
+      ))
+    (<-original*sources
+     zhengzitong daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 19065)	; &M-19065;
-      (<-original
-       ((=cns11643-1	    . #x5970)	; &C1-5970; [57-80]
-	(=daikanwa	    . 07440)	; &I-M-07440;
+     ((==daikanwa	  . 19065)	; &g2-M-19065;
+      )
+     ((==ucs@iso	  . #x2422B)	; &g2-CB05337;
+      (==cbeta		  . 05337)	; &g2-CB05337;
+      (->subsumptive
+       ((===ucs@iso	    . #x2422B)	; &R-U-0002422B;
+	)
+       ((=hanziku-1	    . #xF858)	; &HZK01-F858;
+	)
+       ((===cbeta	    . 05337)	; &R-CB05337;
 	))
-      (<-original*sources
-       zhengzitong daikanwa)
       )
-     ((hanyu-dazidian	  1 400 5)
-      (=ucs@iso		  . #x2422B)	; &CB05337;
-      (=hanziku-1	  . #xF858)	; &CB05337;
-      (=cbeta		  . 05337)	; &I-CB05337;
-      )
-     ((=cns11643-6	  . #x414E)	; &C6-414E; [33-46]
+     ((==ucs@cns	  . #x2422B)	; &g2-CU+2422B;
+      (==cns11643-6	  . #x414E)	; &g2-CU+2422B; [33-46]
       ))
     ))
 (define-char
