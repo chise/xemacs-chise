@@ -25512,6 +25512,15 @@
       ))
     (=ucs@unicode	. #x558C)	; &M-03918;
     (=daikanwa		. 03918)	; &M-03918;
+    (->subsumptive
+     ((==ucs@unicode	  . #x558C)	; &g2-M-03918;
+      (==daikanwa	  . 03918)	; &g2-M-03918;
+      (->subsumptive
+       ((===daikanwa	    . 03918)	; &R-M-03918;
+	)
+       ((===ucs@unicode	    . #x558C)	; &R-UU+558C;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -25526,10 +25535,15 @@
       )
      ((=ucs		  . #x5405)	; 吅
       )
-     ((=cns11643-1	  . #x477C)	; &C1-477C; [39-92]
+     ((=ucs@cns		  . #x5DDE)	; &C1-477C;
+      (=cns11643-1	  . #x477C)	; &C1-477C; [39-92]
       ))
     (=ucs@cns		. #x558C)	; &C2-3A5A;
     (=cns11643-2	. #x3A5A)	; &C2-3A5A; [26-58]
+    (->subsumptive
+     ((==ucs@cns	  . #x558C)	; &g2-CU+558C;
+      (==cns11643-2	  . #x3A5A)	; &g2-CU+558C; [26-58]
+      ))
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
