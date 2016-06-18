@@ -1,5 +1,11 @@
 2016-06-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R046-Mountain.el: Add glyph-images of HNG-KAR.
+
+	* Ideograph-R030-Mouth.el (U+558C): Add representative nodes.
+
+2016-06-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R047-River.el: Add glyph-images of HNG-KAR.
 
 	* Ideograph-R042-Small.el: Add glyph-images of HNG-KAR.
