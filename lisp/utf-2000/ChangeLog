@@ -1,4 +1,20 @@
+2016-06-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el:
+	- Add glyph-images of HNG-KAR.
+	- Use g2-UU+5DFE instead of U+5DFE in `ideographic-structure' of
+	  abstract glyph-forms.
+
+	* Ideograph-R049-Oneself.el: Add glyph-images of HNG-KAR.
+
+	* Ideograph-R048-Work.el: Add glyph-images of HNG-KAR.
+
 2016-06-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R194-Ghost.el (U+9B4F): Separate o-UU+9B4F.
+	(o-UU+9B4F): Add `=>ucs@iwds-1'.
+	(U+9B4F): New character to subsume HNG-KAR0460-0; use
+	`<-denotational' for U+9B4F.
 
 	* Ideograph-R046-Mountain.el: Add glyph-images of HNG-KAR.
 
