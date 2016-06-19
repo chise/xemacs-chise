@@ -1780,9 +1780,50 @@
 (define-char
   '((ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x59D4)	; 委
+      )
+     ((=ucs		  . #x9B3C)	; 鬼
+      ))
     (=ucs		. #x9B4F)	; 魏
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9B4F)	; 魏
+      ))
+    (ideographic-radical . 194)	; ⿁
+    (ideographic-strokes . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x59D4)	; 委
+      )
+     ((=>ucs@iwds-1	  . #x9B3C)	; &o-J0-3534;
+      (=+>ucs@unicode	  . #x9B3C)	; &o-J0-3534;
+      (=+>ucs@jis	  . #x9B3C)	; &o-J0-3534;
+      (=+>jis-x0208	  . #x3534)	; &o-J0-3534; [21-20]
+      ))
+    (=>ucs@iwds-1	. #x9B4F)	; &o-J0-7232;
+    (=+>ucs@unicode	. #x9B4F)	; &o-J0-7232;
+    (=+>jis-x0208	. #x7232)	; &o-J0-7232; [82-18]
+    (=+>jis-x0213-1	. #x7232)	; &o-J0-7232; [82-18]
+    (=+>adobe-japan1-0	. 07303)	; &o-J0-7232;
+    (=+>gt		. 61659)	; &o-J0-7232;
     (->subsumptive
      ((total-strokes	   . 18)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x59D4)	; 委
+	)
+       ((=ucs@jis	    . #x9B3C)	; &AJ1-01614;
+	(=adobe-japan1-0    . 01614)	; &AJ1-01614;
+	))
       (=ucs@cns		  . #x9B4F)	; &AJ1-07303;
       (=ucs@jis		  . #x9B4F)	; &AJ1-07303;
       (=ucs@ks		  . #x9B4F)	; &AJ1-07303;
@@ -1824,6 +1865,15 @@
 	))
       )
      ((total-strokes	   . 17)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x59D4)	; 委
+	)
+       ((=ucs@unicode	    . #x9B3C)	; &G0-396D;
+	(=gb2312	    . #x396D)	; &G0-396D; [25-77]
+	))
       (=ucs@unicode	  . #x9B4F)	; &G0-4E3A;
       (=ucs@JP/hanazono	  . nil)
       (=gb2312		  . #x4E3A)	; &G0-4E3A; [46-26]
@@ -1832,6 +1882,26 @@
 	(==ucs@JP/hanazono  . nil)
 	(==gb2312	    . #x4E3A)	; &g2-UU+9B4F; [46-26]
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9B4F)	; 魏
+      ))
+    (ideographic-radical . 194)	; ⿁
+    (ideographic-strokes . 8)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x59D4)	; 委
+      )
+     ((=mj		  . 059079)	; &MJ059079;
+      ))
+    (=ucs-itaiji-002	. #x9B4F)	; &U-i002+9B4F;
+    (->subsumptive
+     ((===hng-kar	  . 04600)	; &HNG018-04600;
       ))
     ))
 (define-char
