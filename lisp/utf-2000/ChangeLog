@@ -1,3 +1,13 @@
+2016-06-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R051-Dry.el: Add glyph-images of HNG-KAR.
+
+2016-06-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R101-Use.el (U-0002C3BE): New character.
+	(U+2C3BE-itaiji-001): New character; use `<-denotational' for
+	U-0002C3BE.
+
 2016-06-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R050-Turban.el:
