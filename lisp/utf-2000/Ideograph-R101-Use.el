@@ -309,6 +309,48 @@
     ))
 (define-char
   '((ideographic-radical . 101)	; ⽤
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (=ucs		. #x2C3BE)	; 𬎾
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2C3BE)	; 𬎾
+      ))
+    (ideographic-radical . 101)	; ⽤
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (=ucs-itaiji-001	. #x2C3BE)	; &U-i001+2C3BE;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2C3BE)	; 𬎾
+      ))
+    (ideographic-radical . 101)	; ⽤
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x8080)	; 肀
+      )
+     ((=ucs		  . #x6708)	; 月
+      ))
+    (=ucs@iso		. #x2C3BE)	; &CDP-8DCB;
+    (=big5-cdp		. #x8DCB)	; &CDP-8DCB;
+    (->subsumptive
+     ((==ucs@iso	  . #x2C3BE)	; &g2-CDP-8DCB;
+      (==big5-cdp	  . #x8DCB)	; &g2-CDP-8DCB;
+      (->subsumptive
+       ((===big5-cdp	    . #x8DCB)	; &R-CDP-8DCB;
+	)
+       ((===ucs@iso	    . #x2C3BE)	; &R-U-0002C3BE;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 101)	; ⽤
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (=ucs		. #x752D)	; 甭
