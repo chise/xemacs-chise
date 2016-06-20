@@ -13076,7 +13076,8 @@
     (<-same*sources
      jiyun daikanwa)
     (<-synonyms
-     ((=ucs		  . #x5C5B)	; 屛
+     ((=ucs@unicode	  . #x5C5B)	; &AJ1-07826;
+      (=adobe-japan1-0	  . 07826)	; &AJ1-07826;
       (=daikanwa	  . 07734)	; &I-M-07734;
       ))
     (<-synonyms*sources
