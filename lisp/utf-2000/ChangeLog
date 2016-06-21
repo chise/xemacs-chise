@@ -1,5 +1,9 @@
 2016-06-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R052-Short-Thread.el: Add glyph-images of HNG-KAR.
+
+2016-06-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R051-Dry.el: Add glyph-images of HNG-KAR.
 
 2016-06-18  MORIOKA Tomohiko  <tomo.git@chise.org>
