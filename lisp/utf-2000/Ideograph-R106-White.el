@@ -132,10 +132,25 @@
     ))
 (define-char
   '((ideographic-radical . 106)	; ⽩
+    (=ucs		. #x7680)	; 皀
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7680)	; 皀
+      ))
+    (ideographic-radical . 106)	; ⽩
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
-    (=ucs		. #x7680)	; 皀
-    (=adobe-japan1-0	. 05786)	; &I-AJ1-05786;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x767D)	; 白
+      )
+     ((=ucs		  . #x5315)	; 匕
+      ))
+    (=ucs@unicode	. #x7680)	; &AJ1-05786;
+    (=adobe-japan1-0	. 05786)	; &AJ1-05786;
     (=jis-x0208		. #x6225)	; &I-J90-6225; [66-05]
     (=cns11643-3	. #x2674)	; &I-C3-2674; [06-84]
     (=jis-x0213-1	. #x6225)	; &I-JX1-6225; [66-05]
@@ -171,6 +186,16 @@
       )
      ((==big5-cdp	  . #x8ABE)	; &g2-CDP-8ABE;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7680)	; 皀
+      ))
+    (ideographic-radical . 106)	; ⽩
+    (ideographic-strokes . 2)
+    (total-strokes	 . 7)
+    (=gt-k		. 02802)	; &GT-K02802;
+    (=gt-pj-k1		. #x3C5F)	; &GT-K02802; [28-63]
     ))
 (define-char
   '((ideographic-radical . 106)	; ⽩
