@@ -254,6 +254,8 @@
     (->subsumptive
      ((==daikanwa	  . 09571)	; &g2-M-09571;
       )
+     ((===hng-kar	  . 01130)	; &HNG018-01130;
+      )
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x5EF7)	; 廷
 	)
