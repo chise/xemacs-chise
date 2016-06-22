@@ -1,3 +1,19 @@
+2016-06-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R079-Weapon.el (U-00023A98): Unify A-JX2-6E23.
+	(U+23A98-var-001): New character; use `<-denotational' for
+	A-IU+23A98.
+	(A-IU+23A98): New abstract node; use `<-denotational' for
+	U-00023A98.
+	(IU+23A98): Use A-IU+23A98 instead of U-00023A98 as the mother.
+
+	* Ideograph-R055-Two-Hands.el (U+5F08): Separate UU+5F08.
+	(UU+5F08): Add `=>ucs@iwds-1'.
+	(HNG-KAR0114-0): New character; use `<-denotational' for U+5F08;
+	use `<-HNG@zinbun/takuhon' for U+5955.
+
+	* Ideograph-R054-Long-Stride.el (CU+5EF7): Add HNG-KAR0113-0.
+
 2016-06-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R106-White.el (U+7680): Separate UU+7680.
