@@ -674,8 +674,35 @@
   '((ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA6)	; 亦
+      )
+     ((=ucs		  . #x5EFE)	; 廾
+      ))
     (=ucs		. #x5F08)	; 弈
-    (=adobe-japan1-5	. 17607)	; &I-AJ1-17607;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5F08)	; 弈
+      ))
+    (ideographic-radical . 55)	; ⼶
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA6)	; 亦
+      )
+     ((=ucs@unicode	  . #x5EFE)	; &MJ011120;
+      (=mj		  . 011120)	; &MJ011120;
+      ))
+    (=>ucs@iwds-1	. #x5F08)	; &AJ1-17607;
+    (=ucs@unicode	. #x5F08)	; &AJ1-17607;
+    (=adobe-japan1-5	. 17607)	; &AJ1-17607;
     (=gb2312		. #x5E44)	; &I-G0-5E44; [62-36]
     (=jis-x0212		. #x3C5F)	; &I-JSP-3C5F; [28-63]
     (=cns11643-1	. #x507B)	; &I-C1-507B; [48-91]
@@ -711,6 +738,18 @@
 	)
        ((===ucs@unicode	    . #x5F08)	; &R-UU+5F08;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5F08)	; 弈
+      ))
+    (ideographic-radical . 55)	; ⼶
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (===hng-kar		. 01140)	; &HNG018-01140;
+    (<-HNG@zinbun/takuhon
+     ((=ucs		  . #x5955)	; 奕
       ))
     ))
 (define-char
