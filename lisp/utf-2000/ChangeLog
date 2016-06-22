@@ -1,3 +1,8 @@
+2016-06-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R106-White.el (U+7680): Separate UU+7680.
+	(GT-K02802): New character; use `<-denotational' for U+7680.
+
 2016-06-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R052-Short-Thread.el: Add glyph-images of HNG-KAR.
