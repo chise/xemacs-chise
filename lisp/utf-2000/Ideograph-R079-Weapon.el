@@ -364,6 +364,7 @@
 (define-char
   '((ideographic-radical . 79)	; ⽎
     (=ucs		. #x23A98)	; 𣪘
+    (=>jis-x0213-2	. #x6E23)	; 𣪘 [78-03]
     ))
 (define-char
   '((<-denotational
@@ -1043,11 +1044,58 @@
     ))
 (define-char
   '((<-denotational
+     ((=>ucs@iso	  . #x23A98)	; &A-GT-21338;
+      ))
+    (ideographic-radical . 79)	; ⽎
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 02802)	; &GT-K02802;
+      )
+     ((=ucs@unicode	  . #x6BB3)	; &MJ014908;
+      (=mj		  . 014908)	; &MJ014908;
+      ))
+    (=ucs-var-001	. #x23A98)	; &U-v001+23A98;
+    ))
+(define-char
+  '((<-denotational
      ((=ucs		  . #x23A98)	; 𣪘
       ))
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7680)	; 皀
+      )
+     ((=ucs@unicode	  . #x6BB3)	; &MJ014908;
+      (=mj		  . 014908)	; &MJ014908;
+      ))
+    (=>ucs@iso		. #x23A98)	; &A-GT-21338;
+    (=>gt		. 21338)	; &A-GT-21338;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iso	  . #x23A98)	; &A-GT-21338;
+      ))
+    (ideographic-radical . 79)	; ⽎
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x7680)	; &AJ1-05786;
+      (=adobe-japan1-0	  . 05786)	; &AJ1-05786;
+      )
+     ((=ucs@unicode	  . #x6BB3)	; &MJ014908;
+      (=mj		  . 014908)	; &MJ014908;
+      ))
     (=ucs@iso		. #x23A98)	; &AJ1-17897;
     (=adobe-japan1-5	. 17897)	; &AJ1-17897;
     (=jis-x0213-2	. #x6E23)	; &I-JX2-6E23; [78-03]
@@ -1071,6 +1119,11 @@
 	))
       )
      ((==ucs@iso	  . #x23A98)	; &g2-IU-00023A98;
+      (->subsumptive
+       ((===ucs@iso	    . #x23A98)	; &R-U-00023A98;
+	)
+       ((=hanziku-6	    . #xBCA3)	; &HZK06-BCA3;
+	))
       ))
     ))
 (define-char
