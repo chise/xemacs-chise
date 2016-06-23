@@ -4036,6 +4036,9 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
     (=daikanwa		. 16997)	; &M-16997;
+    (->subsumptive
+     ((==daikanwa	  . 16997)	; &g2-M-16997;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -4044,30 +4047,45 @@
     (ideographic-radical . 82)	; ⽑
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
-    (=>>cbeta		. 01736)	; &G-CB01736;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x5C62)	; &AJ1-07693;
+      (=adobe-japan1-0	  . 07693)	; &AJ1-07693;
+      )
+     ((=ucs		  . #x6BDB)	; 毛
+      ))
+    (=ucs@iso		. #x23C22)	; &C7-4034;
+    (=cns11643-7	. #x4034)	; &C7-4034; [32-20]
+    (=cbeta		. 01736)	; &I-CB01736;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x5C62)	; &AJ1-07693;
-	(=adobe-japan1-0    . 07693)	; &AJ1-07693;
+       ((==ucs@unicode	    . #x5C62)	; &g2-AJ1-07693;
+	(==adobe-japan1-0   . 07693)	; &g2-AJ1-07693;
 	)
-       ((=ucs		    . #x6BDB)	; 毛
+       ((==ucs@unicode	    . #x6BDB)	; &g2-AJ1-03807;
+	(==adobe-japan1-0   . 03807)	; &g2-AJ1-03807;
 	))
-      (=cbeta		  . 01736)	; &CB01736;
+      (==cbeta		  . 01736)	; &g2-CB01736;
       )
-     ((=ucs@iso		  . #x23C22)	; &U-00023C22;
+     ((==ucs@iso	  . #x23C22)	; &g2-IU-00023C22;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=cns11643-1	    . #x6858)	; &C1-6858; [72-56]
+       ((==ucs@cns	    . #x5C62)	; &g2-CU+5C62;
+	(==cns11643-1	    . #x6858)	; &g2-CU+5C62; [72-56]
 	)
-       ((=ucs		    . #x6BDB)	; 毛
+       ((==ucs@cns	    . #x6BDB)	; &g2-CU+6BDB;
+	(==cns11643-1	    . #x4553)	; &g2-CU+6BDB; [37-51]
 	))
-      (=cns11643-7	  . #x4034)	; &C7-4034; [32-20]
+      (==ucs@cns	  . #x23C22)	; &g2-CU+23C22;
+      (==cns11643-7	  . #x4034)	; &g2-CU+23C22; [32-20]
       ))
     ))
 (define-char
