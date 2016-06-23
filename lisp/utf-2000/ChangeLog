@@ -1,5 +1,12 @@
 2016-06-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R044-Corpse.el: Add glyph-images of HNG-KAR.
+	(HNG-KAR0785-0): New character; use `<-denotational' for U+5C5B;
+	use `<-HNG@zinbun/takuhon' for U+5C4F.
+	(U+5C62): Apply new conventions for glyph granularity; separate
+	A-UU+5C62.
+	(HNG-KAR0788-0): New character; use `<-denotational' for U+5C62.
+
 	* Ideograph-R053-Dotted-Cliff.el: Add glyph-images of HNG-KAR.
 	(A-UU+5EB8): New abstract node; use `<-denotational' for U+5EB8.
 	(UU+5EB8): Use A-UU+5EB8 instead of U+5EB8 as the mother; add
