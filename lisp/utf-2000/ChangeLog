@@ -1,5 +1,23 @@
 2016-06-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R053-Dotted-Cliff.el: Add glyph-images of HNG-KAR.
+	(A-UU+5EB8): New abstract node; use `<-denotational' for U+5EB8.
+	(UU+5EB8): Use A-UU+5EB8 instead of U+5EB8 as the mother; add
+	`=>ucs@iwds-1'.
+	(HNG-KAR0815-0): New character; use `<-denotational' for
+	A-UU+5EB8.
+	(U+5EBE): Separate A-UU+5EBE.
+	(HNG-KAR0109-0): New character; use `<-denotational' for U+5EBE.
+	(U-000222C1): Use `->denotational' and `->subsumptive'.
+	(IU+222C1): Add `=>ucs@iwds-1'; unify MJ035419 and KOSEKI-107420.
+	(HNG-KAR0112-0): New character; use `<-denotational' for
+	U-000222C1.
+
+2016-06-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R082-Fur.el (U-00023C22): Apply new conventions for
+	glyph granularity.
+
 	* maps-conf.el: Don't separate abstract glyph-forms of 1-47-64 of
 	JIS X 0213:2000 and :2004; this difference is regarded as
 	glyph-image level.
