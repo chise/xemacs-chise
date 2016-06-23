@@ -1,3 +1,13 @@
+2016-06-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R056-Shoot.el: Add glyph-images of HNG-KAR.
+
+	* Ideograph-R030-Mouth.el (U+5468): separate A-UU+5468.
+	(A-UU+5468): Add `=>ucs@iwds-1'.
+	(g2-KU+5468): Separate HNG-KAR0663-0.
+	(U+5468-itaiji-001): New character to subsume HNG-KAR0663-0; use
+	`<-denotational' for U+5468.
+
 2016-06-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R044-Corpse.el: Add glyph-images of HNG-KAR.
