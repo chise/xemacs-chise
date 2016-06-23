@@ -3789,7 +3789,8 @@
       )
      ((=ucs		  . #x5E7F)	; 广
       )
-     ((=ucs@iso		  . #x2C3BE)	; &CDP-8DCB;
+     ((=>ucs@iwds-1	  . #x2C3BE)	; &CDP-8DCB;
+      (=ucs@iso		  . #x2C3BE)	; &CDP-8DCB;
       (=big5-cdp	  . #x8DCB)	; &CDP-8DCB;
       ))
     (=>ucs@iwds-1	. #x5EB8)	; &MJ011018;
