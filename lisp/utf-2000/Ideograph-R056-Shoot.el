@@ -44,6 +44,8 @@
 	(===gt-k	    . 00232)	; &R-GT-12167;
 	)
        ((===ucs@unicode	    . #x5F0B)	; &R-UU+5F0B;
+	)
+       ((===hng-kar	    . 01150)	; &HNG018-01150;
 	))
       )
      ((=gt-k		  . 00233)	; &GT-K00233;
@@ -271,6 +273,38 @@
     (=gt-k		. 01631)	; &I-GT-K01631;
     (=gt-pj-1		. #x3C30)	; &I-GT-12177; [28-16]
     (=daikanwa		. 09663)	; &I-M-09663;
+    (->subsumptive
+     ((==ucs@unicode	  . #x5F0F)	; &g2-AJ1-02268;
+      (==adobe-japan1-0	  . 02268)	; &g2-AJ1-02268;
+      (==gb2312		  . #x4A3D)	; &g2-AJ1-02268; [42-29]
+      (==ks-x1001	  . #x6352)	; &g2-AJ1-02268; [67-50]
+      (==jis-x0208	  . #x3C30)	; &g2-AJ1-02268; [28-16]
+      (==cns11643-1	  . #x4822)	; &g2-AJ1-02268; [40-02]
+      (==jis-x0213-1	  . #x3C30)	; &g2-AJ1-02268; [28-16]
+      (==gt		  . 12177)	; &g2-AJ1-02268;
+      (==gt-k		  . 01631)	; &g2-AJ1-02268;
+      (==daikanwa	  . 09663)	; &g2-AJ1-02268;
+      (->subsumptive
+       ((===daikanwa	    . 09663)	; &R-M-09663;
+	)
+       ((===jis-x0208	    . #x3C30)	; &R-J0-3C30; [28-16]
+	(===jis-x0213-1	    . #x3C30)	; &R-J0-3C30; [28-16]
+	)
+       ((===adobe-japan1-0  . 02268)	; &R-AJ1-02268;
+	)
+       ((===cns11643-1	    . #x4822)	; &R-C1-4822; [40-02]
+	)
+       ((===gt		    . 12177)	; &R-GT-12177;
+	(===gt-k	    . 01631)	; &R-GT-12177;
+	)
+       ((===ucs@ks	    . #x5F0F)	; &R-K0-6352;
+	(===ks-x1001	    . #x6352)	; &R-K0-6352; [67-50]
+	)
+       ((===ucs@unicode	    . #x5F0F)	; &R-UU+5F0F;
+	))
+      )
+     ((===hng-kar	  . 08230)	; &HNG018-08230;
+      ))
     ))
 (define-char
   '((ideographic-radical . 56)	; ⼷
@@ -563,9 +597,25 @@
        ((===cbeta	    . 06128)	; &R-CB06128;
 	))
       )
-     ((==ucs@unicode	  . #x5F11)	; &g2-UU+5F11;
-      (==ucs@JP/hanazono  . nil)
-      (==gb2312		  . #x5F31)	; &g2-UU+5F11; [63-17]
+     ((=>>ucs@unicode	  . #x5F11)	; &G-UU+5F11;
+      (->subsumptive
+       ((==ucs@unicode	    . #x5F11)	; &g2-UU+5F11;
+	(==ucs@JP/hanazono  . nil)
+	(==gb2312	    . #x5F31)	; &g2-UU+5F11; [63-17]
+	(->subsumptive
+	 ((===ucs@unicode     . #x5F11)	; &R-UU+5F11;
+	  )
+	 ((===hng-kar	      . 08275)	; &HNG018-08275;
+	  (<-HNG@zinbun/takuhon
+	   ((=ucs		. #x5F12)	; 弒
+	    ))
+	  ))
+	)
+       ((===hng-kar	    . 08270)	; &HNG018-08270;
+	(<-HNG@zinbun/takuhon
+	 ((=ucs		      . #x5F12)	; 弒
+	  ))
+	))
       ))
     ))
 (define-char
