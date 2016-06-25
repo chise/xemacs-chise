@@ -2999,7 +2999,7 @@
     (=shinjigen		.  2361)	; &M-38757;
     (<-original
      ((=ucs		  . #x5F99)	; 徙
-      (=jis-x0208	  . #x5750)	; &I-J90-5750; [55-48]
+      (=jis-x0208	  . #x5750)	; &AJ1-04795; [55-48]
       (=shinjigen	  .  2360)	; 徙
       ))
     (<-original*sources
@@ -5377,7 +5377,7 @@
     (=shinjigen@1ed	.  2340)	; &M-38796;
     (<-formed
      ((=ucs		  . #x5F81)	; 征
-      (=jis-x0208	  . #x402C)	; &I-J90-402C; [32-12]
+      (=jis-x0208	  . #x402C)	; &AJ1-02640; [32-12]
       (=shinjigen	  .  2339)	; 征
       ))
     (<-formed*sources
@@ -5546,7 +5546,7 @@
     (total-strokes	 . 9)
     (=daikanwa		. 38799)	; &M-38799;
     (<-ancient
-     ((=adobe-japan1-4	  . 13661)	; &AJ1-13661;
+     ((=ucs		  . #x5F80)	; 往
       (=daikanwa	  . 10073)	; &I-M-10073;
       ))
     (<-ancient*sources
@@ -14567,7 +14567,7 @@
     (total-strokes	 . 12)
     (=daikanwa		. 38955)	; &M-38955;
     (<-ancient
-     ((=adobe-japan1-4	  . 13661)	; &AJ1-13661;
+     ((=ucs		  . #x5F80)	; 往
       (=daikanwa	  . 10073)	; &I-M-10073;
       ))
     (<-ancient*sources
