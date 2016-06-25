@@ -1,5 +1,24 @@
 2016-06-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R077-Stop.el (U+6B68): Separate UU+6B68.
+	(U+6B68-var-001): New character; use `<-denotational' for U+6B68.
+
+	* Ideograph-R057-Bow.el: Add glyph-images of HNG-KAR.
+	(U+5F4C): Unify A-M-09877; omit `=>daikanwa'; separate A-UU+5F4C.
+	(UU+5F4C): Use A-UU+5F6B instead of U+5F4C as the mother.
+	(HD-JT-B11E): Likewise.
+	(A-MJ011220): New abstract node; use `<-denotational' for U+5F4C.
+	(HD-JT-B11D): Use A-MJ011220 instead of A-M-09877 as the mother;
+	unify MJ011220.
+
+	* Ideograph-R001-One.el (U-0002B743): New character.
+	(HD-TK01056730): New character; use `<-denotational' for
+	U-0002B743.
+	(IU+2B743): Likewise; unify HD-JT-ADA4, KOSEKI-222440 and
+	MJ058020.
+
+2016-06-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R059-Bristle.el: Add glyph-images of HNG-KAR.
 	(U+5F6B): Separate A-UU+5F6B.
 	(A-UU+5F6B): Add `=>ucs@iwds-1'.
