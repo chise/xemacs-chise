@@ -1,4 +1,16 @@
+2016-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (U-0002313C): Unify H4-DB68.
+
 2016-06-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R173-Rain.el (CU+4A31): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R101-Use.el (IU+2C3BE): Add `=>ucs@iwds-1'.
+	(A-MJ059914): New abstract node; use `<-denotational' for
+	U-0002C3BE.
+	(MJ059914): New character; use `<-subsumptive' for A-MJ059914.
 
 	* Ideograph-R009-Man.el (U-0002026B): Apply new conventions for
 	glyph granularity.
