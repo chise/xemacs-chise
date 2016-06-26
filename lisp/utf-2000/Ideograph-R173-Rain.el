@@ -5189,8 +5189,9 @@
       )
      ((=ucs		  . #x96E8)	; 雨
       )
-     ((=>>ucs@cns	  . #x5FA9)	; &G-CU+5FA9;
-      (=>>daikanwa	  . 10183)	; &G-CU+5FA9;
+     ((=ucs@cns		  . #x5FA9)	; &C1-5F26;
+      (=cns11643-1	  . #x5F26)	; &C1-5F26; [63-06]
+      (=daikanwa	  . 10183)	; &I-M-10183;
       ))
     (=ucs@cns		. #x4A31)	; &C3-5D4D;
     (=cns11643-3	. #x5D4D)	; &C3-5D4D; [61-45]
@@ -5203,7 +5204,7 @@
        ((name		    . "CJK RADICAL RAIN")
 	(=ucs		    . #x2ED7)	; ⻗
 	)
-       ((=daikanwa	    . 10183)	; &M-10183;
+       ((==daikanwa	    . 10183)	; &g2-M-10183;
 	))
       (==daikanwa	  . 42467)	; &g2-M-42467;
       )
