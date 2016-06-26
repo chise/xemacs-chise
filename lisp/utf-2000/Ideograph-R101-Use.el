@@ -337,6 +337,7 @@
       )
      ((=ucs		  . #x6708)	; 月
       ))
+    (=>ucs@iwds-1	. #x2C3BE)	; &CDP-8DCB;
     (=ucs@iso		. #x2C3BE)	; &CDP-8DCB;
     (=big5-cdp		. #x8DCB)	; &CDP-8DCB;
     (->subsumptive
@@ -366,6 +367,41 @@
     (=ucs		. #x752E)	; 甮
     (=cns11643-2	. #x2C3B)	; &I-C2-2C3B; [12-27]
     (=big5		. #xCFD9)	; &I-B-CFD9;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2C3BE)	; 𬎾
+      ))
+    (ideographic-radical . 101)	; ⽤
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x2C3BE)	; &CDP-8DCB;
+      (=ucs@iso		  . #x2C3BE)	; &CDP-8DCB;
+      (=big5-cdp	  . #x8DCB)	; &CDP-8DCB;
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=>mj		. 059914)	; &A-MJ059914;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=>ucs@iwds-1	    . #x2C3BE)	; &CDP-8DCB;
+	(=ucs@iso	    . #x2C3BE)	; &CDP-8DCB;
+	(=big5-cdp	    . #x8DCB)	; &CDP-8DCB;
+	)
+       ((=ucs		    . #x4E36)	; 丶
+	))
+      (=mj		  . 059914)	; &MJ059914;
+      (->subsumptive
+       ((==mj		    . 059914)	; &g2-MJ059914;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 101)	; ⽤
