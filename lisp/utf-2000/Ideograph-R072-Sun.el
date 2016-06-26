@@ -85,6 +85,7 @@
     (=ucs		. #x2313C)	; 𣄼
     (=cns11643-6	. #x232B)	; &I-C6-232B; [03-11]
     (=daikanwa		. 13736)	; &I-M-13736;
+    (=hanziku-4		. #xDB68)	; &I-HZK04-DB68;
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
