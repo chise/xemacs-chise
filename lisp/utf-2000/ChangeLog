@@ -1,3 +1,7 @@
+2016-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (UU+66FC): Add representative nodes.
+
 2016-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R072-Sun.el (U-0002313C): Unify H4-DB68.
