@@ -1,3 +1,20 @@
+2016-06-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+5653): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R063-Door.el: Add glyph-images of HNG-KAR.
+	(U+6237): Add representative nodes.
+
+	* Ideograph-R075-Tree.el (U-000237F5): Apply new conventions for
+	glyph granularity.
+
+2016-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R124-Feather.el (MJ058355): New character; use
+	`<-denotational' for U+7FCF; unify HD-KS320330; use `<-formed' for
+	JU+7FCF.
+
 2016-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (U+4F10): Apply new conventions for glyph
