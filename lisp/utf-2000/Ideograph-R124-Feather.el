@@ -2369,6 +2369,50 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=gt		  . 36834)	; &GT-36834;
+      )
+     ((=ucs		  . #x3431)	; 㐱
+      ))
+    (=mj		. 058355)	; &MJ058355;
+    (=hanyo-denshi/ks	. 320330)	; &MJ058355;
+    (<-formed
+     ((=ucs@jis		  . #x7FCF)	; &JX2-747B;
+      (=jis-x0212	  . #x553A)	; &JX2-747B; [53-26]
+      (=jis-x0213-2	  . #x747B)	; &I-JX2-747B; [84-91]
+      (=daikanwa	  . 28665)	; &I-M-28665;
+      ))
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=gt-k		    . 02403)	; &GT-K02403;
+	)
+       ((=ucs		    . #x3431)	; 㐱
+	))
+      (==mj		  . 058355)	; &g2-MJ058355;
+      (==hanyo-denshi/ks  . 320330)	; &g2-MJ058355;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 320330)	; &R-HD-KS-320330;
+	(=hanyo-denshi/ks/mf . #x7D21)	; &R-HD-KS-320330;
+	)
+       ((===mj		    . 058355)	; &R-MJ058355;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7FCF)	; 翏
+      ))
+    (ideographic-radical . 124)	; ⽻
+    (ideographic-strokes . 5)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs@unicode	  . #x7FBD)	; &AJ1-01227;
       (=adobe-japan1-0	  . 01227)	; &AJ1-01227;
       )
