@@ -1,4 +1,13 @@
+2016-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+4F10): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+
 2016-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R073-Say.el (UU+66FC): Add representative nodes.
+	(U+66FD): Separate UU+66FD.
+	(U+66FD-var-001): New character; use `<-denotational' for U+66FD.
 
 	* Ideograph-R036-Evening.el (U+5917): Separate UU+5917.
 	(UU+5917): Unify MJ009433 and KOSEKI-065920.
