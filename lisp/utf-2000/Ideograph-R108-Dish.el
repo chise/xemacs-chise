@@ -2899,11 +2899,8 @@
 	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
 	    (=ucs		. #x2FF8)	; ⿸
 	    )
-	   ((=ucs@unicode	. #x864D)	; &GT-44176;
-	    (=jis-x0208		. #x6948)	; &GT-44176; [73-40]
-	    (=gb2312		. #x722E)	; &I-G0-722E; [82-14]
-	    (=jis-x0213-1	. #x6948)	; &I-JX1-6948; [73-40]
-	    (=daikanwa		. 32674)	; &I-M-32674;
+	   ((==ucs@unicode	. #x864D)	; &g2-GT-44176;
+	    (==jis-x0208	. #x6948)	; &g2-GT-44176; [73-40]
 	    )
 	   ((==ucs@jis		. #x5E78)	; &g2-AJ1-01982;
 	    (==ucs@ks		. #x5E78)	; &g2-AJ1-01982;
