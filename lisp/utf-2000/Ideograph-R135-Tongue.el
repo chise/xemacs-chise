@@ -51,6 +51,8 @@
 	  )
 	 ((===ucs@unicode     . #x820C)	; &R-UU+820C;
 	  ))
+	)
+       ((===hng-kar	    . 03260)	; &HNG018-03260;
 	))
       )
      ((=ucs@cns		  . #x820C)	; &C1-485F;
@@ -111,6 +113,11 @@
     (=gt-k		. 03730)	; &I-GT-K03730;
     (=gt-pj-1		. #x3C4B)	; &I-GT-39175; [28-43]
     (=daikanwa/+p	. 30278)	; 舎
+    (<-formed
+     ((=ucs		  . #x820D)	; 舍
+      ))
+    (<-formed*sources
+     hng)
     (->subsumptive
      ((==ucs@unicode	  . #x820E)	; &g2-AJ1-02295;
       (==adobe-japan1-0	  . 02295)	; &g2-AJ1-02295;
@@ -135,8 +142,10 @@
 	)
        ((===ucs@unicode	    . #x820E)	; &R-UU+820E;
 	)
-       ((===hng-khi	    . 05380)	; &HNG010-05380;
+       ((===hng-kar	    . 12150)	; &HNG018-12150;
 	))
+      )
+     ((===hng-khi	  . 05380)	; &HNG010-05380;
       )
      ((===hng-khm	  . 01120)	; &HNG011-01120;
       ))
