@@ -1,5 +1,27 @@
 2016-06-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R149-Speech.el (A-UU+8B8A): New abstract node; use
+	`<-denotational' for U+8B8A.
+	(UU+8B8A): Use A-UU+8B8A instead of U+8B8A as the mother.
+	(HNG-KAR0912-0): New character; use `<-denotational' for
+	A-UU+8B8A.
+
+	* Ideograph-R139-Color.el (g2-UU+8272): Add HNG-KAR1218-0.
+
+	* Ideograph-R137-Boat.el (g2-UU+821F): Add HNG-KAR0327-0.
+
+	* Ideograph-R135-Tongue.el: Add glyph-images of HNG-KAR.
+	(U+820E): Add `<-formed' for U+820D.
+
+	* Ideograph-R131-Minister.el: Add glyph-images of HNG-KAR.
+
+	* Ideograph-R130-Meat.el (BC-8CEC): New character.
+
+	* Ideograph-R118-Bamboo.el (g2-UU+7C2B): Use g2-UU+8085 instead of
+	U+8085 in `ideographic-structure'.
+
+2016-06-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R108-Dish.el (g2-RUI6-E046): Use g2-UU+864D instead of
 	UU+864D in `ideographic-structure'.
 
