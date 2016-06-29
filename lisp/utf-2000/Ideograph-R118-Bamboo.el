@@ -10850,7 +10850,8 @@
        ((name		    . "CJK RADICAL BAMBOO")
 	(=ucs		    . #x2EAE)	; ⺮
 	)
-       ((=ucs		    . #x8085)	; 肅
+       ((==ucs@unicode	    . #x8085)	; &g2-GT-37844;
+	(==jis-x0208	    . #x6669)	; &g2-GT-37844; [70-73]
 	))
       (==ucs@unicode	  . #x7C2B)	; &g2-GT-34297;
       (==ks-x1001	  . #x6147)	; &g2-GT-34297; [65-39]
