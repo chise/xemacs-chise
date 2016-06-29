@@ -9739,7 +9739,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
     (=ucs		. #x8931)	; 褱
-    (=jis-x0212		. #x5C65)	; &JSP-5C65; [60-69]
+    (=jis-x0212		. #x5C65)	; &I-JSP-5C65; [60-69]
     (=cns11643-2	. #x5A44)	; &I-C2-5A44; [58-36]
     (=big5		. #xEB76)	; &I-B-EB76;
     (=daikanwa		. 34514)	; &I-M-34514;
