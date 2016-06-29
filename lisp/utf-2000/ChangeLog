@@ -1,5 +1,12 @@
 2016-06-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R108-Dish.el (g2-RUI6-E046): Use g2-UU+864D instead of
+	UU+864D in `ideographic-structure'.
+
+	* Ideograph-R046-Mountain.el (U-00021F9D): Apply new conventions
+	for glyph granularity.
+	(U-00021F9F): Likewise.
+
 	* Ideograph-R030-Mouth.el (U+5653): Apply new conventions for
 	glyph granularity for components of ideographic-structure.
 
@@ -10,6 +17,8 @@
 	glyph granularity.
 
 2016-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R134-Mortar.el (U+8209): Add HNG-KAR1209-0.
 
 	* Ideograph-R124-Feather.el (MJ058355): New character; use
 	`<-denotational' for U+7FCF; unify HD-KS320330; use `<-formed' for
