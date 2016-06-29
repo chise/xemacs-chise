@@ -26105,6 +26105,14 @@
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 15)
     (total-strokes	 . 22)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x470C)	; 䜌
+      )
+     ((=ucs		  . #x5902)	; 夂
+      ))
     (=ucs		. #x2F9D1)	; 變
     (=cns11643-7	. #x5941)	; &I-C7-5941; [57-33]
     (=daikanwa		. 36112)	; &I-M-36112;
@@ -26275,6 +26283,34 @@
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 16)
     (total-strokes	 . 23)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x470C)	; 䜌
+      )
+     ((=ucs		  . #x6535)	; 攵
+      ))
+    (=>ucs@unicode	. #x8B8A)	; &A-UU+8B8A;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x8B8A)	; &A-UU+8B8A;
+      ))
+    (ideographic-radical . 149)	; ⾔
+    (ideographic-strokes . 16)
+    (total-strokes	 . 23)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x470C)	; &JX2-786B;
+      (=cns11643-5	  . #x6952)	; &JX2-786B; [73-50]
+      (=jis-x0213-2	  . #x786B)	; &I-JX2-786B; [88-75]
+      (=daikanwa	  . 35943)	; &I-M-35943;
+      )
+     ((=ucs		  . #x6535)	; 攵
+      ))
     (=ucs@unicode	. #x8B8A)	; &AJ1-05075;
     (=adobe-japan1-0	. 05075)	; &AJ1-05075;
     (=jis-x0208		. #x5A4E)	; &I-J90-5A4E; [58-46]
@@ -26319,6 +26355,24 @@
        ((===ucs@unicode	    . #x8B8A)	; &R-UU+8B8A;
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x8B8A)	; &A-UU+8B8A;
+      ))
+    (ideographic-radical . 149)	; ⾔
+    (ideographic-radical@hng . 66)	; ⽁
+    (ideographic-strokes . 16)
+    (total-strokes	 . 23)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=mj		  . 058764)	; &MJ058764;
+      )
+     ((=ucs		  . #x6535)	; 攵
+      ))
+    (===hng-kar		. 09120)	; &HNG018-09120;
     ))
 (define-char
   '((=>ucs		. #x27B78)	; 𧭸
