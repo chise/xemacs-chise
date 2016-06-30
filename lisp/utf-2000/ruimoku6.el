@@ -34,13 +34,24 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
       (=ucs		  . #x2FF9)	; ⿹
       )
-     ((=gt		  . 14544)	; &GT-14544;
-      (=daikanwa	  . 11530)	; &I-M-11530;
+     ((=ucs		  . #x6208)	; 戈
       )
      ((=ucs		  . #x51AC)	; 冬
       ))
     (sources		ruimoku=A016481-00008)
     (=ruimoku-v6	. #xE005)	; &RUI6-E005;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+	(=ucs		    . #x2FF9)	; ⿹
+	)
+       ((==daikanwa	    . 11530)	; &g2-GT-14544;
+	)
+       ((=ucs@unicode	    . #x51AC)	; &MJ007359;
+	(=mj		    . 007359)	; &MJ007359;
+	))
+      (==ruimoku-v6	  . #xE005)	; &g2-RUI6-E005;
+      ))
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
@@ -637,7 +648,13 @@
       )
      ((=ucs		  . #x5FC3)	; 心
       ))
-    (=ruimoku-v6	. #xE028)	; &RUI6-E028;
+    (=ucs		. #x2BE75)	; 𫹵
+    (=ruimoku-v6	. #xE028)	; &I-RUI6-E028;
+    (->subsumptive
+     ((==ucs@iso	  . #x2BE75)	; &g2-IU-0002BE75;
+      )
+     ((==ruimoku-v6	  . #xE028)	; &g2-RUI6-E028;
+      ))
     ))
 (define-char
   '((=ruimoku-v6	. #xE029)	; &RUI6-E029;
@@ -1182,14 +1199,7 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	  (=ucs		      . #x2FF8)	; ⿸
-	  )
-	 ((=ucs		      . #x864D)	; 虍
-	  )
-	 ((=ucs		      . #x5E78)	; 幸
-	  ))
+       ((=gt-k		    . 11538)	; &GT-K11538;
 	))
       )
      ((=ucs		  . #x76BF)	; 皿
@@ -1211,11 +1221,8 @@
 	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
 	    (=ucs		. #x2FF8)	; ⿸
 	    )
-	   ((=ucs@unicode	. #x864D)	; &GT-44176;
-	    (=jis-x0208		. #x6948)	; &GT-44176; [73-40]
-	    (=gb2312		. #x722E)	; &I-G0-722E; [82-14]
-	    (=jis-x0213-1	. #x6948)	; &I-JX1-6948; [73-40]
-	    (=daikanwa		. 32674)	; &I-M-32674;
+	   ((==ucs@unicode	. #x864D)	; &g2-GT-44176;
+	    (==jis-x0208	. #x6948)	; &g2-GT-44176; [73-40]
 	    )
 	   ((==ucs@jis		. #x5E78)	; &g2-AJ1-01982;
 	    (==ucs@ks		. #x5E78)	; &g2-AJ1-01982;
