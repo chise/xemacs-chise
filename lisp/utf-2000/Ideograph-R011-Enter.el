@@ -762,8 +762,8 @@
 	(==ucs@ks	    . #x5165)	; &g2-AJ1-03286;
 	(==adobe-japan1-0   . 03286)	; &g2-AJ1-03286;
 	)
-       ((=ucs@unicode	    . #x6534)	; &AJ1-05058;
-	(=adobe-japan1-0    . 05058)	; &AJ1-05058;
+       ((==ucs@unicode	    . #x6534)	; &g2-AJ1-05058;
+	(==adobe-japan1-0   . 05058)	; &g2-AJ1-05058;
 	))
       (==ucs@iso	  . #x204E0)	; &g2-IU-000204E0;
       )
@@ -773,8 +773,8 @@
 	)
        ((==ucs@unicode	    . #x5165)	; &g2-UU+5165;
 	)
-       ((=ucs@unicode	    . #x6534)	; &AJ1-05058;
-	(=adobe-japan1-0    . 05058)	; &AJ1-05058;
+       ((==ucs@unicode	    . #x6534)	; &g2-AJ1-05058;
+	(==adobe-japan1-0   . 05058)	; &g2-AJ1-05058;
 	))
       (==ucs@cns	  . #x204E0)	; &g2-CU+204E0;
       (==cns11643-6	  . #x2356)	; &g2-CU+204E0; [03-54]
@@ -1263,8 +1263,8 @@
 	)
        ((=ucs		    . #x4E00)	; 一
 	)
-       ((=ucs@unicode	    . #x6534)	; &AJ1-05058;
-	(=adobe-japan1-0    . 05058)	; &AJ1-05058;
+       ((==ucs@unicode	    . #x6534)	; &g2-AJ1-05058;
+	(==adobe-japan1-0   . 05058)	; &g2-AJ1-05058;
 	))
       (==ucs@iso	  . #x204E5)	; &g2-IU-000204E5;
       )
@@ -1276,8 +1276,8 @@
 	)
        ((=ucs		    . #x4E00)	; 一
 	)
-       ((=ucs@unicode	    . #x6534)	; &AJ1-05058;
-	(=adobe-japan1-0    . 05058)	; &AJ1-05058;
+       ((==ucs@unicode	    . #x6534)	; &g2-AJ1-05058;
+	(==adobe-japan1-0   . 05058)	; &g2-AJ1-05058;
 	))
       (==ucs@cns	  . #x204E5)	; &g2-CU+204E5;
       (==cns11643-6	  . #x2579)	; &g2-CU+204E5; [05-89]
