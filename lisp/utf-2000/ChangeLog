@@ -1,3 +1,17 @@
+2016-06-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el: Add glyph-images of HNG-KAR.
+	(U+654F): Separate A-UU+654F.
+	(A-UU+654F): Add `=>ucs@iwds-1'.
+	(HNG-KAR0921-0): New character; use `<-denotational' for U+654F.
+	(HNG-KAR0913-0): New character; use `<-denotational' for U+6563.
+
+	* Ideograph-R011-Enter.el (g2-IU+204E0): Use g2-UU+6534 instead of
+	UU+6534 in `ideographic-structure'.
+	(g2-CU+204E0): Likewise.
+	(g2-IU+204E5): Likewise.
+	(g2-CU+204E5): Likewise.
+
 2016-06-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R149-Speech.el (A-UU+8B8A): New abstract node; use
