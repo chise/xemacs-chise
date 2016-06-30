@@ -1,5 +1,13 @@
 2016-06-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ruimoku6.el (RUI6-E005): Apply new conventions for glyph
+	granularity.
+	(RUI6-E028): Unify U-0002BE75.
+	(RUI6-E046): Use GT-K11538 instead of "⿸虍幸" in
+	`ideographic-structure'.
+
+2016-06-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R066-Rap.el: Add glyph-images of HNG-KAR.
 	(U+654F): Separate A-UU+654F.
 	(A-UU+654F): Add `=>ucs@iwds-1'.
