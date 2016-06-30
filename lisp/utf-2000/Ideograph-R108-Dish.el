@@ -2870,14 +2870,7 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	  (=ucs		      . #x2FF8)	; ⿸
-	  )
-	 ((=ucs		      . #x864D)	; 虍
-	  )
-	 ((=ucs		      . #x5E78)	; 幸
-	  ))
+       ((=gt-k		    . 11538)	; &GT-K11538;
 	))
       )
      ((=ucs		  . #x76BF)	; 皿
