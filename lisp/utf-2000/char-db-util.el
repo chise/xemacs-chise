@@ -342,7 +342,8 @@
     =big5-cdp-var-003
     =big5-cdp-var-004
     =big5-cdp-var-005
-    =>ucs@iwds-1))
+    =>ucs@iwds-1
+    ==ucs@gb))
 
 
 ;;; @ char-db formatters
