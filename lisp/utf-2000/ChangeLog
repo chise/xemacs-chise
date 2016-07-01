@@ -1,3 +1,45 @@
+2016-07-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el: Add glyph-images of HNG-KAR.
+	(U+5FFF): Separate UU+5FFF.
+	(UU+5FFF): Add HNG-KAR0882-5.
+	(HNG-KAR0882-0): New character; use `<-denotational' for U+5FFF.
+	(RUI6-E028): Unify U-0002BE75.
+	(U-00022606): Add `<-same' for U+6052.
+	(U+6028): Separate UU+6028.
+	(HNG-KAR0884-0): New character; use `<-denotational' for U+6028.
+	(HNG-KAR0849-0): New character; use `<-denotational' for U+6050.
+	(U+6060): Add `<-vulgar' for U+602A.
+	(JU+6063): Separate CU+6063 and C1-5543.
+	(U+6094): Separate A-UU+6094.
+	(A-UU+6094): Add `=>ucs@iwds-1'.
+	(HNG-KAR0876-0): New character; use `<-denotational' for U+6094.
+	(HNG-KAR0853-0): New character; use `<-denotational' for U+60D1.
+	(HNG-KAR0139-0): New character; use `<-denotational' for
+	o-UU+6108.
+	(o-UU+6109): New abstract node; use `<-denotational' for U+6109.
+	(UU+6109): Use o-UU+6109 instead of U+6109 as the mother.
+	(HNG-KAR0866-0): New character; use `<-denotational' for
+	o-UU+6109.
+	(HNG-KAR0867-0): New character; use `<-denotational' for U+611B.
+	(U+611F): Separate UU+611F.
+	(g2-UU+611F): Separate HNG-KHI0056-0.
+	(U+611F-itaiji-001): New character to subsume HNG-KHI0056-0; use
+	`<-denotational' for U+611F.
+	(g2-AJ1-02250): Separate g2-UU+6148 and g2-G0-3448.
+	(HNG-KAR0132-0): New character; use `<-denotational' for U+6167.
+	(U+617E): Separate UU+617E.
+	(HNG-KAR0135-0): New character; use `<-denotational' for U+617E.
+	(U+618E): Separate A-JU+618E.
+	(A-JU+618E): Unify A-CU+2F8AB.
+	(HNG-KAR0136-0): New character; use `<-denotational' for
+	A-JU+618E.
+	(U+61BE): Separate UU+61BE.
+	(HNG-KAR0121-0): New character; use `<-denotational' for U+61BE.
+	(JU+61FF): Separate C1-7B60.
+
+	* Ideograph-R067-Script.el: Add glyph-images of HNG-KAR.
+
 2016-06-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R060-Step.el: Add glyph-images of HNG-KAR.
