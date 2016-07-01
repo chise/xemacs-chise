@@ -1,3 +1,27 @@
+2016-06-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R141-Tiger.el (U+864D): Apply new conventions for
+	glyph granularity.
+	(U+865B): Likewise.
+	(U+4592): Likewise; unify BC-8CB1.
+	(GT-K11538): New character.
+
+	* Ideograph-R129-Brush.el (U+8085): Separate UU+8085.
+	(UU+8085): Add `=>ucs@iwds-1'.
+	(HNG-KAR0320-0): New character; use `<-denotational' for U+8085.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`==ucs@gb'.
+
+2016-06-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R062-Halberd.el: Add glyph-images of HNG-KAR.
+	(BC-8866): Apply new conventions for glyph granularity.
+	(RUI6-E005): Likewise.
+	(U+39B8): Likewise.
+	(HNG-KAR0144-0): New character; use `<-denotational' for U+622E.
+	(U+6231): Apply new conventions for glyph granularity.
+
 2016-06-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R133-Arrive.el: Add glyph-images of HNG-KAR.
