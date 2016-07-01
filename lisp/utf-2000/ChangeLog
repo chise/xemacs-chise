@@ -1,5 +1,30 @@
 2016-06-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R060-Step.el: Add glyph-images of HNG-KAR.
+	(U+5F81): Separate UU+5F81.
+	(HNG-KAR0837-0): New character; use `<-denotational' for U+5F81.
+	(U+5FAE-itaiji-003): New character; use `<-simplified@component'
+	for U+5FAE-itaiji-004; use
+	`<-simplified@component/surround-from-above' for U+5FAE.
+	(U+5F99): Separate UU+5F99.
+	(HNG-KAR0843-0): New character; use `<-denotational' for U+5F99.
+	(U+5FAE-itaiji-004): New character; use
+	`<-simplified@component/surround-from-above' for U+5FAE.
+	(U+5FA9): Apply new conventions for glyph granularity.
+	(U+5FB4): Separate UU+5FB4.
+	(HNG-KAR0838-0): New character; use `<-denotational' for U+5FB4.
+
+	* Ideograph-R048-Work.el (A-UU+5DE9): New abstract node.
+	(U+5DE9-var-003): New character; use `<-denotational' for
+	A-UU+5DE9.
+	(U+5DE9-var-004): Likewise.
+	(UU+5DE9): Use A-UU+5DE9 instead of U+5DE9 as the mother.
+
+	* Ideograph-R045-Sprout.el (U+37B7): Apply new conventions for
+	glyph granularity.
+	(C4-2376): Unify UU+37B7; unify MJ000835 and UD-KS088980.
+	(MJ000836): New character; use `<-denotational' for U+37B7.
+
 	* Ideograph-R141-Tiger.el (U+864D): Apply new conventions for
 	glyph granularity.
 	(U+865B): Likewise.
