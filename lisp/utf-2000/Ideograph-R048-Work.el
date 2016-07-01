@@ -418,16 +418,87 @@
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x5DE9)	; 巩
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #xE0102)	; 󠄂
+     ((=ucs		  . #x5DE5)	; 工
+      )
+     ((=ucs		  . #x51E1)	; 凡
+      ))
+    (=>ucs@unicode	. #x5DE9)	; &A-UU+5DE9;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x5DE9)	; &A-UU+5DE9;
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5DE5)	; 工
+      )
+     ((=adobe-japan1-4	  . 14041)	; &AJ1-14041;
+      ))
+    (=ucs-var-003	. #x5DE9)	; &U-v003+5DE9;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x5DE9)	; &A-UU+5DE9;
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5DE5)	; 工
+      )
+     ((=ucs-var-002	  . #x51E1)	; &U-v002+51E1;
+      ))
+    (=ucs-var-004	. #x5DE9)	; &U-v004+5DE9;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x5DE9)	; &A-UU+5DE9;
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5DE5)	; 工
+      )
+     ((=ucs@unicode	  . #x51E1)	; &AJ1-03724;
+      (=adobe-japan1-0	  . 03724)	; &AJ1-03724;
       ))
     (=ucs@unicode	. #x5DE9)	; &HD-KS-098790;
     (=ucs@JP/hanazono	. nil)
     (=gb2312		. #x392E)	; &HD-KS-098790; [25-14]
     (=hanyo-denshi/ks	. 098790)	; &HD-KS-098790;
-    (=hanyo-denshi/ks/mf . #x2697)	; &I-KSMF-09879;
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5DE9)	; 巩
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@unicode	  . #x5DE9)	; &g2-HD-KS-098790;
+      (==ucs@JP/hanazono  . nil)
+      (==gb2312		  . #x392E)	; &g2-HD-KS-098790; [25-14]
+      (==hanyo-denshi/ks  . 098790)	; &g2-HD-KS-098790;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 098790)	; &R-HD-KS-098790;
+	(=hanyo-denshi/ks/mf . #x2697)	; &R-HD-KS-098790;
+	)
+       ((===ucs@unicode	    . #x5DE9)	; &R-UU+5DE9;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
