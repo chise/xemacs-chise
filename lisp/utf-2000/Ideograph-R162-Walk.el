@@ -2998,9 +2998,10 @@
     (=daikanwa		. 38757)	; &M-38757;
     (=shinjigen		.  2361)	; &M-38757;
     (<-original
-     ((=ucs		  . #x5F99)	; 徙
-      (=jis-x0208	  . #x5750)	; &AJ1-04795; [55-48]
-      (=shinjigen	  .  2360)	; 徙
+     ((=ucs@unicode	  . #x5F99)	; &AJ1-04795;
+      (=adobe-japan1-0	  . 04795)	; &AJ1-04795;
+      (=jis-x0208	  . #x5750)	; &I-J90-5750; [55-48]
+      (=shinjigen	  .  2360)	; &AJ1-04795;
       ))
     (<-original*sources
      shinjigen)
@@ -5374,14 +5375,15 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=daikanwa		. 38796)	; &M-38796;
-    (=shinjigen@1ed	.  2340)	; &M-38796;
+    (=shinjigen		.  2340)	; &M-38796;
     (<-formed
-     ((=ucs		  . #x5F81)	; 征
-      (=jis-x0208	  . #x402C)	; &AJ1-02640; [32-12]
-      (=shinjigen	  .  2339)	; 征
+     ((=ucs@unicode	  . #x5F81)	; &AJ1-02640;
+      (=adobe-japan1-0	  . 02640)	; &AJ1-02640;
+      (=jis-x0208	  . #x402C)	; &I-J90-402C; [32-12]
+      (=shinjigen	  .  2339)	; &AJ1-02640;
       ))
     (<-formed*sources
-     shinjigen@1ed)
+     shinjigen)
     (->ancient@r162
      ((=ucs		  . #x5FB0)	; 徰
       (=daikanwa	  . 10210)	; &I-M-10210;
@@ -5389,7 +5391,8 @@
     (->ancient@r162*sources
      jiyun daikanwa)
     (->formed
-     ((=ucs		  . #x5F81)	; 征
+     ((=ucs@unicode	  . #x5F81)	; &AJ1-02640;
+      (=adobe-japan1-0	  . 02640)	; &AJ1-02640;
       (=daikanwa	  . 10077)	; &I-M-10077;
       ))
     (->formed*sources
@@ -26793,18 +26796,22 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 20)
     (=ucs		. #x285EC)	; 𨗬
+    (=cns11643-7	. #x5057)	; &I-C7-5057; [48-55]
+    (=daikanwa		. 39179)	; &I-M-39179;
+    (<-ancient
+     ((=ucs@unicode	  . #x5F99)	; &AJ1-04795;
+      (=adobe-japan1-0	  . 04795)	; &AJ1-04795;
+      (=daikanwa	  . 10142)	; &I-M-10142;
+      ))
+    (<-ancient*sources
+     wuyin-jiyun daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 39179)	; &M-39179;
-      (<-ancient
-       ((=ucs		    . #x5F99)	; 徙
-	(=daikanwa	    . 10142)	; &I-M-10142;
-	))
-      (<-ancient*sources
-       wuyin-jiyun daikanwa)
+     ((==daikanwa	  . 39179)	; &g2-M-39179;
       )
-     ((=ucs@iso		  . #x285EC)	; &U-000285EC;
+     ((==ucs@iso	  . #x285EC)	; &g2-IU-000285EC;
       )
-     ((=cns11643-7	  . #x5057)	; &C7-5057; [48-55]
+     ((==ucs@cns	  . #x285EC)	; &g2-CU+285EC;
+      (==cns11643-7	  . #x5057)	; &g2-CU+285EC; [48-55]
       ))
     ))
 (define-char
@@ -30577,8 +30584,7 @@
     (=cns11643-7	. #x6568)	; &I-C7-6568; [69-72]
     (=daikanwa		. 39268)	; &I-M-39268;
     (<-same
-     ((=ucs@jis		  . #x9DF8)	; &AJ1-07406;
-      (=adobe-japan1-0	  . 07406)	; &AJ1-07406;
+     ((=ucs		  . #x9DF8)	; 鷸
       (=daikanwa	  . 47359)	; &I-M-47359;
       ))
     (<-same*sources
