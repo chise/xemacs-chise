@@ -49,6 +49,8 @@
        ((===hng-khi	    . 04090)	; &HNG010-04090;
 	)
        ((===hng-khm	    . 03610)	; &HNG011-03610;
+	)
+       ((===hng-kar	    . 09330)	; &HNG018-09330;
 	))
       ))
     ))
@@ -250,6 +252,8 @@
        ((===hng-khm	    . 03620)	; &HNG011-03620;
 	))
       )
+     ((===hng-kar	  . 09300)	; &HNG018-09300;
+      )
      ((===hng-khi	  . 04100)	; &HNG010-04100;
       ))
     ))
@@ -315,6 +319,8 @@
        ((===cns11643-1	    . #x514C)	; &R-C1-514C; [49-44]
 	)
        ((===hng-khi	    . 04110)	; &HNG010-04110;
+	)
+       ((===hng-kar	    . 09340)	; &HNG018-09340;
 	))
       ))
     ))
@@ -763,11 +769,6 @@
     (ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x65C5)	; 旅
-      )
-     ((=ucs		  . #xE0102)	; 󠄂
-      ))
     (=ucs@jis		. #x65C5)	; &AJ1-03969;
     (=adobe-japan1-0	. 03969)	; &AJ1-03969;
     (=jis-x0208		. #x4E39)	; &I-J90-4E39; [46-25]
@@ -777,6 +778,32 @@
     (=gt-k		. 06561)	; &I-GT-K06561;
     (=gt-pj-1		. #x4E39)	; &I-GT-17248; [46-25]
     (=shinjigen		.  3250)	; &AJ1-03969;
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x65C5)	; 旅
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@jis	  . #x65C5)	; &g2-AJ1-03969;
+      (==adobe-japan1-0	  . 03969)	; &g2-AJ1-03969;
+      (==jis-x0208	  . #x4E39)	; &g2-AJ1-03969; [46-25]
+      (==jis-x0213-1	  . #x4E39)	; &g2-AJ1-03969; [46-25]
+      (==hanyo-denshi/ja  . #x4E39)	; &g2-AJ1-03969; [46-25]
+      (==gt		  . 17248)	; &g2-AJ1-03969;
+      (==gt-k		  . 06561)	; &g2-AJ1-03969;
+      (==shinjigen	  .  3250)	; &g2-AJ1-03969;
+      (->subsumptive
+       ((===jis-x0208	    . #x4E39)	; &R-J0-4E39; [46-25]
+	(===jis-x0213-1	    . #x4E39)	; &R-J0-4E39; [46-25]
+	)
+       ((===adobe-japan1-0  . 03969)	; &R-AJ1-03969;
+	)
+       ((===gt		    . 17248)	; &R-GT-17248;
+	(===gt-k	    . 06561)	; &R-GT-17248;
+	))
+      )
+     ((===hng-kar	  . 01650)	; &HNG018-01650;
+      ))
     ))
 (define-char
   '((ideographic-radical . 70)	; ⽅
