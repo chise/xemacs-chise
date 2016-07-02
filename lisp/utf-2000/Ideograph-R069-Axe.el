@@ -300,6 +300,28 @@
     (=ucs		. #x3ABF)	; 㪿
     (=cns11643-6	. #x3830)	; &I-C6-3830; [24-16]
     (=daikanwa/+p	. 13553)	; 㪿
+    (=shinjigen		.  3222)	; 㪿
+    (<-original
+     ((=ucs		  . #x6298)	; 折
+      (=jis-x0208	  . #x405E)	; &I-J90-405E; [32-62]
+      (=daikanwa	  . 11890)	; &I-M-11890;
+      (=shinjigen	  .  3221)	; 折
+      ))
+    (<-original*sources
+     zhonghua-dazidian daikanwa shinjigen)
+    (->subsumptive
+     ((==ucs@unicode	  . #x3ABF)	; &g2-M-p13553;
+      (==cns11643-6	  . #x3830)	; &g2-M-p13553; [24-16]
+      (==daikanwa/+p	  . 13553)	; &g2-M-p13553;
+      (==shinjigen	  .  3222)	; &g2-M-p13553;
+      (->subsumptive
+       ((===daikanwa/+p	    . 13553)	; &R-M-p13553;
+	)
+       ((===cns11643-6	    . #x3830)	; &R-C6-3830; [24-16]
+	)
+       ((===ucs@unicode	    . #x3ABF)	; &R-UU+3ABF;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 69)	; ⽄
@@ -518,6 +540,8 @@
 	))
       )
      ((===hng-khi	  . 04080)	; &HNG010-04080;
+      )
+     ((===hng-kar	  . 09280)	; &HNG018-09280;
       ))
     ))
 (define-char
@@ -660,6 +684,8 @@
      ((==ucs@unicode	  . #x65B0)	; &g2-UU+65B0;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x5042)	; &g2-UU+65B0; [48-34]
+      )
+     ((===hng-kar	  . 09270)	; &HNG018-09270;
       ))
     ))
 (define-char
