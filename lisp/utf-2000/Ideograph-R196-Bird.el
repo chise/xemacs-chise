@@ -10908,7 +10908,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 23)
     (=ucs		. #x9DF8)	; 鷸
-    (=adobe-japan1-0	. 07406)	; &AJ1-07406;
+    (=adobe-japan1-0	. 07406)	; &I-AJ1-07406;
     (=jis-x0208		. #x733B)	; &I-J90-733B; [83-27]
     (=ks-x1001		. #x7D53)	; &I-K0-7D53; [93-51]
     (=cns11643-2	. #x6F74)	; &I-C2-6F74; [79-84]
