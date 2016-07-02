@@ -1,3 +1,7 @@
+2016-07-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R113-Spirit.el (KU+7947): Add HNG-KAR0358-0.
+
 2016-07-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R136-Oppose.el (U+821B): Separate UU+821B.
