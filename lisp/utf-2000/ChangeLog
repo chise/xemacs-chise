@@ -1,5 +1,18 @@
 2016-07-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R146-West.el: Add glyph-images of HNG-KAR.
+
+	* Ideograph-R145-Clothes.el: Add glyph-images of HNG-KAR.
+	(MJ058689): New character; use `<-denotational' for BUCS+8870;
+	unify KOSEKI-389050; add HNG-KAR1250-0.
+	(U+8882): Separate UU+8882.
+	(UU+8882): Add `=>ucs@iwds-1'.
+	(HNG-KAR0350-0): New character; use `<-denotational' for U+8882.
+	(U+88C1): Separate UU+88C1.
+	(HNG-KAR0359-0): New character; use `<-denotational' for U+88C1.
+	(U+88E8): Separate UU+88E8.
+	(HNG-KAR0355-0): New character; use `<-denotational' for U+88E8.
+
 	* Ideograph-R113-Spirit.el (KU+7947): Add HNG-KAR0358-0.
 
 2016-07-01  MORIOKA Tomohiko  <tomo.git@chise.org>
