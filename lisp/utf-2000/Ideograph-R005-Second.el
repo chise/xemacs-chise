@@ -705,8 +705,9 @@
     (=big5-cdp		. #x8A4C)	; &I-CDP-8A4C;
     (=jef-china3	. #x81CD)	; &I-JC3-81CD;
     (<-simplified@CN
-     ((=ucs		  . #x66F8)	; 書
-      (=gb12345		  . #x4A69)	; 書 [42-73]
+     ((=ucs@unicode	  . #x66F8)	; &AJ1-02427;
+      (=adobe-japan1-0	  . 02427)	; &AJ1-02427;
+      (=gb12345		  . #x4A69)	; &AJ1-02427; [42-73]
       ))
     ))
 (define-char
