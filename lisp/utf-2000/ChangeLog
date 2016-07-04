@@ -1,5 +1,9 @@
 2016-07-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R158-Body.el: Add glyph-images of HNG-KAR.
+
+	* Ideograph-R100-Life.el: Add glyph-images of HNG-KAR.
+
 	* Ideograph-R071-Not.el (UU+65E3): Add HNG-KAR0935-0.
 
 2016-07-03  MORIOKA Tomohiko  <tomo.git@chise.org>
