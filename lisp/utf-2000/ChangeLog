@@ -1,3 +1,13 @@
+2016-07-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R071-Not.el (UU+65E3): Add HNG-KAR0935-0.
+
+2016-07-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R037-Big.el (U-000215D2): Separate IU+215D2.
+	(MJ057270): New character; use `<-denotational' for U-000215D2;
+	use `<-formed' for U+592C.
+
 2016-07-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R146-West.el: Add glyph-images of HNG-KAR.
