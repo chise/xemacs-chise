@@ -381,6 +381,9 @@
 	))
       )
      ((total-strokes	   . 11)
+      (===hng-kar	  . 09350)	; &HNG018-09350;
+      )
+     ((total-strokes	   . 11)
       (==ucs@cns	  . #x65E3)	; &g2-CU+65E3;
       (==cns11643-3	  . #x3641)	; &g2-CU+65E3; [22-33]
       (==shinjigen	  .  3262)	; &g2-CU+65E3;
@@ -405,6 +408,11 @@
       (total-strokes	   . 11)
       (=ucs		  . #x2F8CB)	; 旣
       (==cns11643-3	  . #x3640)	; 旣 [22-32]
+      (->subsumptive
+       ((===cns11643-3	    . #x3640)	; &R-C3-3640; [22-32]
+	)
+       ((===ucs@iso	    . #x2F8CB)	; &R-U-0002F8CB;
+	))
       ))
     ))
 (define-char
