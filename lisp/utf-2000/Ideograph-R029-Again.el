@@ -2083,6 +2083,15 @@
   '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (=ucs		. #x53DA)	; 叚
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x53DA)	; 叚
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
     (hanyu-dazidian	1 398 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -2092,16 +2101,55 @@
       )
      ((=big5-cdp	  . #x8C79)	; &CDP-8C79;
       ))
-    (=ucs		. #x53DA)	; 叚
-    (=adobe-japan1-4	. 14372)	; &I-AJ1-14372;
+    (=ucs@unicode	. #x53DA)	; &AJ1-14372;
+    (=adobe-japan1-4	. 14372)	; &AJ1-14372;
     (=jis-x0212		. #x345D)	; &I-JSP-345D; [20-61]
     (=cns11643-3	. #x2B4F)	; &I-C3-2B4F; [11-47]
     (=jis-x0213-2	. #x2360)	; &I-JX2-2360; [03-64]
     (=big5-cdp		. #x8C77)	; &I-CDP-8C77;
     (=daikanwa		. 03165)	; &I-M-03165;
-    (=shinjigen		.  0913)	; 叚
+    (=shinjigen		.  0913)	; &AJ1-14372;
     (=cbeta		. 00556)	; &I-CB00556;
     (=jef-china3	. #x45F1)	; &I-JC3-45F1;
+    (->subsumptive
+     ((==ucs@unicode	  . #x53DA)	; &g2-AJ1-14372;
+      (==adobe-japan1-4	  . 14372)	; &g2-AJ1-14372;
+      (==jis-x0212	  . #x345D)	; &g2-AJ1-14372; [20-61]
+      (==cns11643-3	  . #x2B4F)	; &g2-AJ1-14372; [11-47]
+      (==jis-x0213-2	  . #x2360)	; &g2-AJ1-14372; [03-64]
+      (==big5-cdp	  . #x8C77)	; &g2-AJ1-14372;
+      (==daikanwa	  . 03165)	; &g2-AJ1-14372;
+      (==shinjigen	  .  0913)	; &g2-AJ1-14372;
+      (==cbeta		  . 00556)	; &g2-AJ1-14372;
+      (==jef-china3	  . #x45F1)	; &g2-AJ1-14372;
+      (->subsumptive
+       ((===daikanwa	    . 03165)	; &R-M-03165;
+	)
+       ((===jis-x0212	    . #x345D)	; &R-JX2-2360; [20-61]
+	(===jis-x0213-2	    . #x2360)	; &R-JX2-2360; [03-64]
+	)
+       ((===adobe-japan1-4  . 14372)	; &R-AJ1-14372;
+	)
+       ((===big5-cdp	    . #x8C77)	; &R-CDP-8C77;
+	)
+       ((===cns11643-3	    . #x2B4F)	; &R-C3-2B4F; [11-47]
+	)
+       ((===jef-china3	    . #x45F1)	; &R-JC3-45F1;
+	)
+       ((===ucs@unicode	    . #x53DA)	; &R-UU+53DA;
+	)
+       ((===cbeta	    . 00556)	; &R-CB00556;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x53DA)	; 叚
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (=ucs-itaiji-003	. #x53DA)	; &U-i003+53DA;
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
