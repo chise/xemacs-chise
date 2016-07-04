@@ -1450,17 +1450,20 @@
     (=gt-pj-1		. #x436B)	; &I-GT-17517; [35-75]
     (=shinjigen		.  3309)	; 昼
     (<-simplified@CN
-     ((=ucs		  . #x665D)	; 晝
-      (=gb12345		  . #x5667)	; 晝 [54-71]
+     ((=ucs@unicode	  . #x665D)	; &AJ1-05105;
+      (=adobe-japan1-0	  . 05105)	; &AJ1-05105;
+      (=gb12345		  . #x5667)	; &AJ1-05105; [54-71]
       ))
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x665D)	; 晝
+     ((=ucs@unicode	  . #x665D)	; &AJ1-05105;
+      (=adobe-japan1-0	  . 05105)	; &AJ1-05105;
       (=jis-x0208	  . #x5A6C)	; &I-J90-5A6C; [58-76]
       ))
     (->subsumptive
      ((==gt		  . 17517)	; &g2-GT-17517;
       (<-vulgar
-       ((=ucs		    . #x665D)	; 晝
+       ((=ucs@unicode	    . #x665D)	; &AJ1-05105;
+	(=adobe-japan1-0    . 05105)	; &AJ1-05105;
 	(=daikanwa	    . 13948)	; &I-M-13948;
 	))
       (<-vulgar*sources
