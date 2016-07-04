@@ -2111,10 +2111,11 @@
     (total-strokes	 . 6)
     (hanyu-dazidian	1 38 2)
     (=ucs		. #x200A6)	; 𠂦
+    (=big5-cdp		. #x87DA)	; &I-CDP-87DA;
     (->subsumptive
-     ((=ucs@iso		  . #x200A6)	; &U-000200A6;
+     ((==ucs@iso	  . #x200A6)	; &g2-IU-000200A6;
       )
-     ((=big5-cdp	  . #x87DA)	; &CDP-87DA;
+     ((==big5-cdp	  . #x87DA)	; &g2-CDP-87DA;
       ))
     ))
 (define-char
