@@ -1,3 +1,9 @@
+2016-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (U+53DA): Separate UU+53DA.
+	(U+53DA-itaiji-003): New character; use `<-denotational' for
+	U+53DA.
+
 2016-07-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R158-Body.el: Add glyph-images of HNG-KAR.
