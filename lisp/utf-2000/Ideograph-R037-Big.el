@@ -286,9 +286,13 @@
     (->formed
      ((=ucs		  . #x223B9)	; 𢎹
       (=daikanwa	  . 09735)	; &I-M-09735;
+      )
+     ((=mj		  . 057270)	; &MJ057270;
       ))
-    (->formed*sources
+    (->formed$_1*sources
      jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa koseki)
     (->interchangeable
      ((=ucs@unicode	  . #x6C7A)	; &AJ1-01854;
       (=adobe-japan1-0	  . 01854)	; &AJ1-01854;
@@ -333,14 +337,24 @@
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
-    (sound@ja/on	"kWai")
     (=ucs		. #x215D2)	; 𡗒
-    (=cns11643-6	. #x2167)	; &I-C6-2167; [01-71]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x215D2)	; 𡗒
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (sound@ja/on	"kWai")
+    (=>ucs@iwds-1	. #x215D2)	; &GT-07368;
+    (=ucs@iso		. #x215D2)	; &GT-07368;
+    (=cns11643-6	. #x2167)	; &GT-07368; [01-71]
     (=big5-cdp		. #x87D3)	; &I-CDP-87D3;
     (=gt		. 07368)	; &I-GT-07368;
     (=gt-k		. 00741)	; &I-GT-K00741;
     (=gt-pj-2		. #x6651)	; &I-GT-07368; [70-49]
-    (=gt-pj-k1		. #x6970)	; 𡗒 [73-80]
+    (=gt-pj-k1		. #x6970)	; &GT-07368; [73-80]
     (=daikanwa		. 05837)	; &I-M-05837;
     (<-vulgar
      ((=ucs		  . #x53CF)	; 叏
@@ -369,6 +383,31 @@
        ((===big5-cdp	    . #x87D3)	; &R-CDP-87D3;
 	)
        ((===ucs@iso	    . #x215D2)	; &R-U-000215D2;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x215D2)	; 𡗒
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (=mj		. 057270)	; &MJ057270;
+    (=hanyo-denshi/ks	. 066930)	; &MJ057270;
+    (<-formed
+     ((=ucs		  . #x592C)	; 夬
+      ))
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==mj		  . 057270)	; &g2-MJ057270;
+      (==hanyo-denshi/ks  . 066930)	; &g2-MJ057270;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 066930)	; &R-HD-KS-066930;
+	(=hanyo-denshi/ks/mf . #x1A25)	; &R-HD-KS-066930;
+	)
+       ((===mj		    . 057270)	; &R-MJ057270;
 	))
       ))
     ))
