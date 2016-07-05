@@ -619,12 +619,8 @@
     (<-formed@component/connect-right
      ((=ucs		  . #x758B)	; 疋
       ))
-    ))
-(define-char
-  '((=>ucs		. #x2EAA)	; ⺪
-    (=big5-cdp		. #x8DC5)	; &CDP-8DC5;
-    (<-formed@component
-     ((=ucs		  . #x758B)	; 疋
+    (<-identical@component/connect-right
+     ((=ucs		  . #x24D14)	; 𤴔
       ))
     ))
 (define-char
