@@ -1,3 +1,16 @@
+2016-07-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R073-Say.el: Add glyph-images of HNG-KAR.
+	(U+66F8): Separate UU+66F8.
+	(HNG-KAR0961-0): New character; use `<-denotational' for U+66F8.
+
+2016-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R173-Rain.el (U+9738): Add HNG-KAR0434-0.
+
+	* Ideograph-R004-Slash.el (U-000200A6): Apply new conventions for
+	glyph granularity.
+
 2016-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el (U+53DA): Separate UU+53DA.
