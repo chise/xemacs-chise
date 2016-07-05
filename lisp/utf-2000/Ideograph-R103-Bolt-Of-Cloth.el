@@ -27,6 +27,30 @@
     ))
 (define-char
   '((ideographic-radical . 103)	; ⽦
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (=ucs		. #x24D14)	; 𤴔
+    (=jis-x0213-2	. #x7144)	; &I-JX2-7144; [81-36]
+    (<-formed@component/connect-right
+     ((=ucs		  . #x758B)	; 疋
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x24D14)	; &g2-JX2-7144;
+      (==jis-x0213-2	  . #x7144)	; &g2-JX2-7144; [81-36]
+      (->subsumptive
+       ((===jis-x0213-2	    . #x7144)	; &R-JX2-7144; [81-36]
+	)
+       ((===ucs@iso	    . #x24D14)	; &R-U-00024D14;
+	))
+      )
+     ((=big5-cdp	  . #x8DC5)	; &CDP-8DC5;
+      (<-formed@component
+       ((=ucs		    . #x758B)	; 疋
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 103)	; ⽦
     (ideographic-strokes . 1)
     (total-strokes	 . 6)
     (=daikanwa		. 21996)	; &M-21996;
