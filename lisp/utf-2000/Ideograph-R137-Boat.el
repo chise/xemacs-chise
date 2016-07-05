@@ -52,7 +52,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 137)	; ⾈
+  '((<-denotational
+     ((=ucs		  . #x6708)	; 月
+      ))
+    (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=gt-k		. 00606)	; &GT-K00606;
@@ -62,7 +65,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 137)	; ⾈
+  '((<-denotational
+     ((=ucs		  . #x6708)	; 月
+      ))
+    (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=gt-k		. 00607)	; &GT-K00607;
