@@ -4,7 +4,29 @@
 	(U+66F8): Separate UU+66F8.
 	(HNG-KAR0961-0): New character; use `<-denotational' for U+66F8.
 
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL BOLT OF CLOTH>):
+	Add `<-identical@component/connect-right' for U-00024D14.
+	(BC-8DC5): Moved to Ideograph-R103-Bolt-Of-Cloth.el; use
+	`<-subsumptive' for U-00024D14; don't map to U+2EAA.
+
 2016-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R137-Boat.el (GT-K00606): Add `<-denotational' for
+	U+6708.
+	(GT-K00607): Likewise.
+
+	* Ideograph-R103-Bolt-Of-Cloth.el (U-00024D14): New character;
+	unify JX2-7144; use `<-formed@component/connect-right' for U+758B;
+	add BC-8DC5.
+
+	* Ideograph-R101-Use.el (U+7528): Separate UU+7528.
+	(UU+7528): Add `=>ucs@iwds-1'.
+	(HNG-KAR1081-0): New character; use `<-denotational' for U+7528;
+	use `<-formed' for U-00024C03 and U-000200A6.
+
+	* Ideograph-R055-Two-Hands.el (UU+5F03): Add HNG-KAR0821-0.
+
+	* Ideograph-R037-Big.el (g2-UU+5932): Add HNG-KAR0975-0.
 
 	* Ideograph-R173-Rain.el (U+9738): Add HNG-KAR0434-0.
 
