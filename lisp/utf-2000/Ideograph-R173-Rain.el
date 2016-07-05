@@ -5715,6 +5715,11 @@
        ((===gt		    . 57028)	; &R-GT-57028;
 	))
       )
+     ((ideographic-radical . 173)	; ⾬
+      (ideographic-strokes . 13)
+      (total-strokes	   . 21)
+      (===hng-kar	  . 04340)	; &HNG018-04340;
+      )
      ((ideographic-radical@jis/a . 74)	; ⽉
       (ideographic-strokes@jis/a . 17)
       (total-strokes@jis/a	 . 21)
