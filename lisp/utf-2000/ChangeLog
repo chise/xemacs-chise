@@ -1,5 +1,11 @@
 2016-07-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R109-Eye.el (MJ056840): New character; use
+	`<-denotational' for U+76F4; unify HD-KS000910.
+	(HNG-KHI0503-0): Use `<-subsumptive' for MJ056840 instead of
+	`<-denotational' for U+76F4; add `<-formed' for U-00025102 and
+	U+76F4.
+
 	* Ideograph-R073-Say.el: Add glyph-images of HNG-KAR.
 	(U+66F8): Separate UU+66F8.
 	(HNG-KAR0961-0): New character; use `<-denotational' for U+66F8.
