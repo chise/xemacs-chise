@@ -1,5 +1,10 @@
 2016-07-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (HNG-KAR0666-0): Add
+	`<-HNG@zinbun/takuhon' for U+544A.
+
+2016-07-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R109-Eye.el (MJ056840): New character; use
 	`<-denotational' for U+76F4; unify HD-KS000910.
 	(HNG-KHI0503-0): Use `<-subsumptive' for MJ056840 instead of
