@@ -1,3 +1,23 @@
+2016-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R129-Brush.el (U+807F): Apply new conventions for
+	glyph granularity.
+
+2016-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R074-Moon.el: Add glyph-images of HNG-KAR.
+	(U+6708): Separate UU+6708.
+	(HNG-KAR0180-0): New character; use `<-denotational' for U+6715.
+
+	* Ideograph-R072-Sun.el: Add glyph-images of HNG-KAR.
+	(U+665D): Separate UU+665D.
+	(HNG-KAR0944-0): New character; use `<-denotational' for U+665D.
+	(U+6668): Separate UU+6668.
+	(UU+6668): Add `=>ucs@iwds-1'.
+	(HNG-KAR0173-0): New character; use `<-denotational' for U+6668.
+	(U+6687): Separate UU+6687.
+	(HNG-KAR0172-0): New character; use `<-denotational' for U+6687.
+
 2016-07-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (HNG-KAR0666-0): Add
