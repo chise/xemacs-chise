@@ -4,7 +4,16 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
     (=ucs		. #x807F)	; 聿
-    (=jis-x0208		. #x6666)	; &I-J90-6666; [70-70]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x807F)	; 聿
+      ))
+    (ideographic-radical . 129)	; ⾀
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (=ucs@unicode	. #x807F)	; &GT-37829;
+    (=jis-x0208		. #x6666)	; &GT-37829; [70-70]
     (=gb2312		. #x6D32)	; &I-G0-6D32; [77-18]
     (=ks-x1001		. #x6B53)	; &I-K0-6B53; [75-51]
     (=cns11643-1	. #x4857)	; &I-C1-4857; [40-55]
@@ -14,7 +23,35 @@
     (=gt-k		. 01735)	; &I-GT-K01735;
     (=gt-pj-1		. #x6666)	; &I-GT-37829; [70-70]
     (=daikanwa		. 29215)	; &I-M-29215;
-    (=shinjigen@rev	.  6411)	; 聿
+    (=shinjigen		.  6411)	; &GT-37829;
+    (->subsumptive
+     ((==ucs@unicode	  . #x807F)	; &g2-GT-37829;
+      (==gb2312		  . #x6D32)	; &g2-GT-37829; [77-18]
+      (==ks-x1001	  . #x6B53)	; &g2-GT-37829; [75-51]
+      (==jis-x0208	  . #x6666)	; &g2-GT-37829; [70-70]
+      (==cns11643-1	  . #x4857)	; &g2-GT-37829; [40-55]
+      (==jis-x0213-1	  . #x6666)	; &g2-GT-37829; [70-70]
+      (==gt		  . 37829)	; &g2-GT-37829;
+      (==gt-k		  . 01735)	; &g2-GT-37829;
+      (==daikanwa	  . 29215)	; &g2-GT-37829;
+      (==shinjigen	  .  6411)	; &g2-GT-37829;
+      (->subsumptive
+       ((===daikanwa	    . 29215)	; &R-M-29215;
+	)
+       ((===jis-x0208	    . #x6666)	; &R-J0-6666; [70-70]
+	(===jis-x0213-1	    . #x6666)	; &R-J0-6666; [70-70]
+	)
+       ((===cns11643-1	    . #x4857)	; &R-C1-4857; [40-55]
+	)
+       ((===gt		    . 37829)	; &R-GT-37829;
+	(===gt-k	    . 01735)	; &R-GT-37829;
+	)
+       ((===ucs@ks	    . #x807F)	; &R-K0-6B53;
+	(===ks-x1001	    . #x6B53)	; &R-K0-6B53; [75-51]
+	)
+       ((===ucs@unicode	    . #x807F)	; &R-UU+807F;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -23,14 +60,16 @@
     (ideographic-radical . 129)	; ⾀
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (<-ideographic-component-forms
+    (=big5-cdp		. #x8BC6)	; &CDP-8BC6;
+    (=gt-k		. 02451)	; &I-GT-K02451;
+    (=gt-pj-k1		. #x325E)	; &CDP-8BC6; [18-62]
+    (<-formed@component/connect-below
      ((=ucs		  . #x807F)	; 聿
       ))
     (->subsumptive
-     ((=big5-cdp	  . #x8BC6)	; &CDP-8BC6;
+     ((==big5-cdp	  . #x8BC6)	; &g2-CDP-8BC6;
       )
-     ((=gt-k		  . 02451)	; &GT-K02451;
-      (=gt-pj-k1	  . #x325E)	; &GT-K02451; [18-62]
+     ((==gt-k		  . 02451)	; &g2-GT-K02451;
       ))
     ))
 (define-char
