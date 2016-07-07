@@ -597,7 +597,8 @@
     (<-formed@Zetian*sources
      zihui-bu)
     (<-same
-     ((=ucs		  . #x6708)	; 月
+     ((=ucs@unicode	  . #x6708)	; &MJ013520;
+      (=mj		  . 013520)	; &MJ013520;
       (=daikanwa	  . 14330)	; &I-M-14330;
       ))
     (<-same*sources
