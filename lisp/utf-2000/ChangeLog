@@ -1,3 +1,49 @@
+2016-07-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R178-Tanned-Leather.el (U-000293AE): Apply new
+	conventions for glyph granularity; use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@misc'; add H1-E27E.
+
+2016-07-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R076-Lack.el: Add glyph-images of HNG-KAR.
+	(U+6B32): Separate UU+6B32.
+	(HNG-KAR0998-0): New character; use `<-denotational' for U+6B32.
+
+	* Ideograph-R075-Tree.el: Add glyph-images of HNG-KAR.
+	(U-000233B4): Add `<-ancient' for M-15956; add `->mistakable' for
+	U+4E0D.
+	(U-000233B5): Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'.
+	(HNG-KAR0193-0): New character; use `<-denotational' for U+6750.
+	(U-000233D3): New character; unify JX2-2E3C; add HNG-KAR0197-0.
+	(CB03014): Unify U-0002AC73.
+	(HNG-KAR0184-0): New character; use `<-denotational' for U+67D4.
+	(U+6801): Unify S-3580; add `<-vulgar' for U+67F3.
+	(U+6840): Separate UU+6840.
+	(UU+6840): Add `=>ucs@iwds-1'.
+	(HNG-KAR0994-0): New character; use `<-denotational' for U+6840.
+	(HNG-KAR0196-0): New character; use `<-formed' for U+68B2.
+	(U+687A): Unify S-3579; add `<-original' for U+67F3.
+	(U+6881): Separate o-UU+6881.
+	(HD-TK01044200): New character; use `<-denotational' for U+6881;
+	add HNG-KAR0186-0.
+	(U+6901): Separate UU+6901.
+	(HNG-KAR0985-0): New character; use `<-denotational' for U+6901.
+	(U+690D): Separate A-UU+690D.
+	(HNG-KAR0199-0): New character; use `<-denotational' for U+690D.
+
+	* Ideograph-R008-Lid.el (U-000293AE): Copied from
+	Ideograph-R178-Tanned-Leather.el.
+	(H1-E27E): Use `<-subsumptive' for U-000293AE.
+
+	* char-db-util.el (insert-char-attributes): Delete codes for
+	`hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'.
+
 2016-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R086-Fire.el (U+70A4): Use `->subsumptive'; unify
