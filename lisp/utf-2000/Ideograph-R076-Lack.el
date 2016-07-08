@@ -90,7 +90,14 @@
     (ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
+    (=ucs@cns		. #x6B21)	; &C1-4839;
     (=cns11643-1	. #x4839)	; &C1-4839; [40-25]
+    (->subsumptive
+     ((==ucs@cns	  . #x6B21)	; &g2-CU+6B21;
+      (==cns11643-1	  . #x4839)	; &g2-CU+6B21; [40-25]
+      )
+     ((===hng-kar	  . 05950)	; &HNG018-05950;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -1845,7 +1852,16 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=ucs		. #x6B32)	; 欲
-    (=adobe-japan1-0	. 03913)	; &I-AJ1-03913;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6B32)	; 欲
+      ))
+    (ideographic-radical . 76)	; ⽋
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (=ucs@unicode	. #x6B32)	; &AJ1-03913;
+    (=adobe-japan1-0	. 03913)	; &AJ1-03913;
     (=jis-x0208		. #x4D5F)	; &I-J90-4D5F; [45-63]
     (=gb2312		. #x537B)	; &I-G0-537B; [51-91]
     (=ks-x1001		. #x6930)	; &I-K0-6930; [73-16]
@@ -1856,7 +1872,7 @@
     (=gt-k		. 07889)	; &I-GT-K07889;
     (=gt-pj-1		. #x4D5F)	; &I-GT-20682; [45-63]
     (=daikanwa		. 16080)	; &I-M-16080;
-    (=shinjigen		.  3917)	; 欲
+    (=shinjigen		.  3917)	; &AJ1-03913;
     (->subsumptive
      ((==ucs@cns	  . #x6B32)	; &g2-AJ1-03913;
       (==ucs@jis	  . #x6B32)	; &g2-AJ1-03913;
@@ -1895,6 +1911,15 @@
       )
      ((===hng-khi	  . 04430)	; &HNG010-04430;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6B32)	; 欲
+      ))
+    (ideographic-radical . 76)	; ⽋
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (===hng-kar		. 09980)	; &HNG018-09980;
     ))
 (define-char
   '((ideographic-radical . 76)	; ⽋
@@ -2329,6 +2354,8 @@
 	(===jis-x0213-1	    . #x353D)	; &R-J0-353D; [21-29]
 	)
        ((===ucs@unicode	    . #x6B3A)	; &R-UU+6B3A;
+	)
+       ((===hng-kar	    . 09990)	; &HNG018-09990;
 	))
       )
      ((==ucs@cns	  . #x6B3A)	; &g2-AJ1-01623;
@@ -3954,6 +3981,11 @@
      ((==ucs@unicode	  . #x6B4C)	; &g2-UU+6B4C;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x3868)	; &g2-UU+6B4C; [24-72]
+      (->subsumptive
+       ((===ucs@unicode	    . #x6B4C)	; &R-UU+6B4C;
+	)
+       ((===hng-kar	    . 09960)	; &HNG018-09960;
+	))
       )
      ((===hng-khi	  . 04450)	; &HNG010-04450;
       ))
@@ -4340,6 +4372,11 @@
       )
      ((==ucs@unicode	  . #x6B4E)	; &g2-UU+6B4E;
       (==ucs@JP/hanazono  . nil)
+      (->subsumptive
+       ((===ucs@unicode	    . #x6B4E)	; &R-UU+6B4E;
+	)
+       ((===hng-kar	    . 09970)	; &HNG018-09970;
+	))
       ))
     ))
 (define-char
