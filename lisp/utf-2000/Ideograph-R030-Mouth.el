@@ -11484,7 +11484,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=cns11643-1	  . #x4839)	; &C1-4839; [40-25]
+     ((=ucs@cns		  . #x6B21)	; &C1-4839;
+      (=cns11643-1	  . #x4839)	; &C1-4839; [40-25]
       )
      ((=ucs		  . #x53E3)	; 口
       ))
