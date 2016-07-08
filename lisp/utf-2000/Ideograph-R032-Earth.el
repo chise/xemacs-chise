@@ -4292,38 +4292,25 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=ucs@cns		. #x5790)	; &C3-2B6C;
-    (=cns11643-3	. #x2B6C)	; &C3-2B6C; [11-76]
-    (=daikanwa		. 05037)	; &I-M-05037;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@ks		  . #x6B21)	; &MJ014748;
+      (=mj		  . 014748)	; &MJ014748;
+      )
+     ((=ucs		  . #x571F)	; 土
+      ))
+    (=daikanwa		. 05037)	; &M-05037;
     (=cbeta		. 01683)	; &I-CB01683;
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs@ks	    . #x6B21)	; &MJ014748;
-	(=mj		    . 014748)	; &MJ014748;
-	)
-       ((=ucs		    . #x571F)	; 土
-	))
-      (==daikanwa	  . 05037)	; &g2-M-05037;
+     ((==daikanwa	  . 05037)	; &g2-M-05037;
       (==cbeta		  . 01683)	; &g2-M-05037;
       (->subsumptive
        ((===daikanwa	    . 05037)	; &R-M-05037;
 	)
        ((===cbeta	    . 01683)	; &R-CB01683;
 	))
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=cns11643-1	    . #x4839)	; &C1-4839; [40-25]
-	)
-       ((=ucs		    . #x571F)	; 土
-	))
-      (==ucs@cns	  . #x5790)	; &g2-CU+5790;
-      (==cns11643-3	  . #x2B6C)	; &g2-CU+5790; [11-76]
       ))
     ))
 (define-char
@@ -4361,6 +4348,29 @@
 	)
        ((=hanziku-2	    . #xAAE2)	; &HZK02-AAE2;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5790)	; 垐
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@cns		  . #x6B21)	; &C1-4839;
+      (=cns11643-1	  . #x4839)	; &C1-4839; [40-25]
+      )
+     ((=ucs		  . #x571F)	; 土
+      ))
+    (=ucs@cns		. #x5790)	; &C3-2B6C;
+    (=cns11643-3	. #x2B6C)	; &C3-2B6C; [11-76]
+    (->subsumptive
+     ((==ucs@cns	  . #x5790)	; &g2-CU+5790;
+      (==cns11643-3	  . #x2B6C)	; &g2-CU+5790; [11-76]
       ))
     ))
 (define-char
