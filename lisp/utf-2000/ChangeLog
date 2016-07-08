@@ -1,5 +1,9 @@
 2016-07-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (M-05037): Separate CU+5790 and C3-2B6C.
+
+	* Ideograph-R009-Man.el (JU+4F7D): Separate CU+4F7D and C2-2535.
+
 	* Ideograph-R178-Tanned-Leather.el (U-000293AE): Apply new
 	conventions for glyph granularity; use
 	`ideographic-{radical|strokes}@ucs' instead of
