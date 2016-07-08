@@ -3927,6 +3927,49 @@
       ))
     ))
 (define-char
+  '((ideographic-radical@ucs . 178)	; ⾱
+    (ideographic-strokes@ucs . 6)
+    (ideographic-radical@ucs*sources
+     daikanwa cns11643 ucs)
+    (ideographic-strokes@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@misc . 8)	; ⼇
+    (ideographic-strokes@misc . 13)
+    (total-strokes	 . 15)
+    (hanyu-dazidian	1 293 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x516D)	; 六
+      )
+     ((=ucs		  . #x97CB)	; 韋
+      )
+     ((=ucs		  . #x4E42)	; 乂
+      ))
+    (=ucs		. #x293AE)	; 𩎮
+    (=cns11643-5	. #x5251)	; &I-C5-5251; [50-49]
+    (=daikanwa		. 43141)	; &I-M-43141;
+    (->subsumptive
+     ((ideographic-radical . 178)	; ⾱
+      (ideographic-strokes . 6)
+      (==daikanwa	  . 43141)	; &g2-M-43141;
+      )
+     ((ideographic-radical . 178)	; ⾱
+      (ideographic-strokes . 6)
+      (==ucs@iso	  . #x293AE)	; &g2-IU-000293AE;
+      )
+     ((ideographic-radical . 178)	; ⾱
+      (ideographic-strokes . 6)
+      (==ucs@cns	  . #x293AE)	; &g2-CU+293AE;
+      (==cns11643-5	  . #x5251)	; &g2-CU+293AE; [50-49]
+      )
+     ((ideographic-radical . 8)	; ⼇
+      (ideographic-strokes . 13)
+      (=hanziku-1	  . #xE27E)	; &HZK01-E27E;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
@@ -4053,25 +4096,6 @@
 	))
       ))
     (=cbeta		. 03716)	; &CB03716;
-    ))
-(define-char
-  '((ideographic-radical . 8)	; ⼇
-    (ideographic-strokes . 13)
-    (total-strokes	 . 15)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 293)
-    (hanyu-dazidian-char . 13)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
-      )
-     ((=ucs		  . #x516D)	; 六
-      )
-     ((=ucs		  . #x97CB)	; 韋
-      )
-     ((=ucs		  . #x4E42)	; 乂
-      ))
-    (=hanziku-1		. #xE27E)	; &HZK01-E27E;
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
