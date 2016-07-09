@@ -1,5 +1,13 @@
 2016-07-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R010-Legs.el (U-000204A2): Apply new conventions for
+	glyph granularity.
+	(H1-DEA8): Use `<-denotational' for U-000204A2; use
+	`hanyu-dazidian' instead of `hanyu-dazidian-vol',
+	`hanyu-dazidian-page' and `hanyu-dazidian-char'.
+
+2016-07-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R032-Earth.el (M-05037): Separate CU+5790 and C3-2B6C.
 
 	* Ideograph-R009-Man.el (JU+4F7D): Separate CU+4F7D and C2-2535.
