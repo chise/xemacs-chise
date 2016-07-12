@@ -1,3 +1,21 @@
+2016-07-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R078-Death.el: Add glyph-images of HNG-KAR.
+	(U+6B96): Separate A-UU+6B96.
+	(HNG-KAR0202-0): New character; use `<-denotational' for U+6B96.
+	(U-00023A75): New character; unify CB09665.
+
+2016-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R148-Horn.el: Add glyph-images of HNG-KAR.
+	(U+89DA): Separate A-UU+89DA.
+	(A-UU+89DA): Add `=>ucs@iwds-1'.
+	(HNG-KAR1258-0): New character; use `<-denotational' for U+89DA.
+
+	* Ideograph-R079-Weapon.el: Add glyph-images of HNG-KAR.
+	(U+6BB7): Separate UU+6BB7.
+	(HNG-KAR1007-0): New character; use `<-denotational' for U+6BB7.
+
 2016-07-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R010-Legs.el (U-000204A2): Apply new conventions for
