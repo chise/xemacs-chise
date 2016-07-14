@@ -1,5 +1,9 @@
 2016-07-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R081-Compare.el (g2-UU+6BD4): Add HNG-KAR1014-0.
+
+2016-07-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R078-Death.el: Add glyph-images of HNG-KAR.
 	(U+6B96): Separate A-UU+6B96.
 	(HNG-KAR0202-0): New character; use `<-denotational' for U+6B96.
