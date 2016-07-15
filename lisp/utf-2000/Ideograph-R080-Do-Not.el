@@ -62,6 +62,11 @@
 	(===ks-x1001	    . #x596C)	; &R-K0-596C; [57-76]
 	))
       )
+     ((===hng-kar	  . 10110)	; &HNG018-10110;
+      (<-formed
+       ((=ucs		    . #x6BCB)	; 毋
+	))
+      )
      ((===hng-khm	  . 00750)	; &HNG011-00750;
       (<-formed
        ((=ucs		    . #x6BCD)	; 母
@@ -123,6 +128,39 @@
     (=gt-pj-1		. #x4A6C)	; &I-GT-21438; [42-76]
     (=daikanwa		. 16723)	; &I-M-16723;
     (=shinjigen		.  4008)	; 母
+    (->subsumptive
+     ((==ucs@unicode	  . #x6BCD)	; &g2-AJ1-03644;
+      (==adobe-japan1-0	  . 03644)	; &g2-AJ1-03644;
+      (==gb2312		  . #x4438)	; &g2-AJ1-03644; [36-24]
+      (==ks-x1001	  . #x593D)	; &g2-AJ1-03644; [57-29]
+      (==jis-x0208	  . #x4A6C)	; &g2-AJ1-03644; [42-76]
+      (==cns11643-1	  . #x4660)	; &g2-AJ1-03644; [38-64]
+      (==jis-x0213-1	  . #x4A6C)	; &g2-AJ1-03644; [42-76]
+      (==gt		  . 21438)	; &g2-AJ1-03644;
+      (==gt-k		  . 01051)	; &g2-AJ1-03644;
+      (==daikanwa	  . 16723)	; &g2-AJ1-03644;
+      (==shinjigen	  .  4008)	; &g2-AJ1-03644;
+      (->subsumptive
+       ((===daikanwa	    . 16723)	; &R-M-16723;
+	)
+       ((===jis-x0208	    . #x4A6C)	; &R-J0-4A6C; [42-76]
+	(===jis-x0213-1	    . #x4A6C)	; &R-J0-4A6C; [42-76]
+	)
+       ((===adobe-japan1-0  . 03644)	; &R-AJ1-03644;
+	)
+       ((===cns11643-1	    . #x4660)	; &R-C1-4660; [38-64]
+	)
+       ((===gt		    . 21438)	; &R-GT-21438;
+	(===gt-k	    . 01051)	; &R-GT-21438;
+	)
+       ((===ucs@ks	    . #x6BCD)	; &R-K0-593D;
+	(===ks-x1001	    . #x593D)	; &R-K0-593D; [57-29]
+	)
+       ((===ucs@unicode	    . #x6BCD)	; &R-UU+6BCD;
+	))
+      )
+     ((===hng-kar	  . 10120)	; &HNG018-10120;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -313,16 +351,22 @@
     (<-vulgar*sources
      zhengzitong daikanwa)
     (->subsumptive
-     ((==daikanwa	  . 16726)	; &g2-M-16726;
-      )
-     ((==ucs@iso	  . #x23AED)	; &g2-IU-00023AED;
-      (==cns11643-6	  . #x283D)	; &g2-IU-00023AED; [08-29]
+     ((==ucs@iso	  . #x23AED)	; &g2-M-16726;
+      (==cns11643-6	  . #x283D)	; &g2-M-16726; [08-29]
+      (==daikanwa	  . 16726)	; &g2-M-16726;
       (->subsumptive
+       ((===daikanwa	    . 16726)	; &R-M-16726;
+	)
        ((===cns11643-6	    . #x283D)	; &R-C6-283D; [08-29]
 	)
        ((===ucs@iso	    . #x23AED)	; &R-U-00023AED;
 	)
        ((=hanziku-6	    . #xECA1)	; &HZK06-ECA1;
+	))
+      )
+     ((===hng-kar	  . 10130)	; &HNG018-10130;
+      (<-formed
+       ((=ucs		    . #x6BCF)	; 每
 	))
       ))
     ))
