@@ -1,3 +1,7 @@
+2016-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R080-Do-Not.el: Add glyph-images of HNG-KAR.
+
 2016-07-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R081-Compare.el (g2-UU+6BD4): Add HNG-KAR1014-0.
