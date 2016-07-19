@@ -405,6 +405,8 @@
        ((===ucs@unicode	    . #x6C23)	; &R-UU+6C23;
 	))
       )
+     ((===hng-kar	  . 10170)	; &HNG018-10170;
+      )
      ((==ucs@cns	  . #x6C23)	; &g2-CU+6C23;
       (==cns11643-1	  . #x5634)	; &g2-CU+6C23; [54-20]
       (->subsumptive
