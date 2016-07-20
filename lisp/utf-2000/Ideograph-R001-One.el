@@ -1164,8 +1164,7 @@
       (=gb12345		  . #x536B)	; 與 [51-75]
       ))
     (->synonyms
-     ((=ucs@unicode	  . #x8207)	; &AJ1-06299;
-      (=adobe-japan1-0	  . 06299)	; &AJ1-06299;
+     ((=ucs		  . #x8207)	; 與
       (=daikanwa	  . 30212)	; &I-M-30212;
       ))
     (->synonyms*sources
