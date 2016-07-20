@@ -938,7 +938,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
     (=ucs		. #x865B)	; 虛
-    (=ks-x1001		. #x7A48)	; &JX1-7B4E; [90-40]
+    (=ks-x1001		. #x7A48)	; &I-K0-7A48; [90-40]
     (=cns11643-1	. #x6170)	; &I-C1-6170; [65-80]
     (=jis-x0213-1	. #x7B4E)	; &I-JX1-7B4E; [91-46]
     (=big5		. #xB5EA)	; &I-B-B5EA;
