@@ -2045,17 +2045,17 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (=ucs		. #x229E1)	; 𢧡
+    (=daikanwa		. 11627)	; &I-M-11627;
+    (<-vulgar
+     ((=ucs		  . #x6B72)	; 歲
+      (=daikanwa	  . 16326)	; &I-M-16326;
+      ))
+    (<-vulgar*sources
+     zihui-bu daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 11627)	; &M-11627;
-      (<-vulgar
-       ((=ucs@unicode	    . #x6B72)	; &C1-6459;
-	(=cns11643-1	    . #x6459)	; &C1-6459; [68-57]
-	(=daikanwa	    . 16326)	; &I-M-16326;
-	))
-      (<-vulgar*sources
-       zihui-bu daikanwa)
+     ((==daikanwa	  . 11627)	; &g2-M-11627;
       )
-     ((=ucs@iso		  . #x229E1)	; &U-000229E1;
+     ((==ucs@iso	  . #x229E1)	; &g2-IU-000229E1;
       ))
     ))
 (define-char
