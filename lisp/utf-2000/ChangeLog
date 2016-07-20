@@ -1,3 +1,11 @@
+2016-07-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R062-Halberd.el (U-000229E1): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R037-Big.el (U+596F): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+
 2016-07-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R083-Clan.el: Add glyph-images of HNG-KAR.
