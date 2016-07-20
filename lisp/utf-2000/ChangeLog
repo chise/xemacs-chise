@@ -1,5 +1,9 @@
 2016-07-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R083-Clan.el: Add glyph-images of HNG-KAR.
+	(HNG-KAR1016-0): New character; use `<-avoiding-taboo' and
+	`<-formed' for U+6C11.
+
 	* Ideograph-R084-Steam.el (U+6C23): Add HNG-KAR1017-0.
 
 2016-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
