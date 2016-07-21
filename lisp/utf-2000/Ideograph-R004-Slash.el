@@ -2203,33 +2203,45 @@
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
-    (=decomposition@cid
-     ((=ucs		  . #x200B0)	; 𠂰
-      )
-     ((=ucs		  . #xE0100)	; 󠄀
-      ))
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x4E55)	; 乕
-      )
-     ((=ucs		  . #xE0102)	; 󠄂
-      ))
     (=mj		. 006394)	; &MJ006394;
     (=adobe-japan1-4	. 14209)	; &I-AJ1-14209;
     (=hanyo-denshi/ks	. 001760)	; &MJ006394;
-    (=hanyo-denshi/ks/mf . #x00B0)	; &I-KSMF-00176;
     (=daikanwa		. 00148)	; &I-M-00148;
     (<-vulgar
-     ((=ucs@cns		  . #x864E)	; &GT-44178;
-      (=ucs@jis		  . #x864E)	; &GT-44178;
-      (=ucs@ks		  . #x864E)	; &GT-44178;
-      (=jis-x0208	  . #x3857)	; &GT-44178; [24-55]
-      (=ks-x1001	  . #x7B5B)	; &I-K0-7B5B; [91-59]
-      (=cns11643-1	  . #x4F4D)	; &I-C1-4F4D; [47-45]
-      (=jis-x0213-1	  . #x3857)	; &I-JX1-3857; [24-55]
+     ((=ucs@cns		  . #x864E)	; &AJ1-01931;
+      (=ucs@jis		  . #x864E)	; &AJ1-01931;
+      (=ucs@ks		  . #x864E)	; &AJ1-01931;
+      (=adobe-japan1-0	  . 01931)	; &AJ1-01931;
       (=daikanwa	  . 32675)	; &I-M-32675;
       ))
     (<-vulgar*sources
      songyuan-yilai-suzipu daikanwa)
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x200B0)	; 𠂰
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x4E55)	; 乕
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==mj		  . 006394)	; &g2-MJ006394;
+      (==adobe-japan1-4	  . 14209)	; &g2-MJ006394;
+      (==hanyo-denshi/ks  . 001760)	; &g2-MJ006394;
+      (==daikanwa	  . 00148)	; &g2-MJ006394;
+      (->subsumptive
+       ((===daikanwa	    . 00148)	; &R-M-00148;
+	)
+       ((===hanyo-denshi/ks . 001760)	; &R-HD-KS-001760;
+	(=hanyo-denshi/ks/mf . #x00B0)	; &R-HD-KS-001760;
+	)
+       ((===adobe-japan1-4  . 14209)	; &R-AJ1-14209;
+	)
+       ((===mj		    . 006394)	; &R-MJ006394;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2240,6 +2252,15 @@
     (total-strokes	 . 7)
     (=ucs@iso		. #x200B0)	; &C6-2562;
     (=cns11643-6	. #x2562)	; &C6-2562; [05-66]
+    (->subsumptive
+     ((==ucs@iso	  . #x200B0)	; &g2-IU-000200B0;
+      (==cns11643-6	  . #x2562)	; &g2-IU-000200B0; [05-66]
+      (->subsumptive
+       ((===cns11643-6	    . #x2562)	; &R-C6-2562; [05-66]
+	)
+       ((===ucs@iso	    . #x200B0)	; &R-U-000200B0;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃
