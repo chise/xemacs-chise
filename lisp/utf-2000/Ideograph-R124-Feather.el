@@ -7860,16 +7860,7 @@
   '((ideographic-radical . 124)	; ⽻
     (ideographic-strokes . 13)
     (total-strokes	 . 19)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x6B72)	; 歲
-      )
-     ((=ucs		  . #x7FBD)	; 羽
-      ))
     (=ucs		. #x7FFD)	; 翽
-    (=big5		. #xF2BE)	; &I-B-F2BE;
     ))
 (define-char
   '((<-denotational
@@ -7882,9 +7873,25 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x6B72)	; &C1-6459;
-      (=cns11643-1	  . #x6459)	; &C1-6459; [68-57]
-      (=daikanwa	  . 16326)	; &I-M-16326;
+     ((=ucs		  . #x6B72)	; 歲
+      )
+     ((=ucs		  . #x7FBD)	; 羽
+      ))
+    (=>ucs@unicode	. #x7FFD)	; &A-UU+7FFD;
+    (=big5		. #xF2BE)	; &A-UU+7FFD;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x7FFD)	; &A-UU+7FFD;
+      ))
+    (ideographic-radical . 124)	; ⽻
+    (ideographic-strokes . 13)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6B72)	; 歲
       )
      ((=ucs		  . #xFA1E)	; 羽
       ))
@@ -7895,7 +7902,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x7FFD)	; 翽
+     ((=>ucs@unicode	  . #x7FFD)	; &A-UU+7FFD;
       ))
     (ideographic-radical . 124)	; ⽻
     (ideographic-strokes . 13)
@@ -7904,9 +7911,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x6B72)	; &C1-6459;
-      (=cns11643-1	  . #x6459)	; &C1-6459; [68-57]
-      (=daikanwa	  . 16326)	; &I-M-16326;
+     ((=ucs		  . #x6B72)	; 歲
       )
      ((=ucs@unicode	  . #x7FBD)	; &AJ1-01227;
       (=adobe-japan1-0	  . 01227)	; &AJ1-01227;
@@ -7915,7 +7920,17 @@
     (=ucs@JP/hanazono	. nil)
     (=cns11643-2	. #x6648)	; &C2-6648; [70-40]
     (->subsumptive
-     ((==ucs@unicode	  . #x7FFD)	; &g2-UU+7FFD;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((==ucs@unicode	    . #x6B72)	; &g2-M-16326;
+	(==daikanwa	    . 16326)	; &g2-M-16326;
+	)
+       ((==ucs@unicode	    . #x7FBD)	; &g2-AJ1-01227;
+	(==adobe-japan1-0   . 01227)	; &g2-AJ1-01227;
+	))
+      (==ucs@unicode	  . #x7FFD)	; &g2-UU+7FFD;
       (==ucs@JP/hanazono  . nil)
       (==cns11643-2	  . #x6648)	; &g2-UU+7FFD; [70-40]
       (->subsumptive
