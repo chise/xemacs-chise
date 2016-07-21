@@ -1,3 +1,24 @@
+2016-07-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ruimoku6.el (RUI6-E046): Use U+4EBB instead of <CJK RADICAL
+	PERSON> in `ideographic-structure' of abstract glyph.
+
+2016-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R108-Dish.el (RUI6-E046): Use U+4EBB instead of <CJK
+	RADICAL PERSON> in `ideographic-structure' of abstract glyph.
+
+	* Ideograph-R086-Fire.el (U+F932): New character; use
+	`<-subsumptive' for g2-UU+7210; unify K0-5244.
+
+	* Ideograph-R032-Earth.el (UU+3648): Apply new conventions for
+	glyph granularity for component of ideographic-structure.
+
+	* Ideograph-R030-Mouth.el (U+5666): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R004-Slash.el (U-000200B0): Add representative nodes.
+
 2016-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R134-Mortar.el (U-000269B2): Apply new conventions for
