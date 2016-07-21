@@ -1,3 +1,11 @@
+2016-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R134-Mortar.el (U-000269B2): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R124-Feather.el (U+7FFD): Apply new conventions for
+	glyph granularity.
+
 2016-07-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R062-Halberd.el (U-000229E1): Apply new conventions
