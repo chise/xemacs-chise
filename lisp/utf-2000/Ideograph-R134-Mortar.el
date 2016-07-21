@@ -959,7 +959,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
     (=ucs		. #x8207)	; 與
-    (=adobe-japan1-0	. 06299)	; &AJ1-06299;
+    (=adobe-japan1-0	. 06299)	; &I-AJ1-06299;
     (=jis-x0208		. #x6750)	; &I-J90-6750; [71-48]
     (=ks-x1001		. #x6628)	; &I-K0-6628; [70-08]
     (=cns11643-1	. #x6A58)	; &I-C1-6A58; [74-56]
@@ -1954,19 +1954,18 @@
     (ideographic-radical . 134)	; ⾅
     (ideographic-strokes . 14)
     (total-strokes	 . 20)
-    (=>>ucs@iso		. #x269B2)	; &G-IU+269B2;
-    (=>>daikanwa	. 30263)	; &G-IU+269B2;
+    (=ucs@iso		. #x269B2)	; &M-30263;
+    (=daikanwa		. 30263)	; &M-30263;
+    (<-ancient@s=company
+     ((=ucs		  . #x8207)	; 與
+      (=daikanwa	  . 30212)	; &I-M-30212;
+      ))
+    (<-ancient@s=company*sources
+     jiyun daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 30263)	; &M-30263;
-      (<-ancient@s=company
-       ((=ucs@unicode	    . #x8207)	; &AJ1-06299;
-	(=adobe-japan1-0    . 06299)	; &AJ1-06299;
-	(=daikanwa	    . 30212)	; &I-M-30212;
-	))
-      (<-ancient@s=company*sources
-       jiyun daikanwa)
+     ((==daikanwa	  . 30263)	; &g2-M-30263;
       )
-     ((=ucs@iso		  . #x269B2)	; &U-000269B2;
+     ((==ucs@iso	  . #x269B2)	; &g2-IU-000269B2;
       ))
     ))
 (define-char
@@ -1976,7 +1975,12 @@
     (ideographic-radical . 134)	; ⾅
     (ideographic-strokes . 14)
     (total-strokes	 . 21)
+    (=ucs@cns		. #x269B2)	; &C5-707A;
     (=cns11643-5	. #x707A)	; &C5-707A; [80-90]
+    (->subsumptive
+     ((==ucs@cns	  . #x269B2)	; &g2-CU+269B2;
+      (==cns11643-5	  . #x707A)	; &g2-CU+269B2; [80-90]
+      ))
     ))
 (define-char
   '((ideographic-radical . 134)	; ⾅
