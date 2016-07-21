@@ -1196,8 +1196,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((name		    . "CJK RADICAL PERSON")
-	(=ucs		    . #x2E85)	; ⺅
+       ((=ucs		    . #x4EBB)	; 亻
 	)
        ((=gt-k		    . 11538)	; &GT-K11538;
 	))
@@ -1221,8 +1220,8 @@
 	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
 	    (=ucs		. #x2FF8)	; ⿸
 	    )
-	   ((==ucs@unicode	. #x864D)	; &g2-GT-44176;
-	    (==jis-x0208	. #x6948)	; &g2-GT-44176; [73-40]
+	   ((==ucs@unicode	. #x864D)	; &g2-AJ1-06479;
+	    (==adobe-japan1-0	. 06479)	; &g2-AJ1-06479;
 	    )
 	   ((==ucs@jis		. #x5E78)	; &g2-AJ1-01982;
 	    (==ucs@ks		. #x5E78)	; &g2-AJ1-01982;
