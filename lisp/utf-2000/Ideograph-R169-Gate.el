@@ -909,8 +909,7 @@
     (=gt-pj-7		. #x6E48)	; &I-GT-55472; [78-40]
     (=jef-china3	. #x6BE0)	; &I-JC3-6BE0;
     (<-error@jis/x0208
-     ((=ucs@unicode	  . #x958F)	; &AJ1-01246;
-      (=adobe-japan1-0	  . 01246)	; &AJ1-01246;
+     ((=ucs		  . #x958F)	; 閏
       ))
     (<-error@jis/x0208*sources
      jis-x0208@1978/errata jis-x0208@1997)
@@ -950,7 +949,7 @@
     (sound@ja/on/go	"niN")
     (sound@ja/on/kan	"zyuN")
     (=ucs		. #x958F)	; 閏
-    (=adobe-japan1-0	. 01246)	; &AJ1-01246;
+    (=adobe-japan1-0	. 01246)	; &I-AJ1-01246;
     (=jis-x0208@1978/1pr/fixed . #x313C)	; 閏 [17-28]
     (=jis-x0208@1978/2-pr . #x313C)	; 閏 [17-28]
     (=jis-x0208@1983	. #x313C)	; &I-J83-313C; [17-28]
