@@ -17443,14 +17443,10 @@
       )
      ((=ucs		  . #x6728)	; 木
       )
-     ((=ucs@cns		  . #x864E)	; &GT-44178;
-      (=ucs@jis		  . #x864E)	; &GT-44178;
-      (=ucs@ks		  . #x864E)	; &GT-44178;
-      (=jis-x0208	  . #x3857)	; &GT-44178; [24-55]
-      (=ks-x1001	  . #x7B5B)	; &I-K0-7B5B; [91-59]
-      (=cns11643-1	  . #x4F4D)	; &I-C1-4F4D; [47-45]
-      (=jis-x0213-1	  . #x3857)	; &I-JX1-3857; [24-55]
-      (=daikanwa	  . 32675)	; &I-M-32675;
+     ((=ucs@cns		  . #x864E)	; &AJ1-01931;
+      (=ucs@jis		  . #x864E)	; &AJ1-01931;
+      (=ucs@ks		  . #x864E)	; &AJ1-01931;
+      (=adobe-japan1-0	  . 01931)	; &AJ1-01931;
       ))
     (=ucs@cns		. #x6903)	; &AJ1-17824;
     (=ucs@jis		. #x6903)	; &AJ1-17824;
@@ -17468,9 +17464,9 @@
 	)
        ((=gt-k		    . 00495)	; &GT-K00495;
 	)
-       ((==ucs@jis	    . #x864E)	; &g2-GT-44178;
-	(==ucs@ks	    . #x864E)	; &g2-GT-44178;
-	(==jis-x0208	    . #x3857)	; &g2-GT-44178; [24-55]
+       ((==ucs@jis	    . #x864E)	; &g2-AJ1-01931;
+	(==ucs@ks	    . #x864E)	; &g2-AJ1-01931;
+	(==adobe-japan1-0   . 01931)	; &g2-AJ1-01931;
 	))
       (==ucs@jis	  . #x6903)	; &g2-AJ1-17824;
       (==adobe-japan1-5	  . 17824)	; &g2-AJ1-17824;
@@ -17515,7 +17511,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt-k		  . 00495)	; &GT-K00495;
+     ((=ucs		  . #x6728)	; 木
       )
      ((=ucs@unicode	  . #x864E)	; &G0-3B22;
       (=gb2312		  . #x3B22)	; &G0-3B22; [27-02]
@@ -17524,7 +17520,15 @@
     (=ucs@JP/hanazono	. nil)
     (=cbeta		. 06743)	; &CB06743;
     (->subsumptive
-     ((==ucs@unicode	  . #x6903)	; &g2-UU+6903;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gt-k		    . 00495)	; &GT-K00495;
+	)
+       ((==ucs@unicode	    . #x864E)	; &g2-UU+864E;
+	))
+      (==ucs@unicode	  . #x6903)	; &g2-UU+6903;
       (==ucs@JP/hanazono  . nil)
       (->subsumptive
        ((===ucs@unicode	    . #x6903)	; &R-UU+6903;
