@@ -1399,8 +1399,7 @@
     (<-formed*sources
      koseki)
     (<-formed@misc
-     ((=ucs@jis		  . #x78EC)	; &AJ1-05875;
-      (=adobe-japan1-0	  . 05875)	; &AJ1-05875;
+     ((=ucs		  . #x78EC)	; 磬
       ))
     (<-formed@misc*sources
      mj)
