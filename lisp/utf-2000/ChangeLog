@@ -1,5 +1,10 @@
 2016-07-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R009-Man.el (U+4FFF): Use U+4EBB instead of <CJK
+	RADICAL PERSON> in `ideographic-structure' of the abstract
+	character and abstract glyph objects.
+	(U-000202F5): Likewise.
+
 	* Ideograph-R075-Tree.el (UU+6903): Apply new conventions for
 	glyph granularity for component of ideographic-structure.
 
