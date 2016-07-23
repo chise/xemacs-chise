@@ -8357,7 +8357,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
     (=ucs		. #x78EC)	; 磬
-    (=adobe-japan1-0	. 05875)	; &AJ1-05875;
+    (=adobe-japan1-0	. 05875)	; &I-AJ1-05875;
     (=jis-x0208		. #x627E)	; &I-J90-627E; [66-94]
     (=gb2312		. #x6D60)	; &I-G0-6D60; [77-64]
     (=ks-x1001		. #x4C64)	; &I-K0-4C64; [44-68]
