@@ -773,7 +773,8 @@
    '(mnemonic "UTF8JP"
 	      charset-g0 =ucs@JP
 	      charset-g1 =>ucs@jis
-	      charset-g2 =>ucs))
+	      charset-g2 =>ucs
+	      charset-g3 =ucs))
 
   (make-coding-system
    'utf-8-ivs-jp 'utf-8
@@ -782,6 +783,7 @@
 	      charset-g0 =ucs@JP
 	      charset-g1 =>ucs@jis
 	      charset-g2 =>ucs
+	      charset-g3 =ucs
 	      enable-decomposition t))
 
   (make-coding-system
@@ -791,6 +793,7 @@
 	      charset-g0 =ucs@JP
 	      charset-g1 =>ucs@jis
 	      charset-g2 =>ucs
+	      charset-g3 =ucs
 	      use-entity-reference t))
 
   (make-coding-system
@@ -800,6 +803,7 @@
 	      charset-g0 =ucs@JP
 	      charset-g1 =>ucs@jis
 	      charset-g2 =>ucs
+	      charset-g3 =ucs
 	      enable-decomposition t
 	      use-entity-reference t))
 
