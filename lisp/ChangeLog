@@ -1,3 +1,10 @@
+2016-07-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (utf-8-jp): Specify `charset-g3'.
+	(utf-8-ivs-jp): Likewise.
+	(utf-8-jp-er): Likewise.
+	(utf-8-ivs-jp-er): Likewise.
+
 2016-04-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
