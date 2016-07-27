@@ -2,7 +2,7 @@
    Copyright (C) 1991, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
    Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2008, 2011,
-     2012, 2013 MORIOKA Tomohiko
+     2012, 2013, 2016 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -1079,6 +1079,8 @@ if TYPE is 'ccl:
 	      CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, 1) = value;
 	    else if (EQ (key, Qcharset_g2))
 	      CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, 2) = value;
+	    else if (EQ (key, Qcharset_g3))
+	      CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, 3) = value;
 	    else
 	      signal_simple_error ("Unrecognized property", key);
 	  }
@@ -4821,6 +4823,13 @@ char_encode_utf8 (struct encoding_stream *str, Emchar ch,
 	  else if ( !NILP (map =
 			   CODING_SYSTEM_ISO2022_INITIAL_CHARSET
 			   (str->codesys, 2))
+		    && INTP (ret = Fchar_feature (make_char (ch),
+						  map, Qnil,
+						  Qnil, Qnil)) )
+	    code_point = XINT (ret);
+	  else if ( !NILP (map =
+			   CODING_SYSTEM_ISO2022_INITIAL_CHARSET
+			   (str->codesys, 3))
 		    && INTP (ret = Fchar_feature (make_char (ch),
 						  map, Qnil,
 						  Qnil, Qnil)) )
