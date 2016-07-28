@@ -1,5 +1,14 @@
 2016-07-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R077-Stop.el: Add glyph-images of HNG-KAR.
+	(U+6B66): Separate UU+6B66.
+	(UU+6B66): Add `=>ucs@iwds-1'.
+	(HNG-KAR1003-0): New character; use `<-denotational' for U+6B66.
+	(U-00023984): Apply new conventions for glyph granularity.
+	(U+6B73): Separate UU+6B73.
+	(HNG-KAR1002-0): New character; use `<-denotational' for U+6B73.
+	(HNG-KAR1004-0): New character; use `<-denotational' for U+6B78.
+
 	* Ideograph-R162-Walk.el (U+F99A): New character; use
 	`<-subsumptive' for g2-KU+9023; unify K0-6666.
 
