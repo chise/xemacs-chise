@@ -547,6 +547,15 @@
   '((ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
+    (=ucs-itaiji-001	. #x23D92)	; &U-i001+23D92;
+    (<-formed
+     ((=ucs		  . #x23D92)	; 𣶒
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
     (hanyu-dazidian	1 30 1)
     (=big5-cdp		. #x866B)	; &CDP-866B;
     ))
