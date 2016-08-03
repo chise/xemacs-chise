@@ -1506,11 +1506,12 @@
   '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (=>big5-cdp		. #x8D4C)	; &A-CDP-8D4C;
+    (=ucs		. #x20B36)	; 𠬶
+    (=>big5-cdp		. #x8D4C)	; 𠬶
     ))
 (define-char
   '((<-denotational
-     ((=>big5-cdp	  . #x8D4C)	; &A-CDP-8D4C;
+     ((=ucs		  . #x20B36)	; 𠬶
       ))
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 5)
@@ -1518,7 +1519,8 @@
     (=gt-k		. 02778)	; &GT-K02778;
     (=gt-pj-k1		. #x357C)	; &GT-K02778; [21-92]
     (<-simplified@component
-     ((=big5-cdp	  . #x8D4C)	; &CDP-8D4C;
+     ((=ucs@iso		  . #x20B36)	; &CDP-8D4C;
+      (=big5-cdp	  . #x8D4C)	; &CDP-8D4C;
       ))
     (->subsumptive
      ((==gt-k		  . 02778)	; &g2-GT-K02778;
@@ -1526,21 +1528,25 @@
     ))
 (define-char
   '((<-denotational
-     ((=>big5-cdp	  . #x8D4C)	; &A-CDP-8D4C;
+     ((=ucs		  . #x20B36)	; 𠬶
       ))
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (=ucs@iso		. #x20B36)	; &CDP-8D4C;
     (=big5-cdp		. #x8D4C)	; &CDP-8D4C;
     (=gt-k		. 02777)	; &I-GT-K02777;
     (=gt-pj-k1		. #x327B)	; &CDP-8D4C; [18-91]
     (->subsumptive
-     ((==big5-cdp	  . #x8D4C)	; &g2-CDP-8D4C;
+     ((==ucs@iso	  . #x20B36)	; &g2-CDP-8D4C;
+      (==big5-cdp	  . #x8D4C)	; &g2-CDP-8D4C;
       (==gt-k		  . 02777)	; &g2-CDP-8D4C;
       (->subsumptive
-       ((===big5-cdp	    . #x8D4C)	; &R-CDP-8D4C;
+       ((===ucs@iso	    . #x20B36)	; &R-U-00020B36;
 	)
        ((===gt-k	    . 02777)	; &R-GT-K02777;
+	)
+       ((===big5-cdp	    . #x8D4C)	; &R-CDP-8D4C;
 	))
       ))
     ))
