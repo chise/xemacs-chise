@@ -1,3 +1,16 @@
+2016-08-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (A-BC-8D4C): Unify U-00020B36.
+	(BC-8D4C): Unify IU+20B36.
+
+	* Ideograph-R210-Even.el (U+9F4A-itaiji-004): New character; use
+	`<-denotational' for U+9F4A.
+
+2016-08-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R002-Line.el (U+23D92-itaiji-001): New character; use
+	`<-formed' for U-00023D92.
+
 2016-07-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R077-Stop.el: Add glyph-images of HNG-KAR.
