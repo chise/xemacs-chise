@@ -1,3 +1,19 @@
+2016-08-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R162-Walk.el (M-38967): Add `ideographic-structure';
+	add representative node.
+	(IU+284FD): Likewise.
+	(C6-4F49): Likewise; unify CU+284FD.
+
+2016-08-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (U+5F31-var-004): New character; use
+	`<-denotational' for U+5F31.
+
+	* Ideograph-R030-Mouth.el (U+551A): Add `ideographic-structure'.
+	(C2-2E3A): Unify CU+551A; add representative nodes.
+	(UU+551A): Add `ideographic-structure'.
+
 2016-08-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el (A-BC-8D4C): Unify U-00020B36.
