@@ -1,5 +1,48 @@
 2016-08-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R085-Water.el: Add glyph-images of HNG-KAR.
+	(HNG-KAR0215-0): New character; use `<-denotational' for U+6C4E.
+	(U+6C92-itaiji-002): New character to subsume HNG-KHI0099-0 and
+	HNG-KAR1035-0; use `<-denotational' for BUCS+6C92; use `<-formed'
+	for U+6C92 and U+6CA1.
+	(BUCS+6D77): New abstract character.
+	(U+6D77): Add `<-denotational' for BUCS+6D77.
+	(HNG-KAR1028-0): New character; use `<-denotational' for
+	BUCS+6D77; use `<-formed' for U+6D77.
+	(U+6D74): Separate UU+6D74.
+	(UU+6D74): Add `=>ucs@iwds-1'.
+	(HNG-KAR1042-0): New character; use `<-denotational' for U+6D74.
+	(BUCS+6DF5): New abstract character.
+	(U+6DF5): Add `<-denotational' for BUCS+6DF5.
+	(HNG-KAR1024-0): New character; use `<-denotational' for
+	BUCS+6DF5.
+	(U+6E15): Add `<-denotational' for BUCS+6DF5.
+	(U+6E0A): Add `<-denotational' for BUCS+6DF5.
+	(BUCS+6EAB): New abstract character.
+	(U+6E29): Add `<-denotational' for BUCS+6EAB.
+	(U+6E9D): Separate A-UU+6E9D.
+	(A-UU+6E9D): Add `=>ucs@iwds-1'.
+	(HNG-KAR0221-0): New character; use `<-denotational' for U+6E9D.
+	(U+6EAB): Add `<-denotational' for BUCS+6EAB.
+	(HNG-KAR1031-0): New character; use `<-denotational' for U+6EBA.
+	(HNG-KAR0216-0): New character; use `<-denotational' for U+6ED5.
+	(HNG-KAR0209-0): New character; use `<-denotational' for U+6FDF.
+	(HNG-KAR0206-0): New character; use `<-denotational' for U+7006.
+
+	* Ideograph-R013-Down-Box.el (U+5193): Separate A-UU+5193.
+	(A-UU+5193): Add `=>ucs@iwds-1'.
+	(U+5193-itaiji-002): New character; use `<-denotational' for
+	U+5193.
+
+	* Ideograph-R009-Man.el (U+4FB5): Use U+4EBB instead of <CJK
+	RADICAL PERSON> in `ideographic-structure' of abstract character.
+	(AJ1-13851): Unify CU+4FB5 and KU+4FB5; use U+4EBB instead of <CJK
+	RADICAL PERSON> in `ideographic-structure' of abstract glyph; add
+	representative nodes.
+	(UU+4FB5): Use U+4EBB instead of <CJK RADICAL PERSON> in
+	`ideographic-structure' of abstract glyph; add representative
+	nodes.
+
 	* Ideograph-R162-Walk.el (M-38967): Add `ideographic-structure';
 	add representative node.
 	(IU+284FD): Likewise.
