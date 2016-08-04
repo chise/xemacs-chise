@@ -18106,15 +18106,6 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=ucs		. #x551A)	; 唚
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x551A)	; 唚
-      ))
-    (ideographic-radical . 30)	; ⼝
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
     (hanyu-dazidian	1 634 13)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -18122,11 +18113,10 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=big5-cdp	  . #x8D4C)	; &CDP-8D4C;
+     ((=ucs		  . #x20B36)	; 𠬶
       ))
-    (=cns11643-2	. #x2E3A)	; &C2-2E3A; [14-26]
+    (=ucs		. #x551A)	; 唚
     (=big5		. #xD0F7)	; &I-B-D0F7;
-    (=daikanwa		. 03748)	; &I-M-03748;
     ))
 (define-char
   '((<-denotational
@@ -18135,6 +18125,53 @@
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs@iso		  . #x20B36)	; &CDP-8D4C;
+      (=big5-cdp	  . #x8D4C)	; &CDP-8D4C;
+      ))
+    (=ucs@cns		. #x551A)	; &C2-2E3A;
+    (=cns11643-2	. #x2E3A)	; &C2-2E3A; [14-26]
+    (=daikanwa		. 03748)	; &I-M-03748;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((==ucs@unicode	    . #x53E3)	; &g2-AJ1-01969;
+	(==adobe-japan1-0   . 01969)	; &g2-AJ1-01969;
+	)
+       ((==ucs@iso	    . #x20B36)	; &g2-CDP-8D4C;
+	))
+      (==ucs@cns	  . #x551A)	; &g2-M-03748;
+      (==cns11643-2	  . #x2E3A)	; &g2-M-03748; [14-26]
+      (==daikanwa	  . 03748)	; &g2-M-03748;
+      (->subsumptive
+       ((===daikanwa	    . 03748)	; &R-M-03748;
+	)
+       ((===cns11643-2	    . #x2E3A)	; &R-C2-2E3A; [14-26]
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x551A)	; 唚
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=gt-k		  . 02778)	; &GT-K02778;
+      ))
     (=ucs@unicode	. #x551A)	; &UU+551A;
     (=ucs@JP/hanazono	. nil)
     (->subsumptive
