@@ -1,3 +1,26 @@
+2016-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (utf-8-gb): Specify `charset-g3'.
+	(utf-8-ivs-gb): Likewise.
+	(utf-8-gb-er): Likewise.
+	(utf-8-ivs-gb-er): Likewise.
+	(utf-8-cns): Likewise.
+	(utf-8-ivs-cns): Likewise.
+	(utf-8-cns-er): Likewise.
+	(utf-8-ivs-cns-er): Likewise.
+	(utf-8-big5): Likewise.
+	(utf-8-ivs-big5): Likewise.
+	(utf-8-big5-er): Likewise.
+	(utf-8-ivs-big5-er): Likewise.
+	(utf-8-jis): Likewise.
+	(utf-8-ivs-jis): Likewise.
+	(utf-8-jis-er): Likewise.
+	(utf-8-ivs-jis-er): Likewise.
+	(utf-8-ks): Likewise.
+	(utf-8-ivs-ks): Likewise.
+	(utf-8-ks-er): Likewise.
+	(utf-8-ivs-ks-er): Likewise.
+
 2016-07-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (utf-8-jp): Specify `charset-g3'.
