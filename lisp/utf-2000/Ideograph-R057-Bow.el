@@ -2514,6 +2514,27 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
+     ((=ucs@iso		  . #x223A5)	; &C6-227A;
+      (=cns11643-6	  . #x227A)	; &C6-227A; [02-90]
+      (=daikanwa	  . 09710)	; &I-M-09710;
+      )
+     ((=ucs@iso		  . #x223A5)	; &C6-227A;
+      (=cns11643-6	  . #x227A)	; &C6-227A; [02-90]
+      (=daikanwa	  . 09710)	; &I-M-09710;
+      ))
+    (=ucs-var-004	. #x5F31)	; &U-v004+5F31;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5F31)	; 弱
+      ))
+    (ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
      ((=>big5-cdp	  . #x8CC4)	; &A-CDP-8CC4;
       )
      ((=>big5-cdp	  . #x8CC4)	; &A-CDP-8CC4;
