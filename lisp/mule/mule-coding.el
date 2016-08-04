@@ -629,7 +629,8 @@
    '(mnemonic "UTF8G"
 	      charset-g0 =ucs@gb
 	      charset-g1 =>ucs@unicode
-	      charset-g2 =>ucs))
+	      charset-g2 =>ucs
+	      charset-g3 =ucs))
 
   (make-coding-system
    'utf-8-ivs-gb 'utf-8
@@ -638,6 +639,7 @@
 	      charset-g0 =ucs@gb
 	      charset-g1 =>ucs@unicode
 	      charset-g2 =>ucs
+	      charset-g3 =ucs
 	      enable-decomposition t))
 
   (make-coding-system
@@ -647,6 +649,7 @@
 	      charset-g0 =ucs@gb
 	      charset-g1 =>ucs@unicode
 	      charset-g2 =>ucs
+	      charset-g3 =ucs
 	      use-entity-reference t))
 
   (make-coding-system
@@ -656,6 +659,7 @@
 	      charset-g0 =ucs@gb
 	      charset-g1 =>ucs@unicode
 	      charset-g2 =>ucs
+	      charset-g3 =ucs
 	      enable-decomposition t
 	      use-entity-reference t))
 
@@ -665,7 +669,8 @@
    '(mnemonic "UTF8C"
 	      charset-g0 =ucs@cns
 	      charset-g1 =>ucs@cns
-	      charset-g2 =>ucs))
+	      charset-g2 =>ucs
+	      charset-g3 =ucs))
 
   (make-coding-system
    'utf-8-ivs-cns 'utf-8
@@ -674,6 +679,7 @@
 	      charset-g0 =ucs@cns
 	      charset-g1 =>ucs@cns
 	      charset-g2 =>ucs
+	      charset-g3 =ucs
 	      enable-decomposition t))
 
   (make-coding-system
@@ -683,6 +689,7 @@
 	      charset-g0 =ucs@cns
 	      charset-g1 =>ucs@cns
 	      charset-g2 =>ucs
+	      charset-g3 =ucs
 	      use-entity-reference t))
 
   (make-coding-system
@@ -692,6 +699,7 @@
 	      charset-g0 =ucs@cns
 	      charset-g1 =>ucs@cns
 	      charset-g2 =>ucs
+	      charset-g3 =ucs
 	      enable-decomposition t
 	      use-entity-reference t))
 
@@ -701,7 +709,8 @@
    '(mnemonic "UTF8B"
 	      charset-g0 =ucs@big5
 	      charset-g1 =>ucs@big5
-	      charset-g2 =>ucs))
+	      charset-g2 =>ucs
+	      charset-g3 =ucs))
 
   (make-coding-system
    'utf-8-ivs-big5 'utf-8
@@ -710,6 +719,7 @@
 	      charset-g0 =ucs@big5
 	      charset-g1 =>ucs@big5
 	      charset-g2 =>ucs
+	      charset-g3 =ucs
 	      enable-decomposition t))
 
   (make-coding-system
@@ -719,6 +729,7 @@
 	      charset-g0 =ucs@big5
 	      charset-g1 =>ucs@big5
 	      charset-g2 =>ucs
+	      charset-g3 =ucs
 	      use-entity-reference t))
 
   (make-coding-system
@@ -728,6 +739,7 @@
 	      charset-g0 =ucs@big5
 	      charset-g1 =>ucs@big5
 	      charset-g2 =>ucs
+	      charset-g3 =ucs
 	      enable-decomposition t
 	      use-entity-reference t))
 
@@ -737,7 +749,8 @@
    '(mnemonic "UTF8J00"
 	      charset-g0 =ucs@jis/2000
 	      charset-g1 =>ucs@jis
-	      charset-g2 =>ucs))
+	      charset-g2 =>ucs
+	      charset-g3 =ucs))
 
   (make-coding-system
    'utf-8-ivs-jis 'utf-8
@@ -746,6 +759,7 @@
 	      charset-g0 =ucs@jis/2000
 	      charset-g1 =>ucs@jis
 	      charset-g2 =>ucs
+	      charset-g3 =ucs
 	      enable-decomposition t))
 
   (make-coding-system
@@ -755,6 +769,7 @@
 	      charset-g0 =ucs@jis/2000
 	      charset-g1 =>ucs@jis
 	      charset-g2 =>ucs
+	      charset-g3 =ucs
 	      use-entity-reference t))
 
   (make-coding-system
@@ -764,6 +779,7 @@
 	      charset-g0 =ucs@jis/2000
 	      charset-g1 =>ucs@jis
 	      charset-g2 =>ucs
+	      charset-g3 =ucs
 	      enable-decomposition t
 	      use-entity-reference t))
 
@@ -813,7 +829,8 @@
    '(mnemonic "UTF8K"
 	      charset-g0 =ucs@ks
 	      charset-g1 =>ucs@ks
-	      charset-g2 =>ucs))
+	      charset-g2 =>ucs
+	      charset-g3 =ucs))
 
   (make-coding-system
    'utf-8-ivs-ks 'utf-8
@@ -822,6 +839,7 @@
 	      charset-g0 =ucs@ks
 	      charset-g1 =>ucs@ks
 	      charset-g2 =>ucs
+	      charset-g3 =ucs
 	      enable-decomposition t))
 
   (make-coding-system
@@ -831,6 +849,7 @@
 	      charset-g0 =ucs@ks
 	      charset-g1 =>ucs@ks
 	      charset-g2 =>ucs
+	      charset-g3 =ucs
 	      use-entity-reference t))
 
   (make-coding-system
@@ -840,6 +859,7 @@
 	      charset-g0 =ucs@ks
 	      charset-g1 =>ucs@ks
 	      charset-g2 =>ucs
+	      charset-g3 =ucs
 	      enable-decomposition t
 	      use-entity-reference t))
 
