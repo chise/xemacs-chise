@@ -1,3 +1,13 @@
+2016-08-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R088-Father.el (U+7236): Add HNG-KAR1059-0.
+
+2016-08-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R086-Fire.el: Add glyph-images of HNG-KAR.
+	(U+7109): Separate UU+7109.
+	(HNG-KAR1049-0): New character; use `<-denotational' for U+7109.
+
 2016-08-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R085-Water.el: Add glyph-images of HNG-KAR.
