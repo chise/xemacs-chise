@@ -395,6 +395,8 @@
        ((===ucs@ks	    . #x722D)	; &R-K0-6E33;
 	(===ks-x1001	    . #x6E33)	; &R-K0-6E33; [78-19]
 	))
+      )
+     ((===hng-kar	  . 10580)	; &HNG018-10580;
       ))
     ))
 (define-char
@@ -1185,6 +1187,15 @@
 	(===ks-x1001	    . #x6A53)	; &R-K0-6A53; [74-51]
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7232)	; 爲
+      ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (===hng-kar		. 10540)	; &HNG018-10540;
     ))
 (define-char
   '((<-denotational
