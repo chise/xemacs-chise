@@ -1,5 +1,8 @@
 2016-08-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R087-Claw.el: Add glyph-images of HNG-KAR.
+	(HNG-KAR1054-0): New character; use `<-denotational' for U+7232.
+
 	* Ideograph-R088-Father.el (U+7236): Add HNG-KAR1059-0.
 
 2016-08-05  MORIOKA Tomohiko  <tomo.git@chise.org>
