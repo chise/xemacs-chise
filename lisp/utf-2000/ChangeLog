@@ -1,3 +1,7 @@
+2016-08-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R090-Half-Tree-Trunk.el (U+7246): Add HNG-KAR1061-0.
+
 2016-08-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R087-Claw.el: Add glyph-images of HNG-KAR.
