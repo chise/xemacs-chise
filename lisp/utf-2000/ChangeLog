@@ -1,3 +1,9 @@
+2016-08-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R091-Slice.el: Add glyph-images of HNG-KAR.
+	(U+7256): Use `->denotational' and `->subsumptive'.
+	(HNG-KAR0230-0): New character; use `<-denotational' for U+7256.
+
 2016-08-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R089-Double-X.el (g2-UU+723E): Add HNG-KAR1060-0.
