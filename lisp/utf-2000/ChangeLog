@@ -1,3 +1,8 @@
+2016-08-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R093-Cow.el: Add glyph-images of HNG-KAR.
+	(U+7281): Add `<-vulgar' for U+7282.
+
 2016-08-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R091-Slice.el: Add glyph-images of HNG-KAR.
