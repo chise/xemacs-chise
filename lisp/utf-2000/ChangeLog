@@ -1,3 +1,10 @@
+2016-08-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R193-Cauldron.el (U+9B33): Separate A-UU+9B33.
+	(A-UU+9B33): Add `=>ucs@iwds-1'.
+	(U+9B33-itaiji-002): New character; use `<-denotational' for
+	U+9B33.
+
 2016-08-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R093-Cow.el: Add glyph-images of HNG-KAR.
