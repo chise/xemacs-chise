@@ -1,5 +1,17 @@
 2016-08-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R095-Profound.el: Add glyph-images of HNG-KAR.
+
+	* Ideograph-R094-Dog.el: Add glyph-images of HNG-KAR.
+	(HNG-KAR1067-0): New character; use `<-denotational' for U+72AF.
+	(HD-KS227650): Unify MJ016890.
+	(U+72D0): Separate o-UU+72D0.
+	(o-UU+72D0): Add `=>ucs@iwds-1'.
+	(HNG-KAR1064-0): New character; use `<-denotational' for U+72D0.
+	(HNG-KAR0235-0): New character; use `<-denotational' for U+737B.
+
+2016-08-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R193-Cauldron.el (U+9B33): Separate A-UU+9B33.
 	(A-UU+9B33): Add `=>ucs@iwds-1'.
 	(U+9B33-itaiji-002): New character; use `<-denotational' for
