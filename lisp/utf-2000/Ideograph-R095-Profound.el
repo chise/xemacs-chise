@@ -49,6 +49,11 @@
      ((==ucs@unicode	  . #x7384)	; &g2-UU+7384;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x507E)	; &g2-UU+7384; [48-94]
+      (->subsumptive
+       ((===ucs@unicode	    . #x7384)	; &R-UU+7384;
+	)
+       ((===hng-kar	    . 10730)	; &HNG018-10730;
+	))
       ))
     ))
 (define-char
@@ -115,6 +120,8 @@
 	(===ks-x1001	    . #x6D35)	; &R-K0-6D35; [77-21]
 	)
        ((===cns11643-1	    . #x565C)	; &R-C1-565C; [54-60]
+	)
+       ((===hng-kar	    . 02390)	; &HNG018-02390;
 	))
       )
      ((==ucs@unicode	  . #x7386)	; &g2-UU+7386;
@@ -212,6 +219,8 @@
      ((==ucs@unicode	  . #x7387)	; &g2-UU+7387;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x424A)	; &g2-UU+7387; [34-42]
+      )
+     ((===hng-kar	  . 02380)	; &HNG018-02380;
       ))
     ))
 (define-char
