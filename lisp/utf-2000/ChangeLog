@@ -1,3 +1,17 @@
+2016-08-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R104-Sickness.el: Add glyph-images of HNG-KAR.
+
+2016-08-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R097-Melon.el (BUCS+74DC): New abstract character.
+	(U+74DC): Add `<-denotational' for BUCS+74DC.
+	(U-000244F0): New character; use `<-denotational' for BUCS+74DC;
+	unify BC-88A3; add HNG-KAR1077-0.
+	(U+74E2): Separate A-UU+74E2.
+	(A-UU+74E2): Add `=>ucs@iwds-1'.
+	(HNG-KAR0244-0): New character; use `<-denotational' for U+74E2.
+
 2016-08-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R096-Jade.el: Add glyph-images of HNG-KAR.
