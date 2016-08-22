@@ -2,6 +2,14 @@
 (define-char
   '((ideographic-radical . 97)	; ⽠
     (ideographic-strokes . 0)
+    (==>ucs@bucs	. #x74DC)	; &BUCS+74DC;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x74DC)	; &BUCS+74DC;
+      ))
+    (ideographic-radical . 97)	; ⽠
+    (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (=ucs		. #x74DC)	; 瓜
     (=big5		. #xA5CA)	; &I-B-A5CA;
@@ -69,6 +77,30 @@
 	 ((=ucs		      . #xE0103)	; 󠄃
 	  ))
 	(==hanyo-denshi/jt  . #xB5DE)	; &g2-HD-JT-B5DE;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x74DC)	; &BUCS+74DC;
+      ))
+    (ideographic-radical . 97)	; ⽠
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=ucs		. #x244F0)	; 𤓰
+    (=big5-cdp		. #x88A3)	; &I-CDP-88A3;
+    (->subsumptive
+     ((==ucs@iso	  . #x244F0)	; &g2-CDP-88A3;
+      (==big5-cdp	  . #x88A3)	; &g2-CDP-88A3;
+      (->subsumptive
+       ((===ucs@iso	    . #x244F0)	; &R-U-000244F0;
+	)
+       ((===big5-cdp	    . #x88A3)	; &R-CDP-88A3;
+	)
+       ((===hng-kar	    . 10770)	; &HNG018-10770;
+	(<-formed
+	 ((=ucs		      . #x74DC)	; 瓜
+	  ))
 	))
       ))
     ))
@@ -771,15 +803,35 @@
       )
      ((=ucs		  . #x7968)	; 票
       )
-     ((=ucs		  . #x74DC)	; 瓜
+     ((==>ucs@bucs	  . #x74DC)	; &BUCS+74DC;
       ))
     (=ucs		. #x74E2)	; 瓢
-    (=>jis-x0208	. #x493B)	; 瓢 [41-27]
-    (=>jis-x0213-1	. #x493B)	; 瓢 [41-27]
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x74E2)	; 瓢
+      ))
+    (ideographic-radical . 97)	; ⽠
+    (ideographic-strokes . 11)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7968)	; 票
+      )
+     ((=ucs		  . #x74DC)	; 瓜
+      ))
+    (=>ucs@iwds-1	. #x74E2)	; &J97-493B;
+    (=>ucs@unicode	. #x74E2)	; &J97-493B;
+    (=>jis-x0208	. #x493B)	; &J97-493B; [41-27]
+    (=>jis-x0213-1	. #x493B)	; &J97-493B; [41-27]
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x74E2)	; &J97-493B;
+      (=>ucs@unicode	  . #x74E2)	; &J97-493B;
+      (=>jis-x0208	  . #x493B)	; &J97-493B; [41-27]
       ))
     (ideographic-radical . 97)	; ⽠
     (ideographic-strokes . 11)
@@ -852,6 +904,23 @@
 	  ))
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x74E2)	; 瓢
+      ))
+    (ideographic-radical . 97)	; ⽠
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7968)	; 票
+      )
+     ((=ucs		  . #x244F0)	; 𤓰
+      ))
+    (===hng-kar		. 02440)	; &HNG018-02440;
     ))
 (define-char
   '((ideographic-radical . 97)	; ⽠
