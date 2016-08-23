@@ -368,6 +368,8 @@
      ((==ucs@unicode	  . #x767C)	; &g2-UU+767C;
       (==ucs@JP/hanazono  . nil)
       (==gb12345	  . #x3722)	; &g2-UU+767C; [23-02]
+      )
+     ((===hng-kar	  . 10910)	; &HNG018-10910;
       ))
     ))
 (define-char
