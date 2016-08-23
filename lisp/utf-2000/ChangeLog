@@ -1,5 +1,14 @@
 2016-08-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R105-Dotted-Tent.el (UU+767C): Add HNG-KAR1091-0.
+
+	* Ideograph-R103-Bolt-Of-Cloth.el (U+7591): Separate UU+7591.
+	(UU+7591): Add `=>ucs@iwds-1'.
+	(HNG-KAR1430-1): New character; use `<-denotational' for U+7591.
+	(HNG-KAR1430-2): New character; use `<-denotational' for U+7591.
+
+2016-08-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R104-Sickness.el: Add glyph-images of HNG-KAR.
 
 2016-08-20  MORIOKA Tomohiko  <tomo.git@chise.org>
