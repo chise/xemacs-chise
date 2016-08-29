@@ -1,5 +1,7 @@
 2016-08-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R157-Foot.el (UU+47FD): Add HNG-KAR1088-0.
+
 	* Ideograph-R105-Dotted-Tent.el (UU+767C): Add HNG-KAR1091-0.
 
 	* Ideograph-R103-Bolt-Of-Cloth.el (U+7591): Separate UU+7591.
