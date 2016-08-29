@@ -3733,6 +3733,11 @@
 	)
        ((==ucs@unicode	    . #x47FD)	; &g2-UU+47FD;
 	(==ucs@JP/hanazono  . nil)
+	)
+       ((===hng-kar	    . 10880)	; &HNG018-10880;
+	(<-formed
+	 ((=ucs		      . #x758F)	; 疏
+	  ))
 	))
       )
      ((ideographic-strokes . 6)
