@@ -1,3 +1,7 @@
+2016-08-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R106-White.el: Add glyph-images of HNG-KAR.
+
 2016-08-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R157-Foot.el (UU+47FD): Add HNG-KAR1088-0.
