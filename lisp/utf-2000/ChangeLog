@@ -1,3 +1,17 @@
+2016-08-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R107-Skin.el (U+76AE): Add HNG-KAR0253-0.
+
+	* Ideograph-R102-Field.el: Add glyph-images of HNG-KAR.
+	(UU+753B): Add `<-same' for UU+756B; add `<-vulgar' for UU+756B.
+	(C6-3277): Unify CU+24C31, MJ041360, BC-86F0 and KOSEKI-244230;
+	add `<-original' for UU+753B.
+	(IU+24C31): Unify S-5025; add `<-original' for UU+756B.
+	(U-00020B47): Use `->subsumptive'; add `<-same' for U+756E; add
+	HNG-KAR0246-0.
+	(U+756B): Separate UU+756B.
+	(HNG-KAR0247-0): New character; use `<-denotational' for U+756B.
+
 2016-08-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R106-White.el: Add glyph-images of HNG-KAR.
