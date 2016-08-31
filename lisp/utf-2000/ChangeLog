@@ -1,5 +1,8 @@
 2016-08-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R034-Go.el (U-00021554): New character; use
+	`<-unknown' for U+5903.
+
 	* Ideograph-R030-Mouth.el (U+568D): Separate UU+568D.
 	(UU+568D): Add `=>ucs@iwds-1'.
 
