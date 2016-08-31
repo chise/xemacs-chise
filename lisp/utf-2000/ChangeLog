@@ -1,3 +1,8 @@
+2016-08-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+568D): Separate UU+568D.
+	(UU+568D): Add `=>ucs@iwds-1'.
+
 2016-08-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R107-Skin.el (U+76AE): Add HNG-KAR0253-0.
