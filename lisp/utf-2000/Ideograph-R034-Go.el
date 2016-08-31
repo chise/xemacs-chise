@@ -126,6 +126,35 @@
     ))
 (define-char
   '((ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=ucs		. #x21554)	; 𡕔
+    (<-unknown
+     ((=ucs		  . #x5903)	; 夃
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21554)	; 𡕔
+      ))
+    (ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x4E43)	; 乃
+      )
+     ((=ucs		  . #x5902)	; 夂
+      ))
+    (=ucs@iso		. #x21554)	; &U-00021554;
+    (->subsumptive
+     ((==ucs@iso	  . #x21554)	; &g2-IU-00021554;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 34)	; ⼡
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (hanyu-dazidian	2 868 4)
