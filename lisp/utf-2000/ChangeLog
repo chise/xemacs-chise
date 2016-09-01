@@ -1,5 +1,24 @@
 2016-08-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R108-Dish.el: Add glyph-images of HNG-KAR.
+	(BUCS+76C8): New abstract character.
+	(U+76C8): Add `<-denotational' for BUCS+76C8.
+	(HNG-KAR1096-0): New character; use `<-denotational' for
+	BUCS+76C8; use `<-formed' for U+76C8.
+	(MJ058144): New character; use `<-denotational' for BUCS+76C8;
+	unify KOSEKI-257250; use `<-formed' for U+76C8.
+	(U-0002505E): Separate IU+2505E.
+	(U+76E1): Separate UU+76E1.
+	(UU+76E1): Add `=>ucs@iwds-1'.
+	(HNG-KAR1099-0): New character; use `<-denotational' for U+76E1.
+
+	* Ideograph-R044-Corpse.el (U+5C3D): Omit `<-simplified@ucs'.
+
+	* Ideograph-R009-Man.el (U+4FAD): Add `<-simplified@JP/jis' for
+	UU+5118.
+	(U+5118): Separate UU+5118.
+	(UU+5118): Add `=>ucs@iwds-1'.
+
 	* Ideograph-R034-Go.el (U-00021554): New character; use
 	`<-unknown' for U+5903.
 
