@@ -48216,7 +48216,7 @@
      ((=ucs		  . #x53E3)	; 口
       )
      ((=ucs@unicode	  . #x76E1)	; &AJ1-05805;
-      (=adobe-japan1-0	  . 05805)	; &I-AJ1-05805;
+      (=adobe-japan1-0	  . 05805)	; &AJ1-05805;
       ))
     (=>ucs@iwds-1	. #x568D)	; &C2-5C4E;
     (=ucs@unicode	. #x568D)	; &C2-5C4E;
