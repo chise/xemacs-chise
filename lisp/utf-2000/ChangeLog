@@ -1,3 +1,7 @@
+2016-09-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R151-Bean.el: Add glyph-images of HNG-KAR.
+
 2016-08-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R108-Dish.el: Add glyph-images of HNG-KAR.
