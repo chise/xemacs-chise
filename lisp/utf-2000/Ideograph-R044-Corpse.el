@@ -467,18 +467,18 @@
     (=daikanwa		. 07642)	; &I-M-07642;
     (=shinjigen		.  5256)	; 尽
     (<-simplified@CN
-     ((=ucs		  . #x76E1)	; 盡
-      (=gb12345		  . #x3E21)	; 盡 [30-01]
+     ((=ucs@unicode	  . #x76E1)	; &AJ1-05805;
+      (=adobe-japan1-0	  . 05805)	; &AJ1-05805;
+      (=gb12345		  . #x3E21)	; &AJ1-05805; [30-01]
       )
-     ((=ucs		  . #x5118)	; 儘
-      (=gb12345		  . #x7845)	; 儘 [88-37]
+     ((=ucs@unicode	  . #x5118)	; &AJ1-04143;
+      (=adobe-japan1-0	  . 04143)	; &AJ1-04143;
+      (=gb12345		  . #x7845)	; &AJ1-04143; [88-37]
       ))
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x76E1)	; 盡
+     ((=ucs@unicode	  . #x76E1)	; &AJ1-05805;
+      (=adobe-japan1-0	  . 05805)	; &AJ1-05805;
       (=jis-x0208	  . #x6238)	; &I-J90-6238; [66-24]
-      ))
-    (<-simplified@ucs
-     ((=ucs		  . #x76E1)	; 盡
       ))
     ))
 (define-char
