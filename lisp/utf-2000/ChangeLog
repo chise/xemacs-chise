@@ -1,5 +1,27 @@
 2016-09-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R178-Tanned-Leather.el (U+97CB): Add
+	`ideographic-structure'; unify S-9106.
+	(U+97CB-itaiji-002): New character; use `<-denotational' for
+	A-MJ059018.
+	(A-MJ059018): New abstract character.
+	(MJ059018): New character; use `<-denotational' for A-MJ059018;
+	unify KOSEKI-488420; use `<-formed' for U+97CB.
+
+2016-09-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R013-Down-Box.el (A-IWDSU+5193): Separate A-UU+5193.
+	(A-MJ007320): New abstract node; unify A-GT-02023; use
+	`<-denotational' for A-IWDSU+5193.
+	(MJ007320): Use A-GT-02023 instead of A-IWDSU+5193 as the mother.
+	(GT-02026): Ditto.
+	(A-UU+5193): New abstract node; unify A-GT-02023; use
+	`<-denotational' for A-IWDSU+5193; unify A-MJ007321, A-GT-02025
+	and A-GT-K06707.
+	(GT-02025): Use A-UU+5193 instead of A-IWDSU+5193 as the mother.
+	(UU+5193): Ditto.
+	(U+5193-itaiji-002): Add `ideographic-structure'.
+
 	* Ideograph-R151-Bean.el: Add glyph-images of HNG-KAR.
 
 2016-08-31  MORIOKA Tomohiko  <tomo.git@chise.org>
