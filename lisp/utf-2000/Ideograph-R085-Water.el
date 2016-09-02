@@ -20312,7 +20312,7 @@
      ((=ucs		  . #x6C35)	; 氵
       )
      ((=>ucs@iwds-1	  . #x5193)	; &A-IWDSU+5193;
-      (=>ucs@unicode	  . #x5193)	; &A-IWDSU+5193;
+      (=big5		  . #xD0E0)	; &A-IWDSU+5193;
       ))
     (=>ucs@iwds-1	. #x6E9D)	; &A-IWDSU+6E9D;
     (=>ucs@unicode	. #x6E9D)	; &A-IWDSU+6E9D;
