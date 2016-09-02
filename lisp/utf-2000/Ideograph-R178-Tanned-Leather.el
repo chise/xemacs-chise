@@ -2,6 +2,16 @@
 (define-char
   '((ideographic-radical . 178)	; ⾱
     (ideographic-strokes . 0)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x2B740)	; 𫝀
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs		  . #x3404)	; 㐄
+      ))
     (=ucs		. #x97CB)	; 韋
     (=jis-x0208		. #x706A)	; &I-J90-706A; [80-74]
     (=ks-x1001		. #x6A5F)	; &I-K0-6A5F; [74-63]
@@ -13,6 +23,7 @@
     (=gt-k		. 06734)	; &I-GT-K06734;
     (=gt-pj-1		. #x706A)	; &I-GT-57813; [80-74]
     (=daikanwa		. 43108)	; &I-M-43108;
+    (=shinjigen		.  9106)	; 韋
     (->subsumptive
      ((total-strokes	   . 9)
       (=>>ucs@unicode	  . #x97CB)	; &GT-57812;
@@ -32,6 +43,8 @@
 	  )
 	 ((===ucs@unicode     . #x97CB)	; &R-UU+97CB;
 	  ))
+	)
+       ((==shinjigen	    .  9106)	; &g2-SJG2-9106;
 	)
        ((==ucs@cns	    . #x97CB)	; &g2-CU+97CB;
 	(==cns11643-1	    . #x5374)	; &g2-CU+97CB; [51-84]
@@ -80,6 +93,50 @@
     (<-simplified@CN
      ((=ucs		  . #x97CB)	; 韋
       (=gb12345		  . #x4E24)	; 韋 [46-04]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>mj		  . 059018)	; &A-MJ059018;
+      ))
+    (ideographic-radical . 178)	; ⾱
+    (ideographic-strokes . 1)
+    (total-strokes	 . 10)
+    (=ucs-itaiji-002	. #x97CB)	; &U-i002+97CB;
+    ))
+(define-char
+  '((ideographic-radical . 178)	; ⾱
+    (ideographic-strokes . 1)
+    (total-strokes	 . 10)
+    (=>mj		. 059018)	; &A-MJ059018;
+    ))
+(define-char
+  '((<-denotational
+     ((=>mj		  . 059018)	; &A-MJ059018;
+      ))
+    (ideographic-radical . 178)	; ⾱
+    (ideographic-strokes . 1)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x2B740)	; 𫝀
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs		  . #x5E00)	; 帀
+      ))
+    (=mj		. 059018)	; &MJ059018;
+    (=koseki		. 488420)	; &MJ059018;
+    (<-formed
+     ((=ucs		  . #x97CB)	; 韋
+      ))
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==mj		  . 059018)	; &g2-MJ059018;
+      (==koseki		  . 488420)	; &g2-MJ059018;
       ))
     ))
 (define-char
