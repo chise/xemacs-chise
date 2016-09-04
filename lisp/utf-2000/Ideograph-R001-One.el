@@ -956,6 +956,53 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 00135)	; &GT-K00135;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=ucs		. #x2B740)	; 𫝀
+    (=mj		. 056880)	; &I-MJ056880;
+    (=big5-cdp		. #x8DEC)	; &I-CDP-8DEC;
+    (=koseki		. 003060)	; 𫝀
+    (<-formed
+     ((=ucs		  . #x4E94)	; 五
+      ))
+    (<-formed*sources
+     koseki)
+    (<-formed@component
+     ((=ucs		  . #x6B62)	; 止
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x2B740)	; &g2-MJ056880;
+      (==mj		  . 056880)	; &g2-MJ056880;
+      (==koseki		  . 003060)	; &g2-MJ056880;
+      (->subsumptive
+       ((===mj		    . 056880)	; &R-MJ056880;
+	)
+       ((===ucs@iso	    . #x2B740)	; &R-U-0002B740;
+	))
+      )
+     ((=>>big5-cdp	  . #x8DEC)	; &G-CDP-8DEC;
+      (=>>gt-k		  . 00378)	; &G-CDP-8DEC;
+      (->subsumptive
+       ((==big5-cdp	    . #x8DEC)	; &g2-CDP-8DEC;
+	)
+       ((=gt-k		    . 00378)	; &GT-K00378;
+	(=gt-pj-k1	    . #x3873)	; &GT-K00378; [24-83]
+	(<-formed@component/connect-below
+	 ((=ucs		      . #x2B740)	; 𫝀
+	  ))
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
     (=gt		. 00010)	; &GT-00010;
     (=gt-k		. 00176)	; &I-GT-K00176;
     (=gt-pj-9		. #x4A2B)	; &GT-00010; [42-11]
