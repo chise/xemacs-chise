@@ -1,5 +1,9 @@
 2016-09-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el (U-0002B740): New character; unify
+	MJ056880, BC-8DEC and KOSEKI-003060; use `<-formed' for U+4E94;
+	use `<-formed@component' for U+6B62; add GT-K00378.
+
 	* Ideograph-R178-Tanned-Leather.el (U+97CB): Add
 	`ideographic-structure'; unify S-9106.
 	(U+97CB-itaiji-002): New character; use `<-denotational' for
