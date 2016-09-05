@@ -1,5 +1,10 @@
 2016-09-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R144-Walk-Enclosure.el: Add glyph-images of HNG-KAR.
+	(U+885E): Separate UU+885E.
+	(UU+885E): Add `=>ucs@iwds-1'.
+	(HNG-KAR1243-0): New character; use `<-denotational' for U+885E.
+
 	* Ideograph-R001-One.el (U-0002B740): New character; unify
 	MJ056880, BC-8DEC and KOSEKI-003060; use `<-formed' for U+4E94;
 	use `<-formed@component' for U+6B62; add GT-K00378.
