@@ -1,3 +1,11 @@
+2016-09-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R101-Use.el (BUCS+752C): New abstract character.
+	(U+752C): Add `<-denotational' for BUCS+752C.
+	(U+752C-itaiji-003): New character; use `<-denotational' for
+	BUCS+752C; use `<-formed' for U+752C.
+	(U+752C-itaiji-004): Likewise.
+
 2016-09-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R144-Walk-Enclosure.el: Add glyph-images of HNG-KAR.
