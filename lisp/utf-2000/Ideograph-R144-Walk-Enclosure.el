@@ -50,6 +50,8 @@
 	))
       )
      ((===hng-khi	  . 05560)	; &HNG010-05560;
+      )
+     ((===hng-kar	  . 12440)	; &HNG018-12440;
       ))
     ))
 (define-char
@@ -806,7 +808,8 @@
     (=daikanwa		. 34073)	; &I-M-34073;
     (=shinjigen		.  7331)	; 衛
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x885E)	; 衞
+     ((=ucs@unicode	  . #x885E)	; &AJ1-06577;
+      (=adobe-japan1-0	  . 06577)	; &AJ1-06577;
       (=jis-x0208	  . #x6A4C)	; &I-J90-6A4C; [74-44]
       ))
     (->subsumptive
@@ -865,14 +868,32 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
     (=ucs		. #x885E)	; 衞
-    (=adobe-japan1-0	. 06577)	; &I-AJ1-06577;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x885E)	; 衞
+      ))
+    (ideographic-radical . 144)	; ⾏
+    (ideographic-strokes . 10)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x884C)	; 行
+      )
+     ((=mj		  . 059018)	; &MJ059018;
+      ))
+    (=>ucs@iwds-1	. #x885E)	; &AJ1-06577;
+    (=ucs@unicode	. #x885E)	; &AJ1-06577;
+    (=adobe-japan1-0	. 06577)	; &AJ1-06577;
     (=jis-x0208		. #x6A4C)	; &I-J90-6A4C; [74-44]
     (=cns11643-3	. #x5263)	; &I-C3-5263; [50-67]
     (=jis-x0213-1	. #x6A4C)	; &I-JX1-6A4C; [74-44]
     (=gt		. 45950)	; &I-GT-45950;
     (=gt-pj-1		. #x6A4C)	; &I-GT-45950; [74-44]
     (=daikanwa		. 34074)	; &I-M-34074;
-    (=shinjigen		.  7332)	; 衞
+    (=shinjigen		.  7332)	; &AJ1-06577;
     (->subsumptive
      ((==ucs@unicode	  . #x885E)	; &g2-AJ1-06577;
       (==adobe-japan1-0	  . 06577)	; &g2-AJ1-06577;
@@ -897,6 +918,23 @@
        ((===ucs@unicode	    . #x885E)	; &R-UU+885E;
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x885E)	; 衞
+      ))
+    (ideographic-radical . 144)	; ⾏
+    (ideographic-strokes . 10)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x884C)	; 行
+      )
+     ((=ucs-itaiji-002	  . #x97CB)	; &U-i002+97CB;
+      ))
+    (===hng-kar		. 12430)	; &HNG018-12430;
     ))
 (define-char
   '((ideographic-radical . 144)	; ⾏
@@ -1027,6 +1065,8 @@
 	)
        ((===ucs@unicode	    . #x8861)	; &R-UU+8861;
 	))
+      )
+     ((===hng-kar	  . 03480)	; &HNG018-03480;
       ))
     ))
 (define-char
