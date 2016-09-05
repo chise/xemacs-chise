@@ -181,6 +181,13 @@
     ))
 (define-char
   '((ideographic-radical . 101)	; ⽤
+    (==>ucs@bucs	. #x752C)	; &BUCS+752C;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x752C)	; &BUCS+752C;
+      ))
+    (ideographic-radical . 101)	; ⽤
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
     (=ucs		. #x752C)	; 甬
@@ -196,6 +203,61 @@
     (=gt-pj-1		. #x6135)	; &I-GT-27879; [65-21]
     (=daikanwa		. 21707)	; &I-M-21707;
     (=shinjigen		.  5016)	; 甬
+    (->subsumptive
+     ((==ucs@unicode	  . #x752C)	; &g2-AJ1-05708;
+      (==adobe-japan1-0	  . 05708)	; &g2-AJ1-05708;
+      (==gb2312		  . #x702E)	; &g2-AJ1-05708; [80-14]
+      (==ks-x1001	  . #x6945)	; &g2-AJ1-05708; [73-37]
+      (==jis-x0208	  . #x6135)	; &g2-AJ1-05708; [65-21]
+      (==cns11643-1	  . #x4B2C)	; &g2-AJ1-05708; [43-12]
+      (==jis-x0213-1	  . #x6135)	; &g2-AJ1-05708; [65-21]
+      (==gt		  . 27879)	; &g2-AJ1-05708;
+      (==gt-k		  . 02719)	; &g2-AJ1-05708;
+      (==daikanwa	  . 21707)	; &g2-AJ1-05708;
+      (==shinjigen	  .  5016)	; &g2-AJ1-05708;
+      (->subsumptive
+       ((===daikanwa	    . 21707)	; &R-M-21707;
+	)
+       ((===jis-x0208	    . #x6135)	; &R-J0-6135; [65-21]
+	(===jis-x0213-1	    . #x6135)	; &R-J0-6135; [65-21]
+	)
+       ((===adobe-japan1-0  . 05708)	; &R-AJ1-05708;
+	)
+       ((===cns11643-1	    . #x4B2C)	; &R-C1-4B2C; [43-12]
+	)
+       ((===gt		    . 27879)	; &R-GT-27879;
+	(===gt-k	    . 02719)	; &R-GT-27879;
+	)
+       ((===ucs@ks	    . #x752C)	; &R-K0-6945;
+	(===ks-x1001	    . #x6945)	; &R-K0-6945; [73-37]
+	)
+       ((===ucs@unicode	    . #x752C)	; &R-UU+752C;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x752C)	; &BUCS+752C;
+      ))
+    (ideographic-radical . 101)	; ⽤
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (=ucs-itaiji-003	. #x752C)	; &U-i003+752C;
+    (<-formed
+     ((=ucs		  . #x752C)	; 甬
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x752C)	; &BUCS+752C;
+      ))
+    (ideographic-radical . 101)	; ⽤
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (=ucs-itaiji-004	. #x752C)	; &U-i004+752C;
+    (<-formed
+     ((=ucs		  . #x752C)	; 甬
+      ))
     ))
 (define-char
   '((ideographic-radical . 101)	; ⽤
