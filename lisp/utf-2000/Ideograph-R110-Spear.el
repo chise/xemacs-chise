@@ -72,10 +72,34 @@
     ))
 (define-char
   '((ideographic-radical . 110)	; ⽭
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x77DB)	; 矛
+      )
+     ((=ucs		  . #x4ECA)	; 今
+      ))
+    (=ucs		. #x77DC)	; 矜
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x77DC)	; 矜
+      ))
+    (ideographic-radical . 110)	; ⽭
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
-    (=ucs		. #x77DC)	; 矜
-    (=adobe-japan1-0	. 05847)	; &I-AJ1-05847;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x77DB)	; 矛
+      )
+     ((=ucs@unicode	  . #x4ECA)	; &AJ1-02067;
+      (=adobe-japan1-0	  . 02067)	; &AJ1-02067;
+      ))
+    (=ucs@unicode	. #x77DC)	; &AJ1-05847;
+    (=adobe-japan1-0	. 05847)	; &AJ1-05847;
     (=jis-x0208		. #x6262)	; &I-J90-6262; [66-66]
     (=gb2312		. #x7166)	; &I-G0-7166; [81-70]
     (=ks-x1001		. #x5068)	; &I-K0-5068; [48-72]
@@ -85,7 +109,7 @@
     (=gt		. 30529)	; &I-GT-30529;
     (=gt-pj-1		. #x6262)	; &I-GT-30529; [66-66]
     (=daikanwa		. 23852)	; &I-M-23852;
-    (=shinjigen		.  5387)	; 矜
+    (=shinjigen		.  5387)	; &AJ1-05847;
     (->subsumptive
      ((==ucs@cns	  . #x77DC)	; &g2-AJ1-05847;
       (==ucs@jis	  . #x77DC)	; &g2-AJ1-05847;
@@ -112,12 +136,31 @@
 	)
        ((===ucs@ks	    . #x77DC)	; &R-K0-5068;
 	(===ks-x1001	    . #x5068)	; &R-K0-5068; [48-72]
+	)
+       ((===hng-kar	    . 14311)	; &HNG018-14311;
 	))
       )
      ((==ucs@unicode	  . #x77DC)	; &g2-UU+77DC;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x7166)	; &g2-UU+77DC; [81-70]
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x77DC)	; 矜
+      ))
+    (ideographic-radical . 110)	; ⽭
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x77DB)	; 矛
+      )
+     ((=ucs		  . #x2B746)	; 𫝆
+      ))
+    (===hng-kar		. 14312)	; &HNG018-14312;
     ))
 (define-char
   '((ideographic-radical . 110)	; ⽭
