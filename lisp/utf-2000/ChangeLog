@@ -1,5 +1,8 @@
 2016-09-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R143-Blood.el (HNG-KAR1104-0): New character; use
+	`<-denotational' for U+8846; use `<-formed' for U+773E.
+
 	* Ideograph-R101-Use.el (BUCS+752C): New abstract character.
 	(U+752C): Add `<-denotational' for BUCS+752C.
 	(U+752C-itaiji-003): New character; use `<-denotational' for
