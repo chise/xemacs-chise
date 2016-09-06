@@ -548,6 +548,18 @@
     (ideographic-radical . 143)	; ⾎
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
+    (===hng-kar		. 11040)	; &HNG018-11040;
+    (<-formed
+     ((=ucs		  . #x773E)	; 眾
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8846)	; 衆
+      ))
+    (ideographic-radical . 143)	; ⾎
+    (ideographic-strokes . 6)
+    (total-strokes	 . 12)
     (=shinjigen@1ed	.  7317)	; &SJG1-7317;
     ))
 (define-char
