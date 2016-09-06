@@ -1,3 +1,9 @@
+2016-09-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R110-Spear.el (U+77DC): Separate UU+77DC.
+	(g2-JU+77DC): Add HNG-KAR1431-1.
+	(HNG-KAR1431-2): New character; use `<-denotational' for U+77DC.
+
 2016-09-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R143-Blood.el (HNG-KAR1104-0): New character; use
