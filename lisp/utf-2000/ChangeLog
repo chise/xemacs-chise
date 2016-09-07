@@ -1,4 +1,64 @@
+2016-09-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R109-Eye.el: Add glyph-images of HNG-KAR.
+	(HNG-KAR1109-0): New character; use `<-denotational' for U+76F4.
+	(U+76FC): Use `->subsumptive'.
+
 2016-09-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (U+96CE): Add HNG-KAR1102-0.
+	(HNG-KAR1102-0): New abstract glyph; use `<-HNG@zinbun/takuhon'
+	for U+96CE; use `<-formed' for U+7762.
+
+	* Ideograph-R149-Speech.el: Add glyph-images of HNG-KAR.
+	(U+8A12): Separate A-UU+8A12.
+	(A-UU+8A12): New abstract node; use `<-denotational' for U+8A12;
+	separate o-UU+8A12 and B-D3DD.
+	(o-UU+8A12): New abstract node; use `<-denotational' for
+	A-UU+8A12; unify B-D3DD.
+	(HNG-KAR1291-0): New character; use `<-denotational' for U+8A12.
+	(U+8AA0): Separate A-UU+8AA0.
+	(A-UU+8AA0): New abstract node; add `=>ucs@iwds-1'.
+	(HNG-KAR1432-2): New character; use `<-denotational' for U+8AA0.
+	(A-M-35537): New abstract node to integrate M-35537 and
+	U-0002F9CF; use `<-denotational' for A-UU+8AA0.
+	(U-0002F9CF): Add `<-subsumptive' for A-M-35537; add
+	HNG-KAR1432-1.
+	(BUCS+8AA6): New abstract node.
+	(U+8AA6): Add `<-denotational' for BUCS+8AA6.
+	(U+8BF5): Likewise; add `<-simplified@CN' for U+8AA6.
+	(HNG-KAR1433-1): New character; use `<-denotational' for
+	BUCS+8AA6; use `<-formed' for U+8AA6.
+	(HNG-KAR1433-2): Likewise.
+	(U+8AA8): Separate A-UU+8AA8.
+	(A-UU+8AA8): New abstract node; add `=>ucs@iwds-1'.
+	(A-MJ024531): New abstract node; use `<-denotational' for
+	A-UU+8AA8.
+	(HD-FT2545): Unify MJ024531; use `<-subsumptive' for A-MJ024531
+	instead of `<-denotational' for U+8AA8.
+	(HNG-KAR1274-0): New character; use `<-denotational' for U+8AA8.
+	(HNG-KAR1277-0): New character; use `<-denotational' for U+8AFE.
+	(U+8AF6): Separate UU+8AF6.
+	(UU+8AF6): Add `=>ucs@iwds-1'.
+	(HNG-KAR0364-0): New character; use `<-denotational' for U+8AF6.
+	(U+8AFE): Apply new conventions for glyph granularity.
+	(BUCS+8B1B): New abstract node.
+	(A-UU+8B1B): New abstract node; use `<-denotational' for
+	BUCS+8B1B.
+	(A-J0-3956): New abstract node; use `<-denotational' for
+	A-UU+8B1B; add `=>ucs@iwds-1'.
+	(U+8B1B): Add `<-denotational' for A-J0-3956.
+	(U-00027AB8): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-UU+8B1B.
+	(HNG-KAR1267-0): New character; use `<-denotational' for
+	U-00027AB8; use `<-formed' for U+8B1B.
+	(U+8BB2): Add `<-denotational' for BUCS+8B1B; add
+	`<-simplified@CN' for UU+8B1B.
+	(U-00027ABF): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-J0-3956.
+	(U+8B6C): Separate UU+8B6C.
+	(UU+8B6C): Add `=>ucs@iwds-1'.
+	(HNG-KAR1271-0): New character; use `<-denotational' for U+8B6C.
 
 	* Ideograph-R110-Spear.el (U+77DC): Separate UU+77DC.
 	(g2-JU+77DC): Add HNG-KAR1431-1.
