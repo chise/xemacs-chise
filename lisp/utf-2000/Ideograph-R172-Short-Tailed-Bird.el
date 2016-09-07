@@ -1502,6 +1502,14 @@
 	)
        ((===ucs@unicode	    . #x96CE)	; &R-UU+96CE;
 	))
+      )
+     ((===hng-kar	  . 11020)	; &HNG018-11020;
+      (<-HNG@zinbun/takuhon
+       ((=ucs		    . #x96CE)	; 雎
+	))
+      (<-formed
+       ((=ucs		    . #x7762)	; 睢
+	))
       ))
     ))
 (define-char
