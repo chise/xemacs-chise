@@ -56,6 +56,8 @@
        ((===ucs@unicode	    . #x793A)	; &R-UU+793A;
 	)
        ((===hng-khm	    . 04640)	; &HNG011-04640;
+	)
+       ((===hng-kar	    . 02630)	; &HNG018-02630;
 	))
       ))
     ))
@@ -480,6 +482,8 @@
 	)
        ((===ucs@unicode	    . #xFA4C)	; &R-UU+FA4C;
 	))
+      )
+     ((===hng-kar	  . 11250)	; &HNG018-11250;
       ))
     ))
 (define-char
@@ -1285,13 +1289,7 @@
 	(===ks-x1001	    . #x5136)	; &R-K0-5136; [49-22]
 	))
       )
-     ((===hng-kar	  . 03580)	; &HNG018-03580;
-      (<-HNG@zinbun/takuhon
-       ((=ucs		    . #x7947)	; 祇
-	))
-      (<-formed
-       ((=ucs		    . #x8879)	; 衹
-	))
+     ((===hng-kar	  . 02620)	; &HNG018-02620;
       ))
     ))
 (define-char
@@ -3380,6 +3378,8 @@
 	)
        ((===ucs@unicode	    . #xFA51)	; &R-UU+FA51;
 	))
+      )
+     ((===hng-kar	  . 11260)	; &HNG018-11260;
       ))
     ))
 (define-char
@@ -3516,6 +3516,8 @@
 	))
       )
      ((===hng-khm	  . 04670)	; &HNG011-04670;
+      )
+     ((===hng-kar	  . 11230)	; &HNG018-11230;
       ))
     ))
 (define-char
@@ -4289,6 +4291,7 @@
     (=hanyo-denshi/ks	. 276070)	; &MJ058205;
     (<-formed
      ((=ucs		  . #x796D)	; 祭
+      (=koseki		  . 276220)	; 祭
       ))
     (<-formed*sources
      koseki mj)
@@ -5001,6 +5004,7 @@
     (=cns11643-1	. #x5C42)	; &I-C1-5C42; [60-34]
     (=jis-x0213-1	. #x3A57)	; &I-JX1-3A57; [26-55]
     (=big5		. #xB2BD)	; &I-B-B2BD;
+    (=koseki		. 276220)	; 祭
     (=gt		. 31678)	; &I-GT-31678;
     (=gt-k		. 07765)	; &I-GT-K07765;
     (=gt-pj-1		. #x3A57)	; &I-GT-31678; [26-55]
@@ -5040,6 +5044,12 @@
 	)
        ((===ucs@unicode	    . #x796D)	; &R-UU+796D;
 	))
+      )
+     ((==koseki		  . 276220)	; &g2-KOSEKI-276220;
+      )
+     ((=ucs-var-001	  . #x796D)	; &U-v001+796D;
+      )
+     ((===hng-kar	  . 11220)	; &HNG018-11220;
       ))
     ))
 (define-char
@@ -5222,6 +5232,7 @@
     (=koseki		. 276350)	; &MJ058207;
     (<-formed
      ((=ucs		  . #x796D)	; 祭
+      (=koseki		  . 276220)	; 祭
       ))
     (<-formed*sources
      koseki mj)
@@ -5251,6 +5262,7 @@
     (=hanyo-denshi/ks	. 276370)	; &MJ058209;
     (<-formed
      ((=ucs		  . #x796D)	; 祭
+      (=koseki		  . 276220)	; 祭
       ))
     (<-formed*sources
      koseki mj)
@@ -6247,6 +6259,17 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (=>ucs@iwds-1	. #x7984)	; &A-IWDSU+7984;
+    (=>ucs@unicode	. #x7984)	; &A-IWDSU+7984;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x7984)	; &A-IWDSU+7984;
+      (=>ucs@unicode	  . #x7984)	; &A-IWDSU+7984;
+      ))
+    (ideographic-radical . 113)	; ⽰
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
     (=ucs@unicode	. #x7984)	; &AJ1-04067;
     (=adobe-japan1-0	. 04067)	; &AJ1-04067;
     (=jis-x0208		. #x4F3D)	; &I-J90-4F3D; [47-29]
@@ -6296,12 +6319,30 @@
     ))
 (define-char
   '((<-denotational
+     ((=>ucs@iwds-1	  . #x7984)	; &A-IWDSU+7984;
+      (=>ucs@unicode	  . #x7984)	; &A-IWDSU+7984;
+      ))
+    (ideographic-radical . 113)	; ⽰
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (=ucs@cns		. #x7984)	; &C3-3D63;
+    (=cns11643-3	. #x3D63)	; &C3-3D63; [29-67]
+    (->subsumptive
+     ((==ucs@cns	  . #x7984)	; &g2-CU+7984;
+      (==cns11643-3	  . #x3D63)	; &g2-CU+7984; [29-67]
+      ))
+    ))
+(define-char
+  '((<-denotational
      ((=ucs		  . #x7984)	; 禄
       ))
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=cns11643-3	. #x3D63)	; &C3-3D63; [29-67]
+    (===hng-kar		. 11240)	; &HNG018-11240;
+    (<-formed
+     ((=ucs		  . #x797F)	; 祿
+      ))
     ))
 (define-char
   '((ideographic-radical . 113)	; ⽰
@@ -8065,6 +8106,8 @@
 	)
        ((===jef-china3	    . #x5CE7)	; &R-JC3-5CE7;
 	))
+      )
+     ((===hng-kar	  . 11270)	; &HNG018-11270;
       ))
     ))
 (define-char
@@ -9481,6 +9524,8 @@
 	)
        ((===ucs@unicode	    . #x79A6)	; &R-UU+79A6;
 	))
+      )
+     ((===hng-kar	  . 02640)	; &HNG018-02640;
       ))
     ))
 (define-char
@@ -10477,6 +10522,8 @@
        ((===ucs@ks	    . #x79AE)	; &R-K0-5649;
 	(===ks-x1001	    . #x5649)	; &R-K0-5649; [54-41]
 	))
+      )
+     ((===hng-kar	  . 11280)	; &HNG018-11280;
       ))
     ))
 (define-char
@@ -10851,16 +10898,6 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 14)
     (total-strokes	 . 19)
-    (=decomposition@cid
-     ((=ucs		  . #x79B1)	; 禱
-      )
-     ((=ucs		  . #xE0100)	; 󠄀
-      ))
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x79B1)	; 禱
-      )
-     ((=ucs		  . #xE0102)	; 󠄂
-      ))
     (=ucs@jis		. #x79B1)	; &AJ1-07758;
     (=ucs@ks		. #x79B1)	; &AJ1-07758;
     (=adobe-japan1-0	. 07758)	; &AJ1-07758;
@@ -10870,6 +10907,43 @@
     (=jis-x0213-1	. #x7943)	; &I-JX1-7943; [89-35]
     (=hanyo-denshi/jb	. #x5070)	; &I-HD-JB-5070; [48-80]
     (=daikanwa		. 24852)	; &I-M-24852;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x79B1)	; 禱
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x79B1)	; 禱
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@jis	  . #x79B1)	; &g2-AJ1-07758;
+      (==ucs@ks		  . #x79B1)	; &g2-AJ1-07758;
+      (==adobe-japan1-0	  . 07758)	; &g2-AJ1-07758;
+      (==jis-x0208@1978	  . #x4578)	; &g2-AJ1-07758; [37-88]
+      (==ks-x1001	  . #x542A)	; &g2-AJ1-07758; [52-10]
+      (==jis-x0212	  . #x5070)	; &g2-AJ1-07758; [48-80]
+      (==jis-x0213-1	  . #x7943)	; &g2-AJ1-07758; [89-35]
+      (==hanyo-denshi/jb  . #x5070)	; &g2-AJ1-07758; [48-80]
+      (==daikanwa	  . 24852)	; &g2-AJ1-07758;
+      (->subsumptive
+       ((===daikanwa	    . 24852)	; &R-M-24852;
+	)
+       ((===jis-x0208@1978  . #x4578)	; &R-J78-4578; [37-88]
+	)
+       ((===jis-x0212	    . #x5070)	; &R-HD-JB-5070; [48-80]
+	(===jis-x0213-1	    . #x7943)	; &R-HD-JB-5070; [89-35]
+	(===hanyo-denshi/jb . #x5070)	; &R-HD-JB-5070; [48-80]
+	)
+       ((===adobe-japan1-0  . 07758)	; &R-AJ1-07758;
+	)
+       ((===ucs@ks	    . #x79B1)	; &R-K0-542A;
+	(===ks-x1001	    . #x542A)	; &R-K0-542A; [52-10]
+	))
+      )
+     ((===hng-kar	  . 11300)	; &HNG018-11300;
+      ))
     ))
 (define-char
   '((<-denotational
