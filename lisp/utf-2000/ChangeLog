@@ -1,3 +1,7 @@
+2016-09-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R145-Clothes.el (U+8879): Add HNG-KAR0358-0.
+
 2016-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R111-Arrow.el: Add glyph-images of HNG-KAR.
