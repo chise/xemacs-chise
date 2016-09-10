@@ -1,3 +1,26 @@
+2016-09-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ruimoku6.el (U+FA19): Add HNG-KAR1123-0.
+
+2016-09-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R114-Track.el: Add glyph-images of HNG-KAR.
+
+	* Ideograph-R113-Spirit.el: Add glyph-images of HNG-KAR.
+	(HNG-KAR0358-0): Use U+8879 instead of J2004U+7947 as the mother;
+	omit `<-formed' for U+8879; use U+7957 instead of U+7947 as the
+	value of `<-HNG@zinbun/takuhon'.
+	(J2004U+7947): Add HNG-KAR0262-0.
+	(U+796D): Unify KOSEKI-276220; add g2-KOSEKI-276220,
+	U+796D-var-001 and HNG-KAR1122-0.
+	(U+7984): Separate A-UU+7984.
+	(A-UU+7984): Add `=>ucs@iwds-1'.
+	(HNG-KAR1124-0): New character; use `<-denotational' for U+7984;
+	use `<-formed' for U+797F.
+
+	* Ideograph-R079-Weapon.el (U+6BB8): Separate UU+6BB8.
+	(U+6BB8-var-001): New character; use `<-denotational' for U+6BB8.
+
 2016-09-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R145-Clothes.el (U+8879): Add HNG-KAR0358-0.
