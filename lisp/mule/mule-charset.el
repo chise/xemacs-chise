@@ -533,6 +533,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>>jis-x0213-1@2004
 	  =>jis-x0208
 	  =>jis-x0213-1
+	  =>big5-cdp
 	  =>daikanwa
 	  ucs-bmp
 	  ==>ucs-bmp-cjk@bucs
