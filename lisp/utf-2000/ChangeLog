@@ -1,3 +1,11 @@
+2016-09-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R087-Claw.el (A-MJ058016): New abstract node; use
+	`<-denotational' for U+722F.
+	(U+722F-itaiji-001): New character; use `<-denotational' for
+	A-MJ058016.
+	(MJ058016): Use A-MJ058016 instead of U+722F as the mother.
+
 2016-09-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ruimoku6.el (U+FA19): Add HNG-KAR1123-0.
