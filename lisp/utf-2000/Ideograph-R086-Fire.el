@@ -15227,7 +15227,8 @@
     (<-formed*sources
      jiyun)
     (<-same
-     ((=ucs		  . #x7CA6)	; 粦
+     ((=ucs@unicode	  . #x7CA6)	; &AJ1-18321;
+      (=adobe-japan1-5	  . 18321)	; &AJ1-18321;
       (=daikanwa	  . 26939)	; &I-M-26939;
       )
      ((=ucs@unicode	  . #x3DE0)	; &M-19267;
