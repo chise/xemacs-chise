@@ -1,5 +1,16 @@
 2016-09-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R160-Bitter.el: Add glyph-images of HNG-KAR.
+
+	* Ideograph-R112-Stone.el: Add glyph-images of HNG-KAR.
+	(U+78EC): Separate UU+78EC.
+	(HNG-KAR1119-0): New character; use `<-denotational' for U+78EC.
+	(U+78F7): Use `->subsumptive'; separate UU+78F7.
+	(UU+78F7): Add `=>ucs@iwds-1'.
+	(HNG-KAR0259-0): New character; use `<-denotational' for U+78F7.
+
+2016-09-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R087-Claw.el (A-MJ058016): New abstract node; use
 	`<-denotational' for U+722F.
 	(U+722F-itaiji-001): New character; use `<-denotational' for
