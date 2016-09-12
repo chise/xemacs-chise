@@ -34484,25 +34484,54 @@
      ((=ucs		  . #x79E6)	; 秦
       ))
     (=ucs		. #x55EA)	; 嗪
-    (=gb2312		. #x603A)	; &I-G0-603A; [64-26]
-    (=hanziku-2		. #xDAE1)	; &I-HZK02-DAE1;
-    (=cbeta		. 03986)	; &I-CB03986;
-    ))
-(define-char
-  '((=>ucs		. #x55EA)	; 嗪
-    (ideographic-radical . 30)	; ⼝
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x53E3)	; 口
-      )
-     ((=ucs@cns		  . #x79E6)	; &C1-5736;
-      (=cns11643-1	  . #x5736)	; &C1-5736; [55-22]
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x53E3)	; 口
+	)
+       ((=ucs@unicode	    . #x79E6)	; &C1-5736;
+	(=gb2312	    . #x4758)	; &C1-5736; [39-56]
+	(=cns11643-1	    . #x5736)	; &I-C1-5736; [55-22]
+	))
+      (=ucs@unicode	  . #x55EA)	; &C3-404C;
+      (=gb2312		  . #x603A)	; &C3-404C; [64-26]
+      (=cns11643-3	  . #x404C)	; &I-C3-404C; [32-44]
+      (=cbeta		  . 03986)	; &I-CB03986;
+      (->subsumptive
+       ((==cbeta	    . 03986)	; &g2-CB03986;
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((=ucs		      . #x53E3)	; 口
+	  )
+	 ((==ucs@unicode      . #x79E6)	; &g2-UU+79E6;
+	  ))
+	(==ucs@unicode	    . #x55EA)	; &g2-UU+55EA;
+	(==ucs@JP/hanazono  . nil)
+	(==gb2312	    . #x603A)	; &g2-UU+55EA; [64-26]
+	(->subsumptive
+	 ((===ucs@unicode     . #x55EA)	; &R-UU+55EA;
+	  )
+	 ((=hanziku-2	      . #xDAE1)	; &HZK02-DAE1;
+	  ))
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((=ucs		      . #x53E3)	; 口
+	  )
+	 ((==ucs@cns	      . #x79E6)	; &g2-CU+79E6;
+	  (==cns11643-1	      . #x5736)	; &g2-CU+79E6; [55-22]
+	  ))
+	(==ucs@cns	    . #x55EA)	; &g2-CU+55EA;
+	(==cns11643-3	    . #x404C)	; &g2-CU+55EA; [32-44]
+	))
       ))
-    (=cns11643-3	. #x404C)	; &C3-404C; [32-44]
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
