@@ -1,6 +1,15 @@
+2016-09-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+55EA): Use `->subsumptive'.
+
 2016-09-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R160-Bitter.el: Add glyph-images of HNG-KAR.
+
+	* Ideograph-R119-Rice.el (U+7CA6): Separate UU+7CA6.
+	(UU+7CA6): Add `=>ucs@iwds-1'.
+	(U+7CA6-itaiji-001): New character; use `<-denotational' for
+	U+7CA6.
 
 	* Ideograph-R112-Stone.el: Add glyph-images of HNG-KAR.
 	(U+78EC): Separate UU+78EC.
