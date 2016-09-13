@@ -375,6 +375,21 @@
     ))
 (define-char
   '((ideographic-radical . 6)	; ⼅
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x86DA)	; &CDP-86DA;
+      )
+     ((=big5-cdp	  . #x88CD)	; &CDP-88CD;
+      ))
+    (=gt-k		. 01268)	; &GT-K01268;
+    (=gt-pj-k2		. #x4A76)	; &GT-K01268; [42-86]
+    ))
+(define-char
+  '((ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 53 8)
