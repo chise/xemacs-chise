@@ -4,15 +4,6 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
     (=ucs		. #x8863)	; 衣
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x8863)	; 衣
-      ))
-    (ideographic-radical . 145)	; ⾐
-    (ideographic-strokes . 0)
-    (total-strokes	 . 6)
-    (=ucs@unicode	. #x8863)	; &AJ1-01189;
     (=adobe-japan1-0	. 01189)	; &AJ1-01189;
     (=jis-x0208		. #x3061)	; &I-J90-3061; [16-65]
     (=gb2312		. #x5242)	; &I-G0-5242; [50-34]
@@ -24,7 +15,7 @@
     (=gt-k		. 01559)	; &I-GT-K01559;
     (=gt-pj-1		. #x3061)	; &I-GT-45972; [16-65]
     (=daikanwa		. 34091)	; &I-M-34091;
-    (=shinjigen		.  7335)	; &AJ1-01189;
+    (=shinjigen		.  7335)	; 衣
     (->subsumptive
      ((==ucs@unicode	  . #x8863)	; &g2-AJ1-01189;
       (==adobe-japan1-0	  . 01189)	; &g2-AJ1-01189;
@@ -79,8 +70,7 @@
     (=daikanwa		. 34092)	; &I-M-34092;
     (=jef-china3	. #x63F0)	; &I-JC3-63F0;
     (<-formed@component/connect-right
-     ((=ucs@unicode	  . #x8863)	; &AJ1-01189;
-      (=adobe-japan1-0	  . 01189)	; &AJ1-01189;
+     ((=ucs		  . #x8863)	; 衣
       (=daikanwa	  . 34091)	; &I-M-34091;
       ))
     (<-formed@component/connect-right*sources
