@@ -1,12 +1,22 @@
 2016-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R033-Scholar.el (U+58F3): Add `<-denotational' for
+	BUCS+6BBC.
+	(UU+58F3): Add `<-simplified@CN' for U+6BBB.
+
 	* Ideograph-R017-Open-Box.el (U-0002068F): Use `->denotational'
 	and `->subsumptive'.
 	(U+2068F-itaiji-001): New character; use `<-denotational' for
 	U-0002068F.
 	(IU+2068F): Add `=>ucs@iwds-1'.
 
+	* Ideograph-R145-Clothes.el (U+8863): Unify UU+8863.
+
 2016-09-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R079-Weapon.el (BUCS+6BBC): New abstract node.
+	(U+6BBC): Add `<-denotational' for BUCS+6BBC.
+	(U+6BBB): Likewise.
 
 	* Ideograph-R006-Hook.el (GT-K01268): New character.
 
