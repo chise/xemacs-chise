@@ -457,7 +457,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 33)	; ⼠
+  '((<-denotational
+     ((==>ucs@bucs	  . #x6BBC)	; &BUCS+6BBC;
+      ))
+    (ideographic-radical . 33)	; ⼠
     (=ucs		. #x58F3)	; 壳
     ))
 (define-char
@@ -552,6 +555,10 @@
     (=ucs@unicode	. #x58F3)	; &G0-3F47;
     (=ucs@JP/hanazono	. nil)
     (=gb2312		. #x3F47)	; &G0-3F47; [31-39]
+    (<-simplified@CN
+     ((=ucs		  . #x6BBB)	; 殻
+      (=gb12345		  . #x3F47)	; 殻 [31-39]
+      ))
     (->subsumptive
      ((==ucs@unicode	  . #x58F3)	; &g2-UU+58F3;
       (==ucs@JP/hanazono  . nil)
