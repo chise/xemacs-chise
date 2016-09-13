@@ -1,3 +1,15 @@
+2016-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R017-Open-Box.el (U-0002068F): Use `->denotational'
+	and `->subsumptive'.
+	(U+2068F-itaiji-001): New character; use `<-denotational' for
+	U-0002068F.
+	(IU+2068F): Add `=>ucs@iwds-1'.
+
+2016-09-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R006-Hook.el (GT-K01268): New character.
+
 2016-09-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U+55EA): Use `->subsumptive'.
