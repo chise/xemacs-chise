@@ -1,5 +1,17 @@
 2016-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R167-Gold.el (U+950E): Add `<-simplified@CN' for
+	U+9426.
+
+2016-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R096-Jade.el (U-0002AF2F): New character.
+
+	* Ideograph-R062-Halberd.el (U-0002298F): Unify BC-8BDF.
+	(IU+229DC): Unify BC-8C56.
+
+	* Ideograph-R072-Sun.el (U-00023300): New character.
+
 	* Ideograph-R033-Scholar.el (U+58F3): Add `<-denotational' for
 	BUCS+6BBC.
 	(UU+58F3): Add `<-simplified@CN' for U+6BBB.
