@@ -8893,6 +8893,10 @@
     (total-strokes	 . 12)
     (=ucs		. #x950E)	; 锎
     (=gb2312		. #x6F34)	; &I-G0-6F34; [79-20]
+    (<-simplified@CN
+     ((=ucs		  . #x9426)	; 鐦
+      (=gb12345		  . #x6F34)	; 鐦 [79-20]
+      ))
     ))
 (define-char
   '((ideographic-radical . 167)	; ⾦
