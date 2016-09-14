@@ -10587,6 +10587,39 @@
     ))
 (define-char
   '((ideographic-radical . 96)	; ⽟
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x738B)	; 王
+      )
+     ((=ucs		  . #x263C1)	; 𦏁
+      ))
+    (=ucs		. #x2AF2F)	; 𪼯
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2AF2F)	; 𪼯
+      ))
+    (ideographic-radical . 96)	; ⽟
+    (ideographic-strokes . 16)
+    (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x738B)	; 王
+      )
+     ((=cns11643-4	  . #x5254)	; &C4-5254; [50-52]
+      (=daikanwa	  . 28554)	; &I-M-28554;
+      ))
+    (=ucs@iso		. #x2AF2F)	; &U-0002AF2F;
+    (->subsumptive
+     ((==ucs@iso	  . #x2AF2F)	; &g2-IU-0002AF2F;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 17)
     (total-strokes	 . 21)
     (=ucs		. #x74D3)	; 瓓
