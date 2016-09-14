@@ -1142,7 +1142,10 @@
       ))
     ))
 (define-char
-  '((name		. "CJK RADICAL FOOT")
+  '((<-denotational
+     ((=ucs		  . #x27FB7)	; 𧾷
+      ))
+    (name		. "CJK RADICAL FOOT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -1151,6 +1154,9 @@
     (=gt-pj-k1		. #x3436)	; ⻊ [20-22]
     (<-formed@component/connect-right
      ((=ucs		  . #x8DB3)	; 足
+      ))
+    (<-identical@component/connect-right
+     ((=ucs		  . #x27FB7)	; 𧾷
       ))
     ))
 (define-char
