@@ -12725,6 +12725,39 @@
     (=iso-ir165		. #x7C3C)	; &I-EGB-7C3C; [92-28]
     ))
 (define-char
+  '((ideographic-radical . 72)	; ⽇
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((=ucs		  . #x263C1)	; 𦏁
+      ))
+    (=ucs		. #x23300)	; 𣌀
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23300)	; 𣌀
+      ))
+    (ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 16)
+    (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((=cns11643-4	  . #x5254)	; &C4-5254; [50-52]
+      (=daikanwa	  . 28554)	; &I-M-28554;
+      ))
+    (=ucs@iso		. #x23300)	; &U-00023300;
+    (->subsumptive
+     ((==ucs@iso	  . #x23300)	; &g2-IU-00023300;
+      ))
+    ))
+(define-char
   '((ideographic-radical@ucs . 72)	; ⽇
     (ideographic-strokes@ucs . 16)
     (ideographic-radical@cns . 13)	; ⼌
