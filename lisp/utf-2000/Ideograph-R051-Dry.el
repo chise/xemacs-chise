@@ -53,7 +53,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 55)	; ⼶
+  '((<-denotational
+     ((==>ucs@bucs	  . #x958B)	; &BUCS+958B;
+      ))
+    (ideographic-radical@ucs . 55)	; ⼶
     (ideographic-strokes@ucs . 1)
     (ideographic-radical@ucs*sources
      ucs jis-x0213-2000/a)
@@ -72,6 +75,11 @@
     (=cns11643-4	. #x214D)	; &I-C4-214D; [01-45]
     (=jis-x0213-1	. #x7431)	; &I-JX1-7431; [84-17]
     (=big5-cdp		. #x8B6F)	; &I-CDP-8B6F;
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x958B)	; &AJ1-01417;
+      (=adobe-japan1-0	  . 01417)	; &AJ1-01417;
+      (=gb12345		  . #x3F2A)	; &AJ1-01417; [31-10]
+      ))
     (->subsumptive
      ((==ucs@unicode	  . #x5F00)	; &g2-AJ1-16854;
       (==adobe-japan1-5	  . 16854)	; &g2-AJ1-16854;
