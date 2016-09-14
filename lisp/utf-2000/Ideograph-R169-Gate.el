@@ -564,6 +564,13 @@
     ))
 (define-char
   '((ideographic-radical . 169)	; ⾨
+    (==>ucs@bucs	. #x958B)	; &BUCS+958B;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x958B)	; &BUCS+958B;
+      ))
+    (ideographic-radical . 169)	; ⾨
     (=ucs		. #x958B)	; 開
     ))
 (define-char
@@ -616,6 +623,76 @@
 	))
       )
      ((===hng-khm	  . 05630)	; &HNG011-05630;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x958B)	; &BUCS+958B;
+      ))
+    (ideographic-radical . 169)	; ⾨
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x95E8)	; 门
+      )
+     ((=ucs		  . #x5F00)	; 开
+      ))
+    (=ucs		. #x2B52D)	; 𫔭
+    (<-simplified@CN/component
+     ((=ucs@unicode	  . #x958B)	; &AJ1-01417;
+      (=adobe-japan1-0	  . 01417)	; &AJ1-01417;
+      (=gb12345		  . #x3F2A)	; &AJ1-01417; [31-10]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x958B)	; &BUCS+958B;
+      ))
+    (ideographic-radical@ucs . 55)	; ⼶
+    (ideographic-strokes@ucs . 1)
+    (ideographic-radical@ucs*sources
+     ucs jis-x0213-2000/a)
+    (ideographic-radical@cns . 51)	; ⼲
+    (ideographic-strokes@cns . 1)
+    (ideographic-radical@cns*sources
+     cns11643)
+    (ideographic-radical@jis/b . 7)	; ⼆
+    (ideographic-strokes@jis/b . 2)
+    (ideographic-radical@jis/b*sources
+     jis-x0213-2000/b)
+    (total-strokes	 . 4)
+    (=ucs		. #x5F00)	; 开
+    (=adobe-japan1-5	. 16854)	; &I-AJ1-16854;
+    (=gb2312		. #x3F2A)	; &I-G0-3F2A; [31-10]
+    (=cns11643-4	. #x214D)	; &I-C4-214D; [01-45]
+    (=jis-x0213-1	. #x7431)	; &I-JX1-7431; [84-17]
+    (=big5-cdp		. #x8B6F)	; &I-CDP-8B6F;
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x958B)	; &AJ1-01417;
+      (=adobe-japan1-0	  . 01417)	; &AJ1-01417;
+      (=gb12345		  . #x3F2A)	; &AJ1-01417; [31-10]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x5F00)	; &g2-AJ1-16854;
+      (==adobe-japan1-5	  . 16854)	; &g2-AJ1-16854;
+      (==gb2312		  . #x3F2A)	; &g2-AJ1-16854; [31-10]
+      (==cns11643-4	  . #x214D)	; &g2-AJ1-16854; [01-45]
+      (==jis-x0213-1	  . #x7431)	; &g2-AJ1-16854; [84-17]
+      (==big5-cdp	  . #x8B6F)	; &g2-AJ1-16854;
+      (->subsumptive
+       ((===jis-x0213-1	    . #x7431)	; &R-JX1-7431; [84-17]
+	)
+       ((===adobe-japan1-5  . 16854)	; &R-AJ1-16854;
+	)
+       ((===big5-cdp	    . #x8B6F)	; &R-CDP-8B6F;
+	)
+       ((===cns11643-4	    . #x214D)	; &R-C4-214D; [01-45]
+	)
+       ((===ucs@unicode	    . #x5F00)	; &R-UU+5F00;
+	))
       ))
     ))
 (define-char
