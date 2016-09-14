@@ -31270,6 +31270,39 @@
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5FC4)	; 忄
+      )
+     ((=ucs		  . #x263C1)	; 𦏁
+      ))
+    (=ucs		. #x2293B)	; 𢤻
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2293B)	; 𢤻
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 16)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5FC4)	; 忄
+      )
+     ((=cns11643-4	  . #x5254)	; &C4-5254; [50-52]
+      (=daikanwa	  . 28554)	; &I-M-28554;
+      ))
+    (=ucs@iso		. #x2293B)	; &U-0002293B;
+    (->subsumptive
+     ((==ucs@iso	  . #x2293B)	; &g2-IU-0002293B;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
     (=ucs		. #x22948)	; 𢥈
