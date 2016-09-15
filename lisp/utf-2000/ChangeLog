@@ -1,3 +1,8 @@
+2016-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R140-Grass.el (U+83C6): Use `->denotational' and
+	`->subsumptive'.
+
 2016-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL FOOT>): Add
