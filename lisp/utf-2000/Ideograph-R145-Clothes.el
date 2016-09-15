@@ -4,7 +4,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
     (=ucs		. #x8863)	; 衣
-    (=adobe-japan1-0	. 01189)	; &AJ1-01189;
+    (=adobe-japan1-0	. 01189)	; &I-AJ1-01189;
     (=jis-x0208		. #x3061)	; &I-J90-3061; [16-65]
     (=gb2312		. #x5242)	; &I-G0-5242; [50-34]
     (=ks-x1001		. #x6B7D)	; &I-K0-6B7D; [75-93]
@@ -4385,6 +4385,7 @@
   '((ideographic-radical . 145)	; ⾐
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
+    (hanyu-dazidian	1 202 10)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
@@ -4394,26 +4395,7 @@
      ((=ucs		  . #x8863)	; 衣
       ))
     (=ucs		. #x2767E)	; 𧙾
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x2767E)	; 𧙾
-      ))
-    (ideographic-radical . 145)	; ⾐
-    (ideographic-strokes . 6)
-    (total-strokes	 . 12)
-    (hanyu-dazidian	1 202 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-      (=ucs		  . #x2FF8)	; ⿸
-      )
-     ((=ucs		  . #x201B8)	; 𠆸
-      )
-     ((=ucs@unicode	  . #x8863)	; &AJ1-01189;
-      (=adobe-japan1-0	  . 01189)	; &AJ1-01189;
-      ))
-    (=ucs@iso		. #x2767E)	; &C5-3C2C;
-    (=cns11643-5	. #x3C2C)	; &C5-3C2C; [28-12]
+    (=cns11643-5	. #x3C2C)	; &I-C5-3C2C; [28-12]
     (=daikanwa		. 34274)	; &I-M-34274;
     (->subsumptive
      ((ideographic-structure
@@ -5841,6 +5823,43 @@
      ((=ucs@iso		  . #x2769E)	; &U-0002769E;
       )
      ((=cns11643-6	  . #x5829)	; &C6-5829; [56-09]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 145)	; ⾐
+    (ideographic-strokes . 7)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x5341)	; 十
+      )
+     ((name		  . "CJK RADICAL EYE")
+      (=ucs		  . #x2EAB)	; ⺫
+      )
+     ((=ucs		  . #x8863)	; 衣
+      ))
+    (=ucs-itaiji-004	. #x8931)	; &U-i004+8931;
+    (<-formed
+     ((=ucs		  . #x8931)	; 褱
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 145)	; ⾐
+    (ideographic-strokes . 7)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8BB2)	; &CDP-8BB2;
+      )
+     ((=big5-cdp	  . #x8B67)	; &CDP-8B67;
+      ))
+    (=ucs-itaiji-006	. #x8931)	; &U-i006+8931;
+    (<-formed
+     ((=ucs		  . #x8931)	; 褱
       ))
     ))
 (define-char
@@ -10066,26 +10085,6 @@
      ((=ucs@iso		  . #x27711)	; &U-00027711;
       )
      ((=cns11643-7	  . #x332E)	; &C7-332E; [19-14]
-      ))
-    ))
-(define-char
-  '((ideographic-radical . 145)	; ⾐
-    (ideographic-strokes . 10)
-    (total-strokes	 . 16)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
-      )
-     ((=ucs		  . #x5341)	; 十
-      )
-     ((name		  . "CJK RADICAL EYE")
-      (=ucs		  . #x2EAB)	; ⺫
-      )
-     ((=ucs		  . #x8863)	; 衣
-      ))
-    (=ucs-itaiji-004	. #x8931)	; &U-i004+8931;
-    (<-formed
-     ((=ucs		  . #x8931)	; 褱
       ))
     ))
 (define-char
