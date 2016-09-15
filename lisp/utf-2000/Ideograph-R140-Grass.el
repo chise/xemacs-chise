@@ -18461,27 +18461,47 @@
     (=hanziku-8		. #xF367)	; &I-HZK08-F367;
     ))
 (define-char
-  '((=>ucs		. #x83C6)	; 菆
+  '((ideographic-radical . 140)	; ⾋
+    (ideographic-strokes . 8)
+    (=ucs		. #x83C6)	; 菆
+    (=big5		. #xDB68)	; &I-B-DB68;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x83C6)	; 菆
+      ))
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (=ucs@cns		. #x83C6)	; &C2-3F4D;
     (=cns11643-2	. #x3F4D)	; &C2-3F4D; [31-45]
     (=daikanwa		. 31146)	; &I-M-31146;
+    (->subsumptive
+     ((==ucs@cns	  . #x83C6)	; &g2-M-31146;
+      (==cns11643-2	  . #x3F4D)	; &g2-M-31146; [31-45]
+      (==daikanwa	  . 31146)	; &g2-M-31146;
+      (->subsumptive
+       ((===daikanwa	    . 31146)	; &R-M-31146;
+	)
+       ((===cns11643-2	    . #x3F4D)	; &R-C2-3F4D; [31-45]
+	))
+      ))
     ))
 (define-char
-  '((=>ucs		. #x83C6)	; 菆
-    (morohashi-daikanwa	31146 0 1)
+  '((<-denotational
+     ((=ucs		  . #x83C6)	; 菆
+      ))
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=big5		. #xDB68)	; &B-DB68;
-    ))
-(define-char
-  '((morohashi-daikanwa	31146 0 2)
-    (ideographic-radical . 140)	; ⾋
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (=ucs		. #x83C6)	; 菆
+    (=ucs@unicode	. #x83C6)	; &UU+83C6;
+    (->subsumptive
+     ((==ucs@unicode	  . #x83C6)	; &g2-UU+83C6;
+      (==ucs@JP/hanazono  . nil)
+      (->subsumptive
+       ((===ucs@unicode	    . #x83C6)	; &R-UU+83C6;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 140)	; ⾋
