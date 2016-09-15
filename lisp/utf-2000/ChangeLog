@@ -1,5 +1,27 @@
 2016-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R145-Clothes.el (U-0002767E): Unify IU+2767E.
+	(U+8931-itaiji-004): Fix strokes.
+	(U+8931-itaiji-006): New character; use `<-formed' for U+8931.
+
+	* Ideograph-R115-Grain.el: Add glyph-images of HNG-KAR.
+	(HNG-KAR1136-0): New character; use `<-denotational' for U+7A31.
+	(U-0002581E): New character.
+	(HNG-KAR0267-0): New character; use `<-denotational' for U+7A3B.
+
+	* Ideograph-R032-Earth.el (A-BC-8D5B): New abstract character;
+	unify A-GT-K03011.
+	(BC-8D5B): New character; use `<-denotational' for A-BC-8D5B;
+	unify GT-K03011.
+	(U+581D): Add representative nodes.
+	(UU+58CA): Use U+8931-itaiji-004 in `ideographic-structure'.
+	(U+58CA-itaiji-002): Use Use U+8931-itaiji-006 in
+	`ideographic-structure'.
+	(U+367D): New character.
+	(U+367F): New character.
+
+2016-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R140-Grass.el (U+83C6): Use `->denotational' and
 	`->subsumptive'.
 
