@@ -3,6 +3,14 @@
   '((ideographic-radical . 190)	; ⾽
     (ideographic-strokes . 0)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x9578)	; 镸
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
     (=ucs		. #x9ADF)	; 髟
     (=jis-x0208		. #x7175)	; &I-J90-7175; [81-85]
     (=gb2312		. #x7754)	; &I-G0-7754; [87-52]
@@ -14,6 +22,30 @@
     (=gt-pj-1		. #x7175)	; &I-GT-61051; [81-85]
     (=daikanwa		. 45355)	; &I-M-45355;
     (=shinjigen		.  9452)	; 髟
+    (->subsumptive
+     ((==ucs@unicode	  . #x9ADF)	; &g2-GT-61051;
+      (==gb2312		  . #x7754)	; &g2-GT-61051; [87-52]
+      (==jis-x0208	  . #x7175)	; &g2-GT-61051; [81-85]
+      (==cns11643-2	  . #x334C)	; &g2-GT-61051; [19-44]
+      (==jis-x0213-1	  . #x7175)	; &g2-GT-61051; [81-85]
+      (==gt		  . 61051)	; &g2-GT-61051;
+      (==gt-k		  . 06654)	; &g2-GT-61051;
+      (==daikanwa	  . 45355)	; &g2-GT-61051;
+      (==shinjigen	  .  9452)	; &g2-GT-61051;
+      (->subsumptive
+       ((===daikanwa	    . 45355)	; &R-M-45355;
+	)
+       ((===jis-x0208	    . #x7175)	; &R-J0-7175; [81-85]
+	(===jis-x0213-1	    . #x7175)	; &R-J0-7175; [81-85]
+	)
+       ((===cns11643-2	    . #x334C)	; &R-C2-334C; [19-44]
+	)
+       ((===gt		    . 61051)	; &R-GT-61051;
+	(===gt-k	    . 06654)	; &R-GT-61051;
+	)
+       ((===ucs@unicode	    . #x9ADF)	; &R-UU+9ADF;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 190)	; ⾽
@@ -3344,16 +3376,89 @@
     ))
 (define-char
   '((ideographic-radical . 190)	; ⾽
-    (=ucs		. #x29BCD)	; 𩯍
-    (->subsumptive
-     ((ideographic-strokes . 12)
-      (total-strokes	   . 22)
-      (=cns11643-5	  . #x7526)	; &C5-7526; [85-06]
-      (=daikanwa	  . 45585)	; &I-M-45585;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((ideographic-strokes . 11)
-      (total-strokes	   . 21)
-      (=ucs@iso		  . #x29BCD)	; &U-00029BCD;
+     ((=ucs		  . #x9ADF)	; 髟
+      )
+     ((=ucs		  . #x83C6)	; 菆
+      ))
+    (=ucs		. #x29BCD)	; 𩯍
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x29BCD)	; 𩯍
+      ))
+    (ideographic-radical . 190)	; ⾽
+    (ideographic-strokes . 12)
+    (total-strokes	 . 22)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x9ADF)	; 髟
+      )
+     ((=ucs@cns		  . #x83C6)	; &C2-3F4D;
+      (=cns11643-2	  . #x3F4D)	; &C2-3F4D; [31-45]
+      (=daikanwa	  . 31146)	; &I-M-31146;
+      ))
+    (=ucs@cns		. #x29BCD)	; &C5-7526;
+    (=cns11643-5	. #x7526)	; &C5-7526; [85-06]
+    (=daikanwa		. 45585)	; &I-M-45585;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((==ucs@unicode	    . #x9ADF)	; &g2-GT-61051;
+	(==jis-x0208	    . #x7175)	; &g2-GT-61051; [81-85]
+	)
+       ((==ucs@cns	    . #x83C6)	; &g2-M-31146;
+	(==daikanwa	    . 31146)	; &g2-M-31146;
+	))
+      (==ucs@cns	  . #x29BCD)	; &g2-M-45585;
+      (==cns11643-5	  . #x7526)	; &g2-M-45585; [85-06]
+      (==daikanwa	  . 45585)	; &g2-M-45585;
+      (->subsumptive
+       ((===daikanwa	    . 45585)	; &R-M-45585;
+	)
+       ((===cns11643-5	    . #x7526)	; &R-C5-7526; [85-06]
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x29BCD)	; 𩯍
+      ))
+    (ideographic-radical . 190)	; ⾽
+    (ideographic-strokes . 11)
+    (total-strokes	 . 21)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x9ADF)	; 髟
+      )
+     ((=ucs@unicode	  . #x83C6)	; &UU+83C6;
+      ))
+    (=ucs@iso		. #x29BCD)	; &U-00029BCD;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((==ucs@unicode	    . #x9ADF)	; &g2-GT-61051;
+	(==jis-x0208	    . #x7175)	; &g2-GT-61051; [81-85]
+	)
+       ((==ucs@unicode	    . #x83C6)	; &g2-UU+83C6;
+	))
+      (==ucs@iso	  . #x29BCD)	; &g2-IU-00029BCD;
+      (->subsumptive
+       ((===ucs@iso	    . #x29BCD)	; &R-U-00029BCD;
+	)
+       ((=hanziku-12	    . #xADA9)	; &HZK12-ADA9;
+	))
       ))
     ))
 (define-char
