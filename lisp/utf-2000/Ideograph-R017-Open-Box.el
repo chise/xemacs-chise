@@ -976,7 +976,17 @@
     (ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (=>ucs@iwds-1	. #x2068F)	; &C6-2E74;
+    (=>ucs@iwds-1	. #x2068F)	; &A-IWDSU+2068F;
+    (=>ucs@iso		. #x2068F)	; &A-IWDSU+2068F;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x2068F)	; &A-IWDSU+2068F;
+      (=>ucs@iso	  . #x2068F)	; &A-IWDSU+2068F;
+      ))
+    (ideographic-radical . 17)	; ⼐
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
     (=ucs@iso		. #x2068F)	; &C6-2E74;
     (=cns11643-6	. #x2E74)	; &C6-2E74; [14-84]
     (->subsumptive
