@@ -3469,8 +3469,33 @@
     (=gt-pj-1		. #x4D6A)	; &I-GT-58416; [45-74]
     (=daikanwa/+p	. 43529)	; 頼
     (<-simplified@JP/Jouyou
-     ((=ucs@jis		  . #x8CF4)	; &AJ1-08627;
+     ((=ucs@cns		  . #x8CF4)	; &AJ1-08627;
+      (=ucs@jis		  . #x8CF4)	; &AJ1-08627;
+      (=ucs@ks		  . #x8CF4)	; &AJ1-08627;
       (=adobe-japan1-2	  . 08627)	; &AJ1-08627;
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x983C)	; &g2-AJ1-03924;
+      (==adobe-japan1-0	  . 03924)	; &g2-AJ1-03924;
+      (==jis-x0208	  . #x4D6A)	; &g2-AJ1-03924; [45-74]
+      (==cns11643-3	  . #x535B)	; &g2-AJ1-03924; [51-59]
+      (==jis-x0213-1	  . #x4D6A)	; &g2-AJ1-03924; [45-74]
+      (==gt		  . 58416)	; &g2-AJ1-03924;
+      (==daikanwa/+p	  . 43529)	; &g2-AJ1-03924;
+      (->subsumptive
+       ((===daikanwa/+p	    . 43529)	; &R-M-p43529;
+	)
+       ((===jis-x0208	    . #x4D6A)	; &R-J0-4D6A; [45-74]
+	(===jis-x0213-1	    . #x4D6A)	; &R-J0-4D6A; [45-74]
+	)
+       ((===adobe-japan1-0  . 03924)	; &R-AJ1-03924;
+	)
+       ((===cns11643-3	    . #x535B)	; &R-C3-535B; [51-59]
+	)
+       ((===gt		    . 58416)	; &R-GT-58416;
+	)
+       ((===ucs@unicode	    . #x983C)	; &R-UU+983C;
+	))
       ))
     ))
 (define-char
