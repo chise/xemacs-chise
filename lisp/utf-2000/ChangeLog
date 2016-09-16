@@ -1,3 +1,38 @@
+2016-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R205-Frog.el (U+9EFD): Separate UU+9EFD.
+	(UU+9EFD): Add `=>ucs@iwds-1'.
+	(U+9EFD-itaiji-003): New character; use `<-denotational' for
+	U+9EFD.
+	(U+9F00-itaiji-001): New character; use `<-simplified@component'
+	for U+9F00.
+	(U+9F00-itaiji-002): Likewise.
+	(U+9F00): Apply new conventions for glyph granularity.
+
+2016-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R116-Cave.el: Add glyph-images of HNG-KAR.
+	(BUCS+7ACA): New abstract node.
+	(U+7A83): Add `<-denotational' for BUCS+7ACA.
+	(U-0002596A): New character.
+	(U-00025993): New character.
+	(A-JU+7AAC): New abstract node; use `<-denotational' for U+7AAC.
+	(JU+7AAC): Use A-JU+7AAC instead of U+7AAC as the mother.
+	(A-UU+7AAC): New abstract node; use `<-denotational' for U+7AAC.
+	(HNG-KAR0274-0): New character; use `<-denotational' for
+	A-UU+7AAC.
+	(UU+7AAC): Use A-UU+7AAC instead of U+7AAC as the mother.
+	(UU+7AC8): Add `=>ucs@iwds-1'; unify CB01105.
+	(HNG-KAR0273-0): New character; use `<-denotational' for U+7AC8.
+	(A-M-25713): New abstract node; use `<-denotational' for
+	BUCS+7ACA.
+	(U+7ACA): Add `<-denotational' for A-M-25713.
+	(HNG-KAR0272-0): New character; use `<-denotational' for
+	A-M-25713; use `<-formed' for U+7ACA.
+
+	* Ideograph-R017-Open-Box.el (A-IWDSU+2068F): Separate IU+2068F;
+	unify A-IU+2068F.
+
 2016-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R145-Clothes.el (U-0002767E): Unify IU+2767E.
