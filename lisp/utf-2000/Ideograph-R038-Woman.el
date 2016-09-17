@@ -20959,7 +20959,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=adobe-japan1-4	  . 13828)	; &AJ1-13828;
+     ((=ucs		  . #x5973)	; 女
       )
      ((=ucs		  . #x8CF4)	; 賴
       ))
@@ -20978,9 +20978,11 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=adobe-japan1-4	  . 13828)	; &AJ1-13828;
+     ((=ucs		  . #x5973)	; 女
       )
-     ((=ucs@jis		  . #x8CF4)	; &AJ1-08627;
+     ((=ucs@cns		  . #x8CF4)	; &AJ1-08627;
+      (=ucs@jis		  . #x8CF4)	; &AJ1-08627;
+      (=ucs@ks		  . #x8CF4)	; &AJ1-08627;
       (=adobe-japan1-2	  . 08627)	; &AJ1-08627;
       ))
     (=ucs@cns		. #x5B3E)	; &AJ1-04606;
@@ -21005,8 +21007,10 @@
 	)
        ((==adobe-japan1-4   . 13828)	; &g2-AJ1-13828;
 	)
-       ((=ucs@jis	    . #x8CF4)	; &AJ1-08627;
-	(=adobe-japan1-2    . 08627)	; &AJ1-08627;
+       ((==ucs@cns	    . #x8CF4)	; &g2-AJ1-08627;
+	(==ucs@jis	    . #x8CF4)	; &g2-AJ1-08627;
+	(==ucs@ks	    . #x8CF4)	; &g2-AJ1-08627;
+	(==adobe-japan1-2   . 08627)	; &g2-AJ1-08627;
 	))
       (==ucs@jis	  . #x5B3E)	; &g2-AJ1-04606;
       (==adobe-japan1-0	  . 04606)	; &g2-AJ1-04606;
@@ -21026,17 +21030,7 @@
        ((===gt		    . 08658)	; &R-GT-08658;
 	))
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs@cns	    . #x5973)	; &g2-CU+5973;
-	(==cns11643-1	    . #x444C)	; &g2-CU+5973; [36-44]
-	)
-       ((=ucs@jis	    . #x8CF4)	; &AJ1-08627;
-	(=adobe-japan1-2    . 08627)	; &AJ1-08627;
-	))
-      (==ucs@cns	  . #x5B3E)	; &g2-CU+5B3E;
+     ((==ucs@cns	  . #x5B3E)	; &g2-CU+5B3E;
       (==cns11643-2	  . #x6547)	; &g2-CU+5B3E; [69-39]
       ))
     ))
@@ -21052,7 +21046,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=adobe-japan1-4	  . 13828)	; &AJ1-13828;
+     ((=ucs		  . #x5973)	; 女
       )
      ((=ucs@unicode	  . #x8CF4)	; &UU+8CF4;
       (=gb12345		  . #x4035)	; &UU+8CF4; [32-21]
@@ -21060,6 +21054,7 @@
     (=ucs		. #x2F86A)	; 嬾
     (=ucs@unicode	. #x5B3E)	; 嬾
     (=ucs@cns		. #x2F86A)	; 嬾
+    (=ucs@JP/hanazono	. nil)
     (=cns11643-3	. #x5A33)	; &I-C3-5A33; [58-19]
     (->subsumptive
      ((ideographic-structure
@@ -21068,23 +21063,12 @@
 	)
        ((==adobe-japan1-4   . 13828)	; &g2-AJ1-13828;
 	)
-       ((=ucs@unicode	    . #x8CF4)	; &UU+8CF4;
-	(=gb12345	    . #x4035)	; &UU+8CF4; [32-21]
+       ((==ucs@unicode	    . #x8CF4)	; &g2-UU+8CF4;
 	))
       (==ucs@unicode	  . #x5B3E)	; &g2-UU+5B3E;
       (==ucs@JP/hanazono  . nil)
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs@cns	    . #x5973)	; &g2-CU+5973;
-	(==cns11643-1	    . #x444C)	; &g2-CU+5973; [36-44]
-	)
-       ((=ucs@unicode	    . #x8CF4)	; &UU+8CF4;
-	(=gb12345	    . #x4035)	; &UU+8CF4; [32-21]
-	))
-      (==ucs@cns	  . #x2F86A)	; &g2-CU+2F86A;
+     ((==ucs@cns	  . #x2F86A)	; &g2-CU+2F86A;
       (==cns11643-3	  . #x5A33)	; &g2-CU+2F86A; [58-19]
       ))
     ))
@@ -21100,7 +21084,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=adobe-japan1-4	  . 13828)	; &AJ1-13828;
+     ((=ucs		  . #x5973)	; 女
       )
      ((=ucs		  . #x983C)	; 頼
       ))
@@ -21124,21 +21108,13 @@
 	)
        ((==adobe-japan1-4   . 13828)	; &g2-AJ1-13828;
 	)
-       ((=ucs		    . #x983C)	; 頼
+       ((==ucs@unicode	    . #x983C)	; &g2-AJ1-03924;
+	(==adobe-japan1-0   . 03924)	; &g2-AJ1-03924;
 	))
       (==shinjigen	  .  1766)	; &g2-CB04165;
       (==cbeta		  . 04165)	; &g2-CB04165;
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs@cns	    . #x5973)	; &g2-CU+5973;
-	(==cns11643-1	    . #x444C)	; &g2-CU+5973; [36-44]
-	)
-       ((=ucs		    . #x983C)	; 頼
-	))
-      (==ucs@cns	  . #x2F86B)	; &g2-CU+2F86B;
+     ((==ucs@cns	  . #x2F86B)	; &g2-CU+2F86B;
       (==cns11643-7	  . #x4651)	; &g2-CU+2F86B; [38-49]
       ))
     ))
