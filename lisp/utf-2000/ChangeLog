@@ -1,5 +1,27 @@
 2016-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R157-Foot.el (BUCS+8DB3): New abstract node.
+	(U+8DB3): Add `<-denotational' for BUCS+8DB3; separate UU+8DB3.
+	(U-00027FB7): New character; use `<-denotational' for U+8DB3;
+	unify JX2-7939; use `<-formed@component/connect-right' for U+8DB3.
+	(<CJK RADICAL FOOT>): Add `<-denotational' for U-00027FB7.
+	(U+8DEF): Separate UU+8DEF.
+	(U+8DEF-var-001): New character; use `<-denotational' for U+8DEF.
+
+	* Ideograph-R114-Track.el (U-0002573D): Separate A-IU+2573D.
+	(A-IU+2573D): Add `=>ucs@iwds-1'; apply new conventions for glyph
+	granularity.
+	(IU+2573D): Add `<-vulgar' for U+79BC.
+	(BC-8ACE): New character; use `<-denotational' for U-0002573D.
+	(U+79BC): Add representative nodes.
+
+	* Ideograph-R038-Woman.el (U+5B3E): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+
+	* Ideograph-R030-Mouth.el (U-00020BC1): Add `<-denotational' for
+	BUCS+8DB3.
+	(U-000210E4): Separate IU+210E4.
+
 	* Ideograph-R181-Leaf.el (U+983C): Add representative nodes.
 
 	* Ideograph-R190-Hair.el (U+9ADF): Add representative nodes.
