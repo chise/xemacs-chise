@@ -1,3 +1,19 @@
+2016-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R059-Bristle.el (U+5F6A): Use
+	`ideographic-{radical|strokes}@ucs/code' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+	(JU+5F6A): Use `ideographic-{radical|strokes}@daikanwa' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns'; apply new conventions for
+	glyph granularity.
+	(U-0002249C): Apply new conventions for glyph granularity.
+
+2016-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R117-Stand.el: Add glyph-images of HNG-KAR.
+
 2016-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R157-Foot.el (BUCS+8DB3): New abstract node.
