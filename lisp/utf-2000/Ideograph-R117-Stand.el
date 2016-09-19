@@ -47,6 +47,8 @@
        ((===cns11643-1	    . #x4721)	; &R-C1-4721; [39-01]
 	)
        ((===hng-khi	    . 05150)	; &HNG010-05150;
+	)
+       ((===hng-kar	    . 11410)	; &HNG018-11410;
 	))
       )
      ((=gt-k		  . 01020)	; &GT-K01020;
@@ -1063,6 +1065,11 @@
       )
      ((=shinjigen	  .  5736)	; &JC3-5DDA;
       (=jef-china3	  . #x5DDA)	; &JC3-5DDA;
+      (->subsumptive
+       ((===jef-china3	    . #x5DDA)	; &R-JC3-5DDA;
+	)
+       ((===hng-kar	    . 11430)	; &HNG018-11430;
+	))
       ))
     ))
 (define-char
@@ -1362,6 +1369,8 @@
        ((===jef-china3	    . #x5DDB)	; &R-JC3-5DDB;
 	)
        ((===hng-khm	    . 04710)	; &HNG011-04710;
+	)
+       ((===hng-kar	    . 11400)	; &HNG018-11400;
 	))
       ))
     ))
@@ -1960,6 +1969,8 @@
        ((===cns11643-1	    . #x6A25)	; &R-C1-6A25; [74-05]
 	)
        ((===ucs@unicode	    . #x7AED)	; &R-UU+7AED;
+	)
+       ((===hng-kar	    . 11420)	; &HNG018-11420;
 	))
       ))
     ))
@@ -2042,6 +2053,8 @@
 	)
        ((===ucs@unicode	    . #x7AEF)	; &R-UU+7AEF;
 	))
+      )
+     ((===hng-kar	  . 02770)	; &HNG018-02770;
       ))
     ))
 (define-char
