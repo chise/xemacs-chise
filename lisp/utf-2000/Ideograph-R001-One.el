@@ -3838,6 +3838,11 @@
     (=gt-pj-1		. #x4A42)	; &I-GT-00084; [42-34]
     (=daikanwa		. 00054)	; &I-M-00054;
     (=shinjigen		.  5732)	; &MJ006341;
+    (<-formed
+     ((=ucs		  . #x7ADD)	; 竝
+      ))
+    (<-formed*sources
+     hng)
     (<-simplified@JP/Jouyou
      ((=ucs		  . #x7ADD)	; 竝
       (=jis-x0208	  . #x636D)	; &I-J90-636D; [67-77]
@@ -3883,6 +3888,8 @@
        ((===ucs@unicode	    . #x4E26)	; &R-UU+4E26;
 	)
        ((===hng-wan	    . 00910)	; &HNG049-00910;
+	)
+       ((===hng-kar	    . 11440)	; &HNG018-11440;
 	))
       ))
     ))
