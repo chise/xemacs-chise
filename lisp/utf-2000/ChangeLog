@@ -1,5 +1,8 @@
 2016-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el (UU+4E26): Add `<-formed' for U+7ADD.
+	(g2-UU+4E26): Add HNG-KAR1144-0.
+
 	* Ideograph-R059-Bristle.el (U+5F6A): Use
 	`ideographic-{radical|strokes}@ucs/code' instead of
 	`ideographic-{radical|strokes}'; add
