@@ -939,6 +939,15 @@
       ))
     ))
 (define-char
+  '((ideographic-radical@ucs . 141)	; ⾌
+    (ideographic-strokes@ucs . 5)
+    (ideographic-radical@ucs/code . 59)	; ⼺
+    (ideographic-strokes@ucs/code . 8)
+    (total-strokes	 . 11)
+    (=ucs		. #x5F6A)	; 彪
+    (=big5		. #xB343)	; &I-B-B343;
+    ))
+(define-char
   '((<-denotational
      ((=ucs		  . #x5F6A)	; 彪
       ))
