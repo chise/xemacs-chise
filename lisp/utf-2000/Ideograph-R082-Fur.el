@@ -1267,7 +1267,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ks-x1001	  . #x752B)	; &GT-37890; [85-11]
+     ((=ucs@ks		  . #x8096)	; &GT-37890;
+      (=ks-x1001	  . #x752B)	; &GT-37890; [85-11]
       (=daikanwa	  . 29263)	; &I-M-29263;
       )
      ((=ucs		  . #x6BDB)	; 毛
@@ -2508,6 +2509,14 @@
     ))
 (define-char
   '((ideographic-radical . 82)	; ⽑
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8345)	; 荅
+      )
+     ((=ucs		  . #x6BDB)	; 毛
+      ))
     (=ucs		. #x23BC8)	; 𣯈
     ))
 (define-char
@@ -2521,7 +2530,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-2	  . #x3251)	; &C2-3251; [18-49]
+     ((=ucs@cns		  . #x8345)	; &C2-3251;
+      (=cns11643-2	  . #x3251)	; &C2-3251; [18-49]
       (=daikanwa	  . 30937)	; &I-M-30937;
       )
      ((=ucs		  . #x6BDB)	; 毛
