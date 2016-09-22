@@ -1,3 +1,25 @@
+2016-09-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R020-Wrap.el (CU+5312): Add representative nodes.
+
+2016-09-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R104-Sickness.el (g2-CU+7629): Add
+	`ideographic-structure'.
+	(g2-UU+7629): Likewise.
+
+	* Ideograph-R082-Fur.el (U-00023BC8): Add `ideographic-structure'.
+
+2016-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R140-Grass.el (C2-3251): Unify CU+8345; add
+	representative nodes; add HNG-KAR0282-0.
+
+2016-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R141-Tiger.el (U+5F6A): Copied from
+	Ideograph-R059-Bristle.el.
+
 2016-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R001-One.el (UU+4E26): Add `<-formed' for U+7ADD.
