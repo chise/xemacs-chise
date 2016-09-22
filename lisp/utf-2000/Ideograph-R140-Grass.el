@@ -11764,13 +11764,39 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((name		  . "CJK RADICAL GRASS TWO")
-      (=ucs		  . #x2EBF)	; ⺿
+     ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA5E")
+      (=ucs		  . #xFA5E)	; 艹
       )
      ((=ucs		  . #x5408)	; 合
       ))
+    (=ucs@cns		. #x8345)	; &C2-3251;
     (=cns11643-2	. #x3251)	; &C2-3251; [18-49]
     (=daikanwa		. 30937)	; &I-M-30937;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((name		    . "CJK RADICAL GRASS TWO")
+	(=ucs		    . #x2EBF)	; ⺿
+	)
+       ((==ucs@unicode	    . #x5408)	; &g2-AJ1-02041;
+	(==adobe-japan1-0   . 02041)	; &g2-AJ1-02041;
+	))
+      (==ucs@cns	  . #x8345)	; &g2-M-30937;
+      (==cns11643-2	  . #x3251)	; &g2-M-30937; [18-49]
+      (==daikanwa	  . 30937)	; &g2-M-30937;
+      (->subsumptive
+       ((===daikanwa	    . 30937)	; &R-M-30937;
+	)
+       ((===cns11643-2	    . #x3251)	; &R-C2-3251; [18-49]
+	))
+      )
+     ((===hng-kar	  . 02820)	; &HNG018-02820;
+      (<-formed
+       ((=ucs		    . #x7B54)	; 答
+	))
+      ))
     ))
 (define-char
   '((<-denotational
