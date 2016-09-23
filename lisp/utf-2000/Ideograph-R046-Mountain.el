@@ -4451,7 +4451,8 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
-     ((=ks-x1001	  . #x752B)	; &GT-37890; [85-11]
+     ((=ucs@ks		  . #x8096)	; &GT-37890;
+      (=ks-x1001	  . #x752B)	; &GT-37890; [85-11]
       (=daikanwa	  . 29263)	; &I-M-29263;
       ))
     (=ucs@jis		. #x5CED)	; &AJ1-04678;
@@ -4474,6 +4475,16 @@
        ((=ucs		    . #x5CED)	; 峭
 	)
        ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((==ucs@unicode	    . #x5C71)	; &g2-AJ1-02177;
+	(==adobe-japan1-0   . 02177)	; &g2-AJ1-02177;
+	)
+       ((==ucs@ks	    . #x8096)	; &g2-GT-37890;
+	(==daikanwa	    . 29263)	; &g2-GT-37890;
 	))
       (==ucs@jis	  . #x5CED)	; &g2-AJ1-04678;
       (==adobe-japan1-0	  . 04678)	; &g2-AJ1-04678;
