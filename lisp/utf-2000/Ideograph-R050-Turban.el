@@ -2822,12 +2822,23 @@
       )
      ((=ucs		  . #x5DFE)	; 巾
       )
-     ((=ks-x1001	  . #x752B)	; &GT-37890; [85-11]
+     ((=ucs@ks		  . #x8096)	; &GT-37890;
+      (=ks-x1001	  . #x752B)	; &GT-37890; [85-11]
       (=daikanwa	  . 29263)	; &I-M-29263;
       ))
     (=daikanwa		. 08910)	; &M-08910;
     (->subsumptive
-     ((==daikanwa	  . 08910)	; &g2-M-08910;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((==ucs@unicode	    . #x5DFE)	; &g2-AJ1-01738;
+	(==adobe-japan1-0   . 01738)	; &g2-AJ1-01738;
+	)
+       ((==ucs@ks	    . #x8096)	; &g2-GT-37890;
+	(==daikanwa	    . 29263)	; &g2-GT-37890;
+	))
+      (==daikanwa	  . 08910)	; &g2-M-08910;
       ))
     ))
 (define-char
