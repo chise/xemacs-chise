@@ -1083,12 +1083,32 @@
     (ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
+    (=ucs@ks		. #x8096)	; &GT-37890;
     (=ks-x1001		. #x752B)	; &GT-37890; [85-11]
     (=gt		. 37890)	; &I-GT-37890;
     (=gt-k		. 02765)	; &I-GT-K02765;
     (=gt-pj-6		. #x3932)	; &I-GT-37890; [25-18]
     (=daikanwa		. 29263)	; &I-M-29263;
     (=jef-china3	. #x52A8)	; &I-JC3-52A8;
+    (->subsumptive
+     ((==ucs@ks		  . #x8096)	; &g2-GT-37890;
+      (==ks-x1001	  . #x752B)	; &g2-GT-37890; [85-11]
+      (==gt		  . 37890)	; &g2-GT-37890;
+      (==gt-k		  . 02765)	; &g2-GT-37890;
+      (==daikanwa	  . 29263)	; &g2-GT-37890;
+      (==jef-china3	  . #x52A8)	; &g2-GT-37890;
+      (->subsumptive
+       ((===daikanwa	    . 29263)	; &R-M-29263;
+	)
+       ((===jef-china3	    . #x52A8)	; &R-JC3-52A8;
+	)
+       ((===ucs@ks	    . #x8096)	; &R-K0-752B;
+	(===ks-x1001	    . #x752B)	; &R-K0-752B; [85-11]
+	)
+       ((===gt		    . 37890)	; &R-GT-37890;
+	(===gt-k	    . 02765)	; &R-GT-37890;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
