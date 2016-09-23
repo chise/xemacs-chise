@@ -27891,8 +27891,8 @@
     (total-strokes	 . 18)
     (=daikanwa		. 39201)	; &M-39201;
     (<-same
-     ((=ucs@jis/1990	  . #x7C69)	; &HD-JB-5324;
-      (=jis-x0212	  . #x5324)	; &HD-JB-5324; [51-04]
+     ((=ucs@jis/1990	  . #x7C69)	; &MJ019778;
+      (=mj		  . 019778)	; &MJ019778;
       (=daikanwa	  . 26801)	; &I-M-26801;
       ))
     (<-same*sources
@@ -28525,7 +28525,7 @@
       ))
     (=>ucs@iwds-1	. #x908A)	; &A-IWDSU+908A;
     (=>ucs@unicode	. #x908A)	; &A-IWDSU+908A;
-    (=big5		. #xC3E4)	; &A-IWDSU+908A;
+    (=big5		. #xC3E4)	; &I-B-C3E4;
     ))
 (define-char
   '((<-denotational
@@ -28701,17 +28701,6 @@
   '((<-denotational
      ((=ucs		  . #x908A)	; 邊
       ))
-    (=decomposition@cid
-     ((=ucs		  . #x908A)	; 邊
-      )
-     ((=ucs		  . #xE0107)	; 󠄇
-      ))
-    (=adobe-japan1-5	. 20234)	; &AJ1-20234;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x908A)	; 邊
-      ))
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
@@ -28725,6 +28714,45 @@
      ((=ucs-itaiji-003	  . #x81F1)	; &U-i003+81F1;
       ))
     (===hng-khi		. 05930)	; &HNG010-05930;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x908A)	; 邊
+      ))
+    (ideographic-radical . 162)	; ⾡
+    (ideographic-strokes . 14)
+    (total-strokes	 . 17)
+    (=mj		. 026204)	; &MJ026204;
+    (=adobe-japan1-5	. 20234)	; &I-AJ1-20234;
+    (=hanyo-denshi/jt	. #xBD61)	; &I-HD-JT-BD61;
+    (->subsumptive
+     ((=>>mj		  . 026204)	; &G-AJ1-20234;
+      (=>>adobe-japan1-5  . 20234)	; &G-AJ1-20234;
+      (->subsumptive
+       ((=decomposition@cid
+	 ((=ucs		      . #x908A)	; 邊
+	  )
+	 ((=ucs		      . #xE0107)	; 󠄇
+	  ))
+	(==adobe-japan1-5   . 20234)	; &g2-AJ1-20234;
+	)
+       ((==mj		    . 026204)	; &g2-MJ026204;
+	(==hanyo-denshi/jt  . #xBD61)	; &g2-MJ026204;
+	(->subsumptive
+	 ((===hanyo-denshi/jt . #xBD61)	; &R-HD-JT-BD61;
+	  )
+	 ((===mj	      . 026204)	; &R-MJ026204;
+	  ))
+	))
+      )
+     ((=mj		  . 026205)	; &MJ026205;
+      (=hanyo-denshi/jt	  . #xBD62)	; &I-HD-JT-BD62;
+      (->subsumptive
+       ((===hanyo-denshi/jt . #xBD62)	; &R-HD-JT-BD62;
+	)
+       ((===mj		    . 026205)	; &R-MJ026205;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
