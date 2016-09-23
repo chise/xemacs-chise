@@ -1,3 +1,10 @@
+2016-09-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (KU+54E8): Add representative nodes.
+	(U+55AE): Likewise.
+	(CU+55D2): Likewise.
+	(g2-UU+55D2): Add `ideographic-structure'.
+
 2016-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (MJ009206): Unify CU+5854.
