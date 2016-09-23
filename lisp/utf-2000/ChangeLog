@@ -1,3 +1,28 @@
+2016-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R119-Rice.el: Add glyph-images of HNG-KAR.
+
+2016-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R162-Walk.el (AJ1-20234): Add `ideographic-strokes'
+	and `total-strokes'; unify MJ026204 and HD-JT-BD61; add MJ026205.
+	(MJ026205): New abstract glyph-image; use `<-subsumptive' for
+	AJ1-20234; unify HD-JT-BD62.
+
+	* Ideograph-R130-Meat.el (K0-752B): Unify KU+8096; add
+	representative nodes.
+
+	* Ideograph-R050-Turban.el (g2-M-08910): Add
+	`ideographic-structure'.
+
+	* Ideograph-R046-Mountain.el (g2-JU+5CED): Add
+	`ideographic-structure'.
+
+	* Ideograph-R018-Knife.el (U+524A): Use U+5202 instead of <CJK
+	RADICAL KNIFE TWO> in `ideographic-structure' of abstract
+	character and abstract glyphs.
+	(g2-KU+524A): Add `ideographic-structure'.
+
 2016-09-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R020-Wrap.el (CU+5312): Add representative nodes.
