@@ -1,5 +1,11 @@
 2016-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (MJ009206): Unify CU+5854.
+
+	* Ideograph-R009-Man.el (U+4FCF): Use U+4EBB instead of <CJK
+	RADICAL PERSON> in `ideographic-structure' of abstract character
+	and abstract glyphs; apply new conventions for glyph granularity.
+
 	* Ideograph-R119-Rice.el: Add glyph-images of HNG-KAR.
 
 2016-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
