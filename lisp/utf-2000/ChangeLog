@@ -1,5 +1,27 @@
 2016-09-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R118-Bamboo.el: Add glyph-images of HNG-KAR.
+	(BUCS+7C21): New abstract character.
+	(U-00025CD1): Add `<-denotational' for BUCS+7C21; apply new
+	conventions for glyph granularity.
+	(U+7B80): Add `<-denotational' for BUCS+7C21; add
+	`<-simplified@CN' for U+7C21.
+	(U+7C21): Add `<-denotational' for BUCS+7C21.
+	(U+7C69): Apply new conventions for glyph granularity.
+	(A-MJ019778): New abstract node; use `<-denotational' for U+7C69.
+	(JSP-5324): Use A-MJ019778 instead of U+7C69 as the mother; unify
+	MJ019778 and KOSEKI-299610.
+	(HNG-KAR0281-0): New character; use `<-denotational' for
+	A-MJ019778.
+	(A-UU+7C69): New abstract node; use `<-denotational' for U+7C69.
+	(C2-712B): Use A-UU+7C69 instead of U+7C69 as the mother; unify
+	CU+7C69.
+	(JX2-736F): Use A-UU+7C69 instead of U+7C69 as the mother.
+	(UU+7C69): Use A-UU+7C69 instead of U+7C69 as the mother; unify
+	HD-IB0844.
+
+2016-09-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R030-Mouth.el (KU+54E8): Add representative nodes.
 	(U+55AE): Likewise.
 	(CU+55D2): Likewise.
