@@ -1,3 +1,51 @@
+2016-09-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R154-Shell.el (HD-IB0903): Unify BC-8D68.
+	(U-00027D36): Apply new conventions for glyph granularity.
+	(U-00027D49): Likewise; add `<-same' for U+8CD1.
+	(U-000238EC): Apply new conventions for glyph granularity.
+	(U+8CC7): Likewise.
+	(U-00027D9A): Likewise.
+	(CU+27D9A): Add `<-same' for U+8CB0.
+	(U-00027D88): Apply new conventions for glyph granularity.
+	(U-00027D8C): Likewise.
+	(U-00027D90): New character.
+	(U-00027D9C): Apply new conventions for glyph granularity.
+	(U+4778): Likewise.
+	(U-00027D9E): Apply new conventions for glyph granularity.
+	(U-00027DA4): Likewise.
+	(U+4784): Likewise.
+	(U-00027DC9): Likewise.
+	(U-00027DCA): Likewise.
+	(U-00027DC4): Add `<-formed' for IU+27DE7; add `<-same' for
+	IU+27DE7.
+	(U-00027DC7): Apply new conventions for glyph granularity; unify
+	MJ049688 and KOSEKI-418210; add `<-original' for U+8CEE.
+	(U-00027DD7): Apply new conventions for glyph granularity.
+	(U-00027DD0): Likewise.
+	(U-00027DD5): Likewise.
+	(IU+27DD5): Add `<-same' for KU+8CC7.
+	(U-00027DDE): Apply new conventions for glyph granularity; add
+	`<-same' for U+5546.
+	(U+8D00): Apply new conventions for glyph granularity.
+	(U-00027DE0): Likewise.
+	(U-00027E14): Likewise; add `<-same' for U+8D07.
+	(U-00027DE7): Apply new conventions for glyph granularity.
+	(IU+27DE7): Add `->formed' for U-00027DC4.
+	(U+8D06): Apply new conventions for glyph granularity.
+	(U-00027DFC): Likewise; add `<-wrong' for U+8D06.
+	(U-00027E04): Apply new conventions for glyph granularity.
+	(U-00027E07): Likewise.
+	(U-00027E0B): Likewise.
+	(U-00027E1E): Likewise.
+	(U-00027E1A): Likewise.
+	(CU+27E1A): Add `<-wrong' for U+8CC2.
+	(U-00027E38): Apply new conventions for glyph granularity.
+	(U+8D19): Likewise.
+	(U+478B): Likewise.
+	(U-00027E48): Likewise.
+	(U-00027E4E): Likewise.
+
 2016-09-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R118-Bamboo.el: Add glyph-images of HNG-KAR.
