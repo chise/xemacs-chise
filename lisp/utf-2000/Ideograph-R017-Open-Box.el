@@ -231,7 +231,12 @@
     (=daikanwa		. 01808)	; &I-M-01808;
     (=hanziku-1		. #xE57B)	; &I-HZK01-E57B;
     (<-ancient
-     ((=ucs		  . #x753E)	; 甾
+     ((=ucs@unicode	  . #x753E)	; &JX2-7137;
+      (=gb2312		  . #x675E)	; &JX2-7137; [71-62]
+      (=jis-x0212	  . #x4D2E)	; &I-JSP-4D2E; [45-14]
+      (=cns11643-2	  . #x2834)	; &I-C2-2834; [08-20]
+      (=jis-x0213-2	  . #x7137)	; &I-JX2-7137; [81-23]
+      (=daikanwa	  . 21742)	; &I-M-21742;
       ))
     (->ancient
      ((=ucs@iso		  . #x2067E)	; &M-01814;
@@ -240,7 +245,11 @@
     (->ancient*sources
      shuowen daikanwa)
     (->formed
-     ((=ucs		  . #x753E)	; 甾
+     ((=ucs@unicode	  . #x753E)	; &JX2-7137;
+      (=gb2312		  . #x675E)	; &JX2-7137; [71-62]
+      (=jis-x0212	  . #x4D2E)	; &I-JSP-4D2E; [45-14]
+      (=cns11643-2	  . #x2834)	; &I-C2-2834; [08-20]
+      (=jis-x0213-2	  . #x7137)	; &I-JX2-7137; [81-23]
       (=daikanwa	  . 21742)	; &I-M-21742;
       ))
     (->formed*sources
