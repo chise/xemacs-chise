@@ -1,3 +1,11 @@
+2016-09-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R162-Walk.el (CU+9021): Add representative node.
+	(A-MJ026201): New abstract node; use `<-denotational' for U+908A.
+	(MJ026201): New character; use `<-denotational' for A-MJ026201;
+	unify HD-JT-BD5E; add U+908A-itaiji-008 and g2-MJ026201.
+	(MJ026204): Use A-MJ026201 instead of U+908A as the mother.
+
 2016-09-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R154-Shell.el (HD-IB0903): Unify BC-8D68.
