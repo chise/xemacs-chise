@@ -11672,7 +11672,9 @@
     (total-strokes	 . 11)
     (=daikanwa		. 38899)	; &M-38899;
     (<-synonyms
-     ((=daikanwa	  . 44775)	; &M-44775;
+     ((=ucs@cns		  . #x99FF)	; &C1-762C;
+      (=cns11643-1	  . #x762C)	; &C1-762C; [86-12]
+      (=daikanwa	  . 44775)	; &I-M-44775;
       ))
     (<-synonyms*sources
      maoshi liji-zhu daikanwa)
@@ -11691,6 +11693,10 @@
     (total-strokes	 . 11)
     (=ucs@cns		. #x9021)	; &C2-396A;
     (=cns11643-2	. #x396A)	; &C2-396A; [25-74]
+    (->subsumptive
+     ((==ucs@cns	  . #x9021)	; &g2-CU+9021;
+      (==cns11643-2	  . #x396A)	; &g2-CU+9021; [25-74]
+      ))
     ))
 (define-char
   '((<-denotational
@@ -28718,6 +28724,35 @@
 (define-char
   '((<-denotational
      ((=ucs		  . #x908A)	; 邊
+      ))
+    (ideographic-radical . 162)	; ⾡
+    (ideographic-strokes . 14)
+    (=>mj		. 026201)	; &A-MJ026201;
+    ))
+(define-char
+  '((<-denotational
+     ((=>mj		  . 026201)	; &A-MJ026201;
+      ))
+    (ideographic-radical . 162)	; ⾡
+    (ideographic-strokes . 14)
+    (total-strokes	 . 18)
+    (=mj		. 026201)	; &MJ026201;
+    (=hanyo-denshi/jt	. #xBD5E)	; &I-HD-JT-BD5E;
+    (->subsumptive
+     ((=ucs-itaiji-008	  . #x908A)	; &U-i008+908A;
+      )
+     ((==mj		  . 026201)	; &g2-MJ026201;
+      (==hanyo-denshi/jt  . #xBD5E)	; &g2-MJ026201;
+      (->subsumptive
+       ((===hanyo-denshi/jt . #xBD5E)	; &R-HD-JT-BD5E;
+	)
+       ((===mj		    . 026201)	; &R-MJ026201;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>mj		  . 026201)	; &A-MJ026201;
       ))
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 14)
