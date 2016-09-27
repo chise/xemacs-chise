@@ -1,3 +1,14 @@
+2016-09-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (UU+5782): Add representative nodes.
+	(GT-K03753): New glyph; use `<-subsumptive' for UU+5782; use
+	`<-formed@component/connect-right' for UU+5782.
+
+2016-09-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R037-Big.el (g2-IU+21647): Add
+	`ideographic-structure'.
+
 2016-09-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R120-Silk.el: Add glyph-images of HNG-KAR.
