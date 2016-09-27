@@ -4032,7 +4032,8 @@
     (=daikanwa		. 05963)	; &I-M-05963;
     (=cbeta		. 04130)	; &I-CB04130;
     (<-same
-     ((=ucs		  . #x7F3A)	; 缺
+     ((=ucs@unicode	  . #x7F3A)	; &AJ1-06157;
+      (=adobe-japan1-0	  . 06157)	; &AJ1-06157;
       (=daikanwa	  . 28122)	; &I-M-28122;
       ))
     (<-same*sources
@@ -4042,6 +4043,15 @@
        ((=ucs		    . #x21647)	; 𡙇
 	)
        ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gt-k		    . 03753)	; &GT-K03753;
+	)
+       ((==ucs@unicode	    . #x592C)	; &g2-AJ1-04544;
+	(==adobe-japan1-0   . 04544)	; &g2-AJ1-04544;
 	))
       (==ucs@iso	  . #x21647)	; &g2-AJ1-17480;
       (==adobe-japan1-5	  . 17480)	; &g2-AJ1-17480;
