@@ -17,7 +17,8 @@
     (=daikanwa		. 15991)	; &I-M-15991;
     (=shinjigen		.  3905)	; 欠
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x7F3A)	; 缺
+     ((=ucs@unicode	  . #x7F3A)	; &AJ1-06157;
+      (=adobe-japan1-0	  . 06157)	; &AJ1-06157;
       (=jis-x0208	  . #x657E)	; &I-J90-657E; [69-94]
       ))
     (->subsumptive
