@@ -1,3 +1,19 @@
+2016-09-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R120-Silk.el: Add glyph-images of HNG-KAR.
+	(HNG-KAR1165-0): New character; use `<-avoiding-taboo' for U+7D14.
+	(HNG-KAR1158-0): New character; use `<-denotational' for U+7D5C.
+	(U+7D8C): Separate UU+7D8C.
+	(HNG-KAR0292-0): New character; use `<-denotational' for U+7D8C.
+	(U+7DFC): Apply new conventions for glyph granularity.
+	(A-M-27725): New abstract node; use `<-denotational' for U+7DC7.
+	(U-0002F96E): Use `<-subsumptive' for A-M-27725 instead of
+	`<-denotational' for U+7DC7.
+	(HNG-KAR1161-0): New glyph; use `<-subsumptive' for A-M-27725; use
+	`<-formed' for U+7DC7.
+	(U-00026169): Add `ideographic-strokes' and `total-strokes'; apply
+	new conventions for glyph granularity.
+
 2016-09-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R162-Walk.el (CU+9021): Add representative node.
