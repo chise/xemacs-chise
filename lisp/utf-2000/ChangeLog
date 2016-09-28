@@ -1,3 +1,17 @@
+2016-09-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R102-Field.el (U+753E): Separate UU+753E.
+	(A-IU+2F936): New abstract node; use `<-denotational' for U+753E.
+	(U-0002F936): Add `<-subsumptive' for A-IU+2F936.
+	(U+753E-itaiji-005): New character; use `<-subsumptive' for
+	A-IU+2F936.
+
+2016-09-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R047-River.el (U-00021FE7): Separate IU+21FE7.
+	(MJ034901): New character; use `<-denotational' for U-00021FE7;
+	unify HD-KS098040.
+
 2016-09-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (UU+5782): Add representative nodes.
