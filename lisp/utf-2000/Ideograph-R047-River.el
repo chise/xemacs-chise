@@ -34,7 +34,8 @@
      ((=ucs		  . #x5DDB)	; 巛
       (=daikanwa	  . 08669)	; &I-M-08669;
       )
-     ((=ucs		  . #x21FE7)	; 𡿧
+     ((=ucs@iso		  . #x21FE7)	; &GT-10946;
+      (=cns11643-6	  . #x216D)	; &GT-10946; [01-77]
       (=daikanwa	  . 08675)	; &I-M-08675;
       ))
     (->mistakable*sources
@@ -153,11 +154,57 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (=ucs		. #x21FE7)	; 𡿧
-    (=cns11643-6	. #x216D)	; &I-C6-216D; [01-77]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21FE7)	; 𡿧
+      ))
+    (ideographic-radical . 47)	; ⼮
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (=ucs@iso		. #x21FE7)	; &GT-10946;
+    (=cns11643-6	. #x216D)	; &GT-10946; [01-77]
     (=gt		. 10946)	; &I-GT-10946;
     (=gt-k		. 00728)	; &I-GT-K00728;
     (=gt-pj-3		. #x3D76)	; &I-GT-10946; [29-86]
     (=daikanwa		. 08675)	; &I-M-08675;
+    (->subsumptive
+     ((==ucs@iso	  . #x21FE7)	; &g2-GT-10946;
+      (==cns11643-6	  . #x216D)	; &g2-GT-10946; [01-77]
+      (==gt		  . 10946)	; &g2-GT-10946;
+      (==gt-k		  . 00728)	; &g2-GT-10946;
+      (==daikanwa	  . 08675)	; &g2-GT-10946;
+      (->subsumptive
+       ((===daikanwa	    . 08675)	; &R-M-08675;
+	)
+       ((===cns11643-6	    . #x216D)	; &R-C6-216D; [01-77]
+	)
+       ((===gt		    . 10946)	; &R-GT-10946;
+	(===gt-k	    . 00728)	; &R-GT-10946;
+	)
+       ((===ucs@iso	    . #x21FE7)	; &R-U-00021FE7;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21FE7)	; 𡿧
+      ))
+    (ideographic-radical . 47)	; ⼮
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (=mj		. 034901)	; &MJ034901;
+    (=hanyo-denshi/ks	. 098040)	; &MJ034901;
+    (->subsumptive
+     ((==mj		  . 034901)	; &g2-MJ034901;
+      (==hanyo-denshi/ks  . 098040)	; &g2-MJ034901;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 098040)	; &R-HD-KS-098040;
+	(=hanyo-denshi/ks/mf . #x264C)	; &R-HD-KS-098040;
+	)
+       ((===mj		    . 034901)	; &R-MJ034901;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 47)	; ⼮
