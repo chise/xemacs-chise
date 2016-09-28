@@ -6,6 +6,10 @@
 
 2016-09-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R121-Jar.el (U+7F3A): Separate UU+7F3A.
+	(UU+7F3A): Add `=>ucs@iwds-1'.
+	(HNG-KAR0305-0): New character; use `<-denotational' for U+7F3A.
+
 	* Ideograph-R037-Big.el (g2-IU+21647): Add
 	`ideographic-structure'.
 
