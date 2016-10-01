@@ -1,3 +1,15 @@
+2016-09-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* u02E00-CJK-Radical-Supplement.el (GT-K01701): Moved to
+	Ideograph-R123-Sheep.el.
+
+2016-09-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R149-Speech.el (U+46AF): Use `->subsumptive'.
+
+	* Ideograph-R009-Man.el (U-0002040C): Apply new conventions for
+	glyph granularity.
+
 2016-09-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R102-Field.el (U+753E): Separate UU+753E.
