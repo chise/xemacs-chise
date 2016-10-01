@@ -832,17 +832,6 @@
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (=gt-k		. 01701)	; &GT-K01701;
-    (=gt-pj-k1		. #x3443)	; &GT-K01701; [20-35]
-    (<-formed@component/connect-right
-     ((=ucs		  . #x7F8A)	; 羊
-      ))
-    ))
-(define-char
-  '((=>ucs		. #x2EB6)	; ⺶
-    (ideographic-radical . 123)	; ⽺
-    (ideographic-strokes . 0)
-    (total-strokes	 . 6)
     (=big5-cdp		. #x8970)	; &CDP-8970;
     (<-formed@component
      ((=ucs		  . #x7F8A)	; 羊
