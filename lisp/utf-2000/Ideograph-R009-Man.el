@@ -49903,34 +49903,37 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
+    (hanyu-dazidian	1 235 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL PERSON")
-      (=ucs		  . #x2E85)	; ⺅
+     ((=ucs		  . #x4EBB)	; 亻
       )
      ((=ucs		  . #x7F77)	; 罷
       ))
     (=ucs		. #x2040C)	; 𠐌
+    (=cns11643-4	. #x5567)	; &I-C4-5567; [53-71]
+    (=daikanwa		. 01263)	; &I-M-01263;
     (->subsumptive
-     ((hanyu-dazidian	  1 235 3)
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x7F77)	; &GT-36491;
-	(=jis-x0208	    . #x486D)	; &GT-36491; [40-77]
-	(=ks-x1001	    . #x7773)	; &I-K0-7773; [87-83]
-	(=jis-x0213-1	    . #x486D)	; &I-JX1-486D; [40-77]
-	(=daikanwa	    . 28336)	; &I-M-28336;
+       ((==ucs@unicode	    . #x7F77)	; &g2-GT-36491;
+	(==jis-x0208	    . #x486D)	; &g2-GT-36491; [40-77]
 	))
-      (=ucs@iso		  . #x2040C)	; &M-01263;
-      (=daikanwa	  . 01263)	; &M-01263;
-      (=hanziku-1	  . #xD6B2)	; &I-HZK01-D6B2;
+      (==daikanwa	  . 01263)	; &g2-M-01263;
+      (->subsumptive
+       ((===daikanwa	    . 01263)	; &R-M-01263;
+	)
+       ((=hanziku-1	    . #xD6B2)	; &HZK01-D6B2;
+	))
+      )
+     ((==ucs@iso	  . #x2040C)	; &g2-IU-0002040C;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -49939,10 +49942,11 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=cns11643-1	    . #x6E48)	; &C1-6E48; [78-40]
+       ((==ucs@cns	    . #x7F77)	; &g2-CU+7F77;
+	(==cns11643-1	    . #x6E48)	; &g2-CU+7F77; [78-40]
 	))
-      (=ucs@cns		  . #x2040C)	; &C4-5567;
-      (=cns11643-4	  . #x5567)	; &C4-5567; [53-71]
+      (==ucs@cns	  . #x2040C)	; &g2-CU+2040C;
+      (==cns11643-4	  . #x5567)	; &g2-CU+2040C; [53-71]
       ))
     ))
 (define-char
