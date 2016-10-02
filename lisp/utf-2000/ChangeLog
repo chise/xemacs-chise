@@ -1,3 +1,30 @@
+2016-10-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R122-Net.el: Add glyph-images of HNG-KAR.
+	(U+7F52): Separate UU+7F52.
+	(U+7F52-itaiji-001): New character; use `<-denotational' for
+	U+7F52.
+	(U+7F6A): Separate UU+7F6A.
+	(UU+7F6A): Move HNG-KHM0108-0 and HNG-KHI0523-0 to
+	U+7F6A-itaiji-001.
+	(U+7F6A-itaiji-001): New character to integrate HNG-KAR1170-0,
+	HNG-KHM0108-0 and HNG-KHI0523-0; use `<-denotational' for U+7F6A.
+	(U+7F70): Separate UU+7F70.
+	(HNG-KAR1169-0): New character; use `<-denotational' for U+7F70.
+	(U+7F77): Separate UU+7F77; apply new conventions for glyph
+	granularity.
+	(HNG-KAR0257-0): New character; use `<-denotational' for U+7F77.
+
+2016-09-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R187-Horse.el: Add some Adobe-Japan1-0 code points.
+	(U+99AF): Unify S-9367; add `<-formed' for U+99FB.
+	(JU+99BF): Unify S-9426; add `<-vulgar' for U+9A62.
+	(U+99DE): Unify S-9351; add `<-formed' for U+99DD.
+	(U+9A12): Unify S-9383.
+	(MJ059052): New character; unify KOSEKI-508730 and S-9377; use
+	`<-vulgar' for U+9A0E.
+
 2016-09-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* u02E00-CJK-Radical-Supplement.el (GT-K01701): Moved to
