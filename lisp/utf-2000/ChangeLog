@@ -1,3 +1,17 @@
+2016-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R113-Spirit.el (JU+799B): Use U+793A instead of <CJK
+	RADICAL SPIRIT ONE> in `ideographic-structure'.
+
+	* Ideograph-R060-Step.el (U+5F73): Add representative nodes.
+	(g2-UU+5FC2): Use g2-UU+5F73 instead of U+5F73 in
+	`ideographic-structure'.
+
+	* Ideograph-R022-Right-Open-Box.el (U+531A): Add representative
+	nodes.
+	(g2-UU+5337): Use g2-UU+531A instead of U+531A in
+	`ideographic-structure'.
+
 2016-10-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R122-Net.el: Add glyph-images of HNG-KAR.
