@@ -8420,15 +8420,10 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((name		    . "CJK RADICAL SPIRIT ONE")
-	(=ucs		    . #x2EAC)	; ⺬
+       ((=ucs		    . #x793A)	; 示
 	)
-       ((=ucs@unicode	    . #x771E)	; &HD-JA-6243;
-	(=jis-x0208	    . #x6243)	; &HD-JA-6243; [66-35]
-	(=ks-x1001	    . #x7258)	; &I-K0-7258; [82-56]
-	(=cns11643-3	    . #x3759)	; &I-C3-3759; [23-57]
-	(=jis-x0213-1	    . #x6243)	; &I-JX1-6243; [66-35]
-	(=daikanwa	    . 23235)	; &I-M-23235;
+       ((=ucs@unicode	    . #x771E)	; &AJ1-05816;
+	(=adobe-japan1-0    . 05816)	; &AJ1-05816;
 	))
       (=ucs@jis		  . #x799B)	; &AJ1-08584;
       (=adobe-japan1-2	  . 08584)	; &AJ1-08584;
@@ -8448,8 +8443,8 @@
 	  )
 	 ((==adobe-japan1-5   . 19130)	; &g2-AJ1-19130;
 	  )
-	 ((==ucs@unicode      . #x771E)	; &g2-HD-JA-6243;
-	  (==jis-x0208	      . #x6243)	; &g2-HD-JA-6243; [66-35]
+	 ((==ucs@unicode      . #x771E)	; &g2-AJ1-05816;
+	  (==adobe-japan1-0   . 05816)	; &g2-AJ1-05816;
 	  ))
 	(==ucs@jis	    . #x799B)	; &g2-AJ1-08584;
 	(==adobe-japan1-2   . 08584)	; &g2-AJ1-08584;
