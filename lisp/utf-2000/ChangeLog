@@ -1,5 +1,30 @@
 2016-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R126-And.el (g2-UU+800C): Add HNG-KAR1183-0.
+
+2016-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (U+613C): Use U+5FC4 instead of <CJK
+	RADICAL HEART ONE> in `ideographic-structure' of abstract
+	character and glyphs.
+	(U+614E): Add ideographic-structure.
+	(g2-M-11025): Use g2-UU+5FC3 instead of U+5FC3 in
+	`ideographic-structure'.
+
+	* Ideograph-R038-Woman.el (U-0002179E): Use U+5973 instead of
+	AJ1-13828 in `ideographic-structure'; separate g2-M-06489 and
+	g2-CB05741.
+
+	* Ideograph-R012-Eight.el (UU+34B9): Add representative nodes.
+
+	* Ideograph-R009-Man.el (U+5057): Use U+4EBB instead of <CJK
+	RADICAL PERSON> in `ideographic-structure' of abstract character.
+	(U-000202DD): Add `ideographic-structure'.
+	(U+508E): Use U+4EBB instead of <CJK RADICAL PERSON> in
+	`ideographic-structure' of unified glyphs and glyphs.
+	(U-00020469): Use U+4EBB instead of <CJK RADICAL PERSON> in
+	`ideographic-structure' of abstract character.
+
 	* Ideograph-R113-Spirit.el (JU+799B): Use U+793A instead of <CJK
 	RADICAL SPIRIT ONE> in `ideographic-structure'.
 
