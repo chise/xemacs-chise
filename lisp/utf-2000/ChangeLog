@@ -1,5 +1,12 @@
 2016-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R073-Say.el (U+3B30): Add `<-formed' for U+81FE.
+	(g2-UU+3B30): Add HNG-KAR1208-0.
+
+	* Ideograph-R001-One.el (U+4E02): Separate UU+4E02.
+	(BC-8BBF): Add `<-denotational' for U+4E02; add
+	`<-formed@component' for UU+4E02; add GT-K00125.
+
 	* Ideograph-R126-And.el (g2-UU+800C): Add HNG-KAR1183-0.
 
 2016-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
