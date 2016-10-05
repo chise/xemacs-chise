@@ -149,6 +149,11 @@
     (=cns11643-3	. #x2374)	; &I-C3-2374; [03-84]
     (=daikanwa		. 14281)	; &I-M-14281;
     (=shinjigen		.  6611)	; 㬰
+    (<-formed
+     ((=ucs		  . #x81FE)	; 臾
+      ))
+    (<-formed*sources
+     hng)
     (<-vulgar
      ((=ucs@jis		  . #x81FE)	; &GT-39042;
       (=jis-x0208	  . #x674C)	; &GT-39042; [71-44]
@@ -178,12 +183,11 @@
        ((===cns11643-3	    . #x2374)	; &R-C3-2374; [03-84]
 	)
        ((===ucs@unicode	    . #x3B30)	; &R-UU+3B30;
+	)
+       ((===hng-kar	    . 12080)	; &HNG018-12080;
 	))
       )
      ((===hng-khi	  . 01530)	; &HNG010-01530;
-      (<-formed
-       ((=ucs		    . #x81FE)	; 臾
-	))
       ))
     ))
 (define-char
