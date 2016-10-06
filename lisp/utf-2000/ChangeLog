@@ -1,3 +1,12 @@
+2016-10-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R124-Feather.el: Add glyph-images of HNG-KAR.
+	(U+7FBF): Use `->denotational' and `->subsumptive'.
+	(HNG-KAR0314-0): New character; use `<-denotational' for U+7FBF.
+	(HNG-KAR0312-0): New character; use `<-denotational' for U+7FD4.
+	(HNG-KAR0311-0): New character; use `<-denotational' for U+7FD5.
+	(HNG-KAR1176-0): New character; use `<-denotational' for U+7FFC.
+
 2016-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R027-Cliff.el (U+5382): Add representative nodes.
