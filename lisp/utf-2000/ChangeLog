@@ -1,4 +1,15 @@
+2016-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (U+5382): Add representative nodes.
+	(g2-GT-03801): Use g2-UU+5382 instead of U+5382 in
+	`ideographic-structure'.
+	(UU+53A7): Unify g2-UU+53A7 and g2-C2-3A49.
+
 2016-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R147-See.el (U+89A9): Add `ideographic-structure'.
+	(JU+89A9): Likewise.
+	(UU+89A9): Likewise.
 
 	* Ideograph-R073-Say.el (U+3B30): Add `<-formed' for U+81FE.
 	(g2-UU+3B30): Add HNG-KAR1208-0.
