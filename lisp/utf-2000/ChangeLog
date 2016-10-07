@@ -1,5 +1,30 @@
 2016-10-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R134-Mortar.el: Add glyph-images of HNG-KAR.
+
+	* Ideograph-R127-Plow.el: Add glyph-images of HNG-KAR.
+	(JU+8012): Add GT-K01733.
+	(UU+8012): Add GT-K01734.
+	(U+8030): Separate A-UU+8030.
+	(A-UU+8030): Add `=>ucs@iwds-1'.
+	(HNG-KAR0317-0): New character; use `<-denotational' for U+8030.
+
+	* Ideograph-R109-Eye.el: Add some Adobe-Japan1-0 code points.
+	(HD-JT-B651): Unify MJ018171.
+	(HD-JT-B64B): Unify MJ058159.
+	(o-CU+2F947): Unify A-MJ018174.
+	(U-0002F947): Unify MJ018174, HD-JT-B649 and KOSEKI-260330.
+	(g2-M-23237): Unify MJ018175.
+	(U+77A9): Unify S-5383; add `<-vulgar' for U+77DA.
+	(JU+77D9): Unify S-5355; add `<-formed' for JU+77B0.
+
+	* Ideograph-R009-Man.el (U+343A): Separate UU+343A.
+	(U+343A-itaiji-001): New character; use `<-denotational' for
+	U+343A.
+	(BC-8C76): Likewise.
+
+2016-10-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R125-Old.el: Add glyph-images of HNG-KAR.
 
 	* Ideograph-R124-Feather.el: Add glyph-images of HNG-KAR.
