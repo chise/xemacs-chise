@@ -1,5 +1,7 @@
 2016-10-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R125-Old.el: Add glyph-images of HNG-KAR.
+
 	* Ideograph-R124-Feather.el: Add glyph-images of HNG-KAR.
 	(U+7FBF): Use `->denotational' and `->subsumptive'.
 	(HNG-KAR0314-0): New character; use `<-denotational' for U+7FBF.
