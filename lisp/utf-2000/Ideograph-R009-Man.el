@@ -4772,6 +4772,13 @@
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
+    (=ucs		. #x343A)	; 㐺
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x343A)	; 㐺
+      ))
+    (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 124 3)
@@ -4787,10 +4794,28 @@
       )
      ((=ucs		  . #x4EBA)	; 人
       ))
-    (=ucs		. #x343A)	; 㐺
-    (=cns11643-4	. #x2231)	; &I-C4-2231; [02-17]
+    (=ucs@unicode	. #x343A)	; &C4-2231;
+    (=cns11643-4	. #x2231)	; &C4-2231; [02-17]
     (=big5-cdp		. #x894B)	; &I-CDP-894B;
     (=daikanwa		. 00437)	; &I-M-00437;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x343A)	; 㐺
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=ucs-itaiji-001	. #x343A)	; &U-i001+343A;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x343A)	; 㐺
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=big5-cdp		. #x8C76)	; &CDP-8C76;
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
