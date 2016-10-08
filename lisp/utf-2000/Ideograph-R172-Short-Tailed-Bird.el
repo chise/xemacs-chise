@@ -138,7 +138,7 @@
     (=daikanwa		. 41941)	; &I-M-41941;
     (->subsumptive
      ((==daikanwa	  . 41941)	; &g2-M-41941;
-      (=jef-china3	  . #x6BF8)	; &g2-M-41941;
+      (=jef-china3	  . #x6BF8)	; &I-JC3-6BF8;
       (->subsumptive
        ((===daikanwa	    . 41941)	; &R-M-41941;
 	)
