@@ -1770,8 +1770,8 @@
        ((==ucs@unicode	    . #x51AB)	; &g2-AJ1-04233;
 	(==adobe-japan1-0   . 04233)	; &g2-AJ1-04233;
 	)
-       ((==ucs@unicode	    . #x96B9)	; &g2-GT-56353;
-	(==jis-x0208	    . #x7032)	; &g2-GT-56353; [80-18]
+       ((==ucs@unicode	    . #x96B9)	; &g2-AJ1-07115;
+	(==adobe-japan1-0   . 07115)	; &g2-AJ1-07115;
 	))
       (==ucs@unicode	  . #x51C6)	; &g2-AJ1-02404;
       (==adobe-japan1-0	  . 02404)	; &g2-AJ1-02404;
