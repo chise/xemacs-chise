@@ -1,3 +1,13 @@
+2016-10-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R102-Field.el (GT-K03345): Use A-UU+752B instead of
+	U+752B as the mother.
+
+	* Ideograph-R101-Use.el (U+752B): Separate A-UU+752B.
+	(A-UU+752B): Add `=>ucs@iwds-1'.
+	(U+752B-itaiji-001): New character; use `<-denotational' for
+	U+752B.
+
 2016-10-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R128-Ear.el: Add glyph-images of HNG-KAR.
