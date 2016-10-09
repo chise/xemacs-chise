@@ -1,5 +1,27 @@
 2016-10-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R123-Sheep.el: Add glyph-images of HNG-KAR.
+	(BC-8970): Use `<-subsumptive' for U+7F8A instead of `=>ucs' for
+	U+2EB6.
+	(GT-K01701): Likewise.
+	(BC-8CCC): Use `<-denotational' instead of `=>ucs' to represent
+	mapping for <CJK RADICAL SHEEP>.
+	(U+7F9E): Use `->denotational' and `->subsumptive'; separate
+	A-UU+7F9E.
+	(A-UU+7F9E): Add `=>ucs@iwds-1'.
+	(HNG-KAR0309-0): New character; use `<-denotational' for U+7F9E.
+	(BUCS+7FB2): New abstract node.
+	(U+7FB2): Add `<-denotational' for BUCS+7FB2.
+	(HNG-KAR0310-0): New character; use `<-denotational' for
+	BUCS+7FB2; use `<-formed' for U+7FB2.
+	(U-000263C1): Add `<-denotational' for BUCS+7FB2.
+
+	* Ideograph-R037-Big.el (g2-IU+21678): Use AJ1-13909 instead of
+	U+5927 in `ideographic-structure'.
+	(g2-CU+21678): Likewise.
+
+2016-10-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R102-Field.el (GT-K03345): Use A-UU+752B instead of
 	U+752B as the mother.
 
