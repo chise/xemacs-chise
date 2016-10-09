@@ -404,7 +404,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x752B)	; 甫
+     ((=>ucs@iwds-1	  . #x752B)	; &A-IWDSU+752B;
+      (=>ucs@unicode	  . #x752B)	; &A-IWDSU+752B;
       ))
     (ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 2)
