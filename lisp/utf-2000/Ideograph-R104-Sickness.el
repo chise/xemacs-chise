@@ -497,9 +497,7 @@
     (=cbeta		. 00982)	; &I-CB00982;
     (<-vulgar
      ((=ucs@cns		  . #x838A)	; &C1-5C7D;
-      (=ucs@ks		  . #x838A)	; &C1-5C7D;
-      (=ks-x1001	  . #x6D76)	; &C1-5C7D; [77-86]
-      (=cns11643-1	  . #x5C7D)	; &I-C1-5C7D; [60-93]
+      (=cns11643-1	  . #x5C7D)	; &C1-5C7D; [60-93]
       (=daikanwa	  . 31035)	; &I-M-31035;
       ))
     (<-vulgar*sources
