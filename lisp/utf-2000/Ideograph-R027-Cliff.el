@@ -4101,9 +4101,7 @@
      ((=ucs		  . #x5382)	; 厂
       )
      ((=ucs@cns		  . #x842C)	; &C1-655C;
-      (=ucs@ks		  . #x842C)	; &C1-655C;
-      (=ks-x1001	  . #x583F)	; &C1-655C; [56-31]
-      (=cns11643-1	  . #x655C)	; &I-C1-655C; [69-60]
+      (=cns11643-1	  . #x655C)	; &C1-655C; [69-60]
       (=daikanwa	  . 31339)	; &I-M-31339;
       ))
     (=ucs@cns		. #x53B2)	; &MJ007965;
@@ -4136,15 +4134,6 @@
        ((=ucs		    . #x53B2)	; 厲
 	)
        ((=ucs		    . #xE0102)	; 󠄂
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	(=ucs		    . #x2FF8)	; ⿸
-	)
-       ((=ucs		    . #x5382)	; 厂
-	)
-       ((==ucs@ks	    . #x842C)	; &g2-K0-583F;
-	(==ks-x1001	    . #x583F)	; &g2-K0-583F; [56-31]
 	))
       (==mj		  . 007965)	; &g2-MJ007965;
       (==hanyo-denshi/ks  . 035150)	; &g2-MJ007965;
