@@ -10976,14 +10976,16 @@
     (=daikanwa		. 46530)	; &I-M-46530;
     (=shinjigen		.  6571)	; 鱠
     (<-formed
-     ((=ucs		  . #x81BE)	; 膾
+     ((=ucs@unicode	  . #x81BE)	; &AJ1-06277;
+      (=adobe-japan1-0	  . 06277)	; &AJ1-06277;
       (=jis-x0208	  . #x673A)	; &I-J90-673A; [71-26]
-      (=shinjigen	  .  6570)	; 膾
+      (=shinjigen	  .  6570)	; &AJ1-06277;
       ))
     (<-formed*sources
      shinjigen)
     (<-same@s=namasu
-     ((=ucs		  . #x81BE)	; 膾
+     ((=ucs@unicode	  . #x81BE)	; &AJ1-06277;
+      (=adobe-japan1-0	  . 06277)	; &AJ1-06277;
       (=daikanwa	  . 29937)	; &I-M-29937;
       ))
     (<-same@s=namasu*sources
