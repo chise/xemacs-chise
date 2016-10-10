@@ -828,23 +828,35 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x2EB6)	; ⺶
+  '((<-denotational
+     ((name		  . "CJK RADICAL SHEEP")
+      (=ucs		  . #x2EB6)	; ⺶
+      ))
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (=big5-cdp		. #x8970)	; &CDP-8970;
+    (=ucs@unicode	. #x2EB6)	; &UU+2EB6;
     (<-formed@component
      ((=ucs		  . #x7F8A)	; 羊
       ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x2EB6)	; &g2-UU+2EB6;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x2EB6)	; ⺶
+  '((<-denotational
+     ((name		  . "CJK RADICAL SHEEP")
+      (=ucs		  . #x2EB6)	; ⺶
+      ))
     (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
     (=big5-cdp		. #x8CCC)	; &CDP-8CCC;
     (<-formed@component
      ((=ucs		  . #x7F8A)	; 羊
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8CCC)	; &g2-CDP-8CCC;
       ))
     ))
 (define-char
