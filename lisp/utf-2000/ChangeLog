@@ -1,3 +1,35 @@
+2016-10-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R130-Meat.el: Add glyph-images of HNG-KAR.
+	(BUCS+8089): New abstract node.
+	(U+8089): Add `<-denotational' for BUCS+8089.
+	(A-MJ058378): New abstract character; use `<-denotational' for
+	BUCS+8089.
+	(HNG-KAR1199-0): New character; use `<-subsumptive' for
+	A-MJ058378; use `<-formed' for U+8089.
+	(MJ058378): Likewise; unify KOSEKI-326340.
+	(U-0002665D): Apply new conventions for glyph granularity; add
+	`ideographic-strokes' and `total-strokes'; add HNG-KAR1201-0.
+	(U+812F): Separate A-UU+812F.
+	(A-UU+812F): Add `=>ucs@iwds-1'.
+	(HNG-KAR0324-0): New character; use `<-denotational' for U+812F.
+	(HNG-KAR0181-0): New character; use `<-denotational' for U+81A0.
+	(U+81BE): Separate UU+81BE.
+	(HNG-KAR0321-0): New character; use `<-denotational' for U+81BE.
+
+2016-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R140-Grass.el: Add glyph-images of HNG-KAR.
+	(U-00026BE7): Apply new conventions for glyph granularity.
+	(A-CB02705): New abstract character; use `<-same' for U-00026BE7.
+	(HNG-KAR1225-0): New character; use `<-denotational' for
+	A-CB02705; use `<-formed' for U+8449.
+	(CB02705): New character; use `<-denotational' for A-CB02705.
+	(HNG-KAR1235-0): New character; use `<-denotational' for U+8584.
+
+	* Ideograph-R004-Slash.el (U+4E55): Add `<-denotational' for
+	BUCS+864E.
+
 2016-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R075-Tree.el (U-000233CB): Use `->denotational' and
