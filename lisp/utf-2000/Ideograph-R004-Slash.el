@@ -2263,7 +2263,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 4)	; ⼃
+  '((<-denotational
+     ((==>ucs@bucs	  . #x864E)	; &BUCS+864E;
+      ))
+    (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
     (=ucs		. #x4E55)	; 乕
