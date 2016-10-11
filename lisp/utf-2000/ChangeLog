@@ -1,3 +1,11 @@
+2016-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (U-000233CB): Use `->denotational' and
+	`->subsumptive'.
+	(U-00023402): New character; use `<-formed' for U-000233CB.
+
+	* Ideograph-R050-Turban.el (IU+22164): Add representative nodes.
+
 2016-10-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R074-Moon.el (U+6726): Add `ideographic-structure'.
