@@ -132,6 +132,36 @@
     ))
 (define-char
   '((ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=>big5-cdp		. #x8DC1)	; &IWDS1-082;
+    (=>iwds-1		.  0082)	; &IWDS1-082;
+    (<-formed@component
+     ((=ucs		  . #x722A)	; 爪
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>iwds-1		  .  0082)	; &IWDS1-082;
+      ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=big5-cdp		. #x89E3)	; &CDP-89E3;
+    (=gt-k		. 00278)	; &I-GT-K00278;
+    (=gt-pj-k1		. #x3573)	; &CDP-89E3; [21-83]
+    ))
+(define-char
+  '((<-denotational
+     ((=>iwds-1		  .  0082)	; &IWDS1-082;
+      ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=big5-cdp		. #x8DC1)	; &CDP-8DC1;
+    ))
+(define-char
+  '((ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (=ucs		. #x244F1)	; 𤓱
