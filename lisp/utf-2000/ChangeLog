@@ -1,5 +1,28 @@
 2016-10-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R087-Claw.el (A-BC-8DC1): New abstract character;
+	unify IWDS1-0082; add `<-formed@component' for U+722A.
+	(BC-89E3): New character; use `<-denotational' for IWDS1-0082;
+	unify GT-K00278.
+	(BC-8DC1): New character; use `<-denotational' for IWDS1-0082.
+
+	* Ideograph-R023-Hiding-Enclosure.el (g2-CU+533F): Use g2-CU+82E5
+	instead of C1-533C in `ideographic-structure'.
+	(g2-AJ1-20087): Use g2-IU+2F998 instead of U+2F998 in
+	`ideographic-structure'.
+
+	* Ideograph-R009-Man.el (U+5020): Use U+4EBB instead of <CJK
+	RADICAL PERSON> in `ideographic-structure' in abstract character
+	and abstract glyphs.
+	(U+3464): Likewise.
+	(U+504C): Likewise.
+	(U-00020371): Likewise.
+	(U+50F1): Likewise.
+	(U+5101): Likewise.
+	(U+3495): Likewise.
+	(U+3496): Likewise.
+	(U+34A7): Likewise.
+
 	* Ideograph-R130-Meat.el: Add glyph-images of HNG-KAR.
 	(BUCS+8089): New abstract node.
 	(U+8089): Add `<-denotational' for BUCS+8089.
