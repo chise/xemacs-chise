@@ -82,8 +82,21 @@
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
-    (hanyu-dazidian	1 524 2)
     (=ucs		. #x5928)	; 夨
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5928)	; 夨
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (hanyu-dazidian	1 524 2)
+    (=>ucs@iwds-1	. #x5928)	; &AJ1-21376;
+    (=ucs@unicode	. #x5928)	; &AJ1-21376;
+    (=adobe-japan1-6	. 21376)	; &AJ1-21376;
+    (=jis-x0212		. #x386B)	; &I-JSP-386B; [24-75]
+    (=cns11643-4	. #x2149)	; &I-C4-2149; [01-41]
+    (=big5-cdp		. #x8AED)	; &I-CDP-8AED;
+    (=daikanwa		. 05832)	; &I-M-05832;
     (->subsumptive
      ((ideographic-strokes . 0)
       (total-strokes	   . 3)
@@ -92,15 +105,39 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (=ucs@unicode	  . #x5928)	; &AJ1-21376;
-      (=adobe-japan1-6	  . 21376)	; &AJ1-21376;
-      (=jis-x0212	  . #x386B)	; &I-JSP-386B; [24-75]
-      (=big5-cdp	  . #x8AED)	; &I-CDP-8AED;
-      (=daikanwa	  . 05832)	; &I-M-05832;
+      (==ucs@unicode	  . #x5928)	; &g2-AJ1-21376;
+      (==adobe-japan1-6	  . 21376)	; &g2-AJ1-21376;
+      (==jis-x0212	  . #x386B)	; &g2-AJ1-21376; [24-75]
+      (==big5-cdp	  . #x8AED)	; &g2-AJ1-21376;
+      (==daikanwa	  . 05832)	; &g2-AJ1-21376;
+      (->subsumptive
+       ((===daikanwa	    . 05832)	; &R-M-05832;
+	)
+       ((===jis-x0212	    . #x386B)	; &R-JSP-386B; [24-75]
+	)
+       ((===adobe-japan1-6  . 21376)	; &R-AJ1-21376;
+	)
+       ((===big5-cdp	    . #x8AED)	; &R-CDP-8AED;
+	)
+       ((===ucs@unicode	    . #x5928)	; &R-UU+5928;
+	))
       )
      ((ideographic-strokes . 1)
       (total-strokes	   . 4)
-      (=cns11643-4	  . #x2149)	; &C4-2149; [01-41]
+      (==ucs@cns	  . #x5928)	; &g2-CU+5928;
+      (==cns11643-4	  . #x2149)	; &g2-CU+5928; [01-41]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5928)	; 夨
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (=big5-cdp		. #x8CD5)	; &CDP-8CD5;
+    (<-formed@component/surround-from-lower-left
+     ((=ucs		  . #x5928)	; 夨
       ))
     ))
 (define-char
