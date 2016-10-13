@@ -108,6 +108,43 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>mj		  . 059077)	; &A-MJ059077;
+      ))
+    (ideographic-radical . 193)	; ⿀
+    (ideographic-strokes . 0)
+    (total-strokes	 . 12)
+    (=ucs-itaiji-001	. #x9B32)	; &U-i001+9B32;
+    (<-formed
+     ((=ucs		  . #x9B32)	; 鬲
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 193)	; ⿀
+    (ideographic-strokes . 0)
+    (=>mj		. 059077)	; &A-MJ059077;
+    ))
+(define-char
+  '((<-denotational
+     ((=>mj		  . 059077)	; &A-MJ059077;
+      ))
+    (ideographic-radical . 193)	; ⿀
+    (ideographic-strokes . 0)
+    (total-strokes	 . 11)
+    (=mj		. 059077)	; &MJ059077;
+    (=koseki		. 516940)	; &MJ059077;
+    (<-formed
+     ((=ucs@jis		  . #x9B32)	; &AJ1-07300;
+      (=adobe-japan1-0	  . 07300)	; &AJ1-07300;
+      ))
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==mj		  . 059077)	; &g2-MJ059077;
+      (==koseki		  . 516940)	; &g2-MJ059077;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 193)	; ⿀
     (ideographic-strokes . 3)
     (total-strokes	 . 13)
