@@ -1,3 +1,22 @@
+2016-10-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R193-Cauldron.el (U+9B32-itaiji-001): New character;
+	use `<-denotational' for A-MJ059077; use `<-formed' for U+9B32.
+	(A-MJ059077): New abstract character.
+	(MJ059077): New character; use `<-denotational' for A-MJ059077;
+	unify KOSEKI-516940; use `<-formed' for JU+9B32.
+
+	* Ideograph-R142-Insect.el (U+878D): Separate A-UU+878D.
+	(A-UU+878D): Add `=>ucs@iwds-1'.
+	(HNG-KAR0459-0): New character; use `<-denotational' for U+878D.
+	(U+883B): Separate UU+883B.
+	(HNG-KAR0347-0): New character; use `<-denotational' for U+883B.
+
+2016-10-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (U+3400): Add `<-formed' for U+4E18.
+	(BC-8D6B): Add `<-formed' for U+3400 and U+4E18.
+
 2016-10-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R087-Claw.el (A-BC-8DC1): New abstract character;
