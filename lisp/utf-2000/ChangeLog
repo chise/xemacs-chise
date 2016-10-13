@@ -1,5 +1,28 @@
 2016-10-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R109-Eye.el (U+4020): Unify MJ002815, KOSEKI-259700,
+	GT-29735 and GT-K06689.
+
+	* Ideograph-R037-Big.el (U+5928): Apply new conventions for glyph
+	granularity.
+	(UU+5928): Add `=>ucs@iwds-1'.
+	(BC-8CD5): New character; use `<-denotational' for U+5928; use
+	`<-formed@component/surround-from-lower-left' for U+5928.
+
+	* Ideograph-R030-Mouth.el (U+53F7): Add `<-denotational' for
+	BUCS+865F.
+	(BUCS+5433): New abstract character.
+	(A-J0-3862): Add `<-denotational' for BUCS+5433.
+	(U+5433): Separate UU+5433.
+	(U+5433-var-001): New character; use `<-denotational' for U+5433;
+	use `<-formed' for U+5449.
+	(HNG-KAR0643-0): Use `<-subsumptive' for U+5433-var-001 instead of
+	`<-denotational' for U+5449.
+	(U+5434): Add `<-denotational' for BUCS+5433.
+	(U-00020BF5): Likewise.
+
+2016-10-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R193-Cauldron.el (U+9B32-itaiji-001): New character;
 	use `<-denotational' for A-MJ059077; use `<-formed' for U+9B32.
 	(A-MJ059077): New abstract character.
