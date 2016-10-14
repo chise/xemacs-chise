@@ -25802,7 +25802,8 @@
     (<-same*sources
      jiyun daikanwa)
     (<-synonyms
-     ((=ucs		  . #x8655)	; 處
+     ((=ucs@unicode	  . #x8655)	; &AJ1-04244;
+      (=adobe-japan1-0	  . 04244)	; &AJ1-04244;
       (=daikanwa	  . 32697)	; &I-M-32697;
       ))
     (<-synonyms*sources
