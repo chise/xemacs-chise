@@ -1,3 +1,35 @@
+2016-10-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R141-Tiger.el: Add glyph-images of HNG-KAR.
+	(BUCS+864E): New abstract character.
+	(U+864E): Add `<-denotational' for BUCS+864E.
+	(U+864E-itaiji-005): New character; use `<-denotational' for
+	BUCS+864E; use `<-avoiding-taboo' for UU+864E; use `<-formed' for
+	U+864E; add HNG-KAR1241-0.
+	(UU+8650): Unify S-7082.
+	(U-0002F9B3): Unify S-7081.
+	(U+8655): Separate UU+8655.
+	(UU+8655): Add `=>ucs@iwds-1'.
+	(HNG-KAR1240-0): New character; use `<-denotational' for U+8655.
+	(BUCS+865B): New abstract character.
+	(U+8657): Apply new conventions for glyph granularity; add
+	`<-denotational' for BUCS+865B; unify S-7088.
+	(HNG-KAR1239-0): New character; use `<-denotational' for
+	BUCS+865B; use `<-formed' for U+865B.
+	(U+865A): Add `<-denotational' for BUCS+865B; unify S-7087.
+	(A-CU+865E): New abstract node; use `<-denotational' for U+865E.
+	(CU+865E): Use A-CU+865E instead of U+865E as the mother.
+	(HNG-KAR1238-0): New character; use `<-denotational' for U+865E.
+	(A-GT-44226): New abstract node; use `<-denotational' for U+865E.
+	(JU+865E): Use A-GT-44226 instead of U+865E as the mother.
+	(BUCS+865F): New abstract character.
+	(U+865F): Add `<-denotational' for BUCS+865F.
+	(HNG-KAR0346-0): New character; use `<-denotational' for
+	BUCS+865F; use `<-avoiding-taboo' for UU+865F; use `<-formed' for
+	U+865F.
+
+	* Ideograph-R016-Table.el (U+51E6): Add representative nodes.
+
 2016-10-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R109-Eye.el (U+4020): Unify MJ002815, KOSEKI-259700,
