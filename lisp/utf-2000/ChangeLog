@@ -1,5 +1,9 @@
 2016-10-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R143-Blood.el (g2-UU+8840): Add HNG-KAR1242-0.
+
+2016-10-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R141-Tiger.el: Add glyph-images of HNG-KAR.
 	(BUCS+864E): New abstract character.
 	(U+864E): Add `<-denotational' for BUCS+864E.
