@@ -1,3 +1,15 @@
+2016-10-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R152-Pig.el (HD-FT2048): Add HNG-KAR0378-0.
+
+	* Ideograph-R134-Mortar.el (U+8200): Add `ideographic-structure'.
+
+	* Ideograph-R104-Sickness.el (JU+7664): Add representative nodes.
+
+	* Ideograph-R075-Tree.el (U+6ADB): Apply new conventions for glyph
+	granularity.
+	(HD-JT-B3BB): Unify MJ014672.
+
 2016-10-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R143-Blood.el (g2-UU+8840): Add HNG-KAR1242-0.
