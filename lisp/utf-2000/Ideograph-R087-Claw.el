@@ -1040,6 +1040,43 @@
     ))
 (define-char
   '((ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x722B)	; 爫
+      )
+     ((=ucs		  . #x65E7)	; 旧
+      ))
+    (=>gt-k		. 06065)	; &A-GT-K06065;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 06065)	; &A-GT-K06065;
+      ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL PAW ONE")
+      (=ucs		  . #x2EA4)	; ⺤
+      )
+     ((=ucs		  . #x65E7)	; 旧
+      ))
+    (=gt-k		. 06065)	; &GT-K06065;
+    (=gt-pj-k2		. #x3E7C)	; &GT-K06065; [30-92]
+    (=ucs-var-001	. #x8200)	; &GT-K06065;
+    (<-formed@component
+     ((=ucs		  . #x8200)	; 舀
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ucs		. #x2450C)	; 𤔌
