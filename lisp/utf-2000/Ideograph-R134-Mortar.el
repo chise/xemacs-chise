@@ -283,6 +283,14 @@
   '((ideographic-radical . 134)	; ⾅
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x722B)	; 爫
+      )
+     ((=ucs		  . #x81FC)	; 臼
+      ))
     (sound@ja/on	"Eu")
     (=ucs		. #x8200)	; 舀
     (=big5		. #xAFE6)	; &I-B-AFE6;
