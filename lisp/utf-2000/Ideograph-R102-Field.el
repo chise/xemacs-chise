@@ -3177,13 +3177,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
       )
-     ((=ucs@unicode	  . #x807F)	; &GT-37829;
-      (=jis-x0208	  . #x6666)	; &GT-37829; [70-70]
-      (=gb2312		  . #x6D32)	; &I-G0-6D32; [77-18]
-      (=ks-x1001	  . #x6B53)	; &I-K0-6B53; [75-51]
-      (=cns11643-1	  . #x4857)	; &I-C1-4857; [40-55]
-      (=jis-x0213-1	  . #x6666)	; &I-JX1-6666; [70-70]
-      (=daikanwa	  . 29215)	; &I-M-29215;
+     ((=ucs@unicode	  . #x807F)	; &AJ1-06227;
+      (=adobe-japan1-0	  . 06227)	; &AJ1-06227;
       )
      ((=ucs		  . #x7530)	; 田
       )
