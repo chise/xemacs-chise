@@ -425,6 +425,11 @@
        ((=ucs		    . #xE0102)	; 󠄂
 	))
       (==hanyo-denshi/ft  . #x3450)	; &g2-HD-FT-3450; [20-48]
+      (->subsumptive
+       ((===hanyo-denshi/ft . #x3450)	; &R-HD-FT-3450; [20-48]
+	)
+       ((===hng-kar	    . 03780)	; &HNG018-03780;
+	))
       )
      ((==ucs@cns	  . #x8C5A)	; &g2-CU+8C5A;
       (==cns11643-1	  . #x5D48)	; &g2-CU+8C5A; [61-40]
