@@ -1,4 +1,18 @@
+2016-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R087-Claw.el (A-GT-K06065): New abstract character.
+	(GT-K06065): New character; use `<-denotational' for A-GT-K06065;
+	unify U+8200-var-001; use `<-formed@component' for U+8200.
+
 2016-10-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R172-Short-Tailed-Bird.el: Add some Adobe-Japan1-0
+	code points.
+	(U-00028FA6): Apply new conventions for glyph granularity.
+	(IU+28FA6): Unify S-9668 and CB11892; add `<-formed' for JU+9D1F.
+	(U+96DE): Add `ideographic-structure'.
+	(JU+96DE): Likewise; unify S-9700; add `<-original' for JU+9DC4.
+	(UU+96DE): Add `ideographic-structure'.
 
 	* Ideograph-R152-Pig.el (HD-FT2048): Add HNG-KAR0378-0.
 
