@@ -1,5 +1,8 @@
 2016-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=ucs-itaiji-009'.
+
 	* Ideograph-R087-Claw.el (A-GT-K06065): New abstract character.
 	(GT-K06065): New character; use `<-denotational' for A-GT-K06065;
 	unify U+8200-var-001; use `<-formed@component' for U+8200.
