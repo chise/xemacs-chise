@@ -3,6 +3,18 @@
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=ucs-itaiji-009'.
 
+	* Ideograph-R009-Man.el (U+5062): Use U+4EBB instead of <CJK
+	RADICAL PERSON> in `ideographic-structure' of abstract character.
+	(g2-UU+5062): Use g2-UU+79CB instead of UU+79CB in
+	`ideographic-structure'.
+	(g2-CU+5062): Use g2-CU+79CB instead of C1-5271 in
+	`ideographic-structure'.
+	(U-000203BF): Use U+4EBB instead of <CJK RADICAL PERSON> in
+	`ideographic-structure' of abstract character and abstract glyphs;
+	add representative nodes.
+	(U-00020409): Likewise; apply new conventions for glyph
+	granularity.
+
 	* Ideograph-R087-Claw.el (A-GT-K06065): New abstract character.
 	(GT-K06065): New character; use `<-denotational' for A-GT-K06065;
 	unify U+8200-var-001; use `<-formed@component' for U+8200.
