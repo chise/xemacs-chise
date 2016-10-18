@@ -5617,13 +5617,12 @@
     (=shinjigen		.  7528)	; 𨢩
     (=cbeta		. 06658)	; &I-CB06658;
     (<-formed
-     ((=ucs@jis		  . #x89F4)	; &GT-47288;
-      (=jis-x0208	  . #x6B3C)	; &GT-47288; [75-28]
-      (=ks-x1001	  . #x5F58)	; &I-K0-5F58; [63-56]
-      (=cns11643-1	  . #x773D)	; &I-C1-773D; [87-29]
-      (=jis-x0213-1	  . #x6B3C)	; &I-JX1-6B3C; [75-28]
-      (=daikanwa	  . 35157)	; &I-M-35157;
-      (=shinjigen	  .  7527)	; &GT-47288;
+     ((=ucs@cns		  . #x89F4)	; &AJ1-06655;
+      (=ucs@jis		  . #x89F4)	; &AJ1-06655;
+      (=ucs@ks		  . #x89F4)	; &AJ1-06655;
+      (=adobe-japan1-0	  . 06655)	; &AJ1-06655;
+      (=jis-x0208	  . #x6B3C)	; &I-J90-6B3C; [75-28]
+      (=shinjigen	  .  7527)	; &AJ1-06655;
       ))
     (<-formed*sources
      shinjigen)
