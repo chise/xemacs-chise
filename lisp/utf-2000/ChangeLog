@@ -1,3 +1,13 @@
+2016-10-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R154-Shell.el: Add glyph-images of HNG-KAR.
+	(U+8CC8): Separate UU+8CC8.
+	(HNG-KAR1301-0): New character; use `<-denotational' for U+8CC8.
+
+	* Ideograph-R153-Badger.el: Add glyph-images of HNG-KAR.
+	(U+8C8C): Separate UU+8C8C.
+	(HNG-KAR1296-0): New character; use `<-denotational' for U+8C8C.
+
 2016-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
