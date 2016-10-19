@@ -1,5 +1,21 @@
 2016-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R068-Dipper.el:
+	- Add some Adobe-Japan1 code points.
+	- Add `=decomposition@cid' for some Adobe-Japan1 abstract
+	  glyph-forms.
+
+	* Ideograph-R063-Door.el (U-0002BF09): New character.
+
+	* Ideograph-R009-Man.el (U+4F59): Separate UU+4F59.
+	(UU+4F59): Add representative nodes; add GT-K02663.
+	(U+4F59-var-006): New character; use `<-denotational' for U+4F59.
+	(U+349A): Add `ideographic-structure'.
+	(M-01222): Likewise; add representative nodes.
+	(UU+349A): Likewise.
+	(CU+349A): Use U+4EBB instead of <CJK RADICAL PERSON> in
+	`ideographic-structure'; add representative node.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=ucs-var-006' and `=ucs@JP/hanazono'.
 
