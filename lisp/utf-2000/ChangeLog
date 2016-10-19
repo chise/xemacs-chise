@@ -1,4 +1,23 @@
+2016-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R087-Claw.el (U-0002450C): Add
+	`ideographic-structure'.
+	(M-19680): Likewise.
+	(IU+2450C): Likewise; unify BC-8D6E.
+
 2016-10-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (U+660D): Unify GT-K03945.
+
+	* Ideograph-R061-Heart.el (U-000226A9): New character; use
+	`<-simplified@component' for U+396F.
+	(U+396F): Add `ideographic-structure'.
+	(JU+396F): Likewise.
+	(CU+396F): Likewise; unify BC-8D6D.
+	(A-UU+61C8): Use U+5FC4 instead of <CJK RADICAL HEART ONE> in
+	`ideographic-structure' of abstract character and abstract glyphs.
+	(HNG-KHM0339-0): Use U+89E3-itaiji-009 instead of "⿰角⿱⺈干" in
+	`ideographic-structure'.
 
 	* Ideograph-R154-Shell.el: Add glyph-images of HNG-KAR.
 	(U+8CC8): Separate UU+8CC8.
