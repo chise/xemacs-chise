@@ -406,6 +406,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==jis-x0208@1990
 	  ==ucs-radicals@unicode
 	  ==ucs-bmp-cjk@JP/hanazono
+	  ==ucs-sip@JP/hanazono
 	  ==ucs-bmp-cjk@gb
           ==ucs-sip-ext-b@iso
 	  ==mj-0
