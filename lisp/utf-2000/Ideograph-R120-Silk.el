@@ -23041,7 +23041,8 @@
        ((name		    . "CJK RADICAL SILK")
 	(=ucs		    . #x2EAF)	; ⺯
 	)
-       ((==ucs@unicode	    . #x8CD4)	; &g2-UU+8CD4;
+       ((==ucs@unicode	    . #x8CD4)	; &g2-M-36789;
+	(==daikanwa	    . 36789)	; &g2-M-36789;
 	))
       (==ucs@iso	  . #x261AF)	; &g2-IU-000261AF;
       ))
