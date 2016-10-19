@@ -1,5 +1,8 @@
 2016-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=ucs-var-006' and `=ucs@JP/hanazono'.
+
 	* Ideograph-R087-Claw.el (U-0002450C): Add
 	`ideographic-structure'.
 	(M-19680): Likewise.
