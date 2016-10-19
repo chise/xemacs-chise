@@ -1079,6 +1079,16 @@
   '((ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x722B)	; 爫
+      )
+     ((=ucs		  . #x5DE5)	; 工
+      )
+     ((=ucs		  . #x5F50)	; 彐
+      ))
     (=ucs		. #x2450C)	; 𤔌
     ))
 (define-char
@@ -1088,7 +1098,26 @@
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs@cns		  . #x722B)	; &GT-25225;
+      (=ucs@jis		  . #x722B)	; &GT-25225;
+      (=jis-x0212	  . #x4A48)	; &GT-25225; [42-40]
+      (=cns11643-4	  . #x2151)	; &I-C4-2151; [01-49]
+      (=jis-x0213-2	  . #x702A)	; &I-JX2-702A; [80-10]
+      (=daikanwa	  . 19655)	; &I-M-19655;
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      )
+     ((=adobe-japan1-4	  . 15391)	; &AJ1-15391;
+      ))
     (=daikanwa		. 19680)	; &M-19680;
+    (->subsumptive
+     ((==daikanwa	  . 19680)	; &g2-M-19680;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -1097,8 +1126,33 @@
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((name		  . "CJK RADICAL PAW ONE")
+      (=ucs		  . #x2EA4)	; ⺤
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      )
+     ((=adobe-japan1-4	  . 15391)	; &AJ1-15391;
+      ))
     (=ucs@iso		. #x2450C)	; &C5-2E51;
     (=cns11643-5	. #x2E51)	; &C5-2E51; [14-49]
+    (=big5-cdp		. #x8D6E)	; &I-CDP-8D6E;
+    (->subsumptive
+     ((==ucs@iso	  . #x2450C)	; &g2-CDP-8D6E;
+      (==cns11643-5	  . #x2E51)	; &g2-CDP-8D6E; [14-49]
+      (==big5-cdp	  . #x8D6E)	; &g2-CDP-8D6E;
+      (->subsumptive
+       ((===cns11643-5	    . #x2E51)	; &R-C5-2E51; [14-49]
+	)
+       ((===ucs@iso	    . #x2450C)	; &R-U-0002450C;
+	)
+       ((===big5-cdp	    . #x8D6E)	; &R-CDP-8D6E;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 87)	; ⽖
