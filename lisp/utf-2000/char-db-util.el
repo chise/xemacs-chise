@@ -331,6 +331,7 @@
     =ucs-var-002
     =ucs-var-003
     =ucs-var-004
+    =ucs-var-006
     =ucs-var-010
     =ucs-itaiji-001
     =ucs-itaiji-002
@@ -344,7 +345,8 @@
     =big5-cdp-var-004
     =big5-cdp-var-005
     =>ucs@iwds-1
-    ==ucs@gb))
+    ==ucs@gb
+    =ucs@JP/hanazono))
 
 
 ;;; @ char-db formatters
