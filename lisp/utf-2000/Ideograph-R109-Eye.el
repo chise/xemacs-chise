@@ -2002,6 +2002,7 @@
     (=gt-k		. 06689)	; &I-GT-K06689;
     (=gt-pj-5		. #x4143)	; &I-GT-29735; [33-35]
     (=daikanwa		. 23217)	; &I-M-23217;
+    (=cbeta		. 10607)	; &I-CB10607;
     (->subsumptive
      ((==daikanwa	  . 23217)	; &g2-M-23217;
       )
@@ -2009,10 +2010,13 @@
       (==mj		  . 002815)	; &g2-MJ002815;
       (==koseki		  . 259700)	; &g2-MJ002815;
       (==gt		  . 29735)	; &g2-MJ002815;
+      (==cbeta		  . 10607)	; &g2-MJ002815;
       (->subsumptive
        ((===mj		    . 002815)	; &R-MJ002815;
 	)
        ((===gt		    . 29735)	; &R-GT-29735;
+	)
+       ((===cbeta	    . 10607)	; &R-CB10607;
 	))
       )
      ((==ucs@cns	  . #x4020)	; &g2-CU+4020;
@@ -2020,6 +2024,11 @@
       )
      ((==ucs@unicode	  . #x4020)	; &g2-UU+4020;
       (==ucs@JP/hanazono  . nil)
+      (->subsumptive
+       ((===ucs@unicode	    . #x4020)	; &R-UU+4020;
+	)
+       ((=hanziku-7	    . #xAAB2)	; &HZK07-AAB2;
+	))
       ))
     ))
 (define-char
