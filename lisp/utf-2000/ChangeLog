@@ -1,5 +1,15 @@
 2016-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R129-Brush.el: Add some Adobe-Japan1-0 code points.
+	(C1-6A4E): Unify CU+8087, KU+8087 and S-6418.
+	(UU+8087): Unify S-6417.
+	(JU+8088): Unify S-6419; add `<-vulgar' for CU+8087.
+
+	* Ideograph-R109-Eye.el (U+4020): Unify CB10607.
+	(g2-UU+4020): Add representative node; add H7-AAB2.
+
+2016-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R155-Red.el: Add glyph-images of HNG-KAR.
 
 	* Ideograph-R148-Horn.el: Add some Adobe-Japan1-0 code points.
