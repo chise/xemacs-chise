@@ -3148,9 +3148,10 @@
     (=shinjigen		.  7847)	; 䫉
     (=cbeta		. 12198)	; &I-CB12198;
     (<-formed
-     ((=ucs		  . #x8C8C)	; 貌
+     ((=ucs@unicode	  . #x8C8C)	; &AJ1-03700;
+      (=adobe-japan1-0	  . 03700)	; &AJ1-03700;
       (=jis-x0208	  . #x4B46)	; &I-J90-4B46; [43-38]
-      (=shinjigen	  .  7845)	; 貌
+      (=shinjigen	  .  7845)	; &AJ1-03700;
       ))
     (<-formed*sources
      shinjigen)
