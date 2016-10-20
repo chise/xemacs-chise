@@ -1,5 +1,23 @@
 2016-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R155-Red.el: Add glyph-images of HNG-KAR.
+
+	* Ideograph-R148-Horn.el: Add some Adobe-Japan1-0 code points.
+	(A-CB00976): New abstract character.
+	(CB00976): Add `<-denotational' for A-CB00976.
+	(BUCS+89E3): New abstract character.
+	(U+89E3): Add `<-denotational' for BUCS+89E3.
+	(U+89E3-itaiji-009): New character; use `<-denotational' for
+	BUCS+89E3; use `<-formed' for U+89E3.
+	(HNG-KHM0518-0): Use `<-subsumptive' for U+89E3-itaiji-009.
+	(U+89E3-itaiji-008): Add `<-denotational' for BUCS+89E3.
+	(U+89E7): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for BUCS+89E3.
+	(JU+89E7): Add `<-vulgar' for JU+89E3.
+
+	* Ideograph-R118-Bamboo.el: Add some Adobe-Japan1-0 code points.
+	(HD-TK01069740): New character; use `<-denotational' for U+7BC0.
+
 	* Ideograph-R068-Dipper.el:
 	- Add some Adobe-Japan1 code points.
 	- Add `=decomposition@cid' for some Adobe-Japan1 abstract
@@ -15,6 +33,15 @@
 	(UU+349A): Likewise.
 	(CU+349A): Use U+4EBB instead of <CJK RADICAL PERSON> in
 	`ideographic-structure'; add representative node.
+
+	* Ideograph-R213-Turtle.el (U+9F9C-itaiji-003): New character; use
+	`<-denotational' for U+9F9C.
+	(U-0002A6B0): Separate IU+2A6B0.
+	(U+2A6B0-var-002): New character; use `<-denotational' for
+	U-0002A6B0.
+	(U+9F9D): Add `ideographic-structure'.
+	(JU+9F9D): Separate M-48869.
+	(g2-J78-6354): Separate g2-M-48869; subsume M-48869 and M-25381.
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=ucs-var-006' and `=ucs@JP/hanazono'.
