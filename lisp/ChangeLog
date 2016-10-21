@@ -1,3 +1,8 @@
+2016-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer `==ucs-sip-ext-b@iso' to `==ucs-sip@JP/hanazono'.
+
 2016-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
