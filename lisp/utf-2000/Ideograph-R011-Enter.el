@@ -916,70 +916,28 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 9)	; ⼈
-    (ideographic-radical@daikanwa . 11)	; ⼊
+  '((ideographic-radical@daikanwa . 11)	; ⼊
+    (ideographic-radical@daikanwa*sources
+     daikanwa ucs)
+    (ideographic-radical@ucs/code . 9)	; ⼈
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 124 9)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((name		  . "CJK RADICAL PERSON")
-      (=ucs		  . #x2E85)	; ⺅
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x5165)	; 入
-	)
-       ((=ucs		    . #x5165)	; 入
-	))
-      ))
     (=ucs		. #x201D2)	; 𠇒
     (=daikanwa		. 01429)	; &I-M-01429;
-    (=hanziku-1		. #xBD73)	; &I-HZK01-BD73;
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((name		    . "CJK RADICAL PERSON")
-	(=ucs		    . #x2E85)	; ⺅
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((==ucs@jis	      . #x5165)	; &g2-AJ1-03286;
-	  (==ucs@ks	      . #x5165)	; &g2-AJ1-03286;
-	  (==adobe-japan1-0   . 03286)	; &g2-AJ1-03286;
-	  )
-	 ((==ucs@jis	      . #x5165)	; &g2-AJ1-03286;
-	  (==ucs@ks	      . #x5165)	; &g2-AJ1-03286;
-	  (==adobe-japan1-0   . 03286)	; &g2-AJ1-03286;
-	  ))
-	))
+     ((ideographic-radical . 11)	; ⼊
+      (ideographic-strokes . 4)
       (==daikanwa	  . 01429)	; &g2-M-01429;
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((name		    . "CJK RADICAL PERSON")
-	(=ucs		    . #x2E85)	; ⺅
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((==ucs@unicode      . #x5165)	; &g2-UU+5165;
-	  )
-	 ((==ucs@unicode      . #x5165)	; &g2-UU+5165;
-	  ))
-	))
+     ((ideographic-radical . 11)	; ⼊
+      (ideographic-strokes . 4)
       (==ucs@iso	  . #x201D2)	; &g2-IU-000201D2;
+      (->subsumptive
+       ((===ucs@iso	    . #x201D2)	; &R-U-000201D2;
+	)
+       ((=hanziku-1	    . #xBD73)	; &HZK01-BD73;
+	))
       ))
     ))
 (define-char
