@@ -1,3 +1,41 @@
+2016-10-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ruimoku6.el (RUI6-E01B): Use U+4EBB instead of <CJK RADICAL
+	PERSON> in `ideographic-structure'.
+	(IU+2A75D): Likewise.
+
+2016-10-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R146-West.el (MJ004487): New character; use
+	`<-denotational' for U+4674; unify HD-IB2915 and KOSEKI-395320.
+
+	* Ideograph-R130-Meat.el (BC-8CEC): Unify GT-K04034.
+
+	* Ideograph-R115-Grain.el: Add some Adobe-Japan1-0 code points.
+	(U-00025758): Unify M-24934; add representative nodes.
+	(U+412C): Unify M-24935; add representative nodes.
+	(U+79CC): Apply new conventions for glyph granularity; unify
+	S-5596; add `<-original' for U+79CB.
+	(JU+9F9D): Copied from Ideograph-R213-Turtle.el.
+	(C3-5E47): Separate M-25381; unify CU+9F9D and S1-5595.
+	(M-25381): Use `<-subsumptive' for g2-J78-6354.
+	(U-0002591B): Separate M-25401.
+	(M-25401): Unify IU+2591B and S-5598.
+
+	* Ideograph-R024-Ten.el (U+4EDF): Use U+4EBB instead of <CJK
+	RADICAL PERSON> in `ideographic-structure'; add representative
+	nodes.
+
+	* Ideograph-R011-Enter.el (U-000201D2): Use
+	`ideographic-radical@ucs/code' instead of
+	`ideographic-radical@ucs'.
+
+2016-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R118-Bamboo.el (A-MJ058270): New abstract character.
+	(MJ058270): New character; use `<-denotational' for A-MJ058270;
+	unify KOSEKI-292870; use `<-formed' for U+7B97.
+
 2016-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R129-Brush.el: Add some Adobe-Japan1-0 code points.
