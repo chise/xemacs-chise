@@ -430,6 +430,38 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x4674)	; 䙴
+      ))
+    (ideographic-radical . 146)	; ⾑
+    (ideographic-strokes . 6)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((name		  . "CJK RADICAL WEST ONE")
+      (=ucs		  . #x2EC3)	; ⻃
+      )
+     ((=ucs		  . #x5927)	; 大
+      )
+     ((=ucs		  . #x5DF1)	; 己
+      ))
+    (=mj		. 004487)	; &MJ004487;
+    (=hanyo-denshi/ib	. #x3D2F)	; &I-HD-IB-3D2F; [29-15]
+    (=koseki		. 395320)	; &MJ004487;
+    (->subsumptive
+     ((==mj		  . 004487)	; &g2-MJ004487;
+      (==hanyo-denshi/ib  . #x3D2F)	; &g2-MJ004487; [29-15]
+      (==koseki		  . 395320)	; &g2-MJ004487;
+      (->subsumptive
+       ((===hanyo-denshi/ib . #x3D2F)	; &R-HD-IB-3D2F; [29-15]
+	)
+       ((===mj		    . 004487)	; &R-MJ004487;
+	))
+      ))
+    ))
+(define-char
   '((ideographic-radical . 146)	; ⾑
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
