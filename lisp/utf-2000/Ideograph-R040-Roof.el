@@ -67,7 +67,31 @@
   '((ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
     (=ucs		. #x3749)	; 㝉
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((==ucs@unicode	    . #x5B80)	; &g2-AJ1-04622;
+	(==adobe-japan1-0   . 04622)	; &g2-AJ1-04622;
+	)
+       ((==ucs@unicode	    . #x4E00)	; &g2-AJ1-01200;
+	(==adobe-japan1-0   . 01200)	; &g2-AJ1-01200;
+	))
+      (==ucs@unicode	  . #x3749)	; &g2-UU+3749;
+      (->subsumptive
+       ((===ucs@unicode	    . #x3749)	; &R-UU+3749;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 40)	; ⼧
