@@ -6160,6 +6160,47 @@
     ))
 (define-char
   '((ideographic-radical . 118)	; ⽵
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7AF9)	; 竹
+      )
+     ((=ucs		  . #x5177)	; 具
+      ))
+    (=>mj		. 058270)	; &A-MJ058270;
+    ))
+(define-char
+  '((<-denotational
+     ((=>mj		  . 058270)	; &A-MJ058270;
+      ))
+    (ideographic-radical . 118)	; ⽵
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x7AF9)	; 竹
+      )
+     ((=ucs		  . #x76EE)	; 目
+      )
+     ((=ucs		  . #x5927)	; 大
+      ))
+    (=mj		. 058270)	; &MJ058270;
+    (=koseki		. 292870)	; &MJ058270;
+    (<-formed
+     ((=ucs		  . #x7B97)	; 算
+      ))
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==mj		  . 058270)	; &g2-MJ058270;
+      (==koseki		  . 292870)	; &g2-MJ058270;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 118)	; ⽵
     (=ucs		. #x7BAC)	; 箬
     (=big5		. #xE6D9)	; &I-B-E6D9;
     ))
