@@ -3364,7 +3364,11 @@
       (=daikanwa	  . 29237)	; &I-M-29237;
       ))
     (=big5-cdp		. #x8CEC)	; &CDP-8CEC;
+    (=gt-k		. 04034)	; &I-GT-K04034;
+    (=gt-pj-k1		. #x552F)	; &CDP-8CEC; [53-15]
     (->subsumptive
+     ((==gt-k		  . 04034)	; &g2-GT-K04034;
+      )
      ((==big5-cdp	  . #x8CEC)	; &g2-CDP-8CEC;
       ))
     ))
