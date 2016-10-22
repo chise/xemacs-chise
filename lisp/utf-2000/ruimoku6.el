@@ -454,8 +454,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL PERSON")
-      (=ucs		  . #x2E85)	; ⺅
+     ((=ucs		  . #x4EBB)	; 亻
       )
      ((=ucs		  . #x26A36)	; 𦨶
       ))
@@ -930,8 +929,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL PERSON")
-      (=ucs		  . #x2E85)	; ⺅
+     ((=ucs		  . #x4EBB)	; 亻
       )
      ((=ucs@unicode	  . #x6715)	; &AJ1-03035;
       (=adobe-japan1-0	  . 03035)	; &AJ1-03035;
