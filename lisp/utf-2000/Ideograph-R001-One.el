@@ -4660,22 +4660,29 @@
       ))
     (=ucs@iso		. #x20048)	; &M-04020;
     (=daikanwa		. 04020)	; &M-04020;
-    (=hanziku-1		. #xA979)	; &I-HZK01-A979;
     (<-formed@Zetian
-     ((=ucs		  . #x541B)	; 君
+     ((=ucs@unicode	  . #x541B)	; &AJ1-01797;
+      (=adobe-japan1-0	  . 01797)	; &AJ1-01797;
       ))
     (<-formed@Zetian*sources
      jiyun)
     (<-same
-     ((=ucs		  . #x541B)	; 君
+     ((=ucs@unicode	  . #x541B)	; &AJ1-01797;
+      (=adobe-japan1-0	  . 01797)	; &AJ1-01797;
       (=daikanwa	  . 03323)	; &I-M-03323;
       ))
     (<-same*sources
      jiyun daikanwa)
     (->subsumptive
-     ((===daikanwa	  . 04020)	; &R-M-04020;
-      )
-     ((===ucs@iso	  . #x20048)	; &R-U-00020048;
+     ((==ucs@iso	  . #x20048)	; &g2-M-04020;
+      (==daikanwa	  . 04020)	; &g2-M-04020;
+      (->subsumptive
+       ((===daikanwa	    . 04020)	; &R-M-04020;
+	)
+       ((===ucs@iso	    . #x20048)	; &R-U-00020048;
+	)
+       ((=hanziku-1	    . #xA979)	; &HZK01-A979;
+	))
       ))
     ))
 (define-char
