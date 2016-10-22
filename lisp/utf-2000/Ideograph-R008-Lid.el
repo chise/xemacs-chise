@@ -1344,6 +1344,13 @@
 	)
        ((===cns11643-1	    . #x4B6A)	; &R-C1-4B6A; [43-74]
 	))
+      )
+     ((=gt-k		  . 03670)	; &GT-K03670;
+      (=gt-pj-k1	  . #x3135)	; &GT-K03670; [17-21]
+      (<-formed@component/connect-right
+       ((=ucs@unicode	    . #x4EAB)	; &AJ1-01687;
+	(=adobe-japan1-0    . 01687)	; &AJ1-01687;
+	))
       ))
     ))
 (define-char
