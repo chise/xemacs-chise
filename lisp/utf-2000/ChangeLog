@@ -1,5 +1,16 @@
 2016-10-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R156-Run.el: Add glyph-images of HNG-KAR.
+	(U+8DAE): Apply new conventions for glyph granularity.
+
+	* Ideograph-R040-Roof.el (U+3749): Add `ideographic-structure';
+	add representative nodes.
+
+	* Ideograph-R008-Lid.el (UU+4EAB): Add GT-K03670.
+
+	* Ideograph-R001-One.el (IU+20048): Apply new conventions for
+	glyph granularity.
+
 	* ruimoku6.el (RUI6-E01B): Use U+4EBB instead of <CJK RADICAL
 	PERSON> in `ideographic-structure'.
 	(IU+2A75D): Likewise.
