@@ -1,5 +1,15 @@
 2016-10-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R037-Big.el (UU+4E54): Add representative nodes.
+
+	* Ideograph-R027-Cliff.el (MJ000302): New character; use
+	`<-denotational' for U+3553; unify HD-KS035250; use `<-formed' for
+	UU+5EDB.
+
+	* Ideograph-R004-Slash.el (UU+4E54): Add representative nodes.
+
+2016-10-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R086-Fire.el (U+7075): Omit `ideographic-strokes' and
 	`total-strokes'.
 	(A-UU+7075): New abstract node; use `<-denotational' for U+7075.
