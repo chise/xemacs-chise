@@ -1,3 +1,14 @@
+2016-10-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R086-Fire.el (U+7075): Omit `ideographic-strokes' and
+	`total-strokes'.
+	(A-UU+7075): New abstract node; use `<-denotational' for U+7075.
+	(JU+7075): Use A-UU+7075 instead of U+7075 as the mother.
+	(U+7075-itaiji-001): New character; use `<-denotational' for
+	A-UU+7075.
+	(UU+7075): Use A-UU+7075 instead of U+7075 as the mother.
+	(U+7075-var-001): New character; use `<-denotational' for U+7075.
+
 2016-10-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R156-Run.el: Add glyph-images of HNG-KAR.
