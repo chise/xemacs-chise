@@ -4331,6 +4331,53 @@
 (define-char
   '((ideographic-radical . 27)	; ⼚
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs		  . #x58A8)	; 墨
+      ))
+    (=ucs		. #x3553)	; 㕓
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3553)	; 㕓
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 14)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs@jis		  . #x58A8)	; &AJ1-03709;
+      (=adobe-japan1-0	  . 03709)	; &AJ1-03709;
+      ))
+    (=mj		. 000302)	; &MJ000302;
+    (=hanyo-denshi/ks	. 035250)	; &MJ000302;
+    (<-formed
+     ((=ucs@unicode	  . #x5EDB)	; &AJ1-04752;
+      (=adobe-japan1-0	  . 04752)	; &AJ1-04752;
+      ))
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==mj		  . 000302)	; &g2-MJ000302;
+      (==hanyo-denshi/ks  . 035250)	; &g2-MJ000302;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 035250)	; &R-HD-KS-035250;
+	(=hanyo-denshi/ks/mf . #x0DC5)	; &R-HD-KS-035250;
+	)
+       ((===mj		    . 000302)	; &R-MJ000302;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 27)	; ⼚
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
@@ -4427,20 +4474,6 @@
     (=hanziku-12	. #xEB57)	; &I-HZK12-EB57;
     ))
 (define-char
-  '((ideographic-radical . 27)	; ⼚
-    (ideographic-strokes . 15)
-    (total-strokes	 . 17)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-      (=ucs		  . #x2FF8)	; ⿸
-      )
-     ((=ucs		  . #x5382)	; 厂
-      )
-     ((=ucs		  . #x58A8)	; 墨
-      ))
-    (=ucs		. #x3553)	; 㕓
-    ))
-(define-char
   '((<-denotational
      ((=ucs		  . #x3553)	; 㕓
       ))
@@ -4456,6 +4489,12 @@
      ((=ucs		  . #xFA3A)	; 墨
       ))
     (=ucs@unicode	. #x3553)	; &UU+3553;
+    (->subsumptive
+     ((==ucs@unicode	  . #x3553)	; &g2-UU+3553;
+      (->subsumptive
+       ((===ucs@unicode	    . #x3553)	; &R-UU+3553;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
