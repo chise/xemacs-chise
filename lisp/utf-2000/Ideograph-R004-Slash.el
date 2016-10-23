@@ -2099,10 +2099,22 @@
     (=ucs@unicode	. #x4E54)	; &C3-2345;
     (=gb2312		. #x4747)	; &C3-2345; [39-39]
     (=cns11643-3	. #x2345)	; &I-C3-2345; [03-37]
-    (=hanziku-1		. #xABD7)	; &I-HZK01-ABD7;
     (<-simplified@CN
-     ((=ucs		  . #x55AC)	; 喬
-      (=gb12345		  . #x4747)	; 喬 [39-39]
+     ((=ucs@unicode	  . #x55AC)	; &AJ1-01700;
+      (=adobe-japan1-0	  . 01700)	; &AJ1-01700;
+      (=gb12345		  . #x4747)	; &AJ1-01700; [39-39]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x4E54)	; &g2-UU+4E54;
+      (==gb2312		  . #x4747)	; &g2-UU+4E54; [39-39]
+      (==cns11643-3	  . #x2345)	; &g2-UU+4E54; [03-37]
+      (->subsumptive
+       ((===cns11643-3	    . #x2345)	; &R-C3-2345; [03-37]
+	)
+       ((===ucs@unicode	    . #x4E54)	; &R-UU+4E54;
+	)
+       ((=hanziku-1	    . #xABD7)	; &HZK01-ABD7;
+	))
       ))
     ))
 (define-char
