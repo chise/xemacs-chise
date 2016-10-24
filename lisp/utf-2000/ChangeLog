@@ -1,3 +1,26 @@
+2016-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R157-Foot.el: Add glyph-images of HNG-KAR.
+	(A-JU+8DF5): New abstract node; use `<-denotational' for U+8DF5.
+	(JU+8DF5): Use A-JU+8DF5 instead of U+8DF5 as the mother.
+	(A-UU+8DF5): New abstract node; use `<-denotational' for U+8DF5.
+	(UU+8DF5): Use A-UU+8DF5 instead of U+8DF5 as the mother.
+	(U+8E10): Separate UU+8E10.
+	(U+8E16): Separate UU+8E16.
+	(U+8E27): Separate UU+8E27.
+	(A-KU+8E30): New abstract node; use `<-denotational' for U+8E30.
+	(JU+8E30): Use A-KU+8E30 instead of U+8E30 as the mother; unify
+	KU+8E30.
+	(A-UU+8E30): New abstract node; use `<-denotational' for U+8E30.
+	(HNG-KAR1320-0): New character; use `<-denotational' for
+	A-UU+8E30.
+	(UU+8E30): Use A-UU+8E30 instead of U+8E30 as the mother.
+	(U+8E5C): Separate UU+8E5C.
+	(U+8E81): Apply new conventions for glyph granularity.
+	(IU+281E0): Use MJ000302 instead of (?⿸ ?厂 ?JU+58A8) in
+	`ideographic-structure'.
+	(U+8EA9): Separate UU+8EA9.
+
 2016-10-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R037-Big.el (UU+4E54): Add representative nodes.
