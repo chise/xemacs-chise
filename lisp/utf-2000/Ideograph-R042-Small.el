@@ -879,6 +879,41 @@
     (=cns11643-6	. #x2A6B)	; &I-C6-2A6B; [10-75]
     ))
 (define-char
+  '((ideographic-radical@ucs . 42)	; ⼩
+    (ideographic-strokes@ucs . 5)
+    (ideographic-radical@ucs*sources
+     daikanwa ucs koseki mj)
+    (ideographic-strokes@ucs*sources
+     daikanwa ucs mj)
+    (ideographic-radical@ucs/code . 9)	; ⼈
+    (ideographic-strokes@ucs/code . 6)
+    (total-strokes	 . 8)
+    (hanyu-dazidian	1 147 8)
+    (=ucs		. #x20224)	; 𠈤
+    (=mj		. 030595)	; &I-MJ030595;
+    (=koseki		. 085250)	; 𠈤
+    (=daikanwa		. 07496)	; &I-M-07496;
+    (->subsumptive
+     ((ideographic-radical . 42)	; ⼩
+      (ideographic-strokes . 5)
+      (==mj		  . 030595)	; &g2-MJ030595;
+      (==koseki		  . 085250)	; &g2-MJ030595;
+      (==daikanwa	  . 07496)	; &g2-MJ030595;
+      (->subsumptive
+       ((===daikanwa	    . 07496)	; &R-M-07496;
+	)
+       ((===mj		    . 030595)	; &R-MJ030595;
+	))
+      )
+     ((==ucs@iso	  . #x20224)	; &g2-IU-00020224;
+      (->subsumptive
+       ((===ucs@iso	    . #x20224)	; &R-U-00020224;
+	)
+       ((=hanziku-1	    . #xC241)	; &HZK01-C241;
+	))
+      ))
+    ))
+(define-char
   '((=>ucs		. #x21B6A)	; 𡭪
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 6)
