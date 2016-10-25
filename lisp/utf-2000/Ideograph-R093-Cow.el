@@ -2747,8 +2747,8 @@
 	)
        ((=ucs		    . #x725C)	; 牜
 	)
-       ((==ucs@unicode	    . #x9AD8)	; &g2-GT-60968;
-	(==jis-x0208	    . #x3962)	; &g2-GT-60968; [25-66]
+       ((==ucs@unicode	    . #x9AD8)	; &g2-AJ1-02036;
+	(==adobe-japan1-0   . 02036)	; &g2-AJ1-02036;
 	))
       (==ucs@unicode	  . #x7292)	; &g2-AJ1-05616;
       (==adobe-japan1-0	  . 05616)	; &g2-AJ1-05616;
