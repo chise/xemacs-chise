@@ -10610,12 +10610,23 @@
       )
      ((=ucs		  . #x738B)	; 王
       )
-     ((=cns11643-4	  . #x5254)	; &C4-5254; [50-52]
+     ((=ucs@cns		  . #x263C1)	; &C4-5254;
+      (=cns11643-4	  . #x5254)	; &C4-5254; [50-52]
       (=daikanwa	  . 28554)	; &I-M-28554;
       ))
     (=ucs@iso		. #x2AF2F)	; &U-0002AF2F;
     (->subsumptive
-     ((==ucs@iso	  . #x2AF2F)	; &g2-IU-0002AF2F;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL JADE")
+	(=ucs		    . #x2EA9)	; ⺩
+	)
+       ((==ucs@cns	    . #x263C1)	; &g2-M-28554;
+	(==daikanwa	    . 28554)	; &g2-M-28554;
+	))
+      (==ucs@iso	  . #x2AF2F)	; &g2-IU-0002AF2F;
       ))
     ))
 (define-char
