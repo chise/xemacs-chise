@@ -29049,8 +29049,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL WATER ONE")
-      (=ucs		  . #x2EA1)	; ⺡
+     ((=ucs		  . #x6C35)	; 氵
       )
      ((=ucs		  . #x8983)	; 覃
       ))
@@ -29067,16 +29066,32 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL WATER ONE")
-      (=ucs		  . #x2EA1)	; ⺡
+     ((=ucs		  . #x6C35)	; 氵
       )
-     ((=ucs@jis		  . #x8983)	; &GT-46825;
-      (=jis-x0208	  . #x6B29)	; &GT-46825; [75-09]
-      (=jis-x0213-1	  . #x6B29)	; &I-JX1-6B29; [75-09]
-      (=daikanwa	  . 34778)	; &I-M-34778;
+     ((=ucs@jis		  . #x8983)	; &AJ1-06636;
+      (=adobe-japan1-0	  . 06636)	; &AJ1-06636;
       ))
     (=daikanwa		. 18271)	; &M-18271;
     (=jef-china3	. #x56FA)	; &I-JC3-56FA;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL WATER ONE")
+	(=ucs		    . #x2EA1)	; ⺡
+	)
+       ((==ucs@jis	    . #x8983)	; &g2-AJ1-06636;
+	(==adobe-japan1-0   . 06636)	; &g2-AJ1-06636;
+	))
+      (==daikanwa	  . 18271)	; &g2-M-18271;
+      (==jef-china3	  . #x56FA)	; &g2-M-18271;
+      (->subsumptive
+       ((===daikanwa	    . 18271)	; &R-M-18271;
+	)
+       ((===jef-china3	    . #x56FA)	; &R-JC3-56FA;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -29089,8 +29104,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL WATER ONE")
-      (=ucs		  . #x2EA1)	; ⺡
+     ((=ucs		  . #x6C35)	; 氵
       )
      ((=ucs@unicode	  . #x8983)	; &HD-FT-3943;
       (=gb2312		  . #x717B)	; &HD-FT-3943; [81-91]
@@ -29109,7 +29123,17 @@
     (=gt-k		. 11986)	; &I-GT-K11986;
     (=gt-pj-1		. #x5F2C)	; &I-GT-23431; [63-12]
     (->subsumptive
-     ((==ucs@unicode	  . #x6F6D)	; &g2-AJ1-05511;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL WATER ONE")
+	(=ucs		    . #x2EA1)	; ⺡
+	)
+       ((==ucs@unicode	    . #x8983)	; &g2-HD-FT-3943;
+	(==hanyo-denshi/ft  . #x3943)	; &g2-HD-FT-3943; [25-35]
+	))
+      (==ucs@unicode	  . #x6F6D)	; &g2-AJ1-05511;
       (==adobe-japan1-0	  . 05511)	; &g2-AJ1-05511;
       (==gb2312		  . #x4C36)	; &g2-AJ1-05511; [44-22]
       (==ks-x1001	  . #x5341)	; &g2-AJ1-05511; [51-33]
