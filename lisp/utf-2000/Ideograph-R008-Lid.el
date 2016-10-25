@@ -360,10 +360,6 @@
        ((=ucs		    . #x53E3)	; 口
 	))
       (==big5-cdp	  . #x8BAA)	; &g2-CDP-8BAA;
-      (<-simplified@component/connect-below
-       ((==ucs@unicode	    . #x9AD8)	; &g2-GT-60968;
-	(==jis-x0208	    . #x3962)	; &g2-GT-60968; [25-66]
-	))
       (->subsumptive
        ((===big5-cdp	    . #x8BAA)	; &R-CDP-8BAA;
 	))
@@ -1260,10 +1256,6 @@
 	))
       (==big5-cdp	  . #x8C4D)	; &g2-CDP-8C4D;
       (==gt-k		  . 02791)	; &g2-CDP-8C4D;
-      (<-simplified@component/connect-below
-       ((==ucs@unicode	    . #x9AD8)	; &g2-GT-60968;
-	(==jis-x0208	    . #x3962)	; &g2-GT-60968; [25-66]
-	))
       ))
     ))
 (define-char
@@ -1583,6 +1575,9 @@
     (<-simplified@component/connect-below
      ((=ucs		  . #x9AD9)	; 髙
       ))
+    (<-vulgar@component
+     ((=big5-cdp	  . #x8C4D)	; &CDP-8C4D;
+      ))
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1593,17 +1588,6 @@
        ((=ucs		    . #x5196)	; 冖
 	))
       (==gt-k		  . 04733)	; &g2-GT-K04733;
-      (<-simplified@component/connect-below
-       ((==ucs@unicode	    . #x9AD9)	; &g2-AJ1-08705;
-	(==adobe-japan1-2   . 08705)	; &g2-AJ1-08705;
-	))
-      (<-vulgar@component
-       ((==gt-k		    . 02791)	; &g2-CDP-8C4D;
-	))
-      (<-vulgar@component/connect-below
-       ((==ucs@unicode	    . #x9AD8)	; &g2-GT-60968;
-	(==jis-x0208	    . #x3962)	; &g2-GT-60968; [25-66]
-	))
       ))
     ))
 (define-char
