@@ -1474,8 +1474,22 @@
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=mj		  . 058835)	; &MJ058835;
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
     (=mj		. 057352)	; &MJ057352;
     (=hanyo-denshi/ks	. 084610)	; &MJ057352;
+    (<-formed
+     ((=ucs@unicode	  . #x8FB1)	; &AJ1-02545;
+      (=adobe-japan1-0	  . 02545)	; &AJ1-02545;
+      ))
+    (<-formed*sources
+     koseki)
     (->subsumptive
      ((==mj		  . 057352)	; &g2-MJ057352;
       (==hanyo-denshi/ks  . 084610)	; &g2-MJ057352;
@@ -1485,6 +1499,8 @@
 	)
        ((===mj		    . 057352)	; &R-MJ057352;
 	))
+      )
+     ((===hng-kar	  . 13300)	; &HNG018-13300;
       ))
     ))
 (define-char
