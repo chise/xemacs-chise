@@ -394,7 +394,10 @@
     (=hanziku-1		. #xE47E)	; &I-HZK01-E47E;
     ))
 (define-char
-  '((ideographic-radical . 14)	; ⼍
+  '((<-denotational
+     ((==>ucs@bucs	  . #x8FB2)	; &BUCS+8FB2;
+      ))
+    (ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 303 11)
@@ -408,8 +411,24 @@
       ))
     (=ucs		. #x519C)	; 农
     (=gb2312		. #x4529)	; &I-G0-4529; [37-09]
-    (=hanziku-1		. #xE4A4)	; &I-HZK01-E4A4;
     (=jef-china3	. #x81EB)	; &I-JC3-81EB;
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x8FB2)	; &AJ1-03318;
+      (=adobe-japan1-0	  . 03318)	; &AJ1-03318;
+      (=gb12345		  . #x4529)	; &AJ1-03318; [37-09]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x519C)	; &g2-UU+519C;
+      (==gb2312		  . #x4529)	; &g2-UU+519C; [37-09]
+      (==jef-china3	  . #x81EB)	; &g2-UU+519C;
+      (->subsumptive
+       ((===ucs@unicode	    . #x519C)	; &R-UU+519C;
+	)
+       ((=hanziku-1	    . #xE4A4)	; &HZK01-E4A4;
+	)
+       ((===jef-china3	    . #x81EB)	; &R-JC3-81EB;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
