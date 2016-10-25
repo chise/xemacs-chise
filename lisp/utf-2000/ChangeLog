@@ -1,5 +1,11 @@
 2016-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R172-Short-Tailed-Bird.el (U-00028FE1): Apply new
+	conventions for glyph granularity.
+	(IU+28FE1): Unify S-9707; add `<-original' for UU+9D89.
+	(U-00029007): Apply new conventions for glyph granularity; unify
+	S-9716; add `<-formed' for U+9D9A.
+
 	* Ideograph-R157-Foot.el: Add glyph-images of HNG-KAR.
 	(A-JU+8DF5): New abstract node; use `<-denotational' for U+8DF5.
 	(JU+8DF5): Use A-JU+8DF5 instead of U+8DF5 as the mother.
