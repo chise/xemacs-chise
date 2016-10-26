@@ -3,11 +3,28 @@
 	* Ideograph-R096-Jade.el (g2-IU+2AF2F): Add
 	`ideographic-structure'.
 
+	* Ideograph-R086-Fire.el (U-000244DA): Use it instead of
+	A-M-19638; omit `<-denotational' for A-M-19638.
+	(A-MJ040193): Use it instead of G-M-19638; unify A-M-19638; use
+	`<-denotational' for U-000244DA.
+	(M-19638): Use A-MJ040193 instead of G-M-19638 as the mother;
+	unify MJ040193 and KOSEKI-221170; apply new conventions for glyph
+	granularity.
+	(A-IU+244DA): Use it instead of U-000244DA; use U-000244DA instead
+	of A-M-19638 as the mother.
+	(IU+244DA): Omit `<-unknown' for M-19638.
+
 	* Ideograph-R042-Small.el (U-00020224): Copied from
 	Ideograph-R009-Man.el.
 
 	* Ideograph-R041-Inch.el (MJ057352): Add `ideographic-structure';
 	add `<-formed' for UU+8FB1; add HNG-KAR1330-0.
+
+	* Ideograph-R159-Cart.el: Add glyph-images of HNG-KAR.
+	(U+8F14): Separate A-UU+8F14.
+	(A-UU+8F14): Add `=>ucs@unicode'; apply new conventions for glyph
+	granularity.
+	(HNG-KAR0390-0): New character; use `<-denotational' for U+8F14.
 
 2016-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
