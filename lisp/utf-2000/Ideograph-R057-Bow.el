@@ -2196,17 +2196,22 @@
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (sound@ja/on	"sei")
     (=ucs		. #x38B4)	; 㢴
-    (=cns11643-6	. #x307A)	; &I-C6-307A; [16-90]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x38B4)	; 㢴
+      ))
+    (ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (sound@ja/on	"sei")
+    (=ucs@unicode	. #x38B4)	; &C6-307A;
+    (=cns11643-6	. #x307A)	; &C6-307A; [16-90]
     (=daikanwa		. 09776)	; &I-M-09776;
     (<-ancient
-     ((=ucs@unicode	  . #x897F)	; &GT-46803;
-      (=jis-x0208	  . #x403E)	; &GT-46803; [32-30]
-      (=gb2312		  . #x4E77)	; &I-G0-4E77; [46-87]
-      (=ks-x1001	  . #x6024)	; &I-K0-6024; [64-04]
-      (=cns11643-1	  . #x4869)	; &I-C1-4869; [40-73]
-      (=jis-x0213-1	  . #x403E)	; &I-JX1-403E; [32-30]
+     ((=ucs@unicode	  . #x897F)	; &AJ1-02658;
+      (=adobe-japan1-0	  . 02658)	; &AJ1-02658;
       (=daikanwa	  . 34763)	; &I-M-34763;
       ))
     (<-ancient*sources
@@ -2221,6 +2226,40 @@
        ((===ucs@unicode	    . #x38B4)	; &R-UU+38B4;
 	)
        ((===cns11643-6	    . #x307A)	; &R-C6-307A; [16-90]
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x38B4)	; 㢴
+      ))
+    (ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	(=ucs		    . #x2FF4)	; ⿴
+	)
+       ((=ucs		    . #x56D7)	; 囗
+	)
+       ((=ucs		    . #x590A)	; 夊
+	))
+      ))
+    (=mj		. 001076)	; &MJ001076;
+    (=hanyo-denshi/jt	. #xB10A)	; &I-HD-JT-B10A;
+    (->subsumptive
+     ((==mj		  . 001076)	; &g2-MJ001076;
+      (==hanyo-denshi/jt  . #xB10A)	; &g2-MJ001076;
+      (->subsumptive
+       ((===hanyo-denshi/jt . #xB10A)	; &R-HD-JT-B10A;
+	)
+       ((===mj		    . 001076)	; &R-MJ001076;
 	))
       ))
     ))
