@@ -1843,7 +1843,7 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (=ucs		      . #x2FF1)	; ⿱
 	  )
-	 ((==hanyo-denshi/jt  . #xB27F)	; &g2-HD-JT-B27F;
+	 ((==adobe-japan1-4   . 14052)	; &g2-AJ1-14052;
 	  )
 	 ((=ucs		      . #x76BF)	; 皿
 	  ))
