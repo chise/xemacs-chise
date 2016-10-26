@@ -1494,7 +1494,7 @@
 	)
        ((==mj		    . 006462)	; &g2-MJ006462;
 	)
-       ((==hanyo-denshi/jt  . #xB27F)	; &g2-HD-JT-B27F;
+       ((==adobe-japan1-4   . 14052)	; &g2-AJ1-14052;
 	))
       (==daikanwa	  . 14367)	; &g2-M-14367;
       ))
