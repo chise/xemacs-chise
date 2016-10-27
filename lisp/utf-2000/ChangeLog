@@ -1,3 +1,33 @@
+2016-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R161-Morning.el: Add glyph-images of HNG-KAR.
+	(U+8FB1): Separate A-UU+8FB1.
+	(A-UU+8FB1): Add `=>ucs@iwds-1'.
+	(BUCS+8FB2): New abstract node.
+	(U+8FB2): Add `<-denotational' for BUCS+8FB2; separate UU+8FB2.
+	(UU+8FB2): Add `=>ucs@iwds-1'.
+	(HNG-KAR1331-0): New character; use `<-denotational' for U+8FB2.
+	(MJ058836): New character; use `<-denotational' for BUCS+8FB2;
+	unify KOSEKI-437470; use `<-formed' for UU+8FB2.
+
+2016-10-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R143-Blood.el (U+8840): Separate UU+8840.
+	(UU+8840): Add `=>ucs@iwds-1'.
+	(U+8840-itaiji-002): New character; use `<-denotational' for
+	U+8840.
+	(U+8846-itaiji-009): New character; use `<-denotational' for
+	U+8846.
+
+	* Ideograph-R075-Tree.el (U-000233B6): New character.
+	(U-00023468): Unify MJ038008, KOSEKI-166550 and M-14793; add
+	`<-formed' and `<-same' for U+7121.
+	(U-0002346A): Unify M-14794; add `<-same' for JU+6834.
+	(U-00023466): New character.
+
+	* Ideograph-R057-Bow.el (U+38B4): Separate UU+38B4.
+	(MJ001076): Add `<-denotational' for U+38B4; unify HD-JT-B10A.
+
 2016-10-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R096-Jade.el (g2-IU+2AF2F): Add
