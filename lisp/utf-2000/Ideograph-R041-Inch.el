@@ -2217,8 +2217,9 @@
     (<-ancient
      ((=daikanwa	  . 30116)	; &M-30116;
       )
-     ((=ucs@unicode	  . #x66C1)	; &AJ1-05119;
-      (=adobe-japan1-0	  . 05119)	; &AJ1-05119;
+     ((=ucs@unicode	  . #x66C1)	; &AJ1-20140;
+      (=adobe-japan1-0	  . 05119)	; &AJ1-20140;
+      (=adobe-japan1-5	  . 20140)	; &I-AJ1-20140;
       ))
     (<-ancient$_1*sources
      shuowen daikanwa)
