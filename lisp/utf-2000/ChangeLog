@@ -1,3 +1,18 @@
+2016-10-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (U+5154-var-008): New character; use
+	`<-denotational' for o-UU+5154.
+
+2016-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+541B): Separate UU+541B.
+	(JU+5592): Add representative nodes.
+	(UU+5592): Likewise.
+	(CU+5592): Likewise.
+	(U+55AC): Separate UU+55AC.
+	(IU+20048): Add representative nodes.
+	(C6-472D): Likewise; unify CU+20048.
+
 2016-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R161-Morning.el: Add glyph-images of HNG-KAR.
