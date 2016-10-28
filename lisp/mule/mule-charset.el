@@ -278,14 +278,16 @@ DESCRIPTION (string) is the description string of the charset."
 	  greek-iso8859-7
 	  thai-tis620
 	  =jis-x0208
-	  =jis-x0208@1983
-	  chinese-gb2312
-	  =jis-x0208-1990
 	  =ucs-radicals
 	  =ucs-radicals@unicode
 	  ;; =ucs-bmp-cjk@JP
 	  =ucs-bmp-cjk@JP/hanazono
 	  =ucs-bmp-cjk@gb
+	  =mj-0
+	  =mj-1
+	  =jis-x0208@1983
+	  chinese-gb2312
+	  =jis-x0208-1990
 	  japanese-jisx0208-1978
 	  =jis-x0212
 	  chinese-cns11643-1
@@ -295,8 +297,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  chinese-cns11643-5
 	  chinese-cns11643-6
 	  chinese-cns11643-7
-	  =mj-0
-	  =mj-1
 	  =adobe-japan1-0
 	  =adobe-japan1-1
 	  =adobe-japan1-2
@@ -384,6 +384,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =ucs-sip-var-003
 	  =ucs-bmp-var-004
 	  =ucs-bmp-var-006
+	  =ucs-bmp-var-008
 	  =ucs-bmp-var-010
 	  =ucs-bmp-itaiji-001
 	  =ucs-sip-itaiji-001
