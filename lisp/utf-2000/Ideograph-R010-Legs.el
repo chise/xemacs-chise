@@ -2194,6 +2194,16 @@
      ((=+>ucs@unicode	  . #x5154)	; &o-JX1-513D;
       (=+>jis-x0213-1	  . #x513D)	; &o-JX1-513D; [49-29]
       ))
+    (ideographic-radical . 10)	; ⼉
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (=ucs-var-008	. #x5154)	; &U-v008+5154;
+    ))
+(define-char
+  '((<-denotational
+     ((=+>ucs@unicode	  . #x5154)	; &o-JX1-513D;
+      (=+>jis-x0213-1	  . #x513D)	; &o-JX1-513D; [49-29]
+      ))
     (=decomposition@cid
      ((=ucs		  . #x5154)	; 兔
       )
