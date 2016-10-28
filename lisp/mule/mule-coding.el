@@ -434,6 +434,7 @@
 	  ( =ucs-var-003		      "U-v003+" 4 X)
 	  ( =ucs-var-004		      "U-v004+" 4 X)
 	  ( =ucs-var-006		      "U-v006+" 4 X)
+	  ( =ucs-var-008		      "U-v008+" 4 X)
 	  ( =ucs-var-010		      "U-v010+" 4 X)
 	  ( =ucs-itaiji-001		      "U-i001+" 4 X)
 	  ( =ucs-itaiji-002		      "U-i002+" 4 X)
