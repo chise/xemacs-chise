@@ -1831,9 +1831,8 @@
     (<-same*sources
      shuowen daikanwa)
     (->mistakable
-     ((=ucs@unicode	  . #x669C)	; &JSP-4255;
-      (=jis-x0212	  . #x4255)	; &JSP-4255; [34-53]
-      (=daikanwa	  . 14082)	; &I-M-14082;
+     ((=ucs@unicode	  . #x669C)	; &AJ1-21720;
+      (=adobe-japan1-6	  . 21720)	; &AJ1-21720;
       ))
     (->subsumptive
      ((==ucs@iso	  . #x2F8D5)	; &g2-M-14312;
