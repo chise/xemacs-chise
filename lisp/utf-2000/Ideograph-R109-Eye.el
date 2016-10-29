@@ -3940,6 +3940,19 @@
      jiyun daikanwa)
     (<-ancient$_2*sources
      shinjigen@rev)
+    (->subsumptive
+     ((==ucs@iso	  . #x2516B)	; &g2-M-23322;
+      (==cns11643-6	  . #x4254)	; &g2-M-23322; [34-52]
+      (==daikanwa	  . 23322)	; &g2-M-23322;
+      (==shinjigen@rev	  .  7318)	; &g2-M-23322;
+      (->subsumptive
+       ((===daikanwa	    . 23322)	; &R-M-23322;
+	)
+       ((===cns11643-6	    . #x4254)	; &R-C6-4254; [34-52]
+	)
+       ((===ucs@iso	    . #x2516B)	; &R-U-0002516B;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 109)	; ⽬
