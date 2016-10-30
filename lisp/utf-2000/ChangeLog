@@ -1,3 +1,38 @@
+2016-10-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R146-West.el: Add some Adobe-Japan1-0 code points.
+	(U+4672): Use `->denotational' and `->subsumptive'.
+	(A-CU+4674): New abstract node; use `<-denotational' for U+4674.
+	(CU+4674): Use A-CU+4674 instead of U+4674 as the mother.
+	(BC-8DA9): Likewise.
+	(A-MJ004487): New abstract node; use `<-denotational' for U+4674.
+	(MJ004487): Use A-MJ004487 instead of U+4674 as the mother.
+	(A-UU+4674): New abstract node; use `<-denotational' for U+4674.
+	(U+4674-var-001): New character; use `<-denotational' for
+	A-UU+4674.
+	(UU+4674): Use A-UU+4674 instead of U+4674 as the mother.
+
+2016-10-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R135-Tongue.el (BUCS+820C): New abstract node.
+	(U+820C): Add `<-denotational' for BUCS+820C.
+	(U+820C-itaiji-002): New character; use `<-denotational' for
+	BUCS+820C; use `<-formed@component/avoiding-taboo' for U+820C.
+
+	* Ideograph-R061-Heart.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 abstract glyph-forms.
+
+	* Ideograph-R024-Ten.el (A-UU+5342): New abstract node; add
+	`=>ucs@iwds-1'.
+	(UU+5342): Use A-UU+5342 instead of U+5342 as the mother; apply
+	new conventions for glyph granularity.
+	(GT-K00251): Use A-UU+5342 instead of U+5342 as the mother.
+	(GT-K00252): Likewise.
+	(BC-88EC): Likewise.
+	(C4-2130): Likewise; unify CU+5342; add representative node.
+	(U+5342-itaiji-001): New character; use `<-denotational' for
+	U+5342.
+
 2016-10-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R123-Sheep.el: Add some Adobe-Japan1-0 code points.
