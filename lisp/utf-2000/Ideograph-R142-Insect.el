@@ -18832,10 +18832,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x470C)	; &JX2-786B;
-      (=cns11643-5	  . #x6952)	; &JX2-786B; [73-50]
-      (=jis-x0213-2	  . #x786B)	; &I-JX2-786B; [88-75]
-      (=daikanwa	  . 35943)	; &I-M-35943;
+     ((=ucs@unicode	  . #x470C)	; &AJ1-18690;
+      (=adobe-japan1-5	  . 18690)	; &AJ1-18690;
       )
      ((=ucs		  . #x866B)	; 虫
       ))
