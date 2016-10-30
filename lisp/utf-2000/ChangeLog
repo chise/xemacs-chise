@@ -1,3 +1,22 @@
+2016-10-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R123-Sheep.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R101-Use.el (U+7528-itaiji-002): New character; use
+	`<-denotational' for U+7528; use `<-formed' for U-00024C03 and
+	U-000200A6.
+	(U+752C): Separate UU+752C.
+	(UU+752C): Add `=>ucs@iwds-1'.
+	(U+752C-itaiji-005): New character; use `<-denotational' for
+	U+752C.
+
+2016-10-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R109-Eye.el (U-0002516B): Add representative nodes.
+
+	* Ideograph-R032-Earth.el: Add `=decomposition@cid' for some
+	Adobe-Japan1 abstract glyph-forms.
+
 2016-10-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R010-Legs.el (U+5154-var-008): New character; use
