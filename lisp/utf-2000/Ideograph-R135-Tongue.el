@@ -2,6 +2,14 @@
 (define-char
   '((ideographic-radical . 135)	; ⾆
     (ideographic-strokes . 0)
+    (==>ucs@bucs	. #x820C)	; &BUCS+820C;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x820C)	; &BUCS+820C;
+      ))
+    (ideographic-radical . 135)	; ⾆
+    (ideographic-strokes . 0)
     (total-strokes	 . 6)
     (=ucs		. #x820C)	; 舌
     (=big5		. #xA6DE)	; &I-B-A6DE;
@@ -71,6 +79,26 @@
 	(==cns11643-1	    . #x485F)	; &g2-CU+820C; [40-63]
 	(==shinjigen	    .  6629)	; &g2-CU+820C;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x820C)	; &BUCS+820C;
+      ))
+    (ideographic-radical . 135)	; ⾆
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5343)	; 千
+      )
+     ((=ucs		  . #x5182)	; 冂
+      ))
+    (=ucs-itaiji-002	. #x820C)	; &U-i002+820C;
+    (<-formed@component/avoiding-taboo
+     ((=ucs		  . #x820C)	; 舌
       ))
     ))
 (define-char
