@@ -713,6 +713,14 @@
   '((ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x56DA)	; 囚
+      )
+     ((=ucs		  . #x76BF)	; 皿
+      ))
     (=ucs		. #x25055)	; 𥁕
     (=cns11643-4	. #x2E4A)	; &I-C4-2E4A; [14-42]
     (=jis-x0213-2	. #x7177)	; &I-JX2-7177; [81-87]
@@ -722,6 +730,37 @@
     (=gt-pj-5		. #x3F25)	; &I-GT-29430; [31-05]
     (=daikanwa		. 22978)	; &I-M-22978;
     (=shinjigen		.  5236)	; 𥁕
+    (<-original
+     ((=ucs		  . #x6637)	; 昷
+      (=jis-x0212	  . #x4230)	; &I-JSP-4230; [34-16]
+      (=shinjigen	  .  5235)	; 昷
+      ))
+    (<-original*sources
+     shinjigen)
+    (->subsumptive
+     ((==ucs@iso	  . #x25055)	; &g2-GT-29430;
+      (==cns11643-4	  . #x2E4A)	; &g2-GT-29430; [14-42]
+      (==jis-x0213-2	  . #x7177)	; &g2-GT-29430; [81-87]
+      (==big5-cdp	  . #x8CD7)	; &g2-GT-29430;
+      (==gt		  . 29430)	; &g2-GT-29430;
+      (==gt-k		  . 07132)	; &g2-GT-29430;
+      (==daikanwa	  . 22978)	; &g2-GT-29430;
+      (==shinjigen	  .  5236)	; &g2-GT-29430;
+      (->subsumptive
+       ((===daikanwa	    . 22978)	; &R-M-22978;
+	)
+       ((===jis-x0213-2	    . #x7177)	; &R-JX2-7177; [81-87]
+	)
+       ((===big5-cdp	    . #x8CD7)	; &R-CDP-8CD7;
+	)
+       ((===gt		    . 29430)	; &R-GT-29430;
+	(===gt-k	    . 07132)	; &R-GT-29430;
+	)
+       ((===ucs@iso	    . #x25055)	; &R-U-00025055;
+	)
+       ((===cns11643-4	    . #x2E4A)	; &R-C4-2E4A; [14-42]
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
