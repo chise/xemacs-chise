@@ -699,20 +699,9 @@
   '((<-denotational
      ((=ucs		  . #x5168)	; 全
       ))
-    (=>ucs*		. #x5168)	; 全
     (ideographic-radical . 11)	; ⼊
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (=decomposition@cid
-     ((=ucs		  . #x5168)	; 全
-      )
-     ((=ucs		  . #xE0100)	; 󠄀
-      ))
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x5168)	; 全
-      )
-     ((=ucs		  . #xE0102)	; 󠄂
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -721,9 +710,8 @@
       )
      ((=ucs		  . #x738B)	; 王
       ))
-    (=ucs		. #xFA72)	; 全
-    (=ucs@unicode	. #x5168)	; 全
-    (=mj		. 007268)	; &I-MJ007268;
+    (=ucs@unicode	. #x5168)	; &MJ007268;
+    (=mj		. 007268)	; &MJ007268;
     (=adobe-japan1-0	. 02742)	; &I-AJ1-02742;
     (=jis-x0208		. #x4134)	; &I-J90-4134; [33-20]
     (=gb2312		. #x482B)	; &I-G0-482B; [40-11]
@@ -732,7 +720,46 @@
     (=gt		. 00565)	; &I-GT-00565;
     (=gt-k		. 01658)	; &I-GT-K01658;
     (=gt-pj-1		. #x4134)	; &I-GT-00565; [33-20]
-    (=shinjigen		.  4875)	; 全
+    (=shinjigen		.  4875)	; &MJ007268;
+    (->subsumptive
+     ((=>ucs*		  . #x5168)	; 全
+      (=decomposition@cid
+       ((=ucs		    . #x5168)	; 全
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x5168)	; 全
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=ucs		  . #xFA72)	; 全
+      (==ucs@unicode	  . #x5168)	; 全
+      (==mj		  . 007268)	; 全
+      (==adobe-japan1-0	  . 02742)	; 全
+      (==gb2312		  . #x482B)	; 全 [40-11]
+      (==jis-x0208	  . #x4134)	; 全 [33-20]
+      (==jis-x0213-1	  . #x4134)	; 全 [33-20]
+      (==hanyo-denshi/ja  . #x4134)	; 全 [33-20]
+      (==gt		  . 00565)	; 全
+      (==gt-k		  . 01658)	; 全
+      (==shinjigen	  .  4875)	; 全
+      (->subsumptive
+       ((===jis-x0208	    . #x4134)	; &R-J0-4134; [33-20]
+	(===jis-x0213-1	    . #x4134)	; &R-J0-4134; [33-20]
+	)
+       ((===adobe-japan1-0  . 02742)	; &R-AJ1-02742;
+	)
+       ((===mj		    . 007268)	; &R-MJ007268;
+	)
+       ((===gt		    . 00565)	; &R-GT-00565;
+	(===gt-k	    . 01658)	; &R-GT-00565;
+	)
+       ((===ucs@unicode	    . #x5168)	; &R-UU+5168;
+	)
+       ((===ucs@unicode	    . #xFA72)	; &R-UU+FA72;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 11)	; ⼊
