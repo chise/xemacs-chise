@@ -1,5 +1,16 @@
 2016-10-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R039-Child.el (U-00021940): Use `->subsumptive'.
+
+	* Ideograph-R029-Again.el (CU+53CA): Apply new conventions for
+	glyph granularity.
+	(UU+53CA): Unify U-0002F836.
+	(g2-UU+53CA): Separate U-0002F836; unify g2-IU+2F836.
+
+	* Ideograph-R011-Enter.el (UU+5168): Separate U+FA72; apply new
+	conventions for glyph granularity.
+	(g2-UU+5168): Unify U+FA72.
+
 	* Ideograph-R108-Dish.el (U-00025055): Add
 	`ideographic-structure'; add `<-original' for U+6637.
 
