@@ -1,3 +1,24 @@
+2016-10-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R108-Dish.el (U-00025055): Add
+	`ideographic-structure'; add `<-original' for U+6637.
+
+	* Ideograph-R004-Slash.el (UU+53CA): Unify U-0002F836.
+	(g2-UU+53CA): Separate U-0002F836; unify g2-IU+2F836.
+
+2016-10-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el (U+6C38): Separate UU+6C38.
+	(GT-K00893): New character; use `<-denotational' for U+6C38.
+
+	* Ideograph-R034-Go.el (U+5902): Add representative nodes.
+	(o-UU+5904): New abstract node; use `<-denotational' for U+5904.
+	(UU+5904): Use `<-subsumptive' for o-UU+5904 instead of
+	`<-denotational' for U+5904.
+	(U+5904-var-002): New character; use `<-subsumptive' for
+	o-UU+5904.
+	(C3-2235): Unify CU+5904; add representative node.
+
 2016-10-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R146-West.el: Add some Adobe-Japan1-0 code points.
