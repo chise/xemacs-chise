@@ -129,7 +129,16 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (=ucs		. #x6C38)	; 永
-    (=adobe-japan1-0	. 01260)	; &I-AJ1-01260;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6C38)	; 永
+      ))
+    (ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (=ucs@unicode	. #x6C38)	; &AJ1-01260;
+    (=adobe-japan1-0	. 01260)	; &AJ1-01260;
     (=jis-x0208		. #x314A)	; &I-J90-314A; [17-42]
     (=gb2312		. #x5340)	; &I-G0-5340; [51-32]
     (=ks-x1001		. #x6735)	; &I-K0-6735; [71-21]
@@ -140,7 +149,7 @@
     (=gt-k		. 00892)	; &I-GT-K00892;
     (=gt-pj-1		. #x314A)	; &I-GT-21884; [17-42]
     (=daikanwa		. 17088)	; &I-M-17088;
-    (=shinjigen		.  4050)	; 永
+    (=shinjigen		.  4050)	; &AJ1-01260;
     (->subsumptive
      ((==ucs@unicode	  . #x6C38)	; &g2-AJ1-01260;
       (==adobe-japan1-0	  . 01260)	; &g2-AJ1-01260;
@@ -178,6 +187,16 @@
       )
      ((===hng-kar	  . 02140)	; &HNG018-02140;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6C38)	; 永
+      ))
+    (ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (=gt-k		. 00893)	; &GT-K00893;
+    (=gt-pj-k2		. #x4A60)	; &GT-K00893; [42-64]
     ))
 (define-char
   '((ideographic-radical . 85)	; ⽔
