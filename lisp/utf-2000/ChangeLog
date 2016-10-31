@@ -14,6 +14,8 @@
 
 2016-10-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R189-Tall.el: Add some Adobe-Japan1-0 code points.
+
 	* Ideograph-R135-Tongue.el (BUCS+820C): New abstract node.
 	(U+820C): Add `<-denotational' for BUCS+820C.
 	(U+820C-itaiji-002): New character; use `<-denotational' for
@@ -34,6 +36,9 @@
 	U+5342.
 
 2016-10-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=ucs-var-008'.
 
 	* Ideograph-R123-Sheep.el: Add some Adobe-Japan1-0 code points.
 
