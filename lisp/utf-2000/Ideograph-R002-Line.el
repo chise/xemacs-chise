@@ -91,20 +91,37 @@
     (=big5-cdp		. #x87B1)	; &I-CDP-87B1;
     (=gt		. 00103)	; &I-GT-00103;
     (=gt-pj-2		. #x3055)	; &I-GT-00103; [16-53]
+    (=daikanwa		. 02775)	; &I-M-02775;
     (<-ancient
-     ((=ucs		  . #x535C)	; 卜
+     ((=ucs@unicode	  . #x535C)	; &AJ1-03708;
+      (=adobe-japan1-0	  . 03708)	; &AJ1-03708;
       (=daikanwa	  . 02774)	; &I-M-02774;
       ))
     (<-ancient*sources
      shuowen daikanwa)
     (->subsumptive
-     ((ideographic-radical . 2)	; ⼁
-      (ideographic-strokes . 1)
-      (=daikanwa	  . 00069)	; &M-00069;
-      )
-     ((ideographic-radical . 25)	; ⼘
-      (ideographic-strokes . 0)
-      (=daikanwa	  . 02775)	; &M-02775;
+     ((==ucs@iso	  . #x20061)	; &g2-GT-00103;
+      (==cns11643-6	  . #x212C)	; &g2-GT-00103; [01-12]
+      (==big5-cdp	  . #x87B1)	; &g2-GT-00103;
+      (==gt		  . 00103)	; &g2-GT-00103;
+      (==daikanwa	  . 02775)	; &g2-GT-00103;
+      (->subsumptive
+       ((ideographic-radical . 2)	; ⼁
+	(ideographic-strokes . 1)
+	(=daikanwa	    . 00069)	; &M-00069;
+	)
+       ((ideographic-radical . 25)	; ⼘
+	(ideographic-strokes . 0)
+	(===daikanwa	    . 02775)	; &R-M-02775;
+	)
+       ((===gt		    . 00103)	; &R-GT-00103;
+	)
+       ((===ucs@iso	    . #x20061)	; &R-U-00020061;
+	)
+       ((===big5-cdp	    . #x87B1)	; &R-CDP-87B1;
+	)
+       ((===cns11643-6	    . #x212C)	; &R-C6-212C; [01-12]
+	))
       ))
     ))
 (define-char
