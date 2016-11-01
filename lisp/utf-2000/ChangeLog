@@ -1,5 +1,7 @@
 2016-10-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R066-Rap.el (U+6566): Separate UU+6566.
+
 	* Ideograph-R196-Bird.el: Add some Adobe-Japan1-0 code points.
 	(U-00029FBE): Unify S-9679; add `<-formed' for U+9D41.
 	(U+9D02): Unify S-9656; add representative nodes.
