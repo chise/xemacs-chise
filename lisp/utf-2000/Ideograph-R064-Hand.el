@@ -13746,7 +13746,8 @@
     (=shinjigen@1ed	.  3007)	; 揣
     (=shinjigen@rev	.  3009)	; 揣
     (<-formed
-     ((=ucs		  . #x6566)	; 敦
+     ((=ucs@unicode	  . #x6566)	; &AJ1-03248;
+      (=adobe-japan1-0	  . 03248)	; &AJ1-03248;
       ))
     (<-formed*sources
      jiyun)
@@ -13776,7 +13777,8 @@
     (<-interchangeable*sources
      daikanwa)
     (<-same
-     ((=ucs		  . #x6566)	; 敦
+     ((=ucs@unicode	  . #x6566)	; &AJ1-03248;
+      (=adobe-japan1-0	  . 03248)	; &AJ1-03248;
       (=daikanwa	  . 13276)	; &I-M-13276;
       ))
     (<-same*sources
