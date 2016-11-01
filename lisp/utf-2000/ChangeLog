@@ -1,5 +1,8 @@
 2016-10-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R128-Ear.el (CU+805A): Use A-CU+805A instead of U+805A
+	as the mother.
+
 	* Ideograph-R066-Rap.el (U+6566): Separate UU+6566.
 
 	* Ideograph-R196-Bird.el: Add some Adobe-Japan1-0 code points.
