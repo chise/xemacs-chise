@@ -1,5 +1,48 @@
 2016-10-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R196-Bird.el: Add some Adobe-Japan1-0 code points.
+	(U-00029FBE): Unify S-9679; add `<-formed' for U+9D41.
+	(U+9D02): Unify S-9656; add representative nodes.
+	(U+9D03): Add `<-formed' for U+9D02.
+	(U+9D44): Unify CB00306; add `<-formed' for JU+9D1F.
+	(U+4CCC): Apply new conventions for glyph granularity; unify
+	S-9690; add `<-vulgar' for U+9D51.
+	(U-0002A049): Apply new conventions for glyph granularity; unify
+	S-9680; add `<-formed' and `<-original' for U+9D41.
+	(U+FA2D): New character; use `<-denotational' for U+9DB4; unify
+	MJ030243, HD-IB1173, KOSEKI-535410, GT-64306, MH-0782 and S-9729;
+	add `<-formed' and `<-same' for UU+9DB4; add `<-vulgar' for U+9E16
+	and UU+9DB4.
+	(U+9E0E): Unify S-9727 and JC3-8BE9; add `<-formed' for U+9DAF.
+
+	* Ideograph-R167-Gold.el (U+92DD): Add `ideographic-structure'.
+	(JU+92DD): Likewise; add representative nodes.
+	(UU+92DD): Likewise.
+
+2016-10-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R120-Silk.el (M-27325): Add representative node.
+	(IU+221C1): Likewise.
+	(BC-8CE2): New character; use `<-subsumptive' for U-000221C1.
+
+	* Ideograph-R087-Claw.el (U-000244FD): Add
+	`ideographic-structure'; apply new conventions for glyph
+	granularity.
+	(U+244FD-var-001): New character; use `<-subsumptive' for
+	IU+244FD.
+
+	* Ideograph-R030-Mouth.el (U+5590): Apply new conventions for
+	glyph granularity; add `<-formed' and `<-same' for U+35AA;
+	(C4-3C4E): Unify CU+20E3A; add representative node.
+	(IU+20E3A): Add representative node.
+
+	* Ideograph-R025-Divination.el (U+535C): Separate UU+535C.
+	(U-00020061): Apply new conventions for glyph granularity.
+	(U+5364): Add representative nodes.
+
+	* Ideograph-R002-Line.el (U-00020061): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R039-Child.el (U-00021940): Use `->subsumptive'.
 
 	* Ideograph-R029-Again.el (CU+53CA): Apply new conventions for
