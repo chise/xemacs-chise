@@ -2952,9 +2952,26 @@
     (=ucs		. #x221C1)	; 𢇁
     (->subsumptive
      ((=daikanwa	  . 27325)	; &M-27325;
+      (->subsumptive
+       ((==daikanwa	    . 27325)	; &g2-M-27325;
+	))
       )
      ((=ucs@iso		  . #x221C1)	; &C4-2F27;
       (=cns11643-4	  . #x2F27)	; &C4-2F27; [15-07]
+      (->subsumptive
+       ((==ucs@iso	    . #x221C1)	; &g2-IU-000221C1;
+	(==cns11643-4	    . #x2F27)	; &g2-IU-000221C1; [15-07]
+	(->subsumptive
+	 ((===cns11643-4      . #x2F27)	; &R-C4-2F27; [15-07]
+	  )
+	 ((===ucs@iso	      . #x221C1)	; &R-U-000221C1;
+	  ))
+	))
+      )
+     ((=big5-cdp	  . #x8CE2)	; &CDP-8CE2;
+      (->subsumptive
+       ((==big5-cdp	    . #x8CE2)	; &g2-CDP-8CE2;
+	))
       ))
     ))
 (define-char
