@@ -1,3 +1,131 @@
+2016-11-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R162-Walk.el: Add glyph-images of HNG-KAR.
+	(HNG-KAR0403-0): New character; use `<-denotational' for U+8FC5.
+	(A-CU+8FF0): New abstract node; use `<-denotational' for U+8FF0.
+	(KU+8FF0): Use A-CU+8FF0 instead of U+8FF0 as the mother.
+	(CU+8FF0): Likewise.
+	(A-UU+8FF0): New abstract node; use `<-denotational' for U+8FF0.
+	(HNG-KAR1349-0): New character; use `<-denotational' for
+	A-UU+8FF0.
+	(UU+8FF0): Use A-UU+8FF0 instead of U+8FF0 as the mother.
+	(HNG-KAR0402-0): New character; use `<-denotational' for U+9001.
+	(BUCS+9002): New abstract node.
+	(U+9002): Add `<-denotational' for BUCS+9002.
+	(HNG-KAR1348-0): New character; use `<-denotational' for
+	BUCS+9002; use `<-avoiding-taboo' for U+9002.
+	(U+901A): Separate U+901A and B-B371.
+	(A-UU+901A): New abstract node; add `=>ucs@iwds-1'; unify B-B371;
+	use `<-denotational' for U+901A.
+	(HNG-KAR0405-0): New character; use `<-denotational' for U+901A.
+	(M-38898): Unify K0-7063, KU+9020 and JC3-67C9.
+	(HNG-KAR1335-0): New character; use `<-denotational' for
+	A-UU+9038.
+	(A-UU+903A): New abstract node; use `<-denotational' for U+903A.
+	(UU+903A): Use A-UU+903A instead of U+903A as the mother; use
+	U+212AE-var-002 instead of "⿱土&CDP-8845;" in `ideographic-structure'.
+	(HNG-KAR1340-0): New character; use `<-denotational' for
+	A-MJ058857; use `<-formed' for U+9060.
+	(A-MJ058857): New abstract node; use `<-denotational' for U+903A.
+	(MJ058857): Use A-MJ058857 instead of U+903A as the mother.
+	(CU+903A): Use A-UU+903A instead of U+903A as the mother; use
+	IU+212AE instead of H2-A9D5 in `ideographic-structure'.
+	(HNG-KAR1352-0): New character; use `<-denotational' for U+9047.
+	(HNG-KAR1344-0): New character; use `<-denotational' for U+9055.
+	(HNG-KAR1334-0): New character; use `<-denotational' for
+	A-UU+9077.
+	(B-BFEF): Unify A-UU+9078.
+	(K0-6054): Unify KU+9078 and JC3-67EB.
+	(HNG-KAR0404-0): New character; use `<-denotational' for U+9087.
+
+	* Ideograph-R149-Speech.el:
+	- Add `=decomposition@cid' for some Adobe-Japan1 abstract
+	  glyph-forms.
+	- Add some Adobe-Japan1 code points.
+	(MJ024538): New character; use `<-denotational' for U+8AAE; unify
+	HD-KS405050 and MH-0567; use `<-formed' for UU+8AAE.
+	(UU+8AAE): Unify MJ024537 and KOSEKI-403850.
+
+2016-11-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el: Use U+4EBB instead of <CJK RADICAL
+	PERSON> in `ideographic-structure' of abstract characters and
+	abstract glyphs.
+	(U-000201BA): Use U-000221AF instead of "⿱幺丨" in
+	`ideographic-structure'.
+	(U-000201BC): Apply new conventions for glyph granularity.
+	(U-000201B0): Use `{ideographic|total}-strokes@daikanwa' instead
+	of `{ideographic|total}-strokes'; use
+	`{ideographic|total}-strokes' instead of `cns-total-strokes'.
+	(U-000201D2): Use `ideographic-radical@ucs/code' instead of
+	`ideographic-radical@ucs'; moved to Ideograph-R011-Enter.el.
+	(U+4F2B): Use U+3749 instead of "⿱宀一" in
+	`ideographic-structure'.
+	(U-000201DD): Use U-00020BA1 instead of "⿱口二" in
+	`ideographic-structure'.
+	(U-000201FE): Use U-000233B6 instead of "⿱木一" in
+	`ideographic-structure'.
+	(U-000201F9): Add `ideographic-strokes' and `total-strokes'; apply
+	new conventions for glyph granularity.
+	(U-0002022F): Add `<-ancient' for U+5175; apply new conventions
+	for glyph granularity.
+	(C5-2B72): Unify CU+20230; apply new conventions for glyph
+	granularity.
+	(IU+20233): Use U+7075-itaiji-001 instead of
+	((ideographic-structure ?⿱ ?JU+5F50 ?\u706B)) in
+	`ideographic-structure'; apply new conventions for glyph
+	granularity; add `<-ancient' for U+8F9F.
+	(CU+20233): Use U+7075-var-001 instead of "⿱⺔火" in
+	`ideographic-structure'.
+	(U-00020239): Use "⿰亻㳊" instead of "⿲⺅⺡攵" in
+	`ideographic-structure'; apply new conventions for glyph
+	granularity.
+	(U-0002023C): Add `<-ancient' for U+9806; apply new conventions
+	for glyph granularity.
+	(U+4FFB): Use U+5907 instead of "⿱夂田" in
+	`ideographic-structure'; apply new conventions for glyph
+	granularity.
+	(IU+202A3): Apply new conventions for glyph granularity.
+	(IU+20295): Likewise.
+	(U-000202A8): Fix `ideographic-structure'; apply new conventions
+	for glyph granularity.
+	(U+504B): Apply new conventions for glyph granularity.
+	(U+506F): Likewise.
+	(U-000202E8): Fix `ideographic-structure'; apply new conventions
+	for glyph granularity.
+	(U-000202DA): Apply new conventions for glyph granularity; add
+	`ideographic-strokes' and `total-strokes'.
+	(U+5090): Separate UU+5090.
+	(HD-TK01005620): New character; use `<-denotational' for U+5090.
+	(U-00020316): Apply new conventions for glyph granularity; add
+	`ideographic-strokes' and `total-strokes'.
+	(U-00020338): Apply new conventions for glyph granularity; add
+	`<-formed' for U+504B.
+	(IU+20338): Unify M-01053.
+	(MJ007057): Use MJ004487 instead of "⿳⻃大己" in
+	`ideographic-structure'.
+	(U-00020378): Apply new conventions for glyph granularity.
+	(IU+20378): Add `<-vulgar' for JU+773E.
+	(H1-D3AE): Use U+8846-itaiji-005 instead of "⿱⿱丿⺫乑" in
+	`ideographic-structure'.
+	(S-0406): Use MJ013511 instead of "⿳亼田日" in
+	`ideographic-structure'.
+	(U-000203D6): Use U+36A0 instead of "⿱大羔" in
+	`ideographic-structure'.
+	(M-01053): Unify IU+20338; use U-00020338 instead of U+504B as the
+	mother.
+	(U-00020425): Apply new conventions for glyph granularity; add
+	`<-original' for U+5104.
+	(U-00020443): Apply new conventions for glyph granularity.
+	(U-00020446): Likewise.
+	(U-00020475): Likewise.
+	(U-00020224): Use `ideographic-radical@ucs/code' instead of
+	`ideographic-radical'; add `ideographic-radical@ucs',
+	`ideographic-strokes@ucs', `ideographic-strokes@ucs/code' and
+	`total-strokes'; apply new conventions for glyph granularity;
+	unify MJ030595, KOSEKI-085250 and M-07496; moved to
+	Ideograph-R042-Small.el.
+
 2016-10-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R128-Ear.el (CU+805A): Use A-CU+805A instead of U+805A
