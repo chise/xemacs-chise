@@ -1,5 +1,7 @@
 2016-11-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R037-Big.el (U-0002BBDC): New character.
+
 	* Ideograph-R162-Walk.el: Add glyph-images of HNG-KAR.
 	(HNG-KAR0403-0): New character; use `<-denotational' for U+8FC5.
 	(A-CU+8FF0): New abstract node; use `<-denotational' for U+8FF0.
