@@ -1267,6 +1267,23 @@
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5927)	; 大
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
+    (=ucs		. #x2BBDC)	; 𫯜
+    (->subsumptive
+     ((==ucs@iso	  . #x2BBDC)	; &g2-IU-0002BBDC;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 529 6)
