@@ -3300,6 +3300,14 @@
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7F52)	; 罒
+      )
+     ((=ucs		  . #x5E55)	; 幕
+      ))
     (=ucs		. #x7F83)	; 羃
     (=big5		. #xF2BB)	; &I-B-F2BB;
     ))
@@ -3310,8 +3318,47 @@
     (ideographic-radical . 122)	; ⽹
     (ideographic-strokes . 14)
     (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7F52)	; 罒
+      )
+     ((=ucs@cns		  . #x5E55)	; &MJ010898;
+      (=mj		  . 010898)	; &MJ010898;
+      ))
+    (=ucs@cns		. #x7F83)	; &C2-6645;
     (=cns11643-2	. #x6645)	; &C2-6645; [70-37]
     (=daikanwa		. 28393)	; &I-M-28393;
+    (=shinjigen		.  0538)	; &C2-6645;
+    (<-formed
+     ((=ucs@cns		  . #x51AA)	; &MJ007355;
+      (=mj		  . 007355)	; &MJ007355;
+      (=shinjigen	  .  0536)	; &MJ007355;
+      ))
+    (<-formed*sources
+     shinjigen)
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((name		    . "CJK RADICAL NET TWO")
+	(=ucs		    . #x2EB2)	; ⺲
+	)
+       ((==ucs@cns	    . #x5E55)	; &g2-MJ010898;
+	(==mj		    . 010898)	; &g2-MJ010898;
+	))
+      (==ucs@cns	  . #x7F83)	; &g2-M-28393;
+      (==cns11643-2	  . #x6645)	; &g2-M-28393; [70-37]
+      (==daikanwa	  . 28393)	; &g2-M-28393;
+      (==shinjigen	  .  0538)	; &g2-M-28393;
+      (->subsumptive
+       ((===daikanwa	    . 28393)	; &R-M-28393;
+	)
+       ((===cns11643-2	    . #x6645)	; &R-C2-6645; [70-37]
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -3320,10 +3367,14 @@
     (ideographic-radical . 122)	; ⽹
     (ideographic-strokes . 14)
     (total-strokes	 . 19)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x7F83)	; 羃
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #xE0101)	; 󠄁
+     ((=ucs		  . #x7F52)	; 罒
+      )
+     ((=ucs@unicode	  . #x5E55)	; &MJ010897;
+      (=mj		  . 010897)	; &MJ010897;
       ))
     (=ucs@unicode	. #x7F83)	; &HD-JA-6632;
     (=jis-x0208		. #x6632)	; &HD-JA-6632; [70-18]
@@ -3331,6 +3382,36 @@
     (=hanyo-denshi/ja	. #x6632)	; &I-HD-JA-6632; [70-18]
     (=gt		. 36545)	; &I-GT-36545;
     (=gt-pj-1		. #x6632)	; &I-GT-36545; [70-18]
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7F83)	; 羃
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((name		    . "CJK RADICAL NET TWO")
+	(=ucs		    . #x2EB2)	; ⺲
+	)
+       ((==ucs@unicode	    . #x5E55)	; &g2-MJ010897;
+	(==mj		    . 010897)	; &g2-MJ010897;
+	))
+      (==ucs@unicode	  . #x7F83)	; &g2-HD-JA-6632;
+      (==jis-x0208	  . #x6632)	; &g2-HD-JA-6632; [70-18]
+      (==jis-x0213-1	  . #x6632)	; &g2-HD-JA-6632; [70-18]
+      (==hanyo-denshi/ja  . #x6632)	; &g2-HD-JA-6632; [70-18]
+      (==gt		  . 36545)	; &g2-HD-JA-6632;
+      (->subsumptive
+       ((===jis-x0208	    . #x6632)	; &R-J0-6632; [70-18]
+	(===jis-x0213-1	    . #x6632)	; &R-J0-6632; [70-18]
+	)
+       ((===gt		    . 36545)	; &R-GT-36545;
+	)
+       ((===ucs@unicode	    . #x7F83)	; &R-UU+7F83;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
