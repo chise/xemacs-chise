@@ -4972,6 +4972,14 @@
     (ideographic-radical@cns*sources
      daikanwa cns11643)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x20587)	; 𠖇
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
     (=ucs		. #x5E42)	; 幂
     ))
 (define-char
@@ -4985,20 +4993,37 @@
     (total-strokes	 . 12)
     (hanyu-dazidian	1 305 6)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x5196)	; 冖
-      )
-     ((=ucs@unicode	  . #x65F2)	; &AJ1-14602;
-      (=adobe-japan1-4	  . 14602)	; &AJ1-14602;
+     ((=ucs@iso		  . #x20587)	; &U-00020587;
       )
      ((=ucs		  . #x5DFE)	; 巾
       ))
     (=ucs@unicode	. #x5E42)	; &C3-3979;
     (=gb2312		. #x435D)	; &C3-3979; [35-61]
     (=cns11643-3	. #x3979)	; &I-C3-3979; [25-89]
-    (=hanziku-1		. #xE4DF)	; &I-HZK01-E4DF;
+    (=shinjigen		.  0537)	; &C3-3979;
+    (<-original
+     ((=ucs@cns		  . #x51AA)	; &MJ007355;
+      (=mj		  . 007355)	; &MJ007355;
+      (=shinjigen	  .  0536)	; &MJ007355;
+      ))
+    (<-original*sources
+     shinjigen)
+    (->subsumptive
+     ((==ucs@unicode	  . #x5E42)	; &g2-UU+5E42;
+      (==gb2312		  . #x435D)	; &g2-UU+5E42; [35-61]
+      (==cns11643-3	  . #x3979)	; &g2-UU+5E42; [25-89]
+      (==shinjigen	  .  0537)	; &g2-UU+5E42;
+      (->subsumptive
+       ((===cns11643-3	    . #x3979)	; &R-C3-3979; [25-89]
+	)
+       ((===ucs@unicode	    . #x5E42)	; &R-UU+5E42;
+	)
+       ((=hanziku-1	    . #xE4DF)	; &HZK01-E4DF;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
