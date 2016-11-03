@@ -1,3 +1,28 @@
+2016-11-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R163-City.el: Add glyph-images of HNG-KAR.
+	(U+912D): Separate A-UU+912D and B-BE47.
+	(A-UU+912D): New abstract node; use `<-denotational' for U+912D;
+	unify A-J0-4522 and B-BE47; add `=>ucs@iwds-1'.
+	(HNG-KAR1356-0): New character; use `<-denotational' for U+912D.
+	(U+9130): Separate UU+9130.
+	(UU+9130): Add `=>ucs@iwds-1'.
+	(HNG-KAR1361-0): Use `<-denotational' for U+9130.
+	(U+9139): Apply new conventions for glyph granularity.
+	(HNG-KAR0409-0): New character; use `<-denotational' for U+9139;
+	use `<-HNG@zinbun/takuhon' for U+9139; use `<-formed' for U+90F0.
+
+	* Ideograph-R122-Net.el (U+7F83): Add `ideographic-structure'.
+	(C2-6645): Unify CU+7F83 and S-0538; add `<-formed' for CU+51AA.
+	(UU+7F83): Apply new conventions for glyph granularity.
+
+2016-11-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el (U+5E42): Add `ideographic-structure'.
+	(UU+5E42): Use (?⿱ ?IU+20587 ?巾) instead of (?⿳ ?冖 ?UU+65F2
+	?巾) in `ideographic-structure'; unify S-0537; add `<-original' for
+	CU+51AA.
+
 2016-11-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R037-Big.el (U-0002BBDC): New character.
