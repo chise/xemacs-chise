@@ -1,4 +1,13 @@
+2016-11-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R166-Village.el: Add glyph-images of HNG-KAR.
+
 2016-11-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R014-Cover.el (U-00020587): Separate IU+20587.
+	(UU+5E42): Use (?⿱ ?IU+20587 ?巾) instead of (?⿳ ?冖 ?UU+65F2
+	? 巾) in `ideographic-structure'; apply new conventions for glyph
+	granularity; unify S-0537; add `<-original' for CU+51AA.
 
 	* Ideograph-R163-City.el: Add glyph-images of HNG-KAR.
 	(U+912D): Separate A-UU+912D and B-BE47.
