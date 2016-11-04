@@ -1,5 +1,20 @@
 2016-11-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R041-Inch.el (A-UU+5C07): New abstract node; use
+	`<-denotational' for U+5C07.
+	(UU+5C07): Use A-UU+5C07 instead of U+5C07 as the mother.
+	(HD-JT-B040): Use A-UU+5C07 instead of U+5C07 as the mother; unify
+	MJ059513.
+	(HD-JT-B040): Unify MJ059879; add `ideographic-radical' and
+	`ideographic-strokes'.
+	(A-MJ058022): New abstract node; use `<-denotational' for U+5C07.
+	(MJ058022): New character; use `<-denotational' for A-MJ058022;
+	unify HD-IB1682 and KOSEKI-222760.
+	(HNG-KAR0778-0): Use `<-subsumptive' for MJ058022 instead of
+	`<-denotational' for A-IWDSU+5C06.
+
+2016-11-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R166-Village.el: Add glyph-images of HNG-KAR.
 
 2016-11-02  MORIOKA Tomohiko  <tomo.git@chise.org>
