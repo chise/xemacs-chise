@@ -1,3 +1,17 @@
+2016-11-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el:
+	- Add `=decomposition@cid' for some Adobe-Japan1 abstract
+	  glyph-forms.
+	- Add some Adobe-Japan1 code points.
+	(o-UU+661D): New abstract node to subsume UU+661D and
+	U+661D-var-001.
+	(U+661D-var-001): New character; use `<-subsumptive' for
+	o-UU+661D.
+	(U-000231F5): Unify MH-0237.
+	(U+3B0E): Unify BC-8CE3.
+	(M-14219): Unify U+3B24.
+
 2016-11-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R041-Inch.el (A-UU+5C07): New abstract node; use
