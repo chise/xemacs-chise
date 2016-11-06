@@ -1,3 +1,24 @@
+2016-11-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R020-Wrap.el (U-0002F828): Apply new conventions for
+	glyph granularity.
+	(UU+52FA): Likewise.
+
+2016-11-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R168-Long.el (U+9577): Add HNG-KAR1368-0.
+
+	* Ideograph-R164-Wine.el: Add glyph-images of HNG-KAR.
+	(U+91AC): Separate A-UU+91AC.
+	(A-UU+91AC): New abstract node; use `<-denotational' for U+91AC.
+	(UU+91AC): Use A-UU+91AC as the mother.
+	(A-MJ026550): New abstract node; use `<-denotational' for U+91AC;
+	unify o-HD-JT-BDB1.
+	(HNG-KAR0411-0): New character; use `<-denotational' for
+	A-MJ026550.
+	(MJ026550): New character; use `<-denotational' for A-MJ026550;
+	unify HD-JT-BDB1.
+
 2016-11-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R072-Sun.el:
