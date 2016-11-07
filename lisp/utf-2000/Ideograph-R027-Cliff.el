@@ -349,6 +349,21 @@
     (=cns11643-6	. #x224E)	; &I-C6-224E; [02-46]
     ))
 (define-char
+  '((ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=adobe-japan1-4	  . 13834)	; &AJ1-13834;
+      )
+     ((=ucs		  . #x5382)	; 厂
+      ))
+    (=gt-k		. 01442)	; &GT-K01442;
+    (=gt-pj-k2		. #x406C)	; &GT-K01442; [32-76]
+    ))
+(define-char
   '((=>ucs		. #x3542)	; 㕂
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 4)
@@ -4378,12 +4393,12 @@
 (define-char
   '((ideographic-radical . 27)	; ⼚
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=adobe-japan1-4	  . 13834)	; &AJ1-13834;
+     ((=gt-k		  . 01442)	; &GT-K01442;
       )
-     ((=ucs		  . #x20A9A)	; 𠪚
+     ((=ucs		  . #x6562)	; 敢
       ))
     (=ucs		. #x53B3)	; 厳
     ))
@@ -4395,20 +4410,16 @@
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
-    (=decomposition@cid
-     ((=ucs		  . #x53B3)	; 厳
-      )
-     ((=ucs		  . #xE0100)	; 󠄀
-      ))
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=adobe-japan1-4	  . 13834)	; &AJ1-13834;
+     ((=gt-k		  . 01442)	; &GT-K01442;
       )
-     ((=ucs@iso		  . #x20A9A)	; &C4-4249;
-      (=cns11643-4	  . #x4249)	; &C4-4249; [34-41]
-      (=daikanwa	  . 03019)	; &I-M-03019;
+     ((=ucs@cns		  . #x6562)	; &AJ1-01526;
+      (=ucs@jis		  . #x6562)	; &AJ1-01526;
+      (=ucs@ks		  . #x6562)	; &AJ1-01526;
+      (=adobe-japan1-0	  . 01526)	; &AJ1-01526;
       ))
     (=ucs@jis		. #x53B3)	; &AJ1-01899;
     (=adobe-japan1-0	. 01899)	; &AJ1-01899;
@@ -4426,6 +4437,34 @@
       (=adobe-japan1-0	  . 04449)	; &AJ1-04449;
       (=jis-x0208	  . #x536E)	; &I-J90-536E; [51-78]
       ))
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x53B3)	; 厳
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x53B3)	; &g2-AJ1-01899;
+      (==ucs@jis	  . #x53B3)	; &g2-AJ1-01899;
+      (==adobe-japan1-0	  . 01899)	; &g2-AJ1-01899;
+      (==jis-x0208	  . #x3837)	; &g2-AJ1-01899; [24-23]
+      (==cns11643-3	  . #x5445)	; &g2-AJ1-01899; [52-37]
+      (==jis-x0213-1	  . #x3837)	; &g2-AJ1-01899; [24-23]
+      (==gt		  . 12988)	; &g2-AJ1-01899;
+      (==daikanwa/+p	  . 03048)	; &g2-AJ1-01899;
+      (==shinjigen	  .  1285)	; &g2-AJ1-01899;
+      (->subsumptive
+       ((===daikanwa/+p	    . 03048)	; &R-M-p03048;
+	)
+       ((===jis-x0208	    . #x3837)	; &R-J0-3837; [24-23]
+	(===jis-x0213-1	    . #x3837)	; &R-J0-3837; [24-23]
+	)
+       ((===adobe-japan1-0  . 01899)	; &R-AJ1-01899;
+	)
+       ((===cns11643-3	    . #x5445)	; &R-C3-5445; [52-37]
+	)
+       ((===gt		    . 12988)	; &R-GT-12988;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -4435,20 +4474,13 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=adobe-japan1-4	  . 13834)	; &AJ1-13834;
+     ((=gt-k		  . 01442)	; &GT-K01442;
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-	(=ucs		    . #x2FF8)	; ⿸
-	)
-       ((=ucs		    . #x5382)	; 厂
-	)
-       ((=ucs@unicode	    . #x6562)	; &G0-3852;
-	(=gb2312	    . #x3852)	; &G0-3852; [24-50]
-	))
+     ((=ucs@unicode	  . #x6562)	; &G0-3852;
+      (=gb2312		  . #x3852)	; &G0-3852; [24-50]
       ))
     (=ucs@unicode	. #x53B3)	; &UU+53B3;
     (=ucs@JP/hanazono	. nil)
