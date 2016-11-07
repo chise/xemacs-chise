@@ -666,9 +666,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x9FB7)	; 龷
+     ((=ucs		  . #x5344)	; 卄
       )
-     ((=gt-k		  . 00059)	; &GT-K00059;
+     ((=gt-k		  . 00264)	; &GT-K00264;
       ))
     (=ucs@unicode	. #x5171)	; &AJ1-01694;
     (=adobe-japan1-0	. 01694)	; &AJ1-01694;
@@ -736,14 +736,12 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
      ((=ucs		  . #x535D)	; 卝
       )
-     ((=ucs		  . #x4E00)	; 一
-      )
-     ((=gt-k		  . 00059)	; &GT-K00059;
+     ((=gt-k		  . 00264)	; &GT-K00264;
       ))
     (=ucs-var-001	. #x5171)	; &U-v001+5171;
     ))
@@ -755,15 +753,13 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
      ((name		  . "CJK RADICAL GRASS TWO")
       (=ucs		  . #x2EBF)	; ⺿
       )
-     ((=ucs		  . #x4E00)	; 一
-      )
-     ((=gt-k		  . 00059)	; &GT-K00059;
+     ((=gt-k		  . 00264)	; &GT-K00264;
       ))
     (=gt-k		. 02522)	; &GT-K02522;
     (=gt-pj-k1		. #x3545)	; &GT-K02522; [21-37]
