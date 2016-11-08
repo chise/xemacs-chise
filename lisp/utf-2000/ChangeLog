@@ -1,3 +1,14 @@
+2016-11-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R162-Walk.el (U+902A): Add `ideographic-structure'.
+	(JU+902A): Likewise; add representative nodes.
+	(UU+902A): Likewise.
+	(C3-3F4D): Likewise; unify CU+902A.
+
+2016-11-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R167-Gold.el: Add glyph-images of HNG-KAR.
+
 2016-11-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R027-Cliff.el (GT-K01442): New character.
