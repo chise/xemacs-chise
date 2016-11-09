@@ -1,5 +1,15 @@
 2016-11-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R085-Water.el: Use U+6C35 instead of <CJK RADICAL
+	WATER ONE> in `ideographic-structure' of abstract characters and
+	abstract glyphs.
+	(U-00023ECE): Apply new conventions for glyph granularity.
+	(U+6EF1): Likewise.
+	(UU+6F19): Add representative nodes.
+	(U+3D71): Separate UU+3D71.
+
+2016-11-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R162-Walk.el (U+902A): Add `ideographic-structure'.
 	(JU+902A): Likewise; add representative nodes.
 	(UU+902A): Likewise.
