@@ -3433,7 +3433,8 @@
     (=cns11643-6	. #x5623)	; &I-C6-5623; [54-03]
     (=daikanwa/ho	.  0442)	; 𥦲
     (<-vulgar
-     ((=daikanwa	  . 07208)	; &M-07208;
+     ((=ucs		  . #x21A25)	; 𡨥
+      (=daikanwa	  . 07208)	; &I-M-07208;
       ))
     (<-vulgar*sources
      longkanshoujian daikanwa)
