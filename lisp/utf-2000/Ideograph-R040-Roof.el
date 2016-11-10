@@ -5289,29 +5289,40 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (=ucs		. #x21A25)	; 𡨥
+    (=cns11643-6	. #x3E59)	; &I-C6-3E59; [30-57]
+    (=daikanwa		. 07208)	; &I-M-07208;
+    (=shinjigen		.  3172)	; 𡨥
+    (=cbeta		. 02480)	; &I-CB02480;
+    (<-vulgar
+     ((=shinjigen@1ed	  .  3171)	; &SJG1-3171;
+      )
+     ((=ucs@unicode	  . #x5BC7)	; &AJ1-04627;
+      (=adobe-japan1-0	  . 04627)	; &AJ1-04627;
+      (=jis-x0208	  . #x5564)	; &I-J90-5564; [53-68]
+      (=shinjigen@rev	  .  3171)	; &AJ1-04627;
+      ))
+    (<-vulgar$_1*sources
+     shinjigen@1ed)
+    (<-vulgar$_2*sources
+     shinjigen@rev)
+    (<-vulgar*sources
+     shinjigen)
     (->subsumptive
-     ((=daikanwa	  . 07208)	; &M-07208;
-      (=shinjigen@rev	  .  3172)	; &M-07208;
-      (=cbeta		  . 02480)	; &I-CB02480;
-      (<-vulgar
-       ((=ucs@unicode	    . #x5BC7)	; &AJ1-04627;
-	(=adobe-japan1-0    . 04627)	; &AJ1-04627;
-	(=jis-x0208	    . #x5564)	; &I-J90-5564; [53-68]
-	(=shinjigen@rev	    .  3171)	; &AJ1-04627;
+     ((==ucs@iso	  . #x21A25)	; &g2-M-07208;
+      (==daikanwa	  . 07208)	; &g2-M-07208;
+      (==shinjigen@rev	  .  3172)	; &g2-M-07208;
+      (==cbeta		  . 02480)	; &g2-M-07208;
+      (->subsumptive
+       ((===daikanwa	    . 07208)	; &R-M-07208;
+	)
+       ((===cbeta	    . 02480)	; &R-CB02480;
+	)
+       ((===ucs@iso	    . #x21A25)	; &R-U-00021A25;
 	))
-      (<-vulgar*sources
-       shinjigen@rev)
       )
-     ((=ucs@iso		  . #x21A25)	; &U-00021A25;
-      )
-     ((=shinjigen@1ed	  .  3172)	; &SJG1-3172;
-      (<-vulgar
-       ((=shinjigen@1ed	    .  3171)	; &SJG1-3171;
-	))
-      (<-vulgar*sources
-       shinjigen@1ed)
-      )
-     ((=cns11643-6	  . #x3E59)	; &C6-3E59; [30-57]
+     ((==ucs@cns	  . #x21A25)	; &g2-CU+21A25;
+      (==cns11643-6	  . #x3E59)	; &g2-CU+21A25; [30-57]
+      (==shinjigen@1ed	  .  3172)	; &g2-CU+21A25;
       ))
     ))
 (define-char
