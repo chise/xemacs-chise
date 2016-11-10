@@ -1,5 +1,18 @@
 2016-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R034-Go.el (U+5905): Separate UU+5905.
+	(UU+5905): Add `=>ucs@iwds-1'.
+	(U+5905-itaiji-001): New character; use `<-denotational' for
+	U+5905.
+	(U+5906): Apply new conventions for glyph granularity.
+	(M-05699): Unify U-00021557; delete `<-denotational' for U+5906.
+
+	* Ideograph-R021-Spoon.el (UU+5316): Use U+4EBB instead of <CJK
+	RADICAL PERSON> in `ideographic-structure'.
+	(CU+5316): Likewise.
+
+2016-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R040-Roof.el (U-00021A25): Apply new conventions for
 	glyph granularity.
 
