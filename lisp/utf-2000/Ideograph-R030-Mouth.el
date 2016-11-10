@@ -34828,7 +34828,8 @@
       ))
     (=daikanwa		. 48980)	; &M-48980;
     (->synonyms
-     ((=ucs		  . #x9676)	; 陶
+     ((=ucs@unicode	  . #x9676)	; &AJ1-03203;
+      (=adobe-japan1-0	  . 03203)	; &AJ1-03203;
       (=daikanwa	  . 41705)	; &I-M-41705;
       ))
     (->synonyms*sources
