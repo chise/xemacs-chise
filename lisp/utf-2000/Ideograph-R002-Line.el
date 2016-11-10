@@ -198,6 +198,34 @@
     (=gt-pj-2		. #x3057)	; &I-GT-00106; [16-55]
     (=daikanwa		. 00072)	; &I-M-00072;
     (=jef-china3	. #x41AE)	; &I-JC3-41AE;
+    (<-wrong
+     ((=daikanwa	  . 05692)	; &M-05692;
+      ))
+    (<-wrong*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x3404)	; &g2-GT-00106;
+      (==ucs@JP/hanazono  . nil)
+      (==big5-cdp	  . #x8C54)	; &g2-GT-00106;
+      (==gt		  . 00106)	; &g2-GT-00106;
+      (==daikanwa	  . 00072)	; &g2-GT-00106;
+      (->subsumptive
+       ((===daikanwa	    . 00072)	; &R-M-00072;
+	)
+       ((===big5-cdp	    . #x8C54)	; &R-CDP-8C54;
+	)
+       ((===gt		    . 00106)	; &R-GT-00106;
+	)
+       ((===ucs@unicode	    . #x3404)	; &R-UU+3404;
+	))
+      )
+     ((==ucs@cns	  . #x3404)	; &g2-CU+3404;
+      (==cns11643-6	  . #x2130)	; &g2-CU+3404; [01-16]
+      )
+     ((==jef-china3	  . #x41AE)	; &g2-JC3-41AE;
+      )
+     ((==ucs@JP/hanazono  . #x3404)	; &g2-hanaJU+3404;
+      ))
     ))
 (define-char
   '((<-denotational
