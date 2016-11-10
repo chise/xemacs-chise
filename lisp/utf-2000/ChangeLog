@@ -1,3 +1,11 @@
+2016-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (U-00021A25): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R002-Line.el (U+3404): Add `<-wrong' for M-05692; add
+	representative nodes.
+
 2016-11-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R085-Water.el: Use U+6C35 instead of <CJK RADICAL
