@@ -363,6 +363,26 @@
     ))
 (define-char
   '((ideographic-radical . 52)	; ⼳
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x221B6)	; 𢆶
+      )
+     ((=ucs		  . #x535D)	; 卝
+      ))
+    (=ucs		. #x221C5)	; 𢇅
+    (<-formed
+     ((=ucs		  . #x221C7)	; 𢇇
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x221C5)	; &g2-IU-000221C5;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 52)	; ⼳
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (sound@ja/on	"kWaN")
