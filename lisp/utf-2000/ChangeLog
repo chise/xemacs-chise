@@ -1,4 +1,25 @@
+2016-11-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R170-Mound.el: Add glyph-images of HNG-KAR.
+	(U+964D): Separate UU+964D.
+	(UU+964D): Add `=>ucs@iwds-1'.
+	(HNG-KAR1377-0): New character; use `<-denotational' for U+964D.
+	(U-00028E5F): Apply new conventions for glyph granularity.
+	(IU+28E5F): Add `<-Small-Seal' and `<-original' for U+964B.
+	(U+9676): Separate UU+9676.
+	(HNG-KAR0428-0): New character; use `<-denotational' for U+9676.
+
 2016-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R173-Rain.el: Add glyph-images of HNG-KAR.
+	(U+96E9): Apply new conventions for glyph granularity.
+	(MJ027773): New character; use `<-denotational' for U+96E9; unify
+	HD-KS478810; use `<-formed' for UU+96E9; add HNG-KAR1387-0.
+
+2016-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R052-Short-Thread.el (U-000221C5): New character; use
+	`<-formed' for U-000221C7.
 
 	* Ideograph-R162-Walk.el (U+9003): Add `ideographic-structure'.
 	(KU+9003): Likewise.
