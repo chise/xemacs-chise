@@ -8410,6 +8410,14 @@
 (define-char
   '((ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x8FB6)	; 辶
+      )
+     ((=ucs		  . #x5146)	; 兆
+      ))
     (=ucs		. #x9003)	; 逃
     (=big5		. #xB06B)	; &I-B-B06B;
     ))
@@ -8420,13 +8428,23 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((name		  . "CJK RADICAL WALK ONE")
+      (=ucs		  . #x2ECD)	; ⻍
+      )
+     ((=ucs		  . #x5146)	; 兆
+      ))
     (=ucs@ks		. #x9003)	; &AJ1-13959;
     (=adobe-japan1-4	. 13959)	; &AJ1-13959;
     (=ks-x1001		. #x5431)	; &I-K0-5431; [52-17]
     (=daikanwa		. 38845)	; &I-M-38845;
     (=jef-china3	. #x67BD)	; &I-JC3-67BD;
     (<-synonyms
-     ((=ucs		  . #x9676)	; 陶
+     ((=ucs@unicode	  . #x9676)	; &AJ1-03203;
+      (=adobe-japan1-0	  . 03203)	; &AJ1-03203;
       (=daikanwa	  . 41705)	; &I-M-41705;
       ))
     (<-synonyms*sources
@@ -8462,6 +8480,15 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((name		  . "CJK RADICAL WALK TWO")
+      (=ucs		  . #x2ECE)	; ⻎
+      )
+     ((=ucs		  . #x5146)	; 兆
+      ))
     (=ucs@cns		. #x9003)	; &C1-5850;
     (=cns11643-1	. #x5850)	; &C1-5850; [56-48]
     (->subsumptive
@@ -8476,6 +8503,15 @@
     (ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((name		  . "CJK RADICAL SIMPLIFIED WALK")
+      (=ucs		  . #x2ECC)	; ⻌
+      )
+     ((=ucs		  . #x5146)	; 兆
+      ))
     (=ucs@unicode	. #x9003)	; &AJ1-13485;
     (=adobe-japan1-0	. 03200)	; &AJ1-13485;
     (=adobe-japan1-4	. 13485)	; &I-AJ1-13485;
