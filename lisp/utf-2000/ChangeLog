@@ -1,3 +1,10 @@
+2016-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R162-Walk.el (U+9003): Add `ideographic-structure'.
+	(KU+9003): Likewise.
+	(CU+9003): Likewise.
+	(UU+9003): Likewise.
+
 2016-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R034-Go.el (U+5905): Separate UU+5905.
@@ -12,6 +19,9 @@
 	(CU+5316): Likewise.
 
 2016-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R172-Short-Tailed-Bird.el: Add glyph-images of
+	HNG-KAR.
 
 	* Ideograph-R040-Roof.el (U-00021A25): Apply new conventions for
 	glyph granularity.
