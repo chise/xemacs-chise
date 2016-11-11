@@ -888,6 +888,8 @@
        ((===ucs@unicode	    . #x96C5)	; &R-UU+96C5;
 	))
       )
+     ((===hng-kar	  . 13840)	; &HNG018-13840;
+      )
      ((ideographic-strokes . 4)
       (total-strokes	   . 12)
       (==ucs@cns	  . #x96C5)	; &g2-CU+96C5;
@@ -972,6 +974,8 @@
 	)
        ((===ucs@unicode	    . #x96C6)	; &R-UU+96C6;
 	))
+      )
+     ((===hng-kar	  . 13830)	; &HNG018-13830;
       )
      ((==ucs@cns	  . #x96C6)	; &g2-CU+96C6;
       (==cns11643-1	  . #x6275)	; &g2-CU+96C6; [66-85]
@@ -1285,6 +1289,8 @@
 	)
        ((===ucs@unicode	    . #x96C9)	; &R-UU+96C9;
 	))
+      )
+     ((===hng-kar	  . 04320)	; &HNG018-04320;
       ))
     ))
 (define-char
@@ -1558,6 +1564,10 @@
       (==ucs@cns	  . #x96CC)	; &g2-CU+96CC;
       (==cns11643-1	  . #x6B64)	; &g2-CU+96CC; [75-68]
       )
+     ((ideographic-strokes . 6)
+      (total-strokes	   . 14)
+      (===hng-kar	  . 04330)	; &HNG018-04330;
+      )
      ((ideographic-strokes . 5)
       (total-strokes	   . 13)
       (==ucs@unicode	  . #x96CC)	; &g2-UU+96CC;
@@ -1623,6 +1633,8 @@
 	)
        ((===ucs@unicode	    . #x96CD)	; &R-UU+96CD;
 	))
+      )
+     ((===hng-kar	  . 13820)	; &HNG018-13820;
       ))
     ))
 (define-char
@@ -3601,6 +3613,8 @@
      ((===hng-khi	  . 06100)	; &HNG010-06100;
       )
      ((===hng-khm	  . 01480)	; &HNG011-01480;
+      )
+     ((===hng-kar	  . 13800)	; &HNG018-13800;
       ))
     ))
 (define-char
@@ -4622,6 +4636,8 @@
 	)
        ((===ucs@unicode	    . #x96E2)	; &R-UU+96E2;
 	))
+      )
+     ((===hng-kar	  . 04310)	; &HNG018-04310;
       ))
     ))
 (define-char
@@ -4780,6 +4796,8 @@
 	)
        ((===cns11643-1	    . #x7945)	; &R-C1-7945; [89-37]
 	))
+      )
+     ((===hng-kar	  . 13810)	; &HNG018-13810;
       ))
     ))
 (define-char
