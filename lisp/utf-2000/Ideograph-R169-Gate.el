@@ -48,6 +48,8 @@
        ((===hng-khi	    . 02000)	; &HNG010-02000;
 	)
        ((===hng-khm	    . 05610)	; &HNG011-05610;
+	)
+       ((===hng-kar	    . 13690)	; &HNG018-13690;
 	))
       ))
     ))
@@ -623,6 +625,8 @@
 	))
       )
      ((===hng-khm	  . 05630)	; &HNG011-05630;
+      )
+     ((===hng-kar	  . 04190)	; &HNG018-04190;
       ))
     ))
 (define-char
@@ -1150,6 +1154,8 @@
       (==ucs@JP/hanazono  . nil)
       (==gb12345	  . #x4F50)	; &g2-UU+9591; [47-48]
       )
+     ((===hng-kar	  . 04210)	; &HNG018-04210;
+      )
      ((===hng-khi	  . 01990)	; &HNG010-01990;
       ))
     ))
@@ -1166,6 +1172,11 @@
     (=jef-china3	. #x6BE1)	; &I-JC3-6BE1;
     (->subsumptive
      ((==daikanwa	  . 41248)	; &g2-M-41248;
+      )
+     ((===hng-kar	  . 13710)	; &HNG018-13710;
+      (<-HNG@zinbun/takuhon
+       ((=ucs		    . #x9593)	; 間
+	))
       )
      ((==ucs@unicode	  . #x9592)	; &g2-AJ1-08685;
       (==adobe-japan1-2	  . 08685)	; &g2-AJ1-08685;
@@ -1302,6 +1313,8 @@
 	)
        ((===cns11643-1	    . #x6262)	; &R-C1-6262; [66-66]
 	))
+      )
+     ((===hng-kar	  . 13720)	; &HNG018-13720;
       )
      ((==ucs@unicode	  . #x9594)	; &g2-UU+9594;
       (==ucs@JP/hanazono  . nil)
@@ -3768,6 +3781,14 @@
   '((ideographic-radical . 169)	; ⾨
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x9580)	; 門
+      )
+     ((=ucs		  . #x6216)	; 或
+      ))
     (=ucs		. #x95BE)	; 閾
     (=adobe-japan1-0	. 07074)	; &I-AJ1-07074;
     (=jis-x0208		. #x6F67)	; &I-J90-6F67; [79-71]
@@ -3801,6 +3822,8 @@
 	)
        ((===ucs@unicode	    . #x95BE)	; &R-UU+95BE;
 	))
+      )
+     ((===hng-kar	  . 04200)	; &HNG018-04200;
       ))
     ))
 (define-char
@@ -5276,6 +5299,14 @@
   '((ideographic-radical . 169)	; ⾨
     (ideographic-strokes . 10)
     (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x9580)	; 門
+      )
+     ((=ucs		  . #x6B2E)	; 欮
+      ))
     (=ucs		. #x95D5)	; 闕
     (=adobe-japan1-0	. 07080)	; &I-AJ1-07080;
     (=jis-x0208		. #x6F6D)	; &I-J90-6F6D; [79-77]
@@ -5314,6 +5345,8 @@
       )
      ((==ucs@cns	  . #x95D5)	; &g2-CU+95D5;
       (==cns11643-1	  . #x7761)	; &g2-CU+95D5; [87-65]
+      )
+     ((===hng-kar	  . 13700)	; &HNG018-13700;
       ))
     ))
 (define-char
@@ -5455,12 +5488,46 @@
   '((ideographic-radical . 169)	; ⾨
     (ideographic-strokes . 10)
     (total-strokes	 . 18)
-    (=ucs		. #x28D9A)	; 𨶚
-    (->subsumptive
-     ((=daikanwa	  . 49840)	; &M-49840;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
       )
-     ((=ucs@iso		  . #x28D9A)	; &C7-4447;
-      (=cns11643-7	  . #x4447)	; &C7-4447; [36-39]
+     ((=ucs		  . #x9580)	; 門
+      )
+     ((=ucs		  . #x221C5)	; 𢇅
+      ))
+    (=ucs		. #x28D9A)	; 𨶚
+    (=cns11643-7	. #x4447)	; &I-C7-4447; [36-39]
+    (=daikanwa		. 49840)	; &I-M-49840;
+    (<-original
+     ((=ucs		  . #x95DC)	; 關
+      (=daikanwa	  . 41470)	; &I-M-41470;
+      ))
+    (<-original*sources
+     daikanwa)
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+	(=ucs		    . #x2FF5)	; ⿵
+	)
+       ((==daikanwa	    . 41208)	; &g2-M-41208;
+	)
+       ((==ucs@iso	    . #x221C5)	; &g2-IU-000221C5;
+	))
+      (==daikanwa	  . 49840)	; &g2-M-49840;
+      )
+     ((===hng-kar	  . 13730)	; &HNG018-13730;
+      (<-formed
+       ((=ucs		    . #x95DC)	; 關
+	))
+      )
+     ((==ucs@iso	  . #x28D9A)	; &g2-IU-00028D9A;
+      (==cns11643-7	  . #x4447)	; &g2-IU-00028D9A; [36-39]
+      (->subsumptive
+       ((===cns11643-7	    . #x4447)	; &R-C7-4447; [36-39]
+	)
+       ((===ucs@iso	    . #x28D9A)	; &R-U-00028D9A;
+	))
       ))
     ))
 (define-char
@@ -5616,6 +5683,14 @@
   '((ideographic-radical . 169)	; ⾨
     (ideographic-strokes . 11)
     (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x9580)	; 門
+      )
+     ((=ucs		  . #x221C7)	; 𢇇
+      ))
     (=ucs		. #x95DC)	; 關
     (=adobe-japan1-0	. 07083)	; &I-AJ1-07083;
     (=jis-x0208		. #x6F70)	; &I-J90-6F70; [79-80]
