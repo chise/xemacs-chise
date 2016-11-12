@@ -2524,16 +2524,6 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
-    (=decomposition@cid
-     ((=ucs		  . #x4E19)	; 丙
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x4E19)	; 丙
-      )
-     ((=ucs		  . #xE0103)	; 󠄃
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -2545,7 +2535,29 @@
     (=mj		. 006328)	; &MJ006328;
     (=adobe-japan1-4	. 14009)	; &I-AJ1-14009;
     (=hanyo-denshi/ks	. 000540)	; &MJ006328;
-    (=hanyo-denshi/ks/mf . #x0036)	; &I-KSMF-00054;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x4E19)	; 丙
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x4E19)	; 丙
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==mj		  . 006328)	; &g2-MJ006328;
+      (==adobe-japan1-4	  . 14009)	; &g2-MJ006328;
+      (==hanyo-denshi/ks  . 000540)	; &g2-MJ006328;
+      (->subsumptive
+       ((===adobe-japan1-4  . 14009)	; &R-AJ1-14009;
+	)
+       ((===hanyo-denshi/ks . 000540)	; &R-HD-KS-000540;
+	(=hanyo-denshi/ks/mf . #x0036)	; &R-HD-KS-000540;
+	)
+       ((===mj		    . 006328)	; &R-MJ006328;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
