@@ -44,6 +44,8 @@
       )
      ((===hng-khm	  . 05770)	; &HNG011-05770;
       )
+     ((===hng-kar	  . 13880)	; &HNG018-13880;
+      )
      ((==ucs@unicode	  . #x975E)	; &g2-UU+975E;
       (==ucs@JP/hanazono  . nil)
       (==gb2312		  . #x3747)	; &g2-UU+975E; [23-39]
