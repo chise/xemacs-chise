@@ -1,5 +1,14 @@
 2016-11-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R175-Wrong.el (U+975E): Add HNG-KAR1388-0.
+
+	* Ideograph-R169-Gate.el: Add glyph-images of HNG-KAR.
+	(U-00028D9A): Apply new conventions for glyph granularity; add
+	`<-original' for U+95DC; add HNG-KAR1373-0.
+
+	* Ideograph-R001-One.el (MJ006328): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R170-Mound.el: Add glyph-images of HNG-KAR.
 	(U+964D): Separate UU+964D.
 	(UU+964D): Add `=>ucs@iwds-1'.
