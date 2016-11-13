@@ -1,3 +1,7 @@
+2016-11-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R176-Face.el (g2-UU+9762): Add HNG-KAR1434-0.
+
 2016-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el: Use U+5FC4 instead of <CJK RADICAL
