@@ -396,9 +396,55 @@
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (=>daikanwa		. 10307)	; &A-M-10307;
+    ))
+(define-char
+  '((<-denotational
+     ((=>daikanwa	  . 10307)	; &A-M-10307;
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5FC4)	; 忄
+      )
+     ((=ucs		  . #x353E)	; 㔾
+      ))
     (=ucs		. #x225AD)	; 𢖭
     (=cns11643-6	. #x2326)	; &I-C6-2326; [03-06]
     (=daikanwa		. 10307)	; &I-M-10307;
+    (->subsumptive
+     ((==ucs@iso	  . #x225AD)	; &g2-M-10307;
+      (==cns11643-6	  . #x2326)	; &g2-M-10307; [03-06]
+      (==daikanwa	  . 10307)	; &g2-M-10307;
+      (->subsumptive
+       ((===daikanwa	    . 10307)	; &R-M-10307;
+	)
+       ((===cns11643-6	    . #x2326)	; &R-C6-2326; [03-06]
+	)
+       ((===ucs@iso	    . #x225AD)	; &R-U-000225AD;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>daikanwa	  . 10307)	; &A-M-10307;
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5FC4)	; 忄
+      )
+     ((=ucs		  . #x5369)	; 卩
+      ))
+    (=ucs-itaiji-001	. #x225AD)	; &U-i001+225AD;
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -1924,8 +1970,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs		  . #x215D2)	; 𡗒
       ))
@@ -3695,8 +3740,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs		  . #x2313C)	; 𣄼
       ))
@@ -3782,20 +3826,32 @@
       )
      ((=big5-cdp	  . #x8AFC)	; &CDP-8AFC;
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((name		    . "CJK RADICAL HEART ONE")
-	(=ucs		    . #x2E96)	; ⺖
-	)
-       ((=ucs		    . #x5369)	; 卩
-	))
+     ((=ucs-itaiji-001	  . #x225AD)	; &U-i001+225AD;
       ))
     (=ucs		. #x22608)	; 𢘈
     (=cns11643-6	. #x2B4F)	; &I-C6-2B4F; [11-47]
     (=daikanwa		. 10460)	; &I-M-10460;
-    (=hanziku-1		. #xC15A)	; &I-HZK01-C15A;
+    (<-ancient
+     ((=ucs@unicode	  . #x6028)	; &AJ1-01287;
+      (=adobe-japan1-0	  . 01287)	; &AJ1-01287;
+      (=daikanwa	  . 10479)	; &I-M-10479;
+      ))
+    (<-ancient*sources
+     yupian daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x22608)	; &g2-M-10460;
+      (==cns11643-6	  . #x2B4F)	; &g2-M-10460; [11-47]
+      (==daikanwa	  . 10460)	; &g2-M-10460;
+      (->subsumptive
+       ((===daikanwa	    . 10460)	; &R-M-10460;
+	)
+       ((===cns11643-6	    . #x2B4F)	; &R-C6-2B4F; [11-47]
+	)
+       ((===ucs@iso	    . #x22608)	; &R-U-00022608;
+	)
+       ((=hanziku-1	    . #xC15A)	; &HZK01-C15A;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
@@ -4968,20 +5024,38 @@
       )
      ((=big5-cdp	  . #x8AFC)	; &CDP-8AFC;
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((name		    . "CJK RADICAL HEART ONE")
-	(=ucs		    . #x2E96)	; ⺖
-	)
-       ((=ucs		    . #x353E)	; 㔾
-	))
+     ((=ucs		  . #x225AD)	; 𢖭
       ))
     (=ucs		. #x22614)	; 𢘔
     (=cns11643-6	. #x2B50)	; &I-C6-2B50; [11-48]
     (=daikanwa		. 10504)	; &I-M-10504;
-    (=hanziku-1		. #xC15B)	; &I-HZK01-C15B;
+    (<-ancient
+     ((=ucs@unicode	  . #x6028)	; &AJ1-01287;
+      (=adobe-japan1-0	  . 01287)	; &AJ1-01287;
+      ))
+    (<-ancient*sources
+     shuowen)
+    (<-same
+     ((=ucs@unicode	  . #x6028)	; &AJ1-01287;
+      (=adobe-japan1-0	  . 01287)	; &AJ1-01287;
+      (=daikanwa	  . 10479)	; &I-M-10479;
+      ))
+    (<-same*sources
+     shuowen daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x22614)	; &g2-M-10504;
+      (==cns11643-6	  . #x2B50)	; &g2-M-10504; [11-48]
+      (==daikanwa	  . 10504)	; &g2-M-10504;
+      (->subsumptive
+       ((===daikanwa	    . 10504)	; &R-M-10504;
+	)
+       ((===cns11643-6	    . #x2B50)	; &R-C6-2B50; [11-48]
+	)
+       ((===ucs@iso	    . #x22614)	; &R-U-00022614;
+	)
+       ((=hanziku-1	    . #xC15B)	; &HZK01-C15B;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x22616)	; 𢘖
@@ -6292,8 +6366,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs		  . #x5371)	; 危
       ))
@@ -6310,8 +6383,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs@unicode	  . #x5371)	; &MJ007888;
       (=mj		  . 007888)	; &MJ007888;
@@ -12490,8 +12562,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs		  . #x5377)	; 卷
       ))
@@ -12561,8 +12632,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs@jis		  . #x5DFB)	; &MJ010798;
       (=mj		  . 010798)	; &MJ010798;
@@ -12959,8 +13029,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs		  . #x6614)	; 昔
       ))
@@ -12977,8 +13046,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs@unicode	  . #x6614)	; &AJ1-02674;
       (=adobe-japan1-0	  . 02674)	; &AJ1-02674;
@@ -13046,8 +13114,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs-var-001	  . #x6614)	; &U-v001+6614;
       ))
@@ -19654,8 +19721,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs		  . #x6817)	; 栗
       ))
@@ -19672,8 +19738,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs@unicode	  . #x6817)	; &AJ1-01792;
       (=adobe-japan1-0	  . 01792)	; &AJ1-01792;
@@ -19749,8 +19814,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs		  . #x86A4)	; 蚤
       ))
@@ -19767,8 +19831,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs@cns		  . #x86A4)	; &GT-44405;
       (=ucs@jis		  . #x86A4)	; &GT-44405;
@@ -19843,8 +19906,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs@unicode	  . #x86A4)	; &G0-5469;
       (=gb2312		  . #x5469)	; &G0-5469; [52-73]
@@ -20730,8 +20792,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs		  . #x20CEE)	; 𠳮
       ))
@@ -20799,8 +20860,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs		  . #x7968)	; 票
       ))
@@ -20817,8 +20877,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs@unicode	  . #x7968)	; &AJ1-03502;
       (=adobe-japan1-0	  . 03502)	; &AJ1-03502;
@@ -22237,8 +22296,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs		  . #x65E3)	; 旣
       ))
@@ -22259,8 +22317,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs@unicode	  . #x65E3)	; &AJ1-13701;
       (=ucs@cns		  . #x2F8CB)	; &AJ1-13701;
@@ -24824,8 +24881,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs		  . #x55AC)	; 喬
       ))
@@ -25492,8 +25548,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs		  . #x7C9F)	; 粟
       ))
@@ -27207,8 +27262,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs		  . #x3B05)	; 㬅
       ))
@@ -27225,8 +27279,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=daikanwa	  . 14056)	; &M-14056;
       ))
@@ -27255,8 +27308,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs-var-002	  . #x3B05)	; &U-v002+3B05;
       ))
@@ -27276,8 +27328,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs@unicode	  . #x3B05)	; &C3-415A;
       (=cns11643-3	  . #x415A)	; &C3-415A; [33-58]
@@ -28702,8 +28753,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs-itaiji-004	  . #x8931)	; &U-i004+8931;
       ))
@@ -28762,8 +28812,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs-itaiji-005	  . #x8931)	; &U-i005+8931;
       ))
@@ -29761,8 +29810,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs		  . #x5BE7)	; 寧
       ))
@@ -29779,8 +29827,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs@unicode	  . #x5BE7)	; &MJ010230;
       (=mj		  . 010230)	; &MJ010230;
@@ -30273,8 +30320,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs		  . #x5EE3)	; 廣
       ))
@@ -30291,8 +30337,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=+>ucs@jis	  . #x5EE3)	; &o-J0-5722;
       (=+>ucs@ks	  . #x5EE3)	; &o-J0-5722;
@@ -30308,8 +30353,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((name		    . "CJK RADICAL HEART ONE")
-	(=ucs		    . #x2E96)	; ⺖
+       ((=ucs		    . #x5FC4)	; 忄
 	)
        ((=ucs@jis	    . #x5EE3)	; &MJ011077;
 	(=ucs@ks	    . #x5EE3)	; &MJ011077;
@@ -30346,8 +30390,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((name		    . "CJK RADICAL HEART ONE")
-	(=ucs		    . #x2E96)	; ⺖
+       ((=ucs		    . #x5FC4)	; 忄
 	)
        ((=ucs@cns	    . #x5EE3)	; &C1-6C5D;
 	(=cns11643-1	    . #x6C5D)	; &C1-6C5D; [76-61]
@@ -31365,8 +31408,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs		  . #x983C)	; 頼
       ))
