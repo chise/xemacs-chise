@@ -1,3 +1,20 @@
+2016-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el: Use U+5FC4 instead of <CJK RADICAL
+	HEART ONE> in `ideographic-structure' of abstract characters and
+	abstract glyphs.
+	(A-M-10307): New abstract node.
+	(U-000225AD): Use `<-denotational' for A-M-10307; add
+	representative nodes.
+	(U+225AD-itaiji-001): New character; use `<-denotational' for
+	A-M-10307.
+	(U-00022608): Use U+225AD-itaiji-001 instead of "⿰⺖卩" in
+	`ideographic-structure'; add `<-ancient' for UU+6028; apply new
+	conventions for glyph granularity.
+	(U-00022614): Use U-000225AD instead of "⿰⺖㔾" in
+	`ideographic-structure'; add `<-ancient' and `<-same' for UU+6028;
+	apply new conventions for glyph granularity.
+
 2016-11-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R175-Wrong.el (U+975E): Add HNG-KAR1388-0.
