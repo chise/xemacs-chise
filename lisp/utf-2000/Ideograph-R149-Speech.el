@@ -14277,8 +14277,8 @@
 	(==ucs@ks	    . #x8A00)	; &g2-AJ1-01908;
 	(==adobe-japan1-0   . 01908)	; &g2-AJ1-01908;
 	)
-       ((==ucs@unicode	    . #x9752)	; &g2-GT-57125;
-	(==jis-x0208	    . #x4044)	; &g2-GT-57125; [32-36]
+       ((==ucs@unicode	    . #x9752)	; &g2-AJ1-02664;
+	(==adobe-japan1-0   . 02664)	; &g2-AJ1-02664;
 	))
       (==ucs@jis	  . #x8ACB)	; &g2-AJ1-02661;
       (==adobe-japan1-0	  . 02661)	; &g2-AJ1-02661;
