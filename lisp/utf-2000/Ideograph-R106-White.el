@@ -352,7 +352,8 @@
       )
      ((=ucs		  . #x767D)	; 白
       )
-     ((=ucs		  . #xFA77)	; 勺
+     ((=ucs@unicode	  . #x52FA)	; &MJ007745;
+      (=mj		  . 007745)	; &MJ007745;
       ))
     (=ucs@unicode	. #x7684)	; &AJ1-03108;
     (=adobe-japan1-0	. 03108)	; &AJ1-03108;
@@ -413,11 +414,6 @@
     (ideographic-radical . 106)	; ⽩
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x7684)	; 的
-      )
-     ((=ucs		  . #xE0103)	; 󠄃
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -427,8 +423,17 @@
      ((=ucs		  . #x2F828)	; 勺
       ))
     (=hanyo-denshi/ks	. 254180)	; &HD-KS-254180;
-    (=hanyo-denshi/ks/mf . #x634A)	; &HD-KS-254180;
     (=shinjigen		.  5200)	; &HD-KS-254180;
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7684)	; 的
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==hanyo-denshi/ks  . 254180)	; &g2-HD-KS-254180;
+      (=hanyo-denshi/ks/mf . #x634A)	; &g2-HD-KS-254180;
+      (==shinjigen	  .  5200)	; &g2-HD-KS-254180;
+      ))
     ))
 (define-char
   '((ideographic-radical . 106)	; ⽩
