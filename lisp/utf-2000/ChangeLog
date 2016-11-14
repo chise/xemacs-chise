@@ -1,5 +1,11 @@
 2016-11-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R106-White.el (UU+7684): Modify a component of
+	`ideographic-structuer'.
+	(HD-KS254180): Add representative node.
+
+2016-11-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R174-Blue.el: Add some Adobe-Japan1-0 code points.
 	(o-JU+975C): New abstract node; use `<-denotational' for U+975C.
 	(JU+975C): Use o-JU+975C instead of U+975C as the mother; add
@@ -8,6 +14,13 @@
 	o-JU+975C.
 
 	* Ideograph-R176-Face.el (g2-UU+9762): Add HNG-KAR1434-0.
+
+2016-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R022-Right-Open-Box.el (U-00020932): Use
+	`ideographic-radical@misc' instead of `ideographic-radical'; add
+	`ideographic-radical@ucs'; apply new conventions for glyph
+	granularity.
 
 2016-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
