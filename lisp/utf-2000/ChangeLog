@@ -1,5 +1,12 @@
 2016-11-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R174-Blue.el: Add some Adobe-Japan1-0 code points.
+	(o-JU+975C): New abstract node; use `<-denotational' for U+975C.
+	(JU+975C): Use o-JU+975C instead of U+975C as the mother; add
+	representative nodes.
+	(HNG-KAR0436-0): New character; use `<-denotational' for
+	o-JU+975C.
+
 	* Ideograph-R176-Face.el (g2-UU+9762): Add HNG-KAR1434-0.
 
 2016-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
