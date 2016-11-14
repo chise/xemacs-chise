@@ -485,6 +485,62 @@
     (=daikanwa		. 02608)	; &I-M-02608;
     ))
 (define-char
+  '((ideographic-radical@ucs . 23)	; ⼖
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@misc . 22)	; ⼕
+    (ideographic-radical@misc*sources
+     ucs@code)
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=ucs		. #x20932)	; 𠤲
+    ))
+(define-char
+  '((<-denotational
+     ((=+>ucs@iso	  . #x20932)	; &o-IU+20932;
+      ))
+    (ideographic-radical@ucs . 23)	; ⼖
+    (ideographic-radical@misc . 22)	; ⼕
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (hanyu-dazidian	1 84 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x531A)	; 匚
+      )
+     ((=ucs@unicode	  . #x5C6F)	; &C1-453A;
+      (=gb2312		  . #x4D4D)	; &C1-453A; [45-45]
+      (=cns11643-1	  . #x453A)	; &I-C1-453A; [37-26]
+      ))
+    (=ucs@iso		. #x20932)	; &U-00020932;
+    (->subsumptive
+     ((==ucs@iso	  . #x20932)	; &g2-IU-00020932;
+      (->subsumptive
+       ((===ucs@iso	    . #x20932)	; &R-U-00020932;
+	)
+       ((=hanziku-1	    . #xB556)	; &HZK01-B556;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20932)	; 𠤲
+      ))
+    (ideographic-radical@ucs . 23)	; ⼖
+    (ideographic-radical@misc . 22)	; ⼕
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x531A)	; 匚
+      )
+     ((=ucs		  . #x5C6F)	; 屯
+      ))
+    (=+>ucs@iso		. #x20932)	; &o-IU+20932;
+    ))
+(define-char
   '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
@@ -2269,12 +2325,6 @@
     (->subsumptive
      ((==ucs@iso	  . #x2096C)	; &g2-IU-0002096C;
       ))
-    ))
-(define-char
-  '((ideographic-radical . 22)	; ⼕
-    (hanyu-dazidian	1 84 4)
-    (=ucs		. #x20932)	; 𠤲
-    (=hanziku-1		. #xB556)	; &I-HZK01-B556;
     ))
 (define-char
   '((ideographic-radical . 22)	; ⼕
