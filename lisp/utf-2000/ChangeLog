@@ -1,3 +1,20 @@
+2016-11-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R177-Leather.el: Add glyph-images of HNG-KAR.
+	(HNG-KAR1389-0): New character; use `<-denotational' for U+979F;
+	use `<-HNG@zinbun/takuhon' for U+979F; use `<-formed' for U+97B9.
+
+2016-11-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el: Use U+5202 instead of <CJK RADICAL
+	KNIFE TWO> in `ideographic-structure' of abstract characters and
+	abstract glyphs.
+	(U+5263): Apply new conventions for glyph granularity.
+	(RUI6-E02A): Add representative node.
+
+	* Ideograph-R011-Enter.el (U-000204E5): Apply new conventions for
+	glyph granularity.
+
 2016-11-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R106-White.el (UU+7684): Modify a component of
