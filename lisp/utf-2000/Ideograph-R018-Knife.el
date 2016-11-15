@@ -894,8 +894,7 @@
       )
      ((=ucs		  . #x3405)	; 㐅
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5208)	; 刈
     (=adobe-japan1-0	. 01502)	; &I-AJ1-01502;
@@ -1030,8 +1029,7 @@
       )
      ((=ucs		  . #x4E5E)	; 乞
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5209)	; 刉
     (=cns11643-2	. #x214C)	; &I-C2-214C; [01-44]
@@ -1059,8 +1057,7 @@
       )
      ((=ucs		  . #x5E72)	; 干
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x520A)	; 刊
     (=adobe-japan1-0	. 01509)	; &I-AJ1-01509;
@@ -1143,8 +1140,7 @@
       )
      ((=ucs		  . #x5BF8)	; 寸
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x520C)	; 刌
     (=cns11643-2	. #x214B)	; &I-C2-214B; [01-43]
@@ -1444,8 +1440,7 @@
       )
      ((=ucs		  . #x52FF)	; 勿
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x520E)	; 刎
     (=adobe-japan1-0	. 04253)	; &I-AJ1-04253;
@@ -1841,8 +1836,7 @@
       )
      ((=ucs		  . #x6208)	; 戈
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5212)	; 划
     (=adobe-japan1-5	. 17310)	; &I-AJ1-17310;
@@ -1879,8 +1873,7 @@
       )
      ((=ucs		  . #x5143)	; 元
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5213)	; 刓
     (=mj		. 007473)	; &I-MJ007473;
@@ -2024,8 +2017,7 @@
      ((name		  . "CJK RADICAL MEAT")
       (=ucs		  . #x2EBC)	; ⺼
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5216)	; 刖
     (=adobe-japan1-5	. 17311)	; &I-AJ1-17311;
@@ -2049,8 +2041,7 @@
       )
      ((=ucs		  . #x6B79)	; 歹
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5217)	; 列
     (=adobe-japan1-0	. 04027)	; &I-AJ1-04027;
@@ -2176,8 +2167,7 @@
       )
      ((=ucs		  . #x6587)	; 文
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5218)	; 刘
     (=adobe-japan1-6	. 21191)	; &I-AJ1-21191;
@@ -2290,8 +2280,7 @@
       )
      ((=ucs		  . #x5F17)	; 弗
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x521C)	; 刜
     (=cns11643-2	. #x232E)	; &I-C2-232E; [03-14]
@@ -2426,8 +2415,7 @@
       )
      ((=ucs		  . #x53EC)	; 召
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x521F)	; 刟
     (=cns11643-3	. #x245F)	; &I-C3-245F; [04-63]
@@ -2442,8 +2430,7 @@
       )
      ((==>ucs@bucs	  . #x518C)	; &BUCS+518C;
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (==>ucs@bucs	. #x522A)	; &BUCS+522A;
     ))
@@ -2461,8 +2448,7 @@
       )
      ((=ucs		  . #x518A)	; 冊
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x522A)	; 刪
     (=adobe-japan1-0	. 04255)	; &I-AJ1-04255;
@@ -2487,8 +2473,7 @@
       )
      ((=ucs		  . #x6C11)	; 民
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5221)	; 刡
     (=cns11643-2	. #x2330)	; &I-C2-2330; [03-16]
@@ -2506,8 +2491,7 @@
       )
      ((=ucs		  . #x4EE4)	; 令
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5222)	; 刢
     (=adobe-japan1-6	. 21192)	; &I-AJ1-21192;
@@ -2621,8 +2605,7 @@
       )
      ((=ucs		  . #x53F0)	; 台
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5223)	; 刣
     (=cns11643-3	. #x245C)	; &I-C3-245C; [04-60]
@@ -2640,8 +2623,7 @@
       )
      ((=ucs		  . #x534A)	; 半
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5224)	; 判
     (=>jis-x0208	. #x483D)	; 判 [40-29]
@@ -2661,8 +2643,7 @@
       )
      ((=ucs		  . #x534A)	; 半
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=+>ucs@ks		. #x5224)	; &o-AJ1-13985;
     (=+>adobe-japan1-4	. 13985)	; &o-AJ1-13985;
@@ -2719,8 +2700,7 @@
      ((=ucs@unicode	  . #x534A)	; &MJ007844;
       (=mj		  . 007844)	; &MJ007844;
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs@unicode	. #x5224)	; &MJ007491;
     (=mj		. 007491)	; &MJ007491;
@@ -2795,8 +2775,7 @@
       )
      ((=ucs		  . #x20BA0)	; 𠮠
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5225)	; 別
     (=adobe-japan1-0	. 03612)	; &I-AJ1-03612;
@@ -2871,8 +2850,7 @@
       )
      ((=ucs		  . #x53E6)	; 另
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x522B)	; 别
     (=adobe-japan1-5	. 19186)	; &I-AJ1-19186;
@@ -2925,8 +2903,7 @@
       )
      ((=ucs		  . #x53BB)	; 去
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5226)	; 刦
     (=adobe-japan1-5	. 19184)	; &I-AJ1-19184;
@@ -3028,8 +3005,7 @@
       )
      ((=ucs		  . #x5305)	; 包
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5228)	; 刨
     (=adobe-japan1-5	. 19185)	; &I-AJ1-19185;
@@ -3259,8 +3235,7 @@
       )
      ((=ucs		  . #x518C)	; 册
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5220)	; 删
     (->subsumptive
@@ -3312,8 +3287,7 @@
       )
      ((=ucs		  . #x620B)	; 戋
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x522C)	; 刬
     (=iso-ir165		. #x7A3C)	; &I-EGB-7A3C; [90-28]
@@ -3333,8 +3307,7 @@
       )
      ((=ucs		  . #x820C)	; 舌
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x522E)	; 刮
     (=adobe-japan1-0	. 04256)	; &I-AJ1-04256;
@@ -3665,8 +3638,7 @@
       )
      ((=ucs		  . #x5938)	; 夸
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5233)	; 刳
     (=adobe-japan1-0	. 04257)	; &I-AJ1-04257;
@@ -3724,8 +3696,7 @@
       )
      ((=ucs		  . #x6736)	; 朶
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5234)	; 刴
     (=cns11643-3	. #x275E)	; &I-C3-275E; [07-62]
@@ -3789,8 +3760,7 @@
       )
      ((=ucs		  . #x8033)	; 耳
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5235)	; 刵
     (=adobe-japan1-5	. 19189)	; &I-AJ1-19189;
@@ -3855,8 +3825,7 @@
       )
      ((=big5-cdp	  . #x89EC)	; &CDP-89EC;
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5236)	; 制
     (=adobe-japan1-0	. 02637)	; &I-AJ1-02637;
@@ -3942,8 +3911,7 @@
       )
      ((=ucs		  . #x21C2F)	; 𡰯
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5237)	; 刷
     (=adobe-japan1-0	. 02158)	; &I-AJ1-02158;
@@ -4098,8 +4066,7 @@
       )
      ((=ucs		  . #x6740)	; 杀
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5239)	; 刹
     (=adobe-japan1-0	. 04258)	; &I-AJ1-04258;
@@ -4186,8 +4153,7 @@
        ((=ucs		    . #x5C0F)	; 小
 	))
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs@iso		. #x206F4)	; &C6-296A;
     (=cns11643-6	. #x296A)	; &C6-296A; [09-74]
@@ -4240,8 +4206,7 @@
        ((=ucs		    . #x5C0F)	; 小
 	))
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (===hng-khi		. 00120)	; &HNG010-00120;
     (<-formed
@@ -4259,8 +4224,7 @@
       )
      ((=ucs		  . #x673F)	; 朿
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x523A)	; 刺
     (=adobe-japan1-0	. 02199)	; &I-AJ1-02199;
@@ -4296,8 +4260,7 @@
       )
      ((=ucs		  . #x4EA5)	; 亥
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs@unicode	. #x523B)	; &AJ1-02049;
     (=adobe-japan1-0	. 02049)	; &AJ1-02049;
@@ -4413,8 +4376,7 @@
 	  ))
 	))
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (===hng-smk		. 00180)	; &HNG074-00180;
     (<-formed
@@ -4817,8 +4779,7 @@
       )
      ((=ucs		  . #x6735)	; 朵
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5241)	; 剁
     (=gb2312		. #x3667)	; &I-G0-3667; [22-71]
@@ -4867,8 +4828,7 @@
       )
      ((=ucs		  . #x5F1F)	; 弟
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5243)	; 剃
     (=adobe-japan1-0	. 03074)	; &I-AJ1-03074;
@@ -4964,8 +4924,7 @@
        ((=ucs		    . #x5DE5)	; 工
 	))
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x522D)	; 刭
     (=gb2312		. #x5859)	; &I-G0-5859; [56-57]
@@ -4985,8 +4944,7 @@
       )
      ((=ucs		  . #x8C46)	; 豆
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5245)	; 剅
     (->subsumptive
@@ -5041,8 +4999,7 @@
       )
      ((=gt-k		  . 02673)	; &GT-K02673;
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x2F821)	; 剆
     (=cns11643-6	. #x2E76)	; &I-C6-2E76; [14-86]
@@ -5154,8 +5111,7 @@
       )
      ((=ucs		  . #x8C9D)	; 貝
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5247)	; 則
     (=adobe-japan1-0	. 02823)	; &I-AJ1-02823;
@@ -5231,8 +5187,7 @@
       )
      ((=ucs		  . #x8D1D)	; 贝
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5219)	; 则
     (=gb2312		. #x5472)	; &I-G0-5472; [52-82]
@@ -5658,8 +5613,7 @@
       )
      ((=ucs		  . #x514B)	; 克
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x524B)	; 剋
     (=adobe-japan1-0	. 04261)	; &I-AJ1-04261;
@@ -6145,8 +6099,7 @@
       )
      ((=ucs		  . #x6614)	; 昔
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5252)	; 剒
     (=cns11643-2	. #x2E2B)	; &I-C2-2E2B; [14-11]
@@ -6213,8 +6166,7 @@
       )
      ((=ucs		  . #x6613)	; 易
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5254)	; 剔
     (=adobe-japan1-0	. 04264)	; &I-AJ1-04264;
@@ -6249,8 +6201,7 @@
       )
      ((=ucs		  . #x975E)	; 非
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5255)	; 剕
     (=adobe-japan1-5	. 17313)	; &I-AJ1-17313;
@@ -6329,8 +6280,7 @@
       )
      ((=ucs		  . #x5485)	; 咅
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5256)	; 剖
     (=adobe-japan1-0	. 03684)	; &I-AJ1-03684;
@@ -6445,8 +6395,7 @@
       )
      ((=ucs		  . #x6214)	; 戔
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5257)	; 剗
     (=adobe-japan1-5	. 16796)	; &I-AJ1-16796;
@@ -6470,8 +6419,7 @@
       )
      ((=ucs		  . #x5176)	; 其
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5258)	; 剘
     (=adobe-japan1-6	. 21194)	; &I-AJ1-21194;
@@ -6598,8 +6546,7 @@
       )
      ((=ucs		  . #x4E8B)	; 事
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x525A)	; 剚
     (=adobe-japan1-5	. 19191)	; &I-AJ1-19191;
@@ -6696,8 +6643,7 @@
       )
      ((=ucs		  . #x5188)	; 冈
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x521A)	; 刚
     (=gb2312		. #x3855)	; &I-G0-3855; [24-53]
@@ -6734,8 +6680,7 @@
        ((=big5-cdp	    . #x8960)	; &HD-KS-184490;
 	))
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (===hng-smk		. 00210)	; &HNG074-00210;
     (<-formed
@@ -6785,8 +6730,7 @@
       )
      ((=ucs		  . #x5B9B)	; 宛
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x525C)	; 剜
     ))
@@ -6805,8 +6749,7 @@
      ((=ucs@unicode	  . #x5B9B)	; &AJ1-01148;
       (=adobe-japan1-0	  . 01148)	; &AJ1-01148;
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs@unicode	. #x525C)	; &AJ1-17314;
     (=adobe-japan1-5	. 17314)	; &AJ1-17314;
@@ -7029,8 +6972,7 @@
       )
      ((=ucs		  . #x5947)	; 奇
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x525E)	; 剞
     (=adobe-japan1-0	. 04263)	; &I-AJ1-04263;
@@ -7093,8 +7035,7 @@
       )
      ((=ucs		  . #x4EAC)	; 京
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5260)	; 剠
     (=adobe-japan1-5	. 19192)	; &I-AJ1-19192;
@@ -7155,8 +7096,7 @@
       )
      ((=ucs		  . #x708E)	; 炎
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5261)	; 剡
     (=adobe-japan1-4	. 14359)	; &I-AJ1-14359;
@@ -7447,10 +7387,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt-k		  . 03992)	; &GT-K03992;
+     ((=ucs		  . #x3452)	; 㑒
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5263)	; 剣
     (=adobe-japan1-0	. 01867)	; &I-AJ1-01867;
@@ -7462,7 +7401,6 @@
     (=gt-pj-1		. #x3775)	; &I-GT-02628; [23-85]
     (=daikanwa		. 02076)	; &I-M-02076;
     (=shinjigen		.  0652)	; 剣
-    (=hanziku-1		. #xECF5)	; &I-HZK01-ECF5;
     (<-simplified
      ((=ucs		  . #x528D)	; 劍
       (=daikanwa	  . 02228)	; &I-M-02228;
@@ -7476,6 +7414,43 @@
       ))
     (<-simplified@JP/Jouyou*sources
      shinjigen@1ed JP/Jouyou)
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gt-k		    . 03992)	; &GT-K03992;
+	)
+       ((name		    . "CJK RADICAL KNIFE TWO")
+	(=ucs		    . #x2E89)	; ⺉
+	))
+      (==ucs@unicode	  . #x5263)	; &g2-AJ1-01867;
+      (==adobe-japan1-0	  . 01867)	; &g2-AJ1-01867;
+      (==jis-x0208	  . #x3775)	; &g2-AJ1-01867; [23-85]
+      (==cns11643-3	  . #x2F66)	; &g2-AJ1-01867; [15-70]
+      (==jis-x0213-1	  . #x3775)	; &g2-AJ1-01867; [23-85]
+      (==gt		  . 02628)	; &g2-AJ1-01867;
+      (==gt-k		  . 06418)	; &g2-AJ1-01867;
+      (==daikanwa	  . 02076)	; &g2-AJ1-01867;
+      (==shinjigen	  .  0652)	; &g2-AJ1-01867;
+      (->subsumptive
+       ((===daikanwa	    . 02076)	; &R-M-02076;
+	)
+       ((===jis-x0208	    . #x3775)	; &R-J0-3775; [23-85]
+	(===jis-x0213-1	    . #x3775)	; &R-J0-3775; [23-85]
+	)
+       ((===adobe-japan1-0  . 01867)	; &R-AJ1-01867;
+	)
+       ((===cns11643-3	    . #x2F66)	; &R-C3-2F66; [15-70]
+	)
+       ((===gt		    . 02628)	; &R-GT-02628;
+	(===gt-k	    . 06418)	; &R-GT-02628;
+	)
+       ((===ucs@unicode	    . #x5263)	; &R-UU+5263;
+	)
+       ((=hanziku-1	    . #xECF5)	; &HZK01-ECF5;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -7500,44 +7475,23 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
-    (=decomposition@cid
-     ((=ucs		  . #x528D)	; 劍
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-	(=ucs		    . #x2FF3)	; ⿳
-	)
-       ((=big5-cdp	    . #x8AFC)	; &CDP-8AFC;
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=ucs		      . #x53E3)	; 口
-	  )
-	 ((=ucs		      . #x53E3)	; 口
-	  ))
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=gt-k	      . 00064)	; &GT-K00064;
-	  )
-	 ((=gt-k	      . 00064)	; &GT-K00064;
-	  ))
-	))
+     ((=ucs-itaiji-001	  . #x50C9)	; &U-i001+50C9;
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=adobe-japan1-4	. 14106)	; &AJ1-14106;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x528D)	; 劍
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==adobe-japan1-4	  . 14106)	; &g2-AJ1-14106;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -7557,8 +7511,7 @@
       )
      ((=ucs		  . #x6589)	; 斉
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5264)	; 剤
     (=adobe-japan1-0	. 02126)	; &I-AJ1-02126;
@@ -7750,8 +7703,7 @@
      ((==>ucs@bucs	  . #x5944)	; &BUCS+5944;
       (=>ucs@component	  . #x5944)	; &BUCS+5944;
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5266)	; 剦
     ))
@@ -7768,8 +7720,7 @@
       )
      ((=ucs		  . #x5944)	; 奄
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs@unicode	. #x5266)	; &AJ1-14360;
     (=adobe-japan1-4	. 14360)	; &AJ1-14360;
@@ -7846,8 +7797,7 @@
       )
      ((=ucs		  . #x7809)	; 砉
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5268)	; 剨
     (->subsumptive
@@ -8139,8 +8089,7 @@
       )
      ((=ucs		  . #x5EA6)	; 度
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x526B)	; 剫
     (=cns11643-2	. #x336C)	; &I-C2-336C; [19-76]
@@ -8170,8 +8119,7 @@
       )
      ((=ucs		  . #x8011)	; 耑
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x526C)	; 剬
     (=adobe-japan1-5	. 17315)	; &I-AJ1-17315;
@@ -8191,8 +8139,7 @@
       )
      ((=ucs		  . #x5C4B)	; 屋
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x526D)	; 剭
     (=cns11643-2	. #x336D)	; &I-C2-336D; [19-77]
@@ -8229,8 +8176,7 @@
       )
      ((=ucs		  . #x54BC)	; 咼
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x526E)	; 剮
     ))
@@ -8250,8 +8196,7 @@
       (=ucs@jis		  . #x54BC)	; &AJ1-04376;
       (=adobe-japan1-0	  . 04376)	; &AJ1-04376;
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs@cns		. #x526E)	; &AJ1-19193;
     (=ucs@jis		. #x526E)	; &AJ1-19193;
@@ -8297,8 +8242,7 @@
      ((=ucs@unicode	  . #x54BC)	; &UU+54BC;
       (=gb12345		  . #x5F43)	; &UU+54BC; [63-35]
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs@unicode	. #x526E)	; &UU+526E;
     (=ucs@JP/hanazono	. nil)
@@ -8323,8 +8267,7 @@
       )
      ((=ucs		  . #x5459)	; 呙
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5250)	; 剐
     (=gb2312		. #x3950)	; &I-G0-3950; [25-48]
@@ -8379,8 +8322,7 @@
       )
      ((=ucs		  . #x7550)	; 畐
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x526F)	; 副
     (=adobe-japan1-0	. 03565)	; &I-AJ1-03565;
@@ -8803,10 +8745,12 @@
       )
      ((=ucs		  . #x65E2)	; 既
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ruimoku-v6	. #xE02A)	; &RUI6-E02A;
+    (->subsumptive
+     ((==ruimoku-v6	  . #xE02A)	; &g2-RUI6-E02A;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -8818,8 +8762,7 @@
       )
      ((=ucs		  . #x2668F)	; 𦚏
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ruimoku-v6	. #xE03C)	; &RUI6-E03C;
     (->subsumptive
@@ -8921,8 +8864,7 @@
       )
      ((=ucs		  . #x5BB3)	; 害
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5272)	; 割
     (=>jis-x0208	. #x3364)	; 割 [19-68]
@@ -8943,8 +8885,7 @@
       )
      ((=+>ucs@unicode	  . #x5BB3)	; &o-UU+5BB3;
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x2F822)	; 割
     (=+>ucs@unicode	. #x5272)	; 割
@@ -8963,8 +8904,7 @@
       )
      ((=mj		  . 010159)	; &MJ010159;
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs@cns		. #x2F822)	; &MJ007572;
     (=mj		. 007572)	; &MJ007572;
@@ -9036,8 +8976,7 @@
      ((=ucs@unicode	  . #x5BB3)	; &G0-3A26;
       (=gb2312		  . #x3A26)	; &G0-3A26; [26-06]
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs@unicode	. #x5272)	; &G0-386E;
     (=ucs@JP/hanazono	. nil)
@@ -9115,8 +9054,7 @@
      ((=ucs@jis		  . #x5BB3)	; &MJ010160;
       (=mj		  . 010160)	; &MJ010160;
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs@jis		. #x5272)	; &MJ007571;
     (=mj		. 007571)	; &MJ007571;
@@ -9195,8 +9133,7 @@
      ((=ucs@cns		  . #x5BB3)	; &C1-5524;
       (=cns11643-1	  . #x5524)	; &C1-5524; [53-04]
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs@cns		. #x5272)	; &C1-5E34;
     (=ks-x1001		. #x795C)	; &C1-5E34; [89-60]
@@ -9504,8 +9441,7 @@
       )
      ((=ucs		  . #x5009)	; 倉
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5275)	; 創
     (=mj		. 007577)	; &I-MJ007577;
@@ -10060,8 +9996,7 @@
       )
      ((=ucs		  . #x5C08)	; 專
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5278)	; 剸
     (=adobe-japan1-5	. 19194)	; &I-AJ1-19194;
@@ -10093,8 +10028,7 @@
       (=jis-x0213-2	  . #x747B)	; &I-JX2-747B; [84-91]
       (=daikanwa	  . 28665)	; &I-M-28665;
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs@jis		. #x5279)	; &AJ1-19195;
     (=adobe-japan1-5	. 19195)	; &AJ1-19195;
@@ -10138,8 +10072,7 @@
      ((=ucs@unicode	  . #x7FCF)	; &C2-3841;
       (=cns11643-2	  . #x3841)	; &C2-3841; [24-33]
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs@unicode	. #x5279)	; &C3-4041;
     (=ucs@JP/hanazono	. nil)
@@ -10318,8 +10251,7 @@
       )
      ((=ucs		  . #x5D29)	; 崩
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x527B)	; 剻
     ))
@@ -10336,8 +10268,7 @@
       )
      ((=adobe-japan1-4	  . 14020)	; &AJ1-14020;
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=daikanwa		. 02158)	; &M-02158;
     ))
@@ -10355,8 +10286,7 @@
      ((=ucs@unicode	  . #x5D29)	; &AJ1-03656;
       (=adobe-japan1-0	  . 03656)	; &AJ1-03656;
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs@unicode	. #x527B)	; &C2-416D;
     (=cns11643-2	. #x416D)	; &C2-416D; [33-77]
@@ -10387,8 +10317,7 @@
       )
      ((=ucs		  . #x7968)	; 票
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x527D)	; 剽
     ))
@@ -10407,8 +10336,7 @@
      ((=ucs@unicode	  . #x7968)	; &AJ1-03502;
       (=adobe-japan1-0	  . 03502)	; &AJ1-03502;
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs@unicode	. #x527D)	; &AJ1-04270;
     (=adobe-japan1-0	. 04270)	; &AJ1-04270;
@@ -10523,8 +10451,7 @@
       )
      ((=ucs		  . #x5340)	; 區
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x527E)	; 剾
     ))
@@ -10543,8 +10470,7 @@
      ((=ucs@unicode	  . #x5340)	; &MJ007832;
       (=mj		  . 007832)	; &MJ007832;
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs@unicode	. #x527E)	; &M-02163;
     (=daikanwa		. 02163)	; &M-02163;
@@ -10564,8 +10490,7 @@
      ((=ucs@cns		  . #x5340)	; &MJ007833;
       (=mj		  . 007833)	; &MJ007833;
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs@cns		. #x527E)	; &C3-4040;
     (=cns11643-3	. #x4040)	; &C3-4040; [32-32]
@@ -10874,8 +10799,7 @@
       )
      ((=ucs		  . #x77DE)	; 矞
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5280)	; 劀
     (=adobe-japan1-6	. 21196)	; &I-AJ1-21196;
@@ -10949,8 +10873,7 @@
       )
      ((=ucs		  . #x7126)	; 焦
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5281)	; 劁
     (=gb2312		. #x5864)	; &I-G0-5864; [56-68]
@@ -11111,8 +11034,7 @@
       )
      ((=ucs		  . #x53A5)	; 厥
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5282)	; 劂
     (=adobe-japan1-5	. 17318)	; &I-AJ1-17318;
@@ -11478,8 +11400,7 @@
       )
      ((=ucs		  . #x8700)	; 蜀
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5285)	; 劅
     (=adobe-japan1-6	. 21197)	; &I-AJ1-21197;
@@ -11545,8 +11466,7 @@
      ((=ucs@ks		  . #x5EC9)	; &MJ011038;
       (=mj		  . 011038)	; &MJ011038;
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=>>daikanwa	. 02215)	; &G-M-02215;
     (->subsumptive
@@ -11617,8 +11537,7 @@
       )
      ((=ucs		  . #x8C66)	; 豦
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5287)	; 劇
     (=adobe-japan1-0	. 01846)	; &I-AJ1-01846;
@@ -11694,8 +11613,7 @@
       )
      ((=ucs		  . #x5C45)	; 居
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5267)	; 剧
     (=gb2312		. #x3E67)	; &I-G0-3E67; [30-71]
@@ -12281,8 +12199,7 @@
       )
      ((=ucs		  . #x7576)	; 當
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x528F)	; 劏
     ))
@@ -12301,8 +12218,7 @@
      ((=ucs@unicode	  . #x7576)	; &AJ1-05723;
       (=adobe-japan1-0	  . 05723)	; &AJ1-05723;
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs@unicode	. #x528F)	; &HZK01-EFBF;
     (=gb12345		. #x7C24)	; &HZK01-EFBF; [92-04]
@@ -12425,8 +12341,7 @@
       )
      ((=ucs		  . #x9F4A)	; 齊
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5291)	; 劑
     (=adobe-japan1-0	. 04276)	; &I-AJ1-04276;
@@ -12767,8 +12682,7 @@
       )
      ((=ucs		  . #x9F3B)	; 鼻
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5293)	; 劓
     (=adobe-japan1-4	. 14361)	; &I-AJ1-14361;
@@ -13051,8 +12965,7 @@
       )
      ((=ucs		  . #x8CEA)	; 質
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5295)	; 劕
     (=adobe-japan1-6	. 21198)	; &I-AJ1-21198;
@@ -13255,8 +13168,7 @@
       )
      ((=ucs		  . #x6BDA)	; 毚
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5296)	; 劖
     ))
@@ -13275,8 +13187,7 @@
      ((=ucs@unicode	  . #x6BDA)	; &AJ1-17902;
       (=adobe-japan1-5	  . 17902)	; &AJ1-17902;
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs@unicode	. #x5296)	; &AJ1-21199;
     (=adobe-japan1-6	. 21199)	; &AJ1-21199;
@@ -13414,8 +13325,7 @@
       )
      ((=ucs		  . #x8D0A)	; 贊
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5297)	; 劗
     (=adobe-japan1-6	. 21200)	; &I-AJ1-21200;
@@ -13450,8 +13360,7 @@
       )
      ((=ucs		  . #x9761)	; 靡
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5298)	; 劘
     (=big5		. #xF5C2)	; &I-B-F5C2;
@@ -13477,8 +13386,7 @@
       (=jis-x0213-1	  . #x7353)	; &I-JX1-7353; [83-51]
       (=daikanwa	  . 42612)	; &I-M-42612;
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs@cns		. #x5298)	; &AJ1-17320;
     (=ucs@jis		. #x5298)	; &AJ1-17320;
@@ -13569,8 +13477,7 @@
       )
      ((=ucs		  . #x8821)	; 蠡
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x5299)	; 劙
     ))
@@ -13593,8 +13500,7 @@
       (=jis-x0213-1	  . #x6A42)	; &I-JX1-6A42; [74-34]
       (=daikanwa	  . 33796)	; &I-M-33796;
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs@unicode	. #x5299)	; &C2-6E7E;
     (=cns11643-2	. #x6E7E)	; &C2-6E7E; [78-94]
@@ -13635,8 +13541,7 @@
       )
      ((=ucs		  . #x5C6C)	; 屬
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x529A)	; 劚
     (=adobe-japan1-6	. 21201)	; &I-AJ1-21201;
