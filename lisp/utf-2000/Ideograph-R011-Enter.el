@@ -1224,13 +1224,8 @@
     (=ucs		. #x204E5)	; 𠓥
     (=cns11643-6	. #x2579)	; &I-C6-2579; [05-89]
     (=daikanwa		. 01435)	; &I-M-01435;
-    (=hanziku-1		. #xBE53)	; &I-HZK01-BE53;
     (<-ancient
-     ((=ucs@jis/1990	  . #x97AD)	; &GT-57605;
-      (=ucs@jis/2000	  . #x97AD)	; &GT-57605;
-      (=jis-x0208	  . #x4A5C)	; &GT-57605; [42-60]
-      (=ks-x1001	  . #x783D)	; &I-K0-783D; [88-29]
-      (=jis-x0213-1@2000  . #x4A5C)	; &I-JX1-4A5C; [42-60]
+     ((=ucs		  . #x97AD)	; 鞭
       (=daikanwa	  . 42937)	; &I-M-42937;
       ))
     (<-ancient*sources
@@ -1252,6 +1247,11 @@
 	(==adobe-japan1-0   . 05058)	; &g2-AJ1-05058;
 	))
       (==ucs@iso	  . #x204E5)	; &g2-IU-000204E5;
+      (->subsumptive
+       ((===ucs@iso	    . #x204E5)	; &R-U-000204E5;
+	)
+       ((=hanziku-1	    . #xBE53)	; &HZK01-BE53;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
