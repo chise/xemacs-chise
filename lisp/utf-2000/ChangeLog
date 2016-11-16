@@ -1,3 +1,56 @@
+2016-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R023-Hiding-Enclosure.el (U+5338): Separate UU+5338;
+	unify o-J0-523E, o-AJ1-04307 and o-GT-03427; add U+5338-var-002.
+	(o-CU+5339): Apply new conventions for glyph granularity.
+	(U-00020932): Copied from Ideograph-R022-Right-Open-Box.el; add
+	`ideographic-radical@ucs'.
+	(A-MJ031671): New abstract node; use `<-denotational' for
+	U-00020932.
+	(M-02677): Unify MJ031671; add `<-subsumptive' for A-MJ031671.
+	(KOSEKI-030320): New character; use `<-subsumptive' for
+	A-MJ031671.
+	(o-IU+20932): New abstract node; use `<-denotational' for
+	U-00020932.
+	(IU+20932): Copied from Ideograph-R022-Right-Open-Box.el; use
+	o-IU+20932 as the mother.
+	(U+3537): Apply new conventions for glyph granularity.
+
+	* Ideograph-R178-Tanned-Leather.el (BUCS+97CB): New abstract node.
+	(U+97CB): Add `<-denotational' for BUCS+97CB.
+	(U+97CB-itaiji-003): New character; use `<-denotational' for
+	BUCS+97CB; use `<-formed' for U+97CB; add HNG-KAR0438-0.
+	(MJ059015): New character; use `<-denotational' for BUCS+97CB;
+	unify KOSEKI-488370; use `<-formed' for U+97CB.
+	(MJ059016): New character; use `<-denotational' for BUCS+97CB;
+	unify KOSEKI-488380; use `<-formed' for U+97CB.
+	(HNG-KAR0439-0): New character; use `<-denotational' for U+97DE.
+
+2016-11-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R033-Scholar.el (JU+58F3): Add BC-8DA1.
+
+	* Ideograph-R009-Man.el (o-UU+4EDE): Use U+4EBB instead of <CJK
+	RADICAL PERSON> in `ideographic-structure' of abstract glyphs;
+	apply new conventions for glyph granularity.
+	(U+4F9B): Separate UU+4F9B.
+	(U+4FAB): Use U+4EBB instead of <CJK RADICAL PERSON> in
+	`ideographic-structure' of abstract glyphs; apply new conventions
+	for glyph granularity.
+	(GT-00767): Unify U+3452.
+	(U+4FC2): Use U+4EBB instead of <CJK RADICAL PERSON> in
+	`ideographic-structure' of abstract glyphs.
+	(U+4FF8): Likewise; apply new conventions for glyph granularity.
+	(U+501F): Separate UU+501F.
+	(U+5080): Use U+4EBB instead of <CJK RADICAL PERSON> in
+	`ideographic-structure' of abstract glyphs.
+	(U+50C9): Use U+5405 instead of "⿰口口" in
+	`ideographic-structure'; apply new conventions for glyph
+	granularity; add GT-K10294.
+	(U+50C9-itaiji-001): New character; use `<-denotational' for
+	BUCS+50C9.
+	(U+4F65): Apply new conventions for glyph granularity.
+
 2016-11-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ruimoku6.el (RUI6-E02A): Use U+5202 instead of <CJK RADICAL
