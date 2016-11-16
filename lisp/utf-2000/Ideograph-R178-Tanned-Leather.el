@@ -1,6 +1,13 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((ideographic-radical . 178)	; ⾱
+    (==>ucs@bucs	. #x97CB)	; &BUCS+97CB;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x97CB)	; &BUCS+97CB;
+      ))
+    (ideographic-radical . 178)	; ⾱
     (ideographic-strokes . 0)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
@@ -68,6 +75,61 @@
        ((===ucs@ks	    . #x97CB)	; &R-K0-6A5F;
 	(===ks-x1001	    . #x6A5F)	; &R-K0-6A5F; [74-63]
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x97CB)	; &BUCS+97CB;
+      ))
+    (ideographic-radical . 178)	; ⾱
+    (ideographic-strokes . 0)
+    (total-strokes	 . 9)
+    (=ucs-itaiji-003	. #x97CB)	; &U-i003+97CB;
+    (<-formed
+     ((=ucs		  . #x97CB)	; 韋
+      ))
+    (<-formed*sources
+     hng)
+    (->subsumptive
+     ((===hng-kar	  . 04380)	; &HNG018-04380;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x97CB)	; &BUCS+97CB;
+      ))
+    (ideographic-radical . 178)	; ⾱
+    (ideographic-strokes . 0)
+    (total-strokes	 . 9)
+    (=mj		. 059015)	; &MJ059015;
+    (=koseki		. 488370)	; &MJ059015;
+    (<-formed
+     ((=ucs		  . #x97CB)	; 韋
+      ))
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==mj		  . 059015)	; &g2-MJ059015;
+      (==koseki		  . 488370)	; &g2-MJ059015;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x97CB)	; &BUCS+97CB;
+      ))
+    (ideographic-radical . 178)	; ⾱
+    (ideographic-strokes . 0)
+    (total-strokes	 . 9)
+    (=mj		. 059016)	; &MJ059016;
+    (=koseki		. 488380)	; &MJ059016;
+    (<-formed
+     ((=ucs		  . #x97CB)	; 韋
+      ))
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==mj		  . 059016)	; &g2-MJ059016;
+      (==koseki		  . 488380)	; &g2-MJ059016;
       ))
     ))
 (define-char
@@ -1861,6 +1923,14 @@
       ))
     (ideographic-radical . 178)	; ⾱
     (ideographic-strokes . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x97CB)	; 韋
+      )
+     ((=ucs		  . #x25055)	; 𥁕
+      ))
     (=ucs@cns		. #x97DE)	; &HD-JB-6768;
     (=ucs@jis		. #x97DE)	; &HD-JB-6768;
     (=jis-x0212		. #x6768)	; &HD-JB-6768; [71-72]
@@ -1912,6 +1982,31 @@
     (ideographic-radical . 178)	; ⾱
     (ideographic-strokes . 9)
     (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-itaiji-003	  . #x97CB)	; &U-i003+97CB;
+      )
+     ((=ucs		  . #x6637)	; 昷
+      ))
+    (===hng-kar		. 04390)	; &HNG018-04390;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x97DE)	; 韞
+      ))
+    (ideographic-radical . 178)	; ⾱
+    (ideographic-strokes . 9)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x97CB)	; 韋
+      )
+     ((=ucs		  . #x6637)	; 昷
+      ))
     (=ucs@unicode	. #x97DE)	; &HD-KS-489180;
     (=ucs@JP/hanazono	. nil)
     (=gb12345		. #x6839)	; &HD-KS-489180; [72-25]
