@@ -1,5 +1,10 @@
 2016-11-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ruimoku6.el (RUI6-E02A): Use U+5202 instead of <CJK RADICAL
+	KNIFE TWO> in `ideographic-structure'; add representative node.
+	(RUI6-E03C): Use U+5202 instead of <CJK RADICAL KNIFE TWO> in
+	`ideographic-structure'.
+
 	* Ideograph-R177-Leather.el: Add glyph-images of HNG-KAR.
 	(HNG-KAR1389-0): New character; use `<-denotational' for U+979F;
 	use `<-HNG@zinbun/takuhon' for U+979F; use `<-formed' for U+97B9.
