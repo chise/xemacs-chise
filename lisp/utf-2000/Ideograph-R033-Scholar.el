@@ -516,6 +516,12 @@
 	)
        ((===cns11643-3	    . #x282D)	; &R-C3-282D; [08-13]
 	))
+      )
+     ((=big5-cdp	  . #x8DA1)	; &CDP-8DA1;
+      (<-formed@component/connect-right
+       ((=ucs@jis	    . #x58F3)	; &AJ1-17466;
+	(=adobe-japan1-5    . 17466)	; &AJ1-17466;
+	))
       ))
     ))
 (define-char
