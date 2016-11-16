@@ -668,10 +668,12 @@
       )
      ((=ucs		  . #x65E2)	; 既
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ruimoku-v6	. #xE02A)	; &RUI6-E02A;
+    (->subsumptive
+     ((==ruimoku-v6	  . #xE02A)	; &g2-RUI6-E02A;
+      ))
     ))
 (define-char
   '((=ruimoku-v6	. #xE02B)	; &RUI6-E02B;
@@ -1014,8 +1016,7 @@
       )
      ((=ucs		  . #x2668F)	; 𦚏
       )
-     ((name		  . "CJK RADICAL KNIFE TWO")
-      (=ucs		  . #x2E89)	; ⺉
+     ((=ucs		  . #x5202)	; 刂
       ))
     (=ruimoku-v6	. #xE03C)	; &RUI6-E03C;
     (->subsumptive
