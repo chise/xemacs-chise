@@ -1,3 +1,16 @@
+2016-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R094-Dog.el: Use U+72AD instead of <CJK RADICAL DOG>
+	in `ideographic-structure' of abstract characters and abstract
+	glyphs.
+	(U+7372): Add `ideographic-structure'.
+	(A-UU+7372): Use A-UU+84A6 instead of U+84A6 in
+	`ideographic-structure'.
+
+	* Ideograph-R030-Mouth.el (U+5639): Add representative nodes.
+
+	* Ideograph-R009-Man.el (U+50DA): Add representative nodes.
+
 2016-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R027-Cliff.el (A-UU+53A9): New abstract node; use
