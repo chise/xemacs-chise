@@ -40657,7 +40657,7 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=big5-cdp	  . #x8CF2)	; &CDP-8CF2;
+     ((=ucs		  . #x5C1E)	; 尞
       ))
     (=ucs		. #x5639)	; 嘹
     (=adobe-japan1-5	. 19261)	; &I-AJ1-19261;
@@ -40667,6 +40667,28 @@
     (=big5		. #xBC49)	; &I-B-BC49;
     (=daikanwa		. 04270)	; &I-M-04270;
     (=jef-china3	. #x47A1)	; &I-JC3-47A1;
+    (->subsumptive
+     ((==ucs@unicode	  . #x5639)	; &g2-AJ1-19261;
+      (==adobe-japan1-5	  . 19261)	; &g2-AJ1-19261;
+      (==gb2312		  . #x605A)	; &g2-AJ1-19261; [64-58]
+      (==jis-x0212	  . #x3639)	; &g2-AJ1-19261; [22-25]
+      (==cns11643-1	  . #x6C33)	; &g2-AJ1-19261; [76-19]
+      (==daikanwa	  . 04270)	; &g2-AJ1-19261;
+      (==jef-china3	  . #x47A1)	; &g2-AJ1-19261;
+      (->subsumptive
+       ((===daikanwa	    . 04270)	; &R-M-04270;
+	)
+       ((===jis-x0212	    . #x3639)	; &R-JSP-3639; [22-25]
+	)
+       ((===adobe-japan1-5  . 19261)	; &R-AJ1-19261;
+	)
+       ((===cns11643-1	    . #x6C33)	; &R-C1-6C33; [76-19]
+	)
+       ((===jef-china3	    . #x47A1)	; &R-JC3-47A1;
+	)
+       ((===ucs@unicode	    . #x5639)	; &R-UU+5639;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
