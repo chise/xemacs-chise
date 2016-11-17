@@ -1,5 +1,11 @@
 2016-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R027-Cliff.el (A-UU+53A9): New abstract node; use
+	`<-denotational' for U+53A9.
+	(UU+53A9): Use A-UU+53A9 instead of U+53A9 as the mother.
+
+2016-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R023-Hiding-Enclosure.el (U+5338): Separate UU+5338;
 	unify o-J0-523E, o-AJ1-04307 and o-GT-03427; add U+5338-var-002.
 	(o-CU+5339): Apply new conventions for glyph granularity.
