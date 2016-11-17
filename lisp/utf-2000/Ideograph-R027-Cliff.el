@@ -3075,7 +3075,6 @@
      ((=ucs		  . #x53A9)	; 厩
       ))
     (ideographic-radical . 27)	; ⼚
-    (hanyu-dazidian	1 75 21)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
@@ -3083,6 +3082,23 @@
      ((=ucs		  . #x5382)	; 厂
       )
      ((=ucs		  . #x65E2)	; 既
+      ))
+    (=>ucs@unicode	. #x53A9)	; &A-UU+53A9;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x53A9)	; &A-UU+53A9;
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (hanyu-dazidian	1 75 21)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs@unicode	  . #x65E2)	; &AJ1-01591;
+      (=adobe-japan1-0	  . 01591)	; &AJ1-01591;
       ))
     (=ucs@unicode	. #x53A9)	; &MJ007948;
     (=ucs@JP/hanazono	. nil)
