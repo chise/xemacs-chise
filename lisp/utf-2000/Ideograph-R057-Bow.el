@@ -2248,6 +2248,30 @@
 	)
        ((=ucs		    . #x56D7)	; 囗
 	)
+       ((=ucs		    . #x5902)	; 夂
+	))
+      ))
+    (=ucs-var-001	. #x38B4)	; &U-v001+38B4;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x38B4)	; 㢴
+      ))
+    (ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	(=ucs		    . #x2FF4)	; ⿴
+	)
+       ((=ucs		    . #x56D7)	; 囗
+	)
        ((=ucs		    . #x590A)	; 夊
 	))
       ))
