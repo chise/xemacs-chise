@@ -1230,14 +1230,66 @@
   '((ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x661A)	; 昚
+      )
+     ((=ucs		  . #x5C0F)	; 小
+      ))
     (=ucs		. #x5C1E)	; 尞
     (=adobe-japan1-2	. 08437)	; &I-AJ1-08437;
     (=jis-x0212		. #x3A6B)	; &I-JSP-3A6B; [26-75]
     (=cns11643-3	. #x3B24)	; &I-C3-3B24; [27-04]
     (=jis-x0213-1	. #x4F5C)	; &I-JX1-4F5C; [47-60]
+    (=big5-cdp		. #x8CF2)	; &I-CDP-8CF2;
     (=daikanwa		. 07517)	; &I-M-07517;
     (=cbeta		. 02500)	; &I-CB02500;
     (=jef-china3	. #x4AD4)	; &I-JC3-4AD4;
+    (<-formed
+     ((=ucs		  . #x242BD)	; 𤊽
+      ))
+    (<-same
+     ((=ucs		  . #x71CE)	; 燎
+      (=daikanwa	  . 19414)	; &I-M-19414;
+      ))
+    (<-same*sources
+     zihui daikanwa)
+    (->original
+     ((=ucs		  . #x242BD)	; 𤊽
+      ))
+    (->original*sources
+     shinjigen)
+    (->subsumptive
+     ((==ucs@unicode	  . #x5C1E)	; &g2-AJ1-08437;
+      (==adobe-japan1-2	  . 08437)	; &g2-AJ1-08437;
+      (==jis-x0212	  . #x3A6B)	; &g2-AJ1-08437; [26-75]
+      (==cns11643-3	  . #x3B24)	; &g2-AJ1-08437; [27-04]
+      (==jis-x0213-1	  . #x4F5C)	; &g2-AJ1-08437; [47-60]
+      (==big5-cdp	  . #x8CF2)	; &g2-AJ1-08437;
+      (==daikanwa	  . 07517)	; &g2-AJ1-08437;
+      (==cbeta		  . 02500)	; &g2-AJ1-08437;
+      (==jef-china3	  . #x4AD4)	; &g2-AJ1-08437;
+      (->subsumptive
+       ((===daikanwa	    . 07517)	; &R-M-07517;
+	)
+       ((===jis-x0212	    . #x3A6B)	; &R-JX1-4F5C; [26-75]
+	(===jis-x0213-1	    . #x4F5C)	; &R-JX1-4F5C; [47-60]
+	)
+       ((===adobe-japan1-2  . 08437)	; &R-AJ1-08437;
+	)
+       ((===big5-cdp	    . #x8CF2)	; &R-CDP-8CF2;
+	)
+       ((===cns11643-3	    . #x3B24)	; &R-C3-3B24; [27-04]
+	)
+       ((===jef-china3	    . #x4AD4)	; &R-JC3-4AD4;
+	)
+       ((===ucs@unicode	    . #x5C1E)	; &R-UU+5C1E;
+	)
+       ((===cbeta	    . 02500)	; &R-CB02500;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 42)	; ⼩
