@@ -1,5 +1,10 @@
 2016-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R086-Fire.el (U-000242BD): Apply new conventions for
+	glyph granularity; add `<-formed' and `<-same' for U+71CE; add
+	`<-original' and `->formed' for U+5C1E.
+	(U+71CE): Add `ideographic-structure'.
+
 	* Ideograph-R042-Small.el (U+5C1E): Unify BC-8CF2; add
 	`ideographic-structure'; add `<-formed' and `->original' for
 	U-000242BD; add `<-same' for U+71CE.
