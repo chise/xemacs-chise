@@ -1,5 +1,27 @@
 2016-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R182-Wind.el (U+98A8): Add HNG-KAR1398-0.
+
+	* Ideograph-R180-Sound.el (g2-S-9135): Add HNG-KAR1391-0.
+
+2016-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R071-Not.el (A-UU+65E2): Abolished.
+	(UU+65E2): Use U+65E2 instead of A-UU+65E2 as the mother; add
+	`=>ucs@iwds-1'.
+	(HD-JT-B27A): Use U+65E3 instead of A-UU+65E2 as the mother; unify
+	U+FA42.
+	(g2-S-3261): Unify g2-HD-JT-B27A.
+
+	* Ideograph-R064-Hand.el: Use U+624C instead of <CJK RADICAL HAND>
+	in `ideographic-structure' of abstract characters and abstract
+	glyphs.
+	(U-00022C15): Add `ideographic-structure'.
+	(IU+22C15): Likewise.
+
+	* Ideograph-R057-Bow.el (U+38B4-var-001): New character; use
+	`<-denotational' for U+38B4.
+
 	* Ideograph-R094-Dog.el: Use U+72AD instead of <CJK RADICAL DOG>
 	in `ideographic-structure' of abstract characters and abstract
 	glyphs.
