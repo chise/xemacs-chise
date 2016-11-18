@@ -2271,8 +2271,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HAND")
-      (=ucs		  . #x2E98)	; ⺘
+     ((=ucs		  . #x624C)	; 扌
       )
      ((=ucs		  . #x536C)	; 卬
       ))
@@ -13324,8 +13323,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HAND")
-      (=ucs		  . #x2E98)	; ⺘
+     ((=ucs		  . #x624C)	; 扌
       )
      ((=ucs		  . #x661C)	; 昜
       ))
@@ -13342,8 +13340,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HAND")
-      (=ucs		  . #x2E98)	; ⺘
+     ((=ucs		  . #x624C)	; 扌
       )
      ((=ucs@unicode	  . #x661C)	; &AJ1-05099;
       (=adobe-japan1-0	  . 05099)	; &AJ1-05099;
@@ -13374,8 +13371,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HAND")
-      (=ucs		  . #x2E98)	; ⺘
+     ((=ucs		  . #x624C)	; 扌
       )
      ((=ucs-itaiji-001	  . #x661C)	; &U-i001+661C;
       ))
@@ -14838,6 +14834,14 @@
   '((ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x624C)	; 扌
+      )
+     ((=ucs		  . #x38B4)	; 㢴
+      ))
     (=ucs		. #x22C15)	; 𢰕
     ))
 (define-char
@@ -14847,6 +14851,14 @@
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x624C)	; 扌
+      )
+     ((=ucs-var-001	  . #x38B4)	; &U-v001+38B4;
+      ))
     (=ucs@iso		. #x22C15)	; &C6-4939;
     (=cns11643-6	. #x4939)	; &C6-4939; [41-25]
     (=daikanwa		. 12431)	; &I-M-12431;
@@ -14875,10 +14887,11 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HAND")
-      (=ucs		  . #x2E98)	; ⺘
+     ((=ucs		  . #x624C)	; 扌
       )
-     ((=ucs		  . #x38B4)	; 㢴
+     ((=ucs@unicode	  . #x38B4)	; &C6-307A;
+      (=cns11643-6	  . #x307A)	; &C6-307A; [16-90]
+      (=daikanwa	  . 09776)	; &I-M-09776;
       ))
     (=hanziku-5		. #xE2C2)	; &HZK05-E2C2;
     ))
@@ -15216,8 +15229,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HAND")
-      (=ucs		  . #x2E98)	; ⺘
+     ((=ucs		  . #x624C)	; 扌
       )
      ((=ucs		  . #x8C9F)	; 貟
       ))
@@ -15548,8 +15560,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HAND")
-      (=ucs		  . #x2E98)	; ⺘
+     ((=ucs		  . #x624C)	; 扌
       )
      ((=ucs		  . #x54E1)	; 員
       ))
@@ -17717,8 +17728,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HAND")
-      (=ucs		  . #x2E98)	; ⺘
+     ((=ucs		  . #x624C)	; 扌
       )
      ((=ucs		  . #x8336)	; 茶
       ))
@@ -17736,8 +17746,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HAND")
-      (=ucs		  . #x2E98)	; ⺘
+     ((=ucs		  . #x624C)	; 扌
       )
      ((=ucs@cns		  . #x8336)	; &C1-577D;
       (=ucs@ks		  . #x8336)	; &C1-577D;
@@ -17745,6 +17754,7 @@
       (=cns11643-1	  . #x577D)	; &I-C1-577D; [55-93]
       (=daikanwa	  . 30915)	; &I-M-30915;
       ))
+    (=ucs@cns		. #x643D)	; &C1-642F;
     (=cns11643-1	. #x642F)	; &C1-642F; [68-15]
     (=daikanwa		. 12552)	; &I-M-12552;
     (->subsumptive
@@ -17765,8 +17775,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HAND")
-      (=ucs		  . #x2E98)	; ⺘
+     ((=ucs		  . #x624C)	; 扌
       )
      ((=ucs@unicode	  . #x8336)	; &AJ1-02977;
       (=adobe-japan1-0	  . 02977)	; &AJ1-02977;
@@ -28343,8 +28352,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HAND")
-      (=ucs		  . #x2E98)	; ⺘
+     ((=ucs		  . #x624C)	; 扌
       )
      ((=ucs-itaiji-002	  . #x8076)	; &U-i002+8076;
       ))
