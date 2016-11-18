@@ -197,16 +197,6 @@
       ))
     (ideographic-radical . 71)	; ⽆
     (ideographic-strokes . 5)
-    (=>ucs@iwds-1	. #x65E2)	; &A-IWDSU+65E2;
-    (=>ucs@unicode	. #x65E2)	; &A-IWDSU+65E2;
-    ))
-(define-char
-  '((<-denotational
-     ((=>ucs@iwds-1	  . #x65E2)	; &A-IWDSU+65E2;
-      (=>ucs@unicode	  . #x65E2)	; &A-IWDSU+65E2;
-      ))
-    (ideographic-radical . 71)	; ⽆
-    (ideographic-strokes . 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -215,6 +205,7 @@
       )
      ((=ucs		  . #x65E1)	; 旡
       ))
+    (=>ucs@iwds-1	. #x65E2)	; &AJ1-01591;
     (=ucs@unicode	. #x65E2)	; &AJ1-01591;
     (=adobe-japan1-0	. 01591)	; &AJ1-01591;
     (=jis-x0208		. #x347B)	; &I-J90-347B; [20-91]
@@ -283,24 +274,6 @@
       )
      ((total-strokes	   . 9)
       (===hng-khi	  . 00840)	; &HNG010-00840;
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=>ucs@iwds-1	  . #x65E2)	; &A-IWDSU+65E2;
-      (=>ucs@unicode	  . #x65E2)	; &A-IWDSU+65E2;
-      ))
-    (ideographic-radical . 71)	; ⽆
-    (ideographic-strokes . 7)
-    (total-strokes	 . 11)
-    (=hanyo-denshi/jt	. #xB27A)	; &HD-JT-B27A;
-    (->subsumptive
-     ((=decomposition@hanyo-denshi
-       ((=ucs		    . #x65E2)	; 既
-	)
-       ((=ucs		    . #xE0103)	; 󠄃
-	))
-      (==hanyo-denshi/jt  . #xB27A)	; &g2-HD-JT-B27A;
       ))
     ))
 (define-char
@@ -423,15 +396,30 @@
     (ideographic-radical . 71)	; ⽆
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 02802)	; &GT-K02802;
+      )
+     ((=ucs		  . #x65E1)	; 旡
+      ))
     (=ucs		. #xFA42)	; 既
     (=adobe-japan1-4	. 13334)	; &I-AJ1-13334;
     (=jis-x0213-1	. #x752B)	; &I-JX1-752B; [85-11]
+    (=hanyo-denshi/jt	. #xB27A)	; &I-HD-JT-B27A;
     (=daikanwa		. 13725)	; &I-M-13725;
     (=shinjigen		.  3261)	; 既
     (->subsumptive
      ((==daikanwa	  . 13725)	; &g2-M-13725;
       )
-     ((==shinjigen	  .  3261)	; &g2-SJG2-3261;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x65E2)	; 既
+	)
+       ((=ucs		    . #xE0103)	; 󠄃
+	))
+      (==hanyo-denshi/jt  . #xB27A)	; &g2-HD-JT-B27A;
+      (==shinjigen	  .  3261)	; &g2-HD-JT-B27A;
       )
      ((=decomposition@cid
        ((=ucs		    . #x65E2)	; 既
