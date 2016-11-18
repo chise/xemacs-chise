@@ -285,6 +285,9 @@
 	))
       )
      ((==shinjigen	  .  9135)	; &g2-SJG2-9135;
+      (->subsumptive
+       ((===hng-kar	    . 13910)	; &HNG018-13910;
+	))
       ))
     ))
 (define-char
