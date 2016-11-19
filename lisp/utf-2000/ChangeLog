@@ -1,3 +1,9 @@
+2016-11-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R181-Leaf.el: Add glyph-images of HNG-KAR.
+	(U+985A): Separate UU+985A.
+	(HNG-KAR1394-0): New character; use `<-denotational' for U+985A.
+
 2016-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R086-Fire.el (U-000242BD): Apply new conventions for
