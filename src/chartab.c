@@ -3656,26 +3656,104 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	Fput_char_attribute (make_char (c), Q_ucs_unified,
 			     Fcons (character, ret));
     }
-  if ( EQ (attribute, Q_subsumptive)		||
-       EQ (attribute, Q_subsumptive_from)	||
-       EQ (attribute, Q_denotational)		||
-       EQ (attribute, Q_denotational_from)	||
-       EQ (attribute, Q_identical)		||
-       EQ (attribute, Q_identical_from)		||
-       EQ (attribute, Q_canonical)		||
-       EQ (attribute, Q_halfwidth_of)		||
-       EQ (attribute, Q_superscript_of)		||
-       EQ (attribute, Q_subscript_of)		||
-       EQ (attribute, Q_circled_of)		||
-       EQ (attribute, Q_component)		||
-       EQ (attribute, Q_component_of)		||
-       ( !EQ (attribute, Q_ucs_unified)
-	 && !NILP (Fstring_match
-		   (build_string ("^\\(<-\\|->\\)[^*]*$"),
-		    Fsymbol_name (attribute),
-		    Qnil, Qnil))
-	 )
-       )
+  if ( EQ (attribute, Q_subsumptive_from)	||
+       EQ (attribute, Q_denotational_from) )
+    {
+      Lisp_Object ret;
+      Lisp_Object rev_feature = Qnil;
+
+      if (EQ (attribute, Q_subsumptive_from))
+	rev_feature = Q_subsumptive;
+      else if (EQ (attribute, Q_denotational_from))
+	rev_feature = Q_denotational;
+
+      if (CHARP (value))
+	ret = value;
+      else if (CONSP (value))
+	{
+	  ret = XCAR (value);
+
+	  if (CONSP (ret))
+	    ret = Fdefine_char (ret);
+	  else if (INTP (ret))
+	    {
+	      int code_point = XINT (ret);
+	      Emchar cid = DECODE_CHAR (Vcharset_ucs, code_point, 0);
+
+	      if (cid >= 0)
+		ret = make_char (cid);
+	      else
+		ret = make_char (code_point);
+	    }
+	}
+
+      if ( !NILP (ret) && !EQ (ret, character) )
+	{
+	  Lisp_Object ffv;
+
+	  ffv = Fget_char_attribute (ret, rev_feature, Qnil);
+	  if (!CONSP (ffv))
+	    put_char_attribute (ret, rev_feature, list1 (character));
+	  else if (NILP (Fmemq (character, ffv)))
+	    put_char_attribute
+	      (ret, rev_feature,
+	       nconc2 (Fcopy_sequence (ffv), list1 (character)));
+	  value = ret;
+	}
+    }
+  else if ( EQ (attribute, Q_subsumptive)	||
+	    EQ (attribute, Q_denotational)	)
+    {
+      Lisp_Object rest = value;
+      Lisp_Object ret;
+      Lisp_Object rev_feature = Qnil;
+
+      if (EQ (attribute, Q_subsumptive))
+	rev_feature = Q_subsumptive_from;
+      else if (EQ (attribute, Q_denotational))
+	rev_feature = Q_denotational_from;
+
+      while (CONSP (rest))
+	{
+	  ret = XCAR (rest);
+
+	  if (CONSP (ret))
+	    ret = Fdefine_char (ret);
+	  else if (INTP (ret))
+	    {
+	      int code_point = XINT (ret);
+	      Emchar cid = DECODE_CHAR (Vcharset_ucs, code_point, 0);
+
+	      if (cid >= 0)
+		ret = make_char (cid);
+	      else
+		ret = make_char (code_point);
+	    }
+
+	  if ( !NILP (ret) && !EQ (ret, character) )
+	    {
+	      put_char_attribute (ret, rev_feature, character);
+	      Fsetcar (rest, ret);
+	    }
+	  rest = XCDR (rest);
+	}
+    }
+  else if ( EQ (attribute, Q_identical)		||
+	    EQ (attribute, Q_identical_from)	||
+	    EQ (attribute, Q_canonical)		||
+	    EQ (attribute, Q_halfwidth_of)	||
+	    EQ (attribute, Q_superscript_of)	||
+	    EQ (attribute, Q_subscript_of)	||
+	    EQ (attribute, Q_circled_of)	||
+	    EQ (attribute, Q_component)		||
+	    EQ (attribute, Q_component_of)	||
+	    ( !EQ (attribute, Q_ucs_unified)
+	      && !NILP (Fstring_match
+			(build_string ("^\\(<-\\|->\\)[^*]*$"),
+			 Fsymbol_name (attribute),
+			 Qnil, Qnil))
+	      )
+	    )
     {
       Lisp_Object rest = value;
       Lisp_Object ret;
@@ -3687,14 +3765,6 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	rev_feature = Q_identical_from;
       else if (EQ (attribute, Q_identical_from))
 	rev_feature = Q_identical;
-      else if (EQ (attribute, Q_subsumptive))
-	rev_feature = Q_subsumptive_from;
-      else if (EQ (attribute, Q_subsumptive_from))
-	rev_feature = Q_subsumptive;
-      else if (EQ (attribute, Q_denotational))
-	rev_feature = Q_denotational_from;
-      else if (EQ (attribute, Q_denotational_from))
-	rev_feature = Q_denotational;
       else if (EQ (attribute, Q_component))
 	rev_feature = Q_component_of;
       else if (EQ (attribute, Q_component_of))
@@ -3938,7 +4008,7 @@ char_table_get_db (Lisp_Char_Table* cit, Emchar ch)
   return val;
 }
 
-#ifdef HAVE_LIBCHISE
+#ifdef USE_CONCORD_OBJECT_SYSTEM
 COS_object
 char_table_get_db_cos (Lisp_Char_Table* cit, Emchar ch)
 {
@@ -4219,7 +4289,7 @@ load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch)
   return Qunbound;
 }
 
-#ifdef HAVE_LIBCHISE
+#ifdef USE_CONCORD_OBJECT_SYSTEM
 COS_object
 load_char_attribute_maybe_cos (Lisp_Char_Table* cit, Emchar ch)
 {
