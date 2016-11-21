@@ -761,6 +761,8 @@
   (let ((lbs (concat "\n" (make-string (current-column) ?\ )))
 	separator cell sources required-features
 	ret)
+    (if (characterp value)
+	(setq value (list value)))
     (while (consp value)
       (setq cell (car value))
       (if (integerp cell)
