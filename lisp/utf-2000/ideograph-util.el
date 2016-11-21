@@ -53,6 +53,7 @@
 				  (get-char-attribute chr '<-subsumptive))
 			    (progn
 			      (setq dest nil)
+			      (setq ret (list ret))
 			      (dolist (pc ret)
 				(unless (eq (get-char-attribute
 					     pc 'ideographic-radical)
@@ -60,7 +61,7 @@
 				  (if (setq rret
 					    (get-char-attribute
 					     pc '<-subsumptive))
-				      (setq ret (append ret rret))
+				      (setq ret (append ret (list rret)))
 				    (setq dest (cons pc dest)))))
 			      dest)
 			  (list chr))
@@ -228,8 +229,12 @@
 		    (setq checked (cons sc checked)
 			  rest (cdr rest)))
 		  (setq rest
-			(append (get-char-attribute char '<-subsumptive)
-				(get-char-attribute char '<-denotational)))
+			(append (if (setq ret (get-char-attribute
+					       char '<-subsumptive))
+				    (list ret))
+				(if (setq ret (get-char-attribute
+					       char '<-denotational))
+				    (list ret))))
 		  (while rest
 		    (setq sc (car rest))
 		    (when (setq ret (char-representative-of-daikanwa
@@ -349,8 +354,12 @@
 			  rest (cdr rest)))
 		  (setq rest
 			(append
-			 (get-char-attribute char '<-subsumptive)
-			 (get-char-attribute char '<-denotational)
+			 (if (setq ret (get-char-attribute
+					char '<-subsumptive))
+			     (list ret))
+			 (if (setq ret (get-char-attribute
+					char '<-denotational))
+			     (list ret))
 			 (get-char-attribute char '<-denotational@component)
 			 ))
 		  (while rest
