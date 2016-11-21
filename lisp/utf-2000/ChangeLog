@@ -1,3 +1,7 @@
+2016-11-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R185-Head.el (U+9996): Add HNG-KAR1410-0.
+
 2016-11-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R181-Leaf.el: Add glyph-images of HNG-KAR.
