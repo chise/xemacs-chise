@@ -1149,7 +1149,7 @@ charset_code_point (Lisp_Object charset, Emchar ch, int accepted_mode)
       Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (charset);
 
       if ( CHAR_TABLEP (encoding_table)
-#ifdef HAVE_LIBCHISE
+#ifdef USE_CONCORD_OBJECT_SYSTEM
 	   && !UNBOUNDP (ret = get_char_id_table_ce (XCHAR_TABLE
 						     (encoding_table),
 						     ch))
