@@ -533,8 +533,10 @@ DESCRIPTION (string) is the description string of the charset."
 	  ;; ucs-sip
 	  =>>big5-cdp
 	  =>>jis-x0208
+	  =>>jis-x0208@1990
 	  =>>jis-x0213-1
 	  =>>jis-x0213-1@2004
+	  =>>jis-x0213-2
 	  =>jis-x0208
 	  =>jis-x0213-1
 	  =>big5-cdp
