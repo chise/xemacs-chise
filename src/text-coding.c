@@ -38,7 +38,7 @@ Boston, MA 02111-1307, USA.  */
 #include "mule-ccl.h"
 #include "chartab.h"
 #endif
-#ifdef HAVE_LIBCHISE
+#ifdef USE_CONCORD_OBJECT_SYSTEM_TO_COMPOSE
 #include <cos.h>
 #endif
 #include "file-coding.h"
@@ -2339,11 +2339,11 @@ struct decoding_stream
 
   unsigned combined_char_count;
   Emchar combined_chars[16];
-#ifdef HAVE_LIBCHISE
+#ifdef USE_CONCORD_OBJECT_SYSTEM_TO_COMPOSE
   COS_object combining_table;
 #else
   Lisp_Object combining_table;
-#endif /* HAVE_LIBCHISE */
+#endif /* USE_CONCORD_OBJECT_SYSTEM_TO_COMPOSE */
 #endif
   struct detection_state decst;
 };
@@ -2485,11 +2485,11 @@ reset_decoding_stream (struct decoding_stream *str)
   str->bom_flag = 0;
   str->er_counter = 0;
   str->combined_char_count = 0;
-#ifdef HAVE_LIBCHISE
+#ifdef USE_CONCORD_OBJECT_SYSTEM_TO_COMPOSE
   str->combining_table = COS_NIL;
 #else
   str->combining_table = Qnil;
-#endif /* HAVE_LIBCHISE */
+#endif /* USE_CONCORD_OBJECT_SYSTEM_TO_COMPOSE */
 #endif
   if (CODING_SYSTEM_TYPE (str->codesys) == CODESYS_AUTODETECT
       || CODING_SYSTEM_EOL_TYPE (str->codesys) == EOL_AUTODETECT)
@@ -3520,11 +3520,11 @@ COMPOSE_FLUSH_CHARS (struct decoding_stream *str, unsigned_char_dynarr* dst)
   for (i = 0; i < str->combined_char_count; i++)
     decode_add_er_char (str, str->combined_chars[i], dst);
   str->combined_char_count = 0;
-#ifdef HAVE_LIBCHISE
+#ifdef USE_CONCORD_OBJECT_SYSTEM_TO_COMPOSE
   str->combining_table = COS_NIL;
 #else
   str->combining_table = Qnil;
-#endif /* HAVE_LIBCHISE */
+#endif /* USE_CONCORD_OBJECT_SYSTEM_TO_COMPOSE */
 }
 
 extern CONCORD_DS concord_current_env;
@@ -3549,7 +3549,7 @@ COMPOSE_ADD_CHAR (struct decoding_stream *str,
 {
   if (CODING_SYSTEM_DISABLE_COMPOSITION (str->codesys))
     decode_add_er_char (str, character, dst);
-#ifdef HAVE_LIBCHISE
+#ifdef USE_CONCORD_OBJECT_SYSTEM_TO_COMPOSE
   else if (!cos_cons_p (str->combining_table))
     {
       COS_object ret;
@@ -3670,7 +3670,7 @@ COMPOSE_ADD_CHAR (struct decoding_stream *str,
 	    }
 	}
     }
-#endif /* HAVE_LIBCHISE */
+#endif /* USE_CONCORD_OBJECT_SYSTEM_TO_COMPOSE */
 }
 #else /* not UTF2000 */
 #define COMPOSE_FLUSH_CHARS(str, dst)
