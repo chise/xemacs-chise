@@ -1,17 +1,3 @@
-2016-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
-
-	* ideograph-util.el (update-ideograph-radical-table): Modify for
-	`<-subsumptive'.
-	(char-representative-of-daikanwa): Modify for `<-subsumptive' and
-	`<-denotational'.
-	(char-daikanwa): Likewise.
-
-	* chise-subr.el (map-char-family): Modify for `<-subsumptive' and
-	`<-denotational'.
-
-	* char-db-util.el (char-db-insert-relation-feature): Accept
-	character as argument `value'.
-
 2016-11-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R181-Leaf.el: Add glyph-images of HNG-KAR.
@@ -61,6 +47,20 @@
 	* Ideograph-R030-Mouth.el (U+5639): Add representative nodes.
 
 	* Ideograph-R009-Man.el (U+50DA): Add representative nodes.
+
+2016-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ideograph-util.el (update-ideograph-radical-table): Modify for
+	`<-subsumptive'.
+	(char-representative-of-daikanwa): Modify for `<-subsumptive' and
+	`<-denotational'.
+	(char-daikanwa): Likewise.
+
+	* chise-subr.el (map-char-family): Modify for `<-subsumptive' and
+	`<-denotational'.
+
+	* char-db-util.el (char-db-insert-relation-feature): Accept
+	character as argument `value'.
 
 2016-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
