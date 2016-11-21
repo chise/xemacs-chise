@@ -243,9 +243,15 @@
 			     (get-char-attribute (car rest) '->denotational)
 			     (get-char-attribute (car rest) '->identical)))
 	  (unless ignore-sisters
-	    (setq rest (append rest
-			       (get-char-attribute (car rest) '<-subsumptive)
-			       (get-char-attribute (car rest) '<-denotational)))))
+	    (setq rest
+		  (append rest
+			  (if (setq ret (get-char-attribute
+					 (car rest) '<-subsumptive))
+			      (list ret))
+			  (if (setq ret (get-char-attribute
+					 (car rest) '<-denotational))
+			      (list ret))
+			  ))))
 	(setq rest (cdr rest))))))
 
 
