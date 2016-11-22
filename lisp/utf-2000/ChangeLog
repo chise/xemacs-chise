@@ -1,3 +1,9 @@
+2016-11-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+55B0): Apply new conventions for
+	glyph granularity; add G-UU+55B0 to subsume g2-J90U+55B0 and
+	g2-UU+55B0.
+
 2016-11-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ideograph-util.el (char-representative-of-daikanwa): Don't make
