@@ -1,7 +1,7 @@
 ;;; ideograph-util.el --- Ideographic Character Database utility
 
 ;; Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2007, 2008,
-;;   2009, 2010, 2012, 2014, 2015 MORIOKA Tomohiko.
+;;   2009, 2010, 2012, 2014, 2015, 2016 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Chaon model, ISO/IEC 10646, Unicode, UCS-4, MULE.
@@ -228,20 +228,29 @@
 		      (throw 'tag ret))
 		    (setq checked (cons sc checked)
 			  rest (cdr rest)))
-		  (setq rest
-			(append (if (setq ret (get-char-attribute
-					       char '<-subsumptive))
-				    (list ret))
-				(if (setq ret (get-char-attribute
-					       char '<-denotational))
-				    (list ret))))
-		  (while rest
-		    (setq sc (car rest))
-		    (when (setq ret (char-representative-of-daikanwa
-				     sc radical t checked))
-		      (throw 'tag ret))
-		    (setq checked (cons sc checked)
-			  rest (cdr rest))))))
+                  ;; (setq rest
+                  ;;       (append (get-char-attribute char '<-subsumptive)
+                  ;;               (get-char-attribute char '<-denotational)))
+                  ;; (while rest
+                  ;;   (setq sc (car rest))
+                  ;;   (when (setq ret (char-representative-of-daikanwa
+                  ;;                    sc radical t checked))
+                  ;;     (throw 'tag ret))
+                  ;;   (setq checked (cons sc checked)
+                  ;;         rest (cdr rest)))
+		  (when (setq sc (get-char-attribute char '<-subsumptive))
+		    (if (setq ret (char-representative-of-daikanwa
+				   sc radical t checked))
+			(throw 'tag ret)
+		      (setq checked (cons sc checked))
+		      nil))
+		  (when (setq sc (get-char-attribute char '<-denotational))
+		    (if (setq ret (char-representative-of-daikanwa
+				   sc radical t checked))
+			(throw 'tag ret)
+		      (setq checked (cons sc checked))
+		      nil))
+		  )))
 	    (unless ignore-default
 	      char)))))
 
