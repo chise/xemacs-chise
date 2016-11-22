@@ -1485,6 +1485,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2EDF)	; ⻟
+    (=gt-k		. 04996)	; &I-GT-K04996;
+    (=gt-pj-k1		. #x3471)	; ⻟ [20-81]
     (<-identical@component
      ((=ucs		  . #x98E0)	; 飠
       ))
