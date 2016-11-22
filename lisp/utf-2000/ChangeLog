@@ -1,3 +1,11 @@
+2016-11-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (G-IU+202E1): New abstract glyph node to
+	subsume g2-IU+202E1 and g2-CU+202E1.
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL EAT THREE>):
+	Unify GT-K04996.
+
 2016-11-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R185-Head.el (U+9996): Add HNG-KAR1410-0.
