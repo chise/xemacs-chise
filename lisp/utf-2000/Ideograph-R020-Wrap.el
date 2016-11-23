@@ -689,6 +689,13 @@
     ))
 (define-char
   '((ideographic-radical . 20)	; ⼓
+    (==>ucs@bucs	. #x5305)	; &BUCS+5305;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5305)	; &BUCS+5305;
+      ))
+    (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (=ucs		. #x5305)	; 包
@@ -698,6 +705,15 @@
 (define-char
   '((<-denotational
      ((=ucs		  . #x5305)	; 包
+      ))
+    (ideographic-radical . 20)	; ⼓
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (=>ucs@unicode	. #x5305)	; &A-UU+5305;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x5305)	; &A-UU+5305;
       ))
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 3)
@@ -763,7 +779,29 @@
 	)
        ((===ucs@unicode	    . #x5305)	; &R-UU+5305;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x5305)	; &A-UU+5305;
+      ))
+    (ideographic-radical . 20)	; ⼓
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
+     ((name		  . "CJK RADICAL KNIFE ONE")
+      (=ucs		  . #x2E88)	; ⺈
+      )
+     ((=ucs		  . #x5DF3)	; 巳
+      ))
+    (=ucs-itaiji-002	. #x5305)	; &U-i002+5305;
+    (->mistakable
+     ((=mj		  . 058438)	; &MJ058438;
+      ))
+    (->subsumptive
      ((===hng-kar	  . 00470)	; &HNG018-00470;
       ))
     ))
@@ -1694,8 +1732,7 @@
       )
      ((=mj		  . 009469)	; &MJ009469;
       )
-     ((=ucs@unicode	  . #x5305)	; &MJ007757;
-      (=mj		  . 007757)	; &MJ007757;
+     ((=ucs-itaiji-002	  . #x5305)	; &U-i002+5305;
       ))
     (===hng-kar		. 00460)	; &HNG018-00460;
     ))
