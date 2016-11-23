@@ -303,6 +303,36 @@
     (=hanziku-1		. #xE479)	; &I-HZK01-E479;
     ))
 (define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5305)	; &BUCS+5305;
+      ))
+    (ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=ucs		  . #x5DF3)	; 巳
+      ))
+    (=mj		. 057023)	; &MJ057023;
+    (=koseki		. 018720)	; &MJ057023;
+    (<-formed
+     ((=ucs		  . #x5305)	; 包
+      ))
+    (<-formed*sources
+     hng)
+    (<-same
+     ((=ucs-itaiji-002	  . #x5305)	; &U-i002+5305;
+      ))
+    (->subsumptive
+     ((==mj		  . 057023)	; &g2-MJ057023;
+      (==koseki		  . 018720)	; &g2-MJ057023;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
