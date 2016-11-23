@@ -1,5 +1,20 @@
 2016-11-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R020-Wrap.el (BUCS+5305): New abstract node.
+	(U+5305): Add `<-denotational' for BUCS+5305.
+	(A-UU+5305): New abstract node; use `<-denotational' for U+5305.
+	(UU+5305): Use A-UU+5305 instead of U+5305 as the mother.
+	(U+5305-itaiji-002): New character; use `<-denotational' for
+	A-UU+5305; use `->mistakable' for MJ058438.
+	(HNG-KAR0047-0): Use U+5305-itaiji-002 instead of UU+5305 as the
+	mother.
+	(HNG-KAR0046-0): Use U+5305-itaiji-002 instead of UU+5305 in
+	`ideographic-structure'.
+
+	* Ideograph-R014-Cover.el (MJ057023): New character; use
+	`<-denotational' for BUCS+5305; unify KOSEKI-018720; use
+	`<-formed' for U+5305; use `<-same' for U+5305-itaiji-002.
+
 	* Ideograph-R030-Mouth.el (U+55B0): Apply new conventions for
 	glyph granularity; add G-UU+55B0 to subsume g2-J90U+55B0 and
 	g2-UU+55B0.
