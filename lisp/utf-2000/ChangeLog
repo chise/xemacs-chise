@@ -1,3 +1,18 @@
+2016-11-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R188-Bone.el (U+9AD4-itaiji-001): New character; use
+	`<-denotational' for U+9AD4.
+	(HNG-KHM0155-0): Use `<-subsumptive' for U+9AD4-itaiji-001 instead
+	of `<-denotational' for U+9AD4.
+	(HNG-KAR0458-0): New glyph-image; use `<-subsumptive' for
+	U+9AD4-itaiji-001.
+
+	* Ideograph-R139-Color.el (BUCS+8272): New abstract character.
+	(U+8272): Use `<-denotational' for BUCS+8272.
+	(UU+8272): Add `ideographic-structure'.
+	(MJ058438): New character; use `<-denotational' for BUCS+8272;
+	unify KOSEKI-341560; use `<-formed' for UU+8272.
+
 2016-11-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R020-Wrap.el (BUCS+5305): New abstract node.
