@@ -1,6 +1,13 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((ideographic-radical . 139)	; ⾊
+    (==>ucs@bucs	. #x8272)	; &BUCS+8272;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x8272)	; &BUCS+8272;
+      ))
+    (ideographic-radical . 139)	; ⾊
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
     (=ucs		. #x8272)	; 色
@@ -12,6 +19,15 @@
     (ideographic-radical . 139)	; ⾊
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL KNIFE ONE")
+      (=ucs		  . #x2E88)	; ⺈
+      )
+     ((=ucs		  . #x5DF4)	; 巴
+      ))
     (=ucs@unicode	. #x8272)	; &AJ1-02541;
     (=adobe-japan1-0	. 02541)	; &AJ1-02541;
     (=jis-x0208		. #x3F27)	; &I-J90-3F27; [31-07]
@@ -61,6 +77,35 @@
 	)
        ((===hng-kar	    . 12180)	; &HNG018-12180;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x8272)	; &BUCS+8272;
+      ))
+    (ideographic-radical . 139)	; ⾊
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL KNIFE ONE")
+      (=ucs		  . #x2E88)	; ⺈
+      )
+     ((=ucs		  . #x5DF3)	; 巳
+      ))
+    (=mj		. 058438)	; &MJ058438;
+    (=koseki		. 341560)	; &MJ058438;
+    (<-formed
+     ((=ucs@unicode	  . #x8272)	; &AJ1-02541;
+      (=adobe-japan1-0	  . 02541)	; &AJ1-02541;
+      ))
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==mj		  . 058438)	; &g2-MJ058438;
+      (==koseki		  . 341560)	; &g2-MJ058438;
       ))
     ))
 (define-char

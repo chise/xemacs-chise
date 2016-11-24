@@ -4523,7 +4523,12 @@
       )
      ((=ucs		  . #x8C4A)	; 豊
       ))
-    (===hng-khm		. 01550)	; &HNG011-01550;
+    (=ucs-itaiji-001	. #x9AD4)	; &U-i001+9AD4;
+    (->subsumptive
+     ((===hng-khm	  . 01550)	; &HNG011-01550;
+      )
+     ((===hng-kar	  . 04580)	; &HNG018-04580;
+      ))
     ))
 (define-char
   '((ideographic-radical . 188)	; ⾻
