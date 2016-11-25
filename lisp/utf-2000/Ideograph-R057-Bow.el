@@ -116,6 +116,12 @@
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (=big5-cdp		. #x8DDF)	; &CDP-8DDF;
+    ))
+(define-char
+  '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (hanyu-dazidian	2 990 4)

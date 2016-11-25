@@ -1,3 +1,17 @@
+2016-11-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (BC-8DDF): New character.
+
+	* Ideograph-R051-Dry.el (U+5E75): Unify HD-JT-B0C2.
+	(g2-JU+5E75): Unify KOSEKI-103720.
+	(G-CU+5E75): New abstract node; unify MJ010947, KOSEKI-103760 and
+	G-HD-JT-B0C2.
+	(g2-CU+5E75): Use G-CU+5E75 instead of U+5E75 as the mother.
+
+	* Ideograph-R037-Big.el (GT-K06723): New character; use
+	`<-subsumptive' for GT-07490; use
+	`<-formed@component/connect-right' for GT-07490.
+
 2016-11-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R188-Bone.el (U+9AD4-itaiji-001): New character; use
