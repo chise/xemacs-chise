@@ -3202,6 +3202,12 @@
     (->subsumptive
      ((==gt		  . 07490)	; &g2-GT-07490;
       (==gt-k		  . 06722)	; &g2-GT-07490;
+      )
+     ((=gt-k		  . 06723)	; &GT-K06723;
+      (=gt-pj-k1	  . #x3465)	; &GT-K06723; [20-69]
+      (<-formed@component/connect-right
+       ((=gt		    . 07490)	; &GT-07490;
+	))
       ))
     ))
 (define-char
