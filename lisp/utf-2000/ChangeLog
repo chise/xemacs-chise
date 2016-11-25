@@ -1,3 +1,32 @@
+2016-11-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R184-Eat.el: Add glyph-images of HNG-KAR.
+	(G-CU+98DF): New detailed glyph node to subsume g2-CU+98DF,
+	HNG-KAR1405-0 and HNG-KHI0622-0; unify G-KU+98DF, G-C1-537A,
+	GT-59026, GT-K05344, G-M-44014, S-9234 and JC3-6DAB.
+	(g2-CU+98DF): Use G-CU+98DF instead of U+98DF as the mother;
+	separate GT-59026, GT-K05344, S-9234 and JC3-6DAB.
+	(<CJK RADICAL EAT THREE>): Unify GT-K04996.
+	(U+98E0): Apply new conventions for glyph granularity.
+
+	* Ideograph-R189-Tall.el (g2-UU+9AD9): Add HNG-KAR1415-0.
+	(U+9ADE): Fix operator of ideographic-structure.
+
+	* Ideograph-R187-Horse.el: Add glyph-images of HNG-KAR.
+	(U+99E2): Separate UU+99E2.
+	(HNG-KAR0450-0): New character; use `<-denotational' for U+99E2;
+	use `<-HNG@zinbun/takuhon' for U+99E2; use `<-formed' for U+9A08.
+	(U+9A08): Apply new conventions for glyph granularity.
+	(U+9A27): Separate A-UU+9A27.
+	(A-UU+9A27): Add `=>ucs@iwds-1'.
+	(HNG-KAR0455-0): New character; use `<-denotational' for U+9A27.
+
+2016-11-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R063-Door.el (o-JU+6238): New abstract node.
+	(U+6237): Use o-JU+6238 instead of A-M-11696.
+	(U+6238): Likewise.
+
 2016-11-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R057-Bow.el (BC-8DDF): New character.

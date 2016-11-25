@@ -111,6 +111,8 @@
        ((===cns11643-4	    . #x362D)	; &R-C4-362D; [22-13]
 	)
        ((===hng-khm	    . 05920)	; &HNG011-05920;
+	)
+       ((===hng-kar	    . 14150)	; &HNG018-14150;
 	))
       )
      ((===hng-khi	  . 06280)	; &HNG010-06280;
@@ -886,8 +888,8 @@
 (define-char
   '((ideographic-radical . 189)	; ⾼
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
      ((=>jis-x0208	  . #x3962)	; &J97-3962; [25-66]
       )
@@ -903,8 +905,8 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 23)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
      ((=ucs		  . #x9AD8)	; 高
       )
@@ -920,8 +922,8 @@
     (=daikanwa		. 45344)	; &I-M-45344;
     (->subsumptive
      ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
 	)
        ((==ucs@unicode	    . #x9AD8)	; &g2-AJ1-02036;
 	(==adobe-japan1-0   . 02036)	; &g2-AJ1-02036;
@@ -949,8 +951,8 @@
 	))
       )
      ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
 	)
        ((==ucs@unicode	    . #x9AD8)	; &g2-AJ1-02036;
 	(==adobe-japan1-0   . 02036)	; &g2-AJ1-02036;

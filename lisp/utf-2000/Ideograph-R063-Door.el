@@ -26,6 +26,22 @@
     (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (=+>ucs@jis		. #x6238)	; &o-J0-384D;
+    (=+>jis-x0208	. #x384D)	; &o-J0-384D; [24-45]
+    (=+>jis-x0213-1	. #x384D)	; &o-J0-384D; [24-45]
+    (=+>adobe-japan1-0	. 01921)	; &o-J0-384D;
+    (=>big5-cdp		. #x89A2)	; &o-J0-384D;
+    (=+>gt		. 14739)	; &o-J0-384D;
+    (=>gt-k		. 00426)	; &o-J0-384D;
+    ))
+(define-char
+  '((<-denotational
+     ((=+>ucs@jis	  . #x6238)	; &o-J0-384D;
+      (=+>jis-x0208	  . #x384D)	; &o-J0-384D; [24-45]
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
     (=ucs		. #x6237)	; 户
     (=gb2312		. #x3B27)	; &I-G0-3B27; [27-07]
     (=cns11643-3	. #x2165)	; &I-C3-2165; [01-69]
@@ -49,7 +65,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>daikanwa	  . 11696)	; &A-M-11696;
+     ((=+>ucs@jis	  . #x6238)	; &o-J0-384D;
+      (=+>jis-x0208	  . #x384D)	; &o-J0-384D; [24-45]
       ))
     (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 0)
