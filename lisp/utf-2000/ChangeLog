@@ -1,5 +1,18 @@
 2016-11-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R172-Short-Tailed-Bird.el: Add mappings for Big5 code
+	points.
+	(U+96BB): Unify S-0919.
+	(g2-M-41941): Unify S-0920.
+	(g2-UU+96BB): Unify g2-S-0919.
+	(BC-8DB5): New character; unify CB08550.
+	(U+96C5): Unify S-8951.
+	(U+96CC): Unify S-8954.
+	(U+96D2): Unify S-8964 and JC3-99D7.
+	(U-00028FFD): Apply new conventions for glyph granularity; unify
+	S-7252; add `<-vulgar' for U+96D6.
+	(U+96D6): Unify S-7251.
+
 	* Ideograph-R184-Eat.el: Add glyph-images of HNG-KAR.
 	(G-CU+98DF): New detailed glyph node to subsume g2-CU+98DF,
 	HNG-KAR1405-0 and HNG-KHI0622-0; unify G-KU+98DF, G-C1-537A,
