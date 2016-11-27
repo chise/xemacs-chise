@@ -1,3 +1,13 @@
+2016-11-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R190-Hair.el (U+9AEE): Separate A-UU+9AEE.
+	(HNG-KAR0456-0): New character; use `<-denotational' for U+9AEE.
+
+2016-11-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R142-Insect.el (U-00027227): Unify BC-8C60.
+	(U+867D): Unify BC-8C65; add `<-vulgar' for U+96D6.
+
 2016-11-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R172-Short-Tailed-Bird.el: Add mappings for Big5 code
