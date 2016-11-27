@@ -213,8 +213,21 @@
      ((=ucs		  . #x866B)	; 虫
       ))
     (=ucs		. #x27227)	; 𧈧
+    (=big5-cdp		. #x8C60)	; &I-CDP-8C60;
     (=gt-k		. 04911)	; &I-GT-K04911;
     (=gt-pj-6		. #x5F38)	; 𧈧 [63-24]
+    (->subsumptive
+     ((==ucs@iso	  . #x27227)	; &g2-CDP-8C60;
+      (==big5-cdp	  . #x8C60)	; &g2-CDP-8C60;
+      (==gt-k		  . 04911)	; &g2-CDP-8C60;
+      (->subsumptive
+       ((===big5-cdp	    . #x8C60)	; &R-CDP-8C60;
+	)
+       ((===gt-k	    . 04911)	; &R-GT-K04911;
+	)
+       ((===ucs@iso	    . #x27227)	; &R-U-00027227;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
@@ -611,7 +624,32 @@
     (=ucs		. #x867D)	; 虽
     (=gb2312		. #x4B64)	; &I-G0-4B64; [43-68]
     (=cns11643-3	. #x2F24)	; &I-C3-2F24; [15-04]
+    (=big5-cdp		. #x8C65)	; &I-CDP-8C65;
     (=daikanwa		. 32842)	; &I-M-32842;
+    (<-vulgar
+     ((=ucs		  . #x96D6)	; 雖
+      (=daikanwa	  . 42104)	; &I-M-42104;
+      ))
+    (<-vulgar*sources
+     songyuan-yilai-suzipu daikanwa)
+    (->subsumptive
+     ((==big5-cdp	  . #x8C65)	; &g2-CDP-8C65;
+      (==daikanwa	  . 32842)	; &g2-CDP-8C65;
+      (->subsumptive
+       ((===daikanwa	    . 32842)	; &R-M-32842;
+	)
+       ((===big5-cdp	    . #x8C65)	; &R-CDP-8C65;
+	))
+      )
+     ((==ucs@unicode	  . #x867D)	; &g2-UU+867D;
+      (==gb2312		  . #x4B64)	; &g2-UU+867D; [43-68]
+      (==cns11643-3	  . #x2F24)	; &g2-UU+867D; [15-04]
+      (->subsumptive
+       ((===cns11643-3	    . #x2F24)	; &R-C3-2F24; [15-04]
+	)
+       ((===ucs@unicode	    . #x867D)	; &R-UU+867D;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
