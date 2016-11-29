@@ -6644,6 +6644,56 @@
     ))
 (define-char
   '((ideographic-radical . 169)	; ⾨
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x9580)	; 門
+      )
+     ((=ucs		  . #x65B2)	; 斲
+      ))
+    (=ucs		. #x28DD6)	; 𨷖
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x28DD6)	; 𨷖
+      ))
+    (ideographic-radical . 169)	; ⾨
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x9580)	; 門
+      )
+     ((=ucs@unicode	  . #x65B2)	; &HD-KS-152280;
+      (=cns11643-2	  . #x5068)	; &HD-KS-152280; [48-72]
+      ))
+    (=ucs@iso		. #x28DD6)	; &CB07946;
+    (=cbeta		. 07946)	; &CB07946;
+    (->subsumptive
+     ((==ucs@iso	  . #x28DD6)	; &g2-CB07946;
+      (==cbeta		  . 07946)	; &g2-CB07946;
+      (->subsumptive
+       ((===ucs@iso	    . #x28DD6)	; &R-U-00028DD6;
+	)
+       ((===cbeta	    . 07946)	; &R-CB07946;
+	))
+      )
+     ((===hng-kar	  . 04570)	; &HNG018-04570;
+      (<-HNG@zinbun/takuhon
+       ((=ucs		    . #x9B2C)	; 鬬
+	))
+      (<-formed
+       ((=ucs		    . #x9B2D)	; 鬭
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 169)	; ⾨
     (ideographic-strokes . 14)
     (total-strokes	 . 22)
     (=ucs		. #x49B5)	; 䦵

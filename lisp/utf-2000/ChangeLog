@@ -1,3 +1,9 @@
+2016-11-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R169-Gate.el (U-00028DD6): New character.
+	(IU+28DD6): New character; use `<-denotational' for U-00028DD6;
+	unify CB07946; add HNG-KAR0457-0.
+
 2016-11-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R190-Hair.el (U+9AEE): Separate A-UU+9AEE.
