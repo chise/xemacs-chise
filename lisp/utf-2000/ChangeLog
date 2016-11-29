@@ -1,3 +1,11 @@
+2016-11-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R194-Ghost.el: Add glyph-images of HNG-KAR.
+	(U+9B4B): Use `->denotational' and `->subsumptive'; separate
+	o-UU+9B4B.
+	(o-UU+9B4B): Add `=>ucs@iwds-1'.
+	(HNG-KAR0461-0): New character; use `<-denotational' for U+9B4B.
+
 2016-11-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R169-Gate.el (U-00028DD6): New character.
