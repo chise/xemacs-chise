@@ -4795,6 +4795,14 @@
       (==ucs@cns	  . #x96DE)	; &g2-CU+96DE;
       (==cns11643-1	  . #x7766)	; &g2-CU+96DE; [87-70]
       )
+     ((===hng-kar	  . 13850)	; &HNG018-13850;
+      (<-HNG@zinbun/takuhon
+       ((=ucs		    . #x96DE)	; 雞
+	))
+      (<-formed
+       ((=ucs		    . #x9DC4)	; 鷄
+	))
+      )
      ((==ucs@unicode	  . #x96DE)	; &g2-UU+96DE;
       (==ucs@JP/hanazono  . nil)
       ))
