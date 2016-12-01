@@ -1,3 +1,8 @@
+2016-11-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (UU+96DE): Add
+	HNG-KAR1385-0.
+
 2016-11-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R194-Ghost.el: Add glyph-images of HNG-KAR.
