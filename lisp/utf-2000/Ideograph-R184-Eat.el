@@ -5252,6 +5252,8 @@
       ))
     (=+>ucs@unicode	. #x9912)	; &o-UU+9912;
     (->subsumptive
+     ((===hng-kar	  . 13995)	; &HNG018-13995;
+      )
      ((===hng-kar	  . 13990)	; &HNG018-13990;
       )
      ((ideographic-structure
