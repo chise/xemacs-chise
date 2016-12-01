@@ -1,5 +1,12 @@
 2016-11-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R196-Bird.el: Add glyph-images of HNG-KAR.
+	(U+9CF3): Separate UU+9CF3.
+
+	* Ideograph-R184-Eat.el (o-UU+9912): Add HNG-KAR1399-5.
+
+2016-11-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R172-Short-Tailed-Bird.el (UU+96DE): Add
 	HNG-KAR1385-0.
 
