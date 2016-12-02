@@ -58,6 +58,17 @@
     (total-strokes	 . 11)
     (=ucs		. #x2FA15)	; 麻
     (=cns11643-6	. #x463E)	; &I-C6-463E; [38-30]
+    (->subsumptive
+     ((==ucs@iso	  . #x2FA15)	; &g2-IU-0002FA15;
+      (==cns11643-6	  . #x463E)	; &g2-IU-0002FA15; [38-30]
+      (->subsumptive
+       ((===cns11643-6	    . #x463E)	; &R-C6-463E; [38-30]
+	)
+       ((===ucs@iso	    . #x2FA15)	; &R-U-0002FA15;
+	))
+      )
+     ((===hng-kar	  . 04630)	; &HNG018-04630;
+      ))
     ))
 (define-char
   '((<-denotational
