@@ -1,3 +1,28 @@
+2016-12-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R201-Yellow.el (U+9EC3): Add HNG-KAR0464-0.
+
+	* Ideograph-R205-Frog.el (MJ029952): New character; use
+	`<-denotational' for U+9EFD; unify HD-JT-C08C; add
+	U+9EFD-itaiji-001 and g2-MJ029952.
+	(g2-MJ029952): Unify GT-K10370.
+
+	* Ideograph-R202-Millet.el (U+9ECD): Add HNG-KAR0465-0.
+
+	* Ideograph-R198-Deer.el (U+9E91): Add `ideographic-structure';
+	add HNG-KAR0462-0.
+
+	* Ideograph-R195-Fish.el: Add glyph-images of HNG-KAR.
+	(U-00029D54): Apply new conventions for glyph granularity; add
+	`<-same' for U+9B80.
+	(U+9B6F): Add `ideographic-structure'; unify S-3422.
+	(U+9B80): Add `ideographic-structure'; unify JC3-6ED3; add
+	`->formed' for U+4C3F.
+	(U+4C3F): Use `->subsumptive'; add `<-formed' and `<-same' for
+	U+9B80.
+	(U+9BAE): Add `ideographic-structure'.
+	(U+9BC9): Likewise; unify S-9578.
+
 2016-11-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R196-Bird.el: Add glyph-images of HNG-KAR.

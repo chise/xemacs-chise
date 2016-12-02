@@ -1282,6 +1282,14 @@
   '((ideographic-radical . 198)	; ⿅
     (ideographic-strokes . 8)
     (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x9E7F)	; 鹿
+      )
+     ((=ucs		  . #x5152)	; 兒
+      ))
     (=ucs		. #x9E91)	; 麑
     (=adobe-japan1-0	. 07423)	; &I-AJ1-07423;
     (=jis-x0208		. #x734C)	; &I-J90-734C; [83-44]
@@ -1316,6 +1324,8 @@
       )
      ((==ucs@cns	  . #x9E91)	; &g2-CU+9E91;
       (==cns11643-2	  . #x6860)	; &g2-CU+9E91; [72-64]
+      )
+     ((===hng-kar	  . 04620)	; &HNG018-04620;
       ))
     ))
 (define-char

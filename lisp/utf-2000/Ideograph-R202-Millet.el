@@ -45,6 +45,8 @@
 	)
        ((===ucs@unicode	    . #x9ECD)	; &R-UU+9ECD;
 	))
+      )
+     ((===hng-kar	  . 04650)	; &HNG018-04650;
       ))
     ))
 (define-char
