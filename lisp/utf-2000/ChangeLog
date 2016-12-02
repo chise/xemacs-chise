@@ -1,3 +1,11 @@
+2016-12-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R200-Hemp.el (U-0002FA15): Add HNG-KAR0463-0.
+
+2016-12-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (BC-8D4F): New character.
+
 2016-12-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R201-Yellow.el (U+9EC3): Add HNG-KAR0464-0.
