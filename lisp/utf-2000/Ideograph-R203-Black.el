@@ -586,6 +586,11 @@
 	)
        ((===ucs@unicode	    . #x9ED9)	; &R-UU+9ED9;
 	))
+      )
+     ((===hng-kar	  . 04660)	; &HNG018-04660;
+      (<-formed
+       ((=ucs		    . #x9ED8)	; 默
+	))
       ))
     ))
 (define-char
@@ -889,6 +894,23 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 16)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x9ED2)	; 黒
+      )
+     ((=ucs		  . #x51FA)	; 出
+      ))
+    (===hng-kar		. 14260)	; &HNG018-14260;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9EDC)	; 黜
+      ))
+    (ideographic-radical . 203)	; ⿊
+    (ideographic-strokes . 5)
+    (total-strokes	 . 16)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
@@ -1085,23 +1107,6 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 16)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
-      (=ucs		  . #x2FFA)	; ⿺
-      )
-     ((=ucs		  . #x9ED2)	; 黒
-      )
-     ((=ucs		  . #x5360)	; 占
-      ))
-    (===hng-khm		. 04240)	; &HNG011-04240;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x9EDE)	; 點
-      ))
-    (ideographic-radical . 203)	; ⿊
-    (ideographic-strokes . 5)
-    (total-strokes	 . 16)
-    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
@@ -1165,12 +1170,73 @@
 (define-char
   '((ideographic-radical . 203)	; ⿊
     (ideographic-strokes . 5)
-    (total-strokes	 . 17)
     (=ucs		. #x3E03)	; 㸃
-    (->subsumptive
-     ((=cns11643-3	  . #x5751)	; &C3-5751; [55-49]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3E03)	; 㸃
+      ))
+    (ideographic-radical . 203)	; ⿊
+    (ideographic-strokes . 5)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
       )
-     ((=ucs@unicode	  . #x3E03)	; &UU+3E03;
+     ((=ucs		  . #x9ED2)	; 黒
+      )
+     ((=ucs		  . #x5360)	; 占
+      ))
+    (=mj		. 002326)	; &MJ002326;
+    (=koseki		. 543820)	; &MJ002326;
+    (<-formed
+     ((=ucs@unicode	  . #x9EDE)	; &AJ1-07437;
+      (=adobe-japan1-0	  . 07437)	; &AJ1-07437;
+      ))
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==koseki		  . 543820)	; &g2-KOSEKI-543820;
+      (->subsumptive
+       ((===hng-khm	    . 04240)	; &HNG011-04240;
+	(<-formed
+	 ((=ucs		      . #x9EDE)	; 點
+	  ))
+	)
+       ((===hng-kar	    . 14240)	; &HNG018-14240;
+	(<-formed
+	 ((=ucs		      . #x9EDE)	; 點
+	  ))
+	))
+      )
+     ((==mj		  . 002326)	; &g2-MJ002326;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3E03)	; 㸃
+      ))
+    (ideographic-radical . 203)	; ⿊
+    (ideographic-strokes . 5)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x9ED1)	; 黑
+      )
+     ((=ucs		  . #x5360)	; 占
+      ))
+    (=ucs@unicode	. #x3E03)	; &C3-5751;
+    (=cns11643-3	. #x5751)	; &C3-5751; [55-49]
+    (->subsumptive
+     ((==ucs@cns	  . #x3E03)	; &g2-CU+3E03;
+      (==cns11643-3	  . #x5751)	; &g2-CU+3E03; [55-49]
+      )
+     ((==ucs@unicode	  . #x3E03)	; &g2-UU+3E03;
+      (->subsumptive
+       ((===ucs@unicode	    . #x3E03)	; &R-UU+3E03;
+	))
       ))
     ))
 (define-char
@@ -2003,6 +2069,11 @@
 	(==adobe-japan1-0   . 02055)	; &g2-AJ1-02055;
 	))
       (==hanyo-denshi/ft  . #x3B52)	; &g2-HD-FT-3B52; [27-50]
+      (->subsumptive
+       ((===hanyo-denshi/ft . #x3B52)	; &R-HD-FT-3B52; [27-50]
+	)
+       ((===hng-kar	    . 14250)	; &HNG018-14250;
+	))
       ))
     ))
 (define-char
