@@ -1,3 +1,15 @@
+2016-12-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R203-Black.el: Add glyph-images of HNG-KAR.
+	(HNG-KAR1426-0): New character; use `<-denotational' for U+9EDC.
+	(U+3E03): Apply new conventions for glyph granularity.
+	(MJ002326): New character; use `<-denotational' for U+3E03; unify
+	KOSEKI-543802; use `<-formed' for UU+9EDE.
+	(HNG-KHM0424-0): Use `<-subsumptive' for g2-KOSEKI-543820 instead
+	of `<-denotational' for U+9EDE; add `<-formed' for U+9EDE.
+	(HNG-KAR1424-0): New glyph node; use `<-subsumptive' for
+	g2-KOSEKI-543820; use `<-formed' for U+9EDE.
+
 2016-12-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R200-Hemp.el (U-0002FA15): Add HNG-KAR0463-0.
