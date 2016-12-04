@@ -767,10 +767,11 @@
     (=daikanwa		. 22887)	; &I-M-22887;
     (=shinjigen		.  9855)	; &AJ1-07452;
     (<-vulgar
-     ((=ucs		  . #x9F13)	; 鼓
+     ((=ucs@unicode	  . #x9F13)	; &AJ1-01937;
+      (=adobe-japan1-0	  . 01937)	; &AJ1-01937;
       (=jis-x0208	  . #x385D)	; &I-J90-385D; [24-61]
       (=daikanwa	  . 48330)	; &I-M-48330;
-      (=shinjigen	  .  9854)	; 鼓
+      (=shinjigen	  .  9854)	; &AJ1-01937;
       ))
     (<-vulgar*sources
      zihui daikanwa shinjigen)
