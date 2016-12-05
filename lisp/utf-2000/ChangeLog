@@ -1,3 +1,9 @@
+2016-12-05  MORIOKA Tomohiko  <tomo@uta.local>
+
+	* Ideograph-R211-Tooth.el (U+9F52): Add HNG-KAR0469-0.
+
+	* Ideograph-R210-Even.el (U+9F4A-itaiji-004): Add HNG-KAR1428-0.
+
 2016-12-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R207-Drum.el (U+9F13): Separate UU+9F13.
