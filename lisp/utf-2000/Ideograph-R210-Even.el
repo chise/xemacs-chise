@@ -63,7 +63,7 @@
     (ideographic-radical . 210)	; ⿑
     (ideographic-strokes . 0)
     (total-strokes	 . 15)
-    (=ucs-itaiji-004	. #x9F4A)	; &U-i004+9F4A;
+    (=ucs-itaiji-003	. #x9F4A)	; &U-i003+9F4A;
     ))
 (define-char
   '((<-denotational
@@ -72,7 +72,10 @@
     (ideographic-radical . 210)	; ⿑
     (ideographic-strokes . 0)
     (total-strokes	 . 15)
-    (=ucs-itaiji-003	. #x9F4A)	; &U-i003+9F4A;
+    (=ucs-itaiji-004	. #x9F4A)	; &U-i004+9F4A;
+    (->subsumptive
+     ((===hng-kar	  . 14280)	; &HNG018-14280;
+      ))
     ))
 (define-char
   '((<-denotational
