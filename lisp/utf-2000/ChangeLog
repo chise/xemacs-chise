@@ -1,3 +1,10 @@
+2016-12-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R207-Drum.el (U+9F13): Separate UU+9F13.
+	(UU+9F13): Add HNG-KAR1427-0.
+	(U+9F17): Separate UU+9F17.
+	(HNG-KAR0468-0): New character; use `<-denotational' for U+9F17.
+
 2016-12-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R203-Black.el: Add glyph-images of HNG-KAR.
