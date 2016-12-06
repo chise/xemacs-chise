@@ -3422,6 +3422,16 @@
 		  direction     l2r
 		  registry      "cdp\\.itaiji-1$"
 		  mother        =big5-cdp-itaiji-001))
+  (make-charset '==big5-cdp-itaiji-001
+		"Big5-CDP-itaiji-001 abstract glyph-image of GlyphWiki"
+		'(long-name     "Big5-CDP-itaiji-001"
+		  chars         256
+		  dimension     2
+		  columns       2
+		  graphic       2
+		  direction     l2r
+		  registry      "cdp\\.itaiji-1$"
+		  mother        =big5-cdp-itaiji-001))
 
   (make-charset '=big5-cdp-itaiji-002
 		"Big5-CDP-itaiji-001 glyphs of GlyphWiki"

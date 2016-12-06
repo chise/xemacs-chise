@@ -1,3 +1,14 @@
+2016-12-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `==big5-cdp-itaiji-001'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`==big5-cdp-itaiji-001'.
+
+	* mule/mule-conf.el (==big5-cdp-itaiji-001): New coded-charset for
+	XEmacs CHISE.
+
 2016-12-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add

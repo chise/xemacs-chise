@@ -427,6 +427,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==hanyo-denshi/jt
 	  ==adobe-japan1-6
 	  ==big5-cdp
+	  ==big5-cdp-itaiji-001
 	  ==cns11643-1
 	  ==cns11643-2
 	  ==cns11643-3
