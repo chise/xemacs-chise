@@ -1873,6 +1873,18 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
+    (=ucs-itaiji-001	. #x4E11)	; &U-i001+4E11;
+    (<-formed@component/connect-left
+     ((=ucs		  . #x76EE)	; 目
+      ))
+    (<-unknown
+     ((=ucs		  . #x4E11)	; 丑
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
     (=gt		. 00025)	; &GT-00025;
     (=gt-pj-9		. #x3C43)	; &GT-00025; [28-35]
     ))
