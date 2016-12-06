@@ -446,6 +446,7 @@
 	  ( =ucs-itaiji-009		      "U-i009+" 4 X)
 	  ( =ucs-itaiji-084		      "U-i084+" 4 X)
 	  ( =big5-cdp-itaiji-001	    "CDP-i001-" 4 X)
+	  (==big5-cdp-itaiji-001	 "g2-CDP-i001-" 4 X)
 	  ( =big5-cdp-itaiji-002	    "CDP-i002-" 4 X)
 	  ( =big5-cdp-itaiji-003	    "CDP-i003-" 4 X)
 	  ( =big5-cdp-var-003		    "CDP-v003-" 4 X)
