@@ -1,5 +1,9 @@
 2016-12-05  MORIOKA Tomohiko  <tomo@uta.local>
 
+	* Ideograph-R001-One.el (U+4E11-itaiji-001): New character; use
+	`<-formed@component/connect-left' for U+76EE; use `<-unknown' for
+	U+4E11.
+
 	* Ideograph-R211-Tooth.el (U+9F52): Add HNG-KAR0469-0.
 
 	* Ideograph-R210-Even.el (U+9F4A-itaiji-004): Add HNG-KAR1428-0.
