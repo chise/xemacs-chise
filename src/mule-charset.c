@@ -1,7 +1,7 @@
 /* Functions to handle multilingual characters.
    Copyright (C) 1992, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2008, 2009, 2011
+   Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2008, 2009, 2011, 2013, 2016
      MORIOKA Tomohiko
 
 This file is part of XEmacs.
@@ -1149,7 +1149,7 @@ charset_code_point (Lisp_Object charset, Emchar ch, int accepted_mode)
       Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (charset);
 
       if ( CHAR_TABLEP (encoding_table)
-#ifdef HAVE_LIBCHISE
+#ifdef USE_CONCORD_OBJECT_SYSTEM
 	   && !UNBOUNDP (ret = get_char_id_table_ce (XCHAR_TABLE
 						     (encoding_table),
 						     ch))
