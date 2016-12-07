@@ -1,7 +1,7 @@
 /* Declarations having to do with Mule char tables.
    Copyright (C) 1992 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2006, 2010, 2013
+   Copyright (C) 1999, 2000, 2001, 2002, 2003, 2004, 2006, 2010, 2013, 2016
      MORIOKA Tomohiko
 
 This file is part of XEmacs.
@@ -38,6 +38,8 @@ Boston, MA 02111-1307, USA.  */
 #  else /* HAVE_LIBCHISE */
 #    include "database.h"
 #  endif /* not HAVE_LIBCHISE */
+#  define USE_CONCORD_OBJECT_SYSTEM 1
+#  define USE_CONCORD_OBJECT_SYSTEM_TO_COMPOSE 1
 #endif
 
 EXFUN (Fmake_char, 3);
@@ -377,7 +379,7 @@ put_char_id_table_0 (Lisp_Char_Table* cit, Emchar code, Lisp_Object value)
 #ifdef HAVE_CHISE
 Lisp_Object load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch);
 
-#ifdef HAVE_LIBCHISE
+#ifdef USE_CONCORD_OBJECT_SYSTEM
 COS_object load_char_attribute_maybe_cos (Lisp_Char_Table* cit, Emchar ch);
 #endif
 
@@ -425,7 +427,7 @@ get_char_id_table (Lisp_Char_Table* cit, Emchar ch)
     return val;
 }
 
-#ifdef HAVE_LIBCHISE
+#ifdef USE_CONCORD_OBJECT_SYSTEM
 INLINE_HEADER Lisp_Object
 get_char_id_table_ce (Lisp_Char_Table* cit, Emchar ch);
 INLINE_HEADER Lisp_Object
