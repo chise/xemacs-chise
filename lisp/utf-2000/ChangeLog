@@ -1,3 +1,19 @@
+2016-12-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R213-Turtle.el (HNG-KAR0470-0): New character; use
+	`<-denotational' for U+9F9C.
+	(BC-88CB-itaiji-003): New character; use `<-denotational' for
+	A-BC-88CB.
+	(A-BC-88CB): New abstract character.
+	(BC-88CB-itaiji-002): New character; use `<-denotational' for
+	A-BC-88CB-itaiji-001.
+	(A-BC-88CB-itaiji-001): New abstract character.
+	(BC-88CB-itaiji-001): New character; use `<-denotational' for
+	A-BC-88CB-itaiji-001.
+	(BC-88CB-var-003): Add `<-subsumptive' for BC-88CB-itaiji-001.
+	(BC-88CB-var-005): Add `<-denotational' for A-BC-88CB.
+	(BC-88CB): New character; use `<-denotational' for A-BC-88CB.
+
 2016-12-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
