@@ -3938,7 +3938,7 @@ char_table_get_db (Lisp_Char_Table* cit, Emchar ch)
   return val;
 }
 
-#ifdef HAVE_LIBCHISE
+#ifdef USE_CONCORD_OBJECT_SYSTEM
 COS_object
 char_table_get_db_cos (Lisp_Char_Table* cit, Emchar ch)
 {
@@ -4219,7 +4219,7 @@ load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch)
   return Qunbound;
 }
 
-#ifdef HAVE_LIBCHISE
+#ifdef USE_CONCORD_OBJECT_SYSTEM
 COS_object
 load_char_attribute_maybe_cos (Lisp_Char_Table* cit, Emchar ch)
 {
