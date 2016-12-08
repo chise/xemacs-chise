@@ -1,7 +1,19 @@
 2016-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* chartab.h: Use `USE_CONCORD_OBJECT_SYSTEM' instead of
-	`HAVE_LIBCHISE' to detect to use Concord Object System.
+	* chartab.h: Undefine `USE_CONCORD_OBJECT_SYSTEM' to avoid the
+	Concord Object System.
+
+2016-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* chartab.c (Fput_char_attribute): Use single-inheritance format
+	for character definitions; namely a value of `<-subsumptive' or
+	`<-denotational' must be a character instead of a list of
+	characters.
+
+2016-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* chartab.h (USE_CONCORD_OBJECT_SYSTEM): New macro; use it instead
+	of `HAVE_LIBCHISE' to detect to use Concord Object System.
 	(USE_CONCORD_OBJECT_SYSTEM_TO_COMPOSE): New macro.
 
 	* text-coding.c: Use `USE_CONCORD_OBJECT_SYSTEM_TO_COMPOSE'
@@ -16,9 +28,6 @@
 
 	* chartab.c: Use `USE_CONCORD_OBJECT_SYSTEM' instead of
 	`HAVE_LIBCHISE' to detect to use Concord Object System.
-	(Fput_char_attribute): Use single-inheritance format for character
-	definitions; namely a value of `<-subsumptive' or `<-denotational'
-	must be a character instead of a list of characters.
 
 2016-07-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
