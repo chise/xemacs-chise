@@ -2877,13 +2877,11 @@
     (=shinjigen@1ed	.  9917)	; 亀
     (=shinjigen@rev	.  9916)	; 亀
     (<-vulgar
-     ((=ucs@cns		  . #x9F9C)	; &GT-66712;
-      (=ucs@jis/1990	  . #x9F9C)	; &GT-66712;
-      (=ucs@jis/2000	  . #x9F9C)	; &GT-66712;
-      (=ucs@jis/2004	  . #x9F9C)	; &GT-66712;
-      (=jis-x0208@1983	  . #x737D)	; &GT-66712; [83-93]
-      (=cns11643-1	  . #x733F)	; &I-C1-733F; [83-31]
-      (=jis-x0213-1	  . #x737D)	; &I-JX1-737D; [83-93]
+     ((=ucs@cns		  . #x9F9C)	; &AJ1-07472;
+      (=ucs@jis/1990	  . #x9F9C)	; &AJ1-07472;
+      (=ucs@jis/2000	  . #x9F9C)	; &AJ1-07472;
+      (=ucs@jis/2004	  . #x9F9C)	; &AJ1-07472;
+      (=adobe-japan1-0	  . 07472)	; &AJ1-07472;
       (=daikanwa	  . 48847)	; &I-M-48847;
       ))
     (<-vulgar*sources
