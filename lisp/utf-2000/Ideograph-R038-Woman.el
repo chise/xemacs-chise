@@ -21959,9 +21959,9 @@
 	)
        ((==adobe-japan1-4   . 13828)	; &g2-AJ1-13828;
 	)
-       ((==ucs@jis	    . #x7F85)	; &g2-GT-36564;
-	(==ucs@ks	    . #x7F85)	; &g2-GT-36564;
-	(==jis-x0208	    . #x4D65)	; &g2-GT-36564; [45-69]
+       ((==ucs@jis	    . #x7F85)	; &g2-AJ1-03919;
+	(==ucs@ks	    . #x7F85)	; &g2-AJ1-03919;
+	(==adobe-japan1-0   . 03919)	; &g2-AJ1-03919;
 	))
       (==daikanwa	  . 06909)	; &g2-M-06909;
       (==cbeta		  . 03541)	; &g2-M-06909;
@@ -21981,16 +21981,7 @@
 	))
       (==ucs@iso	  . #x21922)	; &g2-IU-00021922;
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((==ucs@cns	    . #x5973)	; &g2-CU+5973;
-	(==cns11643-1	    . #x444C)	; &g2-CU+5973; [36-44]
-	)
-       ((==ucs@unicode	    . #x7F85)	; &g2-UU+7F85;
-	))
-      (==ucs@cns	  . #x21922)	; &g2-CU+21922;
+     ((==ucs@cns	  . #x21922)	; &g2-CU+21922;
       (==cns11643-5	  . #x7336)	; &g2-CU+21922; [83-22]
       ))
     ))

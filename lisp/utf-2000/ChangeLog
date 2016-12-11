@@ -1,3 +1,12 @@
+2016-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R126-And.el: Add some Adobe-Japan1-0 code points.
+
+2016-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R038-Woman.el (g2-CU+21922): Omit
+	`ideographic-structure'.
+
 2016-12-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R037-Big.el (U+594F): Apply new conventions for glyph
