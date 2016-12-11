@@ -1,5 +1,8 @@
 2016-12-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R037-Big.el (U+594F): Apply new conventions for glyph
+	granularity.
+
 	* Ideograph-R115-Grain.el (JU+9F9D): Unify AJ1-05927.
 
 2016-12-06  MORIOKA Tomohiko  <tomo.git@chise.org>
