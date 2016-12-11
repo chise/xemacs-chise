@@ -1339,8 +1339,8 @@
        ((name		    . "CJK RADICAL RAIN")
 	(=ucs		    . #x2ED7)	; ⻗
 	)
-       ((==ucs@unicode	    . #x800C)	; &g2-GT-37338;
-	(==jis-x0208	    . #x3C29)	; &g2-GT-37338; [28-09]
+       ((==ucs@unicode	    . #x800C)	; &g2-AJ1-02261;
+	(==adobe-japan1-0   . 02261)	; &g2-AJ1-02261;
 	))
       (==ucs@unicode	  . #x9700)	; &g2-AJ1-02343;
       (==adobe-japan1-0	  . 02343)	; &g2-AJ1-02343;
