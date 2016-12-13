@@ -1,5 +1,12 @@
 2016-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R072-Sun.el (g2-UU+66EA): Separate g2-C4-6A4C.
+
+	* Ideograph-R030-Mouth.el (UU+56C0): Apply new conventions for
+	glyph granularity.
+	(J90U+56C0): Likewise; add `ideographic-structure'.
+	(g2-UU+56C9): Separate g2-C1-7B5B.
+
 	* Ideograph-R126-And.el: Add some Adobe-Japan1-0 code points.
 
 2016-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
