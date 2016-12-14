@@ -1,5 +1,21 @@
 2016-12-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R127-Plow.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R122-Net.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R075-Tree.el (U+3B52): Apply new conventions for glyph
+	granularity.
+	(UU+3B52): Unify CB12434.
+	(g2-UU+3B52): Add H3-F1AD.
+	(S-6365): New character; use `<-denotational' for U+3B52; use
+	`<-original' for S-6364.
+
+	* Ideograph-R009-Man.el (UU+344D): Apply new conventions for glyph
+	granularity.
+	(GU+344D): Likewise.
+	(g2-UU+5138): Separate g2-C1-7A63.
+
 	* Ideograph-R213-Turtle.el: Add some Adobe-Japan1-0 code points.
 	(A-M-48848): Unify U+FACE and A-C7-2C3A.
 	(M-48848): Unify UU+FACE.
