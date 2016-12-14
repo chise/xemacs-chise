@@ -185,6 +185,7 @@
     ==hanyo-denshi/jb
     ==hanyo-denshi/jc
     ==hanyo-denshi/ft
+    ==hanyo-denshi/ia
     ==hanyo-denshi/ib
     ==hanyo-denshi/hg
     ==hanyo-denshi/jt
