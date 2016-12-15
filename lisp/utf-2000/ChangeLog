@@ -1,3 +1,8 @@
+2016-12-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el (A-CB12172): New abstract character.
+	(CB12172): New character; use `<-denotational' for A-CB12172.
+
 2016-12-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R127-Plow.el: Add some Adobe-Japan1-0 code points.
