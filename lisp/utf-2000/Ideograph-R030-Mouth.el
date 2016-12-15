@@ -853,7 +853,7 @@
       (=gb12345		  . #x786D)	; 檯 [88-77]
       )
      ((=ucs		  . #x98B1)	; 颱
-      (=gb12345		  . #x786C)	; 颱 [88-76]
+      (=gb12345		  . #x786C)	; &AJ1-07197; [88-76]
       ))
     (<-simplified@JP/Jouyou
      ((=ucs@unicode	  . #x81FA)	; &AJ1-06293;
@@ -23401,9 +23401,9 @@
        ((==ucs@unicode	    . #x53E3)	; &g2-AJ1-01969;
 	(==adobe-japan1-0   . 01969)	; &g2-AJ1-01969;
 	)
-       ((==ucs@jis	    . #x975E)	; &g2-GT-57172;
-	(==ucs@ks	    . #x975E)	; &g2-GT-57172;
-	(==jis-x0208	    . #x4873)	; &g2-GT-57172; [40-83]
+       ((==ucs@jis	    . #x975E)	; &g2-AJ1-03463;
+	(==ucs@ks	    . #x975E)	; &g2-AJ1-03463;
+	(==adobe-japan1-0   . 03463)	; &g2-AJ1-03463;
 	))
       (==ucs@jis	  . #x5561)	; &g2-AJ1-20308;
       (==adobe-japan1-5	  . 20308)	; &g2-AJ1-20308;
@@ -26333,8 +26333,8 @@
        ((==ucs@unicode	    . #x53E3)	; &g2-AJ1-01969;
 	(==adobe-japan1-0   . 01969)	; &g2-AJ1-01969;
 	)
-       ((==ucs@unicode	    . #x97F3)	; &g2-GT-58109;
-	(==jis-x0208	    . #x323B)	; &g2-GT-58109; [18-27]
+       ((==ucs@unicode	    . #x97F3)	; &g2-AJ1-01339;
+	(==adobe-japan1-0   . 01339)	; &g2-AJ1-01339;
 	))
       (==ucs@unicode	  . #x5591)	; &g2-MJ008448;
       (==mj		  . 008448)	; &g2-MJ008448;
@@ -28766,8 +28766,8 @@
        ((==ucs@unicode	    . #x53E3)	; &g2-AJ1-01969;
 	(==adobe-japan1-0   . 01969)	; &g2-AJ1-01969;
 	)
-       ((==ucs@unicode	    . #x98A8)	; &g2-GT-58717;
-	(==jis-x0208	    . #x4977)	; &g2-GT-58717; [41-87]
+       ((==ucs@unicode	    . #x98A8)	; &g2-AJ1-03561;
+	(==adobe-japan1-0   . 03561)	; &g2-AJ1-03561;
 	))
       (==ucs@iso	  . #x20DD5)	; &g2-M-03988;
       (==daikanwa	  . 03988)	; &g2-M-03988;
