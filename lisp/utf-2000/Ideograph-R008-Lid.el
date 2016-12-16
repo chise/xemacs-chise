@@ -4322,6 +4322,14 @@
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>big5-cdp	  . #x8C4D)	; &A-GT-K02791;
+      )
+     ((=ucs		  . #x97F3)	; 音
+      ))
     (=ucs		. #x20192)	; 𠆒
     ))
 (define-char
@@ -4351,8 +4359,8 @@
 	)
        ((==gt-k		    . 02791)	; &g2-CDP-8C4D;
 	)
-       ((==ucs@unicode	    . #x97F3)	; &g2-GT-58109;
-	(==jis-x0208	    . #x323B)	; &g2-GT-58109; [18-27]
+       ((==ucs@unicode	    . #x97F3)	; &g2-AJ1-01339;
+	(==adobe-japan1-0   . 01339)	; &g2-AJ1-01339;
 	))
       (==ucs@iso	  . #x20192)	; &g2-M-00338;
       (==cns11643-7	  . #x2C3D)	; &g2-M-00338; [12-29]
