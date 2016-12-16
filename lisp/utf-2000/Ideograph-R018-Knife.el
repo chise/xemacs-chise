@@ -6216,9 +6216,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@jis	    . #x975E)	; &g2-GT-57172;
-	(==ucs@ks	    . #x975E)	; &g2-GT-57172;
-	(==jis-x0208	    . #x4873)	; &g2-GT-57172; [40-83]
+       ((==ucs@jis	    . #x975E)	; &g2-AJ1-03463;
+	(==ucs@ks	    . #x975E)	; &g2-AJ1-03463;
+	(==adobe-japan1-0   . 03463)	; &g2-AJ1-03463;
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
@@ -13377,14 +13377,10 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@cns		  . #x9761)	; &GT-57204;
-      (=ucs@jis		  . #x9761)	; &GT-57204;
-      (=ucs@ks		  . #x9761)	; &GT-57204;
-      (=jis-x0208	  . #x7353)	; &GT-57204; [83-51]
-      (=ks-x1001	  . #x5A3C)	; &I-K0-5A3C; [58-28]
-      (=cns11643-1	  . #x7948)	; &I-C1-7948; [89-40]
-      (=jis-x0213-1	  . #x7353)	; &I-JX1-7353; [83-51]
-      (=daikanwa	  . 42612)	; &I-M-42612;
+     ((=ucs@cns		  . #x9761)	; &AJ1-07430;
+      (=ucs@jis		  . #x9761)	; &AJ1-07430;
+      (=ucs@ks		  . #x9761)	; &AJ1-07430;
+      (=adobe-japan1-0	  . 07430)	; &AJ1-07430;
       )
      ((=ucs		  . #x5202)	; 刂
       ))
@@ -13406,9 +13402,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@jis	    . #x9761)	; &g2-GT-57204;
-	(==ucs@ks	    . #x9761)	; &g2-GT-57204;
-	(==jis-x0208	    . #x7353)	; &g2-GT-57204; [83-51]
+       ((==ucs@jis	    . #x9761)	; &g2-AJ1-07430;
+	(==ucs@ks	    . #x9761)	; &g2-AJ1-07430;
+	(==adobe-japan1-0   . 07430)	; &g2-AJ1-07430;
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
@@ -13450,6 +13446,15 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 19)
     (total-strokes	 . 21)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x9761)	; &GT-57205;
+      (=gb2312		  . #x4352)	; &GT-57205; [35-50]
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
     (=ucs@unicode	. #x5298)	; &EGB-7A3F;
     (=ucs@JP/hanazono	. nil)
     (=iso-ir165		. #x7A3F)	; &EGB-7A3F; [90-31]
