@@ -1,5 +1,7 @@
 2016-12-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R008-Lid.el (U-00020192): Add `ideographic-structure'.
+
 	* Ideograph-R159-Cart.el: Add some Adobe-Japan1-0 code points.
 	(U+8F00): Unify S-8193; add `<-original' for U+8F5C.
 	(U+8F49-var-002): New character; use `<-denotational' for
