@@ -1,5 +1,10 @@
 2016-12-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el (UU+5298): Add `ideographic-structure'.
+
+	* Ideograph-R011-Enter.el (U-000204FF): Move H1-D755 to
+	glyph-image node.
+
 	* Ideograph-R008-Lid.el (U-00020192): Add `ideographic-structure'.
 
 	* Ideograph-R159-Cart.el: Add some Adobe-Japan1-0 code points.
