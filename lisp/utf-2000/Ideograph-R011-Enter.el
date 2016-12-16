@@ -2134,7 +2134,6 @@
       ))
     (=ucs		. #x204FF)	; 𠓿
     (=daikanwa		. 01449)	; &I-M-01449;
-    (=hanziku-1		. #xD755)	; &I-HZK01-D755;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
@@ -2144,14 +2143,28 @@
 	(==ucs@ks	    . #x5165)	; &g2-AJ1-03286;
 	(==adobe-japan1-0   . 03286)	; &g2-AJ1-03286;
 	)
-       ((==ucs@jis	    . #x975E)	; &g2-GT-57172;
-	(==ucs@ks	    . #x975E)	; &g2-GT-57172;
-	(==jis-x0208	    . #x4873)	; &g2-GT-57172; [40-83]
+       ((==ucs@jis	    . #x975E)	; &g2-AJ1-03463;
+	(==ucs@ks	    . #x975E)	; &g2-AJ1-03463;
+	(==adobe-japan1-0   . 03463)	; &g2-AJ1-03463;
 	)
        ((==ucs@ks	    . #x532A)	; &g2-K0-5D63;
 	(==ks-x1001	    . #x5D63)	; &g2-K0-5D63; [61-67]
 	))
       (==daikanwa	  . 01449)	; &g2-M-01449;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	(=ucs		    . #x2FF3)	; ⿳
+	)
+       ((==ucs@jis	    . #x5165)	; &g2-AJ1-03286;
+	(==ucs@ks	    . #x5165)	; &g2-AJ1-03286;
+	(==adobe-japan1-0   . 03286)	; &g2-AJ1-03286;
+	)
+       ((==ucs@unicode	    . #x975E)	; &g2-UU+975E;
+	)
+       ((==ucs@unicode	    . #x532A)	; &g2-UU+532A;
+	))
+      (=hanziku-1	  . #xD755)	; &HZK01-D755;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
