@@ -1,3 +1,14 @@
+2016-12-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	Prefer `=>ucs@cns' and `=>ucs@ks' to `=>ucs@jis/2004'.
+
+2016-12-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=>ucs@jis/2000): New coded-charset for XEmacs
+	CHISE.
+	(=>ucs@jis/2004): Ditto.
+
 2016-12-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist):
