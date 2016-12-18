@@ -1,6 +1,12 @@
+2016-12-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R180-Sound.el: Add some Adobe-Japan1-0 code points.
+
 2016-12-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R182-Wind.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R175-Wrong.el: Add some Adobe-Japan1-0 code points.
 
 2016-12-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
