@@ -3573,6 +3573,26 @@
 		  direction	l2r
 		  =>iso-ir	177
 		  mother	=>ucs@unicode))
+  (make-charset '=>ucs@jis/2000
+		"ISO/IEC 10646 for JIS X 0213:2000"
+		'(long-name	"UCS for JIS:2000"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>ucs@jis))
+  (make-charset '=>ucs@jis/2004
+		"ISO/IEC 10646 for JIS X 0213:2004"
+		'(long-name	"UCS for JIS:2004"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=>ucs@jis))
   (make-charset '=>ucs@ks
 		"UCS representative characters for Korean Standards"
 		'(long-name	"UCS characters for KS"
