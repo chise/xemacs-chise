@@ -19,57 +19,77 @@
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁
+    (=ucs		. #x4E29)	; 丩
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E29)	; 丩
+      ))
+    (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 49 2)
-    (=ucs		. #x4E29)	; 丩
+    (=ucs@unicode	. #x4E29)	; &AJ1-17237;
+    (=adobe-japan1-5	. 17237)	; &AJ1-17237;
+    (=cns11643-4	. #x2127)	; &I-C4-2127; [01-07]
+    (=jis-x0213-2	. #x2125)	; &I-JX2-2125; [01-05]
+    (=big5-cdp		. #x8BA3)	; &I-CDP-8BA3;
+    (=gt		. 00102)	; &I-GT-00102;
+    (=gt-k		. 00069)	; &I-GT-K00069;
+    (=gt-pj-2		. #x3054)	; &I-GT-00102; [16-52]
+    (=daikanwa		. 00068)	; &I-M-00068;
+    (=shinjigen		.  0031)	; &AJ1-17237;
     (->subsumptive
-     ((=ucs@unicode	  . #x4E29)	; &AJ1-17237;
-      (=adobe-japan1-5	  . 17237)	; &AJ1-17237;
-      (=jis-x0213-2	  . #x2125)	; &I-JX2-2125; [01-05]
-      (=big5-cdp	  . #x8BA3)	; &I-CDP-8BA3;
-      (=gt		  . 00102)	; &I-GT-00102;
-      (=gt-k		  . 00069)	; &I-GT-K00069;
-      (=gt-pj-2		  . #x3054)	; &I-GT-00102; [16-52]
-      (=daikanwa	  . 00068)	; &I-M-00068;
-      (=shinjigen	  .  0031)	; &AJ1-17237;
-      (->subsumptive
-       ((=decomposition@cid
-	 ((=ucs		      . #x4E29)	; 丩
-	  )
-	 ((=ucs		      . #xE0100)	; 󠄀
-	  ))
-	(==ucs@unicode	    . #x4E29)	; &g2-AJ1-17237;
-	(==adobe-japan1-5   . 17237)	; &g2-AJ1-17237;
-	(==jis-x0213-2	    . #x2125)	; &g2-AJ1-17237; [01-05]
-	(==daikanwa	    . 00068)	; &g2-AJ1-17237;
-	(==shinjigen	    .  0031)	; &g2-AJ1-17237;
-	(->subsumptive
-	 ((===daikanwa	      . 00068)	; &R-M-00068;
-	  )
-	 ((===jis-x0213-2     . #x2125)	; &R-JX2-2125; [01-05]
-	  )
-	 ((===adobe-japan1-5  . 17237)	; &R-AJ1-17237;
-	  )
-	 ((===ucs@unicode     . #x4E29)	; &R-UU+4E29;
-	  ))
+     ((=decomposition@cid
+       ((=ucs		    . #x4E29)	; 丩
 	)
-       ((==big5-cdp	    . #x8BA3)	; &g2-GT-00102;
-	(==gt		    . 00102)	; &g2-GT-00102;
-	(==gt-k		    . 00069)	; &g2-GT-00102;
-	(->subsumptive
-	 ((===big5-cdp	      . #x8BA3)	; &R-CDP-8BA3;
-	  )
-	 ((===gt	      . 00102)	; &R-GT-00102;
-	  (===gt-k	      . 00069)	; &R-GT-00102;
-	  ))
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@unicode	  . #x4E29)	; &g2-AJ1-17237;
+      (==adobe-japan1-5	  . 17237)	; &g2-AJ1-17237;
+      (==jis-x0213-2	  . #x2125)	; &g2-AJ1-17237; [01-05]
+      (==daikanwa	  . 00068)	; &g2-AJ1-17237;
+      (==shinjigen	  .  0031)	; &g2-AJ1-17237;
+      (->subsumptive
+       ((===daikanwa	    . 00068)	; &R-M-00068;
+	)
+       ((===jis-x0213-2	    . #x2125)	; &R-JX2-2125; [01-05]
+	)
+       ((===adobe-japan1-5  . 17237)	; &R-AJ1-17237;
+	)
+       ((===ucs@unicode	    . #x4E29)	; &R-UU+4E29;
 	))
       )
-     ((=ucs@cns		  . #x4E29)	; &C4-2127;
-      (=cns11643-4	  . #x2127)	; &C4-2127; [01-07]
-      (=gt-k		  . 00068)	; &I-GT-K00068;
-      (=gt-pj-k1	  . #x735C)	; &C4-2127; [83-60]
+     ((==big5-cdp	  . #x8BA3)	; &g2-GT-00102;
+      (==gt		  . 00102)	; &g2-GT-00102;
+      (==gt-k		  . 00069)	; &g2-GT-00102;
+      (->subsumptive
+       ((===big5-cdp	    . #x8BA3)	; &R-CDP-8BA3;
+	)
+       ((===gt		    . 00102)	; &R-GT-00102;
+	(===gt-k	    . 00069)	; &R-GT-00102;
+	))
+      )
+     ((==ucs@cns	  . #x4E29)	; &GT-K00068;
+      (==cns11643-4	  . #x2127)	; &GT-K00068; [01-07]
+      (=gt-k		  . 00068)	; &GT-K00068;
+      (=gt-pj-k1	  . #x735C)	; &GT-K00068; [83-60]
+      (->subsumptive
+       ((===cns11643-4	    . #x2127)	; &R-C4-2127; [01-07]
+	)
+       ((===gt-k	    . 00068)	; &R-GT-K00068;
+	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E29)	; 丩
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=gt-k		. 00240)	; &GT-K00240;
+    (=gt-pj-k1		. #x364A)	; &GT-K00240; [22-42]
     ))
 (define-char
   '((ideographic-radical@ucs . 2)	; ⼁
@@ -544,6 +564,12 @@
       )
      ((==ucs@unicode	  . #x4E31)	; &g2-UU+4E31;
       (==ucs@JP/hanazono  . nil)
+      )
+     ((=gt-k		  . 01123)	; &GT-K01123;
+      (=gt-pj-k1	  . #x3E57)	; &GT-K01123; [30-55]
+      (<-formed@component
+       ((=ucs		    . #x4E31)	; 丱
+	))
       ))
     ))
 (define-char
