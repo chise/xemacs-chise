@@ -1,3 +1,19 @@
+2016-12-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R163-City.el (JU+9115): Add representative node.
+	(U+9109): Likewise.
+
+	* Ideograph-R029-Again.el (U+53CE): Add `ideographic-structure'.
+	(G-UU+53CE): New node to subsume g2-UU+53CE and g2-CU+53CE.
+	(G-AJ1-13455): New node to subsume g2-AJ1-13455.
+
+2016-12-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R002-Line.el (U+4E29): Apply new conventions for glyph
+	granularity.
+	(GT-K00240): New character; use `<-denotational' for U+4E29.
+	(GT-K01123): New character; use `<-subsumptive' for U+4E31.
+
 2016-12-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R156-Run.el: Add some Adobe-Japan1-0 code points.

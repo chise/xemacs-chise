@@ -4909,15 +4909,17 @@
      ((=>jis-x0208@1997	  . #x363F)	; &J97-363F; [22-31]
       ))
     (ideographic-radical . 163)	; ⾢
-    (=>ucs@jis/2000	. #x9115)	; 鄕
-    (=>ucs@jis/2004	. #x9115)	; 鄕
+    (=>ucs@jis/2000	. #x9115)	; &A-JX1-7C6C;
+    (=>ucs@jis/2004	. #x9115)	; &A-JX1-7C6C;
     (=ucs@big5		. #x9109)	; &A-JX1-7C6C;
     (=>jis-x0213-1	. #x7C6C)	; &A-JX1-7C6C; [92-76]
     (=big5		. #xB66D)	; &A-JX1-7C6C;
     ))
 (define-char
   '((<-denotational
-     ((=ucs@big5	  . #x9109)	; &A-JX1-7C6C;
+     ((=>ucs@jis/2000	  . #x9115)	; &A-JX1-7C6C;
+      (=>ucs@jis/2004	  . #x9115)	; &A-JX1-7C6C;
+      (=ucs@big5	  . #x9109)	; &A-JX1-7C6C;
       (=>jis-x0213-1	  . #x7C6C)	; &A-JX1-7C6C; [92-76]
       ))
     (ideographic-radical . 163)	; ⾢
@@ -4979,19 +4981,33 @@
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x9115)	; 鄕
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
     (=ucs@jis		. #x9115)	; &AJ1-08637;
     (=adobe-japan1-2	. 08637)	; &AJ1-08637;
     (=jis-x0213-1	. #x7C6C)	; &I-JX1-7C6C; [92-76]
     (=hanyo-denshi/jc	. #x7C6C)	; &I-HD-JC-7C6C; [92-76]
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x9115)	; 鄕
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@jis	  . #x9115)	; &g2-AJ1-08637;
+      (==adobe-japan1-2	  . 08637)	; &g2-AJ1-08637;
+      (==jis-x0213-1	  . #x7C6C)	; &g2-AJ1-08637; [92-76]
+      (==hanyo-denshi/jc  . #x7C6C)	; &g2-AJ1-08637; [92-76]
+      (->subsumptive
+       ((===jis-x0213-1	    . #x7C6C)	; &R-JX1-7C6C; [92-76]
+	(===hanyo-denshi/jc . #x7C6C)	; &R-JX1-7C6C; [92-76]
+	)
+       ((===adobe-japan1-2  . 08637)	; &R-AJ1-08637;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
-     ((=ucs@big5	  . #x9109)	; &A-JX1-7C6C;
+     ((=>ucs@jis/2000	  . #x9115)	; &A-JX1-7C6C;
+      (=>ucs@jis/2004	  . #x9115)	; &A-JX1-7C6C;
+      (=ucs@big5	  . #x9109)	; &A-JX1-7C6C;
       (=>jis-x0213-1	  . #x7C6C)	; &A-JX1-7C6C; [92-76]
       ))
     (ideographic-radical . 163)	; ⾢
@@ -5000,6 +5016,16 @@
     (=ucs		. #x9109)	; 鄉
     (=cns11643-1	. #x6254)	; &I-C1-6254; [66-52]
     (=gb12345		. #x4F67)	; 鄉 [47-71]
+    (->subsumptive
+     ((==ucs@unicode	  . #x9109)	; &g2-UU+9109;
+      (==cns11643-1	  . #x6254)	; &g2-UU+9109; [66-52]
+      (==gb12345	  . #x4F67)	; &g2-UU+9109; [47-71]
+      (->subsumptive
+       ((===cns11643-1	    . #x6254)	; &R-C1-6254; [66-52]
+	)
+       ((===ucs@unicode	    . #x9109)	; &R-UU+9109;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 163)	; ⾢

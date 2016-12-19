@@ -1,5 +1,10 @@
 2016-12-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=+>jis-x0213-1@2004' and `=>>adobe-japan1-6'.
+
+2016-12-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* mule/mule-coding.el (coded-charset-entity-reference-alist):
 	Prefer `=>ucs@cns' and `=>ucs@ks' to `=>ucs@jis/2004'.
 
