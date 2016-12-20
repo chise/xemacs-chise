@@ -1,5 +1,11 @@
 2016-12-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U+53EB): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+	(U-0002F839): Apply new conventions for glyph granularity.
+	(IU+20F36): Add representative node.
+	(CB03323): Likewise.
+
 	* Ideograph-R163-City.el (JU+9115): Add representative node.
 	(U+9109): Likewise.
 
