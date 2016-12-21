@@ -33,19 +33,6 @@
       ))
     (ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 0)
-    (total-strokes	 . 3)
-    (=gt-k		. 00439)	; &GT-K00439;
-    (=gt-pj-k1		. #x347D)	; &GT-K00439; [20-93]
-    (<-formed@component/connect-right
-     ((=ucs		  . #x6B62)	; 止
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x6B62)	; 止
-      ))
-    (ideographic-radical . 77)	; ⽌
-    (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=ucs		. #x9FB0)	; 龰
     (=big5-cdp		. #x8B68)	; &I-CDP-8B68;
@@ -102,6 +89,12 @@
      ((===hng-khm	  . 03970)	; &HNG011-03970;
       )
      ((===hng-kar	  . 10010)	; &HNG018-10010;
+      )
+     ((=gt-k		  . 00439)	; &GT-K00439;
+      (=gt-pj-k1	  . #x347D)	; &GT-K00439; [20-93]
+      (<-formed@component/connect-right
+       ((=ucs		    . #x6B62)	; 止
+	))
       ))
     ))
 (define-char
@@ -2346,6 +2339,14 @@
   '((ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6B62)	; 止
+      )
+     ((=ucs		  . #x5C0A)	; 尊
+      ))
     (=ucs		. #x2399D)	; 𣦝
     ))
 (define-char
@@ -2356,13 +2357,21 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
     (hanyu-dazidian	2 1446 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=big5-cdp	  . #x8960)	; &HD-KS-184490;
+      )
+     ((=ucs@unicode	  . #x5C0A)	; &MJ010276;
+      (=mj		  . 010276)	; &MJ010276;
+      ))
     (=ucs@iso		. #x2399D)	; &C7-2E79;
     (=cns11643-7	. #x2E79)	; &C7-2E79; [14-89]
     (=daikanwa		. 16342)	; &I-M-16342;
     (<-same
-     ((=ucs@jis		  . #x8E72)	; &GT-50590;
-      (=jis-x0208	  . #x6D2D)	; &GT-50590; [77-13]
-      (=jis-x0213-1	  . #x6D2D)	; &I-JX1-6D2D; [77-13]
+     ((=ucs@jis		  . #x8E72)	; &AJ1-06828;
+      (=adobe-japan1-0	  . 06828)	; &AJ1-06828;
       (=daikanwa	  . 37874)	; &I-M-37874;
       ))
     (<-same*sources
