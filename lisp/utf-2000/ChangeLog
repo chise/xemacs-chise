@@ -1,3 +1,8 @@
+2016-12-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`==hanyo-denshi/tk'.
+
 2016-12-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R077-Stop.el (GT-K00439): Use `<-subsumptive' for
