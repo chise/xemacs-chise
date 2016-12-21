@@ -190,6 +190,7 @@
     ==hanyo-denshi/hg
     ==hanyo-denshi/jt
     ==hanyo-denshi/ks
+    ==hanyo-denshi/tk
     =gt
     =gt-k
     =daikanwa
