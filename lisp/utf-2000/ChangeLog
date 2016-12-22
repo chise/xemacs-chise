@@ -1,3 +1,12 @@
+2016-12-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R174-Blue.el (U+9759): Separate UU+9759.
+	(HD-TK01097430): New character; use `<-denotational' for U+9759.
+	(HD-TK01097530): New character; use `<-denotational' for
+	o-JU+975C.
+	(HNG-KAR0436-0): Use `<-subsumptive' for HD-TK01097530 instead of
+	`<-denotational' for o-JU+975C.
+
 2016-12-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
