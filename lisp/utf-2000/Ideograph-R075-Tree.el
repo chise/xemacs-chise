@@ -41241,7 +41241,6 @@
        ((=gt-k		    . 00495)	; &GT-K00495;
 	)
        ((==hanyo-denshi/tk  . 01069740)	; &g2-HD-TK-01069740;
-	(=hanyo-denshi/tk/mf-01 . #x1B3E)	; &g2-HD-TK-01069740;
 	))
       (==mj		  . 014672)	; &g2-MJ014672;
       (==hanyo-denshi/jt  . #xB3BB)	; &g2-MJ014672;

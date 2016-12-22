@@ -19421,7 +19421,6 @@
 	(=ucs		    . #x2E96)	; ⺖
 	)
        ((==hanyo-denshi/tk  . 01023430)	; &g2-HD-TK-01023430;
-	(=hanyo-denshi/tk/mf-01 . #x0927)	; &g2-HD-TK-01023430;
 	))
       (==hanyo-denshi/ft  . #x3578)	; &g2-HD-FT-3578; [21-88]
       ))
