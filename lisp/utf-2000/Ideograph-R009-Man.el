@@ -30954,7 +30954,6 @@
 	(=ucs		    . #x2E85)	; ⺅
 	)
        ((==hanyo-denshi/tk  . 01023430)	; &g2-HD-TK-01023430;
-	(=hanyo-denshi/tk/mf-01 . #x0927)	; &g2-HD-TK-01023430;
 	))
       (==mj		  . 006968)	; &g2-MJ006968;
       (==hanyo-denshi/ft  . #x3469)	; &g2-MJ006968; [20-73]
