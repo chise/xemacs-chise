@@ -608,6 +608,15 @@
     (ideographic-radical . 174)	; ⾭
     (ideographic-strokes . 6)
     (total-strokes	 . 14)
+    (=ucs		. #x9759)	; 静
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9759)	; 静
+      ))
+    (ideographic-radical . 174)	; ⾭
+    (ideographic-strokes . 6)
+    (total-strokes	 . 14)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -616,8 +625,8 @@
       )
      ((=ucs		  . #x4E89)	; 争
       ))
-    (=ucs		. #x9759)	; 静
-    (=adobe-japan1-0	. 02665)	; &I-AJ1-02665;
+    (=ucs@unicode	. #x9759)	; &AJ1-02665;
+    (=adobe-japan1-0	. 02665)	; &AJ1-02665;
     (=jis-x0208		. #x4045)	; &I-J90-4045; [32-37]
     (=gb2312		. #x3E32)	; &I-G0-3E32; [30-18]
     (=cns11643-3	. #x4A4C)	; &I-C3-4A4C; [42-44]
@@ -625,7 +634,7 @@
     (=gt		. 57143)	; &I-GT-57143;
     (=gt-k		. 11140)	; &I-GT-K11140;
     (=gt-pj-1		. #x4045)	; &I-GT-57143; [32-37]
-    (=daikanwa/+p	. 42574)	; 静
+    (=daikanwa/+p	. 42574)	; &AJ1-02665;
     (<-simplified@JP/Jouyou
      ((=ucs@jis		  . #x975C)	; &AJ1-07145;
       (=ucs@ks		  . #x975C)	; &AJ1-07145;
@@ -657,6 +666,27 @@
       )
      ((==ucs@cns	  . #x9759)	; &g2-CU+9759;
       (==cns11643-3	  . #x4A4C)	; &g2-CU+9759; [42-44]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9759)	; 静
+      ))
+    (ideographic-radical . 174)	; ⾭
+    (ideographic-strokes . 6)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x9751)	; 靑
+      )
+     ((=ucs		  . #x4E89)	; 争
+      ))
+    (=hanyo-denshi/tk	. 01097430)	; &HD-TK-01097430;
+    (->subsumptive
+     ((==hanyo-denshi/tk  . 01097430)	; &g2-HD-TK-01097430;
+      (=hanyo-denshi/tk/mf-01 . #x260F)	; &g2-HD-TK-01097430;
       ))
     ))
 (define-char
@@ -910,7 +940,13 @@
      ((=ucs@unicode	  . #x722D)	; &C1-4E68;
       (=cns11643-1	  . #x4E68)	; &C1-4E68; [46-72]
       ))
-    (===hng-kar		. 04360)	; &HNG018-04360;
+    (=hanyo-denshi/tk	. 01097530)	; &HD-TK-01097530;
+    (->subsumptive
+     ((==hanyo-denshi/tk  . 01097530)	; &g2-HD-TK-01097530;
+      (=hanyo-denshi/tk/mf-01 . #x2619)	; &g2-HD-TK-01097530;
+      )
+     ((===hng-kar	  . 04360)	; &HNG018-04360;
+      ))
     ))
 (define-char
   '((<-denotational
