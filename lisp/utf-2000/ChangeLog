@@ -1,3 +1,33 @@
+2016-12-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R155-Red.el: Add some Adobe-Japan1-0 code points.
+
+2016-12-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R114-Track.el (U-00025744): Add
+	`ideographic-structure'.
+	(IU+25744): Modify `ideographic-structure'; add `<-original' for
+	CU+842C; add representative nodes.
+	(C7-262C): Unify CU+25744; add `ideographic-structure'; add
+	representative nodes.
+
+2016-12-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el (A-UU+701E): Add
+	`ideographic-structure'.
+	(HD-IB2283): Add representative nodes.
+	(UU+701E): Unify U-0002F914.
+	(g2-C4-565D): Unify g2-IU+2F914 instead of U-0002F914; add
+	`ideographic-structure'.
+	(A-CU+701E): Add `ideographic-structure'.
+	(o-J2004U+701E): Likewise.
+	(J2004U+701E): Likewise; add representative nodes.
+	(HD-JT-B4FA): Likewise.
+	(o-CU+701E): Add `ideographic-structure'.
+	(HD-KS210580): Unify MJ016162; Add `ideographic-structure'; add
+	`<-formed' for J2004U+701E; add representative nodes.
+	(CU+701E): Add `ideographic-structure'; add representative nodes.
+
 2016-12-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R174-Blue.el (U+9759): Separate UU+9759.
