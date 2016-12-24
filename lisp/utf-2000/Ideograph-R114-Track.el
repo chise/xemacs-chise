@@ -435,6 +435,16 @@
   '((ideographic-radical . 114)	; ⽱
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x4E31)	; 丱
+      )
+     ((=ucs		  . #x9FB1)	; 龱
+      )
+     ((=ucs		  . #x79B8)	; 禸
+      ))
     (=ucs		. #x25744)	; 𥝄
     (->subsumptive
      ((hanyu-dazidian	  1 58 3)
@@ -442,32 +452,52 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
 	(=ucs		    . #x2FF3)	; ⿳
 	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((=ucs@cns	      . #x4E29)	; &C4-2127;
-	  (=cns11643-4	      . #x2127)	; &C4-2127; [01-07]
-	  )
-	 ((=big5-cdp	      . #x88AC)	; &CDP-88AC;
-	  ))
+       ((=gt-k		    . 01123)	; &GT-K01123;
 	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-	  (=ucs		      . #x2FF4)	; ⿴
-	  )
-	 ((=ucs		      . #x56D7)	; 囗
-	  )
-	 ((=ucs		      . #x3405)	; 㐅
-	  ))
+       ((=ucs		    . #x9FB1)	; 龱
 	)
-       ((=ucs		    . #x79B8)	; 禸
+       ((=ucs@unicode	    . #x79B8)	; &JX1-7944;
+	(=jis-x0212	    . #x5072)	; &JX1-7944; [48-82]
+	(=iso-ir165	    . #x2E22)	; &I-EGB-2E22; [14-02]
+	(=jis-x0213-1	    . #x7944)	; &I-JX1-7944; [89-36]
+	(=daikanwa	    . 24884)	; &I-M-24884;
 	))
       (=ucs@iso		  . #x25744)	; &M-24897;
       (=daikanwa	  . 24897)	; &M-24897;
-      (=hanziku-1	  . #xAFE5)	; &I-HZK01-AFE5;
+      (<-original
+       ((=ucs@cns	    . #x842C)	; &C1-655C;
+	(=cns11643-1	    . #x655C)	; &C1-655C; [69-60]
+	(=daikanwa	    . 31339)	; &I-M-31339;
+	))
+      (<-original*sources
+       zihui-bu daikanwa)
+      (->subsumptive
+       ((==daikanwa	    . 24897)	; &g2-M-24897;
+	)
+       ((==ucs@iso	    . #x25744)	; &g2-IU-00025744;
+	(->subsumptive
+	 ((===ucs@iso	      . #x25744)	; &R-U-00025744;
+	  )
+	 ((=hanziku-1	      . #xAFE5)	; &HZK01-AFE5;
+	  ))
+	))
       )
-     ((=cns11643-7	  . #x262C)	; &C7-262C; [06-12]
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	(=ucs		    . #x2FF3)	; ⿳
+	)
+       ((=gt-k		    . 01123)	; &GT-K01123;
+	)
+       ((=ucs		    . #x9FB1)	; 龱
+	)
+       ((=cns11643-2	    . #x2167)	; &C2-2167; [01-71]
+	))
+      (=ucs@cns		  . #x25744)	; &C7-262C;
+      (=cns11643-7	  . #x262C)	; &C7-262C; [06-12]
+      (->subsumptive
+       ((==ucs@cns	    . #x25744)	; &g2-CU+25744;
+	(==cns11643-7	    . #x262C)	; &g2-CU+25744; [06-12]
+	))
       ))
     ))
 (define-char
