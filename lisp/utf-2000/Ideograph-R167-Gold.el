@@ -15600,8 +15600,8 @@
 	)
        ((=ucs		    . #x91D2)	; 釒
 	)
-       ((==ucs@unicode	    . #x90CE)	; &g2-GT-53018;
-	(==jis-x0208	    . #x4F3A)	; &g2-GT-53018; [47-26]
+       ((==ucs@unicode	    . #x90CE)	; &g2-AJ1-04064;
+	(==adobe-japan1-0   . 04064)	; &g2-AJ1-04064;
 	))
       (==ucs@unicode	  . #x93AF)	; &g2-UU+93AF;
       (==ucs@JP/hanazono  . nil)
