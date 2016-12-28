@@ -155,11 +155,11 @@
     (<-formed*sources
      hng)
     (<-vulgar
-     ((=ucs@jis		  . #x81FE)	; &GT-39042;
-      (=jis-x0208	  . #x674C)	; &GT-39042; [71-44]
-      (=jis-x0213-1	  . #x674C)	; &I-JX1-674C; [71-44]
+     ((=ucs@jis		  . #x81FE)	; &AJ1-06295;
+      (=adobe-japan1-0	  . 06295)	; &AJ1-06295;
+      (=jis-x0208	  . #x674C)	; &I-J90-674C; [71-44]
       (=daikanwa	  . 30178)	; &I-M-30178;
-      (=shinjigen@rev	  .  6610)	; &GT-39042;
+      (=shinjigen@rev	  .  6610)	; &AJ1-06295;
       )
      ((=ucs@unicode	  . #x81FE)	; &C1-4F3B;
       (=gb2312		  . #x7427)	; &C1-4F3B; [84-07]
