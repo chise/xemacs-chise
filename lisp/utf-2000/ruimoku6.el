@@ -1245,8 +1245,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
 	(=ucs		    . #x2FF2)	; ⿲
 	)
-       ((name		    . "CJK RADICAL WATER ONE")
-	(=ucs		    . #x2EA1)	; ⺡
+       ((=ucs		    . #x6C35)	; 氵
 	)
        ((=ucs		    . #x9B5A)	; 魚
 	)
@@ -1268,11 +1267,12 @@
 	 ((name		      . "CJK RADICAL WATER ONE")
 	  (=ucs		      . #x2EA1)	; ⺡
 	  )
-	 ((=ucs		      . #x9B5A)	; 魚
+	 ((==ucs@unicode      . #x9B5A)	; &g2-AJ1-01685;
+	  (==adobe-japan1-0   . 01685)	; &g2-AJ1-01685;
 	  )
-	 ((==ucs@jis	      . #x821F)	; &g2-GT-39269;
-	  (==ucs@ks	      . #x821F)	; &g2-GT-39269;
-	  (==jis-x0208	      . #x3D2E)	; &g2-GT-39269; [29-14]
+	 ((==ucs@jis	      . #x821F)	; &g2-AJ1-02360;
+	  (==ucs@ks	      . #x821F)	; &g2-AJ1-02360;
+	  (==adobe-japan1-0   . 02360)	; &g2-AJ1-02360;
 	  ))
 	)
        ((==ucs@unicode	    . #x53C8)	; &g2-AJ1-03746;
