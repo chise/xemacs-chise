@@ -1,3 +1,22 @@
+2016-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R157-Foot.el: Add some Adobe-Japan1-0 code points.
+	(M-37729): Unify U-000280B9.
+
+	* Ideograph-R134-Mortar.el: Add some Adobe-Japan1-0 code points.
+	(U-00026951): Add S-6608.
+
+	* Ideograph-R030-Mouth.el (U+3563): Separate UU+3563.
+	(U+540C): Separate UU+540C.
+	(BC-8DE1): New character; use `<-denotational' for U+540C.
+	(U+54C3): Separate UU+54C3.
+	(JU+54EA): Apply new conventions for glyph granularity.
+
+	* Ideograph-R009-Man.el (U+4F97): Separate UU+4F97.
+	(M-00656): Add representative node.
+	(UU+345A): Likewise.
+	(U-00020334): Apply new conventions for glyph granularity.
+
 2016-12-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ruimoku6.el (RUI6-E047): Apply new conventions for glyph
