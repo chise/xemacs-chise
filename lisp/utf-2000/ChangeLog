@@ -1,3 +1,11 @@
+2016-12-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R168-Long.el (U+9577): Unify AJ1-03029.
+
+2016-12-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R163-City.el: Add some Adobe-Japan1-0 code points.
+
 2016-12-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R137-Boat.el: Add some Adobe-Japan1-0 code points.
