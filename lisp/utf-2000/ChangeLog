@@ -1,4 +1,13 @@
+2017-01-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R171-Slave.el: Add some Adobe-Japan1-0 code points.
+
 2016-12-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R165-Distinguish.el: Add some Adobe-Japan1-0 code
+	points.
+
+	* Ideograph-R164-Wine.el: Add some Adobe-Japan1-0 code points.
 
 	* Ideograph-R168-Long.el (U+9577): Unify AJ1-03029.
 
