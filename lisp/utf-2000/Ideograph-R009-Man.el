@@ -24035,11 +24035,8 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=ucs@unicode	  . #x91C7)	; &GT-53946;
-      (=gb2312		  . #x3249)	; &GT-53946; [18-41]
-      (=jis-x0208@1983	  . #x3A53)	; &I-J83-3A53; [26-51]
-      (=cns11643-1	  . #x4F59)	; &I-C1-4F59; [47-57]
-      (=jis-x0213-1	  . #x3A53)	; &I-JX1-3A53; [26-51]
+     ((=ucs@unicode	  . #x91C7)	; &AJ1-02115;
+      (=adobe-japan1-0	  . 02115)	; &AJ1-02115;
       ))
     (=ucs@unicode	. #x5038)	; &C3-2F54;
     (=ucs@JP/hanazono	. nil)
@@ -24052,10 +24049,11 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((==ucs@unicode	    . #x91C7)	; &g2-GT-53946;
-	(==jis-x0213-1	    . #x3A53)	; &g2-GT-53946; [26-51]
+       ((==ucs@unicode	    . #x91C7)	; &g2-AJ1-02115;
+	(==adobe-japan1-0   . 02115)	; &g2-AJ1-02115;
 	))
       (==ucs@unicode	  . #x5038)	; &g2-UU+5038;
+      (==ucs@JP/hanazono  . nil)
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -27334,11 +27332,8 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=ucs@unicode	  . #x914B)	; &GT-53499;
-      (=gb2312		  . #x4775)	; &GT-53499; [39-85]
-      (=jis-x0208@1983	  . #x3D36)	; &I-J83-3D36; [29-22]
-      (=cns11643-1	  . #x536A)	; &I-C1-536A; [51-74]
-      (=jis-x0213-1@2000  . #x3D36)	; &I-JX1-3D36; [29-22]
+     ((=ucs@unicode	  . #x914B)	; &AJ1-02368;
+      (=adobe-japan1-0	  . 02368)	; &AJ1-02368;
       ))
     (=ucs@unicode	. #x5064)	; &C2-3364;
     (=ucs@JP/hanazono	. nil)
@@ -50317,12 +50312,12 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((==ucs@cns	    . #x89AA)	; &g2-GT-46995;
-	(==ucs@jis/1990	    . #x89AA)	; &g2-GT-46995;
-	(==ucs@jis/2000	    . #x89AA)	; &g2-GT-46995;
-	(==ucs@jis/2004	    . #x89AA)	; &g2-GT-46995;
-	(==ucs@ks	    . #x89AA)	; &g2-GT-46995;
-	(==jis-x0213-1	    . #x3F46)	; &g2-GT-46995; [31-38]
+       ((==ucs@cns	    . #x89AA)	; &g2-AJ1-02572;
+	(==ucs@jis/1990	    . #x89AA)	; &g2-AJ1-02572;
+	(==ucs@jis/2000	    . #x89AA)	; &g2-AJ1-02572;
+	(==ucs@jis/2004	    . #x89AA)	; &g2-AJ1-02572;
+	(==ucs@ks	    . #x89AA)	; &g2-AJ1-02572;
+	(==adobe-japan1-0   . 02572)	; &g2-AJ1-02572;
 	))
       (==ucs@cns	  . #x512D)	; &g2-AJ1-21172;
       (==ucs@jis	  . #x512D)	; &g2-AJ1-21172;
