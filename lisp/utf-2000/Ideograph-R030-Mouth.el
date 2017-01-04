@@ -21356,6 +21356,9 @@
       (=daikanwa	  . 40116)	; &I-M-40116;
       ))
     (=daikanwa		. 03809)	; &M-03809;
+    (->subsumptive
+     ((==daikanwa	  . 03809)	; &g2-M-03809;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -21370,11 +21373,8 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs@unicode	  . #x91C7)	; &GT-53946;
-      (=gb2312		  . #x3249)	; &GT-53946; [18-41]
-      (=jis-x0208@1983	  . #x3A53)	; &I-J83-3A53; [26-51]
-      (=cns11643-1	  . #x4F59)	; &I-C1-4F59; [47-57]
-      (=jis-x0213-1	  . #x3A53)	; &I-JX1-3A53; [26-51]
+     ((=ucs@unicode	  . #x91C7)	; &AJ1-02115;
+      (=adobe-japan1-0	  . 02115)	; &AJ1-02115;
       ))
     (=ucs@unicode	. #x554B)	; &C2-342D;
     (=ucs@JP/hanazono	. nil)
@@ -21387,8 +21387,8 @@
        ((==ucs@unicode	    . #x53E3)	; &g2-AJ1-01969;
 	(==adobe-japan1-0   . 01969)	; &g2-AJ1-01969;
 	)
-       ((==ucs@unicode	    . #x91C7)	; &g2-GT-53946;
-	(==jis-x0213-1	    . #x3A53)	; &g2-GT-53946; [26-51]
+       ((==ucs@unicode	    . #x91C7)	; &g2-AJ1-02115;
+	(==adobe-japan1-0   . 02115)	; &g2-AJ1-02115;
 	))
       (==ucs@unicode	  . #x554B)	; &g2-UU+554B;
       (==ucs@JP/hanazono  . nil)
@@ -56492,10 +56492,10 @@
        ((==ucs@unicode	    . #x53E3)	; &g2-AJ1-01969;
 	(==adobe-japan1-0   . 01969)	; &g2-AJ1-01969;
 	)
-       ((==ucs@cns	    . #x89BD)	; &g2-GT-47078;
-	(==ucs@jis	    . #x89BD)	; &g2-GT-47078;
-	(==ucs@ks	    . #x89BD)	; &g2-GT-47078;
-	(==jis-x0208	    . #x6B35)	; &g2-GT-47078; [75-21]
+       ((==ucs@cns	    . #x89BD)	; &g2-AJ1-06648;
+	(==ucs@jis	    . #x89BD)	; &g2-AJ1-06648;
+	(==ucs@ks	    . #x89BD)	; &g2-AJ1-06648;
+	(==adobe-japan1-0   . 06648)	; &g2-AJ1-06648;
 	))
       (==cbeta		  . 00772)	; &g2-CB00772;
       )
