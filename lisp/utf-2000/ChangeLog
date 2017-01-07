@@ -1,7 +1,15 @@
+2017-01-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R052-Short-Thread.el (U-000221C2): New character.
+	(IU+221C2): New character; use `<-denotational' for U-000221C2.
+
 2017-01-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R177-Leather.el: Add some Adobe-Japan1-0 code points.
 	(J78-3F59): Unify HD-FT1831.
+
+	* Ideograph-R018-Knife.el (U+5204): Separate UU+5204.
+	(U+5204-var-002): New character; use `<-denotational' for U+5204.
 
 2017-01-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 

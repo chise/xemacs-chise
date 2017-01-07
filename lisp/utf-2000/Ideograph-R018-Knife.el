@@ -330,9 +330,18 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
-    (hanyu-dazidian	1 320 4)
     (=ucs		. #x5204)	; 刄
-    (=adobe-japan1-0	. 04250)	; &I-AJ1-04250;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5204)	; 刄
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (hanyu-dazidian	1 320 4)
+    (=ucs@unicode	. #x5204)	; &AJ1-04250;
+    (=adobe-japan1-0	. 04250)	; &AJ1-04250;
     (=jis-x0208		. #x5163)	; &I-J90-5163; [49-67]
     (=cns11643-3	. #x2136)	; &I-C3-2136; [01-22]
     (=jis-x0213-1	. #x5163)	; &I-JX1-5163; [49-67]
@@ -341,7 +350,7 @@
     (=gt-k		. 00213)	; &I-GT-K00213;
     (=gt-pj-1		. #x5163)	; &I-GT-02408; [49-67]
     (=daikanwa		. 01849)	; &I-M-01849;
-    (=shinjigen		.  0592)	; 刄
+    (=shinjigen		.  0592)	; &AJ1-04250;
     (<-simplified@misc
      ((=ucs@unicode	  . #x5169)	; &AJ1-04215;
       (=adobe-japan1-0	  . 04215)	; &AJ1-04215;
@@ -400,6 +409,15 @@
        ((===big5-cdp	    . #x89F7)	; &R-CDP-89F7;
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5204)	; 刄
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (=ucs-var-002	. #x5204)	; &U-v002+5204;
     ))
 (define-char
   '((<-denotational
@@ -3803,9 +3821,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@jis	    . #x8033)	; &g2-GT-37565;
-	(==ucs@ks	    . #x8033)	; &g2-GT-37565;
-	(==jis-x0208	    . #x3C2A)	; &g2-GT-37565; [28-10]
+       ((==ucs@jis	    . #x8033)	; &g2-AJ1-02262;
+	(==ucs@ks	    . #x8033)	; &g2-AJ1-02262;
+	(==adobe-japan1-0   . 02262)	; &g2-AJ1-02262;
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
