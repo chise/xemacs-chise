@@ -1,3 +1,8 @@
+2017-01-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R177-Leather.el: Add some Adobe-Japan1-0 code points.
+	(J78-3F59): Unify HD-FT1831.
+
 2017-01-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R171-Slave.el: Add some Adobe-Japan1-0 code points.
