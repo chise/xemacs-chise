@@ -355,6 +355,39 @@
     ))
 (define-char
   '((ideographic-radical . 52)	; ⼳
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x221B6)	; 𢆶
+      )
+     ((=ucs		  . #x5EFE)	; 廾
+      ))
+    (=ucs		. #x221C2)	; 𢇂
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x221C2)	; 𢇂
+      ))
+    (ideographic-radical . 52)	; ⼳
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x221B6)	; 𢆶
+      )
+     ((=ucs@unicode	  . #x5EFE)	; &MJ011120;
+      (=mj		  . 011120)	; &MJ011120;
+      ))
+    (=ucs@iso		. #x221C2)	; &U-000221C2;
+    (->subsumptive
+     ((==ucs@iso	  . #x221C2)	; &g2-IU-000221C2;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 52)	; ⼳
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs		. #x221C6)	; 𢇆
