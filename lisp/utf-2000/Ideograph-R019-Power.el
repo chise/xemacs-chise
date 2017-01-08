@@ -5792,7 +5792,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt		  . 56364)	; &GT-56364;
+     ((=mj		  . 058978)	; &MJ058978;
       )
      ((=ucs		  . #x529B)	; 力
       ))
@@ -5829,7 +5829,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==gt		    . 56364)	; &g2-GT-56364;
+       ((==mj		    . 058978)	; &g2-MJ058978;
 	)
        ((==ucs@unicode	    . #x529B)	; &g2-AJ1-03991;
 	(==adobe-japan1-0   . 03991)	; &g2-AJ1-03991;
