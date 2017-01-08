@@ -7864,12 +7864,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x805A)	; &GT-37679;
-      (=jis-x0208	  . #x665C)	; &GT-37679; [70-60]
-      (=gb2312		  . #x3E5B)	; &I-G0-3E5B; [30-59]
-      (=ks-x1001	  . #x7629)	; &I-K0-7629; [86-09]
-      (=jis-x0213-1	  . #x665C)	; &I-JX1-665C; [70-60]
-      (=daikanwa	  . 29093)	; &I-M-29093;
+     ((=ucs@unicode	  . #x805A)	; &AJ1-06217;
+      (=adobe-japan1-0	  . 06217)	; &AJ1-06217;
       )
      ((name		  . "CJK RADICAL CITY")
       (=ucs		  . #x2ECF)	; ⻏
