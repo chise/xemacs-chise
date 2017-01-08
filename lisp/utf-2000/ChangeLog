@@ -1,3 +1,14 @@
+2017-01-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R178-Tanned-Leather.el: Add some Adobe-Japan1-0 code
+	points.
+
+2017-01-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R176-Face.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R030-Mouth.el (U+542C): Add representative nodes.
+
 2017-01-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R052-Short-Thread.el (U-000221C2): New character.
