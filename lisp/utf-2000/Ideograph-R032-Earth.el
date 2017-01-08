@@ -253,10 +253,9 @@
     (<-same@zhengzitong*sources
      zhengzitong daikanwa=04873/p1)
     (<-simplified@CN
-     ((=ucs@unicode	  . #x8056)	; &HD-JA-403B;
-      (=jis-x0208	  . #x403B)	; &HD-JA-403B; [32-27]
-      (=jis-x0213-1	  . #x403B)	; &I-JX1-403B; [32-27]
-      (=gb12345		  . #x4A25)	; &HD-JA-403B; [42-05]
+     ((=ucs@unicode	  . #x8056)	; &AJ1-02655;
+      (=adobe-japan1-0	  . 02655)	; &AJ1-02655;
+      (=gb12345		  . #x4A25)	; &AJ1-02655; [42-05]
       ))
     (<-vulgar
      ((=ucs@cns		  . #x8056)	; &GT-37654;
