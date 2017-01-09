@@ -582,9 +582,17 @@
       )
      ((=ucs		  . #x96B9)	; 隹
       ))
-    (=gt		. 56364)	; &GT-56364;
+    (=mj		. 058978)	; &MJ058978;
+    (=koseki		. 475830)	; &MJ058978;
+    (=gt		. 56364)	; &I-GT-56364;
     (=gt-k		. 08651)	; &I-GT-K08651;
-    (=gt-pj-9		. #x4C4B)	; &GT-56364; [44-43]
+    (=gt-pj-9		. #x4C4B)	; &I-GT-56364; [44-43]
+    (<-formed
+     ((=ucs@unicode	  . #x96DA)	; &HD-JD-7B73;
+      (=jis-x0213-2	  . #x7B73)	; &HD-JD-7B73; [91-83]
+      ))
+    (<-formed*sources
+     koseki)
     (<-simplified@component
      ((=ucs@cns		  . #x96DA)	; &HD-JB-6676;
       (=ucs@jis/1990	  . #x96DA)	; &HD-JB-6676;
@@ -593,8 +601,16 @@
       (=daikanwa	  . 42120)	; &I-M-42120;
       ))
     (->subsumptive
-     ((===gt		  . 56364)	; &R-GT-56364;
-      (===gt-k		  . 08651)	; &R-GT-56364;
+     ((==mj		  . 058978)	; &g2-MJ058978;
+      (==koseki		  . 475830)	; &g2-MJ058978;
+      (==gt		  . 56364)	; &g2-MJ058978;
+      (==gt-k		  . 08651)	; &g2-MJ058978;
+      (->subsumptive
+       ((===mj		    . 058978)	; &R-MJ058978;
+	)
+       ((===gt		    . 56364)	; &R-GT-56364;
+	(===gt-k	    . 08651)	; &R-GT-56364;
+	))
       ))
     ))
 (define-char
