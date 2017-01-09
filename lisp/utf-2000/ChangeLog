@@ -1,3 +1,8 @@
+2017-01-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (GT-56364): Unify MJ058978
+	and KOSEKI-475830; add `<-formed' for UU+96DA.
+
 2017-01-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R178-Tanned-Leather.el: Add some Adobe-Japan1-0 code
