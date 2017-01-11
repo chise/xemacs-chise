@@ -376,6 +376,29 @@
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL EYE")
+      (=ucs		  . #x2EAB)	; ⺫
+      )
+     ((=ucs		  . #x52F9)	; 勹
+      ))
+    (=ucs		. #x26276)	; 𦉶
+    (->subsumptive
+     ((==ucs@iso	  . #x26276)	; &g2-IU-00026276;
+      (->subsumptive
+       ((===ucs@iso	    . #x26276)	; &R-U-00026276;
+	)
+       ((=hanziku-8	    . #xAFDB)	; &HZK08-AFDB;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 122)	; ⽹
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
     (=ucs		. #x7F54)	; 罔
