@@ -441,6 +441,18 @@
     ))
 (define-char
   '((ideographic-radical . 131)	; ⾂
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
+    (=big5-cdp		. #x8D50)	; &CDP-8D50;
+    (<-formed@component
+     ((=ucs		  . #x76E3)	; 監
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8D50)	; &g2-CDP-8D50;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 131)	; ⾂
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (=ucs		. #x268EF)	; 𦣯
