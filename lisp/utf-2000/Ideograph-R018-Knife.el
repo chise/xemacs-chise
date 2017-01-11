@@ -13516,12 +13516,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x8821)	; &HD-FT-3938;
-      (=jis-x0208	  . #x6A42)	; &HD-FT-3938; [74-34]
-      (=gb2312		  . #x733B)	; &I-G0-733B; [83-27]
-      (=cns11643-1	  . #x7B26)	; &I-C1-7B26; [91-06]
-      (=jis-x0213-1	  . #x6A42)	; &I-JX1-6A42; [74-34]
-      (=daikanwa	  . 33796)	; &I-M-33796;
+     ((=ucs@unicode	  . #x8821)	; &AJ1-06567;
+      (=adobe-japan1-0	  . 06567)	; &AJ1-06567;
       )
      ((=ucs		  . #x5202)	; 刂
       ))
