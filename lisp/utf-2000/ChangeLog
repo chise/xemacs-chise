@@ -1,3 +1,17 @@
+2017-01-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R147-See.el: Add some Adobe-Japan1-0 code points.
+
+	* Ideograph-R131-Minister.el (BC-8D50): New character; use
+	`<-formed@component' for U+76E3.
+
+	* Ideograph-R128-Ear.el: Add some Adobe-Japan1-0 code points.
+	(A-BC-8BD1): New abstract character.
+	(GT-K06903): New character; use `<-denotational' for A-BC-8BD1.
+	(BC-8BD1): Likewise.
+
+	* Ideograph-R122-Net.el (U-00026276): New character.
+
 2017-01-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R172-Short-Tailed-Bird.el (GT-56364): Unify MJ058978
