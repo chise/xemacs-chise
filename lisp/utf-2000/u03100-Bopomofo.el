@@ -158,6 +158,11 @@
     (=gb2312		. #x2853)	; &I-G0-2853; [08-51]
     (=cns11643-1	. #x2555)	; &I-C1-2555; [05-53]
     (=big5		. #xA3A4)	; &I-B-A3A4;
+    (<-Bopomofo
+     ((=ucs@unicode	  . #x37A2)	; &C3-2162;
+      (=cns11643-3	  . #x2162)	; &C3-2162; [01-66]
+      (=daikanwa	  . 07829)	; &I-M-07829;
+      ))
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER CH")
