@@ -1,4 +1,22 @@
+2017-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R179-Leek.el: Add some Adobe-Japan1-0 code points.
+	(CU+97EE): Unify S-9124; add `<-vulgar' for U+97ED.
+	(U+97F2): Add `<-vulgar' for M-43252.
+	(M-43252): Unify S-9127.
+
+2017-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R140-Grass.el (U+83BE): Use `->denotational' and
+	`->subsumptive'.
+	(CU+8640): Unify S-9131; add `<-vulgar' for M-43252.
+	(U-00027171): Apply new conventions for glyph granularity.
+	(M-32638): Unify S-9129; add `<-formed' for M-43252.
+
 2017-01-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* u03100-Bopomofo.el (<BOPOMOFO LETTER ZH>): Add `<-Bopomofo' for
+	UU+37A2.
 
 	* Ideograph-R147-See.el: Add some Adobe-Japan1-0 code points.
 
@@ -11,6 +29,8 @@
 	(BC-8BD1): Likewise.
 
 	* Ideograph-R122-Net.el (U-00026276): New character.
+
+	* Ideograph-R104-Sickness.el (UU+7619): Add representative node.
 
 2017-01-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
