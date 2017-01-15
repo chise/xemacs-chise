@@ -1612,11 +1612,32 @@
     (=ruimoku-v6	. #xE063)	; &I-RUI6-E063;
     ))
 (define-char
-  '((ideographic-radical . 66)	; ⽁
+  '((<-denotational
+     ((=>daikanwa	  . 13458)	; &A-M-13458;
+      ))
+    (ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x21D42)	; 𡵂
+      )
+     ((=ucs		  . #x6535)	; 攵
+      ))
     (=ucs		. #x22F38)	; 𢼸
     (=ruimoku-v6	. #xE064)	; &I-RUI6-E064;
+    (->subsumptive
+     ((==ucs@iso	  . #x22F38)	; &g2-IU-00022F38;
+      (->subsumptive
+       ((===ucs@iso	    . #x22F38)	; &R-U-00022F38;
+	)
+       ((=hanziku-4	    . #xD65A)	; &HZK04-D65A;
+	))
+      )
+     ((==ruimoku-v6	  . #xE064)	; &g2-RUI6-E064;
+      ))
     ))
 (define-char
   '((ideographic-radical . 149)	; ⾔

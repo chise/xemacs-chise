@@ -1,3 +1,12 @@
+2017-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R203-Black.el (U+9EF4): New character.
+
+2017-01-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ruimoku6.el (U-00022F38): Add `<-denotational' for A-M-13458;
+	add representative nodes.
+
 2017-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R179-Leek.el: Add some Adobe-Japan1-0 code points.
