@@ -308,15 +308,84 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 67)	; ⽂
+  '((<-denotational
+     ((=>daikanwa	  . 13458)	; &A-M-13458;
+      ))
+    (ideographic-radical@ucs . 66)	; ⽁
+    (ideographic-radical@cns . 67)	; ⽂
+    (ideographic-radical@cns*sources
+     daikanwa cns11643 ucs@code)
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (=ucs		. #x2304B)	; 𣁋
-    (->subsumptive
-     ((=daikanwa	  . 13458)	; &M-13458;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@iso		  . #x2304B)	; &C6-382E;
-      (=cns11643-6	  . #x382E)	; &C6-382E; [24-14]
+     ((=ucs		  . #x21D49)	; 𡵉
+      )
+     ((=ucs		  . #x6535)	; 攵
+      ))
+    (=ucs		. #x2304B)	; 𣁋
+    (=cns11643-6	. #x382E)	; &I-C6-382E; [24-14]
+    (=daikanwa		. 13458)	; &I-M-13458;
+    (<-same
+     ((=ucs@cns		  . #x5FAE)	; &AJ1-03469;
+      (=ucs@jis		  . #x5FAE)	; &AJ1-03469;
+      (=adobe-japan1-0	  . 03469)	; &AJ1-03469;
+      (=daikanwa	  . 10203)	; &I-M-10203;
+      ))
+    (<-same*sources
+     shuowen-zhu daikanwa)
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x21D49)	; 𡵉
+	)
+       ((=ucs		    . #x6535)	; 攵
+	))
+      (=>>daikanwa	  . 13458)	; &G-M-13458;
+      (->subsumptive
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((==big5-cdp	      . #x8CEF)	; &g2-CDP-8CEF;
+	  )
+	 ((name		      . "CJK RADICAL RAP")
+	  (=ucs		      . #x2E99)	; ⺙
+	  ))
+	(==daikanwa	    . 13458)	; &g2-M-13458;
+	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=>>ucs@iso	    . #x21D49)	; &G-IU+21D49;
+	)
+       ((=ucs		    . #x6535)	; 攵
+	))
+      (=>>ucs@iso	  . #x2304B)	; &G-IU+2304B;
+      (->subsumptive
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((=gt-k	      . 01817)	; &GT-K01817;
+	  )
+	 ((name		      . "CJK RADICAL RAP")
+	  (=ucs		      . #x2E99)	; ⺙
+	  ))
+	(==ucs@iso	    . #x2304B)	; &g2-IU-0002304B;
+	(==cns11643-6	    . #x382E)	; &g2-IU-0002304B; [24-14]
+	(->subsumptive
+	 ((===cns11643-6      . #x382E)	; &R-C6-382E; [24-14]
+	  )
+	 ((===ucs@iso	      . #x2304B)	; &R-U-0002304B;
+	  ))
+	))
       ))
     ))
 (define-char
