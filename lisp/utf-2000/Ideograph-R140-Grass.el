@@ -32883,12 +32883,65 @@
 (define-char
   '((ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x8279)	; 艹
+      )
+     ((=>daikanwa	  . 13458)	; &A-M-13458;
+      ))
+    (=ucs		. #x26D68)	; 𦵨
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x26D68)	; 𦵨
+      ))
+    (ideographic-radical . 140)	; ⾋
+    (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (hanyu-dazidian	5 3264 3)
-    (=ucs		. #x26D68)	; 𦵨
-    (=cns11643-6	. #x6156)	; &I-C6-6156; [65-54]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL GRASS TWO")
+      (=ucs		  . #x2EBF)	; ⺿
+      )
+     ((=ucs		  . #x2304B)	; 𣁋
+      ))
+    (=ucs@iso		. #x26D68)	; &C6-6156;
+    (=cns11643-6	. #x6156)	; &C6-6156; [65-54]
     (=daikanwa		. 31557)	; &I-M-31557;
-    (=hanziku-9		. #xA45A)	; &I-HZK09-A45A;
+    (->subsumptive
+     ((==daikanwa	  . 31557)	; &g2-M-31557;
+      )
+     ((==ucs@iso	  . #x26D68)	; &g2-IU-00026D68;
+      (==cns11643-6	  . #x6156)	; &g2-IU-00026D68; [65-54]
+      (->subsumptive
+       ((===cns11643-6	    . #x6156)	; &R-C6-6156; [65-54]
+	)
+       ((===ucs@iso	    . #x26D68)	; &R-U-00026D68;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x26D68)	; 𦵨
+      ))
+    (ideographic-radical . 140)	; ⾋
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL GRASS TWO")
+      (=ucs		  . #x2EBF)	; ⺿
+      )
+     ((=ucs		  . #x22F38)	; 𢼸
+      ))
+    (=hanziku-9		. #xA45A)	; &HZK09-A45A;
     ))
 (define-char
   '((=>ucs		. #x849A)	; 蒚
