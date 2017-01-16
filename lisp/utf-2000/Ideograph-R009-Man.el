@@ -34679,6 +34679,55 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
+     ((=>daikanwa	  . 13458)	; &A-M-13458;
+      ))
+    (=ucs		. #x2031D)	; 𠌝
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2031D)	; 𠌝
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (hanyu-dazidian	1 203 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs		  . #x22F38)	; 𢼸
+      ))
+    (=ucs@iso		. #x2031D)	; &U-0002031D;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL PERSON")
+	(=ucs		    . #x2E85)	; ⺅
+	)
+       ((==ucs@iso	    . #x22F38)	; &g2-IU-00022F38;
+	))
+      (==ucs@iso	  . #x2031D)	; &g2-IU-0002031D;
+      (->subsumptive
+       ((===ucs@iso	    . #x2031D)	; &R-U-0002031D;
+	)
+       ((=hanziku-1	    . #xD042)	; &HZK01-D042;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
      ((=ucs		  . #x6715)	; 朕
       ))
     (=ucs		. #x2A75D)	; 𪝝
@@ -54173,22 +54222,6 @@
     (hanyu-dazidian	1 203 4)
     (=ucs		. #x2031B)	; 𠌛
     (=hanziku-1		. #xCFFE)	; &I-HZK01-CFFE;
-    ))
-(define-char
-  '((ideographic-radical . 9)	; ⼈
-    (hanyu-dazidian	1 203 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
-      (=ucs		  . #x2FF2)	; ⿲
-      )
-     ((=ucs		  . #x4EBB)	; 亻
-      )
-     ((=big5-cdp	  . #x8CEF)	; &CDP-8CEF;
-      )
-     ((=ucs		  . #x6535)	; 攵
-      ))
-    (=ucs		. #x2031D)	; 𠌝
-    (=hanziku-1		. #xD042)	; &I-HZK01-D042;
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
