@@ -1,4 +1,38 @@
+2017-01-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R210-Even.el: Add some Adobe-Japan1-0 code points.
+
 2017-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R142-Insect.el: Add some Adobe-Japan1-0 code points.
+	(UU+86F8): Unify JC3-63B4.
+	(U+8728): Unify S1-7231 and S2-7232; add `<-original' for U+8776.
+
+	* Ideograph-R140-Grass.el (U-00026D68): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R067-Script.el (U-0002304B): Apply new conventions for
+	glyph granularity; add `<-denotational' for A-M-13458; use
+	`ideographic-radical@cns' instead of `ideographic-radical'; add
+	`ideographic-radical@ucs'.
+
+	* Ideograph-R066-Rap.el (A-M-13458): New abstract node.
+	(U-0002304B): New character; copied from Ideograph-R067-Script.el;
+	add `<-denotational' for A-M-13458.
+	(U-00022F38): Add `<-denotational' for A-M-13458; add
+	representative nodes.
+	(U+22F38-itaiji-002): New character; use `<-formed' for
+	U-00022F38.
+	(U-00022F60): Apply new conventions for glyph granularity.
+	(U+22F60-var-001): New character; use `<-denotational' for
+	U-00022F60.
+
+	* Ideograph-R038-Woman.el (U+5ABA): Add `ideographic-structure';
+	apply new conventions for glyph granularity.
+	(U+5B0D): Likewise.
+
+	* Ideograph-R009-Man.el (U-0002031D): Apply new conventions for
+	glyph granularity.
 
 	* Ideograph-R203-Black.el (U+9EF4): New character.
 
