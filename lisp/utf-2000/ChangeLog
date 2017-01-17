@@ -1,3 +1,11 @@
+2017-01-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R060-Step.el (U+5FAE): Add `ideographic-structure'.
+	(JU+5FAE): Likewise; unify S-2376; apply new conventions for glyph
+	granularity.
+	(UU+5FAE): Add `ideographic-structure'.
+	(U+38F2): Likewise; unify S-2378; add `<-vulgar' for JU+5FAE.
+
 2017-01-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R210-Even.el: Add some Adobe-Japan1-0 code points.
