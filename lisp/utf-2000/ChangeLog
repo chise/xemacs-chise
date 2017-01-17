@@ -1,5 +1,9 @@
 2017-01-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R085-Water.el (U+6EA6): Add `ideographic-structure'.
+	(CU+6EA6): Likewise.
+	(UU+6EA6): Likewise.
+
 	* Ideograph-R060-Step.el (U+5FAE): Add `ideographic-structure'.
 	(JU+5FAE): Likewise; unify S-2376; apply new conventions for glyph
 	granularity.
