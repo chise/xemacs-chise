@@ -283,6 +283,30 @@
     ))
 (define-char
   '((ideographic-radical . 109)	; ⽬
+    (ideographic-strokes . 2)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5341)	; 十
+      )
+     ((=ucs		  . #x76EE)	; 目
+      ))
+    (=ucs		. #x250ED)	; 𥃭
+    (=big5-cdp		. #x8DD5)	; &I-CDP-8DD5;
+    (->subsumptive
+     ((==ucs@iso	  . #x250ED)	; &g2-CDP-8DD5;
+      (==big5-cdp	  . #x8DD5)	; &g2-CDP-8DD5;
+      (->subsumptive
+       ((===big5-cdp	    . #x8DD5)	; &R-CDP-8DD5;
+	)
+       ((===ucs@iso	    . #x250ED)	; &R-U-000250ED;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
     (=ucs		. #x4010)	; 䀐
