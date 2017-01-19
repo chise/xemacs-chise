@@ -1,3 +1,15 @@
+2017-01-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R055-Two-Hands.el (U-0002F893): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R004-Slash.el (CB07311): New character; use
+	`<-denotational' for U-000200A2.
+	(JU+200A2): Apply new conventions for glyph granularity.
+
+	* Ideograph-R002-Line.el (U+4E2A): Add representative nodes.
+	(U+4E32): Apply new conventions for glyph granularity.
+
 2017-01-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R003-Dot.el (U+4E36): Add representative nodes.
