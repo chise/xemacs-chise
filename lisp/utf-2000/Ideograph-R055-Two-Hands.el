@@ -881,16 +881,6 @@
     (ideographic-radical@ucs/compat*sources
      cns11643-6)
     (total-strokes	 . 9)
-    (=decomposition@cid
-     ((=ucs		  . #x8201)	; 舁
-      )
-     ((=ucs		  . #xE0100)	; 󠄀
-      ))
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x8201)	; 舁
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -911,6 +901,42 @@
     (=hanyo-denshi/ja	. #x674D)	; &I-HD-JA-674D; [71-45]
     (=gt		. 39043)	; &I-GT-39043;
     (=gt-pj-1		. #x674D)	; &I-GT-39043; [71-45]
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x8201)	; 舁
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x8201)	; 舁
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@iso	  . #x2F893)	; &g2-AJ1-06296;
+      (==ucs@unicode	  . #x8201)	; &g2-AJ1-06296;
+      (==ucs@cns	  . #x2F893)	; &g2-AJ1-06296;
+      (==adobe-japan1-0	  . 06296)	; &g2-AJ1-06296;
+      (==gb2312		  . #x7428)	; &g2-AJ1-06296; [84-08]
+      (==jis-x0208	  . #x674D)	; &g2-AJ1-06296; [71-45]
+      (==cns11643-6	  . #x3074)	; &g2-AJ1-06296; [16-84]
+      (==jis-x0213-1	  . #x674D)	; &g2-AJ1-06296; [71-45]
+      (==hanyo-denshi/ja  . #x674D)	; &g2-AJ1-06296; [71-45]
+      (==gt		  . 39043)	; &g2-AJ1-06296;
+      (->subsumptive
+       ((===jis-x0208	    . #x674D)	; &R-J0-674D; [71-45]
+	(===jis-x0213-1	    . #x674D)	; &R-J0-674D; [71-45]
+	)
+       ((===adobe-japan1-0  . 06296)	; &R-AJ1-06296;
+	)
+       ((===gt		    . 39043)	; &R-GT-39043;
+	)
+       ((===ucs@unicode	    . #x8201)	; &R-UU+8201;
+	)
+       ((===cns11643-6	    . #x3074)	; &R-C6-3074; [16-84]
+	)
+       ((===ucs@iso	    . #x2F893)	; &R-U-0002F893;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 55)	; ⼶
