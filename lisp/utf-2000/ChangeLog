@@ -1,5 +1,14 @@
 2017-01-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R003-Dot.el (U+4E36): Add representative nodes.
+	(U-0002F801): Apply new conventions for glyph granularity.
+	(U+4E3C): Add representative nodes.
+
+	* Ideograph-R001-One.el (U+4E10): Add representative nodes.
+	(U+4E15): Likewise.
+
+2017-01-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R183-Fly.el: Add some Adobe-Japan1-0 code points.
 
 2017-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
