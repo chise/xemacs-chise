@@ -1935,7 +1935,7 @@
 	)
        ((===ucs@unicode	    . #x5150)	; &R-UU+5150;
 	)
-       ((=hanziku-1	  . #xDDC6)	; &g2-AJ1-02247;
+       ((=hanziku-1	    . #xDDC6)	; &HZK01-DDC6;
 	))
       ))
     ))
