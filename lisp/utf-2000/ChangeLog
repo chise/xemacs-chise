@@ -57,6 +57,9 @@
 	* Ideograph-R002-Line.el (U+4E2A): Add representative nodes.
 	(U+4E32): Apply new conventions for glyph granularity.
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs@component'.
+
 2017-01-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R003-Dot.el (U+4E36): Add representative nodes.
