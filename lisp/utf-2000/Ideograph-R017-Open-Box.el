@@ -462,6 +462,32 @@
     ))
 (define-char
   '((ideographic-radical . 17)	; ⼐
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (=ucs		. #x2067D)	; 𠙽
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2067D)	; 𠙽
+      ))
+    (ideographic-radical . 17)	; ⼐
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs		  . #x51F5)	; 凵
+      )
+     ((=ucs		  . #x58EB)	; 士
+      ))
+    (=ucs@iso		. #x2067D)	; &U-0002067D;
+    (->subsumptive
+     ((==ucs@iso	  . #x2067D)	; &g2-IU-0002067D;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (=ucs		. #x2067E)	; 𠙾

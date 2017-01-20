@@ -8830,12 +8830,10 @@
     (=daikanwa		. 00515)	; &I-M-00515;
     (=shinjigen		.  0202)	; &AJ1-03880;
     (<-simplified@JP/Jouyou
-     ((=ucs@jis		  . #x9918)	; &GT-59417;
-      (=ucs@ks		  . #x9918)	; &GT-59417;
-      (=jis-x0208	  . #x7131)	; &GT-59417; [81-17]
-      (=ks-x1001	  . #x662E)	; &I-K0-662E; [70-14]
-      (=jis-x0213-1	  . #x7131)	; &I-JX1-7131; [81-17]
-      (=daikanwa	  . 44185)	; &I-M-44185;
+     ((=ucs@jis		  . #x9918)	; &AJ1-07208;
+      (=ucs@ks		  . #x9918)	; &AJ1-07208;
+      (=adobe-japan1-0	  . 07208)	; &AJ1-07208;
+      (=jis-x0208	  . #x7131)	; &I-J90-7131; [81-17]
       ))
     (->subsumptive
      ((==ucs@unicode	  . #x4F59)	; &g2-AJ1-03880;
@@ -38713,10 +38711,24 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=ks-x1001	  . #x5146)	; &GT-59043; [49-38]
+     ((=ucs@ks		  . #x98E2)	; &GT-59043;
+      (=ks-x1001	  . #x5146)	; &GT-59043; [49-38]
       (=daikanwa	  . 44023)	; &I-M-44023;
       ))
     (=daikanwa		. 01075)	; &M-01075;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL PERSON")
+	(=ucs		    . #x2E85)	; ⺅
+	)
+       ((==ucs@ks	    . #x98E2)	; &g2-GT-59043;
+	(==daikanwa	    . 44023)	; &g2-GT-59043;
+	))
+      (==daikanwa	  . 01075)	; &g2-M-01075;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -38741,10 +38753,8 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=ucs@unicode	  . #x98E2)	; &GT-59033;
-      (=jis-x0208	  . #x3532)	; &GT-59033; [21-18]
-      (=cns11643-1	  . #x586A)	; &I-C1-586A; [56-74]
-      (=jis-x0213-1	  . #x3532)	; &I-JX1-3532; [21-18]
+     ((=ucs@unicode	  . #x98E2)	; &AJ1-01612;
+      (=adobe-japan1-0	  . 01612)	; &AJ1-01612;
       ))
     (=ucs@iso		. #x20343)	; &U-00020343;
     (->subsumptive
@@ -38755,8 +38765,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((==ucs@unicode	    . #x98E2)	; &g2-GT-59033;
-	(==jis-x0208	    . #x3532)	; &g2-GT-59033; [21-18]
+       ((==ucs@unicode	    . #x98E2)	; &g2-AJ1-01612;
+	(==adobe-japan1-0   . 01612)	; &g2-AJ1-01612;
 	))
       (==ucs@iso	  . #x20343)	; &g2-IU-00020343;
       ))

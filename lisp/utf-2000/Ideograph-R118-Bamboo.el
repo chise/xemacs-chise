@@ -4534,7 +4534,7 @@
   '((ideographic-radical . 118)	; ⽵
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
-    (sound@ja/on/go/p=yu4 "wiki")
+    (sound@ja/on/go/p=yu4 "Wiki")
     (sound@ja/on/kan/p=yu4 "yoku")
     (sound@ja/on/p=huo4 "waku")
     (=ucs		. #x4205)	; 䈅
@@ -9023,11 +9023,20 @@
   '((ideographic-radical . 118)	; ⽵
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=mj		  . 058270)	; &MJ058270;
+      )
+     ((=ucs		  . #x53B6)	; 厶
+      ))
     (=ucs		. #x7BE1)	; 篡
     (=gb2312		. #x345B)	; &I-G0-345B; [20-59]
     (=cns11643-1	. #x7163)	; &I-C1-7163; [81-67]
     (=big5		. #xBF79)	; &I-B-BF79;
     (=daikanwa		. 26330)	; &I-M-26330;
+    (=shinjigen		.  0895)	; 篡
     ))
 (define-char
   '((ideographic-radical . 118)	; ⽵
@@ -11152,6 +11161,14 @@
   '((ideographic-radical . 118)	; ⽵
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=mj		  . 058270)	; &MJ058270;
+      )
+     ((=ucs		  . #x4E48)	; 么
+      ))
     (=ucs		. #x7C12)	; 簒
     (=adobe-japan1-0	. 04330)	; &I-AJ1-04330;
     (=jis-x0208		. #x5255)	; &I-J90-5255; [50-53]
@@ -11161,6 +11178,13 @@
     (=gt		. 34045)	; &I-GT-34045;
     (=gt-pj-1		. #x5255)	; &I-GT-34045; [50-53]
     (=daikanwa		. 26490)	; &I-M-26490;
+    (=shinjigen		.  0896)	; 簒
+    (<-vulgar
+     ((=ucs		  . #x7BE1)	; 篡
+      (=shinjigen	  .  0895)	; 篡
+      ))
+    (<-vulgar*sources
+     shinjigen)
     ))
 (define-char
   '((=>ucs		. #x25CAE)	; 𥲮

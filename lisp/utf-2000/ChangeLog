@@ -1,5 +1,52 @@
 2017-01-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R010-Legs.el: Complete representative nodes of
+	`=adobe-japan1-0' glyphs.
+	(U+5141): Fix notation of `sound@ja/on'.
+
+	* Ideograph-R140-Grass.el (U+82B3): Add `ideographic-structure'.
+
+	* Ideograph-R135-Tongue.el: Complete representative nodes of
+	`=adobe-japan1-0' glyphs.
+
+	* Ideograph-R134-Mortar.el (U-0002F893): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R118-Bamboo.el (U+4205): Fix notation of
+	`sound@ja/on/go/p=yu4'.
+	(U+7BE1): Add `ideographic-structure'; unify S-0895.
+	(U+7C12): Add `ideographic-structure'; unify S-0896; add
+	`<-vulgar' for U+7BE1.
+
+	* Ideograph-R112-Stone.el (U+7825): Add `ideographic-structure'.
+	(JU+7825): Add representative nodes.
+	(UU+7825): Likewise.
+
+2017-01-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R045-Sprout.el: Complete representative nodes of
+	`=adobe-japan1-0' glyphs.
+	(UU+5C6F): Add representative nodes.
+	(U+37A2): Apply new conventions for glyph granularity.
+	(UU+37A2): Add `<-original' for UU+4E4B; add `->Bopomofo' for
+	<BOPOMOFO LETTER ZH>.
+	(U+37A2-var-001): New character; use `<-denotational' for
+	o-UU+37A2.
+	(U+37A2-var-002): New character; use `<-denotational' for U+37A2.
+	(U-00021D42): New character; use `<-denotational' for IWDS1-0263.
+	(U-00021D49): Likewise; unify BC-8CEF; integrate GT-K01817 and
+	GT-K01818.
+	(IWDS1-0263): New abstract node.
+	(U+21D42-itaiji-001): New character; use `<-formed' for
+	U-00021D42.
+	(U-00021D0D): Apply new conventions for glyph granularity.
+	(UU+21D0D): Add `<-ancient' for UU+37B7.
+	(BC-8DB6): New character; use `<-denotational' for A-IU+21D0D.
+
+	* Ideograph-R017-Open-Box.el (U-0002067D): New character.
+
+	* Ideograph-R009-Man.el (M-01075): Add representative node.
+
 	* Ideograph-R055-Two-Hands.el (U-0002F893): Apply new conventions
 	for glyph granularity.
 
@@ -9,6 +56,9 @@
 
 	* Ideograph-R002-Line.el (U+4E2A): Add representative nodes.
 	(U+4E32): Apply new conventions for glyph granularity.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs@component'.
 
 2017-01-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
