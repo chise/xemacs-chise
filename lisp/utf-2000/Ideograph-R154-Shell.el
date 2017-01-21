@@ -2945,9 +2945,35 @@
   '((ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7F51)	; 网
+      )
+     ((=ucs		  . #x8C9D)	; 貝
+      ))
     (=ucs		. #x27D7D)	; 𧵽
     (=cns11643-6	. #x5861)	; &I-C6-5861; [56-65]
     (=daikanwa		. 36775)	; &I-M-36775;
+    (<-original
+     ((=ucs		  . #x8CB7)	; 買
+      (=daikanwa	  . 36708)	; &I-M-36708;
+      ))
+    (<-original*sources
+     zhonghua-dazidian daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x27D7D)	; &g2-M-36775;
+      (==cns11643-6	  . #x5861)	; &g2-M-36775; [56-65]
+      (==daikanwa	  . 36775)	; &g2-M-36775;
+      (->subsumptive
+       ((===daikanwa	    . 36775)	; &R-M-36775;
+	)
+       ((===cns11643-6	    . #x5861)	; &R-C6-5861; [56-65]
+	)
+       ((===ucs@iso	    . #x27D7D)	; &R-U-00027D7D;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 154)	; ⾙
@@ -4302,12 +4328,19 @@
   '((ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 8)
     (total-strokes	 . 15)
+    (sound@ja/on	"Wiku")
     (=ucs		. #x27DA0)	; 𧶠
     (=cns11643-5	. #x513A)	; &I-C5-513A; [49-26]
     (=jis-x0213-2	. #x792F)	; &I-JX2-792F; [89-15]
     (=gt		. 49295)	; &I-GT-49295;
     (=gt-pj-7		. #x422B)	; &I-GT-49295; [34-11]
     (=daikanwa		. 36824)	; &I-M-36824;
+    (->mistakable
+     ((=ucs		  . #x8CE3)	; 賣
+      (=daikanwa	  . 36825)	; &I-M-36825;
+      ))
+    (->mistakable*sources
+     zihui-biansi-2char daikanwa)
     (->subsumptive
      ((==ucs@jis	  . #x27DA0)	; &g2-GT-49295;
       (==jis-x0213-2	  . #x792F)	; &g2-GT-49295; [89-15]
@@ -4331,6 +4364,16 @@
   '((ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 8)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x58EB)	; 士
+      )
+     ((=ucs		  . #x8CB7)	; 買
+      ))
+    (sound@ja/on/go	"mai" "me")
+    (sound@ja/on/kan	"bai" "ba")
     (=ucs		. #x8CE3)	; 賣
     (=adobe-japan1-0	. 06767)	; &I-AJ1-06767;
     (=jis-x0208		. #x6C4E)	; &I-J90-6C4E; [76-46]

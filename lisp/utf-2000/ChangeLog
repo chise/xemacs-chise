@@ -1,4 +1,47 @@
+2017-01-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R162-Walk.el (U+8FF6): Add `ideographic-structure'.
+	(JU+8FF6): Likewise; unify JC3-67B8.
+	(UU+8FF6): Add `ideographic-structure'.
+	(C2-3335): Likewise; unify CU+8FF6.
+	(U+9040): Add `ideographic-structure'.
+	(M-38980): Likewise.
+	(UU+9040): Likewise.
+	(C3-447D): Likewise; unify CU+9040.
+
+	* Ideograph-R154-Shell.el (U-00027D7D): Add `<-original' for
+	U+8CB7.
+	(U-00027DA0): Add `sound@ja/on'; add `->mistakable' for U+8CE3.
+	(U+8CE3): Add `sound@ja/on/go' and `sound@ja/on/kan'.
+
 2017-01-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R130-Meat.el: Complete representative nodes of
+	`=adobe-japan1-0' glyphs.
+	(U+8108): Add `ideographic-structure'.
+	(UU+8108): Likewise.
+	(o-J90-4C2E): Unify o-JU+8108 instead of JU+8108.
+	(J78-4C2E): Add `ideographic-structure'; add `<-same' for UU+8108.
+	(U+8133): Unify S-6504.
+	(U+8166): Separate UU+8166.
+	(UU+8166): Add `=>ucs@iwds-1'.
+	(MJ058390): New character; use `<-denotational' for U+8166; unify
+	HD-KS331820 and S-6506; add `<-formed' for UU+8166; add `<-vulgar'
+	for UU+8166.
+	(U+81A4): Add `ideographic-structure'.
+	(JU+81A4): Likewise.
+	(UU+81A4): Likewise.
+	(U+81B3): Apply new conventions for glyph granularity.
+	(U+81B8): Add `ideographic-structure'.
+	(JU+81B8): Likewise.
+	(C3-5623): Likewise; unify CU+81B8.
+	(UU+81B8): Add `ideographic-structure'.
+	(U+81D3): Apply new conventions for glyph granularity.
+
+	* Ideograph-R037-Big.el (GT-K01085): New character; use
+	`<-formed@component' for U+5F01.
+	(U-00020AFB): Add `ideographic-structure'.
+	(IU+20AFB): Unify S-5049; add `<-original' for U+755A.
 
 	* Ideograph-R010-Legs.el: Complete representative nodes of
 	`=adobe-japan1-0' glyphs.
