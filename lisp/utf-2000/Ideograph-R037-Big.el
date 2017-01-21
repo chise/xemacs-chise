@@ -1284,6 +1284,33 @@
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53B6)	; 厶
+      )
+     ((=ucs		  . #x5927)	; 大
+      ))
+    (=gt-k		. 01085)	; &GT-K01085;
+    (=gt-pj-k1		. #x4B62)	; &GT-K01085; [43-66]
+    (<-formed@component
+     ((=ucs		  . #x5F01)	; 弁
+      ))
+    (->subsumptive
+     ((==gt-k		  . 01085)	; &g2-GT-K01085;
+      )
+     ((=gt-k		  . 01084)	; &GT-K01084;
+      (=gt-pj-k1	  . #x305F)	; &GT-K01084; [16-63]
+      (<-formed@component/connect-below
+       ((=gt-k		    . 01085)	; &GT-K01085;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 529 6)
@@ -3106,6 +3133,14 @@
     (ideographic-radical@cns*sources
      daikanwa cns11643)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 01085)	; &GT-K01085;
+      )
+     ((=ucs		  . #x2067D)	; 𠙽
+      ))
     (=ucs		. #x20AFB)	; 𠫻
     ))
 (define-char
@@ -3119,9 +3154,25 @@
     (ideographic-radical@cns*sources
      daikanwa cns11643)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 01085)	; &GT-K01085;
+      )
+     ((=ucs@iso		  . #x2067D)	; &U-0002067D;
+      ))
     (=ucs@iso		. #x20AFB)	; &C6-3649;
     (=cns11643-6	. #x3649)	; &C6-3649; [22-41]
     (=daikanwa		. 05931)	; &I-M-05931;
+    (=shinjigen		.  5049)	; &C6-3649;
+    (<-original
+     ((=ucs		  . #x755A)	; 畚
+      (=jis-x0208	  . #x613D)	; &I-J90-613D; [65-29]
+      (=shinjigen	  .  5048)	; 畚
+      ))
+    (<-original*sources
+     shinjigen)
     ))
 (define-char
   '((=>ucs		. #x2161F)	; 𡘟
