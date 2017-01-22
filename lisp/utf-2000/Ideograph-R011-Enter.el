@@ -1402,12 +1402,8 @@
     (ideographic-radical . 11)	; ⼊
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (=decomposition@cid
-     ((=ucs		  . #x516A)	; 兪
-      )
-     ((=ucs		  . #xE0100)	; 󠄀
-      ))
     (=ucs@jis		. #x516A)	; &AJ1-04216;
+    (=ucs@ks		. #x516A)	; &AJ1-04216;
     (=adobe-japan1-0	. 04216)	; &AJ1-04216;
     (=jis-x0208		. #x5141)	; &I-J90-5141; [49-33]
     (=ks-x1001		. #x6A64)	; &I-K0-6A64; [74-68]
@@ -1417,6 +1413,37 @@
     (=gt-pj-1		. #x5141)	; &I-GT-01873; [49-33]
     (=daikanwa		. 01437)	; &I-M-01437;
     (=shinjigen		.  0487)	; &AJ1-04216;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x516A)	; 兪
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x516A)	; &g2-AJ1-04216;
+      (==ucs@ks		  . #x516A)	; &g2-AJ1-04216;
+      (==adobe-japan1-0	  . 04216)	; &g2-AJ1-04216;
+      (==ks-x1001	  . #x6A64)	; &g2-AJ1-04216; [74-68]
+      (==jis-x0208	  . #x5141)	; &g2-AJ1-04216; [49-33]
+      (==jis-x0213-1	  . #x5141)	; &g2-AJ1-04216; [49-33]
+      (==gt		  . 01873)	; &g2-AJ1-04216;
+      (==gt-k		  . 05209)	; &g2-AJ1-04216;
+      (==daikanwa	  . 01437)	; &g2-AJ1-04216;
+      (==shinjigen	  .  0487)	; &g2-AJ1-04216;
+      (->subsumptive
+       ((===daikanwa	    . 01437)	; &R-M-01437;
+	)
+       ((===jis-x0208	    . #x5141)	; &R-J0-5141; [49-33]
+	(===jis-x0213-1	    . #x5141)	; &R-J0-5141; [49-33]
+	)
+       ((===adobe-japan1-0  . 04216)	; &R-AJ1-04216;
+	)
+       ((===gt		    . 01873)	; &R-GT-01873;
+	(===gt-k	    . 05209)	; &R-GT-01873;
+	)
+       ((===ucs@ks	    . #x516A)	; &R-K0-6A64;
+	(===ks-x1001	    . #x6A64)	; &R-K0-6A64; [74-68]
+	))
+      ))
     ))
 (define-char
   '((<-denotational
