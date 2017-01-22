@@ -1,5 +1,10 @@
 2017-01-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R011-Enter.el (JU+516A): Apply new conventions for
+	glyph granularity.
+
+2017-01-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R162-Walk.el (U+8FF6): Add `ideographic-structure'.
 	(JU+8FF6): Likewise; unify JC3-67B8.
 	(UU+8FF6): Add `ideographic-structure'.
