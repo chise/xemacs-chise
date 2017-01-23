@@ -1,3 +1,7 @@
+2017-01-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* JC3-to-UCS.txt (JC3-47DC): Map to U+58A8 instead of U+FA3A.
+
 2017-01-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* JX3-JX1-rep-diff.txt (1-19-10): Comment out because it seems

@@ -1,3 +1,17 @@
+2017-01-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R108-Dish.el (U-0002C41A): New character.
+
+2017-01-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R120-Silk.el: Complete representative nodes of
+	`=adobe-japan1-0' glyphs.
+
+	* Ideograph-R028-Private.el: Complete representative nodes of
+	`=adobe-japan1-0' glyphs.
+	(U-00020AFB): Add `ideographic-structure'.
+	(IU+20AFB): Likewise; unify S-5049; add `<-original' for U+755A.
+
 2017-01-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R011-Enter.el (JU+516A): Apply new conventions for
