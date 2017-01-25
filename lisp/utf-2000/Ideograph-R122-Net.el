@@ -1108,16 +1108,65 @@
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7F52)	; 罒
+      )
+     ((=ucs		  . #x6B63)	; 正
+      ))
+    (=ucs		. #x7F61)	; 罡
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7F61)	; 罡
+      ))
+    (ideographic-radical . 122)	; ⽹
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
-    (=ucs		. #x7F61)	; 罡
-    (=gb2312		. #x6E38)	; &I-G0-6E38; [78-24]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x7F52)	; &JX2-746A;
+      (=jis-x0212	  . #x5474)	; &JX2-746A; [52-84]
+      (=cns11643-4	  . #x2221)	; &I-C4-2221; [02-01]
+      (=jis-x0213-2	  . #x746A)	; &I-JX2-746A; [84-74]
+      (=daikanwa	  . 28200)	; &I-M-28200;
+      )
+     ((=ucs@unicode	  . #x6B63)	; &AJ1-02649;
+      (=adobe-japan1-0	  . 02649)	; &AJ1-02649;
+      ))
+    (=ucs@unicode	. #x7F61)	; &JX2-746C;
+    (=gb2312		. #x6E38)	; &JX2-746C; [78-24]
     (=jis-x0212		. #x5479)	; &I-JSP-5479; [52-89]
     (=cns11643-2	. #x317E)	; &I-C2-317E; [17-94]
     (=jis-x0213-2	. #x746C)	; &I-JX2-746C; [84-76]
     (=big5		. #xD35C)	; &I-B-D35C;
     (=daikanwa		. 28250)	; &I-M-28250;
     (=jef-china3	. #x5FEE)	; &I-JC3-5FEE;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7F61)	; 罡
+      ))
+    (ideographic-radical . 122)	; ⽹
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x7F52)	; &JX2-746A;
+      (=jis-x0212	  . #x5474)	; &JX2-746A; [52-84]
+      (=cns11643-4	  . #x2221)	; &I-C4-2221; [02-01]
+      (=jis-x0213-2	  . #x746A)	; &I-JX2-746A; [84-74]
+      (=daikanwa	  . 28200)	; &I-M-28200;
+      )
+     ((=gt-k		  . 00455)	; &GT-K00455;
+      ))
+    (=ucs-var-001	. #x7F61)	; &U-v001+7F61;
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
