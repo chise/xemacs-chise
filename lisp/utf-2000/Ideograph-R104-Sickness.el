@@ -4823,7 +4823,9 @@
       )
      ((=ucs		  . #x7592)	; 疒
       )
-     ((=ucs		  . #xFA35)	; 卑
+     ((=ucs@unicode	  . #x5351)	; &AJ1-13378;
+      (=ucs@jis		  . #xFA35)	; &AJ1-13378;
+      (=adobe-japan1-4	  . 13378)	; &AJ1-13378;
       ))
     (=ucs@unicode	. #x75FA)	; &AJ1-05754;
     (=adobe-japan1-0	. 05754)	; &AJ1-05754;
