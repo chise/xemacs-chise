@@ -1,3 +1,31 @@
+2017-01-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R188-Bone.el: Add some Adobe-Japan1-0 code points.
+
+2017-01-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R082-Fur.el: Complete representative nodes of
+	`=adobe-japan1-0' glyphs.
+	(M-16789): Unify U-00023B34.
+	(U+3CB2): Apply new conventions for glyph granularity.
+
+	* Ideograph-R075-Tree.el (U+3B99): Separate UU+3B99.
+
+	* Ideograph-R032-Earth.el: Complete representative nodes of
+	`=adobe-japan1-0' glyphs.
+	(U+5737): Apply new conventions for glyph granularity.
+	(U+577F): Likewise.
+	(U+57C3): Likewise.
+	(U+57DC): Likewise.
+	(U+5821): Likewise.
+	(U+584B): Likewise.
+	(U+58BA): Likewise.
+	(U+58C3): Unify S-5081; add `<-vulgar' for U+7586.
+	(U+58D3): Apply new conventions for glyph granularity.
+
+	* Ideograph-R026-Seal.el (U+537E): Apply new conventions for glyph
+	granularity.
+
 2017-01-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R122-Net.el (U+7F61): Apply new conventions for glyph
