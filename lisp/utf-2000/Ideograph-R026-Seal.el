@@ -1481,7 +1481,6 @@
   '((ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (hanyu-dazidian	1 319 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -1491,13 +1490,54 @@
      ((=ucs		  . #x5369)	; 卩
       ))
     (=ucs		. #x537E)	; 卾
-    (=adobe-japan1-5	. 19210)	; &I-AJ1-19210;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x537E)	; 卾
+      ))
+    (ideographic-radical . 26)	; ⼙
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (hanyu-dazidian	1 319 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x54A2)	; &AJ1-04365;
+      (=adobe-japan1-0	  . 04365)	; &AJ1-04365;
+      )
+     ((=ucs		  . #x5369)	; 卩
+      ))
+    (=ucs@unicode	. #x537E)	; &AJ1-19210;
+    (=adobe-japan1-5	. 19210)	; &AJ1-19210;
     (=jis-x0212		. #x3442)	; &I-JSP-3442; [20-34]
     (=cns11643-4	. #x3065)	; &I-C4-3065; [16-69]
     (=gt		. 03657)	; &I-GT-03657;
     (=gt-pj-2		. #x496D)	; &I-GT-03657; [41-77]
     (=daikanwa		. 02876)	; &I-M-02876;
-    (=hanziku-1		. #xE7C4)	; &I-HZK01-E7C4;
+    (->subsumptive
+     ((==ucs@unicode	  . #x537E)	; &g2-AJ1-19210;
+      (==adobe-japan1-5	  . 19210)	; &g2-AJ1-19210;
+      (==jis-x0212	  . #x3442)	; &g2-AJ1-19210; [20-34]
+      (==cns11643-4	  . #x3065)	; &g2-AJ1-19210; [16-69]
+      (==gt		  . 03657)	; &g2-AJ1-19210;
+      (==daikanwa	  . 02876)	; &g2-AJ1-19210;
+      (->subsumptive
+       ((===daikanwa	    . 02876)	; &R-M-02876;
+	)
+       ((===jis-x0212	    . #x3442)	; &R-JSP-3442; [20-34]
+	)
+       ((===adobe-japan1-5  . 19210)	; &R-AJ1-19210;
+	)
+       ((===cns11643-4	    . #x3065)	; &R-C4-3065; [16-69]
+	)
+       ((===gt		    . 03657)	; &R-GT-03657;
+	)
+       ((===ucs@unicode	    . #x537E)	; &R-UU+537E;
+	)
+       ((=hanziku-1	    . #xE7C4)	; &HZK01-E7C4;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 26)	; ⼙
