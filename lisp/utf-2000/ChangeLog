@@ -1,5 +1,8 @@
 2017-01-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R140-Grass.el: Complete representative nodes of
+	`=adobe-japan1-0' glyphs.
+
 	* Ideograph-R102-Field.el: Complete representative nodes of
 	`=adobe-japan1-0' glyphs.
 	(U+7538): Unify S-0778.
