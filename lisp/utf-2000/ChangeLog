@@ -1,5 +1,26 @@
 2017-01-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R102-Field.el: Complete representative nodes of
+	`=adobe-japan1-0' glyphs.
+	(U+7538): Unify S-0778.
+	(U+754D): Add `<-formed' for U+754C.
+	(U-00024C4F): Apply new conventions for glyph granularity; add
+	`<-vulgar' for U+755B.
+	(U-0002C3C2): New character; add `<-unknown' for U-00024C4F.
+	(U+7565): Apply new conventions for glyph granularity.
+	(UU+7565): Unify S-5060.
+	(U+7567): Apply new conventions for glyph granularity.
+	(U+756C): Likewise.
+	(UU+756C): Unify S-5067.
+	(U+756D): Apply new conventions for glyph granularity.
+	(U+7573): Likewise.
+	(UU+7573): Unify S-5063.
+	(U+3F63): Fix notation of `sound@ja/on'.
+	(U+757A): Unify S-5080; add `<-original' for U+7586.
+	(U+7582): Add `<-simplified@JP/misc' for UU+758A.
+	(U+7585): Unify S-5082; add `<-vulgar' for U+7586.
+	(U+758A): Apply new conventions for glyph granularity.
+
 	* Ideograph-R188-Bone.el: Add some Adobe-Japan1-0 code points.
 
 2017-01-25  MORIOKA Tomohiko  <tomo.git@chise.org>
