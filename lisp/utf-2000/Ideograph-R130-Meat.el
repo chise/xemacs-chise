@@ -8028,10 +8028,13 @@
     (=shinjigen@1ed	.  6496)	; 脣
     (=shinjigen@rev	.  1091)	; 脣
     (<-original
-     ((=ucs		  . #x5507)	; 唇
+     ((=ucs@cns		  . #x5507)	; &AJ1-02550;
+      (=ucs@jis		  . #x5507)	; &AJ1-02550;
+      (=ucs@ks		  . #x5507)	; &AJ1-02550;
+      (=adobe-japan1-0	  . 02550)	; &AJ1-02550;
       (=jis-x0208	  . #x3F30)	; &I-J90-3F30; [31-16]
-      (=shinjigen@1ed	  .  6497)	; 唇
-      (=shinjigen@rev	  .  1090)	; 唇
+      (=shinjigen@1ed	  .  6497)	; &AJ1-02550;
+      (=shinjigen@rev	  .  1090)	; &AJ1-02550;
       ))
     (<-original*sources
      shinjigen@rev)
