@@ -1373,15 +1373,9 @@
   '((<-denotational
      ((=ucs		  . #x5351)	; 卑
       ))
-    (=>ucs*		. #x5351)	; 卑
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (=decomposition@cid
-     ((=ucs		  . #x5351)	; 卑
-      )
-     ((=ucs		  . #xE0100)	; 󠄀
-      ))
     (hanyu-dazidian	1 63 1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1391,18 +1385,55 @@
       )
      ((=ucs		  . #x5341)	; 十
       ))
-    (=ucs		. #xFA35)	; 卑
-    (=ucs@unicode	. #x5351)	; 卑
-    (=ucs@jis		. #xFA35)	; 卑
-    (=adobe-japan1-4	. 13378)	; &I-AJ1-13378;
+    (=ucs@unicode	. #x5351)	; &AJ1-13378;
+    (=ucs@jis		. #xFA35)	; &AJ1-13378;
+    (=ucs@JP/hanazono	. nil)
+    (=adobe-japan1-4	. 13378)	; &AJ1-13378;
     (=gb2312		. #x3130)	; &I-G0-3130; [17-16]
     (=ks-x1001		. #x5D64)	; &I-K0-5D64; [61-68]
     (=cns11643-1	. #x4C38)	; &I-C1-4C38; [44-24]
     (=jis-x0213-1	. #x2E6E)	; &I-JX1-2E6E; [14-78]
     (=big5		. #xA8F5)	; &I-B-A8F5;
     (=daikanwa		. 02738)	; &I-M-02738;
-    (=shinjigen		.  0830)	; 卑
+    (=shinjigen		.  0830)	; &AJ1-13378;
     (=jef-china3	. #x45C3)	; &I-JC3-45C3;
+    (->subsumptive
+     ((=>ucs*		  . #x5351)	; 卑
+      (=decomposition@cid
+       ((=ucs		    . #x5351)	; 卑
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=ucs		  . #xFA35)	; 卑
+      (==ucs@unicode	  . #x5351)	; 卑
+      (==ucs@jis	  . #xFA35)	; 卑
+      (==adobe-japan1-4	  . 13378)	; 卑
+      (==gb2312		  . #x3130)	; 卑 [17-16]
+      (==ks-x1001	  . #x5D64)	; 卑 [61-68]
+      (==cns11643-1	  . #x4C38)	; 卑 [44-24]
+      (==jis-x0213-1	  . #x2E6E)	; 卑 [14-78]
+      (==daikanwa	  . 02738)	; 卑
+      (==shinjigen	  .  0830)	; 卑
+      (==jef-china3	  . #x45C3)	; 卑
+      (->subsumptive
+       ((===daikanwa	    . 02738)	; &R-M-02738;
+	)
+       ((===jis-x0213-1	    . #x2E6E)	; &R-JX1-2E6E; [14-78]
+	)
+       ((===adobe-japan1-4  . 13378)	; &R-AJ1-13378;
+	)
+       ((===jef-china3	    . #x45C3)	; &R-JC3-45C3;
+	)
+       ((===ucs@unicode	    . #xFA35)	; &R-UU+FA35;
+	)
+       ((===cns11643-1	    . #x4C38)	; &R-C1-4C38; [44-24]
+	)
+       ((===ucs@ks	    . #x5351)	; &R-K0-5D64;
+	(===ks-x1001	    . #x5D64)	; &R-K0-5D64; [61-68]
+	)
+       ((===ucs@unicode	    . #x5351)	; &R-UU+5351;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -1429,11 +1460,15 @@
     (=gt-pj-1		. #x485C)	; &I-GT-03516; [40-60]
     (=shinjigen		.  0829)	; 卑
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #xFA35)	; 卑
+     ((=ucs@unicode	  . #x5351)	; &AJ1-13378;
+      (=ucs@jis		  . #xFA35)	; &AJ1-13378;
+      (=adobe-japan1-4	  . 13378)	; &AJ1-13378;
       ))
     (<-vulgar
-     ((=ucs		  . #xFA35)	; 卑
-      (=shinjigen	  .  0830)	; 卑
+     ((=ucs@unicode	  . #x5351)	; &AJ1-13378;
+      (=ucs@jis		  . #xFA35)	; &AJ1-13378;
+      (=adobe-japan1-4	  . 13378)	; &AJ1-13378;
+      (=shinjigen	  .  0830)	; &AJ1-13378;
       ))
     (<-vulgar*sources
      shinjigen@1ed)
@@ -1463,9 +1498,11 @@
       (=daikanwa	  . 02739)	; &I-M-02739;
       (=shinjigen	  .  0831)	; &GT-03509;
       (<-vulgar
-       ((=ucs		    . #xFA35)	; 卑
+       ((=ucs@unicode	    . #x5351)	; &AJ1-13378;
+	(=ucs@jis	    . #xFA35)	; &AJ1-13378;
+	(=adobe-japan1-4    . 13378)	; &AJ1-13378;
 	(=daikanwa	    . 02738)	; &I-M-02738;
-	(=shinjigen	    .  0830)	; 卑
+	(=shinjigen	    .  0830)	; &AJ1-13378;
 	))
       (<-vulgar*sources
        zhengzitong daikanwa shinjigen@1ed)

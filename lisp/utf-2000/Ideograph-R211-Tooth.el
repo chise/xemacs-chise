@@ -1619,6 +1619,27 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x9F67)	; 齧
+      ))
+    (ideographic-radical . 211)	; ⿒
+    (ideographic-strokes . 6)
+    (total-strokes	 . 21)
+    (=mj		. 030097)	; &MJ030097;
+    (=hanyo-denshi/ks	. 549990)	; &MJ030097;
+    (=koseki		. 549990)	; &MJ030097;
+    (->subsumptive
+     ((==mj		  . 030097)	; &g2-MJ030097;
+      (==koseki		  . 549990)	; &g2-MJ030097;
+      (->subsumptive
+       ((===mj		    . 030097)	; &R-MJ030097;
+	))
+      )
+     ((==hanyo-denshi/ks  . 549990)	; &g2-HD-KS-549990;
+      (=hanyo-denshi/ks/mf . #xD6D7)	; &g2-HD-KS-549990;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 211)	; ⿒
     (ideographic-strokes . 6)
     (total-strokes	 . 21)
