@@ -1,3 +1,11 @@
+2017-01-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R024-Ten.el (UU+5351): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R211-Tooth.el (MJ030097): New character; use
+	`<-denotational' for U+9F67; unify HD-KS549990 and KOSEKI-549990.
+
 2017-01-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R140-Grass.el: Complete representative nodes of
