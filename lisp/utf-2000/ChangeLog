@@ -1,3 +1,15 @@
+2017-01-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R196-Bird.el (U+9D9A): Separate UU+9D9A.
+
+2017-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (U-00029007): Separate
+	IU+29007.
+
+	* Ideograph-R170-Mound.el (U+9681): Apply new conventions for
+	glyph granularity.
+
 2017-01-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R184-Eat.el: Add some Adobe-Japan1-0 code points.
