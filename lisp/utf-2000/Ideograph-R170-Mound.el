@@ -4236,6 +4236,15 @@
   '((ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL MOUND TWO")
+      (=ucs		  . #x2ED6)	; ⻖
+      )
+     ((=ucs		  . #x533D)	; 匽
+      ))
     (=ucs		. #x9681)	; 隁
     ))
 (define-char
@@ -4245,9 +4254,30 @@
     (ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL MOUND TWO")
+      (=ucs		  . #x2ED6)	; ⻖
+      )
+     ((=ucs@unicode	  . #x533D)	; &AJ1-19206;
+      (=adobe-japan1-5	  . 19206)	; &AJ1-19206;
+      ))
     (=ucs@unicode	. #x9681)	; &JSP-6660;
     (=jis-x0212		. #x6660)	; &JSP-6660; [70-64]
     (=daikanwa		. 41731)	; &I-M-41731;
+    (->subsumptive
+     ((==daikanwa	  . 41731)	; &g2-M-41731;
+      )
+     ((==ucs@unicode	  . #x9681)	; &g2-JSP-6660;
+      (==jis-x0212	  . #x6660)	; &g2-JSP-6660; [70-64]
+      (->subsumptive
+       ((===jis-x0212	    . #x6660)	; &R-JSP-6660; [70-64]
+	)
+       ((===ucs@unicode	    . #x9681)	; &R-UU+9681;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -4256,19 +4286,35 @@
     (ideographic-radical . 170)	; ⾩
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=>>ucs@cns		. #x9681)	; &G-CU+9681;
-    (->subsumptive
-     ((=shinjigen@1ed	  .  1426)	; &SJG2-1425;
-      (=shinjigen@rev	  .  1425)	; &SJG2-1425;
-      (<-original
-       ((=shinjigen@1ed	    .  1425)	; &SJG2-1424;
-	(=shinjigen@rev	    .  1424)	; &SJG2-1424;
-	))
-      (<-original*sources
-       shinjigen@1ed shinjigen@rev)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@cns		  . #x9681)	; &C3-3F73;
-      (=cns11643-3	  . #x3F73)	; &C3-3F73; [31-83]
+     ((name		  . "CJK RADICAL MOUND TWO")
+      (=ucs		  . #x2ED6)	; ⻖
+      )
+     ((=ucs@cns		  . #x533D)	; &C2-2936;
+      (=cns11643-2	  . #x2936)	; &C2-2936; [09-22]
+      (=daikanwa	  . 02684)	; &I-M-02684;
+      ))
+    (=ucs@cns		. #x9681)	; &C3-3F73;
+    (=cns11643-3	. #x3F73)	; &C3-3F73; [31-83]
+    (=shinjigen@1ed	.  1426)	; &C3-3F73;
+    (=shinjigen@rev	.  1425)	; &C3-3F73;
+    (<-original
+     ((=ucs@cns		  . #x5830)	; &C1-5E5D;
+      (=cns11643-1	  . #x5E5D)	; &C1-5E5D; [62-61]
+      (=shinjigen@1ed	  .  1425)	; &C1-5E5D;
+      (=shinjigen@rev	  .  1424)	; &C1-5E5D;
+      ))
+    (<-original*sources
+     shinjigen@1ed shinjigen@rev)
+    (->subsumptive
+     ((==shinjigen@1ed	  .  1426)	; &g2-SJG2-1425;
+      (==shinjigen@rev	  .  1425)	; &g2-SJG2-1425;
+      )
+     ((==ucs@cns	  . #x9681)	; &g2-CU+9681;
+      (==cns11643-3	  . #x3F73)	; &g2-CU+9681; [31-83]
       ))
     ))
 (define-char
