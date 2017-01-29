@@ -1,3 +1,18 @@
+2017-01-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R184-Eat.el: Add some Adobe-Japan1-0 code points.
+	(A-compU+98DF): New abstract component.
+	(U+98DF): Add `<-denotational' for A-compU+98DF.
+	(U+98E0): Likewise.
+	(U-0002967F): Likewise.
+	(U-0002FA02): Add `<-denotational' for U+98E2; apply new
+	glyph-image conventions.
+	(JU+98ED): Unify KU+98ED and S-0754.
+	(M-44075): Unify S-9286; add `<-formed' for JU+992C.
+	(KU+98FE): Unify S-2123.
+	(UU+98FE): Unify S-2122.
+	(HD-IA0782): Unify S-9280; add `<-vulgar' for JU+991E.
+
 2017-01-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R024-Ten.el (UU+5351): Apply new conventions for glyph
