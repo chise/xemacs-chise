@@ -3873,13 +3873,32 @@
      ((=ucs		  . #x96B9)	; 隹
       ))
     (=ucs		. #x29007)	; 𩀇
-    (=cns11643-7	. #x3D42)	; &I-C7-3D42; [29-34]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x29007)	; 𩀇
+      ))
+    (ideographic-radical . 172)	; ⾫
+    (ideographic-strokes . 9)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x54A2)	; &AJ1-04365;
+      (=adobe-japan1-0	  . 04365)	; &AJ1-04365;
+      )
+     ((=ucs		  . #x96B9)	; 隹
+      ))
+    (=ucs@iso		. #x29007)	; &C7-3D42;
+    (=cns11643-7	. #x3D42)	; &C7-3D42; [29-34]
     (=daikanwa		. 42096)	; &I-M-42096;
-    (=shinjigen		.  9716)	; 𩀇
+    (=shinjigen		.  9716)	; &C7-3D42;
     (<-formed
-     ((=ucs		  . #x9D9A)	; 鶚
+     ((=ucs@unicode	  . #x9D9A)	; &AJ1-07392;
+      (=adobe-japan1-0	  . 07392)	; &AJ1-07392;
       (=jis-x0208	  . #x732D)	; &I-J90-732D; [83-13]
-      (=shinjigen	  .  9715)	; 鶚
+      (=shinjigen	  .  9715)	; &AJ1-07392;
       ))
     (<-formed*sources
      shinjigen)
