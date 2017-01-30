@@ -493,6 +493,17 @@
     (=jef-china3	. #x71FC)	; &I-JC3-71FC;
     ))
 (define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (=ucs-itaiji-001	. #x21D6F)	; &U-i001+21D6F;
+    (<-formed
+     ((=ucs		  . #x21D6F)	; 𡵯
+      )
+     ((=ucs		  . #x6B65)	; 步
+      ))
+    ))
+(define-char
   '((numeric-value	. 10000)
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 2)
