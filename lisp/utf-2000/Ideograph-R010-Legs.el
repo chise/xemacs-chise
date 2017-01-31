@@ -1696,6 +1696,30 @@
      ((=ucs		  . #x514E)	; 兎
       ))
     (ideographic-radical . 10)	; ⼉
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x4E3F)	; 丿
+	)
+       ((=big5-cdp	    . #x8BCB)	; &CDP-8BCB;
+	))
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=ucs-itaiji-001	. #x514E)	; &U-i001+514E;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x514E)	; 兎
+      ))
+    (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (=ucs@jis/1990	. #x514E)	; &MJ007232;
