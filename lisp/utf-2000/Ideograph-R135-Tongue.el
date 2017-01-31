@@ -663,7 +663,12 @@
     (=gt-pj-1		. #x5030)	; &I-GT-39198; [48-16]
     (=daikanwa		. 30300)	; &I-M-30300;
     (->subsumptive
-     ((==ucs@unicode	  . #x8212)	; &g2-AJ1-04105;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8212)	; 舒
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@unicode	  . #x8212)	; &g2-AJ1-04105;
       (==adobe-japan1-0	  . 04105)	; &g2-AJ1-04105;
       (==gb2312		  . #x4A66)	; &g2-AJ1-04105; [42-70]
       (==ks-x1001	  . #x6022)	; &g2-AJ1-04105; [64-02]
