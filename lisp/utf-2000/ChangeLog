@@ -1,5 +1,20 @@
 2017-01-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R141-Tiger.el: Add some Hanyo-Denshi/JA code points.
+
+	* Ideograph-R135-Tongue.el (g2-UU+8212): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R115-Grain.el (JU+9F9D): Add `=hanyo-denshi/ja'.
+
+	* Ideograph-R072-Sun.el: Add `=decomposition@hanyo-denshi' for
+	some abstract glyph-forms of Hanyo-Denshi/JA.
+
+	* Ideograph-R001-One.el (U+21D6F-itaiji-001): New character; use
+	`<-formed' for U-00021D6F and U+6B65.
+
+2017-01-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R196-Bird.el (U+9D9A): Separate UU+9D9A.
 
 2017-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>

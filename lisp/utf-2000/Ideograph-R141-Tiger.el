@@ -89,18 +89,25 @@
     (=ks-x1001		. #x7B5B)	; &I-K0-7B5B; [91-59]
     (=cns11643-1	. #x4F4D)	; &I-C1-4F4D; [47-45]
     (=jis-x0213-1	. #x3857)	; &I-JX1-3857; [24-55]
+    (=hanyo-denshi/ja	. #x3857)	; &I-HD-JA-3857; [24-55]
     (=gt		. 44178)	; &I-GT-44178;
     (=gt-k		. 03697)	; &I-GT-K03697;
     (=gt-pj-1		. #x3857)	; &I-GT-44178; [24-55]
     (=daikanwa		. 32675)	; &I-M-32675;
     (=shinjigen		.  7080)	; &AJ1-01931;
     (->subsumptive
-     ((==ucs@jis	  . #x864E)	; &g2-AJ1-01931;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x864E)	; 虎
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@jis	  . #x864E)	; &g2-AJ1-01931;
       (==ucs@ks		  . #x864E)	; &g2-AJ1-01931;
       (==adobe-japan1-0	  . 01931)	; &g2-AJ1-01931;
       (==ks-x1001	  . #x7B5B)	; &g2-AJ1-01931; [91-59]
       (==jis-x0208	  . #x3857)	; &g2-AJ1-01931; [24-55]
       (==jis-x0213-1	  . #x3857)	; &g2-AJ1-01931; [24-55]
+      (==hanyo-denshi/ja  . #x3857)	; &g2-AJ1-01931; [24-55]
       (==gt		  . 44178)	; &g2-AJ1-01931;
       (==gt-k		  . 03697)	; &g2-AJ1-01931;
       (==daikanwa	  . 32675)	; &g2-AJ1-01931;
@@ -1826,14 +1833,21 @@
     (=adobe-japan1-0	. 01771)	; &AJ1-01771;
     (=jis-x0208		. #x3673)	; &I-J90-3673; [22-83]
     (=jis-x0213-1	. #x3673)	; &I-JX1-3673; [22-83]
+    (=hanyo-denshi/ja	. #x3673)	; &I-HD-JA-3673; [22-83]
     (=gt		. 44226)	; &I-GT-44226;
     (=gt-pj-1		. #x3673)	; &I-GT-44226; [22-83]
     (=daikanwa/+p	. 32723)	; &AJ1-01771;
     (->subsumptive
-     ((==ucs@jis	  . #x865E)	; &g2-AJ1-01771;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x865E)	; 虞
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@jis	  . #x865E)	; &g2-AJ1-01771;
       (==adobe-japan1-0	  . 01771)	; &g2-AJ1-01771;
       (==jis-x0208	  . #x3673)	; &g2-AJ1-01771; [22-83]
       (==jis-x0213-1	  . #x3673)	; &g2-AJ1-01771; [22-83]
+      (==hanyo-denshi/ja  . #x3673)	; &g2-AJ1-01771; [22-83]
       (==gt		  . 44226)	; &g2-AJ1-01771;
       (==daikanwa/+p	  . 32723)	; &g2-AJ1-01771;
       (->subsumptive
