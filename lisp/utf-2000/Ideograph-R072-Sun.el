@@ -1437,6 +1437,11 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x6602)	; 昂
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
       (==ucs@unicode	  . #x6602)	; &g2-AJ1-01993;
       (==adobe-japan1-0	  . 01993)	; &g2-AJ1-01993;
       (==gb2312		  . #x303A)	; &g2-AJ1-01993; [16-26]
@@ -1783,6 +1788,11 @@
        ((=ucs		    . #x6607)	; 昇
 	)
        ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x6607)	; 昇
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
 	))
       (==ucs@unicode	  . #x6607)	; &g2-AJ1-02466;
       (==adobe-japan1-0	  . 02466)	; &g2-AJ1-02466;
@@ -13787,6 +13797,11 @@
        ((=ucs		    . #x66C9)	; 曉
 	)
        ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x66C9)	; 曉
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
 	))
       (==ucs@unicode	  . #x66C9)	; &g2-AJ1-05121;
       (==adobe-japan1-0	  . 05121)	; &g2-AJ1-05121;
