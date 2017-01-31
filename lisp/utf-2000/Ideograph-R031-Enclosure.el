@@ -4985,7 +4985,8 @@
     (=daikanwa		. 04834)	; &I-M-04834;
     (=shinjigen		.  1307)	; 團
     (<-ancient
-     ((=ucs		  . #x6171)	; 慱
+     ((=ucs@unicode	  . #x6171)	; &AJ1-04894;
+      (=adobe-japan1-0	  . 04894)	; &AJ1-04894;
       ))
     (<-formed
      ((=ucs@unicode	  . #x6F19)	; &C2-4B3F;
@@ -5053,7 +5054,8 @@
       (=adobe-japan1-0	  . 03248)	; &AJ1-03248;
       (=daikanwa	  . 13276)	; &I-M-13276;
       )
-     ((=ucs		  . #x6171)	; 慱
+     ((=ucs@unicode	  . #x6171)	; &AJ1-04894;
+      (=adobe-japan1-0	  . 04894)	; &AJ1-04894;
       (=daikanwa	  . 11137)	; &I-M-11137;
       )
      ((=ucs		  . #x6476)	; 摶
