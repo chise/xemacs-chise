@@ -1,3 +1,10 @@
+2017-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R077-Stop.el (UU+6B62): Add representative nodes.
+
+	* Ideograph-R010-Legs.el (U+514E-itaiji-001): New character; use
+	`<-denotational' for U+514E.
+
 2017-01-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R141-Tiger.el: Add some Hanyo-Denshi/JA code points.
