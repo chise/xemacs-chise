@@ -388,10 +388,55 @@
 (define-char
   '((ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 4)
-    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x88F0)	; &CDP-88F0;
+      )
+     ((=ucs		  . #x5EFE)	; 廾
+      ))
     (=ucs		. #x22333)	; 𢌳
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22333)	; 𢌳
+      ))
+    (ideographic-radical . 55)	; ⼶
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x88F0)	; &CDP-88F0;
+      )
+     ((=ucs@unicode	  . #x5EFE)	; &MJ011120;
+      (=mj		  . 011120)	; &MJ011120;
+      ))
+    (=ucs@iso		. #x22333)	; &MJ035486;
+    (=mj		. 035486)	; &MJ035486;
     (=cns11643-4	. #x242A)	; &I-C4-242A; [04-10]
+    (=koseki		. 108540)	; &MJ035486;
     (=daikanwa		. 09595)	; &I-M-09595;
+    (->subsumptive
+     ((==ucs@iso	  . #x22333)	; &g2-MJ035486;
+      (==mj		  . 035486)	; &g2-MJ035486;
+      (==cns11643-4	  . #x242A)	; &g2-MJ035486; [04-10]
+      (==koseki		  . 108540)	; &g2-MJ035486;
+      (==daikanwa	  . 09595)	; &g2-MJ035486;
+      (->subsumptive
+       ((===daikanwa	    . 09595)	; &R-M-09595;
+	)
+       ((===mj		    . 035486)	; &R-MJ035486;
+	)
+       ((===cns11643-4	    . #x242A)	; &R-C4-242A; [04-10]
+	)
+       ((===ucs@iso	    . #x22333)	; &R-U-00022333;
+	)
+       ((=hanziku-2	    . #xB9E9)	; &HZK02-B9E9;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 55)	; ⼶

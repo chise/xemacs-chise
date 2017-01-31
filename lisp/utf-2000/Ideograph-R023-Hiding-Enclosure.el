@@ -1546,6 +1546,26 @@
       (=+>jis-x0208	  . #x463F)	; &o-J0-463F; [38-31]
       ))
     (ideographic-radical . 23)	; ⼖
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x531A)	; 匚
+      )
+     ((=ucs@cns		  . #x82E5)	; &GT-40124;
+      (=cns11643-1	  . #x533C)	; &GT-40124; [51-28]
+      (=daikanwa	  . 30796)	; &I-M-30796;
+      ))
+    (=ucs-var-001	. #x533F)	; &U-v001+533F;
+    ))
+(define-char
+  '((<-denotational
+     ((=+>ucs@unicode	  . #x533F)	; &o-J0-463F;
+      (=+>jis-x0208	  . #x463F)	; &o-J0-463F; [38-31]
+      ))
+    (ideographic-radical . 23)	; ⼖
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (ideographic-structure

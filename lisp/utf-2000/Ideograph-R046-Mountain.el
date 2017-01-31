@@ -1621,6 +1621,35 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
+     ((=ucs		  . #x5C11)	; 少
+      ))
+    (=ucs		. #x21D6F)	; 𡵯
+    (=mj		. 034510)	; &I-MJ034510;
+    (=koseki		. 090260)	; 𡵯
+    (<-formed
+     ((=ucs		  . #x6B65)	; 步
+      ))
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==mj		  . 034510)	; &g2-MJ034510;
+      (==koseki		  . 090260)	; &g2-MJ034510;
+      )
+     ((==ucs@iso	  . #x21D6F)	; &g2-IU-00021D6F;
+      )
+     ((=hanziku-2	  . #xEEFE)	; &HZK02-EEFE;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
      ((=ucs		  . #x5206)	; 分
       ))
     (=ucs		. #x21D73)	; 𡵳

@@ -1,3 +1,15 @@
+2017-01-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (U-00021D6F): New character; unify
+	MJ034510 and KOSEKI-090260; use `<-formed' for U+6B65.
+
+	* Ideograph-R055-Two-Hands.el (U-00022333): Apply new conventions
+	for glyph granularity.
+	(IU+22333): Unify MJ035486 and KOSEKI-108540.
+
+	* Ideograph-R023-Hiding-Enclosure.el (U+533F-var-001): New
+	character; use `<-denotational' for o-UU+533F.
+
 2017-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R077-Stop.el (UU+6B62): Add representative nodes.
