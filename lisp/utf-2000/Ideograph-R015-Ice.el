@@ -4036,54 +4036,6 @@
      ((=ucs		  . #x51DE)	; 凞
       ))
     (ideographic-radical . 15)	; ⼎
-    (ideographic-strokes . 14)
-    (total-strokes	 . 16)
-    (=decomposition@cid
-     ((=ucs		  . #x51DE)	; 凞
-      )
-     ((=ucs		  . #xE0102)	; 󠄂
-      ))
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x51DE)	; 凞
-      )
-     ((=ucs		  . #xE0105)	; 󠄅
-      ))
-    (hanyu-dazidian	1 301 16)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x51AB)	; 冫
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
-	  (=ucs		      . #x2FF2)	; ⿲
-	  )
-	 ((=ucs		      . #x4E3F)	; 丿
-	  )
-	 ((=ucs		      . #x81E3)	; 臣
-	  )
-	 ((=ucs		      . #x5DF3)	; 巳
-	  ))
-	)
-       ((=ucs		    . #x706C)	; 灬
-	))
-      ))
-    (=ucs@unicode	. #x51DE)	; &AJ1-14352;
-    (=ucs@JP/hanazono	. nil)
-    (=adobe-japan1-4	. 14352)	; &AJ1-14352;
-    (=jis-x0212		. #x3328)	; &I-JSP-3328; [19-08]
-    (=hanyo-denshi/jb	. #x3328)	; &I-HD-JB-3328; [19-08]
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x51DE)	; 凞
-      ))
-    (ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
     (=decomposition@cid
@@ -4159,9 +4111,55 @@
        ((=ucs		    . #x706C)	; 灬
 	))
       ))
-    (=ucs@ks		. #x51DE)	; &K0-7D6B;
-    (=ks-x1001		. #x7D6B)	; &K0-7D6B; [93-75]
-    (=jef-china3	. #x70E2)	; &I-JC3-70E2;
+    (=jef-china3	. #x70E2)	; &JC3-70E2;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x51DE)	; 凞
+      ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 14)
+    (total-strokes	 . 16)
+    (hanyu-dazidian	1 301 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x51AB)	; 冫
+      )
+     ((=ucs@unicode	  . #x7188)	; &AJ1-05570;
+      (=adobe-japan1-0	  . 05570)	; &AJ1-05570;
+      ))
+    (=ucs@unicode	. #x51DE)	; &AJ1-14352;
+    (=ucs@JP/hanazono	. nil)
+    (=adobe-japan1-4	. 14352)	; &AJ1-14352;
+    (=jis-x0212		. #x3328)	; &I-JSP-3328; [19-08]
+    (=hanyo-denshi/jb	. #x3328)	; &I-HD-JB-3328; [19-08]
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x51DE)	; 凞
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x51DE)	; 凞
+	)
+       ((=ucs		    . #xE0105)	; 󠄅
+	))
+      (==ucs@unicode	  . #x51DE)	; &g2-AJ1-14352;
+      (==ucs@JP/hanazono  . nil)
+      (==adobe-japan1-4	  . 14352)	; &g2-AJ1-14352;
+      (==jis-x0212	  . #x3328)	; &g2-AJ1-14352; [19-08]
+      (==hanyo-denshi/jb  . #x3328)	; &g2-AJ1-14352; [19-08]
+      (->subsumptive
+       ((===jis-x0212	    . #x3328)	; &R-HD-JB-3328; [19-08]
+	(===hanyo-denshi/jb . #x3328)	; &R-HD-JB-3328; [19-08]
+	)
+       ((===adobe-japan1-4  . 14352)	; &R-AJ1-14352;
+	)
+       ((===ucs@unicode	    . #x51DE)	; &R-UU+51DE;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -4239,7 +4237,9 @@
      ((=ucs		  . #x706C)	; 灬
       ))
     (=ucs@jis		. #xFA15)	; &AJ1-20307;
+    (=ucs@ks		. #x51DE)	; &AJ1-20307;
     (=adobe-japan1-5	. 20307)	; &AJ1-20307;
+    (=ks-x1001		. #x7D6B)	; &I-K0-7D6B; [93-75]
     (=jis-x0213-1	. #x775A)	; &I-JX1-775A; [87-58]
     (->subsumptive
      ((=decomposition@cid
@@ -4248,12 +4248,17 @@
        ((=ucs		    . #xE0101)	; 󠄁
 	))
       (==ucs@jis	  . #xFA15)	; &g2-AJ1-20307;
+      (==ucs@ks		  . #x51DE)	; &g2-AJ1-20307;
       (==adobe-japan1-5	  . 20307)	; &g2-AJ1-20307;
+      (==ks-x1001	  . #x7D6B)	; &g2-AJ1-20307; [93-75]
       (==jis-x0213-1	  . #x775A)	; &g2-AJ1-20307; [87-58]
       (->subsumptive
        ((===jis-x0213-1	    . #x775A)	; &R-JX1-775A; [87-58]
 	)
        ((===adobe-japan1-5  . 20307)	; &R-AJ1-20307;
+	)
+       ((===ucs@ks	    . #x51DE)	; &R-K0-7D6B;
+	(===ks-x1001	    . #x7D6B)	; &R-K0-7D6B; [93-75]
 	))
       ))
     ))
