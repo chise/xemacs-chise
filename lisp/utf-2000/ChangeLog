@@ -1,5 +1,25 @@
 2017-01-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R009-Man.el: Complete representative nodes of
+	`=adobe-japan1-0' and `=hanyo-denshi/jb' glyphs.
+	(KU+4F34): Apply new conventions for glyph granularity.
+	(U+4F73): Unify UU+4F73; don't subsume AJ1-20076.
+	(EGB-2C7A): Unify U-0002B899.
+	(AJ1-20076): Delete `<-denotational' for U+4F73; add `<-unknown'
+	for U+4F73; apply new conventions for glyph granularity; unify
+	MJ056921 and KOSEKI-007520; add `<-formed' for U+96B9.
+	(U+4FE3): Apply new conventions for glyph granularity.
+	(U+4FFE): Likewise.
+	(U+5019): Likewise.
+	(U+5024): Unify UU+5024; apply new conventions for glyph
+	granularity.
+	(U+503C): Add `ideographic-structure'.
+	(U+5054): Apply new conventions for glyph granularity.
+	(UU+5056): Likewise.
+	(UU+5094): Likewise.
+
+	* Ideograph-R002-Line.el (UU+4E30): Add representative nodes.
+
 	* Ideograph-R046-Mountain.el (U-00021D6F): New character; unify
 	MJ034510 and KOSEKI-090260; use `<-formed' for U+6B65.
 
@@ -9,6 +29,8 @@
 
 	* Ideograph-R023-Hiding-Enclosure.el (U+533F-var-001): New
 	character; use `<-denotational' for o-UU+533F.
+
+	* Ideograph-R208-Rat.el: Add some Adobe-Japan1-0 code points.
 
 2017-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
