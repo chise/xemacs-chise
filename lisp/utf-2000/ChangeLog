@@ -1,5 +1,11 @@
 2017-01-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R015-Ice.el (UU+51DE): Apply new conventions for glyph
+	granularity; use UU+7188 instead of "⿱⿲丿臣巳灬" in
+	`ideographic-structure';
+
+2017-01-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R009-Man.el: Complete representative nodes of
 	`=adobe-japan1-0' and `=hanyo-denshi/jb' glyphs.
 	(KU+4F34): Apply new conventions for glyph granularity.
