@@ -562,6 +562,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>>adobe-japan1-6
 	  =>cns11643-7
 	  =>cbeta
+	  =+>adobe-japan1-6
 	  =+>jis-x0208@1978
 	  )))
 
