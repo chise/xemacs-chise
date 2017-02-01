@@ -3247,24 +3247,47 @@
   '((<-denotational
      ((=ucs		  . #x5DB2)	; 嶲
       ))
+    (=>ucs*		. #x5DB2)	; 嶲
     (ideographic-radical . 172)	; ⾫
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
-    (=>>ucs@jis/1990	. #x5DB2)	; &G-AJ1-15269;
-    (=>>ucs@cns		. #x2F9F4)	; &G-AJ1-15269;
-    (=>>adobe-japan1-4	. 15269)	; &G-AJ1-15269;
-    (=>>hanyo-denshi/jb . #x6674)	; &G-AJ1-15269; [70-84]
-    (=>>daikanwa	. 42071)	; &G-AJ1-15269;
-    (->subsumptive
-     ((=ucs@jis/1990	  . #x5DB2)	; &AJ1-15269;
-      (=adobe-japan1-4	  . 15269)	; &AJ1-15269;
-      (=jis-x0212	  . #x6674)	; &I-JSP-6674; [70-84]
-      (=hanyo-denshi/jb	  . #x6674)	; &I-HD-JB-6674; [70-84]
-      (=daikanwa	  . 42071)	; &I-M-42071;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs*		  . #x5DB2)	; 嶲
-      (=ucs		  . #x2F9F4)	; 嶲
-      (=cns11643-7	  . #x3535)	; &I-C7-3535; [21-21]
+     ((=ucs		  . #x2F878)	; 屮
+      )
+     ((=ucs		  . #x96CB)	; 雋
+      ))
+    (=ucs		. #x2F9F4)	; 嶲
+    (=ucs@jis/1990	. #x5DB2)	; 嶲
+    (=adobe-japan1-4	. 15269)	; &I-AJ1-15269;
+    (=jis-x0212		. #x6674)	; &I-JSP-6674; [70-84]
+    (=cns11643-7	. #x3535)	; &I-C7-3535; [21-21]
+    (=hanyo-denshi/jb	. #x6674)	; &I-HD-JB-6674; [70-84]
+    (=daikanwa		. 42071)	; &I-M-42071;
+    (->subsumptive
+     ((==ucs@jis/1990	  . #x5DB2)	; &g2-AJ1-15269;
+      (==adobe-japan1-4	  . 15269)	; &g2-AJ1-15269;
+      (==jis-x0212	  . #x6674)	; &g2-AJ1-15269; [70-84]
+      (==hanyo-denshi/jb  . #x6674)	; &g2-AJ1-15269; [70-84]
+      (==daikanwa	  . 42071)	; &g2-AJ1-15269;
+      (->subsumptive
+       ((===daikanwa	    . 42071)	; &R-M-42071;
+	)
+       ((===jis-x0212	    . #x6674)	; &R-HD-JB-6674; [70-84]
+	(===hanyo-denshi/jb . #x6674)	; &R-HD-JB-6674; [70-84]
+	)
+       ((===adobe-japan1-4  . 15269)	; &R-AJ1-15269;
+	))
+      )
+     ((==ucs@iso	  . #x2F9F4)	; &g2-IU-0002F9F4;
+      (==cns11643-7	  . #x3535)	; &g2-IU-0002F9F4; [21-21]
+      (->subsumptive
+       ((===cns11643-7	    . #x3535)	; &R-C7-3535; [21-21]
+	)
+       ((===ucs@iso	    . #x2F9F4)	; &R-U-0002F9F4;
+	))
       ))
     ))
 (define-char
@@ -4529,14 +4552,23 @@
     (=gt-pj-8		. #x326E)	; &I-GT-56559; [18-78]
     (=daikanwa		. 42120)	; &I-M-42120;
     (->subsumptive
-     ((===daikanwa	  . 42120)	; &R-M-42120;
-      )
-     ((===jis-x0212	  . #x6676)	; &R-HD-JB-6676; [70-86]
-      (===hanyo-denshi/jb . #x6676)	; &R-HD-JB-6676; [70-86]
-      )
-     ((===gt		  . 56559)	; &R-GT-56559;
-      )
-     ((===cns11643-2	  . #x643D)	; &R-C2-643D; [68-29]
+     ((==ucs@cns	  . #x96DA)	; &g2-HD-JB-6676;
+      (==ucs@jis/1990	  . #x96DA)	; &g2-HD-JB-6676;
+      (==jis-x0212	  . #x6676)	; &g2-HD-JB-6676; [70-86]
+      (==cns11643-2	  . #x643D)	; &g2-HD-JB-6676; [68-29]
+      (==hanyo-denshi/jb  . #x6676)	; &g2-HD-JB-6676; [70-86]
+      (==gt		  . 56559)	; &g2-HD-JB-6676;
+      (==daikanwa	  . 42120)	; &g2-HD-JB-6676;
+      (->subsumptive
+       ((===daikanwa	    . 42120)	; &R-M-42120;
+	)
+       ((===jis-x0212	    . #x6676)	; &R-HD-JB-6676; [70-86]
+	(===hanyo-denshi/jb . #x6676)	; &R-HD-JB-6676; [70-86]
+	)
+       ((===cns11643-2	    . #x643D)	; &R-C2-643D; [68-29]
+	)
+       ((===gt		    . 56559)	; &R-GT-56559;
+	))
       ))
     ))
 (define-char
@@ -4572,13 +4604,19 @@
     (=gt		. 56531)	; &I-GT-56531;
     (=gt-pj-10		. #x7344)	; &I-GT-56531; [83-36]
     (->subsumptive
-     ((ideographic-strokes@jis-x0213 . 10)
-      (===jis-x0213-2	  . #x7B73)	; &R-JX2-7B73; [91-83]
-      (===hanyo-denshi/jd . #x7B73)	; &R-JX2-7B73; [91-83]
-      )
-     ((===gt		  . 56531)	; &R-GT-56531;
-      )
-     ((===ucs@unicode	  . #x96DA)	; &R-UU+96DA;
+     ((==ucs@unicode	  . #x96DA)	; &g2-HD-JD-7B73;
+      (==jis-x0213-2	  . #x7B73)	; &g2-HD-JD-7B73; [91-83]
+      (==hanyo-denshi/jd  . #x7B73)	; &g2-HD-JD-7B73; [91-83]
+      (==gt		  . 56531)	; &g2-HD-JD-7B73;
+      (->subsumptive
+       ((ideographic-strokes@jis-x0213 . 10)
+	(===jis-x0213-2	    . #x7B73)	; &R-JX2-7B73; [91-83]
+	(===hanyo-denshi/jd . #x7B73)	; &R-JX2-7B73; [91-83]
+	)
+       ((===gt		    . 56531)	; &R-GT-56531;
+	)
+       ((===ucs@unicode	    . #x96DA)	; &R-UU+96DA;
+	))
       ))
     ))
 (define-char
