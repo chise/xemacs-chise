@@ -12885,6 +12885,14 @@
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x20A23)	; 𠨣
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
     (=ucs		. #x20807)	; 𠠇
     ))
 (define-char
@@ -12894,19 +12902,39 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
-    (=+>ucs@iso		. #x20807)	; &o-IU+20807;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@iso		  . #x20A23)	; &C6-507D;
+      (=cns11643-6	  . #x507D)	; &C6-507D; [48-93]
+      (=daikanwa	  . 02886)	; &I-M-02886;
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (=ucs@iso		. #x20807)	; &MJ031474;
+    (=mj		. 031474)	; &MJ031474;
+    (=hanyo-denshi/ks	. 026240)	; &MJ031474;
+    (=daikanwa		. 02256)	; &I-M-02256;
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x20807)	; 𠠇
 	)
        ((=ucs		    . #xE0102)	; 󠄂
 	))
-      (=mj		  . 031474)	; &MJ031474;
-      (=hanyo-denshi/ks	  . 026240)	; &MJ031474;
-      (=hanyo-denshi/ks/mf . #x0A40)	; &I-KSMF-02624;
-      (=daikanwa	  . 02256)	; &I-M-02256;
+      (==mj		  . 031474)	; &g2-MJ031474;
+      (==hanyo-denshi/ks  . 026240)	; &g2-MJ031474;
+      (==daikanwa	  . 02256)	; &g2-MJ031474;
+      (->subsumptive
+       ((===daikanwa	    . 02256)	; &R-M-02256;
+	)
+       ((===hanyo-denshi/ks . 026240)	; &R-HD-KS-026240;
+	(=hanyo-denshi/ks/mf . #x0A40)	; &R-HD-KS-026240;
+	)
+       ((===mj		    . 031474)	; &R-MJ031474;
+	))
       )
-     ((=ucs@iso		  . #x20807)	; &U-00020807;
+     ((==ucs@iso	  . #x20807)	; &g2-IU-00020807;
       ))
     ))
 (define-char
@@ -12916,13 +12944,24 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
-    (=+>ucs@jis		. #x20807)	; &o-JX2-233F;
-    (=+>ucs@cns		. #x20807)	; &o-JX2-233F;
-    (=+>jis-x0213-2	. #x233F)	; &o-JX2-233F; [03-31]
-    (=+>adobe-japan1-5	. 17319)	; &o-JX2-233F;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=cbeta		  . 11078)	; &CB11078;
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (=ucs@cns		. #x20807)	; &MJ031473;
+    (=ucs@jis		. #x20807)	; &MJ031473;
+    (=mj		. 031473)	; &MJ031473;
+    (=adobe-japan1-5	. 17319)	; &I-AJ1-17319;
+    (=cns11643-7	. #x213F)	; &I-C7-213F; [01-31]
+    (=jis-x0213-2	. #x233F)	; &I-JX2-233F; [03-31]
+    (=hanyo-denshi/jd	. #x233F)	; &I-HD-JD-233F; [03-31]
     (->subsumptive
-     ((=ucs@cns		  . #x20807)	; &C7-213F;
-      (=cns11643-7	  . #x213F)	; &C7-213F; [01-31]
+     ((==ucs@cns	  . #x20807)	; &g2-CU+20807;
+      (==cns11643-7	  . #x213F)	; &g2-CU+20807; [01-31]
       )
      ((=decomposition@cid
        ((=ucs		    . #x20807)	; 𠠇
@@ -12934,11 +12973,19 @@
 	)
        ((=ucs		    . #xE0101)	; 󠄁
 	))
-      (=ucs@jis		  . #x20807)	; &MJ031473;
-      (=mj		  . 031473)	; &MJ031473;
-      (=adobe-japan1-5	  . 17319)	; &I-AJ1-17319;
-      (=jis-x0213-2	  . #x233F)	; &I-JX2-233F; [03-31]
-      (=hanyo-denshi/jd	  . #x233F)	; &I-HD-JD-233F; [03-31]
+      (==ucs@jis	  . #x20807)	; &g2-MJ031473;
+      (==mj		  . 031473)	; &g2-MJ031473;
+      (==adobe-japan1-5	  . 17319)	; &g2-MJ031473;
+      (==jis-x0213-2	  . #x233F)	; &g2-MJ031473; [03-31]
+      (==hanyo-denshi/jd  . #x233F)	; &g2-MJ031473; [03-31]
+      (->subsumptive
+       ((===jis-x0213-2	    . #x233F)	; &R-JX2-233F; [03-31]
+	(===hanyo-denshi/jd . #x233F)	; &R-JX2-233F; [03-31]
+	)
+       ((===adobe-japan1-5  . 17319)	; &R-AJ1-17319;
+	)
+       ((===mj		    . 031473)	; &R-MJ031473;
+	))
       ))
     ))
 (define-char
