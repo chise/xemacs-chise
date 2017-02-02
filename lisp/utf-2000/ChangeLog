@@ -1,5 +1,28 @@
 2017-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R109-Eye.el: Complete representative nodes of
+	`=hanyo-denshi/jb' and `=hanyo-denshi/jd' glyphs.
+	(GT-K02952): New character; use `<-simplified@component' for
+	BC-8BB2.
+	(BC-8BB2): Add `ideographic-structure'.
+
+	* Ideograph-R038-Woman.el: Complete representative nodes of
+	`=hanyo-denshi/jb' and `=hanyo-denshi/jd' glyphs.
+	(U-00021706): Apply new conventions for glyph granularity.
+	(UU+5A67): Add `ideographic-structure'.
+	(U+5AB5): Apply new conventions for glyph granularity.
+	(U+5ADA): Likewise.
+	(U+5B34): Likewise.
+
+	* Ideograph-R032-Earth.el: Complete representative nodes of
+	`=hanyo-denshi/jb' and `=hanyo-denshi/jd' glyphs.
+	(U-00021274): Apply new conventions for glyph granularity.
+	(U+584C): Likewise.
+	(U+58CE): Likewise.
+
+	* Ideograph-R019-Power.el: Complete representative nodes of
+	`=hanyo-denshi/jb' glyphs.
+
 	* Ideograph-R145-Clothes.el (U+8931-itaiji-004): Use GT-K02952 in
 	`ideographic-structure'.
 
