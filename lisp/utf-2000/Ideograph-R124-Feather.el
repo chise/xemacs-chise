@@ -764,6 +764,34 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@iso	  . #x26407)	; &A-IU+26407;
+      ))
+    (ideographic-radical . 124)	; ⽻
+    (ideographic-strokes . 4)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((=ucs		  . #xFA1E)	; 羽
+      ))
+    (=ucs@JP/hanazono	. #x26407)	; &MJ045110;
+    (=mj		. 045110)	; &MJ045110;
+    (=koseki		. 319990)	; &MJ045110;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x26407)	; &g2-MJ045110;
+      (==mj		  . 045110)	; &g2-MJ045110;
+      (->subsumptive
+       ((===mj		    . 045110)	; &R-MJ045110;
+	))
+      )
+     ((==koseki		  . 319990)	; &g2-KOSEKI-319990;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 124)	; ⽻
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
