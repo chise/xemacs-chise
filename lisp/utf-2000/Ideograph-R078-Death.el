@@ -4143,15 +4143,35 @@
     (ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x6BA9)	; 殩
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #xE0101)	; 󠄁
+     ((=ucs		  . #x6B79)	; 歹
+      )
+     ((=ucs		  . #x25E4F)	; 𥹏
       ))
     (=ucs@jis/1990	. #x6BA9)	; &HD-JB-462B;
     (=jis-x0212		. #x462B)	; &HD-JB-462B; [38-11]
     (=hanyo-denshi/jb	. #x462B)	; &I-HD-JB-462B; [38-11]
     (=daikanwa		. 16577)	; &I-M-16577;
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x6BA9)	; 殩
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@jis/1990	  . #x6BA9)	; &g2-HD-JB-462B;
+      (==jis-x0212	  . #x462B)	; &g2-HD-JB-462B; [38-11]
+      (==hanyo-denshi/jb  . #x462B)	; &g2-HD-JB-462B; [38-11]
+      (==daikanwa	  . 16577)	; &g2-HD-JB-462B;
+      (->subsumptive
+       ((===daikanwa	    . 16577)	; &R-M-16577;
+	)
+       ((===jis-x0212	    . #x462B)	; &R-HD-JB-462B; [38-11]
+	(===hanyo-denshi/jb . #x462B)	; &R-HD-JB-462B; [38-11]
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -4160,6 +4180,14 @@
     (ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6B79)	; 歹
+      )
+     ((=ucs		  . #x7CB2)	; 粲
+      ))
     (=ucs@unicode	. #x6BA9)	; &HD-JC-7647;
     (=cns11643-5	. #x5B72)	; &HD-JC-7647; [59-82]
     (=jis-x0213-1	. #x7647)	; &I-JX1-7647; [86-39]
