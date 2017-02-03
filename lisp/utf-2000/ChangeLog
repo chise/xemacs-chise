@@ -1,3 +1,82 @@
+2017-02-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R167-Gold.el:
+	- Use g2-UU+91D2 instead of U+91D2 in `ideographic-structure' of
+	  abstract glyph-forms.
+	- Complete representative nodes of `=hanyo-denshi/jb' and
+	  `=hanyo-denshi/jd' glyphs.
+	(U+91D2): Add representative node.
+	(U+FA27): Apply new conventions for glyph granularity.
+	(U+9348): Likewise.
+	(U+9365): Likewise.
+	(U+93A1): Likewise.
+	(M-40728): Unify MJ027118, KOSEKI-462290 and GT-54764; add
+	`<-formed' for UU+93A1.
+	(J90U+93A1): Unify MJ027116 and KOSEKI-461720; add `<-formed' for
+	MJ027118.
+	(U+9404): Apply new conventions for glyph granularity.
+
+2017-02-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R154-Shell.el: Complete representative nodes of
+	`=hanyo-denshi/jb' and `=hanyo-denshi/jd' glyphs.
+	(U+8D09): Apply new conventions for glyph granularity.
+	(U+8D0E): Likewise.
+
+	* Ideograph-R142-Insect.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/JA.
+	- Complete representative nodes of `=hanyo-denshi/jb' and
+	  `=hanyo-denshi/jd' glyphs.
+	(U+8758): Apply new conventions for glyph granularity.
+	(U-000273FE): Likewise.
+	(U+8803): Likewise.
+	(U+8805): Likewise.
+	(U+8828): Likewise.
+
+	* Ideograph-R140-Grass.el:
+	- Complete representative nodes of `=hanyo-denshi/jd' glyphs.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/JA.
+	(U+8293): Apply new conventions for glyph granularity.
+	(U+830C): Likewise.
+	(U+FAB4): New character; use `<-denotational' for U+83EF; unify
+	MJ022151, HD-JT-B9B1 and KOSEKI-350110; add `<-formed' for
+	CU+83EF.
+	(U+83E5): Apply new conventions for glyph granularity.
+	(U-00026C73): Likewise.
+	(U-00026CDD): Likewise.
+	(CB01939): Use `<-denotational' instead of `=>ucs' for U+8613.
+	(C3-5D21): Likewise; unify CU+8613.
+	(U+8624): Apply new conventions for glyph granularity.
+	(U-0002710D): Likewise.
+
+2017-02-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R115-Grain.el: Complete representative nodes of
+	`=hanyo-denshi/jd' glyphs.
+	(U-000257B4): Apply new conventions for glyph granularity.
+	(U-000257A9): Likewise.
+
+	* Ideograph-R106-White.el (U-00024FA1): Apply new conventions for
+	glyph granularity.
+	(U-0002F93B): New character; use `<-denotational' for U-00024FA1;
+	unify HD-TK01061730.
+
+	* Ideograph-R086-Fire.el: Complete representative nodes of
+	`=hanyo-denshi/jb' and `=hanyo-denshi/jd' glyphs.
+	(U+71B3): Apply new conventions for glyph granularity.
+	(U+71C1): Likewise.
+
+	* Ideograph-R066-Rap.el (U+6538): Apply new conventions for glyph
+	granularity.
+	(HD-KS005620): Unify MJ012952.
+
+	* Ideograph-R026-Seal.el (U-00020A23): Apply new conventions for
+	glyph granularity.
+	(CB11078): New character; use `<-denotational' for U-00020A23.
+
 2017-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R109-Eye.el: Complete representative nodes of
@@ -5,6 +84,9 @@
 	(GT-K02952): New character; use `<-simplified@component' for
 	BC-8BB2.
 	(BC-8BB2): Add `ideographic-structure'.
+
+	* Ideograph-R078-Death.el (U+6BA9): Apply new conventions for
+	glyph granularity.
 
 	* Ideograph-R038-Woman.el: Complete representative nodes of
 	`=hanyo-denshi/jb' and `=hanyo-denshi/jd' glyphs.
