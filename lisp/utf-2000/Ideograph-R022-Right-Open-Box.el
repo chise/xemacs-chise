@@ -910,6 +910,7 @@
     (=jis-x0212		. #x342A)	; &I-JSP-342A; [20-10]
     (=cns11643-3	. #x2B49)	; &I-C3-2B49; [11-41]
     (=daikanwa		. 02621)	; &I-M-02621;
+    (=cbeta		. 05085)	; &I-CB05085;
     (=jef-china3	. #x45B7)	; &I-JC3-45B7;
     (->subsumptive
      ((=decomposition@cid
@@ -923,6 +924,7 @@
       (==jis-x0212	  . #x342A)	; &g2-AJ1-21226; [20-10]
       (==cns11643-3	  . #x2B49)	; &g2-AJ1-21226; [11-41]
       (==daikanwa	  . 02621)	; &g2-AJ1-21226;
+      (==cbeta		  . 05085)	; &g2-AJ1-21226;
       (==jef-china3	  . #x45B7)	; &g2-AJ1-21226;
       (->subsumptive
        ((===daikanwa	    . 02621)	; &R-M-02621;
@@ -934,11 +936,17 @@
        ((===cns11643-3	    . #x2B49)	; &R-C3-2B49; [11-41]
 	)
        ((===jef-china3	    . #x45B7)	; &R-JC3-45B7;
+	)
+       ((===cbeta	    . 05085)	; &R-CB05085;
 	))
       )
-     ((==ucs@unicode	  . #x5327)	; &HZK01-B5A6;
+     ((==ucs@unicode	  . #x5327)	; &g2-UU+5327;
       (==ucs@JP/hanazono  . nil)
-      (=hanziku-1	  . #xB5A6)	; &HZK01-B5A6;
+      (->subsumptive
+       ((===ucs@unicode	    . #x5327)	; &R-UU+5327;
+	)
+       ((=hanziku-1	    . #xB5A6)	; &HZK01-B5A6;
+	))
       ))
     ))
 (define-char

@@ -18,6 +18,41 @@
 
 2017-02-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R075-Tree.el: Complete representative nodes of
+	`=hanyo-denshi/jb' glyphs.
+	(U+6852): Apply new conventions for glyph granularity.
+	(U+6949): Likewise.
+	(U+69FE): Likewise.
+	(U+6AD4): Likewise.
+	(U+6B17): Likewise.
+
+	* Ideograph-R061-Heart.el: Complete representative nodes of
+	`=adobe-japan1-0' glyphs.
+	(U+5FF7): Unify S-2476; add `<-formed' for U+605F.
+	(U+603A): Apply new conventions for glyph granularity.
+	(U+6068): Likewise.
+	(U-00022643): Unify S-2486; add `<-original' and `<-same' for
+	UU+6068.
+	(U+606A): Apply new conventions for glyph granularity.
+	(U+3929): Likewise.
+	(UU+3929): Unify S-2468; add `<-formed' for UU+606A.
+	(U+60A0): Apply new conventions for glyph granularity.
+	(U+60F1): Likewise.
+	(U-0002272B): Likewise; unify S-2605; add `<-formed' for U+60FA;
+	add `->formed' for U+60FA.
+	(U+6119): Unify S-2467; add `<-original' for UU+606A.
+	(U+6121): Apply new conventions for glyph granularity.
+	(U+614A): Likewise.
+	(U+6163): Likewise.
+	(U+616B): Likewise.
+	(U+616F): Likewise.
+	(U+6171): Likewise.
+	(U+617F): Unify S-2696; add `<-vulgar' for U+6191.
+	(U+6199): Apply new conventions for glyph granularity.
+	(U+61C3): Likewise.
+
+	* Ideograph-R022-Right-Open-Box.el (UU+5327): Unify CB05085.
+
 	* Ideograph-R154-Shell.el: Complete representative nodes of
 	`=hanyo-denshi/jb' and `=hanyo-denshi/jd' glyphs.
 	(U+8D09): Apply new conventions for glyph granularity.
