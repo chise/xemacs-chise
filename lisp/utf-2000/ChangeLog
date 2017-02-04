@@ -1,5 +1,8 @@
 2017-02-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R007-Two.el (U+4E92): Separate UU+4E92.
+	(U+4E92-var-003): New character; use `<-denotational' for U+4E92.
+
 	* Ideograph-R146-West.el:
 	- Add some Hanyo-Denshi/JA code points.
 	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
