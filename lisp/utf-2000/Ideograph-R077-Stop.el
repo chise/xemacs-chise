@@ -27,7 +27,12 @@
     (=daikanwa		. 16253)	; &I-M-16253;
     (=shinjigen		.  3947)	; &AJ1-02221;
     (->subsumptive
-     ((==ucs@unicode	  . #x6B62)	; &g2-AJ1-02221;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x6B62)	; 止
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@unicode	  . #x6B62)	; &g2-AJ1-02221;
       (==adobe-japan1-0	  . 02221)	; &g2-AJ1-02221;
       (==gb2312		  . #x5639)	; &g2-AJ1-02221; [54-25]
       (==ks-x1001	  . #x722D)	; &g2-AJ1-02221; [82-13]
