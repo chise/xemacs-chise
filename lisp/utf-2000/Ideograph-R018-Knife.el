@@ -1438,6 +1438,12 @@
 	(==adobe-japan1-0   . 03163)	; &g2-AJ1-03163;
 	))
       (==big5-cdp	  . #x8C69)	; &g2-CDP-8C69;
+      )
+     ((=gt-k		  . 01482)	; &GT-K01482;
+      (=gt-pj-k1	  . #x324F)	; &GT-K01482; [18-47]
+      (<-formed@component/connect-below
+       ((=big5-cdp	    . #x8C69)	; &CDP-8C69;
+	))
       ))
     ))
 (define-char
