@@ -100,7 +100,8 @@
     (=big5-cdp		. #x88DC)	; &I-CDP-88DC;
     (=daikanwa		. 19910)	; &I-M-19910;
     (<-vulgar
-     ((=ucs		  . #x4E92)	; 互
+     ((=ucs@unicode	  . #x4E92)	; &AJ1-01939;
+      (=adobe-japan1-0	  . 01939)	; &AJ1-01939;
       (=daikanwa	  . 00255)	; &I-M-00255;
       ))
     (<-vulgar*sources
