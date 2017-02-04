@@ -1,5 +1,27 @@
 2017-02-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R146-West.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/JA.
+
+	* Ideograph-R145-Clothes.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/{JA|JB}.
+
+2017-02-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R142-Insect.el: Add `=decomposition@hanyo-denshi' for
+	some abstract glyph-forms of Hanyo-Denshi/{JB|JD}.
+
+	* Ideograph-R128-Ear.el (U-00026591): New character.
+
+	* Ideograph-R077-Stop.el (g2-UU+6B62): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R018-Knife.el (BC-8C69): Add GT-K01482.
+
 	* Ideograph-R167-Gold.el:
 	- Use g2-UU+91D2 instead of U+91D2 in `ideographic-structure' of
 	  abstract glyph-forms.
@@ -15,6 +37,9 @@
 	(J90U+93A1): Unify MJ027116 and KOSEKI-461720; add `<-formed' for
 	MJ027118.
 	(U+9404): Apply new conventions for glyph granularity.
+
+	* Ideograph-R190-Hair.el: Add some Adobe-Japan1-0 code points.
+	(U+9B04): Unify S-9457; add `<-original' for U+9AE2.
 
 2017-02-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
