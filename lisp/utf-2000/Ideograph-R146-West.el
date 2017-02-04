@@ -333,17 +333,24 @@
     (=cns11643-1	. #x5351)	; &I-C1-5351; [51-49]
     (=jis-x0213-1	. #x4D57)	; &I-JX1-4D57; [45-55]
     (=big5		. #xAD6E)	; &I-B-AD6E;
+    (=hanyo-denshi/ja	. #x4D57)	; &I-HD-JA-4D57; [45-55]
     (=gt		. 46811)	; &I-GT-46811;
     (=gt-k		. 05360)	; &I-GT-K05360;
     (=gt-pj-1		. #x4D57)	; &I-GT-46811; [45-55]
     (=daikanwa/+p	. 34768)	; &AJ1-03905;
     (->subsumptive
-     ((==ucs@unicode	  . #x8981)	; &g2-AJ1-03905;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8981)	; 要
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@unicode	  . #x8981)	; &g2-AJ1-03905;
       (==adobe-japan1-0	  . 03905)	; &g2-AJ1-03905;
       (==gb2312		  . #x522A)	; &g2-AJ1-03905; [50-10]
       (==ks-x1001	  . #x6929)	; &g2-AJ1-03905; [73-09]
       (==jis-x0208	  . #x4D57)	; &g2-AJ1-03905; [45-55]
       (==jis-x0213-1	  . #x4D57)	; &g2-AJ1-03905; [45-55]
+      (==hanyo-denshi/ja  . #x4D57)	; &g2-AJ1-03905; [45-55]
       (==gt		  . 46811)	; &g2-AJ1-03905;
       (==gt-k		  . 05360)	; &g2-AJ1-03905;
       (==daikanwa/+p	  . 34768)	; &g2-AJ1-03905;
@@ -734,15 +741,22 @@
     (=adobe-japan1-0	. 06636)	; &AJ1-06636;
     (=jis-x0208		. #x6B29)	; &I-J90-6B29; [75-09]
     (=jis-x0213-1	. #x6B29)	; &I-JX1-6B29; [75-09]
+    (=hanyo-denshi/ja	. #x6B29)	; &I-HD-JA-6B29; [75-09]
     (=gt		. 46825)	; &I-GT-46825;
     (=gt-k		. 09334)	; &I-GT-K09334;
     (=gt-pj-1		. #x6B29)	; &I-GT-46825; [75-09]
     (=daikanwa		. 34778)	; &I-M-34778;
     (->subsumptive
-     ((==ucs@jis	  . #x8983)	; &g2-AJ1-06636;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8983)	; 覃
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@jis	  . #x8983)	; &g2-AJ1-06636;
       (==adobe-japan1-0	  . 06636)	; &g2-AJ1-06636;
       (==jis-x0208	  . #x6B29)	; &g2-AJ1-06636; [75-09]
       (==jis-x0213-1	  . #x6B29)	; &g2-AJ1-06636; [75-09]
+      (==hanyo-denshi/ja  . #x6B29)	; &g2-AJ1-06636; [75-09]
       (==gt		  . 46825)	; &g2-AJ1-06636;
       (==gt-k		  . 09334)	; &g2-AJ1-06636;
       (==daikanwa	  . 34778)	; &g2-AJ1-06636;
@@ -1056,11 +1070,17 @@
       (=gb2312		  . #x3832)	; &I-G0-3832; [24-18]
       (=ks-x1001	  . #x5C5D)	; &I-K0-5C5D; [60-61]
       (=jis-x0213-1	  . #x4A24)	; &I-JX1-4A24; [42-04]
+      (=hanyo-denshi/ja	  . #x4A24)	; &I-HD-JA-4A24; [42-04]
       (=gt		  . 46840)	; &I-GT-46840;
       (=gt-pj-1		  . #x4A24)	; &I-GT-46840; [42-04]
       (=daikanwa/+p	  . 34789)	; &AJ1-03572;
       (->subsumptive
-       ((ideographic-structure
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x8986)	; 覆
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (=ucs		      . #x2FF1)	; ⿱
 	  )
@@ -1076,6 +1096,7 @@
 	(==ks-x1001	    . #x5C5D)	; &g2-AJ1-03572; [60-61]
 	(==jis-x0208	    . #x4A24)	; &g2-AJ1-03572; [42-04]
 	(==jis-x0213-1	    . #x4A24)	; &g2-AJ1-03572; [42-04]
+	(==hanyo-denshi/ja  . #x4A24)	; &g2-AJ1-03572; [42-04]
 	(==gt		    . 46840)	; &g2-AJ1-03572;
 	(==daikanwa/+p	    . 34789)	; &g2-AJ1-03572;
 	(->subsumptive
@@ -1197,6 +1218,7 @@
     (=jis-x0208		. #x4746)	; &I-J90-4746; [39-38]
     (=ks-x1001		. #x782E)	; &I-K0-782E; [88-14]
     (=jis-x0213-1	. #x4746)	; &I-JX1-4746; [39-38]
+    (=hanyo-denshi/ja	. #x4746)	; &I-HD-JA-4746; [39-38]
     (=gt		. 46844)	; &I-GT-46844;
     (=gt-pj-1		. #x4746)	; &I-GT-46844; [39-38]
     (=shinjigen@rev	.  7480)	; &AJ1-03324;
@@ -1208,11 +1230,17 @@
      ((=gt		  . 46846)	; &GT-46846;
       (=gt-pj-11	  . #x3E44)	; &GT-46846; [30-36]
       )
-     ((==ucs@unicode	  . #x8987)	; &g2-AJ1-03324;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8987)	; 覇
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@unicode	  . #x8987)	; &g2-AJ1-03324;
       (==adobe-japan1-0	  . 03324)	; &g2-AJ1-03324;
       (==ks-x1001	  . #x782E)	; &g2-AJ1-03324; [88-14]
       (==jis-x0208	  . #x4746)	; &g2-AJ1-03324; [39-38]
       (==jis-x0213-1	  . #x4746)	; &g2-AJ1-03324; [39-38]
+      (==hanyo-denshi/ja  . #x4746)	; &g2-AJ1-03324; [39-38]
       (==gt		  . 46844)	; &g2-AJ1-03324;
       (==shinjigen@rev	  .  7480)	; &g2-AJ1-03324;
       (->subsumptive
@@ -1247,14 +1275,21 @@
     (=adobe-japan1-0	. 06637)	; &AJ1-06637;
     (=jis-x0208		. #x6B2A)	; &I-J90-6B2A; [75-10]
     (=jis-x0213-1	. #x6B2A)	; &I-JX1-6B2A; [75-10]
+    (=hanyo-denshi/ja	. #x6B2A)	; &I-HD-JA-6B2A; [75-10]
     (=gt		. 46841)	; &I-GT-46841;
     (=gt-pj-1		. #x6B2A)	; &I-GT-46841; [75-10]
     (=daikanwa		. 34791)	; &I-M-34791;
     (->subsumptive
-     ((==ucs@jis	  . #x8988)	; &g2-AJ1-06637;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8988)	; 覈
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@jis	  . #x8988)	; &g2-AJ1-06637;
       (==adobe-japan1-0	  . 06637)	; &g2-AJ1-06637;
       (==jis-x0208	  . #x6B2A)	; &g2-AJ1-06637; [75-10]
       (==jis-x0213-1	  . #x6B2A)	; &g2-AJ1-06637; [75-10]
+      (==hanyo-denshi/ja  . #x6B2A)	; &g2-AJ1-06637; [75-10]
       (==gt		  . 46841)	; &g2-AJ1-06637;
       (==daikanwa	  . 34791)	; &g2-AJ1-06637;
       (->subsumptive
@@ -1416,16 +1451,23 @@
     (=jis-x0208		. #x6B2B)	; &I-J90-6B2B; [75-11]
     (=cns11643-3	. #x614A)	; &I-C3-614A; [65-42]
     (=jis-x0213-1	. #x6B2B)	; &I-JX1-6B2B; [75-11]
+    (=hanyo-denshi/ja	. #x6B2B)	; &I-HD-JA-6B2B; [75-11]
     (=gt		. 46851)	; &I-GT-46851;
     (=gt-pj-1		. #x6B2B)	; &I-GT-46851; [75-11]
     (=daikanwa		. 34795)	; &I-M-34795;
     (->subsumptive
-     ((==ucs@cns	  . #x898A)	; &g2-AJ1-06638;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x898A)	; 覊
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@cns	  . #x898A)	; &g2-AJ1-06638;
       (==ucs@jis	  . #x898A)	; &g2-AJ1-06638;
       (==adobe-japan1-0	  . 06638)	; &g2-AJ1-06638;
       (==jis-x0208	  . #x6B2B)	; &g2-AJ1-06638; [75-11]
       (==cns11643-3	  . #x614A)	; &g2-AJ1-06638; [65-42]
       (==jis-x0213-1	  . #x6B2B)	; &g2-AJ1-06638; [75-11]
+      (==hanyo-denshi/ja  . #x6B2B)	; &g2-AJ1-06638; [75-11]
       (==gt		  . 46851)	; &g2-AJ1-06638;
       (==daikanwa	  . 34795)	; &g2-AJ1-06638;
       (->subsumptive
