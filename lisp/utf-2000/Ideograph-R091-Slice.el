@@ -2045,6 +2045,7 @@
      ((=ucs		  . #x5EB8)	; 庸
       ))
     (=ucs		. #x7257)	; 牗
+    (=adobe-japan1-5	. 18047)	; &I-AJ1-18047;
     (=cns11643-3	. #x4D2D)	; &I-C3-4D2D; [45-13]
     (=jis-x0213-2	. #x7031)	; &I-JX2-7031; [80-17]
     (=cbeta		. 04523)	; &I-CB04523;
@@ -2059,9 +2060,10 @@
        ((=ucs@unicode	    . #x5EB8)	; &MJ011018;
 	(=mj		    . 011018)	; &MJ011018;
 	))
-      (=>>ucs@unicode	  . #x7257)	; &G-JX2-7031;
-      (=>>jis-x0213-2	  . #x7031)	; &G-JX2-7031; [80-17]
-      (=>>cbeta		  . 04523)	; &G-JX2-7031;
+      (=>>ucs@unicode	  . #x7257)	; &G-AJ1-18047;
+      (=>>adobe-japan1-5  . 18047)	; &G-AJ1-18047;
+      (=>>jis-x0213-2	  . #x7031)	; &G-AJ1-18047; [80-17]
+      (=>>cbeta		  . 04523)	; &G-AJ1-18047;
       (->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -2072,10 +2074,13 @@
 	 ((==ucs@unicode      . #x5EB8)	; &g2-MJ011018;
 	  (==mj		      . 011018)	; &g2-MJ011018;
 	  ))
-	(==ucs@unicode	    . #x7257)	; &g2-JX2-7031;
-	(==jis-x0213-2	    . #x7031)	; &g2-JX2-7031; [80-17]
+	(==ucs@unicode	    . #x7257)	; &g2-AJ1-18047;
+	(==adobe-japan1-5   . 18047)	; &g2-AJ1-18047;
+	(==jis-x0213-2	    . #x7031)	; &g2-AJ1-18047; [80-17]
 	(->subsumptive
 	 ((===jis-x0213-2     . #x7031)	; &R-JX2-7031; [80-17]
+	  )
+	 ((===adobe-japan1-5  . 18047)	; &R-AJ1-18047;
 	  )
 	 ((===ucs@unicode     . #x7257)	; &R-UU+7257;
 	  ))

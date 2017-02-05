@@ -1182,10 +1182,11 @@
     (=daikanwa		. 07089)	; &I-M-07089;
     (=shinjigen@rev	.  1817)	; &AJ1-21432;
     (<-original
-     ((=ucs		  . #x5B9C)	; 宜
+     ((=ucs@unicode	  . #x5B9C)	; &AJ1-01619;
+      (=adobe-japan1-0	  . 01619)	; &AJ1-01619;
       (=jis-x0208	  . #x3539)	; &I-J90-3539; [21-25]
       (=daikanwa	  . 07111)	; &I-M-07111;
-      (=shinjigen	  .  1816)	; 宜
+      (=shinjigen	  .  1816)	; &AJ1-01619;
       ))
     (<-original*sources
      daikanwa shinjigen@rev)
@@ -1235,9 +1236,10 @@
     (=cns11643-4	. #x225B)	; &C4-225B; [02-59]
     (=shinjigen@1ed	.  1817)	; &C4-225B;
     (<-original
-     ((=ucs		  . #x5B9C)	; 宜
+     ((=ucs@unicode	  . #x5B9C)	; &AJ1-01619;
+      (=adobe-japan1-0	  . 01619)	; &AJ1-01619;
       (=jis-x0208	  . #x3539)	; &I-J90-3539; [21-25]
-      (=shinjigen	  .  1816)	; 宜
+      (=shinjigen	  .  1816)	; &AJ1-01619;
       ))
     (<-original*sources
      shinjigen@1ed)
@@ -1948,6 +1950,15 @@
   '((ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (=ucs		. #x5B9C)	; 宜
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5B9C)	; 宜
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -1956,8 +1967,8 @@
       )
      ((=ucs		  . #x4E14)	; 且
       ))
-    (=ucs		. #x5B9C)	; 宜
-    (=adobe-japan1-0	. 01619)	; &I-AJ1-01619;
+    (=ucs@unicode	. #x5B9C)	; &AJ1-01619;
+    (=adobe-japan1-0	. 01619)	; &AJ1-01619;
     (=jis-x0208		. #x3539)	; &I-J90-3539; [21-25]
     (=gb2312		. #x524B)	; &I-G0-524B; [50-43]
     (=ks-x1001		. #x6B71)	; &I-K0-6B71; [75-81]
@@ -1967,7 +1978,7 @@
     (=gt-k		. 03666)	; &I-GT-K03666;
     (=gt-pj-1		. #x3539)	; &I-GT-08923; [21-25]
     (=daikanwa		. 07111)	; &I-M-07111;
-    (=shinjigen		.  1816)	; 宜
+    (=shinjigen		.  1816)	; &AJ1-01619;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5B9C)	; 宜
@@ -2012,13 +2023,22 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs-var-003	  . #x4E92)	; &U-v003+4E92;
+      ))
     (=ucs@cns		. #x5B90)	; &GT-08924;
     (=cns11643-4	. #x2625)	; &GT-08924; [06-05]
     (=gt		. 08924)	; &I-GT-08924;
     (=gt-pj-2		. #x725A)	; &I-GT-08924; [82-58]
     (=daikanwa		. 07112)	; &I-M-07112;
     (<-same
-     ((=ucs		  . #x5B9C)	; 宜
+     ((=ucs@unicode	  . #x5B9C)	; &AJ1-01619;
+      (=adobe-japan1-0	  . 01619)	; &AJ1-01619;
       (=daikanwa	  . 07111)	; &I-M-07111;
       ))
     (<-same*sources

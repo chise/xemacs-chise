@@ -502,7 +502,8 @@
     (=cbeta		. 04833)	; &I-CB04833;
     (=jef-china3	. #x43F2)	; &I-JC3-43F2;
     (<-same
-     ((=ucs		  . #x5B9C)	; 宜
+     ((=ucs@unicode	  . #x5B9C)	; &AJ1-01619;
+      (=adobe-japan1-0	  . 01619)	; &AJ1-01619;
       (=daikanwa	  . 07111)	; &I-M-07111;
       ))
     (<-same*sources
