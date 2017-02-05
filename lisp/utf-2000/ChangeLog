@@ -1,3 +1,30 @@
+2017-02-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el: Complete representative nodes of
+	`=adobe-japan1-0', `=hanyo-denshi/jb' and `=hanyo-denshi/jd'
+	glyphs.
+	(U+5438): Apply new conventions for glyph granularity.
+	(U+5455): Likewise.
+	(U+5486): Likewise.
+	(U+54A2): Likewise.
+	(U-0002F840): New character; use `<-denotational' for U+54A2;
+	unify MJ008218 and HD-KS041750; add `<-formed' for UU+54A2.
+	(U+54EE): Apply new conventions for glyph granularity.
+	(U+5507): Likewise.
+	(U+555D): Likewise.
+	(UU+5563): Likewise; add `<-vulgar' for U+929C.
+	(U-0002F844): Add representative nodes.
+	(U+5586): Apply new conventions for glyph granularity.
+	(U+5589): Likewise.
+	(U+35CB): Likewise.
+	(U+35C1): Likewise.
+	(U+559D): Likewise.
+	(U+55E4): Likewise.
+	(U+5614): Likewise.
+	(U-0002103D): Likewise.
+	(U+56AE): Likewise.
+	(U+56D3): Likewise.
+
 2017-02-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R007-Two.el (U+4E92): Separate UU+4E92.
