@@ -1,5 +1,11 @@
 2017-02-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R040-Roof.el (U+5B9C): Apply new conventions for glyph
+	granularity.
+	(CU+5B90): Add `ideographic-structure'.
+
+2017-02-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R030-Mouth.el: Complete representative nodes of
 	`=adobe-japan1-0', `=hanyo-denshi/jb' and `=hanyo-denshi/jd'
 	glyphs.
