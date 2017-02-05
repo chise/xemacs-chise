@@ -12,6 +12,13 @@
 
 2017-02-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R148-Horn.el (JU+89D2): Unify HD-JA1949.
+	(g2-JU+89D2): Add `=decomposition@hanyo-denshi'; unify
+	g2-HD-JA1949.
+
+	* Ideograph-R143-Blood.el (U+884A): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R030-Mouth.el: Complete representative nodes of
 	`=adobe-japan1-0', `=hanyo-denshi/jb' and `=hanyo-denshi/jd'
 	glyphs.
