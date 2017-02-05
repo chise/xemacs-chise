@@ -1119,6 +1119,14 @@
     ))
 (define-char
   '((ideographic-radical . 143)	; ⾎
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8840)	; 血
+      )
+     ((=ucs		  . #x8511)	; 蔑
+      ))
     (=ucs		. #x884A)	; 衊
     (=big5		. #xF647)	; &I-B-F647;
     ))
@@ -1129,9 +1137,33 @@
     (ideographic-radical . 143)	; ⾎
     (ideographic-strokes . 15)
     (total-strokes	 . 21)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8840)	; 血
+      )
+     ((=ucs@cns		  . #x8511)	; &C1-6E59;
+      (=cns11643-1	  . #x6E59)	; &C1-6E59; [78-57]
+      (=daikanwa	  . 31781)	; &I-M-31781;
+      ))
+    (=ucs@cns		. #x884A)	; &C2-6C36;
     (=cns11643-2	. #x6C36)	; &C2-6C36; [76-22]
     (=daikanwa		. 34023)	; &I-M-34023;
     (=jef-china3	. #x63E3)	; &I-JC3-63E3;
+    (->subsumptive
+     ((==ucs@cns	  . #x884A)	; &g2-M-34023;
+      (==cns11643-2	  . #x6C36)	; &g2-M-34023; [76-22]
+      (==daikanwa	  . 34023)	; &g2-M-34023;
+      (==jef-china3	  . #x63E3)	; &g2-M-34023;
+      (->subsumptive
+       ((===daikanwa	    . 34023)	; &R-M-34023;
+	)
+       ((===cns11643-2	    . #x6C36)	; &R-C2-6C36; [76-22]
+	)
+       ((===jef-china3	    . #x63E3)	; &R-JC3-63E3;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -1140,15 +1172,39 @@
     (ideographic-radical . 143)	; ⾎
     (ideographic-strokes . 14)
     (total-strokes	 . 20)
-    (=>>ucs@unicode	. #x884A)	; &G-JX2-7825;
-    (=>>jis-x0213-2	. #x7825)	; &G-JX2-7825; [88-05]
-    (=>>hanyo-denshi/jb . #x5C28)	; &G-JX2-7825; [60-08]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x8840)	; &AJ1-01858;
+      (=adobe-japan1-0	  . 01858)	; &AJ1-01858;
+      )
+     ((=ucs@unicode	  . #x8511)	; &AJ1-03614;
+      (=adobe-japan1-0	  . 03614)	; &AJ1-03614;
+      ))
+    (=ucs@unicode	. #x884A)	; &HD-JB-5C28;
+    (=jis-x0212		. #x5C28)	; &HD-JB-5C28; [60-08]
+    (=jis-x0213-2	. #x7825)	; &I-JX2-7825; [88-05]
+    (=gb12345		. #x785A)	; &HD-JB-5C28; [88-58]
+    (=hanyo-denshi/jb	. #x5C28)	; &I-HD-JB-5C28; [60-08]
     (->subsumptive
-     ((=ucs@unicode	  . #x884A)	; &HD-JB-5C28;
-      (=jis-x0212	  . #x5C28)	; &HD-JB-5C28; [60-08]
-      (=jis-x0213-2	  . #x7825)	; &I-JX2-7825; [88-05]
-      (=gb12345		  . #x785A)	; &HD-JB-5C28; [88-58]
-      (=hanyo-denshi/jb	  . #x5C28)	; &I-HD-JB-5C28; [60-08]
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x884A)	; 衊
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@unicode	  . #x884A)	; &g2-HD-JB-5C28;
+      (==jis-x0212	  . #x5C28)	; &g2-HD-JB-5C28; [60-08]
+      (==jis-x0213-2	  . #x7825)	; &g2-HD-JB-5C28; [88-05]
+      (==gb12345	  . #x785A)	; &g2-HD-JB-5C28; [88-58]
+      (==hanyo-denshi/jb  . #x5C28)	; &g2-HD-JB-5C28; [60-08]
+      (->subsumptive
+       ((===jis-x0212	    . #x5C28)	; &R-HD-JB-5C28; [60-08]
+	(===jis-x0213-2	    . #x7825)	; &R-HD-JB-5C28; [88-05]
+	(===hanyo-denshi/jb . #x5C28)	; &R-HD-JB-5C28; [60-08]
+	)
+       ((===ucs@unicode	    . #x884A)	; &R-UU+884A;
+	))
       ))
     ))
 (define-char
