@@ -3,7 +3,7 @@
 ;; Copyright (C) 1995,1999 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1997, 1999, 2000, 2002, 2003, 2004, 2005, 2006, 2008,
-;;   2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016 MORIOKA Tomohiko
+;;   2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017 MORIOKA Tomohiko
 
 ;; Keywords: mule, multilingual, character set, coding system
 
@@ -4568,6 +4568,29 @@
 		  direction	l2r
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-005
+		  min-code #x2E00
+		  max-code #x9FCC
+		  registry "ucs\\.itaiji005-0"))
+  (make-charset '=>ucs-itaiji-005
+		"Abstract characters corresponding with uXXXX-itaiji-005 of GlyphWiki"
+		'(long-name	"UCS-itaiji-005"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs))
+  (make-charset '=>ucs-bmp-itaiji-005
+		"uXXXX-itaiji-005's abstract characters in BMP"
+		'(long-name	"UCS-BMP-itaiji-005 characters"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=>ucs-itaiji-005
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.itaiji005-0"))
