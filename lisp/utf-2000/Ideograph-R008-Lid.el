@@ -4796,6 +4796,14 @@
     (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 20)
     (total-strokes	 . 22)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((=ucs@unicode	  . #x820B)	; &UU+820B;
+      ))
     (=ucs@unicode	. #x4EB9)	; &MJ006491;
     (=mj		. 006491)	; &MJ006491;
     (=adobe-japan1-4	. 14309)	; &I-AJ1-14309;
@@ -4815,14 +4823,6 @@
        ((=ucs		    . #x4EB9)	; 亹
 	)
        ((=ucs		    . #xE0101)	; 󠄁
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x4EA0)	; 亠
-	)
-       ((=ucs@unicode	    . #x820B)	; &UU+820B;
 	))
       (==ucs@unicode	  . #x4EB9)	; &g2-MJ006491;
       (==mj		  . 006491)	; &g2-MJ006491;
