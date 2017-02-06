@@ -369,9 +369,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  arabic-digit
 	  arabic-1-column
 	  arabic-2-column
-	  =cbeta
-	  =jef-china3
-	  chinese-isoir165
 	  arabic-iso8859-6
 	  chinese-big5-1
 	  chinese-big5-2
@@ -404,6 +401,9 @@ DESCRIPTION (string) is the description string of the charset."
 	  =big5-cdp-var-003
 	  =big5-cdp-var-004
 	  =big5-cdp-var-005
+	  =cbeta
+	  =jef-china3
+	  chinese-isoir165
 	  =ucs-bmp-cjk-compat
           =ucs-bmp-cjk-compat@unicode
           =ucs-sip@JP/hanazono
