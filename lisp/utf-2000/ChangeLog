@@ -1,5 +1,16 @@
 2017-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R144-Walk-Enclosure.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/JA.
+	(U+8853): Apply new conventions for glyph granularity.
+
+2017-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (UU+4EB9): Add `ideographic-structure'.
+	(g2-UU+4EB9): Move `ideographic-structure' to UU+4EB9.
+
 	* Ideograph-R092-Fang.el (U+725A): Unify AJ1-19526.
 
 	* Ideograph-R091-Slice.el (U+7257): Unify AJ1-18047.
@@ -43,6 +54,11 @@
 	(U-0002103D): Likewise.
 	(U+56AE): Likewise.
 	(U+56D3): Likewise.
+
+	* Ideograph-R213-Turtle.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/JA.
 
 2017-02-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
