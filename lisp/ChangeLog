@@ -1,3 +1,9 @@
+2017-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer `=ucs-*-var-*' and `=ucs-*-itaiji-*' to `=cbeta',
+	`=jef-china3' and `chinese-isoir165'.
+
 2017-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
