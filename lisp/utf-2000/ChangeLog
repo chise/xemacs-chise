@@ -1,5 +1,8 @@
 2017-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R090-Half-Tree-Trunk.el: Add some Adobe-Japan1-5 code
+	points.
+
 	* Ideograph-R144-Walk-Enclosure.el:
 	- Add some Hanyo-Denshi/JA code points.
 	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
