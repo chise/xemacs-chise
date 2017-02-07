@@ -11873,6 +11873,9 @@
     (=big5-cdp		. #x8D4F)	; &CDP-8D4F;
     (->subsumptive
      ((==big5-cdp	  . #x8D4F)	; &g2-CDP-8D4F;
+      )
+     ((=gt-k		  . 07420)	; &GT-K07420;
+      (=gt-pj-k1	  . #x3276)	; &GT-K07420; [18-86]
       ))
     ))
 (define-char
