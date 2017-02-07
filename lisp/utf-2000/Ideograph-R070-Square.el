@@ -58,27 +58,69 @@
   '((ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
-    (=ucs		. #x3AC3)	; 㫃
-    (->subsumptive
-     ((=big5-cdp	  . #x8A7E)	; &CDP-8A7E;
-      (=daikanwa	  . 13621)	; &I-M-13621;
-      (=cbeta		  . 08182)	; &I-CB08182;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x3AC3)	; &C3-2371;
-      (=cns11643-3	  . #x2371)	; &C3-2371; [03-81]
+     ((=ucs		  . #x65B9)	; 方
+      )
+     ((=ucs		  . #x4EBA)	; 人
+      ))
+    (=ucs		. #x3AC3)	; 㫃
+    (=mj		. 001565)	; &I-MJ001565;
+    (=cns11643-3	. #x2371)	; &I-C3-2371; [03-81]
+    (=big5-cdp		. #x8A7E)	; &I-CDP-8A7E;
+    (=koseki		. 152830)	; 㫃
+    (=daikanwa		. 13621)	; &I-M-13621;
+    (=cbeta		. 08182)	; &I-CB08182;
+    (->subsumptive
+     ((==ucs@unicode	  . #x3AC3)	; &g2-MJ001565;
+      (==mj		  . 001565)	; &g2-MJ001565;
+      (==cns11643-3	  . #x2371)	; &g2-MJ001565; [03-81]
+      (==big5-cdp	  . #x8A7E)	; &g2-MJ001565;
+      (==koseki		  . 152830)	; &g2-MJ001565;
+      (==daikanwa	  . 13621)	; &g2-MJ001565;
+      (==cbeta		  . 08182)	; &g2-MJ001565;
+      (->subsumptive
+       ((===daikanwa	    . 13621)	; &R-M-13621;
+	)
+       ((===mj		    . 001565)	; &R-MJ001565;
+	)
+       ((===big5-cdp	    . #x8A7E)	; &R-CDP-8A7E;
+	)
+       ((===cbeta	    . 08182)	; &R-CB08182;
+	)
+       ((===cns11643-3	    . #x2371)	; &R-C3-2371; [03-81]
+	)
+       ((===ucs@unicode	    . #x3AC3)	; &R-UU+3AC3;
+	))
+      )
+     ((=cbeta		  . 09247)	; &CB09247;
+      (<-identical@component/surround-from-upper-left
+       ((=ucs		    . #x3AC3)	; 㫃
+	))
       ))
     ))
 (define-char
-  '((<-denotational
-     ((=ucs		  . #x3AC3)	; 㫃
-      ))
-    (ideographic-radical . 70)	; ⽅
+  '((ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
-    (=cbeta		. 09247)	; &CB09247;
-    (<-formed@component
-     ((=big5-cdp	  . #x8A7E)	; &CDP-8A7E;
-      (=daikanwa	  . 13621)	; &I-M-13621;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x65B9)	; 方
+      )
+     ((name*		  . "ideographic component person for top")
+      (=ucs		  . #x20089)	; 𠂉
+      ))
+    (=cbeta		. 12073)	; &CB12073;
+    (=ucs-itaiji-001	. #x3AC3)	; &CB12073;
+    (<-formed@component/surround-from-upper-left
+     ((=ucs		  . #x3AC3)	; 㫃
+      ))
+    (->subsumptive
+     ((==cbeta		  . 12073)	; &g2-CB12073;
       ))
     ))
 (define-char
