@@ -1,4 +1,15 @@
+2017-02-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R070-Square.el (U+3AC3): Apply new conventions for
+	glyph granularity; unify MJ001565 and KOSEKI-152830.
+	(CB12073): New character; unify U+3AC3-itaiji-001; use
+	`<-formed@component/surround-from-upper-left' for U+3AC3.
+
 2017-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (BC-8D4F): Add GT-K07420.
+
+	* Ideograph-R074-Moon.el (U-00023386): Add representative nodes.
 
 	* Ideograph-R156-Run.el:
 	- Add some Hanyo-Denshi/JA code points.
