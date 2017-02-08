@@ -157,45 +157,6 @@
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
-      (=ucs		  . #x2FF9)	; ⿹
-      )
-     ((=gt-k		  . 00007)	; &GT-K00007;
-      )
-     ((=ucs		  . #x20087)	; 𠂇
-      ))
-    (=gt-k		. 00251)	; &GT-K00251;
-    (=gt-pj-k1		. #x3163)	; &GT-K00251; [17-67]
-    ))
-(define-char
-  '((<-denotational
-     ((=>ucs@iwds-1	  . #x5342)	; &A-IWDSU+5342;
-      (=>ucs@unicode	  . #x5342)	; &A-IWDSU+5342;
-      ))
-    (ideographic-radical . 24)	; ⼗
-    (ideographic-strokes . 1)
-    (total-strokes	 . 3)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
-      (=ucs		  . #x2FF9)	; ⿹
-      )
-     ((name		  . "CJK RADICAL SECOND THREE")
-      (=ucs		  . #x2E84)	; ⺄
-      )
-     ((=ucs		  . #x20087)	; 𠂇
-      ))
-    (=gt-k		. 00252)	; &GT-K00252;
-    (=gt-pj-k1		. #x3A26)	; &GT-K00252; [26-06]
-    ))
-(define-char
-  '((<-denotational
-     ((=>ucs@iwds-1	  . #x5342)	; &A-IWDSU+5342;
-      (=>ucs@unicode	  . #x5342)	; &A-IWDSU+5342;
-      ))
-    (ideographic-radical . 24)	; ⼗
-    (ideographic-strokes . 1)
-    (total-strokes	 . 3)
     (=big5-cdp		. #x88EC)	; &CDP-88EC;
     ))
 (define-char
@@ -219,6 +180,42 @@
     (->subsumptive
      ((==ucs@cns	  . #x5342)	; &g2-CU+5342;
       (==cns11643-4	  . #x2130)	; &g2-CU+5342; [01-16]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x5342)	; &A-IWDSU+5342;
+      (=>ucs@unicode	  . #x5342)	; &A-IWDSU+5342;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((name		  . "CJK RADICAL SECOND THREE")
+      (=ucs		  . #x2E84)	; ⺄
+      )
+     ((=ucs		  . #x20087)	; 𠂇
+      ))
+    (=cbeta		. 07314)	; &CB07314;
+    (->subsumptive
+     ((==cbeta		  . 07314)	; &g2-CB07314;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+	(=ucs		    . #x2FF9)	; ⿹
+	)
+       ((=gt-k		    . 00007)	; &GT-K00007;
+	)
+       ((=ucs		    . #x20087)	; 𠂇
+	))
+      (=gt-k		  . 00251)	; &GT-K00251;
+      (=gt-pj-k1	  . #x3163)	; &GT-K00251; [17-67]
+      )
+     ((=gt-k		  . 00252)	; &GT-K00252;
+      (=gt-pj-k1	  . #x3A26)	; &GT-K00252; [26-06]
       ))
     ))
 (define-char

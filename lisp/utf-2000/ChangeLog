@@ -1,5 +1,13 @@
 2017-02-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R024-Ten.el (CB07314): New character; subsume
+	GT-K00251 and GT-K00252.
+	(GT-K00251): Use `<-subsumptive' for CB07314 instead of
+	`<-denotational' for A-UU+5342.
+	(GT-K00252): Likewise.
+
+2017-02-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R130-Meat.el (U-00023386): Add representative nodes.
 
 	* Ideograph-R088-Father.el (U+7239): Unify AJ1-18045.
