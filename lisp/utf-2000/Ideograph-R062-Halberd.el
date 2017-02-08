@@ -980,6 +980,30 @@
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4ECE)	; 从
+      )
+     ((=ucs		  . #x6208)	; 戈
+      ))
+    (=mj		. 057538)	; &MJ057538;
+    (=koseki		. 130390)	; &MJ057538;
+    (<-formed
+     ((=ucs		  . #x39B0)	; 㦰
+      ))
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==mj		  . 057538)	; &g2-MJ057538;
+      (==koseki		  . 130390)	; &g2-MJ057538;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=ucs		. #x229A6)	; 𢦦
