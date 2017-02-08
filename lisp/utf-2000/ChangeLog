@@ -1,3 +1,9 @@
+2017-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R014-Cover.el: Complete representative nodes of
+	`=adobe-japan1-0' glyphs.
+	(U+51A6): Apply new conventions for glyph granularity.
+
 2017-02-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R024-Ten.el (CB07314): New character; subsume
