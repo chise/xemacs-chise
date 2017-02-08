@@ -162,7 +162,16 @@
   '((ideographic-radical . 88)	; ⽗
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7236)	; 父
+      )
+     ((=ucs		  . #x591A)	; 多
+      ))
     (=ucs		. #x7239)	; 爹
+    (=adobe-japan1-5	. 18045)	; &I-AJ1-18045;
     (=gb2312		. #x3579)	; &I-G0-3579; [21-89]
     (=jis-x0212		. #x4A4C)	; &I-JSP-4A4C; [42-44]
     (=cns11643-1	. #x5655)	; &I-C1-5655; [54-53]
@@ -171,15 +180,18 @@
     (=daikanwa		. 19727)	; &I-M-19727;
     (=jef-china3	. #x58B4)	; &I-JC3-58B4;
     (->subsumptive
-     ((==ucs@jis	  . #x7239)	; &g2-JSP-4A4C;
-      (==jis-x0212	  . #x4A4C)	; &g2-JSP-4A4C; [42-44]
-      (==jis-x0213-2	  . #x702D)	; &g2-JSP-4A4C; [80-13]
-      (==daikanwa	  . 19727)	; &g2-JSP-4A4C;
+     ((==ucs@jis	  . #x7239)	; &g2-AJ1-18045;
+      (==adobe-japan1-5	  . 18045)	; &g2-AJ1-18045;
+      (==jis-x0212	  . #x4A4C)	; &g2-AJ1-18045; [42-44]
+      (==jis-x0213-2	  . #x702D)	; &g2-AJ1-18045; [80-13]
+      (==daikanwa	  . 19727)	; &g2-AJ1-18045;
       (->subsumptive
        ((===daikanwa	    . 19727)	; &R-M-19727;
 	)
        ((===jis-x0212	    . #x4A4C)	; &R-JX2-702D; [42-44]
 	(===jis-x0213-2	    . #x702D)	; &R-JX2-702D; [80-13]
+	)
+       ((===adobe-japan1-5  . 18045)	; &R-AJ1-18045;
 	))
       )
      ((==ucs@unicode	  . #x7239)	; &g2-UU+7239;

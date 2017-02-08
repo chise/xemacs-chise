@@ -250,7 +250,8 @@
     (=daikanwa		. 00231)	; &I-M-00231;
     (=shinjigen		.  0067)	; &AJ1-03879;
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x8C6B)	; 豫
+     ((=ucs@unicode	  . #x8C6B)	; &AJ1-04103;
+      (=adobe-japan1-0	  . 04103)	; &AJ1-04103;
       (=jis-x0208	  . #x502E)	; &I-J90-502E; [48-14]
       ))
     (->subsumptive
