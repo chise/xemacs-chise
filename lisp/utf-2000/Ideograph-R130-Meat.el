@@ -11612,20 +11612,25 @@
   '((<-denotational
      ((=>daikanwa	  . 29675)	; &A-M-29675;
       ))
-    (ideographic-radical@ucs . 74)	; ⽉
-    (ideographic-radical@misc . 130)	; ⾁
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
-    (=ucs		. #x23386)	; 𣎆
+    (ideographic-radical . 130)	; ⾁
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (=cbeta		. 12237)	; &CB12237;
     ))
 (define-char
   '((<-denotational
      ((=>daikanwa	  . 29675)	; &A-M-29675;
       ))
-    (ideographic-radical . 130)	; ⾁
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (=cbeta		. 12237)	; &CB12237;
+    (ideographic-radical@ucs . 74)	; ⽉
+    (ideographic-radical@misc . 130)	; ⾁
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (=ucs		. #x23386)	; 𣎆
+    (->subsumptive
+     ((=ucs@iso		  . #x23386)	; &U-00023386;
+      )
+     ((=ucs@JP/hanazono	  . #x23386)	; &hanaJU+23386;
+      ))
     ))
 (define-char
   '((ideographic-radical . 130)	; ⾁
