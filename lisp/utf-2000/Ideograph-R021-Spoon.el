@@ -445,6 +445,15 @@
     (=adobe-japan1-4	. 13697)	; &AJ1-13697;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x21275)	; 𡉵
+      ))
+    (ideographic-radical . 21)	; ⼔
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (=big5-cdp		. #x857E)	; &CDP-857E;
+    ))
+(define-char
   '((ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
