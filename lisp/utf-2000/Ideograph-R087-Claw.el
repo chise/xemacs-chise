@@ -1107,6 +1107,34 @@
      ((=ucs		  . #x65E7)	; 旧
       ))
     (=>gt-k		. 06065)	; &A-GT-K06065;
+    (=>ucs-itaiji-005	. #x8200)	; &A-GT-K06065;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 06065)	; &A-GT-K06065;
+      ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@cns		  . #x722B)	; &GT-25225;
+      (=ucs@jis		  . #x722B)	; &GT-25225;
+      (=jis-x0212	  . #x4A48)	; &GT-25225; [42-40]
+      (=cns11643-4	  . #x2151)	; &I-C4-2151; [01-49]
+      (=jis-x0213-2	  . #x702A)	; &I-JX2-702A; [80-10]
+      (=daikanwa	  . 19655)	; &I-M-19655;
+      )
+     ((=ucs		  . #x65E7)	; 旧
+      ))
+    (=gt-k		. 05976)	; &GT-K05976;
+    (=gt-pj-k2		. #x3F3E)	; &GT-K05976; [31-30]
+    (=ucs-itaiji-005	. #x8200)	; &GT-K05976;
+    (<-formed@component
+     ((=ucs		  . #x8200)	; 舀
+      ))
     ))
 (define-char
   '((<-denotational
@@ -1744,11 +1772,39 @@
      ((=ucs		  . #x722A)	; 爪
       ))
     (=ucs		. #x7234)	; 爴
+    (=adobe-japan1-5	. 18044)	; &I-AJ1-18044;
     (=jis-x0212		. #x4A4A)	; &I-JSP-4A4A; [42-42]
     (=cns11643-4	. #x4A6C)	; &I-C4-4A6C; [42-76]
     (=jis-x0213-2	. #x702B)	; &I-JX2-702B; [80-11]
     (=daikanwa		. 19704)	; &I-M-19704;
     (=cbeta		. 01441)	; &I-CB01441;
+    (->subsumptive
+     ((==ucs@unicode	  . #x7234)	; &g2-AJ1-18044;
+      (==ucs@JP/hanazono  . nil)
+      (==adobe-japan1-5	  . 18044)	; &g2-AJ1-18044;
+      (==jis-x0212	  . #x4A4A)	; &g2-AJ1-18044; [42-42]
+      (==cns11643-4	  . #x4A6C)	; &g2-AJ1-18044; [42-76]
+      (==jis-x0213-2	  . #x702B)	; &g2-AJ1-18044; [80-11]
+      (==daikanwa	  . 19704)	; &g2-AJ1-18044;
+      (->subsumptive
+       ((===daikanwa	    . 19704)	; &R-M-19704;
+	)
+       ((===jis-x0212	    . #x4A4A)	; &R-JX2-702B; [42-42]
+	(===jis-x0213-2	    . #x702B)	; &R-JX2-702B; [80-11]
+	)
+       ((===adobe-japan1-5  . 18044)	; &R-AJ1-18044;
+	)
+       ((===cns11643-4	    . #x4A6C)	; &R-C4-4A6C; [42-76]
+	)
+       ((===ucs@unicode	    . #x7234)	; &R-UU+7234;
+	))
+      )
+     ((==ucs@JP/hanazono  . #x7234)	; &g2-CB01441;
+      (==cbeta		  . 01441)	; &g2-CB01441;
+      (->subsumptive
+       ((===cbeta	    . 01441)	; &R-CB01441;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x2452A)	; 𤔪
