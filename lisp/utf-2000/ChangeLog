@@ -1,10 +1,38 @@
 2017-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R021-Spoon.el (BC-857E): New character; use
+	`<-denotational' for U-00021275.
+
+	* Ideograph-R008-Lid.el (A-BC-8BAA): New abstract node.
+	(BC-8BAA): Add `<-denotational' for A-BC-8BAA; apply new
+	conventions for glyph granularity.
+	(GT-K02128): Likewise.
+	(A-BC-8C4D): Add `ideographic-structure'.
+	(BC-8C4D): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(GT-K04733): Add `<-denotational' for A-BC-8C4D.
+
+	* Ideograph-R062-Halberd.el (MJ057538): New character; unify
+	KOSEKI-130390; use `<-formed' for U+39B0.
+
 	* Ideograph-R014-Cover.el: Complete representative nodes of
 	`=adobe-japan1-0' glyphs.
 	(U+51A6): Apply new conventions for glyph granularity.
 
 2017-02-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R160-Bitter.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/JA.
+
+	* Ideograph-R087-Claw.el (A-GT-K06065): Unify A-U+8200-itaiji-005.
+	(GT-K05976): New character; use `<-denotational' for A-GT-K06065;
+	unify U+8200-itaiji-005; use `<-formed@component' for U+8200.
+	(U+7234): Unify AJ1-18044.
+
+	* Ideograph-R072-Sun.el (U+3AFA): Add `ideographic-structure'; add
+	`<-original' for UU+6614; add representative nodes.
 
 	* Ideograph-R024-Ten.el (CB07314): New character; subsume
 	GT-K00251 and GT-K00252.
