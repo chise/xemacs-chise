@@ -3598,8 +3598,7 @@
       (=ucs@iso		  . #x20BC1)	; &M-03318;
       (=daikanwa	  . 03318)	; &M-03318;
       (<-vulgar
-       ((=ucs@unicode	    . #x8DB3)	; &AJ1-02829;
-	(=adobe-japan1-0    . 02829)	; &AJ1-02829;
+       ((=ucs		    . #x8DB3)	; 足
 	(=daikanwa	    . 37365)	; &I-M-37365;
 	))
       (<-vulgar*sources
@@ -34166,14 +34165,25 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=daikanwa	  . 30184)	; &M-30184;
+     ((=adobe-japan1-5	  . 19722)	; &AJ1-19722;
       ))
     (=daikanwa		. 04060)	; &M-04060;
     (=cbeta		. 01493)	; &I-CB01493;
+    (<-wrong
+     ((=ucs@unicode	  . #x5557)	; &AJ1-04395;
+      (=adobe-japan1-0	  . 04395)	; &AJ1-04395;
+      (=daikanwa	  . 03825)	; &I-M-03825;
+      ))
+    (<-wrong*sources
+     zihui daikanwa)
     (->subsumptive
-     ((===daikanwa	  . 04060)	; &R-M-04060;
-      )
-     ((===cbeta		  . 01493)	; &R-CB01493;
+     ((==daikanwa	  . 04060)	; &g2-M-04060;
+      (==cbeta		  . 01493)	; &g2-M-04060;
+      (->subsumptive
+       ((===daikanwa	    . 04060)	; &R-M-04060;
+	)
+       ((===cbeta	    . 01493)	; &R-CB01493;
+	))
       ))
     ))
 (define-char
@@ -49270,6 +49280,10 @@
       ))
     (=ucs@unicode	. #x5673)	; &UU+5673;
     (=ucs@JP/hanazono	. nil)
+    (->subsumptive
+     ((==ucs@unicode	  . #x5673)	; &g2-UU+5673;
+      (==ucs@JP/hanazono  . nil)
+      ))
     ))
 (define-char
   '((<-denotational
