@@ -1,5 +1,22 @@
 2017-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R158-Body.el (U+8EC0): Add ideographic-structure.
+	(g2-JU+8EC0): Add `=decomposition@hanyo-denshi'.
+
+	* Ideograph-R153-Badger.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/{JA|JB|JD}.
+
+	* Ideograph-R152-Pig.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/JA.
+
+2017-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R093-Cow.el: Add some Adobe-Japan1-5 code points.
+
 	* Ideograph-R021-Spoon.el (BC-857E): New character; use
 	`<-denotational' for U-00021275.
 
