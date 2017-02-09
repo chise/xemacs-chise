@@ -2371,6 +2371,12 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
     (=big5-cdp		. #x8856)	; &CDP-8856;
+    (->subsumptive
+     ((==big5-cdp	  . #x8856)	; &g2-CDP-8856;
+      )
+     ((=gt-k		  . 02979)	; &GT-K02979;
+      (=gt-pj-k1	  . #x404D)	; &GT-K02979; [32-45]
+      ))
     ))
 (define-char
   '((ideographic-radical@ucs . 85)	; ⽔

@@ -1,5 +1,21 @@
 2017-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (M-04060): Add `<-wrong' for UU+5557;
+	apply new conventions for glyph granularity.
+	(UU+5673): Add representative node.
+
+	* Ideograph-R017-Open-Box.el (U-0002067A): Apply new conventions
+	for glyph granularity; add `sound@ja/on'; add `<-formed@Zetian'
+	and `<-same' for UU+6B63; add `->mistakable' for U-00020679.
+	(U-0002067B): Add `sound@ja/on'.
+	(GT-K01231): Add `<-identical@component/connect-above' for
+	U-0002067B.
+	(MJ056860): New character; unify KOSEKI-001640.
+	(M-01832): Add `<-wrong' for JU+81FF.
+	(U+2068F-itaiji-001): Add `ideographic-structure'.
+
+	* Ideograph-R004-Slash.el (BC-8856): Add GT-K02979.
+
 	* Ideograph-R158-Body.el (U+8EC0): Add ideographic-structure.
 	(g2-JU+8EC0): Add `=decomposition@hanyo-denshi'.
 
