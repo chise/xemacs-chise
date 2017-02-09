@@ -1403,6 +1403,14 @@
     (ideographic-radical . 158)	; ⾝
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8EAB)	; 身
+      )
+     ((=ucs		  . #x5340)	; 區
+      ))
     (=ucs		. #x8EC0)	; 軀
     (=>jis-x0213-1	. #x7C4A)	; 軀 [92-42]
     (=big5		. #xC2DF)	; &I-B-C2DF;
@@ -1414,6 +1422,15 @@
     (ideographic-radical . 158)	; ⾝
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8EAB)	; 身
+      )
+     ((=ucs@unicode	  . #x5340)	; &MJ007832;
+      (=mj		  . 007832)	; &MJ007832;
+      ))
     (=ucs@unicode	. #x8EC0)	; &AJ1-07663;
     (=adobe-japan1-0	. 07663)	; &AJ1-07663;
     (=jis-x0208@1978	. #x366D)	; &I-J78-366D; [22-77]
@@ -1424,7 +1441,12 @@
     (=hanyo-denshi/jb	. #x6054)	; &I-HD-JB-6054; [64-52]
     (=daikanwa		. 38137)	; &I-M-38137;
     (->subsumptive
-     ((==ucs@jis	  . #x8EC0)	; &g2-AJ1-07663;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x8EC0)	; 軀
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@jis	  . #x8EC0)	; &g2-AJ1-07663;
       (==ucs@ks		  . #x8EC0)	; &g2-AJ1-07663;
       (==adobe-japan1-0	  . 07663)	; &g2-AJ1-07663;
       (==jis-x0208@1978	  . #x366D)	; &g2-AJ1-07663; [22-77]
@@ -1460,7 +1482,21 @@
     (ideographic-radical . 158)	; ⾝
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8EAB)	; 身
+      )
+     ((=ucs@cns		  . #x5340)	; &MJ007833;
+      (=mj		  . 007833)	; &MJ007833;
+      ))
+    (=ucs@cns		. #x8EC0)	; &C1-774A;
     (=cns11643-1	. #x774A)	; &C1-774A; [87-42]
+    (->subsumptive
+     ((==ucs@cns	  . #x8EC0)	; &g2-CU+8EC0;
+      (==cns11643-1	  . #x774A)	; &g2-CU+8EC0; [87-42]
+      ))
     ))
 (define-char
   '((<-denotational
