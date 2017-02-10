@@ -1,3 +1,11 @@
+2017-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R125-Old.el (U+8003): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R119-Rice.el (A-CB04718): New character.
+	(CB04718): New character; use `<-denotational' for A-CB04718.
+
 2017-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (M-04060): Add `<-wrong' for UU+5557;
