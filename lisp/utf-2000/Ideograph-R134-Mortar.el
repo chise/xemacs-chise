@@ -472,6 +472,7 @@
       )
      ((=ucs		  . #x81FC)	; 臼
       ))
+    (=adobe-japan1-5	. 19722)	; &AJ1-19722;
     (=daikanwa		. 30184)	; &M-30184;
     (=jef-china3	. #x92D8)	; &I-JC3-92D8;
     (<-same
@@ -490,10 +491,13 @@
 	)
        ((=ucs		    . #x81FC)	; 臼
 	))
-      (==daikanwa	  . 30184)	; &g2-M-30184;
-      (==jef-china3	  . #x92D8)	; &g2-M-30184;
+      (==adobe-japan1-5	  . 19722)	; &g2-AJ1-19722;
+      (==daikanwa	  . 30184)	; &g2-AJ1-19722;
+      (==jef-china3	  . #x92D8)	; &g2-AJ1-19722;
       (->subsumptive
        ((===daikanwa	    . 30184)	; &R-M-30184;
+	)
+       ((===adobe-japan1-5  . 19722)	; &R-AJ1-19722;
 	)
        ((===jef-china3	    . #x92D8)	; &R-JC3-92D8;
 	))
