@@ -19,6 +19,14 @@
   '((ideographic-radical . 165)	; ⾤
     (ideographic-strokes . 1)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x722B)	; 爫
+      )
+     ((=ucs		  . #x6728)	; 木
+      ))
     (=ucs		. #x91C7)	; 采
     (=big5		. #xAAF6)	; &I-B-AAF6;
     ))
@@ -29,6 +37,19 @@
     (ideographic-radical . 165)	; ⾤
     (ideographic-strokes . 1)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@cns		  . #x722B)	; &GT-25225;
+      (=ucs@jis		  . #x722B)	; &GT-25225;
+      (=jis-x0212	  . #x4A48)	; &GT-25225; [42-40]
+      (=cns11643-4	  . #x2151)	; &I-C4-2151; [01-49]
+      (=jis-x0213-2	  . #x702A)	; &I-JX2-702A; [80-10]
+      (=daikanwa	  . 19655)	; &I-M-19655;
+      )
+     ((=ucs		  . #x6728)	; 木
+      ))
     (=jis-x0208@1978	. #x3A53)	; &HD-FT-3227; [26-51]
     (=ks-x1001		. #x737A)	; &I-K0-737A; [83-90]
     (=hanyo-denshi/ft	. #x3227)	; &I-HD-FT-3227; [18-07]
@@ -68,6 +89,15 @@
     (ideographic-radical . 165)	; ⾤
     (ideographic-strokes . 1)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL PAW ONE")
+      (=ucs		  . #x2EA4)	; ⺤
+      )
+     ((=ucs		  . #x6728)	; 木
+      ))
     (=ucs@unicode	. #x91C7)	; &AJ1-02115;
     (=adobe-japan1-0	. 02115)	; &AJ1-02115;
     (=gb2312		. #x3249)	; &I-G0-3249; [18-41]
@@ -75,17 +105,24 @@
     (=jis-x0208@1990	. #x3A53)	; &I-J90-3A53; [26-51]
     (=cns11643-1	. #x4F59)	; &I-C1-4F59; [47-57]
     (=jis-x0213-1	. #x3A53)	; &I-JX1-3A53; [26-51]
+    (=hanyo-denshi/ja	. #x3A53)	; &I-HD-JA-3A53; [26-51]
     (=gt		. 53946)	; &I-GT-53946;
     (=gt-k		. 03715)	; &I-GT-K03715;
     (=gt-pj-1		. #x3A53)	; &I-GT-53946; [26-51]
     (=jef-china3	. #x58AF)	; &I-JC3-58AF;
     (->subsumptive
-     ((==ucs@unicode	  . #x91C7)	; &g2-AJ1-02115;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x91C7)	; 采
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@unicode	  . #x91C7)	; &g2-AJ1-02115;
       (==adobe-japan1-0	  . 02115)	; &g2-AJ1-02115;
       (==gb2312		  . #x3249)	; &g2-AJ1-02115; [18-41]
       (==jis-x0208@1983	  . #x3A53)	; &g2-AJ1-02115; [26-51]
       (==jis-x0208@1990	  . #x3A53)	; &g2-AJ1-02115; [26-51]
       (==jis-x0213-1	  . #x3A53)	; &g2-AJ1-02115; [26-51]
+      (==hanyo-denshi/ja  . #x3A53)	; &g2-AJ1-02115; [26-51]
       (==gt		  . 53946)	; &g2-AJ1-02115;
       (==gt-k		  . 03715)	; &g2-AJ1-02115;
       (==jef-china3	  . #x58AF)	; &g2-AJ1-02115;

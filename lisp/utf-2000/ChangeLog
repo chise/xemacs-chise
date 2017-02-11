@@ -1,3 +1,22 @@
+2017-02-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R193-Cauldron.el (U+9B32-var-001): New character; use
+	`<-denotational' for U+9B32.
+	(U+9B32-itaiji-001): Add `ideographic-structure'.
+
+2017-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R165-Distinguish.el (UU+91C7): Unify HD-JA2651.
+
+	* Ideograph-R164-Wine.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/JA.
+
+	* Ideograph-R134-Mortar.el (M-30184): Unify AJ1-19722.
+
+	* Ideograph-R061-Heart.el (U-0002284D): New character.
+
 2017-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R125-Old.el (U+8003): Apply new conventions for glyph
