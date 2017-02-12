@@ -1,3 +1,13 @@
+2017-02-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs-itaiji-001' and `=>ucs-itaiji-005'.
+
+	* Ideograph-R037-Big.el: Complete representative nodes of
+	`=hanyo-denshi/jb' glyphs.
+	(U+5946): Apply new conventions for glyph granularity.
+	(U+595F): Likewise.
+
 2017-02-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R157-Foot.el:

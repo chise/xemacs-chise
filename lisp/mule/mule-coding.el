@@ -594,6 +594,7 @@
 	  (=>cns11643-5				"A-C5-" 4 X)
 	  (=>cns11643-7				"A-C7-" 4 X)
 	  (=>big5-cdp			       "A-CDP-" 4 X)
+	  (=>ucs-itaiji-001		    "A-U-i001+" 4 X)
 	  (=>big5-cdp-itaiji-001	  "A-CDP-i001-" 4 X)
 	  ( =jis-x0208@1978/i1		       "J78i1-" 4 X)
 	  ( =shinjigen@rev			"SJG2-" 4 d)
