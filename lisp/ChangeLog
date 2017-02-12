@@ -1,3 +1,17 @@
+2017-02-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=>ruimoku-v6' and `=>ucs-sip-itaiji-001'.
+
+	* mule/mule-conf.el (=>ruimoku-v6): Renamed from `=>>ruimoku-v6';
+	define `=>>ruimoku-v6' as an alias of `=>ruimoku-v6'.
+	(=>ucs-itaiji-001): New coded-charset for XEmacs CHISE.
+	(=>ucs-sip-itaiji-001): Ditto.
+
+	* mule/mule-coding.el(coded-charset-entity-reference-alist):
+	- Abolish setting for `=>>ruimoku-v6' [&G-RUI6-xxxx;].
+	- Add setting for `=>ruimoku-v6' [&A-RUI6-xxxx;].
+
 2017-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list):
