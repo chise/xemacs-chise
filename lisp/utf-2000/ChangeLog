@@ -1,5 +1,51 @@
 2017-02-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R157-Foot.el:
+	- Use "𧾷" instead of "足" as left side components of abstract
+	  characters and abstract glyphs.
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/{JA|JB}.
+	(U+8DB3): Unify UU+8DB3.
+	(U-00027FB7): Use BUCS+8DB3 instead of U+8DB3 as its mother.
+
+	* Ideograph-R154-Shell.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/{JA|JB|JD}.
+
+	* Ideograph-R150-Valley.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/{JA|JB}.
+
+	* Ideograph-R147-See.el: Complete representative nodes of
+	`=adobe-japan1-0' glyphs.
+
+	* Ideograph-R086-Fire.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R032-Earth.el (U-00021275): Use `->denotational' and
+	`->subsumptive'.
+	(IU+21275): Add `=>ucs@iwds-1'; add `<-same' for U+5146.
+	(MJ057209): New character; use `<-denotational' for U-00021275;
+	unify HD-KS055980; use `<-formed' for U+5146.
+	(U-000212A5): Use `->denotational' and `->subsumptive'.
+	(A-IU+212A5): Add `=>ucs@iwds-1'.
+	(M-05027): Use `<-denotational' for A-IU+212A5; add `<-vulgar' for
+	U+5146.
+	(MJ057212): New character; use `<-denotational' for U-000212A5;
+	unify HD-KS056660; use `<-formed' for U+5146.
+	(U-0002136E): Apply new conventions for glyph granularity.
+	(IU+2136E): Add `sound@ja/on'; add `<-original' for UU+5782.
+	(U+586A): Apply new conventions for glyph granularity.
+
+2017-02-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R024-Ten.el (U-00020997): Apply new conventions for
+	glyph granularity.
+	(M-02736): Add `ideographic-structure'; add `sound@ja/on'; unify
+	IU+20997.
+
 	* Ideograph-R193-Cauldron.el (U+9B32-var-001): New character; use
 	`<-denotational' for U+9B32.
 	(U+9B32-itaiji-001): Add `ideographic-structure'.
