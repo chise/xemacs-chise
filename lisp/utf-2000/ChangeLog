@@ -1,5 +1,33 @@
 2017-02-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R085-Water.el (U-00023E70): New character.
+
+	* Ideograph-R048-Work.el: Complete representative nodes of
+	`=hanyo-denshi/jb' glyphs.
+	(o-JU+5DE9): Apply new conventions for glyph granularity.
+	(M-08730): Unify U-0002201E.
+	(A-CB02138): New abstract character.
+	(U+5DEB-itaiji-001): New character; use `<-denotational' for
+	A-CB02138.
+	(MJ057407): Likewise; unify KOSEKI-098840 and CB02138; use
+	`<-formed' for U+5DEB.
+
+	* Ideograph-R064-Hand.el: Complete representative nodes of
+	`=hanyo-denshi/jb' glyphs.
+	(U+62FC): Apply new conventions for glyph granularity.
+	(U+63E0): Likewise.
+	(U+6425): Likewise.
+	(U+6473): Likewise.
+	(U+64CE): Likewise.
+
+	* Ideograph-R056-Shoot.el: Complete representative nodes of
+	`=hanyo-denshi/jb' glyphs.
+	(U+5F0E): Apply new conventions for glyph granularity.
+
+	* Ideograph-R050-Turban.el: Complete representative nodes of
+	`=hanyo-denshi/jb' glyphs.
+	(U+5E2E): Apply new conventions for glyph granularity.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>ucs-itaiji-001' and `=>ucs-itaiji-005'.
 
@@ -7,6 +35,22 @@
 	`=hanyo-denshi/jb' glyphs.
 	(U+5946): Apply new conventions for glyph granularity.
 	(U+595F): Likewise.
+
+2017-02-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ruimoku6.el (RUI6-E014): Apply new conventions for glyph
+	granularity.
+	(RUI6-E033): Add `<-denotational' for A-RUI6-E033.
+	(RUI6-E039): Use A-RUI6-E039 instead of G-RUI6-E039 as its mother.
+	(RUI6-E03D): Use A-RUI6-E03D instead of G-RUI6-E03D as its mother.
+	(RUI6-E03E): Use A-RUI6-E03E instead of G-RUI6-E03E as its mother.
+
+	* Ideograph-R189-Tall.el (U-0002CD18): New character.
+	(A-RUI6-E033): New abstract character.
+	(RUI6-E033): Add `<-denotational' for A-RUI6-E033.
+
+	* Ideograph-R181-Leaf.el (RUI6-E014): Apply new conventions for
+	glyph granularity.
 
 2017-02-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
