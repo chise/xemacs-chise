@@ -1849,12 +1849,10 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x4E00)	; 一
-      )
-     ((=big5-cdp	  . #x89CC)	; &CDP-89CC;
+     ((=gt-k		  . 01370)	; &GT-K01370;
       )
      ((=ucs		  . #x7530)	; 田
       ))
