@@ -543,9 +543,11 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>>jis-x0213-2
 	  =>jis-x0208
 	  =>jis-x0213-1
+	  =>mj-0
 	  =>big5-cdp
 	  =>ruimoku-v6
 	  =>big5-cdp-itaiji-001
+	  =>ucs-bmp-itaiji-002
 	  =>ucs-bmp-itaiji-005
 	  =>ucs-sip-itaiji-001
 	  =>daikanwa
