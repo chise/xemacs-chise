@@ -1686,6 +1686,19 @@
 	       direction l2r
 	       mother =mj
 	       ))
+  (make-charset
+   '=>mj-0
+   "Moji-Jouhou-Kiban plane 0"
+   '(long-name "Moji-Jouhou-Kiban-0"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "mj-0$"
+	       mother =>mj
+	       min-code	0
+	       max-code	#xFFFF))
 
   (make-charset
    '=hanyo-denshi/ja
@@ -4424,6 +4437,7 @@
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.var010-0"))
+
   (make-charset '=ucs-itaiji-001
 		"uXXXX-itaiji-001 glyphs of GlyphWiki"
 		'(long-name	"UCS-itaiji-001"
@@ -4479,6 +4493,7 @@
 		  mother	=>ucs-itaiji-001
 		  min-code #x20000 max-code #x2FFFF
 		  registry "ucs00\\.itaiji001-2"))
+
   (make-charset '=ucs-itaiji-002
 		"uXXXX-itaiji-002 glyphs of GlyphWiki"
 		'(long-name	"UCS-itaiji-002"
@@ -4513,6 +4528,30 @@
 		  mother	=ucs-itaiji-002
 		  min-code #x20000 max-code #x2FFFF
 		  registry "ucs00\\.itaiji002-2"))
+  (make-charset '=>ucs-itaiji-002
+		"Abstract characters corresponding with uXXXX-itaiji-002 of GlyphWiki"
+		'(long-name	"UCS-itaiji-002"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs))
+  (make-charset '=>ucs-bmp-itaiji-002
+		"uXXXX-itaiji-002's abstract characters in BMP"
+		'(long-name	"UCS-BMP-itaiji-002 characters"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=>ucs-itaiji-002
+		  min-code #x2E00
+		  max-code #x9FCC
+		  registry "ucs\\.itaiji002-0"))
+
   (make-charset '=ucs-itaiji-003
 		"uXXXX-itaiji-003 glyphs of GlyphWiki"
 		'(long-name	"UCS-itaiji-003"
