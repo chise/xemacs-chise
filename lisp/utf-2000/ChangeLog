@@ -1,5 +1,38 @@
 2017-02-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R163-City.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/JA.
+	(U+90C4): Unify S-8443; add `<-formed' for UU+90E4.
+	(U+90E4): Apply new conventions for glyph granularity.
+	(UU+90E4): Unify HD-JT-BD92.
+	(U+9100): Apply new conventions for glyph granularity.
+
+	* Ideograph-R159-Cart.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/{JA|JB|JD}.
+	(U+8ED4): Apply new conventions for glyph granularity.
+	(U+484E): Likewise.
+	(U+8F38): Likewise.
+
+	* Ideograph-R149-Speech.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/{JA|JB}.
+	(U-00027A44): Use `->subsumptive'; add `sound@ja/on'; unify
+	CB02628.
+	(U+8B4F): Apply new conventions for glyph granularity.
+
+	* Ideograph-R115-Grain.el (U+7A28): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R102-Field.el (GT-K07666): Use "⿱𠮛x" instead of
+	"⿳一&CDP-89CC;x" in `ideographic-structure'.
+
+2017-02-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R085-Water.el (U-00023E70): New character.
 
 	* Ideograph-R048-Work.el: Complete representative nodes of
