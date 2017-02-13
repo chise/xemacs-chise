@@ -119,9 +119,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x8279)	; &GT-39639;
-      (=gb2312		  . #x5C33)	; &GT-39639; [60-19]
-      (=jis-x0213-2	  . #x7576)	; &I-JX2-7576; [85-86]
+     ((name		  . "CJK RADICAL GRASS ONE")
+      (=ucs		  . #x2EBE)	; ⺾
       )
      ((=ucs		  . #x97ED)	; 韭
       ))
