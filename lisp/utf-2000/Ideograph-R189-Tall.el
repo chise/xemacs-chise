@@ -514,6 +514,22 @@
     ))
 (define-char
   '((ideographic-radical . 189)	; ⾼
+    (=ucs		. #x2CD18)	; 𬴘
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2CD18)	; 𬴘
+      ))
+    (ideographic-radical . 189)	; ⾼
+    (ideographic-strokes . 7)
+    (total-strokes	 . 15)
+    (=ucs@iso		. #x2CD18)	; &U-0002CD18;
+    (->subsumptive
+     ((==ucs@iso	  . #x2CD18)	; &g2-IU-0002CD18;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 189)	; ⾼
     (ideographic-strokes . 8)
     (total-strokes	 . 18)
     (=ucs		. #x9ADC)	; 髜
@@ -691,29 +707,28 @@
     ))
 (define-char
   '((ideographic-radical . 189)	; ⾼
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x2CD18)	; 𬴘
+      )
+     ((=ucs		  . #x53CD)	; 反
+      ))
+    (=>ruimoku-v6	. #xE033)	; &A-RUI6-E033;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE033)	; &A-RUI6-E033;
+      ))
+    (ideographic-radical . 189)	; ⾼
     (ideographic-strokes . 11)
     (total-strokes	 . 19)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-	(=ucs		    . #x2FF3)	; ⿳
-	)
-       ((=gt-k		    . 02128)	; &GT-K02128;
-	)
-       ((=ucs		    . #x53E3)	; 口
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((=big5-cdp	      . #x89CC)	; &CDP-89CC;
-	  )
-	 ((=ucs		      . #x4E05)	; 丅
-	  ))
-	))
+     ((=ucs@iso		  . #x2CD18)	; &U-0002CD18;
       )
      ((=ucs		  . #x53CD)	; 反
       ))
@@ -724,25 +739,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-	  (=ucs		      . #x2FF3)	; ⿳
-	  )
-	 ((==gt-k	      . 02128)	; &g2-GT-K02128;
-	  )
-	 ((=ucs		      . #x53E3)	; 口
-	  )
-	 ((ideographic-structure
-	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-	    (=ucs		. #x2FF3)	; ⿳
-	    )
-	   ((=big5-cdp		. #x89CC)	; &CDP-89CC;
-	    )
-	   ((=ucs		. #x4E00)	; 一
-	    )
-	   ((=ucs		. #x4E36)	; 丶
-	    ))
-	  ))
+       ((==ucs@iso	    . #x2CD18)	; &g2-IU-0002CD18;
 	)
        ((==ucs@cns	    . #x53CD)	; &g2-AJ1-03411;
 	(==ucs@jis	    . #x53CD)	; &g2-AJ1-03411;

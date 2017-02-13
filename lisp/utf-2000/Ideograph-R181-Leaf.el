@@ -5833,22 +5833,22 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>>ruimoku-v6	  . #xE013)	; &G-RUI6-E013;
+     ((=ruimoku-v6	  . #xE013)	; &RUI6-E013;
       )
      ((=ucs		  . #x9801)	; 頁
       ))
-    (=>>ruimoku-v6	. #xE014)	; &G-RUI6-E014;
+    (sources		ruimoku=A021610-00006)
+    (=ruimoku-v6	. #xE014)	; &RUI6-E014;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ruimoku-v6	    . #xE013)	; &RUI6-E013;
+       ((==ruimoku-v6	    . #xE013)	; &g2-RUI6-E013;
 	)
-       ((=ucs		    . #x9801)	; 頁
+       ((==ucs@unicode	    . #x9801)	; &g2-UU+9801;
 	))
-      (sources		  ruimoku=A021610-00006)
-      (=ruimoku-v6	  . #xE014)	; &RUI6-E014;
+      (==ruimoku-v6	  . #xE014)	; &g2-RUI6-E014;
       ))
     ))
 (define-char
