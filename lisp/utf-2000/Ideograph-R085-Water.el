@@ -20935,6 +20935,32 @@
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6C35)	; 氵
+      )
+     ((=ucs		  . #x5C03)	; 尃
+      ))
+    (=>ucs@unicode	. #x6EA5)	; &A-UU+6EA5;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x6EA5)	; &A-UU+6EA5;
+      ))
+    (ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6C35)	; 氵
+      )
+     ((=ucs@unicode	  . #x5C03)	; &AJ1-17537;
+      (=adobe-japan1-5	  . 17537)	; &AJ1-17537;
+      ))
     (=ucs@unicode	. #x6EA5)	; &AJ1-05485;
     (=adobe-japan1-0	. 05485)	; &AJ1-05485;
     (=jis-x0208		. #x5E70)	; &I-J90-5E70; [62-80]
@@ -20991,17 +21017,56 @@
     ))
 (define-char
   '((<-denotational
+     ((=>ucs@unicode	  . #x6EA5)	; &A-UU+6EA5;
+      ))
+    (ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6C35)	; 氵
+      )
+     ((=hanyo-denshi/tk	  . 01023430)	; &HD-TK-01023430;
+      ))
+    (=hanyo-denshi/ft	. #x367A)	; &HD-FT-367A; [22-90]
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x6EA5)	; 溥
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL WATER ONE")
+	(=ucs		    . #x2EA1)	; ⺡
+	)
+       ((==hanyo-denshi/tk  . 01023430)	; &g2-HD-TK-01023430;
+	))
+      (==hanyo-denshi/ft  . #x367A)	; &g2-HD-FT-367A; [22-90]
+      ))
+    ))
+(define-char
+  '((<-denotational
      ((=ucs		  . #x6EA5)	; 溥
       ))
     (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x6EA5)	; 溥
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #xE0102)	; 󠄂
+     ((=ucs		  . #x6D66)	; 浦
+      )
+     ((=ucs@unicode	  . #x5BF8)	; &AJ1-02631;
+      (=adobe-japan1-0	  . 02631)	; &AJ1-02631;
       ))
-    (=hanyo-denshi/ft	. #x367A)	; &HD-FT-367A; [22-90]
+    (=ucs-var-002	. #x6EA5)	; &U-v002+6EA5;
+    (=ucs-itaiji-002	. #x6EA5)	; &U-v002+6EA5;
     ))
 (define-char
   '((ideographic-radical . 85)	; ⽔
