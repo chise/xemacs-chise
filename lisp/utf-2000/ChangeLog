@@ -1,3 +1,17 @@
+2017-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R193-Cauldron.el (U+9B32-var-001): Use (?⿱ ?GT-K01370
+	x) instead of (?⿳ ?一 ?BC-89CC x).
+	(U+9B32-itaiji-001): Likewise.
+	(A-MJ059077): Unify A-U+9B32-itaiji-002.
+	(U+9B32-itaiji-002): New character; use `<-denotational' for
+	A-MJ059077; use `<-formed' for U+9B32.
+
+2017-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R141-Tiger.el (U+8656): Apply new conventions for
+	glyph granularity.
+
 2017-02-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R163-City.el:
