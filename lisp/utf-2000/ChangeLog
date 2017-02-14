@@ -1,4 +1,26 @@
+2017-02-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs-itaiji-002'.
+
 2017-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el (A-UU+6EA5): New abstract node; use
+	`<-denotational' for U+6EA5.
+	(UU+6EA5): Use A-UU+6EA5 as its mother.
+	(HD-FT2290): Likewise; add representative node; add
+	`ideographic-structure'.
+	(U+6EA5-var-002): New character; use `<-denotational' for U+6EA5;
+	unify U+6EA5-itaiji-002.
+
+	* Ideograph-R069-Axe.el: Complete representative nodes of
+	`=hanyo-denshi/jb' glyphs.
+	(U+65B2): Apply new conventions for glyph granularity.
+
+	* Ideograph-R029-Again.el (A-U+20B36-itaiji-001): New abstract
+	character; unify A-U+20B36-itaiji-002.
+	(U+20B36-itaiji-001): New character; use `<-denotational' for
+	A-U+20B36-itaiji-001.
 
 	* Ideograph-R193-Cauldron.el (U+9B32-var-001): Use (?⿱ ?GT-K01370
 	x) instead of (?⿳ ?一 ?BC-89CC x).
