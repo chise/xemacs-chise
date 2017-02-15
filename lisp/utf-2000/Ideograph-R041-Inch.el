@@ -729,11 +729,10 @@
      ((=ucs		  . #x5BF8)	; 寸
       ))
     (=hanyo-denshi/tk	. 01023430)	; &HD-TK-01023430;
+    (=ucs-var-001	. #x5C03)	; &HD-TK-01023430;
     (->subsumptive
      ((==hanyo-denshi/tk  . 01023430)	; &g2-HD-TK-01023430;
       (=hanyo-denshi/tk/mf-01 . #x0927)	; &g2-HD-TK-01023430;
-      )
-     ((=ucs-var-001	  . #x5C03)	; &U-v001+5C03;
       ))
     ))
 (define-char
