@@ -5163,16 +5163,36 @@
   '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=ucs		. #x67B2)	; 枲
-    (=big5		. #xCF56)	; &I-B-CF56;
-    (->subsumptive
-     ((=ucs@unicode	  . #x67B2)	; &JX2-2E4D;
-      (=jis-x0212	  . #x4333)	; &JX2-2E4D; [35-19]
-      (=jis-x0213-2	  . #x2E4D)	; &I-JX2-2E4D; [14-45]
-      (=daikanwa	  . 14582)	; &I-M-14582;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@cns		  . #x67B2)	; &C2-2B38;
-      (=cns11643-2	  . #x2B38)	; &C2-2B38; [11-24]
+     ((=ucs		  . #x53F0)	; 台
+      )
+     ((=ucs		  . #x6728)	; 木
+      ))
+    (=ucs		. #x67B2)	; 枲
+    (=jis-x0212		. #x4333)	; &I-JSP-4333; [35-19]
+    (=cns11643-2	. #x2B38)	; &I-C2-2B38; [11-24]
+    (=jis-x0213-2	. #x2E4D)	; &I-JX2-2E4D; [14-45]
+    (=big5		. #xCF56)	; &I-B-CF56;
+    (=daikanwa		. 14582)	; &I-M-14582;
+    (->subsumptive
+     ((==ucs@unicode	  . #x67B2)	; &g2-JSP-4333;
+      (==jis-x0212	  . #x4333)	; &g2-JSP-4333; [35-19]
+      (==jis-x0213-2	  . #x2E4D)	; &g2-JSP-4333; [14-45]
+      (==daikanwa	  . 14582)	; &g2-JSP-4333;
+      (->subsumptive
+       ((===daikanwa	    . 14582)	; &R-M-14582;
+	)
+       ((===jis-x0212	    . #x4333)	; &R-JX2-2E4D; [35-19]
+	(===jis-x0213-2	    . #x2E4D)	; &R-JX2-2E4D; [14-45]
+	)
+       ((===ucs@unicode	    . #x67B2)	; &R-UU+67B2;
+	))
+      )
+     ((==ucs@cns	  . #x67B2)	; &g2-CU+67B2;
+      (==cns11643-2	  . #x2B38)	; &g2-CU+67B2; [11-24]
       ))
     ))
 (define-char
