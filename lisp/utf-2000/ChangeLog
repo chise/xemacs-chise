@@ -1,5 +1,32 @@
 2017-02-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R162-Walk.el: Complete representative nodes of
+	`=hanyo-denshi/jb' glyphs.
+	(U+8FC6): Apply new conventions for glyph granularity.
+	(A-RUI6-E039): Changed from G-RUI6-E039.
+	(RUI6-E039): Use A-RUI6-E039 instead of G-RUI6-E039 as its mother.
+	(U+8FE2): Apply new conventions for glyph granularity.
+
+	* Ideograph-R104-Sickness.el: Complete representative nodes of
+	`=hanyo-denshi/jb' glyphs.
+	(U+7608): Apply new conventions for glyph granularity.
+
+	* Ideograph-R094-Dog.el: Complete representative nodes of
+	`=hanyo-denshi/jb' glyphs.
+	(U+7366): Apply new conventions for glyph granularity.
+
+	* Ideograph-R096-Jade.el: Complete representative nodes of
+	`=hanyo-denshi/jb' glyphs.
+	(U+73F9): Apply new conventions for glyph granularity.
+	(U+74A1): Likewise.
+
+	* Ideograph-R075-Tree.el (U+67B2): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R041-Inch.el (HD-TK01023430): Unify U+5C03-var-001.
+	(U+5C03-var-001): Changed to a abstract glyph (not a abstract
+	glyph-form).
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>ucs-itaiji-002'.
 
