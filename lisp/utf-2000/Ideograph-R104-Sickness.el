@@ -5539,6 +5539,14 @@
   '((ideographic-radical . 104)	; ⽧
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x7592)	; 疒
+      )
+     ((=ucs		  . #x5951)	; 契
+      ))
     (=ucs		. #x7608)	; 瘈
     (=big5		. #xE2DB)	; &I-B-E2DB;
     ))
@@ -5549,15 +5557,35 @@
     (ideographic-radical . 104)	; ⽧
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x7608)	; 瘈
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs		  . #xE0102)	; 󠄂
+     ((=ucs		  . #x7592)	; 疒
+      )
+     ((=mj		  . 009490)	; &MJ009490;
       ))
     (=ucs@jis/1990	. #x7608)	; &HD-JB-4D68;
     (=jis-x0212		. #x4D68)	; &HD-JB-4D68; [45-72]
     (=hanyo-denshi/jb	. #x4D68)	; &I-HD-JB-4D68; [45-72]
     (=daikanwa		. 22317)	; &I-M-22317;
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x7608)	; 瘈
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@jis/1990	  . #x7608)	; &g2-HD-JB-4D68;
+      (==jis-x0212	  . #x4D68)	; &g2-HD-JB-4D68; [45-72]
+      (==hanyo-denshi/jb  . #x4D68)	; &g2-HD-JB-4D68; [45-72]
+      (==daikanwa	  . 22317)	; &g2-HD-JB-4D68;
+      (->subsumptive
+       ((===daikanwa	    . 22317)	; &R-M-22317;
+	)
+       ((===jis-x0212	    . #x4D68)	; &R-HD-JB-4D68; [45-72]
+	(===hanyo-denshi/jb . #x4D68)	; &R-HD-JB-4D68; [45-72]
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -5566,6 +5594,15 @@
     (ideographic-radical . 104)	; ⽧
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x7592)	; 疒
+      )
+     ((=ucs@unicode	  . #x5951)	; &MJ009493;
+      (=mj		  . 009493)	; &MJ009493;
+      ))
     (=ucs@unicode	. #x7608)	; &HD-JC-7852;
     (=iso-ir165		. #x7D6D)	; &HD-JC-7852; [93-77]
     (=cns11643-2	. #x4C23)	; &I-C2-4C23; [44-03]
