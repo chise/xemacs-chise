@@ -1,3 +1,18 @@
+2017-02-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R086-Fire.el (U-0002442B): Separate IU+2442B.
+	(IU+2442B): Add `=>ucs@iwds-1'.
+	(U+2442B-itaiji-001): New character; use `<-denotational' for
+	U-0002442B.
+
+	* Ideograph-R074-Moon.el (U-00023386): Apply new conventions for
+	glyph granularity.
+	(U+23386-var-001): New character; use `<-denotational' for
+	U-00023386.
+
+	* Ideograph-R012-Eight.el (U+517C): Apply new conventions for
+	glyph granularity.
+
 2017-02-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R162-Walk.el: Complete representative nodes of
