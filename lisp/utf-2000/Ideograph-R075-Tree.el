@@ -42006,8 +42006,8 @@
       )
      ((=ucs		  . #x6728)	; 木
       )
-     ((=ucs@unicode	  . #x9069)	; &AJ1-03110;
-      (=adobe-japan1-0	  . 03110)	; &AJ1-03110;
+     ((=ucs@unicode	  . #x9069)	; &MJ026105;
+      (=mj		  . 026105)	; &MJ026105;
       ))
     (=ucs@unicode	. #x3C05)	; &UU+3C05;
     (=ucs@JP/hanazono	. nil)
