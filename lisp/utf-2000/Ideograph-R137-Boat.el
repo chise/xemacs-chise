@@ -2067,8 +2067,8 @@
       )
      ((=ucs		  . #x821F)	; 舟
       )
-     ((=ucs@unicode	  . #x5B5A)	; &AJ1-20108;
-      (=adobe-japan1-5	  . 20108)	; &AJ1-20108;
+     ((=ucs@unicode	  . #x5B5A)	; &MJ010061;
+      (=mj		  . 010061)	; &MJ010061;
       ))
     (=ucs@unicode	. #x8240)	; &GT-39373;
     (=ucs@JP/hanazono	. nil)
