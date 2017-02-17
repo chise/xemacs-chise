@@ -1,3 +1,36 @@
+2017-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R130-Meat.el (A-CB12237): New abstract node; use
+	`<-denotational' for A-M-29675.
+	(CB12237): Use `<-subsumptive' for A-CB12237 instead of
+	`<-denotational' for A-M-29675.
+	(U-00023386): Apply new conventions for glyph granularity.
+	(U+23386-var-001): New character; use `<-denotational' for
+	U-00023386.
+
+	* Ideograph-R108-Dish.el (U-0002AF99): New character; unify
+	CB11179.
+
+	* Ideograph-R085-Water.el (U-0002413B): Apply new conventions for
+	glyph granularity.
+	(IU+2413B): Unify MJ039805 and KOSEKI-211720; add `<-formed' for
+	U+6DFA.
+
+	* Ideograph-R049-Oneself.el (MJ057416): New character; use
+	`<-denotational' for U-00020A27; unify HD-KS099420.
+	(U+20A27-itaiji-002): New character; use `<-denotational' for
+	A-compU+20A27.
+
+	* Ideograph-R026-Seal.el (A-compU+20A27): New abstract component.
+	(U-00020A27): Add `<-denotational' for A-compU+20A27; apply new
+	conventions for glyph granularity.
+	(IU+20A27): Unify MJ031841 and HD-KS033500; add `<-formed' for
+	U-00022371.
+
+	* Ideograph-R004-Slash.el (U-000200B0): Add `<-denotational' for
+	BUCS+864E.
+	(U+4E55): Apply new conventions for glyph granularity.
+
 2017-02-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R086-Fire.el (U-0002442B): Separate IU+2442B.
