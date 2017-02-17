@@ -2929,6 +2929,30 @@
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
+    (ideographic-strokes . 13)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 11083)	; &GT-K11083;
+      )
+     ((=ucs		  . #x76BF)	; 皿
+      ))
+    (=ucs		. #x2AF99)	; 𪾙
+    (=cbeta		. 11179)	; &I-CB11179;
+    (->subsumptive
+     ((==ucs@iso	  . #x2AF99)	; &g2-CB11179;
+      (==cbeta		  . 11179)	; &g2-CB11179;
+      (->subsumptive
+       ((===ucs@iso	    . #x2AF99)	; &R-U-0002AF99;
+	)
+       ((===cbeta	    . 11179)	; &R-CB11179;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 14)
     (total-strokes	 . 19)
     (=ucs		. #x400A)	; 䀊
