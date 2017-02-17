@@ -30731,8 +30731,8 @@
       )
      ((=ucs		  . #x8A00)	; 言
       )
-     ((=ucs@unicode	  . #x9069)	; &AJ1-03110;
-      (=adobe-japan1-0	  . 03110)	; &AJ1-03110;
+     ((=ucs@unicode	  . #x9069)	; &MJ026105;
+      (=mj		  . 026105)	; &MJ026105;
       ))
     (=ucs@unicode	. #x8B81)	; &UU+8B81;
     (=ucs@JP/hanazono	. nil)
@@ -30743,8 +30743,8 @@
 	)
        ((==ucs@unicode	    . #x8A00)	; &g2-UU+8A00;
 	)
-       ((==ucs@unicode	    . #x9069)	; &g2-AJ1-03110;
-	(==adobe-japan1-0   . 03110)	; &g2-AJ1-03110;
+       ((==ucs@unicode	    . #x9069)	; &g2-MJ026105;
+	(==mj		    . 026105)	; &g2-MJ026105;
 	))
       (==ucs@unicode	  . #x8B81)	; &g2-UU+8B81;
       (==ucs@JP/hanazono  . nil)
