@@ -2072,7 +2072,59 @@
   '((ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 16)
     (total-strokes	 . 18)
+    (=>ucs@component	. #x20A27)	; &A-compU+20A27;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x20A27)	; &A-compU+20A27;
+      ))
+    (ideographic-radical . 26)	; ⼙
+    (ideographic-strokes . 16)
+    (total-strokes	 . 18)
     (=ucs		. #x20A27)	; 𠨧
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20A27)	; 𠨧
+      ))
+    (ideographic-radical . 26)	; ⼙
+    (ideographic-strokes . 16)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x26989)	; 𦦉
+      )
+     ((=ucs		  . #x353E)	; 㔾
+      ))
+    (=ucs@iso		. #x20A27)	; &MJ031841;
+    (=mj		. 031841)	; &MJ031841;
     (=cns11643-7	. #x3F24)	; &I-C7-3F24; [31-04]
+    (=hanyo-denshi/ks	. 033500)	; &MJ031841;
     (=daikanwa		. 02889)	; &I-M-02889;
+    (<-formed
+     ((=ucs		  . #x22371)	; 𢍱
+      ))
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==ucs@iso	  . #x20A27)	; &g2-MJ031841;
+      (==mj		  . 031841)	; &g2-MJ031841;
+      (==cns11643-7	  . #x3F24)	; &g2-MJ031841; [31-04]
+      (==hanyo-denshi/ks  . 033500)	; &g2-MJ031841;
+      (==daikanwa	  . 02889)	; &g2-MJ031841;
+      (->subsumptive
+       ((===daikanwa	    . 02889)	; &R-M-02889;
+	)
+       ((===hanyo-denshi/ks . 033500)	; &R-HD-KS-033500;
+	(=hanyo-denshi/ks/mf . #x0D16)	; &R-HD-KS-033500;
+	)
+       ((===mj		    . 031841)	; &R-MJ031841;
+	)
+       ((===cns11643-7	    . #x3F24)	; &R-C7-3F24; [31-04]
+	)
+       ((===ucs@iso	    . #x20A27)	; &R-U-00020A27;
+	))
+      ))
     ))
