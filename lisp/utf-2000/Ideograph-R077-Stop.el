@@ -2175,8 +2175,7 @@
     (=daikanwa/+p	. 16334)	; 歴
     (=shinjigen		.  3957)	; 歴
     (<-simplified@JP/Jouyou
-     ((=ucs@unicode	  . #x6B77)	; &AJ1-13398;
-      (=adobe-japan1-4	  . 13398)	; &AJ1-13398;
+     ((=ucs		  . #x6B77)	; 歷
       ))
     (->subsumptive
      ((==ucs@unicode	  . #x6B74)	; &g2-AJ1-04026;
@@ -2341,19 +2340,50 @@
   '((ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (=ucs		. #x6B77)	; 歷
-    (=big5		. #xBEFA)	; &I-B-BEFA;
-    (->subsumptive
-     ((=ucs@unicode	  . #x6B77)	; &AJ1-13398;
-      (=adobe-japan1-4	  . 13398)	; &AJ1-13398;
-      (=ks-x1001	  . #x5576)	; &I-K0-5576; [53-86]
-      (=jis-x0213-1	  . #x7645)	; &I-JX1-7645; [86-37]
-      (=gb12345		  . #x407A)	; &AJ1-13398; [32-90]
-      (=daikanwa	  . 16340)	; &I-M-16340;
-      (=shinjigen	  .  3958)	; &AJ1-13398;
-      (=jef-china3	  . #x54DF)	; &I-JC3-54DF;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=cns11643-1	  . #x7125)	; &C1-7125; [81-05]
+     ((=ucs		  . #x53A4)	; 厤
+      )
+     ((=ucs		  . #x6B62)	; 止
+      ))
+    (=ucs		. #x6B77)	; 歷
+    (=adobe-japan1-4	. 13398)	; &I-AJ1-13398;
+    (=ks-x1001		. #x5576)	; &I-K0-5576; [53-86]
+    (=cns11643-1	. #x7125)	; &I-C1-7125; [81-05]
+    (=jis-x0213-1	. #x7645)	; &I-JX1-7645; [86-37]
+    (=gb12345		. #x407A)	; 歷 [32-90]
+    (=big5		. #xBEFA)	; &I-B-BEFA;
+    (=daikanwa		. 16340)	; &I-M-16340;
+    (=shinjigen		.  3958)	; 歷
+    (=jef-china3	. #x54DF)	; &I-JC3-54DF;
+    (->subsumptive
+     ((==ucs@unicode	  . #x6B77)	; &g2-AJ1-13398;
+      (==adobe-japan1-4	  . 13398)	; &g2-AJ1-13398;
+      (==ks-x1001	  . #x5576)	; &g2-AJ1-13398; [53-86]
+      (==jis-x0213-1	  . #x7645)	; &g2-AJ1-13398; [86-37]
+      (==gb12345	  . #x407A)	; &g2-AJ1-13398; [32-90]
+      (==daikanwa	  . 16340)	; &g2-AJ1-13398;
+      (==shinjigen	  .  3958)	; &g2-AJ1-13398;
+      (==jef-china3	  . #x54DF)	; &g2-AJ1-13398;
+      (->subsumptive
+       ((===daikanwa	    . 16340)	; &R-M-16340;
+	)
+       ((===jis-x0213-1	    . #x7645)	; &R-JX1-7645; [86-37]
+	)
+       ((===adobe-japan1-4  . 13398)	; &R-AJ1-13398;
+	)
+       ((===jef-china3	    . #x54DF)	; &R-JC3-54DF;
+	)
+       ((===ucs@ks	    . #x6B77)	; &R-K0-5576;
+	(===ks-x1001	    . #x5576)	; &R-K0-5576; [53-86]
+	)
+       ((===ucs@unicode	    . #x6B77)	; &R-UU+6B77;
+	))
+      )
+     ((==ucs@cns	  . #x6B77)	; &g2-CU+6B77;
+      (==cns11643-1	  . #x7125)	; &g2-CU+6B77; [81-05]
       ))
     ))
 (define-char
