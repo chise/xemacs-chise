@@ -547,9 +547,10 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>big5-cdp
 	  =>ruimoku-v6
 	  =>big5-cdp-itaiji-001
-	  =>ucs-bmp-itaiji-002
-	  =>ucs-bmp-itaiji-005
 	  =>ucs-sip-itaiji-001
+	  =>ucs-bmp-itaiji-002
+	  =>ucs-sip-itaiji-002
+	  =>ucs-bmp-itaiji-005
 	  =>daikanwa
 	  ucs-bmp
 	  ==>ucs-bmp-cjk@bucs

@@ -19307,9 +19307,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt-k		  . 11083)	; &GT-K11083;
+     ((=ucs-itaiji-003	  . #x22371)	; &U-i003+22371;
       )
-     ((=ucs		  . #x706D)	; 灭
+     ((=ucs		  . #x706B)	; 火
       ))
     (=>ucs@iwds-1	. #x2442B)	; &C7-4053;
     (=ucs@iso		. #x2442B)	; &C7-4053;
