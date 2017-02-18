@@ -1,3 +1,39 @@
+2017-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R142-Insect.el (U-00027573): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R040-Roof.el: Complete representative nodes of
+	`=hanyo-denshi/jb' glyphs.
+	(U-00021A60): Apply new conventions for glyph granularity.
+	(CB11357): New character; use `<-denotational' for U-00021A60.
+
+	* Ideograph-R134-Mortar.el (GT-K11083): New character.
+	(U+22371-itaiji-003): New character; use `<-simplified@component'
+	for U-00022371.
+	(U-00026989): Use `->subsumptive'; add `ideographic-structure';
+	add `sound@ja/on'; add `<-same' for U-00022371.
+
+2017-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R086-Fire.el (IU+2442B): Modify structure.
+
+	* Ideograph-R001-One.el (U-00020041): Apply new conventions for
+	glyph granularity.
+	(IU+20041): Unify CB07403.
+	(MJ056846): New character; use `<-denotational' for U-00020041;
+	unify HD-KS001000; use `<-formed' for IU+20041.
+	(BC-8A41): New character; use `<-denotational' for U-00020041.
+	(MJ030346): New character; use `<-denotational' for U-00020041;
+	unify HD-KS001010; use `<-formed' for IU+20041.
+	(MJ056847): New character; use `<-denotational' for U-00020041;
+	unify HD-KS001020.
+
+	* Ideograph-R018-Knife.el: Complete representative nodes of
+	`=hanyo-denshi/ja' glyphs.
+	(U+5268): Apply new conventions for glyph granularity.
+	(U+5292): Likewise.
+
 2017-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R170-Mound.el (UU+9686): Apply new conventions for
