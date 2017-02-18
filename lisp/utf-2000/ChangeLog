@@ -1,5 +1,18 @@
 2017-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R170-Mound.el (UU+9686): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R160-Bitter.el (U+8FA5-itaiji-003): New character; use
+	`<-simplified' for U+8FA5.
+
+	* Ideograph-R077-Stop.el (U+6B77): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R039-Child.el: Add some MJ code points.
+
+2017-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R130-Meat.el (A-CB12237): New abstract node; use
 	`<-denotational' for A-M-29675.
 	(CB12237): Use `<-subsumptive' for A-CB12237 instead of
