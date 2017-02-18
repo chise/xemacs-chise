@@ -1070,6 +1070,21 @@
     ))
 (define-char
   '((ideographic-radical . 134)	; ⾅
+    (ideographic-strokes . 6)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x26951)	; 𦥑
+      )
+     ((=ucs		  . #x56DF)	; 囟
+      ))
+    (=gt-k		. 11083)	; &GT-K11083;
+    (=gt-pj-k1		. #x382D)	; &GT-K11083; [24-13]
+    ))
+(define-char
+  '((ideographic-radical . 134)	; ⾅
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
     (=ucs		. #x26973)	; 𦥳
@@ -1289,6 +1304,23 @@
     (total-strokes	 . 14)
     (=ucs		. #x8206)	; 舆
     (=gb2312		. #x535F)	; &I-G0-535F; [51-63]
+    ))
+(define-char
+  '((ideographic-radical . 134)	; ⾅
+    (ideographic-strokes . 7)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 11083)	; &GT-K11083;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=ucs-itaiji-003	. #x22371)	; &U-i003+22371;
+    (<-simplified@component
+     ((=ucs		  . #x22371)	; 𢍱
+      ))
     ))
 (define-char
   '((ideographic-radical . 134)	; ⾅
@@ -1546,16 +1578,32 @@
   '((ideographic-radical . 134)	; ⾅
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 11083)	; &GT-K11083;
+      )
+     ((=ucs		  . #x5927)	; 大
+      ))
+    (sound@ja/on	"seN")
     (=ucs		. #x26989)	; 𦦉
+    (=cns11643-7	. #x3172)	; &I-C7-3172; [17-82]
     (=daikanwa		. 30230)	; &I-M-30230;
-    ))
-(define-char
-  '((=>ucs		. #x26989)	; 𦦉
-    (morohashi-daikanwa	30230 0 0)
-    (ideographic-radical . 134)	; ⾅
-    (ideographic-strokes . 9)
-    (total-strokes	 . 16)
-    (=cns11643-7	. #x3172)	; &C7-3172; [17-82]
+    (<-same
+     ((=ucs		  . #x22371)	; 𢍱
+      (=daikanwa	  . 09650)	; &I-M-09650;
+      ))
+    (<-same*sources
+     daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 30230)	; &g2-M-30230;
+      )
+     ((==ucs@iso	  . #x26989)	; &g2-IU-00026989;
+      )
+     ((==ucs@cns	  . #x26989)	; &g2-CU+26989;
+      (==cns11643-7	  . #x3172)	; &g2-CU+26989; [17-82]
+      ))
     ))
 (define-char
   '((=>ucs		. #x2698C)	; 𦦌
