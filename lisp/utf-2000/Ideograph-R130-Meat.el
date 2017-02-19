@@ -11613,6 +11613,31 @@
      ((=>daikanwa	  . 29675)	; &A-M-29675;
       ))
     (ideographic-radical . 130)	; ⾁
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5408)	; 合
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL MEAT")
+	(=ucs		    . #x2EBC)	; ⺼
+	)
+       ((=ucs		    . #x5342)	; 卂
+	))
+      ))
+    (=ucs-itaiji-001	. #x26760)	; &U-i001+26760;
+    ))
+(define-char
+  '((<-denotational
+     ((=>daikanwa	  . 29675)	; &A-M-29675;
+      ))
+    (ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (ideographic-structure

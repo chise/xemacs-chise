@@ -1,5 +1,60 @@
 2017-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R130-Meat.el (U+26760-itaiji-001): New character; use
+	`<-denotational' for A-M-29675.
+
+	* Ideograph-R069-Axe.el (U-000230C4): New character.
+	(M-13600): Add `<-denotational' for U-000230C4; add `sound@ja/on'.
+	(U-000230C5): New character.
+	(M-13601): Add `<-denotational' for U-000230C5; add `sound@ja/on';
+	unify IU+230C5.
+	(CB12143): New character; unify U+7948-itaiji-002.
+	(U+65B7): Apply new conventions for glyph granularity.
+	(U-000230D4): Likewise.
+
+	* Ideograph-R038-Woman.el: Add some MJ code points.
+	(U+59FF): Apply new conventions for glyph granularity.
+	(U+5A1C): Likewise.
+	(U+5A29): Likewise.
+	(U+36EF): Likewise.
+	(U+5A9B): Likewise.
+	(U+5AC2): Likewise.
+	(U+5AD7): Likewise.
+	(U+3732): Likewise.
+
+	* Ideograph-R030-Mouth.el (A-compU+53E3): New abstract component;
+	unify IWDS1-0316; add `=>ucs@iwds-1'.
+	(U+53E3): Add `<-denotational' for A-compU+53E3.
+	(BC-89CC): New character; use `<-denotational' for A-compU+53E3.
+	(U-00020B9B): Apply new conventions for glyph granularity.
+	(IU+20B9B): Add `sound@ja/on'; add `<-ancient' for U+65E8.
+	(GT-K01370): New character; use `<-denotational' for U-00020B9B.
+	(U-0002067C): Apply new conventions for glyph granularity; add
+	`sound@ja/on'.
+	(U+5402): Apply new conventions for glyph granularity.
+	(M-03309): Unify U-00020BC0; add `sound@ja/on'.
+	(M-03310): Unify U-00020BBC; add `sound@ja/on'.
+	(U-00020BC3): Apply new conventions for glyph granularity.
+	(M-03311): Unify IU+20BC3.
+	(GT-K01881): Add `<-denotational' for U-00020BC3.
+	(M-03312): Unify U-00020BC2; add `sound@ja/on'.
+	(U-00020BC4): Apply new conventions for glyph granularity.
+	(M-03313): Unify IU+20BC4; add `sound@ja/on'.
+	(CB03030): Use `<-denotational' for U-00020BC4.
+	(U+3568): New character.
+	(M-03314): Use `<-denotational' for U+3568; unify UU+3568; add
+	`sound@ja/on'.
+	(UU+541C): Apply new conventions for glyph granularity.
+	(U+5428): Likewise.
+	(U+54F9): Likewise.
+	(U+552A): Likewise.
+	(U+35CD): Likewise.
+	(U+55D4): Likewise.
+	(U+55E0): Likewise.
+	(o-UU+55F7): Likewise.
+	(o-UU+55F8): Likewise.
+	(U+5611): Likewise.
+
 	* Ideograph-R142-Insect.el (U-00027573): Apply new conventions for
 	glyph granularity.
 
