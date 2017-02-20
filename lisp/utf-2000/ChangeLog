@@ -37,6 +37,12 @@
 	`->subsumptive'.
 	(U-0002534C): Likewise.
 
+	* Ideograph-R049-Oneself.el (U+20A27-itaiji-003): New character;
+	use `<-denotational' for A-U+20A27-itaiji-002.
+	(U+20A27-itaiji-002): Use A-U+20A27-itaiji-002 instead of
+	A-compU+20A27.
+	(A-U+20A27-itaiji-002): New abstract character.
+
 	* Ideograph-R039-Child.el (g2-UU+5B73): Add
 	`=decomposition@hanyo-denshi'.
 
