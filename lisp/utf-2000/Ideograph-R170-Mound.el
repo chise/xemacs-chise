@@ -8664,7 +8664,12 @@
     (=daikanwa		. 41904)	; &I-M-41904;
     (=shinjigen		.  8937)	; &AJ1-07112;
     (->subsumptive
-     ((ideographic-structure
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x96B4)	; 隴
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
