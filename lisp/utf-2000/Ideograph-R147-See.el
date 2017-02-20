@@ -2243,6 +2243,7 @@
     (=jis-x0208		. #x6B2F)	; &I-J90-6B2F; [75-15]
     (=ks-x1001		. #x542D)	; &I-K0-542D; [52-13]
     (=jis-x0213-1	. #x6B2F)	; &I-JX1-6B2F; [75-15]
+    (=hanyo-denshi/ja	. #x6B2F)	; &I-HD-JA-6B2F; [75-15]
     (=gt		. 47003)	; &I-GT-47003;
     (=gt-pj-1		. #x6B2F)	; &I-GT-47003; [75-15]
     (=daikanwa		. 34913)	; &I-M-34913;
@@ -2256,12 +2257,18 @@
     (<-ancient*sources
      shinjigen)
     (->subsumptive
-     ((==ucs@jis	  . #x89A9)	; &g2-AJ1-06642;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x89A9)	; 覩
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@jis	  . #x89A9)	; &g2-AJ1-06642;
       (==ucs@ks		  . #x89A9)	; &g2-AJ1-06642;
       (==adobe-japan1-0	  . 06642)	; &g2-AJ1-06642;
       (==ks-x1001	  . #x542D)	; &g2-AJ1-06642; [52-13]
       (==jis-x0208	  . #x6B2F)	; &g2-AJ1-06642; [75-15]
       (==jis-x0213-1	  . #x6B2F)	; &g2-AJ1-06642; [75-15]
+      (==hanyo-denshi/ja  . #x6B2F)	; &g2-AJ1-06642; [75-15]
       (==gt		  . 47003)	; &g2-AJ1-06642;
       (==daikanwa	  . 34913)	; &g2-AJ1-06642;
       (==shinjigen	  .  5338)	; &g2-AJ1-06642;
@@ -4010,15 +4017,22 @@
     (=ks-x1001		. #x4E3A)	; &I-K0-4E3A; [46-26]
     (=jis-x0213-1	. #x6B37)	; &I-JX1-6B37; [75-23]
     (=gb12345		. #x395B)	; &AJ1-06650; [25-59]
+    (=hanyo-denshi/ja	. #x6B37)	; &I-HD-JA-6B37; [75-23]
     (=gt		. 47088)	; &I-GT-47088;
     (=gt-pj-1		. #x6B37)	; &I-GT-47088; [75-23]
     (->subsumptive
-     ((==ucs@unicode	  . #x89C0)	; &g2-AJ1-06650;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x89C0)	; 觀
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@unicode	  . #x89C0)	; &g2-AJ1-06650;
       (==adobe-japan1-0	  . 06650)	; &g2-AJ1-06650;
       (==ks-x1001	  . #x4E3A)	; &g2-AJ1-06650; [46-26]
       (==jis-x0208	  . #x6B37)	; &g2-AJ1-06650; [75-23]
       (==jis-x0213-1	  . #x6B37)	; &g2-AJ1-06650; [75-23]
       (==gb12345	  . #x395B)	; &g2-AJ1-06650; [25-59]
+      (==hanyo-denshi/ja  . #x6B37)	; &g2-AJ1-06650; [75-23]
       (==gt		  . 47088)	; &g2-AJ1-06650;
       (->subsumptive
        ((===jis-x0208	    . #x6B37)	; &R-J0-6B37; [75-23]
