@@ -2368,7 +2368,12 @@
     (=gt		. 08799)	; &I-GT-08799;
     (=gt-pj-1		. #x555A)	; &I-GT-08799; [53-58]
     (->subsumptive
-     ((==ucs@unicode	  . #x5B73)	; &g2-AJ1-04617;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x5B73)	; 孳
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@unicode	  . #x5B73)	; &g2-AJ1-04617;
       (==adobe-japan1-0	  . 04617)	; &g2-AJ1-04617;
       (==gb2312		  . #x665C)	; &g2-AJ1-04617; [70-60]
       (==jis-x0208	  . #x555A)	; &g2-AJ1-04617; [53-58]

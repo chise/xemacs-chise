@@ -1,5 +1,65 @@
 2017-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R172-Short-Tailed-Bird.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/{JA|JB|JD}.
+
+	* Ideograph-R170-Mound.el (g2-UU+96B4): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R169-Gate.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/{JA|JB}.
+
+	* Ideograph-R166-Village.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/JA.
+
+	* Ideograph-R149-Speech.el (J2004U+8B0E): Unify KU+8B0E.
+
+	* Ideograph-R147-See.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/JA.
+
+	* Ideograph-R112-Stone.el: Complete representative nodes of
+	`=hanyo-denshi/jb' glyphs.
+	(U+7809): Apply new conventions for glyph granularity.
+	(U+784E): Likewise.
+	(U-0002F94E): Likewise; add `<-denotational' for U+784E; unify
+	MJ018494, HD-JT-B6C7 and KOSEKI-270780.
+	(U+7934): Apply new conventions for glyph granularity.
+
+	* Ideograph-R109-Eye.el (U+779F): Use `->denotational' and
+	`->subsumptive'.
+	(U-0002534C): Likewise.
+
+	* Ideograph-R039-Child.el (g2-UU+5B73): Add
+	`=decomposition@hanyo-denshi'.
+
+	* Ideograph-R009-Man.el (U+4ED1): Apply new conventions for glyph
+	granularity.
+	(U-0002020C): Add `sound@ja/on'; add `<-ancient' for CU+865E.
+	(U+3474): Use A-U+20B36-itaiji-001 instead of "⿱帚又".
+	(U-000202EF): Apply new conventions for glyph granularity.
+	(U-0002033B): Likewise.
+	(U-0002036E): Likewise.
+	(U-00020373): Likewise.
+	(U+20373-var-002): New character; use `<-denotational' for
+	U-00020373.
+	(U+3482): Apply new conventions for glyph granularity.
+	(U+34A8): Likewise.
+	(U-00020457): Add `<-denotational' for U+34A8; apply new
+	conventions for glyph granularity.
+	(IU+20457): Unify UU+34A8 and CB13356.
+	(MJ056959): New character; use `<-denotational' for U-00020457;
+	unify HD-KS015160.
+
+2017-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R130-Meat.el (U+26760-itaiji-001): New character; use
 	`<-denotational' for A-M-29675.
 
