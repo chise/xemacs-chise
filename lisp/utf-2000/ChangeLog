@@ -1,3 +1,8 @@
+2017-02-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R117-Stand.el (U+7AEB): Apply new conventions for
+	glyph granularity.
+
 2017-02-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R172-Short-Tailed-Bird.el:
