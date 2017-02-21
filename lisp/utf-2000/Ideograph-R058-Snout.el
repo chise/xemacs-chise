@@ -62,16 +62,27 @@
     (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (=decomposition@cid
-     ((=ucs		  . #x5F50)	; 彐
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
     (=adobe-japan1-4	. 15391)	; &AJ1-15391;
     (=big5-cdp		. #x8BAB)	; &I-CDP-8BAB;
     (=gt		. 67403)	; &I-GT-67403;
     (=gt-pj-11		. #x5A40)	; &I-GT-67403; [58-32]
     (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x5F50)	; 彐
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==adobe-japan1-4	  . 15391)	; &g2-AJ1-15391;
+      (==big5-cdp	  . #x8BAB)	; &g2-AJ1-15391;
+      (==gt		  . 67403)	; &g2-AJ1-15391;
+      (->subsumptive
+       ((===adobe-japan1-4  . 15391)	; &R-AJ1-15391;
+	)
+       ((===big5-cdp	    . #x8BAB)	; &R-CDP-8BAB;
+	)
+       ((===gt		    . 67403)	; &R-GT-67403;
+	))
+      )
      ((=gt-k		  . 00267)	; &GT-K00267;
       (=gt-pj-k1	  . #x3974)	; &GT-K00267; [25-84]
       ))
