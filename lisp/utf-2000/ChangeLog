@@ -1,3 +1,14 @@
+2017-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R019-Power.el: Use `->interchangeable' instead of
+	`->synonyms'.
+
+2017-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R100-Life.el: Add some Adobe-Japan1-5 code points.
+	(U-0002F934): Add `ideographic-structure'; add representative
+	nodes.
+
 2017-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R055-Two-Hands.el (U-0002234D): Apply new conventions
