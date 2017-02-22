@@ -2321,12 +2321,12 @@
       ))
     (<-vulgar*sources
      zhengzitong daikanwa)
-    (->synonyms
+    (->interchangeable
      ((=ucs@unicode	  . #x6555)	; &AJ1-05066;
       (=adobe-japan1-0	  . 05066)	; &AJ1-05066;
       (=daikanwa	  . 13225)	; &I-M-13225;
       ))
-    (->synonyms*sources
+    (->interchangeable*sources
      jiyun zhengzitong daikanwa)
     (->subsumptive
      ((=decomposition@cid
@@ -4744,15 +4744,15 @@
     (=daikanwa		. 02410)	; &I-M-02410;
     (=shinjigen		.  0718)	; 勞
     (<-formed
-     ((=ucs@ks		  . #x907C)	; &AJ1-07808;
-      (=adobe-japan1-0	  . 07808)	; &AJ1-07808;
+     ((=ucs@ks		  . #x907C)	; &MJ026156;
+      (=mj		  . 026156)	; &MJ026156;
       ))
-    (->synonyms
-     ((=ucs@ks		  . #x907C)	; &AJ1-07808;
-      (=adobe-japan1-0	  . 07808)	; &AJ1-07808;
+    (->interchangeable
+     ((=ucs@ks		  . #x907C)	; &MJ026156;
+      (=mj		  . 026156)	; &MJ026156;
       (=daikanwa	  . 39137)	; &I-M-39137;
       ))
-    (->synonyms*sources
+    (->interchangeable*sources
      maoshi-shu daikanwa)
     (->subsumptive
      ((=decomposition@cid
