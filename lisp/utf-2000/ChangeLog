@@ -1,5 +1,25 @@
 2017-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R055-Two-Hands.el (U-0002234D): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R054-Long-Stride.el (U+5EFC): Add
+	`ideographic-structure'.
+
+	* Ideograph-R042-Small.el (GT-09427): Add `ideographic-structure'.
+	(UU+5C12): Likewise.
+	(U+5C13): Likewise.
+	(U+5C14): Likewise.
+
+	* Ideograph-R032-Earth.el (CB01092): Add `ideographic-structure'.
+
+	* Ideograph-R030-Mouth.el (CU+5448): Add `ideographic-structure'.
+	(MJ008134): Likewise.
+	(CU+5660): Add representative node.
+	(UU+5660): Likewise.
+	(CU+5683): Likewise.
+	(UU+5683): Likewise.
+
 	* Ideograph-R058-Snout.el (AJ1-15391): Add representative node.
 
 2017-02-19  MORIOKA Tomohiko  <tomo.git@chise.org>

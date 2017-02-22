@@ -4971,8 +4971,8 @@
     (=hanyo-denshi/jt	. #xADA4)	; &I-HD-JT-ADA4;
     (=koseki		. 222440)	; &MJ058020;
     (<-formed
-     ((=ucs@unicode	  . #x723E)	; &AJ1-02256;
-      (=adobe-japan1-0	  . 02256)	; &AJ1-02256;
+     ((=ucs@unicode	  . #x723E)	; &MJ016762;
+      (=mj		  . 016762)	; &MJ016762;
       ))
     (<-formed*sources
      koseki)
