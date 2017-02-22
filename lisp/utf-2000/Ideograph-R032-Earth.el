@@ -16089,8 +16089,8 @@
       )
      ((=ucs		  . #x571F)	; 土
       )
-     ((=ucs@unicode	  . #x8FFD)	; &AJ1-03045;
-      (=adobe-japan1-0	  . 03045)	; &AJ1-03045;
+     ((=ucs@unicode	  . #x8FFD)	; &MJ025871;
+      (=mj		  . 025871)	; &MJ025871;
       ))
     (=ucs@unicode	. #x5860)	; &GT-06654;
     (=gt		. 06654)	; &GT-06654;
@@ -16102,8 +16102,8 @@
 	)
        ((=gt-k		    . 00199)	; &GT-K00199;
 	)
-       ((==ucs@unicode	    . #x8FFD)	; &g2-AJ1-03045;
-	(==adobe-japan1-0   . 03045)	; &g2-AJ1-03045;
+       ((==ucs@unicode	    . #x8FFD)	; &g2-MJ025871;
+	(==mj		    . 025871)	; &g2-MJ025871;
 	))
       (==ucs@unicode	  . #x5860)	; &g2-GT-06654;
       (==gt		  . 06654)	; &g2-GT-06654;
@@ -21485,8 +21485,8 @@
       )
      ((=ucs		  . #x571F)	; 土
       )
-     ((=ucs@ks		  . #x9042)	; &AJ1-13864;
-      (=adobe-japan1-4	  . 13864)	; &AJ1-13864;
+     ((=ucs@ks		  . #x9042)	; &MJ026017;
+      (=mj		  . 026017)	; &MJ026017;
       ))
     (=daikanwa		. 05507)	; &M-05507;
     (->subsumptive
@@ -21496,8 +21496,8 @@
 	)
        ((=gt-k		    . 00199)	; &GT-K00199;
 	)
-       ((==ucs@ks	    . #x9042)	; &g2-AJ1-13864;
-	(==adobe-japan1-4   . 13864)	; &g2-AJ1-13864;
+       ((==ucs@ks	    . #x9042)	; &g2-MJ026017;
+	(==mj		    . 026017)	; &g2-MJ026017;
 	))
       (==daikanwa	  . 05507)	; &g2-M-05507;
       ))
@@ -21509,6 +21509,14 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=ucs-var-001	  . #x9042)	; &U-v001+9042;
+      ))
     (=cbeta		. 01092)	; &CB01092;
     ))
 (define-char
@@ -21547,9 +21555,8 @@
       )
      ((=ucs		  . #x571F)	; 土
       )
-     ((=ucs@unicode	  . #x9042)	; &AJ1-13468;
-      (=adobe-japan1-0	  . 02609)	; &AJ1-13468;
-      (=adobe-japan1-4	  . 13468)	; &I-AJ1-13468;
+     ((=ucs@unicode	  . #x9042)	; &MJ026015;
+      (=mj		  . 026015)	; &MJ026015;
       ))
     (=ucs@iso		. #x2145E)	; &U-0002145E;
     (->subsumptive
