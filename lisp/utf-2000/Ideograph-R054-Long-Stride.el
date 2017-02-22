@@ -622,6 +622,14 @@
   '((ideographic-radical . 54)	; ⼵
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x5EF4)	; 廴
+      )
+     ((=ucs		  . #x897F)	; 西
+      ))
     (=ucs		. #x5EFC)	; 廼
     (=adobe-japan1-0	. 03308)	; &I-AJ1-03308;
     (=jis-x0208		. #x4736)	; &I-J90-4736; [39-22]
@@ -633,10 +641,10 @@
     (=shinjigen		.  8258)	; 廼
     (=cbeta		. 02626)	; &I-CB02626;
     (<-wrong
-     ((=ucs@jis		  . #x8FFA)	; &AJ1-06897;
-      (=adobe-japan1-0	  . 06897)	; &AJ1-06897;
+     ((=ucs@jis		  . #x8FFA)	; &MJ025868;
+      (=mj		  . 025868)	; &MJ025868;
       (=jis-x0208	  . #x6D72)	; &I-J90-6D72; [77-82]
-      (=shinjigen	  .  8257)	; &AJ1-06897;
+      (=shinjigen	  .  8257)	; &MJ025868;
       ))
     (<-wrong*sources
      shinjigen)
