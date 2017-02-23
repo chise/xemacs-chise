@@ -15404,6 +15404,12 @@
       (=adobe-japan1-4	  . 13992)	; &AJ1-13992;
       ))
     (=ucs@unicode	. #x5DB6)	; &UU+5DB6;
+    (->subsumptive
+     ((==ucs@unicode	  . #x5DB6)	; &g2-UU+5DB6;
+      (->subsumptive
+       ((===ucs@unicode	    . #x5DB6)	; &R-UU+5DB6;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -15418,9 +15424,9 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
-     ((=ucs@cns		  . #x5FAE)	; &AJ1-03469;
-      (=ucs@jis		  . #x5FAE)	; &AJ1-03469;
-      (=adobe-japan1-0	  . 03469)	; &AJ1-03469;
+     ((=ucs@cns		  . #x5FAE)	; &MJ011343;
+      (=ucs@jis		  . #x5FAE)	; &MJ011343;
+      (=mj		  . 011343)	; &MJ011343;
       ))
     (=cbeta		. 00122)	; &CB00122;
     ))

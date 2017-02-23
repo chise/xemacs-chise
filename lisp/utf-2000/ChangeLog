@@ -1,5 +1,12 @@
 2017-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R060-Step.el: Add some MJ code points.
+
+	* Ideograph-R046-Mountain.el (UU+5DB6): Add representative nodes.
+
+	* Ideograph-R012-Eight.el (U+34B5): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R019-Power.el: Use `->interchangeable' instead of
 	`->synonyms'.
 
