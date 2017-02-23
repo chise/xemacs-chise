@@ -3459,8 +3459,8 @@
     (=cns11643-4	. #x442E)	; &C4-442E; [36-14]
     (=daikanwa		. 16539)	; &I-M-16539;
     (<-synonyms
-     ((=ucs@unicode	  . #x69C1)	; &AJ1-05258;
-      (=adobe-japan1-0	  . 05258)	; &AJ1-05258;
+     ((=ucs@unicode	  . #x69C1)	; &MJ014325;
+      (=mj		  . 014325)	; &MJ014325;
       (=daikanwa	  . 15300)	; &I-M-15300;
       ))
     (<-synonyms*sources
