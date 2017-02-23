@@ -781,6 +781,15 @@
   '((ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (=ucs		. #x53C0)	; 叀
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x53C0)	; 叀
+      ))
+    (ideographic-radical . 28)	; ⼛
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
     (hanyu-dazidian	1 386 12)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -790,8 +799,8 @@
       )
      ((=ucs		  . #x53B6)	; 厶
       ))
-    (=ucs		. #x53C0)	; 叀
-    (=adobe-japan1-5	. 17339)	; &I-AJ1-17339;
+    (=ucs@unicode	. #x53C0)	; &AJ1-17339;
+    (=adobe-japan1-5	. 17339)	; &AJ1-17339;
     (=jis-x0212		. #x3457)	; &I-JSP-3457; [20-55]
     (=cns11643-4	. #x2559)	; &I-C4-2559; [05-57]
     (=jis-x0213-2	. #x235B)	; &I-JX2-235B; [03-59]
@@ -849,6 +858,23 @@
     (<-formed@component
      ((=ucs		  . #x53C0)	; 叀
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x53C0)	; 叀
+      ))
+    (ideographic-radical . 28)	; ⼛
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=big5-cdp	  . #x8BD0)	; &CDP-8BD0;
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=ucs-itaiji-002	. #x53C0)	; &U-i002+53C0;
     ))
 (define-char
   '((ideographic-radical . 28)	; ⼛

@@ -1,5 +1,11 @@
 2017-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R028-Private.el (U+53C0): Separate UU+53C0.
+	(U+53C0-itaiji-002): New character; use `<-denotational' for
+	U+53C0.
+
+2017-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R060-Step.el: Add some MJ code points.
 
 	* Ideograph-R046-Mountain.el (UU+5DB6): Add representative nodes.
