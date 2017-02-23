@@ -329,9 +329,9 @@
     (=cns11643-6	. #x382E)	; &I-C6-382E; [24-14]
     (=daikanwa		. 13458)	; &I-M-13458;
     (<-same
-     ((=ucs@cns		  . #x5FAE)	; &AJ1-03469;
-      (=ucs@jis		  . #x5FAE)	; &AJ1-03469;
-      (=adobe-japan1-0	  . 03469)	; &AJ1-03469;
+     ((=ucs@cns		  . #x5FAE)	; &MJ011343;
+      (=ucs@jis		  . #x5FAE)	; &MJ011343;
+      (=mj		  . 011343)	; &MJ011343;
       (=daikanwa	  . 10203)	; &I-M-10203;
       ))
     (<-same*sources
