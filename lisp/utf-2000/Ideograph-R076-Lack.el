@@ -5203,9 +5203,9 @@
     (=cns11643-4	. #x5067)	; &C4-5067; [48-71]
     (=daikanwa		. 16206)	; &I-M-16206;
     (<-ancient
-     ((=ucs@jis		  . #x61FF)	; &AJ1-04925;
-      (=ucs@ks		  . #x61FF)	; &AJ1-04925;
-      (=adobe-japan1-0	  . 04925)	; &AJ1-04925;
+     ((=ucs@jis		  . #x61FF)	; &MJ012045;
+      (=ucs@ks		  . #x61FF)	; &MJ012045;
+      (=mj		  . 012045)	; &MJ012045;
       (=daikanwa	  . 11501)	; &I-M-11501;
       ))
     (<-ancient*sources
