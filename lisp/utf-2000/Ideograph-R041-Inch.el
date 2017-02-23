@@ -1359,7 +1359,8 @@
     (->ancient*sources
      pianhai daikanwa)
     (->formed
-     ((=ucs		  . #x53C0)	; 叀
+     ((=ucs@unicode	  . #x53C0)	; &AJ1-17339;
+      (=adobe-japan1-5	  . 17339)	; &AJ1-17339;
       (=daikanwa	  . 03083)	; &I-M-03083;
       ))
     (->formed*sources
