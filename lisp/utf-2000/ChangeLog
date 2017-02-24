@@ -1,8 +1,35 @@
+2017-02-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R070-Square.el (JU+65C3): Add representative nodes.
+	(U+65C9): Apply new conventions for glyph granularity.
+	(UU+65C9): Unify BC-8DCE.
+
+	* Ideograph-R064-Hand.el (BUCS+6416): New abstract node.
+	(U+63FA): Add `<-denotational' for BUCS+6416.
+	(U+6447): Likewise; apply new conventions for glyph granularity.
+	(U+6416): Likewise.
+
 2017-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R028-Private.el (U+53C0): Separate UU+53C0.
 	(U+53C0-itaiji-002): New character; use `<-denotational' for
 	U+53C0.
+
+	* Ideograph-R177-Leather.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/{JA|JB}.
+
+	* Ideograph-R174-Blue.el:
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/{JA|JB|JD}.
+	- Add a Hanyo-Denshi/JA code point.
+
+	* Ideograph-R173-Rain.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/{JA|JD}.
+	(U+96EA): Apply new conventions for glyph granularity.
 
 2017-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
