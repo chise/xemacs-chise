@@ -1,3 +1,18 @@
+2017-02-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el: Add some MJ code points.
+	(U+5FCD): Apply new conventions for glyph granularity.
+
+	* Ideograph-R030-Mouth.el (U+5672): Separate UU+5672.
+
+	* Ideograph-R019-Power.el: Complete representative nodes of
+	`=jis-x0213-1' glyphs.
+	(U+52BC): Apply new conventions for glyph granularity.
+	(U+52C1): Likewise.
+	(U+52D0): Likewise.
+	(U+52D1): Likewise.
+	(U+52F3): Likewise.
+
 2017-02-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R111-Arrow.el (UU+77E9): Unify MJ018401.
