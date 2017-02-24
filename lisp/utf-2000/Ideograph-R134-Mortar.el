@@ -473,7 +473,7 @@
      ((=ucs		  . #x81FC)	; 臼
       ))
     (=adobe-japan1-5	. 19722)	; &AJ1-19722;
-    (=daikanwa		. 30184)	; &M-30184;
+    (=daikanwa		. 30184)	; &I-M-30184;
     (=jef-china3	. #x92D8)	; &I-JC3-92D8;
     (<-same
      ((=ucs		  . #x2695D)	; 𦥝
