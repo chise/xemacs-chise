@@ -1,5 +1,24 @@
 2017-02-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R111-Arrow.el (UU+77E9): Unify MJ018401.
+
+	* Ideograph-R098-Tile.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R050-Turban.el: Complete representative nodes of
+	`=jis-x0213-1' glyphs.
+	(U+5E06): Apply new conventions for glyph granularity.
+	(M-09023): Unify MJ010888 and KOSEKI-102130.
+	(U+5E54): Apply new conventions for glyph granularity.
+	(U+5E5E): Likewise.
+	(JU+5E70): Likewise.
+
+2017-02-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (U-00021A5C): Apply new conventions for
+	glyph granularity.
+	(JU+5BD8): Likewise.
+	(JU+5BE5): Likewise.
+
 	* Ideograph-R070-Square.el (JU+65C3): Add representative nodes.
 	(U+65C9): Apply new conventions for glyph granularity.
 	(UU+65C9): Unify BC-8DCE.
