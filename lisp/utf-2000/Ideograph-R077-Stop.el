@@ -466,19 +466,58 @@
     ))
 (define-char
   '((ideographic-radical . 77)	; ⽌
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6B62)	; 止
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
+    (=ucs		. #x23948)	; 𣥈
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23948)	; 𣥈
+      ))
+    (ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (hanyu-dazidian	2 1439 1)
-    (=ucs		. #x23948)	; 𣥈
-    (=cns11643-6	. #x2834)	; &I-C6-2834; [08-20]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x6B62)	; &AJ1-02221;
+      (=adobe-japan1-0	  . 02221)	; &AJ1-02221;
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      ))
+    (sound@ja/on	"kWai")
+    (=ucs@iso		. #x23948)	; &C6-2834;
+    (=cns11643-6	. #x2834)	; &C6-2834; [08-20]
     (=daikanwa		. 16262)	; &I-M-16262;
-    (=hanziku-4		. #xD2AD)	; &I-HZK04-D2AD;
     (<-ancient
-     ((=ucs		  . #x6703)	; 會
+     ((=ucs@unicode	  . #x6703)	; &AJ1-04171;
+      (=adobe-japan1-0	  . 04171)	; &AJ1-04171;
       (=daikanwa	  . 14306)	; &I-M-14306;
       ))
     (<-ancient*sources
      zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x23948)	; &g2-M-16262;
+      (==cns11643-6	  . #x2834)	; &g2-M-16262; [08-20]
+      (==daikanwa	  . 16262)	; &g2-M-16262;
+      (->subsumptive
+       ((===daikanwa	    . 16262)	; &R-M-16262;
+	)
+       ((===cns11643-6	    . #x2834)	; &R-C6-2834; [08-20]
+	)
+       ((===ucs@iso	    . #x23948)	; &R-U-00023948;
+	)
+       ((=hanziku-4	    . #xD2AD)	; &HZK04-D2AD;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 77)	; ⽌
@@ -1619,8 +1658,8 @@
     (=cns11643-3	. #x3C49)	; &I-C3-3C49; [28-41]
     (=daikanwa		. 16317)	; &I-M-16317;
     (<-same
-     ((=ucs@unicode	  . #x6F80)	; &AJ1-05507;
-      (=adobe-japan1-0	  . 05507)	; &AJ1-05507;
+     ((=ucs@unicode	  . #x6F80)	; &MJ015962;
+      (=mj		  . 015962)	; &MJ015962;
       (=daikanwa	  . 18311)	; &I-M-18311;
       ))
     (<-same*sources
