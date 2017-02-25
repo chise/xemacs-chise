@@ -109,6 +109,24 @@
     ))
 (define-char
   '((ideographic-radical . 129)	; ⾀
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs@unicode	  . #x807F)	; &AJ1-06227;
+      (=adobe-japan1-0	  . 06227)	; &AJ1-06227;
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=ucs-itaiji-003	. #x807F)	; &U-i003+807F;
+    (<-formed
+     ((=ucs		  . #x807F)	; 聿
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 129)	; ⾀
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
     (=ucs		. #x26613)	; 𦘓
