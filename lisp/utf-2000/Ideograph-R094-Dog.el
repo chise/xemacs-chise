@@ -1130,8 +1130,8 @@
     (=daikanwa		. 20290)	; &I-M-20290;
     (=shinjigen		.  4767)	; 狄
     (<-formed
-     ((=ucs@jis		  . #x9016)	; &AJ1-06903;
-      (=adobe-japan1-0	  . 06903)	; &AJ1-06903;
+     ((=ucs@jis		  . #x9016)	; &MJ025924;
+      (=mj		  . 025924)	; &MJ025924;
       ))
     (->subsumptive
      ((==ucs@unicode	  . #x72C4)	; &g2-AJ1-05624;
