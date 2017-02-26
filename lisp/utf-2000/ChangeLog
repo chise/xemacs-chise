@@ -1,3 +1,7 @@
+2017-02-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R102-Field.el: Add some MJ code points.
+
 2017-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R146-West.el: Add some MJ code points.
@@ -22,6 +26,8 @@
 	(U+793A): Add `<-denotational' for A-compU+793A.
 	(U+793B): Likewise.
 	(JU+7994): Apply new conventions for glyph granularity.
+
+	* Ideograph-R109-Eye.el: Add some MJ code points.
 
 	* Ideograph-R101-Use.el (U+752A): Use `->denotational' and
 	`->subsumptive'.
