@@ -13877,8 +13877,8 @@
       )
      ((=ucs		  . #x706B)	; 火
       )
-     ((=ucs@unicode	  . #x7FD2)	; &AJ1-02358;
-      (=adobe-japan1-0	  . 02358)	; &AJ1-02358;
+     ((=ucs@unicode	  . #x7FD2)	; &MJ020683;
+      (=mj		  . 020683)	; &MJ020683;
       ))
     (=ucs@unicode	. #x71A0)	; &C2-516E;
     (=ucs@JP/hanazono	. nil)
@@ -14007,9 +14007,9 @@
       )
      ((=ucs		  . #x706B)	; 火
       )
-     ((=ucs@jis/2004	  . #x9022)	; &AJ1-08266;
-      (=ucs@ks		  . #x9022)	; &AJ1-08266;
-      (=adobe-japan1-0	  . 08266)	; &AJ1-08266;
+     ((=ucs@jis/2004	  . #x9022)	; &MJ025952;
+      (=ucs@ks		  . #x9022)	; &MJ025952;
+      (=mj		  . 025952)	; &MJ025952;
       ))
     (=ucs@jis		. #x71A2)	; &AJ1-18036;
     (=ucs@ks		. #x71A2)	; &AJ1-18036;
@@ -14102,9 +14102,8 @@
       )
      ((=ucs		  . #x706B)	; 火
       )
-     ((=ucs@unicode	  . #x9022)	; &AJ1-13408;
-      (=adobe-japan1-0	  . 01133)	; &AJ1-13408;
-      (=adobe-japan1-4	  . 13408)	; &I-AJ1-13408;
+     ((=ucs@unicode	  . #x9022)	; &MJ025951;
+      (=mj		  . 025951)	; &MJ025951;
       ))
     (=ucs@unicode	. #x71A2)	; &UU+71A2;
     (=ucs@JP/hanazono	. nil)
