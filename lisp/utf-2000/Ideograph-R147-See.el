@@ -2790,12 +2790,12 @@
     (=gt-pj-6		. #x737B)	; &I-GT-47018; [83-91]
     (=daikanwa		. 34937)	; &I-M-34937;
     (<-formed
-     ((=ucs@jis		  . #x9005)	; &AJ1-06895;
-      (=adobe-japan1-0	  . 06895)	; &AJ1-06895;
+     ((=ucs@jis		  . #x9005)	; &MJ025890;
+      (=mj		  . 025890)	; &MJ025890;
       ))
     (<-same
-     ((=ucs@jis		  . #x9005)	; &AJ1-06895;
-      (=adobe-japan1-0	  . 06895)	; &AJ1-06895;
+     ((=ucs@jis		  . #x9005)	; &MJ025890;
+      (=mj		  . 025890)	; &MJ025890;
       ))
     (<-same*sources
      jiyun database)
