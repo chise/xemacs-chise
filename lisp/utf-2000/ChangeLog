@@ -1,3 +1,36 @@
+2017-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R146-West.el: Add some MJ code points.
+
+	* Ideograph-R136-Oppose.el: Add some MJ code points.
+
+2017-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R131-Minister.el (U-000268E0): Apply new conventions
+	for glyph granularity.
+	(IU+268E0): Add `sound@ja/on'; add `<-ancient' for JU+6722 and
+	MJ013549.
+
+	* Ideograph-R124-Feather.el: Add some MJ code points.
+
+	* Ideograph-R113-Spirit.el:
+	- Use A-compU+793A instead of U+793A as left components of
+	  abstract characters.
+	- Use U+793A / U+793B instead of <CJK RADICAL SPIRIT ONE> / <CJK
+	  RADICAL SPIRIT TWO> as left components of abstract glyphs.
+	(A-compU+793A): New abstract component.
+	(U+793A): Add `<-denotational' for A-compU+793A.
+	(U+793B): Likewise.
+	(JU+7994): Apply new conventions for glyph granularity.
+
+	* Ideograph-R101-Use.el (U+752A): Use `->denotational' and
+	`->subsumptive'.
+	(UU+752A): Unify AJ1-18122.
+
+	* Ideograph-R097-Melon.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R089-Double-X.el: Add some MJ code points.
+
 2017-02-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R074-Moon.el: Add some MJ code points.

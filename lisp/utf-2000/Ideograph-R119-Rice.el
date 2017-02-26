@@ -2310,8 +2310,8 @@
       )
      ((=ucs		  . #x7C73)	; 米
       )
-     ((=ucs@unicode	  . #x821B)	; &AJ1-02726;
-      (=adobe-japan1-0	  . 02726)	; &AJ1-02726;
+     ((=ucs@unicode	  . #x821B)	; &MJ021365;
+      (=mj		  . 021365)	; &MJ021365;
       ))
     (=>ucs@iwds-1	. #x7CA6)	; &AJ1-18321;
     (=ucs@unicode	. #x7CA6)	; &AJ1-18321;

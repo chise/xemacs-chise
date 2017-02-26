@@ -65,7 +65,8 @@
 	  ))
 	))
       )
-     ((=cns11643-1	  . #x466A)	; &HD-JT-B5DE; [38-74]
+     ((=ucs@cns		  . #x74DC)	; &HD-JT-B5DE;
+      (=cns11643-1	  . #x466A)	; &HD-JT-B5DE; [38-74]
       (=hanyo-denshi/jt	  . #xB5DE)	; &I-HD-JT-B5DE;
       (->subsumptive
        ((==ucs@cns	    . #x74DC)	; &g2-CU+74DC;
@@ -286,24 +287,98 @@
   '((ideographic-radical . 97)	; ⽠
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x74DC)	; 瓜
+      )
+     ((=ucs		  . #x5305)	; 包
+      ))
     (=ucs		. #x74DF)	; 瓟
-    (=big5		. #xD2BD)	; &I-B-D2BD;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x74DF)	; 瓟
+      ))
+    (ideographic-radical . 97)	; ⽠
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x74DC)	; 瓜
+      )
+     ((=ucs@unicode	  . #x5305)	; &MJ007757;
+      (=mj		  . 007757)	; &MJ007757;
+      ))
+    (=+>ucs@unicode	. #x74DF)	; &o-AJ1-19545;
+    (=big5		. #xD2BD)	; &o-AJ1-19545;
+    (=+>adobe-japan1-5	. 19545)	; &o-AJ1-19545;
     (->subsumptive
-     ((=ucs@jis		  . #x74DF)	; &JSP-4C73;
-      (=jis-x0212	  . #x4C73)	; &JSP-4C73; [44-83]
-      (=daikanwa	  . 21384)	; &I-M-21384;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+	(=ucs		    . #x2FFA)	; ⿺
+	)
+       ((=ucs@unicode	    . #x74DC)	; &G0-394F;
+	(=gb2312	    . #x394F)	; &G0-394F; [25-47]
+	(=daikanwa	    . 21371)	; &I-M-21371;
+	)
+       ((=ucs@unicode	    . #x5305)	; &MJ007757;
+	(=mj		    . 007757)	; &MJ007757;
+	))
+      (=ucs@unicode	  . #x74DF)	; &M-21384;
+      (=ucs@JP/hanazono	  . nil)
+      (=daikanwa	  . 21384)	; &M-21384;
       (->subsumptive
        ((==daikanwa	    . 21384)	; &g2-M-21384;
 	)
-       ((==ucs@jis	    . #x74DF)	; &g2-JSP-4C73;
-	(==jis-x0212	    . #x4C73)	; &g2-JSP-4C73; [44-83]
+       ((==ucs@unicode	    . #x74DF)	; &g2-UU+74DF;
+	(==ucs@JP/hanazono  . nil)
 	))
       )
-     ((=ucs@unicode	  . #x74DF)	; &UU+74DF;
-      (=ucs@JP/hanazono	  . nil)
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+	(=ucs		    . #x2FFA)	; ⿺
+	)
+       ((=ucs@jis	    . #x74DC)	; &AJ1-01245;
+	(=ucs@ks	    . #x74DC)	; &AJ1-01245;
+	(=adobe-japan1-0    . 01245)	; &AJ1-01245;
+	)
+       ((=ucs@unicode	    . #x5305)	; &MJ007757;
+	(=mj		    . 007757)	; &MJ007757;
+	))
+      (=ucs@jis		  . #x74DF)	; &AJ1-19545;
+      (=adobe-japan1-5	  . 19545)	; &AJ1-19545;
+      (=jis-x0212	  . #x4C73)	; &I-JSP-4C73; [44-83]
+      (->subsumptive
+       ((==ucs@jis	    . #x74DF)	; &g2-AJ1-19545;
+	(==adobe-japan1-5   . 19545)	; &g2-AJ1-19545;
+	(==jis-x0212	    . #x4C73)	; &g2-AJ1-19545; [44-83]
+	(->subsumptive
+	 ((===jis-x0212	      . #x4C73)	; &R-JSP-4C73; [44-83]
+	  )
+	 ((===adobe-japan1-5  . 19545)	; &R-AJ1-19545;
+	  ))
+	))
       )
-     ((=ucs@cns		  . #x74DF)	; &C2-307E;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+	(=ucs		    . #x2FFA)	; ⿺
+	)
+       ((=ucs@cns	    . #x74DC)	; &HD-JT-B5DE;
+	(=cns11643-1	    . #x466A)	; &HD-JT-B5DE; [38-74]
+	)
+       ((=ucs@unicode	    . #x5305)	; &MJ007757;
+	(=mj		    . 007757)	; &MJ007757;
+	))
+      (=ucs@cns		  . #x74DF)	; &C2-307E;
       (=cns11643-2	  . #x307E)	; &C2-307E; [16-94]
+      (->subsumptive
+       ((==ucs@cns	    . #x74DF)	; &g2-CU+74DF;
+	(==cns11643-2	    . #x307E)	; &g2-CU+74DF; [16-94]
+	))
       ))
     ))
 (define-char
@@ -1099,10 +1174,28 @@
   '((ideographic-radical . 97)	; ⽠
     (ideographic-strokes . 17)
     (total-strokes	 . 22)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8944)	; 襄
+      )
+     ((=ucs		  . #x74DC)	; 瓜
+      ))
     (=ucs		. #x74E4)	; 瓤
     (=big5		. #xC57B)	; &I-B-C57B;
     (->subsumptive
-     ((=ucs@unicode	  . #x74E4)	; &G0-483F;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x8944)	; 襄
+	)
+       ((=ucs@unicode	    . #x74DC)	; &G0-394F;
+	(=gb2312	    . #x394F)	; &G0-394F; [25-47]
+	(=daikanwa	    . 21371)	; &I-M-21371;
+	))
+      (=ucs@unicode	  . #x74E4)	; &G0-483F;
       (=ucs@JP/hanazono	  . nil)
       (=gb2312		  . #x483F)	; &G0-483F; [40-31]
       (=daikanwa	  . 21429)	; &I-M-21429;
@@ -1114,10 +1207,40 @@
 	(==gb2312	    . #x483F)	; &g2-UU+74E4; [40-31]
 	))
       )
-     ((=ucs@jis		  . #x74E4)	; &JSP-4C74;
-      (=jis-x0212	  . #x4C74)	; &JSP-4C74; [44-84]
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x8944)	; 襄
+	)
+       ((=ucs@jis	    . #x74DC)	; &AJ1-01245;
+	(=ucs@ks	    . #x74DC)	; &AJ1-01245;
+	(=adobe-japan1-0    . 01245)	; &AJ1-01245;
+	))
+      (=ucs@jis		  . #x74E4)	; &AJ1-19546;
+      (=adobe-japan1-5	  . 19546)	; &AJ1-19546;
+      (=jis-x0212	  . #x4C74)	; &I-JSP-4C74; [44-84]
+      (->subsumptive
+       ((==ucs@jis	    . #x74E4)	; &g2-AJ1-19546;
+	(==adobe-japan1-5   . 19546)	; &g2-AJ1-19546;
+	(==jis-x0212	    . #x4C74)	; &g2-AJ1-19546; [44-84]
+	(->subsumptive
+	 ((===jis-x0212	      . #x4C74)	; &R-JSP-4C74; [44-84]
+	  )
+	 ((===adobe-japan1-5  . 19546)	; &R-AJ1-19546;
+	  ))
+	))
       )
-     ((=ucs@cns		  . #x74E4)	; &C1-7B67;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x8944)	; 襄
+	)
+       ((=ucs@cns	    . #x74DC)	; &HD-JT-B5DE;
+	(=cns11643-1	    . #x466A)	; &HD-JT-B5DE; [38-74]
+	))
+      (=ucs@cns		  . #x74E4)	; &C1-7B67;
       (=cns11643-1	  . #x7B67)	; &C1-7B67; [91-71]
       (->subsumptive
        ((==ucs@cns	    . #x74E4)	; &g2-CU+74E4;
