@@ -259,8 +259,52 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (=ucs		. #x268E0)	; 𦣠
-    (=cns11643-6	. #x3B34)	; &I-C6-3B34; [27-20]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x268E0)	; 𦣠
+      ))
+    (ideographic-radical . 131)	; ⾂
+    (ideographic-strokes . 4)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x81E3)	; 臣
+      )
+     ((=ucs		  . #x2123C)	; 𡈼
+      ))
+    (sound@ja/on	"bAu")
+    (=ucs@iso		. #x268E0)	; &C6-3B34;
+    (=cns11643-6	. #x3B34)	; &C6-3B34; [27-20]
     (=daikanwa		. 30073)	; &I-M-30073;
+    (<-ancient
+     ((=ucs@jis		  . #x6722)	; &JSP-4275;
+      (=jis-x0212	  . #x4275)	; &JSP-4275; [34-85]
+      (=daikanwa	  . 14391)	; &I-M-14391;
+      )
+     ((=mj		  . 013549)	; &MJ013549;
+      (=daikanwa	  . 14368)	; &I-M-14368;
+      ))
+    (<-ancient$_1*sources
+     shuowen daikanwa)
+    (<-ancient$_2*sources
+     zhengzitong daikanwa)
+    (<-ancient*sources
+     shuowen zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@cns	  . #x268E0)	; &g2-M-30073;
+      (==cns11643-6	  . #x3B34)	; &g2-M-30073; [27-20]
+      (==daikanwa	  . 30073)	; &g2-M-30073;
+      (->subsumptive
+       ((===daikanwa	    . 30073)	; &R-M-30073;
+	)
+       ((===cns11643-6	    . #x3B34)	; &R-C6-3B34; [27-20]
+	))
+      )
+     ((==ucs@iso	  . #x268E0)	; &g2-IU-000268E0;
+      ))
     ))
 (define-char
   '((ideographic-radical . 131)	; ⾂
