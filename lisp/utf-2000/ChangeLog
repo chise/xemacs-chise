@@ -1,5 +1,23 @@
 2017-02-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R073-Say.el (UU+3479): Unify S2-0149.
+	(MJ013511): Unify S1-0149; add `<-vulgar' for UU+6703.
+	(U+6703): Separate A-UU+6703.
+	(A-UU+6703): Add `=>ucs@iwds-1'.
+	(UU+6703): Use `<-denotational' for A-UU+6703; unify S-0148.
+	(MJ013512): New character; use `<-denotational' for A-UU+6703;
+	unify HD-JT-AD98.
+	(MJ059330): New character; use `<-denotational' for U+6703; unify
+	HD-JT-AD8D.
+	(U+6707): Delete `cns-radical'.
+	(U-00020471): Moved from Ideograph-R009-Man.el; use
+	`ideographic-radical@ucs/code' instead of `ideographic-radical';
+	add `ideographic-radical@ucs'; apply new conventions for glyph
+	granularity.
+	(M-14326): Unify IU+20471; use `ideographic-{radical|strokes}@ucs'
+	instead of `ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs/code.
+
 	* Ideograph-R102-Field.el: Add some MJ code points.
 
 2017-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
