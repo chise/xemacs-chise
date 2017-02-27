@@ -6522,8 +6522,8 @@
       )
      ((=ucs		  . #x9580)	; 門
       )
-     ((=ucs@unicode	  . #x9054)	; &AJ1-02913;
-      (=adobe-japan1-0	  . 02913)	; &AJ1-02913;
+     ((=ucs@unicode	  . #x9054)	; &MJ026060;
+      (=mj		  . 026060)	; &MJ026060;
       ))
     (=ucs@unicode	. #x95E5)	; &HD-FT-3A5D;
     (=ucs@JP/hanazono	. nil)
@@ -6544,8 +6544,8 @@
        ((==ucs@unicode	    . #x9580)	; &g2-AJ1-03827;
 	(==adobe-japan1-0   . 03827)	; &g2-AJ1-03827;
 	)
-       ((==ucs@unicode	    . #x9054)	; &g2-AJ1-02913;
-	(==adobe-japan1-0   . 02913)	; &g2-AJ1-02913;
+       ((==ucs@unicode	    . #x9054)	; &g2-MJ026060;
+	(==mj		    . 026060)	; &g2-MJ026060;
 	))
       (==ucs@unicode	  . #x95E5)	; &g2-HD-FT-3A5D;
       (==ucs@JP/hanazono  . nil)
