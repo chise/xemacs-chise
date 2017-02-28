@@ -366,32 +366,48 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
       (=ucs		  . #x2FF5)	; ⿵
       )
-     ((name		  . "CJK RADICAL TABLE")
-      (=ucs		  . #x2E87)	; ⺇
-      )
-     ((=gt-k		  . 00064)	; &GT-K00064;
-      ))
-    (=ucs		. #x51E4)	; 凤
-    (=gb2312		. #x376F)	; &I-G0-376F; [23-79]
-    (=daikanwa		. 01743)	; &I-M-01743;
-    (=hanziku-1		. #xDEEE)	; &I-HZK01-DEEE;
-    ))
-(define-char
-  '((=>ucs		. #x51E4)	; 凤
-    (morohashi-daikanwa	1743 0 0)
-    (ideographic-radical . 16)	; ⼏
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-      (=ucs		  . #x2FF5)	; ⿵
-      )
-     ((name		  . "CJK RADICAL TABLE")
-      (=ucs		  . #x2E87)	; ⺇
+     ((=ucs		  . #x51E0)	; 几
       )
      ((=ucs		  . #x53C8)	; 又
       ))
-    (=cns11643-3	. #x2151)	; &C3-2151; [01-49]
+    (=ucs		. #x51E4)	; 凤
+    (=gb2312		. #x376F)	; &I-G0-376F; [23-79]
+    (=cns11643-3	. #x2151)	; &I-C3-2151; [01-49]
+    (=daikanwa		. 01743)	; &I-M-01743;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+	(=ucs		    . #x2FF5)	; ⿵
+	)
+       ((name		    . "CJK RADICAL TABLE")
+	(=ucs		    . #x2E87)	; ⺇
+	)
+       ((=gt-k		    . 00064)	; &GT-K00064;
+	))
+      (==ucs@unicode	  . #x51E4)	; &g2-M-01743;
+      (==gb2312		  . #x376F)	; &g2-M-01743; [23-79]
+      (==daikanwa	  . 01743)	; &g2-M-01743;
+      (->subsumptive
+       ((===daikanwa	    . 01743)	; &R-M-01743;
+	)
+       ((===ucs@unicode	    . #x51E4)	; &R-UU+51E4;
+	)
+       ((=hanziku-1	    . #xDEEE)	; &HZK01-DEEE;
+	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+	(=ucs		    . #x2FF5)	; ⿵
+	)
+       ((name		    . "CJK RADICAL TABLE")
+	(=ucs		    . #x2E87)	; ⺇
+	)
+       ((==ucs@unicode	    . #x53C8)	; &g2-AJ1-03746;
+	(==adobe-japan1-0   . 03746)	; &g2-AJ1-03746;
+	))
+      (==ucs@cns	  . #x51E4)	; &g2-CU+51E4;
+      (==cns11643-3	  . #x2151)	; &g2-CU+51E4; [01-49]
+      ))
     ))
 (define-char
   '((ideographic-radical@ucs . 16)	; ⼏
