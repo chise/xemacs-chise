@@ -1,3 +1,10 @@
+2017-02-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Oracle-Bones.el (ZOB-00562): Use GT-K09344 instead of "⿺辶叀"
+	as the value of `<-Oracle-Bones'.
+
+	* Ideograph-R152-Pig.el: Add some MJ code points.
+
 2017-02-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R073-Say.el (UU+3479): Unify S2-0149.
