@@ -278,6 +278,30 @@
     (=gt-k		. 08022)	; &I-GT-K08022;
     (=gt-pj-1		. #x4063)	; &I-GT-56697; [32-67]
     (=daikanwa/+p	. 42216)	; &AJ1-02695;
+    (->subsumptive
+     ((==ucs@unicode	  . #x96EA)	; &g2-AJ1-02695;
+      (==adobe-japan1-0	  . 02695)	; &g2-AJ1-02695;
+      (==gb2312		  . #x5129)	; &g2-AJ1-02695; [49-09]
+      (==jis-x0208	  . #x4063)	; &g2-AJ1-02695; [32-67]
+      (==jis-x0213-1	  . #x4063)	; &g2-AJ1-02695; [32-67]
+      (==hanyo-denshi/ja  . #x4063)	; &g2-AJ1-02695; [32-67]
+      (==gt		  . 56697)	; &g2-AJ1-02695;
+      (==gt-k		  . 08022)	; &g2-AJ1-02695;
+      (==daikanwa/+p	  . 42216)	; &g2-AJ1-02695;
+      (->subsumptive
+       ((===daikanwa/+p	    . 42216)	; &R-M-p42216;
+	)
+       ((===jis-x0208	    . #x4063)	; &R-J0-4063; [32-67]
+	(===jis-x0213-1	    . #x4063)	; &R-J0-4063; [32-67]
+	)
+       ((===adobe-japan1-0  . 02695)	; &R-AJ1-02695;
+	)
+       ((===gt		    . 56697)	; &R-GT-56697;
+	(===gt-k	    . 08022)	; &R-GT-56697;
+	)
+       ((===ucs@unicode	    . #x96EA)	; &R-UU+96EA;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 173)	; ⾬
@@ -1680,6 +1704,26 @@
     (=gt-pj-1		. #x703C)	; &I-GT-56781; [80-28]
     (=daikanwa		. 42290)	; &I-M-42290;
     (=shinjigen		.  9000)	; &AJ1-07125;
+    (->subsumptive
+     ((==ucs@jis	  . #x9704)	; &g2-AJ1-07125;
+      (==adobe-japan1-0	  . 07125)	; &g2-AJ1-07125;
+      (==jis-x0208	  . #x703C)	; &g2-AJ1-07125; [80-28]
+      (==jis-x0213-1	  . #x703C)	; &g2-AJ1-07125; [80-28]
+      (==hanyo-denshi/ja  . #x703C)	; &g2-AJ1-07125; [80-28]
+      (==gt		  . 56781)	; &g2-AJ1-07125;
+      (==daikanwa	  . 42290)	; &g2-AJ1-07125;
+      (==shinjigen	  .  9000)	; &g2-AJ1-07125;
+      (->subsumptive
+       ((===daikanwa	    . 42290)	; &R-M-42290;
+	)
+       ((===jis-x0208	    . #x703C)	; &R-J0-703C; [80-28]
+	(===jis-x0213-1	    . #x703C)	; &R-J0-703C; [80-28]
+	)
+       ((===adobe-japan1-0  . 07125)	; &R-AJ1-07125;
+	)
+       ((===gt		    . 56781)	; &R-GT-56781;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -3988,8 +4032,8 @@
       )
      ((=ucs		  . #x96E8)	; 雨
       )
-     ((=ucs@unicode	  . #x7559)	; &AJ1-03961;
-      (=adobe-japan1-0	  . 03961)	; &AJ1-03961;
+     ((=ucs@unicode	  . #x7559)	; &MJ017681;
+      (=mj		  . 017681)	; &MJ017681;
       ))
     (=ucs@unicode	. #x9724)	; &AJ1-07134;
     (=adobe-japan1-0	. 07134)	; &AJ1-07134;
@@ -4007,8 +4051,8 @@
        ((name		    . "CJK RADICAL RAIN")
 	(=ucs		    . #x2ED7)	; ⻗
 	)
-       ((==ucs@unicode	    . #x7559)	; &g2-AJ1-03961;
-	(==adobe-japan1-0   . 03961)	; &g2-AJ1-03961;
+       ((==ucs@unicode	    . #x7559)	; &g2-MJ017681;
+	(==mj		    . 017681)	; &g2-MJ017681;
 	))
       (==ucs@unicode	  . #x9724)	; &g2-AJ1-07134;
       (==adobe-japan1-0	  . 07134)	; &g2-AJ1-07134;
