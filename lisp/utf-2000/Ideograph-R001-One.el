@@ -470,6 +470,15 @@
     (hanyu-dazidian	1 4 2)
     (=ucs		. #x20001)	; 𠀁
     (=big5-cdp		. #x88CC)	; &I-CDP-88CC;
+    (->subsumptive
+     ((==ucs@iso	  . #x20001)	; &g2-CDP-88CC;
+      (==big5-cdp	  . #x88CC)	; &g2-CDP-88CC;
+      (->subsumptive
+       ((===big5-cdp	    . #x88CC)	; &R-CDP-88CC;
+	)
+       ((===ucs@iso	    . #x20001)	; &R-U-00020001;
+	))
+      ))
     ))
 (define-char
   '((name*		. "ideographic component person for top")
@@ -1012,6 +1021,24 @@
     (=gt		. 00012)	; &I-GT-00012;
     (=gt-pj-2		. #x302B)	; &I-GT-00012; [16-11]
     (=daikanwa		. 00018)	; &I-M-00018;
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=ucs		. #x20006)	; 𠀆
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20006)	; 𠀆
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=ucs@iso		. #x20006)	; &U-00020006;
+    (->subsumptive
+     ((==ucs@iso	  . #x20006)	; &g2-IU-00020006;
+      ))
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
