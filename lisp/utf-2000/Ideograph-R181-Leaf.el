@@ -5325,8 +5325,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x771E)	; &AJ1-05816;
-      (=adobe-japan1-0	  . 05816)	; &AJ1-05816;
+     ((=ucs@unicode	  . #x771E)	; &MJ018170;
+      (=mj		  . 018170)	; &MJ018170;
       )
      ((=ucs		  . #x9801)	; 頁
       ))
@@ -5434,9 +5434,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@cns		  . #x2F946)	; &AJ1-02565;
-      (=ucs@jis		  . #x771F)	; &AJ1-02565;
-      (=adobe-japan1-0	  . 02565)	; &AJ1-02565;
+     ((=ucs@cns		  . #x2F946)	; &MJ018173;
+      (=ucs@jis		  . #x771F)	; &MJ018173;
+      (=mj		  . 018173)	; &MJ018173;
       )
      ((=ucs		  . #x9801)	; 頁
       ))
