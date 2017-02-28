@@ -1033,6 +1033,51 @@
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53C8)	; 又
+      )
+     ((=ucs		  . #x20006)	; 𠀆
+      ))
+    (=ucs		. #x20B24)	; 𠬤
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20B24)	; 𠬤
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53C8)	; 又
+      )
+     ((=big5-cdp	  . #x8BF1)	; &CDP-8BF1;
+      ))
+    (=ucs@iso		. #x20B24)	; &U-00020B24;
+    (<-simplified@CN/component
+     ((=ucs		  . #x776A)	; 睪
+      ))
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=gt-k		    . 00064)	; &GT-K00064;
+	)
+       ((==gt-k		    . 00287)	; &g2-CDP-8BF1;
+	))
+      (==ucs@iso	  . #x20B24)	; &g2-IU-00020B24;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 393 18)
