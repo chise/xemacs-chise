@@ -2068,11 +2068,6 @@
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x671D)	; 朝
-      )
-     ((=ucs		  . #xE0102)	; 󠄂
-      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -2104,6 +2099,47 @@
       ))
     (<-same*sources
      daikanwa)
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x671D)	; 朝
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@unicode	  . #x671D)	; &g2-MJ013558;
+      (==mj		  . 013558)	; &g2-MJ013558;
+      (==adobe-japan1-0	  . 03015)	; &g2-MJ013558;
+      (==gb2312		  . #x332F)	; &g2-MJ013558; [19-15]
+      (==ks-x1001	  . #x7048)	; &g2-MJ013558; [80-40]
+      (==jis-x0208	  . #x442B)	; &g2-MJ013558; [36-11]
+      (==cns11643-1	  . #x5F67)	; &g2-MJ013558; [63-71]
+      (==jis-x0213-1	  . #x442B)	; &g2-MJ013558; [36-11]
+      (==hanyo-denshi/ja  . #x442B)	; &g2-MJ013558; [36-11]
+      (==gt		  . 18245)	; &g2-MJ013558;
+      (==gt-k		  . 09103)	; &g2-MJ013558;
+      (==daikanwa/+p	  . 14374)	; &g2-MJ013558;
+      (==shinjigen@1ed	  .  3448)	; &g2-MJ013558;
+      (==shinjigen@rev	  .  3449)	; &g2-MJ013558;
+      (->subsumptive
+       ((===daikanwa/+p	    . 14374)	; &R-M-p14374;
+	)
+       ((===jis-x0208	    . #x442B)	; &R-J0-442B; [36-11]
+	(===jis-x0213-1	    . #x442B)	; &R-J0-442B; [36-11]
+	)
+       ((===adobe-japan1-0  . 03015)	; &R-AJ1-03015;
+	)
+       ((===mj		    . 013558)	; &R-MJ013558;
+	)
+       ((===cns11643-1	    . #x5F67)	; &R-C1-5F67; [63-71]
+	)
+       ((===gt		    . 18245)	; &R-GT-18245;
+	(===gt-k	    . 09103)	; &R-GT-18245;
+	)
+       ((===ucs@ks	    . #x671D)	; &R-K0-7048;
+	(===ks-x1001	    . #x7048)	; &R-K0-7048; [80-40]
+	)
+       ((===ucs@unicode	    . #x671D)	; &R-UU+671D;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x23377)	; 𣍷

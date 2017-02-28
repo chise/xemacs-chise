@@ -295,12 +295,19 @@
     (=big5-cdp		. #x89B1)	; &I-CDP-89B1;
     ))
 (define-char
-  '((ideographic-radical . 2)	; ⼁
+  '((<-denotational
+     ((=ucs		  . #x20006)	; 𠀆
+      ))
+    (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (=big5-cdp		. #x8BF1)	; &CDP-8BF1;
     (=gt-k		. 00287)	; &I-GT-K00287;
     (=gt-pj-k1		. #x3931)	; &CDP-8BF1; [25-17]
+    (->subsumptive
+     ((==big5-cdp	  . #x8BF1)	; &g2-CDP-8BF1;
+      (==gt-k		  . 00287)	; &g2-CDP-8BF1;
+      ))
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁

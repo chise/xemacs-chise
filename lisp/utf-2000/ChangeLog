@@ -1,11 +1,50 @@
 2017-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=ucs-var-005'.
+
+	* Ideograph-R029-Again.el (U-00020B24): New character.
+
+	* Ideograph-R019-Power.el (U+52B2): Use "𢀖" instead of "⿱&CDP-89E1;工"
+	in `ideographic-structure'; add representative nodes.
+	(U+52DA): Use "贳" instead of "⿱世贝" in `ideographic-structure';
+	add `<-simplified@CN' for U+52E9; add representative nodes.
+
+	* Ideograph-R018-Knife.el (U+81E4-itaiji-001): New character; use
+	`<-simplified@CN/component' for U+81E4; subsume GT-K00654 and
+	GT-K00651.
+	(U+76D1-itaiji-003): New character; use
+	`<-simplified@CN/component' for BC-8CC9.
+	(U+522D): Use "𢀖" instead of "⿱&CDP-89E1;工" in `ideographic-structure';
+	add representative nodes.
+
+	* Ideograph-R016-Table.el (U+51E4): Use `->subsumptive'.
+
+	* Ideograph-R002-Line.el (BC-8BF1): Add `<-denotational' for
+	U-00020006; add representative node.
+
+	* Ideograph-R001-One.el (U-00020001): Add representative nodes.
+	(U-00020006): New character.
+
 	* Ideograph-R031-Enclosure.el: Complete representative nodes of
 	`=hanyo-denshi/ja' glyphs.
 	(U+5708): Apply new conventions for glyph granularity.
 
 	* Ideograph-R015-Ice.el: Complete representative nodes of
 	`=hanyo-denshi/ja' glyphs.
+
+	* Ideograph-R173-Rain.el: Complete representative nodes of
+	`=hanyo-denshi/ja' glyphs.
+
+2017-02-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el: Add some MJ code points.
+	(U+6D69): Apply new conventions for glyph granularity.
+	(U-00023DA3): Likewise.
+	(U-0002F90B): Likewise.
+	(U+6FDB): Likewise.
+
+	* Ideograph-R074-Moon.el (UU+671D): Add representative nodes.
 
 2017-02-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
