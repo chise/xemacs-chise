@@ -1,5 +1,9 @@
 2017-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R031-Enclosure.el: Complete representative nodes of
+	`=hanyo-denshi/ja' glyphs.
+	(U+5708): Apply new conventions for glyph granularity.
+
 	* Ideograph-R015-Ice.el: Complete representative nodes of
 	`=hanyo-denshi/ja' glyphs.
 
