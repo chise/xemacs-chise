@@ -8205,14 +8205,7 @@
     (zinbun-oracle-page . 27)
     (=zinbun-oracle	. 00562)	; &ZOB-0562;
     (<-Oracle-Bones
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
-	(=ucs		    . #x2FFA)	; ⿺
-	)
-       ((=ucs		    . #x8FB6)	; 辶
-	)
-       ((=ucs		    . #x53C0)	; 叀
-	))
+     ((=gt-k		  . 09344)	; &GT-K09344;
       ))
     ))
 (define-char

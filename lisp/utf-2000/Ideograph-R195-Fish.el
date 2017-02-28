@@ -7812,8 +7812,8 @@
       )
      ((=ucs		  . #x9B5A)	; 魚
       )
-     ((=ucs@unicode	  . #x7559)	; &AJ1-03961;
-      (=adobe-japan1-0	  . 03961)	; &AJ1-03961;
+     ((=ucs@unicode	  . #x7559)	; &MJ017681;
+      (=mj		  . 017681)	; &MJ017681;
       ))
     (=ucs@unicode	. #x9C21)	; &AJ1-07348;
     (=adobe-japan1-0	. 07348)	; &AJ1-07348;
@@ -11888,12 +11888,12 @@
 	(ideographic-strokes . 22)
 	(=daikanwa	    . 18827)	; &M-18827;
 	(<-original
-	 ((=ucs@unicode	      . #x6F01)	; &AJ1-01683;
-	  (=adobe-japan1-0    . 01683)	; &AJ1-01683;
+	 ((=ucs@unicode	      . #x6F01)	; &MJ015800;
+	  (=mj		      . 015800)	; &MJ015800;
 	  ))
 	(<-same
-	 ((=ucs@unicode	      . #x6F01)	; &AJ1-01683;
-	  (=adobe-japan1-0    . 01683)	; &AJ1-01683;
+	 ((=ucs@unicode	      . #x6F01)	; &MJ015800;
+	  (=mj		      . 015800)	; &MJ015800;
 	  (=daikanwa	      . 18101)	; &I-M-18101;
 	  ))
 	(<-same*sources
@@ -11903,8 +11903,8 @@
 	(ideographic-strokes . 14)
 	(=daikanwa	    . 46574)	; &M-46574;
 	(<-same
-	 ((=ucs@unicode	      . #x6F01)	; &AJ1-01683;
-	  (=adobe-japan1-0    . 01683)	; &AJ1-01683;
+	 ((=ucs@unicode	      . #x6F01)	; &MJ015800;
+	  (=mj		      . 015800)	; &MJ015800;
 	  (=daikanwa	      . 18101)	; &I-M-18101;
 	  )
 	 ((=ucs@unicode	      . #x4C77)	; &M-46380;
