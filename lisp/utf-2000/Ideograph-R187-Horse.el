@@ -7942,8 +7942,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=cns11643-1	  . #x6439)	; &HD-JT-B24D; [68-25]
-      (=daikanwa	  . 13303)	; &I-M-13303;
+     ((=ucs@cns		  . #x656C)	; &MJ013007;
+      (=mj		  . 013007)	; &MJ013007;
       )
      ((=ucs		  . #x99AC)	; 馬
       ))
