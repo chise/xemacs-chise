@@ -697,6 +697,12 @@
     (=gt-pj-1		. #x4B72)	; &I-GT-00384; [43-82]
     (=daikanwa		. 00293)	; &I-M-00293;
     (=shinjigen		.  0093)	; 亦
+    (<-simplified@CN/component
+     ((=ucs@unicode	  . #x470C)	; &AJ1-18690;
+      (=adobe-japan1-5	  . 18690)	; &AJ1-18690;
+      )
+     ((=ucs		  . #x9FBB)	; 龻
+      ))
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x4EA6)	; 亦
