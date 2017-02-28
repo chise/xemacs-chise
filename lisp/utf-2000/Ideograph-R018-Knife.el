@@ -1044,6 +1044,30 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
+     ((=big5-cdp	  . #x8969)	; &CDP-8969;
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ucs-itaiji-001	. #x81E4)	; &U-i001+81E4;
+    (<-simplified@CN/component
+     ((=ucs		  . #x81E4)	; 臤
+      ))
+    (->subsumptive
+     ((=gt-k		  . 00654)	; &GT-K00654;
+      (=gt-pj-k1	  . #x692F)	; &GT-K00654; [73-15]
+      )
+     ((=gt-k		  . 00651)	; &GT-K00651;
+      (=gt-pj-k1	  . #x446F)	; &GT-K00651; [36-79]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
      ((=ucs		  . #x5341)	; 十
       )
      ((=ucs		  . #x5200)	; 刀
@@ -1483,6 +1507,23 @@
     (total-strokes	 . 5)
     (=ucs		. #x20BA7)	; 𠮧
     (=cns11643-6	. #x2242)	; &I-C6-2242; [02-34]
+    ))
+(define-char
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=big5-cdp	  . #x8969)	; &CDP-8969;
+      )
+     ((=big5-cdp	  . #x89BC)	; &CDP-89BC;
+      ))
+    (=ucs-itaiji-003	. #x76D1)	; &U-i003+76D1;
+    (<-simplified@CN/component
+     ((=big5-cdp	  . #x8CC9)	; &CDP-8CC9;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
@@ -4970,23 +5011,24 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=big5-cdp	    . #x89E1)	; &CDP-89E1;
-	)
-       ((=ucs		    . #x5DE5)	; 工
-	))
+     ((=ucs		  . #x22016)	; 𢀖
       )
      ((=ucs		  . #x5202)	; 刂
       ))
     (=ucs		. #x522D)	; 刭
     (=gb2312		. #x5859)	; &I-G0-5859; [56-57]
-    (=hanziku-1		. #xEA6B)	; &I-HZK01-EA6B;
     (<-simplified@CN
      ((=ucs		  . #x5244)	; 剄
       (=gb12345		  . #x5859)	; 剄 [56-57]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x522D)	; &g2-UU+522D;
+      (==gb2312		  . #x5859)	; &g2-UU+522D; [56-57]
+      (->subsumptive
+       ((===ucs@unicode	    . #x522D)	; &R-UU+522D;
+	)
+       ((=hanziku-1	    . #xEA6B)	; &HZK01-EA6B;
+	))
       ))
     ))
 (define-char
