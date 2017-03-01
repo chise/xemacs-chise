@@ -1,3 +1,14 @@
+2017-03-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R022-Right-Open-Box.el (U+5326): Apply new conventions
+	for glyph granularity.
+	(A-IWDSU+5329): New abstract node.
+	(A-UU+5329): New abstract node; use `<-denotational' for
+	A-IWDSU+5329.
+	(U+5329): Add `<-denotational' for A-UU+5329.
+	(U-00020946): Likewise.
+	(U+532D): Separate UU+532D.
+
 2017-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R041-Inch.el (U+5C03-var-002): New character; use
