@@ -551,14 +551,38 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=ucs		  . #x5C0F)	; 小
+      )
+     ((=ucs		  . #x5196)	; 冖
+      ))
+    (=ucs		. #x9FB8)	; 龸
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x9FB8)	; 龸
+      ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((name		  . "CJK RADICAL SMALL ONE")
       (=ucs		  . #x2E8C)	; ⺌
       )
      ((=ucs		  . #x5196)	; 冖
       ))
-    (=ucs		. #x9FB8)	; 龸
-    (=gt-k		. 01410)	; &I-GT-K01410;
-    (=gt-pj-k1		. #x3D7A)	; 龸 [29-90]
+    (=ucs@unicode	. #x9FB8)	; &GT-K01410;
+    (=gt-k		. 01410)	; &GT-K01410;
+    (=gt-pj-k1		. #x3D7A)	; &GT-K01410; [29-90]
+    (<-simplified@CN/component
+     ((=ucs		  . #x2696F)	; 𦥯
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x9FB8)	; &g2-GT-K01410;
+      (==gt-k		  . 01410)	; &g2-GT-K01410;
+      ))
     ))
 (define-char
   '((ideographic-radical . 42)	; ⼩
