@@ -1184,8 +1184,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@jis		  . #x9115)	; &AJ1-08637;
-      (=adobe-japan1-2	  . 08637)	; &AJ1-08637;
+     ((=ucs@jis		  . #x9115)	; &MJ026367;
+      (=mj		  . 026367)	; &MJ026367;
       )
      ((=ucs		  . #x97F3)	; 音
       ))
