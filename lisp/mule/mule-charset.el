@@ -557,6 +557,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==>ucs-bmp-cjk@bucs
 	  =>ucs-bmp-cjk@unicode
           =>ucs-bmp-cjk@component
+          =>ucs-bmp-cjk@iwds-1
           =+>ucs-bmp-cjk@unicode
           =+>ucs-bmp-cjk-compat@jis
 	  =+>jis-x0213-2
