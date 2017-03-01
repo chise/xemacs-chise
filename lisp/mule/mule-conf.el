@@ -4574,7 +4574,7 @@
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.itaiji002-0"))
-(make-charset '=>ucs-sip-itaiji-002
+  (make-charset '=>ucs-sip-itaiji-002
 		"uXXXX-itaiji-002 characters in SIP"
 		'(long-name	"UCS-SIP-itaiji-002"
 		  chars		256
@@ -4982,6 +4982,21 @@
 	       direction l2r
 	       registry "-ja-.*-ucs-0"
 	       mother =>ucs@component
+	       min-code #x2E00
+               max-code #x9FCC
+	       ;; max-code #xA4CF
+	       ))
+  (make-charset
+   '=>ucs-bmp-cjk@iwds-1
+   "CJK Characters in BMP for IWDS-1 abstract characters."
+   '(long-name "CJK in BMP@iwds-1"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-ja-.*-ucs-0"
+	       mother =>ucs@iwds-1
 	       min-code #x2E00
                max-code #x9FCC
 	       ;; max-code #xA4CF
