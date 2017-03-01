@@ -370,6 +370,12 @@
      ((=ucs		  . #x5DE5)	; 工
       ))
     (=ucs		. #x22016)	; 𢀖
+    (<-simplified@CN/component
+     ((=ucs		  . #x5DE0)	; 巠
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x22016)	; &g2-IU-00022016;
+      ))
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯

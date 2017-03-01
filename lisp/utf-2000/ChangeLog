@@ -1,5 +1,30 @@
 2017-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R174-Blue.el: Add some MJ code points.
+
+2017-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R108-Dish.el (U-0002AF8B): New character.
+
+	* Ideograph-R048-Work.el (U-00022016): Add
+	`<-simplified@CN/component' for U+5DE0; add representative nodes.
+
+	* Ideograph-R046-Mountain.el: Complete representative nodes of
+	`=hanyo-denshi/ja' glyphs.
+	(A-RUI6-E008): New abstract character.
+	(RUI6-E008): Add `<-denotational' for A-RUI6-E008; add
+	representative node.
+
+	* Ideograph-R042-Small.el (U+9FB8): Apply new conventions for
+	glyph granularity.
+	(UU+9FB8): Add `<-simplified@CN/component' for U-0002696F.
+
+	* Ideograph-R008-Lid.el (U+4EA6): Add `<-simplified@CN/component'
+	for UU+470C and U+9FBB.
+
+	* Ideograph-R005-Second.el (U-000200D3): New character; unify
+	BC-89DB; use `<-simplified@CN/component' for UU+661C.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=ucs-var-005'.
 
@@ -32,6 +57,8 @@
 
 	* Ideograph-R015-Ice.el: Complete representative nodes of
 	`=hanyo-denshi/ja' glyphs.
+
+	* ruimoku6.el (RUI6-E008): Add `<-denotational' for A-RUI6-E008.
 
 	* Ideograph-R173-Rain.el: Complete representative nodes of
 	`=hanyo-denshi/ja' glyphs.

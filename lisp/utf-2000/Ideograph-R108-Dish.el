@@ -493,6 +493,23 @@
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-001	  . #x81E4)	; &U-i001+81E4;
+      )
+     ((=ucs		  . #x76BF)	; 皿
+      ))
+    (=ucs		. #x2AF8B)	; 𪾋
+    (->subsumptive
+     ((==ucs@iso	  . #x2AF8B)	; &g2-IU-0002AF8B;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
     (=ucs		. #x76C9)	; 盉
