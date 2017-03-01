@@ -724,6 +724,23 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=ucs-var-001	  . #x752B)	; &U-v001+752B;
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
+    (=ucs-var-002	. #x5C03)	; &U-v002+5C03;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5C03)	; 尃
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=gt-k		  . 03345)	; &GT-K03345;
       )
      ((=ucs		  . #x5BF8)	; 寸
@@ -1448,8 +1465,54 @@
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x24C14)	; 𤰔
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
     (=ucs		. #x5C02)	; 専
-    (=adobe-japan1-0	. 02704)	; &I-AJ1-02704;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5C02)	; 専
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x88E1)	; &CDP-88E1;
+      )
+     ((=ucs@unicode	  . #x5BF8)	; &AJ1-02631;
+      (=adobe-japan1-0	  . 02631)	; &AJ1-02631;
+      ))
+    (=ucs-var-005	. #x5C02)	; &U-v005+5C02;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5C02)	; 専
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x24C14)	; &CDP-8DEE;
+      (=ucs@iso		  . #x24C14)	; &CDP-8DEE;
+      (=big5-cdp	  . #x8DEE)	; &CDP-8DEE;
+      )
+     ((=ucs@unicode	  . #x5BF8)	; &AJ1-02631;
+      (=adobe-japan1-0	  . 02631)	; &AJ1-02631;
+      ))
+    (=ucs@unicode	. #x5C02)	; &AJ1-02704;
+    (=adobe-japan1-0	. 02704)	; &AJ1-02704;
     (=jis-x0208		. #x406C)	; &I-J90-406C; [32-76]
     (=jis-x0213-1	. #x406C)	; &I-JX1-406C; [32-76]
     (=gt		. 09348)	; &I-GT-09348;
