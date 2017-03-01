@@ -1,5 +1,15 @@
 2017-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R041-Inch.el (U+5C03-var-002): New character; use
+	`<-denotational' for U+5C03.
+	(U+5C02): Separate UU+5C02.
+	(U+5C02-var-005): New character; use `<-denotational' for U+5C02.
+
+	* Ideograph-R013-Down-Box.el: Complete representative nodes of
+	`=hanyo-denshi/ja' glyphs.
+	(U-0002054B): Apply new conventions for glyph granularity.
+	(U-0002F816): Add `<-denotational' for U-0002054B.
+
 	* Ideograph-R174-Blue.el: Add some MJ code points.
 
 2017-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
