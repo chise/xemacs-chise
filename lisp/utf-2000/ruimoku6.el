@@ -80,7 +80,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 46)	; ⼭
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE008)	; &A-RUI6-E008;
+      ))
+    (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
     (ideographic-structure
@@ -89,11 +92,14 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
-     ((=ucs@unicode	  . #x96A0)	; &AJ1-01221;
-      (=adobe-japan1-0	  . 01221)	; &AJ1-01221;
+     ((=ucs@unicode	  . #x96A0)	; &MJ027675;
+      (=mj		  . 027675)	; &MJ027675;
       ))
     (sources		ruimoku=A015330-00006)
     (=ruimoku-v6	. #xE008)	; &RUI6-E008;
+    (->subsumptive
+     ((==ruimoku-v6	  . #xE008)	; &g2-RUI6-E008;
+      ))
     ))
 (define-char
   '((<-denotational
