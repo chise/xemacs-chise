@@ -4162,6 +4162,14 @@
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x77F3)	; 石
+      )
+     ((=ucs		  . #x8C56)	; 豖
+      ))
     (=ucs@unicode	. #x787A)	; &AJ1-08577;
     (=adobe-japan1-2	. 08577)	; &AJ1-08577;
     (=jis-x0212		. #x4F6D)	; &I-JSP-4F6D; [47-77]
@@ -4207,12 +4215,23 @@
       )
      ((=ucs		  . #x77F3)	; 石
       )
-     ((=ucs@unicode	  . #x8C55)	; &AJ1-06742;
-      (=adobe-japan1-0	  . 06742)	; &AJ1-06742;
+     ((=ucs		  . #x8C55)	; 豕
       ))
-    (=cbeta		. 11909)	; &CB11909;
+    (=>cbeta		. 11909)	; &A-CB11909;
     (->subsumptive
-     ((==cbeta		  . 11909)	; &g2-CB11909;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x77F3)	; 石
+	)
+       ((=ucs@unicode	    . #x8C55)	; &MJ024906;
+	(=mj		    . 024906)	; &I-MJ024906;
+	))
+      (=cbeta		  . 11909)	; &CB11909;
+      (->subsumptive
+       ((==cbeta	    . 11909)	; &g2-CB11909;
+	))
       ))
     ))
 (define-char
