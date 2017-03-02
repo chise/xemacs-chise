@@ -11509,6 +11509,27 @@
       ))
     (<-same*sources
      guangyun kangxi daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x5284)	; &g2-AJ1-17317;
+      (==adobe-japan1-5	  . 17317)	; &g2-AJ1-17317;
+      (==cns11643-2	  . #x4C61)	; &g2-AJ1-17317; [44-65]
+      (==jis-x0213-2	  . #x233D)	; &g2-AJ1-17317; [03-29]
+      (==daikanwa/ho	  .  0052)	; &g2-AJ1-17317;
+      (==jef-china3	  . #x5EC1)	; &g2-AJ1-17317;
+      (->subsumptive
+       ((===daikanwa/ho	    .  0052)	; &R-M-H0052;
+	)
+       ((===jis-x0213-2	    . #x233D)	; &R-JX2-233D; [03-29]
+	)
+       ((===adobe-japan1-5  . 17317)	; &R-AJ1-17317;
+	)
+       ((===cns11643-2	    . #x4C61)	; &R-C2-4C61; [44-65]
+	)
+       ((===jef-china3	    . #x5EC1)	; &R-JC3-5EC1;
+	)
+       ((===ucs@unicode	    . #x5284)	; &R-UU+5284;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
