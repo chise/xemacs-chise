@@ -383,6 +383,27 @@
     (=gt		. 00008)	; &I-GT-00008;
     (=gt-pj-9		. #x4D4A)	; &I-GT-00008; [45-42]
     (=jef-china3	. #x71FC)	; &I-JC3-71FC;
+    (->subsumptive
+     ((==ucs@iso	  . #x20089)	; &g2-AJ1-17233;
+      (==adobe-japan1-5	  . 17233)	; &g2-AJ1-17233;
+      (==jis-x0213-2	  . #x2121)	; &g2-AJ1-17233; [01-01]
+      (==big5-cdp	  . #x8B4A)	; &g2-AJ1-17233;
+      (==gt		  . 00008)	; &g2-AJ1-17233;
+      (==jef-china3	  . #x71FC)	; &g2-AJ1-17233;
+      (->subsumptive
+       ((===jis-x0213-2	    . #x2121)	; &R-JX2-2121; [01-01]
+	)
+       ((===adobe-japan1-5  . 17233)	; &R-AJ1-17233;
+	)
+       ((===big5-cdp	    . #x8B4A)	; &R-CDP-8B4A;
+	)
+       ((===gt		    . 00008)	; &R-GT-00008;
+	)
+       ((===jef-china3	    . #x71FC)	; &R-JC3-71FC;
+	)
+       ((===ucs@iso	    . #x20089)	; &R-U-00020089;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃
