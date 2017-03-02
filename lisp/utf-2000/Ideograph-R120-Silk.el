@@ -113,11 +113,10 @@
     (=ucs		. #x7E9F)	; 纟
     (=gb2312		. #x6679)	; &I-G0-6679; [70-89]
     (=big5-cdp		. #x895B)	; &I-CDP-895B;
-    (<-simplified@CN
+    (<-simplified@CN/component
      ((=ucs		  . #x7CF9)	; 糹
       (=gb12345		  . #x6679)	; 糹 [70-89]
-      ))
-    (<-simplified@CN/component
+      )
      ((=ucs		  . #x7CF8)	; 糸
       (=gb2312		  . #x7469)	; &I-G0-7469; [84-73]
       ))

@@ -236,7 +236,29 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 6)
     (=ucs		. #x24C14)	; 𤰔
-    (=big5-cdp		. #x8DEE)	; &I-CDP-8DEE;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24C14)	; 𤰔
+      ))
+    (ideographic-radical . 102)	; ⽥
+    (ideographic-strokes . 1)
+    (total-strokes	 . 6)
+    (=big5-cdp		. #x88E1)	; &CDP-88E1;
+    (->subsumptive
+     ((==big5-cdp	  . #x88E1)	; &g2-CDP-88E1;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24C14)	; 𤰔
+      ))
+    (ideographic-radical . 102)	; ⽥
+    (ideographic-strokes . 1)
+    (total-strokes	 . 6)
+    (=>ucs@iwds-1	. #x24C14)	; &CDP-8DEE;
+    (=ucs@iso		. #x24C14)	; &CDP-8DEE;
+    (=big5-cdp		. #x8DEE)	; &CDP-8DEE;
     (->subsumptive
      ((==ucs@iso	  . #x24C14)	; &g2-CDP-8DEE;
       (==big5-cdp	  . #x8DEE)	; &g2-CDP-8DEE;
@@ -609,6 +631,23 @@
     ))
 (define-char
   '((<-denotational
+     ((=>gt-k		  . 03345)	; &A-GT-K03345;
+      ))
+    (ideographic-radical . 102)	; ⽥
+    (ideographic-strokes . 2)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=big5-cdp	  . #x88E1)	; &CDP-88E1;
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=ucs-var-001	. #x752B)	; &U-v001+752B;
+    ))
+(define-char
+  '((<-denotational
      ((=>ucs@iwds-1	  . #x752B)	; &A-IWDSU+752B;
       (=>ucs@unicode	  . #x752B)	; &A-IWDSU+752B;
       ))
@@ -620,6 +659,25 @@
       (=ucs		  . #x2FFA)	; ⿺
       )
      ((=ucs		  . #x24C14)	; 𤰔
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=>gt-k		. 03345)	; &A-GT-K03345;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 03345)	; &A-GT-K03345;
+      ))
+    (ideographic-radical . 102)	; ⽥
+    (ideographic-strokes . 2)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=>ucs@iwds-1	  . #x24C14)	; &CDP-8DEE;
+      (=ucs@iso		  . #x24C14)	; &CDP-8DEE;
+      (=big5-cdp	  . #x8DEE)	; &CDP-8DEE;
       )
      ((=ucs		  . #x4E36)	; 丶
       ))
@@ -1350,7 +1408,7 @@
     (=hanziku-7		. #xB5E9)	; &I-HZK07-B5E9;
     (<-ancient
      ((=ucs@unicode	  . #x90A6)	; &MJ026242;
-      (=mj		  . 026242)	; &I-MJ026242;
+      (=mj		  . 026242)	; &MJ026242;
       (=daikanwa	  . 39310)	; &I-M-39310;
       ))
     (<-ancient*sources
