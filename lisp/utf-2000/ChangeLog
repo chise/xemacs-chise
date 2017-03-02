@@ -1,5 +1,15 @@
 2017-03-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R102-Field.el (U-00024C14): Separate IU+24C14.
+	(BC-88E1): New character; use `<-denotational' for U-00024C14.
+	(U+752B-var-001): New character; use `<-denotational' for
+	A-GT-K03345.
+	(A-GT-K03345): New abstract node; use `<-denotational' for
+	A-UU+752B.
+	(GT-K03345): Use A-GT-K03345 instead of A-UU+752B as its mother.
+
+2017-03-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R022-Right-Open-Box.el (U+5326): Apply new conventions
 	for glyph granularity.
 	(A-IWDSU+5329): New abstract node.
@@ -8,6 +18,9 @@
 	(U+5329): Add `<-denotational' for A-UU+5329.
 	(U-00020946): Likewise.
 	(U+532D): Separate UU+532D.
+
+	* Ideograph-R120-Silk.el (U+7E9F): Use `<-simplified@CN/component'
+	instead of `<-simplified@CN' for U+7CF9.
 
 2017-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
