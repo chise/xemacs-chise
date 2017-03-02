@@ -1,5 +1,7 @@
 2017-03-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el (U+5284): Add representative nodes.
+
 	* Ideograph-R004-Slash.el (U-00020089): Add representative nodes.
 
 	* Ideograph-R002-Line.el (U+4E2E): Apply new conventions for glyph
@@ -10,6 +12,10 @@
 	`=adobe-japan1-5' glyphs.
 
 2017-03-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R112-Stone.el (UU+787A): Add `ideographic-structure'.
+	(A-CB11909): New abstract node; use `<-denotational' for U+787A.
+	(CB11909): Use A-CB11909 instead of U+787A as its mother.
 
 	* Ideograph-R102-Field.el (U-00024C14): Separate IU+24C14.
 	(BC-88E1): New character; use `<-denotational' for U-00024C14.
