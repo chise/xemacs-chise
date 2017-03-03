@@ -1,3 +1,62 @@
+2017-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R047-River.el: Add some MJ code points.
+	(U+5DE1): Add `ideographic-structure'.
+	(UU+5DE1): Likewise.
+	(KU+5DE1): KU+5DE1; apply new conventions for glyph granularity.
+	(UU+5DE2): Apply new conventions for glyph granularity.
+	(HD-JT-B323): Likewise.
+
+	* Ideograph-R020-Wrap.el (JU+5307): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R015-Ice.el (J2004U+51DE): Apply new conventions for
+	glyph granularity.
+
+2017-03-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+53EA): Add
+	`<-simplified@CN/component' for UU+6220.
+	(U+5459): Apply new conventions for glyph granularity.
+	(UU+5459): Add `<-simplified@CN/component' for UU+54BC.
+	(U+549D): Use "丝" instead of "⿰幺幺" in `ideographic-structure';
+	apply new conventions for glyph granularity; add `<-simplified@CN'
+	for U+565D.
+	(U+54D3): Use "尧" instead of "⿱&CDP-89D9;兀" in `ideographic-structure';
+	apply new conventions for glyph granularity; add `<-simplified@CN'
+	for U+5635.
+	(U+54D4): Use "毕" instead of "⿱比十" in `ideographic-structure';
+	apply new conventions for glyph granularity; add `<-simplified@CN'
+	for UU+55F6.
+	(U+54D5): Use "岁" instead of "⿱山夕" in `ideographic-structure';
+	apply new conventions for glyph granularity; add `<-simplified@CN'
+	for UU+5666.
+	(U+551D): Use "贡" instead of "⿱工贝" in `ideographic-structure';
+	apply new conventions for glyph granularity; add `<-simplified@CN'
+	for U+55CA.
+	(U+551E): Use "⿰x抖" instead of "⿲x⺘斗" in
+	`ideographic-structure'; apply new conventions for glyph
+	granularity.
+	(U+5567): Use "责" instead of "⿱工贝" in `ideographic-structure';
+	apply new conventions for glyph granularity; add `<-simplified@CN'
+	for U+5616.
+	(U+556D): Use "⿰x转" instead of "⿲x车专" in
+	`ideographic-structure'; apply new conventions for glyph
+	granularity; add `<-simplified@CN' for UU+56C0.
+	(U+5570): Delete `kangxi-radical' and `kangxi-strokes'; use "罗"
+	instead of "⿱⺫夕" in `ideographic-structure'; apply new
+	conventions for glyph granularity; add `<-simplified@CN' for
+	U+56C9.
+	(U+55B7): Use "贲" instead of "⿱卉贝" in `ideographic-structure';
+	apply new conventions for glyph granularity; add `<-simplified@CN'
+	for UU+5674.
+	(U+55BD): Use "娄" instead of "⿱米女" in `ideographic-structure';
+	apply new conventions for glyph granularity; add `<-simplified@CN'
+	for UU+560D.
+	(UU+5676): Apply new conventions for glyph granularity.
+
+	* Ideograph-R103-Bolt-Of-Cloth.el (UU+758C): Unify AJ1-18136.
+
 2017-03-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R012-Eight.el (JU+517B): Add representative nodes.
