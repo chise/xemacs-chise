@@ -380,6 +380,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =ucs-bmp-var-003
 	  =ucs-sip-var-003
 	  =ucs-bmp-var-004
+	  =ucs-sip-var-004
 	  =ucs-bmp-var-005
 	  =ucs-bmp-var-006
 	  =ucs-bmp-var-008

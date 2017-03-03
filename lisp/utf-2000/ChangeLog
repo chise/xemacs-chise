@@ -1,5 +1,10 @@
 2017-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R003-Dot.el (U-0002A70A): New character; add
+	U+2A70A-var-003 and U+2A70A-var-004.
+
+2017-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R047-River.el: Add some MJ code points.
 	(U+5DE1): Add `ideographic-structure'.
 	(UU+5DE1): Likewise.
