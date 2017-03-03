@@ -2104,15 +2104,28 @@
     (ideographic-radical@jis . 123)	; ⽺
     (ideographic-strokes@jis . 4)
     (total-strokes	 . 10)
-    (=decomposition@cid
-     ((=ucs		  . #x517B)	; 养
-      )
-     ((=ucs		  . #xE0100)	; 󠄀
-      ))
     (=ucs@jis		. #x517B)	; &AJ1-18393;
     (=adobe-japan1-5	. 18393)	; &AJ1-18393;
     (=jis-x0213-2	. #x7474)	; &I-JX2-7474; [84-84]
     (=jef-china3	. #x82AA)	; &I-JC3-82AA;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x517B)	; 养
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@jis	  . #x517B)	; &g2-AJ1-18393;
+      (==adobe-japan1-5	  . 18393)	; &g2-AJ1-18393;
+      (==jis-x0213-2	  . #x7474)	; &g2-AJ1-18393; [84-84]
+      (==jef-china3	  . #x82AA)	; &g2-AJ1-18393;
+      (->subsumptive
+       ((===jis-x0213-2	    . #x7474)	; &R-JX2-7474; [84-84]
+	)
+       ((===adobe-japan1-5  . 18393)	; &R-AJ1-18393;
+	)
+       ((===jef-china3	    . #x82AA)	; &R-JC3-82AA;
+	))
+      ))
     ))
 (define-char
   '((<-denotational

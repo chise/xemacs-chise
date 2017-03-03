@@ -1,5 +1,7 @@
 2017-03-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R012-Eight.el (JU+517B): Add representative nodes.
+
 	* Ideograph-R018-Knife.el (U+5284): Add representative nodes.
 
 	* Ideograph-R004-Slash.el (U-00020089): Add representative nodes.
