@@ -1013,15 +1013,13 @@
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (=decomposition@cid
-     ((=ucs		  . #x5307)	; 匇
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
       )
-     ((=ucs		  . #xE0100)	; 󠄀
-      ))
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x5307)	; 匇
+     ((=ucs		  . #x52F9)	; 勹
       )
-     ((=ucs		  . #xE0102)	; 󠄂
+     ((=ucs		  . #x5902)	; 夂
       ))
     (=ucs@jis		. #x5307)	; &MJ007761;
     (=mj		. 007761)	; &MJ007761;
@@ -1029,6 +1027,34 @@
     (=jis-x0213-1	. #x2E6C)	; &I-JX1-2E6C; [14-76]
     (=hanyo-denshi/jc	. #x2E6C)	; &I-HD-JC-2E6C; [14-76]
     (=cbeta		. 05526)	; &I-CB05526;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x5307)	; 匇
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x5307)	; 匇
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@jis	  . #x5307)	; &g2-MJ007761;
+      (==mj		  . 007761)	; &g2-MJ007761;
+      (==adobe-japan1-5	  . 20301)	; &g2-MJ007761;
+      (==jis-x0213-1	  . #x2E6C)	; &g2-MJ007761; [14-76]
+      (==hanyo-denshi/jc  . #x2E6C)	; &g2-MJ007761; [14-76]
+      (==cbeta		  . 05526)	; &g2-MJ007761;
+      (->subsumptive
+       ((===jis-x0213-1	    . #x2E6C)	; &R-JX1-2E6C; [14-76]
+	(===hanyo-denshi/jc . #x2E6C)	; &R-JX1-2E6C; [14-76]
+	)
+       ((===adobe-japan1-5  . 20301)	; &R-AJ1-20301;
+	)
+       ((===mj		    . 007761)	; &R-MJ007761;
+	)
+       ((===cbeta	    . 05526)	; &R-CB05526;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
