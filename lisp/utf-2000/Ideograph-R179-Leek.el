@@ -128,13 +128,20 @@
     (=adobe-japan1-0	. 03289)	; &AJ1-03289;
     (=jis-x0208		. #x4723)	; &I-J90-4723; [39-03]
     (=jis-x0213-1	. #x4723)	; &I-JX1-4723; [39-03]
+    (=hanyo-denshi/ja	. #x4723)	; &I-HD-JA-4723; [39-03]
     (=gt		. 58075)	; &I-GT-58075;
     (=gt-pj-1		. #x4723)	; &I-GT-58075; [39-03]
     (->subsumptive
-     ((==ucs@unicode	  . #x97EE)	; &g2-AJ1-03289;
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x97EE)	; 韮
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@unicode	  . #x97EE)	; &g2-AJ1-03289;
       (==adobe-japan1-0	  . 03289)	; &g2-AJ1-03289;
       (==jis-x0208	  . #x4723)	; &g2-AJ1-03289; [39-03]
       (==jis-x0213-1	  . #x4723)	; &g2-AJ1-03289; [39-03]
+      (==hanyo-denshi/ja  . #x4723)	; &g2-AJ1-03289; [39-03]
       (==gt		  . 58075)	; &g2-AJ1-03289;
       (->subsumptive
        ((===jis-x0208	    . #x4723)	; &R-J0-4723; [39-03]
