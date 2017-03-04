@@ -1,9 +1,28 @@
 2017-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R028-Private.el: Complete representative nodes of
+	`=adobe-japan1-5' glyphs.
+	(U+53C1): Use GT-K01085 instead of "⿱厶大".
+	(U+53C2): Likewise.
+	(U+53C4): Apply new conventions for glyph granularity.
+	(M-03109): Unify U-00020B0B; apply new conventions for glyph
+	granularity.
+	(U+517F): Apply new conventions for glyph granularity.
+
 	* Ideograph-R003-Dot.el (U-0002A70A): New character; add
 	U+2A70A-var-003 and U+2A70A-var-004.
 
 2017-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R100-Life.el: Complete representative nodes of
+	`=adobe-japan1-5' glyphs.
+
+	* Ideograph-R180-Sound.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/JA.
+
+	* Ideograph-R179-Leek.el (UU+97EE): Unify HD-JA3903.
 
 	* Ideograph-R047-River.el: Add some MJ code points.
 	(U+5DE1): Add `ideographic-structure'.
