@@ -2117,6 +2117,23 @@
     ))
 (define-char
   '((ideographic-radical . 70)	; ⽅
+    (ideographic-strokes . 13)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=cbeta		  . 12073)	; &CB12073;
+      )
+     ((=ucs		  . #x7568)	; 畨
+      ))
+    (=ucs-itaiji-001	. #x65DB)	; &U-i001+65DB;
+    (<-formed
+     ((=ucs		  . #x65DB)	; 旛
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
     (=ucs		. #x2311E)	; 𣄞

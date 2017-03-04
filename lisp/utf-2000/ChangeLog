@@ -1,4 +1,18 @@
+2017-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R149-Speech.el (U+8BA0): Use
+	`<-simplified@CN/component' instead of `<-simplified@CN' for
+	U+8A01.
+	(o-U+8A8D): Apply new conventions for glyph granularity.
+	(U+9FBB): Add representative nodes.
+
 2017-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R123-Sheep.el (JU+517B): Add representative nodes.
+	(U-00023D0E): Likewise.
+
+	* Ideograph-R070-Square.el (U+65DB-itaiji-001): New character; use
+	`<-formed' for U+65DB.
 
 	* Ideograph-R028-Private.el: Complete representative nodes of
 	`=adobe-japan1-5' glyphs.
