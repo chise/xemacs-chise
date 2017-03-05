@@ -1,5 +1,26 @@
 2017-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R161-Morning.el (GT-K03119): New character.
+	(U+4889): Apply new conventions for glyph granularity.
+	(U+4889-itaiji-001): New character; use `<-formed' for U+4889.
+
+	* Ideograph-R152-Pig.el (JU+8C6C): Add representative nodes.
+
+	* Ideograph-R085-Water.el (U-00023D0E): Add representative nodes.
+
+	* Ideograph-R055-Two-Hands.el: Complete representative nodes of
+	`=adobe-japan1-0' glyphs.
+	(U+5EFE): Apply new conventions for glyph granularity; add
+	`sound@ja/on/{kan|go}'.
+	(U+5F0A): Apply new conventions for glyph granularity.
+
+	* Ideograph-R005-Second.el (U+4E59): Add representative nodes.
+	(U+4E5B): Likewise.
+	(U-000200CA): Apply new conventions for glyph granularity.
+	(U-000200CD): New character; unify GT-K00020.
+	(BC-8BA2): New character; add GT-K00025 and GT-K00022.
+	(UU+4E5E): Add representative nodes.
+
 	* Ideograph-R149-Speech.el (U+8BA0): Use
 	`<-simplified@CN/component' instead of `<-simplified@CN' for
 	U+8A01.
