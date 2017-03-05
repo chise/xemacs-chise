@@ -118,6 +118,21 @@
     ))
 (define-char
   '((ideographic-radical . 161)	; ⾠
+    (ideographic-strokes . 0)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x20A37)	; 𠨷
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=gt-k		. 03119)	; &GT-K03119;
+    (=gt-pj-k1		. #x382F)	; &GT-K03119; [24-15]
+    ))
+(define-char
+  '((ideographic-radical . 161)	; ⾠
     (==>ucs@bucs	. #x8FB1)	; &BUCS+8FB1;
     ))
 (define-char
@@ -506,12 +521,48 @@
   '((ideographic-radical . 161)	; ⾠
     (ideographic-strokes . 13)
     (total-strokes	 . 20)
-    (=ucs		. #x4889)	; 䢉
-    (->subsumptive
-     ((=ucs@unicode	  . #x4889)	; &M-38697;
-      (=daikanwa	  . 38697)	; &M-38697;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=cns11643-7	  . #x5056)	; &C7-5056; [48-54]
+     ((=gt-k		  . 11083)	; &GT-K11083;
+      )
+     ((=ucs		  . #x8FB0)	; 辰
+      ))
+    (=ucs		. #x4889)	; 䢉
+    (=cns11643-7	. #x5056)	; &I-C7-5056; [48-54]
+    (=daikanwa		. 38697)	; &I-M-38697;
+    (->subsumptive
+     ((==ucs@unicode	  . #x4889)	; &g2-M-38697;
+      (==ucs@JP/hanazono  . nil)
+      (==daikanwa	  . 38697)	; &g2-M-38697;
+      (->subsumptive
+       ((===daikanwa	    . 38697)	; &R-M-38697;
+	)
+       ((===ucs@unicode	    . #x4889)	; &R-UU+4889;
+	))
+      )
+     ((==ucs@cns	  . #x4889)	; &g2-CU+4889;
+      (==cns11643-7	  . #x5056)	; &g2-CU+4889; [48-54]
+      )
+     ((==ucs@JP/hanazono  . #x4889)	; &g2-hanaJU+4889;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 161)	; ⾠
+    (ideographic-strokes . 13)
+    (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 11083)	; &GT-K11083;
+      )
+     ((=gt-k		  . 03119)	; &GT-K03119;
+      ))
+    (=ucs-itaiji-001	. #x4889)	; &U-i001+4889;
+    (<-formed
+     ((=ucs		  . #x4889)	; 䢉
       ))
     ))
 (define-char

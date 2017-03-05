@@ -20259,8 +20259,8 @@
       )
      ((=ucs		  . #x706B)	; 火
       )
-     ((=ucs@unicode	  . #x7BC0)	; &AJ1-02693;
-      (=adobe-japan1-0	  . 02693)	; &AJ1-02693;
+     ((=ucs@unicode	  . #x7BC0)	; &MJ019576;
+      (=mj		  . 019576)	; &MJ019576;
       ))
     (=ucs@unicode	. #x3E05)	; &C4-5664;
     (=ucs@JP/hanazono	. nil)

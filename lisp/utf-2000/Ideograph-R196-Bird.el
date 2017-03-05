@@ -289,8 +289,8 @@
     (=daikanwa		. 46648)	; &I-M-46648;
     (=shinjigen		.  9647)	; 鳩
     (<-formed
-     ((=ucs@jis		  . #x9011)	; &AJ1-06898;
-      (=adobe-japan1-0	  . 06898)	; &AJ1-06898;
+     ((=ucs@jis		  . #x9011)	; &MJ025914;
+      (=mj		  . 025914)	; &MJ025914;
       ))
     (->subsumptive
      ((==ucs@jis	  . #x9CE9)	; &g2-AJ1-03403;
@@ -5812,8 +5812,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=hanyo-denshi/ib	  . #x3450)	; &HD-IB-3450; [20-48]
-      (=daikanwa	  . 14340)	; &I-M-14340;
+     ((=mj		  . 013524)	; &MJ013524;
       )
      ((=ucs@unicode	  . #x9CE5)	; &AJ1-03031;
       (=adobe-japan1-0	  . 03031)	; &AJ1-03031;

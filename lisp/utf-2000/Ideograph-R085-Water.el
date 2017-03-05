@@ -8805,6 +8805,15 @@
     (sound@ja/on/name	"syAu" "yAu")
     (=ucs		. #x23D0E)	; 𣴎
     (=jis-x0213-2	. #x7475)	; &I-JX2-7475; [84-85]
+    (->subsumptive
+     ((==ucs@iso	  . #x23D0E)	; &g2-JX2-7475;
+      (==jis-x0213-2	  . #x7475)	; &g2-JX2-7475; [84-85]
+      (->subsumptive
+       ((===jis-x0213-2	    . #x7475)	; &R-JX2-7475; [84-85]
+	)
+       ((===ucs@iso	    . #x23D0E)	; &R-U-00023D0E;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 85)	; ⽔
