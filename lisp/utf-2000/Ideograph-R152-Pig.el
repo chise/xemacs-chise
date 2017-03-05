@@ -1986,6 +1986,25 @@
       ))
     (<-original*sources
      shinjigen)
+    (->subsumptive
+     ((==ucs@jis	  . #x8C6C)	; &g2-AJ1-06744;
+      (==adobe-japan1-0	  . 06744)	; &g2-AJ1-06744;
+      (==jis-x0208	  . #x6C37)	; &g2-AJ1-06744; [76-23]
+      (==jis-x0213-1	  . #x6C37)	; &g2-AJ1-06744; [76-23]
+      (==gt		  . 48853)	; &g2-AJ1-06744;
+      (==daikanwa	  . 36432)	; &g2-AJ1-06744;
+      (==shinjigen	  .  4807)	; &g2-AJ1-06744;
+      (->subsumptive
+       ((===daikanwa	    . 36432)	; &R-M-36432;
+	)
+       ((===jis-x0208	    . #x6C37)	; &R-J0-6C37; [76-23]
+	(===jis-x0213-1	    . #x6C37)	; &R-J0-6C37; [76-23]
+	)
+       ((===adobe-japan1-0  . 06744)	; &R-AJ1-06744;
+	)
+       ((===gt		    . 48853)	; &R-GT-48853;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
