@@ -1,3 +1,24 @@
+2017-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R181-Leaf.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/JA.
+
+	* Ideograph-R178-Tanned-Leather.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/{JA|JB}.
+	(U+97D9): Apply new conventions for glyph granularity.
+
+	* Ideograph-R170-Mound.el: Add some MJ code points.
+
+2017-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R041-Inch.el: Complete representative nodes of
+	`=adobe-japan1-0' glyphs.
+	(U+5BFF): Apply new conventions for glyph granularity.
+
 2017-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R161-Morning.el (GT-K03119): New character.
