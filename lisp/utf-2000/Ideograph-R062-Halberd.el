@@ -3153,8 +3153,7 @@
 	)
        ((=ucs		    . #x268FB)	; 𦣻
 	)
-       ((name* . "ideographic component person as left roof")
-	(=gt-k		    . 00058)	; &GT-K00058;
+       ((=gt-k		    . 00058)	; &GT-K00058;
 	)
        ((=gt-k		    . 00439)	; &GT-K00439;
 	))
