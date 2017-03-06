@@ -5524,12 +5524,9 @@
       )
      ((=ucs		  . #x72AD)	; 犭
       )
-     ((=ucs@jis/2004	  . #x914B)	; &HD-FT-3233;
-      (=ucs@ks		  . #x914B)	; &HD-FT-3233;
-      (=jis-x0208@1978	  . #x3D36)	; &HD-FT-3233; [29-22]
-      (=ks-x1001	  . #x755C)	; &I-K0-755C; [85-60]
-      (=jis-x0213-1@2004  . #x3D36)	; &I-JX3-3D36; [29-22]
-      (=daikanwa	  . 39765)	; &I-M-39765;
+     ((=ucs@jis/2004	  . #x914B)	; &MJ026434;
+      (=ucs@ks		  . #x914B)	; &MJ026434;
+      (=mj		  . 026434)	; &I-MJ026434;
       ))
     (=ucs@ks		. #x7336)	; &HD-JT-B585;
     (=ks-x1001		. #x6B22)	; &HD-JT-B585; [75-02]
@@ -5573,8 +5570,8 @@
       )
      ((=ucs		  . #x72AD)	; 犭
       )
-     ((=ucs@unicode	  . #x914B)	; &AJ1-02368;
-      (=adobe-japan1-0	  . 02368)	; &AJ1-02368;
+     ((=ucs@unicode	  . #x914B)	; &MJ026435;
+      (=mj		  . 026435)	; &I-MJ026435;
       ))
     (=ucs@unicode	. #x7336)	; &AJ1-03867;
     (=adobe-japan1-0	. 03867)	; &AJ1-03867;
@@ -9064,9 +9061,8 @@
       )
      ((=ucs		  . #x72AD)	; 犭
       )
-     ((=ucs@unicode	  . #x84A6)	; &HD-JB-586E;
-      (=jis-x0212	  . #x586E)	; &HD-JB-586E; [56-78]
-      (=jis-x0213-2	  . #x7657)	; &I-JX2-7657; [86-55]
+     ((=ucs@unicode	  . #x84A6)	; &MJ022475;
+      (=mj		  . 022475)	; &I-MJ022475;
       ))
     (=ucs@unicode	. #x7372)	; &AJ1-01451;
     (=adobe-japan1-0	. 01451)	; &AJ1-01451;
@@ -9090,8 +9086,8 @@
        ((name		    . "CJK RADICAL DOG")
 	(=ucs		    . #x2EA8)	; ⺨
 	)
-       ((==ucs@unicode	    . #x84A6)	; &g2-HD-JB-586E;
-	(==jis-x0213-2	    . #x7657)	; &g2-HD-JB-586E; [86-55]
+       ((==ucs@unicode	    . #x84A6)	; &g2-MJ022475;
+	(==mj		    . 022475)	; &g2-MJ022475;
 	))
       (==ucs@unicode	  . #x7372)	; &g2-AJ1-01451;
       (==adobe-japan1-0	  . 01451)	; &g2-AJ1-01451;

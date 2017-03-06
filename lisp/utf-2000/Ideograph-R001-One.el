@@ -557,13 +557,13 @@
     (=daikanwa		. 00010)	; &I-M-00010;
     (=shinjigen		.  0012)	; 万
     (<-simplified@CN
-     ((=ucs@unicode	  . #x842C)	; &AJ1-06408;
-      (=adobe-japan1-0	  . 06408)	; &AJ1-06408;
-      (=gb12345		  . #x4D72)	; &AJ1-06408; [45-82]
+     ((=ucs@unicode	  . #x842C)	; &MJ022254;
+      (=mj		  . 022254)	; &MJ022254;
+      (=gb12345		  . #x4D72)	; &MJ022254; [45-82]
       ))
     (<-simplified@JP/Jouyou
-     ((=ucs@unicode	  . #x842C)	; &AJ1-06408;
-      (=adobe-japan1-0	  . 06408)	; &AJ1-06408;
+     ((=ucs@unicode	  . #x842C)	; &MJ022254;
+      (=mj		  . 022254)	; &MJ022254;
       (=jis-x0208	  . #x685F)	; &I-J90-685F; [72-63]
       ))
     (<-simplified@ucs
