@@ -18039,8 +18039,8 @@
       )
      ((=ucs		  . #x624C)	; 扌
       )
-     ((=ucs@unicode	  . #x8336)	; &AJ1-02977;
-      (=adobe-japan1-0	  . 02977)	; &AJ1-02977;
+     ((=ucs@unicode	  . #x8336)	; &MJ021834;
+      (=mj		  . 021834)	; &I-MJ021834;
       ))
     (=ucs@unicode	. #x643D)	; &AJ1-19411;
     (=adobe-japan1-5	. 19411)	; &AJ1-19411;
