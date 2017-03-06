@@ -570,29 +570,15 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 257 3)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
-      (=ucs		  . #x2FF9)	; ⿹
-      )
-     ((=ucs		  . #x52F9)	; 勹
-      )
-     ((=ucs		  . #x4EBE)	; 亾
-      ))
     (=ucs		. #x5303)	; 匃
     (->subsumptive
-     ((=decomposition@cid
-       ((=ucs		    . #x5303)	; 匃
-	)
-       ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
 	(=ucs		    . #x2FF9)	; ⿹
 	)
        ((=ucs		    . #x52F9)	; 勹
 	)
-       ((=ucs@unicode	    . #x4EBE)	; &CDP-8CA1;
-	(=big5-cdp	    . #x8CA1)	; &CDP-8CA1;
+       ((=ucs		    . #x4EBE)	; 亾
 	))
       (=ucs@unicode	  . #x5303)	; &AJ1-19201;
       (=adobe-japan1-5	  . 19201)	; &AJ1-19201;
@@ -602,6 +588,38 @@
       (=daikanwa	  . 02504)	; &I-M-02504;
       (=cbeta		  . 00456)	; &I-CB00456;
       (=jef-china3	  . #x45A4)	; &I-JC3-45A4;
+      (->subsumptive
+       ((=decomposition@cid
+	 ((=ucs		      . #x5303)	; 匃
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(==ucs@unicode	    . #x5303)	; &g2-AJ1-19201;
+	(==adobe-japan1-5   . 19201)	; &g2-AJ1-19201;
+	(==jis-x0212	    . #x337C)	; &g2-AJ1-19201; [19-92]
+	(==cns11643-3	    . #x2223)	; &g2-AJ1-19201; [02-03]
+	(==big5-cdp	    . #x8CA2)	; &g2-AJ1-19201;
+	(==daikanwa	    . 02504)	; &g2-AJ1-19201;
+	(==cbeta	    . 00456)	; &g2-AJ1-19201;
+	(==jef-china3	    . #x45A4)	; &g2-AJ1-19201;
+	(->subsumptive
+	 ((===daikanwa	      . 02504)	; &R-M-02504;
+	  )
+	 ((===jis-x0212	      . #x337C)	; &R-JSP-337C; [19-92]
+	  )
+	 ((===adobe-japan1-5  . 19201)	; &R-AJ1-19201;
+	  )
+	 ((===big5-cdp	      . #x8CA2)	; &R-CDP-8CA2;
+	  )
+	 ((===cns11643-3      . #x2223)	; &R-C3-2223; [02-03]
+	  )
+	 ((===jef-china3      . #x45A4)	; &R-JC3-45A4;
+	  )
+	 ((===ucs@unicode     . #x5303)	; &R-UU+5303;
+	  )
+	 ((===cbeta	      . 00456)	; &R-CB00456;
+	  ))
+	))
       ))
     ))
 (define-char
@@ -2000,8 +2018,8 @@
       )
      ((=ucs		  . #x52F9)	; 勹
       )
-     ((=ucs@unicode	  . #x8345)	; &AJ1-06354;
-      (=adobe-japan1-0	  . 06354)	; &AJ1-06354;
+     ((=ucs@unicode	  . #x8345)	; &MJ021865;
+      (=mj		  . 021865)	; &MJ021865;
       ))
     (=ucs@unicode	. #x5312)	; &UU+5312;
     (->subsumptive
