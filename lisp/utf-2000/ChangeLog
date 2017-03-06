@@ -1,3 +1,8 @@
+2017-03-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R020-Wrap.el (U+5303): Apply new conventions for glyph
+	granularity.
+
 2017-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R115-Grain.el (MJ058233): New character; unify
