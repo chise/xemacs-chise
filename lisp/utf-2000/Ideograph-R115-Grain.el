@@ -7529,6 +7529,31 @@
     ))
 (define-char
   '((ideographic-radical . 115)	; ⽲
+    (ideographic-strokes . 11)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x79BE)	; 禾
+      )
+     ((=ucs		  . #x9B5A)	; 魚
+      ))
+    (sound@ja/on	"so")
+    (=mj		. 058233)	; &MJ058233;
+    (=koseki		. 283040)	; &MJ058233;
+    (<-formed
+     ((=ucs		  . #x7A4C)	; 穌
+      ))
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==mj		  . 058233)	; &g2-MJ058233;
+      (==koseki		  . 283040)	; &g2-MJ058233;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 115)	; ⽲
     (=ucs		. #x7A49)	; 穉
     ))
 (define-char
