@@ -22370,8 +22370,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x8332)	; &AJ1-06349;
-      (=adobe-japan1-0	  . 06349)	; &AJ1-06349;
+     ((=ucs@unicode	  . #x8332)	; &MJ021826;
+      (=mj		  . 021826)	; &I-MJ021826;
       )
      ((=ucs		  . #x5FC3)	; 心
       ))
