@@ -1,5 +1,11 @@
 2017-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R115-Grain.el (MJ058233): New character; unify
+	KOSEKI-283040; use `<-formed' for U+7A4C.
+
+	* Ideograph-R073-Say.el: Complete representative nodes of
+	`=adobe-japan1-0' glyphs.
+
 	* Ideograph-R164-Wine.el: Add some MJ code points.
 
 2017-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
