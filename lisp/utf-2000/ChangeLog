@@ -1,5 +1,29 @@
 2017-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R164-Wine.el: Add some MJ code points.
+
+2017-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R143-Blood.el (U-000275CE): Apply new conventions for
+	glyph granularity.
+	(U-000275D5): Unify CB01822; add representative nodes.
+	(U-000275D8): Apply new conventions for glyph granularity.
+
+	* Ideograph-R049-Oneself.el: Add some MJ code points.
+
+	* Ideograph-R066-Rap.el:
+	- Complete representative nodes of `=adobe-japan1-0',
+	  `=jis-x0213-1' and `=adobe-japan1-5' glyphs.
+	- Add some MJ code points.
+	(U+6535): Add representative nodes.
+	(UU+654F): Apply new conventions for glyph granularity.
+	(U+655E): Likewise.
+	(U+6560): Likewise.
+	(U+656A): Likewise.
+	(U-00022FAB): Use `->denotational' and `->subsumptive'.
+	(U-00022FAD): Apply new conventions for glyph granularity.
+	(JU+6583): Likewise.
+
 	* Ideograph-R181-Leaf.el:
 	- Add some Hanyo-Denshi/JA code points.
 	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
@@ -14,6 +38,9 @@
 	* Ideograph-R170-Mound.el: Add some MJ code points.
 
 2017-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R163-City.el: Add some MJ code points.
+	(JU+90E4): Add representative nodes.
 
 	* Ideograph-R041-Inch.el: Complete representative nodes of
 	`=adobe-japan1-0' glyphs.
