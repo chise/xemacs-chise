@@ -4605,8 +4605,8 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
-     ((=ucs@unicode	  . #x8096)	; &AJ1-02491;
-      (=adobe-japan1-0	  . 02491)	; &AJ1-02491;
+     ((=ucs@unicode	  . #x8096)	; &MJ020928;
+      (=mj		  . 020928)	; &I-MJ020928;
       ))
     (=ucs@unicode	. #x5CED)	; &HD-FT-355C;
     (=ucs@JP/hanazono	. nil)
@@ -4626,8 +4626,8 @@
        ((==ucs@unicode	    . #x5C71)	; &g2-AJ1-02177;
 	(==adobe-japan1-0   . 02177)	; &g2-AJ1-02177;
 	)
-       ((==ucs@unicode	    . #x8096)	; &g2-AJ1-02491;
-	(==adobe-japan1-0   . 02491)	; &g2-AJ1-02491;
+       ((==ucs@unicode	    . #x8096)	; &g2-MJ020928;
+	(==mj		    . 020928)	; &g2-MJ020928;
 	))
       (==hanyo-denshi/ft  . #x355C)	; &g2-HD-FT-355C; [21-60]
       )
