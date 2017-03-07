@@ -1199,8 +1199,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=hanyo-denshi/ib	  . #x2357)	; &HD-IB-2357; [03-55]
-      (=daikanwa	  . 31136)	; &I-M-31136;
+     ((=mj		  . 022063)	; &MJ022063;
       )
      ((=ucs		  . #x65A4)	; 斤
       ))
@@ -1221,8 +1220,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x83C1)	; &HD-FT-386F;
-      (=gb2312		  . #x5D3C)	; &HD-FT-386F; [61-28]
+     ((=ucs@unicode	  . #x83C1)	; &MJ022062;
+      (=mj		  . 022062)	; &MJ022062;
       )
      ((=ucs		  . #x65A4)	; 斤
       ))
