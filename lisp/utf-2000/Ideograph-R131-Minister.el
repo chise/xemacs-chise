@@ -255,6 +255,57 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8CC9)	; &A-CDP-8CC9;
+      ))
+    (ideographic-radical . 131)	; ⾂
+    (ideographic-strokes . 3)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x81E3)	; 臣
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((name*		    . "ideographic component person for top")
+	(=ucs		    . #x20089)	; 𠂉
+	)
+       ((=ucs		    . #x4E3F)	; 丿
+	))
+      ))
+    (=big5-cdp-itaiji-001 . #x8CC9)	; &CDP-i001-8CC9;
+    ))
+(define-char
+  '((ideographic-radical . 131)	; ⾂
+    (ideographic-strokes . 3)
+    (total-strokes	 . 9)
+    (=>big5-cdp		. #x8CC9)	; &A-CDP-8CC9;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8CC9)	; &A-CDP-8CC9;
+      ))
+    (ideographic-radical . 131)	; ⾂
+    (ideographic-strokes . 3)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x81E3)	; 臣
+      )
+     ((=big5-cdp	  . #x8C74)	; &CDP-8C74;
+      ))
+    (=big5-cdp		. #x8CC9)	; &CDP-8CC9;
+    (->subsumptive
+     ((==big5-cdp	  . #x8CC9)	; &g2-CDP-8CC9;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 131)	; ⾂
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
