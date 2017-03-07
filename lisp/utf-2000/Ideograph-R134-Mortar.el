@@ -1998,10 +1998,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x8411)	; &HD-JB-5849;
-      (=gb2312		  . #x5D48)	; &HD-JB-5849; [61-40]
-      (=jis-x0212	  . #x5849)	; &I-JSP-5849; [56-41]
-      (=jis-x0213-2	  . #x7642)	; &I-JX2-7642; [86-34]
+     ((=ucs@unicode	  . #x8411)	; &MJ022222;
+      (=mj		  . 022222)	; &MJ022222;
       )
      ((=ucs		  . #x81FC)	; 臼
       ))
@@ -2024,8 +2022,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((==ucs@unicode	    . #x8411)	; &g2-HD-JB-5849;
-	(==jis-x0213-2	    . #x7642)	; &g2-HD-JB-5849; [86-34]
+       ((==ucs@unicode	    . #x8411)	; &g2-MJ022222;
+	(==mj		    . 022222)	; &g2-MJ022222;
 	)
        ((=ucs		    . #x81FC)	; 臼
 	))
