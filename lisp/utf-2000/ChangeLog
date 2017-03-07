@@ -1,3 +1,10 @@
+2017-03-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R131-Minister.el (BC-8CC9-itaiji-001): New character;
+	use `<-denotational' for A-BC-8CC9.
+	(A-BC-8CC9): New abstract character.
+	(BC-8CC9): New character; use `<-denotational' for A-BC-8CC9.
+
 2017-03-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R096-Jade.el:
@@ -10,6 +17,14 @@
 
 	* Ideograph-R020-Wrap.el (U+5303): Apply new conventions for glyph
 	granularity.
+
+	* Ideograph-R108-Dish.el (U+76E3): Apply new conventions for glyph
+	granularity.
+	(MJ018104): New character; use `<-denotational' for U+76E3; unify
+	HD-IB0759 and KOSEKI-257860; use `<-formed' for UU+76E3.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Prefer
+	`=big5-cdp-itaiji-001' to `=>big5-cdp-itaiji-001'.
 
 	* Ideograph-R187-Horse.el:
 	- Add some Hanyo-Denshi/JA code points.
