@@ -348,13 +348,13 @@
     =>ucs-itaiji-001
     =>ucs-itaiji-002
     =>ucs-itaiji-005
-    =>big5-cdp-itaiji-001
-    =big5-cdp-itaiji-001
-    =big5-cdp-itaiji-002
-    =big5-cdp-itaiji-003
     =big5-cdp-var-003
     =big5-cdp-var-004
     =big5-cdp-var-005
+    =big5-cdp-itaiji-001
+    =big5-cdp-itaiji-002
+    =big5-cdp-itaiji-003
+    =>big5-cdp-itaiji-001
     =>ucs@iwds-1
     =>ucs@component
     ==ucs@gb
