@@ -4341,9 +4341,8 @@
       )
      ((=adobe-japan1-4	  . 13914)	; &AJ1-13914;
       )
-     ((=ucs@unicode	  . #x84A6)	; &HD-JB-586E;
-      (=jis-x0212	  . #x586E)	; &HD-JB-586E; [56-78]
-      (=jis-x0213-2	  . #x7657)	; &I-JX2-7657; [86-55]
+     ((=ucs@unicode	  . #x84A6)	; &MJ022475;
+      (=mj		  . 022475)	; &I-MJ022475;
       ))
     (=ucs@jis		. #x96D8)	; &HD-JB-6675;
     (=jis-x0212		. #x6675)	; &HD-JB-6675; [70-85]
@@ -4380,9 +4379,8 @@
      ((=ucs@unicode	  . #x4E39)	; &AJ1-02926;
       (=adobe-japan1-0	  . 02926)	; &AJ1-02926;
       )
-     ((=ucs@unicode	  . #x84A6)	; &HD-JB-586E;
-      (=jis-x0212	  . #x586E)	; &HD-JB-586E; [56-78]
-      (=jis-x0213-2	  . #x7657)	; &I-JX2-7657; [86-55]
+     ((=ucs@unicode	  . #x84A6)	; &MJ022475;
+      (=mj		  . 022475)	; &I-MJ022475;
       ))
     (=ucs@unicode	. #x96D8)	; &EGB-7E50;
     (=ucs@JP/hanazono	. nil)
