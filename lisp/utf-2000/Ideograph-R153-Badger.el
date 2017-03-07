@@ -1868,8 +1868,8 @@
       )
      ((=ucs		  . #x8C78)	; 豸
       )
-     ((=ucs@unicode	  . #x82D7)	; &AJ1-03510;
-      (=adobe-japan1-0	  . 03510)	; &AJ1-03510;
+     ((=ucs@unicode	  . #x82D7)	; &MJ021648;
+      (=mj		  . 021648)	; &I-MJ021648;
       ))
     (=ucs@unicode	. #x8C93)	; &HD-JB-5F25;
     (=jis-x0212		. #x5F25)	; &HD-JB-5F25; [63-05]
@@ -2283,8 +2283,8 @@
       )
      ((=ucs		  . #x8C78)	; 豸
       )
-     ((=ucs@unicode	  . #x83AB)	; &AJ1-03378;
-      (=adobe-japan1-0	  . 03378)	; &AJ1-03378;
+     ((=ucs@unicode	  . #x83AB)	; &MJ022034;
+      (=mj		  . 022034)	; &MJ022034;
       ))
     (=ucs@unicode	. #x8C98)	; &AJ1-06755;
     (=adobe-japan1-0	. 06755)	; &AJ1-06755;

@@ -2174,8 +2174,8 @@
       )
      ((=ucs		  . #x8D70)	; 走
       )
-     ((=ucs@unicode	  . #x8096)	; &AJ1-02491;
-      (=adobe-japan1-0	  . 02491)	; &AJ1-02491;
+     ((=ucs@unicode	  . #x8096)	; &MJ020928;
+      (=mj		  . 020928)	; &I-MJ020928;
       ))
     (=ucs@unicode	. #x8D99)	; &HD-FT-3961;
     (=ucs@JP/hanazono	. nil)
@@ -2197,8 +2197,8 @@
        ((==ucs@unicode	    . #x8D70)	; &g2-AJ1-02808;
 	(==adobe-japan1-0   . 02808)	; &g2-AJ1-02808;
 	)
-       ((==ucs@unicode	    . #x8096)	; &g2-AJ1-02491;
-	(==adobe-japan1-0   . 02491)	; &g2-AJ1-02491;
+       ((==ucs@unicode	    . #x8096)	; &g2-MJ020928;
+	(==mj		    . 020928)	; &g2-MJ020928;
 	))
       (==ucs@unicode	  . #x8D99)	; &g2-HD-FT-3961;
       (==ucs@JP/hanazono  . nil)

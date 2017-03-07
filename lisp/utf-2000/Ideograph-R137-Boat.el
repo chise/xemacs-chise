@@ -4188,8 +4188,8 @@
       )
      ((=ucs		  . #x821F)	; 舟
       )
-     ((=ucs@unicode	  . #x96EA)	; &AJ1-02695;
-      (=adobe-japan1-0	  . 02695)	; &AJ1-02695;
+     ((=ucs@unicode	  . #x96EA)	; &MJ027775;
+      (=mj		  . 027775)	; &MJ027775;
       ))
     (=ucs@unicode	. #x825D)	; &GT-39497;
     (=ucs@JP/hanazono	. nil)
@@ -5001,8 +5001,8 @@
       )
      ((=ucs		  . #x821F)	; 舟
       )
-     ((=ucs@unicode	  . #x8499)	; &AJ1-03812;
-      (=adobe-japan1-0	  . 03812)	; &AJ1-03812;
+     ((=ucs@unicode	  . #x8499)	; &MJ022452;
+      (=mj		  . 022452)	; &MJ022452;
       ))
     (=ucs@unicode	. #x8268)	; &AJ1-06316;
     (=adobe-japan1-0	. 06316)	; &AJ1-06316;

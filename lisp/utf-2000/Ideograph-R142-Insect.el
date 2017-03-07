@@ -5025,8 +5025,8 @@
       )
      ((=ucs		  . #x866B)	; 虫
       )
-     ((=ucs@unicode	  . #x8096)	; &AJ1-02491;
-      (=adobe-japan1-0	  . 02491)	; &AJ1-02491;
+     ((=ucs@unicode	  . #x8096)	; &MJ020928;
+      (=mj		  . 020928)	; &I-MJ020928;
       ))
     (=ucs@unicode	. #x86F8)	; &AJ1-02909;
     (=ucs@JP/hanazono	. nil)
@@ -14811,8 +14811,8 @@
       )
      ((=ucs		  . #x866B)	; 虫
       )
-     ((=ucs@unicode	  . #x83AB)	; &AJ1-03378;
-      (=adobe-japan1-0	  . 03378)	; &AJ1-03378;
+     ((=ucs@unicode	  . #x83AB)	; &MJ022034;
+      (=mj		  . 022034)	; &MJ022034;
       ))
     (=ucs@unicode	. #x87C6)	; &AJ1-06551;
     (=adobe-japan1-0	. 06551)	; &AJ1-06551;
@@ -14901,8 +14901,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x83AB)	; &AJ1-03378;
-      (=adobe-japan1-0	  . 03378)	; &AJ1-03378;
+     ((=ucs@unicode	  . #x83AB)	; &MJ022034;
+      (=mj		  . 022034)	; &MJ022034;
       )
      ((=ucs		  . #x866B)	; 虫
       ))
@@ -15545,8 +15545,8 @@
       )
      ((=ucs		  . #x866B)	; 虫
       )
-     ((=ucs@jis		  . #x83BD)	; &AJ1-06392;
-      (=adobe-japan1-0	  . 06392)	; &AJ1-06392;
+     ((=ucs@jis		  . #x83BD)	; &MJ022050;
+      (=mj		  . 022050)	; &MJ022050;
       ))
     (=ucs@jis/1990	. #x87D2)	; &AJ1-06562;
     (=ucs@jis/2000	. #x87D2)	; &AJ1-06562;
@@ -19183,8 +19183,8 @@
       )
      ((=ucs		  . #x866B)	; 虫
       )
-     ((=ucs@unicode	  . #x8499)	; &AJ1-03812;
-      (=adobe-japan1-0	  . 03812)	; &AJ1-03812;
+     ((=ucs@unicode	  . #x8499)	; &MJ022452;
+      (=mj		  . 022452)	; &MJ022452;
       ))
     (=ucs@unicode	. #x8813)	; &HD-JB-5B71;
     (=gb2312		. #x7337)	; &HD-JB-5B71; [83-23]
@@ -19404,9 +19404,8 @@
       )
      ((=ucs		  . #x866B)	; 虫
       )
-     ((=ucs@unicode	  . #x84A6)	; &HD-JB-586E;
-      (=jis-x0212	  . #x586E)	; &HD-JB-586E; [56-78]
-      (=jis-x0213-2	  . #x7657)	; &I-JX2-7657; [86-55]
+     ((=ucs@unicode	  . #x84A6)	; &MJ022475;
+      (=mj		  . 022475)	; &I-MJ022475;
       ))
     (=ucs@unicode	. #x8816)	; &AJ1-06564;
     (=adobe-japan1-0	. 06564)	; &AJ1-06564;
@@ -21009,8 +21008,8 @@
       )
      ((=ucs		  . #x866B)	; 虫
       )
-     ((=ucs@unicode	  . #x856D)	; &AJ1-06450;
-      (=adobe-japan1-0	  . 06450)	; &AJ1-06450;
+     ((=ucs@unicode	  . #x856D)	; &MJ022847;
+      (=mj		  . 022847)	; &MJ022847;
       ))
     (=ucs@unicode	. #x8828)	; &HD-JB-5B79;
     (=jis-x0212		. #x5B79)	; &HD-JB-5B79; [59-89]
