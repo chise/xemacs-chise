@@ -1,7 +1,23 @@
 2017-03-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R096-Jade.el:
+	- Add some Adobe-Japan1-5 code points.
+	- Use "𤣩" instead of "王" as left components of abstract
+	  characters and abstract glyphs.
+	(U-000248F4): Use `->denotational' and `->subsumptive'.
+	(U+7434): Add `ideographic-structure'.
+	(U+7488): Apply new conventions for glyph granularity.
+
 	* Ideograph-R020-Wrap.el (U+5303): Apply new conventions for glyph
 	granularity.
+
+	* Ideograph-R187-Horse.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/JA.
+	(U+9A30): Apply new conventions for glyph granularity.
+	(U+9A4E): Likewise.
+	(U+9A58): Likewise.
 
 2017-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
