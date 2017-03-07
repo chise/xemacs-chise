@@ -13138,8 +13138,8 @@
       )
      ((=ucs		  . #x27FB7)	; 𧾷
       )
-     ((=ucs@unicode	  . #x85FA)	; &AJ1-06473;
-      (=adobe-japan1-0	  . 06473)	; &AJ1-06473;
+     ((=ucs@unicode	  . #x85FA)	; &MJ023123;
+      (=mj		  . 023123)	; &MJ023123;
       ))
     (=ucs@unicode	. #x8EAA)	; &AJ1-06840;
     (=adobe-japan1-0	. 06840)	; &AJ1-06840;
