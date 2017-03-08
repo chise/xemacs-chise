@@ -1,5 +1,11 @@
 2017-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R048-Work.el (U+5DE8): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R036-Evening.el: Complete representative nodes of
+	`=hanyo-denshi/ja' glyphs.
+
 	* Ideograph-R049-Oneself.el (o-UU+5DFB): Apply new conventions for
 	glyph granularity.
 
