@@ -634,17 +634,7 @@
     (=+>adobe-japan1-0	. 01512)	; &o-J0-342C;
     (=+>gt		. 11038)	; &o-J0-342C;
     (->subsumptive
-     ((=decomposition@cid
-       ((=ucs		    . #x5DFB)	; 巻
-	)
-       ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (=decomposition@hanyo-denshi
-       ((=ucs		    . #x5DFB)	; 巻
-	)
-       ((=ucs		    . #xE0101)	; 󠄁
-	))
-      (=ucs@jis		  . #x5DFB)	; &MJ010798;
+     ((=ucs@jis		  . #x5DFB)	; &MJ010798;
       (=mj		  . 010798)	; &MJ010798;
       (=adobe-japan1-0	  . 01512)	; &I-AJ1-01512;
       (=jis-x0208	  . #x342C)	; &I-J90-342C; [20-12]
@@ -660,10 +650,54 @@
 	(=mj		    . 007897)	; &MJ007897;
 	(=jis-x0208	    . #x524B)	; &I-J90-524B; [50-43]
 	))
+      (->subsumptive
+       ((=decomposition@cid
+	 ((=ucs		      . #x5DFB)	; 巻
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(=decomposition@hanyo-denshi
+	 ((=ucs		      . #x5DFB)	; 巻
+	  )
+	 ((=ucs		      . #xE0101)	; 󠄁
+	  ))
+	(==ucs@jis	    . #x5DFB)	; &g2-MJ010798;
+	(==mj		    . 010798)	; &g2-MJ010798;
+	(==adobe-japan1-0   . 01512)	; &g2-MJ010798;
+	(==jis-x0208	    . #x342C)	; &g2-MJ010798; [20-12]
+	(==jis-x0213-1	    . #x342C)	; &g2-MJ010798; [20-12]
+	(==hanyo-denshi/ja  . #x342C)	; &g2-MJ010798; [20-12]
+	(==gt		    . 11038)	; &g2-MJ010798;
+	(==gt-k		    . 05217)	; &g2-MJ010798;
+	(==daikanwa/+p	    . 08759)	; &g2-MJ010798;
+	(->subsumptive
+	 ((===daikanwa/+p     . 08759)	; &R-M-p08759;
+	  )
+	 ((===jis-x0208	      . #x342C)	; &R-J0-342C; [20-12]
+	  (===jis-x0213-1     . #x342C)	; &R-J0-342C; [20-12]
+	  )
+	 ((===adobe-japan1-0  . 01512)	; &R-AJ1-01512;
+	  )
+	 ((===mj	      . 010798)	; &R-MJ010798;
+	  )
+	 ((===gt	      . 11038)	; &R-GT-11038;
+	  (===gt-k	      . 05217)	; &R-GT-11038;
+	  ))
+	))
       )
      ((=ucs@unicode	  . #x5DFB)	; &C3-2C44;
       (=ucs@JP/hanazono	  . nil)
       (=cns11643-3	  . #x2C44)	; &C3-2C44; [12-36]
+      (->subsumptive
+       ((==ucs@unicode	    . #x5DFB)	; &g2-UU+5DFB;
+	(==ucs@JP/hanazono  . nil)
+	(==cns11643-3	    . #x2C44)	; &g2-UU+5DFB; [12-36]
+	(->subsumptive
+	 ((===cns11643-3      . #x2C44)	; &R-C3-2C44; [12-36]
+	  )
+	 ((===ucs@unicode     . #x5DFB)	; &R-UU+5DFB;
+	  ))
+	))
       ))
     ))
 (define-char
