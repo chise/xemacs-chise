@@ -1,3 +1,20 @@
+2017-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R049-Oneself.el (o-UU+5DFB): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R037-Big.el (U+5951): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R190-Hair.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/JA.
+
+	* Ideograph-R163-City.el (g2-JU+90E4): Add
+	`=decomposition@hanyo-denshi'.
+	(g2-UU+9100): Likewise.
+
 2017-03-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R130-Meat.el: Add some MJ code points.
