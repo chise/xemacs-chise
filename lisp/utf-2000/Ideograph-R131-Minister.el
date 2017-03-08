@@ -255,6 +255,12 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 131)	; ⾂
+    (ideographic-strokes . 3)
+    (total-strokes	 . 9)
+    (=>big5-cdp		. #x8CC9)	; &A-CDP-8CC9;
+    ))
+(define-char
   '((<-denotational
      ((=>big5-cdp	  . #x8CC9)	; &A-CDP-8CC9;
       ))
@@ -278,12 +284,6 @@
 	))
       ))
     (=big5-cdp-itaiji-001 . #x8CC9)	; &CDP-i001-8CC9;
-    ))
-(define-char
-  '((ideographic-radical . 131)	; ⾂
-    (ideographic-strokes . 3)
-    (total-strokes	 . 9)
-    (=>big5-cdp		. #x8CC9)	; &A-CDP-8CC9;
     ))
 (define-char
   '((<-denotational
