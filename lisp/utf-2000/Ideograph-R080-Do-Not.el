@@ -705,11 +705,11 @@
       (=daikanwa	  . 16740)	; &I-M-16740;
       (=shinjigen	  .  6433)	; &AJ1-05369;
       (<-ancient
-       ((=ucs@unicode	    . #x80B2)	; &AJ1-01197;
-	(=ucs@cns	    . #x2F982)	; &AJ1-01197;
-	(=adobe-japan1-0    . 01197)	; &AJ1-01197;
+       ((=ucs@unicode	    . #x80B2)	; &MJ020960;
+	(=ucs@cns	    . #x2F982)	; &MJ020960;
+	(=mj		    . 020960)	; &I-MJ020960;
 	(=jis-x0208	    . #x3069)	; &I-J90-3069; [16-73]
-	(=shinjigen	    .  6431)	; &AJ1-01197;
+	(=shinjigen	    .  6431)	; &MJ020960;
 	))
       (<-ancient*sources
        shinjigen)
