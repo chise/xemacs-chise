@@ -1,5 +1,14 @@
 2017-03-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R010-Legs.el (BUCS+514E): Separate A-compU+5154 and
+	IWDS1-0331.
+	(A-compU+5154): New abstract component; unify IWDS1-0331; use
+	`<-denotational' for BUCS+514E.
+	(U+514E): Use A-compU+5154 instead of BUCS+514E as its mother.
+	(U+514E-itaiji-001): Use BUCS+514E instead of U+514E as its
+	mother.
+	(U+5154): Use A-compU+5154 instead of BUCS+514E as its mother.
+
 	* Ideograph-R078-Death.el (U+6BAF): Apply new conventions for
 	glyph granularity.
 
