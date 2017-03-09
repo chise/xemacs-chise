@@ -19,6 +19,18 @@
     ))
 (define-char
   '((ideographic-radical . 69)	; ⽄
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=big5-cdp		. #x8852)	; &CDP-8852;
+    (<-formed
+     ((=ucs		  . #x65A4)	; 斤
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8852)	; &g2-CDP-8852;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (=ucs		. #x65A5)	; 斥
