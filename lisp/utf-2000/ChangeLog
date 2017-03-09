@@ -1,3 +1,20 @@
+2017-03-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R037-Big.el (BUCS+5967): Add `ideographic-structure'.
+	(U+5965): Likewise.
+	(U+5967): Likewise.
+
+2017-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R069-Axe.el (BC-8852): New character; use `<-formed'
+	for U+65A4.
+
+	* Ideograph-R061-Heart.el (U+6205): Use "贑" instead of "⿰章貢"
+	in `ideographic-structure'.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=big5-cdp-var-002'.
+
 2017-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R048-Work.el (U+5DE8): Apply new conventions for glyph
