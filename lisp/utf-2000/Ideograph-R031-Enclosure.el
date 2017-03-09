@@ -4151,20 +4151,12 @@
       )
      ((=ucs		  . #x56D7)	; 囗
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x53B6)	; 厶
-	)
-       ((=ucs		    . #x8C9D)	; 貝
-	))
+     ((=ucs		  . #x8C9F)	; 貟
       ))
     (=ucs		. #x570E)	; 圎
     (=cns11643-3	. #x3A44)	; &I-C3-3A44; [26-36]
     (=daikanwa		. 04813)	; &I-M-04813;
     (=shinjigen@1ed	.  1333)	; 圎
-    (=hanziku-2		. #xE6E3)	; &I-HZK02-E6E3;
     (=jef-china3	. #x8FB5)	; &I-JC3-8FB5;
     (<-vulgar
      ((=ucs		  . #x5713)	; 圓
@@ -4173,6 +4165,24 @@
       ))
     (<-vulgar*sources
      shinjigen@1ed)
+    (->subsumptive
+     ((==ucs@unicode	  . #x570E)	; &g2-M-04813;
+      (==cns11643-3	  . #x3A44)	; &g2-M-04813; [26-36]
+      (==daikanwa	  . 04813)	; &g2-M-04813;
+      (==shinjigen@1ed	  .  1333)	; &g2-M-04813;
+      (==jef-china3	  . #x8FB5)	; &g2-M-04813;
+      (->subsumptive
+       ((===daikanwa	    . 04813)	; &R-M-04813;
+	)
+       ((===cns11643-3	    . #x3A44)	; &R-C3-3A44; [26-36]
+	)
+       ((===ucs@unicode	    . #x570E)	; &R-UU+570E;
+	)
+       ((=hanziku-2	    . #xE6E3)	; &HZK02-E6E3;
+	)
+       ((===jef-china3	    . #x8FB5)	; &R-JC3-8FB5;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
