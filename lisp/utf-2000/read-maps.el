@@ -1,6 +1,6 @@
 ;;; read-maps.el --- Read mapping-tables.
 
-;; Copyright (C) 2002, 2003, 2004, 2005, 2006, 2008, 2012, 2014, 2015
+;; Copyright (C) 2002, 2003, 2004, 2005, 2006, 2008, 2012, 2014, 2015, 2017
 ;;   MORIOKA Tomohiko
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
@@ -156,6 +156,10 @@ UCS-REGEXP is a regular expression to match against
 	(if (and ucs-ccs ucs (not ucs-code))
 	    (setq ucs-code ucs
 		  ucs nil))
+	(if (and (eq ccs '=jef-china3)
+		 (eq ucs #xFA66))
+	    (setq ucs-ccs '=ucs@JP
+		  drep-ucs-ccs '==ucs@JP))
 	(when (setq chr (decode-char ccs code))
 	  (unless (eq (encode-char chr ccs 'defined-only)
 		      code)
