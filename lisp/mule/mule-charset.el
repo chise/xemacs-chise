@@ -418,6 +418,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==ucs-sip@JP/hanazono
 	  ==mj-0
 	  ==mj-1
+	  ==ucs-bmp-itaiji-002
+	  ==ucs-bmp-itaiji-003
 	  ==hanyo-denshi/ja
 	  ==hanyo-denshi/jb
 	  ==hanyo-denshi/jc
