@@ -3469,6 +3469,17 @@
 		  registry      "cdp\\.itaiji-3$"
 		  mother        =big5-cdp))
 
+  (make-charset '=big5-cdp-var-002
+		"Big5-CDP-var-002 glyph-images of GlyphWiki"
+		'(long-name     "Big5-CDP-var-002"
+		  chars         256
+		  dimension     2
+		  columns       2
+		  graphic       2
+		  direction     l2r
+		  registry      "cdp\\.var-2$"
+		  mother        =big5-cdp))
+
   (make-charset '=big5-cdp-var-003
 		"Big5-CDP-var-003 glyph-images of GlyphWiki"
 		'(long-name     "Big5-CDP-var-003"

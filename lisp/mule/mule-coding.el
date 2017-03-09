@@ -450,6 +450,7 @@
 	  (==big5-cdp-itaiji-001	 "g2-CDP-i001-" 4 X)
 	  ( =big5-cdp-itaiji-002	    "CDP-i002-" 4 X)
 	  ( =big5-cdp-itaiji-003	    "CDP-i003-" 4 X)
+	  ( =big5-cdp-var-002		    "CDP-v002-" 4 X)
 	  ( =big5-cdp-var-003		    "CDP-v003-" 4 X)
 	  ( =big5-cdp-var-004		    "CDP-v004-" 4 X)
 	  ( =big5-cdp-var-005		    "CDP-v005-" 4 X)
