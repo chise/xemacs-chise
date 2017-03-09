@@ -36407,14 +36407,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x7AE0)	; 章
-	)
-       ((=ucs		    . #x8CA2)	; 貢
-	))
+     ((=ucs		  . #x8D11)	; 贑
       )
      ((=ucs		  . #x5FC3)	; 心
       ))
@@ -36422,6 +36415,21 @@
     (=cns11643-3	. #x613E)	; &I-C3-613E; [65-30]
     (=daikanwa		. 11521)	; &I-M-11521;
     (=cbeta		. 00874)	; &I-CB00874;
+    (->subsumptive
+     ((==ucs@unicode	  . #x6205)	; &g2-M-11521;
+      (==cns11643-3	  . #x613E)	; &g2-M-11521; [65-30]
+      (==daikanwa	  . 11521)	; &g2-M-11521;
+      (==cbeta		  . 00874)	; &g2-M-11521;
+      (->subsumptive
+       ((===daikanwa	    . 11521)	; &R-M-11521;
+	)
+       ((===cns11643-3	    . #x613E)	; &R-C3-613E; [65-30]
+	)
+       ((===ucs@unicode	    . #x6205)	; &R-UU+6205;
+	)
+       ((===cbeta	    . 00874)	; &R-CB00874;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x2297D)	; 𢥽
