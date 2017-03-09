@@ -2967,6 +2967,27 @@
     ))
 (define-char
   '((ideographic-radical . 40)	; ⼧
+    (=>big5-cdp		. #x8D7C)	; &A-CDP-8D7C;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8D7C)	; &A-CDP-8D7C;
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=big5-cdp	  . #x8BD6)	; &CDP-8BD6;
+      )
+     ((=ucs		  . #x7C73)	; 米
+      ))
+    (=big5-cdp-var-002	. #x8D7C)	; &CDP-v002-8D7C;
+    ))
+(define-char
+  '((ideographic-radical . 40)	; ⼧
     (=ucs		. #x5BAC)	; 宬
     (=big5		. #xD168)	; &I-B-D168;
     (->subsumptive
@@ -4561,31 +4582,6 @@
     (=jef-china3	. #x81F7)	; &I-JC3-81F7;
     ))
 (define-char
-  '((<-denotational
-     ((=big5-cdp	  . #x8D7C)	; &CDP-8D7C;
-      ))
-    (ideographic-radical . 40)	; ⼧
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
-    (=gt-k		. 07616)	; &GT-K07616;
-    (=gt-pj-k1		. #x3072)	; &GT-K07616; [16-82]
-    (<-formed@component/connect-below
-     ((=big5-cdp	  . #x8D7C)	; &CDP-8D7C;
-      )
-     ((=ucs		  . #x5BB7)	; 宷
-      ))
-    ))
-(define-char
-  '((=>ucs		. #x5BC0)	; 寀
-    (ideographic-radical . 40)	; ⼧
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
-    (=big5-cdp		. #x8D7C)	; &CDP-8D7C;
-    (<-formed@component
-     ((=ucs		  . #x5BB7)	; 宷
-      ))
-    ))
-(define-char
   '((ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
@@ -4616,6 +4612,31 @@
        ((===ucs@iso	    . #x21A15)	; &R-U-00021A15;
 	)
        ((=hanziku-3	    . #xBBCF)	; &HZK03-BBCF;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8D7C)	; &A-CDP-8D7C;
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (=big5-cdp		. #x8D7C)	; &CDP-8D7C;
+    (<-formed@component
+     ((=ucs		  . #x5BB7)	; 宷
+      )
+     ((=ucs		  . #x5BC0)	; 寀
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8D7C)	; &g2-CDP-8D7C;
+      )
+     ((=gt-k		  . 07616)	; &GT-K07616;
+      (=gt-pj-k1	  . #x3072)	; &GT-K07616; [16-82]
+      (<-formed@component/connect-below
+       ((=big5-cdp	    . #x8D7C)	; &CDP-8D7C;
+	)
+       ((=ucs		    . #x5BB7)	; 宷
 	))
       ))
     ))
