@@ -1,16 +1,36 @@
 2017-03-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* Ideograph-R037-Big.el (BUCS+5967): Add `ideographic-structure'.
-	(U+5965): Likewise.
-	(U+5967): Likewise.
+	* Ideograph-R078-Death.el (U+6BAF): Apply new conventions for
+	glyph granularity.
 
 2017-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (A-BC-8D7C): New abstract character.
+	(BC-8D7C-var-002): New character; use `<-denotational' for
+	A-BC-8D7C.
+	(BC-8D7C): Add `<-denotational' for A-BC-8D7C; delete `=>ucs' for
+	U+5BC0; use `<-formed@component' for U+5BC0.
+	(GT-K07616): Use `<-subsumptive' instead of `<-denotational' for
+	BC-8D7C.
+
+	* Ideograph-R038-Woman.el: Use U+5973 instead of AJ1-13828 as left
+	components of abstract characters and abstract glyphs.
+
+	* Ideograph-R031-Enclosure.el (U+570E): Use "貟" instead of
+	"⿱厶貝" in `ideographic-structure'; add representative nodes.
+
+	* Ideograph-R013-Down-Box.el (GT-K01266): Add `<-denotational' for
+	U-00026270.
+
+	* Ideograph-R061-Heart.el (U+6205): Use "贑" instead of "⿰章貢"
+	in `ideographic-structure'.
 
 	* Ideograph-R069-Axe.el (BC-8852): New character; use `<-formed'
 	for U+65A4.
 
-	* Ideograph-R061-Heart.el (U+6205): Use "贑" instead of "⿰章貢"
-	in `ideographic-structure'.
+	* Ideograph-R037-Big.el (BUCS+5967): Add `ideographic-structure'.
+	(U+5965): Likewise.
+	(U+5967): Likewise.
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=big5-cdp-var-002'.
