@@ -43,6 +43,9 @@
 	* Ideograph-R036-Evening.el: Complete representative nodes of
 	`=hanyo-denshi/ja' glyphs.
 
+	* read-maps.el (mapping-table-read-file): Add special code for
+	mapping between JC3-67A3 and U+FA66.
+
 	* Ideograph-R049-Oneself.el (o-UU+5DFB): Apply new conventions for
 	glyph granularity.
 
