@@ -910,6 +910,27 @@
     (=hanziku-1		. #xB85C)	; &I-HZK01-B85C;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x26270)	; 𦉰
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x5182)	; 冂
+      )
+     ((=ucs		  . #x4491)	; 䒑
+      ))
+    (=gt-k		. 01266)	; &GT-K01266;
+    (=gt-pj-k2		. #x4122)	; &GT-K01266; [33-02]
+    (->mistakable
+     ((=ucs		  . #x26270)	; 𦉰
+      ))
+    ))
+(define-char
   '((ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
@@ -947,25 +968,6 @@
 	)
        ((===big5-cdp	    . #x877E)	; &R-CDP-877E;
 	))
-      ))
-    ))
-(define-char
-  '((ideographic-radical . 13)	; ⼌
-    (ideographic-strokes . 3)
-    (total-strokes	 . 5)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-      (=ucs		  . #x2FF5)	; ⿵
-      )
-     ((=ucs		  . #x5182)	; 冂
-      )
-     ((=big5-cdp	  . #x8B4B)	; &GT-39640;
-      (=daikanwa	  . 30640)	; &I-M-30640;
-      ))
-    (=gt-k		. 01266)	; &GT-K01266;
-    (=gt-pj-k2		. #x4122)	; &GT-K01266; [33-02]
-    (->mistakable
-     ((=ucs		  . #x26270)	; 𦉰
       ))
     ))
 (define-char
