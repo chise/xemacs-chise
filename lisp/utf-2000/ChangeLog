@@ -1,5 +1,35 @@
 2017-03-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R072-Sun.el (A-U+81FD-itaiji-002): New abstract
+	character.
+	(G-GT-K03318): Apply new conventions for glyph granularity; unify
+	GT-K03616, U+81FD-itaiji-002 and U+81FD-itaiji-003.
+
+	* Ideograph-R046-Mountain.el (U+5DC2): Apply new conventions for
+	glyph granularity.
+
+2017-03-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R188-Bone.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/{JA|JB}.
+
+	* Ideograph-R187-Horse.el:
+	- Complete representative nodes of `=hanyo-denshi/ja' glyphs.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/{JA|JB|JD}.
+	(U+9A40): Apply new conventions for glyph granularity.
+	(U+9A44): Likewise.
+	(JU+9A58): Add representative nodes.
+
+	* Ideograph-R142-Insect.el (U-00027221): New character.
+
+	* Ideograph-R122-Net.el (U-00026270): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R118-Bamboo.el: Add some MJ code points.
+
 	* Ideograph-R010-Legs.el (BUCS+514E): Separate A-compU+5154 and
 	IWDS1-0331.
 	(A-compU+5154): New abstract component; unify IWDS1-0331; use
@@ -69,6 +99,10 @@
 	* Ideograph-R163-City.el (g2-JU+90E4): Add
 	`=decomposition@hanyo-denshi'.
 	(g2-UU+9100): Likewise.
+
+2017-03-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R177-Leather.el: Add some MJ code points.
 
 2017-03-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 

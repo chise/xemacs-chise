@@ -237,6 +237,23 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=ucs		  . #x53C8)	; 又
+      )
+     ((=ucs		  . #x866B)	; 虫
+      ))
+    (=ucs		. #x27221)	; 𧈡
+    (->subsumptive
+     ((==ucs@iso	  . #x27221)	; &g2-IU-00027221;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 142)	; ⾍
+    (ideographic-strokes . 2)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs		  . #x53B6)	; 厶
       )
      ((=ucs		  . #x866B)	; 虫
@@ -19405,7 +19422,7 @@
      ((=ucs		  . #x866B)	; 虫
       )
      ((=ucs@unicode	  . #x84A6)	; &MJ022475;
-      (=mj		  . 022475)	; &I-MJ022475;
+      (=mj		  . 022475)	; &MJ022475;
       ))
     (=ucs@unicode	. #x8816)	; &AJ1-06564;
     (=adobe-japan1-0	. 06564)	; &AJ1-06564;
