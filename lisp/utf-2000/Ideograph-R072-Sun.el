@@ -982,6 +982,12 @@
   '((ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
+    (=>ucs-itaiji-002	. #x81FD)	; &A-U-i002+81FD;
+    ))
+(define-char
+  '((ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -990,7 +996,11 @@
       )
      ((=ucs		  . #x65E7)	; 旧
       ))
-    (=>>gt-k		. 03318)	; &G-GT-K03318;
+    (=gt-k		. 03616)	; &GT-K03616;
+    (=>>gt-k		. 03318)	; &GT-K03616;
+    (=gt-pj-k1		. #x5E44)	; &GT-K03616; [62-36]
+    (=ucs-itaiji-002	. #x81FD)	; &GT-K03616;
+    (=ucs-itaiji-003	. #x81FD)	; &GT-K03616;
     (<-simplified@component
      ((=ucs		  . #x81FD)	; 臽
       ))
@@ -1003,6 +1013,17 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
+       ((=gt-k		    . 00089)	; &GT-K00089;
+	)
+       ((=ucs		    . #x65E7)	; 旧
+	))
+      (==gt-k		  . 03616)	; &g2-GT-K03616;
+      (==ucs-itaiji-002	  . #x81FD)	; &g2-GT-K03616;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
        ((name		    . "CJK RADICAL KNIFE ONE")
 	(=ucs		    . #x2E88)	; ⺈
 	)
@@ -1010,17 +1031,10 @@
 	))
       (=gt-k		  . 03318)	; &GT-K03318;
       (=gt-pj-k1	  . #x357D)	; &GT-K03318; [21-93]
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=gt-k		    . 00089)	; &GT-K00089;
-	)
-       ((=ucs		    . #x65E7)	; 旧
+      (->subsumptive
+       ((==gt-k		    . 03318)	; &g2-GT-K03318;
+	(==ucs-itaiji-003   . #x81FD)	; &g2-GT-K03318;
 	))
-      (=gt-k		  . 03616)	; &GT-K03616;
-      (=gt-pj-k1	  . #x5E44)	; &GT-K03616; [62-36]
       ))
     ))
 (define-char
