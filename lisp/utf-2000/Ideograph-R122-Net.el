@@ -352,7 +352,25 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (=ucs		. #x26270)	; 𦉰
-    (=jis-x0213-2	. #x7469)	; &I-JX2-7469; [84-73]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x26270)	; 𦉰
+      ))
+    (ideographic-radical . 122)	; ⽹
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (=ucs@iso		. #x26270)	; &JX2-7469;
+    (=jis-x0213-2	. #x7469)	; &JX2-7469; [84-73]
+    (->subsumptive
+     ((==ucs@iso	  . #x26270)	; &g2-JX2-7469;
+      (==jis-x0213-2	  . #x7469)	; &g2-JX2-7469; [84-73]
+      (->subsumptive
+       ((===jis-x0213-2	    . #x7469)	; &R-JX2-7469; [84-73]
+	)
+       ((===ucs@iso	    . #x26270)	; &R-U-00026270;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹
