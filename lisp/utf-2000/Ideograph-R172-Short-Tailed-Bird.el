@@ -4208,6 +4208,40 @@
       ))
     ))
 (define-char
+  '((ideographic-radical@ucs . 46)	; ⼭
+    (ideographic-strokes@ucs . 15)
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 172)	; ⾫
+    (ideographic-strokes@cns . 10)
+    (total-strokes	 . 18)
+    (=ucs		. #x5DC2)	; 巂
+    (=iso-ir165		. #x7B22)	; &EGB-7B22; [91-02]
+    (=cns11643-2	. #x643E)	; &C2-643E; [68-30]
+    (=big5		. #xF172)	; &I-B-F172;
+    (=daikanwa		. 08595)	; &M-08595;
+    (->subsumptive
+     ((=>>ucs@cns	  . #x5DC2)	; &G-CU+5DC2;
+      (=>>daikanwa	  . 08595)	; &G-CU+5DC2;
+      (->subsumptive
+       ((ideographic-radical . 46)	; ⼭
+	(ideographic-strokes . 15)
+	(==daikanwa	    . 08595)	; &g2-M-08595;
+	)
+       ((ideographic-radical . 172)	; ⾫
+	(ideographic-strokes . 10)
+	(==ucs@cns	    . #x5DC2)	; &g2-CU+5DC2;
+	(==cns11643-2	    . #x643E)	; &g2-CU+5DC2; [68-30]
+	))
+      )
+     ((ideographic-radical . 46)	; ⼭
+      (ideographic-strokes . 15)
+      (==ucs@unicode	  . #x5DC2)	; &g2-UU+5DC2;
+      (==ucs@JP/hanazono  . nil)
+      (==iso-ir165	  . #x7B22)	; &g2-UU+5DC2; [91-02]
+      ))
+    ))
+(define-char
   '((ideographic-radical . 172)	; ⾫
     (ideographic-strokes . 10)
     (total-strokes	 . 18)
@@ -4342,7 +4376,7 @@
      ((=adobe-japan1-4	  . 13914)	; &AJ1-13914;
       )
      ((=ucs@unicode	  . #x84A6)	; &MJ022475;
-      (=mj		  . 022475)	; &I-MJ022475;
+      (=mj		  . 022475)	; &MJ022475;
       ))
     (=ucs@jis		. #x96D8)	; &HD-JB-6675;
     (=jis-x0212		. #x6675)	; &HD-JB-6675; [70-85]
@@ -4380,7 +4414,7 @@
       (=adobe-japan1-0	  . 02926)	; &AJ1-02926;
       )
      ((=ucs@unicode	  . #x84A6)	; &MJ022475;
-      (=mj		  . 022475)	; &I-MJ022475;
+      (=mj		  . 022475)	; &MJ022475;
       ))
     (=ucs@unicode	. #x96D8)	; &EGB-7E50;
     (=ucs@JP/hanazono	. nil)
@@ -4996,35 +5030,6 @@
      ((=ucs@unicode	  . #x4A03)	; &UU+4A03;
       )
      ((=cns11643-3	  . #x594C)	; &C3-594C; [57-44]
-      ))
-    ))
-(define-char
-  '((ideographic-radical@ucs . 46)	; ⼭
-    (ideographic-strokes@ucs . 15)
-    (ideographic-radical@ucs*sources
-     daikanwa ucs)
-    (ideographic-radical@cns . 172)	; ⾫
-    (ideographic-strokes@cns . 10)
-    (total-strokes	 . 18)
-    (=ucs		. #x5DC2)	; 巂
-    (=big5		. #xF172)	; &I-B-F172;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x5DC2)	; 巂
-      ))
-    (total-strokes	 . 18)
-    (=>>ucs@cns		. #x5DC2)	; &G-CU+5DC2;
-    (=>>daikanwa	. 08595)	; &G-CU+5DC2;
-    (->subsumptive
-     ((ideographic-radical . 46)	; ⼭
-      (ideographic-strokes . 15)
-      (=daikanwa	  . 08595)	; &M-08595;
-      )
-     ((ideographic-radical . 172)	; ⾫
-      (ideographic-strokes . 10)
-      (=ucs@cns		  . #x5DC2)	; &C2-643E;
-      (=cns11643-2	  . #x643E)	; &C2-643E; [68-30]
       ))
     ))
 (define-char
