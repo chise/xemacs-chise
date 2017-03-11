@@ -436,11 +436,8 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs@cns		  . #x82F1)	; &HD-IB-3B76;
-      (=ucs@ks		  . #x82F1)	; &HD-IB-3B76;
-      (=ks-x1001	  . #x6748)	; &HD-IB-3B76; [71-40]
-      (=cns11643-1	  . #x5341)	; &I-C1-5341; [51-33]
-      (=daikanwa	  . 30808)	; &I-M-30808;
+     ((=ucs@cns		  . #x82F1)	; &MJ021701;
+      (=mj		  . 021701)	; &I-MJ021701;
       ))
     (sources		ruimoku=A021761-00005)
     (=ucs@iso		. #x20E04)	; &RUI6-E01A;
@@ -453,8 +450,7 @@
        ((==ucs@unicode	    . #x53E3)	; &g2-AJ1-01969;
 	(==adobe-japan1-0   . 01969)	; &g2-AJ1-01969;
 	)
-       ((==ucs@ks	    . #x82F1)	; &g2-HD-IB-3B76;
-	(==hanyo-denshi/ib  . #x3B76)	; &g2-HD-IB-3B76; [27-86]
+       ((==mj		    . 021701)	; &g2-MJ021701;
 	))
       (==ruimoku-v6	  . #xE01A)	; &g2-RUI6-E01A;
       )
@@ -1565,7 +1561,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=adobe-japan1-4	  . 13828)	; &AJ1-13828;
+     ((=ucs		  . #x5973)	; 女
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1577,6 +1573,9 @@
 	))
       ))
     (=ruimoku-v6	. #xE061)	; &RUI6-E061;
+    (->subsumptive
+     ((==ruimoku-v6	  . #xE061)	; &g2-RUI6-E061;
+      ))
     ))
 (define-char
   '((ideographic-structure
@@ -1698,8 +1697,7 @@
 	)
        ((=ucs		    . #x268FB)	; 𦣻
 	)
-       ((name* . "ideographic component person as left roof")
-	(=gt-k		    . 00058)	; &GT-K00058;
+       ((=gt-k		    . 00058)	; &GT-K00058;
 	)
        ((=gt-k		    . 00439)	; &GT-K00439;
 	))
