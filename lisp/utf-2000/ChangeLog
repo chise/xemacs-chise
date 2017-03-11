@@ -1,12 +1,65 @@
+2017-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R086-Fire.el (GT-K01443): Add
+	`<-simplified@CN/component' for U-0002696F.
+	(U-0002AED3): New character.
+
+	* Ideograph-R085-Water.el (U-00023C99): Add representative node.
+	(U-00023CAD): New character.
+	(CB04742): Add `ideographic-structure'.
+	(U+3CDF): Apply new conventions for glyph granularity.
+	(A-MJ-002066): New abstract node; use `<-denotational' for U+3CDF.
+	(MJ002066): New character; use `<-denotational' for A-MJ-002066;
+	unify HD-JT-B42B.
+	(U+6E80): Apply new conventions for glyph granularity.
+
+2017-03-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ruimoku6.el (RUI6-E061): Apply new conventions for glyph
+	granularity.
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL GRASS ONE>):
+	Unify UU+8279.
+	(<CJK RADICAL GRASS TWO>): Unify CU+8279.
+	(<CJK RADICAL GRASS THREE>): Unify JU+FA5D.
+	(<CJK RADICAL SIMPLIFIED WALK>): Unify UU+8FB6; use
+	`<-simplified@component' instead of `<-simplified' for <CJK
+	RADICAL WALK ONE>.
+
+	* Ideograph-R172-Short-Tailed-Bird.el (U+5DC2): Apply new
+	conventions for glyph granularity.
+
+	* Ideograph-R162-Walk.el: Add some MJ code points.
+	(UU+8FB6): Unify <CJK RADICAL SIMPLIFIED WALK>; apply new
+	conventions for glyph granularity.
+	(A-GT-K09344): New abstract node.
+	(GT-K09344): New character; use `<-denotational' for A-GT-K09344.
+	(U+9042-var-001): New character; use `<-denotational' for U+9042.
+	(U+9043): Apply new conventions for glyph granularity.
+
 2017-03-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R119-Rice.el (U-0002B0B1): New character.
+
+	* Ideograph-R061-Heart.el (A-IWDSU+60B3): New abstract node.
+	(U+60B3): Add `<-denotational' for A-IWDSU+60B3.
+	(JU+60B3): Unify GU+60B3, CU+60B3 and KU+60B3.
+	(UU+60B3): Add `ideographic-structure'; add representative nodes.
+	(U+60EA): Add `<-denotational' for A-IWDSU+60B3.
 
 	* Ideograph-R072-Sun.el (A-U+81FD-itaiji-002): New abstract
 	character.
 	(G-GT-K03318): Apply new conventions for glyph granularity; unify
 	GT-K03616, U+81FD-itaiji-002 and U+81FD-itaiji-003.
 
+	* Ideograph-R152-Pig.el (G-CU+8C56): New glyph node; use
+	`<-subsumptive' for U+8C56.
+	(g2-CU+8C56): Use G-CU+8C56 instead U+8C56 as its mother.
+
 	* Ideograph-R046-Mountain.el (U+5DC2): Apply new conventions for
 	glyph granularity.
+
+	* Ideograph-R096-Jade.el: Add some MJ code points.
 
 2017-03-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
