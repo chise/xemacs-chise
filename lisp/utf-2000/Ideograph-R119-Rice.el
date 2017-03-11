@@ -142,6 +142,23 @@
     ))
 (define-char
   '((ideographic-radical . 119)	; ⽶
+    (ideographic-strokes . 2)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=big5-cdp	  . #x8BF5)	; &CDP-8BF5;
+      )
+     ((=ucs		  . #x7C73)	; 米
+      ))
+    (=ucs		. #x2B0B1)	; 𫂱
+    (->subsumptive
+     ((==ucs@iso	  . #x2B0B1)	; &g2-IU-0002B0B1;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 119)	; ⽶
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
     (=ucs		. #x7C77)	; 籷
