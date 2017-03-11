@@ -977,49 +977,149 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs@unicode	  . #x8279)	; &GT-39639;
-      (=gb2312		  . #x5C33)	; &GT-39639; [60-19]
-      (=jis-x0213-2	  . #x7576)	; &I-JX2-7576; [85-86]
+     ((=+>ucs@unicode	  . #x8279)	; &o-UU+8279;
       ))
     (name		. "CJK RADICAL GRASS ONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ideographic-radical . 140)	; ⾋
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
     (=ucs		. #x2EBE)	; ⺾
-    (<-identical@component
-     ((=ucs@unicode	  . #x8279)	; &GT-39639;
-      (=gb2312		  . #x5C33)	; &GT-39639; [60-19]
-      (=jis-x0213-2	  . #x7576)	; &I-JX2-7576; [85-86]
+    (=ucs@unicode	. #x8279)	; ⺾
+    (=gb2312		. #x5C33)	; &I-G0-5C33; [60-19]
+    (=jis-x0213-2	. #x7576)	; &I-JX2-7576; [85-86]
+    (=big5-cdp		. #x8957)	; &I-CDP-8957;
+    (=gt		. 39639)	; &I-GT-39639;
+    (=gt-k		. 00279)	; &I-GT-K00279;
+    (=gt-pj-9		. #x4F47)	; &I-GT-39639; [47-39]
+    (=jef-china3	. #x72FA)	; &I-JC3-72FA;
+    (->subsumptive
+     ((==ucs@unicode	  . #x8279)	; &g2-JX2-7576;
+      (==gb2312		  . #x5C33)	; &g2-JX2-7576; [60-19]
+      (==jis-x0213-2	  . #x7576)	; &g2-JX2-7576; [85-86]
+      (==big5-cdp	  . #x8957)	; &g2-JX2-7576;
+      (==jef-china3	  . #x72FA)	; &g2-JX2-7576;
+      (->subsumptive
+       ((===jis-x0213-2	    . #x7576)	; &R-JX2-7576; [85-86]
+	)
+       ((===jef-china3	    . #x72FA)	; &R-JC3-72FA;
+	)
+       ((===big5-cdp	    . #x8957)	; &R-CDP-8957;
+	)
+       ((===ucs@unicode	    . #x8279)	; &R-UU+8279;
+	))
+      )
+     ((==ucs@unicode	  . #x2EBE)	; &g2-GT-39639;
+      (==gt		  . 39639)	; &g2-GT-39639;
+      (==gt-k		  . 00279)	; &g2-GT-39639;
+      (->subsumptive
+       ((===ucs@unicode	    . #x2EBE)	; &R-UU+2EBE;
+	)
+       ((===gt		    . 39639)	; &R-GT-39639;
+	(===gt-k	    . 00279)	; &R-GT-39639;
+	))
       ))
     ))
 (define-char
   '((<-denotational
-     ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA5E")
-      (=ucs		  . #xFA5E)	; 艹
+     ((=+>ucs@unicode	  . #x8279)	; &o-UU+8279;
       ))
     (name		. "CJK RADICAL GRASS TWO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ideographic-radical . 140)	; ⾋
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
     (=ucs		. #x2EBF)	; ⺿
-    (<-identical@component
+    (=ucs@cns		. #x8279)	; ⺿
+    (=ucs@jis		. #xFA5E)	; ⺿
+    (=cns11643-4	. #x2153)	; &I-C4-2153; [01-51]
+    (=jis-x0213-2	. #x7575)	; &I-JX2-7575; [85-85]
+    (=big5-cdp		. #x8AFE)	; &I-CDP-8AFE;
+    (=gt		. 39643)	; &I-GT-39643;
+    (=gt-k		. 00671)	; &I-GT-K00671;
+    (=gt-pj-6		. #x4664)	; &I-GT-39643; [38-68]
+    (=daikanwa		. 30639)	; &I-M-30639;
+    (<-formed@component/connect-below
+     ((=ucs		  . #x8278)	; 艸
+      (=daikanwa	  . 30638)	; &I-M-30638;
+      ))
+    (<-formed@component/connect-below*sources
+     zihui/char-index daikanwa)
+    (->Zhouwen
+     ((=ucs		  . #x8278)	; 艸
+      (=daikanwa	  . 30638)	; &I-M-30638;
+      ))
+    (->Zhouwen*sources
+     guangyun daikanwa)
+    (->subsumptive
      ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA5E")
+      (=>ucs*		  . #x8279)	; 艹
       (=ucs		  . #xFA5E)	; 艹
+      (==ucs@cns	  . #x8279)	; 艹
+      (==cns11643-4	  . #x2153)	; 艹 [01-51]
+      (==jis-x0213-2	  . #x7575)	; 艹 [85-85]
+      (==big5-cdp	  . #x8AFE)	; 艹
+      (==gt		  . 39643)	; 艹
+      (==gt-k		  . 00671)	; 艹
+      (==daikanwa	  . 30639)	; 艹
+      (->subsumptive
+       ((===daikanwa	    . 30639)	; &R-M-30639;
+	)
+       ((===jis-x0213-2	    . #x7575)	; &R-JX2-7575; [85-85]
+	)
+       ((===ucs@unicode	    . #xFA5E)	; &R-UU+FA5E;
+	)
+       ((===big5-cdp	    . #x8AFE)	; &R-CDP-8AFE;
+	)
+       ((===cns11643-4	    . #x2153)	; &R-C4-2153; [01-51]
+	)
+       ((===gt		    . 39643)	; &R-GT-39643;
+	(===gt-k	    . 00671)	; &R-GT-39643;
+	))
+      )
+     ((==ucs@unicode	  . #x2EBF)	; &g2-UU+2EBF;
       ))
     ))
 (define-char
   '((<-denotational
-     ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA5D")
-      (=ucs		  . #xFA5D)	; 艹
+     ((=ucs		  . #x8279)	; 艹
       ))
     (name		. "CJK RADICAL GRASS THREE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ideographic-radical . 140)	; ⾋
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
     (=ucs		. #x2EC0)	; ⻀
-    (<-identical@component
+    (=ucs@jis		. #xFA5D)	; ⻀
+    (=jis-x0213-2	. #x7574)	; &I-JX2-7574; [85-84]
+    (=gt		. 39645)	; &I-GT-39645;
+    (=gt-k		. 00569)	; &I-GT-K00569;
+    (=gt-pj-9		. #x4E5A)	; &I-GT-39645; [46-58]
+    (->subsumptive
      ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA5D")
+      (=>ucs*		  . #x8279)	; 艹
       (=ucs		  . #xFA5D)	; 艹
+      (==ucs@unicode	  . #x2EC0)	; 艹
+      (==ucs@jis	  . #xFA5D)	; 艹
+      (==jis-x0213-2	  . #x7574)	; 艹 [85-84]
+      (==gt		  . 39645)	; 艹
+      (==gt-k		  . 00569)	; 艹
+      (->subsumptive
+       ((===jis-x0213-2	    . #x7574)	; &R-JX2-7574; [85-84]
+	)
+       ((===ucs@unicode	    . #xFA5D)	; &R-UU+FA5D;
+	)
+       ((===gt		    . 39645)	; &R-GT-39645;
+	(===gt-k	    . 00569)	; &R-GT-39645;
+	)
+       ((===ucs@unicode	    . #x2EC0)	; &R-UU+2EC0;
+	))
       ))
     ))
 (define-char
@@ -1176,20 +1276,50 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #xFA66)	; 辶
+     ((=ucs		  . #x8FB6)	; 辶
       ))
     (name		. "CJK RADICAL SIMPLIFIED WALK")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ideographic-radical . 162)	; ⾡
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
     (=ucs		. #x2ECC)	; ⻌
+    (=ucs@unicode	. #x8FB6)	; ⻌
+    (=ucs@jis		. #xFA66)	; ⻌
+    (=adobe-japan1-4	. 15403)	; &I-AJ1-15403;
+    (=gb2312		. #x6541)	; &I-G0-6541; [69-33]
+    (=jis-x0213-2	. #x7969)	; &I-JX2-7969; [89-73]
     (=big5-cdp		. #x8966)	; &I-CDP-8966;
-    (<-identical@component
-     ((=ucs		  . #xFA66)	; 辶
-      ))
-    (<-simplified
+    (=jef-china3	. #x67A3)	; &I-JC3-67A3;
+    (<-simplified@component
      ((name		  . "CJK RADICAL WALK ONE")
       (=ucs		  . #x2ECD)	; ⻍
+      ))
+    (->subsumptive
+     ((=>ucs*		  . #x8FB6)	; 辶
+      (=ucs		  . #xFA66)	; 辶
+      (==ucs@unicode	  . #x8FB6)	; 辶
+      (==ucs@jis	  . #xFA66)	; 辶
+      (==adobe-japan1-4	  . 15403)	; 辶
+      (==gb2312		  . #x6541)	; 辶 [69-33]
+      (==jis-x0213-2	  . #x7969)	; 辶 [89-73]
+      (==big5-cdp	  . #x8966)	; 辶
+      (==jef-china3	  . #x67A3)	; 辶
+      (->subsumptive
+       ((===jis-x0213-2	    . #x7969)	; &R-JX2-7969; [89-73]
+	)
+       ((===adobe-japan1-4  . 15403)	; &R-AJ1-15403;
+	)
+       ((===jef-china3	    . #x67A3)	; &R-JC3-67A3;
+	)
+       ((===ucs@unicode	    . #xFA66)	; &R-UU+FA66;
+	)
+       ((===big5-cdp	    . #x8966)	; &R-CDP-8966;
+	)
+       ((===ucs@unicode	    . #x8FB6)	; &R-UU+8FB6;
+	))
       ))
     ))
 (define-char
