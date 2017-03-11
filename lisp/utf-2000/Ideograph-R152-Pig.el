@@ -190,8 +190,11 @@
      ((==ucs@unicode	  . #x8C56)	; &g2-UU+8C56;
       (==ucs@JP/hanazono  . nil)
       )
-     ((==ucs@cns	  . #x8C56)	; &g2-CU+8C56;
-      (==cns11643-2	  . #x286B)	; &g2-CU+8C56; [08-75]
+     ((=>>ucs@cns	  . #x8C56)	; &G-CU+8C56;
+      (->subsumptive
+       ((==ucs@cns	    . #x8C56)	; &g2-CU+8C56;
+	(==cns11643-2	    . #x286B)	; &g2-CU+8C56; [08-75]
+	))
       ))
     ))
 (define-char
