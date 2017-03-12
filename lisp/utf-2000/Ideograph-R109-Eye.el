@@ -594,6 +594,21 @@
   '((<-denotational
      ((=ucs		  . #x76F4)	; 直
       ))
+    (ideographic-radical . 109)	; ⽬
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (=>ucs@iso		. #x2F940)	; &A-GT-29635;
+    (=>ucs@ks		. #x76F4)	; &A-GT-29635;
+    (=>cns11643-6	. #x2D45)	; &A-GT-29635; [13-37]
+    (=>gt		. 29635)	; &A-GT-29635;
+    (=>gt-k		. 03776)	; &A-GT-29635;
+    (=>daikanwa		. 23136)	; &A-GT-29635;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iso	  . #x2F940)	; &A-GT-29635;
+      (=>ucs@ks		  . #x76F4)	; &A-GT-29635;
+      ))
     (=>ucs*		. #x76F4)	; 直
     (ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 3)
@@ -611,6 +626,16 @@
     (=gt-pj-1		. #x443E)	; &I-GT-29635; [36-30]
     (=daikanwa		. 23136)	; &I-M-23136;
     (=shinjigen		.  5273)	; 直
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iso	  . #x2F940)	; &A-GT-29635;
+      (=>ucs@ks		  . #x76F4)	; &A-GT-29635;
+      ))
+    (ideographic-radical . 109)	; ⽬
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (=ucs-var-010	. #x76F4)	; &U-v010+76F4;
     ))
 (define-char
   '((<-denotational
@@ -7502,7 +7527,51 @@
   '((ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x76EE)	; 目
+      )
+     ((=>ucs-itaiji-002	  . #x34BC)	; &A-U-i002+34BC;
+      ))
+    (=ucs		. #x2521E)	; 𥈞
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2521E)	; 𥈞
+      ))
+    (ideographic-radical . 109)	; ⽬
+    (ideographic-strokes . 9)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x76EE)	; 目
+      )
+     ((=ucs-itaiji-002	  . #x34BC)	; &U-i002+34BC;
+      ))
+    (=ucs@iso		. #x2521E)	; &JX2-7228;
+    (=jis-x0213-2	. #x7228)	; &JX2-7228; [82-08]
+    (->subsumptive
+     ((==ucs@iso	  . #x2521E)	; &g2-JX2-7228;
+      (==jis-x0213-2	  . #x7228)	; &g2-JX2-7228; [82-08]
+      (->subsumptive
+       ((===jis-x0213-2	    . #x7228)	; &R-JX2-7228; [82-08]
+	)
+       ((===ucs@iso	    . #x2521E)	; &R-U-0002521E;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 109)	; ⽬
+    (ideographic-strokes . 9)
+    (total-strokes	 . 14)
     (=ucs		. #x25220)	; 𥈠
+    (->subsumptive
+     ((==ucs@iso	  . #x25220)	; &g2-IU-00025220;
+      ))
     ))
 (define-char
   '((ideographic-radical . 109)	; ⽬

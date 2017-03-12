@@ -13,6 +13,25 @@
 	unify HD-JT-B42B.
 	(U+6E80): Apply new conventions for glyph granularity.
 
+	* Ideograph-R191-Fight.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/{JA|JB}.
+
+2017-03-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R109-Eye.el (A-IU+2F940): New abstract node; use
+	`<-denotational' for U+76F4.
+	(U-0002F940): Use A-IU+2F940 instead of U+76F4 as its mother.
+	(U+76F4-var-010): New character; use `<-denotational' for
+	A-IU+2F940.
+	(U-0002521E): New character.
+	(U-00025220): Add representative node.
+
+	* Ideograph-R029-Again.el: Complete representative nodes of
+	`=adobe-japan1-0' glyphs.
+	(U+53CC): Apply new conventions for glyph granularity.
+
 2017-03-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ruimoku6.el (RUI6-E061): Apply new conventions for glyph

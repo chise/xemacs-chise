@@ -12035,7 +12035,7 @@
       )
      ((=ucs		  . #x624C)	; 扌
       )
-     ((=hanyo-denshi/ft	  . #x3645)	; &HD-FT-3645; [22-37]
+     ((=mj		  . 013489)	; &MJ013489;
       ))
     (=ucs		. #x63B2)	; 掲
     (=adobe-japan1-0	. 01821)	; &I-AJ1-01821;
@@ -12068,7 +12068,7 @@
        ((name		    . "CJK RADICAL HAND")
 	(=ucs		    . #x2E98)	; ⺘
 	)
-       ((==hanyo-denshi/ft  . #x3645)	; &g2-HD-FT-3645; [22-37]
+       ((==mj		    . 013489)	; &g2-MJ013489;
 	))
       (==ucs@unicode	  . #x63B2)	; &g2-AJ1-01821;
       (==adobe-japan1-0	  . 01821)	; &g2-AJ1-01821;
@@ -14263,8 +14263,8 @@
       )
      ((=ucs		  . #x624C)	; 扌
       )
-     ((=ucs@unicode	  . #x66F7)	; &AJ1-05134;
-      (=adobe-japan1-0	  . 05134)	; &AJ1-05134;
+     ((=ucs@unicode	  . #x66F7)	; &MJ013488;
+      (=mj		  . 013488)	; &I-MJ013488;
       ))
     (=ucs@unicode	. #x63ED)	; &JX1-7473;
     (=gb2312		. #x3D52)	; &JX1-7473; [29-50]
@@ -14284,8 +14284,8 @@
        ((name		    . "CJK RADICAL HAND")
 	(=ucs		    . #x2E98)	; ⺘
 	)
-       ((==ucs@unicode	    . #x66F7)	; &g2-AJ1-05134;
-	(==adobe-japan1-0   . 05134)	; &g2-AJ1-05134;
+       ((==ucs@unicode	    . #x66F7)	; &g2-MJ013488;
+	(==mj		    . 013488)	; &g2-MJ013488;
 	))
       (==ucs@unicode	  . #x63ED)	; &g2-JX1-7473;
       (==gb2312		  . #x3D52)	; &g2-JX1-7473; [29-50]
