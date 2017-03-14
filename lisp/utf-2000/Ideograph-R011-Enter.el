@@ -137,7 +137,6 @@
     (=cns11643-3	. #x2134)	; &I-C3-2134; [01-20]
     (=daikanwa		. 01417)	; &I-M-01417;
     (=shinjigen@1ed	.  0091)	; 兦
-    (=hanziku-12	. #xEB63)	; &I-HZK12-EB63;
     (<-original
      ((=mj		  . 006462)	; &MJ006462;
       (=daikanwa	  . 00287)	; &I-M-00287;
@@ -189,13 +188,18 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
 	(=ucs		    . #x2FFA)	; ⿺
 	)
-       ((=ucs@iso	    . #x200CA)	; &CDP-8C7B;
-	(=big5-cdp	    . #x8C7B)	; &CDP-8C7B;
+       ((==ucs@iso	    . #x200CA)	; &g2-CDP-8C7B;
+	(=gt-k		    . 00029)	; &g2-CDP-8C7B;
 	)
        ((==ucs@unicode	    . #x5165)	; &g2-UU+5165;
 	))
       (==ucs@unicode	  . #x5166)	; &g2-UU+5166;
       (==ucs@JP/hanazono  . nil)
+      (->subsumptive
+       ((===ucs@unicode	    . #x5166)	; &R-UU+5166;
+	)
+       ((=hanziku-12	    . #xEB63)	; &HZK12-EB63;
+	))
       ))
     ))
 (define-char
