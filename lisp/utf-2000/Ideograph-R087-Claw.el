@@ -1358,13 +1358,16 @@
 (define-char
   '((ideographic-radical@simplified . 86)	; ⽕
     (ideographic-radical@traditional . 87)	; ⽖
-    (=ucs@big5		. #x70BA)	; &B-ACB0;
-    (=big5		. #xACB0)	; &B-ACB0;
+    (=>ucs@component	. #x7232)	; &IWDS1-315;
+    (=ucs@big5		. #x70BA)	; &IWDS1-315;
+    (=big5		. #xACB0)	; &IWDS1-315;
+    (=>iwds-1		.  0315)	; &IWDS1-315;
     ))
 (define-char
   '((<-denotational
-     ((=ucs@big5	  . #x70BA)	; &B-ACB0;
-      (=big5		  . #xACB0)	; &B-ACB0;
+     ((=>ucs@component	  . #x7232)	; &IWDS1-315;
+      (=ucs@big5	  . #x70BA)	; &IWDS1-315;
+      (=>iwds-1		  .  0315)	; &IWDS1-315;
       ))
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 8)
