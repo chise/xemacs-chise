@@ -1,3 +1,31 @@
+2017-03-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R124-Feather.el (g2-M-28648): Apply new conventions
+	for glyph granularity for a component of ideographic-structure.
+	(CU+7FC7): Add representative node.
+	(UU+7FC7): Likewise.
+
+	* Ideograph-R113-Spirit.el (g2-JU+7953): Apply new conventions for
+	glyph granularity for a component of ideographic-structure.
+	(U+FA1B): Likewise.
+	(UU+798F): Likewise.
+
+	* Ideograph-R087-Claw.el (B-ACB0): Unify A-compU+7232; add
+	`=>iwds-1'.
+
+2017-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el:
+	- Use U+6728 instead of GT-K00495 as left components of abstract
+	  characters and abstract glyphs.
+	- Add some MJ code points.
+	(U+3B4B): Apply new conventions for glyph granularity.
+	(U+6854): Separate UU+6854.
+	(U+6954): Apply new conventions for glyph granularity.
+	(U-00023683): Likewise.
+	(U+6A9C): Likewise; don't use `=>ucs@hanyo-denshi'.
+	(U+6AF7): Apply new conventions for glyph granularity.
+
 2017-03-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R086-Fire.el (GT-K01443): Add
