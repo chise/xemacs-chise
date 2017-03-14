@@ -3602,8 +3602,8 @@
       )
      ((=ucs		  . #x9769)	; 革
       )
-     ((=ucs@unicode	  . #x66F7)	; &AJ1-05134;
-      (=adobe-japan1-0	  . 05134)	; &AJ1-05134;
+     ((=ucs@unicode	  . #x66F7)	; &MJ013488;
+      (=mj		  . 013488)	; &I-MJ013488;
       ))
     (=ucs@unicode	. #x97A8)	; &AJ1-07163;
     (=adobe-japan1-0	. 07163)	; &AJ1-07163;
