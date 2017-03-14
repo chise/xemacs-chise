@@ -1,3 +1,60 @@
+2017-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el: Complete representative nodes of
+	`=adobe-japan1-5' and `=jis-x0213-1' glyphs.
+	(GT-K00058): Use `<-subsumptive' for U-000201A2 instead of
+	`<-denotational' for U+4EBA.
+	(U-000201A2): Add representative nodes.
+	(U+4EBE): Apply new conventions for glyph granularity.
+	(U-0002B746): Modify `ideographic-structure'.
+	(U+4FDE-itaiji-001): New character; use `<-denotational' for
+	U+4FDE.
+	(JU+5017): Add representative nodes.
+	(U+50A3): Add representative nodes.
+	(U+50AA): Apply new conventions for glyph granularity.
+	(CU+50D0): Add representative nodes.
+	(U+4FE6): Apply new conventions for glyph granularity.
+	(U+511E): Separate UU+511E.
+	(U+512C): Apply new conventions for glyph granularity.
+	(IU+20427): Add representative nodes.
+	(U+5136): Apply new conventions for glyph granularity.
+	(U-00020471): Likewise; use `ideographic-radical@ucs/code' instead
+	of `ideographic-radical'; add `ideographic-radical@ucs'; moved to
+	Ideograph-R073-Say.el.
+
+	* Ideograph-R027-Cliff.el: Complete representative nodes of
+	`=adobe-japan1-5' glyphs.
+	(U+539D): Apply new conventions for glyph granularity.
+	(U+53AA): Likewise.
+
+	* Ideograph-R024-Ten.el: Complete representative nodes of
+	`=adobe-japan1-0' and `=adobe-japan1-5' glyphs.
+	(U+5344): Separate UU+5344.
+	(UU+5344): Unify S-0812; add `<-vulgar' for U+5EFF.
+	(MJ057090): New character; use `<-denotational' for U+5344; unify
+	HD-KS031360; use `<-formed' for UU+5344.
+	(UU+5349): Add `sound@ja/on'.
+	(U-00020984): Apply new conventions for glyph granularity.
+	(M-02751): Unify MJ057096 and KOSEKI-031910; use `<-formed' for
+	UU+5351.
+	(U+5359): Apply new conventions for glyph granularity.
+	(U+535A): Likewise.
+
+	* Ideograph-R016-Table.el: Complete representative nodes of
+	`=adobe-japan1-5' glyphs.
+	(U+51E2): Apply new conventions for glyph granularity.
+
+	* Ideograph-R015-Ice.el: Complete representative nodes of
+	`=adobe-japan1-5' glyphs.
+	(U+51AD): Add representative node.
+	(U+34C7): Apply new conventions for glyph granularity.
+	(U+51B9): Likewise.
+	(U+51DF): Likewise.
+
+	* Ideograph-R004-Slash.el: Complete representative nodes of
+	`=adobe-japan1-5' glyphs.
+	(U+51E2): Apply new conventions for glyph granularity.
+
 2017-03-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R011-Enter.el (U+5166): Apply new conventions for
