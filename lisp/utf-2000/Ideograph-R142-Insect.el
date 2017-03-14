@@ -8911,8 +8911,8 @@
       )
      ((=ucs		  . #x866B)	; 虫
       )
-     ((=ucs@unicode	  . #x66F7)	; &AJ1-05134;
-      (=adobe-japan1-0	  . 05134)	; &AJ1-05134;
+     ((=ucs@unicode	  . #x66F7)	; &MJ013488;
+      (=mj		  . 013488)	; &I-MJ013488;
       ))
     (=ucs@unicode	. #x874E)	; &AJ1-06528;
     (=adobe-japan1-0	. 06528)	; &AJ1-06528;
@@ -8978,7 +8978,7 @@
       )
      ((=ucs		  . #x866B)	; 虫
       )
-     ((=hanyo-denshi/ft	  . #x3645)	; &HD-FT-3645; [22-37]
+     ((=mj		  . 013489)	; &MJ013489;
       ))
     (=hanyo-denshi/ft	. #x3933)	; &HD-FT-3933; [25-19]
     (->subsumptive
