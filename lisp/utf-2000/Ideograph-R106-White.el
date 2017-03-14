@@ -1938,8 +1938,9 @@
       )
      ((=ucs		  . #x767D)	; 白
       )
-     ((=ucs@big5	  . #x70BA)	; &B-ACB0;
-      (=big5		  . #xACB0)	; &B-ACB0;
+     ((=>ucs@component	  . #x7232)	; &IWDS1-315;
+      (=ucs@big5	  . #x70BA)	; &IWDS1-315;
+      (=>iwds-1		  .  0315)	; &IWDS1-315;
       ))
     (=ucs		. #x24FA1)	; 𤾡
     ))
