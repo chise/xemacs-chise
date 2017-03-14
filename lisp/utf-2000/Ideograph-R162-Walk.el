@@ -20134,8 +20134,8 @@
       )
      ((=ucs		  . #x8FB6)	; 辶
       )
-     ((=ucs@unicode	  . #x66F7)	; &AJ1-05134;
-      (=adobe-japan1-0	  . 05134)	; &AJ1-05134;
+     ((=ucs@unicode	  . #x66F7)	; &MJ013488;
+      (=mj		  . 013488)	; &I-MJ013488;
       ))
     (=>ucs@unicode	. #x904F)	; &A-UU+904F;
     ))
@@ -20153,8 +20153,8 @@
      ((name		  . "CJK RADICAL WALK ONE")
       (=ucs		  . #x2ECD)	; ⻍
       )
-     ((=ucs@unicode	  . #x66F7)	; &AJ1-05134;
-      (=adobe-japan1-0	  . 05134)	; &AJ1-05134;
+     ((=ucs@unicode	  . #x66F7)	; &MJ013488;
+      (=mj		  . 013488)	; &I-MJ013488;
       ))
     (=ucs@jis		. #x904F)	; &MJ026045;
     (=mj		. 026045)	; &MJ026045;
@@ -20220,8 +20220,8 @@
      ((name		  . "CJK RADICAL WALK TWO")
       (=ucs		  . #x2ECE)	; ⻎
       )
-     ((=ucs@unicode	  . #x66F7)	; &AJ1-05134;
-      (=adobe-japan1-0	  . 05134)	; &AJ1-05134;
+     ((=ucs@unicode	  . #x66F7)	; &MJ013488;
+      (=mj		  . 013488)	; &I-MJ013488;
       ))
     (=ucs@cns		. #x904F)	; &C1-6733;
     (=cns11643-1	. #x6733)	; &C1-6733; [71-19]
@@ -20240,8 +20240,8 @@
      ((name		  . "CJK RADICAL SIMPLIFIED WALK")
       (=ucs		  . #x2ECC)	; ⻌
       )
-     ((=ucs@unicode	  . #x66F7)	; &AJ1-05134;
-      (=adobe-japan1-0	  . 05134)	; &AJ1-05134;
+     ((=ucs@unicode	  . #x66F7)	; &MJ013488;
+      (=mj		  . 013488)	; &I-MJ013488;
       ))
     (=ucs@unicode	. #x904F)	; &MJ026044;
     (=ucs@JP/hanazono	. nil)
@@ -20261,8 +20261,8 @@
        ((name		    . "CJK RADICAL SIMPLIFIED WALK")
 	(=ucs		    . #x2ECC)	; ⻌
 	)
-       ((==ucs@unicode	    . #x66F7)	; &g2-AJ1-05134;
-	(==adobe-japan1-0   . 05134)	; &g2-AJ1-05134;
+       ((==ucs@unicode	    . #x66F7)	; &g2-MJ013488;
+	(==mj		    . 013488)	; &g2-MJ013488;
 	))
       (==ucs@unicode	  . #x904F)	; &g2-MJ026044;
       (==ucs@JP/hanazono  . nil)
