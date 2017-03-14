@@ -1,5 +1,10 @@
 2017-03-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R011-Enter.el (U+5166): Apply new conventions for
+	glyph granularity.
+
+2017-03-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R124-Feather.el (g2-M-28648): Apply new conventions
 	for glyph granularity for a component of ideographic-structure.
 	(CU+7FC7): Add representative node.
