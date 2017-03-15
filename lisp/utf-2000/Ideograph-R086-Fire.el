@@ -3916,13 +3916,16 @@
 (define-char
   '((ideographic-radical@simplified . 86)	; ⽕
     (ideographic-radical@traditional . 87)	; ⽖
-    (=ucs@big5		. #x70BA)	; &B-ACB0;
-    (=big5		. #xACB0)	; &B-ACB0;
+    (=>ucs@component	. #x7232)	; &IWDS1-315;
+    (=ucs@big5		. #x70BA)	; &IWDS1-315;
+    (=big5		. #xACB0)	; &IWDS1-315;
+    (=>iwds-1		.  0315)	; &IWDS1-315;
     ))
 (define-char
   '((<-denotational
-     ((=ucs@big5	  . #x70BA)	; &B-ACB0;
-      (=big5		  . #xACB0)	; &B-ACB0;
+     ((=>ucs@component	  . #x7232)	; &IWDS1-315;
+      (=ucs@big5	  . #x70BA)	; &IWDS1-315;
+      (=>iwds-1		  .  0315)	; &IWDS1-315;
       ))
     (ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 5)
@@ -8291,7 +8294,7 @@
       )
      ((=ucs@unicode	  . #x80B2)	; &MJ020960;
       (=ucs@cns		  . #x2F982)	; &MJ020960;
-      (=mj		  . 020960)	; &I-MJ020960;
+      (=mj		  . 020960)	; &MJ020960;
       ))
     (=ucs@unicode	. #x7134)	; &C3-3C79;
     (=cns11643-3	. #x3C79)	; &C3-3C79; [28-89]
@@ -9543,7 +9546,7 @@
      ((=ucs		  . #x706B)	; 火
       )
      ((=ucs@cns		  . #x82F1)	; &MJ021701;
-      (=mj		  . 021701)	; &I-MJ021701;
+      (=mj		  . 021701)	; &MJ021701;
       ))
     (=ucs@cns		. #x7150)	; &C2-4463;
     (=cns11643-2	. #x4463)	; &C2-4463; [36-67]
@@ -9569,7 +9572,7 @@
      ((=ucs		  . #x706B)	; 火
       )
      ((=ucs@unicode	  . #x82F1)	; &MJ021700;
-      (=mj		  . 021700)	; &I-MJ021700;
+      (=mj		  . 021700)	; &MJ021700;
       ))
     (=ucs@unicode	. #x7150)	; &AJ1-18028;
     (=adobe-japan1-5	. 18028)	; &AJ1-18028;
