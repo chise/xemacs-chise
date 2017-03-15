@@ -3483,7 +3483,7 @@
      ((=ucs		  . #x7AF9)	; 竹
       )
      ((=ucs@unicode	  . #x8096)	; &MJ020928;
-      (=mj		  . 020928)	; &I-MJ020928;
+      (=mj		  . 020928)	; &MJ020928;
       ))
     (=ucs@unicode	. #x7B72)	; &C2-4570;
     (=ucs@JP/hanazono	. nil)
