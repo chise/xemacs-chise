@@ -1144,12 +1144,9 @@
       )
      ((=ucs		  . #x27FB7)	; 𧾷
       )
-     ((=ucs@cns		  . #x72AE)	; &JX2-703B;
-      (=ucs@jis		  . #x72AE)	; &JX2-703B;
-      (=jis-x0212	  . #x4A6E)	; &JX2-703B; [42-78]
-      (=cns11643-2	  . #x2164)	; &I-C2-2164; [01-68]
-      (=jis-x0213-2	  . #x703B)	; &I-JX2-703B; [80-27]
-      (=daikanwa	  . 20236)	; &I-M-20236;
+     ((=ucs@cns		  . #x72AE)	; &AJ1-18056;
+      (=ucs@jis		  . #x72AE)	; &AJ1-18056;
+      (=adobe-japan1-5	  . 18056)	; &AJ1-18056;
       ))
     (=ucs@jis		. #x8DCB)	; &AJ1-06798;
     (=adobe-japan1-0	. 06798)	; &AJ1-06798;
@@ -1170,9 +1167,9 @@
        ((name		    . "CJK RADICAL FOOT")
 	(=ucs		    . #x2ECA)	; ⻊
 	)
-       ((==ucs@cns	    . #x72AE)	; &g2-JSP-4A6E;
-	(==ucs@jis	    . #x72AE)	; &g2-JSP-4A6E;
-	(==jis-x0213-2	    . #x703B)	; &g2-JSP-4A6E; [80-27]
+       ((==ucs@cns	    . #x72AE)	; &g2-AJ1-18056;
+	(==ucs@jis	    . #x72AE)	; &g2-AJ1-18056;
+	(==adobe-japan1-5   . 18056)	; &g2-AJ1-18056;
 	))
       (==ucs@cns	  . #x8DCB)	; &g2-AJ1-06798;
       (==ucs@jis	  . #x8DCB)	; &g2-AJ1-06798;

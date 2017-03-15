@@ -1,5 +1,46 @@
 2017-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R086-Fire.el (B-ACB0): Unify A-compU+7232; add
+	`=>iwds-1'.
+
+2017-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R044-Corpse.el: Complete representative nodes of
+	`=jis-x0213-1' glyphs.
+	(U+5C46): Add `ideographic-structure'.
+	(JU+5C46): Add `sound@ja/on'; apply new conventions for glyph
+	granularity.
+	(UU+5C46): Apply new conventions for glyph granularity.
+	(U+5C53): Likewise.
+
+	* Ideograph-R030-Mouth.el (U+55BE): Use "⿱&GT-K01443;x" instead of "⿳小冖
+	x" in `ideographic-structure'; add `<-simplified@CN' for UU+56B3;
+	apply new conventions for glyph granularity.
+	(U+55EB): Use "聂" instead of "耳双" in `ideographic-structure';
+	add `<-simplified@CN' for UU+56C1; apply new conventions for glyph
+	granularity.
+	(U+55F3): Use "爱" instead of "⿱&CDP-8BB8;友" in `ideographic-structure';
+	add `<-simplified@CN' for UU+566F; apply new conventions for glyph
+	granularity.
+	(U+5624): Use "婴" instead of "⿱⿰贝贝女" in
+	`ideographic-structure'; add `<-simplified@CN' for U+56B6; apply
+	new conventions for glyph granularity.
+	(U+5625): Fix `ideographic-structure'; apply new conventions for
+	glyph granularity.
+	(U+565C): Use "鲁" instead of "⿱鱼日" in `ideographic-structure';
+	add `<-simplified@CN' for U+5695; apply new conventions for glyph
+	granularity.
+	(UU+566F): Add representative nodes.
+
+	* Ideograph-R017-Open-Box.el: Complete representative nodes of
+	`=jis-x0213-1' glyphs.
+	(A-IWDSU+51F7): New abstract node.
+	(U+51F7): Add `<-denotational' for A-IWDSU+51F7; add
+	`sound@ja/on/{kan|go}'.
+	(U-0002067D): Add `<-denotational' for A-IWDSU+51F7; Unify
+	IU+2067D.
+	(U-00020679): Apply new conventions for glyph granularity.
+
 	* Ideograph-R009-Man.el: Complete representative nodes of
 	`=adobe-japan1-5' and `=jis-x0213-1' glyphs.
 	(GT-K00058): Use `<-subsumptive' for U-000201A2 instead of
@@ -21,6 +62,19 @@
 	(U-00020471): Likewise; use `ideographic-radical@ucs/code' instead
 	of `ideographic-radical'; add `ideographic-radical@ucs'; moved to
 	Ideograph-R073-Say.el.
+
+	* Ideograph-R194-Ghost.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/JA.
+
+	* Ideograph-R154-Shell.el: Complete representative nodes of
+	`=adobe-japan1-0' glyphs.
+	(U+8CA1): Apply new conventions for glyph granularity.
+	(U+8CBF): Likewise.
+	(U+8CC2): Likewise.
+	(U+8CDE): Likewise.
+	(U-00027E1A): Likewise.
 
 	* Ideograph-R027-Cliff.el: Complete representative nodes of
 	`=adobe-japan1-5' glyphs.

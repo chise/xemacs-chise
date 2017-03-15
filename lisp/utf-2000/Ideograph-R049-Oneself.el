@@ -928,8 +928,8 @@
     (total-strokes	 . 12)
     (=ucs@unicode	. #x5DFD)	; &MJ010800;
     (=ucs@JP/hanazono	. nil)
-    (=mj		. 010800)	; &I-MJ010800;
-    (=adobe-japan1-0	. 07734)	; &MJ010800;
+    (=mj		. 010800)	; &MJ010800;
+    (=adobe-japan1-0	. 07734)	; &I-AJ1-07734;
     (=jis-x0208@1978	. #x4327)	; &I-J78-4327; [35-07]
     (=gb2312		. #x5963)	; &I-G0-5963; [57-67]
     (=ks-x1001		. #x615E)	; &I-K0-615E; [65-62]
@@ -1017,7 +1017,7 @@
     (=jef-china3	. #x4BF5)	; &I-JC3-4BF5;
     (<-simplified@JP/jis
      ((=ucs@unicode	  . #x5DFD)	; &MJ010800;
-      (=mj		  . 010800)	; &I-MJ010800;
+      (=mj		  . 010800)	; &MJ010800;
       (=jis-x0208@1978	  . #x4327)	; &I-J78-4327; [35-07]
       ))
     (->subsumptive
