@@ -3800,7 +3800,7 @@
      ((=ucs		  . #x7592)	; 疒
       )
      ((=ucs@unicode	  . #x8096)	; &MJ020928;
-      (=mj		  . 020928)	; &I-MJ020928;
+      (=mj		  . 020928)	; &MJ020928;
       ))
     (=ucs@unicode	. #x75DF)	; &C2-3E38;
     (=ucs@JP/hanazono	. nil)
