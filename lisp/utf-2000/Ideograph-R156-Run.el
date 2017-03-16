@@ -1004,12 +1004,9 @@
       )
      ((=ucs		  . #x8D70)	; 走
       )
-     ((=ucs@cns		  . #x72AE)	; &JX2-703B;
-      (=ucs@jis		  . #x72AE)	; &JX2-703B;
-      (=jis-x0212	  . #x4A6E)	; &JX2-703B; [42-78]
-      (=cns11643-2	  . #x2164)	; &I-C2-2164; [01-68]
-      (=jis-x0213-2	  . #x703B)	; &I-JX2-703B; [80-27]
-      (=daikanwa	  . 20236)	; &I-M-20236;
+     ((=ucs@cns		  . #x72AE)	; &AJ1-18056;
+      (=ucs@jis		  . #x72AE)	; &AJ1-18056;
+      (=adobe-japan1-5	  . 18056)	; &AJ1-18056;
       ))
     (=ucs@iso		. #x27EBA)	; &C6-4F34;
     (=cns11643-6	. #x4F34)	; &C6-4F34; [47-20]
@@ -2175,7 +2172,7 @@
      ((=ucs		  . #x8D70)	; 走
       )
      ((=ucs@unicode	  . #x8096)	; &MJ020928;
-      (=mj		  . 020928)	; &I-MJ020928;
+      (=mj		  . 020928)	; &MJ020928;
       ))
     (=ucs@unicode	. #x8D99)	; &HD-FT-3961;
     (=ucs@JP/hanazono	. nil)

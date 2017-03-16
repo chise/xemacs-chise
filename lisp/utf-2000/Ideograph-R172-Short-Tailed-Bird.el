@@ -4216,10 +4216,10 @@
     (ideographic-strokes@cns . 10)
     (total-strokes	 . 18)
     (=ucs		. #x5DC2)	; 巂
-    (=iso-ir165		. #x7B22)	; &EGB-7B22; [91-02]
-    (=cns11643-2	. #x643E)	; &C2-643E; [68-30]
+    (=iso-ir165		. #x7B22)	; &I-EGB-7B22; [91-02]
+    (=cns11643-2	. #x643E)	; &I-C2-643E; [68-30]
     (=big5		. #xF172)	; &I-B-F172;
-    (=daikanwa		. 08595)	; &M-08595;
+    (=daikanwa		. 08595)	; &I-M-08595;
     (->subsumptive
      ((=>>ucs@cns	  . #x5DC2)	; &G-CU+5DC2;
       (=>>daikanwa	  . 08595)	; &G-CU+5DC2;
