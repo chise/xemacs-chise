@@ -5043,7 +5043,7 @@
      ((=ucs		  . #x866B)	; 虫
       )
      ((=ucs@unicode	  . #x8096)	; &MJ020928;
-      (=mj		  . 020928)	; &I-MJ020928;
+      (=mj		  . 020928)	; &MJ020928;
       ))
     (=ucs@unicode	. #x86F8)	; &AJ1-02909;
     (=ucs@JP/hanazono	. nil)
@@ -8912,7 +8912,7 @@
      ((=ucs		  . #x866B)	; 虫
       )
      ((=ucs@unicode	  . #x66F7)	; &MJ013488;
-      (=mj		  . 013488)	; &I-MJ013488;
+      (=mj		  . 013488)	; &MJ013488;
       ))
     (=ucs@unicode	. #x874E)	; &AJ1-06528;
     (=adobe-japan1-0	. 06528)	; &AJ1-06528;
