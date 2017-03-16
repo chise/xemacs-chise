@@ -1,5 +1,16 @@
 2017-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R094-Dog.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R073-Say.el: Add some MJ code points.
+	(U+3AD7): Use `ideographic-radical@daikanwa' instead of
+	`ideographic-radical'; use `ideographic-radical@ucs' instead of
+	`cns-radical'; add `<-original' for U+539A; add representative
+	nodes.
+
+	* Ideograph-R072-Sun.el (U+3AD7): Copied from
+	Ideograph-R073-Say.el.
+
 	* Ideograph-R086-Fire.el (B-ACB0): Unify A-compU+7232; add
 	`=>iwds-1'.
 
