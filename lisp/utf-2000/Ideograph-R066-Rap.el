@@ -2811,6 +2811,10 @@
     (=daikanwa		. 13225)	; &I-M-13225;
     (=shinjigen		.  0728)	; &AJ1-05066;
     (<-interchangeable
+     ((=ucs@jis		  . #x98ED)	; &AJ1-04289;
+      (=ucs@ks		  . #x98ED)	; &AJ1-04289;
+      (=adobe-japan1-0	  . 04289)	; &AJ1-04289;
+      )
      ((=ucs		  . #x52C5)	; 勅
       ))
     (->formed
@@ -4553,7 +4557,7 @@
       )
      ((=ucs@unicode	  . #x80B2)	; &MJ020960;
       (=ucs@cns		  . #x2F982)	; &MJ020960;
-      (=mj		  . 020960)	; &I-MJ020960;
+      (=mj		  . 020960)	; &MJ020960;
       )
      ((=ucs		  . #x6535)	; 攵
       ))
@@ -6789,6 +6793,17 @@
     (=gt-pj-1		. #x4030)	; &I-GT-16925; [32-16]
     (=daikanwa		. 13394)	; &I-M-13394;
     (=shinjigen		.  3196)	; &AJ1-02644;
+    (<-formed
+     ((=ucs@jis		  . #x98ED)	; &AJ1-04289;
+      (=ucs@ks		  . #x98ED)	; &AJ1-04289;
+      (=adobe-japan1-0	  . 04289)	; &AJ1-04289;
+      ))
+    (<-same
+     ((=ucs		  . #x22FEB)	; 𢿫
+      (=daikanwa	  . 13393)	; &I-M-13393;
+      ))
+    (<-same*sources
+     jiujingziyang daikanwa)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")

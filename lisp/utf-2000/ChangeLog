@@ -1,3 +1,38 @@
+2017-03-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R102-Field.el: Add some Adobe-Japan1-5 code points.
+	(U+7548): Apply new conventions for glyph granularity.
+	(U+7572): Likewise.
+
+	* Ideograph-R069-Axe.el (U+65A4): Separate UU+65A4.
+	(BC-8852): Add `<-denotational' for U+65A4.
+
+	* Ideograph-R066-Rap.el (UU+6555): Add `<-interchangeable' for
+	JU+98ED.
+	(UU+6574): Add `<-formed' for JU+98ED; add `<-same' for
+	U-00022FEB.
+
+	* Ideograph-R064-Hand.el (U+6298): Separate UU+6298.
+	(U+6298-var-001): New character; use `<-denotational' for U+6298.
+
+	* Ideograph-R051-Dry.el (U+5E75): Add `sound@ja/on'.
+
+	* Ideograph-R046-Mountain.el: Complete representative nodes of
+	`=adobe-japan1-5' glyphs.
+	(U-00021D2D): Apply new conventions for glyph granularity.
+	(U-000216B4): Likewise.
+	(U-00021D92): Likewise.
+	(U+5CC9): Likewise.
+	(U-00021DE0): Likewise.
+	(U+5D34): Likewise.
+	(U+5D59): Likewise.
+	(U-00021E83): New character.
+	(U+5D88): Apply new conventions for glyph granularity.
+
+	* Ideograph-R032-Earth.el (U+57D1): Use `->denotational' and
+	`->subsumptive'.
+	(U+57F7): Separate UU+57F7.
+
 2017-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R094-Dog.el: Add some Adobe-Japan1-5 code points.

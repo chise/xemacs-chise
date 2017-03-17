@@ -365,6 +365,7 @@
   '((ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (sound@ja/on	"keN" "geN")
     (=ucs		. #x5E75)	; 幵
     (=adobe-japan1-0	. 04737)	; &I-AJ1-04737;
     (=jis-x0208		. #x5674)	; &I-J90-5674; [54-84]
