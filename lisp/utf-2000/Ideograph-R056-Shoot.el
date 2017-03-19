@@ -123,7 +123,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 56)	; ⼷
+  '((<-denotational
+     ((==>ucs@bucs	  . #x4E8C)	; &BUCS+4E8C;
+      ))
+    (ideographic-radical . 56)	; ⼷
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (=ucs		. #x5F0D)	; 弍

@@ -1,3 +1,8 @@
+2017-03-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R056-Shoot.el (U+5F0D): Add `<-denotational' for
+	BUCS+4E8C.
+
 2017-03-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R050-Turban.el: Complete representative nodes of
