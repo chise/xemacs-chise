@@ -1,3 +1,51 @@
+2017-03-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el: Complete representative nodes of
+	`=adobe-japan1-5' glyphs.
+	(U+385C): Apply new conventions for glyph granularity.
+	(U-0002217B): Likewise.
+
+	* Ideograph-R038-Woman.el: Complete representative nodes of
+	`=adobe-japan1-5' glyphs.
+	(U+5975): Apply new conventions for glyph granularity.
+	(U+5976): Likewise.
+	(U+5979): Likewise.
+	(U+597C): Likewise.
+	(U-000216B4): Likewise.
+	(U+598B): Likewise.
+	(U+598D): Likewise.
+	(U+59AE): Likewise.
+	(U+59AF): Likewise.
+	(U+59B3): Likewise.
+	(U+59BC): Likewise.
+	(U+59C3): Likewise.
+	(U+59CD): Likewise.
+	(U+59DE): Likewise.
+	(U+59EE): Likewise.
+	(U+59F1): Likewise.
+	(U+59F8): Likewise.
+	(U+36CF): Likewise.
+	(U+5A13): Likewise.
+	(U+5A2D): Likewise.
+	(U+5A65): Likewise.
+	(U+5A7A): Likewise.
+	(U+5A84): Likewise.
+	(U+5A9C): Likewise.
+	(U+5A9F): Likewise.
+	(U+5AA0): Likewise.
+	(U+5AA2): Likewise.
+	(U+5AB1): Likewise.
+	(U+5AB2): Likewise.
+	(U+5AB8): Likewise.
+	(U+5AC4): Likewise.
+	(U+5AE5): Likewise.
+	(U+5AE6): Likewise.
+	(U+5AEE): Likewise.
+	(U+5AF5): Likewise.
+	(U+5B08): Likewise.
+	(U+5B1B): Likewise.
+	(U+5B21): Likewise.
+
 2017-03-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R102-Field.el: Add some Adobe-Japan1-5 code points.
