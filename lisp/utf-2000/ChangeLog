@@ -1,5 +1,8 @@
 2017-03-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R061-Heart.el (U+6133): Use "䀠" instead of "⿰目目"
+	in `ideographic-structure'.
+
 	* Ideograph-R056-Shoot.el (U+5F0D): Add `<-denotational' for
 	BUCS+4E8C.
 

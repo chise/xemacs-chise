@@ -20676,14 +20676,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x76EE)	; 目
-	)
-       ((=ucs		    . #x76EE)	; 目
-	))
+     ((=ucs		  . #x4020)	; 䀠
       )
      ((=ucs		  . #x5FC3)	; 心
       ))
