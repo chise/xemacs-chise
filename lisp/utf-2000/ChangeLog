@@ -1,5 +1,11 @@
 2017-03-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R008-Lid.el (IWDS1-0062): New abstract component;
+	unify A-IWDSU+4EA0.
+	(U+4EA0): Add `<-denotational@component' for IWDS1-0062.
+
+2017-03-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R061-Heart.el (U+6133): Use "䀠" instead of "⿰目目"
 	in `ideographic-structure'.
 
