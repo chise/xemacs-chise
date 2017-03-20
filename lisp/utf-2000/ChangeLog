@@ -1,8 +1,15 @@
 2017-03-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R001-One.el (U+4E0C): Add `<-denotational@component'
+	for IWDS1-0221.
+	(IWDS1-0221): New abstract component.
+
 	* Ideograph-R008-Lid.el (IWDS1-0062): New abstract component;
 	unify A-IWDSU+4EA0.
 	(U+4EA0): Add `<-denotational@component' for IWDS1-0062.
+
+	* Ideograph-R002-Line.el (BC-8BF1): Add `<-denotational@component'
+	for IWDS1-0072.
 
 2017-03-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
