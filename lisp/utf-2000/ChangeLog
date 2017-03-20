@@ -1,3 +1,35 @@
+2017-03-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R015-Ice.el (U+51AB): Separate UU+51AB; add
+	`<-denotational@component' for IWDS1-0047; unify IWDS1-0219.
+	(UU+51AB): Add GT-K00082.
+
+2017-03-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (U+516B): Add `<-denotational@component'
+	for IWDS1-0022 and IWDS1-0222; unify IWDS1-0236.
+	(GT-K00059): Use `<-subsumptive' instead of `<-denotational' for
+	U+516B.
+
+	* Ideograph-R011-Enter.el (U+5165): Add `<-denotational@component'
+	for IWDS1-0146; unify IWDS1-0237.
+
+	* Ideograph-R010-Legs.el (IWDS1-0222): New abstract component;
+	unify A-compU+513F.
+	(U+513F): Add `<-denotational@component' for IWDS1-0119 and
+	IWDS1-0222.
+	(U+5140): Add `<-denotational@component' for IWDS1-0099,
+	IWDS1-0214 and IWDS1-0221.
+	(IWDS1-0214): New abstract component; unify A-compU+5140.
+
+	* Ideograph-R007-Two.el (U+4E8C): Add `<-denotational@component'
+	for IWDS1-0047 and IWDS1-0062.
+	(IWDS1-0093): New abstract component; unify A-compU+4E8F; use
+	`<-denotational' for BUCS+4E8E.
+	(U+4E8F): Use IWDS1-0093 instead of BUCS+4E8E as its mother.
+	(U+4E90): Likewise.
+	(IWDS1-0047): New abstract component; unify A-compU+4E8C.
+
 2017-03-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R001-One.el (U+4E0C): Add `<-denotational@component'
