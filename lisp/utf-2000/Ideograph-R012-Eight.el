@@ -1,6 +1,13 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((ideographic-radical . 12)	; ⼋
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E37)	; &IWDS1-022;
+      (=>iwds-1		  .  0022)	; &IWDS1-022;
+      )
+     ((=>ucs@component	  . #x513F)	; &IWDS1-222;
+      (=>iwds-1		  .  0222)	; &IWDS1-222;
+      ))
+    (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 241 3)
@@ -21,6 +28,7 @@
     (=daikanwa		. 01450)	; &I-M-01450;
     (=shinjigen		.  0489)	; 八
     (=jef-china3	. #x43E4)	; &I-JC3-43E4;
+    (=>iwds-1		.  0236)	; 八
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x516B)	; 八
@@ -104,19 +112,12 @@
 	)
        ((===mj		    . 007274)	; &R-MJ007274;
 	))
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x516B)	; 八
-      ))
-    (ideographic-radical . 12)	; ⼋
-    (ideographic-strokes . 0)
-    (total-strokes	 . 2)
-    (=gt-k		. 00059)	; &GT-K00059;
-    (=gt-pj-k1		. #x3768)	; &GT-K00059; [23-72]
-    (<-formed@component/connect-above
-     ((=ucs		  . #x516B)	; 八
+      )
+     ((=gt-k		  . 00059)	; &GT-K00059;
+      (=gt-pj-k1	  . #x3768)	; &GT-K00059; [23-72]
+      (<-formed@component/connect-above
+       ((=ucs		    . #x516B)	; 八
+	))
       ))
     ))
 (define-char
