@@ -298,6 +298,9 @@
   '((<-denotational
      ((=ucs		  . #x20006)	; 𠀆
       ))
+    (<-denotational@component
+     ((=>iwds-1		  .  0072)	; &IWDS1-072;
+      ))
     (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
