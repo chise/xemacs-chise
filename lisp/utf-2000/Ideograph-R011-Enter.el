@@ -1,6 +1,10 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((ideographic-radical . 11)	; ⼊
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4EBA)	; &IWDS1-146;
+      (=>iwds-1		  .  0146)	; &IWDS1-146;
+      ))
+    (ideographic-radical . 11)	; ⼊
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 102 1)
@@ -17,6 +21,7 @@
     (=gt-pj-1		. #x467E)	; &I-GT-01850; [38-94]
     (=daikanwa		. 01415)	; &I-M-01415;
     (=shinjigen		.  0480)	; 入
+    (=>iwds-1		.  0237)	; 入
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5165)	; 入
