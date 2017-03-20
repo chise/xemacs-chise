@@ -987,7 +987,11 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 1)	; ⼀
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E0C)	; &IWDS1-221;
+      (=>iwds-1		  .  0221)	; &IWDS1-221;
+      ))
+    (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (hanyu-dazidian	1 9 1)
@@ -5300,4 +5304,9 @@
     (total-strokes	 . 22)
     (=gt		. 00100)	; &GT-00100;
     (=gt-pj-9		. #x4A6B)	; &GT-00100; [42-75]
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (=>ucs@component	. #x4E0C)	; &IWDS1-221;
+    (=>iwds-1		.  0221)	; &IWDS1-221;
     ))
