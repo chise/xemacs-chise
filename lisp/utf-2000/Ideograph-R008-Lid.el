@@ -3,6 +3,17 @@
   '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (=>ucs@component	. #x4EA0)	; &IWDS1-062;
+    (=>iwds-1		.  0062)	; &IWDS1-062;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4EA0)	; &IWDS1-062;
+      (=>iwds-1		  .  0062)	; &IWDS1-062;
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
     (sound@ja/on/kan	"tou")
     (=ucs		. #x4EA0)	; 亠
     (=+>jis-x0208	. #x5035)	; 亠 [48-21]
