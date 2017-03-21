@@ -1,6 +1,10 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((ideographic-radical . 27)	; ⼚
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E06)	; &IWDS1-150;
+      (=>iwds-1		  .  0150)	; &IWDS1-150;
+      ))
+    (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 67 16)
