@@ -56,10 +56,13 @@
     (=daikanwa		. 00092)	; &I-M-00092;
     ))
 (define-char
-  '((ideographic-radical . 3)	; ⼂
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E37)	; &IWDS1-022;
+      (=>iwds-1		  .  0022)	; &IWDS1-022;
+      ))
+    (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
-    (ideograph-cdp	. -91)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -127,6 +130,13 @@
     ))
 (define-char
   '((ideographic-radical . 3)	; ⼂
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (=>ucs@component	. #x4E37)	; &IWDS1-022;
+    (=>iwds-1		.  0022)	; &IWDS1-022;
+    ))
+(define-char
+  '((ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (hanyu-dazidian	1 42 12)
@@ -152,13 +162,21 @@
     (=hanziku-1		. #xACC5)	; &I-HZK01-ACC5;
     ))
 (define-char
-  '((ideographic-radical . 3)	; ⼂
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E38)	; &IWDS1-249;
+      (=>iwds-1		  .  0249)	; &IWDS1-249;
+      )
+     ((=>ucs@component	  . #x51E1)	; &IWDS1-346;
+      (=>iwds-1		  .  0346)	; &IWDS1-346;
+      ))
+    (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (sound@ja/kun	"maru" "maru+i")
     (sound@ja/on/go	"gan")
     (=ucs		. #x4E38)	; 丸
     (=big5		. #xA459)	; &I-B-A459;
+    (=>iwds-1		.  0104)	; 丸
     ))
 (define-char
   '((<-denotational

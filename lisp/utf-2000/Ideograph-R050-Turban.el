@@ -49,7 +49,11 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5E02)	; &IWDS1-197;
+      (=>iwds-1		  .  0197)	; &IWDS1-197;
+      ))
+    (ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (comment		. "(cloth for lap)")
@@ -141,7 +145,11 @@
     (=hanziku-2		. #xE7E8)	; &I-HZK02-E7E8;
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5E02)	; &IWDS1-197;
+      (=>iwds-1		  .  0197)	; &IWDS1-197;
+      ))
+    (ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (comment		. "(market)")
@@ -2655,15 +2663,6 @@
   '((ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (hanyu-dazidian	1 736 9)
-    (=ucs		. #x5E26)	; 带
-    (=gb2312		. #x3478)	; &I-G0-3478; [20-88]
-    (=hanziku-2		. #xE9B4)	; &I-HZK02-E9B4;
-    ))
-(define-char
-  '((ideographic-radical . 50)	; ⼱
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
     (hanyu-dazidian	1 736 18)
     (=ucs		. #x5E27)	; 帧
     (=gb2312		. #x5621)	; &I-G0-5621; [54-01]
@@ -3467,6 +3466,22 @@
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
+    (==>ucs@bucs	. #x5E36)	; &BUCS+5E36;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5E36)	; &BUCS+5E36;
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (=>ucs@component	. #x5E2F)	; &IWDS1-392;
+    (=>iwds-1		.  0392)	; &IWDS1-392;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x5E2F)	; &IWDS1-392;
+      (=>iwds-1		  .  0392)	; &IWDS1-392;
+      ))
+    (ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (hanyu-dazidian	1 739 12)
@@ -3510,6 +3525,31 @@
        ((===ucs@unicode	    . #x5E2F)	; &R-UU+5E2F;
 	)
        ((=hanziku-2	    . #xEA58)	; &HZK02-EA58;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x5E2F)	; &IWDS1-392;
+      (=>iwds-1		  .  0392)	; &IWDS1-392;
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (hanyu-dazidian	1 736 9)
+    (=ucs		. #x5E26)	; 带
+    (=gb2312		. #x3478)	; &I-G0-3478; [20-88]
+    (<-simplified@CN
+     ((=ucs		  . #x5E36)	; 帶
+      (=gb12345		  . #x3478)	; 帶 [20-88]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x5E26)	; &g2-UU+5E26;
+      (==gb2312		  . #x3478)	; &g2-UU+5E26; [20-88]
+      (->subsumptive
+       ((===ucs@unicode	    . #x5E26)	; &R-UU+5E26;
+	)
+       ((=hanziku-2	    . #xE9B4)	; &HZK02-E9B4;
 	))
       ))
     ))
@@ -3983,7 +4023,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 50)	; ⼱
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5E36)	; &BUCS+5E36;
+      ))
+    (ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (ideographic-structure
@@ -9597,4 +9640,9 @@
       )
      ((=cns11643-7	  . #x6350)	; &C7-6350; [67-48]
       ))
+    ))
+(define-char
+  '((ideographic-radical . 50)	; ⼱
+    (=>ucs@component	. #x5E02)	; &IWDS1-197;
+    (=>iwds-1		.  0197)	; &IWDS1-197;
     ))

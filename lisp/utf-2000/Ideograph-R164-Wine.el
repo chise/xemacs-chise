@@ -2495,6 +2495,28 @@
     ))
 (define-char
   '((ideographic-radical . 164)	; ⾣
+    (ideographic-strokes . 6)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5408)	; 合
+      )
+     ((=ucs		  . #x9149)	; 酉
+      ))
+    (=ucs		. #x2882D)	; 𨠭
+    (->subsumptive
+     ((==ucs@iso	  . #x2882D)	; &g2-IU-0002882D;
+      (->subsumptive
+       ((===ucs@iso	    . #x2882D)	; &R-U-0002882D;
+	)
+       ((=hanziku-9	    . #xE7A1)	; &HZK09-E7A1;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
     (=ucs		. #x28837)	; 𨠷

@@ -1,5 +1,54 @@
 2017-03-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R050-Turban.el (U+5DFF): Add
+	`<-denotational@component' for IWDS1-0197.
+	(U+5E02): Likewise.
+	(BUCS+5E36): New abstract node.
+	(IWDS1-0392): New abstract component; use `<-denotational' for
+	BUCS+5E36; unify A-compU+5E2F.
+	(U+5E2F): Add `<-denotational' for IWDS1-0392.
+	(U+5E26): Likewise; apply new conventions for glyph granularity;
+	add `<-simplified@CN' for U+5E36.
+	(U+5E36): Add `<-denotational' for BUCS+5E36.
+	(IWDS1-0197): New abstract component; unify A-compU+5E02.
+
+	* Ideograph-R049-Oneself.el (IWDS1-0120): New abstract component;
+	unify A-compU+5DF1.
+	(IWDS1-0122): New abstract component; unify A-compU+5DF2; add
+	`<-denotational@component' for IWDS1-0120.
+	(IWDS1-0121): New abstract component; unify A-compU+5DF3; add
+	`<-denotational@component' for IWDS1-0120.
+	(U+5DF1): Add `<-denotational@component' for IWDS1-0120,
+	IWDS1-0121 and IWDS1-0122.
+	(U+5DF2): Add `<-denotational@component' for IWDS1-0122.
+	(U+5DF3): Add `<-denotational@component' for IWDS1-0121 and
+	IWDS1-0123.
+
+	* Ideograph-R044-Corpse.el (U+378B): Add
+	`<-denotational@component' for IWDS1-0125.
+
+	* Ideograph-R043-Lame.el (U+5C22): Add `<-denotational@component'
+	for IWDS1-0099, IWDS1-0203 and IWDS1-0250; unify IWDS1-0117.
+	(IWDS1-0099): New abstract component; unify A-compU+5C22.
+	(U+5140): Add `<-denotational@component' for IWDS1-0099,
+	IWDS1-0214 and IWDS1-0221.
+	(U+5C24): Add `<-denotational@component' for IWDS1-0250.
+	(IWDS1-0250): New abstract component; unify A-compU+5C24.
+
+	* Ideograph-R017-Open-Box.el (U-0002067B): Add
+	`<-denotational@component' for IWDS1-0295.
+
+	* Ideograph-R005-Second.el (U+4E5D): Add
+	`<-denotational@component' for IWDS1-0203 and IWDS1-0249.
+	(IWDS1-0249): New abstract component; unify A-compU+4E38.
+	(IWDS1-0203): New abstract component; unify A-compU+4E5D.
+
+	* Ideograph-R003-Dot.el (U+4E37): Add `<-denotational@component'
+	for IWDS1-0022; delete `ideograph-cdp'.
+	(IWDS1-0022): New abstract component; unify A-compU+4E37.
+	(U+4E38): Add `<-denotational@component' for IWDS1-0249 and
+	IWDS1-0346; unify IWDS1-0104.
+
 	* Ideograph-R015-Ice.el (U+51AB): Separate UU+51AB; add
 	`<-denotational@component' for IWDS1-0047; unify IWDS1-0219.
 	(UU+51AB): Add GT-K00082.
@@ -43,6 +92,21 @@
 	* Ideograph-R002-Line.el (BC-8BF1): Add `<-denotational@component'
 	for IWDS1-0072.
 
+	* Ideograph-R106-White.el: Add some Adobe-Japan1-5 code points.
+	(U+7681): Add `ideographic-structure'; unify S-5197.
+	(U+7682): Add `ideographic-structure'; apply new conventions for
+	glyph granularity; unify S-5198; add `<-vulgar' for U+7681.
+	(U+769E): Add `ideographic-structure'; unify S-5216.
+	(U+76A1): Add `<-formed' for U+769E and UU+66AD.
+	(U+76A5): Add `ideographic-structure'; unify S-5219; add
+	`<-vulgar' for U+769E.
+	(U+76A7): Add `ideographic-structure'; apply new conventions for
+	glyph granularity.
+	(U+76A8): Add `ideographic-structure'; add `<-ancient' for U+661F.
+	(U-00024FAA): Apply new conventions for glyph granularity; add
+	`<-same' for U+661F.
+	(U+76AD): Add `ideographic-structure'.
+
 2017-03-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (U+6133): Use "䀠" instead of "⿰目目"
@@ -50,6 +114,39 @@
 
 	* Ideograph-R056-Shoot.el (U+5F0D): Add `<-denotational' for
 	BUCS+4E8C.
+
+	* Ideograph-R167-Gold.el (U+9485): Use `<-simplified@CN/component'
+	instead of `<-simplified@CN' for U+91D2; add representative nodes.
+	(U+93CD): Add `ideographic-structure'; add `<-formed' for
+	MJ051979.
+	(M-40955): Add `<-formed' for MJ051979.
+	(U-00028BE4): New character.
+	(CB10772): New character; use `<-denotational' for U-00028BE4.
+	(U-00028C20): Add `ideographic-structure'; apply new conventions
+	for glyph granularity.
+	(M-41085): Unify MJ051979 and KOSEKI-466450; add `sound@ja/on';
+	add `<-formed' for M-40955; add `<-same' for M-40955 and U+93CD;
+	add `->formed' for M-40955 and U+93CD.
+
+2017-03-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R195-Fish.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/{JA|JB|JD}.
+
+2017-03-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R184-Eat.el (U+9963): Use `<-simplified@CN/component'
+	instead of `<-simplified@CN' for U+98E0.
+	(U+98E4): Apply new conventions for glyph granularity.
+	(A-U+98E4-itaiji-001): New abstract component; use
+	`<-formed@component' for U+98E4.
+	(U+98E4): New character; use `<-denotational' for
+	A-U+98E4-itaiji-001.
+	(U+990A): Apply new conventions for glyph granularity.
+
+	* Ideograph-R164-Wine.el (U-0002882D): New character.
 
 2017-03-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
