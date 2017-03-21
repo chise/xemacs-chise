@@ -352,7 +352,11 @@
     (=daikanwa		. 07636)	; &I-M-07636;
     ))
 (define-char
-  '((ideographic-radical . 44)	; ⼫
+  '((<-denotational@component
+     ((=>ucs@component	  . #x378B)	; &IWDS1-125;
+      (=>iwds-1		  .  0125)	; &IWDS1-125;
+      ))
+    (ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (=ucs		. #x378B)	; 㞋
