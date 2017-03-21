@@ -3,6 +3,45 @@
   '((ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (=>ucs@component	. #x5DF1)	; &IWDS1-120;
+    (=>iwds-1		.  0120)	; &IWDS1-120;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5DF1)	; &IWDS1-120;
+      (=>iwds-1		  .  0120)	; &IWDS1-120;
+      ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=>ucs@component	. #x5DF2)	; &IWDS1-122;
+    (=>iwds-1		.  0122)	; &IWDS1-122;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5DF1)	; &IWDS1-120;
+      (=>iwds-1		  .  0120)	; &IWDS1-120;
+      ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=>ucs@component	. #x5DF3)	; &IWDS1-121;
+    (=>iwds-1		.  0121)	; &IWDS1-121;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5DF1)	; &IWDS1-120;
+      (=>iwds-1		  .  0120)	; &IWDS1-120;
+      )
+     ((=>ucs@component	  . #x5DF3)	; &IWDS1-121;
+      (=>iwds-1		  .  0121)	; &IWDS1-121;
+      )
+     ((=>ucs@component	  . #x5DF2)	; &IWDS1-122;
+      (=>iwds-1		  .  0122)	; &IWDS1-122;
+      ))
+    (ideographic-radical . 49)	; ⼰
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
     (=ucs		. #x5DF1)	; 己
     (=adobe-japan1-0	. 01918)	; &I-AJ1-01918;
     (=jis-x0208		. #x384A)	; &I-J90-384A; [24-42]
@@ -63,7 +102,11 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 49)	; ⼰
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5DF2)	; &IWDS1-122;
+      (=>iwds-1		  .  0122)	; &IWDS1-122;
+      ))
+    (ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=ucs		. #x5DF2)	; 已
@@ -121,7 +164,14 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 49)	; ⼰
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5DF3)	; &IWDS1-121;
+      (=>iwds-1		  .  0121)	; &IWDS1-121;
+      )
+     ((=>ucs@component	  . #x353E)	; &IWDS1-123;
+      (=>iwds-1		  .  0123)	; &IWDS1-123;
+      ))
+    (ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=ucs		. #x5DF3)	; 巳
