@@ -1,12 +1,23 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((ideographic-radical . 43)	; ⼪
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5C22)	; &IWDS1-099;
+      (=>iwds-1		  .  0099)	; &IWDS1-099;
+      )
+     ((=>ucs@component	  . #x4E5D)	; &IWDS1-203;
+      (=>iwds-1		  .  0203)	; &IWDS1-203;
+      )
+     ((=>ucs@component	  . #x5C24)	; &IWDS1-250;
+      (=>iwds-1		  .  0250)	; &IWDS1-250;
+      ))
+    (ideographic-radical . 43)	; ⼪
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=ucs		. #x5C22)	; 尢
     (=>jis-x0208	. #x5577)	; 尢 [53-87]
     (=>jis-x0213-1	. #x5577)	; 尢 [53-87]
     (=big5		. #xA471)	; &I-B-A471;
+    (=>iwds-1		.  0117)	; 尢
     ))
 (define-char
   '((<-denotational
@@ -188,7 +199,24 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 10)	; ⼉
+  '((ideographic-radical . 43)	; ⼪
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=>ucs@component	. #x5C22)	; &IWDS1-099;
+    (=>iwds-1		.  0099)	; &IWDS1-099;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5C22)	; &IWDS1-099;
+      (=>iwds-1		  .  0099)	; &IWDS1-099;
+      )
+     ((=>ucs@component	  . #x5140)	; &IWDS1-214;
+      (=>iwds-1		  .  0214)	; &IWDS1-214;
+      )
+     ((=>ucs@component	  . #x4E0C)	; &IWDS1-221;
+      (=>iwds-1		  .  0221)	; &IWDS1-221;
+      ))
+    (ideographic-radical@ucs . 10)	; ⼉
     (ideographic-strokes@ucs . 1)
     (ideographic-radical@unknown . 43)	; ⼪
     (ideographic-strokes@unknown . 0)
@@ -245,7 +273,11 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 43)	; ⼪
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5C24)	; &IWDS1-250;
+      (=>iwds-1		  .  0250)	; &IWDS1-250;
+      ))
+    (ideographic-radical . 43)	; ⼪
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (=ucs		. #x5C24)	; 尤
@@ -2123,4 +2155,9 @@
     (total-strokes	 . 25)
     (=ucs		. #x21C22)	; 𡰢
     (=cns11643-5	. #x7926)	; &I-C5-7926; [89-06]
+    ))
+(define-char
+  '((ideographic-radical . 43)	; ⼪
+    (=>ucs@component	. #x5C24)	; &IWDS1-250;
+    (=>iwds-1		.  0250)	; &IWDS1-250;
     ))
