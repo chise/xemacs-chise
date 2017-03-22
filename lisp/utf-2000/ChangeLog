@@ -1,4 +1,72 @@
+2017-03-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL SUN>): Unify
+	BC-8A78; use U+5183 instead of BC-8A78 as its mother; add
+	`<-denotational@component' for IWDS1-0118.
+
+	* Ideograph-R140-Grass.el: Add some MJ code points.
+	(CU+8279): Unify <CJK RADICAL GRASS TWO> and JU+FA5E instead of
+	U+FA5E; add representative nodes.
+	(g2-CU+8279): Unify U+FA5E.
+	(UU+8279): Unify <CJK RADICAL GRASS ONE>; add representative
+	nodes.
+	(JX2-7574): Unify <CJK RADICAL GRASS THREE> and JU+FA5D instead of
+	U+FA5D; add representative nodes.
+	(g2-UU+2EC0): Unify U+FA5D.
+	(U+9FB7): Apply new conventions for glyph granularity.
+	(UU+82EA): Unify AJ1-19736.
+	(U-00026B38): Use `->denotational' and `->subsumptive'.
+	(A-U+34BC-itaiji-002): New abstract character.
+	(U+34BC-itaiji-002): New character; use `<-denotational' for
+	A-U+34BC-itaiji-002; use `<-formed' for U+44E3; add GT-K06005.
+	(U-0002C72F): New character.
+	(A-RUI6-E03D): Apply new conventions for glyph granularity.
+	(A-IWDSU+83D1): New abstract node.
+	(U+83D1): Add `<-denotational' for A-IWDSU+83D1.
+	(BUCS+83DF): New abstract node.
+	(U+83DF): Add `<-denotational' for BUCS+83DF.
+	(U+83B5): Likewise.
+	(U-0002B7CF): New character; use `<-denotational' for BUCS+83DF.
+	(HD-JT-B9B5): New character; use `<-denotational' for U-0002B7CF.
+	(HD-JT-B989): Likewise; unify IU+2B7CF.
+	(U+83EB): Add `<-denotational@component' for IWDS1-0300.
+	(U+83F9-var-002): New character; use `<-denotational' for U+83F9.
+	(U+8458): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-IWDSU+83D1.
+	(A-RUI6-E03E): Apply new conventions for glyph granularity.
+	(U-00026C0C): Add `<-denotational@component' for IWDS1-0300; apply
+	new conventions for glyph granularity.
+	(U+4518): Use `->denotational' and `->subsumptive'.
+	(A-U+8584-itaiji-002): New abstract character; use
+	`<-denotational' for A-UU+8584.
+	(U+8584-itaiji-002): New character; use `<-denotational' for
+	A-U+8584-itaiji-002.
+	(U+8584-itaiji-003): Ditto.
+	(U+8612): Apply new conventions for glyph granularity.
+	(IWDS1-0300): New abstract component.
+
 2017-03-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R089-Double-X.el (MJ056856): Use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@gt'; move GT-K00542 to a abstract
+	glyph-form node; unify GT-00173.
+	(g2-GT-K00542): Unify GT-K00542.
+
+	* Ideograph-R087-Claw.el (U+8200-itaiji-006): New character; use
+	`<-denotational' for A-U+8200-itaiji-006; add `<-formed' for
+	GT-K05976.
+	(A-U+8200-itaiji-006): New abstract character.
+	(U-0002452B): New character.
+	(A-U+657B-itaiji-002): New abstract character; use `<-unknown' for
+	U-0002452B and U+657B.
+	(U+657B-itaiji-002): New character; use `<-denotational' for
+	A-U+657B-itaiji-002.
+
+	* Ideograph-R058-Snout.el (UU+5F56): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+	(HD-KS112230): Unify MJ011234; add `<-formed' for UU+5F56.
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>ucs-itaiji-006'.
