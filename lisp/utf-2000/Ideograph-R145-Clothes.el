@@ -114,6 +114,25 @@
 (define-char
   '((ideographic-radical . 145)	; ⾐
     (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=ucs		. #x27607)	; 𧘇
+    (=>iwds-1		.  0234)	; 𧘇
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x27607)	; 𧘇
+      ))
+    (ideographic-radical . 145)	; ⾐
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=ucs@iso		. #x27607)	; &U-00027607;
+    (->subsumptive
+     ((==ucs@iso	  . #x27607)	; &g2-IU-00027607;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 145)	; ⾐
+    (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (=big5-cdp		. #x8845)	; &CDP-8845;
     (=gt-k		. 01135)	; &I-GT-K01135;
