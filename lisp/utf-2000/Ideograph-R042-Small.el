@@ -176,7 +176,11 @@
     (=cns11643-2	. #x213C)	; &C2-213C; [01-28]
     ))
 (define-char
-  '((ideographic-radical . 42)	; ⼩
+  '((<-denotational@component
+     ((=>ucs@component	  . #x23942)	; &IWDS1-283;
+      (=>iwds-1		  .  0283)	; &IWDS1-283;
+      ))
+    (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (=ucs		. #x5C11)	; 少
@@ -1062,6 +1066,15 @@
     ))
 (define-char
   '((ideographic-radical . 42)	; ⼩
+    (=>ucs@component	. #x21B82)	; &IWDS1-284;
+    (=>iwds-1		.  0284)	; &IWDS1-284;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x21B82)	; &IWDS1-284;
+      (=>iwds-1		  .  0284)	; &IWDS1-284;
+      ))
+    (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs		. #x21B74)	; 𡭴
@@ -1114,7 +1127,11 @@
     (=cns11643-6	. #x3669)	; &I-C6-3669; [22-73]
     ))
 (define-char
-  '((ideographic-radical . 42)	; ⼩
+  '((<-denotational
+     ((=>ucs@component	  . #x21B82)	; &IWDS1-284;
+      (=>iwds-1		  .  0284)	; &IWDS1-284;
+      ))
+    (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (=ucs		. #x21B7D)	; 𡭽
@@ -1251,7 +1268,11 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 42)	; ⼩
+  '((<-denotational
+     ((=>ucs@component	  . #x21B82)	; &IWDS1-284;
+      (=>iwds-1		  .  0284)	; &IWDS1-284;
+      ))
+    (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (=ucs		. #x21B82)	; 𡮂
