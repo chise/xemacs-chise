@@ -559,7 +559,7 @@
 	)
        ((=ucs		    . #x5F51)	; 彑
 	)
-       ((=daikanwa	    . 36336)	; &M-36336;
+       ((==daikanwa	    . 36336)	; &g2-M-36336;
 	))
       (==daikanwa	  . 09920)	; &g2-M-09920;
       )
@@ -605,7 +605,7 @@
 	)
        ((=ucs		    . #x5F51)	; 彑
 	)
-       ((=ucs		    . #x27C28)	; 𧰨
+       ((==ucs@iso	    . #x27C28)	; &g2-IU-00027C28;
 	))
       (==ucs@unicode	  . #x5F56)	; &g2-UU+5F56;
       (==ucs@JP/hanazono  . nil)
@@ -617,7 +617,8 @@
 	)
        ((=ucs		    . #x5F51)	; 彑
 	)
-       ((=cns11643-5	    . #x2329)	; &C5-2329; [03-09]
+       ((==ucs@cns	    . #x27C28)	; &g2-CDP-8BC9;
+	(==cns11643-5	    . #x2329)	; &g2-CDP-8BC9; [03-09]
 	))
       (==ucs@cns	  . #x5F56)	; &g2-CU+5F56;
       (==cns11643-2	  . #x2A3E)	; &g2-CU+5F56; [10-30]
@@ -639,9 +640,14 @@
       )
      ((=ucs		  . #x27C28)	; 𧰨
       ))
-    (=hanyo-denshi/ks	. 112230)	; &HD-KS-112230;
-    (=gt-k		. 06232)	; &HD-KS-112230;
-    (=gt-pj-k1		. #x4C29)	; &HD-KS-112230; [44-09]
+    (=mj		. 011234)	; &MJ011234;
+    (=hanyo-denshi/ks	. 112230)	; &MJ011234;
+    (<-formed
+     ((=ucs@unicode	  . #x5F56)	; &MJ011233;
+      (=mj		  . 011233)	; &MJ011233;
+      ))
+    (<-formed*sources
+     koseki)
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x5F56)	; 彖
@@ -656,10 +662,17 @@
 	(==ucs@jis	    . #x5F50)	; &g2-GT-12503;
 	(==jis-x0212	    . #x3C77)	; &g2-GT-12503; [28-87]
 	)
-       ((=cns11643-5	    . #x2329)	; &C5-2329; [03-09]
+       ((==ucs@cns	    . #x27C28)	; &g2-CDP-8BC9;
+	(==cns11643-5	    . #x2329)	; &g2-CDP-8BC9; [03-09]
 	))
-      (==hanyo-denshi/ks  . 112230)	; &g2-HD-KS-112230;
-      (=hanyo-denshi/ks/mf . #x2BD7)	; &g2-HD-KS-112230;
+      (==mj		  . 011234)	; &g2-MJ011234;
+      (==hanyo-denshi/ks  . 112230)	; &g2-MJ011234;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 112230)	; &R-HD-KS-112230;
+	(=hanyo-denshi/ks/mf . #x2BD7)	; &R-HD-KS-112230;
+	)
+       ((===mj		    . 011234)	; &R-MJ011234;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -671,7 +684,8 @@
 	)
        ((=gt-k		    . 02141)	; &GT-K02141;
 	))
-      (==gt-k		  . 06232)	; &g2-GT-K06232;
+      (=gt-k		  . 06232)	; &GT-K06232;
+      (=gt-pj-k1	  . #x4C29)	; &GT-K06232; [44-09]
       ))
     ))
 (define-char
