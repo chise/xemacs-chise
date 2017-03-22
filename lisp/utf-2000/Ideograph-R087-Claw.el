@@ -1356,6 +1356,43 @@
     (=cns11643-6	. #x4158)	; &C6-4158; [33-56]
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs-itaiji-006	  . #x8200)	; &A-U-i006+8200;
+      ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@cns		  . #x722B)	; &GT-25225;
+      (=ucs@jis		  . #x722B)	; &GT-25225;
+      (=jis-x0212	  . #x4A48)	; &GT-25225; [42-40]
+      (=cns11643-4	  . #x2151)	; &I-C4-2151; [01-49]
+      (=jis-x0213-2	  . #x702A)	; &I-JX2-702A; [80-10]
+      (=daikanwa	  . 19655)	; &I-M-19655;
+      )
+     ((=ucs-itaiji-001	  . #x65E7)	; &U-i001+65E7;
+      ))
+    (=ucs-itaiji-006	. #x8200)	; &U-i006+8200;
+    (<-formed
+     ((=gt-k		  . 05976)	; &GT-K05976;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 87)	; ⽖
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x722B)	; 爫
+      )
+     ((=>ucs-itaiji-001	  . #x65E7)	; &A-U-i001+65E7;
+      ))
+    (=>ucs-itaiji-006	. #x8200)	; &A-U-i006+8200;
+    ))
+(define-char
   '((ideographic-radical@simplified . 86)	; ⽕
     (ideographic-radical@traditional . 87)	; ⽖
     (=>ucs@component	. #x7232)	; &IWDS1-315;
@@ -1855,6 +1892,42 @@
     ))
 (define-char
   '((ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x722B)	; 爫
+      )
+     ((=ucs		  . #x66FC)	; 曼
+      ))
+    (=ucs		. #x2452B)	; 𤔫
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2452B)	; 𤔫
+      ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL PAW ONE")
+      (=ucs		  . #x2EA4)	; ⺤
+      )
+     ((=ucs@unicode	  . #x66FC)	; &MJ013498;
+      (=mj		  . 013498)	; &MJ013498;
+      ))
+    (=ucs@iso		. #x2452B)	; &U-0002452B;
+    (->subsumptive
+     ((==ucs@iso	  . #x2452B)	; &g2-IU-0002452B;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
     (=ucs		. #x2452E)	; 𤔮
@@ -1897,6 +1970,74 @@
     (total-strokes	 . 16)
     (=ucs		. #x24531)	; 𤔱
     (=cns11643-5	. #x553F)	; &I-C5-553F; [53-31]
+    ))
+(define-char
+  '((ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x722B)	; 爫
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((=ucs		      . #x4E28)	; 丨
+	  )
+	 ((=ucs		      . #x5183)	; 冃
+	  ))
+	))
+      )
+     ((=ucs		  . #x7F52)	; 罒
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=>ucs-itaiji-002	. #x657B)	; &A-U-i002+657B;
+    (<-unknown
+     ((=ucs		  . #x2452B)	; 𤔫
+      )
+     ((=ucs		  . #x657B)	; 敻
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-002	  . #x657B)	; &A-U-i002+657B;
+      ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x722B)	; 爫
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((=ucs		      . #x4E28)	; 丨
+	  )
+	 ((=ucs		      . #x5183)	; 冃
+	  ))
+	))
+      )
+     ((=ucs		  . #x7F52)	; 罒
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ucs-itaiji-002	. #x657B)	; &U-i002+657B;
     ))
 (define-char
   '((ideographic-radical . 87)	; ⽖
