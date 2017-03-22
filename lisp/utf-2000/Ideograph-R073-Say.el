@@ -1,6 +1,10 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((ideographic-radical . 73)	; ⽈
+  '((<-denotational@component
+     ((=>ucs@component	  . #x65E5)	; &IWDS1-118;
+      (=>iwds-1		  .  0118)	; &IWDS1-118;
+      ))
+    (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=ucs		. #x66F0)	; 曰

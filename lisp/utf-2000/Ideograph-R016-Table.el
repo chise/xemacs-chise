@@ -3,6 +3,20 @@
   '((ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (=>ucs@component	. #x51E0)	; &IWDS1-119;
+    (=>iwds-1		.  0119)	; &IWDS1-119;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x51E0)	; &IWDS1-119;
+      (=>iwds-1		  .  0119)	; &IWDS1-119;
+      )
+     ((=>ucs@component	  . #x5140)	; &IWDS1-214;
+      (=>iwds-1		  .  0214)	; &IWDS1-214;
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
     (hanyu-dazidian	1 275 19)
     (=ucs		. #x51E0)	; 几
     (=adobe-japan1-0	. 04243)	; &I-AJ1-04243;
@@ -87,12 +101,27 @@
   '((ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
+    (=>ucs@component	. #x51E1)	; &IWDS1-346;
+    (=>iwds-1		.  0346)	; &IWDS1-346;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5342)	; &IWDS1-055;
+      (=>iwds-1		  .  0055)	; &IWDS1-055;
+      )
+     ((=>ucs@component	  . #x51E1)	; &IWDS1-346;
+      (=>iwds-1		  .  0346)	; &IWDS1-346;
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
     (sound@ja/kun	"oyo-so" "arayu-ru")
     (sound@ja/on/go	"bon")
     (sound@ja/on/kan	"han")
     (=ucs		. #x51E1)	; 凡
     (=>jis-x0208	. #x4B5E)	; 凡 [43-62]
     (=>jis-x0213-1	. #x4B5E)	; 凡 [43-62]
+    (=>iwds-1		.  54056)	; 凡
     ))
 (define-char
   '((<-denotational

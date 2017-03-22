@@ -1,6 +1,10 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((ideographic-radical . 46)	; ⼭
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5C6E)	; &IWDS1-096;
+      (=>iwds-1		  .  0096)	; &IWDS1-096;
+      ))
+    (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=ucs		. #x5C71)	; 山

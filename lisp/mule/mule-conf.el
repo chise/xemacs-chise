@@ -4805,7 +4805,7 @@
 		  graphic	2
 		  direction	l2r
                   ;; =>iso-ir	177
-		  mother	=ucs))
+		  mother	=ucs-itaiji-006))
   (make-charset '=>ucs-bmp-itaiji-006
 		"uXXXX-itaiji-006's abstract characters in BMP"
 		'(long-name	"UCS-BMP-itaiji-006 characters"
@@ -5259,6 +5259,19 @@
 	       direction l2r
 	       registry "ucs00-2$"
 	       mother =ucs@JP/hanazono
+	       min-code #x20000 max-code #x2FFFF
+	       code-offset #x20000))
+  (make-charset
+   '=>ucs-sip@component
+   "CJK Characters in SIP for IWDS-1 abstract components."
+   '(long-name "CJK in SIP@component"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "ucs00-2$"
+	       mother =>ucs@component
 	       min-code #x20000 max-code #x2FFFF
 	       code-offset #x20000))
   (make-charset

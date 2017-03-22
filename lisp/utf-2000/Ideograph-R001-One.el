@@ -443,7 +443,8 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>iwds-1		  .  0150)	; &IWDS1-150;
+     ((=>ucs@component	  . #x4E06)	; &IWDS1-150;
+      (=>iwds-1		  .  0150)	; &IWDS1-150;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 1)
@@ -521,6 +522,13 @@
        ((===ucs@iso	    . #x20089)	; &R-U-00020089;
 	))
       ))
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (=>ucs@component	. #x4E06)	; &IWDS1-150;
+    (=>iwds-1		.  0150)	; &IWDS1-150;
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀

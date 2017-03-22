@@ -75,6 +75,17 @@
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
+    (=>ucs@component	. #x5342)	; &IWDS1-055;
+    (=>iwds-1		.  0055)	; &IWDS1-055;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5342)	; &IWDS1-055;
+      (=>iwds-1		  .  0055)	; &IWDS1-055;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
     (=ucs		. #x5342)	; 卂
     ))
 (define-char
