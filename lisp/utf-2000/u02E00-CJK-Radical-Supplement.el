@@ -417,19 +417,32 @@
     ))
 (define-char
   '((<-denotational
-     ((name*		  . "ideographic component hood")
-      (=big5-cdp	  . #x8A78)	; &CDP-8A78;
+     ((=ucs		  . #x5183)	; 冃
+      ))
+    (<-denotational@component
+     ((=>ucs@component	  . #x65E5)	; &IWDS1-118;
+      (=>iwds-1		  .  0118)	; &IWDS1-118;
       ))
     (name		. "CJK RADICAL SUN")
+    (name*		. "ideographic component hood")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
     (=ucs		. #x2E9C)	; ⺜
+    (=big5-cdp		. #x8A78)	; &I-CDP-8A78;
     (=gt-k		. 00565)	; &I-GT-K00565;
     (=gt-pj-k1		. #x3229)	; ⺜ [18-09]
-    (<-identical@component/connect-below
-     ((name*		  . "ideographic component hood")
-      (=big5-cdp	  . #x8A78)	; &CDP-8A78;
+    (<-same@component/connect-below
+     ((=ucs		  . #x5183)	; 冃
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8A78)	; &g2-CDP-8A78;
+      )
+     ((==ucs@unicode	  . #x2E9C)	; &g2-GT-K00565;
+      (==gt-k		  . 00565)	; &g2-GT-K00565;
       ))
     ))
 (define-char
