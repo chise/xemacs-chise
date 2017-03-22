@@ -97,8 +97,10 @@
   '((<-denotational
      ((=ucs		  . #x723B)	; 爻
       ))
-    (ideographic-radical . 89)	; ⽘
-    (ideographic-strokes . 0)
+    (ideographic-radical@ucs . 89)	; ⽘
+    (ideographic-strokes@ucs . 0)
+    (ideographic-radical@gt . 4)	; ⼃
+    (ideographic-strokes@gt . 3)
     (total-strokes	 . 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -111,8 +113,8 @@
     (=mj		. 056856)	; &MJ056856;
     (=adobe-japan1-4	. 14156)	; &I-AJ1-14156;
     (=koseki		. 001510)	; &MJ056856;
-    (=gt-k		. 00542)	; &I-GT-K00542;
-    (=gt-pj-k1		. #x3B5C)	; &MJ056856; [27-60]
+    (=gt		. 00173)	; &I-GT-00173;
+    (=gt-pj-9		. #x4A5E)	; &I-GT-00173; [42-62]
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x723B)	; 爻
@@ -121,10 +123,13 @@
 	))
       (==adobe-japan1-4	  . 14156)	; &g2-AJ1-14156;
       )
-     ((==gt-k		  . 00542)	; &g2-GT-K00542;
+     ((=gt-k		  . 00542)	; &GT-K00542;
+      (=gt-pj-k1	  . #x3B5C)	; &GT-K00542; [27-60]
       )
      ((==mj		  . 056856)	; &g2-MJ056856;
       (==koseki		  . 001510)	; &g2-MJ056856;
+      )
+     ((==gt		  . 00173)	; &g2-GT-00173;
       ))
     ))
 (define-char
