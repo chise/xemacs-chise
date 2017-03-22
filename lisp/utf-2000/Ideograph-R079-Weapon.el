@@ -3,6 +3,17 @@
   '((ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (=>ucs@component	. #x6BB3)	; &IWDS1-220;
+    (=>iwds-1		.  0220)	; &IWDS1-220;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x6BB3)	; &IWDS1-220;
+      (=>iwds-1		  .  0220)	; &IWDS1-220;
+      ))
+    (ideographic-radical . 79)	; ⽎
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
     (=ucs		. #x6BB3)	; 殳
     ))
 (define-char
