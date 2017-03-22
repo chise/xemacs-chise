@@ -1,3 +1,60 @@
+2017-03-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs-itaiji-006'.
+
+2017-03-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R145-Clothes.el (U-00027607): New character; unify
+	IWDS1-0234.
+
+	* Ideograph-R108-Dish.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R079-Weapon.el (IWDS1-0220): New abstract component.
+	(U+6BB3): Add `<-denotational@component' for IWDS1-0220.
+
+	* Ideograph-R077-Stop.el (IWDS1-0283): New abstract component.
+	(U-00023942): Add `<-denotational@component' for IWDS1-0283.
+
+	* Ideograph-R073-Say.el (U+66F0): Add `<-denotational@component'
+	for IWDS1-0118.
+
+	* Ideograph-R066-Rap.el (IWDS1-0194): New abstract component.
+	(U+6535): Add `<-denotational@component' for IWDS1-0194.
+
+	* Ideograph-R046-Mountain.el (U+5C71): Add
+	`<-denotational@component' for IWDS1-0096.
+
+	* Ideograph-R045-Sprout.el (IWDS1-0096): New abstract component.
+	(U+5C6E): Add `<-denotational@component' for IWDS1-0096.
+
+	* Ideograph-R042-Small.el (U+5C11): Add `<-denotational@component'
+	for IWDS1-0283.
+	(IWDS1-0284): New abstract component.
+	(U-00021B74): Add `<-denotational@component' for IWDS1-0284.
+	(U-00021B7D): Ditto.
+	(U-00021B82): Ditto.
+
+	* Ideograph-R035-Go-Slowly.el (IWDS1-0092): New abstract
+	component.
+	(U+590A): Add `<-denotational@component' for IWDS1-0092.
+
+	* Ideograph-R027-Cliff.el (U+5382): Add `<-denotational@component'
+	for IWDS1-0150.
+
+	* Ideograph-R024-Ten.el (IWDS1-0055): New abstract component.
+	(U+5342): Add `<-denotational@component' for IWDS1-0055.
+
+	* Ideograph-R016-Table.el (IWDS1-0119): New abstract component.
+	(U+51E0): Add `<-denotational@component' for IWDS1-0119 and
+	IWDS1-0214.
+	(IWDS1-0346): New abstract component.
+	(U+51E1): Add `<-denotational@component' for IWDS1-0055 and
+	IWDS1-0346; unify IWDS1-54056.
+
+	* Ideograph-R001-One.el (IWDS1-0150): New abstract component;
+	unify A-compU+4E06.
+
 2017-03-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R050-Turban.el (U+5DFF): Add
