@@ -137,6 +137,16 @@
 (define-char
   '((ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 0)
+    (=>ucs@component	. #x23942)	; &IWDS1-283;
+    (=>iwds-1		.  0283)	; &IWDS1-283;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x23942)	; &IWDS1-283;
+      (=>iwds-1		  .  0283)	; &IWDS1-283;
+      ))
+    (ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (hanyu-dazidian	1 28 5)
     (=ucs		. #x23942)	; 𣥂
