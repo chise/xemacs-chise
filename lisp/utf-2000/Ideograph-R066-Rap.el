@@ -58,6 +58,16 @@
 (define-char
   '((ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 0)
+    (=>ucs@component	. #x6535)	; &IWDS1-194;
+    (=>iwds-1		.  0194)	; &IWDS1-194;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x6535)	; &IWDS1-194;
+      (=>iwds-1		  .  0194)	; &IWDS1-194;
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=ucs		. #x6535)	; 攵
     (=adobe-japan1-0	. 05059)	; &I-AJ1-05059;
