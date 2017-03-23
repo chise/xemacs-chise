@@ -93,7 +93,11 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 94)	; ⽝
+  '((<-denotational@component
+     ((=>ucs@component	  . #x53CB)	; &IWDS1-256;
+      (=>iwds-1		  .  0256)	; &IWDS1-256;
+      ))
+    (ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (=ucs		. #x72AE)	; 犮
