@@ -3,6 +3,19 @@
   '((ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (=>big5-cdp		. #x8BF1)	; &IWDS1-072;
+    (=>iwds-1		.  0072)	; &IWDS1-072;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>iwds-1		  .  0072)	; &IWDS1-072;
+      )
+     ((=>ucs@component	  . #x571F)	; &IWDS1-312;
+      (=>iwds-1		  .  0312)	; &IWDS1-312;
+      ))
+    (ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
     (hanyu-dazidian	1 416 1)
     (=ucs		. #x58EB)	; 士
     (=adobe-japan1-0	. 02204)	; &I-AJ1-02204;
@@ -53,6 +66,17 @@
     ))
 (define-char
   '((ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (=>ucs@component	. #x58EC)	; &IWDS1-001;
+    (=>iwds-1		.  0001)	; &IWDS1-001;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x58EC)	; &IWDS1-001;
+      (=>iwds-1		  .  0001)	; &IWDS1-001;
+      ))
+    (ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 417 1)
