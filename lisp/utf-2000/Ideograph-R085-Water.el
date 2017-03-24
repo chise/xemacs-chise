@@ -23006,6 +23006,14 @@
   '((ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6C35)	; 氵
+      )
+     ((=ucs		  . #x65C1)	; 旁
+      ))
     (=ucs		. #x6EC2)	; 滂
     (=adobe-japan1-0	. 05486)	; &I-AJ1-05486;
     (=jis-x0208		. #x5E71)	; &I-J90-5E71; [62-81]
@@ -23014,6 +23022,7 @@
     (=cns11643-1	. #x6462)	; &I-C1-6462; [68-66]
     (=jis-x0213-1	. #x5E71)	; &I-JX1-5E71; [62-81]
     (=big5		. #xB7BC)	; &I-B-B7BC;
+    (=hanyo-denshi/ks	. 203830)	; 滂
     (=gt		. 23062)	; &I-GT-23062;
     (=gt-k		. 10319)	; &I-GT-K10319;
     (=gt-pj-1		. #x5E71)	; &I-GT-23062; [62-81]
@@ -23050,8 +23059,20 @@
        ((===cns11643-1	    . #x6462)	; &R-C1-6462; [68-66]
 	))
       )
-     ((==shinjigen@1ed	  .  4399)	; &g2-SJG2-4401;
-      (==shinjigen@rev	  .  4401)	; &g2-SJG2-4401;
+     ((=mj		  . 057962)	; &MJ057962;
+      (=>>hanyo-denshi/ks . 203830)	; &MJ057962;
+      (->subsumptive
+       ((==mj		    . 057962)	; &g2-MJ057962;
+	(==hanyo-denshi/ks  . 203830)	; &g2-MJ057962;
+	(==shinjigen@1ed    .  4399)	; &g2-MJ057962;
+	(==shinjigen@rev    .  4401)	; &g2-MJ057962;
+	(->subsumptive
+	 ((===hanyo-denshi/ks . 203830)	; &R-HD-KS-203830;
+	  (=hanyo-denshi/ks/mf . #x4F9F)	; &R-HD-KS-203830;
+	  )
+	 ((===mj	      . 057962)	; &R-MJ057962;
+	  ))
+	))
       ))
     ))
 (define-char
