@@ -94,6 +94,8 @@
       )
      ((=ucs		  . #x20120)	; 𠄠
       ))
+    (sound@ja/on/go	"mou" "mo")
+    (sound@ja/on/kan	"bAu" "bou")
     (=ucs		. #x5183)	; 冃
     (=adobe-japan1-5	. 17301)	; &I-AJ1-17301;
     (=jis-x0212		. #x3270)	; &I-JSP-3270; [18-80]
@@ -109,30 +111,30 @@
   '((<-denotational
      ((=ucs		  . #x5183)	; 冃
       ))
-    (name*		. "ideographic component hood")
-    (ideographic-radical . 13)	; ⼌
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (=big5-cdp		. #x8A78)	; &CDP-8A78;
-    (<-same@component/connect-below
-     ((=ucs		  . #x5183)	; 冃
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((name*		  . "ideographic component hood")
-      (=big5-cdp	  . #x8A78)	; &CDP-8A78;
+    (<-denotational@component
+     ((=>ucs@component	  . #x65E5)	; &IWDS1-118;
+      (=>iwds-1		  .  0118)	; &IWDS1-118;
       ))
     (name		. "CJK RADICAL SUN")
+    (name*		. "ideographic component hood")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
     (=ucs		. #x2E9C)	; ⺜
+    (=big5-cdp		. #x8A78)	; &I-CDP-8A78;
     (=gt-k		. 00565)	; &I-GT-K00565;
     (=gt-pj-k1		. #x3229)	; ⺜ [18-09]
-    (<-identical@component/connect-below
-     ((name*		  . "ideographic component hood")
-      (=big5-cdp	  . #x8A78)	; &CDP-8A78;
+    (<-same@component/connect-below
+     ((=ucs		  . #x5183)	; 冃
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8A78)	; &g2-CDP-8A78;
+      )
+     ((==ucs@unicode	  . #x2E9C)	; &g2-GT-K00565;
+      (==gt-k		  . 00565)	; &g2-GT-K00565;
       ))
     ))
 (define-char
@@ -1775,8 +1777,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((name*		    . "ideographic component hood")
-	(=big5-cdp	    . #x8A78)	; &CDP-8A78;
+       ((name		    . "CJK RADICAL SUN")
+	(=ucs		    . #x2E9C)	; ⺜
 	)
        ((=ucs		    . #x76EE)	; 目
 	))
@@ -2067,8 +2069,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((name*		    . "ideographic component hood")
-	(=big5-cdp	    . #x8A78)	; &CDP-8A78;
+       ((name		    . "CJK RADICAL SUN")
+	(=ucs		    . #x2E9C)	; ⺜
 	)
        ((=ucs		    . #x5401)	; 吁
 	))
@@ -2135,6 +2137,21 @@
   '((ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x65E5)	; &IWDS1-118;
+      (=>iwds-1		  .  0118)	; &IWDS1-118;
+      )
+     ((=ucs		  . #x898B)	; 見
+      ))
+    (sound@ja/on/go/p=mao4 "mou")
+    (sound@ja/on/go/p=meng2 "mou")
+    (sound@ja/on/go/p=mo4 "moku")
+    (sound@ja/on/kan/p=mao4 "bAu")
+    (sound@ja/on/kan/p=meng2 "bAu")
+    (sound@ja/on/kan/p=mo4 "boku")
     (=ucs		. #x34BB)	; 㒻
     ))
 (define-char
@@ -2149,8 +2166,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((name*		  . "ideographic component hood")
-      (=big5-cdp	  . #x8A78)	; &CDP-8A78;
+     ((name		  . "CJK RADICAL SUN")
+      (=ucs		  . #x2E9C)	; ⺜
       )
      ((=ucs		  . #x898B)	; 見
       ))
@@ -2159,7 +2176,23 @@
     (=gt		. 02033)	; &I-GT-02033;
     (=gt-pj-2		. #x3D47)	; &I-GT-02033; [29-39]
     (=daikanwa		. 01544)	; &I-M-01544;
-    (=hanziku-4		. #xE1A3)	; &I-HZK04-E1A3;
+    (->subsumptive
+     ((==ucs@unicode	  . #x34BB)	; &g2-GT-02033;
+      (==cns11643-4	  . #x304C)	; &g2-GT-02033; [16-44]
+      (==gt		  . 02033)	; &g2-GT-02033;
+      (==daikanwa	  . 01544)	; &g2-GT-02033;
+      (->subsumptive
+       ((===daikanwa	    . 01544)	; &R-M-01544;
+	)
+       ((===cns11643-4	    . #x304C)	; &R-C4-304C; [16-44]
+	)
+       ((===gt		    . 02033)	; &R-GT-02033;
+	)
+       ((===ucs@unicode	    . #x34BB)	; &R-UU+34BB;
+	)
+       ((=hanziku-4	    . #xE1A3)	; &HZK04-E1A3;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2172,7 +2205,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x66F0)	; 曰
+     ((=ucs		  . #x65E5)	; 日
       )
      ((=ucs		  . #x898B)	; 見
       ))
