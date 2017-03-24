@@ -9,6 +9,17 @@
 	A-U+65E7-itaiji-001; use `<-unknown' for U+65E7.
 	(A-U+65E7-itaiji-001): New abstract character.
 
+2017-03-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R013-Down-Box.el (U+5183): Add `sound@ja/on/{kan|go}'.
+	(BC-8A78): Unify <CJK RADICAL SUN>; add `<-denotational@component'
+	for IWDS1-0118.
+	(U+34BB): Add `sound@ja/on/{kan|go}/p={mao4|meng2|mo4}'; apply new
+	conventions for glyph granularity.
+
+	* Ideograph-R006-Hook.el (U-0002010E): Add `sound@ja/on'; add
+	`<-ancient' for U+4E43; add `->Bopomofo' for <BOPOMOFO LETTER N>.
+
 2017-03-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R085-Water.el (U+6EC2): Add `ideographic-structure';
