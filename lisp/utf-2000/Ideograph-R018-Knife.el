@@ -663,63 +663,76 @@
     (=gt-pj-1		. #x4A2C)	; &I-GT-02421; [42-12]
     (=daikanwa		. 01853)	; &I-M-01853;
     (=shinjigen		.  0598)	; &MJ007455;
-    (=jef-china3	. #x44B5)	; &I-JC3-44B5;
     (->subsumptive
-     ((=decomposition@cid
-       ((=ucs		    . #x5206)	; 分
-	)
-       ((=ucs		    . #xE0101)	; 󠄁
-	))
-      (=decomposition@hanyo-denshi
-       ((=ucs		    . #x5206)	; 分
-	)
-       ((=ucs		    . #xE0103)	; 󠄃
-	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((==ucs@jis	    . #x516B)	; &g2-MJ007273;
-	(==ucs@ks	    . #x516B)	; &g2-MJ007273;
-	(==mj		    . 007273)	; &g2-MJ007273;
-	)
-       ((==ucs@unicode	    . #x5200)	; &g2-AJ1-03163;
-	(==adobe-japan1-0   . 03163)	; &g2-AJ1-03163;
-	))
-      (==ucs@ks		  . #x5206)	; &MJ007456;
+     ((=>>ucs@ks	  . #x5206)	; &MJ007456;
       (=mj		  . 007456)	; &MJ007456;
-      (==adobe-japan1-4	  . 13499)	; &MJ007456;
-      (==jis-x0208@1978	  . #x4A2C)	; &MJ007456; [42-12]
-      (==jis-x0208@1983	  . #x4A2C)	; &MJ007456; [42-12]
-      (==ks-x1001	  . #x5D42)	; &MJ007456; [61-34]
-      (==hanyo-denshi/ft  . #x3064)	; &MJ007456; [16-68]
+      (=>>adobe-japan1-4  . 13499)	; &MJ007456;
+      (=>>jis-x0208@1978  . #x4A2C)	; &MJ007456; [42-12]
+      (=>>jis-x0208@1983  . #x4A2C)	; &MJ007456; [42-12]
+      (=>>hanyo-denshi/ft . #x3064)	; &MJ007456; [16-68]
       (=gt		  . 02420)	; &I-GT-02420;
       (=gt-k		  . 00485)	; &I-GT-K00485;
       (=gt-pj-2		  . #x4031)	; &I-GT-02420; [32-17]
-      (==daikanwa	  . 01853)	; &MJ007456;
-      (==shinjigen	  .  0599)	; &MJ007456;
-      (==jef-china3	  . #x44B5)	; &MJ007456;
+      (=>>daikanwa	  . 01853)	; &MJ007456;
+      (=shinjigen	  .  0599)	; &MJ007456;
+      (=jef-china3	  . #x44B5)	; &I-JC3-44B5;
       (->subsumptive
-       ((===daikanwa	    . 01853)	; &R-M-01853;
-	)
-       ((===jis-x0208@1978  . #x4A2C)	; &R-J83-4A2C; [42-12]
-	(===jis-x0208@1983  . #x4A2C)	; &R-J83-4A2C; [42-12]
-	)
-       ((===hanyo-denshi/ft . #x3064)	; &R-HD-FT-3064; [16-68]
-	)
-       ((===mj		    . 007456)	; &R-MJ007456;
-	)
-       ((===adobe-japan1-4  . 13499)	; &R-AJ1-13499;
-	)
-       ((===ucs@ks	    . #x5206)	; &R-K0-5D42;
-	(===ks-x1001	    . #x5D42)	; &R-K0-5D42; [61-34]
-	)
-       ((===gt		    . 02420)	; &R-GT-02420;
-	(===gt-k	    . 00485)	; &R-GT-02420;
-	)
-       ((===jef-china3	    . #x44B5)	; &R-JC3-44B5;
-	)
-       ((===hng-kcj	    . 04730)	; &HNG042-04730;
+       ((=decomposition@cid
+	 ((=ucs		      . #x5206)	; 分
+	  )
+	 ((=ucs		      . #xE0101)	; 󠄁
+	  ))
+	(=decomposition@hanyo-denshi
+	 ((=ucs		      . #x5206)	; 分
+	  )
+	 ((=ucs		      . #xE0103)	; 󠄃
+	  ))
+	(ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((==ucs@jis	      . #x516B)	; &g2-MJ007273;
+	  (==ucs@ks	      . #x516B)	; &g2-MJ007273;
+	  (==mj		      . 007273)	; &g2-MJ007273;
+	  )
+	 ((==ucs@unicode      . #x5200)	; &g2-AJ1-03163;
+	  (==adobe-japan1-0   . 03163)	; &g2-AJ1-03163;
+	  ))
+	(==ucs@ks	    . #x5206)	; &g2-MJ007456;
+	(==mj		    . 007456)	; &g2-MJ007456;
+	(==adobe-japan1-4   . 13499)	; &g2-MJ007456;
+	(==jis-x0208@1978   . #x4A2C)	; &g2-MJ007456; [42-12]
+	(==jis-x0208@1983   . #x4A2C)	; &g2-MJ007456; [42-12]
+	(==ks-x1001	    . #x5D42)	; &g2-MJ007456; [61-34]
+	(==hanyo-denshi/ft  . #x3064)	; &g2-MJ007456; [16-68]
+	(==gt		    . 02420)	; &g2-MJ007456;
+	(==gt-k		    . 00485)	; &g2-MJ007456;
+	(==daikanwa	    . 01853)	; &g2-MJ007456;
+	(==shinjigen	    .  0599)	; &g2-MJ007456;
+	(==jef-china3	    . #x44B5)	; &g2-MJ007456;
+	(->subsumptive
+	 ((===daikanwa	      . 01853)	; &R-M-01853;
+	  )
+	 ((===jis-x0208@1978  . #x4A2C)	; &R-J78-4A2C; [42-12]
+	  )
+	 ((===jis-x0208@1983  . #x4A2C)	; &R-J83-4A2C; [42-12]
+	  )
+	 ((===hanyo-denshi/ft . #x3064)	; &R-HD-FT-3064; [16-68]
+	  )
+	 ((===adobe-japan1-4  . 13499)	; &R-AJ1-13499;
+	  )
+	 ((===mj	      . 007456)	; &R-MJ007456;
+	  )
+	 ((===ucs@ks	      . #x5206)	; &R-K0-5D42;
+	  (===ks-x1001	      . #x5D42)	; &R-K0-5D42; [61-34]
+	  )
+	 ((===gt	      . 02420)	; &R-GT-02420;
+	  (===gt-k	      . 00485)	; &R-GT-02420;
+	  )
+	 ((===jef-china3      . #x44B5)	; &R-JC3-44B5;
+	  )
+	 ((===hng-kcj	      . 04730)	; &HNG042-04730;
+	  ))
 	))
       )
      ((ideographic-structure
