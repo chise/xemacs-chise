@@ -154,10 +154,21 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 49 6)
+    (sound@ja/on	"dai")
     (=ucs		. #x2010E)	; 𠄎
     (=cns11643-4	. #x2128)	; &I-C4-2128; [01-08]
     (=big5-cdp		. #x866A)	; &I-CDP-866A;
     (=daikanwa		. 00228)	; &I-M-00228;
+    (<-ancient
+     ((=ucs		  . #x4E43)	; 乃
+      (=daikanwa	  . 00113)	; &I-M-00113;
+      ))
+    (<-ancient*sources
+     yupian daikanwa)
+    (->Bopomofo
+     ((name		  . "BOPOMOFO LETTER N")
+      (=ucs		  . #x310B)	; ㄋ
+      ))
     ))
 (define-char
   '((ideographic-radical . 6)	; ⼅
