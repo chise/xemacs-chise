@@ -113,17 +113,36 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 152)	; ⾗
+  '((<-denotational
+     ((=>ucs@component	  . #x4E51)	; &IWDS1-328;
+      (=>iwds-1		  .  0328)	; &IWDS1-328;
+      ))
+    (ideographic-radical . 152)	; ⾗
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
+    (sound@ja/on	"kou")
     (=ucs		. #x27C28)	; 𧰨
+    (=mj		. 049373)	; &I-MJ049373;
+    (=cns11643-5	. #x2329)	; &I-C5-2329; [03-09]
+    (=big5-cdp		. #x8BC9)	; &I-CDP-8BC9;
+    (=koseki		. 412360)	; 𧰨
+    (=daikanwa		. 36336)	; &I-M-36336;
     (->subsumptive
-     ((=daikanwa	  . 36336)	; &M-36336;
+     ((==daikanwa	  . 36336)	; &g2-M-36336;
       )
-     ((=ucs@iso		  . #x27C28)	; &U-00027C28;
+     ((==mj		  . 049373)	; &g2-MJ049373;
+      (==koseki		  . 412360)	; &g2-MJ049373;
       )
-     ((=cns11643-5	  . #x2329)	; &C5-2329; [03-09]
-      (=big5-cdp	  . #x8BC9)	; &I-CDP-8BC9;
+     ((==ucs@iso	  . #x27C28)	; &g2-IU-00027C28;
+      )
+     ((==ucs@cns	  . #x27C28)	; &g2-CDP-8BC9;
+      (==cns11643-5	  . #x2329)	; &g2-CDP-8BC9; [03-09]
+      (==big5-cdp	  . #x8BC9)	; &g2-CDP-8BC9;
+      (->subsumptive
+       ((===big5-cdp	    . #x8BC9)	; &R-CDP-8BC9;
+	)
+       ((===cns11643-5	    . #x2329)	; &R-C5-2329; [03-09]
+	))
       )
      ((=gt-k		  . 02141)	; &GT-K02141;
       (=gt-pj-k1	  . #x3461)	; &GT-K02141; [20-65]
