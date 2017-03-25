@@ -3,6 +3,17 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (=>ucs@component	. #x4EBA)	; &IWDS1-146;
+    (=>iwds-1		.  0146)	; &IWDS1-146;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4EBA)	; &IWDS1-146;
+      (=>iwds-1		  .  0146)	; &IWDS1-146;
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
     (hanyu-dazidian	1 101 10)
     (=ucs		. #x4EBA)	; 人
     (=adobe-japan1-0	. 02579)	; &I-AJ1-02579;
@@ -4413,8 +4424,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((==ucs@ks	    . #x5206)	; &MJ007456;
-	(=mj		    . 007456)	; &MJ007456;
+       ((==ucs@ks	    . #x5206)	; &g2-MJ007456;
+	(==mj		    . 007456)	; &g2-MJ007456;
 	))
       (==ucs@jis	  . #x4EFD)	; &g2-AJ1-14312;
       (==adobe-japan1-4	  . 14312)	; &g2-AJ1-14312;
@@ -5525,7 +5536,15 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 9)	; ⼈
+  '((<-denotational
+     ((=>ucs@component	  . #x4E51)	; &IWDS1-328;
+      (=>iwds-1		  .  0328)	; &IWDS1-328;
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (sound@ja/on/go/p=yin2 "goN")
+    (sound@ja/on/go/p=zhong4 "syu" "su")
+    (sound@ja/on/kan/p=yin2 "giN")
+    (sound@ja/on/kan/p=zhong4 "syuu")
     (=ucs		. #x343A)	; 㐺
     ))
 (define-char
@@ -5550,6 +5569,46 @@
     (=cns11643-4	. #x2231)	; &C4-2231; [02-17]
     (=big5-cdp		. #x894B)	; &I-CDP-894B;
     (=daikanwa		. 00437)	; &I-M-00437;
+    (<-original@p=yin2
+     ((=ucs		  . #x4E51)	; 乑
+      ))
+    (<-original@p=yin2*sources
+     zhengzitong)
+    (<-original@p=zhong4
+     ((=ucs@jis		  . #x773E)	; &JSP-4E6F;
+      (=jis-x0212	  . #x4E6F)	; &JSP-4E6F; [46-79]
+      (=daikanwa	  . 23321)	; &I-M-23321;
+      ))
+    (<-original@p=zhong4*sources
+     zhengzitong daikanwa)
+    (<-same@p=yin2
+     ((=ucs		  . #x4E51)	; 乑
+      (=daikanwa	  . 00139)	; &I-M-00139;
+      ))
+    (<-same@p=yin2*sources
+     zhengzitong daikanwa)
+    (->mistakable
+     ((=ucs@iso		  . #x200A2)	; &MJ030386;
+      (=mj		  . 030386)	; &MJ030386;
+      (=daikanwa	  . 00138)	; &I-M-00138;
+      ))
+    (->mistakable*sources
+     daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x343A)	; &g2-CDP-894B;
+      (==cns11643-4	  . #x2231)	; &g2-CDP-894B; [02-17]
+      (==big5-cdp	  . #x894B)	; &g2-CDP-894B;
+      (==daikanwa	  . 00437)	; &g2-CDP-894B;
+      (->subsumptive
+       ((===daikanwa	    . 00437)	; &R-M-00437;
+	)
+       ((===big5-cdp	    . #x894B)	; &R-CDP-894B;
+	)
+       ((===cns11643-4	    . #x2231)	; &R-C4-2231; [02-17]
+	)
+       ((===ucs@unicode	    . #x343A)	; &R-UU+343A;
+	))
+      ))
     ))
 (define-char
   '((<-denotational

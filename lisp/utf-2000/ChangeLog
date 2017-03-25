@@ -1,5 +1,40 @@
 2017-03-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (U+53C9): Add `<-denotational@component'
+	for IWDS1-0127 and IWDS1-0247.
+	(U+355A): Add `<-denotational@component' for IWDS1-0247; apply new
+	conventions for glyph granularity.
+	(U+53CB): Add `<-denotational@component' for IWDS1-0256.
+	(BC-8BA1): Add `<-denotational@component' for IWDS1-0220.
+	(IWDS1-0125): New abstract component.
+	(U-00020B1D): Add `<-denotational@component' for IWDS1-0125.
+	(IWDS1-0247): New abstract component.
+
+	* Ideograph-R009-Man.el (IWDS1-0146): New abstract component.
+	(U+4EBA): Add `<-denotational@component' for IWDS1-0146.
+	(U+343A): Add `<-denotational' for IWDS1-0328; add
+	`sound@ja/on/{kan|go}/p={yin2|zhong4}'.
+	(UU+343A): Add `<-original@p=yin2' for U+4E51; add
+	`<-original@p=zhong4' for JU+773E; add `<-same@p=yin2' for U+4E51;
+	add `->mistakable' for IU+200A2.
+
+	* Ideograph-R004-Slash.el (IWDS1-0127): New abstract component.
+	(U+4E49): Add `<-denotational@component' for IWDS1-0127.
+	(GT-00170): Unify UU+5903; use `ideographic-{radical|strokes}@gt'
+	instead of `ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs.
+	(GT-00173): Unify MJ056856, AJ1-14156 and KOSEKI-001510; use
+	`ideographic-{radical|strokes}@gt' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+	(BC-8C66): Add `<-denotational' for U-00027607.
+	(IWDS1-0328): New abstract component.
+	(U+4E51): Add `sound@ja/on/{kan|go}/p={yin2|zhong4}' and
+	`sound@ja/on/p=pan1'; add `<-ancient@p=pan1' for U+6500; add
+	`<-same@p=yin2' for UU+343A; add `<-same@p=zhong4' for JU+773E.
+
+2017-03-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R047-River.el (U+5DDB): Add `<-denotational@component'
 	for IWDS1-0270.
 	(U-00021FE7): Likewise.
