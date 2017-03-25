@@ -1,5 +1,43 @@
 2017-03-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R047-River.el (U+5DDB): Add `<-denotational@component'
+	for IWDS1-0270.
+	(U-00021FE7): Likewise.
+	(IWDS1-0085): New abstract component.
+	(U+5DE0): Add `<-denotational' for IWDS1-0085; add
+	`sound@ja/on/{kan|go}'.
+	(IWDS1-0270): New abstract component.
+
+	* Ideograph-R034-Go.el (U+5902): Add `<-denotational@component'
+	for IWDS1-0092 and IWDS1-0194.
+	(U+5903): Apply new conventions for glyph granularity.
+	(UU+5903): Unify GT-00170; use `ideographic-{radical|strokes}@ucs'
+	instead of `ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@gt'.
+
+	* Ideograph-R028-Private.el (BUCS+53C3): New super-abstract node.
+	(IWDS1-0016): New abstract component; use `<-denotational' for
+	BUCS+53C3.
+	(U+53C1): Add `<-denotational' for IWDS1-0016; add `sound@ja/on';
+	add `<-interchangeable' for U+4E09; add `<-vulgar' for U+53C3.
+	(U+53C2): Add `<-denotational' for IWDS1-0016.
+	(IWDS1-0017): New abstract component; use `<-denotational' for
+	BUCS+53C3.
+	(U+53C3): Add `<-denotational' for IWDS1-0017.
+	(U+53C4): Ditto; add `<-formed' and `<-same' for U+53C3.
+	(U+53C5): Add `<-denotational' for BUCS+53C3.
+
+	* Ideograph-R026-Seal.el: Complete representative nodes of
+	`=adobe-japan1-5' glyphs.
+	(IWDS1-0123): New abstract component; add
+	`<-denotational@component' for IWDS1-0120.
+	(U+353E): Add `<-denotational@component' for IWDS1-0120 and
+	IWDS1-0123.
+	(U+536C): Add `<-denotational@component' for IWDS1-0013.
+	(U+536D): Ditto; add `sound@ja/on'; add `<-wrong' for U+909B.
+	(U+537A): Add `<-wrong' for U+5DF9.
+	(IWDS1-0013): New abstract component.
+
 	* Ideograph-R134-Mortar.el (IWDS1-0168): New abstract component.
 	(U+81FC): Apply new conventions for glyph granularity; add
 	`<-denotational@component' for IWDS1-0168.
@@ -8,6 +46,38 @@
 	(U+65E7-itaiji-001): New character; use `<-denotational' for
 	A-U+65E7-itaiji-001; use `<-unknown' for U+65E7.
 	(A-U+65E7-itaiji-001): New abstract character.
+
+	* u03100-Bopomofo.el (<BOPOMOFO LETTER N>): Add `<-Bopomofo' for
+	U-0002010E.
+
+2017-03-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R173-Rain.el:
+	- Add some MJ code points.
+	- Complete representative nodes of `=adobe-japan1-0' glyphs.
+	(UU+96E9): Add `ideographic-structure'.
+	(MJ027773): Likewise.
+	(U+9736): Unify HD-KS481730.
+
+	* Ideograph-R154-Shell.el (IWDS1-0292): New abstract component.
+	(U+8C9F): Add `<-denotational' for IWDS1-0292; add
+	`ideographic-structure'; add `<-Liwen' for U+54E1; apply new
+	conventions for glyph granularity.
+
+	* Ideograph-R152-Pig.el (U-00027C28): Add `<-denotational' for
+	IWDS1-0328; add `sound@ja/on'; apply new conventions for glyph
+	granularity; unify MJ049373 and KOSEKI-412360.
+
+	* Ideograph-R150-Valley.el (IWDS1-0132): New abstract component.
+	(U+8C37): Add `<-denotational@component' for IWDS1-0132.
+	(GT-K02608): Use `<-subsumptive' instead of `<-denotational' for
+	U+8C37.
+	(U-00027BAB): Add `<-denotational@component' for IWDS1-0132; add
+	`sound@ja/on/{kan|go}'; add `->mistakable' for U+8C37.
+
+	* Ideograph-R147-See.el (J78-6B32): Fix `<-same*sources'.
+
+	* Ideograph-R107-Skin.el: Add some Adobe-Japan1-5 code points.
 
 2017-03-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
