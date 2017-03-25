@@ -967,47 +967,24 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
       (=ucs		  . #x2FF5)	; ⿵
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-	(=ucs		    . #x2FF3)	; ⿳
-	)
-       ((=adobe-japan1-4    . 13834)	; &AJ1-13834;
-	)
-       ((=ucs		    . #x4E00)	; 一
-	)
-       ((=ucs		    . #x516B)	; 八
-	))
+     ((=gt-k		  . 02290)	; &GT-K02290;
       )
      ((=big5-cdp	  . #x8BF1)	; &CDP-8BF1;
       ))
     (=ucs		. #x4E3E)	; 举
     (=gb2312		. #x3E59)	; &I-G0-3E59; [30-57]
-    (=hanziku-1		. #xADBF)	; &I-HZK01-ADBF;
     (<-simplified@CN
      ((=ucs		  . #x8209)	; 舉
       (=gb12345		  . #x3E59)	; 舉 [30-57]
       ))
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-	(=ucs		    . #x2FF5)	; ⿵
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-	  (=ucs		      . #x2FF3)	; ⿳
-	  )
-	 ((=adobe-japan1-4    . 13834)	; &AJ1-13834;
-	  )
-	 ((=ucs		      . #x4E00)	; 一
-	  )
-	 ((==ucs@unicode      . #x516B)	; &MJ007274;
-	  (=mj		      . 007274)	; &MJ007274;
-	  ))
-	)
-       ((=big5-cdp	    . #x8BF1)	; &CDP-8BF1;
-	))
-      (==ucs@unicode	  . #x4E3E)	; &g2-UU+4E3E;
+     ((==ucs@unicode	  . #x4E3E)	; &g2-UU+4E3E;
       (==gb2312		  . #x3E59)	; &g2-UU+4E3E; [30-57]
+      (->subsumptive
+       ((===ucs@unicode	    . #x4E3E)	; &R-UU+4E3E;
+	)
+       ((=hanziku-1	    . #xADBF)	; &HZK01-ADBF;
+	))
       ))
     ))
 (define-char
