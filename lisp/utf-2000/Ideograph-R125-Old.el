@@ -461,8 +461,8 @@
        ((name		    . "CJK RADICAL OLD")
 	(=ucs		    . #x2EB9)	; ⺹
 	)
-       ((==ucs@unicode	    . #x65E5)	; &g2-GT-17359;
-	(==jis-x0208	    . #x467C)	; &g2-GT-17359; [38-92]
+       ((==ucs@unicode	    . #x65E5)	; &g2-MJ013151;
+	(==mj		    . 013151)	; &g2-MJ013151;
 	))
       (==ucs@unicode	  . #x8005)	; &g2-AJ1-02304;
       (==adobe-japan1-0	  . 02304)	; &g2-AJ1-02304;

@@ -2796,9 +2796,10 @@
     (<-same
      ((=ucs@jis		  . #x9005)	; &MJ025890;
       (=mj		  . 025890)	; &MJ025890;
+      (=daikanwa	  . 38848)	; &I-M-38848;
       ))
     (<-same*sources
-     jiyun database)
+     jiyun daikanwa)
     ))
 (define-char
   '((<-denotational

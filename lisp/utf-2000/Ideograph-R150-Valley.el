@@ -3,6 +3,17 @@
   '((ideographic-radical . 150)	; ⾕
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
+    (=>ucs@component	. #x8C37)	; &IWDS1-132;
+    (=>iwds-1		.  0132)	; &IWDS1-132;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x8C37)	; &IWDS1-132;
+      (=>iwds-1		  .  0132)	; &IWDS1-132;
+      ))
+    (ideographic-radical . 150)	; ⾕
+    (ideographic-strokes . 0)
+    (total-strokes	 . 7)
     (=ucs		. #x8C37)	; 谷
     (=adobe-japan1-0	. 02921)	; &I-AJ1-02921;
     (=jis-x0208		. #x432B)	; &I-J90-432B; [35-11]
@@ -46,31 +57,36 @@
 	)
        ((===ucs@unicode	    . #x8C37)	; &R-UU+8C37;
 	))
+      )
+     ((=gt-k		  . 02608)	; &GT-K02608;
+      (=gt-pj-k1	  . #x3475)	; &GT-K02608; [20-85]
+      (<-formed@component/connect-right
+       ((=ucs		    . #x8C37)	; 谷
+	))
       ))
     ))
 (define-char
-  '((<-denotational
-     ((=ucs		  . #x8C37)	; 谷
+  '((<-denotational@component
+     ((=>ucs@component	  . #x8C37)	; &IWDS1-132;
+      (=>iwds-1		  .  0132)	; &IWDS1-132;
       ))
     (ideographic-radical . 150)	; ⾕
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
-    (=gt-k		. 02608)	; &GT-K02608;
-    (=gt-pj-k1		. #x3475)	; &GT-K02608; [20-85]
-    (<-formed@component/connect-right
-     ((=ucs		  . #x8C37)	; 谷
-      ))
-    ))
-(define-char
-  '((ideographic-radical . 150)	; ⾕
-    (ideographic-strokes . 0)
-    (total-strokes	 . 7)
+    (sound@ja/on/go	"gaku")
+    (sound@ja/on/kan	"kIyaku")
     (=ucs		. #x27BAB)	; 𧮫
     (=cns11643-5	. #x2477)	; &I-C5-2477; [04-87]
     (=gt		. 48552)	; &I-GT-48552;
     (=gt-k		. 03314)	; &I-GT-K03314;
     (=gt-pj-7		. #x3B75)	; &I-GT-48552; [27-85]
     (=daikanwa		. 36183)	; &I-M-36183;
+    (->mistakable
+     ((=ucs		  . #x8C37)	; 谷
+      (=daikanwa	  . 36182)	; &I-M-36182;
+      ))
+    (->mistakable*sources
+     kangxi-biansi-2char daikanwa)
     (->subsumptive
      ((==ucs@iso	  . #x27BAB)	; &g2-GT-48552;
       (==cns11643-5	  . #x2477)	; &g2-GT-48552; [04-87]
