@@ -74,6 +74,9 @@
     (=gb2312		. #x284B)	; &I-G0-284B; [08-43]
     (=cns11643-1	. #x254D)	; &I-C1-254D; [05-45]
     (=big5		. #xA37A)	; &I-B-A37A;
+    (<-Bopomofo
+     ((=ucs		  . #x2010E)	; 𠄎
+      ))
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER L")
