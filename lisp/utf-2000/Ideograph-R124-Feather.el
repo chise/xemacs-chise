@@ -23,18 +23,36 @@
     (=gt-pj-6		. #x326A)	; &I-GT-36832; [18-74]
     (=daikanwa		. 28614)	; &I-M-28614;
     (=jef-china3	. #x60A1)	; &I-JC3-60A1;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #xFA1E)	; 羽
-      ))
-    (ideographic-radical . 124)	; ⽻
-    (ideographic-strokes . 0)
-    (total-strokes	 . 6)
-    (=gt-k		. 01762)	; &GT-K01762;
-    (=gt-pj-k1		. #x322B)	; &GT-K01762; [18-11]
-    (<-same@component/connect-below
-     ((=ucs		  . #xFA1E)	; 羽
+    (->subsumptive
+     ((==ucs@unicode	  . #xFA1E)	; &g2-AJ1-08599;
+      (==ucs@ks		  . #x7FBD)	; &g2-AJ1-08599;
+      (==adobe-japan1-2	  . 08599)	; &g2-AJ1-08599;
+      (==ks-x1001	  . #x6962)	; &g2-AJ1-08599; [73-66]
+      (==gt		  . 36832)	; &g2-AJ1-08599;
+      (==gt-k		  . 01761)	; &g2-AJ1-08599;
+      (==daikanwa	  . 28614)	; &g2-AJ1-08599;
+      (==jef-china3	  . #x60A1)	; &g2-AJ1-08599;
+      (->subsumptive
+       ((===daikanwa	    . 28614)	; &R-M-28614;
+	)
+       ((===adobe-japan1-2  . 08599)	; &R-AJ1-08599;
+	)
+       ((===gt		    . 36832)	; &R-GT-36832;
+	(===gt-k	    . 01761)	; &R-GT-36832;
+	)
+       ((===jef-china3	    . #x60A1)	; &R-JC3-60A1;
+	)
+       ((===ucs@ks	    . #x7FBD)	; &R-K0-6962;
+	(===ks-x1001	    . #x6962)	; &R-K0-6962; [73-66]
+	)
+       ((===ucs@unicode	    . #xFA1E)	; &R-UU+FA1E;
+	))
+      )
+     ((=gt-k		  . 01762)	; &GT-K01762;
+      (=gt-pj-k1	  . #x322B)	; &GT-K01762; [18-11]
+      (<-same@component/connect-below
+       ((=ucs		    . #xFA1E)	; 羽
+	))
       ))
     ))
 (define-char
@@ -985,10 +1003,12 @@
       )
      ((=ucs		  . #xFA1E)	; 羽
       )
-     ((==ucs@ks		  . #x5206)	; &MJ007456;
-      (=mj		  . 007456)	; &MJ007456;
+     ((=ucs		  . #x5206)	; 分
       ))
     (=daikanwa		. 28636)	; &M-28636;
+    (->subsumptive
+     ((==daikanwa	  . 28636)	; &g2-M-28636;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -1566,7 +1586,7 @@
 	)
        ((=gt-k		    . 02403)	; &GT-K02403;
 	)
-       ((==daikanwa	    . 13733)	; &g2-M-13733;
+       ((==mj		    . 013152)	; &g2-MJ013152;
 	))
       (===hng-khm	  . 00960)	; &HNG011-00960;
       )
@@ -1578,8 +1598,8 @@
 	)
        ((=gt-k		    . 02403)	; &GT-K02403;
 	)
-       ((==ucs@unicode	    . #x65E5)	; &g2-GT-17359;
-	(==jis-x0208	    . #x467C)	; &g2-GT-17359; [38-92]
+       ((==ucs@unicode	    . #x65E5)	; &g2-MJ013151;
+	(==mj		    . 013151)	; &g2-MJ013151;
 	))
       (==mj		  . 058354)	; &g2-MJ058354;
       (==koseki		  . 320010)	; &g2-MJ058354;
