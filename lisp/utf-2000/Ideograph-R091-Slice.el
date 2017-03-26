@@ -631,26 +631,6 @@
     (=cns11643-5	. #x3347)	; &C5-3347; [19-39]
     ))
 (define-char
-  '((=>ucs*		. #x7250)	; 牐
-    (ideographic-radical . 91)	; ⽚
-    (ideographic-strokes . 7)
-    (total-strokes	 . 11)
-    (=ucs		. #x2F922)	; 牐
-    (->subsumptive
-     ((=daikanwa	  . 19844)	; &M-19844;
-      (<-vulgar
-       ((=ucs@unicode	    . #x7250)	; &JSP-4A53;
-	(=jis-x0212	    . #x4A53)	; &JSP-4A53; [42-51]
-	(=daikanwa	    . 19869)	; &I-M-19869;
-	))
-      (<-vulgar*sources
-       zihui database)
-      )
-     ((=ucs@iso		  . #x2F922)	; &C6-4161;
-      (=cns11643-6	  . #x4161)	; &C6-4161; [33-65]
-      ))
-    ))
-(define-char
   '((ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
@@ -1302,8 +1282,6 @@
     ))
 (define-char
   '((ideographic-radical . 91)	; ⽚
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
     (=ucs		. #x7250)	; 牐
     ))
 (define-char
@@ -1313,18 +1291,112 @@
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7247)	; 片
+      )
+     ((=ucs		  . #x81FF)	; 臿
+      ))
+    (=>ucs@unicode	. #x7250)	; &A-UU+7250;
+    (=>daikanwa		. 19869)	; &A-UU+7250;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x7250)	; &A-UU+7250;
+      ))
+    (ideographic-radical . 91)	; ⽚
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7247)	; 片
+      )
+     ((=ucs@unicode	  . #x81FF)	; &UU+81FF;
+      ))
     (=ucs@unicode	. #x7250)	; &JSP-4A53;
     (=jis-x0212		. #x4A53)	; &JSP-4A53; [42-51]
     (=daikanwa		. 19869)	; &I-M-19869;
+    (->subsumptive
+     ((==ucs@unicode	  . #x7250)	; &g2-JSP-4A53;
+      (==jis-x0212	  . #x4A53)	; &g2-JSP-4A53; [42-51]
+      (==daikanwa	  . 19869)	; &g2-JSP-4A53;
+      (->subsumptive
+       ((===daikanwa	    . 19869)	; &R-M-19869;
+	)
+       ((===jis-x0212	    . #x4A53)	; &R-JSP-4A53; [42-51]
+	)
+       ((===ucs@unicode	    . #x7250)	; &R-UU+7250;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@unicode	  . #x7250)	; &A-UU+7250;
+      ))
+    (ideographic-radical . 91)	; ⽚
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7247)	; 片
+      )
+     ((=ucs@cns		  . #x81FF)	; &JX2-755C;
+      (=ucs@jis		  . #x81FF)	; &JX2-755C;
+      (=jis-x0212	  . #x566C)	; &JX2-755C; [54-76]
+      (=cns11643-2	  . #x2D2B)	; &I-C2-2D2B; [13-11]
+      (=jis-x0213-2	  . #x755C)	; &I-JX2-755C; [85-60]
+      (=daikanwa	  . 30180)	; &I-M-30180;
+      ))
+    (=ucs@cns		. #x7250)	; &C3-425C;
+    (=cns11643-3	. #x425C)	; &C3-425C; [34-60]
+    (->subsumptive
+     ((==ucs@cns	  . #x7250)	; &g2-CU+7250;
+      (==cns11643-3	  . #x425C)	; &g2-CU+7250; [34-60]
+      ))
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x7250)	; 牐
       ))
+    (=>ucs*		. #x7250)	; 牐
     (ideographic-radical . 91)	; ⽚
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
-    (=cns11643-3	. #x425C)	; &C3-425C; [34-60]
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7247)	; 片
+      )
+     ((=ucs		  . #x2218D)	; 𢆍
+      ))
+    (=ucs		. #x2F922)	; 牐
+    (=cns11643-6	. #x4161)	; &I-C6-4161; [33-65]
+    (<-vulgar
+     ((=ucs@unicode	  . #x7250)	; &JSP-4A53;
+      (=jis-x0212	  . #x4A53)	; &JSP-4A53; [42-51]
+      (=daikanwa	  . 19869)	; &I-M-19869;
+      ))
+    (<-vulgar*sources
+     zihui daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 19844)	; &g2-M-19844;
+      )
+     ((==ucs@iso	  . #x2F922)	; &g2-IU-0002F922;
+      (==ucs@JP/hanazono  . nil)
+      (==cns11643-6	  . #x4161)	; &g2-IU-0002F922; [33-65]
+      (->subsumptive
+       ((===cns11643-6	    . #x4161)	; &R-C6-4161; [33-65]
+	)
+       ((===ucs@iso	    . #x2F922)	; &R-U-0002F922;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 91)	; ⽚
