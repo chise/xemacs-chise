@@ -2,6 +2,27 @@
 (define-char
   '((ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 0)
+    (=>ucs@component	. #x7F36)	; &IWDS1-295;
+    (=>iwds-1		.  0295)	; &IWDS1-295;
+    ))
+(define-char
+  '((ideographic-radical . 121)	; ⽸
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (=>ucs@component	. #x26222)	; &IWDS1-390;
+    (=>iwds-1		.  0390)	; &IWDS1-390;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x26222)	; &IWDS1-390;
+      (=>iwds-1		  .  0390)	; &IWDS1-390;
+      ))
+    (<-denotational@component
+     ((=>ucs@component	  . #x7F36)	; &IWDS1-295;
+      (=>iwds-1		  .  0295)	; &IWDS1-295;
+      ))
+    (ideographic-radical . 121)	; ⽸
+    (ideographic-strokes . 0)
     (total-strokes	 . 6)
     (=ucs		. #x7F36)	; 缶
     (=adobe-japan1-0	. 01544)	; &I-AJ1-01544;
@@ -54,14 +75,45 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 121)	; ⽸
+  '((<-denotational
+     ((=>ucs@component	  . #x26222)	; &IWDS1-390;
+      (=>iwds-1		  .  0390)	; &IWDS1-390;
+      ))
+    (ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
+    (sound@ja/on	"hu")
     (=ucs		. #x26222)	; 𦈢
     (=cns11643-6	. #x2542)	; &I-C6-2542; [05-34]
     (=big5-cdp		. #x8DD6)	; &I-CDP-8DD6;
     (=daikanwa		. 28109)	; &I-M-28109;
     (=shinjigen@1ed	.  6225)	; 𦈢
+    (=shinjigen@rev	.  6226)	; 𦈢
+    (<-vulgar
+     ((=ucs		  . #x7F36)	; 缶
+      (=jis-x0208	  . #x344C)	; &I-J90-344C; [20-44]
+      (=daikanwa	  . 28108)	; &I-M-28108;
+      (=shinjigen	  .  6223)	; 缶
+      ))
+    (<-vulgar*sources
+     zhengzitong daikanwa shinjigen@1ed shinjigen@rev)
+    (->subsumptive
+     ((==ucs@iso	  . #x26222)	; &g2-CDP-8DD6;
+      (==cns11643-6	  . #x2542)	; &g2-CDP-8DD6; [05-34]
+      (==big5-cdp	  . #x8DD6)	; &g2-CDP-8DD6;
+      (==daikanwa	  . 28109)	; &g2-CDP-8DD6;
+      (==shinjigen@1ed	  .  6225)	; &g2-CDP-8DD6;
+      (==shinjigen@rev	  .  6226)	; &g2-CDP-8DD6;
+      (->subsumptive
+       ((===daikanwa	    . 28109)	; &R-M-28109;
+	)
+       ((===big5-cdp	    . #x8DD6)	; &R-CDP-8DD6;
+	)
+       ((===cns11643-6	    . #x2542)	; &R-C6-2542; [05-34]
+	)
+       ((===ucs@iso	    . #x26222)	; &R-U-00026222;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical@ucs . 121)	; ⽸
