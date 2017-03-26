@@ -1256,14 +1256,17 @@
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (=>ucs@component	. #x514C)	; &J97-513C;
     (=ucs@big5		. #x514C)	; &J97-513C;
     (=>jis-x0208	. #x513C)	; &J97-513C; [49-28]
     (=>jis-x0213-1	. #x513C)	; &J97-513C; [49-28]
     (=big5		. #xA749)	; &I-B-A749;
+    (=>iwds-1		.  0027)	; &J97-513C;
     ))
 (define-char
   '((<-denotational
-     ((=ucs@big5	  . #x514C)	; &J97-513C;
+     ((=>ucs@component	  . #x514C)	; &J97-513C;
+      (=ucs@big5	  . #x514C)	; &J97-513C;
       (=>jis-x0208	  . #x513C)	; &J97-513C; [49-28]
       ))
     (ideographic-radical . 10)	; ⼉
@@ -1313,7 +1316,8 @@
 	(==ucs@ks	    . #x516B)	; &g2-MJ007273;
 	(==mj		    . 007273)	; &g2-MJ007273;
 	)
-       ((=ucs		    . #x5144)	; 兄
+       ((==ucs@unicode	    . #x5144)	; &g2-AJ1-01809;
+	(==adobe-japan1-0   . 01809)	; &g2-AJ1-01809;
 	))
       (==ucs@jis	  . #x514C)	; &g2-MJ007227;
       (==ucs@ks		  . #x514C)	; &g2-MJ007227;
@@ -1352,41 +1356,57 @@
        ((==ucs@cns	    . #x516B)	; &g2-CU+516B;
 	(==cns11643-1	    . #x442C)	; &g2-CU+516B; [36-12]
 	)
-       ((=ucs		    . #x5144)	; 兄
+       ((==ucs@unicode	    . #x5144)	; &g2-AJ1-01809;
+	(==adobe-japan1-0   . 01809)	; &g2-AJ1-01809;
 	))
       (==ucs@cns	  . #x514C)	; &g2-CU+514C;
       (==cns11643-1	  . #x492B)	; &g2-CU+514C; [41-11]
       )
-     ((=decomposition@hanyo-denshi
-       ((=ucs		    . #x514C)	; 兌
-	)
-       ((=ucs		    . #xE0102)	; 󠄂
-	))
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((==ucs@unicode	    . #x516B)	; &MJ007274;
-	(=mj		    . 007274)	; &MJ007274;
+       ((=mj		    . 007274)	; &MJ007274;
 	)
        ((=ucs		    . #x5144)	; 兄
 	))
-      (==ucs@unicode	  . #x514C)	; &MJ007228;
-      (==ucs@JP/hanazono  . nil)
+      (=>>ucs@unicode	  . #x514C)	; &MJ007228;
       (=mj		  . 007228)	; &MJ007228;
-      (==hanyo-denshi/jt  . #xADBC)	; &MJ007228;
+      (=>>hanyo-denshi/jt . #xADBC)	; &MJ007228;
       (->subsumptive
-       ((===ucs@unicode	    . #x514C)	; &R-UU+514C;
-	)
-       ((===mj		    . 007228)	; &R-MJ007228;
-	)
-       ((===hanyo-denshi/jt . #xADBC)	; &R-HD-JT-ADBC;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x514C)	; 兌
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((==ucs@unicode      . #x516B)	; &g2-MJ007274;
+	  (==mj		      . 007274)	; &g2-MJ007274;
+	  )
+	 ((==ucs@unicode      . #x5144)	; &g2-AJ1-01809;
+	  (==adobe-japan1-0   . 01809)	; &g2-AJ1-01809;
+	  ))
+	(==ucs@unicode	    . #x514C)	; &g2-MJ007228;
+	(==ucs@JP/hanazono  . nil)
+	(==mj		    . 007228)	; &g2-MJ007228;
+	(==hanyo-denshi/jt  . #xADBC)	; &g2-MJ007228;
+	(->subsumptive
+	 ((===hanyo-denshi/jt . #xADBC)	; &R-HD-JT-ADBC;
+	  )
+	 ((===mj	      . 007228)	; &R-MJ007228;
+	  )
+	 ((===ucs@unicode     . #x514C)	; &R-UU+514C;
+	  ))
 	))
       ))
     ))
 (define-char
   '((<-denotational
-     ((=ucs@big5	  . #x514C)	; &J97-513C;
+     ((=>ucs@component	  . #x514C)	; &J97-513C;
+      (=ucs@big5	  . #x514C)	; &J97-513C;
       (=>jis-x0208	  . #x513C)	; &J97-513C; [49-28]
       ))
     (ideographic-radical . 10)	; ⼉
@@ -1403,6 +1423,16 @@
     (=ucs		. #x5151)	; 兑
     (=gb2312		. #x3652)	; &I-G0-3652; [22-50]
     (=cns11643-3	. #x2451)	; &I-C3-2451; [04-49]
+    (->subsumptive
+     ((==ucs@unicode	  . #x5151)	; &g2-UU+5151;
+      (==gb2312		  . #x3652)	; &g2-UU+5151; [22-50]
+      (==cns11643-3	  . #x2451)	; &g2-UU+5151; [04-49]
+      (->subsumptive
+       ((===cns11643-3	    . #x2451)	; &R-C3-2451; [04-49]
+	)
+       ((===ucs@unicode	    . #x5151)	; &R-UU+5151;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
@@ -2761,8 +2791,8 @@
 	)
        ((=ucs		    . #x4EA0)	; 亠
 	)
-       ((==ucs@unicode	    . #x514C)	; &MJ007228;
-	(=mj		    . 007228)	; &MJ007228;
+       ((==ucs@unicode	    . #x514C)	; &g2-MJ007228;
+	(==mj		    . 007228)	; &g2-MJ007228;
 	))
       (==ucs@unicode	  . #x5157)	; &g2-UU+5157;
       (==ucs@JP/hanazono  . nil)
