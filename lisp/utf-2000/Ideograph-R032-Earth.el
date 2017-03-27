@@ -7258,12 +7258,10 @@
     (=daikanwa		. 05111)	; &I-M-05111;
     (=shinjigen		.  5430)	; &AJ1-04494;
     (<-formed
-     ((=ucs@jis		  . #x786E)	; &JX1-7926;
-      (=jis-x0212	  . #x4F6C)	; &JX1-7926; [47-76]
-      (=cns11643-2	  . #x3E50)	; &I-C2-3E50; [30-48]
-      (=jis-x0213-1	  . #x7926)	; &I-JX1-7926; [89-06]
-      (=daikanwa	  . 24232)	; &I-M-24232;
-      (=shinjigen	  .  5429)	; &JX1-7926;
+     ((=ucs@jis		  . #x786E)	; &AJ1-17007;
+      (=adobe-japan1-5	  . 17007)	; &AJ1-17007;
+      (=jis-x0212	  . #x4F6C)	; &I-JSP-4F6C; [47-76]
+      (=shinjigen	  .  5429)	; &AJ1-17007;
       ))
     (<-formed*sources
      shinjigen)

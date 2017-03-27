@@ -510,7 +510,16 @@
        ((===hng-kar	    . 05850)	; &HNG018-05850;
 	))
       )
-     ((=>>ucs@unicode	  . #x516E)	; &MJ007279;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=mj		    . 007274)	; &MJ007274;
+	)
+       ((=ucs@unicode	    . #x4E02)	; &AJ1-17234;
+	(=adobe-japan1-5    . 17234)	; &AJ1-17234;
+	))
+      (=>>ucs@unicode	  . #x516E)	; &MJ007279;
       (=mj		  . 007279)	; &MJ007279;
       (=>>hanyo-denshi/ft . #x3470)	; &MJ007279; [20-80]
       (->subsumptive
