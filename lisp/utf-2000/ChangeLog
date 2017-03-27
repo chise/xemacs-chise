@@ -1,5 +1,11 @@
 2017-03-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R061-Heart.el (A-J0-3159): Use U+5FC4 instead of <CJK
+	RADICAL HEART ONE> in `ideographic-structure'.
+	(U+6085): Likewise.
+
+2017-03-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R018-Knife.el (IWDS1-0149): New abstract component.
 	(U+5200): Add `<-denotational' for IWDS1-0149.
 	(U-0002008A): Likewise.
