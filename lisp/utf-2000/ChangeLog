@@ -1,3 +1,7 @@
+2017-03-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (MJ007279): Add `ideographic-structure'.
+
 2017-03-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (A-J0-3159): Use U+5FC4 instead of <CJK
