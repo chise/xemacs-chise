@@ -9779,10 +9779,10 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
-     ((=ucs@big5	  . #x514C)	; &J97-513C;
+     ((=>ucs@component	  . #x514C)	; &J97-513C;
+      (=ucs@big5	  . #x514C)	; &J97-513C;
       (=>jis-x0208	  . #x513C)	; &J97-513C; [49-28]
       ))
     (=>ucs@jis		. #x60A6)	; &J97-3159;
@@ -9804,8 +9804,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((name		  . "CJK RADICAL HEART ONE")
-      (=ucs		  . #x2E96)	; ⺖
+     ((=ucs		  . #x5FC4)	; 忄
       )
      ((=ucs		  . #x514C)	; 兌
       ))
