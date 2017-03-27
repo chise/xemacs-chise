@@ -1,3 +1,26 @@
+2017-03-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (IWDS1-0149): New abstract component.
+	(U+5200): Add `<-denotational' for IWDS1-0149.
+	(U-0002008A): Likewise.
+	(GT-K00089): Use `<-subsumptive' instead of `<-denotational' for
+	BC-8B6C.
+	(<CJK RADICAL KNIFE ONE>): Move GT-K00091 to a glyph-form node;
+	unify BC-8B5B.
+	(U+5206): Use IWDS1-0149 instead of U+5200 in
+	`ideographic-structure'.
+	(UU+5206): Add `ideographic-structure'.
+	(U+343A-itaiji-002): New character; use `<-formed' for U+343A.
+
+	* Ideograph-R010-Legs.el (A-J0-513C): Unify A-compU+514C and
+	IWDS1-0027.
+	(U+514C): Apply new conventions for glyph granularity.
+	(U+5151): Add representative nodes.
+
+	* Ideograph-R009-Man.el: Complete representative nodes of
+	`=adobe-japan1-2' glyphs.
+	(U+343A-var-001): New character; use `<-denotational' for U+343A.
+
 2017-03-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R124-Feather.el (U+FA1E): Add representative nodes.
