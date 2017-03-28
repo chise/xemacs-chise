@@ -498,13 +498,16 @@
       ))
     (ideographic-radical@r109 . 109)	; ⽬
     (ideographic-radical@r143 . 143)	; ⾎
-    (=ucs@big5		. #x773E)	; &B-B2B3;
-    (=big5		. #xB2B3)	; &B-B2B3;
+    (=>ucs@component	. #x8846)	; &IWDS1-329;
+    (=ucs@big5		. #x773E)	; &IWDS1-329;
+    (=big5		. #xB2B3)	; &IWDS1-329;
+    (=>iwds-1		.  0329)	; &IWDS1-329;
     ))
 (define-char
   '((<-denotational
-     ((=ucs@big5	  . #x773E)	; &B-B2B3;
-      (=big5		  . #xB2B3)	; &B-B2B3;
+     ((=>ucs@component	  . #x8846)	; &IWDS1-329;
+      (=ucs@big5	  . #x773E)	; &IWDS1-329;
+      (=>iwds-1		  .  0329)	; &IWDS1-329;
       ))
     (ideographic-radical . 143)	; ⾎
     (ideographic-strokes . 6)

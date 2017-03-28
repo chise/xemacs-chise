@@ -1160,6 +1160,14 @@
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5F50)	; 彐
+      )
+     ((=ucs		  . #x5927)	; 大
+      ))
     (=ucs		. #x3691)	; 㚑
     ))
 (define-char
@@ -1169,6 +1177,15 @@
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x5F50)	; &G0-6566;
+      (=gb2312		  . #x6566)	; &G0-6566; [69-70]
+      )
+     ((=ucs		  . #x5927)	; 大
+      ))
     (=mj		. 000567)	; &MJ000567;
     (=hanyo-denshi/jt	. #xAFBF)	; &I-HD-JT-AFBF;
     (->subsumptive
@@ -1193,6 +1210,14 @@
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=adobe-japan1-4	  . 15391)	; &AJ1-15391;
+      )
+     ((=ucs		  . #x5927)	; 大
+      ))
     (=ucs@unicode	. #x3691)	; &MJ000568;
     (=mj		. 000568)	; &MJ000568;
     (=adobe-japan1-5	. 17473)	; &I-AJ1-17473;
