@@ -1,5 +1,15 @@
 2017-03-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R109-Eye.el (B-B2B3): Unify IWDS1-0329 and
+	A-compU+8846.
+	(U+773E): Add ideographic-structure.
+	(U-0002516B): Add `ideographic-structure'.
+
+2017-03-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R007-Two.el (U+5F00): Add `<-denotational@component'
+	for IWDS1-0180.
+
 	* Ideograph-R012-Eight.el (MJ007279): Add `ideographic-structure'.
 
 2017-03-26  MORIOKA Tomohiko  <tomo.git@chise.org>
