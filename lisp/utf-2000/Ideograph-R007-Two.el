@@ -716,6 +716,10 @@
   '((<-denotational
      ((==>ucs@bucs	  . #x958B)	; &BUCS+958B;
       ))
+    (<-denotational@component
+     ((=>ucs@component	  . #x5F00)	; &IWDS1-180;
+      (=>iwds-1		  .  0180)	; &IWDS1-180;
+      ))
     (ideographic-radical@ucs . 55)	; ⼶
     (ideographic-strokes@ucs . 1)
     (ideographic-radical@ucs*sources
