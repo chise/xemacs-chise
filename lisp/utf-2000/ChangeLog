@@ -1,4 +1,13 @@
+2017-03-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R169-Gate.el (U+5F00): Add `<-denotational@component'
+	for IWDS1-0180.
+
 2017-03-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R037-Big.el (U+3691): Add `ideographic-structure'.
+	(MJ000567): Likewise.
+	(UU+3691): Likewise.
 
 	* Ideograph-R109-Eye.el (B-B2B3): Unify IWDS1-0329 and
 	A-compU+8846.
@@ -13,6 +22,9 @@
 	* Ideograph-R012-Eight.el (MJ007279): Add `ideographic-structure'.
 
 2017-03-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R143-Blood.el (B-B2B3): Unify IWDS1-0329 and
+	A-compU+8846.
 
 	* Ideograph-R061-Heart.el (A-J0-3159): Use U+5FC4 instead of <CJK
 	RADICAL HEART ONE> in `ideographic-structure'.
