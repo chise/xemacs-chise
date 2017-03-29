@@ -1,3 +1,25 @@
+2017-03-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL KNIFE ONE>):
+	Unify BC-8B5B; use U-0002008A instead of BC-8B5B as its mother;
+	move GT-K00091 to a subsumed glyph-form node.
+	(<CJK RADICAL SNOUT TWO>): Unify A-UU+5F50 instead of UU+5F50; use
+	U+5F50 instead of GT-K00266 as its mother; separate G0-6566; unify
+	A-BC-8BAB and A-GT-67403.
+	(AJ1-15391): Use `<-denotational' for <CJK RADICAL SNOUT TWO>.
+	(BC-897C): Use <CJK RADICAL SNOUT TWO> instead of GT-K00266 as its
+	mother; unify UU+5F50 and G0-6566.
+	(GT-K00266): Use `<-subsumptive' for BC-897C instead of
+	`<-denotational' for U+5F50; delete `=>ucs' for U+2E95.
+
+2017-03-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (GT-K00091): Use
+	`<-formed@component/connect-below' instead of
+	`<-identical@component/connect-below' for <CJK RADICAL KNIFE ONE>.
+	(UU+520D): Add `<-simplified@CN' for U+82BB; apply new conventions
+	for glyph granularity.
+
 2017-03-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R058-Snout.el (<CJK RADICAL SNOUT TWO>): Unify
