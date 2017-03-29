@@ -118,7 +118,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=big5-cdp	  . #x8B5B)	; &CDP-8B5B;
+     ((=ucs		  . #x2008A)	; 𠂊
       ))
     (name		. "CJK RADICAL KNIFE ONE")
     (general-category	symbol other) ; Informative Category
@@ -128,13 +128,23 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (=ucs		. #x2E88)	; ⺈
-    (=gt-k		. 00091)	; &I-GT-K00091;
-    (=gt-pj-k1		. #x3234)	; ⺈ [18-20]
-    (<-formed@component/connect-below
+    (=big5-cdp		. #x8B5B)	; &I-CDP-8B5B;
+    (<-formed@component
      ((=ucs		  . #x5200)	; 刀
       ))
-    (<-identical@component/connect-below
-     ((=big5-cdp	  . #x8B5B)	; &CDP-8B5B;
+    (->subsumptive
+     ((==big5-cdp	  . #x8B5B)	; &g2-CDP-8B5B;
+      )
+     ((==ucs@unicode	  . #x2E88)	; &g2-UU+2E88;
+      )
+     ((=gt-k		  . 00091)	; &GT-K00091;
+      (=gt-pj-k1	  . #x3234)	; &GT-K00091; [18-20]
+      (<-formed@component/connect-below
+       ((=ucs		    . #x5200)	; 刀
+	)
+       ((name		    . "CJK RADICAL KNIFE ONE")
+	(=ucs		    . #x2E88)	; ⺈
+	))
       ))
     ))
 (define-char
@@ -316,7 +326,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=gt-k		  . 00266)	; &GT-K00266;
+     ((=ucs		  . #x5F50)	; 彐
       ))
     (name		. "CJK RADICAL SNOUT TWO")
     (general-category	symbol other) ; Informative Category
@@ -326,28 +336,65 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=ucs		. #x2E95)	; ⺕
-    (=ucs@unicode	. #x5F50)	; ⺕
-    (=gb2312		. #x6566)	; &I-G0-6566; [69-70]
+    (=>ucs@unicode	. #x5F50)	; ⺕
+    (=>big5-cdp		. #x8BAB)	; ⺕
+    (=>gt		. 67403)	; ⺕
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5F50)	; 彐
+     ((name		  . "CJK RADICAL SNOUT TWO")
+      (=ucs		  . #x2E95)	; ⺕
       ))
-    (=>ucs		. #x2E95)	; ⺕
     (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (=gt-k		. 00266)	; &GT-K00266;
-    (=gt-pj-k1		. #x3663)	; &GT-K00266; [22-67]
+    (=adobe-japan1-4	. 15391)	; &AJ1-15391;
+    (=big5-cdp		. #x8BAB)	; &I-CDP-8BAB;
+    (=gt		. 67403)	; &I-GT-67403;
+    (=gt-pj-11		. #x5A40)	; &I-GT-67403; [58-32]
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x5F50)	; 彐
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==adobe-japan1-4	  . 15391)	; &g2-AJ1-15391;
+      (==big5-cdp	  . #x8BAB)	; &g2-AJ1-15391;
+      (==gt		  . 67403)	; &g2-AJ1-15391;
+      (->subsumptive
+       ((===adobe-japan1-4  . 15391)	; &R-AJ1-15391;
+	)
+       ((===big5-cdp	    . #x8BAB)	; &R-CDP-8BAB;
+	)
+       ((===gt		    . 67403)	; &R-GT-67403;
+	))
+      )
+     ((=gt-k		  . 00267)	; &GT-K00267;
+      (=gt-pj-k1	  . #x3974)	; &GT-K00267; [25-84]
+      ))
     ))
 (define-char
   '((<-denotational
+     ((name		  . "CJK RADICAL SNOUT TWO")
+      (=ucs		  . #x2E95)	; ⺕
+      ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=ucs@unicode	. #x5F50)	; &G0-6566;
+    (=ucs@JP/hanazono	. nil)
+    (=gb2312		. #x6566)	; &G0-6566; [69-70]
+    (=big5-cdp		. #x897C)	; &I-CDP-897C;
+    (->subsumptive
+     ((==ucs@unicode	  . #x5F50)	; &g2-UU+5F50;
+      (==ucs@JP/hanazono  . nil)
+      (==gb2312		  . #x6566)	; &g2-UU+5F50; [69-70]
+      )
      ((=gt-k		  . 00266)	; &GT-K00266;
+      (=gt-pj-k1	  . #x3663)	; &GT-K00266; [22-67]
+      )
+     ((==big5-cdp	  . #x897C)	; &g2-CDP-897C;
       ))
-    (ideographic-radical . 58)	; ⼹
-    (ideographic-strokes . 0)
-    (total-strokes	 . 3)
-    (=big5-cdp		. #x897C)	; &CDP-897C;
     ))
 (define-char
   '((<-denotational
