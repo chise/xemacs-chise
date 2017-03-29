@@ -59,6 +59,23 @@
   '((<-denotational
      ((=ucs		  . #x5F50)	; 彐
       ))
+    (name		. "CJK RADICAL SNOUT TWO")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=ucs		. #x2E95)	; ⺕
+    (=>ucs@unicode	. #x5F50)	; ⺕
+    (=>big5-cdp		. #x8BAB)	; ⺕
+    (=>gt		. 67403)	; ⺕
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "CJK RADICAL SNOUT TWO")
+      (=ucs		  . #x2E95)	; ⺕
+      ))
     (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
@@ -89,38 +106,26 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5F50)	; 彐
+     ((name		  . "CJK RADICAL SNOUT TWO")
+      (=ucs		  . #x2E95)	; ⺕
       ))
-    (=>ucs		. #x2E95)	; ⺕
     (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (=gt-k		. 00266)	; &GT-K00266;
-    (=gt-pj-k1		. #x3663)	; &GT-K00266; [22-67]
-    ))
-(define-char
-  '((<-denotational
+    (=ucs@unicode	. #x5F50)	; &G0-6566;
+    (=ucs@JP/hanazono	. nil)
+    (=gb2312		. #x6566)	; &G0-6566; [69-70]
+    (=big5-cdp		. #x897C)	; &I-CDP-897C;
+    (->subsumptive
+     ((==ucs@unicode	  . #x5F50)	; &g2-UU+5F50;
+      (==ucs@JP/hanazono  . nil)
+      (==gb2312		  . #x6566)	; &g2-UU+5F50; [69-70]
+      )
      ((=gt-k		  . 00266)	; &GT-K00266;
+      (=gt-pj-k1	  . #x3663)	; &GT-K00266; [22-67]
+      )
+     ((==big5-cdp	  . #x897C)	; &g2-CDP-897C;
       ))
-    (name		. "CJK RADICAL SNOUT TWO")
-    (general-category	symbol other) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (ideographic-radical . 58)	; ⼹
-    (ideographic-strokes . 0)
-    (total-strokes	 . 3)
-    (=ucs		. #x2E95)	; ⺕
-    (=ucs@unicode	. #x5F50)	; ⺕
-    (=gb2312		. #x6566)	; &I-G0-6566; [69-70]
-    ))
-(define-char
-  '((<-denotational
-     ((=gt-k		  . 00266)	; &GT-K00266;
-      ))
-    (ideographic-radical . 58)	; ⼹
-    (ideographic-strokes . 0)
-    (total-strokes	 . 3)
-    (=big5-cdp		. #x897C)	; &CDP-897C;
     ))
 (define-char
   '((ideographic-radical . 58)	; ⼹

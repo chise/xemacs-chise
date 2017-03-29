@@ -1,5 +1,14 @@
 2017-03-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R058-Snout.el (<CJK RADICAL SNOUT TWO>): Unify
+	A-UU+5F50 instead of UU+5F50; use U+5F50 instead of GT-K00266 as
+	its mother; separate G0-6566; unify A-BC-8BAB and A-GT-67403.
+	(AJ1-15391): Use <CJK RADICAL SNOUT TWO> instead of U+5F50 as its
+	mother.
+	(UU+5F50): Unify BC-897C.
+	(GT-K00266): Use `<-subsumptive' for UU+5F50 instead of
+	`<-denotational' for U+5F50; delete `=>ucs' for U+2E95.
+
 	* Ideograph-R169-Gate.el (U+5F00): Add `<-denotational@component'
 	for IWDS1-0180.
 
