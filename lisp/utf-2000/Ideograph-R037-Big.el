@@ -753,17 +753,32 @@
     (total-strokes	 . 5)
     (=ucs		. #x215D7)	; 𡗗
     (->subsumptive
-     ((=decomposition@cid
-       ((=ucs		    . #x215D7)	; 𡗗
-	)
-       ((=ucs		    . #xE0100)	; 󠄀
-	))
-      (=ucs@iso		  . #x215D7)	; &AJ1-17472;
+     ((=ucs@iso		  . #x215D7)	; &AJ1-17472;
       (=adobe-japan1-5	  . 17472)	; &AJ1-17472;
       (=gt-k		  . 01089)	; &I-GT-K01089;
       (=gt-pj-k1	  . #x322E)	; &AJ1-17472; [18-14]
+      (->subsumptive
+       ((=decomposition@cid
+	 ((=ucs		      . #x215D7)	; 𡗗
+	  )
+	 ((=ucs		      . #xE0100)	; 󠄀
+	  ))
+	(==ucs@iso	    . #x215D7)	; &g2-AJ1-17472;
+	(==adobe-japan1-5   . 17472)	; &g2-AJ1-17472;
+	(==gt-k		    . 01089)	; &g2-AJ1-17472;
+	(->subsumptive
+	 ((===adobe-japan1-5  . 17472)	; &R-AJ1-17472;
+	  )
+	 ((===gt-k	      . 01089)	; &R-GT-K01089;
+	  )
+	 ((===ucs@iso	      . #x215D7)	; &R-U-000215D7;
+	  ))
+	))
       )
      ((=big5-cdp	  . #x8BE9)	; &CDP-8BE9;
+      (->subsumptive
+       ((==big5-cdp	    . #x8BE9)	; &g2-CDP-8BE9;
+	))
       ))
     ))
 (define-char

@@ -1,5 +1,35 @@
 2017-03-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R167-Gold.el (U-00028A7C): New character.
+	(IU+28A7C): New character.
+
+2017-03-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R110-Spear.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R103-Bolt-Of-Cloth.el (U+758C): Unify IWDS1-0389.
+	(o-UU+758C): New abstract node; use `<-denotational' for U+758C.
+	(UU+758C): Use o-UU+758C instead of U+758C as its mother.
+	(GT-K03980): Likewise.
+	(A-GT-K06360): New abstract node; use `<-denotational' for U+758C.
+	(U+758C-itaiji-004): New character; use `<-denotational' for
+	A-GT-K06360.
+	(GT-K06360): Use A-GT-K06360 instead of U+758C as its mother;
+	unify U+758C-itaiji-001.
+
+	* Ideograph-R074-Moon.el (UU+6708): Apply new conventions for
+	glyph granularity.
+	(UU+6727): Likewise.
+
+	* Ideograph-R038-Woman.el (A-IWDSU+5A55): New abstract node.
+	(U+5A55): Add `<-denotational' for A-IWDSU+5A55; add
+	`ideographic-structure'; apply new conventions for glyph
+	granularity.
+	(U+5AAB): Likewise.
+
+	* Ideograph-R037-Big.el (U-000215D7): Apply new conventions for
+	glyph granularity.
+
 	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL KNIFE ONE>):
 	Unify BC-8B5B; use U-0002008A instead of BC-8B5B as its mother;
 	move GT-K00091 to a subsumed glyph-form node.

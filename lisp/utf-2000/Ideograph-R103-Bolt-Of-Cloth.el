@@ -65,10 +65,23 @@
 (define-char
   '((ideographic-radical . 103)	; ⽦
     (=ucs		. #x758C)	; 疌
+    (=>iwds-1		.  0389)	; 疌
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x758C)	; 疌
+      ))
+    (ideographic-radical . 103)	; ⽦
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (=+>ucs@unicode	. #x758C)	; &o-JX2-7145;
+    (=+>jis-x0213-2	. #x7145)	; &o-JX2-7145; [81-37]
+    (=+>adobe-japan1-5	. 18136)	; &o-JX2-7145;
+    ))
+(define-char
+  '((<-denotational
+     ((=+>ucs@unicode	  . #x758C)	; &o-JX2-7145;
+      (=+>jis-x0213-2	  . #x7145)	; &o-JX2-7145; [81-37]
       ))
     (ideographic-radical . 103)	; ⽦
     (ideographic-strokes . 3)
@@ -105,7 +118,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x758C)	; 疌
+     ((=+>ucs@unicode	  . #x758C)	; &o-JX2-7145;
+      (=+>jis-x0213-2	  . #x7145)	; &o-JX2-7145; [81-37]
       ))
     (ideographic-radical . 103)	; ⽦
     (ideographic-strokes . 3)
@@ -120,8 +134,62 @@
     (ideographic-radical . 103)	; ⽦
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((name		  . "CJK RADICAL DIVINATION")
+      (=ucs		  . #x2E8A)	; ⺊
+      )
+     ((=ucs		  . #x5F50)	; 彐
+      )
+     ((=ucs		  . #x9FB0)	; 龰
+      ))
+    (=>gt-k		. 06360)	; &A-GT-K06360;
+    (=>ucs-itaiji-001	. #x758C)	; &A-GT-K06360;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 06360)	; &A-GT-K06360;
+      ))
+    (ideographic-radical . 103)	; ⽦
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((name		  . "CJK RADICAL DIVINATION")
+      (=ucs		  . #x2E8A)	; ⺊
+      )
+     ((=ucs@unicode	  . #x5F50)	; &G0-6566;
+      (=gb2312		  . #x6566)	; &G0-6566; [69-70]
+      )
+     ((=ucs		  . #x9FB0)	; 龰
+      ))
+    (=ucs-itaiji-004	. #x758C)	; &U-i004+758C;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 06360)	; &A-GT-K06360;
+      ))
+    (ideographic-radical . 103)	; ⽦
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((name		  . "CJK RADICAL DIVINATION")
+      (=ucs		  . #x2E8A)	; ⺊
+      )
+     ((=adobe-japan1-4	  . 15391)	; &AJ1-15391;
+      )
+     ((=ucs		  . #x9FB0)	; 龰
+      ))
     (=gt-k		. 06360)	; &GT-K06360;
     (=gt-pj-k1		. #x4F2C)	; &GT-K06360; [47-12]
+    (=ucs-itaiji-001	. #x758C)	; &GT-K06360;
     ))
 (define-char
   '((ideographic-radical . 103)	; ⽦
