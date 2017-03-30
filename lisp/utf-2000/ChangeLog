@@ -1,5 +1,18 @@
 2017-03-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R057-Bow.el: Complete representative nodes of
+	`=adobe-japan1-5' glyphs.
+	(U+5F3D): Apply new conventions for glyph granularity.
+	(U+5F47): Likewise.
+
+	* Ideograph-R055-Two-Hands.el (IWDS1-0303): New abstract
+	component.
+	(U+5EFF): Add `<-denotational@component' for IWDS1-0303.
+	(U+5F00): Add `<-denotational@component' for IWDS1-0180.
+	(U+5F02): Add ideographic-structure; add `sound@ja/on'.
+	(JU+5F02): Apply new conventions for glyph granularity.
+	(UU+5F02): Likewise; add `<-simplified@CN' for UU+7570.
+
 	* Ideograph-R005-Second.el (U-000200D1): Use `->denotational' and
 	`->subsumptive'.
 	(IU+200D1): Add `sound@ja/on'; add `<-Small-Seal' for U+4E5A; add
@@ -9,6 +22,36 @@
 	(BC-8873): New character; use `<-denotational' for U-000200D1.
 	(GT-K00038): New character; use `<-subsumptive' for BC-8873.
 	(GT-K00041): Ditto.
+
+	* Ideograph-R030-Mouth.el: Complete representative nodes of
+	`=adobe-japan1-6' glyphs.
+	(U-0002BA4F): Add `<-denotational@component' for IWDS1-0398.
+	(IWDS1-0084): New abstract component.
+	(U+53E6): Add `<-denotational@component' for IWDS1-0084; add
+	`sound@ja/on/{kan|go}'; add `->mistakable' for U+53E7 and
+	U-00020BA0.
+	(U+53E7): Add `<-denotational@component' for IWDS1-0084; apply new
+	conventions for glyph granularity.
+	(U-00020BA0): Add `<-denotational@component' for IWDS1-0084; add
+	representative nodes.
+	(U+5405): Add `<-denotational@component' for IWDS1-0398; apply new
+	conventions for glyph granularity.
+	(U+540C): Unify IWDS1-0321.
+	(U+540C-var-001): New character; use `<-denotational' for U+540C.
+	(IWDS1-0313): New abstract component; use `<-denotational' for
+	BUCS+5433.
+	(A-J0-3862): Use BUCS+5433 instead of IWDS1-0313 as its mother.
+	(U+5434): Likewise.
+	(U+5447): Add `sound@ja/on'.
+	(U+5489): Apply new conventions for glyph granularity.
+	(U+54E1): Add `<-denotational' for IWDS1-0292.
+	(U+54F6): Add `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(IWDS1-0398): New abstract component.
+
+	* Ideograph-R020-Wrap.el (A-BC-8C40): New abstract node.
+	(BC-8C40-itaiji-001): New character; use `<-denotational' for
+	A-BC-8C40.
+	(BC-8C40): Likewise.
 
 2017-03-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 

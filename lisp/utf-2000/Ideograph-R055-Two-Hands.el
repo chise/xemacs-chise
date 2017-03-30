@@ -135,6 +135,16 @@
 (define-char
   '((ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 1)
+    (=>ucs@component	. #x5EFF)	; &IWDS1-303;
+    (=>iwds-1		.  0303)	; &IWDS1-303;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5EFF)	; &IWDS1-303;
+      (=>iwds-1		  .  0303)	; &IWDS1-303;
+      ))
+    (ideographic-radical . 55)	; ⼶
+    (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (=ucs		. #x5EFF)	; 廿
     (=adobe-japan1-0	. 03283)	; &I-AJ1-03283;
@@ -187,6 +197,10 @@
 (define-char
   '((<-denotational
      ((==>ucs@bucs	  . #x958B)	; &BUCS+958B;
+      ))
+    (<-denotational@component
+     ((=>ucs@component	  . #x5F00)	; &IWDS1-180;
+      (=>iwds-1		  .  0180)	; &IWDS1-180;
       ))
     (ideographic-radical@ucs . 55)	; ⼶
     (ideographic-strokes@ucs . 1)
@@ -320,6 +334,16 @@
   '((ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5DF1)	; &IWDS1-120;
+      (=>iwds-1		  .  0120)	; &IWDS1-120;
+      )
+     ((=ucs		  . #x5EFE)	; 廾
+      ))
+    (sound@ja/on	"i")
     (=ucs		. #x5F02)	; 异
     ))
 (define-char
@@ -329,7 +353,19 @@
     (ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5DF2)	; 已
+      )
+     ((=ucs@unicode	  . #x5EFE)	; &MJ011120;
+      (=mj		  . 011120)	; &MJ011120;
+      ))
     (=daikanwa		. 09591)	; &M-09591;
+    (->subsumptive
+     ((==daikanwa	  . 09591)	; &g2-M-09591;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -338,10 +374,14 @@
     (ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (=decomposition@cid
-     ((=ucs		  . #x5F02)	; 异
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #xE0100)	; 󠄀
+     ((=ucs		  . #x5DF1)	; 己
+      )
+     ((=ucs@unicode	  . #x5EFE)	; &MJ011120;
+      (=mj		  . 011120)	; &MJ011120;
       ))
     (=ucs@jis		. #x5F02)	; &AJ1-16855;
     (=ucs@ks		. #x5F02)	; &AJ1-16855;
@@ -350,6 +390,30 @@
     (=cns11643-2	. #x223D)	; &I-C2-223D; [02-29]
     (=jis-x0213-1	. #x7432)	; &I-JX1-7432; [84-18]
     (=big5		. #xC9DD)	; &I-B-C9DD;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x5F02)	; 异
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (==ucs@cns	  . #x5F02)	; &g2-AJ1-16855;
+      (==ucs@jis	  . #x5F02)	; &g2-AJ1-16855;
+      (==ucs@ks		  . #x5F02)	; &g2-AJ1-16855;
+      (==adobe-japan1-5	  . 16855)	; &g2-AJ1-16855;
+      (==jis-x0212	  . #x3C5C)	; &g2-AJ1-16855; [28-60]
+      (==cns11643-2	  . #x223D)	; &g2-AJ1-16855; [02-29]
+      (==jis-x0213-1	  . #x7432)	; &g2-AJ1-16855; [84-18]
+      (->subsumptive
+       ((===jis-x0212	    . #x3C5C)	; &R-JX1-7432; [28-60]
+	(===jis-x0213-1	    . #x7432)	; &R-JX1-7432; [84-18]
+	)
+       ((===adobe-japan1-5  . 16855)	; &R-AJ1-16855;
+	)
+       ((===cns11643-2	    . #x223D)	; &R-C2-223D; [02-29]
+	)
+       ((===ucs@ks	    . #x5F02)	; &R-KU+5F02;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -358,13 +422,33 @@
     (ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5DF3)	; 巳
+      )
+     ((=ucs@unicode	  . #x5EFE)	; &MJ011120;
+      (=mj		  . 011120)	; &MJ011120;
+      ))
     (=ucs@unicode	. #x5F02)	; &G0-526C;
     (=ucs@JP/hanazono	. nil)
     (=gb2312		. #x526C)	; &G0-526C; [50-76]
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x7570)	; &MJ017706;
+      (=mj		  . 017706)	; &MJ017706;
+      ))
     (->subsumptive
-     ((=cbeta		  . 02326)	; &CB02326;
-      )
-     ((=cbeta		  . 11790)	; &CB11790;
+     ((==ucs@unicode	  . #x5F02)	; &g2-UU+5F02;
+      (==ucs@JP/hanazono  . nil)
+      (==gb2312		  . #x526C)	; &g2-UU+5F02; [50-76]
+      (->subsumptive
+       ((===ucs@unicode	    . #x5F02)	; &R-UU+5F02;
+	)
+       ((=cbeta		    . 02326)	; &CB02326;
+	)
+       ((=cbeta		    . 11790)	; &CB11790;
+	))
       ))
     ))
 (define-char
