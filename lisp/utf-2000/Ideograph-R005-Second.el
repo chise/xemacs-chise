@@ -96,21 +96,73 @@
     (=daikanwa		. 00163)	; &I-M-00163;
     ))
 (define-char
-  '((=>ucs		. #x200D1)	; 𠃑
-    (ideographic-radical . 5)	; ⼄
-    (ideographic-strokes . 0)
-    (total-strokes	 . 1)
-    (=gt		. 00223)	; &GT-00223;
-    (=gt-pj-2		. #x3144)	; &GT-00223; [17-36]
-    (=daikanwa		. 00164)	; &I-M-00164;
-    ))
-(define-char
-  '((morohashi-daikanwa	164 0 1)
-    (ideographic-radical . 5)	; ⼄
+  '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
     (=ucs		. #x200D1)	; 𠃑
-    (=cns11643-5	. #x2121)	; &I-C5-2121; [01-01]
+    ))
+(define-char
+  '((<-denotational@component
+     ((=ucs		  . #x200D1)	; 𠃑
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 0)
+    (total-strokes	 . 1)
+    (sound@ja/on	"iN")
+    (=ucs@iso		. #x200D1)	; &GT-00223;
+    (=gt		. 00223)	; &GT-00223;
+    (=gt-pj-2		. #x3144)	; &GT-00223; [17-36]
+    (=daikanwa		. 00164)	; &I-M-00164;
+    (<-Small-Seal
+     ((=ucs		  . #x4E5A)	; 乚
+      (=daikanwa	  . 00163)	; &I-M-00163;
+      ))
+    (<-Small-Seal*sources
+     daikanwa)
+    (->Bopomofo
+     ((name		  . "BOPOMOFO LETTER EN")
+      (=ucs		  . #x3123)	; ㄣ
+      ))
+    (->subsumptive
+     ((==gt		  . 00223)	; &g2-GT-00223;
+      (==daikanwa	  . 00164)	; &g2-GT-00223;
+      (->subsumptive
+       ((===daikanwa	    . 00164)	; &R-M-00164;
+	)
+       ((===gt		    . 00223)	; &R-GT-00223;
+	))
+      )
+     ((==ucs@iso	  . #x200D1)	; &GT-K00039;
+      (==cns11643-5	  . #x2121)	; &GT-K00039; [01-01]
+      (=gt-k		  . 00039)	; &GT-K00039;
+      (=gt-pj-k1	  . #x303F)	; &GT-K00039; [16-31]
+      (->subsumptive
+       ((===cns11643-5	    . #x2121)	; &R-C5-2121; [01-01]
+	)
+       ((===ucs@iso	    . #x200D1)	; &R-U-000200D1;
+	))
+      )
+     ((=gt-k		  . 00040)	; &GT-K00040;
+      (=gt-pj-k1	  . #x303D)	; &GT-K00040; [16-29]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x200D1)	; 𠃑
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 0)
+    (total-strokes	 . 1)
+    (=big5-cdp		. #x8873)	; &CDP-8873;
+    (->subsumptive
+     ((==big5-cdp	  . #x8873)	; &g2-CDP-8873;
+      )
+     ((=gt-k		  . 00038)	; &GT-K00038;
+      (=gt-pj-k1	  . #x303C)	; &GT-K00038; [16-28]
+      )
+     ((=gt-k		  . 00041)	; &GT-K00041;
+      (=gt-pj-k1	  . #x303E)	; &GT-K00041; [16-30]
+      ))
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
