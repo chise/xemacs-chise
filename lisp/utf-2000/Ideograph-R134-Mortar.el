@@ -336,6 +336,16 @@
 (define-char
   '((ideographic-radical . 134)	; ⾅
     (ideographic-strokes . 3)
+    (=>ucs@component	. #x81FF)	; &IWDS1-098;
+    (=>iwds-1		.  0098)	; &IWDS1-098;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x81FF)	; &IWDS1-098;
+      (=>iwds-1		  .  0098)	; &IWDS1-098;
+      ))
+    (ideographic-radical . 134)	; ⾅
+    (ideographic-strokes . 3)
     (total-strokes	 . 9)
     (=ucs		. #x81FF)	; 臿
     (=big5		. #xD068)	; &I-B-D068;
@@ -406,7 +416,11 @@
      zhengzitong daikanwa)
     ))
 (define-char
-  '((ideographic-radical . 134)	; ⾅
+  '((<-denotational
+     ((=>ucs@component	  . #x81FF)	; &IWDS1-098;
+      (=>iwds-1		  .  0098)	; &IWDS1-098;
+      ))
+    (ideographic-radical . 134)	; ⾅
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
     (=ucs		. #x2695B)	; 𦥛
