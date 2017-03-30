@@ -1,4 +1,44 @@
+2017-03-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (U-000200D1): Use `->denotational' and
+	`->subsumptive'.
+	(IU+200D1): Add `sound@ja/on'; add `<-Small-Seal' for U+4E5A; add
+	`->Bopomofo' for <BOPOMOFO LETTER EN>.
+	(g2-IU+200D1): Unify GT-K00039.
+	(GT-K00040): New character; use `<-subsumptive' for IU+200D1.
+	(BC-8873): New character; use `<-denotational' for U-000200D1.
+	(GT-K00038): New character; use `<-subsumptive' for BC-8873.
+	(GT-K00041): Ditto.
+
 2017-03-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (IWDS1-0118): New abstract component.
+	(U+65E5): Add `<-denotational@component' for IWDS1-0118; unify
+	MJ013151 and KOSEKI-154310.
+	(S-3264): Separated from g2-M-13733; unify MJ013152, KOSEKI-154330
+	and G-M-13733; add `<-formed' for U+65E5.
+	(g2-M-13733): Unify g2-MJ013152 and g2-S-3264.
+	(GT-K07007): New character.
+	(UU+66A4): Unify S-5217; add `<-formed' for U+769E.
+	(U+66AC): Apply new conventions for glyph granularity; unify
+	MJ013381 and KOSEKI-159180.
+	(M-49154): Unify MJ037801 and KOSEKI-159960; add `<-formed' for
+	U+66AC.
+	(U+66CD): Apply new conventions for glyph granularity; unify
+	S-5218; add `<-vulgar' for U+769E.
+
+	* Ideograph-R051-Dry.el (U+5F00): Add `<-denotational@component'
+	for IWDS1-0180.
+	(U+5E75): Ditto.
+	(U-0002218D): Add `<-denotational' for IWDS1-0098.
+	(IU+2218D): Add `<-vulgar' for JU+81FF.
+	(IWDS1-0180): New abstract component.
+
+	* Ideograph-R009-Man.el (G-CU+50EA): New glyph node to subsume
+	g2-M-01123 and g2-CU+50EA; use `<-subsumptive' for U+50EA.
+	(H1-D652): Add `<-denotational' for U+8609; use BC-8D60-itaiji-001
+	instead of (?⿱ ?BC-88DD ?冖) in `ideographic-structure'; use
+	UU+4FB5 instead of "⿰亻⿳彐冖又" in `ideographic-structure'.
 
 	* Ideograph-R167-Gold.el (U-00028A7C): New character.
 	(IU+28A7C): New character.
@@ -51,6 +91,10 @@
 	for glyph granularity.
 
 2017-03-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R134-Mortar.el (IWDS1-0098): New abstract component.
+	(U+81FF): Add `<-denotational' for IWDS1-0098.
+	(U-0002695B): Likewise.
 
 	* Ideograph-R058-Snout.el (<CJK RADICAL SNOUT TWO>): Unify
 	A-UU+5F50 instead of UU+5F50; use U+5F50 instead of GT-K00266 as

@@ -56,6 +56,10 @@
   '((<-denotational
      ((==>ucs@bucs	  . #x958B)	; &BUCS+958B;
       ))
+    (<-denotational@component
+     ((=>ucs@component	  . #x5F00)	; &IWDS1-180;
+      (=>iwds-1		  .  0180)	; &IWDS1-180;
+      ))
     (ideographic-radical@ucs . 55)	; ⼶
     (ideographic-strokes@ucs . 1)
     (ideographic-radical@ucs*sources
@@ -362,7 +366,11 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 51)	; ⼲
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5F00)	; &IWDS1-180;
+      (=>iwds-1		  .  0180)	; &IWDS1-180;
+      ))
+    (ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (sound@ja/on	"keN" "geN")
@@ -585,7 +593,11 @@
     (=daikanwa		. 09172)	; &I-M-09172;
     ))
 (define-char
-  '((ideographic-radical . 51)	; ⼲
+  '((<-denotational
+     ((=>ucs@component	  . #x81FF)	; &IWDS1-098;
+      (=>iwds-1		  .  0098)	; &IWDS1-098;
+      ))
+    (ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x2218D)	; 𢆍
@@ -594,8 +606,35 @@
       (=ucs@iso		  . #x2218D)	; &CDP-8A48;
       (=big5-cdp	  . #x8A48)	; &CDP-8A48;
       (=daikanwa	  . 09173)	; &I-M-09173;
+      (<-vulgar
+       ((=ucs@cns	    . #x81FF)	; &JX2-755C;
+	(=ucs@jis	    . #x81FF)	; &JX2-755C;
+	(=jis-x0212	    . #x566C)	; &JX2-755C; [54-76]
+	(=cns11643-2	    . #x2D2B)	; &I-C2-2D2B; [13-11]
+	(=jis-x0213-2	    . #x755C)	; &I-JX2-755C; [85-60]
+	(=daikanwa	    . 30180)	; &I-M-30180;
+	))
+      (<-vulgar*sources
+       zihui daikanwa)
+      (->subsumptive
+       ((==ucs@iso	    . #x2218D)	; &g2-CDP-8A48;
+	(==big5-cdp	    . #x8A48)	; &g2-CDP-8A48;
+	(==daikanwa	    . 09173)	; &g2-CDP-8A48;
+	(->subsumptive
+	 ((===daikanwa	      . 09173)	; &R-M-09173;
+	  )
+	 ((===big5-cdp	      . #x8A48)	; &R-CDP-8A48;
+	  )
+	 ((===ucs@iso	      . #x2218D)	; &R-U-0002218D;
+	  ))
+	))
       )
-     ((=cns11643-4	  . #x2426)	; &C4-2426; [04-06]
+     ((=ucs@cns		  . #x2218D)	; &C4-2426;
+      (=cns11643-4	  . #x2426)	; &C4-2426; [04-06]
+      (->subsumptive
+       ((==ucs@cns	    . #x2218D)	; &g2-CU+2218D;
+	(==cns11643-4	    . #x2426)	; &g2-CU+2218D; [04-06]
+	))
       ))
     ))
 (define-char
@@ -931,4 +970,9 @@
      ((=ucs@iso		  . #x221AC)	; &C7-4D59;
       (=cns11643-7	  . #x4D59)	; &C7-4D59; [45-57]
       ))
+    ))
+(define-char
+  '((ideographic-radical . 51)	; ⼲
+    (=>ucs@component	. #x5F00)	; &IWDS1-180;
+    (=>iwds-1		.  0180)	; &IWDS1-180;
     ))
