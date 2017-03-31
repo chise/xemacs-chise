@@ -1,5 +1,15 @@
 2017-03-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R096-Jade.el (IWDS1-0252): New abstract component.
+	(U+7389): Add `<-denotational@component' for IWDS1-0252.
+	(U+738B): Add `<-denotational@component' for IWDS1-0001 and
+	IWDS1-0252.
+	(U+7396): Add `ideographic-structure'.
+	(U+73A8): Add `sound@ja/on'; add `<-ancient' for U+73CF.
+	(U+73A9): Add `ideographic-structure'.
+	(U+73B2): Likewise.
+	(U+73CF): Likewise.
+
 	* Ideograph-R057-Bow.el: Complete representative nodes of
 	`=adobe-japan1-5' glyphs.
 	(U+5F3D): Apply new conventions for glyph granularity.
