@@ -3022,6 +3022,14 @@
   '((ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x2634B)	; 𦍋
+      )
+     ((=ucs		  . #x6534)	; 攴
+      ))
     (=ucs		. #x22F41)	; 𢽁
     ))
 (define-char
@@ -3031,8 +3039,30 @@
     (ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x2634B)	; &C4-246C;
+      (=ucs@iso		  . #x2634B)	; &C4-246C;
+      (=cns11643-4	  . #x246C)	; &C4-246C; [04-76]
+      (=daikanwa	  . 28426)	; &I-M-28426;
+      )
+     ((=ucs		  . #x6534)	; 攴
+      ))
+    (=ucs@cns		. #x22F41)	; &C6-403D;
     (=cns11643-6	. #x403D)	; &C6-403D; [32-29]
     (=daikanwa		. 13229)	; &I-M-13229;
+    (->subsumptive
+     ((==ucs@cns	  . #x22F41)	; &g2-M-13229;
+      (==cns11643-6	  . #x403D)	; &g2-M-13229; [32-29]
+      (==daikanwa	  . 13229)	; &g2-M-13229;
+      (->subsumptive
+       ((===daikanwa	    . 13229)	; &R-M-13229;
+	)
+       ((===cns11643-6	    . #x403D)	; &R-C6-403D; [32-29]
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -3041,7 +3071,19 @@
     (ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL EWE")
+      (=ucs		  . #x2EB8)	; ⺸
+      )
+     ((=ucs		  . #x6534)	; 攴
+      ))
     (=ucs@iso		. #x22F41)	; &U-00022F41;
+    (->subsumptive
+     ((==ucs@iso	  . #x22F41)	; &g2-IU-00022F41;
+      ))
     ))
 (define-char
   '((ideographic-radical . 66)	; ⽁
