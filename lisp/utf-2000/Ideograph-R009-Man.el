@@ -5594,8 +5594,8 @@
     (<-original@p=yin2*sources
      zhengzitong)
     (<-original@p=zhong4
-     ((=ucs@jis		  . #x773E)	; &JSP-4E6F;
-      (=jis-x0212	  . #x4E6F)	; &JSP-4E6F; [46-79]
+     ((=ucs@jis		  . #x773E)	; &AJ1-19582;
+      (=adobe-japan1-5	  . 19582)	; &AJ1-19582;
       (=daikanwa	  . 23321)	; &I-M-23321;
       ))
     (<-original@p=zhong4*sources
@@ -46342,8 +46342,8 @@
     (=cns11643-6	. #x5A74)	; &C6-5A74; [58-84]
     (=daikanwa		. 01131)	; &I-M-01131;
     (<-vulgar
-     ((=ucs@jis		  . #x773E)	; &JSP-4E6F;
-      (=jis-x0212	  . #x4E6F)	; &JSP-4E6F; [46-79]
+     ((=ucs@jis		  . #x773E)	; &AJ1-19582;
+      (=adobe-japan1-5	  . 19582)	; &AJ1-19582;
       (=daikanwa	  . 23321)	; &I-M-23321;
       ))
     (<-vulgar*sources
