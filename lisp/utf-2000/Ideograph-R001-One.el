@@ -2943,6 +2943,22 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
+    (=ucs		. #x2000E)	; 𠀎
+    (=big5-cdp		. #x8BB7)	; &I-CDP-8BB7;
+    (->subsumptive
+     ((==ucs@iso	  . #x2000E)	; &g2-CDP-8BB7;
+      (==big5-cdp	  . #x8BB7)	; &g2-CDP-8BB7;
+      (->subsumptive
+       ((===big5-cdp	    . #x8BB7)	; &R-CDP-8BB7;
+	)
+       ((===ucs@iso	    . #x2000E)	; &R-U-0002000E;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
