@@ -340,6 +340,11 @@
     (=gb2312		. #x2863)	; &I-G0-2863; [08-67]
     (=cns11643-1	. #x2565)	; &I-C1-2565; [05-69]
     (=big5		. #xA3B4)	; &I-B-A3B4;
+    (<-Bopomofo
+     ((=ucs@iso		  . #x200D1)	; &GT-00223;
+      (=gt		  . 00223)	; &GT-00223;
+      (=daikanwa	  . 00164)	; &I-M-00164;
+      ))
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER ANG")
