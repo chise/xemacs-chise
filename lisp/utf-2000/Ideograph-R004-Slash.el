@@ -1988,8 +1988,8 @@
     (<-same@p=yin2*sources
      zhengzitong daikanwa)
     (<-same@p=zhong4
-     ((=ucs@jis		  . #x773E)	; &JSP-4E6F;
-      (=jis-x0212	  . #x4E6F)	; &JSP-4E6F; [46-79]
+     ((=ucs@jis		  . #x773E)	; &AJ1-19582;
+      (=adobe-japan1-5	  . 19582)	; &AJ1-19582;
       (=daikanwa	  . 23321)	; &I-M-23321;
       ))
     (<-same@p=zhong4*sources
@@ -3176,10 +3176,31 @@
       )
      ((=ucs		  . #x4E3F)	; 丿
       )
-     ((=big5-cdp	  . #x8B67)	; &CDP-8B67;
+     ((=ucs		  . #x27607)	; 𧘇
       ))
     (=ucs		. #x200C1)	; 𠃁
-    (=hanziku-1		. #xACA1)	; &I-HZK01-ACA1;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	(=ucs		    . #x2FF3)	; ⿳
+	)
+       ((=ucs		    . #x7536)	; 甶
+	)
+       ((=ucs		    . #x4E3F)	; 丿
+	)
+       ((=ucs@iso	    . #x27607)	; &CDP-8B67;
+	(=big5-cdp	    . #x8B67)	; &CDP-8B67;
+	))
+      (=ucs@iso		  . #x200C1)	; &U-000200C1;
+      (->subsumptive
+       ((==ucs@iso	    . #x200C1)	; &g2-IU-000200C1;
+	(->subsumptive
+	 ((===ucs@iso	      . #x200C1)	; &R-U-000200C1;
+	  )
+	 ((=hanziku-1	      . #xACA1)	; &HZK01-ACA1;
+	  ))
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃
