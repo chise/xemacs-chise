@@ -3,6 +3,17 @@
   '((ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (=>ucs@component	. #x6708)	; &IWDS1-053;
+    (=>iwds-1		.  0053)	; &IWDS1-053;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x6708)	; &IWDS1-053;
+      (=>iwds-1		  .  0053)	; &IWDS1-053;
+      ))
+    (ideographic-radical . 74)	; ⽉
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
     (=ucs		. #x6708)	; 月
     ))
 (define-char
