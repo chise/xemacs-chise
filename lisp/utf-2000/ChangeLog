@@ -1,3 +1,12 @@
+2017-03-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R112-Stone.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R111-Arrow.el: Add some Adobe-Japan1-5 code points.
+
+	* u03100-Bopomofo.el (<BOPOMOFO LETTER EN>): Add `<-Bopomofo' for
+	IU+200D1.
+
 2017-03-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R066-Rap.el (U-00022F41): Add ideographic-structure;
