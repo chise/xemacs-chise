@@ -169,19 +169,44 @@
   '((ideographic-radical . 111)	; ⽮
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      )
+     ((=ucs		  . #x77E2)	; 矢
+      ))
     (=ucs		. #x77E4)	; 矤
+    (=adobe-japan1-5	. 18205)	; &I-AJ1-18205;
     (=jis-x0212		. #x4F45)	; &I-JSP-4F45; [47-37]
+    (=cns11643-4	. #x2752)	; &I-C4-2752; [07-50]
     (=jis-x0213-2	. #x7235)	; &I-JX2-7235; [82-21]
     (=daikanwa		. 23934)	; &I-M-23934;
     (=jef-china3	. #x5BEA)	; &I-JC3-5BEA;
-    ))
-(define-char
-  '((=>ucs		. #x77E4)	; 矤
-    (morohashi-daikanwa	23934 0 0)
-    (ideographic-radical . 111)	; ⽮
-    (ideographic-strokes . 3)
-    (total-strokes	 . 8)
-    (=cns11643-4	. #x2752)	; &C4-2752; [07-50]
+    (->subsumptive
+     ((==ucs@unicode	  . #x77E4)	; &g2-AJ1-18205;
+      (==adobe-japan1-5	  . 18205)	; &g2-AJ1-18205;
+      (==jis-x0212	  . #x4F45)	; &g2-AJ1-18205; [47-37]
+      (==jis-x0213-2	  . #x7235)	; &g2-AJ1-18205; [82-21]
+      (==daikanwa	  . 23934)	; &g2-AJ1-18205;
+      (==jef-china3	  . #x5BEA)	; &g2-AJ1-18205;
+      (->subsumptive
+       ((===daikanwa	    . 23934)	; &R-M-23934;
+	)
+       ((===jis-x0212	    . #x4F45)	; &R-JX2-7235; [47-37]
+	(===jis-x0213-2	    . #x7235)	; &R-JX2-7235; [82-21]
+	)
+       ((===adobe-japan1-5  . 18205)	; &R-AJ1-18205;
+	)
+       ((===jef-china3	    . #x5BEA)	; &R-JC3-5BEA;
+	)
+       ((===ucs@unicode	    . #x77E4)	; &R-UU+77E4;
+	))
+      )
+     ((==ucs@cns	  . #x77E4)	; &g2-CU+77E4;
+      (==cns11643-4	  . #x2752)	; &g2-CU+77E4; [07-50]
+      ))
     ))
 (define-char
   '((ideographic-radical . 111)	; ⽮
@@ -625,11 +650,40 @@
   '((ideographic-radical . 111)	; ⽮
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x77E2)	; 矢
+      )
+     ((=ucs		  . #x821F)	; 舟
+      ))
     (=ucs		. #x77EA)	; 矪
+    (=adobe-japan1-5	. 18206)	; &I-AJ1-18206;
     (=jis-x0212		. #x4F47)	; &I-JSP-4F47; [47-39]
     (=cns11643-4	. #x335B)	; &I-C4-335B; [19-59]
     (=jis-x0213-2	. #x7237)	; &I-JX2-7237; [82-23]
     (=daikanwa		. 23958)	; &I-M-23958;
+    (->subsumptive
+     ((==ucs@unicode	  . #x77EA)	; &g2-AJ1-18206;
+      (==adobe-japan1-5	  . 18206)	; &g2-AJ1-18206;
+      (==jis-x0212	  . #x4F47)	; &g2-AJ1-18206; [47-39]
+      (==cns11643-4	  . #x335B)	; &g2-AJ1-18206; [19-59]
+      (==jis-x0213-2	  . #x7237)	; &g2-AJ1-18206; [82-23]
+      (==daikanwa	  . 23958)	; &g2-AJ1-18206;
+      (->subsumptive
+       ((===daikanwa	    . 23958)	; &R-M-23958;
+	)
+       ((===jis-x0212	    . #x4F47)	; &R-JX2-7237; [47-39]
+	(===jis-x0213-2	    . #x7237)	; &R-JX2-7237; [82-23]
+	)
+       ((===adobe-japan1-5  . 18206)	; &R-AJ1-18206;
+	)
+       ((===cns11643-4	    . #x335B)	; &R-C4-335B; [19-59]
+	)
+       ((===ucs@unicode	    . #x77EA)	; &R-UU+77EA;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 111)	; ⽮
@@ -794,13 +848,43 @@
   '((ideographic-radical . 111)	; ⽮
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x77E2)	; 矢
+      )
+     ((=ucs		  . #x5750)	; 坐
+      ))
     (=ucs		. #x77EC)	; 矬
+    (=adobe-japan1-5	. 18207)	; &I-AJ1-18207;
     (=gb2312		. #x6F73)	; &I-G0-6F73; [79-83]
     (=jis-x0212		. #x4F48)	; &I-JSP-4F48; [47-40]
     (=cns11643-2	. #x3E48)	; &I-C2-3E48; [30-40]
     (=jis-x0213-2	. #x7238)	; &I-JX2-7238; [82-24]
     (=big5		. #xDAC4)	; &I-B-DAC4;
     (=daikanwa		. 23975)	; &I-M-23975;
+    (->subsumptive
+     ((==ucs@unicode	  . #x77EC)	; &g2-AJ1-18207;
+      (==adobe-japan1-5	  . 18207)	; &g2-AJ1-18207;
+      (==gb2312		  . #x6F73)	; &g2-AJ1-18207; [79-83]
+      (==jis-x0212	  . #x4F48)	; &g2-AJ1-18207; [47-40]
+      (==cns11643-2	  . #x3E48)	; &g2-AJ1-18207; [30-40]
+      (==jis-x0213-2	  . #x7238)	; &g2-AJ1-18207; [82-24]
+      (==daikanwa	  . 23975)	; &g2-AJ1-18207;
+      (->subsumptive
+       ((===daikanwa	    . 23975)	; &R-M-23975;
+	)
+       ((===jis-x0212	    . #x4F48)	; &R-JX2-7238; [47-40]
+	(===jis-x0213-2	    . #x7238)	; &R-JX2-7238; [82-24]
+	)
+       ((===adobe-japan1-5  . 18207)	; &R-AJ1-18207;
+	)
+       ((===cns11643-2	    . #x3E48)	; &R-C2-3E48; [30-40]
+	)
+       ((===ucs@unicode	    . #x77EC)	; &R-UU+77EC;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x253CE)	; 𥏎
@@ -1388,36 +1472,102 @@
     (=cns11643-7	. #x3967)	; &I-C7-3967; [25-71]
     ))
 (define-char
-  '((=>ucs		. #x77F1)	; 矱
-    (ideographic-radical . 111)	; ⽮
+  '((ideographic-radical . 111)	; ⽮
     (ideographic-strokes . 14)
     (total-strokes	 . 19)
-    (=big5		. #xF27C)	; &M-24020;
-    (=daikanwa		. 24020)	; &I-M-24020;
-    ))
-(define-char
-  '((=>ucs		. #x77F1)	; 矱
-    (morohashi-daikanwa	24020 0 1)
-    (ideographic-radical . 111)	; ⽮
-    (ideographic-strokes . 14)
-    (total-strokes	 . 19)
-    (=cns11643-2	. #x6628)	; &C2-6628; [70-08]
-    ))
-(define-char
-  '((=>ucs		. #x77F1)	; 矱
-    (morohashi-daikanwa	24020 0 2)
-    (ideographic-radical . 111)	; ⽮
-    (ideographic-strokes . 14)
-    (total-strokes	 . 19)
-    (=ucs@jis		. #x77F1)	; &JSP-4F4A;
-    (=jis-x0212		. #x4F4A)	; &JSP-4F4A; [47-42]
-    ))
-(define-char
-  '((morohashi-daikanwa	24020 0 3)
-    (ideographic-radical . 111)	; ⽮
-    (ideographic-strokes . 14)
-    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x77E2)	; 矢
+      )
+     ((=ucs		  . #x84A6)	; 蒦
+      ))
+    (sound@ja/on	"waku")
     (=ucs		. #x77F1)	; 矱
+    (=big5		. #xF27C)	; &I-B-F27C;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x77F1)	; 矱
+      ))
+    (ideographic-radical . 111)	; ⽮
+    (ideographic-strokes . 14)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x77E2)	; 矢
+      )
+     ((=big5-cdp	  . #x8CB0)	; &GT-42188;
+      (=daikanwa	  . 31582)	; &I-M-31582;
+      ))
+    (=ucs@cns		. #x77F1)	; &C2-6628;
+    (=cns11643-2	. #x6628)	; &C2-6628; [70-08]
+    (=daikanwa		. 24020)	; &I-M-24020;
+    (<-formed
+     ((=big5-cdp	  . #x8CB0)	; &GT-42188;
+      (=daikanwa	  . 31582)	; &I-M-31582;
+      ))
+    (<-formed*sources
+     jiyun)
+    (<-same
+     ((=big5-cdp	  . #x8CB0)	; &GT-42188;
+      (=daikanwa	  . 31582)	; &I-M-31582;
+      )
+     ((=ucs@cns		  . #x5F60)	; &C3-6164;
+      (=cns11643-3	  . #x6164)	; &C3-6164; [65-68]
+      (=daikanwa	  . 09960)	; &I-M-09960;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same$_2*sources
+     zhengzitong daikanwa)
+    (<-same*sources
+     jiyun zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@cns	  . #x77F1)	; &g2-M-24020;
+      (==cns11643-2	  . #x6628)	; &g2-M-24020; [70-08]
+      (==daikanwa	  . 24020)	; &g2-M-24020;
+      (->subsumptive
+       ((===daikanwa	    . 24020)	; &R-M-24020;
+	)
+       ((===cns11643-2	    . #x6628)	; &R-C2-6628; [70-08]
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x77F1)	; 矱
+      ))
+    (ideographic-radical . 111)	; ⽮
+    (ideographic-strokes . 14)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x77E2)	; 矢
+      )
+     ((=ucs@unicode	  . #x84A6)	; &MJ022475;
+      (=mj		  . 022475)	; &MJ022475;
+      ))
+    (=ucs@unicode	. #x77F1)	; &AJ1-19601;
+    (=adobe-japan1-5	. 19601)	; &AJ1-19601;
+    (=jis-x0212		. #x4F4A)	; &I-JSP-4F4A; [47-42]
+    (->subsumptive
+     ((==ucs@unicode	  . #x77F1)	; &g2-AJ1-19601;
+      (==adobe-japan1-5	  . 19601)	; &g2-AJ1-19601;
+      (==jis-x0212	  . #x4F4A)	; &g2-AJ1-19601; [47-42]
+      (->subsumptive
+       ((===jis-x0212	    . #x4F4A)	; &R-JSP-4F4A; [47-42]
+	)
+       ((===adobe-japan1-5  . 19601)	; &R-AJ1-19601;
+	)
+       ((===ucs@unicode	    . #x77F1)	; &R-UU+77F1;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 111)	; ⽮
