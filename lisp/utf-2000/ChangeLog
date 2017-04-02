@@ -1,5 +1,46 @@
 2017-04-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U-00020DAC): Add `sound@ja/on'; apply
+	new conventions for glyph granularity.
+	(CB02737): Unify U-0002BA9B, MJ057163 and KOSEKI-044460.
+	(BC-8CA3): New character; use `<-simplified@component' for
+	U-00024566; use `->mistakable' for U-00020DAC.
+
+2017-04-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (BC-8CA3-itaiji-001): New character; add
+	`<-simplified@component' for BC-8CA3.
+
+	* Ideograph-R053-Dotted-Cliff.el (IWDS1-0280): New abstract
+	component.
+	(U+3873): Add `<-denotational' for IWDS1-0280; apply new
+	conventions for glyph granularity; add `sound@ja/on'; add `<-same'
+	for JU+5E95.
+	(A-U+77F3-itaiji-005): New abstract node.
+	(U+77F3-itaiji-005): New character; use `<-denotational' for
+	A-U+77F3-itaiji-005.
+	(U+77F3-itaiji-006): Ditto.
+	(U+5E95): Add `<-denotational' for IWDS1-0280.
+	(IWDS1-0365): New abstract component.
+	(U+5EB6): Add `<-denotational' for IWDS1-0365.
+	(U+5EBB): Likewise.
+	(S2-4595): Unify MJ011023, HD-IB0674 and KOSEKI-106230.
+	(IWDS1-0269): New abstract component.
+	(U-00022281): Add `<-denotational' for IWDS1-0269.
+	(U+5ECC): Likewise; add `<-same' for IU+22281.
+	(IWDS1-0334): New abstract component.
+	(U+5EE9): Add `<-denotational' for IWDS1-0334.
+	(U+5EEA): Likewise.
+	(U+389C): Use `->denotational' and `->subsumptive'; add
+	`sound@ja/on'.
+	(U-000222CC): Likewise.
+
+	* Ideograph-R032-Earth.el (IU+212E1): Modify structure.
+
+	* Ideograph-R008-Lid.el (U+342E): Modify structure; add
+	`<-simplified@misc' for U+8944.
+	(U-00020198): Apply new conventions for glyph granularity.
+
 	* Ideograph-R140-Grass.el (U+9FB7): Add `<-denotational@component'
 	for IWDS1-0303.
 	(GT-K00694): New character; use `<-subsumptive' for UU+9FB7.
