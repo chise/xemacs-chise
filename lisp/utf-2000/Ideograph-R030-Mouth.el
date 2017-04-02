@@ -18435,8 +18435,7 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=>ucs@iwds-1	  . #x2634B)	; &C4-246C;
-      (=ucs@iso		  . #x2634B)	; &C4-246C;
+     ((=ucs@iso		  . #x2634B)	; &C4-246C;
       (=cns11643-4	  . #x246C)	; &C4-246C; [04-76]
       (=daikanwa	  . 28426)	; &I-M-28426;
       ))
@@ -25947,10 +25946,24 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 640 4)
+    (sound@ja/on	"nAu")
     (=ucs		. #x20DAC)	; 𠶬
     (=cns11643-5	. #x3150)	; &I-C5-3150; [17-48]
     (=daikanwa		. 03852)	; &I-M-03852;
-    (=hanziku-2		. #xD5F3)	; &I-HZK02-D5F3;
+    (->subsumptive
+     ((==ucs@iso	  . #x20DAC)	; &g2-M-03852;
+      (==cns11643-5	  . #x3150)	; &g2-M-03852; [17-48]
+      (==daikanwa	  . 03852)	; &g2-M-03852;
+      (->subsumptive
+       ((===daikanwa	    . 03852)	; &R-M-03852;
+	)
+       ((===cns11643-5	    . #x3150)	; &R-C5-3150; [17-48]
+	)
+       ((===ucs@iso	    . #x20DAC)	; &R-U-00020DAC;
+	)
+       ((=hanziku-2	    . #xD5F3)	; &HZK02-D5F3;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x20DAD)	; 𠶭
@@ -27273,6 +27286,36 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
+     ((=ucs		  . #x9577)	; 長
+      ))
+    (=ucs		. #x2BA9B)	; 𫪛
+    (=mj		. 057163)	; &I-MJ057163;
+    (=koseki		. 044460)	; 𫪛
+    (=cbeta		. 02737)	; &I-CB02737;
+    (->subsumptive
+     ((==ucs@iso	  . #x2BA9B)	; &g2-MJ057163;
+      (==mj		  . 057163)	; &g2-MJ057163;
+      (==koseki		  . 044460)	; &g2-MJ057163;
+      (==cbeta		  . 02737)	; &g2-MJ057163;
+      (->subsumptive
+       ((===mj		    . 057163)	; &R-MJ057163;
+	)
+       ((===ucs@iso	    . #x2BA9B)	; &R-U-0002BA9B;
+	)
+       ((===cbeta	    . 02737)	; &R-CB02737;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
      ((=ucs		  . #x5470)	; 呰
       ))
     (=cbeta		. 00087)	; &CB00087;
@@ -27295,14 +27338,23 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x53E3)	; 口
+     ((=ucs		  . #x5405)	; 吅
       )
-     ((=ucs		  . #x9577)	; 長
+     ((=ucs		  . #x2000E)	; 𠀎
       ))
-    (=cbeta		. 02737)	; &CB02737;
+    (=big5-cdp		. #x8CA3)	; &CDP-8CA3;
+    (<-simplified@component
+     ((=ucs		  . #x24566)	; 𤕦
+      ))
+    (->mistakable
+     ((=ucs		  . #x20DAC)	; 𠶬
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8CA3)	; &g2-CDP-8CA3;
+      ))
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
