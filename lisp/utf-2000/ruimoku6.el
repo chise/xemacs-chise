@@ -1033,7 +1033,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=cns11643-4	  . #x2475)	; &C4-2475; [04-85]
+     ((=ucs@cns		  . #x8289)	; &C4-2475;
+      (=cns11643-4	  . #x2475)	; &C4-2475; [04-85]
       (=daikanwa	  . 30668)	; &I-M-30668;
       )
      ((ideographic-structure
