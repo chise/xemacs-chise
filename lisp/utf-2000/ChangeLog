@@ -1,3 +1,61 @@
+2017-04-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R140-Grass.el (U+9FB7): Add `<-denotational@component'
+	for IWDS1-0303.
+	(GT-K00694): New character; use `<-subsumptive' for UU+9FB7.
+	(U+8289): Add ideographic-structure; add `sound@ja/on'.
+	(U+828A): Add `sound@ja/on'.
+	(U+828B): Add ideographic-structure; add `sound@ja/on/p=yu4' and
+	`sound@ja/on/{kan|go}/p=hu1'.
+	(C1-4B42): Unify CU+828B; add `<-interchangeable@p=hu1' for U+5E60
+	and U+5B87; add `->original@p=yu4' for CU+828C.
+	(UU+828B): Add `sound@ja/on'.
+	(U+828C): Add ideographic-structure; add `sound@ja/on'; apply new
+	conventions for glyph granularity.
+	(C3-2729): Unify CU+828C; add `<-original@p=yu4' for CU+828B.
+	(U-000215D7): Apply new conventions for glyph granularity.
+	(BC-8D60-itaiji-001): New character; use `<-denotational' for
+	A-BC-8D60.
+	(A-BC-8D60): New abstract node.
+	(BC-8D60): Add `<-denotational' for A-BC-8D60.
+	(U+85A8): Add ideographic-structure; add `sound@ja/on'.
+	(U+8609): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R120-Silk.el (U+42D3): Apply new conventions for glyph
+	granularity; add `sound@ja/on'.
+	(UU+42D3): Add `<-same' for U+7E10.
+	(U+7EC9): Add `ideographic-structure'; add `<-simplified@CN' for
+	U+7E10; add representative node.
+	(U+7E10): Add `ideographic-structure'.
+
+2017-03-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R074-Moon.el (IWDS1-0053): New abstract component.
+	(U+6708): Add `<-denotational@component' for IWDS1-0053.
+
+	* Ideograph-R018-Knife.el (U+520D-var-001): New character; use
+	`<-denotational' for U+520D.
+
+	* Ideograph-R004-Slash.el (U-000200C1): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R001-One.el (U-0002000E): New character; unify
+	BC-8BB7.
+
+	* Ideograph-R123-Sheep.el (U-0002634B): Separate IU+2634B; add
+	`sound@ja/on'.
+	(IU+2634B): Add `<-original' for U+7F8A; add `->mistakable' for
+	CU+8289, CU+828A and JU+7F8B.
+	(<CJK RADICAL EWE>): Add `<-denotational' for U-0002634B.
+	(B-AACB): Separated from JU+7F8B; changed to abstract node to
+	subsume U+7F8B and U+8288.
+	(U+7F8B): Add `<-denotational' for B-AACB; add
+	ideographic-structure; add `sound@ja/on/{kan|go}'.
+	(JU+7F8B): Separate B-AACB.
+	(U+8288): Add `<-denotational' for B-AACB; add
+	ideographic-structure; use `<-simplified@misc' instead of
+	`<-unknown' for JU+7F8B.
+
 2017-03-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R112-Stone.el: Add some Adobe-Japan1-5 code points.
