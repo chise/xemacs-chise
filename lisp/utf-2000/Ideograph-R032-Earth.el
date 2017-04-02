@@ -6679,6 +6679,14 @@
       (=>iwds-1		  .  0293)	; &IWDS1-293;
       ))
     (ideographic-radical . 32)	; ⼟
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53BB)	; 去
+      )
+     ((=ucs		  . #x27607)	; 𧘇
+      ))
     (=ucs		. #x212E1)	; 𡋡
     ))
 (define-char
@@ -6692,9 +6700,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x53BB)	; 去
+     ((=ucs		  . #x571F)	; 土
       )
-     ((=big5-cdp	  . #x8B67)	; &CDP-8B67;
+     ((=big5-cdp-itaiji-001 . #x8845)	; &CDP-i001-8845;
       ))
     (=ucs@iso		. #x212E1)	; &U-000212E1;
     (->subsumptive

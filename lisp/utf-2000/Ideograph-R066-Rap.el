@@ -3043,8 +3043,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>ucs@iwds-1	  . #x2634B)	; &C4-246C;
-      (=ucs@iso		  . #x2634B)	; &C4-246C;
+     ((=ucs@iso		  . #x2634B)	; &C4-246C;
       (=cns11643-4	  . #x246C)	; &C4-246C; [04-76]
       (=daikanwa	  . 28426)	; &I-M-28426;
       )

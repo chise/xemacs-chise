@@ -1332,6 +1332,23 @@
     ))
 (define-char
   '((ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x516B)	; 八
+      )
+     ((=ucs		  . #x2000E)	; 𠀎
+      ))
+    (=big5-cdp-itaiji-001 . #x8CA3)	; &CDP-i001-8CA3;
+    (<-simplified@component
+     ((=big5-cdp	  . #x8CA3)	; &CDP-8CA3;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 245 1)
