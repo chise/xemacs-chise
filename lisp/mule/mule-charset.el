@@ -576,6 +576,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>>hanyo-denshi/jt
 	  =>>gt
 	  =>>adobe-japan1-6
+	  =>>cbeta
 	  =>cns11643-7
 	  =>cbeta
 	  =+>adobe-japan1-6
