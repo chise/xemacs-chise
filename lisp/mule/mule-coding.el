@@ -598,6 +598,7 @@
 	  (=>big5-cdp			       "A-CDP-" 4 X)
 	  (=>ucs-itaiji-001		    "A-U-i001+" 4 X)
 	  (=>ucs-itaiji-002		    "A-U-i002+" 4 X)
+	  (=>ucs-itaiji-005		    "A-U-i005+" 4 X)
 	  (=>ucs-itaiji-006		    "A-U-i006+" 4 X)
 	  (=>big5-cdp-itaiji-001	  "A-CDP-i001-" 4 X)
 	  ( =jis-x0208@1978/i1		       "J78i1-" 4 X)
