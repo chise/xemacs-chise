@@ -2526,6 +2526,16 @@
 	       registry "\\(GTKpj-1\\|jisx0208\\.GTK-1\\)$"))
   (define-charset-alias 'ideograph-gt-pj-k1 '=gt-pj-k1)
   (make-charset
+   '==gt-pj-k1
+   "Ideographic parts of GT (pseudo JIS encoding) part 1"
+   '(long-name "GT K1"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 0
+	       direction l2r
+	       registry "\\(GTKpj-1\\|jisx0208\\.GTK-1\\)$"))
+  (make-charset
    '=gt-pj-k2
    "Ideographic parts of GT (pseudo JIS encoding) part 2"
    '(long-name "GT K2"
@@ -2536,6 +2546,16 @@
 	       direction l2r
 	       registry "\\(GTKpj-2\\|jisx0208\\.GTK-2\\)$"))
   (define-charset-alias 'ideograph-gt-pj-k2 '=gt-pj-k2)
+  (make-charset
+   '==gt-pj-k2
+   "Ideographic parts of GT (pseudo JIS encoding) part 2"
+   '(long-name "GT K2"
+	       chars 94
+	       dimension 2
+	       columns 2
+	       graphic 0
+	       direction l2r
+	       registry "\\(GTKpj-2\\|jisx0208\\.GTK-2\\)$"))
 
   (make-charset '=daikanwa
 		"Daikanwa dictionary (unchanged part)"

@@ -448,6 +448,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==jis-x0212
 	  ==ks-x1001
 	  ==ruimoku-v6
+	  ==gt-pj-k1
+	  ==gt-pj-k2
 	  ==daikanwa
 	  ==cbeta
 	  ==jef-china3
