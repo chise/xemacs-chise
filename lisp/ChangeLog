@@ -1,3 +1,14 @@
+2017-04-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`==gt-pj-k1' and `==gt-pj-k2'.
+
+2017-04-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (==gt-pj-k1): New coded-charset for XEmacs
+	CHISE.
+	(==gt-pj-k2): Ditto.
+
 2017-04-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
