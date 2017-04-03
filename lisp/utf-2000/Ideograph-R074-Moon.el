@@ -1,6 +1,9 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((ideographic-radical . 74)	; ⽉
+  '((<-denotational@component
+     ((=>iwds-1		  .  0021)	; &IWDS1-021;
+      ))
+    (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=>ucs@component	. #x6708)	; &IWDS1-053;
