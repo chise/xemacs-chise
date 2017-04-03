@@ -2944,7 +2944,29 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
     (=ucs		. #x2000E)	; 𠀎
-    (=big5-cdp		. #x8BB7)	; &I-CDP-8BB7;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2000E)	; 𠀎
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
+    (=big5-cdp		. #x86B1)	; &CDP-86B1;
+    (->subsumptive
+     ((==big5-cdp	  . #x86B1)	; &g2-CDP-86B1;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2000E)	; 𠀎
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
+    (=>ucs@iwds-1	. #x2000E)	; &CDP-8BB7;
+    (=ucs@iso		. #x2000E)	; &CDP-8BB7;
+    (=big5-cdp		. #x8BB7)	; &CDP-8BB7;
     (->subsumptive
      ((==ucs@iso	  . #x2000E)	; &g2-CDP-8BB7;
       (==big5-cdp	  . #x8BB7)	; &g2-CDP-8BB7;
