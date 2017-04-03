@@ -1,3 +1,12 @@
+2017-04-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R074-Moon.el (IWDS1-0053): Add
+	`<-denotational@component' for IWDS1-0021.
+
+	* Ideograph-R001-One.el (U-0002000E): Separate IU+2000E.
+	(BC-86B1): New character; use `<-denotational' for U-0002000E.
+	(IU+2000E): Add `=>ucs@iwds-1'.
+
 2017-04-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U-00020DAC): Add `sound@ja/on'; apply
