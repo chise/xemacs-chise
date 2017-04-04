@@ -592,9 +592,10 @@
       )
      ((=ucs		  . #x5BF8)	; 寸
       ))
-    (=big5-cdp		. #x8BC3)	; &CDP-8BC3;
+    (=big5-cdp		. #x8BC3)	; &GT-09333;
+    (=gt		. 09333)	; &I-GT-09333;
     (=gt-k		. 02773)	; &I-GT-K02773;
-    (=gt-pj-9		. #x3452)	; &CDP-8BC3; [20-50]
+    (=gt-pj-9		. #x3452)	; &I-GT-09333; [20-50]
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -604,7 +605,8 @@
 	)
        ((=ucs		    . #x5BF8)	; 寸
 	))
-      (==gt-k		  . 02773)	; &g2-GT-K02773;
+      (==gt		  . 09333)	; &g2-GT-09333;
+      (==gt-k		  . 02773)	; &g2-GT-09333;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1025,7 +1027,7 @@
       )
      ((=ucs		  . #x4E2C)	; 丬
       )
-     ((=big5-cdp	  . #x8BC3)	; &CDP-8BC3;
+     ((=big5-cdp	  . #x8BC3)	; &GT-09333;
       ))
     (=ucs@cns		. #x2F873)	; &AJ1-13832;
     (=adobe-japan1-4	. 13832)	; &AJ1-13832;
@@ -1261,7 +1263,7 @@
       )
      ((=ucs		  . #x723F)	; 爿
       )
-     ((=big5-cdp	  . #x8BC3)	; &CDP-8BC3;
+     ((=big5-cdp	  . #x8BC3)	; &GT-09333;
       ))
     (=ucs@unicode	. #x5C07)	; &MJ010271;
     (=mj		. 010271)	; &MJ010271;
