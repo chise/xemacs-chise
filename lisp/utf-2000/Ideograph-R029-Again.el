@@ -94,6 +94,9 @@
     (<-formed@component/connect-left
      ((=ucs		  . #x53C8)	; 又
       ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8C4E)	; &g2-CDP-8C4E;
+      ))
     ))
 (define-char
   '((<-denotational@component

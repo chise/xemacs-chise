@@ -135,17 +135,21 @@
       )
      ((==ucs@iso	  . #x27C28)	; &g2-IU-00027C28;
       )
-     ((==ucs@cns	  . #x27C28)	; &g2-CDP-8BC9;
-      (==cns11643-5	  . #x2329)	; &g2-CDP-8BC9; [03-09]
-      (==big5-cdp	  . #x8BC9)	; &g2-CDP-8BC9;
+     ((=>>ucs@cns	  . #x27C28)	; &G-CDP-8BC9;
+      (=>>big5-cdp	  . #x8BC9)	; &G-CDP-8BC9;
       (->subsumptive
-       ((===big5-cdp	    . #x8BC9)	; &R-CDP-8BC9;
+       ((==ucs@cns	    . #x27C28)	; &g2-CDP-8BC9;
+	(==cns11643-5	    . #x2329)	; &g2-CDP-8BC9; [03-09]
+	(==big5-cdp	    . #x8BC9)	; &g2-CDP-8BC9;
+	(->subsumptive
+	 ((===big5-cdp	      . #x8BC9)	; &R-CDP-8BC9;
+	  )
+	 ((===cns11643-5      . #x2329)	; &R-C5-2329; [03-09]
+	  ))
 	)
-       ((===cns11643-5	    . #x2329)	; &R-C5-2329; [03-09]
+       ((=gt-k		    . 02141)	; &GT-K02141;
+	(=gt-pj-k1	    . #x3461)	; &GT-K02141; [20-65]
 	))
-      )
-     ((=gt-k		  . 02141)	; &GT-K02141;
-      (=gt-pj-k1	  . #x3461)	; &GT-K02141; [20-65]
       ))
     ))
 (define-char

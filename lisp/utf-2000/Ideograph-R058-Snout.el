@@ -562,7 +562,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs		    . #x5F51)	; 彑
+       ((name		    . "CJK RADICAL SNOUT ONE")
+	(=ucs		    . #x2E94)	; ⺔
 	)
        ((==daikanwa	    . 36336)	; &g2-M-36336;
 	))
@@ -608,7 +609,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs		    . #x5F51)	; 彑
+       ((name		    . "CJK RADICAL SNOUT ONE")
+	(=ucs		    . #x2E94)	; ⺔
 	)
        ((==ucs@iso	    . #x27C28)	; &g2-IU-00027C28;
 	))
@@ -622,11 +624,33 @@
 	)
        ((=ucs		    . #x5F51)	; 彑
 	)
-       ((==ucs@cns	    . #x27C28)	; &g2-CDP-8BC9;
-	(==cns11643-5	    . #x2329)	; &g2-CDP-8BC9; [03-09]
+       ((=>>ucs@cns	    . #x27C28)	; &G-CDP-8BC9;
 	))
-      (==ucs@cns	  . #x5F56)	; &g2-CU+5F56;
-      (==cns11643-2	  . #x2A3E)	; &g2-CU+5F56; [10-30]
+      (=mj		  . 011235)	; &MJ011235;
+      (=hanyo-denshi/ft	  . #x356D)	; &I-HD-FT-356D; [21-77]
+      (->subsumptive
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((name		      . "CJK RADICAL SNOUT ONE")
+	  (=ucs		      . #x2E94)	; ⺔
+	  )
+	 ((==ucs@cns	      . #x27C28)	; &g2-CDP-8BC9;
+	  (==cns11643-5	      . #x2329)	; &g2-CDP-8BC9; [03-09]
+	  ))
+	(==ucs@cns	    . #x5F56)	; &g2-MJ011235;
+	(==mj		    . 011235)	; &g2-MJ011235;
+	(==cns11643-2	    . #x2A3E)	; &g2-MJ011235; [10-30]
+	(==hanyo-denshi/ft  . #x356D)	; &g2-MJ011235; [21-77]
+	(->subsumptive
+	 ((===hanyo-denshi/ft . #x356D)	; &R-HD-FT-356D; [21-77]
+	  )
+	 ((===mj	      . 011235)	; &R-MJ011235;
+	  )
+	 ((===cns11643-2      . #x2A3E)	; &R-C2-2A3E; [10-30]
+	  ))
+	))
       ))
     ))
 (define-char
