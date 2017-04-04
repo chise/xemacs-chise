@@ -1,3 +1,23 @@
+2017-04-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R163-City.el (U+90DE): Add `ideographic-structure';
+	add U+90DE-itaiji-001.
+
+	* Ideograph-R061-Heart.el (U+3902): Apply new conventions for
+	glyph granularity.
+	(UU+3902): Unify S-2430; add `<-original' for CU+6025.
+	(U+5FE3): Apply new conventions for glyph granularity.
+	(U+6025): Add ideographic-structure.
+	(CU+6025): Unify S-2429.
+	(UU+6025): Unify S-2428.
+
+	* Ideograph-R013-Down-Box.el: Complete representative nodes of
+	`=adobe-japan1-0' glyphs.
+	(BUCS+518C): Unify IWDS1-0176.
+	(U+518C): Apply new conventions for glyph granularity.
+	(U+56D8): Likewise.
+	(U-00020541): Add `<-denotational' for IWDS1-0176.
+
 2017-04-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R074-Moon.el (IWDS1-0053): Add
