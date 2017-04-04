@@ -1,3 +1,24 @@
+2017-04-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R152-Pig.el (G-CU+27C28): New node to subsume
+	g2-CU+27C28 and GT-K02141; use `<-subsumptive' for U-00027C28.
+
+	* Ideograph-R058-Snout.el (MJ011235): New character; use
+	`<-subsumptive' for UU+5F56; unify HD-FT2177.
+	(g2-CU+5F56): Use MJ011235 instead of UU+5F56 as its mother; unify
+	g2-MJ011235 and g2-HD-FT2177.
+
+2017-04-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R041-Inch.el (BC-8BC3): Unify GT-09333.
+
+	* Ideograph-R038-Woman.el (U-00021860): New character.
+
+	* Ideograph-R029-Again.el (BC-8C4E): Add representative node.
+
+	* Ideograph-R018-Knife.el (U+5220): Apply new conventions for
+	glyph granularity.
+
 2017-04-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R163-City.el (U+90DE): Add `ideographic-structure';
