@@ -2946,6 +2946,15 @@
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x826F)	; 良
+      )
+     ((name		  . "CJK RADICAL CITY")
+      (=ucs		  . #x2ECF)	; ⻏
+      ))
     (=ucs		. #x90DE)	; 郞
     (=adobe-japan1-2	. 08635)	; &I-AJ1-08635;
     (=ks-x1001		. #x554D)	; &I-K0-554D; [53-45]
@@ -2987,6 +2996,17 @@
       )
      ((==ucs@jis	  . #x90DE)	; &g2-JX1-7C67;
       (==jis-x0213-1	  . #x7C67)	; &g2-JX1-7C67; [92-71]
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gt-k		    . 02674)	; &GT-K02674;
+	)
+       ((name		    . "CJK RADICAL CITY")
+	(=ucs		    . #x2ECF)	; ⻏
+	))
+      (=ucs-itaiji-001	  . #x90DE)	; &U-i001+90DE;
       ))
     ))
 (define-char
