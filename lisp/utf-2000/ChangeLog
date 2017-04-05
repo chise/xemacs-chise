@@ -1,5 +1,16 @@
 2017-04-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R004-Slash.el (A-GT-K01340): New abstract node.
+	(GT-00190): Add `ideographic-structure'.
+	(GT-00194): Add `<-unknown' for U+4E55.
+	(GT-K01340): New character; use `<-denotational' for A-GT-K01340;
+	use `<-unknown' for U-000200A2.
+
+	* Ideograph-R030-Mouth.el (U+5546-itaiji-002): New character; use
+	`<-unknown' for U+5546.
+
+	* Ideograph-R005-Second.el (U-000200F4): New character.
+
 	* Ideograph-R152-Pig.el (G-CU+27C28): New node to subsume
 	g2-CU+27C28 and GT-K02141; use `<-subsumptive' for U-00027C28.
 
@@ -7,6 +18,13 @@
 	`<-subsumptive' for UU+5F56; unify HD-FT2177.
 	(g2-CU+5F56): Use MJ011235 instead of UU+5F56 as its mother; unify
 	g2-MJ011235 and g2-HD-FT2177.
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL EWE>): Add
+	`<-denotational' for U-0002634B.
+	(<CJK RADICAL MEAT>): Use `<-denotational@component' for
+	IWDS1-0053 instead of `<-denotational' for BC-8A73; unify BC-8A73,
+	GT-37857 and M-29237; use `<-formed@component' instead of
+	`<-formed@component/connect-right' for U+8089; add BC-8958.
 
 2017-04-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
