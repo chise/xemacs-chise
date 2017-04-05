@@ -940,7 +940,10 @@
       ))
     ))
 (define-char
-  '((name		. "CJK RADICAL EWE")
+  '((<-denotational
+     ((=ucs		  . #x2634B)	; 𦍋
+      ))
+    (name		. "CJK RADICAL EWE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -963,6 +966,15 @@
       ))
     (->mistakable
      ((=ucs		  . #x8289)	; 芉
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x2EB8)	; &g2-CB06151;
+      (==cbeta		  . 06151)	; &g2-CB06151;
+      (->subsumptive
+       ((===ucs@unicode	    . #x2EB8)	; &R-UU+2EB8;
+	)
+       ((===cbeta	    . 06151)	; &R-CB06151;
+	))
       ))
     ))
 (define-char
@@ -1005,9 +1017,9 @@
       ))
     ))
 (define-char
-  '((<-denotational
-     ((=big5-cdp	  . #x8A73)	; &GT-37857;
-      (=daikanwa	  . 29237)	; &I-M-29237;
+  '((<-denotational@component
+     ((=>ucs@component	  . #x6708)	; &IWDS1-053;
+      (=>iwds-1		  .  0053)	; &IWDS1-053;
       ))
     (name		. "CJK RADICAL MEAT")
     (general-category	symbol other) ; Informative Category
@@ -1017,12 +1029,52 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=ucs		. #x2EBC)	; ⺼
-    (<-formed@component/connect-right
+    (=big5-cdp		. #x8A73)	; &I-CDP-8A73;
+    (=gt		. 37857)	; &I-GT-37857;
+    (=gt-pj-6		. #x3879)	; &I-GT-37857; [24-89]
+    (=daikanwa		. 29237)	; &I-M-29237;
+    (<-formed@component
      ((=ucs		  . #x8089)	; 肉
+      (=daikanwa	  . 29236)	; &I-M-29236;
       ))
-    (<-identical@component/connect-right
-     ((=big5-cdp	  . #x8A73)	; &GT-37857;
-      (=daikanwa	  . 29237)	; &I-M-29237;
+    (<-formed@component*sources
+     zihui/char-index zhengzitong daikanwa)
+    (->subsumptive
+     ((==gt		  . 37857)	; &g2-GT-37857;
+      (==daikanwa	  . 29237)	; &g2-GT-37857;
+      (->subsumptive
+       ((===daikanwa	    . 29237)	; &R-M-29237;
+	)
+       ((===gt		    . 37857)	; &R-GT-37857;
+	))
+      )
+     ((==ucs@unicode	  . #x2EBC)	; &g2-UU+2EBC;
+      (<-formed@component/connect-right
+       ((name		    . "CJK RADICAL MEAT")
+	(=ucs		    . #x2EBC)	; ⺼
+	))
+      )
+     ((==big5-cdp	  . #x8A73)	; &g2-CDP-8A73;
+      )
+     ((=big5-cdp	  . #x8958)	; &CDP-8958;
+      (=gt-k		  . 00417)	; &I-GT-K00417;
+      (=gt-pj-k1	  . #x377D)	; &CDP-8958; [23-93]
+      (<-formed@component/connect-above
+       ((name		    . "CJK RADICAL MEAT")
+	(=ucs		    . #x2EBC)	; ⺼
+	)
+       ((=ucs		    . #x8089)	; 肉
+	))
+      (->subsumptive
+       ((==big5-cdp	    . #x8958)	; &g2-CDP-8958;
+	(==gt-k		    . 00417)	; &g2-CDP-8958;
+	(==gt-pj-k1	    . #x377D)	; &g2-CDP-8958; [23-93]
+	(->subsumptive
+	 ((===big5-cdp	      . #x8958)	; &R-CDP-8958;
+	  )
+	 ((===gt-k	      . 00417)	; &R-GT-K00417;
+	  ))
+	))
       ))
     ))
 (define-char
