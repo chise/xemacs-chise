@@ -428,6 +428,24 @@
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x5DF1)	; 己
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      ))
+    (=big5-cdp		. #x86C9)	; &CDP-86C9;
+    (->subsumptive
+     ((==big5-cdp	  . #x86C9)	; &g2-CDP-86C9;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=ucs		. #x5DE9)	; 巩
