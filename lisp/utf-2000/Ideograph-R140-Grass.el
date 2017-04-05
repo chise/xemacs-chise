@@ -324,13 +324,15 @@
     (total-strokes	 . 4)
     (=ucs@unicode	. #x9FB7)	; &CDP-8B5C;
     (=big5-cdp		. #x8B5C)	; &CDP-8B5C;
+    (=gt-k		. 00694)	; &I-GT-K00694;
+    (=gt-pj-k1		. #x3240)	; &CDP-8B5C; [18-32]
     (->subsumptive
      ((==big5-cdp	  . #x8B5C)	; &g2-CDP-8B5C;
       )
      ((==ucs@unicode	  . #x9FB7)	; &g2-UU+9FB7;
       )
-     ((=gt-k		  . 00694)	; &GT-K00694;
-      (=gt-pj-k1	  . #x3240)	; &GT-K00694; [18-32]
+     ((==gt-k		  . 00694)	; &g2-GT-K00694;
+      (==gt-pj-k1	  . #x3240)	; &g2-GT-K00694; [18-32]
       ))
     ))
 (define-char
