@@ -394,6 +394,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =ucs-bmp-itaiji-004
 	  =ucs-bmp-itaiji-005
 	  =ucs-bmp-itaiji-006
+	  =ucs-bmp-itaiji-007
 	  =ucs-bmp-itaiji-008
 	  =ucs-bmp-itaiji-009
 	  =ucs-bmp-itaiji-084
@@ -420,6 +421,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==mj-1
 	  ==ucs-bmp-itaiji-002
 	  ==ucs-bmp-itaiji-003
+	  ==ucs-bmp-itaiji-005
 	  ==hanyo-denshi/ja
 	  ==hanyo-denshi/jb
 	  ==hanyo-denshi/jc
