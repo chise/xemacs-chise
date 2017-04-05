@@ -1,3 +1,17 @@
+2017-04-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R142-Insect.el: Add some MJ code points.
+
+	* Ideograph-R140-Grass.el (UU+9FB7): Treat `=gt-k' as a glyph CCS;
+	use `==gt-k' instead of `=gt-k' in abstract glyph-form node.
+
+2017-04-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R089-Double-X.el (U-00024566): Use `->denotational'
+	and `->subsumptive'; add `sound@ja/on/{kan|go}'; unify BC-8AE5.
+
+	* Ideograph-R048-Work.el (BC-86C9): New character.
+
 2017-04-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R004-Slash.el (A-GT-K01340): New abstract node.
