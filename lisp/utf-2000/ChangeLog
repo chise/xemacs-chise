@@ -1,4 +1,45 @@
+2017-04-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R201-Yellow.el (JU+9ECC): Unify HD-JA8352.
+
+	* Ideograph-R210-Even.el (UU+9F4A): Add `ideographic-structure'.
+	(U+9F4A-itaiji-005): New character; use `<-simplified@component'
+	for UU+9F4A.
+
 2017-04-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R145-Clothes.el (IU+27607): Unify BC-8B67; add
+	GT-K00589.
+	(GT-K01369): New character.
+	(BC-8845): Add `<-formed' for BC-8845-itaiji-001 and GT-K02910.
+	(BC-8845-itaiji-001): New character; use `<-simplified@component'
+	for GT-K02910 and U+54C0.
+	(GT-K02910): New character; use `<-simplified@component' for
+	U+54C0.
+	(U+8881): Add `<-denotational' for IWDS1-0293; add
+	`ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(U+8944): Add `ideographic-structure'.
+
+	* Ideograph-R130-Meat.el (BC-8A73): Unify <CJK RADICAL MEAT>; use
+	`<-denotational@component' for IWDS1-0053 instead of
+	`<-denotational' for A-UU+2EBC.
+	(BC-8958): Use `<-subsumptive' instead of `<-denotational' for
+	BC-8A73.
+	(IWDS1-0021): New abstract component.
+	(BC-88F0): Use IWDS1-0021 instead of A-UU+2EBC as its mother;
+	unify IWDS1-0020.
+	(U+43CC): Apply new conventions for glyph granularity.
+	(UU+43CC): Add `sound@ja/on/{kan|go}'.
+	(U+808E): Apply new conventions for glyph granularity; subsume
+	CB05089.
+	(U-0002664D): Likewise.
+	(A-BC-8CEC): New abstract node.
+	(BC-8CEC): Add `<-denotational' for A-BC-8CEC; apply new
+	conventions for glyph granularity.
+	(BC-8CA9): Apply new conventions for glyph granularity.
+	(U-00026803): Use U+9F4A-itaiji-005 in `ideographic-structure';
+	add `sound@ja/on'; add `<-same' for U+81CD.
+	(U+81CD): Add `ideographic-structure'.
 
 	* Ideograph-R163-City.el (U-000286F7): Add ideographic-structure.
 	(IU+286F7): Add `<-ancient' for U+FA26.
