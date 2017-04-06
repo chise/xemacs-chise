@@ -48,7 +48,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
       )
-     ((=gt-k		  . 00694)	; &GT-K00694;
+     ((=ucs@unicode	  . #x9FB7)	; &CDP-8B5C;
+      (=big5-cdp	  . #x8B5C)	; &CDP-8B5C;
       )
      ((=ucs		  . #x7531)	; 由
       )
@@ -74,7 +75,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
 	(=ucs		    . #x2FF3)	; ⿳
 	)
-       ((=gt-k		    . 00694)	; &GT-K00694;
+       ((==gt-k		    . 00694)	; &g2-GT-K00694;
 	)
        ((==ucs@unicode	    . #x7531)	; &g2-AJ1-03869;
 	(==adobe-japan1-0   . 03869)	; &g2-AJ1-03869;
@@ -129,7 +130,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
       )
-     ((=gt-k		  . 00694)	; &GT-K00694;
+     ((=ucs@unicode	  . #x9FB7)	; &CDP-8B5C;
+      (=big5-cdp	  . #x8B5C)	; &CDP-8B5C;
       )
      ((=ucs		  . #x7530)	; 田
       )
@@ -1239,15 +1241,22 @@
       (=adobe-japan1-0	  . 07431)	; &AJ1-07431;
       (=jis-x0208	  . #x7354)	; &I-J90-7354; [83-52]
       (=jis-x0213-1	  . #x7354)	; &I-JX1-7354; [83-52]
+      (=hanyo-denshi/ja	  . #x7354)	; &I-HD-JA-7354; [83-52]
       (=gt		  . 65447)	; &I-GT-65447;
       (=gt-pj-1		  . #x7354)	; &I-GT-65447; [83-52]
       (=daikanwa	  . 47985)	; &I-M-47985;
       (=shinjigen	  .  9812)	; &AJ1-07431;
       (->subsumptive
-       ((==ucs@jis	    . #x9ECC)	; &g2-AJ1-07431;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x9ECC)	; 黌
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(==ucs@jis	    . #x9ECC)	; &g2-AJ1-07431;
 	(==adobe-japan1-0   . 07431)	; &g2-AJ1-07431;
 	(==jis-x0208	    . #x7354)	; &g2-AJ1-07431; [83-52]
 	(==jis-x0213-1	    . #x7354)	; &g2-AJ1-07431; [83-52]
+	(==hanyo-denshi/ja  . #x7354)	; &g2-AJ1-07431; [83-52]
 	(==gt		    . 65447)	; &g2-AJ1-07431;
 	(==daikanwa	    . 47985)	; &g2-AJ1-07431;
 	(==shinjigen	    .  9812)	; &g2-AJ1-07431;
