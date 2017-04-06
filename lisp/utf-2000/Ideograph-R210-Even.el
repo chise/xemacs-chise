@@ -11,6 +11,14 @@
     (ideographic-radical . 210)	; ⿑
     (ideographic-strokes . 0)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8DEB)	; &CDP-8DEB;
+      )
+     ((=big5-cdp	  . #x89C6)	; &CDP-89C6;
+      ))
     (=>ucs@iwds-1	. #x9F4A)	; &AJ1-07457;
     (=ucs@unicode	. #x9F4A)	; &AJ1-07457;
     (=adobe-japan1-0	. 07457)	; &AJ1-07457;
@@ -132,6 +140,29 @@
 	)
        ((===cns11643-3	    . #x2370)	; &R-C3-2370; [03-80]
 	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 210)	; ⿑
+    (ideographic-strokes . 0)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8DEB)	; &CDP-8DEB;
+      )
+     ((=big5-cdp	  . #x8BF5)	; &CDP-8BF5;
+      ))
+    (sound@ja/on/go	"sai")
+    (sound@ja/on/kan	"sei")
+    (=ucs-itaiji-005	. #x9F4A)	; &U-i005+9F4A;
+    (<-simplified@component
+     ((=ucs@unicode	  . #x9F4A)	; &AJ1-07457;
+      (=adobe-japan1-0	  . 07457)	; &AJ1-07457;
+      ))
+    (->subsumptive
+     ((==ucs-itaiji-005	  . #x9F4A)	; &g2-U-i005+9F4A;
       ))
     ))
 (define-char
