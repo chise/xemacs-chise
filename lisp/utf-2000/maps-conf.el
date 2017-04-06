@@ -348,7 +348,75 @@
       (setq dest (cons fn dest))))
   (setq dest (sort dest
 		   (lambda (a b)
-		     (string< (symbol-name a)(symbol-name b)))))
+		     (cond ((eq a '==daikanwa)
+			    t)
+			   ((eq a '==daikanwa/+p)
+			    t)
+			   ((eq a '==daikanwa/ho)
+			    t)
+			   ((eq a '==jis-x0208)
+			    (cond ((memq b '(==daikanwa
+					     ==daikanwa/+p ==daikanwa/ho))
+				   nil)
+				  (t)))
+			   ((eq a '==jis-x0208@1978)
+			    (cond ((memq b '(==daikanwa
+					     ==daikanwa/+p ==daikanwa/ho
+					     ==jis-x0208))
+				   nil)
+				  (t)))
+			   ((eq a '==jis-x0208@1983)
+			    (cond ((memq b '(==daikanwa
+					     ==daikanwa/+p ==daikanwa/ho
+					     ==jis-x0208
+					     ==jis-x0208@1978))
+				   nil)
+				  (t)))
+			   ((eq a '==jis-x0208@1990)
+			    (cond ((memq b '(==daikanwa
+					     ==daikanwa/+p ==daikanwa/ho
+					     ==jis-x0208
+					     ==jis-x0208@1978
+					     ==jis-x0208@1983))
+				   nil)
+				  (t)))
+			   ((eq a '==jis-x0212)
+			    (cond ((memq b '(==daikanwa
+					     ==daikanwa/+p ==daikanwa/ho
+					     ==jis-x0208
+					     ==jis-x0208@1978
+					     ==jis-x0208@1983 ==jis-x0208@1990))
+				   nil)
+				  (t)))
+			   ((eq a '==jis-x0213-1)
+			    (cond ((memq b '(==daikanwa
+					     ==daikanwa/+p ==daikanwa/ho
+					     ==jis-x0208
+					     ==jis-x0208@1978
+					     ==jis-x0208@1983 ==jis-x0208@1990
+					     ==jis-x0212))
+				   nil)
+				  (t)))
+			   ((eq a '==jis-x0213-2)
+			    (cond ((memq b '(==daikanwa
+					     ==daikanwa/+p ==daikanwa/ho
+					     ==jis-x0208
+					     ==jis-x0208@1978
+					     ==jis-x0208@1983 ==jis-x0208@1990
+					     ==jis-x0212 ==jis-x0213-1))
+				   nil)
+				  (t)))
+			   (t
+			    (cond ((memq b '(==daikanwa
+					     ==daikanwa/+p ==daikanwa/ho
+					     ==jis-x0208
+					     ==jis-x0208@1978
+					     ==jis-x0208@1983 ==jis-x0208@1990
+					     ==jis-x0212
+					     ==jis-x0213-1 ==jis-x0213-2))
+				   nil)
+				  (t
+				   (string< (symbol-name a)(symbol-name b)))))))))
   (dolist (dg-fn dest)
     (setq rep-gi-fn (intern (format "=%s" dg-fn)))
     (when (find-charset rep-gi-fn)

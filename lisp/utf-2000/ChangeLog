@@ -1,5 +1,22 @@
 2017-04-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R163-City.el (U-000286F7): Add ideographic-structure.
+	(IU+286F7): Add `<-ancient' for U+FA26.
+	(U+FA26): Add `ideographic-structure'.
+
+2017-04-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R157-Foot.el: Add some MJ code points.
+
+	* Ideograph-R115-Grain.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R095-Profound.el (HD-JT-B593): Unify MJ017115.
+
+	* Ideograph-R077-Stop.el (U-0002394F): Apply new conventions for
+	glyph granularity.
+	(U+2394F-itaiji-001): New character; use `<-denotational' for
+	U-0002394F.
+
 	* Ideograph-R142-Insect.el: Add some MJ code points.
 
 	* Ideograph-R140-Grass.el (UU+9FB7): Treat `=gt-k' as a glyph CCS;
@@ -1538,6 +1555,10 @@
 
 	* Ideograph-R001-One.el: Complete representative nodes of
 	`=adobe-japan1-5' glyphs.
+
+2017-03-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* maps-conf.el: Change the order of complemented glyph-images.
 
 2017-03-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
