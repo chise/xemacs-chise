@@ -1,5 +1,7 @@
 2017-04-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R009-Man.el (U-000202C3): New character.
+
 	* Ideograph-R201-Yellow.el (JU+9ECC): Unify HD-JA8352.
 
 	* Ideograph-R210-Even.el (UU+9F4A): Add `ideographic-structure'.
