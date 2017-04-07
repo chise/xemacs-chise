@@ -1,5 +1,10 @@
 2017-04-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R167-Gold.el:
+	- Add some Hanyo-Denshi/JA code points.
+	- Add `=decomposition@hanyo-denshi' for some abstract glyph-forms
+	  of Hanyo-Denshi/{JA|JB|JD}.
+
 	* Ideograph-R009-Man.el (U-000202C3): New character.
 
 	* Ideograph-R201-Yellow.el (JU+9ECC): Unify HD-JA8352.
