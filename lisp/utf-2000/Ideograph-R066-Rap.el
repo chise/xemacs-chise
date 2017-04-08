@@ -2395,6 +2395,17 @@
   '((ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (=>ucs@component	. #x654E)	; &IWDS1-011;
+    (=>iwds-1		.  0011)	; &IWDS1-011;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x654E)	; &IWDS1-011;
+      (=>iwds-1		  .  0011)	; &IWDS1-011;
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
     (=ucs		. #x654E)	; 敎
     (=adobe-japan1-2	. 08471)	; &I-AJ1-08471;
     (=ks-x1001		. #x4E67)	; &I-K0-4E67; [46-71]
@@ -2432,7 +2443,11 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 66)	; ⽁
+  '((<-denotational
+     ((=>ucs@component	  . #x654E)	; &IWDS1-011;
+      (=>iwds-1		  .  0011)	; &IWDS1-011;
+      ))
+    (ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=ucs		. #x6559)	; 教
