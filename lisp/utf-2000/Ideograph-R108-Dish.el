@@ -755,6 +755,15 @@
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
+    (=>ucs@component	. #x6637)	; &IWDS1-320;
+    (=>iwds-1		.  0320)	; &IWDS1-320;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x6637)	; &IWDS1-320;
+      (=>iwds-1		  .  0320)	; &IWDS1-320;
+      ))
+    (ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
     (ideographic-structure
