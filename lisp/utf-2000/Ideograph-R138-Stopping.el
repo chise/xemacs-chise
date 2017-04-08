@@ -3,6 +3,7 @@
   '((ideographic-radical . 138)	; ⾉
     (ideographic-strokes . 0)
     (=ucs		. #x826E)	; 艮
+    (=>iwds-1		.  0199)	; 艮
     ))
 (define-char
   '((<-denotational
@@ -59,6 +60,33 @@
 (define-char
   '((<-denotational
      ((=ucs		  . #x826E)	; 艮
+      ))
+    (ideographic-radical . 138)	; ⾉
+    (ideographic-strokes . 0)
+    (=>big5-cdp		. #x8B7C)	; &IWDS1-357;
+    (=>iwds-1		.  0357)	; &IWDS1-357;
+    ))
+(define-char
+  '((<-denotational
+     ((=>iwds-1		  .  0357)	; &IWDS1-357;
+      ))
+    (ideographic-radical . 138)	; ⾉
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (=gt-k		. 02400)	; &GT-K02400;
+    (=gt-pj-k1		. #x3439)	; &GT-K02400; [20-25]
+    (->subsumptive
+     ((==gt-k		  . 02400)	; &g2-GT-K02400;
+      (==gt-pj-k1	  . #x3439)	; &g2-GT-K02400; [20-25]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>iwds-1		  .  0357)	; &IWDS1-357;
+      ))
+    (<-denotational@component
+     ((=>ucs@component	  . #x7680)	; &IWDS1-355;
+      (=>iwds-1		  .  0355)	; &IWDS1-355;
       ))
     (ideographic-radical . 138)	; ⾉
     (ideographic-strokes . 0)
