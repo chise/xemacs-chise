@@ -2079,8 +2079,16 @@
     (=gt-pj-k1		. #x3E29)	; &GT-K00616; [30-09]
     ))
 (define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
+    (=>ucs@component	. #x4E14)	; &IWDS1-114;
+    (=>iwds-1		.  0114)	; &IWDS1-114;
+    ))
+(define-char
   '((<-denotational@component
-     ((=>iwds-1		  .  0114)	; &IWDS1-114;
+     ((=>ucs@component	  . #x4E14)	; &IWDS1-114;
+      (=>iwds-1		  .  0114)	; &IWDS1-114;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)

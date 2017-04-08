@@ -9362,6 +9362,15 @@
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
+    (=>ucs@component	. #x60E0)	; &IWDS1-386;
+    (=>iwds-1		.  0386)	; &IWDS1-386;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x60E0)	; &IWDS1-386;
+      (=>iwds-1		  .  0386)	; &IWDS1-386;
+      ))
+    (ideographic-radical . 61)	; ⼼
     (=ucs		. #x6075)	; 恵
     ))
 (define-char
@@ -12765,6 +12774,7 @@
       ))
     (ideographic-radical . 61)	; ⼼
     (=ucs		. #x226F3)	; 𢛳
+    (=>iwds-1		.  0260)	; 𢛳
     ))
 (define-char
   '((<-denotational
@@ -15308,7 +15318,11 @@
     (=cns11643-6	. #x4874)	; &I-C6-4874; [40-84]
     ))
 (define-char
-  '((ideographic-radical . 61)	; ⼼
+  '((<-denotational
+     ((=>ucs@component	  . #x60E0)	; &IWDS1-386;
+      (=>iwds-1		  .  0386)	; &IWDS1-386;
+      ))
+    (ideographic-radical . 61)	; ⼼
     (=ucs		. #x60E0)	; 惠
     ))
 (define-char
