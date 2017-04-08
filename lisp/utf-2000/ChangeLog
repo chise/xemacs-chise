@@ -1,3 +1,27 @@
+2017-04-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R138-Stopping.el (U+826E): Unify IWDS1-0199.
+	(IWDS1-0357): New abstract component; use `<-denotational' for
+	U+826E.
+	(GT-K02400): New character; use `<-denotational' for IWDS1-0357.
+	(BC-8B7C): Use IWDS1-0357 as its mother instead of U+826E; add
+	`<-denotational@component' for IWDS1-0355.
+
+	* Ideograph-R108-Dish.el (IWDS1-0320): New abstract component.
+	(U-00025055): Add `<-denotational' for IWDS1-0320.
+
+	* Ideograph-R066-Rap.el (IWDS1-0011): New abstract component.
+	(U+654E): Add `<-denotational' for IWDS1-0011.
+	(U+6559): Ditto.
+
+	* Ideograph-R061-Heart.el (IWDS1-0386): New abstract component.
+	(U+6075): Add `<-denotational' for IWDS1-0386.
+	(U-000226F3): Unify IWDS1-0260.
+	(U+60E0): Add `<-denotational' for IWDS1-0386.
+
+	* Ideograph-R001-One.el (IWDS1-0114): New abstract component.
+	(U+4E14): Add `<-denotational@component' for IWDS1-0114.
+
 2017-04-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R167-Gold.el:
