@@ -2763,7 +2763,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=big5-cdp	  . #x8D70)	; &CDP-8D70;
+     ((=ucs		  . #x2BD56)	; 𫵖
       )
      ((=ucs		  . #x53C8)	; 又
       ))
@@ -2793,7 +2793,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==big5-cdp	    . #x8D70)	; &g2-CDP-8D70;
+       ((==ucs@iso	    . #x2BD56)	; &g2-CDP-8D70;
 	)
        ((==ucs@unicode	    . #x53C8)	; &g2-AJ1-03746;
 	(==adobe-japan1-0   . 03746)	; &g2-AJ1-03746;
