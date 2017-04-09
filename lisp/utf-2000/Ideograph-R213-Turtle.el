@@ -410,6 +410,7 @@
       )
      ((=ucs@iso		  . #x22451)	; &C6-246C;
       (=cns11643-6	  . #x246C)	; &C6-246C; [04-76]
+      (=daikanwa	  . 09911)	; &I-M-09911;
       ))
     (=big5-cdp-itaiji-003 . #x88CB)	; &CDP-i003-88CB;
     ))
@@ -473,14 +474,7 @@
       )
      ((=big5-cdp-var-003  . #x88CB)	; &CDP-v003-88CB;
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=adobe-japan1-4    . 15391)	; &AJ1-15391;
-	)
-       ((=adobe-japan1-4    . 15391)	; &AJ1-15391;
-	))
+     ((=ucs-itaiji-001	  . #x22451)	; &U-i001+22451;
       ))
     (=big5-cdp-var-005	. #x88CB)	; &CDP-v005-88CB;
     (<-unknown
@@ -513,11 +507,36 @@
     ))
 (define-char
   '((<-denotational
+     ((=>big5-cdp-itaiji-001 . #x88CB)	; &A-CDP-i001-88CB;
+      ))
+    (ideographic-radical . 213)	; ⿔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (=gt-k		. 02381)	; &GT-K02381;
+    (=gt-pj-k1		. #x656F)	; &GT-K02381; [69-79]
+    (<-simplified@component
+     ((=big5-cdp-itaiji-001 . #x88CB)	; &CDP-i001-88CB;
+      ))
+    (->subsumptive
+     ((==gt-k		  . 02381)	; &g2-GT-K02381;
+      (==gt-pj-k1	  . #x656F)	; &g2-GT-K02381; [69-79]
+      ))
+    ))
+(define-char
+  '((<-denotational
      ((=>big5-cdp	  . #x88CB)	; &A-CDP-88CB;
       ))
     (ideographic-radical . 213)	; ⿔
     (ideographic-strokes . 0)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=gt-k		  . 02381)	; &GT-K02381;
+      )
+     ((=ucs-itaiji-001	  . #x22451)	; &U-i001+22451;
+      ))
     (=big5-cdp		. #x88CB)	; &CDP-88CB;
     (->subsumptive
      ((==big5-cdp	  . #x88CB)	; &g2-CDP-88CB;

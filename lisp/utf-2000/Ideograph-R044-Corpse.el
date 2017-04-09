@@ -1169,9 +1169,52 @@
   '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=big5-cdp		. #x8D70)	; &CDP-8D70;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      )
+     ((=ucs		  . #x53E5)	; 句
+      ))
+    (=ucs		. #x21C48)	; 𡱈
+    (=gt-k		. 04465)	; &I-GT-K04465;
+    (=gt-pj-k2		. #x3658)	; 𡱈 [22-56]
+    (=cbeta		. 04645)	; &I-CB04645;
     (->subsumptive
-     ((==big5-cdp	  . #x8D70)	; &g2-CDP-8D70;
+     ((==ucs@iso	  . #x21C48)	; &g2-GT-K04465;
+      (==gt-k		  . 04465)	; &g2-GT-K04465;
+      (==gt-pj-k2	  . #x3658)	; &g2-GT-K04465; [22-56]
+      (==cbeta		  . 04645)	; &g2-GT-K04465;
+      (->subsumptive
+       ((===ucs@iso	    . #x21C48)	; &R-U-00021C48;
+	)
+       ((===gt-k	    . 04465)	; &R-GT-K04465;
+	)
+       ((===cbeta	    . 04645)	; &R-CB04645;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (=ucs		. #x2BD56)	; 𫵖
+    (=big5-cdp		. #x8D70)	; &I-CDP-8D70;
+    (=gt-k		. 04469)	; &I-GT-K04469;
+    (=gt-pj-k1		. #x4261)	; 𫵖 [34-65]
+    (->subsumptive
+     ((==ucs@iso	  . #x2BD56)	; &g2-CDP-8D70;
+      (==big5-cdp	  . #x8D70)	; &g2-CDP-8D70;
+      (==gt-k		  . 04469)	; &g2-CDP-8D70;
+      (==gt-pj-k1	  . #x4261)	; &g2-CDP-8D70; [34-65]
+      (->subsumptive
+       ((===big5-cdp	    . #x8D70)	; &R-CDP-8D70;
+	)
+       ((===gt-k	    . 04469)	; &R-GT-K04469;
+	)
+       ((===ucs@iso	    . #x2BD56)	; &R-U-0002BD56;
+	))
       ))
     ))
 (define-char
