@@ -1,3 +1,16 @@
+2017-04-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R044-Corpse.el (U-00021C48): New character; unify
+	GT-K04465 and CB04645.
+	(BC-8D70): Unify U-0002BD56 and GT-K04469.
+
+	* Ideograph-R213-Turtle.el (BC-88CB-var-005): Use
+	U+22451-itaiji-001 in `ideographic-structure'.
+	(GT-K02381): New character; use `<-denotational' for
+	A-BC-88CB-itaiji-001; use `<-simplified@component' for
+	BC-88CB-itaiji-001.
+	(BC-88CB): Add `ideographic-structure'.
+
 2017-04-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R138-Stopping.el (U+826E): Unify IWDS1-0199.
