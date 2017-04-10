@@ -1,3 +1,8 @@
+2017-04-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R140-Grass.el (U-00026C6B): Apply new conventions for
+	glyph granularity; add ideographic-structure.
+
 2017-04-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R044-Corpse.el (U-00021C48): New character; unify
