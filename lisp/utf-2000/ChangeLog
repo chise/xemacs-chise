@@ -1,3 +1,11 @@
+2017-04-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R058-Snout.el (U-00022451): Apply new conventions for
+	glyph granularity.
+	(U+22451-itaiji-001): New character; use `<-denotational' for
+	U-00022451.
+	(IU+22467): Add representative nodes.
+
 2017-04-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R140-Grass.el (U-00026C6B): Apply new conventions for

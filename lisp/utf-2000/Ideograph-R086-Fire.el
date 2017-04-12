@@ -14599,10 +14599,8 @@
       )
      ((=ucs		  . #x706B)	; 火
       )
-     ((=ucs@jis		  . #x7FCF)	; &JX2-747B;
-      (=jis-x0212	  . #x553A)	; &JX2-747B; [53-26]
-      (=jis-x0213-2	  . #x747B)	; &I-JX2-747B; [84-91]
-      (=daikanwa	  . 28665)	; &I-M-28665;
+     ((=ucs@jis		  . #x7FCF)	; &AJ1-18400;
+      (=adobe-japan1-5	  . 18400)	; &AJ1-18400;
       ))
     (=ucs@jis		. #x71AE)	; &JX2-6F7D;
     (=jis-x0213-2	. #x6F7D)	; &JX2-6F7D; [79-93]
@@ -14615,8 +14613,8 @@
 	)
        ((=gt-k		    . 00405)	; &GT-K00405;
 	)
-       ((==ucs@jis	    . #x7FCF)	; &g2-JSP-553A;
-	(==jis-x0213-2	    . #x747B)	; &g2-JSP-553A; [84-91]
+       ((==ucs@jis	    . #x7FCF)	; &g2-AJ1-18400;
+	(==adobe-japan1-5   . 18400)	; &g2-AJ1-18400;
 	))
       (==ucs@jis	  . #x71AE)	; &g2-JX2-6F7D;
       (==jis-x0213-2	  . #x6F7D)	; &g2-JX2-6F7D; [79-93]
