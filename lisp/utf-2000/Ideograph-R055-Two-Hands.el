@@ -725,13 +725,21 @@
     (ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL GRASS ONE")
+      (=ucs		  . #x2EBE)	; ⺾
+      )
+     ((=ucs		  . #x2F890)	; 廾
+      ))
     (sound@ja/on	"kIyo")
     (=ucs@iso		. #x26B20)	; &C6-274C;
     (=cns11643-6	. #x274C)	; &C6-274C; [07-44]
     (=daikanwa		. 09598)	; &I-M-09598;
     (<-ancient
-     ((=ucs@unicode	  . #x64E7)	; &AJ1-05038;
-      (=adobe-japan1-0	  . 05038)	; &AJ1-05038;
+     ((=ucs		  . #x64E7)	; 擧
       (=daikanwa	  . 12863)	; &I-M-12863;
       ))
     (<-ancient*sources
@@ -751,6 +759,18 @@
       ))
     (->mistakable*sources
      daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x26B20)	; &g2-M-09598;
+      (==cns11643-6	  . #x274C)	; &g2-M-09598; [07-44]
+      (==daikanwa	  . 09598)	; &g2-M-09598;
+      (->subsumptive
+       ((===daikanwa	    . 09598)	; &R-M-09598;
+	)
+       ((===cns11643-6	    . #x274C)	; &R-C6-274C; [07-44]
+	)
+       ((===ucs@iso	    . #x26B20)	; &R-U-00026B20;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 55)	; ⼶
