@@ -429,14 +429,33 @@
   '((<-denotational
      ((=ucs		  . #x5F62)	; 形
       ))
+    (=>ucs*		. #x5F62)	; 形
     (ideographic-radical . 59)	; ⼺
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=>ucs@iso		. #x2F899)	; &G-AJ1-20063;
-    (=>>ucs@iso		. #x2F899)	; &G-AJ1-20063;
-    (=>>adobe-japan1-5	. 20063)	; &G-AJ1-20063;
-    (=>>hanyo-denshi/ks . 112900)	; &G-AJ1-20063;
-    (=>>daikanwa	. 09982)	; &G-AJ1-20063;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5E75)	; 幵
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (=ucs		. #x2F899)	; 形
+    (=adobe-japan1-5	. 20063)	; &I-AJ1-20063;
+    (=cns11643-3	. #x2C51)	; &I-C3-2C51; [12-49]
+    (=hanyo-denshi/ks	. 112900)	; 形
+    (=daikanwa		. 09982)	; &I-M-09982;
+    (=shinjigen		.  2309)	; 形
+    (<-original
+     ((=ucs@unicode	  . #x5F62)	; &AJ1-01815;
+      (=adobe-japan1-0	  . 01815)	; &AJ1-01815;
+      (=jis-x0208	  . #x3741)	; &I-J90-3741; [23-33]
+      (=daikanwa	  . 09969)	; &I-M-09969;
+      (=shinjigen	  .  2308)	; &AJ1-01815;
+      ))
+    (<-original*sources
+     daikanwa shinjigen)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5F62)	; 形
@@ -448,24 +467,27 @@
 	)
        ((=ucs		    . #xE0103)	; 󠄃
 	))
-      (=adobe-japan1-5	  . 20063)	; &AJ1-20063;
-      (=hanyo-denshi/ks	  . 112900)	; &AJ1-20063;
-      (=hanyo-denshi/ks/mf . #x2C1A)	; &I-KSMF-11290;
-      (=daikanwa	  . 09982)	; &I-M-09982;
-      (=shinjigen	  .  2309)	; &AJ1-20063;
-      (<-original
-       ((=ucs@unicode	    . #x5F62)	; &AJ1-01815;
-	(=adobe-japan1-0    . 01815)	; &AJ1-01815;
-	(=jis-x0208	    . #x3741)	; &I-J90-3741; [23-33]
-	(=daikanwa	    . 09969)	; &I-M-09969;
-	(=shinjigen	    .  2308)	; &AJ1-01815;
+      (==adobe-japan1-5	  . 20063)	; &g2-AJ1-20063;
+      (==hanyo-denshi/ks  . 112900)	; &g2-AJ1-20063;
+      (==daikanwa	  . 09982)	; &g2-AJ1-20063;
+      (==shinjigen	  .  2309)	; &g2-AJ1-20063;
+      (->subsumptive
+       ((===daikanwa	    . 09982)	; &R-M-09982;
+	)
+       ((===hanyo-denshi/ks . 112900)	; &R-HD-KS-112900;
+	(=hanyo-denshi/ks/mf . #x2C1A)	; &R-HD-KS-112900;
+	)
+       ((===adobe-japan1-5  . 20063)	; &R-AJ1-20063;
 	))
-      (<-original*sources
-       daikanwa shinjigen)
       )
-     ((=>ucs*		  . #x5F62)	; 形
-      (=ucs		  . #x2F899)	; 形
-      (=cns11643-3	  . #x2C51)	; &I-C3-2C51; [12-49]
+     ((==ucs@iso	  . #x2F899)	; &g2-IU-0002F899;
+      (==ucs@JP/hanazono  . nil)
+      (==cns11643-3	  . #x2C51)	; &g2-IU-0002F899; [12-49]
+      (->subsumptive
+       ((===cns11643-3	    . #x2C51)	; &R-C3-2C51; [12-49]
+	)
+       ((===ucs@iso	    . #x2F899)	; &R-U-0002F899;
+	))
       ))
     ))
 (define-char

@@ -1,3 +1,33 @@
+2017-04-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R063-Door.el (JU+6239): Unify CU+6239; add
+	representative nodes.
+
+	* Ideograph-R060-Step.el: Complement representative nodes of
+	`=adobe-japan1-5' glyphs.
+	(U+5FA2): Apply new conventions for glyph granularity.
+
+	* Ideograph-R059-Bristle.el (U-0002F899): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R055-Two-Hands.el (IU+26B20): Add
+	`ideographic-structure'; add representative nodes.
+
+	* Ideograph-R019-Power.el: Complement representative nodes of
+	`=adobe-japan1-5' glyphs.
+
+	* Ideograph-R010-Legs.el: Complement representative nodes of
+	`=adobe-japan1-5' glyphs.
+
+	* Ideograph-R007-Two.el: Complement representative nodes of
+	`=adobe-japan1-5' glyphs.
+
+	* Ideograph-R005-Second.el: Complement representative nodes of
+	`=adobe-japan1-5' glyphs.
+
+	* Ideograph-R004-Slash.el: Eliminate a bogus character.
+	(U-00020094): Apply new conventions for glyph granularity.
+
 2017-04-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R058-Snout.el (U-00022451): Apply new conventions for
@@ -5,6 +35,15 @@
 	(U+22451-itaiji-001): New character; use `<-denotational' for
 	U-00022451.
 	(IU+22467): Add representative nodes.
+
+2017-04-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R129-Brush.el (JU+8088): Unify AJ1-19696.
+
+2017-04-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R126-And.el (U+800D): Apply new conventions for glyph
+	granularity.
 
 2017-04-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
