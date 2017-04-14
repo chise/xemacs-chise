@@ -1,3 +1,46 @@
+2017-04-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R125-Old.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R128-Ear.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R124-Feather.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R122-Net.el: Add some Adobe-Japan1-5 code points.
+
+2017-04-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R117-Stand.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R116-Cave.el: Add some Adobe-Japan1-5 code points.
+
+	* Ideograph-R108-Dish.el: Complement representative nodes of
+	`=adobe-japan1-5' glyphs.
+
+	* Ideograph-R064-Hand.el (U+64E7): Add `<-denotational' for
+	IWDS1-0342; apply new conventions for glyph granularity.
+
+	* Ideograph-R062-Halberd.el (IWDS1-0049): New abstract component.
+	(U+620C): Add `<-denotational@component' for IWDS1-0049; add
+	`sound@ja/on/{kan|go|conventional}'; add `->mistakable' for
+	U+620A, U+6209 and U+620D.
+	(U+620D): Add `<-denotational@component' for IWDS1-0049; add
+	`ideographic-structure'; add `sound@ja/on' and
+	`sound@ja/on/conventional'.
+	(IWDS1-0274): New abstract component.
+	(U+39AE): Add `<-denotational' for IWDS1-0274; add `sound@ja/on';
+	apply new conventions for glyph granularity.
+	(U+620B): Add `<-denotational' for IWDS1-0274; add representative
+	nodes.
+
+	* Ideograph-R022-Right-Open-Box.el (g2-JU+532A): Unify g2-KU+532A
+	and K0-5D63.
+	(U+532A-var-002): New character; use `<-subsumptive' for UU+532A.
+
+	* Ideograph-R012-Eight.el (JU+20509): Apply new conventions for
+	glyph granularity.
+	(U+5174): Likewise; add `<-simplified@CN' for UU+8208.
+
 2017-04-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R106-White.el (U+7680): Add `<-denotational@component'
@@ -7,6 +50,12 @@
 	(U+3FDD): Add `ideographic-structure'; add `<-ancient' U+9999;
 	`<-original' for UU+7680.
 	(IWDS1-0355): New abstract component.
+
+	* Ideograph-R097-Melon.el (U-000244F0): Apply new conventions for
+	glyph granularity.
+	(A-U+3F0C-itaiji-001): New abstract node.
+	(U+3F0C-itaiji-001): New character; use `<-denotational' for
+	A-U+3F0C-itaiji-001.
 
 	* Ideograph-R075-Tree.el (U+6A70): Use `->subsumptive'.
 
