@@ -35344,9 +35344,8 @@
       )
      ((=ucs		  . #x6728)	; 木
       )
-     ((=ucs@unicode	  . #x7D5C)	; &HD-JC-7A24;
-      (=cns11643-2	  . #x3E78)	; &HD-JC-7A24; [30-88]
-      (=jis-x0213-1	  . #x7A24)	; &I-JX1-7A24; [90-04]
+     ((=ucs@unicode	  . #x7D5C)	; &AJ1-17041;
+      (=adobe-japan1-5	  . 17041)	; &AJ1-17041;
       ))
     (=ucs@iso		. #x23683)	; &U-00023683;
     (->subsumptive
@@ -37366,22 +37365,43 @@
     (=daikanwa		. 15619)	; &I-M-15619;
     ))
 (define-char
-  '((=>ucs		. #x6A70)	; 橰
-    (ideographic-radical . 75)	; ⽊
-    (ideographic-strokes . 12)
-    (total-strokes	 . 16)
-    (=cns11643-3	. #x5141)	; &C3-5141; [49-33]
-    (=daikanwa		. 15620)	; &I-M-15620;
-    (=cbeta		. 05339)	; &I-CB05339;
-    ))
-(define-char
-  '((morohashi-daikanwa	15620 0 2)
-    (ideographic-radical . 75)	; ⽊
+  '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
     (hanyu-dazidian	2 1293 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6728)	; 木
+      )
+     ((=ucs		  . #x81EF)	; 臯
+      ))
     (=ucs		. #x6A70)	; 橰
-    (=hanziku-4		. #xB25A)	; &I-HZK04-B25A;
+    (=cns11643-3	. #x5141)	; &I-C3-5141; [49-33]
+    (=daikanwa		. 15620)	; &I-M-15620;
+    (=cbeta		. 05339)	; &I-CB05339;
+    (->subsumptive
+     ((==ucs@cns	  . #x6A70)	; &g2-M-15620;
+      (==cns11643-3	  . #x5141)	; &g2-M-15620; [49-33]
+      (==daikanwa	  . 15620)	; &g2-M-15620;
+      (==cbeta		  . 05339)	; &g2-M-15620;
+      (->subsumptive
+       ((===daikanwa	    . 15620)	; &R-M-15620;
+	)
+       ((===cns11643-3	    . #x5141)	; &R-C3-5141; [49-33]
+	)
+       ((===cbeta	    . 05339)	; &R-CB05339;
+	))
+      )
+     ((==ucs@unicode	  . #x6A70)	; &g2-UU+6A70;
+      (==ucs@JP/hanazono  . nil)
+      (->subsumptive
+       ((===ucs@unicode	    . #x6A70)	; &R-UU+6A70;
+	)
+       ((=hanziku-4	    . #xB25A)	; &HZK04-B25A;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 75)	; ⽊
