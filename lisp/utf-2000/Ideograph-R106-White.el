@@ -135,7 +135,11 @@
     (=cns11643-6	. #x253D)	; &I-C6-253D; [05-29]
     ))
 (define-char
-  '((ideographic-radical . 106)	; ⽩
+  '((<-denotational@component
+     ((=>ucs@component	  . #x7680)	; &IWDS1-355;
+      (=>iwds-1		  .  0355)	; &IWDS1-355;
+      ))
+    (ideographic-radical . 106)	; ⽩
     (=ucs		. #x7680)	; 皀
     ))
 (define-char
@@ -163,6 +167,22 @@
     (=gt-k		. 02720)	; &I-GT-K02720;
     (=gt-pj-1		. #x6225)	; &I-GT-29075; [66-05]
     (=daikanwa		. 22683)	; &I-M-22683;
+    (<-ancient
+     ((=ucs		  . #x9999)	; 香
+      ))
+    (<-ancient*sources
+     zhengzitong)
+    (<-same
+     ((=ucs		  . #x9999)	; 香
+      (=daikanwa	  . 44518)	; &I-M-44518;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
+    (->original
+     ((=ucs		  . #x3FDD)	; 㿝
+      ))
+    (->original*sources
+     zhengzitong)
     (->subsumptive
      ((==ucs@unicode	  . #x7680)	; &g2-AJ1-05786;
       (==adobe-japan1-0	  . 05786)	; &g2-AJ1-05786;
@@ -336,9 +356,39 @@
   '((ideographic-radical . 106)	; ⽩
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x767D)	; 白
+      )
+     ((=ucs		  . #x53B6)	; 厶
+      ))
     (=ucs		. #x3FDD)	; 㿝
     (=cns11643-3	. #x2675)	; &I-C3-2675; [06-85]
     (=daikanwa		. 22687)	; &I-M-22687;
+    (<-ancient
+     ((=ucs		  . #x9999)	; 香
+      (=daikanwa	  . 44518)	; &I-M-44518;
+      ))
+    (<-ancient*sources
+     zhengzitong daikanwa)
+    (<-original
+     ((=ucs@unicode	  . #x7680)	; &AJ1-05786;
+      (=adobe-japan1-0	  . 05786)	; &AJ1-05786;
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x3FDD)	; &g2-M-22687;
+      (==cns11643-3	  . #x2675)	; &g2-M-22687; [06-85]
+      (==daikanwa	  . 22687)	; &g2-M-22687;
+      (->subsumptive
+       ((===daikanwa	    . 22687)	; &R-M-22687;
+	)
+       ((===cns11643-3	    . #x2675)	; &R-C3-2675; [06-85]
+	)
+       ((===ucs@unicode	    . #x3FDD)	; &R-UU+3FDD;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 106)	; ⽩
@@ -2897,4 +2947,9 @@
       )
      ((=cns11643-7	  . #x653A)	; &C7-653A; [69-26]
       ))
+    ))
+(define-char
+  '((ideographic-radical . 106)	; ⽩
+    (=>ucs@component	. #x7680)	; &IWDS1-355;
+    (=>iwds-1		.  0355)	; &IWDS1-355;
     ))
