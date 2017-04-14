@@ -1,5 +1,21 @@
 2017-04-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R106-White.el (U+7680): Add `<-denotational@component'
+	for IWDS1-0355.
+	(UU+7680): Add `<-ancient' and `<-same' for U+9999; add
+	`->original' for U+3FDD.
+	(U+3FDD): Add `ideographic-structure'; add `<-ancient' U+9999;
+	`<-original' for UU+7680.
+	(IWDS1-0355): New abstract component.
+
+	* Ideograph-R075-Tree.el (U+6A70): Use `->subsumptive'.
+
+	* Ideograph-R008-Lid.el (U-00020181): Apply new conventions for
+	glyph granularity.
+	(o-IU+20181): Add `=>ucs@iwds-1'.
+
+2017-04-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R063-Door.el (JU+6239): Unify CU+6239; add
 	representative nodes.
 
