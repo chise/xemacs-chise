@@ -1,5 +1,19 @@
 2017-04-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el: Complement representative nodes of
+	`=adobe-japan1-4' glyphs.
+
+	* Ideograph-R030-Mouth.el (GT-K00724): New character.
+	(C4-2564): Unify CU+545D; add representative nodes.
+	(U-00020C46): New character.
+	(CB03114): Add `<-subsumptive' for U-00020C46.
+	(GT-K04150): New character.
+	(GT-K04958): New character.
+	(CB04645): Unify U-00021C48; moved to Ideograph-R044-Corpse.el.
+
+	* Ideograph-R011-Enter.el (g2-M-01449): Use U+532A-var-002 instead
+	of g2-KU+532A.
+
 	* Ideograph-R125-Old.el: Add some Adobe-Japan1-5 code points.
 
 	* Ideograph-R128-Ear.el: Add some Adobe-Japan1-5 code points.
