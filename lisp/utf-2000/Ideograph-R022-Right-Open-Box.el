@@ -1263,7 +1263,9 @@
 	))
       (==ucs@cns	  . #x532A)	; &g2-AJ1-03439;
       (==ucs@jis	  . #x532A)	; &g2-AJ1-03439;
+      (==ucs@ks		  . #x532A)	; &g2-AJ1-03439;
       (==adobe-japan1-0	  . 03439)	; &g2-AJ1-03439;
+      (==ks-x1001	  . #x5D63)	; &g2-AJ1-03439; [61-67]
       (==jis-x0208	  . #x485B)	; &g2-AJ1-03439; [40-59]
       (==cns11643-1	  . #x544D)	; &g2-AJ1-03439; [52-45]
       (==jis-x0213-1	  . #x485B)	; &g2-AJ1-03439; [40-59]
@@ -1283,20 +1285,12 @@
 	)
        ((===gt		    . 03371)	; &R-GT-03371;
 	(===gt-k	    . 06536)	; &R-GT-03371;
+	)
+       ((===ucs@ks	    . #x532A)	; &R-K0-5D63;
+	(===ks-x1001	    . #x5D63)	; &R-K0-5D63; [61-67]
 	))
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-	(=ucs		    . #x2FF7)	; ⿷
-	)
-       ((=ucs		    . #x531A)	; 匚
-	)
-       ((==ucs@jis	    . #x975E)	; &g2-AJ1-03463;
-	(==ucs@ks	    . #x975E)	; &g2-AJ1-03463;
-	(==adobe-japan1-0   . 03463)	; &g2-AJ1-03463;
-	))
-      (==ucs@ks		  . #x532A)	; &g2-K0-5D63;
-      (==ks-x1001	  . #x5D63)	; &g2-K0-5D63; [61-67]
+     ((=ucs-var-002	  . #x532A)	; &U-v002+532A;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
