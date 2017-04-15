@@ -1550,6 +1550,15 @@
   '((ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
+    (=ucs		. #x5901)	; 夁
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5901)	; 夁
+      ))
+    (ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
     (hanyu-dazidian	1 491 15)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
@@ -1557,14 +1566,28 @@
       )
      ((=ucs		  . #x58EB)	; 士
       )
-     ((=big5-cdp	  . #x8B48)	; &GT-36329;
+     ((name		  . "CJK RADICAL EYE")
+      (=ucs		  . #x2EAB)	; ⺫
       )
      ((=ucs		  . #x56FA)	; 固
       ))
-    (=ucs		. #x5901)	; 夁
-    (=cns11643-3	. #x504D)	; &I-C3-504D; [48-45]
+    (=ucs@unicode	. #x5901)	; &C3-504D;
+    (=cns11643-3	. #x504D)	; &C3-504D; [48-45]
     (=daikanwa		. 05680)	; &I-M-05680;
-    (=hanziku-2		. #xB544)	; &I-HZK02-B544;
+    (->subsumptive
+     ((==ucs@unicode	  . #x5901)	; &g2-M-05680;
+      (==cns11643-3	  . #x504D)	; &g2-M-05680; [48-45]
+      (==daikanwa	  . 05680)	; &g2-M-05680;
+      (->subsumptive
+       ((===daikanwa	    . 05680)	; &R-M-05680;
+	)
+       ((===cns11643-3	    . #x504D)	; &R-C3-504D; [48-45]
+	)
+       ((===ucs@unicode	    . #x5901)	; &R-UU+5901;
+	)
+       ((=hanziku-2	    . #xB544)	; &HZK02-B544;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 33)	; ⼠

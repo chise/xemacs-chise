@@ -79,7 +79,8 @@
       )
      ((=ucs		  . #x4E3F)	; 丿
       )
-     ((=big5-cdp	  . #x8B48)	; &GT-36329;
+     ((name		  . "CJK RADICAL EYE")
+      (=ucs		  . #x2EAB)	; ⺫
       ))
     (=ucs-itaiji-002	. #x8840)	; &U-i002+8840;
     ))

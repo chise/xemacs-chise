@@ -1,4 +1,20 @@
+2017-04-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R134-Mortar.el (IWDS1-0342): New abstract component.
+	(U+8209): Add `<-denotational' for IWDS1-0342.
+	(U-00026999): Likewise; apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R121-Jar.el: Add some Adobe-Japan1-5 code points.
+
 2017-04-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (g2-IU+21A5C): Use g2-GT-K00586 and
+	g2-BC-8B48 instead of U+9FB6 and BC-8B48 in
+	`ideographic-structure'.
+
+	* Ideograph-R033-Scholar.el (U+5901): Apply new conventions for
+	glyph granularity.
 
 	* Ideograph-R002-Line.el (U+4E30): Add `=>iwds-1'.
 
