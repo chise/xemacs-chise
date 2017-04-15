@@ -6761,7 +6761,8 @@
       )
      ((=ucs		  . #x4E2F)	; 丯
       )
-     ((=big5-cdp	  . #x8B48)	; &GT-36329;
+     ((name		  . "CJK RADICAL EYE")
+      (=ucs		  . #x2EAB)	; ⺫
       ))
     (=ucs-var-003	. #x21A5C)	; &U-v003+21A5C;
     ))
@@ -6780,7 +6781,8 @@
       )
      ((=ucs		  . #x9FB6)	; 龶
       )
-     ((=big5-cdp	  . #x8B48)	; &GT-36329;
+     ((name		  . "CJK RADICAL EYE")
+      (=ucs		  . #x2EAB)	; ⺫
       ))
     (sources		ruimoku=A015412-00003)
     (=ucs@iso		. #x21A5C)	; &RUI6-E009;
@@ -6793,9 +6795,9 @@
        ((==ucs@unicode	    . #x5B80)	; &g2-AJ1-04622;
 	(==adobe-japan1-0   . 04622)	; &g2-AJ1-04622;
 	)
-       ((=ucs		    . #x9FB6)	; 龶
+       ((==gt-k		    . 00586)	; &g2-GT-K00586;
 	)
-       ((=big5-cdp	    . #x8B48)	; &GT-36329;
+       ((==big5-cdp	    . #x8B48)	; &g2-CDP-8B48;
 	))
       (==ucs@iso	  . #x21A5C)	; &g2-IU-00021A5C;
       (==ruimoku-v6	  . #xE009)	; &g2-IU-00021A5C;
