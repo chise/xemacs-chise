@@ -630,6 +630,11 @@
 	(==ucs@unicode	    . #x808E)	; &g2-UU+808E;
 	(==ucs@JP/hanazono  . nil)
 	(==shinjigen	    .  6435)	; &g2-UU+808E;
+	(->subsumptive
+	 ((===ucs@unicode     . #x808E)	; &R-UU+808E;
+	  )
+	 ((=hanziku-6	      . #xA4D9)	; &HZK06-A4D9;
+	  ))
 	)
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -2459,14 +2464,45 @@
   '((ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (=ucs		. #x26643)	; 𦙃
-    (->subsumptive
-     ((hanyu-dazidian	  3 2048 10)
-      (=ucs@iso		  . #x26643)	; &M-29307;
-      (=daikanwa	  . 29307)	; &M-29307;
-      (=hanziku-6	  . #xA5DD)	; &I-HZK06-A5DD;
+    (hanyu-dazidian	3 2048 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=cns11643-6	  . #x2D6D)	; &C6-2D6D; [13-77]
+     ((=gt-k		  . 00724)	; &GT-K00724;
+      )
+     ((=>ucs@component	  . #x6708)	; &IWDS1-053;
+      (=>iwds-1		  .  0053)	; &IWDS1-053;
+      ))
+    (sound@ja/on	"syo")
+    (=ucs		. #x26643)	; 𦙃
+    (=cns11643-6	. #x2D6D)	; &I-C6-2D6D; [13-77]
+    (=gt		. 37935)	; &I-GT-37935;
+    (=gt-k		. 04151)	; &I-GT-K04151;
+    (=gt-pj-6		. #x3955)	; &I-GT-37935; [25-53]
+    (=daikanwa		. 29307)	; &I-M-29307;
+    (<-ancient
+     ((=ucs		  . #x80E5)	; 胥
+      (=daikanwa	  . 29406)	; &I-M-29406;
+      ))
+    (<-ancient*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x26643)	; &g2-M-29307;
+      (==daikanwa	  . 29307)	; &g2-M-29307;
+      (->subsumptive
+       ((===daikanwa	    . 29307)	; &R-M-29307;
+	)
+       ((===ucs@iso	    . #x26643)	; &R-U-00026643;
+	))
+      )
+     ((==gt		  . 37935)	; &g2-GT-37935;
+      (==gt-k		  . 04151)	; &g2-GT-37935;
+      )
+     ((=hanziku-6	  . #xA5DD)	; &HZK06-A5DD;
+      )
+     ((==ucs@cns	  . #x26643)	; &g2-CU+26643;
+      (==cns11643-6	  . #x2D6D)	; &g2-CU+26643; [13-77]
       ))
     ))
 (define-char
@@ -2596,13 +2632,19 @@
     (=ucs		. #x80BB)	; 肻
     (=cns11643-4	. #x276A)	; &I-C4-276A; [07-74]
     (=daikanwa		. 29313)	; &I-M-29313;
+    (=cbeta		. 09342)	; &I-CB09342;
     (->subsumptive
      ((==ucs@unicode	  . #x80BB)	; &g2-M-29313;
       (==daikanwa	  . 29313)	; &g2-M-29313;
+      (==cbeta		  . 09342)	; &g2-M-29313;
       (->subsumptive
        ((===daikanwa	    . 29313)	; &R-M-29313;
 	)
        ((===ucs@unicode	    . #x80BB)	; &R-UU+80BB;
+	)
+       ((=hanziku-6	    . #xA5D8)	; &HZK06-A5D8;
+	)
+       ((===cbeta	    . 09342)	; &R-CB09342;
 	))
       )
      ((===hng-khi	  . 05330)	; &HNG010-05330;
@@ -16074,10 +16116,8 @@
      ((name		  . "CJK RADICAL MEAT")
       (=ucs		  . #x2EBC)	; ⺼
       )
-     ((=ucs@jis		  . #x7FCF)	; &JX2-747B;
-      (=jis-x0212	  . #x553A)	; &JX2-747B; [53-26]
-      (=jis-x0213-2	  . #x747B)	; &I-JX2-747B; [84-91]
-      (=daikanwa	  . 28665)	; &I-M-28665;
+     ((=ucs@jis		  . #x7FCF)	; &AJ1-18400;
+      (=adobe-japan1-5	  . 18400)	; &AJ1-18400;
       ))
     (=ucs@jis		. #x81A0)	; &AJ1-06268;
     (=adobe-japan1-0	. 06268)	; &AJ1-06268;
