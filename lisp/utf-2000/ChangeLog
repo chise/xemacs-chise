@@ -1,5 +1,13 @@
 2017-04-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R002-Line.el (U+4E30): Add `=>iwds-1'.
+
+	* Ideograph-R130-Meat.el (U-00026643): Apply new conventions for
+	glyph granularity; add `sound@ja/on'; add `<-ancient' for U+80E5.
+	(U+80BB): Unify CB09342.
+
+2017-04-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R032-Earth.el: Complement representative nodes of
 	`=adobe-japan1-4' glyphs.
 
