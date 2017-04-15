@@ -495,6 +495,7 @@
     (hanyu-dazidian	1 28 7)
     (=ucs		. #x4E30)	; 丰
     (=big5		. #xA4A5)	; &I-B-A4A5;
+    (=>iwds-1		.  0006)	; 丰
     ))
 (define-char
   '((<-denotational
