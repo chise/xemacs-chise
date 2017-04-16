@@ -76,6 +76,16 @@
     (<-formed@component/connect-below
      ((=ucs		  . #x751F)	; 生
       ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8B77)	; &g2-CDP-8B77;
+      )
+     ((==ucs@unicode	  . #x9FB6)	; &g2-UU+9FB6;
+      )
+     ((==jef-china3	  . #x72FD)	; &g2-JC3-72FD;
+      )
+     ((==gt-k		  . 00586)	; &g2-GT-K00586;
+      (==gt-pj-k1	  . #x323F)	; &g2-GT-K00586; [18-31]
+      ))
     ))
 (define-char
   '((<-denotational
