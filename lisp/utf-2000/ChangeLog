@@ -1,3 +1,11 @@
+2017-04-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el:
+	- Complement representative nodes of `=adobe-japan1-0' glyphs.
+	- Use g2-UU+56D7 instead of U+56D7 in `ideographic-structure' of
+	  abstract glyph-forms.
+	(U+571D): Separate UU+571D.
+
 2017-04-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ruimoku6.el (g2-IU+21A5C): Use g2-GT-K00586 and g2-BC-8B48
