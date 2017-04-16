@@ -25642,6 +25642,20 @@
        ((===adobe-japan1-5  . 18690)	; &R-AJ1-18690;
 	))
       )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+	(=ucs		    . #x2FF2)	; ⿲
+	)
+       ((==ucs@cns	    . #x7CF8)	; &g2-GT-35079;
+	(==cns11643-1	    . #x484E)	; &g2-GT-35079; [40-46]
+	)
+       ((==ucs@unicode	    . #x8A00)	; &g2-UU+8A00;
+	)
+       ((==ucs@cns	    . #x7CF8)	; &g2-GT-35079;
+	(==cns11643-1	    . #x484E)	; &g2-GT-35079; [40-46]
+	))
+      (=ucs-var-005	  . #x470C)	; &U-v005+470C;
+      )
      ((==big5-cdp	  . #x8BE7)	; &g2-CDP-8BE7;
       )
      ((==ucs@unicode	  . #x470C)	; &g2-UU+470C;
