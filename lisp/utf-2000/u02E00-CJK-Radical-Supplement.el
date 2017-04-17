@@ -684,32 +684,35 @@
       ))
     ))
 (define-char
-  '((<-denotational
-     ((=big5-cdp	  . #x8B48)	; &GT-36329;
-      ))
-    (name		. "CJK RADICAL EYE")
+  '((name		. "CJK RADICAL EYE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs		. #x2EAB)	; ⺫
-    (<-formed@component/connect-below
-     ((=ucs		  . #x76EE)	; 目
-      ))
-    (<-identical@component/connect-below
-     ((=big5-cdp	  . #x8B48)	; &GT-36329;
-      ))
-    ))
-(define-char
-  '((=>ucs		. #x2EAB)	; ⺫
     (ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
-    (=big5-cdp		. #x8B48)	; &GT-36329;
+    (=ucs		. #x2EAB)	; ⺫
+    (=big5-cdp		. #x8B48)	; &I-CDP-8B48;
     (=gt		. 36329)	; &I-GT-36329;
     (=gt-k		. 01549)	; &I-GT-K01549;
     (=gt-pj-5		. #x7264)	; &I-GT-36329; [82-68]
     (<-formed@component
      ((=ucs		  . #x76EE)	; 目
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8B48)	; &g2-CDP-8B48;
+      )
+     ((==gt		  . 36329)	; &g2-GT-36329;
+      (==gt-k		  . 01549)	; &g2-GT-36329;
+      )
+     ((==ucs@unicode	  . #x2EAB)	; &g2-UU+2EAB;
+      (<-formed@component/connect-below
+       ((=ucs		    . #x76EE)	; 目
+	))
+      (<-identical@component/connect-below
+       ((name		    . "CJK RADICAL EYE")
+	(=ucs		    . #x2EAB)	; ⺫
+	))
       ))
     ))
 (define-char

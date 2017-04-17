@@ -6,7 +6,20 @@
 	  abstract glyph-forms.
 	(U+571D): Separate UU+571D.
 
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL EYE>): Unify
+	BC-8B48.
+
 2017-04-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (G-UU+65E5): Unify G-AJ1-03284.
+	(g2-UU+65E5): Unify g2-AJ1-03284.
+	(U+65E6): Add `<-denotational@component' for IWDS1-0114.
+	(U+3AD0): Add `<-denotational@component' for IWDS1-0355; add
+	`sound@ja/on'.
+	(U+6637): Add `<-denotational' for IWDS1-0320.
+	(IWDS1-0388): New abstract component.
+	(U+6649): Add `<-denotational' for IWDS1-0388.
+	(U+664B): Ditto.
 
 	* ruimoku6.el (g2-IU+21A5C): Use g2-GT-K00586 and g2-BC-8B48
 	instead of U+9FB6 and BC-8B48 in `ideographic-structure'.
