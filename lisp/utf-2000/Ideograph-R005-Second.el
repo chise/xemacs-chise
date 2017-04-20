@@ -2764,17 +2764,12 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x722B)	; 爫
-	)
-       ((=ucs		    . #x7CF8)	; 糸
-	))
+     ((=>gt-k		  . 07307)	; &A-GT-K07307;
       )
      ((=ucs		  . #x4E5A)	; 乚
       ))
+    (sound@ja/on/go	"di")
+    (sound@ja/on/kan	"ti")
     (=ucs		. #x4E7F)	; 乿
     (=big5		. #xD44B)	; &I-B-D44B;
     ))
@@ -2789,19 +2784,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs@cns	    . #x722B)	; &GT-25225;
-	(=ucs@jis	    . #x722B)	; &GT-25225;
-	(=jis-x0212	    . #x4A48)	; &GT-25225; [42-40]
-	(=cns11643-4	    . #x2151)	; &I-C4-2151; [01-49]
-	(=jis-x0213-2	    . #x702A)	; &I-JX2-702A; [80-10]
-	(=daikanwa	    . 19655)	; &I-M-19655;
-	)
-       ((=ucs		    . #x7CF8)	; 糸
-	))
+     ((=gt-k		  . 07307)	; &GT-K07307;
       )
      ((=ucs		  . #x4E5A)	; 乚
       ))
@@ -2818,24 +2801,6 @@
 	)
        ((=ucs		    . #xE0100)	; 󠄀
 	))
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((==ucs@jis	      . #x722B)	; &g2-GT-25225;
-	  (==jis-x0213-2      . #x702A)	; &g2-GT-25225; [80-10]
-	  )
-	 ((==ucs@cns	      . #x7CF8)	; &g2-AJ1-02227;
-	  (==ucs@jis	      . #x7CF8)	; &g2-AJ1-02227;
-	  (==adobe-japan1-0   . 02227)	; &g2-AJ1-02227;
-	  ))
-	)
-       ((=ucs		    . #x4E5A)	; 乚
-	))
       (==ucs@jis	  . #x4E7F)	; &g2-AJ1-14306;
       (==adobe-japan1-4	  . 14306)	; &g2-AJ1-14306;
       (==jis-x0212	  . #x303C)	; &g2-AJ1-14306; [16-28]
@@ -2845,13 +2810,13 @@
       (->subsumptive
        ((===daikanwa	    . 00205)	; &R-M-00205;
 	)
-       ((===jis-x0212	    . #x303C)	; &R-JSP-303C; [16-28]
-	)
-       ((===adobe-japan1-4  . 14306)	; &R-AJ1-14306;
-	)
        ((===jef-china3	    . #x41C5)	; &R-JC3-41C5;
 	)
        ((===gt		    . 00276)	; &R-GT-00276;
+	)
+       ((===jis-x0212	    . #x303C)	; &R-JSP-303C; [16-28]
+	)
+       ((===adobe-japan1-4  . 14306)	; &R-AJ1-14306;
 	))
       ))
     ))
@@ -2895,9 +2860,8 @@
 	 ((name		      . "CJK RADICAL PAW ONE")
 	  (=ucs		      . #x2EA4)	; ⺤
 	  )
-	 ((==ucs@cns	      . #x7CF8)	; &g2-AJ1-02227;
-	  (==ucs@jis	      . #x7CF8)	; &g2-AJ1-02227;
-	  (==adobe-japan1-0   . 02227)	; &g2-AJ1-02227;
+	 ((==ucs@cns	      . #x7CF8)	; &g2-GT-35079;
+	  (==cns11643-1	      . #x484E)	; &g2-GT-35079; [40-46]
 	  ))
 	)
        ((=ucs		    . #x4E5A)	; 乚
