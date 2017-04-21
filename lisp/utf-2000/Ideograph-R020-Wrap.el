@@ -1161,10 +1161,24 @@
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (->subsumptive
-     ((=daikanwa	  . 02513)	; &M-02513;
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
       )
-     ((=ucs@iso		  . #x208D1)	; &U-000208D1;
+     ((=ucs		  . #x52F9)	; 勹
+      )
+     ((=ucs		  . #x5143)	; 元
+      ))
+    (=ucs@iso		. #x208D1)	; &M-02513;
+    (=daikanwa		. 02513)	; &M-02513;
+    (->subsumptive
+     ((==ucs@iso	  . #x208D1)	; &g2-M-02513;
+      (==daikanwa	  . 02513)	; &g2-M-02513;
+      (->subsumptive
+       ((===daikanwa	    . 02513)	; &R-M-02513;
+	)
+       ((===ucs@iso	    . #x208D1)	; &R-U-000208D1;
+	))
       ))
     ))
 (define-char
@@ -1174,7 +1188,20 @@
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x52F9)	; 勹
+      )
+     ((=ucs		  . #x5143)	; 元
+      ))
+    (=ucs@cns		. #x208D1)	; &C5-2234;
     (=cns11643-5	. #x2234)	; &C5-2234; [02-20]
+    (->subsumptive
+     ((==ucs@cns	  . #x208D1)	; &g2-CU+208D1;
+      (==cns11643-5	  . #x2234)	; &g2-CU+208D1; [02-20]
+      ))
     ))
 (define-char
   '((ideographic-radical . 20)	; ⼓
