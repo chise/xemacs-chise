@@ -1,5 +1,46 @@
 2017-04-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R022-Right-Open-Box.el (U+3536): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R020-Wrap.el (U-000208D1): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R019-Power.el (U-00020860): Add
+	`ideographic-structure'; add `<-vulgar' for UU+52D1; add
+	representative nodes.
+	(U-0002089A): Apply new conventions for glyph granularity.
+	(M-02432): Unify MJ031559 and KOSEKI-028260.
+	(U-000208B7): Apply new conventions for glyph granularity.
+
+	* Ideograph-R018-Knife.el (U+34EC): Apply new conventions for
+	glyph granularity.
+	(M-02043): Unify MJ000196 and KOSEKI-023990.
+	(U+5276): Apply new conventions for glyph granularity.
+	(U+3506): Likewise.
+	(U+5290): Likewise.
+
+	* Ideograph-R009-Man.el (BC-88D2): Apply new conventions for glyph
+	granularity.
+	(U+4F69): Separate UU+4F69.
+	(UU+4F69): Add `=>ucs@iwds-1'.
+	(CB01887): Unify MJ056914 and HD-KS006460; fix
+	`ideographic-structure'; add `<-denotational' for U+4F69.
+	(U-00020223): Apply new conventions for glyph granularity; add
+	`ideographic-strokes' and `total-strokes'.
+	(U-0002026E): Apply new conventions for glyph granularity.
+	(M-00805): Unify MJ030647 and HD-KS009400; add `<-formed' for
+	J2004U+5026.
+	(U+5049): Apply new conventions for glyph granularity.
+	(U-000202A9): Likewise.
+	(U+50A4): Delete `kangxi-strokes'; add `<-simplified@CN' for
+	U+510E; add representative nodes.
+	(U-0002037A): Apply new conventions for glyph granularity.
+	(U-000203B1): Likewise.
+	(U-000203C7): Delete `ideographic-structure'.
+
+2017-04-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R005-Second.el (U+4E7F): Use A-GT-K07307 instead of
 	"⿱爫糸" in `ideographic-structure'; add `sound@ja/on/{kan|go}'.
 
