@@ -1,5 +1,32 @@
 2017-04-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (U+57CA): Delete `kangxi-radical'; unify
+	CB09928; add `sound@ja/on'; add `<-ancient' for U+5730; apply new
+	conventions for glyph granularity.
+	(U-00021390): Apply new conventions for glyph granularity.
+	(U+587B): Likewise.
+
+	* Ideograph-R030-Mouth.el (U+549E): Apply new conventions for
+	glyph granularity.
+	(U-00020C6B): Likewise.
+	(U-00020CFD): Likewise.
+	(U+556F): Delete `kangxi-strokes'; add `<-simplified@CN' for
+	U+5613; add representative node.
+	(U-00020E50): Apply new conventions for glyph granularity.
+	(U-00020F5C): Delete `cns-strokes'; use `->subsumptive'.
+	(U-0002111A): Apply new conventions for glyph granularity.
+
+	* Ideograph-R028-Private.el (M-03066): Apply new conventions for
+	glyph granularity; unify CU+20AD7; use `<-denotational' for
+	U-0002062F.
+	(U-0002062F): Apply new conventions for glyph granularity; add
+	`<-denotational' for U-00020AD7.
+	(IU+20AD7): Apply new conventions for glyph granularity.
+
+	* Ideograph-R016-Table.el (U-0002062F): Apply new conventions for
+	glyph granularity; add `<-denotational' for U-00020AD7.
+	(IU+20AD7): Add `ideographic-structure'.
+
 	* Ideograph-R022-Right-Open-Box.el (U+3536): Apply new conventions
 	for glyph granularity.
 
