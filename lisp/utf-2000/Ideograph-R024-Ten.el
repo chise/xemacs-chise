@@ -2919,23 +2919,27 @@
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
+    (hanyu-dazidian	1 66 6)
+    (=ucs@iso		. #x209B5)	; &C6-5077;
+    (=cns11643-6	. #x5077)	; &C6-5077; [48-87]
+    (=daikanwa		. 02764)	; &I-M-02764;
+    (<-ancient
+     ((=ucs@unicode	  . #x5E2B)	; &AJ1-02211;
+      (=adobe-japan1-0	  . 02211)	; &AJ1-02211;
+      (=daikanwa	  . 08916)	; &I-M-08916;
+      ))
+    (<-ancient*sources
+     shuowen daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 02764)	; &M-02764;
+     ((==daikanwa	  . 02764)	; &g2-M-02764;
       )
-     ((=cns11643-6	  . #x5077)	; &C6-5077; [48-87]
+     ((==ucs@cns	  . #x209B5)	; &g2-CU+209B5;
+      (==cns11643-6	  . #x5077)	; &g2-CU+209B5; [48-87]
       )
-     ((hanyu-dazidian	  1 66 6)
-      (=hanziku-1	  . #xB1AE)	; &HZK01-B1AE;
+     ((==ucs@iso	  . #x209B5)	; &g2-IU-000209B5;
+      )
+     ((=hanziku-1	  . #xB1AE)	; &HZK01-B1AE;
       ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x209B5)	; 𠦵
-      ))
-    (ideographic-radical . 24)	; ⼗
-    (ideographic-strokes . 12)
-    (total-strokes	 . 14)
-    (=ucs@iso		. #x209B5)	; &U-000209B5;
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗

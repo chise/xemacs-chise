@@ -605,12 +605,20 @@
     (ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (=ucs@iso		. #x21D0B)	; &C4-262D;
+    (=cns11643-4	. #x262D)	; &C4-262D; [06-13]
+    (=daikanwa		. 07842)	; &I-M-07842;
     (->subsumptive
-     ((=ucs@iso		  . #x21D0B)	; &M-07842;
-      (=daikanwa	  . 07842)	; &M-07842;
+     ((==ucs@iso	  . #x21D0B)	; &g2-M-07842;
+      (==daikanwa	  . 07842)	; &g2-M-07842;
+      (->subsumptive
+       ((===daikanwa	    . 07842)	; &R-M-07842;
+	)
+       ((===ucs@iso	    . #x21D0B)	; &R-U-00021D0B;
+	))
       )
-     ((=ucs@cns		  . #x21D0B)	; &C4-262D;
-      (=cns11643-4	  . #x262D)	; &C4-262D; [06-13]
+     ((==ucs@cns	  . #x21D0B)	; &g2-CU+21D0B;
+      (==cns11643-4	  . #x262D)	; &g2-CU+21D0B; [06-13]
       ))
     ))
 (define-char

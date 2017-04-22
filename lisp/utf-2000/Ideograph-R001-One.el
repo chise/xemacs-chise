@@ -1652,21 +1652,6 @@
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x4E11)	; 丑
-      )
-     ((=ucs		  . #xE0102)	; 󠄂
-      ))
-    (=mj		. 006318)	; &MJ006318;
-    (=hanyo-denshi/jt	. #xAD08)	; &I-HD-JT-AD08;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x4E11)	; 丑
-      ))
-    (ideographic-radical . 1)	; ⼀
-    (ideographic-strokes . 3)
-    (total-strokes	 . 4)
     (=ucs@unicode	. #x4E11)	; &GT-00035;
     (=ucs@JP/hanazono	. nil)
     (=gb2312		. #x3373)	; &GT-00035; [19-83]
@@ -1688,6 +1673,30 @@
       ))
     (<-vulgar*sources
      shinjigen)
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E11)	; 丑
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (=mj		. 006318)	; &MJ006318;
+    (=hanyo-denshi/jt	. #xAD08)	; &I-HD-JT-AD08;
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x4E11)	; 丑
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==mj		  . 006318)	; &g2-MJ006318;
+      (==hanyo-denshi/jt  . #xAD08)	; &g2-MJ006318;
+      (->subsumptive
+       ((===hanyo-denshi/jt . #xAD08)	; &R-HD-JT-AD08;
+	)
+       ((===mj		    . 006318)	; &R-MJ006318;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
