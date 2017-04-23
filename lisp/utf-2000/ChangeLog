@@ -1,5 +1,30 @@
 2017-04-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R043-Lame.el (U+5C27): Add `ideographic-structure';
+	add `<-simplified@CN' for UU+582F; add representative nodes.
+	(U+5C33): Apply new conventions for glyph granularity.
+
+	* Ideograph-R034-Go.el (U-00021555): Delete `cns-radical'; add
+	representative nodes.
+	(U-00021556): Likewise.
+	(GT-K02084): New character.
+	(U+3685): Apply new conventions for glyph granularity; delete
+	`cns-radical'.
+	(UU+3685): Add `=>ucs@iwds-1'; unify BC-8DAF and HD-IA1375.
+	(HD-TK01018450): New character; use `<-denotational' for U+3685.
+	(U-0002155C): Delete `cns-radical'; add `ideographic-structure';
+	add `<-ancient' for U+5C48; add representative nodes.
+
+	* Ideograph-R015-Ice.el (U+34D0): Apply new conventions for glyph
+	granularity.
+	(U-000205FD): Likewise.
+	(U-00020605): Likewise.
+	(U+51DE): Likewise.
+
+	* Ideograph-R012-Eight.el (GT-K00818): New character.
+	(GT-K00859): Add representative node.
+	(U-0002051C): Apply new conventions for glyph granularity.
+
 	* Ideograph-R045-Sprout.el (U-00021D0B): Apply new conventions for
 	glyph granularity.
 

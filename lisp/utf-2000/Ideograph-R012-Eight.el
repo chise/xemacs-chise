@@ -639,12 +639,35 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=ucs		  . #x4E37)	; 丷
+      )
+     ((=ucs		  . #x5382)	; 厂
+      ))
+    (=gt-k		. 00818)	; &GT-K00818;
+    (=gt-pj-k1		. #x4233)	; &GT-K00818; [34-19]
+    (->subsumptive
+     ((==gt-k		  . 00818)	; &g2-GT-K00818;
+      (==gt-pj-k1	  . #x4233)	; &g2-GT-K00818; [34-19]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=gt-k		  . 00059)	; &GT-K00059;
       )
      ((=ucs		  . #x201A2)	; 𠆢
       ))
     (=gt-k		. 00859)	; &GT-K00859;
     (=gt-pj-k1		. #x394E)	; &GT-K00859; [25-46]
+    (->subsumptive
+     ((==gt-k		  . 00859)	; &g2-GT-K00859;
+      (==gt-pj-k1	  . #x394E)	; &g2-GT-K00859; [25-46]
+      ))
     ))
 (define-char
   '((ideographic-radical . 12)	; ⼋
@@ -1873,6 +1896,14 @@
     ))
 (define-char
   '((ideographic-radical . 12)	; ⼋
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=>ucs-itaiji-001	  . #x8201)	; &A-U-i001+8201;
+      )
+     ((=ucs		  . #x4E28)	; 丨
+      ))
     (=ucs		. #x2051C)	; 𠔜
     ))
 (define-char
@@ -1880,14 +1911,47 @@
      ((=ucs		  . #x2051C)	; 𠔜
       ))
     (ideographic-radical . 12)	; ⼋
-    (->subsumptive
-     ((ideographic-strokes . 7)
-      (total-strokes	   . 9)
-      (=daikanwa	  . 01480)	; &M-01480;
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((ideographic-strokes . 8)
-      (total-strokes	   . 10)
-      (=cns11643-6	  . #x353E)	; &C6-353E; [21-30]
+     ((=gt-k		  . 01569)	; &GT-K01569;
+      )
+     ((=gt-k		  . 00264)	; &GT-K00264;
+      ))
+    (=daikanwa		. 01480)	; &M-01480;
+    (<-ancient
+     ((=ucs		  . #x8207)	; 與
+      (=daikanwa	  . 30212)	; &I-M-30212;
+      ))
+    (<-ancient*sources
+     zihui-bu daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 01480)	; &g2-M-01480;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2051C)	; 𠔜
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs-itaiji-005	  . #x8201)	; &U-i005+8201;
+      )
+     ((=ucs		  . #x4E28)	; 丨
+      ))
+    (=ucs@cns		. #x2051C)	; &C6-353E;
+    (=cns11643-6	. #x353E)	; &C6-353E; [21-30]
+    (->subsumptive
+     ((==ucs@cns	  . #x2051C)	; &g2-CU+2051C;
+      (==cns11643-6	  . #x353E)	; &g2-CU+2051C; [21-30]
       ))
     ))
 (define-char
@@ -2254,14 +2318,46 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 250 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x26954)	; 𦥔
+      )
+     ((=gt-k		  . 00264)	; &GT-K00264;
+      ))
+    (sound@ja/on	"koN")
     (=ucs		. #x2F812)	; 𠔜
     (=ucs@iso		. #x2051C)	; 𠔜
     (=ucs@cns		. #x2F812)	; 𠔜
     (=cns11643-6	. #x3D3C)	; &I-C6-3D3C; [29-28]
     (=daikanwa		. 01487)	; &I-M-01487;
-    (=hanziku-1		. #xD9BC)	; &I-HZK01-D9BC;
+    (<-ancient
+     ((=ucs		  . #x5764)	; 坤
+      (=daikanwa	  . 04969)	; &I-M-04969;
+      ))
+    (<-ancient*sources
+     jiyun daikanwa)
     (<-different
      ((=daikanwa	  . 01480)	; &M-01480;
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x2051C)	; &g2-M-01487;
+      (==daikanwa	  . 01487)	; &g2-M-01487;
+      (=hanziku-1	  . #xD9BC)	; &g2-M-01487;
+      (->subsumptive
+       ((===daikanwa	    . 01487)	; &R-M-01487;
+	)
+       ((===ucs@iso	    . #x2051C)	; &R-U-0002051C;
+	))
+      )
+     ((==ucs@iso	  . #x2F812)	; &g2-IU-0002F812;
+      (==cns11643-6	  . #x3D3C)	; &g2-IU-0002F812; [29-28]
+      (->subsumptive
+       ((===cns11643-6	    . #x3D3C)	; &R-C6-3D3C; [29-28]
+	)
+       ((===ucs@iso	    . #x2F812)	; &R-U-0002F812;
+	))
       ))
     ))
 (define-char
