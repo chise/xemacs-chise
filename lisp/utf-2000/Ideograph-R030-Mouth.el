@@ -952,6 +952,15 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x51E0)	; &IWDS1-119;
+      (=>iwds-1		  .  0119)	; &IWDS1-119;
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
     (=ucs		. #x3563)	; 㕣
     ))
 (define-char
@@ -1017,6 +1026,23 @@
        ((===gt-k	    . 01062)	; &R-GT-K01062;
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3563)	; 㕣
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x51E0)	; 几
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (=ucs-var-001	. #x3563)	; &U-v001+3563;
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
