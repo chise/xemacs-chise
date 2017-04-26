@@ -1,3 +1,11 @@
+2017-04-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=big5-cdp-var-001'.
+
+	* mule/mule-conf.el (=big5-cdp-var-001): New coded-charset for
+	XEmacs CHISE.
+
 2017-04-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
