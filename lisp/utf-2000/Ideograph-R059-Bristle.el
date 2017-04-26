@@ -664,11 +664,41 @@
     ))
 (define-char
   '((ideographic-radical . 59)	; ⼺
-    (ideographic-strokes . 7)
-    (kangxi-strokes	 . 19)
-    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4E3D)	; 丽
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
     (=ucs		. #x5F68)	; 彨
-    (=iso-ir165		. #x2E3C)	; &I-EGB-2E3C; [14-28]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5F68)	; 彨
+      ))
+    (ideographic-radical . 59)	; ⼺
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x4E3D)	; &G0-4076;
+      (=gb2312		  . #x4076)	; &G0-4076; [32-86]
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (=ucs@unicode	. #x5F68)	; &EGB-2E3C;
+    (=iso-ir165		. #x2E3C)	; &EGB-2E3C; [14-28]
+    (<-simplified@CN
+     ((=ucs		  . #x5F72)	; 彲
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x5F68)	; &g2-UU+5F68;
+      (==iso-ir165	  . #x2E3C)	; &g2-UU+5F68; [14-28]
+      ))
     ))
 (define-char
   '((=>ucs		. #x38CE)	; 㣎
