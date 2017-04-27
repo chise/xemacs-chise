@@ -1,5 +1,32 @@
 2017-04-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R046-Mountain.el (U+5CE3): Delete `kangxi-strokes';
+	add `ideographic-structure'; add `<-simplified@CN' for U+5DA2; add
+	representative nodes.
+	(U+37CC): Apply new conventions for glyph granularity.
+	(U+37CE): Likewise.
+	(U+5CFC): Likewise.
+	(U+37D0): Likewise.
+	(U-00021E0C): Likewise.
+	(U+5D56): Likewise.
+	(U-00021EB7): Likewise.
+	(U+5D7C): Likewise.
+	(U-00021F3D): Likewise.
+	(U+5DC6): Likewise.
+	(U-00021FD5): Likewise.
+
+	* Ideograph-R037-Big.el (U-00021687): Use `->subsumptive'.
+
+	* Ideograph-R009-Man.el (G-UU+4F4F): New node; use `<-subsumptive'
+	for U+4F4F.
+	(MJ006633): Use G-UU+4F4F instead of U+4F4F.
+	(g2-UU+4F4F): Likewise.
+	(U+4F4F-var-003): New character; use `<-subsumptive' for U+4F4F.
+	(CDP-8C62-var-001): New character; use `<-denotational' for
+	A-BC-8C62.
+
+2017-04-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=big5-cdp-var-001'.
 
@@ -26,6 +53,12 @@
 	G-M-00100.
 	(g2-AJ1-13812): Unify g2-MJ006363, g2-HD-JT-AD1E, g2-GT-00137,
 	g2-GT-K00948, g2-M-00100, g2-S1-0043, g2-S2-0044 and g2-JC3-41B3.
+
+	* Ideograph-R053-Dotted-Cliff.el (U+5E98): Use `->subsumptive'.
+	(U-0002222D): Apply new conventions for glyph granularity.
+	(U+5EB3): Likewise.
+	(U-0002F88C): Add `<-denotational' for U+5EB3.
+	(U-000222C5): Apply new conventions for glyph granularity.
 
 	* Ideograph-R030-Mouth.el (U+3563): Add `ideographic-structure'.
 	(U+3563-var-001): New character; use `<-denotational' for U+3563.

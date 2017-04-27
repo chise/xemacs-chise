@@ -487,16 +487,16 @@
 	)
        ((=ucs		    . #x5BF8)	; 寸
 	))
-      (=>>ucs@jis	  . #x5BFF)	; &G-AJ1-02339;
-      (=>>ucs@cns	  . #x5BFF)	; &G-AJ1-02339;
-      (=>>mj		  . 010260)	; &G-AJ1-02339;
-      (=>>adobe-japan1-0  . 02339)	; &G-AJ1-02339;
-      (=>>jis-x0208	  . #x3C77)	; &G-AJ1-02339; [28-87]
-      (=>>jis-x0213-1	  . #x3C77)	; &G-AJ1-02339; [28-87]
-      (=>>hanyo-denshi/ja . #x3C77)	; &G-AJ1-02339; [28-87]
-      (=>>gt		  . 09329)	; &G-AJ1-02339;
-      (=>>gt-k		  . 02570)	; &G-AJ1-02339;
-      (=>>daikanwa/+p	  . 07419)	; &G-AJ1-02339;
+      (=>>ucs@jis	  . #x5BFF)	; &G-MJ010260;
+      (=>>ucs@cns	  . #x5BFF)	; &G-MJ010260;
+      (=>>mj		  . 010260)	; &G-MJ010260;
+      (=>>adobe-japan1-0  . 02339)	; &G-MJ010260;
+      (=>>jis-x0208	  . #x3C77)	; &G-MJ010260; [28-87]
+      (=>>jis-x0213-1	  . #x3C77)	; &G-MJ010260; [28-87]
+      (=>>hanyo-denshi/ja . #x3C77)	; &G-MJ010260; [28-87]
+      (=>>gt		  . 09329)	; &G-MJ010260;
+      (=>>gt-k		  . 02570)	; &G-MJ010260;
+      (=>>daikanwa/+p	  . 07419)	; &G-MJ010260;
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x5BFF)	; 寿

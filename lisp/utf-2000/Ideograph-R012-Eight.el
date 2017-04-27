@@ -29,18 +29,18 @@
     (=shinjigen		.  0489)	; 八
     (=>iwds-1		.  0236)	; 八
     (->subsumptive
-     ((=>>ucs@jis	  . #x516B)	; &G-AJ1-03392;
-      (=>>ucs@ks	  . #x516B)	; &G-AJ1-03392;
-      (=>>mj		  . 007273)	; &G-AJ1-03392;
-      (=>>adobe-japan1-0  . 03392)	; &G-AJ1-03392;
-      (=>>jis-x0208	  . #x482C)	; &G-AJ1-03392; [40-12]
-      (=>>jis-x0213-1	  . #x482C)	; &G-AJ1-03392; [40-12]
-      (=>>hanyo-denshi/ja . #x482C)	; &G-AJ1-03392; [40-12]
-      (=>>gt		  . 01888)	; &G-AJ1-03392;
-      (=>>gt-k		  . 00056)	; &G-AJ1-03392;
-      (=>>daikanwa	  . 01450)	; &G-AJ1-03392;
-      (=shinjigen	  .  0490)	; &G-AJ1-03392;
-      (=jef-china3	  . #x43E4)	; &G-AJ1-03392;
+     ((=>>ucs@jis	  . #x516B)	; &G-MJ007273;
+      (=>>ucs@ks	  . #x516B)	; &G-MJ007273;
+      (=>>mj		  . 007273)	; &G-MJ007273;
+      (=>>adobe-japan1-0  . 03392)	; &G-MJ007273;
+      (=>>jis-x0208	  . #x482C)	; &G-MJ007273; [40-12]
+      (=>>jis-x0213-1	  . #x482C)	; &G-MJ007273; [40-12]
+      (=>>hanyo-denshi/ja . #x482C)	; &G-MJ007273; [40-12]
+      (=>>gt		  . 01888)	; &G-MJ007273;
+      (=>>gt-k		  . 00056)	; &G-MJ007273;
+      (=>>daikanwa	  . 01450)	; &G-MJ007273;
+      (=shinjigen	  .  0490)	; &G-MJ007273;
+      (=jef-china3	  . #x43E4)	; &G-MJ007273;
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x516B)	; 八
