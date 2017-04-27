@@ -1,5 +1,11 @@
 2017-04-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=big5-cdp-var-001' and `=>>mj'; delete settings for
+	`=>>>jis-x0208', `=>>>jis-x0213-1' and `=>>>jis-x0213-1@2004'.
+
+2017-04-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
 	`=big5-cdp-var-001'.
 

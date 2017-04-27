@@ -1281,6 +1281,23 @@
   '((ideographic-radical . 11)	; ⼊
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (=>big5-cdp		. #x8C62)	; &A-CDP-8C62;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8C62)	; &A-CDP-8C62;
+      ))
+    (ideographic-radical . 11)	; ⼊
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      )
+     ((=ucs		  . #x204DC)	; 𠓜
+      ))
     (=big5-cdp		. #x8C62)	; &CDP-8C62;
     (<-formed@component/connect-above
      ((=ucs		  . #x34B3)	; 㒳

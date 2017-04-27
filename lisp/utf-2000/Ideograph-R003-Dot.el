@@ -585,17 +585,7 @@
     (=shinjigen@1ed	.  0042)	; 主
     (=shinjigen@rev	.  0043)	; 主
     (->subsumptive
-     ((=decomposition@cid
-       ((=ucs		    . #x4E3B)	; 主
-	)
-       ((=ucs		    . #xE0101)	; 󠄁
-	))
-      (=decomposition@hanyo-denshi
-       ((=ucs		    . #x4E3B)	; 主
-	)
-       ((=ucs		    . #xE0103)	; 󠄃
-	))
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
@@ -604,30 +594,51 @@
        ((=ucs		    . #x738B)	; 王
 	))
       (=mj		  . 006363)	; &MJ006363;
-      (==adobe-japan1-4	  . 13812)	; &MJ006363;
-      (==hanyo-denshi/jt  . #xAD1E)	; &MJ006363;
+      (=>>adobe-japan1-4  . 13812)	; &MJ006363;
+      (=>>hanyo-denshi/jt . #xAD1E)	; &MJ006363;
       (=gt		  . 00137)	; &I-GT-00137;
       (=gt-k		  . 00948)	; &I-GT-K00948;
       (=gt-pj-2		  . #x306E)	; &I-GT-00137; [16-78]
-      (==daikanwa	  . 00100)	; &MJ006363;
+      (=>>daikanwa	  . 00100)	; &MJ006363;
       (=shinjigen@1ed	  .  0043)	; &MJ006363;
       (=shinjigen@rev	  .  0044)	; &MJ006363;
       (=jef-china3	  . #x41B3)	; &I-JC3-41B3;
       (->subsumptive
-       ((===daikanwa	    . 00100)	; &R-M-00100;
-	)
-       ((===adobe-japan1-4  . 13812)	; &R-AJ1-13812;
-	)
-       ((===hanyo-denshi/jt . #xAD1E)	; &R-HD-JT-AD1E;
-	)
-       ((===mj		    . 006363)	; &R-MJ006363;
-	)
-       ((===gt		    . 00137)	; &R-GT-00137;
-	(===gt-k	    . 00948)	; &R-GT-00137;
-	)
-       ((===jef-china3	    . #x41B3)	; &R-JC3-41B3;
-	)
-       ((===hng-skk	    . 00010)	; &HNG046-00010;
+       ((=decomposition@cid
+	 ((=ucs		      . #x4E3B)	; 主
+	  )
+	 ((=ucs		      . #xE0101)	; 󠄁
+	  ))
+	(=decomposition@hanyo-denshi
+	 ((=ucs		      . #x4E3B)	; 主
+	  )
+	 ((=ucs		      . #xE0103)	; 󠄃
+	  ))
+	(==mj		    . 006363)	; &g2-MJ006363;
+	(==adobe-japan1-4   . 13812)	; &g2-MJ006363;
+	(==hanyo-denshi/jt  . #xAD1E)	; &g2-MJ006363;
+	(==gt		    . 00137)	; &g2-MJ006363;
+	(==gt-k		    . 00948)	; &g2-MJ006363;
+	(==daikanwa	    . 00100)	; &g2-MJ006363;
+	(==shinjigen@1ed    .  0043)	; &g2-MJ006363;
+	(==shinjigen@rev    .  0044)	; &g2-MJ006363;
+	(==jef-china3	    . #x41B3)	; &g2-MJ006363;
+	(->subsumptive
+	 ((===daikanwa	      . 00100)	; &R-M-00100;
+	  )
+	 ((===adobe-japan1-4  . 13812)	; &R-AJ1-13812;
+	  )
+	 ((===hanyo-denshi/jt . #xAD1E)	; &R-HD-JT-AD1E;
+	  )
+	 ((===mj	      . 006363)	; &R-MJ006363;
+	  )
+	 ((===gt	      . 00137)	; &R-GT-00137;
+	  (===gt-k	      . 00948)	; &R-GT-00137;
+	  )
+	 ((===jef-china3      . #x41B3)	; &R-JC3-41B3;
+	  )
+	 ((===hng-skk	      . 00010)	; &HNG046-00010;
+	  ))
 	))
       )
      ((=decomposition@cid
