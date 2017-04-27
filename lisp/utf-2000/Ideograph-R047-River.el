@@ -464,12 +464,61 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=ucs		. #x3829)	; 㠩
-    (->subsumptive
-     ((=ucs@iso		  . #x3829)	; &M-49064;
-      (=daikanwa	  . 49064)	; &M-49064;
-      )
-     ((=cns11643-3	  . #x235B)	; &C3-235B; [03-59]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3829)	; 㠩
       ))
+    (ideographic-radical . 47)	; ⼮
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EBE)	; 亾
+      )
+     ((=ucs		  . #x2BDA7)	; 𫶧
+      ))
+    (=ucs@unicode	. #x3829)	; &C3-235B;
+    (=cns11643-3	. #x235B)	; &C3-235B; [03-59]
+    (=daikanwa		. 49064)	; &I-M-49064;
+    (<-interchangeable
+     ((=daikanwa	  . 30682)	; &M-30682;
+      )
+     ((=daikanwa	  . 30953)	; &M-30953;
+      ))
+    (<-interchangeable*sources
+     daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x3829)	; &g2-M-49064;
+      (==daikanwa	  . 49064)	; &g2-M-49064;
+      (->subsumptive
+       ((===daikanwa	    . 49064)	; &R-M-49064;
+	)
+       ((===ucs@unicode	    . #x3829)	; &R-UU+3829;
+	))
+      )
+     ((==ucs@cns	  . #x3829)	; &g2-CU+3829;
+      (==cns11643-3	  . #x235B)	; &g2-CU+3829; [03-59]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3829)	; 㠩
+      ))
+    (ideographic-radical . 47)	; ⼮
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5166)	; 兦
+      )
+     ((=ucs		  . #x2BDA7)	; 𫶧
+      ))
+    (=ucs-var-002	. #x3829)	; &U-v002+3829;
     ))
 (define-char
   '((<-denotational@component
