@@ -1,3 +1,19 @@
+2017-04-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R050-Turban.el (U+384F): Apply new conventions for
+	glyph granularity.
+	(M-08969): Unify MJ000975 and KOSEKI-101580.
+	(U+3855): Apply new conventions for glyph granularity.
+	(U+385B): Likewise.
+	(U-0002215B): Likewise.
+	(M-09117): Unify MJ035179 and KOSEKI-103160; add `<-formed' for
+	UU+9F8D.
+
+	* Ideograph-R013-Down-Box.el (U+34BC): Apply new conventions for
+	glyph granularity.
+	(MJ057021): New character; use `<-denotational' for U+34BC; unify
+	HD-KS018450; add `<-formed' for UU+34BC.
+
 2017-04-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el (U+5CE3): Delete `kangxi-strokes';
