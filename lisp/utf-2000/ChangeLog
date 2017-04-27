@@ -1,5 +1,32 @@
 2017-04-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=big5-cdp-var-001'.
+
+	* Ideograph-R060-Step.el (U+38ED): Apply new conventions for glyph
+	granularity.
+	(U+5FC1): Delete `kangxi-strokes'; add `ideographic-structure';
+	add `<-same' for U+5124; add representative nodes.
+
+	* Ideograph-R056-Shoot.el (U+38A6): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R054-Long-Stride.el (U+389F): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R047-River.el (U+3829): Apply new conventions for
+	glyph granularity.
+	(U+3829-var-002): New character; use `<-denotational' for U+3829.
+
+	* Ideograph-R011-Enter.el (A-BC-8C62): New abstract node.
+	(BC-8C62): New character; use `<-denotational' for A-BC-8C62.
+
+	* Ideograph-R003-Dot.el (MJ006363): Separate g2-AJ1-13812,
+	g2-HD-JT-AD1E and g2-M-00100; unify G-AJ1-13812, G-HD-JT-AD1E and
+	G-M-00100.
+	(g2-AJ1-13812): Unify g2-MJ006363, g2-HD-JT-AD1E, g2-GT-00137,
+	g2-GT-K00948, g2-M-00100, g2-S1-0043, g2-S2-0044 and g2-JC3-41B3.
+
 	* Ideograph-R030-Mouth.el (U+3563): Add `ideographic-structure'.
 	(U+3563-var-001): New character; use `<-denotational' for U+3563.
 
