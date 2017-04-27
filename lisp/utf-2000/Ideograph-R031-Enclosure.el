@@ -2043,12 +2043,12 @@
     (ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=>>ucs@unicode	. #x56F6)	; &G-AJ1-17412;
-    (=>>mj		. 008843)	; &G-AJ1-17412;
-    (=>>adobe-japan1-5	. 17412)	; &G-AJ1-17412;
-    (=>>jis-x0213-2	. #x2457)	; &G-AJ1-17412; [04-55]
-    (=>>hanyo-denshi/jb . #x3721)	; &G-AJ1-17412; [23-01]
-    (=>>daikanwa	. 04735)	; &G-AJ1-17412;
+    (=>>ucs@unicode	. #x56F6)	; &G-MJ008843;
+    (=>>mj		. 008843)	; &G-MJ008843;
+    (=>>adobe-japan1-5	. 17412)	; &G-MJ008843;
+    (=>>jis-x0213-2	. #x2457)	; &G-MJ008843; [04-55]
+    (=>>hanyo-denshi/jb . #x3721)	; &G-MJ008843; [23-01]
+    (=>>daikanwa	. 04735)	; &G-MJ008843;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x56F6)	; 囶
@@ -4102,16 +4102,16 @@
        ((=>>ucs@unicode	    . #x97CB)	; &GT-57812;
 	(=gt		    . 57812)	; &GT-57812;
 	))
-      (=>>ucs@unicode	  . #x570D)	; &G-AJ1-13528;
-      (=>>mj		  . 008868)	; &G-AJ1-13528;
-      (=>>adobe-japan1-0  . 04468)	; &G-AJ1-13528;
-      (=>>adobe-japan1-4  . 13528)	; &G-AJ1-13528;
-      (=>>jis-x0208	  . #x5423)	; &G-AJ1-13528; [52-03]
-      (=>>jis-x0213-1	  . #x5423)	; &G-AJ1-13528; [52-03]
-      (=>>hanyo-denshi/ja . #x5423)	; &G-AJ1-13528; [52-03]
-      (=>>gt		  . 06038)	; &G-AJ1-13528;
-      (=>>gt-k		  . 09174)	; &G-AJ1-13528;
-      (=>>daikanwa	  . 04806)	; &G-AJ1-13528;
+      (=>>ucs@unicode	  . #x570D)	; &G-MJ008868;
+      (=>>mj		  . 008868)	; &G-MJ008868;
+      (=>>adobe-japan1-0  . 04468)	; &G-MJ008868;
+      (=>>adobe-japan1-4  . 13528)	; &G-MJ008868;
+      (=>>jis-x0208	  . #x5423)	; &G-MJ008868; [52-03]
+      (=>>jis-x0213-1	  . #x5423)	; &G-MJ008868; [52-03]
+      (=>>hanyo-denshi/ja . #x5423)	; &G-MJ008868; [52-03]
+      (=>>gt		  . 06038)	; &G-MJ008868;
+      (=>>gt-k		  . 09174)	; &G-MJ008868;
+      (=>>daikanwa	  . 04806)	; &G-MJ008868;
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x570D)	; 圍
@@ -4191,9 +4191,9 @@
 	)
        ((=ucs		    . #x56D7)	; 囗
 	)
-       ((=>>ucs@jis	    . #x97CB)	; &G-AJ1-07171;
-	(=>>ucs@ks	    . #x97CB)	; &G-AJ1-07171;
-	(=>>adobe-japan1-0  . 07171)	; &G-AJ1-07171;
+       ((=>>ucs@jis	    . #x97CB)	; &G-MJ028060;
+	(=>>ucs@ks	    . #x97CB)	; &G-MJ028060;
+	(=>>adobe-japan1-0  . 07171)	; &G-MJ028060;
 	))
       (=mj		  . 008869)	; &MJ008869;
       (=>>hanyo-denshi/ft . #x3C6A)	; &MJ008869; [28-74]
