@@ -20881,15 +20881,15 @@
     (=gt-pj-1		. #x5453)	; &I-GT-06908; [52-51]
     (=daikanwa		. 05472)	; &I-M-05472;
     (->subsumptive
-     ((=>>ucs@jis	  . #x58AB)	; &G-AJ1-13529;
-      (=>>mj		  . 009304)	; &G-AJ1-13529;
-      (=>>adobe-japan1-0  . 04516)	; &G-AJ1-13529;
-      (=>>adobe-japan1-4  . 13529)	; &G-AJ1-13529;
-      (=>>jis-x0208	  . #x5453)	; &G-AJ1-13529; [52-51]
-      (=>>jis-x0213-1	  . #x5453)	; &G-AJ1-13529; [52-51]
-      (=>>hanyo-denshi/ja . #x5453)	; &G-AJ1-13529; [52-51]
-      (=>>gt		  . 06908)	; &G-AJ1-13529;
-      (=>>daikanwa	  . 05472)	; &G-AJ1-13529;
+     ((=>>ucs@jis	  . #x58AB)	; &G-MJ009304;
+      (=>>mj		  . 009304)	; &G-MJ009304;
+      (=>>adobe-japan1-0  . 04516)	; &G-MJ009304;
+      (=>>adobe-japan1-4  . 13529)	; &G-MJ009304;
+      (=>>jis-x0208	  . #x5453)	; &G-MJ009304; [52-51]
+      (=>>jis-x0213-1	  . #x5453)	; &G-MJ009304; [52-51]
+      (=>>hanyo-denshi/ja . #x5453)	; &G-MJ009304; [52-51]
+      (=>>gt		  . 06908)	; &G-MJ009304;
+      (=>>daikanwa	  . 05472)	; &G-MJ009304;
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x58AB)	; 墫
@@ -25013,14 +25013,14 @@
     (=daikanwa		. 05591)	; &I-M-05591;
     (=shinjigen		.  1520)	; &MJ009368;
     (->subsumptive
-     ((=>>ucs@unicode	  . #x58DF)	; &G-AJ1-04531;
-      (=>>mj		  . 009368)	; &G-AJ1-04531;
-      (=>>adobe-japan1-0  . 04531)	; &G-AJ1-04531;
-      (=>>jis-x0208	  . #x5462)	; &G-AJ1-04531; [52-66]
-      (=>>jis-x0213-1	  . #x5462)	; &G-AJ1-04531; [52-66]
-      (=>>hanyo-denshi/ja . #x5462)	; &G-AJ1-04531; [52-66]
-      (=>>gt		  . 07089)	; &G-AJ1-04531;
-      (=>>daikanwa	  . 05591)	; &G-AJ1-04531;
+     ((=>>ucs@unicode	  . #x58DF)	; &G-MJ009368;
+      (=>>mj		  . 009368)	; &G-MJ009368;
+      (=>>adobe-japan1-0  . 04531)	; &G-MJ009368;
+      (=>>jis-x0208	  . #x5462)	; &G-MJ009368; [52-66]
+      (=>>jis-x0213-1	  . #x5462)	; &G-MJ009368; [52-66]
+      (=>>hanyo-denshi/ja . #x5462)	; &G-MJ009368; [52-66]
+      (=>>gt		  . 07089)	; &G-MJ009368;
+      (=>>daikanwa	  . 05591)	; &G-MJ009368;
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x58DF)	; 壟
