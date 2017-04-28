@@ -1,5 +1,8 @@
 2017-04-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R009-Man.el, Ideograph-R011-Enter.el (A-J0-5141):
+	Unify IWDS1-0384.
+
 	* Ideograph-R050-Turban.el (U+384F): Apply new conventions for
 	glyph granularity.
 	(M-08969): Unify MJ000975 and KOSEKI-101580.
