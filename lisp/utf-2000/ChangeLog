@@ -1,3 +1,14 @@
+2017-04-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R013-Down-Box.el (U+34BC-var-001): New character; use
+	`<-denotational' for U+34BC.
+
+2017-04-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R063-Door.el (A-M-11696): Unify IWDS1-0007.
+	(U+39BE): Apply new conventions for glyph granularity.
+	(U+624A): Likewise.
+
 2017-04-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el, Ideograph-R011-Enter.el (A-J0-5141):
