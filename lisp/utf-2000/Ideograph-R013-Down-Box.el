@@ -2893,6 +2893,23 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
+     ((=ucs		  . #x5EFF)	; 廿
+      )
+     ((=big5-cdp-var-001  . #x8C62)	; &CDP-v001-8C62;
+      ))
+    (=ucs-var-001	. #x34BC)	; &U-v001+34BC;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x34BC)	; 㒼
+      ))
+    (ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
      ((=ucs@unicode	  . #x9FB7)	; &CDP-8B5C;
       (=big5-cdp	  . #x8B5C)	; &CDP-8B5C;
       )
