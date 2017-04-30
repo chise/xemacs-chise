@@ -1,3 +1,22 @@
+2017-04-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R071-Not.el (U+65E0): Separate UU+65E0.
+	(UU+65E0): Add `=>ucs@iwds-1'.
+	(U+65E0-itaiji-001): New character; use `<-denotational' for
+	U+65E0.
+	(BUCS+65E3): New abstract node.
+	(U+65E2): Add `<-denotational' for BUCS+65E3.
+	(U+65E3): Ditto.
+
+	* Ideograph-R070-Square.el (U-000230EA): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R068-Dipper.el (U+65A2): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R062-Halberd.el (U-000229C7): Apply new conventions
+	for glyph granularity.
+
 2017-04-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R013-Down-Box.el (U+34BC-var-001): New character; use

@@ -994,10 +994,30 @@
     (ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (->subsumptive
-     ((=daikanwa	  . 13649)	; &M-13649;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
       )
-     ((=ucs@iso		  . #x230EA)	; &U-000230EA;
+     ((=big5-cdp	  . #x86FC)	; &CDP-86FC;
+      )
+     ((=ucs		  . #x65B9)	; 方
+      ))
+    (=ucs@iso		. #x230EA)	; &M-13649;
+    (=daikanwa		. 13649)	; &M-13649;
+    (<-same
+     ((=ucs		  . #x6EC2)	; 滂
+      (=daikanwa	  . 18003)	; &I-M-18003;
+      ))
+    (<-same*sources
+     pianhai-leibian daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x230EA)	; &g2-M-13649;
+      (==daikanwa	  . 13649)	; &g2-M-13649;
+      (->subsumptive
+       ((===daikanwa	    . 13649)	; &R-M-13649;
+	)
+       ((===ucs@iso	    . #x230EA)	; &R-U-000230EA;
+	))
       ))
     ))
 (define-char
@@ -1007,7 +1027,20 @@
     (ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x86FC)	; &CDP-86FC;
+      )
+     ((=ucs		  . #x65B9)	; 方
+      ))
+    (=ucs@cns		. #x230EA)	; &C6-3835;
     (=cns11643-6	. #x3835)	; &C6-3835; [24-21]
+    (->subsumptive
+     ((==ucs@cns	  . #x230EA)	; &g2-CU+230EA;
+      (==cns11643-6	  . #x3835)	; &g2-CU+230EA; [24-21]
+      ))
     ))
 (define-char
   '((ideographic-radical . 70)	; ⽅
