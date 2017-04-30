@@ -2,9 +2,18 @@
 (define-char
   '((ideographic-radical . 71)	; ⽆
     (ideographic-strokes . 0)
-    (total-strokes	 . 4)
     (=ucs		. #x65E0)	; 无
-    (=adobe-japan1-0	. 05088)	; &I-AJ1-05088;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x65E0)	; 无
+      ))
+    (ideographic-radical . 71)	; ⽆
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=>ucs@iwds-1	. #x65E0)	; &AJ1-05088;
+    (=ucs@unicode	. #x65E0)	; &AJ1-05088;
+    (=adobe-japan1-0	. 05088)	; &AJ1-05088;
     (=jis-x0208		. #x5A5B)	; &I-J90-5A5B; [58-59]
     (=gb2312		. #x4E5E)	; &I-G0-4E5E; [46-62]
     (=ks-x1001		. #x5969)	; &I-K0-5969; [57-73]
@@ -15,7 +24,7 @@
     (=gt-k		. 00532)	; &I-GT-K00532;
     (=gt-pj-1		. #x5A5B)	; &I-GT-17330; [58-59]
     (=daikanwa		. 13716)	; &I-M-13716;
-    (=shinjigen		.  3259)	; 无
+    (=shinjigen		.  3259)	; &AJ1-05088;
     (=cbeta		. 07099)	; &I-CB07099;
     (=jef-china3	. #x82A3)	; &I-JC3-82A3;
     (->subsumptive
@@ -73,6 +82,24 @@
        ((=ucs		    . #x7121)	; 無
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x65E0)	; 无
+      ))
+    (ideographic-radical . 71)	; ⽆
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      )
+     ((=ucs		  . #x513F)	; 儿
+      ))
+    (=ucs-itaiji-001	. #x65E0)	; &U-i001+65E0;
     ))
 (define-char
   '((ideographic-radical . 71)	; ⽆
@@ -189,6 +216,13 @@
     ))
 (define-char
   '((ideographic-radical . 71)	; ⽆
+    (==>ucs@bucs	. #x65E3)	; &BUCS+65E3;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x65E3)	; &BUCS+65E3;
+      ))
+    (ideographic-radical . 71)	; ⽆
     (=ucs		. #x65E2)	; 既
     ))
 (define-char
@@ -316,7 +350,10 @@
     (=daikanwa		. 13723)	; &I-M-13723;
     ))
 (define-char
-  '((ideographic-radical . 71)	; ⽆
+  '((<-denotational
+     ((==>ucs@bucs	  . #x65E3)	; &BUCS+65E3;
+      ))
+    (ideographic-radical . 71)	; ⽆
     (ideographic-strokes . 7)
     (=ucs		. #x65E3)	; 旣
     ))
