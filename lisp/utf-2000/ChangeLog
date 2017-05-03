@@ -1,3 +1,8 @@
+2017-05-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+5492): Separate UU+5492.
+	(GT-K06154): New character; use `<-denotational' for U+5492.
+
 2017-04-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R071-Not.el (U+65E0): Separate UU+65E0.
