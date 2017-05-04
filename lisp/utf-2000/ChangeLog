@@ -1,3 +1,14 @@
+2017-05-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (U-0002BCB8): New character.
+	(U+2BCB8-var-001): New character; use `<-denotational' for
+	U-0002BCB8.
+	(IU+2BCB8): Likewise; add U+2BCB8-var-002.
+	(U+2BCB8-var-003): New character; use `<-denotational' for
+	U-0002BCB8.
+	(U+2BCB8-var-004): Likewise.
+	(BC-8BF6): Likewise.
+
 2017-05-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U+5492): Separate UU+5492.
