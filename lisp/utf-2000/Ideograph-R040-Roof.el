@@ -1409,6 +1409,98 @@
     ))
 (define-char
   '((ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (=ucs		. #x2BCB8)	; 𫲸
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2BCB8)	; 𫲸
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs		  . #x4E2F)	; 丯
+      ))
+    (=ucs-var-001	. #x2BCB8)	; &U-v001+2BCB8;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2BCB8)	; 𫲸
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs@unicode	  . #x4E30)	; &MJ006350;
+      (=mj		  . 006350)	; &MJ006350;
+      ))
+    (=ucs@iso		. #x2BCB8)	; &U-0002BCB8;
+    (->subsumptive
+     ((==ucs@iso	  . #x2BCB8)	; &g2-IU-0002BCB8;
+      )
+     ((=ucs-var-002	  . #x2BCB8)	; &U-v002+2BCB8;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2BCB8)	; 𫲸
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=mj		  . 006351)	; &MJ006351;
+      ))
+    (=ucs-var-003	. #x2BCB8)	; &U-v003+2BCB8;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2BCB8)	; 𫲸
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs		  . #x9FB6)	; 龶
+      ))
+    (=ucs-var-004	. #x2BCB8)	; &U-v004+2BCB8;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2BCB8)	; 𫲸
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (=big5-cdp		. #x8BF6)	; &CDP-8BF6;
+    (->subsumptive
+     ((==big5-cdp	  . #x8BF6)	; &g2-CDP-8BF6;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (=ucs		. #x5B93)	; 宓
