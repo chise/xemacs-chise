@@ -243,6 +243,23 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x51E0)	; 几
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
+    (=ucs-var-001	. #x51E1)	; &U-v001+51E1;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x51E1)	; 凡
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
       (=ucs		  . #x2FF5)	; ⿵
       )
@@ -1616,6 +1633,15 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (hanyu-dazidian	1 278 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((name		  . "CJK RADICAL TABLE")
+      (=ucs		  . #x2E87)	; ⺇
+      )
+     ((=mj		  . 056985)	; &MJ056985;
+      ))
     (=ucs@jis		. #x51F2)	; &AJ1-21189;
     (=adobe-japan1-6	. 21189)	; &AJ1-21189;
     (=jis-x0212		. #x332C)	; &I-JSP-332C; [19-12]
@@ -1635,7 +1661,7 @@
        ((name		    . "CJK RADICAL TABLE")
 	(=ucs		    . #x2E87)	; ⺇
 	)
-       ((=gt		    . 01936)	; &GT-01936;
+       ((==mj		    . 056985)	; &g2-MJ056985;
 	))
       (==ucs@jis	  . #x51F2)	; &g2-AJ1-21189;
       (==adobe-japan1-6	  . 21189)	; &g2-AJ1-21189;
@@ -1664,6 +1690,16 @@
     (ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((name		  . "CJK RADICAL TABLE")
+      (=ucs		  . #x2E87)	; ⺇
+      )
+     ((=ucs@unicode	  . #x517C)	; &MJ007297;
+      (=mj		  . 007297)	; &MJ007297;
+      ))
     (=ucs@unicode	. #x51F2)	; &UU+51F2;
     (=ucs@JP/hanazono	. nil)
     (->subsumptive
