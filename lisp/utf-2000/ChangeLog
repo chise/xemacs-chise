@@ -1,3 +1,12 @@
+2017-05-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R016-Table.el (U+51E1-var-001): New character; use
+	`<-denotational' for U+51E1.
+	(JU+51F2): Add `ideographic-structure'.
+	(g2-JU+51F2): Use g2-MJ056985 instead of GT-01936 in
+	`ideographic-structure'.
+	(UU+51F2): Add `ideographic-structure'.
+
 2017-05-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R040-Roof.el (U-0002BCB8): New character.
