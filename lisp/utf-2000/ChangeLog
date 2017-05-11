@@ -1,3 +1,11 @@
+2017-05-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (g2-UU+4EFB): Use g2-UU+58EC instead of
+	UU+58EC in `ideographic-structure'.
+	(g2-CU+4EFB): Use g2-CU+58EC instead of C1-4531 in
+	`ideographic-structure'.
+	(IU+202E8): Add `ideographic-structure'.
+
 2017-05-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R016-Table.el (U+51E1-var-001): New character; use
