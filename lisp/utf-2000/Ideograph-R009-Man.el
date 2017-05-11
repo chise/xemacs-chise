@@ -4293,8 +4293,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=ucs@unicode	    . #x58EC)	; &AJ1-02583;
-	(=adobe-japan1-0    . 02583)	; &AJ1-02583;
+       ((==ucs@unicode	    . #x58EC)	; &g2-AJ1-02583;
+	(==adobe-japan1-0   . 02583)	; &g2-AJ1-02583;
 	))
       (==ucs@unicode	  . #x4EFB)	; &g2-AJ1-03290;
       (==adobe-japan1-0	  . 03290)	; &g2-AJ1-03290;
@@ -4337,7 +4337,8 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=cns11643-1	  . #x4531)	; &C1-4531; [37-17]
+     ((=ucs@cns		  . #x58EC)	; &C1-4531;
+      (=cns11643-1	  . #x4531)	; &C1-4531; [37-17]
       ))
     (=ucs@cns		. #x4EFB)	; &C1-4736;
     (=cns11643-1	. #x4736)	; &C1-4736; [39-22]
@@ -4349,7 +4350,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((=cns11643-1	    . #x4531)	; &C1-4531; [37-17]
+       ((==ucs@cns	    . #x58EC)	; &g2-CU+58EC;
+	(==cns11643-1	    . #x4531)	; &g2-CU+58EC; [37-17]
 	))
       (==ucs@cns	  . #x4EFB)	; &g2-CU+4EFB;
       (==cns11643-1	  . #x4736)	; &g2-CU+4EFB; [39-22]
@@ -32769,6 +32771,14 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 191 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=gt-k		  . 06154)	; &GT-K06154;
+      ))
     (=ucs@iso		. #x202E8)	; &C5-307E;
     (=cns11643-5	. #x307E)	; &C5-307E; [16-94]
     (=daikanwa		. 00907)	; &I-M-00907;
@@ -36194,7 +36204,7 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=gt		  . 01936)	; &GT-01936;
+     ((=mj		  . 056985)	; &MJ056985;
       ))
     (=ucs@jis		. #x5094)	; &MJ006991;
     (=mj		. 006991)	; &MJ006991;
@@ -47970,9 +47980,7 @@
      ((=ucs		  . #x4EBB)	; 亻
       )
      ((=ucs@cns		  . #x8449)	; &C1-6634;
-      (=ucs@ks		  . #x8449)	; &C1-6634;
-      (=ks-x1001	  . #x6728)	; &C1-6634; [71-08]
-      (=cns11643-1	  . #x6634)	; &I-C1-6634; [70-20]
+      (=cns11643-1	  . #x6634)	; &C1-6634; [70-20]
       (=daikanwa	  . 31387)	; &I-M-31387;
       ))
     (=ucs@cns		. #x50F7)	; &C3-4B29;
@@ -47986,8 +47994,7 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((==ucs@ks	    . #x8449)	; &g2-M-31387;
-	(==daikanwa	    . 31387)	; &g2-M-31387;
+       ((==daikanwa	    . 31387)	; &g2-M-31387;
 	))
       (==daikanwa	  . 01160)	; &g2-M-01160;
       )
