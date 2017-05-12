@@ -402,14 +402,71 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (=ucs		. #x20501)	; 𠔁
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20501)	; 𠔁
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (hanyu-dazidian	1 241 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x516B)	; 八
+      )
+     ((=ucs		  . #x516B)	; 八
+      ))
+    (sound@ja/on/go	"heti")
+    (sound@ja/on/kan	"hetu")
+    (=ucs@iso		. #x20501)	; &C6-214E;
+    (=cns11643-6	. #x214E)	; &C6-214E; [01-46]
+    (=daikanwa		. 01454)	; &I-M-01454;
+    (<-ancient
+     ((=ucs		  . #x5225)	; 別
+      (=daikanwa	  . 01924)	; &I-M-01924;
+      ))
+    (<-ancient*sources
+     yupian daikanwa)
     (->subsumptive
-     ((=ucs@iso		  . #x20501)	; &M-01454;
-      (=daikanwa	  . 01454)	; &M-01454;
+     ((==ucs@iso	  . #x20501)	; &g2-M-01454;
+      (==daikanwa	  . 01454)	; &g2-M-01454;
+      (->subsumptive
+       ((===daikanwa	    . 01454)	; &R-M-01454;
+	)
+       ((===ucs@iso	    . #x20501)	; &R-U-00020501;
+	))
       )
-     ((=cns11643-6	  . #x214E)	; &C6-214E; [01-46]
+     ((==ucs@cns	  . #x20501)	; &g2-CU+20501;
+      (==cns11643-6	  . #x214E)	; &g2-CU+20501; [01-46]
       )
-     ((hanyu-dazidian	  1 241 8)
-      (=hanziku-1	  . #xD7DA)	; &HZK01-D7DA;
+     ((=hanziku-1	  . #xD7DA)	; &HZK01-D7DA;
+      )
+     ((=big5-cdp-var-001  . #x89AE)	; &CDP-v001-89AE;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20501)	; 𠔁
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 00059)	; &GT-K00059;
+      )
+     ((=ucs		  . #x201A2)	; 𠆢
+      ))
+    (=gt-k		. 00859)	; &GT-K00859;
+    (=gt-pj-k1		. #x394E)	; &GT-K00859; [25-46]
+    (->subsumptive
+     ((==gt-k		  . 00859)	; &g2-GT-K00859;
+      (==gt-pj-k1	  . #x394E)	; &g2-GT-K00859; [25-46]
       ))
     ))
 (define-char
@@ -648,25 +705,6 @@
     (->subsumptive
      ((==gt-k		  . 00818)	; &g2-GT-K00818;
       (==gt-pj-k1	  . #x4233)	; &g2-GT-K00818; [34-19]
-      ))
-    ))
-(define-char
-  '((ideographic-radical . 12)	; ⼋
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=gt-k		  . 00059)	; &GT-K00059;
-      )
-     ((=ucs		  . #x201A2)	; 𠆢
-      ))
-    (=gt-k		. 00859)	; &GT-K00859;
-    (=gt-pj-k1		. #x394E)	; &GT-K00859; [25-46]
-    (->subsumptive
-     ((==gt-k		  . 00859)	; &g2-GT-K00859;
-      (==gt-pj-k1	  . #x394E)	; &g2-GT-K00859; [25-46]
       ))
     ))
 (define-char
@@ -2180,14 +2218,27 @@
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (=gt		. 01936)	; &GT-01936;
+    (=mj		. 056985)	; &MJ056985;
+    (=hanyo-denshi/ks	. 017380)	; &MJ056985;
+    (=gt		. 01936)	; &I-GT-01936;
     (=gt-k		. 06415)	; &I-GT-K06415;
-    (=gt-pj-9		. #x4C41)	; &GT-01936; [44-33]
-    (=shinjigen		.  0503)	; &GT-01936;
+    (=gt-pj-9		. #x4C41)	; &I-GT-01936; [44-33]
+    (=shinjigen		.  0503)	; &MJ056985;
     (->subsumptive
-     ((==gt		  . 01936)	; &g2-GT-01936;
-      (==gt-k		  . 06415)	; &g2-GT-01936;
-      (==shinjigen	  .  0503)	; &g2-GT-01936;
+     ((==mj		  . 056985)	; &g2-MJ056985;
+      (==hanyo-denshi/ks  . 017380)	; &g2-MJ056985;
+      (==gt		  . 01936)	; &g2-MJ056985;
+      (==gt-k		  . 06415)	; &g2-MJ056985;
+      (==shinjigen	  .  0503)	; &g2-MJ056985;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 017380)	; &R-HD-KS-017380;
+	(=hanyo-denshi/ks/mf . #x06CA)	; &R-HD-KS-017380;
+	)
+       ((===mj		    . 056985)	; &R-MJ056985;
+	)
+       ((===gt		    . 01936)	; &R-GT-01936;
+	(===gt-k	    . 06415)	; &R-GT-01936;
+	))
       )
      ((===hng-kak	  . 00210)	; &HNG017-00210;
       )
