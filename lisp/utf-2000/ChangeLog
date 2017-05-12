@@ -1,5 +1,27 @@
 2017-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R064-Hand.el (U-00022AF8): Apply new conventions for
+	glyph granularity.
+	(U+6346): Likewise.
+	(U-00022B84): Likewise.
+	(U+6385): Likewise.
+	(U+6394): Add `ideographic-structure'; add representative nodes.
+	(U+63C2): Apply new conventions for glyph granularity.
+	(U+6433): Likewise.
+	(U+3A25): Likewise.
+	(U+3A32): Likewise.
+	(U+6497): Likewise.
+	(U+3A4D): Add `ideographic-structure'; add representative nodes.
+	(U+64DB): Apply new conventions for glyph granularity.
+	(U+6503): Likewise.
+
+2017-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (U-00020501): Apply new conventions for
+	glyph granularity.
+	(GT-K00859): New character; use `<-denotational' for U-00020501.
+	(GT-01936): Unify MJ056985 and HD-KS017380.
+
 	* Ideograph-R033-Scholar.el: Complement representative nodes of
 	`=adobe-japan1-0' glyphs.
 
