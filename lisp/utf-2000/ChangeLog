@@ -1,3 +1,8 @@
+2017-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R033-Scholar.el: Complement representative nodes of
+	`=adobe-japan1-0' glyphs.
+
 2017-05-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (g2-UU+4EFB): Use g2-UU+58EC instead of
