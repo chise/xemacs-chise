@@ -1,3 +1,30 @@
+2017-05-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R073-Say.el (U+66F5): Delete `cns-radical'; apply new
+	conventions for glyph granularity.
+	(U-0002332C): Delete `cns-radical'.
+	(U-00023189): Likewise.
+	(U+3B32): Apply new conventions for glyph granularity.
+
+	* Ideograph-R061-Heart.el (U+38FC): Apply new conventions for
+	glyph granularity.
+	(U+6003): Likewise.
+	(U+393A): Likewise.
+	(U+3940): Likewise.
+	(U-000227EA): Likewise.
+	(U-000227EE): Likewise.
+	(U+3983): Likewise.
+	(U+3984): Likewise.
+	(U-0002282B): Likewise.
+	(U+6188): Likewise.
+	(U-00022833): Likewise.
+	(U+618C): Likewise.
+	(U+39A5): Likewise.
+	(U-0002295D): Likewise.
+
+	* Ideograph-R010-Legs.el (U-0002048C): Apply new conventions for
+	glyph granularity.
+
 2017-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R064-Hand.el (U-00022AF8): Apply new conventions for
