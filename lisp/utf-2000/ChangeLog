@@ -1,5 +1,13 @@
 2017-05-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R037-Big.el (o-GT-07490): Unify o-IU+26C29 and
+	o-JX2-2544.
+	(GT-07490): Unify IU+26C29 and JX2-2544.
+	(U-0002BBE6): Add representative node.
+	(BC-8BD3): Unify U-00026C29 and IWDS1-0301.
+	(GT-K08041): Use `<-subsumptive' instead of `<-denotational' for
+	BC-8BD3.
+
 	* Ideograph-R073-Say.el (U+66F5): Delete `cns-radical'; apply new
 	conventions for glyph granularity.
 	(U-0002332C): Delete `cns-radical'.
