@@ -437,12 +437,15 @@
     (ideographic-radical@misc . 21)	; ⼔
     (ideographic-strokes@misc . 4)
     (total-strokes	 . 6)
-    (=decomposition@cid
-     ((=ucs		  . #x3402)	; 㐂
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
     (=adobe-japan1-4	. 13697)	; &AJ1-13697;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x3402)	; 㐂
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==adobe-japan1-4	  . 13697)	; &g2-AJ1-13697;
+      ))
     ))
 (define-char
   '((<-denotational
