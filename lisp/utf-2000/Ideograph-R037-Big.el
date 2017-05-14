@@ -3446,6 +3446,54 @@
     (=daikanwa		. 49008)	; &I-M-49008;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x26C29)	; 𦰩
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (=+>ucs@iso		. #x26C29)	; &o-JX2-2544;
+    (=+>jis-x0213-2	. #x2544)	; &o-JX2-2544; [05-36]
+    (=+>gt		. 07490)	; &o-JX2-2544;
+    ))
+(define-char
+  '((<-denotational
+     ((=+>ucs@iso	  . #x26C29)	; &o-JX2-2544;
+      (=+>jis-x0213-2	  . #x2544)	; &o-JX2-2544; [05-36]
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (=ucs@iso		. #x26C29)	; &GT-07490;
+    (=jis-x0213-2	. #x2544)	; &GT-07490; [05-36]
+    (=gt		. 07490)	; &I-GT-07490;
+    (=gt-k		. 06722)	; &I-GT-K06722;
+    (=gt-pj-9		. #x4F48)	; &I-GT-07490; [47-40]
+    (->subsumptive
+     ((==ucs@iso	  . #x26C29)	; &g2-IU-00026C29;
+      )
+     ((==ucs@jis	  . #x26C29)	; &g2-GT-07490;
+      (==jis-x0213-2	  . #x2544)	; &g2-GT-07490; [05-36]
+      (==gt		  . 07490)	; &g2-GT-07490;
+      (==gt-k		  . 06722)	; &g2-GT-07490;
+      (->subsumptive
+       ((===jis-x0213-2	    . #x2544)	; &R-JX2-2544; [05-36]
+	)
+       ((===gt		    . 07490)	; &R-GT-07490;
+	(===gt-k	    . 06722)	; &R-GT-07490;
+	))
+      )
+     ((=gt-k		  . 06723)	; &GT-K06723;
+      (=gt-pj-k1	  . #x3465)	; &GT-K06723; [20-69]
+      (<-formed@component/connect-right
+       ((=ucs@iso	    . #x26C29)	; &GT-07490;
+	(=jis-x0213-2	    . #x2544)	; &GT-07490; [05-36]
+	))
+      (->subsumptive
+       ((==gt-k		    . 06723)	; &g2-GT-K06723;
+	(==gt-pj-k1	    . #x3465)	; &g2-GT-K06723; [20-69]
+	))
+      ))
+    ))
+(define-char
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
@@ -3458,33 +3506,8 @@
      ((=ucs		  . #x8C55)	; 豕
       ))
     (=ucs		. #x2BBE6)	; 𫯦
-    ))
-(define-char
-  '((<-denotational
-     ((=>big5-cdp	  . #x8BD3)	; &A-CDP-8BD3;
-      ))
-    (ideographic-radical . 37)	; ⼤
-    (=+>gt		. 07490)	; &o-GT-07490;
-    ))
-(define-char
-  '((<-denotational
-     ((=+>gt		  . 07490)	; &o-GT-07490;
-      ))
-    (ideographic-radical . 37)	; ⼤
-    (ideographic-strokes . 7)
-    (total-strokes	 . 10)
-    (=gt		. 07490)	; &GT-07490;
-    (=gt-k		. 06722)	; &I-GT-K06722;
-    (=gt-pj-9		. #x4F48)	; &GT-07490; [47-40]
     (->subsumptive
-     ((==gt		  . 07490)	; &g2-GT-07490;
-      (==gt-k		  . 06722)	; &g2-GT-07490;
-      )
-     ((=gt-k		  . 06723)	; &GT-K06723;
-      (=gt-pj-k1	  . #x3465)	; &GT-K06723; [20-69]
-      (<-formed@component/connect-right
-       ((=gt		    . 07490)	; &GT-07490;
-	))
+     ((==ucs@iso	  . #x2BBE6)	; &g2-IU-0002BBE6;
       ))
     ))
 (define-char
@@ -4159,30 +4182,13 @@
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
-    (=>big5-cdp		. #x8BD3)	; &A-CDP-8BD3;
+    (=ucs		. #x26C29)	; 𦰩
+    (=>big5-cdp		. #x8BD3)	; 𦰩
+    (=>iwds-1		.  0301)	; 𦰩
     ))
 (define-char
   '((<-denotational
-     ((=big5-cdp	  . #x8BD3)	; &CDP-8BD3;
-      ))
-    (ideographic-radical . 37)	; ⼤
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (=gt-k		. 08041)	; &GT-K08041;
-    (=gt-pj-k1		. #x314B)	; &GT-K08041; [17-43]
-    (<-formed@component/connect-right
-     ((=big5-cdp	  . #x8BD3)	; &CDP-8BD3;
-      ))
-    (->subsumptive
-     ((==gt-k		  . 08041)	; &g2-GT-K08041;
-      (<-formed@component/connect-right
-       ((==big5-cdp	    . #x8BD3)	; &g2-CDP-8BD3;
-	))
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=>big5-cdp	  . #x8BD3)	; &A-CDP-8BD3;
+     ((=ucs		  . #x26C29)	; 𦰩
       ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 8)
@@ -4192,8 +4198,19 @@
     (=gt-pj-k1		. #x444B)	; &CDP-8BD3; [36-43]
     (->subsumptive
      ((==gt-k		  . 08042)	; &g2-GT-K08042;
+      (==gt-pj-k1	  . #x444B)	; &g2-GT-K08042; [36-43]
       )
      ((==big5-cdp	  . #x8BD3)	; &g2-CDP-8BD3;
+      )
+     ((=gt-k		  . 08041)	; &GT-K08041;
+      (=gt-pj-k1	  . #x314B)	; &GT-K08041; [17-43]
+      (<-formed@component/connect-right
+       ((=big5-cdp	    . #x8BD3)	; &CDP-8BD3;
+	))
+      (->subsumptive
+       ((==gt-k		    . 08041)	; &g2-GT-K08041;
+	(==gt-pj-k1	    . #x314B)	; &g2-GT-K08041; [17-43]
+	))
       ))
     ))
 (define-char
