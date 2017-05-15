@@ -1,3 +1,69 @@
+2017-05-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R074-Moon.el (K0-7279): Unify KU+6715; add
+	representative nodes.
+	(U+6718): Apply new conventions for glyph granularity.
+	(U+3B38): Likewise.
+	(U-00023379): Likewise.
+	(M-14381): Unify MJ037895 and KOSEKI-161720; add `<-formed' and
+	`<-same' for KU+6715.
+	(U+6720): Apply new conventions for glyph granularity.
+	(U+3B3B): Likewise.
+
+	* Ideograph-R033-Scholar.el (BUCS+58FA): New abstract node.
+	(U+58F7): Add `<-denotational' for BUCS+58FA.
+	(U+58F6): Likewise; apply new conventions for glyph granularity;
+	add `<-simplified@CN' for U+58FA.
+	(U+58FA): Add `<-denotational' for BUCS+58FA.
+	(U-0002152F): Apply new conventions for glyph granularity.
+	(U+58FC): Add `<-denotational' for BUCS+58FA.
+	(C6-5157): Apply new conventions for glyph granularity; unify
+	CU+2F85B instead of U-0002F85B; unify U-00021533; add
+	`<-denotational' for BUCS+58FA.
+
+	* Ideograph-R030-Mouth.el: Complement representative nodes of
+	`=adobe-japan1-5' glyphs.
+	(BUCS+5409): New abstract node; unify A-J0-3548.
+	(U+5409): Add `<-denotational' for BUCS+5409.
+	(U-00020BB7): Likewise.
+	(BUCS+553C): New abstract node.
+	(U-00020BD7): Add `<-denotational' for BUCS+553C.
+	(U+544C): Apply new conventions for glyph granularity.
+	(U+5500): Likewise.
+	(U+5536): Likewise.
+	(U+553C): Add `<-denotational' for BUCS+553C.
+	(A-IWDSU+5551): New abstract node; use `<-denotational' for
+	BUCS+553C.
+	(U+5551): Add `<-denotational' for A-IWDSU+5551; add `<-formed'
+	for U-00020BD7 and U+553C; add `<-same' for U-00020BD7 and U+553C.
+	(U-00020E1D): New character; use `<-denotational' for
+	A-IWDSU+5551.
+	(U+5564): Apply new conventions for glyph granularity.
+	(BUCS+559C): New abstract node.
+	(U-00020DAE): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for BUCS+559C.
+	(HNG-KHI0297-0): Use BUCS+559C instead of U+559C as its mother.
+	(AJ1-13697): Copied from Ideograph-R001-One.el and
+	Ideograph-R021-Spoon.el.
+	(U+559C): Add `<-denotational' for BUCS+559C.
+	(U+35C5): Apply new conventions for glyph granularity.
+	(U+5606): Likewise.
+	(o-JU+5606): Omit A-JU+5606.
+	(U-00020E95): Apply new conventions for glyph granularity.
+	(U+569E): Apply new conventions for glyph granularity.
+	(U+569F): Likewise.
+	(U+56A6): Likewise.
+	(U+3614): Likewise.
+	(U+56CD): Likewise.
+
+	* Ideograph-R009-Man.el (U+345E): Apply new conventions for glyph
+	granularity.
+	(G-UU+5049): Add `ideographic-structure'.
+
+	* Ideograph-R001-One.el (U+3402): Add `<-denotational' for U+559C.
+	(UU+3402): Add `<-vulgar' for UU+559C.
+	(AJ1-13697): Apply new conventions for glyph granularity.
+
 2017-05-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R021-Spoon.el (AJ1-13697): Add representative nodes.

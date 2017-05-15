@@ -3479,7 +3479,10 @@
      zihui-bu daikanwa)
     ))
 (define-char
-  '((ideographic-radical . 1)	; ⼀
+  '((<-denotational
+     ((==>ucs@bucs	  . #x559C)	; &BUCS+559C;
+      ))
+    (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
     (=ucs		. #x3402)	; 㐂
@@ -3495,6 +3498,13 @@
     (=adobe-japan1-4	. 13698)	; &AJ1-13698;
     (=jis-x0213-1	. #x2E23)	; &I-JX1-2E23; [14-03]
     (=daikanwa/ho	.  0001)	; &AJ1-13698;
+    (<-vulgar
+     ((=ucs@unicode	  . #x559C)	; &AJ1-01578;
+      (=adobe-japan1-0	  . 01578)	; &AJ1-01578;
+      (=daikanwa	  . 03957)	; &I-M-03957;
+      ))
+    (<-vulgar*sources
+     daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x3402)	; 㐂
@@ -3543,12 +3553,15 @@
     (ideographic-radical@misc . 21)	; ⼔
     (ideographic-strokes@misc . 4)
     (total-strokes	 . 6)
-    (=decomposition@cid
-     ((=ucs		  . #x3402)	; 㐂
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
-      ))
     (=adobe-japan1-4	. 13697)	; &AJ1-13697;
+    (->subsumptive
+     ((=decomposition@cid
+       ((=ucs		    . #x3402)	; 㐂
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==adobe-japan1-4	  . 13697)	; &g2-AJ1-13697;
+      ))
     ))
 (define-char
   '((<-denotational
