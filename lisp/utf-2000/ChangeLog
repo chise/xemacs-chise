@@ -1,3 +1,24 @@
+2017-05-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (U+660B): Apply new conventions for glyph
+	granularity.
+	(U+3ADF): Likewise.
+	(U-000231BA): Likewise.
+	(GT-K09590): New character; use `<-simplified@component' for
+	U+66D3.
+	(U-00023225): Apply new conventions for glyph granularity.
+	(U+66A1): Likewise.
+	(U-0002327D): Likewise.
+	(U+3B14): Likewise.
+	(U+3B15): Likewise.
+	(U+66AF): Likewise.
+	(U+66B4-itaiji-004): New character; use `<-wrong' for U+3B25.
+	(U+3B25): Apply new conventions for glyph granularity.
+	(U-000232F3): Use `->subsumptive'.
+	(U-000232F4): Likewise.
+	(U+66DD): Add `ideographic-structure'; add `<-vulgar' for U+66B4
+	and U+3B25.
+
 2017-05-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R074-Moon.el (K0-7279): Unify KU+6715; add
