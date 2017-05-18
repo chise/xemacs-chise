@@ -1,3 +1,15 @@
+2017-05-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`==ucs-bmp-var-002'.
+
+	* mule/mule-conf.el (==ucs-var-002): New coded-charset for XEmacs
+	CHISE.
+	(==ucs-bmp-var-002): Ditto.
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	Modify some priorities.
+
 2017-04-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
