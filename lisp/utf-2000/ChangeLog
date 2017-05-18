@@ -1,5 +1,8 @@
 2017-05-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R047-River.el (U+5DDF): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R009-Man.el (MJ007269): Unify U+5169-var-002.
 	(g2-KOSEKI-007530): Unify g2-U+5169-var-002 instead of
 	U+5169-var-002.

@@ -528,26 +528,35 @@
     (ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (=ucs		. #x5DDF)	; 巟
-    (=cns11643-2	. #x223A)	; &I-C2-223A; [02-26]
-    (=big5		. #xC9DA)	; &I-B-C9DA;
-    (=gt		. 10950)	; &I-GT-10950;
-    (=gt-k		. 02004)	; &I-GT-K02004;
-    (=gt-pj-3		. #x3D7D)	; &I-GT-10950; [29-93]
-    (=daikanwa		. 49065)	; &I-M-49065;
-    (<-same
-     ((=ucs@cns		  . #x219EC)	; &C5-286D;
-      (=cns11643-5	  . #x286D)	; &C5-286D; [08-77]
-      (=daikanwa	  . 07130)	; &I-M-07130;
-      ))
-    (<-same*sources
-     daikanwa)
-    (->subsumptive
-     ((==daikanwa	  . 49065)	; &g2-M-49065;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>>ucs@unicode	  . #x5DDF)	; &G-GT-10950;
-      (=>>gt		  . 10950)	; &G-GT-10950;
-      (=>>gt-k		  . 02004)	; &G-GT-10950;
+     ((=ucs		  . #x4EA1)	; 亡
+      )
+     ((=ucs		  . #x2BDA7)	; 𫶧
+      ))
+    (=ucs		. #x5DDF)	; 巟
+    (=big5		. #xC9DA)	; &I-B-C9DA;
+    (->subsumptive
+     ((=daikanwa	  . 49065)	; &M-49065;
+      (<-same
+       ((=ucs@cns	    . #x219EC)	; &C5-286D;
+	(=cns11643-5	    . #x286D)	; &C5-286D; [08-77]
+	(=daikanwa	    . 07130)	; &I-M-07130;
+	))
+      (<-same*sources
+       daikanwa)
+      (->subsumptive
+       ((==daikanwa	    . 49065)	; &g2-M-49065;
+	))
+      )
+     ((=ucs@unicode	  . #x5DDF)	; &GT-10950;
+      (=ucs@JP/hanazono	  . nil)
+      (=cns11643-2	  . #x223A)	; &GT-10950; [02-26]
+      (=gt		  . 10950)	; &I-GT-10950;
+      (=gt-k		  . 02004)	; &I-GT-K02004;
+      (=gt-pj-3		  . #x3D7D)	; &I-GT-10950; [29-93]
       (->subsumptive
        ((==gt		    . 10950)	; &g2-GT-10950;
 	(==gt-k		    . 02004)	; &g2-GT-10950;
