@@ -114,8 +114,8 @@
      ((name*		  . "ideographic component person for top")
       (=ucs		  . #x20089)	; 𠂉
       ))
-    (=cbeta		. 12073)	; &CB12073;
-    (=ucs-itaiji-001	. #x3AC3)	; &CB12073;
+    (=cbeta		. 12073)	; &U-i001+3AC3;
+    (=ucs-itaiji-001	. #x3AC3)	; &U-i001+3AC3;
     (<-formed@component/surround-from-upper-left
      ((=ucs		  . #x3AC3)	; 㫃
       ))
@@ -2156,7 +2156,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=cbeta		  . 12073)	; &CB12073;
+     ((=cbeta		  . 12073)	; &U-i001+3AC3;
       )
      ((=ucs		  . #x7568)	; 畨
       ))

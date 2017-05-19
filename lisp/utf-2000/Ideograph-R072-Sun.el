@@ -1142,11 +1142,11 @@
       )
      ((=ucs		  . #x65E7)	; 旧
       ))
-    (=gt-k		. 03616)	; &GT-K03616;
-    (=>>gt-k		. 03318)	; &GT-K03616;
-    (=gt-pj-k1		. #x5E44)	; &GT-K03616; [62-36]
-    (=ucs-itaiji-002	. #x81FD)	; &GT-K03616;
-    (=ucs-itaiji-003	. #x81FD)	; &GT-K03616;
+    (=gt-k		. 03616)	; &U-i002+81FD;
+    (=>>gt-k		. 03318)	; &U-i002+81FD;
+    (=gt-pj-k1		. #x5E44)	; &U-i002+81FD; [62-36]
+    (=ucs-itaiji-002	. #x81FD)	; &U-i002+81FD;
+    (=ucs-itaiji-003	. #x81FD)	; &U-i002+81FD;
     (<-simplified@component
      ((=ucs		  . #x81FD)	; 臽
       ))
@@ -1178,8 +1178,8 @@
       (=gt-k		  . 03318)	; &GT-K03318;
       (=gt-pj-k1	  . #x357D)	; &GT-K03318; [21-93]
       (->subsumptive
-       ((==gt-k		    . 03318)	; &g2-GT-K03318;
-	(==ucs-itaiji-003   . #x81FD)	; &g2-GT-K03318;
+       ((==gt-k		    . 03318)	; &g2-U-i003+81FD;
+	(==ucs-itaiji-003   . #x81FD)	; &g2-U-i003+81FD;
 	))
       ))
     ))

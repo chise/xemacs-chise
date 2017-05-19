@@ -1,5 +1,8 @@
 2017-05-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R008-Lid.el (U+4EA7): Use BC-8BAE instead of "⿱亠丷"
+	in `ideographic-structure'; use `->subsumptive'.
+
 	* Ideograph-R047-River.el (U+5DDF): Apply new conventions for
 	glyph granularity.
 
