@@ -3,13 +3,13 @@
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
-    (=>ucs@component	. #x4E59)	; &IWDS1-340;
-    (=>iwds-1		.  0340)	; &IWDS1-340;
+    (=>ucs@component	. #x4E59)	; &A-compU+4E59;
+    (=>iwds-1		.  0340)	; &A-compU+4E59;
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x4E59)	; &IWDS1-340;
-      (=>iwds-1		  .  0340)	; &IWDS1-340;
+     ((=>ucs@component	  . #x4E59)	; &A-compU+4E59;
+      (=>iwds-1		  .  0340)	; &A-compU+4E59;
       ))
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 0)
@@ -65,8 +65,8 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x4E59)	; &IWDS1-340;
-      (=>iwds-1		  .  0340)	; &IWDS1-340;
+     ((=>ucs@component	  . #x4E59)	; &A-compU+4E59;
+      (=>iwds-1		  .  0340)	; &A-compU+4E59;
       ))
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 0)
@@ -296,11 +296,11 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x4E5D)	; &IWDS1-203;
-      (=>iwds-1		  .  0203)	; &IWDS1-203;
+     ((=>ucs@component	  . #x4E5D)	; &A-compU+4E5D;
+      (=>iwds-1		  .  0203)	; &A-compU+4E5D;
       )
-     ((=>ucs@component	  . #x4E38)	; &IWDS1-249;
-      (=>iwds-1		  .  0249)	; &IWDS1-249;
+     ((=>ucs@component	  . #x4E38)	; &A-compU+4E38;
+      (=>iwds-1		  .  0249)	; &A-compU+4E38;
       ))
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 1)
@@ -3810,11 +3810,11 @@
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
-    (=>ucs@component	. #x4E38)	; &IWDS1-249;
-    (=>iwds-1		.  0249)	; &IWDS1-249;
+    (=>ucs@component	. #x4E38)	; &A-compU+4E38;
+    (=>iwds-1		.  0249)	; &A-compU+4E38;
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
-    (=>ucs@component	. #x4E5D)	; &IWDS1-203;
-    (=>iwds-1		.  0203)	; &IWDS1-203;
+    (=>ucs@component	. #x4E5D)	; &A-compU+4E5D;
+    (=>iwds-1		.  0203)	; &A-compU+4E5D;
     ))
