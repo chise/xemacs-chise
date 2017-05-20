@@ -3,13 +3,13 @@
   '((ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (=>ucs@component	. #x590A)	; &IWDS1-092;
-    (=>iwds-1		.  0092)	; &IWDS1-092;
+    (=>ucs@component	. #x590A)	; &A-compU+590A;
+    (=>iwds-1		.  0092)	; &A-compU+590A;
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x590A)	; &IWDS1-092;
-      (=>iwds-1		  .  0092)	; &IWDS1-092;
+     ((=>ucs@component	  . #x590A)	; &A-compU+590A;
+      (=>iwds-1		  .  0092)	; &A-compU+590A;
       ))
     (ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 0)
@@ -504,8 +504,8 @@
       )
      ((=ucs		  . #x5750)	; 坐
       )
-     ((=>ucs@component	  . #x590A)	; &IWDS1-092;
-      (=>iwds-1		  .  0092)	; &IWDS1-092;
+     ((=>ucs@component	  . #x590A)	; &A-compU+590A;
+      (=>iwds-1		  .  0092)	; &A-compU+590A;
       ))
     (=ucs		. #x590E)	; 夎
     (=big5		. #xD159)	; &I-B-D159;

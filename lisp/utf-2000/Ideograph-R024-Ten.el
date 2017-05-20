@@ -3,13 +3,13 @@
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (=>ucs@component	. #x5341)	; &IWDS1-037;
-    (=>iwds-1		.  0037)	; &IWDS1-037;
+    (=>ucs@component	. #x5341)	; &A-compU+5341;
+    (=>iwds-1		.  0037)	; &A-compU+5341;
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x5341)	; &IWDS1-037;
-      (=>iwds-1		  .  0037)	; &IWDS1-037;
+     ((=>ucs@component	  . #x5341)	; &A-compU+5341;
+      (=>iwds-1		  .  0037)	; &A-compU+5341;
       ))
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 0)
@@ -75,13 +75,13 @@
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
-    (=>ucs@component	. #x5342)	; &IWDS1-055;
-    (=>iwds-1		.  0055)	; &IWDS1-055;
+    (=>ucs@component	. #x5342)	; &A-compU+5342;
+    (=>iwds-1		.  0055)	; &A-compU+5342;
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x5342)	; &IWDS1-055;
-      (=>iwds-1		  .  0055)	; &IWDS1-055;
+     ((=>ucs@component	  . #x5342)	; &A-compU+5342;
+      (=>iwds-1		  .  0055)	; &A-compU+5342;
       ))
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 1)
@@ -2104,13 +2104,13 @@
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
-    (=>ucs@component	. #x5358)	; &IWDS1-251;
-    (=>iwds-1		.  0251)	; &IWDS1-251;
+    (=>ucs@component	. #x5358)	; &A-compU+5358;
+    (=>iwds-1		.  0251)	; &A-compU+5358;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x5358)	; &IWDS1-251;
-      (=>iwds-1		  .  0251)	; &IWDS1-251;
+     ((=>ucs@component	  . #x5358)	; &A-compU+5358;
+      (=>iwds-1		  .  0251)	; &A-compU+5358;
       ))
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 6)
@@ -2330,8 +2330,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x5358)	; &IWDS1-251;
-      (=>iwds-1		  .  0251)	; &IWDS1-251;
+     ((=>ucs@component	  . #x5358)	; &A-compU+5358;
+      (=>iwds-1		  .  0251)	; &A-compU+5358;
       ))
     (script		JP Jouyou Ideograph)
     (ideographic-radical . 24)	; ⼗

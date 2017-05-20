@@ -8,11 +8,11 @@
      ((==>ucs@bucs	  . #x4E8C)	; &BUCS+4E8C;
       ))
     (<-denotational@component
-     ((=>ucs@component	  . #x4E8C)	; &IWDS1-047;
-      (=>iwds-1		  .  0047)	; &IWDS1-047;
+     ((=>ucs@component	  . #x4E8C)	; &A-compU+4E8C;
+      (=>iwds-1		  .  0047)	; &A-compU+4E8C;
       )
-     ((=>ucs@component	  . #x4EA0)	; &IWDS1-062;
-      (=>iwds-1		  .  0062)	; &IWDS1-062;
+     ((=>ucs@component	  . #x4EA0)	; &A-compU+4EA0;
+      (=>iwds-1		  .  0062)	; &A-compU+4EA0;
       ))
     (ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 0)
@@ -287,13 +287,13 @@
     (ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
-    (=>ucs@component	. #x4E8F)	; &IWDS1-093;
-    (=>iwds-1		.  0093)	; &IWDS1-093;
+    (=>ucs@component	. #x4E8F)	; &A-compU+4E8F;
+    (=>iwds-1		.  0093)	; &A-compU+4E8F;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x4E8F)	; &IWDS1-093;
-      (=>iwds-1		  .  0093)	; &IWDS1-093;
+     ((=>ucs@component	  . #x4E8F)	; &A-compU+4E8F;
+      (=>iwds-1		  .  0093)	; &A-compU+4E8F;
       ))
     (ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 1)
@@ -326,8 +326,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x4E8F)	; &IWDS1-093;
-      (=>iwds-1		  .  0093)	; &IWDS1-093;
+     ((=>ucs@component	  . #x4E8F)	; &A-compU+4E8F;
+      (=>iwds-1		  .  0093)	; &A-compU+4E8F;
       ))
     (ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 1)
@@ -717,8 +717,8 @@
      ((==>ucs@bucs	  . #x958B)	; &BUCS+958B;
       ))
     (<-denotational@component
-     ((=>ucs@component	  . #x5F00)	; &IWDS1-180;
-      (=>iwds-1		  .  0180)	; &IWDS1-180;
+     ((=>ucs@component	  . #x5F00)	; &A-compU+5F00;
+      (=>iwds-1		  .  0180)	; &A-compU+5F00;
       ))
     (ideographic-radical@ucs . 55)	; ⼶
     (ideographic-strokes@ucs . 1)
@@ -1625,6 +1625,6 @@
     ))
 (define-char
   '((ideographic-radical . 7)	; ⼆
-    (=>ucs@component	. #x4E8C)	; &IWDS1-047;
-    (=>iwds-1		.  0047)	; &IWDS1-047;
+    (=>ucs@component	. #x4E8C)	; &A-compU+4E8C;
+    (=>iwds-1		.  0047)	; &A-compU+4E8C;
     ))

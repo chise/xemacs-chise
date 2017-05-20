@@ -3,13 +3,13 @@
   '((ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (=>ucs@component	. #x5C6E)	; &IWDS1-096;
-    (=>iwds-1		.  0096)	; &IWDS1-096;
+    (=>ucs@component	. #x5C6E)	; &A-compU+5C6E;
+    (=>iwds-1		.  0096)	; &A-compU+5C6E;
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x5C6E)	; &IWDS1-096;
-      (=>iwds-1		  .  0096)	; &IWDS1-096;
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
       ))
     (ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 0)

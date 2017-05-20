@@ -353,8 +353,8 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x378B)	; &IWDS1-125;
-      (=>iwds-1		  .  0125)	; &IWDS1-125;
+     ((=>ucs@component	  . #x378B)	; &A-compU+378B;
+      (=>iwds-1		  .  0125)	; &A-compU+378B;
       ))
     (ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 2)
@@ -3053,8 +3053,8 @@
       )
      ((=ucs		  . #x5C38)	; 尸
       )
-     ((=>ucs@component	  . #x5A41)	; &IWDS1-348;
-      (=>iwds-1		  .  0348)	; &IWDS1-348;
+     ((=>ucs@component	  . #x5A41)	; &A-compU+5A41;
+      (=>iwds-1		  .  0348)	; &A-compU+5A41;
       ))
     (=ucs		. #x5C62)	; 屢
     ))

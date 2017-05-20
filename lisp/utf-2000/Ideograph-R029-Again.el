@@ -100,11 +100,11 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x4E49)	; &IWDS1-127;
-      (=>iwds-1		  .  0127)	; &IWDS1-127;
+     ((=>ucs@component	  . #x4E49)	; &A-compU+4E49;
+      (=>iwds-1		  .  0127)	; &A-compU+4E49;
       )
-     ((=>ucs@component	  . #x355A)	; &IWDS1-247;
-      (=>iwds-1		  .  0247)	; &IWDS1-247;
+     ((=>ucs@component	  . #x355A)	; &A-compU+355A;
+      (=>iwds-1		  .  0247)	; &A-compU+355A;
       ))
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 1)
@@ -197,8 +197,8 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x355A)	; &IWDS1-247;
-      (=>iwds-1		  .  0247)	; &IWDS1-247;
+     ((=>ucs@component	  . #x355A)	; &A-compU+355A;
+      (=>iwds-1		  .  0247)	; &A-compU+355A;
       ))
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 2)
@@ -406,8 +406,8 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x53CB)	; &IWDS1-256;
-      (=>iwds-1		  .  0256)	; &IWDS1-256;
+     ((=>ucs@component	  . #x53CB)	; &A-compU+53CB;
+      (=>iwds-1		  .  0256)	; &A-compU+53CB;
       ))
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 2)
@@ -579,8 +579,8 @@
       (=>ucs@iso	  . #x20B1B)	; &A-IWDSU+20B1B;
       ))
     (<-denotational@component
-     ((=>ucs@component	  . #x6BB3)	; &IWDS1-220;
-      (=>iwds-1		  .  0220)	; &IWDS1-220;
+     ((=>ucs@component	  . #x6BB3)	; &A-compU+6BB3;
+      (=>iwds-1		  .  0220)	; &A-compU+6BB3;
       ))
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 2)
@@ -717,13 +717,13 @@
 (define-char
   '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 2)
-    (=>ucs@component	. #x378B)	; &IWDS1-125;
-    (=>iwds-1		.  0125)	; &IWDS1-125;
+    (=>ucs@component	. #x378B)	; &A-compU+378B;
+    (=>iwds-1		.  0125)	; &A-compU+378B;
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x378B)	; &IWDS1-125;
-      (=>iwds-1		  .  0125)	; &IWDS1-125;
+     ((=>ucs@component	  . #x378B)	; &A-compU+378B;
+      (=>iwds-1		  .  0125)	; &A-compU+378B;
       ))
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 2)
@@ -4649,13 +4649,13 @@
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
-    (=>ucs@component	. #x355A)	; &IWDS1-247;
-    (=>iwds-1		.  0247)	; &IWDS1-247;
+    (=>ucs@component	. #x355A)	; &A-compU+355A;
+    (=>iwds-1		.  0247)	; &A-compU+355A;
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
-    (=>ucs@component	. #x53CB)	; &IWDS1-256;
-    (=>iwds-1		.  0256)	; &IWDS1-256;
+    (=>ucs@component	. #x53CB)	; &A-compU+53CB;
+    (=>iwds-1		.  0256)	; &A-compU+53CB;
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜

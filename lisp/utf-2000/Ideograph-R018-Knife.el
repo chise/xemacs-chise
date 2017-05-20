@@ -3,13 +3,13 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (=>ucs@component	. #x5200)	; &IWDS1-149;
-    (=>iwds-1		.  0149)	; &IWDS1-149;
+    (=>ucs@component	. #x5200)	; &A-compU+5200;
+    (=>iwds-1		.  0149)	; &A-compU+5200;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x5200)	; &IWDS1-149;
-      (=>iwds-1		  .  0149)	; &IWDS1-149;
+     ((=>ucs@component	  . #x5200)	; &A-compU+5200;
+      (=>iwds-1		  .  0149)	; &A-compU+5200;
       ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 0)
@@ -71,8 +71,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x5200)	; &IWDS1-149;
-      (=>iwds-1		  .  0149)	; &IWDS1-149;
+     ((=>ucs@component	  . #x5200)	; &A-compU+5200;
+      (=>iwds-1		  .  0149)	; &A-compU+5200;
       ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 0)
@@ -648,8 +648,8 @@
       )
      ((=ucs		  . #x516B)	; 八
       )
-     ((=>ucs@component	  . #x5200)	; &IWDS1-149;
-      (=>iwds-1		  .  0149)	; &IWDS1-149;
+     ((=>ucs@component	  . #x5200)	; &A-compU+5200;
+      (=>iwds-1		  .  0149)	; &A-compU+5200;
       ))
     (=ucs		. #x5206)	; 分
     ))

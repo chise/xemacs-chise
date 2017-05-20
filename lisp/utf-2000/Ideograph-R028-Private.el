@@ -1058,13 +1058,13 @@
     (ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (=>ucs@component	. #x53C1)	; &IWDS1-016;
-    (=>iwds-1		.  0016)	; &IWDS1-016;
+    (=>ucs@component	. #x53C1)	; &A-compU+53C1;
+    (=>iwds-1		.  0016)	; &A-compU+53C1;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x53C1)	; &IWDS1-016;
-      (=>iwds-1		  .  0016)	; &IWDS1-016;
+     ((=>ucs@component	  . #x53C1)	; &A-compU+53C1;
+      (=>iwds-1		  .  0016)	; &A-compU+53C1;
       ))
     (ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 6)
@@ -1117,8 +1117,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x53C1)	; &IWDS1-016;
-      (=>iwds-1		  .  0016)	; &IWDS1-016;
+     ((=>ucs@component	  . #x53C1)	; &A-compU+53C1;
+      (=>iwds-1		  .  0016)	; &A-compU+53C1;
       ))
     (script		JP Jouyou CN Simplified Ideograph)
     (ideographic-radical . 28)	; ⼛
@@ -1363,13 +1363,13 @@
     (ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (=>ucs@component	. #x53C4)	; &IWDS1-017;
-    (=>iwds-1		.  0017)	; &IWDS1-017;
+    (=>ucs@component	. #x53C4)	; &A-compU+53C4;
+    (=>iwds-1		.  0017)	; &A-compU+53C4;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x53C4)	; &IWDS1-017;
-      (=>iwds-1		  .  0017)	; &IWDS1-017;
+     ((=>ucs@component	  . #x53C4)	; &A-compU+53C4;
+      (=>iwds-1		  .  0017)	; &A-compU+53C4;
       ))
     (ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 9)
@@ -1432,8 +1432,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x53C4)	; &IWDS1-017;
-      (=>iwds-1		  .  0017)	; &IWDS1-017;
+     ((=>ucs@component	  . #x53C4)	; &A-compU+53C4;
+      (=>iwds-1		  .  0017)	; &A-compU+53C4;
       ))
     (ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 9)

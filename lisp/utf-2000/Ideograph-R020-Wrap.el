@@ -1109,9 +1109,9 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x56F1)	; &IWDS1-361;
-      (=ucs@big5	  . #x56EA)	; &IWDS1-361;
-      (=>iwds-1		  .  0361)	; &IWDS1-361;
+     ((=>ucs@component	  . #x56F1)	; &A-compU+56F1;
+      (=ucs@big5	  . #x56EA)	; &A-compU+56F1;
+      (=>iwds-1		  .  0361)	; &A-compU+56F1;
       ))
     (ideographic-radical@ucs . 31)	; ⼞
     (ideographic-radical@ucs*sources

@@ -3,13 +3,13 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (=>ucs@component	. #x4EBA)	; &IWDS1-146;
-    (=>iwds-1		.  0146)	; &IWDS1-146;
+    (=>ucs@component	. #x4EBA)	; &A-compU+4EBA;
+    (=>iwds-1		.  0146)	; &A-compU+4EBA;
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x4EBA)	; &IWDS1-146;
-      (=>iwds-1		  .  0146)	; &IWDS1-146;
+     ((=>ucs@component	  . #x4EBA)	; &A-compU+4EBA;
+      (=>iwds-1		  .  0146)	; &A-compU+4EBA;
       ))
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 0)
@@ -5558,8 +5558,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x4E51)	; &IWDS1-328;
-      (=>iwds-1		  .  0328)	; &IWDS1-328;
+     ((=>ucs@component	  . #x4E51)	; &A-compU+4E51;
+      (=>iwds-1		  .  0328)	; &A-compU+4E51;
       ))
     (ideographic-radical . 9)	; ⼈
     (sound@ja/on/go/p=yin2 "goN")
@@ -14566,8 +14566,8 @@
       )
      ((=ucs		  . #x201A2)	; 𠆢
       )
-     ((=>ucs@component	  . #x4E03)	; &IWDS1-141;
-      (=>iwds-1		  .  0141)	; &IWDS1-141;
+     ((=>ucs@component	  . #x4E03)	; &A-compU+4E03;
+      (=>iwds-1		  .  0141)	; &A-compU+4E03;
       ))
     (=ucs		. #x4ED1)	; 仑
     ))
@@ -41162,8 +41162,8 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=>ucs@component	  . #x5A41)	; &IWDS1-348;
-      (=>iwds-1		  .  0348)	; &IWDS1-348;
+     ((=>ucs@component	  . #x5A41)	; &A-compU+5A41;
+      (=>iwds-1		  .  0348)	; &A-compU+5A41;
       ))
     (=ucs		. #x50C2)	; 僂
     ))

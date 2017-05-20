@@ -1,8 +1,8 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x4E03)	; &IWDS1-141;
-      (=>iwds-1		  .  0141)	; &IWDS1-141;
+     ((=>ucs@component	  . #x4E03)	; &A-compU+4E03;
+      (=>iwds-1		  .  0141)	; &A-compU+4E03;
       ))
     (ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 0)

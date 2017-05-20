@@ -1,8 +1,8 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x72AC)	; &IWDS1-239;
-      (=>iwds-1		  .  0239)	; &IWDS1-239;
+     ((=>ucs@component	  . #x72AC)	; &A-compU+72AC;
+      (=>iwds-1		  .  0239)	; &A-compU+72AC;
       ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 0)
@@ -144,13 +144,13 @@
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
-    (=>ucs@component	. #x5929)	; &IWDS1-008;
-    (=>iwds-1		.  0008)	; &IWDS1-008;
+    (=>ucs@component	. #x5929)	; &A-compU+5929;
+    (=>iwds-1		.  0008)	; &A-compU+5929;
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x5929)	; &IWDS1-008;
-      (=>iwds-1		  .  0008)	; &IWDS1-008;
+     ((=>ucs@component	  . #x5929)	; &A-compU+5929;
+      (=>iwds-1		  .  0008)	; &A-compU+5929;
       ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 1)
@@ -450,8 +450,8 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x5929)	; &IWDS1-008;
-      (=>iwds-1		  .  0008)	; &IWDS1-008;
+     ((=>ucs@component	  . #x5929)	; &A-compU+5929;
+      (=>iwds-1		  .  0008)	; &A-compU+5929;
       ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 1)
@@ -1405,13 +1405,13 @@
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (=>ucs@component	. #x593E)	; &IWDS1-147;
-    (=>iwds-1		.  0147)	; &IWDS1-147;
+    (=>ucs@component	. #x593E)	; &A-compU+593E;
+    (=>iwds-1		.  0147)	; &A-compU+593E;
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x593E)	; &IWDS1-147;
-      (=>iwds-1		  .  0147)	; &IWDS1-147;
+     ((=>ucs@component	  . #x593E)	; &A-compU+593E;
+      (=>iwds-1		  .  0147)	; &A-compU+593E;
       ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 4)
@@ -1438,8 +1438,8 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x593E)	; &IWDS1-147;
-      (=>iwds-1		  .  0147)	; &IWDS1-147;
+     ((=>ucs@component	  . #x593E)	; &A-compU+593E;
+      (=>iwds-1		  .  0147)	; &A-compU+593E;
       ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 4)
