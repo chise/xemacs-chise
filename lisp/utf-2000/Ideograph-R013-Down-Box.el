@@ -141,8 +141,8 @@
      ((=ucs		  . #x5183)	; 冃
       ))
     (<-denotational@component
-     ((=>ucs@component	  . #x65E5)	; &IWDS1-118;
-      (=>iwds-1		  .  0118)	; &IWDS1-118;
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
       ))
     (name		. "CJK RADICAL SUN")
     (name*		. "ideographic component hood")
@@ -1680,11 +1680,11 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@component	  . #x65E5)	; &IWDS1-118;
-      (=>iwds-1		  .  0118)	; &IWDS1-118;
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
       )
-     ((=>ucs@component	  . #x6708)	; &IWDS1-053;
-      (=>iwds-1		  .  0053)	; &IWDS1-053;
+     ((=>ucs@component	  . #x6708)	; &A-compU+6708;
+      (=>iwds-1		  .  0053)	; &A-compU+6708;
       ))
     (=ucs		. #x5190)	; 冐
     (=>jis-x0208	. #x666E)	; 冐 [70-78]
@@ -2391,8 +2391,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@component	  . #x65E5)	; &IWDS1-118;
-      (=>iwds-1		  .  0118)	; &IWDS1-118;
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
       )
      ((=ucs		  . #x898B)	; 見
       ))
@@ -2785,8 +2785,8 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x34BC)	; &IWDS1-302;
-      (=>iwds-1		  .  0302)	; &IWDS1-302;
+     ((=>ucs@component	  . #x34BC)	; &A-compU+34BC;
+      (=>iwds-1		  .  0302)	; &A-compU+34BC;
       ))
     (ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 9)
@@ -2795,8 +2795,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@component	  . #x5EFF)	; &IWDS1-303;
-      (=>iwds-1		  .  0303)	; &IWDS1-303;
+     ((=>ucs@component	  . #x5EFF)	; &A-compU+5EFF;
+      (=>iwds-1		  .  0303)	; &A-compU+5EFF;
       )
      ((=>big5-cdp	  . #x8C62)	; &A-CDP-8C62;
       ))
@@ -3535,8 +3535,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@component	  . #x65E5)	; &IWDS1-118;
-      (=>iwds-1		  .  0118)	; &IWDS1-118;
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
       )
      ((=ucs		  . #x96E2)	; 離
       ))
@@ -3630,8 +3630,8 @@
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
-    (=>ucs@component	. #x34BC)	; &IWDS1-302;
-    (=>iwds-1		.  0302)	; &IWDS1-302;
+    (=>ucs@component	. #x34BC)	; &A-compU+34BC;
+    (=>iwds-1		.  0302)	; &A-compU+34BC;
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
