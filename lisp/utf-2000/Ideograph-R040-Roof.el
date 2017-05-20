@@ -5795,8 +5795,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x96BA)	; &IWDS1-304;
-      (=>iwds-1		  .  0304)	; &IWDS1-304;
+     ((=>ucs@component	  . #x96BA)	; &A-compU+96BA;
+      (=>iwds-1		  .  0304)	; &A-compU+96BA;
       ))
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 8)
