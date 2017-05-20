@@ -1,3 +1,8 @@
+2017-05-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist):
+	Prefer `=>ucs@iwds-1' and `=>ucs@component' to `=>iwds-1'.
+
 2017-05-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
