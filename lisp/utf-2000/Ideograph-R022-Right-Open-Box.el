@@ -3,13 +3,13 @@
   '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (=>ucs@component	. #x531A)	; &IWDS1-209;
-    (=>iwds-1		.  0209)	; &IWDS1-209;
+    (=>ucs@component	. #x531A)	; &A-compU+531A;
+    (=>iwds-1		.  0209)	; &A-compU+531A;
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x531A)	; &IWDS1-209;
-      (=>iwds-1		  .  0209)	; &IWDS1-209;
+     ((=>ucs@component	  . #x531A)	; &A-compU+531A;
+      (=>iwds-1		  .  0209)	; &A-compU+531A;
       ))
     (ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 0)
@@ -806,8 +806,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (=ucs		  . #x2FF7)	; ⿷
       )
-     ((=>ucs@component	  . #x531A)	; &IWDS1-209;
-      (=>iwds-1		  .  0209)	; &IWDS1-209;
+     ((=>ucs@component	  . #x531A)	; &A-compU+531A;
+      (=>iwds-1		  .  0209)	; &A-compU+531A;
       )
      ((=ucs		  . #x8F68)	; 轨
       ))
@@ -1090,8 +1090,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (=ucs		  . #x2FF7)	; ⿷
       )
-     ((=>ucs@component	  . #x531A)	; &IWDS1-209;
-      (=>iwds-1		  .  0209)	; &IWDS1-209;
+     ((=>ucs@component	  . #x531A)	; &A-compU+531A;
+      (=>iwds-1		  .  0209)	; &A-compU+531A;
       )
      ((=ucs		  . #x37B7)	; 㞷
       ))
@@ -1398,8 +1398,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (=ucs		  . #x2FF7)	; ⿷
       )
-     ((=>ucs@component	  . #x531A)	; &IWDS1-209;
-      (=>iwds-1		  .  0209)	; &IWDS1-209;
+     ((=>ucs@component	  . #x531A)	; &A-compU+531A;
+      (=>iwds-1		  .  0209)	; &A-compU+531A;
       )
      ((==>ucs@bucs	  . #x516A)	; &J97-5141;
       (=>jis-x0208	  . #x5141)	; &J97-5141; [49-33]
