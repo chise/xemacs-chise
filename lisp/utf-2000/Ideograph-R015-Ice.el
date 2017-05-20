@@ -1,8 +1,8 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x4E8C)	; &IWDS1-047;
-      (=>iwds-1		  .  0047)	; &IWDS1-047;
+     ((=>ucs@component	  . #x4E8C)	; &A-compU+4E8C;
+      (=>iwds-1		  .  0047)	; &A-compU+4E8C;
       ))
     (ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 0)
@@ -783,8 +783,8 @@
       )
      ((=ucs		  . #x51AB)	; 冫
       )
-     ((=>ucs@component	  . #x5929)	; &IWDS1-008;
-      (=>iwds-1		  .  0008)	; &IWDS1-008;
+     ((=>ucs@component	  . #x5929)	; &A-compU+5929;
+      (=>iwds-1		  .  0008)	; &A-compU+5929;
       ))
     (=ucs		. #x34C7)	; 㓇
     ))
