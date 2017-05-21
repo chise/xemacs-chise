@@ -6234,8 +6234,8 @@
       )
      ((=ucs		  . #x624C)	; 扌
       )
-     ((=>ucs@component	  . #x5433)	; &IWDS1-313;
-      (=>iwds-1		  .  0313)	; &IWDS1-313;
+     ((=>ucs@component	  . #x5433)	; &A-compU+5433;
+      (=>iwds-1		  .  0313)	; &A-compU+5433;
       ))
     (=ucs		. #x22AF8)	; 𢫸
     ))
@@ -10513,8 +10513,8 @@
       )
      ((=ucs		  . #x624C)	; 扌
       )
-     ((=>ucs@component	  . #x9751)	; &IWDS1-319;
-      (=>iwds-1		  .  0319)	; &IWDS1-319;
+     ((=>ucs@component	  . #x9751)	; &A-compU+9751;
+      (=>iwds-1		  .  0319)	; &A-compU+9751;
       ))
     (=ucs		. #x6385)	; 掅
     (=big5		. #xD5A2)	; &I-B-D5A2;
@@ -26040,8 +26040,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x64E7)	; &IWDS1-342;
-      (=>iwds-1		  .  0342)	; &IWDS1-342;
+     ((=>ucs@component	  . #x64E7)	; &A-compU+64E7;
+      (=>iwds-1		  .  0342)	; &A-compU+64E7;
       ))
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 14)
