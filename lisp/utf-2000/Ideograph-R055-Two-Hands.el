@@ -135,13 +135,13 @@
 (define-char
   '((ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 1)
-    (=>ucs@component	. #x5EFF)	; &IWDS1-303;
-    (=>iwds-1		.  0303)	; &IWDS1-303;
+    (=>ucs@component	. #x5EFF)	; &A-compU+5EFF;
+    (=>iwds-1		.  0303)	; &A-compU+5EFF;
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x5EFF)	; &IWDS1-303;
-      (=>iwds-1		  .  0303)	; &IWDS1-303;
+     ((=>ucs@component	  . #x5EFF)	; &A-compU+5EFF;
+      (=>iwds-1		  .  0303)	; &A-compU+5EFF;
       ))
     (ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 1)
@@ -199,8 +199,8 @@
      ((==>ucs@bucs	  . #x958B)	; &BUCS+958B;
       ))
     (<-denotational@component
-     ((=>ucs@component	  . #x5F00)	; &IWDS1-180;
-      (=>iwds-1		  .  0180)	; &IWDS1-180;
+     ((=>ucs@component	  . #x5F00)	; &A-compU+5F00;
+      (=>iwds-1		  .  0180)	; &A-compU+5F00;
       ))
     (ideographic-radical@ucs . 55)	; ⼶
     (ideographic-strokes@ucs . 1)
@@ -338,8 +338,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@component	  . #x5DF1)	; &IWDS1-120;
-      (=>iwds-1		  .  0120)	; &IWDS1-120;
+     ((=>ucs@component	  . #x5DF1)	; &A-compU+5DF1;
+      (=>iwds-1		  .  0120)	; &A-compU+5DF1;
       )
      ((=ucs		  . #x5EFE)	; 廾
       ))
@@ -1249,9 +1249,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@component	  . #x56F1)	; &IWDS1-361;
-      (=ucs@big5	  . #x56EA)	; &IWDS1-361;
-      (=>iwds-1		  .  0361)	; &IWDS1-361;
+     ((=>ucs@component	  . #x56F1)	; &A-compU+56F1;
+      (=ucs@big5	  . #x56EA)	; &A-compU+56F1;
+      (=>iwds-1		  .  0361)	; &A-compU+56F1;
       )
      ((=ucs		  . #x5EFE)	; 廾
       ))
