@@ -1,8 +1,8 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x5C6E)	; &IWDS1-096;
-      (=>iwds-1		  .  0096)	; &IWDS1-096;
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
       ))
     (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 0)

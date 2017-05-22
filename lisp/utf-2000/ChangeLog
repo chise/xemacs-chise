@@ -1,3 +1,9 @@
+2017-05-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (U-00023158): New character.
+	(U+23158-var-001): New character; use `<-denotational' for
+	U-00023158.
+
 2017-05-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R008-Lid.el (U+4EA7): Use BC-8BAE instead of "⿱亠丷"
