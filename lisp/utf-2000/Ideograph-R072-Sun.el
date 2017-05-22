@@ -3,13 +3,13 @@
   '((ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (=>ucs@component	. #x65E5)	; &IWDS1-118;
-    (=>iwds-1		.  0118)	; &IWDS1-118;
+    (=>ucs@component	. #x65E5)	; &A-compU+65E5;
+    (=>iwds-1		.  0118)	; &A-compU+65E5;
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x65E5)	; &IWDS1-118;
-      (=>iwds-1		  .  0118)	; &IWDS1-118;
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
       ))
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 0)
@@ -101,8 +101,8 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x4E14)	; &IWDS1-114;
-      (=>iwds-1		  .  0114)	; &IWDS1-114;
+     ((=>ucs@component	  . #x4E14)	; &A-compU+4E14;
+      (=>iwds-1		  .  0114)	; &A-compU+4E14;
       ))
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 1)
@@ -305,8 +305,8 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x7680)	; &IWDS1-355;
-      (=>iwds-1		  .  0355)	; &IWDS1-355;
+     ((=>ucs@component	  . #x7680)	; &A-compU+7680;
+      (=>iwds-1		  .  0355)	; &A-compU+7680;
       ))
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 2)
@@ -1123,6 +1123,59 @@
     (=ucs		. #x2314D)	; 𣅍
     (=daikanwa		. 04731)	; &I-M-04731;
     (=cbeta		. 03191)	; &I-CB03191;
+    ))
+(define-char
+  '((ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
+      )
+     ((=>ucs@component	  . #x4E8F)	; &A-compU+4E8F;
+      (=>iwds-1		  .  0093)	; &A-compU+4E8F;
+      ))
+    (=ucs		. #x23158)	; 𣅘
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23158)	; 𣅘
+      ))
+    (ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((=ucs		  . #x4E90)	; 亐
+      ))
+    (=ucs-var-001	. #x23158)	; &U-v001+23158;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23158)	; 𣅘
+      ))
+    (ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((=ucs		  . #x4E8F)	; 亏
+      ))
+    (=ucs@iso		. #x23158)	; &U-00023158;
+    (->subsumptive
+     ((==ucs@iso	  . #x23158)	; &g2-IU-00023158;
+      ))
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
@@ -2258,8 +2311,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@component	  . #x5929)	; &IWDS1-008;
-      (=>iwds-1		  .  0008)	; &IWDS1-008;
+     ((=>ucs@component	  . #x5929)	; &A-compU+5929;
+      (=>iwds-1		  .  0008)	; &A-compU+5929;
       )
      ((=ucs		  . #x65E5)	; 日
       ))
@@ -4702,8 +4755,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x6637)	; &IWDS1-320;
-      (=>iwds-1		  .  0320)	; &IWDS1-320;
+     ((=>ucs@component	  . #x6637)	; &A-compU+6637;
+      (=>iwds-1		  .  0320)	; &A-compU+6637;
       ))
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 5)
@@ -5413,13 +5466,13 @@
   '((ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (=>ucs@component	. #x6649)	; &IWDS1-388;
-    (=>iwds-1		.  0388)	; &IWDS1-388;
+    (=>ucs@component	. #x6649)	; &A-compU+6649;
+    (=>iwds-1		.  0388)	; &A-compU+6649;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x6649)	; &IWDS1-388;
-      (=>iwds-1		  .  0388)	; &IWDS1-388;
+     ((=>ucs@component	  . #x6649)	; &A-compU+6649;
+      (=>iwds-1		  .  0388)	; &A-compU+6649;
       ))
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 6)
@@ -5497,8 +5550,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x6649)	; &IWDS1-388;
-      (=>iwds-1		  .  0388)	; &IWDS1-388;
+     ((=>ucs@component	  . #x6649)	; &A-compU+6649;
+      (=>iwds-1		  .  0388)	; &A-compU+6649;
       ))
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 6)
