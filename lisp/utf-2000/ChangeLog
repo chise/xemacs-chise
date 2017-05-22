@@ -1,3 +1,20 @@
+2017-05-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R041-Inch.el (U-00021B20): Apply new conventions for
+	glyph granularity.
+	(IU+21B20): Unify BC-8D42; add `<-same' for KU+7235.
+	(U+21B20-itaiji-001): New character; use `<-formed' for
+	U-00021B20.
+
+2017-05-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R053-Dotted-Cliff.el (U+3898): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R004-Slash.el (A-GT-K09373): New abstract node.
+	(GT-K09373): New character; use `<-denotational' for A-GT-K09373.
+	(GT-K09374): Ditto.
+
 2017-05-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R072-Sun.el (U-00023158): New character.
