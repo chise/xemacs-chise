@@ -1,8 +1,8 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x4E06)	; &IWDS1-150;
-      (=>iwds-1		  .  0150)	; &IWDS1-150;
+     ((=>ucs@component	  . #x4E06)	; &A-compU+4E06;
+      (=>iwds-1		  .  0150)	; &A-compU+4E06;
       ))
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 0)
@@ -4752,13 +4752,28 @@
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 16)
     (total-strokes	 . 18)
+    (sound@ja/on	"seN" "rei")
     (=ucs		. #x20AC4)	; 𠫄
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20AC4)	; 𠫄
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 16)
+    (total-strokes	 . 18)
+    (hanyu-dazidian	1 80 20)
+    (=ucs@iso		. #x20AC4)	; &M-03050;
+    (=daikanwa		. 03050)	; &M-03050;
     (->subsumptive
-     ((=daikanwa	  . 03050)	; &M-03050;
+     ((==daikanwa	  . 03050)	; &g2-M-03050;
       )
-     ((hanyu-dazidian	  1 80 20)
-      (=ucs@iso		  . #x20AC4)	; &HZK01-B4A5;
-      (=hanziku-1	  . #xB4A5)	; &HZK01-B4A5;
+     ((==ucs@iso	  . #x20AC4)	; &g2-IU-00020AC4;
+      (->subsumptive
+       ((===ucs@iso	    . #x20AC4)	; &R-U-00020AC4;
+	)
+       ((=hanziku-1	    . #xB4A5)	; &HZK01-B4A5;
+	))
       ))
     ))
 (define-char

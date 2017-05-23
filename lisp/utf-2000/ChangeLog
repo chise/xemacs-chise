@@ -1,4 +1,16 @@
+2017-05-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R049-Oneself.el (U-00022045): Use `->denotational' and
+	`->subsumptive'.
+
 2017-05-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U-00020BB2): Use `->denotational' and
+	`->subsumptive'.
+	(IU+20BB2): Add `<-ancient' for U+5401.
+
+	* Ideograph-R027-Cliff.el (U-00020AC4): Apply new conventions for
+	glyph granularity; add `sound@ja/on'.
 
 	* Ideograph-R041-Inch.el (U-00021B20): Apply new conventions for
 	glyph granularity.
