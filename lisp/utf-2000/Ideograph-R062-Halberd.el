@@ -1619,6 +1619,37 @@
     (=daikanwa		. 49121)	; &I-M-49121;
     ))
 (define-char
+  '((ideographic-radical . 62)	; ⼽
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5485)	; 咅
+      )
+     ((=ucs		  . #x6208)	; 戈
+      ))
+    (=ucs		. #x229C2)	; 𢧂
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x229C2)	; 𢧂
+      ))
+    (ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (=ucs@iso		. #x229C2)	; &CB10356;
+    (=cbeta		. 10356)	; &CB10356;
+    (->subsumptive
+     ((==ucs@iso	  . #x229C2)	; &g2-CB10356;
+      (==cbeta		  . 10356)	; &g2-CB10356;
+      (->subsumptive
+       ((===cbeta	    . 10356)	; &R-CB10356;
+	)
+       ((===ucs@iso	    . #x229C2)	; &R-U-000229C2;
+	))
+      ))
+    ))
+(define-char
   '((=>ucs		. #x229C8)	; 𢧈
     (ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 8)
