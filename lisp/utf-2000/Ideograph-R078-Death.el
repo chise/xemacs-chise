@@ -3758,6 +3758,14 @@
     ))
 (define-char
   '((ideographic-radical . 78)	; ⽍
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6B79)	; 歹
+      )
+     ((=ucs		  . #x83AB)	; 莫
+      ))
     (=ucs		. #x23A4E)	; 𣩎
     ))
 (define-char
@@ -3767,10 +3775,30 @@
     (ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (->subsumptive
-     ((=daikanwa	  . 16553)	; &M-16553;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-4	  . #x4A51)	; &C4-4A51; [42-49]
+     ((=ucs		  . #x6B79)	; 歹
+      )
+     ((=ucs@cns		  . #x83AB)	; &C1-5C7B;
+      (=cns11643-1	  . #x5C7B)	; &C1-5C7B; [60-91]
+      (=daikanwa	  . 31078)	; &I-M-31078;
+      ))
+    (=ucs@cns		. #x23A4E)	; &C4-4A51;
+    (=cns11643-4	. #x4A51)	; &C4-4A51; [42-49]
+    (=daikanwa		. 16553)	; &I-M-16553;
+    (<-same
+     ((=cns11643-4	  . #x4A50)	; &C4-4A50; [42-48]
+      (=daikanwa	  . 16552)	; &I-M-16552;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 16553)	; &g2-M-16553;
+      )
+     ((==ucs@cns	  . #x23A4E)	; &g2-CU+23A4E;
+      (==cns11643-4	  . #x4A51)	; &g2-CU+23A4E; [42-49]
       ))
     ))
 (define-char
@@ -3781,8 +3809,21 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (hanyu-dazidian	2 1393 1)
-    (=ucs@iso		. #x23A4E)	; &HZK04-C950;
-    (=hanziku-4		. #xC950)	; &HZK04-C950;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6B79)	; 歹
+      )
+     ((=ucs@unicode	  . #x83AB)	; &MJ022034;
+      (=mj		  . 022034)	; &MJ022034;
+      ))
+    (=ucs@iso		. #x23A4E)	; &U-00023A4E;
+    (->subsumptive
+     ((=hanziku-4	  . #xC950)	; &HZK04-C950;
+      )
+     ((==ucs@iso	  . #x23A4E)	; &g2-IU-00023A4E;
+      ))
     ))
 (define-char
   '((ideographic-radical . 78)	; ⽍
