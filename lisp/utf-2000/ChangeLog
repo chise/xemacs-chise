@@ -1,5 +1,66 @@
 2017-05-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R077-Stop.el (A-U+23944-itaiji-001): New abstract
+	node.
+	(U+23944-itaiji-001): New character; use `<-denotational' for
+	A-U+23944-itaiji-001; use `<-formed' for U-00023944; use
+	`<-original' for U+4E4F.
+	(U-0002397B): Apply new conventions for glyph granularity.
+	(U-0002397D): Likewise.
+	(U-00023987): Likewise.
+
+	* Ideograph-R075-Tree.el (U+6783): Apply new conventions for glyph
+	granularity.
+	(U+681A): Likewise.
+	(U-00023440): Likewise.
+	(U-00023441): Likewise.
+	(U-000234C6): Likewise.
+	(U+68DB): Likewise.
+	(U-000234D6): Likewise.
+	(U-00023515): Likewise.
+	(U-0002353E): Likewise.
+	(U+3B98): Unify M-15139.
+	(U-00023547): Apply new conventions for glyph granularity.
+	(U+3B9E): Likewise.
+	(U-00023551): Likewise.
+	(U+3BA8): Likewise.
+	(U+3BAC): Likewise.
+	(U+69B5): Likewise.
+	(U+69B9): Likewise.
+	(U+69BD): Likewise.
+	(U+3BB3): Likewise.
+	(U+3B9D): Likewise.
+	(A-IWDSU+6A27): New abstract node.
+	(U+699D): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+6A27.
+	(U+6A27): Likewise.
+	(U+3BA3): Apply new conventions for glyph granularity; add
+	`<-denotational' for U+69E9.
+	(UU+69E9): Use U+3BA3 instead of U+69E9 as its mother; unify
+	CU+3BA3 and C3-4167.
+	(U+6A06): Apply new conventions for glyph granularity.
+	(U+3BC6): Likewise.
+	(U-00023626): Likewise.
+	(U-0002362C): Likewise.
+	(U-00023633): Likewise.
+	(U+6AD8): Likewise.
+	(U-000237B5): Likewise.
+	(U+6AEB): Likewise.
+	(U-000237C5): Likewise.
+	(U+6AED): Likewise.
+	(U+3C0A): Likewise.
+	(U+6AFF): Likewise.
+	(U-000237F8): Likewise.
+	(U-0002380C): Likewise.
+	(U-0002381C): Likewise.
+	(U-0002381F): Likewise.
+	(U-0002383C): Likewise.
+	(U-0002383E): Likewise.
+	(U-00023840): Likewise.
+	(U-0002384C): Likewise.
+	(U-00025914): Likewise.
+	(U-0002386B): Likewise.
+
 	* Ideograph-R004-Slash.el (U-000200B9): Apply new conventions for
 	glyph granularity.
 	(U+200B9-var-001): New character; use `<-denotational' for
