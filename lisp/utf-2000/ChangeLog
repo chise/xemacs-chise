@@ -3,6 +3,10 @@
 	* Ideograph-R049-Oneself.el (U-00022045): Use `->denotational' and
 	`->subsumptive'.
 
+2017-05-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R062-Halberd.el (U-000229C2): New character.
+
 2017-05-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U-00020BB2): Use `->denotational' and
