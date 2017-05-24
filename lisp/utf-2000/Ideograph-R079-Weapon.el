@@ -3,13 +3,13 @@
   '((ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (=>ucs@component	. #x6BB3)	; &IWDS1-220;
-    (=>iwds-1		.  0220)	; &IWDS1-220;
+    (=>ucs@component	. #x6BB3)	; &A-compU+6BB3;
+    (=>iwds-1		.  0220)	; &A-compU+6BB3;
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x6BB3)	; &IWDS1-220;
-      (=>iwds-1		  .  0220)	; &IWDS1-220;
+     ((=>ucs@component	  . #x6BB3)	; &A-compU+6BB3;
+      (=>iwds-1		  .  0220)	; &A-compU+6BB3;
       ))
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 0)
@@ -3518,8 +3518,15 @@
     ))
 (define-char
   '((ideographic-radical . 79)	; ⽎
-    (ideographic-strokes . 23)
-    (total-strokes	 . 27)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7A40)	; 穀
+      )
+     ((=ucs		  . #x6703)	; 會
+      ))
+    (sound@ja/on	"wi")
     (=ucs		. #x23AEA)	; 𣫪
     ))
 (define-char
@@ -3529,7 +3536,24 @@
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 23)
     (total-strokes	 . 27)
-    (=daikanwa		. 16720)	; &M-16720;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-001	  . #x7A40)	; &U-i001+7A40;
+      )
+     ((=ucs@unicode	  . #x6703)	; &AJ1-04171;
+      (=adobe-japan1-0	  . 04171)	; &AJ1-04171;
+      ))
+    (=mj		. 038958)	; &MJ038958;
+    (=koseki		. 189520)	; &MJ038958;
+    (=daikanwa		. 16720)	; &I-M-16720;
+    (->subsumptive
+     ((==daikanwa	  . 16720)	; &g2-M-16720;
+      )
+     ((==mj		  . 038958)	; &g2-MJ038958;
+      (==koseki		  . 189520)	; &g2-MJ038958;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -3538,12 +3562,26 @@
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 23)
     (total-strokes	 . 27)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x2F959)	; 穀
+      )
+     ((=ucs@unicode	  . #x6703)	; &AJ1-04171;
+      (=adobe-japan1-0	  . 04171)	; &AJ1-04171;
+      ))
+    (=ucs@iso		. #x23AEA)	; &U-00023AEA;
     (->subsumptive
      ((=cbeta		  . 00751)	; &CB00751;
       )
      ((=cbeta		  . 00988)	; &CB00988;
       )
-     ((=ucs@iso		  . #x23AEA)	; &HZK06-BE6F;
-      (=hanziku-6	  . #xBE6F)	; &HZK06-BE6F;
+     ((==ucs@iso	  . #x23AEA)	; &g2-IU-00023AEA;
+      (->subsumptive
+       ((===ucs@iso	    . #x23AEA)	; &R-U-00023AEA;
+	)
+       ((=hanziku-6	    . #xBE6F)	; &HZK06-BE6F;
+	))
       ))
     ))
