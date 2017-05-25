@@ -2692,9 +2692,7 @@
       (=ucs		  . #x2FF0)	; ⿰
       )
      ((=ucs@cns		  . #x8338)	; &C1-5775;
-      (=ucs@ks		  . #x8338)	; &C1-5775;
-      (=ks-x1001	  . #x6947)	; &C1-5775; [73-39]
-      (=cns11643-1	  . #x5775)	; &I-C1-5775; [55-85]
+      (=cns11643-1	  . #x5775)	; &C1-5775; [55-85]
       (=daikanwa	  . 30918)	; &I-M-30918;
       )
      ((=ucs		  . #x6BDB)	; 毛
@@ -2750,7 +2748,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@unicode	    . #x8338)	; &g2-UU+8338;
+       ((==ucs@unicode	    . #x8338)	; &g2-K0-6947;
 	)
        ((==ucs@unicode	    . #x6BDB)	; &g2-AJ1-03807;
 	(==adobe-japan1-0   . 03807)	; &g2-AJ1-03807;
