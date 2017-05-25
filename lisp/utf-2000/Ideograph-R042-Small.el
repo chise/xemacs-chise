@@ -177,8 +177,8 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x23942)	; &IWDS1-283;
-      (=>iwds-1		  .  0283)	; &IWDS1-283;
+     ((=>ucs@component	  . #x23942)	; &A-compU+23942;
+      (=>iwds-1		  .  0283)	; &A-compU+23942;
       ))
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 1)
@@ -725,27 +725,6 @@
     ))
 (define-char
   '((ideographic-radical . 42)	; ⼩
-    (ideographic-strokes . 3)
-    (total-strokes	 . 6)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
-      )
-     ((name		  . "CJK RADICAL SMALL TWO")
-      (=ucs		  . #x2E8D)	; ⺍
-      )
-     ((=ucs		  . #x4E00)	; 一
-      )
-     ((=ucs		  . #x516B)	; 八
-      ))
-    (=gt-k		. 02290)	; &GT-K02290;
-    (=gt-pj-k1		. #x3226)	; &GT-K02290; [18-06]
-    (<-simplified@component/connect-below
-     ((=ucs		  . #x8207)	; 與
-      ))
-    ))
-(define-char
-  '((ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x21B5D)	; 𡭝
@@ -1066,13 +1045,13 @@
     ))
 (define-char
   '((ideographic-radical . 42)	; ⼩
-    (=>ucs@component	. #x21B82)	; &IWDS1-284;
-    (=>iwds-1		.  0284)	; &IWDS1-284;
+    (=>ucs@component	. #x21B82)	; &A-compU+21B82;
+    (=>iwds-1		.  0284)	; &A-compU+21B82;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x21B82)	; &IWDS1-284;
-      (=>iwds-1		  .  0284)	; &IWDS1-284;
+     ((=>ucs@component	  . #x21B82)	; &A-compU+21B82;
+      (=>iwds-1		  .  0284)	; &A-compU+21B82;
       ))
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 7)
@@ -1128,8 +1107,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x21B82)	; &IWDS1-284;
-      (=>iwds-1		  .  0284)	; &IWDS1-284;
+     ((=>ucs@component	  . #x21B82)	; &A-compU+21B82;
+      (=>iwds-1		  .  0284)	; &A-compU+21B82;
       ))
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 8)
@@ -1269,8 +1248,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x21B82)	; &IWDS1-284;
-      (=>iwds-1		  .  0284)	; &IWDS1-284;
+     ((=>ucs@component	  . #x21B82)	; &A-compU+21B82;
+      (=>iwds-1		  .  0284)	; &A-compU+21B82;
       ))
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 8)

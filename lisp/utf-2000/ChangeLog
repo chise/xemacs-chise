@@ -149,6 +149,11 @@
 	(U+23158-var-001): New character; use `<-denotational' for
 	U-00023158.
 
+2017-05-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R042-Small.el (GT-K02290): Add `<-subsumptive' for
+	U+5174; moved to Ideograph-R012-Eight.el.
+
 2017-05-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R008-Lid.el (U+4EA7): Use BC-8BAE instead of "⿱亠丷"
