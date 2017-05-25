@@ -623,7 +623,15 @@
     (total-strokes	 . 14)
     (=ucs		. #x386D)	; 㡭
     (->subsumptive
-     ((=daikanwa	  . 09215)	; &M-09215;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x221B8)	; 𢆸
+	)
+       ((=ucs		    . #x221B8)	; 𢆸
+	))
+      (=daikanwa	  . 09215)	; &M-09215;
       (=shinjigen	  .  6056)	; &M-09215;
       (<-formed
        ((=daikanwa	    . 27997)	; &M-27997;
@@ -649,9 +657,20 @@
 	))
       (<-same*sources
        shuowen daikanwa)
+      (->subsumptive
+       ((==daikanwa	    . 09215)	; &g2-M-09215;
+	(==shinjigen	    .  6056)	; &g2-M-09215;
+	))
       )
      ((=ucs@unicode	  . #x386D)	; &C3-465E;
       (=cns11643-3	  . #x465E)	; &C3-465E; [38-62]
+      (->subsumptive
+       ((==ucs@cns	    . #x386D)	; &g2-CU+386D;
+	(==cns11643-3	    . #x465E)	; &g2-CU+386D; [38-62]
+	)
+       ((==ucs@unicode	    . #x386D)	; &g2-UU+386D;
+	(==ucs@JP/hanazono  . nil)
+	))
       ))
     ))
 (define-char

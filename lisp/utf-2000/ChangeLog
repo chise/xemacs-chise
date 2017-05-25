@@ -1,5 +1,16 @@
 2017-05-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R052-Short-Thread.el (M-09215): Add
+	`ideographic-structure'; add representative nodes.
+
+	* Ideograph-R033-Scholar.el (U-00021532): New character; use
+	`<-denotational' for BUCS+58FA.
+	(U+21532-var-001): New character; use `<-denotational' for
+	U-00021532.
+	(U-00021548): New character.
+
+2017-05-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R077-Stop.el (A-U+23944-itaiji-001): New abstract
 	node.
 	(U+23944-itaiji-001): New character; use `<-denotational' for
@@ -148,6 +159,11 @@
 	* Ideograph-R072-Sun.el (U-00023158): New character.
 	(U+23158-var-001): New character; use `<-denotational' for
 	U-00023158.
+
+2017-05-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R042-Small.el (GT-K02290): Add `<-subsumptive' for
+	U+5174; moved to Ideograph-R012-Eight.el.
 
 2017-05-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
