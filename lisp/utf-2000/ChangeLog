@@ -1,5 +1,47 @@
 2017-05-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R081-Compare.el (U+3C8B): Use `->subsumptive'; unify
+	BC-8CD1.
+	(U-00023B0B): Use `->subsumptive'; add `<-vulgar' for U+3C8B.
+	(U-00023B0C): Use `->denotational' and `->subsumptive'; add
+	`<-ancient' for KU+6B21.
+	(U+23B0B-itaiji-001): New character; use `<-unknown' for
+	U-00023B0B.
+
+	* Ideograph-R080-Do-Not.el (IWDS1-0182): New abstract component.
+	(U+6BCB): Add `<-denotational' for IWDS1-0182.
+	(U+6BCC): Add `<-denotational@component' for IWDS1-0083 and
+	IWDS1-0182.
+	(U+6BCD): Add `<-denotational' for IWDS1-0182.
+	(BUCS+6BCF): New abstract node.
+	(J97-4B68): Add `<-denotational' for BUCS+6BCF.
+	(U-00023AED): Apply new conventions for glyph granularity; add
+	`<-denotational' for BUCS+6BCF.
+	(U-0002F8F8): Apply new conventions for glyph granularity.
+	(U+6BD2): Likewise.
+	(U+6BD2-var-004): New character; use `<-denotational' for
+	o-JU+6BD2.
+	(U-00023AFA): Apply new conventions for glyph granularity.
+
+	* Ideograph-R076-Lack.el (KU+6B21): Unify S-3908.
+	(UU+6B21): Unify S-3907.
+
+2017-05-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (U+3935): Add `ideographic-structure';
+	unify MJ001193, KOSEKI-120650 and S-2598; add `<-same' for
+	U-0002F8A6; add `<-vulgar' for U+6148.
+	(U-000226B9): New character.
+	(UU+6148): Unify S-2596.
+	(MJ011804): Add `ideographic-structure'; unify S-2597.
+	(U-0002F8A6): Add `ideographic-structure'.
+
+	* Ideograph-R031-Enclosure.el (U+56DF): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R021-Spoon.el (U-00020923): Use `->subsumptive'; add
+	`<-ancient' for KU+6B21.
+
 	* Ideograph-R013-Down-Box.el (A-U+56DF-itaiji-001): New abstract
 	node.
 	(U+56DF-itaiji-001): New character; use `<-denotational' for
