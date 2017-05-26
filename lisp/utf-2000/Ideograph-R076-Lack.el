@@ -94,6 +94,7 @@
     (=ks-x1001		. #x732D)	; &I-K0-732D; [83-13]
     (=hanyo-denshi/ks	. 181650)	; &MJ014748;
     (=daikanwa		. 15992)	; &I-M-15992;
+    (=shinjigen		.  3908)	; &MJ014748;
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x6B21)	; 次
@@ -105,6 +106,7 @@
       (==ks-x1001	  . #x732D)	; &g2-MJ014748; [83-13]
       (==hanyo-denshi/ks  . 181650)	; &g2-MJ014748;
       (==daikanwa	  . 15992)	; &g2-MJ014748;
+      (==shinjigen	  .  3908)	; &g2-MJ014748;
       (->subsumptive
        ((===daikanwa	    . 15992)	; &R-M-15992;
 	)
@@ -171,6 +173,7 @@
     (=gt-k		. 01626)	; &I-GT-K01626;
     (=gt-pj-1		. #x3C21)	; &I-GT-20574; [28-01]
     (=daikanwa/+p	. 15992)	; 次
+    (=shinjigen		.  3907)	; 次
     (<-same
      ((=ucs@ks		  . #x6B21)	; &MJ014748;
       (=mj		  . 014748)	; &MJ014748;
@@ -207,6 +210,10 @@
        ((===ucs@iso	    . #x2F8EF)	; &R-U-0002F8EF;
 	))
       )
+     ((===hng-khi	  . 04420)	; &HNG010-04420;
+      )
+     ((==shinjigen	  .  3907)	; &g2-SJG2-3907;
+      )
      ((==ucs@unicode	  . #x6B21)	; &g2-UU+6B21;
       (==ucs@cns	  . #x2F8EF)	; &g2-UU+6B21;
       (==ucs@JP/hanazono  . nil)
@@ -216,8 +223,6 @@
        ((===cns11643-6	    . #x2523)	; &R-C6-2523; [05-03]
 	)
        ((===ucs@unicode	    . #x6B21)	; &R-UU+6B21;
-	)
-       ((===hng-khi	    . 04420)	; &HNG010-04420;
 	))
       ))
     ))
