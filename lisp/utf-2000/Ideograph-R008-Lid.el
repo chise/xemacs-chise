@@ -3828,8 +3828,8 @@
       )
      ((=ucs		  . #x4EA0)	; 亠
       )
-     ((==>ucs@bucs	  . #x5967)	; &BUCS+5967;
-      (=>ucs@component	  . #x5967)	; &BUCS+5967;
+     ((=>ucs@component	  . #x5967)	; &A-compU+5967;
+      (=>iwds-1		  .  0281)	; &A-compU+5967;
       ))
     (=ucs		. #x20187)	; 𠆇
     ))
