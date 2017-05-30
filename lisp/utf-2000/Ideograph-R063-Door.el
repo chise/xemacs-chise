@@ -481,13 +481,73 @@
   '((ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>iwds-1		  .  0007)	; &IWDS1-007;
+      )
+     ((=ucs		  . #x6728)	; 木
+      ))
     (=ucs		. #x39BF)	; 㦿
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x39BF)	; 㦿
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x6236)	; 戶
+      )
+     ((=ucs		  . #x6728)	; 木
+      ))
+    (=ucs@cns		. #x39BF)	; &C4-2655;
+    (=cns11643-4	. #x2655)	; &C4-2655; [06-53]
+    (=daikanwa		. 11710)	; &I-M-11710;
     (->subsumptive
-     ((=daikanwa	  . 11710)	; &M-11710;
+     ((==daikanwa	  . 11710)	; &g2-M-11710;
       )
-     ((=cns11643-4	  . #x2655)	; &C4-2655; [06-53]
+     ((==ucs@cns	  . #x39BF)	; &g2-CU+39BF;
+      (==cns11643-4	  . #x2655)	; &g2-CU+39BF; [06-53]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x39BF)	; 㦿
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs@unicode	  . #x39BF)	; &UU+39BF;
+     ((=+>ucs@jis	  . #x6238)	; &o-J0-384D;
+      (=+>jis-x0208	  . #x384D)	; &o-J0-384D; [24-45]
+      )
+     ((=ucs		  . #x6728)	; 木
+      ))
+    (=ucs@unicode	. #x39BF)	; &UU+39BF;
+    (=ucs@JP/hanazono	. nil)
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x6237)	; 户
+	)
+       ((=ucs		    . #x6728)	; 木
+	))
+      (=>>ucs@unicode	  . #x39BF)	; &G-UU+39BF;
+      (->subsumptive
+       ((==ucs@unicode	    . #x39BF)	; &g2-UU+39BF;
+	(==ucs@JP/hanazono  . nil)
+	))
       ))
     ))
 (define-char
