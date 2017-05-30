@@ -1,3 +1,21 @@
+2017-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R079-Weapon.el (U-00023AC4): New character.
+
+	* Ideograph-R072-Sun.el (U-00023205): Apply new conventions for
+	glyph granularity.
+	(U+23205-var-001): New character; use `<-denotational' for
+	U-00023205.
+
+	* Ideograph-R063-Door.el (U+39BF): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R057-Bow.el (JU+5F25): Unify CB12752; add `<-same' for
+	UU+5F4C.
+	(U+38C6): Apply new conventions for glyph granularity.
+
+	* Ideograph-R027-Cliff.el (U-00020AA0): New character.
+
 2017-05-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R056-Shoot.el (U-00022380): Apply new conventions for

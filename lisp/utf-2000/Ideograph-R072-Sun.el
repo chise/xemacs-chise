@@ -9068,13 +9068,59 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x6797)	; 林
+     ((=>ucs@component	  . #x6797)	; &A-compU+6797;
+      (=>iwds-1		  .  0229)	; &A-compU+6797;
       )
      ((=ucs		  . #x65E5)	; 日
       ))
     (=ucs		. #x23205)	; 𣈅
-    (=daikanwa		. 14020)	; &I-M-14020;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23205)	; 𣈅
+      ))
+    (ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6797)	; 林
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
+    (=ucs@iso		. #x23205)	; &M-14020;
+    (=daikanwa		. 14020)	; &M-14020;
     (=cbeta		. 04877)	; &I-CB04877;
+    (->subsumptive
+     ((==daikanwa	  . 14020)	; &g2-M-14020;
+      )
+     ((==ucs@iso	  . #x23205)	; &g2-CB04877;
+      (==cbeta		  . 04877)	; &g2-CB04877;
+      (->subsumptive
+       ((===ucs@iso	    . #x23205)	; &R-U-00023205;
+	)
+       ((===cbeta	    . 04877)	; &R-CB04877;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23205)	; 𣈅
+      ))
+    (ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x233DF)	; 𣏟
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
+    (=ucs-var-001	. #x23205)	; &U-v001+23205;
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇

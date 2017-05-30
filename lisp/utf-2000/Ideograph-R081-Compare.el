@@ -423,7 +423,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
       )
-     ((=>ucs-itaiji-001	  . #x56DF)	; &A-U-i001+56DF;
+     ((=ucs		  . #x20B26)	; 𠬦
       )
      ((=ucs		  . #x5196)	; 冖
       )

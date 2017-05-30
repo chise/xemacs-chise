@@ -1623,6 +1623,14 @@
     (=gt-pj-1		. #x4C6F)	; &I-GT-12292; [44-79]
     (=daikanwa		. 09753)	; &I-M-09753;
     (=shinjigen		.  2276)	; &AJ1-03835;
+    (=cbeta		. 12752)	; &I-CB12752;
+    (<-same
+     ((=ucs@unicode	  . #x5F4C)	; &AJ1-04776;
+      (=adobe-japan1-0	  . 04776)	; &AJ1-04776;
+      (=daikanwa	  . 09877)	; &I-M-09877;
+      ))
+    (<-same*sources
+     yupian daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5F25)	; 弥
@@ -1662,6 +1670,8 @@
        ((===gt		    . 12292)	; &R-GT-12292;
 	(===gt-k	    . 03844)	; &R-GT-12292;
 	))
+      )
+     ((==cbeta		  . 12752)	; &g2-CB12752;
       ))
     ))
 (define-char
@@ -5575,12 +5585,36 @@
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      )
+     ((=ucs		  . #x74BD)	; 璽
+      ))
+    (=ucs		. #x38C6)	; 㣆
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x38C6)	; 㣆
+      ))
+    (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 18)
     (total-strokes	 . 21)
-    (=ucs		. #x38C6)	; 㣆
-    (=cns11643-3	. #x5E2E)	; &I-C3-5E2E; [62-14]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x5F13)	; &AJ1-01655;
+      (=adobe-japan1-0	  . 01655)	; &AJ1-01655;
+      )
+     ((=ucs-itaiji-001	  . #x74BD)	; &U-i001+74BD;
+      ))
+    (=ucs@unicode	. #x38C6)	; &C3-5E2E;
+    (=cns11643-3	. #x5E2E)	; &C3-5E2E; [62-14]
     (=daikanwa		. 09900)	; &I-M-09900;
-    (=shinjigen		.  2278)	; 㣆
+    (=shinjigen		.  2278)	; &C3-5E2E;
     (<-original
      ((=ucs@unicode	  . #x5F4C)	; &AJ1-04776;
       (=adobe-japan1-0	  . 04776)	; &AJ1-04776;
@@ -5589,6 +5623,19 @@
       ))
     (<-original*sources
      shinjigen)
+    (->subsumptive
+     ((==ucs@unicode	  . #x38C6)	; &g2-M-09900;
+      (==cns11643-3	  . #x5E2E)	; &g2-M-09900; [62-14]
+      (==daikanwa	  . 09900)	; &g2-M-09900;
+      (==shinjigen	  .  2278)	; &g2-M-09900;
+      (->subsumptive
+       ((===daikanwa	    . 09900)	; &R-M-09900;
+	)
+       ((===cns11643-3	    . #x5E2E)	; &R-C3-5E2E; [62-14]
+	)
+       ((===ucs@unicode	    . #x38C6)	; &R-UU+38C6;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x22447)	; 𢑇
