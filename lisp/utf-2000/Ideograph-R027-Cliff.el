@@ -4223,6 +4223,40 @@
 (define-char
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=>ucs-itaiji-001	  . #x6614)	; &A-U-i001+6614;
+      ))
+    (=ucs		. #x20AA0)	; 𠪠
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20AA0)	; 𠪠
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs-itaiji-002	  . #x6614)	; &U-i002+6614;
+      ))
+    (=ucs@iso		. #x20AA0)	; &U-00020AA0;
+    (->subsumptive
+     ((==ucs@iso	  . #x20AA0)	; &g2-IU-00020AA0;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 12)
     (total-strokes	 . 13)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
