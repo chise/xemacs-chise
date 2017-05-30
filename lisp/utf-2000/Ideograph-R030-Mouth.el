@@ -50547,8 +50547,8 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((==>ucs@bucs	  . #x5967)	; &BUCS+5967;
-      (=>ucs@component	  . #x5967)	; &BUCS+5967;
+     ((=>ucs@component	  . #x5967)	; &A-compU+5967;
+      (=>iwds-1		  .  0281)	; &A-compU+5967;
       ))
     (=ucs		. #x5662)	; 噢
     ))
