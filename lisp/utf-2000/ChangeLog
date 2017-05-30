@@ -1,3 +1,8 @@
+2017-05-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R056-Shoot.el (U-00022380): Apply new conventions for
+	glyph granularity.
+
 2017-05-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R081-Compare.el (U+3C8B): Use `->subsumptive'; unify
