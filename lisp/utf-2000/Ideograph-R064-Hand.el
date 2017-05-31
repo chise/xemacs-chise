@@ -9457,7 +9457,9 @@
       )
      ((=ucs		  . #x624C)	; 扌
       )
-     ((=cns11643-4	  . #x2655)	; &C4-2655; [06-53]
+     ((=ucs@cns		  . #x39BF)	; &C4-2655;
+      (=cns11643-4	  . #x2655)	; &C4-2655; [06-53]
+      (=daikanwa	  . 11710)	; &I-M-11710;
       ))
     (=ucs@iso		. #x22B84)	; &C5-3269;
     (=cns11643-5	. #x3269)	; &C5-3269; [18-73]
@@ -9482,6 +9484,14 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (hanyu-dazidian	3 1907 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x624C)	; 扌
+      )
+     ((=ucs@unicode	  . #x39BF)	; &UU+39BF;
+      ))
     (=hanziku-5		. #xDED6)	; &HZK05-DED6;
     ))
 (define-char
