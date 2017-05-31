@@ -12317,6 +12317,26 @@
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs-itaiji-002	  . #x5965)	; &U-i002+5965;
+      ))
+    (=ucs		. #x2A982)	; 𪦂
+    (<-simplified@misc
+     ((=ucs		  . #x3729)	; 㜩
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x2A982)	; &g2-IU-0002A982;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x5A77)	; 婷
@@ -20888,18 +20908,49 @@
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
-    (ideographic-strokes . 13)
-    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=>ucs@component	  . #x5967)	; &A-compU+5967;
+      (=>iwds-1		  .  0281)	; &A-compU+5967;
+      ))
     (=ucs		. #x3729)	; 㜩
-    (=daikanwa		. 06763)	; &I-M-06763;
     ))
 (define-char
-  '((=>ucs		. #x3729)	; 㜩
-    (morohashi-daikanwa	6763 0 0)
+  '((<-denotational
+     ((=ucs		  . #x3729)	; 㜩
+      ))
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs		  . #x5967)	; 奧
+      ))
+    (=ucs@unicode	. #x3729)	; &C3-5052;
     (=cns11643-3	. #x5052)	; &C3-5052; [48-50]
+    (=daikanwa		. 06763)	; &I-M-06763;
+    (->subsumptive
+     ((==ucs@unicode	  . #x3729)	; &g2-M-06763;
+      (==daikanwa	  . 06763)	; &g2-M-06763;
+      (->subsumptive
+       ((===daikanwa	    . 06763)	; &R-M-06763;
+	)
+       ((===ucs@unicode	    . #x3729)	; &R-UU+3729;
+	))
+      )
+     ((=hanziku-3	  . #xDD72)	; &HZK03-DD72;
+      )
+     ((==ucs@cns	  . #x3729)	; &g2-CU+3729;
+      (==cns11643-3	  . #x5052)	; &g2-CU+3729; [48-50]
+      ))
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
