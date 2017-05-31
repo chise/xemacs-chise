@@ -1442,10 +1442,38 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 244 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x2053F)	; 𠔿
+      )
+     ((=gt-k		  . 00264)	; &GT-K00264;
+      ))
     (=ucs		. #x34B7)	; 㒷
     (=cns11643-3	. #x2456)	; &I-C3-2456; [04-54]
     (=daikanwa		. 01471)	; &I-M-01471;
-    (=hanziku-1		. #xD876)	; &I-HZK01-D876;
+    (<-simplified@misc
+     ((=ucs@unicode	  . #x8208)	; &AJ1-01717;
+      (=adobe-japan1-0	  . 01717)	; &AJ1-01717;
+      (=daikanwa	  . 30226)	; &I-M-30226;
+      ))
+    (<-simplified@misc*sources
+     songyuan-yilai-suzipu daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x34B7)	; &g2-M-01471;
+      (==cns11643-3	  . #x2456)	; &g2-M-01471; [04-54]
+      (==daikanwa	  . 01471)	; &g2-M-01471;
+      (->subsumptive
+       ((===daikanwa	    . 01471)	; &R-M-01471;
+	)
+       ((===cns11643-3	    . #x2456)	; &R-C3-2456; [04-54]
+	)
+       ((===ucs@unicode	    . #x34B7)	; &R-UU+34B7;
+	)
+       ((=hanziku-1	    . #xD876)	; &HZK01-D876;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 12)	; ⼋
@@ -1814,6 +1842,35 @@
       )
      ((hanyu-dazidian	  1 248 2)
       (=hanziku-1	  . #xD958)	; &HZK01-D958;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-001	  . #x56DF)	; &U-i001+56DF;
+      )
+     ((=gt-k		  . 00264)	; &GT-K00264;
+      ))
+    (=ucs		. #x2B92D)	; 𫤭
+    (<-formed
+     ((=ucs		  . #x2A94C)	; 𪥌
+      )
+     ((=ucs		  . #x34B7)	; 㒷
+      )
+     ((=ucs		  . #x8208)	; 興
+      ))
+    (->mistakable
+     ((=ucs-itaiji-002	  . #x5965)	; &U-i002+5965;
+      )
+     ((=ucs-itaiji-002	  . #x5351)	; &U-i002+5351;
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x2B92D)	; &g2-IU-0002B92D;
       ))
     ))
 (define-char
