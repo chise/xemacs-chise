@@ -1,5 +1,14 @@
 2017-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R055-Two-Hands.el (U-0002233F): Copied from
+	Ideograph-R102-Field.el; apply new conventions for glyph
+	granularity.
+	(U+5351-itaiji-002): New character.
+
+	* Ideograph-R012-Eight.el (U+34B7): Apply new conventions for
+	glyph granularity; add `<-simplified@misc' for UU+8208.
+	(U-0002B92D): New character.
+
 	* Ideograph-R066-Rap.el (U-00022FE8): Add `ideographic-structure'.
 	(M-13390): Likewise.
 	(IU+22FE8): Likewise.
