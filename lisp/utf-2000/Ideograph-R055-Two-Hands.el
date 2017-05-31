@@ -962,6 +962,75 @@
      daikanwa)
     ))
 (define-char
+  '((ideographic-radical@ucs . 55)	; ⼶
+    (ideographic-strokes@ucs . 5)
+    (ideographic-radical@cns . 102)	; ⽥
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7530)	; 田
+      )
+     ((=ucs		  . #x5EFE)	; 廾
+      ))
+    (=ucs		. #x2233F)	; 𢌿
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2233F)	; 𢌿
+      ))
+    (ideographic-radical@ucs . 55)	; ⼶
+    (ideographic-strokes@ucs . 5)
+    (ideographic-radical@cns . 102)	; ⽥
+    (ideographic-strokes@cns . 3)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7530)	; 田
+      )
+     ((=ucs@unicode	  . #x5EFE)	; &MJ011120;
+      (=mj		  . 011120)	; &MJ011120;
+      ))
+    (=ucs@iso		. #x2233F)	; &C3-2A39;
+    (=cns11643-3	. #x2A39)	; &C3-2A39; [10-25]
+    (<-formed
+     ((=ucs		  . #x24C1E)	; 𤰞
+      )
+     ((=ucs		  . #x5351)	; 卑
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x2233F)	; &g2-IU-0002233F;
+      (==cns11643-3	  . #x2A39)	; &g2-IU-0002233F; [10-25]
+      (->subsumptive
+       ((===cns11643-3	    . #x2A39)	; &R-C3-2A39; [10-25]
+	)
+       ((===ucs@iso	    . #x2233F)	; &R-U-0002233F;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 55)	; ⼶
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-001	  . #x56DF)	; &U-i001+56DF;
+      )
+     ((=ucs@unicode	  . #x5EFE)	; &MJ011120;
+      (=mj		  . 011120)	; &MJ011120;
+      ))
+    (=ucs-itaiji-002	. #x5351)	; &U-i002+5351;
+    (<-formed
+     ((=ucs		  . #x2233F)	; 𢌿
+      )
+     ((=ucs		  . #x5351)	; 卑
+      ))
+    ))
+(define-char
   '((ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
