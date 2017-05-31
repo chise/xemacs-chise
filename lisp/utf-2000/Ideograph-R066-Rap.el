@@ -6709,6 +6709,14 @@
     (ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs-itaiji-001	  . #x6614)	; &A-U-i001+6614;
+      )
+     ((=ucs		  . #x6534)	; 攴
+      ))
     (sound@ja/on	"saN")
     (=ucs		. #x22FE8)	; 𢿨
     ))
@@ -6719,6 +6727,14 @@
     (ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-itaiji-001	  . #x6614)	; &U-i001+6614;
+      )
+     ((=ucs		  . #x6534)	; 攴
+      ))
     (=daikanwa		. 13390)	; &M-13390;
     (<-Liwen
      ((=ucs@unicode	  . #x6563)	; &AJ1-02180;
@@ -6733,6 +6749,9 @@
       ))
     (<-same*sources
      jiyun daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 13390)	; &g2-M-13390;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -6741,6 +6760,14 @@
     (ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-itaiji-002	  . #x6614)	; &U-i002+6614;
+      )
+     ((=ucs		  . #x6534)	; 攴
+      ))
     (=ucs@iso		. #x22FE8)	; &C7-2E47;
     (=cns11643-7	. #x2E47)	; &C7-2E47; [14-39]
     (->subsumptive
@@ -6757,7 +6784,39 @@
     (ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs-itaiji-001	  . #x6614)	; &A-U-i001+6614;
+      )
+     ((=>ucs@component	  . #x6535)	; &A-compU+6535;
+      (=>iwds-1		  .  0194)	; &A-compU+6535;
+      ))
     (=ucs		. #x22FF1)	; 𢿱
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22FF1)	; 𢿱
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-itaiji-002	  . #x6614)	; &U-i002+6614;
+      )
+     ((=ucs		  . #x6535)	; 攵
+      ))
+    (=ucs@iso		. #x22FF1)	; &CB09201;
+    (=cbeta		. 09201)	; &CB09201;
+    (->subsumptive
+     ((==ucs@iso	  . #x22FF1)	; &g2-IU-00022FF1;
+      )
+     ((==cbeta		  . 09201)	; &g2-CB09201;
+      ))
     ))
 (define-char
   '((=>ucs		. #x22FE9)	; 𢿩
