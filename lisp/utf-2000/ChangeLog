@@ -1,5 +1,25 @@
 2017-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R066-Rap.el (U-00022FE8): Add `ideographic-structure'.
+	(M-13390): Likewise.
+	(IU+22FE8): Likewise.
+	(U-00022FF1): Likewise; apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R064-Hand.el (H5-DED6): Add `ideographic-structure'.
+
+2017-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R038-Woman.el (U-0002A982): New character.
+	(U+3729): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R013-Down-Box.el (U+56DF-itaiji-001): New character;
+	use `<-denotational' for U-00020B26.
+	(U+56DF-itaiji-005): Ditto.
+
+	* Ideograph-R010-Legs.el (U-00020486): Apply new conventions for
+	glyph granularity; add `<-ancient' for U+5152.
+
 	* Ideograph-R079-Weapon.el (U-00023AC4): New character.
 
 	* Ideograph-R072-Sun.el (U-00023205): Apply new conventions for
