@@ -1295,14 +1295,63 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (=ucs		. #x20B26)	; 𠬦
+    (=>ucs-itaiji-001	. #x56DF)	; 𠬦
+    (=>ucs-itaiji-005	. #x56DF)	; 𠬦
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20B26)	; 𠬦
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (hanyu-dazidian	1 393 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=big5-cdp	  . #x8BD6)	; &CDP-8BD6;
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (sound@ja/on/go	"nAu")
+    (sound@ja/on/kan	"dAu")
+    (=>ucs@iwds-1	. #x20B26)	; &MJ032017;
+    (=ucs@iso		. #x20B26)	; &MJ032017;
+    (=mj		. 032017)	; &MJ032017;
+    (=cns11643-5	. #x215F)	; &I-C5-215F; [01-63]
+    (=koseki		. 036320)	; &MJ032017;
+    (=daikanwa		. 03136)	; &I-M-03136;
+    (->formed
+     ((=>ucs@iwds-1	  . #x23CBF)	; &C6-2C58;
+      (=ucs@iso		  . #x23CBF)	; &C6-2C58;
+      (=cns11643-6	  . #x2C58)	; &C6-2C58; [12-56]
+      (=daikanwa	  . 17331)	; &I-M-17331;
+      )
+     ((=ucs		  . #x7847)	; 硇
+      (=daikanwa	  . 24162)	; &I-M-24162;
+      )
+     ((=ucs		  . #x40E9)	; 䃩
+      (=daikanwa	  . 24504)	; &I-M-24504;
+      ))
+    (->formed*sources
+     jiyun daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 03136)	; &M-03136;
+     ((==koseki		  . 036320)	; &g2-M-03136;
+      (==daikanwa	  . 03136)	; &g2-M-03136;
       )
-     ((=ucs@iso		  . #x20B26)	; &C5-215F;
-      (=cns11643-5	  . #x215F)	; &C5-215F; [01-63]
+     ((==ucs@iso	  . #x20B26)	; &g2-MJ032017;
+      (==mj		  . 032017)	; &g2-MJ032017;
+      (==cns11643-5	  . #x215F)	; &g2-MJ032017; [01-63]
+      (->subsumptive
+       ((===mj		    . 032017)	; &R-MJ032017;
+	)
+       ((===cns11643-5	    . #x215F)	; &R-C5-215F; [01-63]
+	)
+       ((===ucs@iso	    . #x20B26)	; &R-U-00020B26;
+	))
       )
-     ((hanyu-dazidian	  1 393 16)
-      (=hanziku-1	  . #xF6DF)	; &HZK01-F6DF;
+     ((=hanziku-1	  . #xF6DF)	; &HZK01-F6DF;
       ))
     ))
 (define-char
