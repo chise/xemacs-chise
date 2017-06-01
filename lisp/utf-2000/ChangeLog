@@ -1,3 +1,16 @@
+2017-05-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (U-00021EDF): Use `->denotational'
+	and `->subsumptive'.
+
+	* Ideograph-R029-Again.el (U-00020B26): Apply new conventions for
+	glyph granularity; unify A-U+56DF-itaiji-001 and
+	A-U+56DF-itaiji-005.
+	(IU+20B26): Add `=>ucs@iwds-1'; unify MJ032017 and KOSEKI-036320.
+
+	* Ideograph-R009-Man.el (U+50BB): Apply new conventions for glyph
+	granularity for components of ideographic-structure.
+
 2017-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R055-Two-Hands.el (U-0002233F): Copied from
