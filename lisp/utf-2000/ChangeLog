@@ -1,3 +1,11 @@
+2017-06-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R037-Big.el (U-0002A94C): New character.
+	(A-compU+5967): Separate BUCS+5967; add `<-denotational' for
+	BUCS+5967.
+	(U+5965-itaiji-002): New character; use `<-denotational' for
+	BUCS+5967.
+
 2017-05-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el (U-00021EDF): Use `->denotational'
