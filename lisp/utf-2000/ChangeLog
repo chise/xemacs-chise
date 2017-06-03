@@ -1,3 +1,12 @@
+2017-06-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R035-Go-Slowly.el (U-0002156B): Apply new conventions
+	for glyph granularity.
+	(U-00021569): Likewise.
+
+	* Ideograph-R023-Hiding-Enclosure.el (U-00020504): Use
+	`->subsumptive'.
+
 2017-06-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R012-Eight.el (U-00020502): Apply new conventions for
