@@ -1,3 +1,10 @@
+2017-06-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (U-00020502): Apply new conventions for
+	glyph granularity.
+	(IU+20525): Unify MJ031009 and HD-KS017520; add `<-formed' for
+	KU+517C.
+
 2017-06-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R037-Big.el (U-0002A94C): New character.
