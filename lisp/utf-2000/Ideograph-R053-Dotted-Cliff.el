@@ -8174,9 +8174,8 @@
       )
      ((=ucs		  . #x5E7F)	; 广
       )
-     ((=ucs@iso		  . #x20525)	; &C6-465B;
-      (=cns11643-6	  . #x465B)	; &C6-465B; [38-59]
-      (=daikanwa	  . 01493)	; &I-M-01493;
+     ((=ucs@iso		  . #x20525)	; &MJ031009;
+      (=mj		  . 031009)	; &MJ031009;
       ))
     (=ucs@JP/hanazono	. #x3898)	; &hanaJU+3898;
     (->subsumptive
