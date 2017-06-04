@@ -23333,21 +23333,83 @@
     (=hanziku-5		. #xE7F2)	; &I-HZK05-E7F2;
     ))
 (define-char
-  '((=>ucs		. #x22D3B)	; 𢴻
+  '((ideographic-radical . 64)	; ⼿
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x624C)	; 扌
+      )
+     ((=ucs		  . #x3A94)	; 㪔
+      ))
+    (=ucs		. #x22D3B)	; 𢴻
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22D3B)	; 𢴻
+      ))
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (hanyu-dazidian	3 1954 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x624C)	; 扌
+      )
+     ((=big5-cdp	  . #x8AD8)	; &CDP-8AD8;
+      (=daikanwa	  . 13263)	; &I-M-13263;
+      ))
     (=daikanwa		. 12760)	; &M-12760;
-    (=hanziku-5		. #xE875)	; &I-HZK05-E875;
+    (<-original
+     ((=ucs		  . #x6492)	; 撒
+      (=daikanwa	  . 12697)	; &I-M-12697;
+      ))
+    (<-original*sources
+     liushugu daikanwa)
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x624C)	; 扌
+	)
+       ((=ucs-var-001	    . #x3A94)	; &U-v001+3A94;
+	))
+      (=>>daikanwa	  . 12760)	; &G-M-12760;
+      (->subsumptive
+       ((==daikanwa	    . 12760)	; &g2-M-12760;
+	)
+       ((=hanziku-5	    . #xE875)	; &HZK05-E875;
+	))
+      ))
     ))
 (define-char
-  '((morohashi-daikanwa	12760 0 2)
+  '((<-denotational
+     ((=ucs		  . #x22D3B)	; 𢴻
+      ))
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (=ucs		. #x22D3B)	; 𢴻
-    (=cns11643-7	. #x233C)	; &I-C7-233C; [03-28]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x624C)	; 扌
+      )
+     ((=ucs@unicode	  . #x3A94)	; &UU+3A94;
+      ))
+    (=ucs@iso		. #x22D3B)	; &C7-233C;
+    (=cns11643-7	. #x233C)	; &C7-233C; [03-28]
+    (->subsumptive
+     ((==ucs@iso	  . #x22D3B)	; &g2-IU-00022D3B;
+      )
+     ((==ucs@cns	  . #x22D3B)	; &g2-CU+22D3B;
+      (==cns11643-7	  . #x233C)	; &g2-CU+22D3B; [03-28]
+      ))
     ))
 (define-char
   '((=>ucs		. #x22D3C)	; 𢴼
