@@ -1,5 +1,32 @@
 2017-06-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R075-Tree.el (IWDS1-0233): New abstract component;
+	unify A-compU+6728.
+	(U+6728): Add `<-denotational' for IWDS1-0233.
+	(GT-K00495): Use `<-subsumptive' instead of `<-denotational' for
+	Y+6728.
+	(U+6729): Add `<-denotational' for IWDS1-0233.
+	(U-000233B3): Apply new conventions for glyph granularity; add
+	`<-denotational@component' for IWDS1-0255.
+	(IWDS1-0228): New abstract component; unify A-compU+672F.
+	(U+672E): Add `<-denotational' for IWDS1-0228; add
+	`<-denotational@component' for IWDS1-0255.
+	(U+672F): Add `<-denotational' for IWDS1-0228.
+	(IWDS1-0229): New abstract component; unify A-compU+6797.
+	(U-000233DF): Use `->denotational' and `->subsumptive'; add
+	`<-denotational@component' for IWDS1-0229.
+	(U+6797): Add `<-denotational@component' for IWDS1-0229.
+	(U-0002352C): Unify M-15046.
+	(A-U+6614-itaiji-001): New abstract character; unify
+	A-U+6614-itaiji-002; use `<-ancient' for U+6614.
+	(U+6614-itaiji-002): New character; use `<-denotational' for
+	A-U+6614-itaiji-001.
+	(U+6614-itaiji-001): Ditto.
+	(U-000237EE): New character.
+	(IWDS1-0255): New abstract component; unify A-compU+233B3.
+
+	* Ideograph-R046-Mountain.el (U-00021F07): New character.
+
 	* Ideograph-R064-Hand.el (U-00022D3B): Use `->denotational' and
 	`->subsumptive'.
 
