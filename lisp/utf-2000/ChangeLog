@@ -1,5 +1,10 @@
 2017-06-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R064-Hand.el (U-00022D3B): Use `->denotational' and
+	`->subsumptive'.
+
+2017-06-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R035-Go-Slowly.el (U-0002156B): Apply new conventions
 	for glyph granularity.
 	(U-00021569): Likewise.
