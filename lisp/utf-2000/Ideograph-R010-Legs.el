@@ -2130,7 +2130,8 @@
       )
      ((=ucs		  . #x56DF)	; 囟
       )
-     ((=ucs		  . #x513F)	; 儿
+     ((=>ucs@component	  . #x513F)	; &A-compU+513F;
+      (=>iwds-1		  .  0222)	; &A-compU+513F;
       ))
     (=ucs		. #x20486)	; 𠒆
     (=cns11643-6	. #x2953)	; &I-C6-2953; [09-51]
@@ -2146,24 +2147,46 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((==ucs@unicode	    . #x56DF)	; &g2-AJ1-17410;
-	(==adobe-japan1-5   . 17410)	; &g2-AJ1-17410;
+       ((=ucs		    . #x56DF)	; 囟
 	)
-       ((==ucs@unicode	    . #x513F)	; &g2-AJ1-04208;
-	(==adobe-japan1-0   . 04208)	; &g2-AJ1-04208;
+       ((=ucs		    . #x513F)	; 儿
 	))
-      (==ucs@iso	  . #x20486)	; &g2-M-01366;
-      (==cns11643-6	  . #x2953)	; &g2-M-01366; [09-51]
-      (==daikanwa	  . 01366)	; &g2-M-01366;
+      (=>>ucs@iso	  . #x20486)	; &G-IU+20486;
+      (=>>daikanwa	  . 01366)	; &G-IU+20486;
       (->subsumptive
-       ((===daikanwa	    . 01366)	; &R-M-01366;
-	)
-       ((===cns11643-6	    . #x2953)	; &R-C6-2953; [09-51]
-	)
-       ((===ucs@iso	    . #x20486)	; &R-U-00020486;
-	)
-       ((=hanziku-1	    . #xDE66)	; &HZK01-DE66;
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((==ucs@unicode      . #x56DF)	; &g2-AJ1-17410;
+	  (==adobe-japan1-5   . 17410)	; &g2-AJ1-17410;
+	  )
+	 ((==ucs@unicode      . #x513F)	; &g2-AJ1-04208;
+	  (==adobe-japan1-0   . 04208)	; &g2-AJ1-04208;
+	  ))
+	(==ucs@iso	    . #x20486)	; &g2-M-01366;
+	(==cns11643-6	    . #x2953)	; &g2-M-01366; [09-51]
+	(==daikanwa	    . 01366)	; &g2-M-01366;
+	(->subsumptive
+	 ((===daikanwa	      . 01366)	; &R-M-01366;
+	  )
+	 ((===cns11643-6      . #x2953)	; &R-C6-2953; [09-51]
+	  )
+	 ((===ucs@iso	      . #x20486)	; &R-U-00020486;
+	  )
+	 ((=hanziku-1	      . #xDE66)	; &HZK01-DE66;
+	  ))
 	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x56DF)	; 囟
+	)
+       ((=ucs		    . #x516B)	; 八
+	))
+      (=ucs-var-001	  . #x20486)	; &U-v001+20486;
       ))
     ))
 (define-char

@@ -1,3 +1,10 @@
+2017-06-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (U-00020486): Apply new conventions for
+	glyph granularity.
+	(U+20486-var-001): New character; use `<-subsumptive' for
+	U-00020486.
+
 2017-06-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R075-Tree.el (IWDS1-0233): New abstract component;
