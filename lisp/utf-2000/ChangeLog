@@ -1,3 +1,11 @@
+2017-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R049-Oneself.el (A-CU+22045): New abstract node; use
+	`<-denotational' for U-00022045.
+	(CU+22045): Use A-CU+22045 instead of U-00022045 as its mother.
+	(U+22045-var-002): New character; use `<-denotational' for
+	A-CU+22045.
+
 2017-06-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R010-Legs.el (U-00020486): Apply new conventions for
