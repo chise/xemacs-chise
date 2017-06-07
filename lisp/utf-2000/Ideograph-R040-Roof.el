@@ -7885,6 +7885,26 @@
     (=cns11643-1	. #x684E)	; &HD-KS-082790; [72-46]
     (=hanyo-denshi/ks	. 082790)	; &HD-KS-082790;
     (=daikanwa		. 07282)	; &I-M-07282;
+    (<-formed
+     ((=ucs@cns		  . #x6F20)	; &MJ015839;
+      (=mj		  . 015839)	; &MJ015839;
+      ))
+    (<-formed*sources
+     chuci-jizhu)
+    (<-interchangeable
+     ((=ucs@cns		  . #x6F20)	; &MJ015839;
+      (=mj		  . 015839)	; &MJ015839;
+      (=daikanwa	  . 18149)	; &I-M-18149;
+      ))
+    (<-interchangeable*sources
+     chuci-jizhu daikanwa)
+    (<-same
+     ((=ucs@cns		  . #x55FC)	; &C2-4932;
+      (=cns11643-2	  . #x4932)	; &C2-4932; [41-18]
+      (=daikanwa	  . 04152)	; &I-M-04152;
+      ))
+    (<-same*sources
+     guangyun daikanwa)
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x5BDE)	; 寞

@@ -1,5 +1,42 @@
 2017-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R086-Fire.el (U+7077): Apply new conventions for glyph
+	granularity.
+	(U+3DA7): Likewise.
+	(U-0002F919): Likewise; add `<-denotational' for U+7077.
+	(U+70A2): Apply new conventions for glyph granularity.
+	(U+70A6): Likewise.
+	(U-00024264): Use `->denotational' and `->subsumptive'.
+	(M-19166): Unify MJ031012 and HD-KS215800.
+	(U+716A): Apply new conventions for glyph granularity.
+	(U-000242C3): Use `->denotational' and `->subsumptive'.
+	(U-00024301): Apply new conventions for glyph granularity.
+	(U+7178): Likewise.
+	(U+71A4): Likewise.
+	(U+71A9): Likewise.
+	(U-00024391): New character.
+	(U+71BC): Apply new conventions for glyph granularity.
+	(U-000243A8): Likewise.
+	(U-000243A9): Likewise.
+	(U+71E4): Likewise.
+	(U+71E7): Likewise.
+	(U+7202): Likewise.
+	(U+7204): Likewise.
+	(U-00024454): Likewise.
+	(U+3E0F): Likewise.
+	(U+7222): Likewise.
+
+2017-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (CU+5BDE): Add `<-formed' and
+	`<-interchangeable' for CU+6F20; add `<-same' for CU+55FC.
+
+	* Ideograph-R030-Mouth.el (U+55FC): Apply new conventions for
+	glyph granularity.
+	(U-00020EE6): Use `->denotational' and `->subsumptive'.
+	(U-00020FEC): New character.
+	(U-00021087): Ditto.
+
 	* Ideograph-R049-Oneself.el (A-CU+22045): New abstract node; use
 	`<-denotational' for U-00022045.
 	(CU+22045): Use A-CU+22045 instead of U-00022045 as its mother.
