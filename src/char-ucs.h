@@ -1,5 +1,5 @@
 /* Header for UCS-4 character representation.
-   Copyright (C) 1999,2000,2001,2002,2003,2004,2008,2009 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003,2004,2008,2009,2017 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -106,7 +106,7 @@ typedef short Charset_ID;
 #define LEADING_BYTE_UCS_SIP		11
 
 #define MIN_LEADING_BYTE_PRIVATE	12
-#define MAX_LEADING_BYTE_PRIVATE	512
+#define MAX_LEADING_BYTE_PRIVATE	1024
 
 
 /* ISO 646 IRV */
