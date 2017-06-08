@@ -1,3 +1,7 @@
+2017-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-ucs.h (MAX_LEADING_BYTE_PRIVATE): Use 1024 instead of 512.
+
 2016-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* chartab.h (USE_CONCORD_OBJECT_SYSTEM): New macro; use it instead
