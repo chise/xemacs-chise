@@ -1,3 +1,8 @@
+2017-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R051-Dry.el (KU+5E73): Unify S-2151.
+	(UU+5E73): Unify S-2150.
+
 2017-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R086-Fire.el (U+7077): Apply new conventions for glyph
