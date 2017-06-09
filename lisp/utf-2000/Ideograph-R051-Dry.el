@@ -176,6 +176,7 @@
     (=gt-k		. 01070)	; &I-GT-K01070;
     (=gt-pj-3		. #x4269)	; &I-GT-11550; [34-73]
     (=daikanwa		. 09167)	; &I-M-09167;
+    (=shinjigen		.  2151)	; &MJ010942;
     (=jef-china3	. #x4CB0)	; &I-JC3-4CB0;
     (->subsumptive
      ((=decomposition@cid
@@ -196,6 +197,7 @@
       (==gt		  . 11550)	; &g2-MJ010942;
       (==gt-k		  . 01070)	; &g2-MJ010942;
       (==daikanwa	  . 09167)	; &g2-MJ010942;
+      (==shinjigen	  .  2151)	; &g2-MJ010942;
       (==jef-china3	  . #x4CB0)	; &g2-MJ010942;
       (->subsumptive
        ((===daikanwa	    . 09167)	; &R-M-09167;
@@ -234,6 +236,7 @@
     (=gt		. 11551)	; &I-GT-11551;
     (=gt-k		. 01071)	; &I-GT-K01071;
     (=gt-pj-1		. #x4A3F)	; &I-GT-11551; [42-31]
+    (=shinjigen		.  2150)	; &MJ010943;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5E73)	; 平
@@ -255,6 +258,7 @@
       (==hanyo-denshi/ja  . #x4A3F)	; &g2-MJ010943; [42-31]
       (==gt		  . 11551)	; &g2-MJ010943;
       (==gt-k		  . 01071)	; &g2-MJ010943;
+      (==shinjigen	  .  2150)	; &g2-MJ010943;
       (->subsumptive
        ((===jis-x0208	    . #x4A3F)	; &R-J0-4A3F; [42-31]
 	(===jis-x0213-1	    . #x4A3F)	; &R-J0-4A3F; [42-31]
