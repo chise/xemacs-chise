@@ -1,4 +1,108 @@
+2017-06-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el (U-00022EFE): Apply new conventions for
+	glyph granularity.
+	(A-M-13263): New abstract node.
+	(U+3A94): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-M-13263.
+	(U+3A94-var-001): New character; use `<-subsumptive' for BC-8AD8.
+	(U-00022F73): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-M-13263.
+	(A-M-13270): New abstract node.
+	(U+6564): Add `<-denotational' for A-M-13270; apply new
+	conventions for glyph granularity.
+	(U+3A99): Likewise.
+	(A-M-13380): New abstract node.
+	(U-00022FE2): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-M-13380.
+	(M-13380): Unify MJ037396 and KOSEKI-150070; add `->formed' for
+	MJ033743; add `->formed*note' about a typo of Daikanwa; add
+	`->interchangeable' for JU+4E82.
+	(MJ037397): New character; use `<-denotational' for U-00022FE2;
+	add H4-DA53.
+	(U-00022FF3): Apply new conventions for glyph granularity; use
+	`<-denotational' for A-M-13380 instead of `morohashi-daikanwa'.
+	(U-00022FEE): Use `->denotational' and `->subsumptive'.
+	(A-M-13431): Unify BUCS+6585.
+	(U+6585): Apply new conventions for glyph granularity.
+	(U+6569): Likewise; add `<-denotational' for BUCS+6585.
+	(U+6586): Apply new conventions for glyph granularity.
+	(U-00022F7E): New character; use `<-denotational' for BUCS+6585.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=ucs-itaiji-007', `=ucs-itaiji-011' and `=>ucs-itaiji-007'.
+
+	* Ideograph-R093-Cow.el (U+7286): Apply new conventions for glyph
+	granularity.
+	(U-0002468E): Likewise.
+	(U+3E4C): Likewise.
+
+	* Ideograph-R090-Half-Tree-Trunk.el (U-00024596): Apply new
+	conventions for glyph granularity.
+
+	* Ideograph-R085-Water.el (U+6C4A): Apply new conventions for
+	glyph granularity.
+	(U+6CCA): Likewise.
+	(U-00023CBF): Use `->denotational' and `->subsumptive'.
+	(IU+23CBF): Add `=>ucs@iwds-1'.
+	(U-00023CCB): Apply new conventions for glyph granularity.
+	(U+3CD7): Likewise.
+	(U+6D26): Likewise.
+	(U+6D5D): Likewise.
+	(U+6D73): Likewise.
+	(U+6D7D): Likewise.
+	(U+6DD3): Likewise.
+	(U+6DED): Likewise.
+	(U+6E60): Likewise.
+	(U+3D1A): Likewise.
+	(U-00023E5D): Likewise.
+	(U+3D25): Likewise.
+	(U+3D2D): Likewise.
+	(U+3D32): Likewise.
+	(U+3D34): Likewise.
+	(M-18020): Add `<-ancient' for U+6E5B.
+	(U+6EDD): Add ideographic-structure.
+	(U+6F22): Likewise.
+	(U+6F20): Apply new conventions for glyph granularity.
+	(U+6F2B): Likewise.
+	(U-00023F1A): Likewise.
+	(U+6F2D): Likewise.
+	(U+6F5A): Delete `japanese-strokes'; add `ideographic-structure'.
+	(U+6F72): Apply new conventions for glyph granularity.
+	(U+6F78): Likewise.
+	(U+6F98): Likewise.
+	(U-00023F7D): Likewise.
+	(U+6FB7): Likewise.
+	(U+6FE2): Likewise.
+	(U+3D73): Likewise.
+	(U+3D75): Likewise.
+	(U-00024028): Likewise.
+	(U+3D79): Likewise.
+	(U-00024037): Likewise.
+	(U+3D7E): Likewise.
+	(U-00024071): Likewise.
+	(U+7008): Likewise.
+	(U-00024082): Likewise.
+	(U-00024085): Likewise.
+	(U-00024086): Likewise.
+	(U+7025): Likewise.
+	(U+7027): Likewise.
+	(U+702B): Likewise.
+	(U-0002414A): Likewise.
+
 2017-06-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (U-000227FD): Use `->denotational' and
+	`->subsumptive'.
+	(U+6155): Add `ideographic-structure'.
+	(MJ011822): Likewise; add `<-interchangeable' for CU+6F20; add
+	`->original' for M-11087.
+	(UU+6155): Add `ideographic-structure'.
+	(U-00022827): New character.
+
+	* Ideograph-R047-River.el (UU+5DE2): Unify S-3644.
+	(MJ057404): Add `ideographic-structure'.
+	(U+5DE3): Unify S-3643.
 
 	* Ideograph-R051-Dry.el (KU+5E73): Unify S-2151.
 	(UU+5E73): Unify S-2150.
