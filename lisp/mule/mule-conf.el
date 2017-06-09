@@ -4899,6 +4899,27 @@
 		  max-code #x9FCC
 		  registry "ucs\\.itaiji006-0"))
 
+  (make-charset '=>ucs-itaiji-007
+		"Abstract characters corresponding with uXXXX-itaiji-007 of GlyphWiki"
+		'(long-name	"UCS-itaiji-007"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs))
+  (make-charset '=>ucs-sip-itaiji-007
+		"uXXXX-itaiji-007 characters in SIP"
+		'(long-name	"UCS-SIP-itaiji-007"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=>ucs-itaiji-007
+		  min-code #x20000 max-code #x2FFFF
+		  registry "ucs00\\.itaiji007-2"))
   (make-charset '=ucs-itaiji-007
 		"uXXXX-itaiji-007 glyphs of GlyphWiki"
 		'(long-name	"UCS-itaiji-007"
@@ -4922,6 +4943,17 @@
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.itaiji007-0"))
+  (make-charset '=ucs-sip-itaiji-007
+		"uXXXX-itaiji-007 glyph-images in SIP"
+		'(long-name	"UCS-SIP-itaiji-007"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs-itaiji-007
+		  min-code #x20000 max-code #x2FFFF
+		  registry "ucs00\\.itaiji007-2"))
 
   (make-charset '=ucs-itaiji-008
 		"uXXXX-itaiji-008 glyphs of GlyphWiki"
@@ -4946,6 +4978,7 @@
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.itaiji008-0"))
+
   (make-charset '=ucs-itaiji-009
 		"uXXXX-itaiji-009 glyphs of GlyphWiki"
 		'(long-name	"UCS-itaiji-009"
@@ -4969,6 +5002,29 @@
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.itaiji009-0"))
+
+  (make-charset '=ucs-itaiji-011
+		"uXXXX-itaiji-011 glyphs of GlyphWiki"
+		'(long-name	"UCS-itaiji-011"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs))
+  (make-charset '=ucs-sip-itaiji-011
+		"uXXXX-itaiji-011 glyphs in SIP"
+		'(long-name	"UCS-SIP-itaiji-011"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs-itaiji-011
+		  min-code #x20000 max-code #x2FFFF
+		  registry "ucs00\\.itaiji011-2"))
+
   (make-charset '=ucs-itaiji-084
 		"uXXXX-itaiji-084 glyph-images of GlyphWiki"
 		'(long-name	"UCS-itaiji-084"
