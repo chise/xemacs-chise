@@ -343,12 +343,15 @@
     =ucs-itaiji-004
     =ucs-itaiji-005
     =ucs-itaiji-006
+    =ucs-itaiji-007
     =ucs-itaiji-008
     =ucs-itaiji-009
+    =ucs-itaiji-011
     =>ucs-itaiji-001
     =>ucs-itaiji-002
     =>ucs-itaiji-005
     =>ucs-itaiji-006
+    =>ucs-itaiji-007
     =big5-cdp-var-001
     =big5-cdp-var-002
     =big5-cdp-var-003
