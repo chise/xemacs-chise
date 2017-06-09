@@ -956,6 +956,7 @@
     (=big5		. #xB15F)	; &I-B-B15F;
     (=hanyo-denshi/jc	. #x7428)	; &I-HD-JC-7428; [84-08]
     (=daikanwa		. 08696)	; &I-M-08696;
+    (=shinjigen		.  3644)	; &MJ010769;
     (=jef-china3	. #x52F1)	; &I-JC3-52F1;
     (->subsumptive
      ((=decomposition@cid
@@ -977,6 +978,7 @@
       (==jis-x0213-1	  . #x7428)	; &g2-MJ010769; [84-08]
       (==hanyo-denshi/jc  . #x7428)	; &g2-MJ010769; [84-08]
       (==daikanwa	  . 08696)	; &g2-MJ010769;
+      (==shinjigen	  .  3644)	; &g2-MJ010769;
       (==jef-china3	  . #x52F1)	; &g2-MJ010769;
       (->subsumptive
        ((===daikanwa	    . 08696)	; &R-M-08696;
@@ -1006,6 +1008,21 @@
     (ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x21FE8)	; 𡿨
+	)
+       ((=ucs		    . #x4E37)	; 丷
+	))
+      )
+     ((=ucs		  . #x679C)	; 果
+      ))
     (=mj		. 057404)	; &MJ057404;
     (=hanyo-denshi/jt	. #xB323)	; &I-HD-JT-B323;
     (->subsumptive
@@ -1037,6 +1054,7 @@
     (=gt-k		. 07816)	; &I-GT-K07816;
     (=gt-pj-1		. #x4163)	; &I-GT-12986; [33-67]
     (=daikanwa/+p	. 08696)	; 巣
+    (=shinjigen		.  3643)	; 巣
     (<-simplified@JP/Jouyou
      ((=ucs@unicode	  . #x5DE2)	; &MJ010769;
       (=mj		  . 010769)	; &MJ010769;
@@ -1050,6 +1068,7 @@
       (==gt		  . 12986)	; &g2-AJ1-02789;
       (==gt-k		  . 07816)	; &g2-AJ1-02789;
       (==daikanwa/+p	  . 08696)	; &g2-AJ1-02789;
+      (==shinjigen	  .  3643)	; &g2-AJ1-02789;
       (->subsumptive
        ((===daikanwa/+p	    . 08696)	; &R-M-p08696;
 	)
