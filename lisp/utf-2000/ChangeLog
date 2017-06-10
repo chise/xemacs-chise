@@ -1,5 +1,13 @@
 2017-06-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R091-Slice.el (U+7249): Apply new conventions for
+	glyph granularity.
+	(U-000245C4): Likewise.
+	(U+7251): Likewise.
+
+	* Ideograph-R036-Evening.el (U-000215B6): Apply new conventions
+	for glyph granularity.
+
 	* Ideograph-R066-Rap.el (U-00022EFE): Apply new conventions for
 	glyph granularity.
 	(A-M-13263): New abstract node.
