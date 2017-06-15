@@ -1,3 +1,11 @@
+2017-06-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (JU+4E82): Add `<-interchangeable' for
+	MJ037396; add `->ancient' for M-19720, M-02771 and M-03225; add
+	`->formed' for GT-25281.
+	(UU+4E82): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+
 2017-06-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R091-Slice.el (U+7249): Apply new conventions for
