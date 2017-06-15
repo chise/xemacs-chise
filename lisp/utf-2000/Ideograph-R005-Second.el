@@ -3450,6 +3450,24 @@
     (=gt-pj-1		. #x502C)	; &I-GT-00285; [48-12]
     (=daikanwa		. 00214)	; &I-M-00214;
     (=shinjigen		.  0061)	; &AJ1-04101;
+    (<-interchangeable
+     ((=mj		  . 037396)	; &MJ037396;
+      ))
+    (->ancient
+     ((=daikanwa	  . 19720)	; &M-19720;
+      )
+     ((=daikanwa	  . 02771)	; &M-02771;
+      )
+     ((=daikanwa	  . 03225)	; &M-03225;
+      ))
+    (->ancient*sources
+     jiyun daikanwa)
+    (->formed
+     ((=gt		  . 25281)	; &GT-25281;
+      (=daikanwa	  . 19687)	; &I-M-19687;
+      ))
+    (->formed*sources
+     yupian daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x4E82)	; 亂
@@ -3495,6 +3513,15 @@
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 12)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@iso		  . #x24514)	; &C4-386A;
+      (=cns11643-4	  . #x386A)	; &C4-386A; [24-74]
+      )
+     ((=ucs		  . #x4E5A)	; 乚
+      ))
     (=ucs@unicode	. #x4E82)	; &GT-00286;
     (=ucs@JP/hanazono	. nil)
     (=cns11643-1	. #x632A)	; &GT-00286; [67-10]
@@ -3507,8 +3534,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@iso	    . #x24514)	; &GT-K09372;
-	(=gt-k		    . 09372)	; &GT-K09372;
+       ((==ucs@iso	    . #x24514)	; &g2-GT-K09372;
 	)
        ((=ucs		    . #x4E5A)	; 乚
 	))
@@ -3530,8 +3556,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@cns	    . #x24514)	; &C4-386A;
-	(=cns11643-4	    . #x386A)	; &C4-386A; [24-74]
+       ((==ucs@cns	    . #x24514)	; &g2-CDP-8C7D;
+	(==cns11643-4	    . #x386A)	; &g2-CDP-8C7D; [24-74]
 	)
        ((=ucs		    . #x4E5A)	; 乚
 	))
