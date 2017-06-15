@@ -1,5 +1,19 @@
 2017-06-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R038-Woman.el (U-00021857): Use `->denotational' and
+	`->subsumptive'.
+	(U-0002189B): Likewise.
+	(U+5B4C): Apply new conventions for glyph granularity.
+	(U+373B): Add representative nodes.
+
+	* Ideograph-R029-Again.el (U-00020B97): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R024-Ten.el (U-000209CF): Use `->denotational' and
+	`->subsumptive'.
+
+2017-06-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R005-Second.el (JU+4E82): Add `<-interchangeable' for
 	MJ037396; add `->ancient' for M-19720, M-02771 and M-03225; add
 	`->formed' for GT-25281.
