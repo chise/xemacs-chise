@@ -2027,6 +2027,14 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=daikanwa		. 07446)	; &M-07446;
+    (->subsumptive
+     ((==daikanwa	  . 07446)	; &g2-M-07446;
+      (->subsumptive
+       ((===daikanwa	    . 07446)	; &R-M-07446;
+	)
+       ((=hanziku-2	    . #xB8C4)	; &HZK02-B8C4;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2037,6 +2045,15 @@
     (total-strokes	 . 12)
     (=ucs@iso		. #x21B33)	; &C4-3727;
     (=cns11643-4	. #x3727)	; &C4-3727; [23-07]
+    (->subsumptive
+     ((==ucs@iso	  . #x21B33)	; &g2-IU-00021B33;
+      (==cns11643-4	  . #x3727)	; &g2-IU-00021B33; [23-07]
+      (->subsumptive
+       ((===cns11643-4	    . #x3727)	; &R-C4-3727; [23-07]
+	)
+       ((===ucs@iso	    . #x21B33)	; &R-U-00021B33;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 41)	; ⼨
