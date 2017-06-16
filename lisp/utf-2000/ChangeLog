@@ -1,3 +1,22 @@
+2017-06-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R052-Short-Thread.el (U+221C7-itaiji-001): New
+	character.
+	(A-U+2AE95-itaiji-001): New abstract node.
+	(U+2AE95-itaiji-001): New character; use `<-denotational' for
+	A-U+2AE95-itaiji-001.
+	(U+2AE95-itaiji-002): Ditto.
+	(U-000221C7): Apply new conventions for glyph granularity.
+	(A-U+2452D-itaiji-001): New abstract node.
+	(U+2452D-itaiji-001): New character; use `<-denotational' for
+	A-U+2452D-itaiji-001.
+	(U+2452D-itaiji-002): Ditto.
+
+	* Ideograph-R040-Roof.el (U-00021A74): New character.
+
+	* Ideograph-R032-Earth.el (U+5853): Use `->subsumptive'.
+	(U-000213DF): New character.
+
 2017-06-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R038-Woman.el (U-00021857): Use `->denotational' and
