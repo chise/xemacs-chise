@@ -7823,6 +7823,41 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs		  . #x4343)	; 䍃
+      ))
+    (=ucs		. #x21A74)	; 𡩴
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21A74)	; 𡩴
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs@unicode	  . #x4343)	; &GT-K07393;
+      (=gt-k		  . 07393)	; &GT-K07393;
+      ))
+    (=ucs@iso		. #x21A74)	; &U-00021A74;
+    (->subsumptive
+     ((==ucs@iso	  . #x21A74)	; &g2-IU-00021A74;
+      ))
+    ))
+(define-char
   '((=>ucs		. #x3769)	; 㝩
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 11)
