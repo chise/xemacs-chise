@@ -15338,23 +15338,39 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x5853)	; 塓
-    (ideographic-radical . 32)	; ⼟
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
-    (=ucs@big5		. #x5853)	; &M-05330;
-    (=big5		. #xDCE2)	; &M-05330;
-    (=daikanwa		. 05330)	; &I-M-05330;
-    ))
-(define-char
-  '((morohashi-daikanwa	5330 0 0)
-    (ideographic-radical . 32)	; ⼟
+  '((ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (hanyu-dazidian	1 476 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=ucs		  . #x51A5)	; 冥
+      ))
     (=ucs		. #x5853)	; 塓
     (=iso-ir165		. #x7A57)	; &I-EGB-7A57; [90-55]
     (=cns11643-2	. #x4229)	; &I-C2-4229; [34-09]
+    (=big5		. #xDCE2)	; &I-B-DCE2;
+    (=daikanwa		. 05330)	; &I-M-05330;
+    (<-formed
+     ((=ucs		  . #x5E4E)	; 幎
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x5853)	; &g2-M-05330;
+      (==iso-ir165	  . #x7A57)	; &g2-M-05330; [90-55]
+      (==cns11643-2	  . #x4229)	; &g2-M-05330; [34-09]
+      (==daikanwa	  . 05330)	; &g2-M-05330;
+      (->subsumptive
+       ((===daikanwa	    . 05330)	; &R-M-05330;
+	)
+       ((===cns11643-2	    . #x4229)	; &R-C2-4229; [34-09]
+	)
+       ((===ucs@unicode	    . #x5853)	; &R-UU+5853;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
@@ -17666,6 +17682,41 @@
      ((=ucs@unicode	  . #x5871)	; &C2-4238;
       (=iso-ir165	  . #x2E33)	; &C2-4238; [14-19]
       (=cns11643-2	  . #x4238)	; &I-C2-4238; [34-24]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=ucs		  . #x4343)	; 䍃
+      ))
+    (=ucs		. #x213DF)	; 𡏟
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x213DF)	; 𡏟
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=ucs@unicode	  . #x4343)	; &GT-K07393;
+      (=gt-k		  . 07393)	; &GT-K07393;
+      ))
+    (=ucs@iso		. #x213DF)	; &U-000213DF;
+    (->subsumptive
+     ((==ucs@iso	  . #x213DF)	; &g2-IU-000213DF;
       ))
     ))
 (define-char
