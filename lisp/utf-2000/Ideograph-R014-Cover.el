@@ -1721,9 +1721,46 @@
       )
      ((=ucs		  . #x2BBDC)	; 𫯜
       ))
-    (=daikanwa		. 01596)	; &M-01596;
+    (=mj		. 010874)	; &MJ010874;
+    (=hanyo-denshi/ks	. 019080)	; &MJ010874;
+    (=daikanwa		. 01596)	; &I-M-01596;
+    (<-formed
+     ((=ucs		  . #x5E4E)	; 幎
+      )
+     ((=ucs@cns		  . #x51AA)	; &MJ007355;
+      (=mj		  . 007355)	; &MJ007355;
+      ))
+    (<-formed$_1*sources
+     shuowen-tongxun-dingsheng)
+    (<-interchangeable
+     ((=ucs@cns		  . #x5E55)	; &MJ010898;
+      (=mj		  . 010898)	; &MJ010898;
+      ))
+    (->formed
+     ((=ucs		  . #x5E4E)	; 幎
+      (=daikanwa	  . 09024)	; &I-M-09024;
+      ))
+    (->formed*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (->wrong
+     ((=ucs@cns		  . #x51AA)	; &MJ007355;
+      (=mj		  . 007355)	; &MJ007355;
+      (=daikanwa	  . 01601)	; &I-M-01601;
+      ))
+    (->wrong*sources
+     shuowen-tongxun-dingsheng daikanwa)
     (->subsumptive
-     ((==daikanwa	  . 01596)	; &g2-M-01596;
+     ((==mj		  . 010874)	; &g2-MJ010874;
+      (==hanyo-denshi/ks  . 019080)	; &g2-MJ010874;
+      (==daikanwa	  . 01596)	; &g2-MJ010874;
+      (->subsumptive
+       ((===daikanwa	    . 01596)	; &R-M-01596;
+	)
+       ((===hanyo-denshi/ks . 019080)	; &R-HD-KS-019080;
+	(=hanyo-denshi/ks/mf . #x0774)	; &R-HD-KS-019080;
+	)
+       ((===mj		    . 010874)	; &R-MJ010874;
+	))
       ))
     ))
 (define-char
@@ -1744,10 +1781,12 @@
       )
      ((=ucs		  . #x5DFE)	; 巾
       ))
-    (=ucs@unicode	. #x5E42)	; &C3-3979;
-    (=gb2312		. #x435D)	; &C3-3979; [35-61]
+    (=ucs@unicode	. #x5E42)	; &MJ010875;
+    (=mj		. 010875)	; &MJ010875;
+    (=gb2312		. #x435D)	; &I-G0-435D; [35-61]
     (=cns11643-3	. #x3979)	; &I-C3-3979; [25-89]
-    (=shinjigen		.  0537)	; &C3-3979;
+    (=hanyo-denshi/ks	. 101990)	; &MJ010875;
+    (=shinjigen		.  0537)	; &MJ010875;
     (<-original
      ((=ucs@cns		  . #x51AA)	; &MJ007355;
       (=mj		  . 007355)	; &MJ007355;
@@ -1756,11 +1795,18 @@
     (<-original*sources
      shinjigen)
     (->subsumptive
-     ((==ucs@unicode	  . #x5E42)	; &g2-UU+5E42;
-      (==gb2312		  . #x435D)	; &g2-UU+5E42; [35-61]
-      (==cns11643-3	  . #x3979)	; &g2-UU+5E42; [25-89]
-      (==shinjigen	  .  0537)	; &g2-UU+5E42;
+     ((==ucs@unicode	  . #x5E42)	; &g2-MJ010875;
+      (==mj		  . 010875)	; &g2-MJ010875;
+      (==gb2312		  . #x435D)	; &g2-MJ010875; [35-61]
+      (==cns11643-3	  . #x3979)	; &g2-MJ010875; [25-89]
+      (==hanyo-denshi/ks  . 101990)	; &g2-MJ010875;
+      (==shinjigen	  .  0537)	; &g2-MJ010875;
       (->subsumptive
+       ((===hanyo-denshi/ks . 101990)	; &R-HD-KS-101990;
+	(=hanyo-denshi/ks/mf . #x27D7)	; &R-HD-KS-101990;
+	)
+       ((===mj		    . 010875)	; &R-MJ010875;
+	)
        ((===cns11643-3	    . #x3979)	; &R-C3-3979; [25-89]
 	)
        ((===ucs@unicode	    . #x5E42)	; &R-UU+5E42;
@@ -2105,6 +2151,54 @@
     (=hanyo-denshi/ks	. 019150)	; &MJ007355;
     (=daikanwa		. 01601)	; &I-M-01601;
     (=shinjigen		.  0536)	; &MJ007355;
+    (<-same
+     ((=ucs		  . #x5196)	; 冖
+      (=daikanwa	  . 01565)	; &I-M-01565;
+      )
+     ((=ucs@cns		  . #x7F83)	; &C2-6645;
+      (=cns11643-2	  . #x6645)	; &C2-6645; [70-37]
+      (=daikanwa	  . 28393)	; &I-M-28393;
+      )
+     ((=mj		  . 010874)	; &MJ010874;
+      (=daikanwa	  . 01596)	; &I-M-01596;
+      )
+     ((=ucs		  . #x5E4E)	; 幎
+      (=daikanwa	  . 09024)	; &I-M-09024;
+      )
+     ((=ucs		  . #x5853)	; 塓
+      (=daikanwa	  . 05330)	; &I-M-05330;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same$_2*sources
+     jiyun daikanwa)
+    (<-same$_3*sources
+     jiyun zhengyun daikanwa)
+    (<-same$_4*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-same$_5*sources
+     daikanwa)
+    (<-same*sources
+     daikanwa)
+    (<-wrong
+     ((=ucs		  . #x5E4E)	; 幎
+      )
+     ((=mj		  . 010874)	; &MJ010874;
+      ))
+    (<-wrong$_1*sources
+     shuowen-tongxun-dingsheng)
+    (->formed
+     ((=mj		  . 010874)	; &MJ010874;
+      )
+     ((=ucs@cns		  . #x7F83)	; &C2-6645;
+      (=cns11643-2	  . #x6645)	; &C2-6645; [70-37]
+      (=daikanwa	  . 28393)	; &I-M-28393;
+      (=shinjigen	  .  0538)	; &C2-6645;
+      ))
+    (->formed$_1*sources
+     zhengyun)
+    (->formed*sources
+     zhengyun shinjigen)
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x51AA)	; 冪
