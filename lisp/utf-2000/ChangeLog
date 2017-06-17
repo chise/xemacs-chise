@@ -1,5 +1,68 @@
 2017-06-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R087-Claw.el (U-000244F2): Add `sound@ja/on'; apply
+	new conventions for glyph granularity.
+	(U+3E12): Apply new conventions for glyph granularity.
+	(U-00024500): Likewise.
+	(U-00024501): Likewise; add `sound@ja/on'.
+	(A-GT-K07307): New abstract node.
+	(GT-K07307): New character; use `<-denotational' for A-GT-K07307.
+	(U-0002AE8F): New character.
+	(U-00024514): Add `sound@ja/on'; apply new conventions for glyph
+	granularity.
+	(U-00024519): New character.
+	(U-0002451A): Likewise.
+	(A-U+24514-itaiji-007): New abstract node.
+	(U+24514-itaiji-007): New character; use `<-denotational' for
+	A-U+24514-itaiji-007.
+	(U+24514-itaiji-011): Ditto.
+	(U-00024520): Add `sound@ja/on'; apply new conventions for glyph
+	granularity.
+	(IU+24520): Unify M-19691.
+	(U-0002451D): New character.
+	(U-0002451C): Apply new conventions for glyph granularity.
+	(IU+2451C): Unify M-19693.
+	(U-0002AE95): New character.
+	(U-00024525): Add `sound@ja/on'; apply new conventions for glyph
+	granularity.
+	(U-00024527): Likewise; integrate M-19701.
+	(U-00024529): Add `sound@ja/on'; apply new conventions for glyph
+	granularity.
+	(U+7234): Delete `japanese-strokes'.
+	(U-0002452A): Use `->denotational' and `->subsumptive'.
+	(U-0002452D): New character.
+	(U-00024532): Apply new conventions for glyph granularity.
+	(U-00024540): Likewise; add `sound@ja/on'.
+	(U-00024545): Add `sound@ja/on'; apply new conventions for glyph
+	granularity.
+	(U-00024549): Likewise.
+	(U-0002454D): Use `->denotational' and `->subsumptive'.
+	(U-0002454C): New character.
+
+	* Ideograph-R050-Turban.el (U+5E21): Add `<-vulgar' for U+5E32.
+	(U+5E32): Add `ideographic-structure'.
+	(UU+5E42): Unify MJ010875 and HD-KS101990.
+	(U+5E4E): Add `<-same' for U-00027700, U+5853 and U+5E32; add
+	`->formed' for MJ010874, U-00027700, U+5853 and U+5E32.
+	(CU+5E55): Add `<-same' for CU+5E59 and CU+5E54; add `->formed'
+	for M-27836; add `->interchangeable' for CU+6F20, IU+215B6,
+	CU+83AB, M-27836, MJ010874, U+5E66 and CU+6F2B; add
+	`->interchangeable@ancient' for CU+83AB.
+	(U+5E66): Don't use char-ref for IDC.
+
+	* Ideograph-R041-Inch.el (U-00021B33): Add representative nodes.
+
+	* Ideograph-R014-Cover.el (M-01596): Unify MJ010874 and
+	HD-KS019080; add `<-formed' for U+5E4E and CU+51AA; add
+	`<-interchangeable' for CU+5E55; add `->formed' for U+5E4E; add
+	`->wrong' for CU+51AA.
+	(UU+5E42): Unify MJ010875 and HD-KS101990.
+	(CU+51AA): Add `<-same' for U+5196, CU+7F83, MJ010874, U+5E4E and
+	U+5853; add `<-wrong' for U+5E4E and MJ010874; add `->formed' for
+	MJ010874 and CU+7F83.
+
+2017-06-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R052-Short-Thread.el (U+221C7-itaiji-001): New
 	character.
 	(A-U+2AE95-itaiji-001): New abstract node.
