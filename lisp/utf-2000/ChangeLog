@@ -1,3 +1,30 @@
+2017-06-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R101-Use.el (A-IWDSU+752C): Separate UU+752C; unify
+	A-UU+752C, A-J0-6135, A-GT-27879 and A-GT-K02719; add `=>iwds-1'.
+
+	* Ideograph-R097-Melon.el (U+74DD): Apply new conventions for
+	glyph granularity.
+	(U+3F10): Likewise.
+
+	* Ideograph-R094-Dog.el (U+72B1): Don't use `kangxi-strokes'; fix
+	`ideographic-strokes'; add `ideographic-structure'; add
+	representative nodes.
+	(U-0002475E): Apply new conventions for glyph granularity.
+	(U+730F): Likewise.
+	(U+735A): Likewise.
+	(U-0002488C): Likewise.
+	(U+7374): Likewise.
+	(U+7376): Likewise.
+	(U+737E): Likewise.
+
+	* Ideograph-R081-Compare.el (U-00023B0C): Use A-U+56DF-itaiji-001
+	instead of U-00020B26 in `ideographic-structure'.
+
+	* Ideograph-R013-Down-Box.el (U+56DF-itaiji-001): Use
+	A-U+56DF-itaiji-001 instead of U-00020B26 as its mother.
+	(U+56DF-itaiji-005): Ditto.
+
 2017-06-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R087-Claw.el (U-000244F2): Add `sound@ja/on'; apply
