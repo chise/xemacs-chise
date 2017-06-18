@@ -1,3 +1,28 @@
+2017-06-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R096-Jade.el:
+	- Add `=decomposition@cid' for some Adobe-Japan1 abstract
+	  glyph-forms.
+	- Add some Adobe-Japan1 code points.
+	(U-00024931): Use `->subsumptive'.
+	(U-0002495C): Unify M-21020.
+	(U-00024977): Unify M-21025.
+	(U+7479): Apply new conventions for glyph granularity.
+	(U+7493): Likewise.
+	(U-00024A68): Unify M-21262.
+	(U-00024A5F): Unify M-21264.
+	(U-00024A64): Unify M-21265.
+	(U-00024A55): New character.
+	(U-00024A5E): Ditto.
+
+	* Ideograph-R085-Water.el (U-00023CBF): Unify IU+23CBF.
+
+	* Ideograph-R029-Again.el (A-IU+56DF-itaiji-001): Separate
+	U-00020B26; unify A-compU+20B26.
+	(MJ032017): Unify U-00020B26; use A-IU+56DF-itaiji-001 instead of
+	U-00020B26 as its mother.
+	(U-00020B38): Apply new conventions for glyph granularity.
+
 2017-06-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R101-Use.el (A-IWDSU+752C): Separate UU+752C; unify

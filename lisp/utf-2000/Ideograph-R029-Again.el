@@ -1294,13 +1294,14 @@
   '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (=ucs		. #x20B26)	; 𠬦
-    (=>ucs-itaiji-001	. #x56DF)	; 𠬦
-    (=>ucs-itaiji-005	. #x56DF)	; 𠬦
+    (=>ucs@component	. #x20B26)	; &A-compU+20B26;
+    (=>ucs-itaiji-001	. #x56DF)	; &A-compU+20B26;
+    (=>ucs-itaiji-005	. #x56DF)	; &A-compU+20B26;
     ))
 (define-char
-  '((<-denotational
-     ((=ucs		  . #x20B26)	; 𠬦
+  '((<-denotational@component
+     ((=>ucs@component	  . #x20B26)	; &A-compU+20B26;
+      (=>ucs-itaiji-001	  . #x56DF)	; &A-compU+20B26;
       ))
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 3)
@@ -1316,16 +1317,13 @@
       ))
     (sound@ja/on/go	"nAu")
     (sound@ja/on/kan	"dAu")
-    (=>ucs@iwds-1	. #x20B26)	; &MJ032017;
-    (=ucs@iso		. #x20B26)	; &MJ032017;
-    (=mj		. 032017)	; &MJ032017;
+    (=ucs		. #x20B26)	; 𠬦
+    (=mj		. 032017)	; &I-MJ032017;
     (=cns11643-5	. #x215F)	; &I-C5-215F; [01-63]
-    (=koseki		. 036320)	; &MJ032017;
+    (=koseki		. 036320)	; 𠬦
     (=daikanwa		. 03136)	; &I-M-03136;
     (->formed
-     ((=>ucs@iwds-1	  . #x23CBF)	; &C6-2C58;
-      (=ucs@iso		  . #x23CBF)	; &C6-2C58;
-      (=cns11643-6	  . #x2C58)	; &C6-2C58; [12-56]
+     ((=ucs		  . #x23CBF)	; 𣲿
       (=daikanwa	  . 17331)	; &I-M-17331;
       )
      ((=ucs		  . #x7847)	; 硇
@@ -1671,15 +1669,37 @@
   '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (hanyu-dazidian	1 394 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x56D8)	; 囘
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
     (=ucs		. #x20B38)	; 𠬸
+    (=cns11643-4	. #x2350)	; &I-C4-2350; [03-48]
+    (=daikanwa		. 03150)	; &I-M-03150;
+    (<-original
+     ((=ucs@iso		  . #x20B1B)	; &C5-2140;
+      (=cns11643-5	  . #x2140)	; &C5-2140; [01-32]
+      (=daikanwa	  . 03122)	; &I-M-03122;
+      ))
+    (<-original*sources
+     zhengzitong daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 03150)	; &M-03150;
+     ((==daikanwa	  . 03150)	; &g2-M-03150;
       )
-     ((hanyu-dazidian	  1 394 14)
-      (=hanziku-1	  . #xF6FD)	; &HZK01-F6FD;
-      )
-     ((=ucs@iso		  . #x20B38)	; &C4-2350;
-      (=cns11643-4	  . #x2350)	; &C4-2350; [03-48]
+     ((==ucs@iso	  . #x20B38)	; &g2-IU-00020B38;
+      (==cns11643-4	  . #x2350)	; &g2-IU-00020B38; [03-48]
+      (->subsumptive
+       ((===cns11643-4	    . #x2350)	; &R-C4-2350; [03-48]
+	)
+       ((===ucs@iso	    . #x20B38)	; &R-U-00020B38;
+	)
+       ((=hanziku-1	    . #xF6FD)	; &HZK01-F6FD;
+	))
       ))
     ))
 (define-char

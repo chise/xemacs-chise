@@ -6198,36 +6198,15 @@
       ))
     (sound@ja/on	"dAu")
     (=ucs		. #x23CBF)	; 𣲿
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x23CBF)	; 𣲿
-      ))
-    (ideographic-radical . 85)	; ⽔
-    (ideographic-strokes . 5)
-    (total-strokes	 . 8)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x6C35)	; 氵
-      )
-     ((=ucs@iso		  . #x20B26)	; &MJ032017;
-      (=mj		  . 032017)	; &MJ032017;
-      ))
-    (=>ucs@iwds-1	. #x23CBF)	; &C6-2C58;
-    (=ucs@iso		. #x23CBF)	; &C6-2C58;
-    (=cns11643-6	. #x2C58)	; &C6-2C58; [12-56]
+    (=cns11643-6	. #x2C58)	; &I-C6-2C58; [12-56]
     (=daikanwa		. 17331)	; &I-M-17331;
     (<-formed
-     ((=ucs@iso		  . #x20B26)	; &MJ032017;
-      (=mj		  . 032017)	; &MJ032017;
+     ((=ucs		  . #x20B26)	; 𠬦
       ))
     (<-formed*sources
      jiyun)
     (<-same
-     ((=ucs@iso		  . #x20B26)	; &MJ032017;
-      (=mj		  . 032017)	; &MJ032017;
+     ((=ucs		  . #x20B26)	; 𠬦
       (=daikanwa	  . 03136)	; &I-M-03136;
       ))
     (<-same*sources
