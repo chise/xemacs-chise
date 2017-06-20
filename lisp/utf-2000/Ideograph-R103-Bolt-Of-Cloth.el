@@ -187,9 +187,9 @@
       )
      ((=ucs		  . #x9FB0)	; 龰
       ))
-    (=gt-k		. 06360)	; &GT-K06360;
-    (=gt-pj-k1		. #x4F2C)	; &GT-K06360; [47-12]
-    (=ucs-itaiji-001	. #x758C)	; &GT-K06360;
+    (=gt-k		. 06360)	; &U-i001+758C;
+    (=gt-pj-k1		. #x4F2C)	; &U-i001+758C; [47-12]
+    (=ucs-itaiji-001	. #x758C)	; &U-i001+758C;
     ))
 (define-char
   '((ideographic-radical . 103)	; ⽦
