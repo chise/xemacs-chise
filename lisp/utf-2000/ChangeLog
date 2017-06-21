@@ -1,3 +1,31 @@
+2017-06-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R026-Seal.el (BUCS+5377): New abstract node.
+	(U+5377): Add `<-denotational' for BUCS+5377; apply new
+	conventions for glyph granularity.
+
+2017-06-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R106-White.el (U+768F): Apply new conventions for
+	glyph granularity.
+	(U+7698): Likewise.
+
+	* Ideograph-R104-Sickness.el (U+75F2): Add
+	`ideographic-structure'; add `sound@ja/on/{kan|go|conventional}'.
+	(U+75F3): Add `ideographic-structure'; add `sound@ja/on'.
+	(U-00024E2E): Apply new conventions for glyph granularity.
+	(U+763C): Add ideographic-structure.
+	(U+3FD1): Apply new conventions for glyph granularity.
+	(U-00024EE2): Likewise.
+
+2017-06-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R049-Oneself.el (U+5DFB): Add `<-denotational' for
+	BUCS+5377; add ideographic-structure.
+
+	* Ideograph-R018-Knife.el (U+5238): Apply new conventions for
+	glyph granularity.
+
 2017-06-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R098-Tile.el (U+3F36): Apply new conventions for glyph
