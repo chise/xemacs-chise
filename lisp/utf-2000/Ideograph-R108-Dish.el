@@ -755,13 +755,13 @@
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
-    (=>ucs@component	. #x6637)	; &IWDS1-320;
-    (=>iwds-1		.  0320)	; &IWDS1-320;
+    (=>ucs@component	. #x6637)	; &A-compU+6637;
+    (=>iwds-1		.  0320)	; &A-compU+6637;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x6637)	; &IWDS1-320;
-      (=>iwds-1		  .  0320)	; &IWDS1-320;
+     ((=>ucs@component	  . #x6637)	; &A-compU+6637;
+      (=>iwds-1		  .  0320)	; &A-compU+6637;
       ))
     (ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 5)
@@ -3036,6 +3036,9 @@
      ((=ucs		  . #x76BF)	; 皿
       ))
     (=ucs@iso		. #x250B4)	; &U-000250B4;
+    (->subsumptive
+     ((==ucs@iso	  . #x250B4)	; &g2-IU-000250B4;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -3048,26 +3051,18 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>>ucs@jis	  . #x5960)	; &G-AJ1-04556;
-      (=>>ucs@ks	  . #x5960)	; &G-AJ1-04556;
-      (=>>adobe-japan1-0  . 04556)	; &G-AJ1-04556;
+     ((=ucs@jis		  . #x5960)	; &MJ009514;
+      (=ucs@ks		  . #x5960)	; &MJ009514;
+      (=mj		  . 009514)	; &MJ009514;
       )
      ((=ucs		  . #x76BF)	; 皿
       ))
-    (=>>ucs@JP		. #x250B4)	; &G-dJU+250B4;
+    (=ucs@JP		. #x250B4)	; &dJU+250B4;
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs@jis	    . #x5960)	; &MJ009514;
-	(=ucs@ks	    . #x5960)	; &MJ009514;
-	(=mj		    . 009514)	; &MJ009514;
-	)
-       ((=ucs		    . #x76BF)	; 皿
+     ((==ucs@JP		  . #x250B4)	; &g2-hanaJU+250B4;
+      (->subsumptive
+       ((=hanziku-12	    . #xEEF2)	; &HZK12-EEF2;
 	))
-      (=ucs@JP		  . #x250B4)	; &HZK12-EEF2;
-      (=hanziku-12	  . #xEEF2)	; &HZK12-EEF2;
       ))
     ))
 (define-char
@@ -3448,4 +3443,16 @@
     (total-strokes	 . 29)
     (=ucs		. #x400D)	; 䀍
     (=cns11643-4	. #x6E48)	; &I-C4-6E48; [78-40]
+    ))
+(define-char
+  '((ideographic-radical . 108)	; ⽫
+    (ideographic-strokes . 25)
+    (total-strokes	 . 30)
+    (=ucs		. #x250E2)	; 𥃢
+    (<-unknown
+     ((=ucs		  . #x268F8)	; 𦣸
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x250E2)	; &g2-IU-000250E2;
+      ))
     ))

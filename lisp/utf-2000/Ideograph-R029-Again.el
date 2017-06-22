@@ -3198,6 +3198,7 @@
   '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
+    (sound@ja/on	"kaN")
     (=ucs		. #x20B56)	; 𠭖
     ))
 (define-char
@@ -3210,7 +3211,6 @@
     (hanyu-dazidian	1 400 3)
     (=daikanwa		. 03182)	; &M-03182;
     (=shinjigen		.  3177)	; &M-03182;
-    (=hanziku-1		. #xF856)	; &I-HZK01-F856;
     (<-original
      ((=ucs@cns		  . #x6562)	; &AJ1-01526;
       (=ucs@jis		  . #x6562)	; &AJ1-01526;
@@ -3224,7 +3224,8 @@
     (->subsumptive
      ((==daikanwa	  . 03182)	; &g2-M-03182;
       )
-     ((==shinjigen	  .  3177)	; &g2-SJG2-3177;
+     ((==shinjigen	  .  3177)	; &HZK01-F856;
+      (=hanziku-1	  . #xF856)	; &HZK01-F856;
       ))
     ))
 (define-char
@@ -3236,6 +3237,15 @@
     (total-strokes	 . 11)
     (=ucs@iso		. #x20B56)	; &C6-3D68;
     (=cns11643-6	. #x3D68)	; &C6-3D68; [29-72]
+    (->subsumptive
+     ((==ucs@iso	  . #x20B56)	; &g2-IU-00020B56;
+      (==cns11643-6	  . #x3D68)	; &g2-IU-00020B56; [29-72]
+      (->subsumptive
+       ((===cns11643-6	    . #x3D68)	; &R-C6-3D68; [29-72]
+	)
+       ((===ucs@iso	    . #x20B56)	; &R-U-00020B56;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
