@@ -1,5 +1,16 @@
 2017-06-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R108-Dish.el (U-000250B4): Apply new conventions for
+	glyph granularity.
+	(U-000250E2): New character.
+
+2017-06-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (U-00021D76): New character.
+
+	* Ideograph-R029-Again.el (U-00020B56): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R026-Seal.el (BUCS+5377): New abstract node.
 	(U+5377): Add `<-denotational' for BUCS+5377; apply new
 	conventions for glyph granularity.
