@@ -1,4 +1,22 @@
+2017-06-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R111-Arrow.el (M-23969): Unify U-000253C8.
+	(M-23970): Unify U-000253C4.
+	(M-23971): Unify U-000253C5.
+	(M-23972): Unify U-000253C6.
+	(U-000253C7): New character.
+	(A-MJ042663): New abstract node; use `<-denotational' for
+	U-000253C7.
+	(M-23973): Unify MJ042663 and KOSEKI-267880; use `<-subsumptive'
+	for A-MJ042663.
+	(U+77EB): Add `<-simplified@CN' for U+77EF.
+
 2017-06-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (U-000233BC): Use `->subsumptive'.
+
+	* Ideograph-R055-Two-Hands.el (U-0002234F): Apply new conventions
+	for glyph granularity.
 
 	* Ideograph-R108-Dish.el (U-000250B4): Apply new conventions for
 	glyph granularity.
