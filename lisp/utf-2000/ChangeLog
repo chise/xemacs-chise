@@ -1,5 +1,28 @@
 2017-06-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R102-Field.el (IWDS1-0083): New abstract component.
+	(U+7530): Add `<-denotational@component' for IWDS1-0083.
+	(U-00024C23): Apply new conventions for glyph granularity.
+	(U-0002233F): Likewise; use `ideographic-radical@cns' instead of
+	`ideographic-radical'; omit `ideographic-strokes' and
+	`total-strokes'; add `ideographic-{radical|strokes}@ucs'.
+	(U-00024C6A): Apply new conventions for glyph granularity.
+	(IU+24C6A): Unify M-21841; add `<-ancient' for UU+756B.
+	(U-00024C6B): Apply new conventions for glyph granularity; unify
+	M-21843; add `<-ancient' for UU+5A01.
+	(U-00024C6C): Apply new conventions for glyph granularity; unify
+	M-21844; add `<-same' for CU+7547.
+	(U-00024CA8): Apply new conventions for glyph granularity.
+	(U-00024CDE): Likewise.
+
+	* Ideograph-R032-Earth.el (o-UU+5747): Omit o-JU+5747 and
+	o-KU+5747.
+	(g2-CU+5747): Use g2-CU+52FB instead of CU+52FB in
+	`ideographic-structure'.
+
+	* Ideograph-R027-Cliff.el (U-00020A94): Use `->denotational' and
+	`->subsumptive'.
+
 	* Ideograph-R109-Eye.el: Add some Adobe-Japan1-5 code points.
 	(<CJK RADICAL EYE>): Unify BC-8B48, GT-36329 and GT-K01549; don't
 	use `<-denotational' for BC-8B48.
