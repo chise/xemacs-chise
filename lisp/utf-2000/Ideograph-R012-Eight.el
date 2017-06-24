@@ -1095,15 +1095,19 @@
   '((ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (=>daikanwa		. 48931)	; &A-M-48931;
+    (=>ucs@component	. #x9FB9)	; &A-compU+9FB9;
+    (=>daikanwa		. 48931)	; &A-compU+9FB9;
+    (=>iwds-1		.  0026)	; &A-compU+9FB9;
     ))
 (define-char
   '((<-denotational
-     ((=>daikanwa	  . 48931)	; &A-M-48931;
+     ((=>ucs@component	  . #x9FB9)	; &A-compU+9FB9;
+      (=>iwds-1		  .  0026)	; &A-compU+9FB9;
       ))
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (sound@ja/on	"keN")
     (=ucs		. #x20509)	; 𠔉
     ))
 (define-char
@@ -1118,6 +1122,28 @@
     (=gt		. 01899)	; &I-GT-01899;
     (=gt-pj-2		. #x3C43)	; &I-GT-01899; [28-35]
     (=daikanwa		. 48931)	; &I-M-48931;
+    (<-Liwen
+     ((=ucs@iso		  . #x2234F)	; &C4-2C6F;
+      (=cns11643-4	  . #x2C6F)	; &C4-2C6F; [12-79]
+      (=daikanwa	  . 09620)	; &I-M-09620;
+      ))
+    (<-Liwen*sources
+     daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x20509)	; &g2-GT-01899;
+      (==cns11643-6	  . #x2357)	; &g2-GT-01899; [03-55]
+      (==gt		  . 01899)	; &g2-GT-01899;
+      (==daikanwa	  . 48931)	; &g2-GT-01899;
+      (->subsumptive
+       ((===daikanwa	    . 48931)	; &R-M-48931;
+	)
+       ((===cns11643-6	    . #x2357)	; &R-C6-2357; [03-55]
+	)
+       ((===gt		    . 01899)	; &R-GT-01899;
+	)
+       ((===ucs@iso	    . #x20509)	; &R-U-00020509;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -1162,7 +1188,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>daikanwa	  . 48931)	; &A-M-48931;
+     ((=>ucs@component	  . #x9FB9)	; &A-compU+9FB9;
+      (=>iwds-1		  .  0026)	; &A-compU+9FB9;
       ))
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 4)

@@ -1,3 +1,20 @@
+2017-06-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R109-Eye.el: Add some Adobe-Japan1-5 code points.
+	(<CJK RADICAL EYE>): Unify BC-8B48, GT-36329 and GT-K01549; don't
+	use `<-denotational' for BC-8B48.
+	(U+76F7): Apply new conventions for glyph granularity.
+	(U+7744): Likewise.
+	(M-23410): Unify U-000251B2.
+	(U+7758-itaiji-007): New character.
+	(U-000251CE): Apply new conventions for glyph granularity.
+	(BC-8AEB): New character.
+	(U+776E): Apply new conventions for glyph granularity.
+	(U+778F): Likewise.
+	(U+7799): Likewise.
+	(U-00025299): New character.
+	(U+77D4): Apply new conventions for glyph granularity.
+
 2017-06-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R111-Arrow.el (M-23969): Unify U-000253C8.
@@ -17,6 +34,11 @@
 
 	* Ideograph-R055-Two-Hands.el (U-0002234F): Apply new conventions
 	for glyph granularity.
+
+	* Ideograph-R012-Eight.el (A-M-48931): Unify A-compU+9FB9 and
+	IWDS1-0026.
+	(U-00020509): Add `sound@ja/on'.
+	(IU+20509): Add `<-Liwen' for IU+2234F.
 
 	* Ideograph-R108-Dish.el (U-000250B4): Apply new conventions for
 	glyph granularity.
