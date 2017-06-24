@@ -3543,21 +3543,80 @@
     (=cns11643-6	. #x5124)	; &C6-5124; [49-04]
     ))
 (define-char
-  '((=>ucs		. #x20A94)	; 𠪔
+  '((ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs		  . #x20B56)	; 𠭖
+      ))
+    (sound@ja/on	"giN")
+    (=ucs		. #x20A94)	; 𠪔
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20A94)	; 𠪔
+      ))
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
     (hanyu-dazidian	1 77 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=daikanwa	  . 03182)	; &M-03182;
+      ))
     (=daikanwa		. 03012)	; &M-03012;
-    (=hanziku-1		. #xB3D4)	; &I-HZK01-B3D4;
+    (<-same
+     ((=ucs@iso		  . #x20A9A)	; &C4-4249;
+      (=cns11643-4	  . #x4249)	; &C4-4249; [34-41]
+      (=daikanwa	  . 03019)	; &I-M-03019;
+      ))
+    (<-same*sources
+     zihui daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 03012)	; &g2-M-03012;
+      (->subsumptive
+       ((===daikanwa	    . 03012)	; &R-M-03012;
+	)
+       ((=hanziku-1	    . #xB3D4)	; &HZK01-B3D4;
+	))
+      ))
     ))
 (define-char
-  '((morohashi-daikanwa	3012 0 2)
+  '((<-denotational
+     ((=ucs		  . #x20A94)	; 𠪔
+      ))
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (=ucs		. #x20A94)	; 𠪔
-    (=cns11643-6	. #x5123)	; &I-C6-5123; [49-03]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs@iso		  . #x20B56)	; &C6-3D68;
+      (=cns11643-6	  . #x3D68)	; &C6-3D68; [29-72]
+      ))
+    (=ucs@iso		. #x20A94)	; &C6-5123;
+    (=cns11643-6	. #x5123)	; &C6-5123; [49-03]
+    (->subsumptive
+     ((==ucs@iso	  . #x20A94)	; &g2-IU-00020A94;
+      (==cns11643-6	  . #x5123)	; &g2-IU-00020A94; [49-03]
+      (->subsumptive
+       ((===cns11643-6	    . #x5123)	; &R-C6-5123; [49-03]
+	)
+       ((===ucs@iso	    . #x20A94)	; &R-U-00020A94;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
