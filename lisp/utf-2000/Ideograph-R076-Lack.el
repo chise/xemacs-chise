@@ -4535,6 +4535,14 @@
   '((ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x2893E)	; 𨤾
+      )
+     ((=ucs		  . #x6B20)	; 欠
+      ))
     (=ucs		. #x238FD)	; 𣣽
     (=cns11643-6	. #x5D76)	; &I-C6-5D76; [61-86]
     (=daikanwa		. 16171)	; &I-M-16171;
