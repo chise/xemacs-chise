@@ -179,26 +179,6 @@
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
-    (ideographic-strokes . 1)
-    (total-strokes	 . 3)
-    (=mj		. 056865)	; &MJ056865;
-    (=koseki		. 002080)	; &MJ056865;
-    (<-formed
-     ((=mj		  . 006462)	; &MJ006462;
-      ))
-    (->subsumptive
-     ((==mj		  . 056865)	; &g2-MJ056865;
-      (->subsumptive
-       ((===mj		    . 056865)	; &R-MJ056865;
-	)
-       ((===hng-nkk	    . 03300)	; &HNG039-03300;
-	))
-      )
-     ((==koseki		  . 002080)	; &g2-KOSEKI-002080;
-      ))
-    ))
-(define-char
-  '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 280 1)
