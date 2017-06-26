@@ -1,9 +1,20 @@
+2017-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (A-BC-8DC1): Unify U-0002CF16; copied
+	from Ideograph-R087-Claw.el.
+	(MJ056865): Unify IU+2CF16; copied from Ideograph-R087-Claw.el.
+	(BC-88B9): New character; use `<-denotational' for U-0002CF16.
+
 2017-06-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R076-Lack.el (U-000238FD): Add
 	`ideographic-structure'.
 
 	* Ideograph-R015-Ice.el (U-000205C1): New character.
+
+	* Ideograph-R008-Lid.el (MJ056865): Unify IU+2CF16, BC-89E3 and
+	GT-K00278; moved to Ideograph-R005-Second.el and
+	Ideograph-R087-Claw.el.
 
 2017-06-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
