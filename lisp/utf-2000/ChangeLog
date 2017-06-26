@@ -1,5 +1,12 @@
 2017-06-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R076-Lack.el (U-000238FD): Add
+	`ideographic-structure'.
+
+	* Ideograph-R015-Ice.el (U-000205C1): New character.
+
+2017-06-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R020-Wrap.el (U+52FB): Apply new conventions for glyph
 	granularity.
 	(U+5300): Likewise.
