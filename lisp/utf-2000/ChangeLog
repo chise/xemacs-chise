@@ -1,3 +1,7 @@
+2017-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (U-00020B26): Add `<-formed' for U+7847.
+
 2017-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R005-Second.el (A-BC-8DC1): Unify U-0002CF16; copied
