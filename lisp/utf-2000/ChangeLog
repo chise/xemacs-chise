@@ -1,5 +1,13 @@
 2017-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R031-Enclosure.el (A-compU+56DF): New abstract
+	component.
+	(U+56DF): Add `<-denotational' for A-compU+56DF.
+	(U+56DF-itaiji-006): New character; use `<-denotational' for
+	A-compU+56DF.
+
+2017-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R030-Mouth.el (U-00020C06): Apply new conventions for
 	glyph granularity.
 	(M-03508): Unify MJ032175 and KOSEKI-040440; add `<-denotational'
