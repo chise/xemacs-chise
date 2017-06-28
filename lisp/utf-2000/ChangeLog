@@ -1,8 +1,29 @@
+2017-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U-00020C06): Apply new conventions for
+	glyph granularity.
+	(M-03508): Unify MJ032175 and KOSEKI-040440; add `<-denotational'
+	for U-00020C06; add `<-same' for U+5403.
+
 2017-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el (U-00020B26): Add `<-formed' for U+7847.
 
 2017-06-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R087-Claw.el (A-BC-8DC1): Unify U-0002CF16; use
+	`ideographic-{radical|strokes}@misc' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'; add U+4EA1 and U+5C71 as
+	targets of `<-formed@component'.
+	(U+722A-itaiji-005): New character; use `<-denotational' for
+	U-0002CF16.
+	(BC-89E3): Unify IU+2CF16, MJ056865 and KOSEKI-002080; use
+	`ideographic-{radical|strokes}@misc' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+	(U+722A-itaiji-003): New character; use `<-subsumptive' for
+	IU+2CF16.
 
 	* Ideograph-R005-Second.el (A-BC-8DC1): Unify U-0002CF16; copied
 	from Ideograph-R087-Claw.el.
