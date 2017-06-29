@@ -1,5 +1,41 @@
 2017-06-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R084-Steam.el (A-IU+6C14-itaiji-001): New abstract
+	node.
+	(IU+6C14-itaiji-001): New character; use `<-denotational' for
+	A-IU+6C14-itaiji-001.
+	(IU+6C14-itaiji-002): Ditto.
+
+	* Ideograph-R035-Go-Slowly.el (U-00021569): Separate A-IU+21569.
+	(A-IU+21569): Add `=>ucs@iwds-1'.
+	(A-IU+21569-itaiji-001): New abstract node; use `<-denotational'
+	for U-00021569.
+	(IU+21569-itaiji-001): New character; use `<-denotational' for
+	A-IU+21569-itaiji-001.
+
+	* Ideograph-R010-Legs.el (U-00020486): Separate IU+20486.
+	(IU+20486): Add `=>ucs@iwds-1'.
+	(U+20486-itaiji-002): New character; use `<-denotational' for
+	U-00020486.
+	(U+20486-itaiji-001): New character; use `<-subsumptive' for
+	U+20486-itaiji-001.
+
+	* Ideograph-R002-Line.el (U-0002CEF5): New character.
+	(U-0002CEF7): New character.
+
+	* Ideograph-R001-One.el (U+4E11-var-002): New character; use
+	`<-denotational' for U+4E11.
+	(U-0002CEB6): New character.
+	(U-00022330): Add representative nodes.
+	(U-0002CED1): New character.
+	(U-0002CED4): New character.
+	(U-0002CED8): New character.
+	(U-0002CEE5): New character.
+	(U-0002004A): Add representative nodes.
+	(U-0002CEEB): New character; use `<-denotational' for BUCS+58FA.
+
+2017-06-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R046-Mountain.el (U+5C71-itaiji-001): New character;
 	use `<-denotational@component' for IWDS1-0096.
 
