@@ -59,6 +59,19 @@
       ))
     ))
 (define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=ucs-itaiji-001	. #x5C71)	; &U-i001+5C71;
+    (<-unknown
+     ((=ucs		  . #x5C71)	; 山
+      ))
+    ))
+(define-char
   '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 1)
     (total-strokes	 . 4)

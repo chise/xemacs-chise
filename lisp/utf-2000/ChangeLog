@@ -1,3 +1,8 @@
+2017-06-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (U+5C71-itaiji-001): New character;
+	use `<-denotational@component' for IWDS1-0096.
+
 2017-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R031-Enclosure.el (A-compU+56DF): New abstract
