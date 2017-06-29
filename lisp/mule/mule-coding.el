@@ -382,6 +382,7 @@
 	  ( =gt-k				 "GT-K" 5 d)
 	  (==jis-x0208@1983		      "g2-J83-" 4 X)
 	  (==koseki			   "g2-KOSEKI-" 6 d)
+	  (==ucs-itaiji-002		   "g2-U-i002+" 4 X)
 	  (==ucs-itaiji-003		   "g2-U-i003+" 4 X)
 	  (==ucs-itaiji-005		   "g2-U-i005+" 4 X)
 	  (==big5-cdp-itaiji-001	 "g2-CDP-i001-" 4 X)
