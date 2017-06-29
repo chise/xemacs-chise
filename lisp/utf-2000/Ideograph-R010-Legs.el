@@ -2123,6 +2123,24 @@
   '((ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x56DF)	; &A-compU+56DF;
+      )
+     ((=>ucs@component	  . #x513F)	; &A-compU+513F;
+      (=>iwds-1		  .  0222)	; &A-compU+513F;
+      ))
+    (=ucs		. #x20486)	; 𠒆
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20486)	; 𠒆
+      ))
+    (ideographic-radical . 10)	; ⼉
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
     (hanyu-dazidian	1 273 1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -2133,8 +2151,9 @@
      ((=>ucs@component	  . #x513F)	; &A-compU+513F;
       (=>iwds-1		  .  0222)	; &A-compU+513F;
       ))
-    (=ucs		. #x20486)	; 𠒆
-    (=cns11643-6	. #x2953)	; &I-C6-2953; [09-51]
+    (=>ucs@iwds-1	. #x20486)	; &C6-2953;
+    (=ucs@iso		. #x20486)	; &C6-2953;
+    (=cns11643-6	. #x2953)	; &C6-2953; [09-51]
     (=daikanwa		. 01366)	; &I-M-01366;
     (<-ancient
      ((=ucs		  . #x5152)	; 兒
@@ -2187,6 +2206,45 @@
        ((=ucs		    . #x516B)	; 八
 	))
       (=ucs-var-001	  . #x20486)	; &U-v001+20486;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20486)	; 𠒆
+      ))
+    (ideographic-radical . 10)	; ⼉
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-006	  . #x56DF)	; &U-i006+56DF;
+      )
+     ((=>ucs@component	  . #x513F)	; &A-compU+513F;
+      (=>iwds-1		  .  0222)	; &A-compU+513F;
+      ))
+    (=ucs-itaiji-002	. #x20486)	; &U-i002+20486;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs-itaiji-006    . #x56DF)	; &U-i006+56DF;
+	)
+       ((=ucs		    . #x513F)	; 儿
+	))
+      (=ucs-itaiji-001	  . #x20486)	; &U-i001+20486;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs-itaiji-006    . #x56DF)	; &U-i006+56DF;
+	)
+       ((=gt-k		    . 00059)	; &GT-K00059;
+	))
+      (==ucs-itaiji-002	  . #x20486)	; &g2-U-i002+20486;
       ))
     ))
 (define-char
