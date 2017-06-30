@@ -22014,6 +22014,43 @@
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
+    (=ucs		. #x218AF)	; 𡢯
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x218AF)	; 𡢯
+      ))
+    (ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (=mj		. 033781)	; &MJ033781;
+    (=koseki		. 077350)	; &MJ033781;
+    (=daikanwa		. 06802)	; &I-M-06802;
+    (->subsumptive
+     ((==mj		  . 033781)	; &g2-MJ033781;
+      (==koseki		  . 077350)	; &g2-MJ033781;
+      (==daikanwa	  . 06802)	; &g2-MJ033781;
+      (->subsumptive
+       ((===daikanwa	    . 06802)	; &R-M-06802;
+	)
+       ((===mj		    . 033781)	; &R-MJ033781;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x218AF)	; 𡢯
+      ))
+    (ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (=ucs@iso		. #x218AF)	; &U-000218AF;
+    (->subsumptive
+     ((==ucs@iso	  . #x218AF)	; &g2-IU-000218AF;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
     (=ucs		. #x218B2)	; 𡢲
