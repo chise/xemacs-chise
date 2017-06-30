@@ -223,6 +223,17 @@
     ))
 (define-char
   '((ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (=ucs-itaiji-004	. #x624D)	; &U-i004+624D;
+    (<-unknown
+     ((=ucs		  . #x624D)	; 才
+      )
+     ((=ucs		  . #x5198)	; 冘
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 303 3)
