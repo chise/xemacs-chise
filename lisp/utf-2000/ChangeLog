@@ -1,4 +1,16 @@
+2017-06-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R025-Divination.el (GT-K00880): New character.
+
+	* Ideograph-R006-Hook.el (U-0002CF3A): New character.
+
 2017-06-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (U-0002D70E): New character.
+
+	* Ideograph-R054-Long-Stride.el (U-0002D693): New character.
+
+	* Ideograph-R038-Woman.el (U-000218AF): New character.
 
 	* Ideograph-R012-Eight.el (A-BC-8CDE): New abstract node.
 	(BC-8CDE-itaiji-002): New character; use `<-denotational' for
@@ -19,6 +31,11 @@
 	(U-0002D050): New character.
 
 	* Ideograph-R014-Cover.el (U+624D-itaiji-004): New character.
+
+2017-06-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R048-Work.el (BC-8C78): New character; unify
+	GT-K00137.
 
 2017-06-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
