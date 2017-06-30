@@ -1,3 +1,25 @@
+2017-06-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (A-BC-8CDE): New abstract node.
+	(BC-8CDE-itaiji-002): New character; use `<-denotational' for
+	A-BC-8CDE.
+	(A-BC-8CDE-itaiji-001): New abstract node; use `<-denotational'
+	for A-BC-8CDE.
+	(BC-8CDE-var-001): New character; use `<-denotational' for
+	A-BC-8CDE.
+	(BC-8CDE-itaiji-001): New character; use `<-denotational' for
+	A-BC-8CDE-itaiji-001.
+	(BC-8CDE): New character; use `<-denotational' for A-BC-8CDE.
+	(U+517C): Unify A-IWDSU+517C and B-ADDD.
+	(o-UU+517C): New abstract node; use `<-denotational' for U+517C.
+	(KU+517C): Use o-UU+517C instead of A-IWDSU+517C as its mother.
+	(UU+517C): Likewise.
+	(MJ007298): Use o-UU+517C instead of U+517C as its mother.
+	(MJ056985): Use U+517C instead of A-IWDSU+517C as its mother.
+	(U-0002D050): New character.
+
+	* Ideograph-R014-Cover.el (U+624D-itaiji-004): New character.
+
 2017-06-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R084-Steam.el (A-IU+6C14-itaiji-001): New abstract
