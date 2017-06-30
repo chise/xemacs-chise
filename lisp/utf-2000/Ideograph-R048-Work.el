@@ -119,6 +119,26 @@
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=big5-cdp		. #x8C78)	; &CDP-8C78;
+    (=gt-k		. 00137)	; &I-GT-K00137;
+    (=gt-pj-k1		. #x3629)	; &CDP-8C78; [22-09]
+    (<-unknown
+     ((=big5-cdp	  . #x8BC8)	; &CDP-8BC8;
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8C78)	; &g2-CDP-8C78;
+      )
+     ((==gt-k		  . 00137)	; &g2-GT-K00137;
+      (==gt-pj-k1	  . #x3629)	; &g2-GT-K00137; [22-09]
+      (<-identical@component/connect-below
+       ((=big5-cdp	    . #x8C78)	; &CDP-8C78;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (=ucs		. #x22011)	; 𢀑
