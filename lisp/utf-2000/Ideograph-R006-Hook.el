@@ -735,6 +735,35 @@
     ))
 (define-char
   '((ideographic-radical . 6)	; ⼅
+    (ideographic-strokes . 7)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x4E37)	; 丷
+      )
+     ((=big5-cdp	  . #x8C78)	; &CDP-8C78;
+      )
+     ((=ucs-itaiji-004	  . #x624D)	; &U-i004+624D;
+      ))
+    (=ucs		. #x2CF3A)	; 𬼺
+    (=mj		. 056878)	; &I-MJ056878;
+    (=koseki		. 002930)	; 𬼺
+    (<-formed
+     ((=ucs@unicode	  . #x5F1F)	; &AJ1-03083;
+      (=adobe-japan1-0	  . 03083)	; &AJ1-03083;
+      ))
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2CF3A)	; &g2-MJ056878;
+      (==mj		  . 056878)	; &g2-MJ056878;
+      (==koseki		  . 002930)	; &g2-MJ056878;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 8)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 39 13)
