@@ -1,5 +1,36 @@
 2017-06-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R096-Jade.el (U+3ECE): Add `sound@ja/on'; unify
+	MJ002510, BC-85AA, KOSEKI-235650 and M-21017; add `<-ancient' and
+	`<-formed' for U+745F.
+	(U+745F): Add `ideographic-structure'.
+	(U-00024AC9): Add `ideographic-structure'; add `sound@ja/on';
+	unify MJ041119, KOSEKI-239340 and M-21348.
+	(U-00024ACC): Add `ideographic-structure'; unify M-21353; add
+	`<-same' for U+74B5.
+	(U-00024ACD): Add `ideographic-structure'; add `sound@ja/on';
+	unify MJ041123, KOSEKI-239380 and M-21354; add `<-ancient' for
+	U+7434.
+	(U-00024AD4): Add `ideographic-structure'; unify M-21356; add
+	`<-original' for M-21281.
+	(U-00024AD5): Apply new conventions for glyph granularity.
+
+	* Ideograph-R072-Sun.el (U+65E5-var-002): New character; use
+	`<-denotational@component' for IWDS1-0118.
+	(U+65E5-var-003): New character; use `<-subsumptive' for
+	U+65E5-var-002.
+	(U+65E5-var-004): Ditto.
+	(U-000232EF): Apply new conventions for glyph granularity.
+
+	* Ideograph-R036-Evening.el (BC-88B3-var-001): New character; use
+	`<-denotational' for A-BC-88B3.
+	(A-BC-88B3): New abstract node.
+	(BC-88B3): New character; use `<-denotational' for A-BC-88B3.
+	(U-000215C3): Add `sound@ja/on'; add `<-ancient' for U+70CF; add
+	representative nodes.
+
+2017-06-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R102-Field.el (U+7557): Apply new conventions for
 	glyph granularity.
 
