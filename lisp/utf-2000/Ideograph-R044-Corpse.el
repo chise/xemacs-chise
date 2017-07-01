@@ -3748,12 +3748,31 @@
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
     (=ucs		. #x37A1)	; 㞡
+    (=mj		. 000813)	; &I-MJ000813;
+    (=cns11643-3	. #x5A37)	; &I-C3-5A37; [58-23]
+    (=koseki		. 088720)	; 㞡
+    (=daikanwa		. 07816)	; &I-M-07816;
+    (<-original
+     ((=ucs		  . #x5C55)	; 展
+      (=daikanwa	  . 07715)	; &I-M-07715;
+      ))
+    (<-original*sources
+     zhengzitong daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 07816)	; &M-07816;
+     ((==ucs@cns	  . #x37A1)	; &g2-M-07816;
+      (==cns11643-3	  . #x5A37)	; &g2-M-07816; [58-23]
+      (==koseki		  . 088720)	; &g2-M-07816;
+      (==daikanwa	  . 07816)	; &g2-M-07816;
+      (->subsumptive
+       ((===daikanwa	    . 07816)	; &R-M-07816;
+	)
+       ((===cns11643-3	    . #x5A37)	; &R-C3-5A37; [58-23]
+	))
       )
-     ((=cns11643-3	  . #x5A37)	; &C3-5A37; [58-23]
+     ((==mj		  . 000813)	; &g2-MJ000813;
       )
-     ((=ucs@unicode	  . #x37A1)	; &UU+37A1;
+     ((==ucs@unicode	  . #x37A1)	; &g2-UU+37A1;
+      (==ucs@JP/hanazono  . nil)
       ))
     ))
 (define-char
