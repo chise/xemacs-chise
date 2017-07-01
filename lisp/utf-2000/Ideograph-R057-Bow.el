@@ -1008,6 +1008,23 @@
     (=cbeta		. 10485)	; &I-CB10485;
     ))
 (define-char
+  '((ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=big5-cdp	  . #x8C78)	; &CDP-8C78;
+      )
+     ((=ucs-itaiji-004	  . #x624D)	; &U-i004+624D;
+      ))
+    (=ucs-itaiji-002	. #x223A8)	; &U-i002+223A8;
+    (<-formed
+     ((=ucs		  . #x223A8)	; 𢎨
+      ))
+    ))
+(define-char
   '((=>ucs		. #x223B7)	; 𢎷
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 4)

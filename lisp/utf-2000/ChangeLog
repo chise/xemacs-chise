@@ -1,5 +1,21 @@
 2017-06-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R102-Field.el (U+7557): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R066-Rap.el (U-00022F2A): Use `->denotational' and
+	`->subsumptive'.
+	(U+6577): Apply new conventions for glyph granularity.
+
+	* Ideograph-R060-Step.el (U-00022567): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R057-Bow.el (U-000223A8): New character; use
+	`<-formed' for U-000223A8.
+
+	* Ideograph-R044-Corpse.el (U+37A1): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R025-Divination.el (GT-K00880): New character.
 
 	* Ideograph-R006-Hook.el (U-0002CF3A): New character.
