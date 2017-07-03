@@ -1,3 +1,11 @@
+2017-07-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R064-Hand.el (U+63E3): Add `ideographic-structure';
+	add U-00022C1A as a target of `->formed'.
+	(U-00022C1A): Apply new conventions for glyph granularity; unify
+	MJ036906 and KOSEKI-138940; add `<-formed' and `<-same' for
+	U+63E3.
+
 2017-06-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R096-Jade.el (U+3ECE): Add `sound@ja/on'; unify
