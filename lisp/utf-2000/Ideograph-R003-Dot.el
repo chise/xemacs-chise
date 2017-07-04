@@ -116,6 +116,9 @@
        ((=gt-k		    . 00025)	; &GT-K00025;
 	))
       (=ucs@iso		  . #x2A70A)	; &U-0002A70A;
+      (->subsumptive
+       ((==ucs@iso	    . #x2A70A)	; &g2-IU-0002A70A;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
