@@ -3077,6 +3077,26 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x9FB7)	; 龷
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      ))
+    (=ucs		. #x20017)	; 𠀗
+    (=big5-cdp		. #x8C72)	; &I-CDP-8C72;
+    (->subsumptive
+     ((==ucs@iso	  . #x20017)	; &g2-IU-00020017;
+      )
+     ((==big5-cdp	  . #x8C72)	; &g2-CDP-8C72;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
     (=ucs-itaiji-001	. #x4E1A)	; &U-i001+4E1A;
     (<-unknown
      ((=ucs		  . #x4E1A)	; 业

@@ -1,3 +1,14 @@
+2017-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (MJ007458): Unify U-0002D0C4.
+
+	* Ideograph-R013-Down-Box.el (BUCS+5167): Unify IWDS1-0148.
+
+	* Ideograph-R011-Enter.el (BUCS+5167): Unify IWDS1-0148.
+
+	* Ideograph-R001-One.el (U-00020017): New character; unify
+	BC-8C72.
+
 2017-07-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R064-Hand.el (U+63E3): Add `ideographic-structure';
