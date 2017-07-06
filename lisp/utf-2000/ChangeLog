@@ -1,5 +1,14 @@
 2017-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R052-Short-Thread.el (UU+386D): Unify BC-8C71.
+
+	* Ideograph-R027-Cliff.el (g2-JU+538E): Apply new conventions for
+	glyph granularity for components of ideographic-structure.
+	(g2-CU+538E): Likewise.
+	(UU+538E): Add representative node.
+
+	* Ideograph-R026-Seal.el (BUCS+5377): Unify A-compU+5377.
+
 	* Ideograph-R003-Dot.el (IU+2A70A): Add representative node.
 
 	* Ideograph-R018-Knife.el (MJ007458): Unify U-0002D0C4.
