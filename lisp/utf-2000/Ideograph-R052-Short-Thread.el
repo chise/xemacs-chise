@@ -806,9 +806,16 @@
       )
      ((=ucs@unicode	  . #x386D)	; &C3-465E;
       (=cns11643-3	  . #x465E)	; &C3-465E; [38-62]
+      (=big5-cdp	  . #x8C71)	; &I-CDP-8C71;
       (->subsumptive
-       ((==ucs@cns	    . #x386D)	; &g2-CU+386D;
-	(==cns11643-3	    . #x465E)	; &g2-CU+386D; [38-62]
+       ((==ucs@cns	    . #x386D)	; &g2-CDP-8C71;
+	(==cns11643-3	    . #x465E)	; &g2-CDP-8C71; [38-62]
+	(==big5-cdp	    . #x8C71)	; &g2-CDP-8C71;
+	(->subsumptive
+	 ((===big5-cdp	      . #x8C71)	; &R-CDP-8C71;
+	  )
+	 ((===cns11643-3      . #x465E)	; &R-C3-465E; [38-62]
+	  ))
 	)
        ((==ucs@unicode	    . #x386D)	; &g2-UU+386D;
 	(==ucs@JP/hanazono  . nil)
