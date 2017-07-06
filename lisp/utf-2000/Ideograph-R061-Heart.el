@@ -25459,7 +25459,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((==>ucs@bucs	  . #x65E3)	; &BUCS+65E3;
+     ((=>ucs@iwds-1	  . #x65E3)	; &A-IWDSU+65E3;
       )
      ((=ucs		  . #x5FC3)	; 心
       ))
