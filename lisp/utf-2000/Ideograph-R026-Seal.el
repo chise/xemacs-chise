@@ -884,10 +884,12 @@
       (=>iwds-1		  .  0120)	; &A-compU+5DF1;
       ))
     (==>ucs@bucs	. #x5377)	; &BUCS+5377;
+    (=>ucs@iwds-1	. #x5377)	; &BUCS+5377;
     ))
 (define-char
   '((<-denotational
      ((==>ucs@bucs	  . #x5377)	; &BUCS+5377;
+      (=>ucs@iwds-1	  . #x5377)	; &BUCS+5377;
       ))
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 6)
