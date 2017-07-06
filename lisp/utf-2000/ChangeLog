@@ -1,5 +1,7 @@
 2017-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R003-Dot.el (IU+2A70A): Add representative node.
+
 	* Ideograph-R018-Knife.el (MJ007458): Unify U-0002D0C4.
 
 	* Ideograph-R013-Down-Box.el (BUCS+5167): Unify IWDS1-0148.
