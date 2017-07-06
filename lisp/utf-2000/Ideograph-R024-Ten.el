@@ -1510,6 +1510,18 @@
     (=cbeta		. 07083)	; &CB07083;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x20991)	; 𠦑
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (=big5-cdp		. #x8846)	; &CDP-8846;
+    (->subsumptive
+     ((==big5-cdp	  . #x8846)	; &g2-CDP-8846;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 24)	; ⼗
     (=ucs		. #x20992)	; 𠦒
     ))
