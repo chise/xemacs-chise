@@ -993,6 +993,7 @@
     (=hanyo-denshi/jb	. #x3266)	; &I-HD-JB-3266; [18-70]
     (=hanyo-denshi/jt	. #xADB8)	; &I-HD-JT-ADB8;
     (=daikanwa		. 01351)	; &I-M-01351;
+    (=cbeta		. 10488)	; &I-CB10488;
     (=jef-china3	. #x43D3)	; &I-JC3-43D3;
     (->subsumptive
      ((=decomposition@cid
@@ -1021,6 +1022,7 @@
       (==jis-x0213-1	  . #x2E4F)	; &g2-MJ007222; [14-47]
       (==hanyo-denshi/jb  . #x3266)	; &g2-MJ007222; [18-70]
       (==daikanwa	  . 01351)	; &g2-MJ007222;
+      (==cbeta		  . 10488)	; &g2-MJ007222;
       (==jef-china3	  . #x43D3)	; &g2-MJ007222;
       (->subsumptive
        ((===daikanwa	    . 01351)	; &R-M-01351;
@@ -1034,6 +1036,8 @@
        ((===adobe-japan1-2  . 08393)	; &R-AJ1-08393;
 	)
        ((===jef-china3	    . #x43D3)	; &R-JC3-43D3;
+	)
+       ((===cbeta	    . 10488)	; &R-CB10488;
 	))
       )
      ((ideographic-structure

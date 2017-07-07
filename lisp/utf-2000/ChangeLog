@@ -1,5 +1,21 @@
 2017-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R071-Not.el (A-IWDSU+65E3): New abstract node; use
+	`<-denotational' for BUCS+65E3.
+	(U+65E2): Use A-IWDSU+65E3 instead of BUCS+65E3 as its mother;
+	don't subsume MJ057647; unify UU+65E2.
+	(A-MJ057647): New abstract node; use `<-denotational' for
+	BUCS+65E3.
+	(MJ057647): Use A-MJ057647 instead of U+65E2 as its mother.
+	(U+65E3): Use A-IWDSU+65E3 instead of BUCS+65E3 as its mother.
+
+	* Ideograph-R066-Rap.el (MJ057582): Unify U-0002D8E2.
+
+	* Ideograph-R028-Private.el (U-00020AFB): Apply new conventions
+	for glyph granularity.
+
+2017-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R096-Jade.el (U+73E4): Unify BC-8CD6.
 
 	* Ideograph-R073-Say.el (U+3B30): Unify BC-8AF3.
@@ -14,6 +30,8 @@
 
 	* Ideograph-R013-Down-Box.el (A-MJ057001): Unify U-0002D060.
 	(U-0002F816): Unify BC-88AA.
+
+	* Ideograph-R010-Legs.el (U+514A): Unify CB10488.
 
 	* Ideograph-R005-Second.el (U-000200D4): Unify BC-88A2 and
 	CB04676.

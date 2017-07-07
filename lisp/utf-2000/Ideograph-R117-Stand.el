@@ -1766,8 +1766,8 @@
       )
      ((=ucs		  . #x7ACB)	; 立
       )
-     ((=>ucs@component	  . #x722D)	; &IWDS1-314;
-      (=>iwds-1		  .  0314)	; &IWDS1-314;
+     ((=>ucs@component	  . #x722D)	; &A-compU+722D;
+      (=>iwds-1		  .  0314)	; &A-compU+722D;
       ))
     (=ucs		. #x7AEB)	; 竫
     ))
