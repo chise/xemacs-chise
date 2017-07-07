@@ -124,6 +124,28 @@
     ))
 (define-char
   '((ideographic-radical . 68)	; ⽃
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x200D4)	; 𠃔
+      )
+     ((=ucs		  . #x6597)	; 斗
+      ))
+    (=ucs		. #x2306D)	; 𣁭
+    (->subsumptive
+     ((==ucs@iso	  . #x2306D)	; &g2-IU-0002306D;
+      (->subsumptive
+       ((===ucs@iso	    . #x2306D)	; &R-U-0002306D;
+	)
+       ((=hanziku-6	    . #xD1F2)	; &HZK06-D1F2;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 68)	; ⽃
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ucs		. #x3AB4)	; 㪴
