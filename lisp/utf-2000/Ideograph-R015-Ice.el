@@ -1227,7 +1227,8 @@
       )
      ((=ucs		  . #x51AB)	; 冫
       )
-     ((=ucs@unicode	  . #x72AE)	; &UU+72AE;
+     ((=ucs@unicode	  . #x72AE)	; &CDP-8A66;
+      (=big5-cdp	  . #x8A66)	; &CDP-8A66;
       ))
     (=ucs@unicode	. #x51B9)	; &UU+51B9;
     (=ucs@JP/hanazono	. nil)
