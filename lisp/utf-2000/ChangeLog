@@ -1,3 +1,9 @@
+2017-07-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R068-Dipper.el (U-0002306D): New character.
+
+	* Ideograph-R067-Script.el (U+9F50): Unify BC-8A54.
+
 2017-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R071-Not.el (A-IWDSU+65E3): New abstract node; use
