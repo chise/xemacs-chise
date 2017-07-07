@@ -1303,7 +1303,7 @@
       )
      ((=gt-k		  . 01085)	; &GT-K01085;
       )
-     ((=ucs		  . #x2067D)	; 𠙽
+     ((=>ucs@iwds-1	  . #x51F7)	; &A-IWDSU+51F7;
       ))
     (=ucs		. #x20AFB)	; 𠫻
     ))
@@ -1324,7 +1324,7 @@
       )
      ((=gt-k		  . 01085)	; &GT-K01085;
       )
-     ((=ucs@iso		  . #x2067D)	; &U-0002067D;
+     ((=ucs		  . #x2067D)	; 𠙽
       ))
     (=ucs@iso		. #x20AFB)	; &C6-3649;
     (=cns11643-6	. #x3649)	; &C6-3649; [22-41]
@@ -1337,6 +1337,19 @@
       ))
     (<-original*sources
      shinjigen)
+    (->subsumptive
+     ((==ucs@iso	  . #x20AFB)	; &g2-M-05931;
+      (==cns11643-6	  . #x3649)	; &g2-M-05931; [22-41]
+      (==daikanwa	  . 05931)	; &g2-M-05931;
+      (==shinjigen	  .  5049)	; &g2-M-05931;
+      (->subsumptive
+       ((===daikanwa	    . 05931)	; &R-M-05931;
+	)
+       ((===cns11643-6	    . #x3649)	; &R-C6-3649; [22-41]
+	)
+       ((===ucs@iso	    . #x20AFB)	; &R-U-00020AFB;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -1346,6 +1359,14 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (hanyu-dazidian	1 387 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 01085)	; &GT-K01085;
+      )
+     ((=ucs		  . #x51F7)	; 凷
+      ))
     (=hanziku-1		. #xF5B8)	; &HZK01-F5B8;
     ))
 (define-char
