@@ -151,6 +151,7 @@
     (total-strokes	 . 6)
     (=ucs		. #x3B30)	; 㬰
     (=cns11643-3	. #x2374)	; &I-C3-2374; [03-84]
+    (=big5-cdp		. #x8AF3)	; &I-CDP-8AF3;
     (=daikanwa		. 14281)	; &I-M-14281;
     (=shinjigen		.  6611)	; 㬰
     (<-formed
@@ -178,13 +179,16 @@
     (<-vulgar*sources
      zhengzitong daikanwa shinjigen@1ed shinjigen@rev)
     (->subsumptive
-     ((==ucs@unicode	  . #x3B30)	; &g2-M-14281;
-      (==cns11643-3	  . #x2374)	; &g2-M-14281; [03-84]
-      (==daikanwa	  . 14281)	; &g2-M-14281;
+     ((==ucs@unicode	  . #x3B30)	; &g2-CDP-8AF3;
+      (==cns11643-3	  . #x2374)	; &g2-CDP-8AF3; [03-84]
+      (==big5-cdp	  . #x8AF3)	; &g2-CDP-8AF3;
+      (==daikanwa	  . 14281)	; &g2-CDP-8AF3;
       (->subsumptive
        ((===daikanwa	    . 14281)	; &R-M-14281;
 	)
        ((===cns11643-3	    . #x2374)	; &R-C3-2374; [03-84]
+	)
+       ((===big5-cdp	    . #x8AF3)	; &R-CDP-8AF3;
 	)
        ((===ucs@unicode	    . #x3B30)	; &R-UU+3B30;
 	)

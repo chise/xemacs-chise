@@ -1,3 +1,23 @@
+2017-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R096-Jade.el (U+73E4): Unify BC-8CD6.
+
+	* Ideograph-R073-Say.el (U+3B30): Unify BC-8AF3.
+
+	* Ideograph-R061-Heart.el (U-000227EA): Use A-IWDSU+65E3 instead
+	of BUCS+65E3 in `ideographic-structure'.
+
+	* Ideograph-R046-Mountain.el (U+5C75): Unify BC-894F.
+
+	* Ideograph-R024-Ten.el (BC-8846): New character; use
+	`<-denotational' for U-00020991.
+
+	* Ideograph-R013-Down-Box.el (A-MJ057001): Unify U-0002D060.
+	(U-0002F816): Unify BC-88AA.
+
+	* Ideograph-R005-Second.el (U-000200D4): Unify BC-88A2 and
+	CB04676.
+
 2017-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R052-Short-Thread.el (UU+386D): Unify BC-8C71.

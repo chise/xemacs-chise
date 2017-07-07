@@ -703,6 +703,21 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=ucs		. #x200D4)	; 𠃔
+    (=big5-cdp		. #x88A2)	; &I-CDP-88A2;
+    (=cbeta		. 04676)	; &I-CB04676;
+    (->subsumptive
+     ((==ucs@iso	  . #x200D4)	; &g2-IU-000200D4;
+      )
+     ((==big5-cdp	  . #x88A2)	; &g2-CDP-88A2;
+      )
+     ((==cbeta		  . 04676)	; &g2-CB04676;
+      ))
+    ))
+(define-char
   '((ideographic-radical@ucs . 5)	; ⼄
     (ideographic-strokes@ucs . 2)
     (ideographic-radical@ucs*sources
