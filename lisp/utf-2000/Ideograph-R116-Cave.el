@@ -186,6 +186,35 @@
   '((ideographic-radical . 116)	; ⽳
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7A74)	; 穴
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ucs		. #x25926)	; 𥤦
+    (=mj		. 043382)	; &I-MJ043382;
+    (=koseki		. 284500)	; 𥤦
+    (=daikanwa		. 25412)	; &I-M-25412;
+    (->subsumptive
+     ((=>>daikanwa	  . 25412)	; &G-M-25412;
+      (->subsumptive
+       ((==daikanwa	    . 25412)	; &g2-M-25412;
+	)
+       ((==koseki	    . 284500)	; &g2-KOSEKI-284500;
+	))
+      )
+     ((==mj		  . 043382)	; &g2-MJ043382;
+      )
+     ((==ucs@iso	  . #x25926)	; &g2-IU-00025926;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 116)	; ⽳
+    (ideographic-strokes . 2)
+    (total-strokes	 . 7)
     (=ucs		. #x4191)	; 䆑
     (->subsumptive
      ((=cns11643-4	  . #x2469)	; &C4-2469; [04-73]
@@ -235,8 +264,8 @@
      ((=ucs		  . #x7A7A)	; 空
       ))
     (->subsumptive
-     ((=>>mj		  . 058241)	; &G-HD-KS-45768;
-      (=>>hanyo-denshi/ks . 284520)	; &G-HD-KS-45768;
+     ((=>>mj		  . 058241)	; &G-MJ058241;
+      (=>>hanyo-denshi/ks . 284520)	; &G-MJ058241;
       (->subsumptive
        ((==mj		    . 058241)	; &g2-MJ058241;
 	(==hanyo-denshi/ks  . 284520)	; &g2-MJ058241;

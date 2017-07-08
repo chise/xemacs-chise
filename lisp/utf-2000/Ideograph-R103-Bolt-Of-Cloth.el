@@ -21,9 +21,48 @@
   '((ideographic-radical . 103)	; ⽦
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x9FB0)	; 龰
+      ))
+    (sound@ja/on/p=pi3	"ga")
+    (sound@ja/on/p=zheng4 "sei")
     (=ucs		. #x24D13)	; 𤴓
     (=cns11643-6	. #x2336)	; &I-C6-2336; [03-22]
+    (=big5-cdp		. #x8BCE)	; &I-CDP-8BCE;
     (=daikanwa		. 21995)	; &I-M-21995;
+    (<-ancient@p=zheng4
+     ((=ucs@unicode	  . #x6B63)	; &AJ1-02649;
+      (=adobe-japan1-0	  . 02649)	; &AJ1-02649;
+      (=daikanwa	  . 16255)	; &I-M-16255;
+      ))
+    (<-ancient@p=zheng4*sources
+     zihui daikanwa)
+    (<-same@p=pi3
+     ((=ucs		  . #x758B)	; 疋
+      (=daikanwa	  . 21994)	; &I-M-21994;
+      ))
+    (<-same@p=pi3*sources
+     cihai daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x24D13)	; &g2-CDP-8BCE;
+      (==cns11643-6	  . #x2336)	; &g2-CDP-8BCE; [03-22]
+      (==big5-cdp	  . #x8BCE)	; &g2-CDP-8BCE;
+      (==daikanwa	  . 21995)	; &g2-CDP-8BCE;
+      (->subsumptive
+       ((===daikanwa	    . 21995)	; &R-M-21995;
+	)
+       ((===big5-cdp	    . #x8BCE)	; &R-CDP-8BCE;
+	)
+       ((===cns11643-6	    . #x2336)	; &R-C6-2336; [03-22]
+	)
+       ((===ucs@iso	    . #x24D13)	; &R-U-00024D13;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 103)	; ⽦
@@ -61,6 +100,29 @@
     (total-strokes	 . 6)
     (=ucs		. #x24D15)	; 𤴕
     (=cns11643-6	. #x253B)	; &I-C6-253B; [05-27]
+    ))
+(define-char
+  '((ideographic-radical . 103)	; ⽦
+    (ideographic-strokes . 2)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name*		  . "ideographic component person for top")
+      (=ucs		  . #x20089)	; 𠂉
+      )
+     ((=ucs		  . #x758B)	; 疋
+      ))
+    (=ucs		. #x2DEFE)	; 𭻾
+    (=big5-cdp		. #x8DA6)	; &I-CDP-8DA6;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2DEFE)	; &g2-CDP-8DA6;
+      (==big5-cdp	  . #x8DA6)	; &g2-CDP-8DA6;
+      (->subsumptive
+       ((===big5-cdp	    . #x8DA6)	; &R-CDP-8DA6;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 103)	; ⽦

@@ -2200,9 +2200,64 @@
   '((ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x37A2)	; 㞢
+      )
+     ((=ucs		  . #x571F)	; 土
+      ))
     (=ucs		. #x2125A)	; 𡉚
-    (=cns11643-6	. #x2666)	; &I-C6-2666; [06-70]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2125A)	; 𡉚
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x37A2)	; &C3-2162;
+      (=cns11643-3	  . #x2162)	; &C3-2162; [01-66]
+      (=daikanwa	  . 07829)	; &I-M-07829;
+      )
+     ((=ucs		  . #x571F)	; 土
+      ))
+    (=ucs@iso		. #x2125A)	; &C6-2666;
+    (=cns11643-6	. #x2666)	; &C6-2666; [06-70]
+    (=big5-cdp		. #x8ABB)	; &I-CDP-8ABB;
     (=daikanwa		. 04929)	; &I-M-04929;
+    (<-ancient
+     ((=ucs		  . #x5C01)	; 封
+      (=daikanwa	  . 07426)	; &I-M-07426;
+      ))
+    (<-ancient*sources
+     shuowen jiyun daikanwa)
+    (->mistakable
+     ((=ucs@unicode	  . #x37B7)	; &MJ000835;
+      (=mj		  . 000835)	; &MJ000835;
+      (=daikanwa	  . 07840)	; &I-M-07840;
+      ))
+    (->mistakable*sources
+     kangxi-biansi-2char daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x2125A)	; &g2-M-04929;
+      (==cns11643-6	  . #x2666)	; &g2-M-04929; [06-70]
+      (==daikanwa	  . 04929)	; &g2-M-04929;
+      (->subsumptive
+       ((===daikanwa	    . 04929)	; &R-M-04929;
+	)
+       ((===cns11643-6	    . #x2666)	; &R-C6-2666; [06-70]
+	)
+       ((===ucs@iso	    . #x2125A)	; &R-U-0002125A;
+	))
+      )
+     ((==big5-cdp	  . #x8ABB)	; &g2-CDP-8ABB;
+      ))
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
@@ -6856,7 +6911,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@iso	    . #x21241)	; &U-00021241;
+       ((==ucs@iso	    . #x21241)	; &g2-IU-00021241;
 	)
        ((=ucs		    . #x6728)	; 木
 	))
@@ -12970,9 +13025,12 @@
       ))
     (=ucs@cns		. #x2136E)	; &C4-3675;
     (=cns11643-4	. #x3675)	; &C4-3675; [22-85]
+    (=big5-cdp		. #x87FC)	; &I-CDP-87FC;
     (->subsumptive
      ((==ucs@cns	  . #x2136E)	; &g2-CU+2136E;
       (==cns11643-4	  . #x3675)	; &g2-CU+2136E; [22-85]
+      )
+     ((==big5-cdp	  . #x87FC)	; &g2-CDP-87FC;
       ))
     ))
 (define-char

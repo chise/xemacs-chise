@@ -181,6 +181,14 @@
     (ideographic-radical . 101)	; ⽤
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=big5-cdp	  . #x86B7)	; &CDP-86B7;
+      )
+     ((=ucs		  . #x4E36)	; 丶
+      ))
     (=ucs@unicode	. #x752B)	; &AJ1-03635;
     (=adobe-japan1-0	. 03635)	; &AJ1-03635;
     (=jis-x0208		. #x4A63)	; &I-J90-4A63; [42-67]
@@ -234,6 +242,18 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
     (=ucs-itaiji-001	. #x752B)	; &U-i001+752B;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x752B)	; 甫
+      ))
+    (ideographic-radical . 101)	; ⽤
+    (ideographic-strokes . 1)
+    (total-strokes	 . 6)
+    (=big5-cdp		. #x86B7)	; &CDP-86B7;
+    (->subsumptive
+     ((==big5-cdp	  . #x86B7)	; &g2-CDP-86B7;
+      ))
     ))
 (define-char
   '((ideographic-radical . 101)	; ⽤

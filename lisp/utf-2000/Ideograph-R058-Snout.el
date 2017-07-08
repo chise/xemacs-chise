@@ -568,9 +568,32 @@
   '((ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (sound@ja/on	"siN")
     (=ucs		. #x2245A)	; 𢑚
     (=cns11643-6	. #x3123)	; &I-C6-3123; [17-03]
+    (=big5-cdp		. #x88B0)	; &I-CDP-88B0;
     (=daikanwa		. 09919)	; &I-M-09919;
+    (<-ancient
+     ((=ucs		  . #x7533)	; 申
+      (=daikanwa	  . 21726)	; &I-M-21726;
+      ))
+    (<-ancient*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x2245A)	; &g2-CDP-88B0;
+      (==cns11643-6	  . #x3123)	; &g2-CDP-88B0; [17-03]
+      (==big5-cdp	  . #x88B0)	; &g2-CDP-88B0;
+      (==daikanwa	  . 09919)	; &g2-CDP-88B0;
+      (->subsumptive
+       ((===daikanwa	    . 09919)	; &R-M-09919;
+	)
+       ((===cns11643-6	    . #x3123)	; &R-C6-3123; [17-03]
+	)
+       ((===ucs@iso	    . #x2245A)	; &R-U-0002245A;
+	)
+       ((===big5-cdp	    . #x88B0)	; &R-CDP-88B0;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 58)	; ⼹
