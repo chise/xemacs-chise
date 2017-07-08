@@ -1,3 +1,62 @@
+2017-07-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R112-Stone.el (U+7811): Apply new conventions for
+	glyph granularity; delete `japanese-strokes'.
+	(U-0002543C): Unify M-24077.
+	(U-00025469): Apply new conventions for glyph granularity.
+	(U-0002545A): Likewise.
+	(U-00025468): New character.
+	(U+7847): Add `sound@ja/on/{kan|go}'; add `<-formed' for
+	U-00020B26; add `->formed' for U-0002545A, U-00020B26, U-00023CBF,
+	U-00025469, U-0002543C and U-000254C1.
+	(U-000254C1): Unify MJ042804 and KOSEKI-270710; add `<-formed' for
+	U+7847; add `<-same' for U+7847.
+	(U+7890): Apply new conventions for glyph granularity.
+	(U-00025553): Use `->denotational' and `->subsumptive'.
+	(U+40E9): Apply new conventions for glyph granularity.
+	(U+791C): Delete `japanese-strokes'.
+	(M-24614): Unify U-000255F5.
+	(U-000255F8): Use `->subsumptive'; unify MJ042956 and
+	KOSEKI-274820.
+	(U-000255F7): Apply new conventions for glyph granularity.
+
+	* Ideograph-R098-Tile.el (U+3F31): Apply new conventions for glyph
+	granularity; unify BC-88FC.
+
+2017-07-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R116-Cave.el (U-00025926): New character.
+
+	* Ideograph-R103-Bolt-Of-Cloth.el (U-00024D13): Unify BC-8BCE.
+	(U-0002DEFE): New character; unify BC-8DA6.
+
+	* Ideograph-R101-Use.el (UU+752B): Add `ideographic-structure'.
+	(BC-86B7): New character; use `<-denotational' for U+752B.
+
+	* Ideograph-R064-Hand.el (U+647D): Apply new conventions for glyph
+	granularity.
+	(U-00022D8F): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R058-Snout.el (U-0002245A): Add `sound@ja/on'; unify
+	BC-88B0; add `<-ancient' for U+7533.
+
+	* Ideograph-R050-Turban.el (U+5E03): Add `sound@ja/on/{kan|go}';
+	add `<-interchangeable' for UU+6577; add `->ancient' for U+3C5B.
+	(U-0002AA72): New character; unify BC-88E0.
+	(CU+5E17): Add representative nodes.
+	(UU+3840): Unify BC-8CAA.
+
+	* Ideograph-R032-Earth.el (U-0002125A): Apply new conventions for
+	glyph granularity.
+	(IU+2125A): Unify BC-8ABB; add `<-ancient' for U+5C01; add
+	`->mistakable' for UU+37B7.
+	(g2-CB01819): Use g2-IU+21241 instead of IU+21241 in
+	`ideographic-structure'.
+	(CU+2136E): Unify BC-87FC.
+
+	* Ideograph-R029-Again.el (U+3561): Use "䜭" instead of
+	"⿱⿳⺊冖一谷" in `ideographic-structure'.
+
 2017-07-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R043-Lame.el (U-00021BC4): Apply new conventions for
