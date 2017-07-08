@@ -1755,13 +1755,64 @@
   '((ideographic-radical . 98)	; ⽡
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x5317)	; 北
+      )
+     ((=ucs		  . #x2626A)	; 𦉪
+      )
+     ((=ucs		  . #x74E6)	; 瓦
+      ))
     (=ucs		. #x3F31)	; 㼱
+    (=cns11643-5	. #x4748)	; &I-C5-4748; [39-40]
+    (=big5-cdp		. #x88FC)	; &I-CDP-88FC;
+    (=daikanwa		. 21558)	; &I-M-21558;
     (->subsumptive
-     ((=daikanwa	  . 21558)	; &M-21558;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	(=ucs		    . #x2FF3)	; ⿳
+	)
+       ((=ucs		    . #x5317)	; 北
+	)
+       ((name		    . "CJK RADICAL NET FOUR")
+	(=ucs		    . #x2EB4)	; ⺴
+	)
+       ((=ucs		    . #x74E6)	; 瓦
+	))
+      (=>>ucs@cns	  . #x3F31)	; &G-CDP-88FC;
+      (=>>big5-cdp	  . #x88FC)	; &G-CDP-88FC;
+      (=>>daikanwa	  . 21558)	; &G-CDP-88FC;
+      (->subsumptive
+       ((==big5-cdp	    . #x88FC)	; &g2-CDP-88FC;
+	(==daikanwa	    . 21558)	; &g2-CDP-88FC;
+	(->subsumptive
+	 ((===daikanwa	      . 21558)	; &R-M-21558;
+	  )
+	 ((===big5-cdp	      . #x88FC)	; &R-CDP-88FC;
+	  ))
+	)
+       ((==ucs@cns	    . #x3F31)	; &g2-CU+3F31;
+	(==cns11643-5	    . #x4748)	; &g2-CU+3F31; [39-40]
+	))
       )
-     ((=cns11643-5	  . #x4748)	; &C5-4748; [39-40]
-      )
-     ((=ucs@unicode	  . #x3F31)	; &UU+3F31;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	(=ucs		    . #x2FF3)	; ⿳
+	)
+       ((=ucs		    . #x5317)	; 北
+	)
+       ((name		    . "CJK RADICAL NET THREE")
+	(=ucs		    . #x2EB3)	; ⺳
+	)
+       ((=ucs		    . #x74E6)	; 瓦
+	))
+      (=>>ucs@unicode	  . #x3F31)	; &G-UU+3F31;
+      (->subsumptive
+       ((==ucs@unicode	    . #x3F31)	; &g2-UU+3F31;
+	(==ucs@JP/hanazono  . nil)
+	))
       ))
     ))
 (define-char
