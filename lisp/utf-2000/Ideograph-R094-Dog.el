@@ -156,11 +156,18 @@
     (ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
-    (=ucs@unicode	. #x72AE)	; &UU+72AE;
+    (=ucs@unicode	. #x72AE)	; &CDP-8A66;
     (=ucs@JP/hanazono	. nil)
+    (=big5-cdp		. #x8A66)	; &CDP-8A66;
     (->subsumptive
-     ((==ucs@unicode	  . #x72AE)	; &g2-UU+72AE;
+     ((==ucs@unicode	  . #x72AE)	; &g2-CDP-8A66;
       (==ucs@JP/hanazono  . nil)
+      (==big5-cdp	  . #x8A66)	; &g2-CDP-8A66;
+      (->subsumptive
+       ((===big5-cdp	    . #x8A66)	; &R-CDP-8A66;
+	)
+       ((===ucs@unicode	    . #x72AE)	; &R-UU+72AE;
+	))
       ))
     ))
 (define-char
