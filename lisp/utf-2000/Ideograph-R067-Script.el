@@ -92,6 +92,7 @@
     (=ucs		. #x9F50)	; 齐
     (=gb2312		. #x466B)	; &I-G0-466B; [38-75]
     (=cns11643-3	. #x2370)	; &I-C3-2370; [03-80]
+    (=big5-cdp		. #x8A54)	; &I-CDP-8A54;
     (=daikanwa		. 13451)	; &I-M-13451;
     (<-simplified@CN
      ((=ucs@unicode	  . #x9F4A)	; &AJ1-07457;
@@ -108,7 +109,13 @@
     (->subsumptive
      ((ideographic-radical . 67)	; ⽂
       (ideographic-strokes . 2)
-      (==daikanwa	  . 13451)	; &g2-M-13451;
+      (==big5-cdp	  . #x8A54)	; &g2-CDP-8A54;
+      (==daikanwa	  . 13451)	; &g2-CDP-8A54;
+      (->subsumptive
+       ((===daikanwa	    . 13451)	; &R-M-13451;
+	)
+       ((===big5-cdp	    . #x8A54)	; &R-CDP-8A54;
+	))
       )
      ((==ucs@unicode	  . #x9F50)	; &g2-UU+9F50;
       (==gb2312		  . #x466B)	; &g2-UU+9F50; [38-75]

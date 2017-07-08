@@ -1,3 +1,36 @@
+2017-07-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* GT-fmap-K3.txt (GT-K06251): Fixed.
+	(GT-K06374): Fixed.
+	(GT-K06501): Fixed.
+	(GT-K06751): Fixed.
+	(GT-K07001): Fixed.
+	(GT-K07251): Fixed.
+	(GT-K07501): Fixed.
+	(GT-K07712): Fixed.
+	(GT-K07751): Fixed.
+	(GT-K08001): Fixed.
+	(GT-K08251): Fixed.
+	(GT-K08501): Fixed.
+	(GT-K08751): Fixed.
+	(GT-K08989): Fixed.
+
+	* GT-fmap-K4.txt (GT-K09251): Fixed.
+	(GT-K09501): Fixed.
+	(GT-K09725): Fixed.
+	(GT-K09751): Fixed.
+	(GT-K10001): Fixed.
+	(GT-K10165): Fixed.
+	(GT-K10251): Fixed.
+	(GT-K10501): Fixed.
+	(GT-K10751): Fixed.
+	(GT-K11001): Fixed.
+	(GT-K11096): Fixed.
+	(GT-K11251): Fixed.
+	(GT-K11501): Fixed.
+	(GT-K11751): Fixed.
+	(GT-K11887): Fixed.
+
 2017-05-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* JC3-to-UCS.txt (JC3-61E5): Map to U+8337 instead of U+44AB.

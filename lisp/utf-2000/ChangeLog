@@ -1,3 +1,30 @@
+2017-07-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R043-Lame.el (U-00021BC4): Apply new conventions for
+	glyph granularity; unify BC-8DC2.
+	(MJ057365): Unify U-0002D552.
+
+	* Ideograph-R012-Eight.el (U-00020503): Unify GT-00043.
+
+	* Ideograph-R005-Second.el (A-GT-K00383): New abstract component.
+	(GT-K00338): New component; use `<-subsumptive' for A-GT-K00383.
+	(GT-K00299): Likewise.
+	(A-GT-K03520): New abstract component.
+	(GT-K03520): New component; use `<-subsumptive' for A-GT-K03520.
+
+	* Ideograph-R001-One.el (U-00020503): Unify GT-00043.
+	(GT-00039): Unify U-0002AB49.
+	(U-0002B823): New character; unify BC-89BA.
+	(U-0002CEBB): New character; unify MJ056829, BC-88DB and
+	KOSEKI-000570.
+	(U-0002003D): Apply new conventions for glyph granularity.
+
+	* Ideograph-R094-Dog.el (UU+72AE): Unify BC-8A66.
+
+	* Ideograph-R068-Dipper.el (U-0002306D): New character.
+
+	* Ideograph-R067-Script.el (U+9F50): Unify BC-8A54.
+
 2017-07-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R071-Not.el (A-IWDSU+65E3): New abstract node; use

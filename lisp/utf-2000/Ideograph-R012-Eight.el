@@ -681,13 +681,17 @@
      cns11643 ucs)
     (ideographic-radical@daikanwa . 1)	; ⼀
     (ideographic-strokes@daikanwa . 3)
+    (ideographic-radical@gt . 1)	; ⼀
+    (ideographic-strokes@gt . 4)
+    (total-strokes@gt	    . 5)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 241 5)
     (=ucs		. #x20503)	; 𠔃
     (=cns11643-6	. #x2141)	; &I-C6-2141; [01-33]
+    (=gt		. 00043)	; &I-GT-00043;
+    (=gt-pj-2		. #x3033)	; &I-GT-00043; [16-19]
     (=daikanwa		. 48904)	; &I-M-48904;
     (=shinjigen		.  0492)	; 𠔃
-    (=hanziku-1		. #xD7D7)	; &I-HZK01-D7D7;
     (<-vulgar
      ((=ucs		  . #x516E)	; 兮
       (=jis-x0208	  . #x5142)	; &I-J90-5142; [49-34]
@@ -696,6 +700,24 @@
       ))
     (<-vulgar*sources
      daikanwa shinjigen)
+    (->subsumptive
+     ((==ucs@iso	  . #x20503)	; &g2-GT-00043;
+      (==cns11643-6	  . #x2141)	; &g2-GT-00043; [01-33]
+      (==gt		  . 00043)	; &g2-GT-00043;
+      (==daikanwa	  . 48904)	; &g2-GT-00043;
+      (==shinjigen	  .  0492)	; &g2-GT-00043;
+      (->subsumptive
+       ((===daikanwa	    . 48904)	; &R-M-48904;
+	)
+       ((===cns11643-6	    . #x2141)	; &R-C6-2141; [01-33]
+	)
+       ((===gt		    . 00043)	; &R-GT-00043;
+	)
+       ((===ucs@iso	    . #x20503)	; &R-U-00020503;
+	)
+       ((=hanziku-1	    . #xD7D7)	; &HZK01-D7D7;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 12)	; ⼋
