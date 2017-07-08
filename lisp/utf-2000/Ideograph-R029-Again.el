@@ -4092,24 +4092,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-	  (=ucs		      . #x2FF3)	; ⿳
-	  )
-	 ((name		      . "CJK RADICAL DIVINATION")
-	  (=ucs		      . #x2E8A)	; ⺊
-	  )
-	 ((=ucs		      . #x5196)	; 冖
-	  )
-	 ((=ucs		      . #x4E00)	; 一
-	  ))
-	)
-       ((=ucs		    . #x8C37)	; 谷
-	))
+     ((=ucs		  . #x472D)	; 䜭
       )
      ((=ucs		  . #x53C8)	; 又
       ))
@@ -4117,6 +4100,21 @@
     (=cns11643-3	. #x4627)	; &I-C3-4627; [38-07]
     (=big5-cdp		. #x8ADF)	; &I-CDP-8ADF;
     (=daikanwa		. 03205)	; &I-M-03205;
+    (->subsumptive
+     ((==ucs@unicode	  . #x3561)	; &g2-CDP-8ADF;
+      (==cns11643-3	  . #x4627)	; &g2-CDP-8ADF; [38-07]
+      (==big5-cdp	  . #x8ADF)	; &g2-CDP-8ADF;
+      (==daikanwa	  . 03205)	; &g2-CDP-8ADF;
+      (->subsumptive
+       ((===daikanwa	    . 03205)	; &R-M-03205;
+	)
+       ((===big5-cdp	    . #x8ADF)	; &R-CDP-8ADF;
+	)
+       ((===cns11643-3	    . #x4627)	; &R-C3-4627; [38-07]
+	)
+       ((===ucs@unicode	    . #x3561)	; &R-UU+3561;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 29)	; ⼜
