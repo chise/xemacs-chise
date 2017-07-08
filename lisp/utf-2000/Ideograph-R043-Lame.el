@@ -339,12 +339,36 @@
   '((ideographic-radical . 43)	; ⼪
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (=ucs		. #x21BC4)	; 𡯄
-    (->subsumptive
-     ((=daikanwa	  . 07544)	; &M-07544;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
       )
-     ((=ucs@iso		  . #x21BC4)	; &C5-2165;
-      (=cns11643-5	  . #x2165)	; &C5-2165; [01-69]
+     ((=ucs		  . #x5C22)	; 尢
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (sound@ja/on/go	"riki")
+    (sound@ja/on/kan	"ryoku")
+    (=ucs		. #x21BC4)	; 𡯄
+    (=cns11643-5	. #x2165)	; &I-C5-2165; [01-69]
+    (=big5-cdp		. #x8DC2)	; &I-CDP-8DC2;
+    (=daikanwa		. 07544)	; &I-M-07544;
+    (->subsumptive
+     ((==big5-cdp	  . #x8DC2)	; &g2-CDP-8DC2;
+      (==daikanwa	  . 07544)	; &g2-CDP-8DC2;
+      (->subsumptive
+       ((===daikanwa	    . 07544)	; &R-M-07544;
+	)
+       ((===big5-cdp	    . #x8DC2)	; &R-CDP-8DC2;
+	))
+      )
+     ((==ucs@iso	  . #x21BC4)	; &g2-IU-00021BC4;
+      (==cns11643-5	  . #x2165)	; &g2-IU-00021BC4; [01-69]
+      (->subsumptive
+       ((===cns11643-5	    . #x2165)	; &R-C5-2165; [01-69]
+	)
+       ((===ucs@iso	    . #x21BC4)	; &R-U-00021BC4;
+	))
       ))
     ))
 (define-char
@@ -1822,15 +1846,17 @@
       )
      ((=ucs		  . #x5C24)	; 尤
       ))
-    (=mj		. 057365)	; &MJ057365;
-    (=koseki		. 086490)	; &MJ057365;
+    (=ucs		. #x2D552)	; 𭕒
+    (=mj		. 057365)	; &I-MJ057365;
+    (=koseki		. 086490)	; 𭕒
     (<-formed
      ((=ucs		  . #x5C31)	; 就
       ))
     (<-formed*sources
      hng)
     (->subsumptive
-     ((==mj		  . 057365)	; &g2-MJ057365;
+     ((==ucs@JP/hanazono  . #x2D552)	; &g2-MJ057365;
+      (==mj		  . 057365)	; &g2-MJ057365;
       (==koseki		  . 086490)	; &g2-MJ057365;
       )
      ((===hng-khi	  . 03470)	; &HNG010-03470;
