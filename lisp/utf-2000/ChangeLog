@@ -1,5 +1,10 @@
 2017-07-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R013-Down-Box.el (U+56D8): Use
+	`ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'.
+
 	* Ideograph-R112-Stone.el (U+7811): Apply new conventions for
 	glyph granularity; delete `japanese-strokes'.
 	(U-0002543C): Unify M-24077.

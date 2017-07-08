@@ -878,8 +878,14 @@
   '((<-denotational
      ((==>ucs@bucs	  . #x56DE)	; &BUCS+56DE;
       ))
-    (ideographic-radical . 13)	; ⼌
-    (ideographic-strokes . 3)
+    (ideographic-radical@ucs . 31)	; ⼞
+    (ideographic-strokes@ucs . 2)
+    (ideographic-radical@cns . 13)	; ⼌
+    (ideographic-strokes@cns . 3)
+    (ideographic-radical@cns*sources
+     daikanwa)
+    (ideographic-strokes@cns*sources
+     daikanwa)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 711 2)
     (ideographic-structure
