@@ -2097,12 +2097,46 @@
   '((ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=ucs		. #x387F)	; 㡿
-    (->subsumptive
-     ((=daikanwa	  . 09306)	; &M-09306;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs@unicode	  . #x387F)	; &C4-292A;
-      (=cns11643-4	  . #x292A)	; &C4-292A; [09-10]
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=ucs		  . #x5C70)	; 屰
+      ))
+    (sound@ja/on	"seki")
+    (=ucs		. #x387F)	; 㡿
+    (=cns11643-4	. #x292A)	; &I-C4-292A; [09-10]
+    (=daikanwa		. 09306)	; &I-M-09306;
+    (=cbeta		. 08059)	; &I-CB08059;
+    (<-same
+     ((=ucs@unicode	  . #x65A5)	; &AJ1-02673;
+      (=adobe-japan1-0	  . 02673)	; &AJ1-02673;
+      (=daikanwa	  . 13535)	; &I-M-13535;
+      ))
+    (<-same*sources
+     yupian daikanwa)
+    (->formed
+     ((=ucs@unicode	  . #x65A5)	; &AJ1-02673;
+      (=adobe-japan1-0	  . 02673)	; &AJ1-02673;
+      ))
+    (->formed*sources
+     yupian)
+    (->subsumptive
+     ((==ucs@unicode	  . #x387F)	; &g2-M-09306;
+      (==cns11643-4	  . #x292A)	; &g2-M-09306; [09-10]
+      (==daikanwa	  . 09306)	; &g2-M-09306;
+      (==cbeta		  . 08059)	; &g2-M-09306;
+      (->subsumptive
+       ((===daikanwa	    . 09306)	; &R-M-09306;
+	)
+       ((===cbeta	    . 08059)	; &R-CB08059;
+	)
+       ((===cns11643-4	    . #x292A)	; &R-C4-292A; [09-10]
+	)
+       ((===ucs@unicode	    . #x387F)	; &R-UU+387F;
+	))
       ))
     ))
 (define-char
