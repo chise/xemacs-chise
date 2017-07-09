@@ -1,5 +1,39 @@
 2017-07-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el (GT-K03322): New character.
+
+2017-07-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R105-Dotted-Tent.el (U+7676): Add
+	`ideographic-structure'.
+	(BC-8C4F-var-004): New character.
+
+	* Ideograph-R104-Sickness.el (U-00024D34): Unify M-22071.
+
+	* Ideograph-R090-Half-Tree-Trunk.el (U-0002456B): Apply new
+	conventions for glyph granularity; unify BC-887A.
+
+	* Ideograph-R053-Dotted-Cliff.el (U+387F): Apply new conventions
+	for glyph granularity; unify CB08059.
+
+	* Ideograph-R041-Inch.el (U+3775): Unify BC-8ACD.
+	(U+5C01): Add `ideographic-structure'.
+	(U+5C03): Add `sound@ja/on/{kan|go}'.
+	(UU+5C03): Add `<-interchangeable' for UU+6577 and UU+6EA5; add
+	`<-original' for IU+22FAD; add `<-same' for IU+22FAD and UU+6577;
+	add `->mistakable' for UU+5C08; add `->wrong' for UU+6577.
+	(MJ057348): Unify U-0002D531.
+	(U-0002D53F): New character; use `<-denotational' for BUCS+5C0A.
+	(A-MJ057359): Use U-0002D53F instead of BUCS+5C0A as its mother.
+	(U-00021B35): Apply new conventions for glyph granularity.
+	(M-07450): Unify MJ034173 and KOSEKI-084670.
+
+	* Ideograph-R040-Roof.el (BC-8D7C-var-002): Unify GT-K06261.
+
+	* Ideograph-R037-Big.el (U+3694): Unify BC-8ABA.
+	(U-00020AFB): Apply new conventions for glyph granularity.
+	(U-00021686): Apply new conventions for glyph granularity.
+
 	* Ideograph-R013-Down-Box.el (U+56D8): Use
 	`ideographic-{radical|strokes}@cns' instead of
 	`ideographic-{radical|strokes}'; add
