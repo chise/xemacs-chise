@@ -3496,6 +3496,29 @@
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL KNIFE ONE")
+      (=ucs		  . #x2E88)	; ⺈
+      )
+     ((=ucs		  . #x7F52)	; 罒
+      ))
+    (=gt-k		. 03322)	; &GT-K03322;
+    (=gt-pj-k1		. #x5524)	; &GT-K03322; [53-04]
+    (<-unknown
+     ((=big5-cdp	  . #x8CAF)	; &CDP-8CAF;
+      ))
+    (->subsumptive
+     ((==gt-k		  . 03322)	; &g2-GT-K03322;
+      (==gt-pj-k1	  . #x5524)	; &g2-GT-K03322; [53-04]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 335 3)
