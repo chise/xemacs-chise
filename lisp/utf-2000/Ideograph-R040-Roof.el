@@ -3076,7 +3076,13 @@
       )
      ((=ucs		  . #x7C73)	; 米
       ))
+    (=gt-k		. 06261)	; &CDP-v002-8D7C;
+    (=gt-pj-k1		. #x464B)	; &CDP-v002-8D7C; [38-43]
     (=big5-cdp-var-002	. #x8D7C)	; &CDP-v002-8D7C;
+    (->subsumptive
+     ((==gt-k		  . 06261)	; &g2-GT-K06261;
+      (==gt-pj-k1	  . #x464B)	; &g2-GT-K06261; [38-43]
+      ))
     ))
 (define-char
   '((ideographic-radical . 40)	; ⼧

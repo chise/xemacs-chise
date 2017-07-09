@@ -72,11 +72,29 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (=ucs		. #x2456B)	; 𤕫
+    (=cns11643-6	. #x2331)	; &I-C6-2331; [03-17]
+    (=big5-cdp		. #x887A)	; &I-CDP-887A;
+    (=daikanwa		. 49277)	; &I-M-49277;
+    (<-original
+     ((=ucs		  . #x7592)	; 疒
+      (=daikanwa	  . 22015)	; &I-M-22015;
+      ))
+    (<-original*sources
+     daikanwa)
     (->subsumptive
-     ((=ucs@iso		  . #x2456B)	; &M-49277;
-      (=daikanwa	  . 49277)	; &M-49277;
+     ((==ucs@iso	  . #x2456B)	; &g2-CDP-887A;
+      (==big5-cdp	  . #x887A)	; &g2-CDP-887A;
+      (==daikanwa	  . 49277)	; &g2-CDP-887A;
+      (->subsumptive
+       ((===daikanwa	    . 49277)	; &R-M-49277;
+	)
+       ((===big5-cdp	    . #x887A)	; &R-CDP-887A;
+	)
+       ((===ucs@iso	    . #x2456B)	; &R-U-0002456B;
+	))
       )
-     ((=cns11643-6	  . #x2331)	; &C6-2331; [03-17]
+     ((==ucs@cns	  . #x2456B)	; &g2-CU+2456B;
+      (==cns11643-6	  . #x2331)	; &g2-CU+2456B; [03-17]
       ))
     ))
 (define-char
