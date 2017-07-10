@@ -1,5 +1,12 @@
 2017-07-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R096-Jade.el (U-0002C398): New character.
+
+	* Ideograph-R076-Lack.el (U-00023927): New character.
+
+	* Ideograph-R061-Heart.el (U+60AA): Unify GT-K07712.
+	(UU+611B): Unify GT-K10165.
+
 	* Ideograph-R018-Knife.el (GT-K03322): New character.
 
 2017-07-08  MORIOKA Tomohiko  <tomo.git@chise.org>

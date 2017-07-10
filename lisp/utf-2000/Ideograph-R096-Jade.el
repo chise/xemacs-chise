@@ -13759,6 +13759,23 @@
     ))
 (define-char
   '((ideographic-radical . 96)	; ⽟
+    (ideographic-strokes . 14)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x248E9)	; 𤣩
+      )
+     ((=ucs-itaiji-001	  . #x21577)	; &U-i001+21577;
+      ))
+    (=ucs		. #x2C398)	; 𬎘
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2C398)	; &g2-hanaJU+2C398;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 15)
     (total-strokes	 . 19)
     (=ucs		. #x74C3)	; 瓃
