@@ -6048,6 +6048,23 @@
     ))
 (define-char
   '((ideographic-radical . 76)	; ⽋
+    (ideographic-strokes . 13)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-itaiji-001	  . #x777F)	; &U-i001+777F;
+      )
+     ((=ucs		  . #x6B20)	; 欠
+      ))
+    (=ucs		. #x23927)	; 𣤧
+    (->subsumptive
+     ((==ucs@iso	  . #x23927)	; &g2-IU-00023927;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
     (=ucs		. #x6B5E)	; 歞
