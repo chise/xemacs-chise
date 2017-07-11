@@ -3509,7 +3509,9 @@
       ))
     (=gt-k		. 03322)	; &GT-K03322;
     (=gt-pj-k1		. #x5524)	; &GT-K03322; [53-04]
-    (<-unknown
+    (<-unknown@component
+     ((=ucs		  . #x8980)	; 覀
+      )
      ((=big5-cdp	  . #x8CAF)	; &CDP-8CAF;
       ))
     (->subsumptive
