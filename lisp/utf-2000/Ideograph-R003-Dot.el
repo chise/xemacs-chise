@@ -113,7 +113,7 @@
 	)
        ((=ucs		    . #x4E36)	; 丶
 	)
-       ((=gt-k		    . 00025)	; &GT-K00025;
+       ((=big5-cdp	    . #x8BA2)	; &CDP-8BA2;
 	))
       (=ucs@iso		  . #x2A70A)	; &U-0002A70A;
       (->subsumptive
