@@ -1,3 +1,8 @@
+2017-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (GT-K03322): Use `<-unknown@component'
+	instead of `<-unknown'.
+
 2017-07-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R079-Weapon.el (U-00023AA0): Add
