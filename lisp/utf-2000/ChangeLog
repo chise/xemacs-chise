@@ -1,3 +1,15 @@
+2017-07-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R079-Weapon.el (U-00023AA0): Add
+	`ideographic-structure'; unify BC-8CF6.
+	(U+6BC7): Add `ideographic-structure'; add `<-formed' for
+	MJ044390; add `<-same' for U-00025F66, U-00025DB5, U-00025F39 and
+	U-00025F42; add `->formed' for U-00025F66, U-00025F39, U-00025F42,
+	MJ044390 and UU+7CF3; add `->wrong' for U-00025DB5.
+	(U+3C8A): Apply new conventions for glyph granularity.
+
+	* Ideograph-R035-Go-Slowly.el (U-00021577): New character.
+
 2017-07-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R096-Jade.el (U-0002C398): New character.
