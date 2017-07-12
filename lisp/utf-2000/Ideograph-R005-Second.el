@@ -257,11 +257,13 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
     (=big5-cdp		. #x8BA2)	; &CDP-8BA2;
+    (=gt-k		. 00025)	; &I-GT-K00025;
+    (=gt-pj-k1		. #x3031)	; &CDP-8BA2; [16-17]
     (->subsumptive
-     ((==big5-cdp	  . #x8BA2)	; &g2-CDP-8BA2;
+     ((==gt-k		  . 00025)	; &g2-GT-K00025;
+      (==gt-pj-k1	  . #x3031)	; &g2-GT-K00025; [16-17]
       )
-     ((=gt-k		  . 00025)	; &GT-K00025;
-      (=gt-pj-k1	  . #x3031)	; &GT-K00025; [16-17]
+     ((==big5-cdp	  . #x8BA2)	; &g2-CDP-8BA2;
       )
      ((=gt-k		  . 00022)	; &GT-K00022;
       (=gt-pj-k1	  . #x3026)	; &GT-K00022; [16-06]
