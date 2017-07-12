@@ -457,15 +457,25 @@
   '((ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=>daikanwa		. 09918)	; &A-M-09918;
+    (=>ucs@iwds-1	. #x5F54)	; &A-IWDSU+5F54;
+    (=>daikanwa		. 09918)	; &A-IWDSU+5F54;
     ))
 (define-char
   '((<-denotational
-     ((=>daikanwa	  . 09918)	; &A-M-09918;
+     ((=>ucs@iwds-1	  . #x5F54)	; &A-IWDSU+5F54;
+      (=>daikanwa	  . 09918)	; &A-IWDSU+5F54;
       ))
     (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5F51)	; 彑
+      )
+     ((=ucs		  . #x6C3A)	; 氺
+      ))
     (=ucs		. #x5F54)	; 彔
     (=adobe-japan1-5	. 16858)	; &I-AJ1-16858;
     (=jis-x0212		. #x3C78)	; &I-JSP-3C78; [28-88]
@@ -505,13 +515,40 @@
     ))
 (define-char
   '((<-denotational
-     ((=>daikanwa	  . 09918)	; &A-M-09918;
+     ((=>ucs@iwds-1	  . #x5F54)	; &A-IWDSU+5F54;
+      (=>daikanwa	  . 09918)	; &A-IWDSU+5F54;
       ))
     (ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5F50)	; 彐
+      )
+     ((=ucs		  . #x6C3A)	; 氺
+      ))
     (=ucs		. #x5F55)	; 录
-    (=gb2312		. #x423C)	; &I-G0-423C; [34-28]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5F55)	; 录
+      ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@jis		  . #x5F50)	; &AJ1-14521;
+      (=adobe-japan1-4	  . 14521)	; &AJ1-14521;
+      )
+     ((=ucs		  . #x6C3A)	; 氺
+      ))
+    (=ucs@unicode	. #x5F55)	; &C3-2871;
+    (=gb2312		. #x423C)	; &C3-2871; [34-28]
     (=cns11643-3	. #x2871)	; &I-C3-2871; [08-81]
     (=jef-china3	. #x82B3)	; &I-JC3-82B3;
     (->subsumptive
