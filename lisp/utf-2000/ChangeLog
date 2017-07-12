@@ -1,5 +1,23 @@
 2017-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R058-Snout.el (A-M-09918): Unify A-IWDSU+5F54.
+	(U+5F54): Add `ideographic-structure'.
+	(U+5F55): Apply new conventions for glyph granularity.
+
+	* Ideograph-R030-Mouth.el (U+5404): Add `ideographic-structure'.
+	(A-M-03386): Unify IWDS1-0286.
+	(g2-JU+5467): Apply new conventions for glyph granularity for
+	components of ideographic-structure.
+	(UU+9EFE): Unify BC-8A59.
+	(U+54E1): Unify GT-K06374.
+
+2017-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (BC-8BA2): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R089-Double-X.el (U+24566-itaiji-002): New character.
+
 	* Ideograph-R018-Knife.el (GT-K03322): Use `<-unknown@component'
 	instead of `<-unknown'.
 
