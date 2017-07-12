@@ -1775,6 +1775,24 @@
   '((ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x767B)	; 登
+      )
+     ((=>ucs@component	  . #x51E0)	; &A-compU+51E0;
+      (=>iwds-1		  .  0119)	; &A-compU+51E0;
+      ))
+    (=ucs		. #x51F3)	; 凳
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x51F3)	; 凳
+      ))
+    (ideographic-radical . 16)	; ⼏
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
     (hanyu-dazidian	1 278 20)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1784,8 +1802,8 @@
       )
      ((=ucs		  . #x51E0)	; 几
       ))
-    (=ucs		. #x51F3)	; 凳
-    (=adobe-japan1-5	. 17309)	; &I-AJ1-17309;
+    (=ucs@unicode	. #x51F3)	; &AJ1-17309;
+    (=adobe-japan1-5	. 17309)	; &AJ1-17309;
     (=gb2312		. #x354A)	; &I-G0-354A; [21-42]
     (=jis-x0212		. #x332D)	; &I-JSP-332D; [19-13]
     (=cns11643-1	. #x6821)	; &I-C1-6821; [72-01]
