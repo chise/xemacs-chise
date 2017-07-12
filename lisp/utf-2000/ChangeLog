@@ -1,5 +1,7 @@
 2017-07-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R025-Divination.el (GT-K00877): New character.
+
 	* Ideograph-R058-Snout.el (A-M-09918): Unify A-IWDSU+5F54.
 	(U+5F54): Add `ideographic-structure'.
 	(U+5F55): Apply new conventions for glyph granularity.
