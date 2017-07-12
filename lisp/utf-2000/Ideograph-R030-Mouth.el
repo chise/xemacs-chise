@@ -2699,6 +2699,15 @@
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x6535)	; &A-compU+6535;
+      (=>iwds-1		  .  0194)	; &A-compU+6535;
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
     (=ucs		. #x5404)	; 各
     ))
 (define-char
@@ -7943,11 +7952,12 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (=>daikanwa		. 03386)	; &A-M-03386;
+    (=>daikanwa		. 03386)	; &IWDS1-286;
+    (=>iwds-1		.  0286)	; &IWDS1-286;
     ))
 (define-char
   '((<-denotational
-     ((=>daikanwa	  . 03386)	; &A-M-03386;
+     ((=>iwds-1		  .  0286)	; &IWDS1-286;
       ))
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 4)
@@ -8008,7 +8018,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>daikanwa	  . 03386)	; &A-M-03386;
+     ((=>iwds-1		  .  0286)	; &IWDS1-286;
       ))
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 3)
@@ -9850,7 +9860,7 @@
        ((==ucs@unicode	    . #x53E3)	; &g2-AJ1-01969;
 	(==adobe-japan1-0   . 01969)	; &g2-AJ1-01969;
 	)
-       ((=ucs@JP/hanazono   . #x6C10)	; &hanaJU+6C10;
+       ((==ucs@JP/hanazono  . #x6C10)	; &g2-hanaJU+6C10;
 	))
       (==ucs@jis	  . #x5467)	; &g2-AJ1-21259;
       (==adobe-japan1-6	  . 21259)	; &g2-AJ1-21259;
@@ -9880,6 +9890,10 @@
       ))
     (=ucs@unicode	. #x5467)	; &UU+5467;
     (=ucs@JP/hanazono	. nil)
+    (->subsumptive
+     ((==ucs@unicode	  . #x5467)	; &g2-UU+5467;
+      (==ucs@JP/hanazono  . nil)
+      ))
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
@@ -10979,7 +10993,8 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs@unicode	  . #x72AE)	; &UU+72AE;
+     ((=ucs@unicode	  . #x72AE)	; &CDP-8A66;
+      (=big5-cdp	  . #x8A66)	; &CDP-8A66;
       ))
     (=ucs@unicode	. #x3579)	; &UU+3579;
     (=ucs@JP/hanazono	. nil)
@@ -13081,19 +13096,23 @@
     (=ucs@unicode	. #x9EFE)	; &C3-2772;
     (=gb2312		. #x763C)	; &C3-2772; [86-28]
     (=cns11643-3	. #x2772)	; &I-C3-2772; [07-82]
+    (=big5-cdp		. #x8A59)	; &I-CDP-8A59;
     (<-simplified@CN
      ((=ucs@unicode	  . #x9EFD)	; &AJ1-07449;
       (=adobe-japan1-0	  . 07449)	; &AJ1-07449;
       (=gb12345		  . #x763C)	; &AJ1-07449; [86-28]
       ))
     (->subsumptive
-     ((==ucs@unicode	  . #x9EFE)	; &g2-UU+9EFE;
-      (==gb2312		  . #x763C)	; &g2-UU+9EFE; [86-28]
-      (==cns11643-3	  . #x2772)	; &g2-UU+9EFE; [07-82]
+     ((==ucs@unicode	  . #x9EFE)	; &g2-CDP-8A59;
+      (==gb2312		  . #x763C)	; &g2-CDP-8A59; [86-28]
+      (==cns11643-3	  . #x2772)	; &g2-CDP-8A59; [07-82]
+      (==big5-cdp	  . #x8A59)	; &g2-CDP-8A59;
       (->subsumptive
        ((===cns11643-3	    . #x2772)	; &R-C3-2772; [07-82]
 	)
        ((===ucs@unicode	    . #x9EFE)	; &R-UU+9EFE;
+	)
+       ((===big5-cdp	    . #x8A59)	; &R-CDP-8A59;
 	))
       ))
     ))
@@ -17639,6 +17658,7 @@
     (=gb12345		. #x5431)	; 員 [52-17]
     (=big5		. #xADFB)	; &I-B-ADFB;
     (=gt		. 04541)	; &I-GT-04541;
+    (=gt-k		. 06374)	; &I-GT-K06374;
     (=gt-pj-1		. #x3077)	; &I-GT-04541; [16-87]
     (=daikanwa		. 03633)	; &I-M-03633;
     (=shinjigen@1ed	.  1080)	; 員
@@ -17652,6 +17672,7 @@
       (==jis-x0213-1	  . #x3077)	; &g2-AJ1-01211; [16-87]
       (==gb12345	  . #x5431)	; &g2-AJ1-01211; [52-17]
       (==gt		  . 04541)	; &g2-AJ1-01211;
+      (==gt-k		  . 06374)	; &g2-AJ1-01211;
       (==daikanwa	  . 03633)	; &g2-AJ1-01211;
       (==shinjigen@1ed	  .  1080)	; &g2-AJ1-01211;
       (==shinjigen@rev	  .  1079)	; &g2-AJ1-01211;
@@ -17666,6 +17687,7 @@
        ((===cns11643-1	    . #x545E)	; &R-C1-545E; [52-62]
 	)
        ((===gt		    . 04541)	; &R-GT-04541;
+	(===gt-k	    . 06374)	; &R-GT-04541;
 	)
        ((===ucs@ks	    . #x54E1)	; &R-K0-6A2C;
 	(===ks-x1001	    . #x6A2C)	; &R-K0-6A2C; [74-12]
@@ -47117,7 +47139,7 @@
        ((==ucs@unicode	    . #x53E3)	; &g2-AJ1-01969;
 	(==adobe-japan1-0   . 01969)	; &g2-AJ1-01969;
 	)
-       ((==ucs@unicode	    . #x5DFD)	; 巽
+       ((=ucs		    . #x2F884)	; 巽
 	))
       (==ucs@unicode	  . #x5640)	; &g2-AJ1-17397;
       (==adobe-japan1-5	  . 17397)	; &g2-AJ1-17397;
