@@ -260,6 +260,26 @@
      ((name		  . "CJK RADICAL DIVINATION")
       (=ucs		  . #x2E8A)	; ⺊
       )
+     ((=ucs		  . #x5196)	; 冖
+      ))
+    (=gt-k		. 00877)	; &GT-K00877;
+    (=gt-pj-k1		. #x3D77)	; &GT-K00877; [29-87]
+    (->subsumptive
+     ((==gt-k		  . 00877)	; &g2-GT-K00877;
+      (==gt-pj-k1	  . #x3D77)	; &g2-GT-K00877; [29-87]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 25)	; ⼘
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL DIVINATION")
+      (=ucs		  . #x2E8A)	; ⺊
+      )
      ((=big5-cdp	  . #x88E2)	; &CDP-88E2;
       ))
     (=gt-k		. 00880)	; &GT-K00880;
