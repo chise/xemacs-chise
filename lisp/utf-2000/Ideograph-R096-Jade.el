@@ -14179,6 +14179,23 @@
     ))
 (define-char
   '((ideographic-radical . 96)	; ⽟
+    (ideographic-strokes . 15)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x248E9)	; 𤣩
+      )
+     ((=ucs		  . #x271D6)	; 𧇖
+      ))
+    (=ucs		. #x24ABD)	; 𤪽
+    (->subsumptive
+     ((==ucs@iso	  . #x24ABD)	; &g2-IU-00024ABD;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 16)
     (total-strokes	 . 20)
     (=ucs		. #x74D1)	; 瓑
