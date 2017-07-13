@@ -250,7 +250,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 25)	; ⼘
+  '((<-denotational@component
+     ((=>ucs@component	  . #x239B5)	; &A-compU+239B5;
+      ))
+    (ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (ideographic-structure
@@ -260,13 +263,32 @@
      ((name		  . "CJK RADICAL DIVINATION")
       (=ucs		  . #x2E8A)	; ⺊
       )
-     ((=ucs		  . #x5196)	; 冖
+     ((=ucs		  . #x5182)	; 冂
       ))
-    (=gt-k		. 00877)	; &GT-K00877;
-    (=gt-pj-k1		. #x3D77)	; &GT-K00877; [29-87]
+    (=gt-k		. 00876)	; &GT-K00876;
+    (=gt-pj-k1		. #x3856)	; &GT-K00876; [24-54]
     (->subsumptive
-     ((==gt-k		  . 00877)	; &g2-GT-K00877;
-      (==gt-pj-k1	  . #x3D77)	; &g2-GT-K00877; [29-87]
+     ((==gt-k		  . 00876)	; &g2-GT-K00876;
+      (==gt-pj-k1	  . #x3856)	; &g2-GT-K00876; [24-54]
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((name		    . "CJK RADICAL DIVINATION")
+	(=ucs		    . #x2E8A)	; ⺊
+	)
+       ((=ucs		    . #x5196)	; 冖
+	))
+      (=gt-k		  . 00877)	; &GT-K00877;
+      (=gt-pj-k1	  . #x3D77)	; &GT-K00877; [29-87]
+      (<-formed@component/connect-below
+       ((=gt-k		    . 00876)	; &GT-K00876;
+	))
+      (->subsumptive
+       ((==gt-k		    . 00877)	; &g2-GT-K00877;
+	(==gt-pj-k1	    . #x3D77)	; &g2-GT-K00877; [29-87]
+	))
       ))
     ))
 (define-char
