@@ -1,5 +1,14 @@
 2017-07-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R096-Jade.el (U-00024ABD): New character.
+
+2017-07-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (U+53DC): Apply new conventions for
+	glyph granularity.
+	(MJ057139): New character; use `<-denotational' for U+53DC; unify
+	HD-KS036800.
+
 	* Ideograph-R016-Table.el (U+51F3): Apply new conventions for
 	glyph granularity.
 

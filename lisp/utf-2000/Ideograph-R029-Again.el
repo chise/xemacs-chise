@@ -2664,6 +2664,25 @@
   '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=>ucs@component	  . #x706B)	; &A-compU+706B;
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ucs		. #x53DC)	; 叜
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x53DC)	; 叜
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
     (hanyu-dazidian	1 398 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
@@ -2675,8 +2694,8 @@
       )
      ((=ucs		  . #x53C8)	; 又
       ))
-    (=ucs		. #x53DC)	; 叜
-    (=cns11643-3	. #x2B4E)	; &I-C3-2B4E; [11-46]
+    (=ucs@unicode	. #x53DC)	; &C3-2B4E;
+    (=cns11643-3	. #x2B4E)	; &C3-2B4E; [11-46]
     (=big5-cdp		. #x8AC4)	; &I-CDP-8AC4;
     (=daikanwa		. 03167)	; &I-M-03167;
     (=cbeta		. 00008)	; &I-CB00008;
@@ -2742,6 +2761,36 @@
 	))
       (==ucs@cns	  . #x53DC)	; &g2-CU+53DC;
       (==cns11643-3	  . #x2B4E)	; &g2-CU+53DC; [11-46]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x53DC)	; 叜
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=gt-k		  . 00859)	; &GT-K00859;
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=mj		. 057139)	; &MJ057139;
+    (=hanyo-denshi/ks	. 036800)	; &MJ057139;
+    (->subsumptive
+     ((==mj		  . 057139)	; &g2-MJ057139;
+      (==hanyo-denshi/ks  . 036800)	; &g2-MJ057139;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 036800)	; &R-HD-KS-036800;
+	(=hanyo-denshi/ks/mf . #x0E60)	; &R-HD-KS-036800;
+	)
+       ((===mj		    . 057139)	; &R-MJ057139;
+	))
       ))
     ))
 (define-char
