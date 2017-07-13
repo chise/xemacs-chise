@@ -1,3 +1,12 @@
+2017-07-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R025-Divination.el (GT-K00876): New character; use
+	`<-denotational@component' for A-compU+239B5.
+	(GT-K00877): Add `<-subsumptive' for GT-K00876; add
+	`<-formed@component/connect-below' for GT-K00876.
+
+	* Ideograph-R013-Down-Box.el (U+34BC-itaiji-005): New character.
+
 2017-07-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R096-Jade.el (U-00024ABD): New character.
