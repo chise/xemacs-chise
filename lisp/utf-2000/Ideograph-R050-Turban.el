@@ -293,11 +293,11 @@
       ))
     (<-interchangeable*sources
      shuowen-tongxun-dingsheng daikanwa)
-    (->ancient
+    (->ancient@p=bu4
      ((=ucs		  . #x3C5B)	; 㱛
       (=daikanwa	  . 16397)	; &I-M-16397;
       ))
-    (->ancient*sources
+    (->ancient@p=bu4*sources
      xu-zihui-bu daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x5E03)	; &g2-AJ1-03533;
@@ -1212,6 +1212,33 @@
     (=ucs		. #x5E10)	; 帐
     (=gb2312		. #x554A)	; &I-G0-554A; [53-42]
     (=hanziku-2		. #xE8B6)	; &I-HZK02-E8B6;
+    ))
+(define-char
+  '((ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x5DFE)	; 巾
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x3405)	; 㐅
+	)
+       ((=ucs		    . #x3405)	; 㐅
+	))
+      ))
+    (=big5-cdp-itaiji-001 . #x8C62)	; &CDP-i001-8C62;
+    (<-formed@component
+     ((=big5-cdp	  . #x8C62)	; &CDP-8C62;
+      ))
+    (->subsumptive
+     ((==big5-cdp-itaiji-001 . #x8C62)	; &g2-CDP-i001-8C62;
+      ))
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱

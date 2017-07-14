@@ -1316,24 +1316,26 @@
      ((=ucs		  . #x529B)	; 力
       ))
     (=ucs		. #x2084D)	; 𠡍
+    (=cns11643-4	. #x2349)	; &I-C4-2349; [03-41]
+    (=daikanwa		. 02327)	; &I-M-02327;
+    (<-vulgar
+     ((=ucs		  . #x52C1)	; 勁
+      (=daikanwa	  . 02349)	; &I-M-02349;
+      ))
+    (<-vulgar*sources
+     songyuan-yilai-suzipu daikanwa)
     (->subsumptive
-     ((=ucs@cns		  . #x2084D)	; &C4-2349;
-      (=cns11643-4	  . #x2349)	; &C4-2349; [03-41]
+     ((=>>ucs@cns	  . #x2084D)	; &G-C4-2349;
+      (=>>cns11643-4	  . #x2349)	; &G-C4-2349; [03-41]
+      (=>>daikanwa	  . 02327)	; &G-C4-2349;
       (->subsumptive
-       ((=daikanwa	    . 02327)	; &M-02327;
-	(<-vulgar
-	 ((=ucs@unicode	      . #x52C1)	; &AJ1-04283;
-	  (=adobe-japan1-0    . 04283)	; &AJ1-04283;
-	  (=daikanwa	      . 02349)	; &I-M-02349;
-	  ))
-	(<-vulgar*sources
-	 songyuan-yilai-suzipu daikanwa)
+       ((==daikanwa	    . 02327)	; &g2-M-02327;
 	)
        ((==ucs@cns	    . #x2084D)	; &g2-CU+2084D;
 	(==cns11643-4	    . #x2349)	; &g2-CU+2084D; [03-41]
 	))
       )
-     ((=ucs@iso		  . #x2084D)	; &U-0002084D;
+     ((==ucs@iso	  . #x2084D)	; &g2-IU-0002084D;
       ))
     ))
 (define-char
@@ -1355,8 +1357,7 @@
     (=ucs		. #x52B2)	; 劲
     (=gb2312		. #x3E22)	; &I-G0-3E22; [30-02]
     (<-simplified@CN
-     ((=ucs@unicode	  . #x52C1)	; &AJ1-04283;
-      (=adobe-japan1-0	  . 04283)	; &AJ1-04283;
+     ((=ucs		  . #x52C1)	; 勁
       (=gb12345		  . #x3E22)	; 勁 [30-02]
       ))
     (->subsumptive
@@ -2300,7 +2301,7 @@
      ((=ucs		  . #x529B)	; 力
       ))
     (=ucs		. #x52C1)	; 勁
-    (=adobe-japan1-0	. 04283)	; &AJ1-04283;
+    (=adobe-japan1-0	. 04283)	; &I-AJ1-04283;
     (=jis-x0208		. #x5226)	; &I-J90-5226; [50-06]
     (=ks-x1001		. #x4C4D)	; &I-K0-4C4D; [44-45]
     (=cns11643-1	. #x5030)	; &I-C1-5030; [48-16]
@@ -6415,7 +6416,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=mj		  . 058978)	; &MJ058978;
+     ((=ucs		  . #x2E976)	; 𮥶
       )
      ((=ucs		  . #x529B)	; 力
       ))
@@ -6452,7 +6453,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==mj		    . 058978)	; &g2-MJ058978;
+       ((==ucs@JP/hanazono  . #x2E976)	; &g2-MJ058978;
+	(==mj		    . 058978)	; &g2-MJ058978;
 	)
        ((==ucs@unicode	    . #x529B)	; &g2-AJ1-03991;
 	(==adobe-japan1-0   . 03991)	; &g2-AJ1-03991;
