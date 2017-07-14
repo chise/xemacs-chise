@@ -1,8 +1,47 @@
+2017-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs-itaiji-003'.
+
 2017-07-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R078-Death.el (A-compU+239B5): New abstract node.
+	(U-000239B5): Apply new conventions for glyph granularity; add
+	`<-denotational@component' for A-compU+239B5.
+	(GT-K01554): New character; use `<-subsumptive' for U-000239B5.
+	(U+6B7A): Add `<-Liwen' for U+6B79.
+	(U+3C5B): Add `ideographic-structure'; add
+	`sound@ja/on/p={chuan3|bu4}'; add `<-ancient@p=bu4' for U+5E03.
+
+	* Ideograph-R069-Axe.el (UU+65A5): Add `<-formed' and `<-same' for
+	U+387F.
+	(C1-4658): Unify CU+65A5.
+
+	* Ideograph-R031-Enclosure.el (BUCS+56DE): New abstract node.
+	(U+56D8): Use `ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs'; add `<-denotational' for
+	BUCS+56DE; copied from Ideograph-R013-Down-Box.el.
+	(A-IWDSU+56DE): New abstract node; use `<-denotational' for
+	BUCS+56DE.
+	(U+56DE): Add `<-denotational' for A-IWDSU+56DE.
+	(U+56EC): Likewise; apply new conventions for glyph granularity.
+	(M-04801): Unify U-000211F8.
+	(M-04802): Unify U-000211FA, MJ032881 and KOSEKI-054790.
+	(A-U+753E-itaiji-001): New abstract node.
+	(U+753E-itaiji-002): New character; use `<-denotational' for
+	A-U+753E-itaiji-001.
+	(U+753E-itaiji-001): Likewise.
+
+	* Ideograph-R024-Ten.el (U+501D-itaiji-002): New character.
 
 	* Ideograph-R050-Turban.el (U+5E03): Use `->ancient@p=bu4' instead
 	of `->ancient' for U+3C5B.
 	(BC-8C62-itaiji-001): New character.
+
+	* Ideograph-R107-Skin.el (U-00025016): Apply new conventions for
+	glyph granularity.
+	(IU+25016): Unify M-22906.
 
 2017-07-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
