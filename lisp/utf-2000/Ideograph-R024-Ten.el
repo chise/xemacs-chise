@@ -2995,6 +2995,29 @@
     ))
 (define-char
   '((ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 13)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x857B)	; &CDP-857B;
+      )
+     ((=ucs		  . #x65E9)	; 早
+      ))
+    (=ucs-itaiji-002	. #x501D)	; &U-i002+501D;
+    (<-ancient
+     ((=ucs		  . #x501D)	; 倝
+      ))
+    (<-ancient@component
+     ((=ucs		  . #x2099D)	; 𠦝
+      ))
+    (->subsumptive
+     ((==ucs-itaiji-002	  . #x501D)	; &g2-U-i002+501D;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
     (=ucs		. #x209C8)	; 𠧈
