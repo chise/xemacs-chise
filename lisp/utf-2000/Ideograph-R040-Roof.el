@@ -4714,6 +4714,69 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=>ucs@component	  . #x706B)	; &A-compU+706B;
+      )
+     ((=ucs		  . #x5915)	; 夕
+      ))
+    (=ucs		. #x21A1D)	; 𡨝
+    (<-formed
+     ((=ucs		  . #x53DF)	; 叟
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21A1D)	; 𡨝
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x707E)	; 灾
+      )
+     ((=ucs		  . #x5915)	; 夕
+      ))
+    (=ucs@iso		. #x21A1D)	; &U-00021A1D;
+    (->subsumptive
+     ((==ucs@iso	  . #x21A1D)	; &g2-IU-00021A1D;
+      (->subsumptive
+       ((===ucs@iso	    . #x21A1D)	; &R-U-00021A1D;
+	)
+       ((=hanziku-3	    . #xBC74)	; &HZK03-BC74;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21A1D)	; 𡨝
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=gt-k		  . 00859)	; &GT-K00859;
+      )
+     ((=ucs		  . #x5915)	; 夕
+      ))
+    (=ucs-itaiji-001	. #x21A1D)	; &U-i001+21A1D;
+    ))
+(define-char
   '((<-denotational
      ((=>big5-cdp	  . #x8D7C)	; &A-CDP-8D7C;
       ))
@@ -7861,6 +7924,28 @@
     (=ucs@iso		. #x21A74)	; &U-00021A74;
     (->subsumptive
      ((==ucs@iso	  . #x21A74)	; &g2-IU-00021A74;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x3749)	; 㝉
+      )
+     ((=gt-k		  . 00859)	; &GT-K00859;
+      )
+     ((=ucs		  . #x76EE)	; 目
+      ))
+    (=ucs		. #x2BCE4)	; 𫳤
+    (<-formed
+     ((=ucs		  . #x777F)	; 睿
+      ))
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2BCE4)	; &g2-hanaJU+2BCE4;
       ))
     ))
 (define-char
