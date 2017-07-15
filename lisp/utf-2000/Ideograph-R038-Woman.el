@@ -11173,7 +11173,7 @@
      ((=ucs		  . #x660F)	; 昏
       ))
     (=ucs		. #x5A5A)	; 婚
-    (=adobe-japan1-0	. 02071)	; &AJ1-02071;
+    (=adobe-japan1-0	. 02071)	; &I-AJ1-02071;
     (=jis-x0208		. #x3A27)	; &I-J90-3A27; [26-07]
     (=gb2312		. #x3B69)	; &I-G0-3B69; [27-73]
     (=ks-x1001		. #x7B66)	; &I-K0-7B66; [91-70]
@@ -24203,6 +24203,39 @@
       (=daikanwa/ho	  .  0129)	; &GT-08656;
       )
      ((=ucs@iso		  . #x21909)	; &U-00021909;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 38)	; ⼥
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs		  . #x4535)	; 䔵
+      ))
+    (=ucs		. #x21904)	; 𡤄
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21904)	; 𡤄
+      ))
+    (ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 16)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=cns11643-3	  . #x5257)	; &C3-5257; [50-55]
+      (=daikanwa	  . 31915)	; &I-M-31915;
+      ))
+    (=ucs@iso		. #x21904)	; &U-00021904;
+    (->subsumptive
+     ((==ucs@iso	  . #x21904)	; &g2-IU-00021904;
       ))
     ))
 (define-char
