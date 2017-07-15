@@ -2774,6 +2774,25 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
       )
+     ((=ucs		  . #x7A74)	; 穴
+      )
+     ((=ucs		  . #x201A2)	; 𠆢
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ucs-itaiji-004	. #x53DC)	; &U-i004+53DC;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x53DC)	; 叜
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
      ((=ucs		  . #x5B80)	; 宀
       )
      ((=gt-k		  . 00859)	; &GT-K00859;
