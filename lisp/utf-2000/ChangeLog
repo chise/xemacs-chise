@@ -1,5 +1,42 @@
 2017-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R009-Man.el (A-J0-4662): Unify IWDS1-0148.
+	(U+4EFA): Apply new conventions for glyph granularity.
+	(U+4F28): Likewise.
+	(U+501D): Likewise.
+	(UU+501D): Unify CB08926; add `->Zhouwen' for U-00020431.
+	(U-0002027E): New character.
+	(U-00020281): New character.
+	(U-00020283): New character.
+	(U-000202B4): Apply new conventions for glyph granularity.
+	(U+5076): Unify GT-K07751.
+	(UU+5085): Add `sound@ja/on/{kan|go}'; add `<-formed' for UU+6577;
+	add `<-interchangeable' for U+526F, U+9644, U+99D9, U+4ED8,
+	U+7B26, U+6B28, UU+752B and UU+6577; add `->mistakable' for
+	UU+50B3.
+	(U-00020390): New character.
+	(U-00020431): Add `ideographic-structure'; add `<-Zhouwen' for
+	UU+501D.
+
+	* Ideograph-R094-Dog.el (A-IWDSU+24824): New abstract component;
+	unify A-M-20593.
+	(U-0002481B): New character; use `<-denotational' for
+	A-IWDSU+24824.
+	(M-20593): Use `<-denotational' for U-0002481B instead of `=>ucs'
+	for U-00024824; unify MJ040803 and KOSEKI-231180.
+	(U-00024824): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-IWDSU+24824.
+
+2017-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R051-Dry.el (U+5E79): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R038-Woman.el (U-00021904): New character.
+
+	* Ideograph-R029-Again.el (U+53DC-itaiji-004): New character; use
+	`<-denotational' for U+53DC.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>ucs-itaiji-003'.
 
@@ -16,6 +53,9 @@
 	* Ideograph-R069-Axe.el (UU+65A5): Add `<-formed' and `<-same' for
 	U+387F.
 	(C1-4658): Unify CU+65A5.
+
+	* Ideograph-R040-Roof.el (U-00021A1D): New character.
+	(U-0002BCE4): New character.
 
 	* Ideograph-R031-Enclosure.el (BUCS+56DE): New abstract node.
 	(U+56D8): Use `ideographic-{radical|strokes}@cns' instead of
