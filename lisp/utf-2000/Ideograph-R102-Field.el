@@ -6014,6 +6014,38 @@
     ))
 (define-char
   '((ideographic-radical . 102)	; ⽥
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=>ucs-itaiji-003	  . #x82F1)	; &A-U-i003+82F1;
+      )
+     ((=ucs		  . #x7530)	; 田
+      ))
+    (=ucs		. #x24CB1)	; 𤲱
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24CB1)	; 𤲱
+      ))
+    (ideographic-radical . 102)	; ⽥
+    (ideographic-strokes . 9)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs-itaiji-003	  . #x82F1)	; &U-i003+82F1;
+      )
+     ((=ucs		  . #x7530)	; 田
+      ))
+    (=ucs@iso		. #x24CB1)	; &U-00024CB1;
+    (->subsumptive
+     ((==ucs@iso	  . #x24CB1)	; &g2-IU-00024CB1;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
     (hanyu-dazidian	4 2549 8)
@@ -6706,6 +6738,40 @@
       (=ucs@iso		  . #x24CD8)	; &C5-5C34;
       (=cns11643-5	  . #x5C34)	; &C5-5C34; [60-20]
       (=hanziku-7	  . #xB9B6)	; &I-HZK07-B9B6;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 102)	; ⽥
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7530)	; 田
+      )
+     ((=ucs		  . #x83C0)	; 菀
+      ))
+    (=ucs		. #x24CD9)	; 𤳙
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24CD9)	; 𤳙
+      ))
+    (ideographic-radical . 102)	; ⽥
+    (ideographic-strokes . 12)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7530)	; 田
+      )
+     ((=ucs@cns		  . #x83C0)	; &C2-3F45;
+      (=cns11643-2	  . #x3F45)	; &C2-3F45; [31-37]
+      (=daikanwa	  . 31135)	; &I-M-31135;
+      ))
+    (=ucs@iso		. #x24CD9)	; &U-00024CD9;
+    (->subsumptive
+     ((==ucs@iso	  . #x24CD9)	; &g2-IU-00024CD9;
       ))
     ))
 (define-char

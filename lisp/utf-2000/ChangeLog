@@ -1,5 +1,13 @@
 2017-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R102-Field.el (U-00024CB1): New character.
+	(U-00024CD9): New character.
+
+	* Ideograph-R073-Say.el (U+669C): Add `ideographic-structure'.
+
+	* Ideograph-R050-Turban.el (CU+5E55): Use `<-interchangeable'
+	instead of `->interchangeable'.
+
 	* Ideograph-R009-Man.el (A-J0-4662): Unify IWDS1-0148.
 	(U+4EFA): Apply new conventions for glyph granularity.
 	(U+4F28): Likewise.

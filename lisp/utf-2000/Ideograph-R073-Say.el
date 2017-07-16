@@ -2100,6 +2100,15 @@
     (ideographic-radical@ucs/compat . 73)	; ⽈
     (ideographic-strokes@ucs/compat . 10)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7ADD)	; 竝
+      )
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
+      ))
     (=ucs		. #x669C)	; 暜
     ))
 (define-char
@@ -2139,6 +2148,7 @@
       ))
     (->subsumptive
      ((==ucs@iso	  . #x2F8D5)	; &g2-M-14312;
+      (==ucs@JP/hanazono  . nil)
       (==cns11643-6	  . #x5D5B)	; &g2-M-14312; [61-59]
       (==daikanwa	  . 14312)	; &g2-M-14312;
       (->subsumptive
