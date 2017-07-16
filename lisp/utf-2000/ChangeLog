@@ -1,3 +1,20 @@
+2017-07-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R043-Lame.el (U+5140): Add `<-mistakable@component'
+	for GT-K00264.
+
+	* Ideograph-R038-Woman.el (U-0002180C): New character.
+
+	* Ideograph-R037-Big.el (U+592E-itaiji-003): New character.
+	(U+592E-itaiji-004): New character.
+	(GT-K01161): New character.
+	(U-00021673): Apply new conventions for glyph granularity.
+	(A-U+21673-itaiji-001): New abstract node.
+	(U+21673-itaiji-001): New character.
+
+	* Ideograph-R010-Legs.el (U+5140): Add `<-mistakable@component'
+	for GT-K00264.
+
 2017-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R102-Field.el (U-00024CB1): New character.
