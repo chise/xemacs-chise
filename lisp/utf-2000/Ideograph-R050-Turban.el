@@ -6818,34 +6818,6 @@
     (<-interchangeable
      ((=ucs@cns		  . #x6F20)	; &MJ015839;
       (=mj		  . 015839)	; &MJ015839;
-      ))
-    (<-interchangeable@ancient
-     ((=ucs@cns		  . #x6F20)	; &MJ015839;
-      (=mj		  . 015839)	; &MJ015839;
-      ))
-    (<-same
-     ((=ucs@cns		  . #x5E59)	; &C2-4978;
-      (=cns11643-2	  . #x4978)	; &C2-4978; [41-88]
-      (=daikanwa	  . 09052)	; &I-M-09052;
-      )
-     ((=ucs@cns		  . #x5E54)	; &AJ1-14125;
-      (=adobe-japan1-4	  . 14125)	; &AJ1-14125;
-      (=daikanwa	  . 09050)	; &I-M-09050;
-      ))
-    (<-same$_1*sources
-     zihui-bu daikanwa)
-    (<-same$_2*sources
-     jiyun daikanwa)
-    (<-same*sources
-     daikanwa)
-    (->formed
-     ((=daikanwa	  . 27836)	; &M-27836;
-      ))
-    (->formed*sources
-     shuowen-tongxun-dingsheng)
-    (->interchangeable
-     ((=ucs@cns		  . #x6F20)	; &MJ015839;
-      (=mj		  . 015839)	; &MJ015839;
       (=daikanwa	  . 18149)	; &I-M-18149;
       )
      ((=ucs@iso		  . #x215B6)	; &C4-4261;
@@ -6868,29 +6840,49 @@
       (=mj		  . 015854)	; &MJ015854;
       (=daikanwa	  . 18166)	; &I-M-18166;
       ))
-    (->interchangeable$_1*sources
+    (<-interchangeable$_1*sources
      shuowen-tongxun-dingsheng daikanwa)
-    (->interchangeable$_2*sources
+    (<-interchangeable$_2*sources
      shuowen-tongxun-dingsheng daikanwa)
-    (->interchangeable$_3*sources
+    (<-interchangeable$_3*sources
      shiji-zhu daikanwa)
-    (->interchangeable$_4*sources
+    (<-interchangeable$_4*sources
      shuowen-tongxun-dingsheng houhanshu-zhu daikanwa)
-    (->interchangeable$_5*sources
+    (<-interchangeable$_5*sources
      shiwen daikanwa)
-    (->interchangeable$_6*sources
+    (<-interchangeable$_6*sources
      liji-zhu daikanwa)
-    (->interchangeable$_7*sources
+    (<-interchangeable$_7*sources
      shuowen-tongxun-dingsheng daikanwa)
-    (->interchangeable*sources
+    (<-interchangeable*sources
      daikanwa)
-    (->interchangeable@ancient
+    (<-interchangeable@ancient
      ((=ucs@cns		  . #x83AB)	; &C1-5C7B;
       (=cns11643-1	  . #x5C7B)	; &C1-5C7B; [60-91]
       (=daikanwa	  . 31078)	; &I-M-31078;
       ))
-    (->interchangeable@ancient*sources
+    (<-interchangeable@ancient*sources
      shiji-zhu)
+    (<-same
+     ((=ucs@cns		  . #x5E59)	; &C2-4978;
+      (=cns11643-2	  . #x4978)	; &C2-4978; [41-88]
+      (=daikanwa	  . 09052)	; &I-M-09052;
+      )
+     ((=ucs@cns		  . #x5E54)	; &AJ1-14125;
+      (=adobe-japan1-4	  . 14125)	; &AJ1-14125;
+      (=daikanwa	  . 09050)	; &I-M-09050;
+      ))
+    (<-same$_1*sources
+     zihui-bu daikanwa)
+    (<-same$_2*sources
+     jiyun daikanwa)
+    (<-same*sources
+     daikanwa)
+    (->formed
+     ((=daikanwa	  . 27836)	; &M-27836;
+      ))
+    (->formed*sources
+     shuowen-tongxun-dingsheng)
     (->subsumptive
      ((=decomposition@hanyo-denshi
        ((=ucs		    . #x5E55)	; 幕
