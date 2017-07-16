@@ -89,6 +89,9 @@
     (ideographic-strokes@unknown . 0)
     (total-strokes	 . 3)
     (=ucs		. #x5140)	; 兀
+    (<-mistakable@component
+     ((=gt-k		  . 00264)	; &GT-K00264;
+      ))
     ))
 (define-char
   '((<-denotational
