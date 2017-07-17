@@ -8603,6 +8603,23 @@
   '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs		  . #x461A)	; 䘚
+      ))
+    (=ucs		. #x21E1D)	; 𡸝
+    (->subsumptive
+     ((==ucs@iso	  . #x21E1D)	; &g2-IU-00021E1D;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
     (=ucs		. #x21E34)	; 𡸴
     (->subsumptive
      ((=ucs@iso		  . #x21E34)	; &JX1-4F6E;

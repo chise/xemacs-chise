@@ -1,4 +1,24 @@
+2017-07-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R087-Claw.el (A-compU+722A): New abstract component.
+	(U+722A): Add `<-denotational' for A-compU+722A.
+	(GT-K00367): New character; use `<-denotational' for A-compU+722A.
+
 2017-07-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R055-Two-Hands.el (A-compU+22344): New abstract node.
+	(U-00022344): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-compU+22344.
+	(IU+22344): Unify GT-12114 and GT-K05314.
+	(A-U+22344-itaiji-001): New abstract node; use `<-denotational'
+	for A-compU+22344.
+	(U+22344-itaiji-001): New character; use `<-denotational' for
+	A-U+22344-itaiji-001.
+
+	* Ideograph-R046-Mountain.el (U-00021E1D): New character.
+
+	* Ideograph-R003-Dot.el (U-0002007E): Apply new conventions for
+	glyph granularity.
 
 	* Ideograph-R107-Skin.el (U-00025010): Apply new conventions for
 	glyph granularity.
