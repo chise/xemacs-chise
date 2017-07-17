@@ -1012,6 +1012,9 @@
     (=gt		. 00015)	; &I-GT-00015;
     (=gt-pj-2		. #x3028)	; &I-GT-00015; [16-08]
     (=daikanwa		. 00015)	; &I-M-00015;
+    (<-mistakable@component
+     ((=gt-k		  . 00264)	; &GT-K00264;
+      ))
     (->subsumptive
      ((==ucs@unicode	  . #x4E0C)	; &g2-AJ1-19140;
       (==adobe-japan1-5	  . 19140)	; &g2-AJ1-19140;
@@ -2102,6 +2105,33 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=big5-cdp	  . #x8BC0)	; &CDP-8BC0;
+      )
+     ((=ucs		  . #x4E04)	; 丄
+      ))
+    (=ucs-itaiji-002	. #x20003)	; &U-i002+20003;
+    (<-formed@component
+     ((=ucs		  . #x4E14)	; 且
+      )
+     ((=ucs		  . #x20003)	; 𠀃
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=big5-cdp	  . #x89D9)	; &CDP-89D9;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
     (=gt		. 00025)	; &GT-00025;
     (=gt-pj-9		. #x3C43)	; &GT-00025; [28-35]
     ))

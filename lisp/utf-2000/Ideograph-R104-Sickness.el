@@ -9863,15 +9863,11 @@
     (=hanyo-denshi/ks	. 251690)	; &HD-KS-251690;
     (=daikanwa		. 22469)	; &I-M-22469;
     (<-interchangeable
-     ((=ucs@cns		  . #x6F20)	; &MJ015839;
-      (=mj		  . 015839)	; &MJ015839;
-      ))
-    (->interchangeable
      ((=ucs@unicode	  . #x6577)	; &MJ013021;
       (=mj		  . 013021)	; &MJ013021;
       (=daikanwa	  . 13359)	; &I-M-13359;
       ))
-    (->interchangeable*sources
+    (<-interchangeable*sources
      shuowen-tongxun-dingsheng daikanwa)
     (->subsumptive
      ((==hanyo-denshi/ks  . 251690)	; &g2-HD-KS-251690;

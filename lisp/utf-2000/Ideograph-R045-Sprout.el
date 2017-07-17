@@ -300,6 +300,28 @@
     ))
 (define-char
   '((ideographic-radical . 45)	; ⼬
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x2F878)	; 屮
+      )
+     ((=big5-cdp	  . #x89C7)	; &CDP-89C7;
+      ))
+    (=big5-cdp		. #x88B8)	; &CDP-88B8;
+    (=gt-k		. 00713)	; &I-GT-K00713;
+    (=gt-pj-k2		. #x3074)	; &CDP-88B8; [16-84]
+    (->subsumptive
+     ((==gt-k		  . 00713)	; &g2-GT-K00713;
+      (==gt-pj-k2	  . #x3074)	; &g2-GT-K00713; [16-84]
+      )
+     ((==big5-cdp	  . #x88B8)	; &g2-CDP-88B8;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (=ucs		. #x21D00)	; 𡴀

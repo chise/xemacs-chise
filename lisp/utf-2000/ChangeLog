@@ -1,3 +1,46 @@
+2017-07-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R107-Skin.el (U-00025010): Apply new conventions for
+	glyph granularity.
+
+2017-07-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R098-Tile.el (U+750D): Add `ideographic-structure'.
+	(CU+750D): Likewise.
+	(HD-JT-B5EB): Apply new conventions for glyph granularity.
+	(UU+750D): Add `ideographic-structure'.
+
+	* Ideograph-R072-Sun.el (U+6614-var-003): New character; use
+	`<-denotational' for U+6614.
+	(UU+666E): Add `<-Liwen' and `<-same' for UU+669C; add
+	`<-interchangeable' for UU+6EA5.
+	(U+669C): Apply new conventions for glyph granularity.
+	(U-00023259): Likewise.
+
+	* Ideograph-R045-Sprout.el (BC-88B8): New character; unify
+	GT-K00713.
+
+	* Ideograph-R032-Earth.el (U-0002124D): New character.
+	(A-MJ057209): New abstract node; use `<-denotational' for
+	U-00021275.
+	(U+21275-itaiji-001): New character; use `<-denotational' for
+	A-MJ057209.
+	(MJ057209): Use A-MJ057209 instead of U-00021275 as its mother.
+
+	* Ideograph-R030-Mouth.el (U-00020C25): Separate IU+20C25.
+	(U+20C25-itaiji-001): New character; use `<-denotational' for
+	U-00020C25.
+	(IU+20C25): Add `=>ucs@iwds-1'.
+	(U-00021034): New character.
+
+	* Ideograph-R012-Eight.el (GT-K00264): Add `->mistakable' for
+	U+4E0C and U+5140.
+
+	* Ideograph-R001-One.el (U+4E0C): Add `<-mistakable@component' for
+	GT-K00264.
+	(U+20003-itaiji-002): New character.
+	(GT-00025): Add `ideographic-structure'.
+
 2017-07-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R043-Lame.el (U+5140): Add `<-mistakable@component'
@@ -14,6 +57,11 @@
 
 	* Ideograph-R010-Legs.el (U+5140): Add `<-mistakable@component'
 	for GT-K00264.
+
+2017-07-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R104-Sickness.el (CU+763C): Use `<-interchangeable'
+	instead of `->interchangeable'.
 
 2017-07-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 

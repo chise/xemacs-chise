@@ -1186,6 +1186,40 @@
       )
      ((=ucs		  . #x571F)	; 土
       )
+     ((=ucs		  . #x206A3)	; 𠚣
+      ))
+    (=ucs		. #x2124D)	; 𡉍
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2124D)	; 𡉍
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=big5-cdp	  . #x8DC9)	; &CDP-8DC9;
+      ))
+    (=ucs@iso		. #x2124D)	; &U-0002124D;
+    (->subsumptive
+     ((==ucs@iso	  . #x2124D)	; &g2-IU-0002124D;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
      ((=ucs		  . #x5DF2)	; 已
       ))
     (=ucs		. #x2124F)	; 𡉏
@@ -2789,6 +2823,57 @@
 (define-char
   '((<-denotational
      ((=ucs		  . #x21275)	; 𡉵
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+	(=ucs		    . #x2FFA)	; ⿺
+	)
+       ((name		    . "CJK RADICAL SECOND TWO")
+	(=ucs		    . #x2E83)	; ⺃
+	)
+       ((=>ucs@component    . #x4E03)	; &A-compU+4E03;
+	(=>iwds-1	    .  0141)	; &A-compU+4E03;
+	))
+      ))
+    (=>mj		. 057209)	; &A-MJ057209;
+    ))
+(define-char
+  '((<-denotational
+     ((=>mj		  . 057209)	; &A-MJ057209;
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+	(=ucs		    . #x2FFA)	; ⿺
+	)
+       ((name		    . "CJK RADICAL SECOND TWO")
+	(=ucs		    . #x2E83)	; ⺃
+	)
+       ((=ucs		    . #x4E03)	; 七
+	))
+      ))
+    (=ucs-itaiji-001	. #x21275)	; &U-i001+21275;
+    ))
+(define-char
+  '((<-denotational
+     ((=>mj		  . 057209)	; &A-MJ057209;
       ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 3)
