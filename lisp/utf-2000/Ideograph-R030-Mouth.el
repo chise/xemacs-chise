@@ -9240,6 +9240,28 @@
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
+    (=ucs		. #x20C25)	; 𠰥
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20C25)	; 𠰥
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((name*		  . "ideographic component person for top")
+      (=ucs		  . #x20089)	; 𠂉
+      )
+     ((=ucs		  . #x53F3)	; 右
+      ))
+    (=ucs-itaiji-001	. #x20C25)	; &U-i001+20C25;
+    ))
+(define-char
+  '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (ideographic-structure
@@ -13297,7 +13319,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 30)	; ⼝
+  '((<-denotational
+     ((=ucs		  . #x20C25)	; 𠰥
+      ))
+    (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (ideographic-structure
@@ -13308,9 +13333,10 @@
       )
      ((=ucs		  . #x53F3)	; 右
       ))
-    (=ucs		. #x20C25)	; 𠰥
-    (=mj		. 021678)	; &I-MJ021678;
-    (=koseki		. 344380)	; 𠰥
+    (=>ucs@iwds-1	. #x20C25)	; &MJ021678;
+    (=ucs@iso		. #x20C25)	; &MJ021678;
+    (=mj		. 021678)	; &MJ021678;
+    (=koseki		. 344380)	; &MJ021678;
     (<-formed
      ((=ucs		  . #x82E5)	; 若
       ))
@@ -13325,9 +13351,15 @@
        ((===mj		    . 021678)	; &R-MJ021678;
 	)
        ((===hng-khm	    . 05000)	; &HNG011-05000;
+	(<-HNG@chise
+	 ((=ucs		      . #x20C25)	; 𠰥
+	  ))
 	))
       )
      ((===hng-khi	  . 05490)	; &HNG010-05490;
+      (<-HNG@chise
+       ((=ucs		    . #x20C25)	; 𠰥
+	))
       ))
     ))
 (define-char
@@ -53495,6 +53527,23 @@
 	)
        ((===cbeta	    . 00882)	; &R-CB00882;
 	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs		  . #x6440)	; 摀
+      ))
+    (=ucs		. #x21034)	; 𡀴
+    (->subsumptive
+     ((==ucs@iso	  . #x21034)	; &g2-IU-00021034;
       ))
     ))
 (define-char
