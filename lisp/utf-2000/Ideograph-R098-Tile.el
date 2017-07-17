@@ -2355,6 +2355,14 @@
     ))
 (define-char
   '((ideographic-radical . 98)	; ⽡
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>big5-cdp	  . #x8D60)	; &A-CDP-8D60;
+      )
+     ((=ucs		  . #x74E6)	; 瓦
+      ))
     (=ucs		. #x750D)	; 甍
     (=big5		. #xBF5F)	; &I-B-BF5F;
     ))
@@ -2365,6 +2373,14 @@
     (ideographic-radical . 98)	; ⽡
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8D60)	; &CDP-8D60;
+      )
+     ((=ucs		  . #x74E6)	; 瓦
+      ))
     (=ucs@cns		. #x750D)	; &C1-7149;
     (=cns11643-1	. #x7149)	; &C1-7149; [81-41]
     (=daikanwa		. 21587)	; &I-M-21587;
@@ -2382,13 +2398,22 @@
     (ideographic-radical . 98)	; ⽡
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x750D)	; 甍
-      )
-     ((=ucs		  . #xE0104)	; 󠄄
-      ))
     (=jis-x0208@1978	. #x6130)	; &HD-JT-B5EB; [65-16]
     (=hanyo-denshi/jt	. #xB5EB)	; &I-HD-JT-B5EB;
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x750D)	; 甍
+	)
+       ((=ucs		    . #xE0104)	; 󠄄
+	))
+      (==jis-x0208@1978	  . #x6130)	; &g2-HD-JT-B5EB; [65-16]
+      (==hanyo-denshi/jt  . #xB5EB)	; &g2-HD-JT-B5EB;
+      (->subsumptive
+       ((===jis-x0208@1978  . #x6130)	; &R-J78-6130; [65-16]
+	)
+       ((===hanyo-denshi/jt . #xB5EB)	; &R-HD-JT-B5EB;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -2397,6 +2422,14 @@
     (ideographic-radical . 98)	; ⽡
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 07341)	; &GT-K07341;
+      )
+     ((=ucs		  . #x74E6)	; 瓦
+      ))
     (=ucs@unicode	. #x750D)	; &AJ1-05703;
     (=adobe-japan1-0	. 05703)	; &AJ1-05703;
     (=gb2312		. #x5D79)	; &I-G0-5D79; [61-89]
