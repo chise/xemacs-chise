@@ -3,6 +3,15 @@
   '((ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (=>ucs@component	. #x722A)	; &A-compU+722A;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x722A)	; &A-compU+722A;
+      ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
     (=ucs		. #x722A)	; 爪
     (=adobe-japan1-0	. 03066)	; &I-AJ1-03066;
     (=jis-x0208		. #x445E)	; &I-J90-445E; [36-62]
@@ -16,6 +25,63 @@
     (=gt-pj-1		. #x445E)	; &I-GT-25224; [36-62]
     (=daikanwa		. 19653)	; &I-M-19653;
     (=shinjigen		.  4696)	; 爪
+    (->subsumptive
+     ((==ucs@unicode	  . #x722A)	; &g2-AJ1-03066;
+      (==adobe-japan1-0	  . 03066)	; &g2-AJ1-03066;
+      (==gb2312		  . #x5726)	; &g2-AJ1-03066; [55-06]
+      (==ks-x1001	  . #x7050)	; &g2-AJ1-03066; [80-48]
+      (==jis-x0208	  . #x445E)	; &g2-AJ1-03066; [36-62]
+      (==cns11643-1	  . #x4557)	; &g2-AJ1-03066; [37-55]
+      (==jis-x0213-1	  . #x445E)	; &g2-AJ1-03066; [36-62]
+      (==gt		  . 25224)	; &g2-AJ1-03066;
+      (==gt-k		  . 00466)	; &g2-AJ1-03066;
+      (==daikanwa	  . 19653)	; &g2-AJ1-03066;
+      (==shinjigen	  .  4696)	; &g2-AJ1-03066;
+      (->subsumptive
+       ((===daikanwa	    . 19653)	; &R-M-19653;
+	)
+       ((===jis-x0208	    . #x445E)	; &R-J0-445E; [36-62]
+	(===jis-x0213-1	    . #x445E)	; &R-J0-445E; [36-62]
+	)
+       ((===adobe-japan1-0  . 03066)	; &R-AJ1-03066;
+	)
+       ((===cns11643-1	    . #x4557)	; &R-C1-4557; [37-55]
+	)
+       ((===gt		    . 25224)	; &R-GT-25224;
+	(===gt-k	    . 00466)	; &R-GT-25224;
+	)
+       ((===ucs@ks	    . #x722A)	; &R-K0-7050;
+	(===ks-x1001	    . #x7050)	; &R-K0-7050; [80-48]
+	)
+       ((===ucs@unicode	    . #x722A)	; &R-UU+722A;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x722A)	; &A-compU+722A;
+      ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((name		  . "CJK RADICAL TABLE")
+      (=ucs		  . #x2E87)	; ⺇
+      )
+     ((=ucs		  . #x4E28)	; 丨
+      ))
+    (=gt-k		. 00367)	; &GT-K00367;
+    (=gt-pj-k1		. #x4E57)	; &GT-K00367; [46-55]
+    (<-formed@component
+     ((=ucs		  . #x722A)	; 爪
+      ))
+    (->subsumptive
+     ((==gt-k		  . 00367)	; &g2-GT-K00367;
+      (==gt-pj-k1	  . #x4E57)	; &g2-GT-K00367; [46-55]
+      ))
     ))
 (define-char
   '((ideographic-radical . 87)	; ⽖
