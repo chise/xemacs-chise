@@ -171,6 +171,15 @@
     (<-formed@component/connect-above
      ((=ucs		  . #x5EFE)	; 廾
       ))
+    (->mistakable
+     ((=ucs		  . #x4E0C)	; 丌
+      )
+     ((=ucs		  . #x5140)	; 兀
+      ))
+    (->subsumptive
+     ((==gt-k		  . 00264)	; &g2-GT-K00264;
+      (==gt-pj-k1	  . #x3764)	; &g2-GT-K00264; [23-68]
+      ))
     ))
 (define-char
   '((ideographic-radical . 12)	; ⼋
