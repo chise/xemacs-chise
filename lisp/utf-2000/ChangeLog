@@ -1,5 +1,10 @@
 2017-07-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R039-Child.el (U+5B52): Add `ideographic-structure';
+	add representative nodes.
+
+2017-07-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R066-Rap.el (UU+6577): Use `<-interchangeable' instead
 	of `->interchangeable'.
 	(U+6579): Apply new conventions for glyph granularity.
