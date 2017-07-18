@@ -326,9 +326,18 @@
   '((ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (hanyu-dazidian	1 710 16)
     (=ucs		. #x56DB)	; 四
-    (=adobe-japan1-0	. 02203)	; &I-AJ1-02203;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x56DB)	; 四
+      ))
+    (ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (hanyu-dazidian	1 710 16)
+    (=ucs@unicode	. #x56DB)	; &AJ1-02203;
+    (=adobe-japan1-0	. 02203)	; &AJ1-02203;
     (=jis-x0208		. #x3B4D)	; &I-J90-3B4D; [27-45]
     (=gb2312		. #x4B44)	; &I-G0-4B44; [43-36]
     (=ks-x1001		. #x5E4C)	; &I-K0-5E4C; [62-44]
@@ -339,7 +348,7 @@
     (=gt-k		. 00942)	; &I-GT-K00942;
     (=gt-pj-1		. #x3B4D)	; &I-GT-05901; [27-45]
     (=daikanwa		. 04682)	; &I-M-04682;
-    (=shinjigen		.  1299)	; 四
+    (=shinjigen		.  1299)	; &AJ1-02203;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x56DB)	; 四
@@ -386,6 +395,28 @@
       (==cns11643-1	  . #x463E)	; &g2-CU+56DB; [38-30]
       )
      ((===hng-khm	  . 02510)	; &HNG011-02510;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x56DB)	; 四
+      ))
+    (ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=hanyo-denshi/ib	. #x2646)	; &HD-IB-2646; [06-38]
+    (->mistakable
+     ((name		  . "CJK RADICAL EYE")
+      (=ucs		  . #x2EAB)	; ⺫
+      )
+     ((=ucs@unicode	  . #x7F52)	; &JX2-746A;
+      (=jis-x0212	  . #x5474)	; &JX2-746A; [52-84]
+      (=cns11643-4	  . #x2221)	; &I-C4-2221; [02-01]
+      (=jis-x0213-2	  . #x746A)	; &I-JX2-746A; [84-74]
+      (=daikanwa	  . 28200)	; &I-M-28200;
+      ))
+    (->subsumptive
+     ((==hanyo-denshi/ib  . #x2646)	; &g2-HD-IB-2646; [06-38]
       ))
     ))
 (define-char
@@ -626,6 +657,23 @@
      ((=ucs		  . #x53C8)	; 又
       ))
     (=ucs-itaiji-006	. #x56DF)	; &U-i006+56DF;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x56DF)	; &A-compU+56DF;
+      ))
+    (ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=big5-cdp	  . #x8CC8)	; &CDP-8CC8;
+      )
+     ((=ucs		  . #x4EBA)	; 人
+      ))
+    (=ucs-itaiji-007	. #x56DF)	; &U-i007+56DF;
     ))
 (define-char
   '((=>ucs		. #x211A8)	; 𡆨

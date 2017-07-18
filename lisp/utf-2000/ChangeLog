@@ -1,5 +1,25 @@
 2017-07-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R066-Rap.el (UU+6577): Use `<-interchangeable' instead
+	of `->interchangeable'.
+	(U+6579): Apply new conventions for glyph granularity.
+	(U-00023014): Likewise.
+	(U+23014-itaiji-001): New character; use `<-denotational' for
+	U-00023014.
+
+	* Ideograph-R031-Enclosure.el (U+56DB): Separate UU+56DB.
+	(HD-IB0638): New character; use `<-denotational' for U+56DB.
+	(U+56DF-itaiji-007): New character; use `<-denotational' for
+	A-compU+56DF.
+
+	* Ideograph-R029-Again.el (GT-K00564): New character; use
+	`<-denotational@component' for A-compU+53CB.
+	(U+20B1B-itaiji-003): New character; use `<-denotational' for
+	U-00020B1B.
+	(U+53D0): Apply new conventions for glyph granularity.
+	(MJ056859): New character; use `<-denotational' for U+53D0; unify
+	HD-KS001630.
+
 	* Ideograph-R087-Claw.el (A-compU+722A): New abstract component.
 	(U+722A): Add `<-denotational' for A-compU+722A.
 	(GT-K00367): New character; use `<-denotational' for A-compU+722A.
