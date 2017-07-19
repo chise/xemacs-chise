@@ -223,6 +223,29 @@
     (=ucs		. #x21C24)	; 𡰤
     (=cns11643-4	. #x2175)	; &I-C4-2175; [01-85]
     (=daikanwa		. 07633)	; &I-M-07633;
+    (<-ancient
+     ((=ucs		  . #x6B79)	; 歹
+      (=daikanwa	  . 16359)	; &I-M-16359;
+      )
+     ((=ucs		  . #x239B5)	; 𣦵
+      (=daikanwa	  . 16361)	; &I-M-16361;
+      ))
+    (<-ancient$_1*sources
+     zihui daikanwa)
+    (<-ancient*sources
+     daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x21C24)	; &g2-M-07633;
+      (==cns11643-4	  . #x2175)	; &g2-M-07633; [01-85]
+      (==daikanwa	  . 07633)	; &g2-M-07633;
+      (->subsumptive
+       ((===daikanwa	    . 07633)	; &R-M-07633;
+	)
+       ((===cns11643-4	    . #x2175)	; &R-C4-2175; [01-85]
+	)
+       ((===ucs@iso	    . #x21C24)	; &R-U-00021C24;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
@@ -528,6 +551,34 @@
     (=ucs		. #x21C2E)	; 𡰮
     (=cns11643-6	. #x2451)	; &I-C6-2451; [04-49]
     (=daikanwa		. 07647)	; &I-M-07647;
+    (<-ancient
+     ((=ucs		  . #x6B79)	; 歹
+      (=daikanwa	  . 16359)	; &I-M-16359;
+      )
+     ((=ucs		  . #x6B7A)	; 歺
+      (=daikanwa	  . 16362)	; &I-M-16362;
+      )
+     ((=ucs		  . #x239B5)	; 𣦵
+      (=daikanwa	  . 16361)	; &I-M-16361;
+      ))
+    (<-ancient$_1*sources
+     yupian daikanwa)
+    (<-ancient$_2*sources
+     shuowen)
+    (<-ancient*sources
+     daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x21C2E)	; &g2-M-07647;
+      (==cns11643-6	  . #x2451)	; &g2-M-07647; [04-49]
+      (==daikanwa	  . 07647)	; &g2-M-07647;
+      (->subsumptive
+       ((===daikanwa	    . 07647)	; &R-M-07647;
+	)
+       ((===cns11643-6	    . #x2451)	; &R-C6-2451; [04-49]
+	)
+       ((===ucs@iso	    . #x21C2E)	; &R-U-00021C2E;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
