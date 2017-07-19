@@ -947,19 +947,37 @@
     (=gb2312		. #x422E)	; &I-G0-422E; [34-14]
     ))
 (define-char
-  '((=>ucs		. #x221ED)	; 𢇭
-    (ideographic-radical . 53)	; ⼴
+  '((ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (=daikanwa		. 09261)	; &M-09261;
-    ))
-(define-char
-  '((morohashi-daikanwa	9261 0 0)
-    (ideographic-radical . 53)	; ⼴
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=gt-k		  . 00655)	; &GT-K00655;
+      ))
     (=ucs		. #x221ED)	; 𢇭
     (=cns11643-6	. #x2743)	; &I-C6-2743; [07-35]
+    (=daikanwa		. 09261)	; &I-M-09261;
+    (<-vulgar
+     ((=ucs		  . #x61C9)	; 應
+      (=daikanwa	  . 11330)	; &I-M-11330;
+      ))
+    (<-vulgar*sources
+     songyuan-yilai-suzipu daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 09261)	; &g2-M-09261;
+      )
+     ((==ucs@iso	  . #x221ED)	; &g2-IU-000221ED;
+      (==cns11643-6	  . #x2743)	; &g2-IU-000221ED; [07-35]
+      (->subsumptive
+       ((===cns11643-6	    . #x2743)	; &R-C6-2743; [07-35]
+	)
+       ((===ucs@iso	    . #x221ED)	; &R-U-000221ED;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 53)	; ⼴
