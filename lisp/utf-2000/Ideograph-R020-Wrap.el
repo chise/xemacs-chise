@@ -1587,6 +1587,23 @@
     (=jef-china3	. #x45A7)	; &I-JC3-45A7;
     ))
 (define-char
+  '((ideographic-radical . 20)	; ⼓
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x52FF)	; 勿
+      )
+     ((=ucs		  . #x52FF)	; 勿
+      ))
+    (=ucs-itaiji-001	. #x8C9D)	; &U-i001+8C9D;
+    (<-ancient
+     ((=ucs		  . #x8C9D)	; 貝
+      ))
+    ))
+(define-char
   '((ideographic-radical@ucs . 20)	; ⼓
     (ideographic-strokes@ucs . 7)
     (ideographic-radical@ucs*sources
