@@ -369,6 +369,8 @@
     (ideographic-radical@daikanwa . 26)	; ⼙
     (ideographic-strokes@daikanwa . 1)
     (total-strokes	 . 3)
+    (sound@ja/on/go	"su")
+    (sound@ja/on/kan	"sou")
     (=ucs		. #x2007E)	; 𠁾
     ))
 (define-char
@@ -385,6 +387,26 @@
     (=cns11643-5	. #x212D)	; &C5-212D; [01-13]
     (=big5-cdp		. #x87D2)	; &I-CDP-87D2;
     (=daikanwa		. 02840)	; &I-M-02840;
+    (<-formed@flipped-horizontally
+     ((=ucs		  . #x536A)	; 卪
+      ))
+    (<-original
+     ((=adobe-japan1-5	  . 20103)	; &AJ1-20103;
+      ))
+    (<-original*sources
+     zhengzitong)
+    (<-same
+     ((=adobe-japan1-5	  . 20103)	; &AJ1-20103;
+      (=daikanwa	  . 05915)	; &I-M-05915;
+      ))
+    (<-same*sources
+     shuowen-tongxun-dingsheng zhengzitong daikanwa)
+    (->formed
+     ((=ucs		  . #x353F)	; 㔿
+      (=daikanwa	  . 02839)	; &I-M-02839;
+      ))
+    (->formed*sources
+     shuowen-judu daikanwa)
     (->subsumptive
      ((==ucs@iso	  . #x2007E)	; &g2-M-02840;
       (==cns11643-5	  . #x212D)	; &g2-M-02840; [01-13]

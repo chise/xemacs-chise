@@ -383,6 +383,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =ucs-sip-var-004
 	  =ucs-bmp-var-005
 	  =ucs-bmp-var-006
+	  =ucs-sip-var-006
 	  =ucs-bmp-var-008
 	  =ucs-bmp-var-010
 	  =ucs-bmp-itaiji-001
@@ -426,6 +427,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==ucs-bmp-itaiji-002
 	  ==ucs-sip-itaiji-002
 	  ==ucs-bmp-itaiji-003
+	  ==ucs-sip-itaiji-003
 	  ==ucs-bmp-itaiji-005
 	  ==ucs-bmp-var-002
 	  ==hanyo-denshi/ja
