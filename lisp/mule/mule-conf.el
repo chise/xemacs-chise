@@ -4492,6 +4492,17 @@
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.var006-0"))
+  (make-charset '=ucs-sip-var-006
+		"uXXXX-var-006 glyph-images in SIP"
+		'(long-name	"UCS-SIP-var-006"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs-var-006
+		  min-code #x20000 max-code #x2FFFF
+		  registry "ucs00\\.var006-2"))
   (make-charset '=ucs-var-008
 		"uXXXX-var-008 glyph-images of GlyphWiki"
 		'(long-name	"UCS-var-008"
@@ -4791,6 +4802,17 @@
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.itaiji003-0"))
+  (make-charset '==ucs-sip-itaiji-003
+		"uXXXX-itaiji-003's abstract glyph-forms in SIP"
+		'(long-name	"UCS-SIP-itaiji-003"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	==ucs-itaiji-003
+		  min-code #x20000 max-code #x2FFFF
+		  registry "ucs00\\.itaiji003-2"))
 
   (make-charset '=ucs-itaiji-004
 		"uXXXX-itaiji-004 glyphs of GlyphWiki"
