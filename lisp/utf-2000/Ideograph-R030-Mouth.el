@@ -13088,6 +13088,14 @@
     (ideographic-radical@cns . 30)	; ⼝
     (ideographic-strokes@cns . 5)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs		  . #x7535)	; 电
+      ))
     (=ucs		. #x9EFE)	; 黾
     (=>daikanwa		. 48258)	; 黾
     ))
@@ -13115,6 +13123,15 @@
     (ideographic-radical@cns . 30)	; ⼝
     (ideographic-strokes@cns . 5)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs@unicode	  . #x7535)	; &G0-3567;
+      (=gb2312		  . #x3567)	; &G0-3567; [21-71]
+      ))
     (=ucs@unicode	. #x9EFE)	; &C3-2772;
     (=gb2312		. #x763C)	; &C3-2772; [86-28]
     (=cns11643-3	. #x2772)	; &I-C3-2772; [07-82]
