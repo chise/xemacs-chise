@@ -1,5 +1,60 @@
 2017-07-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R062-Halberd.el (U+621F): Apply new conventions for
+	glyph granularity.
+	(U+39B8): Add `<-same' and `<-vulgar' for U+621F.
+	(U-000229E2): Apply new conventions for glyph granularity.
+
+	* Ideograph-R053-Dotted-Cliff.el (U-000221ED): Use
+	`->subsumptive'.
+
+	* Ideograph-R050-Turban.el (GT-K02281): New character.
+
+	* Ideograph-R044-Corpse.el (U-00021C24): Add `<-ancient' for
+	U+6B79 and U-000239B5; add representative nodes.
+	(U-00021C2E): Add `<-ancient' for U+6B79, U+6B7A and U-000239B5;
+	add representative nodes.
+
+	* Ideograph-R024-Ten.el (IU+24C1E): Add `sound@ja/on'; unify
+	MJ041343 and HD-KS031790.
+	(GT-K04289): New character; use `<-subsumptive' for o-IU+24C1E.
+	(BC-887E): Unify MJ057093, HD-KS031690 and GT-K03005.
+	(MJ057095): New character; use `<-subsumptive' for BC-887E; unify
+	HD-KS031760.
+	(U+24C1E-var-001): New character; use `<-denotational' for
+	U-00024C1E.
+	(H1-B0A8): Use `<-subsumptive' for U+24C1E-var-001 instead of
+	`<-denotational' for U-00024C1E.
+	(o-GT-27936): New abstract node; use `<-denotational' for
+	U-00024C1E.
+	(U+24C1E-var-006): New character; use `<-denotational' for
+	o-GT-27936.
+	(MJ041344): New character; use `<-denotational' for o-GT-27936;
+	unify HD-KS243860, GT-27936, GT-K04290 and M-21745; add `<-formed'
+	for UU+5351.
+
+	* Ideograph-R020-Wrap.el (U+8C9D-itaiji-001): New character.
+
+	* Ideograph-R009-Man.el (BC-8B7A): New character.
+	(U+4F07): Apply new conventions for glyph granularity.
+	(U+4F07-itaiji-001): New character; use `<-denotational' for
+	U+4F07.
+	(U-000201B0): Add `ideographic-structure'.
+	(U+501D-itaiji-004): New character; use `<-denotational' for
+	U+501D.
+	(U+345E-itaiji-001): New character.
+	(U-000202B0): Apply new conventions for glyph granularity.
+	(U+202B0-var-001): New character; use `<-denotational' for
+	U-000202B0.
+	(CU+50C3): Apply new conventions for glyph granularity; add
+	`<-original' for UU+5099.
+	(U+50C3-var-002): New character; use `<-denotational' for U+50C3.
+
+	* Ideograph-R003-Dot.el (U-0002007E): Add `sound@ja/on/{kan|go}'.
+	(IU+2007E): Add `<-formed@flipped-horizontally' for U+536A; add
+	`<-original' and `<-same' for AJ1-20103; add `->formed' for
+	U+353F.
+
 	* Ideograph-R030-Mouth.el (U+9EFE): Add `ideographic-structure'.
 	(UU+9EFE): Likewise.
 
