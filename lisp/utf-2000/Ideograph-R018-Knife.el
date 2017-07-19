@@ -505,9 +505,18 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (=ucs		. #x206A3)	; 𠚣
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x206A3)	; 𠚣
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (=ucs@iso		. #x206A3)	; &C6-2139;
     (=cns11643-6	. #x2139)	; &I-C6-2139; [01-25]
     (=daikanwa		. 01851)	; &I-M-01851;
-    (=shinjigen@1ed	.  0589)	; 𠚣
+    (=shinjigen		.  0589)	; &C6-2139;
     (<-Small-Seal
      ((=ucs		  . #x5200)	; 刀
       (=daikanwa	  . 01845)	; &I-M-01845;
@@ -520,19 +529,42 @@
       (=shinjigen	  .  0588)	; 刀
       ))
     (<-formed*sources
-     shinjigen@1ed)
+     shinjigen)
     (->Bopomofo
      ((name		  . "BOPOMOFO LETTER D")
       (=ucs		  . #x3109)	; ㄉ
       ))
     (->Bopomofo*sources
      daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x206A3)	; &g2-M-01851;
+      (==cns11643-6	  . #x2139)	; &g2-M-01851; [01-25]
+      (==daikanwa	  . 01851)	; &g2-M-01851;
+      (==shinjigen	  .  0589)	; &g2-M-01851;
+      (->subsumptive
+       ((===daikanwa	    . 01851)	; &R-M-01851;
+	)
+       ((===cns11643-6	    . #x2139)	; &R-C6-2139; [01-25]
+	)
+       ((===ucs@iso	    . #x206A3)	; &R-U-000206A3;
+	))
+      ))
     ))
 (define-char
-  '((=>ucs		. #x206A3)	; 𠚣
+  '((<-denotational
+     ((=ucs		  . #x206A3)	; 𠚣
+      ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x52F9)	; 勹
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      ))
     (=big5-cdp		. #x8DC9)	; &CDP-8DC9;
     (<-formed@component
      ((=ucs		  . #x206A3)	; 𠚣
@@ -540,6 +572,9 @@
      ((=ucs		  . #x5200)	; 刀
       )
      ((=ucs		  . #x52FA)	; 勺
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8DC9)	; &g2-CDP-8DC9;
       ))
     ))
 (define-char
@@ -6359,6 +6394,23 @@
     (total-strokes	 . 9)
     (=ucs		. #x20726)	; 𠜦
     (=cns11643-5	. #x282E)	; &I-C5-282E; [08-14]
+    ))
+(define-char
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5200)	; 刀
+      )
+     ((=ucs		  . #x628C)	; 抌
+      ))
+    (=ucs		. #x2072D)	; 𠜭
+    (->subsumptive
+     ((==ucs@iso	  . #x2072D)	; &g2-IU-0002072D;
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
