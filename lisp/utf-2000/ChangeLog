@@ -1,3 +1,12 @@
+2017-07-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+9EFE): Add `ideographic-structure'.
+	(UU+9EFE): Likewise.
+
+	* Ideograph-R018-Knife.el (U-000206A3): Use `->denotational' and
+	`->subsumptive'.
+	(U-0002072D): New character.
+
 2017-07-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R039-Child.el (U+5B52): Add `ideographic-structure';
