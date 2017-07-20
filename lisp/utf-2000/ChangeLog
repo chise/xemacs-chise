@@ -1,3 +1,8 @@
+2017-07-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R073-Say.el (U+7535): Apply new conventions for glyph
+	granularity; add `=>iwds-1'.
+
 2017-07-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R062-Halberd.el (U+621F): Apply new conventions for

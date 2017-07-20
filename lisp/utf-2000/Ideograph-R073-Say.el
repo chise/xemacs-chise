@@ -73,13 +73,36 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (=ucs		. #x7535)	; 电
-    (=gb2312		. #x3567)	; &I-G0-3567; [21-71]
+    (=>iwds-1		.  0097)	; 电
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7535)	; 电
+      ))
+    (ideographic-radical . 73)	; ⽈
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (=ucs@unicode	. #x7535)	; &G0-3567;
+    (=gb2312		. #x3567)	; &G0-3567; [21-71]
     (=cbeta		. 02169)	; &I-CB02169;
     (=jef-china3	. #x81E2)	; &I-JC3-81E2;
     (<-simplified@CN
      ((=ucs@unicode	  . #x96FB)	; &AJ1-03135;
       (=adobe-japan1-0	  . 03135)	; &AJ1-03135;
       (=gb12345		  . #x3567)	; &AJ1-03135; [21-71]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x7535)	; &g2-CB02169;
+      (==gb2312		  . #x3567)	; &g2-CB02169; [21-71]
+      (==cbeta		  . 02169)	; &g2-CB02169;
+      (==jef-china3	  . #x81E2)	; &g2-CB02169;
+      (->subsumptive
+       ((===ucs@unicode	    . #x7535)	; &R-UU+7535;
+	)
+       ((===cbeta	    . 02169)	; &R-CB02169;
+	)
+       ((===jef-china3	    . #x81E2)	; &R-JC3-81E2;
+	))
       ))
     ))
 (define-char
@@ -91,7 +114,11 @@
     (total-strokes	 . 5)
     (=big5-cdp		. #x8BE8)	; &CDP-8BE8;
     (<-formed@component
-     ((=ucs		  . #x7535)	; 电
+     ((=ucs@unicode	  . #x7535)	; &G0-3567;
+      (=gb2312		  . #x3567)	; &G0-3567; [21-71]
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8BE8)	; &g2-CDP-8BE8;
       ))
     ))
 (define-char
