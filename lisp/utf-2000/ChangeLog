@@ -1,3 +1,50 @@
+2017-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R077-Stop.el (A-BC-88B1): New abstract node.
+	(BC-88B1-var-001): New character; use `<-denotational' for
+	A-BC-88B1.
+	(BC-88B1): Likewise.
+	(U-00023960): Apply new conventions for glyph granularity.
+	(U-0002399E): Likewise.
+
+	* Ideograph-R035-Go-Slowly.el (A-GT-K09818): New abstract node.
+	(U+5950-itaiji-003): New character; use `<-denotational' for
+	A-GT-K09818.
+	(GT-K09818): Likewise.
+	(U-0002D42C): New character.
+	(U+5912): Add `ideographic-structure'.
+	(U+5912-var-003): New character; use `<-denotational' for U+5912.
+	(U+5912-var-004): Likewise.
+	(JU+5912): Apply new conventions for glyph granularity.
+	(U+5914): Add `ideographic-structure'.
+	(M-05746): Unify MJ009427, HD-KS065840 and KOSEKI-065840.
+	(JU+5914): Apply new conventions for glyph granularity.
+	(UU+5914): Likewise.
+	(U-00021582): New character; use `<-denotational' for A-JU+8641.
+	(M-05747): Unify IU+21582, MJ023255, HD-JT-AFB0, KOSEKI-065360 and
+	JC3-48D3; use U-00021582 instead of A-JU+8641.
+
+2017-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R026-Seal.el (U+5369): Add `<-formed' for U+536A.
+	(U+536A): Add `sound@ja/on/{kan|go}'; add `<-same' for U+5369; add
+	`->formed' for U+5369 and U-0002D172; add `->interchangeable' for
+	M-26243.
+	(U+353F): Add `sound@ja/on'; add `<-formed' for IU+2007E; add
+	`<-formed@flipped-horizontally' for U+5369; add
+	`<-mistakable@component' for U+21552-itaiji-002; add `<-same' for
+	U+536A.
+	(U-0002007E): Apply new conventions for glyph granularity.
+	(U+2007E-itaiji-001): New character; use `<-denotational' for
+	U-0002007E.
+	(U-0002D172): New character; unify MJ057105 and KOSEKI-032870.
+	(A-M-02851): New abstract component.
+	(U-00020A14): Add `<-denotational' for A-M-02851; add
+	`<-formed@flipped-horizontally' for U+5370; add `<-original' for
+	UU+6291.
+	(U+20A14-itaiji-001): New character; use `<-denotational' for
+	A-M-02851.
+
 2017-07-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R073-Say.el (U+7535): Apply new conventions for glyph
@@ -68,6 +115,44 @@
 	(U-0002072D): New character.
 
 2017-07-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R113-Spirit.el (U-00025606): Apply new conventions for
+	glyph granularity.
+	(U+7961): Likewise.
+	(U+4107): Likewise.
+	(U-0002566C): Likewise.
+	(U+410B): Likewise.
+	(U+410C): Likewise.
+	(U-0002568A): Likewise.
+	(U+7989): Likewise.
+	(U-000256A6): Likewise.
+	(U-000256A8): Likewise.
+	(U+7992): Likewise.
+	(U-000256A9): Likewise.
+	(U-000256C2): Likewise.
+	(U-000256C0): Likewise.
+	(U-000256C6): Likewise.
+	(U+79A0): Likewise.
+	(U+411B): Likewise.
+	(U-000256DA): Likewise.
+	(U+79A4): Likewise.
+	(U+411C): Likewise.
+	(U+411D): Likewise.
+	(U-000256DC): Likewise.
+	(U-000256DE): Likewise.
+	(U-000256EE): Likewise.
+	(U-000256EF): Likewise.
+	(U+411F): Likewise.
+	(U-000256F3): Likewise.
+	(U-000256F4): Likewise.
+	(U-000256F6): New character.
+	(U-00025703): Apply new conventions for glyph granularity.
+	(U-00025705): Likewise.
+	(U-00025714): Likewise.
+	(U+79B2): Likewise.
+	(U-0002571F): Likewise.
+	(U-00025730): Likewise.
+	(U-00025734): Likewise.
 
 	* Ideograph-R039-Child.el (U+5B52): Add `ideographic-structure';
 	add representative nodes.
