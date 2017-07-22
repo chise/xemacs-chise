@@ -2000,6 +2000,33 @@
     ))
 (define-char
   '((ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	(=ucs		    . #x2FF4)	; ⿴
+	)
+       ((=ucs		    . #x76EE)	; 目
+	)
+       ((=ucs		    . #x4E00)	; 一
+	))
+      )
+     ((=gt-k		  . 00059)	; &GT-K00059;
+      ))
+    (=ucs-itaiji-002	. #x5177)	; &U-i002+5177;
+    (<-formed@component
+     ((=ucs		  . #x5177)	; 具
+      ))
+    (->subsumptive
+     ((==ucs-itaiji-002	  . #x5177)	; &g2-U-i002+5177;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (ideographic-structure

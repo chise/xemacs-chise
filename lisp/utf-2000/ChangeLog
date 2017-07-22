@@ -1,5 +1,7 @@
 2017-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R012-Eight.el (U+5177-itaiji-002): New character.
+
 	* Ideograph-R077-Stop.el (A-BC-88B1): New abstract node.
 	(BC-88B1-var-001): New character; use `<-denotational' for
 	A-BC-88B1.
