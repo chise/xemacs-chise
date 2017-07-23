@@ -65,16 +65,8 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 33)	; ⼠
-    (ideographic-strokes . 1)
-    (total-strokes	 . 4)
-    (=>ucs@component	. #x58EC)	; &A-compU+58EC;
-    (=>iwds-1		.  0001)	; &A-compU+58EC;
-    ))
-(define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x58EC)	; &A-compU+58EC;
-      (=>iwds-1		  .  0001)	; &A-compU+58EC;
+     ((=>ucs@component	  . #x2123C)	; &A-compU+2123C;
       ))
     (ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 1)
@@ -172,6 +164,13 @@
      ((==ucs@cns	  . #x58EC)	; &g2-CU+58EC;
       (==cns11643-1	  . #x4531)	; &g2-CU+58EC; [37-17]
       ))
+    ))
+(define-char
+  '((ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (=>ucs@component	. #x58EC)	; &A-compU+58EC;
+    (=>iwds-1		.  0001)	; &A-compU+58EC;
     ))
 (define-char
   '((ideographic-radical . 33)	; ⼠

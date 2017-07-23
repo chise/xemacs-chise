@@ -1,4 +1,15 @@
+2017-07-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R006-Hook.el (U+3427): New character.
+
 2017-07-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (U+37AE): Use U-000206A4 instead of
+	<IDEOGRAPHIC ITERATION MARK> in `ideographic-structure'; unify
+	MJ000827 and KOSEKI-021500.
+	(U-00021E71): Apply new conventions for glyph granularity.
+
+	* Ideograph-R024-Ten.el (U-000209C2): New character.
 
 	* Ideograph-R064-Hand.el (GT-K02057): New character.
 	(U-00022A70): Apply new conventions for glyph granularity.
@@ -27,6 +38,9 @@
 	(U-00022D69): New character.
 
 2017-07-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R033-Scholar.el (U+58EC): Use A-compU+2123C instead of
+	A-compU+58EC as the target of `<-denotational@component'.
 
 	* Ideograph-R032-Earth.el (A-compU+2123C): New abstract component;
 	use `<-denotational@component' for IWDS1-0001.
