@@ -718,12 +718,25 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
-     ((name		  . "IDEOGRAPHIC ITERATION MARK")
-      (=ucs		  . #x3005)	; 々
+     ((=ucs		  . #x206A4)	; 𠚤
       ))
     (=ucs		. #x37AE)	; 㞮
+    (=mj		. 000827)	; &I-MJ000827;
+    (=koseki		. 021500)	; 㞮
     (<-formed
      ((=ucs		  . #x51FA)	; 出
+      ))
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==ucs@unicode	  . #x37AE)	; &g2-MJ000827;
+      (==mj		  . 000827)	; &g2-MJ000827;
+      (==koseki		  . 021500)	; &g2-MJ000827;
+      (->subsumptive
+       ((===mj		    . 000827)	; &R-MJ000827;
+	)
+       ((===ucs@unicode	    . #x37AE)	; &R-UU+37AE;
+	))
       ))
     ))
 (define-char
@@ -9032,11 +9045,37 @@
   '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=ucs		. #x21E71)	; 𡹱
-    (->subsumptive
-     ((=daikanwa	  . 08262)	; &M-08262;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@iso		  . #x21E71)	; &U-00021E71;
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs		  . #x42B8)	; 䊸
+      ))
+    (=ucs		. #x21E71)	; 𡹱
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21E71)	; 𡹱
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs@unicode	  . #x42B8)	; &C3-2E55;
+      ))
+    (=ucs@iso		. #x21E71)	; &M-08262;
+    (=daikanwa		. 08262)	; &M-08262;
+    (->subsumptive
+     ((==daikanwa	  . 08262)	; &g2-M-08262;
+      )
+     ((==ucs@iso	  . #x21E71)	; &g2-IU-00021E71;
       ))
     ))
 (define-char
