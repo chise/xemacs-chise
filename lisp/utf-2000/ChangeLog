@@ -1,3 +1,39 @@
+2017-07-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R064-Hand.el (GT-K02057): New character.
+	(U-00022A70): Apply new conventions for glyph granularity.
+	(M-11810): Unify IU+22A70; add `<-denotational' for U-00022A70.
+	(U-00022A6F): Apply new conventions for glyph granularity; unify
+	MH-0200.
+	(U-00022A76): New character.
+	(U-00022ABC): Apply new conventions for glyph granularity; unify
+	MJ036741 and KOSEKI-134620.
+	(U-00022ABE): Apply new conventions for glyph granularity.
+	(U-00022ACD): Likewise.
+	(U-00022B3D): Use `->denotational' and `->subsumptive'.
+	(IU+22B3D): Unify MJ036794 and KOSEKI-136370.
+	(U+636D): Apply new conventions for glyph granularity.
+	(U-00022B86): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for U-00022B3D.
+	(U-00022BAE): Add `ideographic-structure'.
+	(U-00022C18): Apply new conventions for glyph granularity.
+	(M-12434): Unify IU+22C18; add `<-denotational' for U-00022C18.
+	(U+647E): Apply new conventions for glyph granularity.
+	(UU+647E): Unify CB03479.
+	(U+6493): Add `ideographic-structure'.
+	(U-00022D4E): Use `->denotational' and `->subsumptive'.
+	(U-00022D65): Likewise.
+	(CB02272): Unify U-00022D67.
+	(U-00022D69): New character.
+
+2017-07-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (A-compU+2123C): New abstract component;
+	use `<-denotational@component' for IWDS1-0001.
+	(U-0002123C): Use A-compU+2123C instead of IWDS1-0001 as the
+	target of `<-denotational@component'.
+	(U-00021325): Add `ideographic-structure'.
+
 2017-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R012-Eight.el (U+5177-itaiji-002): New character.

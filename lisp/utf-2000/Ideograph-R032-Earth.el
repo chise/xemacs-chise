@@ -100,12 +100,36 @@
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
+    (=>ucs@component	. #x2123C)	; &A-compU+2123C;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x2123C)	; &A-compU+2123C;
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
     (sound@ja/on/go	"tyAu")
     (sound@ja/on/kan	"tei")
     (=ucs		. #x2123C)	; 𡈼
     (=cns11643-4	. #x2148)	; &I-C4-2148; [01-40]
     (=big5-cdp		. #x8BBC)	; &I-CDP-8BBC;
     (=daikanwa		. 04869)	; &I-M-04869;
+    (->subsumptive
+     ((==ucs@iso	  . #x2123C)	; &g2-CDP-8BBC;
+      (==cns11643-4	  . #x2148)	; &g2-CDP-8BBC; [01-40]
+      (==big5-cdp	  . #x8BBC)	; &g2-CDP-8BBC;
+      (==daikanwa	  . 04869)	; &g2-CDP-8BBC;
+      (->subsumptive
+       ((===daikanwa	    . 04869)	; &R-M-04869;
+	)
+       ((===big5-cdp	    . #x8BBC)	; &R-CDP-8BBC;
+	)
+       ((===cns11643-4	    . #x2148)	; &R-C4-2148; [01-40]
+	)
+       ((===ucs@iso	    . #x2123C)	; &R-U-0002123C;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
@@ -8468,9 +8492,31 @@
   '((ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x221B6)	; 𢆶
+      )
+     ((=ucs		  . #x571F)	; 土
+      ))
     (=ucs		. #x21325)	; 𡌥
     (=cns11643-5	. #x2C62)	; &I-C5-2C62; [12-66]
     (=daikanwa		. 05137)	; &I-M-05137;
+    (->subsumptive
+     ((==ucs@cns	  . #x21325)	; &g2-M-05137;
+      (==cns11643-5	  . #x2C62)	; &g2-M-05137; [12-66]
+      (==daikanwa	  . 05137)	; &g2-M-05137;
+      (->subsumptive
+       ((===daikanwa	    . 05137)	; &R-M-05137;
+	)
+       ((===cns11643-5	    . #x2C62)	; &R-C5-2C62; [12-66]
+	))
+      )
+     ((==ucs@iso	  . #x21325)	; &g2-IU-00021325;
+      ))
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
