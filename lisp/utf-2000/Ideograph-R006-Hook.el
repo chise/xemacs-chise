@@ -387,6 +387,41 @@
     ))
 (define-char
   '((ideographic-radical . 6)	; ⼅
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (=ucs		. #x3427)	; 㐧
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3427)	; 㐧
+      ))
+    (ideographic-radical . 6)	; ⼅
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (=ucs@unicode	. #x3427)	; &MJ000018;
+    (=mj		. 000018)	; &MJ000018;
+    (=gt		. 00311)	; &I-GT-00311;
+    (=gt-pj-9		. #x3B77)	; &I-GT-00311; [27-87]
+    (<-simplified@JP/misc
+     ((=ucs@unicode	  . #x7B2C)	; &AJ1-02888;
+      (=adobe-japan1-0	  . 02888)	; &AJ1-02888;
+      (=jis-x0208	  . #x4268)	; &I-J90-4268; [34-72]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x3427)	; &g2-MJ000018;
+      (==mj		  . 000018)	; &g2-MJ000018;
+      (==gt		  . 00311)	; &g2-MJ000018;
+      (->subsumptive
+       ((===mj		    . 000018)	; &R-MJ000018;
+	)
+       ((===ucs@unicode	    . #x3427)	; &R-UU+3427;
+	)
+       ((===gt		    . 00311)	; &R-GT-00311;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
     (ideographic-structure
