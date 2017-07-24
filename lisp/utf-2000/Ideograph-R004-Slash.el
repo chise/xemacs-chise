@@ -1962,14 +1962,23 @@
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
-    (hanyu-dazidian	1 38 5)
     (sound@ja/on/go/p=yin2 "goN")
     (sound@ja/on/go/p=zhong4 "syu" "su")
     (sound@ja/on/kan/p=yin2 "giN")
     (sound@ja/on/kan/p=zhong4 "syuu")
     (sound@ja/on/p=pan1 "haN")
     (=ucs		. #x4E51)	; 乑
-    (=adobe-japan1-5	. 17241)	; &I-AJ1-17241;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E51)	; 乑
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (hanyu-dazidian	1 38 5)
+    (=ucs@unicode	. #x4E51)	; &AJ1-17241;
+    (=adobe-japan1-5	. 17241)	; &AJ1-17241;
     (=jis-x0212		. #x3033)	; &I-JSP-3033; [16-19]
     (=cns11643-4	. #x2227)	; &I-C4-2227; [02-07]
     (=jis-x0213-2	. #x212C)	; &I-JX2-212C; [01-12]
@@ -2038,6 +2047,26 @@
       )
      ((==ucs@unicode	  . #x4E51)	; &g2-UU+4E51;
       (==ucs@JP/hanazono  . nil)
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E51)	; 乑
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 00146)	; &GT-K00146;
+      )
+     ((=big5-cdp	  . #x8C66)	; &CDP-8C66;
+      ))
+    (=ucs-itaiji-003	. #x4E51)	; &U-i003+4E51;
+    (->subsumptive
+     ((==ucs-itaiji-003	  . #x4E51)	; &g2-U-i003+4E51;
       ))
     ))
 (define-char
@@ -2981,6 +3010,18 @@
     (===hng-kar		. 05040)	; &HNG018-05040;
     (<-formed
      ((=ucs		  . #x4E58)	; 乘
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x4E58)	; &BUCS+4E58;
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 7)
+    (total-strokes	 . 8)
+    (=ucs-itaiji-001	. #x4E57)	; &U-i001+4E57;
+    (<-formed@component
+     ((=ucs		  . #x4E57)	; 乗
       ))
     ))
 (define-char
