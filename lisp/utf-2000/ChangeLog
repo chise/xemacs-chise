@@ -1,5 +1,11 @@
 2017-07-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R004-Slash.el (U+4E51): Separate UU+4E51.
+	(U+4E51-itaiji-003): New character; use `<-denotational' for
+	U+4E51.
+	(U+4E57-itaiji-001): New character; use `<-denotational' for
+	BUCS+4E58.
+
 	* Ideograph-R006-Hook.el (U+3427): New character.
 
 2017-07-22  MORIOKA Tomohiko  <tomo.git@chise.org>
