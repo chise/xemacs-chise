@@ -1,3 +1,7 @@
+2017-07-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* JC3-to-UCS.txt (JC3-48D3): Map to U-00021582 instead of U+8641.
+
 2017-07-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* GT-fmap-K3.txt (GT-K06251): Fixed.

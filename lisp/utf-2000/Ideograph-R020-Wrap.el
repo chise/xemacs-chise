@@ -798,6 +798,15 @@
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x52F9)	; 勹
+      )
+     ((=>ucs@component	  . #x5DF3)	; &A-compU+5DF3;
+      (=>iwds-1		  .  0121)	; &A-compU+5DF3;
+      ))
     (=ucs		. #x5305)	; 包
     (=>jis-x0208	. #x4A71)	; 包 [42-81]
     (=>jis-x0213-1	. #x4A71)	; 包 [42-81]

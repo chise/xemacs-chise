@@ -1,3 +1,21 @@
+2017-07-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U-0002125A): Add
+	`<-denotational@component' for A-compU+37B7.
+
+	* Ideograph-R020-Wrap.el (U+5305): Add `ideographic-structure'.
+
+	* Ideograph-R018-Knife.el (U+523C): Apply new conventions for
+	glyph granularity.
+	(U+523C-var-003): New character; use `<-subsumptive' for
+	o-UU+523C.
+	(H12-EBB6): Use U+523C-var-003 instead of o-UU+523C as its mother.
+
+2017-07-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R025-Divination.el (U+535D): Add `->mistakable' for
+	<CJK RADICAL GRASS THREE>.
+
 2017-07-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R004-Slash.el (U+4E51): Separate UU+4E51.
