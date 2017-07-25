@@ -146,6 +146,28 @@
     (=big5-cdp		. #x8BF9)	; &I-CDP-8BF9;
     (=daikanwa		. 02777)	; &I-M-02777;
     (=cbeta		. 01453)	; &I-CB01453;
+    (->mistakable
+     ((name		  . "CJK RADICAL GRASS THREE")
+      (=ucs		  . #x2EC0)	; ⻀
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x535D)	; &g2-CDP-8BF9;
+      (==cns11643-3	  . #x215A)	; &g2-CDP-8BF9; [01-58]
+      (==big5-cdp	  . #x8BF9)	; &g2-CDP-8BF9;
+      (==daikanwa	  . 02777)	; &g2-CDP-8BF9;
+      (==cbeta		  . 01453)	; &g2-CDP-8BF9;
+      (->subsumptive
+       ((===daikanwa	    . 02777)	; &R-M-02777;
+	)
+       ((===big5-cdp	    . #x8BF9)	; &R-CDP-8BF9;
+	)
+       ((===cns11643-3	    . #x215A)	; &R-C3-215A; [01-58]
+	)
+       ((===ucs@unicode	    . #x535D)	; &R-UU+535D;
+	)
+       ((===cbeta	    . 01453)	; &R-CB01453;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 25)	; ⼘
