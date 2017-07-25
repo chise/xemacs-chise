@@ -1690,6 +1690,14 @@
     ))
 (define-char
   '((ideographic-radical . 12)	; ⼋
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>big5-cdp	  . #x8BA5)	; &A-CDP-8BA5;
+      )
+     ((=ucs		  . #x516B)	; 八
+      ))
     (=ucs		. #x5177)	; 具
     ))
 (define-char
