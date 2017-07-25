@@ -276,13 +276,42 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 17)	; ⼐
+  '((<-denotational@component
+     ((=>ucs@component	  . #x7531)	; &A-compU+7531;
+      (=>iwds-1		  .  1132)	; &A-compU+7531;
+      ))
+    (ideographic-radical . 17)	; ⼐
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs		  . #x51F5)	; 凵
+      )
+     ((=ucs		  . #x20006)	; 𠀆
+      ))
+    (=ucs		. #x20679)	; 𠙹
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20679)	; 𠙹
+      ))
+    (ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 308 1)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs		  . #x51F5)	; 凵
+      )
+     ((=big5-cdp	  . #x8BF1)	; &CDP-8BF1;
+      ))
     (sound@ja/on	"si")
-    (=ucs		. #x20679)	; 𠙹
-    (=cns11643-6	. #x223F)	; &I-C6-223F; [02-31]
+    (=ucs@iso		. #x20679)	; &GT-02365;
+    (=cns11643-6	. #x223F)	; &GT-02365; [02-31]
     (=gt		. 02365)	; &I-GT-02365;
     (=gt-pj-2		. #x3F6A)	; &I-GT-02365; [31-74]
     (=daikanwa		. 01808)	; &I-M-01808;
@@ -528,7 +557,8 @@
     (<-same*sources
      zihui daikanwa)
     (->mistakable
-     ((=ucs		  . #x20679)	; 𠙹
+     ((=ucs@iso		  . #x20679)	; &GT-02365;
+      (=cns11643-6	  . #x223F)	; &GT-02365; [02-31]
       (=daikanwa	  . 01808)	; &I-M-01808;
       ))
     (->mistakable*sources
@@ -658,7 +688,8 @@
     (=ucs@iso		. #x2067E)	; &M-01814;
     (=daikanwa		. 01814)	; &M-01814;
     (<-ancient
-     ((=ucs		  . #x20679)	; 𠙹
+     ((=ucs@iso		  . #x20679)	; &GT-02365;
+      (=cns11643-6	  . #x223F)	; &GT-02365; [02-31]
       (=daikanwa	  . 01808)	; &I-M-01808;
       ))
     (<-ancient*sources

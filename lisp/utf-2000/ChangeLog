@@ -1,5 +1,14 @@
 2017-07-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R017-Open-Box.el (U-00020679): Apply new conventions
+	for glyph granularity; add `<-denotational@component' for
+	IWDS1-1132.
+
+	* Ideograph-R012-Eight.el (U+5177): Add `ideographic-structure'.
+
+	* Ideograph-R009-Man.el (U-00020268): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R044-Corpse.el (A-BC-8C7A): New abstract node.
 	(BC-8C7A): New character; use `<-denotational' for A-BC-8C7A;
 	unify GT-K01501.
