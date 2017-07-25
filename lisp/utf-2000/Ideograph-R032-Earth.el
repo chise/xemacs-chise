@@ -2255,7 +2255,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 32)	; ⼟
+  '((<-denotational@component
+     ((=>ucs@component	  . #x37B7)	; &A-compU+37B7;
+      ))
+    (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (ideographic-structure
