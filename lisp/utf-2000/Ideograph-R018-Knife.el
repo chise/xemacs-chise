@@ -4880,6 +4880,15 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53BB)	; 去
+      )
+     ((==>ucs@bucs	  . #x5203)	; &BUCS+5203;
+      (=>ucs@component	  . #x5203)	; &BUCS+5203;
+      ))
     (=ucs		. #x523C)	; 刼
     ))
 (define-char
@@ -4904,7 +4913,6 @@
     (=jis-x0212		. #x333D)	; &I-JSP-333D; [19-29]
     (=cns11643-3	. #x275D)	; &I-C3-275D; [07-61]
     (=daikanwa		. 01987)	; &I-M-01987;
-    (=hanziku-1		. #xEA70)	; &I-HZK01-EA70;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x523C)	; 刼
@@ -4942,6 +4950,11 @@
 	))
       (==ucs@cns	  . #x523C)	; &g2-CU+523C;
       (==cns11643-3	  . #x275D)	; &g2-CU+523C; [07-61]
+      (->subsumptive
+       ((===cns11643-3	    . #x275D)	; &R-C3-275D; [07-61]
+	)
+       ((=hanziku-1	    . #xEA70)	; &HZK01-EA70;
+	))
       ))
     ))
 (define-char
@@ -4987,7 +5000,10 @@
 	)
        ((=cns11643-1	    . #x4443)	; &C1-4443; [36-35]
 	))
-      (=hanziku-12	  . #xEBB6)	; &HZK12-EBB6;
+      (=ucs-var-003	  . #x523C)	; &U-v003+523C;
+      (->subsumptive
+       ((=hanziku-12	    . #xEBB6)	; &HZK12-EBB6;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -5000,6 +5016,10 @@
 	))
       (=ucs@unicode	  . #x523C)	; &UU+523C;
       (=ucs@JP/hanazono	  . nil)
+      (->subsumptive
+       ((==ucs@unicode	    . #x523C)	; &g2-UU+523C;
+	(==ucs@JP/hanazono  . nil)
+	))
       ))
     ))
 (define-char
@@ -5540,8 +5560,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@unicode	    . #x8099)	; &g2-JX2-7530;
-	(==jis-x0213-2	    . #x7530)	; &g2-JX2-7530; [85-16]
+       ((==ucs@unicode	    . #x8099)	; &g2-MJ020931;
+	(==mj		    . 020931)	; &g2-MJ020931;
 	)
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
