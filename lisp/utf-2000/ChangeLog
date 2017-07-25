@@ -1,3 +1,15 @@
+2017-07-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R044-Corpse.el (A-BC-8C7A): New abstract node.
+	(BC-8C7A): New character; use `<-denotational' for A-BC-8C7A;
+	unify GT-K01501.
+	(BC-8C7A-var-002): New character; use `<-denotational' for
+	A-BC-8C7A.
+
+	* Ideograph-R037-Big.el (U+595A): Add `ideographic-structure'.
+	(JU+595A): Likewise.
+	(UU+595A): Likewise.
+
 2017-07-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (U-0002125A): Add
