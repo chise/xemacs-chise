@@ -5669,7 +5669,8 @@
     (<-original@p=zhong4*sources
      zhengzitong daikanwa)
     (<-same@p=yin2
-     ((=ucs		  . #x4E51)	; 乑
+     ((=ucs@unicode	  . #x4E51)	; &AJ1-17241;
+      (=adobe-japan1-5	  . 17241)	; &AJ1-17241;
       (=daikanwa	  . 00139)	; &I-M-00139;
       ))
     (<-same@p=yin2*sources
@@ -23136,32 +23137,73 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs		  . #x523C)	; 刼
+      ))
     (=ucs		. #x20268)	; 𠉨
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20268)	; 𠉨
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=+>ucs@unicode	  . #x523C)	; &o-UU+523C;
+      ))
+    (=+>ucs@iso		. #x20268)	; &o-IU+20268;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((name		    . "CJK RADICAL PERSON")
-	(=ucs		    . #x2E85)	; ⺅
+       ((=ucs		    . #x4EBB)	; 亻
 	)
-       ((=hanziku-12	    . #xEBB6)	; &HZK12-EBB6;
+       ((=ucs-var-003	    . #x523C)	; &U-v003+523C;
 	))
+      (=ucs@cns		  . #x20268)	; &C6-3535;
       (=cns11643-6	  . #x3535)	; &C6-3535; [21-21]
       (=daikanwa	  . 00753)	; &I-M-00753;
+      (->subsumptive
+       ((==ucs@cns	    . #x20268)	; &g2-M-00753;
+	(==cns11643-6	    . #x3535)	; &g2-M-00753; [21-21]
+	(==daikanwa	    . 00753)	; &g2-M-00753;
+	(->subsumptive
+	 ((===daikanwa	      . 00753)	; &R-M-00753;
+	  )
+	 ((===cns11643-6      . #x3535)	; &R-C6-3535; [21-21]
+	  ))
+	))
       )
      ((hanyu-dazidian	  1 170 7)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((name		    . "CJK RADICAL PERSON")
-	(=ucs		    . #x2E85)	; ⺅
+       ((=ucs		    . #x4EBB)	; 亻
 	)
        ((=ucs@unicode	    . #x523C)	; &UU+523C;
 	))
-      (=ucs@iso		  . #x20268)	; &HZK01-C96D;
-      (=hanziku-1	  . #xC96D)	; &HZK01-C96D;
+      (=ucs@iso		  . #x20268)	; &U-00020268;
+      (->subsumptive
+       ((==ucs@iso	    . #x20268)	; &g2-IU-00020268;
+	(->subsumptive
+	 ((===ucs@iso	      . #x20268)	; &R-U-00020268;
+	  )
+	 ((=hanziku-1	      . #xC96D)	; &HZK01-C96D;
+	  ))
+	))
       ))
     ))
 (define-char
