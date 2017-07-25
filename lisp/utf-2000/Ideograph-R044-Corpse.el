@@ -444,6 +444,30 @@
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
+    (=>big5-cdp		. #x8C7A)	; &A-CDP-8C7A;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8C7A)	; &A-CDP-8C7A;
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=big5-cdp		. #x8C7A)	; &CDP-8C7A;
+    (=gt-k		. 01501)	; &GT-K01501;
+    (=gt-pj-k1		. #x3B27)	; &CDP-8C7A; [27-07]
+    (->subsumptive
+     ((==big5-cdp	  . #x8C7A)	; &g2-CDP-8C7A;
+      )
+     ((==gt-k		  . 01501)	; &g2-GT-K01501;
+      (==gt-pj-k1	  . #x3B27)	; &g2-GT-K01501; [27-07]
+      (<-identical@component/connect-right
+       ((=big5-cdp	    . #x8C7A)	; &CDP-8C7A;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=ucs		. #x21C29)	; 𡰩
@@ -626,6 +650,23 @@
        ((===hng-jou	    . 00530)	; &HNG001-00530;
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8C7A)	; &A-CDP-8C7A;
+      ))
+    (ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      )
+     ((=big5-cdp	  . #x8C7A)	; &CDP-8C7A;
+      ))
+    (=big5-cdp-var-002	. #x8C7A)	; &CDP-v002-8C7A;
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫

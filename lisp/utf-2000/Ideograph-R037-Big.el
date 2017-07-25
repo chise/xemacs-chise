@@ -3320,6 +3320,14 @@
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>big5-cdp	  . #x8CC5)	; &A-GT-K03307;
+      )
+     ((=ucs		  . #x5927)	; 大
+      ))
     (=ucs		. #x595A)	; 奚
     (=big5		. #xAE4F)	; &I-B-AE4F;
     ))
@@ -3330,6 +3338,14 @@
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 03307)	; &GT-K03307;
+      )
+     ((=ucs		  . #x5927)	; 大
+      ))
     (=ucs@jis		. #x595A)	; &AJ1-04553;
     (=ucs@ks		. #x595A)	; &AJ1-04553;
     (=adobe-japan1-0	. 04553)	; &AJ1-04553;
@@ -3382,6 +3398,14 @@
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8CC5)	; &CDP-8CC5;
+      )
+     ((=ucs		  . #x5927)	; 大
+      ))
     (=ucs@unicode	. #x595A)	; &C1-5471;
     (=ucs@JP/hanazono	. nil)
     (=gb2312		. #x5E49)	; &C1-5471; [62-41]
