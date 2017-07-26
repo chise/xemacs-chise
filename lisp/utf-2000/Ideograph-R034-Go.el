@@ -57,14 +57,38 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (hanyu-dazidian	1 9 5)
+    (sound@ja/on/go	"ke")
+    (sound@ja/on/kan	"kWa")
     (=ucs		. #x21552)	; 𡕒
     (->subsumptive
      ((=daikanwa	  . 05692)	; &M-05692;
       )
-     ((=cns11643-5	  . #x212F)	; &C5-212F; [01-15]
+     ((=ucs@cns		  . #x21552)	; &C5-212F;
+      (=cns11643-5	  . #x212F)	; &C5-212F; [01-15]
+      (->subsumptive
+       ((==ucs@cns	    . #x21552)	; &g2-CU+21552;
+	(==cns11643-5	    . #x212F)	; &g2-CU+21552; [01-15]
+	))
       )
      ((=ucs@iso		  . #x21552)	; &CDP-8874;
       (=big5-cdp	  . #x8874)	; &CDP-8874;
+      (->subsumptive
+       ((==ucs@iso	    . #x21552)	; &g2-CDP-8874;
+	(==big5-cdp	    . #x8874)	; &g2-CDP-8874;
+	(->subsumptive
+	 ((===big5-cdp	      . #x8874)	; &R-CDP-8874;
+	  )
+	 ((===ucs@iso	      . #x21552)	; &R-U-00021552;
+	  ))
+	))
+      )
+     ((=ucs-itaiji-002	  . #x21552)	; &U-i002+21552;
+      (->mistakable
+       ((=ucs		    . #x353F)	; 㔿
+	))
+      (->subsumptive
+       ((==ucs-itaiji-002   . #x21552)	; &g2-U-i002+21552;
+	))
       ))
     ))
 (define-char

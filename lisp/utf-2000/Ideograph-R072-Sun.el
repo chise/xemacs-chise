@@ -3937,10 +3937,27 @@
   '((ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x215D7)	; 𡗗
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x6625)	; 春
     (=big5		. #xAC4B)	; &I-B-AC4B;
     (->subsumptive
-     ((=ucs@jis		  . #x6625)	; &AJ1-02399;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs@iso	    . #x215D7)	; &AJ1-17472;
+	(=adobe-japan1-5    . 17472)	; &AJ1-17472;
+	)
+       ((=ucs		    . #x65E5)	; 日
+	))
+      (=ucs@jis		  . #x6625)	; &AJ1-02399;
       (=adobe-japan1-0	  . 02399)	; &AJ1-02399;
       (=jis-x0208	  . #x3D55)	; &I-J90-3D55; [29-53]
       (=ks-x1001	  . #x7570)	; &I-K0-7570; [85-80]
@@ -3982,7 +3999,15 @@
 	  ))
 	))
       )
-     ((=ucs@unicode	  . #x6625)	; &C1-514E;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=big5-cdp	    . #x8BE9)	; &CDP-8BE9;
+	)
+       ((=ucs		    . #x65E5)	; 日
+	))
+      (=ucs@unicode	  . #x6625)	; &C1-514E;
       (=ucs@JP/hanazono	  . nil)
       (=gb2312		  . #x343A)	; &C1-514E; [20-26]
       (=cns11643-1	  . #x514E)	; &I-C1-514E; [49-46]

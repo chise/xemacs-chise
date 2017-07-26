@@ -454,7 +454,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (=big5-cdp		. #x8C7A)	; &CDP-8C7A;
-    (=gt-k		. 01501)	; &GT-K01501;
+    (=gt-k		. 01501)	; &I-GT-K01501;
     (=gt-pj-k1		. #x3B27)	; &CDP-8C7A; [27-07]
     (->subsumptive
      ((==big5-cdp	  . #x8C7A)	; &g2-CDP-8C7A;

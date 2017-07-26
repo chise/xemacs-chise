@@ -863,3 +863,40 @@
      ((=ucs@iso		  . #x262EA)	; &U-000262EA;
       ))
     ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x9832)	; &A-IWDSU+9832;
+      ))
+    (ideographic-radical . 54)	; ⼵
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x5EF4)	; 廴
+      )
+     ((=ucs		  . #x29459)	; 𩑙
+      ))
+    (=ucs		. #x2BE14)	; 𫸔
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2BE14)	; 𫸔
+      ))
+    (ideographic-radical . 54)	; ⼵
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x5EF4)	; 廴
+      )
+     ((=ucs@iso		  . #x29459)	; &M-43356;
+      ))
+    (=ucs@JP/hanazono	. #x2BE14)	; &hanaJU+2BE14;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2BE14)	; &g2-hanaJU+2BE14;
+      ))
+    ))

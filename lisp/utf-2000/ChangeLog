@@ -1,5 +1,20 @@
 2017-07-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R072-Sun.el (U+6625): Add ideographic-structure.
+
+	* Ideograph-R055-Two-Hands.el (U-00022343): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R054-Long-Stride.el (U-0002BE14): New character.
+
+	* Ideograph-R034-Go.el (U-00021552): Add `sound@ja/on/{kan|go}';
+	add some representative nodes.
+
+	* Ideograph-R019-Power.el (U+3522): Apply new conventions for
+	glyph granularity.
+
+2017-07-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R017-Open-Box.el (U-00020679): Apply new conventions
 	for glyph granularity; add `<-denotational@component' for
 	IWDS1-1132.
