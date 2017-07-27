@@ -179,22 +179,26 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
-    (=ucs		. #x4E02)	; 丂
-    (->Bopomofo
-     ((name		  . "BOPOMOFO LETTER K")
-      (=ucs		  . #x310E)	; ㄎ
-      ))
+    (=>ucs@component	. #x4E02)	; &A-compU+4E02;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x4E02)	; 丂
+     ((=>ucs@component	  . #x4E02)	; &A-compU+4E02;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 4 1)
-    (=ucs@unicode	. #x4E02)	; &AJ1-17234;
-    (=adobe-japan1-5	. 17234)	; &AJ1-17234;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=big5-cdp	  . #x88CD)	; &CDP-88CD;
+      ))
+    (=ucs		. #x4E02)	; 丂
+    (=adobe-japan1-5	. 17234)	; &I-AJ1-17234;
     (=jis-x0212		. #x3021)	; &I-JSP-3021; [16-01]
     (=cns11643-4	. #x2126)	; &I-C4-2126; [01-06]
     (=jis-x0213-2	. #x2122)	; &I-JX2-2122; [01-02]
@@ -203,6 +207,10 @@
     (=gt-pj-2		. #x3021)	; &I-GT-00003; [16-01]
     (=daikanwa		. 00003)	; &I-M-00003;
     (=jef-china3	. #x41A1)	; &I-JC3-41A1;
+    (->Bopomofo
+     ((name		  . "BOPOMOFO LETTER K")
+      (=ucs		  . #x310E)	; ㄎ
+      ))
     (->subsumptive
      ((==ucs@unicode	  . #x4E02)	; &g2-AJ1-17234;
       (==adobe-japan1-5	  . 17234)	; &g2-AJ1-17234;
@@ -235,21 +243,24 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x4E02)	; 丂
+     ((=>ucs@component	  . #x4E02)	; &A-compU+4E02;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (=big5-cdp		. #x8BBF)	; &CDP-8BBF;
     (<-formed@component
-     ((=ucs@unicode	  . #x4E02)	; &AJ1-17234;
-      (=adobe-japan1-5	  . 17234)	; &AJ1-17234;
+     ((=ucs		  . #x4E02)	; 丂
       ))
     (->subsumptive
      ((==big5-cdp	  . #x8BBF)	; &g2-CDP-8BBF;
       )
      ((=gt-k		  . 00125)	; &GT-K00125;
       (=gt-pj-k1	  . #x6231)	; &GT-K00125; [66-17]
+      (->subsumptive
+       ((==gt-k		    . 00125)	; &g2-GT-K00125;
+	(==gt-pj-k1	    . #x6231)	; &g2-GT-K00125; [66-17]
+	))
       ))
     ))
 (define-char
