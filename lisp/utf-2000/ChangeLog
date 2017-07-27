@@ -1,3 +1,48 @@
+2017-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+3466): Apply new conventions for glyph
+	granularity.
+
+2017-07-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (U+3958): New character.
+	(U+395E): Use `->denotational' and `->subsumptive'.
+	(U-000227AA): Likewise.
+	(U-000228CD): Likewise.
+	(U-0002289D): Likewise.
+	(U+61C9): Add `ideographic-structure'.
+	(U-00022969): Use `->subsumptive'.
+
+	* Ideograph-R045-Sprout.el (A-compU+37B7): New abstract node.
+	(U+37B7): Add `<-denotational@component' for A-compU+37B7; apply
+	new conventions for glyph granularity.
+	(MJ000836): Unify CB08147.
+
+	* Ideograph-R029-Again.el (U-00020B36): Add
+	`ideographic-structure'.
+	(GT-K02778): Likewise.
+	(IU+20B36): Likewise.
+	(U-0002BA3B): New character.
+	(CB01008): Add `<-denotational' for U-0002BA3B; unify
+	hanaJU+2BA3B.
+	(A-U+20B56-itaiji-001): New abstract node; unify
+	A-U+20B56-itaiji-002.
+	(U+20B56-itaiji-001): New character; use `<-denotational' for
+	A-U+20B56-itaiji-001.
+	(U+20B56-itaiji-002): Likewise.
+
+	* Ideograph-R007-Two.el (A-compU+20122): New abstract node.
+	(U-00020122): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-compU+20122; unify IWDS1-0130.
+	(U+20122-itaiji-001): New character; use `<-denotational' for
+	A-compU+20122.
+	(U-0002F803): Apply new conventions for glyph granularity; add
+	`<-denotational' for U-00020122.
+
+	* Ideograph-R001-One.el (A-compU+4E02): New abstract node.
+	(UU+4E02): Unify U+4E02; use A-compU+4E02 instead of U+4E02.
+	(BC-8BBF): Use A-compU+4E02 instead of U+4E02.
+
 2017-07-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R087-Claw.el (U+722B): Add `<-denotational@component'
@@ -52,6 +97,11 @@
 	(U-00022049): New character; use `<-denotational' for U+5DFD.
 	(J2000U+5DFD): Unify IU+22049; use U-00022049 instead of U+5DFD as
 	its mother.
+
+	* Ideograph-R113-Spirit.el (U+793C): Apply new conventions for
+	glyph granularity.
+	(U+7956): Add ideographic-structure.
+	(U+79AE): Likewise.
 
 2017-07-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
