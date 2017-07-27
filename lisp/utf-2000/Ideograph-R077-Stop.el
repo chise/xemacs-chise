@@ -3187,6 +3187,14 @@
     (ideographic-strokes . 19)
     (total-strokes	 . 23)
     (hanyu-dazidian	2 1447 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x470C)	; 䜌
+      )
+     ((=ucs		  . #x6B62)	; 止
+      ))
     (=ucs		. #x239B1)	; 𣦱
     (=cns11643-7	. #x5B62)	; &I-C7-5B62; [59-66]
     (=daikanwa		. 16357)	; &I-M-16357;

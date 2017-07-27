@@ -157,6 +157,18 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x56DE)	; &BUCS+56DE;
+      ))
+    (ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (=ucs-itaiji-002	. #x56DE)	; &U-i002+56DE;
+    (->subsumptive
+     ((==ucs-itaiji-002	  . #x56DE)	; &g2-U-i002+56DE;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 2)
     (total-strokes	 . 5)

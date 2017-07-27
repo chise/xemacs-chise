@@ -4423,22 +4423,6 @@
   '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
-    (hanyu-dazidian	1 293 8)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x4EAB)	; 享
-      )
-     ((=ucs		  . #x591C)	; 夜
-      ))
-    (=ucs		. #x20193)	; 𠆓
-    (=hanziku-1		. #xE279)	; &I-HZK01-E279;
-    ))
-(define-char
-  '((ideographic-radical . 8)	; ⼇
-    (ideographic-strokes . 14)
-    (total-strokes	 . 16)
     (hanyu-dazidian	1 293 9)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -4450,22 +4434,6 @@
       ))
     (=ucs		. #x20194)	; 𠆔
     (=hanziku-1		. #xE27A)	; &I-HZK01-E27A;
-    ))
-(define-char
-  '((ideographic-radical . 8)	; ⼇
-    (ideographic-strokes . 14)
-    (total-strokes	 . 16)
-    (hanyu-dazidian	1 293 11)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5E77)	; 幷
-      )
-     ((=ucs		  . #x591C)	; 夜
-      ))
-    (=ucs		. #x20195)	; 𠆕
-    (=hanziku-1		. #xE27C)	; &I-HZK01-E27C;
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇

@@ -1,3 +1,64 @@
+2017-07-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R087-Claw.el (U+722B): Add `<-denotational@component'
+	for A-compU+722B.
+	(UU+722B): Unify <CJK RADICAL PAW ONE> instead of U+FA49; add
+	representative nodes.
+	(g2-UU+722B): Unify U+FA49.
+	(A-BC-8BB8): New abstract node.
+	(BC-8BB8): New character; use `<-denotational' for A-BC-8BB8.
+
+	* Ideograph-R077-Stop.el (U-000239B1): Add
+	`ideographic-structure'.
+
+	* Ideograph-R063-Door.el (U+623B): Apply new conventions for glyph
+	granularity.
+	(U+623E): Likewise.
+	(U+6241): Add ideographic-structure.
+
+	* Ideograph-R046-Mountain.el (U-00021F1C): Use `->denotational'
+	and `->subsumptive'.
+
+	* Ideograph-R036-Evening.el (U+5924): Add `ideographic-structure'.
+	(U-000215BA): Apply new conventions for glyph granularity.
+	(M-05813): Add `<-denotational' for U-000215BA.
+	(IU+215BA): Unify CB03822.
+	(U-000221A3): New character.
+	(M-05814): Add `<-denotational' for U-000221A3.
+	(U-00020193): Moved from Ideograph-R008-Lid.el; apply new
+	conventions for glyph granularity; use
+	`ideographic-{radical|strokes}@ucs/code' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs.
+	(M-05820): Add `<-denotational' for U-00020193.
+	(U-00020195): Moved from Ideograph-R008-Lid.el; apply new
+	conventions for glyph granularity; use
+	`ideographic-{radical|strokes}@ucs/code' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs.
+	(M-05821): Add `<-denotational' for U-00020195.
+	(A-U+5924-itaiji-001): New abstract node.
+	(U+5924-itaiji-001): New character; use `<-denotational' for
+	A-U+5924-itaiji-001.
+
+	* Ideograph-R031-Enclosure.el (U+56DE-itaiji-002): New character;
+	use `<-denotational' for BUCS+56DE.
+
+	* Ideograph-R049-Oneself.el (A-GT-K02013): New abstract node;
+	unify A-U+5DF3-itaiji-002.
+	(GT-K01869): New character; use `<-denotational' for A-GT-K02013.
+	(GT-K02013): Likewise; unify U+5DF3-itaiji-002.
+	(U+5DFD): Add ideographic-structure.
+	(U-00022049): New character; use `<-denotational' for U+5DFD.
+	(J2000U+5DFD): Unify IU+22049; use U-00022049 instead of U+5DFD as
+	its mother.
+
+2017-07-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (U-00020193): Moved to
+	Ideograph-R036-Evening.el.
+	(U-00020195): Ditto.
+
 2017-07-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R072-Sun.el (U+6625): Add ideographic-structure.
