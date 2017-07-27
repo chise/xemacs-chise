@@ -199,6 +199,14 @@
   '((ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 1)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@component	  . #x793A)	; &A-compU+793A;
+      )
+     ((=ucs		  . #x4E5A)	; 乚
+      ))
     (=ucs		. #x793C)	; 礼
     ))
 (define-char
@@ -209,10 +217,13 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 1)
     (total-strokes	 . 6)
-    (=decomposition@cid
-     ((=ucs		  . #x793C)	; 礼
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #xE0101)	; 󠄁
+     ((=ucs		  . #x793A)	; 示
+      )
+     ((=ucs		  . #x4E5A)	; 乚
       ))
     (=ucs		. #xFA18)	; 礼
     (=adobe-japan1-2	. 08579)	; &I-AJ1-08579;
@@ -230,7 +241,12 @@
     (<-ancient*sources
      jiyun daikanwa shinjigen)
     (->subsumptive
-     ((==ucs@unicode	  . #xFA18)	; &g2-AJ1-08579;
+     ((=decomposition@cid
+       ((=ucs		    . #x793C)	; 礼
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==ucs@unicode	  . #xFA18)	; &g2-AJ1-08579;
       (==adobe-japan1-2	  . 08579)	; &g2-AJ1-08579;
       (==daikanwa	  . 24626)	; &g2-AJ1-08579;
       (==shinjigen	  .  5507)	; &g2-AJ1-08579;
@@ -255,6 +271,14 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 1)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x793B)	; 礻
+      )
+     ((=ucs		  . #x4E5A)	; 乚
+      ))
     (=ucs@unicode	. #x793C)	; &AJ1-04017;
     (=adobe-japan1-0	. 04017)	; &AJ1-04017;
     (=jis-x0208		. #x4E69)	; &I-J90-4E69; [46-73]
@@ -2799,6 +2823,14 @@
   '((ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@component	  . #x793A)	; &A-compU+793A;
+      )
+     ((=ucs		  . #x4E14)	; 且
+      ))
     (=ucs		. #x7956)	; 祖
     ))
 (define-char
@@ -2809,6 +2841,14 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x793A)	; 示
+      )
+     ((=ucs		  . #x4E14)	; 且
+      ))
     (=ucs		. #xFA50)	; 祖
     (=ucs@ks		. #x7956)	; 祖
     (=adobe-japan1-4	. 13359)	; &I-AJ1-13359;
@@ -2854,6 +2894,14 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x793B)	; 礻
+      )
+     ((=ucs		  . #x4E14)	; 且
+      ))
     (=ucs@unicode	. #x7956)	; &AJ1-02758;
     (=adobe-japan1-0	. 02758)	; &AJ1-02758;
     (=jis-x0208		. #x4144)	; &I-J90-4144; [33-36]
@@ -11272,6 +11320,14 @@
   '((ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 13)
     (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@component	  . #x793A)	; &A-compU+793A;
+      )
+     ((=ucs		  . #x8C4A)	; 豊
+      ))
     (=ucs		. #x79AE)	; 禮
     (=big5		. #xC2A7)	; &I-B-C2A7;
     ))
@@ -11282,6 +11338,14 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 13)
     (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x793A)	; 示
+      )
+     ((=ucs		  . #x8C4A)	; 豊
+      ))
     (=ucs@jis		. #x79AE)	; &AJ1-05900;
     (=ucs@ks		. #x79AE)	; &AJ1-05900;
     (=adobe-japan1-0	. 05900)	; &AJ1-05900;
@@ -11338,6 +11402,14 @@
     (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 13)
     (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x793B)	; 礻
+      )
+     ((=ucs		  . #x8C4A)	; 豊
+      ))
     (=ucs@unicode	. #x79AE)	; &MJ018964;
     (=ucs@JP/hanazono	. nil)
     (=mj		. 018964)	; &MJ018964;
