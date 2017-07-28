@@ -365,6 +365,7 @@
     =>ucs@iwds-1
     =>ucs@component
     ==ucs@gb
+    =ucs@gb
     =ucs@JP/hanazono))
 
 
