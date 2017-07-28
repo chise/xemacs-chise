@@ -1,5 +1,8 @@
 2017-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=ucs@gb'.
+
 	* Ideograph-R057-Bow.el (U+5F1C): Apply new conventions for glyph
 	granularity.
 	(U+38B2): Likewise.
