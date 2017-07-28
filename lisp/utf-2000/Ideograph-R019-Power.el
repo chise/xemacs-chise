@@ -6124,7 +6124,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@component	  . #x5F37)	; &J97-362F;
+     ((=>ucs@iwds-1	  . #x5F37)	; &J97-362F;
       (=>ucs@jis	  . #x5F37)	; &J97-362F;
       (=ucs@big5	  . #x5F37)	; &J97-362F;
       (=>jis-x0208	  . #x362F)	; &J97-362F; [22-15]
