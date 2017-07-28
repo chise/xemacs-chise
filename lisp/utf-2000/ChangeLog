@@ -1,5 +1,9 @@
 2017-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R121-Jar.el (U+4343): Add ideographic-structure.
+
+2017-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=ucs@gb'.
 
