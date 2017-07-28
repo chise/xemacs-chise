@@ -1,5 +1,12 @@
 2017-07-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R057-Bow.el (U+5F1C): Apply new conventions for glyph
+	granularity.
+	(U+38B2): Likewise.
+	(U+38B2-var-001): New character; use `<-denotational' for U+38B2.
+	(U-000223F2): Use `->subsumptive'.
+	(A-J0-362F): Unify A-IWDSU+5F37; add `ideographic-structure'.
+
 	* Ideograph-R009-Man.el (U+3466): Apply new conventions for glyph
 	granularity.
 
