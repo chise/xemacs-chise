@@ -655,6 +655,11 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
     (=daikanwa		. 21714)	; &M-21714;
+    (<-Liwen
+     ((=ucs@iso		  . #x24C08)	; &C5-3361;
+      (=cns11643-5	  . #x3361)	; &C5-3361; [19-65]
+      (=daikanwa	  . 21716)	; &I-M-21716;
+      ))
     (->subsumptive
      ((==daikanwa	  . 21714)	; &g2-M-21714;
       ))
@@ -715,6 +720,8 @@
   '((ideographic-radical . 101)	; ⽤
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
+    (sound@ja/on/go	"bi")
+    (sound@ja/on/kan	"hi")
     (=ucs		. #x24C08)	; 𤰈
     ))
 (define-char
@@ -724,15 +731,69 @@
     (ideographic-radical . 101)	; ⽤
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
-    (=>>ucs@iso		. #x24C08)	; &G-IU+24C08;
-    (->subsumptive
-     ((=cns11643-5	  . #x3361)	; &C5-3361; [19-65]
-      (=daikanwa	  . 21716)	; &I-M-21716;
-      )
-     ((hanyu-dazidian	  5 3223 6)
-      (=ucs@iso		  . #x24C08)	; &HZK08-F1BB;
-      (=hanziku-8	  . #xF1BB)	; &HZK08-F1BB;
+    (hanyu-dazidian	5 3223 6)
+    (=ucs@iso		. #x24C08)	; &C5-3361;
+    (=cns11643-5	. #x3361)	; &C5-3361; [19-65]
+    (=daikanwa		. 21716)	; &I-M-21716;
+    (<-same
+     ((=daikanwa	  . 21714)	; &M-21714;
       ))
+    (<-same*sources
+     shuowen jiyun daikanwa)
+    (->Liwen
+     ((=daikanwa	  . 21714)	; &M-21714;
+      ))
+    (->Liwen*sources
+     jiyun)
+    (->interchangeable
+     ((=ucs@unicode	  . #x5099)	; &C1-5E2C;
+      (=cns11643-1	  . #x5E2C)	; &C1-5E2C; [62-12]
+      (=daikanwa	  . 00967)	; &I-M-00967;
+      ))
+    (->interchangeable*sources
+     jiyun)
+    (->subsumptive
+     ((==ucs@cns	  . #x24C08)	; &g2-M-21716;
+      (==cns11643-5	  . #x3361)	; &g2-M-21716; [19-65]
+      (==daikanwa	  . 21716)	; &g2-M-21716;
+      (->subsumptive
+       ((===daikanwa	    . 21716)	; &R-M-21716;
+	)
+       ((===cns11643-5	    . #x3361)	; &R-C5-3361; [19-65]
+	))
+      )
+     ((==ucs@iso	  . #x24C08)	; &g2-IU-00024C08;
+      (->subsumptive
+       ((===ucs@iso	    . #x24C08)	; &R-U-00024C08;
+	)
+       ((=hanziku-8	    . #xF1BB)	; &HZK08-F1BB;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24C08)	; 𤰈
+      ))
+    (ideographic-radical . 101)	; ⽤
+    (ideographic-strokes . 6)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL GRASS TWO")
+      (=ucs		  . #x2EBF)	; ⺿
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+	(=ucs		    . #x2FF9)	; ⿹
+	)
+       ((=ucs		    . #x52F9)	; 勹
+	)
+       ((=ucs		    . #x7528)	; 用
+	))
+      ))
+    (=ucs-var-001	. #x24C08)	; &U-v001+24C08;
     ))
 (define-char
   '((<-denotational
@@ -742,6 +803,9 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
     (=cbeta		. 08880)	; &CB08880;
+    (->subsumptive
+     ((==cbeta		  . 08880)	; &g2-CB08880;
+      ))
     ))
 (define-char
   '((ideographic-radical . 101)	; ⽤

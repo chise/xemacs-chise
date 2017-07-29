@@ -1154,6 +1154,7 @@
       )
      ((=ucs		  . #x76AE)	; 皮
       ))
+    (sound@ja/on	"kaN")
     (=ucs		. #x25010)	; 𥀐
     ))
 (define-char
@@ -1172,10 +1173,19 @@
       )
      ((=ucs		  . #x76AE)	; 皮
       ))
-    (=ucs@iso		. #x25010)	; &M-22901;
-    (=daikanwa		. 22901)	; &M-22901;
+    (=ucs@iso		. #x25010)	; &MJ042023;
+    (=mj		. 042023)	; &MJ042023;
+    (=koseki		. 256350)	; &MJ042023;
+    (=daikanwa		. 22901)	; &I-M-22901;
     (->subsumptive
-     ((==daikanwa 	  . 22901)	; &g2-M-22901;
+     ((==mj		  . 042023)	; &g2-MJ042023;
+      (==koseki		  . 256350)	; &g2-MJ042023;
+      (==daikanwa	  . 22901)	; &g2-MJ042023;
+      (->subsumptive
+       ((===daikanwa	    . 22901)	; &R-M-22901;
+	)
+       ((===mj		    . 042023)	; &R-MJ042023;
+	))
       )
      ((==ucs@iso	  . #x25010)	; &g2-IU-00025010;
       (->subsumptive
@@ -1200,7 +1210,7 @@
       )
      ((=ucs		  . #x76AE)	; 皮
       ))
-    (=ucs@cns	  . #x25010)	; &g2-CU+25010;
+    (=ucs@cns		. #x25010)	; &C5-4E5C;
     (=cns11643-5	. #x4E5C)	; &C5-4E5C; [46-60]
     (->subsumptive
      ((==ucs@cns	  . #x25010)	; &g2-CU+25010;

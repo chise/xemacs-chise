@@ -341,30 +341,110 @@
   '((ideographic-radical . 81)	; ⽐
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x56DF)	; 囟
+      )
+     ((=ucs		  . #x6BD4)	; 比
+      ))
     (=ucs		. #x23B08)	; 𣬈
+    (=cns11643-6	. #x3868)	; &I-C6-3868; [24-72]
     (=daikanwa		. 16754)	; &I-M-16754;
-    ))
-(define-char
-  '((=>ucs		. #x23B08)	; 𣬈
-    (morohashi-daikanwa	16754 0 0)
-    (ideographic-radical . 81)	; ⽐
-    (ideographic-strokes . 6)
-    (total-strokes	 . 10)
-    (=cns11643-6	. #x3868)	; &C6-3868; [24-72]
+    (<-original
+     ((=ucs		  . #x6BD7)	; 毗
+      (=daikanwa	  . 16752)	; &I-M-16752;
+      ))
+    (<-original*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x23B08)	; &g2-M-16754;
+      (==daikanwa	  . 16754)	; &g2-M-16754;
+      (->subsumptive
+       ((===daikanwa	    . 16754)	; &R-M-16754;
+	)
+       ((===ucs@iso	    . #x23B08)	; &R-U-00023B08;
+	))
+      )
+     ((==ucs@cns	  . #x23B08)	; &g2-CU+23B08;
+      (==cns11643-6	  . #x3868)	; &g2-CU+23B08; [24-72]
+      ))
     ))
 (define-char
   '((ideographic-radical . 81)	; ⽐
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (=ucs		. #x23B09)	; 𣬉
-    (->subsumptive
-     ((=ucs@iso		  . #x23B09)	; &M-16755;
-      (=daikanwa	  . 16755)	; &M-16755;
-      (=hanziku-4	  . #xCE65)	; &I-HZK04-CE65;
-      (=cbeta		  . 08541)	; &I-CB08541;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=cns11643-6	  . #x386A)	; &C6-386A; [24-74]
+     ((=>ucs@component	  . #x56DF)	; &A-compU+56DF;
+      )
+     ((=ucs		  . #x6BD4)	; 比
       ))
+    (sound@ja/on	"hi")
+    (=ucs		. #x23B09)	; 𣬉
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23B09)	; 𣬉
+      ))
+    (ideographic-radical . 81)	; ⽐
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x56DF)	; 囟
+      )
+     ((=ucs		  . #x6BD4)	; 比
+      ))
+    (=ucs@iso		. #x23B09)	; &C6-386A;
+    (=cns11643-6	. #x386A)	; &C6-386A; [24-74]
+    (=daikanwa		. 16755)	; &I-M-16755;
+    (=cbeta		. 08541)	; &I-CB08541;
+    (<-same
+     ((=ucs		  . #x23B08)	; 𣬈
+      (=daikanwa	  . 16754)	; &I-M-16754;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x23B09)	; &g2-M-16755;
+      (==daikanwa	  . 16755)	; &g2-M-16755;
+      (==cbeta		  . 08541)	; &g2-M-16755;
+      (->subsumptive
+       ((===daikanwa	    . 16755)	; &R-M-16755;
+	)
+       ((===ucs@iso	    . #x23B09)	; &R-U-00023B09;
+	)
+       ((=hanziku-4	    . #xCE65)	; &HZK04-CE65;
+	)
+       ((===cbeta	    . 08541)	; &R-CB08541;
+	))
+      )
+     ((==ucs@cns	  . #x23B09)	; &g2-CU+23B09;
+      (==cns11643-6	  . #x386A)	; &g2-CU+23B09; [24-74]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23B09)	; 𣬉
+      ))
+    (ideographic-radical . 81)	; ⽐
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-007	  . #x56DF)	; &U-i007+56DF;
+      )
+     ((=ucs		  . #x6BD4)	; 比
+      ))
+    (=ucs-var-001	. #x23B09)	; &U-v001+23B09;
     ))
 (define-char
   '((ideographic-radical . 81)	; ⽐
