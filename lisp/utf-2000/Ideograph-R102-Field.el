@@ -5832,6 +5832,7 @@
       )
      ((=ucs		  . #x758C)	; 疌
       ))
+    (sound@ja/on	"sAHu")
     (=ucs		. #x24CA3)	; 𤲣
     ))
 (define-char
