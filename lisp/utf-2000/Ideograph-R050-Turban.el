@@ -6849,7 +6849,9 @@
       (=cns11643-1	  . #x5C7B)	; &C1-5C7B; [60-91]
       (=daikanwa	  . 31078)	; &I-M-31078;
       )
-     ((=daikanwa	  . 27836)	; &M-27836;
+     ((=ucs@cns		  . #x7E38)	; &C2-5E42;
+      (=cns11643-2	  . #x5E42)	; &C2-5E42; [62-34]
+      (=daikanwa	  . 27836)	; &I-M-27836;
       )
      ((=mj		  . 010874)	; &MJ010874;
       (=daikanwa	  . 01596)	; &I-M-01596;
@@ -6900,7 +6902,9 @@
     (<-same*sources
      daikanwa)
     (->formed
-     ((=daikanwa	  . 27836)	; &M-27836;
+     ((=ucs@cns		  . #x7E38)	; &C2-5E42;
+      (=cns11643-2	  . #x5E42)	; &C2-5E42; [62-34]
+      (=daikanwa	  . 27836)	; &I-M-27836;
       ))
     (->formed*sources
      shuowen-tongxun-dingsheng)
