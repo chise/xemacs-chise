@@ -6682,7 +6682,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@component	  . #x7D55)	; &A-compU+7D55;
+     ((=>ucs@iwds-1	  . #x7D55)	; &A-IWDSU+7D55;
       )
      ((=ucs		  . #x529B)	; 力
       ))
@@ -6706,6 +6706,10 @@
     (=ucs@unicode	. #x3522)	; &C3-4622;
     (=cns11643-3	. #x4622)	; &C3-4622; [38-02]
     (=daikanwa		. 02443)	; &I-M-02443;
+    (<-formed
+     ((=ucs@unicode	  . #x3503)	; &M-02177;
+      (=daikanwa	  . 02177)	; &M-02177;
+      ))
     (<-wrong
      ((=ucs@unicode	  . #x3503)	; &M-02177;
       (=daikanwa	  . 02177)	; &M-02177;
