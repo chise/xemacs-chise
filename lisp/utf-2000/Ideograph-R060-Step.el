@@ -4290,9 +4290,102 @@
   '((ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F73)	; 彳
+      )
+     ((=ucs		  . #x24775)	; 𤝵
+      ))
+    (=>ucs@iwds-1	. #x22537)	; &A-IWDSU+22537;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x22537)	; &A-IWDSU+22537;
+      ))
+    (ideographic-radical . 60)	; ⼻
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F73)	; 彳
+      )
+     ((=+>ucs@iso	  . #x24775)	; &o-IU+24775;
+      ))
     (=ucs		. #x22537)	; 𢔷
-    (=cns11643-6	. #x5257)	; &I-C6-5257; [50-55]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22537)	; 𢔷
+      ))
+    (ideographic-radical . 60)	; ⼻
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F73)	; 彳
+      )
+     ((=ucs-var-001	  . #x24775)	; &U-v001+24775;
+      ))
+    (=ucs@cns		. #x22537)	; &C6-5257;
+    (=cns11643-6	. #x5257)	; &C6-5257; [50-55]
     (=daikanwa		. 10207)	; &I-M-10207;
+    (->subsumptive
+     ((==ucs@cns	  . #x22537)	; &g2-M-10207;
+      (==cns11643-6	  . #x5257)	; &g2-M-10207; [50-55]
+      (==daikanwa	  . 10207)	; &g2-M-10207;
+      (->subsumptive
+       ((===daikanwa	    . 10207)	; &R-M-10207;
+	)
+       ((===cns11643-6	    . #x5257)	; &R-C6-5257; [50-55]
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22537)	; 𢔷
+      ))
+    (ideographic-radical . 60)	; ⼻
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F73)	; 彳
+      )
+     ((=ucs@iso		  . #x24775)	; &C6-394C;
+      (=cns11643-6	  . #x394C)	; &C6-394C; [25-44]
+      ))
+    (=ucs@iso		. #x22537)	; &U-00022537;
+    (->subsumptive
+     ((==ucs@iso	  . #x22537)	; &g2-IU-00022537;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x22537)	; &A-IWDSU+22537;
+      ))
+    (ideographic-radical . 60)	; ⼻
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F73)	; 彳
+      )
+     ((=cbeta		  . 09412)	; &CB09412;
+      ))
+    (=ucs		. #x2253A)	; 𢔺
+    (->subsumptive
+     ((==ucs@iso	  . #x2253A)	; &g2-IU-0002253A;
+      ))
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
@@ -4371,6 +4464,32 @@
     (=ucs		. #x22547)	; 𢕇
     (=cns11643-6	. #x5256)	; &I-C6-5256; [50-54]
     (=daikanwa		. 10213)	; &I-M-10213;
+    ))
+(define-char
+  '((ideographic-radical . 60)	; ⼻
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F73)	; 彳
+      )
+     ((=ucs		  . #x2C1A3)	; 𬆣
+      ))
+    (=ucs		. #x2253E)	; 𢔾
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2253E)	; 𢔾
+      ))
+    (ideographic-radical . 60)	; ⼻
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (=ucs@iso		. #x2253E)	; &U-0002253E;
+    (->subsumptive
+     ((==ucs@iso	  . #x2253E)	; &g2-IU-0002253E;
+      ))
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
