@@ -126,7 +126,7 @@
       )
      ((=ucs		  . #x8002)	; 耂
       )
-     ((=ucs		  . #x4E02)	; 丂
+     ((=>ucs@component	  . #x4E02)	; &A-compU+4E02;
       ))
     (=ucs		. #x8003)	; 考
     (=+>jis-x0208	. #x394D)	; 考 [25-45]
@@ -171,7 +171,7 @@
 	 ((name		      . "CJK RADICAL OLD")
 	  (=ucs		      . #x2EB9)	; ⺹
 	  )
-	 ((=big5-cdp	      . #x8BBF)	; &CDP-8BBF;
+	 ((==big5-cdp	      . #x8BBF)	; &g2-CDP-8BBF;
 	  ))
 	(==jis-x0208@1978   . #x394D)	; &g2-HD-FT-303C; [25-45]
 	(==jis-x0208@1983   . #x394D)	; &g2-HD-FT-303C; [25-45]
@@ -199,7 +199,7 @@
 	 ((name		      . "CJK RADICAL OLD")
 	  (=ucs		      . #x2EB9)	; ⺹
 	  )
-	 ((=gt-k	      . 00125)	; &GT-K00125;
+	 ((==gt-k	      . 00125)	; &g2-GT-K00125;
 	  ))
 	(==ucs@jis/1990	    . #x8003)	; &g2-AJ1-02015;
 	(==ucs@jis/2000	    . #x8003)	; &g2-AJ1-02015;
@@ -234,8 +234,7 @@
 	)
        ((=ucs		    . #x8002)	; 耂
 	)
-       ((=ucs@unicode	    . #x4E02)	; &AJ1-17234;
-	(=adobe-japan1-5    . 17234)	; &AJ1-17234;
+       ((=ucs		    . #x4E02)	; 丂
 	))
       (=ucs@unicode	  . #x8003)	; &C1-4853;
       (=ucs@JP/hanazono	  . nil)

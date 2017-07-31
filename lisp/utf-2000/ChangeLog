@@ -1,3 +1,26 @@
+2017-07-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R122-Net.el (UU+7F52): Add `->mistakable' for UU+56DB
+	and <CJK RADICAL EYE>.
+	(<CJK RADICAL NET TWO>): Use UU+7F52 instead of U+7F52 as its
+	mother.
+	(A-U+7F85-itaiji-003): New abstract node.
+	(U+7F85-itaiji-003): New character; use `<-denotational' for
+	A-U+7F85-itaiji-003.
+	(U-0002C659): New character.
+	(A-compU+262A6): New abstract node; use `<-denotational' for
+	A-M-28233.
+	(M-28233): Use A-compU+262A6 instead of A-M-28233 as its mother;
+	unify MJ044867 and KOSEKI-315530.
+	(U-000262A6): New character; use `<-denotational' for
+	A-compU+262A6.
+	(U-000262B3): Add representative nodes.
+	(U-0002E282): New character.
+	(U+7F52-itaiji-002): New character.
+	(U+4359): Apply new conventions for glyph granularity.
+	(M-28313): Unify U-000262DD and C6-6050.
+	(U-000262DE): Apply new conventions for glyph granularity.
+
 2017-07-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R109-Eye.el (<CJK RADICAL EYE>): Add `->mistakable'
