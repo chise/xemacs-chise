@@ -11193,35 +11193,90 @@
     (=cns11643-4	. #x423C)	; &C4-423C; [34-28]
     ))
 (define-char
-  '((=>ucs		. #x3503)	; 㔃
-    (ideographic-radical . 18)	; ⼑
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
-    (=daikanwa		. 02177)	; &M-02177;
-    ))
-(define-char
-  '((morohashi-daikanwa	2177 0 0)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 12)
-    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x7D55)	; &A-IWDSU+7D55;
+      )
+     ((=ucs		  . #x5200)	; 刀
+      ))
     (=ucs		. #x3503)	; 㔃
     ))
 (define-char
-  '((=>ucs		. #x3503)	; 㔃
-    (morohashi-daikanwa	2177 0 4)
+  '((<-denotational
+     ((=ucs		  . #x3503)	; 㔃
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7D76)	; 絶
+      )
+     ((=ucs		  . #x5200)	; 刀
+      ))
+    (=ucs@unicode	. #x3503)	; &M-02177;
+    (=daikanwa		. 02177)	; &M-02177;
+    (<-formed
+     ((=ucs		  . #x7D55)	; 絕
+      ))
+    (<-formed*sources
+     jiyun)
+    (<-same
+     ((=ucs		  . #x7D55)	; 絕
+      (=daikanwa	  . 27407)	; &I-M-27407;
+      ))
+    (<-same*sources
+     jiyun zhengzitong daikanwa)
+    (<-vulgar
+     ((=ucs		  . #x7D55)	; 絕
+      ))
+    (<-vulgar*sources
+     zhengzitong)
+    (->formed
+     ((=ucs@unicode	  . #x3522)	; &C3-4622;
+      (=cns11643-3	  . #x4622)	; &C3-4622; [38-02]
+      (=daikanwa	  . 02443)	; &I-M-02443;
+      ))
+    (->formed*sources
+     daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 02177)	; &g2-M-02177;
+      )
+     ((==ucs@unicode	  . #x3503)	; &g2-UU+3503;
+      (==ucs@JP/hanazono  . nil)
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3503)	; 㔃
+      ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (hanyu-dazidian	1 355 1)
-    (=hanziku-1		. #xEEF8)	; &HZK01-EEF8;
-    ))
-(define-char
-  '((=>ucs		. #x3503)	; 㔃
-    (morohashi-daikanwa	2177 0 5)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 12)
-    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7D55)	; 絕
+      )
+     ((=ucs		  . #x5200)	; 刀
+      ))
+    (=ucs@cns		. #x3503)	; &C3-457D;
     (=cns11643-3	. #x457D)	; &C3-457D; [37-93]
+    (->subsumptive
+     ((=hanziku-1	  . #xEEF8)	; &HZK01-EEF8;
+      )
+     ((==ucs@cns	  . #x3503)	; &g2-CU+3503;
+      (==cns11643-3	  . #x457D)	; &g2-CU+3503; [37-93]
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑

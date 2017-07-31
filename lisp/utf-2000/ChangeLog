@@ -1,3 +1,69 @@
+2017-07-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R109-Eye.el (<CJK RADICAL EYE>): Add `->mistakable'
+	for UU+7F52.
+	(A-BC-8BA5): New abstract node.
+	(BC-8BA5): New character; use `<-denotational' for A-BC-8BA5.
+	(U-00025109): Apply new conventions for glyph granularity.
+	(U-00026B5D): Likewise.
+	(GT-29638): New character; use `<-denotational' for U-00026B5D;
+	unify GT-K04664.
+	(U+771F-itaiji-008): New character.
+	(U+7742): Use `->subsumptive'.
+	(U+7755): Use `->denotational' and `->subsumptive'.
+	(U-000251DB): Unify BC-8ADB.
+	(M-23482): Unify U-000251ED and CB02930.
+	(M-23483): Unify U-000251F2, MJ042353 and KOSEKI-262520.
+	(M-23485): Unify U-000251EF.
+	(U-00025203): Use `->denotational' and `->subsumptive'.
+	(A-M-23536): New abstract node.
+	(IWDS1-0306): New abstract node; use `<-denotational' for
+	A-M-23536.
+	(U+777F): Add `<-denotational' for IWDS1-0306.
+	(U-00025220): Add `<-denotational' for IWDS1-0306.
+	(U+777F-itaiji-001): New character; use `<-denotational' for
+	A-M-23536.
+	(HD-TK01062840): Likewise.
+	(U-0002521C): Apply new conventions for glyph granularity.
+	(M-23548): Unify IU+2521C and BC-85AD; add `<-denotational' for
+	U-0002521C.
+	(U-00025223): New character.
+	(U+778D): Apply new conventions for glyph granularity.
+	(U-000252C2): Use `->denotational' and `->subsumptive'.
+	(U-00025314): New character.
+
+	* Ideograph-R086-Fire.el (A-compU+706B): New abstract component.
+	(U+706B): Add `<-denotational@component' for A-compU+706B.
+	(U-0002C279): New character; unify CB02598.
+	(U-0002DD05): New character.
+	(U+7077-itaiji-002): New character.
+	(U-000241DA): Apply new conventions for glyph granularity.
+	(U+70CB): Add representative nodes.
+	(U+70CF): Likewise; add `sound@ja/on/{kan|go}'.
+	(U+70DC): Apply new conventions for glyph granularity.
+	(U+70DD): Add representative nodes.
+	(U-00024251): Apply new conventions for glyph granularity.
+	(U+716E): Add ideographic-structure.
+	(U+713C): Add representative nodes.
+	(U+7166): Likewise.
+	(U-000242B3): Apply new conventions for glyph granularity.
+	(U+7195): Add representative nodes.
+	(U+71AC): Add ideographic-structure.
+	(U+71B9): Add representative nodes.
+	(U-000243F9): Apply new conventions for glyph granularity.
+	(U-0002444B): Likewise.
+	(U-00024425): Likewise; unify M-19497; add `<-denotational' for
+	U-000244B4.
+	(M-19497): Use `<-denotational' instead of `<-subsumptive' for
+	U-000244B4; unify U-00024425.
+	(U-0002440E): New character.
+	(U-0002C2E2): New character.
+
+	* Ideograph-R019-Power.el (UU+3522): Add `<-formed' for UU+3503.
+
+	* Ideograph-R018-Knife.el (U+3503): Use `->denotational' and
+	`->subsumptive'.
+
 2017-07-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R119-Rice.el (U+7C74): Apply new conventions for glyph
