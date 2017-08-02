@@ -1,3 +1,8 @@
+2017-07-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (U-00023173): Apply new conventions for
+	glyph granularity.
+
 2017-07-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R122-Net.el (UU+7F52): Add `->mistakable' for UU+56DB
