@@ -1,3 +1,10 @@
+2017-08-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R109-Eye.el (BUCS+771E): New abstract node; unify
+	IWDS1-0112.
+	(U+771E): Add `<-denotational' for BUCS+771E.
+	(U+771F): Likewise.
+
 2017-07-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R072-Sun.el (U-00023173): Apply new conventions for
