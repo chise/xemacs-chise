@@ -1,4 +1,63 @@
+2017-08-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R128-Ear.el (A-BC-8C5B): New abstract node; unify
+	A-GT-K04926.
+	(BC-8C5B-var-002): New character; use `<-denotational' for
+	A-BC-8C5B.
+	(BC-8C5B): Likewise; unify GT-K04926.
+	(U+8059): Apply new conventions for glyph granularity.
+	(U+43BB): Likewise.
+	(U-000265C0): Likewise.
+	(U-000265E5): Likewise.
+	(U+807C): Likewise.
+
+	* Ideograph-R120-Silk.el: Add some Adobe-Japan1-5 code points.
+	(U+7CF8): Apply new conventions for glyph granularity.
+	(U+42B8): Likewise.
+	(U+7D0D): Add ideographic-structure.
+	(U+42C6): New character.
+	(BUCS+7D55): New abstract node.
+	(A-IWDSU+7D55): New abstract node; use `<-denotational' for
+	BUCS+7D55.
+	(U+7D55): Add `<-denotational' for A-IWDSU+7D55.
+	(U+7EDD): Add `<-denotational' for BUCS+7D55.
+	(U+42DA): Apply new conventions for glyph granularity.
+	(U+7D71): Add ideographic-structure.
+	(U+7D76): Add `<-denotational' for BUCS+7D55.
+	(U+7D79): Apply new conventions for glyph granularity.
+	(S-6059): Unify HD-JT-B81B; add `<-denotational' for U+7D79.
+	(U-0002601E): Apply new conventions for glyph granularity.
+	(U+7D9E): Apply new conventions for glyph granularity.
+	(U+7DB3): Likewise.
+	(U-00026057): Apply new conventions for glyph granularity.
+	(U-0002C5E2): New character.
+	(U-0002C5E3): New character.
+	(U-0002B7C1): New character.
+	(U-0002C5E8): New character.
+	(U+430A): Apply new conventions for glyph granularity.
+	(U+7E38): Likewise.
+	(U+4315): Likewise.
+	(U+7E4C): Likewise.
+	(U-0002C5F7): New character.
+	(U+7E52): Add ideographic-structure.
+	(U+4319): Apply new conventions for glyph granularity.
+	(U+7E71): Likewise.
+	(U+4325): Likewise.
+	(U+7E7E): Likewise.
+	(U-0002C606): New character.
+	(U+4329): Apply new conventions for glyph granularity.
+	(U-000261D5): Likewise.
+	(U+432D): Likewise.
+
 2017-08-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R129-Brush.el (U+8080): Apply new conventions for
+	glyph granularity.
+	(BC-884D): New character; use `<-denotational' for U+8080.
+	(GT-K02332): New character.
+	(U+7C9B-itaiji-001): New character; use `<-denotational' for
+	BUCS+8085.
+	(U+8083): Add `<-simplified@CN' for UU+8085.
 
 	* Ideograph-R109-Eye.el (BUCS+771E): New abstract node; unify
 	IWDS1-0112.
