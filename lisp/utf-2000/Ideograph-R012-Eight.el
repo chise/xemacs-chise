@@ -2208,7 +2208,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
       (=ucs		  . #x2FF6)	; ⿶
       )
-     ((=ucs-itaiji-005	  . #x8201)	; &U-i005+8201;
+     ((=cbeta		  . 08746)	; &U-i005+8201;
       )
      ((=ucs		  . #x4E28)	; 丨
       ))
