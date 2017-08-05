@@ -1,3 +1,19 @@
+2017-08-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R127-Plow.el (UU+8012): Unify BC-89C1.
+	(U-000264ED): New character.
+	(U+43AB): Apply new conventions for glyph granularity.
+	(U-00026515): Likewise.
+
+	* Ideograph-R126-And.el (U+43A0): Apply new conventions for glyph
+	granularity.
+	(U+8011-itaiji-002): New character.
+
+	* Ideograph-R073-Say.el (BUCS+66FE): New abstract node; unify
+	IWDS1-0187.
+	(U+66FE): Add `<-denotational' for BUCS+66FE.
+	(U+66FD): Likewise.
+
 2017-08-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R128-Ear.el (A-BC-8C5B): New abstract node; unify
