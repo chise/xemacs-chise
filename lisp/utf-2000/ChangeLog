@@ -1,3 +1,15 @@
+2017-08-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R123-Sheep.el (U-0002634C): Fix format of
+	`sound@ja/on/name'.
+	(U-0002635B): Apply new conventions for glyph granularity.
+	(A-U+7F95-itaiji-003): New abstract character.
+	(U+7F95-itaiji-004): New character; use `<-denotational' for
+	A-U+7F95-itaiji-003.
+	(U+7F95-itaiji-003): Likewise.
+	(U-0002639E): Apply new conventions for glyph granularity.
+	(U-0002C67D): New character.
+
 2017-08-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R127-Plow.el (UU+8012): Unify BC-89C1.
@@ -79,6 +91,10 @@
 	IWDS1-0112.
 	(U+771E): Add `<-denotational' for BUCS+771E.
 	(U+771F): Likewise.
+
+2017-07-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R138-Stopping.el (GT-K02400): Unify BC-8B7C-var-001.
 
 2017-07-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
