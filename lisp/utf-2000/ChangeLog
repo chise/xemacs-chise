@@ -1,3 +1,14 @@
+2017-08-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (U-00021D57): Use `->denotational'
+	and `->subsumptive'.
+	(U-00021E26): Likewise.
+
+	* Ideograph-R009-Man.el (U-0002026A): Apply new conventions for
+	glyph granularity.
+	(UU+5099): Add `<-interchangeable' for IU+24C08; add `->original'
+	for CU+50C3.
+
 2017-08-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R123-Sheep.el (U-0002634C): Fix format of
