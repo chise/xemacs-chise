@@ -24602,23 +24602,41 @@
       ))
     (=ucs		. #x2026A)	; 𠉪
     (->subsumptive
-     ((ideographic-structure
+     ((hanyu-dazidian	  1 183 5)
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((name		    . "CJK RADICAL PERSON")
-	(=ucs		    . #x2E85)	; ⺅
+       ((=ucs		    . #x4EBB)	; 亻
 	)
-       ((=daikanwa	    . 14564)	; &M-14564;
+       ((=mj		    . 037935)	; &MJ037935;
 	))
-      (=daikanwa	  . 00773)	; &M-00773;
-      )
-     ((hanyu-dazidian	  1 183 5)
-      (=ucs@iso		  . #x2026A)	; &HZK01-CBF3;
-      (=hanziku-1	  . #xCBF3)	; &HZK01-CBF3;
-      )
-     ((=ucs@cns		  . #x2026A)	; &C4-2B66;
+      (=ucs@iso		  . #x2026A)	; &C4-2B66;
       (=cns11643-4	  . #x2B66)	; &C4-2B66; [11-70]
+      (=daikanwa	  . 00773)	; &I-M-00773;
+      (->subsumptive
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((name		      . "CJK RADICAL PERSON")
+	  (=ucs		      . #x2E85)	; ⺅
+	  )
+	 ((==mj		      . 037935)	; &g2-MJ037935;
+	  ))
+	(==ucs@iso	    . #x2026A)	; &g2-M-00773;
+	(==daikanwa	    . 00773)	; &g2-M-00773;
+	(->subsumptive
+	 ((===daikanwa	      . 00773)	; &R-M-00773;
+	  )
+	 ((===ucs@iso	      . #x2026A)	; &R-U-0002026A;
+	  )
+	 ((=hanziku-1	      . #xCBF3)	; &HZK01-CBF3;
+	  ))
+	))
+      )
+     ((==ucs@cns	  . #x2026A)	; &g2-CU+2026A;
+      (==cns11643-4	  . #x2B66)	; &g2-CU+2026A; [11-70]
       ))
     ))
 (define-char
@@ -37173,6 +37191,22 @@
     (=big5		. #xB3C6)	; &I-B-B3C6;
     (=daikanwa		. 00967)	; &I-M-00967;
     (=shinjigen		.  0362)	; &C1-5E2C;
+    (<-interchangeable
+     ((=ucs@iso		  . #x24C08)	; &C5-3361;
+      (=cns11643-5	  . #x3361)	; &C5-3361; [19-65]
+      (=daikanwa	  . 21716)	; &I-M-21716;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
+    (->original
+     ((=ucs@cns		  . #x50C3)	; &GT-01372;
+      (=cns11643-3	  . #x403D)	; &GT-01372; [32-29]
+      (=daikanwa	  . 01046)	; &I-M-01046;
+      ))
+    (->original*sources
+     zhengzitong daikanwa)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
