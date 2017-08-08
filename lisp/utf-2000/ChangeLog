@@ -1,3 +1,11 @@
+2017-08-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R113-Spirit.el (U+794D): Add `<-denotational' for
+	A-IWDSU+794D; add ideographic-structure; add representative nodes.
+	(U-0002561B): New character; use `<-denotational' for
+	A-IWDSU+794D.
+	(A-IWDSU+794D): New abstract node.
+
 2017-08-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el (U-00021D57): Use `->denotational'
