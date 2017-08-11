@@ -1,3 +1,17 @@
+2017-07-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	- Prefer `=mj-0' and `=mj-1' to `=ucs-bmp-cjk@gb'.
+	- Add `=ucs-bmp-itaiji-010'.
+	- Prefer `==mj-0' and `==mj-1' to `==ucs-bmp-cjk@gb',
+	  `==ucs-sip-ext-b@iso' and `==ucs-sip@JP/hanazono'.
+	- Add `=>ucs-sip@iwds-1'.
+
+	* mule/mule-conf.el (=ucs-itaiji-010): New coded-charset for
+	XEmacs CHISE.
+	(=ucs-bmp-itaiji-010): Ditto.
+	(=>ucs-sip@iwds-1): Ditto.
+
 2017-07-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add

@@ -282,9 +282,9 @@ DESCRIPTION (string) is the description string of the charset."
 	  =ucs-radicals@unicode
 	  ;; =ucs-bmp-cjk@JP
 	  =ucs-bmp-cjk@JP/hanazono
-	  =ucs-bmp-cjk@gb
 	  =mj-0
 	  =mj-1
+	  =ucs-bmp-cjk@gb
 	  =jis-x0208@1983
 	  chinese-gb2312
 	  =jis-x0208-1990
@@ -399,6 +399,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =ucs-sip-itaiji-007
 	  =ucs-bmp-itaiji-008
 	  =ucs-bmp-itaiji-009
+	  =ucs-bmp-itaiji-010
 	  =ucs-bmp-itaiji-011
 	  =ucs-sip-itaiji-011
 	  =ucs-bmp-itaiji-084
@@ -419,11 +420,11 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==jis-x0208@1990
 	  ==ucs-radicals@unicode
 	  ==ucs-bmp-cjk@JP/hanazono
+	  ==mj-0
+	  ==mj-1
 	  ==ucs-bmp-cjk@gb
           ==ucs-sip-ext-b@iso
 	  ==ucs-sip@JP/hanazono
-	  ==mj-0
-	  ==mj-1
 	  ==ucs-bmp-itaiji-002
 	  ==ucs-sip-itaiji-002
 	  ==ucs-bmp-itaiji-003
@@ -579,6 +580,7 @@ DESCRIPTION (string) is the description string of the charset."
           =>ucs-bmp-cjk@component
           =>ucs-sip@component
           =>ucs-bmp-cjk@iwds-1
+          =>ucs-sip@iwds-1
           =+>ucs-bmp-cjk@unicode
           =+>ucs-bmp-cjk-compat@jis
 	  =+>jis-x0213-2

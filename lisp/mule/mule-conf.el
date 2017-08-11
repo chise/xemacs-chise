@@ -5059,6 +5059,30 @@
 		  max-code #x9FCC
 		  registry "ucs\\.itaiji009-0"))
 
+  (make-charset '=ucs-itaiji-010
+		"uXXXX-itaiji-010 glyphs of GlyphWiki"
+		'(long-name	"UCS-itaiji-010"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs))
+  (make-charset '=ucs-bmp-itaiji-010
+		"uXXXX-itaiji-010 glyph-images in BMP"
+		'(long-name	"UCS-BMP-itaiji-010"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs-itaiji-010
+		  min-code #x2E00
+		  max-code #x9FCC
+		  registry "ucs\\.itaiji010-0"))
+
   (make-charset '=ucs-itaiji-011
 		"uXXXX-itaiji-011 glyphs of GlyphWiki"
 		'(long-name	"UCS-itaiji-011"
@@ -5487,6 +5511,19 @@
 	       direction l2r
 	       registry "ucs00-2$"
 	       mother =ucs@JP/hanazono
+	       min-code #x20000 max-code #x2FFFF
+	       code-offset #x20000))
+  (make-charset
+   '=>ucs-sip@iwds-1
+   "CJK Characters in SIP based on IWDS-1."
+   '(long-name "CJK in SIP@IWDS-1"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "ucs00-2$"
+	       mother =>ucs@iwds-1
 	       min-code #x20000 max-code #x2FFFF
 	       code-offset #x20000))
   (make-charset
