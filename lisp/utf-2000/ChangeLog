@@ -1,3 +1,22 @@
+2017-08-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R122-Net.el (U+5188): Unify CB00648; add
+	representative nodes.
+
+	* Ideograph-R013-Down-Box.el (U+5188): Unify CB00648; add
+	representative nodes.
+
+	* Ideograph-R120-Silk.el (U-000260FF): New character.
+
+2017-08-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el (U-00023E58): New character.
+
+	* Ideograph-R066-Rap.el (U-00022FC4): New character.
+
+	* Ideograph-R030-Mouth.el (U-00020E24): New character.
+	(g2-UU+3605): Add H2-E1A5.
+
 2017-08-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R113-Spirit.el (U+794D): Add `<-denotational' for
