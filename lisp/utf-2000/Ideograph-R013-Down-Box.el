@@ -479,6 +479,7 @@
     (=big5-eten		. #xC8A2)	; &I-B-C8A2;
     (=big5-cdp		. #x85BE)	; &I-CDP-85BE;
     (=daikanwa		. 28201)	; &I-M-28201;
+    (=cbeta		. 00648)	; &I-CB00648;
     (<-formed@component/connect-below
      ((=ucs		  . #x7F51)	; 网
       (=daikanwa	  . 28199)	; &I-M-28199;
@@ -494,6 +495,25 @@
     (<-simplified@CN
      ((=ucs		  . #x5CA1)	; 岡
       (=gb12345		  . #x3854)	; 岡 [24-52]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x5188)	; &g2-CDP-85BE;
+      (==gb2312		  . #x3854)	; &g2-CDP-85BE; [24-52]
+      (==cns11643-4	  . #x2152)	; &g2-CDP-85BE; [01-50]
+      (==big5-cdp	  . #x85BE)	; &g2-CDP-85BE;
+      (==daikanwa	  . 28201)	; &g2-CDP-85BE;
+      (==cbeta		  . 00648)	; &g2-CDP-85BE;
+      (->subsumptive
+       ((===daikanwa	    . 28201)	; &R-M-28201;
+	)
+       ((===big5-cdp	    . #x85BE)	; &R-CDP-85BE;
+	)
+       ((===cns11643-4	    . #x2152)	; &R-C4-2152; [01-50]
+	)
+       ((===ucs@unicode	    . #x5188)	; &R-UU+5188;
+	)
+       ((===cbeta	    . 00648)	; &R-CB00648;
+	))
       ))
     ))
 (define-char

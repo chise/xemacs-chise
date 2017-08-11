@@ -6056,6 +6056,22 @@
     ))
 (define-char
   '((ideographic-radical . 66)	; ⽁
+    (=ucs		. #x22FC4)	; 𢿄
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22FC4)	; 𢿄
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
+    (=ucs@iso		. #x22FC4)	; &U-00022FC4;
+    (->subsumptive
+     ((==ucs@iso	  . #x22FC4)	; &g2-IU-00022FC4;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (hanyu-dazidian	1 218 7)
