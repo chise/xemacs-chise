@@ -21410,6 +21410,41 @@
     ))
 (define-char
   '((ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6C35)	; 氵
+      )
+     ((=ucs		  . #x5F85)	; 待
+      ))
+    (=ucs		. #x23E58)	; 𣹘
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23E58)	; 𣹘
+      ))
+    (ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6C35)	; 氵
+      )
+     ((=ucs@unicode	  . #x5F85)	; &AJ1-02868;
+      (=adobe-japan1-0	  . 02868)	; &AJ1-02868;
+      ))
+    (=ucs@iso		. #x23E58)	; &U-00023E58;
+    (->subsumptive
+     ((==ucs@iso	  . #x23E58)	; &g2-IU-00023E58;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (=ucs		. #x6E8D)	; 溍
