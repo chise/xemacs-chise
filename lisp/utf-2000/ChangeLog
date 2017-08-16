@@ -1,5 +1,19 @@
 2017-08-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R143-Blood.el (U+8846-itaiji-010): New character; use
+	`<-denotational' for U+8846.
+
+	* Ideograph-R072-Sun.el (U-0002AC1E): New character.
+
+	* Ideograph-R024-Ten.el (A-GT-K03433): New abstract node.
+	(GT-K02241): New character; use `<-denotational' for A-GT-K03433.
+	(GT-K03433): Ditto.
+	(A-BC-8BF8): Add `ideographic-structure'.
+	(U+20992-itaiji-001): Likewise.
+	(BC-8BF8): Likewise.
+
+	* Ideograph-R009-Man.el (A-J0-4724): Unify A-IWDSU+4EFB.
+
 	* Ideograph-R122-Net.el (U+5188): Unify CB00648; add
 	representative nodes.
 
