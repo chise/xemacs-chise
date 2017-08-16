@@ -4281,12 +4281,23 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=>ucs@component	  . #x58EC)	; &A-compU+58EC;
+      (=>iwds-1		  .  0001)	; &A-compU+58EC;
+      ))
+    (=>ucs@iwds-1	. #x4EFB)	; &J97-4724;
     (=>jis-x0208	. #x4724)	; &J97-4724; [39-04]
     (=>jis-x0213-1	. #x4724)	; &J97-4724; [39-04]
     ))
 (define-char
   '((<-denotational
-     ((=>jis-x0208	  . #x4724)	; &J97-4724; [39-04]
+     ((=>ucs@iwds-1	  . #x4EFB)	; &J97-4724;
+      (=>jis-x0208	  . #x4724)	; &J97-4724; [39-04]
       ))
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 4)
@@ -4414,7 +4425,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>jis-x0208	  . #x4724)	; &J97-4724; [39-04]
+     ((=>ucs@iwds-1	  . #x4EFB)	; &J97-4724;
+      (=>jis-x0208	  . #x4724)	; &J97-4724; [39-04]
       ))
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 4)
