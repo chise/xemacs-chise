@@ -1,3 +1,28 @@
+2017-08-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R109-Eye.el (U-00025212): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R079-Weapon.el (U-00023AC2): New character.
+
+	* Ideograph-R062-Halberd.el (U-000229F5): Use `->denotational' and
+	`->subsumptive'.
+	(U+229F5-var-002): New character; use `<-denotational' for
+	U-000229F5.
+
+	* Ideograph-R052-Short-Thread.el (U-000221B0): Add
+	`ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(g2-IU+221B0): Add H3-DEFC.
+
+	* Ideograph-R031-Enclosure.el (M-04765): Unify U-000211DF; apply
+	new conventions for glyph granularity.
+
+	* Ideograph-R029-Again.el (U-0002F837): Add
+	`ideographic-structure'.
+	(g2-CU+53DF): Use g2-BC-8CCD instead of BC-8CCD in
+	`ideographic-structure'.
+	(UU+53DF): Add `ideographic-structure'.
+
 2017-08-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R143-Blood.el (U+8846-itaiji-010): New character; use

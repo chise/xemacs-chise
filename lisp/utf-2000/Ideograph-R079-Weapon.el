@@ -2931,6 +2931,15 @@
   '((ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
+    (=ucs		. #x23AC2)	; 𣫂
+    (->subsumptive
+     ((==ucs@iso	  . #x23AC2)	; &g2-IU-00023AC2;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 79)	; ⽎
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
