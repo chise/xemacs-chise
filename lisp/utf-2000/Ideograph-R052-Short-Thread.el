@@ -80,6 +80,16 @@
   '((ideographic-radical . 52)	; ⼳
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x5E7A)	; 幺
+      ))
+    (sound@ja/on/go	"go")
+    (sound@ja/on/kan	"ko")
     (=ucs		. #x221B0)	; 𢆰
     (=daikanwa		. 09192)	; &I-M-09192;
     (<-same
@@ -93,6 +103,11 @@
      ((==daikanwa	  . 09192)	; &g2-M-09192;
       )
      ((==ucs@iso	  . #x221B0)	; &g2-IU-000221B0;
+      (->subsumptive
+       ((===ucs@iso	    . #x221B0)	; &R-U-000221B0;
+	)
+       ((=hanziku-3	    . #xDEFC)	; &HZK03-DEFC;
+	))
       ))
     ))
 (define-char
