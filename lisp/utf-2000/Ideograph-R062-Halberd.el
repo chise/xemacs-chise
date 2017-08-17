@@ -2748,19 +2748,68 @@
     (=daikanwa		. 11652)	; &I-M-11652;
     ))
 (define-char
-  '((=>ucs		. #x229F5)	; 𢧵
-    (ideographic-radical . 62)	; ⼽
-    (ideographic-strokes . 11)
-    (total-strokes	 . 15)
-    (=daikanwa		. 11653)	; &M-11653;
+  '((ideographic-radical . 62)	; ⼽
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x96C0)	; 雀
+      )
+     ((=ucs		  . #x6208)	; 戈
+      ))
+    (sound@ja/on	"setu")
+    (=ucs		. #x229F5)	; 𢧵
     ))
 (define-char
-  '((morohashi-daikanwa	11653 0 1)
+  '((<-denotational
+     ((=ucs		  . #x229F5)	; 𢧵
+      ))
     (ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=ucs		. #x229F5)	; 𢧵
-    (=cns11643-4	. #x4974)	; &I-C4-4974; [41-84]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x96C0)	; &AJ1-02627;
+      (=adobe-japan1-0	  . 02627)	; &AJ1-02627;
+      )
+     ((=ucs		  . #x6208)	; 戈
+      ))
+    (=ucs@iso		. #x229F5)	; &C4-4974;
+    (=cns11643-4	. #x4974)	; &C4-4974; [41-84]
+    (=daikanwa		. 11653)	; &I-M-11653;
+    (<-original
+     ((=ucs		  . #x622A)	; 截
+      (=daikanwa	  . 11639)	; &I-M-11639;
+      ))
+    (<-original*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 11653)	; &g2-M-11653;
+      )
+     ((==ucs@iso	  . #x229F5)	; &g2-IU-000229F5;
+      )
+     ((==ucs@cns	  . #x229F5)	; &g2-CU+229F5;
+      (==cns11643-4	  . #x4974)	; &g2-CU+229F5; [41-84]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x229F5)	; 𢧵
+      ))
+    (ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-var-001	  . #x96C0)	; &U-v001+96C0;
+      )
+     ((=ucs		  . #x6208)	; 戈
+      ))
+    (=ucs-var-002	. #x229F5)	; &U-v002+229F5;
     ))
 (define-char
   '((=>ucs		. #x229F6)	; 𢧶
