@@ -3,6 +3,15 @@
   '((ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (=>ucs@component	. #x6C34)	; &A-compU+6C34;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x6C34)	; &A-compU+6C34;
+      ))
+    (ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
     (=ucs		. #x6C34)	; 水
     (=adobe-japan1-0	. 02603)	; &I-AJ1-02603;
     (=jis-x0208		. #x3F65)	; &I-J90-3F65; [31-69]
@@ -211,7 +220,19 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 85)	; ⽔
+  '((<-denotational
+     ((=>ucs@component	  . #x6C34)	; &A-compU+6C34;
+      ))
+    (ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (=>ucs@component	. #x6C3A)	; &A-compU+6C3A;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x6C3A)	; &A-compU+6C3A;
+      ))
+    (ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (=ucs		. #x6C3A)	; 氺
@@ -266,6 +287,20 @@
     (=ucs		. #x2EA2)	; ⺢
     (<-identical@component
      ((=ucs		  . #x6C3A)	; 氺
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x6C3A)	; &A-compU+6C3A;
+      ))
+    (ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (=gt-k		. 01494)	; &GT-K01494;
+    (=gt-pj-k1		. #x3926)	; &GT-K01494; [25-06]
+    (->subsumptive
+     ((==gt-k		  . 01494)	; &g2-GT-K01494;
+      (==gt-pj-k1	  . #x3926)	; &g2-GT-K01494; [25-06]
       ))
     ))
 (define-char
