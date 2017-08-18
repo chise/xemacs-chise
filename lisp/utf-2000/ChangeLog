@@ -1,3 +1,12 @@
+2017-08-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el (A-compU+6C34): New abstract node.
+	(U+6C34): Add `<-denotational' for A-compU+6C34.
+	(A-compU+6C3A): New abstract node; add `<-denotational' for
+	A-compU+6C34.
+	(U+6C3A): Add `<-denotational' for A-compU+6C3A.
+	(GT-K01494): New character; use `<-denotational' for A-compU+6C3A.
+
 2017-08-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R109-Eye.el (U-00025212): Apply new conventions for
