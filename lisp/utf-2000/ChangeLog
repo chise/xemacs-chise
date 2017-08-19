@@ -1,5 +1,31 @@
 2017-08-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R116-Cave.el (U+7A9E): Add ideographic-structure.
+	(U+7A9E-itaiji-001): New character; use `<-denotational' for
+	U+7A9E.
+
+	* Ideograph-R115-Grain.el (M-24908): Unify GT-K00899.
+	(CB08298): Unify U-0002E0B1.
+	(U-000257A4): New character.
+	(GT-K07493): New character; use `<-denotational' for U-000257A4.
+	(U+4143): Apply new conventions for glyph granularity.
+	(IU+257A4): Unify BC-8D78.
+	(U+7A04): Apply new conventions for glyph granularity.
+	(U-000257D4): Likewise.
+	(JU+7A40): Add `total-strokes'; don't use `japanese-strokes'.
+	(U+7A40-itaiji-001): New character; use `<-denotational' for
+	U+7A40.
+	(MJ058231): Unify U-0002E0DB.
+	(U-00025864): Apply new conventions for glyph granularity.
+	(U-00025884): New character.
+	(MJ058233): Unify U-0002E0E3.
+	(U+7A6B): Apply new conventions for glyph granularity.
+	(U+9F9D-itaiji-001): New character.
+
+	* Ideograph-R066-Rap.el (A-GT-K05719): New abstract node.
+	(GT-K05719): New character; use `<-denotational' for A-GT-K05719.
+	(U-00022FC4): Add ideographic-structure.
+
 	* Ideograph-R085-Water.el (A-compU+6C34): New abstract node.
 	(U+6C34): Add `<-denotational' for A-compU+6C34.
 	(A-compU+6C3A): New abstract node; add `<-denotational' for
