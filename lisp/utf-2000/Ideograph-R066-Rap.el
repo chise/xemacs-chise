@@ -1501,6 +1501,19 @@
     ))
 (define-char
   '((ideographic-radical . 66)	; ⽁
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x672A)	; 未
+      )
+     ((=>ucs@component	  . #x6535)	; &A-compU+6535;
+      (=>iwds-1		  .  0194)	; &A-compU+6535;
+      ))
+    (=>gt-k		. 05719)	; &A-GT-K05719;
+    ))
+(define-char
+  '((ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (ideographic-structure
@@ -1512,6 +1525,28 @@
      ((=ucs		  . #x6535)	; 攵
       ))
     (=cbeta		. 04067)	; &CB04067;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 05719)	; &A-GT-K05719;
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x672A)	; 未
+      )
+     ((=ucs		  . #x6535)	; 攵
+      ))
+    (=gt-k		. 05719)	; &GT-K05719;
+    (=gt-pj-k1		. #x3D7D)	; &GT-K05719; [29-93]
+    (->subsumptive
+     ((==gt-k		  . 05719)	; &g2-GT-K05719;
+      (==gt-pj-k1	  . #x3D7D)	; &g2-GT-K05719; [29-93]
+      ))
     ))
 (define-char
   '((ideographic-radical . 66)	; ⽁
@@ -6056,6 +6091,14 @@
     ))
 (define-char
   '((ideographic-radical . 66)	; ⽁
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>gt-k		  . 05719)	; &A-GT-K05719;
+      )
+     ((=ucs		  . #x6B63)	; 正
+      ))
     (=ucs		. #x22FC4)	; 𢿄
     ))
 (define-char
@@ -6065,6 +6108,15 @@
     (ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 05719)	; &GT-K05719;
+      )
+     ((=ucs@unicode	  . #x6B63)	; &AJ1-02649;
+      (=adobe-japan1-0	  . 02649)	; &AJ1-02649;
+      ))
     (=ucs@iso		. #x22FC4)	; &U-00022FC4;
     (->subsumptive
      ((==ucs@iso	  . #x22FC4)	; &g2-IU-00022FC4;
