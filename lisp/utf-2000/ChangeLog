@@ -1,3 +1,17 @@
+2017-08-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R113-Spirit.el (U-00025644): Use `->denotational' and
+	`->subsumptive'.
+	(U-0002565B): New character.
+	(U+7985): Apply new conventions for glyph granularity.
+	(U-0002570A): New character.
+	(U-0002570C): New character.
+	(U-00025722): Apply new conventions for glyph granularity.
+	(M-24866): New character; use `<-denotational' for U-00025722.
+
+	* Ideograph-R027-Cliff.el (U-00020A7A): Apply new conventions for
+	glyph granularity.
+
 2017-08-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R116-Cave.el (U+7A9E): Add ideographic-structure.

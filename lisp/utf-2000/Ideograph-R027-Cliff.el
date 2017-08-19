@@ -2336,6 +2336,21 @@
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>gt-k		  . 05719)	; &A-GT-K05719;
+      )
+     ((=ucs		  . #x5382)	; 厂
+      ))
+    (=ucs		. #x20A7A)	; 𠩺
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20A7A)	; 𠩺
+      ))
+    (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 75 6)
@@ -2343,21 +2358,42 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x672A)	; 未
-	)
-       ((=ucs		    . #x6535)	; 攵
-	))
+     ((=gt-k		  . 05719)	; &GT-K05719;
       )
      ((=ucs		  . #x5382)	; 厂
       ))
-    (=ucs		. #x20A7A)	; 𠩺
-    (=cns11643-4	. #x3067)	; &I-C4-3067; [16-71]
+    (=ucs@iso		. #x20A7A)	; &C4-3067;
+    (=cns11643-4	. #x3067)	; &C4-3067; [16-71]
     (=big5-cdp		. #x8AD2)	; &I-CDP-8AD2;
     (=daikanwa		. 02983)	; &I-M-02983;
+    (<-formed
+     ((=ucs@jis		  . #x4E7F)	; &AJ1-14306;
+      (=adobe-japan1-4	  . 14306)	; &AJ1-14306;
+      ))
+    (<-formed*sources
+     jiyun)
+    (<-same
+     ((=ucs@jis		  . #x4E7F)	; &AJ1-14306;
+      (=adobe-japan1-4	  . 14306)	; &AJ1-14306;
+      (=daikanwa	  . 00205)	; &I-M-00205;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x20A7A)	; &g2-CDP-8AD2;
+      (==cns11643-4	  . #x3067)	; &g2-CDP-8AD2; [16-71]
+      (==big5-cdp	  . #x8AD2)	; &g2-CDP-8AD2;
+      (==daikanwa	  . 02983)	; &g2-CDP-8AD2;
+      (->subsumptive
+       ((===daikanwa	    . 02983)	; &R-M-02983;
+	)
+       ((===big5-cdp	    . #x8AD2)	; &R-CDP-8AD2;
+	)
+       ((===cns11643-4	    . #x3067)	; &R-C4-3067; [16-71]
+	)
+       ((===ucs@iso	    . #x20A7A)	; &R-U-00020A7A;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x20A7B)	; 𠩻
