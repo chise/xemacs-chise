@@ -1,3 +1,48 @@
+2017-08-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R124-Feather.el (g2-KU+7FC1): Omit
+	`ideographic-structure'.
+	(UU+7FC1): Unify HD-JT-B889.
+	(MJ020661): New character; use `<-subsumptive' for UU+7FC1; unify
+	G-J{78|83}-3227, G-HD-JT-B889, GT-36864, GT-K06378 and G-M-28635'.
+	(g2-J78-3227): Unify g2-MJ020661 and g2-HD-JT-B889; use
+	`<-subsumptive' for MJ020661.
+	(GT-K11272): Unify MJ058358 and HD-KS321030.
+	(U+7FF0): Add ideographic-structure.
+	(U+4397): Apply new conventions for glyph granularity.
+	(U-00026493): Likewise.
+
+	* Ideograph-R012-Eight.el (MJ007276): Separated from abstract
+	glyph-image node:
+	- Unify G-KU+516C instead of g2-KU+516C.
+	- Unify G-AJ1-13440 instead of g2-AJ1-13440.
+	- Unify G-J{78|83}-3878 instead of g2-J{78|83}-3878.
+	- Delete g2-K0-4D6B.
+	- Unify G-HD-FT1623 instead of g2-HD-FT1623.
+	- Unify G-M-01452 instead of g2-M-01452.
+	- Delete g2-S-0494.
+	(g2-KU+516C): Unify g2-MJ007276 instead of MJ007276; use
+	`<-subsumptive' for MJ007276.
+	(G-UU+516C): New glyph node; use `<-subsumptive' for U+516C.
+	(g2-UU+516C): Use G-UU+516C instead of U+516C as its mother.
+	(U+516C-var-001): Likewise.
+
+	* Ideograph-R093-Cow.el (U+7280): Add `ideographic-structure'.
+	(U-0002F924): Likewise.
+	(UU+7280): Add `ideographic-structure'.
+	(U+7280-var-001): New character; use `<-denotational' for
+	o-UU+7280.
+	(U+3E48): New character.
+	(U-000246B5): Apply new conventions for glyph granularity.
+	(IU+246B5): Unify M-20130.
+
+	* Ideograph-R001-One.el (A-BC-8BC2): New abstract node; use
+	`<-denotational' for U+4E0E.
+	(U+4E0E-var-004): New character; use `<-denotational' for
+	A-BC-8BC2.
+	(U+4E0E-var-002): Ditto.
+	(BC-8BC2): Likewise.
+
 2017-08-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R113-Spirit.el (U-00025644): Use `->denotational' and
