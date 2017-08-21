@@ -4683,8 +4683,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((==ucs@ks	    . #x516C)	; &MJ007276;
-	(=mj		    . 007276)	; &MJ007276;
+       ((==ucs@ks	    . #x516C)	; &g2-MJ007276;
+	(==mj		    . 007276)	; &g2-MJ007276;
 	))
       (==ucs@jis	  . #x4F00)	; &g2-MJ006558;
       (==mj		  . 006558)	; &g2-MJ006558;
@@ -4721,31 +4721,45 @@
       (==ucs@cns	  . #x4F00)	; &g2-CU+4F00;
       (==cns11643-2	  . #x2170)	; &g2-CU+4F00; [01-80]
       )
-     ((=decomposition@hanyo-denshi
-       ((=ucs		    . #x4F00)	; 伀
-	)
-       ((=ucs		    . #xE0102)	; 󠄂
-	))
-      (ideographic-structure
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((name		    . "CJK RADICAL PERSON")
-	(=ucs		    . #x2E85)	; ⺅
+       ((=ucs		    . #x4EBB)	; 亻
 	)
-       ((==ucs@unicode	    . #x516C)	; &g2-MJ007275;
-	(==mj		    . 007275)	; &g2-MJ007275;
+       ((=>>ucs@unicode	    . #x516C)	; &G-MJ007275;
+	(=>>adobe-japan1-0  . 01964)	; &G-MJ007275;
 	))
-      (==ucs@unicode	  . #x4F00)	; &MJ006559;
-      (==ucs@JP/hanazono  . nil)
+      (=>>ucs@unicode	  . #x4F00)	; &MJ006559;
       (=mj		  . 006559)	; &MJ006559;
-      (==hanyo-denshi/ib  . #x2D40)	; &MJ006559; [13-32]
+      (=>>hanyo-denshi/ib . #x2D40)	; &MJ006559; [13-32]
       (->subsumptive
-       ((===ucs@unicode	    . #x4F00)	; &R-UU+4F00;
-	)
-       ((===hanyo-denshi/ib . #x2D40)	; &R-HD-IB-2D40; [13-32]
-	)
-       ((===mj		    . 006559)	; &R-MJ006559;
+       ((=decomposition@hanyo-denshi
+	 ((=ucs		      . #x4F00)	; 伀
+	  )
+	 ((=ucs		      . #xE0102)	; 󠄂
+	  ))
+	(ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((name		      . "CJK RADICAL PERSON")
+	  (=ucs		      . #x2E85)	; ⺅
+	  )
+	 ((==ucs@unicode      . #x516C)	; &g2-MJ007275;
+	  (==mj		      . 007275)	; &g2-MJ007275;
+	  ))
+	(==ucs@unicode	    . #x4F00)	; &g2-MJ006559;
+	(==ucs@JP/hanazono  . nil)
+	(==mj		    . 006559)	; &g2-MJ006559;
+	(==hanyo-denshi/ib  . #x2D40)	; &g2-MJ006559; [13-32]
+	(->subsumptive
+	 ((===ucs@unicode     . #x4F00)	; &R-UU+4F00;
+	  )
+	 ((===hanyo-denshi/ib . #x2D40)	; &R-HD-IB-2D40; [13-32]
+	  )
+	 ((===mj	      . 006559)	; &R-MJ006559;
+	  ))
 	))
       ))
     ))
