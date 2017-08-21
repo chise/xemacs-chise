@@ -1,3 +1,24 @@
+2017-08-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs-itaiji-004'.
+
+2017-08-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R119-Rice.el (A-BC-8DB9-itaiji-001): New abstract
+	node; use `<-denotational' for A-BC-8DB9.
+	(A-BC-8DB9): New abstract node.
+	(BC-8DB9-itaiji-001): New character; use `<-denotational' for
+	A-BC-8DB9-itaiji-001.
+	(BC-8DB9): New character; use `<-denotational' for A-BC-8DB9.
+	(IWDS1-0282): New abstract node; unify A-compU+7CB5.
+	(U+7CA4): Apply new conventions for glyph granularity; add
+	`<-denotational' for IWDS1-0282.
+	(U+7CB5): Likewise.
+
+	* Ideograph-R009-Man.el (U+4F00): Apply new conventions for glyph
+	granularity.
+
 2017-08-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R124-Feather.el (g2-KU+7FC1): Omit
