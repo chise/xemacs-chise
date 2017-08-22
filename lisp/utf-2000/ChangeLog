@@ -1,5 +1,13 @@
 2017-08-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R061-Heart.el: Use g2-UU+5FC3 instead of U+5FC3 in
+	`ideographic-structure' of abstract glyph-forms.
+
+	* Ideograph-R005-Second.el: Use g2-UU+4E5A instead of U+4E5A in
+	`ideographic-structure' of abstract glyph-forms.
+	(U+4E5A): Unify BE-C87B instead of B-C87B; add representative
+	nodes.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>ucs-itaiji-004'.
 

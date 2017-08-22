@@ -2253,10 +2253,11 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((==ucs@ks	    . #x516C)	; &MJ007276;
-	(=mj		    . 007276)	; &MJ007276;
+       ((==ucs@ks	    . #x516C)	; &g2-MJ007276;
+	(==mj		    . 007276)	; &g2-MJ007276;
 	)
-       ((=ucs		    . #x5FC3)	; 心
+       ((==ucs@unicode	    . #x5FC3)	; &g2-AJ1-02554;
+	(==adobe-japan1-0   . 02554)	; &g2-AJ1-02554;
 	))
       (==ucs@jis	  . #x5FE9)	; &g2-AJ1-14533;
       (==adobe-japan1-4	  . 14533)	; &g2-AJ1-14533;
@@ -2287,7 +2288,8 @@
        ((==ucs@cns	    . #x516C)	; &g2-CU+516C;
 	(==cns11643-1	    . #x447C)	; &g2-CU+516C; [36-92]
 	)
-       ((=ucs		    . #x5FC3)	; 心
+       ((==ucs@unicode	    . #x5FC3)	; &g2-AJ1-02554;
+	(==adobe-japan1-0   . 02554)	; &g2-AJ1-02554;
 	))
       (==ucs@cns	  . #x5FE9)	; &g2-CU+5FE9;
       (==cns11643-3	  . #x287E)	; &g2-CU+5FE9; [08-94]
@@ -2299,7 +2301,8 @@
        ((==ucs@unicode	    . #x516C)	; &g2-MJ007275;
 	(==mj		    . 007275)	; &g2-MJ007275;
 	)
-       ((=ucs		    . #x5FC3)	; 心
+       ((==ucs@unicode	    . #x5FC3)	; &g2-AJ1-02554;
+	(==adobe-japan1-0   . 02554)	; &g2-AJ1-02554;
 	))
       (==ucs@unicode	  . #x5FE9)	; &g2-UU+5FE9;
       (==ucs@JP/hanazono  . nil)
@@ -18207,7 +18210,8 @@
 	)
        ((==ucs@unicode	    . #x4FDE)	; &g2-UU+4FDE;
 	)
-       ((=ucs		    . #x5FC3)	; 心
+       ((==ucs@unicode	    . #x5FC3)	; &g2-AJ1-02554;
+	(==adobe-japan1-0   . 02554)	; &g2-AJ1-02554;
 	))
       (==ucs@unicode	  . #x6108)	; &g2-MJ011722;
       (==ucs@JP/hanazono  . nil)
@@ -18248,7 +18252,8 @@
        ((==ucs@cns	    . #x4FDE)	; &g2-CU+4FDE;
 	(==cns11643-1	    . #x4F7E)	; &g2-CU+4FDE; [47-94]
 	)
-       ((=ucs		    . #x5FC3)	; 心
+       ((==ucs@unicode	    . #x5FC3)	; &g2-AJ1-02554;
+	(==adobe-japan1-0   . 02554)	; &g2-AJ1-02554;
 	))
       (==ucs@cns	  . #x6108)	; &g2-CU+6108;
       (==cns11643-1	  . #x637B)	; &g2-CU+6108; [67-91]
@@ -19399,7 +19404,8 @@
        ((==ucs@unicode	    . #x5BA2)	; &g2-AJ1-01644;
 	(==adobe-japan1-0   . 01644)	; &g2-AJ1-01644;
 	)
-       ((=ucs		    . #x5FC3)	; 心
+       ((==ucs@unicode	    . #x5FC3)	; &g2-AJ1-02554;
+	(==adobe-japan1-0   . 02554)	; &g2-AJ1-02554;
 	))
       (==ucs@unicode	  . #x6119)	; &g2-AJ1-17640;
       (==adobe-japan1-5	  . 17640)	; &g2-AJ1-17640;
@@ -20781,7 +20787,8 @@
 	)
        ((==mj		    . 013537)	; &g2-MJ013537;
 	)
-       ((=ucs		    . #x5FC3)	; 心
+       ((==ucs@unicode	    . #x5FC3)	; &g2-AJ1-02554;
+	(==adobe-japan1-0   . 02554)	; &g2-AJ1-02554;
 	))
       (==daikanwa	  . 10988)	; &g2-M-10988;
       (==shinjigen	  .  2633)	; &g2-M-10988;
@@ -20798,7 +20805,8 @@
        ((==ucs@unicode	    . #x6714)	; &g2-MJ013536;
 	(==mj		    . 013536)	; &g2-MJ013536;
 	)
-       ((=ucs		    . #x5FC3)	; 心
+       ((==ucs@unicode	    . #x5FC3)	; &g2-AJ1-02554;
+	(==adobe-japan1-0   . 02554)	; &g2-AJ1-02554;
 	))
       (==ucs@unicode	  . #x612C)	; &g2-AJ1-04880;
       (==adobe-japan1-0	  . 04880)	; &g2-AJ1-04880;
@@ -23863,7 +23871,8 @@
 	)
        ((==ucs@iso	    . #x20CF5)	; &g2-IU-00020CF5;
 	)
-       ((=ucs		    . #x5FC3)	; 心
+       ((==ucs@unicode	    . #x5FC3)	; &g2-AJ1-02554;
+	(==adobe-japan1-0   . 02554)	; &g2-AJ1-02554;
 	))
       (==ruimoku-v6	  . #xE05F)	; &g2-RUI6-E05F;
       ))
@@ -34904,7 +34913,8 @@
        ((=ucs@unicode	    . #x5EE3)	; &MJ011076;
 	(=mj		    . 011076)	; &MJ011076;
 	)
-       ((=ucs		    . #x5FC3)	; 心
+       ((==ucs@unicode	    . #x5FC3)	; &g2-AJ1-02554;
+	(==adobe-japan1-0   . 02554)	; &g2-AJ1-02554;
 	))
       (==ucs@unicode	  . #x61EC)	; &g2-UU+61EC;
       (==ucs@JP/hanazono  . nil)
