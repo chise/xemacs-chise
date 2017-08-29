@@ -1,3 +1,8 @@
+2017-08-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R120-Silk.el (MJ003595): Add `ideographic-structure'.
+	(CU+4319): Add `ideographic-structure'.
+
 2017-08-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R096-Jade.el (U+3F02): Apply new conventions for glyph
