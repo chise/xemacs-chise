@@ -21628,7 +21628,18 @@
     (=+>ucs@cns		. #x4319)	; &A-MJ003595;
     (=>mj		. 003595)	; &A-MJ003595;
     (->subsumptive
-     ((=mj		  . 003595)	; &MJ003595;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x7CF8)	; 糸
+	)
+       ((=ucs@unicode	    . #x9EC3)	; &GT-65324;
+	(=ks-x1001	    . #x7C5C)	; &GT-65324; [92-60]
+	(=jis-x0213-1	    . #x7E71)	; &I-JX1-7E71; [94-81]
+	(=daikanwa	    . 47926)	; &I-M-47926;
+	))
+      (=mj		  . 003595)	; &MJ003595;
       (=koseki		  . 311860)	; &MJ003595;
       (=daikanwa	  . 27903)	; &I-M-27903;
       (->subsumptive
@@ -21642,7 +21653,15 @@
 	  ))
 	))
       )
-     ((=ucs@cns		  . #x4319)	; &C3-5857;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x7CF8)	; 糸
+	)
+       ((=cns11643-1	    . #x6327)	; &C1-6327; [67-07]
+	))
+      (=ucs@cns		  . #x4319)	; &C3-5857;
       (=cns11643-3	  . #x5857)	; &C3-5857; [56-55]
       (->subsumptive
        ((==ucs@cns	    . #x4319)	; &g2-CU+4319;
