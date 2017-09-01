@@ -1,3 +1,16 @@
+2017-08-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R044-Corpse.el (U+5C3F): Add
+	`<-denotational@component' for A-compU+5C3F.
+	(A-compU+3791): New abstract node.
+	(U+3791): Add `<-denotational' for A-compU+3791; apply new
+	conventions for glyph granularity.
+	(GT-K04055): Use A-compU+3791 instead of U+3791 as its mother; add
+	`<-denotational@component' for A-compU+5C3F.
+	(U-00021C98): Add `ideographic-structure'; add `<-same' for
+	U+5C3F.
+	(A-compU+5C3F): New abstract node.
+
 2017-08-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R120-Silk.el (MJ003595): Add `ideographic-structure'.
