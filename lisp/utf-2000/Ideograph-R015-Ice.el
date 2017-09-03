@@ -315,6 +315,15 @@
     (ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (=>ucs@component	. #x51B0)	; &A-compU+51B0;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x51B0)	; &A-compU+51B0;
+      ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
     (hanyu-dazidian	1 295 9)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -342,7 +351,7 @@
       (=shinjigen	  .  4051)	; 氷
       ))
     (<-original*sources
-     shinjigen@1ed)
+     shinjigen)
     (<-same
      ((=ucs@cns		  . #x4ECC)	; &C3-214C;
       (=cns11643-3	  . #x214C)	; &C3-214C; [01-44]
@@ -391,6 +400,29 @@
      ((===hng-kak	  . 00230)	; &HNG017-00230;
       )
      ((===hng-kar	  . 00370)	; &HNG018-00370;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x51B0)	; &A-compU+51B0;
+      ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x6C34)	; 水
+      )
+     ((=big5-cdp	  . #x8971)	; &CDP-8971;
+      ))
+    (=ucs-itaiji-002	. #x51B0)	; &U-i002+51B0;
+    (<-formed@component
+     ((=ucs		  . #x51B0)	; 冰
+      ))
+    (->subsumptive
+     ((==ucs-itaiji-002	  . #x51B0)	; &g2-U-i002+51B0;
       ))
     ))
 (define-char
