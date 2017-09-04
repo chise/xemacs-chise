@@ -8529,7 +8529,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x8CB6)	; &CDP-8CB6;
+     ((=big5-cdp	  . #x8CB6)	; &GT-16595;
       (=daikanwa	  . 13145)	; &I-M-13145;
       )
      ((=ucs		  . #x65E5)	; 日
