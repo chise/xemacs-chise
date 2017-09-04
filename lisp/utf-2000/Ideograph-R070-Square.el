@@ -125,6 +125,25 @@
     ))
 (define-char
   '((ideographic-radical . 70)	; ⽅
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x52F9)	; 勹
+      )
+     ((=ucs		  . #x65B9)	; 方
+      ))
+    (=gt-k		. 02058)	; &GT-K02058;
+    (=gt-pj-k2		. #x403A)	; &GT-K02058; [32-26]
+    (->subsumptive
+     ((==gt-k		  . 02058)	; &g2-GT-K02058;
+      (==gt-pj-k2	  . #x403A)	; &g2-GT-K02058; [32-26]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x230D8)	; 𣃘
@@ -196,6 +215,15 @@
   '((ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x4EA0)	; &A-compU+4EA0;
+      (=>iwds-1		  .  0062)	; &A-compU+4EA0;
+      )
+     ((=gt-k		  . 02058)	; &GT-K02058;
+      ))
     (=ucs		. #x3AC4)	; 㫄
     ))
 (define-char
@@ -205,6 +233,14 @@
     (ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E8C)	; 二
+      )
+     ((=gt-k		  . 02058)	; &GT-K02058;
+      ))
     (=ucs@unicode	. #x3AC4)	; &AJ1-20135;
     (=adobe-japan1-5	. 20135)	; &AJ1-20135;
     (=cns11643-6	. #x2B70)	; &I-C6-2B70; [11-80]
@@ -241,7 +277,21 @@
     (ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (=hanziku-6		. #xBFE2)	; &HZK06-BFE2;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((=gt-k		  . 02058)	; &GT-K02058;
+      ))
+    (=ucs-var-002	. #x3AC4)	; &U-v002+3AC4;
+    (->subsumptive
+     ((==ucs-var-002	  . #x3AC4)	; &g2-U-v002+3AC4;
+      (->subsumptive
+       ((=hanziku-6	    . #xBFE2)	; &HZK06-BFE2;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 70)	; ⽅

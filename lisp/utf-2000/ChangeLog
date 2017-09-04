@@ -1,3 +1,34 @@
+2017-09-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R015-Ice.el (A-compU+51B0): New abstract node; use
+	`<-denotational' for BUCS+51B0.
+	(U+51B0): Use `<-denotational' for A-compU+51B0.
+	(U+51B0-itaiji-002): New character; use `<-denotational' for
+	A-compU+51B0.
+
+2017-08-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R070-Square.el (GT-K02058): New character.
+	(U+3AC4): Add `ideographic-structure'.
+	(U+3AC4-var-002): New character; use `<-denotational' for U+3AC4.
+	(H6-BFE2): Use `<-subsumptive' for g2-U+3AC4-var-002 instead of
+	`<-denotational' for U+3AC4.
+
+	* Ideograph-R040-Roof.el (U-00021A6D): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R010-Legs.el: Use g2-UU+513F instead of U+513F in
+	`ideographic-structure' of abstract glyph-form nodes.
+	(G-JU+514A): New glyph node to subsume g2-JU+514A.
+	(MJ007224): Separate g2-UU+514A; unify G-UU+514A instead.
+	(g2-UU+514A): Unify g2-MJ007224.
+	(U-0002047A): Apply new conventions for glyph granularity.
+	(U-000204B6): Likewise; use "圥" instead of "⿱土儿" in
+	`ideographic-structure'.
+
+	* Ideograph-R009-Man.el (IU+20293): Apply new conventions for
+	glyph granularity.
+
 2017-08-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R044-Corpse.el (U+5C3F): Add

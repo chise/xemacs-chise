@@ -27806,10 +27806,17 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=hanziku-6	  . #xBFE2)	; &HZK06-BFE2;
+     ((=ucs-var-002	  . #x3AC4)	; &U-v002+3AC4;
       ))
-    (=ucs@iso		. #x20293)	; &HZK01-CBF1;
-    (=hanziku-1		. #xCBF1)	; &HZK01-CBF1;
+    (=ucs@iso		. #x20293)	; &U-00020293;
+    (->subsumptive
+     ((==ucs@iso	  . #x20293)	; &g2-IU-00020293;
+      (->subsumptive
+       ((===ucs@iso	    . #x20293)	; &R-U-00020293;
+	)
+       ((=hanziku-1	    . #xCBF1)	; &HZK01-CBF1;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
