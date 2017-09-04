@@ -72,6 +72,30 @@
     ))
 (define-char
   '((ideographic-radical . 105)	; ⽨
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5915)	; 夕
+      )
+     ((=big5-cdp	  . #x8C4E)	; &CDP-8C4E;
+      ))
+    (=gt-k		. 01253)	; &GT-K01253;
+    (=gt-pj-k1		. #x3B2D)	; &GT-K01253; [27-13]
+    (<-formed
+     ((=big5-cdp	  . #x8C4F)	; &CDP-8C4F;
+      )
+     ((=ucs		  . #x7676)	; 癶
+      ))
+    (->subsumptive
+     ((==gt-k		  . 01253)	; &g2-GT-K01253;
+      (==gt-pj-k1	  . #x3B2D)	; &g2-GT-K01253; [27-13]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 105)	; ⽨
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
     (=ucs		. #x24F25)	; 𤼥
@@ -211,6 +235,23 @@
 	)
        ((===ucs@unicode	    . #x767A)	; &R-UU+767A;
 	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 105)	; ⽨
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=gt-k		  . 01253)	; &GT-K01253;
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
+    (=ucs		. #x2DF3F)	; 𭼿
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2DF3F)	; &g2-hanaJU+2DF3F;
       ))
     ))
 (define-char

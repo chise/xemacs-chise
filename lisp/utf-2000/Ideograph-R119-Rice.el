@@ -2453,7 +2453,9 @@
     (=daikanwa		. 26935)	; &I-M-26935;
     (=shinjigen		.  5913)	; &AJ1-06038;
     (->original
-     ((=daikanwa	  . 49026)	; &M-49026;
+     ((=ucs@iso		  . #x21A6D)	; &C6-5175;
+      (=cns11643-6	  . #x5175)	; &C6-5175; [49-85]
+      (=daikanwa	  . 49026)	; &I-M-49026;
       ))
     (->original*sources
      zhengzitong daikanwa)

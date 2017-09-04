@@ -1,5 +1,31 @@
 2017-09-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R105-Dotted-Tent.el (GT-K01253): New character.
+	(U-0002DF3F): New character.
+
+	* Ideograph-R066-Rap.el (U-00022EFB): Apply new conventions for
+	glyph granularity.
+	(IU+22EFB): Unify GT-16603 and GT-K04970; add `<-same' for
+	CU+5553.
+	(U-00022F04): Add ideographic-structure.
+	(BC-8CB6): Unify GT-16595 and GT-K04971.
+
+	* Ideograph-R058-Snout.el (A-GT-K04940): New abstract node.
+	(GT-K04940): New character; use `<-denotational' for A-GT-K04940.
+
+	* Ideograph-R039-Child.el (U+5B55): Apply new conventions for
+	glyph granularity.
+	(U+5B55-var-002): New character; use `<-denotational' for U+5B55.
+	(U-0002D4D5): New character; use `<-denotational' for BUCS+5B78.
+	(U-0002B76F): Add ideographic-structure.
+	(U-00021994): New character.
+	(M-07025): Separate CB03855; unify MJ033914 and KOSEKI-079890; add
+	`<-denotational' for U-00021994.
+	(CB03855): Unify IU+21994; add `<-denotational' for U-00021994.
+	(U-0002D4D8): New character.
+
+2017-09-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R015-Ice.el (A-compU+51B0): New abstract node; use
 	`<-denotational' for BUCS+51B0.
 	(U+51B0): Use `<-denotational' for A-compU+51B0.
