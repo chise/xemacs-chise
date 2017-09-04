@@ -678,6 +678,44 @@
     ))
 (define-char
   '((ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5F50)	; 彐
+      )
+     ((=ucs		  . #x72AE)	; 犮
+      ))
+    (=>gt-k		. 04940)	; &A-GT-K04940;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 04940)	; &A-GT-K04940;
+      ))
+    (ideographic-radical . 58)	; ⼹
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=adobe-japan1-4	  . 15391)	; &AJ1-15391;
+      )
+     ((=ucs@cns		  . #x72AE)	; &AJ1-18056;
+      (=ucs@jis		  . #x72AE)	; &AJ1-18056;
+      (=adobe-japan1-5	  . 18056)	; &AJ1-18056;
+      ))
+    (=gt-k		. 04940)	; &GT-K04940;
+    (=gt-pj-k1		. #x626D)	; &GT-K04940; [66-77]
+    (->subsumptive
+     ((==gt-k		  . 04940)	; &g2-GT-K04940;
+      (==gt-pj-k1	  . #x626D)	; &g2-GT-K04940; [66-77]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (sound@ja/on	"siN")
