@@ -4757,19 +4757,37 @@
     (=cns11643-5	. #x2563)	; &I-C5-2563; [05-67]
     ))
 (define-char
-  '((=>ucs		. #x216F9)	; 𡛹
-    (ideographic-radical . 38)	; ⼥
+  '((ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=daikanwa		. 06195)	; &M-06195;
-    ))
-(define-char
-  '((morohashi-daikanwa	6195 0 0)
-    (ideographic-radical . 38)	; ⼥
-    (ideographic-strokes . 5)
-    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 01253)	; &GT-K01253;
+      )
+     ((=ucs		  . #x5973)	; 女
+      ))
     (=ucs		. #x216F9)	; 𡛹
     (=cns11643-6	. #x2A5E)	; &I-C6-2A5E; [10-62]
+    (=daikanwa		. 06195)	; &I-M-06195;
+    (<-same
+     ((=ucs		  . #x7CB2)	; 粲
+      (=daikanwa	  . 26966)	; &I-M-26966;
+      ))
+    (<-same*sources
+     longkanshoujian daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 06195)	; &g2-M-06195;
+      )
+     ((==ucs@iso	  . #x216F9)	; &g2-IU-000216F9;
+      (==cns11643-6	  . #x2A5E)	; &g2-IU-000216F9; [10-62]
+      (->subsumptive
+       ((===cns11643-6	    . #x2A5E)	; &R-C6-2A5E; [10-62]
+	)
+       ((===ucs@iso	    . #x216F9)	; &R-U-000216F9;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x216F7)	; 𡛷

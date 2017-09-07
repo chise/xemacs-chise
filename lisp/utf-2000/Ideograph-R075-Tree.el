@@ -9225,6 +9225,23 @@
   '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 01253)	; &GT-K01253;
+      )
+     ((=ucs		  . #x6728)	; 木
+      ))
+    (=ucs		. #x23426)	; 𣐦
+    (->subsumptive
+     ((==ucs@iso	  . #x23426)	; &g2-IU-00023426;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 75)	; ⽊
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
     (=ucs		. #x23429)	; 𣐩
     ))
 (define-char
