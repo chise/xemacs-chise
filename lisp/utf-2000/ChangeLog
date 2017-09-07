@@ -1,3 +1,10 @@
+2017-09-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (U-00023426): New character.
+
+	* Ideograph-R038-Woman.el (U-000216F9): Apply new conventions for
+	glyph granularity.
+
 2017-09-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R105-Dotted-Tent.el (GT-K01253): New character.
