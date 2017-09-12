@@ -16259,20 +16259,63 @@
   '((ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6C35)	; 氵
+      )
+     ((=ucs		  . #x3AC4)	; 㫄
+      ))
     (=ucs		. #x23DA2)	; 𣶢
     (=cns11643-6	. #x412F)	; &I-C6-412F; [33-15]
     (=daikanwa		. 17727)	; &I-M-17727;
+    (<-same
+     ((=ucs		  . #x6EC2)	; 滂
+      (=daikanwa	  . 18003)	; &I-M-18003;
+      ))
+    (<-same*sources
+     zihui-bu daikanwa)
     (->subsumptive
-     ((==ucs@cns	  . #x23DA2)	; &g2-M-17727;
-      (==cns11643-6	  . #x412F)	; &g2-M-17727; [33-15]
-      (==daikanwa	  . 17727)	; &g2-M-17727;
-      (->subsumptive
-       ((===daikanwa	    . 17727)	; &R-M-17727;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((===cns11643-6	    . #x412F)	; &R-C6-412F; [33-15]
+       ((=ucs		    . #x6C35)	; 氵
+	)
+       ((=ucs@unicode	    . #x3AC4)	; &AJ1-20135;
+	(=adobe-japan1-5    . 20135)	; &AJ1-20135;
+	))
+      (=>>ucs@cns	  . #x23DA2)	; &G-CU+23DA2;
+      (=>>daikanwa	  . 17727)	; &G-CU+23DA2;
+      (->subsumptive
+       ((==ucs@cns	    . #x23DA2)	; &g2-M-17727;
+	(==cns11643-6	    . #x412F)	; &g2-M-17727; [33-15]
+	(==daikanwa	    . 17727)	; &g2-M-17727;
+	(->subsumptive
+	 ((===daikanwa	      . 17727)	; &R-M-17727;
+	  )
+	 ((===cns11643-6      . #x412F)	; &R-C6-412F; [33-15]
+	  ))
 	))
       )
-     ((==ucs@iso	  . #x23DA2)	; &g2-IU-00023DA2;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x6C35)	; 氵
+	)
+       ((=ucs-var-002	    . #x3AC4)	; &U-v002+3AC4;
+	))
+      (=>>ucs@iso	  . #x23DA2)	; &G-IU+23DA2;
+      (->subsumptive
+       ((==ucs@iso	    . #x23DA2)	; &g2-IU-00023DA2;
+	(->subsumptive
+	 ((===ucs@iso	      . #x23DA2)	; &R-U-00023DA2;
+	  )
+	 ((=hanziku-5	      . #xA9C1)	; &HZK05-A9C1;
+	  ))
+	))
       ))
     ))
 (define-char

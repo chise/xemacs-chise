@@ -1,3 +1,13 @@
+2017-09-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R068-Dipper.el (U-0002307C): Apply new conventions for
+	glyph granularity.
+
+2017-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el (U-00023DA2): Add
+	`ideographic-structure'; add `<-same' for U+6EC2.
+
 2017-09-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R075-Tree.el (U-00023426): New character.

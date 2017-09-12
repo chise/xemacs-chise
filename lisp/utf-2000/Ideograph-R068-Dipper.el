@@ -702,29 +702,52 @@
   '((ideographic-radical . 68)	; ⽃
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=ucs		. #x2307C)	; 𣁼
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x2307C)	; 𣁼
-      ))
-    (ideographic-radical . 68)	; ⽃
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (=daikanwa		. 13513)	; &M-13513;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x2307C)	; 𣁼
-      ))
-    (ideographic-radical . 68)	; ⽃
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (=>>ucs@iso		. #x2307C)	; &G-IU+2307C;
-    (->subsumptive
-     ((=ucs@iso		  . #x2307C)	; &U-0002307C;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-6	  . #x495D)	; &C6-495D; [41-61]
+     ((=ucs		  . #x3AC4)	; 㫄
+      )
+     ((=ucs		  . #x6597)	; 斗
+      ))
+    (=ucs		. #x2307C)	; 𣁼
+    (=cns11643-6	. #x495D)	; &I-C6-495D; [41-61]
+    (=daikanwa		. 13513)	; &I-M-13513;
+    (<-original
+     ((=daikanwa	  . 13523)	; &M-13523;
+      ))
+    (<-original*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs@unicode	    . #x3AC4)	; &AJ1-20135;
+	(=adobe-japan1-5    . 20135)	; &AJ1-20135;
+	)
+       ((=ucs		    . #x6597)	; 斗
+	))
+      (=>>daikanwa	  . 13513)	; &G-M-13513;
+      (->subsumptive
+       ((==daikanwa	    . 13513)	; &g2-M-13513;
+	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs-var-002	    . #x3AC4)	; &U-v002+3AC4;
+	)
+       ((=ucs		    . #x6597)	; 斗
+	))
+      (=>>ucs@iso	  . #x2307C)	; &G-IU+2307C;
+      (->subsumptive
+       ((==ucs@iso	    . #x2307C)	; &g2-IU-0002307C;
+	)
+       ((==ucs@cns	    . #x2307C)	; &g2-CU+2307C;
+	(==cns11643-6	    . #x495D)	; &g2-CU+2307C; [41-61]
+	))
       ))
     ))
 (define-char
