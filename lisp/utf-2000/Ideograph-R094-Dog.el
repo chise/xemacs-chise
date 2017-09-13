@@ -3703,7 +3703,7 @@
       ))
     (=mj		. 040680)	; &MJ040680;
     (=koseki		. 229500)	; &MJ040680;
-    (=daikanwa		. 20438)	; &M-20438;
+    (=daikanwa		. 20438)	; &I-M-20438;
     (<-original
      ((=ucs		  . #x72C2)	; 狂
       (=daikanwa	  . 20287)	; &I-M-20287;
@@ -3763,6 +3763,23 @@
      ((==ucs@cns	  . #x24775)	; &g2-CU+24775;
       (==cns11643-6	  . #x394C)	; &g2-CU+24775; [25-44]
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24775)	; 𤝵
+      ))
+    (ideographic-radical . 94)	; ⽝
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x72AD)	; 犭
+      )
+     ((=ucs		  . #x2D592)	; 𭖒
+      ))
+    (=ucs-var-002	. #x24775)	; &U-v002+24775;
     ))
 (define-char
   '((<-denotational
