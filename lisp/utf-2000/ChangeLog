@@ -1,3 +1,28 @@
+2017-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R094-Dog.el (U+24775-var-002): New character; use
+	`<-denotational' for U-00024775.
+
+	* Ideograph-R048-Work.el (U+5DE9): Add `ideographic-structure'.
+
+	* Ideograph-R024-Ten.el (A-IWDSU+51E1): New abstract node; unify
+	IWDS1-55346.
+	(IWDS1-0055): Unify A-IWDSU+5342 instead of A-compU+5342; add
+	`<-denotational@component' for IWDS1-55346.
+	(A-compU+5342): New abstract node.
+	(U+5342): Add `<-denotational' for A-compU+5342.
+	(A-UU+5342): Abolished; use A-IWDSU+5342 as different abstract
+	node.
+	(UU+5342): Use U+5342 instead of A-UU+5342 as its mother.
+	(CU+5342): Likewise.
+	(BC-88EC): Likewise.
+	(CB07314): Likewise.
+	(U+5342-itaiji-001): Use A-compU+5342 instead of U+5342 as its
+	mother.
+
+	* Ideograph-R016-Table.el (IWDS1-0346): Add
+	`<-denotational@component' for A-IWDSU+51E1.
+
 2017-09-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R074-Moon.el (U-00023386): Use A-IWDSU+26760 instead
