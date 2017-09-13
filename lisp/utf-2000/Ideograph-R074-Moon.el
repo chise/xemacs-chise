@@ -2809,7 +2809,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>daikanwa	  . 29675)	; &A-M-29675;
+     ((=>ucs@iwds-1	  . #x26760)	; &A-IWDSU+26760;
+      (=>iwds-1		  .  0352)	; &A-IWDSU+26760;
       ))
     (ideographic-radical@ucs . 74)	; ⽉
     (ideographic-radical@misc . 130)	; ⾁
