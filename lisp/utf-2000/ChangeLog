@@ -1,5 +1,8 @@
 2017-09-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R074-Moon.el (U-00023386): Use A-IWDSU+26760 instead
+	A-M-29675 as its mother.
+
 	* Ideograph-R068-Dipper.el (U-0002307C): Apply new conventions for
 	glyph granularity.
 
