@@ -278,9 +278,17 @@
   '((ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
-    (=cbeta		. 04456)	; &CB04456;
+    (=big5-cdp		. #x89E7)	; &CDP-89E7;
+    (=cbeta		. 04456)	; &I-CB04456;
+    (<-formed
+     ((=ucs		  . #x3B30)	; 㬰
+      )
+     ((=ucs		  . #x81FE)	; 臾
+      ))
     (->subsumptive
      ((==cbeta		  . 04456)	; &g2-CB04456;
+      )
+     ((==big5-cdp	  . #x89E7)	; &g2-CDP-89E7;
       ))
     ))
 (define-char
