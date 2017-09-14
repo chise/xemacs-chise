@@ -1,7 +1,15 @@
 2017-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R061-Heart.el (CU+227AA): Add `ideographic-structure'.
+	(U+617C): Apply new conventions for glyph granularity.
+	(U+617C-var-001): New character; use `<-denotational' for U+617C.
+
 	* Ideograph-R094-Dog.el (U+24775-var-002): New character; use
 	`<-denotational' for U-00024775.
+
+	* Ideograph-R074-Moon.el (U-00023386): Use A-compU+23386 instead
+	of IWDS1-0352 as its mother; use A-UU+43CE instead of U+43CE in
+	`ideographic-structure'.
 
 	* Ideograph-R048-Work.el (U+5DE9): Add `ideographic-structure'.
 
