@@ -3545,6 +3545,53 @@
     (=gb2312		. #x613B)	; &I-G0-613B; [65-27]
     ))
 (define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x37B7)	; &A-compU+37B7;
+      ))
+    (ideographic-radical@ucs . 46)	; ⼭
+    (ideographic-strokes@ucs . 5)
+    (total-strokes@ucs	     . 8)
+    (ideographic-radical@mj . 32)	; ⼟
+    (ideographic-strokes@mj . 4)
+    (total-strokes@mj	    . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs		  . #x4E3B)	; 主
+      ))
+    (sound@ja/on	"hou")
+    (=ucs		. #x2D592)	; 𭖒
+    (->subsumptive
+     ((ideographic-radical . 32)	; ⼟
+      (ideographic-strokes . 4)
+      (total-strokes	   . 7)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x5C71)	; 山
+	)
+       ((=ucs		    . #x9FB6)	; 龶
+	))
+      (=ucs@JP/hanazono	  . #x2D592)	; &MJ057211;
+      (=mj		  . 057211)	; &MJ057211;
+      (=koseki		  . 056260)	; &MJ057211;
+      (<-formed
+       ((=ucs		    . #x5C01)	; 封
+	))
+      (<-formed*sources
+       koseki)
+      (->subsumptive
+       ((==ucs@JP/hanazono  . #x2D592)	; &g2-MJ057211;
+	(==mj		    . 057211)	; &g2-MJ057211;
+	(==koseki	    . 056260)	; &g2-MJ057211;
+	))
+      ))
+    ))
+(define-char
   '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
