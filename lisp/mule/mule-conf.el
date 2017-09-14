@@ -4858,6 +4858,19 @@
 		  direction	l2r
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-004))
+  (make-charset '=>ucs-bmp-itaiji-004
+		"uXXXX-itaiji-004's abstract characters in BMP"
+		'(long-name	"UCS-BMP-itaiji-004 characters"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=>ucs-itaiji-004
+		  min-code #x2E00
+		  max-code #x9FCC
+		  registry "ucs\\.itaiji004-0"))
   (make-charset '=>ucs-sip-itaiji-004
 		"uXXXX-itaiji-004 glyph-images in SIP"
 		'(long-name	"UCS-SIP-itaiji-004"
