@@ -2809,8 +2809,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@iwds-1	  . #x26760)	; &A-IWDSU+26760;
-      (=>iwds-1		  .  0352)	; &A-IWDSU+26760;
+     ((=>ucs@component	  . #x23386)	; &A-compU+23386;
       ))
     (ideographic-radical@ucs . 74)	; ⽉
     (ideographic-radical@misc . 130)	; ⾁
@@ -2822,7 +2821,7 @@
       )
      ((=ucs		  . #x5402)	; 吂
       )
-     ((=ucs		  . #x43CE)	; 䏎
+     ((=>ucs@unicode	  . #x43CE)	; &A-UU+43CE;
       ))
     (=ucs		. #x23386)	; 𣎆
     ))
