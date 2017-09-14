@@ -1,4 +1,18 @@
+2017-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R038-Woman.el (U+5AE8): Apply new conventions for
+	glyph granularity.
+
 2017-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R077-Stop.el (M-49194): Add `<-original' for U+7676.
+
+	* Ideograph-R073-Say.el (CB04456): Unify BC-89E7; add `<-formed'
+	for U+3B30 and U+81FE.
+
+	* Ideograph-R062-Halberd.el (U-0002D7F7): New character.
+
+	* Ideograph-R053-Dotted-Cliff.el (U-00022214): New character.
 
 	* Ideograph-R046-Mountain.el (U-0002D592): New character; add
 	`<-denotational@component' for A-compU+37B7.
