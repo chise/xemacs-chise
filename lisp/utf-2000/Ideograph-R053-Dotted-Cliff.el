@@ -2486,6 +2486,23 @@
     ))
 (define-char
   '((ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=big5-cdp	  . #x89E7)	; &CDP-89E7;
+      ))
+    (=ucs		. #x22214)	; 𢈔
+    (->subsumptive
+     ((==ucs@iso	  . #x22214)	; &g2-IU-00022214;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 53)	; ⼴
     (==>ucs@bucs	. #x5EA7)	; &BUCS+5EA7;
     ))
 (define-char
