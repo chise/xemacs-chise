@@ -23636,7 +23636,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=daikanwa	  . 20438)	; &M-20438;
+     ((=mj		  . 040680)	; &MJ040680;
       )
      ((=ucs		  . #x5FC3)	; 心
       ))
@@ -23665,6 +23665,14 @@
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-var-002	  . #x24775)	; &U-v002+24775;
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
     (=ucs@cns		. #x227AA)	; &C6-5C78;
     (=cns11643-6	. #x5C78)	; &C6-5C78; [60-88]
     (->subsumptive
@@ -27386,13 +27394,47 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (=ucs		. #x617C)	; 慼
-    (=adobe-japan1-4	. 14551)	; &I-AJ1-14551;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x617C)	; 慼
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x621A)	; 戚
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (=ucs@unicode	. #x617C)	; &AJ1-14551;
+    (=adobe-japan1-4	. 14551)	; &AJ1-14551;
     (=jis-x0212		. #x3E59)	; &I-JSP-3E59; [30-57]
     (=cns11643-1	. #x6C69)	; &I-C1-6C69; [76-73]
     (=jis-x0213-2	. #x2C64)	; &I-JX2-2C64; [12-68]
     (=big5		. #xBCA1)	; &I-B-BCA1;
     (=daikanwa		. 11158)	; &I-M-11158;
     (=jef-china3	. #x4DDD)	; &I-JC3-4DDD;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x617C)	; 慼
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x621A)	; 戚
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (=ucs-var-001	. #x617C)	; &U-v001+617C;
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
