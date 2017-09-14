@@ -1200,6 +1200,12 @@
 	))
       (=daikanwa	  . 49194)	; &M-49194;
       (=cbeta		  . 07640)	; &I-CB07640;
+      (<-original
+       ((=ucs		    . #x7676)	; 癶
+	(=daikanwa	    . 22657)	; &I-M-22657;
+	))
+      (<-original*sources
+       daikanwa)
       (->subsumptive
        ((==daikanwa	    . 49194)	; &g2-M-49194;
 	(==cbeta	    . 07640)	; &g2-M-49194;
