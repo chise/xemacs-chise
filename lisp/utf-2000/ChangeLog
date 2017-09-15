@@ -6,6 +6,9 @@
 	* Ideograph-R038-Woman.el (U+5AE8): Apply new conventions for
 	glyph granularity.
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`==ucs-var-002'.
+
 2017-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R134-Mortar.el (UU+81FC): Use `<-denotational' instead
