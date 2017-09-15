@@ -367,6 +367,7 @@
     =>ucs@component
     ==ucs@gb
     =ucs@gb
+    ==ucs-var-002
     =ucs@JP/hanazono))
 
 
