@@ -2485,6 +2485,55 @@
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL KNIFE ONE")
+      (=ucs		  . #x2E88)	; ⺈
+      )
+     ((=ucs		  . #x2BA4F)	; 𫩏
+      ))
+    (=gt-k		. 02380)	; &GT-K02380;
+    (=gt-pj-k1		. #x575F)	; &GT-K02380; [55-63]
+    (<-formed@component
+     ((=big5-cdp	  . #x8CAF)	; &CDP-8CAF;
+      ))
+    (->subsumptive
+     ((==gt-k		  . 02380)	; &g2-GT-K02380;
+      (==gt-pj-k1	  . #x575F)	; &g2-GT-K02380; [55-63]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL KNIFE ONE")
+      (=ucs		  . #x2E88)	; ⺈
+      )
+     ((=ucs		  . #x2053F)	; 𠔿
+      ))
+    (=big5-cdp		. #x8CAF)	; &CDP-8CAF;
+    (=gt-k		. 02231)	; &I-GT-K02231;
+    (=gt-pj-k1		. #x332A)	; &CDP-8CAF; [19-10]
+    (->subsumptive
+     ((==big5-cdp	  . #x8CAF)	; &g2-CDP-8CAF;
+      )
+     ((==gt-k		  . 02231)	; &g2-GT-K02231;
+      (==gt-pj-k1	  . #x332A)	; &g2-GT-K02231; [19-10]
+      (<-formed@component/connect-below
+       ((=big5-cdp	    . #x8CAF)	; &CDP-8CAF;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (=ucs		. #x206CE)	; 𠛎
