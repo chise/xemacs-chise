@@ -1,9 +1,63 @@
 2017-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el (GT-K02380): New character.
+	(BC-8CAF): New character; unify GT-K02231.
+
 	* Ideograph-R038-Woman.el (U+5AE8): Apply new conventions for
 	glyph granularity.
 
 2017-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R134-Mortar.el (UU+81FC): Use `<-denotational' instead
+	of `<-denotational@component' for U+81FC.
+	(U-00026951): Unify BC-8AA3.
+	(U-00026954): Use `->denotational' and `->subsumptive'; unify
+	IWDS1-0169.
+	(IU+26954): Unify BC-8CCD; add `<-original' for U+7533.
+	(U+26954-var-001): New character; use `<-denotational' for
+	U-00026954.
+	(A-BC-8B64-itaiji-001): New abstract component.
+	(BC-8B64-itaiji-001): New component; use `<-denotational' for
+	A-BC-8B64-itaiji-001.
+	(BC-8B64-itaiji-002): Ditto.
+	(BC-8B64): New component.
+	(A-U+8201-itaiji-001): New abstract character.
+	(U+8201-itaiji-001): New character; use `<-denotational' for
+	A-U+8201-itaiji-001.
+	(U+8201-itaiji-002): Ditto.
+	(BC-08746): Ditto; unify U+8201-itaiji-005.
+	(A-U+8207-itaiji-007): New abstract component.
+	(U+8207-itaiji-007): New component; use `<-denotational' for
+	A-U+8207-itaiji-007.
+	(A-U+8207-itaiji-006): New abstract component.
+	(U+8207-itaiji-006): New component; use `<-denotational' for
+	A-U+8207-itaiji-006.
+	(U+2696F-itaiji-002): Fix strokes.
+	(A-U+2696F-itaiji-004): New abstract component.
+	(U+2696F-itaiji-004): New component; use `<-denotational' for
+	A-U+2696F-itaiji-004.
+	(A-GT-K11083): New abstract component.
+	(GT-K11083): New component; use `<-denotational' for A-GT-K11083.
+	(U-000269C1): Apply new conventions for glyph granularity.
+
+	* Ideograph-R131-Minister.el (U-000268F8): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R112-Stone.el (U-0002E059): New character.
+
+	* Ideograph-R105-Dotted-Tent.el (A-compU+7676): New abstract
+	component.
+	(A-BC-8B6E): New abstract component; add
+	`<-denotational@component' for A-compU+7676.
+	(U+7676): Add `<-denotational' for A-BC-8B6E; add
+	`sound@ja/on/{kan|go}'; add `<-Liwen' for M-49194.
+	(BC-8C4F-var-004): Add `<-denotational' for A-BC-8B6E.
+	(A-U+7676-itaiji-004): New abstract component; use
+	`<-denotational' for A-BC-8C4F.
+	(U+7676-itaiji-004): New component; use `<-denotational' for
+	A-U+7676-itaiji-004.
+	(GT-K01253): Add `<-denotational' for A-BC-8C4F; use
+	`<-formed@component' instead of `<-formed' for BC-8C4F and U+7676.
 
 	* Ideograph-R077-Stop.el (M-49194): Add `<-original' for U+7676.
 
