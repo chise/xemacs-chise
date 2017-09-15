@@ -1917,7 +1917,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=mj		  . 058835)	; &MJ058835;
+     ((=ucs		  . #x2E77E)	; 𮝾
       )
      ((=ucs		  . #x5BF8)	; 寸
       ))

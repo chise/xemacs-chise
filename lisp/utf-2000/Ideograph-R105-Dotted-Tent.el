@@ -2,6 +2,22 @@
 (define-char
   '((ideographic-radical . 105)	; ⽨
     (ideographic-strokes . 0)
+    (=>ucs@component	. #x7676)	; &A-compU+7676;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x7676)	; &A-compU+7676;
+      ))
+    (ideographic-radical . 105)	; ⽨
+    (ideographic-strokes . 0)
+    (=>big5-cdp		. #x8B6E)	; &A-CDP-8B6E;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8B6E)	; &A-CDP-8B6E;
+      ))
+    (ideographic-radical . 105)	; ⽨
+    (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -11,6 +27,8 @@
       )
      ((=big5-cdp	  . #x88D5)	; &CDP-88D5;
       ))
+    (sound@ja/on/go	"hati")
+    (sound@ja/on/kan	"hatu")
     (=ucs		. #x7676)	; 癶
     (=adobe-japan1-0	. 05783)	; &I-AJ1-05783;
     (=jis-x0208		. #x6222)	; &I-J90-6222; [66-02]
@@ -22,6 +40,11 @@
     (=gt-k		. 01052)	; &I-GT-K01052;
     (=gt-pj-1		. #x6222)	; &I-GT-29042; [66-02]
     (=daikanwa		. 22657)	; &I-M-22657;
+    (<-Liwen
+     ((=daikanwa	  . 49194)	; &M-49194;
+      ))
+    (<-Liwen*sources
+     jiyun)
     (->subsumptive
      ((==ucs@unicode	  . #x7676)	; &g2-AJ1-05783;
       (==adobe-japan1-0	  . 05783)	; &g2-AJ1-05783;
@@ -52,7 +75,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 105)	; ⽨
+  '((<-denotational
+     ((=>big5-cdp	  . #x8B6E)	; &A-CDP-8B6E;
+      ))
+    (ideographic-radical . 105)	; ⽨
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (ideographic-structure
@@ -71,7 +97,42 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 105)	; ⽨
+  '((<-denotational
+     ((=>big5-cdp	  . #x8C4F)	; &A-CDP-8C4F;
+      ))
+    (ideographic-radical . 105)	; ⽨
+    (ideographic-strokes . 0)
+    (=>ucs-itaiji-004	. #x7676)	; &A-U-i004+7676;
+    (<-formed@component
+     ((=gt-k		  . 01253)	; &GT-K01253;
+      )
+     ((=ucs		  . #x7676)	; 癶
+      )
+     ((=big5-cdp	  . #x8C4F)	; &CDP-8C4F;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-004	  . #x7676)	; &A-U-i004+7676;
+      ))
+    (ideographic-radical . 105)	; ⽨
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5915)	; 夕
+      )
+     ((=big5-cdp	  . #x88D5)	; &CDP-88D5;
+      ))
+    (=ucs-itaiji-004	. #x7676)	; &U-i004+7676;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8C4F)	; &A-CDP-8C4F;
+      ))
+    (ideographic-radical . 105)	; ⽨
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (ideographic-structure
@@ -84,7 +145,7 @@
       ))
     (=gt-k		. 01253)	; &GT-K01253;
     (=gt-pj-k1		. #x3B2D)	; &GT-K01253; [27-13]
-    (<-formed
+    (<-formed@component
      ((=big5-cdp	  . #x8C4F)	; &CDP-8C4F;
       )
      ((=ucs		  . #x7676)	; 癶
