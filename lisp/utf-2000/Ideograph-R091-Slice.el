@@ -1250,6 +1250,44 @@
     ))
 (define-char
   '((ideographic-radical . 91)	; ⽚
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7247)	; 片
+      )
+     ((=ucs		  . #x3AC4)	; 㫄
+      ))
+    (=ucs		. #x245D2)	; 𤗒
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((==ucs@unicode	    . #x7247)	; &g2-AJ1-03618;
+	(==adobe-japan1-0   . 03618)	; &g2-AJ1-03618;
+	)
+       ((==ucs@unicode	    . #x3AC4)	; &g2-AJ1-20135;
+	(==adobe-japan1-5   . 20135)	; &g2-AJ1-20135;
+	))
+      (==ucs@JP/hanazono  . #x245D2)	; &g2-hanaJU+245D2;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((==ucs@unicode	    . #x7247)	; &g2-AJ1-03618;
+	(==adobe-japan1-0   . 03618)	; &g2-AJ1-03618;
+	)
+       ((==ucs-var-002	    . #x3AC4)	; &g2-U-v002+3AC4;
+	))
+      (==ucs@iso	  . #x245D2)	; &g2-IU-000245D2;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (=ucs		. #x245D8)	; 𤗘
