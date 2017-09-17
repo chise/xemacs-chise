@@ -1,3 +1,9 @@
+2017-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R091-Slice.el (U-000245D2): New character.
+
+	* Ideograph-R057-Bow.el (MJ057470): Unify U-0002D6C1.
+
 2017-09-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (GT-K02380): New character.
