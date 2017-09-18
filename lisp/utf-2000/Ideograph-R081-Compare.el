@@ -470,6 +470,23 @@
     ))
 (define-char
   '((ideographic-radical . 81)	; ⽐
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 02380)	; &GT-K02380;
+      )
+     ((=ucs		  . #x6BD4)	; 比
+      ))
+    (=ucs		. #x2DBCD)	; 𭯍
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2DBCD)	; &g2-hanaJU+2DBCD;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 81)	; ⽐
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (sound@ja/on	"tyaku")
@@ -582,6 +599,8 @@
       ))
     (=ucs-itaiji-001	. #x23B0B)	; &U-i001+23B0B;
     (<-unknown
+     ((=ucs		  . #x2DBCD)	; 𭯍
+      )
      ((=ucs		  . #x23B0B)	; 𣬋
       ))
     ))
