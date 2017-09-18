@@ -1,5 +1,9 @@
 2017-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R081-Compare.el (U-0002DBCD): New character.
+
+2017-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R091-Slice.el (U-000245D2): New character.
 
 	* Ideograph-R057-Bow.el (MJ057470): Unify U-0002D6C1.
