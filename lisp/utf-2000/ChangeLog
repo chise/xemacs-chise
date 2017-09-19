@@ -1,3 +1,13 @@
+2017-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R120-Silk.el (C1-4B37): Unify CU+7CFB; add
+	representative node.
+	(A-CB02133): Unify U-0002E214; omit `=>cbeta'.
+	(CB02133): Unify MJ058307 and KOSEKI-307600; add `<-formed' for
+	U+7D72.
+	(U-000260AF): New character.
+	(U+7E23): Add ideographic-structure.
+
 2017-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R087-Claw.el (U-0002DDB0): New character.
