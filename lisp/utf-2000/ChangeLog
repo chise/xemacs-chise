@@ -1,3 +1,12 @@
+2017-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R087-Claw.el (U-0002DDB0): New character.
+	(GT-K08681): New character; use `<-denotational' for U-0002DDB0.
+
+	* Ideograph-R015-Ice.el (U-0002B94E): New character.
+	(U+2B94E-var-001): New character; use `<-denotational' for
+	U-0002B94E.
+
 2017-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R081-Compare.el (U-0002DBCD): New character.
