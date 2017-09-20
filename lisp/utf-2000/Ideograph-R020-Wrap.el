@@ -1003,19 +1003,82 @@
     ))
 (define-char
   '((ideographic-radical . 20)	; ⼓
-    (ideographic-strokes . 3)
-    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x52F9)	; 勹
+      )
+     ((=ucs		  . #x6B62)	; 止
+      ))
     (=ucs		. #x208CF)	; 𠣏
-    (=daikanwa		. 02509)	; &I-M-02509;
-    (=cbeta		. 02269)	; &I-CB02269;
     ))
 (define-char
-  '((=>ucs		. #x208CF)	; 𠣏
-    (morohashi-daikanwa	2509 0 1)
+  '((<-denotational
+     ((=ucs		  . #x208CF)	; 𠣏
+      ))
+    (ideographic-radical . 20)	; ⼓
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x52F9)	; 勹
+      )
+     ((=big5-cdp	  . #x8960)	; &HD-KS-184490;
+      ))
+    (=ucs@iso		. #x208CF)	; &M-02509;
+    (=daikanwa		. 02509)	; &M-02509;
+    (=cbeta		. 02269)	; &I-CB02269;
+    (<-wrong
+     ((=ucs@unicode	  . #x5303)	; &AJ1-19201;
+      (=adobe-japan1-5	  . 19201)	; &AJ1-19201;
+      (=daikanwa	  . 02504)	; &I-M-02504;
+      ))
+    (<-wrong*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (->formed
+     ((=ucs		  . #x4E10)	; 丐
+      (=daikanwa	  . 00022)	; &I-M-00022;
+      ))
+    (->formed*sources
+     guangyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x208CF)	; &g2-M-02509;
+      (==daikanwa	  . 02509)	; &g2-M-02509;
+      (==cbeta		  . 02269)	; &g2-M-02509;
+      (->subsumptive
+       ((===daikanwa	    . 02509)	; &R-M-02509;
+	)
+       ((===ucs@iso	    . #x208CF)	; &R-U-000208CF;
+	)
+       ((===cbeta	    . 02269)	; &R-CB02269;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x208CF)	; 𠣏
+      ))
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x52F9)	; 勹
+      )
+     ((=ucs@unicode	  . #x6B62)	; &AJ1-02221;
+      (=adobe-japan1-0	  . 02221)	; &AJ1-02221;
+      ))
+    (=ucs@cns		. #x208CF)	; &C5-2235;
     (=cns11643-5	. #x2235)	; &C5-2235; [02-21]
+    (->subsumptive
+     ((==ucs@cns	  . #x208CF)	; &g2-CU+208CF;
+      (==cns11643-5	  . #x2235)	; &g2-CU+208CF; [02-21]
+      ))
     ))
 (define-char
   '((=>ucs		. #x208CC)	; 𠣌
