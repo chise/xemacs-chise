@@ -1,5 +1,24 @@
 2017-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R116-Cave.el (U+7AA7): Add `ideographic-structure';
+	add representative nodes.
+	(U-000259B1): New character.
+
+	* Ideograph-R105-Dotted-Tent.el (U+2B7B4-itaiji-001): New
+	character.
+
+	* Ideograph-R032-Earth.el (U-0002D592): New character; use
+	`<-denotational@component' for A-compU+37B7.
+	(U-000214A7): New character.
+	(U-000214E4): Add ideographic-structure.
+	(U-0002F859): Apply new conventions for glyph granularity.
+
+	* Ideograph-R030-Mouth.el (U-0002105A): New character.
+	(U-000210EA): Apply new conventions for glyph granularity.
+
+	* Ideograph-R020-Wrap.el (U-000208CF): Use `->denotational' and
+	`->subsumptive'.
+
 	* Ideograph-R120-Silk.el (C1-4B37): Unify CU+7CFB; add
 	representative node.
 	(A-CB02133): Unify U-0002E214; omit `=>cbeta'.
