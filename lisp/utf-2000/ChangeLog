@@ -1,5 +1,9 @@
 2017-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R096-Jade.el (U-00024ADD): New character.
+
+2017-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R116-Cave.el (U+7AA7): Add `ideographic-structure';
 	add representative nodes.
 	(U-000259B1): New character.
