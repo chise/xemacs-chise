@@ -1,3 +1,15 @@
+2017-09-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=>ucs-bmp-itaiji-009' and `=>ucs-sip@cognate'.
+
+	* mule/mule-conf.el (=>ucs@cognate): New coded-charset for XEmacs
+	CHISE.
+	(=>ucs@hanyo-denshi): Abolished.
+	(=>ucs-itaiji-009): New coded-charset for XEmacs CHISE.
+	(=>ucs-bmp-itaiji-009): Ditto.
+	(=>ucs-sip@cognate): Ditto.
+
 2017-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
