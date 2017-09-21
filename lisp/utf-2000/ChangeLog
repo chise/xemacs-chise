@@ -1,5 +1,10 @@
 2017-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U-00020D67): Apply new conventions for
+	glyph granularity.
+
+2017-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R026-Seal.el (U-00020A1F): Apply new conventions for
 	glyph granularity.
 	(U+20A1F-itaiji-001): New character.
