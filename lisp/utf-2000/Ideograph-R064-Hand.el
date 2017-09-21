@@ -12928,6 +12928,39 @@
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x624C)	; 扌
+      )
+     ((=ucs		  . #x5154)	; 兔
+      ))
+    (=ucs		. #x22BC2)	; 𢯂
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22BC2)	; 𢯂
+      ))
+    (ideographic-radical . 64)	; ⼿
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x624C)	; 扌
+      )
+     ((=ucs@unicode	  . #x5154)	; &MJ007242;
+      (=mj		  . 007242)	; &MJ007242;
+      ))
+    (=ucs@iso		. #x22BC2)	; &U-00022BC2;
+    (->subsumptive
+     ((==ucs@iso	  . #x22BC2)	; &g2-IU-00022BC2;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (=ucs		. #x22BC8)	; 𢯈
@@ -16409,10 +16442,44 @@
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x624C)	; 扌
+      )
+     ((=ucs		  . #x2B94E)	; 𫥎
+      ))
+    (=ucs		. #x6400)	; 搀
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6400)	; 搀
+      ))
+    (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=ucs		. #x6400)	; 搀
-    (=gb2312		. #x3273)	; &I-G0-3273; [18-83]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x624C)	; 扌
+      )
+     ((=ucs@JP/hanazono	  . #x2B94E)	; &hanaJU+2B94E;
+      ))
+    (=ucs@unicode	. #x6400)	; &G0-3273;
+    (=gb2312		. #x3273)	; &G0-3273; [18-83]
+    (<-simplified@CN
+     ((=ucs@unicode	  . #x6519)	; &JSP-413E;
+      (=jis-x0212	  . #x413E)	; &JSP-413E; [33-30]
+      (=cns11643-1	  . #x7970)	; &I-C1-7970; [89-80]
+      (=gb12345		  . #x3273)	; &JSP-413E; [18-83]
+      (=daikanwa	  . 12991)	; &I-M-12991;
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x6400)	; &g2-UU+6400;
+      (==gb2312		  . #x3273)	; &g2-UU+6400; [18-83]
+      ))
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
@@ -29842,14 +29909,54 @@
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x624C)	; 扌
+      )
+     ((=ucs		  . #x6BDA)	; 毚
+      ))
+    (=ucs		. #x6519)	; 攙
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6519)	; 攙
+      ))
+    (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 17)
     (total-strokes	 . 20)
-    (=ucs		. #x6519)	; 攙
-    (=jis-x0212		. #x413E)	; &I-JSP-413E; [33-30]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x624C)	; 扌
+      )
+     ((=ucs@unicode	  . #x6BDA)	; &AJ1-17902;
+      (=adobe-japan1-5	  . 17902)	; &AJ1-17902;
+      ))
+    (=ucs@unicode	. #x6519)	; &JSP-413E;
+    (=jis-x0212		. #x413E)	; &JSP-413E; [33-30]
     (=cns11643-1	. #x7970)	; &I-C1-7970; [89-80]
-    (=gb12345		. #x3273)	; 攙 [18-83]
+    (=gb12345		. #x3273)	; &JSP-413E; [18-83]
     (=big5		. #xC465)	; &I-B-C465;
     (=daikanwa		. 12991)	; &I-M-12991;
+    (->subsumptive
+     ((==ucs@unicode	  . #x6519)	; &g2-JSP-413E;
+      (==jis-x0212	  . #x413E)	; &g2-JSP-413E; [33-30]
+      (==gb12345	  . #x3273)	; &g2-JSP-413E; [18-83]
+      (==daikanwa	  . 12991)	; &g2-JSP-413E;
+      (->subsumptive
+       ((===daikanwa	    . 12991)	; &R-M-12991;
+	)
+       ((===jis-x0212	    . #x413E)	; &R-JSP-413E; [33-30]
+	)
+       ((===ucs@unicode	    . #x6519)	; &R-UU+6519;
+	))
+      )
+     ((==ucs@cns	  . #x6519)	; &g2-CU+6519;
+      (==cns11643-1	  . #x7970)	; &g2-CU+6519; [89-80]
+      ))
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
