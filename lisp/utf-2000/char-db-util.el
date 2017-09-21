@@ -268,7 +268,7 @@
     =>jis-x0213-2
     ==>ucs@bucs
     =>iwds-1
-    =>ucs@hanyo-denshi
+    ;; =>ucs@hanyo-denshi
     =>ucs@iso
     =>ucs@unicode
     =>ucs@jis
@@ -364,6 +364,7 @@
     =big5-cdp-itaiji-003
     =>big5-cdp-itaiji-001
     =>ucs@iwds-1
+    =>ucs@cognate
     =>ucs@component
     ==ucs@gb
     =ucs@gb
