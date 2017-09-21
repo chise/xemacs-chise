@@ -1,6 +1,29 @@
+2017-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R026-Seal.el (U-00020A1F): Apply new conventions for
+	glyph granularity.
+	(U+20A1F-itaiji-001): New character.
+
+	* Ideograph-R018-Knife.el (U+5202): Apply new conventions for
+	glyph granularity.
+	(A-IWDSU+7588): New abstract node.
+	(U-00020826): Add `<-denotational' for A-IWDSU+7588.
+
+	* Ideograph-R017-Open-Box.el (U-0002069E): Use `->denotational'
+	and `->subsumptive'.
+	(M-01842): Unify U-000221D5.
+	(U-0002069F): Apply new conventions for glyph granularity.
+	(U-000206A0): Likewise.
+	(M-01844): Unify IU+206A0.
+	(U-000206A1): Add ideographic-structure.
+
 2017-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R096-Jade.el (U-00024ADD): New character.
+
+	* Ideograph-R064-Hand.el (U-00022BC2): New character.
+	(U+6400): Apply new conventions for glyph granularity.
+	(U+6519): Likewise.
 
 2017-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
