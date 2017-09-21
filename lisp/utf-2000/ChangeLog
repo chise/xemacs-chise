@@ -1,3 +1,8 @@
+2017-09-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Delete
+	`=>ucs@hanyo-denshi'; add `=>ucs@cognate'.
+
 2017-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U-00020D67): Apply new conventions for
