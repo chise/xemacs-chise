@@ -3577,6 +3577,17 @@
 		  =>iso-ir	177
 		  mother	=ucs))
 
+  (make-charset '=>ucs@cognate
+		"UCS abstract characters based on cognate."
+		'(long-name	"UCS based on cognate"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  =>iso-ir	177
+		  mother	=ucs))
+
   (make-charset '=>ucs@component
 		"UCS encoding for abstract components of IWDS-1."
 		'(long-name	"UCS for IWDS-1 abstract components"
@@ -3588,16 +3599,16 @@
 		  =>iso-ir	177
 		  mother	=ucs))
 
-  (make-charset '=>ucs@hanyo-denshi
-		"UCS abstract characters based on Han'you-Denshi collection."
-		'(long-name	"UCS base characters of Han'you-Denshi"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  =>iso-ir	177
-		  mother	=ucs))
+  ;; (make-charset '=>ucs@hanyo-denshi
+  ;;               "UCS abstract characters based on Han'you-Denshi collection."
+  ;;               '(long-name     "UCS base characters of Han'you-Denshi"
+  ;;                 chars         256
+  ;;                 dimension     3
+  ;;                 columns       2
+  ;;                 graphic       2
+  ;;                 direction     l2r
+  ;;                 =>iso-ir      177
+  ;;                 mother        =ucs))
 
   (make-charset '=>ucs@iso
 		"Abstract characters of ISO/IEC 10646 representatives"
@@ -5116,6 +5127,29 @@
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.itaiji009-0"))
+  (make-charset '=>ucs-itaiji-009
+		"Abstract characters corresponding with uXXXX-itaiji-009 of GlyphWiki"
+		'(long-name	"UCS-itaiji-009"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs))
+  (make-charset '=>ucs-bmp-itaiji-009
+		"uXXXX-itaiji-009's abstract characters in BMP"
+		'(long-name	"UCS-BMP-itaiji-009 characters"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=>ucs-itaiji-009
+		  min-code #x2E00
+		  max-code #x9FCC
+		  registry "ucs\\.itaiji009-0"))
 
   (make-charset '=ucs-itaiji-010
 		"uXXXX-itaiji-010 glyphs of GlyphWiki"
@@ -5582,6 +5616,19 @@
 	       direction l2r
 	       registry "ucs00-2$"
 	       mother =>ucs@iwds-1
+	       min-code #x20000 max-code #x2FFFF
+	       code-offset #x20000))
+  (make-charset
+   '=>ucs-sip@cognate
+   "CJK Characters in SIP for abstract characters based on cognate."
+   '(long-name "CJK in SIP@cognate"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "ucs00-2$"
+	       mother =>ucs@cognate
 	       min-code #x20000 max-code #x2FFFF
 	       code-offset #x20000))
   (make-charset
