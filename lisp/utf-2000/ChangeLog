@@ -1,5 +1,10 @@
 2017-09-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R120-Silk.el (U-0002605F): Apply new conventions for
+	glyph granularity.
+
+2017-09-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Delete
 	`=>ucs@hanyo-denshi'; add `=>ucs@cognate'.
 
