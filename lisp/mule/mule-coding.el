@@ -525,6 +525,7 @@
 	  ( =>zinbun-oracle		       "A-ZOB-" 4 d)
 	  (==>ucs@bucs				"BUCS+" 4 X)
 	  ( =>ucs@iwds-1		     "A-IWDSU+" 4 X)
+	  ( =>ucs@cognate		      "A-cgnU+" 4 X)
 	  ( =>ucs@component		     "A-compU+" 4 X)
 	  ( =>iwds-1			       "IWDS1-" 3 d)
 	  ( =>mj				 "A-MJ" 6 d)
