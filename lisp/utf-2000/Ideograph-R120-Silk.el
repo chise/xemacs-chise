@@ -13455,12 +13455,33 @@
   '((ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
+    (hanyu-dazidian	5 3416 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7CF8)	; 糸
+      )
+     ((=ucs		  . #x2E77E)	; 𮝾
+      ))
     (=ucs		. #x2605F)	; 𦁟
     (->subsumptive
-     ((hanyu-dazidian	  5 3416 5)
-      (=hanziku-9	  . #xC359)	; &HZK09-C359;
+     ((==ucs@JP/hanazono  . #x2605F)	; &g2-hanaJU+2605F;
       )
-     ((=ucs@iso		  . #x2605F)	; &U-0002605F;
+     ((=hanziku-9	  . #xC359)	; &HZK09-C359;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x7CF8)	; 糸
+	)
+       ((=ucs-var-001	    . #x2E77E)	; &U-v001+2E77E;
+	))
+      (=>>ucs@iso	  . #x2605F)	; &G-IU+2605F;
+      (->subsumptive
+       ((==ucs@iso	    . #x2605F)	; &g2-IU-0002605F;
+	))
       ))
     ))
 (define-char
