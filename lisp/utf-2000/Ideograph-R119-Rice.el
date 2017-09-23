@@ -7679,12 +7679,29 @@
   '((ideographic-radical . 119)	; ⽶
     (ideographic-strokes . 13)
     (total-strokes	 . 19)
-    (=ucs		. #x25F4A)	; 𥽊
-    (->subsumptive
-     ((=ucs@iso		  . #x25F4A)	; &M-49462;
-      (=daikanwa	  . 49462)	; &M-49462;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-7	  . #x4855)	; &C7-4855; [40-53]
+     ((=ucs		  . #x7C73)	; 米
+      )
+     ((=ucs-itaiji-001	  . #x20A1F)	; &U-i001+20A1F;
+      ))
+    (=ucs		. #x25F4A)	; 𥽊
+    (=cns11643-7	. #x4855)	; &I-C7-4855; [40-53]
+    (=daikanwa		. 49462)	; &I-M-49462;
+    (<-original
+     ((=daikanwa	  . 26992)	; &M-26992;
+      ))
+    (<-original*sources
+     daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 49462)	; &g2-M-49462;
+      )
+     ((==ucs@iso	  . #x25F4A)	; &g2-IU-00025F4A;
+      )
+     ((==ucs@cns	  . #x25F4A)	; &g2-CU+25F4A;
+      (==cns11643-7	  . #x4855)	; &g2-CU+25F4A; [40-53]
       ))
     ))
 (define-char

@@ -1,3 +1,50 @@
+2017-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R119-Rice.el (U-00025F4A): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R094-Dog.el (U-000247DB): New character.
+	(A-IWDSU+248D4): New abstract node.
+	(M-20799): Don't map to U-000248D7; unify U-000248D4; add
+	`<-denotational' for A-IWDSU+248D4.
+	(U-000248D7): Add `<-denotational' for A-IWDSU+248D4.
+
+	* Ideograph-R087-Claw.el (U-0002453C): New character.
+	(U-000206A1): Add ideographic-structure; add `sound@ja/on'.
+	(M-49274): Unify MJ031234 and KOSEKI-222050; add `<-formed' and
+	`<-same' for M-01836.
+
+	* Ideograph-R061-Heart.el (U-0002D7B0): New character.
+	(CB01158): Unify U-0002D7AA.
+	(U-00022933): Apply new conventions for glyph granularity.
+
+2017-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R037-Big.el (U-00026C29): Separate A-BC-8BD3 and
+	IWDS1-0301.
+	(o-IU+26C29): Use IWDS1-0301 instead of U-00026C29 as its mother.
+	(U+26C29-itaiji-005): New character; use `<-denotational' for
+	U-00026C29.
+	(IWDS1-0301): Separate U-00026C29; add `<-denotational' for
+	U-00026C29.
+	(BC-8BD3): Use IWDS1-0301 instead of U-00026C29 as its mother.
+
+	* Ideograph-R027-Cliff.el (U+5382): Add A-compU+20087 as a target
+	of `<-denotational@component'.
+
+	* Ideograph-R019-Power.el (U-0002088C): New character.
+	(M-02413): Add `<-subsumptive' for U-0002088C.
+	(U-0002088F): Apply new conventions for glyph granularity.
+
+	* Ideograph-R010-Legs.el (U-000204D7): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R009-Man.el (U-000202C2): Apply new conventions for
+	glyph granularity.
+	(U+50BC): Likewise.
+	(U-0002D003): New character.
+	(U+5133): Add `sound@ja/on/{kan|go|conventional}'.
+
 2017-09-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R120-Silk.el (U-0002605F): Apply new conventions for
