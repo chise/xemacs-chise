@@ -3,6 +3,8 @@
   '((<-denotational@component
      ((=>ucs@component	  . #x4E06)	; &A-compU+4E06;
       (=>iwds-1		  .  0150)	; &A-compU+4E06;
+      )
+     ((=>ucs@component	  . #x20087)	; &A-compU+20087;
       ))
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 0)
