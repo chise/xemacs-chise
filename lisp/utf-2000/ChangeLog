@@ -1,5 +1,8 @@
 2017-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R119-Rice.el (U-00025F4A): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R094-Dog.el (U-000247DB): New character.
 	(A-IWDSU+248D4): New abstract node.
 	(M-20799): Don't map to U-000248D7; unify U-000248D4; add
