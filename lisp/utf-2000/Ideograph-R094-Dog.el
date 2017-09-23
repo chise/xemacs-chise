@@ -5420,6 +5420,39 @@
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x72AD)	; 犭
+      )
+     ((=ucs		  . #x5154)	; 兔
+      ))
+    (=ucs		. #x247DB)	; 𤟛
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x247DB)	; 𤟛
+      ))
+    (ideographic-radical . 94)	; ⽝
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x72AD)	; 犭
+      )
+     ((=ucs@unicode	  . #x5154)	; &MJ007242;
+      (=mj		  . 007242)	; &MJ007242;
+      ))
+    (=ucs@iso		. #x247DB)	; &U-000247DB;
+    (->subsumptive
+     ((==ucs@iso	  . #x247DB)	; &g2-IU-000247DB;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (ideographic-structure
@@ -11952,19 +11985,78 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x248D7)	; 𤣗
+  '((ideographic-radical . 94)	; ⽝
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x72AD)	; 犭
+      )
+     ((=ucs		  . #x74BD)	; 璽
+      ))
+    (=>ucs@iwds-1	. #x248D4)	; &A-IWDSU+248D4;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x248D4)	; &A-IWDSU+248D4;
+      ))
     (ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 18)
     (total-strokes	 . 21)
-    (=daikanwa		. 20799)	; &M-20799;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x72AD)	; 犭
+      )
+     ((=ucs-itaiji-001	  . #x74BD)	; &U-i001+74BD;
+      ))
+    (=ucs		. #x248D4)	; 𤣔
+    (=daikanwa		. 20799)	; &I-M-20799;
+    (<-original
+     ((=ucs@unicode	  . #x736E)	; &AJ1-18078;
+      (=adobe-japan1-5	  . 18078)	; &AJ1-18078;
+      (=daikanwa	  . 20748)	; &I-M-20748;
+      ))
+    (<-original*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x248D4)	; &g2-M-20799;
+      (==daikanwa	  . 20799)	; &g2-M-20799;
+      (->subsumptive
+       ((===daikanwa	    . 20799)	; &R-M-20799;
+	)
+       ((===ucs@iso	    . #x248D4)	; &R-U-000248D4;
+	))
+      ))
     ))
 (define-char
-  '((morohashi-daikanwa	20799 0 2)
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x248D4)	; &A-IWDSU+248D4;
+      ))
     (ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 19)
     (total-strokes	 . 22)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x72AD)	; 犭
+      )
+     ((=ucs@unicode	  . #x74BD)	; &AJ1-02257;
+      (=adobe-japan1-0	  . 02257)	; &AJ1-02257;
+      ))
     (=ucs		. #x248D7)	; 𤣗
     (=cns11643-4	. #x6874)	; &I-C4-6874; [72-84]
+    (->subsumptive
+     ((==ucs@iso	  . #x248D7)	; &g2-IU-000248D7;
+      (==cns11643-4	  . #x6874)	; &g2-IU-000248D7; [72-84]
+      (->subsumptive
+       ((===cns11643-4	    . #x6874)	; &R-C4-6874; [72-84]
+	)
+       ((===ucs@iso	    . #x248D7)	; &R-U-000248D7;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
