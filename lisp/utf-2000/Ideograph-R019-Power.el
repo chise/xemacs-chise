@@ -5317,18 +5317,85 @@
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (=daikanwa		. 02413)	; &M-02413;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x215D7)	; 𡗗
+      )
+     ((=ucs		  . #x52AD)	; 劭
+      ))
+    (sound@ja/on	"ryaku")
+    (=ucs		. #x2088C)	; 𠢌
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs@iso	    . #x215D7)	; &AJ1-17472;
+	(=adobe-japan1-5    . 17472)	; &AJ1-17472;
+	)
+       ((=ucs		    . #x52AD)	; 劭
+	))
+      (=daikanwa	  . 02413)	; &M-02413;
+      (->subsumptive
+       ((==daikanwa	    . 02413)	; &g2-M-02413;
+	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=big5-cdp	    . #x8BE9)	; &CDP-8BE9;
+	)
+       ((=ucs		    . #x52AD)	; 劭
+	))
+      (=ucs@iso		  . #x2088C)	; &U-0002088C;
+      (->subsumptive
+       ((==ucs@iso	    . #x2088C)	; &g2-IU-0002088C;
+	(->subsumptive
+	 ((===ucs@iso	      . #x2088C)	; &R-U-0002088C;
+	  )
+	 ((=hanziku-1	      . #xF369)	; &HZK01-F369;
+	  ))
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (=ucs		. #x2088F)	; 𠢏
-    (->subsumptive
-     ((=daikanwa	  . 02414)	; &M-02414;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
       )
-     ((=ucs@iso		  . #x2088F)	; &C6-4670;
-      (=cns11643-6	  . #x4670)	; &C6-4670; [38-80]
+     ((=gt-k		  . 07025)	; &GT-K07025;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (sound@ja/on	"keN")
+    (=ucs		. #x2088F)	; 𠢏
+    (=cns11643-6	. #x4670)	; &I-C6-4670; [38-80]
+    (=daikanwa		. 02414)	; &I-M-02414;
+    (<-original
+     ((=ucs@jis		  . #x52B5)	; &MJ007645;
+      (=mj		  . 007645)	; &MJ007645;
+      (=daikanwa	  . 02330)	; &I-M-02330;
+      ))
+    (<-original*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 02414)	; &g2-M-02414;
+      )
+     ((==ucs@iso	  . #x2088F)	; &g2-IU-0002088F;
+      (==cns11643-6	  . #x4670)	; &g2-IU-0002088F; [38-80]
+      (->subsumptive
+       ((===cns11643-6	    . #x4670)	; &R-C6-4670; [38-80]
+	)
+       ((===ucs@iso	    . #x2088F)	; &R-U-0002088F;
+	)
+       ((=hanziku-1	    . #xF372)	; &HZK01-F372;
+	))
       ))
     ))
 (define-char
