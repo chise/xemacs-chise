@@ -4781,6 +4781,14 @@
     ))
 (define-char
   '((ideographic-radical . 76)	; ⽋
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x26C29)	; 𦰩
+      )
+     ((=ucs		  . #x6B20)	; 欠
+      ))
     (=ucs		. #x6B4E)	; 歎
     (=>jis-x0208	. #x4337)	; 歎 [35-23]
     (=>jis-x0213-1	. #x4337)	; 歎 [35-23]
@@ -4792,6 +4800,14 @@
     (ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=big5-cdp	  . #x8BD3)	; &CDP-8BD3;
+      )
+     ((=ucs		  . #x6B20)	; 欠
+      ))
     (=ucs@unicode	. #x6B4E)	; &HD-FT-3D30;
     (=ks-x1001		. #x7727)	; &HD-FT-3D30; [87-07]
     (=cns11643-1	. #x6D45)	; &I-C1-6D45; [77-37]
@@ -4799,6 +4815,7 @@
     (=big5		. #xBCDB)	; &I-B-BCDB;
     (=hanyo-denshi/ft	. #x3D30)	; &I-HD-FT-3D30; [29-16]
     (=daikanwa		. 16182)	; &I-M-16182;
+    (=shinjigen		.  3940)	; &HD-FT-3D30;
     (=jef-china3	. #x54D3)	; &I-JC3-54D3;
     (->subsumptive
      ((=decomposition@hanyo-denshi
@@ -4815,6 +4832,7 @@
       (==jis-x0213-1@2004 . #x4337)	; &g2-HD-FT-3D30; [35-23]
       (==hanyo-denshi/ft  . #x3D30)	; &g2-HD-FT-3D30; [29-16]
       (==daikanwa	  . 16182)	; &g2-HD-FT-3D30;
+      (==shinjigen	  .  3940)	; &g2-HD-FT-3D30;
       (==jef-china3	  . #x54D3)	; &g2-HD-FT-3D30;
       (->subsumptive
        ((===daikanwa	    . 16182)	; &R-M-16182;
@@ -4846,6 +4864,52 @@
     (ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-itaiji-005	  . #x26C29)	; &U-i005+26C29;
+      )
+     ((=ucs		  . #x6B20)	; 欠
+      ))
+    (=mj		. 057884)	; &MJ057884;
+    (=hanyo-denshi/ks	. 183640)	; &MJ057884;
+    (<-formed
+     ((=ucs@unicode	  . #x6B4E)	; &HD-FT-3D30;
+      (=ks-x1001	  . #x7727)	; &HD-FT-3D30; [87-07]
+      (=cns11643-1	  . #x6D45)	; &I-C1-6D45; [77-37]
+      (=jis-x0213-1@2004  . #x4337)	; &I-JX3-4337; [35-23]
+      (=daikanwa	  . 16182)	; &I-M-16182;
+      ))
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==mj		  . 057884)	; &g2-MJ057884;
+      (==hanyo-denshi/ks  . 183640)	; &g2-MJ057884;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 183640)	; &R-HD-KS-183640;
+	(=hanyo-denshi/ks/mf . #x47BC)	; &R-HD-KS-183640;
+	)
+       ((===mj		    . 057884)	; &R-MJ057884;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6B4E)	; 歎
+      ))
+    (ideographic-radical . 76)	; ⽋
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@iso		  . #x26C29)	; &GT-07490;
+      (=jis-x0213-2	  . #x2544)	; &GT-07490; [05-36]
+      )
+     ((=ucs		  . #x6B20)	; 欠
+      ))
     (=ucs@jis/1990	. #x6B4E)	; &AJ1-02933;
     (=ucs@jis/2000	. #x6B4E)	; &AJ1-02933;
     (=adobe-japan1-0	. 02933)	; &AJ1-02933;
@@ -6825,6 +6889,16 @@
     ))
 (define-char
   '((ideographic-radical . 76)	; ⽋
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+      (=ucs		  . #x2FF2)	; ⿲
+      )
+     ((=ucs		  . #x26C29)	; 𦰩
+      )
+     ((=ucs		  . #x9CE5)	; 鳥
+      )
+     ((=ucs		  . #x6B20)	; 欠
+      ))
     (=ucs		. #x23941)	; 𣥁
     ))
 (define-char
@@ -6834,6 +6908,17 @@
     (ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 22)
     (total-strokes	 . 26)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+      (=ucs		  . #x2FF2)	; ⿲
+      )
+     ((=big5-cdp	  . #x8BD3)	; &CDP-8BD3;
+      )
+     ((=ucs@unicode	  . #x9CE5)	; &AJ1-03031;
+      (=adobe-japan1-0	  . 03031)	; &AJ1-03031;
+      )
+     ((=ucs		  . #x6B20)	; 欠
+      ))
     (=ucs@iso		. #x23941)	; &C4-6D56;
     (=cns11643-4	. #x6D56)	; &C4-6D56; [77-54]
     (=daikanwa		. 16252)	; &I-M-16252;
