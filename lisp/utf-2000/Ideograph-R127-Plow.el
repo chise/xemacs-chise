@@ -1946,15 +1946,80 @@
     ))
 (define-char
   '((ideographic-radical . 127)	; ⽾
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8012)	; 耒
+      )
+     ((=ucs		  . #x26C29)	; 𦰩
+      ))
+    (sound@ja/on	"kaN")
+    (=ucs		. #x43AF)	; 䎯
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x43AF)	; 䎯
+      ))
+    (ideographic-radical . 127)	; ⽾
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
-    (=ucs		. #x43AF)	; 䎯
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@cns		  . #x8012)	; &AJ1-06205;
+      (=ucs@jis		  . #x8012)	; &AJ1-06205;
+      (=ucs@ks		  . #x8012)	; &AJ1-06205;
+      (=adobe-japan1-0	  . 06205)	; &AJ1-06205;
+      )
+     ((=big5-cdp	  . #x8BD3)	; &CDP-8BD3;
+      ))
+    (=ucs@cns		. #x43AF)	; &C4-577B;
+    (=cns11643-4	. #x577B)	; &C4-577B; [55-91]
+    (=daikanwa		. 28968)	; &I-M-28968;
+    (<-formed
+     ((=ucs@iso		  . #x24CC9)	; &C4-5143;
+      (=cns11643-4	  . #x5143)	; &C4-5143; [49-35]
+      (=daikanwa	  . 21935)	; &I-M-21935;
+      ))
+    (<-formed*sources
+     jiyun)
+    (<-same
+     ((=ucs@iso		  . #x24CC9)	; &C4-5143;
+      (=cns11643-4	  . #x5143)	; &C4-5143; [49-35]
+      (=daikanwa	  . 21935)	; &I-M-21935;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 28968)	; &M-28968;
+     ((==daikanwa	  . 28968)	; &g2-M-28968;
       )
-     ((=cns11643-4	  . #x577B)	; &C4-577B; [55-91]
+     ((==ucs@cns	  . #x43AF)	; &g2-CU+43AF;
+      (==cns11643-4	  . #x577B)	; &g2-CU+43AF; [55-91]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x43AF)	; 䎯
+      ))
+    (ideographic-radical . 127)	; ⽾
+    (ideographic-strokes . 11)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x43AF)	; &UU+43AF;
+     ((=ucs@unicode	  . #x8012)	; &HD-FT-384C;
+      (=gb2312		  . #x7167)	; &HD-FT-384C; [81-71]
+      )
+     ((=big5-cdp	  . #x8BD3)	; &CDP-8BD3;
+      ))
+    (=ucs@unicode	. #x43AF)	; &UU+43AF;
+    (=ucs@JP/hanazono	. nil)
+    (->subsumptive
+     ((==ucs@unicode	  . #x43AF)	; &g2-UU+43AF;
+      (==ucs@JP/hanazono  . nil)
       ))
     ))
 (define-char
