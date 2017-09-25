@@ -1,3 +1,21 @@
+2017-09-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R127-Plow.el (U+43AF): Apply new conventions for glyph
+	granularity.
+
+2017-09-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R076-Lack.el (U+6B4E): Add ideographic-structure.
+	(MJ057884): New character; use `<-denotational' for U+6B4E; unify
+	HD-KS183640.
+	(U-00023941): Add ideographic-structure.
+
+	* Ideograph-R029-Again.el (U+53C8): Add `sound@ja/on/{kan|go}';
+	add `<-same' for U+53F3.
+
+	* Ideograph-R026-Seal.el (H1-E7C6): New character; use
+	`<-subsumptive' for g2-IU+20A1F.
+
 2017-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R119-Rice.el (U-00025F4A): Apply new conventions for
