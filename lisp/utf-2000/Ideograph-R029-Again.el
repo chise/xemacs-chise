@@ -4,6 +4,8 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 390 1)
+    (sound@ja/on/go	"u")
+    (sound@ja/on/kan	"Iu")
     (=ucs		. #x53C8)	; 又
     (=adobe-japan1-0	. 03746)	; &I-AJ1-03746;
     (=jis-x0208		. #x4B74)	; &I-J90-4B74; [43-84]
@@ -17,6 +19,12 @@
     (=gt-pj-1		. #x4B74)	; &I-GT-03944; [43-84]
     (=daikanwa		. 03115)	; &I-M-03115;
     (=shinjigen		.  0897)	; 又
+    (<-same
+     ((=ucs		  . #x53F3)	; 右
+      (=daikanwa	  . 03250)	; &I-M-03250;
+      ))
+    (<-same*sources
+     shuowen-zhu daikanwa)
     (->subsumptive
      ((==ucs@ks		  . #x53C8)	; &g2-M-03115;
       (==ks-x1001	  . #x6951)	; &g2-M-03115; [73-49]
