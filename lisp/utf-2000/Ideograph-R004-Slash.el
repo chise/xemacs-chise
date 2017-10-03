@@ -181,20 +181,68 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (=>ucs@component	. #x20087)	; &A-compU+20087;
+    ))
+(define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x5341)	; &A-compU+5341;
       (=>iwds-1		  .  0037)	; &A-compU+5341;
+      )
+     ((=>ucs@component	  . #x20087)	; &A-compU+20087;
       ))
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 3 2)
+    (sound@ja/on	"sa")
     (=ucs		. #x20087)	; 𠂇
     (=cns11643-5	. #x2126)	; &I-C5-2126; [01-06]
     (=gt		. 00156)	; &I-GT-00156;
     (=gt-k		. 00104)	; &I-GT-K00104;
     (=gt-pj-2		. #x3077)	; &I-GT-00156; [16-87]
     (=daikanwa		. 00112)	; &I-M-00112;
+    (<-ancient
+     ((=ucs@unicode	  . #x5DE6)	; &AJ1-02088;
+      (=adobe-japan1-0	  . 02088)	; &AJ1-02088;
+      ))
+    (<-ancient*sources
+     zhengzitong)
+    (<-formed@flipped-horizontally
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (<-original
+     ((=ucs@unicode	  . #x5DE6)	; &AJ1-02088;
+      (=adobe-japan1-0	  . 02088)	; &AJ1-02088;
+      (=daikanwa	  . 08720)	; &I-M-08720;
+      ))
+    (<-original*sources
+     jiyun zhengzitong daikanwa)
+    (->formed
+     ((=ucs@unicode	  . #x5DE6)	; &AJ1-02088;
+      (=adobe-japan1-0	  . 02088)	; &AJ1-02088;
+      ))
+    (->formed*sources
+     jiyun)
+    (->subsumptive
+     ((==ucs@iso	  . #x20087)	; &g2-GT-00156;
+      (==cns11643-5	  . #x2126)	; &g2-GT-00156; [01-06]
+      (==gt		  . 00156)	; &g2-GT-00156;
+      (==gt-k		  . 00104)	; &g2-GT-00156;
+      (==daikanwa	  . 00112)	; &g2-GT-00156;
+      (->subsumptive
+       ((===daikanwa	    . 00112)	; &R-M-00112;
+	)
+       ((===cns11643-5	    . #x2126)	; &R-C5-2126; [01-06]
+	)
+       ((===gt		    . 00156)	; &R-GT-00156;
+	(===gt-k	    . 00104)	; &R-GT-00156;
+	)
+       ((===ucs@iso	    . #x20087)	; &R-U-00020087;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
@@ -1951,13 +1999,13 @@
   '((ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
-    (=>ucs@component	. #x4E51)	; &A-compU+4E51;
-    (=>iwds-1		.  0328)	; &A-compU+4E51;
+    (=>ucs@iwds-1	. #x4E51)	; &A-IWDSU+4E51;
+    (=>iwds-1		.  0328)	; &A-IWDSU+4E51;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x4E51)	; &A-compU+4E51;
-      (=>iwds-1		  .  0328)	; &A-compU+4E51;
+     ((=>ucs@iwds-1	  . #x4E51)	; &A-IWDSU+4E51;
+      (=>iwds-1		  .  0328)	; &A-IWDSU+4E51;
       ))
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 5)
