@@ -1,4 +1,29 @@
+2017-09-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (U-00021A79): New character.
+
+	* Ideograph-R007-Two.el (IWDS1-0093): Use A-IWDSU+4E8F instead of
+	A-compU+4E8F.
+	(A-cgnU+20122): Changed from A-compU+20122.
+
+	* Ideograph-R004-Slash.el (A-compU+20087): New abstract component.
+	(U-00020087): Add A-compU+20087 into `<-denotational@component';
+	add `sound@ja/on'; add `<-ancient' for UU+5DE6; add
+	`<-formed@flipped-horizontally' for U+53C8; add `<-original' and
+	`->formed' for UU+5DE6.
+	(IWDS1-0328): Use A-IWDSU+4E51 instead of A-compU+4E51.
+
 2017-09-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R102-Field.el (U-00024CC9): Apply new conventions for
+	glyph granularity.
+	(IU+24CC9): Unify M-21935.
+	(U+7588): Add `<-denotational' for A-IWDSU+7588; apply new
+	conventions for glyph granularity.
+
+	* Ideograph-R017-Open-Box.el (U-00020698): Use `->denotational'
+	and `->subsumptive'.
+	(U-000206A1): Add `sound@ja/on'.
 
 	* Ideograph-R127-Plow.el (U+43AF): Apply new conventions for glyph
 	granularity.

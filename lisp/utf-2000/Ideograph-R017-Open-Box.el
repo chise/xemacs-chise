@@ -1370,21 +1370,75 @@
     (=hanziku-1		. #xE5CC)	; &I-HZK01-E5CC;
     ))
 (define-char
-  '((=>ucs		. #x20698)	; 𠚘
+  '((ideographic-radical . 17)	; ⼐
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs		  . #x51F5)	; 凵
+      )
+     ((=ucs		  . #x8200)	; 舀
+      ))
+    (=ucs		. #x20698)	; 𠚘
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20698)	; 𠚘
+      ))
     (ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (hanyu-dazidian	1 310 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs@unicode	  . #x51F5)	; &AJ1-04248;
+      (=adobe-japan1-0	  . 04248)	; &AJ1-04248;
+      )
+     ((=adobe-japan1-5	  . 19722)	; &AJ1-19722;
+      ))
     (=daikanwa		. 01836)	; &M-01836;
-    (=hanziku-1		. #xE5DF)	; &I-HZK01-E5DF;
+    (->subsumptive
+     ((==daikanwa	  . 01836)	; &g2-M-01836;
+      (->subsumptive
+       ((===daikanwa	    . 01836)	; &R-M-01836;
+	)
+       ((=hanziku-1	    . #xE5DF)	; &HZK01-E5DF;
+	))
+      ))
     ))
 (define-char
-  '((morohashi-daikanwa	1836 0 2)
+  '((<-denotational
+     ((=ucs		  . #x20698)	; 𠚘
+      ))
     (ideographic-radical . 17)	; ⼐
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (=ucs		. #x20698)	; 𠚘
-    (=cns11643-5	. #x365D)	; &I-C5-365D; [22-61]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (=ucs		  . #x2FF6)	; ⿶
+      )
+     ((=ucs@unicode	  . #x51F5)	; &AJ1-04248;
+      (=adobe-japan1-0	  . 04248)	; &AJ1-04248;
+      )
+     ((=ucs@unicode	  . #x8200)	; &C1-576A;
+      (=gb2312		  . #x5228)	; &C1-576A; [50-08]
+      (=cns11643-1	  . #x576A)	; &I-C1-576A; [55-74]
+      ))
+    (=ucs@iso		. #x20698)	; &C5-365D;
+    (=cns11643-5	. #x365D)	; &C5-365D; [22-61]
+    (->subsumptive
+     ((==ucs@iso	  . #x20698)	; &g2-IU-00020698;
+      (==cns11643-5	  . #x365D)	; &g2-IU-00020698; [22-61]
+      (->subsumptive
+       ((===cns11643-5	    . #x365D)	; &R-C5-365D; [22-61]
+	)
+       ((===ucs@iso	    . #x20698)	; &R-U-00020698;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 17)	; ⼐
@@ -1624,6 +1678,7 @@
       )
      ((=ucs		  . #x8200)	; 舀
       ))
+    (sound@ja/on	"tAu")
     (=ucs		. #x206A1)	; 𠚡
     ))
 (define-char
