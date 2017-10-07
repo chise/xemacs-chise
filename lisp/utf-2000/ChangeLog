@@ -25,6 +25,9 @@
 	and `->subsumptive'.
 	(U-000206A1): Add `sound@ja/on'.
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=ucs-itaiji-010'.
+
 	* Ideograph-R127-Plow.el (U+43AF): Apply new conventions for glyph
 	granularity.
 
