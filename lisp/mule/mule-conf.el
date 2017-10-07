@@ -5435,6 +5435,21 @@
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
+   '=>ucs-bmp-cjk@cognate
+   "CJK Characters in BMP for abstract characters based on cognate."
+   '(long-name "CJK in BMP@cognate"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-ja-.*-ucs-0"
+	       mother =>ucs@cognate
+	       min-code #x2E00
+               max-code #x9FCC
+	       ;; max-code #xA4CF
+	       ))
+  (make-charset
    '=>ucs-bmp-cjk@component
    "CJK Characters in BMP for IWDS-1 abstract components."
    '(long-name "CJK in BMP@component"
