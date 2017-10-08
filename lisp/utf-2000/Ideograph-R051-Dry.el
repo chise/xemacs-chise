@@ -442,12 +442,15 @@
      ((==>ucs@bucs	  . #x5002)	; &BUCS+5002;
       ))
     (ideographic-radical . 51)	; ⼲
+    (=>ucs@iwds-1	. #x5E77)	; &J97-5675;
     (=>jis-x0208@1997	. #x5675)	; &J97-5675; [54-85]
     (=>jis-x0213-1@2000 . #x5675)	; &J97-5675; [54-85]
+    (=>iwds-1		.  0181)	; &J97-5675;
     ))
 (define-char
   '((<-denotational
-     ((=>jis-x0208@1997	  . #x5675)	; &J97-5675; [54-85]
+     ((=>ucs@iwds-1	  . #x5E77)	; &J97-5675;
+      (=>jis-x0208@1997	  . #x5675)	; &J97-5675; [54-85]
       ))
     (ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 3)
@@ -650,7 +653,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>jis-x0208@1997	  . #x5675)	; &J97-5675; [54-85]
+     ((=>ucs@iwds-1	  . #x5E77)	; &J97-5675;
+      (=>jis-x0208@1997	  . #x5675)	; &J97-5675; [54-85]
       ))
     (ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 5)
