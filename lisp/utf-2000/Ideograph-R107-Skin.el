@@ -690,7 +690,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>jis-x0208	  . #x3A3A)	; &J97-3A3A; [26-26]
+     ((=>ucs@iwds-1	  . #x67FB)	; &J97-3A3A;
+      (=>jis-x0208	  . #x3A3A)	; &J97-3A3A; [26-26]
       )
      ((=ucs		  . #x76AE)	; 皮
       ))
