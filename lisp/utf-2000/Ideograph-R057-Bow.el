@@ -3376,8 +3376,8 @@
       )
      ((=ucs		  . #x5F13)	; 弓
       )
-     ((=>ucs@component	  . #x867D)	; &A-compU+867D;
-      (=>iwds-1		  .  0288)	; &A-compU+867D;
+     ((=>ucs@iwds-1	  . #x867D)	; &A-IWDSU+867D;
+      (=>iwds-1		  .  0288)	; &A-IWDSU+867D;
       ))
     (=>ucs@iwds-1	. #x5F37)	; &J97-362F;
     (=>ucs@jis		. #x5F37)	; &J97-362F;
