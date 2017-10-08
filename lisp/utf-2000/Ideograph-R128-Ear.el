@@ -2096,8 +2096,8 @@
       )
      ((=ucs		  . #x8033)	; 耳
       )
-     ((=>ucs@component	  . #x9751)	; &A-compU+9751;
-      (=>iwds-1		  .  0319)	; &A-compU+9751;
+     ((=>ucs@iwds-1	  . #x9751)	; &A-IWDSU+9751;
+      (=>iwds-1		  .  0319)	; &A-IWDSU+9751;
       ))
     (=ucs		. #x8059)	; 聙
     ))
@@ -3443,8 +3443,8 @@
       )
      ((=ucs		  . #x8033)	; 耳
       )
-     ((==>ucs@bucs	  . #x771E)	; &BUCS+771E;
-      (=>ucs@component	  . #x771E)	; &BUCS+771E;
+     ((=>ucs@iwds-1	  . #x771E)	; &A-IWDSU+771E;
+      (=>iwds-1		  .  0112)	; &A-IWDSU+771E;
       ))
     (=ucs		. #x265C0)	; 𦗀
     ))
