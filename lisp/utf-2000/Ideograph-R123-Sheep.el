@@ -3296,6 +3296,21 @@
     ))
 (define-char
   '((ideographic-radical . 123)	; ⽺
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EAF)	; 亯
+      )
+     ((=ucs		  . #x2634B)	; 𦍋
+      ))
+    (=ucs		. #x263A7)	; 𦎧
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x263A7)	; 𦎧
+      ))
+    (ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
     (hanyu-dazidian	1 293 4)
@@ -3308,10 +3323,9 @@
      ((name		  . "CJK RADICAL EWE")
       (=ucs		  . #x2EB8)	; ⺸
       ))
-    (=ucs		. #x263A7)	; 𦎧
-    (=cns11643-7	. #x314F)	; &I-C7-314F; [17-47]
+    (=ucs@iso		. #x263A7)	; &C7-314F;
+    (=cns11643-7	. #x314F)	; &C7-314F; [17-47]
     (=daikanwa		. 28535)	; &I-M-28535;
-    (=hanziku-1		. #xE275)	; &I-HZK01-E275;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -3329,9 +3343,11 @@
       (->subsumptive
        ((===daikanwa	    . 28535)	; &R-M-28535;
 	)
+       ((===cns11643-7	    . #x314F)	; &R-C7-314F; [17-47]
+	)
        ((===ucs@iso	    . #x263A7)	; &R-U-000263A7;
 	)
-       ((===cns11643-7	    . #x314F)	; &R-C7-314F; [17-47]
+       ((=hanziku-1	    . #xE275)	; &HZK01-E275;
 	))
       ))
     ))
