@@ -122,7 +122,7 @@
     ))
 (define-char
   '((<-denotational
-     ((==>ucs@bucs	  . #x4EA1)	; &BUCS+4EA1;
+     ((=>ucs@iwds-1	  . #x5166)	; &A-IWDSU+5166;
       ))
     (ideographic-radical . 11)	; ⼊
     (ideographic-strokes . 1)
