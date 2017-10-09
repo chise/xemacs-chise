@@ -1,3 +1,30 @@
+2017-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (U-0002BEBC): New character.
+
+2017-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R131-Minister.el (IWDS1-0162): New abstract node;
+	unify A-IWDSU+268DD.
+	(U-000268DD): Add `<-denotational' for A-IWDSU+268DD.
+	(U-000268DE): Likewise.
+
+	* Ideograph-R123-Sheep.el (U-000263A7): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R112-Stone.el (U-000254EF): New character.
+
+	* Ideograph-R051-Dry.el (J97-5675): Unify A-IWDSU+5E77 and
+	IWDS1-0181.
+
+	* Ideograph-R027-Cliff.el (BUCS+5384): New abstract node.
+	(A-IWDSU+5384): New abstract node; use `<-denotational' for
+	BUCS+5384.
+	(U+5384): Add `<-denotational' for A-IWDSU+5384.
+
+	* Ideograph-R011-Enter.el (U+5166): Use A-IWDSU+5166 instead of
+	BUCS+4EA1 as its mother.
+
 2017-09-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R040-Roof.el (U-00021A79): New character.
