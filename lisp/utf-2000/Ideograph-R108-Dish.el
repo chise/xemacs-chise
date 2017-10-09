@@ -755,13 +755,13 @@
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
-    (=>ucs@component	. #x6637)	; &A-compU+6637;
-    (=>iwds-1		.  0320)	; &A-compU+6637;
+    (=>ucs@iwds-1	. #x6637)	; &A-IWDSU+6637;
+    (=>iwds-1		.  0320)	; &A-IWDSU+6637;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x6637)	; &A-compU+6637;
-      (=>iwds-1		  .  0320)	; &A-compU+6637;
+     ((=>ucs@iwds-1	  . #x6637)	; &A-IWDSU+6637;
+      (=>iwds-1		  .  0320)	; &A-IWDSU+6637;
       ))
     (ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 5)
