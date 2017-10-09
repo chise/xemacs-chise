@@ -1,3 +1,64 @@
+2017-10-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R118-Bamboo.el (A-cgnU+7B97): Changed from
+	A-compU+7B97.
+	(A-MJ058270): Unify U-0002E155.
+	(U-0002E155): Unify CB08579.
+	(U-00025BEE): Add ideographic-structure; add `sound@ja/on'.
+	(U-00025BEF): Apply new conventions for glyph granularity.
+	(U-00025C75): Likewise.
+	(M-26395): New character; use `<-denotational' for U-00025C75.
+	(U-00025E01): New character.
+
+	* Ideograph-R108-Dish.el (IWDS1-0320): Unify A-IWDSU+6637 instead
+	of A-compU+6637.
+
+	* Ideograph-R037-Big.el (U-000215EE): New character.
+	(IWDS1-0281): Unify A-IWDSU+5967 instead of A-compU+5967.
+
+	* Ideograph-R012-Eight.el (IWDS1-0026): Unify A-IWDSU+20509
+	instead of A-compU+9FB9.
+	(A-cgnU+517C): New abstract node.
+	(U+517C): Add `<-denotational' for A-cgnU+517C.
+	(U-00020525): Likewise.
+
+2017-10-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R096-Jade.el (U+74BA): Add `ideographic-structure'.
+	(JU+74BA): Add `ideographic-structure'; add `<-same' for UU+4EB9.
+	(UU+74BA): Add `ideographic-structure'.
+
+	* Ideograph-R087-Claw.el (A-cgnU+722A): Changed from A-compU+722A.
+	(A-cgnU+2450D): New abstract node.
+	(U-0002450D): Add `<-denotational' for A-cgnU+2450D.
+	(M-19681): Add `<-ancient' for U+4FDD and U-00020203.
+	(IU+2450D): Add `ideographic-structure'.
+
+	* Ideograph-R069-Axe.el (U-0002D91F): New character.
+	(A-cgnU+230B0): New abstract node.
+	(U-000230B0): New character; use `<-denotational' for
+	A-cgnU+230B0.
+	(M-13576): Unify IU+230B0, MJ037510 and HD-KS152160; add
+	`<-denotational' for U-000230B0.
+	(MJ057626): New character; use `<-denotational' for A-cgnU+230B0.
+	(A-U+230B0-itaiji-001): New abstract node; use `<-denotational'
+	for A-cgnU+230B0.
+	(U+230B0-itaiji-001): New character; use `<-denotational' for
+	A-U+230B0-itaiji-001.
+
+	* Ideograph-R055-Two-Hands.el (U-00026B20): Add
+	`<-denotational@component' for A-compU+26B07.
+	(GT-K07139): New character; use `<-denotational' for U-00022343.
+
+	* Ideograph-R046-Mountain.el (A-compU+5D52): New abstract node.
+	(U+5D52): Add `<-denotational@component' for A-compU+5D52.
+
+	* Ideograph-R042-Small.el (A-J0-5575): Unify A-IWDSU+5C13 and
+	IWDS1-0232.
+
+	* Ideograph-R004-Slash.el (U+5301): Add `<-denotational@component'
+	for A-compU+5301.
+
 2017-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (U-0002BEBC): New character.

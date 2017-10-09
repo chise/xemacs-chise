@@ -1221,7 +1221,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 20)	; ⼓
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5301)	; &A-compU+5301;
+      ))
+    (ideographic-radical@ucs . 20)	; ⼓
     (ideographic-strokes@ucs . 2)
     (ideographic-radical@ucs*sources
      daikanwa=02502)
