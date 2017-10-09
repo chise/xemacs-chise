@@ -378,13 +378,16 @@
   '((ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (=>ucs@iwds-1	. #x5C13)	; &J97-5575;
     (=>ucs@jis		. #x5C13)	; &J97-5575;
     (=>jis-x0208	. #x5575)	; &J97-5575; [53-85]
     (=>jis-x0213-1	. #x5575)	; &J97-5575; [53-85]
+    (=>iwds-1		.  0232)	; &J97-5575;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@jis	  . #x5C13)	; &J97-5575;
+     ((=>ucs@iwds-1	  . #x5C13)	; &J97-5575;
+      (=>ucs@jis	  . #x5C13)	; &J97-5575;
       (=>jis-x0208	  . #x5575)	; &J97-5575; [53-85]
       ))
     (ideographic-radical . 42)	; ⼩
@@ -462,7 +465,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@jis	  . #x5C13)	; &J97-5575;
+     ((=>ucs@iwds-1	  . #x5C13)	; &J97-5575;
+      (=>ucs@jis	  . #x5C13)	; &J97-5575;
       (=>jis-x0208	  . #x5575)	; &J97-5575; [53-85]
       ))
     (ideographic-radical . 42)	; ⼩
