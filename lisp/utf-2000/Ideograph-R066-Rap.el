@@ -8204,7 +8204,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>ucs@component	  . #x7B97)	; &A-compU+7B97;
+     ((=>ucs@cognate	  . #x7B97)	; &A-cgnU+7B97;
       )
      ((=ucs		  . #x6534)	; 攴
       ))

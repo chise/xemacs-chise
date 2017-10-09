@@ -92,6 +92,29 @@
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
+    (==>ucs@bucs	. #x5384)	; &BUCS+5384;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5384)	; &BUCS+5384;
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=>ucs@component	  . #x353E)	; &A-compU+353E;
+      (=>iwds-1		  .  0123)	; &A-compU+353E;
+      ))
+    (=>ucs@iwds-1	. #x5384)	; &A-IWDSU+5384;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x5384)	; &A-IWDSU+5384;
+      ))
+    (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 68 5)
@@ -116,6 +139,37 @@
     (=gt-pj-1		. #x4C71)	; &I-GT-03676; [44-81]
     (=daikanwa		. 02893)	; &I-M-02893;
     (=shinjigen		.  0874)	; 厄
+    (->subsumptive
+     ((==ucs@unicode	  . #x5384)	; &g2-AJ1-03837;
+      (==adobe-japan1-0	  . 03837)	; &g2-AJ1-03837;
+      (==gb2312		  . #x3672)	; &g2-AJ1-03837; [22-82]
+      (==ks-x1001	  . #x6478)	; &g2-AJ1-03837; [68-88]
+      (==jis-x0208	  . #x4C71)	; &g2-AJ1-03837; [44-81]
+      (==cns11643-1	  . #x452D)	; &g2-AJ1-03837; [37-13]
+      (==jis-x0213-1	  . #x4C71)	; &g2-AJ1-03837; [44-81]
+      (==gt		  . 03676)	; &g2-AJ1-03837;
+      (==gt-k		  . 00503)	; &g2-AJ1-03837;
+      (==daikanwa	  . 02893)	; &g2-AJ1-03837;
+      (==shinjigen	  .  0874)	; &g2-AJ1-03837;
+      (->subsumptive
+       ((===daikanwa	    . 02893)	; &R-M-02893;
+	)
+       ((===jis-x0208	    . #x4C71)	; &R-J0-4C71; [44-81]
+	(===jis-x0213-1	    . #x4C71)	; &R-J0-4C71; [44-81]
+	)
+       ((===adobe-japan1-0  . 03837)	; &R-AJ1-03837;
+	)
+       ((===cns11643-1	    . #x452D)	; &R-C1-452D; [37-13]
+	)
+       ((===gt		    . 03676)	; &R-GT-03676;
+	(===gt-k	    . 00503)	; &R-GT-03676;
+	)
+       ((===ucs@ks	    . #x5384)	; &R-K0-6478;
+	(===ks-x1001	    . #x6478)	; &R-K0-6478; [68-88]
+	)
+       ((===ucs@unicode	    . #x5384)	; &R-UU+5384;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
