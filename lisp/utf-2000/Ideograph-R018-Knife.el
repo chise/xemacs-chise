@@ -4297,8 +4297,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@component	  . #x9FB9)	; &A-compU+9FB9;
-      (=>iwds-1		  .  0026)	; &A-compU+9FB9;
+     ((=>ucs@iwds-1	  . #x20509)	; &A-IWDSU+20509;
+      (=>iwds-1		  .  0026)	; &A-IWDSU+20509;
       )
      ((=ucs		  . #x5200)	; 刀
       ))
