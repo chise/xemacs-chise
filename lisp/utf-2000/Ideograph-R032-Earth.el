@@ -22152,8 +22152,8 @@
       )
      ((=ucs		  . #x571F)	; 土
       )
-     ((=>ucs@component	  . #x5967)	; &A-compU+5967;
-      (=>iwds-1		  .  0281)	; &A-compU+5967;
+     ((=>ucs@iwds-1	  . #x5967)	; &A-IWDSU+5967;
+      (=>iwds-1		  .  0281)	; &A-IWDSU+5967;
       ))
     (=ucs		. #x58BA)	; 墺
     ))
