@@ -4112,7 +4112,8 @@
       )
      ((=ucs		  . #x5C38)	; 尸
       )
-     ((=>ucs@component	  . #x6C34)	; &A-compU+6C34;
+     ((=>ucs@cognate	  . #x6C34)	; &A-cgnU+6C34;
+      (=>ucs@component	  . #x6C34)	; &A-cgnU+6C34;
       ))
     (=>ucs@component	. #x5C3F)	; &A-compU+5C3F;
     ))

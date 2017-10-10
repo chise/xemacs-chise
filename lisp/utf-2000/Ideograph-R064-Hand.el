@@ -875,7 +875,7 @@
       )
      ((=ucs		  . #x624C)	; 扌
       )
-     ((=>ucs@component	  . #x722A)	; &A-compU+722A;
+     ((=>ucs@cognate	  . #x722A)	; &A-cgnU+722A;
       ))
     (sound@ja/on	"sIyAu")
     (=ucs		. #x22A70)	; 𢩰
@@ -5474,7 +5474,8 @@
       )
      ((=ucs		  . #x624C)	; 扌
       )
-     ((=>jis-x0208@1997	  . #x5675)	; &J97-5675; [54-85]
+     ((=>ucs@iwds-1	  . #x5E77)	; &J97-5675;
+      (=>jis-x0208@1997	  . #x5675)	; &J97-5675; [54-85]
       ))
     (=ucs		. #x62FC)	; 拼
     (=big5		. #xABF7)	; &I-B-ABF7;
@@ -6457,8 +6458,8 @@
       )
      ((=ucs		  . #x624C)	; 扌
       )
-     ((=>ucs@component	  . #x5433)	; &A-compU+5433;
-      (=>iwds-1		  .  0313)	; &A-compU+5433;
+     ((=>ucs@iwds-1	  . #x5433)	; &A-IWDSU+5433;
+      (=>iwds-1		  .  0313)	; &A-IWDSU+5433;
       ))
     (=ucs		. #x22AF8)	; 𢫸
     ))
@@ -10953,8 +10954,8 @@
       )
      ((=ucs		  . #x624C)	; 扌
       )
-     ((=>ucs@component	  . #x9751)	; &A-compU+9751;
-      (=>iwds-1		  .  0319)	; &A-compU+9751;
+     ((=>ucs@iwds-1	  . #x9751)	; &A-IWDSU+9751;
+      (=>iwds-1		  .  0319)	; &A-IWDSU+9751;
       ))
     (=ucs		. #x6385)	; 掅
     (=big5		. #xD5A2)	; &I-B-D5A2;

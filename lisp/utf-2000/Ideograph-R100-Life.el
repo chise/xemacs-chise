@@ -63,7 +63,11 @@
     (=daikanwa		. 21671)	; &I-M-21671;
     ))
 (define-char
-  '((ideographic-radical . 100)	; ⽣
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E3B)	; &A-compU+4E3B;
+      (=>iwds-1		  .  0201)	; &A-compU+4E3B;
+      ))
+    (ideographic-radical . 100)	; ⽣
     (ideographic-radical@unicode . 32)	; ⼟
     (ideographic-strokes@unicode . 1)
     (ideographic-strokes . 0)
