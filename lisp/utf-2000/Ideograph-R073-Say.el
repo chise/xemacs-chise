@@ -173,7 +173,11 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 73)	; ⽈
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x81FE)	; &A-IWDSU+81FE;
+      (=>iwds-1		  .  0173)	; &A-IWDSU+81FE;
+      ))
+    (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=ucs		. #x3B30)	; 㬰
@@ -275,7 +279,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 73)	; ⽈
+  '((<-denotational
+     ((=>ucs@cognate	  . #x81FE)	; &A-cgnU+81FE;
+      ))
+    (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=big5-cdp		. #x89E7)	; &CDP-89E7;
