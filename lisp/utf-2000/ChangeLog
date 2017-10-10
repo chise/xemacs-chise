@@ -1,3 +1,12 @@
+2017-10-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (IWDS1-0027): Unify A-IWDSU+514C instead
+	of A-compU+514C.
+
+	* Ideograph-R073-Say.el (U+3B30): Add `<-denotational' for
+	A-IWDSU+81FE.
+	(BC-89E7): Add `<-denotational' for A-cgnU+81FE.
+
 2017-10-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R118-Bamboo.el (A-cgnU+7B97): Changed from
@@ -10,8 +19,29 @@
 	(M-26395): New character; use `<-denotational' for U-00025C75.
 	(U-00025E01): New character.
 
+	* Ideograph-R109-Eye.el (BUCS+771E): Separate IWDS1-0112 and
+	A-compU+771E.
+	(IWDS1-0112): Unify A-IWDSU+771E instead of A-compU+771E; use
+	`<-denotational' for BUCS+771E.
+	(U+771E): Use IWDS1-0112 instead of BUCS+771E as its mother.
+	(U+771F): Likewise.
+	(IWDS1-0329): Unify A-IWDSU+8846 instead of A-compU+8846.
+	(A-U+771E-itaiji-005): New abstract node.
+	(U+771E-itaiji-005): New character; use `<-denotational' for
+	A-U+771E-itaiji-005.
+	(U+4067): Apply new conventions for glyph granularity.
+	(A-cgnU+252EF): New abstract node.
+	(U-000252EF): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+252EF.
+	(U-000252EE): New character; use `<-denotational' for
+	A-cgnU+252EF.
+	(U-000252FA): New character.
+
 	* Ideograph-R108-Dish.el (IWDS1-0320): Unify A-IWDSU+6637 instead
 	of A-compU+6637.
+
+	* Ideograph-R064-Hand.el (U-00022A70): Use A-cgnU+722A instead of
+	A-compU+722A in `ideographic-structure'.
 
 	* Ideograph-R037-Big.el (U-000215EE): New character.
 	(IWDS1-0281): Unify A-IWDSU+5967 instead of A-compU+5967.
@@ -108,6 +138,9 @@
 	(IU+24CC9): Unify M-21935.
 	(U+7588): Add `<-denotational' for A-IWDSU+7588; apply new
 	conventions for glyph granularity.
+
+	* Ideograph-R100-Life.el (U+9FB6): Add `<-denotational@component'
+	for IWDS1-0201.
 
 	* Ideograph-R017-Open-Box.el (U-00020698): Use `->denotational'
 	and `->subsumptive'.
