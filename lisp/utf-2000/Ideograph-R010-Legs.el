@@ -1312,7 +1312,7 @@
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (=>ucs@component	. #x514C)	; &J97-513C;
+    (=>ucs@iwds-1	. #x514C)	; &J97-513C;
     (=ucs@big5		. #x514C)	; &J97-513C;
     (=>jis-x0208	. #x513C)	; &J97-513C; [49-28]
     (=>jis-x0213-1	. #x513C)	; &J97-513C; [49-28]
@@ -1321,7 +1321,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x514C)	; &J97-513C;
+     ((=>ucs@iwds-1	  . #x514C)	; &J97-513C;
       (=ucs@big5	  . #x514C)	; &J97-513C;
       (=>jis-x0208	  . #x513C)	; &J97-513C; [49-28]
       ))
@@ -1461,7 +1461,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x514C)	; &J97-513C;
+     ((=>ucs@iwds-1	  . #x514C)	; &J97-513C;
       (=ucs@big5	  . #x514C)	; &J97-513C;
       (=>jis-x0208	  . #x513C)	; &J97-513C; [49-28]
       ))
