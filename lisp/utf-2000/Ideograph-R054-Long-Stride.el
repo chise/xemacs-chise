@@ -894,6 +894,7 @@
      ((=ucs		  . #x5EF4)	; 廴
       )
      ((=ucs@iso		  . #x29459)	; &M-43356;
+      (=daikanwa	  . 43356)	; &M-43356;
       ))
     (=ucs@JP/hanazono	. #x2BE14)	; &hanaJU+2BE14;
     (->subsumptive
