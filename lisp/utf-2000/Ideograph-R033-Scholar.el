@@ -956,19 +956,119 @@
     (=ucs-var-002	. #x58F5)	; &U-v002+58F5;
     ))
 (define-char
-  '((=>ucs		. #x21522)	; 𡔢
-    (ideographic-radical . 33)	; ⼠
+  '((ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=daikanwa		. 05651)	; &M-05651;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x5928)	; 夨
+      )
+     ((=>ucs@iwds-1	  . #x5409)	; &J97-3548;
+      (=>jis-x0208	  . #x3548)	; &J97-3548; [21-40]
+      ))
+    (=>ucs@iwds-1	. #x21523)	; &A-IWDSU+21523;
     ))
 (define-char
-  '((morohashi-daikanwa	5651 0 4)
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x21523)	; &A-IWDSU+21523;
+      ))
     (ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=big5-cdp	  . #x8CD5)	; &CDP-8CD5;
+      )
+     ((=>ucs@iwds-1	  . #x5409)	; &J97-3548;
+      (=>jis-x0208	  . #x3548)	; &J97-3548; [21-40]
+      ))
+    (sound@ja/on/go	"keti")
+    (sound@ja/on/kan	"tetu")
+    (=ucs		. #x21523)	; 𡔣
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21523)	; 𡔣
+      ))
+    (ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=big5-cdp	  . #x8CD5)	; &CDP-8CD5;
+      )
+     ((=ucs		  . #x5409)	; 吉
+      ))
+    (=ucs@iso		. #x21523)	; &MJ033286;
+    (=mj		. 033286)	; &MJ033286;
+    (=koseki		. 064710)	; &MJ033286;
+    (=daikanwa		. 05651)	; &I-M-05651;
+    (->subsumptive
+     ((==ucs@iso	  . #x21523)	; &g2-MJ033286;
+      (==mj		  . 033286)	; &g2-MJ033286;
+      (==koseki		  . 064710)	; &g2-MJ033286;
+      (==daikanwa	  . 05651)	; &g2-MJ033286;
+      (->subsumptive
+       ((===daikanwa	    . 05651)	; &R-M-05651;
+	)
+       ((===mj		    . 033286)	; &R-MJ033286;
+	)
+       ((===ucs@iso	    . #x21523)	; &R-U-00021523;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x21523)	; &A-IWDSU+21523;
+      ))
+    (ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs@unicode	  . #x5928)	; &AJ1-21376;
+      (=adobe-japan1-6	  . 21376)	; &AJ1-21376;
+      )
+     ((=>ucs@iwds-1	  . #x5409)	; &J97-3548;
+      (=>jis-x0208	  . #x3548)	; &J97-3548; [21-40]
+      ))
     (=ucs		. #x21522)	; 𡔢
-    (=cns11643-5	. #x2C64)	; &I-C5-2C64; [12-68]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21522)	; 𡔢
+      ))
+    (ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs@unicode	  . #x5928)	; &AJ1-21376;
+      (=adobe-japan1-6	  . 21376)	; &AJ1-21376;
+      )
+     ((=ucs		  . #x5409)	; 吉
+      ))
+    (=ucs@iso		. #x21522)	; &C5-2C64;
+    (=cns11643-5	. #x2C64)	; &C5-2C64; [12-68]
+    (->subsumptive
+     ((==ucs@iso	  . #x21522)	; &g2-IU-00021522;
+      (==cns11643-5	  . #x2C64)	; &g2-IU-00021522; [12-68]
+      (->subsumptive
+       ((===cns11643-5	    . #x2C64)	; &R-C5-2C64; [12-68]
+	)
+       ((===ucs@iso	    . #x21522)	; &R-U-00021522;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x21524)	; 𡔤
@@ -1428,10 +1528,10 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((==>ucs@bucs	  . #x5409)	; &J97-3548;
+     ((=>ucs@iwds-1	  . #x5409)	; &J97-3548;
       (=>jis-x0208	  . #x3548)	; &J97-3548; [21-40]
       )
-     ((==>ucs@bucs	  . #x5409)	; &J97-3548;
+     ((=>ucs@iwds-1	  . #x5409)	; &J97-3548;
       (=>jis-x0208	  . #x3548)	; &J97-3548; [21-40]
       ))
     (=ucs		. #x2152F)	; 𡔯
