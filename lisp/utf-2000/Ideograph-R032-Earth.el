@@ -1320,7 +1320,11 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 32)	; ⼟
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x2C6F8)	; &A-IWDSU+2C6F8;
+      (=>iwds-1		  .  0089)	; &A-IWDSU+2C6F8;
+      ))
+    (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x573C)	; 圼
