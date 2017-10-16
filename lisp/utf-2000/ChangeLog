@@ -1,3 +1,42 @@
+2017-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (IWDS1-0228): Unify A-IWDSU+672F instead
+	of A-compU+672F.
+	(A-cgnU+233BC): New abstract node.
+	(U-000233BC): Add `<-denotational' for A-cgnU+233BC.
+	(U+233BC-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+233BC.
+	(U+6756): Apply new conventions for glyph granularity.
+	(U+FA94): New character; use `<-denotational' for U+6756.
+	(A-J0-3A3A): Unify A-IWDSU+67FB.
+	(U+67E5): Add `ideographic-structure'.
+	(U+3B84): Unify M-15028; add `<-original' for U+699C.
+	(U-000235F7): Apply new conventions for glyph granularity.
+	(A-CB02608): New abstract node.
+	(A-CB10340): New abstract node.
+	(CB02608): Add `<-denotational' for A-CB02608.
+	(CB10340): New character; use `<-denotational' for A-CB10340.
+	(U+6A68): Apply new conventions for glyph granularity.
+	(U-00023780): Add `ideographic-structure'.
+	(U+23780-var-001): Use U+2E9CA-itaiji-001 instead of "⿱靣旦" in
+	`ideographic-structure'.
+	(U-00023794): Apply new conventions for glyph granularity.
+
+	* Ideograph-R074-Moon.el (KU+6715): Unify S-3438.
+	(UU+6715): Unify S-3437.
+	(A-GT-K06828): New abstract node; unify A-CB12142.
+	(CB12142): New character; use `<-denotational' for A-GT-K06828.
+	(GT-K06828): Likewise.
+
+	* Ideograph-R032-Earth.el (U+573C): Add `<-denotational' for
+	A-IWDSU+2C6F8.
+
+	* Ideograph-R009-Man.el (U+4EBE): Add `<-denotational' for
+	A-IWDSU+5166.
+	(A-IWDSU+5166): New abstract node; use `<-denotational' for
+	BUCS+4EA1.
+	(U-00020330): Apply new conventions for glyph granularity.
+
 2017-10-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R010-Legs.el (IWDS1-0027): Unify A-IWDSU+514C instead
