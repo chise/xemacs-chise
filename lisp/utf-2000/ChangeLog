@@ -1,3 +1,13 @@
+2017-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R033-Scholar.el (A-IWDSU+21523): New abstract node.
+	(U-00021523): New character; use `<-denotational' for
+	A-IWDSU+21523.
+	(M-05651): Use `<-denotational' for U-00021523 instead of `=>ucs'
+	for U-00021522; unify IU+21523, MJ033286 and KOSEKI-064710.
+	(U-00021522): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+21523.
+
 2017-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R075-Tree.el (IWDS1-0228): Unify A-IWDSU+672F instead
