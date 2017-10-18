@@ -1,5 +1,8 @@
 2017-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R035-Go-Slowly.el (U-00021568): Use `->denotational'
+	and `->subsumptive'.
+
 	* Ideograph-R033-Scholar.el (A-IWDSU+21523): New abstract node.
 	(U-00021523): New character; use `<-denotational' for
 	A-IWDSU+21523.
@@ -7,6 +10,23 @@
 	for U-00021522; unify IU+21523, MJ033286 and KOSEKI-064710.
 	(U-00021522): Apply new conventions for glyph granularity; add
 	`<-denotational' for A-IWDSU+21523.
+
+2017-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el (A-compU+6C34): Unify A-cgnU+6C34.
+	(A-compU+6C3A): Unify A-cgnU+6C3A.
+	(A-cgnU+23D68): Changed from A-compU+23D68.
+	(A-J0-4036): Unify A-IWDSU+6DF8; add `ideographic-structure'.
+	(U+6DF8): Add `ideographic-structure'.
+	(U+6E05): Likewise.
+	(U+6EA5): Add `<-denotational@component' for A-compU+6EA5.
+	(U-0002ADB3): New character.
+	(U+6EA5-itaiji-004): Add `<-denotational@component' for
+	A-compU+6EA5.
+	(U-00023F9B): New character.
+	(U-00024064): Apply new conventions for glyph granularity.
+	(U+7058): Add ideographic-structure.
+	(A-compU+6EA5): New abstract component.
 
 2017-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
@@ -67,6 +87,16 @@
 	(U-00025C75): Likewise.
 	(M-26395): New character; use `<-denotational' for U-00025C75.
 	(U-00025E01): New character.
+
+	* Ideograph-R113-Spirit.el (A-IWDSU+793A): Changed from
+	A-compU+793A; unify IWDS1-0362.
+	(U+2564A-itaiji-001): New character.
+	(U-0002B7B4): Add ideographic-structure.
+	(U-00025726): Apply new conventions for glyph granularity.
+	(U-0002572C): Likewise.
+	(IU+2572C): Unify M-24873'; add `<-ancient' and `<-same' for
+	IU+25726.
+	(U-00025731): Apply new conventions for glyph granularity.
 
 	* Ideograph-R109-Eye.el (BUCS+771E): Separate IWDS1-0112 and
 	A-compU+771E.
