@@ -1,5 +1,8 @@
 2017-10-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R035-Go-Slowly.el (GT-K08923): New character; use
+	`<-denotational' for U-00021568.
+
 	* Ideograph-R001-One.el (A-cgnU+4E02): New abstract component; add
 	`<-denotational@component' for A-compU+4E02.
 	(U+4E02): Use A-cgnU+4E02 instead of A-compU+4E02 as its mother.
