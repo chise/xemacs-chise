@@ -1,3 +1,10 @@
+2017-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el (GT-K03131): New character.
+
+	* Ideograph-R016-Table.el (U+51E0): Add representative nodes.
+	(U-0002015E): Apply new conventions for glyph granularity.
+
 2017-10-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R035-Go-Slowly.el (GT-K08923): New character; use
