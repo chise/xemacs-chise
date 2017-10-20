@@ -11,8 +11,7 @@
      ((=>ucs@component	  . #x4E8C)	; &A-compU+4E8C;
       (=>iwds-1		  .  0047)	; &A-compU+4E8C;
       )
-     ((=>ucs@component	  . #x4EA0)	; &A-compU+4EA0;
-      (=>iwds-1		  .  0062)	; &A-compU+4EA0;
+     ((=ucs		  . #x4EA0)	; 亠
       ))
     (ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 0)
