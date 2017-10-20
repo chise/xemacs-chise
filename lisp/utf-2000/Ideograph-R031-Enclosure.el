@@ -2213,6 +2213,25 @@
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=ucs		  . #x4ECC)	; 仌
+      ))
+    (=gt-k		. 03131)	; &GT-K03131;
+    (=gt-pj-k1		. #x466C)	; &GT-K03131; [38-76]
+    (->subsumptive
+     ((==gt-k		  . 03131)	; &g2-GT-K03131;
+      (==gt-pj-k1	  . #x466C)	; &g2-GT-K03131; [38-76]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 717 10)
