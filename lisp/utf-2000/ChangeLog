@@ -1,3 +1,19 @@
+2017-10-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (A-cgnU+4E02): New abstract component; add
+	`<-denotational@component' for A-compU+4E02.
+	(U+4E02): Use A-cgnU+4E02 instead of A-compU+4E02 as its mother.
+	(BC-8BBF): Ditto.
+	(U-00020001): Add `<-denotational@component' for A-compU+4E02.
+	(BUCS+4E08): Separate A-compU+4E08 and IWDS1-0248.
+	(IWDS1-0248): New abstract component; unify A-IWDSU+4E08 instead
+	of A-compU+4E08; use `<-denotational' for BUCS+4E08.
+	(U+4E08): Use A-cgnU+4E08 instead of BUCS+4E08 as its mother.
+	(U+4E10): Add `<-formed' for IU+208CF; add `<-vulgar' for UU+5303;
+	add `->mistakable' for U+4E0F.
+	(U-0002000B): Use A-cgnU+4E08 instead of BUCS+4E08 as its mother.
+	(A-J0-5242): Unify A-IWDSU+4E17 instead of A-compU+4E17.
+
 2017-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R035-Go-Slowly.el (U-00021568): Use `->denotational'
