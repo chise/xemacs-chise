@@ -126,7 +126,7 @@
       )
      ((=ucs		  . #x8002)	; 耂
       )
-     ((=>ucs@component	  . #x4E02)	; &A-compU+4E02;
+     ((=>ucs@cognate	  . #x4E02)	; &A-cgnU+4E02;
       ))
     (=ucs		. #x8003)	; 考
     (=+>jis-x0208	. #x394D)	; 考 [25-45]
