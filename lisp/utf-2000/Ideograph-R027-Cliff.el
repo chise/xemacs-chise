@@ -1,8 +1,16 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
+  '((ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=>ucs@component	. #x5382)	; &A-compU+5382;
+    ))
+(define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x4E06)	; &A-compU+4E06;
       (=>iwds-1		  .  0150)	; &A-compU+4E06;
+      )
+     ((=>ucs@component	  . #x5382)	; &A-compU+5382;
       )
      ((=>ucs@component	  . #x20087)	; &A-compU+20087;
       ))
@@ -48,6 +56,19 @@
 	)
        ((===ucs@unicode	    . #x5382)	; &R-UU+5382;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5382)	; 厂
+      ))
+    (name		. "CJK RADICAL CLIFF")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (=ucs		. #x2E81)	; ⺁
+    (<-formed@component
+     ((=ucs		  . #x5382)	; 厂
       ))
     ))
 (define-char
@@ -103,7 +124,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs		  . #x5382)	; 厂
+     ((=>ucs@component	  . #x5382)	; &A-compU+5382;
       )
      ((=>ucs@component	  . #x353E)	; &A-compU+353E;
       (=>iwds-1		  .  0123)	; &A-compU+353E;

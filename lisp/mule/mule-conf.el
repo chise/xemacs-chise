@@ -4423,6 +4423,30 @@
 		  mother	=ucs-var-003
 		  min-code #x20000 max-code #x2FFFF
 		  registry "ucs00\\.var003-2"))
+  (make-charset '=+>ucs-var-003
+		"uXXXX-var-003's unified glyphs of GlyphWiki"
+		'(long-name	"UCS-var-003 unified glyphs"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs-var-003))
+  (make-charset '=+>ucs-bmp-var-003
+		"uXXXX-var-003's unified glyphs in BMP"
+		'(long-name	"UCS-BMP-var-003 unified glyphs"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=+>ucs-var-003
+		  min-code #x2E00
+		  max-code #x9FCC
+		  registry "ucs\\.var003-0"))
+
   (make-charset '=ucs-var-004
 		"uXXXX-var-004 glyph-images of GlyphWiki"
 		'(long-name	"UCS-var-004"

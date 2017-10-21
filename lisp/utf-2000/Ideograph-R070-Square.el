@@ -219,8 +219,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@component	  . #x4EA0)	; &A-compU+4EA0;
-      (=>iwds-1		  .  0062)	; &A-compU+4EA0;
+     ((=ucs		  . #x4EA0)	; 亠
       )
      ((=gt-k		  . 02058)	; &GT-K02058;
       ))
@@ -281,7 +280,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x4EA0)	; 亠
+     ((=+>ucs@unicode	  . #x4EA0)	; &o-J0-5035;
+      (=+>jis-x0208	  . #x5035)	; &o-J0-5035; [48-21]
       )
      ((=gt-k		  . 02058)	; &GT-K02058;
       ))
