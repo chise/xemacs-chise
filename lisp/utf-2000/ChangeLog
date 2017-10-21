@@ -1,5 +1,13 @@
 2017-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R010-Legs.el (U-0002047B): Apply new conventions for
+	glyph granularity.
+	(U-0002047D): Likewise.
+	(U-0002048B): Likewise.
+	(U-000204A0): New character.
+
+2017-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R070-Square.el (U+3AC4): Use U+4EA0 instead of
 	A-compU+4EA0 in `ideographic-structure'.
 	(U+3AC4-var-002): Use o-UU+4EA0 instead of U+4EA0 in
@@ -52,6 +60,35 @@
 	(U-0002015E): Apply new conventions for glyph granularity.
 
 2017-10-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R134-Mortar.el (A-cgnU+81FE): New abstract node.
+	(A-IWDSU+81FE): New abstract node; add `<-denotational' for
+	A-cgnU+81FE; unify IWDS1-0173.
+	(U+81FE): Add `<-denotational' for A-IWDSU+81FE.
+	(U-0002C6F8): New character; use `<-denotational' for
+	A-cgnU+2C6F8.
+	(A-IWDSU+2C6F8): New abstract node; unify IWDS1-0089.
+	(A-cgnU+2C6F8): New abstract node; use `<-denotational' for
+	A-IWDSU+2C6F8.
+	(A-BC-8DB4): New abstract node; use `<-denotational' for
+	A-cgnU+2C6F8.
+	(BC-8DB4): New character; use `<-denotational' for A-BC-8DB4.
+	(A-GT-K11278): New abstract node; unify A-CB08661 and
+	A-U+8208-itaiji-009.
+	(A-U+8208-itaiji-010): New character; use `<-denotational' for
+	A-GT-K11278.
+	(GT-K11278): Likewise.
+	(U+8208-itaiji-009): Likewise.
+	(CB08661): Likewise.
+	(U-0002699D): Add `->formed' for M-30272.
+	(A-IWDSU+269A1): New abstract node.
+	(U-0002699E): Add `<-denotational' for A-IWDSU+269A1; add
+	`<-interchangeable' for U+9095.
+	(U+820B): Apply new conventions for glyph granularity.
+	(U-000269A1): Likewise; add `<-denotational' for A-IWDSU+269A1.
+	(RUI6-E017): Use U+8208-itaiji-009 in `ideographic-structure'.
+	(U-000269C1): Add `ideographic-structure'; add `sound@ja/on';
+	apply new conventions for glyph granularity.
 
 	* Ideograph-R035-Go-Slowly.el (GT-K08923): New character; use
 	`<-denotational' for U-00021568.
@@ -268,6 +305,9 @@
 	BUCS+4EA1 as its mother.
 
 2017-09-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R125-Old.el (U+8003): Use A-cgnU+4E02 instead of
+	A-compU+4E02 in `ideographic-structure'.
 
 	* Ideograph-R040-Roof.el (U-00021A79): New character.
 
