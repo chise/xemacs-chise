@@ -34,7 +34,10 @@
     (=daikanwa		. 00107)	; &I-M-00107;
     ))
 (define-char
-  '((ideographic-radical . 4)	; ⼃
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5382)	; &A-compU+5382;
+      ))
+    (ideographic-radical . 4)	; ⼃
     (ideographic-strokes@ucs . 0)
     (total-strokes@ucs	     . 1)
     (ideographic-strokes@ucs*sources
