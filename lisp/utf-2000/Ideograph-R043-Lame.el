@@ -2008,15 +2008,48 @@
     ))
 (define-char
   '((ideographic-radical . 43)	; ⼪
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>gt-k		  . 08922)	; &A-GT-K08922;
+      )
+     ((=>ucs@component	  . #x5C24)	; &A-compU+5C24;
+      (=>iwds-1		  .  0250)	; &A-compU+5C24;
+      ))
+    (=ucs		. #x21C14)	; 𡰔
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21C14)	; 𡰔
+      ))
+    (ideographic-radical . 43)	; ⼪
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (=ucs		. #x21C14)	; 𡰔
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 08922)	; &GT-K08922;
+      )
+     ((=ucs		  . #x5C24)	; 尤
+      ))
+    (=ucs@iso		. #x21C14)	; &C7-223C;
+    (=cns11643-7	. #x223C)	; &C7-223C; [02-28]
+    (=daikanwa		. 07618)	; &I-M-07618;
+    (<-same
+     ((=ucs		  . #x5C31)	; 就
+      (=daikanwa	  . 07599)	; &I-M-07599;
+      ))
+    (<-same*sources
+     wuyin-pianhai daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 07618)	; &M-07618;
+     ((==daikanwa	  . 07618)	; &g2-M-07618;
       )
-     ((=cns11643-7	  . #x223C)	; &C7-223C; [02-28]
+     ((==ucs@cns	  . #x21C14)	; &g2-CU+21C14;
+      (==cns11643-7	  . #x223C)	; &g2-CU+21C14; [02-28]
       )
-     ((=ucs@iso		  . #x21C14)	; &U-00021C14;
+     ((==ucs@iso	  . #x21C14)	; &g2-IU-00021C14;
       ))
     ))
 (define-char
