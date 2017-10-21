@@ -1,5 +1,51 @@
 2017-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R070-Square.el (U+3AC4): Use U+4EA0 instead of
+	A-compU+4EA0 in `ideographic-structure'.
+	(U+3AC4-var-002): Use o-UU+4EA0 instead of U+4EA0 in
+	`ideographic-structure'.
+
+	* Ideograph-R061-Heart.el (A-IWDSU+612E): New abstract node.
+	(U+612E): Add `<-denotational' for A-IWDSU+612E; add
+	ideographic-structure.
+	(U-0002277E): New character; use <-denotational' for A-IWDSU+612E.
+
+	* Ideograph-R049-Oneself.el (U-00022034): Apply new conventions
+	for glyph granularity; add `<-denotational' for A-IWDSU+5384.
+	(IU+22034): Unify MJ034957 and HD-KS099070.
+	(MJ007920): New character; use `<-denotational' for U-00022034;
+	unify HD-KS033640 and S-0875.
+
+	* Ideograph-R043-Lame.el (U-00021C14): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R030-Mouth.el (A-IWDSU+3563): New abstract node.
+	(U+3563): Add `<-denotational@component' for A-IWDSU+3563.
+	(U+53F7): Apply new conventions for glyph granularity.
+	(MJ057144): New character; use `<-denotational' for U+53F7; unify
+	HD-KS037950.
+	(U-00020BA6): Add `<-denotational@component' for A-IWDSU+3563;
+	apply new conventions for glyph granularity.
+	(BUCS+5409): Separate A-J0-3548.
+	(A-J0-3548): Unify A-IWDSU+5409.
+	(IWDS1-0313): Unify A-IWDSU+5433 instead of A-compU+5433.
+	(A-U+23140-itaiji-001): New abstract node.
+	(U+23140-itaiji-001): New character; use `<-denotational' for
+	A-U+23140-itaiji-001.
+	(U+55A6): Add `<-denotational@component' for A-compU+5D52.
+	(U-0002D236): New character.
+
+	* Ideograph-R027-Cliff.el (A-compU+5382): New abstract component.
+	(U+5382): Add A-compU+5382 as a target of
+	`<-denotational@component'.
+	(<CJK RADICAL CLIFF>): Copied from
+	u02E00-CJK-Radical-Supplement.el; add `<-denotational' for U+5382.
+	(A-IWDSU+5384): Use A-compU+5382 instead of U+5382 in
+	`ideographic-structure'.
+
+	* Ideograph-R004-Slash.el (U-00020086): Add
+	`<-denotational@component' for A-compU+5382.
+
 	* Ideograph-R031-Enclosure.el (GT-K03131): New character.
 
 	* Ideograph-R016-Table.el (U+51E0): Add representative nodes.
