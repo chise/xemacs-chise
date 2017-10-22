@@ -1,3 +1,38 @@
+2017-10-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R121-Jar.el (U+4343): Unify IWDS1-0375.
+	(A-UU+4343): New abstract node; use `<-denotational' for U+4343.
+	(JU+4343): Use A-UU+4343 instead of U+4343 as its mother.
+	(o-UU+4343): Likewise.
+	(o-GT-36228): New abstract node; use `<-denotational' for U+4343;
+	unify o-U+4343-var-003.
+	(U+4343-var-003): New character; use `<-denotational' for
+	o-GT-36228.
+	(GT-36228): Use o-GT-36228 instead of U+4343 as its mother.
+
+2017-10-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R136-Oppose.el (U+821B-itaiji-007): New character; use
+	`<-denotational' for U+821B.
+
+	* Ideograph-R075-Tree.el (U+67D7): Add `ideographic-structure'.
+
+	* Ideograph-R060-Step.el (U+5FA9): Add ideographic-structure.
+	(U-00022552): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R020-Wrap.el (A-compU+5301): New abstract node.
+	(U+5301): Add `<-denotational@component' for A-compU+5301.
+	(GT-K00875): New character; use `<-denotational@component' for
+	A-compU+5301.
+	(U+5303): Apply new conventions for glyph granularity.
+	(GT-K01537): New character.
+	(U+5308): Add `->Liwen' for U+80F8; add `->formed' for U-00026644,
+	U+80F7 and U+80F8; add `->mistakable' for UU+5303.
+	(U-000208F4): Use `->denotational' and `->subsumptive'.
+	(U-000208F8): Apply new conventions for glyph granularity.
+	(U-000208FE): Use `->denotational' and `->subsumptive'.
+	(U-00020907): Likewise.
+
 2017-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R010-Legs.el (U-0002047B): Apply new conventions for
