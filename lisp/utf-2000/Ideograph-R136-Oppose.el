@@ -109,6 +109,23 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
+     ((=ucs		  . #x5902)	; 夂
+      )
+     ((=ucs		  . #x3404)	; 㐄
+      ))
+    (=ucs-itaiji-007	. #x821B)	; &U-i007+821B;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x821B)	; 舛
+      ))
+    (ideographic-radical . 136)	; ⾇
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
      ((=ucs		  . #x590A)	; 夊
       )
      ((=ucs		  . #x3404)	; 㐄
