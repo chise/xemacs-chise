@@ -12,6 +12,42 @@
 
 2017-10-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R111-Arrow.el (U-000253A8): Apply new conventions for
+	glyph granularity.
+	(U-00020170): Use `ideographic-{radical|strokes}@ucs/code' instead
+	of `ideographic-{radical|strokes}@ucs'; use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}@cns'; apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R079-Weapon.el (A-cgnU+6BC0): New abstract node.
+	(A-IWDSU+6BC0): New abstract node; use `<-denotational' for
+	A-cgnU+6BC0.
+	(U+6BC0): Add `<-denotational' for A-IWDSU+6BC0.
+	(UU+6BC0): Separate A-IWDSU+6BC0; add `<-interchangeable' for
+	M-35732; add `->ancient' for IU+23AB7.
+	(HNG-KHM0073-0): Use A-cgnU+6BC0 instead of U+6BC0 as its mother.
+	(U+6BC1): Add `<-denotational' for A-IWDSU+6BC0.
+
+	* Ideograph-R008-Lid.el (IWDS1-0062): Unify U+4EA0 instead of
+	A-compU+4EA0.
+	(o-J0-5035): Unify o-UU+4EA0 instead of U+4EA0.
+	(U+4EA2): Apply new conventions for glyph granularity.
+	(U+4EA3): Likewise.
+	(U+342D): Add ideographic-structure.
+	(U-00020153): Apply new conventions for glyph granularity.
+	(U-00020154): Likewise.
+	(U+4EB1): Likewise.
+	(U-0002015E): Likewise.
+	(A-GT-K08922): New abstract node.
+	(GT-K08922): New character; use `<-denotational' for A-GT-K08922.
+	(U-00020170): Moved to Ideograph-R111-Arrow.el.
+	(U-00020186): Apply new conventions for glyph granularity.
+	(U-00020191): Likewise.
+	(U+342F): Likewise.
+
+2017-10-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R136-Oppose.el (U+821B-itaiji-007): New character; use
 	`<-denotational' for U+821B.
 
