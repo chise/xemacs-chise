@@ -1862,6 +1862,29 @@
     ))
 (define-char
   '((ideographic-radical . 79)	; ⽎
+    (=>ucs@cognate	. #x6BC0)	; &A-cgnU+6BC0;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x6BC0)	; &A-cgnU+6BC0;
+      ))
+    (ideographic-radical . 79)	; ⽎
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x2C6F8)	; &A-IWDSU+2C6F8;
+      (=>iwds-1		  .  0089)	; &A-IWDSU+2C6F8;
+      )
+     ((=ucs		  . #x6BB3)	; 殳
+      ))
+    (=>ucs@iwds-1	. #x6BC0)	; &A-IWDSU+6BC0;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x6BC0)	; &A-IWDSU+6BC0;
+      ))
+    (ideographic-radical . 79)	; ⽎
     (=ucs		. #x6BC0)	; 毀
     ))
 (define-char
@@ -1871,7 +1894,6 @@
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=>ucs@iwds-1	. #x6BC0)	; &AJ1-04509;
     (=ucs@unicode	. #x6BC0)	; &AJ1-04509;
     (=adobe-japan1-0	. 04509)	; &AJ1-04509;
     (=jis-x0208		. #x544C)	; &I-J90-544C; [52-44]
@@ -1882,6 +1904,16 @@
     (=gt-k		. 10300)	; &I-GT-K10300;
     (=gt-pj-1		. #x544C)	; &I-GT-21351; [52-44]
     (=daikanwa		. 16654)	; &I-M-16654;
+    (<-interchangeable
+     ((=daikanwa	  . 35732)	; &M-35732;
+      ))
+    (->ancient
+     ((=ucs@iso		  . #x23AB7)	; &C6-5E22;
+      (=cns11643-6	  . #x5E22)	; &C6-5E22; [62-02]
+      (=daikanwa	  . 16671)	; &I-M-16671;
+      ))
+    (->ancient*sources
+     shuowen daikanwa)
     (->subsumptive
      ((==ucs@jis	  . #x6BC0)	; &g2-AJ1-04509;
       (==adobe-japan1-0	  . 04509)	; &g2-AJ1-04509;
@@ -1916,7 +1948,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x6BC0)	; 毀
+     ((=>ucs@cognate	  . #x6BC0)	; &A-cgnU+6BC0;
       ))
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 9)
@@ -2024,7 +2056,10 @@
     (=cns11643-6	. #x5423)	; &I-C6-5423; [52-03]
     ))
 (define-char
-  '((ideographic-radical . 79)	; ⽎
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x6BC0)	; &A-IWDSU+6BC0;
+      ))
+    (ideographic-radical . 79)	; ⽎
     (=ucs		. #x6BC1)	; 毁
     ))
 (define-char
