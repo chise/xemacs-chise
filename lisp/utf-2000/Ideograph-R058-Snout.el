@@ -1162,6 +1162,14 @@
   '((ideographic-radical . 58)	; ⼹
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5F51)	; 彑
+      )
+     ((=gt-k		  . 05697)	; &U-i003+20917;
+      ))
     (=ucs		. #x5F58)	; 彘
     (=adobe-japan1-4	. 14522)	; &I-AJ1-14522;
     (=gb2312		. #x6569)	; &I-G0-6569; [69-73]
