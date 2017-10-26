@@ -1,3 +1,15 @@
+2017-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (U-0002D96D): New character.
+	(U+2D96D-var-001): New character; use `<-denotational' for
+	U-0002D96D.
+	(U+6668): Add `ideographic-structure'.
+	(U-000232F8): Apply new conventions for glyph granularity.
+	(U+3B2E): Use `->denotational' and `->subsumptive'.
+	(U-00023316): Likewise.
+
+	* Ideograph-R058-Snout.el (U+5F58): Add `ideographic-structure'.
+
 2017-10-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R121-Jar.el (U+4343): Unify IWDS1-0375.
