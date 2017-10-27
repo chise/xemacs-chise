@@ -1082,16 +1082,31 @@
   '((ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x200CA)	; 𠃊
+      )
+     ((=ucs		  . #x209EA)	; 𠧪
+      ))
+    (sound@ja/on/go	"yu")
+    (sound@ja/on/kan	"Iu")
     (=ucs		. #x209F4)	; 𠧴
+    (=cns11643-4	. #x2B79)	; &I-C4-2B79; [11-89]
     (=daikanwa		. 02816)	; &I-M-02816;
-    ))
-(define-char
-  '((=>ucs		. #x209F4)	; 𠧴
-    (morohashi-daikanwa	2816 0 0)
-    (ideographic-radical . 25)	; ⼘
-    (ideographic-strokes . 8)
-    (total-strokes	 . 10)
-    (=cns11643-4	. #x2B79)	; &C4-2B79; [11-89]
+    (->subsumptive
+     ((==ucs@iso	  . #x209F4)	; &g2-M-02816;
+      (==daikanwa	  . 02816)	; &g2-M-02816;
+      (->subsumptive
+       ((===daikanwa	    . 02816)	; &R-M-02816;
+	)
+       ((===ucs@iso	    . #x209F4)	; &R-U-000209F4;
+	))
+      )
+     ((==ucs@cns	  . #x209F4)	; &g2-CU+209F4;
+      (==cns11643-4	  . #x2B79)	; &g2-CU+209F4; [11-89]
+      ))
     ))
 (define-char
   '((=>ucs		. #x209F7)	; 𠧷
