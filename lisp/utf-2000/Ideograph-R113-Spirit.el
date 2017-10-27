@@ -12603,9 +12603,9 @@
       ))
     (=ucs@iso		. #x25726)	; &C4-687D;
     (=cns11643-4	. #x687D)	; &C4-687D; [72-93]
-    (=daikanwa 		. 24867)	; &I-M-24867;
+    (=daikanwa		. 24867)	; &I-M-24867;
     (->subsumptive
-     ((==daikanwa 	  . 24867)	; &g2-M-24867;
+     ((==daikanwa	  . 24867)	; &g2-M-24867;
       (->subsumptive
        ((===daikanwa	    . 24867)	; &R-M-24867;
 	)
