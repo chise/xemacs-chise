@@ -1,3 +1,33 @@
+2017-10-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (U-00022899): Use `->subsumptive'.
+
+	* Ideograph-R038-Woman.el (U+5A4F): Apply new conventions for
+	glyph granularity.
+	(BUCS+5ABC): Separate B-B6FE.
+	(B-B6FE): Unify A-IWDSU+5ABC.
+	(U+5AB1-var-001): New character; use `<-denotational' for U+5AB1.
+	(U+5AB1-var-002): Likewise.
+	(U+5AB7): Apply new conventions for glyph granularity.
+	(A-IWDSU+5B0E): New abstract node; unify B-E955.
+	(U+5B0E): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+5B0E.
+	(U+5B14): Likewise.
+	(U-00021939): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R025-Divination.el (U-000209F4): Use `->subsumptive'.
+
+	* Ideograph-R021-Spoon.el (U-00020911): Use `->denotational' and
+	`->subsumptive'.
+	(U-00020915): Add `ideographic-structure'.
+	(U-00020917): Use `->denotational' and `->subsumptive'.
+	(U-0002091C): Likewise.
+	(A-U+20917-itaiji-002): New abstract node.
+	(GT-K05697): New character; use `<-denotational' for
+	A-U+20917-itaiji-002; unify U+20917-itaiji-003.
+	(U+20917-itaiji-002): New character; use `<-denotational' for
+	A-U+20917-itaiji-002.
+
 2017-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R072-Sun.el (U-0002D96D): New character.
