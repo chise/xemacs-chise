@@ -32200,16 +32200,37 @@
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5FC4)	; 忄
+      )
+     ((=ucs		  . #x3B9A)	; 㮚
+      ))
+    (sound@ja/on	"ritu")
     (=ucs		. #x22899)	; 𢢙
+    (=cns11643-7	. #x2D7E)	; &I-C7-2D7E; [13-94]
     (=daikanwa		. 11310)	; &I-M-11310;
-    ))
-(define-char
-  '((=>ucs		. #x22899)	; 𢢙
-    (morohashi-daikanwa	11310 0 1)
-    (ideographic-radical . 61)	; ⼼
-    (ideographic-strokes . 13)
-    (total-strokes	 . 16)
-    (=cns11643-7	. #x2D7E)	; &C7-2D7E; [13-94]
+    (<-original
+     ((=ucs@unicode	  . #x6144)	; &AJ1-04884;
+      (=adobe-japan1-0	  . 04884)	; &AJ1-04884;
+      (=daikanwa	  . 11042)	; &I-M-11042;
+      ))
+    (<-original*sources
+     zihui daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x22899)	; &g2-M-11310;
+      (==daikanwa	  . 11310)	; &g2-M-11310;
+      (->subsumptive
+       ((===daikanwa	    . 11310)	; &R-M-11310;
+	)
+       ((===ucs@iso	    . #x22899)	; &R-U-00022899;
+	))
+      )
+     ((==ucs@cns	  . #x22899)	; &g2-CU+22899;
+      (==cns11643-7	  . #x2D7E)	; &g2-CU+22899; [13-94]
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
