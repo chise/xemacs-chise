@@ -372,6 +372,36 @@
     ))
 (define-char
   '((ideographic-radical . 89)	; ⽘
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (=>big5-cdp		. #x88D6)	; &A-CDP-88D6;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x88D6)	; &A-CDP-88D6;
+      ))
+    (ideographic-radical . 89)	; ⽘
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (=big5-cdp		. #x85AE)	; &CDP-85AE;
+    (->subsumptive
+     ((==big5-cdp	  . #x85AE)	; &g2-CDP-85AE;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x88D6)	; &A-CDP-88D6;
+      ))
+    (ideographic-radical . 89)	; ⽘
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (=big5-cdp		. #x88D6)	; &CDP-88D6;
+    (->subsumptive
+     ((==big5-cdp	  . #x88D6)	; &g2-CDP-88D6;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 89)	; ⽘
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (=ucs		. #x723E)	; 爾
@@ -523,6 +553,23 @@
   '((ideographic-radical . 89)	; ⽘
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x201A2)	; 𠆢
+      )
+     ((=>big5-cdp	  . #x88D6)	; &A-CDP-88D6;
+      ))
+    (=ucs		. #x24568)	; 𤕨
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24568)	; 𤕨
+      ))
+    (ideographic-radical . 89)	; ⽘
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
     (hanyu-dazidian	1 223 7)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -532,10 +579,30 @@
       )
      ((=big5-cdp	  . #x85AE)	; &CDP-85AE;
       ))
-    (=ucs		. #x24568)	; 𤕨
-    (=cns11643-7	. #x247C)	; &I-C7-247C; [04-92]
+    (=ucs@iso		. #x24568)	; &C7-247C;
+    (=cns11643-7	. #x247C)	; &C7-247C; [04-92]
     (=daikanwa		. 19753)	; &I-M-19753;
-    (=hanziku-1		. #xD44E)	; &I-HZK01-D44E;
+    (<-original
+     ((=ucs@unicode	  . #x723E)	; &MJ016762;
+      (=mj		  . 016762)	; &MJ016762;
+      (=daikanwa	  . 19750)	; &I-M-19750;
+      ))
+    (<-original*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x24568)	; &g2-M-19753;
+      (==cns11643-7	  . #x247C)	; &g2-M-19753; [04-92]
+      (==daikanwa	  . 19753)	; &g2-M-19753;
+      (->subsumptive
+       ((===daikanwa	    . 19753)	; &R-M-19753;
+	)
+       ((===cns11643-7	    . #x247C)	; &R-C7-247C; [04-92]
+	)
+       ((===ucs@iso	    . #x24568)	; &R-U-00024568;
+	)
+       ((=hanziku-1	    . #xD44E)	; &HZK01-D44E;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 89)	; ⽘
