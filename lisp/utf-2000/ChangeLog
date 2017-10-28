@@ -1,3 +1,21 @@
+2017-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R123-Sheep.el (U-00020186): Apply new conventions for
+	glyph granularity.
+	(IU+263A7): Add `sound@ja/on/{kan|go}'; add `<-original@component'
+	for UU+4EAB; add `<-same' for U-00020186.
+
+	* Ideograph-R119-Rice.el (U+42AE): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R094-Dog.el (U+3E9F): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R089-Double-X.el (A-BC-88D6): New abstract node.
+	(BC-85AE): New character; use `<-denotational' for A-BC-88D6.
+	(BC-88D6): Likewise.
+	(U-00024568): Apply new conventions for glyph granularity.
+
 2017-10-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (U-00022899): Use `->subsumptive'.
