@@ -7805,13 +7805,71 @@
   '((ideographic-radical . 119)	; ⽶
     (ideographic-strokes . 14)
     (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7C73)	; 米
+      )
+     ((=ucs		  . #x7FDF)	; 翟
+      ))
     (=ucs		. #x42AE)	; 䊮
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x42AE)	; 䊮
+      ))
+    (ideographic-radical . 119)	; ⽶
+    (ideographic-strokes . 14)
+    (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7C73)	; 米
+      )
+     ((=ucs@jis		  . #x7FDF)	; &JX1-7A40;
+      (=ks-x1001	  . #x6E61)	; &JX1-7A40; [78-65]
+      (=jis-x0212	  . #x553C)	; &I-JSP-553C; [53-28]
+      (=jis-x0213-1	  . #x7A40)	; &I-JX1-7A40; [90-32]
+      (=daikanwa	  . 28727)	; &I-M-28727;
+      ))
+    (=daikanwa		. 27172)	; &M-27172;
+    (->formed
+     ((=daikanwa	  . 25352)	; &M-25352;
+      ))
+    (->formed*sources
+     jiyun daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 27172)	; &M-27172;
+     ((==daikanwa	  . 27172)	; &g2-M-27172;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x42AE)	; 䊮
+      ))
+    (ideographic-radical . 119)	; ⽶
+    (ideographic-strokes . 14)
+    (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x42AE)	; &UU+42AE;
+     ((=ucs		  . #x7C73)	; 米
       )
-     ((=cns11643-3	  . #x5C68)	; &C3-5C68; [60-72]
+     ((=ucs@unicode	  . #x7FDF)	; &C1-6A4B;
+      (=gb2312		  . #x3554)	; &C1-6A4B; [21-52]
+      (=cns11643-1	  . #x6A4B)	; &I-C1-6A4B; [74-43]
+      ))
+    (=ucs@unicode	. #x42AE)	; &C3-5C68;
+    (=ucs@JP/hanazono	. nil)
+    (=cns11643-3	. #x5C68)	; &C3-5C68; [60-72]
+    (->subsumptive
+     ((==ucs@unicode	  . #x42AE)	; &g2-UU+42AE;
+      (==ucs@JP/hanazono  . nil)
+      )
+     ((==ucs@cns	  . #x42AE)	; &g2-CU+42AE;
+      (==cns11643-3	  . #x5C68)	; &g2-CU+42AE; [60-72]
       ))
     ))
 (define-char
