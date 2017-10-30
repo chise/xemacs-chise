@@ -913,8 +913,8 @@
       )
      ((=ucs		  . #x7CF8)	; 糸
       )
-     ((=>ucs@component	  . #x4E8F)	; &A-compU+4E8F;
-      (=>iwds-1		  .  0093)	; &A-compU+4E8F;
+     ((=>ucs@iwds-1	  . #x4E8F)	; &A-IWDSU+4E8F;
+      (=>iwds-1		  .  0093)	; &A-IWDSU+4E8F;
       ))
     (=ucs		. #x42B8)	; 䊸
     ))
@@ -7927,8 +7927,8 @@
       )
      ((=ucs		  . #x7CF8)	; 糸
       )
-     ((=>ucs@component	  . #x8099)	; &A-compU+8099;
-      (=>iwds-1		  .  0289)	; &A-compU+8099;
+     ((=>ucs@iwds-1	  . #x8099)	; &A-IWDSU+8099;
+      (=>iwds-1		  .  0289)	; &A-IWDSU+8099;
       ))
     (=ucs		. #x7D79)	; 絹
     ))
@@ -16469,7 +16469,8 @@
       )
      ((=ucs		  . #x7CF8)	; 糸
       )
-     ((=cns11643-6	  . #x3456)	; &C6-3456; [20-54]
+     ((=ucs@cns		  . #x27D26)	; &C6-3456;
+      (=cns11643-6	  . #x3456)	; &C6-3456; [20-54]
       ))
     (=ucs@JP/hanazono	. #x2C5E8)	; &hanaJU+2C5E8;
     (->subsumptive
@@ -22109,13 +22110,45 @@
   '((ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 12)
     (total-strokes	 . 18)
-    (=ucs		. #x7E60)	; 繠
-    (=big5		. #xF075)	; &I-B-F075;
-    (->subsumptive
-     ((=cns11643-2	  . #x6261)	; &C2-6261; [66-65]
-      (=daikanwa	  . 27912)	; &I-M-27912;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x7E60)	; &UU+7E60;
+     ((=ucs		  . #x60E2)	; 惢
+      )
+     ((=ucs		  . #x7CF8)	; 糸
+      ))
+    (sound@ja/on/go	"ni")
+    (sound@ja/on/kan	"zui")
+    (=ucs		. #x7E60)	; 繠
+    (=cns11643-2	. #x6261)	; &I-C2-6261; [66-65]
+    (=big5		. #xF075)	; &I-B-F075;
+    (=daikanwa		. 27912)	; &I-M-27912;
+    (<-interchangeable
+     ((=ucs		  . #x7E8D)	; 纍
+      (=daikanwa	  . 28039)	; &I-M-28039;
+      ))
+    (<-interchangeable*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-same
+     ((=ucs@unicode	  . #x6A64)	; &AJ1-17862;
+      (=adobe-japan1-5	  . 17862)	; &AJ1-17862;
+      (=daikanwa	  . 15569)	; &I-M-15569;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@cns	  . #x7E60)	; &g2-M-27912;
+      (==cns11643-2	  . #x6261)	; &g2-M-27912; [66-65]
+      (==daikanwa	  . 27912)	; &g2-M-27912;
+      (->subsumptive
+       ((===daikanwa	    . 27912)	; &R-M-27912;
+	)
+       ((===cns11643-2	    . #x6261)	; &R-C2-6261; [66-65]
+	))
+      )
+     ((==ucs@unicode	  . #x7E60)	; &g2-UU+7E60;
+      (==ucs@JP/hanazono  . nil)
       ))
     ))
 (define-char
@@ -25479,6 +25512,14 @@
   '((ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 15)
     (total-strokes	 . 21)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x757E)	; 畾
+      )
+     ((=ucs		  . #x7CF8)	; 糸
+      ))
     (=ucs		. #x7E8D)	; 纍
     (=jis-x0212		. #x5464)	; &I-JSP-5464; [52-68]
     (=cns11643-2	. #x6B7A)	; &I-C2-6B7A; [75-90]
