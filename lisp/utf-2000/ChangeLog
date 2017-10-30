@@ -1,3 +1,33 @@
+2017-10-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R137-Boat.el (U-00026A36): Apply new conventions for
+	glyph granularity.
+	(U+8241): Likewise.
+	(U+447D): Likewise.
+	(U+4481): Likewise.
+	(U-00026A99): Use `->denotational' and `->subsumptive'.
+	(U-00026A9A): Apply new conventions for glyph granularity.
+	(U+4488): Likewise.
+	(U+8267): Likewise.
+	(U-00026ABF): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R120-Silk.el (U+7E60): Apply new conventions for glyph
+	granularity.
+	(U+7E8D): Add `ideographic-structure'.
+
+	* Ideograph-R115-Grain.el (BUCS+79BF): New abstract node.
+	(A-IWDSU+79BF): New abstract node; use `<-denotational' for
+	BUCS+79BF.
+	(U+79BF): Add `<-denotational' for A-IWDSU+79BF.
+	(U+79C3): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+79BF.
+	(U-000258DE): Add ideographic-structure.
+
+	* Ideograph-R085-Water.el (U+6EA7): Apply new conventions for
+	glyph granularity.
+	(U-00023F6E): Use `->denotational' and `->subsumptive'.
+	(U-00023FDA): Apply new conventions for glyph granularity.
+
 2017-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R123-Sheep.el (U-00020186): Apply new conventions for
