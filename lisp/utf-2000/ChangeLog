@@ -1,3 +1,108 @@
+2017-10-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R130-Meat.el (A-compU+722B): New abstract component.
+	(BC-88F0): Add A-compU+722B into `<-denotational@component'.
+	(A-IWDSU+8099): New abstract component; unify IWDS1-0289.
+	(U+43CD): Add `<-denotational' for A-IWDSU+8099; add
+	`ideographic-structure'.
+	(A-BC-8C4F): New abstract node; use `<-denotational@component' for
+	A-compU+7676.
+	(BC-8C4F): Add `<-denotational' for A-BC-8C4F.
+	(U+43CE): Apply new conventions for glyph granularity.
+	(A-U+43CE-itaiji-001): New abstract node; use `<-denotational' for
+	U+43CE.
+	(U+43CE-var-001): New character; use `<-denotational' for
+	A-U+43CE-itaiji-001.
+	(U+43CE-var-002): Likewise; unify U+43CE-itaiji-001.
+	(U+8091): Apply new conventions for glyph granularity.
+	(U+8099): Add `<-denotational' for A-IWDSU+8099; unify MJ020931
+	and KOSEKI-326650.
+	(U+809F): Apply new conventions for glyph granularity.
+	(U-00026644): Likewise.
+	(U-00026645): Likewise.
+	(U+43D8): Likewise.
+	(A-IWDSU+80C6): New abstract node.
+	(U+80C6): Add `<-denotational@component' for A-IWDSU+80C6.
+	(U+80D3): Apply new conventions for glyph granularity.
+	(U+43E3): Use `->subsumptive'; add `<-denotational@component' for
+	A-IWDSU+80C6.
+	(U+43E5): Apply new conventions for glyph granularity.
+	(U-00026691): Likewise.
+	(U-0002669D): Likewise.
+	(U+80EE): Use `->subsumptive'.
+	(U+811F): Apply new conventions for glyph granularity.
+	(U-000266F7): Likewise.
+	(U+812D): Likewise.
+	(U+812E): Likewise.
+	(U+813E): Likewise.
+	(U+43FF): Likewise.
+	(U-00026711): Likewise.
+	(U+8143): Likewise.
+	(U-0002670F): Likewise.
+	(U-00026718): Likewise.
+	(U-0002671B): Likewise.
+	(U-0002674F): Likewise.
+	(U-0002673A): Likewise.
+	(U-0002672C): Likewise.
+	(U-00026736): Likewise.
+	(U-00026739): Likewise.
+	(A-IWDSU+26760): New abstract node; use `<-denotational' for
+	A-M-29675; unify IWDS1-0352.
+	(A-compU+23386): New abstract node; use `<-denotational' for
+	A-IWDSU+26760.
+	(U-00026760): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-compU+23386.
+	(U-00023386): Use A-compU+23386 instead A-M-29675 as its mother;
+	apply new conventions for glyph granularity.
+	(A-U+26760-itaiji-001): New abstract node; use `<-denotational'
+	for A-M-29675.
+	(U+26760-itaiji-001): Use A-U+26760-itaiji-001 instead of
+	A-M-29675 as its mother.
+	(A-U+23386-itaiji-001): New abstract node; use `<-denotational'
+	for A-M-29675.
+	(A-U+26760-itaiji-002): New abstract node; use `<-denotational'
+	for A-U+23386-itaiji-001.
+	(U+26760-itaiji-002): Use `<-subsumptive' for A-U+26760-itaiji-002
+	instead of `<-denotational' for A-M-29675.
+	(A-CB12237): Use A-U+23386-itaiji-001 instead of A-M-29675 as its
+	mother; unify A-U+23386-itaiji-002.
+	(U+23386-itaiji-001): New character; use `<-subsumptive' for
+	A-CB12237.
+	(CB12237): Unify U+23386-itaiji-002.
+	(U-00026767): Apply new conventions for glyph granularity.
+	(U-0002676B): Likewise.
+	(U-00026771): Likewise.
+	(U+441A): Likewise.
+	(U+441D): Likewise.
+	(U+441E): Likewise.
+	(U+8189): Likewise.
+	(U-000267C0): Likewise; add `<-denotational' for A-IWDSU+26760.
+	(U+442E): Apply new conventions for glyph granularity.
+	(U+8199): Likewise.
+	(U+4432): Likewise.
+	(U+819C): Likewise.
+	(U-000267DF): Likewise.
+	(U+4434): Likewise.
+	(U-000267E3): Likewise.
+	(U-000267E4): Likewise.
+	(U+4435): Likewise.
+	(U-0002681E): Likewise.
+	(U-0002686C): Likewise.
+	(U+81B7): Likewise.
+	(U+81BC): Likewise.
+	(U-00026868): Use `->denotational' and `->subsumptive'.
+	(U+4443): Apply new conventions for glyph granularity.
+	(U+81D2): Likewise.
+	(U-0002688C): Likewise.
+	(U-0002688E): Likewise.
+	(U-00026891): Likewise.
+	(U-000268AF): Likewise.
+	(U-000268AD): Likewise.
+	(U+444F): Likewise.
+	(U-000268CE): New character.
+	(U-000268D1): Apply new conventions for glyph granularity.
+	(U-000268D6): Likewise.
+
 2017-10-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R137-Boat.el (U-00026A36): Apply new conventions for
