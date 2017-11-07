@@ -1,3 +1,33 @@
+2017-10-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R096-Jade.el (U-00024A17): Apply new conventions for
+	glyph granularity.
+	(U-00024A64): Likewise.
+	(U-00024A70): Unify GT-27275 and M-21283; add `sound@ja/on'; add
+	`<-original' for UU+746E.
+	(U-00024A8E): Apply new conventions for glyph granularity.
+	(U-00024A87): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R086-Fire.el (U+7070): Add ideographic-structure.
+	(JU+7070): Unify BC-8D7D.
+	(U+710A): Use `->subsumptive'.
+	(U-00024253): New character.
+	(A-IWDSU+2427A): New abstract node; unify A-M-19156.
+	(U-0002427A): Use `->subsumptive'; add `<-denotational' for
+	A-IWDSU+2427A.
+	(U-000242AE): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+2427A.
+	(U-000242A3): New character.
+	(U+71C5): Apply new conventions for glyph granularity.
+	(U-000243AD): Use `->denotational' and `->subsumptive'.
+	(U+3E11): Likewise.
+
+	* Ideograph-R075-Tree.el (U-00023538): Unify M-15102; add
+	`sound@ja/on'.
+	(A-cgnU+3B9A): New abstract node.
+	(U+3B9A): Add `<-denotational' for A-cgnU+3B9A; add `sound@ja/on'.
+	(GT-K08905): New character; use `<-denotational' for A-cgnU+3B9A.
+
 2017-10-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R130-Meat.el (A-compU+722B): New abstract component.
