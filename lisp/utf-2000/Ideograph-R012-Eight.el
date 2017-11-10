@@ -186,6 +186,14 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 242 1)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x516B)	; 八
+      )
+     ((=ucs		  . #x53B6)	; 厶
+      ))
     (=ucs		. #x516C)	; 公
     (=mj		. 007275)	; &I-MJ007275;
     (=adobe-japan1-0	. 01964)	; &I-AJ1-01964;
@@ -203,7 +211,17 @@
     (=daikanwa		. 01452)	; &I-M-01452;
     (=shinjigen		.  0493)	; 公
     (->subsumptive
-     ((=>>ucs@ks	  . #x516C)	; &MJ007276;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=>>ucs@jis	    . #x516B)	; &G-MJ007273;
+	(=>>ucs@ks	    . #x516B)	; &G-MJ007273;
+	(=>>adobe-japan1-0  . 03392)	; &G-MJ007273;
+	)
+       ((=ucs		    . #x53B6)	; 厶
+	))
+      (=>>ucs@ks	  . #x516C)	; &MJ007276;
       (=mj		  . 007276)	; &MJ007276;
       (=>>adobe-japan1-4  . 13440)	; &MJ007276;
       (=>>jis-x0208@1978  . #x3878)	; &MJ007276; [24-88]
@@ -268,21 +286,30 @@
 	  )
 	 ((===mj	      . 007276)	; &R-MJ007276;
 	  ))
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((==ucs@cns	      . #x516B)	; &g2-CU+516B;
+	  (==cns11643-1	      . #x442C)	; &g2-CU+516B; [36-12]
+	  )
+	 ((==ucs@unicode      . #x53B6)	; &g2-AJ1-04328;
+	  (==adobe-japan1-0   . 04328)	; &g2-AJ1-04328;
+	  ))
+	(==ucs@cns	    . #x516C)	; &g2-CU+516C;
+	(==cns11643-1	    . #x447C)	; &g2-CU+516C; [36-92]
 	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((==ucs@cns	    . #x516B)	; &g2-CU+516B;
-	(==cns11643-1	    . #x442C)	; &g2-CU+516B; [36-12]
+       ((=mj		    . 007274)	; &MJ007274;
 	)
        ((=ucs		    . #x53B6)	; 厶
 	))
-      (==ucs@cns	  . #x516C)	; &g2-CU+516C;
-      (==cns11643-1	  . #x447C)	; &g2-CU+516C; [36-92]
-      )
-     ((=>>ucs@unicode	  . #x516C)	; &G-MJ007275;
+      (=>>ucs@unicode	  . #x516C)	; &G-MJ007275;
       (=>>mj		  . 007275)	; &G-MJ007275;
       (=>>adobe-japan1-0  . 01964)	; &G-MJ007275;
       (=>>jis-x0208@1990  . #x3878)	; &G-MJ007275; [24-88]
