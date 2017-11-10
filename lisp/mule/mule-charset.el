@@ -427,6 +427,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==ucs-bmp-cjk@gb
           ==ucs-sip-ext-b@iso
 	  ==ucs-sip@JP/hanazono
+	  ==ucs-sip-itaiji-001
 	  ==ucs-bmp-itaiji-002
 	  ==ucs-sip-itaiji-002
 	  ==ucs-bmp-itaiji-003
