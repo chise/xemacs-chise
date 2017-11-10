@@ -1,3 +1,12 @@
+2017-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R096-Jade.el (U-0002C369): New character.
+
+	* Ideograph-R094-Dog.el (U-00024764): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R012-Eight.el (U+516C): Add ideographic-structure.
+
 2017-10-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R096-Jade.el (U-00024A17): Apply new conventions for
