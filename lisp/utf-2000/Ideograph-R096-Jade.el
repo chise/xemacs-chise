@@ -5223,6 +5223,23 @@
     (=cns11643-6	. #x4176)	; &I-C6-4176; [33-86]
     ))
 (define-char
+  '((ideographic-radical . 96)	; ⽟
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x248E9)	; 𤣩
+      )
+     ((=big5-cdp	  . #x8CCE)	; &CDP-8CCE;
+      ))
+    (=ucs		. #x2C369)	; 𬍩
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2C369)	; &g2-hanaJU+2C369;
+      ))
+    ))
+(define-char
   '((=>ucs		. #x7414)	; 琔
     (ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 8)
