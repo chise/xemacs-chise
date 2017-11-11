@@ -4377,7 +4377,7 @@
 		  mother	=ucs-var-002))
   (make-charset '==ucs-bmp-var-002
 		"uXXXX-var-002's abstract glyph-forms in BMP"
-		'(long-name	"UCS-BMP-var-002 characters"
+		'(long-name	"UCS-BMP-var-002 glyph-forms"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -4388,6 +4388,17 @@
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.var002-0"))
+  (make-charset '==ucs-sip-var-002
+		"uXXXX-var-002's abstract glyph-forms in SIP"
+		'(long-name	"UCS-SIP-var-002 glyph-forms"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	==ucs-var-002
+		  min-code #x20000 max-code #x2FFFF
+		  registry "ucs00\\.var002-2"))
 
   (make-charset '=ucs-var-003
 		"uXXXX-var-003 glyph-images of GlyphWiki"
