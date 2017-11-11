@@ -1,3 +1,7 @@
+2017-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+23140-itaiji-001): Unify GT-K04903.
+
 2017-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R096-Jade.el (U-0002C369): New character.
