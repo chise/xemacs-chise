@@ -5078,40 +5078,6 @@
 		  max-code #x9FCC
 		  registry "ucs\\.itaiji006-0"))
 
-  (make-charset '=>ucs-itaiji-007
-		"Abstract characters corresponding with uXXXX-itaiji-007 of GlyphWiki"
-		'(long-name	"UCS-itaiji-007"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-                  ;; =>iso-ir	177
-		  mother	=ucs))
-  (make-charset '=>ucs-bmp-itaiji-007
-		"uXXXX-itaiji-007's abstract characters in BMP"
-		'(long-name	"UCS-BMP-itaiji-007 characters"
-		  chars		256
-		  dimension	2
-		  columns	2
-		  graphic	2
-		  direction	l2r
-                  ;; =>iso-ir	177
-		  mother	=>ucs-itaiji-007
-		  min-code #x2E00
-		  max-code #x9FCC
-		  registry "ucs\\.itaiji007-0"))
-  (make-charset '=>ucs-sip-itaiji-007
-		"uXXXX-itaiji-007 characters in SIP"
-		'(long-name	"UCS-SIP-itaiji-007"
-		  chars		256
-		  dimension	2
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	=>ucs-itaiji-007
-		  min-code #x20000 max-code #x2FFFF
-		  registry "ucs00\\.itaiji007-2"))
   (make-charset '=ucs-itaiji-007
 		"uXXXX-itaiji-007 glyphs of GlyphWiki"
 		'(long-name	"UCS-itaiji-007"
@@ -5144,6 +5110,40 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=ucs-itaiji-007
+		  min-code #x20000 max-code #x2FFFF
+		  registry "ucs00\\.itaiji007-2"))
+  (make-charset '=>ucs-itaiji-007
+		"Abstract characters corresponding with uXXXX-itaiji-007 of GlyphWiki"
+		'(long-name	"UCS-itaiji-007"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs))
+  (make-charset '=>ucs-bmp-itaiji-007
+		"uXXXX-itaiji-007's abstract characters in BMP"
+		'(long-name	"UCS-BMP-itaiji-007 characters"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=>ucs-itaiji-007
+		  min-code #x2E00
+		  max-code #x9FCC
+		  registry "ucs\\.itaiji007-0"))
+  (make-charset '=>ucs-sip-itaiji-007
+		"uXXXX-itaiji-007 characters in SIP"
+		'(long-name	"UCS-SIP-itaiji-007"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=>ucs-itaiji-007
 		  min-code #x20000 max-code #x2FFFF
 		  registry "ucs00\\.itaiji007-2"))
 
