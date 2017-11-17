@@ -1,3 +1,8 @@
+2017-11-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el: Define `=ucs-itaiji-007' before
+	`=>ucs-itaiji-007'.
+
 2017-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
