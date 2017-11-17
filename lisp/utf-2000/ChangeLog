@@ -1,5 +1,13 @@
 2017-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R120-Silk.el (U+7E84): Add ideographic-structure.
+	(U-000261CB): New character.
+
+	* Ideograph-R027-Cliff.el (U-0002BA08): New character; unify
+	U+2BA08-var-002 and U+53DC-itaiji-005.
+
+2017-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R030-Mouth.el (U+23140-itaiji-001): Unify GT-K04903.
 
 2017-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
