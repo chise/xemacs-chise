@@ -24012,6 +24012,14 @@
     ))
 (define-char
   '((ideographic-radical . 120)	; ⽷
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7CF8)	; 糸
+      )
+     ((=ucs		  . #x84EC)	; 蓬
+      ))
     (=ucs		. #x7E84)	; 纄
     ))
 (define-char
@@ -24021,7 +24029,21 @@
     (ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 13)
     (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7CF8)	; 糸
+      )
+     ((=ucs@unicode	  . #x84EC)	; &MJ022597;
+      (=mj		  . 022597)	; &MJ022597;
+      ))
     (=ucs@unicode	. #x7E84)	; &UU+7E84;
+    (=ucs@JP/hanazono	. nil)
+    (->subsumptive
+     ((==ucs@unicode	  . #x7E84)	; &g2-UU+7E84;
+      (==ucs@JP/hanazono  . nil)
+      ))
     ))
 (define-char
   '((ideographic-radical . 120)	; ⽷
@@ -25853,7 +25875,55 @@
     (ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 15)
     (total-strokes	 . 21)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7CF8)	; 糸
+      )
+     ((=ucs@cns		  . #x84EC)	; &C1-6E5D;
+      (=cns11643-1	  . #x6E5D)	; &C1-6E5D; [78-61]
+      ))
+    (=ucs@cns		. #x7E84)	; &C3-5E53;
     (=cns11643-3	. #x5E53)	; &C3-5E53; [62-51]
+    (->subsumptive
+     ((==ucs@cns	  . #x7E84)	; &g2-CU+7E84;
+      (==cns11643-3	  . #x5E53)	; &g2-CU+7E84; [62-51]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 120)	; ⽷
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7CF8)	; 糸
+      )
+     ((=ucs		  . #x4525)	; 䔥
+      ))
+    (=ucs		. #x261CB)	; 𦇋
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x261CB)	; 𦇋
+      ))
+    (ideographic-radical . 120)	; ⽷
+    (ideographic-strokes . 15)
+    (total-strokes	 . 21)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7CF8)	; 糸
+      )
+     ((=ucs@cns		  . #x4525)	; &C3-4E50;
+      (=cns11643-3	  . #x4E50)	; &C3-4E50; [46-48]
+      (=daikanwa	  . 49609)	; &I-M-49609;
+      ))
+    (=ucs@iso		. #x261CB)	; &U-000261CB;
+    (->subsumptive
+     ((==ucs@iso	  . #x261CB)	; &g2-IU-000261CB;
+      ))
     ))
 (define-char
   '((ideographic-radical . 120)	; ⽷
