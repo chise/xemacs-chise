@@ -2389,6 +2389,15 @@
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      )
+     ((=>ucs-itaiji-001	  . #x56EA)	; &A-U-i001+56EA;
+      ))
+    (sound@ja/on	"sei")
     (=ucs		. #x38B4)	; 㢴
     ))
 (define-char
@@ -2398,7 +2407,14 @@
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (sound@ja/on	"sei")
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      )
+     ((=gt-k		  . 02079)	; &U-i001+56EA;
+      ))
     (=ucs@unicode	. #x38B4)	; &C6-307A;
     (=cns11643-6	. #x307A)	; &C6-307A; [16-90]
     (=daikanwa		. 09776)	; &I-M-09776;
@@ -2435,14 +2451,7 @@
       )
      ((=ucs		  . #x5F13)	; 弓
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-	(=ucs		    . #x2FF4)	; ⿴
-	)
-       ((=ucs		    . #x56D7)	; 囗
-	)
-       ((=ucs		    . #x5902)	; 夂
-	))
+     ((=gt-k		  . 01840)	; &GT-K01840;
       ))
     (=ucs-var-001	. #x38B4)	; &U-v001+38B4;
     ))
@@ -2459,14 +2468,7 @@
       )
      ((=ucs		  . #x5F13)	; 弓
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-	(=ucs		    . #x2FF4)	; ⿴
-	)
-       ((=ucs		    . #x56D7)	; 囗
-	)
-       ((=ucs		    . #x590A)	; 夊
-	))
+     ((=ucs-itaiji-003	  . #x56EA)	; &U-i003+56EA;
       ))
     (=mj		. 001076)	; &MJ001076;
     (=hanyo-denshi/jt	. #xB10A)	; &I-HD-JT-B10A;
