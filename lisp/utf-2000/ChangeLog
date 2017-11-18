@@ -1,3 +1,12 @@
+2017-11-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (A-compU+20001): New abstract component;
+	use `<-denotational@component' for A-compU+4E02.
+	(U-00020001): Use A-compU+20001 instead of A-compU+4E02 as its
+	mother.
+	(GT-K00363): New character; use `<-denotational' for
+	A-compU+20001; add `<-denotational@component' for U+4E8F.
+
 2017-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R057-Bow.el (U+38B4): Add `ideographic-structure'; add
