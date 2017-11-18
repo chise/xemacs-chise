@@ -277,6 +277,13 @@
      ((=>ucs@component	  . #x4E02)	; &A-compU+4E02;
       ))
     (ideographic-radical . 1)	; ⼀
+    (=>ucs@component	. #x20001)	; &A-compU+20001;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x20001)	; &A-compU+20001;
+      ))
+    (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 4 2)
@@ -562,6 +569,32 @@
      ((=ucs		  . #x21D6F)	; 𡵯
       )
      ((=ucs		  . #x6B65)	; 步
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x20001)	; &A-compU+20001;
+      ))
+    (<-denotational@component
+     ((=ucs		  . #x4E8F)	; 亏
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=+>ucs@unicode	  . #x4EA0)	; &o-J0-5035;
+      (=+>jis-x0208	  . #x5035)	; &o-J0-5035; [48-21]
+      )
+     ((=big5-cdp	  . #x88CD)	; &CDP-88CD;
+      ))
+    (=gt-k		. 00363)	; &GT-K00363;
+    (=gt-pj-k2		. #x362E)	; &GT-K00363; [22-14]
+    (->subsumptive
+     ((==gt-k		  . 00363)	; &g2-GT-K00363;
+      (==gt-pj-k2	  . #x362E)	; &g2-GT-K00363; [22-14]
       ))
     ))
 (define-char
