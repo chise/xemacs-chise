@@ -711,12 +711,30 @@
   '((ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (=ucs		. #x221E5)	; 𢇥
-    (->subsumptive
-     ((=daikanwa	  . 09249)	; &M-09249;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs@iso		  . #x221E5)	; &C5-242C;
-      (=cns11643-5	  . #x242C)	; &C5-242C; [04-12]
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=ucs		  . #x5346)	; 卆
+      ))
+    (sound@ja/on/go	"zui")
+    (sound@ja/on/kan	"sui")
+    (=ucs		. #x221E5)	; 𢇥
+    (=cns11643-5	. #x242C)	; &I-C5-242C; [04-12]
+    (=daikanwa		. 09249)	; &I-M-09249;
+    (->subsumptive
+     ((==ucs@iso	  . #x221E5)	; &g2-M-09249;
+      (==cns11643-5	  . #x242C)	; &g2-M-09249; [04-12]
+      (==daikanwa	  . 09249)	; &g2-M-09249;
+      (->subsumptive
+       ((===daikanwa	    . 09249)	; &R-M-09249;
+	)
+       ((===cns11643-5	    . #x242C)	; &R-C5-242C; [04-12]
+	)
+       ((===ucs@iso	    . #x221E5)	; &R-U-000221E5;
+	))
       ))
     ))
 (define-char
