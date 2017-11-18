@@ -1,3 +1,17 @@
+2017-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (U+38B4): Add `ideographic-structure'; add
+	`sound@ja/on'.
+	(U+38B4-var-001): Use GT-K01840 instead of "⿴囗夂" in
+	`ideographic-structure'.
+	(MJ001076): Use U+56EA-itaiji-003 instead of "⿴囗夊" in
+	`ideographic-structure'.
+
+2017-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R053-Dotted-Cliff.el (U-000221E5): Apply new
+	conventions for glyph granularity.
+
 2017-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R120-Silk.el (U+7E84): Add ideographic-structure.
