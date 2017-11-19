@@ -684,6 +684,22 @@
     ))
 (define-char
   '((ideographic-radical . 34)	; ⼡
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x6535)	; &A-compU+6535;
+      (=>iwds-1		  .  0194)	; &A-compU+6535;
+      )
+     ((=ucs		  . #x7530)	; 田
+      ))
+    (=ucs		. #x5907)	; 备
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5907)	; 备
+      ))
+    (ideographic-radical . 34)	; ⼡
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (hanyu-dazidian	2 869 3)
@@ -695,10 +711,21 @@
       )
      ((=ucs		  . #x7530)	; 田
       ))
-    (=ucs		. #x5907)	; 备
-    (=gb2312		. #x3138)	; &I-G0-3138; [17-24]
-    (=hanziku-3		. #xAEE8)	; &I-HZK03-AEE8;
+    (=ucs@unicode	. #x5907)	; &G0-3138;
+    (=gb2312		. #x3138)	; &G0-3138; [17-24]
     (=jef-china3	. #x81F2)	; &I-JC3-81F2;
+    (->subsumptive
+     ((==ucs@unicode	  . #x5907)	; &g2-UU+5907;
+      (==gb2312		  . #x3138)	; &g2-UU+5907; [17-24]
+      (==jef-china3	  . #x81F2)	; &g2-UU+5907;
+      (->subsumptive
+       ((===ucs@unicode	    . #x5907)	; &R-UU+5907;
+	)
+       ((=hanziku-3	    . #xAEE8)	; &HZK03-AEE8;
+	)
+       ((===jef-china3	    . #x81F2)	; &R-JC3-81F2;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 34)	; ⼡
