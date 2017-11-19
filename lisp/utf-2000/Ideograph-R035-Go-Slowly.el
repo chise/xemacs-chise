@@ -3,6 +3,17 @@
   '((ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (=>big5-cdp		. #x89D5)	; &A-CDP-89D5;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>big5-cdp	  . #x89D5)	; &A-CDP-89D5;
+      )
+     ((=>ucs@component	  . #x5915)	; &A-compU+5915;
+      ))
+    (ideographic-radical . 35)	; ⼢
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
     (=>ucs@component	. #x590A)	; &A-compU+590A;
     (=>iwds-1		.  0092)	; &A-compU+590A;
     ))
@@ -60,21 +71,32 @@
 	)
        ((===ucs@unicode	    . #x590A)	; &R-UU+590A;
 	))
+      )
+     ((=gt-k		  . 00218)	; &GT-K00218;
+      (=gt-pj-k1	  . #x3262)	; &GT-K00218; [18-66]
+      (<-identical@component/connect-below
+       ((=ucs		    . #x590A)	; 夊
+	))
+      (->subsumptive
+       ((==gt-k		    . 00218)	; &g2-GT-K00218;
+	(==gt-pj-k1	    . #x3262)	; &g2-GT-K00218; [18-66]
+	(<-identical@component/connect-below
+	 ((==ucs@jis	      . #x590A)	; &g2-AJ1-04539;
+	  (==adobe-japan1-0   . 04539)	; &g2-AJ1-04539;
+	  ))
+	))
       ))
     ))
 (define-char
-  '((<-denotational
-     ((==ucs@jis	  . #x590A)	; &g2-AJ1-04539;
-      (==adobe-japan1-0	  . 04539)	; &g2-AJ1-04539;
+  '((<-denotational@component
+     ((=>big5-cdp	  . #x89D5)	; &A-CDP-89D5;
       ))
     (ideographic-radical . 35)	; ⼢
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (=gt-k		. 00218)	; &GT-K00218;
-    (=gt-pj-k1		. #x3262)	; &GT-K00218; [18-66]
-    (<-identical@component/connect-below
-     ((==ucs@jis	  . #x590A)	; &g2-AJ1-04539;
-      (==adobe-japan1-0	  . 04539)	; &g2-AJ1-04539;
+    (=big5-cdp		. #x89D5)	; &CDP-89D5;
+    (->subsumptive
+     ((==big5-cdp	  . #x89D5)	; &g2-CDP-89D5;
       ))
     ))
 (define-char
