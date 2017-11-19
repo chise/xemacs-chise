@@ -383,12 +383,11 @@
       )
      ((=ucs		  . #x6BD4)	; 比
       ))
-    (sound@ja/on	"hi")
-    (=ucs		. #x23B09)	; 𣬉
+    (=>ucs@cognate	. #x23B09)	; &A-cgnU+23B09;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x23B09)	; 𣬉
+     ((=>ucs@cognate	  . #x23B09)	; &A-cgnU+23B09;
       ))
     (ideographic-radical . 81)	; ⽐
     (ideographic-strokes . 6)
@@ -401,8 +400,9 @@
       )
      ((=ucs		  . #x6BD4)	; 比
       ))
-    (=ucs@iso		. #x23B09)	; &C6-386A;
-    (=cns11643-6	. #x386A)	; &C6-386A; [24-74]
+    (sound@ja/on	"hi")
+    (=ucs		. #x23B09)	; 𣬉
+    (=cns11643-6	. #x386A)	; &I-C6-386A; [24-74]
     (=daikanwa		. 16755)	; &I-M-16755;
     (=cbeta		. 08541)	; &I-CB08541;
     (<-same
@@ -431,7 +431,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x23B09)	; 𣬉
+     ((=>ucs@cognate	  . #x23B09)	; &A-cgnU+23B09;
       ))
     (ideographic-radical . 81)	; ⽐
     (ideographic-strokes . 6)

@@ -680,7 +680,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x5202)	; 刂
+     ((=big5-cdp	  . #x8969)	; &CDP-8969;
       )
      ((=ucs		  . #x516B)	; 八
       ))
@@ -692,7 +692,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=big5-cdp	    . #x8969)	; &CDP-8969;
+       ((=>>big5-cdp	    . #x8969)	; &G-CDP-8969;
 	)
        ((=ucs		    . #x516B)	; 八
 	))

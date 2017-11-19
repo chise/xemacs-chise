@@ -1,5 +1,38 @@
 2017-11-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R020-Wrap.el (U+56F1): Add `ideographic-structure'.
+
+	* Ideograph-R087-Claw.el (A-compU+244F3): New abstract node.
+	(U-000244F3): Add `<-denotational' for A-compU+244F3.
+	(M-19658): Unify MJ040211 and KOSEKI-221400.
+	(C6-284E): Separate IU+244F3.
+	(A-CB09596): New abstract node; use `<-denotational' for
+	A-compU+244F3.
+	(CB09596): New character; use `<-denotational' for A-CB09596.
+
+	* Ideograph-R081-Compare.el (A-cgnU+23B09): New abstract node.
+	(U-00023B09): Add `<-denotational' for A-cgnU+23B09; unify
+	IU+23B09 and abolish it;
+	(IU+23B09-var-001): Use A-cgnU+23B09 instead of U-00023B09 as its
+	mother.
+
+	* Ideograph-R038-Woman.el (U-0002180C): Use A-cgnU+23B09 instead
+	of U+23B09 in `ideographic-structure'.
+
+	* Ideograph-R035-Go-Slowly.el (A-BC-89D5): New abstract node.
+	(A-compU+590A): Add `<-denotational@component' for A-BC-89D5 and
+	A-compU+5915.
+	(GT-K00218): Use `<-subsumptive' for U+590A instead of
+	`<-denotational' for g2-JU+590A.
+	(BC-89D5): New character; use `<-denotational@component' for
+	A-BC-89D5.
+
+	* Ideograph-R034-Go.el (U+5907): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R012-Eight.el (U-00020502): Use BC-8969 instead of
+	U+5202 in `ideographic-structure'.
+
 	* Ideograph-R001-One.el (A-compU+20001): New abstract component;
 	use `<-denotational@component' for A-compU+4E02.
 	(U-00020001): Use A-compU+20001 instead of A-compU+4E02 as its

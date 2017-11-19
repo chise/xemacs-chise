@@ -7311,6 +7311,7 @@
 (define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x7588)	; &A-IWDSU+7588;
+      (=>ucs@cognate	  . #x7588)	; &A-IWDSU+7588;
       ))
     (ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 15)
