@@ -1492,9 +1492,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@component	  . #x56F1)	; &A-compU+56F1;
-      (=ucs@big5	  . #x56EA)	; &A-compU+56F1;
-      (=>iwds-1		  .  0361)	; &A-compU+56F1;
+     ((=>ucs@iwds-1	  . #x56F1)	; &A-IWDSU+56F1;
+      (=ucs@big5	  . #x56EA)	; &A-IWDSU+56F1;
+      (=>iwds-1		  .  0361)	; &A-IWDSU+56F1;
       )
      ((=ucs		  . #x5EFE)	; 廾
       ))
