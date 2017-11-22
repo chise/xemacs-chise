@@ -1,3 +1,13 @@
+2017-11-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R036-Evening.el (A-compU+5915): New abstract
+	component; use `<-denotational@component' for A-BC-89D5.
+	(U+56F1): Add `ideographic-structure'.
+	(C3-2548): Unify CU+56F1; add representative node; add
+	`ideographic-structure'.
+
+	* Ideograph-R030-Mouth.el (U+54C0-itaiji-001): New character.
+
 2017-11-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R020-Wrap.el (U+56F1): Add `ideographic-structure'.
