@@ -1,6 +1,18 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((ideographic-radical . 36)	; ⼣
+  '((<-denotational@component
+     ((=>big5-cdp	  . #x89D5)	; &A-CDP-89D5;
+      ))
+    (ideographic-radical . 36)	; ⼣
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=>ucs@component	. #x5915)	; &A-compU+5915;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5915)	; &A-compU+5915;
+      ))
+    (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (hanyu-dazidian	2 859 1)
@@ -651,9 +663,9 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x56F1)	; &A-compU+56F1;
-      (=ucs@big5	  . #x56EA)	; &A-compU+56F1;
-      (=>iwds-1		  .  0361)	; &A-compU+56F1;
+     ((=>ucs@iwds-1	  . #x56F1)	; &A-IWDSU+56F1;
+      (=ucs@big5	  . #x56EA)	; &A-IWDSU+56F1;
+      (=>iwds-1		  .  0361)	; &A-IWDSU+56F1;
       ))
     (ideographic-radical@ucs . 31)	; ⼞
     (ideographic-radical@ucs*sources
@@ -661,6 +673,14 @@
     (ideographic-radical@cns . 36)	; ⼣
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=big5-cdp	  . #x8CC8)	; &CDP-8CC8;
+      )
+     ((=>ucs@component	  . #x5915)	; &A-compU+5915;
+      ))
     (=ucs		. #x56F1)	; 囱
     ))
 (define-char
@@ -670,7 +690,20 @@
     (ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=big5-cdp	  . #x8CC8)	; &CDP-8CC8;
+      )
+     ((=ucs		  . #x5915)	; 夕
+      ))
+    (=ucs@cns		. #x56F1)	; &C3-2548;
     (=cns11643-3	. #x2548)	; &C3-2548; [05-40]
+    (->subsumptive
+     ((==ucs@cns	  . #x56F1)	; &g2-CU+56F1;
+      (==cns11643-3	  . #x2548)	; &g2-CU+56F1; [05-40]
+      ))
     ))
 (define-char
   '((<-denotational
