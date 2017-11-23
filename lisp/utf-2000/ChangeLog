@@ -1,3 +1,12 @@
+2017-11-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R034-Go.el (U+5902-itaiji-001): New character; use
+	`<-denotational@component' for A-BC-89D5.
+
+2017-11-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (U-0002D72A): New character.
+
 2017-11-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R036-Evening.el (A-compU+5915): New abstract
