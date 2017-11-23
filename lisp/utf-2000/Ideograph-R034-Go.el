@@ -92,6 +92,18 @@
       ))
     ))
 (define-char
+  '((<-denotational@component
+     ((=>big5-cdp	  . #x89D5)	; &A-CDP-89D5;
+      ))
+    (ideographic-radical . 34)	; ⼡
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=ucs-itaiji-001	. #x5902)	; &U-i001+5902;
+    (<-formed@component
+     ((=ucs		  . #x5902)	; 夂
+      ))
+    ))
+(define-char
   '((ideographic-radical . 34)	; ⼡
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
