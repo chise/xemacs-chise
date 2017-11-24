@@ -3,6 +3,26 @@
   '((ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (=>ucs@component	. #x5C0F)	; &A-compU+5C0F;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5C0F)	; &A-compU+5C0F;
+      ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (=>ucs@iwds-1	. #x5C0F)	; &A-IWDSU+5C0F;
+    (=>iwds-1		.  0028)	; &A-IWDSU+5C0F;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x5C0F)	; &A-IWDSU+5C0F;
+      (=>iwds-1		  .  0028)	; &A-IWDSU+5C0F;
+      ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
     (=ucs		. #x5C0F)	; 小
     (=adobe-japan1-0	. 02454)	; &I-AJ1-02454;
     (=jis-x0208		. #x3E2E)	; &I-J90-3E2E; [30-14]
@@ -58,6 +78,9 @@
   '((<-denotational
      ((=ucs		  . #x5C0F)	; 小
       ))
+    (<-denotational@component
+     ((=ucs		  . #x21B54)	; 𡭔
+      ))
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
@@ -66,82 +89,110 @@
     (<-formed@component/connect-below
      ((=ucs		  . #x5C0F)	; 小
       ))
+    (->subsumptive
+     ((==gt-k		  . 00305)	; &g2-GT-K00305;
+      (==gt-pj-k1	  . #x324E)	; &g2-GT-K00305; [18-46]
+      ))
     ))
 (define-char
-  '((<-denotational
-     ((=ucs		  . #x5C0F)	; 小
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x5C0F)	; &A-IWDSU+5C0F;
+      (=>iwds-1		  .  0028)	; &A-IWDSU+5C0F;
       ))
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (=decomposition@cid
-     ((=ucs		  . #x5C0F)	; 小
-      )
-     ((=ucs		  . #xE0101)	; 󠄁
+    (=ucs		. #x21B54)	; 𡭔
+    (<-unknown
+     ((=ucs		  . #x5FC4)	; 忄
       ))
-    (=adobe-japan1-4	. 13833)	; &AJ1-13833;
-    (<-formed@component/connect-below
+    (->mistakable
      ((=ucs		  . #x5C0F)	; 小
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x21B54)	; &g2-IU-00021B54;
       ))
     ))
 (define-char
   '((<-denotational
-     ((=adobe-japan1-4	  . 13833)	; &AJ1-13833;
+     ((=>ucs@iwds-1	  . #x5C0F)	; &A-IWDSU+5C0F;
+      (=>iwds-1		  .  0028)	; &A-IWDSU+5C0F;
       ))
     (name		. "CJK RADICAL SMALL ONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
     (=ucs		. #x2E8C)	; ⺌
+    (=adobe-japan1-4	. 13833)	; &I-AJ1-13833;
     (=big5-cdp		. #x8B54)	; &I-CDP-8B54;
     (=gt-k		. 00303)	; &I-GT-K00303;
     (=gt-pj-k1		. #x3233)	; ⺌ [18-19]
     (<-formed@component/connect-below
      ((=ucs		  . #x5C0F)	; 小
       ))
-    (<-identical@component
-     ((=adobe-japan1-4	  . 13833)	; &AJ1-13833;
+    (->subsumptive
+     ((==big5-cdp	  . #x8B54)	; &g2-CDP-8B54;
+      )
+     ((=decomposition@cid
+       ((=ucs		    . #x5C0F)	; 小
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (==adobe-japan1-4	  . 13833)	; &g2-AJ1-13833;
+      )
+     ((==ucs@unicode	  . #x2E8C)	; &g2-GT-K00303;
+      (==gt-k		  . 00303)	; &g2-GT-K00303;
+      (==gt-pj-k1	  . #x3233)	; &g2-GT-K00303; [18-19]
       ))
     ))
 (define-char
-  '((<-denotational
-     ((=ucs		  . #x5C0F)	; 小
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5C0F)	; &A-compU+5C0F;
       ))
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (=decomposition@cid
-     ((=ucs		  . #x5C0F)	; 小
-      )
-     ((=ucs		  . #xE0102)	; 󠄂
-      ))
+    (=ucs		. #x2D544)	; 𭕄
+    (=mj		. 059517)	; &I-MJ059517;
     (=adobe-japan1-4	. 13834)	; &AJ1-13834;
     (=big5-cdp		. #x89B2)	; &I-CDP-89B2;
     (<-formed@component/connect-below
      ((=ucs		  . #x5C0F)	; 小
       ))
     (->subsumptive
-     ((===adobe-japan1-4  . 13834)	; &R-AJ1-13834;
+     ((=decomposition@cid
+       ((=ucs		    . #x5C0F)	; 小
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==mj		  . 059517)	; &g2-MJ059517;
+      (==adobe-japan1-4	  . 13834)	; &g2-MJ059517;
+      (->subsumptive
+       ((===adobe-japan1-4  . 13834)	; &R-AJ1-13834;
+	)
+       ((===mj		    . 059517)	; &R-MJ059517;
+	))
       )
-     ((===big5-cdp	  . #x89B2)	; &R-CDP-89B2;
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=adobe-japan1-4	  . 13834)	; &AJ1-13834;
-      ))
-    (name		. "CJK RADICAL SMALL TWO")
-    (general-category	symbol other) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (=ucs		. #x2E8D)	; ⺍
-    (=gt-k		. 00325)	; &I-GT-K00325;
-    (=gt-pj-k1		. #x3251)	; ⺍ [18-49]
-    (<-formed@component/connect-below
-     ((=ucs		  . #x5C0F)	; 小
-      ))
-    (<-identical@component
-     ((=adobe-japan1-4	  . 13834)	; &AJ1-13834;
+     ((==big5-cdp	  . #x89B2)	; &g2-CDP-89B2;
+      )
+     ((==ucs@JP/hanazono  . #x2D544)	; &g2-hanaJU+2D544;
+      )
+     ((name		  . "CJK RADICAL SMALL TWO")
+      (general-category	symbol other) ; Informative Category
+      (bidi-category	. "ON")
+      (mirrored		. nil)
+      (=ucs		  . #x2E8D)	; ⺍
+      (=gt-k		  . 00325)	; &I-GT-K00325;
+      (=gt-pj-k1	  . #x3251)	; ⺍ [18-49]
+      (<-formed@component/connect-below
+       ((=ucs		    . #x5C0F)	; 小
+	))
+      (<-identical@component
+       ((=ucs		    . #x2D544)	; 𭕄
+	))
       ))
     ))
 (define-char
