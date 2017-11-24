@@ -1,3 +1,24 @@
+2017-11-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R093-Cow.el (U-0002B7A2): New character.
+
+	* Ideograph-R042-Small.el (A-compU+5C0F): New abstract node.
+	(A-IWDSU+5C0F): New abstract node; use `<-denotational@component'
+	for A-compU+5C0F; unify IWDS1-0028.
+	(U+5C0F): Add `<-denotational' for A-IWDSU+5C0F.
+	(GT-K00305): Add `<-denotational@component' for U-00021B54.
+	(U-00021B54): New character; use `<-denotational@component' for
+	A-IWDSU+5C0F.
+	(<CJK RADICAL SMALL ONE>): Use A-IWDSU+5C0F instead of AJ1-13833
+	as its mother; unify AJ1-13833.
+	(AJ1-13834): Unify U-0002D544 and MJ059517; use
+	`<-denotational@component' for A-compU+5C0F instead of
+	`<-denotational' for U+5C0F.
+	(<CJK RADICAL SMALL TWO>): Use `<-subsumptive' for U-0002D544
+	instead of `<-denotational' for AJ1-13834.
+
+	* Ideograph-R024-Ten.el (U-00020996): New character.
+
 2017-11-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R123-Sheep.el (U-000263AE): Apply new conventions for
