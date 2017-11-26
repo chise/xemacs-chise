@@ -26050,9 +26050,29 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (hanyu-dazidian	2 1255 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6728)	; 木
+      )
+     ((=ucs		  . #x4E3E)	; 举
+      ))
     (=ucs		. #x6989)	; 榉
     (=gb2312		. #x6937)	; &I-G0-6937; [73-23]
-    (=hanziku-4		. #xAAA4)	; &I-HZK04-AAA4;
+    (<-simplified@CN
+     ((=ucs		  . #x6AF8)	; 櫸
+      (=gb12345		  . #x6937)	; 櫸 [73-23]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x6989)	; &g2-UU+6989;
+      (==gb2312		  . #x6937)	; &g2-UU+6989; [73-23]
+      (->subsumptive
+       ((===ucs@unicode	    . #x6989)	; &R-UU+6989;
+	)
+       ((=hanziku-4	    . #xAAA4)	; &HZK04-AAA4;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 75)	; ⽊
@@ -48784,13 +48804,27 @@
   '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 17)
     (total-strokes	 . 21)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6728)	; 木
+      )
+     ((=ucs		  . #x8209)	; 舉
+      ))
     (=ucs		. #x6AF8)	; 櫸
+    (=cns11643-2	. #x6B5F)	; &I-C2-6B5F; [75-63]
+    (=gb12345		. #x6937)	; 櫸 [73-23]
     (=big5		. #xF5D1)	; &I-B-F5D1;
     (->subsumptive
-     ((=ucs@unicode	  . #x6AF8)	; &UU+6AF8;
-      (=gb12345		  . #x6937)	; &UU+6AF8; [73-23]
+     ((==ucs@unicode	  . #x6AF8)	; &g2-UU+6AF8;
+      (==gb12345	  . #x6937)	; &g2-UU+6AF8; [73-23]
+      (->subsumptive
+       ((===ucs@unicode	    . #x6AF8)	; &R-UU+6AF8;
+	))
       )
-     ((=cns11643-2	  . #x6B5F)	; &C2-6B5F; [75-63]
+     ((==ucs@cns	  . #x6AF8)	; &g2-CU+6AF8;
+      (==cns11643-2	  . #x6B5F)	; &g2-CU+6AF8; [75-63]
       ))
     ))
 (define-char

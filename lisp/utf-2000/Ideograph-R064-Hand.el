@@ -6906,6 +6906,14 @@
   '((ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 02290)	; &GT-K02290;
+      )
+     ((=ucs		  . #x624B)	; 手
+      ))
     (=ucs		. #x6319)	; 挙
     (=adobe-japan1-0	. 01677)	; &I-AJ1-01677;
     (=jis-x0208		. #x3573)	; &I-J90-3573; [21-83]
@@ -6918,6 +6926,31 @@
     (<-simplified@JP/Jouyou
      ((=ucs		  . #x64E7)	; 擧
       (=jis-x0208	  . #x5A29)	; &I-J90-5A29; [58-09]
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x6319)	; &g2-AJ1-01677;
+      (==adobe-japan1-0	  . 01677)	; &g2-AJ1-01677;
+      (==jis-x0208	  . #x3573)	; &g2-AJ1-01677; [21-83]
+      (==cns11643-3	  . #x3132)	; &g2-AJ1-01677; [17-18]
+      (==jis-x0213-1	  . #x3573)	; &g2-AJ1-01677; [21-83]
+      (==gt		  . 15248)	; &g2-AJ1-01677;
+      (==gt-k		  . 06401)	; &g2-AJ1-01677;
+      (==daikanwa/+p	  . 12081)	; &g2-AJ1-01677;
+      (->subsumptive
+       ((===daikanwa/+p	    . 12081)	; &R-M-p12081;
+	)
+       ((===jis-x0208	    . #x3573)	; &R-J0-3573; [21-83]
+	(===jis-x0213-1	    . #x3573)	; &R-J0-3573; [21-83]
+	)
+       ((===adobe-japan1-0  . 01677)	; &R-AJ1-01677;
+	)
+       ((===cns11643-3	    . #x3132)	; &R-C3-3132; [17-18]
+	)
+       ((===gt		    . 15248)	; &R-GT-15248;
+	(===gt-k	    . 06401)	; &R-GT-15248;
+	)
+       ((===ucs@unicode	    . #x6319)	; &R-UU+6319;
+	))
       ))
     ))
 (define-char

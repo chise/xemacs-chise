@@ -64,8 +64,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>ucs@component	  . #x4E8C)	; &A-compU+4E8C;
-      (=>iwds-1		  .  0047)	; &A-compU+4E8C;
+     ((=>ucs@iwds-1	  . #x4E8C)	; &A-IWDSU+4E8C;
+      (=>iwds-1		  .  0047)	; &A-IWDSU+4E8C;
       )
      ((=ucs		  . #x6B20)	; 欠
       ))

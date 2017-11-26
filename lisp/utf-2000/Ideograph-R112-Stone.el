@@ -3561,6 +3561,23 @@
     ))
 (define-char
   '((ideographic-radical . 112)	; ⽯
+    (ideographic-strokes . 6)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 02290)	; &GT-K02290;
+      )
+     ((=ucs		  . #x77F3)	; 石
+      ))
+    (=ucs		. #x2AFDD)	; 𪿝
+    (->subsumptive
+     ((==ucs@iso	  . #x2AFDD)	; &g2-IU-0002AFDD;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (ideographic-structure
