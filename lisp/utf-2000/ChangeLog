@@ -1,3 +1,36 @@
+2017-11-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R007-Two.el (IWDS1-0047): Unify A-IWDSU+4E8C instead
+	of A-compU+4E8C.
+	(A-compU+4E8C): Separate IWDS1-0047; add
+	`<-denotational@component' for IWDS1-0047.
+	(U-0002011E): Add `<-denotational@component' for A-compU+4E8C.
+	(U-00020120): Likewise.
+
+2017-11-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R120-Silk.el (U-000261AD): New character.
+
+	* Ideograph-R096-Jade.el (U-0002DE3C): New character.
+	(U+7469): Apply new conventions for glyph granularity.
+	(U-0002C38A): New character.
+	(U-00024AA5): New character.
+
+	* Ideograph-R092-Fang.el (U-00024613): New character.
+
+	* Ideograph-R087-Claw.el (U+722B-var-002): New character; use
+	`<-denotational' for U+722B.
+	(A-U+5DE0-itaiji-001): New abstract node; unify
+	A-U+5DE0-itaiji-002.
+	(U+5DE0-itaiji-001): New character; use `<-denotational' for
+	A-U+5DE0-itaiji-001.
+	(U+5DE0-itaiji-002): Likewise.
+	(GT-K03307): Add representative node.
+	(BC-8CC5): Likewise.
+
+	* Ideograph-R046-Mountain.el (U-00021E03): New character.
+	(U-00021F57): New character; unify CB06249.
+
 2017-11-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R112-Stone.el (U-0002AFDD): New character.
