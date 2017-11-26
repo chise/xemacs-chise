@@ -1,7 +1,24 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((ideographic-radical . 7)	; ⼆
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=>ucs@iwds-1	. #x4E8C)	; &A-IWDSU+4E8C;
+    (=>iwds-1		.  0047)	; &A-IWDSU+4E8C;
+    ))
+(define-char
+  '((ideographic-radical . 7)	; ⼆
     (==>ucs@bucs	. #x4E8C)	; &BUCS+4E8C;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x4E8C)	; &A-IWDSU+4E8C;
+      (=>iwds-1		  .  0047)	; &A-IWDSU+4E8C;
+      ))
+    (ideographic-radical . 7)	; ⼆
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=>ucs@component	. #x4E8C)	; &A-compU+4E8C;
     ))
 (define-char
   '((<-denotational
@@ -9,7 +26,6 @@
       ))
     (<-denotational@component
      ((=>ucs@component	  . #x4E8C)	; &A-compU+4E8C;
-      (=>iwds-1		  .  0047)	; &A-compU+4E8C;
       )
      ((=ucs		  . #x4EA0)	; 亠
       ))
@@ -111,7 +127,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 7)	; ⼆
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E8C)	; &A-compU+4E8C;
+      ))
+    (ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 2 2)
@@ -155,7 +174,10 @@
      zhengzitong daikanwa)
     ))
 (define-char
-  '((ideographic-radical . 7)	; ⼆
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E8C)	; &A-compU+4E8C;
+      ))
+    (ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (=ucs		. #x20120)	; 𠄠
@@ -164,7 +186,25 @@
     (=gt-k		. 00156)	; &I-GT-K00156;
     (=gt-pj-2		. #x322E)	; &I-GT-00329; [18-14]
     (=daikanwa		. 00250)	; &I-M-00250;
-    (=hanziku-1		. #xA4A3)	; &I-HZK01-A4A3;
+    (->subsumptive
+     ((==ucs@iso	  . #x20120)	; &g2-GT-00329;
+      (==cns11643-6	  . #x2129)	; &g2-GT-00329; [01-09]
+      (==gt		  . 00329)	; &g2-GT-00329;
+      (==gt-k		  . 00156)	; &g2-GT-00329;
+      (==daikanwa	  . 00250)	; &g2-GT-00329;
+      (->subsumptive
+       ((===daikanwa	    . 00250)	; &R-M-00250;
+	)
+       ((===cns11643-6	    . #x2129)	; &R-C6-2129; [01-09]
+	)
+       ((===gt		    . 00329)	; &R-GT-00329;
+	(===gt-k	    . 00156)	; &R-GT-00329;
+	)
+       ((===ucs@iso	    . #x20120)	; &R-U-00020120;
+	)
+       ((=hanziku-1	    . #xA4A3)	; &HZK01-A4A3;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 7)	; ⼆
@@ -1704,9 +1744,4 @@
       )
      ((==gt		  . 00373)	; &g2-GT-00373;
       ))
-    ))
-(define-char
-  '((ideographic-radical . 7)	; ⼆
-    (=>ucs@component	. #x4E8C)	; &A-compU+4E8C;
-    (=>iwds-1		.  0047)	; &A-compU+4E8C;
     ))

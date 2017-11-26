@@ -203,6 +203,26 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x722B)	; 爫
+      ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x2D544)	; 𭕄
+      ))
+    (=ucs-var-002	. #x722B)	; &U-v002+722B;
+    (->subsumptive
+     ((==ucs-var-002	  . #x722B)	; &g2-U-v002+722B;
+      ))
+    ))
+(define-char
   '((ideographic-radical@ucs . 5)	; ⼄
     (ideographic-strokes@ucs . 2)
     (ideographic-radical@ucs*sources
@@ -592,6 +612,61 @@
     (=>gt-k		. 03307)	; &A-GT-K03307;
     ))
 (define-char
+  '((ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x722B)	; 爫
+      )
+     ((=ucs		  . #x5DE5)	; 工
+      ))
+    (=>ucs-itaiji-001	. #x5DE0)	; &A-U-i001+5DE0;
+    (=>ucs-itaiji-002	. #x5DE0)	; &A-U-i001+5DE0;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x5DE0)	; &A-U-i001+5DE0;
+      ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-var-002	  . #x722B)	; &U-v002+722B;
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      ))
+    (=ucs-itaiji-001	. #x5DE0)	; &U-i001+5DE0;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x5DE0)	; &A-U-i001+5DE0;
+      ))
+    (ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL PAW ONE")
+      (=ucs		  . #x2EA4)	; ⺤
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      ))
+    (=ucs-itaiji-002	. #x5DE0)	; &U-i002+5DE0;
+    (->subsumptive
+     ((==ucs-itaiji-002	  . #x5DE0)	; &g2-U-i002+5DE0;
+      ))
+    ))
+(define-char
   '((<-denotational
      ((=>big5-cdp	  . #x8CC5)	; &A-GT-K03307;
       ))
@@ -613,6 +688,10 @@
       ))
     (=gt-k		. 03307)	; &GT-K03307;
     (=gt-pj-k1		. #x3071)	; &GT-K03307; [16-81]
+    (->subsumptive
+     ((==gt-k		  . 03307)	; &g2-GT-K03307;
+      (==gt-pj-k1	  . #x3071)	; &g2-GT-K03307; [16-81]
+      ))
     ))
 (define-char
   '((<-denotational
@@ -631,6 +710,9 @@
      ((=ucs		  . #x5E7A)	; 幺
       ))
     (=big5-cdp		. #x8CC5)	; &CDP-8CC5;
+    (->subsumptive
+     ((==big5-cdp	  . #x8CC5)	; &g2-CDP-8CC5;
+      ))
     ))
 (define-char
   '((ideographic-radical . 87)	; ⽖
