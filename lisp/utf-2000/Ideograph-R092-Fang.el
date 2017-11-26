@@ -327,3 +327,37 @@
      ((=cns11643-6	  . #x5E5D)	; &C6-5E5D; [62-61]
       ))
     ))
+(define-char
+  '((ideographic-radical . 92)	; ⽛
+    (ideographic-strokes . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7259)	; 牙
+      )
+     ((=ucs		  . #x5BE7)	; 寧
+      ))
+    (=ucs		. #x24613)	; 𤘓
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24613)	; 𤘓
+      ))
+    (ideographic-radical . 92)	; ⽛
+    (ideographic-strokes . 14)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7259)	; 牙
+      )
+     ((=ucs@unicode	  . #x5BE7)	; &MJ010230;
+      (=mj		  . 010230)	; &MJ010230;
+      ))
+    (=ucs@iso		. #x24613)	; &U-00024613;
+    (->subsumptive
+     ((==ucs@iso	  . #x24613)	; &g2-IU-00024613;
+      ))
+    ))
