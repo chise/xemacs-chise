@@ -404,6 +404,15 @@
   '((ideographic-radical . 89)	; ⽘
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
+    (=>ucs@cognate	. #x723E)	; &A-cgnU+723E;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x723E)	; &A-cgnU+723E;
+      ))
+    (ideographic-radical . 89)	; ⽘
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
     (=ucs		. #x723E)	; 爾
     ))
 (define-char
