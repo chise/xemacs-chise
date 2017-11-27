@@ -2399,6 +2399,40 @@
     (=ucs		. #x2BA51)	; 𫩑
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x53EA)	; &A-U-i001+53EA;
+      ))
+    (<-denotational@component
+     ((=big5-cdp	  . #x8BAA)	; &CDP-8BAA;
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E8C)	; 二
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (=ucs-itaiji-001	. #x53EA)	; &U-i001+53EA;
+    ))
+(define-char
+  '((ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x4E8C)	; &A-compU+4E8C;
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (=>ucs-itaiji-001	. #x53EA)	; &A-U-i001+53EA;
+    ))
+(define-char
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
@@ -57779,6 +57813,45 @@
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs		  . #x7469)	; 瑩
+      ))
+    (=ucs		. #x210C5)	; 𡃅
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x210C5)	; 𡃅
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 15)
+    (total-strokes	 . 18)
+    (hanyu-dazidian	8 15 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs@unicode	  . #x7469)	; &AJ1-05675;
+      (=adobe-japan1-0	  . 05675)	; &AJ1-05675;
+      ))
+    (=ucs@iso		. #x210C5)	; &U-000210C5;
+    (->subsumptive
+     ((==ucs@iso	  . #x210C5)	; &g2-IU-000210C5;
+      (->subsumptive
+       ((===ucs@iso	    . #x210C5)	; &R-U-000210C5;
+	)
+       ((=hanziku-12	    . #xEC72)	; &HZK12-EC72;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
     (ideographic-structure
@@ -65140,12 +65213,6 @@
     (hanyu-dazidian	8 15 7)
     (=ucs		. #x210C4)	; 𡃄
     (=hanziku-12	. #xEC71)	; &I-HZK12-EC71;
-    ))
-(define-char
-  '((ideographic-radical . 30)	; ⼝
-    (hanyu-dazidian	8 15 8)
-    (=ucs		. #x210C5)	; 𡃅
-    (=hanziku-12	. #xEC72)	; &I-HZK12-EC72;
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
