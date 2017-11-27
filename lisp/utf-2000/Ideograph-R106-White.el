@@ -2709,6 +2709,41 @@
   '((ideographic-radical . 106)	; ⽩
     (ideographic-strokes . 14)
     (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x767D)	; 白
+      )
+     ((=ucs		  . #x5BE7)	; 寧
+      ))
+    (=ucs		. #x24FB1)	; 𤾱
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24FB1)	; 𤾱
+      ))
+    (ideographic-radical . 106)	; ⽩
+    (ideographic-strokes . 14)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x767D)	; 白
+      )
+     ((=ucs@unicode	  . #x5BE7)	; &MJ010230;
+      (=mj		  . 010230)	; &MJ010230;
+      ))
+    (=ucs@iso		. #x24FB1)	; &U-00024FB1;
+    (->subsumptive
+     ((==ucs@iso	  . #x24FB1)	; &g2-IU-00024FB1;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 106)	; ⽩
+    (ideographic-strokes . 14)
+    (total-strokes	 . 19)
     (=ucs		. #x24FB3)	; 𤾳
     (=cns11643-7	. #x482C)	; &I-C7-482C; [40-12]
     ))
