@@ -465,6 +465,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ==ruimoku-v6
 	  ==gt-pj-k1
 	  ==gt-pj-k2
+	  ==hanyo-denshi/tk/mf-01
 	  ==daikanwa
 	  ==cbeta
 	  ==jef-china3
