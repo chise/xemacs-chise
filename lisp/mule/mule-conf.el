@@ -2192,6 +2192,17 @@
 	       graphic 2
 	       direction l2r
 	       registry "HanyoDenshi\\.TKMF-1$"))
+  (make-charset
+   '==hanyo-denshi/tk/mf-01
+   "font encoding for TK (TouKi) characters"
+   `(long-name "Han'you-Denshi/TK font encoding"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       mother =hanyo-denshi/tk/mf-01
+	       registry "HanyoDenshi\\.TKMF-1$"))
 
   (make-charset
    '===mj
