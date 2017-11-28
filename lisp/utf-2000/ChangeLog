@@ -1,5 +1,12 @@
 2017-11-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R008-Lid.el (G-BC-8BAA): New glyph node to subsume
+	g2-BC-8BAA and GT-K01444; use `<-subsumptive' for BC-8BAA.
+
+	* Ideograph-R001-One.el (IWDS1-0150): Add
+	`<-denotational@component' for A-compU+20087.
+	(U-0002B743): Add `<-denotational' for A-cgnU+723E.
+
 	* Ideograph-R089-Double-X.el (A-cgnU+723E): New abstract node.
 	(U+723E): Add `<-denotational' for A-cgnU+723E.
 

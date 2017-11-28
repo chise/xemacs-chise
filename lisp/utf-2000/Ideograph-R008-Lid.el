@@ -381,17 +381,34 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs		    . #x4EA0)	; 亠
+       ((=+>ucs@unicode	    . #x4EA0)	; &o-J0-5035;
+	(=+>jis-x0208	    . #x5035)	; &o-J0-5035; [48-21]
 	)
-       ((==ucs@unicode	    . #x53E3)	; &g2-AJ1-01969;
-	(==adobe-japan1-0   . 01969)	; &g2-AJ1-01969;
+       ((=ucs		    . #x53E3)	; 口
 	))
-      (==big5-cdp	  . #x8BAA)	; &g2-CDP-8BAA;
-      )
-     ((=gt-k		  . 01444)	; &GT-K01444;
-      (=gt-pj-k1	  . #x372D)	; &GT-K01444; [23-13]
-      (<-identical@component/connect-below
-       ((=big5-cdp	    . #x8BAA)	; &CDP-8BAA;
+      (=>>big5-cdp	  . #x8BAA)	; &G-CDP-8BAA;
+      (->subsumptive
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	  (=ucs		      . #x2FF1)	; ⿱
+	  )
+	 ((=+>ucs@unicode     . #x4EA0)	; &o-J0-5035;
+	  (=+>jis-x0208	      . #x5035)	; &o-J0-5035; [48-21]
+	  )
+	 ((==ucs@unicode      . #x53E3)	; &g2-AJ1-01969;
+	  (==adobe-japan1-0   . 01969)	; &g2-AJ1-01969;
+	  ))
+	(==big5-cdp	    . #x8BAA)	; &g2-CDP-8BAA;
+	)
+       ((=gt-k		    . 01444)	; &GT-K01444;
+	(=gt-pj-k1	    . #x372D)	; &GT-K01444; [23-13]
+	(<-identical@component/connect-below
+	 ((=>>big5-cdp	      . #x8BAA)	; &G-CDP-8BAA;
+	  ))
+	(->subsumptive
+	 ((==gt-k	      . 01444)	; &g2-GT-K01444;
+	  (==gt-pj-k1	      . #x372D)	; &g2-GT-K01444; [23-13]
+	  ))
 	))
       ))
     ))

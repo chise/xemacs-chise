@@ -554,7 +554,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 1)	; ⼀
+  '((<-denotational@component
+     ((=>ucs@component	  . #x20087)	; &A-compU+20087;
+      ))
+    (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (=>ucs@component	. #x4E06)	; &A-compU+4E06;
@@ -5670,7 +5673,10 @@
     (=hanziku-1		. #xA9A3)	; &I-HZK01-A9A3;
     ))
 (define-char
-  '((ideographic-radical . 1)	; ⼀
+  '((<-denotational
+     ((=>ucs@cognate	  . #x723E)	; &A-cgnU+723E;
+      ))
+    (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 13)
     (total-strokes	 . 14)
     (=ucs		. #x2B743)	; 𫝃
