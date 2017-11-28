@@ -1,5 +1,8 @@
 2017-11-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R109-Eye.el (<CJK RADICAL EYE>): Add
+	`<-denotational@component' for U+7F52 and A-compU+76BF.
+
 	* Ideograph-R008-Lid.el (G-BC-8BAA): New glyph node to subsume
 	g2-BC-8BAA and GT-K01444; use `<-subsumptive' for BC-8BAA.
 
