@@ -53,7 +53,12 @@
       ))
     ))
 (define-char
-  '((name		. "CJK RADICAL EYE")
+  '((<-denotational@component
+     ((=ucs		  . #x7F52)	; 罒
+      )
+     ((=>ucs@component	  . #x76BF)	; &A-compU+76BF;
+      ))
+    (name		. "CJK RADICAL EYE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
