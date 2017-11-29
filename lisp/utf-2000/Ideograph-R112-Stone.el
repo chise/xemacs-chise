@@ -186,16 +186,70 @@
   '((ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=>ucs-itaiji-001	  . #x53EA)	; &A-U-i001+53EA;
+      ))
     (=ucs		. #x25418)	; 𥐘
-    (=daikanwa		. 24031)	; &I-M-24031;
     ))
 (define-char
-  '((=>ucs		. #x25418)	; 𥐘
-    (morohashi-daikanwa	24031 0 9)
+  '((<-denotational
+     ((=ucs		  . #x25418)	; 𥐘
+      ))
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs-itaiji-001	  . #x53EA)	; &U-i001+53EA;
+      ))
+    (=ucs@iso		. #x25418)	; &M-24031;
+    (=daikanwa		. 24031)	; &M-24031;
+    (<-ancient
+     ((=ucs		  . #x77F3)	; 石
+      (=daikanwa	  . 24024)	; &I-M-24024;
+      ))
+    (<-ancient*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x25418)	; &g2-M-24031;
+      (==daikanwa	  . 24031)	; &g2-M-24031;
+      (->subsumptive
+       ((===daikanwa	    . 24031)	; &R-M-24031;
+	)
+       ((===ucs@iso	    . #x25418)	; &R-U-00025418;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x25418)	; 𥐘
+      ))
+    (ideographic-radical . 112)	; ⽯
+    (ideographic-strokes . 2)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs-itaiji-002	  . #x53EA)	; &U-i002+53EA;
+      ))
+    (=ucs@cns		. #x25418)	; &C6-286D;
     (=cns11643-6	. #x286D)	; &C6-286D; [08-77]
+    (->subsumptive
+     ((==ucs@cns	  . #x25418)	; &g2-CU+25418;
+      (==cns11643-6	  . #x286D)	; &g2-CU+25418; [08-77]
+      ))
     ))
 (define-char
   '((ideographic-radical . 112)	; ⽯
