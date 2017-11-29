@@ -1,4 +1,37 @@
+2017-11-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R048-Work.el (A-compU+5DE5): Changed from U+5DE5.
+	(IWDS1-0408): Unify U+5DE5 instead of A-UU+5DE5; use A-compU+5DE5
+	instead of U+5DE5 as its mother.
+	(BC-8BC8): Use A-compU+5DE5 instead of U+5DE5 as its mother.
+	(GT-K00138): New character; use `<-subsumptive' for BC-8BC8.
+	(A-compU+5DE6): New abstract node.
+	(U+5DE6): Add `<-denotational' for A-compU+5DE6; add
+	`ideographic-structure'.
+	(U+5DE6-itaiji-002): Use A-compU+5DE6 instead of U+5DE6 as its
+	mother.
+	(HD-IB0665): Likewise.
+
 2017-11-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R106-White.el (HD-TK01061730): Add
+	`=hanyo-denshi/tk/mf-01'.
+	(g2-HD-TK01061730): Use `==hanyo-denshi/tk/mf-01' instead of
+	`=hanyo-denshi/tk/mf-01'.
+
+	* Ideograph-R030-Mouth.el (U-00020BA1): Apply new conventions for
+	glyph granularity; add `sound@ja/on'; add `<-same' for U+53EA.
+
+	* Ideograph-R009-Man.el (U-000201D9): Apply new conventions for
+	glyph granularity.
+	(HD-TK01002970): New character; use `<-denotational' for
+	U-000201D9.
+	(U-0002034B): New character; use `<-denotational' for
+	A-cgnU+203A6.
+	(U-000203A6): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+203A6.
+	(A-cgnU+203A6): New abstract node.
+	(U-00020413): New character.
 
 	* Ideograph-R112-Stone.el (U-00025418): Use `->denotational' and
 	`->subsumptive'.

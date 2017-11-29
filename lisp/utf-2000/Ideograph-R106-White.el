@@ -2264,10 +2264,11 @@
       ))
     (=ucs		. #x2F93B)	; 𤾡
     (=hanyo-denshi/tk	. 01061730)	; 𤾡
+    (=hanyo-denshi/tk/mf-01 . #x181D)	; 𤾡
     (->subsumptive
      ((==ucs@iso	  . #x2F93B)	; &g2-HD-TK-01061730;
       (==hanyo-denshi/tk  . 01061730)	; &g2-HD-TK-01061730;
-      (=hanyo-denshi/tk/mf-01 . #x181D)	; &g2-HD-TK-01061730;
+      (==hanyo-denshi/tk/mf-01 . #x181D)	; &g2-HD-TK-01061730;
       ))
     ))
 (define-char
