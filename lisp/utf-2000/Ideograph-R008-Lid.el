@@ -3729,6 +3729,47 @@
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((=ucs		  . #x8089)	; 肉
+      )
+     ((=ucs		  . #x361D)	; 㘝
+      ))
+    (=ucs-itaiji-001	. #x8C46)	; &U-i001+8C46;
+    (<-formed
+     ((=ucs		  . #x8C46)	; 豆
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((=gt-k		  . 03131)	; &GT-K03131;
+      )
+     ((=ucs		  . #x2067C)	; 𠙼
+      ))
+    (=ucs-itaiji-002	. #x8C46)	; &U-i002+8C46;
+    (<-formed
+     ((=ucs		  . #x8C46)	; 豆
+      ))
+    (->subsumptive
+     ((==ucs-itaiji-002	  . #x8C46)	; &g2-U-i002+8C46;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (hanyu-dazidian	1 292 7)

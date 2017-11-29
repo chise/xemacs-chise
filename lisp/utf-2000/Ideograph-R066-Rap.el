@@ -4752,19 +4752,35 @@
     (=daikanwa		. 13278)	; &I-M-13278;
     ))
 (define-char
-  '((=>ucs		. #x22F6D)	; 𢽭
-    (ideographic-radical . 66)	; ⽁
+  '((ideographic-radical . 66)	; ⽁
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=daikanwa		. 13279)	; &M-13279;
-    ))
-(define-char
-  '((morohashi-daikanwa	13279 0 1)
-    (ideographic-radical . 66)	; ⽁
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x209E2)	; 𠧢
+      )
+     ((=ucs		  . #x6534)	; 攴
+      ))
+    (sound@ja/on/go	"ku")
+    (sound@ja/on/kan	"kIu")
     (=ucs		. #x22F6D)	; 𢽭
     (=cns11643-5	. #x387B)	; &I-C5-387B; [24-91]
+    (=daikanwa		. 13279)	; &I-M-13279;
+    (->subsumptive
+     ((==daikanwa	  . 13279)	; &g2-M-13279;
+      )
+     ((==ucs@iso	  . #x22F6D)	; &g2-IU-00022F6D;
+      (==cns11643-5	  . #x387B)	; &g2-IU-00022F6D; [24-91]
+      (->subsumptive
+       ((===cns11643-5	    . #x387B)	; &R-C5-387B; [24-91]
+	)
+       ((===ucs@iso	    . #x22F6D)	; &R-U-00022F6D;
+	)
+       ((=hanziku-4	    . #xD7C3)	; &HZK04-D7C3;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x22F6E)	; 𢽮
