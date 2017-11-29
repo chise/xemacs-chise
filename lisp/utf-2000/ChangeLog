@@ -1,3 +1,44 @@
+2017-11-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R112-Stone.el (U-00025418): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R108-Dish.el (A-compU+76BF): New abstract node.
+	(U+76BF): Add `<-denotational@component' for A-compU+76BF.
+	(U-000250A1): Apply new conventions for glyph granularity.
+	(IU+250A1): Unify M-23052.
+	(U-000250AC): Apply new conventions for glyph granularity.
+	(U-000250C0): Unify MJ042141, KOSEKI-258290 and M-23080.
+	(U-000250C2): Unify MJ042142, KOSEKI-258320 and M-23083.
+
+2017-11-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el (U-00022F6D): Use `->subsumptive'.
+
+	* Ideograph-R032-Earth.el (U-0002134F): Apply new conventions for
+	glyph granularity.
+	(U+2134F-itaiji-001): New character; use `<-denotational' for
+	U-0002134F.
+	(A-cgnU+2136F): New abstract node.
+	(U-0002136F): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+2136F.
+	(A-U+2136F-itaiji-001): New abstract node; use `<-denotational'
+	for A-cgnU+2136F.
+	(U+2136F-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+2136F.
+
+	* Ideograph-R027-Cliff.el (U+5382): Omit A-compU+20087 in
+	`<-denotational@component' because it is included in
+	`<-denotational@component' of A-compU+4E06.
+	(U-00020A4C): Add `ideographic-structure'.
+	(M-02935): Unify MJ031868 and KOSEKI-034020; add
+	`ideographic-structure'.
+	(IU+20A4C): Add `ideographic-structure'.
+	(U-00020A5B): Apply new conventions for glyph granularity.
+
+	* Ideograph-R008-Lid.el (U+8C46-itaiji-001): New character.
+	(U+8C46-itaiji-002): New character.
+
 2017-11-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R109-Eye.el (<CJK RADICAL EYE>): Add
