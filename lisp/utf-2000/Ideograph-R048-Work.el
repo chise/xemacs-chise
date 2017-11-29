@@ -1,24 +1,21 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((ideographic-radical . 48)	; ⼯
-    (=ucs		. #x5DE5)	; 工
+    (=>ucs@component	. #x5DE5)	; &A-compU+5DE5;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5DE5)	; 工
+     ((=>ucs@component	  . #x5DE5)	; &A-compU+5DE5;
       ))
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (=>ucs@iwds-1	. #x5DE5)	; &A-IWDSU+5DE5;
-    (=>ucs@unicode	. #x5DE5)	; &A-IWDSU+5DE5;
-    (=>iwds-1		.  0408)	; &A-IWDSU+5DE5;
+    (=ucs		. #x5DE5)	; 工
+    (=>iwds-1		.  0408)	; 工
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@iwds-1	  . #x5DE5)	; &A-IWDSU+5DE5;
-      (=>ucs@unicode	  . #x5DE5)	; &A-IWDSU+5DE5;
-      (=>iwds-1		  .  0408)	; &A-IWDSU+5DE5;
+     ((=ucs		  . #x5DE5)	; 工
       ))
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 0)
@@ -88,9 +85,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@iwds-1	  . #x5DE5)	; &A-IWDSU+5DE5;
-      (=>ucs@unicode	  . #x5DE5)	; &A-IWDSU+5DE5;
-      (=>iwds-1		  .  0408)	; &A-IWDSU+5DE5;
+     ((=ucs		  . #x5DE5)	; 工
       ))
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 0)
@@ -107,7 +102,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5DE5)	; 工
+     ((=>ucs@component	  . #x5DE5)	; &A-compU+5DE5;
       ))
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 0)
@@ -115,6 +110,16 @@
     (=big5-cdp		. #x8BC8)	; &CDP-8BC8;
     (->subsumptive
      ((==big5-cdp	  . #x8BC8)	; &g2-CDP-8BC8;
+      )
+     ((=gt-k		  . 00138)	; &GT-K00138;
+      (=gt-pj-k1	  . #x3669)	; &GT-K00138; [22-73]
+      (<-identical@component/connect-below
+       ((=big5-cdp	    . #x8BC8)	; &CDP-8BC8;
+	))
+      (->subsumptive
+       ((==gt-k		    . 00138)	; &g2-GT-K00138;
+	(==gt-pj-k1	    . #x3669)	; &g2-GT-K00138; [22-73]
+	))
       ))
     ))
 (define-char
@@ -180,7 +185,31 @@
 (define-char
   '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>ucs@component	  . #x20087)	; &A-compU+20087;
+      )
+     ((=>ucs@component	  . #x5DE5)	; &A-compU+5DE5;
+      ))
+    (=>ucs@component	. #x5DE6)	; &A-compU+5DE6;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x5DE6)	; &A-compU+5DE6;
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x20087)	; 𠂇
+      )
+     ((=ucs		  . #x5DE5)	; 工
+      ))
     (=ucs		. #x5DE6)	; 左
     ))
 (define-char
@@ -213,6 +242,23 @@
     (=gt-pj-1		. #x3A38)	; &I-GT-11000; [26-24]
     (=daikanwa		. 08720)	; &I-M-08720;
     (=shinjigen		.  2063)	; &AJ1-02088;
+    (<-formed
+     ((=ucs		  . #x20087)	; 𠂇
+      ))
+    (<-formed*sources
+     jiyun)
+    (<-interchangeable
+     ((=ucs		  . #x20087)	; 𠂇
+      (=daikanwa	  . 00112)	; &I-M-00112;
+      ))
+    (<-interchangeable*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-same
+     ((=ucs		  . #x4F50)	; 佐
+      (=daikanwa	  . 00506)	; &I-M-00506;
+      ))
+    (<-same*sources
+     shuowen-zhu daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5DE6)	; 左
@@ -260,7 +306,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5DE6)	; 左
+     ((=>ucs@component	  . #x5DE6)	; &A-compU+5DE6;
       ))
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 2)
@@ -282,7 +328,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5DE6)	; 左
+     ((=>ucs@component	  . #x5DE6)	; &A-compU+5DE6;
       ))
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 2)
