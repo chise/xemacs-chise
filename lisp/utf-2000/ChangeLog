@@ -22,6 +22,10 @@
 	* Ideograph-R030-Mouth.el (U-00020BA1): Apply new conventions for
 	glyph granularity; add `sound@ja/on'; add `<-same' for U+53EA.
 
+	* Ideograph-R016-Table.el (U-00020643): Apply new conventions for
+	glyph granularity.
+	(U+9F21): Add `<-vulgar' for UU+9F20.
+
 	* Ideograph-R009-Man.el (U-000201D9): Apply new conventions for
 	glyph granularity.
 	(HD-TK01002970): New character; use `<-denotational' for
