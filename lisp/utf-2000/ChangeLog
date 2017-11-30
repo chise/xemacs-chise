@@ -1,5 +1,38 @@
 2017-11-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R057-Bow.el (A-cgnU+5F13): Changed from U+5F13.
+	(AJ1-01655): Unify U+5F13 instead of UU+5F13; use A-cgnU+5F13
+	instead of U+5F13 as its mother.
+	(U+5F13-var-002): Use A-cgnU+5F13 instead of U+5F13 as its mother.
+	(U+5F13-itaiji-005): New character; use `<-denotational' for
+	A-cgnU+5F13.
+	(A-cgnU+5F15): Changed from U+5F15; modify for A-cgnU+5F13.
+	(AJ1-01214): Unify U+5F15 instead of UU+5F15; use A-cgnU+5F15
+	instead of U+5F15 as its mother; modify for U+5F13.
+	(HD-TK01029270): Use A-cgnU+5F15 instead of U+5F15 as its mother.
+	(A-cgnU+5F1C): Changed from U+5F1C; modify for A-cgnU+5F13.
+	(AJ1-14514): Unify U+5F1C instead of UU+5F1C; use A-cgnU+5F1C
+	instead of U+5F1C as its mother.
+	(A-cgnU+5F25): Changed from U+5F25; modify for A-cgnU+5F13.
+	(U+5F25): Changed from o-JU+5F25; use A-cgnU+5F25 instead of
+	U+5F25 as its mother.
+	(HD-TK01029400): Use A-cgnU+5F25 instead of o-JU+5F25 as its
+	mother.
+	(C3-2C4E): Unify U+38B2 instead of UU+38B2.
+	(A-cgnU+5F37): New abstract node.
+	(A-IWDSU+5F37): Add `<-denotational' for A-cgnU+5F37.
+	(U+5F37-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+5F37.
+	(U+5F3A-var-004): Use A-cgnU+5F37 instead of U+5F3A as its mother.
+	(AJ1-13720): Unify U+5F3A instead of UU+5F3A; use A-IWDSU+5F37
+	instead of U+5F3A as its mother.
+	(A-cgnU+5F4C): Changed from U+5F4C.
+	(U+5F4C): Changed from A-UU+5F4C; use A-cgnU+5F4C instead of
+	U+5F4C as its mother.
+	(A-MJ011220): Use A-cgnU+5F4C instead of U+5F4C as its mother.
+
+2017-11-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R048-Work.el (A-compU+5DE5): Changed from U+5DE5.
 	(IWDS1-0408): Unify U+5DE5 instead of A-UU+5DE5; use A-compU+5DE5
 	instead of U+5DE5 as its mother.
