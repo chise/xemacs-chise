@@ -1,3 +1,33 @@
+2017-11-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R044-Corpse.el (A-compU+21C25): New abstract
+	component; add `<-denotational' for A-BC-8C7A.
+	(U-00021C25): Add `<-denotational@component' for A-compU+21C25;
+	add `ideographic-structure'.
+	(BC-8C7A): Use A-compU+21C25 instead of A-BC-8C7A as its mother;
+	apply new conventions for glyph granularity.
+	(U+2BD56-itaiji-001): New character.
+
+	* Ideograph-R041-Inch.el (U+3DC9): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R018-Knife.el (A-compU+5202): Changed from U+5202.
+	(AJ1-14356): Unify U+5202 instead of UU+5202.
+	(BC-8969): Use `<-denotational@component' for A-compU+5202 instead
+	of `<-denotational' for U+5202.
+	(GT-K00114): New character; use `<-subsumptive' for BC-8969.
+	(BC-8BEA): Use `<-denotational@component' for A-compU+5202 instead
+	of `<-denotational' for U+5202; apply new conventions for glyph
+	granularity.
+	(U-00020737): Apply new conventions for glyph granularity.
+	(A-IWDSU+20760): New abstract node.
+	(U-00020760): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-IWDSU+20760.
+	(U-0002076C): New character; use `<-denotational' for
+	A-IWDSU+20760.
+	(U-000207FD): Use `->denotational' and `->subsumptive'.
+	(A-IWDSU+7588): Unify A-cgnU+7588; modify for A-compU+5202.
+
 2017-11-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R057-Bow.el (A-cgnU+5F13): Changed from U+5F13.
