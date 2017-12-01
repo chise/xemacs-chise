@@ -2355,13 +2355,38 @@
   '((ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs-itaiji-001	  . #x2BD56)	; &U-i001+2BD56;
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
     (=ucs		. #x3DC9)	; 㷉
+    (=cns11643-3	. #x3B23)	; &I-C3-3B23; [27-03]
+    (=daikanwa		. 07451)	; &I-M-07451;
+    (<-formed
+     ((=ucs		  . #x5C09)	; 尉
+      ))
+    (<-formed*sources
+     zhengzitong)
+    (<-same
+     ((=ucs		  . #x5C09)	; 尉
+      (=daikanwa	  . 07440)	; &I-M-07440;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 07451)	; &M-07451;
+     ((==daikanwa	  . 07451)	; &g2-M-07451;
       )
-     ((=ucs@unicode	  . #x3DC9)	; &UU+3DC9;
+     ((==ucs@unicode	  . #x3DC9)	; &g2-UU+3DC9;
+      (->subsumptive
+       ((===ucs@unicode	    . #x3DC9)	; &R-UU+3DC9;
+	))
       )
-     ((=cns11643-3	  . #x3B23)	; &C3-3B23; [27-03]
+     ((==ucs@cns	  . #x3DC9)	; &g2-CU+3DC9;
+      (==cns11643-3	  . #x3B23)	; &g2-CU+3DC9; [27-03]
       ))
     ))
 (define-char
