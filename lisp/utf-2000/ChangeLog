@@ -1,3 +1,22 @@
+2017-12-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (U-0002BCBD): New character.
+	(U-00021A0E): Use `->subsumptive'.
+	(U-0002BCCD): Unify MJ057333 and KOSEKI-081730.
+	(A-cgnU+5BCD): New abstract node.
+	(U+5BCD): Add `<-denotational' for A-cgnU+5BCD.
+	(U+5BCD-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+5BCD.
+	(U-00021A49): Use `->denotational' and `->subsumptive'.
+	(U+5BDC): Apply new conventions for glyph granularity.
+	(U-00021A6C): Likewise.
+	(U-0002A9E0): New character.
+	(U-0002BCEC): New character.
+	(U+2BCEC-var-001): New character; use `<-denotational' for
+	U-0002BCEC.
+	(U+5BE7): Unify IWDS1-0145.
+	(U-00021AA5): Use `->subsumptive'.
+
 2017-11-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R044-Corpse.el (A-compU+21C25): New abstract
