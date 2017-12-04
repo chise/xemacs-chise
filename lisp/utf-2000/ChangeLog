@@ -1,5 +1,48 @@
 2017-12-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (U+53DC): Unify IWDS1-1027 [27a].
+	(UU+53DC): Unify S-0922.
+	(A-MJ057139): New abstract node; unify A-U+53DC-itaiji-004.
+	(U+53DC-itaiji-006): New character; use `<-denotational' for
+	A-MJ057139.
+	(U+53DC-itaiji-004): Use A-MJ057139 instead of U+53DC as its
+	mother.
+	(MJ057139): Likewise.
+	(CU+53DF): Unify S-0921.
+	(U-00020B59): Apply new conventions for glyph granularity.
+
+2017-12-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R025-Divination.el (U+5364-itaiji-002): New character.
+	(U+5365): Apply new conventions for glyph granularity.
+	(U-000209E7): New character; use `<-denotational' for U+5365.
+	(U-000209E2): Use `->subsumptive'.
+	(U-000209EA): Apply new conventions for glyph granularity.
+	(U-000209F0): New character.
+	(M-02814): Unify KOSEKI-032590; add `<-denotational' for
+	U-000209F0.
+	(U-000209F1): New character.
+	(U-000209FF): New character.
+	(M-02825): Unify MJ031806 and KOSEKI-032710; add `<-denotational'
+	for U-000209FF.
+	(U-000209FE): New character.
+	(A-U+5364-itaiji-001): New abstract node.
+	(U+5364-itaiji-001): New character; use `<-denotational' for
+	A-U+5364-itaiji-001.
+	(U+5364-itaiji-003): Likewise.
+	(U-00020A05): Use `->denotational' and `->subsumptive'.
+	(U-00020A0A): New character.
+	(M-02833): Unify MJ031815 and KOSEKI-032790; add `<-denotational'
+	for U-00020A0A.
+	(U-00020A0B): Add representative nodes.
+	(A-cgnU+20A0C): New abstract node.
+	(M-02835): Unify MJ031817 and KOSEKI-032810; add `<-denotational'
+	for A-cgnU+20A0C.
+	(U-00020A0C): New character; use `<-denotational' for
+	A-cgnU+20A0C.
+
+2017-12-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R040-Roof.el (U-0002BCBD): New character.
 	(U-00021A0E): Use `->subsumptive'.
 	(U-0002BCCD): Unify MJ057333 and KOSEKI-081730.
