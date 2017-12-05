@@ -1,5 +1,9 @@
 2017-12-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R036-Evening.el (U+5916): Apply new conventions for
+	glyph granularity.
+	(GT-K00902): New character; use `<-denotational' for U+5916.
+
 	* Ideograph-R029-Again.el (U+53DC): Unify IWDS1-1027 [27a].
 	(UU+53DC): Unify S-0922.
 	(A-MJ057139): New abstract node; unify A-U+53DC-itaiji-004.
