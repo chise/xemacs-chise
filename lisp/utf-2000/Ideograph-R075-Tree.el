@@ -51197,12 +51197,42 @@
   '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 27)
     (total-strokes	 . 31)
-    (=ucs		. #x2387C)	; 𣡼
-    (->subsumptive
-     ((=ucs@iso		  . #x2387C)	; &M-15988;
-      (=daikanwa	  . 15988)	; &M-15988;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=cns11643-7	  . #x6574)	; &C7-6574; [69-84]
+     ((=ucs		  . #x20A0B)	; 𠨋
+      )
+     ((=ucs		  . #x6728)	; 木
+      ))
+    (=ucs		. #x2387C)	; 𣡼
+    (=cns11643-7	. #x6574)	; &I-C7-6574; [69-84]
+    (=daikanwa		. 15988)	; &I-M-15988;
+    (<-ancient
+     ((=ucs		  . #x3B9A)	; 㮚
+      (=daikanwa	  . 15166)	; &I-M-15166;
+      )
+     ((=ucs@unicode	  . #x6817)	; &AJ1-01792;
+      (=adobe-japan1-0	  . 01792)	; &AJ1-01792;
+      (=daikanwa	  . 14695)	; &I-M-14695;
+      ))
+    (<-ancient$_2*sources
+     kangxi)
+    (<-ancient*sources
+     kangxi daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x2387C)	; &g2-M-15988;
+      (==daikanwa	  . 15988)	; &g2-M-15988;
+      (->subsumptive
+       ((===daikanwa	    . 15988)	; &R-M-15988;
+	)
+       ((===ucs@iso	    . #x2387C)	; &R-U-0002387C;
+	)
+       ((=hanziku-4	    . #xB952)	; &HZK04-B952;
+	))
+      )
+     ((==ucs@cns	  . #x2387C)	; &g2-CU+2387C;
+      (==cns11643-7	  . #x6574)	; &g2-CU+2387C; [69-84]
       ))
     ))
 (define-char
