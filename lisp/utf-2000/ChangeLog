@@ -1,3 +1,26 @@
+2017-12-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R113-Spirit.el (U-000256E1): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R075-Tree.el (U-0002387C): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R061-Heart.el (U-000227EC): Apply new conventions for
+	glyph granularity.
+	(U+6170): Add `ideographic-structure'.
+
+2017-12-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (U+5155): Unify S1-0464 and S2-0462
+	instead of S-0464.
+	(U-00020485): Apply new conventions for glyph granularity.
+	(U-00020483): Likewise.
+
+	* Ideograph-R007-Two.el (U-00020128): Add `ideographic-structure';
+	apply new conventions for glyph granularity.
+	(GT-00353): Unify MJ030470 and KOSEKI-003240.
+
 2017-12-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R036-Evening.el (U+5916): Apply new conventions for
