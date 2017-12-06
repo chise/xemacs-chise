@@ -13225,15 +13225,19 @@
      ((=ucs		  . #x5FC3)	; 心
       ))
     (=hanyo-denshi/tk	. 01032130)	; &HD-TK-01032130;
+    (=hanyo-denshi/tk/mf-01 . #x0C8D)	; &HD-TK-01032130;
     (=gt		. 13574)	; &HD-TK-01032130;
     (=gt-k		. 08031)	; &I-GT-K08031;
     (=gt-pj-9		. #x3753)	; &HD-TK-01032130; [23-51]
     (->subsumptive
      ((==hanyo-denshi/tk  . 01032130)	; &g2-HD-TK-01032130;
-      (=hanyo-denshi/tk/mf-01 . #x0C8D)	; &g2-HD-TK-01032130;
+      (==hanyo-denshi/tk/mf-01 . #x0C8D)	; &g2-HD-TK-01032130;
       (==gt		  . 13574)	; &g2-HD-TK-01032130;
       )
      ((=ucs-var-002	  . #x226F3)	; &U-v002+226F3;
+      (->subsumptive
+       ((==ucs-var-002	    . #x226F3)	; &g2-U-v002+226F3;
+	))
       ))
     ))
 (define-char
@@ -26450,22 +26454,59 @@
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x2422B)	; 𤈫
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (sound@ja/on	"Wi")
     (=ucs		. #x227EC)	; 𢟬
+    (=mj		. 036298)	; &I-MJ036298;
+    (=cns11643-7	. #x2272)	; &I-C7-2272; [02-82]
+    (=koseki		. 126880)	; 𢟬
+    (=gt		. 14055)	; &I-GT-14055;
+    (=gt-pj-3		. #x555D)	; &I-GT-14055; [53-61]
+    (=daikanwa		. 11134)	; &I-M-11134;
+    (<-same
+     ((=ucs		  . #x6170)	; 慰
+      (=daikanwa	  . 11135)	; &I-M-11135;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 11134)	; &M-11134;
+     ((==daikanwa	  . 11134)	; &g2-M-11134;
       )
-     ((=ucs@iso		  . #x227EC)	; &U-000227EC;
+     ((==ucs@iso	  . #x227EC)	; &g2-MJ036298;
+      (==mj		  . 036298)	; &g2-MJ036298;
+      (==koseki		  . 126880)	; &g2-MJ036298;
+      (->subsumptive
+       ((===mj		    . 036298)	; &R-MJ036298;
+	)
+       ((===ucs@iso	    . #x227EC)	; &R-U-000227EC;
+	))
       )
-     ((=gt		  . 14055)	; &GT-14055;
-      (=gt-pj-3		  . #x555D)	; &GT-14055; [53-61]
+     ((==gt		  . 14055)	; &g2-GT-14055;
       )
-     ((=cns11643-7	  . #x2272)	; &C7-2272; [02-82]
+     ((==ucs@cns	  . #x227EC)	; &g2-CU+227EC;
+      (==cns11643-7	  . #x2272)	; &g2-CU+227EC; [02-82]
       ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C09)	; 尉
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (sound@ja/on	"Wi")
     (=ucs		. #x6170)	; 慰
     (=adobe-japan1-0	. 01178)	; &I-AJ1-01178;
     (=jis-x0208		. #x3056)	; &I-J90-3056; [16-54]
