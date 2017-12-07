@@ -851,6 +851,15 @@
     (ideographic-radical@cns . 22)	; ⼕
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=>ucs@component	  . #x531A)	; &A-compU+531A;
+      (=>iwds-1		  .  0209)	; &A-compU+531A;
+      )
+     ((=ucs		  . #x5408)	; 合
+      ))
     (=ucs		. #x533C)	; 匼
     ))
 (define-char
