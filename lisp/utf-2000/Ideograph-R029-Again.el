@@ -3344,7 +3344,8 @@
     (->ancient*sources
      jiyun daikanwa)
     (->formed
-     ((=cns11643-2	  . #x4438)	; &C2-4438; [36-24]
+     ((=ucs@cns		  . #x6E9E)	; &C2-4438;
+      (=cns11643-2	  . #x4438)	; &C2-4438; [36-24]
       (=daikanwa	  . 17945)	; &I-M-17945;
       )
      ((=ucs		  . #x20B59)	; 𠭙
@@ -3361,7 +3362,13 @@
       (=ucs@jis		  . #x6EB2)	; &MJ015713;
       (=mj		  . 015713)	; &MJ015713;
       (=daikanwa	  . 17979)	; &I-M-17979;
+      )
+     ((=ucs@cns		  . #x6E9E)	; &C2-4438;
+      (=cns11643-2	  . #x4438)	; &C2-4438; [36-24]
+      (=daikanwa	  . 17945)	; &I-M-17945;
       ))
+    (->interchangeable$_1*sources
+     jiyun daikanwa)
     (->interchangeable*sources
      jiyun daikanwa)
     (->subsumptive
