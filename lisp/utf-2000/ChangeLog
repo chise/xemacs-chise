@@ -1,3 +1,17 @@
+2017-12-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (CU+53DF): Add CU+6E9E as a target of
+	`->interchangeable'.
+
+2017-12-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R023-Hiding-Enclosure.el (U+3530): Apply new
+	conventions for glyph granularity.
+	(U+533C): Add `ideographic-structure'.
+
+	* Ideograph-R022-Right-Open-Box.el (U+533C): Add
+	`ideographic-structure'.
+
 2017-12-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R113-Spirit.el (U-000256E1): Apply new conventions for
