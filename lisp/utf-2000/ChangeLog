@@ -1,5 +1,26 @@
 2017-12-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R086-Fire.el (A-cgnU+2422B): New abstract node.
+	(U-0002422B): Add `<-denotational' for A-cgnU+2422B.
+	(A-U+2422B-itaiji-001): New abstract node; use `<-denotational'
+	for A-cgnU+2422B; unify A-U+2422B-itaiji-002.
+	(U+2422B-itaiji-001): New character; use `<-denotational' for
+	A-U+2422B-itaiji-001.
+	(U+2422B-itaiji-002): Likewise.
+	(U-00024261): Use `->subsumptive'.
+	(U-00024308): Apply new conventions for glyph granularity.
+	(U-00024386): Likewise.
+	(U+3DF6): Likewise.
+	(U-000243DB): Likewise.
+	(U-00024427): Likewise.
+	(U-00024430): Use `->denotational' and `->subsumptive'.
+	(U-000244B7): New character.
+
+	* Ideograph-R069-Axe.el (A-cgnU+65A4): Changed from U+65A4.
+	(AJ1-01740): Use A-cgnU+65A4 instead of U+65A4 as its mother;
+	unify U+65A4 instead of UU+01740.
+	(BC-8852): Use A-cgnU+65A4 instead of U+65A4 as its mother.
+
 	* Ideograph-R143-Blood.el (IWDS1-0329): Unify A-IWDSU+8846 instead
 	of A-compU+8846.
 	(S1-7317): Unify U+8846-itaiji-011.
