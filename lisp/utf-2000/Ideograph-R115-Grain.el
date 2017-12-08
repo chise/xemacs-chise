@@ -5209,14 +5209,58 @@
     ))
 (define-char
   '((ideographic-radical . 115)	; ⽲
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x79BE)	; 禾
+      )
+     ((=ucs		  . #x7550)	; 畐
+      ))
+    (sound@ja/on/go	"hiki")
+    (sound@ja/on/kan	"hyoku")
+    (=ucs		. #x7A2B)	; 稫
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7A2B)	; 稫
+      ))
+    (ideographic-radical . 115)	; ⽲
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
-    (=ucs		. #x7A2B)	; 稫
-    (=jis-x0212		. #x5136)	; &I-JSP-5136; [49-22]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x79BE)	; 禾
+      )
+     ((=ucs@unicode	  . #x7550)	; &AJ1-18129;
+      (=adobe-japan1-5	  . 18129)	; &AJ1-18129;
+      ))
+    (=ucs@unicode	. #x7A2B)	; &JSP-5136;
+    (=jis-x0212		. #x5136)	; &JSP-5136; [49-22]
     (=cns11643-2	. #x4C4B)	; &I-C2-4C4B; [44-43]
     (=big5		. #xE344)	; &I-B-E344;
     (=daikanwa		. 25164)	; &I-M-25164;
     (=jef-china3	. #x5DB6)	; &I-JC3-5DB6;
+    (->subsumptive
+     ((==ucs@unicode	  . #x7A2B)	; &g2-JSP-5136;
+      (==jis-x0212	  . #x5136)	; &g2-JSP-5136; [49-22]
+      (==cns11643-2	  . #x4C4B)	; &g2-JSP-5136; [44-43]
+      (==daikanwa	  . 25164)	; &g2-JSP-5136;
+      (==jef-china3	  . #x5DB6)	; &g2-JSP-5136;
+      (->subsumptive
+       ((===daikanwa	    . 25164)	; &R-M-25164;
+	)
+       ((===jis-x0212	    . #x5136)	; &R-JSP-5136; [49-22]
+	)
+       ((===cns11643-2	    . #x4C4B)	; &R-C2-4C4B; [44-43]
+	)
+       ((===jef-china3	    . #x5DB6)	; &R-JC3-5DB6;
+	)
+       ((===ucs@unicode	    . #x7A2B)	; &R-UU+7A2B;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 115)	; ⽲
