@@ -1,3 +1,10 @@
+2017-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R064-Hand.el (A-cgnU+6298): Changed from U+6298.
+	(AJ1-02690): Unify U+6298 instead of UU+6298; use A-cgnU+6298
+	instead of U+6298 as its mother.
+	(U+6298-var-001): Use A-cgnU+6298 instead of U+6298 as its mother.
+
 2017-12-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R086-Fire.el (A-cgnU+2422B): New abstract node.
