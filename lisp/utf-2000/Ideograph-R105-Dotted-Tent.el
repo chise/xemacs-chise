@@ -113,23 +113,6 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs-itaiji-004	  . #x7676)	; &A-U-i004+7676;
-      ))
-    (ideographic-radical . 105)	; ⽨
-    (ideographic-strokes . 0)
-    (total-strokes	 . 6)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x5915)	; 夕
-      )
-     ((=big5-cdp	  . #x88D5)	; &CDP-88D5;
-      ))
-    (=ucs-itaiji-004	. #x7676)	; &U-i004+7676;
-    ))
-(define-char
-  '((<-denotational
      ((=>big5-cdp	  . #x8C4F)	; &A-CDP-8C4F;
       ))
     (ideographic-radical . 105)	; ⽨
@@ -153,6 +136,29 @@
     (->subsumptive
      ((==gt-k		  . 01253)	; &g2-GT-K01253;
       (==gt-pj-k1	  . #x3B2D)	; &g2-GT-K01253; [27-13]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-004	  . #x7676)	; &A-U-i004+7676;
+      ))
+    (ideographic-radical . 105)	; ⽨
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5915)	; 夕
+      )
+     ((=big5-cdp	  . #x88D5)	; &CDP-88D5;
+      ))
+    (=gt-k		. 01793)	; &U-i004+7676;
+    (=gt-pj-k1		. #x3878)	; &U-i004+7676; [24-88]
+    (=ucs-itaiji-004	. #x7676)	; &U-i004+7676;
+    (->subsumptive
+     ((==gt-k		  . 01793)	; &g2-GT-K01793;
+      (==gt-pj-k1	  . #x3878)	; &g2-GT-K01793; [24-88]
       ))
     ))
 (define-char
@@ -345,7 +351,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs-itaiji-004	  . #x7676)	; &U-i004+7676;
+     ((=gt-k		  . 01793)	; &U-i004+7676;
       )
      ((=ucs		  . #x2067C)	; 𠙼
       ))
