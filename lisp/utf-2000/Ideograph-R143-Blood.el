@@ -499,16 +499,16 @@
       ))
     (ideographic-radical@r109 . 109)	; ⽬
     (ideographic-radical@r143 . 143)	; ⾎
-    (=>ucs@component	. #x8846)	; &A-compU+8846;
-    (=ucs@big5		. #x773E)	; &A-compU+8846;
-    (=big5		. #xB2B3)	; &A-compU+8846;
-    (=>iwds-1		.  0329)	; &A-compU+8846;
+    (=>ucs@iwds-1	. #x8846)	; &A-IWDSU+8846;
+    (=ucs@big5		. #x773E)	; &A-IWDSU+8846;
+    (=big5		. #xB2B3)	; &A-IWDSU+8846;
+    (=>iwds-1		.  0329)	; &A-IWDSU+8846;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x8846)	; &A-compU+8846;
-      (=ucs@big5	  . #x773E)	; &A-compU+8846;
-      (=>iwds-1		  .  0329)	; &A-compU+8846;
+     ((=>ucs@iwds-1	  . #x8846)	; &A-IWDSU+8846;
+      (=ucs@big5	  . #x773E)	; &A-IWDSU+8846;
+      (=>iwds-1		  .  0329)	; &A-IWDSU+8846;
       ))
     (ideographic-radical . 143)	; ⾎
     (ideographic-strokes . 6)
@@ -615,6 +615,16 @@
     (ideographic-radical . 143)	; ⾎
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
+    (=shinjigen@1ed	.  7317)	; &U-i011+8846;
+    (=ucs-itaiji-011	. #x8846)	; &U-i011+8846;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8846)	; 衆
+      ))
+    (ideographic-radical . 143)	; ⾎
+    (ideographic-strokes . 6)
+    (total-strokes	 . 12)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -644,15 +654,6 @@
     (<-formed
      ((=ucs		  . #x773E)	; 眾
       ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x8846)	; 衆
-      ))
-    (ideographic-radical . 143)	; ⾎
-    (ideographic-strokes . 6)
-    (total-strokes	 . 12)
-    (=shinjigen@1ed	.  7317)	; &SJG1-7317;
     ))
 (define-char
   '((ideographic-radical . 143)	; ⾎

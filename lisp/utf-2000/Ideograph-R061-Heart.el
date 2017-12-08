@@ -480,6 +480,25 @@
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53B6)	; 厶
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (=gt-k		. 02425)	; &GT-K02425;
+    (=gt-pj-k1		. #x5E3E)	; &GT-K02425; [62-30]
+    (->subsumptive
+     ((==gt-k		  . 02425)	; &g2-GT-K02425;
+      (==gt-pj-k1	  . #x5E3E)	; &g2-GT-K02425; [62-30]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=ucs		. #x5FCB)	; 忋
@@ -5696,6 +5715,26 @@
 	)
        ((===ucs@unicode	    . #x6031)	; &R-UU+6031;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6031)	; 怱
+      ))
+    (ideographic-radical . 61)	; ⼼
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x2F82A)	; 匆
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
+    (=ucs-var-002	. #x6031)	; &U-v002+6031;
+    (->subsumptive
+     ((==ucs-var-002	  . #x6031)	; &g2-U-v002+6031;
       ))
     ))
 (define-char

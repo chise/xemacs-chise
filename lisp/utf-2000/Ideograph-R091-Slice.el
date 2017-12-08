@@ -1327,17 +1327,65 @@
   '((ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7247)	; 片
+      )
+     ((=ucs		  . #x6031)	; 怱
+      ))
+    (sound@ja/on	"sAu")
     (=ucs		. #x724E)	; 牎
-    (=jis-x0212		. #x4A51)	; &I-JSP-4A51; [42-49]
-    (=daikanwa		. 19865)	; &I-M-19865;
     ))
 (define-char
-  '((=>ucs		. #x724E)	; 牎
-    (morohashi-daikanwa	19865 0 1)
+  '((<-denotational
+     ((=ucs		  . #x724E)	; 牎
+      ))
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=cns11643-3	. #x425D)	; &C3-425D; [34-61]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7247)	; 片
+      )
+     ((=ucs@unicode	  . #x6031)	; &AJ1-04815;
+      (=adobe-japan1-0	  . 04815)	; &AJ1-04815;
+      ))
+    (=ucs@unicode	. #x724E)	; &JSP-4A51;
+    (=jis-x0212		. #x4A51)	; &JSP-4A51; [42-49]
+    (=cns11643-3	. #x425D)	; &I-C3-425D; [34-61]
+    (=daikanwa		. 19865)	; &I-M-19865;
+    (<-formed
+     ((=ucs@jis		  . #x56F1)	; &AJ1-19274;
+      (=adobe-japan1-5	  . 19274)	; &AJ1-19274;
+      ))
+    (<-formed*sources
+     jiyun)
+    (<-same
+     ((=ucs@jis		  . #x7A97)	; &AJ1-05932;
+      (=adobe-japan1-0	  . 05932)	; &AJ1-05932;
+      (=daikanwa	  . 25517)	; &I-M-25517;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x724E)	; &g2-JSP-4A51;
+      (==jis-x0212	  . #x4A51)	; &g2-JSP-4A51; [42-49]
+      (==daikanwa	  . 19865)	; &g2-JSP-4A51;
+      (->subsumptive
+       ((===daikanwa	    . 19865)	; &R-M-19865;
+	)
+       ((===jis-x0212	    . #x4A51)	; &R-JSP-4A51; [42-49]
+	)
+       ((===ucs@unicode	    . #x724E)	; &R-UU+724E;
+	))
+      )
+     ((==ucs@cns	  . #x724E)	; &g2-CU+724E;
+      (==cns11643-3	  . #x425D)	; &g2-CU+724E; [34-61]
+      ))
     ))
 (define-char
   '((ideographic-radical . 91)	; ⽚
