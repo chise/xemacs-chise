@@ -2615,13 +2615,13 @@
       )
      ((=ucs		  . #x624C)	; 扌
       )
-     ((=ucs		  . #x65A4)	; 斤
+     ((=>ucs@cognate	  . #x65A4)	; &A-cgnU+65A4;
       ))
-    (=ucs		. #x6298)	; 折
+    (=>ucs@cognate	. #x6298)	; &A-cgnU+6298;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x6298)	; 折
+     ((=>ucs@cognate	  . #x6298)	; &A-cgnU+6298;
       ))
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 4)
@@ -2632,11 +2632,10 @@
       )
      ((=ucs		  . #x624C)	; 扌
       )
-     ((=ucs@unicode	  . #x65A4)	; &AJ1-01740;
-      (=adobe-japan1-0	  . 01740)	; &AJ1-01740;
+     ((=ucs		  . #x65A4)	; 斤
       ))
-    (=ucs@unicode	. #x6298)	; &AJ1-02690;
-    (=adobe-japan1-0	. 02690)	; &AJ1-02690;
+    (=ucs		. #x6298)	; 折
+    (=adobe-japan1-0	. 02690)	; &I-AJ1-02690;
     (=jis-x0208		. #x405E)	; &I-J90-405E; [32-62]
     (=gb2312		. #x555B)	; &I-G0-555B; [53-59]
     (=ks-x1001		. #x6F39)	; &I-K0-6F39; [79-25]
@@ -2647,7 +2646,7 @@
     (=gt-k		. 02592)	; &I-GT-K02592;
     (=gt-pj-1		. #x405E)	; &I-GT-14985; [32-62]
     (=daikanwa		. 11890)	; &I-M-11890;
-    (=shinjigen		.  3221)	; &AJ1-02690;
+    (=shinjigen		.  3221)	; 折
     (->subsumptive
      ((==ucs@unicode	  . #x6298)	; &g2-AJ1-02690;
       (==adobe-japan1-0	  . 02690)	; &g2-AJ1-02690;
@@ -2684,7 +2683,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x6298)	; 折
+     ((=>ucs@cognate	  . #x6298)	; &A-cgnU+6298;
       ))
     (ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 4)
