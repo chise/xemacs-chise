@@ -1,3 +1,25 @@
+2017-12-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R143-Blood.el (IWDS1-0329): Unify A-IWDSU+8846 instead
+	of A-compU+8846.
+	(S1-7317): Unify U+8846-itaiji-011.
+
+	* Ideograph-R115-Grain.el (U+7A2B): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R105-Dotted-Tent.el (U+7676-itaiji-004): Unify
+	GT-K01793.
+
+	* Ideograph-R091-Slice.el (U+724E): Use `->subsumptive'.
+
+2017-12-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R081-Compare.el (U+23B09-itaiji-001): New character.
+	(U+23B09-itaiji-002): New character.
+
+	* Ideograph-R061-Heart.el (GT-K02425): New character.
+	(U+6031-var-002): New character; use `<-denotational' for U+6031.
+
 2017-12-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R029-Again.el (CU+53DF): Add CU+6E9E as a target of
