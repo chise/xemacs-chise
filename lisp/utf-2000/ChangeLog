@@ -1,5 +1,30 @@
 2017-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R105-Dotted-Tent.el (U+7676-itaiji-001): New
+	character; use `<-denotational' for A-U+7676-itaiji-004.
+
+2017-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el (U-000211A7): Apply new conventions
+	for glyph granularity.
+	(A-U+56EA-itaiji-001): New abstract node.
+	(U+56EA-itaiji-002): New character; use `<-denotational' for
+	A-U+56EA-itaiji-001.
+	(A-GT-K01840): New abstract node; use `<-denotational' for
+	A-U+56EA-itaiji-001; unify A-U+56EA-itaiji-003.
+	(U+56EA-itaiji-003): New character; use `<-denotational' for
+	A-GT-K01840.
+	(GT-K01839): New character; use `<-denotational' for
+	A-U+56EA-itaiji-001.
+	(GT-K01840): New character; use `<-denotational' for A-GT-K01840.
+	(GT-K02079): New character; use `<-denotational' for
+	A-U+56EA-itaiji-001; unify U+56EA-itaiji-001.
+	(IWDS1-0361): Unify A-IWDSU+56F1 instead of A-compU+56F1.
+	(JU+56F1): Apply new conventions for glyph granularity.
+	(UU+56F1): Add representative nodes.
+	(U+56EA): Likewise.
+	(U-000211C9): Apply new conventions for glyph granularity.
+
 	* Ideograph-R064-Hand.el (A-cgnU+6298): Changed from U+6298.
 	(AJ1-02690): Unify U+6298 instead of UU+6298; use A-cgnU+6298
 	instead of U+6298 as its mother.

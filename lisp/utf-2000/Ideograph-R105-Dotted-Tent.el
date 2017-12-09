@@ -113,6 +113,15 @@
     ))
 (define-char
   '((<-denotational
+     ((=>ucs-itaiji-004	  . #x7676)	; &A-U-i004+7676;
+      ))
+    (ideographic-radical . 105)	; ⽨
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (=ucs-itaiji-001	. #x7676)	; &U-i001+7676;
+    ))
+(define-char
+  '((<-denotational
      ((=>big5-cdp	  . #x8C4F)	; &A-CDP-8C4F;
       ))
     (ideographic-radical . 105)	; ⽨
