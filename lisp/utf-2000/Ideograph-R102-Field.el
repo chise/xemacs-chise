@@ -694,7 +694,7 @@
 (define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x752B)	; &A-IWDSU+752B;
-      (=>ucs@unicode	  . #x752B)	; &A-IWDSU+752B;
+      (=>iwds-1		  .  0068)	; &A-IWDSU+752B;
       ))
     (ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 2)
@@ -729,8 +729,7 @@
     (=gt-k		. 03345)	; &GT-K03345;
     (=gt-pj-k2		. #x3534)	; &GT-K03345; [21-20]
     (<-formed@component
-     ((=ucs@unicode	  . #x752B)	; &AJ1-03635;
-      (=adobe-japan1-0	  . 03635)	; &AJ1-03635;
+     ((=ucs		  . #x752B)	; 甫
       )
      ((=ucs		  . #x24C14)	; 𤰔
       ))
