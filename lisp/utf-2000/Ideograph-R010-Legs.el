@@ -3725,22 +3725,8 @@
     (=daikanwa		. 48928)	; &I-M-48928;
     ))
 (define-char
-  '((ideographic-radical . 10)	; ⼉
-    (ideographic-strokes . 10)
-    (total-strokes	 . 12)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
-      (=ucs		  . #x2FFA)	; ⿺
-      )
-     ((=ucs		  . #x514B)	; 克
-      )
-     ((=ucs		  . #x53F7)	; 号
-      ))
-    (=ucs		. #x204A0)	; 𠒠
-    ))
-(define-char
   '((<-denotational
-     ((=ucs		  . #x204A0)	; 𠒠
+     ((=>ucs@cognate	  . #x204A0)	; &A-cgnU+204A0;
       ))
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 10)
@@ -3753,10 +3739,24 @@
       )
      ((=mj		  . 057144)	; &MJ057144;
       ))
-    (=ucs@iso		. #x204A0)	; &U-000204A0;
+    (=ucs		. #x204A0)	; 𠒠
     (->subsumptive
      ((==ucs@iso	  . #x204A0)	; &g2-IU-000204A0;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 10)	; ⼉
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x514B)	; 克
+      )
+     ((=>ucs@cognate	  . #x53F7)	; &A-cgnU+53F7;
+      ))
+    (=>ucs@cognate	. #x204A0)	; &A-cgnU+204A0;
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
