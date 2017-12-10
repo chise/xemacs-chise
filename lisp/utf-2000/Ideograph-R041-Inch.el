@@ -847,7 +847,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x752B)	; 甫
+     ((=>ucs@iwds-1	  . #x752B)	; &A-IWDSU+752B;
+      (=>iwds-1		  .  0068)	; &A-IWDSU+752B;
       )
      ((=ucs		  . #x5BF8)	; 寸
       ))
@@ -866,8 +867,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x752B)	; &AJ1-03635;
-      (=adobe-japan1-0	  . 03635)	; &AJ1-03635;
+     ((=ucs		  . #x752B)	; 甫
       )
      ((=ucs		  . #x5BF8)	; 寸
       ))
@@ -971,10 +971,11 @@
      ((=ucs		  . #x5BF8)	; 寸
       ))
     (=hanyo-denshi/tk	. 01023430)	; &HD-TK-01023430;
+    (=hanyo-denshi/tk/mf-01 . #x0927)	; &HD-TK-01023430;
     (=ucs-var-001	. #x5C03)	; &HD-TK-01023430;
     (->subsumptive
      ((==hanyo-denshi/tk  . 01023430)	; &g2-HD-TK-01023430;
-      (=hanyo-denshi/tk/mf-01 . #x0927)	; &g2-HD-TK-01023430;
+      (==hanyo-denshi/tk/mf-01 . #x0927)	; &g2-HD-TK-01023430;
       ))
     ))
 (define-char
