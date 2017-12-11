@@ -1,4 +1,19 @@
+2017-12-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R070-Square.el (U+65C9): Modify for A-IWDSU+752B.
+	(UU+65C9): Modify for U+752B.
+
+	* Ideograph-R041-Inch.el (U+5C03): Modify for A-IWDSU+752B.
+	(UU+5C03): Modify for U+752B.
+
 2017-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (U-000204A0): Changed from IU+204A0; use
+	A-cgnU+204A0 instead of U-000204A0 as its mother.
+	(A-cgnU+204A0): Changed from U-000204A0.
+
+	* Ideograph-R004-Slash.el (U-00023D92): Apply new conventions for
+	glyph granularity; add `<-denotational' for A-cgnU+23D92.
 
 	* Ideograph-R105-Dotted-Tent.el (U+7676-itaiji-001): New
 	character; use `<-denotational' for A-U+7676-itaiji-004.
