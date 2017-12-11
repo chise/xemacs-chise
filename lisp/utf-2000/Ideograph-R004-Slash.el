@@ -2725,7 +2725,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 85)	; ⽔
+  '((<-denotational
+     ((=>ucs@cognate	  . #x23D92)	; &A-cgnU+23D92;
+      ))
+    (ideographic-radical@ucs . 85)	; ⽔
     (ideographic-strokes@ucs . 8)
     (ideographic-radical@cns . 2)	; ⼁
     (ideographic-strokes@cns . 7)
@@ -2752,17 +2755,47 @@
      ((=ucs		  . #x4E00)	; 一
       ))
     (=ucs		. #x23D92)	; 𣶒
+    (=cns11643-4	. #x252F)	; &I-C4-252F; [05-15]
+    (=big5-cdp		. #x8DD9)	; &I-CDP-8DD9;
+    (=gt		. 00119)	; &I-GT-00119;
+    (=gt-pj-2		. #x3060)	; &I-GT-00119; [16-64]
+    (=daikanwa		. 00084)	; &I-M-00084;
     (->subsumptive
-     ((=ucs@iso		  . #x23D92)	; &GT-00119;
-      (=cns11643-4	  . #x252F)	; &GT-00119; [05-15]
-      (=gt		  . 00119)	; &I-GT-00119;
-      (=gt-pj-2		  . #x3060)	; &I-GT-00119; [16-64]
-      (=daikanwa	  . 00084)	; &I-M-00084;
+     ((=>>ucs@iso	  . #x23D92)	; &G-GT-00119;
+      (=>>cns11643-4	  . #x252F)	; &G-GT-00119; [05-15]
+      (=>>gt		  . 00119)	; &G-GT-00119;
+      (=>>daikanwa	  . 00084)	; &G-GT-00119;
+      (->subsumptive
+       ((==ucs@iso	    . #x23D92)	; &g2-GT-00119;
+	(==cns11643-4	    . #x252F)	; &g2-GT-00119; [05-15]
+	(==gt		    . 00119)	; &g2-GT-00119;
+	(==daikanwa	    . 00084)	; &g2-GT-00119;
+	(->subsumptive
+	 ((===daikanwa	      . 00084)	; &R-M-00084;
+	  )
+	 ((===cns11643-4      . #x252F)	; &R-C4-252F; [05-15]
+	  )
+	 ((===gt	      . 00119)	; &R-GT-00119;
+	  )
+	 ((===ucs@iso	      . #x23D92)	; &R-U-00023D92;
+	  ))
+	))
       )
-     ((=big5-cdp	  . #x8DD9)	; &GT-00120;
-      (=gt		  . 00120)	; &I-GT-00120;
+     ((=>>big5-cdp	  . #x8DD9)	; &GT-00120;
+      (=gt		  . 00120)	; &GT-00120;
       (=gt-k		  . 06263)	; &I-GT-K06263;
-      (=gt-pj-9		  . #x4B25)	; &I-GT-00120; [43-05]
+      (=gt-pj-9		  . #x4B25)	; &GT-00120; [43-05]
+      (->subsumptive
+       ((==big5-cdp	    . #x8DD9)	; &g2-GT-00120;
+	(==gt		    . 00120)	; &g2-GT-00120;
+	(==gt-k		    . 06263)	; &g2-GT-00120;
+	(->subsumptive
+	 ((===big5-cdp	      . #x8DD9)	; &R-CDP-8DD9;
+	  )
+	 ((===gt	      . 00120)	; &R-GT-00120;
+	  (===gt-k	      . 06263)	; &R-GT-00120;
+	  ))
+	))
       ))
     ))
 (define-char

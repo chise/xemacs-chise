@@ -35396,8 +35396,7 @@
      ((=ucs		  . #x6B28)	; 欨
       (=daikanwa	  . 16028)	; &I-M-16028;
       )
-     ((=ucs@unicode	  . #x752B)	; &AJ1-03635;
-      (=adobe-japan1-0	  . 03635)	; &AJ1-03635;
+     ((=ucs		  . #x752B)	; 甫
       (=daikanwa	  . 21706)	; &I-M-21706;
       )
      ((=ucs@unicode	  . #x6577)	; &MJ013021;
