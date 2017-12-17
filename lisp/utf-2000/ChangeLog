@@ -1,3 +1,37 @@
+2017-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R105-Dotted-Tent.el (U+7676-itaiji-005): New
+	character; use `<-denotational' for A-U+7676-itaiji-004.
+	(U+7676-itaiji-003): Ditto.
+
+2017-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R130-Meat.el (A-cgnU+812F): Changed from U+812F.
+	(AJ1-06250): Unify U+812F instead of UU+812F; use A-cgnU+812F
+	instead of A-UU+812F as its mother; abolish A-UU+812F [unified to
+	U+812F].
+	(HNG-KAR0324-0): Use A-cgnU+812F instead of A-UU+812F as its
+	mother.
+
+2017-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R101-Use.el (BC-86B7): Delete `<-denotational' for
+	U+752B; add `<-unknown@component' for U+752B.
+	(A-cgnU+752B): Changed from U+752B.
+	(A-IWDSU+752B): Use A-cgnU+752B instead of U+752B as its mother;
+	separate A-UU+752B; unify IWDS1-0068.
+	(AJ1-03635): Unify U+752B instead of UU+752B.
+	(U+752B-itaiji-001): Use A-cgnU+752B instead of U+752B as its
+	mother.
+
+	* Ideograph-R002-Line.el (A-cgnU+23D92): New abstract node.
+	(U-00023D92): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+23D92.
+	(BC-89CD): Add `<-denotational' for A-cgnU+23D92.
+	(U+23D92-itaiji-002): New character; use `<-denotational' for
+	A-cgnU+23D92.
+	(U-0002006B): Apply new conventions for glyph granularity.
+
 2017-12-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R070-Square.el (U+65C9): Modify for A-IWDSU+752B.
