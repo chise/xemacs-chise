@@ -9548,48 +9548,26 @@
       )
      ((=ucs		  . #x752B)	; 甫
       ))
+    (=>ucs@cognate	. #x812F)	; &A-cgnU+812F;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x812F)	; &A-cgnU+812F;
+      ))
+    (ideographic-radical . 130)	; ⾁
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((name		  . "CJK RADICAL MEAT")
+      (=ucs		  . #x2EBC)	; ⺼
+      )
+     ((=ucs		  . #x752B)	; 甫
+      ))
     (=ucs		. #x812F)	; 脯
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x812F)	; 脯
-      ))
-    (ideographic-radical . 130)	; ⾁
-    (ideographic-strokes . 7)
-    (total-strokes	 . 11)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((name		  . "CJK RADICAL MEAT")
-      (=ucs		  . #x2EBC)	; ⺼
-      )
-     ((=>ucs@iwds-1	  . #x752B)	; &A-IWDSU+752B;
-      (=>ucs@unicode	  . #x752B)	; &A-IWDSU+752B;
-      ))
-    (=>ucs@iwds-1	. #x812F)	; &A-IWDSU+812F;
-    (=>ucs@unicode	. #x812F)	; &A-IWDSU+812F;
-    ))
-(define-char
-  '((<-denotational
-     ((=>ucs@iwds-1	  . #x812F)	; &A-IWDSU+812F;
-      (=>ucs@unicode	  . #x812F)	; &A-IWDSU+812F;
-      ))
-    (ideographic-radical . 130)	; ⾁
-    (ideographic-strokes . 7)
-    (total-strokes	 . 11)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((name		  . "CJK RADICAL MEAT")
-      (=ucs		  . #x2EBC)	; ⺼
-      )
-     ((=ucs@unicode	  . #x752B)	; &AJ1-03635;
-      (=adobe-japan1-0	  . 03635)	; &AJ1-03635;
-      ))
-    (=ucs@unicode	. #x812F)	; &AJ1-06250;
-    (=adobe-japan1-0	. 06250)	; &AJ1-06250;
+    (=adobe-japan1-0	. 06250)	; &I-AJ1-06250;
     (=jis-x0208		. #x667D)	; &I-J90-667D; [70-93]
     (=gb2312		. #x382C)	; &I-G0-382C; [24-12]
     (=ks-x1001		. #x7861)	; &I-K0-7861; [88-65]
@@ -9600,7 +9578,7 @@
     (=gt-k		. 07971)	; &I-GT-K07971;
     (=gt-pj-1		. #x667D)	; &I-GT-38226; [70-93]
     (=daikanwa		. 29543)	; &I-M-29543;
-    (=shinjigen		.  6507)	; &AJ1-06250;
+    (=shinjigen		.  6507)	; 脯
     (->subsumptive
      ((==ucs@unicode	  . #x812F)	; &g2-AJ1-06250;
       (==adobe-japan1-0	  . 06250)	; &g2-AJ1-06250;
@@ -9635,7 +9613,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x812F)	; 脯
+     ((=>ucs@cognate	  . #x812F)	; &A-cgnU+812F;
       ))
     (ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 7)
