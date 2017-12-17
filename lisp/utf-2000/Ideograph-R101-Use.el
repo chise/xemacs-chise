@@ -159,24 +159,36 @@
     ))
 (define-char
   '((ideographic-radical . 101)	; ⽤
+    (ideographic-strokes . 1)
+    (total-strokes	 . 6)
+    (=big5-cdp		. #x86B7)	; &CDP-86B7;
+    (<-unknown@component
+     ((=ucs		  . #x752B)	; 甫
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x86B7)	; &g2-CDP-86B7;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 101)	; ⽤
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
-    (=ucs		. #x752B)	; 甫
+    (=>ucs@cognate	. #x752B)	; &A-cgnU+752B;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x752B)	; 甫
+     ((=>ucs@cognate	  . #x752B)	; &A-cgnU+752B;
       ))
     (ideographic-radical . 101)	; ⽤
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
     (=>ucs@iwds-1	. #x752B)	; &A-IWDSU+752B;
-    (=>ucs@unicode	. #x752B)	; &A-IWDSU+752B;
+    (=>iwds-1		.  0068)	; &A-IWDSU+752B;
     ))
 (define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x752B)	; &A-IWDSU+752B;
-      (=>ucs@unicode	  . #x752B)	; &A-IWDSU+752B;
+      (=>iwds-1		  .  0068)	; &A-IWDSU+752B;
       ))
     (ideographic-radical . 101)	; ⽤
     (ideographic-strokes . 2)
@@ -189,8 +201,8 @@
       )
      ((=ucs		  . #x4E36)	; 丶
       ))
-    (=ucs@unicode	. #x752B)	; &AJ1-03635;
-    (=adobe-japan1-0	. 03635)	; &AJ1-03635;
+    (=ucs		. #x752B)	; 甫
+    (=adobe-japan1-0	. 03635)	; &I-AJ1-03635;
     (=jis-x0208		. #x4A63)	; &I-J90-4A63; [42-67]
     (=gb2312		. #x3826)	; &I-G0-3826; [24-06]
     (=ks-x1001		. #x5C4B)	; &I-K0-5C4B; [60-43]
@@ -201,7 +213,7 @@
     (=gt-k		. 02646)	; &I-GT-K02646;
     (=gt-pj-1		. #x4A63)	; &I-GT-27877; [42-67]
     (=daikanwa		. 21706)	; &I-M-21706;
-    (=shinjigen		.  5015)	; &AJ1-03635;
+    (=shinjigen		.  5015)	; 甫
     (->subsumptive
      ((==ucs@unicode	  . #x752B)	; &g2-AJ1-03635;
       (==adobe-japan1-0	  . 03635)	; &g2-AJ1-03635;
@@ -236,24 +248,12 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x752B)	; 甫
+     ((=>ucs@cognate	  . #x752B)	; &A-cgnU+752B;
       ))
     (ideographic-radical . 101)	; ⽤
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
     (=ucs-itaiji-001	. #x752B)	; &U-i001+752B;
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x752B)	; 甫
-      ))
-    (ideographic-radical . 101)	; ⽤
-    (ideographic-strokes . 1)
-    (total-strokes	 . 6)
-    (=big5-cdp		. #x86B7)	; &CDP-86B7;
-    (->subsumptive
-     ((==big5-cdp	  . #x86B7)	; &g2-CDP-86B7;
-      ))
     ))
 (define-char
   '((ideographic-radical . 101)	; ⽤
