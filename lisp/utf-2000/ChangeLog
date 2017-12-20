@@ -1,5 +1,22 @@
 2017-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (A-cgnU+57D1): Changed from U+57D1.
+	(C3-3036): Unify U+57D1 instead of UU+57D1 and A-IWDSU+57D1; use
+	A-cgnU+57D1 instead of U+57D1 as its mother.
+	(H2-AB5B): Use A-cgnU+57D1 instead of U+57D1 as its mother.
+	(A-cgnU+57D4): Changed from U+57D4.
+	(AJ1-04495): Unify U+57D4 instead of UU+57D4.
+
+	* Ideograph-R030-Mouth.el (A-cgnU+53F7): Changed from U+53F7.
+	(AJ1-02040): Unify U+53F7 instead of UU+53F7; use A-cgnU+53F7
+	instead of U+53F7 as its mother.
+	(MJ057144): Use A-cgnU+53F7 instead of U+53F7 as its mother.
+	(U-0002D236): Unify hanaJU+2D236; add `<-denotational' for
+	A-cgnU+2D236.
+	(A-cgnU+2D236): New abstract node.
+
+2017-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R105-Dotted-Tent.el (U+7676-itaiji-005): New
 	character; use `<-denotational' for A-U+7676-itaiji-004.
 	(U+7676-itaiji-003): Ditto.
