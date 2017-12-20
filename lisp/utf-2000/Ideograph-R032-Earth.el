@@ -8383,15 +8383,15 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x6298)	; 折
+     ((=>ucs@cognate	  . #x6298)	; &A-cgnU+6298;
       )
      ((=ucs		  . #x571F)	; 土
       ))
-    (=ucs		. #x57D1)	; 埑
+    (=>ucs@cognate	. #x57D1)	; &A-cgnU+57D1;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x57D1)	; 埑
+     ((=>ucs@cognate	  . #x57D1)	; &A-cgnU+57D1;
       ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 7)
@@ -8400,14 +8400,12 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x6298)	; &AJ1-02690;
-      (=adobe-japan1-0	  . 02690)	; &AJ1-02690;
+     ((=ucs		  . #x6298)	; 折
       )
      ((=ucs		  . #x571F)	; 土
       ))
-    (=>ucs@iwds-1	. #x57D1)	; &C3-3036;
-    (=ucs@unicode	. #x57D1)	; &C3-3036;
-    (=cns11643-3	. #x3036)	; &C3-3036; [16-22]
+    (=ucs		. #x57D1)	; 埑
+    (=cns11643-3	. #x3036)	; &I-C3-3036; [16-22]
     (=daikanwa		. 05129)	; &I-M-05129;
     (<-same
      ((=ucs		  . #x54F2)	; 哲
@@ -8430,7 +8428,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x57D1)	; 埑
+     ((=>ucs@cognate	  . #x57D1)	; &A-cgnU+57D1;
       ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 7)
@@ -8652,13 +8650,13 @@
       )
      ((=ucs		  . #x571F)	; 土
       )
-     ((=ucs		  . #x752B)	; 甫
+     ((=>ucs@cognate	  . #x752B)	; &A-cgnU+752B;
       ))
-    (=ucs		. #x57D4)	; 埔
+    (=>ucs@cognate	. #x57D4)	; &A-cgnU+57D4;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x57D4)	; 埔
+     ((=>ucs@cognate	  . #x57D4)	; &A-cgnU+57D4;
       ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 7)
@@ -8670,11 +8668,10 @@
       )
      ((=ucs		  . #x571F)	; 土
       )
-     ((=ucs@unicode	  . #x752B)	; &AJ1-03635;
-      (=adobe-japan1-0	  . 03635)	; &AJ1-03635;
+     ((=ucs		  . #x752B)	; 甫
       ))
-    (=ucs@unicode	. #x57D4)	; &AJ1-04495;
-    (=adobe-japan1-0	. 04495)	; &AJ1-04495;
+    (=ucs		. #x57D4)	; 埔
+    (=adobe-japan1-0	. 04495)	; &I-AJ1-04495;
     (=jis-x0208		. #x543E)	; &I-J90-543E; [52-30]
     (=gb2312		. #x4652)	; &I-G0-4652; [38-50]
     (=cns11643-1	. #x546A)	; &I-C1-546A; [52-74]
