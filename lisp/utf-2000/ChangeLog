@@ -1,5 +1,51 @@
 2017-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R113-Spirit.el (A-cgnU+796D): New abstract node.
+	(U+796D): Add `<-denotational' for A-cgnU+796D; add
+	`ideographic-structure'.
+	(A-cgnU+2B7B4): New abstract node; use `<-denotational' for
+	A-cgnU+796D.
+	(MJ058205): Unify U-0002E068; use A-cgnU+2B7B4 instead of
+	U-0002B7B4 as its mother.
+	(U+2B7B4-itaiji-002): Use A-cgnU+2B7B4 instead of U-0002B7B4 as
+	its mother.
+	(MJ058207): Unify U-0002B7B4 instead of A-IWDSU+2B7B4 and
+	IU+2B7B4; use A-cgnU+2B7B4 instead of U-0002B7B4 as its mother.
+	(MJ058209): Use A-cgnU+2B7B4 instead of U-0002B7B4 as its mother.
+
+	* Ideograph-R085-Water.el (U+6C3E): Add `<-denotational@component'
+	for A-IWDSU+23C86; add `ideographic-structure'.
+	(A-IWDSU+23C86): New abstract node.
+	(U-00023C86): Add `<-denotational@component' for A-IWDSU+23C86;
+	add `ideographic-structure'.
+	(U-00023C80): Unify M-17118; add `ideographic-structure'.
+	(U+6C5C): Add `<-denotational@component' for A-IWDSU+23C86; add
+	`ideographic-structure'.
+	(A-IWDSU+6C5F): New abstract node.
+	(U+6C5F): Add `<-denotational' for A-IWDSU+6C5F; add
+	`ideographic-structure'.
+	(U-00023C85): New character; use `<-denotational' for
+	A-IWDSU+6C5F.
+	(A-cgnU+6D66): Changed from U+6D66.
+	(AJ1-01244): Unify U+6D66 instead of UU+6D66; use A-cgnU+6D66
+	instead of U+6D66 as its mother.
+	(U-00023D3E): Use `->subsumptive'.
+	(A-cgnU+23D92): New abstract node.
+	(U-00023D92): Add `<-denotational' for A-cgnU+23D92; apply new
+	conventions for glyph granularity.
+	(A-cgnU+6DF5): Changed from U+6DF5; add `ideographic-structure'.
+	(MJ015504): Unify U+6DF5 instead of A-IWDSU+6DF5 and UU+6DF5; use
+	A-cgnU+6DF5 instead of U+6DF5 as its mother.
+	(MJ059782): Use A-cgnU+6DF5 instead of U+6DF5 as its mother.
+	(MJ059791): Likewise.
+	(U-00023E08): Apply new conventions for glyph granularity.
+	(U+6E9E): Likewise.
+	(U+6EB2): Add ideographic-structure.
+	(U-000240A3): Apply new conventions for glyph granularity.
+	(U+701F): Add ideographic-structure.
+	(U-000240E6): New character.
+	(U-00024156): New character.
+
 	* Ideograph-R032-Earth.el (A-cgnU+57D1): Changed from U+57D1.
 	(C3-3036): Unify U+57D1 instead of UU+57D1 and A-IWDSU+57D1; use
 	A-cgnU+57D1 instead of U+57D1 as its mother.
