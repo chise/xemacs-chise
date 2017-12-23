@@ -1,3 +1,18 @@
+2017-12-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R116-Cave.el (U+7A93): Add `ideographic-structure'.
+	(U+7A97): Add ideographic-structure.
+	(U+41AB): Add `sound@ja/on'.
+	(UU+41AB): Add `ideographic-structure'; unify MJ003217 and
+	S2-5700.
+	(S1-5700): Separate S2-5700; unify KOSEKI-286370.
+	(U+7ABB): Add ideographic-structure; add `sound@ja/on'.
+
+2017-12-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R081-Compare.el (U+23B0B-itaiji-001): Add
+	`<-denotational' for A-cgnU+23B09; fix strokes.
+
 2017-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R113-Spirit.el (A-cgnU+796D): New abstract node.
