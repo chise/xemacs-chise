@@ -504,13 +504,76 @@
     (=cns11643-6	. #x2B7E)	; &I-C6-2B7E; [11-94]
     ))
 (define-char
-  '((ideographic-radical . 73)	; ⽈
+  '((ideographic-radical@r072 . 72)	; ⽇
+    (ideographic-radical@r073 . 73)	; ⽈
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x52FF)	; 勿
+      )
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
+      ))
+    (=>ucs@iwds-1	. #x66F6)	; &A-IWDSU+66F6;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x66F6)	; &A-IWDSU+66F6;
+      ))
+    (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x52FF)	; 勿
+      )
+     ((=ucs		  . #x66F0)	; 曰
+      ))
+    (sound@ja/on/go	"koti")
+    (sound@ja/on/kan	"kotu")
     (=ucs		. #x66F6)	; 曶
     (=cns11643-2	. #x2732)	; &I-C2-2732; [07-18]
     (=big5		. #xCCD1)	; &I-B-CCD1;
     (=daikanwa		. 14287)	; &I-M-14287;
+    (<-interchangeable
+     ((=ucs		  . #x5FFD)	; 忽
+      (=daikanwa	  . 10405)	; &I-M-10405;
+      )
+     ((=ucs		  . #x7B0F)	; 笏
+      (=daikanwa	  . 25882)	; &I-M-25882;
+      ))
+    (<-interchangeable$_1*sources
+     hanshu-zhu daikanwa)
+    (<-interchangeable$_2*sources
+     shuowen-zhu daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
+    (->Zhouwen
+     ((=ucs		  . #x211B7)	; 𡆷
+      (=daikanwa	  . 04719)	; &I-M-04719;
+      ))
+    (->Zhouwen*sources
+     jiyun daikanwa)
+    (->mistakable
+     ((=ucs		  . #x3ADA)	; 㫚
+      (=daikanwa	  . 13813)	; &I-M-13813;
+      ))
+    (->mistakable*sources
+     kangxi-biansi-2char daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 14287)	; &g2-M-14287;
+      )
+     ((==ucs@unicode	  . #x66F6)	; &g2-UU+66F6;
+      (==cns11643-2	  . #x2732)	; &g2-UU+66F6; [07-18]
+      (->subsumptive
+       ((===cns11643-2	    . #x2732)	; &R-C2-2732; [07-18]
+	)
+       ((===ucs@unicode	    . #x66F6)	; &R-UU+66F6;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈
