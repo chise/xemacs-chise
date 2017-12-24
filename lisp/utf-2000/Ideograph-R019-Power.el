@@ -4875,20 +4875,87 @@
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@cognate	  . #x23B09)	; &A-cgnU+23B09;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (=>ucs@cognate	. #x3521)	; &A-cgnU+3521;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x3521)	; &A-cgnU+3521;
+      ))
+    (ideographic-radical . 19)	; ⼒
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x23B09)	; 𣬉
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (sound@ja/on/go	"heti")
+    (sound@ja/on/kan	"hetu")
     (=ucs		. #x3521)	; 㔡
     (=cns11643-4	. #x364B)	; &I-C4-364B; [22-43]
     (=daikanwa		. 02405)	; &I-M-02405;
+    (->formed
+     ((=mj		  . 033463)	; &MJ033463;
+      (=daikanwa	  . 05940)	; &I-M-05940;
+      ))
+    (->formed*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 02405)	; &g2-M-02405;
+      )
+     ((==ucs@cns	  . #x3521)	; &g2-CU+3521;
+      (==cns11643-4	  . #x364B)	; &g2-CU+3521; [22-43]
+      )
+     ((==ucs@unicode	  . #x3521)	; &g2-UU+3521;
+      (==ucs@JP/hanazono  . nil)
+      ))
     ))
 (define-char
-  '((ideographic-radical . 19)	; ⼒
+  '((<-denotational
+     ((=>ucs@cognate	  . #x3521)	; &A-cgnU+3521;
+      ))
+    (ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (=ucs		. #x20892)	; 𠢒
-    (->subsumptive
-     ((=daikanwa	  . 02406)	; &M-02406;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@iso		  . #x20892)	; &C6-4671;
-      (=cns11643-6	  . #x4671)	; &C6-4671; [38-81]
+     ((=ucs-itaiji-001	  . #x23B0B)	; &U-i001+23B0B;
+      )
+     ((=ucs		  . #x529B)	; 力
+      ))
+    (sound@ja/on	"hetu")
+    (=ucs		. #x20892)	; 𠢒
+    (=cns11643-6	. #x4671)	; &I-C6-4671; [38-81]
+    (=daikanwa		. 02406)	; &I-M-02406;
+    (<-same
+     ((=ucs		  . #x3521)	; 㔡
+      (=daikanwa	  . 02405)	; &I-M-02405;
+      ))
+    (<-same*sources
+     zihui-bu daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 02406)	; &g2-M-02406;
+      )
+     ((==ucs@iso	  . #x20892)	; &g2-IU-00020892;
+      (==cns11643-6	  . #x4671)	; &g2-IU-00020892; [38-81]
+      (->subsumptive
+       ((===cns11643-6	    . #x4671)	; &R-C6-4671; [38-81]
+	)
+       ((===ucs@iso	    . #x20892)	; &R-U-00020892;
+	))
       ))
     ))
 (define-char
