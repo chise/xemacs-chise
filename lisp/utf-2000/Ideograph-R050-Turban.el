@@ -1883,6 +1883,30 @@
       ))
     (ideographic-radical . 50)	; ⼱
     (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 00305)	; &GT-K00305;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+	(=ucs		    . #x2FF5)	; ⿵
+	)
+       ((=ucs		    . #x5182)	; 冂
+	)
+       ((=ucs		    . #x21B54)	; 𡭔
+	))
+      ))
+    (=ucs-var-005	. #x3840)	; &U-v005+3840;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3840)	; 㡀
+      ))
+    (ideographic-radical . 50)	; ⼱
+    (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (=ucs@unicode	. #x3840)	; &C4-2425;
     (=ucs@JP/hanazono	. nil)

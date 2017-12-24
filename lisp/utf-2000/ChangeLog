@@ -1,3 +1,57 @@
+2017-12-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R141-Tiger.el (A-IWDSU+864D): New abstract node.
+	(U+864D): Add `<-denotational' for A-IWDSU+864D.
+	(U+864D-itaiji-003): New character; use `<-denotational' for
+	A-IWDSU+864D.
+	(U-0002719E): Apply new conventions for glyph granularity.
+	(U+458A): Likewise.
+	(U+458B): Likewise.
+	(U+458C): Likewise.
+	(A-IWDSU+865B): New abstract node; unify IWDS1-0370; use
+	`<-denotational' for BUCS+865B.
+	(U+865A): Use A-IWDSU+865B instead of BUCS+865B as its mother.
+	(A-U+864E-itaiji-007): New abstract node.
+	(U+864E-itaiji-007): New character; use `<-denotational' for
+	A-U+864E-itaiji-007.
+	(A-RUI6-E057): New abstract node.
+	(RUI6-E057): Add `<-denotational' for A-RUI6-E057.
+	(U+865B): Use A-IWDSU+865B instead of BUCS+865B as its mother.
+	(U+4590): Apply new conventions for glyph granularity.
+	(U+4591): Likewise.
+	(JU+865F): Unify CU+865F and C1-6640.
+	(U-000271C5): Apply new conventions for glyph granularity.
+	(U-000271D0): Likewise.
+	(U-000271D6): New character.
+	(U+4598): Apply new conventions for glyph granularity.
+	(U-000271E2): Likewise.
+	(U-000271E7): Use `->denotational' and `->subsumptive'.
+	(U-000271E9): New character.
+	(U+271E9-var-001): New character; use `<-denotational' for
+	U-000271E9.
+	(U-000271FB): Use `->denotational' and `->subsumptive'.
+	(U+459C): Apply new conventions for glyph granularity.
+	(U-0002720B): Likewise.
+	(U+866A): Likewise.
+	(U-0002721C): Likewise.
+
+	* Ideograph-R073-Say.el (A-IWDSU+66F6): New abstract node.
+	(U+66F6): Add `<-denotational' for A-IWDSU+66F6.
+
+	* Ideograph-R072-Sun.el (A-IWDSU+66F6): New abstract node.
+	(U+3ADA): Add `<-denotational' for A-IWDSU+66F6.
+
+	* Ideograph-R050-Turban.el (U+3840-var-005): New character; use
+	`<-denotational' for U+3840.
+
+	* Ideograph-R037-Big.el (U-00021634): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R019-Power.el (A-cgnU+3521): New abstract node.
+	(U+3521): Add `<-denotational' for A-cgnU+3521; apply new
+	conventions for glyph granularity.
+	(U-00020892): Likewise.
+
 2017-12-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R116-Cave.el (U+7A93): Add `ideographic-structure'.

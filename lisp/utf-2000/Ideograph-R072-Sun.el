@@ -2865,12 +2865,69 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 72)	; ⽇
+  '((ideographic-radical@r072 . 72)	; ⽇
+    (ideographic-radical@r073 . 73)	; ⽈
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x52FF)	; 勿
+      )
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
+      ))
+    (=>ucs@iwds-1	. #x66F6)	; &A-IWDSU+66F6;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x66F6)	; &A-IWDSU+66F6;
+      ))
+    (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x52FF)	; 勿
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
+    (sound@ja/on	"kotu")
     (=ucs		. #x3ADA)	; 㫚
     (=cns11643-4	. #x2663)	; &I-C4-2663; [06-67]
     (=daikanwa		. 13813)	; &I-M-13813;
+    (<-formed
+     ((=ucs		  . #x6612)	; 昒
+      ))
+    (<-formed*sources
+     zhengzitong)
+    (<-interchangeable
+     ((=ucs		  . #x7B0F)	; 笏
+      ))
+    (<-same
+     ((=ucs		  . #x6612)	; 昒
+      (=daikanwa	  . 13812)	; &I-M-13812;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
+    (->mistakable
+     ((=ucs		  . #x66F6)	; 曶
+      (=daikanwa	  . 14287)	; &I-M-14287;
+      ))
+    (->mistakable*sources
+     kangxi-biansi-2char daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 13813)	; &g2-M-13813;
+      )
+     ((==ucs@unicode	  . #x3ADA)	; &g2-UU+3ADA;
+      (==cns11643-4	  . #x2663)	; &g2-UU+3ADA; [06-67]
+      (->subsumptive
+       ((===cns11643-4	    . #x2663)	; &R-C4-2663; [06-67]
+	)
+       ((===ucs@unicode	    . #x3ADA)	; &R-UU+3ADA;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
