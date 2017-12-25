@@ -6430,7 +6430,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 86)	; ⽕
+  '((<-denotational@component
+     ((=>ucs@component	  . #x2422B)	; &A-compU+2422B;
+      ))
+    (ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=>ucs@cognate	. #x2422B)	; &A-cgnU+2422B;
@@ -6476,6 +6479,26 @@
       )
      ((==ucs@cns	  . #x2422B)	; &g2-CU+2422B;
       (==cns11643-6	  . #x414E)	; &g2-CU+2422B; [33-46]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x2422B)	; &A-cgnU+2422B;
+      ))
+    (ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53DA)	; 叚
+      )
+     ((=ucs		  . #x706B)	; 火
+      ))
+    (=ucs-itaiji-003	. #x2422B)	; &U-i003+2422B;
+    (->subsumptive
+     ((==ucs-itaiji-003	  . #x2422B)	; &g2-U-i003+2422B;
       ))
     ))
 (define-char
@@ -6540,6 +6563,31 @@
     (=ucs-itaiji-002	. #x2422B)	; &U-i002+2422B;
     (->subsumptive
      ((==ucs-itaiji-002	  . #x2422B)	; &g2-U-i002+2422B;
+      ))
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x2422B)	; &A-compU+2422B;
+      ))
+    (ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x250EB)	; 𥃫
+      )
+     ((=ucs		  . #x706B)	; 火
+      ))
+    (=ucs		. #x24233)	; 𤈳
+    (<-formed@component
+     ((=ucs-itaiji-003	  . #x2422B)	; &U-i003+2422B;
+      )
+     ((=ucs-itaiji-002	  . #x2422B)	; &U-i002+2422B;
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x24233)	; &g2-IU-00024233;
       ))
     ))
 (define-char
@@ -25486,6 +25534,10 @@
     (hanyu-dazidian	3 2251 7)
     (=ucs		. #x244EE)	; 𤓮
     (=hanziku-6		. #xD1D6)	; &I-HZK06-D1D6;
+    ))
+(define-char
+  '((ideographic-radical . 86)	; ⽕
+    (=>ucs@component	. #x2422B)	; &A-compU+2422B;
     ))
 (define-char
   '((ideographic-radical . 86)	; ⽕
