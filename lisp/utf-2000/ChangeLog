@@ -1,3 +1,49 @@
+2017-12-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R122-Net.el (A-IWDSU+7F51): New abstract node; unify
+	IWDS1-0238; use `<-denotational' for BUCS+7DB2.
+	(U+7F51): Use A-IWDSU+7F51 instead of BUCS+7DB2 as its mother.
+	(UU+7F52): Add `<-denotational@component' for A-compU+76BF.
+	(<CJK RADICAL NET TWO>): Use `<-subsumptive' instead of
+	`<-denotational' for UU+7F52.
+	(U-00026273): Add `<-denotational' for A-IWDSU+7F51.
+	(GT-K02494): Use `<-subsumptive' instead of `<-denotational' for
+	U-00026273.
+	(A-IWDSU+4351): New abstract node.
+	(U+4351): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+4351.
+	(U-0002627B): Likewise.
+	(U-00026281): Apply new conventions for glyph granularity.
+	(U-0002628D): Likewise.
+	(U+7F76): Likewise.
+	(U+7F7B): Likewise.
+	(U+4361): Likewise.
+	(U-0002630F): Likewise.
+	(U-0002E298): New character.
+	(U-00026310): Apply new conventions for glyph granularity.
+	(U-00026311): Likewise.
+	(A-compU+26328): New abstract node; unify A-C7-3A4A.
+	(U-0002E296): New character; use `<-denotational' for
+	A-compU+26328.
+	(M-49502): Unify MJ044942 and KOSEKI-316870; use `<-denotational'
+	for U-0002E296 instead of `<-subsumptive' for U-00026328.
+	(U+26328-itaiji-001): New character; use `<-denotational' for
+	A-compU+26328.
+	(U-00026328): Apply new conventions for glyph granularity; don`t
+	subsume M-49502; add `<-denotational' for A-compU+26328.
+	(U-0002630D): Add `ideographic-structure'; add `<-formed' for
+	U-0002E298.
+	(U-0002630E): Apply new conventions for glyph granularity.
+	(U-0002631F): Likewise.
+
+	* Ideograph-R086-Fire.el (A-cgnU+2422B): Add
+	`<-denotational@component' for A-compU+2422B.
+	(U+2422B-itaiji-003): New character; use `<-denotational' for
+	A-cgnU+2422B.
+	(U-00024233): New character; use `<-denotational@component' for
+	A-compU+2422B.
+	(A-compU+2422B): New abstract component.
+
 2017-12-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R141-Tiger.el (A-IWDSU+864D): New abstract node.
