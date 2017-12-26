@@ -1303,15 +1303,17 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 2)	; ⼁
+  '((<-denotational
+     ((=>ucs@cognate	  . #x53DA)	; &A-cgnU+53DA;
+      ))
+    (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 9)
     (total-strokes	 . 10)
     (=ucs		. #x2CEF7)	; 𬻷
     (=mj		. 057639)	; &I-MJ057639;
     (=koseki		. 153290)	; 𬻷
     (<-formed
-     ((=ucs@unicode	  . #x53DA)	; &AJ1-14372;
-      (=adobe-japan1-4	  . 14372)	; &AJ1-14372;
+     ((=ucs		  . #x53DA)	; 叚
       )
      ((=ucs		  . #x6BB5)	; 段
       ))

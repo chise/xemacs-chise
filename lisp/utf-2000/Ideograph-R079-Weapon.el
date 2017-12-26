@@ -791,8 +791,7 @@
     (<-formed
      ((=ucs		  . #x6BB5)	; 段
       )
-     ((=ucs@unicode	  . #x53DA)	; &AJ1-14372;
-      (=adobe-japan1-4	  . 14372)	; &AJ1-14372;
+     ((=ucs		  . #x53DA)	; 叚
       ))
     (<-formed$_1*sources
      koseki)
@@ -806,7 +805,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 79)	; ⽎
+  '((<-denotational
+     ((=>ucs@cognate	  . #x53DA)	; &A-cgnU+53DA;
+      ))
+    (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=>ucs@cognate	. #x2DBAD)	; &A-cgnU+2DBAD;
