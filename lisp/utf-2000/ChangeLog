@@ -1,3 +1,22 @@
+2017-12-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R079-Weapon.el (A-cgnU+2DBAD): Add `<-denotational'
+	for A-cgnU+53DA.
+
+	* Ideograph-R072-Sun.el (A-cgnU+6687): Changed from U+6687.
+	(AJ1-01355): Unify U+6687 instead of UU+6687; use A-cgnU+6687
+	instead of U+6687 as its mother.
+	(HNG-KAR0172-0): Use A-cgnU+6687 instead of U+6687 as its mother.
+
+	* Ideograph-R029-Again.el (A-cgnU+53DA): Changed from U+53DA.
+	(AJ1-14372): Unify U+53DA instead of UU+53DA; use A-cgnU+53DA
+	instead of U+53DA as its mother.
+	(U+53DA-itaiji-003): Use A-cgnU+53DA instead of U+53DA as its
+	mother.
+
+	* Ideograph-R002-Line.el (U-0002CEF7): Add `<-denotational' for
+	A-cgnU+53DA.
+
 2017-12-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R122-Net.el (A-IWDSU+7F51): New abstract node; unify
