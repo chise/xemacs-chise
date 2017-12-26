@@ -9970,13 +9970,13 @@
       )
      ((=ucs		  . #x65E5)	; 日
       )
-     ((=ucs		  . #x53DA)	; 叚
+     ((=>ucs@cognate	  . #x53DA)	; &A-cgnU+53DA;
       ))
-    (=ucs		. #x6687)	; 暇
+    (=>ucs@cognate	. #x6687)	; &A-cgnU+6687;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x6687)	; 暇
+     ((=>ucs@cognate	  . #x6687)	; &A-cgnU+6687;
       ))
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 9)
@@ -9987,11 +9987,10 @@
       )
      ((=ucs		  . #x65E5)	; 日
       )
-     ((=ucs@unicode	  . #x53DA)	; &AJ1-14372;
-      (=adobe-japan1-4	  . 14372)	; &AJ1-14372;
+     ((=ucs		  . #x53DA)	; 叚
       ))
-    (=ucs@unicode	. #x6687)	; &AJ1-01355;
-    (=adobe-japan1-0	. 01355)	; &AJ1-01355;
+    (=ucs		. #x6687)	; 暇
+    (=adobe-japan1-0	. 01355)	; &I-AJ1-01355;
     (=jis-x0208		. #x324B)	; &I-J90-324B; [18-43]
     (=gb2312		. #x4F3E)	; &I-G0-4F3E; [47-30]
     (=ks-x1001		. #x4A2C)	; &I-K0-4A2C; [42-12]
@@ -10001,7 +10000,7 @@
     (=gt		. 17751)	; &I-GT-17751;
     (=gt-pj-1		. #x324B)	; &I-GT-17751; [18-43]
     (=daikanwa		. 14036)	; &I-M-14036;
-    (=shinjigen		.  3363)	; &AJ1-01355;
+    (=shinjigen		.  3363)	; 暇
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x6687)	; 暇
@@ -10039,7 +10038,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x6687)	; 暇
+     ((=>ucs@cognate	  . #x6687)	; &A-cgnU+6687;
       ))
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 9)
