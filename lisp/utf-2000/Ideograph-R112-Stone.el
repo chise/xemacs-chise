@@ -2706,6 +2706,26 @@
     ))
 (define-char
   '((ideographic-radical . 112)	; ⽯
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 01443)	; &GT-K01443;
+      )
+     ((=ucs		  . #x77F3)	; 石
+      ))
+    (=ucs		. #x2C488)	; 𬒈
+    (<-simplified@CN
+     ((=ucs		  . #x7910)	; 礐
+      ))
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2C488)	; &g2-hanaJU+2C488;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
     (=ucs		. #x25473)	; 𥑳
