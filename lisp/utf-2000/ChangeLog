@@ -1,5 +1,9 @@
 2017-12-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R112-Stone.el (U-0002C488): New character.
+
+2017-12-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R079-Weapon.el (A-cgnU+2DBAD): Add `<-denotational'
 	for A-cgnU+53DA.
 
