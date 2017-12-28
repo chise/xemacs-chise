@@ -1805,16 +1805,28 @@
   '((ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
+    (sound@ja/on	"syou")
     (=ucs		. #x20A07)	; 𠨇
+    (=cns11643-6	. #x5B32)	; &I-C6-5B32; [59-18]
     (=daikanwa		. 02831)	; &I-M-02831;
-    ))
-(define-char
-  '((=>ucs		. #x20A07)	; 𠨇
-    (morohashi-daikanwa	2831 0 1)
-    (ideographic-radical . 25)	; ⼘
-    (ideographic-strokes . 12)
-    (total-strokes	 . 14)
-    (=cns11643-6	. #x5B32)	; &C6-5B32; [59-18]
+    (<-same
+     ((=ucs		  . #x4E58)	; 乘
+      (=daikanwa	  . 00154)	; &I-M-00154;
+      ))
+    (<-same*sources
+     haipian daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x20A07)	; &g2-M-02831;
+      (==daikanwa	  . 02831)	; &g2-M-02831;
+      (->subsumptive
+       ((===daikanwa	    . 02831)	; &R-M-02831;
+	)
+       ((===ucs@iso	    . #x20A07)	; &R-U-00020A07;
+	))
+      )
+     ((==ucs@cns	  . #x20A07)	; &g2-CU+20A07;
+      (==cns11643-6	  . #x5B32)	; &g2-CU+20A07; [59-18]
+      ))
     ))
 (define-char
   '((=>ucs		. #x20A08)	; 𠨈

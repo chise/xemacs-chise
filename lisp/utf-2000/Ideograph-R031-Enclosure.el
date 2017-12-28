@@ -2164,10 +2164,30 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 714 10)
+    (sound@ja/on	"kotu")
     (=ucs		. #x211B7)	; 𡆷
     (=cns11643-6	. #x2658)	; &I-C6-2658; [06-56]
     (=daikanwa		. 04719)	; &I-M-04719;
-    (=hanziku-2		. #xE547)	; &I-HZK02-E547;
+    (<-Zhouwen
+     ((=ucs		  . #x66F6)	; 曶
+      (=daikanwa	  . 14287)	; &I-M-14287;
+      ))
+    (<-Zhouwen*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x211B7)	; &g2-M-04719;
+      (==cns11643-6	  . #x2658)	; &g2-M-04719; [06-56]
+      (==daikanwa	  . 04719)	; &g2-M-04719;
+      (->subsumptive
+       ((===daikanwa	    . 04719)	; &R-M-04719;
+	)
+       ((===cns11643-6	    . #x2658)	; &R-C6-2658; [06-56]
+	)
+       ((===ucs@iso	    . #x211B7)	; &R-U-000211B7;
+	)
+       ((=hanziku-2	    . #xE547)	; &HZK02-E547;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞

@@ -1,3 +1,27 @@
+2017-12-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R130-Meat.el (U+43CF): Use `->subsumptive'.
+	(U+43CF-itaiji-001): New character; use `<-denotational' for
+	U+809F.
+
+	* Ideograph-R118-Bamboo.el (U+7B0F): Add representative nodes.
+	(U+7B13): Apply new conventions for glyph granularity.
+	(U+7B84): Likewise.
+	(BUCS+7BE6): New abstract node.
+	(U+7B86): Add `<-denotational' for BUCS+7BE6.
+	(MJ060027): New character.
+	(A-cgnU+7BE6): New abstract node; use `<-denotational' for
+	BUCS+7BE6.
+	(U+7BE6): Add `<-denotational' for A-cgnU+7BE6.
+	(U+7C5C): Add `ideographic-structure'; add `sound@ja/on'.
+
+2017-12-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el (U-000211B7): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R025-Divination.el (U-00020A07): Use `->subsumptive'.
+
 2017-12-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R112-Stone.el (U-0002C488): New character.
