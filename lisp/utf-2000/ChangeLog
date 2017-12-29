@@ -1,5 +1,17 @@
 2017-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R141-Tiger.el (U+8658): Apply new conventions for
+	glyph granularity.
+	(U-000271F3): New character.
+
+	* Ideograph-R033-Scholar.el (U+21523-var-001): New character; use
+	`<-denotational' for U-00021523.
+
+2017-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (U-0002CEC0): Add
+	`<-denotational@component' for A-IWDSU+26B07.
+
 	* Ideograph-R108-Dish.el: Use `leipian' instead of `leibian' to
 	indicate 類篇.
 
