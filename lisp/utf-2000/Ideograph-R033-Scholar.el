@@ -1025,6 +1025,23 @@
     ))
 (define-char
   '((<-denotational
+     ((=ucs		  . #x21523)	; 𡔣
+      ))
+    (ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=big5-cdp	  . #x8CD5)	; &CDP-8CD5;
+      )
+     ((=ucs		  . #x20BB7)	; 𠮷
+      ))
+    (=ucs-var-001	. #x21523)	; &U-v001+21523;
+    ))
+(define-char
+  '((<-denotational
      ((=>ucs@iwds-1	  . #x21523)	; &A-IWDSU+21523;
       ))
     (ideographic-radical . 33)	; ⼠
