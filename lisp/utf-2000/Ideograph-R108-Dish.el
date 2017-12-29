@@ -3250,11 +3250,11 @@
     (=cns11643-7	. #x4079)	; &I-C7-4079; [32-89]
     (=koseki		. 258290)	; 𥃀
     (=daikanwa		. 23080)	; &I-M-23080;
-    (<-formed@leibian
+    (<-formed@leipian
      ((=ucs		  . #x250C2)	; 𥃂
       (=daikanwa	  . 23083)	; &I-M-23083;
       ))
-    (<-formed@leibian*sources
+    (<-formed@leipian*sources
      daikanwa)
     (->formed@longkanshoujian
      ((=ucs		  . #x250AC)	; 𥂬
