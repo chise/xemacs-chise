@@ -90,7 +90,7 @@
       (=daikanwa	  . 10295)	; &I-M-10295;
       ))
     (<-formed@component/connect-right*sources
-     leibian daikanwa)
+     leipian daikanwa)
     ))
 (define-char
   '((<-denotational
@@ -127,7 +127,7 @@
       (=daikanwa	  . 10295)	; &I-M-10295;
       ))
     (<-formed@component/connect-above*sources
-     leibian daikanwa)
+     leipian daikanwa)
     ))
 (define-char
   '((<-denotational

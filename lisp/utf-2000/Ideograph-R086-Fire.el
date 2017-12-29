@@ -20284,7 +20284,7 @@
       (=daikanwa	  . 19406)	; &I-M-19406;
       ))
     (<-same*sources
-     leibian daikanwa)
+     leipian daikanwa)
     (->subsumptive
      ((==mj		  . 040092)	; &g2-MJ040092;
       (==koseki		  . 219310)	; &g2-MJ040092;
