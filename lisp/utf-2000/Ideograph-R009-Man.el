@@ -48537,7 +48537,6 @@
     (=ucs@cns		. #x348E)	; &C4-4232;
     (=cns11643-4	. #x4232)	; &C4-4232; [34-18]
     (=daikanwa		. 01156)	; &I-M-01156;
-    (=hanziku-1		. #xD3A9)	; &I-HZK01-D3A9;
     (->subsumptive
      ((==ucs@cns	  . #x348E)	; &g2-M-01156;
       (==cns11643-4	  . #x4232)	; &g2-M-01156; [34-18]
@@ -48547,6 +48546,8 @@
 	)
        ((===cns11643-4	    . #x4232)	; &R-C4-4232; [34-18]
 	))
+      )
+     ((=hanziku-1	  . #xD3A9)	; &HZK01-D3A9;
       ))
     ))
 (define-char
@@ -48562,9 +48563,15 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=ucs@unicode	  . #x4A3F)	; &UU+4A3F;
+     ((=ucs@unicode	  . #x4A3F)	; &M-42598;
+      (=daikanwa	  . 42598)	; &M-42598;
       ))
     (=ucs@unicode	. #x348E)	; &UU+348E;
+    (=ucs@JP/hanazono	. nil)
+    (->subsumptive
+     ((==ucs@unicode	  . #x348E)	; &g2-UU+348E;
+      (==ucs@JP/hanazono  . nil)
+      ))
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
