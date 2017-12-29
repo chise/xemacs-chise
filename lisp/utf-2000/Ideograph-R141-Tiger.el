@@ -1194,16 +1194,57 @@
   '((ideographic-radical . 141)	; ⾌
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x864D)	; 虍
+      )
+     ((=>ucs@component	  . #x4E14)	; &A-compU+4E14;
+      (=>iwds-1		  .  0114)	; &A-compU+4E14;
+      ))
     (=ucs		. #x8658)	; 虘
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8658)	; 虘
+      ))
+    (ideographic-radical . 141)	; ⾌
+    (ideographic-strokes . 5)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x864D)	; 虍
+      )
+     ((=ucs		  . #x4E14)	; 且
+      ))
+    (=ucs@unicode	. #x8658)	; &JSP-5A3D;
+    (=jis-x0212		. #x5A3D)	; &JSP-5A3D; [58-29]
+    (=cns11643-3	. #x3860)	; &I-C3-3860; [24-64]
+    (=daikanwa		. 32701)	; &I-M-32701;
+    (=cbeta		. 08841)	; &I-CB08841;
+    (=jef-china3	. #x63A9)	; &I-JC3-63A9;
     (->subsumptive
-     ((=ucs@unicode	  . #x8658)	; &JSP-5A3D;
-      (=jis-x0212	  . #x5A3D)	; &JSP-5A3D; [58-29]
-      (=daikanwa	  . 32701)	; &I-M-32701;
-      (=jef-china3	  . #x63A9)	; &I-JC3-63A9;
+     ((==ucs@unicode	  . #x8658)	; &g2-JSP-5A3D;
+      (==jis-x0212	  . #x5A3D)	; &g2-JSP-5A3D; [58-29]
+      (==daikanwa	  . 32701)	; &g2-JSP-5A3D;
+      (==jef-china3	  . #x63A9)	; &g2-JSP-5A3D;
+      (->subsumptive
+       ((===daikanwa	    . 32701)	; &R-M-32701;
+	)
+       ((===jis-x0212	    . #x5A3D)	; &R-JSP-5A3D; [58-29]
+	)
+       ((===jef-china3	    . #x63A9)	; &R-JC3-63A9;
+	)
+       ((===ucs@unicode	    . #x8658)	; &R-UU+8658;
+	))
       )
-     ((=cbeta		  . 08841)	; &CB08841;
+     ((==cbeta		  . 08841)	; &g2-CB08841;
       )
-     ((=cns11643-3	  . #x3860)	; &C3-3860; [24-64]
+     ((==ucs@cns	  . #x8658)	; &g2-CU+8658;
+      (==cns11643-3	  . #x3860)	; &g2-CU+8658; [24-64]
       ))
     ))
 (define-char
@@ -3584,6 +3625,24 @@
      ((=ucs@iso		  . #x271F2)	; &U-000271F2;
       )
      ((=cns11643-7	  . #x3B39)	; &C7-3B39; [27-25]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 141)	; ⾌
+    (ideographic-strokes . 11)
+    (total-strokes	 . 17)
+    (=ucs		. #x271F3)	; 𧇳
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x271F3)	; 𧇳
+      ))
+    (ideographic-radical . 141)	; ⾌
+    (ideographic-strokes . 11)
+    (total-strokes	 . 17)
+    (=ucs@iso		. #x271F3)	; &U-000271F3;
+    (->subsumptive
+     ((==ucs@iso	  . #x271F3)	; &g2-IU-000271F3;
       ))
     ))
 (define-char
