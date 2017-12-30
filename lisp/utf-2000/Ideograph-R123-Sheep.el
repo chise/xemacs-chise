@@ -65,6 +65,15 @@
   '((ideographic-radical . 123)	; ⽺
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
+    (=>ucs@component	. #x2634B)	; &A-compU+2634B;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x2634B)	; &A-compU+2634B;
+      ))
+    (ideographic-radical . 123)	; ⽺
+    (ideographic-strokes . 0)
+    (total-strokes	 . 7)
     (sound@ja/on	"yAu")
     (=ucs		. #x2634B)	; 𦍋
     ))
@@ -3297,7 +3306,7 @@
       )
      ((=ucs		  . #x4EAF)	; 亯
       )
-     ((=ucs		  . #x2634B)	; 𦍋
+     ((=>ucs@component	  . #x2634B)	; &A-compU+2634B;
       ))
     (=ucs		. #x263A7)	; 𦎧
     ))
@@ -3360,6 +3369,25 @@
        ((=hanziku-1	    . #xE275)	; &HZK01-E275;
 	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x263A7)	; 𦎧
+      ))
+    (ideographic-radical . 123)	; ⽺
+    (ideographic-strokes . 9)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EAF)	; 亯
+      )
+     ((=ucs@cns		  . #x8289)	; &C4-2475;
+      (=cns11643-4	  . #x2475)	; &C4-2475; [04-85]
+      (=daikanwa	  . 30668)	; &I-M-30668;
+      ))
+    (=ucs-var-003	. #x263A7)	; &U-v003+263A7;
     ))
 (define-char
   '((ideographic-radical . 123)	; ⽺
