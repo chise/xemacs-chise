@@ -1,3 +1,24 @@
+2017-12-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R123-Sheep.el (A-compU+2634B): New abstract node.
+	(U-0002634B): Add `<-denotational@component' for A-compU+2634B.
+	(U-000263A7): Use A-compU+2634B instead of U-0002634B as a
+	component.
+	(U+263A7-var-003): New character; use `<-denotational' for
+	U-000263A7.
+
+	* Ideograph-R081-Compare.el (U+3C8B): Add
+	`<-denotational@component' for A-compU+3C8B.
+	(U-0002DBCD): Likewise.
+	(U+23B0B-itaiji-001): Likewise.
+	(A-compU+23B0E): New abstract node.
+	(U-00023B0E): Use `->subsumptive'; add `<-denotational' for
+	A-compU+23B0E.
+	(U+23B0E-itaiji-001): New character; use `<-denotational' for
+	A-compU+23B0E.
+	(U+23B0E-itaiji-002): Likewise.
+	(A-compU+3C8B): New abstract node.
+
 2017-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R141-Tiger.el (U+8658): Apply new conventions for
