@@ -1,5 +1,13 @@
 2017-12-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R091-Slice.el (U+3E25): Use `->denotational' and
+	`->subsumptive'.
+
+2017-12-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R130-Meat.el: Use `leipian' instead of `leibian' to
+	indicate 類篇.
+
 	* Ideograph-R123-Sheep.el (A-compU+2634B): New abstract node.
 	(U-0002634B): Add `<-denotational@component' for A-compU+2634B.
 	(U-000263A7): Use A-compU+2634B instead of U-0002634B as a
