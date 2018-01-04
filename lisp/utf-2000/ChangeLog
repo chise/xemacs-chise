@@ -1,4 +1,18 @@
+2017-12-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R055-Two-Hands.el (U-00026B20): Add
+	`ideographic-structure'.
+	(IU+26B20): Add `<-same@buddhism' for U-0002CEC0.
+
 2017-12-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R091-Slice.el (U+3E25): Use `->denotational' and
+	`->subsumptive'.
+
+2017-12-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R130-Meat.el: Use `leipian' instead of `leibian' to
+	indicate 類篇.
 
 	* Ideograph-R123-Sheep.el (A-compU+2634B): New abstract node.
 	(U-0002634B): Add `<-denotational@component' for A-compU+2634B.

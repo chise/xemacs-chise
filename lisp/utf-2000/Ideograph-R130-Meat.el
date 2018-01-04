@@ -766,7 +766,7 @@
       (=daikanwa	  . 29269)	; &I-M-29269;
       ))
     (->original*sources
-     jiyun leibian daikanwa)
+     jiyun leipian daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x43CD)	; &g2-GT-37859;
       (==gt		  . 37859)	; &g2-GT-37859;
@@ -5179,7 +5179,9 @@
      ((=ucs		  . #x86C6)	; 蛆
       (=daikanwa	  . 32963)	; &I-M-32963;
       )
-     ((=daikanwa	  . 33488)	; &M-33488;
+     ((=ucs@iso		  . #x27405)	; &C7-3B46;
+      (=cns11643-7	  . #x3B46)	; &C7-3B46; [27-38]
+      (=daikanwa	  . 33488)	; &I-M-33488;
       ))
     (->formed*sources
      jiyun daikanwa)

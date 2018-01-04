@@ -720,6 +720,14 @@
     (ideographic-radical@cns . 55)	; ⼶
     (ideographic-radical@cns*sources
      daikanwa=09598 cns11643)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x8279)	; 艹
+      )
+     ((=ucs		  . #x2F890)	; 廾
+      ))
     (=ucs		. #x26B20)	; 𦬠
     ))
 (define-char
@@ -748,6 +756,9 @@
       ))
     (<-ancient*sources
      zihui-bu daikanwa)
+    (<-same@buddhism
+     ((=ucs		  . #x2CEC0)	; 𬻀
+      ))
     (<-simplified@JP/buddhism
      ((ideographic-combination
        ((=ucs		    . #x83E9)	; 菩
@@ -756,9 +767,10 @@
 	))
       ))
     (<-simplified@JP/buddhism*sources
-     touga-13-koku daikanwa)
+     touga/13/koku daikanwa)
     (->mistakable
-     ((=ucs		  . #x26B07)	; 𦬇
+     ((=ucs@iso		  . #x26B07)	; &C6-2923;
+      (=cns11643-6	  . #x2923)	; &C6-2923; [09-03]
       (=daikanwa	  . 30687)	; &I-M-30687;
       ))
     (->mistakable*sources
