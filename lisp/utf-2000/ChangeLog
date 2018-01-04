@@ -1,3 +1,9 @@
+2017-12-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R055-Two-Hands.el (U-00026B20): Add
+	`ideographic-structure'.
+	(IU+26B20): Add `<-same@buddhism' for U-0002CEC0.
+
 2017-12-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R091-Slice.el (U+3E25): Use `->denotational' and
