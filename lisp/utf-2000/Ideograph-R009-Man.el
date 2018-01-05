@@ -10,6 +10,8 @@
   '((<-denotational@component
      ((=>ucs@component	  . #x4EBA)	; &A-compU+4EBA;
       (=>iwds-1		  .  0146)	; &A-compU+4EBA;
+      )
+     ((=>ucs@component	  . #x516B)	; &A-compU+516B;
       ))
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 0)
