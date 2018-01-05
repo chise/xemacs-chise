@@ -1,11 +1,19 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
+  '((ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=>ucs@component	. #x516B)	; &A-compU+516B;
+    ))
+(define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x4E37)	; &A-compU+4E37;
       (=>iwds-1		  .  0022)	; &A-compU+4E37;
       )
      ((=>ucs@component	  . #x513F)	; &A-compU+513F;
       (=>iwds-1		  .  0222)	; &A-compU+513F;
+      )
+     ((=>ucs@component	  . #x516B)	; &A-compU+516B;
       ))
     (ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 0)
