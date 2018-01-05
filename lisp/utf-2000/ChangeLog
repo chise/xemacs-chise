@@ -1,3 +1,11 @@
+2018-01-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (A-compU+516B): New abstract component.
+	(U+516B): Add A-compU+516B into `<-denotational@component'.
+
+	* Ideograph-R009-Man.el (U+4EBA): Add A-compU+516B into
+	`<-denotational@component'.
+
 2017-12-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R055-Two-Hands.el (U-00026B20): Add
