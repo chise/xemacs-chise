@@ -1,6 +1,9 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((ideographic-radical . 32)	; ⼟
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E03)	; &A-compU+4E03;
+      ))
+    (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=>ucs@component	. #x571F)	; &A-compU+571F;
@@ -2871,8 +2874,8 @@
        ((name		    . "CJK RADICAL SECOND TWO")
 	(=ucs		    . #x2E83)	; ⺃
 	)
-       ((=>ucs@component    . #x4E03)	; &A-compU+4E03;
-	(=>iwds-1	    .  0141)	; &A-compU+4E03;
+       ((=>ucs@iwds-1	    . #x4E03)	; &A-IWDSU+4E03;
+	(=>iwds-1	    .  0141)	; &A-IWDSU+4E03;
 	))
       ))
     (=>mj		. 057209)	; &A-MJ057209;
