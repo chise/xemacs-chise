@@ -1,8 +1,8 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x4E03)	; &A-compU+4E03;
-      (=>iwds-1		  .  0141)	; &A-compU+4E03;
+     ((=>ucs@iwds-1	  . #x4E03)	; &A-IWDSU+4E03;
+      (=>iwds-1		  .  0141)	; &A-IWDSU+4E03;
       ))
     (ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 0)
@@ -478,8 +478,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>ucs@component	  . #x4E03)	; &A-compU+4E03;
-      (=>iwds-1		  .  0141)	; &A-compU+4E03;
+     ((=>ucs@iwds-1	  . #x4E03)	; &A-IWDSU+4E03;
+      (=>iwds-1		  .  0141)	; &A-IWDSU+4E03;
       )
      ((=ucs		  . #x77E2)	; 矢
       ))
@@ -552,8 +552,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>ucs@component	  . #x4E03)	; &A-compU+4E03;
-      (=>iwds-1		  .  0141)	; &A-compU+4E03;
+     ((=>ucs@iwds-1	  . #x4E03)	; &A-IWDSU+4E03;
+      (=>iwds-1		  .  0141)	; &A-IWDSU+4E03;
       )
      ((=ucs		  . #x77E2)	; 矢
       ))
@@ -684,8 +684,8 @@
       )
      ((=ucs		  . #x20915)	; 𠤕
       )
-     ((=>ucs@component	  . #x4E03)	; &A-compU+4E03;
-      (=>iwds-1		  .  0141)	; &A-compU+4E03;
+     ((=>ucs@iwds-1	  . #x4E03)	; &A-IWDSU+4E03;
+      (=>iwds-1		  .  0141)	; &A-IWDSU+4E03;
       ))
     (=ucs		. #x20917)	; 𠤗
     ))
@@ -853,8 +853,8 @@
       )
      ((=ucs		  . #x253A8)	; 𥎨
       )
-     ((=>ucs@component	  . #x4E03)	; &A-compU+4E03;
-      (=>iwds-1		  .  0141)	; &A-compU+4E03;
+     ((=>ucs@iwds-1	  . #x4E03)	; &A-IWDSU+4E03;
+      (=>iwds-1		  .  0141)	; &A-IWDSU+4E03;
       ))
     (sound@ja/on	"gi")
     (=ucs		. #x2091C)	; 𠤜
