@@ -9,8 +9,8 @@
       )
      ((=gt-k		  . 00880)	; &GT-K00880;
       )
-     ((=>ucs@component	  . #x4E03)	; &A-compU+4E03;
-      (=>iwds-1		  .  0141)	; &A-compU+4E03;
+     ((=>ucs@iwds-1	  . #x4E03)	; &A-IWDSU+4E03;
+      (=>iwds-1		  .  0141)	; &A-IWDSU+4E03;
       ))
     (=>ucs@iwds-1	. #x864D)	; &A-IWDSU+864D;
     ))

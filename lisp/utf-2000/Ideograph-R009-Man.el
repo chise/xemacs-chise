@@ -14800,8 +14800,8 @@
       )
      ((=ucs		  . #x201A2)	; 𠆢
       )
-     ((=>ucs@component	  . #x4E03)	; &A-compU+4E03;
-      (=>iwds-1		  .  0141)	; &A-compU+4E03;
+     ((=>ucs@iwds-1	  . #x4E03)	; &A-IWDSU+4E03;
+      (=>iwds-1		  .  0141)	; &A-IWDSU+4E03;
       ))
     (=ucs		. #x4ED1)	; 仑
     ))
