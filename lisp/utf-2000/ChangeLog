@@ -1,3 +1,20 @@
+2018-01-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (A-cgnU+5207): New abstract node.
+	(U+5207): Add `<-denotational' for A-cgnU+5207; add
+	`ideographic-structure'.
+	(U-0002D0C4): Add `<-denotational' for A-cgnU+5207.
+	(A-U+5206-itaiji-002): New abstract component; unify
+	A-U+5206-itaiji-003.
+	(U+5206-itaiji-002): New character; use `<-denotational' for
+	A-U+5206-itaiji-002.
+	(U+5206-itaiji-003): Likewise.
+
+2018-01-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (IWDS1-0312): Add
+	`<-denotational@component' for A-compU+4E03.
+
 2018-01-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R012-Eight.el (A-compU+516B): New abstract component.
