@@ -350,12 +350,23 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (=>ucs@component	. #x4E03)	; &A-compU+4E03;
-    (=>iwds-1		.  0141)	; &A-compU+4E03;
     ))
 (define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x4E03)	; &A-compU+4E03;
-      (=>iwds-1		  .  0141)	; &A-compU+4E03;
+      )
+     ((=>ucs@component	  . #x5341)	; &A-compU+5341;
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (=>ucs@iwds-1	. #x4E03)	; &A-IWDSU+4E03;
+    (=>iwds-1		.  0141)	; &A-IWDSU+4E03;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x4E03)	; &A-IWDSU+4E03;
+      (=>iwds-1		  .  0141)	; &A-IWDSU+4E03;
       ))
     (decimal-digit-value . 7)
     (digit-value	 . 7)

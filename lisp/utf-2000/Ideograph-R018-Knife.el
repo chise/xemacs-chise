@@ -975,7 +975,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>ucs@component	. #x5341)	; &A-compU+5341;
+     ((=>ucs@component	  . #x5341)	; &A-compU+5341;
       )
      ((=ucs		  . #x5200)	; 刀
       ))

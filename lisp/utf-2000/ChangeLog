@@ -1,3 +1,9 @@
+2018-01-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (A-compU+4E03): Separate IWDS1-0141.
+	(IWDS1-0141): Unify A-IWDSU+4E03 instead of A-compU+4E03; use
+	`<-denotational@component' for A-compU+4E03 and A-compU+5341.
+
 2018-01-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (A-cgnU+5207): New abstract node.
