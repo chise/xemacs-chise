@@ -191,8 +191,8 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x5341)	; &A-compU+5341;
-      (=>iwds-1		  .  0037)	; &A-compU+5341;
+     ((=>ucs@iwds-1	  . #x5341)	; &A-IWDSU+5341;
+      (=>iwds-1		  .  0037)	; &A-IWDSU+5341;
       )
      ((=>ucs@component	  . #x20087)	; &A-compU+20087;
       ))
