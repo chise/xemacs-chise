@@ -16,6 +16,130 @@
     (=gt-pj-1		. #x4A7D)	; &I-GT-17214; [42-93]
     (=daikanwa		. 13620)	; &I-M-13620;
     (=shinjigen		.  3236)	; 方
+    (<-formed
+     ((=ucs@cns		  . #x86E7)	; &JSP-5A6C;
+      (=ucs@jis		  . #x86E7)	; &JSP-5A6C;
+      (=jis-x0212	  . #x5A6C)	; &JSP-5A6C; [58-76]
+      (=cns11643-5	  . #x3B7B)	; &I-C5-3B7B; [27-91]
+      (=daikanwa	  . 33032)	; &I-M-33032;
+      ))
+    (<-formed*sources
+     jiyun)
+    (<-interchangeable
+     ((=ucs		  . #x531A)	; 匚
+      (=daikanwa	  . 02595)	; &I-M-02595;
+      )
+     ((=ucs		  . #x508D)	; 傍
+      (=daikanwa	  . 00948)	; &I-M-00948;
+      )
+     ((=ucs		  . #x6CD5)	; 法
+      (=daikanwa	  . 17290)	; &I-M-17290;
+      )
+     ((=mj		  . 013549)	; &MJ013549;
+      (=daikanwa	  . 14368)	; &I-M-14368;
+      )
+     ((=ucs		  . #x59A8)	; 妨
+      (=daikanwa	  . 06111)	; &I-M-06111;
+      )
+     ((=ucs		  . #x653E)	; 放
+      (=daikanwa	  . 13133)	; &I-M-13133;
+      )
+     ((=ucs@cns		  . #x623F)	; &HD-JT-B1D3;
+      (=ucs@ks		  . #x623F)	; &HD-JT-B1D3;
+      (=ks-x1001	  . #x5B2E)	; &HD-JT-B1D3; [59-14]
+      (=cns11643-1	  . #x4D52)	; &I-C1-4D52; [45-50]
+      (=daikanwa	  . 11714)	; &I-M-11714;
+      )
+     ((=ucs@unicode	  . #x6A6B)	; &AJ1-08503;
+      (=adobe-japan1-2	  . 08503)	; &AJ1-08503;
+      (=daikanwa	  . 15594)	; &I-M-15594;
+      )
+     ((=ucs		  . #x9632)	; 防
+      (=daikanwa	  . 41576)	; &I-M-41576;
+      )
+     ((=ucs		  . #x574A)	; 坊
+      (=daikanwa	  . 04924)	; &I-M-04924;
+      )
+     ((=ucs@unicode	  . #x7576)	; &AJ1-05723;
+      (=adobe-japan1-0	  . 05723)	; &AJ1-05723;
+      (=daikanwa	  . 21890)	; &I-M-21890;
+      )
+     ((=ucs@unicode	  . #x5C07)	; &MJ010271;
+      (=mj		  . 010271)	; &MJ010271;
+      (=daikanwa	  . 07438)	; &I-M-07438;
+      )
+     ((=ucs		  . #x65C1)	; 旁
+      (=daikanwa	  . 13637)	; &I-M-13637;
+      )
+     ((=ucs		  . #x4EFF)	; 仿
+      (=daikanwa	  . 00420)	; &I-M-00420;
+      )
+     ((=ucs		  . #x5F77)	; 彷
+      (=daikanwa	  . 10052)	; &I-M-10052;
+      )
+     ((=ucs		  . #x8B17)	; 謗
+      (=daikanwa	  . 35817)	; &I-M-35817;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_10*sources
+     lunyu-jijie daikanwa)
+    (<-interchangeable$_11*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_12*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_13*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_14*sources
+     xunzi-zhu daikanwa)
+    (<-interchangeable$_15*sources
+     xunzi-shiwen daikanwa)
+    (<-interchangeable$_16*sources
+     lunyu-shiwen daikanwa)
+    (<-interchangeable$_2*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_3*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_4*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_5*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_6*sources
+     zhuangzi-shiwen daikanwa)
+    (<-interchangeable$_7*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_8*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_9*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
+    (<-original@zhuangzi
+     ((=ucs		  . #x653E)	; 放
+      ))
+    (<-original@zhuangzi*sources
+     shiwen)
+    (<-same
+     ((=ucs		  . #x822B)	; 舫
+      (=daikanwa	  . 30386)	; &I-M-30386;
+      )
+     ((=ucs@cns		  . #x86E7)	; &JSP-5A6C;
+      (=ucs@jis		  . #x86E7)	; &JSP-5A6C;
+      (=jis-x0212	  . #x5A6C)	; &JSP-5A6C; [58-76]
+      (=cns11643-5	  . #x3B7B)	; &I-C5-3B7B; [27-91]
+      (=daikanwa	  . 33032)	; &I-M-33032;
+      ))
+    (<-same$_1*sources
+     shuowen-zhu daikanwa)
+    (<-same$_2*sources
+     jiyun daikanwa)
+    (<-same*sources
+     daikanwa)
+    (->vulgar
+     ((=ucs		  . #x822B)	; 舫
+      ))
+    (->vulgar*sources
+     shuowen-zhu)
     (->subsumptive
      ((==ucs@unicode	  . #x65B9)	; &g2-AJ1-03661;
       (==adobe-japan1-0	  . 03661)	; &g2-AJ1-03661;
@@ -589,6 +713,14 @@
   '((ideographic-radical . 70)	; ⽅
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8BEC)	; &CDP-8BEC;
+      )
+     ((=ucs		  . #x65B9)	; 方
+      ))
     (=ucs		. #x65C1)	; 旁
     (=adobe-japan1-0	. 05082)	; &I-AJ1-05082;
     (=jis-x0208		. #x5A55)	; &I-J90-5A55; [58-53]

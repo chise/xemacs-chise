@@ -4,6 +4,31 @@
 	(IWDS1-0141): Unify A-IWDSU+4E03 instead of A-compU+4E03; use
 	`<-denotational@component' for A-compU+4E03 and A-compU+5341.
 
+2018-01-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R112-Stone.el (U-00025424): Apply new conventions for
+	glyph granularity.
+	(MJ042713): New character; use `<-denotational' for U-00025424;
+	unify KOSEKI-268910 and M-24076.
+	(U+77FE): Apply new conventions for glyph granularity.
+	(UU+77FE): Add `<-simplified@CN' for U+792C.
+	(U+77FF): Add `<-simplified@CN' for UU+7926.
+	(U+7800): Add `<-simplified@CN' for U+78AD.
+	(U+7801): Add `<-simplified@CN' for U+78BC.
+	(U+7926): Add ideographic-structure.
+
+	* Ideograph-R070-Square.el (U+65B9): Add `<-formed' for JU+86E7;
+	add `<-interchangeable' for U+531A, U+508D, U+6CD5, MJ013549,
+	U+59A8, U+653E, CU+623F, UU+6A6B, U+9632, U+574A, UU+7576,
+	UU+5C07, U+65C1, U+4EFF, U+5F77 and U+8B17; add `<-same' for
+	U+822B and JU+86E7.
+	(U+65C1): Add `ideographic-structure'.
+
+	* Ideograph-R036-Evening.el (A-GT-K04019): New abstract node;
+	unify A-U+21562-itaiji-005.
+	(GT-K04019): New character; unify U+21562-itaiji-005; use
+	`<-denotational' for A-GT-K04019.
+
 2018-01-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (A-cgnU+5207): New abstract node.
