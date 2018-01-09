@@ -161,7 +161,10 @@
       ))
     ))
 (define-char
-  '((name*		. "ideographic component person for top")
+  '((<-denotational@component
+     ((=>ucs@component	  . #x20089)	; &A-compU+20089;
+      ))
+    (name*		. "ideographic component person for top")
     (ideographic-radical@ucs . 4)	; ⼃
     (ideographic-strokes@ucs . 1)
     (ideographic-radical@ucs*sources
