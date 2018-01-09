@@ -473,7 +473,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 31)	; ⼞
+  '((<-denotational@component
+     ((=>ucs@component	  . #x9FB1)	; &A-compU+9FB1;
+      ))
+    (ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (ideographic-structure
@@ -485,7 +488,33 @@
      ((=ucs		  . #x3405)	; 㐅
       ))
     (=ucs		. #x9FB1)	; 龱
+    (=mj		. 057203)	; &I-MJ057203;
+    (=koseki		. 053570)	; 龱
     (=cbeta		. 00638)	; &I-CB00638;
+    (<-formed
+     ((=ucs		  . #x56DA)	; 囚
+      ))
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==ucs@unicode	  . #x9FB1)	; &g2-MJ057203;
+      (==mj		  . 057203)	; &g2-MJ057203;
+      (==koseki		  . 053570)	; &g2-MJ057203;
+      (==cbeta		  . 00638)	; &g2-MJ057203;
+      (->subsumptive
+       ((===mj		    . 057203)	; &R-MJ057203;
+	)
+       ((===cbeta	    . 00638)	; &R-CB00638;
+	)
+       ((===ucs@unicode	    . #x9FB1)	; &R-UU+9FB1;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=>ucs@component	. #x9FB1)	; &A-compU+9FB1;
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞

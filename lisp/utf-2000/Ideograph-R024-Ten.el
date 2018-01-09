@@ -4,12 +4,21 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (=>ucs@component	. #x5341)	; &A-compU+5341;
-    (=>iwds-1		.  0037)	; &A-compU+5341;
     ))
 (define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x5341)	; &A-compU+5341;
-      (=>iwds-1		  .  0037)	; &A-compU+5341;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=>ucs@iwds-1	. #x5341)	; &A-IWDSU+5341;
+    (=>iwds-1		.  0037)	; &A-IWDSU+5341;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x5341)	; &A-IWDSU+5341;
+      (=>iwds-1		  .  0037)	; &A-IWDSU+5341;
       ))
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 0)
@@ -1534,7 +1543,19 @@
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
+    (=ucs-var-003	. #x20991)	; &U-v003+20991;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20991)	; 𠦑
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
     (=cbeta		. 07083)	; &CB07083;
+    (->subsumptive
+     ((==cbeta		  . 07083)	; &g2-CB07083;
+      ))
     ))
 (define-char
   '((<-denotational
