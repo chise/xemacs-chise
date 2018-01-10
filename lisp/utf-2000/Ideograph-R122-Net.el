@@ -790,8 +790,34 @@
   '((ideographic-radical . 122)	; ⽹
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=gt-k		  . 01266)	; &GT-K01266;
+      )
+     ((=ucs		  . #x4EBE)	; 亾
+      ))
     (=ucs		. #x34BA)	; 㒺
+    (=mj		. 000147)	; &I-MJ000147;
     (=cns11643-3	. #x2A4C)	; &I-C3-2A4C; [10-44]
+    (=koseki		. 315400)	; 㒺
+    (<-formed
+     ((=ucs@jis		  . #x7F54)	; &AJ1-06165;
+      (=adobe-japan1-0	  . 06165)	; &AJ1-06165;
+      ))
+    (<-formed*sources
+     mj)
+    (->subsumptive
+     ((==mj		  . 000147)	; &g2-MJ000147;
+      (==koseki		  . 315400)	; &g2-MJ000147;
+      )
+     ((==ucs@cns	  . #x34BA)	; &g2-CU+34BA;
+      (==cns11643-3	  . #x2A4C)	; &g2-CU+34BA; [10-44]
+      )
+     ((==ucs@unicode	  . #x34BA)	; &g2-UU+34BA;
+      (==ucs@JP/hanazono  . nil)
+      ))
     ))
 (define-char
   '((ideographic-radical . 122)	; ⽹

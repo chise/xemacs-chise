@@ -4025,6 +4025,33 @@
   '((ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x9FB1)	; &A-compU+9FB1;
+      )
+     ((=>ucs@component	  . #x6708)	; &A-compU+6708;
+      (=>iwds-1		  .  0053)	; &A-compU+6708;
+      ))
+    (=>ucs@cognate	. #x80C3)	; &A-cgnU+80C3;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x80C3)	; &A-cgnU+80C3;
+      ))
+    (ideographic-radical . 130)	; ⾁
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7530)	; 田
+      )
+     ((=>ucs@component	  . #x6708)	; &A-compU+6708;
+      (=>iwds-1		  .  0053)	; &A-compU+6708;
+      ))
     (=ucs		. #x80C3)	; 胃
     (=adobe-japan1-0	. 01187)	; &I-AJ1-01187;
     (=jis-x0208		. #x305F)	; &I-J90-305F; [16-63]
@@ -4068,6 +4095,27 @@
       )
      ((==ucs@cns	  . #x80C3)	; &g2-CU+80C3;
       (==cns11643-1	  . #x532A)	; &g2-CU+80C3; [51-10]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x80C3)	; &A-cgnU+80C3;
+      ))
+    (ideographic-radical . 130)	; ⾁
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x9FB1)	; 龱
+      )
+     ((=>ucs@component	  . #x6708)	; &A-compU+6708;
+      (=>iwds-1		  .  0053)	; &A-compU+6708;
+      ))
+    (=ucs-itaiji-002	. #x80C3)	; &U-i002+80C3;
+    (->subsumptive
+     ((==ucs-itaiji-002	  . #x80C3)	; &g2-U-i002+80C3;
       ))
     ))
 (define-char

@@ -7,6 +7,17 @@
 
 2018-01-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R130-Meat.el (A-cgnU+80C3): New abstract node.
+	(U+80C3): Add `<-denotational' for A-cgnU+80C3.
+	(U+80C3-itaiji-002): New character; use `<-denotational' for
+	A-cgnU+80C3.
+
+	* Ideograph-R122-Net.el (U+34BA): Unify MJ000147 and
+	KOSEKI-315400; add `ideographic-structure'.
+
+	* Ideograph-R102-Field.el (U+7530): Add A-compU+9FB1 into
+	`<-denotational@component'.
+
 	* Ideograph-R024-Ten.el (A-compU+5341): Separate IWDS1-0037.
 	(IWDS1-0037): Unify A-IWDSU+5341 instead of A-compU+5341; add
 	`<-denotational@component' for A-compU+5341.
