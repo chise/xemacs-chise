@@ -9,6 +9,8 @@
   '((<-denotational@component
      ((=>ucs@component	  . #x7530)	; &A-compU+7530;
       (=>iwds-1		  .  0083)	; &A-compU+7530;
+      )
+     ((=>ucs@component	  . #x9FB1)	; &A-compU+9FB1;
       ))
     (ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 0)
