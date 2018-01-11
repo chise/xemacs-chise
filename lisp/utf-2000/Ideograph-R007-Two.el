@@ -395,7 +395,11 @@
      shinjigen)
     ))
 (define-char
-  '((ideographic-radical . 7)	; ⼆
+  '((<-denotational@component
+     ((=>ucs@jis	  . #x20AD3)	; &A-JX2-2359;
+      (=>jis-x0213-2	  . #x2359)	; &A-JX2-2359; [03-57]
+      ))
+    (ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 384 2)
