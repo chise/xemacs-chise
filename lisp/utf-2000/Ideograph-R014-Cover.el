@@ -392,8 +392,9 @@
       )
      ((=ucs		  . #x5DF3)	; 巳
       ))
-    (=mj		. 057023)	; &MJ057023;
-    (=koseki		. 018720)	; &MJ057023;
+    (=ucs		. #x2D073)	; 𭁳
+    (=mj		. 057023)	; &I-MJ057023;
+    (=koseki		. 018720)	; 𭁳
     (<-formed
      ((=ucs		  . #x5305)	; 包
       ))
@@ -403,8 +404,32 @@
      ((=ucs-itaiji-002	  . #x5305)	; &U-i002+5305;
       ))
     (->subsumptive
-     ((==mj		  . 057023)	; &g2-MJ057023;
+     ((==ucs@JP/hanazono  . #x2D073)	; &g2-MJ057023;
+      (==mj		  . 057023)	; &g2-MJ057023;
       (==koseki		  . 018720)	; &g2-MJ057023;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 14)	; ⼍
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=big5-cdp	  . #x86D0)	; &CDP-86D0;
+      ))
+    (=gt-k		. 01452)	; &GT-K01452;
+    (=gt-pj-k2		. #x3B3D)	; &GT-K01452; [27-29]
+    (<-simplified@component
+     ((=gt		  . 01998)	; &GT-01998;
+      (=daikanwa	  . 01527)	; &I-M-01527;
+      ))
+    (->subsumptive
+     ((==gt-k		  . 01452)	; &g2-GT-K01452;
+      (==gt-pj-k2	  . #x3B3D)	; &g2-GT-K01452; [27-29]
       ))
     ))
 (define-char
