@@ -1,5 +1,13 @@
 2018-01-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R072-Sun.el (A-cgnU+23140): New abstract node; use
+	`<-denotational' for BUCS+65E8.
+	(U-00023140): Use A-cgnU+23140 instead of BUCS+65E8 as its mother.
+	(MJ057648): Unify U-0002D94D; use A-cgnU+23140 instead of
+	BUCS+65E8 as its mother.
+
+2018-01-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R031-Enclosure.el (U+9FB1): Add
 	`<-denotational@component' for A-compU+9FB1; unify MJ057203 and
 	KOSEKI-053570.

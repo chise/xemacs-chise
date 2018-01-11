@@ -7488,7 +7488,7 @@
       )
      ((=ucs		  . #x72AD)	; 犭
       )
-     ((=>mj		  . 058447)	; &A-MJ058447;
+     ((=>ucs@unicode	  . #xFAB3)	; &A-MJ058447;
       ))
     (sound@ja/on	"kou")
     (=ucs		. #x2481B)	; 𤠛

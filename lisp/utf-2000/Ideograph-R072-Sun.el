@@ -249,28 +249,27 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((name*		  . "ideographic component person for top")
-      (=ucs		  . #x20089)	; 𠂉
+     ((=>ucs@component	  . #x20089)	; &A-compU+20089;
       )
      ((=ucs		  . #x65E5)	; 日
       ))
-    (=mj		. 057648)	; &MJ057648;
-    (=koseki		. 154550)	; &MJ057648;
-    (<-formed
-     ((=ucs		  . #x65E8)	; 旨
-      ))
-    (->subsumptive
-     ((==mj		  . 057648)	; &g2-MJ057648;
-      (==koseki		  . 154550)	; &g2-MJ057648;
-      ))
+    (=>ucs@cognate	. #x23140)	; &A-cgnU+23140;
     ))
 (define-char
   '((<-denotational
-     ((==>ucs@bucs	  . #x65E8)	; &BUCS+65E8;
+     ((=>ucs@cognate	  . #x23140)	; &A-cgnU+23140;
       ))
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
     (=ucs		. #x23140)	; 𣅀
     ))
 (define-char
@@ -284,7 +283,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x4EA0)	; 亠
+     ((=+>ucs@unicode	  . #x4EA0)	; &o-J0-5035;
+      (=+>jis-x0208	  . #x5035)	; &o-J0-5035; [48-21]
       )
      ((=ucs		  . #x65E5)	; 日
       ))
@@ -294,6 +294,12 @@
     (=gt-k		. 02303)	; &I-GT-K02303;
     (=gt-pj-3		. #x6E37)	; &I-GT-17371; [78-23]
     (=daikanwa		. 13739)	; &I-M-13739;
+    (<-same
+     ((=ucs		  . #x65E8)	; 旨
+      (=daikanwa	  . 13738)	; &I-M-13738;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
      ((==ucs@iso	  . #x23140)	; &g2-GT-17371;
       (==cns11643-6	  . #x247A)	; &g2-GT-17371; [04-90]
@@ -310,6 +316,34 @@
 	)
        ((===ucs@iso	    . #x23140)	; &R-U-00023140;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x23140)	; &A-cgnU+23140;
+      ))
+    (ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name*		  . "ideographic component person for top")
+      (=ucs		  . #x20089)	; 𠂉
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
+    (=ucs		. #x2D94D)	; 𭥍
+    (=mj		. 057648)	; &I-MJ057648;
+    (=koseki		. 154550)	; 𭥍
+    (<-formed
+     ((=ucs		  . #x65E8)	; 旨
+      ))
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D94D)	; &g2-MJ057648;
+      (==mj		  . 057648)	; &g2-MJ057648;
+      (==koseki		  . 154550)	; &g2-MJ057648;
       ))
     ))
 (define-char
