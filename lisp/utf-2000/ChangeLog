@@ -1,3 +1,13 @@
+2018-01-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R047-River.el (U+3829): Add `ideographic-structure'.
+
+	* Ideograph-R014-Cover.el (MJ057023): Unify U-0002D073.
+	(GT-K01452): New character.
+
+	* Ideograph-R007-Two.el (U+4E91): Add `<-denotational@component'
+	for A-JU+20AD3.
+
 2018-01-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R072-Sun.el (A-cgnU+23140): New abstract node; use

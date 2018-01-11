@@ -463,6 +463,14 @@
   '((ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x5166)	; &A-IWDSU+5166;
+      )
+     ((=ucs		  . #x2BDA7)	; 𫶧
+      ))
     (=ucs		. #x3829)	; 㠩
     ))
 (define-char
@@ -486,7 +494,8 @@
     (<-interchangeable
      ((=daikanwa	  . 30682)	; &M-30682;
       )
-     ((=daikanwa	  . 30953)	; &M-30953;
+     ((=hanyo-denshi/ks	  . 346980)	; &HD-KS-346980;
+      (=daikanwa	  . 30953)	; &HD-KS-346980;
       ))
     (<-interchangeable*sources
      daikanwa)
