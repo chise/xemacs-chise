@@ -723,6 +723,7 @@
       )
      ((=ucs		  . #x65B9)	; 方
       ))
+    (sound@ja/on	"hAu")
     (=ucs		. #x822B)	; 舫
     (=adobe-japan1-0	. 06305)	; &I-AJ1-06305;
     (=jis-x0208		. #x6756)	; &I-J90-6756; [71-54]
@@ -735,6 +736,46 @@
     (=gt-pj-1		. #x6756)	; &I-GT-39312; [71-54]
     (=daikanwa		. 30386)	; &I-M-30386;
     (=shinjigen		.  6646)	; 舫
+    (<-formed
+     ((=ucs		  . #x8255)	; 艕
+      )
+     ((=ucs		  . #x65B9)	; 方
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-formed$_2*sources
+     jiyun)
+    (<-interchangeable
+     ((=ucs		  . #x65B9)	; 方
+      (=daikanwa	  . 13620)	; &I-M-13620;
+      ))
+    (<-interchangeable*sources
+     jiyun daikanwa)
+    (<-same
+     ((=ucs		  . #x8255)	; 艕
+      (=daikanwa	  . 30500)	; &I-M-30500;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (<-vulgar
+     ((=ucs		  . #x65B9)	; 方
+      ))
+    (->formed
+     ((=ucs		  . #x699C)	; 榜
+      (=daikanwa	  . 15241)	; &I-M-15241;
+      )
+     ((=ucs		  . #x678B)	; 枋
+      (=daikanwa	  . 14532)	; &I-M-14532;
+      )
+     ((=ucs		  . #x8255)	; 艕
+      (=daikanwa	  . 30500)	; &I-M-30500;
+      ))
+    (->formed$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (->formed$_2*sources
+     jiyun daikanwa)
+    (->formed*sources
+     daikanwa)
     (->subsumptive
      ((==ucs@jis	  . #x822B)	; &g2-AJ1-06305;
       (==ucs@ks		  . #x822B)	; &g2-AJ1-06305;
@@ -3369,6 +3410,16 @@
   '((ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x821F)	; 舟
+      )
+     ((=ucs		  . #x65C1)	; 旁
+      ))
+    (sound@ja/on/go	"hIyAu")
+    (sound@ja/on/kan	"hAu")
     (=ucs		. #x8255)	; 艕
     (=cns11643-2	. #x5961)	; &I-C2-5961; [57-65]
     (=big5		. #xEAF5)	; &I-B-EAF5;
@@ -3381,6 +3432,23 @@
       ))
     (<-formed*sources
      shinjigen)
+    (<-same
+     ((=ucs		  . #x822B)	; 舫
+      (=daikanwa	  . 30386)	; &I-M-30386;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (->formed
+     ((=ucs		  . #x822B)	; 舫
+      ))
+    (->formed*sources
+     jiyun)
+    (->interchangeable
+     ((=ucs		  . #x699C)	; 榜
+      (=daikanwa	  . 15241)	; &I-M-15241;
+      ))
+    (->interchangeable*sources
+     zhengzitong daikanwa)
     (->subsumptive
      ((==daikanwa	  . 30500)	; &g2-M-30500;
       )
