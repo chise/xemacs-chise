@@ -3020,6 +3020,7 @@
       )
      ((=ucs		  . #x8352)	; 荒
       ))
+    (sound@ja/on	"kWAu")
     (=ucs		. #x3B3B)	; 㬻
     ))
 (define-char
@@ -3036,11 +3037,17 @@
      ((=ucs@unicode	  . #x6708)	; &MJ013520;
       (=mj		  . 013520)	; &MJ013520;
       )
-     ((=daikanwa	  . 30953)	; &M-30953;
+     ((=hanyo-denshi/ks	  . 346980)	; &HD-KS-346980;
+      (=daikanwa	  . 30953)	; &HD-KS-346980;
       ))
-    (=daikanwa		. 14390)	; &M-14390;
+    (=mj		. 001681)	; &MJ001681;
+    (=koseki		. 161930)	; &MJ001681;
+    (=daikanwa		. 14390)	; &I-M-14390;
     (->subsumptive
      ((==daikanwa	  . 14390)	; &g2-M-14390;
+      )
+     ((==mj		  . 001681)	; &g2-MJ001681;
+      (==koseki		  . 161930)	; &g2-MJ001681;
       ))
     ))
 (define-char
