@@ -1,3 +1,77 @@
+2018-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R055-Two-Hands.el (U-0002232C): Apply new conventions
+	for glyph granularity; unify MJ035479 and KOSEKI-108400.
+	(BC-86D0): New character; use `<-subsumptive' for U-0002232C.
+
+2018-01-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R137-Boat.el (U+822B): Add `sound@ja/on'.
+	(U+8255): Add `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+
+2018-01-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R074-Moon.el (U+3B3B): Add `sound@ja/on'.
+	(M-14390): Unify MJ001681 and KOSEKI-161930.
+
+	* Ideograph-R061-Heart.el (A-compU+225A9): New abstract node.
+	(U-000225A9): Add `<-denotational@component' for A-compU+225A9.
+	(U+225A9-itaiji-001): New character; use <-denotational@component'
+	for A-compU+225A9.
+
+2018-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R142-Insect.el (BC-8853): New character; unify
+	GT-K02610.
+	(IWDS1-0288): New abstract node; unify A-IWDSU+867D.
+	(U+867D): Add `<-denotational' for IWDS1-0288.
+	(U-00027227): Likewise.
+	(U-0002723F): Add representative nodes.
+	(A-IWDSU+86C6): New abstract node.
+	(U+45A7): Add `<-denotational@component' for A-IWDSU+86C6.
+	(U+86C2): Apply new conventions for glyph granularity.
+	(U+86C6): Add `<-denotational@component' for A-IWDSU+86C6.
+	(U+86A9): Apply new conventions for glyph granularity.
+	(U+86E7): Use `->denotational' and `->subsumptive'.
+	(U+45C2): Apply new conventions for glyph granularity.
+	(U+8733): Likewise.
+	(U-00027351): Likewise.
+	(U+8744): Add `ideographic-structure'; add `sound@ja/on'; add
+	representative nodes.
+	(HD-KS378190): New character; use `<-denotational' for U+8744;
+	unify MH-0543; add `<-vulgar' for JU+86E7.
+	(U+8767): Apply new conventions for glyph granularity.
+	(U-000273DC): Likewise.
+	(U+8792): Likewise.
+	(U+8796): Likewise.
+	(U+879B): Likewise.
+	(U+45DD): Likewise.
+	(U+87A3): Likewise.
+	(U-000273C2): Use `->subsumptive'.
+	(U-000273C3): Apply new conventions for glyph granularity.
+	(U-000273DD): Likewise.
+	(U+45DF): Likewise.
+	(U-00027405): Likewise.
+	(U-00027406): Likewise.
+	(U+45EB): Likewise.
+	(U-00027457): Use `->subsumptive'.
+	(U+8802): Apply new conventions for glyph granularity.
+	(U+45FA): Likewise.
+	(U+8810): Add `ideographic-structure'.
+	(U+45FF): Apply new conventions for glyph granularity.
+	(U+8817): Likewise.
+	(U-000274D4): Likewise.
+	(U-000274F8): Likewise.
+	(U-00027516): Likewise.
+	(U+8825): Likewise.
+	(U-0002752B): Likewise.
+	(A-cgnU+2755D): New abstract node.
+	(U-0002755D): Use `->subsumptive'; add `<-denotational' for
+	A-cgnU+2755D.
+	(U+8838): Apply new conventions for glyph granularity.
+	(U-00027560): Likewise.
+	(U-00020474): Likewise.
+
 2018-01-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R047-River.el (U+3829): Add `ideographic-structure'.
