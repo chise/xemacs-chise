@@ -124,12 +124,77 @@
   '((ideographic-radical . 55)	; ⼶
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (=ucs		. #x2232C)	; 𢌬
-    (->subsumptive
-     ((=daikanwa	  . 09585)	; &M-09585;
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
       )
-     ((=ucs@iso		  . #x2232C)	; &C6-213F;
-      (=cns11643-6	  . #x213F)	; &C6-213F; [01-31]
+     ((=>ucs@component	  . #x513F)	; &A-compU+513F;
+      (=>iwds-1		  .  0222)	; &A-compU+513F;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (sound@ja/on	"kIu")
+    (=ucs		. #x2232C)	; 𢌬
+    (=mj		. 035479)	; &I-MJ035479;
+    (=cns11643-6	. #x213F)	; &I-C6-213F; [01-31]
+    (=koseki		. 108400)	; 𢌬
+    (=daikanwa		. 09585)	; &I-M-09585;
+    (<-formed
+     ((=ucs		  . #x4E5D)	; 九
+      ))
+    (<-formed*sources
+     koseki)
+    (<-same
+     ((=ucs		  . #x4E5D)	; 九
+      (=daikanwa	  . 00167)	; &I-M-00167;
+      ))
+    (<-same*sources
+     zihui-bu daikanwa)
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+	(=ucs		    . #x2FFB)	; ⿻
+	)
+       ((=ucs		    . #x516B)	; 八
+	)
+       ((=ucs		    . #x4E00)	; 一
+	))
+      (=>>mj		  . 035479)	; &G-MJ035479;
+      (=>>daikanwa	  . 09585)	; &G-MJ035479;
+      (->subsumptive
+       ((==mj		    . 035479)	; &g2-MJ035479;
+	(==koseki	    . 108400)	; &g2-MJ035479;
+	(==daikanwa	    . 09585)	; &g2-MJ035479;
+	(->subsumptive
+	 ((===daikanwa	      . 09585)	; &R-M-09585;
+	  )
+	 ((===mj	      . 035479)	; &R-MJ035479;
+	  ))
+	))
+      )
+     ((=big5-cdp	  . #x86D0)	; &CDP-86D0;
+      (->subsumptive
+       ((==big5-cdp	    . #x86D0)	; &g2-CDP-86D0;
+	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+	(=ucs		    . #x2FFB)	; ⿻
+	)
+       ((=ucs		    . #x513F)	; 儿
+	)
+       ((=ucs		    . #x4E00)	; 一
+	))
+      (=>>ucs@iso	  . #x2232C)	; &G-IU+2232C;
+      (->subsumptive
+       ((==ucs@iso	    . #x2232C)	; &g2-IU-0002232C;
+	(==cns11643-6	    . #x213F)	; &g2-IU-0002232C; [01-31]
+	(->subsumptive
+	 ((===cns11643-6      . #x213F)	; &R-C6-213F; [01-31]
+	  )
+	 ((===ucs@iso	      . #x2232C)	; &R-U-0002232C;
+	  ))
+	))
       ))
     ))
 (define-char
