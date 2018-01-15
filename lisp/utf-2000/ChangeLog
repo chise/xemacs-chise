@@ -1,5 +1,10 @@
 2018-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R010-Legs.el (U+5147): Apply new conventions for glyph
+	granularity.
+	(U+5147-var-002): New character; use `<-denotational' for U+5147.
+	(U+20486-itaiji-003): New character.
+
 	* Ideograph-R055-Two-Hands.el (U-0002232C): Apply new conventions
 	for glyph granularity; unify MJ035479 and KOSEKI-108400.
 	(BC-86D0): New character; use `<-subsumptive' for U-0002232C.
