@@ -1,3 +1,23 @@
+2018-01-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R035-Go-Slowly.el (U-00021562): Apply new conventions
+	for glyph granularity.
+	(U-00021563): Likewise.
+	(A-GT-K04020): New abstract node; use `<-denotational' for
+	A-GT-K04019; unify A-U+21562-itaiji-004.
+	(U+21562-itaiji-004): New character; use `<-denotational' for
+	A-GT-K04020.
+	(GT-K04020): Likewise.
+	(A-M-05717): Unify A-cgnU+590D; add `ideographic-structure'.
+	(U+3686): Apply new conventions for glyph granularity.
+	(U+590D): Add ideographic-structure.
+	(U+3687): Likewise.
+	(U+590F): Likewise.
+	(U-0002156B): Use U+20486-itaiji-003 in `ideographic-structure';
+	add `sound@ja/on'.
+	(IU+2156B): Use U+20486-itaiji-003 in `ideographic-structure';
+	unify MJ033339 and KOSEKI-065590.
+
 2018-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R010-Legs.el (U+5147): Apply new conventions for glyph
