@@ -1105,6 +1105,13 @@
     ))
 (define-char
   '((ideographic-radical . 26)	; ⼙
+    (==>ucs@bucs	. #x5377)	; &BUCS+5377;
+    ))
+(define-char
+  '((<-denotational
+     ((==>ucs@bucs	  . #x5377)	; &BUCS+5377;
+      ))
+    (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (ideographic-structure
@@ -1117,13 +1124,11 @@
      ((=>ucs@component	  . #x5DF1)	; &A-compU+5DF1;
       (=>iwds-1		  .  0120)	; &A-compU+5DF1;
       ))
-    (==>ucs@bucs	. #x5377)	; &BUCS+5377;
-    (=>ucs@iwds-1	. #x5377)	; &BUCS+5377;
+    (=>ucs@iwds-1	. #x5377)	; &A-IWDSU+5377;
     ))
 (define-char
   '((<-denotational
-     ((==>ucs@bucs	  . #x5377)	; &BUCS+5377;
-      (=>ucs@iwds-1	  . #x5377)	; &BUCS+5377;
+     ((=>ucs@iwds-1	  . #x5377)	; &A-IWDSU+5377;
       ))
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 6)
