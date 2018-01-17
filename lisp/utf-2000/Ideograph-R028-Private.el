@@ -45,8 +45,12 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 28)	; ⼛
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x20AD3)	; &A-IWDSU+20AD3;
+      ))
+    (ideographic-radical . 28)	; ⼛
     (=ucs		. #x20AD3)	; 𠫓
+    (=>iwds-1		.  0193)	; 𠫓
     ))
 (define-char
   '((<-denotational
@@ -93,6 +97,10 @@
   '((<-denotational
      ((=ucs		  . #x20AD3)	; 𠫓
       ))
+    (<-denotational@component
+     ((=>ucs@jis	  . #x20AD3)	; &A-JX2-2359;
+      (=>jis-x0213-2	  . #x2359)	; &A-JX2-2359; [03-57]
+      ))
     (ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
@@ -100,8 +108,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@jis		  . #x4EA0)	; &AJ1-04110;
-      (=adobe-japan1-0	  . 04110)	; &AJ1-04110;
+     ((=+>ucs@unicode	  . #x4EA0)	; &o-J0-5035;
+      (=+>jis-x0208	  . #x5035)	; &o-J0-5035; [48-21]
       )
      ((=ucs		  . #x53B6)	; 厶
       ))
@@ -184,7 +192,49 @@
   '((ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
-    (=daikanwa		. 03061)	; &M-03061;
+    (hanyu-dazidian	1 384 1)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53B6)	; 厶
+      )
+     ((name		  . "CJK RADICAL SECOND TWO")
+      (=ucs		  . #x2E83)	; ⺃
+      ))
+    (sound@ja/on	"kou")
+    (=ucs		. #x20AD6)	; 𠫖
+    (=daikanwa		. 03061)	; &I-M-03061;
+    (->subsumptive
+     ((==ucs@iso	  . #x20AD6)	; &g2-M-03061;
+      (==daikanwa	  . 03061)	; &g2-M-03061;
+      (->subsumptive
+       ((===daikanwa	    . 03061)	; &R-M-03061;
+	)
+       ((===ucs@iso	    . #x20AD6)	; &R-U-00020AD6;
+	)
+       ((=hanziku-1	    . #xF4EA)	; &HZK01-F4EA;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x20AD3)	; &A-IWDSU+20AD3;
+      ))
+    (ideographic-radical . 28)	; ⼛
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
+     ((=ucs		  . #x53B6)	; 厶
+      ))
+    (=>ucs@jis		. #x20AD3)	; &A-JX2-2359;
+    (=>jis-x0213-2	. #x2359)	; &A-JX2-2359; [03-57]
+    (=>mj		. 031960)	; &A-JX2-2359;
     ))
 (define-char
   '((ideographic-radical . 28)	; ⼛
@@ -2006,9 +2056,7 @@
     ))
 (define-char
   '((ideographic-radical . 28)	; ⼛
-    (hanyu-dazidian	1 384 1)
-    (=ucs		. #x20AD6)	; 𠫖
-    (=hanziku-1		. #xF4EA)	; &I-HZK01-F4EA;
+    (=>ucs@iwds-1	. #x20AD3)	; &A-IWDSU+20AD3;
     ))
 (define-char
   '((ideographic-radical . 28)	; ⼛

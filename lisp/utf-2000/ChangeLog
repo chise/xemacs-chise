@@ -1,3 +1,18 @@
+2018-01-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R028-Private.el (U-00020AD3): Add
+	`<-denotational@component' for A-IWDSU+20AD3; unify IWDS1-0193.
+	(JU+20AD3): Add `<-denotational@component' for A-JU+20AD3.
+	(M-03061): Unify U-00020AD6; apply new conventions for glyph
+	granularity.
+	(A-JU+20AD3): New abstract node; use `<-denotational@component'
+	for A-IWDSU+20AD3.
+	(A-IWDSU+20AD3): New abstract node.
+
+	* Ideograph-R026-Seal.el (BUCS+5377): Separate A-IWDSU+5377.
+	(A-IWDSU+5377): Separate BUCS+5377; add `<-denotational' for
+	BUCS+5377.
+
 2018-01-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R035-Go-Slowly.el (U-00021562): Apply new conventions
