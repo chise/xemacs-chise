@@ -1,3 +1,21 @@
+2018-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R070-Square.el (U+65C1): Unify HD-KS153270.
+	(G-UU+65C1): New node; use `<-subsumptive' for U+65C1.
+	(g2-UU+65C1): Use G-UU+65C1 instead of U+65C1 as its mother.
+	(MJ057637): New character; use `<-subsumptive' for U+65C1; unify
+	G-HD-KS153270.
+	(g2-S-3247): Use MJ057637 instead of U+65C1 as its mother; unify
+	g2-MJ057637 and g2-HD-KS153270.
+
+2018-01-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R146-West.el (U+8985): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R130-Meat.el (U-00026785): Apply new conventions for
+	glyph granularity.
+
 2018-01-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R028-Private.el (U-00020AD3): Add
