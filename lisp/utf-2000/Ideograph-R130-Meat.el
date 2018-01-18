@@ -15022,14 +15022,44 @@
   '((ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=ucs		. #x26785)	; 𦞅
-    (->subsumptive
-     ((hanyu-dazidian	  3 2096 10)
-      (=ucs@iso		  . #x26785)	; &M-29741;
-      (=daikanwa	  . 29741)	; &M-29741;
-      (=hanziku-6	  . #xAFBB)	; &I-HZK06-AFBB;
+    (hanyu-dazidian	3 2096 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=cns11643-6	  . #x5722)	; &C6-5722; [55-02]
+     ((=gt-k		  . 05805)	; &GT-K05805;
+      )
+     ((=>ucs@component	  . #x6708)	; &A-compU+6708;
+      (=>iwds-1		  .  0053)	; &A-compU+6708;
+      ))
+    (sound@ja/on	"Wi")
+    (=ucs		. #x26785)	; 𦞅
+    (=cns11643-6	. #x5722)	; &I-C6-5722; [55-02]
+    (=daikanwa		. 29741)	; &I-M-29741;
+    (<-formed@shuowen
+     ((=ucs		  . #x80C3)	; 胃
+      ))
+    (<-formed@shuowen*sources
+     zhengzitong)
+    (<-same
+     ((=ucs		  . #x80C3)	; 胃
+      (=daikanwa	  . 29348)	; &I-M-29348;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x26785)	; &g2-M-29741;
+      (==daikanwa	  . 29741)	; &g2-M-29741;
+      (->subsumptive
+       ((===daikanwa	    . 29741)	; &R-M-29741;
+	)
+       ((===ucs@iso	    . #x26785)	; &R-U-00026785;
+	)
+       ((=hanziku-6	    . #xAFBB)	; &HZK06-AFBB;
+	))
+      )
+     ((==ucs@cns	  . #x26785)	; &g2-CU+26785;
+      (==cns11643-6	  . #x5722)	; &g2-CU+26785; [55-02]
       ))
     ))
 (define-char
