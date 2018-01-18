@@ -1,5 +1,24 @@
 2018-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R124-Feather.el (U-00026468): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R091-Slice.el (U+7253): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R064-Hand.el (U+39CD): Use `->subsumptive'.
+	(U+6412): Add `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+
+2018-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el (U-000211D2): Apply new conventions
+	for glyph granularity; unify MJ032844 and KOSEKI-054280.
+	(M-48986): Unify U-0002D35E, MJ032858 and KOSEKI-054440.
+	(GT-K05805): New character.
+
+	* Ideograph-R030-Mouth.el (U-00020DDD): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R070-Square.el (U+65C1): Unify HD-KS153270.
 	(G-UU+65C1): New node; use `<-subsumptive' for U+65C1.
 	(g2-UU+65C1): Use G-UU+65C1 instead of U+65C1 as its mother.
