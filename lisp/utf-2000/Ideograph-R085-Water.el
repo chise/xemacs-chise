@@ -20547,12 +20547,79 @@
   '((ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=ucs		. #x3D19)	; 㴙
-    (->subsumptive
-     ((=ucs@unicode	  . #x3D19)	; &M-17865;
-      (=daikanwa	  . 17865)	; &M-17865;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-4	  . #x385A)	; &C4-385A; [24-58]
+     ((=ucs		  . #x6C35)	; 氵
+      )
+     ((=ucs		  . #x81FF)	; 臿
+      ))
+    (=ucs		. #x3D19)	; 㴙
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3D19)	; 㴙
+      ))
+    (ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6C35)	; 氵
+      )
+     ((=ucs@unicode	  . #x81FF)	; &UU+81FF;
+      ))
+    (=ucs@unicode	. #x3D19)	; &M-17865;
+    (=daikanwa		. 17865)	; &M-17865;
+    (<-formed
+     ((=ucs		  . #x7160)	; 煠
+      ))
+    (<-formed*sources
+     jiyun)
+    (<-same
+     ((=ucs		  . #x7160)	; 煠
+      (=daikanwa	  . 19213)	; &I-M-19213;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x3D19)	; &g2-M-17865;
+      (==daikanwa	  . 17865)	; &g2-M-17865;
+      (->subsumptive
+       ((===daikanwa	    . 17865)	; &R-M-17865;
+	)
+       ((===ucs@unicode	    . #x3D19)	; &R-UU+3D19;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3D19)	; 㴙
+      ))
+    (ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6C35)	; 氵
+      )
+     ((=ucs@cns		  . #x81FF)	; &JX2-755C;
+      (=ucs@jis		  . #x81FF)	; &JX2-755C;
+      (=jis-x0212	  . #x566C)	; &JX2-755C; [54-76]
+      (=cns11643-2	  . #x2D2B)	; &I-C2-2D2B; [13-11]
+      (=jis-x0213-2	  . #x755C)	; &I-JX2-755C; [85-60]
+      (=daikanwa	  . 30180)	; &I-M-30180;
+      ))
+    (=ucs@cns		. #x3D19)	; &C4-385A;
+    (=cns11643-4	. #x385A)	; &C4-385A; [24-58]
+    (->subsumptive
+     ((==ucs@cns	  . #x3D19)	; &g2-CU+3D19;
+      (==cns11643-4	  . #x385A)	; &g2-CU+3D19; [24-58]
       ))
     ))
 (define-char
