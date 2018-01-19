@@ -1,5 +1,12 @@
 2018-01-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el (A-IWDSU+524E): New abstract node; use
+	`<-denotational' for BUCS+5239.
+	(U+5239): Apply new conventions for glyph granularity; use
+	A-IWDSU+524E instead of BUCS+5239 as its mother.
+	(U+524E): Likewise.
+	(UU+524E): Unify MJ007533 and KOSEKI-023790.
+
 	* Ideograph-R029-Again.el (U+6BB5-itaiji-003): New character.
 
 	* Ideograph-R009-Man.el (U+508D): Unify MJ006979, HD-JT-AD8A and
