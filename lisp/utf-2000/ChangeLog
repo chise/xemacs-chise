@@ -1,3 +1,20 @@
+2018-01-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (U+6BB5-itaiji-003): New character.
+
+	* Ideograph-R009-Man.el (U+508D): Unify MJ006979, HD-JT-AD8A and
+	KOSEKI-011080.
+	(G-UU+508D): New node; use `<-subsumptive' for U+508D.
+	(g2-UU+508D): Use G-UU+508D instead of U+508D as its mother.
+	(S-0367): Unify MJ006980, KOSEKI-011690 and G-HD-JT-AD8A; add
+	representative nodes.
+	(CU+50F7): Unify MJ007118 and KOSEKI-013500.
+
+2018-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el (U+3D19): Apply new conventions for
+	glyph granularity.
+
 2018-01-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R124-Feather.el (U-00026468): Use `->denotational' and
