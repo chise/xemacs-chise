@@ -1,5 +1,15 @@
 2018-01-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R086-Fire.el (M-18853): Unify U-0002DCFF, MJ057982 and
+	KOSEKI-212460.
+	(U+706D): Add `<-simplified@CN' for UU+6EC5.
+	(U+70B8): Add `ideographic-structure'; add `sound@ja/on' and
+	`sound@ja/on/conventional'.
+	(U-0002426C): Apply new conventions for glyph granularity.
+	(U+7160): Likewise.
+
+2018-01-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R118-Bamboo.el (U+7BE3): Apply new conventions for
 	glyph granularity.
 
