@@ -1,3 +1,8 @@
+2018-01-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R123-Sheep.el (U+7FA6): Use `->subsumptive'.
+	(U-000263CA): Use `->denotational' and `->subsumptive'.
+
 2018-01-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R086-Fire.el (M-18853): Unify U-0002DCFF, MJ057982 and

@@ -1684,9 +1684,9 @@
       )
      ((=ucs		  . #x571F)	; 土
       )
-     ((==>ucs@bucs	  . #x52FB)	; &BUCS+52FB;
-      (=>ucs@component	  . #x52FB)	; &BUCS+52FB;
-      (=ucs@big5	  . #x52FB)	; &BUCS+52FB;
+     ((=>ucs@iwds-1	  . #x52FB)	; &A-IWDSU+52FB;
+      (=ucs@big5	  . #x52FB)	; &A-IWDSU+52FB;
+      (=>iwds-1		  .  0048)	; &A-IWDSU+52FB;
       ))
     (=ucs		. #x5747)	; 均
     (=big5		. #xA7A1)	; &I-B-A7A1;
