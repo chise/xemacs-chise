@@ -178,16 +178,24 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (==>ucs@bucs	. #x52FB)	; &BUCS+52FB;
-    (=>ucs@component	. #x52FB)	; &BUCS+52FB;
-    (=ucs@big5		. #x52FB)	; &BUCS+52FB;
-    (=big5		. #xA4C3)	; &I-B-A4C3;
-    (=>iwds-1		.  0048)	; &BUCS+52FB;
     ))
 (define-char
   '((<-denotational
      ((==>ucs@bucs	  . #x52FB)	; &BUCS+52FB;
-      (=>ucs@component	  . #x52FB)	; &BUCS+52FB;
-      (=ucs@big5	  . #x52FB)	; &BUCS+52FB;
+      ))
+    (ideographic-radical . 20)	; ⼓
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (=>ucs@iwds-1	. #x52FB)	; &A-IWDSU+52FB;
+    (=ucs@big5		. #x52FB)	; &A-IWDSU+52FB;
+    (=big5		. #xA4C3)	; &I-B-A4C3;
+    (=>iwds-1		.  0048)	; &A-IWDSU+52FB;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x52FB)	; &A-IWDSU+52FB;
+      (=ucs@big5	  . #x52FB)	; &A-IWDSU+52FB;
+      (=>iwds-1		  .  0048)	; &A-IWDSU+52FB;
       ))
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 2)
@@ -270,9 +278,9 @@
     ))
 (define-char
   '((<-denotational
-     ((==>ucs@bucs	  . #x52FB)	; &BUCS+52FB;
-      (=>ucs@component	  . #x52FB)	; &BUCS+52FB;
-      (=ucs@big5	  . #x52FB)	; &BUCS+52FB;
+     ((=>ucs@iwds-1	  . #x52FB)	; &A-IWDSU+52FB;
+      (=ucs@big5	  . #x52FB)	; &A-IWDSU+52FB;
+      (=>iwds-1		  .  0048)	; &A-IWDSU+52FB;
       ))
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 2)
