@@ -887,9 +887,9 @@
       )
      ((=ucs		  . #x76EE)	; 目
       )
-     ((==>ucs@bucs	  . #x52FB)	; &BUCS+52FB;
-      (=>ucs@component	  . #x52FB)	; &BUCS+52FB;
-      (=ucs@big5	  . #x52FB)	; &BUCS+52FB;
+     ((=>ucs@iwds-1	  . #x52FB)	; &A-IWDSU+52FB;
+      (=ucs@big5	  . #x52FB)	; &A-IWDSU+52FB;
+      (=>iwds-1		  .  0048)	; &A-IWDSU+52FB;
       ))
     (=ucs		. #x76F7)	; 盷
     (=big5		. #xCFE5)	; &I-B-CFE5;
