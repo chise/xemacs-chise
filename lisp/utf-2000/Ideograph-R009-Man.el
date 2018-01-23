@@ -6997,9 +6997,9 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((==>ucs@bucs	  . #x52FB)	; &BUCS+52FB;
-      (=>ucs@component	  . #x52FB)	; &BUCS+52FB;
-      (=ucs@big5	  . #x52FB)	; &BUCS+52FB;
+     ((=>ucs@iwds-1	  . #x52FB)	; &A-IWDSU+52FB;
+      (=ucs@big5	  . #x52FB)	; &A-IWDSU+52FB;
+      (=>iwds-1		  .  0048)	; &A-IWDSU+52FB;
       ))
     (=ucs		. #x4F28)	; 伨
     ))
