@@ -1,5 +1,58 @@
 2018-01-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R120-Silk.el (U-000260AE): New character.
+	(U-000260B0): New character.
+	(U+432F): Apply new conventions for glyph granularity.
+
+2018-01-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (A-compU+6728): Separate IWDS1-0233.
+	(IWDS1-0233): Unify A-IWDSU+6728 instead of A-compU+6728; add
+	`<-denotational@component' for A-compU+6728.
+	(U-000233B3): Add A-compU+6728 into `<-denotational@component'.
+	(IWDS1-0242): New abstract node.
+	(U-000233C2): Add `<-denotational' for IWDS1-0242; add
+	`ideographic-structure'.
+	(U+6740): Apply new conventions for glyph granularity; add
+	`<-denotational' for IWDS1-0242.
+	(U+6740-var-002): New character; use `<-denotational' for U+6740.
+	(U+6771): Add `<-denotational@component' for IWDS1-0186.
+	(U+678B): Add `ideographic-structure'.
+	(A-IWDSU+233CB): New abstract node; use `<-denotational' for
+	A-M-14564.
+	(U-000233CB): Use A-IWDSU+233CB instead of A-M-14564 as its
+	mother.
+	(A-compU+23402): New abstract node; use `<-denotational' for
+	A-IWDSU+233CB.
+	(MJ037935): Add `<-denotational@component' for A-compU+23402.
+	(U-00023402): Add `<-denotational' for A-compU+23402.
+	(U+67C4): Apply new conventions for glyph granularity.
+	(HD-JT-C0E8): New character; use `<-denotational' for U+67C4;
+	unify S-3575.
+	(U+67EC): Add `<-denotational@component' for IWDS1-0186.
+	(U-00023535): Apply new conventions for glyph granularity.
+	(U+699C): Add `ideographic-structure'.
+	(U-000235F8): Apply new conventions for glyph granularity.
+	(U-000235FD): New character.
+	(A-cgnU+23624): New abstract node.
+	(U-00023624): Add `<-denotational' for A-cgnU+23624.
+	(A-CB02608): Likewise.
+	(A-IWDSU+6A6B): New abstract node.
+	(U+6A2A): Add `<-denotational' for A-IWDSU+6A6B; add
+	ideographic-structure.
+	(U+6A6B): Likewise.
+	(U-000236F3): Apply new conventions for glyph granularity.
+	(U+6AD2): Use `->denotational' and `->subsumptive'.
+	(U+6B04): Apply new conventions for glyph granularity.
+	(U-000237EC): Add `ideographic-structure'.
+	(U+6B03): Apply new conventions for glyph granularity.
+	(IWDS1-0186): New abstract node.
+
+	* Ideograph-R020-Wrap.el (BUCS+52FB): Separate IWDS1-0048 and
+	B-A4C3.
+	(IWDS1-0048): Separate BUCS+52FB; add `<-denotational' for
+	BUCS+52FB; unify A-IWDSU+524E instead of A-compU+52FB.
+
 	* Ideograph-R123-Sheep.el (U+7FA6): Use `->subsumptive'.
 	(U-000263CA): Use `->denotational' and `->subsumptive'.
 
