@@ -4984,6 +4984,14 @@
   '((ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5340)	; 區
+      )
+     ((=ucs		  . #x6B20)	; 欠
+      ))
     (=ucs		. #x6B50)	; 歐
     (=big5		. #xBCDA)	; &I-B-BCDA;
     ))
@@ -4994,6 +5002,15 @@
     (ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x5340)	; &MJ007832;
+      (=mj		  . 007832)	; &MJ007832;
+      )
+     ((=ucs		  . #x6B20)	; 欠
+      ))
     (=ucs@unicode	. #x6B50)	; &AJ1-05342;
     (=adobe-japan1-0	. 05342)	; &AJ1-05342;
     (=jis-x0208		. #x5D3F)	; &I-J90-5D3F; [61-31]
@@ -5050,14 +5067,34 @@
     (ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=decomposition@hanyo-denshi
-     ((=ucs		  . #x6B50)	; 歐
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #xE0102)	; 󠄂
+     ((=ucs@cns		  . #x5340)	; &MJ007833;
+      (=mj		  . 007833)	; &MJ007833;
+      )
+     ((=ucs		  . #x6B20)	; 欠
       ))
+    (=ucs@cns		. #x6B50)	; &HD-KS-183890;
     (=cns11643-1	. #x6D44)	; &HD-KS-183890; [77-36]
     (=hanyo-denshi/ks	. 183890)	; &HD-KS-183890;
-    (=hanyo-denshi/ks/mf . #x47D5)	; &I-KSMF-18389;
+    (->subsumptive
+     ((=decomposition@hanyo-denshi
+       ((=ucs		    . #x6B50)	; 歐
+	)
+       ((=ucs		    . #xE0102)	; 󠄂
+	))
+      (==ucs@cns	  . #x6B50)	; &g2-HD-KS-183890;
+      (==cns11643-1	  . #x6D44)	; &g2-HD-KS-183890; [77-36]
+      (==hanyo-denshi/ks  . 183890)	; &g2-HD-KS-183890;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 183890)	; &R-HD-KS-183890;
+	(=hanyo-denshi/ks/mf . #x47D5)	; &R-HD-KS-183890;
+	)
+       ((===cns11643-1	    . #x6D44)	; &R-C1-6D44; [77-36]
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 76)	; ⽋
