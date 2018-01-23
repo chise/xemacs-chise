@@ -1,3 +1,12 @@
+2018-01-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R081-Compare.el (U+23B0E-itaiji-003): New character;
+	use `<-denotational' for A-compU+23B0E.
+
+	* Ideograph-R076-Lack.el (U+6B50): Add ideographic-structure.
+	(C1-6D44): Unify CU+6B50; apply new conventions for glyph
+	granularity.
+
 2018-01-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R120-Silk.el (U-000260AE): New character.
