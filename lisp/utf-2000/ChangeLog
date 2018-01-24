@@ -1,3 +1,13 @@
+2018-01-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R069-Axe.el (A-GT-K07302): New abstract node; unify
+	A-U+5377-itaiji-003.
+	(GT-K07302): New character; unify U+5377-itaiji-003; use
+	`<-denotational' for A-GT-K07302.
+	(GT-K07347): New character; use `<-denotational' for A-GT-K07302.
+
+	* Ideograph-R030-Mouth.el (U+565A): Add representative nodes.
+
 2018-01-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R081-Compare.el (U+23B0E-itaiji-003): New character;

@@ -449,6 +449,75 @@
     (=gb2312		. #x717D)	; &I-G0-717D; [81-93]
     ))
 (define-char
+  '((ideographic-radical . 69)	; ⽄
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x20509)	; &A-IWDSU+20509;
+      (=>iwds-1		  .  0026)	; &A-IWDSU+20509;
+      )
+     ((=ucs		  . #x65A4)	; 斤
+      ))
+    (=>gt-k		. 07302)	; &A-GT-K07302;
+    (=>ucs-itaiji-003	. #x5377)	; &A-GT-K07302;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 07302)	; &A-GT-K07302;
+      ))
+    (ideographic-radical . 69)	; ⽄
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@jis		  . #x20509)	; &AJ1-17299;
+      (=adobe-japan1-5	  . 17299)	; &AJ1-17299;
+      )
+     ((=ucs		  . #x65A4)	; 斤
+      ))
+    (=gt-k		. 07302)	; &U-i003+5377;
+    (=gt-pj-k1		. #x6442)	; &U-i003+5377; [68-34]
+    (=ucs-itaiji-003	. #x5377)	; &U-i003+5377;
+    (<-formed@component
+     ((=ucs@jis		  . #x5377)	; &MJ007897;
+      (=ucs@ks		  . #x5377)	; &MJ007897;
+      (=mj		  . 007897)	; &MJ007897;
+      ))
+    (->subsumptive
+     ((==gt-k		  . 07302)	; &g2-U-i003+5377;
+      (==gt-pj-k1	  . #x6442)	; &g2-U-i003+5377; [68-34]
+      (==ucs-itaiji-003	  . #x5377)	; &g2-U-i003+5377;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 07302)	; &A-GT-K07302;
+      ))
+    (ideographic-radical . 69)	; ⽄
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@JP		  . #x9FB9)	; &GT-K01769;
+      (=gt-k		  . 01769)	; &GT-K01769;
+      )
+     ((=ucs		  . #x65A4)	; 斤
+      ))
+    (=gt-k		. 07347)	; &GT-K07347;
+    (=gt-pj-k2		. #x3747)	; &GT-K07347; [23-39]
+    (->subsumptive
+     ((==gt-k		  . 07347)	; &g2-GT-K07347;
+      (==gt-pj-k2	  . #x3747)	; &g2-GT-K07347; [23-39]
+      ))
+    ))
+(define-char
   '((=>ucs		. #x2309E)	; 𣂞
     (ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 7)
