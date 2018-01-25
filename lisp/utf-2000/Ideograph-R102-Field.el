@@ -6493,6 +6493,40 @@
     (=hanziku-7		. #xB955)	; &HZK07-B955;
     ))
 (define-char
+  '((ideographic-radical . 102)	; ⽥
+    (ideographic-strokes . 10)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>gt-k		  . 07307)	; &A-GT-K07307;
+      )
+     ((=ucs		  . #x7530)	; 田
+      ))
+    (=ucs		. #x2C3CF)	; 𬏏
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2C3CF)	; 𬏏
+      ))
+    (ideographic-radical . 102)	; ⽥
+    (ideographic-strokes . 10)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 07307)	; &U-i005+24514;
+      )
+     ((=ucs		  . #x7530)	; 田
+      ))
+    (=ucs@JP/hanazono	. #x2C3CF)	; &hanaJU+2C3CF;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2C3CF)	; &g2-hanaJU+2C3CF;
+      ))
+    ))
+(define-char
   '((ideographic-radical@ucs . 102)	; ⽥
     (ideographic-strokes@ucs . 11)
     (ideographic-radical@cns . 1)	; ⼀
