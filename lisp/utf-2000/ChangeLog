@@ -1,3 +1,23 @@
+2018-01-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R122-Net.el (C3-2E5A): Unify CU+25133; add
+	`ideographic-structure'; add representative node.
+	(U-00025133): Add `ideographic-structure'.
+	(U-00026303): Apply new conventions for glyph granularity.
+
+	* Ideograph-R089-Double-X.el (A-cgnU+24568): New abstract node.
+	(U-00024568): Add `<-denotational' for A-cgnU+24568.
+	(U+24568-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+24568.
+	(U-00024569): Use `->subsumptive'.
+	(U+24569-itaiji-001): New character.
+
+2018-01-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el (GT-K05805): Add `sound@ja/on'.
+
+	* Ideograph-R024-Ten.el (U+76F4-itaiji-001): New character.
+
 2018-01-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R102-Field.el (U-0002C3CF): New character.
