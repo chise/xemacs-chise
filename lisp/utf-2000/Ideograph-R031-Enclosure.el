@@ -3618,6 +3618,7 @@
       )
      ((=ucs		  . #x200AD)	; 𠂭
       ))
+    (sound@ja/on	"Wi")
     (=gt-k		. 05805)	; &GT-K05805;
     (=gt-pj-k1		. #x6272)	; &GT-K05805; [66-82]
     (->subsumptive
