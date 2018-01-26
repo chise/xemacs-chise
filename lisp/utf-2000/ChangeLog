@@ -1,5 +1,9 @@
 2018-01-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R102-Field.el (U-0002C3CF): New character.
+
+2018-01-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R038-Woman.el (U+5AB7-var-001): New character; use
 	`<-denotational' for U+5AB7.
 	(U-0002BC58): New character.
