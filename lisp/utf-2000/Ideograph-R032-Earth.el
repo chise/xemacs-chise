@@ -17320,19 +17320,82 @@
     (=daikanwa		. 05366)	; &I-M-05366;
     ))
 (define-char
-  '((=>ucs		. #x213BD)	; 𡎽
-    (ideographic-radical . 32)	; ⼟
+  '((ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=daikanwa		. 05367)	; &M-05367;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=>gt-k		  . 07314)	; &A-GT-K07314;
+      ))
+    (sound@ja/on	"hu")
+    (=ucs		. #x213BD)	; 𡎽
     ))
 (define-char
-  '((morohashi-daikanwa	5367 0 2)
+  '((<-denotational
+     ((=ucs		  . #x213BD)	; 𡎽
+      ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (=ucs		. #x213BD)	; 𡎽
-    (=cns11643-6	. #x5150)	; &I-C6-5150; [49-48]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=gt-k		  . 07314)	; &U-i001+244FD;
+      ))
+    (=mj		. 033130)	; &MJ033130;
+    (=koseki		. 061310)	; &MJ033130;
+    (=daikanwa		. 05367)	; &I-M-05367;
+    (<-ancient
+     ((=ucs@jis		  . #x90DB)	; &AJ1-06939;
+      (=adobe-japan1-0	  . 06939)	; &AJ1-06939;
+      (=daikanwa	  . 39428)	; &I-M-39428;
+      ))
+    (<-ancient*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==mj		  . 033130)	; &g2-MJ033130;
+      (==koseki		  . 061310)	; &g2-MJ033130;
+      (==daikanwa	  . 05367)	; &g2-MJ033130;
+      (->subsumptive
+       ((===daikanwa	    . 05367)	; &R-M-05367;
+	)
+       ((===mj		    . 033130)	; &R-MJ033130;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x213BD)	; 𡎽
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=gt-k		  . 07401)	; &GT-K07401;
+      ))
+    (=ucs@iso		. #x213BD)	; &C6-5150;
+    (=cns11643-6	. #x5150)	; &C6-5150; [49-48]
+    (->subsumptive
+     ((==ucs@iso	  . #x213BD)	; &g2-IU-000213BD;
+      (==cns11643-6	  . #x5150)	; &g2-IU-000213BD; [49-48]
+      (->subsumptive
+       ((===cns11643-6	    . #x5150)	; &R-C6-5150; [49-48]
+	)
+       ((===ucs@iso	    . #x213BD)	; &R-U-000213BD;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x213BE)	; 𡎾

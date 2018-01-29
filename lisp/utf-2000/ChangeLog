@@ -1,3 +1,23 @@
+2018-01-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U-000213BD): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R026-Seal.el (U+5370): Apply new conventions for glyph
+	granularity.
+
+2018-01-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (U+2CF16-itaiji-001): New character;
+	use `<-denotational' for U-0002CF16; unify KOSEKI-002080.
+	(MJ056865): Separate KOSEKI-002080.
+	(BC-88B9): Add `->mistakable' for U-00020009.
+	(U-000200E4): Apply new conventions for glyph granularity.
+	(MJ057398): New character; use `<-denotational' for U-000200E4;
+	unify HD-KS098160.
+	(UU+4E7F): Use GT-K07395 instead of "⿱爫糸" in
+	`ideographic-structure'.
+
 2018-01-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R050-Turban.el (U+38C7-itaiji-002): New character.
