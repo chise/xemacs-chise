@@ -1,3 +1,23 @@
+2018-01-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (U-00022441): Apply new conventions for
+	glyph granularity.
+	(M-09895): Unify IU+22441 and C4-5F5F; add `<-denotational' for
+	U-00022441; use `{ideographic|total}-strokes@daikanwa' instead of
+	`{ideographic|total}-strokes'; add
+	`{ideographic|total}-strokes@cns'.
+	(U-00022444): Use `->denotational' and `->subsumptive'.
+
+	* Ideograph-R044-Corpse.el (U-00021C41): Add
+	`<-interchangeable@ancient' and `<-same' for U+5C4E; add
+	representative nodes.
+	(U+5C4E): Apply new conventions for glyph granularity.
+	(U+5C55): Add `ideographic-structure'; add `sound@ja/on'.
+	(U-00021C94): Unify MJ034378 and KOSEKI-088030; add representative
+	nodes.
+	(U-00021C96): Add `ideographic-structure'; add `sound@ja/on'; add
+	representative nodes.
+
 2018-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R041-Inch.el (A-cgnU+5BF8): Changed from U+5BF8.
