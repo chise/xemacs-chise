@@ -1990,6 +1990,27 @@
     (=gt		. 00029)	; &I-GT-00029;
     (=gt-pj-2		. #x3031)	; &I-GT-00029; [16-17]
     (=daikanwa		. 00027)	; &I-M-00027;
+    (<-avoiding-taboo
+     ((=ucs		  . #x4E18)	; 丘
+      (=daikanwa	  . 00033)	; &I-M-00033;
+      ))
+    (<-avoiding-taboo*sources
+     cihai shijiazhai-yangxin-lu daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x20009)	; &g2-GT-00029;
+      (==cns11643-5	  . #x2133)	; &g2-GT-00029; [01-19]
+      (==gt		  . 00029)	; &g2-GT-00029;
+      (==daikanwa	  . 00027)	; &g2-GT-00029;
+      (->subsumptive
+       ((===daikanwa	    . 00027)	; &R-M-00027;
+	)
+       ((===cns11643-5	    . #x2133)	; &R-C5-2133; [01-19]
+	)
+       ((===gt		    . 00029)	; &R-GT-00029;
+	)
+       ((===ucs@iso	    . #x20009)	; &R-U-00020009;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀

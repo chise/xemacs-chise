@@ -2900,16 +2900,39 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=big5-cdp	  . #x8CAC)	; &CDP-8CAC;
+     ((=gt-k		  . 00594)	; &GT-K00594;
       )
-     ((=big5-cdp	  . #x8CAC)	; &CDP-8CAC;
+     ((=gt-k		  . 00594)	; &GT-K00594;
       ))
+    (sound@ja/on	"si")
     (=ucs		. #x200A9)	; 𠂩
     (=cns11643-6	. #x293E)	; &I-C6-293E; [09-30]
     (=gt		. 00205)	; &I-GT-00205;
     (=gt-pj-2		. #x3137)	; &I-GT-00205; [17-23]
     (=daikanwa		. 48908)	; &I-M-48908;
-    (=hanziku-1		. #xABE3)	; &I-HZK01-ABE3;
+    (<-same
+     ((=ucs		  . #x6C0F)	; 氏
+      (=daikanwa	  . 17026)	; &I-M-17026;
+      ))
+    (<-same*sources
+     daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x200A9)	; &g2-GT-00205;
+      (==cns11643-6	  . #x293E)	; &g2-GT-00205; [09-30]
+      (==gt		  . 00205)	; &g2-GT-00205;
+      (==daikanwa	  . 48908)	; &g2-GT-00205;
+      (->subsumptive
+       ((===daikanwa	    . 48908)	; &R-M-48908;
+	)
+       ((===cns11643-6	    . #x293E)	; &R-C6-293E; [09-30]
+	)
+       ((===gt		    . 00205)	; &R-GT-00205;
+	)
+       ((===ucs@iso	    . #x200A9)	; &R-U-000200A9;
+	)
+       ((=hanziku-1	    . #xABE3)	; &HZK01-ABE3;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical@ucs . 4)	; ⼃
