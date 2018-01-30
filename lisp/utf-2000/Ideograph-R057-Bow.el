@@ -5706,15 +5706,6 @@
     (=hanziku-12	. #xECDB)	; &HZK12-ECDB;
     ))
 (define-char
-  '((ideographic-radical . 57)	; ⼸
-    (ideographic-strokes . 16)
-    (total-strokes	 . 19)
-    (hanyu-dazidian	2 1005 11)
-    (=ucs		. #x22441)	; 𢑁
-    (=cns11643-4	. #x5F5F)	; &I-C4-5F5F; [63-63]
-    (=hanziku-3		. #xCD63)	; &I-HZK03-CD63;
-    ))
-(define-char
   '((=>ucs		. #x22445)	; 𢑅
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 16)
@@ -5765,26 +5756,125 @@
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
-    (ideographic-strokes . 17)
-    (total-strokes	 . 20)
-    (=daikanwa		. 09895)	; &M-09895;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      )
+     ((=ucs		  . #x856D)	; 蕭
+      ))
+    (=ucs		. #x22441)	; 𢑁
     ))
 (define-char
-  '((=>ucs		. #x22444)	; 𢑄
+  '((<-denotational
+     ((=ucs		  . #x22441)	; 𢑁
+      ))
     (ideographic-radical . 57)	; ⼸
-    (ideographic-strokes . 17)
-    (total-strokes	 . 20)
-    (hanyu-dazidian	2 1005 13)
-    (=daikanwa		. 09896)	; &M-09896;
-    (=hanziku-3		. #xCD65)	; &I-HZK03-CD65;
+    (ideographic-strokes@daikanwa . 17)
+    (total-strokes@daikanwa	  . 20)
+    (ideographic-strokes@cns . 16)
+    (total-strokes@cns	     . 19)
+    (hanyu-dazidian	2 1005 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      )
+     ((=ucs@cns		  . #x856D)	; &C1-7227;
+      (=cns11643-1	  . #x7227)	; &C1-7227; [82-07]
+      (=daikanwa	  . 32012)	; &I-M-32012;
+      ))
+    (=ucs@iso		. #x22441)	; &C4-5F5F;
+    (=cns11643-4	. #x5F5F)	; &C4-5F5F; [63-63]
+    (=daikanwa		. 09895)	; &I-M-09895;
+    (->subsumptive
+     ((==ucs@iso	  . #x22441)	; &g2-IU-00022441;
+      (==cns11643-4	  . #x5F5F)	; &g2-IU-00022441; [63-63]
+      (->subsumptive
+       ((===cns11643-4	    . #x5F5F)	; &R-C4-5F5F; [63-63]
+	)
+       ((===ucs@iso	    . #x22441)	; &R-U-00022441;
+	)
+       ((=hanziku-3	    . #xCD63)	; &HZK03-CD63;
+	))
+      ))
     ))
 (define-char
-  '((morohashi-daikanwa	9896 0 1)
-    (ideographic-radical . 57)	; ⼸
+  '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 17)
     (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      )
+     ((=ucs		  . #x7E47)	; 繇
+      ))
     (=ucs		. #x22444)	; 𢑄
-    (=cns11643-5	. #x6C26)	; &I-C5-6C26; [76-06]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22444)	; 𢑄
+      ))
+    (ideographic-radical . 57)	; ⼸
+    (ideographic-strokes . 17)
+    (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F13)	; 弓
+      )
+     ((=+>ucs@jis	  . #x7E47)	; &o-JX1-7A34;
+      (=+>ucs@ks	  . #x7E47)	; &o-JX1-7A34;
+      (=+>ucs@cns	  . #x7E47)	; &o-JX1-7A34;
+      (=+>jis-x0213-1	  . #x7A34)	; &o-JX1-7A34; [90-20]
+      ))
+    (=+>ucs@iso		. #x22444)	; &o-IU+22444;
+    (->subsumptive
+     ((hanyu-dazidian	  2 1005 13)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x5F13)	; 弓
+	)
+       ((=ucs@jis	    . #x7E47)	; &JX1-7A34;
+	(=ucs@ks	    . #x7E47)	; &JX1-7A34;
+	(=ks-x1001	    . #x6923)	; &JX1-7A34; [73-03]
+	(=jis-x0212	    . #x5451)	; &I-JSP-5451; [52-49]
+	(=jis-x0213-1	    . #x7A34)	; &I-JX1-7A34; [90-20]
+	(=daikanwa	    . 27856)	; &I-M-27856;
+	))
+      (=ucs@iso		  . #x22444)	; &M-09896;
+      (=daikanwa	  . 09896)	; &M-09896;
+      (->subsumptive
+       ((==daikanwa	    . 09896)	; &g2-M-09896;
+	)
+       ((=hanziku-3	    . #xCD65)	; &HZK03-CD65;
+	)
+       ((==ucs@iso	    . #x22444)	; &g2-IU-00022444;
+	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x5F13)	; 弓
+	)
+       ((=ucs@cns	    . #x7E47)	; &C2-5E46;
+	(=cns11643-2	    . #x5E46)	; &C2-5E46; [62-38]
+	))
+      (=ucs@cns		  . #x22444)	; &C5-6C26;
+      (=cns11643-5	  . #x6C26)	; &C5-6C26; [76-06]
+      (->subsumptive
+       ((==ucs@cns	    . #x22444)	; &g2-CU+22444;
+	(==cns11643-5	    . #x6C26)	; &g2-CU+22444; [76-06]
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x22442)	; 𢑂
