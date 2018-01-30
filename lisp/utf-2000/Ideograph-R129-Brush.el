@@ -284,8 +284,7 @@
     (=gt-pj-1		. #x3D4D)	; &I-GT-37838; [29-45]
     (=daikanwa/+p	. 29223)	; 粛
     (<-simplified@JP/Jouyou
-     ((=ucs@unicode	  . #x8085)	; &AJ1-06230;
-      (=adobe-japan1-0	  . 06230)	; &AJ1-06230;
+     ((=ucs		  . #x8085)	; 肅
       (=jis-x0208	  . #x6669)	; &I-J90-6669; [70-73]
       ))
     (->subsumptive
@@ -354,9 +353,8 @@
     (=gb2312		. #x4B60)	; &I-G0-4B60; [43-64]
     (=jef-china3	. #x81CA)	; &I-JC3-81CA;
     (<-simplified@CN
-     ((=ucs@unicode	  . #x8085)	; &AJ1-06230;
-      (=adobe-japan1-0	  . 06230)	; &AJ1-06230;
-      (=gb12345		  . #x4B60)	; &AJ1-06230; [43-64]
+     ((=ucs		  . #x8085)	; 肅
+      (=gb12345		  . #x4B60)	; 肅 [43-64]
       ))
     (->subsumptive
      ((==ucs@unicode	  . #x8083)	; &g2-UU+8083;
@@ -420,29 +418,28 @@
      ((==>ucs@bucs	  . #x8085)	; &BUCS+8085;
       ))
     (ideographic-radical . 129)	; ⾀
-    (=ucs		. #x8085)	; 肅
+    (=>ucs@cognate	. #x8085)	; &A-cgnU+8085;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x8085)	; 肅
+     ((=>ucs@cognate	  . #x8085)	; &A-cgnU+8085;
       ))
     (ideographic-radical . 129)	; ⾀
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (=>ucs@iwds-1	. #x8085)	; &AJ1-06230;
-    (=ucs@unicode	. #x8085)	; &AJ1-06230;
-    (=adobe-japan1-0	. 06230)	; &AJ1-06230;
+    (=ucs		. #x8085)	; 肅
+    (=adobe-japan1-0	. 06230)	; &I-AJ1-06230;
     (=jis-x0208		. #x6669)	; &I-J90-6669; [70-73]
     (=ks-x1001		. #x625C)	; &I-K0-625C; [66-60]
     (=cns11643-1	. #x6148)	; &I-C1-6148; [65-40]
     (=jis-x0213-1	. #x6669)	; &I-JX1-6669; [70-73]
-    (=gb12345		. #x4B60)	; &AJ1-06230; [43-64]
+    (=gb12345		. #x4B60)	; 肅 [43-64]
     (=big5		. #xB5C2)	; &I-B-B5C2;
     (=gt		. 37844)	; &I-GT-37844;
     (=gt-k		. 10340)	; &I-GT-K10340;
     (=gt-pj-1		. #x6669)	; &I-GT-37844; [70-73]
     (=daikanwa		. 29225)	; &I-M-29225;
-    (=shinjigen		.  6414)	; &AJ1-06230;
+    (=shinjigen		.  6414)	; 肅
     (->subsumptive
      ((==ucs@unicode	  . #x8085)	; &g2-AJ1-06230;
       (==adobe-japan1-0	  . 06230)	; &g2-AJ1-06230;
@@ -477,7 +474,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x8085)	; 肅
+     ((=>ucs@cognate	  . #x8085)	; &A-cgnU+8085;
       ))
     (ideographic-radical . 129)	; ⾀
     (ideographic-strokes . 8)
