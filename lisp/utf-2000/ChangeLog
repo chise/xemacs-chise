@@ -1,3 +1,32 @@
+2018-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R041-Inch.el (A-cgnU+5BF8): Changed from U+5BF8.
+	(AJ1-02631): Unify U+5BF8 instead of UU+5BF8; omit `=>ucs@iwds-1';
+	use A-cgnU+5BF8 instead of U+5BF8 as its mother.
+	(U+5BF8-itaiji-001): Use A-cgnU+5BF8 instead of U+5BF8 as its
+	mother.
+	(A-cgnU+5BFD): New abstract node.
+	(U+5BFD): Add `<-denotational' for A-cgnU+5BFD.
+	(UU+5BFD): Use U+5BFD instead of A-UU+5BFD as its mother; add
+	`<-denotational@component' for A-UU+5BFD.
+	(A-UU+5BFD): Use A-cgnU+5BFD instead of U+5BFD as its mother; use
+	A-cgnU+5BF8 instead of U+5BF8 in `ideographic-structure'.
+	(U+5BFD-itaiji-003): Add representative node.
+	(MJ057352): Use A-cgnU+8FB1 instead of U+8FB1 as its mother.
+	(U+5C0B): Apply new conventions for glyph granularity.
+
+	* Ideograph-R129-Brush.el (A-cgnU+8085): Changed from U+8085.
+	(AJ1-06230): Unify U+8085 instead of UU+8085 and A-IWDSU+8085; use
+	A-cgnU+8085 instead of U+8085 as its mother.
+	(HNG-KAR0320-0): Use A-cgnU+8085 instead of U+8085 as its mother.
+
+	* Ideograph-R004-Slash.el (U-000200A9): Use GT-K00594 instead of
+	BC-8CAC in `ideographic-structure'; apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R001-One.el (U-00020009): Add `<-avoiding-taboo' for
+	U+4E18; add representative nodes.
+
 2018-01-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (U-000213BD): Use `->denotational' and
