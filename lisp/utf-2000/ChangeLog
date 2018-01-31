@@ -1,3 +1,8 @@
+2018-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (U-00020009): Add
+	`<-denotational@component' for A-compU+2CF16.
+
 2018-01-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R057-Bow.el (U-00022441): Apply new conventions for

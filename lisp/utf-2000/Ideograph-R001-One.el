@@ -1982,7 +1982,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 1)	; ⼀
+  '((<-denotational@component
+     ((=>ucs@component	  . #x2CF16)	; &A-compU+2CF16;
+      ))
+    (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
     (=ucs		. #x20009)	; 𠀉
