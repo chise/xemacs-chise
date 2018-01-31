@@ -1,5 +1,23 @@
 2018-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R141-Tiger.el (U+8650): Use IWDS1-0082 instead of
+	U-0002CF16 in `ideographic-structure'.
+	(U-0002F9B3): Use BC-89E3 instead of IU+2CF16 in
+	`ideographic-structure'.
+
+	* Ideograph-R126-And.el (U+8011-itaiji-002): Use BC-89E3 instead
+	of IU+2CF16 in `ideographic-structure'.
+
+	* Ideograph-R084-Steam.el (A-U+6C14-itaiji-001): Use A-compU+2CF16
+	instead of U-0002CF16 in `ideographic-structure'.
+	(U+6C14-itaiji-002): Use BC-89E3 instead of IU+2CF16 in
+	`ideographic-structure'.
+
+	* Ideograph-R061-Heart.el (MJ057491): Use U+2CF16-itaiji-001
+	instead of IU+2CF16 in `ideographic-structure'.
+
+2018-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R001-One.el (U-00020009): Add
 	`<-denotational@component' for A-compU+2CF16.
 

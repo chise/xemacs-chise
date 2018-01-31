@@ -1754,8 +1754,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@iso		  . #x2CF16)	; &MJ056865;
-      (=mj		  . 056865)	; &MJ056865;
+     ((=ucs-itaiji-001	  . #x2CF16)	; &KOSEKI-002080;
       )
      ((=ucs		  . #x5FC3)	; 心
       ))
