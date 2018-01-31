@@ -292,8 +292,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@iso		  . #x2CF16)	; &MJ056865;
-      (=mj		  . 056865)	; &MJ056865;
+     ((=big5-cdp	  . #x89E3)	; &CDP-89E3;
       )
      ((=ucs		  . #x800C)	; 而
       ))
