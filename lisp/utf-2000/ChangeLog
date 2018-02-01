@@ -1,5 +1,20 @@
 2018-01-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R111-Arrow.el (U+77E2): Add some relations for other
+	characters.
+
+	* Ideograph-R047-River.el (U-00021FF0): Add
+	`ideographic-structure'; add `sound@ja/on'; add representative
+	nodes.
+
+	* Ideograph-R015-Ice.el (U-000205C1): Use A-compU+2CF16 instead of
+	U-0002CF16 in `ideographic-structure'.
+	(IU+205C1): Use BC-89E3 instead of IU+2CF16 in
+	`ideographic-structure'.
+
+	* Ideograph-R010-Legs.el (U+34AB): Apply new conventions for glyph
+	granularity.
+
 	* Ideograph-R086-Fire.el (A-cgnU+71D5): Changed from U+71D5.
 	(AJ1-01295): Unify U+71D5 instead of UU+71D5 and A-IWDSU+71D5; use
 	A-cgnU+71D5 instead of U+71D5 as its mother.
