@@ -1,3 +1,45 @@
+2018-01-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R086-Fire.el (A-cgnU+71D5): Changed from U+71D5.
+	(AJ1-01295): Unify U+71D5 instead of UU+71D5 and A-IWDSU+71D5; use
+	A-cgnU+71D5 instead of U+71D5 as its mother.
+	(MJ058005): Use A-cgnU+71D5 instead of U+71D5 as its mother.
+	(U+3DFC): Use `->subsumptive'; add `<-denotational' for
+	A-cgnU+71D5; unify MJ002319 and KOSEKI-219070.
+
+2018-01-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R109-Eye.el (U+7714): Add `ideographic-structure'.
+	(U-00025133): Apply new conventions for glyph granularity.
+	(U+7714-var-003): New character; use `<-denotational' for U+7714.
+	(UU+7714): Add `ideographic-structure'.
+
+	* Ideograph-R085-Water.el (A-compU+6C34): Separate A-cgnU+6C34.
+	(A-cgnU+6C34): Add `<-denotational@component' for A-compU+6C34.
+	(A-cgnU+6C3A): Use `<-denotational@component' for A-compU+6C34
+	instead of `<-denotational' for A-cgnU+6C34.
+	(U+6C3A): Add `<-denotational@component' for A-cgnU+6C3A.
+	(GT-K01494): Use `<-denotational@component' instead of
+	`<-denotational' for A-cgnU+6C3A.
+	(GT-K01524): New character; use `<-denotational@component' for
+	A-cgnU+6C3A.
+	(BC-8977): Likewise; unify GT-K01525.
+	(U+6EA5): Add `ideographic-structure'.
+	(UU+6FA4): Add some relations for other characters.
+	(U-0002400E): Add `ideographic-structure'; add representative
+	nodes.
+
+	* Ideograph-R075-Tree.el (U+6AFE): Apply new conventions for glyph
+	granularity.
+	(U-000237FE): Likewise.
+
+	* Ideograph-R059-Bristle.el (U-000224AB): Apply new conventions
+	for glyph granularity.
+
+	* Ideograph-R037-Big.el (A-IWDSU+3696): New abstract node.
+	(U+3696): Add `<-denotational' for A-IWDSU+3696; add
+	`ideographic-structure'; add `<-ancient' for UU+6FA4.
+
 2018-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R141-Tiger.el (U+8650): Use IWDS1-0082 instead of

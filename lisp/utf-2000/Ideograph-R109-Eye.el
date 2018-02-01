@@ -2429,6 +2429,14 @@
   '((ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7F52)	; 罒
+      )
+     ((=>ucs@component	  . #x6C34)	; &A-compU+6C34;
+      ))
     (=ucs		. #x7714)	; 眔
     ))
 (define-char
@@ -2441,6 +2449,14 @@
     (ideographic-radical@cns . 122)	; ⽹
     (ideographic-radical@cns*sources
      cns11643-3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7F52)	; 罒
+      )
+     ((=>ucs@cognate	  . #x6C34)	; &A-cgnU+6C34;
+      ))
     (=ucs		. #x25133)	; 𥄳
     ))
 (define-char
@@ -2450,21 +2466,71 @@
     (ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
-    (=>>ucs@iso		. #x25133)	; &G-IU+25133;
-    (=>>ucs@jis		. #x7714)	; &G-IU+25133;
-    (=>>ucs@cns		. #x2F944)	; &G-IU+25133;
+    (hanyu-dazidian	4 2915 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL EYE")
+      (=ucs		  . #x2EAB)	; ⺫
+      )
+     ((=ucs		  . #x6C3A)	; 氺
+      ))
+    (=ucs@iso		. #x25133)	; &JSP-4E5F;
+    (=ucs@cns		. #x2F944)	; &JSP-4E5F;
+    (=ucs@jis		. #x7714)	; &JSP-4E5F;
+    (=jis-x0212		. #x4E5F)	; &JSP-4E5F; [46-63]
+    (=cns11643-5	. #x2F26)	; &I-C5-2F26; [15-06]
+    (=big5-cdp		. #x8CB2)	; &I-CDP-8CB2;
+    (=daikanwa		. 23221)	; &I-M-23221;
+    (->original
+     ((=ucs@unicode	  . #x7714)	; &C4-2E55;
+      (=cns11643-4	  . #x2E55)	; &C4-2E55; [14-53]
+      (=daikanwa	  . 49364)	; &I-M-49364;
+      ))
+    (->original*sources
+     zhengzitong daikanwa)
     (->subsumptive
-     ((=ucs@iso		  . #x25133)	; &JSP-4E5F;
-      (=ucs@jis		  . #x7714)	; &JSP-4E5F;
-      (=jis-x0212	  . #x4E5F)	; &JSP-4E5F; [46-63]
-      (=daikanwa	  . 23221)	; &I-M-23221;
+     ((==ucs@iso	  . #x25133)	; &g2-JSP-4E5F;
+      (==ucs@jis	  . #x7714)	; &g2-JSP-4E5F;
+      (==jis-x0212	  . #x4E5F)	; &g2-JSP-4E5F; [46-63]
+      (==daikanwa	  . 23221)	; &g2-JSP-4E5F;
+      (->subsumptive
+       ((===daikanwa	    . 23221)	; &R-M-23221;
+	)
+       ((===jis-x0212	    . #x4E5F)	; &R-JSP-4E5F; [46-63]
+	)
+       ((===ucs@iso	    . #x25133)	; &R-U-00025133;
+	))
       )
      ((=>ucs*		  . #x25133)	; 𥄳
-      (hanyu-dazidian	  4 2915 12)
       (=ucs		  . #x2F944)	; 𥄳
-      (=cns11643-5	  . #x2F26)	; &I-C5-2F26; [15-06]
-      (=big5-cdp	  . #x8CB2)	; &I-CDP-8CB2;
+      (==cns11643-5	  . #x2F26)	; 𥄳 [15-06]
+      (==big5-cdp	  . #x8CB2)	; 𥄳
+      (->subsumptive
+       ((===big5-cdp	    . #x8CB2)	; &R-CDP-8CB2;
+	)
+       ((===cns11643-5	    . #x2F26)	; &R-C5-2F26; [15-06]
+	))
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7714)	; 眔
+      ))
+    (ideographic-radical . 109)	; ⽬
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL EYE")
+      (=ucs		  . #x2EAB)	; ⺫
+      )
+     ((=gt-k		  . 01524)	; &GT-K01524;
+      ))
+    (=ucs-var-003	. #x7714)	; &U-v003+7714;
     ))
 (define-char
   '((ideographic-radical . 109)	; ⽬
@@ -3528,14 +3594,25 @@
     (ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL EYE")
+      (=ucs		  . #x2EAB)	; ⺫
+      )
+     ((=big5-cdp	  . #x8977)	; &CDP-8977;
+      ))
     (=ucs@unicode	. #x7714)	; &C4-2E55;
     (=ucs@JP/hanazono	. nil)
     (=cns11643-4	. #x2E55)	; &C4-2E55; [14-53]
     (=daikanwa		. 49364)	; &I-M-49364;
     (<-original
      ((=ucs@iso		  . #x25133)	; &JSP-4E5F;
+      (=ucs@cns		  . #x2F944)	; &JSP-4E5F;
       (=ucs@jis		  . #x7714)	; &JSP-4E5F;
       (=jis-x0212	  . #x4E5F)	; &JSP-4E5F; [46-63]
+      (=cns11643-5	  . #x2F26)	; &I-C5-2F26; [15-06]
       (=daikanwa	  . 23221)	; &I-M-23221;
       ))
     (<-original*sources

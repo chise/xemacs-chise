@@ -1635,11 +1635,69 @@
   '((ideographic-radical . 59)	; ⼺
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (hanyu-dazidian	2 857 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      )
+     ((=ucs		  . #x5C0B)	; 尋
+      ))
     (=ucs		. #x224AB)	; 𢒫
-    (=cns11643-7	. #x226B)	; &I-C7-226B; [02-75]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x224AB)	; 𢒫
+      ))
+    (ideographic-radical . 59)	; ⼺
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (hanyu-dazidian	2 857 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      )
+     ((=ucs@cns		  . #x5C0B)	; &AJ1-13859;
+      (=ucs@ks		  . #x5C0B)	; &AJ1-13859;
+      (=adobe-japan1-4	  . 13859)	; &AJ1-13859;
+      ))
+    (=ucs@iso		. #x224AB)	; &C7-226B;
+    (=cns11643-7	. #x226B)	; &C7-226B; [02-75]
     (=daikanwa		. 10021)	; &I-M-10021;
-    (=hanziku-3		. #xACA7)	; &I-HZK03-ACA7;
+    (<-formed@shuowen
+     ((=ucs@cns		  . #x5C0B)	; &AJ1-13859;
+      (=ucs@ks		  . #x5C0B)	; &AJ1-13859;
+      (=adobe-japan1-4	  . 13859)	; &AJ1-13859;
+      ))
+    (<-original
+     ((=ucs@cns		  . #x5C0B)	; &AJ1-13859;
+      (=ucs@ks		  . #x5C0B)	; &AJ1-13859;
+      (=adobe-japan1-4	  . 13859)	; &AJ1-13859;
+      ))
+    (<-same
+     ((=ucs@cns		  . #x5C0B)	; &AJ1-13859;
+      (=ucs@ks		  . #x5C0B)	; &AJ1-13859;
+      (=adobe-japan1-4	  . 13859)	; &AJ1-13859;
+      (=daikanwa	  . 07447)	; &I-M-07447;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x224AB)	; &g2-M-10021;
+      (==cns11643-7	  . #x226B)	; &g2-M-10021; [02-75]
+      (==daikanwa	  . 10021)	; &g2-M-10021;
+      (->subsumptive
+       ((===daikanwa	    . 10021)	; &R-M-10021;
+	)
+       ((===cns11643-7	    . #x226B)	; &R-C7-226B; [02-75]
+	)
+       ((===ucs@iso	    . #x224AB)	; &R-U-000224AB;
+	)
+       ((=hanziku-3	    . #xACA7)	; &HZK03-ACA7;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x38D2)	; 㣒
