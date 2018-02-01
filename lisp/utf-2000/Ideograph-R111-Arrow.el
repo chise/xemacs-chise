@@ -16,6 +16,89 @@
     (=gt-pj-1		. #x4C70)	; &I-GT-30618; [44-80]
     (=daikanwa		. 23929)	; &I-M-23929;
     (=shinjigen		.  5389)	; 矢
+    (<-formed
+     ((=ucs		  . #x7B36)	; 笶
+      ))
+    (<-formed*sources
+     jiyun)
+    (<-interchangeable
+     ((=ucs		  . #x9673)	; 陳
+      (=daikanwa	  . 41698)	; &I-M-41698;
+      )
+     ((=ucs		  . #x6576)	; 敶
+      (=daikanwa	  . 13357)	; &I-M-13357;
+      )
+     ((=ucs		  . #x8A93)	; 誓
+      (=daikanwa	  . 35514)	; &I-M-35514;
+      )
+     ((=ucs		  . #x22EEB)	; 𢻫
+      (=daikanwa	  . 13112)	; &I-M-13112;
+      )
+     ((=ucs		  . #x76ED)	; 盭
+      (=daikanwa	  . 23087)	; &I-M-23087;
+      )
+     ((=ucs		  . #x5C4E)	; 屎
+      (=daikanwa	  . 07689)	; &I-M-07689;
+      )
+     ((=ucs@iso		  . #x26CCA)	; &C6-575A;
+      (=cns11643-6	  . #x575A)	; &C6-575A; [55-58]
+      (=daikanwa	  . 31371)	; &I-M-31371;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng erya shangshu-zhuan zuoshi-zhu daikanwa)
+    (<-interchangeable$_2*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_3*sources
+     shuowen-tongxun-dingsheng erya maoshi-jichuan lunyu-zhu daikanwa)
+    (<-interchangeable$_4*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_5*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_6*sources
+     zhuangzi-shiwen shiji-sanjiazhu daikanwa)
+    (<-interchangeable$_7*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
+    (<-original
+     ((=ucs		  . #x21C41)	; 𡱁
+      ))
+    (<-original*sources
+     erya-shiwen)
+    (<-same
+     ((=ucs@jis/2004	  . #x7BAD)	; &MJ019555;
+      (=mj		  . 019555)	; &MJ019555;
+      (=daikanwa	  . 26193)	; &I-M-26193;
+      )
+     ((=ucs		  . #x7B36)	; 笶
+      (=daikanwa	  . 25954)	; &I-M-25954;
+      )
+     ((=ucs		  . #x21C41)	; 𡱁
+      (=daikanwa	  . 07671)	; &I-M-07671;
+      ))
+    (<-same$_1*sources
+     fangyan guangya daikanwa)
+    (<-same$_2*sources
+     jiyun daikanwa)
+    (<-same$_3*sources
+     erya-shiwen daikanwa)
+    (<-same*sources
+     daikanwa)
+    (->ancient
+     ((=ucs		  . #x20095)	; 𠂕
+      (=daikanwa	  . 00134)	; &I-M-00134;
+      )
+     ((=ucs		  . #x204E1)	; 𠓡
+      (=daikanwa	  . 01427)	; &I-M-01427;
+      )
+     ((=daikanwa	  . 23933)	; &M-23933;
+      ))
+    (->ancient$_1*sources
+     jiyun daikanwa)
+    (->ancient$_2*sources
+     jiyun daikanwa)
+    (->ancient*sources
+     jiyun daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x77E2)	; &g2-AJ1-03836;
       (==adobe-japan1-0	  . 03836)	; &g2-AJ1-03836;

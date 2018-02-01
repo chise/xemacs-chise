@@ -752,9 +752,32 @@
   '((ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x88B9)	; &CDP-88B9;
+      )
+     ((=ucs		  . #x5DDB)	; 巛
+      ))
+    (sound@ja/on	"kWAu")
     (=ucs		. #x21FF0)	; 𡿰
     (=cns11643-5	. #x237B)	; &I-C5-237B; [03-91]
     (=daikanwa		. 08685)	; &I-M-08685;
+    (->subsumptive
+     ((==ucs@iso	  . #x21FF0)	; &g2-M-08685;
+      (==cns11643-5	  . #x237B)	; &g2-M-08685; [03-91]
+      (==daikanwa	  . 08685)	; &g2-M-08685;
+      (->subsumptive
+       ((===daikanwa	    . 08685)	; &R-M-08685;
+	)
+       ((===cns11643-5	    . #x237B)	; &R-C5-237B; [03-91]
+	)
+       ((===ucs@iso	    . #x21FF0)	; &R-U-00021FF0;
+	)
+       ((=hanziku-3	    . #xDFFE)	; &HZK03-DFFE;
+	))
+      ))
     ))
 (define-char
   '((=>ucs		. #x21FF1)	; 𡿱

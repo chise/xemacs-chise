@@ -1269,8 +1269,30 @@
     (=ucs		. #x34AB)	; 㒫
     (=cns11643-4	. #x2233)	; &I-C4-2233; [02-19]
     (=daikanwa		. 01354)	; &I-M-01354;
-    (=hanziku-1		. #xDCE6)	; &I-HZK01-DCE6;
     (=jef-china3	. #x43D4)	; &I-JC3-43D4;
+    (<-ancient
+     ((=ucs		  . #x65E1)	; 旡
+      (=daikanwa	  . 13717)	; &I-M-13717;
+      ))
+    (<-ancient*sources
+     shuowen-xuxuan-zhu daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x34AB)	; &g2-M-01354;
+      (==cns11643-4	  . #x2233)	; &g2-M-01354; [02-19]
+      (==daikanwa	  . 01354)	; &g2-M-01354;
+      (==jef-china3	  . #x43D4)	; &g2-M-01354;
+      (->subsumptive
+       ((===daikanwa	    . 01354)	; &R-M-01354;
+	)
+       ((===cns11643-4	    . #x2233)	; &R-C4-2233; [02-19]
+	)
+       ((===jef-china3	    . #x43D4)	; &R-JC3-43D4;
+	)
+       ((===ucs@unicode	    . #x34AB)	; &R-UU+34AB;
+	)
+       ((=hanziku-1	    . #xDCE6)	; &HZK01-DCE6;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉

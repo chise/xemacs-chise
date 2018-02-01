@@ -1356,7 +1356,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x2CF16)	; 𬼖
+     ((=>ucs@component	  . #x2CF16)	; &A-compU+2CF16;
       )
      ((=ucs		  . #x4ED2)	; 仒
       ))
@@ -1373,8 +1373,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@iso		  . #x2CF16)	; &MJ056865;
-      (=mj		  . 056865)	; &MJ056865;
+     ((=big5-cdp	  . #x89E3)	; &CDP-89E3;
       )
      ((=ucs		  . #x4ED2)	; 仒
       ))
