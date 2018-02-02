@@ -745,25 +745,13 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 5)	; ⼄
-    (ideographic-strokes@ucs . 2)
-    (ideographic-radical@ucs*sources
-     koseki mj)
-    (ideographic-strokes@ucs*sources
-     mj)
-    (ideographic-radical@misc . 87)	; ⽖
-    (ideographic-strokes@misc . 0)
+  '((<-denotational@component
+     ((=>ucs@component	  . #x2CF16)	; &A-compU+2CF16;
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (=ucs		. #x2CF16)	; 𬼖
-    (=>big5-cdp		. #x8DC1)	; 𬼖
-    (=>iwds-1		.  0082)	; 𬼖
-    (<-formed@component
-     ((=ucs		  . #x722A)	; 爪
-      )
-     ((=ucs		  . #x4EA1)	; 亡
-      )
-     ((=ucs		  . #x5C71)	; 山
-      ))
     ))
 (define-char
   '((<-denotational
@@ -793,16 +781,26 @@
   '((<-denotational
      ((=ucs		  . #x2CF16)	; 𬼖
       ))
-    (ideographic-radical@ucs . 5)	; ⼄
-    (ideographic-strokes@ucs . 2)
-    (ideographic-radical@misc . 87)	; ⽖
-    (ideographic-strokes@misc . 0)
+    (<-denotational@component
+     ((=>big5-cdp	  . #x89E3)	; &A-GT-K00278;
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (=ucs-var-002	. #x2CF16)	; &U-v002+2CF16;
+    (->subsumptive
+     ((==ucs-var-002	  . #x2CF16)	; &g2-U-v002+2CF16;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2CF16)	; 𬼖
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (=ucs@iso		. #x2CF16)	; &MJ056865;
     (=mj		. 056865)	; &MJ056865;
-    (=big5-cdp		. #x89E3)	; &I-CDP-89E3;
-    (=gt-k		. 00278)	; &I-GT-K00278;
-    (=gt-pj-k1		. #x3573)	; &MJ056865; [21-83]
     (<-formed
      ((=mj		  . 006462)	; &MJ006462;
       ))
@@ -821,20 +819,30 @@
 	)
        ((===hng-nkk	    . 03300)	; &HNG039-03300;
 	))
-      )
-     ((=ucs-itaiji-003	  . #x722A)	; &U-i003+722A;
-      (->subsumptive
-       ((==ucs-itaiji-003   . #x722A)	; &g2-U-i003+722A;
-	))
-      )
-     ((==big5-cdp	  . #x89E3)	; &g2-CDP-89E3;
-      (==gt-k		  . 00278)	; &g2-CDP-89E3;
-      (==gt-pj-k1	  . #x3573)	; &g2-CDP-89E3; [21-83]
       ))
     ))
 (define-char
-  '((<-denotational
-     ((=ucs		  . #x2CF16)	; 𬼖
+  '((ideographic-radical@ucs . 5)	; ⼄
+    (ideographic-strokes@ucs . 2)
+    (ideographic-radical@ucs*sources
+     koseki mj)
+    (ideographic-strokes@ucs*sources
+     mj)
+    (ideographic-radical@misc . 87)	; ⽖
+    (ideographic-strokes@misc . 0)
+    (total-strokes	 . 3)
+    (=>ucs@component	. #x2CF16)	; &A-compU+2CF16;
+    (<-formed@component
+     ((=ucs		  . #x722A)	; 爪
+      )
+     ((=ucs		  . #x4EA1)	; 亡
+      )
+     ((=ucs		  . #x5C71)	; 山
+      ))
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x2CF16)	; &A-compU+2CF16;
       ))
     (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 2)
@@ -1357,7 +1365,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x2CF16)	; 𬼖
+     ((=>ucs@component	  . #x2CF16)	; &A-compU+2CF16;
       )
      ((=ucs		  . #x2BDA7)	; 𫶧
       ))
@@ -1452,6 +1460,46 @@
        ((==ucs@cns	    . #x200E4)	; &g2-CU+200E4;
 	(==cns11643-6	    . #x2346)	; &g2-CU+200E4; [03-38]
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x200E4)	; 𠃤
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x89E3)	; &CDP-89E3;
+      )
+     ((=ucs		  . #x2BDA7)	; 𫶧
+      ))
+    (=ucs-itaiji-001	. #x200E4)	; &U-i001+200E4;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x200E4)	; &g2-U-i001+200E4;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x200E4)	; 𠃤
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-var-002	  . #x2CF16)	; &U-v002+2CF16;
+      )
+     ((=ucs		  . #x2BDA7)	; 𫶧
+      ))
+    (=ucs-itaiji-002	. #x200E4)	; &U-i002+200E4;
+    (->subsumptive
+     ((==ucs-itaiji-002	  . #x200E4)	; &g2-U-i002+200E4;
       ))
     ))
 (define-char
