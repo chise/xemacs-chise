@@ -1,3 +1,55 @@
+2018-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R124-Feather.el (A-GT-K10773): New abstract node;
+	unify A-U+7FD2-itaiji-003.
+	(GT-K10773): New character; use `<-denotational' for A-GT-K10773;
+	unify U+7FD2-itaiji-003.
+
+	* Ideograph-R103-Bolt-Of-Cloth.el (GT-K03980): Add representative
+	node.
+	(MJ041430): Use UU+758C instead of U+758C in
+	`ideographic-structure'.
+	(CU+24CA3): Likewise.
+
+	* Ideograph-R058-Snout.el (UU+38C7): Unify S-2300.
+	(A-U+38C7-itaiji-003): New abstract node.
+	(U+38C7-itaiji-003): New character; use `<-denotational' for
+	A-U+38C7-itaiji-003.
+	(A-IWDSU+5F59): New abstract node.
+	(U+5F59): Add `<-denotational' for A-IWDSU+5F59; add
+	`ideographic-structure'; add representative nodes.
+	(U+5F5A): Add `<-denotational' for A-IWDSU+5F59; add
+	`ideographic-structure'; add `sound@ja/on'.
+	(UU+5F5A): Unify HD-IP-5F5A; add `ideographic-structure'.
+	(S-2307): Unify HD-KS112430.
+	(HD-TK01030070): New character; use `<-denotational' for U+5F5A.
+	(U-0002246F): Apply new conventions for glyph granularity.
+	(U-00022477): Likewise.
+	(U-0002247A): New character.
+
+	* Ideograph-R005-Second.el (U-0002CF16): Separate A-BC-8DC1 and
+	IWDS1-0082; use `ideographic-{radical|strokes}' instead of
+	`ideographic-{radical|strokes}@ucs; delete
+	`ideographic-{radical|strokes}@misc'; delete `<-formed@component';
+	add `<-denotational@component' for A-compU+2CF16.
+	(U+2CF16-var-002): New character; use `<-denotational' for
+	U-0002CF16; use `<-denotational@component' for A-BC-89E3.
+	(IU+2CF16): Separate BC-89E3 and GT-K00278; use
+	`ideographic-{radical|strokes}' instead of
+	`ideographic-{radical|strokes}@ucs; delete
+	`ideographic-{radical|strokes}@misc'.
+	(U+722A-itaiji-003): Use `<-denotational' for A-U+722A-itaiji-003
+	instead of `<-subsumptive' for IU+2CF16; moved to
+	Ideograph-R087-Claw.el.
+	(A-compU+2CF16): New abstract node.
+	(BC-88B9): Use `<-denotational@component' for A-compU+2CF16
+	instead of `<-denotational' for U-0002CF16.
+	(U-000200E4): Use A-compU+2CF16 instead of U-0002CF16 in
+	`ideographic-structure'.
+	(U+200E4-itaiji-001): New character; use `<-denotational' for
+	U-000200E4.
+	(U+200E4-itaiji-002): Likewise.
+
 2018-01-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R111-Arrow.el (U+77E2): Add some relations for other
