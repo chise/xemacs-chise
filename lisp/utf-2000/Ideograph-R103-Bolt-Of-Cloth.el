@@ -188,6 +188,10 @@
     (total-strokes	 . 8)
     (=gt-k		. 03980)	; &GT-K03980;
     (=gt-pj-k2		. #x3B6C)	; &GT-K03980; [27-76]
+    (->subsumptive
+     ((==gt-k		  . 03980)	; &g2-GT-K03980;
+      (==gt-pj-k2	  . #x3B6C)	; &g2-GT-K03980; [27-76]
+      ))
     ))
 (define-char
   '((<-denotational
@@ -439,8 +443,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>ucs@component	  . #x7531)	; &A-compU+7531;
-      (=>iwds-1		  .  1132)	; &A-compU+7531;
+     ((=>ucs@iwds-1	  . #x7531)	; &A-IWDSU+7531;
+      (=>iwds-1		  .  1132)	; &A-IWDSU+7531;
       )
      ((=ucs		  . #x758C)	; 疌
       ))
@@ -460,7 +464,8 @@
       )
      ((=gt-k		  . 01275)	; &U-v001+20679;
       )
-     ((=ucs		  . #x758C)	; 疌
+     ((=ucs@unicode	  . #x758C)	; &AJ1-18136;
+      (=adobe-japan1-5	  . 18136)	; &AJ1-18136;
       ))
     (=mj		. 041430)	; &MJ041430;
     (=koseki		. 246940)	; &MJ041430;
@@ -495,7 +500,8 @@
       )
      ((=gt-k		  . 01134)	; &GT-K01134;
       )
-     ((=ucs		  . #x758C)	; 疌
+     ((=ucs@unicode	  . #x758C)	; &AJ1-18136;
+      (=adobe-japan1-5	  . 18136)	; &AJ1-18136;
       ))
     (=ucs@cns		. #x24CA3)	; &C5-4057;
     (=cns11643-5	. #x4057)	; &C5-4057; [32-55]
