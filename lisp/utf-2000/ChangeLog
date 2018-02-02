@@ -1,3 +1,7 @@
+2018-02-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U-00020F55): New character.
+
 2018-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R124-Feather.el (A-GT-K10773): New abstract node;
