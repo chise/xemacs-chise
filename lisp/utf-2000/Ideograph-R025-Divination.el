@@ -953,7 +953,11 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 25)	; ⼘
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x209E2)	; &A-IWDSU+209E2;
+      (=>iwds-1		  .  0356)	; &A-IWDSU+209E2;
+      ))
+    (ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (ideographic-structure
@@ -1975,4 +1979,9 @@
     (->subsumptive
      ((==ucs@iso	  . #x20A0C)	; &g2-IU-00020A0C;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 25)	; ⼘
+    (=>ucs@iwds-1	. #x209E2)	; &A-IWDSU+209E2;
+    (=>iwds-1		.  0356)	; &A-IWDSU+209E2;
     ))

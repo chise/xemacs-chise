@@ -57,18 +57,6 @@
       ))
     ))
 (define-char
-  '((<-denotational
-     ((=ucs		  . #x5369)	; 卩
-      ))
-    (ideographic-radical . 26)	; ⼙
-    (ideographic-strokes . 0)
-    (total-strokes	 . 2)
-    (=big5-cdp		. #x8A60)	; &CDP-8A60;
-    (<-formed@component
-     ((=ucs		  . #x5369)	; 卩
-      ))
-    ))
-(define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x5DF1)	; &A-compU+5DF1;
       (=>iwds-1		  .  0120)	; &A-compU+5DF1;
@@ -126,6 +114,27 @@
      ((=ucs		  . #x353E)	; 㔾
       ))
     (=jef-china3	. #x71F7)	; &JC3-71F7;
+    ))
+(define-char
+  '((ideographic-radical . 26)	; ⼙
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=>big5-cdp		. #x8A60)	; &A-CDP-8A60;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8A60)	; &A-CDP-8A60;
+      ))
+    (ideographic-radical . 26)	; ⼙
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (=big5-cdp		. #x8A60)	; &CDP-8A60;
+    (<-formed@component
+     ((=ucs		  . #x5369)	; 卩
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8A60)	; &g2-CDP-8A60;
+      ))
     ))
 (define-char
   '((ideographic-radical . 26)	; ⼙
