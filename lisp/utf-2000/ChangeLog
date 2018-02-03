@@ -1,5 +1,19 @@
 2018-02-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R074-Moon.el (IWDS1-0053): Use IWDS1-020+021 instead
+	of IWDS1-0021 as a target of `<-denotational@component'.
+	(IWDS1-0021): Moved from Ideograph-R130-Meat.el; unify A-BC-8B5E
+	and A-GT-K00758 instead of A-BC-88F0; add
+	`<-denotational@component' for IWDS1-020+021.
+	(U+6708): Add `<-denotational' for IWDS1-0021.
+	(BC-8B5E): New character; unify GT-K00758; use `<-denotational'
+	for IWDS1-0021; use `<-denotational@component' for IWDS1-0020.
+
+	* Ideograph-R040-Roof.el (U+5BC1): Apply new conventions for glyph
+	granularity.
+
+2018-02-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R058-Snout.el (U+5F59): Add `<-ancient' for U+875F.
 
 	* Ideograph-R055-Two-Hands.el (U-00022333): Use IWDS1-0020 instead

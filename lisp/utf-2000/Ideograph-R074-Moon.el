@@ -1,7 +1,7 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((<-denotational@component
-     ((=>iwds-1		  .  0021)	; &IWDS1-021;
+     ((=>iwds-1		  .  20021)	; &IWDS1-20021;
       ))
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 0)
@@ -11,6 +11,20 @@
     ))
 (define-char
   '((<-denotational@component
+     ((=>iwds-1		  .  20021)	; &IWDS1-20021;
+      ))
+    (ideographic-radical . 74)	; ⽉
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=>big5-cdp		. #x8B5E)	; &A-GT-K00758;
+    (=>gt-k		. 00758)	; &A-GT-K00758;
+    (=>iwds-1		.  0021)	; &A-GT-K00758;
+    ))
+(define-char
+  '((<-denotational
+     ((=>iwds-1		  .  0021)	; &A-GT-K00758;
+      ))
+    (<-denotational@component
      ((=>ucs@component	  . #x6708)	; &A-compU+6708;
       (=>iwds-1		  .  0053)	; &A-compU+6708;
       ))
@@ -130,6 +144,26 @@
     (=ucs		. #x2E9D)	; ⺝
     (<-identical@component
      ((=ucs		  . #x6708)	; 月
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>iwds-1		  .  0021)	; &A-GT-K00758;
+      ))
+    (<-denotational@component
+     ((=>iwds-1		  .  0020)	; &IWDS1-020;
+      ))
+    (ideographic-radical . 74)	; ⽉
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=big5-cdp		. #x8B5E)	; &CDP-8B5E;
+    (=gt-k		. 00758)	; &I-GT-K00758;
+    (=gt-pj-k1		. #x362F)	; &CDP-8B5E; [22-15]
+    (->subsumptive
+     ((==big5-cdp	  . #x8B5E)	; &g2-CDP-8B5E;
+      )
+     ((==gt-k		  . 00758)	; &g2-GT-K00758;
+      (==gt-pj-k1	  . #x362F)	; &g2-GT-K00758; [22-15]
       ))
     ))
 (define-char
