@@ -1348,6 +1348,9 @@
       ))
     (<-Liwen*sources
      jiyun)
+    (<-ancient
+     ((=ucs		  . #x875F)	; 蝟
+      ))
     (->formed
      ((=ucs		  . #x875F)	; 蝟
       (=daikanwa	  . 33287)	; &I-M-33287;
