@@ -1,5 +1,28 @@
 2018-02-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R058-Snout.el (U+5F59): Add `<-ancient' for U+875F.
+
+	* Ideograph-R055-Two-Hands.el (U-00022333): Use IWDS1-0020 instead
+	of BC-88F0 in `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(IU+22333): Use BC-8B5E instead of BC-88F0 in
+	`ideographic-structure'.
+
+	* Ideograph-R053-Dotted-Cliff.el (U-0002223B): Apply new
+	conventions for glyph granularity.
+
+	* Ideograph-R041-Inch.el (BC-8BC3): Use IWDS1-0020 instead of
+	BC-88F0 in `ideographic-structure'; unify CB12122.
+	(G-GT-09333): New glyph node; use `<-subsumptive' for BC-8BC3.
+	(g2-GT-09333): Use G-GT-09333 instead of BC-8BC3 as its mother.
+	(G-BC-8BC3): New glyph node; use `<-subsumptive' for BC-8BC3.
+	(g2-BC-8BC3): Use G-8BC3 instead of BC-8BC3 as its mother.
+
+	* Ideograph-R015-Ice.el (U-000205DB): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R004-Slash.el (U-00020095): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R030-Mouth.el (U-00020F55): New character.
 
 2018-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
