@@ -1738,7 +1738,31 @@
     (=gt-k		. 01335)	; &I-GT-K01335;
     (=gt-pj-2		. #x3127)	; &I-GT-00182; [17-07]
     (=daikanwa		. 00134)	; &I-M-00134;
-    (=hanziku-1		. #xAB56)	; &I-HZK01-AB56;
+    (<-ancient
+     ((=ucs		  . #x77E2)	; 矢
+      (=daikanwa	  . 23929)	; &I-M-23929;
+      ))
+    (<-ancient*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x20095)	; &g2-GT-00182;
+      (==cns11643-6	  . #x2230)	; &g2-GT-00182; [02-16]
+      (==gt		  . 00182)	; &g2-GT-00182;
+      (==gt-k		  . 01335)	; &g2-GT-00182;
+      (==daikanwa	  . 00134)	; &g2-GT-00182;
+      (->subsumptive
+       ((===daikanwa	    . 00134)	; &R-M-00134;
+	)
+       ((===cns11643-6	    . #x2230)	; &R-C6-2230; [02-16]
+	)
+       ((===gt		    . 00182)	; &R-GT-00182;
+	(===gt-k	    . 01335)	; &R-GT-00182;
+	)
+       ((===ucs@iso	    . #x20095)	; &R-U-00020095;
+	)
+       ((=hanziku-1	    . #xAB56)	; &HZK01-AB56;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃

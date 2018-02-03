@@ -609,7 +609,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x88F0)	; &CDP-88F0;
+     ((=>iwds-1		  .  0020)	; &IWDS1-020;
       )
      ((=ucs		  . #x5BF8)	; 寸
       ))
@@ -617,27 +617,38 @@
     (=gt		. 09333)	; &I-GT-09333;
     (=gt-k		. 02773)	; &I-GT-K02773;
     (=gt-pj-9		. #x3452)	; &I-GT-09333; [20-50]
+    (=cbeta		. 12122)	; &I-CB12122;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((==gt-k		    . 00758)	; &g2-GT-K00758;
+       ((=big5-cdp	    . #x8B5E)	; &CDP-8B5E;
 	)
        ((=ucs		    . #x5BF8)	; 寸
 	))
-      (==gt		  . 09333)	; &g2-GT-09333;
-      (==gt-k		  . 02773)	; &g2-GT-09333;
+      (=>>gt		  . 09333)	; &G-GT-09333;
+      (=>>gt-k		  . 02773)	; &G-GT-09333;
+      (=>>cbeta		  . 12122)	; &G-GT-09333;
+      (->subsumptive
+       ((==gt		    . 09333)	; &g2-GT-09333;
+	(==gt-k		    . 02773)	; &g2-GT-09333;
+	)
+       ((==cbeta	    . 12122)	; &g2-CB12122;
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((==big5-cdp	    . #x88F0)	; &g2-CDP-88F0;
+       ((=big5-cdp	    . #x88F0)	; &CDP-88F0;
 	)
        ((=ucs		    . #x5BF8)	; 寸
 	))
-      (==big5-cdp	  . #x8BC3)	; &g2-CDP-8BC3;
+      (=>>big5-cdp	  . #x8BC3)	; &G-CDP-8BC3;
+      (->subsumptive
+       ((==big5-cdp	    . #x8BC3)	; &g2-CDP-8BC3;
+	))
       ))
     ))
 (define-char

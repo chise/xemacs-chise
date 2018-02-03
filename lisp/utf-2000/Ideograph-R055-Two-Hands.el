@@ -665,10 +665,12 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x88F0)	; &CDP-88F0;
+     ((=>iwds-1		  .  0020)	; &IWDS1-020;
       )
      ((=ucs		  . #x5EFE)	; 廾
       ))
+    (sound@ja/on/go	"gi")
+    (sound@ja/on/kan	"ki")
     (=ucs		. #x22333)	; 𢌳
     ))
 (define-char
@@ -682,7 +684,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x88F0)	; &CDP-88F0;
+     ((=big5-cdp	  . #x8B5E)	; &CDP-8B5E;
       )
      ((=ucs@unicode	  . #x5EFE)	; &MJ011120;
       (=mj		  . 011120)	; &MJ011120;
