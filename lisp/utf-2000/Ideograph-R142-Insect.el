@@ -10383,6 +10383,7 @@
       )
      ((=ucs		  . #x80C3)	; 胃
       ))
+    (sound@ja/on	"Wi")
     (=ucs		. #x875F)	; 蝟
     (=adobe-japan1-0	. 06525)	; &I-AJ1-06525;
     (=jis-x0208		. #x6976)	; &I-J90-6976; [73-86]
@@ -10395,6 +10396,24 @@
     (=daikanwa		. 33287)	; &I-M-33287;
     (=shinjigen@1ed	.  7215)	; 蝟
     (=shinjigen@rev	.  7216)	; 蝟
+    (<-formed
+     ((=ucs		  . #x5F59)	; 彙
+      ))
+    (<-same
+     ((=ucs		  . #x27CEA)	; 𧳪
+      (=daikanwa	  . 36593)	; &I-M-36593;
+      )
+     ((=ucs		  . #x732C)	; 猬
+      (=daikanwa	  . 20536)	; &I-M-20536;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (->ancient
+     ((=ucs		  . #x5F59)	; 彙
+      (=daikanwa	  . 09936)	; &I-M-09936;
+      ))
+    (->ancient*sources
+     erya-shu jiyun daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x875F)	; &g2-AJ1-06525;
       (==adobe-japan1-0	  . 06525)	; &g2-AJ1-06525;
@@ -22508,8 +22527,8 @@
       )
      ((=ucs		  . #x866B)	; 虫
       )
-     ((=ucs@cns		  . #x856D)	; &C1-7227;
-      (=cns11643-1	  . #x7227)	; &C1-7227; [82-07]
+     ((=ucs@cns		  . #x856D)	; &HD-KS-362390;
+      (=cns11643-1	  . #x7227)	; &HD-KS-362390; [82-07]
       (=daikanwa	  . 32012)	; &I-M-32012;
       ))
     (=ucs@cns		. #x8828)	; &C2-6D7B;
