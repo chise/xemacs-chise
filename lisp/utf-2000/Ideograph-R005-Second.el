@@ -483,12 +483,24 @@
     (=hanziku-1		. #xAE5E)	; &I-HZK01-AE5E;
     ))
 (define-char
-  '((ideographic-radical . 5)	; ⼄
+  '((<-denotational@component
+     ((=>big5-cdp	  . #x8A60)	; &A-CDP-8A60;
+      ))
+    (ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (=ucs		. #x9FB4)	; 龴
     (=adobe-japan1-4	. 14048)	; &I-AJ1-14048;
     (=big5-cdp		. #x8B69)	; &I-CDP-8B69;
+    (->subsumptive
+     ((==big5-cdp	  . #x8B69)	; &g2-CDP-8B69;
+      )
+     ((==ucs@JP/hanazono  . #x9FB4)	; &g2-AJ1-14048;
+      (==adobe-japan1-4	  . 14048)	; &g2-AJ1-14048;
+      (->subsumptive
+       ((===adobe-japan1-4  . 14048)	; &R-AJ1-14048;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄

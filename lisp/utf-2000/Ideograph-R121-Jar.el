@@ -304,7 +304,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x88F0)	; &CDP-88F0;
+     ((=>iwds-1		  .  0020)	; &IWDS1-020;
       )
      ((=ucs		  . #x7F36)	; 缶
       ))
@@ -318,29 +318,57 @@
     (=daikanwa		. 28120)	; &I-M-28120;
     (=cbeta		. 08559)	; &I-CB08559;
     (->subsumptive
-     ((==ucs@jis	  . #x4343)	; &g2-JX2-7461;
-      (==jis-x0213-2	  . #x7461)	; &g2-JX2-7461; [84-65]
-      (==gt-k		  . 07290)	; &g2-JX2-7461;
-      (==daikanwa	  . 28120)	; &g2-JX2-7461;
-      (==cbeta		  . 08559)	; &g2-JX2-7461;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=big5-cdp	    . #x8B5E)	; &CDP-8B5E;
+	)
+       ((=ucs		    . #x7F36)	; 缶
+	))
+      (=>>ucs@jis	  . #x4343)	; &G-JX2-7461;
+      (=>>jis-x0213-2	  . #x7461)	; &G-JX2-7461; [84-65]
+      (=>>gt-k		  . 07290)	; &G-JX2-7461;
+      (=>>daikanwa	  . 28120)	; &G-JX2-7461;
+      (=>>cbeta		  . 08559)	; &G-JX2-7461;
       (->subsumptive
-       ((===daikanwa	    . 28120)	; &R-M-28120;
-	)
-       ((===ucs@jis	    . 17219)
-	(===jis-x0213-2	    . #x7461)	; &R-JX2-7461; [84-65]
-	)
-       ((===gt-k	    . 07290)	; &R-GT-K07290;
-	)
-       ((===cbeta	    . 08559)	; &R-CB08559;
+       ((==ucs@jis	    . #x4343)	; &g2-JX2-7461;
+	(==jis-x0213-2	    . #x7461)	; &g2-JX2-7461; [84-65]
+	(==gt-k		    . 07290)	; &g2-JX2-7461;
+	(==daikanwa	    . 28120)	; &g2-JX2-7461;
+	(==cbeta	    . 08559)	; &g2-JX2-7461;
+	(->subsumptive
+	 ((===daikanwa	      . 28120)	; &R-M-28120;
+	  )
+	 ((===ucs@jis	      . 17219)
+	  (===jis-x0213-2     . #x7461)	; &R-JX2-7461; [84-65]
+	  )
+	 ((===gt-k	      . 07290)	; &R-GT-K07290;
+	  )
+	 ((===cbeta	      . 08559)	; &R-CB08559;
+	  ))
 	))
       )
-     ((==ucs@cns	  . #x4343)	; &g2-CDP-8CDA;
-      (==cns11643-4	  . #x2F29)	; &g2-CDP-8CDA; [15-09]
-      (==big5-cdp	  . #x8CDA)	; &g2-CDP-8CDA;
-      (->subsumptive
-       ((===cns11643-4	    . #x2F29)	; &R-C4-2F29; [15-09]
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((===big5-cdp	    . #x8CDA)	; &R-CDP-8CDA;
+       ((=big5-cdp	    . #x88F0)	; &CDP-88F0;
+	)
+       ((=ucs		    . #x7F36)	; 缶
+	))
+      (=>>ucs@cns	  . #x4343)	; &G-C4-2F29;
+      (=>>cns11643-4	  . #x2F29)	; &G-C4-2F29; [15-09]
+      (=>>big5-cdp	  . #x8CDA)	; &G-C4-2F29;
+      (->subsumptive
+       ((==ucs@cns	    . #x4343)	; &g2-CDP-8CDA;
+	(==cns11643-4	    . #x2F29)	; &g2-CDP-8CDA; [15-09]
+	(==big5-cdp	    . #x8CDA)	; &g2-CDP-8CDA;
+	(->subsumptive
+	 ((===cns11643-4      . #x2F29)	; &R-C4-2F29; [15-09]
+	  )
+	 ((===big5-cdp	      . #x8CDA)	; &R-CDP-8CDA;
+	  ))
 	))
       ))
     ))

@@ -903,26 +903,77 @@
     (=cns11643-7	. #x433F)	; &I-C7-433F; [35-31]
     ))
 (define-char
-  '((=>ucs		. #x27C0C)	; 𧰌
-    (ideographic-radical . 151)	; ⾖
-    (ideographic-strokes . 11)
-    (total-strokes	 . 18)
-    (=daikanwa		. 36310)	; &M-36310;
-    ))
-(define-char
-  '((=>ucs		. #x27C0C)	; 𧰌
-    (morohashi-daikanwa	36310 0 1)
-    (ideographic-radical . 151)	; ⾖
-    (ideographic-strokes . 11)
-    (total-strokes	 . 18)
-    (=cns11643-7	. #x4341)	; &C7-4341; [35-33]
-    ))
-(define-char
-  '((morohashi-daikanwa	36310 0 3)
-    (ideographic-radical . 151)	; ⾖
-    (ideographic-strokes . 11)
-    (total-strokes	 . 18)
+  '((ideographic-radical . 151)	; ⾖
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=>ucs@cognate	  . #x28911)	; &A-cgnU+28911;
+      )
+     ((=ucs		  . #x8C46)	; 豆
+      ))
+    (sound@ja/on	"keN")
     (=ucs		. #x27C0C)	; 𧰌
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x27C0C)	; 𧰌
+      ))
+    (ideographic-radical . 151)	; ⾖
+    (ideographic-strokes . 11)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x28911)	; 𨤑
+      )
+     ((=ucs		  . #x8C46)	; 豆
+      ))
+    (=ucs@cns		. #x27C0C)	; &C7-4341;
+    (=cns11643-7	. #x4341)	; &C7-4341; [35-33]
+    (=daikanwa		. 36310)	; &I-M-36310;
+    (<-original
+     ((=daikanwa	  . 36262)	; &M-36262;
+      ))
+    (<-original*sources
+     zhonghua-dazidian daikanwa)
+    (->wrong@kangxi
+     ((=ucs@iso		  . #x27C0C)	; &U-00027C0C;
+      ))
+    (->wrong@kangxi*sources
+     daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 36310)	; &g2-M-36310;
+      )
+     ((==ucs@cns	  . #x27C0C)	; &g2-CU+27C0C;
+      (==cns11643-7	  . #x4341)	; &g2-CU+27C0C; [35-33]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x27C0C)	; 𧰌
+      ))
+    (ideographic-radical . 151)	; ⾖
+    (ideographic-strokes . 11)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs-itaiji-002	  . #x28911)	; &U-i002+28911;
+      )
+     ((=ucs		  . #x8C46)	; 豆
+      ))
+    (=ucs@iso		. #x27C0C)	; &U-00027C0C;
+    (<-wrong@kangxi
+     ((=ucs@cns		  . #x27C0C)	; &C7-4341;
+      (=cns11643-7	  . #x4341)	; &C7-4341; [35-33]
+      (=daikanwa	  . 36310)	; &I-M-36310;
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x27C0C)	; &g2-IU-00027C0C;
+      ))
     ))
 (define-char
   '((ideographic-radical . 151)	; ⾖

@@ -1,5 +1,66 @@
 2018-02-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R121-Jar.el (JU+4343): Use IWDS1-0020 instead of
+	BC-88F0 in `ideographic-structure'.
+	(G-JU+4343): New glyph; use `<-subsumptive' for JU+4343.
+	(g2-JU+4343): Use G-JU+4343 instead of JU+4343 as the mother.
+	(G-CU+4343): New glyph; use `<-subsumptive' for JU+4343.
+	(g2-CU+4343): Use G-CU+4343 instead of JU+4343 as the mother.
+
+	* Ideograph-R087-Claw.el (A-compU+2CF16): Changed from U-0002CF16;
+	separate A-BC-8DC1 and IWDS1-0082.
+	(A-BC-89E3): New abstract component; use
+	`<-denotational@component' for A-compU+2CF16; unify A-GT-K00278.
+	(A-BC-8DC1): New abstract component; use
+	`<-denotational@component' for A-compU+2CF16; unify IWDS1-0082.
+	(A-BC-8CAC): New abstract component; use
+	`<-denotational@component' for A-compU+2CF16; unify A-GT-K00594
+	and A-U+20009-itaiji-002.
+	(GT-K00594): New character; use `<-subsumptive' for A-BC-8CAC.
+	(U+20009-itaiji-002): Likewise.
+	(BC-8CAC): Likewise.
+	(GT-K00595): Likewise.
+	(A-GT-K00277): New abstract component; use
+	`<-denotational@component' for A-BC-89E3; unify
+	A-U+722A-itaiji-003 and A-U+722A-itaiji-005.
+	(U+722A-itaiji-005): Use A-GT-K00277 instead of U-0002CF16 as its
+	mother.
+	(GT-K00277): New character; use `<-denotational' for A-GT-K00277;
+	unify U+722A-itaiji-003.
+	(BC-89E3): Separate IU+2CF16, MJ056865 and KOSEKI-002080; use
+	`ideographic-{radical|strokes}' instead of
+	`ideographic-{radical|strokes}@misc'; delete
+	`ideographic-{radical|strokes}@ucs'; use IWDS1-0082 instead of
+	U-0002CF16 as its mother; add `<-denotational@component' for
+	A-BC-89E3.
+	(BC-8DC1): Use IWDS1-0082 instead of U-0002CF16 as its mother;
+	unify GT-K00276.
+	(GT-K06204): New character.
+	(A-compU+2450D): Changed from A-cgnU+2450D.
+	(U-0002450D): Use A-compU+2450D instead of A-cgnU+2450D as its
+	mother.
+	(A-GT-K07314): New abstract node; use `<-denotational' for
+	A-compU+2450D; unify A-U+244FD-itaiji-001.
+	(GT-K07314): New character; use `<-denotational' for A-GT-K07314;
+	unify U+244FD-itaiji-001.
+	(GT-K07401): New character; use `<-denotational' for A-GT-K07314.
+	(U+7231): Apply new conventions for glyph granularity.
+	(A-GT-K07307): Unify A-U+24514-itaiji-005.
+	(GT-K07307): Unify U+24514-itaiji-005.
+	(GT-K07395): New character; use `<-denotational' for A-GT-K07307.
+	(U+2AE8F-var-001): New character; use `<-denotational' for
+	U-0002AE8F.
+	(GT-K08838): New character.
+	(A-GT-K10986): New abstract node; unify A-U+4FDD-itaiji-001.
+	(GT-K10986): New character; use `<-denotational' for A-GT-K10986.
+	(GT-K10987): Likewise; unify U+4FDD-itaiji-001.
+
+	* Ideograph-R005-Second.el (U+9FB4): Add
+	`<-denotational@component' for A-BC-8A60; add representative
+	nodes.
+
+2018-02-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R026-Seal.el (A-BC-8A60): New abstract component.
 	(BC-8A60): Use A-BC-8A60 instead of U+5369 as the mother.
 
@@ -7,7 +68,28 @@
 	`<-denotational@component' for IWDS1-0356.
 	(IWDS1-0356): New abstract component.
 
+	* Ideograph-R130-Meat.el (IWDS1-0020): Add
+	`<-denotational@component' for IWDS1-020+021 and A-compU+722B.
+	(IWDS1-020+021): New abstract node; unify A-BC-8A73.
+	(BC-88F0): Separate GT-K00758 and IWDS1-0020; use IWDS1-0020
+	instead of IWDS1-0021 and A-compU+722B as the target of
+	`<-denotational@component'.
+	(BC-8C4F): Use IWDS1-0020 instead of BC-88F0 in
+	`ideographic-structure'; apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R151-Bean.el (U-00027C0C): Use `->denotational' and
+	`->subsumptive'.
+
 2018-02-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R142-Insect.el (U+875F): Add `sound@ja/on'; add some
+	relations for other characters.
+
+	* Ideograph-R134-Mortar.el (UU+81FC): Add some relations to other
+	characters.
+	(U-00026951): Likewise; add `ideographic-structure'.
+	(U-00026952): Apply new conventions for glyph granularity.
 
 	* Ideograph-R074-Moon.el (IWDS1-0053): Use IWDS1-020+021 instead
 	of IWDS1-0021 as a target of `<-denotational@component'.
