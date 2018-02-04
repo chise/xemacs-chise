@@ -6062,21 +6062,6 @@
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x571F)	; 土
-      )
-     ((=ucs		  . #x826E)	; 艮
-      ))
-    (=ucs		. #x57A0)	; 垠
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x57A0)	; 垠
-      ))
-    (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 442 7)
@@ -6086,11 +6071,10 @@
       )
      ((=ucs		  . #x571F)	; 土
       )
-     ((=ucs@unicode	  . #x826E)	; &AJ1-02081;
-      (=adobe-japan1-0	  . 02081)	; &AJ1-02081;
+     ((=ucs		  . #x826E)	; 艮
       ))
-    (=ucs@unicode	. #x57A0)	; &AJ1-04488;
-    (=adobe-japan1-0	. 04488)	; &AJ1-04488;
+    (=ucs		. #x57A0)	; 垠
+    (=adobe-japan1-0	. 04488)	; &I-AJ1-04488;
     (=jis-x0208		. #x5437)	; &I-J90-5437; [52-23]
     (=gb2312		. #x5B73)	; &I-G0-5B73; [59-83]
     (=ks-x1001		. #x6B59)	; &I-K0-6B59; [75-57]
@@ -6100,7 +6084,7 @@
     (=gt		. 06334)	; &I-GT-06334;
     (=gt-pj-1		. #x5437)	; &I-GT-06334; [52-23]
     (=daikanwa		. 05054)	; &I-M-05054;
-    (=shinjigen		.  1388)	; &AJ1-04488;
+    (=shinjigen		.  1388)	; 垠
     (->subsumptive
      ((==ucs@unicode	  . #x57A0)	; &g2-AJ1-04488;
       (==adobe-japan1-0	  . 04488)	; &g2-AJ1-04488;
@@ -8329,11 +8313,10 @@
     (=daikanwa		. 05125)	; &I-M-05125;
     (=shinjigen		.  1389)	; 𡋳
     (<-original
-     ((=ucs@unicode	  . #x57A0)	; &AJ1-04488;
-      (=adobe-japan1-0	  . 04488)	; &AJ1-04488;
+     ((=ucs		  . #x57A0)	; 垠
       (=jis-x0208	  . #x5437)	; &I-J90-5437; [52-23]
       (=daikanwa	  . 05054)	; &I-M-05054;
-      (=shinjigen	  .  1388)	; &AJ1-04488;
+      (=shinjigen	  .  1388)	; 垠
       ))
     (<-original*sources
      zhengzitong daikanwa shinjigen)
