@@ -1,5 +1,44 @@
 2018-02-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (AJ1-04488): Unify U+57A0 instead of
+	UU+57A0.
+
+	* Ideograph-R005-Second.el (U+9FB4): Add
+	`<-denotational@component' for A-BC-8A60; add representative
+	nodes.
+
+2018-02-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R026-Seal.el (A-BC-8A60): New abstract component.
+	(BC-8A60): Use A-BC-8A60 instead of U+5369 as the mother.
+
+	* Ideograph-R025-Divination.el (U-000209E2): Add
+	`<-denotational@component' for IWDS1-0356.
+	(IWDS1-0356): New abstract component.
+
+	* Ideograph-R130-Meat.el (IWDS1-0020): Add
+	`<-denotational@component' for IWDS1-020+021 and A-compU+722B.
+	(IWDS1-020+021): New abstract node; unify A-BC-8A73.
+	(BC-88F0): Separate GT-K00758 and IWDS1-0020; use IWDS1-0020
+	instead of IWDS1-0021 and A-compU+722B as the target of
+	`<-denotational@component'.
+	(BC-8C4F): Use IWDS1-0020 instead of BC-88F0 in
+	`ideographic-structure'; apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R151-Bean.el (U-00027C0C): Use `->denotational' and
+	`->subsumptive'.
+
+2018-02-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R142-Insect.el (U+875F): Add `sound@ja/on'; add some
+	relations for other characters.
+
+	* Ideograph-R134-Mortar.el (UU+81FC): Add some relations to other
+	characters.
+	(U-00026951): Likewise; add `ideographic-structure'.
+	(U-00026952): Apply new conventions for glyph granularity.
+
 	* Ideograph-R121-Jar.el (JU+4343): Use IWDS1-0020 instead of
 	BC-88F0 in `ideographic-structure'.
 	(G-JU+4343): New glyph; use `<-subsumptive' for JU+4343.
@@ -54,42 +93,6 @@
 	(A-GT-K10986): New abstract node; unify A-U+4FDD-itaiji-001.
 	(GT-K10986): New character; use `<-denotational' for A-GT-K10986.
 	(GT-K10987): Likewise; unify U+4FDD-itaiji-001.
-
-	* Ideograph-R005-Second.el (U+9FB4): Add
-	`<-denotational@component' for A-BC-8A60; add representative
-	nodes.
-
-2018-02-03  MORIOKA Tomohiko  <tomo.git@chise.org>
-
-	* Ideograph-R026-Seal.el (A-BC-8A60): New abstract component.
-	(BC-8A60): Use A-BC-8A60 instead of U+5369 as the mother.
-
-	* Ideograph-R025-Divination.el (U-000209E2): Add
-	`<-denotational@component' for IWDS1-0356.
-	(IWDS1-0356): New abstract component.
-
-	* Ideograph-R130-Meat.el (IWDS1-0020): Add
-	`<-denotational@component' for IWDS1-020+021 and A-compU+722B.
-	(IWDS1-020+021): New abstract node; unify A-BC-8A73.
-	(BC-88F0): Separate GT-K00758 and IWDS1-0020; use IWDS1-0020
-	instead of IWDS1-0021 and A-compU+722B as the target of
-	`<-denotational@component'.
-	(BC-8C4F): Use IWDS1-0020 instead of BC-88F0 in
-	`ideographic-structure'; apply new conventions for glyph
-	granularity.
-
-	* Ideograph-R151-Bean.el (U-00027C0C): Use `->denotational' and
-	`->subsumptive'.
-
-2018-02-02  MORIOKA Tomohiko  <tomo.git@chise.org>
-
-	* Ideograph-R142-Insect.el (U+875F): Add `sound@ja/on'; add some
-	relations for other characters.
-
-	* Ideograph-R134-Mortar.el (UU+81FC): Add some relations to other
-	characters.
-	(U-00026951): Likewise; add `ideographic-structure'.
-	(U-00026952): Apply new conventions for glyph granularity.
 
 	* Ideograph-R074-Moon.el (IWDS1-0053): Use IWDS1-020+021 instead
 	of IWDS1-0021 as a target of `<-denotational@component'.
