@@ -34,6 +34,46 @@
     (=gt-pj-1		. #x3131)	; &I-GT-39032; [17-17]
     (=daikanwa		. 30173)	; &I-M-30173;
     (=shinjigen		.  6607)	; &AJ1-01235;
+    (<-formed
+     ((=ucs@cns		  . #x88D2)	; &JX2-7833;
+      (=ucs@jis		  . #x88D2)	; &JX2-7833;
+      (=jis-x0212	  . #x5C4B)	; &JX2-7833; [60-43]
+      (=cns11643-1	  . #x6656)	; &I-C1-6656; [70-54]
+      (=jis-x0213-2	  . #x7833)	; &I-JX2-7833; [88-19]
+      (=daikanwa	  . 34299)	; &I-M-34299;
+      ))
+    (<-formed*sources
+     jiyun)
+    (<-interchangeable
+     ((=ucs@jis		  . #x548E)	; &AJ1-04352;
+      (=adobe-japan1-0	  . 04352)	; &AJ1-04352;
+      (=daikanwa	  . 03493)	; &I-M-03493;
+      ))
+    (<-interchangeable*sources
+     daikanwa)
+    (<-same
+     ((=ucs@cns		  . #x88D2)	; &JX2-7833;
+      (=ucs@jis		  . #x88D2)	; &JX2-7833;
+      (=jis-x0212	  . #x5C4B)	; &JX2-7833; [60-43]
+      (=cns11643-1	  . #x6656)	; &I-C1-6656; [70-54]
+      (=jis-x0213-2	  . #x7833)	; &I-JX2-7833; [88-19]
+      (=daikanwa	  . 34299)	; &I-M-34299;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (->mistakable
+     ((=ucs		  . #x26951)	; 𦥑
+      (=daikanwa	  . 30174)	; &I-M-30174;
+      )
+     ((=ucs		  . #x26952)	; 𦥒
+      (=daikanwa	  . 30175)	; &I-M-30175;
+      ))
+    (->mistakable$_1*sources
+     zihui-biansi-2char daikanwa)
+    (->mistakable$_2*sources
+     kangxi-biansi-3char daikanwa)
+    (->mistakable*sources
+     kangxi-biansi-3char daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x81FC)	; &g2-AJ1-01235;
       (==adobe-japan1-0	  . 01235)	; &g2-AJ1-01235;
@@ -83,12 +123,44 @@
     (ideographic-radical . 134)	; ⾅
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=gt-k		  . 00594)	; &GT-K00594;
+      )
+     ((=ucs@unicode	  . #x5F50)	; &G0-6566;
+      (=gb2312		  . #x6566)	; &G0-6566; [69-70]
+      ))
     (=ucs		. #x26951)	; 𦥑
     (=cns11643-4	. #x2474)	; &I-C4-2474; [04-84]
     (=jis-x0213-2	. #x755A)	; &I-JX2-755A; [85-58]
     (=big5-cdp		. #x8AA3)	; &I-CDP-8AA3;
     (=daikanwa		. 30174)	; &I-M-30174;
     (=shinjigen		.  6608)	; 𦥑
+    (<-ancient
+     ((=ucs		  . #x530A)	; 匊
+      (=daikanwa	  . 02523)	; &I-M-02523;
+      )
+     ((=ucs		  . #x64E7)	; 擧
+      (=daikanwa	  . 12863)	; &I-M-12863;
+      ))
+    (<-ancient$_1*sources
+     yupian daikanwa)
+    (<-ancient$_2*sources
+     zihui daikanwa)
+    (<-ancient*sources
+     daikanwa)
+    (->mistakable
+     ((=ucs@unicode	  . #x81FC)	; &AJ1-01235;
+      (=adobe-japan1-0	  . 01235)	; &AJ1-01235;
+      (=daikanwa	  . 30173)	; &I-M-30173;
+      )
+     ((=ucs		  . #x26952)	; 𦥒
+      (=daikanwa	  . 30175)	; &I-M-30175;
+      ))
+    (->mistakable*sources
+     kangxi-biansi-3char daikanwa)
     (->subsumptive
      ((==ucs@iso	  . #x26951)	; &g2-JX2-755A;
       (==cns11643-4	  . #x2474)	; &g2-JX2-755A; [04-84]
@@ -121,15 +193,41 @@
   '((ideographic-radical . 134)	; ⾅
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
+    (sound@ja/on	"si")
     (=ucs		. #x26952)	; 𦥒
+    (=cns11643-6	. #x254B)	; &I-C6-254B; [05-43]
+    (=big5-cdp		. #x8863)	; &I-CDP-8863;
+    (=daikanwa		. 30175)	; &I-M-30175;
+    (<-ancient
+     ((=ucs		  . #x9F52)	; 齒
+      ))
+    (<-ancient*sources
+     jiyun)
+    (<-same
+     ((=ucs		  . #x9F52)	; 齒
+      (=daikanwa	  . 48583)	; &I-M-48583;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (->mistakable
+     ((=ucs@unicode	  . #x81FC)	; &AJ1-01235;
+      (=adobe-japan1-0	  . 01235)	; &AJ1-01235;
+      (=daikanwa	  . 30173)	; &I-M-30173;
+      )
+     ((=ucs		  . #x26951)	; 𦥑
+      (=daikanwa	  . 30174)	; &I-M-30174;
+      ))
+    (->mistakable*sources
+     kangxi-biansi-3char daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 30175)	; &M-30175;
+     ((==daikanwa	  . 30175)	; &g2-M-30175;
       )
-     ((=big5-cdp	  . #x8863)	; &CDP-8863;
+     ((==ucs@cns	  . #x26952)	; &g2-CU+26952;
+      (==cns11643-6	  . #x254B)	; &g2-CU+26952; [05-43]
       )
-     ((=ucs@iso		  . #x26952)	; &U-00026952;
+     ((==ucs@iso	  . #x26952)	; &g2-IU-00026952;
       )
-     ((=cns11643-6	  . #x254B)	; &C6-254B; [05-43]
+     ((==big5-cdp	  . #x8863)	; &g2-CDP-8863;
       ))
     ))
 (define-char
