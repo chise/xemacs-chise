@@ -1,3 +1,15 @@
+2018-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=>>cns11643-1', `=>>cns11643-2', `=>>cns11643-3', `=>>cns11643-4'
+	and `=>>cns11643-6'.
+
+	* mule/mule-conf.el (=>>cns11643-1): Modify DOC; fix `=>iso-ir'.
+	(=>>cns11643-2): New coded-charset for XEmacs CHISE.
+	(=>>cns11643-3): Ditto.
+	(=>>cns11643-4): Modify DOC.
+	(=>>cns11643-6): New coded-charset for XEmacs CHISE.
+
 2018-01-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
