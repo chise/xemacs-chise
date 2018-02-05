@@ -1,3 +1,40 @@
+2018-02-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R124-Feather.el (JU+7FCE): Add intermediate glyph
+	node.
+	(UU+7FCE): Likewise.
+	(GT-K10454): New character; use `<-denotational' for A-GT-K10773.
+
+2018-02-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R074-Moon.el (G-UU+6708): New glyph node; use
+	`<-subsumptive' for UU+6708.
+	(g2-UU+6708): Use G-UU+6708 instead of UU+6708 as its mother.
+	(U+670E): Add intermediate glyph nodes.
+
+	* Ideograph-R106-White.el (U+7680): Add `ideographic-structure'.
+	(UU+7680): Add `<-denotational@component' for IWDS1-0356.
+	(GT-K02802): Use `<-denotational@component' for IWDS1-0355 instead
+	of `<-denotational' for U+7680.
+
+	* Ideograph-R082-Fur.el (U-00023B39): Add intermediate glyph node.
+
+	* Ideograph-R030-Mouth.el (U+5464): Add intermediate glyph nodes.
+	(U-000203E7): Apply new conventions for glyph granularity.
+
+	* Ideograph-R020-Wrap.el (U+5300): Use IWDS1-0047 instead of
+	U+51AB as a component.
+
+	* Ideograph-R018-Knife.el (U+5222): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R007-Two.el (GT-K00083): Use
+	`<-denotational@component' for IWDS1-0047 instead of
+	`<-denotational' for U+4E8C.
+
+	* Ideograph-R006-Hook.el (U-00020116): Apply new conventions for
+	glyph granularity.
+
 2018-02-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (AJ1-04488): Unify U+57A0 instead of
