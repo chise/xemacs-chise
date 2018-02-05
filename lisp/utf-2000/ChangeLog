@@ -1,5 +1,11 @@
 2018-02-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R012-Eight.el (U-00020525): Unify IWDS1-0366.
+	(IU+20525): Add `ideographic-structure'.
+	(HD-TK01007810): New character; use `<-denotational' for
+	U-00020525.
+	(HD-IB0617): Likewise.
+
 	* Ideograph-R124-Feather.el (JU+7FCE): Add intermediate glyph
 	node.
 	(UU+7FCE): Likewise.
