@@ -1484,21 +1484,48 @@
 
   (make-charset
    '=>>cns11643-1
-   "CNS 11643 Plane 1 abstract glyphs."
+   "CNS 11643 Plane 1 detailed glyphs."
    '(registry "CNS11643[.-]\\(.*[.-]\\)?1$"
 	      dimension 2
 	      chars 94
 	      mother =cns11643-1
-	      =>iso-ir 184
+	      =>iso-ir 171
+	      graphic 0))
+  (make-charset
+   '=>>cns11643-2
+   "CNS 11643 Plane 2 detailed glyphs."
+   '(registry "CNS11643[.-]\\(.*[.-]\\)?2$"
+	      dimension 2
+	      chars 94
+	      mother =cns11643-2
+	      =>iso-ir 172
+	      graphic 0))
+  (make-charset
+   '=>>cns11643-3
+   "CNS 11643 Plane 3 detailed glyphs."
+   '(registry "CNS11643[.-]\\(.*[.-]\\)?3$"
+	      dimension 2
+	      chars 94
+	      mother =cns11643-3
+	      =>iso-ir 183
 	      graphic 0))
   (make-charset
    '=>>cns11643-4
-   "CNS 11643 Plane 4 abstract glyphs."
+   "CNS 11643 Plane 4 detailed glyphs."
    '(registry "CNS11643[.-]\\(.*[.-]\\)?4$"
 	      dimension 2
 	      chars 94
 	      mother =cns11643-4
 	      =>iso-ir 184
+	      graphic 0))
+  (make-charset
+   '=>>cns11643-6
+   "CNS 11643 Plane 6 detailed glyphs."
+   '(registry "CNS11643[.-]\\(.*[.-]\\)?6$"
+	      dimension 2
+	      chars 94
+	      mother =cns11643-6
+	      =>iso-ir 186
 	      graphic 0))
 
   (make-charset
@@ -3999,6 +4026,7 @@
 		  graphic	2
 		  direction	l2r
 		  =>iso-ir	177
+		  ;; mother	=>ucs@iwds-1
 		  mother	=ucs@cns
 		  ;; mother	=>>ucs@cns
 		  ))
