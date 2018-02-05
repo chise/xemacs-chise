@@ -291,7 +291,8 @@
       )
      ((=ucs		  . #x52F9)	; 勹
       )
-     ((=ucs		  . #x51AB)	; 冫
+     ((=>ucs@iwds-1	  . #x4E8C)	; &A-IWDSU+4E8C;
+      (=>iwds-1		  .  0047)	; &A-IWDSU+4E8C;
       ))
     (=ucs		. #x5300)	; 匀
     ))
@@ -362,8 +363,7 @@
       )
      ((=ucs		  . #x52F9)	; 勹
       )
-     ((=ucs@unicode	  . #x51AB)	; &AJ1-04233;
-      (=adobe-japan1-0	  . 04233)	; &AJ1-04233;
+     ((=ucs		  . #x51AB)	; 冫
       ))
     (=ucs@unicode	. #x5300)	; &AJ1-14287;
     (=ucs@JP/hanazono	. nil)
