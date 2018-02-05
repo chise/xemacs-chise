@@ -1,3 +1,17 @@
+2018-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R078-Death.el (A-cgnU+239B5): New abstract node; use
+	`<-denotational@component' for A-compU+239B5.
+	(U-000239B5): Use `<-denotational' for A-cgnU+239B5 instead of
+	`<-denotational@component' for A-compU+239B5.
+	(U+239B5-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+239B5.
+	(A-GT-K06369): New abstract component; unify A-U+25220-itaiji-001.
+	(U+25220-itaiji-001): New character; use `<-denotational' for
+	A-GT-K06369.
+	(GT-K06369): Likewise.
+	(U-000239E9): Apply new conventions for glyph granularity.
+
 2018-02-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R012-Eight.el (U-00020525): Unify IWDS1-0366.
