@@ -461,55 +461,38 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@jis	    . #x4EE4)	; &g2-AJ1-04009;
-	(==ucs@ks	    . #x4EE4)	; &g2-AJ1-04009;
-	(==adobe-japan1-0   . 04009)	; &g2-AJ1-04009;
+       ((=>>ucs@jis	    . #x4EE4)	; &G-AJ1-04009;
+	(=>>ucs@ks	    . #x4EE4)	; &G-AJ1-04009;
+	(=>>adobe-japan1-0  . 04009)	; &G-AJ1-04009;
 	)
-       ((==ucs@unicode	    . #x6BDB)	; &g2-AJ1-03807;
-	(==adobe-japan1-0   . 03807)	; &g2-AJ1-03807;
+       ((=ucs		    . #x6BDB)	; 毛
 	))
-      (==daikanwa	  . 16792)	; &g2-M-16792;
-      (==cbeta		  . 05611)	; &g2-M-16792;
+      (=>>daikanwa	  . 16792)	; &G-CB05611;
+      (=>>cbeta		  . 05611)	; &G-CB05611;
       (->subsumptive
-       ((===daikanwa	    . 16792)	; &R-M-16792;
-	)
-       ((===cbeta	    . 05611)	; &R-CB05611;
+       ((==daikanwa	    . 16792)	; &g2-M-16792;
+	(==cbeta	    . 05611)	; &g2-M-16792;
+	(->subsumptive
+	 ((===daikanwa	      . 16792)	; &R-M-16792;
+	  )
+	 ((===cbeta	      . 05611)	; &R-CB05611;
+	  ))
 	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@cns	    . #x4EE4)	; &GT-K01023;
+       ((=>>ucs@cns	    . #x4EE4)	; &GT-K01023;
 	(=gt-k		    . 01023)	; &GT-K01023;
 	)
        ((=ucs		    . #x6BDB)	; 毛
 	))
       (=>>ucs@iso	  . #x23B39)	; &G-IU+23B39;
       (->subsumptive
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((==ucs@cns	      . #x4EE4)	; &GT-K01023;
-	  (=gt-k	      . 01023)	; &GT-K01023;
-	  )
-	 ((==ucs@unicode      . #x6BDB)	; &g2-AJ1-03807;
-	  (==adobe-japan1-0   . 03807)	; &g2-AJ1-03807;
-	  ))
-	(==ucs@iso	    . #x23B39)	; &g2-IU-00023B39;
+       ((==ucs@iso	    . #x23B39)	; &g2-IU-00023B39;
 	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	  (=ucs		      . #x2FF0)	; ⿰
-	  )
-	 ((==ucs@cns	      . #x4EE4)	; &GT-K01023;
-	  (=gt-k	      . 01023)	; &GT-K01023;
-	  )
-	 ((==ucs@cns	      . #x6BDB)	; &g2-CU+6BDB;
-	  (==cns11643-1	      . #x4553)	; &g2-CU+6BDB; [37-51]
-	  ))
-	(==ucs@cns	    . #x23B39)	; &g2-CU+23B39;
+       ((==ucs@cns	    . #x23B39)	; &g2-CU+23B39;
 	(==cns11643-5	    . #x296E)	; &g2-CU+23B39; [09-78]
 	))
       ))
