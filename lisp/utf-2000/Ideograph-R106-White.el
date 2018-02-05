@@ -140,11 +140,25 @@
       (=>iwds-1		  .  0355)	; &A-compU+7680;
       ))
     (ideographic-radical . 106)	; ⽩
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x767D)	; 白
+      )
+     ((=>ucs@jis	  . #x5315)	; &J97-5238;
+      (=ucs@big5	  . #x5315)	; &J97-5238;
+      (=>jis-x0208	  . #x5238)	; &J97-5238; [50-24]
+      ))
     (=ucs		. #x7680)	; 皀
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x7680)	; 皀
+      ))
+    (<-denotational@component
+     ((=>ucs@iwds-1	  . #x209E2)	; &A-IWDSU+209E2;
+      (=>iwds-1		  .  0356)	; &A-IWDSU+209E2;
       ))
     (ideographic-radical . 106)	; ⽩
     (ideographic-strokes . 2)
@@ -212,14 +226,23 @@
       ))
     ))
 (define-char
-  '((<-denotational
-     ((=ucs		  . #x7680)	; 皀
+  '((<-denotational@component
+     ((=>ucs@component	  . #x7680)	; &A-compU+7680;
+      (=>iwds-1		  .  0355)	; &A-compU+7680;
       ))
     (ideographic-radical . 106)	; ⽩
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
     (=gt-k		. 02802)	; &GT-K02802;
     (=gt-pj-k1		. #x3C5F)	; &GT-K02802; [28-63]
+    (<-formed@component/connect-right
+     ((=ucs@unicode	  . #x7680)	; &AJ1-05786;
+      (=adobe-japan1-0	  . 05786)	; &AJ1-05786;
+      ))
+    (->subsumptive
+     ((==gt-k		  . 02802)	; &g2-GT-K02802;
+      (==gt-pj-k1	  . #x3C5F)	; &g2-GT-K02802; [28-63]
+      ))
     ))
 (define-char
   '((ideographic-radical . 106)	; ⽩
