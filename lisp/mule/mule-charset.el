@@ -603,9 +603,14 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>jis-x0208@1997
 	  =>>hanyo-denshi/ft
 	  =>>hanyo-denshi/jt
-	  =>>gt
 	  =>>adobe-japan1-6
+	  =>>cns11643-1
+	  =>>cns11643-2
+	  =>>cns11643-3
+	  =>>cns11643-4
+	  =>>cns11643-6
 	  =>>cbeta
+	  =>>gt
 	  =>cns11643-7
 	  =>cbeta
 	  =+>adobe-japan1-6
