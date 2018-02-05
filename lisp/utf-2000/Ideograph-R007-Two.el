@@ -114,8 +114,9 @@
       ))
     ))
 (define-char
-  '((<-denotational
-     ((=ucs		  . #x4E8C)	; 二
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x4E8C)	; &A-IWDSU+4E8C;
+      (=>iwds-1		  .  0047)	; &A-IWDSU+4E8C;
       ))
     (ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 0)
@@ -124,6 +125,10 @@
     (=gt-pj-k1		. #x3B78)	; &GT-K00083; [27-88]
     (<-formed@component
      ((=ucs		  . #x4E8C)	; 二
+      ))
+    (->subsumptive
+     ((==gt-k		  . 00083)	; &g2-GT-K00083;
+      (==gt-pj-k1	  . #x3B78)	; &g2-GT-K00083; [27-88]
       ))
     ))
 (define-char
