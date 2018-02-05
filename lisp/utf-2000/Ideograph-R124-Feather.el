@@ -2388,29 +2388,35 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@jis	    . #x4EE4)	; &g2-AJ1-04009;
-	(==ucs@ks	    . #x4EE4)	; &g2-AJ1-04009;
-	(==adobe-japan1-0   . 04009)	; &g2-AJ1-04009;
+       ((=>>ucs@jis	    . #x4EE4)	; &G-AJ1-04009;
+	(=>>ucs@ks	    . #x4EE4)	; &G-AJ1-04009;
+	(=>>adobe-japan1-0  . 04009)	; &G-AJ1-04009;
 	)
        ((=ucs		    . #xFA1E)	; 羽
 	))
-      (==ucs@jis	  . #x7FCE)	; &g2-JSP-5539;
-      (==ucs@ks		  . #x7FCE)	; &g2-JSP-5539;
-      (==ks-x1001	  . #x563F)	; &g2-JSP-5539; [54-31]
-      (==jis-x0212	  . #x5539)	; &g2-JSP-5539; [53-25]
-      (==jis-x0213-1	  . #x7A3E)	; &g2-JSP-5539; [90-30]
-      (==daikanwa	  . 28663)	; &g2-JSP-5539;
-      (==jef-china3	  . #x60AB)	; &g2-JSP-5539;
+      (=>>ucs@jis	  . #x7FCE)	; &G-JX1-7A3E;
+      (=>>ucs@ks	  . #x7FCE)	; &G-JX1-7A3E;
+      (=>>jis-x0213-1	  . #x7A3E)	; &G-JX1-7A3E; [90-30]
+      (=>>daikanwa	  . 28663)	; &G-JX1-7A3E;
       (->subsumptive
-       ((===daikanwa	    . 28663)	; &R-M-28663;
-	)
-       ((===jis-x0212	    . #x5539)	; &R-JX1-7A3E; [53-25]
-	(===jis-x0213-1	    . #x7A3E)	; &R-JX1-7A3E; [90-30]
-	)
-       ((===ucs@ks	    . #x7FCE)	; &R-K0-563F;
-	(===ks-x1001	    . #x563F)	; &R-K0-563F; [54-31]
-	)
-       ((===jef-china3	    . #x60AB)	; &R-JC3-60AB;
+       ((==ucs@jis	    . #x7FCE)	; &g2-JSP-5539;
+	(==ucs@ks	    . #x7FCE)	; &g2-JSP-5539;
+	(==ks-x1001	    . #x563F)	; &g2-JSP-5539; [54-31]
+	(==jis-x0212	    . #x5539)	; &g2-JSP-5539; [53-25]
+	(==jis-x0213-1	    . #x7A3E)	; &g2-JSP-5539; [90-30]
+	(==daikanwa	    . 28663)	; &g2-JSP-5539;
+	(==jef-china3	    . #x60AB)	; &g2-JSP-5539;
+	(->subsumptive
+	 ((===daikanwa	      . 28663)	; &R-M-28663;
+	  )
+	 ((===jis-x0212	      . #x5539)	; &R-JX1-7A3E; [53-25]
+	  (===jis-x0213-1     . #x7A3E)	; &R-JX1-7A3E; [90-30]
+	  )
+	 ((===ucs@ks	      . #x7FCE)	; &R-K0-563F;
+	  (===ks-x1001	      . #x563F)	; &R-K0-563F; [54-31]
+	  )
+	 ((===jef-china3      . #x60AB)	; &R-JC3-60AB;
+	  ))
 	))
       ))
     ))
@@ -2439,28 +2445,35 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@cns	    . #x4EE4)	; &GT-K01023;
+       ((=>>ucs@cns	    . #x4EE4)	; &GT-K01023;
 	(=gt-k		    . 01023)	; &GT-K01023;
 	)
-       ((==ucs@unicode	    . #x7FBD)	; &g2-AJ1-01227;
-	(==adobe-japan1-0   . 01227)	; &g2-AJ1-01227;
+       ((=ucs@unicode	    . #x7FBD)	; &AJ1-01227;
+	(=adobe-japan1-0    . 01227)	; &AJ1-01227;
 	))
-      (==ucs@cns	  . #x7FCE)	; &g2-CU+7FCE;
-      (==cns11643-1	  . #x5C63)	; &g2-CU+7FCE; [60-67]
+      (=>>ucs@cns	  . #x7FCE)	; &G-CU+7FCE;
+      (=>>cns11643-1	  . #x5C63)	; &G-CU+7FCE; [60-67]
+      (->subsumptive
+       ((==ucs@cns	    . #x7FCE)	; &g2-CU+7FCE;
+	(==cns11643-1	    . #x5C63)	; &g2-CU+7FCE; [60-67]
+	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((==ucs@unicode	    . #x4EE4)	; &GT-K01022;
+       ((=>>ucs@unicode	    . #x4EE4)	; &GT-K01022;
 	(=gt-k		    . 01022)	; &GT-K01022;
 	)
-       ((==ucs@unicode	    . #x7FBD)	; &g2-AJ1-01227;
-	(==adobe-japan1-0   . 01227)	; &g2-AJ1-01227;
+       ((=ucs@unicode	    . #x7FBD)	; &AJ1-01227;
+	(=adobe-japan1-0    . 01227)	; &AJ1-01227;
 	))
-      (==ucs@unicode	  . #x7FCE)	; &g2-UU+7FCE;
-      (==ucs@JP/hanazono  . nil)
-      (==gb2312		  . #x7461)	; &g2-UU+7FCE; [84-65]
+      (=>>ucs@unicode	  . #x7FCE)	; &G-UU+7FCE;
+      (->subsumptive
+       ((==ucs@unicode	    . #x7FCE)	; &g2-UU+7FCE;
+	(==ucs@JP/hanazono  . nil)
+	(==gb2312	    . #x7461)	; &g2-UU+7FCE; [84-65]
+	))
       ))
     ))
 (define-char
@@ -4143,6 +4156,29 @@
      ((=big5-cdp	  . #x8CA3)	; &CDP-8CA3;
       )
      ((=ucs		  . #x24566)	; 𤕦
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 10773)	; &A-GT-K10773;
+      ))
+    (ideographic-radical . 124)	; ⽻
+    (ideographic-strokes . 7)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x7FBD)	; &AJ1-01227;
+      (=adobe-japan1-0	  . 01227)	; &AJ1-01227;
+      )
+     ((=ucs		  . #x26951)	; 𦥑
+      ))
+    (=gt-k		. 10454)	; &GT-K10454;
+    (=gt-pj-k2		. #x3771)	; &GT-K10454; [23-81]
+    (->subsumptive
+     ((==gt-k		  . 10454)	; &g2-GT-K10454;
+      (==gt-pj-k2	  . #x3771)	; &g2-GT-K10454; [23-81]
       ))
     ))
 (define-char
