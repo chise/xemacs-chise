@@ -1,3 +1,13 @@
+2018-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-make-char-spec): Try to omit
+	`=ucs@big5'.
+
+2018-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R021-Spoon.el (IWDS1-0140): Unify A-IWDSU+5315; omit
+	A-JU+5315.
+
 2018-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R078-Death.el (A-cgnU+239B5): New abstract node; use

@@ -194,7 +194,6 @@
 (define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x52FB)	; &A-IWDSU+52FB;
-      (=ucs@big5	  . #x52FB)	; &A-IWDSU+52FB;
       (=>iwds-1		  .  0048)	; &A-IWDSU+52FB;
       ))
     (ideographic-radical . 20)	; ⼓
@@ -279,7 +278,6 @@
 (define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x52FB)	; &A-IWDSU+52FB;
-      (=ucs@big5	  . #x52FB)	; &A-IWDSU+52FB;
       (=>iwds-1		  .  0048)	; &A-IWDSU+52FB;
       ))
     (ideographic-radical . 20)	; ⼓
@@ -1329,7 +1327,6 @@
 (define-char
   '((<-denotational
      ((=>ucs@iwds-1	  . #x56F1)	; &A-IWDSU+56F1;
-      (=ucs@big5	  . #x56EA)	; &A-IWDSU+56F1;
       (=>iwds-1		  .  0361)	; &A-IWDSU+56F1;
       ))
     (ideographic-radical@ucs . 31)	; ⼞
