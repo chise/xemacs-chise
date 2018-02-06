@@ -14,6 +14,22 @@
 
 2018-02-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R138-Stopping.el (IWDS1-0199): Unify A-IWDSU+826E
+	instead of U+826E.
+	(AJ1-02081): Unify U+826E instead of UU+826E.
+	(BC-8B7C): Use `<-denotational@component' for IWDS1-0199,
+	IWDS1-0357 and IWDS1-0356 instead of `<-denotational' for
+	IWDS1-0357.
+	(IWDS1-0357): Delete `<-denotational' for U+826E.
+	(GT-K02400): Use `<-denotational@component' instead of
+	`<-denotational' for IWDS1-0357.
+	(A-IWDSU+826F): New abstract node; unify A-cgnU+826F.
+	(U+826F): Add `<-denotational' for A-IWDSU+826F.
+	(GT-K02673): Use `<-subsumptive' instead of `<-denotational' for
+	U+826F.
+	(BC-8C42): Use A-IWDSU+826F instead of U+826F as its mother; add
+	`<-denotational@component' for IWDS1-0355.
+
 	* Ideograph-R012-Eight.el (U-00020525): Unify IWDS1-0366.
 	(IU+20525): Add `ideographic-structure'.
 	(HD-TK01007810): New character; use `<-denotational' for
