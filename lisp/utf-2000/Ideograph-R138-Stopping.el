@@ -2,18 +2,19 @@
 (define-char
   '((ideographic-radical . 138)	; ⾉
     (ideographic-strokes . 0)
-    (=ucs		. #x826E)	; 艮
-    (=>iwds-1		.  0199)	; 艮
+    (=>ucs@iwds-1	. #x826E)	; &A-IWDSU+826E;
+    (=>iwds-1		.  0199)	; &A-IWDSU+826E;
     ))
 (define-char
-  '((<-denotational
-     ((=ucs		  . #x826E)	; 艮
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x826E)	; &A-IWDSU+826E;
+      (=>iwds-1		  .  0199)	; &A-IWDSU+826E;
       ))
     (ideographic-radical . 138)	; ⾉
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (=ucs@unicode	. #x826E)	; &AJ1-02081;
-    (=adobe-japan1-0	. 02081)	; &AJ1-02081;
+    (=ucs		. #x826E)	; 艮
+    (=adobe-japan1-0	. 02081)	; &I-AJ1-02081;
     (=jis-x0208		. #x3A31)	; &I-J90-3A31; [26-17]
     (=gb2312		. #x745E)	; &I-G0-745E; [84-62]
     (=ks-x1001		. #x4A5D)	; &I-K0-4A5D; [42-61]
@@ -24,7 +25,7 @@
     (=gt-k		. 01615)	; &I-GT-K01615;
     (=gt-pj-1		. #x3A31)	; &I-GT-39585; [26-17]
     (=daikanwa		. 30596)	; &I-M-30596;
-    (=shinjigen		.  6669)	; &AJ1-02081;
+    (=shinjigen		.  6669)	; 艮
     (->subsumptive
      ((==ucs@unicode	  . #x826E)	; &g2-AJ1-02081;
       (==adobe-japan1-0	  . 02081)	; &g2-AJ1-02081;
@@ -58,36 +59,17 @@
       ))
     ))
 (define-char
-  '((<-denotational
-     ((=ucs		  . #x826E)	; 艮
-      ))
-    (ideographic-radical . 138)	; ⾉
-    (ideographic-strokes . 0)
-    (=>big5-cdp		. #x8B7C)	; &IWDS1-357;
-    (=>iwds-1		.  0357)	; &IWDS1-357;
-    ))
-(define-char
-  '((<-denotational
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x826E)	; &A-IWDSU+826E;
+      (=>iwds-1		  .  0199)	; &A-IWDSU+826E;
+      )
      ((=>iwds-1		  .  0357)	; &IWDS1-357;
-      ))
-    (ideographic-radical . 138)	; ⾉
-    (ideographic-strokes . 0)
-    (total-strokes	 . 6)
-    (=gt-k		. 02400)	; &CDP-v001-8B7C;
-    (=gt-pj-k1		. #x3439)	; &CDP-v001-8B7C; [20-25]
-    (=big5-cdp-var-001	. #x8B7C)	; &CDP-v001-8B7C;
-    (->subsumptive
-     ((==gt-k		  . 02400)	; &g2-GT-K02400;
-      (==gt-pj-k1	  . #x3439)	; &g2-GT-K02400; [20-25]
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=>iwds-1		  .  0357)	; &IWDS1-357;
-      ))
-    (<-denotational@component
+      )
      ((=>ucs@component	  . #x7680)	; &A-compU+7680;
       (=>iwds-1		  .  0355)	; &A-compU+7680;
+      )
+     ((=>ucs@iwds-1	  . #x209E2)	; &A-IWDSU+209E2;
+      (=>iwds-1		  .  0356)	; &A-IWDSU+209E2;
       ))
     (ideographic-radical . 138)	; ⾉
     (ideographic-strokes . 0)
@@ -102,6 +84,36 @@
     ))
 (define-char
   '((ideographic-radical . 138)	; ⾉
+    (ideographic-strokes . 0)
+    (=>big5-cdp		. #x8B7C)	; &IWDS1-357;
+    (=>iwds-1		.  0357)	; &IWDS1-357;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>iwds-1		  .  0357)	; &IWDS1-357;
+      ))
+    (ideographic-radical . 138)	; ⾉
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (=gt-k		. 02400)	; &CDP-v001-8B7C;
+    (=gt-pj-k1		. #x3439)	; &CDP-v001-8B7C; [20-25]
+    (=big5-cdp-var-001	. #x8B7C)	; &CDP-v001-8B7C;
+    (->subsumptive
+     ((==gt-k		  . 02400)	; &g2-GT-K02400;
+      (==gt-pj-k1	  . #x3439)	; &g2-GT-K02400; [20-25]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 138)	; ⾉
+    (=>ucs@iwds-1	. #x826F)	; &A-IWDSU+826F;
+    (=>ucs@cognate	. #x826F)	; &A-IWDSU+826F;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x826F)	; &A-IWDSU+826F;
+      (=>ucs@cognate	  . #x826F)	; &A-IWDSU+826F;
+      ))
+    (ideographic-radical . 138)	; ⾉
     (ideographic-strokes . 1)
     (total-strokes	 . 7)
     (=ucs		. #x826F)	; 良
@@ -151,31 +163,34 @@
 	(===gt-k	    . 02672)	; &R-GT-39586;
 	))
       )
+     ((=gt-k		  . 02673)	; &GT-K02673;
+      (=gt-pj-k1	  . #x374D)	; &GT-K02673; [23-45]
+      (<-formed@component/connect-right
+       ((=ucs		    . #x826F)	; 良
+	))
+      (->subsumptive
+       ((==gt-k		    . 02673)	; &g2-GT-K02673;
+	(==gt-pj-k1	    . #x374D)	; &g2-GT-K02673; [23-45]
+	))
+      )
      ((=gt-k		  . 02674)	; &GT-K02674;
       (=gt-pj-k1	  . #x3B7A)	; &GT-K02674; [27-90]
+      (->subsumptive
+       ((==gt-k		    . 02674)	; &g2-GT-K02674;
+	(==gt-pj-k1	    . #x3B7A)	; &g2-GT-K02674; [27-90]
+	))
       )
      ((===hng-khi	  . 05390)	; &HNG010-05390;
       ))
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x826F)	; 良
+     ((=>ucs@iwds-1	  . #x826F)	; &A-IWDSU+826F;
+      (=>ucs@cognate	  . #x826F)	; &A-IWDSU+826F;
       ))
-    (ideographic-radical . 138)	; ⾉
-    (ideographic-strokes . 1)
-    (total-strokes	 . 7)
-    (=gt-k		. 02673)	; &GT-K02673;
-    (=gt-pj-k1		. #x374D)	; &GT-K02673; [23-45]
-    (<-formed@component/connect-right
-     ((=ucs		  . #x826F)	; 良
-      ))
-    (->subsumptive
-     ((==gt-k		  . 02673)	; &g2-GT-K02673;
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x826F)	; 良
+    (<-denotational@component
+     ((=>ucs@component	  . #x7680)	; &A-compU+7680;
+      (=>iwds-1		  .  0355)	; &A-compU+7680;
       ))
     (ideographic-radical . 138)	; ⾉
     (ideographic-strokes . 1)
@@ -189,9 +204,6 @@
       ))
     (->subsumptive
      ((==big5-cdp	  . #x8C42)	; &g2-CDP-8C42;
-      (<-simplified@component
-       ((==gt-k		    . 02673)	; &g2-GT-K02673;
-	))
       ))
     ))
 (define-char
