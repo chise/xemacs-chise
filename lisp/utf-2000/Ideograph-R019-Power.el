@@ -2358,7 +2358,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@big5	  . #x544A)	; &J97-3970;
+     ((=>ucs@iwds-1	  . #x543F)	; &J97-3970;
       (=>jis-x0208	  . #x3970)	; &J97-3970; [25-80]
       )
      ((=ucs		  . #x529B)	; 力
@@ -6260,7 +6260,6 @@
       )
      ((=>ucs@iwds-1	  . #x5F37)	; &J97-362F;
       (=>ucs@jis	  . #x5F37)	; &J97-362F;
-      (=ucs@big5	  . #x5F37)	; &J97-362F;
       (=>jis-x0208	  . #x362F)	; &J97-362F; [22-15]
       )
      ((=ucs		  . #x529B)	; 力
