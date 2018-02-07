@@ -513,6 +513,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (=ucs		. #x536F)	; 卯
+    (=>iwds-1		.  0039)	; 卯
     ))
 (define-char
   '((<-denotational
