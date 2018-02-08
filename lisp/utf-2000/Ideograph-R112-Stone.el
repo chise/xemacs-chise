@@ -1323,18 +1323,36 @@
     ))
 (define-char
   '((ideographic-radical . 112)	; ⽯
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x77F3)	; 石
+      )
+     ((=>ucs@component	  . #x5F00)	; &A-compU+5F00;
+      (=>iwds-1		  .  0180)	; &A-compU+5F00;
+      ))
+    (=>ucs@iwds-1	. #x784F)	; &J97-3826;
     (=ucs@big5		. #x7814)	; &J97-3826;
     (=>jis-x0208@1997	. #x3826)	; &J97-3826; [24-06]
     (=big5		. #xACE3)	; &J97-3826;
     ))
 (define-char
   '((<-denotational
-     ((=ucs@big5	  . #x7814)	; &J97-3826;
+     ((=>ucs@iwds-1	  . #x784F)	; &J97-3826;
       (=>jis-x0208@1997	  . #x3826)	; &J97-3826; [24-06]
       ))
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x77F3)	; 石
+      )
+     ((=ucs		  . #x5F00)	; 开
+      ))
     (=ucs		. #x7814)	; 研
     (=adobe-japan1-0	. 01882)	; &I-AJ1-01882;
     (=jis-x0208		. #x3826)	; &I-J90-3826; [24-06]
@@ -3471,12 +3489,20 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs@big5	  . #x7814)	; &J97-3826;
+     ((=>ucs@iwds-1	  . #x784F)	; &J97-3826;
       (=>jis-x0208@1997	  . #x3826)	; &J97-3826; [24-06]
       ))
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x77F3)	; 石
+      )
+     ((=>ucs@component	  . #x5E75)	; &A-compU+5E75;
+      ))
     (=ucs		. #x784F)	; 硏
     ))
 (define-char
@@ -3561,7 +3587,18 @@
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x77F3)	; 石
+      )
+     ((=ucs-itaiji-003	  . #x5E75)	; &U-i003+5E75;
+      ))
     (=jef-china3	. #x5CA8)	; &JC3-5CA8;
+    (->subsumptive
+     ((==jef-china3	  . #x5CA8)	; &g2-JC3-5CA8;
+      ))
     ))
 (define-char
   '((ideographic-radical . 112)	; ⽯
