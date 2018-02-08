@@ -1,9 +1,49 @@
+2018-02-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R143-Blood.el (U+8846): Add `ideographic-structure'.
+	(UU+8846): Likewise.
+	(U+8846-itaiji-005): Use UU+4E51 instead of U+4E51 in
+	`ideographic-structure'.
+
 2018-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R112-Stone.el (A-J97-3826): Unify A-IWDSU+784F; add
+	`ideographic-structure'.
+	(U+7814): Add `ideographic-structure'.
+	(U+784F): Likewise.
+	(JC3-5CA8): Likewise.
+
+	* Ideograph-R061-Heart.el (AJ1-02072): Unify U+6068 instead of
+	UU+6068.
+	(A-J0-3159): Unify A-IWDSU+6085.
+	(B-B759): Unify A-IWDSU+6120; add `ideographic-structure'.
+
+	* Ideograph-R042-Small.el (A-J0-3E30): Add
+	`ideographic-structure'; unify A-IWDSU+5C19.
+	(U+5C19): Apply new conventions for glyph granularity.
+	(U+5C1A): Add `ideographic-structure'.
+
+	* Ideograph-R004-Slash.el (U-00020092): New character.
+	(U+4E22): Apply new conventions for glyph granularity.
 
 	* Ideograph-R026-Seal.el (U+536F): Unify IWDS1-0039.
 
 	* char-db-util.el (char-db-make-char-spec): Try to omit
 	`=ucs@big5'.
+
+2018-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R150-Valley.el (A-cgnU+472D): New abstract node.
+	(U+472D): Add `<-denotational' for A-cgnU+472D; add
+	`ideographic-structure'; unify GT-48568 and GT-K10164.
+	(U+472D-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+472D.
+	(GT-K10155): Likewise.
+	(M-36200): Unify U-00027BB4; add `ideographic-structure'.
+	(U-00027BB8): Apply new conventions for glyph granularity.
+	(U+595A): Likewise.
+	(U-00027BC6): Likewise.
+	(U+8C42): Likewise.
 
 2018-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
