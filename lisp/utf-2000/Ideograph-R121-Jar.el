@@ -796,8 +796,8 @@
       )
      ((=ucs		  . #x7F36)	; 缶
       )
-     ((==>ucs@bucs	  . #x672C)	; &BUCS+672C;
-      (=>ucs@component	  . #x672C)	; &BUCS+672C;
+     ((=>ucs@iwds-1	  . #x672C)	; &A-IWDSU+672C;
+      (=>iwds-1		  .  0126)	; &A-IWDSU+672C;
       ))
     (=ucs		. #x7F3D)	; 缽
     ))
