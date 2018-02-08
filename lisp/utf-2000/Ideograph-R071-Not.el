@@ -352,8 +352,7 @@
     (=mj		. 057647)	; &MJ057647;
     (=koseki		. 154190)	; &MJ057647;
     (<-formed
-     ((=ucs@unicode	  . #x65E2)	; &AJ1-01591;
-      (=adobe-japan1-0	  . 01591)	; &AJ1-01591;
+     ((=ucs		  . #x65E2)	; 既
       ))
     (->subsumptive
      ((==mj		  . 057647)	; &g2-MJ057647;
