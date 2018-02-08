@@ -1,5 +1,46 @@
 2018-02-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R073-Say.el (A-cgnU+66F7): New abstract node.
+	(U+66F7): Add `<-denotational' for A-cgnU+66F7; unify IWDS1-0323.
+	(HD-TK01038540): New character; use `<-denotational' for U+66F7.
+	(U+66F7-itaiji-004): Use A-cgnU+66F7 instead of U+66F7 as its
+	mother.
+	(U-0002D96D): Copied from Ideograph-R072-Sun.el; add
+	`<-denotational' for A-cgnU+66F7.
+	(U+2D96D-var-001): Copied from Ideograph-R072-Sun.el.
+	(MJ057661): New character; use `<-denotational' for U-0002D96D;
+	unify KOSEKI-156260.
+
+	* Ideograph-R049-Oneself.el (U-00022045): Add
+	`ideographic-structure'.
+	(A-CU+22045): Use GT-K02013 instead of "⿰巳巳".
+	(CU+22045): Add `ideographic-structure'.
+	(U+22045-var-002): Use GT-K02013 instead of "⿰巳巳".
+	(IU+22045): Add `ideographic-structure'.
+
+	* Ideograph-R045-Sprout.el (A-cgnU+5C6F): New abstract node.
+	(U+5C6F): Add `<-denotational' for A-cgnU+5C6F.
+	(BC-8AF0): New character; add `<-denotational' for A-cgnU+5C6F;
+	unify CB04490; add HNG-INK0630-0, HNG-NTO0621-0 and HNG-NKM0631-0.
+
+	* Ideograph-R032-Earth.el (A-J97-4536): Add
+	`ideographic-structure'; unify A-IWDSU+5861.
+	(U+5861): Add ideographic-structure.
+	(A-JX2-252B): Add `ideographic-structure'; unify A-IWDSU+588D.
+	(U+588D): Add ideographic-structure.
+	(U+5848): Apply new conventions for glyph granularity.
+
+	* Ideograph-R013-Down-Box.el (A-J0-4662): Separate BUCS+5167;
+	unify A-IWDSU+5167.
+
+	* Ideograph-R001-One.el (BUCS+4E1F): Separate B-A5E1.
+	(B-A5E1): Separate BUCS+4E1F; add `<-denotational' for BUCS+4E1F;
+	unify A-IWDSU+4E1F.
+	(U+4E1F): Add representative nodes.
+	(U+4E22): Apply new conventions for glyph granularity.
+
+2018-02-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R143-Blood.el (U+8846): Add `ideographic-structure'.
 	(UU+8846): Likewise.
 	(U+8846-itaiji-005): Use UU+4E51 instead of U+4E51 in
