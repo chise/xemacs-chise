@@ -120,6 +120,13 @@
     ))
 (define-char
   '((ideographic-radical . 45)	; ⼬
+    (=>ucs@cognate	. #x5C6F)	; &A-cgnU+5C6F;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5C6F)	; &A-cgnU+5C6F;
+      ))
+    (ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (=ucs		. #x5C6F)	; 屯
@@ -182,6 +189,39 @@
 	  )
 	 ((===ucs@unicode     . #x5C6F)	; &R-UU+5C6F;
 	  ))
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5C6F)	; &A-cgnU+5C6F;
+      ))
+    (ideographic-radical . 45)	; ⼬
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (=big5-cdp		. #x8AF0)	; &CDP-8AF0;
+    (=cbeta		. 04490)	; &I-CB04490;
+    (->subsumptive
+     ((==big5-cdp	  . #x8AF0)	; &g2-CDP-8AF0;
+      (->subsumptive
+       ((===big5-cdp	    . #x8AF0)	; &R-CDP-8AF0;
+	)
+       ((===hng-ink	    . 06300)	; &HNG033-06300;
+	(<-HNG@chise
+	 ((=big5-cdp	      . #x8AF0)	; &CDP-8AF0;
+	  ))
+	))
+      )
+     ((==cbeta		  . 04490)	; &g2-CB04490;
+      )
+     ((===hng-nto	  . 06210)	; &HNG034-06210;
+      (<-HNG@chise
+       ((=big5-cdp	    . #x8AF0)	; &CDP-8AF0;
+	))
+      )
+     ((===hng-nkm	  . 06310)	; &HNG036-06310;
+      (<-HNG@chise
+       ((=big5-cdp	    . #x8AF0)	; &CDP-8AF0;
 	))
       ))
     ))
