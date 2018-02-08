@@ -636,8 +636,8 @@
     ))
 (define-char
   '((<-denotational
-     ((==>ucs@bucs	  . #x672C)	; &BUCS+672C;
-      (=>ucs@component	  . #x672C)	; &BUCS+672C;
+     ((=>ucs@iwds-1	  . #x672C)	; &A-IWDSU+672C;
+      (=>iwds-1		  .  0126)	; &A-IWDSU+672C;
       ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 2)

@@ -1478,6 +1478,22 @@
     (=big5-cdp		. #x8D7B)	; &I-CDP-8D7B;
     ))
 (define-char
+  '((ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (=ucs		. #x20092)	; 𠂒
+    (<-unknown
+     ((=ucs		  . #x5C16)	; 尖
+      ))
+    (->mistakable
+     ((name		  . "CJK RADICAL COW")
+      (=ucs		  . #x2EA7)	; ⺧
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x20092)	; &g2-IU-00020092;
+      ))
+    ))
+(define-char
   '((<-denotational
      ((=ucs		  . #x27607)	; 𧘇
       ))
@@ -2289,8 +2305,8 @@
     ))
 (define-char
   '((<-denotational
-     ((==>ucs@bucs	  . #x4E1F)	; &BUCS+4E1F;
-      (=ucs@big5	  . #x4E1F)	; &BUCS+4E1F;
+     ((=>ucs@iwds-1	  . #x4E1F)	; &A-IWDSU+4E1F;
+      (=big5		  . #xA5E1)	; &A-IWDSU+4E1F;
       ))
     (ideographic-radical@ucs . 1)	; ⼀
     (ideographic-radical@cns . 4)	; ⼃
@@ -2312,8 +2328,30 @@
     (=gt-k		. 02131)	; &I-GT-K02131;
     (=gt-pj-2		. #x3132)	; &I-GT-00193; [17-18]
     (=daikanwa		. 00144)	; &I-M-00144;
-    (=hanziku-1		. #xF56D)	; &I-HZK01-F56D;
     (=jef-china3	. #x41BA)	; &I-JC3-41BA;
+    (->subsumptive
+     ((==ucs@unicode	  . #x4E22)	; &g2-GT-00193;
+      (==gb2312		  . #x362A)	; &g2-GT-00193; [22-10]
+      (==cns11643-3	  . #x2263)	; &g2-GT-00193; [02-67]
+      (==gt		  . 00193)	; &g2-GT-00193;
+      (==gt-k		  . 02131)	; &g2-GT-00193;
+      (==daikanwa	  . 00144)	; &g2-GT-00193;
+      (==jef-china3	  . #x41BA)	; &g2-GT-00193;
+      (->subsumptive
+       ((===daikanwa	    . 00144)	; &R-M-00144;
+	)
+       ((===cns11643-3	    . #x2263)	; &R-C3-2263; [02-67]
+	)
+       ((===gt		    . 00193)	; &R-GT-00193;
+	(===gt-k	    . 02131)	; &R-GT-00193;
+	)
+       ((===jef-china3	    . #x41BA)	; &R-JC3-41BA;
+	)
+       ((===ucs@unicode	    . #x4E22)	; &R-UU+4E22;
+	)
+       ((=hanziku-1	    . #xF56D)	; &HZK01-F56D;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃

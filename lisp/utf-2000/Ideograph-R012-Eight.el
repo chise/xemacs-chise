@@ -48,7 +48,7 @@
       (=>>gt-k		  . 00056)	; &G-MJ007273;
       (=>>daikanwa	  . 01450)	; &G-MJ007273;
       (=shinjigen	  .  0490)	; &G-MJ007273;
-      (=jef-china3	  . #x43E4)	; &G-MJ007273;
+      (=jef-china3	  . #x43E4)	; &I-JC3-43E4;
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x516B)	; 八
