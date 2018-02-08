@@ -1370,6 +1370,14 @@
   '((ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>gt-k		  . 02013)	; &A-GT-K02013;
+      )
+     ((=>ucs@component	  . #x20985)	; &A-compU+20985;
+      ))
     (sound@ja/on	"soN")
     (=ucs		. #x22045)	; 𢁅
     ))
@@ -1382,14 +1390,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x5DF3)	; 巳
-	)
-       ((=ucs		    . #x5DF3)	; 巳
-	))
+     ((=gt-k		  . 02013)	; &U-i002+5DF3;
       )
      ((=>ucs@component	  . #x5F00)	; &A-compU+5F00;
       (=>iwds-1		  .  0180)	; &A-compU+5F00;
@@ -1405,6 +1406,14 @@
     (ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 02013)	; &U-i002+5DF3;
+      )
+     ((=ucs		  . #x5E75)	; 幵
+      ))
     (=ucs@cns		. #x22045)	; &MJ034970;
     (=mj		. 034970)	; &MJ034970;
     (=cns11643-6	. #x4836)	; &I-C6-4836; [40-22]
@@ -1455,14 +1464,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x5DF3)	; 巳
-	)
-       ((=ucs		    . #x5DF3)	; 巳
-	))
+     ((=gt-k		  . 02013)	; &U-i002+5DF3;
       )
      ((=ucs		  . #x5F00)	; 开
       ))
@@ -1475,6 +1477,14 @@
     (ideographic-radical . 49)	; ⼰
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 02013)	; &U-i002+5DF3;
+      )
+     ((=ucs		  . #x20985)	; 𠦅
+      ))
     (=ucs@iso		. #x22045)	; &U-00022045;
     (->subsumptive
      ((==ucs@iso	  . #x22045)	; &g2-IU-00022045;
