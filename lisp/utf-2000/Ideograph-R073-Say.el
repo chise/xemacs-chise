@@ -600,7 +600,23 @@
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x66F0)	; 曰
+      )
+     ((=>ucs@component	  . #x5303)	; &A-compU+5303;
+      ))
+    (=>ucs@cognate	. #x66F7)	; &A-cgnU+66F7;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x66F7)	; &A-cgnU+66F7;
+      ))
+    (ideographic-radical . 73)	; ⽈
     (=ucs		. #x66F7)	; 曷
+    (=>iwds-1		.  0323)	; 曷
     ))
 (define-char
   '((<-denotational
@@ -688,17 +704,22 @@
      ((=ucs		  . #x66F7)	; 曷
       ))
     (ideographic-radical . 73)	; ⽈
-    (ideographic-strokes . 4)
-    (total-strokes	 . 8)
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
      ((=ucs		  . #x66F0)	; 曰
       )
-     ((=ucs-itaiji-001	  . #x5302)	; &U-i001+5302;
+     ((=mj		  . 057080)	; &MJ057080;
       ))
-    (=ucs-itaiji-004	. #x66F7)	; &U-i004+66F7;
+    (=hanyo-denshi/tk	. 01038540)	; &HD-TK-01038540;
+    (=hanyo-denshi/tk/mf-01 . #x0F0E)	; &HD-TK-01038540;
+    (->subsumptive
+     ((==hanyo-denshi/tk  . 01038540)	; &g2-HD-TK-01038540;
+      (==hanyo-denshi/tk/mf-01 . #x0F0E)	; &g2-HD-TK-01038540;
+      ))
     ))
 (define-char
   '((<-denotational
@@ -740,6 +761,93 @@
 	)
        ((===mj		    . 013489)	; &R-MJ013489;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x66F7)	; &A-cgnU+66F7;
+      ))
+    (ideographic-radical . 73)	; ⽈
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x66F0)	; 曰
+      )
+     ((=ucs-itaiji-001	  . #x5302)	; &U-i001+5302;
+      ))
+    (=ucs-itaiji-004	. #x66F7)	; &U-i004+66F7;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x66F7)	; &A-cgnU+66F7;
+      ))
+    (ideographic-radical@ucs . 72)	; ⽇
+    (ideographic-radical@koseki . 73)	; ⽈
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
+      )
+     ((=ucs		  . #x208CF)	; 𠣏
+      ))
+    (=ucs		. #x2D96D)	; 𭥭
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D96D)	; 𭥭
+      ))
+    (ideographic-radical@ucs . 72)	; ⽇
+    (ideographic-radical@koseki . 73)	; ⽈
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
+      )
+     ((=ucs@cns		  . #x208CF)	; &C5-2235;
+      (=cns11643-5	  . #x2235)	; &C5-2235; [02-21]
+      ))
+    (=ucs-var-001	. #x2D96D)	; &U-v001+2D96D;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D96D)	; 𭥭
+      ))
+    (ideographic-radical@ucs . 72)	; ⽇
+    (ideographic-radical@koseki . 73)	; ⽈
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
+      )
+     ((=ucs@iso		  . #x208CF)	; &M-02509;
+      (=daikanwa	  . 02509)	; &M-02509;
+      ))
+    (=ucs@JP/hanazono	. #x2D96D)	; &MJ057661;
+    (=mj		. 057661)	; &MJ057661;
+    (=koseki		. 156260)	; &MJ057661;
+    (<-formed
+     ((=ucs@unicode	  . #x66F7)	; &MJ013488;
+      (=mj		  . 013488)	; &MJ013488;
+      ))
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D96D)	; &g2-MJ057661;
+      (==mj		  . 057661)	; &g2-MJ057661;
+      (==koseki		  . 156260)	; &g2-MJ057661;
       ))
     ))
 (define-char
