@@ -371,6 +371,19 @@
     ))
 (define-char
   '((<-denotational@component
+     ((=>ucs@component	  . #x20985)	; &A-compU+20985;
+      ))
+    (ideographic-radical . 51)	; ⼲
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (=>ucs@component	. #x5E75)	; &A-compU+5E75;
+    (*note		"IWDS1-0180 may subsume U+5E75-itaiji-003.")
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x5E75)	; &A-compU+5E75;
+      ))
+    (<-denotational@component
      ((=>ucs@component	  . #x5F00)	; &A-compU+5F00;
       (=>iwds-1		  .  0180)	; &A-compU+5F00;
       ))
@@ -435,6 +448,29 @@
 	 ((===mj	      . 010947)	; &R-MJ010947;
 	  ))
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x5E75)	; &A-compU+5E75;
+      ))
+    (ideographic-radical . 51)	; ⼲
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5343)	; 千
+      )
+     ((=ucs		  . #x5E72)	; 干
+      ))
+    (=ucs-itaiji-003	. #x5E75)	; &U-i003+5E75;
+    (->mistakable
+     ((=ucs		  . #x20985)	; 𠦅
+      ))
+    (->subsumptive
+     ((==ucs-itaiji-003	  . #x5E75)	; &g2-U-i003+5E75;
       ))
     ))
 (define-char
@@ -1037,7 +1073,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 51)	; ⼲
+  '((<-denotational@component
+     ((=>ucs@component	  . #x20985)	; &A-compU+20985;
+      ))
+    (ideographic-radical . 51)	; ⼲
     (=>ucs@component	. #x5F00)	; &A-compU+5F00;
     (=>iwds-1		.  0180)	; &A-compU+5F00;
     ))
