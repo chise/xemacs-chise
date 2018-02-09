@@ -2191,8 +2191,8 @@
       )
      ((=ucs		  . #x767D)	; 白
       )
-     ((=>ucs@component	  . #x7232)	; &A-compU+7232;
-      (=>iwds-1		  .  0315)	; &A-compU+7232;
+     ((=>ucs@iwds-1	  . #x7232)	; &A-IWDSU+7232;
+      (=>iwds-1		  .  0315)	; &A-IWDSU+7232;
       ))
     (=ucs		. #x24FA1)	; 𤾡
     ))
