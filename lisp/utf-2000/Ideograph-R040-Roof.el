@@ -5668,25 +5668,44 @@
   '((ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (=>ucs@cognate	. #x5BC7)	; &A-cgnU+5BC7;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5BC7)	; &A-cgnU+5BC7;
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x5B8C)	; 完
+      )
+     ((=ucs		  . #x6535)	; 攵
+      ))
     (=ucs		. #x21A25)	; 𡨥
     (=cns11643-6	. #x3E59)	; &I-C6-3E59; [30-57]
     (=daikanwa		. 07208)	; &I-M-07208;
     (=shinjigen		.  3172)	; 𡨥
     (=cbeta		. 02480)	; &I-CB02480;
     (<-vulgar
-     ((=shinjigen@1ed	  .  3171)	; &SJG1-3171;
-      )
      ((=ucs@unicode	  . #x5BC7)	; &AJ1-04627;
       (=adobe-japan1-0	  . 04627)	; &AJ1-04627;
       (=jis-x0208	  . #x5564)	; &I-J90-5564; [53-68]
+      (=daikanwa	  . 07209)	; &I-M-07209;
       (=shinjigen@rev	  .  3171)	; &AJ1-04627;
+      )
+     ((=hanyo-denshi/jt	  . #xB028)	; &HD-JT-B028;
+      (=shinjigen@1ed	  .  3171)	; &HD-JT-B028;
       ))
     (<-vulgar$_1*sources
-     shinjigen@1ed)
+     zhengzitong daikanwa shinjigen@rev)
     (<-vulgar$_2*sources
-     shinjigen@rev)
+     shinjigen@1ed)
     (<-vulgar*sources
-     shinjigen)
+     zhengzitong daikanwa shinjigen)
     (->subsumptive
      ((==ucs@iso	  . #x21A25)	; &g2-M-07208;
       (==daikanwa	  . 07208)	; &g2-M-07208;
@@ -5706,9 +5725,20 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 40)	; ⼧
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5BC7)	; &A-cgnU+5BC7;
+      ))
+    (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x5B8C)	; 完
+      )
+     ((=ucs		  . #x6534)	; 攴
+      ))
     (=ucs		. #x5BC7)	; 寇
     ))
 (define-char
@@ -5718,6 +5748,14 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=big5-cdp	  . #x8DD7)	; &CDP-8DD7;
+      ))
     (=ucs@unicode	. #x5BC7)	; &AJ1-04627;
     (=adobe-japan1-0	. 04627)	; &AJ1-04627;
     (=jis-x0208		. #x5564)	; &I-J90-5564; [53-68]
@@ -5772,7 +5810,20 @@
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (=shinjigen@1ed	.  3171)	; &SJG1-3171;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=ucs		  . #x5B8C)	; 完
+      )
+     ((=ucs-var-001	  . #x6534)	; &U-v001+6534;
+      ))
+    (=hanyo-denshi/jt	. #xB028)	; &HD-JT-B028;
+    (=shinjigen@1ed	.  3171)	; &HD-JT-B028;
+    (->subsumptive
+     ((==hanyo-denshi/jt  . #xB028)	; &g2-HD-JT-B028;
+      (==shinjigen@1ed	  .  3171)	; &g2-HD-JT-B028;
+      ))
     ))
 (define-char
   '((=>ucs		. #x21A26)	; 𡨦
