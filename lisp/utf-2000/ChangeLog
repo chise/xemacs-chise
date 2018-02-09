@@ -1,5 +1,22 @@
 2018-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el (BC-8C69): Use BC-88EE instead of
+	U-0002008E in `ideographic-structure'; unify CB08500.
+	(A-IWDSU+5211): New abstract node.
+	(U+5211): Add `<-denotational' for A-IWDSU+5211.
+	(U+34DD): Unify S-0605; apply new conventions for glyph
+	granularity.
+	(A-BC-8CAF): New abstract node; unify A-GT-K02231.
+	(GT-K02232): New character; use `<-denotational' for A-BC-8CAF.
+	(BC-8CAF): Add `<-denotational' for A-BC-8CAF.
+	(BC-8CAF-itaiji-001): New character.
+	(U-000206EC): Add `<-denotational' for A-IWDSU+5211; apply new
+	conventions for glyph granularity.
+
+	* Ideograph-R001-One.el (U-00020045): Add `ideographic-structure'.
+	(IU+20045): Use U-0002F82A instead of U+5306 in
+	`ideographic-structure'.
+
 	* Ideograph-R004-Slash.el (U-00020092): Add
 	`<-denotational@component' for A-compU+725B.
 
