@@ -5532,6 +5532,14 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=big5-cdp	  . #x88BC)	; &CDP-88BC;
+      )
+     ((=ucs		  . #x5306)	; 匆
+      ))
     (=ucs		. #x20045)	; 𠁅
     ))
 (define-char
@@ -5548,7 +5556,7 @@
       )
      ((=big5-cdp	  . #x88BC)	; &CDP-88BC;
       )
-     ((=ucs		  . #x5306)	; 匆
+     ((=ucs		  . #x2F82A)	; 匆
       ))
     (=ucs@iso		. #x20045)	; &MJ058590;
     (=mj		. 058590)	; &MJ058590;
