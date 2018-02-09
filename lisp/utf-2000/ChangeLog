@@ -1,3 +1,38 @@
+2018-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (A-IWDSU+4EBC): New abstract node.
+	(A-M-00345): Add `<-denotational' for A-IWDSU+4EBC; unify
+	A-BC-8AFC and IWDS1-0064.
+	(U+4EBC): Apply new conventions for glyph granularity.
+	(BC-8AFC): Unify GT-K00355 and CB07224.
+	(U+4EBD): Apply new conventions for glyph granularity.
+	(A-J0-4662): Separate BUCS+5167; unify A-IWDSU+5167; add
+	`<-denotational' for BUCS+5167.
+	(U+4EE4): Add `ideographic-structure'; add intermediate glyph
+	nodes.
+	(U+4EFA): Use IWDS1-0082 instead of U-0002CF16 in
+	`ideographic-structure'.
+	(UU+4EFA): Use BC-89E3 instead of MJ056865 in
+	`ideographic-structure'.
+	(U+4F36): Add intermediate glyph nodes.
+	(U+4F59): Add `ideographic-structure'.
+	(A-J97-4A3B): Add `ideographic-structure'; unify A-IWDSU+5002.
+	(U+5009): Add `ideographic-structure'; add intermediate glyph
+	nodes.
+	(U+4ED3): Apply new conventions for glyph granularity.
+	(BUCS+5018): Separate U+5018 and B-ADD5.
+	(U+5018): Separate BUCS+5018; add `<-denotational' for BUCS+5018.
+	(A-IWDSU+5022): New abstract node.
+	(U+5022): Add `<-denotational' for A-IWDSU+5022; use UU+758C
+	instead of U+758C in `ideographic-structure'.
+	(U+507C): Add `<-denotational' for A-IWDSU+5022; apply new
+	conventions for glyph granularity.
+	(B-B0B0): Unify A-IWDSU+50DE; add `ideographic-structure'.
+	(JU+509C): Add intermediate glyph nodes.
+	(UU+509C): Add representative node.
+	(U+347E): Apply new conventions for glyph granularity.
+	(U-0002033F): Likewise.
+
 2018-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (BC-8C69): Use BC-88EE instead of
