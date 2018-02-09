@@ -1,4 +1,47 @@
+2018-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (U-00020092): Add
+	`<-denotational@component' for A-compU+725B.
+
+	* Ideograph-R087-Claw.el (IWDS1-0315): Unify A-IWDSU+7232 instead
+	of A-compU+7232.
+
+	* Ideograph-R010-Legs.el (A-IWDSU+514C): Add
+	`ideographic-structure'.
+	(G-JU+514C): New glyph node; use `<-subsumptive' for U+514C.
+	(g2-JU+514C): Use G-JU+514C instead of U+514C as its mother.
+	(U+514D): Add `<-denotational@component' for A-compU+514D; add
+	`=>iwds-1*note'; unify A-IWDSU+10189 (149+189).
+	(o-UU+514D): Unify IWDS1-0189.
+	(U+5154): Add `<-denotational@component' for A-compU+514D.
+	(U+20486-itaiji-004): New character.
+	(A-compU+514D): New abstract node; use `=>iwds-1*note'; unify
+	IWDS1-10243 (149+243).
+
+2018-02-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R051-Dry.el (A-compU+5E75): New abstract node; use
+	`<-denotational@component' for A-compU+20985.
+	(U+5E75): Add `<-denotational' for A-compU+5E75.
+	(U+5E75-itaiji-003): New character; use `<-denotational' for
+	A-compU+5E75.
+	(IWDS1-0180): Add `<-denotational@component' for A-compU+20985.
+
+	* Ideograph-R040-Roof.el (A-cgnU+5BC7): New abstract node.
+	(U-00021A25): Add `<-denotational' for A-cgnU+5BC7; add
+	`ideographic-structure'.
+	(U+5BC7): Likewise.
+	(UU+5BC7): Add `ideographic-structure'.
+	(S1-3171): Likewise; unify HD-JT-B028.
+
+	* Ideograph-R024-Ten.el (U-00020985): Add
+	`<-denotational@component' for A-compU+20985; apply new
+	conventions for glyph granularity.
+	(A-compU+20985): New abstract node.
+
 2018-02-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R142-Insect.el (A-J0-6968): Unify A-IWDSU+86FB.
 
 	* Ideograph-R073-Say.el (A-cgnU+66F7): New abstract node.
 	(U+66F7): Add `<-denotational' for A-cgnU+66F7; unify IWDS1-0323.

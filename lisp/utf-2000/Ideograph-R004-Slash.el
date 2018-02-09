@@ -1478,7 +1478,10 @@
     (=big5-cdp		. #x8D7B)	; &I-CDP-8D7B;
     ))
 (define-char
-  '((ideographic-radical . 4)	; ⼃
+  '((<-denotational@component
+     ((=>ucs@component	  . #x725B)	; &A-compU+725B;
+      ))
+    (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
     (=ucs		. #x20092)	; 𠂒
