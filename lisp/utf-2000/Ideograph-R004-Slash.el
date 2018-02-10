@@ -460,6 +460,32 @@
       ))
     ))
 (define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E5D)	; &A-compU+4E5D;
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x200C9)	; 𠃉
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      ))
+    (=ucs-itaiji-001	. #x20832)	; &U-i001+20832;
+    (<-formed
+     ((=ucs		  . #x20832)	; 𠠲
+      ))
+    (->mistakable
+     ((=ucs		  . #x4E5D)	; 九
+      ))
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x20832)	; &g2-U-i001+20832;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 4)	; ⼃
     (==>ucs@bucs	. #x4E45)	; &BUCS+4E45;
     ))
@@ -1017,6 +1043,56 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (=big5-cdp		. #x8D41)	; &CDP-8D41;
+    ))
+(define-char
+  '((ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      )
+     ((=>ucs@component	  . #x4E5D)	; &A-compU+4E5D;
+      ))
+    (=ucs		. #x2CF03)	; 𬼃
+    (=cbeta		. 07427)	; &I-CB07427;
+    (<-formed@buddhism
+     ((=ucs		  . #x5350)	; 卐
+      )
+     ((=ucs		  . #x534D)	; 卍
+      ))
+    (<-formed@buddhism*references (link (:ref "http://21dzk.l.u-tokyo.ac.jp/SAT2015/T2131_.54.1147a12:1147a12.cit") "T2131_.54.1147a12"))
+    (<-formed@buddhism*sources
+     T2131_\.54\.1147a12)
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x4E3F)	; 丿
+	)
+       ((=ucs-itaiji-001    . #x20832)	; &U-i001+20832;
+	))
+      (=>>cbeta		  . 07427)	; &G-CB07427;
+      (->subsumptive
+       ((==cbeta	    . 07427)	; &g2-CB07427;
+	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x4E3F)	; 丿
+	)
+       ((=ucs		    . #x4E5D)	; 九
+	))
+      (=>>ucs@iso	  . #x2CF03)	; &G-IU+2CF03;
+      (->subsumptive
+       ((==ucs@iso	    . #x2CF03)	; &g2-IU-0002CF03;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃
