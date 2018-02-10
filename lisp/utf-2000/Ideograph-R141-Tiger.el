@@ -88,7 +88,27 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x88BC)	; &A-GT-K01853;
+      ))
+    (ideographic-radical . 141)	; ⾌
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (=ucs-itaiji-001	. #x864D)	; &U-i001+864D;
+    ))
+(define-char
   '((ideographic-radical . 141)	; ⾌
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (=>big5-cdp		. #x88BC)	; &A-GT-K01853;
+    (=>gt-k		. 01853)	; &A-GT-K01853;
+    (=>ucs-itaiji-001	. #x864D)	; &A-GT-K01853;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x88BC)	; &A-GT-K01853;
+      ))
+    (ideographic-radical . 141)	; ⾌
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
     (=big5-cdp		. #x88BC)	; &CDP-88BC;
@@ -96,6 +116,11 @@
     (=gt-pj-k2		. #x464A)	; &CDP-88BC; [38-42]
     (<-formed
      ((=ucs		  . #x864D)	; 虍
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x88BC)	; &g2-CDP-88BC;
+      (==gt-k		  . 01853)	; &g2-CDP-88BC;
+      (==gt-pj-k2	  . #x464A)	; &g2-CDP-88BC; [38-42]
       ))
     ))
 (define-char
