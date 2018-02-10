@@ -1,5 +1,49 @@
 2018-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R141-Tiger.el (U+864D-itaiji-001): New character; use
+	`<-denotational' for A-BC-88BC.
+	(A-BC-88BC): New abstract node; unify A-GT-K01853 and
+	A-U+864D-itaiji-001.
+	(BC-88BC): Add `<-denotational' for A-BC-88BC.
+
+2018-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R074-Moon.el (U-0002DA44): New character.
+
+	* Ideograph-R030-Mouth.el (A-J97-465D): Add
+	`ideographic-structure'; unify A-IWDSU+541E.
+	(A-J0-5265): Unify A-IWDSU+5436.
+	(A-J0-3970): Add `ideographic-structure'; unify A-IWDSU+543F and
+	IWDS1-0070.
+	(U+543F): Add representative nodes.
+	(U+54E0): Apply new conventions for glyph granularity.
+	(A-CB03993): Unify U-0002D295.
+
+	* Ideograph-R020-Wrap.el (A-cgnU+5302): New abstract component;
+	use `<-denotational@component' for A-compU+5303.
+	(U+5302): Add `<-denotational' for A-cgnU+5302.
+	(U+5302-itaiji-001): Likewise.
+	(U+5303): Add `<-denotational@component' for A-compU+5303.
+	(U-000208CF): Likewise.
+	(A-cgnU+5308): New abstract node.
+	(U+5308): Add `<-denotational' for A-cgnU+5308.
+	(MJ057080): New character; use `<-denotational' for A-cgnU+5308;
+	use `<-denotational@component' for A-compU+5303; unify
+	HD-KS029170, GT-K01120 and CB13242.
+	(U+5306-itaiji-001): New character.
+	(U-0002D14D): New character; unify MJ059392.
+	(A-compU+5303): New abstract node.
+
+	* Ideograph-R005-Second.el (U+4E5D): Add A-compU+4E5D as a target
+	of `<-denotational@component'.
+	(U+4EBE-itaiji-001): New character.
+	(A-compU+4E5D): Separate IWDS1-0203.
+	(IWDS1-0203): Unify A-IWDSU+4E5D instead of A-compU+4E5D.
+
+	* Ideograph-R004-Slash.el (U+20832-itaiji-001): New character; use
+	`<-denotational@component' for A-compU+4E5D.
+	(U-0002CF03): New character; unify CB07427.
+
 	* Ideograph-R009-Man.el (A-IWDSU+4EBC): New abstract node.
 	(A-M-00345): Add `<-denotational' for A-IWDSU+4EBC; unify
 	A-BC-8AFC and IWDS1-0064.

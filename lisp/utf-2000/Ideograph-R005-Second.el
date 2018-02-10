@@ -324,7 +324,9 @@
 (define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x4E5D)	; &A-compU+4E5D;
-      (=>iwds-1		  .  0203)	; &A-compU+4E5D;
+      )
+     ((=>ucs@iwds-1	  . #x4E5D)	; &A-IWDSU+4E5D;
+      (=>iwds-1		  .  0203)	; &A-IWDSU+4E5D;
       )
      ((=>ucs@component	  . #x4E38)	; &A-compU+4E38;
       (=>iwds-1		  .  0249)	; &A-compU+4E38;
@@ -850,6 +852,30 @@
      ((=ucs		  . #x4EA1)	; 亡
       )
      ((=ucs		  . #x5C71)	; 山
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x200CA)	; 𠃊
+      )
+     ((=ucs		  . #x3405)	; 㐅
+      ))
+    (=ucs-itaiji-001	. #x4EBE)	; &U-i001+4EBE;
+    (<-formed
+     ((=ucs		  . #x4EBE)	; 亾
+      )
+     ((=ucs		  . #x5166)	; 兦
+      )
+     ((=mj		  . 006462)	; &MJ006462;
+      ))
+    (<-simplified@component
+     ((=ucs		  . #x51F6)	; 凶
       ))
     ))
 (define-char
@@ -4191,5 +4217,9 @@
 (define-char
   '((ideographic-radical . 5)	; ⼄
     (=>ucs@component	. #x4E5D)	; &A-compU+4E5D;
-    (=>iwds-1		.  0203)	; &A-compU+4E5D;
+    ))
+(define-char
+  '((ideographic-radical . 5)	; ⼄
+    (=>ucs@iwds-1	. #x4E5D)	; &A-IWDSU+4E5D;
+    (=>iwds-1		.  0203)	; &A-IWDSU+4E5D;
     ))

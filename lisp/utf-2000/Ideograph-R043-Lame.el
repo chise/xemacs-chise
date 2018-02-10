@@ -4,8 +4,8 @@
      ((=>ucs@component	  . #x5C22)	; &A-compU+5C22;
       (=>iwds-1		  .  0099)	; &A-compU+5C22;
       )
-     ((=>ucs@component	  . #x4E5D)	; &A-compU+4E5D;
-      (=>iwds-1		  .  0203)	; &A-compU+4E5D;
+     ((=>ucs@iwds-1	  . #x4E5D)	; &A-IWDSU+4E5D;
+      (=>iwds-1		  .  0203)	; &A-IWDSU+4E5D;
       )
      ((=>ucs@component	  . #x5C24)	; &A-compU+5C24;
       (=>iwds-1		  .  0250)	; &A-compU+5C24;
