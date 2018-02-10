@@ -3,6 +3,15 @@
   '((ideographic-radical . 93)	; ⽜
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (=>ucs@component	. #x725B)	; &A-compU+725B;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x725B)	; &A-compU+725B;
+      ))
+    (ideographic-radical . 93)	; ⽜
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
     (=ucs		. #x725B)	; 牛
     (=adobe-japan1-0	. 01671)	; &I-AJ1-01671;
     (=jis-x0208		. #x356D)	; &I-J90-356D; [21-77]
@@ -50,6 +59,28 @@
 	)
        ((===hng-kar	    . 10620)	; &HNG018-10620;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x725B)	; &A-compU+725B;
+      ))
+    (name		. "CJK RADICAL COW")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (ideographic-radical . 93)	; ⽜
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (=ucs		. #x2EA7)	; ⺧
+    (=big5-cdp		. #x8B66)	; &I-CDP-8B66;
+    (<-formed@component/connect-below
+     ((=ucs		  . #x725B)	; 牛
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8B66)	; &g2-CDP-8B66;
+      )
+     ((==ucs@iso	  . #x2EA7)	; &g2-IU-00002EA7;
       ))
     ))
 (define-char
@@ -1788,7 +1819,7 @@
       )
      ((=ucs		  . #x725B)	; 牛
       )
-     ((=ucs@big5	  . #x544A)	; &J97-3970;
+     ((=>ucs@iwds-1	  . #x543F)	; &J97-3970;
       (=>jis-x0208	  . #x3970)	; &J97-3970; [25-80]
       ))
     (=ucs		. #x727F)	; 牿
