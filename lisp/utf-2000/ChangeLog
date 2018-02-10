@@ -1,4 +1,28 @@
+2018-02-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R093-Cow.el (A-compU+725B): New abstract node.
+	(U+725B): Add `<-denotational@component' for A-compU+725B.
+	(<CJK RADICAL COW>): Copied from u02E00-CJK-Radical-Supplement.el;
+	add `<-denotational@component' for A-compU+725B; add
+	`ideographic-{radical|strokes}' and `total-strokes'.
+
 2018-02-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R015-Ice.el (IWDS1-0219): Unify A-IWDSU+51AB instead
+	of U+51AB; delete `<-denotational@component' for IWDS1-0047.
+	(AJ1-04233): Unify U+51AB instead of UU+51AB; use
+	`<-denotational@component' for IWDS1-0047 and IWDS1-0219 instead
+	of `<-denotational' for IWDS1-0219.
+	(BC-8971): Use `<-denotational@component' for IWDS1-0219 instead
+	of `<-denotational' for U+51AB.
+	(U+51AC): Add `ideographic-structure'.
+	(U-0002F81A): Separate KU+51AC and K0-544F; apply new conventions
+	for glyph granularity.
+	(UU+51AC): Unify K0-544F.
+	(U+51B7): Add intermediate glyph nodes.
+	(U-00020605): Add `sound@ja/on/{kan|go}'.
+	(IU+20605): Unify MJ031137 and KOSEKI-020300.
+	(UU+51DB): Apply new conventions for glyph granularity.
 
 	* Ideograph-R141-Tiger.el (U+864D-itaiji-001): New character; use
 	`<-denotational' for A-BC-88BC.
