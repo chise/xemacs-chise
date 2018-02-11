@@ -2656,6 +2656,24 @@
     (=>gt-k		. 02231)	; &A-GT-K02231;
     ))
 (define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8CAF)	; &A-GT-K02231;
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL KNIFE ONE")
+      (=ucs		  . #x2E88)	; ⺈
+      )
+     ((=ucs		  . #x5188)	; 冈
+      ))
+    (=big5-cdp-itaiji-002 . #x8CAF)	; &CDP-i002-8CAF;
+    ))
+(define-char
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
