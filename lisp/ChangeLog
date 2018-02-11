@@ -1,3 +1,13 @@
+2018-02-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=>>hanyo-denshi/ia' and `=>cns11643-1'.
+
+2018-02-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=>cns11643-1): New coded-charset for XEmacs
+	CHISE.
+
 2018-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
