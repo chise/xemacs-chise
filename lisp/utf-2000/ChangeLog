@@ -1,5 +1,33 @@
 2018-02-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R081-Compare.el (U+23B0B-itaiji-003): New character;
+	use `<-denotational' for A-cgnU+23B09; use
+	`<-denotational@component' for A-compU+3C8B.
+	(A-U+23B0B-itaiji-001): New abstract node; use `<-denotational'
+	for A-cgnU+23B09; use `<-denotational@component' for A-compU+3C8B;
+	unify A-U+23B0B-itaiji-004.
+	(U+23B0B-itaiji-004): New character; use `<-denotational' for
+	A-U+23B0B-itaiji-001.
+	(U+23B0B-itaiji-001): Omit `<-denotational@component' for
+	A-compU+3C8B; use A-U+23B0B-itaiji-001 instead of A-cgnU+23B09 as
+	its mother.
+
+	* Ideograph-R038-Woman.el (U+59D8): Apply new conventions for
+	glyph granularity.
+	(U+5A29): Add `<-denotational@component' for A-IWDSU+5A29.
+	(U+5A4F): Ditto.
+	(U+5AD3): Add `ideographic-structure'; add representative nodes.
+	(B-D8B5): Add `ideographic-structure'; unify A-IWDSU+5B00.
+	(U+5B00): Apply new conventions for glyph granularity.
+	(U+5AAF): Likewise.
+	(A-IWDSU+5B0E): Add `ideographic-structure'.
+	(A-IWDSU+5A29): New abstract node.
+
+	* Ideograph-R023-Hiding-Enclosure.el (U-0002D15F): New character.
+
+	* Ideograph-R018-Knife.el (BC-8CAF-itaiji-002): New character; use
+	`<-denotational' for A-BC-8CAF.
+
 	* Ideograph-R093-Cow.el (A-compU+725B): New abstract node.
 	(U+725B): Add `<-denotational@component' for A-compU+725B.
 	(<CJK RADICAL COW>): Copied from u02E00-CJK-Radical-Supplement.el;
