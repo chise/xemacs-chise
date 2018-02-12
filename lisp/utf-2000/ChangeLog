@@ -1,5 +1,16 @@
 2018-02-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R112-Stone.el (U-0002E035): New character.
+
+2018-02-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+357F): New character.
+
+	* Ideograph-R010-Legs.el (A-cgnU+514C): New abstract node; use
+	`<-denotational' for BUCS+514C.
+	(U+514A): Use A-cgnU+514C instead of BUCS+514C as its mother.
+	(A-IWDSU+514C): Likewise.
+
 	* Ideograph-R009-Man.el (A-cgnU+4F32): New abstract node.
 	(U+4F32): Add `<-denotational' for A-cgnU+4F32.
 	(CB04360): New character; use `<-denotational' for A-cgnU+4F32.
@@ -7,6 +18,9 @@
 	(MJ056921): Add `<-denotational' for A-cgnU+96B9.
 	(GT-K04948): New character; use `<-denotational' for A-GT-K04948;
 	unify U+23470-itaiji-001.
+
+	* Ideograph-R006-Hook.el (U+3427-itaiji-002): New character; use
+	`<-denotational' for U+3427.
 
 2018-02-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 

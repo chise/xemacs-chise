@@ -7896,6 +7896,30 @@
     (=cns11643-4	. #x4550)	; &I-C4-4550; [37-48]
     ))
 (define-char
+  '((ideographic-radical . 112)	; ⽯
+    (ideographic-strokes . 9)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x77F3)	; 石
+      )
+     ((=ucs-itaiji-001	  . #x2D19E)	; &U-i001+2D19E;
+      ))
+    (=ucs		. #x2E035)	; 𮀵
+    (=cbeta		. 03935)	; &I-CB03935;
+    (<-formed
+     ((=ucs		  . #x2557A)	; 𥕺
+      )
+     ((=ucs		  . #x78E3)	; 磣
+      ))
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2E035)	; &g2-CB03935;
+      (==cbeta		  . 03935)	; &g2-CB03935;
+      ))
+    ))
+(define-char
   '((=>ucs		. #x2552D)	; 𥔭
     (ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 10)
