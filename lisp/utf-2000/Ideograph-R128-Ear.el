@@ -2259,6 +2259,7 @@
      ((=ucs		  . #x343A)	; 㐺
       ))
     (=>ucs@cns		. #x805A)	; &A-CU+805A;
+    (=>cns11643-1	. #x6A4D)	; &A-CU+805A; [74-45]
     ))
 (define-char
   '((<-denotational
