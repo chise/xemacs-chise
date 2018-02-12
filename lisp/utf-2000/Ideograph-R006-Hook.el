@@ -398,6 +398,18 @@
     (ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
+    (=ucs-itaiji-002	. #x3427)	; &U-i002+3427;
+    (->subsumptive
+     ((==ucs-itaiji-002	  . #x3427)	; &g2-U-i002+3427;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3427)	; 㐧
+      ))
+    (ideographic-radical . 6)	; ⼅
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
     (=ucs@unicode	. #x3427)	; &MJ000018;
     (=mj		. 000018)	; &MJ000018;
     (=gt		. 00311)	; &I-GT-00311;
