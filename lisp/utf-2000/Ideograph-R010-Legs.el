@@ -1015,6 +1015,13 @@
      ((==>ucs@bucs	  . #x514C)	; &BUCS+514C;
       ))
     (ideographic-radical . 10)	; ⼉
+    (=>ucs@cognate	. #x514C)	; &A-cgnU+514C;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x514C)	; &A-cgnU+514C;
+      ))
+    (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 269 1)
@@ -1359,7 +1366,7 @@
     ))
 (define-char
   '((<-denotational
-     ((==>ucs@bucs	  . #x514C)	; &BUCS+514C;
+     ((=>ucs@cognate	  . #x514C)	; &A-cgnU+514C;
       ))
     (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 5)
