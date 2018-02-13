@@ -1,3 +1,11 @@
+2018-02-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R026-Seal.el (BC-87FE): New character; unify
+	GT-K02440.
+
+	* Ideograph-R012-Eight.el (U+516B-itaiji-001): New character.
+	(U-0002D047): New character.
+
 2018-02-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R112-Stone.el (U-0002E035): New character.
