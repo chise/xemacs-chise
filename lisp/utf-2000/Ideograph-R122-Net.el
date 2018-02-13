@@ -138,6 +138,9 @@
     (=cns11643-4	. #x2152)	; &I-C4-2152; [01-50]
     (=big5-eten		. #xC8A2)	; &I-B-C8A2;
     (=big5-cdp		. #x85BE)	; &I-CDP-85BE;
+    (=gt		. 36323)	; &I-GT-36323;
+    (=gt-k		. 00560)	; &I-GT-K00560;
+    (=gt-pj-5		. #x7265)	; &I-GT-36323; [82-69]
     (=daikanwa		. 28201)	; &I-M-28201;
     (=cbeta		. 00648)	; &I-CB00648;
     (<-formed@component/connect-below
@@ -146,23 +149,25 @@
       ))
     (<-formed@component/connect-below*sources
      zihui/char-index daikanwa)
-    (<-simplified
-     ((=ucs		  . #x7F51)	; 网
-      (=daikanwa	  . 28199)	; &I-M-28199;
-      ))
-    (<-simplified*sources
-     zhengzitong daikanwa)
     (<-simplified@CN
      ((=ucs		  . #x5CA1)	; 岡
       (=gb12345		  . #x3854)	; 岡 [24-52]
       ))
+    (<-simplified@misc
+     ((=ucs		  . #x7F51)	; 网
+      (=daikanwa	  . 28199)	; &I-M-28199;
+      ))
+    (<-simplified@misc*sources
+     zhengzitong daikanwa)
     (->subsumptive
-     ((==ucs@unicode	  . #x5188)	; &g2-CDP-85BE;
-      (==gb2312		  . #x3854)	; &g2-CDP-85BE; [24-52]
-      (==cns11643-4	  . #x2152)	; &g2-CDP-85BE; [01-50]
-      (==big5-cdp	  . #x85BE)	; &g2-CDP-85BE;
-      (==daikanwa	  . 28201)	; &g2-CDP-85BE;
-      (==cbeta		  . 00648)	; &g2-CDP-85BE;
+     ((==ucs@unicode	  . #x5188)	; &g2-GT-36323;
+      (==gb2312		  . #x3854)	; &g2-GT-36323; [24-52]
+      (==cns11643-4	  . #x2152)	; &g2-GT-36323; [01-50]
+      (==big5-cdp	  . #x85BE)	; &g2-GT-36323;
+      (==gt		  . 36323)	; &g2-GT-36323;
+      (==gt-k		  . 00560)	; &g2-GT-36323;
+      (==daikanwa	  . 28201)	; &g2-GT-36323;
+      (==cbeta		  . 00648)	; &g2-GT-36323;
       (->subsumptive
        ((===daikanwa	    . 28201)	; &R-M-28201;
 	)
@@ -171,6 +176,9 @@
        ((===cns11643-4	    . #x2152)	; &R-C4-2152; [01-50]
 	)
        ((===ucs@unicode	    . #x5188)	; &R-UU+5188;
+	)
+       ((===gt		    . 36323)	; &R-GT-36323;
+	(===gt-k	    . 00560)	; &R-GT-36323;
 	)
        ((===cbeta	    . 00648)	; &R-CB00648;
 	))

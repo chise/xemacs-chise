@@ -5,7 +5,7 @@
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1995 Sun Microsystems.
 ;; Copyright (C) 1997, 1999, 2002, 2003, 2004, 2005, 2006, 2008, 2009,
-;;   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017 MORIOKA Tomohiko
+;;   2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018 MORIOKA Tomohiko
 
 ;; This file is part of XEmacs.
 
@@ -370,6 +370,7 @@
 	  ( =ucs-itaiji-009		      "U-i009+" 4 X)
 	  ( =ucs-itaiji-010		      "U-i010+" 4 X)
 	  ( =ucs-itaiji-011		      "U-i011+" 4 X)
+	  ( =ucs-itaiji-012		      "U-i012+" 4 X)
 	  ( =ucs-itaiji-084		      "U-i084+" 4 X)
 	  ( =big5-cdp-var-001		    "CDP-v001-" 4 X)
 	  ( =big5-cdp-var-002		    "CDP-v002-" 4 X)
@@ -388,6 +389,7 @@
 	  (==ucs-itaiji-002		   "g2-U-i002+" 4 X)
 	  (==ucs-itaiji-003		   "g2-U-i003+" 4 X)
 	  (==ucs-itaiji-005		   "g2-U-i005+" 4 X)
+	  (==ucs-itaiji-006		   "g2-U-i006+" 4 X)
 	  (==big5-cdp-itaiji-001	 "g2-CDP-i001-" 4 X)
 	  (==jis-x0208@1978/1pr		      "g2-J78-" 4 X)
 	  (==gt-k			      "g2-GT-K" 5 d)

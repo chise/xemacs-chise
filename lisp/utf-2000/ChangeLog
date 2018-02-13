@@ -1,3 +1,19 @@
+2018-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R122-Net.el (U+5188): Unify GT-36323 and GT-K00560;
+	use `<-simplified@misc' instead of `<-simplified' for U+7F51.
+
+	* Ideograph-R028-Private.el (U+3558): Add `<-denotational' for
+	BUCS+53C3; add `ideographic-structure'; unify CB07694; add
+	HNG-INK1053-1 and HNG-ZKD0689-0.
+	(U+2D19E-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+2D19E.
+	(A-cgnU+2D19E): New abstract node.
+	(U-0002D19E): New character; use `<-denotational' for
+	A-cgnU+2D19E.
+	(U+53C5): Add `ideographic-structure'; add HNG-TSU0046-0 and
+	HNG-HOD0058-0.
+
 2018-02-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R026-Seal.el (BC-87FE): New character; unify
