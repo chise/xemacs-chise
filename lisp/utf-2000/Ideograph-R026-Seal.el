@@ -425,6 +425,29 @@
     (=cns11643-4	. #x2143)	; &I-C4-2143; [01-35]
     ))
 (define-char
+  '((ideographic-radical . 26)	; ⼙
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=big5-cdp		. #x87FE)	; &CDP-87FE;
+    (=gt-k		. 02440)	; &I-GT-K02440;
+    (=gt-pj-k1		. #x3945)	; &CDP-87FE; [25-37]
+    (<-unknown
+     ((=ucs		  . #x536F)	; 卯
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x87FE)	; &g2-CDP-87FE;
+      (==gt-k		  . 02440)	; &g2-CDP-87FE;
+      (==gt-pj-k1	  . #x3945)	; &g2-CDP-87FE; [25-37]
+      )
+     ((=gt-k		  . 02448)	; &GT-K02448;
+      (=gt-pj-k1	  . #x3F66)	; &GT-K02448; [31-70]
+      (->subsumptive
+       ((==gt-k		    . 02448)	; &g2-GT-K02448;
+	(==gt-pj-k1	    . #x3F66)	; &g2-GT-K02448; [31-70]
+	))
+      ))
+    ))
+(define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x536C)	; &A-compU+536C;
       (=>iwds-1		  .  0013)	; &A-compU+536C;
