@@ -4907,7 +4907,7 @@
 		  mother	=ucs-itaiji-003))
   (make-charset '==ucs-bmp-itaiji-003
 		"uXXXX-itaiji-003's abstract glyph-forms in BMP"
-		'(long-name	"UCS-BMP-itaiji-003 characters"
+		'(long-name	"UCS-BMP-itaiji-003 glyph-forms"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -5111,6 +5111,29 @@
 		  direction	l2r
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-006
+		  min-code #x2E00
+		  max-code #x9FCC
+		  registry "ucs\\.itaiji006-0"))
+  (make-charset '==ucs-itaiji-006
+		"Abstract glyph-forms corresponding with uXXXX-itaiji-006 of GlyphWiki"
+		'(long-name	"UCS-itaiji-006"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	=ucs-itaiji-006))
+  (make-charset '==ucs-bmp-itaiji-006
+		"uXXXX-itaiji-006's abstract glyph-forms in BMP"
+		'(long-name	"UCS-BMP-itaiji-006 glyph-forms"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	==ucs-itaiji-006
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.itaiji006-0"))
