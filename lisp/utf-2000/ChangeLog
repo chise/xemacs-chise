@@ -1,5 +1,14 @@
 2018-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R015-Ice.el (U+34D2): New character.
+	(U+51CE): Add representative nodes.
+
+	* Ideograph-R013-Down-Box.el (U+5188): Unify GT-36323 and
+	GT-K00560; use `<-simplified@misc' instead of `<-simplified' for
+	U+7F51.
+
+	* Ideograph-R002-Line.el (BC-8BF5): Unify GT-K00142.
+
 	* Ideograph-R122-Net.el (U+5188): Unify GT-36323 and GT-K00560;
 	use `<-simplified@misc' instead of `<-simplified' for U+7F51.
 
