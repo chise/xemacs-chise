@@ -152,6 +152,28 @@
     (=cns11643-6	. #x2122)	; &I-C6-2122; [01-02]
     ))
 (define-char
+  '((ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      )
+     ((=ucs		  . #x4E28)	; 丨
+      ))
+    (=big5-cdp		. #x8BF5)	; &CDP-8BF5;
+    (=gt-k		. 00142)	; &I-GT-K00142;
+    (=gt-pj-k1		. #x3724)	; &CDP-8BF5; [23-04]
+    (->subsumptive
+     ((==big5-cdp	  . #x8BF5)	; &g2-CDP-8BF5;
+      )
+     ((==gt-k		  . 00142)	; &g2-GT-K00142;
+      (==gt-pj-k1	  . #x3724)	; &g2-GT-K00142; [23-04]
+      ))
+    ))
+(define-char
   '((<-denotational
      ((==>ucs@bucs	  . #x500B)	; &BUCS+500B;
       ))
