@@ -3080,6 +3080,42 @@
   '((ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((=ucs-var-001	  . #x2FF0)	; &U-v001+2FF0;
+      )
+     ((=ucs		  . #x51AB)	; 冫
+      )
+     ((=>gt-k		  . 04948)	; &A-GT-K04948;
+      ))
+    (=ucs		. #x34D2)	; 㓒
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x34D2)	; 㓒
+      ))
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+      )
+     ((=gt-k		  . 04948)	; &U-i001+23470;
+      )
+     ((=ucs		  . #x51AB)	; 冫
+      ))
+    (=ucs@unicode	. #x34D2)	; &UU+34D2;
+    (<-formed
+     ((=ucs@iso		  . #x23DA0)	; &MJ039378;
+      (=mj		  . 039378)	; &MJ039378;
+      ))
+    (->subsumptive
+     ((==ucs@unicode	  . #x34D2)	; &g2-UU+34D2;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
     (hanyu-dazidian	1 299 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -3093,6 +3129,18 @@
     (=cns11643-2	. #x2E28)	; &I-C2-2E28; [14-08]
     (=big5		. #xD0E5)	; &I-B-D0E5;
     (=jef-china3	. #x9ACA)	; &I-JC3-9ACA;
+    (->subsumptive
+     ((==ucs@unicode	  . #x51CE)	; &g2-UU+51CE;
+      (==cns11643-2	  . #x2E28)	; &g2-UU+51CE; [14-08]
+      (==jef-china3	  . #x9ACA)	; &g2-UU+51CE;
+      (->subsumptive
+       ((===cns11643-2	    . #x2E28)	; &R-C2-2E28; [14-08]
+	)
+       ((===ucs@unicode	    . #x51CE)	; &R-UU+51CE;
+	)
+       ((===jef-china3	    . #x9ACA)	; &R-JC3-9ACA;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
