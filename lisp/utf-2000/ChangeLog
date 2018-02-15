@@ -29,6 +29,11 @@
 	`<-denotational' for A-compU+221C6; use "𢆯" instead of "⿱幺丨"
 	in `ideographic-structure'.
 
+	* Ideograph-R046-Mountain.el (U-0002D580): New character.
+	(U+5D28): Apply new conventions for glyph granularity.
+	(U-00021E48): Likewise.
+	(U+380E): Likewise.
+
 	* Ideograph-R052-Short-Thread.el (A-compU+221C6): New abstract
 	node.
 	(U-000221C6): New character; use `<-denotational' for
