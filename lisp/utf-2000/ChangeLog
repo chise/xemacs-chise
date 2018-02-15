@@ -1,3 +1,40 @@
+2018-02-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R045-Sprout.el (BC-8875): New character; use
+	`<-denotational@component' for A-BC-8875.
+	(U-00021D05): Apply new conventions for glyph granularity.
+	(GT-K01900): New character; use `<-denotational' for U-00021D05;
+	use `<-denotational@component' for A-BC-8875.
+	(A-BC-8875): New abstract node; unify A-GT-K01900.
+
+2018-02-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U-0002D37B): New character.
+	(U+5750): Add `ideographic-structure'.
+	(U+3634): Likewise; add `<-formed' and `<-same' for U+5750; add
+	representative nodes.
+	(U+57B4): Apply new conventions for glyph granularity; add
+	`<-simplified@CN/regional' for U+5816.
+
+	* Ideograph-R019-Power.el (U-00020832): Add `<-ancient' for
+	U+529B; add `->Bopomofo' for <BOPOMOFO LETTER L>; add
+	representative nodes.
+
+	* Ideograph-R017-Open-Box.el (U+342B): Add
+	`<-denotational@component' for A-compU+56DF; add
+	`ideographic-structure'; add `<-simplified@CN/component/inductive'
+	for U-00021FFA; add `<-simplified@misc' for CB09464.
+
+	* Ideograph-R009-Man.el (U-0002CF61): New character.
+	(U+344E): Apply new conventions for glyph granularity.
+
+	* Ideograph-R006-Hook.el (U-0002010E): Apply new conventions for
+	glyph granularity.
+	(IU+2010E): Unify GT-00303 and GT-K00117.
+	(U+2010E-var-002): New character; use `<-denotational' for
+	U-0002010E.
+	(GT-K00026): Ditto.
+
 2018-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R015-Ice.el (U+34D2): New character.
