@@ -1,5 +1,10 @@
 2018-02-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* dumped-chars.el (system-char-db-source-file-list): Add
+	"u031C0-CJK-Strokes".
+
+	* u031C0-CJK-Strokes.el: New file.
+
 	* Ideograph-R008-Lid.el (U-0002CF43): New character; use
 	`<-denotational' for A-cgnU+6C38.
 	(A-MJ000023): New abstract node; use `<-denotational' for
