@@ -2633,25 +2633,6 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
-      (=ucs		  . #x2FF2)	; ⿲
-      )
-     ((=ucs		  . #x5200)	; 刀
-      )
-     ((=ucs		  . #x5200)	; 刀
-      )
-     ((=ucs		  . #x5200)	; 刀
-      ))
-    (=ucs-itaiji-002	. #x343A)	; &U-i002+343A;
-    (<-formed
-     ((=ucs		  . #x343A)	; 㐺
-      ))
-    ))
-(define-char
-  '((ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 4)
-    (total-strokes	 . 6)
     (=>big5-cdp		. #x8CAF)	; &A-GT-K02231;
     (=>gt-k		. 02231)	; &A-GT-K02231;
     ))
@@ -2672,6 +2653,25 @@
      ((=ucs		  . #x5188)	; 冈
       ))
     (=big5-cdp-itaiji-002 . #x8CAF)	; &CDP-i002-8CAF;
+    ))
+(define-char
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+      (=ucs		  . #x2FF2)	; ⿲
+      )
+     ((=ucs		  . #x5200)	; 刀
+      )
+     ((=ucs		  . #x5200)	; 刀
+      )
+     ((=ucs		  . #x5200)	; 刀
+      ))
+    (=ucs-itaiji-002	. #x343A)	; &U-i002+343A;
+    (<-formed
+     ((=ucs		  . #x343A)	; 㐺
+      ))
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
