@@ -153,11 +153,23 @@
   '((ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
+    (=ucs		. #x2010E)	; 𠄎
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2010E)	; 𠄎
+      ))
+    (ideographic-radical . 6)	; ⼅
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
     (hanyu-dazidian	1 49 6)
     (sound@ja/on	"dai")
-    (=ucs		. #x2010E)	; 𠄎
+    (=ucs@iso		. #x2010E)	; &GT-00303;
     (=cns11643-4	. #x2128)	; &I-C4-2128; [01-08]
     (=big5-cdp		. #x866A)	; &I-CDP-866A;
+    (=gt		. 00303)	; &I-GT-00303;
+    (=gt-k		. 00117)	; &I-GT-K00117;
+    (=gt-pj-2		. #x317A)	; &I-GT-00303; [17-90]
     (=daikanwa		. 00228)	; &I-M-00228;
     (<-ancient
      ((=ucs		  . #x4E43)	; 乃
@@ -168,6 +180,50 @@
     (->Bopomofo
      ((name		  . "BOPOMOFO LETTER N")
       (=ucs		  . #x310B)	; ㄋ
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x2010E)	; &g2-CDP-866A;
+      (==cns11643-4	  . #x2128)	; &g2-CDP-866A; [01-08]
+      (==big5-cdp	  . #x866A)	; &g2-CDP-866A;
+      (==daikanwa	  . 00228)	; &g2-CDP-866A;
+      (->subsumptive
+       ((===daikanwa	    . 00228)	; &R-M-00228;
+	)
+       ((===big5-cdp	    . #x866A)	; &R-CDP-866A;
+	)
+       ((===cns11643-4	    . #x2128)	; &R-C4-2128; [01-08]
+	)
+       ((===ucs@iso	    . #x2010E)	; &R-U-0002010E;
+	))
+      )
+     ((==gt		  . 00303)	; &g2-GT-00303;
+      (==gt-k		  . 00117)	; &g2-GT-00303;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2010E)	; 𠄎
+      ))
+    (ideographic-radical . 6)	; ⼅
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (=ucs-var-002	. #x2010E)	; &U-v002+2010E;
+    (->subsumptive
+     ((==ucs-var-002	  . #x2010E)	; &g2-U-v002+2010E;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2010E)	; 𠄎
+      ))
+    (ideographic-radical . 6)	; ⼅
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (=gt-k		. 00026)	; &GT-K00026;
+    (=gt-pj-k1		. #x3041)	; &GT-K00026; [16-33]
+    (->subsumptive
+     ((==gt-k		  . 00026)	; &g2-GT-K00026;
+      (==gt-pj-k1	  . #x3041)	; &g2-GT-K00026; [16-33]
       ))
     ))
 (define-char
