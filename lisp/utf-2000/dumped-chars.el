@@ -72,6 +72,7 @@
 	"u03130-Hangul-Compatibility-Jamo"
 	"u03190-Kanbun"
 	"u031A0-Bopomofo-Extended"
+	"u031C0-CJK-Strokes"
 	"u031F0-Katakana-Phonetic-Extensions"
 	"u03200-Enclosed-CJK-Letters-and-Months"
 	"u03300-CJK-Compatibility"
