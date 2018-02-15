@@ -1,3 +1,59 @@
+2018-02-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (U-0002CF43): New character; use
+	`<-denotational' for A-cgnU+6C38.
+	(A-MJ000023): New abstract node; use `<-denotational' for
+	A-cgnU+342A.
+	(MJ000023): New character; use `<-subsumptive' for A-MJ000023; use
+	`<-denotational@component' for U+342A; unify KOSEKI-003600 and
+	G-HD-JT-C0B3.
+	(HD-TK01024240): New character; use `<-subsumptive' for
+	A-MJ000023.
+	(A-cgnU+342A): New abstract node.
+	(A-cgnU+4EA5): Changed from U+4EA5.
+	(MJ006470): Unify U+4EA5 instead of UU+4EA5 and A-IWDSU+4EA5.
+	(U+4EA5-itaiji-005): Use A-cgnU+4EA5 instead of U+4EA5 as its
+	mother.
+	(U+342B): Add `<-denotational@component' for A-compU+56DF; add
+	`ideographic-structure'; add `<-simplified@CN/component/inductive'
+	for U-00021FFA; add `<-simplified@misc' for CB09464.
+	(U+342A): New character; use `<-denotational' for A-cgnU+342A;
+	unify MJ000022, HD-IA0106, HD-JT-C0B3 and KOSEKI-003590; add
+	`<-formed' for U+4EA5.
+	(U-0002015B): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-compU+221C6; use "𢆯" instead of "⿱幺丨"
+	in `ideographic-structure'.
+
+	* Ideograph-R052-Short-Thread.el (A-compU+221C6): New abstract
+	node.
+	(U-000221C6): New character; use `<-denotational' for
+	A-compU+221C6; add `<-ancient' for U+7DE6.
+
+	* Ideograph-R029-Again.el (A-BC-88D3): New abstract node.
+	(BC-88D3-itaiji-001): New character; use `<-denotational' for
+	A-BC-88D3.
+	(BC-88D3): Likewise.
+	(BC-89E1): New character.
+	(U-0002D1A5): New character.
+	(IWDS1-0125): Unify A-IWDSU+378B instead of A-compU+378B.
+	(U-00020B1D): Add representative nodes.
+	(U+53CD): Add `ideographic-structure'.
+	(U-00020B60): Apply new conventions for glyph granularity.
+
+	* Ideograph-R011-Enter.el (U-000204DB): Add `<-denotational' for
+	A-IWDSU+4EBC; apply new conventions for glyph granularity.
+	(BUCS+5167): Separate Abstract character node.
+	(A-J0-4662): Separate BUCS+5167; unify A-IWDSU+5167; add
+	`<-denotational' for BUCS+5167.
+	(U-000204E1): Add `sound@ja/on'; unify MJ030956 and KOSEKI-016660;
+	apply new conventions for glyph granularity.
+
+	* Ideograph-R001-One.el (GT-00005): Unify U-00020001, MJ030314,
+	BC-88CC and KOSEKI-000090; add `<-Small-Seal', `<-formed' and
+	`<-original' for U+4E03.
+	(U+4E0A): Add `<-denotational@component' for A-compU+4E0A.
+	(A-compU+4E0A): New abstract node.
+
 2018-02-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R045-Sprout.el (BC-8875): New character; use
