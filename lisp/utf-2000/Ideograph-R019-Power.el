@@ -83,6 +83,28 @@
     (=ucs		. #x20832)	; 𠠲
     (=cns11643-6	. #x213A)	; &I-C6-213A; [01-26]
     (=daikanwa		. 02290)	; &I-M-02290;
+    (<-ancient
+     ((=ucs		  . #x529B)	; 力
+      (=daikanwa	  . 02288)	; &I-M-02288;
+      ))
+    (<-ancient*sources
+     zihui-bu daikanwa)
+    (->Bopomofo
+     ((name		  . "BOPOMOFO LETTER L")
+      (=ucs		  . #x310C)	; ㄌ
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x20832)	; &g2-M-02290;
+      (==cns11643-6	  . #x213A)	; &g2-M-02290; [01-26]
+      (==daikanwa	  . 02290)	; &g2-M-02290;
+      (->subsumptive
+       ((===daikanwa	    . 02290)	; &R-M-02290;
+	)
+       ((===cns11643-6	    . #x213A)	; &R-C6-213A; [01-26]
+	)
+       ((===ucs@iso	    . #x20832)	; &R-U-00020832;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
@@ -6259,7 +6281,6 @@
       (=ucs		  . #x2FF1)	; ⿱
       )
      ((=>ucs@iwds-1	  . #x5F37)	; &J97-362F;
-      (=>ucs@jis	  . #x5F37)	; &J97-362F;
       (=>jis-x0208	  . #x362F)	; &J97-362F; [22-15]
       )
      ((=ucs		  . #x529B)	; 力
