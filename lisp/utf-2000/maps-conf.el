@@ -105,6 +105,13 @@
    nil)
  '=gt-pj-1)
 
+(let ((i 1)
+      chr)
+  (while (<= i 67547)
+    (when (setq chr (decode-char '=gt i))
+      (put-char-attribute chr '=gt i))
+    (setq i (1+ i))))
+
 (let ((default-coded-charset-priority-list
 	'(=gt-pj-1
 	  =gt-pj-2
