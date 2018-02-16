@@ -263,7 +263,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=big5-cdp	  . #x8BA2)	; &CDP-8BA2;
+     ((name		  . "CJK STROKE HP")
+      (=ucs		  . #x31C7)	; ㇇
       )
      ((=ucs		  . #x53C8)	; 又
       ))

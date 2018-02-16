@@ -1,5 +1,51 @@
 2018-02-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R035-Go-Slowly.el (IWDS1-0092): Add A-compU+5902 as a
+	target of `<-denotational@component'.
+	(U-00021565): Copied from Ideograph-R109-Eye.el.
+	(U+21565-var-001): New character; use `<-denotational' for
+	U-00021565.
+	(A-cgnU+2156B): New abstract node.
+	(U+2156B): Add `<-denotational' for A-cgnU+2156B.
+	(MJ033339): Separate IU+2156B and C6-3E3B; fix
+	`ideographic-structure'.
+	(A-U+2156B-itaiji-001): New abstract node; use `<-denotational'
+	for A-cgnU+2156B.
+	(U+2156B-itaiji-001): New character; use `<-denotational' for
+	A-U+2156B-itaiji-001.
+	(A-cgnU+21569): Changed from U-00021569; add `<-denotational' for
+	A-cgnU+2156B.
+	(U-00021569): Changed from A-IWDSU+21569 and A-IU+21569; use
+	A-cgnU+21569 instead of U-00021569 as its mother.
+	(A-U+21569-itaiji-001): Use A-cgnU+21569 instead of U-00021569 as
+	its mother.
+	(A-cgnU+5910): New abstract node.
+	(A-J0-546B): Add `<-denotational' for A-cgnU+5910; add
+	`ideographic-structure'; unify A-IU+5910.
+	(U+5910): Apply new conventions for glyph granularity.
+	(A-U+5910-itaiji-001): New abstract node; use `<-denotational' for
+	A-cgnU+5910; unify A-U+5910-itaiji-002.
+	(U+5910-itaiji-001): New character; use `<-denotational' for
+	A-U+5910-itaiji-001.
+	(U+5910-itaiji-002): Likewise.
+	(IU+21577): Use U+21565-var-001 instead of "⿱目夊" as a
+	component.
+
+	* Ideograph-R010-Legs.el (A-compU+20486): New abstract node.
+	(A-cgnU+20486): Changed from U-00020486; add `<-denotational' for
+	A-compU+20486.
+	(C6-2953): Unify U-00020486 instead of IU+20486 and A-IWDSU+20486.
+	(U+20486-itaiji-002): Use A-cgnU+20486 instead of U-00020486 as
+	its mother; unify U+20486-itaiji-001.
+	(g2-U+20486-itaiji-001): Changed from U+20486-itaiji-001.
+	(A-U+20486-itaiji-003): New abstract node; use `<-denotational'
+	for A-compU+20486.
+	(U+20486-itaiji-005): New character; use `<-denotational' for
+	A-U+20486-itaiji-003.
+	(U+20486-itaiji-003): Add `<-denotational' for
+	A-U+20486-itaiji-003.
+	(U+20486-itaiji-004): Add `<-denotational' for A-compU+20486.
+
 	* dumped-chars.el (system-char-db-source-file-list): Add
 	"u031C0-CJK-Strokes".
 
@@ -100,6 +146,8 @@
 	(U+2010E-var-002): New character; use `<-denotational' for
 	U-0002010E.
 	(GT-K00026): Ditto.
+
+	* maps-conf.el: Add `=gt' for each glyph object of GT.
 
 2018-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
