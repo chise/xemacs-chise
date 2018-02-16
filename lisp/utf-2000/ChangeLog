@@ -147,6 +147,8 @@
 	U-0002010E.
 	(GT-K00026): Ditto.
 
+	* maps-conf.el: Add `=gt' for each glyph object of GT.
+
 2018-02-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R015-Ice.el (U+34D2): New character.
