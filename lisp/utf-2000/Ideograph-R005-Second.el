@@ -226,6 +226,34 @@
     (=daikanwa/ho	.  0006)	; 𠃌
     ))
 (define-char
+  '((name		. "CJK STROKE HP")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 0)
+    (total-strokes	 . 1)
+    (=ucs		. #x31C7)	; ㇇
+    (=big5-cdp		. #x8BA2)	; &I-CDP-8BA2;
+    (=gt-k		. 00025)	; &I-GT-K00025;
+    (=gt-pj-k1		. #x3031)	; ㇇ [16-17]
+    (->subsumptive
+     ((==gt-k		  . 00025)	; &g2-GT-K00025;
+      (==gt-pj-k1	  . #x3031)	; &g2-GT-K00025; [16-17]
+      )
+     ((==big5-cdp	  . #x8BA2)	; &g2-CDP-8BA2;
+      )
+     ((==ucs@unicode	  . #x31C7)	; &g2-UU+31C7;
+      )
+     ((=gt-k		  . 00022)	; &GT-K00022;
+      (=gt-pj-k1	  . #x3026)	; &GT-K00022; [16-06]
+      (->subsumptive
+       ((==gt-k		    . 00022)	; &g2-GT-K00022;
+	(==gt-pj-k1	    . #x3026)	; &g2-GT-K00022; [16-06]
+	))
+      ))
+    ))
+(define-char
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
@@ -250,19 +278,31 @@
     (hanyu-dazidian	1 47 5)
     (=ucs		. #x200CA)	; 𠃊
     (=big5-cdp		. #x8C7B)	; &I-CDP-8C7B;
+    (=gt-k		. 00029)	; &I-GT-K00029;
+    (=gt-pj-k1		. #x303A)	; 𠃊 [16-26]
     (->subsumptive
-     ((==ucs@iso	  . #x200CA)	; &g2-CDP-8C7B;
-      (==big5-cdp	  . #x8C7B)	; &g2-CDP-8C7B;
-      (=gt-k		  . 00029)	; &g2-CDP-8C7B;
-      (=gt-pj-k1	  . #x303A)	; &g2-CDP-8C7B; [16-26]
+     ((=>>ucs@iso	  . #x200CA)	; &G-CDP-8C7B;
+      (=>>big5-cdp	  . #x8C7B)	; &G-CDP-8C7B;
+      (=>>gt-k		  . 00029)	; &G-CDP-8C7B;
       (->subsumptive
-       ((===big5-cdp	    . #x8C7B)	; &R-CDP-8C7B;
-	)
-       ((===ucs@iso	    . #x200CA)	; &R-U-000200CA;
+       ((==ucs@iso	    . #x200CA)	; &g2-CDP-8C7B;
+	(==big5-cdp	    . #x8C7B)	; &g2-CDP-8C7B;
+	(==gt-k		    . 00029)	; &g2-CDP-8C7B;
+	(->subsumptive
+	 ((===big5-cdp	      . #x8C7B)	; &R-CDP-8C7B;
+	  )
+	 ((===ucs@iso	      . #x200CA)	; &R-U-000200CA;
+	  )
+	 ((===gt-k	      . 00029)	; &R-GT-K00029;
+	  ))
 	))
       )
      ((=gt-k		  . 00027)	; &GT-K00027;
       (=gt-pj-k1	  . #x302A)	; &GT-K00027; [16-10]
+      (->subsumptive
+       ((==gt-k		    . 00027)	; &g2-GT-K00027;
+	(==gt-pj-k1	    . #x302A)	; &g2-GT-K00027; [16-10]
+	))
       ))
     ))
 (define-char
@@ -275,23 +315,6 @@
     (->subsumptive
      ((==ucs@iso	  . #x200CD)	; &g2-GT-K00020;
       (==gt-k		  . 00020)	; &g2-GT-K00020;
-      ))
-    ))
-(define-char
-  '((ideographic-radical . 5)	; ⼄
-    (ideographic-strokes . 0)
-    (total-strokes	 . 1)
-    (=big5-cdp		. #x8BA2)	; &CDP-8BA2;
-    (=gt-k		. 00025)	; &I-GT-K00025;
-    (=gt-pj-k1		. #x3031)	; &CDP-8BA2; [16-17]
-    (->subsumptive
-     ((==gt-k		  . 00025)	; &g2-GT-K00025;
-      (==gt-pj-k1	  . #x3031)	; &g2-GT-K00025; [16-17]
-      )
-     ((==big5-cdp	  . #x8BA2)	; &g2-CDP-8BA2;
-      )
-     ((=gt-k		  . 00022)	; &GT-K00022;
-      (=gt-pj-k1	  . #x3026)	; &GT-K00022; [16-06]
       ))
     ))
 (define-char

@@ -1,5 +1,10 @@
 2018-02-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R005-Second.el (BC-8BA2): Unify U+31C7.
+	(U-000200CA): Add intermediate glyph nodes.
+
+2018-02-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R035-Go-Slowly.el (IWDS1-0092): Add A-compU+5902 as a
 	target of `<-denotational@component'.
 	(U-00021565): Copied from Ideograph-R109-Eye.el.
@@ -111,6 +116,9 @@
 	(A-compU+4E0A): New abstract node.
 
 2018-02-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R214-Flute.el (U+4DB5): Apply new conventions for
+	glyph granularity.
 
 	* Ideograph-R045-Sprout.el (BC-8875): New character; use
 	`<-denotational@component' for A-BC-8875.
