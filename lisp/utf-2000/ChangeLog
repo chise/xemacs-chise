@@ -1,3 +1,12 @@
+2018-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R011-Enter.el (g2-JU+5166): Use g2-GT-K00027 instead
+	of GT-K00027 in `ideographic-structure'.
+	(g2-CU+5166): Ditto.
+
+	* Ideograph-R009-Man.el (g2-CU+4EBE): Use g2-GT-K00027 instead of
+	GT-K00027 in `ideographic-structure'.
+
 2018-02-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R005-Second.el (BC-8BA2): Unify U+31C7.

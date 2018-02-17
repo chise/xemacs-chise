@@ -168,7 +168,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
 	(=ucs		    . #x2FFA)	; ⿺
 	)
-       ((=gt-k		    . 00027)	; &GT-K00027;
+       ((==gt-k		    . 00027)	; &g2-GT-K00027;
 	)
        ((==ucs@jis	    . #x5165)	; &g2-AJ1-03286;
 	(==ucs@ks	    . #x5165)	; &g2-AJ1-03286;
@@ -191,7 +191,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
 	(=ucs		    . #x2FFA)	; ⿺
 	)
-       ((=gt-k		    . 00027)	; &GT-K00027;
+       ((==gt-k		    . 00027)	; &g2-GT-K00027;
 	)
        ((==ucs@unicode	    . #x5165)	; &g2-UU+5165;
 	))
@@ -203,7 +203,6 @@
 	(=ucs		    . #x2FFA)	; ⿺
 	)
        ((==ucs@iso	    . #x200CA)	; &g2-CDP-8C7B;
-	(=gt-k		    . 00029)	; &g2-CDP-8C7B;
 	)
        ((==ucs@unicode	    . #x5165)	; &g2-UU+5165;
 	))
