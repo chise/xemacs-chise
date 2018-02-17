@@ -436,7 +436,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
 	(=ucs		    . #x2FFA)	; ⿺
 	)
-       ((=gt-k		    . 00027)	; &GT-K00027;
+       ((==gt-k		    . 00027)	; &g2-GT-K00027;
 	)
        ((==ucs@unicode	    . #x4EBA)	; &g2-AJ1-02579;
 	(==adobe-japan1-0   . 02579)	; &g2-AJ1-02579;
@@ -450,7 +450,6 @@
 	(=ucs		    . #x2FFA)	; ⿺
 	)
        ((==ucs@iso	    . #x200CA)	; &g2-CDP-8C7B;
-	(=gt-k		    . 00029)	; &g2-CDP-8C7B;
 	)
        ((==ucs@unicode	    . #x4EBA)	; &g2-AJ1-02579;
 	(==adobe-japan1-0   . 02579)	; &g2-AJ1-02579;
@@ -465,7 +464,6 @@
 	(=ucs		    . #x2FFA)	; ⿺
 	)
        ((==ucs@iso	    . #x200CA)	; &g2-CDP-8C7B;
-	(=gt-k		    . 00029)	; &g2-CDP-8C7B;
 	)
        ((=gt-k		    . 00049)	; &GT-K00049;
 	))
