@@ -7526,6 +7526,23 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs		  . #x65E5)	; 日
+      ))
+    (=ucs		. #x2CF6A)	; 𬽪
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2CF6A)	; &g2-hanaJU+2CF6A;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
     (comment		. "backbone")
     (=big5-cdp		. #x88D2)	; &CDP-88D2;
     (=gt-k		. 02405)	; &I-GT-K02405;
@@ -28542,6 +28559,23 @@
     (=ucs@iso		. #x202C3)	; &U-000202C3;
     (->subsumptive
      ((==ucs@iso	  . #x202C3)	; &g2-IU-000202C3;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=ucs		  . #x5FFD)	; 忽
+      ))
+    (=ucs		. #x2CFA0)	; 𬾠
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2CFA0)	; &g2-hanaJU+2CFA0;
       ))
     ))
 (define-char

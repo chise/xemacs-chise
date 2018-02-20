@@ -1,3 +1,45 @@
+2018-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R020-Wrap.el (A-cgnU+5306): New abstract node; use
+	`<-denotational' for BUCS+5306.
+	(U+5306): Use A-cgnU+5306 instead BUCS+5306 as its mother; unify
+	IWDS1-0107.
+	(U+5307): Add `<-denotational' for A-cgnU+5306; add
+	`ideographic-structure'.
+	(UU+5307): Apply new conventions for glyph granularity.
+
+2018-02-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R035-Go-Slowly.el (A-U+21569-itaiji-002): New abstract
+	node.
+	(U+21569-itaiji-002): New character; use `<-denotational' for
+	A-U+21569-itaiji-002.
+	(A-U+21569-itaiji-003): New abstract node; use `<-denotational'
+	for A-cgnU+2156B.
+	(U+21569-itaiji-003): New character; use `<-denotational' for
+	A-U+21569-itaiji-003.
+
+	* Ideograph-R032-Earth.el (U-00021357): New character; use
+	`<-denotational' for A-cgnU+5816.
+	(A-cgnU+5816): New abstract node.
+	(U+5816): Add `<-denotational' for A-cgnU+5816; apply new
+	conventions for glyph granularity.
+
+	* Ideograph-R014-Cover.el (U+5196): Add `<-denotational@component'
+	for A-compU+5182.
+
+	* Ideograph-R013-Down-Box.el (A-compU+5182): New abstract node.
+	(U+5182): Add `<-denotational@component' for A-compU+5182.
+
+	* Ideograph-R009-Man.el (U-0002CF6A): New character.
+	(U-0002CFA0): New character.
+
+2018-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (UU+53A9): Unify A-UU+53A9; use U+53A9
+	instead of A-UU+53A9 as its mother; use U+65E2 instead of UU+65E2
+	in `ideographic-structure'.
+
 2018-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R011-Enter.el (g2-JU+5166): Use g2-GT-K00027 instead

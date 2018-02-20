@@ -11938,6 +11938,31 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5816)	; &A-cgnU+5816;
+      ))
+    (ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=ucs-itaiji-002	  . #x21FFA)	; &U-i002+21FFA;
+      ))
+    (=ucs		. #x21357)	; 𡍗
+    (<-unknown
+     ((=ucs		  . #x5816)	; 堖
+      )
+     ((=ucs		  . #x5318)	; 匘
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x21357)	; &g2-IU-00021357;
+      ))
+    ))
+(define-char
   '((=>ucs*		. #x580D)	; 堍
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 8)
@@ -11949,6 +11974,18 @@
       ))
     (<-same*sources
      ucs)
+    ))
+(define-char
+  '((ideographic-radical . 32)	; ⼟
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@component	  . #x4E03)	; &A-compU+4E03;
+      )
+     ((=>ucs@cognate	  . #x21FFA)	; &A-cgnU+21FFA;
+      ))
+    (=>ucs@cognate	. #x5816)	; &A-cgnU+5816;
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
@@ -14898,13 +14935,32 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 32)	; ⼟
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5816)	; &A-cgnU+5816;
+      ))
+    (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (hanyu-dazidian	1 469 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=ucs		  . #x21FFA)	; 𡿺
+      ))
     (=ucs		. #x5816)	; 堖
     (=gb12345		. #x5B71)	; 堖 [59-81]
-    (=hanziku-2		. #xB0B7)	; &I-HZK02-B0B7;
+    (->subsumptive
+     ((==ucs@unicode	  . #x5816)	; &g2-UU+5816;
+      (==gb12345	  . #x5B71)	; &g2-UU+5816; [59-81]
+      (->subsumptive
+       ((===ucs@unicode	    . #x5816)	; &R-UU+5816;
+	)
+       ((=hanziku-2	    . #xB0B7)	; &HZK02-B0B7;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
