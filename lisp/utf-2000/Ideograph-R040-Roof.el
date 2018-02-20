@@ -9722,7 +9722,7 @@
       )
      ((=ucs		  . #x5B80)	; 宀
       )
-     ((=ruimoku-v6	  . #xE03C)	; &RUI6-E03C;
+     ((=ucs		  . #x2A7CD)	; 𪟍
       ))
     (=ruimoku-v6	. #xE03B)	; &RUI6-E03B;
     (->subsumptive
@@ -9733,7 +9733,8 @@
        ((==ucs@unicode	    . #x5B80)	; &g2-AJ1-04622;
 	(==adobe-japan1-0   . 04622)	; &g2-AJ1-04622;
 	)
-       ((==ruimoku-v6	    . #xE03C)	; &g2-RUI6-E03C;
+       ((==ucs@JP/hanazono  . #x2A7CD)	; &g2-hanaJU+2A7CD;
+	(==ruimoku-v6	    . #xE03C)	; &g2-hanaJU+2A7CD;
 	))
       (==ruimoku-v6	  . #xE03B)	; &g2-RUI6-E03B;
       ))
