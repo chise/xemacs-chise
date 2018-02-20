@@ -1,6 +1,9 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((ideographic-radical . 14)	; ⼍
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5182)	; &A-compU+5182;
+      ))
+    (ideographic-radical . 14)	; ⼍
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 302 14)
