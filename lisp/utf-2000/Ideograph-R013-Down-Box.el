@@ -4,8 +4,16 @@
     (==>ucs@bucs	. #x5182)	; &BUCS+5182;
     ))
 (define-char
+  '((ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 0)
+    (=>ucs@component	. #x5182)	; &A-compU+5182;
+    ))
+(define-char
   '((<-denotational
      ((==>ucs@bucs	  . #x5182)	; &BUCS+5182;
+      ))
+    (<-denotational@component
+     ((=>ucs@component	  . #x5182)	; &A-compU+5182;
       ))
     (ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 0)
