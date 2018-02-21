@@ -1354,17 +1354,12 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs-itaiji-004	  . #x20486)	; &U-i004+20486;
+     ((=ucs		  . #x2048B)	; 𠒋
       )
      ((=>ucs@component	  . #x590A)	; &A-compU+590A;
       (=>iwds-1		  .  0092)	; &A-compU+590A;
       ))
-    (=>ucs-itaiji-001	. #x2156B)	; &A-U-i001+2156B;
-    (<-formed
-     ((=ucs		  . #x2156B)	; 𡕫
-      )
-     ((=ucs		  . #x21569)	; 𡕩
-      ))
+    (=>ucs-itaiji-003	. #x21569)	; &A-U-i003+21569;
     ))
 (define-char
   '((<-denotational
@@ -1377,31 +1372,16 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x2048B)	; 𠒋
+     ((=ucs-itaiji-004	  . #x20486)	; &U-i004+20486;
       )
      ((=>ucs@component	  . #x590A)	; &A-compU+590A;
       (=>iwds-1		  .  0092)	; &A-compU+590A;
       ))
-    (=>ucs-itaiji-003	. #x21569)	; &A-U-i003+21569;
-    ))
-(define-char
-  '((<-denotational
-     ((=>ucs-itaiji-001	  . #x2156B)	; &A-U-i001+2156B;
-      ))
-    (ideographic-radical . 35)	; ⼢
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
+    (=>ucs-itaiji-001	. #x2156B)	; &A-U-i001+2156B;
+    (<-formed
+     ((=ucs		  . #x2156B)	; 𡕫
       )
-     ((=ucs-itaiji-004	  . #x20486)	; &U-i004+20486;
-      )
-     ((=ucs		  . #x590A)	; 夊
-      ))
-    (=ucs-itaiji-001	. #x2156B)	; &U-i001+2156B;
-    (->subsumptive
-     ((==ucs-itaiji-001	  . #x2156B)	; &g2-U-i001+2156B;
+     ((=ucs		  . #x21569)	; 𡕩
       ))
     ))
 (define-char
@@ -1422,6 +1402,26 @@
     (=ucs-itaiji-003	. #x21569)	; &U-i003+21569;
     (->subsumptive
      ((==ucs-itaiji-003	  . #x21569)	; &g2-U-i003+21569;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x2156B)	; &A-U-i001+2156B;
+      ))
+    (ideographic-radical . 35)	; ⼢
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-004	  . #x20486)	; &U-i004+20486;
+      )
+     ((=ucs		  . #x590A)	; 夊
+      ))
+    (=ucs-itaiji-001	. #x2156B)	; &U-i001+2156B;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x2156B)	; &g2-U-i001+2156B;
       ))
     ))
 (define-char
