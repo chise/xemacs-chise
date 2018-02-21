@@ -1,3 +1,10 @@
+2018-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (U-0002048B): Add
+	`<-denotational@component' for A-compU+20486; modify structure;
+	add `<-formed' for UU+5147; unify MJ030918, KOSEKI-016050 and
+	CB04499.
+
 2018-02-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R020-Wrap.el (A-cgnU+5306): New abstract node; use

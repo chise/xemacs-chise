@@ -2402,6 +2402,62 @@
       ))
     ))
 (define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x20486)	; &A-compU+20486;
+      ))
+    (ideographic-radical . 10)	; ⼉
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (hanyu-dazidian	1 273 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x342B)	; 㐫
+      )
+     ((=>ucs@component	  . #x513F)	; &A-compU+513F;
+      (=>iwds-1		  .  0222)	; &A-compU+513F;
+      ))
+    (=ucs		. #x2048B)	; 𠒋
+    (=mj		. 030918)	; &I-MJ030918;
+    (=koseki		. 016050)	; 𠒋
+    (=cbeta		. 04499)	; &I-CB04499;
+    (<-formed
+     ((=ucs@unicode	  . #x5147)	; &AJ1-01692;
+      (=adobe-japan1-0	  . 01692)	; &AJ1-01692;
+      ))
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x342B)	; 㐫
+	)
+       ((=ucs		    . #x513F)	; 儿
+	))
+      (=>>ucs@iso	  . #x2048B)	; &G-MJ030918;
+      (=>>mj		  . 030918)	; &G-MJ030918;
+      (=>>cbeta		  . 04499)	; &G-MJ030918;
+      (->subsumptive
+       ((==ucs@iso	    . #x2048B)	; &g2-MJ030918;
+	(==mj		    . 030918)	; &g2-MJ030918;
+	(==koseki	    . 016050)	; &g2-MJ030918;
+	(==cbeta	    . 04499)	; &g2-MJ030918;
+	(->subsumptive
+	 ((===mj	      . 030918)	; &R-MJ030918;
+	  )
+	 ((===cbeta	      . 04499)	; &R-CB04499;
+	  )
+	 ((===ucs@iso	      . #x2048B)	; &R-U-0002048B;
+	  )
+	 ((=hanziku-1	      . #xDE67)	; &HZK01-DE67;
+	  ))
+	))
+      ))
+    ))
+(define-char
   '((<-denotational
      ((=>ucs@component	  . #x20486)	; &A-compU+20486;
       ))
@@ -3098,29 +3154,6 @@
     (=hanziku-1		. #xDE46)	; &HZK01-DE46;
     (->subsumptive
      ((==ucs@iso	  . #x20489)	; &g2-IU-00020489;
-      ))
-    ))
-(define-char
-  '((ideographic-radical . 10)	; ⼉
-    (ideographic-strokes . 6)
-    (total-strokes	 . 8)
-    (hanyu-dazidian	1 273 2)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x4EA0)	; 亠
-      )
-     ((=ucs		  . #x5147)	; 兇
-      ))
-    (=ucs		. #x2048B)	; 𠒋
-    (->subsumptive
-     ((==ucs@iso	  . #x2048B)	; &g2-IU-0002048B;
-      (->subsumptive
-       ((===ucs@iso	    . #x2048B)	; &R-U-0002048B;
-	)
-       ((=hanziku-1	    . #xDE67)	; &HZK01-DE67;
-	))
       ))
     ))
 (define-char
