@@ -360,14 +360,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
-	(=ucs		    . #x2FF6)	; ⿶
-	)
-       ((=big5-cdp	    . #x8B64)	; &CDP-8B64;
-	)
-       ((=ucs		    . #x540C)	; 同
-	))
+     ((=ucs-itaiji-009	  . #x8208)	; &U-i009+8208;
       )
      ((=ucs		  . #x6614)	; 昔
       ))
@@ -483,27 +476,45 @@
     (sources		ruimoku=A021894-00009)
     (=ruimoku-v6	. #xE01B)	; &RUI6-E01B;
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((name		    . "CJK RADICAL PERSON")
-	(=ucs		    . #x2E85)	; ⺅
-	)
-       ((=daikanwa	    . 30426)	; &M-30426;
-	))
-      (==ruimoku-v6	  . #xE01B)	; &g2-RUI6-E01B;
+     ((==ruimoku-v6	  . #xE01B)	; &g2-RUI6-E01B;
       ))
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5927)	; 大
+      )
+     ((=ucs		  . #x22189)	; 𢆉
+      ))
     (sources		ruimoku=A2003-10837-00013)
     (=ucs		. #x3694)	; 㚔
     (=cns11643-4	. #x2571)	; &I-C4-2571; [05-81]
+    (=big5-cdp		. #x8ABA)	; &I-CDP-8ABA;
     (=daikanwa		. 05884)	; &I-M-05884;
     (=ruimoku-v6	. #xE01C)	; &I-RUI6-E01C;
+    (->subsumptive
+     ((==ucs@unicode	  . #x3694)	; &g2-CDP-8ABA;
+      (==cns11643-4	  . #x2571)	; &g2-CDP-8ABA; [05-81]
+      (==big5-cdp	  . #x8ABA)	; &g2-CDP-8ABA;
+      (==daikanwa	  . 05884)	; &g2-CDP-8ABA;
+      (==ruimoku-v6	  . #xE01C)	; &g2-CDP-8ABA;
+      (->subsumptive
+       ((===daikanwa	    . 05884)	; &R-M-05884;
+	)
+       ((===big5-cdp	    . #x8ABA)	; &R-CDP-8ABA;
+	)
+       ((===cns11643-4	    . #x2571)	; &R-C4-2571; [05-81]
+	)
+       ((===ucs@unicode	    . #x3694)	; &R-UU+3694;
+	)
+       ((===ruimoku-v6	    . #xE01C)	; &R-RUI6-E01C;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 169)	; ⾨
@@ -981,7 +992,7 @@
       )
      ((=ucs		  . #x5B80)	; 宀
       )
-     ((=ruimoku-v6	  . #xE03C)	; &RUI6-E03C;
+     ((=ucs		  . #x2A7CD)	; 𪟍
       ))
     (=ruimoku-v6	. #xE03B)	; &RUI6-E03B;
     (->subsumptive
@@ -992,7 +1003,8 @@
        ((==ucs@unicode	    . #x5B80)	; &g2-AJ1-04622;
 	(==adobe-japan1-0   . 04622)	; &g2-AJ1-04622;
 	)
-       ((==ruimoku-v6	    . #xE03C)	; &g2-RUI6-E03C;
+       ((==ucs@JP/hanazono  . #x2A7CD)	; &g2-hanaJU+2A7CD;
+	(==ruimoku-v6	    . #xE03C)	; &g2-hanaJU+2A7CD;
 	))
       (==ruimoku-v6	  . #xE03B)	; &g2-RUI6-E03B;
       ))
@@ -1009,7 +1021,11 @@
       )
      ((=ucs		  . #x5202)	; 刂
       ))
-    (=ruimoku-v6	. #xE03C)	; &RUI6-E03C;
+    (=ucs		. #x2A7CD)	; 𪟍
+    (=ruimoku-v6	. #xE03C)	; &I-RUI6-E03C;
+    (<-construed@chu
+     ((=ucs		  . #x534A)	; 半
+      ))
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -1020,7 +1036,8 @@
        ((name		    . "CJK RADICAL KNIFE TWO")
 	(=ucs		    . #x2E89)	; ⺉
 	))
-      (==ruimoku-v6	  . #xE03C)	; &g2-RUI6-E03C;
+      (==ucs@JP/hanazono  . #x2A7CD)	; &g2-hanaJU+2A7CD;
+      (==ruimoku-v6	  . #xE03C)	; &g2-hanaJU+2A7CD;
       ))
     ))
 (define-char
@@ -1403,20 +1420,26 @@
   '((=ruimoku-v6	. #xE056)	; &RUI6-E056;
     ))
 (define-char
-  '((ideographic-radical . 141)	; ⾌
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE057)	; &A-RUI6-E057;
+      ))
+    (ideographic-radical . 141)	; ⾌
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((name		  . "CJK RADICAL TIGER")
-      (=ucs		  . #x2EC1)	; ⻁
+     ((=ucs@unicode	  . #x864E)	; &G0-3B22;
+      (=gb2312		  . #x3B22)	; &G0-3B22; [27-02]
       )
      ((=ucs		  . #x53E3)	; 口
       ))
     (sources		ruimoku=A2007-10507-00090)
     (=ruimoku-v6	. #xE057)	; &RUI6-E057;
+    (->subsumptive
+     ((==ruimoku-v6	  . #xE057)	; &g2-RUI6-E057;
+      ))
     ))
 (define-char
   '((ideographic-structure
@@ -1547,7 +1570,8 @@
 	)
        ((==ucs@iso	    . #x20CF5)	; &g2-IU-00020CF5;
 	)
-       ((=ucs		    . #x5FC3)	; 心
+       ((==ucs@unicode	    . #x5FC3)	; &g2-AJ1-02554;
+	(==adobe-japan1-0   . 02554)	; &g2-AJ1-02554;
 	))
       (==ruimoku-v6	  . #xE05F)	; &g2-RUI6-E05F;
       ))
