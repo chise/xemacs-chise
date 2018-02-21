@@ -238,12 +238,17 @@
     (=gt-k		. 00025)	; &I-GT-K00025;
     (=gt-pj-k1		. #x3031)	; ㇇ [16-17]
     (->subsumptive
-     ((==gt-k		  . 00025)	; &g2-GT-K00025;
-      (==gt-pj-k1	  . #x3031)	; &g2-GT-K00025; [16-17]
-      )
-     ((==big5-cdp	  . #x8BA2)	; &g2-CDP-8BA2;
-      )
-     ((==ucs@unicode	  . #x31C7)	; &g2-UU+31C7;
+     ((=>>ucs@unicode	  . #x31C7)	; &G-CDP-8BA2;
+      (=>>big5-cdp	  . #x8BA2)	; &G-CDP-8BA2;
+      (=>>gt-k		  . 00025)	; &G-CDP-8BA2;
+      (->subsumptive
+       ((==gt-k		    . 00025)	; &g2-GT-K00025;
+	(==gt-pj-k1	    . #x3031)	; &g2-GT-K00025; [16-17]
+	)
+       ((==big5-cdp	    . #x8BA2)	; &g2-CDP-8BA2;
+	)
+       ((==ucs@unicode	    . #x31C7)	; &g2-UU+31C7;
+	))
       )
      ((=gt-k		  . 00022)	; &GT-K00022;
       (=gt-pj-k1	  . #x3026)	; &GT-K00022; [16-06]
