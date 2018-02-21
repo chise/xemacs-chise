@@ -1,5 +1,41 @@
 2018-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ruimoku6.el (RUI6-E017): Use U+8208-itaiji-009 in
+	`ideographic-structure'.
+	(g2-RUI6-E01B): Omit `ideographic-structure'.
+	(U+3694): Add `ideographic-structure'; unify BC-8ABA; add
+	representative nodes.
+	(RUI6-E03C): Unify U-0002A7CD; add `<-construed@chu' for U+534A.
+	(RUI6-E057): Add `<-denotational' for A-RUI6-E057; apply new
+	conventions for glyph granularity.
+	(g2-RUI6-E05F): Use g2-UU+5FC3 instead of U+5FC3 in
+	`ideographic-structure'.
+
+	* Ideograph-R046-Mountain.el (U+5D2E): Add `<-denotational' for
+	A-IWDSU+5D2E; add `ideographic-structure'; unify GT-10294.
+	(U-00021E4D): Add `<-denotational' for A-IWDSU+5D2E; apply new
+	conventions for glyph granularity.
+
+	* Ideograph-R030-Mouth.el (U-00020BB0): Apply new conventions for
+	glyph granularity.
+	(U+20BB0-itaiji-001): New character.
+	(U+553F): Apply new conventions for glyph granularity.
+	(U+5552): Add `sound@ja/on/{kan|go}'; add `->formed' for U+553F;
+	add representative nodes.
+	(U+5605): Add `ideographic-structure'.
+	(A-CU+5605): Unify A-CB01422.
+	(A-cgnU+20EE6): New abstract node.
+	(U-00020EE6): Add `<-denotational' for A-cgnU+20EE6.
+	(U-0002A883): New character; use `<-denotational' for
+	A-cgnU+20EE6.
+
+	* Ideograph-R005-Second.el (U+31C7): Add intermediate glyph node.
+
+	* Ideograph-R004-Slash.el (U-0002008F): Apply new conventions for
+	glyph granularity.
+
+2018-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R010-Legs.el (U-0002048B): Add
 	`<-denotational@component' for A-compU+20486; modify structure;
 	add `<-formed' for UU+5147; unify MJ030918, KOSEKI-016050 and
