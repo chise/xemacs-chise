@@ -3204,6 +3204,40 @@
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=ucs		  . #x5360)	; 占
+      ))
+    (=ruimoku-v6	. #xE0BD)	; &RUI6-E0BD;
+    (->subsumptive
+     ((==ruimoku-v6	  . #xE0BD)	; &g2-RUI6-E0BD;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=ucs		  . #x767D)	; 白
+      ))
+    (=ruimoku-v6	. #xE0D1)	; &RUI6-E0D1;
+    (->subsumptive
+     ((==ruimoku-v6	  . #xE0D1)	; &g2-RUI6-E0D1;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 718 10)
@@ -6783,6 +6817,26 @@
     (=cns11643-4	. #x4F75)	; &I-C4-4F75; [47-85]
     (=daikanwa		. 04852)	; &I-M-04852;
     (=hanziku-2		. #xE7C6)	; &I-HZK02-E7C6;
+    ))
+(define-char
+  '((ideographic-radical . 31)	; ⼞
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=ucs		  . #x8C88)	; 貈
+      ))
+    (=ucs		. #x2BB53)	; 𫭓
+    (=ruimoku-v6	. #xE106)	; &I-RUI6-E106;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2BB53)	; &g2-hanaJU+2BB53;
+      )
+     ((==ruimoku-v6	  . #xE106)	; &g2-RUI6-E106;
+      ))
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
