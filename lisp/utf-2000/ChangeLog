@@ -1,3 +1,15 @@
+2018-02-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el (RUI6-E0BD): New character.
+	(RUI6-E0D1): New character.
+	(U-0002BB53): New character; unify RUI6-E106.
+
+	* Ideograph-R019-Power.el (A-cgnU+20861): New abstract node.
+	(U-00020861): Add `<-denotational' for A-cgnU+20861; add
+	`ideographic-structure'; add representative nodes.
+	(U-00020879): Likewise.
+	(U-0002A7E3): New character; unify RUI6-E159.
+
 2018-02-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R013-Down-Box.el (U-0002B937): New character.
