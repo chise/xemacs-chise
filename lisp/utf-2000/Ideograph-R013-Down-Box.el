@@ -3553,6 +3553,26 @@
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5CA1)	; 岡
+      )
+     ((=ucs		  . #x53BB)	; 去
+      ))
+    (=ucs		. #x2B937)	; 𫤷
+    (=ruimoku-v6	. #xE16C)	; &I-RUI6-E16C;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2B937)	; &g2-hanaJU+2B937;
+      )
+     ((==ruimoku-v6	  . #xE16C)	; &g2-RUI6-E16C;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (hanyu-dazidian	1 101 6)
