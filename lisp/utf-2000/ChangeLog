@@ -1,5 +1,13 @@
 2018-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R021-Spoon.el (GT-K02005): New character.
+	(GT-K05715): New character.
+	(U+5318): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+5816.
+	(CB09487): New character; use `<-subsumptive' for UU+5318.
+
+2018-02-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* ruimoku6.el (RUI6-E017): Use U+8208-itaiji-009 in
 	`ideographic-structure'.
 	(g2-RUI6-E01B): Omit `ideographic-structure'.
