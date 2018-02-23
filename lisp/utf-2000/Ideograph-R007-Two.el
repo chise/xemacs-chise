@@ -1552,6 +1552,23 @@
     ))
 (define-char
   '((ideographic-radical . 7)	; ⼆
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E94)	; 五
+      )
+     ((=ucs		  . #x4E94)	; 五
+      ))
+    (=ruimoku-v6	. #xE11D)	; &RUI6-E11D;
+    (->subsumptive
+     ((==ruimoku-v6	  . #xE11D)	; &g2-RUI6-E11D;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 7)	; ⼆
     (hanyu-dazidian	1 55 7)
     (sound@ja/on	"kyoku")
     (=ucs		. #x4E9F)	; 亟
