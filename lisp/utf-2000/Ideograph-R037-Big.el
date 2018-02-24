@@ -5796,6 +5796,23 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5927)	; 大
+      )
+     ((=ucs		  . #x2BAA1)	; 𫪡
+      ))
+    (=ucs		. #x2A95C)	; 𪥜
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2A95C)	; &g2-hanaJU+2A95C;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
@@ -6480,6 +6497,23 @@
     (=ucs		. #x216A0)	; 𡚠
     (=cns11643-5	. #x7568)	; &I-C5-7568; [85-72]
     (=hanziku-2		. #xC15F)	; &I-HZK02-C15F;
+    ))
+(define-char
+  '((ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 20)
+    (total-strokes	 . 23)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x8051)	; 聑
+      )
+     ((=ucs		  . #x595C)	; 奜
+      ))
+    (=ruimoku-v6	. #xE080)	; &RUI6-E080;
+    (->subsumptive
+     ((==ruimoku-v6	  . #xE080)	; &g2-RUI6-E080;
+      ))
     ))
 (define-char
   '((ideographic-radical . 37)	; ⼤
