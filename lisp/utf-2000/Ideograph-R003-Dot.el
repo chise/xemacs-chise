@@ -48,12 +48,34 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 3)	; ⼂
+  '((name		. "VERTICAL IDEOGRAPHIC ITERATION MARK")
+    (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
-    (=gt		. 00129)	; &GT-00129;
-    (=gt-pj-2		. #x3068)	; &GT-00129; [16-72]
+    (=ucs		. #x303B)	; 〻
+    (=mj		. 000003)	; &I-MJ000003;
+    (=jis-x0213-1	. #x2236)	; &I-JX1-2236; [02-22]
+    (=koseki		. 001070)	; 〻
+    (=gt		. 00129)	; &I-GT-00129;
+    (=gt-pj-2		. #x3068)	; &I-GT-00129; [16-72]
     (=daikanwa		. 00092)	; &I-M-00092;
+    (->subsumptive
+     ((==daikanwa	  . 00092)	; &g2-M-00092;
+      )
+     ((==ucs@unicode	  . #x303B)	; &g2-GT-00129;
+      (==jis-x0213-1	  . #x2236)	; &g2-GT-00129; [02-22]
+      (==koseki		  . 001070)	; &g2-GT-00129;
+      (==gt		  . 00129)	; &g2-GT-00129;
+      (->subsumptive
+       ((===jis-x0213-1	    . #x2236)	; &R-JX1-2236; [02-22]
+	)
+       ((===gt		    . 00129)	; &R-GT-00129;
+	)
+       ((===ucs@unicode	    . #x303B)	; &R-UU+303B;
+	))
+      )
+     ((==mj		  . 000003)	; &g2-MJ000003;
+      ))
     ))
 (define-char
   '((<-denotational@component
@@ -94,18 +116,13 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 3)	; ⼂
-    (=ucs		. #x2A70A)	; 𪜊
-    ))
-(define-char
   '((<-denotational
-     ((=ucs		  . #x2A70A)	; 𪜊
+     ((=>ucs@component	  . #x2A70A)	; &A-compU+2A70A;
       ))
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
-    (=>ucs@iwds-1	. #x2A70A)	; &A-IWDSU+2A70A;
-    (=+>ucs@iso		. #x2A70A)	; &A-IWDSU+2A70A;
+    (=ucs		. #x2A70A)	; 𪜊
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -113,11 +130,19 @@
 	)
        ((=ucs		    . #x4E36)	; 丶
 	)
-       ((=big5-cdp	    . #x8BA2)	; &CDP-8BA2;
+       ((name		    . "CJK STROKE HP")
+	(=ucs		    . #x31C7)	; ㇇
 	))
       (=ucs@iso		  . #x2A70A)	; &U-0002A70A;
       (->subsumptive
        ((==ucs@iso	    . #x2A70A)	; &g2-IU-0002A70A;
+	))
+      )
+     ((=gt-k		  . 00151)	; &GT-K00151;
+      (=gt-pj-k1	  . #x4229)	; &GT-K00151; [34-09]
+      (->subsumptive
+       ((==gt-k		    . 00151)	; &g2-GT-K00151;
+	(==gt-pj-k1	    . #x4229)	; &g2-GT-K00151; [34-09]
 	))
       )
      ((ideographic-structure
@@ -137,6 +162,10 @@
     (total-strokes	 . 2)
     (=>ucs@component	. #x4E37)	; &A-compU+4E37;
     (=>iwds-1		.  0022)	; &A-compU+4E37;
+    ))
+(define-char
+  '((ideographic-radical . 3)	; ⼂
+    (=>ucs@component	. #x2A70A)	; &A-compU+2A70A;
     ))
 (define-char
   '((ideographic-radical . 3)	; ⼂
@@ -427,7 +456,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x2A70A)	; 𪜊
+     ((=>ucs@component	  . #x2A70A)	; &A-compU+2A70A;
       ))
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 2)

@@ -1,5 +1,29 @@
 2018-02-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U-00020CF5): Apply new conventions for
+	glyph granularity.
+	(A-compU+20DAC): New abstract node.
+	(U-00020DAC): Add `<-denotational' for A-compU+20DAC; add
+	`ideographic-structure'.
+	(BC-8CA3): Add `<-denotational' for A-compU+20DAC.
+	(U-0002BAA1): New character.
+	(U-0002BAA6): New character; unify CB02913 and RUI6-E0E4.
+
+	* Ideograph-R003-Dot.el (GT-00129): Unify U+303B, MJ000003,
+	JX1-2236 and KOSEKI-001070.
+	(U-0002A70A): Add `<-denotational' for A-compU+2A70A; unify
+	A-IWDSU+2A70A and o-IU+2A70A; omit `=>ucs@iwds-1' and
+	`=+>ucs@iso'.
+	(GT-K00151): New character; use `<-subsumptive' for U-0002A70A.
+	(A-compU+2A70A): New abstract node.
+	(U+2A70A-var-004): Use A-compU+2A70A instead of U-0002A70A as its
+	mother.
+
+2018-02-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R037-Big.el (U-0002A95C): New character.
+	(RUI6-E080): New character.
+
 	* Ideograph-R031-Enclosure.el (RUI6-E0BD): New character.
 	(RUI6-E0D1): New character.
 	(U-0002BB53): New character; unify RUI6-E106.
