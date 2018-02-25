@@ -4872,6 +4872,23 @@
     (=ucs-itaiji-001	. #x21A1D)	; &U-i001+21A1D;
     ))
 (define-char
+  '((ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs		  . #x9091)	; 邑
+      ))
+    (=ruimoku-v6	. #xE0AF)	; &RUI6-E0AF;
+    (->subsumptive
+     ((==ruimoku-v6	  . #xE0AF)	; &g2-RUI6-E0AF;
+      ))
+    ))
+(define-char
   '((<-denotational
      ((=>big5-cdp	  . #x8D7C)	; &A-CDP-8D7C;
       ))
@@ -6086,6 +6103,64 @@
        ((===cbeta	    . 05265)	; &R-CB05265;
 	)
        ((===ucs@unicode	    . #x5BC9)	; &R-UU+5BC9;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=>big5-cdp	  . #x8B6E)	; &A-CDP-8B6E;
+      )
+     ((=ucs		  . #x5C71)	; 山
+      ))
+    (=ucs		. #x2D4FD)	; 𭓽
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D4FD)	; 𭓽
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs		  . #x7676)	; 癶
+      )
+     ((=ucs		  . #x5C71)	; 山
+      ))
+    (sound@ja/kun	"sasa")
+    (=ucs@JP/hanazono	. #x2D4FD)	; &RUI6-E0B3;
+    (=koseki		. 552700)	; &RUI6-E0B3;
+    (=gt		. 09052)	; &RUI6-E0B3;
+    (=gt-pj-9		. #x3943)	; &RUI6-E0B3; [25-35]
+    (=ruimoku-v6	. #xE0B3)	; &I-RUI6-E0B3;
+    (<-formed
+     ((=ucs		  . #x5BC6)	; 密
+      ))
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D4FD)	; &g2-KOSEKI-552700;
+      (==koseki		  . 552700)	; &g2-KOSEKI-552700;
+      (==ruimoku-v6	  . #xE0B3)	; &g2-KOSEKI-552700;
+      (->subsumptive
+       ((===ruimoku-v6	    . #xE0B3)	; &R-RUI6-E0B3;
+	))
+      )
+     ((=ruimoku-v6	  . #xE0BA)	; &RUI6-E0BA;
+      (->subsumptive
+       ((==ruimoku-v6	    . #xE0BA)	; &g2-RUI6-E0BA;
 	))
       ))
     ))
