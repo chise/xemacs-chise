@@ -7152,6 +7152,23 @@
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=ruimoku-v6	  . #xE147)	; &RUI6-E147;
+      ))
+    (=ucs		. #x2A8D3)	; 𪣓
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2A8D3)	; &g2-hanaJU+2A8D3;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs		. #x363F)	; 㘿
@@ -11986,6 +12003,23 @@
      ((=>ucs@cognate	  . #x21FFA)	; &A-cgnU+21FFA;
       ))
     (=>ucs@cognate	. #x5816)	; &A-cgnU+5816;
+    ))
+(define-char
+  '((ideographic-radical . 32)	; ⼟
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=ucs		  . #x7AFA)	; 竺
+      ))
+    (=ruimoku-v6	. #xE093)	; &RUI6-E093;
+    (->subsumptive
+     ((==ruimoku-v6	  . #xE093)	; &g2-RUI6-E093;
+      ))
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
