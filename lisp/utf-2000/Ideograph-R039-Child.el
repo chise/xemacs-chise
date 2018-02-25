@@ -231,45 +231,71 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
       )
-     ((=big5-cdp	  . #x8BA2)	; &CDP-8BA2;
+     ((=ucs		  . #x5B50)	; 子
       )
-     ((=ucs		  . #x6728)	; 木
+     ((=ucs		  . #x516B)	; 八
       ))
     (=ucs		. #x21940)	; 𡥀
     (=cns11643-6	. #x2269)	; &I-C6-2269; [02-73]
     (=daikanwa		. 06937)	; &I-M-06937;
+    (<-ancient
+     ((=ucs		  . #x4FDD)	; 保
+      (=daikanwa	  . 00702)	; &I-M-00702;
+      )
+     ((=ucs		  . #x5B5F)	; 孟
+      (=daikanwa	  . 06960)	; &I-M-06960;
+      ))
+    (<-ancient$_1*sources
+     shuowen yupian liushugu daikanwa)
+    (<-ancient$_2*sources
+     shuowen daikanwa)
+    (<-ancient*sources
+     shuowen daikanwa)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=big5-cdp	    . #x8BA2)	; &CDP-8BA2;
+       ((name		    . "CJK STROKE HP")
+	(=ucs		    . #x31C7)	; ㇇
 	)
        ((=ucs		    . #x6729)	; 朩
 	))
-      (==ucs@cns	  . #x21940)	; &g2-M-06937;
-      (==cns11643-6	  . #x2269)	; &g2-M-06937; [02-73]
-      (==daikanwa	  . 06937)	; &g2-M-06937;
+      (=>>ucs@cns	  . #x21940)	; &G-CU+21940;
+      (=>>cns11643-6	  . #x2269)	; &G-CU+21940; [02-73]
+      (=>>daikanwa	  . 06937)	; &G-CU+21940;
       (->subsumptive
-       ((===daikanwa	    . 06937)	; &R-M-06937;
+       ((==daikanwa	    . 06937)	; &g2-M-06937;
 	)
-       ((===cns11643-6	    . #x2269)	; &R-C6-2269; [02-73]
+       ((==ucs@cns	    . #x21940)	; &g2-CU+21940;
+	(==cns11643-6	    . #x2269)	; &g2-CU+21940; [02-73]
 	))
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
 	(=ucs		    . #x2FFB)	; ⿻
 	)
-       ((==ucs@unicode	    . #x5B50)	; &g2-AJ1-02208;
-	(==adobe-japan1-0   . 02208)	; &g2-AJ1-02208;
+       ((=ucs		    . #x5B50)	; 子
 	)
-       ((==ucs@unicode	    . #x516B)	; &g2-MJ007274;
-	(==mj		    . 007274)	; &g2-MJ007274;
+       ((=mj		    . 007274)	; &MJ007274;
 	))
-      (==ucs@iso	  . #x21940)	; &g2-IU-00021940;
+      (=>>ucs@iso	  . #x21940)	; &G-IU+21940;
+      (->subsumptive
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+	  (=ucs		      . #x2FFB)	; ⿻
+	  )
+	 ((==ucs@unicode      . #x5B50)	; &g2-AJ1-02208;
+	  (==adobe-japan1-0   . 02208)	; &g2-AJ1-02208;
+	  )
+	 ((==ucs@unicode      . #x516B)	; &g2-MJ007274;
+	  (==mj		      . 007274)	; &g2-MJ007274;
+	  ))
+	(==ucs@iso	    . #x21940)	; &g2-IU-00021940;
+	))
       ))
     ))
 (define-char
@@ -1154,6 +1180,26 @@
     (=ucs		. #x24605)	; 𤘅
     (=cns11643-5	. #x2368)	; &I-C5-2368; [03-72]
     (=daikanwa		. 19911)	; &I-M-19911;
+    ))
+(define-char
+  '((ideographic-radical . 39)	; ⼦
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@cns		  . #x4E11)	; &MJ006315;
+      (=ucs@jis		  . #x4E11)	; &MJ006315;
+      (=ucs@ks		  . #x4E11)	; &MJ006315;
+      (=mj		  . 006315)	; &MJ006315;
+      )
+     ((=ucs		  . #x5B50)	; 子
+      ))
+    (=ruimoku-v6	. #xE098)	; &RUI6-E098;
+    (->subsumptive
+     ((==ruimoku-v6	  . #xE098)	; &g2-RUI6-E098;
+      ))
     ))
 (define-char
   '((ideographic-radical . 39)	; ⼦
