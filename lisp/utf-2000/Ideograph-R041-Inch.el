@@ -1608,13 +1608,13 @@
      ((==>ucs@bucs	  . #x5C08)	; &BUCS+5C08;
       ))
     (ideographic-radical . 41)	; ⼨
-    (=>ucs@component	. #x5C08)	; &A-compU+5C08;
-    (=>iwds-1		.  0387)	; &A-compU+5C08;
+    (=>ucs@iwds-1	. #x5C08)	; &A-IWDSU+5C08;
+    (=>iwds-1		.  0387)	; &A-IWDSU+5C08;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x5C08)	; &A-compU+5C08;
-      (=>iwds-1		  .  0387)	; &A-compU+5C08;
+     ((=>ucs@iwds-1	  . #x5C08)	; &A-IWDSU+5C08;
+      (=>iwds-1		  .  0387)	; &A-IWDSU+5C08;
       ))
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 8)
@@ -1763,8 +1763,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x5C08)	; &A-compU+5C08;
-      (=>iwds-1		  .  0387)	; &A-compU+5C08;
+     ((=>ucs@iwds-1	  . #x5C08)	; &A-IWDSU+5C08;
+      (=>iwds-1		  .  0387)	; &A-IWDSU+5C08;
       ))
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 6)
@@ -1849,6 +1849,14 @@
   '((ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x2BD56)	; 𫵖
+      )
+     ((=ucs		  . #x5BF8)	; 寸
+      ))
     (=ucs		. #x5C09)	; 尉
     (=adobe-japan1-0	. 01175)	; &I-AJ1-01175;
     (=jis-x0208		. #x3053)	; &I-J90-3053; [16-51]
