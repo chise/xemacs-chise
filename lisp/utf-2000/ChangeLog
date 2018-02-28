@@ -32,6 +32,32 @@
 	(U-0002BC8C): New character.
 	(RUI6-E14E): New character; use `<-denotational' for U-0002BC8C.
 
+2018-02-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (U-0002BA35): New character; unify
+	RUI6-E0F3.
+	(U+38C7-itaiji-006): New character.
+	(RUI6-E161): New character.
+	(U+38C7-itaiji-007): New character.
+	(U+53DE): Apply new conventions for glyph granularity.
+	(U-00020B57): Apply new conventions for glyph granularity.
+	(A-cgnU+20B58): New abstract node.
+	(U-00020B58): Add `<-denotational' for A-cgnU+20B58; apply new
+	conventions for glyph granularity.
+	(U-0002A7CA): Unify A-IWDSU+2A7CA and IU+2A7CA; omit
+	`=>ucs@iwds-1' and `=ucs@iso'; unify RUI6-E09B; add
+	`<-denotational' for A-cgnU+2A7CA.
+	(hanaJU+2BA41): Changed from IU+2BA41.
+	(U+2BA41-itaiji-001): New character; use `<-denotational' for
+	U-0002BA41.
+	(A-cgnU+2A7CA): New abstract node.
+	(U+2A7CA-itaiji-001): Use A-cgnU+2A7CA instead of U-0002A7CA as
+	its mother.
+	(U-00020B6E): Add `<-denotational' for A-cgnU+20B58; add
+	`ideographic-structure'; add `sound@ja/on'.
+	(U-00020B7E): Apply new conventions for glyph granularity.
+	(U-00020B87): Likewise.
+
 2018-02-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R013-Down-Box.el: Modify for U-0002000E.
