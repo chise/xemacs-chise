@@ -1332,7 +1332,61 @@
   '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (=daikanwa		. 08738)	; &M-08738;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5DE5)	; 工
+      )
+     ((=ucs		  . #x2E986)	; 𮦆
+      ))
+    (sound@ja/on	"zi")
+    (=ucs		. #x2202A)	; 𢀪
+    (=daikanwa		. 08738)	; &I-M-08738;
+    (->subsumptive
+     ((==ucs@iso	  . #x2202A)	; &g2-M-08738;
+      (==daikanwa	  . 08738)	; &g2-M-08738;
+      (->subsumptive
+       ((===daikanwa	    . 08738)	; &R-M-08738;
+	)
+       ((===ucs@iso	    . #x2202A)	; &R-U-0002202A;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5DE0)	; 巠
+      )
+     ((=ucs		  . #x51ED)	; 凭
+      ))
+    (=ucs		. #x2202B)	; 𢀫
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2202B)	; 𢀫
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5DE0)	; 巠
+      )
+     ((=ucs@unicode	  . #x51ED)	; &AJ1-04246;
+      (=adobe-japan1-0	  . 04246)	; &AJ1-04246;
+      ))
+    (=ucs@iso		. #x2202B)	; &U-0002202B;
+    (->subsumptive
+     ((==ucs@iso	  . #x2202B)	; &g2-IU-0002202B;
+      ))
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯

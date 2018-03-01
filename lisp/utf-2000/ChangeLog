@@ -1,5 +1,9 @@
 2018-02-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R048-Work.el (M-08738): Unify U-0002202A.
+
+2018-02-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R038-Woman.el (CB11757): New character; unify
 	RUI6-E08C.
 	(U-000216DB): Apply new conventions for glyph granularity.
