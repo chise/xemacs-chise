@@ -701,6 +701,28 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 59)	; ⼺
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x9149)	; 酉
+      )
+     ((=ucs		  . #x5F61)	; 彡
+      ))
+    (=ucs		. #x2BE49)	; 𫹉
+    (=ruimoku-v6	. #xE0C5)	; &I-RUI6-E0C5;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2BE49)	; &g2-hanaJU+2BE49;
+      (==ruimoku-v6	  . #xE0C5)	; &g2-hanaJU+2BE49;
+      (->subsumptive
+       ((===ruimoku-v6	    . #xE0C5)	; &R-RUI6-E0C5;
+	))
+      ))
+    ))
+(define-char
   '((=>ucs		. #x38CE)	; 㣎
     (ideographic-radical . 59)	; ⼺
     (ideographic-strokes . 8)
