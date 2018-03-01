@@ -846,6 +846,24 @@
     (ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=>ucs@component	  . #x4E14)	; &A-compU+4E14;
+      (=>iwds-1		  .  0114)	; &A-compU+4E14;
+      ))
+    (=ucs		. #x4E98)	; 亘
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E98)	; 亘
+      ))
+    (ideographic-radical . 7)	; ⼆
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
     (hanyu-dazidian	1 17 16)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -858,8 +876,8 @@
     (sound@ja/kun	"wata-ru")
     (sound@ja/on	"kou")
     (sound@ja/on/kan	"sen")
-    (=ucs		. #x4E98)	; 亘
-    (=adobe-japan1-0	. 04081)	; &I-AJ1-04081;
+    (=ucs@unicode	. #x4E98)	; &AJ1-04081;
+    (=adobe-japan1-0	. 04081)	; &AJ1-04081;
     (=jis-x0208		. #x4F4B)	; &I-J90-4F4B; [47-43]
     (=gb2312		. #x5828)	; &I-G0-5828; [56-08]
     (=ks-x1001		. #x5066)	; &I-K0-5066; [48-70]
@@ -870,8 +888,67 @@
     (=gt-k		. 01711)	; &I-GT-K01711;
     (=gt-pj-1		. #x4F4B)	; &I-GT-00345; [47-43]
     (=daikanwa		. 00262)	; &I-M-00262;
-    (=shinjigen		.  0083)	; 亘
+    (=shinjigen		.  0083)	; &AJ1-04081;
     (=cbeta		. 00040)	; &I-CB00040;
+    (->subsumptive
+     ((==ucs@unicode	  . #x4E98)	; &g2-AJ1-04081;
+      (==adobe-japan1-0	  . 04081)	; &g2-AJ1-04081;
+      (==gb2312		  . #x5828)	; &g2-AJ1-04081; [56-08]
+      (==ks-x1001	  . #x5066)	; &g2-AJ1-04081; [48-70]
+      (==jis-x0208	  . #x4F4B)	; &g2-AJ1-04081; [47-43]
+      (==cns11643-3	  . #x2266)	; &g2-AJ1-04081; [02-70]
+      (==jis-x0213-1	  . #x4F4B)	; &g2-AJ1-04081; [47-43]
+      (==big5-cdp	  . #x8CEE)	; &g2-AJ1-04081;
+      (==gt		  . 00345)	; &g2-AJ1-04081;
+      (==gt-k		  . 01711)	; &g2-AJ1-04081;
+      (==daikanwa	  . 00262)	; &g2-AJ1-04081;
+      (==shinjigen	  .  0083)	; &g2-AJ1-04081;
+      (==cbeta		  . 00040)	; &g2-AJ1-04081;
+      (->subsumptive
+       ((===daikanwa	    . 00262)	; &R-M-00262;
+	)
+       ((===jis-x0208	    . #x4F4B)	; &R-J0-4F4B; [47-43]
+	(===jis-x0213-1	    . #x4F4B)	; &R-J0-4F4B; [47-43]
+	)
+       ((===adobe-japan1-0  . 04081)	; &R-AJ1-04081;
+	)
+       ((===big5-cdp	    . #x8CEE)	; &R-CDP-8CEE;
+	)
+       ((===cbeta	    . 00040)	; &R-CB00040;
+	)
+       ((===cns11643-3	    . #x2266)	; &R-C3-2266; [02-70]
+	)
+       ((===gt		    . 00345)	; &R-GT-00345;
+	(===gt-k	    . 01711)	; &R-GT-00345;
+	)
+       ((===ucs@ks	    . #x4E98)	; &R-K0-5066;
+	(===ks-x1001	    . #x5066)	; &R-K0-5066; [48-70]
+	)
+       ((===ucs@unicode	    . #x4E98)	; &R-UU+4E98;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E98)	; 亘
+      ))
+    (ideographic-radical . 7)	; ⼆
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x4E14)	; 且
+      ))
+    (=hanyo-denshi/tk	. 01001180)	; &HD-TK-01001180;
+    (=hanyo-denshi/tk/mf-01 . #x0076)	; &HD-TK-01001180;
+    (->subsumptive
+     ((==hanyo-denshi/tk  . 01001180)	; &g2-HD-TK-01001180;
+      (==hanyo-denshi/tk/mf-01 . #x0076)	; &g2-HD-TK-01001180;
+      ))
     ))
 (define-char
   '((ideographic-radical . 7)	; ⼆
@@ -899,7 +976,8 @@
     (=gt-pj-2		. #x3235)	; &I-GT-00354; [18-21]
     (=daikanwa		. 00263)	; &I-M-00263;
     (<-original
-     ((=ucs		  . #x4E98)	; 亘
+     ((=ucs@unicode	  . #x4E98)	; &AJ1-04081;
+      (=adobe-japan1-0	  . 04081)	; &AJ1-04081;
       (=daikanwa	  . 00262)	; &I-M-00262;
       ))
     (<-original*sources
@@ -1296,7 +1374,8 @@
     (=gt-pj-2		. #x323B)	; &I-GT-00356; [18-27]
     (=daikanwa		. 00271)	; &I-M-00271;
     (<-same
-     ((=ucs		  . #x4E98)	; 亘
+     ((=ucs@unicode	  . #x4E98)	; &AJ1-04081;
+      (=adobe-japan1-0	  . 04081)	; &AJ1-04081;
       (=daikanwa	  . 00262)	; &I-M-00262;
       ))
     (<-same*sources
