@@ -1,3 +1,14 @@
+2018-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (U-0002BD91): New character.
+	(U+3805): Apply new conventions for glyph granularity.
+
+2018-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R007-Two.el (U+4E98): Apply new conventions for glyph
+	granularity.
+	(HD-TK01001180): New character; use `<-denotational' for U+4E98.
+
 2018-02-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R048-Work.el (M-08738): Unify U-0002202A.
@@ -63,6 +74,9 @@
 	(U-00020B87): Likewise.
 
 2018-02-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R059-Bristle.el (U-0002BE49): New character; unify
+	RUI6-E0C5.
 
 	* Ideograph-R013-Down-Box.el: Modify for U-0002000E.
 	(A-cgnU+5193): Changed from U+5193.
