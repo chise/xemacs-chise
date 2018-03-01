@@ -1,3 +1,9 @@
+2018-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R007-Two.el (U+4E98): Apply new conventions for glyph
+	granularity.
+	(HD-TK01001180): New character; use `<-denotational' for U+4E98.
+
 2018-02-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R048-Work.el (M-08738): Unify U-0002202A.
