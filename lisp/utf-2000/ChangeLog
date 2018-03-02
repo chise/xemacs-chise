@@ -36,6 +36,9 @@
 
 	* Ideograph-R001-One.el (U-0002000E): Add IDS.
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs-itaiji-009'.
+
 2018-02-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el (U-0002BD91): New character.
