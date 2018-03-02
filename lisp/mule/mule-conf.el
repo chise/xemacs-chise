@@ -3516,7 +3516,7 @@
 		  mother        =big5-cdp-itaiji-001))
 
   (make-charset '=big5-cdp-itaiji-002
-		"Big5-CDP-itaiji-001 glyphs of GlyphWiki"
+		"Big5-CDP-itaiji-002 glyphs of GlyphWiki"
 		'(long-name     "Big5-CDP-itaiji-002"
 		  chars         256
 		  dimension     2
@@ -3527,7 +3527,7 @@
 		  mother        =big5-cdp))
 
   (make-charset '=big5-cdp-itaiji-003
-		"Big5-CDP-itaiji-001 glyphs of GlyphWiki"
+		"Big5-CDP-itaiji-003 glyphs of GlyphWiki"
 		'(long-name     "Big5-CDP-itaiji-003"
 		  chars         256
 		  dimension     2
@@ -4723,6 +4723,19 @@
 		  direction	l2r
                   ;; =>iso-ir	177
 		  mother	=ucs-itaiji-001))
+  (make-charset '==ucs-bmp-itaiji-001
+		"uXXXX-itaiji-001's abstract glyph-forms in BMP"
+		'(long-name	"UCS-BMP-itaiji-001"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+                  ;; =>iso-ir	177
+		  mother	==ucs-itaiji-001
+		  min-code #x2E00
+		  max-code #x9FCC
+		  registry "ucs\\.itaiji001-0"))
   (make-charset '==ucs-sip-itaiji-001
 		"uXXXX-itaiji-001's abstract glyph-forms in SIP"
 		'(long-name	"UCS-SIP-itaiji-001"
