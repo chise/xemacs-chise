@@ -229,6 +229,15 @@
   '((ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
     (=ucs		. #x37A2)	; 㞢
     ))
 (define-char
@@ -268,8 +277,7 @@
     (=daikanwa		. 07829)	; &I-M-07829;
     (=jef-china3	. #x97EC)	; &I-JC3-97EC;
     (<-original
-     ((=ucs@unicode	  . #x4E4B)	; &AJ1-03309;
-      (=adobe-japan1-0	  . 03309)	; &AJ1-03309;
+     ((=ucs		  . #x4E4B)	; 之
       (=daikanwa	  . 00125)	; &I-M-00125;
       ))
     (<-original*sources
