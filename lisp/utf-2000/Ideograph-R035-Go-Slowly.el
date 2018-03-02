@@ -1733,6 +1733,99 @@
     ))
 (define-char
   '((ideographic-radical . 35)	; ⼢
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x2068D)	; 𠚍
+      )
+     ((=>ucs@component	  . #x513F)	; &A-compU+513F;
+      (=>iwds-1		  .  0222)	; &A-compU+513F;
+      )
+     ((=>ucs@component	  . #x590A)	; &A-compU+590A;
+      (=>iwds-1		  .  0092)	; &A-compU+590A;
+      ))
+    (=ucs		. #x21570)	; 𡕰
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21570)	; 𡕰
+      ))
+    (ideographic-radical . 35)	; ⼢
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x2068D)	; 𠚍
+      )
+     ((=>ucs@component	  . #x513F)	; &A-compU+513F;
+      (=>iwds-1		  .  0222)	; &A-compU+513F;
+      )
+     ((=ucs		  . #x590A)	; 夊
+      ))
+    (=ucs-var-001	. #x21570)	; &U-v001+21570;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21570)	; 𡕰
+      ))
+    (ideographic-radical . 35)	; ⼢
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x2068D)	; 𠚍
+      )
+     ((=>ucs@component	  . #x513F)	; &A-compU+513F;
+      (=>iwds-1		  .  0222)	; &A-compU+513F;
+      )
+     ((=ucs		  . #x5902)	; 夂
+      ))
+    (=ucs@iso		. #x21570)	; &MJ057258;
+    (=mj		. 057258)	; &MJ057258;
+    (=koseki		. 065670)	; &MJ057258;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	(=ucs		    . #x2FF3)	; ⿳
+	)
+       ((=ucs		    . #x2068D)	; 𠚍
+	)
+       ((=ucs		    . #x513F)	; 儿
+	)
+       ((=ucs		    . #x5902)	; 夂
+	))
+      (=>>mj		  . 057258)	; &G-MJ057258;
+      (->subsumptive
+       ((==koseki	    . 065670)	; &g2-KOSEKI-065670;
+	)
+       ((==mj		    . 057258)	; &g2-MJ057258;
+	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	(=ucs		    . #x2FF3)	; ⿳
+	)
+       ((=ucs		    . #x2068D)	; 𠚍
+	)
+       ((=ucs		    . #x516B)	; 八
+	)
+       ((=ucs		    . #x5902)	; 夂
+	))
+      (=>>ucs@iso	  . #x21570)	; &G-IU+21570;
+      (->subsumptive
+       ((==ucs@iso	    . #x21570)	; &g2-IU-00021570;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 35)	; ⼢
     (=>ucs@cognate	. #x5910)	; &A-cgnU+5910;
     ))
 (define-char

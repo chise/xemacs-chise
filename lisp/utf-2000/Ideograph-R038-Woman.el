@@ -17266,13 +17266,13 @@
       )
      ((=ucs		  . #x5973)	; 女
       )
-     ((=ucs		  . #x5BB9)	; 容
+     ((=>ucs@cognate	  . #x5BB9)	; &A-cgnU+5BB9;
       ))
-    (=ucs		. #x5AC6)	; 嫆
+    (=>ucs@cognate	. #x5AC6)	; &A-cgnU+5AC6;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5AC6)	; 嫆
+     ((=>ucs@cognate	  . #x5AC6)	; &A-cgnU+5AC6;
       ))
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
@@ -17283,11 +17283,10 @@
       )
      ((=ucs		  . #x5973)	; 女
       )
-     ((=ucs@unicode	  . #x5BB9)	; &AJ1-03888;
-      (=adobe-japan1-0	  . 03888)	; &AJ1-03888;
+     ((=ucs		  . #x5BB9)	; 容
       ))
-    (=ucs@unicode	. #x5AC6)	; &AJ1-21422;
-    (=adobe-japan1-6	. 21422)	; &AJ1-21422;
+    (=ucs		. #x5AC6)	; 嫆
+    (=adobe-japan1-6	. 21422)	; &I-AJ1-21422;
     (=jis-x0212		. #x3A22)	; &I-JSP-3A22; [26-02]
     (=cns11643-2	. #x4245)	; &I-C2-4245; [34-37]
     (=big5		. #xDCFE)	; &I-B-DCFE;
