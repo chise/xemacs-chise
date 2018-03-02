@@ -1010,6 +1010,9 @@
       )
      ((=ucs		  . #x5C38)	; 尸
       ))
+    (->subsumptive
+     ((==ucs@iso	  . #x2008B)	; &g2-IU-0002008B;
+      ))
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃
@@ -1095,7 +1098,25 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 4)	; ⼃
+  '((ideographic-radical@ucs . 5)	; ⼄
+    (ideographic-radical@gt . 4)	; ⼃
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=big5-cdp	  . #x8CBD)	; &CDP-8CBD;
+      )
+     ((=ucs		  . #x4E5A)	; 乚
+      ))
+    (sound@ja/kun	"gureiN")
+    (sound@ja/kun*note	"grain")
+    (=ucs		. #x2CF17)	; 𬼗
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2CF17)	; 𬼗
+      ))
+    (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (=gt		. 00164)	; &GT-00164;
@@ -1103,11 +1124,11 @@
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃
-    (=ucs		. #x4E4B)	; 之
+    (=>ucs@cognate	. #x4E4B)	; &A-cgnU+4E4B;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x4E4B)	; 之
+     ((=>ucs@cognate	  . #x4E4B)	; &A-cgnU+4E4B;
       ))
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes@daikanwa . 3)
@@ -1122,9 +1143,8 @@
     (sound@ja/kun	"no" "kore")
     (sound@ja/kun/name	"yuki")
     (sound@ja/on	"si")
-    (=>ucs@iwds-1	. #x4E4B)	; &AJ1-03309;
-    (=ucs@unicode	. #x4E4B)	; &AJ1-03309;
-    (=adobe-japan1-0	. 03309)	; &AJ1-03309;
+    (=ucs		. #x4E4B)	; 之
+    (=adobe-japan1-0	. 03309)	; &I-AJ1-03309;
     (=jis-x0208		. #x4737)	; &I-J90-4737; [39-23]
     (=gb2312		. #x562E)	; &I-G0-562E; [54-14]
     (=ks-x1001		. #x717D)	; &I-K0-717D; [81-93]
@@ -1135,8 +1155,8 @@
     (=gt-k		. 00200)	; &I-GT-K00200;
     (=gt-pj-1		. #x4737)	; &I-GT-00166; [39-23]
     (=daikanwa		. 00125)	; &I-M-00125;
-    (=shinjigen@1ed	.  0049)	; &AJ1-03309;
-    (=shinjigen@rev	.  0041)	; &AJ1-03309;
+    (=shinjigen@1ed	.  0049)	; 之
+    (=shinjigen@rev	.  0041)	; 之
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x4E4B)	; 之
@@ -1210,7 +1230,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x4E4B)	; 之
+     ((=>ucs@cognate	  . #x4E4B)	; &A-cgnU+4E4B;
       ))
     (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 3)

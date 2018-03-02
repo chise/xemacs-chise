@@ -1,3 +1,14 @@
+2018-03-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (U-0002008B): Add representative node.
+	(U-0002CF17): New character.
+	(GT-00164): Add `<-denotational' for U-0002CF17.
+	(A-cgnU+4E4B): Changed from U+4E4B.
+	(AJ1-03309): Unify U+4E4B instead of UU+4E4B and A-IWDSU+4E4B; use
+	A-cgnU+4E4B instead of U+4E4B as its mother.
+	(U+4E4B-itaiji-004): Use A-cgnU+4E4B instead of U+4E4B as its
+	mother.
+
 2018-03-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R045-Sprout.el (U+37A2): Add `ideographic-structure'.
