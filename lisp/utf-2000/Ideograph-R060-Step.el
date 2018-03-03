@@ -6087,6 +6087,25 @@
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
+    (ideographic-strokes . 16)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+      (=ucs		  . #x2FF2)	; ⿲
+      )
+     ((=ucs		  . #x5F73)	; 彳
+      )
+     ((=ucs		  . #x2BD91)	; 𫶑
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ruimoku-v6	. #xE07A)	; &RUI6-E07A;
+    (->subsumptive
+     ((==ruimoku-v6	  . #xE07A)	; &g2-RUI6-E07A;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 60)	; ⼻
     (ideographic-strokes . 17)
     (total-strokes	 . 20)
     (ideographic-structure

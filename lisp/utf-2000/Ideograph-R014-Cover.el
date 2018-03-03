@@ -546,9 +546,8 @@
     (=gb2312		. #x4529)	; &I-G0-4529; [37-09]
     (=jef-china3	. #x81EB)	; &I-JC3-81EB;
     (<-simplified@CN
-     ((=ucs@unicode	  . #x8FB2)	; &AJ1-03318;
-      (=adobe-japan1-0	  . 03318)	; &AJ1-03318;
-      (=gb12345		  . #x4529)	; &AJ1-03318; [37-09]
+     ((=ucs		  . #x8FB2)	; 農
+      (=gb12345		  . #x4529)	; 農 [37-09]
       ))
     (->subsumptive
      ((==ucs@unicode	  . #x519C)	; &g2-UU+519C;

@@ -1,5 +1,26 @@
 2018-03-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R044-Corpse.el (A-cgnU+5C3C): Changed from U+5C3C.
+	(AJ1-03276): Unify U+5C3C instead of A-IWDSU+5C3C and UU+5C3C; use
+	A-cgnU+5C3C instead of U+5C3C as its mother.
+	(U+5C3C-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+5C3C.
+	(U+5C3C-itaiji-002): Use A-cgnU+5C3C instead of U+5C3C as its
+	mother.
+	(U+378B): Unify A-IWDSU+378B and UU+378B; omit `=>ucs@iwds-1' and
+	`=ucs@unicode'; use `<-denotational@component' instead of
+	`<-denotational' for IWDS1-0125.
+	(U-00021C26): Add `ideographic-structure'; add `<-vulgar' for
+	U-00021C2B; add representative nodes.
+	(U-00021C28): Add `ideographic-structure'; add `sound@ja/on'; add
+	representative nodes.
+	(U+378B-itaiji-001): Delete `<-denotational' for U+378B.
+	(U-00021C2B): Apply new conventions for glyph granularity.
+	(RUI6-E147): New character.
+	(U-0002BD56): Add `ideographic-structure'; unify RUI6-E0EB.
+
+2018-03-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R004-Slash.el (U-0002008B): Add representative node.
 	(U-0002CF17): New character.
 	(GT-00164): Add `<-denotational' for U-0002CF17.
@@ -10,6 +31,8 @@
 	mother.
 
 2018-03-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R060-Step.el (RUI6-E07A): New character.
 
 	* Ideograph-R045-Sprout.el (U+37A2): Add `ideographic-structure'.
 
