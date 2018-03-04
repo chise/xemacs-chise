@@ -1,4 +1,23 @@
+2018-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (U+53DC): Use `=>iwds-1*note' instead of
+	`=>iwds-1*sources'.
+	(A-MJ057139): Add `ideographic-structure'.
+
 2018-03-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R048-Work.el (BC-86C9): Fix strokes.
+	(BC-88D7): New character.
+
+	* Ideograph-R012-Eight.el (A-compU+20501): Changed from
+	U-00020501.
+	(C6-214E): Unify U-00020501 instead of IU+20501; use
+	`<-denotational@component' for A-compU+20501 instead of
+	`<-denotational' for U-00020501.
+	(GT-K00859): Use `<-denotational@component' for A-compU+20501
+	instead of `<-denotational' for U-00020501.
+	(U-0002050C): Add `<-denotational@component' for A-compU+2050C;
+	apply new conventions for glyph granularity.
 
 	* Ideograph-R044-Corpse.el (A-cgnU+5C3C): Changed from U+5C3C.
 	(AJ1-03276): Unify U+5C3C instead of A-IWDSU+5C3C and UU+5C3C; use
