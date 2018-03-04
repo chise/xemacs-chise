@@ -557,24 +557,6 @@
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
-    (ideographic-strokes . 2)
-    (total-strokes	 . 5)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (=ucs		  . #x2FF4)	; ⿴
-      )
-     ((=ucs		  . #x5DF1)	; 己
-      )
-     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
-      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
-      ))
-    (=big5-cdp		. #x86C9)	; &CDP-86C9;
-    (->subsumptive
-     ((==big5-cdp	  . #x86C9)	; &g2-CDP-86C9;
-      ))
-    ))
-(define-char
-  '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (ideographic-structure
@@ -797,6 +779,24 @@
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x5DF1)	; 己
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      ))
+    (=big5-cdp		. #x86C9)	; &CDP-86C9;
+    (->subsumptive
+     ((==big5-cdp	  . #x86C9)	; &g2-CDP-86C9;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=ucs		. #x2201C)	; 𢀜
@@ -981,6 +981,27 @@
     (total-strokes	 . 9)
     (=ucs		. #x5DED)	; 巭
     (=gb12345		. #x7D44)	; 巭 [93-36]
+    ))
+(define-char
+  '((ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=big5-cdp	  . #x86C9)	; &CDP-86C9;
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      ))
+    (=big5-cdp		. #x88D7)	; &CDP-88D7;
+    (<-formed
+     ((=ucs		  . #x200EC)	; 𠃬
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x88D7)	; &g2-CDP-88D7;
+      ))
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
