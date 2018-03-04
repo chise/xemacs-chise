@@ -536,6 +536,26 @@
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x200CC)	; 𠃌
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=ucs-itaiji-001	. #x2008B)	; &U-i001+2008B;
+    (<-formed@flipped-horizontally
+     ((=ucs		  . #x2008B)	; 𠂋
+      ))
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x2008B)	; &g2-U-i001+2008B;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
     (hanyu-dazidian	1 49 8)
     (=big5-cdp		. #x8871)	; &CDP-8871;
     ))
@@ -865,6 +885,21 @@
     ))
 (define-char
   '((ideographic-radical@ucs . 5)	; ⼄
+    (ideographic-radical@gt . 4)	; ⼃
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=big5-cdp	  . #x8CBD)	; &CDP-8CBD;
+      )
+     ((=ucs		  . #x4E5A)	; 乚
+      ))
+    (sound@ja/kun	"gureiN")
+    (sound@ja/kun*note	"grain")
+    (=ucs		. #x2CF17)	; 𬼗
+    ))
+(define-char
+  '((ideographic-radical@ucs . 5)	; ⼄
     (ideographic-strokes@ucs . 2)
     (ideographic-radical@ucs*sources
      koseki mj)
@@ -1134,6 +1169,20 @@
     (total-strokes	 . 4)
     (hanyu-dazidian	1 52 3)
     (=big5-cdp		. #x87D1)	; &CDP-87D1;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2CF17)	; 𬼗
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (=ucs@JP/hanazono	. #x2CF17)	; &MJ056864;
+    (=mj		. 056864)	; &MJ056864;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2CF17)	; &g2-MJ056864;
+      (==mj		  . 056864)	; &g2-MJ056864;
+      ))
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
@@ -2102,8 +2151,32 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 53 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+	(=ucs		    . #x2FF4)	; ⿴
+	)
+       ((=ucs		    . #x5DF1)	; 己
+	)
+       ((=big5-cdp	    . #x8C78)	; &CDP-8C78;
+	))
+      )
+     ((=ucs		  . #x531A)	; 匚
+      ))
     (=ucs		. #x200EC)	; 𠃬
     (=big5-cdp		. #x88E3)	; &I-CDP-88E3;
+    (->subsumptive
+     ((==ucs@iso	  . #x200EC)	; &g2-CDP-88E3;
+      (==big5-cdp	  . #x88E3)	; &g2-CDP-88E3;
+      (->subsumptive
+       ((===big5-cdp	    . #x88E3)	; &R-CDP-88E3;
+	)
+       ((===ucs@iso	    . #x200EC)	; &R-U-000200EC;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 5)	; ⼄
