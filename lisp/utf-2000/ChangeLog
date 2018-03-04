@@ -1,5 +1,19 @@
 2018-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R090-Half-Tree-Trunk.el (IWDS1-0363): Unify
+	A-IWDSU+723F instead of A-compU+723F.
+
+	* Ideograph-R081-Compare.el (U+23B09-itaiji-003): New character;
+	use `<-denotational' for A-cgnU+23B09.
+
+	* Ideograph-R079-Weapon.el (U-0002DBA8): New character.
+	(CB00142): New character; use `<-denotational' for U-0002DBA8;
+	unify RUI6-E108.
+
+	* Ideograph-R005-Second.el (U+2008B-itaiji-001): New character.
+	(U-0002CF17): New character.
+	(U-000200EC): Add representative nodes.
+
 	* Ideograph-R029-Again.el (U+53DC): Use `=>iwds-1*note' instead of
 	`=>iwds-1*sources'.
 	(A-MJ057139): Add `ideographic-structure'.
@@ -168,6 +182,9 @@
 	(U-00020B87): Likewise.
 
 2018-02-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R073-Say.el (A-RUI6-E0B4): New abstract node.
+	(RUI6-E0B4): New character; use `<-denotational' for A-RUI6-E0B4.
 
 	* Ideograph-R059-Bristle.el (U-0002BE49): New character; unify
 	RUI6-E0C5.

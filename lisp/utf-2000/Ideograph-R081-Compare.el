@@ -513,6 +513,26 @@
   '((<-denotational
      ((=>ucs@cognate	  . #x23B09)	; &A-cgnU+23B09;
       ))
+    (ideographic-radical . 81)	; ⽐
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x342B)	; 㐫
+      )
+     ((=ucs		  . #x6BD4)	; 比
+      ))
+    (=ucs-itaiji-003	. #x23B09)	; &U-i003+23B09;
+    (->subsumptive
+     ((==ucs-itaiji-003	  . #x23B09)	; &g2-U-i003+23B09;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x23B09)	; &A-cgnU+23B09;
+      ))
     (<-denotational@component
      ((=>ucs@component	  . #x3C8B)	; &A-compU+3C8B;
       ))

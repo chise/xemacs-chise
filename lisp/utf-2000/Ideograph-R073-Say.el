@@ -2198,6 +2198,39 @@
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x66F7)	; 曷
+      )
+     ((=>ucs@component	  . #x6535)	; &A-compU+6535;
+      (=>iwds-1		  .  0194)	; &A-compU+6535;
+      ))
+    (=>ruimoku-v6	. #xE0B4)	; &A-RUI6-E0B4;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE0B4)	; &A-RUI6-E0B4;
+      ))
+    (ideographic-radical . 73)	; ⽈
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=mj		  . 013489)	; &MJ013489;
+      )
+     ((=ucs		  . #x6535)	; 攵
+      ))
+    (=ruimoku-v6	. #xE0B4)	; &RUI6-E0B4;
+    (->subsumptive
+     ((==ruimoku-v6	  . #xE0B4)	; &g2-RUI6-E0B4;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 73)	; ⽈
     (=ucs		. #x6703)	; 會
     ))
 (define-char
