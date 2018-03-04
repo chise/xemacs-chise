@@ -2,13 +2,13 @@
 (define-char
   '((ideographic-radical . 90)	; ⽙
     (ideographic-strokes . 0)
-    (=>ucs@component	. #x723F)	; &A-compU+723F;
-    (=>iwds-1		.  0363)	; &A-compU+723F;
+    (=>ucs@iwds-1	. #x723F)	; &A-IWDSU+723F;
+    (=>iwds-1		.  0363)	; &A-IWDSU+723F;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x723F)	; &A-compU+723F;
-      (=>iwds-1		  .  0363)	; &A-compU+723F;
+     ((=>ucs@iwds-1	  . #x723F)	; &A-IWDSU+723F;
+      (=>iwds-1		  .  0363)	; &A-IWDSU+723F;
       ))
     (ideographic-radical . 90)	; ⽙
     (ideographic-strokes . 0)
@@ -836,8 +836,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>ucs@component	  . #x723F)	; &A-compU+723F;
-      (=>iwds-1		  .  0363)	; &A-compU+723F;
+     ((=>ucs@iwds-1	  . #x723F)	; &A-IWDSU+723F;
+      (=>iwds-1		  .  0363)	; &A-IWDSU+723F;
       )
      ((=>iwds-1		  .  0299)	; &J97-322B;
       ))
