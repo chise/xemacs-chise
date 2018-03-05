@@ -1,3 +1,18 @@
+2018-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R062-Halberd.el (U-0002BF06): New character; unify
+	RUI6-E151.
+	(A-RUI6-E005): New abstract node.
+	(RUI6-E005): Add `<-denotational' for A-RUI6-E005; add
+	`ideographic-structure'.
+	(RUI6-E165): New character; add `<-denotational' for A-RUI6-E005.
+
+	* Ideograph-R050-Turban.el (U-00022125): Apply new conventions for
+	glyph granularity; add `<-denotational' for A-cgnU+22469.
+
+	* Ideograph-R028-Private.el (U+53F8-itaiji-001): New character.
+	(U-0002BA27): New character.
+
 2018-03-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R090-Half-Tree-Trunk.el (IWDS1-0363): Unify
