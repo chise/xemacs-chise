@@ -467,6 +467,23 @@
     ))
 (define-char
   '((ideographic-radical . 28)	; ⼛
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53B6)	; 厶
+      )
+     ((=ucs-itaiji-001	  . #x2008B)	; &U-i001+2008B;
+      ))
+    (=ucs-itaiji-001	. #x53F8)	; &U-i001+53F8;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x53F8)	; &g2-U-i001+53F8;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 385 1)
@@ -937,6 +954,23 @@
     (=ucs		. #x53BF)	; 县
     (=gb2312		. #x4F58)	; &I-G0-4F58; [47-56]
     (=hanziku-1		. #xF573)	; &I-HZK01-F573;
+    ))
+(define-char
+  '((ideographic-radical . 28)	; ⼛
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs-itaiji-001	  . #x53F8)	; &U-i001+53F8;
+      )
+     ((=ucs		  . #x5973)	; 女
+      ))
+    (=ucs		. #x2BA27)	; 𫨧
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2BA27)	; &g2-hanaJU+2BA27;
+      ))
     ))
 (define-char
   '((ideographic-radical . 28)	; ⼛
