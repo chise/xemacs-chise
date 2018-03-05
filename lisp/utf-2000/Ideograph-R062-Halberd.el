@@ -79,6 +79,26 @@
     ))
 (define-char
   '((ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x83D0)	; 菐
+      )
+     ((=ucs		  . #x6208)	; 戈
+      ))
+    (=ucs		. #x2BF06)	; 𫼆
+    (=ruimoku-v6	. #xE151)	; &I-RUI6-E151;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2BF06)	; &g2-hanaJU+2BF06;
+      )
+     ((==ruimoku-v6	  . #xE151)	; &g2-RUI6-E151;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (=ucs		. #x6209)	; 戉
@@ -1217,6 +1237,24 @@
       )
      ((=ucs		  . #x51AC)	; 冬
       ))
+    (=>ruimoku-v6	. #xE005)	; &A-RUI6-E005;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE005)	; &A-RUI6-E005;
+      ))
+    (ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x6208)	; 戈
+      )
+     ((=ucs@unicode	  . #x51AC)	; &MJ007359;
+      (=mj		  . 007359)	; &MJ007359;
+      ))
     (sources		ruimoku=A016481-00008)
     (=ruimoku-v6	. #xE005)	; &RUI6-E005;
     (->subsumptive
@@ -1226,10 +1264,30 @@
 	)
        ((==daikanwa	    . 11530)	; &g2-GT-14544;
 	)
-       ((=ucs@unicode	    . #x51AC)	; &MJ007359;
-	(=mj		    . 007359)	; &MJ007359;
+       ((==ucs@unicode	    . #x51AC)	; &g2-MJ007359;
+	(==mj		    . 007359)	; &g2-MJ007359;
 	))
       (==ruimoku-v6	  . #xE005)	; &g2-RUI6-E005;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE005)	; &A-RUI6-E005;
+      ))
+    (ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x6208)	; 戈
+      )
+     ((=ucs		  . #x2F81A)	; 冬
+      ))
+    (=ruimoku-v6	. #xE165)	; &RUI6-E165;
+    (->subsumptive
+     ((==ruimoku-v6	  . #xE165)	; &g2-RUI6-E165;
       ))
     ))
 (define-char
