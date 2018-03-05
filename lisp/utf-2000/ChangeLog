@@ -1,3 +1,24 @@
+2018-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R077-Stop.el (U-00023955): Add
+	`ideographic-structure'; unify GT-20910 and GT-K03952; apply new
+	conventions for glyph granularity.
+	(GT-K03953): New character; use `<-subsumptive' for U-00023955.
+	(A-J0-3A50): Unify A-IWDSU+6B72, A-J0-6B73 and IWDS1-0015.
+
+	* Ideograph-R027-Cliff.el (U+53A9): Add `ideographic-structure'.
+	(UU+53A9): Use UU+65E2 instead of U+65E2 in
+	`ideographic-structure'.
+
+	* Ideograph-R018-Knife.el (IU+2008A): Add
+	`<-denotational@component' for A-BC-89A6.
+	(A-RUI6-E02A): New abstract node.
+	(RUI6-E02A): Add `<-denotational' for A-RUI6-E02A; use UU+65E2
+	instead of U+65E2 in `ideographic-structure'.
+
+	* Ideograph-R009-Man.el (IU+20330): Use UU+65E2 instead of U+65E2
+	in `ideographic-structure'.
+
 2018-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R062-Halberd.el (U-0002BF06): New character; unify

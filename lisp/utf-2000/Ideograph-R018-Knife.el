@@ -83,6 +83,9 @@
   '((<-denotational
      ((=ucs		  . #x2008A)	; 𠂊
       ))
+    (<-denotational@component
+     ((=>big5-cdp	  . #x89A6)	; &A-CDP-89A6;
+      ))
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
@@ -9858,13 +9861,29 @@
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x65E2)	; 既
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (=>ruimoku-v6	. #xE02A)	; &A-RUI6-E02A;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE02A)	; &A-RUI6-E02A;
+      ))
+    (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x65E2)	; 既
+     ((=ucs@unicode	  . #x65E2)	; &AJ1-01591;
+      (=adobe-japan1-0	  . 01591)	; &AJ1-01591;
       )
      ((=ucs		  . #x5202)	; 刂
       ))
