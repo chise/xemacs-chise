@@ -110,21 +110,6 @@
     (ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (=big5-cdp-itaiji-001 . #x88D3)	; &CDP-i001-88D3;
-    (<-simplified@component
-     ((=big5-cdp	  . #x88D3)	; &CDP-88D3;
-      ))
-    (->subsumptive
-     ((==big5-cdp-itaiji-001 . #x88D3)	; &g2-CDP-i001-88D3;
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=>big5-cdp	  . #x88D3)	; &A-CDP-88D3;
-      ))
-    (ideographic-radical . 29)	; ⼜
-    (ideographic-strokes . 0)
-    (total-strokes	 . 2)
     (=big5-cdp		. #x88D3)	; &CDP-88D3;
     (->subsumptive
      ((==big5-cdp	  . #x88D3)	; &g2-CDP-88D3;
