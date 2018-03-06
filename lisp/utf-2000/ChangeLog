@@ -21,6 +21,9 @@
 
 2018-03-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R029-Again.el (BC-88D3-itaiji-001): Unify U-0002CF00;
+	moved to Ideograph-R004-Slash.el.
+
 	* Ideograph-R062-Halberd.el (U-0002BF06): New character; unify
 	RUI6-E151.
 	(A-RUI6-E005): New abstract node.
