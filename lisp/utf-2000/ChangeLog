@@ -1,3 +1,8 @@
+2018-03-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R021-Spoon.el (U-0002090F): Apply new conventions for
+	glyph granularity.
+
 2018-03-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R077-Stop.el (U-00023955): Add
