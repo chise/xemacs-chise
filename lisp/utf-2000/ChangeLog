@@ -1,3 +1,19 @@
+2018-03-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (GT-00159): Unify U-0002CF02, MJ056850
+	and KOSEKI-001330; add `<-Caoshu' for U+4E5F.
+	(U-0002CF00): New character; add `<-denotational@component' for
+	A-BC-88D3; add `sound@ja/kun'; unify MJ056854, KOSEKI-001390 and
+	BC-88D3-itaiji-001.
+	(A-BC-89A6): New abstract node.
+	(A-GT-K00146): New abstract node; add `<-denotational@component'
+	for A-BC-89A6.
+	(CB-13223): New character; use `<-subsumptive' for A-GT-K00146.
+	(GT-K00146): Likewise.
+	(BC-89A6): Likewise.
+	(U+4E51-itaiji-003): Use CB-13223 instead of GT-K00146 in
+	`ideographic-structure'.
+
 2018-03-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R021-Spoon.el (U-0002090F): Apply new conventions for
