@@ -16,6 +16,19 @@
 
 2018-03-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U+53F8): Add `ideographic-structure'.
+	(U+5446): Likewise; add intermediate glyph nodes.
+	(U-0002BA5E): New character.
+	(M-04067): Unify MJ008523, HD-IP-55D0 and KOSEKI-046740.
+	(UU+55D0): Add representative node.
+	(C2-4172): Likewise; unify CU+55D0.
+	(UU+5605): Use UU+65E2 instead of U+65E2 in
+	`ideographic-structure'.
+	(U-00020F72): Use `->subsumptive'.
+	(U-00020F80): Use `->denotational' and `->subsumptive'.
+	(U+56C8): Add `sound@ja/on'.
+	(CU+56C8): Add `<-formed' for UU+5BF1; add `<-same' for U+41BF.
+
 	* Ideograph-R021-Spoon.el (U-0002090F): Apply new conventions for
 	glyph granularity.
 
