@@ -236,6 +236,26 @@
   '((ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x4E03)	; &A-IWDSU+4E03;
+      (=>iwds-1		  .  0141)	; &A-IWDSU+4E03;
+      )
+     ((=ucs		  . #x5341)	; 十
+      ))
+    (sound@ja/on/go	"hou")
+    (sound@ja/on/kan	"hAu")
+    (=ucs		. #x2090F)	; 𠤏
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2090F)	; 𠤏
+      ))
+    (ideographic-radical . 21)	; ⼔
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
     (hanyu-dazidian	1 262 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -245,25 +265,43 @@
       )
      ((=ucs		  . #x5341)	; 十
       ))
-    (=ucs		. #x2090F)	; 𠤏
+    (=ucs@iso		. #x2090F)	; &GT-03300;
+    (=cns11643-4	. #x2142)	; &GT-03300; [01-34]
     (=big5-cdp		. #x8AB1)	; &I-CDP-8AB1;
+    (=gt		. 03300)	; &I-GT-03300;
+    (=gt-k		. 00551)	; &I-GT-K00551;
+    (=gt-pj-2		. #x4678)	; &I-GT-03300; [38-88]
     (=daikanwa		. 02573)	; &I-M-02573;
-    ))
-(define-char
-  '((=>ucs		. #x2090F)	; 𠤏
-    (morohashi-daikanwa	2573 0 0)
-    (ideographic-radical . 21)	; ⼔
-    (ideographic-strokes . 2)
-    (total-strokes	 . 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x5315)	; 匕
-      )
-     ((=ucs		  . #x5341)	; 十
+    (=cbeta		. 13229)	; &I-CB13229;
+    (<-interchangeable
+     ((=ucs		  . #x4FDD)	; 保
+      (=daikanwa	  . 00702)	; &I-M-00702;
       ))
-    (=cns11643-4	. #x2142)	; &C4-2142; [01-34]
+    (<-interchangeable*sources
+     liushuzongyao daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x2090F)	; &g2-GT-03300;
+      (==big5-cdp	  . #x8AB1)	; &g2-GT-03300;
+      (==gt		  . 03300)	; &g2-GT-03300;
+      (==gt-k		  . 00551)	; &g2-GT-03300;
+      (==daikanwa	  . 02573)	; &g2-GT-03300;
+      (==cbeta		  . 13229)	; &g2-GT-03300;
+      (->subsumptive
+       ((===daikanwa	    . 02573)	; &R-M-02573;
+	)
+       ((===big5-cdp	    . #x8AB1)	; &R-CDP-8AB1;
+	)
+       ((===gt		    . 03300)	; &R-GT-03300;
+	(===gt-k	    . 00551)	; &R-GT-03300;
+	)
+       ((===ucs@iso	    . #x2090F)	; &R-U-0002090F;
+	)
+       ((===cbeta	    . 13229)	; &R-CB13229;
+	))
+      )
+     ((==ucs@cns	  . #x2090F)	; &g2-CU+2090F;
+      (==cns11643-4	  . #x2142)	; &g2-CU+2090F; [01-34]
+      ))
     ))
 (define-char
   '((ideographic-radical . 21)	; ⼔
