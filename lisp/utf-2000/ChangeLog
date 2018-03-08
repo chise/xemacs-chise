@@ -1,5 +1,15 @@
 2018-03-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R032-Earth.el (U+3664): Apply new conventions for
+	glyph granularity.
+	(A-cgnU+214CD): New abstract node.
+	(U-000214CD): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-cgnU+214CD.
+	(U-0002148F): New character; use `<-denotational' for
+	A-cgnU+214CD.
+
+2018-03-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R004-Slash.el (GT-00159): Unify U-0002CF02, MJ056850
 	and KOSEKI-001330; add `<-Caoshu' for U+4E5F.
 	(U-0002CF00): New character; add `<-denotational@component' for
