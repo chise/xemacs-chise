@@ -2113,7 +2113,10 @@
     (=hanziku-1		. #xAB78)	; &I-HZK01-AB78;
     ))
 (define-char
-  '((ideographic-radical . 4)	; ⼃
+  '((<-denotational
+     ((=>ucs@component	  . #x200A1)	; &A-compU+200A1;
+      ))
+    (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 37 3)
@@ -2127,7 +2130,38 @@
      ((=big5-cdp	  . #x8BF1)	; &CDP-8BF1;
       ))
     (=ucs		. #x200A1)	; 𠂡
-    (=hanziku-1		. #xABB9)	; &I-HZK01-ABB9;
+    (->subsumptive
+     ((==ucs@iso	  . #x200A1)	; &g2-IU-000200A1;
+      )
+     ((=hanziku-1	  . #xABB9)	; &HZK01-ABB9;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 4)	; ⼃
+    (=>ucs@component	. #x200A1)	; &A-compU+200A1;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x200A1)	; &A-compU+200A1;
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 4)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+      (=ucs		  . #x2FF2)	; ⿲
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      )
+     ((=big5-cdp	  . #x8BF1)	; &CDP-8BF1;
+      )
+     ((name		  . "CJK RADICAL SECOND TWO")
+      (=ucs		  . #x2E83)	; ⺃
+      ))
+    (=big5-cdp-itaiji-001 . #x85F3)	; &CDP-i001-85F3;
+    (->subsumptive
+     ((==big5-cdp-itaiji-001 . #x85F3)	; &g2-CDP-i001-85F3;
+      ))
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃
@@ -2989,11 +3023,73 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x200A1)	; &A-compU+200A1;
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((name		  . "CJK RADICAL TABLE")
+      (=ucs		  . #x2E87)	; ⺇
+      )
+     ((=ucs		  . #x6C3A)	; 氺
+      ))
+    (=big5-cdp-var-001	. #x85E4)	; &CDP-v001-85E4;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x200A1)	; &A-compU+200A1;
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+      (=ucs		  . #x2FF2)	; ⿲
+      )
+     ((=ucs		  . #x4E3F)	; 丿
+      )
+     ((=ucs		  . #x6C3A)	; 氺
+      )
+     ((name		  . "CJK RADICAL SECOND TWO")
+      (=ucs		  . #x2E83)	; ⺃
+      ))
+    (=big5-cdp-var-001	. #x85F3)	; &CDP-v001-85F3;
+    ))
+(define-char
   '((ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
     (=gt		. 00202)	; &GT-00202;
     (=gt-pj-11		. #x4A7B)	; &GT-00202; [42-91]
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x200A1)	; &A-compU+200A1;
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (=big5-cdp		. #x85E4)	; &CDP-85E4;
+    (->subsumptive
+     ((==big5-cdp	  . #x85E4)	; &g2-CDP-85E4;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x200A1)	; &A-compU+200A1;
+      ))
+    (ideographic-radical . 4)	; ⼃
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (=big5-cdp		. #x85F3)	; &CDP-85F3;
+    (->subsumptive
+     ((==big5-cdp	  . #x85F3)	; &g2-CDP-85F3;
+      ))
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃
