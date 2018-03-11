@@ -1,5 +1,11 @@
 2018-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el (A-cgnU+2080C): New abstract node.
+	(U-0002080C): Add `<-denotational' for A-cgnU+2080C; add
+	representative nodes.
+	(U-00020817): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-cgnU+2080C.
+
 	* Ideograph-R072-Sun.el (U-0002D94E): New character.
 	(U-0002D95F): New character.
 	(U-0002D96D): Add `<-denotational' for A-cgnU+66F7.
