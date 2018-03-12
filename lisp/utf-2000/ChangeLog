@@ -1,3 +1,103 @@
+2018-03-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (UU+38FA): Add representative nodes.
+	(JU+38FA): Unify U+2E97.
+	(A-compU+5FFD): New abstract node; use `<-denotational@component'
+	for A-compU+6031.
+	(U+5FFD): Add `<-denotational' for A-compU+5FFD; add
+	`ideographic-structure'.
+	(U+5FFD-itaiji-001): New character; use `<-denotational' for
+	A-compU+5FFD.
+	(U-0002BE78): New character; unify RUI6-E0F6; use `<-denotational'
+	for A-IWDSU+2BE78.
+	(U-0002BE79): New character; use `<-denotational' for
+	A-IWDSU+2BE78.
+	(A-IWDSU+2BE78): New abstract node.
+	(A-cgnU+6031): New abstract node; use `<-denotational@component'
+	for A-compU+6031.
+	(U+6031): Add `<-denotational' for A-cgnU+6031.
+	(A-U+6031-itaiji-001): New abstract node; use `<-denotational' for
+	A-cgnU+6031.
+	(U+6031-itaiji-001): New character; use `<-denotational' for
+	A-U+6031-itaiji-001.
+	(U+6031-itaiji-002): Likewise.
+	(U-00022649): Add `ideographic-structure'.
+	(U+607C): Add `ideographic-structure'; add `<-simplified@CN' for
+	U+60F1; add representative nodes.
+	(U+60A9): Add `ideographic-structure'.
+	(U-0002D73F): New character; unify CB04956.
+	(U-000226E4): Add `ideographic-structure'.
+	(U+60F1-itaiji-001): New character.
+	(A-cgnU+60F1): Changed from U+60F1.
+	(AJ1-04870): Unify U+60F1 instead of UU+60F1; use A-cgnU+60F1
+	instead of U+60F1.
+	(U+6127): Add ideographic-structure.
+	(U+6168): Add ideographic-structure.
+	(U+61B9): Add `ideographic-structure'; add representative nodes.
+	(U-0002D7BF): New character.
+	(U-0002BEDC): New character.
+	(A-compU+6031): New abstract node.
+
+	* Ideograph-R057-Bow.el (A-cgnU+2D6A5): New abstract node; use
+	`<-denotational' for A-cgnU+5F13.
+	(U-0002D6A5): New character; use `<-denotational' for
+	A-cgnU+2D6A5.
+	(U+5F13-itaiji-005): Use A-cgnU+2D6A5 instead of A-cgnU+5F13 as
+	its mother.
+	(A-cgnU+223A8): Changed from U-000223A8.
+	(C6-227D): Unify U-000223A8 instead of IU+223A8 and A-IWDSU+223A8;
+	use A-cgnU+223A8 instead of U-000223A8 as its mother; unify
+	BC-8B73.
+	(U+223A8-itaiji-001): Use A-cgnU+223A8 instead of U-000223A8 as
+	its mother.
+	(A-BC-8B7D): Unify U-0002D6A7.
+	(U-0002BE35): New character.
+	(U-000223F5): Apply new conventions for glyph granularity.
+	(U-0002241B): Likewise.
+	(IU+2241B): Unify MH-0174.
+	(U+38C5): Apply new conventions for glyph granularity.
+	(U-0002242C): Use `->subsumptive'.
+	(U-00022442): Use `->denotational' and `->subsumptive'.
+	(U-00022448): Use `->subsumptive'.
+
+	* Ideograph-R047-River.el (U-00021FED): Add
+	`ideographic-structure'; add `sound@ja/on'; unify
+	U+2D5FC-itaiji-002; add `<-same' for U+5764.
+	(A-compU+3829): New abstract node.
+	(U+3829): Add `<-denotational' for A-compU+3829.
+	(U+3829-itaiji-001): New character; use `<-denotational' for
+	A-compU+3829.
+	(U-0002D5FB): New character.
+	(CB08935): Unify U-0002D5FC, MJ057400, KOSEKI-098180 and
+	GT-K02101.
+	(GT-K03393): New character.
+	(U+21FFA-itaiji-002): New character; use `<-denotational' for
+	A-cgnU+21FFA.
+	(MJ034920): Unify U-00021FFA instead of IU+21FFA and
+	A-IWDSU+21FFA; use A-cgnU+21FFA instead of U-00021FFA as its
+	mother.
+	(A-cgnU+21FFA): New abstract node.
+	(CB09464): Use A-cgnU+21FFA instead of U-00021FFA as its mother.
+	(GT-K02100): New character.
+	(GT-K10678): New character.
+	(A-cgnU+5DE4): New abstract node.
+	(A-cgnU+22002): New abstract node; use `<-denotational' for
+	A-cgnU+5DE4.
+	(U-00022002): Add `<-denotational' for A-cgnU+22002; add
+	`ideographic-structure'; add `sound@ja/on'.
+	(U+22002-itaiji-005): New character; add `<-denotational' for
+	A-cgnU+22002.
+	(U+22002-itaiji-006): Ditto.
+	(U+22002-itaiji-007): Ditto.
+	(U+5DE4): Add `<-denotational' for A-cgnU+5DE4; add
+	`ideographic-structure'.
+	(UU+5DE4): Add `ideographic-structure'.
+	(BC-8D47): Likewise.
+	(U-00022007): Apply new conventions for glyph granularity.
+	(U-00022008): Likewise.
+	(U-00022009): Likewise.
+	(U-00022010): Likewise.
+
 2018-03-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (A-cgnU+2080C): New abstract node.
