@@ -1,3 +1,46 @@
+2018-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el (U+6534): Add `ideographic-structure'.
+	(A-compU+5902): New abstract node.
+	(CB12488): New character.
+	(U-00022A9B): Add `ideographic-structure'.
+	(U-0002ABCF): New character.
+	(U+656A): Add `ideographic-structure'.
+	(A-CB12172): Unify A-RUI6-E0B5.
+	(CB12172): Unify RUI6-E0B5.
+	(U-00022FCC): Apply new conventions for glyph granularity.
+	(U+657B): Likewise.
+	(U-0002D910): New character; unify CB01078 and RUI6-E11A.
+	(A-J0-546B): Add `<-denotational' for A-cgnU+5910; add
+	`ideographic-structure'; unify A-IWDSU+5910.
+	(U+3AA9): Add `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+
+	* Ideograph-R064-Hand.el (B-D1BE): Unify A-IWDSU+6329.
+	(U+6329): Add `ideographic-structure'.
+	(U+635D): Likewise.
+	(AJ1-02465): Unify U+6377 instead of UU+6377; use A-IWDSU+6377
+	instead of U+6377 as its mother.
+	(U-0002D85B): New character.
+	(A-U+6460-itaiji-001): New abstract node.
+	(CB07748): New character; unify U+6460-itaiji-001; use
+	`<-denotational' for A-U+6460-itaiji-001.
+	(HNG-KBK0243-0): New character; use `<-subsumptive' for
+	U+6460-itaiji-001.
+	(U-00022C69): Use `->denotational' and `->subsumptive'.
+	(B-DDAF): Unify A-IWDSU+6435.
+	(U+6435): Add `ideographic-structure'.
+	(U+63FE): Likewise.
+	(U+6460): Apply new conventions for glyph granularity.
+	(U+3A4B): Use `->subsumptive'.
+	(U-00022E33): Use `->denotational' and `->subsumptive'.
+
+2018-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R016-Table.el (U-0002065E): Apply new conventions for
+	glyph granularity.
+	(M-01788): Unify GT-02335; add `<-denotational' for U-0002065E.
+	(U-0002D0B5): New character; unify CB03094.
+
 2018-03-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R040-Roof.el: Add `ideographic-structure' for some
