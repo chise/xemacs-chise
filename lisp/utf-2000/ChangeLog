@@ -1,3 +1,102 @@
+2018-03-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el: Add `ideographic-structure' for some
+	objects.
+	(U+3749): Add `<-simplified@CN/component/misc' for U+5B81.
+	(U+5B81): Add `ideographic-structure'; add `<-simplified@CN' for
+	UU+5BE7.
+	(CU+5B82): Apply new conventions for glyph granularity.
+	(U+5B83): Apply new conventions for glyph granularity.
+	(U+374B): Apply new conventions for glyph granularity.
+	(U-000219CB): Apply new conventions for glyph granularity.
+	(U+3750): Likewise.
+	(U+5B92): Apply new conventions for glyph granularity.
+	(A-cgnU+374E): Changed from U+374E.
+	(C3-2559): Unify U+374E instead of UU+374E and A-IWDSU+374E; use
+	A-cgnU+374E instead of U+374E as its mother; add `sound@ja/on';
+	unify MJ000737 and KOSEKI-080670; add `<-vulgar' for U+5B9A.
+	(HNG-KHM0283-0): Use A-cgnU+374E instead of U+374E as its mother.
+	(U-0002A9C7): New character.
+	(hanaJU+2BCB8): Changed from IU+2BCB8; unify U+2BCB8-var-002.
+	(U-000219D6): Use `->subsumptive'.
+	(U+5BA3-itaiji-002): New character; use `<-denotational' for
+	U+5B9C.
+	(U+5BA2): Apply new conventions for glyph granularity.
+	(CU+219EC): Unify MJ033968 and KOSEKI-081040.
+	(U+5BA3): Apply new conventions for glyph granularity.
+	(M-07139): Unify MJ010144 and KOSEKI-081130.
+	(U+5BA8): Add `sound@ja/on'; unify MJ010145 and KOSEKI-081140.
+	(U-000219FD): New character.
+	(U+5BAC): Apply new conventions for glyph granularity.
+	(BUCS+5BAE): Separate A-M-07156.
+	(A-IWDSU+5BAE): New abstract node; unify A-M-07156; use
+	`<-denotational' for BUCS+5BAE.
+	(U+5BAE): Use A-IWDSU+5BAE instead of BUCS+5BAE as its mother.
+	(U+5BAB): Likewise.
+	(U-00021A04): Add `sound@ja/on/{kan|go}'; add `<-formed' and
+	`<-same' for U+3664.
+	(U+5BB2): Add `sound@ja/on'; add `<-ancient' for UU+5BE6; add
+	`<-wrong' for U-000219D6.
+	(U+5BB5): Apply new conventions for glyph granularity.
+	(A-cgnU+5BB9): Changed from U+5BB9.
+	(AJ1-03888): Unify U+5BB9 instead of UU+5BB9 and A-IWDSU+5BB9; use
+	A-cgnU+5BB9 instead of U+5BB9 as its mother.
+	(HNG-KAR0757-0): Use A-cgnU+5BB9 instead of U+5BB9 as its mother.
+	(U-00021A0E): Modify structure.
+	(MJ059504): New character; unify HD-IB1663; use `<-denotational'
+	for U-000219FD.
+	(U-00021A24): Apply new conventions for glyph granularity.
+	(A-cgnU+5BC5): Changed from U+5BC5.
+	(AJ1-03242): Unify U+5BC5 instead of UU+5BC5 and A-IWDSU+5BC5; use
+	A-cgnU+5BC5 instead of U+5BC5 as its mother.
+	(HD-TK01022120): Use A-cgnU+5BC5 instead of U+5BC5 as its mother.
+	(U-00021A33): Apply new conventions for glyph granularity.
+	(U+5BCB): Likewise.
+	(U-00021A46): Likewise.
+	(U-00021A63): Likewise.
+	(U-00021A65): Likewise.
+	(U+3765): Likewise.
+	(U-00021A68): Likewise.
+	(U+3767): Likewise.
+	(U-00021A69): Likewise.
+	(BUCS+5BEC): Separate A-compU+5BEC and IWDS1-0175.
+	(IWDS1-0175): New abstract node; unify A-IWDSU+5BEC instead of
+	A-compU+5BEC; use `<-denotational' for BUCS+5BEC.
+	(U+5BDB): Use IWDS1-0175 instead of BUCS+5BEC as its mother.
+	(U+5BE0): Apply new conventions for glyph granularity.
+	(A-cgnU+5BE1): Changed from U+5BE1.
+	(AJ1-01353): Unify U+5BE1 instead of UU+5BE1 and A-IWDSU+5BE1; use
+	A-cgnU+5BE1 instead of U+5BE1 as its mother.
+	(HNG-KAR0754-0): Use A-cgnU+5BE1 instead of U+5BE1 as its mother.
+	(U-00021A7E): Add `sound@ja/on/{kan|go}'.
+	(U-00021A7F): Apply new conventions for glyph granularity.
+	(U-00021A98): Use `->denotational' and `->subsumptive'.
+	(U+376C): Apply new conventions for glyph granularity.
+	(U-00021A97): Likewise.
+	(U+5BE9): Add `sound@ja/on'.
+	(U+376E): Apply new conventions for glyph granularity.
+	(U+5BEC): Use IWDS1-0175 instead of BUCS+5BEC as its mother; add
+	`sound@ja/on'.
+	(U-00021AC5): Apply new conventions for glyph granularity.
+	(U+5BF1): Add `sound@ja/on'.
+	(U+5BF2): Apply new conventions for glyph granularity.
+	(U-00021AD4): Likewise.
+	(U+3771-itaiji-002): New character; use `<-denotational' for
+	A-U+3771-itaiji-001.
+	(A-U+3771-itaiji-001): New abstract node; unify
+	A-U+3771-itaiji-002.
+	(U+3771-itaiji-001): New character; use `<-denotational' for
+	A-U+3771-itaiji-001.
+	(U+5BF5): Apply new conventions for glyph granularity.
+	(IU+21AF8): Likewise.
+	(U-00021AFA): Add `sound@ja/on/{kan|go}'.
+	(U-00021B04): Use `->denotational' and `->subsumptive'.
+	(U-00021B0D): Likewise.
+	(U-00021B18): Add `sound@ja/on/{kan|go}'.
+	(G-M-28841): Unify MJ034149 and KOSEKI-084080.
+	(IU+21B17): Apply new conventions for glyph granularity.
+	(U-00021B12): Use `->denotational' and `->subsumptive'.
+
 2018-03-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (UU+38FA): Add representative nodes.
