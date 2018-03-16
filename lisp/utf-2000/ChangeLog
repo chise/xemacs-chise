@@ -1,3 +1,45 @@
+2018-03-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (U+6728): Add `<-denotational@component'
+	for A-compU+6C34.
+	(IWDS1-0126): Separate BUCS+672C; unify A-IWDSU+672C instead of
+	A-compU+672C; add `<-denotational@component' for BUCS+672C.
+	(U+3B57): New character; use `<-denotational' for A-cgnU+3B57.
+	(U-00023418): New character.
+	(U-00023429): Add `ideographic-structure'; add representative
+	node.
+	(A-cgnU+3B57): New abstract node.
+	(U+3B57-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+3B57; use `<-denotational@component' for
+	A-U+3B57-itaiji-001.
+	(A-U+3B57-itaiji-001): New abstract node; unify
+	A-U+3B57-itaiji-002.
+	(U+3B57-itaiji-002): New character; use `<-denotational@component'
+	for A-U+3B57-itaiji-001.
+	(U+3B57-itaiji-003): Likewise.
+	(U-0002347E): Apply new conventions for glyph granularity.
+	(MJ038015): New character; use `<-denotational' for U-0002347E;
+	unify KOSEKI-166530 and M-14790.
+	(U-00023479): Unify MJ038014, KOSEKI-166540 and M-14792.
+	(A-cgnU+68B2): New abstract node.
+	(A-JX1-7568): Unify A-IWDSU+68B2; omit A-JU+68B2; add
+	`<-denotational' for A-cgnU+68B2.
+	(U+68C1): Add `ideographic-structure'; add representative nodes.
+	(CB12561): New character; use `<-denotational' for A-cgnU+68B2.
+	(HNG-KAR0196-0): Add `<-subsumptive' for g2-CB12561.
+	(A-IWDSU+234C9): New abstract node.
+	(U-000234C9): Unify M-14950; add `<-denotational' for
+	A-IWDSU+234C9.
+	(U-00023579): New character; use `<-denotational' for
+	A-IWDSU+234C9.
+	(U-0002ACA8): New character.
+	(RUI6-E00C): Unify U-0002DAA4.
+	(A-J97-3335): Unify A-IWDSU+69EA.
+	(U+6982): Apply new conventions for glyph granularity.
+	(U+69D0): Add ideographic-structure; add representative nodes.
+	(U+69E9): Apply new conventions for glyph granularity.
+	(U+69EA): Add ideographic-structure.
+
 2018-03-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R066-Rap.el (U+6534): Add `ideographic-structure'.
