@@ -316,7 +316,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>daikanwa	  . 13458)	; &A-M-13458;
+     ((=>ucs@iwds-1	  . #x2304B)	; &A-IWDSU+2304B;
+      (=>daikanwa	  . 13458)	; &A-IWDSU+2304B;
       ))
     (ideographic-radical@ucs . 66)	; ⽁
     (ideographic-radical@cns . 67)	; ⽂
