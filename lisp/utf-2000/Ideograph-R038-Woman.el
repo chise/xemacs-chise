@@ -16221,7 +16221,8 @@
       )
      ((=ucs		  . #x5973)	; 女
       )
-     ((=>daikanwa	  . 13458)	; &A-M-13458;
+     ((=>ucs@iwds-1	  . #x2304B)	; &A-IWDSU+2304B;
+      (=>daikanwa	  . 13458)	; &A-IWDSU+2304B;
       ))
     (=ucs		. #x5ABA)	; 媺
     (=big5		. #xDCF6)	; &I-B-DCF6;

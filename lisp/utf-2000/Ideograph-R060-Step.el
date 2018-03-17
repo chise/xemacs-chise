@@ -4049,7 +4049,8 @@
       )
      ((=ucs		  . #x5F73)	; 彳
       )
-     ((=>daikanwa	  . 13458)	; &A-M-13458;
+     ((=>ucs@iwds-1	  . #x2304B)	; &A-IWDSU+2304B;
+      (=>daikanwa	  . 13458)	; &A-IWDSU+2304B;
       ))
     (=ucs		. #x5FAE)	; 微
     (=big5		. #xB74C)	; &I-B-B74C;
