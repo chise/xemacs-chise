@@ -39924,7 +39924,8 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=>daikanwa	  . 13458)	; &A-M-13458;
+     ((=>ucs@iwds-1	  . #x2304B)	; &A-IWDSU+2304B;
+      (=>daikanwa	  . 13458)	; &A-IWDSU+2304B;
       ))
     (=ucs		. #x2031D)	; 𠌝
     ))
