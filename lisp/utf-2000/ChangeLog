@@ -1,3 +1,43 @@
+2018-03-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R078-Death.el (A-compU+6B79): New abstract node.
+	(A-IWDSU+6B79): New abstract node; add `<-denotational' for
+	A-compU+6B79.
+	(U+6B79): Add `<-denotational' for A-IWDSU+6B79; add
+	representative nodes.
+	(U+FA95): New character; use `<-denotational' for A-IWDSU+6B79.
+	(A-cgnU+6B7A): New abstract node; add `<-denotational' for
+	A-compU+6B79.
+	(U+6B7A): Add `<-denotational' for A-cgnU+6B7A.
+	(U+6B7A-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+6B7A.
+	(A-cgnU+239BC): New abstract node.
+	(A-cgnU+239BB): New abstract node; use `<-denotational' for
+	A-cgnU+239BC.
+	(U-000239BB): Use `->subsumptive'; add `<-denotational' for
+	A-cgnU+239BB.
+	(U+239BB-itaiji-002): New character; use `<-denotational' for
+	A-cgnU+239BB.
+	(U+239BC-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+239BC.
+	(CB09967): Use A-cgnU+239BC instead of U-000239BC as its mother.
+	(C4-244D): Unify U-000239BC instead of IU+239BC; use A-cgnU+239BC
+	instead of U-000239BC as its mother.
+	(U-000239FD): Apply new conventions for glyph granularity.
+
+	* Ideograph-R045-Sprout.el (IWDS1-0263): Unify A-IWDSU+21D42.
+
+	* Ideograph-R021-Spoon.el (U+2090F-itaiji-001): New character; use
+	`<-denotational' for U-0002090F.
+
+	* Ideograph-R020-Wrap.el (A-IWDSU+5313): New abstract node.
+	(U+5313): Add `<-denotational' for A-IWDSU+5313; add
+	`ideographic-structure'.
+	(CU+5313): Use IU+23A98 instead of U-00023A98 in
+	`ideographic-structure'.
+	(g2-JU+5313): Omit `ideographic-structure'.
+	(U-000208FF): Add `<-denotational' for A-IWDSU+5313.
+
 2018-03-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (A-U+23D92-itaiji-003): New abstract
