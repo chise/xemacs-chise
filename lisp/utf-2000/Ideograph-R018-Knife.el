@@ -2681,6 +2681,45 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x2090F)	; 𠤏
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (=>ucs-itaiji-003	. #x23D92)	; &A-U-i003+23D92;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-003	  . #x23D92)	; &A-U-i003+23D92;
+      ))
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@iso		  . #x2090F)	; &GT-03300;
+      (=cns11643-4	  . #x2142)	; &GT-03300; [01-34]
+      (=daikanwa	  . 02573)	; &I-M-02573;
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (=ucs-itaiji-003	. #x23D92)	; &U-i003+23D92;
+    (<-formed@component
+     ((=ucs		  . #x23D92)	; 𣶒
+      ))
+    (->subsumptive
+     ((==ucs-itaiji-003	  . #x23D92)	; &g2-U-i003+23D92;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
