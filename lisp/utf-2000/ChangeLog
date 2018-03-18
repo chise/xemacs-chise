@@ -1,3 +1,10 @@
+2018-03-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (A-U+23D92-itaiji-003): New abstract
+	node.
+	(U+23D92-itaiji-003): New character; use `<-denotational' for
+	A-U+23D92-itaiji-003.
+
 2018-03-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R075-Tree.el (U+6728): Add `<-denotational@component'
