@@ -18068,6 +18068,38 @@
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+      )
+     ((=ucs		  . #x229F5)	; 𢧵
+      )
+     ((=ucs		  . #x5C71)	; 山
+      ))
+    (=ucs		. #x21F83)	; 𡾃
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21F83)	; 𡾃
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 15)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((=ucs-itaiji-001	  . #x2FF6)	; &U-i001+2FF6;
+      )
+     ((=ucs@iso		  . #x229F5)	; &C4-4974;
+      (=cns11643-4	  . #x4974)	; &C4-4974; [41-84]
+      (=daikanwa	  . 11653)	; &I-M-11653;
+      )
+     ((=ucs		  . #x5C71)	; 山
+      ))
+    (=ucs@iso		. #x21F83)	; &U-00021F83;
+    (->subsumptive
+     ((==ucs@iso	  . #x21F83)	; &g2-IU-00021F83;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
     (=ucs		. #x21F94)	; 𡾔
