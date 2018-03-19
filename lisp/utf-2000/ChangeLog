@@ -1,3 +1,24 @@
+2018-03-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R053-Dotted-Cliff.el (A-cgnU+222C1): New abstract
+	node.
+	(A-IWDSU+5ECF): New abstract node; use `<-denotational' for
+	A-cgnU+222C1.
+	(A-compU+5ECF): New abstract node; use `<-denotational' for
+	A-IWDSU+5ECF.
+	(U+5ECF): Add `<-denotational' for A-compU+5ECF.
+	(U+5EC4): Likewise; apply new conventions for glyph granularity.
+	(HNG-KAR0112-0): Use A-cgnU+222C1 instead of U-000222C1 as its
+	mother.
+	(MJ035419): Unify U-000222C1 instead of IU+222C1 and
+	A-IWDSU+222C1; use A-IWDSU+5ECF instead of U-000222C1 as its
+	mother.
+
+	* Ideograph-R046-Mountain.el (U-00021F83): New character.
+
+	* Ideograph-R003-Dot.el (BC-8753): New character; use
+	`<-denotational' for U+4E38.
+
 2018-03-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R078-Death.el (A-compU+6B79): New abstract node.
