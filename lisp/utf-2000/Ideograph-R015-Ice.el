@@ -3182,11 +3182,10 @@
     (=shinjigen@rev	.  4325)	; 减
     (=jef-china3	. #x43FC)	; &I-JC3-43FC;
     (<-vulgar
-     ((=ucs@unicode	  . #x6E1B)	; &AJ1-01902;
-      (=adobe-japan1-0	  . 01902)	; &AJ1-01902;
+     ((=ucs		  . #x6E1B)	; 減
       (=jis-x0208	  . #x383A)	; &I-J90-383A; [24-26]
-      (=shinjigen@1ed	  .  4323)	; &AJ1-01902;
-      (=shinjigen@rev	  .  4324)	; &AJ1-01902;
+      (=shinjigen@1ed	  .  4323)	; 減
+      (=shinjigen@rev	  .  4324)	; 減
       ))
     (<-vulgar*sources
      shinjigen@1ed shinjigen@rev)
