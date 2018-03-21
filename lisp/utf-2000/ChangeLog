@@ -1,3 +1,20 @@
+2018-03-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R080-Do-Not.el (A-cgnU+6BCF): New abstract node.
+	(A-J97-4B68): Add `<-denotational' for A-cgnU+6BCF; unify
+	A-IWDSU+6BCF.
+	(U-00023AED): Use A-cgnU+6BCF instead of BUCS+6BCF as its mother.
+	(HNG-KAR1013-0): Add `<-HNG@chise' for U-00023AED.
+	(U-00023AFA): Apply new conventions for glyph granularity.
+
+	* Ideograph-R066-Rap.el (A-cgnU+654F): Changed from U+654F.
+	(U+654F): Changed from A-UU+654F and A-IWDSU+654F; use A-cgnU+654F
+	instead of U+654F.
+	(U-0002F8C8): Use U+654F instead of A-UU+654F as its mother.
+	(HNG-KAR0921-0): Use A-cgnU+654F instead of U+654F as its mother.
+	(A-M-13458): Unify A-IWDSU+2304B.
+	(UU+654F): Use U+654F instead of A-UU+654F as its mother.
+
 2018-03-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R053-Dotted-Cliff.el (A-cgnU+222C1): New abstract
