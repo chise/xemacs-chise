@@ -1,3 +1,36 @@
+2018-03-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R087-Claw.el (BC-8766-itaiji-001): New character; use
+	`<-denotational' for A-BC-8766.
+	(A-BC-8766): New abstract node.
+	(BC-8766): New character; use `<-denotational' for A-BC-8766.
+	(IU+244FD): Add intermediate glyph node.
+	(U-0002C2E7): New character.
+	(RUI6-E030): Add `<-denotational' for U-0002C2E7.
+	(RUI6-E0EF): New character; use `<-denotational' for U-0002AE95.
+	(U-0002C2F4): New character.
+	(RUI6-E158): New character; use `<-denotational' for U-0002C2F4.
+
+	* Ideograph-R076-Lack.el (U-000238E6): Unify M-16144.
+	(U-000238F3): Apply new conventions for glyph granularity.
+	(U-000238F5): Likewise.
+	(U-0002390D): Likewise.
+	(U-00023923): Likewise.
+
+	* Ideograph-R061-Heart.el (A-cgnU+6094): Changed from U+6094.
+	(U+6094): Changed from A-IWDSU+6094 and A-UU+6094.
+	(U-0002F8A3): Use U+6094 instead of A-IWDSU+6094 as its mother.
+	(HNG-KAR0876-0): Use A-cgnU+6094 instead of U+6094 as its mother.
+	(U+FA3D): Use U+6094 instead of A-IWDSU+6094 as its mother.
+
+	* Ideograph-R025-Divination.el (A-compU+209E2): New abstract node.
+	(A-cgnU+209E2): New abstract node; use `<-denotational@component'
+	for A-compU+209E2.
+	(U-000209E2): Add `<-denotational' for A-cgnU+209E2.
+	(U+209E2-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+209E2.
+	(IWDS1-0356): Add `<-denotational@component' for A-compU+209E2.
+
 2018-03-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R080-Do-Not.el (A-cgnU+6BCF): New abstract node.
