@@ -9668,11 +9668,19 @@
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
-    (=ucs		. #x6094)	; 悔
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5FC4)	; 忄
+      )
+     ((=>ucs@cognate	  . #x6BCF)	; &A-cgnU+6BCF;
+      ))
+    (=>ucs@cognate	. #x6094)	; &A-cgnU+6094;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x6094)	; 悔
+     ((=>ucs@cognate	  . #x6094)	; &A-cgnU+6094;
       ))
     (ideographic-radical . 61)	; ⼼
     (ideographic-structure
@@ -9681,15 +9689,14 @@
       )
      ((=ucs		  . #x5FC4)	; 忄
       )
-     ((=>jis-x0208@1997	  . #x4B68)	; &J97-4B68; [43-72]
+     ((=>ucs@iwds-1	  . #x6BCF)	; &J97-4B68;
+      (=>jis-x0208@1997	  . #x4B68)	; &J97-4B68; [43-72]
       ))
-    (=>ucs@iwds-1	. #x6094)	; &A-IWDSU+6094;
-    (=>ucs@unicode	. #x6094)	; &A-IWDSU+6094;
+    (=ucs		. #x6094)	; 悔
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@iwds-1	  . #x6094)	; &A-IWDSU+6094;
-      (=>ucs@unicode	  . #x6094)	; &A-IWDSU+6094;
+     ((=ucs		  . #x6094)	; 悔
       ))
     (=>ucs*		. #x6094)	; 悔
     (ideographic-radical . 61)	; ⼼
@@ -9759,7 +9766,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x6094)	; 悔
+     ((=>ucs@cognate	  . #x6094)	; &A-cgnU+6094;
       ))
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 7)
@@ -11150,8 +11157,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@iwds-1	  . #x6094)	; &A-IWDSU+6094;
-      (=>ucs@unicode	  . #x6094)	; &A-IWDSU+6094;
+     ((=ucs		  . #x6094)	; 悔
       ))
     (=>ucs*		. #x6094)	; 悔
     (ideographic-radical . 61)	; ⼼
