@@ -1,3 +1,13 @@
+2018-03-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer `=ucs-bmp-cjk-compat', `=ucs-bmp-cjk-compat@unicode' and
+	`=ucs-sip@JP/hanazono' to `=cbeta', `=jef-china3' to
+	`chinese-isoir165'.
+
+	* mule/mule-conf.el (=>cns11643-4): New coded-charset for XEmacs
+	CHISE.
+
 2018-03-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
