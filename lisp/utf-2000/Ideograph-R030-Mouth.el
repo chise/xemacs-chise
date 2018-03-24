@@ -15628,19 +15628,17 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=ucs		. #x54B8)	; 咸
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x54B8)	; 咸
-      ))
-    (ideographic-radical . 30)	; ⼝
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
     (hanyu-dazidian	2 1404 2)
-    (=>ucs@iwds-1	. #x54B8)	; &AJ1-04366;
-    (=ucs@unicode	. #x54B8)	; &AJ1-04366;
-    (=adobe-japan1-0	. 04366)	; &AJ1-04366;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x620C)	; 戌
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (=ucs		. #x54B8)	; 咸
+    (=adobe-japan1-0	. 04366)	; &I-AJ1-04366;
     (=jis-x0208		. #x5279)	; &I-J90-5279; [50-89]
     (=gb2312		. #x4F4C)	; &I-G0-4F4C; [47-44]
     (=ks-x1001		. #x7960)	; &I-K0-7960; [89-64]
@@ -15651,49 +15649,52 @@
     (=gt-k		. 05222)	; &I-GT-K05222;
     (=gt-pj-1		. #x5279)	; &I-GT-04443; [50-89]
     (=daikanwa		. 03563)	; &I-M-03563;
-    (=shinjigen		.  1058)	; &AJ1-04366;
+    (=shinjigen		.  1058)	; 咸
     (->subsumptive
-     ((==ucs@unicode	  . #x54B8)	; &g2-AJ1-04366;
-      (==adobe-japan1-0	  . 04366)	; &g2-AJ1-04366;
-      (==gb2312		  . #x4F4C)	; &g2-AJ1-04366; [47-44]
-      (==ks-x1001	  . #x7960)	; &g2-AJ1-04366; [89-64]
-      (==jis-x0208	  . #x5279)	; &g2-AJ1-04366; [50-89]
-      (==cns11643-1	  . #x503B)	; &g2-AJ1-04366; [48-27]
-      (==jis-x0213-1	  . #x5279)	; &g2-AJ1-04366; [50-89]
-      (==gt		  . 04443)	; &g2-AJ1-04366;
-      (==gt-k		  . 05222)	; &g2-AJ1-04366;
-      (==daikanwa	  . 03563)	; &g2-AJ1-04366;
-      (==shinjigen	  .  1058)	; &g2-AJ1-04366;
+     ((=>>ucs@unicode	  . #x54B8)	; &G-AJ1-04366;
+      (=>>adobe-japan1-0  . 04366)	; &G-AJ1-04366;
+      (=>>jis-x0208	  . #x5279)	; &G-AJ1-04366; [50-89]
+      (=>>cns11643-1	  . #x503B)	; &G-AJ1-04366; [48-27]
+      (=>>jis-x0213-1	  . #x5279)	; &G-AJ1-04366; [50-89]
+      (=>>gt		  . 04443)	; &G-AJ1-04366;
+      (=>>gt-k		  . 05222)	; &G-AJ1-04366;
+      (=>>daikanwa	  . 03563)	; &G-AJ1-04366;
       (->subsumptive
-       ((===daikanwa	    . 03563)	; &R-M-03563;
-	)
-       ((===jis-x0208	    . #x5279)	; &R-J0-5279; [50-89]
-	(===jis-x0213-1	    . #x5279)	; &R-J0-5279; [50-89]
-	)
-       ((===adobe-japan1-0  . 04366)	; &R-AJ1-04366;
-	)
-       ((===cns11643-1	    . #x503B)	; &R-C1-503B; [48-27]
-	)
-       ((===gt		    . 04443)	; &R-GT-04443;
-	(===gt-k	    . 05222)	; &R-GT-04443;
-	)
-       ((===ucs@ks	    . #x54B8)	; &R-K0-7960;
-	(===ks-x1001	    . #x7960)	; &R-K0-7960; [89-64]
-	)
-       ((===ucs@unicode	    . #x54B8)	; &R-UU+54B8;
-	)
-       ((===hng-khi	    . 03010)	; &HNG010-03010;
+       ((==ucs@unicode	    . #x54B8)	; &g2-AJ1-04366;
+	(==adobe-japan1-0   . 04366)	; &g2-AJ1-04366;
+	(==gb2312	    . #x4F4C)	; &g2-AJ1-04366; [47-44]
+	(==ks-x1001	    . #x7960)	; &g2-AJ1-04366; [89-64]
+	(==jis-x0208	    . #x5279)	; &g2-AJ1-04366; [50-89]
+	(==cns11643-1	    . #x503B)	; &g2-AJ1-04366; [48-27]
+	(==jis-x0213-1	    . #x5279)	; &g2-AJ1-04366; [50-89]
+	(==gt		    . 04443)	; &g2-AJ1-04366;
+	(==gt-k		    . 05222)	; &g2-AJ1-04366;
+	(==daikanwa	    . 03563)	; &g2-AJ1-04366;
+	(==shinjigen	    .  1058)	; &g2-AJ1-04366;
+	(->subsumptive
+	 ((===daikanwa	      . 03563)	; &R-M-03563;
+	  )
+	 ((===jis-x0208	      . #x5279)	; &R-J0-5279; [50-89]
+	  (===jis-x0213-1     . #x5279)	; &R-J0-5279; [50-89]
+	  )
+	 ((===adobe-japan1-0  . 04366)	; &R-AJ1-04366;
+	  )
+	 ((===cns11643-1      . #x503B)	; &R-C1-503B; [48-27]
+	  )
+	 ((===gt	      . 04443)	; &R-GT-04443;
+	  (===gt-k	      . 05222)	; &R-GT-04443;
+	  )
+	 ((===ucs@ks	      . #x54B8)	; &R-K0-7960;
+	  (===ks-x1001	      . #x7960)	; &R-K0-7960; [89-64]
+	  )
+	 ((===ucs@unicode     . #x54B8)	; &R-UU+54B8;
+	  )
+	 ((===hng-khi	      . 03010)	; &HNG010-03010;
+	  ))
 	))
+      )
+     ((===hng-khm	  . 03430)	; &HNG011-03430;
       ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x54B8)	; 咸
-      ))
-    (ideographic-radical . 30)	; ⼝
-    (ideographic-strokes . 6)
-    (total-strokes	 . 9)
-    (===hng-khm		. 03430)	; &HNG011-03430;
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝

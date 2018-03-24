@@ -416,12 +416,12 @@ DESCRIPTION (string) is the description string of the charset."
 	  =big5-cdp-var-003
 	  =big5-cdp-var-004
 	  =big5-cdp-var-005
-	  =cbeta
-	  =jef-china3
-	  chinese-isoir165
 	  =ucs-bmp-cjk-compat
           =ucs-bmp-cjk-compat@unicode
           =ucs-sip@JP/hanazono
+	  =cbeta
+	  =jef-china3
+	  chinese-isoir165
 	  ==jis-x0208@1990
 	  ==ucs-radicals@unicode
 	  ==ucs-bmp-cjk@JP/hanazono

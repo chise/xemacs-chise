@@ -1,3 +1,24 @@
+2018-03-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R097-Melon.el (U-00024AFA): Apply new conventions for
+	glyph granularity.
+	(U-00024B07): Likewise.
+
+2018-03-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R091-Slice.el (U-000245ED): Apply new conventions for
+	glyph granularity.
+
+2018-03-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R038-Woman.el (U-000217A3): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R030-Mouth.el (AJ1-04366): Unify U+54B8 instead of
+	A-IWDSU+54B8 and UU+54B8.
+	(HNG-KHM0343-0): Use `<-subsumptive' instead of `<-denotational'
+	for U+54B8.
+
 2018-03-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R087-Claw.el (BC-8766-itaiji-001): New character; use
