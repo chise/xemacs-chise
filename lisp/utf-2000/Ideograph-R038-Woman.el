@@ -14137,19 +14137,59 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x217A3)	; 𡞣
-    (ideographic-radical . 38)	; ⼥
+  '((ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=daikanwa		. 06508)	; &M-06508;
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FF8)	; &U-v002+2FF1;
+      (=>iwds-1		  .  0305)	; &U-v002+2FF1;
+      )
+     ((=ucs		  . #x54B8)	; 咸
+      )
+     ((=ucs		  . #x5973)	; 女
+      ))
+    (sound@ja/on/go	"geN")
+    (sound@ja/on/kan	"kaN")
+    (=ucs		. #x217A3)	; 𡞣
     ))
 (define-char
-  '((morohashi-daikanwa	6508 0 0)
+  '((<-denotational
+     ((=ucs		  . #x217A3)	; 𡞣
+      ))
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=ucs		. #x217A3)	; 𡞣
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x54B8)	; 咸
+      )
+     ((=ucs		  . #x5973)	; 女
+      ))
+    (=ucs@iso		. #x217A3)	; &MJ033660;
+    (=mj		. 033660)	; &MJ033660;
     (=cns11643-5	. #x3759)	; &I-C5-3759; [23-57]
+    (=koseki		. 074190)	; &MJ033660;
+    (=daikanwa		. 06508)	; &I-M-06508;
+    (->subsumptive
+     ((==mj		  . 033660)	; &g2-MJ033660;
+      (==koseki		  . 074190)	; &g2-MJ033660;
+      (==daikanwa	  . 06508)	; &g2-MJ033660;
+      (->subsumptive
+       ((===daikanwa	    . 06508)	; &R-M-06508;
+	)
+       ((===mj		    . 033660)	; &R-MJ033660;
+	))
+      )
+     ((==ucs@iso	  . #x217A3)	; &g2-IU-000217A3;
+      (==cns11643-5	  . #x3759)	; &g2-IU-000217A3; [23-57]
+      (->subsumptive
+       ((===cns11643-5	    . #x3759)	; &R-C5-3759; [23-57]
+	)
+       ((===ucs@iso	    . #x217A3)	; &R-U-000217A3;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
