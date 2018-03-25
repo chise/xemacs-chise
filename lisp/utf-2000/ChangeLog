@@ -1,3 +1,38 @@
+2018-03-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (U-000233D2): Apply new conventions for
+	glyph granularity.
+	(M-14485): Add `<-denotational' for U-000233D2.
+	(U+6761): Apply new conventions for glyph granularity.
+	(U+689D): Likewise.
+
+2018-03-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R105-Dotted-Tent.el (U+7676-itaiji-007): New
+	character; use `<-denotational' for A-BC-8B6E.
+	(BC-8C4F-var-004): Unify GT-K00764.
+	(GT-K00765): New character; use `<-denotational' for A-BC-8B6E;
+	unify U+7676-itaiji-006.
+	(U+7676-itaiji-005): Add `ideographic-structure'.
+	(A-cgnU+24F26): New abstract node.
+	(U-00024F26): Apply new conventions for glyph granularity.
+	(U+24F26-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+24F26.
+	(U-00024F32): Unify MJ041871, KOSEKI-253890 and MH-0364.
+
+	* Ideograph-R096-Jade.el (U-0002493C): Unify M-20979.
+	(U+73EF): Add `ideographic-structure'; add representative nodes.
+	(U+7470): Add ideographic-structure.
+	(U-00024A5E): Likewise.
+	(U-0002DE8A): New character; unify CB02413.
+	(U+74CA): Add `ideographic-structure'.
+	(o-UU+74CA): Use `->subsumptive' instead of `->denotational'.
+	(A-CU+2F932): New abstract node; use `<-denotational' for U+74CA.
+	(MJ017497): Use A-CU+2F932 instead of U+74CA as its mother.
+	(U-0002F932): New character; use `<-denotational' for A-CU+2F932.
+
+	* Ideograph-R058-Snout.el (HD-KS112430): Unify MJ068054.
+
 2018-03-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R097-Melon.el (U-00024AFA): Apply new conventions for

@@ -1553,7 +1553,7 @@
       (=cns11643-3	  . #x4123)	; &HD-IP-5F5A; [33-03]
       (=daikanwa	  . 09937)	; &I-M-09937;
       )
-     ((=hanyo-denshi/ks	  . 112430)	; &HD-KS-112430;
+     ((=mj		  . 068054)	; &MJ068054;
       ))
     (->formed$_1*sources
      shuowen erya-zhu erya-shu jiyun daikanwa)
@@ -1695,13 +1695,14 @@
       )
      ((=ucs		  . #x679C)	; 果
       ))
-    (=hanyo-denshi/ks	. 112430)	; &HD-KS-112430;
-    (=shinjigen		.  2307)	; &HD-KS-112430;
+    (=mj		. 068054)	; &MJ068054;
+    (=hanyo-denshi/ks	. 112430)	; &MJ068054;
+    (=shinjigen		.  2307)	; &MJ068054;
     (<-formed
      ((=ucs		  . #x5F59)	; 彙
       ))
     (<-formed*sources
-     koseki)
+     koseki mj)
     (<-wrong
      ((=ucs		  . #x5F59)	; 彙
       (=jis-x0208	  . #x5743)	; &I-J90-5743; [55-35]
@@ -1710,8 +1711,14 @@
     (<-wrong*sources
      shinjigen)
     (->subsumptive
-     ((==hanyo-denshi/ks  . 112430)	; &g2-HD-KS-112430;
-      (=hanyo-denshi/ks/mf . #x2BEB)	; &g2-HD-KS-112430;
+     ((==mj		  . 068054)	; &MJ068054;
+      (==hanyo-denshi/ks  . 112430)	; &g2-MJ068054;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 112430)	; &R-HD-KS-112430;
+	(=hanyo-denshi/ks/mf . #x2BEB)	; &R-HD-KS-112430;
+	)
+       ((===mj		    . 068054)	; &MJ068054;
+	))
       ))
     ))
 (define-char
