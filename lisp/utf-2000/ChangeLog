@@ -1,5 +1,22 @@
 2018-03-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R082-Fur.el (U-00023B8C): Apply new conventions for
+	glyph granularity.
+	(IU+23B8C): Unify M-16868.
+	(U-00023B8D): Apply new conventions for glyph granularity.
+	(CU+23B8D): Unify MJ039051, KOSEKI-190960 and M-16869.
+	(U-00023C1E): Apply new conventions for glyph granularity.
+
+	* Ideograph-R079-Weapon.el (A-CB00906): Unify U-0002DBAC.
+	(A-cgnU+3C83): New abstract node.
+	(A-IWDSU+23A98): New abstract node; use `<-denotational' for
+	A-cgnU+3C83.
+	(U+3C83): Apply new conventions for glyph granularity.
+	(U-00023A98): Add `<-denotational' for A-IWDSU+23A98.
+	(U+3C83-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+3C83.
+	(U-00023A99): Apply new conventions for glyph granularity.
+
 	* Ideograph-R075-Tree.el (U-000233D2): Apply new conventions for
 	glyph granularity.
 	(M-14485): Add `<-denotational' for U-000233D2.
