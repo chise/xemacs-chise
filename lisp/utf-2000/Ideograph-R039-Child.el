@@ -2811,9 +2811,35 @@
   '((ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp-itaiji-002 . #x8CC9)	; &CDP-i002-8CC9;
+      )
+     ((=ucs		  . #x5B50)	; 子
+      ))
     (=ucs		. #x2198B)	; 𡦋
     (=cns11643-6	. #x516B)	; &I-C6-516B; [49-75]
     (=daikanwa		. 07017)	; &I-M-07017;
+    (<-same
+     ((=ucs		  . #x5B6F)	; 孯
+      (=daikanwa	  . 06994)	; &I-M-06994;
+      ))
+    (<-same*sources
+     pianhai-leibian daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x2198B)	; &g2-M-07017;
+      (==cns11643-6	  . #x516B)	; &g2-M-07017; [49-75]
+      (==daikanwa	  . 07017)	; &g2-M-07017;
+      (->subsumptive
+       ((===daikanwa	    . 07017)	; &R-M-07017;
+	)
+       ((===cns11643-6	    . #x516B)	; &R-C6-516B; [49-75]
+	)
+       ((===ucs@iso	    . #x2198B)	; &R-U-0002198B;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 39)	; ⼦
