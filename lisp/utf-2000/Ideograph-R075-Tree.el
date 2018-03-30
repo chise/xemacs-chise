@@ -50752,21 +50752,6 @@
     ))
 (define-char
   '((ideographic-radical . 75)	; ⽊
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x6728)	; 木
-      )
-     ((=ucs		  . #x8076)	; 聶
-      ))
-    (=ucs		. #x6B07)	; 欇
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x6B07)	; 欇
-      ))
-    (ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 18)
     (total-strokes	 . 22)
     (hanyu-dazidian	2 1323 1)
@@ -50776,12 +50761,10 @@
       )
      ((=ucs		  . #x6728)	; 木
       )
-     ((=ucs@unicode	  . #x8076)	; &AJ1-06224;
-      (=adobe-japan1-0	  . 06224)	; &AJ1-06224;
+     ((=ucs		  . #x8076)	; 聶
       ))
-    (=>ucs@iwds-1	. #x6B07)	; &AJ1-21815;
-    (=ucs@unicode	. #x6B07)	; &AJ1-21815;
-    (=adobe-japan1-6	. 21815)	; &AJ1-21815;
+    (=ucs		. #x6B07)	; 欇
+    (=adobe-japan1-6	. 21815)	; &I-AJ1-21815;
     (=jis-x0212		. #x4560)	; &I-JSP-4560; [37-64]
     (=cns11643-3	. #x5F4E)	; &I-C3-5F4E; [63-46]
     (=daikanwa		. 15921)	; &I-M-15921;

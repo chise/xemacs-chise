@@ -276,6 +276,23 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 43)	; ⼪
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=big5-cdp	  . #x8CC6)	; &CDP-8CC6;
+      ))
+    (=ucs-itaiji-001	. #x5140)	; &U-i001+5140;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x5140)	; &g2-U-i001+5140;
+      ))
+    ))
+(define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x5C24)	; &A-compU+5C24;
       (=>iwds-1		  .  0250)	; &A-compU+5C24;

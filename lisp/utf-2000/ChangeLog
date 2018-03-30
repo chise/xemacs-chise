@@ -1,3 +1,20 @@
+2018-03-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R112-Stone.el (U-0002AFD6): New character; unify
+	RUI6-E0E3.
+	(U+78FC): Use `->subsumptive'.
+
+2018-03-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (AJ1-21815): Unify U+6B07 instead of
+	UU+6B07 and A-IWDSU+6B07.
+
+	* Ideograph-R043-Lame.el (U+5140-itaiji-001): New character.
+
+	* Ideograph-R039-Child.el (U-0002198B): Add
+	`ideographic-structure'; add `<-same' for U+5B6F; add
+	representative nodes.
+
 2018-03-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R082-Fur.el (U-00023B8C): Apply new conventions for
