@@ -1,3 +1,23 @@
+2018-03-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R094-Dog.el (U-0002477E): Add `ideographic-structure';
+	add representative nodes.
+	(U-000247B1): New character.
+	(U-000247C3): Apply new conventions for glyph granularity.
+	(U+732C): Add some relations for other characters.
+	(JU+7358): Fix `total-strokes'.
+	(UU+7358): Fix `ideographic-strokes'.
+	(RUI6-E077): New character.
+
+	* Ideograph-R055-Two-Hands.el (UU+5F0A): Use
+	`{ideographic|total}-strokes@jis' instead of
+	`{ideographic|total}-strokes'; add
+	`{ideographic|total}-strokes@cns'; apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R030-Mouth.el (AJ1-04452): Unify U+56C1 instead of
+	UU+56C1.
+
 2018-03-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R112-Stone.el (U-0002AFD6): New character; unify
