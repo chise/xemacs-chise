@@ -1,3 +1,9 @@
+2018-03-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (U-000200BD): Use U+5140-itaiji-001 in
+	`ideographic-structure'; apply new conventions for glyph
+	granularity.
+
 2018-03-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R104-Sickness.el (U-00024D86): Unify M-22174.
