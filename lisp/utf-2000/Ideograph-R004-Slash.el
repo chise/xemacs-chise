@@ -3700,25 +3700,31 @@
       )
      ((=ucs		  . #x7536)	; 甶
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x4E00)	; 一
-	)
-       ((=big5-cdp	    . #x8CC6)	; &CDP-8CC6;
-	))
+     ((=ucs-itaiji-001	  . #x5140)	; &U-i001+5140;
       ))
     (=ucs		. #x200BD)	; 𠂽
     (=cns11643-6	. #x3964)	; &I-C6-3964; [25-68]
     (=daikanwa		. 49333)	; &I-M-49333;
-    (=hanziku-1		. #xAC7B)	; &I-HZK01-AC7B;
     (->vulgar
      ((=ucs		  . #x754F)	; 畏
       (=daikanwa	  . 21778)	; &I-M-21778;
       ))
     (->vulgar*sources
      daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x200BD)	; &g2-M-49333;
+      (==cns11643-6	  . #x3964)	; &g2-M-49333; [25-68]
+      (==daikanwa	  . 49333)	; &g2-M-49333;
+      (->subsumptive
+       ((===daikanwa	    . 49333)	; &R-M-49333;
+	)
+       ((===cns11643-6	    . #x3964)	; &R-C6-3964; [25-68]
+	)
+       ((===ucs@iso	    . #x200BD)	; &R-U-000200BD;
+	)
+       ((=hanziku-1	    . #xAC7B)	; &HZK01-AC7B;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 4)	; ⼃
