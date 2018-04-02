@@ -1,3 +1,18 @@
+2018-03-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R104-Sickness.el (U-00024D86): Unify M-22174.
+	(U-00024DFB): Use `->subsumptive'.
+	(U-0002DF1A): New character.
+	(U-00024E99): Unify M-22525 and CB00478.
+	(IU+24F08): Add `ideographic-structure'.
+
+	* Ideograph-R066-Rap.el (U+655D): Apply new conventions for glyph
+	granularity.
+	(GT-K10129): New character.
+
+	* Ideograph-R050-Turban.el (U+5E63): Apply new conventions for
+	glyph granularity.
+
 2018-03-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R094-Dog.el (U-0002477E): Add `ideographic-structure';
