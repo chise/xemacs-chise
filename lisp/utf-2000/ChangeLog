@@ -1,3 +1,94 @@
+2018-04-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el (U+6C34-itaiji-002): New character; use
+	`<-denotational@component' for A-compU+6C34.
+	(A-cgnU+6C38): New abstract node.
+	(A-IWDSU+6C38): New abstract node; use `<-denotational' for
+	A-cgnU+6C38.
+	(U+6C38): Add `<-denotational' for A-IWDSU+6C38; unify IWDS1-0061.
+	(A-BC-85EF): New abstract node; use `<-denotational' for
+	A-cgnU+6C38; unify A-GT-K00775.
+	(BC-85EF): New character; use `<-subsumptive' for A-BC-85EF.
+	(GT-K00775): Likewise.
+	(U-00023C75): Apply new conventions for glyph granularity; use
+	`<-denotational' for A-IWDSU+6C38.
+	(MJ057939): New character; unify HD-KS193880; use `<-denotational'
+	for U-00023C75.
+	(U-0002C1DE): New character; unify RUI6-E167.
+	(U+3CDF): Add `ideographic-structure'.
+	(UU+3CDF): Unify MJ002064, HD-IA0438, KOSEKI-200290 and CB03003.
+	(MJ002065): New character; use `<-subsumptive' for UU+3CDF.
+	(U-00023CFA): New character.
+	(U+6D73): Unify MJ015367 and KOSEKI-197500.
+	(B-D258): Unify A-IWDSU+6D97; add `ideographic-structure'.
+	(U+6D97): Add `ideographic-structure'.
+	(U+6D9A): Likewise.
+	(U-00023D8F): Apply new conventions for glyph granularity.
+	(IU+23D8F): Unify M-17677.
+	(U-00023D91): Use `->subsumptive'; unify MJ039356 and
+	KOSEKI-199530.
+	(U-00023D08): New character.
+	(U-00023DA0): New character.
+	(U+6E1B): Apply new conventions for glyph granularity.
+	(BUCS+6EAB): Separate B-B7C5.
+	(B-B7C5): Unify A-IWDSU+6EAB; add `<-denotational' for BUCS+6EAB.
+	(U+6E29): Add `ideographic-structure'.
+	(U+6E44): Add `ideographic-structure'.
+	(U+6E71): Apply new conventions for glyph granularity.
+	(U-0002DC56): New character.
+	(RUI6-E08F): New character.
+	(A-cgnU+6E9D): Changed from U+6E9D.
+	(B-B7BE): Unify U+6E9D instead of A-IWDSU+6E9D and A-UU+6E9D; use
+	A-cgnU+6E9D instead of U+6E9D as its mother.
+	(HNG-KAR0221-0): Use A-cgnU+6E9D instead of U+6E9D as its mother.
+	(U+6EA6): Add `sound@ja/on/{kan|go}'.
+	(CU+6EA6): Unify MJ015699 and KOSEKI-202690; add some relations
+	for other characters.
+	(U+6EAB): Add `ideographic-structure'; add representative nodes.
+	(AJ1-03897): Unify U+6EB6 instead of UU+6EB6.
+	(U+6ECC): Add `ideographic-structure'.
+	(A-M-18078): Likewise.
+	(U-00023ECE): Add `sound@ja/on/{kan|go}'.
+	(U+6F00): Apply new conventions for glyph granularity.
+	(U-00023ED8): Likewise.
+	(A-J0-5E74): Unify A-IWDSU+6F11; add `ideographic-structure'.
+	(U+6F11): Add ideographic-structure.
+	(U+6E89): Apply new conventions for glyph granularity.
+	(A-cgnU+6F14): Changed from U+6F14.
+	(AJ1-01291): Unify U+6F14 instead of UU+6F14; use A-cgnU+6F14
+	instead of U+6F14 as its mother.
+	(HNG-KHM0418-0): Use A-cgnU+6F14 instead of U+6F14 as its mother.
+	(U+6F23): Add ideographic-structure.
+	(U+6F4E): Apply new conventions for glyph granularity.
+	(B-D9EC): Unify A-IWDSU+6F59.
+	(U+6F59): Add ideographic-structure; add representative nodes.
+	(U+6E88): Likewise.
+	(U+6F74): Add ideographic-structure.
+	(U+23F60): Add `ideographic-structure'; add `<-formed' and
+	`<-same' for M-18220; add representative nodes.
+	(U-00023F66): Apply new conventions for glyph granularity.
+	(U+3D5F): Apply new conventions for glyph granularity.
+	(CU+3D5F): Unify MJ002179, KOSEKI-207420 and M-18391.
+	(U+6FB3): Add ideographic-structure.
+	(U+6FBC): Add `ideographic-structure'.
+	(U-00024035): Apply new conventions for glyph granularity.
+	(U+3D80): Likewise.
+	(U+3D81): Add ideographic-structure; add `sound@ja/on'; add
+	representative nodes.
+	(U+7029): Apply new conventions for glyph granularity.
+	(U+703F): Apply new conventions for glyph granularity.
+	(U+7048): Add `ideographic-structure'.
+	(U-00024114): Apply new conventions for glyph granularity.
+	(U+3D97): Likewise.
+	(U+7051): Apply new conventions for glyph granularity.
+	(U+7055): Add ideographic-structure.
+	(A-cgnU+24138): New abstract node.
+	(U-0002413C): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+24138.
+	(U-00024138): Add `<-denotational' for A-cgnU+24138.
+	(U-00024168): Apply new conventions for glyph granularity.
+	(U-0002416F): New character.
+
 2018-03-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R004-Slash.el (U-000200BD): Use U+5140-itaiji-001 in
