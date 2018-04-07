@@ -1,3 +1,23 @@
+2018-04-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R117-Stand.el (U-0002C51F): New character; use
+	`<-denotational' for A-IWDSU+2C51F.
+	(U-0002C520): Ditto.
+	(A-IWDSU+2C51F): New abstract node.
+
+	* Ideograph-R113-Spirit.el (A-cgnU+2564A): Changed from
+	U-0002564A.
+	(MJ042992): Unify U-0002564A instead of A-IWDSU+2564A and
+	IU+2564A; use A-cgnU+2564A instead of U-0002564A as its mother.
+	(HD-TK01065000): Use A-cgnU+2564A instead of U-0002564A as its
+	mother; add `ideographic-structure'; add representative node.
+	(U-0002C4B5): New character; unify RUI6-E126.
+	(U-000256DC): Add ideographic-structure; add
+	`sound@ja/on/{kan|go}'.
+	(GT-31952): Unify CB07572 and RUI6-E112.
+
+	* Ideograph-R012-Eight.el (U-0002D048): New character.
+
 2018-04-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R085-Water.el (U+6C34-itaiji-002): New character; use

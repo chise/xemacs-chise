@@ -2138,6 +2138,66 @@
       (=ucs		  . #x2FF1)	; ⿱
       )
      ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=big5-cdp	    . #x8969)	; &CDP-8969;
+	)
+       ((=ucs		    . #x20006)	; 𠀆
+	))
+      )
+     ((=gt-k		  . 00264)	; &GT-K00264;
+      ))
+    (=ucs		. #x2D048)	; 𭁈
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D048)	; 𭁈
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=big5-cdp	    . #x8969)	; &CDP-8969;
+	)
+       ((=ucs@iso	    . #x20006)	; &U-00020006;
+	))
+      )
+     ((=gt-k		  . 00264)	; &GT-K00264;
+      ))
+    (=ucs@JP/hanazono	. #x2D048)	; &MJ058413;
+    (=mj		. 058413)	; &MJ058413;
+    (=koseki		. 336770)	; &MJ058413;
+    (<-formed
+     ((=ucs		  . #x8207)	; 與
+      )
+     ((=ucs@jis		  . #x4E0E)	; &MJ006310;
+      (=mj		  . 006310)	; &MJ006310;
+      ))
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D048)	; &g2-MJ058413;
+      (==mj		  . 058413)	; &g2-MJ058413;
+      (==koseki		  . 336770)	; &g2-MJ058413;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
 	(=ucs		    . #x2FF4)	; ⿴
 	)
