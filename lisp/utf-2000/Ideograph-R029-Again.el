@@ -4419,9 +4419,14 @@
      ((=ucs		  . #x5206)	; 分
       ))
     (=ucs		. #x2A7CA)	; 𪟊
+    (=gt-k		. 08316)	; &I-GT-K08316;
+    (=gt-pj-k1		. #x3650)	; 𪟊 [22-48]
     (=ruimoku-v6	. #xE09B)	; &I-RUI6-E09B;
     (->subsumptive
      ((==ucs@JP/hanazono  . #x2A7CA)	; &g2-hanaJU+2A7CA;
+      )
+     ((==gt-k		  . 08316)	; &g2-GT-K08316;
+      (==gt-pj-k1	  . #x3650)	; &g2-GT-K08316; [22-48]
       )
      ((==ruimoku-v6	  . #xE09B)	; &g2-RUI6-E09B;
       ))
