@@ -1611,6 +1611,32 @@
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5C38)	; 尸
+      )
+     ((=ucs		  . #x76EE)	; 目
+      ))
+    (=ucs		. #x2D558)	; 𭕘
+    (=mj		. 057369)	; &I-MJ057369;
+    (=koseki		. 087280)	; 𭕘
+    (<-formed
+     ((=ucs		  . #x7709)	; 眉
+      ))
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D558)	; &g2-MJ057369;
+      (==mj		  . 057369)	; &g2-MJ057369;
+      (==koseki		  . 087280)	; &g2-MJ057369;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (=ucs		. #x21C4C)	; 𡱌
