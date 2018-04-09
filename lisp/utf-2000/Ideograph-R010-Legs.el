@@ -3441,6 +3441,80 @@
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=big5-cdp	    . #x8969)	; &CDP-8969;
+	)
+       ((=>ucs@iwds-1	    . #x6729)	; &A-IWDSU+6729;
+	(=>iwds-1	    .  22233)	; &A-IWDSU+6729;
+	))
+      )
+     ((=gt-k		  . 00264)	; &GT-K00264;
+      ))
+    (=ucs		. #x2B74C)	; 𫝌
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2B74C)	; 𫝌
+      ))
+    (ideographic-radical . 10)	; ⼉
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=big5-cdp	    . #x8969)	; &CDP-8969;
+	)
+       ((=>ucs@iwds-1	    . #x6728)	; &A-IWDSU+6728;
+	(=>iwds-1	    .  0233)	; &A-IWDSU+6728;
+	))
+      )
+     ((=gt-k		  . 00264)	; &GT-K00264;
+      ))
+    (=ucs@JP/hanazono	. #x2B74C)	; &hanaJU+2B74C;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2B74C)	; &g2-hanaJU+2B74C;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2B74C)	; 𫝌
+      ))
+    (ideographic-radical . 10)	; ⼉
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=big5-cdp	    . #x8969)	; &CDP-8969;
+	)
+       ((=ucs-itaiji-001    . #x6729)	; &U-i001+6729;
+	))
+      )
+     ((=gt-k		  . 00264)	; &GT-K00264;
+      ))
+    (=ucs-var-001	. #x2B74C)	; &U-v001+2B74C;
+    ))
+(define-char
+  '((ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (hanyu-dazidian	1 273 11)
