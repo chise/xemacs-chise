@@ -796,6 +796,36 @@
     ))
 (define-char
   '((ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (=>big5-cdp		. #x8A4E)	; &A-CDP-8A4E;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8A4E)	; &A-CDP-8A4E;
+      ))
+    (ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (=big5-cdp-itaiji-001 . #x8A4E)	; &CDP-i001-8A4E;
+    (->subsumptive
+     ((==big5-cdp-itaiji-001 . #x8A4E)	; &g2-CDP-i001-8A4E;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8A4E)	; &A-CDP-8A4E;
+      ))
+    (ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (=big5-cdp		. #x8A4E)	; &CDP-8A4E;
+    (->subsumptive
+     ((==big5-cdp	  . #x8A4E)	; &g2-CDP-8A4E;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (ideographic-structure
@@ -1744,29 +1774,34 @@
     ))
 (define-char
   '((ideographic-radical . 33)	; ⼠
-    (ideographic-strokes . 11)
-    (total-strokes	 . 14)
-    (=>ucs@component	. #x58FD)	; &A-compU+58FD;
-    (=>iwds-1		.  0330)	; &A-compU+58FD;
+    (=>ucs@cognate	. #x58FD)	; &A-cgnU+58FD;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x58FD)	; &A-compU+58FD;
-      (=>iwds-1		  .  0330)	; &A-compU+58FD;
+     ((=>ucs@cognate	  . #x58FD)	; &A-cgnU+58FD;
+      ))
+    (ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (=>ucs@iwds-1	. #x58FD)	; &A-IWDSU+58FD;
+    (=>iwds-1		.  0330)	; &A-IWDSU+58FD;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x58FD)	; &A-IWDSU+58FD;
+      (=>iwds-1		  .  0330)	; &A-IWDSU+58FD;
       ))
     (ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (hanyu-dazidian	1 483 10)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x8D53)	; &CDP-8D53;
+     ((=ucs		  . #x58EB)	; 士
       )
-     ((=ucs		  . #x4E00)	; 一
-      )
-     ((=ucs		  . #x540B)	; 吋
+     ((=ucs-itaiji-001	  . #x200EC)	; &U-i001+200EC;
       ))
     (=ucs		. #x58FD)	; 壽
     (=adobe-japan1-0	. 04537)	; &I-AJ1-04537;
@@ -1859,14 +1894,25 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x58FD)	; &A-compU+58FD;
-      (=>iwds-1		  .  0330)	; &A-compU+58FD;
+     ((=>ucs@cognate	  . #x5900)	; &A-cgnU+5900;
+      ))
+    (<-denotational@component
+     ((=>ucs@iwds-1	  . #x58FD)	; &A-IWDSU+58FD;
+      (=>iwds-1		  .  0330)	; &A-IWDSU+58FD;
       ))
     (ideographic-radical@ucs . 33)	; ⼠
     (ideographic-radical@cns . 41)	; ⼨
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (hanyu-dazidian	1 490 1)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8A4E)	; &CDP-8A4E;
+      )
+     ((=ucs		  . #x540B)	; 吋
+      ))
     (=ucs		. #x5900)	; 夀
     (=cns11643-6	. #x5C2F)	; &I-C6-5C2F; [60-15]
     (=daikanwa		. 07459)	; &I-M-07459;
@@ -1918,6 +1964,30 @@
     (=ucs		. #x21539)	; 𡔹
     (=cns11643-6	. #x5B68)	; &I-C6-5B68; [59-72]
     (=daikanwa		. 49003)	; &I-M-49003;
+    ))
+(define-char
+  '((ideographic-radical . 33)	; ⼠
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5409)	; 吉
+      )
+     ((=ucs-itaiji-001	  . #x200EC)	; &U-i001+200EC;
+      ))
+    (=ucs		. #x2D419)	; 𭐙
+    (=mj		. 059465)	; &I-MJ059465;
+    (<-formed
+     ((=ucs		  . #x58FD)	; 壽
+      ))
+    (<-formed*sources
+     mj)
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D419)	; &g2-MJ059465;
+      (==mj		  . 059465)	; &g2-MJ059465;
+      ))
     ))
 (define-char
   '((ideographic-radical . 33)	; ⼠
