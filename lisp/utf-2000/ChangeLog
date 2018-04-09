@@ -1,3 +1,9 @@
+2018-04-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (U-0002B74C): New character.
+	(U+2B74C-var-001): New character; use `<-denotational' for
+	U-0002B74C.
+
 2018-04-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R114-Track.el (A-cgnU+79BB): Changed from U+79BB.
