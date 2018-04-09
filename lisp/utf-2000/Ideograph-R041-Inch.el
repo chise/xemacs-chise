@@ -2720,14 +2720,40 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x58FD)	; &A-compU+58FD;
-      (=>iwds-1		  .  0330)	; &A-compU+58FD;
+     ((=>ucs@cognate	  . #x58FD)	; &A-cgnU+58FD;
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>big5-cdp	  . #x8A4E)	; &A-CDP-8A4E;
+      )
+     ((=ucs		  . #x540B)	; 吋
+      ))
+    (=>ucs@cognate	. #x5900)	; &A-cgnU+5900;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5900)	; &A-cgnU+5900;
+      ))
+    (<-denotational@component
+     ((=>ucs@iwds-1	  . #x58FD)	; &A-IWDSU+58FD;
+      (=>iwds-1		  .  0330)	; &A-IWDSU+58FD;
       ))
     (ideographic-radical@ucs . 33)	; ⼠
     (ideographic-radical@cns . 41)	; ⼨
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (hanyu-dazidian	1 490 1)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8A4E)	; &CDP-8A4E;
+      )
+     ((=ucs		  . #x540B)	; 吋
+      ))
     (=ucs		. #x5900)	; 夀
     (=cns11643-6	. #x5C2F)	; &I-C6-5C2F; [60-15]
     (=daikanwa		. 07459)	; &I-M-07459;
@@ -2770,6 +2796,33 @@
 	))
       )
      ((===hng-khm	  . 00220)	; &HNG011-00220;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5900)	; &A-cgnU+5900;
+      ))
+    (ideographic-radical . 41)	; ⼨
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp-itaiji-001 . #x8A4E)	; &CDP-i001-8A4E;
+      )
+     ((=ucs		  . #x540B)	; 吋
+      ))
+    (=mj		. 057358)	; &MJ057358;
+    (=koseki		. 084840)	; &MJ057358;
+    (<-formed
+     ((=ucs		  . #x58FD)	; 壽
+      ))
+    (<-formed*sources
+     mj)
+    (->subsumptive
+     ((==mj		  . 057358)	; &g2-MJ057358;
+      (==koseki		  . 084840)	; &g2-MJ057358;
       ))
     ))
 (define-char
