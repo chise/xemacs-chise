@@ -1,3 +1,11 @@
+2018-04-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R096-Jade.el (A-cgnU+74B0): New abstract node.
+	(U-00024A14): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+74B0.
+	(U+74B0): Add `<-denotational' for A-cgnU+74B0; add
+	ideographic-structure.
+
 2018-04-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R010-Legs.el (U-0002B74C): New character.
