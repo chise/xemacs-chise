@@ -1,5 +1,12 @@
 2018-04-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R002-Line.el (A-BC-89C5): New abstract node.
+	(BC-89C5-var-005): New character; use `<-denotational' for
+	A-BC-89C5.
+	(BC-89C5): Likewise.
+
+2018-04-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R096-Jade.el (A-cgnU+74B0): New abstract node.
 	(U-00024A14): Apply new conventions for glyph granularity; add
 	`<-denotational' for A-cgnU+74B0.
