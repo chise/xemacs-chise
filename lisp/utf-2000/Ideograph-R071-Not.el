@@ -784,5 +784,117 @@
   '((ideographic-radical . 71)	; ⽆
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (=daikanwa		. 13732)	; &M-13732;
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FFA)	; &A-IWDSU+2FFA;
+      (=>iwds-1		  .  0307)	; &A-IWDSU+2FFA;
+      )
+     ((=ucs		  . #x65E1)	; 旡
+      )
+     ((=>ucs@iwds-1	  . #x7232)	; &A-IWDSU+7232;
+      (=>iwds-1		  .  0315)	; &A-IWDSU+7232;
+      ))
+    (sound@ja/on	"Wi")
+    (=ucs		. #x2313A)	; 𣄺
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2313A)	; 𣄺
+      ))
+    (ideographic-radical . 71)	; ⽆
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x65E1)	; 旡
+      )
+     ((=ucs		  . #x7232)	; 爲
+      ))
+    (=+>ucs@iso		. #x2313A)	; &o-IU+2313A;
+    ))
+(define-char
+  '((<-denotational
+     ((=+>ucs@iso	  . #x2313A)	; &o-IU+2313A;
+      ))
+    (ideographic-radical . 71)	; ⽆
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x65E1)	; 旡
+      )
+     ((=ucs@jis		  . #x7232)	; &AJ1-05603;
+      (=adobe-japan1-0	  . 05603)	; &AJ1-05603;
+      ))
+    (=mj		. 037609)	; &MJ037609;
+    (=koseki		. 154300)	; &MJ037609;
+    (=daikanwa		. 13732)	; &I-M-13732;
+    (->subsumptive
+     ((==mj		  . 037609)	; &g2-MJ037609;
+      (==koseki		  . 154300)	; &g2-MJ037609;
+      (==daikanwa	  . 13732)	; &g2-MJ037609;
+      (->subsumptive
+       ((===daikanwa	    . 13732)	; &R-M-13732;
+	)
+       ((===mj		    . 037609)	; &R-MJ037609;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=+>ucs@iso	  . #x2313A)	; &o-IU+2313A;
+      ))
+    (ideographic-radical . 71)	; ⽆
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x65E1)	; 旡
+      )
+     ((=ucs@unicode	  . #x7232)	; &GT-25271;
+      (=cns11643-3	  . #x3D22)	; &GT-25271; [29-02]
+      ))
+    (=ucs@iso		. #x2313A)	; &U-0002313A;
+    (->subsumptive
+     ((==ucs@iso	  . #x2313A)	; &g2-IU-0002313A;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 71)	; ⽆
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x65E3)	; &A-IWDSU+65E3;
+      )
+     ((=ucs		  . #x9022)	; 逢
+      ))
+    (=ucs		. #x2D94A)	; 𭥊
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D94A)	; 𭥊
+      ))
+    (ideographic-radical . 71)	; ⽆
+    (ideographic-strokes . 18)
+    (total-strokes	 . 22)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #xFA42)	; 既
+      )
+     ((=ucs@jis/2004	  . #x9022)	; &MJ025952;
+      (=ucs@ks		  . #x9022)	; &MJ025952;
+      (=mj		  . 025952)	; &MJ025952;
+      ))
+    (=ucs@JP/hanazono	. #x2D94A)	; &hanaJU+2D94A;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D94A)	; &g2-hanaJU+2D94A;
+      ))
     ))

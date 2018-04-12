@@ -42638,8 +42638,8 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=>ucs@component	  . #x5A41)	; &A-compU+5A41;
-      (=>iwds-1		  .  0348)	; &A-compU+5A41;
+     ((=>ucs@iwds-1	  . #x5A41)	; &A-IWDSU+5A41;
+      (=>iwds-1		  .  0348)	; &A-IWDSU+5A41;
       ))
     (=ucs		. #x50C2)	; 僂
     ))

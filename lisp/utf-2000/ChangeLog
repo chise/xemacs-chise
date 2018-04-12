@@ -1,3 +1,23 @@
+2018-04-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (A-IWDSU+6729): New abstract node.
+	(IWDS1-0233): Add A-IWDSU+6729 as a target of
+	`<-denotational@component'.
+	(U+6729): Add `<-denotational@component' for A-compU+6729.
+	(A-compU+6729): New abstract node; use `<-denotational@component'
+	for A-IWDSU+6729.
+	(U+6729-itaiji-001): New character; use `<-denotational@component'
+	for A-compU+6729.
+	(A-IWDSU+689D): New abstract node.
+	(U+689D): Add `<-denotational' for A-IWDSU+689D.
+	(U-000234BC): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+689D.
+
+	* Ideograph-R071-Not.el (U-0002313A): New character.
+	(M-13732): Unify MJ037609 and KOSEKI-154300; add `<-denotational'
+	for o-IU+2313A.
+	(U-0002D94A): New character.
+
 2018-04-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R002-Line.el (A-BC-89C5): New abstract node.
