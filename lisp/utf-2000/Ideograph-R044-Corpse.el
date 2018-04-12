@@ -3683,8 +3683,8 @@
       )
      ((=ucs		  . #x5C38)	; 尸
       )
-     ((=>ucs@component	  . #x5A41)	; &A-compU+5A41;
-      (=>iwds-1		  .  0348)	; &A-compU+5A41;
+     ((=>ucs@iwds-1	  . #x5A41)	; &A-IWDSU+5A41;
+      (=>iwds-1		  .  0348)	; &A-IWDSU+5A41;
       ))
     (=ucs		. #x5C62)	; 屢
     ))
