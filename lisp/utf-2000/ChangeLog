@@ -1,3 +1,10 @@
+2018-04-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R116-Cave.el (U+7AAB): Apply new conventions for glyph
+	granularity.
+	(U+7AB6): Likewise.
+	(U-0002C510): New character.
+
 2018-04-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R075-Tree.el (A-IWDSU+6729): New abstract node.
