@@ -16927,6 +16927,15 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (hanyu-dazidian	1 475 1)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x21A04)	; 𡨄
+      )
+     ((=ucs		  . #x571F)	; 土
+      ))
+    (sound@ja/on	"sai" "soku")
     (=ucs		. #x585E)	; 塞
     (=adobe-japan1-0	. 02105)	; &I-AJ1-02105;
     (=jis-x0208		. #x3A49)	; &I-J90-3A49; [26-41]
@@ -16941,6 +16950,50 @@
     (=daikanwa		. 05349)	; &I-M-05349;
     (=shinjigen@1ed	.  1462)	; 塞
     (=shinjigen@rev	.  1464)	; 塞
+    (<-formed
+     ((=ucs		  . #x21AFC)	; 𡫼
+      )
+     ((=ucs		  . #x21ADF)	; 𡫟
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-interchangeable
+     ((=ucs		  . #x8CFD)	; 賽
+      (=daikanwa	  . 36886)	; &I-M-36886;
+      )
+     ((=ucs		  . #x7C3A)	; 簺
+      (=daikanwa	  . 26611)	; &I-M-26611;
+      )
+     ((=ucs		  . #x3976)	; 㥶
+      (=daikanwa	  . 11037)	; &I-M-11037;
+      ))
+    (<-interchangeable$_1*sources
+     houhanshu-zhu daikanwa)
+    (<-interchangeable$_2*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_3*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
+    (<-same
+     ((=ucs		  . #x21AFC)	; 𡫼
+      (=daikanwa	  . 07381)	; &I-M-07381;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (->formed
+     ((=ucs@unicode	  . #x8272)	; &AJ1-02541;
+      (=adobe-japan1-0	  . 02541)	; &AJ1-02541;
+      (=daikanwa	  . 30602)	; &I-M-30602;
+      ))
+    (->formed*sources
+     zhouli-zhu daikanwa)
+    (->original
+     ((=ucs		  . #x21AFC)	; 𡫼
+      (=daikanwa	  . 07381)	; &I-M-07381;
+      ))
+    (->original*sources
+     zhengzitong daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x585E)	; 塞
