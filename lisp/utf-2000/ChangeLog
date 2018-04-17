@@ -1,3 +1,16 @@
+2018-04-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U+585E): Add `ideographic-structure';
+	add `sound@ja/on'; add some relations for other characters.
+
+	* Ideograph-R002-Line.el (A-BC-88B7): New abstract node.
+	(A-BC-88B7-itaiji-001): New abstract node; use `<-denotational'
+	for A-BC-88B7.
+	(BC-88B7-itaiji-001): New character; use `<-denotational' for
+	A-BC-88B7-itaiji-001.
+	(BC-88B7-itaiji-002): Likewise.
+	(BC-88B7): New character; use `<-denotational' for A-BC-88B7.
+
 2018-04-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R116-Cave.el (U+7AAB): Apply new conventions for glyph
