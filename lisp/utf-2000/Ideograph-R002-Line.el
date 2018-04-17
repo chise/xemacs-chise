@@ -1115,6 +1115,62 @@
     (=big5-cdp-var-005	. #x89C5)	; &CDP-v005-89C5;
     ))
 (define-char
+  '((ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 7)
+    (total-strokes	 . 8)
+    (=>big5-cdp		. #x88B7)	; &A-CDP-88B7;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x88B7)	; &A-CDP-88B7;
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 7)
+    (total-strokes	 . 8)
+    (=>big5-cdp-itaiji-001 . #x88B7)	; &A-CDP-i001-88B7;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp-itaiji-001 . #x88B7)	; &A-CDP-i001-88B7;
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 7)
+    (total-strokes	 . 8)
+    (=big5-cdp-itaiji-001 . #x88B7)	; &CDP-i001-88B7;
+    (->subsumptive
+     ((==big5-cdp-itaiji-001 . #x88B7)	; &g2-CDP-i001-88B7;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp-itaiji-001 . #x88B7)	; &A-CDP-i001-88B7;
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 7)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x20010)	; 𠀐
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (=big5-cdp-itaiji-002 . #x88B7)	; &CDP-i002-88B7;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x88B7)	; &A-CDP-88B7;
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 7)
+    (total-strokes	 . 8)
+    (=big5-cdp		. #x88B7)	; &CDP-88B7;
+    (->subsumptive
+     ((==big5-cdp	  . #x88B7)	; &g2-CDP-88B7;
+      ))
+    ))
+(define-char
   '((<-denotational
      ((=>big5-cdp	  . #x89C5)	; &A-CDP-89C5;
       ))
