@@ -1101,3 +1101,38 @@
      ((==ucs@iso	  . #x23AFA)	; &g2-IU-00023AFA;
       ))
     ))
+(define-char
+  '((ideographic-radical . 80)	; ⽏
+    (ideographic-strokes . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x6BCF)	; &J97-4B68;
+      (=>jis-x0208@1997	  . #x4B68)	; &J97-4B68; [43-72]
+      )
+     ((=ucs		  . #x76E7)	; 盧
+      ))
+    (=ucs		. #x23B01)	; 𣬁
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23B01)	; 𣬁
+      ))
+    (ideographic-radical . 80)	; ⽏
+    (ideographic-strokes . 18)
+    (total-strokes	 . 23)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6BCF)	; 每
+      )
+     ((=ucs@unicode	  . #x76E7)	; &AJ1-05807;
+      (=adobe-japan1-0	  . 05807)	; &AJ1-05807;
+      ))
+    (=ucs@iso		. #x23B01)	; &U-00023B01;
+    (->subsumptive
+     ((==ucs@iso	  . #x23B01)	; &g2-IU-00023B01;
+      ))
+    ))
