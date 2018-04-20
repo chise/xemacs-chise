@@ -1,3 +1,17 @@
+2018-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el (U-00024008): Apply new conventions for
+	glyph granularity.
+
+2018-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (CB01239): Unify U-0002D1CE.
+	(A-GT-K04958): New abstract node.
+	(U+8881-itaiji-001): New character; use `<-denotational' for
+	A-GT-K04958.
+	(GT-K04958): Add `<-denotational' for A-GT-K04958; modify
+	structure.
+
 2018-04-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R080-Do-Not.el (U-00023B01): New character.
