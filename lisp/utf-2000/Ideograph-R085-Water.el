@@ -37384,12 +37384,52 @@
   '((ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (=ucs		. #x24008)	; 𤀈
-    (->subsumptive
-     ((=ucs@iso		  . #x24008)	; &M-18413;
-      (=daikanwa	  . 18413)	; &M-18413;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-7	  . #x2F4A)	; &C7-2F4A; [15-42]
+     ((=ucs		  . #x6C35)	; 氵
+      )
+     ((=gt-k		  . 11025)	; &GT-K11025;
+      ))
+    (sound@ja/on	"Wiku")
+    (=ucs		. #x24008)	; 𤀈
+    (=mj		. 039652)	; &I-MJ039652;
+    (=cns11643-7	. #x2F4A)	; &I-C7-2F4A; [15-42]
+    (=koseki		. 207610)	; 𤀈
+    (=daikanwa		. 18413)	; &I-M-18413;
+    (<-formed
+     ((=ucs@cns		  . #x6FB3)	; &MJ016023;
+      (=ucs@jis		  . #x6FB3)	; &MJ016023;
+      (=ucs@ks		  . #x6FB3)	; &MJ016023;
+      (=mj		  . 016023)	; &MJ016023;
+      ))
+    (<-formed*sources
+     koseki mj)
+    (<-same
+     ((=ucs@cns		  . #x6FB3)	; &MJ016023;
+      (=ucs@jis		  . #x6FB3)	; &MJ016023;
+      (=ucs@ks		  . #x6FB3)	; &MJ016023;
+      (=mj		  . 016023)	; &MJ016023;
+      (=daikanwa	  . 18412)	; &I-M-18412;
+      ))
+    (<-same*sources
+     longkanshoujian daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x24008)	; &g2-MJ039652;
+      (==mj		  . 039652)	; &g2-MJ039652;
+      (==koseki		  . 207610)	; &g2-MJ039652;
+      (==daikanwa	  . 18413)	; &g2-MJ039652;
+      (->subsumptive
+       ((===daikanwa	    . 18413)	; &R-M-18413;
+	)
+       ((===mj		    . 039652)	; &R-MJ039652;
+	)
+       ((===ucs@iso	    . #x24008)	; &R-U-00024008;
+	))
+      )
+     ((==ucs@cns	  . #x24008)	; &g2-CU+24008;
+      (==cns11643-7	  . #x2F4A)	; &g2-CU+24008; [15-42]
       ))
     ))
 (define-char
