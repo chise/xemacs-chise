@@ -7740,7 +7740,37 @@
   '((ideographic-radical . 119)	; ⽶
     (ideographic-strokes . 13)
     (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7C73)	; 米
+      )
+     ((=ucs		  . #x21570)	; 𡕰
+      ))
     (=ucs		. #x7CED)	; 糭
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7CED)	; 糭
+      ))
+    (ideographic-radical . 119)	; ⽶
+    (ideographic-strokes . 13)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7C73)	; 米
+      )
+     ((=ucs@iso		  . #x21570)	; &MJ057258;
+      (=mj		  . 057258)	; &MJ057258;
+      ))
+    (=ucs@unicode	. #x7CED)	; &UU+7CED;
+    (->subsumptive
+     ((==ucs@unicode	  . #x7CED)	; &g2-UU+7CED;
+      (==ucs@JP/hanazono  . nil)
+      ))
     ))
 (define-char
   '((<-denotational
