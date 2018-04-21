@@ -1,3 +1,14 @@
+2018-04-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (U-00021ADF): Use `->subsumptive'.
+	(U-00021AF3): Use `->denotational' and `->subsumptive'.
+	(U-00021AFC): Use `->subsumptive'.
+
+2018-04-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R119-Rice.el (U+7CED): Add `ideographic-structure';
+	add representative nodes.
+
 2018-04-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R085-Water.el (U-00024008): Apply new conventions for
