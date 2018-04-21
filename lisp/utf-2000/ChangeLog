@@ -1,5 +1,34 @@
 2018-04-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R013-Down-Box.el (U+5183): Apply new conventions for
+	glyph granularity.
+	(U+2E9C): Add `ideographic-structure'.
+	(A-compU+5189): New abstract node; use `<-denotational' for
+	BUCS+5189.
+	(U+5189): Use A-compU+5189 instead of BUCS+5189 as its mother;
+	unify IWDS1-0075.
+	(U-0002D060): Add `<-denotational' for A-compU+5189.
+	(A-CB07668): New abstract node; use `<-denotational' for
+	A-compU+5189; unify A-U+2D060-itaiji-001.
+	(U+5189-var-002): Use A-CB07668 instead of U+5189 as its mother.
+	(U+2D060-itaiji-002): New character; use `<-denotational' for
+	A-CB07668.
+	(CB07668): Likewise; unify U+5189-var-001 and U+2D060-itaiji-001.
+	(U-00020559): Add `ideographic-structure'; apply new conventions
+	for glyph granularity.
+	(U-0002D063): New character; use `<-denotational' for
+	A-compU+2D063.
+	(A-compU+2D063): New abstract node.
+	(A-U+2D063-itaiji-001): New abstract node; use `<-denotational'
+	for A-compU+2D063.
+	(U+2D063-itaiji-001): New character; use `<-denotational' for
+	A-U+2D063-itaiji-001.
+	(A-U+2D063-itaiji-002): New abstract node; use `<-denotational'
+	for A-compU+2D063.
+	(U+2D063-itaiji-002): New character; use `<-denotational' for
+	A-U+2D063-itaiji-002.
+	(o-UU+5192): Apply new conventions for glyph granularity.
+
 	* Ideograph-R040-Roof.el (U-00021ADF): Use `->subsumptive'.
 	(U-00021AF3): Use `->denotational' and `->subsumptive'.
 	(U-00021AFC): Use `->subsumptive'.
