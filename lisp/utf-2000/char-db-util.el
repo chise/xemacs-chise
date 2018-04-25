@@ -368,6 +368,7 @@
     =>ucs@iwds-1
     =>ucs@cognate
     =>ucs@component
+    =>ucs-itaiji-001@iwds-1
     ==ucs@gb
     =ucs@gb
     ==ucs-var-002
