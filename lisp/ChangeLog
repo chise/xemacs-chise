@@ -1,5 +1,8 @@
 2018-04-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=>ucs-itaiji-001@iwds-1'.
+
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
 	`=>ucs-bmp-itaiji-001@iwds-1'.
 
