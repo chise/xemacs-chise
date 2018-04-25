@@ -21,6 +21,9 @@
 	(HD-JT-B760): Likewise.
 	(U+7A5F): Apply new conventions for glyph granularity.
 
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>ucs-itaiji-001@iwds-1'.
+
 2018-04-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R121-Jar.el (A-IWDSU+7F36): New abstract node.
