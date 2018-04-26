@@ -1,5 +1,65 @@
 2018-04-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R109-Eye.el (U-000250E9): Add `ideographic-structure';
+	add `<-ancient' for U+773C.
+	(IU+21565): Moved to Ideograph-R035-Go-Slowly.el; unify GT-K04370.
+	(U+7709): Add `ideographic-structure'; add `->original' for
+	CU+7742; add representative nodes.
+	(BC-88FD): Add `ideographic-structure'; add representative node.
+	(GT-K05737): New character.
+	(U-00021565): Use `ideographic-radical@misc' instead of
+	`ideographic-radical'; add `ideographic-radical@ucs'; add
+	`ideographic-structure'.
+	(IWDS1-0329): Add `ideographic-structure'.
+	(U+7758-itaiji-001): Add `<-denotational' for U-000262B7; modify
+	structure.
+	(U-0002518D): Add `ideographic-structure'; add `sound@ja/on';
+	unify MJ042283 and KOSEKI-261130.
+	(CU+4039): Add `sound@ja/on'; add `<-interchangeable' for U+7752;
+	add `->mistakable' for U-0002F949.
+	(U-0002F949): Add some relations for other characters; add
+	representative nodes.
+	(U+7758-itaiji-007): Add `<-denotational' for A-U+7758-itaiji-003;
+	modify structure.
+	(U+7758-itaiji-003): Use A-U+7758-itaiji-003 instead of U+7758 as
+	its mother; modify structure.
+	(U+7752): Apply new conventions for glyph granularity.
+	(A-IWDSU+7758): New abstract node.
+	(U+7758): Add `<-denotational' for A-IWDSU+7758; add
+	`ideographic-structure'.
+	(UU+7758): Omit `=>ucs@iwds-1'.
+	(GT-K10415): Use `<-denotational' for U+7758 instead of
+	`<-subsumptive' for UU+7758; add `ideographic-structure'.
+	(U-000251D2): Use `->subsumptive'.
+	(U+776B): Apply new conventions for glyph granularity.
+	(U-00025200): Unify BC-8ADC; add `ideographic-structure'; add
+	`sound@ja/on'; add representative nodes.
+	(U-000251F3): New character.
+	(M-23480): Unify MJ042354 and KOSEKI-262490; add `<-denotational'
+	for U-000251F3.
+	(U-000251F0): New character.
+	(A-U+7758-itaiji-003): New abstract node; unify
+	A-U+7758-itaiji-007; use `<-denotational' for U-000262B7.
+	(IWDS1-0306): Add `ideographic-structure'.
+	(U+777F): Add `ideographic-structure'.
+	(U-00025220): Add `ideographic-structure'.
+	(IU+2521C): Unify GT-30072.
+	(GT-K11252): New character; use `<-subsumptive' for IU+2521C.
+	(GT-K11765): Ditto.
+	(U-00025085): Delete `morohashi-daikanwa'.
+	(U-00025287): Add `ideographic-structure'; add `->formed' for
+	U-00025084.
+	(U-00025286): Use `->denotational' and `->subsumptive'.
+	(U-00025309): Add `ideographic-structure'; add `sound@ja/on'; add
+	`<-same' for U-0002533A.
+	(U+77C5): Use `->denotational' and `->subsumptive'.
+	(U-0002C46A): New character; unify RUI6-E142.
+	(U-0002533A): Add `ideographic-structure'; add `sound@ja/on'; add
+	some relations for other characters; add representative nodes.
+	(U-00025349): Apply new conventions for glyph granularity.
+
+2018-04-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R115-Grain.el (U-0002574C): Add `sound@ja/on'; unify
 	RUI6-E15C; add `->mistakable' for U+79BE.
 	(U-00025769): Apply new conventions for glyph granularity.
