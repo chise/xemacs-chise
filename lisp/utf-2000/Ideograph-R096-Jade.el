@@ -10334,13 +10334,13 @@
       )
      ((=ucs		  . #x248E9)	; 𤣩
       )
-     ((=>ucs@cognate	  . #x7758)	; &A-cgnU+7758;
+     ((=>ucs@iwds-1	  . #x7758)	; &A-IWDSU+7758;
       ))
-    (=>ucs@cognate	. #x74B0)	; &A-cgnU+74B0;
+    (=>ucs@iwds-1	. #x74B0)	; &A-IWDSU+74B0;
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cognate	  . #x74B0)	; &A-cgnU+74B0;
+     ((=>ucs@iwds-1	  . #x74B0)	; &A-IWDSU+74B0;
       ))
     (ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 11)
@@ -13352,7 +13352,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cognate	  . #x74B0)	; &A-cgnU+74B0;
+     ((=>ucs@iwds-1	  . #x74B0)	; &A-IWDSU+74B0;
       ))
     (ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 13)
