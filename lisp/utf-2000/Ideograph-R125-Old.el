@@ -280,6 +280,25 @@
     ))
 (define-char
   '((ideographic-radical . 125)	; ⽼
+    (ideographic-strokes . 2)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8001)	; 老
+      )
+     ((=ucs		  . #x4EBA)	; 人
+      ))
+    (=gt-k		. 04397)	; &GT-K04397;
+    (=gt-pj-k2		. #x4552)	; &GT-K04397; [37-50]
+    (->subsumptive
+     ((==gt-k		  . 04397)	; &g2-GT-K04397;
+      (==gt-pj-k2	  . #x4552)	; &g2-GT-K04397; [37-50]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 125)	; ⽼
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
     (=ucs		. #x264B4)	; 𦒴
@@ -700,6 +719,26 @@
     (===hng-khi		. 01460)	; &HNG010-01460;
     (<-formed
      ((=ucs		  . #x8006)	; 耆
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 125)	; ⽼
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x8002)	; 耂
+      )
+     ((=ucs		  . #x53E4)	; 古
+      ))
+    (=ucs		. #x2C68B)	; 𬚋
+    (=ruimoku-v6	. #xE0E0)	; &I-RUI6-E0E0;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2C68B)	; &g2-hanaJU+2C68B;
+      )
+     ((==ruimoku-v6	  . #xE0E0)	; &g2-RUI6-E0E0;
       ))
     ))
 (define-char
