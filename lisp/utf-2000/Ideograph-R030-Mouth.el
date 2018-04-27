@@ -13763,7 +13763,10 @@
     (=>ucs-itaiji-001	. #x23140)	; &A-U-i001+23140;
     ))
 (define-char
-  '((ideographic-radical . 30)	; ⼝
+  '((<-denotational
+     ((=>ucs-itaiji-001@iwds-1 . #x8881)	; &A-IWDSU-i001+8881;
+      ))
+    (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (ideographic-structure
@@ -57860,6 +57863,25 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=>ucs@iwds-1	  . #x6578)	; &A-IWDSU+6578;
+      ))
+    (sound@ja/on/go	"syu")
+    (sound@ja/on/kan	"su")
+    (=ucs		. #x210A1)	; 𡂡
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x210A1)	; 𡂡
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 15)
+    (total-strokes	 . 18)
     (hanyu-dazidian	1 700 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -57867,10 +57889,13 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs		  . #x6578)	; 數
+     ((=ucs@unicode	  . #x6578)	; &AJ1-05072;
+      (=adobe-japan1-0	  . 05072)	; &AJ1-05072;
       ))
-    (=ucs		. #x210A1)	; 𡂡
+    (=ucs@iso		. #x210A1)	; &MJ032701;
+    (=mj		. 032701)	; &MJ032701;
     (=cns11643-4	. #x5A72)	; &I-C4-5A72; [58-82]
+    (=koseki		. 051790)	; &MJ032701;
     (=daikanwa		. 04530)	; &I-M-04530;
     (=cbeta		. 00944)	; &I-CB00944;
     (->subsumptive
@@ -57884,10 +57909,14 @@
        ((==ucs@ks	    . #x6578)	; &g2-K0-6226;
 	(==ks-x1001	    . #x6226)	; &g2-K0-6226; [66-06]
 	))
-      (==daikanwa	  . 04530)	; &g2-M-04530;
-      (==cbeta		  . 00944)	; &g2-M-04530;
+      (==mj		  . 032701)	; &g2-MJ032701;
+      (==koseki		  . 051790)	; &g2-MJ032701;
+      (==daikanwa	  . 04530)	; &g2-MJ032701;
+      (==cbeta		  . 00944)	; &g2-MJ032701;
       (->subsumptive
        ((===daikanwa	    . 04530)	; &R-M-04530;
+	)
+       ((===mj		    . 032701)	; &R-MJ032701;
 	)
        ((=hanziku-2	    . #xE256)	; &HZK02-E256;
 	)

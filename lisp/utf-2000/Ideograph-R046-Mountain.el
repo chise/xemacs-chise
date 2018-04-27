@@ -17884,10 +17884,46 @@
       )
      ((=ucs		  . #x5C71)	; 山
       )
-     ((=ucs		  . #x6578)	; 數
+     ((=>ucs@iwds-1	  . #x6578)	; &A-IWDSU+6578;
       ))
-    (=daikanwa		. 08582)	; &M-08582;
+    (sound@ja/on	"sou")
+    (=ucs		. #x21F84)	; 𡾄
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21F84)	; 𡾄
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 15)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs@unicode	  . #x6578)	; &AJ1-05072;
+      (=adobe-japan1-0	  . 05072)	; &AJ1-05072;
+      ))
+    (=ucs@iso		. #x21F84)	; &MJ034835;
+    (=mj		. 034835)	; &MJ034835;
+    (=koseki		. 097010)	; &MJ034835;
+    (=daikanwa		. 08582)	; &I-M-08582;
     (=cbeta		. 03545)	; &I-CB03545;
+    (->subsumptive
+     ((==mj		  . 034835)	; &g2-MJ034835;
+      (==koseki		  . 097010)	; &g2-MJ034835;
+      (==daikanwa	  . 08582)	; &g2-MJ034835;
+      (->subsumptive
+       ((===daikanwa	    . 08582)	; &R-M-08582;
+	)
+       ((===mj		    . 034835)	; &R-MJ034835;
+	))
+      )
+     ((==ucs@iso	  . #x21F84)	; &g2-IU-00021F84;
+      )
+     ((==cbeta		  . 03545)	; &g2-CB03545;
+      ))
     ))
 (define-char
   '((=>ucs		. #x21F85)	; 𡾅

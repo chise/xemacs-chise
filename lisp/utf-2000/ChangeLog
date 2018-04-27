@@ -1,3 +1,25 @@
+2018-04-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (U+6AE2): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R030-Mouth.el (A-GT-K04958): Add `<-denotational' for
+	A-IWDSU+8881-itaiji-001.
+	(U-000210A1): Apply new conventions for glyph granularity.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=>big5-cdp@component'.
+
+2018-04-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R096-Jade.el (A-IWDSU+74B0): Changed from A-cgnU+74B0.
+
+2018-04-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (U-00021F84): New character.
+	(M-08582): Unify IU+21F84, MJ034835 and KOSEKI-097010; add
+	`<-denotational' for U-00021F84.
+
 2018-04-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R125-Old.el (GT-K04397): New character.
