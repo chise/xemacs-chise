@@ -1678,6 +1678,28 @@
 		  registry	"big5\\.cdp-0"
 		  mother	=>>big5-cdp))
 
+  (make-charset '=>big5-cdp@iwds-1
+		"Big5-CDP abstract characters based on IWDS-1"
+		'(long-name	"Big5-CDP IWDS-1 abstract characters"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"big5\\.cdp-0"
+		  mother	=>big5-cdp))
+
+  (make-charset '=>big5-cdp@component
+		"Big5-CDP abstract components"
+		'(long-name	"Big5-CDP abstract components"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"big5\\.cdp-0"
+		  mother	=>big5-cdp))
+
   (make-charset
    '=mj
    "Moji-Jouhou-Kiban characters"
@@ -4779,6 +4801,17 @@
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.itaiji001-0"))
+  (make-charset '=>ucs-sip-itaiji-001@iwds-1
+		"IWDS-1 abstract characters of UCS-itaiji-001 in SIP"
+		'(long-name	"=>ucs-itaiji-001@iwds-1 in SIP"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=>ucs-itaiji-001@iwds-1
+		  min-code #x20000 max-code #x2FFFF
+		  registry "ucs00\\.itaiji001-2"))
 
   (make-charset '=ucs-itaiji-002
 		"uXXXX-itaiji-002 glyphs of GlyphWiki"

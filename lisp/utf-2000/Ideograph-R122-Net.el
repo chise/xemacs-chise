@@ -1956,6 +1956,43 @@
     (=cns11643-5	. #x3462)	; &I-C5-3462; [20-66]
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x7758)	; &A-IWDSU+7758;
+      ))
+    (ideographic-radical . 122)	; ⽹
+    (ideographic-strokes . 6)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7F52)	; 罒
+      )
+     ((=>ucs-itaiji-001@iwds-1 . #x212E1)	; &A-IWDSU-i001+212E1;
+      ))
+    (=ucs		. #x262B7)	; 𦊷
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x262B7)	; 𦊷
+      ))
+    (ideographic-radical . 122)	; ⽹
+    (ideographic-strokes . 6)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7F52)	; 罒
+      )
+     ((=ucs-itaiji-001	  . #x212AE)	; &U-i001+212AE;
+      ))
+    (=ucs@iso		. #x262B7)	; &U-000262B7;
+    (->subsumptive
+     ((==ucs@iso	  . #x262B7)	; &g2-IU-000262B7;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 122)	; ⽹
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
@@ -4060,8 +4097,8 @@
      ((=>ucs@iwds-1	  . #x7F51)	; &A-IWDSU+7F51;
       (=>iwds-1		  .  0238)	; &A-IWDSU+7F51;
       )
-     ((=>ucs@component	  . #x5A41)	; &A-compU+5A41;
-      (=>iwds-1		  .  0348)	; &A-compU+5A41;
+     ((=>ucs@iwds-1	  . #x5A41)	; &A-IWDSU+5A41;
+      (=>iwds-1		  .  0348)	; &A-IWDSU+5A41;
       ))
     (sound@ja/on	"rIu")
     (=ucs		. #x26311)	; 𦌑
@@ -4091,9 +4128,13 @@
     (<-formed*sources
      zhonghua-dazidian daikanwa)
     (->subsumptive
-     ((==daikanwa	  . 28362)	; &g2-M-28362;
-      )
-     ((==ucs@iso	  . #x26311)	; &g2-IU-00026311;
+     ((==ucs@iso	  . #x26311)	; &g2-M-28362;
+      (==daikanwa	  . 28362)	; &g2-M-28362;
+      (->subsumptive
+       ((===daikanwa	    . 28362)	; &R-M-28362;
+	)
+       ((===ucs@iso	    . #x26311)	; &R-U-00026311;
+	))
       )
      ((==ucs@cns	  . #x26311)	; &g2-CU+26311;
       (==cns11643-7	  . #x3A4B)	; &g2-CU+26311; [26-43]
