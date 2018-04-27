@@ -1,3 +1,31 @@
+2018-04-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R125-Old.el (GT-K04397): New character.
+	(U-0002C68B): New character; unify RUI6-E0E0.
+
+	* Ideograph-R122-Net.el (U-000262B7): New character; use
+	`<-denotational' for A-IWDSU+7758.
+	(g2-IU+26311): Unify g2-M-28362.
+
+	* Ideograph-R066-Rap.el (BUCS+6578): New abstract node.
+	(U+6570): Apply new conventions for glyph granularity; add
+	`<-denotational' for BUCS+6578.
+	(HNG-KHI04040): Use BUCS+6578 instead of U+22FD9 as the mother.
+	(A-IWDSU+6578): New abstract node; use `<-denotational' for
+	BUCS+6578.
+	(U+6578): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+6578.
+	(U-00022FD8): Use `->denotational' and `->subsumptive'.
+	(U-00022FD9): Add `<-denotational' for A-IWDSU+6578; add
+	`ideographic-structure'.
+	(IU+22FD9): Omit `=>ucs@iwds-1'.
+
+	* Ideograph-R047-River.el (A-GT-K02003): New abstract node; unify
+	A-U+5DDF-itaiji-002.
+	(U+5DDF-itaiji-002): New character; use `<-denotational' for
+	A-GT-K02003.
+	(GT-K02003): Likewise.
+
 2018-04-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R109-Eye.el (U-000250E9): Add `ideographic-structure';
