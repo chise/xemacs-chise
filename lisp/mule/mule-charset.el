@@ -574,6 +574,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>mj-0
 	  =>big5-cdp
 	  =>ruimoku-v6
+	  =>big5-cdp@component
 	  =>big5-cdp-itaiji-001
 	  =>ucs-bmp-itaiji-001
 	  =>ucs-sip-itaiji-001
@@ -590,6 +591,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>ucs-sip-itaiji-007
 	  =>ucs-bmp-itaiji-009
 	  =>ucs-bmp-itaiji-001@iwds-1
+	  =>ucs-sip-itaiji-001@iwds-1
 	  =>daikanwa
 	  ucs-bmp
 	  ==>ucs-bmp-cjk@bucs
