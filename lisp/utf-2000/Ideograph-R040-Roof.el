@@ -14027,31 +14027,28 @@
     (=koseki		. 084080)	; &MJ034149;
     (=>>daikanwa	. 28841)	; &MJ034149;
     (->subsumptive
-     ((ideographic-radical . 124)	; ⽻
-      (ideographic-strokes . 20)
-      (=daikanwa	  . 28841)	; &M-28841;
-      (<-vulgar
-       ((=daikanwa	    . 28835)	; &M-28835;
-	))
-      (<-vulgar*sources
-       zhengzitong daikanwa=28841)
-      (->subsumptive
-       ((==mj		    . 034149)	; &g2-MJ034149;
-	(==daikanwa	    . 28841)	; &g2-MJ034149;
-	(->subsumptive
-	 ((===daikanwa	      . 28841)	; &R-M-28841;
-	  )
-	 ((===mj	      . 034149)	; &R-MJ034149;
-	  ))
-	))
-      )
-     ((==koseki		  . 084080)	; &g2-KOSEKI-084080;
-      )
      ((ideographic-radical . 40)	; ⼧
       (ideographic-strokes . 23)
       (=daikanwa	  . 07403)	; &M-07403;
       (->subsumptive
        ((==daikanwa	    . 07403)	; &g2-M-07403;
+	))
+      )
+     ((==mj		  . 034149)	; &g2-MJ034149;
+      )
+     ((==koseki		  . 084080)	; &g2-KOSEKI-084080;
+      )
+     ((ideographic-radical . 124)	; ⽻
+      (ideographic-strokes . 20)
+      (=daikanwa	  . 28841)	; &M-28841;
+      (<-vulgar
+       ((=mj		    . 045226)	; &MJ045226;
+	(=daikanwa	    . 28835)	; &I-M-28835;
+	))
+      (<-vulgar*sources
+       zhengzitong daikanwa)
+      (->subsumptive
+       ((==daikanwa	    . 28841)	; &g2-M-28841;
 	))
       ))
     ))
