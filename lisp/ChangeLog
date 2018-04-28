@@ -1,3 +1,12 @@
+2018-04-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `=+>big5-cdp', `=>big5-cdp@component' and
+	`=>big5-cdp@cognate'.
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=>big5-cdp@iwds-1', `=>big5-cdp@cognate' and `=+>big5-cdp'.
+
 2018-04-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-conf.el (=+>big5-cdp): New coded-charset for XEmacs

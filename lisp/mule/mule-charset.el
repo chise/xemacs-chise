@@ -574,7 +574,9 @@ DESCRIPTION (string) is the description string of the charset."
 	  =>mj-0
 	  =>big5-cdp
 	  =>ruimoku-v6
+	  =>big5-cdp@iwds-1
 	  =>big5-cdp@component
+	  =>big5-cdp@cognate
 	  =>big5-cdp-itaiji-001
 	  =>ucs-bmp-itaiji-001
 	  =>ucs-sip-itaiji-001
@@ -627,6 +629,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  =+>adobe-japan1-6
 	  =+>ucs-bmp-var-003
 	  =+>jis-x0208@1978
+	  =+>big5-cdp
 	  )))
 
 ;;; mule-charset.el ends here
