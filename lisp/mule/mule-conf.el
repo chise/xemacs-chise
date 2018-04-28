@@ -1667,6 +1667,17 @@
 		  registry	"big5\\.cdp-0"
 		  mother	=big5-cdp))
 
+  (make-charset '=+>big5-cdp
+		"Big5-CDP unified glyphs"
+		'(long-name	"Big5-CDP unified glyphs"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"big5\\.cdp-0"
+		  mother	=big5-cdp))
+
   (make-charset '=>big5-cdp
 		"Big5-CDP abstract characters"
 		'(long-name	"Big5-CDP abstract characters"
@@ -1676,7 +1687,7 @@
 		  graphic	2
 		  direction	l2r
 		  registry	"big5\\.cdp-0"
-		  mother	=>>big5-cdp))
+		  mother	=big5-cdp))
 
   (make-charset '=>big5-cdp@iwds-1
 		"Big5-CDP abstract characters based on IWDS-1"
@@ -1692,6 +1703,17 @@
   (make-charset '=>big5-cdp@component
 		"Big5-CDP abstract components"
 		'(long-name	"Big5-CDP abstract components"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"big5\\.cdp-0"
+		  mother	=>big5-cdp))
+
+  (make-charset '=>big5-cdp@cognate
+		"Big5-CDP abstract components based on cognate"
+		'(long-name	"Big5-CDP abstract cognate components"
 		  chars		256
 		  dimension	2
 		  columns	2
