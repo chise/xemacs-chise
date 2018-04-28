@@ -56322,6 +56322,24 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4EBB)	; 亻
+      )
+     ((=>ucs@iwds-1	  . #x6578)	; &A-IWDSU+6578;
+      ))
+    (sound@ja/on	"soku")
+    (=ucs		. #x2040D)	; 𠐍
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2040D)	; 𠐍
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 15)
+    (total-strokes	 . 17)
     (hanyu-dazidian	1 234 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -56329,10 +56347,13 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=ucs		  . #x6578)	; 數
+     ((=ucs@unicode	  . #x6578)	; &AJ1-05072;
+      (=adobe-japan1-0	  . 05072)	; &AJ1-05072;
       ))
-    (=ucs		. #x2040D)	; 𠐍
+    (=ucs@iso		. #x2040D)	; &MJ030857;
+    (=mj		. 030857)	; &MJ030857;
     (=cns11643-4	. #x5566)	; &I-C4-5566; [53-70]
+    (=koseki		. 014640)	; &MJ030857;
     (=daikanwa		. 01264)	; &I-M-01264;
     (->subsumptive
      ((ideographic-structure
@@ -56345,9 +56366,13 @@
        ((==ucs@ks	    . #x6578)	; &g2-K0-6226;
 	(==ks-x1001	    . #x6226)	; &g2-K0-6226; [66-06]
 	))
-      (==daikanwa	  . 01264)	; &g2-M-01264;
+      (==mj		  . 030857)	; &g2-MJ030857;
+      (==koseki		  . 014640)	; &g2-MJ030857;
+      (==daikanwa	  . 01264)	; &g2-MJ030857;
       (->subsumptive
        ((===daikanwa	    . 01264)	; &R-M-01264;
+	)
+       ((===mj		    . 030857)	; &R-MJ030857;
 	)
        ((=hanziku-1	    . #xD672)	; &HZK01-D672;
 	))
