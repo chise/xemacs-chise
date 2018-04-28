@@ -1,5 +1,49 @@
 2018-04-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R038-Woman.el (U+5A04): Apply new conventions for
+	glyph granularity.
+	(A-cgnU+5A41): New abstract node; use `<-denotational' for
+	BUCS+5A41.
+	(IWDS1-0348): Unify A-IWDSU+5A41 instead of A-compU+5A41; use
+	A-cgnU+5A41 instead of BUCS+5A41 as its mother.
+	(U+5A41): Add ideographic-structure.
+	(A-cgnU+21764): New abstract node; use `<-denotational' for
+	A-cgnU+5A41.
+	(C6-3E49): Unify U-00021764 instead of A-IWDSU+21764 and IU+21764;
+	use A-cgnU+21764 instead of U-00021764 as its mother.
+	(A-MJ057303): Use A-cgnU+21764 instead of U-00021764 as its
+	mother; use `->denotational' instead of `->subsumptive'; add
+	`ideographic-structure'.
+
+2018-04-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R124-Feather.el (A-MJ058354): Unify U-0002E2B8.
+	(U-000264A8): Use `->denotational' and `->subsumptive'.
+	(U-00021B18): Add `ideographic-structure'; add
+	`sound@ja/on/{kan|go}'.
+	(G-M-28841): Unify MJ034149 and KOSEKI-084080; add
+	`ideographic-structure'.
+
+	* Ideograph-R123-Sheep.el (IWDS1-0100): New abstract node.
+	(U+7F8A): Add `<-denotational@component' for IWDS1-0100.
+	(<CJK RADICAL RAM>): Likewise.
+	(U-0002634C): Likewise; add representative nodes.
+	(B-AACB): Unify A-compU+7F8B.
+	(U+7F94): Apply new conventions for glyph granularity.
+	(U+7F94-itaiji-001): New character; use `<-denotational' for
+	U+7F94.
+	(U-0002635A): Add `ideographic-structure'; add `sound@ja/on'.
+	(IU+2635A): Unify MJ044980 and KOSEKI-317860; add
+	`ideographic-structure'.
+	(C6-433B): Unify CU+2635A; add `ideographic-structure'; add
+	representative node.
+
+	* Ideograph-R040-Roof.el (MJ034149): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R009-Man.el (U-0002040D): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R075-Tree.el (U+6AE2): Apply new conventions for glyph
 	granularity.
 
