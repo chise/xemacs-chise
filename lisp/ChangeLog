@@ -1,3 +1,11 @@
+2018-04-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-conf.el (=+>big5-cdp): New coded-charset for XEmacs
+	CHISE.
+	(=>big5-cdp): Use `=big5-cdp' instead of `=>>big5-cdp' as its
+	mother.
+	(=>big5-cdp@cognate): New coded-charset for XEmacs CHISE.
+
 2018-04-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
