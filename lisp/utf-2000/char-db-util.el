@@ -311,6 +311,7 @@
     =>>big5-cdp
     =>>gt-k
     =+>gt
+    =+>big5-cdp
     =>gt
     =>mj
     =>big5-cdp
@@ -370,6 +371,7 @@
     =>ucs@component
     =>ucs-itaiji-001@iwds-1
     =>big5-cdp@component
+    =>big5-cdp@cognate
     ==ucs@gb
     =ucs@gb
     ==ucs-var-002

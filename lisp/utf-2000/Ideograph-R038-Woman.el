@@ -10264,7 +10264,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>big5-cdp@cognate . #x89C5)	; &MCS-000F0332;
+     ((=>big5-cdp@cognate . #x89C5)	; &A-cgnCDP-89C5;
       )
      ((=ucs		  . #x5973)	; 女
       ))
@@ -10281,7 +10281,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>big5-cdp@component . #x89C5)	; &MCS-000F0332;
+     ((=>big5-cdp@component . #x89C5)	; &A-compCDP-89C5;
       )
      ((=ucs		  . #x5973)	; 女
       ))
