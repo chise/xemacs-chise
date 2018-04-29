@@ -1,4 +1,40 @@
+2018-04-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=+>big5-cdp' and `=>big5-cdp@cognate'.
+
+	* Ideograph-R002-Line.el (A-cgnBC-89C5): New abstract node.
+	(A-compBC-89C5): New abstract node; use `<-denotational' for
+	A-cgnBC-89C5.
+	(A-BC-89C5): Add `<-denotational' for A-compBC-89C5.
+	(A-BC-88B7): Add `<-denotational' for A-cgnBC-89C5.
+	(BC-88B7): Add `<-denotational@component' for A-compBC-89C5.
+
 2018-04-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R120-Silk.el (U+7EBB): Unify RUI6-E123; add
+	`<-simplified@CN/misc' for U+7D35.
+	(A-IWDSU+7D44): New abstract node.
+	(U+42CE): Apply new conventions for glyph granularity; add
+	`<-denotational@component' for A-IWDSU+7D44.
+	(U+7D44): Add `<-denotational@component' for A-IWDSU+7D44.
+	(A-cgnU+42E3): New abstract node.
+	(M-27512): Unify HD-IA4060; use `<-denotational' for A-cgnU+42E3
+	instead of `=>ucs' for U+42E3.
+	(U+42E3): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+42E3.
+	(RUI6-E09A): New character.
+	(U+7DBB): Add `ideographic-structure'; add some relations for
+	other characters.
+	(U+7DC1): Apply new conventions for glyph granularity.
+	(U+7E47): Add ideographic-structure.
+	(B-C166): Unify A-IWDSU+7E48; add `ideographic-structure'.
+	(U+7E48): Add `ideographic-structure'.
+	(U+7E66): Likewise.
+	(UU+7E4C): Unify CB10394.
+	(U-00026162): New character.
+	(U-0002619B): Apply new conventions for glyph granularity.
+	(U-00026203): Likewise.
 
 	* Ideograph-R038-Woman.el (U+5A04): Apply new conventions for
 	glyph granularity.
