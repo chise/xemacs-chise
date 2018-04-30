@@ -5333,12 +5333,20 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x8881)	; &A-compU+8881;
-      (=>iwds-1		  .  0293)	; &A-compU+8881;
+     ((=>ucs@iwds-1	  . #x8881)	; &A-IWDSU+8881;
+      (=>iwds-1		  .  31293)	; &A-IWDSU+8881;
       ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x571F)	; 土
+      )
+     ((=+>big5-cdp	  . #x8845)	; &o-CDP-8845;
+      ))
     (=ucs		. #x212AE)	; 𡊮
     ))
 (define-char
@@ -5366,14 +5374,12 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
      ((=ucs		  . #x571F)	; 土
       )
-     ((=big5-cdp	  . #x89C2)	; &CDP-89C2;
-      )
-     ((=big5-cdp	  . #x8CC6)	; &CDP-8CC6;
+     ((=big5-cdp-var-001  . #x8845)	; &CDP-v001-8845;
       ))
     (=ucs@iso		. #x212AE)	; &U-000212AE;
     (->subsumptive
@@ -5387,8 +5393,18 @@
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
-    (=>ucs@component	. #x8881)	; &A-compU+8881;
-    (=>iwds-1		.  0293)	; &A-compU+8881;
+    (=>iwds-1*note	"0293+0312; 0293@IRGN2019")
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x571F)	; &A-compU+571F;
+      (=>iwds-1		  .  0312)	; &A-compU+571F;
+      )
+     ((=>iwds-1		  .  0293)	; &IWDS1-293;
+      ))
+    (=>ucs@iwds-1	. #x8881)	; &A-IWDSU+8881;
+    (=>iwds-1		.  31293)	; &A-IWDSU+8881;
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟
@@ -7083,8 +7099,8 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@component	  . #x8881)	; &A-compU+8881;
-      (=>iwds-1		  .  0293)	; &A-compU+8881;
+     ((=>ucs@iwds-1	  . #x8881)	; &A-IWDSU+8881;
+      (=>iwds-1		  .  31293)	; &A-IWDSU+8881;
       ))
     (ideographic-radical . 32)	; ⼟
     (ideographic-structure
