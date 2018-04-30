@@ -1,3 +1,13 @@
+2018-04-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U-000212AE): Use A-IWDSU+8881 instead
+	of A-compU+8881 as its mother; add `ideographic-structure'.
+	(IU+212AE): Use BC-8845-var-001 in `ideographic-structure'.
+	(A-IWDSU+8881): Changed from A-compU+8881; unify IWDS1-31293
+	[0293+0312] instead of IWDS1-0293.
+	(U-000212E1): Use A-IWDSU+8881 instead of A-compU+8881 as its
+	mother.
+
 2018-04-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
