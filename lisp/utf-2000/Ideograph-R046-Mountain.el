@@ -14462,6 +14462,38 @@
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs		  . #x5712)	; 園
+      ))
+    (=ucs		. #x21EFD)	; 𡻽
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21EFD)	; 𡻽
+      ))
+    (ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs-var-002	  . #x5712)	; &U-v002+5712;
+      ))
+    (=ucs@iso		. #x21EFD)	; &U-00021EFD;
+    (->subsumptive
+     ((==ucs@iso	  . #x21EFD)	; &g2-IU-00021EFD;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (ideographic-structure

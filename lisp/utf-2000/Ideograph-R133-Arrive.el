@@ -780,3 +780,35 @@
      ((=cns11643-5	  . #x6371)	; &C5-6371; [67-81]
       ))
     ))
+(define-char
+  '((ideographic-radical . 133)	; ⾄
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>gt-k		  . 11278)	; &A-CB08661;
+      )
+     ((=ucs		  . #x81F3)	; 至
+      ))
+    (=ucs		. #x2E364)	; 𮍤
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2E364)	; 𮍤
+      ))
+    (ideographic-radical . 133)	; ⾄
+    (ideographic-strokes . 15)
+    (total-strokes	 . 21)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-009	  . #x8208)	; &U-i009+8208;
+      )
+     ((=ucs		  . #x81F3)	; 至
+      ))
+    (=ucs@JP/hanazono	. #x2E364)	; &hanaJU+2E364;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2E364)	; &g2-hanaJU+2E364;
+      ))
+    ))

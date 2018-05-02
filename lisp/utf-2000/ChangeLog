@@ -1,3 +1,14 @@
+2018-04-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R133-Arrive.el (U-0002E364): New character.
+
+	* Ideograph-R131-Minister.el (BC-8CC9-itaiji-002): New character;
+	use `<-denotational' for A-BC-8CC9.
+	(U-0002B1C6): Add representative node.
+	(U-0002C6E7): New character; unify RUI6-E0C2.
+
+	* Ideograph-R046-Mountain.el (U-00021EFD): New character.
+
 2018-04-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (U-000212AE): Use A-IWDSU+8881 instead
