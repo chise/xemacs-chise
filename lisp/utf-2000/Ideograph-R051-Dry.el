@@ -108,6 +108,14 @@
   '((ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E37)	; 丷
+      )
+     ((=ucs		  . #x5E72)	; 干
+      ))
     (sound@ja/on/go	"niN")
     (sound@ja/on/kan	"ziN")
     (sources		ruimoku=A016219-00020)
@@ -120,6 +128,24 @@
      ((=ucs		  . #x5C70)	; 屰
       ))
     (<-simplified@component*note "different from M-09166 (C4-2178, U+22189).")
+    (->subsumptive
+     ((==ucs@iso	  . #x22189)	; &g2-CDP-8B75;
+      (==cns11643-4	  . #x2178)	; &g2-CDP-8B75; [01-88]
+      (==big5-cdp	  . #x8B75)	; &g2-CDP-8B75;
+      (==daikanwa	  . 09166)	; &g2-CDP-8B75;
+      (==ruimoku-v6	  . #xE00E)	; &g2-CDP-8B75;
+      (->subsumptive
+       ((===daikanwa	    . 09166)	; &R-M-09166;
+	)
+       ((===big5-cdp	    . #x8B75)	; &R-CDP-8B75;
+	)
+       ((===cns11643-4	    . #x2178)	; &R-C4-2178; [01-88]
+	)
+       ((===ucs@iso	    . #x22189)	; &R-U-00022189;
+	)
+       ((===ruimoku-v6	    . #xE00E)	; &R-RUI6-E00E;
+	))
+      ))
     ))
 (define-char
   '((<-denotational

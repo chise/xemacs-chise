@@ -1,3 +1,63 @@
+2018-05-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R051-Dry.el (U-00022189): Add `ideographic-structure';
+	add representative nodes.
+
+2018-05-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R134-Mortar.el (A-U+2696F-itaiji-005): New abstract
+	node.
+	(U+2696F-itaiji-005): New character; use `<-denotational' for
+	A-U+2696F-itaiji-005.
+	(A-U+2696F-itaiji-006): New abstract node.
+	(U+2696F-itaiji-006): New character; use `<-denotational' for
+	A-U+2696F-itaiji-006.
+	(A-RUI6-E0E5): New abstract node.
+	(BC-86D6-itaiji-002): New character; use `<-denotational' for
+	A-BC-86D6.
+	(A-BC-86D6): New abstract node.
+	(RUI6-E0E5): New character; use `<-denotational' for A-RUI6-E0E5.
+	(BC-86D6-itaiji-001): New character; use `<-denotational' for
+	A-BC-86D6.
+	(BC-86D6): Likewise.
+	(U-0002697C): Add `ideographic-structure'; add `sound@ja/on';
+	unify MJ046001 and KOSEKI-337410; add `<-ancient' and `<-same' for
+	M-34768; add `<-formed' for M-34768 and UU+8981; add
+	representative nodes.
+	(U-0002E372): New character.
+
+	* Ideograph-R129-Brush.el (A-compU+26612): New abstract node.
+	(U-00026612): Add `<-denotational@component' for A-compU+26612;
+	add `sound@ja/on/{kan|go}'; add `->mistakable' for UU+807F; add
+	`->original' for U+5E07; add representative nodes.
+	(<CJK RADICAL BRUSH TWO>): Copied from
+	u02E00-CJK-Radical-Supplement.el; add `<-denotational@component'
+	for A-compU+26612.
+	(A-RUI6-E019): New abstract node.
+	(RUI6-E019): Add `<-denotational' for A-RUI6-E019.
+
+2018-05-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R058-Snout.el (A-IWDSU+5F51): Changed from
+	A-compU+5F51; unify IWDS1-37280 [80+372+373].
+	(UU+5F51): Omit `=>ucs@iwds-1'.
+	(A-U+5F56-itaiji-003): New abstract node; use `<-denotational' for
+	A-cgnU+38C7.
+	(U+5F56-itaiji-003): Use A-U+5F56-itaiji-003 instead of
+	A-cgnU+38C7 as its mother.
+	(A-U+38C7-itaiji-009): Likewise.
+	(A-cgnU+38C8): New abstract node.
+	(U+38C8): Add `<-denotational' for A-cgnU+38C8.
+	(A-U+38C8-itaiji-001): New abstract node; use `<-denotational' for
+	A-cgnU+38C8.
+	(U+38C8-itaiji-001): Use A-U+38C8-itaiji-001 instead of U+38C8 as
+	its mother.
+
+	* Ideograph-R021-Spoon.el (UU+5318): Add `<-original' for U+8166.
+
+	* Ideograph-R018-Knife.el (U-00020736): Add U+8166 as a target of
+	`<-formed'.
+
 2018-04-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R133-Arrive.el (U-0002E364): New character.
