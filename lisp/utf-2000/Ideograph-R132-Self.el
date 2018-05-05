@@ -206,17 +206,55 @@
   '((ideographic-radical . 132)	; ⾃
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
-    (=ucs		. #x81EC)	; 臬
-    (->subsumptive
-     ((=ucs@unicode	  . #x81EC)	; &JX2-7559;
-      (=gb2312		  . #x742B)	; &JX2-7559; [84-11]
-      (=jis-x0212	  . #x5663)	; &I-JSP-5663; [54-67]
-      (=jis-x0213-2	  . #x7559)	; &I-JX2-7559; [85-57]
-      (=big5		  . #xAFE5)	; &I-B-AFE5;
-      (=daikanwa	  . 30107)	; &I-M-30107;
-      (=jef-china3	  . #x52F0)	; &I-JC3-52F0;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=cns11643-1	  . #x5769)	; &C1-5769; [55-73]
+     ((=ucs		  . #x81EA)	; 自
+      )
+     ((=ucs		  . #x6728)	; 木
+      ))
+    (=ucs		. #x81EC)	; 臬
+    (=gb2312		. #x742B)	; &I-G0-742B; [84-11]
+    (=jis-x0212		. #x5663)	; &I-JSP-5663; [54-67]
+    (=cns11643-1	. #x5769)	; &I-C1-5769; [55-73]
+    (=jis-x0213-2	. #x7559)	; &I-JX2-7559; [85-57]
+    (=big5		. #xAFE5)	; &I-B-AFE5;
+    (=daikanwa		. 30107)	; &I-M-30107;
+    (=jef-china3	. #x52F0)	; &I-JC3-52F0;
+    (<-same
+     ((=ucs		  . #x95D1)	; 闑
+      (=daikanwa	  . 41449)	; &I-M-41449;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (->interchangeable@ancient
+     ((=ucs@unicode	  . #x69F7)	; &C2-5126;
+      (=cns11643-2	  . #x5126)	; &C2-5126; [49-06]
+      (=daikanwa	  . 15383)	; &I-M-15383;
+      ))
+    (->interchangeable@ancient*sources
+     zhouli-zhu daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x81EC)	; &g2-JSP-5663;
+      (==gb2312		  . #x742B)	; &g2-JSP-5663; [84-11]
+      (==jis-x0212	  . #x5663)	; &g2-JSP-5663; [54-67]
+      (==jis-x0213-2	  . #x7559)	; &g2-JSP-5663; [85-57]
+      (==daikanwa	  . 30107)	; &g2-JSP-5663;
+      (==jef-china3	  . #x52F0)	; &g2-JSP-5663;
+      (->subsumptive
+       ((===daikanwa	    . 30107)	; &R-M-30107;
+	)
+       ((===jis-x0212	    . #x5663)	; &R-JX2-7559; [54-67]
+	(===jis-x0213-2	    . #x7559)	; &R-JX2-7559; [85-57]
+	)
+       ((===jef-china3	    . #x52F0)	; &R-JC3-52F0;
+	)
+       ((===ucs@unicode	    . #x81EC)	; &R-UU+81EC;
+	))
+      )
+     ((==ucs@cns	  . #x81EC)	; &g2-CU+81EC;
+      (==cns11643-1	  . #x5769)	; &g2-CU+81EC; [55-73]
       ))
     ))
 (define-char
