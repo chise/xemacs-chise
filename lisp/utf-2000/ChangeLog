@@ -1,3 +1,29 @@
+2018-05-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R132-Self.el (U+81EC): Apply new conventions for glyph
+	granularity.
+
+2018-05-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R108-Dish.el (U+76BF): Add representative nodes.
+	(RUI6-E04F): Unify U-0002C41E.
+	(RUI6-E0EE): New character; use `<-subsumptive' for g2-RUI6-E04F.
+	(RUI6-E128): New character.
+	(A-cgnU+76E1): New abstract node.
+	(U+76E1): Add `<-denotational' for A-cgnU+76E1; add
+	`ideographic-structure'.
+	(UU+76E1): Omit `=>ucs@iwds-1'; add `ideographic-structure'.
+	(HNG-KAR1099-0): Add `ideographic-structure'.
+	(MJ058149): New character; use `<-denotational' for A-cgnU+76E1.
+	(U+4008): Apply new conventions for glyph granularity.
+	(U-00025084): Apply new conventions for glyph granularity.
+	(U-00025085): Delete `morohashi-daikanwa'; add representative
+	nodes.
+	(U+4008): Apply new conventions for glyph granularity.
+	(RUI6-E02D): Unify U-0002C433; add representative nodes.
+	(U-000250C8): Apply new conventions for glyph granularity.
+	(U+76ED): Likewise.
+
 2018-05-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R051-Dry.el (U-00022189): Add `ideographic-structure';
