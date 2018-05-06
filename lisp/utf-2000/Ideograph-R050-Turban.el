@@ -570,12 +570,51 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 730 20)
+    (sound@ja/on/go	"nEHu")
+    (sound@ja/on/kan	"dEHu")
     (=ucs		. #x5E07)	; 帇
     (=adobe-japan1-6	. 21492)	; &I-AJ1-21492;
     (=jis-x0212		. #x3C25)	; &I-JSP-3C25; [28-05]
     (=cns11643-5	. #x225C)	; &I-C5-225C; [02-60]
     (=big5-cdp		. #x897A)	; &I-CDP-897A;
     (=daikanwa		. 08790)	; &I-M-08790;
+    (<-original
+     ((=ucs		  . #x26612)	; 𦘒
+      ))
+    (<-same
+     ((=ucs@unicode	  . #x758C)	; &AJ1-18136;
+      (=adobe-japan1-5	  . 18136)	; &AJ1-18136;
+      (=daikanwa	  . 21997)	; &I-M-21997;
+      ))
+    (<-same*sources
+     liushu-zhenge daikanwa)
+    (->formed
+     ((=ucs@unicode	  . #x758C)	; &AJ1-18136;
+      (=adobe-japan1-5	  . 18136)	; &AJ1-18136;
+      ))
+    (->formed*sources
+     liushu-zhenge)
+    (->subsumptive
+     ((==ucs@unicode	  . #x5E07)	; &g2-AJ1-21492;
+      (==adobe-japan1-6	  . 21492)	; &g2-AJ1-21492;
+      (==jis-x0212	  . #x3C25)	; &g2-AJ1-21492; [28-05]
+      (==cns11643-5	  . #x225C)	; &g2-AJ1-21492; [02-60]
+      (==big5-cdp	  . #x897A)	; &g2-AJ1-21492;
+      (==daikanwa	  . 08790)	; &g2-AJ1-21492;
+      (->subsumptive
+       ((===daikanwa	    . 08790)	; &R-M-08790;
+	)
+       ((===jis-x0212	    . #x3C25)	; &R-JSP-3C25; [28-05]
+	)
+       ((===adobe-japan1-6  . 21492)	; &R-AJ1-21492;
+	)
+       ((===big5-cdp	    . #x897A)	; &R-CDP-897A;
+	)
+       ((===cns11643-5	    . #x225C)	; &R-C5-225C; [02-60]
+	)
+       ((===ucs@unicode	    . #x5E07)	; &R-UU+5E07;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 50)	; ⼱
