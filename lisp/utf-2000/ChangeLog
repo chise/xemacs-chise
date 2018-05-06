@@ -1,3 +1,49 @@
+2018-05-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R118-Bamboo.el (U+7AFE): Add `ideographic-structure';
+	add `sound@ja/on/{kan|go}'; add some relations for other
+	characters.
+	(A-cgnU+7B2C): Changed from U+7B2C.
+	(AJ1-02888): Unify U+7B2C instead of UU+7B2C; use A-cgnU+7B2C
+	instead of U+7B2C as its mother.
+	(U+7B42): Add `ideographic-structure'; add `sound@ja/on'; add some
+	relations for other characters; add representative nodes.
+	(U+7B91): Apply new conventions for glyph granularity.
+	(U-00025BA3): Likewise.
+	(U-00025C20): Use `->denotational' and `->subsumptive'.
+	(U+7BEA): Add ideographic-structure; add `sound@ja/on/{kan|go}'.
+	(U+7C14): Apply new conventions for glyph granularity.
+	(U+7C14-var-001): New character; use `<-denotational' for U+7C14.
+	(A-cgnU+25DA2): New abstract node.
+	(U-00025DA2): New character; use `<-denotational' for
+	A-cgnU+25DA2.
+	(U+426D): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+25DA2.
+	(U-00025DE0): Add `ideographic-structure'; add `sound@ja/on'; add
+	`<-same' for IU+25C20; add representative nodes.
+
+	* Ideograph-R116-Cave.el (CB08728): New character.
+
+	* Ideograph-R050-Turban.el (U+5E07): Add `sound@ja/on/{kan|go}';
+	add `<-original' for U-00026612; add `<-same' and `->formed' for
+	UU+758C; add representative nodes.
+
+	* Ideograph-R032-Earth.el (U-000212AE): Use A-IWDSU+212E1 instead
+	of A-IWDSU+8881 as its mother.
+	(A-IWDSU+212E1): New abstract node; use `<-denotational' for
+	A-IWDSU+8881.
+	(U-000212E1): Use A-IWDSU+212E1 instead of A-IWDSU+8881 as its
+	mother.
+	(U+57F6): Apply new conventions for glyph granularity.
+	(U-00021380): New character.
+
+	* Ideograph-R005-Second.el (A-compU+8034): Changed from U+8034.
+	(AJ1-22250): Unify U+8034 instead of UU+8034; use A-compU+8034
+	instead of U+8034 as its mother.
+	(GT-37568): Unify U-0002652E; use A-compU+8034 instead of U+8034
+	as its mother; add `ideographic-structure'.
+	(U+200EC-itaiji-001): New character.
+
 2018-05-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R132-Self.el (U+81EC): Apply new conventions for glyph
