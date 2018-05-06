@@ -2993,6 +2993,27 @@
     ))
 (define-char
   '((ideographic-radical . 116)	; ⽳
+    (ideographic-strokes . 7)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7A74)	; 穴
+      )
+     ((=ucs		  . #x5FFD)	; 忽
+      ))
+    (=cbeta		. 08728)	; &CB08728;
+    (<-unknown
+     ((=ucs@unicode	  . #x41AB)	; &MJ003217;
+      (=mj		  . 003217)	; &MJ003217;
+      ))
+    (->subsumptive
+     ((==cbeta		  . 08728)	; &g2-CB08728;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 116)	; ⽳
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
     (=ucs		. #x2599B)	; 𥦛
