@@ -1578,6 +1578,25 @@
      ((=>ucs@cognate	  . #x22002)	; &A-cgnU+22002;
       ))
     (ideographic-radical . 47)	; ⼮
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x5DDB)	; 巛
+      )
+     ((=ucs		  . #x2053F)	; 𠔿
+      )
+     ((=big5-cdp	  . #x85F3)	; &CDP-85F3;
+      ))
+    (=ucs-itaiji-008	. #x22002)	; &U-i008+22002;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x22002)	; &A-cgnU+22002;
+      ))
+    (ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (ideographic-structure
