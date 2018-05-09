@@ -1,3 +1,55 @@
+2018-05-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U-00020E60): Use `->denotational' and
+	`->subsumptive'.
+
+2018-05-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R139-Color.el (U+8272): Add `ideographic-structure'.
+	(UU+8272): Add `<-formed' for U+585E; add `->ancient' for
+	U-000224B8.
+
+	* Ideograph-R130-Meat.el (A-cgnU+2E307): New abstract node; use
+	`<-denotational' for BUCS+8089.
+	(U-0002E307): New character; use `<-denotational' for
+	A-cgnU+2E307.
+	(A-MJ058378): Use A-cgnU+2E307 instead of BUCS+8089 as its mother.
+	(A-J0-6726): Unify A-IWDSU+80FC; add `ideographic-structure'.
+	(U+80FC): Add `ideographic-structure'; add `<-vulgar' for U+8141.
+	(U-000266C1): Apply new conventions for glyph granularity.
+	(U+8111): Unify JC3-81EA; add `ideographic-structure'; add
+	`<-simplified@CN' for U+8166.
+	(U-0002B19E): New character.
+	(A-cgnU+812B): New abstract character.
+	(A-J0-4326): Unify A-IWDSU+812B; add `<-denotational' for
+	A-cgnU+812B; add `ideographic-structure'.
+	(U+812B): Apply new conventions for glyph granularity.
+	(MJ058383): Use A-cgnU+812B instead of U+812B as its mother.
+	(U+8131): Add `ideographic-structure'.
+	(U+8133): Add `ideographic-structure'.
+	(A-cgnU+26729): New abstract node.
+	(HNG-MAM0856-1): New character; use `<-denotational' for
+	A-cgnU+26729.
+	(U+8141): Apply new conventions for glyph granularity.
+	(U+4409): Use `->subsumptive'.
+	(U-00026729): New character; use `<-denotational' for
+	A-cgnU+26729; unify CB00956.
+	(HNG-MAM0856-2): New character; use `<-subsumptive' for
+	g2-CB00956.
+	(A-cgnU+8166): Changed from U+8166.
+	(AJ1-06261): Unify U+8166 instead of A-IWDSU+8166 and UU+8166; use
+	A-cgnU+8166 instead of U+8166 as its mother.
+	(MJ058390): Use A-cgnU+8166 instead of U+8166 as its mother.
+	(U-00026770): Use `->denotational' and `->subsumptive'; add
+	`<-denotational@component' for A-compU+26770.
+	(U-0002E322): New character; use `<-denotational' for
+	A-cgnU+26729; use `<-denotational@component' for A-compU+26770.
+	(BUCS+8183): Separate B-E3A6.
+	(B-E3A6): Unify A-IWDSU+8183; add `<-denotational' for BUCS+8183.
+	(U-000267E8): New character.
+	(U-0002680A): Apply new conventions for glyph granularity.
+	(A-compU+26770): New abstract node.
+
 2018-05-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R137-Boat.el (U-00026AB4): New character; use
