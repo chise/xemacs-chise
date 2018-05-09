@@ -1,3 +1,9 @@
+2018-05-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R137-Boat.el (U-00026AB4): New character; use
+	`<-denotational' for A-cgnU+26AB4.
+	(A-cgnU+26AB4): New abstract node.
+
 2018-05-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R047-River.el (U+22002-itaiji-008): New character; use
