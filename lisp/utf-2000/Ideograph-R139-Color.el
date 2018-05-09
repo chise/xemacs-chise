@@ -10,6 +10,15 @@
     (ideographic-radical . 139)	; ⾊
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5200)	; &A-compU+5200;
+      (=>iwds-1		  .  0149)	; &A-compU+5200;
+      )
+     ((=ucs		  . #x5DF4)	; 巴
+      ))
     (=ucs		. #x8272)	; 色
     ))
 (define-char
@@ -41,6 +50,15 @@
     (=gt-pj-1		. #x3F27)	; &I-GT-39592; [31-07]
     (=daikanwa		. 30602)	; &I-M-30602;
     (=shinjigen		.  6674)	; &AJ1-02541;
+    (<-formed
+     ((=ucs		  . #x585E)	; 塞
+      ))
+    (->ancient
+     ((=ucs		  . #x224B8)	; 𢒸
+      (=daikanwa	  . 10034)	; &I-M-10034;
+      ))
+    (->ancient*sources
+     shuowen daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x8272)	; &g2-AJ1-02541;
       (==adobe-japan1-0	  . 02541)	; &g2-AJ1-02541;
