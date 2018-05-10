@@ -229,8 +229,8 @@
     (<-same*sources
      jiyun daikanwa)
     (->interchangeable@ancient
-     ((=ucs@unicode	  . #x69F7)	; &C2-5126;
-      (=cns11643-2	  . #x5126)	; &C2-5126; [49-06]
+     ((=ucs@unicode	  . #x69F7)	; &MJ014391;
+      (=mj		  . 014391)	; &MJ014391;
       (=daikanwa	  . 15383)	; &I-M-15383;
       ))
     (->interchangeable@ancient*sources
