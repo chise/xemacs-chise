@@ -1,3 +1,8 @@
+2018-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=big5-cdp-var-010'.
+
 2018-05-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U-00020E60): Use `->denotational' and
