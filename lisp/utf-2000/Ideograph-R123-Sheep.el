@@ -2440,8 +2440,7 @@
     (=big5		. #xDF6C)	; &I-B-DF6C;
     (=daikanwa		. 28500)	; &I-M-28500;
     (<-formed
-     ((=big5-cdp	  . #x8DA5)	; &CDP-8DA5;
-      (=daikanwa	  . 31257)	; &I-M-31257;
+     ((=mj		  . 022205)	; &MJ022205;
       ))
     (<-interchangeable
      ((=ucs		  . #x5B8C)	; 完
@@ -2450,7 +2449,7 @@
     (<-interchangeable*sources
      houhanshu-zhu daikanwa)
     (<-same
-     ((=big5-cdp	  . #x8DA5)	; &CDP-8DA5;
+     ((=mj		  . 022205)	; &MJ022205;
       (=daikanwa	  . 31257)	; &I-M-31257;
       ))
     (<-same*sources
@@ -4584,8 +4583,7 @@
       )
      ((=ucs		  . #x7F8A)	; 羊
       )
-     ((=big5-cdp	  . #x8DA5)	; &CDP-8DA5;
-      (=daikanwa	  . 31257)	; &I-M-31257;
+     ((=mj		  . 022205)	; &MJ022205;
       ))
     (=ucs@iso		. #x263CA)	; &MJ045059;
     (=mj		. 045059)	; &MJ045059;
@@ -4593,13 +4591,13 @@
     (=koseki		. 319120)	; &MJ045059;
     (=daikanwa		. 28572)	; &I-M-28572;
     (<-formed
-     ((=big5-cdp	  . #x8DA5)	; &CDP-8DA5;
-      (=daikanwa	  . 31257)	; &I-M-31257;
+     ((=mj		  . 022205)	; &MJ022205;
+      (=koseki		  . 351530)	; &MJ022205;
       ))
     (<-formed*sources
      jiyun koseki)
     (<-same
-     ((=big5-cdp	  . #x8DA5)	; &CDP-8DA5;
+     ((=mj		  . 022205)	; &MJ022205;
       (=daikanwa	  . 31257)	; &I-M-31257;
       ))
     (<-same*sources
