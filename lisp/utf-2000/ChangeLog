@@ -1,5 +1,7 @@
 2018-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R059-Bristle.el (U-000224B8): Use `->subsumptive'.
+
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=big5-cdp-var-010'.
 
