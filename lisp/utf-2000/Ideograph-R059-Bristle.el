@@ -1919,17 +1919,37 @@
     (ideographic-strokes . 18)
     (total-strokes	 . 21)
     (hanyu-dazidian	2 858 6)
+    (sound@ja/on	"syoku")
     (=ucs		. #x224B8)	; 𢒸
+    (=mj		. 035793)	; &I-MJ035793;
+    (=cns11643-7	. #x5336)	; &I-C7-5336; [51-22]
+    (=koseki		. 113480)	; 𢒸
     (=daikanwa		. 10034)	; &I-M-10034;
-    (=hanziku-3		. #xACC5)	; &I-HZK03-ACC5;
-    ))
-(define-char
-  '((=>ucs		. #x224B8)	; 𢒸
-    (morohashi-daikanwa	10034 0 0)
-    (ideographic-radical . 59)	; ⼺
-    (ideographic-strokes . 18)
-    (total-strokes	 . 21)
-    (=cns11643-7	. #x5336)	; &C7-5336; [51-22]
+    (<-ancient
+     ((=ucs@unicode	  . #x8272)	; &AJ1-02541;
+      (=adobe-japan1-0	  . 02541)	; &AJ1-02541;
+      (=daikanwa	  . 30602)	; &I-M-30602;
+      ))
+    (<-ancient*sources
+     shuowen daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x224B8)	; &g2-MJ035793;
+      (==mj		  . 035793)	; &g2-MJ035793;
+      (==koseki		  . 113480)	; &g2-MJ035793;
+      (==daikanwa	  . 10034)	; &g2-MJ035793;
+      (->subsumptive
+       ((===daikanwa	    . 10034)	; &R-M-10034;
+	)
+       ((===mj		    . 035793)	; &R-MJ035793;
+	)
+       ((===ucs@iso	    . #x224B8)	; &R-U-000224B8;
+	)
+       ((=hanziku-3	    . #xACC5)	; &HZK03-ACC5;
+	))
+      )
+     ((==ucs@cns	  . #x224B8)	; &g2-CU+224B8;
+      (==cns11643-7	  . #x5336)	; &g2-CU+224B8; [51-22]
+      ))
     ))
 (define-char
   '((ideographic-radical . 59)	; ⼺
