@@ -371,6 +371,7 @@
     =>ucs@cognate
     =>ucs@component
     =>ucs-itaiji-001@iwds-1
+    =>big5-cdp@iwds-1
     =>big5-cdp@component
     =>big5-cdp@cognate
     ==ucs@gb
