@@ -2066,13 +2066,15 @@
     (=daikanwa		. 29001)	; &I-M-29001;
     (=shinjigen		.  6375)	; 耴
     (->formed
-     ((=ucs		  . #x2657F)	; 𦕿
+     ((=ucs@iso		  . #x2657F)	; &C6-5664;
+      (=cns11643-6	  . #x5664)	; &C6-5664; [54-68]
       (=daikanwa	  . 29085)	; &I-M-29085;
       ))
     (->formed*sources
      jiyun daikanwa)
     (->mistakable
-     ((=ucs		  . #x43B2)	; 䎲
+     ((=ucs@unicode	  . #x43B2)	; &GT-37566;
+      (=cns11643-4	  . #x246D)	; &GT-37566; [04-77]
       (=daikanwa	  . 29000)	; &I-M-29000;
       ))
     (->mistakable*sources
