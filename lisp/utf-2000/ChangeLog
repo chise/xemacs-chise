@@ -3,6 +3,15 @@
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
 	`=>big5-cdp@iwds-1'.
 
+2018-05-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R120-Silk.el (U-000260D0): Apply new conventions for
+	glyph granularity.
+	(U-000260E8): Likewise.
+	(U+7E45): Likewise.
+	(U+7E70): Add `ideographic-structure'.
+	(U-0002F970): Add `ideographic-structure'.
+
 2018-05-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R059-Bristle.el (U-000224B8): Use `->subsumptive'.
