@@ -1228,7 +1228,8 @@
       (=adobe-japan1-0	  . 05922)	; &AJ1-05922;
       (=daikanwa	  . 25298)	; &I-M-25298;
       )
-     ((=daikanwa	  . 32066)	; &M-32066;
+     ((=mj		  . 046955)	; &MJ046955;
+      (=daikanwa	  . 32066)	; &I-M-32066;
       )
      ((=ucs@jis		  . #x7A5F)	; &AJ1-18260;
       (=adobe-japan1-5	  . 18260)	; &AJ1-18260;
@@ -1243,7 +1244,7 @@
     (<-same*sources
      jiyun daikanwa)
     (->ancient
-     ((=daikanwa	  . 32066)	; &M-32066;
+     ((=mj		  . 046955)	; &MJ046955;
       ))
     (->ancient*sources
      jiyun)
