@@ -65,8 +65,8 @@
       )
      ((=>iwds-1		  .  0357)	; &IWDS1-357;
       )
-     ((=>ucs@component	  . #x7680)	; &A-compU+7680;
-      (=>iwds-1		  .  0355)	; &A-compU+7680;
+     ((=>ucs@iwds-1	  . #x7680)	; &A-IWDSU+7680;
+      (=>iwds-1		  .  0355)	; &A-IWDSU+7680;
       )
      ((=>ucs@iwds-1	  . #x209E2)	; &A-IWDSU+209E2;
       (=>iwds-1		  .  0356)	; &A-IWDSU+209E2;
@@ -189,8 +189,8 @@
       (=>ucs@cognate	  . #x826F)	; &A-IWDSU+826F;
       ))
     (<-denotational@component
-     ((=>ucs@component	  . #x7680)	; &A-compU+7680;
-      (=>iwds-1		  .  0355)	; &A-compU+7680;
+     ((=>ucs@iwds-1	  . #x7680)	; &A-IWDSU+7680;
+      (=>iwds-1		  .  0355)	; &A-IWDSU+7680;
       ))
     (ideographic-radical . 138)	; ⾉
     (ideographic-strokes . 1)
