@@ -1,3 +1,46 @@
+2018-05-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R086-Fire.el (IWDS1-0315): Unify A-IWDSU+7232 instead
+	of A-compU+7232.
+	(U-0002DD18): New character; use `<-denotational' for
+	A-cgnU+2DD18.
+	(U+2DD18-var-001): New character; use `<-denotational' for
+	U-0002DD18.
+	(BC-8CA5): Likewise; unify CB12160.
+	(A-cgnU+2DD18): New abstract node.
+	(A-GT-K06294): New abstract node; unify A-CB08003.
+	(GT-K06294): New character; use `<-denotational' for A-GT-K06294;
+	unify CB08003.
+	(GT-K06295): New character; use `<-subsumptive' for GT-K06294.
+	(U-000241F1): Apply new conventions for glyph granularity.
+	(U+3DB3): Likewise.
+	(A-U+2DD18-itaiji-001): New abstract node; use `<-denotational'
+	for A-cgnU+2DD18.
+	(U+2DD18-itaiji-001): New character; use `<-denotational' for
+	A-U+2DD18-itaiji-001.
+	(U-0002C2A1): New character.
+	(U-000242B2): Use `->subsumptive'.
+	(U-000242B5): Use `->denotational' and `->subsumptive'.
+	(U-0002439E): Use `->subsumptive'.
+	(U-000243A0): Apply new conventions for glyph granularity.
+	(U+71FC): Likewise.
+	(U+71FF): Add ideographic-structure.
+	(U-0002442F): Apply new conventions for glyph granularity.
+	(A-U+71FC-itaiji-001): New abstract node; unify
+	A-U+71FC-itaiji-002.
+	(U+71FC-itaiji-001): New character; use `<-denotational' for
+	A-U+71FC-itaiji-001.
+	(U+7209): Use `->denotational' and `->subsumptive'.
+	(JU+3E05): Add some relations for other characters.
+	(U+720D): Add `ideographic-structure'.
+	(U+71FC-itaiji-002): New character; use `<-denotational' for
+	A-U+71FC-itaiji-001.
+	(U-0002C2DD): New character; use `<-denotational' for
+	A-cgnU+2C2DD.
+	(RUI6-E018): Add `<-denotational' for U-0002C2DD.
+	(A-cgnU+2C2DD): New abstract node.
+	(U+721A): Apply new conventions for glyph granularity.
+
 2018-05-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Add
