@@ -1,3 +1,12 @@
+2018-05-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R106-White.el (A-compU+7680): Separated from
+	IWDS1-0355; add `<-denotational@component' for IWDS1-0355.
+	(U+7680): Use `<-denotational' for A-compU+7680 instead of
+	`<-denotational@component' for IWDS1-0355.
+	(GT-K02802): Likewise.
+	(IWDS1-0355): Unify A-IWDSU+7680 instead of A-compU+7680.
+
 2018-05-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R086-Fire.el (IWDS1-0315): Unify A-IWDSU+7232 instead
