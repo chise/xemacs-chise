@@ -136,8 +136,15 @@
     ))
 (define-char
   '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x7680)	; &A-IWDSU+7680;
+      (=>iwds-1		  .  0355)	; &A-IWDSU+7680;
+      ))
+    (ideographic-radical . 106)	; ⽩
+    (=>ucs@component	. #x7680)	; &A-compU+7680;
+    ))
+(define-char
+  '((<-denotational
      ((=>ucs@component	  . #x7680)	; &A-compU+7680;
-      (=>iwds-1		  .  0355)	; &A-compU+7680;
       ))
     (ideographic-radical . 106)	; ⽩
     (ideographic-structure
@@ -225,9 +232,8 @@
       ))
     ))
 (define-char
-  '((<-denotational@component
+  '((<-denotational
      ((=>ucs@component	  . #x7680)	; &A-compU+7680;
-      (=>iwds-1		  .  0355)	; &A-compU+7680;
       ))
     (ideographic-radical . 106)	; ⽩
     (ideographic-strokes . 2)
@@ -3086,6 +3092,6 @@
     ))
 (define-char
   '((ideographic-radical . 106)	; ⽩
-    (=>ucs@component	. #x7680)	; &A-compU+7680;
-    (=>iwds-1		.  0355)	; &A-compU+7680;
+    (=>ucs@iwds-1	. #x7680)	; &A-IWDSU+7680;
+    (=>iwds-1		.  0355)	; &A-IWDSU+7680;
     ))
