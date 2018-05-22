@@ -294,8 +294,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>ucs@component	  . #x7680)	; &A-compU+7680;
-      (=>iwds-1		  .  0355)	; &A-compU+7680;
+     ((=>ucs@iwds-1	  . #x7680)	; &A-IWDSU+7680;
+      (=>iwds-1		  .  0355)	; &A-IWDSU+7680;
       )
      ((=ucs		  . #x65E1)	; 旡
       ))
@@ -473,7 +473,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x7680)	; 皀
+     ((=>ucs@component	  . #x7680)	; &A-compU+7680;
       )
      ((=ucs		  . #x65E1)	; 旡
       ))

@@ -1,3 +1,41 @@
+2018-05-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R128-Ear.el (U+43B2): Apply new conventions for glyph
+	granularity.
+	(A-compU+8034): Changed from U+8034.
+	(AJ1-22250): Unify U+8034 instead of UU+8034; use A-compU+8034
+	instead of U+8034 as its mother.
+	(GT-37568): Unify U-0002652E; use A-compU+8034 instead of U+8034
+	as its mother; add `ideographic-structure'.
+	(U-0002656D): New character.
+	(U-0002657F): Apply new conventions for glyph granularity.
+	(U-0002659F): New character.
+	(A-cgnU+8076): Changed from U+8076.
+	(AJ1-06224): Unify U+8076 instead of UU+8076 and A-IWDSU+8076; use
+	A-cgnU+8076 instead of U+8076 as its mother.
+	(U+8076-itaiji-002): Use A-cgnU+8076 instead of U+8076 as its
+	mother.
+	(U-0002B192): New character.
+
+2018-05-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R094-Dog.el (A-IWDSU+7375): New abstract node.
+	(U-000248AA): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-IWDSU+7375.
+	(M-20759): Unify MJ040896, KOSEKI-232950, S1-4812 and S2-4814.
+	(U+7375): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+7375.
+	(S2-4814): Unify IU+248AA.
+
+	* Ideograph-R079-Weapon.el (A-IU+23A98): Use A-compU+7680 instead
+	of U+7680 as a component.
+
+	* Ideograph-R071-Not.el (U+65E3): Use A-compU+7680 instead of
+	U+7680 as a component.
+
+	* Ideograph-R009-Man.el (HZK1-D652): Use A-cgnU+8609 instead of
+	U+8609 as its mother.
+
 2018-05-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R106-White.el (A-compU+7680): Separated from
