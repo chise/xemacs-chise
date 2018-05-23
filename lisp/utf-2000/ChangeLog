@@ -1,3 +1,11 @@
+2018-05-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R036-Evening.el (U+5922): Add `ideographic-structure'.
+	(UU+5922): Separate U-0002F85E; add `ideographic-structure'.
+	(g2-UU+5922): Unify U-0002F85E.
+	(CU+5922): Add `ideographic-structure'.
+	(U-000215C7): Apply new conventions for glyph granularity.
+
 2018-05-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R128-Ear.el (U+43B2): Apply new conventions for glyph
