@@ -1,4 +1,49 @@
+2018-05-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R108-Dish.el (A-BC-8CF4): New abstract node.
+	(BC-8CF4): New character; use `<-denotational' for A-BC-8CF4.
+	(U+76E7): Add `ideographic-structure'.
+	(UU+76E7): Use UU+864D instead of U+864D as a component.
+
+	* Ideograph-R047-River.el (A-U+21FFA-itaiji-006): New abstract
+	node; use `<-denotational' for A-cgnU+21FFA; unify
+	A-U+21FFA-itaiji-007.
+	(U+21FFA-itaiji-006): New character; use `<-denotational' for
+	A-U+21FFA-itaiji-006.
+	(U+21FFA-itaiji-007): Likewise.
+	(U+21FFA-itaiji-002): Use A-U+21FFA-itaiji-002 instead of
+	A-cgnU+21FFA as its mother.
+	(A-U+21FFA-itaiji-002): New abstract node; use `<-denotational'
+	for A-cgnU+21FFA; unify A-U+21FFA-itaiji-005.
+	(U+21FFA-itaiji-005): Use A-U+21FFA-itaiji-002 instead of
+	A-cgnU+21FFA as its mother.
+	(U-00022002): Use U+21FFA-itaiji-006 instead of "⿱巛𠔿" as a
+	component.
+	(U+22002-itaiji-008): Likewise.
+	(U+22002-itaiji-002): New character; use `<-denotational' for
+	A-cgnU+22002.
+	(A-U+22002-itaiji-001): New abstract node; use `<-denotational'
+	for A-cgnU+22002; unify A-U+22002-itaiji-007.
+	(U+22002-itaiji-007): Use A-U+22002-itaiji-001 instead of
+	A-cgnU+22002 as its mother.
+	(U+22002-itaiji-001): New character; use `<-denotational' for
+	A-U+22002-itaiji-001.
+	(U+5DE4): Unify IWDS1-0360.
+	(A-UU+5DE4): New abstract node; use `<-denotational' for U+5DE4.
+	(UU+5DE4): Use A-UU+5DE4 instead of U+5DE4 as its mother.
+	(BC-8D47): Likewise.
+	(A-CB11333): New abstract node; use `<-denotational' for U+5DE4.
+	(U+5DE4-var-005): New character; use `<-denotational' for
+	A-CB11333.
+	(CB11333): Likewise; unify U+5DE4-var-002.
+	(U-00022005): New character.
+
 2018-05-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R078-Death.el (A-U+5922-itaiji-003): New abstract
+	node.
+	(U+5922-itaiji-003): New character; use `<-denotational' for
+	A-U+5922-itaiji-003.
 
 	* Ideograph-R036-Evening.el (U+5922): Add `ideographic-structure'.
 	(UU+5922): Separate U-0002F85E; add `ideographic-structure'.
