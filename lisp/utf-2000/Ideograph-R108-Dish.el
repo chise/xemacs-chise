@@ -1047,6 +1047,41 @@
     ))
 (define-char
   '((ideographic-radical . 108)	; ⽫
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x7530)	; &A-compU+7530;
+      (=>iwds-1		  .  0083)	; &A-compU+7530;
+      )
+     ((=ucs		  . #x76BF)	; 皿
+      ))
+    (=>big5-cdp		. #x8CF4)	; &A-CDP-8CF4;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x8CF4)	; &A-CDP-8CF4;
+      ))
+    (ideographic-radical . 108)	; ⽫
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x7530)	; 田
+      )
+     ((=ucs		  . #x76BF)	; 皿
+      ))
+    (=big5-cdp		. #x8CF4)	; &CDP-8CF4;
+    (->subsumptive
+     ((==big5-cdp	  . #x8CF4)	; &g2-CDP-8CF4;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
     (ideographic-structure
@@ -2787,6 +2822,14 @@
     (ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FF8)	; &U-v002+2FF1;
+      (=>iwds-1		  .  0305)	; &U-v002+2FF1;
+      )
+     ((=ucs		  . #x864D)	; 虍
+      )
+     ((=>big5-cdp	  . #x8CF4)	; &A-CDP-8CF4;
+      ))
     (=ucs		. #x76E7)	; 盧
     ))
 (define-char
@@ -2800,7 +2843,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; ⿸
       )
-     ((=ucs		  . #x864D)	; 虍
+     ((=ucs@unicode	  . #x864D)	; &AJ1-06479;
+      (=adobe-japan1-0	  . 06479)	; &AJ1-06479;
       )
      ((=big5-cdp	  . #x8CF4)	; &CDP-8CF4;
       ))
