@@ -1,9 +1,20 @@
 2018-05-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R061-Heart.el (UU+6168): Use UU+65E2 instead of U+65E2
+	as a component.
+
+	* Ideograph-R009-Man.el (U-00020404): Apply new conventions for
+	glyph granularity.
+
+2018-05-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R108-Dish.el (A-BC-8CF4): New abstract node.
 	(BC-8CF4): New character; use `<-denotational' for A-BC-8CF4.
 	(U+76E7): Add `ideographic-structure'.
 	(UU+76E7): Use UU+864D instead of U+864D as a component.
+
+	* Ideograph-R085-Water.el (A-RUI6-E08F): New abstract node.
+	(RUI6-E08F): Add `<-denotational' for A-RUI6-E08F.
 
 	* Ideograph-R047-River.el (A-U+21FFA-itaiji-006): New abstract
 	node; use `<-denotational' for A-cgnU+21FFA; unify

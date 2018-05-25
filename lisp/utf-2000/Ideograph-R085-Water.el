@@ -22612,6 +22612,31 @@
        ((=ucs		    . #x4E5F)	; 也
 	))
       ))
+    (=>ruimoku-v6	. #xE08F)	; &A-RUI6-E08F;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ruimoku-v6	  . #xE08F)	; &A-RUI6-E08F;
+      ))
+    (ideographic-radical . 85)	; ⽔
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6C35)	; 氵
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs@unicode	    . #x864D)	; &AJ1-06479;
+	(=adobe-japan1-0    . 06479)	; &AJ1-06479;
+	)
+       ((=ucs		    . #x4E5F)	; 也
+	))
+      ))
     (=ruimoku-v6	. #xE08F)	; &RUI6-E08F;
     (->subsumptive
      ((==ruimoku-v6	  . #xE08F)	; &g2-RUI6-E08F;
