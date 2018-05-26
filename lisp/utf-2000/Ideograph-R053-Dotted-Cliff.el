@@ -8348,9 +8348,27 @@
      ((=ucs		  . #x3C83)	; 㲃
       ))
     (=ucs		. #x222C1)	; 𢋁
-    (=mj		. 035419)	; &I-MJ035419;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x222C1)	; 𢋁
+      ))
+    (ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=ucs@unicode	  . #x3C83)	; &MJ001984;
+      (=mj		  . 001984)	; &MJ001984;
+      ))
+    (=ucs@iso		. #x222C1)	; &MJ035419;
+    (=mj		. 035419)	; &MJ035419;
     (=cns11643-7	. #x2260)	; &I-C7-2260; [02-64]
-    (=koseki		. 107420)	; 𢋁
+    (=koseki		. 107420)	; &MJ035419;
     (=daikanwa		. 49077)	; &I-M-49077;
     (->subsumptive
      ((==mj		  . 035419)	; &g2-MJ035419;
