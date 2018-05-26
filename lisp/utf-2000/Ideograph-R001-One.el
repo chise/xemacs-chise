@@ -3148,19 +3148,16 @@
     (=hanziku-1		. #xA7AC)	; &I-HZK01-A7AC;
     ))
 (define-char
-  '((ideographic-radical . 1)	; ⼀
-    (=ucs		. #x4E1A)	; 业
-    ))
-(define-char
   '((<-denotational
-     ((=ucs		  . #x4E1A)	; 业
+     ((=>ucs@iwds-1	  . #x4E1A)	; &A-IWDSU+4E1A;
+      (=>iwds-1		  .  0368)	; &A-IWDSU+4E1A;
       ))
     (ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 15 4)
-    (=ucs@unicode	. #x4E1A)	; &G0-5235;
-    (=gb2312		. #x5235)	; &G0-5235; [50-21]
+    (=ucs		. #x4E1A)	; 业
+    (=gb2312		. #x5235)	; &I-G0-5235; [50-21]
     (=big5-cdp		. #x8B60)	; &I-CDP-8B60;
     (<-simplified@CN
      ((=ucs		  . #x696D)	; 業
@@ -3397,6 +3394,12 @@
        ((===big5-cdp	    . #x88DB)	; &R-CDP-88DB;
 	))
       ))
+    ))
+(define-char
+  '((ideographic-radical . 1)	; ⼀
+    (=>ucs@iwds-1	. #x4E1A)	; &A-IWDSU+4E1A;
+    (=>big5-cdp		. #x8D6B)	; &A-IWDSU+4E1A;
+    (=>iwds-1		.  0368)	; &A-IWDSU+4E1A;
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
@@ -4005,20 +4008,6 @@
       ))
     ))
 (define-char
-  '((<-denotational
-     ((=ucs		  . #x4E1A)	; 业
-      ))
-    (ideographic-radical . 1)	; ⼀
-    (ideographic-strokes . 5)
-    (total-strokes	 . 6)
-    (=big5-cdp		. #x8D6B)	; &CDP-8D6B;
-    (<-formed
-     ((=ucs		  . #x3400)	; 㐀
-      )
-     ((=ucs		  . #x4E18)	; 丘
-      ))
-    ))
-(define-char
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
@@ -4185,6 +4174,24 @@
     (total-strokes	 . 6)
     (=gt		. 00060)	; &GT-00060;
     (=gt-pj-11		. #x4B6C)	; &GT-00060; [43-76]
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x4E1A)	; &A-IWDSU+4E1A;
+      (=>iwds-1		  .  0368)	; &A-IWDSU+4E1A;
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
+    (=big5-cdp		. #x8D6B)	; &CDP-8D6B;
+    (<-formed
+     ((=ucs		  . #x3400)	; 㐀
+      )
+     ((=ucs		  . #x4E18)	; 丘
+      ))
+    (->subsumptive
+     ((==big5-cdp	  . #x8D6B)	; &g2-CDP-8D6B;
+      ))
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀
