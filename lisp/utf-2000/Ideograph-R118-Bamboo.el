@@ -10307,7 +10307,8 @@
       )
      ((=ucs		  . #x7AF9)	; 竹
       )
-     ((=daikanwa	  . 02873)	; &M-02873;
+     ((=hanyo-denshi/jt	  . #xAE7B)	; &HD-JT-AE7B;
+      (=daikanwa	  . 02873)	; &M-02873;
       ))
     (=ucs		. #xFA56)	; 節
     (=ucs@ks		. #x7BC0)	; 節

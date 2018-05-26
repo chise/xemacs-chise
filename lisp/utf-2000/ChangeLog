@@ -1,3 +1,31 @@
+2018-05-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (U+4EA5): Apply new conventions for glyph
+	granularity.
+
+2018-05-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R053-Dotted-Cliff.el (U-000222C1): Apply new
+	conventions for glyph granularity.
+
+	* Ideograph-R026-Seal.el (A-IWDSU+537D): New abstract node.
+	(U+5373): Add `<-denotational' for A-IWDSU+537D; add
+	`ideographic-structure'.
+	(U-0002F82F): Add `ideographic-structure'.
+	(U+537D): Add `<-denotational' for A-IWDSU+537D; add
+	`ideographic-structure'.
+	(UU+537D): Use UU+7680 instead of U+7680 as a component.
+	(M-02873): Unify HD-JT-AE7B; add `ideographic-structure'; add
+	`<-vulgar' for UU+537D; add representative nodes.
+
+2018-05-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (G0-5235): Unify U+4E1A instead of
+	UU+4E1A; use A-IWDSU+4E1A instead of U+4E1A as its mother.
+	(A-IWDSU+4E1A): Changed from U+4E1A; unify A-BC-8D6B and
+	IWDS1-0368.
+	(BC-8D6B): Use A-IWDSU+4E1A instead of U+4E1A as its mother.
+
 2018-05-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (UU+6168): Use UU+65E2 instead of U+65E2
