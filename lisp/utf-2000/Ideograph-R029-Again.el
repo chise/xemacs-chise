@@ -2641,11 +2641,9 @@
     (=daikanwa		. 03162)	; &I-M-03162;
     ))
 (define-char
-  '((script		JP Jouyou Ideograph)
-    (ideographic-radical . 29)	; ⼜
+  '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (hanyu-dazidian	1 397 15)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -2655,7 +2653,27 @@
      ((=ucs		  . #x53C8)	; 又
       ))
     (=ucs		. #x53D9)	; 叙
-    (=adobe-japan1-0	. 02432)	; &I-AJ1-02432;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x53D9)	; 叙
+      ))
+    (script		JP Jouyou Ideograph)
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (hanyu-dazidian	1 397 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x4F59)	; &AJ1-03880;
+      (=adobe-japan1-0	  . 03880)	; &AJ1-03880;
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ucs@unicode	. #x53D9)	; &AJ1-02432;
+    (=adobe-japan1-0	. 02432)	; &AJ1-02432;
     (=jis-x0208		. #x3D76)	; &I-J90-3D76; [29-86]
     (=gb2312		. #x5070)	; &I-G0-5070; [48-80]
     (=cns11643-3	. #x2B50)	; &I-C3-2B50; [11-48]
@@ -2663,16 +2681,18 @@
     (=gt		. 04007)	; &I-GT-04007;
     (=gt-pj-1		. #x3D76)	; &I-GT-04007; [29-86]
     (=daikanwa		. 03163)	; &I-M-03163;
-    (=shinjigen		.  0914)	; 叙
+    (=shinjigen		.  0914)	; &AJ1-02432;
     (<-simplified@JP/Jouyou
-     ((=ucs		  . #x654D)	; 敍
+     ((=ucs@unicode	  . #x654D)	; &AJ1-05067;
+      (=adobe-japan1-0	  . 05067)	; &AJ1-05067;
       (=jis-x0208	  . #x5A46)	; &I-J90-5A46; [58-38]
       ))
     (<-vulgar
-     ((=ucs		  . #x654D)	; 敍
+     ((=ucs@unicode	  . #x654D)	; &AJ1-05067;
+      (=adobe-japan1-0	  . 05067)	; &AJ1-05067;
       (=jis-x0208	  . #x5A46)	; &I-J90-5A46; [58-38]
       (=daikanwa	  . 13205)	; &I-M-13205;
-      (=shinjigen	  .  0915)	; 敍
+      (=shinjigen	  .  0915)	; &AJ1-05067;
       ))
     (<-vulgar*sources
      zhengzitong daikanwa shinjigen@1ed)
