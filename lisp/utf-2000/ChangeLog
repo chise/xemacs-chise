@@ -1,3 +1,8 @@
+2018-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (U+5152): Apply new conventions for glyph
+	granularity.
+
 2018-05-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R066-Rap.el (U+654D): Apply new conventions for glyph
