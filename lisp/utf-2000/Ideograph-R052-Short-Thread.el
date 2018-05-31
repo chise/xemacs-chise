@@ -72,9 +72,42 @@
   '((ideographic-radical . 52)	; ⼳
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5E7A)	; 幺
+      )
+     ((=ucs		  . #x4E28)	; 丨
+      ))
     (=ucs		. #x221AF)	; 𢆯
     (=cns11643-6	. #x2172)	; &I-C6-2172; [01-82]
     (=daikanwa		. 09191)	; &I-M-09191;
+    (<-ancient
+     ((=ucs		  . #x7CF8)	; 糸
+      (=daikanwa	  . 27221)	; &I-M-27221;
+      )
+     ((=ucs		  . #x7384)	; 玄
+      (=daikanwa	  . 20814)	; &I-M-20814;
+      ))
+    (<-ancient$_1*sources
+     shuowen daikanwa)
+    (<-ancient$_2*sources
+     jiyun yupian daikanwa)
+    (<-ancient*sources
+     daikanwa)
+    (->subsumptive
+     ((==ucs@cns	  . #x221AF)	; &g2-M-09191;
+      (==cns11643-6	  . #x2172)	; &g2-M-09191; [01-82]
+      (==daikanwa	  . 09191)	; &g2-M-09191;
+      (->subsumptive
+       ((===daikanwa	    . 09191)	; &R-M-09191;
+	)
+       ((===cns11643-6	    . #x2172)	; &R-C6-2172; [01-82]
+	))
+      )
+     ((==ucs@iso	  . #x221AF)	; &g2-IU-000221AF;
+      ))
     ))
 (define-char
   '((ideographic-radical . 52)	; ⼳
