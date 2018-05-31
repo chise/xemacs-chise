@@ -1,3 +1,81 @@
+2018-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R052-Short-Thread.el (U-000221AF): Add
+	`ideographic-structure'; add `<-ancient' for U+7CF8 and U+7384;
+	add representative nodes.
+
+	* Ideograph-R047-River.el (A-U+22002-itaiji-002): New abstract
+	node; unify A-U+22002-itaiji-003; use `<-denotational' for
+	A-cgnU+22002.
+	(U+22002-itaiji-002): New character; use `<-denotational' for
+	A-U+22002-itaiji-002.
+	(U+22002-itaiji-003): Likewise.
+
+	* Ideograph-R024-Ten.el (U-00020993): Use `->subsumptive'.
+
+2018-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R141-Tiger.el (U+864D): Changed from A-IWDSU+864D.
+	(AJ1-06479): Unify UU+864D instead of U+864D; use U+864D instead
+	of A-IWDSU+864D as its mother.
+	(U+864D-itaiji-003): Use U+864D instead of A-IWDSU+864D as its
+	mother.
+	(GT-K00389): New character; use `<-denotational@component' for
+	A-compU+4E0A.
+	(U+864E): Add `ideographic-structure'.
+	(JU+864E): Use UU+864D instead of U+864E as a component.
+	(UU+864E): Likewise.
+	(U+864E-itaiji-005): Likewise.
+	(A-GT-K04539): New abstract node; unify A-CB08839 and
+	A-U+864E-itaiji-002.
+	(GT-K04539): New character; unify CB08839 and U+864E-itaiji-002;
+	use `<-denotational' for A-GT-K04539.
+	(UU+8650): Use UU+864D instead of U+864E as a component.
+	(JU+8650): Likewise; unify CU+2F9B3 instead of U-0002F9B3.
+	(g2-C6-3447): Unify U-0002F9B3.
+	(U-0002719E): Apply new conventions for glyph granularity.
+	(U+8654): Likewise.
+	(U-0002B29F): Likewise.
+	(A-U+8652-itaiji-004): New abstract character.
+	(U+8652-itaiji-004): New character; use `<-denotational' for
+	A-U+8652-itaiji-004.
+	(U-000271A3): Apply new conventions for glyph granularity.
+	(A-cgnU+8655): New abstract node.
+	(U+8655): Add `<-denotational' for A-cgnU+8655; add
+	`ideographic-structure'.
+	(UU+8655): Use UU+864D instead of U+864E as a component; delete
+	`=>ucs@iwds-1'.
+	(HNG-KAR1240-0): Use UU+864D instead of U+864E as a component; use
+	A-cgnU+8655 instead of U+8655 as its mother.
+	(U+8656): Apply new conventions for glyph granularity.
+	(U+8657): Likewise.
+	(HNG-KAR1239-0): Use UU+864D instead of U+864E as a component.
+	(UU+8658): Likewise.
+	(A-cgnU+271A8): New abstract node.
+	(U-000271A8): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+271A8.
+	(U+271A8-itaiji-001): New character; use `<-denotational' for
+	A-cgnU+271A8.
+	(UU+458F): Use UU+864D instead of U+864E as a component.
+	(A-IWDSU+865B): Use A-IWDSU+4E1A instead of U+4E1A as a component.
+	(U+865A): Apply new conventions for glyph granularity.
+	(U+864E-itaiji-007): Use UU+864D instead of U+864E as a component.
+	(U+865B): Apply new conventions for glyph granularity.
+	(U+4592): Likewise.
+	(U+865E): Add `ideographic-structure'.
+	(CU+865E): Use UU+864D instead of U+864E as a component.
+	(HNG-KAR1238-0): Likewise.
+	(UU+865E): Likewise.
+	(JU+865E): Likewise.
+	(GT-K11538): Likewise.
+	(U-000271E9): Use U+864D instead of A-IWDSU+864D as a component.
+	(U+271E9-var-001): Use UU+864D instead of U+864E as a component.
+	(U-000271F0): New character.
+	(U-0002B2A3): New character.
+
+	* Ideograph-R102-Field.el (U-00027215): Apply new conventions for
+	glyph granularity.
+
 2018-05-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R010-Legs.el (U+5152): Apply new conventions for glyph
