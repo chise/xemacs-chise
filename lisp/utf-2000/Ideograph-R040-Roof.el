@@ -6119,6 +6119,11 @@
     (=big5		. #xD4F1)	; &I-B-D4F1;
     (=daikanwa		. 07199)	; &I-M-07199;
     (=jef-china3	. #x4AB7)	; &I-JC3-4AB7;
+    (<-formed
+     ((=ucs@iso		  . #x24D17)	; &C4-2E32;
+      (=cns11643-4	  . #x2E32)	; &C4-2E32; [14-18]
+      (=daikanwa	  . 21999)	; &I-M-21999;
+      ))
     (->mistakable
      ((=ucs		  . #x7590)	; 疐
       (=daikanwa	  . 22006)	; &I-M-22006;

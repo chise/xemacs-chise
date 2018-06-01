@@ -3,6 +3,17 @@
   '((ideographic-radical . 146)	; ⾑
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
+    (=>ucs@iwds-1	. #x897E)	; &A-IWDSU+897E;
+    (=>iwds-1		.  0159)	; &A-IWDSU+897E;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x897E)	; &A-IWDSU+897E;
+      (=>iwds-1		  .  0159)	; &A-IWDSU+897E;
+      ))
+    (ideographic-radical . 146)	; ⾑
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
     (=ucs		. #x897E)	; 襾
     (=adobe-japan1-0	. 06635)	; &I-AJ1-06635;
     (=jis-x0208		. #x6B28)	; &I-J90-6B28; [75-08]
@@ -37,6 +48,45 @@
 	)
        ((===ucs@unicode	    . #x897E)	; &R-UU+897E;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x897E)	; &A-IWDSU+897E;
+      (=>iwds-1		  .  0159)	; &A-IWDSU+897E;
+      ))
+    (ideographic-radical . 146)	; ⾑
+    (ideographic-strokes . 0)
+    (total-strokes	 . 6)
+    (=ucs		. #x8980)	; 覀
+    (=iso-ir165		. #x2F7A)	; &I-EGB-2F7A; [15-90]
+    (=jis-x0213-2	. #x7845)	; &I-JX2-7845; [88-37]
+    (<-formed@component
+     ((=ucs		  . #x897F)	; 西
+      ))
+    (<-identical@component
+     ((=mj		  . 024197)	; &MJ024197;
+      ))
+    (->subsumptive
+     ((==ucs@jis	  . #x8980)	; &g2-JX2-7845;
+      (==jis-x0213-2	  . #x7845)	; &g2-JX2-7845; [88-37]
+      )
+     ((==ucs@unicode	  . #x8980)	; &g2-UU+8980;
+      (==ucs@JP/hanazono  . nil)
+      (==iso-ir165	  . #x2F7A)	; &g2-UU+8980; [15-90]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x8980)	; 覀
+      ))
+    (name		. "CJK RADICAL WEST ONE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (=ucs		. #x2EC3)	; ⻃
+    (<-identical@component/connect-below
+     ((=ucs		  . #x8980)	; 覀
       ))
     ))
 (define-char
@@ -123,6 +173,10 @@
   '((<-denotational
      ((=ucs		  . #x897F)	; 西
       ))
+    (<-denotational@component
+     ((=>ucs@iwds-1	  . #x897E)	; &A-IWDSU+897E;
+      (=>iwds-1		  .  0159)	; &A-IWDSU+897E;
+      ))
     (ideographic-radical . 146)	; ⾑
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
@@ -146,41 +200,6 @@
 	)
        ((===hng-khm	    . 06032)	; &HNG011-06032;
 	))
-      ))
-    ))
-(define-char
-  '((<-denotational
-     ((=ucs		  . #x8980)	; 覀
-      ))
-    (name		. "CJK RADICAL WEST ONE")
-    (general-category	symbol other) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (=ucs		. #x2EC3)	; ⻃
-    (<-identical@component/connect-below
-     ((=ucs		  . #x8980)	; 覀
-      ))
-    ))
-(define-char
-  '((ideographic-radical . 146)	; ⾑
-    (ideographic-strokes . 0)
-    (total-strokes	 . 6)
-    (=ucs		. #x8980)	; 覀
-    (=iso-ir165		. #x2F7A)	; &I-EGB-2F7A; [15-90]
-    (=jis-x0213-2	. #x7845)	; &I-JX2-7845; [88-37]
-    (<-formed@component
-     ((=ucs		  . #x897F)	; 西
-      ))
-    (<-identical@component
-     ((=mj		  . 024197)	; &MJ024197;
-      ))
-    (->subsumptive
-     ((==ucs@jis	  . #x8980)	; &g2-JX2-7845;
-      (==jis-x0213-2	  . #x7845)	; &g2-JX2-7845; [88-37]
-      )
-     ((==ucs@unicode	  . #x8980)	; &g2-UU+8980;
-      (==ucs@JP/hanazono  . nil)
-      (==iso-ir165	  . #x2F7A)	; &g2-UU+8980; [15-90]
       ))
     ))
 (define-char
