@@ -468,6 +468,7 @@
       )
      ((=ucs		  . #x4E38)	; 丸
       ))
+    (sound@ja/on	"gei")
     (=ucs		. #x79C7)	; 秇
     ))
 (define-char
@@ -492,6 +493,18 @@
     (=jis-x0213-2	. #x7270)	; &I-JX2-7270; [82-80]
     (=daikanwa		. 24926)	; &I-M-24926;
     (=jef-china3	. #x5CF7)	; &I-JC3-5CF7;
+    (<-ancient
+     ((=ucs@cns		  . #x85DD)	; &C1-786B;
+      (=cns11643-1	  . #x786B)	; &C1-786B; [88-75]
+      (=daikanwa	  . 32330)	; &I-M-32330;
+      ))
+    (<-ancient*sources
+     jiyun daikanwa)
+    (<-formed
+     ((=ucs@cns		  . #x84FA)	; &C2-5343;
+      (=cns11643-2	  . #x5343)	; &C2-5343; [51-35]
+      (=daikanwa	  . 31742)	; &I-M-31742;
+      ))
     (->subsumptive
      ((==ucs@unicode	  . #x79C7)	; &g2-AJ1-18243;
       (==adobe-japan1-5	  . 18243)	; &g2-AJ1-18243;
