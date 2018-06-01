@@ -1,5 +1,22 @@
 2018-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R115-Grain.el (U+79C7): Add `sound@ja/on'.
+	(UU+79C7): Add `<-ancient' for CU+85DD; add `<-formed' for
+	CU+84FA.
+
+2018-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (BC-85E4-var-001): Use A-BC-85E4 instead
+	of A-cgnU+200A1 as its mother.
+	(A-BC-85E4): New abstract node; use `<-denotational' for
+	A-cgnU+200A1 as its mother.
+	(A-U+200A1-itaiji-001): New abstract node; use `<-denotational'
+	for A-BC-85E4 as its mother.
+	(U+200A1-itaiji-001): New character; use `<-denotational' for
+	A-U+200A1-itaiji-001 as its mother.
+	(BC-85E4): Use A-U+200A1-itaiji-001 instead of A-cgnU+200A1 as its
+	mother.
+
 	* Ideograph-R052-Short-Thread.el (U-000221AF): Add
 	`ideographic-structure'; add `<-ancient' for U+7CF8 and U+7384;
 	add representative nodes.
@@ -11,9 +28,16 @@
 	A-U+22002-itaiji-002.
 	(U+22002-itaiji-003): Likewise.
 
+	* Ideograph-R040-Roof.el (UU+5BC1): Add `<-formed' for IU+24D17.
+
 	* Ideograph-R024-Ten.el (U-00020993): Use `->subsumptive'.
 
 2018-05-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R146-West.el (A-IWDSU+897E): New abstract node.
+	(U+897E): Add `<-denotational@component' for A-IWDSU+897E.
+	(U+8980): Likewise.
+	(MJ024197): Add `<-denotational@component' for A-IWDSU+897E.
 
 	* Ideograph-R141-Tiger.el (U+864D): Changed from A-IWDSU+864D.
 	(AJ1-06479): Unify UU+864D instead of U+864D; use U+864D instead
