@@ -7114,6 +7114,7 @@
       )
      ((=ucs		  . #x6606)	; 昆
       ))
+    (sound@ja/on	"koN")
     (=ucs		. #x5D10)	; 崐
     (=adobe-japan1-5	. 17564)	; &I-AJ1-17564;
     (=cns11643-3	. #x3551)	; &I-C3-3551; [21-49]
@@ -7126,9 +7127,22 @@
      ((=ucs		  . #x5D11)	; 崑
       (=jis-x0208	  . #x5642)	; &I-J90-5642; [54-34]
       (=shinjigen	  .  2001)	; 崑
+      )
+     ((=ucs		  . #x6606)	; 昆
+      (=jis-x0208	  . #x3A2B)	; &I-J90-3A2B; [26-11]
+      (=shinjigen@1ed	  .  3283)	; 昆
+      (=shinjigen@rev	  .  3281)	; 昆
       ))
+    (<-formed$_1*sources
+     shinjigen)
     (<-formed*sources
      shinjigen)
+    (<-same
+     ((=ucs		  . #x5D11)	; 崑
+      (=daikanwa	  . 08173)	; &I-M-08173;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5D10)	; 崐
@@ -7185,6 +7199,15 @@
   '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=ucs		  . #x6606)	; 昆
+      ))
+    (sound@ja/on	"koN")
     (=ucs		. #x5D11)	; 崑
     (=adobe-japan1-0	. 04687)	; &I-AJ1-04687;
     (=jis-x0208		. #x5642)	; &I-J90-5642; [54-34]
@@ -7197,6 +7220,25 @@
     (=gt-pj-1		. #x5642)	; &I-GT-10303; [54-34]
     (=daikanwa		. 08173)	; &I-M-08173;
     (=shinjigen		.  2001)	; 崑
+    (<-formed
+     ((=ucs		  . #x5D10)	; 崐
+      )
+     ((=ucs		  . #x6606)	; 昆
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-same
+     ((=ucs		  . #x5D10)	; 崐
+      (=daikanwa	  . 08172)	; &I-M-08172;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (->interchangeable
+     ((=ucs		  . #x6606)	; 昆
+      (=daikanwa	  . 13792)	; &I-M-13792;
+      ))
+    (->interchangeable*sources
+     zhengzitong daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5D11)	; 崑
