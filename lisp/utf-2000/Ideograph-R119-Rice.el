@@ -4212,12 +4212,41 @@
   '((ideographic-radical . 119)	; ⽶
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
-    (=ucs		. #x4290)	; 䊐
-    (->subsumptive
-     ((=ucs@unicode	  . #x4290)	; &M-26999;
-      (=daikanwa	  . 26999)	; &M-26999;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-3	  . #x4865)	; &C3-4865; [40-69]
+     ((=ucs		  . #x7C73)	; 米
+      )
+     ((=ucs		  . #x6606)	; 昆
+      ))
+    (sound@ja/on/go	"goN")
+    (sound@ja/on/kan	"koN")
+    (=ucs		. #x4290)	; 䊐
+    (=cns11643-3	. #x4865)	; &I-C3-4865; [40-69]
+    (=daikanwa		. 26999)	; &I-M-26999;
+    (<-formed
+     ((=ucs		  . #x440A)	; 䐊
+      ))
+    (<-formed*sources
+     jiyun)
+    (<-same
+     ((=ucs		  . #x440A)	; 䐊
+      (=daikanwa	  . 29634)	; &I-M-29634;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x4290)	; &g2-M-26999;
+      (==daikanwa	  . 26999)	; &g2-M-26999;
+      (->subsumptive
+       ((===daikanwa	    . 26999)	; &R-M-26999;
+	)
+       ((===ucs@unicode	    . #x4290)	; &R-UU+4290;
+	))
+      )
+     ((==ucs@cns	  . #x4290)	; &g2-CU+4290;
+      (==cns11643-3	  . #x4865)	; &g2-CU+4290; [40-69]
       ))
     ))
 (define-char
