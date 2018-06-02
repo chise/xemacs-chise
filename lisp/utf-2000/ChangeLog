@@ -1,3 +1,102 @@
+2018-05-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R145-Clothes.el (A-GT-K01369): New abstract node;
+	unify A-U+8863-itaiji-001 and A-U+8863-itaiji-002.
+	(U+8863-itaiji-002): New character; use `<-denotational' for
+	A-GT-K01369.
+	(o-BC-8845): New abstract node; use `<-denotational' for
+	A-BC-8845.
+	(BC-8845-var-001): New character; use `<-denotational' for
+	o-BC-8845.
+	(A-BC-8845): New abstract node; use `<-denotational' for
+	IWDS1-0293; unify A-BC-8845-itaiji-001.
+	(IWDS1-0293): New abstract node; unify A-IWDSBC-8845.
+	(RUI6-E0AD): New character.
+	(GT-K01369): Add `<-denotational' for A-GT-K01369; unify
+	U+8863-itaiji-001.
+	(BC-8845): Add `<-denotational' for o-BC-8845.
+	(A-IWDSU+8881-itaiji-001): New abstract node.
+	(U+8881-itaiji-002): New character; use `<-denotational' for
+	A-U+212AE-itaiji-001.
+	(A-IWDSU+212E1-itaiji-001): New abstract node; use
+	`<-denotational' for A-IWDSU+8881-itaiji-001.
+	(U+212AE-itaiji-001): New character; use `<-denotational' for
+	A-U+212AE-itaiji-001.
+	(A-U+212AE-itaiji-001): New abstract node; use `<-denotational'
+	for A-IWDSU+212E1-itaiji-001; unify A-U+8881-itaiji-002.
+	(BC-8845-itaiji-001): Add `<-denotational' for A-BC-8845.
+	(U+212E1-itaiji-001): New character; use `<-denotational' for
+	A-U+212E1-itaiji-001.
+	(U+212E1-itaiji-002): Likewise.
+	(A-U+212E1-itaiji-001): New abstract node; use `<-denotational'
+	for A-IWDSU+212E1-itaiji-001; unify A-U+212E1-itaiji-002.
+	(GT-K02910): Add `<-denotational' for IWDS1-0293.
+	(MJ058689): Unify U-0002E56B.
+	(A-MJ058692): New abstract node; use `<-denotational' for
+	BUCS+8870.
+	(U+8870-var-001): New character; use `<-denotational' for
+	A-MJ058692.
+	(MJ058692): Likewise; unify KOSEKI-389650.
+	(U-0002762E): Apply new conventions for glyph granularity.
+	(U-0002E569): New character.
+	(A-IWDSU+8892): New abstract node.
+	(U+8892): Add `<-denotational@component' for A-IWDSU+8892; add
+	`sound@ja/on/{kan|go}'; add some relations for other characters.
+	(U+8893): Apply new conventions for glyph granularity; add
+	`<-denotational@component' for A-IWDSU+8892.
+	(U+4624): Apply new conventions for glyph granularity.
+	(U+8896): Add `ideographic-structure'; add `sound@ja/on/{kan|go}';
+	add some relations for other characters.
+	(U-0002763E): Use `->denotational' and `->subsumptive'.
+	(U+88D2): Apply new conventions for glyph granularity.
+	(U+88DE): Likewise.
+	(U+4635): Use `->denotational' and `->subsumptive'.
+	(U+88ED): Apply new conventions for glyph granularity.
+	(U+463A): Use `->subsumptive'.
+	(U+890E): Add `ideographic-structure'; add `->vulgar' for U+8896.
+	(U+890F): Add `ideographic-structure'; add `sound@ja/on'; add
+	`<-formed' and `<-same' for U+890E.
+	(U+8912): Add `ideographic-structure'; add `sound@ja/on'; add
+	`<-formed', `<-same' and `<-vulgar' for U+8943.
+	(U+8918): Add `ideographic-structure'; delete `japanese-strokes'.
+	(U-000276D9): Apply new conventions for glyph granularity.
+	(U+8921): Likewise.
+	(U-00027700): Use `->subsumptive'.
+	(U+892B): Add ideographic-structure.
+	(U+893C): Use `->denotational' and `->subsumptive'.
+	(U+8943): Add `ideographic-structure'; add some relations for
+	other characters.
+	(U-00027730): Apply new conventions for glyph granularity.
+	(U+894A): Likewise.
+	(U+8951): Likewise.
+	(U-00027751): Use `->denotational' and `->subsumptive'.
+	(U-00027763): Apply new conventions for glyph granularity.
+	(U-00027771): Likewise.
+	(UU+8962): Add some relations for other characters.
+	(U-0002777E): Apply new conventions for glyph granularity.
+	(U-00027782): Likewise.
+	(U-000277A8): Likewise.
+	(U-000277B7): Likewise.
+	(U+466E): Likewise.
+	(U-000277D8): Likewise.
+
+	* Ideograph-R142-Insect.el (U+45B5): Add `ideographic-structure';
+	add `sound@ja/on'; add some relations for other characters; add
+	representative nodes.
+	(U+45B5-itaiji-002): New character.
+	(U+872B): Add `ideographic-structure'; add `sound@ja/on'; add some
+	relations for other characters; add representative nodes.
+	(U-00027327): Apply new conventions for glyph granularity.
+
+	* Ideograph-R119-Rice.el (U+4290): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R046-Mountain.el (U+5D10): Add `sound@ja/on'; add
+	U+6606 as a target of `<-formed'; add `<-same' for U+5D11.
+	(U+5D11): Add `ideographic-structure'; add `sound@ja/on'; add
+	`<-formed' for U+5D10 and U+6606; add `->interchangeable' for
+	U+6606.
+
 2018-05-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R115-Grain.el (U+79C7): Add `sound@ja/on'.
