@@ -356,8 +356,8 @@
     ))
 (define-char
   '((<-denotational@component
-     ((=>ucs@component	  . #x7680)	; &A-compU+7680;
-      (=>iwds-1		  .  0355)	; &A-compU+7680;
+     ((=>ucs@iwds-1	  . #x7680)	; &A-IWDSU+7680;
+      (=>iwds-1		  .  0355)	; &A-IWDSU+7680;
       ))
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 2)
@@ -1993,6 +1993,16 @@
   '((ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((=ucs		  . #x6BD4)	; 比
+      ))
+    (sound@ja/on/go	"goN")
+    (sound@ja/on/kan	"koN")
     (=ucs		. #x6606)	; 昆
     (=adobe-japan1-0	. 02075)	; &I-AJ1-02075;
     (=jis-x0208		. #x3A2B)	; &I-J90-3A2B; [26-11]
@@ -2007,6 +2017,70 @@
     (=daikanwa		. 13792)	; &I-M-13792;
     (=shinjigen@1ed	.  3283)	; 昆
     (=shinjigen@rev	.  3281)	; 昆
+    (<-interchangeable
+     ((=ucs		  . #x711C)	; 焜
+      (=daikanwa	  . 19103)	; &I-M-19103;
+      )
+     ((=ucs@iso		  . #x252BD)	; &M-23714;
+      (=daikanwa	  . 23714)	; &M-23714;
+      )
+     ((=ucs		  . #x45B5)	; 䖵
+      (=daikanwa	  . 33034)	; &I-M-33034;
+      )
+     ((=ucs		  . #x72AC)	; 犬
+      (=daikanwa	  . 20234)	; &I-M-20234;
+      )
+     ((=ucs		  . #x5D11)	; 崑
+      (=daikanwa	  . 08173)	; &I-M-08173;
+      )
+     ((=ucs		  . #x5D10)	; 崐
+      (=daikanwa	  . 08172)	; &I-M-08172;
+      )
+     ((=ucs		  . #x6DF7)	; 混
+      (=daikanwa	  . 17694)	; &I-M-17694;
+      )
+     ((=ucs		  . #x7DC4)	; 緄
+      (=daikanwa	  . 27597)	; &I-M-27597;
+      )
+     ((=ucs		  . #x6E3E)	; 渾
+      (=daikanwa	  . 17800)	; &I-M-17800;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_2*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_3*sources
+     shuowen-tongxun-dingsheng zhengzitong daikanwa)
+    (<-interchangeable$_4*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_5*sources
+     zhengzitong shuowen-xinfukao daikanwa)
+    (<-interchangeable$_6*sources
+     shuowen-xinfukao daikanwa)
+    (<-interchangeable$_7*sources
+     hanshu-zhu daikanwa)
+    (<-interchangeable$_8*sources
+     hanshu-zhu daikanwa)
+    (<-interchangeable$_9*sources
+     daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
+    (<-same
+     ((=ucs		  . #x45B5)	; 䖵
+      ))
+    (<-same*sources
+     zhengzitong)
+    (->formed
+     ((=ucs		  . #x5D11)	; 崑
+      )
+     ((=ucs		  . #x5D10)	; 崐
+      ))
+    (->formed$_1*sources
+     zhengzitong)
+    (->formed$_2*sources
+     shuowen-xinfukao)
+    (->formed*sources
+     zhengzitong shuowen-xinfukao)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x6606)	; 昆
