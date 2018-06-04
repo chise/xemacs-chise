@@ -1,3 +1,13 @@
+2018-06-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R018-Knife.el (BUCS+5203): Separate A-compU+5203 and
+	IWDS1-0106.
+	(IWDS1-0106): Separate BUCS+5203; add `<-denotational' for
+	BUCS+5203; unify A-IWDSU+5203 instead of A-compU+5203.
+
+	* Ideograph-R006-Hook.el (U-0002CF3A): Add `<-denotational' for
+	A-cgnU+5F1F.
+
 2018-06-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R072-Sun.el (U+6606): Add `ideographic-structure'; add
