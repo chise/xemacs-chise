@@ -852,7 +852,10 @@
     (=daikanwa		. 00242)	; &I-M-00242;
     ))
 (define-char
-  '((ideographic-radical . 6)	; ⼅
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5F1F)	; &A-cgnU+5F1F;
+      ))
+    (ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
     (ideographic-structure
@@ -869,8 +872,7 @@
     (=mj		. 056878)	; &I-MJ056878;
     (=koseki		. 002930)	; 𬼺
     (<-formed
-     ((=ucs@unicode	  . #x5F1F)	; &AJ1-03083;
-      (=adobe-japan1-0	  . 03083)	; &AJ1-03083;
+     ((=ucs		  . #x5F1F)	; 弟
       ))
     (<-formed*sources
      koseki)
