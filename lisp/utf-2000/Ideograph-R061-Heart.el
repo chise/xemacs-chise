@@ -932,8 +932,8 @@
       )
      ((=ucs		  . #x5FC4)	; 忄
       )
-     ((==>ucs@bucs	  . #x5203)	; &BUCS+5203;
-      (=>ucs@component	  . #x5203)	; &BUCS+5203;
+     ((=>ucs@iwds-1	  . #x5203)	; &A-IWDSU+5203;
+      (=>iwds-1		  .  0106)	; &A-IWDSU+5203;
       ))
     (=ucs		. #x38FC)	; 㣼
     ))
