@@ -1,3 +1,17 @@
+2018-06-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R057-Bow.el (A-cgnU+5F1F): Changed from U+5F1F.
+	(AJ1-03083): Unify U+5F1F instead of UU+03083; delete
+	`=>ucs@iwds-1'; use A-cgnU+5F1F instead of U+5F1F as its mother.
+	(U+5F1F-itaiji-004): Use A-cgnU+5F1F instead of U+5F1F as its
+	mother.
+	(U-000223BA): Apply new conventions for glyph granularity.
+	(U+5F26): Add `ideographic-structure'; add `sound@ja/on/{kan|go}';
+	add some relations for other characters.
+	(A-GT-K10892): New abstract node; unify A-U+26C34-itaiji-001.
+	(GT-10892): New character; unify U+26C34-itaiji-001; add
+	`<-denotational' for A-GT-K10892.
+
 2018-06-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R018-Knife.el (BUCS+5203): Separate A-compU+5203 and
