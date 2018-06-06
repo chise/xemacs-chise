@@ -8,6 +8,8 @@
 (define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x76BF)	; &A-compU+76BF;
+      )
+     ((=>ucs@component	  . #x8840)	; &A-compU+8840;
       ))
     (ideographic-radical . 108)	; ⽫
     (ideographic-strokes . 0)
