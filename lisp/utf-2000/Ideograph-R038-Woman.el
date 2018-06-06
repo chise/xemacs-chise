@@ -15711,6 +15711,25 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+      (=ucs		  . #x2FF2)	; ⿲
+      )
+     ((=ucs		  . #x5973)	; 女
+      )
+     ((=ucs-itaiji-002	  . #x77E3)	; &U-i002+77E3;
+      )
+     ((=ucs		  . #x5973)	; 女
+      ))
+    (=ucs		. #x217D8)	; 𡟘
+    (->subsumptive
+     ((==ucs@iso	  . #x217D8)	; &g2-IU-000217D8;
+      ))
+    ))
+(define-char
   '((=>ucs*		. #x36EE)	; 㛮
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
