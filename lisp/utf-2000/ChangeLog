@@ -1,3 +1,25 @@
+2018-06-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R143-Blood.el (A-compU+8840): New abstract node.
+	(A-cgnU+8840): Changed from U+8840; add `<-denotational@component'
+	for A-compU+8840.
+	(AJ1-01858): Unify U+8840 instead of UU+8840; delete
+	`=>ucs@iwds-1'; use A-cgnU+8840 instead of U+8840 as its mother.
+	(U+8840-itaiji-002): Use A-cgnU+8840 instead of U+8840 as its
+	mother.
+	(U+8842): Add `ideographic-structure'.
+	(A-IWDSU+8846): Add ideographic-structure.
+	(U+8846-itaiji-005): Unify GT-K09782.
+	(A-GT-K09783): New abstract node; use `<-denotational' for U+8846;
+	unify A-U+8846-itaiji-009.
+	(U+8846-itaiji-009): Use `<-subsumptive' for A-GT-K09783 instead
+	of `<-denotational' for U+8846.
+	(GT-K09783): New character; use `<-denotational' for A-GT-K09783.
+	(U-000275CA): Apply new conventions for glyph granularity.
+
+	* Ideograph-R108-Dish.el (U+76BF): Add A-compU+8840 as a target of
+	`<-denotational@component'.
+
 2018-06-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R057-Bow.el (A-cgnU+5F1F): Changed from U+5F1F.
