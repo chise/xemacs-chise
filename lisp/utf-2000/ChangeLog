@@ -1,5 +1,9 @@
 2018-06-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R038-Woman.el (U-000217D8): New character.
+
+2018-06-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R143-Blood.el (A-compU+8840): New abstract node.
 	(A-cgnU+8840): Changed from U+8840; add `<-denotational@component'
 	for A-compU+8840.
