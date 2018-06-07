@@ -1,3 +1,13 @@
+2018-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (JU+4E82): Add MJ036854 as a target of
+	`->formed'.
+
+2018-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R024-Ten.el (A-compU+5343): New abstract node.
+	(U+5343): Add `<-denotational@component' for A-compU+5343.
+
 2018-06-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R038-Woman.el (U-000217D8): New character.

@@ -269,6 +269,15 @@
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
+    (=>ucs@component	. #x5343)	; &A-compU+5343;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5343)	; &A-compU+5343;
+      ))
+    (ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
     (hanyu-dazidian	1 59 1)
     (=ucs		. #x5343)	; 千
     (=adobe-japan1-0	. 02701)	; &I-AJ1-02701;

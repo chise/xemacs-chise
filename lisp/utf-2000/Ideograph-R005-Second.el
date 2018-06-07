@@ -4002,9 +4002,14 @@
     (->formed
      ((=gt		  . 25281)	; &GT-25281;
       (=daikanwa	  . 19687)	; &I-M-19687;
+      )
+     ((=mj		  . 036854)	; &MJ036854;
+      (=daikanwa	  . 12302)	; &I-M-12302;
       ))
-    (->formed*sources
+    (->formed$_1*sources
      yupian daikanwa)
+    (->formed*sources
+     daikanwa)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x4E82)	; 亂
