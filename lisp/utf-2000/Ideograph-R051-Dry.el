@@ -1,6 +1,9 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((ideographic-radical . 51)	; ⼲
+  '((<-denotational@component
+     ((=>ucs@component	  . #x5343)	; &A-compU+5343;
+      ))
+    (ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (=ucs		. #x5E72)	; 干

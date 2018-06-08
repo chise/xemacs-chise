@@ -2117,13 +2117,74 @@
   '((ideographic-radical . 28)	; ⼛
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x57F6)	; 埶
+      )
+     ((=ucs		  . #x4E91)	; 云
+      ))
+    (sound@ja/on	"gei")
     (=ucs		. #x366F)	; 㙯
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x366F)	; 㙯
+      ))
+    (ideographic-radical . 28)	; ⼛
+    (ideographic-strokes . 13)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x57F6)	; &AJ1-14431;
+      (=adobe-japan1-4	  . 14431)	; &AJ1-14431;
+      )
+     ((=ucs		  . #x4E91)	; 云
+      ))
+    (=ucs@unicode	. #x366F)	; &MJ000536;
+    (=mj		. 000536)	; &MJ000536;
+    (=cns11643-4	. #x492A)	; &I-C4-492A; [41-10]
+    (=koseki		. 036050)	; &MJ000536;
+    (=daikanwa		. 48958)	; &I-M-48958;
+    (<-formed
+     ((=ucs@unicode	  . #x57F6)	; &AJ1-14431;
+      (=adobe-japan1-4	  . 14431)	; &AJ1-14431;
+      )
+     ((=ucs@cns		  . #x84FA)	; &C2-5343;
+      (=cns11643-2	  . #x5343)	; &C2-5343; [51-35]
+      (=daikanwa	  . 31742)	; &I-M-31742;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-same
+     ((=ucs@unicode	  . #x57F6)	; &AJ1-14431;
+      (=adobe-japan1-4	  . 14431)	; &AJ1-14431;
+      (=daikanwa	  . 05192)	; &I-M-05192;
+      )
+     ((=ucs@cns		  . #x84FA)	; &C2-5343;
+      (=cns11643-2	  . #x5343)	; &C2-5343; [51-35]
+      (=daikanwa	  . 31742)	; &I-M-31742;
+      ))
+    (<-same*sources
+     daikanwa)
     (->subsumptive
-     ((=daikanwa	  . 48958)	; &M-48958;
+     ((==mj		  . 000536)	; &g2-MJ000536;
+      (==koseki		  . 036050)	; &g2-MJ000536;
+      (==daikanwa	  . 48958)	; &g2-MJ000536;
+      (->subsumptive
+       ((===daikanwa	    . 48958)	; &R-M-48958;
+	)
+       ((===mj		    . 000536)	; &R-MJ000536;
+	))
       )
-     ((=cns11643-4	  . #x492A)	; &C4-492A; [41-10]
+     ((==ucs@cns	  . #x366F)	; &g2-CU+366F;
+      (==cns11643-4	  . #x492A)	; &g2-CU+366F; [41-10]
       )
-     ((=ucs@unicode	  . #x366F)	; &UU+366F;
+     ((==ucs@unicode	  . #x366F)	; &g2-UU+366F;
+      (==ucs@JP/hanazono  . nil)
       ))
     ))
 (define-char

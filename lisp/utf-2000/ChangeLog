@@ -1,9 +1,19 @@
 2018-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R028-Private.el (U+366F): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R005-Second.el (JU+4E82): Add MJ036854 as a target of
 	`->formed'.
 
 2018-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R051-Dry.el (U+5E72): Add `<-denotational@component'
+	for A-compU+5343.
+
+	* Ideograph-R037-Big.el (U+77E3-itaiji-002): New character; use
+	`<-denotational' for A-cgnU+77E3.
+	(U+77E3-itaiji-001): Likewise.
 
 	* Ideograph-R024-Ten.el (A-compU+5343): New abstract node.
 	(U+5343): Add `<-denotational@component' for A-compU+5343.
