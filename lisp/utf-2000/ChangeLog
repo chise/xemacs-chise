@@ -1,3 +1,20 @@
+2018-06-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U-00020BC4): Apply new conventions for
+	glyph granularity.
+	(U+54C7): Add some relations for other characters.
+	(U+550D): Add `sound@ja/on/{kan|go}'; add some relations for other
+	characters.
+	(U+5532): Apply new conventions for glyph granularity.
+	(U+553C): Add some relations for other characters.
+
+	* Ideograph-R026-Seal.el (U+536A): Add UU+537D as a target of
+	`->interchangeable'.
+	(U+536C): Add representative nodes.
+	(U-00020A10): Apply new conventions for glyph granularity.
+	(U+537D): Add `sound@ja/on/{kan|go}'.
+	(UU+537D): Add some relations for other characters.
+
 2018-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R028-Private.el (U+366F): Apply new conventions for
