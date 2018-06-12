@@ -554,6 +554,27 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x4E2E)	; 丮
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (=gt-k		. 00604)	; &GT-K00604;
+    (=gt-pj-k1		. #x387E)	; &GT-K00604; [24-94]
+    (->subsumptive
+     ((==gt-k		  . 00604)	; &g2-GT-K00604;
+      (==gt-pj-k1	  . #x387E)	; &g2-GT-K00604; [24-94]
+      )
+     ((=gt-k		  . 00605)	; &GT-K00605;
+      (=gt-pj-k1	  . #x3A2A)	; &GT-K00605; [26-10]
+      (->subsumptive
+       ((==gt-k		    . 00605)	; &g2-GT-K00605;
+	(==gt-pj-k1	    . #x3A2A)	; &g2-GT-K00605; [26-10]
+	))
+      ))
+    ))
+(define-char
   '((ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 3)
     (total-strokes	 . 4)

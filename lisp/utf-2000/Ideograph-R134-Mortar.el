@@ -752,9 +752,34 @@
       ))
     (ideographic-radical . 134)	; ⾅
     (ideographic-strokes . 3)
-    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=>ucs@component	  . #x5343)	; &A-compU+5343;
+      )
+     ((=>ucs@component	  . #x81FC)	; &A-compU+81FC;
+      (=>iwds-1		  .  0168)	; &A-compU+81FC;
+      ))
     (=ucs		. #x2695B)	; 𦥛
-    (=cns11643-6	. #x3B3B)	; &I-C6-3B3B; [27-27]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2695B)	; 𦥛
+      ))
+    (ideographic-radical . 134)	; ⾅
+    (ideographic-strokes . 3)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x5343)	; 千
+      )
+     ((=ucs		  . #x26951)	; 𦥑
+      ))
+    (=ucs@iso		. #x2695B)	; &C6-3B3B;
+    (=cns11643-6	. #x3B3B)	; &C6-3B3B; [27-27]
     (=big5-cdp		. #x8570)	; &I-CDP-8570;
     (=daikanwa		. 30182)	; &I-M-30182;
     (<-wrong
@@ -767,6 +792,42 @@
       ))
     (<-wrong*sources
      zhonghua-dazidian daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x2695B)	; &g2-CDP-8570;
+      (==cns11643-6	  . #x3B3B)	; &g2-CDP-8570; [27-27]
+      (==big5-cdp	  . #x8570)	; &g2-CDP-8570;
+      (==daikanwa	  . 30182)	; &g2-CDP-8570;
+      (->subsumptive
+       ((===daikanwa	    . 30182)	; &R-M-30182;
+	)
+       ((===big5-cdp	    . #x8570)	; &R-CDP-8570;
+	)
+       ((===cns11643-6	    . #x3B3B)	; &R-C6-3B3B; [27-27]
+	)
+       ((===ucs@iso	    . #x2695B)	; &R-U-0002695B;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2695B)	; 𦥛
+      ))
+    (ideographic-radical . 134)	; ⾅
+    (ideographic-strokes . 3)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (=ucs		  . #x2FFB)	; ⿻
+      )
+     ((=ucs		  . #x5343)	; 千
+      )
+     ((=ucs@unicode	  . #x81FC)	; &AJ1-01235;
+      (=adobe-japan1-0	  . 01235)	; &AJ1-01235;
+      ))
+    (=big5-cdp		. #x8A47)	; &CDP-8A47;
+    (->subsumptive
+     ((==big5-cdp	  . #x8A47)	; &g2-CDP-8A47;
+      ))
     ))
 (define-char
   '((ideographic-radical . 134)	; ⾅

@@ -1,5 +1,9 @@
 2018-06-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R002-Line.el (GT-K00604): New character; use
+	`<-denotational' for U+4E2E.
+	(GT-K00605): New character; use `<-subsumptive' for GT-K00604.
+
 	* Ideograph-R030-Mouth.el (U-00020BC4): Apply new conventions for
 	glyph granularity.
 	(U+54C7): Add some relations for other characters.
@@ -20,10 +24,23 @@
 	* Ideograph-R028-Private.el (U+366F): Apply new conventions for
 	glyph granularity.
 
+	* Ideograph-R134-Mortar.el (U-0002695B): Apply new conventions for
+	glyph granularity.
+	(BC-8A47): New character; use `<-denotational' for U-0002695B.
+
 	* Ideograph-R005-Second.el (JU+4E82): Add MJ036854 as a target of
 	`->formed'.
 
 2018-06-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R111-Arrow.el (A-cgnU+77E3): New abstract node.
+	(U+77E3): Add `<-denotational' for A-cgnU+77E3; add
+	`ideographic-structure'.
+
+	* Ideograph-R077-Stop.el (A-U+864D-itaiji-004): New abstract node.
+	(U+864D-itaiji-004): New character; use `<-denotational' for
+	A-U+864D-itaiji-004.
+	(U-00023984): Apply new conventions for glyph granularity.
 
 	* Ideograph-R051-Dry.el (U+5E72): Add `<-denotational@component'
 	for A-compU+5343.
@@ -36,6 +53,8 @@
 	(U+5343): Add `<-denotational@component' for A-compU+5343.
 
 2018-06-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R086-Fire.el (U-00024360): New character.
 
 	* Ideograph-R038-Woman.el (U-000217D8): New character.
 

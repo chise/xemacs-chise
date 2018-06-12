@@ -149,7 +149,23 @@
 (define-char
   '((ideographic-radical . 111)	; ⽮
     (ideographic-strokes . 2)
+    (=>ucs@cognate	. #x77E3)	; &A-cgnU+77E3;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x77E3)	; &A-cgnU+77E3;
+      ))
+    (ideographic-radical . 111)	; ⽮
+    (ideographic-strokes . 2)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53B6)	; 厶
+      )
+     ((=ucs		  . #x77E2)	; 矢
+      ))
     (=ucs		. #x77E3)	; 矣
     (=adobe-japan1-0	. 05848)	; &I-AJ1-05848;
     (=jis-x0208		. #x6263)	; &I-J90-6263; [66-67]
