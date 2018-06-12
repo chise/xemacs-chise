@@ -17242,6 +17242,105 @@
   '((ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x57F7)	; 執
+      )
+     ((=ucs		  . #x706C)	; 灬
+      ))
+    (=ucs		. #x24360)	; 𤍠
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24360)	; 𤍠
+      ))
+    (ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x57F7)	; &AJ1-02277;
+      (=adobe-japan1-0	  . 02277)	; &AJ1-02277;
+      )
+     ((=ucs		  . #x706C)	; 灬
+      ))
+    (=ucs@iso		. #x24360)	; &U-00024360;
+    (->subsumptive
+     ((==ucs@iso	  . #x24360)	; &g2-IU-00024360;
+      )
+     ((===hng-mam	  . 10491)	; &HNG005-10491;
+      (<-HNG@chise
+       ((=ucs		    . #x24360)	; 𤍠
+	))
+      (<-formed
+       ((=ucs		    . #x71B1)	; 熱
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24360)	; 𤍠
+      ))
+    (ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-var-004	  . #x57F7)	; &U-v004+57F7;
+      )
+     ((=ucs		  . #x706C)	; 灬
+      ))
+    (===hng-kcc		. 08400)	; &HNG041-08400;
+    (<-HNG@chise
+     ((=ucs		  . #x24360)	; 𤍠
+      ))
+    (<-formed
+     ((=ucs		  . #x71B1)	; 熱
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24360)	; 𤍠
+      ))
+    (ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-var-003	  . #x57F7)	; &U-v003+57F7;
+      )
+     ((=ucs		  . #x706C)	; 灬
+      ))
+    (=ucs-var-001	. #x24360)	; &U-v001+24360;
+    (<-formed
+     ((=ucs		  . #x71B1)	; 熱
+      ))
+    (<-formed*sources
+     hng)
+    (->subsumptive
+     ((===hng-kcj	  . 08180)	; &HNG042-08180;
+      (<-HNG@chise
+       ((=ucs		    . #x24360)	; 𤍠
+	))
+      )
+     ((===hng-kbk	  . 08110)	; &HNG043-08110;
+      (<-HNG@chise
+       ((=ucs		    . #x24360)	; 𤍠
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
     (=ucs		. #x24366)	; 𤍦
     (=cns11643-5	. #x4E2B)	; &I-C5-4E2B; [46-11]
     ))
