@@ -1,3 +1,39 @@
+2018-06-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R004-Slash.el (U+4E48): Use A-IWDSU+5E7A instead of
+	BUCS+5E7A as its mother.
+
+2018-06-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (U+69F7): Apply new conventions for glyph
+	granularity.
+	(U+69F8): Likewise.
+	(U+6A9D): Apply new conventions for glyph granularity.
+	(U-000237C3): New character.
+	(U-00023795): Apply new conventions for glyph granularity.
+	(U-00023821): Add ideographic-structure.
+
+2018-06-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (A-cgnU+4FDF): New abstract node.
+	(U+4FDF): Add `<-denotational' for A-cgnU+4FDF.
+	(HNG-INK0014-0): New character; add `<-denotational' for
+	A-cgnU+4FDF.
+	(U+4FDF-itaiji-001): Likewise.
+	(U+5022): Add `sound@ja/on'; add some relations for other
+	characters.
+	(U-00020337): Apply new conventions for glyph granularity.
+	(U-0002037A): Modify structure to use U+758B-itaiji-001.
+	(U-00020462): New character.
+
+2018-06-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R117-Stand.el (A-compU+7ACB): New abstract node.
+	(U+7ACB): Add `<-denotational@component' for A-compU+7ACB; add
+	intermediate glyph node.
+	(U+5F50-itaiji-002): New character; use `<-denotational@component'
+	for A-compU+7ACB.
+
 2018-06-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R002-Line.el (GT-K00604): New character; use
