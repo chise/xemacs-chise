@@ -3996,9 +3996,18 @@
      ((=daikanwa	  . 02771)	; &M-02771;
       )
      ((=daikanwa	  . 03225)	; &M-03225;
+      )
+     ((=mj		  . 036854)	; &MJ036854;
+      (=daikanwa	  . 12302)	; &I-M-12302;
       ))
-    (->ancient*sources
+    (->ancient$_1*sources
      jiyun daikanwa)
+    (->ancient$_2*sources
+     jiyun daikanwa)
+    (->ancient$_3*sources
+     jiyun daikanwa)
+    (->ancient*sources
+     daikanwa)
     (->formed
      ((=gt		  . 25281)	; &GT-25281;
       (=daikanwa	  . 19687)	; &I-M-19687;
