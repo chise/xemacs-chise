@@ -1,5 +1,28 @@
 2018-06-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R052-Short-Thread.el (BUCS+5E7A): Separate
+	A-compU+5E7A and IWDS1-0129.
+	(IWDS1-0129): Separate BUCS+5E7A; add `<-denotational' for
+	BUCS+5E7A; unify A-IWDSU+5E7A instead of A-compU+5E7A.
+
+	* Ideograph-R032-Earth.el (IU+212AE): Unify GT-K04297.
+	(UU+57F6): Add some relations for other characters.
+	(U+57F7): Add `sound@ja/on'.
+	(UU+57F7): Add some relations for other characters.
+	(U+57F7-var-003): New character; use `<-denotational' for U+57F7.
+	(U+57F7-var-004): Likewise.
+	(U+5832): Add ideographic-structure.
+	(JU+5832): Add some relations for other characters.
+	(U-00021390): Apply new conventions for glyph granularity.
+
+	* Ideograph-R019-Power.el (U+52BF): Apply new conventions for
+	glyph granularity.
+	(U-0002B751): Likewise.
+	(U+52E2): Likewise.
+
+	* Ideograph-R005-Second.el (JU+4E82): Add MJ036854 into
+	`->ancient'.
+
 	* Ideograph-R004-Slash.el (U+4E48): Use A-IWDSU+5E7A instead of
 	BUCS+5E7A as its mother.
 
