@@ -1,3 +1,8 @@
+2018-06-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R062-Halberd.el (U+6222): Apply new conventions for
+	glyph granularity.
+
 2018-06-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R052-Short-Thread.el (BUCS+5E7A): Separate
