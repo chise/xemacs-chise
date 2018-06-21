@@ -2865,14 +2865,32 @@
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (=ucs		. #x209AB)	; 𠦫
-    (->subsumptive
-     ((=ucs@iso		  . #x209AB)	; &C4-3061;
-      (=cns11643-4	  . #x3061)	; &C4-3061; [16-65]
-      (=daikanwa	  . 02759)	; &I-M-02759;
+    (hanyu-dazidian	1 66 1)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((hanyu-dazidian	  1 66 1)
-      (=hanziku-1	  . #xB1A9)	; &HZK01-B1A9;
+     ((=ucs		  . #x54A0)	; 咠
+      )
+     ((=ucs		  . #x5341)	; 十
+      ))
+    (sound@ja/on	"sIHu")
+    (=ucs		. #x209AB)	; 𠦫
+    (=cns11643-4	. #x3061)	; &I-C4-3061; [16-65]
+    (=daikanwa		. 02759)	; &I-M-02759;
+    (->subsumptive
+     ((==ucs@iso	  . #x209AB)	; &g2-M-02759;
+      (==cns11643-4	  . #x3061)	; &g2-M-02759; [16-65]
+      (==daikanwa	  . 02759)	; &g2-M-02759;
+      (->subsumptive
+       ((===daikanwa	    . 02759)	; &R-M-02759;
+	)
+       ((===cns11643-4	    . #x3061)	; &R-C4-3061; [16-65]
+	)
+       ((===ucs@iso	    . #x209AB)	; &R-U-000209AB;
+	))
+      )
+     ((=hanziku-1	  . #xB1A9)	; &HZK01-B1A9;
       ))
     ))
 (define-char

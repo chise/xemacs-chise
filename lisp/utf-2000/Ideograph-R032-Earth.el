@@ -10399,7 +10399,8 @@
       (=adobe-japan1-5	  . 19675)	; &AJ1-19675;
       (=daikanwa	  . 27831)	; &I-M-27831;
       )
-     ((=ucs		  . #x7E54)	; 織
+     ((=ucs@unicode	  . #x7E54)	; &AJ1-02539;
+      (=adobe-japan1-0	  . 02539)	; &AJ1-02539;
       (=daikanwa	  . 27892)	; &I-M-27892;
       )
      ((=ucs@unicode	  . #x6179)	; &C2-5043;
