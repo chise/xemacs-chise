@@ -15847,17 +15847,35 @@
      ((=ucs		  . #x866B)	; 虫
       ))
     (=ucs		. #x87C4)	; 蟄
-    (=adobe-japan1-0	. 06548)	; &I-AJ1-06548;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x87C4)	; 蟄
+      ))
+    (ideographic-radical . 142)	; ⾍
+    (ideographic-strokes . 11)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x57F7)	; &AJ1-02277;
+      (=adobe-japan1-0	  . 02277)	; &AJ1-02277;
+      )
+     ((=ucs		  . #x866B)	; 虫
+      ))
+    (=ucs@unicode	. #x87C4)	; &AJ1-06548;
+    (=adobe-japan1-0	. 06548)	; &AJ1-06548;
     (=jis-x0208		. #x6A2F)	; &I-J90-6A2F; [74-15]
     (=ks-x1001		. #x765E)	; &I-K0-765E; [86-62]
     (=cns11643-2	. #x5F36)	; &I-C2-5F36; [63-22]
     (=jis-x0213-1	. #x6A2F)	; &I-JX1-6A2F; [74-15]
-    (=gb12345		. #x555D)	; 蟄 [53-61]
+    (=gb12345		. #x555D)	; &AJ1-06548; [53-61]
     (=big5		. #xEE68)	; &I-B-EE68;
     (=gt		. 45243)	; &I-GT-45243;
     (=gt-pj-1		. #x6A2F)	; &I-GT-45243; [74-15]
     (=daikanwa		. 33537)	; &I-M-33537;
-    (=shinjigen		.  7256)	; 蟄
+    (=shinjigen		.  7256)	; &AJ1-06548;
     (->subsumptive
      ((==ucs@jis	  . #x87C4)	; &g2-AJ1-06548;
       (==ucs@ks		  . #x87C4)	; &g2-AJ1-06548;
