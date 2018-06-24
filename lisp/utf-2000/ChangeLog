@@ -1,3 +1,38 @@
+2018-06-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R147-See.el (A-MJ060177): Unify U-0002E5DC; use
+	A-U+8207-itaiji-006 as a component.
+	(U-0002E5D3): New character.
+	(U-0002784C): Apply new conventions for glyph granularity.
+	(U+89A2): Likewise.
+	(U-0002E5D6): New character.
+	(U+4686): Apply new conventions for glyph granularity.
+	(U-00027869): Likewise.
+	(U-0002787E): Likewise.
+	(U-0002E5D9): New character.
+	(U-00027896): Apply new conventions for glyph granularity.
+	(U-00027895): New character.
+	(U-0002789C): Apply new conventions for glyph granularity.
+	(U-0002789E): Likewise.
+	(U-000278A2): Add `ideographic-structure'; add `->formed' for
+	U-0002533A and MJ018358; add representative nodes.
+	(U-000278A3): Apply new conventions for glyph granularity.
+
+	* Ideograph-R145-Clothes.el (U+893A): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R109-Eye.el (IU+25133): Add intermediate glyph nodes.
+	(A-IWDSU+8846): Use A-compU+8840 instead of A-compU+76BF as a
+	component.
+	(U-00025175): Apply new conventions for glyph granularity.
+	(U-000252BD): Use `->denotational' and `->subsumptive'.
+
+2018-06-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (U+665C): Add `ideographic-structure'; add
+	`sound@ja/on'; add some relations for other characters; add
+	representative nodes.
+
 2018-06-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R142-Insect.el (U+87C4): Apply new conventions for
