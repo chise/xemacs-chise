@@ -11584,10 +11584,53 @@
   '((ideographic-radical . 145)	; ⾐
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x57F7)	; 執
+      )
+     ((=ucs		  . #x8863)	; 衣
+      ))
+    (sound@ja/on/go	"dEHu")
+    (sound@ja/on/kan	"tEHu")
     (=ucs		. #x893A)	; 褺
-    (=jis-x0212		. #x5C69)	; &I-JSP-5C69; [60-73]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x893A)	; 褺
+      ))
+    (ideographic-radical . 145)	; ⾐
+    (ideographic-strokes . 11)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x57F7)	; &AJ1-02277;
+      (=adobe-japan1-0	  . 02277)	; &AJ1-02277;
+      )
+     ((=ucs		  . #x8863)	; 衣
+      ))
+    (=ucs@unicode	. #x893A)	; &JSP-5C69;
+    (=jis-x0212		. #x5C69)	; &JSP-5C69; [60-73]
     (=cns11643-4	. #x5862)	; &I-C4-5862; [56-66]
     (=daikanwa		. 34535)	; &I-M-34535;
+    (->subsumptive
+     ((==ucs@unicode	  . #x893A)	; &g2-JSP-5C69;
+      (==jis-x0212	  . #x5C69)	; &g2-JSP-5C69; [60-73]
+      (==cns11643-4	  . #x5862)	; &g2-JSP-5C69; [56-66]
+      (==daikanwa	  . 34535)	; &g2-JSP-5C69;
+      (->subsumptive
+       ((===daikanwa	    . 34535)	; &R-M-34535;
+	)
+       ((===jis-x0212	    . #x5C69)	; &R-JSP-5C69; [60-73]
+	)
+       ((===cns11643-4	    . #x5862)	; &R-C4-5862; [56-66]
+	)
+       ((===ucs@unicode	    . #x893A)	; &R-UU+893A;
+	))
+      ))
     ))
 (define-char
   '((morohashi-daikanwa	34535 0 7)
