@@ -2062,7 +2062,9 @@
     (<-same*sources
      jiyun daikanwa)
     (->ancient
-     ((=ucs		  . #x768D)	; 皍
+     ((=ucs@unicode	  . #x768D)	; &HD-JT-B625;
+      (=jis-x0212	  . #x4E38)	; &HD-JT-B625; [46-24]
+      (=cns11643-4	  . #x2E43)	; &I-C4-2E43; [14-35]
       (=daikanwa	  . 22719)	; &I-M-22719;
       ))
     (->ancient*sources
