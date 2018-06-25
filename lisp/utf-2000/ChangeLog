@@ -1,3 +1,63 @@
+2018-06-23  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R106-White.el (U+768D): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R094-Dog.el (U-0002DE09): New character; unify
+	CB07555.
+	(U+7332): Apply new conventions for glyph granularity.
+	(CU+7366): Add some relations for other characters.
+	(U+7375): Add `sound@ja/on'.
+	(UU+7375): Add some relations for other characters.
+
+	* Ideograph-R085-Water.el (A-cgnU+6D95): Changed from U+6D95.
+	(AJ1-05429): Unify U+6D95 instead of A-IWDSU+6D95 and UU+6D95; use
+	A-cgnU+6D95 instead of U+6D95 as its mother; add some relations
+	for other characters; add representative nodes.
+	(HNG-KHM0085-0): Use A-cgnU+6D95 instead of U+6D95 as its mother.
+	(U+6F05): Apply new conventions for glyph granularity.
+	(U+6FC8): Likewise.
+
+	* Ideograph-R064-Hand.el (U+6268): Add `ideographic-structure';
+	add `sound@ja/on'.
+	(M-11816): Add `<-denotational' for U+6268; unify UU+6268.
+	(M-11817): Unify U-00022A79; apply new conventions for glyph
+	granularity.
+	(A-IWDSU+22A7C): New abstract node.
+	(M-11818): Add `<-denotational@component' for A-IWDSU+22A7C; unify
+	U-00022A7B, MJ036710 and KOSEKI-133110; apply new conventions for
+	glyph granularity.
+	(M-11819): Unify U-00022A77; apply new conventions for glyph
+	granularity.
+	(M-11820): Unify U-00022A7A, MJ036709 and KOSEKI-133120; apply new
+	conventions for glyph granularity.
+	(M-11821): Add `<-denotational@component' for A-IWDSU+22A7C; unify
+	U-00022A7C; apply new conventions for glyph granularity.
+	(U-00022A78): Apply new conventions for glyph granularity.
+	(M-11822): Add `<-denotational' for U-00022A78; unify IU+22A78.
+	(U+6267): Apply new conventions for glyph granularity.
+	(JU+6268): Add `ideographic-structure'.
+	(U-00022A9F): New character.
+	(A-IWDSU+63D2): New abstract node.
+	(U+633F): Add `<-denotational' for A-IWDSU+63D2; apply new
+	conventions for glyph granularity.
+	(U+6377): Add some relations for other characters.
+	(U+63A5): Add `ideographic-structure'.
+	(U-00022BA3): Apply new conventions for glyph granularity.
+	(U+63D2): Add `<-denotational' for A-IWDSU+63D2; apply new
+	conventions for glyph granularity.
+	(U+63F7): Likewise.
+	(U+6470): Apply new conventions for glyph granularity.
+	(U+6477): Add ideographic-structure.
+	(U-00022D2B): Apply new conventions for glyph granularity.
+	(U+64D6): Likewise.
+	(A-cgnU+22DD0): New abstract node.
+	(U-00022DD0): Add `<-denotational' for A-cgnU+22DD0; add
+	`ideographic-structure'; add `sound@ja/on'; add `<-formed' for
+	U-00024D21; separate H5-EDA7.
+	(H5-EDA7): Add `<-denotational' for A-cgnU+22DD0.
+	(U+64F8): Apply new conventions for glyph granularity.
+
 2018-06-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R147-See.el (A-MJ060177): Unify U-0002E5DC; use
