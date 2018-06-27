@@ -1549,6 +1549,13 @@
      ((=>ucs@cognate	  . #x22002)	; &A-cgnU+22002;
       ))
     (ideographic-radical . 47)	; ⼮
+    (=>ucs@component	. #x22002)	; &A-compU+22002;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x22002)	; &A-compU+22002;
+      ))
+    (ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (hanyu-dazidian	2 1098 15)
@@ -1593,58 +1600,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cognate	  . #x22002)	; &A-cgnU+22002;
-      ))
-    (ideographic-radical . 47)	; ⼮
-    (ideographic-strokes . 11)
-    (total-strokes	 . 14)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs-itaiji-002	  . #x21FFA)	; &U-i002+21FFA;
-      )
-     ((=big5-cdp-var-001  . #x85E4)	; &CDP-v001-85E4;
-      ))
-    (=ucs-itaiji-005	. #x22002)	; &U-i005+22002;
-    ))
-(define-char
-  '((<-denotational
-     ((=>ucs@cognate	  . #x22002)	; &A-cgnU+22002;
-      ))
-    (ideographic-radical . 47)	; ⼮
-    (ideographic-strokes . 11)
-    (total-strokes	 . 14)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs-itaiji-002	  . #x21FFA)	; &U-i002+21FFA;
-      )
-     ((=big5-cdp-var-001  . #x85F3)	; &CDP-v001-85F3;
-      ))
-    (=ucs-itaiji-006	. #x22002)	; &U-i006+22002;
-    ))
-(define-char
-  '((<-denotational
-     ((=>ucs@cognate	  . #x22002)	; &A-cgnU+22002;
-      ))
-    (ideographic-radical . 47)	; ⼮
-    (ideographic-strokes . 11)
-    (total-strokes	 . 14)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs-itaiji-006	  . #x21FFA)	; &U-i006+21FFA;
-      )
-     ((=big5-cdp	  . #x85F3)	; &CDP-85F3;
-      ))
-    (=ucs-itaiji-008	. #x22002)	; &U-i008+22002;
-    ))
-(define-char
-  '((<-denotational
-     ((=>ucs@cognate	  . #x22002)	; &A-cgnU+22002;
+     ((=>ucs@component	  . #x22002)	; &A-compU+22002;
       ))
     (ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 11)
@@ -1654,7 +1610,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@cognate	  . #x22002)	; &A-cgnU+22002;
+     ((=>ucs@component	  . #x22002)	; &A-compU+22002;
       ))
     (ideographic-radical . 47)	; ⼮
     (=>ucs-itaiji-001	. #x22002)	; &A-U-i001+22002;
@@ -1736,6 +1692,57 @@
     (->subsumptive
      ((==ucs-itaiji-001	  . #x22002)	; &g2-U-i001+22002;
       ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x22002)	; &A-cgnU+22002;
+      ))
+    (ideographic-radical . 47)	; ⼮
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-002	  . #x21FFA)	; &U-i002+21FFA;
+      )
+     ((=big5-cdp-var-001  . #x85E4)	; &CDP-v001-85E4;
+      ))
+    (=ucs-itaiji-005	. #x22002)	; &U-i005+22002;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x22002)	; &A-cgnU+22002;
+      ))
+    (ideographic-radical . 47)	; ⼮
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-002	  . #x21FFA)	; &U-i002+21FFA;
+      )
+     ((=big5-cdp-var-001  . #x85F3)	; &CDP-v001-85F3;
+      ))
+    (=ucs-itaiji-006	. #x22002)	; &U-i006+22002;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x22002)	; &A-cgnU+22002;
+      ))
+    (ideographic-radical . 47)	; ⼮
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-006	  . #x21FFA)	; &U-i006+21FFA;
+      )
+     ((=big5-cdp	  . #x85F3)	; &CDP-85F3;
+      ))
+    (=ucs-itaiji-008	. #x22002)	; &U-i008+22002;
     ))
 (define-char
   '((<-denotational
