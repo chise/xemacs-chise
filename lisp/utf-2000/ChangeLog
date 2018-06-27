@@ -1,3 +1,17 @@
+2018-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R150-Valley.el (A-compU+2050C): New abstract node.
+	(U+8C37): Add A-compU+2050C as a target of
+	`<-denotational@component'.
+	(U-00027BB8): Modify structure; unify MJ049282 and KOSEKI-411000.
+
+	* Ideograph-R047-River.el (A-compU+22002): New abstract node; use
+	`<-denotational' for A-cgnU+22002.
+	(U-00022002): Use A-compU+22002 instead of A-cgnU+22002 as its
+	mother.
+	(A-U+22002-itaiji-002): Likewise.
+	(A-U+22002-itaiji-001): Likewise.
+
 2018-06-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R121-Jar.el (U+7F4F): Apply new conventions for glyph
