@@ -1,3 +1,28 @@
+2018-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R130-Meat.el (U+80E5-itaiji-001): New character.
+	(U+440A): Use `->subsumptive'.
+	(U-0002683C): Apply new conventions for glyph granularity.
+	(U-00026873): Likewise; use `<-denotational' for U-0002683C.
+	(M-29973): Unify IU+26873, MJ045787 and KOSEKI-334390; use
+	`<-denotational' for U-00026873 instead of `<-subsumptive' for
+	U-0002683C.
+	(U+81D8): Add ideographic-structure.
+
+	* Ideograph-R057-Bow.el (A-cgnU+223A5): New abstract node.
+	(U-000223A5): Add `<-denotational' for A-cgnU+223A5; add
+	`ideographic-structure'.
+	(U+223A5-var-002): New character; use `<-denotational' for
+	U-000223A5.
+	(BC-8CC4): Use `<-denotational' for U-000223A5 instead of
+	`<-subsumptive' for A-BC-8CC4; add `<-denotational@component' for
+	A-BC-8CC4.
+	(U+223A5-var-001): Use `<-denotational' for A-cgnU+223A5 instead
+	of `<-subsumptive' for A-BC-8CC4; add `<-denotational@component'
+	for A-BC-8CC4.
+	(A-BC-8CC4): Use `<-denotational@component' for A-cgnU+223A5
+	instead of `<-denotational' for U-000223A5.
+
 2018-06-26  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R150-Valley.el (A-compU+2050C): New abstract node.
