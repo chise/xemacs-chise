@@ -7064,13 +7064,31 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x65E5)	; 日
+     ((=>ucs@component	  . #x65E5)	; &A-compU+65E5;
+      (=>iwds-1		  .  0118)	; &A-compU+65E5;
       )
      ((=ucs		  . #x5F1F)	; 弟
       ))
     (sound@ja/on	"koN")
     (=ucs		. #x665C)	; 晜
-    (=adobe-japan1-4	. 14606)	; &I-AJ1-14606;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x665C)	; 晜
+      ))
+    (ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((=ucs		  . #x5F1F)	; 弟
+      ))
+    (=ucs@unicode	. #x665C)	; &AJ1-14606;
+    (=adobe-japan1-4	. 14606)	; &AJ1-14606;
     (=jis-x0212		. #x423C)	; &I-JSP-423C; [34-28]
     (=cns11643-2	. #x356F)	; &I-C2-356F; [21-79]
     (=big5		. #xD5AD)	; &I-B-D5AD;
@@ -7078,6 +7096,9 @@
     (<-formed
      ((=ucs@iso		  . #x252BD)	; &MJ042476;
       (=mj		  . 042476)	; &MJ042476;
+      )
+     ((=ucs@unicode	  . #x7F64)	; &AJ1-18388;
+      (=adobe-japan1-5	  . 18388)	; &AJ1-18388;
       ))
     (<-interchangeable
      ((=ucs		  . #x6606)	; 昆

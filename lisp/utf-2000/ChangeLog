@@ -1,3 +1,11 @@
+2018-06-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R122-Net.el (U+7F64): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R072-Sun.el (U+665C): Apply new conventions for glyph
+	granularity.
+
 2018-06-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R130-Meat.el (U+80E5-itaiji-001): New character.

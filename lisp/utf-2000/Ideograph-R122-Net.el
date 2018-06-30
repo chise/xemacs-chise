@@ -2037,7 +2037,6 @@
   '((ideographic-radical . 122)	; ⽹
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (hanyu-dazidian	4 2918 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -2047,11 +2046,65 @@
      ((=ucs		  . #x5F1F)	; 弟
       ))
     (=ucs		. #x7F64)	; 罤
-    (=adobe-japan1-5	. 18388)	; &I-AJ1-18388;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7F64)	; 罤
+      ))
+    (ideographic-radical . 122)	; ⽹
+    (ideographic-strokes . 7)
+    (total-strokes	 . 12)
+    (hanyu-dazidian	4 2918 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x7F52)	; &JX2-746A;
+      (=jis-x0212	  . #x5474)	; &JX2-746A; [52-84]
+      (=cns11643-4	  . #x2221)	; &I-C4-2221; [02-01]
+      (=jis-x0213-2	  . #x746A)	; &I-JX2-746A; [84-74]
+      (=daikanwa	  . 28200)	; &I-M-28200;
+      )
+     ((=ucs		  . #x5F1F)	; 弟
+      ))
+    (=ucs@unicode	. #x7F64)	; &AJ1-18388;
+    (=adobe-japan1-5	. 18388)	; &AJ1-18388;
     (=jis-x0212		. #x547B)	; &I-JSP-547B; [52-91]
     (=cns11643-4	. #x3A2B)	; &I-C4-3A2B; [26-11]
     (=jis-x0213-2	. #x746E)	; &I-JX2-746E; [84-78]
     (=daikanwa		. 28276)	; &I-M-28276;
+    (<-formed
+     ((=ucs@iso		  . #x252BD)	; &MJ042476;
+      (=mj		  . 042476)	; &MJ042476;
+      ))
+    (<-formed*sources
+     chengweilu)
+    (<-vulgar
+     ((=ucs@iso		  . #x252BD)	; &MJ042476;
+      (=mj		  . 042476)	; &MJ042476;
+      ))
+    (<-vulgar*sources
+     zhengzitong)
+    (->formed
+     ((=ucs@unicode	  . #x665C)	; &AJ1-14606;
+      (=adobe-japan1-4	  . 14606)	; &AJ1-14606;
+      (=daikanwa	  . 13944)	; &I-M-13944;
+      ))
+    (->formed*sources
+     chengweilu daikanwa)
+    (->interchangeable
+     ((=ucs		  . #x8E44)	; 蹄
+      (=daikanwa	  . 37724)	; &I-M-37724;
+      ))
+    (->interchangeable*sources
+     jiyun daikanwa)
+    (->original
+     ((=ucs@iso		  . #x252BD)	; &MJ042476;
+      (=mj		  . 042476)	; &MJ042476;
+      (=daikanwa	  . 23714)	; &I-M-23714;
+      ))
+    (->original*sources
+     zhengzitong daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x7F64)	; &g2-AJ1-18388;
       (==adobe-japan1-5	  . 18388)	; &g2-AJ1-18388;
