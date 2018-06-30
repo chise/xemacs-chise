@@ -13061,13 +13061,19 @@
     (=koseki		. 265060)	; &MJ042476;
     (=daikanwa		. 23714)	; &I-M-23714;
     (<-original
-     ((=ucs		  . #x665C)	; 晜
+     ((=ucs@unicode	  . #x665C)	; &AJ1-14606;
+      (=adobe-japan1-4	  . 14606)	; &AJ1-14606;
+      )
+     ((=ucs@unicode	  . #x7F64)	; &AJ1-18388;
+      (=adobe-japan1-5	  . 18388)	; &AJ1-18388;
       ))
     (<-same
-     ((=ucs		  . #x665C)	; 晜
+     ((=ucs@unicode	  . #x665C)	; &AJ1-14606;
+      (=adobe-japan1-4	  . 14606)	; &AJ1-14606;
       (=daikanwa	  . 13944)	; &I-M-13944;
       )
-     ((=ucs		  . #x7F64)	; 罤
+     ((=ucs@unicode	  . #x7F64)	; &AJ1-18388;
+      (=adobe-japan1-5	  . 18388)	; &AJ1-18388;
       (=daikanwa	  . 28276)	; &I-M-28276;
       )
      ((=ucs		  . #x6606)	; 昆
@@ -13082,9 +13088,11 @@
     (<-same*sources
      daikanwa)
     (->formed
-     ((=ucs		  . #x665C)	; 晜
+     ((=ucs@unicode	  . #x665C)	; &AJ1-14606;
+      (=adobe-japan1-4	  . 14606)	; &AJ1-14606;
       )
-     ((=ucs		  . #x7F64)	; 罤
+     ((=ucs@unicode	  . #x7F64)	; &AJ1-18388;
+      (=adobe-japan1-5	  . 18388)	; &AJ1-18388;
       ))
     (->formed$_1*sources
      jiyun)
