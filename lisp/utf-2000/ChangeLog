@@ -1,3 +1,26 @@
+2018-06-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R148-Horn.el (U-000278B8): Apply new conventions for
+	glyph granularity.
+	(U+4697): Likewise.
+	(U-000278CF): Likewise.
+	(U-000278DA): Use `->denotational' and `->subsumptive'.
+	(U-000278ED): Apply new conventions for glyph granularity.
+	(U-000278F0): Likewise.
+	(U+46A0): Likewise.
+	(U-00027906): Likewise.
+	(U+46A2): Likewise.
+	(U-0002790F): Use `->denotational' and `->subsumptive'.
+	(U+46A5): Likewise.
+	(U+46A6): Apply new conventions for glyph granularity.
+	(U-00027937): Likewise.
+	(U-00027938): New character.
+	(U-00027944): Apply new conventions for glyph granularity.
+	(U+46AB): Likewise.
+	(U+89FB): Likewise.
+	(U+89FE): Likewise.
+	(U+46AD): Likewise.
+
 2018-06-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R122-Net.el (U+7F64): Apply new conventions for glyph
