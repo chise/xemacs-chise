@@ -8057,21 +8057,73 @@
     (=hanziku-7		. #xBA55)	; &I-HZK07-BA55;
     ))
 (define-char
-  '((=>ucs		. #x24D05)	; 𤴅
+  '((ideographic-radical . 102)	; ⽥
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>ucs@iwds-1	  . #x753E)	; &A-IWDSU+753E;
+      (=>iwds-1		  .  10376)	; &A-IWDSU+753E;
+      )
+     ((=ucs		  . #x76E7)	; 盧
+      ))
+    (sound@ja/on	"ro")
+    (=ucs		. #x24D05)	; 𤴅
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x24D05)	; 𤴅
+      ))
     (ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 19)
     (total-strokes	 . 24)
     (hanyu-dazidian	4 2556 4)
-    (=daikanwa		. 21985)	; &M-21985;
-    (=hanziku-7		. #xBA57)	; &I-HZK07-BA57;
-    ))
-(define-char
-  '((morohashi-daikanwa	21985 0 0)
-    (ideographic-radical . 102)	; ⽥
-    (ideographic-strokes . 19)
-    (total-strokes	 . 24)
-    (=ucs		. #x24D05)	; 𤴅
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x753E)	; &AJ1-18126;
+      (=adobe-japan1-5	  . 18126)	; &AJ1-18126;
+      )
+     ((=ucs@unicode	  . #x76E7)	; &AJ1-05807;
+      (=adobe-japan1-0	  . 05807)	; &AJ1-05807;
+      ))
+    (=ucs@iso		. #x24D05)	; &MJ041495;
+    (=mj		. 041495)	; &MJ041495;
     (=cns11643-7	. #x5E7C)	; &I-C7-5E7C; [62-92]
+    (=koseki		. 246710)	; &MJ041495;
+    (=daikanwa		. 21985)	; &I-M-21985;
+    (<-ancient
+     ((=ucs@iso		  . #x271C4)	; &MJ047399;
+      (=mj		  . 047399)	; &MJ047399;
+      (=daikanwa	  . 32735)	; &I-M-32735;
+      ))
+    (<-ancient*sources
+     jiyun daikanwa)
+    (<-formed
+     ((=ucs@iso		  . #x271C4)	; &MJ047399;
+      (=mj		  . 047399)	; &MJ047399;
+      (=koseki		  . 372410)	; &MJ047399;
+      ))
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==mj		  . 041495)	; &g2-MJ041495;
+      (==koseki		  . 246710)	; &g2-MJ041495;
+      (==daikanwa	  . 21985)	; &g2-MJ041495;
+      (->subsumptive
+       ((===daikanwa	    . 21985)	; &R-M-21985;
+	)
+       ((===mj		    . 041495)	; &R-MJ041495;
+	)
+       ((=hanziku-7	    . #xBA57)	; &HZK07-BA57;
+	))
+      )
+     ((==ucs@iso	  . #x24D05)	; &g2-IU-00024D05;
+      )
+     ((==ucs@cns	  . #x24D05)	; &g2-CU+24D05;
+      (==cns11643-7	  . #x5E7C)	; &g2-CU+24D05; [62-92]
+      ))
     ))
 (define-char
   '((ideographic-radical . 102)	; ⽥
