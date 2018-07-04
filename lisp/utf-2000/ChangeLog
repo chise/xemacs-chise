@@ -1,5 +1,8 @@
 2018-07-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R002-Line.el (U+4E2E-itaiji-007): New character; use
+	`<-denotational' for U+4E2E.
+
 	* Ideograph-R102-Field.el (U-00024D05): Use `->denotational' and
 	`->subsumptive'.
 

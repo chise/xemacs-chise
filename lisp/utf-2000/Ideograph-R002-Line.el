@@ -560,6 +560,15 @@
     (ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
+    (=ucs-itaiji-007	. #x4E2E)	; &U-i007+4E2E;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4E2E)	; 丮
+      ))
+    (ideographic-radical . 2)	; ⼁
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
     (=gt-k		. 00604)	; &GT-K00604;
     (=gt-pj-k1		. #x387E)	; &GT-K00604; [24-94]
     (->subsumptive
