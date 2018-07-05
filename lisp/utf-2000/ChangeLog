@@ -1,3 +1,18 @@
+2018-07-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R120-Silk.el (U+7D43): Add `ideographic-structure';
+	add `sound@ja/on/{kan|go}'; add some relations for other
+	characters.
+	(U-000260EA): New character.
+	(U+7E36): Apply new conventions for glyph granularity.
+	(U+7E54): Likewise.
+	(U-0002616C): Likewise.
+
+	* Ideograph-R037-Big.el (U-00021655): Apply new conventions for
+	glyph granularity.
+	(U+21655-itaiji-001): New character; use `<-denotational' for
+	U-00021655.
+
 2018-07-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R002-Line.el (U+4E2E-itaiji-007): New character; use
