@@ -5269,14 +5269,75 @@
   '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=ucs		. #x21655)	; 𡙕
-    (->subsumptive
-     ((=daikanwa	  . 49010)	; &M-49010;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((hanyu-dazidian	  8 12 16)
-      (=ucs@iso		  . #x21655)	; &C6-4759;
-      (=cns11643-6	  . #x4759)	; &C6-4759; [39-57]
-      (=hanziku-12	  . #xEBED)	; &I-HZK12-EBED;
+     ((=ucs		  . #x3694)	; 㚔
+      )
+     ((=ucs		  . #x4E2E)	; 丮
+      ))
+    (sound@ja/on	"sIHu")
+    (=ucs		. #x21655)	; 𡙕
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21655)	; 𡙕
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (hanyu-dazidian	8 12 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x3694)	; 㚔
+      )
+     ((=gt-k		  . 00604)	; &GT-K00604;
+      ))
+    (=ucs@iso		. #x21655)	; &C6-4759;
+    (=cns11643-6	. #x4759)	; &C6-4759; [39-57]
+    (=daikanwa		. 49010)	; &I-M-49010;
+    (<-original
+     ((=ucs@unicode	  . #x57F7)	; &AJ1-02277;
+      (=adobe-japan1-0	  . 02277)	; &AJ1-02277;
+      (=daikanwa	  . 05193)	; &I-M-05193;
+      ))
+    (<-original*sources
+     daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 49010)	; &g2-M-49010;
+      )
+     ((==ucs@iso	  . #x21655)	; &g2-IU-00021655;
+      (==cns11643-6	  . #x4759)	; &g2-IU-00021655; [39-57]
+      (->subsumptive
+       ((===cns11643-6	    . #x4759)	; &R-C6-4759; [39-57]
+	)
+       ((===ucs@iso	    . #x21655)	; &R-U-00021655;
+	)
+       ((=hanziku-12	    . #xEBED)	; &HZK12-EBED;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21655)	; 𡙕
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x3694)	; 㚔
+      )
+     ((=ucs-itaiji-007	  . #x4E2E)	; &U-i007+4E2E;
+      ))
+    (=ucs-itaiji-001	. #x21655)	; &U-i001+21655;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x21655)	; &g2-U-i001+21655;
       ))
     ))
 (define-char
