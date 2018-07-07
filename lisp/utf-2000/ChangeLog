@@ -1,3 +1,20 @@
+2018-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R152-Pig.el (A-RUI6-E079): New abstract node.
+	(RUI6-E079): New character; use `<-denotational' for A-RUI6-E079.
+	(B-D7CF): Unify A-IWDSU+8C63.
+	(U+8C5C): Add `ideographic-structure'; add `sound@ja/on'.
+	(U+8C61): Add `ideographic-structure'.
+	(U-00027C3D): Apply new conventions for glyph granularity.
+	(U+8C63): Add `ideographic-structure'; add `sound@ja/on'; add some
+	relations for other characters.
+	(U-00027C56): Apply new conventions for glyph granularity.
+	(U-00027C5A): Likewise.
+	(U+474A): Likewise.
+	(U+8C6F): Likewise.
+	(U-00027C80): Likewise.
+	(U-00027C8C): Likewise.
+
 2018-07-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R120-Silk.el (U+7D43): Add `ideographic-structure';
