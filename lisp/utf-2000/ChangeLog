@@ -1,3 +1,16 @@
+2018-07-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R141-Tiger.el (A-IWDSU+271C4): New abstract node.
+	(A-compU+271C4): New abstract node; use `<-denotational' for
+	A-IWDSU+271C4.
+	(U-000271C4): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-compU+271C4.
+	(U-000271D5): Likewise; separate M-32741.
+	(U-000271CF): New character.
+	(M-32741): Unify IU+271CF, MJ047412 and KOSEKI-372470 instead of
+	U-000271D5 and C7-2828; add `<-denotational' for U-000271CF; add
+	`<-formed' and `<-vulgar' for MJ047376.
+
 2018-07-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R152-Pig.el (A-RUI6-E079): New abstract node.
