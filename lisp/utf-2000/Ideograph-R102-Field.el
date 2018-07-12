@@ -69,7 +69,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 102)	; ⽥
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x20679)	; &A-IWDSU+20679;
+      ))
+    (ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (=>iwds-1*note	"132a")
