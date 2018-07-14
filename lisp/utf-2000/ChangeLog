@@ -1,5 +1,21 @@
 2018-07-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R017-Open-Box.el (U+51F6): Add
+	`ideographic-structure'; add some relations for other characters.
+	(A-IWDSU+20679): New abstract node.
+	(A-IWDSU+51F7): Add `<-denotational@component' for A-IWDSU+20679;
+	add `ideographic-structure'.
+	(U+51F7): Add some relations for other characters; add
+	representative nodes.
+	(U-0002067D): Add `<-denotational@component' for A-compU+20679.
+	(A-compU+20679): New abstract node; use `<-denotational@component'
+	for A-IWDSU+20679; add `ideographic-structure'.
+	(U-00020679): Add A-compU+20679 into a target of
+	`<-denotational@component'.
+	(U-0002068B): Apply new conventions for glyph granularity.
+	(U+2068B-itaiji-001): New character; use `<-denotational' for
+	U-0002068B.
+
 	* Ideograph-R152-Pig.el (U+4754): Use `->denotational' and
 	`->subsumptive'.
 
