@@ -1,3 +1,15 @@
+2018-08-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (A-GT-K02849): New abstract node;
+	unify A-U+8FB0-itaiji-001.
+	(U+8FB0-itaiji-001): New character; use `<-denotational' for
+	A-GT-K02849.
+	(GT-K02849): Likewise.
+	(U+5CF1): Apply new conventions for glyph granularity.
+	(U-00021E06): New character.
+	(U+5DA9): Apply new conventions for glyph granularity.
+	(U+5DCE): Likewise.
+
 2018-07-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R017-Open-Box.el (U+51F6): Add
