@@ -1,3 +1,19 @@
+2018-08-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R086-Fire.el (U-00024182): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R085-Water.el (U+6C79): Add `ideographic-structure';
+	add `sound@ja/on'; add `<-formed' and `<-same' for U+6D36; add
+	representative nodes.
+	(U+6D36): Add `ideographic-structure'; add some relations for
+	other characters; add representative nodes.
+	(U+6F05-var-001): New character; use `<-denotational' for U+6F05.
+	(U-00023F22): Apply new conventions for glyph granularity.
+	(MJ039547): New character; use `<-denotational' for U-00023F22;
+	unify KOSEKI-205190 and M-18209.
+	(U+6EF2-itaiji-001): New character.
+
 2018-08-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R046-Mountain.el (A-GT-K02849): New abstract node;

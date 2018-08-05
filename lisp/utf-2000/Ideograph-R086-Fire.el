@@ -118,14 +118,39 @@
   '((ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
-    (=ucs		. #x24182)	; 𤆂
-    (->subsumptive
-     ((hanyu-dazidian	  3 2188 2)
-      (=ucs@iso		  . #x24182)	; &M-18852;
-      (=daikanwa	  . 18852)	; &M-18852;
-      (=hanziku-6	  . #xC26A)	; &I-HZK06-C26A;
+    (hanyu-dazidian	3 2188 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=cns11643-6	  . #x232F)	; &C6-232F; [03-15]
+     ((=ucs		  . #x706B)	; 火
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (sound@ja/on	"ki")
+    (=ucs		. #x24182)	; 𤆂
+    (=cns11643-6	. #x232F)	; &I-C6-232F; [03-15]
+    (=daikanwa		. 18852)	; &I-M-18852;
+    (<-ancient
+     ((=ucs@cns		  . #x8562)	; &C2-596F;
+      (=cns11643-2	  . #x596F)	; &C2-596F; [57-79]
+      (=daikanwa	  . 31989)	; &I-M-31989;
+      ))
+    (<-ancient*sources
+     shuowen-changjian daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x24182)	; &g2-M-18852;
+      (==daikanwa	  . 18852)	; &g2-M-18852;
+      (->subsumptive
+       ((===daikanwa	    . 18852)	; &R-M-18852;
+	)
+       ((===ucs@iso	    . #x24182)	; &R-U-00024182;
+	)
+       ((=hanziku-6	    . #xC26A)	; &HZK06-C26A;
+	))
+      )
+     ((==ucs@cns	  . #x24182)	; &g2-CU+24182;
+      (==cns11643-6	  . #x232F)	; &g2-CU+24182; [03-15]
       ))
     ))
 (define-char
