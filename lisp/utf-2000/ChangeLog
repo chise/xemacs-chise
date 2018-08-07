@@ -1,3 +1,18 @@
+2018-08-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R124-Feather.el (U+4386): Apply new conventions for
+	glyph granularity.
+	(U+4386-var-001): New character; use `<-denotational' for U+4386.
+
+2018-08-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U+581A): Apply new conventions for
+	glyph granularity.
+	(U-00021366): Likewise.
+	(U+584A): Add `sound@ja/on/{kan|go}'.
+	(JU+584A): Add some relations for other characters.
+	(U+58A4): Apply new conventions for glyph granularity.
+
 2018-08-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R086-Fire.el (U-00024182): Apply new conventions for
