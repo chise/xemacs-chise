@@ -1,3 +1,19 @@
+2018-08-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R035-Go-Slowly.el (U+5912): Use A-IWDSU+9801 instead
+	of U+9801 in `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(CU+5912): Add `ideographic-structure'; unify HD-KS065780 and
+	KOSEKI-065780; add some relations for other characters.
+	(U+5912-var-003): Use U-0002944B instead of U+9801 in
+	`ideographic-structure'.
+	(U+5912-var-004): Likewise.
+	(U+5912-var-001): New character; use `<-denotational' for U+5912.
+	(UU+5912): Add `ideographic-structure'.
+	(JU+5912): Use U-0002944B instead of U+9801 in
+	`ideographic-structure'.
+	(U+5914): Add `sound@ja/on/{kan|go}'.
+	(MJ009427): Add `->mistakable' for CU+5912.
+
 2018-08-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R022-Right-Open-Box.el (U+5331): Apply new conventions
