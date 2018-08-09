@@ -1,3 +1,16 @@
+2018-08-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+54C5): Add some relations for other
+	characters; add representative nodes.
+	(U+557C): Add `sound@ja/on/{kan|go}'; add some relations for other
+	characters.
+	(U-00020FC7): Add `sound@ja/on'.
+	(IU+20FC7): Add `<-formed' and `<-same' for JU+8B11.
+	(U+5667): Use `->denotational' and `->subsumptive'.
+	(U-00021096): Apply new conventions for glyph granularity.
+	(U-000210E4): Add `sound@ja/on'.
+	(IU+210E4): Add `<-formed' and `<-same' for IU+21096.
+
 2018-08-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R035-Go-Slowly.el (U+5912): Use A-IWDSU+9801 instead
