@@ -1,3 +1,18 @@
+2018-08-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R115-Grain.el (A-cgnU+7A50): Changed from U+7A50.
+	(AJ1-01136): Unify U+7A50 instead of A-IWDSU+7A50 and UU+7A50; use
+	A-cgnU+7A50 instead of U+7A50 as its mother.
+
+	* Ideograph-R086-Fire.el (U+7192): Use `->subsumptive'.
+
+	* Ideograph-R062-Halberd.el (U+6215): Apply new conventions for
+	glyph granularity.
+	(BC-8879): New character; use `<-denotational' for U+6215.
+
+	* Ideograph-R009-Man.el (A-GT-K05990): New abstract node.
+	(GT-K05990): New character; use `<-denotational' for A-GT-K05990.
+
 2018-08-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U+54C5): Add some relations for other
