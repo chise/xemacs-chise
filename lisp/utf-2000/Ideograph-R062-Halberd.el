@@ -958,18 +958,80 @@
 (define-char
   '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 4)
-    (total-strokes	 . 8)
-    (=ucs		. #x6215)	; 戕
-    (=big5		. #xA9CF)	; &I-B-A9CF;
-    (->subsumptive
-     ((=ucs@unicode	  . #x6215)	; &JX2-2C73;
-      (=gb2312		  . #x635E)	; &JX2-2C73; [67-62]
-      (=jis-x0212	  . #x3F29)	; &I-JSP-3F29; [31-09]
-      (=jis-x0213-2	  . #x2C73)	; &I-JX2-2C73; [12-83]
-      (=daikanwa	  . 11562)	; &I-M-11562;
-      (=jef-china3	  . #x4EF3)	; &I-JC3-4EF3;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-1	  . #x4D51)	; &C1-4D51; [45-49]
+     ((=>ucs@iwds-1	  . #x723F)	; &A-IWDSU+723F;
+      (=>iwds-1		  .  0363)	; &A-IWDSU+723F;
+      )
+     ((=ucs		  . #x6208)	; 戈
+      ))
+    (=ucs		. #x6215)	; 戕
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6215)	; 戕
+      ))
+    (ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x723F)	; 爿
+      )
+     ((=ucs		  . #x6208)	; 戈
+      ))
+    (=ucs@unicode	. #x6215)	; &JX2-2C73;
+    (=gb2312		. #x635E)	; &JX2-2C73; [67-62]
+    (=jis-x0212		. #x3F29)	; &I-JSP-3F29; [31-09]
+    (=cns11643-1	. #x4D51)	; &I-C1-4D51; [45-49]
+    (=jis-x0213-2	. #x2C73)	; &I-JX2-2C73; [12-83]
+    (=big5		. #xA9CF)	; &I-B-A9CF;
+    (=daikanwa		. 11562)	; &I-M-11562;
+    (=jef-china3	. #x4EF3)	; &I-JC3-4EF3;
+    (->subsumptive
+     ((==ucs@unicode	  . #x6215)	; &g2-JSP-3F29;
+      (==gb2312		  . #x635E)	; &g2-JSP-3F29; [67-62]
+      (==jis-x0212	  . #x3F29)	; &g2-JSP-3F29; [31-09]
+      (==jis-x0213-2	  . #x2C73)	; &g2-JSP-3F29; [12-83]
+      (==daikanwa	  . 11562)	; &g2-JSP-3F29;
+      (==jef-china3	  . #x4EF3)	; &g2-JSP-3F29;
+      (->subsumptive
+       ((===daikanwa	    . 11562)	; &R-M-11562;
+	)
+       ((===jis-x0212	    . #x3F29)	; &R-JX2-2C73; [31-09]
+	(===jis-x0213-2	    . #x2C73)	; &R-JX2-2C73; [12-83]
+	)
+       ((===jef-china3	    . #x4EF3)	; &R-JC3-4EF3;
+	)
+       ((===ucs@unicode	    . #x6215)	; &R-UU+6215;
+	))
+      )
+     ((==ucs@cns	  . #x6215)	; &g2-CU+6215;
+      (==cns11643-1	  . #x4D51)	; &g2-CU+6215; [45-49]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6215)	; 戕
+      ))
+    (ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4E2C)	; 丬
+      )
+     ((=ucs		  . #x6208)	; 戈
+      ))
+    (=big5-cdp		. #x8879)	; &CDP-8879;
+    (->subsumptive
+     ((==big5-cdp	  . #x8879)	; &g2-CDP-8879;
       ))
     ))
 (define-char
