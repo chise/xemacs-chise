@@ -21718,6 +21718,43 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x4EBA)	; &A-compU+4EBA;
+      (=>iwds-1		  .  0146)	; &A-compU+4EBA;
+      )
+     ((=ucs		  . #x9578)	; 镸
+      ))
+    (=>gt-k		. 05990)	; &A-GT-K05990;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 05990)	; &A-GT-K05990;
+      ))
+    (ideographic-radical . 9)	; ⼈
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x201A2)	; 𠆢
+      )
+     ((=ucs		  . #x9578)	; 镸
+      ))
+    (=gt-k		. 05990)	; &GT-K05990;
+    (=gt-pj-k1		. #x6670)	; &GT-K05990; [70-80]
+    (->subsumptive
+     ((==gt-k		  . 05990)	; &g2-GT-K05990;
+      (==gt-pj-k1	  . #x6670)	; &g2-GT-K05990; [70-80]
+      ))
+    ))
+(define-char
   '((ideographic-radical@ucs . 9)	; ⼈
     (ideographic-radical@ucs*sources
      daikanwa cns11643 ucs jis-x0208/a)
@@ -46089,11 +46126,8 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=ucs@unicode	  . #x83D0)	; &JX2-763C;
-      (=jis-x0212	  . #x583A)	; &JX2-763C; [56-26]
-      (=cns11643-5	  . #x3B6F)	; &I-C5-3B6F; [27-79]
-      (=jis-x0213-2	  . #x763C)	; &I-JX2-763C; [86-28]
-      (=daikanwa	  . 31164)	; &I-M-31164;
+     ((=ucs@unicode	  . #x83D0)	; &AJ1-18500;
+      (=adobe-japan1-5	  . 18500)	; &AJ1-18500;
       ))
     (=ucs@unicode	. #x50D5)	; &AJ1-03707;
     (=adobe-japan1-0	. 03707)	; &AJ1-03707;
@@ -46121,8 +46155,8 @@
        ((name		    . "CJK RADICAL PERSON")
 	(=ucs		    . #x2E85)	; ⺅
 	)
-       ((==ucs@unicode	    . #x83D0)	; &g2-JSP-583A;
-	(==jis-x0213-2	    . #x763C)	; &g2-JSP-583A; [86-28]
+       ((==ucs@unicode	    . #x83D0)	; &g2-AJ1-18500;
+	(==adobe-japan1-5   . 18500)	; &g2-AJ1-18500;
 	))
       (==ucs@unicode	  . #x50D5)	; &g2-AJ1-03707;
       (==adobe-japan1-0	  . 03707)	; &g2-AJ1-03707;
@@ -52759,9 +52793,7 @@
     (=daikanwa		. 01207)	; &I-M-01207;
     (<-same
      ((=ucs@cns		  . #x85D5)	; &C1-786D;
-      (=ucs@ks		  . #x85D5)	; &C1-786D;
-      (=ks-x1001	  . #x6964)	; &C1-786D; [73-68]
-      (=cns11643-1	  . #x786D)	; &I-C1-786D; [88-77]
+      (=cns11643-1	  . #x786D)	; &C1-786D; [88-77]
       (=daikanwa	  . 32298)	; &I-M-32298;
       ))
     (<-same*sources
