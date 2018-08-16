@@ -4,6 +4,9 @@
 	(AJ1-01136): Unify U+7A50 instead of A-IWDSU+7A50 and UU+7A50; use
 	A-cgnU+7A50 instead of U+7A50 as its mother.
 
+	* Ideograph-R131-Minister.el (U+81E7): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R086-Fire.el (U+7192): Use `->subsumptive'.
 
 	* Ideograph-R062-Halberd.el (U+6215): Apply new conventions for
