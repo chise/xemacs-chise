@@ -547,10 +547,38 @@
     ))
 (define-char
   '((ideographic-radical . 131)	; ⾂
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs		  . #x6215)	; 戕
+      )
+     ((=ucs		  . #x81E3)	; 臣
+      ))
+    (=ucs		. #x81E7)	; 臧
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x81E7)	; 臧
+      ))
+    (ideographic-radical . 131)	; ⾂
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
-    (=ucs		. #x81E7)	; 臧
-    (=adobe-japan1-0	. 06292)	; &I-AJ1-06292;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs@unicode	  . #x6215)	; &JX2-2C73;
+      (=gb2312		  . #x635E)	; &JX2-2C73; [67-62]
+      (=jis-x0212	  . #x3F29)	; &I-JSP-3F29; [31-09]
+      (=cns11643-1	  . #x4D51)	; &I-C1-4D51; [45-49]
+      (=jis-x0213-2	  . #x2C73)	; &I-JX2-2C73; [12-83]
+      (=daikanwa	  . 11562)	; &I-M-11562;
+      )
+     ((=ucs		  . #x81E3)	; 臣
+      ))
+    (=ucs@unicode	. #x81E7)	; &AJ1-06292;
+    (=adobe-japan1-0	. 06292)	; &AJ1-06292;
     (=jis-x0208		. #x6749)	; &I-J90-6749; [71-41]
     (=gb2312		. #x6A30)	; &I-G0-6A30; [74-16]
     (=ks-x1001		. #x6D75)	; &I-K0-6D75; [77-85]
@@ -561,7 +589,7 @@
     (=gt-k		. 11233)	; &I-GT-K11233;
     (=gt-pj-1		. #x6749)	; &I-GT-38924; [71-41]
     (=daikanwa		. 30083)	; &I-M-30083;
-    (=shinjigen		.  6596)	; 臧
+    (=shinjigen		.  6596)	; &AJ1-06292;
     (->subsumptive
      ((==ucs@unicode	  . #x81E7)	; &g2-AJ1-06292;
       (==adobe-japan1-0	  . 06292)	; &g2-AJ1-06292;
