@@ -1953,7 +1953,8 @@
     (<-interchangeable*sources
      daikanwa)
     (->formed
-     ((=ucs		  . #x6AC3)	; 櫃
+     ((=ucs@unicode	  . #x6AC3)	; &AJ1-05315;
+      (=adobe-japan1-0	  . 05315)	; &AJ1-05315;
       (=daikanwa	  . 15757)	; &I-M-15757;
       )
      ((=ucs		  . #x944E)	; 鑎
