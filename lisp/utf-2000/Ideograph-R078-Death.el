@@ -1110,6 +1110,9 @@
     (=cns11643-4	. #x2677)	; &I-C4-2677; [06-87]
     (=daikanwa		. 16396)	; &I-M-16396;
     (=cbeta		. 00191)	; &I-CB00191;
+    (<-formed
+     ((=ucs		  . #x51F6)	; 凶
+      ))
     (<-same
      ((=ucs		  . #x51F6)	; 凶
       (=daikanwa	  . 01803)	; &I-M-01803;
@@ -3694,6 +3697,21 @@
     ))
 (define-char
   '((ideographic-radical . 78)	; ⽍
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>big5-cdp	  . #x8C4D)	; &A-GT-K02791;
+      )
+     ((=ucs		  . #x6B7B)	; 死
+      ))
+    (=ucs		. #x23A3B)	; 𣨻
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x23A3B)	; 𣨻
+      ))
+    (ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (hanyu-dazidian	1 291 5)
@@ -3705,8 +3723,8 @@
       )
      ((=ucs		  . #x6B7B)	; 死
       ))
-    (=ucs		. #x23A3B)	; 𣨻
-    (=cns11643-6	. #x5373)	; &I-C6-5373; [51-83]
+    (=ucs@iso		. #x23A3B)	; &C6-5373;
+    (=cns11643-6	. #x5373)	; &C6-5373; [51-83]
     (=daikanwa		. 16529)	; &I-M-16529;
     (<-same
      ((=daikanwa	  . 32146)	; &M-32146;

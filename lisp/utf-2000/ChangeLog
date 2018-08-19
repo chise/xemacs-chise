@@ -1,3 +1,16 @@
+2018-08-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R134-Mortar.el (JU+81FE): Add some relations for other
+	characters.
+	(A-U+81FE-itaiji-001): New abstract node; use `<-denotational' for
+	A-cgnU+81FE; unify A-U+81FE-itaiji-002.
+	(U+81FE-itaiji-001): New character; use `<-denotational' for
+	A-U+81FE-itaiji-001.
+	(U+81FE-itaiji-002): Likewise.
+
+	* Ideograph-R078-Death.el (U-000239D1): Add `<-formed' for U+51F6.
+	(U-00023A3B): Apply new conventions for glyph granularity.
+
 2018-08-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R115-Grain.el (A-cgnU+7A50): Changed from U+7A50.
@@ -19,7 +32,7 @@
 2018-08-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U+54C5): Add some relations for other
-	characters; add representative nodes.
+	charactersw; add representative nodes.
 	(U+557C): Add `sound@ja/on/{kan|go}'; add some relations for other
 	characters.
 	(U-00020FC7): Add `sound@ja/on'.
