@@ -1,3 +1,12 @@
+2018-08-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (U+5FF7): Add some relations for other
+	characters.
+	(U+605F): Likewise; add `sound@ja/on/{kan|go}'.
+	(U+6148): Add `ideographic-structure'.
+	(UU+6148): Use UU+5179 instead U+5179 in `ideographic-structure';
+	delete `=>ucs@iwds-1'.
+
 2018-08-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R134-Mortar.el (JU+81FE): Add some relations for other
