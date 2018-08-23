@@ -3016,12 +3016,38 @@
     (=daikanwa		. 10392)	; &I-M-10392;
     (=shinjigen		.  2476)	; 忷
     (<-formed
+     ((=ucs@unicode	  . #x5147)	; &AJ1-01692;
+      (=adobe-japan1-0	  . 01692)	; &AJ1-01692;
+      (=jis-x0208	  . #x3624)	; &I-J90-3624; [22-04]
+      (=shinjigen	  .  0450)	; &AJ1-01692;
+      )
      ((=ucs		  . #x605F)	; 恟
       (=jis-x0208	  . #x576F)	; &I-J90-576F; [55-79]
       (=shinjigen	  .  2475)	; 恟
       ))
-    (<-formed*sources
+    (<-formed$_1*sources
+     jiyun)
+    (<-formed$_2*sources
      shinjigen)
+    (<-formed*sources
+     jiyun shinjigen)
+    (<-interchangeable
+     ((=ucs		  . #x8A7E)	; 詾
+      ))
+    (<-same
+     ((=ucs@unicode	  . #x5147)	; &AJ1-01692;
+      (=adobe-japan1-0	  . 01692)	; &AJ1-01692;
+      (=daikanwa	  . 01348)	; &I-M-01348;
+      )
+     ((=ucs		  . #x605F)	; 恟
+      (=daikanwa	  . 10573)	; &I-M-10573;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same$_2*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
      ((==ucs@cns	  . #x5FF7)	; &g2-M-10392;
       (==cns11643-2	  . #x2424)	; &g2-M-10392; [04-04]
@@ -8138,6 +8164,8 @@
       )
      ((=ucs		  . #x5308)	; 匈
       ))
+    (sound@ja/on/go	"ku")
+    (sound@ja/on/kan	"kyou")
     (=ucs		. #x605F)	; 恟
     (=adobe-japan1-0	. 04826)	; &I-AJ1-04826;
     (=jis-x0208		. #x576F)	; &I-J90-576F; [55-79]
@@ -8148,6 +8176,16 @@
     (=gt-pj-1		. #x576F)	; &I-GT-13239; [55-79]
     (=daikanwa		. 10573)	; &I-M-10573;
     (=shinjigen		.  2475)	; 恟
+    (<-interchangeable
+     ((=ucs		  . #x8A7E)	; 詾
+      ))
+    (<-same
+     ((=ucs@unicode	  . #x5147)	; &AJ1-01692;
+      (=adobe-japan1-0	  . 01692)	; &AJ1-01692;
+      (=daikanwa	  . 01348)	; &I-M-01348;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x605F)	; &g2-AJ1-04826;
       (==adobe-japan1-0	  . 04826)	; &g2-AJ1-04826;
@@ -20822,6 +20860,15 @@
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x5179)	; &A-IWDSU+5179;
+      (=>iwds-1		  .  0153)	; &A-IWDSU+5179;
+      )
+     ((=ucs		  . #x5FC3)	; 心
+      ))
     (=ucs		. #x6148)	; 慈
     ))
 (define-char
@@ -20835,11 +20882,11 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x5179)	; 兹
+     ((=ucs@unicode	  . #x5179)	; &AJ1-14201;
+      (=adobe-japan1-4	  . 14201)	; &AJ1-14201;
       )
      ((=ucs		  . #x5FC3)	; 心
       ))
-    (=>ucs@iwds-1	. #x6148)	; &MJ011802;
     (=ucs@unicode	. #x6148)	; &MJ011802;
     (=mj		. 011802)	; &MJ011802;
     (=adobe-japan1-0	. 02250)	; &I-AJ1-02250;
