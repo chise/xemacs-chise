@@ -39652,6 +39652,16 @@
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=>ucs@iwds-1	  . #x5179)	; &A-IWDSU+5179;
+      (=>iwds-1		  .  0153)	; &A-IWDSU+5179;
+      ))
+    (sound@ja/on	"si")
     (=ucs		. #x55DE)	; 嗞
     ))
 (define-char
@@ -39667,11 +39677,13 @@
       )
      ((=ucs		  . #x8332)	; 茲
       ))
-    (=+>ucs@jis		. #x55DE)	; &o-JU+55DE;
+    (=+>ucs@jis		. #x55DE)	; &o-AJ1-21291;
+    (=+>adobe-japan1-6	. 21291)	; &o-AJ1-21291;
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@jis	  . #x55DE)	; &o-JU+55DE;
+     ((=+>ucs@jis	  . #x55DE)	; &o-AJ1-21291;
+      (=+>adobe-japan1-6  . 21291)	; &o-AJ1-21291;
       ))
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 10)
@@ -39687,10 +39699,43 @@
       ))
     (=daikanwa		. 04099)	; &M-04099;
     (=cbeta		. 00071)	; &I-CB00071;
+    (<-interchangeable
+     ((=ucs		  . #x23887)	; 𣢇
+      (=daikanwa	  . 16003)	; &I-M-16003;
+      )
+     ((=ucs@jis		  . #x54A8)	; &AJ1-04371;
+      (=ucs@ks		  . #x54A8)	; &AJ1-04371;
+      (=adobe-japan1-0	  . 04371)	; &AJ1-04371;
+      (=daikanwa	  . 03538)	; &I-M-03538;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_2*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-same
+     ((=ucs@jis		  . #x54A8)	; &AJ1-04371;
+      (=ucs@ks		  . #x54A8)	; &AJ1-04371;
+      (=adobe-japan1-0	  . 04371)	; &AJ1-04371;
+      (=daikanwa	  . 03538)	; &I-M-03538;
+      ))
+    (<-same*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 04099)	; &g2-M-04099;
+      (==cbeta		  . 00071)	; &g2-M-04099;
+      (->subsumptive
+       ((===daikanwa	    . 04099)	; &R-M-04099;
+	)
+       ((===cbeta	    . 00071)	; &R-CB00071;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
-     ((=+>ucs@jis	  . #x55DE)	; &o-JU+55DE;
+     ((=+>ucs@jis	  . #x55DE)	; &o-AJ1-21291;
+      (=+>adobe-japan1-6  . 21291)	; &o-AJ1-21291;
       ))
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 9)
@@ -39737,7 +39782,8 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=ucs		  . #x5179)	; 兹
+     ((=ucs@unicode	  . #x5179)	; &AJ1-14201;
+      (=adobe-japan1-4	  . 14201)	; &AJ1-14201;
       ))
     (=ucs@unicode	. #x55DE)	; &C3-3A2B;
     (=ucs@JP/hanazono	. nil)
