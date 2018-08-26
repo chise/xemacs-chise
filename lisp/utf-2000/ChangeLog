@@ -1,3 +1,14 @@
+2018-08-25  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R039-Child.el (U-0002195D): Add
+	`ideographic-structure'; add `sound@ja/on'; add `<-ancient' for
+	CU+5B76; add representative nodes.
+	(A-J0-555A): Unify A-IWDSU+5B76; Add `ideographic-structure'.
+	(U+5B76): Add `sound@ja/on/{kan|go}'.
+	(CU+5B76): Add some relations for other characters.
+	(U+5B73): Apply new conventions for glyph granularity.
+	(MJ010088): Use A-IWDSU+5B76 instead of U+5B73 as the mother.
+
 2018-08-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U+55DE): Add `ideographic-structure';
