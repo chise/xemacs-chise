@@ -21731,6 +21731,7 @@
      ((=ucs		  . #x9578)	; 镸
       ))
     (=>gt-k		. 05990)	; &A-GT-K05990;
+    (=>ucs-itaiji-001	. #x4F8C)	; &A-GT-K05990;
     ))
 (define-char
   '((<-denotational
@@ -21747,9 +21748,12 @@
       )
      ((=ucs		  . #x9578)	; 镸
       ))
-    (=gt-k		. 05990)	; &GT-K05990;
-    (=gt-pj-k1		. #x6670)	; &GT-K05990; [70-80]
+    (=gt-k		. 05990)	; &U-i001+4F8C;
+    (=gt-pj-k1		. #x6670)	; &U-i001+4F8C; [70-80]
+    (=ucs-itaiji-001	. #x4F8C)	; &U-i001+4F8C;
     (->subsumptive
+     ((==ucs-itaiji-001	  . #x4F8C)	; &g2-U-i001+4F8C;
+      )
      ((==gt-k		  . 05990)	; &g2-GT-K05990;
       (==gt-pj-k1	  . #x6670)	; &g2-GT-K05990; [70-80]
       ))
