@@ -1,3 +1,8 @@
+2018-08-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (A-GT-K05990): Unify A-U+4F8C-itaiji-001.
+	(GT-K05990): Unify U+4F8C-itaiji-001.
+
 2018-08-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R039-Child.el (U-0002195D): Add
