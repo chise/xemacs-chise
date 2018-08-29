@@ -1,3 +1,10 @@
+2018-08-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (A-BC-87C8): New abstract node.
+	(BC-87C8-var-001): New character; use `<-denotational' for
+	A-BC-87C8.
+	(BC-87C8): Likewise.
+
 2018-08-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R009-Man.el (A-GT-K05990): Unify A-U+4F8C-itaiji-001.
