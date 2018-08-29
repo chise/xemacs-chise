@@ -555,6 +555,40 @@
 (define-char
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 1)
+    (=>big5-cdp		. #x87C8)	; &A-CDP-87C8;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x87C8)	; &A-CDP-87C8;
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (=ucs		  . #x2FFA)	; ⿺
+      )
+     ((=ucs		  . #x200CA)	; 𠃊
+      )
+     ((=ucs		  . #x4E28)	; 丨
+      ))
+    (=big5-cdp-var-001	. #x87C8)	; &CDP-v001-87C8;
+    ))
+(define-char
+  '((<-denotational
+     ((=>big5-cdp	  . #x87C8)	; &A-CDP-87C8;
+      ))
+    (ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (=big5-cdp		. #x87C8)	; &CDP-87C8;
+    (->subsumptive
+     ((==big5-cdp	  . #x87C8)	; &g2-CDP-87C8;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 5)	; ⼄
+    (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 49 8)
     (=big5-cdp		. #x8871)	; &CDP-8871;
