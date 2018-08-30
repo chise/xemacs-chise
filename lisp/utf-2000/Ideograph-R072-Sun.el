@@ -8071,9 +8071,36 @@
   '((ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((=ucs		  . #x623C)	; 戼
+      ))
+    (sound@ja/on	"bAu")
     (=ucs		. #x231BB)	; 𣆻
     (=cns11643-6	. #x404D)	; &I-C6-404D; [32-45]
     (=daikanwa		. 13964)	; &I-M-13964;
+    (<-original
+     ((=ucs		  . #x6634)	; 昴
+      (=daikanwa	  . 13865)	; &I-M-13865;
+      ))
+    (<-original*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x231BB)	; &g2-M-13964;
+      (==cns11643-6	  . #x404D)	; &g2-M-13964; [32-45]
+      (==daikanwa	  . 13964)	; &g2-M-13964;
+      (->subsumptive
+       ((===daikanwa	    . 13964)	; &R-M-13964;
+	)
+       ((===cns11643-6	    . #x404D)	; &R-C6-404D; [32-45]
+	)
+       ((===ucs@iso	    . #x231BB)	; &R-U-000231BB;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
