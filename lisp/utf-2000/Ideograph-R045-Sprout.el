@@ -1037,19 +1037,133 @@
     (=daikanwa		. 07855)	; &I-M-07855;
     ))
 (define-char
-  '((=>ucs		. #x21D1D)	; 𡴝
-    (ideographic-radical . 45)	; ⼬
-    (ideographic-strokes . 9)
-    (total-strokes	 . 12)
-    (=daikanwa		. 07856)	; &M-07856;
+  '((ideographic-radical . 45)	; ⼬
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+      )
+     ((=>ucs@component	  . #x7676)	; &A-compU+7676;
+      )
+     ((=>ucs@iwds-1	  . #x672C)	; &A-IWDSU+672C;
+      (=>iwds-1		  .  0126)	; &A-IWDSU+672C;
+      ))
+    (=>ucs@cognate	. #x21D1D)	; &A-cgnU+21D1D;
     ))
 (define-char
-  '((morohashi-daikanwa	7856 0 1)
+  '((<-denotational
+     ((=>ucs@cognate	  . #x21D1D)	; &A-cgnU+21D1D;
+      ))
     (ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+      )
+     ((=>ucs@component	  . #x53CE)	; &A-compU+53CE;
+      )
+     ((=>ucs@iwds-1	  . #x672C)	; &A-IWDSU+672C;
+      (=>iwds-1		  .  0126)	; &A-IWDSU+672C;
+      ))
+    (sound@ja/on	"sou")
     (=ucs		. #x21D1D)	; 𡴝
-    (=cns11643-6	. #x4828)	; &I-C6-4828; [40-08]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21D1D)	; 𡴝
+      ))
+    (ideographic-radical . 45)	; ⼬
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x2F878)	; 屮
+      )
+     ((=ucs@iso		  . #x20B1E)	; &GT-03950;
+      (=cns11643-6	  . #x2162)	; &GT-03950; [01-66]
+      (=daikanwa	  . 03126)	; &I-M-03126;
+      )
+     ((=ucs		  . #x5932)	; 夲
+      ))
+    (=mj		. 034459)	; &MJ034459;
+    (=koseki		. 089130)	; &MJ034459;
+    (=daikanwa		. 07856)	; &I-M-07856;
+    (<-formed
+     ((=ucs@jis		  . #x594F)	; &AJ1-02775;
+      (=ucs@ks		  . #x594F)	; &AJ1-02775;
+      (=adobe-japan1-0	  . 02775)	; &AJ1-02775;
+      ))
+    (<-formed*sources
+     koseki mj)
+    (<-original
+     ((=adobe-japan1-5	  . 20103)	; &AJ1-20103;
+      (=daikanwa	  . 05915)	; &I-M-05915;
+      ))
+    (<-original*sources
+     zihui daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 07856)	; &g2-M-07856;
+      )
+     ((==mj		  . 034459)	; &g2-MJ034459;
+      )
+     ((==koseki		  . 089130)	; &g2-KOSEKI-089130;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21D1D)	; 𡴝
+      ))
+    (ideographic-radical . 45)	; ⼬
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x2F878)	; 屮
+      )
+     ((=ucs-var-004	  . #x20B1E)	; &U-v004+20B1E;
+      )
+     ((=ucs		  . #x5932)	; 夲
+      ))
+    (=ucs@iso		. #x21D1D)	; &C6-4828;
+    (=cns11643-6	. #x4828)	; &C6-4828; [40-08]
+    (->subsumptive
+     ((==ucs@iso	  . #x21D1D)	; &g2-IU-00021D1D;
+      )
+     ((==ucs@cns	  . #x21D1D)	; &g2-CU+21D1D;
+      (==cns11643-6	  . #x4828)	; &g2-CU+21D1D; [40-08]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x21D1D)	; &A-cgnU+21D1D;
+      ))
+    (ideographic-radical . 45)	; ⼬
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=ucs		  . #x5C71)	; 山
+      )
+     ((=gt-k		  . 00764)	; &CDP-v004-8C4F;
+      )
+     ((=ucs		  . #x672C)	; 本
+      ))
+    (=ucs-var-002	. #x21D1D)	; &U-v002+21D1D;
+    (->subsumptive
+     ((==ucs-var-002	  . #x21D1D)	; &g2-U-v002+21D1D;
+      ))
     ))
 (define-char
   '((=>ucs		. #x21D1E)	; 𡴞
