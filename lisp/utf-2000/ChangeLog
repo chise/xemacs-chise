@@ -1,3 +1,14 @@
+2018-08-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (U-000231BB): Add `ideographic-structure';
+	add `sound@ja/on'; add `<-original' for U+6634.
+
+	* Ideograph-R045-Sprout.el (A-cgnU+21D1D): New abstract node.
+	(U-00021D1D): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-cgnU+21D1D.
+	(U+21D1D-var-002): New character; use `<-denotational' for
+	A-cgnU+21D1D.
+
 2018-08-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R005-Second.el (A-BC-87C8): New abstract node.
