@@ -1053,19 +1053,75 @@
     (=ucs-itaiji-001	. #x230B0)	; &U-i001+230B0;
     ))
 (define-char
-  '((=>ucs		. #x230B1)	; 𣂱
-    (ideographic-radical . 69)	; ⽄
+  '((ideographic-radical . 69)	; ⽄
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=daikanwa		. 13577)	; &M-13577;
-    ))
-(define-char
-  '((morohashi-daikanwa	13577 0 4)
-    (ideographic-radical . 69)	; ⽄
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=>gt-k		  . 05783)	; &A-GT-K05783;
+      )
+     ((=ucs		  . #x65A4)	; 斤
+      ))
+    (sound@ja/on	"daN")
     (=ucs		. #x230B1)	; 𣂱
-    (=cns11643-6	. #x5334)	; &I-C6-5334; [51-20]
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gt-k		    . 05783)	; &U-i002+386D;
+	)
+       ((=ucs		    . #x65A4)	; 斤
+	))
+      (=mj		  . 037511)	; &MJ037511;
+      (=koseki		  . 152170)	; &MJ037511;
+      (=daikanwa	  . 13577)	; &I-M-13577;
+      (<-formed
+       ((=ucs@unicode	    . #x65B7)	; &AJ1-05079;
+	(=adobe-japan1-0    . 05079)	; &AJ1-05079;
+	))
+      (<-formed*sources
+       koseki mj)
+      (<-same
+       ((=ucs@unicode	    . #x65B7)	; &AJ1-05079;
+	(=adobe-japan1-0    . 05079)	; &AJ1-05079;
+	(=daikanwa	    . 13611)	; &I-M-13611;
+	))
+      (<-same*sources
+       lishi daikanwa)
+      (->subsumptive
+       ((==mj		    . 037511)	; &g2-MJ037511;
+	(==koseki	    . 152170)	; &g2-MJ037511;
+	(==daikanwa	    . 13577)	; &g2-MJ037511;
+	(->subsumptive
+	 ((===daikanwa	      . 13577)	; &R-M-13577;
+	  )
+	 ((===mj	      . 037511)	; &R-MJ037511;
+	  ))
+	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs-itaiji-003    . #x386D)	; &U-i003+386D;
+	)
+       ((=ucs		    . #x65A4)	; 斤
+	))
+      (=ucs@iso		  . #x230B1)	; &C6-5334;
+      (=cns11643-6	  . #x5334)	; &C6-5334; [51-20]
+      (->subsumptive
+       ((==ucs@iso	    . #x230B1)	; &g2-IU-000230B1;
+	(==cns11643-6	    . #x5334)	; &g2-IU-000230B1; [51-20]
+	(->subsumptive
+	 ((===cns11643-6      . #x5334)	; &R-C6-5334; [51-20]
+	  )
+	 ((===ucs@iso	      . #x230B1)	; &R-U-000230B1;
+	  ))
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 69)	; ⽄
