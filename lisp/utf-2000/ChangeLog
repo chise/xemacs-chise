@@ -1,4 +1,27 @@
+2018-08-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R069-Axe.el (U-000230B1): Use `->subsumptive'.
+
+	* Ideograph-R029-Again.el (A-compU+53CE): New abstract node; use
+	`<-denotational@component' for A-compU+7676.
+	(U-00020B1E): Apply new conventions for glyph granularity; add
+	`<-denotational@component' for A-compU+53CE.
+	(U+20B1E-var-004): New character; use `<-denotational' for
+	U-00020B1E.
+	(U+53CE): Add `<-denotational@component' for A-compU+53CE; add
+	`sound@ja/on'; apply new conventions for glyph granularity.
+
+	* Ideograph-R009-Man.el (U-00020351): New character.
+
 2018-08-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R085-Water.el (U-00023F75): Add
+	`ideographic-structure'; add `sound@ja/on'; add `<-same' for
+	K0-713E; add representative nodes.
+
+	* Ideograph-R076-Lack.el (U-00023887): Apply new conventions for
+	glyph granularity.
+	(U-00023891): Likewise.
 
 	* Ideograph-R072-Sun.el (U-000231BB): Add `ideographic-structure';
 	add `sound@ja/on'; add `<-original' for U+6634.
@@ -15,6 +38,11 @@
 	(BC-87C8-var-001): New character; use `<-denotational' for
 	A-BC-87C8.
 	(BC-87C8): Likewise.
+
+2018-08-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R096-Jade.el (U+749E): Apply new conventions for glyph
+	granularity.
 
 2018-08-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 

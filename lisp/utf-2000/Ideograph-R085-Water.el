@@ -32376,8 +32376,8 @@
       )
      ((=ucs		  . #x6C35)	; 氵
       )
-     ((=ucs@unicode	  . #x83BD)	; &G0-4327;
-      (=gb2312		  . #x4327)	; &G0-4327; [35-07]
+     ((=ucs@unicode	  . #x83BD)	; &AJ1-14204;
+      (=adobe-japan1-4	  . 14204)	; &AJ1-14204;
       ))
     (=ucs@unicode	. #x6F2D)	; &JSP-4853;
     (=gb2312		. #x645D)	; &JSP-4853; [68-61]
@@ -36319,9 +36319,36 @@
   '((ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x6C35)	; 氵
+      )
+     ((=ucs-var-002	  . #x21D1D)	; &U-v002+21D1D;
+      ))
+    (sound@ja/on	"sou")
     (=ucs		. #x23F75)	; 𣽵
     (=cns11643-7	. #x245F)	; &I-C7-245F; [04-63]
     (=daikanwa		. 18359)	; &I-M-18359;
+    (<-same
+     ((=ks-x1001	  . #x713E)	; &M-17822; [81-30]
+      (=daikanwa	  . 17822)	; &I-M-17822;
+      ))
+    (<-same*sources
+     zihui-bu daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x23F75)	; &g2-M-18359;
+      (==cns11643-7	  . #x245F)	; &g2-M-18359; [04-63]
+      (==daikanwa	  . 18359)	; &g2-M-18359;
+      (->subsumptive
+       ((===daikanwa	    . 18359)	; &R-M-18359;
+	)
+       ((===cns11643-7	    . #x245F)	; &R-C7-245F; [04-63]
+	)
+       ((===ucs@iso	    . #x23F75)	; &R-U-00023F75;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 85)	; ⽔

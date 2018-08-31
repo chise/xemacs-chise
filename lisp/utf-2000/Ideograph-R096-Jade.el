@@ -11975,10 +11975,34 @@
     ))
 (define-char
   '((ideographic-radical . 96)	; ⽟
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x248E9)	; 𤣩
+      )
+     ((=ucs		  . #x83D0)	; 菐
+      ))
+    (=ucs		. #x749E)	; 璞
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x749E)	; 璞
+      ))
+    (ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (=ucs		. #x749E)	; 璞
-    (=adobe-japan1-0	. 05682)	; &I-AJ1-05682;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x248E9)	; 𤣩
+      )
+     ((=ucs@unicode	  . #x83D0)	; &AJ1-18500;
+      (=adobe-japan1-5	  . 18500)	; &AJ1-18500;
+      ))
+    (=ucs@unicode	. #x749E)	; &AJ1-05682;
+    (=adobe-japan1-0	. 05682)	; &AJ1-05682;
     (=jis-x0208		. #x6079)	; &I-J90-6079; [64-89]
     (=gb2312		. #x6831)	; &I-G0-6831; [72-17]
     (=ks-x1001		. #x5A57)	; &I-K0-5A57; [58-55]
@@ -11988,7 +12012,7 @@
     (=gt		. 27222)	; &I-GT-27222;
     (=gt-pj-1		. #x6079)	; &I-GT-27222; [64-89]
     (=daikanwa		. 21245)	; &I-M-21245;
-    (=shinjigen		.  4959)	; 璞
+    (=shinjigen		.  4959)	; &AJ1-05682;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x749E)	; 璞
