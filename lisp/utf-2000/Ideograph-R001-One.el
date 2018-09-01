@@ -3095,17 +3095,54 @@
       )
      ((=ucs		  . #x4E00)	; 一
       )
-     ((=gt		  . 00154)	; &GT-00154;
+     ((=big5-cdp	  . #x89C2)	; &GT-00154;
       (=daikanwa	  . 00114)	; &I-M-00114;
       )
      ((=ucs		  . #x4EBA)	; 人
       ))
+    (sound@ja/on/go	"kuti")
+    (sound@ja/on/kan	"kutu")
     (=ucs		. #x20014)	; 𠀔
+    (=mj		. 030326)	; &I-MJ030326;
     (=cns11643-5	. #x214D)	; &I-C5-214D; [01-45]
+    (=koseki		. 000500)	; 𠀔
     (=gt		. 00042)	; &I-GT-00042;
     (=gt-pj-2		. #x3037)	; &I-GT-00042; [16-23]
     (=daikanwa		. 00037)	; &I-M-00037;
-    (=hanziku-1		. #xA7B0)	; &I-HZK01-A7B0;
+    (<-formed
+     ((=ucs		  . #x5B52)	; 孒
+      ))
+    (<-formed*sources
+     jiyun)
+    (<-same
+     ((=ucs		  . #x5B52)	; 孒
+      (=daikanwa	  . 06932)	; &I-M-06932;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==mj		  . 030326)	; &g2-MJ030326;
+      (==koseki		  . 000500)	; &g2-MJ030326;
+      (==gt		  . 00042)	; &g2-MJ030326;
+      (==daikanwa	  . 00037)	; &g2-MJ030326;
+      (->subsumptive
+       ((===daikanwa	    . 00037)	; &R-M-00037;
+	)
+       ((===mj		    . 030326)	; &R-MJ030326;
+	)
+       ((===gt		    . 00042)	; &R-GT-00042;
+	))
+      )
+     ((==ucs@cns	  . #x20014)	; &g2-CU+20014;
+      (==cns11643-5	  . #x214D)	; &g2-CU+20014; [01-45]
+      )
+     ((==ucs@iso	  . #x20014)	; &g2-IU-00020014;
+      (->subsumptive
+       ((===ucs@iso	    . #x20014)	; &R-U-00020014;
+	)
+       ((=hanziku-1	    . #xA7B0)	; &HZK01-A7B0;
+	))
+      ))
     ))
 (define-char
   '((total-strokes	 . 5)
