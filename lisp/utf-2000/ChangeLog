@@ -1,3 +1,17 @@
+2018-08-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R005-Second.el (U-000200D5): Add
+	`ideographic-structure'.
+	(IU+200D5): Unify MJ030420 and KOSEKI-002090; apply new
+	conventions for glyph granularity.
+	(CU+200D5): Add representative node.
+	(U-000200F0): Use `ideographic-{radical|strokes}@ucs/code' instead
+	of `ideographic-{radical|strokes}@ucs'; moved to
+	Ideograph-R101-Use.el.
+
+	* Ideograph-R001-One.el (U-00020014): Apply new conventions for
+	glyph granularity.
+
 2018-08-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R069-Axe.el (U-000230B1): Use `->subsumptive'.
