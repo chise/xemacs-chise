@@ -345,28 +345,71 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 4)	; ⼃
+  '((<-denotational@component
+     ((=>ucs@component	  . #x4E29)	; &A-compU+4E29;
+      ))
+    (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
+    (sound@ja/on/go	"keti" "teN")
+    (sound@ja/on/kan	"ketu" "teN")
     (=ucs		. #x20088)	; 𠂈
     (->subsumptive
-     ((=gt		  . 00154)	; &GT-00154;
-      (=gt-k		  . 00070)	; &I-GT-K00070;
-      (=gt-pj-2		  . #x3078)	; &GT-00154; [16-88]
-      (=daikanwa	  . 00114)	; &I-M-00114;
-      )
      ((hanyu-dazidian	  1 49 5)
-      (=big5-cdp	  . #x89C2)	; &CDP-89C2;
+      (=big5-cdp	  . #x89C2)	; &GT-00154;
+      (=gt		  . 00154)	; &I-GT-00154;
+      (=gt-k		  . 00070)	; &I-GT-K00070;
+      (=gt-pj-2		  . #x3078)	; &I-GT-00154; [16-88]
+      (=daikanwa	  . 00114)	; &I-M-00114;
+      (<-ancient
+       ((=ucs		    . #x6B84)	; 殄
+	(=daikanwa	    . 16413)	; &I-M-16413;
+	))
+      (<-ancient*sources
+       shuowen daikanwa)
+      (<-wrong
+       ((=ucs@cns	    . #x2010D)	; &MJ030448;
+	(=mj		    . 030448)	; &MJ030448;
+	(=daikanwa	    . 00227)	; &I-M-00227;
+	))
+      (<-wrong*sources
+       kangxi daikanwa)
+      (->subsumptive
+       ((==gt		    . 00154)	; &g2-GT-00154;
+	(==gt-k		    . 00070)	; &g2-GT-00154;
+	(==daikanwa	    . 00114)	; &g2-GT-00154;
+	(->subsumptive
+	 ((===daikanwa	      . 00114)	; &R-M-00114;
+	  )
+	 ((===gt	      . 00154)	; &R-GT-00154;
+	  (===gt-k	      . 00070)	; &R-GT-00154;
+	  ))
+	)
+       ((==big5-cdp	    . #x89C2)	; &g2-CDP-89C2;
+	))
       )
      ((ideographic-radical@cdp . 5)	; ⼄
       (hanyu-dazidian	  1 49 4)
-      (=ucs@iso		  . #x20088)	; &CDP-87F5;
-      (=big5-cdp	  . #x87F5)	; &CDP-87F5;
-      )
-     ((=ucs@cns		  . #x20088)	; &C6-2124;
+      (=ucs@iso		  . #x20088)	; &C6-2124;
       (=cns11643-6	  . #x2124)	; &C6-2124; [01-04]
+      (=big5-cdp	  . #x87F5)	; &I-CDP-87F5;
       (=gt-k		  . 00130)	; &I-GT-K00130;
       (=gt-pj-k2	  . #x322C)	; &C6-2124; [18-12]
+      (->subsumptive
+       ((==ucs@iso	    . #x20088)	; &g2-CDP-87F5;
+	(==big5-cdp	    . #x87F5)	; &g2-CDP-87F5;
+	(->subsumptive
+	 ((===big5-cdp	      . #x87F5)	; &R-CDP-87F5;
+	  )
+	 ((===ucs@iso	      . #x20088)	; &R-U-00020088;
+	  ))
+	)
+       ((==gt-k		    . 00130)	; &g2-GT-K00130;
+	(==gt-pj-k2	    . #x322C)	; &g2-GT-K00130; [18-12]
+	)
+       ((==ucs@cns	    . #x20088)	; &g2-CU+20088;
+	(==cns11643-6	    . #x2124)	; &g2-CU+20088; [01-04]
+	))
       ))
     ))
 (define-char
