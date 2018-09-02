@@ -130,12 +130,19 @@
     (ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
-    (=+>ucs@cns		. #x2010D)	; &o-CU+2010D;
+    (=ucs@cns		. #x2010D)	; &MJ030448;
+    (=mj		. 030448)	; &MJ030448;
+    (=cns11643-5	. #x2127)	; &I-C5-2127; [01-07]
+    (=koseki		. 002700)	; &MJ030448;
+    (=daikanwa		. 00227)	; &I-M-00227;
     (->subsumptive
-     ((=daikanwa	  . 00227)	; &M-00227;
+     ((==koseki		  . 002700)	; &g2-M-00227;
+      (==daikanwa	  . 00227)	; &g2-M-00227;
       )
-     ((=ucs@cns		  . #x2010D)	; &C5-2127;
-      (=cns11643-5	  . #x2127)	; &C5-2127; [01-07]
+     ((==mj		  . 030448)	; &g2-MJ030448;
+      )
+     ((==ucs@cns	  . #x2010D)	; &g2-CU+2010D;
+      (==cns11643-5	  . #x2127)	; &g2-CU+2010D; [01-07]
       ))
     ))
 (define-char
@@ -146,8 +153,15 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 49 3)
-    (=ucs@iso		. #x2010D)	; &HZK01-AE40;
-    (=hanziku-1		. #xAE40)	; &HZK01-AE40;
+    (=ucs@iso		. #x2010D)	; &U-0002010D;
+    (->subsumptive
+     ((==ucs@iso	  . #x2010D)	; &g2-IU-0002010D;
+      (->subsumptive
+       ((===ucs@iso	    . #x2010D)	; &R-U-0002010D;
+	)
+       ((=hanziku-1	    . #xAE40)	; &HZK01-AE40;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 6)	; ⼅
