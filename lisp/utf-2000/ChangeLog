@@ -1,3 +1,12 @@
+2018-09-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R006-Hook.el (U-0002010D): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R004-Slash.el (U-00020088): Apply new conventions for
+	glyph granularity; add `<-denotational@component' for
+	A-compU+4E29.
+
 2018-08-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R005-Second.el (U-000200D5): Add
