@@ -4605,6 +4605,7 @@
 		  mother	=ucs-var-004
 		  min-code #x20000 max-code #x2FFFF
 		  registry "ucs00\\.var004-2"))
+
   (make-charset '=ucs-var-005
 		"uXXXX-var-005 glyph-images of GlyphWiki"
 		'(long-name	"UCS-var-005"
@@ -4628,6 +4629,18 @@
 		  min-code #x2E00
 		  max-code #x9FCC
 		  registry "ucs\\.var005-0"))
+  (make-charset '=ucs-sip-var-005
+		"uXXXX-var-005 glyph-images in SIP"
+		'(long-name	"UCS-SIP-var-005"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs-var-005
+		  min-code #x20000 max-code #x2FFFF
+		  registry "ucs00\\.var005-2"))
+
   (make-charset '=ucs-var-006
 		"uXXXX-var-006 glyph-images of GlyphWiki"
 		'(long-name	"UCS-var-006"
