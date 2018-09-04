@@ -1,5 +1,9 @@
 2018-09-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R049-Oneself.el (U+3831): Use `->denotational' and
+	`->subsumptive'.
+	(U-00022042): Apply new conventions for glyph granularity.
+
 	* Ideograph-R006-Hook.el (U-0002010D): Apply new conventions for
 	glyph granularity.
 
