@@ -90,9 +90,23 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 95)	; ⽞
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x5179)	; &A-IWDSU+5179;
+      (=>iwds-1		  .  0153)	; &A-IWDSU+5179;
+      ))
+    (ideographic-radical . 95)	; ⽞
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7384)	; 玄
+      )
+     ((=ucs		  . #x7384)	; 玄
+      ))
+    (sound@ja/on/go	"si" "geN")
+    (sound@ja/on/kan	"si" "keN")
     (=ucs		. #x7386)	; 玆
     (=ks-x1001		. #x6D35)	; &I-K0-6D35; [77-21]
     (=jis-x0212		. #x4B51)	; &I-JSP-4B51; [43-49]
@@ -100,6 +114,27 @@
     (=big5		. #xAF59)	; &I-B-AF59;
     (=daikanwa		. 20816)	; &I-M-20816;
     (=jef-china3	. #x58FC)	; &I-JC3-58FC;
+    (<-interchangeable
+     ((=ucs		  . #x2F90B)	; 滋
+      (=daikanwa	  . 18021)	; &I-M-18021;
+      )
+     ((=cns11643-1	  . #x577B)	; &C1-577B; [55-91]
+      (=daikanwa	  . 30911)	; &I-M-30911;
+      ))
+    (<-interchangeable$_1*sources
+     chunqiu-zuoshi-shiwen daikanwa)
+    (<-interchangeable$_2*sources
+     shuowen-xizhuan daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
+    (->ancient
+     ((=ucs		  . #x221B6)	; 𢆶
+      (=daikanwa	  . 09196)	; &I-M-09196;
+      ))
+    (->ancient$_1*sources
+     jiyun daikanwa)
+    (->ancient*sources
+     jiyun daikanwa)
     (->subsumptive
      ((==ucs@cns	  . #x7386)	; &g2-JSP-4B51;
       (==ucs@jis	  . #x7386)	; &g2-JSP-4B51;
