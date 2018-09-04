@@ -715,13 +715,14 @@
       )
      ((=ucs		  . #x4EA0)	; 亠
       )
-     ((=gt		  . 00154)	; &GT-00154;
+     ((=big5-cdp	  . #x89C2)	; &GT-00154;
       (=daikanwa	  . 00114)	; &I-M-00114;
       )
      ((=ucs		  . #x4EBA)	; 人
       ))
     (sound@ja/kun	"inosisi" "i")
-    (sound@ja/on	"gai")
+    (sound@ja/on/go	"gai" "kai")
+    (sound@ja/on/kan	"kai" "kai")
     (=ucs		. #x4EA5)	; 亥
     (=mj		. 006470)	; &I-MJ006470;
     (=adobe-japan1-0	. 01195)	; &I-AJ1-01195;
@@ -738,6 +739,20 @@
     (=gt-pj-1		. #x3067)	; &I-GT-00387; [16-71]
     (=daikanwa		. 00292)	; &I-M-00292;
     (=shinjigen		.  0094)	; 亥
+    (->ancient
+     ((=ucs		  . #x22053)	; 𢁓
+      (=daikanwa	  . 08779)	; &I-M-08779;
+      )
+     ((=ucs@unicode	  . #x8C55)	; &MJ024906;
+      (=mj		  . 024906)	; &MJ024906;
+      (=daikanwa	  . 36334)	; &I-M-36334;
+      ))
+    (->ancient$_1*sources
+     shuowen daikanwa)
+    (->ancient$_2*sources
+     shuowen jiyun daikanwa)
+    (->ancient*sources
+     daikanwa)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
@@ -745,7 +760,7 @@
 	)
        ((=ucs		    . #x2011E)	; 𠄞
 	)
-       ((=gt		    . 00154)	; &GT-00154;
+       ((=big5-cdp	    . #x89C2)	; &GT-00154;
 	(=daikanwa	    . 00114)	; &I-M-00114;
 	)
        ((=gt-k		    . 00049)	; &GT-K00049;
@@ -784,7 +799,7 @@
        ((=+>ucs@unicode	    . #x4EA0)	; &o-J0-5035;
 	(=+>jis-x0208	    . #x5035)	; &o-J0-5035; [48-21]
 	)
-       ((=gt		    . 00154)	; &GT-00154;
+       ((=big5-cdp	    . #x89C2)	; &GT-00154;
 	(=daikanwa	    . 00114)	; &I-M-00114;
 	)
        ((=gt-k		    . 00049)	; &GT-K00049;
@@ -1158,14 +1173,21 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@iso	    . #x20088)	; &CDP-87F5;
-	(=big5-cdp	    . #x87F5)	; &CDP-87F5;
+       ((=ucs@iso	    . #x20088)	; &C6-2124;
+	(=cns11643-6	    . #x2124)	; &C6-2124; [01-04]
 	)
        ((=big5-cdp	    . #x85BF)	; &CDP-85BF;
 	))
       ))
     (=ucs		. #x20146)	; 𠅆
-    (=hanziku-1		. #xE071)	; &I-HZK01-E071;
+    (->subsumptive
+     ((==ucs@iso	  . #x20146)	; &g2-IU-00020146;
+      (->subsumptive
+       ((===ucs@iso	    . #x20146)	; &R-U-00020146;
+	)
+       ((=hanziku-1	    . #xE071)	; &HZK01-E071;
+	))
+      ))
     ))
 (define-char
   '((<-denotational

@@ -1,3 +1,25 @@
+2018-09-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R101-Use.el (U-000200F0): Apply new conventions for
+	glyph granularity; use `ideographic-{radical|strokes}@ucs/code'
+	instead of `ideographic-{radical|strokes}@ucs'; use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}@cns.
+
+2018-09-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R095-Profound.el (U+7386): Add
+	`<-denotational@component' for IWDS1-0153; add
+	`ideographic-structure'; add `sound@ja/on/{kan|go}'; add some
+	relations for other characters.
+
+2018-09-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R008-Lid.el (U+4EA5): Use `sound@ja/on/{kan|go}'
+	instead of `sound@ja/on'; add `->ancient' for U-00022053 and
+	UU+8C55.
+	(U-00020146): Apply new conventions for glyph granularity.
+
 2018-09-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R049-Oneself.el (U+3831): Use `->denotational' and
