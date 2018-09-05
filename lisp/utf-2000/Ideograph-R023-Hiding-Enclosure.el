@@ -1218,9 +1218,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x4491)	; &JX2-7577;
-      (=jis-x0213-2	  . #x7577)	; &JX2-7577; [85-87]
-      (=daikanwa	  . 30640)	; &I-M-30640;
+     ((=ucs@unicode	  . #x4491)	; &AJ1-18467;
+      (=adobe-japan1-5	  . 18467)	; &AJ1-18467;
       )
      ((=ucs-itaiji-001	  . #x3829)	; &U-i001+3829;
       ))
