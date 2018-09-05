@@ -1088,6 +1088,42 @@
     (=ucs-var-004	. #x20B1E)	; &U-v004+20B1E;
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x20B1E)	; 𠬞
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=big5-cdp	  . #x89C2)	; &GT-00154;
+      (=daikanwa	  . 00114)	; &I-M-00114;
+      )
+     ((=ucs		  . #x53C8)	; 又
+      ))
+    (=ucs-var-003	. #x20B1E)	; &U-v003+20B1E;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20B1E)	; 𠬞
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=big5-cdp	  . #x89C2)	; &GT-00154;
+      (=daikanwa	  . 00114)	; &I-M-00114;
+      )
+     ((=big5-cdp	  . #x8C4E)	; &CDP-8C4E;
+      ))
+    (=ucs-var-005	. #x20B1E)	; &U-v005+20B1E;
+    ))
+(define-char
   '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
