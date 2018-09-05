@@ -2583,9 +2583,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x4491)	; &JX2-7577;
-      (=jis-x0213-2	  . #x7577)	; &JX2-7577; [85-87]
-      (=daikanwa	  . 30640)	; &I-M-30640;
+     ((=ucs@unicode	  . #x4491)	; &AJ1-18467;
+      (=adobe-japan1-5	  . 18467)	; &AJ1-18467;
       )
      ((=big5-cdp	  . #x8CDE)	; &CDP-8CDE;
       ))
@@ -2652,9 +2651,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x4491)	; &JX2-7577;
-      (=jis-x0213-2	  . #x7577)	; &JX2-7577; [85-87]
-      (=daikanwa	  . 30640)	; &I-M-30640;
+     ((=ucs@unicode	  . #x4491)	; &AJ1-18467;
+      (=adobe-japan1-5	  . 18467)	; &AJ1-18467;
       )
      ((=big5-cdp-itaiji-002 . #x8CDE)	; &CDP-i002-8CDE;
       ))
@@ -3138,9 +3136,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
       )
-     ((=ucs@unicode	  . #x4491)	; &JX2-7577;
-      (=jis-x0213-2	  . #x7577)	; &JX2-7577; [85-87]
-      (=daikanwa	  . 30640)	; &I-M-30640;
+     ((=ucs@unicode	  . #x4491)	; &AJ1-18467;
+      (=adobe-japan1-5	  . 18467)	; &AJ1-18467;
       )
      ((=big5-cdp	  . #x88BB)	; &CDP-88BB;
       )
