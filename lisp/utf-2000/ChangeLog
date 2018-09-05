@@ -1,5 +1,52 @@
 2018-09-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R120-Silk.el (U-0002605A): Apply new conventions for
+	glyph granularity.
+	(JU+7E47): Add some relations for other characters.
+
+	* Ideograph-R105-Dotted-Tent.el (GT-K00764): Use
+	`<-formed@component' instead of `<-formed'; add U-00020B1E as a
+	target of `<-formed@component'.
+	(U+20B1E-itaiji-001): New character; use
+	`<-denotational@component' for A-compU+7676.
+	(U-00024F31): Add `<-denotational@component' for A-compU+24F31;
+	add ideographic-structure; add `sound@ja/on/{kan|go}'; add
+	representative nodes.
+	(A-U+24F31-itaiji-001): New abstract node; add
+	`<-denotational@component' for A-compU+24F31.
+	(U+24F31-itaiji-001): New character; use `<-denotational' for
+	A-U+24F31-itaiji-001.
+	(A-compU+24F31): New abstract node.
+
+	* Ideograph-R102-Field.el (U-00024CAF): Apply new conventions for
+	glyph granularity.
+	(U-00024D0A): Likewise.
+	(U-00024D0C): Likewise.
+	(U-00024D11): Likewise.
+
+	* Ideograph-R064-Hand.el (U+6283): Add `ideographic-structure';
+	add `sound@ja/on/{kan|go}'; add some relations for other
+	characters.
+	(U+62DA): Add `ideographic-structure'; add some relations for
+	other characters; add representative nodes.
+	(BUCS+6416): Omit `ideographic-structure'.
+	(A-IWDSU+6416): New abstract node; use `<-denotational' for
+	BUCS+6416.
+	(U+63FA): Use A-IWDSU+6416 instead of BUCS+6416 as its mother.
+	(U+6447): Likewise.
+	(U+6416): Likewise.
+
+	* Ideograph-R029-Again.el (U+20B1E-var-003): New character; use
+	`<-denotational' for U-00020B1E.
+	(U+20B1E-var-005): Likewise.
+
+	* Ideograph-R002-Line.el (U+4E29): Add `<-denotational@component'
+	for A-compU+4E29; unify IWDS1-0196.
+	(BC-88B6): New character; use `<-denotational' for U+4E29.
+	(GT-K00240): Use `<-subsumptive' for BC-88B6 instead of
+	`<-denotational' for U+4E29.
+	(A-compU+4E29): New abstract node.
+
 	* Ideograph-R101-Use.el (U-000200F0): Apply new conventions for
 	glyph granularity; use `ideographic-{radical|strokes}@ucs/code'
 	instead of `ideographic-{radical|strokes}@ucs'; use
