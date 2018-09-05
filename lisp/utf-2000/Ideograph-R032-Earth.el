@@ -12007,8 +12007,8 @@
       )
      ((=ucs		  . #x571F)	; 土
       )
-     ((=ucs@unicode	  . #x82B1)	; &G0-3B28;
-      (=gb2312		  . #x3B28)	; &G0-3B28; [27-08]
+     ((=ucs@unicode	  . #x82B1)	; &AJ1-13666;
+      (=adobe-japan1-4	  . 13666)	; &AJ1-13666;
       ))
     (=ucs@unicode	. #x57D6)	; &AJ1-20100;
     (=ucs@JP/hanazono	. nil)
