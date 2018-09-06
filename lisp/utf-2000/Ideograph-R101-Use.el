@@ -984,7 +984,7 @@
 	))
       )
      ((=ucs@unicode	  . #x82B1)	; &AJ1-13666;
-      (=adobe-japan1-4	  . 13666)	; &I-AJ1-13666;
+      (=adobe-japan1-4	  . 13666)	; &AJ1-13666;
       ))
     (=ucs@iso		. #x24C0F)	; &U-00024C0F;
     (->subsumptive
