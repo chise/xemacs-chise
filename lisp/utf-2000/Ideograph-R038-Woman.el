@@ -26726,8 +26726,8 @@
       )
      ((=ucs		  . #x5973)	; 女
       )
-     ((=ucs@unicode	  . #x862D)	; &GT-43788;
-      (=gb12345		  . #x403C)	; &GT-43788; [32-28]
+     ((=ucs@unicode	  . #x862D)	; &AJ1-14084;
+      (=adobe-japan1-4	  . 14084)	; &I-AJ1-14084;
       ))
     (=ucs@unicode	. #x5B4F)	; &CB05463;
     (=cbeta		. 05463)	; &CB05463;
@@ -26738,7 +26738,8 @@
 	)
        ((==adobe-japan1-4   . 13828)	; &g2-AJ1-13828;
 	)
-       ((==ucs@unicode	    . #x862D)	; &g2-GT-43788;
+       ((==ucs@unicode	    . #x862D)	; &g2-AJ1-14084;
+	(==adobe-japan1-4   . 14084)	; &g2-AJ1-14084;
 	))
       (==ucs@unicode	  . #x5B4F)	; &g2-CB05463;
       (==cbeta		  . 05463)	; &g2-CB05463;
