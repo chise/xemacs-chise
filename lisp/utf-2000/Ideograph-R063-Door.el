@@ -213,6 +213,29 @@
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (=>gt-k		. 01390)	; &A-GT-K01390;
+    (=>ucs-itaiji-001	. #x2666A)	; &A-GT-K01390;
+    ))
+(define-char
+  '((<-denotational
+     ((=>gt-k		  . 01390)	; &A-GT-K01390;
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (=gt-k		. 01390)	; &U-i001+2666A;
+    (=gt-pj-k1		. #x6254)	; &U-i001+2666A; [66-52]
+    (=ucs-itaiji-001	. #x2666A)	; &U-i001+2666A;
+    (->subsumptive
+     ((==gt-k		  . 01390)	; &g2-U-i001+2666A;
+      (==gt-pj-k1	  . #x6254)	; &g2-U-i001+2666A; [66-52]
+      (==ucs-itaiji-001	  . #x2666A)	; &g2-U-i001+2666A;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=ucs		. #x22A26)	; 𢨦
