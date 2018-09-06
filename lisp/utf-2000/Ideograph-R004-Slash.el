@@ -937,9 +937,8 @@
     (=daikanwa		. 00124)	; &I-M-00124;
     (=cbeta		. 01415)	; &I-CB01415;
     (<-simplified@CN
-     ((=ucs@unicode	  . #x7FA9)	; &AJ1-01627;
-      (=adobe-japan1-0	  . 01627)	; &AJ1-01627;
-      (=gb12345		  . #x5265)	; &AJ1-01627; [50-69]
+     ((=ucs		  . #x7FA9)	; 義
+      (=gb12345		  . #x5265)	; 義 [50-69]
       ))
     (->subsumptive
      ((==ucs@JP		  . #x4E49)	; &GT-00160;
