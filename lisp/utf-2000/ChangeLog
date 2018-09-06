@@ -1,5 +1,20 @@
 2018-09-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R063-Door.el (A-GT-K01390): New abstract node; unify
+	A-U+2666A-itaiji-001.
+	(GT-K01390): New character; use `<-denotational' for A-GT-K01390;
+	unify U+2666A-itaiji-001.
+
+	* Ideograph-R050-Turban.el (U-00022053): Add `sound@ja/on'; unify
+	MJ034976 and KOSEKI-099500; add some relations for other
+	characters; add representative nodes.
+	(U-00022116): Add `ideographic-structure'; add `sound@ja/on';
+	unify MJ035128 and KOSEKI-102230; add `<-ancient' for U-0002F938;
+	add `<-formed' for U-0002F938 and UU+7570; add representative
+	nodes.
+
+2018-09-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R120-Silk.el (U-0002605A): Apply new conventions for
 	glyph granularity.
 	(JU+7E47): Add some relations for other characters.
