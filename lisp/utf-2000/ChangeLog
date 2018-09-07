@@ -1,5 +1,13 @@
 2018-09-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R062-Halberd.el (A-cgnU+6211): Changed from U+6211.
+	(AJ1-01382): Unify U+6211 instead of A-IWDSU+6211 and UU+6211; use
+	A-cgnU+6211 instead of U+6211 as its mother.
+	(U+6211-itaiji-002): Use A-cgnU+6211 instead of U+6211 as its
+	mother.
+
+	* Ideograph-R015-Ice.el (U-00020614): New character.
+
 	* Ideograph-R041-Inch.el (hanaJU+21B20): New character; use
 	`<-denotational' for U-00021B20.
 
