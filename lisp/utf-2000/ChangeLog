@@ -1,3 +1,41 @@
+2018-09-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R041-Inch.el (hanaJU+21B20): New character; use
+	`<-denotational' for U-00021B20.
+
+2018-09-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R123-Sheep.el (A-cgnU+7FA9): Changed from U+7FA9.
+	(A-IWDSU+7FA9): New abstract node; use `<-denotational' for
+	A-cgnU+7FA9.
+	(AJ1-01627): Unify U+7FA9 instead of A-IWDSU+7FA9 and UU+7FA9; use
+	A-IWDSU+7FA9 instead of U+7FA9 as its mother.
+	(U+7FA9-itaiji-001): Use A-IWDSU+7FA9 instead of BUCS+7FA9 as its
+	mother.
+	(HNG-KHI0526-0): Likewise.
+	(U+7FA9-itaiji-002): Use A-IWDSU+7FA9 instead of U+7FA9 as its
+	mother.
+	(U+7FB2): Use A-IWDSU+7F8A instead of U-0002634C as a component.
+	(UU+7FB2): Use <CJK RADICAL RAM> instead of U-0002634C as a
+	component.
+
+	* Ideograph-R094-Dog.el (U+72BF): Apply new conventions for glyph
+	granularity.
+	(U+72DF): Likewise.
+	(U-000247B8): Add `sound@ja/on'.
+	(IU+247B8): Add `<-original' for UU+72DF.
+	(CU+730F): Unify MJ016982 and KOSEKI-229870; add some relations
+	for other characters.
+	(U+7331): Apply new conventions for glyph granularity.
+	(KU+7336): Add some relations for other characters.
+	(U+7337): Add `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(J2004U+7337): Add `ideographic-structure'; add some relations for
+	other characters.
+	(UU+7337): Add `ideographic-structure'.
+	(CU+7376): Add some relations for other characters.
+	(CU+737E): Likewise.
+	(U+737F): Apply new conventions for glyph granularity.
+
 2018-09-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R063-Door.el (A-GT-K01390): New abstract node; unify
