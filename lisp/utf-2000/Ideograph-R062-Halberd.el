@@ -632,18 +632,17 @@
   '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (=ucs		. #x6211)	; 我
+    (=>ucs@cognate	. #x6211)	; &A-cgnU+6211;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x6211)	; 我
+     ((=>ucs@cognate	  . #x6211)	; &A-cgnU+6211;
       ))
     (ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (=>ucs@iwds-1	. #x6211)	; &AJ1-01382;
-    (=ucs@unicode	. #x6211)	; &AJ1-01382;
-    (=adobe-japan1-0	. 01382)	; &AJ1-01382;
+    (=ucs		. #x6211)	; 我
+    (=adobe-japan1-0	. 01382)	; &I-AJ1-01382;
     (=jis-x0208		. #x3266)	; &I-J90-3266; [18-70]
     (=gb2312		. #x4E52)	; &I-G0-4E52; [46-50]
     (=ks-x1001		. #x6432)	; &I-K0-6432; [68-18]
@@ -654,7 +653,7 @@
     (=gt-k		. 02507)	; &I-GT-K02507;
     (=gt-pj-1		. #x3266)	; &I-GT-14561; [18-70]
     (=daikanwa		. 11545)	; &I-M-11545;
-    (=shinjigen		.  2764)	; &AJ1-01382;
+    (=shinjigen		.  2764)	; 我
     (->subsumptive
      ((==ucs@unicode	  . #x6211)	; &g2-AJ1-01382;
       (==adobe-japan1-0	  . 01382)	; &g2-AJ1-01382;
@@ -695,7 +694,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x6211)	; 我
+     ((=>ucs@cognate	  . #x6211)	; &A-cgnU+6211;
       ))
     (ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 3)
