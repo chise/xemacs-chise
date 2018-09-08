@@ -1,5 +1,8 @@
 2018-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R076-Lack.el (U-0002389F): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R061-Heart.el (JU+6094): Use UU+6BCE instead of U+6BCE
 	in `ideographic-structure'.
 
