@@ -1391,19 +1391,34 @@
   '((ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=ucs		. #x2389F)	; 𣢟
-    (->subsumptive
-     ((=cns11643-6	  . #x3179)	; &C6-3179; [17-89]
-      (=daikanwa	  . 16043)	; &I-M-16043;
-      (<-same
-       ((=ucs@unicode	    . #x67B1)	; &AJ1-19449;
-	(=adobe-japan1-5    . 19449)	; &AJ1-19449;
-	(=daikanwa	    . 14581)	; &I-M-14581;
-	))
-      (<-same*sources
-       yupian jiyun daikanwa)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@iso		  . #x2389F)	; &U-0002389F;
+     ((=ucs		  . #x7518)	; 甘
+      )
+     ((=ucs		  . #x6B20)	; 欠
+      ))
+    (=ucs		. #x2389F)	; 𣢟
+    (=cns11643-6	. #x3179)	; &I-C6-3179; [17-89]
+    (=daikanwa		. 16043)	; &I-M-16043;
+    (<-same
+     ((=ucs		  . #x67B1)	; 枱
+      (=daikanwa	  . 14581)	; &I-M-14581;
+      ))
+    (<-same*sources
+     yupian jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@cns	  . #x2389F)	; &g2-M-16043;
+      (==cns11643-6	  . #x3179)	; &g2-M-16043; [17-89]
+      (==daikanwa	  . 16043)	; &g2-M-16043;
+      (->subsumptive
+       ((===daikanwa	    . 16043)	; &R-M-16043;
+	)
+       ((===cns11643-6	    . #x3179)	; &R-C6-3179; [17-89]
+	))
+      )
+     ((==ucs@iso	  . #x2389F)	; &g2-IU-0002389F;
       ))
     ))
 (define-char
