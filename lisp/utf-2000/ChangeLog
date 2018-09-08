@@ -1,5 +1,19 @@
 2018-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R131-Minister.el (A-IWDSU+268DE): New abstract node.
+	(A-IWDSU+81E3): New abstract node; use `<-denotational@component'
+	for A-IWDSU+268DE.
+	(U+81E3): Add `<-denotational@component' for A-IWDSU+81E3.
+	(A-IWDSU+268DD): Add `<-denotational@component' for A-IWDSU+268DE.
+	(U-000268DE): Add `<-denotational@component' for A-IWDSU+81E3.
+
+	* Ideograph-R130-Meat.el (U+80A9): Add `ideographic-structure'.
+	(CU+80A9): Likewise; add some relations for other characters.
+	(UU+80A9): Add `ideographic-structure'.
+	(U-0002666A): Apply new conventions for glyph granularity.
+	(U-000267C6): Likewise.
+	(U+81DD): Likewise.
+
 	* Ideograph-R076-Lack.el (U-0002389F): Apply new conventions for
 	glyph granularity.
 

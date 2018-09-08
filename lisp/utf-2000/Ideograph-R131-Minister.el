@@ -2,6 +2,27 @@
 (define-char
   '((ideographic-radical . 131)	; ⾂
     (ideographic-strokes . 0)
+    (=>iwds-1*note	"162+163")
+    (=>ucs@iwds-1	. #x268DE)	; &A-IWDSU+268DE;
+    (=>iwds-1		.  16263)	; &A-IWDSU+268DE;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x268DE)	; &A-IWDSU+268DE;
+      (=>iwds-1		  .  16263)	; &A-IWDSU+268DE;
+      ))
+    (ideographic-radical . 131)	; ⾂
+    (ideographic-strokes . 0)
+    (=>ucs@iwds-1	. #x81E3)	; &A-IWDSU+81E3;
+    (=>iwds-1		.  0163)	; &A-IWDSU+81E3;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x81E3)	; &A-IWDSU+81E3;
+      (=>iwds-1		  .  0163)	; &A-IWDSU+81E3;
+      ))
+    (ideographic-radical . 131)	; ⾂
+    (ideographic-strokes . 0)
     (total-strokes	 . 6)
     (=ucs		. #x81E3)	; 臣
     (=adobe-japan1-0	. 02569)	; &I-AJ1-02569;
@@ -53,7 +74,11 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 131)	; ⾂
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x268DE)	; &A-IWDSU+268DE;
+      (=>iwds-1		  .  16263)	; &A-IWDSU+268DE;
+      ))
+    (ideographic-radical . 131)	; ⾂
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
     (=>ucs@iwds-1	. #x268DD)	; &A-IWDSU+268DD;
@@ -107,6 +132,10 @@
   '((<-denotational
      ((=>ucs@iwds-1	  . #x268DD)	; &A-IWDSU+268DD;
       (=>iwds-1		  .  0162)	; &A-IWDSU+268DD;
+      ))
+    (<-denotational@component
+     ((=>ucs@iwds-1	  . #x81E3)	; &A-IWDSU+81E3;
+      (=>iwds-1		  .  0163)	; &A-IWDSU+81E3;
       ))
     (ideographic-radical . 131)	; ⾂
     (ideographic-strokes . 0)
