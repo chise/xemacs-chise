@@ -1,3 +1,8 @@
+2018-09-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R061-Heart.el (JU+6094): Use UU+6BCE instead of U+6BCE
+	in `ideographic-structure'.
+
 2018-09-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R062-Halberd.el (A-cgnU+6211): Changed from U+6211.
