@@ -478,6 +478,14 @@
   '((ideographic-radical . 97)	; ⽠
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x74DC)	; 瓜
+      )
+     ((=ucs		  . #x74DC)	; 瓜
+      ))
     (sound@ja/on	"yu")
     (=ucs		. #x3F0C)	; 㼌
     (<-construed@chu
@@ -486,7 +494,19 @@
      ((=ucs		  . #x8026)	; 耦
       ))
     (->subsumptive
-     ((=ucs@unicode	  . #x3F0C)	; &M-21387;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs@unicode	    . #x74DC)	; &G0-394F;
+	(=gb2312	    . #x394F)	; &G0-394F; [25-47]
+	(=daikanwa	    . 21371)	; &I-M-21371;
+	)
+       ((=ucs@unicode	    . #x74DC)	; &G0-394F;
+	(=gb2312	    . #x394F)	; &G0-394F; [25-47]
+	(=daikanwa	    . 21371)	; &I-M-21371;
+	))
+      (=ucs@unicode	  . #x3F0C)	; &M-21387;
       (=ucs@JP/hanazono	  . nil)
       (=daikanwa	  . 21387)	; &M-21387;
       (->subsumptive
@@ -496,7 +516,31 @@
 	(==ucs@JP/hanazono  . nil)
 	))
       )
-     ((=ucs@cns		  . #x3F0C)	; &C4-2E2B;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs@jis	    . #x74DC)	; &AJ1-01245;
+	(=ucs@ks	    . #x74DC)	; &AJ1-01245;
+	(=adobe-japan1-0    . 01245)	; &AJ1-01245;
+	)
+       ((=ucs@jis	    . #x74DC)	; &AJ1-01245;
+	(=ucs@ks	    . #x74DC)	; &AJ1-01245;
+	(=adobe-japan1-0    . 01245)	; &AJ1-01245;
+	))
+      (=ucs-var-001	  . #x3F0C)	; &U-v001+3F0C;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs@cns	    . #x74DC)	; &HD-JT-B5DE;
+	(=cns11643-1	    . #x466A)	; &HD-JT-B5DE; [38-74]
+	)
+       ((=ucs@cns	    . #x74DC)	; &HD-JT-B5DE;
+	(=cns11643-1	    . #x466A)	; &HD-JT-B5DE; [38-74]
+	))
+      (=ucs@cns		  . #x3F0C)	; &C4-2E2B;
       (=cns11643-4	  . #x2E2B)	; &C4-2E2B; [14-11]
       (->subsumptive
        ((==ucs@cns	    . #x3F0C)	; &g2-CU+3F0C;
