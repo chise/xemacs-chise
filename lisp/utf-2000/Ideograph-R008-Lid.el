@@ -4772,6 +4772,76 @@
     ))
 (define-char
   '((ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 14)
+    (total-strokes	 . 16)
+    (=>ucs-itaiji-001	. #x22007)	; &A-U-i001+22007;
+    (=>ucs-itaiji-002	. #x22007)	; &A-U-i001+22007;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x22007)	; &A-U-i001+22007;
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 14)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x342B)	; 㐫
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+	(=ucs		    . #x2FF2)	; ⿲
+	)
+       ((=ucs		    . #x72AD)	; 犭
+	)
+       ((=ucs		    . #x592D)	; 夭
+	)
+       ((=big5-cdp	    . #x875B)	; &CDP-875B;
+	))
+      ))
+    (=ucs-itaiji-001	. #x22007)	; &U-i001+22007;
+    (<-formed
+     ((=daikanwa	  . 08705)	; &M-08705;
+      )
+     ((=ucs		  . #x5B50)	; 子
+      ))
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x22007)	; &g2-U-i001+22007;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x22007)	; &A-U-i001+22007;
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 14)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x342B)	; 㐫
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO MIDDLE AND RIGHT")
+	(=ucs		    . #x2FF2)	; ⿲
+	)
+       ((=ucs		    . #x72AD)	; 犭
+	)
+       ((=ucs		    . #x592D)	; 夭
+	)
+       ((=big5-cdp	    . #x8AF0)	; &CDP-8AF0;
+	))
+      ))
+    (=ucs-itaiji-002	. #x22007)	; &U-i002+22007;
+    (->subsumptive
+     ((==ucs-itaiji-002	  . #x22007)	; &g2-U-i002+22007;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 8)	; ⼇
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱

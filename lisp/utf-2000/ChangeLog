@@ -1,3 +1,21 @@
+2018-09-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R052-Short-Thread.el (U-000221B6): Add
+	`ideographic-structure'; add `sound@ja/on/{kan|go}'; add
+	`<-ancient' for U+7386; add representative nodes.
+	(GT-K04964): New character; unify U+386D-itaiji-001.
+	(A-GT-K05783): New abstract node; unify A-U+386D-itaiji-002.
+	(U+386D-itaiji-003): New character; use `<-denotational' for
+	A-GT-K05783.
+	(GT-K05783): Likewise; unify A-U+386D-itaiji-002.
+	(U-000221D6): Apply new conventions for glyph granularity.
+
+	* Ideograph-R008-Lid.el (A-U+22007-itaiji-001): New abstract node;
+	unify A-U+22007-itaiji-002.
+	(U+22007-itaiji-001): New character; use `<-denotational' for
+	A-U+22007-itaiji-001.
+	(U+22007-itaiji-002): Likewise.
+
 2018-09-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R121-Jar.el (U+7F4D): Apply new conventions for glyph
