@@ -1,6 +1,10 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((ideographic-radical . 16)	; ⼏
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x513F)	; &A-IWDSU+513F;
+      (=>iwds-1		  .  11922)	; &A-IWDSU+513F;
+      ))
+    (ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (=>ucs@component	. #x51E0)	; &A-compU+51E0;
