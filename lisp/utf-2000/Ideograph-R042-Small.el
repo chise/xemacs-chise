@@ -1054,6 +1054,29 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x770C)	; &A-cgnU+770C;
+      ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x76EE)	; 目
+      )
+     ((=ucs		  . #x5C0F)	; 小
+      ))
+    (=ucs		. #x21B68)	; 𡭨
+    (<-formed
+     ((=big5-cdp	  . #x8C6D)	; &CDP-8C6D;
+      ))
+    (->subsumptive
+     ((==ucs@iso	  . #x21B68)	; &g2-IU-00021B68;
+      ))
+    ))
+(define-char
   '((=>ucs		. #x21B6A)	; 𡭪
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 6)

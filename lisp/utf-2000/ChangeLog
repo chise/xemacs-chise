@@ -1,5 +1,9 @@
 2018-09-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R042-Small.el (U-00021B68): New character.
+
+2018-09-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R052-Short-Thread.el (U-000221B6): Add
 	`ideographic-structure'; add `sound@ja/on/{kan|go}'; add
 	`<-ancient' for U+7386; add representative nodes.
