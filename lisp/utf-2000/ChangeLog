@@ -1,3 +1,15 @@
+2018-09-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R031-Enclosure.el (U-000211F0): Use `->denotational'
+	and `->subsumptive'.
+
+	* Ideograph-R133-Arrive.el (U-0002C6F3): New character.
+
+	* Ideograph-R016-Table.el (IWDS1-0119): Add
+	`<-denotational@component' for A-IWDSU+513F.
+
+	* Ideograph-R009-Man.el (U+2D5B2-itaiji-001): New character.
+
 2018-09-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R042-Small.el (U-00021B68): New character.

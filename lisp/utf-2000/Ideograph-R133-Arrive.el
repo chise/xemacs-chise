@@ -433,6 +433,23 @@
     ))
 (define-char
   '((ideographic-radical . 133)	; ⾄
+    (ideographic-strokes . 6)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x81F3)	; 至
+      )
+     ((=ucs		  . #x81F3)	; 至
+      ))
+    (=ucs		. #x2C6F3)	; 𬛳
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2C6F3)	; &g2-hanaJU+2C6F3;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 133)	; ⾄
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
     (ideographic-structure

@@ -4151,28 +4151,69 @@
     (=hanziku-2		. #xE647)	; &I-HZK02-E647;
     ))
 (define-char
-  '((=>ucs		. #x211F0)	; 𡇰
-    (ideographic-radical . 31)	; ⼞
-    (ideographic-strokes . 8)
-    (total-strokes	 . 11)
-    (=daikanwa		. 04787)	; &M-04787;
+  '((ideographic-radical . 31)	; ⼞
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=>ucs@component	  . #x5157)	; &A-compU+5157;
+      ))
+    (sound@ja/on	"seN")
+    (=ucs		. #x211F0)	; 𡇰
     ))
 (define-char
-  '((morohashi-daikanwa	4787 0 0)
+  '((<-denotational
+     ((=ucs		  . #x211F0)	; 𡇰
+      ))
     (ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 721 7)
-    (=ucs		. #x211F0)	; 𡇰
-    (=hanziku-2		. #xE6A9)	; &I-HZK02-E6A9;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=ucs		  . #x5156)	; 兖
+      ))
+    (=ucs@iso		. #x211F0)	; &M-04787;
+    (=daikanwa		. 04787)	; &M-04787;
+    (->subsumptive
+     ((==ucs@iso	  . #x211F0)	; &g2-M-04787;
+      (==daikanwa	  . 04787)	; &g2-M-04787;
+      (->subsumptive
+       ((===daikanwa	    . 04787)	; &R-M-04787;
+	)
+       ((===ucs@iso	    . #x211F0)	; &R-U-000211F0;
+	)
+       ((=hanziku-2	    . #xE6A9)	; &HZK02-E6A9;
+	))
+      ))
     ))
 (define-char
-  '((=>ucs		. #x211F0)	; 𡇰
-    (morohashi-daikanwa	4787 0 5)
+  '((<-denotational
+     ((=ucs		  . #x211F0)	; 𡇰
+      ))
     (ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x56D7)	; 囗
+      )
+     ((=ucs-itaiji-001	  . #x5156)	; &U-i001+5156;
+      ))
+    (=ucs@cns		. #x211F0)	; &C5-2C5D;
     (=cns11643-5	. #x2C5D)	; &C5-2C5D; [12-61]
+    (->subsumptive
+     ((==ucs@cns	  . #x211F0)	; &g2-CU+211F0;
+      (==cns11643-5	  . #x2C5D)	; &g2-CU+211F0; [12-61]
+      ))
     ))
 (define-char
   '((ideographic-radical . 31)	; ⼞
