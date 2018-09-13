@@ -1,5 +1,12 @@
 2018-09-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R048-Work.el (MJ057407): Unify U-0002D606.
+	(A-CB02138): Unify A-compU+2D606.
+	(U+5DEB-itaiji-001): Add representative node.
+
+	* Ideograph-R046-Mountain.el (U-0002D5B2): New character; unify
+	CB05002.
+
 	* Ideograph-R031-Enclosure.el (U-000211F0): Use `->denotational'
 	and `->subsumptive'.
 
