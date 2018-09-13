@@ -1,3 +1,27 @@
+2018-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R027-Cliff.el (U-0002A80B): New character.
+	(U-00020AAB): Apply new conventions for glyph granularity.
+
+2018-09-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (A-IWDSU+513F): New abstract node for
+	IWDS1-119+222.
+	(IWDS1-0222): Add `<-denotational@component' for A-IWDSU+513F.
+	(U+5147): Add `sound@ja/on/go'.
+	(UU+5147): Add some relations for other characters.
+	(A-compU+5157): New abstract node; use `<-denotational' for
+	BUCS+5157.
+	(A-IWDSU+5157): New abstract node; use `<-denotational' for
+	A-compU+5157.
+	(U+5156): Use A-IWDSU+5157 instead of BUCS+5157 as its mother;
+	apply new conventions for glyph granularity.
+	(U+5156-itaiji-001): New character; use `<-denotational' for
+	A-compU+5157.
+	(U+5157): Use A-IWDSU+5157 instead of BUCS+5157 as its mother; add
+	`ideographic-structure'; add `sound@ja/on'.
+	(UU+5157): Add some relations for other characters.
+
 2018-09-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R048-Work.el (MJ057407): Unify U-0002D606.
