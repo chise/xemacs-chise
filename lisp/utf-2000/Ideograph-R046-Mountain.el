@@ -11227,6 +11227,28 @@
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-itaiji-001	  . #x2D5B2)	; &U-i001+2D5B2;
+      )
+     ((=ucs		  . #x5C71)	; 山
+      ))
+    (=ucs		. #x2D5B2)	; 𭖲
+    (=cbeta		. 05002)	; &I-CB05002;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D5B2)	; &g2-CB05002;
+      (==cbeta		  . 05002)	; &g2-CB05002;
+      (->subsumptive
+       ((===cbeta	    . 05002)	; &R-CB05002;
+	))
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (=ucs		. #x5D4A)	; 嵊
