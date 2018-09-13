@@ -902,14 +902,53 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x2D606)	; &A-CB02138;
+      (=>cbeta		  . 02138)	; &A-CB02138;
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x5750)	; 坐
+      ))
+    (=ucs		. #x2D606)	; 𭘆
+    (=mj		. 057407)	; &I-MJ057407;
+    (=koseki		. 098840)	; 𭘆
+    (=cbeta		. 02138)	; &I-CB02138;
+    (<-formed
+     ((=ucs		  . #x5DEB)	; 巫
+      ))
+    (<-formed*sources
+     koseki)
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D606)	; &g2-MJ057407;
+      (==mj		  . 057407)	; &g2-MJ057407;
+      (==koseki		  . 098840)	; &g2-MJ057407;
+      (==cbeta		  . 02138)	; &g2-MJ057407;
+      (->subsumptive
+       ((===mj		    . 057407)	; &R-MJ057407;
+	)
+       ((===cbeta	    . 02138)	; &R-CB02138;
+	))
+      ))
+    ))
+(define-char
   '((ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (=>ucs@component	. #x2D606)	; &A-CB02138;
     (=>cbeta		. 02138)	; &A-CB02138;
     ))
 (define-char
   '((<-denotational
-     ((=>cbeta		  . 02138)	; &A-CB02138;
+     ((=>ucs@component	  . #x2D606)	; &A-CB02138;
+      (=>cbeta		  . 02138)	; &A-CB02138;
       ))
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 5)
@@ -925,39 +964,8 @@
      ((=ucs		  . #x5DE5)	; 工
       ))
     (=ucs-itaiji-001	. #x5DEB)	; &U-i001+5DEB;
-    ))
-(define-char
-  '((<-denotational
-     ((=>cbeta		  . 02138)	; &A-CB02138;
-      ))
-    (ideographic-radical . 48)	; ⼯
-    (ideographic-strokes . 5)
-    (total-strokes	 . 8)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x4E00)	; 一
-      )
-     ((=ucs		  . #x5750)	; 坐
-      ))
-    (=mj		. 057407)	; &MJ057407;
-    (=koseki		. 098840)	; &MJ057407;
-    (=cbeta		. 02138)	; &I-CB02138;
-    (<-formed
-     ((=ucs		  . #x5DEB)	; 巫
-      ))
-    (<-formed*sources
-     koseki)
     (->subsumptive
-     ((==mj		  . 057407)	; &g2-MJ057407;
-      (==koseki		  . 098840)	; &g2-MJ057407;
-      (==cbeta		  . 02138)	; &g2-MJ057407;
-      (->subsumptive
-       ((===mj		    . 057407)	; &R-MJ057407;
-	)
-       ((===cbeta	    . 02138)	; &R-CB02138;
-	))
+     ((==ucs-itaiji-001	  . #x5DEB)	; &g2-U-i001+5DEB;
       ))
     ))
 (define-char
