@@ -26727,7 +26727,7 @@
      ((=ucs		  . #x5973)	; 女
       )
      ((=ucs@unicode	  . #x862D)	; &AJ1-14084;
-      (=adobe-japan1-4	  . 14084)	; &I-AJ1-14084;
+      (=adobe-japan1-4	  . 14084)	; &AJ1-14084;
       ))
     (=ucs@unicode	. #x5B4F)	; &CB05463;
     (=cbeta		. 05463)	; &CB05463;
