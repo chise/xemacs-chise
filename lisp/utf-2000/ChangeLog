@@ -1,5 +1,12 @@
 2018-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U+3563): Use A-IWDSU+513F instead of
+	IWDS1-0119 as a component; add `sound@ja/on'; unify IWDS1-0224.
+	(UU+3563): Add some relations for other characters.
+	(U+54A5): Likewise.
+	(U-00020D77): Use `->denotational' and `->subsumptive'.
+	(U-00020F67): Apply new conventions for glyph granularity.
+
 	* Ideograph-R027-Cliff.el (U-0002A80B): New character.
 	(U-00020AAB): Apply new conventions for glyph granularity.
 
