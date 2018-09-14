@@ -12,6 +12,26 @@
 
 2018-09-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R076-Lack.el (U+6B2A): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R142-Insect.el (U+875A): Apply new conventions for
+	glyph granularity.
+	(U+87D2): Likewise.
+	(U+880E): Add `sound@ja/on'.
+	(M-33724): Unify MJ023781, HD-KS383550 and KOSEKI-383550.
+
+	* Ideograph-R120-Silk.el (U-00026059): Apply new conventions for
+	glyph granularity.
+	(A-cgnU+7E23): New abstract node.
+	(U+7E23): Add `<-denotational' for A-cgnU+7E23.
+	(A-U+7E23-itaiji-002): New abstract node; use `<-denotational' for
+	A-cgnU+7E23; unify A-U+7E23-itaiji-003.
+	(U+7E23-itaiji-003): New character; use `<-subsumptive' for
+	A-U+7E23-itaiji-002; add HNG-NTO0861-0 and HNG-NKM0302-0.
+	(U+7E23-itaiji-002): New character; use `<-subsumptive' for
+	A-U+7E23-itaiji-002.
+
 	* Ideograph-R010-Legs.el (A-IWDSU+513F): New abstract node for
 	IWDS1-119+222.
 	(IWDS1-0222): Add `<-denotational@component' for A-IWDSU+513F.
