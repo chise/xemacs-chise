@@ -1354,12 +1354,48 @@
   '((ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=ucs		. #x6B2A)	; 欪
-    (->subsumptive
-     ((=cns11643-3	  . #x2D3C)	; &C3-2D3C; [13-28]
-      (=daikanwa	  . 16040)	; &I-M-16040;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x6B2A)	; &UU+6B2A;
+     ((=ucs		  . #x51FA)	; 出
+      )
+     ((=ucs		  . #x6B20)	; 欠
+      ))
+    (=ucs		. #x6B2A)	; 欪
+    (=mj		. 014758)	; &I-MJ014758;
+    (=cns11643-3	. #x2D3C)	; &I-C3-2D3C; [13-28]
+    (=koseki		. 182130)	; 欪
+    (=daikanwa		. 16040)	; &I-M-16040;
+    (<-formed
+     ((=ucs		  . #x54A5)	; 咥
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-same
+     ((=ucs		  . #x54A5)	; 咥
+      (=daikanwa	  . 03534)	; &I-M-03534;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@cns	  . #x6B2A)	; &g2-MJ014758;
+      (==mj		  . 014758)	; &g2-MJ014758;
+      (==cns11643-3	  . #x2D3C)	; &g2-MJ014758; [13-28]
+      (==koseki		  . 182130)	; &g2-MJ014758;
+      (==daikanwa	  . 16040)	; &g2-MJ014758;
+      (->subsumptive
+       ((===daikanwa	    . 16040)	; &R-M-16040;
+	)
+       ((===mj		    . 014758)	; &R-MJ014758;
+	)
+       ((===cns11643-3	    . #x2D3C)	; &R-C3-2D3C; [13-28]
+	))
+      )
+     ((==ucs@unicode	  . #x6B2A)	; &g2-UU+6B2A;
+      (==ucs@JP/hanazono  . nil)
       ))
     ))
 (define-char
