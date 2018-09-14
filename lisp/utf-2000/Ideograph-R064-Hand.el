@@ -521,9 +521,75 @@
   '((ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x624C)	; 扌
+      )
+     ((=>ucs@component	  . #x571F)	; &A-compU+571F;
+      (=>iwds-1		  .  0312)	; &A-compU+571F;
+      ))
+    (=>ucs@iwds-1	. #x6257)	; &A-IWDSU+6257;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x6257)	; &A-IWDSU+6257;
+      ))
+    (ideographic-radical . 64)	; ⼿
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x624C)	; 扌
+      )
+     ((=ucs		  . #x571F)	; 土
+      ))
+    (sound@ja/on	"zai")
     (=ucs		. #x6257)	; 扗
     (=cns11643-3	. #x236F)	; &I-C3-236F; [03-79]
     (=daikanwa		. 11792)	; &I-M-11792;
+    (<-original
+     ((=ucs@unicode	  . #x5728)	; &AJ1-02127;
+      (=adobe-japan1-0	  . 02127)	; &AJ1-02127;
+      (=daikanwa	  . 04881)	; &I-M-04881;
+      ))
+    (<-original*sources
+     zhengzitong daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x6257)	; &g2-M-11792;
+      (==cns11643-3	  . #x236F)	; &g2-M-11792; [03-79]
+      (==daikanwa	  . 11792)	; &g2-M-11792;
+      (->subsumptive
+       ((===daikanwa	    . 11792)	; &R-M-11792;
+	)
+       ((===cns11643-3	    . #x236F)	; &R-C3-236F; [03-79]
+	)
+       ((===ucs@unicode	    . #x6257)	; &R-UU+6257;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x6257)	; &A-IWDSU+6257;
+      ))
+    (ideographic-radical . 64)	; ⼿
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x624C)	; 扌
+      )
+     ((=ucs		  . #x58EB)	; 士
+      ))
+    (=ucs		. #x22A7F)	; 𢩿
+    (->subsumptive
+     ((==ucs@iso	  . #x22A7F)	; &g2-IU-00022A7F;
+      ))
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
