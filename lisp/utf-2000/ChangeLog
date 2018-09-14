@@ -1,5 +1,12 @@
 2018-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R064-Hand.el (A-IWDSU+6257): New abstract node.
+	(U+6257): Add `<-denotational@component' for A-IWDSU+6257; add
+	`ideographic-structure'; add `sound@ja/on'; add `<-original' for
+	UU+5728; add representative nodes.
+	(U-00022A7F): New character; use `<-denotational@component' for
+	A-IWDSU+6257.
+
 	* Ideograph-R030-Mouth.el (U+3563): Use A-IWDSU+513F instead of
 	IWDS1-0119 as a component; add `sound@ja/on'; unify IWDS1-0224.
 	(UU+3563): Add some relations for other characters.
