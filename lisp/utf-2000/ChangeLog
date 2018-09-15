@@ -1,5 +1,22 @@
 2018-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R109-Eye.el (A-U+268FB-itaiji-002): New abstract node;
+	use `<-denotational' for A-BC-8BA5.
+	(U+268FB-itaiji-002): New character; use `<-denotational' for
+	A-U+268FB-itaiji-002.
+	(U-0002F940): Add `ideographic-structure'.
+	(U-00025109): Add `ideographic-structure'; add ->interchangeable'
+	for JU+689F.
+	(A-cgnU+770C): New abstract node.
+	(U+770C): Add `<-denotational' for A-cgnU+770C; add
+	`ideographic-structure'; unify IWDS1-0113.
+	(UU+770C): Add `ideographic-structure'.
+	(U+7782): Apply new conventions for glyph granularity.
+
+	* Ideograph-R094-Dog.el (U-0002AECC): New character.
+
+2018-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R064-Hand.el (A-IWDSU+6257): New abstract node.
 	(U+6257): Add `<-denotational@component' for A-IWDSU+6257; add
 	`ideographic-structure'; add `sound@ja/on'; add `<-original' for
