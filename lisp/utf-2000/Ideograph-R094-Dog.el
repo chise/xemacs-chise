@@ -12694,6 +12694,38 @@
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x72AD)	; 犭
+      )
+     ((=>ucs-itaiji-005	  . #x66B4)	; &A-U-i005+66B4;
+      ))
+    (=ucs		. #x2AECC)	; 𪻌
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2AECC)	; 𪻌
+      ))
+    (ideographic-radical . 94)	; ⽝
+    (ideographic-strokes . 16)
+    (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x72AD)	; 犭
+      )
+     ((=ucs-itaiji-005	  . #x66B4)	; &U-i005+66B4;
+      ))
+    (=ucs@JP/hanazono	. #x2AECC)	; &hanaJU+2AECC;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2AECC)	; &g2-hanaJU+2AECC;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 17)
     (total-strokes	 . 20)
     (=ucs		. #x737C)	; 獼
