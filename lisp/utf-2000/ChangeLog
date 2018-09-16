@@ -1,5 +1,8 @@
 2018-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R145-Clothes.el (U+889E): Apply new conventions for
+	glyph granularity.
+
 	* Ideograph-R109-Eye.el (A-U+268FB-itaiji-002): New abstract node;
 	use `<-denotational' for A-BC-8BA5.
 	(U+268FB-itaiji-002): New character; use `<-denotational' for
