@@ -191,7 +191,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=gt		  . 00154)	; &GT-00154;
+     ((=big5-cdp	  . #x89C2)	; &GT-00154;
       (=daikanwa	  . 00114)	; &I-M-00114;
       )
      ((=big5-cdp	  . #x8CC6)	; &CDP-8CC6;
@@ -3294,8 +3294,35 @@
   '((ideographic-radical . 145)	; ⾐
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x8863)	; 衣
+      )
+     ((=>ucs@iwds-1	  . #x3563)	; &A-IWDSU+3563;
+      ))
+    (sound@ja/on	"koN")
     (=ucs		. #x889E)	; 袞
-    (=adobe-japan1-0	. 06582)	; &I-AJ1-06582;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x889E)	; 袞
+      ))
+    (ideographic-radical . 145)	; ⾐
+    (ideographic-strokes . 5)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (=ucs		  . #x2FF4)	; ⿴
+      )
+     ((=ucs		  . #x8863)	; 衣
+      )
+     ((=ucs@unicode	  . #x3563)	; &AJ1-17344;
+      (=adobe-japan1-5	  . 17344)	; &AJ1-17344;
+      ))
+    (=ucs@unicode	. #x889E)	; &AJ1-06582;
+    (=adobe-japan1-0	. 06582)	; &AJ1-06582;
     (=jis-x0208		. #x6A51)	; &I-J90-6A51; [74-49]
     (=ks-x1001		. #x4D65)	; &I-K0-4D65; [45-69]
     (=cns11643-1	. #x5D35)	; &I-C1-5D35; [61-21]
@@ -3305,7 +3332,13 @@
     (=gt-k		. 07979)	; &I-GT-K07979;
     (=gt-pj-1		. #x6A51)	; &I-GT-46135; [74-49]
     (=daikanwa		. 34203)	; &I-M-34203;
-    (=shinjigen		.  7344)	; 袞
+    (=shinjigen		.  7344)	; &AJ1-06582;
+    (<-same
+     ((=ucs		  . #x886E)	; 衮
+      (=daikanwa	  . 34121)	; &I-M-34121;
+      ))
+    (<-same*sources
+     kangxi daikanwa)
     (<-vulgar
      ((=ucs		  . #x886E)	; 衮
       (=shinjigen	  .  7343)	; 衮
