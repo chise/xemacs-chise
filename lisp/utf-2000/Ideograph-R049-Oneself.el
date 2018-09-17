@@ -1218,7 +1218,13 @@
       )
      ((=ucs		  . #x5176)	; 其
       ))
-    (=hanziku-3		. #xC9AF)	; &HZK03-C9AF;
+    (=ucs-itaiji-001	. #x3831)	; &U-i001+3831;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x3831)	; &g2-U-i001+3831;
+      (->subsumptive
+       ((=hanziku-3	    . #xC9AF)	; &HZK03-C9AF;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 49)	; ⼰
