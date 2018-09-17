@@ -1,3 +1,8 @@
+2018-09-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R150-Valley.el (U-00027BB2): Apply new conventions for
+	glyph granularity.
+
 2018-09-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R145-Clothes.el (U+889E): Apply new conventions for
