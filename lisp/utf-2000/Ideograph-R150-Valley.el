@@ -329,9 +329,55 @@
   '((ideographic-radical . 150)	; ⾕
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 00877)	; &GT-K00877;
+      )
+     ((=>ucs@component	  . #x8C37)	; &A-compU+8C37;
+      (=>iwds-1		  .  0132)	; &A-compU+8C37;
+      ))
+    (sound@ja/on	"eN")
     (=ucs		. #x27BB2)	; 𧮲
-    (=cns11643-6	. #x447B)	; &I-C6-447B; [36-91]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x27BB2)	; 𧮲
+      ))
+    (ideographic-radical . 150)	; ⾕
+    (ideographic-strokes . 4)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 00877)	; &GT-K00877;
+      )
+     ((=ucs		  . #x8C37)	; 谷
+      ))
+    (=ucs@iso		. #x27BB2)	; &C6-447B;
+    (=cns11643-6	. #x447B)	; &C6-447B; [36-91]
     (=daikanwa		. 36196)	; &I-M-36196;
+    (<-ancient
+     ((=ucs@unicode	  . #x3563)	; &AJ1-17344;
+      (=adobe-japan1-5	  . 17344)	; &AJ1-17344;
+      (=daikanwa	  . 03243)	; &I-M-03243;
+      ))
+    (<-ancient*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x27BB2)	; &g2-M-36196;
+      (==cns11643-6	  . #x447B)	; &g2-M-36196; [36-91]
+      (==daikanwa	  . 36196)	; &g2-M-36196;
+      (->subsumptive
+       ((===daikanwa	    . 36196)	; &R-M-36196;
+	)
+       ((===cns11643-6	    . #x447B)	; &R-C6-447B; [36-91]
+	)
+       ((===ucs@iso	    . #x27BB2)	; &R-U-00027BB2;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 150)	; ⾕
