@@ -1,3 +1,13 @@
+2018-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R015-Ice.el (U+51DD): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R005-Second.el (U-0002CF18): New character; copied
+	from Ideograph-R077-Stop.el; use A-cgnU+2CF18 as its mother.
+	(A-cgnU+2CF18): New abstract node; use `<-denotational' for
+	A-cgnU+6B64.
+
 2018-09-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R049-Oneself.el (U+3831-itaiji-001): New character to

@@ -1262,6 +1262,48 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x2CF18)	; &A-cgnU+2CF18;
+      ))
+    (ideographic-radical@ucs . 5)	; ⼄
+    (ideographic-strokes@ucs . 3)
+    (total-strokes@ucs	     . 4)
+    (ideographic-radical@mj . 77)	; ⽌
+    (ideographic-strokes@mj . 1)
+    (total-strokes@mj	    . 5)
+    (ideographic-radical@mj*sources
+     koseki mj)
+    (ideographic-strokes@mj*sources
+     mj)
+    (total-strokes@mj*sources
+     koseki mj)
+    (=ucs		. #x2CF18)	; 𬼘
+    (=mj		. 057888)	; &I-MJ057888;
+    (=koseki		. 184530)	; 𬼘
+    (<-formed
+     ((=ucs		  . #x6B64)	; 此
+      ))
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2CF18)	; &g2-MJ057888;
+      (==mj		  . 057888)	; &g2-MJ057888;
+      (==koseki		  . 184530)	; &g2-MJ057888;
+      )
+     ((===hng-khm	  . 03990)	; &HNG011-03990;
+      )
+     ((===hng-khi	  . 04490)	; &HNG010-04490;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x6B64)	; &A-cgnU+6B64;
+      ))
+    (ideographic-radical@ucs . 5)	; ⼄
+    (ideographic-radical@mj . 77)	; ⽌
+    (=>ucs@cognate	. #x2CF18)	; &A-cgnU+2CF18;
+    ))
+(define-char
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
