@@ -3176,6 +3176,10 @@
 	* Ideograph-R009-Man.el (U-0002CF6A): New character.
 	(U-0002CFA0): New character.
 
+2018-02-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R158-Body.el (U-00028290): New character.
+
 2018-02-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R027-Cliff.el (UU+53A9): Unify A-UU+53A9; use U+53A9
