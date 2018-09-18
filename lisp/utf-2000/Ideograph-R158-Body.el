@@ -1860,6 +1860,39 @@
     ))
 (define-char
   '((ideographic-radical . 158)	; ⾝
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8EAB)	; 身
+      )
+     ((=ucs		  . #x904E)	; 過
+      ))
+    (=ucs		. #x28290)	; 𨊐
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x28290)	; 𨊐
+      ))
+    (ideographic-radical . 158)	; ⾝
+    (ideographic-strokes . 13)
+    (total-strokes	 . 20)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x8EAB)	; 身
+      )
+     ((=ucs@cns		  . #x904E)	; &C1-6734;
+      (=cns11643-1	  . #x6734)	; &C1-6734; [71-20]
+      ))
+    (=ucs@iso		. #x28290)	; &U-00028290;
+    (->subsumptive
+     ((==ucs@iso	  . #x28290)	; &g2-IU-00028290;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 158)	; ⾝
     (ideographic-strokes . 14)
     (total-strokes	 . 21)
     (=ucs		. #x28293)	; 𨊓
