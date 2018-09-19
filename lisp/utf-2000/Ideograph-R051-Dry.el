@@ -777,17 +777,17 @@
   '((ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=ucs		. #x5E78)	; 幸
+    (=>ucs@cognate	. #x5E78)	; &A-cgnU+5E78;
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5E78)	; 幸
+     ((=>ucs@cognate	  . #x5E78)	; &A-cgnU+5E78;
       ))
     (ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=ucs@unicode	. #x5E78)	; &AJ1-01982;
-    (=adobe-japan1-0	. 01982)	; &AJ1-01982;
+    (=ucs		. #x5E78)	; 幸
+    (=adobe-japan1-0	. 01982)	; &I-AJ1-01982;
     (=jis-x0208		. #x392C)	; &I-J90-392C; [25-12]
     (=gb2312		. #x5052)	; &I-G0-5052; [48-50]
     (=ks-x1001		. #x7A39)	; &I-K0-7A39; [90-25]
@@ -799,7 +799,7 @@
     (=gt-k		. 03701)	; &I-GT-K03701;
     (=gt-pj-1		. #x392C)	; &I-GT-11561; [25-12]
     (=daikanwa		. 09176)	; &I-M-09176;
-    (=shinjigen		.  2154)	; &AJ1-01982;
+    (=shinjigen		.  2154)	; 幸
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5E78)	; 幸
@@ -852,7 +852,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5E78)	; 幸
+     ((=>ucs@cognate	  . #x5E78)	; &A-cgnU+5E78;
       ))
     (ideographic-radical . 51)	; ⼲
     (ideographic-strokes . 5)
