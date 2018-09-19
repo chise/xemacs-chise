@@ -982,28 +982,79 @@
     (=daikanwa		. 07852)	; &I-M-07852;
     ))
 (define-char
-  '((total-strokes	 . 10)
-    (hanyu-dazidian	2 1022 17)
+  '((ideographic-radical@ucs . 45)	; ⼬
+    (ideographic-strokes@ucs . 7)
+    (ideographic-radical@cns . 4)	; ⼃
+    (ideographic-strokes@cns . 9)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5929)	; &A-compU+5929;
+      (=>iwds-1		  .  0008)	; &A-compU+5929;
+      )
+     ((=ucs		  . #x5C70)	; 屰
+      ))
     (=ucs		. #x21D18)	; 𡴘
-    (=cns11643-6	. #x3528)	; &I-C6-3528; [21-08]
-    (=hanziku-3		. #xD0D4)	; &I-HZK03-D0D4;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21D18)	; 𡴘
+      ))
+    (ideographic-radical@ucs . 45)	; ⼬
+    (ideographic-strokes@ucs . 7)
+    (ideographic-radical@ucs*sources
+     daikanwa=07853 ucs)
+    (ideographic-strokes@ucs*sources
+     daikanwa=07853 ucs)
+    (ideographic-radical@cns . 4)	; ⼃
+    (ideographic-strokes@cns . 9)
+    (ideographic-radical@cns*sources
+     daikanwa=00157 cns11643)
+    (total-strokes	 . 10)
+    (hanyu-dazidian	2 1022 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x592D)	; 夭
+      )
+     ((=ucs		  . #x5C70)	; 屰
+      ))
+    (=ucs@iso		. #x21D18)	; &C6-3528;
+    (=cns11643-6	. #x3528)	; &C6-3528; [21-08]
+    (=daikanwa		. 07853)	; &I-M-07853;
     (<-original
-     ((=ucs@unicode	  . #x5E78)	; &AJ1-01982;
-      (=adobe-japan1-0	  . 01982)	; &AJ1-01982;
+     ((=ucs		  . #x5E78)	; 幸
       (=daikanwa	  . 09176)	; &I-M-09176;
       ))
     (<-original*sources
      zhengzitong zhonghua-dazidian daikanwa)
     (->subsumptive
-     ((ideographic-radical . 4)	; ⼃
-      (ideographic-strokes . 9)
-      (ideographic-radical*sources daikanwa cns11643)
-      (=daikanwa	  . 00157)	; &M-00157;
+     ((=daikanwa	  . 00157)	; &M-00157;
+      (->subsumptive
+       ((==ucs@iso	    . #x21D18)	; &g2-M-00157;
+	(==daikanwa	    . 00157)	; &g2-M-00157;
+	(->subsumptive
+	 ((ideographic-radical . 4)	; ⼃
+	  (ideographic-strokes . 9)
+	  (===daikanwa	      . 00157)	; &R-M-00157;
+	  )
+	 ((===ucs@iso	      . #x21D18)	; &R-U-00021D18;
+	  )
+	 ((=hanziku-3	      . #xD0D4)	; &HZK03-D0D4;
+	  ))
+	)
+       ((ideographic-radical . 4)	; ⼃
+	(ideographic-strokes . 9)
+	(==ucs@cns	    . #x21D18)	; &g2-CU+21D18;
+	(==cns11643-6	    . #x3528)	; &g2-CU+21D18; [21-08]
+	))
       )
      ((ideographic-radical . 45)	; ⼬
       (ideographic-strokes . 7)
-      (ideographic-radical*sources daikanwa ucs)
-      (=daikanwa	  . 07853)	; &M-07853;
+      (==daikanwa	  . 07853)	; &g2-M-07853;
       ))
     ))
 (define-char
