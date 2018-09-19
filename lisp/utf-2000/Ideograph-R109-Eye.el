@@ -9859,8 +9859,8 @@
       )
      ((=ucs		  . #x76EE)	; 目
       )
-     ((=ucs@unicode	  . #x4343)	; &GT-K07393;
-      (=gt-k		  . 07393)	; &GT-K07393;
+     ((=ucs@unicode	  . #x4343)	; &MJ003628;
+      (=mj		  . 003628)	; &MJ003628;
       ))
     (=ucs@unicode	. #x4058)	; &UU+4058;
     (=ucs@JP/hanazono	. nil)
