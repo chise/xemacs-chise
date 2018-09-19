@@ -1,5 +1,31 @@
 2018-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R072-Sun.el (J2000U+6666): Use UU+6BCE instead of
+	U+6BCE as a component.
+
+	* Ideograph-R060-Step.el (UU+5FAD): Add representative node.
+
+	* Ideograph-R051-Dry.el (A-cgnU+5E78): Changed from U+5E78.
+	(AJ1-01982): Unify U+5E78 instead of UU+5E78; use A-cgnU+5E78
+	instead of U+5E78 as its mother.
+	(HD-IB0672): Use A-cgnU+5E78 instead of U+5E78 as its mother.
+
+	* Ideograph-R045-Sprout.el (U-00021D18): Apply new conventions for
+	glyph granularity.
+
+2018-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (U+57A3): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R022-Right-Open-Box.el (U+352F): Use `->denotational'
+	and `->subsumptive'.
+	(U+5334): Apply new conventions for glyph granularity.
+
+	* Ideograph-R004-Slash.el (U-000200B7): Apply new conventions for
+	glyph granularity.
+	(U-00021D18): Likewise.
+
 	* Ideograph-R030-Mouth.el (U+55C2): Delete `ideographic-strokes'
 	and `total-strokes'; add `sound@ja/on'.
 	(CU+55C2): Add `sound@ja/on'; unify HD-IP-55C2.

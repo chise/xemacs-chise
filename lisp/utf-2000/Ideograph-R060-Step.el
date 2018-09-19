@@ -4024,12 +4024,17 @@
       )
      ((=ucs		  . #x5F73)	; 彳
       )
-     ((=ucs@unicode	  . #x4343)	; &GT-K07393;
-      (=gt-k		  . 07393)	; &GT-K07393;
+     ((=ucs@unicode	  . #x4343)	; &MJ003628;
+      (=mj		  . 003628)	; &MJ003628;
       ))
     (=ucs@unicode	. #x5FAD)	; &G0-6166;
     (=ucs@JP/hanazono	. nil)
     (=gb2312		. #x6166)	; &G0-6166; [65-70]
+    (->subsumptive
+     ((==ucs@unicode	  . #x5FAD)	; &g2-UU+5FAD;
+      (==ucs@JP/hanazono  . nil)
+      (==gb2312		  . #x6166)	; &g2-UU+5FAD; [65-70]
+      ))
     ))
 (define-char
   '((ideographic-radical . 60)	; ⼻
