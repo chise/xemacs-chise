@@ -1,5 +1,14 @@
 2018-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U+55C2): Delete `ideographic-strokes'
+	and `total-strokes'; add `sound@ja/on'.
+	(CU+55C2): Add `sound@ja/on'; unify HD-IP-55C2.
+	(o-UU+55C2): Add `ideographic-structure'; add `sound@ja/on'.
+	(M-48980): Add `sound@ja/on'; unify MJ008508 and KOSEKI-047450;
+	use `<-interchangeable' instead of `->synonyms' for UU+9676; add
+	representative nodes.
+	(UU+55C2): Add representative nodes.
+
 	* Ideograph-R015-Ice.el (U+51DD): Apply new conventions for glyph
 	granularity.
 
