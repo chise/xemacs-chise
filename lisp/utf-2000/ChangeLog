@@ -1,3 +1,18 @@
+2018-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R121-Jar.el (o-UU+4343): Add
+	`<-denotational@component' for A-compU+4343.
+	(UU+4343): Unify MJ003628 and HD-KS314320; add `<-formed' for
+	JU+4343.
+	(o-GT-36228): Add `<-denotational@component' for A-compU+4343.
+	(A-compU+4343): New abstract node; use `<-denotational@component'
+	for U+4343.
+
+	* Ideograph-R005-Second.el (g2-MJ057888): Add representative node.
+
+	* Ideograph-R040-Roof.el (U+376F): Apply new conventions for glyph
+	granularity.
+
 2018-09-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R072-Sun.el (J2000U+6666): Use UU+6BCE instead of
