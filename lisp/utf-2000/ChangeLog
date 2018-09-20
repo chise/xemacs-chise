@@ -1,11 +1,54 @@
 2018-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R159-Cart.el (U-000282A5): New character; unify
+	BC-8CF7.
+	(U-000282E6): Use `->subsumptive'.
+	(A-cgnU+8F14): Changed from U+8F14.
+	(A-IWDSU+8F14): Omit `=>ucs@unicode'; use A-cgnU+8F14 instead of
+	U+8F14 as its mother.
+	(AJ1-03637): Unify U+8F14 instead of UU+8F14.
+	(HNG-KAR0390-0): Use A-cgnU+8F14 instead of U+8F14 as its mother.
+	(U+8F2F): Add `ideographic-structure'; add some relations for
+	other characters.
+	(U-00028372): Apply new conventions for glyph granularity.
+	(U-00028373): Likewise.
+	(B-EEC1): Unify A-IWDSU+8F40; add `ideographic-structure'.
+	(U+8F40): Add `ideographic-structure'; add representative nodes.
+	(U+8F3C): Likewise.
+	(o-JU+8F44): Unify o-J0-336D and o-AJ1-01483.
+	(U-00028398): Add `ideographic-structure'; add `sound@ja/on'.
+	(M-38516): Unify MJ050641 and KOSEKI-435540; add
+	`ideographic-structure'; add `<-same' for U+8F0A; add
+	representative nodes.
+	(IU+28398): Add `ideographic-structure'; add representative nodes.
+	(U-00028399): Apply new conventions for glyph granularity.
+	(U+8F61): Add `ideographic-structure'.
+	(U-000283E1): Likewise; add `sound@ja/on'; add `<-same' for
+	U+8F0A; add representative nodes.
+
 	* Ideograph-R048-Work.el (A-cgnU+5DEE): Changed from U+5DEE.
 	(U+5DEE): Changed from A-IWDSU+5DEE; use A-cgnU+5DEE instead of
 	U+5DEE as its mother; apply new conventions for glyph granularity.
 	(HNG-KHI0632-2): Use A-cgnU+5DEE instead of U+5DEE as its mother.
 
 2018-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R111-Arrow.el (U+77EB): Apply new conventions for
+	glyph granularity.
+	(U+77EF): Likewise.
+
+	* Ideograph-R103-Bolt-Of-Cloth.el (A-cgnU+7591): New abstract
+	node; use `<-denotational' for BUCS+7591.
+	(U+7591): Use A-cgnU+7591 instead of BUCS+7591 as its mother; add
+	`ideographic-structure'.
+	(UU+7591): Delete `=>ucs@iwds-1'.
+	(HNG-KAR1430-1): Use A-cgnU+7591 instead of U+7591 as its mother.
+	(U+7591-itaiji-005): Use A-cgnU+7591 instead of BUCS+7591 as its
+	mother.
+	(HNG-KHI0494-0): Likewise.
+	(HNG-KAR1430-2): Use A-cgnU+7591 instead of U+7591 as its mother.
+	(U+7591-itaiji-006): Use A-cgnU+7591 instead of BUCS+7591 as its
+	mother.
 
 	* Ideograph-R066-Rap.el (UU+6574): Use UU+6B63 instead of U+6B63
 	as a component.
