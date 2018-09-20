@@ -821,6 +821,23 @@
      ((==>ucs@bucs	  . #x7591)	; &BUCS+7591;
       ))
     (ideographic-radical . 103)	; ⽦
+    (=>ucs@cognate	. #x7591)	; &A-cgnU+7591;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x7591)	; &A-cgnU+7591;
+      ))
+    (ideographic-radical . 103)	; ⽦
+    (ideographic-strokes . 9)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x20915)	; 𠤕
+      )
+     ((=big5-cdp	  . #x8CCE)	; &CDP-8CCE;
+      ))
     (=ucs		. #x7591)	; 疑
     ))
 (define-char
@@ -830,7 +847,15 @@
     (ideographic-radical . 103)	; ⽦
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
-    (=>ucs@iwds-1	. #x7591)	; &AJ1-01625;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@iso		  . #x20915)	; &C6-2632;
+      (=cns11643-6	  . #x2632)	; &C6-2632; [06-18]
+      )
+     ((=big5-cdp	  . #x8CCE)	; &CDP-8CCE;
+      ))
     (=ucs@unicode	. #x7591)	; &AJ1-01625;
     (=adobe-japan1-0	. 01625)	; &AJ1-01625;
     (=jis-x0208		. #x353F)	; &I-J90-353F; [21-31]
@@ -878,7 +903,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x7591)	; 疑
+     ((=>ucs@cognate	  . #x7591)	; &A-cgnU+7591;
       ))
     (ideographic-radical . 103)	; ⽦
     (ideographic-strokes . 9)
@@ -887,16 +912,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x7591)	; 疑
-      ))
-    (ideographic-radical . 103)	; ⽦
-    (ideographic-strokes . 8)
-    (total-strokes	 . 13)
-    (===hng-kar		. 14302)	; &HNG018-14302;
-    ))
-(define-char
-  '((<-denotational
-     ((==>ucs@bucs	  . #x7591)	; &BUCS+7591;
+     ((=>ucs@cognate	  . #x7591)	; &A-cgnU+7591;
       ))
     (ideographic-radical . 103)	; ⽦
     (ideographic-strokes . 9)
@@ -922,7 +938,7 @@
     ))
 (define-char
   '((<-denotational
-     ((==>ucs@bucs	  . #x7591)	; &BUCS+7591;
+     ((=>ucs@cognate	  . #x7591)	; &A-cgnU+7591;
       ))
     (ideographic-radical . 103)	; ⽦
     (ideographic-strokes . 9)
@@ -951,7 +967,16 @@
     ))
 (define-char
   '((<-denotational
-     ((==>ucs@bucs	  . #x7591)	; &BUCS+7591;
+     ((=>ucs@cognate	  . #x7591)	; &A-cgnU+7591;
+      ))
+    (ideographic-radical . 103)	; ⽦
+    (ideographic-strokes . 8)
+    (total-strokes	 . 13)
+    (===hng-kar		. 14302)	; &HNG018-14302;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x7591)	; &A-cgnU+7591;
       ))
     (ideographic-radical . 103)	; ⽦
     (ideographic-strokes . 9)
