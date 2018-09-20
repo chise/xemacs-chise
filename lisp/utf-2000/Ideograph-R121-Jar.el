@@ -391,6 +391,10 @@
   '((<-denotational
      ((=>ucs@unicode	  . #x4343)	; &A-UU+4343;
       ))
+    (<-denotational@component
+     ((=>ucs@component	  . #x4343)	; &A-compU+4343;
+      (=>mj		  . 003628)	; &A-compU+4343;
+      ))
     (ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
@@ -447,13 +451,34 @@
       )
      ((=ucs		  . #x7F36)	; 缶
       ))
-    (=ucs@unicode	. #x4343)	; &GT-K07393;
+    (=ucs@unicode	. #x4343)	; &MJ003628;
     (=ucs@JP/hanazono	. nil)
-    (=gt-k		. 07393)	; &GT-K07393;
-    (=gt-pj-k2		. #x3E49)	; &GT-K07393; [30-41]
+    (=mj		. 003628)	; &MJ003628;
+    (=hanyo-denshi/ks	. 314320)	; &MJ003628;
+    (=gt-k		. 07393)	; &I-GT-K07393;
+    (=gt-pj-k2		. #x3E49)	; &MJ003628; [30-41]
+    (<-formed
+     ((=ucs@cns		  . #x4343)	; &JX2-7461;
+      (=ucs@jis		  . #x4343)	; &JX2-7461;
+      (=cns11643-4	  . #x2F29)	; &JX2-7461; [15-09]
+      (=jis-x0213-2	  . #x7461)	; &I-JX2-7461; [84-65]
+      (=daikanwa	  . 28120)	; &I-M-28120;
+      ))
+    (<-formed*sources
+     koseki mj)
     (->subsumptive
-     ((==ucs@unicode	  . #x4343)	; &g2-UU+4343;
+     ((==ucs@unicode	  . #x4343)	; &g2-MJ003628;
       (==ucs@JP/hanazono  . nil)
+      (==mj		  . 003628)	; &g2-MJ003628;
+      (==hanyo-denshi/ks  . 314320)	; &g2-MJ003628;
+      (->subsumptive
+       ((===hanyo-denshi/ks . 314320)	; &R-HD-KS-314320;
+	(=hanyo-denshi/ks/mf . #x7AC8)	; &R-HD-KS-314320;
+	)
+       ((===mj		    . 003628)	; &R-MJ003628;
+	)
+       ((===ucs@unicode	    . #x4343)	; &R-UU+4343;
+	))
       )
      ((==gt-k		  . 07393)	; &g2-GT-K07393;
       (==gt-pj-k2	  . #x3E49)	; &g2-GT-K07393; [30-41]
@@ -462,6 +487,10 @@
 (define-char
   '((<-denotational
      ((=ucs		  . #x4343)	; 䍃
+      ))
+    (<-denotational@component
+     ((=>ucs@component	  . #x4343)	; &A-compU+4343;
+      (=>mj		  . 003628)	; &A-compU+4343;
       ))
     (ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 4)
@@ -2138,4 +2167,12 @@
        ((===ucs@iso	    . #x26269)	; &R-U-00026269;
 	))
       ))
+    ))
+(define-char
+  '((<-denotational@component
+     ((=ucs		  . #x4343)	; 䍃
+      ))
+    (ideographic-radical . 121)	; ⽸
+    (=>ucs@component	. #x4343)	; &A-compU+4343;
+    (=>mj		. 003628)	; &A-compU+4343;
     ))

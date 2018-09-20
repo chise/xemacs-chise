@@ -9809,8 +9809,8 @@
       )
      ((=ucs		  . #x5B80)	; 宀
       )
-     ((=ucs@unicode	  . #x4343)	; &GT-K07393;
-      (=gt-k		  . 07393)	; &GT-K07393;
+     ((=ucs@unicode	  . #x4343)	; &MJ003628;
+      (=mj		  . 003628)	; &MJ003628;
       ))
     (=ucs@iso		. #x21A74)	; &U-00021A74;
     (->subsumptive
@@ -11688,13 +11688,65 @@
   '((ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (=ucs		. #x376F)	; 㝯
-    (->subsumptive
-     ((=daikanwa	  . 07318)	; &M-07318;
-      (=cbeta		  . 00901)	; &I-CB00901;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x376F)	; &C4-4946;
-      (=cns11643-4	  . #x4946)	; &C4-4946; [41-38]
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs		  . #x55AC)	; 喬
+      ))
+    (sound@ja/on/go	"gEu")
+    (sound@ja/on/kan	"kEu")
+    (=ucs		. #x376F)	; 㝯
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x376F)	; 㝯
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs@unicode	  . #x55AC)	; &AJ1-01700;
+      (=adobe-japan1-0	  . 01700)	; &AJ1-01700;
+      ))
+    (=ucs@unicode	. #x376F)	; &C4-4946;
+    (=cns11643-4	. #x4946)	; &C4-4946; [41-38]
+    (=daikanwa		. 07318)	; &I-M-07318;
+    (=cbeta		. 00901)	; &I-CB00901;
+    (<-formed
+     ((=ucs@unicode	  . #x50D1)	; &AJ1-01691;
+      (=adobe-japan1-0	  . 01691)	; &AJ1-01691;
+      ))
+    (->interchangeable
+     ((=ucs@unicode	  . #x50D1)	; &AJ1-01691;
+      (=adobe-japan1-0	  . 01691)	; &AJ1-01691;
+      (=daikanwa	  . 01088)	; &I-M-01088;
+      ))
+    (->interchangeable$_1*sources
+     jiyun daikanwa)
+    (->interchangeable*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x376F)	; &g2-M-07318;
+      (==cns11643-4	  . #x4946)	; &g2-M-07318; [41-38]
+      (==daikanwa	  . 07318)	; &g2-M-07318;
+      (==cbeta		  . 00901)	; &g2-M-07318;
+      (->subsumptive
+       ((===daikanwa	    . 07318)	; &R-M-07318;
+	)
+       ((===cbeta	    . 00901)	; &R-CB00901;
+	)
+       ((===cns11643-4	    . #x4946)	; &R-C4-4946; [41-38]
+	)
+       ((===ucs@unicode	    . #x376F)	; &R-UU+376F;
+	))
       ))
     ))
 (define-char
