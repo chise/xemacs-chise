@@ -1,3 +1,19 @@
+2018-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R048-Work.el (A-cgnU+5DEE): Changed from U+5DEE.
+	(U+5DEE): Changed from A-IWDSU+5DEE; use A-cgnU+5DEE instead of
+	U+5DEE as its mother; apply new conventions for glyph granularity.
+	(HNG-KHI0632-2): Use A-cgnU+5DEE instead of U+5DEE as its mother.
+
+2018-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el (UU+6574): Use UU+6B63 instead of U+6B63
+	as a component.
+
+	* Ideograph-R009-Man.el (U+50D1): Apply new conventions for glyph
+	granularity.
+	(U+4FA8): Likewise.
+
 2018-09-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R121-Jar.el (o-UU+4343): Add
