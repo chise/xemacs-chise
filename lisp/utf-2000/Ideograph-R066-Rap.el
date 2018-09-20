@@ -8142,7 +8142,8 @@
      ((=ucs@unicode	  . #x6555)	; &AJ1-05066;
       (=adobe-japan1-0	  . 05066)	; &AJ1-05066;
       )
-     ((=ucs		  . #x6B63)	; 正
+     ((=ucs@unicode	  . #x6B63)	; &AJ1-02649;
+      (=adobe-japan1-0	  . 02649)	; &AJ1-02649;
       ))
     (=ucs@unicode	. #x6574)	; &AJ1-02644;
     (=adobe-japan1-0	. 02644)	; &AJ1-02644;

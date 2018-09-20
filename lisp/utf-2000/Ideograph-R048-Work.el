@@ -1013,27 +1013,27 @@
     ))
 (define-char
   '((ideographic-radical . 48)	; ⼯
+    (=>ucs@cognate	. #x5DEE)	; &A-cgnU+5DEE;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x5DEE)	; &A-cgnU+5DEE;
+      ))
+    (ideographic-radical . 48)	; ⼯
+    (ideographic-structure
+     ((=>ucs@iwds-1	  . #x2FF8)	; &U-v002+2FF1;
+      (=>iwds-1		  .  0305)	; &U-v002+2FF1;
+      )
+     ((name		  . "CJK RADICAL SHEEP")
+      (=ucs		  . #x2EB6)	; ⺶
+      )
+     ((=ucs		  . #x5DE5)	; 工
+      ))
     (=ucs		. #x5DEE)	; 差
     ))
 (define-char
   '((<-denotational
      ((=ucs		  . #x5DEE)	; 差
-      ))
-    (ideographic-radical . 48)	; ⼯
-    (=>ucs@iwds-1	. #x5DEE)	; &o-J0-3A39;
-    (=+>ucs@unicode	. #x5DEE)	; &o-J0-3A39;
-    (=+>ucs@jis		. #x5DEE)	; &o-J0-3A39;
-    (=+>jis-x0208	. #x3A39)	; &o-J0-3A39; [26-25]
-    (=+>jis-x0213-1	. #x3A39)	; &o-J0-3A39; [26-25]
-    (=+>adobe-japan1-0	. 02089)	; &o-J0-3A39;
-    (=+>gt		. 11011)	; &o-J0-3A39;
-    ))
-(define-char
-  '((<-denotational
-     ((=>ucs@iwds-1	  . #x5DEE)	; &o-J0-3A39;
-      (=+>ucs@unicode	  . #x5DEE)	; &o-J0-3A39;
-      (=+>ucs@jis	  . #x5DEE)	; &o-J0-3A39;
-      (=+>jis-x0208	  . #x3A39)	; &o-J0-3A39; [26-25]
       ))
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 7)
@@ -1044,7 +1044,8 @@
       )
      ((=big5-cdp	  . #x8CCC)	; &CDP-8CCC;
       )
-     ((=ucs		  . #x5DE5)	; 工
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
       ))
     (=ucs@cns		. #x5DEE)	; &AJ1-02089;
     (=ucs@jis		. #x5DEE)	; &AJ1-02089;
@@ -1100,21 +1101,32 @@
     ))
 (define-char
   '((<-denotational
-     ((=>ucs@iwds-1	  . #x5DEE)	; &o-J0-3A39;
-      (=+>ucs@unicode	  . #x5DEE)	; &o-J0-3A39;
-      (=+>ucs@jis	  . #x5DEE)	; &o-J0-3A39;
-      (=+>jis-x0208	  . #x3A39)	; &o-J0-3A39; [26-25]
+     ((=ucs		  . #x5DEE)	; 差
       ))
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs@unicode	  . #x2EB6)	; &UU+2EB6;
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      ))
     (=ucs@unicode	. #x5DEE)	; &G0-326E;
     (=ucs@JP/hanazono	. nil)
     (=gb2312		. #x326E)	; &G0-326E; [18-78]
+    (->subsumptive
+     ((==ucs@unicode	  . #x5DEE)	; &g2-UU+5DEE;
+      (==ucs@JP/hanazono  . nil)
+      (==gb2312		  . #x326E)	; &g2-UU+5DEE; [18-78]
+      ))
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x5DEE)	; 差
+     ((=>ucs@cognate	  . #x5DEE)	; &A-cgnU+5DEE;
       ))
     (ideographic-radical . 48)	; ⼯
     (ideographic-strokes . 6)
