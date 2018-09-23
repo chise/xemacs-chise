@@ -1,3 +1,42 @@
+2018-09-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R153-Badger.el (U+8C7D): Apply new conventions for
+	glyph granularity.
+	(U-00027CA8): Likewise.
+	(U+8C80): Add `ideographic-structure'; add representative nodes.
+	(U-0002F9D3): Add `<-denotational' for U-00027CA8; apply new
+	conventions for glyph granularity.
+	(U+8C86): Apply new conventions for glyph granularity.
+	(U+475C): Likewise.
+	(U-00027CD1): Likewise.
+	(U-00027CD4): Likewise.
+	(U+8C92): Add `ideographic-structure'; add some relations for
+	other characters.
+	(U-00027CF2): Add `ideographic-structure'; add `sound@ja/on'; add
+	`<-same' for U+8C92; add representative nodes.
+	(U-00027CE9): Apply new conventions for glyph granularity.
+	(U-00027CEA): Likewise.
+	(U-00027CEB): Likewise.
+	(U-00027CEF): Likewise.
+	(A-cgnU+8C94): New abstract node.
+	(U+8C94): Add `<-denotational' for A-cgnU+8C94; add
+	`ideographic-structure'.
+	(U-00027D00): New character; use `<-denotational' for A-cgnU+8C94.
+	(U+8C95): Apply new conventions for glyph granularity.
+	(J90U+8C9B): Add some relations for other characters.
+
+	* Ideograph-R102-Field.el (A-cgnU+7570): Changed from U+7570.
+	(A-J0-305B): Unify U+7570 instead of A-IWDSU+7570 and A-UU+7570;
+	use A-cgnU+7570 instead of U+7570 as its mother.
+	(HNG-KHI0493-0): Use A-cgnU+7570 instead of U+7570 as its mother.
+	(HNG-KHM0441-0): Likewise.
+	(U-0002F938): Add representative nodes.
+	(U+7573): Fix structure; use IWDS1-0083 instead of U+7530 as a
+	component.
+	(A-U+66B4-itaiji-005): New abstract node.
+	(U+66B4-itaiji-005): New character; use `<-denotational' for
+	A-U+66B4-itaiji-005.
+
 2018-09-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R159-Cart.el (U-000282A5): New character; unify
