@@ -6370,8 +6370,8 @@
     (->ancient*sources
      shuowen jiyun daikanwa)
     (->formed
-     ((=ucs@iso		  . #x25963)	; &C6-426B;
-      (=cns11643-6	  . #x426B)	; &C6-426B; [34-75]
+     ((=ucs@iso		  . #x25963)	; &MJ043425;
+      (=mj		  . 043425)	; &MJ043425;
       (=daikanwa	  . 25498)	; &I-M-25498;
       ))
     (->formed$_1*sources
