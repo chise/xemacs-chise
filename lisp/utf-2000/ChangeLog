@@ -1,3 +1,10 @@
+2018-09-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R116-Cave.el (U-00025963): Apply new conventions for
+	glyph granularity.
+	(IU+25963): Unify MJ043425, KOSEKI-285430 and M-25498; add
+	`<-formed' and `<-same' and UU+57A3.
+
 2018-09-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R153-Badger.el (U+8C7D): Apply new conventions for
