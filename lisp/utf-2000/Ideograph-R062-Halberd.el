@@ -702,6 +702,29 @@
     (=ucs-itaiji-002	. #x6211)	; &U-i002+6211;
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x6211)	; &A-cgnU+6211;
+      ))
+    (ideographic-radical . 62)	; ⼽
+    (=>ucs-itaiji-001	. #x6211)	; &A-U-i001+6211;
+    (=>ucs-itaiji-003	. #x6211)	; &A-U-i001+6211;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x6211)	; &A-U-i001+6211;
+      ))
+    (ideographic-radical . 62)	; ⼽
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (=ucs-itaiji-001	. #x6211)	; &U-i001+6211;
+    (=ucs-itaiji-003	. #x6211)	; &U-i001+6211;
+    (->subsumptive
+     ((==ucs-itaiji-003	  . #x6211)	; &g2-U-i003+6211;
+      )
+     ((==ucs-itaiji-001	  . #x6211)	; &g2-U-i001+6211;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 62)	; ⼽
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
