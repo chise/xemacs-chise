@@ -150,7 +150,8 @@
       )
      ((=ucs		  . #x8C78)	; 豸
       )
-     ((=ucs		  . #x52FA)	; 勺
+     ((=ucs@unicode	  . #x52FA)	; &MJ007745;
+      (=mj		  . 007745)	; &MJ007745;
       ))
     (=ucs@unicode	. #x8C79)	; &AJ1-03505;
     (=ucs@JP/hanazono	. nil)
