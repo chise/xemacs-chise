@@ -107,9 +107,8 @@
       )
      ((=ucs		  . #x4E00)	; 一
       )
-     ((=ucs@unicode	  . #x4491)	; &JX2-7577;
-      (=jis-x0213-2	  . #x7577)	; &JX2-7577; [85-87]
-      (=daikanwa	  . 30640)	; &I-M-30640;
+     ((=ucs@unicode	  . #x4491)	; &AJ1-18467;
+      (=adobe-japan1-5	  . 18467)	; &AJ1-18467;
       ))
     (=ucs-itaiji-002	. #x5F50)	; &U-i002+5F50;
     (->subsumptive
