@@ -1,3 +1,23 @@
+2018-09-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R123-Sheep.el (A-cgnU+7F8A): New abstract node.
+	(IWDS1-0100): Add `<-denotational' for A-cgnU+7F8A.
+	(<CJK RADICAL SHEEP>): Likewise; unify IWDS1-0191.
+	(A-compU+2634B): Add `<-denotational' for A-cgnU+7F8A.
+	(A-cgnU+7F95): New abstract node.
+	(U-0002635B): Add `<-denotational' for A-cgnU+7F95; add
+	ideographic-structure.
+	(A-U+7F95-itaiji-003): Add `<-denotational' for A-cgnU+7F95.
+	(U+7F95): Likewise; add ideographic-structure.
+	(A-UU+7F95): Use IWDS1-0100 instead of U-0002634C as a component.
+	(UU+7F95): Use <CJK RADICAL RAM> instead of U-0002634C as a
+	component.
+	(U+7FA8): Apply new conventions for glyph granularity.
+	(CU+263C1): Use <CJK RADICAL RAM> instead of U-0002634C as a
+	component.
+	(IU+263C1): Likewise; use BC-86F7-var-001 instead of "⿰秀戈" in
+	`ideographic-structure'.
+
 2018-09-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R062-Halberd.el (A-U+6211-itaiji-001): New abstract
@@ -5,6 +25,11 @@
 	A-cgnU+6211.
 	(U+6211-itaiji-001): New character; unify U+6211-itaiji-003; use
 	`<-denotational' for A-U+6211-itaiji-001.
+
+2018-09-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R153-Badger.el (UU+8C79): Use UU+52FA instead of
+	U+52FA as a component.
 
 2018-09-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
