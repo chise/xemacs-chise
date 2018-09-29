@@ -1,3 +1,13 @@
+2018-09-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`=shuowen-jiguge', `===shuowen-jiguge4' and `===shuowen-jiguge5'.
+
+	* mule/mule-conf.el (=shuowen-jiguge): New coded-charset for
+	XEmacs CHISE.
+	(===shuowen-jiguge4): Ditto.
+	(===shuowen-jiguge5): Ditto.
+
 2018-09-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
