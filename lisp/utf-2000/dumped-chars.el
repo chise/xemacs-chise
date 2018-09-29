@@ -303,6 +303,7 @@
 	"u0FF00-Halfwidth-and-Fullwidth-Forms"
 	"u0FFF0-Specials"
 	"Oracle-Bones"
+	"ShuoWen"
 	"ruimoku6"
 	"additional-precomposed"
 	"maps-conf"
