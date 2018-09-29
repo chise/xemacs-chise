@@ -1,5 +1,10 @@
 2018-09-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* dumped-chars.el (system-char-db-source-file-list): Add
+	"ShuoWen".
+
+	* ShuoWen.el: New file.
+
 	* char-db-util.el (shuowen-radicals): Add ?夨, ?夭, ?交, ?尣, ?壺,
 	?壹, ?幸, ?奢, ?亢 and ?夲.
 	(char-db-insert-ccs-feature): Format `=shuowen-jiguge',
