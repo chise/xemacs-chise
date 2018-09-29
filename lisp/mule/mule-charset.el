@@ -562,6 +562,9 @@ DESCRIPTION (string) is the description string of the charset."
 	  ===hng-kss ; 64
 	  ===hng-kyo ; 66
 	  ===hng-smk ; 74
+	  =shuowen-jiguge
+	  ===shuowen-jiguge4
+	  ===shuowen-jiguge5
 	  ===cbeta
 	  ===jef-china3
 	  ===ucs-bmp-cjk-compat@unicode

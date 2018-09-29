@@ -3516,6 +3516,33 @@
 		  mother	=ruimoku-v6))
   (define-charset-alias '=>>ruimoku-v6 '=>ruimoku-v6)
 
+  (make-charset '=shuowen-jiguge "汲古閣本説文解字"
+		'(long-name "汲古閣本説文解字（抽象字体）"
+		  chars		256
+		  dimension	2
+		  registry	"ShuowenJiguge-5$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
+
+  (make-charset '===shuowen-jiguge4 "淮南書局4次様本説文解字"
+		'(long-name "京大人文研所蔵説文解字淮南書局4次様本"
+		  chars		256
+		  dimension	2
+		  registry	"ShuowenJiguge-4$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
+
+  (make-charset '===shuowen-jiguge5 "汲古閣通行本説文解字"
+		'(long-name "京大人文研所蔵汲古閣通行本説文解字"
+		  chars		256
+		  dimension	2
+		  registry	"ShuowenJiguge-5$"
+		  graphic	2
+		  columns	2
+		  direction	l2r))
+
   ;; (make-charset
   ;;  '=zihai
   ;;  "ZhongHua-ZiHai glyph-images"
