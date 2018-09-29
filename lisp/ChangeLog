@@ -1,5 +1,9 @@
 2018-09-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for `=shuowen-jiguge', `===shuowen-jiguge4' and
+	`===shuowen-jiguge5'.
+
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
 	`=shuowen-jiguge', `===shuowen-jiguge4' and `===shuowen-jiguge5'.
 
