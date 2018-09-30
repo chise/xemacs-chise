@@ -12,6 +12,19 @@
 
 2018-09-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R062-Halberd.el (A-BC-86F7): New abstract node; use
+	`<-denotational' for A-cgnBC-8DBA.
+	(A-cgnBC-8DBA): New abstract node.
+	(A-BC-8DBA): Add `<-denotational' for A-cgnBC-8DBA; use
+	A-U+6211-itaiji-001 instead of "⿰禾戈" in
+	`ideographic-structure'.
+	(BC-86F7): New character; use `<-denotational' for A-BC-86F7.
+	(BC-8DBA): Add `ideographic-structure'; add representative node.
+	(BC-86F7-var-001): New character; use `<-denotational' for
+	A-BC-86F7.
+
+2018-09-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R123-Sheep.el (A-cgnU+7F8A): New abstract node.
 	(IWDS1-0100): Add `<-denotational' for A-cgnU+7F8A.
 	(<CJK RADICAL SHEEP>): Likewise; unify IWDS1-0191.
