@@ -305,7 +305,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 10)	; ⼉
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x516D)	; &A-IWDSU+516D;
+      ))
+    (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 264 6)
@@ -313,9 +316,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x4E00)	; 一
+     ((=ucs		  . #x2011E)	; 𠄞
       )
-     ((=ucs		  . #x5140)	; 兀
+     ((=ucs		  . #x513F)	; 儿
       ))
     (sound@ja/kun	"moto")
     (sound@ja/kun/name	"hazime")
