@@ -1,3 +1,19 @@
+2018-09-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen.el: Reformatted to fix links for `<-Small-Seal@shuowen'.
+
+	* Ideograph-R012-Eight.el (A-IWDSU+516D): New abstract node; use
+	`<-denotational@component' for A-IWDSU+4EA2.
+	(U+516D): Add `<-denotational@component' for A-IWDSU+516D; add
+	`ideographic-structure'.
+
+	* Ideograph-R010-Legs.el (U+5143): Add `<-denotational@component'
+	for A-IWDSU+516D; use "⿱𠄞儿" instead of "⿱一兀" as the
+	ideographic structure.
+
+	* Ideograph-R008-Lid.el (A-IWDSU+4EA2): New abstract node.
+	(U+4EA2): Add `<-denotational@component' for A-IWDSU+4EA2.
+
 2018-09-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* dumped-chars.el (system-char-db-source-file-list): Add
