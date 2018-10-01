@@ -189,6 +189,24 @@
       )
      ((=ucs		  . #x4EA0)	; 亠
       )
+     ((=>ucs@iwds-1	  . #x513F)	; &A-IWDSU+513F;
+      (=>iwds-1		  .  11922)	; &A-IWDSU+513F;
+      ))
+    (=>ucs@iwds-1	. #x4EA2)	; &A-IWDSU+4EA2;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x4EA2)	; &A-IWDSU+4EA2;
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4EA0)	; 亠
+      )
      ((=>ucs@component	  . #x51E0)	; &A-compU+51E0;
       (=>iwds-1		  .  0119)	; &A-compU+51E0;
       ))
