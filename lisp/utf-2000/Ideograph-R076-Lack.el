@@ -7254,8 +7254,7 @@
       )
      ((=big5-cdp	  . #x8BD3)	; &CDP-8BD3;
       )
-     ((=ucs@unicode	  . #x9CE5)	; &AJ1-03031;
-      (=adobe-japan1-0	  . 03031)	; &AJ1-03031;
+     ((=ucs		  . #x9CE5)	; 鳥
       )
      ((=ucs		  . #x6B20)	; 欠
       ))
