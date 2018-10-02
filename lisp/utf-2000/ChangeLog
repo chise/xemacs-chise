@@ -1,5 +1,17 @@
 2018-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R050-Turban.el (A-U+22053-itaiji-001): New abstract
+	node.
+	(U+22053-itaiji-001): New character; use `<-denotational' for
+	A-U+22053-itaiji-001.
+	(U+22053-itaiji-002): Likewise.
+	(U-00022109): New character.
+
+	* char-db-util.el (shuowen-radicals): Use ?廾 instead of ?𠬞 as
+	the 62nd radical.
+
+2018-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* char-db-util.el (shuowen-radicals): Use ?雈 instead of ?萑 as
 	the 111st radical.
 
