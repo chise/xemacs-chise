@@ -1022,6 +1022,31 @@
   '((ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=>ucs@iwds-1	  . #x516D)	; &A-IWDSU+516D;
+      ))
+    (=>ucs@iwds-1	. #x5B8C)	; &A-IWDSU+5B8C;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x5B8C)	; &A-IWDSU+5B8C;
+      ))
+    (ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs		  . #x5143)	; 元
+      ))
     (=ucs		. #x5B8C)	; 完
     (=adobe-japan1-0	. 01516)	; &I-AJ1-01516;
     (=jis-x0208		. #x3430)	; &I-J90-3430; [20-16]
@@ -1076,6 +1101,26 @@
        ((===ucs@unicode	    . #x5B8C)	; &R-UU+5B8C;
 	)
        ((===hng-kar	    . 00940)	; &HNG018-00940;
+	))
+      )
+     ((===hng-kcj	  . 05810)	; &HNG042-05810;
+      (<-HNG@chise
+       ((=ucs		    . #x5B8D)	; 宍
+	))
+      (<-formed
+       ((=ucs		    . #x5B8D)	; 宍
+	)
+       ((=ucs		    . #x8089)	; 肉
+	))
+      )
+     ((===hng-kbk	  . 05780)	; &HNG043-05780;
+      (<-HNG@chise
+       ((=ucs		    . #x5B8D)	; 宍
+	))
+      (<-formed
+       ((=ucs		    . #x5B8D)	; 宍
+	)
+       ((=ucs		    . #x8089)	; 肉
 	))
       ))
     ))
@@ -1201,9 +1246,21 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 40)	; ⼧
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x5B8C)	; &A-IWDSU+5B8C;
+      ))
+    (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5B80)	; 宀
+      )
+     ((=ucs		  . #x516D)	; 六
+      ))
+    (sound@ja/on	"niku")
     (=ucs		. #x5B8D)	; 宍
     (=adobe-japan1-0	. 02273)	; &I-AJ1-02273;
     (=jis-x0208		. #x3C35)	; &I-J90-3C35; [28-21]
@@ -1214,13 +1271,19 @@
     (=daikanwa		. 07084)	; &I-M-07084;
     (=shinjigen		.  6421)	; 宍
     (=cbeta		. 02700)	; &I-CB02700;
+    (<-formed
+     ((=ucs		  . #x8089)	; 肉
+      ))
+    (<-formed*sources
+     hng)
     (<-wrong
      ((=ucs		  . #x8089)	; 肉
       (=jis-x0208	  . #x4679)	; &I-J90-4679; [38-89]
+      (=daikanwa	  . 29236)	; &I-M-29236;
       (=shinjigen	  .  6420)	; 肉
       ))
     (<-wrong*sources
-     shinjigen)
+     zhengzitong daikanwa shinjigen)
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5B8D)	; 宍
@@ -1248,11 +1311,26 @@
 	)
        ((===gt		    . 08909)	; &R-GT-08909;
 	)
+       ((===hng-kgk	    . 00600)	; &HNG007-00600;
+	(<-HNG@chise
+	 ((=ucs		      . #x5B8D)	; 宍
+	  ))
+	)
+       ((===hng-mam	    . 08552)	; &HNG005-08552;
+	(<-HNG@chise
+	 ((=ucs		      . #x5B8D)	; 宍
+	  ))
+	)
        ((===cns11643-3	    . #x255A)	; &R-C3-255A; [05-58]
 	)
        ((===ucs@unicode	    . #x5B8D)	; &R-UU+5B8D;
 	)
        ((=hanziku-3	    . #xB8CA)	; &HZK03-B8CA;
+	))
+      )
+     ((===hng-kmi	  . 01490)	; &HNG055-01490;
+      (<-HNG@chise
+       ((=ucs		    . #x5B8D)	; 宍
 	))
       ))
     ))
