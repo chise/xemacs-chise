@@ -1,3 +1,8 @@
+2018-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (shuowen-radicals): Use ?雈 instead of ?萑 as
+	the 111st radical.
+
 2018-10-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R061-Heart.el (U+605F): Add `<-formed' for UU+5147.
@@ -24,7 +29,7 @@
 	`<-denotational@component'; add `->mistakable' for U+4E8C; add
 	representative nodes.
 
-	* char-db-util.el (shuowen-radicals): Use "𧮫" instead of "谷" as
+	* char-db-util.el (shuowen-radicals): Use ?𧮫 instead of ?谷 as
 	the 48th radical.
 
 2018-09-30  MORIOKA Tomohiko  <tomo.git@chise.org>
