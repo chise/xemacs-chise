@@ -8176,6 +8176,12 @@
     (=gt-pj-1		. #x576F)	; &I-GT-13239; [55-79]
     (=daikanwa		. 10573)	; &I-M-10573;
     (=shinjigen		.  2475)	; 恟
+    (<-formed
+     ((=ucs@unicode	  . #x5147)	; &AJ1-01692;
+      (=adobe-japan1-0	  . 01692)	; &AJ1-01692;
+      ))
+    (<-formed$_1*sources
+     jiyun)
     (<-interchangeable
      ((=ucs		  . #x8A7E)	; 詾
       ))
@@ -21504,8 +21510,8 @@
       )
      ((=ucs		  . #x5FC4)	; 忄
       )
-     ((=ucs@unicode	  . #x4343)	; &GT-K07393;
-      (=gt-k		  . 07393)	; &GT-K07393;
+     ((=ucs@unicode	  . #x4343)	; &MJ003628;
+      (=mj		  . 003628)	; &MJ003628;
       ))
     (=ucs@unicode	. #x612E)	; &UU+612E;
     (=ucs@JP/hanazono	. nil)
@@ -24525,11 +24531,21 @@
       )
      ((=ucs		  . #x20CEE)	; 𠳮
       ))
-    (===hng-khi		. 03870)	; &HNG010-03870;
+    (=cbeta		. 09529)	; &CB09529;
     (<-formed
      ((=ucs		  . #x618D)	; 憍
       )
      ((=ucs		  . #x9A55)	; 驕
+      ))
+    (<-formed*sources
+     hng)
+    (->subsumptive
+     ((==cbeta		  . 09529)	; &g2-CB09529;
+      (->subsumptive
+       ((===hng-khi	    . 03870)	; &HNG010-03870;
+	)
+       ((===cbeta	    . 09529)	; &R-CB09529;
+	))
       ))
     ))
 (define-char

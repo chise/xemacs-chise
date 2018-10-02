@@ -1,6 +1,35 @@
+2018-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (shuowen-radicals): Use ?雈 instead of ?萑 as
+	the 111st radical.
+
 2018-10-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
-	* char-db-util.el (shuowen-radicals): Use "𧮫" instead of "谷" as
+	* Ideograph-R061-Heart.el (U+605F): Add `<-formed' for UU+5147.
+	(CB09529): New character.
+	(HNG-KHI0387-0): Use `<-subsumptive' for g2-CB09529.
+
+	* Ideograph-R040-Roof.el (A-IWDSU+5B8C): New abstract node.
+	(U+5B8C): Add `<-denotational@component' for A-IWDSU+5B8C; add
+	`ideographic-structure'.
+	(HNG-KCJ0581-0): New character; use `<-subsumptive' for U+5B8C;
+	use `<-HNG@chise' for U+5B8D; use `<-formed' for U+5B8D and
+	U+8089.
+	(HNG-KBK0578-0): Likewise.
+	(U+5B8D): Add `<-denotational@component' for A-IWDSU+5B8C; add
+	`ideographic-structure'; add `sound@ja/on'; add `<-formed' for
+	U+8089;
+	(HNG-KGK0060-0): New character; use `<-subsumptive' for
+	g2-UU+5B8D; use `<-HNG@chise' for U+5B8D.
+	(HNG-MAM0855-2): Likewise.
+	(HNG-KMI0149-0): New character; use `<-subsumptive' for U+5B8D;
+	use `<-HNG@chise' for U+5B8D.
+
+	* Ideograph-R007-Two.el (U-0002011E): Add U+4EA0 as a target of
+	`<-denotational@component'; add `->mistakable' for U+4E8C; add
+	representative nodes.
+
+	* char-db-util.el (shuowen-radicals): Use ?𧮫 instead of ?谷 as
 	the 48th radical.
 
 2018-09-30  MORIOKA Tomohiko  <tomo.git@chise.org>

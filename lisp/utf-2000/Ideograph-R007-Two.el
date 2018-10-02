@@ -134,6 +134,8 @@
 (define-char
   '((<-denotational@component
      ((=>ucs@component	  . #x4E8C)	; &A-compU+4E8C;
+      )
+     ((=ucs		  . #x4EA0)	; 亠
       ))
     (ideographic-radical . 7)	; ⼆
     (ideographic-strokes . 0)
@@ -158,6 +160,29 @@
       ))
     (<-ancient*sources
      zhengzitong daikanwa)
+    (->mistakable
+     ((=ucs		  . #x4E8C)	; 二
+      (=daikanwa	  . 00247)	; &I-M-00247;
+      ))
+    (->mistakable*sources
+     kangxi-biansi-2char daikanwa)
+    (->subsumptive
+     ((==gt		  . 00328)	; &g2-GT-00328;
+      (==daikanwa	  . 00248)	; &g2-GT-00328;
+      (->subsumptive
+       ((===daikanwa	    . 00248)	; &R-M-00248;
+	)
+       ((===gt		    . 00328)	; &R-GT-00328;
+	))
+      )
+     ((==ucs@iso	  . #x2011E)	; &g2-IU-0002011E;
+      (==cns11643-6	  . #x2127)	; &g2-IU-0002011E; [01-07]
+      (->subsumptive
+       ((===cns11643-6	    . #x2127)	; &R-C6-2127; [01-07]
+	)
+       ((===ucs@iso	    . #x2011E)	; &R-U-0002011E;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 7)	; ⼆
