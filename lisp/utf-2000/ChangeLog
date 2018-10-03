@@ -1,3 +1,8 @@
+2018-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (shuowen-radicals): Use ?史 instead of ?㕜 as
+	the 78th radical.
+
 2018-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R050-Turban.el (A-U+22053-itaiji-001): New abstract
