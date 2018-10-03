@@ -944,9 +944,73 @@
   '((ideographic-radical . 52)	; ⼳
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5F99)	; 徙
+      )
+     ((=>ucs@iwds-1	  . #x5E7A)	; &A-IWDSU+5E7A;
+      (=>iwds-1		  .  0129)	; &A-IWDSU+5E7A;
+      ))
+    (sound@ja/on	"si")
     (=ucs		. #x221CC)	; 𢇌
-    (=cns11643-5	. #x455B)	; &I-C5-455B; [37-59]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x221CC)	; 𢇌
+      ))
+    (ideographic-radical . 52)	; ⼳
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x5F99)	; &AJ1-04795;
+      (=adobe-japan1-0	  . 04795)	; &AJ1-04795;
+      )
+     ((=ucs		  . #x5E7A)	; 幺
+      ))
+    (=ucs@iso		. #x221CC)	; &C5-455B;
+    (=cns11643-5	. #x455B)	; &C5-455B; [37-59]
     (=daikanwa		. 09214)	; &I-M-09214;
+    (<-formed
+     ((=ucs		  . #x20208)	; 𠈈
+      )
+     ((=ucs@unicode	  . #x4F4C)	; &AJ1-21097;
+      (=adobe-japan1-6	  . 21097)	; &AJ1-21097;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-formed$_2*sources
+     jiyun)
+    (<-same
+     ((=ucs		  . #x20208)	; 𠈈
+      (=daikanwa	  . 00567)	; &I-M-00567;
+      )
+     ((=ucs@unicode	  . #x4F4C)	; &AJ1-21097;
+      (=adobe-japan1-6	  . 21097)	; &AJ1-21097;
+      (=daikanwa	  . 00502)	; &I-M-00502;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same$_2*sources
+     jiyun daikanwa)
+    (<-same*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@cns	  . #x221CC)	; &g2-M-09214;
+      (==cns11643-5	  . #x455B)	; &g2-M-09214; [37-59]
+      (==daikanwa	  . 09214)	; &g2-M-09214;
+      (->subsumptive
+       ((===daikanwa	    . 09214)	; &R-M-09214;
+	)
+       ((===cns11643-5	    . #x455B)	; &R-C5-455B; [37-59]
+	))
+      )
+     ((==ucs@iso	  . #x221CC)	; &g2-IU-000221CC;
+      ))
     ))
 (define-char
   '((ideographic-radical . 52)	; ⼳
