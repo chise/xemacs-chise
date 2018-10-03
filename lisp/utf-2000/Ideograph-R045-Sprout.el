@@ -914,9 +914,89 @@
   '((ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x5C6E)	; &A-compU+5C6E;
+      (=>iwds-1		  .  0096)	; &A-compU+5C6E;
+      )
+     ((=ucs		  . #x200A4)	; 𠂤
+      ))
+    (=>ucs@iwds-1	. #x21D0E)	; &A-IWDSU+21D0E;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x21D0E)	; &A-IWDSU+21D0E;
+      ))
+    (ideographic-radical . 45)	; ⼬
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C6E)	; 屮
+      )
+     ((=ucs		  . #x200A4)	; 𠂤
+      ))
     (=ucs		. #x21D0E)	; 𡴎
-    (=cns11643-5	. #x2877)	; &I-C5-2877; [08-87]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21D0E)	; 𡴎
+      ))
+    (ideographic-radical . 45)	; ⼬
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x2F878)	; 屮
+      )
+     ((=ucs		  . #x200A4)	; 𠂤
+      ))
+    (=ucs@iso		. #x21D0E)	; &C5-2877;
+    (=cns11643-5	. #x2877)	; &C5-2877; [08-87]
     (=daikanwa		. 07845)	; &I-M-07845;
+    (->formed
+     ((=ucs@iso		  . #x21E22)	; &C6-3F2A;
+      (=cns11643-6	  . #x3F2A)	; &C6-3F2A; [31-10]
+      (=daikanwa	  . 08192)	; &I-M-08192;
+      )
+     ((=mj		  . 034886)	; &MJ034886;
+      (=daikanwa	  . 08657)	; &I-M-08657;
+      )
+     ((=ucs		  . #x5D72)	; 嵲
+      (=daikanwa	  . 08367)	; &I-M-08367;
+      )
+     ((=ucs@iso		  . #x21E23)	; &C4-3140;
+      (=cns11643-4	  . #x3140)	; &C4-3140; [17-32]
+      (=daikanwa	  . 08193)	; &I-M-08193;
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed$_2*sources
+     jiyun daikanwa)
+    (->formed$_3*sources
+     jiyun daikanwa)
+    (->formed$_4*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x21D0E)	; &g2-M-07845;
+      (==cns11643-5	  . #x2877)	; &g2-M-07845; [08-87]
+      (==daikanwa	  . 07845)	; &g2-M-07845;
+      (->subsumptive
+       ((===daikanwa	    . 07845)	; &R-M-07845;
+	)
+       ((===cns11643-5	    . #x2877)	; &R-C5-2877; [08-87]
+	)
+       ((===ucs@iso	    . #x21D0E)	; &R-U-00021D0E;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 45)	; ⼬
