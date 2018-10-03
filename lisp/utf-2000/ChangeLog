@@ -1,7 +1,21 @@
 2018-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (shuowen-radicals): Use ?𥄕 instead of ?苜 as
+	the 113rd radical.
+
+2018-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* char-db-util.el (shuowen-radicals): Use ?史 instead of ?㕜 as
 	the 78th radical.
+
+2018-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R052-Short-Thread.el (U-000221CC): Apply new
+	conventions for glyph granularity.
+
+	* Ideograph-R045-Sprout.el (A-IWDSU+21D0E): New abstract node.
+	(U-00021D0E): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+21D0E.
 
 2018-10-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
