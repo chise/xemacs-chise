@@ -1,7 +1,26 @@
+2018-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* char-db-util.el (shuowen-radicals): Use ?丯 instead of ?丰 as
+	the 140th radical.
+
 2018-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* char-db-util.el (shuowen-radicals): Use ?𥄕 instead of ?苜 as
 	the 113rd radical.
+
+	* Ideograph-R030-Mouth.el (A-cgnU+5470): New abstract node.
+	(U+5470): Add `<-denotational' for A-cgnU+5470; add
+	`ideographic-structure'.
+	(UU+5470): Delete `=>ucs@iwds-1'; use UU+6B64 instead of U+6B64 as
+	a component.
+	(HNG-KHI0027-0): Use A-cgnU+5470 instead of U+5470 as its mother;
+	add `ideographic-structure'.
+	(U-00020CEE): Apply new conventions for glyph granularity.
+	(A-U+20CEE-itaiji-001): New abstract node.
+	(U+20CEE-itaiji-001): New character; use `<-denotational' for
+	A-U+20CEE-itaiji-001.
+	(U+55AC): Add `sound@ja/on/kan' and `sound@ja/on/go'.
+	(UU+55AC): Add some relations for other characters.
 
 2018-10-03  MORIOKA Tomohiko  <tomo.git@chise.org>
 
