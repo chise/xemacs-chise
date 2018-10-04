@@ -1,5 +1,10 @@
 2018-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (shuowen-radicals): Use ?角 instead of ?𧢲 as
+	the 142nd radical.
+
+2018-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* char-db-util.el (shuowen-radicals): Use ?丯 instead of ?丰 as
 	the 140th radical.
 
