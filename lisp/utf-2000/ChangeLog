@@ -1,5 +1,19 @@
 2018-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* char-db-util.el (shuowen-radicals):
+	- Use ?𠧪 instead of ?卣 as the 246th radical.
+	- Use ?𣏟 instead of ?林 as the 262nd radical.
+	- Use ?疒 instead of ?𤕫 as the 274th radical.
+	- Use ?㚔 instead of ?幸 as the 397th radical.
+
+	* Ideograph-R042-Small.el (U+5C13): Unify CB07414.
+
+	* Ideograph-R039-Child.el (U-000219AF): New character; use
+	`<-denotational' for A-cgnU+219AF.
+	(A-cgnU+219AF): New abstract node.
+
+2018-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* char-db-util.el (shuowen-radicals): Use ?角 instead of ?𧢲 as
 	the 142nd radical.
 
