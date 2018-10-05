@@ -1141,6 +1141,24 @@
     (ideographic-radical . 8)	; ⼇
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x6587)	; &A-compU+6587;
+      )
+     ((=ucs		  . #x5382)	; 厂
+      ))
+    (=ucs		. #x4EA7)	; 产
+    (=>iwds-1		.  0133)	; 产
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4EA7)	; 产
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
     (hanyu-dazidian	1 283 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1150,10 +1168,10 @@
       )
      ((=ucs		  . #x5382)	; 厂
       ))
-    (=ucs		. #x4EA7)	; 产
-    (=gb2312		. #x327A)	; &I-G0-327A; [18-90]
+    (=ucs@unicode	. #x4EA7)	; &G0-327A;
+    (=gb2312		. #x327A)	; &G0-327A; [18-90]
     (=gt-k		. 02308)	; &I-GT-K02308;
-    (=gt-pj-k1		. #x3A57)	; 产 [26-55]
+    (=gt-pj-k1		. #x3A57)	; &G0-327A; [26-55]
     (=jef-china3	. #x81C1)	; &I-JC3-81C1;
     (<-simplified@CN
      ((=ucs		  . #x7523)	; 産
@@ -1174,6 +1192,28 @@
 	)
        ((=hanziku-1	    . #xE06E)	; &HZK01-E06E;
 	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x4EA7)	; 产
+      ))
+    (ideographic-radical . 8)	; ⼇
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6587)	; 文
+      )
+     ((=ucs		  . #x5382)	; 厂
+      ))
+    (=gt-k		. 02299)	; &GT-K02299;
+    (=gt-pj-k1		. #x4C39)	; &GT-K02299; [44-25]
+    (->subsumptive
+     ((==gt-k		  . 02299)	; &g2-GT-K02299;
+      (==gt-pj-k1	  . #x4C39)	; &g2-GT-K02299; [44-25]
       ))
     ))
 (define-char
