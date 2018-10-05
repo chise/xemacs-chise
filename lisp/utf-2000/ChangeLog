@@ -1,5 +1,128 @@
 2018-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ShuoWen.el (SW-JIGUGE5-08103): Add "𠬞" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-08003): Ditto.
+	(SW-JIGUGE5-08902): Add "𠃨" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-08802): Ditto.
+	(SW-JIGUGE-09005): New character.
+	(SW-JIGUGE5-09201): Add "㕜" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09101): Ditto.
+	(SW-JIGUGE4-46423): Moved to SW-JIGUGE-47423.
+	(SW-JIGUGE5-10004): Add "敎" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09903): Ditto.
+	(SW-JIGUGE5-11305): Add "𦣹" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-11005): Ditto.
+	(SW-JIGUGE5-11308): Use `<-Small-Seal@shuowen/mpsuzuki' instead of
+	`<-Small-Seal@shuowen' for "𦣹"; add `<-Small-Seal@shuowen' for "
+	白".
+	(SW-JIGUGE4-11008): Ditto.
+	(SW-JIGUGE5-11904): Add "𦫳" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-11604): Ditto.
+	(SW-JIGUGE5-13003): Add `<-Small-Seal@shuowen/mpsuzuki' for "幺".
+	(SW-JIGUGE4-12703): Ditto.
+	(SW-JIGUGE-13119): New character.
+	(SW-JIGUGE5-13200): Add "歺" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-12900): Ditto.
+	(SW-JIGUGE5-13927): Add "𦟀" and "𦝠" as targets of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-13627): Ditto.
+	(SW-JIGUGE-14123): New character.
+	(SW-JIGUGE5-14408): Add "𧢲" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-14108): Ditto.
+	(SW-JIGUGE-15710): New character.
+	(SW-JIGUGE-15909): New character.
+	(SW-JIGUGE-16413): New character.
+	(SW-JIGUGE-16414): New character.
+	(SW-JIGUGE5-16808): Add "𩚁" and "食" as targets of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-16508): Ditto.
+	(SW-JIGUGE5-17612): Add "畗" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-17312): Ditto.
+	(SW-JIGUGE5-18005): Add "䑞" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-17705): Ditto.
+	(SW-JIGUGE-19525): New character.
+	(SW-JIGUGE5-20206): Add "敖" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-19906): Ditto.
+	(SW-JIGUGE-22712): New character.
+	(SW-JIGUGE5-23304): Add "卣" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-22804): Ditto.
+	(SW-JIGUGE5-25210): Add "𤕫" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-24710): Ditto.
+	(SW-JIGUGE-28500): New character.
+	(SW-JIGUGE5-29010): Add "秃" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-28510): Ditto.
+	(SW-JIGUGE-29115): New character.
+	(SW-JIGUGE-29306): New character.
+	(SW-JIGUGE-29410): New character.
+	(SW-JIGUGE-29413): New character.
+	(SW-JIGUGE-29509): New character.
+	(SW-JIGUGE-30104): New character.
+	(SW-JIGUGE5-30715): Use `<-Small-Seal@shuowen/mpsuzuki' instead of
+	`<-Small-Seal@shuowen' for "𡖉"; add `<-Small-Seal@shuowen' for "
+	𠨍".
+	(SW-JIGUGE4-30215): Ditto.
+	(SW-JIGUGE-31109): New character.
+	(SW-JIGUGE-32410): New character.
+	(SW-JIGUGE5-33714): Add "𢊁" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-32714): Ditto.
+	(SW-JIGUGE-34602): New character.
+	(SW-JIGUGE5-35600): Add "尣" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-34900): Ditto.
+	(SW-JIGUGE-36203): New character.
+	(SW-JIGUGE-36223): New character.
+	(SW-JIGUGE-36515): New character.
+	(SW-JIGUGE-36702): New character.
+	(SW-JIGUGE-37816): New character.
+	(SW-JIGUGE-38425): New character.
+	(SW-JIGUGE-39907): New character.
+	(SW-JIGUGE-41104): New character.
+	(SW-JIGUGE-41505): New character.
+	(SW-JIGUGE5-41817): Add "𢭤" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-40517): Ditto.
+	(SW-JIGUGE5-42122): Add "揫" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-40822): Ditto.
+	(SW-JIGUGE5-44211): Add "無" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-42911): Ditto.
+	(SW-JIGUGE-44405): New character.
+	(SW-JIGUGE-44900): New character.
+	(SW-JIGUGE4-45702): Moved to SW-JIGUGE-46702.
+	(SW-JIGUGE-46701): New character.
+	(SW-JIGUGE-46702): New character.
+	(SW-JIGUGE-47212): New character.
+	(SW-JIGUGE-47310): New character.
+	(SW-JIGUGE5-47423): Use "𣀩" instead of "⿰褱⺙" as a target of
+	`<-Small-Seal@shuowen'; add "𣀤" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-46423): Add "𣀩" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE-49128): New character.
+	(SW-JIGUGE-50100): New character.
+	(SW-JIGUGE-50600): New character.
+	(SW-JIGUGE-50906): New character.
+	(SW-JIGUGE5-52101): Use `<-denotational' instead of
+	`<-subsumptive' for SW-JIGUGE-52101.
+	(SW-JIGUGE4-50601): New glyph image; use `<-denotational' for
+	SW-JIGUGE-52101.
+
 	* Ideograph-R121-Jar.el (U-00026258): New character.
 
 	* Ideograph-R117-Stand.el (BC-8BAE): Add
