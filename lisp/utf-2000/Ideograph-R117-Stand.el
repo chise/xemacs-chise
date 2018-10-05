@@ -116,7 +116,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 117)	; ⽴
+  '((<-denotational@component
+     ((=>ucs@component	  . #x6587)	; &A-compU+6587;
+      ))
+    (ideographic-radical . 117)	; ⽴
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (=big5-cdp		. #x8BAE)	; &CDP-8BAE;

@@ -1,4 +1,18 @@
+2018-10-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R121-Jar.el (U-00026258): New character.
+
+	* Ideograph-R117-Stand.el (BC-8BAE): Add
+	`<-denotational@component' for A-compU+6587.
+
 2018-10-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R067-Script.el (A-compU+6587): New abstract node.
+	(U+6587): Add `<-denotational@component' for A-compU+6587.
+
+	* Ideograph-R008-Lid.el (U+4EA7): Apply new conventions for glyph
+	granularity; unify IWDS1-0133.
+	(GT-K02299): New character; use `<-denotational' for U+4EA7.
 
 	* char-db-util.el (shuowen-radicals):
 	- Use ?𠧪 instead of ?卣 as the 246th radical.

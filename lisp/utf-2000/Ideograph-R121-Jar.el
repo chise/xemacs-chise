@@ -1587,6 +1587,23 @@
     ))
 (define-char
   '((ideographic-radical . 121)	; ⽸
+    (ideographic-strokes . 12)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7F36)	; 缶
+      )
+     ((=ucs		  . #x725A)	; 牚
+      ))
+    (=ucs		. #x26258)	; 𦉘
+    (->subsumptive
+     ((==ucs@iso	  . #x26258)	; &g2-IU-00026258;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 121)	; ⽸
     (ideographic-strokes . 13)
     (total-strokes	 . 19)
     (=ucs		. #x7F4A)	; 罊

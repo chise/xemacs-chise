@@ -3,6 +3,15 @@
   '((ideographic-radical . 67)	; ⽂
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (=>ucs@component	. #x6587)	; &A-compU+6587;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@component	  . #x6587)	; &A-compU+6587;
+      ))
+    (ideographic-radical . 67)	; ⽂
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
     (=ucs		. #x6587)	; 文
     (=adobe-japan1-0	. 03592)	; &I-AJ1-03592;
     (=jis-x0208		. #x4A38)	; &I-J90-4A38; [42-24]
