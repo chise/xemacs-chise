@@ -5262,12 +5262,54 @@
   '((ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (=ucs		. #x2318B)	; 𣆋
-    (->subsumptive
-     ((=cns11643-6	  . #x316B)	; &C6-316B; [17-75]
-      (=daikanwa	  . 13881)	; &I-M-13881;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@iso		  . #x2318B)	; &U-0002318B;
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((=>ucs@iwds-1	  . #x5C13)	; &J97-5575;
+      (=>ucs@jis	  . #x5C13)	; &J97-5575;
+      (=>jis-x0208	  . #x5575)	; &J97-5575; [53-85]
+      ))
+    (sound@ja/on	"siN")
+    (=ucs		. #x2318B)	; 𣆋
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2318B)	; 𣆋
+      ))
+    (ideographic-radical . 72)	; ⽇
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x65E5)	; 日
+      )
+     ((=ucs		  . #x5C13)	; 尓
+      ))
+    (=ucs@iso		. #x2318B)	; &C6-316B;
+    (=cns11643-6	. #x316B)	; &C6-316B; [17-75]
+    (=daikanwa		. 13881)	; &I-M-13881;
+    (<-same
+     ((=ucs		  . #x6623)	; 昣
+      (=daikanwa	  . 13842)	; &I-M-13842;
+      ))
+    (<-same*sources
+     longkanshoujian daikanwa)
+    (->subsumptive
+     ((==ucs@cns	  . #x2318B)	; &g2-M-13881;
+      (==cns11643-6	  . #x316B)	; &g2-M-13881; [17-75]
+      (==daikanwa	  . 13881)	; &g2-M-13881;
+      (->subsumptive
+       ((===daikanwa	    . 13881)	; &R-M-13881;
+	)
+       ((===cns11643-6	    . #x316B)	; &R-C6-316B; [17-75]
+	))
+      )
+     ((==ucs@iso	  . #x2318B)	; &g2-IU-0002318B;
       ))
     ))
 (define-char
