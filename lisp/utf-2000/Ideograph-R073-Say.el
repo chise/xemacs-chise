@@ -231,6 +231,15 @@
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈
+    (=>ucs@iwds-1	. #x66F3)	; &A-IWDSU+66F3;
+    (=>iwds-1		.  0254)	; &A-IWDSU+66F3;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x66F3)	; &A-IWDSU+66F3;
+      (=>iwds-1		  .  0254)	; &A-IWDSU+66F3;
+      ))
+    (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=ucs		. #x66F3)	; 曳
@@ -368,7 +377,11 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 73)	; ⽈
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x66F3)	; &A-IWDSU+66F3;
+      (=>iwds-1		  .  0254)	; &A-IWDSU+66F3;
+      ))
+    (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x66F5)	; 曵
