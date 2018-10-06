@@ -5255,6 +5255,8 @@
       )
      ((=ucs		  . #x5B5F)	; 孟
       ))
+    (sound@ja/on/go	"mIyAu")
+    (sound@ja/on/kan	"mAu")
     (=ucs		. #x731B)	; 猛
     (=adobe-japan1-0	. 03808)	; &I-AJ1-03808;
     (=jis-x0208		. #x4C54)	; &I-J90-4C54; [44-52]
@@ -5269,6 +5271,18 @@
     (=daikanwa		. 20498)	; &I-M-20498;
     (=shinjigen@1ed	.  4809)	; 猛
     (=shinjigen@rev	.  4811)	; 猛
+    (<-formed
+     ((=hanyo-denshi/ks	  . 353220)	; &HD-KS-353220;
+      (=daikanwa	  . 31132)	; &HD-KS-353220;
+      ))
+    (->ancient
+     ((=ucs		  . #x20A5C)	; 𠩜
+      (=daikanwa	  . 02953)	; &I-M-02953;
+      ))
+    (->ancient$_1*sources
+     yupian daikanwa)
+    (->ancient*sources
+     yupian daikanwa)
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -7030,7 +7044,7 @@
     (=daikanwa		. 20557)	; &I-M-20557;
     (=jef-china3	. #x58F0)	; &I-JC3-58F0;
     (<-formed
-     ((=daikanwa	  . 36594)	; &M-36594;
+     ((=mj		  . 049541)	; &MJ049541;
       )
      ((=ucs		  . #x46BB)	; 䚻
       ))
@@ -7131,7 +7145,8 @@
       (=cns11643-1	  . #x533C)	; &GT-40124; [51-28]
       (=daikanwa	  . 30796)	; &I-M-30796;
       )
-     ((=daikanwa	  . 36594)	; &M-36594;
+     ((=mj		  . 049541)	; &MJ049541;
+      (=daikanwa	  . 36594)	; &I-M-36594;
       )
      ((=ucs@jis/2004	  . #x7337)	; &HD-HG-3063;
       (=ucs@ks		  . #x7337)	; &HD-HG-3063;
