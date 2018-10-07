@@ -4294,6 +4294,23 @@
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x21263)	; 𡉣
+      )
+     ((=ucs		  . #x72AC)	; 犬
+      ))
+    (=ucs		. #x247B7)	; 𤞷
+    (->subsumptive
+     ((==ucs@iso	  . #x247B7)	; &g2-IU-000247B7;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (ideographic-structure
