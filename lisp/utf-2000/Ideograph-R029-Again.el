@@ -5151,19 +5151,65 @@
   '((ideographic-radical . 29)	; ⼜
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
-    (hanyu-dazidian	1 401 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs		  . #x472D)	; 䜭
+     ((=>ucs@component	  . #x472D)	; &A-compU+472D;
       )
      ((=ucs		  . #x53C8)	; 又
       ))
+    (=>ucs@component	. #x3561)	; &A-compU+3561;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@component	  . #x3561)	; &A-compU+3561;
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x239BB)	; 𣦻
+      )
+     ((=>ucs@iwds-1	  . #x8C37)	; &A-IWDSU+8C37;
+      (=>iwds-1		  .  0132)	; &A-IWDSU+8C37;
+      ))
+    (sound@ja/on	"kaku")
+    (sound@ja/on/conventional "gaku")
     (=ucs		. #x3561)	; 㕡
-    (=cns11643-3	. #x4627)	; &I-C3-4627; [38-07]
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3561)	; 㕡
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (hanyu-dazidian	1 401 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs		  . #x239BB)	; 𣦻
+      )
+     ((=ucs		  . #x8C37)	; 谷
+      ))
+    (=ucs@unicode	. #x3561)	; &C3-4627;
+    (=cns11643-3	. #x4627)	; &C3-4627; [38-07]
     (=big5-cdp		. #x8ADF)	; &I-CDP-8ADF;
     (=daikanwa		. 03205)	; &I-M-03205;
+    (->formed
+     ((=ucs@unicode	  . #x58D1)	; &AJ1-04524;
+      (=adobe-japan1-0	  . 04524)	; &AJ1-04524;
+      (=daikanwa	  . 05554)	; &I-M-05554;
+      ))
+    (->formed$_1*sources
+     shuowen daikanwa)
+    (->formed*sources
+     shuowen daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x3561)	; &g2-CDP-8ADF;
       (==cns11643-3	  . #x4627)	; &g2-CDP-8ADF; [38-07]

@@ -4831,8 +4831,11 @@
     (=shinjigen		.  5732)	; &MJ006341;
     (<-formed
      ((=ucs		  . #x7ADD)	; 竝
+      )
+     ((=ucs@iso		  . #x202A7)	; &MJ030663;
+      (=mj		  . 030663)	; &MJ030663;
       ))
-    (<-formed*sources
+    (<-formed$_1*sources
      hng)
     (<-simplified@JP/Jouyou
      ((=ucs		  . #x7ADD)	; 竝

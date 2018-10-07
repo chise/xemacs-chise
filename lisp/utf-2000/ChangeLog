@@ -3,6 +3,68 @@
 	* Ideograph-R094-Dog.el (U+731B): Add `sound@ja/on/{kan|go}'; add
 	`<-formed' for HD-KS353220; add `->ancient' for U-00020A5C.
 
+	* ShuoWen.el (SW-JIGUGE5-01113): Add "𧓍" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-01113): Ditto.
+	(SW-JIGUGE5-01200): Add "霊" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-01200): Ditto.
+	(SW-JIGUGE5-01501): Add "毎" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-01501): Ditto.
+	(SW-JIGUGE5-01509): Add "艹" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-01509): Ditto.
+	(SW-JIGUGE5-01605): Add "蘓" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-01605): Ditto.
+	(SW-JIGUGE5-01627): Add "芦" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-01627): Ditto.
+	(SW-JIGUGE5-01712): Add "䖀" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-01712): Ditto.
+	(SW-JIGUGE5-01716): Add "薫" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-01716): Ditto.
+	(SW-JIGUGE5-01721): Add "䒗" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-01721): Ditto.
+	(SW-JIGUGE5-01817): Add "蕲" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-01817): Ditto.
+	(SW-JIGUGE5-02002): Add "𦷕" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02002): Ditto.
+	(SW-JIGUGE5-02118): Add "𦿈" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02118): Ditto.
+	(SW-JIGUGE5-02120): Add "菘" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02120): Ditto.
+	(SW-JIGUGE5-02213): Add "䔥" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02213): Ditto.
+	(SW-JIGUGE5-02223): Add "𦮄" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02223): Ditto.
+	(SW-JIGUGE5-02308): Add "蒋" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02308): Ditto.
+	(SW-JIGUGE5-02327): Add "荆" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02327): Ditto.
+	(SW-JIGUGE5-02333): Add "茎" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02333): Ditto.
+
+	* Ideograph-R029-Again.el (A-compU+3561): New abstract node.
+	(U+3561): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-compU+3561.
+
+	* Ideograph-R001-One.el (UU+4E26): Add IU+202A7 as a target of
+	`<-formed'.
+
 	* Ideograph-R061-Heart.el (CU+3983): Apply new conventions for
 	glyph granularity; unify KOSEKI-125190 and MJ001268.
 
