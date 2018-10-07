@@ -7788,6 +7788,7 @@
     (ideographic-radical@jis/b . 203)	; ⿊
     (ideographic-strokes@jis/b . 0)
     (=>jis-x0208@1997	. #x3975)	; &J97-3975; [25-85]
+    (=>iwds-1		.  0184)	; &J97-3975;
     ))
 (define-char
   '((<-denotational
