@@ -1,3 +1,120 @@
+2018-10-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen.el (SW-JIGUGE5-00706): Add "𤩮" and "𤩚" as targets of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-00706): Ditto.
+	(SW-JIGUGE5-00801): Add "𠮉" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-00801): Ditto.
+	(SW-JIGUGE5-00820): Add "𤣽" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-00820): Ditto.
+	(SW-JIGUGE5-01012): Add "𤥟" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-01012): Ditto.
+	(SW-JIGUGE5-01016): Add "𤥼" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-01016): Ditto.
+	(SW-JIGUGE5-01126): Add "𤩤" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-01126): Ditto.
+	(SW-JIGUGE5-01505): Add "𡴚" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-01505): Ditto.
+	(SW-JIGUGE5-01700): Add "𦿜" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-01700): Ditto.
+	(SW-JIGUGE5-01727): Add "𦳯" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-01727): Ditto.
+	(SW-JIGUGE5-01901): Add "𧂗" and "𧀷" as targets of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-01901): Ditto.
+	(SW-JIGUGE5-01902): Add "𦼷" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-01902): Ditto.
+	(SW-JIGUGE5-02323): Add "茰" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02323): Ditto.
+	(SW-JIGUGE5-02401): Add "𦯧" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02401): Ditto.
+	(SW-JIGUGE5-02417): Add "荚" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02417): Ditto.
+	(SW-JIGUGE5-02420): Add "蒂" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02420): Ditto.
+	(SW-JIGUGE5-02512): Add "荟" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02512): Ditto.
+	(SW-JIGUGE5-02529): Add "蕰" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02529): Ditto.
+	(SW-JIGUGE5-02623): Add "薬" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02623): Ditto.
+	(SW-JIGUGE5-02706): Add "葢" and "盖" as targets of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02706): Ditto.
+	(SW-JIGUGE5-02715): Add "𨡱" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02715): Ditto.
+	(SW-JIGUGE5-02716): Add "蘫" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02716): Ditto.
+	(SW-JIGUGE5-02813): Add "䔩" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02813): Ditto.
+	(SW-JIGUGE5-02908): Add "菫" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02908): Ditto.
+	(SW-JIGUGE5-02911): Add "𧅻" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02911): Ditto.
+	(SW-JIGUGE5-02912): Add "𦼉" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02912): Ditto.
+	(SW-JIGUGE5-02915): Add "莱" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02915): Ditto.
+	(SW-JIGUGE5-03004): Add "茶" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-03004): Ditto.
+	(SW-JIGUGE5-03016): Add "𦳱" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-03016): Ditto.
+	(SW-JIGUGE5-03106): Add "蔵" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-03106): Ditto.
+	(SW-JIGUGE5-03114): Add "𦬠" as a target of
+	`<-Small-Seal@shuowen'; add `<-Small-Seal@shuowen/mpsuzuki' for "
+	𦬇".
+	(SW-JIGUGE4-03114): Ditto.
+	(SW-JIGUGE5-03305): Add "曽" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-03305): Ditto.
+	(SW-JIGUGE5-03408): Add "釈" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-03408): Ditto.
+	(SW-JIGUGE5-03412): Add "牜" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-03412): Ditto.
+
+2018-10-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R094-Dog.el (U-000247B7): New character.
+
+	* Ideograph-R086-Fire.el (J97-3975): Unify IWDS1-0184.
+
+	* Ideograph-R030-Mouth.el (U-00020C1A): Apply new conventions for
+	glyph granularity.
+	(UU+55AC): Add UU+5DA0 as a target of `->interchangeable'.
+	(U-00020F22): Apply new conventions for glyph granularity.
+	(CB08110): Unify IU+20F22, MJ032536, KOSEKI-048420 and M-04227.
+	(CB04326): New character; use `<-denotational' for U-00020F22.
+	(U-00020EFF): New character.
+
 2018-10-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R094-Dog.el (U+731B): Add `sound@ja/on/{kan|go}'; add
