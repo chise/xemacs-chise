@@ -12,6 +12,17 @@
 
 2018-10-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R079-Weapon.el (U-00023ABC): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R066-Rap.el (A-cgnU+22FE6): New abstract node.
+	(U-00022FE6): Add `<-denotational' for A-cgnU+22FE6; add
+	`ideographic-structure'; add `sound@ja/on/{kan|go}'; add some
+	relations for other characters; add representative nodes.
+	(U-00022FFD): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+22FE6.
+	(U-00023029): New character.
+
 	* ShuoWen.el (SW-JIGUGE5-00706): Add "𤩮" and "𤩚" as targets of
 	`<-Small-Seal@shuowen'.
 	(SW-JIGUGE4-00706): Ditto.
