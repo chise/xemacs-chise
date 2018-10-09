@@ -1,3 +1,16 @@
+2018-10-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen.el (SW-JIGUGE5-00605): Add "玊" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-00605): Ditto.
+	(SW-JIGUGE5-00724): Add "玊" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-00724): Ditto.
+	(SW-JIGUGE5-01306): Use `<-Small-Seal@shuowen/mpsuzuki' instead of
+	`<-Small-Seal@shuowen' for I+58AB; add `<-Small-Seal@shuowen' for
+	"壿".
+	(SW-JIGUGE4-01306): Ditto.
+
 2018-10-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen.el (SW-JIGUGE5-03017): Add "𦰨" as a target of
