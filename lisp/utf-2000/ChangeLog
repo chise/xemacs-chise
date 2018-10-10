@@ -96,6 +96,17 @@
 
 2018-10-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R009-Man.el (U+4F4C): Apply new conventions for glyph
+	granularity.
+	(U+4F75): Likewise.
+	(U-00020208): Likewise.
+	(U+5002): Add some relations for other characters.
+	(U-000202A7): Apply new conventions for glyph granularity.
+	(U+5068): Likewise.
+	(S-0429): Unify U-0002D000 and MJ056955.
+
+2018-10-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* ShuoWen.el (SW-JIGUGE5-00605): Add "玊" as a target of
 	`<-Small-Seal@shuowen'.
 	(SW-JIGUGE4-00605): Ditto.
