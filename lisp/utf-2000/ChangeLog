@@ -1,5 +1,62 @@
 2018-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R090-Half-Tree-Trunk.el (A-cgnU+24584): New abstract
+	node.
+	(M-19783): Unify U-00024584; add `<-denotational' for
+	A-cgnU+24584; add `ideographic-structure'; add `sound@ja/on'; add
+	`<-ancient' for CU+838A.
+	(U-0002458A): Use `->subsumptive'; add `<-denotational' for
+	A-cgnU+24584; add `ideographic-structure'.
+	(U-00024588): Likewise; add `sound@ja/on'; add `<-ancient' for
+	CU+838A.
+
+	* Ideograph-R057-Bow.el (A-IWDSU+223DA): New abstract node.
+	(U-000223DA): Add `<-denotational' for A-IWDSU+223DA; add
+	representative nodes.
+	(BC-8AC2): New character; use `<-denotational' for A-IWDSU+223DA.
+
+	* Ideograph-R046-Mountain.el (U-00021DAB): Add `<-denotational'
+	for A-IWDSU+21D0E; add `ideographic-structure'; add `sound@ja/on';
+	add some relations for other characters.
+	(U-00021E22): Apply new conventions for glyph granularity.
+	(U-00021E23): Likewise.
+	(U+5D72): Likewise.
+	(U+5DA0): Likewise.
+	(U+3810): Likewise.
+	(U-00021F21): New character; use `<-denotational' for
+	A-IWDSU+21F21.
+	(A-IWDSU+21F21): New abstract node.
+	(U+5DAD): Apply new conventions for glyph granularity.
+	(A-cgnU+3814): New abstract node.
+	(U+3814): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+3814.
+	(A-U+3814-itaiji-001): New abstract node; use `<-denotational' for
+	A-cgnU+3814.
+	(U+3814-itaiji-001): New character; use `<-denotational' for
+	A-U+3814-itaiji-001.
+	(U-00021FA6): Use `->denotational' and `->subsumptive'.
+	(U-00021FA4): New character; use `<-denotational' for
+	A-cgnU+219AF.
+	(U-00021FB2): Use `->denotational' and `->subsumptive'.
+	(U-00021FD6): Likewise.
+
+	* Ideograph-R033-Scholar.el (U+58FF): Add
+	`<-denotational@component' for A-IWDSU+58FF; add
+	`sound@ja/on/{kan|go}'.
+	(M-05678): Unify MJ009403 and KOSEKI-065010; add some relations
+	for other characters.
+	(A-IWDSU+58FF): New abstract node; unify A-J0-5453.
+
+	* Ideograph-R032-Earth.el (U-00021263): New character; unify
+	GT-K03067.
+	(U+58AB): Add `<-denotational@component' for A-IWDSU+58FF;
+	separate A-J0-5453; add `ideographic-structure'; add
+	`sound@ja/on'.
+	(JU+58AB): Add `ideographic-structure'; add some relations for
+	other characters.
+	(U+58D1): Apply new conventions for glyph granularity.
+	(A-IWDSU+58FF): New abstract node; unify A-J0-5453.
+
 	* ShuoWen.el (SW-JIGUGE5-05525): Add "邈" as a target of
 	`<-Small-Seal@shuowen'.
 	(SW-JIGUGE4-05425): Ditto.
