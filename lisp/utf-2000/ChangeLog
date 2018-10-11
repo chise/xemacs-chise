@@ -1,5 +1,23 @@
 2018-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ShuoWen.el (SW-JIGUGE5-05525): Add "邈" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-05425): Ditto.
+	(SW-JIGUGE5-07721): Add "譲" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-07621): Ditto.
+	(SW-JIGUGE5-07824): Add "訳" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-07724): Ditto.
+	(SW-JIGUGE5-07908): Add "竸" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-07808): Ditto.
+	(SW-JIGUGE5-08011): Add "対" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-07911): Ditto.
+
+2018-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* ShuoWen.el (SW-JIGUGE5-05525): Add "𨗿" as a target of
 	`<-Small-Seal@shuowen'.
 	(SW-JIGUGE4-05425): Ditto.
@@ -106,6 +124,13 @@
 	(S-0429): Unify U-0002D000 and MJ056955.
 
 2018-10-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R078-Death.el (A-U+2458A-itaiji-001): New abstract
+	node.
+	(U+2458A-itaiji-001): New character; use `<-denotational' for
+	A-U+2458A-itaiji-001.
+	(GT-K04946): Ditto.
+	(GT-K05012): Ditto.
 
 	* ShuoWen.el (SW-JIGUGE5-00605): Add "玊" as a target of
 	`<-Small-Seal@shuowen'.

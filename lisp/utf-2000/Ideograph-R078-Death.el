@@ -797,6 +797,76 @@
     ))
 (define-char
   '((ideographic-radical . 78)	; ⽍
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (=>ucs-itaiji-001	. #x2458A)	; &A-U-i001+2458A;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x2458A)	; &A-U-i001+2458A;
+      ))
+    (ideographic-radical . 78)	; ⽍
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 00877)	; &GT-K00877;
+      )
+     ((=ucs		  . #x5143)	; 元
+      ))
+    (=ucs-itaiji-001	. #x2458A)	; &U-i001+2458A;
+    (->subsumptive
+     ((==ucs-itaiji-001	  . #x2458A)	; &g2-U-i001+2458A;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x2458A)	; &A-U-i001+2458A;
+      ))
+    (ideographic-radical . 78)	; ⽍
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6B7A)	; 歺
+      )
+     ((=gt-k		  . 00264)	; &GT-K00264;
+      ))
+    (=gt-k		. 04946)	; &GT-K04946;
+    (=gt-pj-k1		. #x5865)	; &GT-K04946; [56-69]
+    (->subsumptive
+     ((==gt-k		  . 04946)	; &g2-GT-K04946;
+      (==gt-pj-k1	  . #x5865)	; &g2-GT-K04946; [56-69]
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs-itaiji-001	  . #x2458A)	; &A-U-i001+2458A;
+      ))
+    (ideographic-radical . 78)	; ⽍
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=gt-k		  . 00877)	; &GT-K00877;
+      )
+     ((=ucs		  . #x4E93)	; 亓
+      ))
+    (=gt-k		. 05012)	; &GT-K05012;
+    (=gt-pj-k1		. #x5863)	; &GT-K05012; [56-67]
+    (->subsumptive
+     ((==gt-k		  . 05012)	; &g2-GT-K05012;
+      (==gt-pj-k1	  . #x5863)	; &g2-GT-K05012; [56-67]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 78)	; ⽍
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ucs		. #x6B7D)	; 歽
