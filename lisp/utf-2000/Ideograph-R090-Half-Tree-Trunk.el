@@ -564,26 +564,77 @@
     (=cns11643-4	. #x386C)	; &I-C4-386C; [24-76]
     ))
 (define-char
-  '((=>ucs		. #x2458A)	; 𤖊
-    (ideographic-radical . 90)	; ⽙
+  '((ideographic-radical . 90)	; ⽙
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=daikanwa		. 19783)	; &M-19783;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x723F)	; 爿
+      )
+     ((=>ucs-itaiji-001	  . #x2458A)	; &A-U-i001+2458A;
+      ))
+    (=>ucs@cognate	. #x24584)	; &A-cgnU+24584;
     ))
 (define-char
-  '((morohashi-daikanwa	19783 0 2)
+  '((<-denotational
+     ((=>ucs@cognate	  . #x24584)	; &A-cgnU+24584;
+      ))
     (ideographic-radical . 90)	; ⽙
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x723F)	; 爿
+      )
+     ((=gt-k		  . 05012)	; &GT-K05012;
+      ))
+    (sound@ja/on	"sAu")
+    (=ucs		. #x24584)	; 𤖄
+    (=daikanwa		. 19783)	; &I-M-19783;
+    (<-ancient
+     ((=ucs@cns		  . #x838A)	; &C1-5C7D;
+      (=cns11643-1	  . #x5C7D)	; &C1-5C7D; [60-93]
+      (=daikanwa	  . 31035)	; &I-M-31035;
+      ))
+    (<-ancient*sources
+     yupian daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x24584)	; &g2-M-19783;
+      (==daikanwa	  . 19783)	; &g2-M-19783;
+      (->subsumptive
+       ((===daikanwa	    . 19783)	; &R-M-19783;
+	)
+       ((===ucs@iso	    . #x24584)	; &R-U-00024584;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x24584)	; &A-cgnU+24584;
+      ))
+    (ideographic-radical . 90)	; ⽙
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x723F)	; 爿
+      )
+     ((=ucs-itaiji-001	  . #x2458A)	; &U-i001+2458A;
+      ))
     (=ucs		. #x2458A)	; 𤖊
-    ))
-(define-char
-  '((=>ucs		. #x2458A)	; 𤖊
-    (morohashi-daikanwa	19783 0 3)
-    (ideographic-radical . 90)	; ⽙
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (=cns11643-6	. #x4B25)	; &C6-4B25; [43-05]
+    (=cns11643-6	. #x4B25)	; &I-C6-4B25; [43-05]
+    (->subsumptive
+     ((==ucs@iso	  . #x2458A)	; &g2-IU-0002458A;
+      )
+     ((==ucs@cns	  . #x2458A)	; &g2-CU+2458A;
+      (==cns11643-6	  . #x4B25)	; &g2-CU+2458A; [43-05]
+      ))
     ))
 (define-char
   '((ideographic-radical . 90)	; ⽙
@@ -631,19 +682,43 @@
     (=cns11643-6	. #x4B26)	; &C6-4B26; [43-06]
     ))
 (define-char
-  '((ideographic-radical . 90)	; ⽙
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (=ucs		. #x24588)	; 𤖈
-    (=daikanwa		. 19787)	; &I-M-19787;
-    ))
-(define-char
-  '((=>ucs		. #x24588)	; 𤖈
-    (morohashi-daikanwa	19787 0 0)
+  '((<-denotational
+     ((=>ucs@cognate	  . #x24584)	; &A-cgnU+24584;
+      ))
     (ideographic-radical . 90)	; ⽙
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=cns11643-6	. #x4B27)	; &C6-4B27; [43-07]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x723F)	; 爿
+      )
+     ((=gt-k		  . 04946)	; &GT-K04946;
+      ))
+    (sound@ja/on	"sAu")
+    (=ucs		. #x24588)	; 𤖈
+    (=cns11643-6	. #x4B27)	; &I-C6-4B27; [43-07]
+    (=daikanwa		. 19787)	; &I-M-19787;
+    (<-ancient
+     ((=ucs@cns		  . #x838A)	; &C1-5C7D;
+      (=cns11643-1	  . #x5C7D)	; &C1-5C7D; [60-93]
+      (=daikanwa	  . 31035)	; &I-M-31035;
+      ))
+    (<-ancient*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x24588)	; &g2-M-19787;
+      (==daikanwa	  . 19787)	; &g2-M-19787;
+      (->subsumptive
+       ((===daikanwa	    . 19787)	; &R-M-19787;
+	)
+       ((===ucs@iso	    . #x24588)	; &R-U-00024588;
+	))
+      )
+     ((==ucs@cns	  . #x24588)	; &g2-CU+24588;
+      (==cns11643-6	  . #x4B27)	; &g2-CU+24588; [43-07]
+      ))
     ))
 (define-char
   '((ideographic-radical . 90)	; ⽙
