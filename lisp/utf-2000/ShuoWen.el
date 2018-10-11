@@ -19502,12 +19502,16 @@
       (<-Small-Seal@shuowen
        ((=ucs		    . #x28637)	; 𨘷
 	)
+       ((=ucs		    . #x9088)	; 邈
+	)
        ((=ucs		    . #x285FF)	; 𨗿
 	))
       )
      ((===shuowen-jiguge4 . 05425)	; &SW-JIGUGE4-05425;
       (<-Small-Seal@shuowen
        ((=ucs		    . #x28637)	; 𨘷
+	)
+       ((=ucs		    . #x9088)	; 邈
 	)
        ((=ucs		    . #x285FF)	; 𨗿
 	))
@@ -26987,11 +26991,15 @@
      ((===shuowen-jiguge5 . 07721)	; &SW-JIGUGE5-07721;
       (<-Small-Seal@shuowen
        ((=ucs		    . #x8B93)	; 讓
+	)
+       ((=ucs		    . #x8B72)	; 譲
 	))
       )
      ((===shuowen-jiguge4 . 07621)	; &SW-JIGUGE4-07621;
       (<-Small-Seal@shuowen
        ((=ucs		    . #x8B93)	; 讓
+	)
+       ((=ucs		    . #x8B72)	; 譲
 	))
       ))
     ))
@@ -27477,11 +27485,15 @@
      ((===shuowen-jiguge5 . 07824)	; &SW-JIGUGE5-07824;
       (<-Small-Seal@shuowen
        ((=ucs		    . #x8B6F)	; 譯
+	)
+       ((=ucs		    . #x8A33)	; 訳
 	))
       )
      ((===shuowen-jiguge4 . 07724)	; &SW-JIGUGE4-07724;
       (<-Small-Seal@shuowen
        ((=ucs		    . #x8B6F)	; 譯
+	)
+       ((=ucs		    . #x8A33)	; 訳
 	))
       ))
     ))
@@ -27687,11 +27699,15 @@
      ((===shuowen-jiguge5 . 07908)	; &SW-JIGUGE5-07908;
       (<-Small-Seal@shuowen
        ((=ucs		    . #x7AF6)	; 競
+	)
+       ((=ucs		    . #x7AF8)	; 竸
 	))
       )
      ((===shuowen-jiguge4 . 07808)	; &SW-JIGUGE4-07808;
       (<-Small-Seal@shuowen
        ((=ucs		    . #x7AF6)	; 競
+	)
+       ((=ucs		    . #x7AF8)	; 竸
 	))
       ))
     ))
@@ -27939,11 +27955,15 @@
      ((===shuowen-jiguge5 . 08011)	; &SW-JIGUGE5-08011;
       (<-Small-Seal@shuowen
        ((=ucs		    . #x5C0D)	; 對
+	)
+       ((=ucs		    . #x5BFE)	; 対
 	))
       )
      ((===shuowen-jiguge4 . 07911)	; &SW-JIGUGE4-07911;
       (<-Small-Seal@shuowen
        ((=ucs		    . #x5C0D)	; 對
+	)
+       ((=ucs		    . #x5BFE)	; 対
 	))
       ))
     ))
