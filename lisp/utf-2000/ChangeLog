@@ -1,3 +1,64 @@
+2018-10-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen.el (SW-JIGUGE5-02401): Add "𦹁" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-02401): Ditto.
+	(SW-JIGUGE5-07004): Add "丗" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-06904): Ditto.
+	(SW-JIGUGE5-07622): Add "𧧢" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-07522): Ditto.
+	(SW-JIGUGE5-07716): Add "譛" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-07616): Ditto.
+	(SW-JIGUGE5-08111): Add "𢌿" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-08011): Ditto.
+	(SW-JIGUGE5-08302): Add "䙴" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-08202): Ditto.
+	(SW-JIGUGE5-08314): Add "莀" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-08214): Ditto.
+	(SW-JIGUGE5-08710): Add "𩰬" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-08610): Ditto.
+	(SW-JIGUGE5-08715): Add "釡" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-08615): Ditto.
+	(SW-JIGUGE5-08809): Add "羮" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-08709): Ditto.
+	(SW-JIGUGE5-08824): Add "爫" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-08724): Ditto.
+	(SW-JIGUGE5-08906): Add "巩" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-08806): Ditto.
+	(SW-JIGUGE5-08912): Add "鬪" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-08812): Ditto.
+	(SW-JIGUGE5-08913): Add "閧" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-08813): Ditto.
+	(SW-JIGUGE5-09202): Add "亊" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09102): Ditto.
+	(SW-JIGUGE5-09203): Add "㕝" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09103): Ditto.
+
+	* Ideograph-R076-Lack.el (GT-K10099): New character.
+	(U-000238E7): Add `ideographic-structure'; add `sound@ja/on';
+	unify M-16145; add `<-formed' and `<-same' for U-000238F8.
+	(U-000238F8): Apply new conventions for glyph granularity.
+	(U-00023926): New character.
+
+	* Ideograph-R045-Sprout.el (U-00021D1A): New character.
+	(U-00021D26): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+21F21.
+
 2018-10-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R090-Half-Tree-Trunk.el (A-cgnU+24584): New abstract
