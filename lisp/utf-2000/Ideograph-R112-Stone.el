@@ -1904,8 +1904,26 @@
       )
      ((=ucs		  . #x77F3)	; 石
       ))
+    (sound@ja/on/go	"zai")
+    (sound@ja/on/kan	"sai")
     (=ucs		. #x7826)	; 砦
-    (=adobe-japan1-0	. 02118)	; &I-AJ1-02118;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x7826)	; 砦
+      ))
+    (ideographic-radical . 112)	; ⽯
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x6B64)	; &AJ1-02065;
+      (=adobe-japan1-0	  . 02065)	; &AJ1-02065;
+      )
+     ((=ucs		  . #x77F3)	; 石
+      ))
+    (=ucs@unicode	. #x7826)	; &AJ1-02118;
+    (=adobe-japan1-0	. 02118)	; &AJ1-02118;
     (=jis-x0208		. #x3A56)	; &I-J90-3A56; [26-54]
     (=gb2312		. #x6D4E)	; &I-G0-6D4E; [77-46]
     (=ks-x1001		. #x7376)	; &I-K0-7376; [83-86]
@@ -1916,6 +1934,24 @@
     (=gt-k		. 07764)	; &I-GT-K07764;
     (=gt-pj-1		. #x3A56)	; &I-GT-30899; [26-54]
     (=daikanwa		. 24098)	; &I-M-24098;
+    (<-formed
+     ((=ucs@unicode	  . #x67F4)	; &AJ1-02290;
+      (=adobe-japan1-0	  . 02290)	; &AJ1-02290;
+      ))
+    (<-same
+     ((=ucs@unicode	  . #x67F4)	; &AJ1-02290;
+      (=adobe-japan1-0	  . 02290)	; &AJ1-02290;
+      (=daikanwa	  . 14664)	; &I-M-14664;
+      )
+     ((=ucs		  . #x5BE8)	; 寨
+      (=daikanwa	  . 07298)	; &I-M-07298;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same$_2*sources
+     zhengyun daikanwa)
+    (<-same*sources
+     daikanwa)
     (->subsumptive
      ((ideographic-strokes . 5)
       (total-strokes	   . 10)
@@ -12434,6 +12470,23 @@
     (total-strokes	 . 19)
     (=ucs		. #x2154E)	; 𡕎
     (=cns11643-7	. #x483B)	; &I-C7-483B; [40-27]
+    ))
+(define-char
+  '((ideographic-radical . 112)	; ⽯
+    (ideographic-strokes . 14)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x77F3)	; 石
+      )
+     ((=ucs		  . #x8CD4)	; 賔
+      ))
+    (=ucs		. #x255B6)	; 𥖶
+    (->subsumptive
+     ((==ucs@iso	  . #x255B6)	; &g2-IU-000255B6;
+      ))
     ))
 (define-char
   '((=>ucs		. #x7923)	; 礣
