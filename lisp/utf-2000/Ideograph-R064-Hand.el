@@ -4293,18 +4293,72 @@
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿
-    (ideographic-strokes . 5)
-    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x6B64)	; 此
+      )
+     ((=ucs		  . #x624B)	; 手
+      ))
     (=ucs		. #x39D8)	; 㧘
-    (=daikanwa		. 11950)	; &I-M-11950;
     ))
 (define-char
-  '((=>ucs		. #x39D8)	; 㧘
-    (morohashi-daikanwa	11950 0 0)
+  '((<-denotational
+     ((=ucs		  . #x39D8)	; 㧘
+      ))
     (ideographic-radical . 64)	; ⼿
-    (ideographic-strokes . 6)
-    (total-strokes	 . 10)
+    (ideographic-strokes@ucs . 5)
+    (total-strokes@ucs	     . 9)
+    (ideographic-strokes@ucs*sources
+     daikanwa)
+    (ideographic-strokes@cns . 6)
+    (total-strokes@cns	     . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@unicode	  . #x6B64)	; &AJ1-02065;
+      (=adobe-japan1-0	  . 02065)	; &AJ1-02065;
+      )
+     ((=ucs		  . #x624B)	; 手
+      ))
+    (=ucs@unicode	. #x39D8)	; &C4-2D33;
     (=cns11643-4	. #x2D33)	; &C4-2D33; [13-19]
+    (=daikanwa		. 11950)	; &I-M-11950;
+    (<-interchangeable
+     ((=ucs		  . #x6279)	; 批
+      (=daikanwa	  . 11845)	; &I-M-11845;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (->formed
+     ((=ucs@unicode	  . #x67F4)	; &AJ1-02290;
+      (=adobe-japan1-0	  . 02290)	; &AJ1-02290;
+      (=daikanwa	  . 14664)	; &I-M-14664;
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((ideographic-strokes . 5)
+      (total-strokes	   . 9)
+      (==ucs@unicode	  . #x39D8)	; &g2-M-11950;
+      (==daikanwa	  . 11950)	; &g2-M-11950;
+      (->subsumptive
+       ((===daikanwa	    . 11950)	; &R-M-11950;
+	)
+       ((===ucs@unicode	    . #x39D8)	; &R-UU+39D8;
+	))
+      )
+     ((ideographic-strokes . 6)
+      (total-strokes	   . 10)
+      (==ucs@cns	  . #x39D8)	; &g2-CU+39D8;
+      (==cns11643-4	  . #x2D33)	; &g2-CU+39D8; [13-19]
+      ))
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿

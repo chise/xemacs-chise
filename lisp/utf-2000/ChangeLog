@@ -1,5 +1,16 @@
 2018-10-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R112-Stone.el (U+7826): Apply new conventions for
+	glyph granularity.
+	(U-000255B6): New character.
+
+	* Ideograph-R064-Hand.el (U+39D8): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R049-Oneself.el (U+382F): Unify IWDS1-0128.
+
+2018-10-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* ShuoWen.el (SW-JIGUGE5-02401): Add "𦹁" as a target of
 	`<-Small-Seal@shuowen'.
 	(SW-JIGUGE4-02401): Ditto.

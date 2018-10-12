@@ -386,6 +386,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (=ucs		. #x382F)	; 㠯
+    (=>iwds-1		.  0128)	; 㠯
     ))
 (define-char
   '((<-denotational
