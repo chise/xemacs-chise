@@ -1145,6 +1145,24 @@
     (=cns11643-6	. #x3675)	; &I-C6-3675; [22-85]
     ))
 (define-char
+  '((ideographic-radical . 45)	; ⼬
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (=ucs		. #x21D1A)	; 𡴚
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21D1A)	; 𡴚
+      ))
+    (ideographic-radical . 45)	; ⼬
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (=ucs@iso		. #x21D1A)	; &U-00021D1A;
+    (->subsumptive
+     ((==ucs@iso	  . #x21D1A)	; &g2-IU-00021D1A;
+      ))
+    ))
+(define-char
   '((=>ucs		. #x21D1B)	; 𡴛
     (ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 8)
@@ -1358,12 +1376,62 @@
     (=cns11643-6	. #x5C3A)	; &I-C6-5C3A; [60-26]
     ))
 (define-char
-  '((ideographic-radical . 45)	; ⼬
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x21F21)	; &A-IWDSU+21F21;
+      ))
+    (ideographic-radical . 45)	; ⼬
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5C6E)	; 屮
+      )
+     ((=>jis-x0208@1997	  . #x3975)	; &J97-3975; [25-85]
+      ))
+    (=ucs		. #x21D26)	; 𡴦
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x21D26)	; 𡴦
+      ))
+    (ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (=ucs		. #x21D26)	; 𡴦
-    (=cns11643-7	. #x2241)	; &I-C7-2241; [02-33]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x2F878)	; 屮
+      )
+     ((=ucs		  . #x9ED1)	; 黑
+      ))
+    (=ucs@iso		. #x21D26)	; &C7-2241;
+    (=cns11643-7	. #x2241)	; &C7-2241; [02-33]
     (=daikanwa		. 07863)	; &I-M-07863;
+    (<-original
+     ((=ucs		  . #x718F)	; 熏
+      (=daikanwa	  . 19300)	; &I-M-19300;
+      ))
+    (<-original*sources
+     jiyun daikanwa)
+    (->vulgar
+     ((=ucs@unicode	  . #x71FB)	; &AJ1-05577;
+      (=adobe-japan1-0	  . 05577)	; &AJ1-05577;
+      ))
+    (->vulgar*sources
+     jiyun)
+    (->subsumptive
+     ((==ucs@cns	  . #x21D26)	; &g2-M-07863;
+      (==cns11643-7	  . #x2241)	; &g2-M-07863; [02-33]
+      (==daikanwa	  . 07863)	; &g2-M-07863;
+      (->subsumptive
+       ((===daikanwa	    . 07863)	; &R-M-07863;
+	)
+       ((===cns11643-7	    . #x2241)	; &R-C7-2241; [02-33]
+	))
+      )
+     ((==ucs@iso	  . #x21D26)	; &g2-IU-00021D26;
+      ))
     ))
 (define-char
   '((=>ucs		. #x21D27)	; 𡴧
