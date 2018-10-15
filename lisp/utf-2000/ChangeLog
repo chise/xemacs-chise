@@ -1,3 +1,58 @@
+2018-10-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (U+673E): Add `ideographic-structure';
+	add representative nodes.
+	(U+675E): Add `ideographic-structure'.
+	(UU+675E): Add some relations for other characters.
+	(U+67B1): Apply new conventions for glyph granularity.
+	(A-compU+67BD): New abstract node.
+	(U+67BD): Add `<-denotational' for A-compU+67BD; add
+	`ideographic-structure'; add `sound@ja/on'; add some relations for
+	other characters.
+	(U+67BD-itaiji-001): New character; use `<-denotational' for
+	A-compU+67BD.
+	(UU+3B52): Add some relations for other characters.
+	(U+67F4): Apply new conventions for glyph granularity.
+	(g2-AJ1-17775): Add `=decomposition@cid'.
+	(U+6815): Add `<-denotational@component' for A-IWDSU+6815; apply
+	new conventions for glyph granularity.
+	(U-00023435): Likewise.
+	(U+6853): Apply new conventions for glyph granularity.
+	(U-00023469): New character.
+	(U+686D): Add `ideographic-structure'; add `sound@ja/on'; unify
+	MJ013929 and KOSEKI-166930; add representative nodes.
+	(U+689F): Add `sound@ja/on'.
+	(JU+689F): Add `ideographic-structure'; add some relations for
+	other characters.
+	(U+68A9): Likewise; add representative nodes.
+	(U-000234AE): New character.
+	(U+696B): Add `ideographic-structure'; add `sound@ja/on'; add some
+	relations for other characters.
+	(U+69D7): Apply new conventions for glyph granularity.
+	(U+3BC6): Add `sound@ja/on/{kan|go}'.
+	(CU+3BC6): Unify MJ001807 and KOSEKI-174460; apply new conventions
+	for glyph granularity.
+	(U+4CB7): Apply new conventions for glyph granularity.
+	(U-0002363A): Likewise.
+	(U+6A38): Likewise.
+	(U+6A3D): Add `ideographic-structure'; add `sound@ja/on'.
+	(J2004U+6A3D): Add `ideographic-structure'; add some relations for
+	other characters.
+	(U+6A47): Likewise.
+	(U+6A4B): Apply new conventions for glyph granularity.
+	(U+6AC3): Likewise.
+	(U-00023763): New character.
+	(U+6AD0): Apply new conventions for glyph granularity.
+	(U+6AD1): Add `ideographic-structure'; add `sound@ja/on'; add some
+	relations for other characters; add representative nodes.
+	(U-000237C5): Add `sound@ja/on'.
+	(o-CU+237C5): Unify A-MJ038406.
+	(M-15849): Unify MJ038406 and KOSEKI-179960; add some relations
+	for other characters.
+	(U-0002387A): Apply new conventions for glyph granularity; add
+	some relations for other characters.
+	(A-IWDSU+6815): New abstract node.
+
 2018-10-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R112-Stone.el (U+7826): Apply new conventions for
