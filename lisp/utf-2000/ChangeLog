@@ -1,3 +1,17 @@
+2018-10-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R024-Ten.el (U+353A): Apply new conventions for glyph
+	granularity.
+	(A-compU+534B): New abstract node.
+	(U+534B): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-compU+534B.
+	(U+534B-itaiji-001): New character; add `<-denotational' for
+	A-compU+534B.
+
+	* Ideograph-R018-Knife.el (HNG-KHI0274-0): Add `<-HNG@chise' for
+	U-0002D0C4.
+	(HNG-KHM0219-0): Ditto.
+
 2018-10-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R075-Tree.el (U+673E): Add `ideographic-structure';
