@@ -1,4 +1,27 @@
+2018-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R072-Sun.el (A-GT-K03030): New abstract node; unify
+	A-U+9000-itaiji-001.
+	(U+9000-itaiji-001): New character; use `<-denotational' for
+	A-GT-K03030.
+	(GT-K03030): Ditto.
+
 2018-10-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R100-Life.el (A-J0-3B3A): Unify A-IWDSU+7522 and
+	B-B2A3; add `ideographic-structure'.
+	(U+7522): Add `ideographic-structure'; add `sound@ja/on/{kan|go}';
+	move B-B2A3 to A-J0-3B3A; add some relations for other characters.
+	(U+7523): Add `ideographic-structure'.
+
+	* Ideograph-R055-Two-Hands.el (U-00022340): New character.
+	(U-00022349): New character.
+	(U-0002234E): Add `ideographic-structure'; add `sound@ja/on'; omit
+	`total-strokes'.
+	(M-09619): Unify MJ035508 and KOSEKI-108820; add
+	`ideographic-structure'; add `<-ancient' and `<-formed' for
+	JU+8AA5.
+	(IU+2234E): Add `ideographic-structure'; add representative nodes.
 
 	* Ideograph-R024-Ten.el (U+353A): Apply new conventions for glyph
 	granularity.
