@@ -1,3 +1,70 @@
+2018-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen.el (SW-JIGUGE5-05120): Use "䢌" instead of "𨒘" as the
+	target of `<-Small-Seal@shuowen'; add
+	`<-Small-Seal@shuowen/mpsuzuki' for "𨒘" and "𨒉".
+	(SW-JIGUGE4-05020): Ditto.
+	(SW-JIGUGE5-05611): Add "徃" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-05511): Ditto.
+	(SW-JIGUGE5-09211): Add "粛" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09111): Ditto.
+	(SW-JIGUGE5-09212): Use "𦘜" target of "⿱聿⿰心卪" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09112): Ditto.
+	(SW-JIGUGE5-09303): Add "画" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09203): Ditto.
+	(SW-JIGUGE5-09306): Add "昼" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09206): Ditto.
+	(SW-JIGUGE5-09311): Add "隷" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09211): Ditto.
+	(SW-JIGUGE5-09402): Add "竪" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09302): Ditto.
+	(SW-JIGUGE5-09411): Add "𣪠" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09311): Ditto.
+	(SW-JIGUGE5-09412): Add "𣪊" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09312): Ditto.
+	(SW-JIGUGE5-09500): Add "𣫐" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09400): Ditto.
+	(SW-JIGUGE5-09502): Add "殴" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09402): Ditto.
+	(SW-JIGUGE5-09511): Add "伇" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09411): Ditto.
+	(SW-JIGUGE5-09601): Add "鳬" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09501): Ditto.
+	(SW-JIGUGE5-09604): Add "将" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09504): Ditto.
+	(SW-JIGUGE5-09606): Add "専" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09506): Ditto.
+	(SW-JIGUGE5-09616): Add "𠭼" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09516): Ditto.
+	(SW-JIGUGE5-09704): Add "攵" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09604): Ditto.
+	(SW-JIGUGE5-09708): Add "𢾹" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09608): Ditto.
+	(SW-JIGUGE5-09714): Add "効" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09614): Ditto.
+	(SW-JIGUGE5-09721): Add "数" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-09621): Ditto.
+
 2018-10-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R072-Sun.el (A-GT-K03030): New abstract node; unify
