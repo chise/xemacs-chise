@@ -41977,6 +41977,11 @@
       ))
     (<-interchangeable*sources
      shuowen-changjian daikanwa)
+    (<-original
+     ((=ucs@cns		  . #x5FAD)	; &AJ1-04799;
+      (=ucs@jis		  . #x5FAD)	; &AJ1-04799;
+      (=adobe-japan1-0	  . 04799)	; &AJ1-04799;
+      ))
     (->formed
      ((=ucs@cns		  . #x509C)	; &AJ1-14339;
       (=ucs@jis		  . #x509C)	; &AJ1-14339;
@@ -43523,7 +43528,7 @@
       )
      ((=ucs		  . #x4EBB)	; 亻
       )
-     ((=gt-k		  . 06724)	; &GT-K06724;
+     ((=gt		  . 06413)	; &GT-06413;
       ))
     (=ucs@jis/1990	. #x50C5)	; &MJ007048;
     (=ucs@jis/2000	. #x50C5)	; &MJ007048;
