@@ -45,6 +45,8 @@
 
 2018-10-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R009-Man.el (U+347E): Add `<-original' for JU+5FAD.
+
 	* ShuoWen.el (SW-JIGUGE5-05120): Use "䢌" instead of "𨒘" as the
 	target of `<-Small-Seal@shuowen'; add
 	`<-Small-Seal@shuowen/mpsuzuki' for "𨒘" and "𨒉".
