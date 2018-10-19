@@ -1,5 +1,19 @@
 2018-10-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R038-Woman.el (A-cgnU+5B34): New abstract node.
+	(U-00021894): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-cgnU+5B34.
+	(U-0002BC93): New character; use `<-denotational' for A-cgnU+5B34.
+	(A-IWDSU+5B34): New abstract node; use `<-denotational' for
+	A-cgnU+5B34.
+	(U+5B34): Add `<-denotational' for A-IWDSU+5B34.
+	(JU+5B34): Add `<-same' and `->original' for MJ033800.
+	(U-000218A3): Add `<-denotational' for A-cgnU+5B34.
+	(U-000218CD): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-IWDSU+5B34.
+
+2018-10-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* ShuoWen.el (SW-JIGUGE5-09918): Use "𣀈" instead of "⿰蜀⺙" as a
 	target of `<-Small-Seal@shuowen'.
 	(SW-JIGUGE4-09818): Ditto.
