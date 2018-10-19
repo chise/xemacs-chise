@@ -1,3 +1,39 @@
+2018-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen.el (SW-JIGUGE5-12333): Use "𩁪" instead of "⿰⿱廿&CDP-8670;隹"
+	as a target of `<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-12033): Ditto.
+	(SW-JIGUGE5-12409): Add "𪈚" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-12109): Ditto.
+	(SW-JIGUGE5-12501): Use "𪀐" instead of "⿰鳥乏" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-12201): Ditto.
+	(SW-JIGUGE5-12619): Use "𪅏" instead of "⿱殻鳥" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-12319): Ditto.
+	(SW-JIGUGE5-12914): Add "恵" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-12614): Ditto.
+	(SW-JIGUGE5-13108): Add "争" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-12808): Ditto.
+	(SW-JIGUGE5-13304): Add "残" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-13004): Ditto.
+	(SW-JIGUGE5-13307): Add "殱" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-13007): Ditto.
+	(SW-JIGUGE5-13317): Add "𠑾" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-13017): Ditto.
+	(SW-JIGUGE5-13421): Add "体" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-13121): Ditto.
+	(SW-JIGUGE5-13607): Add "𦚑" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-13307): Ditto.
+
 2018-10-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R038-Woman.el (A-cgnU+5B34): New abstract node.
