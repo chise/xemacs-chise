@@ -5652,7 +5652,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt-k		  . 06724)	; &GT-K06724;
+     ((=gt		  . 06413)	; &GT-06413;
       )
      ((=ucs		  . #x529B)	; 力
       ))
