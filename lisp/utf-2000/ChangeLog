@@ -48,6 +48,12 @@
 
 2018-10-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R061-Heart.el (GT-K02966): New character.
+	(U+6021): Add `ideographic-structure'; add `sound@ja/on'; add
+	`<-interchangeable' for U+53F0 and U+6020.
+	(U-0002661B): Add `ideographic-structure'; add `<-ancient' for
+	U+8085; add representative nodes.
+
 	* Ideograph-R038-Woman.el (A-cgnU+5B34): New abstract node.
 	(U-00021894): Use `->denotational' and `->subsumptive'; add
 	`<-denotational' for A-cgnU+5B34.
