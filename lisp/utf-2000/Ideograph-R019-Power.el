@@ -5652,7 +5652,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=gt		  . 06413)	; &GT-06413;
+     ((=hanyo-denshi/tk	  . 01016780)	; &HD-TK-01016780;
       )
      ((=ucs		  . #x529B)	; 力
       ))
