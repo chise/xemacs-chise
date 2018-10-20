@@ -1,5 +1,17 @@
 2018-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R030-Mouth.el (U+53F0): Add some relations for other
+	characters.
+	(U+830D): Use `<-denotational@component' instead of
+	`<-denotational' for A-J0-6771; add `ideographic-structure'; add
+	representative nodes.
+	(U-00020DCE): Apply new conventions for glyph granularity.
+	(U+20DCE-var-002): New character; use `<-denotational' for
+	U-00020DCE.
+	(U+55E3): Add `sound@ja/on/{kan|go}'; add some relations for other
+	characters.
+	(A-J0-6771): Unify A-IWDSU+82DF; add `ideographic-structure'.
+
 	* ShuoWen.el (SW-JIGUGE5-12333): Use "𩁪" instead of "⿰⿱廿&CDP-8670;隹"
 	as a target of `<-Small-Seal@shuowen'.
 	(SW-JIGUGE4-12033): Ditto.
