@@ -672,6 +672,7 @@
       ))
     (ideographic-radical . 33)	; ⼠
     (=ucs		. #x58F3)	; 壳
+    (=>iwds-1		.  0265)	; 壳
     ))
 (define-char
   '((<-denotational
@@ -772,8 +773,9 @@
     (=ucs@JP/hanazono	. nil)
     (=gb2312		. #x3F47)	; &G0-3F47; [31-39]
     (<-simplified@CN
-     ((=ucs		  . #x6BBB)	; 殻
-      (=gb12345		  . #x3F47)	; 殻 [31-39]
+     ((=ucs@unicode	  . #x6BBB)	; &AJ1-01450;
+      (=adobe-japan1-0	  . 01450)	; &AJ1-01450;
+      (=gb12345		  . #x3F47)	; &AJ1-01450; [31-39]
       ))
     (->subsumptive
      ((==ucs@unicode	  . #x58F3)	; &g2-UU+58F3;
