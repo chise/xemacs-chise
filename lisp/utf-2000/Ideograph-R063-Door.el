@@ -1801,6 +1801,41 @@
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=>iwds-1		  .  0007)	; &IWDS1-007;
+      )
+     ((=ucs		  . #x8089)	; 肉
+      ))
+    (=ucs		. #x22A4C)	; 𢩌
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x22A4C)	; 𢩌
+      ))
+    (ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=+>ucs@jis	  . #x6238)	; &o-J0-384D;
+      (=+>jis-x0208	  . #x384D)	; &o-J0-384D; [24-45]
+      )
+     ((=ucs		  . #x8089)	; 肉
+      ))
+    (=ucs@iso		. #x22A4C)	; &U-00022A4C;
+    (->subsumptive
+     ((==ucs@iso	  . #x22A4C)	; &g2-IU-00022A4C;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=ucs		. #x6248)	; 扈
