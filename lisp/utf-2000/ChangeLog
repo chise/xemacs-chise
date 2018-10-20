@@ -1,3 +1,24 @@
+2018-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R063-Door.el (U-00022A4C): New character.
+
+	* Ideograph-R060-Step.el (U-000224C7): Use `->denotational' and
+	`->subsumptive'.
+	(U-000224F4): Likewise.
+	(A-IWDSU+224F8): New abstract node.
+	(U-000224F8): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+224F8.
+	(M-10126): Unify MJ035840, KOSEKI-114500 and S-2333.
+	(U-0002250E): Likewise.
+	(S-2333): Unify MJ035840, KOSEKI-114500 and M-10126; use
+	U-000224F8 instead of U-0002250E as its mother.
+	(U+5FAD): Add `sound@ja/on'.
+	(JU+5FAD): Add some relations for other characters.
+
+	* Ideograph-R045-Sprout.el (GT-K05555): New character.
+
+	* Ideograph-R033-Scholar.el (U+58F3): Unify IWDS1-0265.
+
 2018-10-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U+53F0): Add some relations for other

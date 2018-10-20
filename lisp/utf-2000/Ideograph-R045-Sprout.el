@@ -1039,6 +1039,25 @@
     ))
 (define-char
   '((ideographic-radical . 45)	; ⼬
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x51FA)	; 出
+      )
+     ((=ucs		  . #x65B9)	; 方
+      ))
+    (=gt-k		. 05555)	; &GT-K05555;
+    (=gt-pj-k1		. #x5057)	; &GT-K05555; [48-55]
+    (->subsumptive
+     ((==gt-k		  . 05555)	; &g2-GT-K05555;
+      (==gt-pj-k1	  . #x5057)	; &g2-GT-K05555; [48-55]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 45)	; ⼬
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (=ucs		. #x21D15)	; 𡴕
