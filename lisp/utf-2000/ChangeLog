@@ -2,6 +2,52 @@
 
 	* Ideograph-R018-Knife.el (U-0002070A): New character.
 
+	* ShuoWen.el (SW-JIGUGE5-11015): Add "𡐑" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-10715): Ditto.
+	(SW-JIGUGE5-13317): Add "𦭀" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-13017): Ditto.
+	(SW-JIGUGE5-13413): Add "𩪯" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-13113): Ditto.
+	(SW-JIGUGE5-13913): Add "脆" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-13613): Ditto.
+	(SW-JIGUGE5-13919): Add "胏" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-13619): Ditto.
+	(SW-JIGUGE5-13932): Add "𣍟" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-13632): Ditto.
+	(SW-JIGUGE5-14010): Add "刂" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-13710): Ditto.
+	(SW-JIGUGE5-14120): Add "𠝒" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-13820): Ditto.
+	(SW-JIGUGE5-14130): Add "剥" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-13830): Ditto.
+	(SW-JIGUGE5-14216): Add "罸" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-13916): Ditto.
+	(SW-JIGUGE5-14304): Add "刄" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-14004): Ditto.
+	(SW-JIGUGE5-14307): Add "釰" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-14007): Ditto.
+	(SW-JIGUGE5-14504): Add "触" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-14204): Ditto.
+	(SW-JIGUGE5-14516): Add "觧" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-14216): Ditto.
+	(SW-JIGUGE5-14802): Add "䇳" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-14502): Ditto.
+
 	* Ideograph-R063-Door.el (U-00022A4C): New character.
 
 	* Ideograph-R060-Step.el (U-000224C7): Use `->denotational' and
