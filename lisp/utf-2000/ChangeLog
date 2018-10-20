@@ -1,5 +1,7 @@
 2018-10-20  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R018-Knife.el (U-0002070A): New character.
+
 	* Ideograph-R063-Door.el (U-00022A4C): New character.
 
 	* Ideograph-R060-Step.el (U-000224C7): Use `->denotational' and
