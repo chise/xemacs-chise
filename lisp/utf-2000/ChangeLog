@@ -1,5 +1,28 @@
 2018-10-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R096-Jade.el (U+738A): Add `sound@ja/on/{kan|go}'; add
+	some relations for other characters.
+	(U-000248FD): New character.
+	(U-00024904): Add `ideographic-structure'; add representative
+	nodes.
+	(U+73DB): Apply new conventions for glyph granularity.
+	(U-00024954): Unify M-20955; add `ideographic-structure'; add
+	`sound@ja/on/{kan|go}'; add some relations for other characters;
+	add representative nodes.
+	(A-IWDSU+2493A): New abstract node.
+	(U-0002493A): Unify M-20966; add `<-denotational' for
+	A-IWDSU+2493A; add `ideographic-structure'; add `sound@ja/on'; add
+	`<-formed' and `<-same' for U+73B4; add representative nodes.
+	(U-0002495F): New character; use `<-denotational' for
+	A-IWDSU+2493A.
+	(U-000249DA): New character.
+	(U+749B): Add `ideographic-structure'; add `sound@ja/on/{kan|go}';
+	add some relations for other characters; add representative nodes.
+	(U-00024A64): Add `ideographic-structure'; add `sound@ja/on'.
+	(IU+24A64): Add `ideographic-structure'; unify MJ041079 and
+	KOSEKI-238370; add `<-same' for IU+24A8E.
+	(U-00024A5A): New character.
+
 	* ShuoWen.el (SW-JIGUGE5-14126): Add "刋" as a target of
 	`<-Small-Seal@shuowen'.
 	(SW-JIGUGE4-13826): Ditto.
