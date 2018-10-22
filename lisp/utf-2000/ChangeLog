@@ -1,5 +1,42 @@
 2018-10-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ShuoWen.el (SW-JIGUGE5-14817): Add "𥷦" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-14517): Ditto.
+	(SW-JIGUGE5-15216): Add "𠔝" and "𠔐" as targets of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-14916): Ditto.
+	(SW-JIGUGE5-15405): Add "𢀑" and "㠪" as targets of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-15105): Ditto.
+	(SW-JIGUGE5-15513): Add "曺" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-15213): Ditto.
+	(SW-JIGUGE5-15607): Add "竒" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-15307): Ditto.
+	(SW-JIGUGE5-15801): Add "甞" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-15501): Ditto.
+	(SW-JIGUGE5-16000): Add "𣅣" as a target of
+	`<-Small-Seal@shuowen'; use "𤽋" instead of "⿳白巛一" as a target
+	of `<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-15700): Ditto.
+	(SW-JIGUGE5-16318): Add "尽" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-16018): Ditto.
+	(SW-JIGUGE5-16321): Add "昷" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-16021): Ditto.
+	(SW-JIGUGE5-16702): Add "静" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-16402): Ditto.
+	(SW-JIGUGE5-16709): Add "剏" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-16409): Ditto.
+
+2018-10-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R096-Jade.el (U+738A): Add `sound@ja/on/{kan|go}'; add
 	some relations for other characters.
 	(U-000248FD): New character.
