@@ -3887,6 +3887,23 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x4E3C)	; 丼
+      )
+     ((=ucs		  . #x5202)	; 刂
+      ))
+    (=ucs		. #x206DC)	; 𠛜
+    (->subsumptive
+     ((==ucs@iso	  . #x206DC)	; &g2-IU-000206DC;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
