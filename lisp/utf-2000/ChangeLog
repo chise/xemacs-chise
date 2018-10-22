@@ -35,6 +35,8 @@
 	`<-Small-Seal@shuowen'.
 	(SW-JIGUGE4-16409): Ditto.
 
+	* Ideograph-R018-Knife.el (U-000206DC): New character.
+
 2018-10-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R096-Jade.el (U+738A): Add `sound@ja/on/{kan|go}'; add
