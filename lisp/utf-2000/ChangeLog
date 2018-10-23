@@ -76,6 +76,19 @@
 	`<-Small-Seal@shuowen'.
 	(SW-JIGUGE4-18706): Ditto.
 
+2018-10-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R093-Cow.el (U-00024631): New character.
+	(CU+3E4C): Unify MJ002395 and KOSEKI-226450; add
+	`->interchangeable' for U+7522.
+	(g2-CU+3E4C): Unify g2-M-20139.
+	(A-IWDSU+246F4): New abstract node.
+	(U-000246D2): New character; use `<-denotational' for
+	A-IWDSU+246F4.
+	(U-000246F4): Use `->subsumptive'; add `<-denotational' for
+	A-IWDSU+246F4.
+	(U+3E57): Apply new conventions for glyph granularity.
+
 2018-10-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen.el (SW-JIGUGE5-14817): Add "𥷦" as a target of
