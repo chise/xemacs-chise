@@ -22636,6 +22636,26 @@
     ))
 (define-char
   '((<-denotational
+     ((=ucs		  . #x2BC93)	; 𫲓
+      ))
+    (ideographic-radical . 38)	; ⼥
+    (ideographic-strokes . 15)
+    (total-strokes	 . 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (=ucs		  . #x2FF5)	; ⿵
+      )
+     ((=ucs-itaiji-003	  . #x26760)	; &U-i003+26760;
+      )
+     ((=ucs		  . #x5973)	; 女
+      ))
+    (=ucs-var-002	. #x2BC93)	; &U-v002+2BC93;
+    (->subsumptive
+     ((==ucs-var-002	  . #x2BC93)	; &g2-U-v002+2BC93;
+      ))
+    ))
+(define-char
+  '((<-denotational
      ((=>ucs@cognate	  . #x5B34)	; &A-cgnU+5B34;
       ))
     (ideographic-radical . 38)	; ⼥
