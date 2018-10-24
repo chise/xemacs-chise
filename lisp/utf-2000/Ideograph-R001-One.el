@@ -2142,7 +2142,10 @@
       ))
     ))
 (define-char
-  '((ideographic-radical@ucs . 12)	; ⼋
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x516E)	; &A-IWDSU+516E;
+      ))
+    (ideographic-radical@ucs . 12)	; ⼋
     (ideographic-strokes@ucs . 2)
     (ideographic-radical@ucs*sources
      cns11643 ucs)
@@ -2153,6 +2156,14 @@
     (total-strokes@gt	    . 5)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 241 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E37)	; 丷
+      )
+     ((=ucs		  . #x4E02)	; 丂
+      ))
     (=ucs		. #x20503)	; 𠔃
     (=cns11643-6	. #x2141)	; &I-C6-2141; [01-33]
     (=gt		. 00043)	; &I-GT-00043;

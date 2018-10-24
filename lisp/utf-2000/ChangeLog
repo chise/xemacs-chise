@@ -37,6 +37,12 @@
 
 2018-10-23  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R010-Legs.el (g2-JU+514C): Abolish glyph node
+	G-JU+514C; use U+514C instead of G-JU+514C as its mother.
+
+	* Ideograph-R001-One.el (U-00020503): Add `<-denotational' for
+	A-IWDSU+516E; add `ideographic-structure'.
+
 	* ShuoWen.el (SW-JIGUGE5-08115): Add "𠔉" as a target of
 	`<-Small-Seal@shuowen'.
 	(SW-JIGUGE4-08015): Ditto.

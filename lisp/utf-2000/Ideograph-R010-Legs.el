@@ -1469,77 +1469,55 @@
     (=shinjigen@1ed	.  0462)	; 兌
     (=shinjigen@rev	.  0465)	; 兌
     (->subsumptive
-     ((ideographic-structure
+     ((=decomposition@cid
+       ((=ucs		    . #x514C)	; 兌
+	)
+       ((=ucs		    . #xE0100)	; 󠄀
+	))
+      (=decomposition@hanyo-denshi
+       ((=ucs		    . #x514C)	; 兌
+	)
+       ((=ucs		    . #xE0101)	; 󠄁
+	))
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=>>ucs@jis	    . #x516B)	; &G-MJ007273;
-	(=>>ucs@ks	    . #x516B)	; &G-MJ007273;
-	(=>>adobe-japan1-0  . 03392)	; &G-MJ007273;
+       ((==ucs@jis	    . #x516B)	; &g2-MJ007273;
+	(==ucs@ks	    . #x516B)	; &g2-MJ007273;
+	(==mj		    . 007273)	; &g2-MJ007273;
 	)
-       ((=ucs		    . #x5144)	; 兄
+       ((==ucs@unicode	    . #x5144)	; &g2-AJ1-01809;
+	(==adobe-japan1-0   . 01809)	; &g2-AJ1-01809;
 	))
-      (=>>ucs@jis	  . #x514C)	; &G-MJ007227;
-      (=>>ucs@ks	  . #x514C)	; &G-MJ007227;
-      (=>>mj		  . 007227)	; &G-MJ007227;
-      (=>>adobe-japan1-0  . 04211)	; &G-MJ007227;
-      (=>>jis-x0208	  . #x513C)	; &G-MJ007227; [49-28]
-      (=>>jis-x0213-1	  . #x513C)	; &G-MJ007227; [49-28]
-      (=>>hanyo-denshi/ja . #x513C)	; &G-MJ007227; [49-28]
-      (=>>gt		  . 01760)	; &G-MJ007227;
-      (=>>gt-k		  . 02681)	; &G-MJ007227;
-      (=>>daikanwa	  . 01356)	; &G-MJ007227;
+      (==ucs@jis	  . #x514C)	; &g2-MJ007227;
+      (==ucs@ks		  . #x514C)	; &g2-MJ007227;
+      (==mj		  . 007227)	; &g2-MJ007227;
+      (==adobe-japan1-0	  . 04211)	; &g2-MJ007227;
+      (==ks-x1001	  . #x773A)	; &g2-MJ007227; [87-26]
+      (==jis-x0208	  . #x513C)	; &g2-MJ007227; [49-28]
+      (==jis-x0213-1	  . #x513C)	; &g2-MJ007227; [49-28]
+      (==hanyo-denshi/ja  . #x513C)	; &g2-MJ007227; [49-28]
+      (==gt		  . 01760)	; &g2-MJ007227;
+      (==gt-k		  . 02681)	; &g2-MJ007227;
+      (==daikanwa	  . 01356)	; &g2-MJ007227;
+      (==shinjigen@1ed	  .  0462)	; &g2-MJ007227;
+      (==shinjigen@rev	  .  0465)	; &g2-MJ007227;
       (->subsumptive
-       ((=decomposition@cid
-	 ((=ucs		      . #x514C)	; 兌
-	  )
-	 ((=ucs		      . #xE0100)	; 󠄀
-	  ))
-	(=decomposition@hanyo-denshi
-	 ((=ucs		      . #x514C)	; 兌
-	  )
-	 ((=ucs		      . #xE0101)	; 󠄁
-	  ))
-	(ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((==ucs@jis	      . #x516B)	; &g2-MJ007273;
-	  (==ucs@ks	      . #x516B)	; &g2-MJ007273;
-	  (==mj		      . 007273)	; &g2-MJ007273;
-	  )
-	 ((==ucs@unicode      . #x5144)	; &g2-AJ1-01809;
-	  (==adobe-japan1-0   . 01809)	; &g2-AJ1-01809;
-	  ))
-	(==ucs@jis	    . #x514C)	; &g2-MJ007227;
-	(==ucs@ks	    . #x514C)	; &g2-MJ007227;
-	(==mj		    . 007227)	; &g2-MJ007227;
-	(==adobe-japan1-0   . 04211)	; &g2-MJ007227;
-	(==ks-x1001	    . #x773A)	; &g2-MJ007227; [87-26]
-	(==jis-x0208	    . #x513C)	; &g2-MJ007227; [49-28]
-	(==jis-x0213-1	    . #x513C)	; &g2-MJ007227; [49-28]
-	(==hanyo-denshi/ja  . #x513C)	; &g2-MJ007227; [49-28]
-	(==gt		    . 01760)	; &g2-MJ007227;
-	(==gt-k		    . 02681)	; &g2-MJ007227;
-	(==daikanwa	    . 01356)	; &g2-MJ007227;
-	(==shinjigen@1ed    .  0462)	; &g2-MJ007227;
-	(==shinjigen@rev    .  0465)	; &g2-MJ007227;
-	(->subsumptive
-	 ((===daikanwa	      . 01356)	; &R-M-01356;
-	  )
-	 ((===jis-x0208	      . #x513C)	; &R-J0-513C; [49-28]
-	  (===jis-x0213-1     . #x513C)	; &R-J0-513C; [49-28]
-	  )
-	 ((===adobe-japan1-0  . 04211)	; &R-AJ1-04211;
-	  )
-	 ((===mj	      . 007227)	; &R-MJ007227;
-	  )
-	 ((===ucs@ks	      . #x514C)	; &R-K0-773A;
-	  (===ks-x1001	      . #x773A)	; &R-K0-773A; [87-26]
-	  )
-	 ((===gt	      . 01760)	; &R-GT-01760;
-	  (===gt-k	      . 02681)	; &R-GT-01760;
-	  ))
+       ((===daikanwa	    . 01356)	; &R-M-01356;
+	)
+       ((===jis-x0208	    . #x513C)	; &R-J0-513C; [49-28]
+	(===jis-x0213-1	    . #x513C)	; &R-J0-513C; [49-28]
+	)
+       ((===adobe-japan1-0  . 04211)	; &R-AJ1-04211;
+	)
+       ((===mj		    . 007227)	; &R-MJ007227;
+	)
+       ((===ucs@ks	    . #x514C)	; &R-K0-773A;
+	(===ks-x1001	    . #x773A)	; &R-K0-773A; [87-26]
+	)
+       ((===gt		    . 01760)	; &R-GT-01760;
+	(===gt-k	    . 02681)	; &R-GT-01760;
 	))
       )
      ((ideographic-structure
