@@ -1,5 +1,67 @@
 2018-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ShuoWen.el (SW-JIGUGE5-19616): Add "検" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-19316): Ditto.
+	(SW-JIGUGE5-19712): Add "横" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-19412): Ditto.
+	(SW-JIGUGE5-19728): Add "梼" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-19428): Ditto.
+	(SW-JIGUGE5-19818): Add "槞" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-19518): Ditto.
+	(SW-JIGUGE5-19900): Add "栀" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-19600): Ditto.
+	(SW-JIGUGE5-19914): Add "無" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-19614): Ditto.
+	(SW-JIGUGE5-20101): Add "𠭞" and "𦱡" as targets of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-19801): Ditto.
+	(SW-JIGUGE5-20207): Add "売" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-19907): Ditto.
+	(SW-JIGUGE5-20304): Add "𡴟" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-20004): Ditto.
+	(SW-JIGUGE5-20305): Add `<-Small-Seal@shuowen/mpsuzuki' for "𡴟".
+	(SW-JIGUGE4-20005): Ditto.
+	(SW-JIGUGE5-20308): Add "産" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-20008): Ditto.
+	(SW-JIGUGE5-20502): Add "巣" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-20202): Ditto.
+	(SW-JIGUGE5-20503): Add "𦥘" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-20203): Ditto.
+	(SW-JIGUGE5-20606): Add "団" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-20306): Ditto.
+	(SW-JIGUGE5-20609): Add "円" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-20309): Ditto.
+	(SW-JIGUGE5-20612): Add "図" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-20312): Ditto.
+	(SW-JIGUGE5-20614): Add "国" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-20314): Ditto.
+	(SW-JIGUGE5-20617): Add "圏" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-20317): Ditto.
+	(SW-JIGUGE5-20705): Add "囲" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-20405): Ditto.
+	(SW-JIGUGE5-20812): Add "賛" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-20512): Ditto.
+
+2018-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R012-Eight.el (U+516B): Unify C1-442C [fix editing
 	mistake].
 	(g2-CU+516B): Use U+516B instead of G-JU+516B as its mother.
