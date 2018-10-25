@@ -1,5 +1,13 @@
 2018-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R012-Eight.el (U+516B): Unify C1-442C [fix editing
+	mistake].
+	(g2-CU+516B): Use U+516B instead of G-JU+516B as its mother.
+	(g2-CU+516C): Use U+516C instead of G-KU+516C as its mother.
+	(A-IWDSU+516E): New abstract node.
+	(U+516E): Add `<-denotational' for A-IWDSU+516E.
+	(U-00020503): Likewise; add `ideographic-structure'.
+
 	* Ideograph-R038-Woman.el (U+2BC93-var-002): New character; use
 	`<-denotational' for U-0002BC93.
 
