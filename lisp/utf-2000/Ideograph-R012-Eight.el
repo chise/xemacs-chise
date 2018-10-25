@@ -26,6 +26,7 @@
     (=jis-x0208		. #x482C)	; &I-J90-482C; [40-12]
     (=gb2312		. #x304B)	; &I-G0-304B; [16-43]
     (=ks-x1001		. #x7822)	; &I-K0-7822; [88-02]
+    (=cns11643-1	. #x442C)	; &I-C1-442C; [36-12]
     (=jis-x0213-1	. #x482C)	; &I-JX1-482C; [40-12]
     (=big5		. #xA44B)	; &I-B-A44B;
     (=hanyo-denshi/ja	. #x482C)	; &I-HD-JA-482C; [40-12]
@@ -48,7 +49,7 @@
       (=>>gt-k		  . 00056)	; &G-MJ007273;
       (=>>daikanwa	  . 01450)	; &G-MJ007273;
       (=shinjigen	  .  0490)	; &G-MJ007273;
-      (=jef-china3	  . #x43E4)	; &I-JC3-43E4;
+      (=jef-china3	  . #x43E4)	; &G-MJ007273;
       (->subsumptive
        ((=decomposition@cid
 	 ((=ucs		      . #x516B)	; 八
@@ -91,21 +92,21 @@
 	  )
 	 ((===jef-china3      . #x43E4)	; &R-JC3-43E4;
 	  ))
+	))
+      )
+     ((==ucs@cns	  . #x516B)	; &g2-CU+516B;
+      (==cns11643-1	  . #x442C)	; &g2-CU+516B; [36-12]
+      (==shinjigen	  .  0489)	; &g2-CU+516B;
+      (->subsumptive
+       ((===cns11643-1	    . #x442C)	; &R-C1-442C; [36-12]
 	)
-       ((==ucs@cns	    . #x516B)	; &g2-CU+516B;
-	(==cns11643-1	    . #x442C)	; &g2-CU+516B; [36-12]
-	(==shinjigen	    .  0489)	; &g2-CU+516B;
-	(->subsumptive
-	 ((===cns11643-1      . #x442C)	; &R-C1-442C; [36-12]
-	  )
-	 ((===hng-khi	      . 02670)	; &HNG010-02670;
-	  )
-	 ((===hng-khm	      . 02100)	; &HNG011-02100;
-	  )
-	 ((===hng-kar	      . 00340)	; &HNG018-00340;
-	  )
-	 ((===hng-wad	      . 00300)	; &HNG054-00300;
-	  ))
+       ((===hng-khi	    . 02670)	; &HNG010-02670;
+	)
+       ((===hng-khm	    . 02100)	; &HNG011-02100;
+	)
+       ((===hng-kar	    . 00340)	; &HNG018-00340;
+	)
+       ((===hng-wad	    . 00300)	; &HNG054-00300;
 	))
       )
      ((=>>ucs@unicode	  . #x516B)	; &MJ007274;
@@ -303,20 +304,20 @@
 	  )
 	 ((===mj	      . 007276)	; &R-MJ007276;
 	  ))
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((==ucs@cns	      . #x516B)	; &g2-CU+516B;
-	  (==cns11643-1	      . #x442C)	; &g2-CU+516B; [36-12]
-	  )
-	 ((==ucs@unicode      . #x53B6)	; &g2-AJ1-04328;
-	  (==adobe-japan1-0   . 04328)	; &g2-AJ1-04328;
-	  ))
-	(==ucs@cns	    . #x516C)	; &g2-CU+516C;
-	(==cns11643-1	    . #x447C)	; &g2-CU+516C; [36-92]
 	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((==ucs@cns	    . #x516B)	; &g2-CU+516B;
+	(==cns11643-1	    . #x442C)	; &g2-CU+516B; [36-12]
+	)
+       ((==ucs@unicode	    . #x53B6)	; &g2-AJ1-04328;
+	(==adobe-japan1-0   . 04328)	; &g2-AJ1-04328;
+	))
+      (==ucs@cns	  . #x516C)	; &g2-CU+516C;
+      (==cns11643-1	  . #x447C)	; &g2-CU+516C; [36-92]
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -580,6 +581,24 @@
   '((ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@component	  . #x4E37)	; &A-compU+4E37;
+      (=>iwds-1		  .  0022)	; &A-compU+4E37;
+      )
+     ((=ucs		  . #x4E02)	; 丂
+      ))
+    (=>ucs@iwds-1	. #x516E)	; &A-IWDSU+516E;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x516E)	; &A-IWDSU+516E;
+      ))
+    (ideographic-radical . 12)	; ⼋
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
     (hanyu-dazidian	1 241 6)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -781,7 +800,10 @@
     (=gb12345		. #x7D67)	; 兯 [93-71]
     ))
 (define-char
-  '((ideographic-radical@ucs . 12)	; ⼋
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x516E)	; &A-IWDSU+516E;
+      ))
+    (ideographic-radical@ucs . 12)	; ⼋
     (ideographic-strokes@ucs . 2)
     (ideographic-radical@ucs*sources
      cns11643 ucs)
@@ -792,6 +814,14 @@
     (total-strokes@gt	    . 5)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 241 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E37)	; 丷
+      )
+     ((=ucs		  . #x4E02)	; 丂
+      ))
     (=ucs		. #x20503)	; 𠔃
     (=cns11643-6	. #x2141)	; &I-C6-2141; [01-33]
     (=gt		. 00043)	; &I-GT-00043;
