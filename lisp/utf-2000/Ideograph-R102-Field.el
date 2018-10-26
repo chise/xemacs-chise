@@ -5312,6 +5312,23 @@
     ))
 (define-char
   '((ideographic-radical . 102)	; ⽥
+    (ideographic-strokes . 7)
+    (total-strokes	 . 12)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x8D52)	; &CDP-8D52;
+      )
+     ((=ucs		  . #x7540)	; 畀
+      ))
+    (=ucs		. #x24C7F)	; 𤱿
+    (->subsumptive
+     ((==ucs@iso	  . #x24C7F)	; &g2-IU-00024C7F;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
     (=ucs		. #x24C91)	; 𤲑
