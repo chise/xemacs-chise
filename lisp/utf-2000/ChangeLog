@@ -24,6 +24,8 @@
 
 2018-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R102-Field.el (U-00024C7F): New character.
+
 	* Ideograph-R086-Fire.el (U-000243FA): Use `->denotational' and
 	`->subsumptive'.
 
