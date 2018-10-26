@@ -24,6 +24,9 @@
 
 2018-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R086-Fire.el (U-000243FA): Use `->denotational' and
+	`->subsumptive'.
+
 	* Ideograph-R085-Water.el (U+3CC2): Use `->subsumptive'.
 	(U+6C87): Add `ideographic-structure'; add some relations for
 	other characters; add representative nodes.
