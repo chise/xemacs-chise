@@ -24,6 +24,14 @@
 
 2018-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R066-Rap.el (U-00022F4E): New character.
+	(A-cgnU+22F8D): New abstract node.
+	(U-00022F8D): Use `->subsumptive'; add `<-denotational' for
+	A-cgnU+22F8D.
+	(U-00022F95): New character; use `<-denotational' for
+	A-cgnU+22F8D.
+	(U-00023008): New character.
+
 	* Ideograph-R020-Wrap.el (U+5308): Add `<-interchangeable' for
 	U+8A7E.
 	(A-cgnU+208EC): New abstract node.
