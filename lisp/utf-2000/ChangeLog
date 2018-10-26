@@ -24,6 +24,14 @@
 
 2018-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R020-Wrap.el (U+5308): Add `<-interchangeable' for
+	U+8A7E.
+	(A-cgnU+208EC): New abstract node.
+	(U-000208E4): Use `->denotational' and `->subsumptive'; add
+	`<-denotational' for A-cgnU+208EC.
+	(U-000208EC): New character; use `<-denotational' for
+	A-cgnU+208EC.
+
 	* ShuoWen.el (SW-JIGUGE5-19616): Add "検" as a target of
 	`<-Small-Seal@shuowen'.
 	(SW-JIGUGE4-19316): Ditto.
