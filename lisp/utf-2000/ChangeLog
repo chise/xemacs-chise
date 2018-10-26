@@ -24,6 +24,28 @@
 
 2018-10-24  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R085-Water.el (U+3CC2): Use `->subsumptive'.
+	(U+6C87): Add `ideographic-structure'; add some relations for
+	other characters; add representative nodes.
+	(U+6CBF): Add `ideographic-structure'; add `sound@ja/on'.
+	(JU+6CBF): Add `ideographic-structure'; add some relations for
+	other characters.
+	(U-0002F8FC): Add `ideographic-structure'; unify M-17261; add
+	`<-vulgar' for JU+6CBF.
+	(U+6D77): Add `ideographic-structure'.
+	(U-0002F901): Use UU+6BCE instead of U+6BCE as a component.
+	(U+6E37): Apply new conventions for glyph granularity.
+	(U+6F2D): Add `sound@ja/on/{kan|go}'.
+	(M-18218): Unify MJ015858, HD-JT-B4BA and KOSEKI-205490.
+	(U-00023FD7): Apply new conventions for glyph granularity.
+	(A-cgnU+6FDF): Changed from U+6FDF.
+	(AJ1-05526): Unify U+6FDF instead of A-IWDSU+6FDF and UU+6FDF; use
+	A-cgnU+6FDF instead of U+6FDF as its mother.
+	(HNG-KAR0209-0): Use A-cgnU+6FDF instead of U+6FDF as its mother.
+	(HNG-KHM0080-0): Likewise.
+	(U-0002411E): New character.
+	(U-0002412B): Apply new conventions for glyph granularity.
+
 	* Ideograph-R079-Weapon.el (A-IWDSU+6BBC): New abstract node; use
 	`<-denotational' for BUCS+6BBC.
 	(U+6BBC): Apply new conventions for glyph granularity; use
