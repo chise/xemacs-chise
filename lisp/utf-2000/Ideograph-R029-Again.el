@@ -2744,6 +2744,41 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=cbeta		  . 04552)	; &CB04552;
+      )
+     ((=>ucs@component	  . #x53CB)	; &A-compU+53CB;
+      (=>iwds-1		  .  0256)	; &A-compU+53CB;
+      ))
+    (=ucs		. #x2D1AB)	; 𭆫
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2D1AB)	; 𭆫
+      ))
+    (ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=cbeta		  . 04552)	; &CB04552;
+      )
+     ((=ucs		  . #x53CB)	; 友
+      ))
+    (=ucs@JP/hanazono	. #x2D1AB)	; &hanaJU+2D1AB;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2D1AB)	; &g2-hanaJU+2D1AB;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 29)	; ⼜
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; ⿳
       )

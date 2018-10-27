@@ -1,3 +1,16 @@
+2018-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R106-White.el (U-00024F4B): New character.
+	(U-00024FB9): New character.
+
+2018-10-26  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (U-0002D1AB): New character.
+
+	* Ideograph-R027-Cliff.el (U-00020A5C): Apply new conventions for
+	glyph granularity.
+	(U-00020AAD): Use `->denotational' and `->subsumptive'.
+
 2018-10-25  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen.el (SW-JIGUGE5-15709): Add "粤" as a target of
