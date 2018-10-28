@@ -1,5 +1,17 @@
 2018-10-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* ShuoWen.el (SW-JIGUGE5-20900): Add "貮" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-20600): Ditto.
+	(SW-JIGUGE5-20927): Add "𧷗" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-20627): Ditto.
+	(SW-JIGUGE5-21014): Add "隣" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-20714): Ditto.
+
+2018-10-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R022-Right-Open-Box.el (U+5321): Apply new conventions
 	for glyph granularity; add `<-denotational@component' for
 	A-IWDSU+5321.
