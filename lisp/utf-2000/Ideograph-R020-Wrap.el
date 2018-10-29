@@ -2148,8 +2148,9 @@
     (<-interchangeable*sources
      shuowen-tongxun-dingsheng daikanwa)
     (->formed
-     ((=ucs@iso		  . #x2279B)	; &M-11027;
-      (=daikanwa	  . 11027)	; &M-11027;
+     ((=ucs@iso		  . #x2279B)	; &MJ036253;
+      (=mj		  . 036253)	; &MJ036253;
+      (=daikanwa	  . 11027)	; &I-M-11027;
       ))
     (->formed$_1*sources
      shuowen jiyun daikanwa)
