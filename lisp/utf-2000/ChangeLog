@@ -1,3 +1,115 @@
+2018-10-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen.el (SW-JIGUGE5-18406): Add "柿" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-18106): Ditto.
+	(SW-JIGUGE5-18924): Add "朶" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-18624): Ditto.
+	(SW-JIGUGE5-20822): Add "𧹉" as a target of
+	`<-Small-Seal@shuowen'; use "𧹄" instead of "⿰章⿳⿵𠆢匕一貝" as
+	a target of `<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-20522): Ditto.
+	(SW-JIGUGE5-21524): Add "耶" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-21224): Ditto.
+	(SW-JIGUGE5-21623): Add "𨜨" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-21323): Ditto.
+	(SW-JIGUGE5-21704): Add "郷" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-21404): Ditto.
+	(SW-JIGUGE5-21705): Add "𨜕" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-21405): Ditto.
+	(SW-JIGUGE5-22405): Add "㫚" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-21905): Ditto.
+	(SW-JIGUGE5-22413): Add "昿" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-21913): Ditto.
+	(SW-JIGUGE5-22415): Add "晋" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-21915): Ditto.
+	(SW-JIGUGE5-22426): Add "𣋌" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-21926): Ditto.
+	(SW-JIGUGE5-22602): Add "𣋳" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-22102): Ditto.
+	(SW-JIGUGE5-22607): Add "𦝙" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-22107): Ditto.
+	(SW-JIGUGE5-22615): Add "暁" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-22115): Ditto.
+	(SW-JIGUGE5-22703): Add "暦" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-22203): Ditto.
+	(SW-JIGUGE5-22704): Add "昻" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-22204): Ditto.
+	(SW-JIGUGE5-22821): Add "旙" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-22321): Ditto.
+	(SW-JIGUGE5-22904): Add "𤯢" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-22404): Ditto.
+	(SW-JIGUGE5-22907): Add "参" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-22407): Ditto.
+	(SW-JIGUGE5-23002): Add "覇" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-22502): Ditto.
+	(SW-JIGUGE5-23102): Add "冏" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-22602): Ditto.
+	(SW-JIGUGE5-23103): Add "𥁰" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-22603): Ditto.
+	(SW-JIGUGE5-23105): Add "盟" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-22605): Ditto.
+	(SW-JIGUGE5-23201): Add "夛" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-22701): Ditto.
+	(SW-JIGUGE5-23210): Add "凾" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-22710): Ditto.
+	(SW-JIGUGE5-23302): Add "𣎺" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-22802): Ditto.
+	(SW-JIGUGE5-23310): Add "斉" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-22810): Ditto.
+	(SW-JIGUGE5-23503): Add `<-Small-Seal@shuowen/mpsuzuki' for
+	U+9F0F.
+	(SW-JIGUGE4-23003): Ditto.
+	(SW-JIGUGE5-23507): Add "录" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-23007): Ditto.
+	(SW-JIGUGE5-23621): Add "稲" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-23121): Ditto.
+	(SW-JIGUGE5-23702): Add "頴" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-23202): Ditto.
+	(SW-JIGUGE5-23809): Add "穣" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-23309): Ditto.
+	(SW-JIGUGE5-23823): Add "𥤛" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-23323): Ditto.
+	(SW-JIGUGE5-24002): Add "粘" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-23502): Ditto.
+	(SW-JIGUGE5-24114): Add "麴" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-23614): Ditto.
+	(SW-JIGUGE5-24127): Add "気" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-23627): Ditto.
+
 2018-10-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen.el (SW-JIGUGE5-20900): Add "貮" as a target of
