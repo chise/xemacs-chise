@@ -40,6 +40,9 @@
 	`<-Small-Seal@shuowen'.
 	(SW-JIGUGE4-24306): Ditto.
 
+	* Ideograph-R094-Dog.el (U-0002489D): Use `->denotational' and
+	`->subsumptive'.
+
 2018-10-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen.el (SW-JIGUGE5-18406): Add "柿" as a target of
