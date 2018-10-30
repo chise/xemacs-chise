@@ -10526,9 +10526,7 @@
      ((=ucs		  . #x72AD)	; 犭
       )
      ((=ucs@cns		  . #x845B)	; &C1-6636;
-      (=ucs@ks		  . #x845B)	; &C1-6636;
-      (=ks-x1001	  . #x4A67)	; &C1-6636; [42-71]
-      (=cns11643-1	  . #x6636)	; &I-C1-6636; [70-22]
+      (=cns11643-1	  . #x6636)	; &C1-6636; [70-22]
       (=daikanwa	  . 31420)	; &I-M-31420;
       ))
     (=ucs@cns		. #x7366)	; &HD-KS-232600;
@@ -11017,19 +11015,68 @@
     (=cns11643-7	. #x2535)	; &C7-2535; [05-21]
     ))
 (define-char
-  '((=>ucs		. #x2489D)	; 𤢝
-    (ideographic-radical . 94)	; ⽝
-    (ideographic-strokes . 13)
-    (total-strokes	 . 17)
-    (=daikanwa		. 20745)	; &M-20745;
+  '((ideographic-radical . 94)	; ⽝
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x22F95)	; 𢾕
+      )
+     ((=>ucs@component	  . #x72AC)	; &A-compU+72AC;
+      (=>iwds-1		  .  0239)	; &A-compU+72AC;
+      ))
+    (sound@ja/on	"gAu")
+    (=ucs		. #x2489D)	; 𤢝
     ))
 (define-char
-  '((morohashi-daikanwa	20745 0 0)
+  '((<-denotational
+     ((=ucs		  . #x2489D)	; 𤢝
+      ))
     (ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
-    (=ucs		. #x2489D)	; 𤢝
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs@iso		  . #x22F95)	; &CB08941;
+      (=cbeta		  . 08941)	; &CB08941;
+      )
+     ((=ucs		  . #x72AC)	; 犬
+      ))
+    (=ucs@iso		. #x2489D)	; &MJ040887;
+    (=mj		. 040887)	; &MJ040887;
     (=cns11643-7	. #x3931)	; &I-C7-3931; [25-17]
+    (=koseki		. 232820)	; &MJ040887;
+    (=daikanwa		. 20745)	; &I-M-20745;
+    (<-formed
+     ((=ucs@jis		  . #x7352)	; &AJ1-18074;
+      (=adobe-japan1-5	  . 18074)	; &AJ1-18074;
+      ))
+    (<-formed*sources
+     koseki mj)
+    (<-same
+     ((=ucs@jis		  . #x7352)	; &AJ1-18074;
+      (=adobe-japan1-5	  . 18074)	; &AJ1-18074;
+      (=daikanwa	  . 20646)	; &I-M-20646;
+      ))
+    (<-same*sources
+     pianhai-leibian daikanwa)
+    (->subsumptive
+     ((==mj		  . 040887)	; &g2-MJ040887;
+      (==koseki		  . 232820)	; &g2-MJ040887;
+      (==daikanwa	  . 20745)	; &g2-MJ040887;
+      (->subsumptive
+       ((===daikanwa	    . 20745)	; &R-M-20745;
+	)
+       ((===mj		    . 040887)	; &R-MJ040887;
+	))
+      )
+     ((==ucs@cns	  . #x2489D)	; &g2-CU+2489D;
+      (==cns11643-7	  . #x3931)	; &g2-CU+2489D; [25-17]
+      )
+     ((==ucs@iso	  . #x2489D)	; &g2-IU-0002489D;
+      ))
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
