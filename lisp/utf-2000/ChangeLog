@@ -1,5 +1,15 @@
 2018-10-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R066-Rap.el (A-cgnU+3A85): New abstract node.
+	(U+3A85): Add `<-denotational' for A-cgnU+3A85; add
+	`ideographic-structure'.
+	(A-U+3A85-itaiji-001): New abstract node; use `<-denotational' for
+	A-cgnU+3A85.
+	(U+3A85-itaiji-001): New character; use `<-denotational' for
+	A-U+3A85-itaiji-001.
+
+2018-10-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* ShuoWen.el (SW-JIGUGE5-21705): Add
 	`<-Small-Seal@shuowen/mpsuzuki' for "衖".
 	(SW-JIGUGE4-21405): Ditto.
