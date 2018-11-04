@@ -1,3 +1,15 @@
+2018-11-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U+56C3): Apply new conventions for
+	glyph granularity.
+	(U-0002117F): Use `->denotational' and `->subsumptive'.
+
+2018-11-03  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R064-Hand.el (U+646E): Apply new conventions for glyph
+	granularity.
+	(U-00022D97): Use `->denotational' and `->subsumptive'.
+
 2018-11-02  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen.el (SW-JIGUGE5-18924): Add
