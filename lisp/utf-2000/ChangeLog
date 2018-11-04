@@ -1,3 +1,15 @@
+2018-11-02  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen.el (SW-JIGUGE5-18924): Add
+	`<-Small-Seal@shuowen/mpsuzuki' for "杂".
+	(SW-JIGUGE4-18624): Ditto.
+	(SW-JIGUGE5-19223): Add "栅" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-18923): Ditto.
+	(SW-JIGUGE5-24904): Add "営" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-24404): Ditto.
+
 2018-10-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R066-Rap.el (A-cgnU+3A85): New abstract node.
