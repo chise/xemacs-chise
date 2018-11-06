@@ -1,3 +1,36 @@
+2018-11-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen.el (SW-JIGUGE5-24816): Add "𡫜" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-24316): Ditto.
+	(SW-JIGUGE5-25004): Add "𫁘" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-24504): Ditto.
+	(SW-JIGUGE5-25212): Add "𤶅" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-24712): Ditto.
+	(SW-JIGUGE5-25302): Add "癎" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-24802): Ditto.
+	(SW-JIGUGE5-25433): Add "痩" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-24933): Ditto.
+	(SW-JIGUGE5-25613): Add "冐" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-25113): Ditto.
+	(SW-JIGUGE5-25703): Add "両" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-25203): Ditto.
+	(SW-JIGUGE5-25705): Add "罒" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-25205): Ditto.
+	(SW-JIGUGE5-25707): Add "𦁒" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-25207): Ditto.
+	(SW-JIGUGE5-25708): Add "𠕃" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-25208): Ditto.
+
 2018-11-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R030-Mouth.el (U+56C3): Apply new conventions for
