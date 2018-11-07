@@ -1,3 +1,10 @@
+2018-11-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R024-Ten.el (A-GT-K01816): New abstract node; unify
+	A-U+5352-itaiji-002.
+	(GT-K01815): New character; use `<-denotational' for A-GT-K01816.
+	(GT-K01816): Likewise; unify U+5352-itaiji-002.
+
 2018-11-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen.el (SW-JIGUGE5-24816): Add "𡫜" as a target of
