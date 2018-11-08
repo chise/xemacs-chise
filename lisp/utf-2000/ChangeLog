@@ -1,3 +1,32 @@
+2018-11-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (A-compU+21D31): New abstract node;
+	use `<-denotational@component' for A-IWDSU+5C7A.
+	(U-00021D31): Add `<-denotational' for A-compU+21D31; add
+	`ideographic-structure'; add `sound@ja/on'; add `<-ancient' for
+	CU+6248; add `->mistakable' for U+5C7A; add representative nodes.
+	(A-compU+5C7A): New abstract node; use `<-denotational@component'
+	for A-IWDSU+5C7A.
+	(U+5C7A): Add `<-denotational' for A-compU+5C7A; add
+	`sound@ja/on'; add `->formed' for U+5CD0 and U+37AF.
+	(U-00021D46): Add `<-denotational' for A-compU+5C7A; add
+	`<-denotational@component' for A-compU+21D31; add
+	`ideographic-structure'; add representative nodes.
+	(A-IWDSU+37AF): New abstract node.
+	(U+37AF): Add `<-denotational' for A-IWDSU+37AF; add
+	`ideographic-structure'; add some relations for other characters;
+	add representative nodes.
+	(U-00021D52): New character; use `<-denotational' for
+	A-IWDSU+37AF.
+	(U+5C8A): Add `ideographic-structure'; add `sound@ja/on/{kan|go}';
+	add `<-same' and `<-formed' for M-26243.
+	(U+5CD0): Add `ideographic-structure'; add `sound@ja/on'; add
+	`<-same' and `<-formed' for U+5C7A.
+	(A-IWDSU+5C7A): New abstract node.
+
+	* Ideograph-R045-Sprout.el (U-00021D0A): New character; use
+	`<-denotational' for A-IWDSU+20553.
+
 2018-11-06  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R024-Ten.el (A-GT-K01816): New abstract node; unify
