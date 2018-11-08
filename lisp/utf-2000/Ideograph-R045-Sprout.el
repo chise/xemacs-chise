@@ -782,6 +782,26 @@
     (=ucs		. #x21D08)	; 𡴈
     ))
 (define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x20553)	; &A-IWDSU+20553;
+      ))
+    (ideographic-radical . 45)	; ⼬
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs-var-001	  . #x37A2)	; &U-v001+37A2;
+      )
+     ((=ucs		  . #x2053C)	; 𠔼
+      ))
+    (=ucs		. #x21D0A)	; 𡴊
+    (->subsumptive
+     ((==ucs@iso	  . #x21D0A)	; &g2-IU-00021D0A;
+      ))
+    ))
+(define-char
   '((ideographic-radical@ucs . 45)	; ⼬
     (ideographic-strokes@ucs . 5)
     (ideographic-radical@ucs*sources
