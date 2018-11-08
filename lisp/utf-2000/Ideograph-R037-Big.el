@@ -4148,22 +4148,24 @@
     (=hanziku-2		. #xBF78)	; &I-HZK02-BF78;
     ))
 (define-char
-  '((=>ucs		. #x21638)	; 𡘸
-    (ideographic-radical . 37)	; ⼤
+  '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x5929)	; 天
+     ((=>ucs@component	  . #x5929)	; &A-compU+5929;
+      (=>iwds-1		  .  0008)	; &A-compU+5929;
       )
      ((=ucs		  . #x675F)	; 束
       ))
-    (=daikanwa		. 05948)	; &M-05948;
+    (=ucs		. #x21638)	; 𡘸
     ))
 (define-char
-  '((morohashi-daikanwa	5948 0 0)
+  '((<-denotational
+     ((=ucs		  . #x21638)	; 𡘸
+      ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
@@ -4176,12 +4178,43 @@
       )
      ((=ucs		  . #x675F)	; 束
       ))
-    (=ucs		. #x21638)	; 𡘸
-    (=hanziku-1		. #xA974)	; &I-HZK01-A974;
+    (=ucs@iso		. #x21638)	; &MJ033467;
+    (=mj		. 033467)	; &MJ033467;
+    (=koseki		. 068220)	; &MJ033467;
+    (=daikanwa		. 05948)	; &I-M-05948;
+    (<-formed
+     ((=ucs		  . #x2219E)	; 𢆞
+      ))
+    (<-formed$_1*sources
+     jiyun koseki)
+    (<-same
+     ((=ucs		  . #x2219E)	; 𢆞
+      (=daikanwa	  . 09184)	; &I-M-09184;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==mj		  . 033467)	; &g2-MJ033467;
+      (==koseki		  . 068220)	; &g2-MJ033467;
+      (==daikanwa	  . 05948)	; &g2-MJ033467;
+      (->subsumptive
+       ((===daikanwa	    . 05948)	; &R-M-05948;
+	)
+       ((===mj		    . 033467)	; &R-MJ033467;
+	))
+      )
+     ((==ucs@iso	  . #x21638)	; &g2-IU-00021638;
+      (->subsumptive
+       ((===ucs@iso	    . #x21638)	; &R-U-00021638;
+	)
+       ((=hanziku-1	    . #xA974)	; &HZK01-A974;
+	))
+      ))
     ))
 (define-char
-  '((=>ucs		. #x21638)	; 𡘸
-    (morohashi-daikanwa	5948 0 2)
+  '((<-denotational
+     ((=ucs		  . #x21638)	; 𡘸
+      ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
@@ -4193,7 +4226,12 @@
       )
      ((=ucs		  . #x675F)	; 束
       ))
+    (=ucs@cns		. #x21638)	; &C6-3E3E;
     (=cns11643-6	. #x3E3E)	; &C6-3E3E; [30-30]
+    (->subsumptive
+     ((==ucs@cns	  . #x21638)	; &g2-CU+21638;
+      (==cns11643-6	  . #x3E3E)	; &g2-CU+21638; [30-30]
+      ))
     ))
 (define-char
   '((<-denotational

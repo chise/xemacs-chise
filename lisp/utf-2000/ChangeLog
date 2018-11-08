@@ -1,5 +1,19 @@
 2018-11-07  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R051-Dry.el (A-IWDSU+2219E): New abstract node.
+	(M-09184): Unify U-0002219E; use `<-denotational' for
+	A-IWDSU+2219E instead of `<-subsumptive' for U-0002219A; unify
+	MJ035223 and KOSEKI-103930; add some relations for other
+	characters; add representative nodes.
+	(U-0002219A): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+2219E.
+	(U-000221AC): Apply new conventions for glyph granularity.
+
+	* Ideograph-R037-Big.el (U-00021638): Use `->denotational' and
+	`->subsumptive'.
+
+2018-11-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* ShuoWen.el (SW-JIGUGE5-25426): Use "𤵓" instead of "⿸疒𠬝" as a
 	target of `<-Small-Seal@shuowen'.
 	(SW-JIGUGE4-24926): Ditto.
@@ -148,6 +162,10 @@
 	(SW-JIGUGE5-25708): Add "𠕃" as a target of
 	`<-Small-Seal@shuowen'.
 	(SW-JIGUGE4-25208): Ditto.
+
+2018-11-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R090-Half-Tree-Trunk.el (U-0002456C): New character.
 
 2018-11-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
