@@ -98,6 +98,23 @@
       ))
     ))
 (define-char
+  '((ideographic-radical . 90)	; ⽙
+    (ideographic-strokes . 1)
+    (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x723F)	; 爿
+      )
+     ((=ucs		  . #x4E00)	; 一
+      ))
+    (=ucs		. #x2456C)	; 𤕬
+    (->subsumptive
+     ((==ucs@iso	  . #x2456C)	; &g2-IU-0002456C;
+      ))
+    ))
+(define-char
   '((=>ucs		. #x2456D)	; 𤕭
     (ideographic-radical . 90)	; ⽙
     (ideographic-strokes . 2)
