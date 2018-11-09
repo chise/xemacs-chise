@@ -1943,7 +1943,9 @@
       (=adobe-japan1-0	  . 02290)	; &AJ1-02290;
       (=daikanwa	  . 14664)	; &I-M-14664;
       )
-     ((=ucs		  . #x5BE8)	; 寨
+     ((=ucs@jis		  . #x5BE8)	; &AJ1-05262;
+      (=ucs@ks		  . #x5BE8)	; &AJ1-05262;
+      (=adobe-japan1-0	  . 05262)	; &AJ1-05262;
       (=daikanwa	  . 07298)	; &I-M-07298;
       ))
     (<-same$_1*sources
