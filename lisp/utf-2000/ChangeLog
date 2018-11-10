@@ -1,3 +1,8 @@
+2018-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R093-Cow.el (U+7267): Apply new conventions for glyph
+	granularity.
+
 2018-11-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen.el (SW-JIGUGE5-22607): Add "𦠡" as a target of
