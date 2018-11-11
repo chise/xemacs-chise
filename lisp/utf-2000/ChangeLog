@@ -1,9 +1,25 @@
+2018-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R094-Dog.el (U+72C2): Add `<-denotational@component'
+	for A-IWDSU+72C2; add `ideographic-structure'.
+	(U+72C5): Likewise; apply new conventions for glyph granularity.
+	(A-IWDSU+72C2): New abstract node.
+
 2018-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R100-Life.el (U-00024BF2): Apply new conventions for
+	glyph granularity; add `<-denotational' for A-IWDSU+28F07.
+
+	* Ideograph-R072-Sun.el (U-00023285): New character.
+	(M-14142): Unify IU+23285 instead of IU+23286; use
+	`<-denotational' for U-00023285 instead of `<-subsumptive' for
+	U-00023286; add `<-ancient' for U+6E34.
+	(U-00023286): Apply new conventions for glyph granularity.
+
+2018-11-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R093-Cow.el (U+7267): Apply new conventions for glyph
 	granularity.
-
-2018-11-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen.el (SW-JIGUGE5-22607): Add "𦠡" as a target of
 	`<-Small-Seal@shuowen'.

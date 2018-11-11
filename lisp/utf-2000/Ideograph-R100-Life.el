@@ -772,15 +772,46 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 100)	; ⽣
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x28F07)	; &A-IWDSU+28F07;
+      ))
+    (ideographic-radical . 100)	; ⽣
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
-    (=ucs		. #x24BF2)	; 𤯲
-    (->subsumptive
-     ((=ucs@iso		  . #x24BF2)	; &M-21696;
-      (=daikanwa	  . 21696)	; &M-21696;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=cns11643-6	  . #x5E7E)	; &C6-5E7E; [62-94]
+     ((=ucs		  . #x964D)	; 降
+      )
+     ((=ucs		  . #x751F)	; 生
+      ))
+    (sound@ja/on	"ryuu")
+    (=ucs		. #x24BF2)	; 𤯲
+    (=cns11643-6	. #x5E7E)	; &I-C6-5E7E; [62-94]
+    (=daikanwa		. 21696)	; &I-M-21696;
+    (<-original
+     ((=ucs@unicode	  . #x9686)	; &JX1-7D5D;
+      (=ucs@jis		  . #xF9DC)	; &JX1-7D5D;
+      (=gb2312		  . #x4221)	; &JX1-7D5D; [34-01]
+      (=ks-x1001	  . #x574C)	; &I-K0-574C; [55-44]
+      (=cns11643-1	  . #x626E)	; &I-C1-626E; [66-78]
+      (=jis-x0213-1	  . #x7D5D)	; &I-JX1-7D5D; [93-61]
+      (=daikanwa	  . 41746)	; &I-M-41746;
+      ))
+    (<-original*sources
+     zihui daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x24BF2)	; &g2-M-21696;
+      (==daikanwa	  . 21696)	; &g2-M-21696;
+      (->subsumptive
+       ((===daikanwa	    . 21696)	; &R-M-21696;
+	)
+       ((===ucs@iso	    . #x24BF2)	; &R-U-00024BF2;
+	))
+      )
+     ((==ucs@cns	  . #x24BF2)	; &g2-CU+24BF2;
+      (==cns11643-6	  . #x5E7E)	; &g2-CU+24BF2; [62-94]
       ))
     ))
 (define-char
