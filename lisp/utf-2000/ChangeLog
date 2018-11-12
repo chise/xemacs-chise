@@ -1,3 +1,30 @@
+2018-11-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen.el (SW-JIGUGE5-26906): Add "㒍" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-26406): Ditto.
+	(SW-JIGUGE5-28215): Add "卆" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-27715): Ditto.
+	(SW-JIGUGE5-28504): Add "届" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-28004): Ditto.
+	(SW-JIGUGE5-28702): Add "属" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-28202): Ditto.
+	(SW-JIGUGE5-28801): Add "舩" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-28301): Ditto.
+	(SW-JIGUGE5-28807): Add "𦨶" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-28307): Ditto.
+	(SW-JIGUGE5-28812): Add "𣍞" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-28312): Ditto.
+	(SW-JIGUGE5-28902): Add "児" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-28402): Ditto.
+
 2018-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R094-Dog.el (U+72C2): Add `<-denotational@component'
