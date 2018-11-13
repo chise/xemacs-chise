@@ -536,7 +536,6 @@
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (hanyu-dazidian	1 311 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
@@ -547,14 +546,37 @@
       ))
     (sound@ja/on	"kyou")
     (=ucs		. #x536D)	; 卭
-    (=adobe-japan1-5	. 19208)	; &I-AJ1-19208;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x536D)	; 卭
+      ))
+    (ideographic-radical . 26)	; ⼙
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (hanyu-dazidian	1 311 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs@unicode	  . #x5DE5)	; &AJ1-01979;
+      (=adobe-japan1-0	  . 01979)	; &AJ1-01979;
+      )
+     ((=ucs		  . #x5369)	; 卩
+      ))
+    (=ucs@unicode	. #x536D)	; &AJ1-19208;
+    (=adobe-japan1-5	. 19208)	; &AJ1-19208;
     (=jis-x0212		. #x343F)	; &I-JSP-343F; [20-31]
     (=cns11643-3	. #x2228)	; &I-C3-2228; [02-08]
     (=daikanwa		. 02845)	; &I-M-02845;
     (=cbeta		. 00886)	; &I-CB00886;
     (=jef-china3	. #x45D1)	; &I-JC3-45D1;
     (<-wrong
-     ((=ucs		  . #x909B)	; 邛
+     ((=ucs@unicode	  . #x909B)	; &JX1-7C5E;
+      (=gb2312		  . #x5A76)	; &JX1-7C5E; [58-86]
+      (=jis-x0212	  . #x6171)	; &I-JSP-6171; [65-81]
+      (=cns11643-2	  . #x2274)	; &I-C2-2274; [02-84]
+      (=jis-x0213-1	  . #x7C5E)	; &I-JX1-7C5E; [92-62]
       (=daikanwa	  . 39288)	; &I-M-39288;
       ))
     (<-wrong*sources

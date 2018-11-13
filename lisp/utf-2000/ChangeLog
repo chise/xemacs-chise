@@ -1,3 +1,38 @@
+2018-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R113-Spirit.el (U+7961): Apply new conventions for
+	glyph granularity.
+	(U-0002566D): Likewise.
+	(MJ043006): New character; unify KOSEKI-276460 and M-24714;
+	subsume H06-EFCC; use `<-denotational' for U-0002566D.
+	(U-000256A8): Add `sound@ja/on'.
+	(M-24763): Unify MJ043030 and KOSEKI-277150; add `<-ancient',
+	`<-formed' and `<-same' for UU+7961.
+
+2018-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R053-Dotted-Cliff.el (U+5EC3): Add
+	`ideographic-structure'.
+	(U+5EE2): Apply new conventions for glyph granularity.
+
+	* Ideograph-R026-Seal.el (U+536D): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R013-Down-Box.el (BUCS+518C): Separate IWDS1-0176.
+	(IWDS1-0176): New abstract node; use `<-denotational' for
+	IWDS1-0176; unify A-IWDSU+518A.
+	(U+518A): Use IWDS1-0176 instead of BUCS+518C as its mother; add
+	`sound@ja/on/{kan|go}' and `sound@ja/on/conventional'; add some
+	relations for other characters.
+	(U+518C): Use IWDS1-0176 instead of BUCS+518C as its mother.
+	(U-00020541): Likewise; add representative nodes.
+	(U-0002054B): Add `sound@ja/on/{kan|go}'.
+	(CU+2054B): Unify S-0510; add some relations for other characters.
+	(U-00020553): Add `<-denotational' for A-IWDSU+20553; add
+	`ideographic-structure'; add `<-original' for IU+21249; add
+	representative nodes.
+	(A-IWDSU+20553): New abstract node.
+
 2018-11-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen.el (SW-JIGUGE5-26906): Add "㒍" as a target of
