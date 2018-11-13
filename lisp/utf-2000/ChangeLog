@@ -27,6 +27,23 @@
 
 2018-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R085-Water.el (A-cgnU+6E34): New abstract node.
+	(A-cgnU+6E07): Changed from U+6E07; add `<-denotational' for
+	A-cgnU+6E34.
+	(A-IWDSU+6E34): New abstract node; add `<-denotational' for
+	A-cgnU+6E34.
+	(AJ1-01479): Unify U+6E07 instead of A-IWDSU+6E37 and UU+6E07; use
+	A-IWDSU+6E34 instead of U+6E07 as its mother.
+	(U+6E07-itaiji-001): Use A-cgnU+6E37 instead of U+6E07 as its
+	mother.
+	(U+6E34): Add `<-denotational' for A-IWDSU+6E34; add
+	`ideographic-structure'; add some relations for other characters;
+	add representative nodes.
+	(U+3D63): Apply new conventions for glyph granularity.
+	(C4-507A): Unify UU+3D63 and M-18404.
+
+2018-11-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R094-Dog.el (U+72C2): Add `<-denotational@component'
 	for A-IWDSU+72C2; add `ideographic-structure'.
 	(U+72C5): Likewise; apply new conventions for glyph granularity.
