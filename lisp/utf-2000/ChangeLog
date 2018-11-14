@@ -1,3 +1,46 @@
+2018-11-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen.el (SW-JIGUGE5-27806): Add "袞" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-27306): Ditto.
+	(SW-JIGUGE5-28305): Add "耄" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-27805): Ditto.
+	(SW-JIGUGE5-28403): Add "𣯣" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-27903): Ditto.
+	(SW-JIGUGE5-28706): Add "𨇐" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-28206): Ditto.
+	(SW-JIGUGE5-28904): Add "兑" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-28404): Ditto.
+	(SW-JIGUGE5-29004): Add "𢍍" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-28504): Ditto.
+	(SW-JIGUGE5-29007): Add "兠" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-28507): Ditto.
+	(SW-JIGUGE5-29113): Add "観" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-28613): Ditto.
+	(SW-JIGUGE5-29116): Add "覧" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-28616): Ditto.
+
+	* Ideograph-R116-Cave.el (A-IWDSU+7AB4): New abstract node.
+	(U-000259D1): New character; use `<-denotational' for
+	A-IWDSU+7AB4.
+	(M-25598): Use U-000259D1 instead of U+7AB4 as its mother; add
+	`ideographic-structure'; unify IU+259D1, MJ019280 and
+	KOSEKI-286440; add some relations for other characters; add
+	representative nodes.
+	(U+7AB4): Add `<-denotational' for A-IWDSU+7AB4; add
+	`ideographic-structure'.
+	(UU+7AB4): Add `ideographic-structure'; add `<-vulgar' for
+	IU+259D1.
+	(U-0002B058): New character.
+
 2018-11-12  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R113-Spirit.el (U+7961): Apply new conventions for
