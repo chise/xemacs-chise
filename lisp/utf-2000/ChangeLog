@@ -1,3 +1,43 @@
+2018-11-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (U+6735): Apply new conventions for glyph
+	granularity.
+	(U+6736): Add `ideographic-structure'; add
+	`sound@ja/on/conventional'; add `<-vulgar' for UU+6735.
+	(U+6742): Use `->subsumptive'.
+	(U+6789): Apply new conventions for glyph granularity.
+	(UU+67F4): Add UU+7961 as a target of `<-formed'; add `<-original'
+	for UU+7961.
+	(A-J0-3A74): Unify A-IWDSU+67F5; add `ideographic-structure'.
+	(U+67F5): Add `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(UU+67F5): Add some relations for other characters; add
+	representative nodes.
+	(S-3548): Unify U+67F5-var-001.
+	(U+6805): Apply new conventions for glyph granularity.
+	(U-0002F8E3): Add `<-denotational' for U-0002346D; add
+	`ideographic-structure'; add representative nodes.
+	(U-0002347C): New character.
+	(U-00023488): Apply new conventions for glyph granularity.
+	(MJ038025): New character; use `<-denotational' for U-00023488;
+	unify KOSEKI-167850 and M-14891.
+	(CB09124): New character; use `<-denotational' for U-00023488.
+	(U-00023536): Apply new conventions for glyph granularity.
+	(IU+23536): Unify M-15099.
+	(U-0002351C): New character.
+	(U-0002C0F7): New character.
+	(U-0002367F): Unify M-15509.
+	(A-cgnU+6A4C): New abstract node.
+	(U+6A4C): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+6A4C.
+	(U+6A7A): Likewise.
+	(U-0002368A): Unify M-15548.
+	(U-000236D1): New character.
+	(U+6A9B): Add `ideographic-structure'.
+	(JU+6A9B): Likewise; add some relations for other characters.
+	(CU+6A9B): Add `ideographic-structure'.
+	(UU+6A9B): Likewise.
+	(U-00023848): New character.
+
 2018-11-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen.el (SW-JIGUGE5-27806): Add "袞" as a target of
