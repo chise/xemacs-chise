@@ -1,3 +1,54 @@
+2018-11-15  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen.el (SW-JIGUGE5-29120): Use "𧠥" instead of "⿰𪩲見" as a
+	target of `<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-28620): Ditto.
+	(SW-JIGUGE5-29121): Add "覻" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-28621): Ditto.
+	(SW-JIGUGE5-29205): Add "𧠠" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-28705): Ditto.
+	(SW-JIGUGE5-29213): Add "覚" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-28713): Ditto.
+	(SW-JIGUGE5-29314): Add "歓" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-28814): Ditto.
+	(SW-JIGUGE5-29319): Add "𣢆" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-28819): Ditto.
+	(SW-JIGUGE5-29416): Add "欧" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-28916): Ditto.
+	(SW-JIGUGE5-29513): Add "𠕞" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-29013): Ditto.
+	(SW-JIGUGE5-29518): Add "飮" and "飲" as targets of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-29018): Ditto.
+	(SW-JIGUGE5-29606): Add "盗" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-29106): Ditto.
+	(SW-JIGUGE5-29801): Add "顔" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-29301): Ditto.
+	(SW-JIGUGE5-29802): Add "𩠪" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-29302): Ditto.
+	(SW-JIGUGE5-29810): Add "𩠑" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-29310): Ditto.
+	(SW-JIGUGE5-29819): Add "𩠣" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-29319): Ditto.
+	(SW-JIGUGE5-29823): Add "頚" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-29323): Ditto.
+	(SW-JIGUGE5-30101): Add "顕" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-29601): Ditto.
+
 2018-11-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R075-Tree.el (U+6735): Apply new conventions for glyph
