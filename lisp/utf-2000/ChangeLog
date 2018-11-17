@@ -1,3 +1,17 @@
+2018-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R122-Net.el (U-0002627D): New character.
+	(U-00026339): New character.
+
+	* Ideograph-R117-Stand.el (U+41D4): Apply new conventions for
+	glyph granularity.
+	(MJ003260): New character; use `<-denotational' for U+41D4; unify
+	KOSEKI-288950 and M-25824.
+	(U+7AF5): Apply new conventions for glyph granularity.
+
+	* Ideograph-R030-Mouth.el (U+55C0): Apply new conventions for
+	glyph granularity.
+
 2018-11-15  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* ShuoWen.el (SW-JIGUGE5-29120): Use "𧠥" instead of "⿰𪩲見" as a
@@ -228,6 +242,12 @@
 	`<-denotational' for U-00023285 instead of `<-subsumptive' for
 	U-00023286; add `<-ancient' for U+6E34.
 	(U-00023286): Apply new conventions for glyph granularity.
+
+2018-11-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R133-Arrive.el (U+81FA): Add `ideographic-structure'.
+	(UU+81FA): Use GT-K04191 instead of "⿱吉冖" in
+	`ideographic-structure'; delete `=>ucs@iwds-1'.
 
 2018-11-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
