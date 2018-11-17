@@ -522,6 +522,17 @@
     ))
 (define-char
   '((ideographic-radical . 133)	; ⾄
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+      (=ucs		  . #x2FF3)	; ⿳
+      )
+     ((=>ucs@iwds-1	  . #x5409)	; &J97-3548;
+      (=>jis-x0208	  . #x3548)	; &J97-3548; [21-40]
+      )
+     ((=ucs		  . #x5196)	; 冖
+      )
+     ((=ucs		  . #x81F3)	; 至
+      ))
     (=ucs		. #x81FA)	; 臺
     ))
 (define-char
@@ -532,16 +543,13 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (=ucs		  . #x2FF3)	; ⿳
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs		  . #x5409)	; 吉
-      )
-     ((=ucs		  . #x5196)	; 冖
+     ((=gt-k		  . 04191)	; &GT-K04191;
       )
      ((=ucs		  . #x81F3)	; 至
       ))
-    (=>ucs@iwds-1	. #x81FA)	; &AJ1-06293;
     (=ucs@unicode	. #x81FA)	; &AJ1-06293;
     (=adobe-japan1-0	. 06293)	; &AJ1-06293;
     (=jis-x0208		. #x674A)	; &I-J90-674A; [71-42]
