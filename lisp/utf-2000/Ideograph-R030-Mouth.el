@@ -37077,14 +37077,69 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
-    (hanyu-dazidian	3 2161 6)
-    (=ucs		. #x55C0)	; 嗀
-    (=big5		. #xDCD1)	; &I-B-DCD1;
-    (->subsumptive
-     ((=daikanwa	  . 04033)	; &M-04033;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
       )
-     ((=ucs@unicode	  . #x55C0)	; &C2-4176;
-      (=cns11643-2	  . #x4176)	; &C2-4176; [33-86]
+     ((=>ucs@iwds-1	  . #x3C7F)	; &A-IWDSU+3C7F;
+      (=>iwds-1		  .  0381)	; &A-IWDSU+3C7F;
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (sound@ja/on	"kaku" "koku")
+    (=ucs		. #x55C0)	; 嗀
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x55C0)	; 嗀
+      ))
+    (ideographic-radical . 30)	; ⼝
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (hanyu-dazidian	3 2161 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (=ucs		  . #x2FF9)	; ⿹
+      )
+     ((=ucs@iso		  . #x23A8A)	; &GT-K07489;
+      (=gt-k		  . 07489)	; &GT-K07489;
+      )
+     ((=ucs		  . #x53E3)	; 口
+      ))
+    (=ucs@unicode	. #x55C0)	; &C2-4176;
+    (=cns11643-2	. #x4176)	; &C2-4176; [33-86]
+    (=big5		. #xDCD1)	; &I-B-DCD1;
+    (=daikanwa		. 04033)	; &I-M-04033;
+    (->formed
+     ((=ucs@iso		  . #x23AB3)	; &C6-5D7D;
+      (=cns11643-6	  . #x5D7D)	; &C6-5D7D; [61-93]
+      (=daikanwa	  . 16670)	; &I-M-16670;
+      )
+     ((=ucs@unicode	  . #x3C7F)	; &GT-21316;
+      (=cns11643-3	  . #x316B)	; &GT-21316; [17-75]
+      (=daikanwa	  . 16626)	; &I-M-16626;
+      )
+     ((=ucs		  . #x23AA5)	; 𣪥
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed$_2*sources
+     jiyun daikanwa)
+    (->formed$_3*sources
+     daikanwa)
+    (->formed*sources
+     daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 04033)	; &g2-M-04033;
+      )
+     ((==ucs@unicode	  . #x55C0)	; &g2-UU+55C0;
+      (==ucs@JP/hanazono  . nil)
+      (==cns11643-2	  . #x4176)	; &g2-UU+55C0; [33-86]
+      (->subsumptive
+       ((===cns11643-2	    . #x4176)	; &R-C2-4176; [33-86]
+	)
+       ((===ucs@unicode	    . #x55C0)	; &R-UU+55C0;
+	))
       ))
     ))
 (define-char
