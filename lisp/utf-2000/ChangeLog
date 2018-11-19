@@ -1,3 +1,23 @@
+2018-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R132-Self.el (A-IWDSU+26905): New abstract node.
+	(U-00026904): Add `<-denotational@component' for A-IWDSU+26905;
+	add `ideographic-structure'; add `sound@ja/on'; add `<-original'
+	for U-00025115; add representative nodes.
+	(U-00026905): New character; use `<-denotational@component' for
+	A-IWDSU+26905.
+
+2018-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R129-Brush.el (U+8085-itaiji-003): New character.
+	(U-00026614): Add `ideographic-structure'; add `sound@ja/on';
+	unify MJ045448 and KOSEKI-326090; add representative nodes.
+	(U-0002661C): New character.
+	(U-00026621): New character.
+
+	* Ideograph-R128-Ear.el (U-000265F7): Apply new conventions for
+	glyph granularity.
+
 2018-11-16  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R122-Net.el (U-0002627D): New character.
