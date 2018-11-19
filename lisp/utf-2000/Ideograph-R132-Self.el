@@ -340,9 +340,90 @@
   '((ideographic-radical . 132)	; ⾃
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x8279)	; 艹
+      )
+     ((=ucs		  . #x81EA)	; 自
+      ))
+    (=>ucs@iwds-1	. #x26905)	; &A-IWDSU+26905;
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x26905)	; &A-IWDSU+26905;
+      ))
+    (ideographic-radical . 132)	; ⾃
+    (ideographic-strokes . 4)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL GRASS THREE")
+      (=ucs		  . #x2EC0)	; ⻀
+      )
+     ((=ucs		  . #x81EA)	; 自
+      ))
+    (sound@ja/on	"batu")
     (=ucs		. #x26904)	; 𦤄
     (=cns11643-4	. #x2F49)	; &I-C4-2F49; [15-41]
     (=daikanwa		. 49557)	; &I-M-49557;
+    (<-original
+     ((=ucs		  . #x25115)	; 𥄕
+      (=daikanwa	  . 23186)	; &I-M-23186;
+      ))
+    (<-original*sources
+     daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x26904)	; &g2-M-49557;
+      (==cns11643-4	  . #x2F49)	; &g2-M-49557; [15-41]
+      (==daikanwa	  . 49557)	; &g2-M-49557;
+      (->subsumptive
+       ((===daikanwa	    . 49557)	; &R-M-49557;
+	)
+       ((===cns11643-4	    . #x2F49)	; &R-C4-2F49; [15-41]
+	)
+       ((===ucs@iso	    . #x26904)	; &R-U-00026904;
+	))
+      ))
+    ))
+(define-char
+  '((<-denotational@component
+     ((=>ucs@iwds-1	  . #x26905)	; &A-IWDSU+26905;
+      ))
+    (ideographic-radical . 132)	; ⾃
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=+>ucs@unicode	  . #x8279)	; &o-UU+8279;
+      )
+     ((=ucs		  . #x81EA)	; 自
+      ))
+    (=ucs		. #x26905)	; 𦤅
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x26905)	; 𦤅
+      ))
+    (ideographic-radical . 132)	; ⾃
+    (ideographic-strokes . 4)
+    (total-strokes	 . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name		  . "CJK RADICAL GRASS TWO")
+      (=ucs		  . #x2EBF)	; ⺿
+      )
+     ((=ucs		  . #x81EA)	; 自
+      ))
+    (=ucs@iso		. #x26905)	; &U-00026905;
+    (->subsumptive
+     ((==ucs@iso	  . #x26905)	; &g2-IU-00026905;
+      ))
     ))
 (define-char
   '((ideographic-radical . 132)	; ⾃
