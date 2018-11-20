@@ -1,3 +1,33 @@
+2018-11-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen.el (SW-JIGUGE5-29603): Add "𣷜" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-29103): Ditto.
+	(SW-JIGUGE5-30311): Add "彦" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-29811): Ditto.
+	(SW-JIGUGE5-30400): Add "髪" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-29900): Ditto.
+	(SW-JIGUGE5-30501): Add "鬝" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-30001): Ditto.
+	(SW-JIGUGE5-30703): Add "巻" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-30203): Ditto.
+	(SW-JIGUGE5-30704): Add "却" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-30204): Ditto.
+	(SW-JIGUGE5-30809): Add "匀" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-30309): Ditto.
+	(SW-JIGUGE5-31005): Add "䰟" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-30505): Ditto.
+	(SW-JIGUGE5-31102): Add "𤰲" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-30602): Ditto.
+
 2018-11-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R132-Self.el (A-IWDSU+26905): New abstract node.
