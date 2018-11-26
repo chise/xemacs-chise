@@ -1,5 +1,7 @@
 2018-11-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R058-Snout.el (U-0002244F): New character.
+
 	* ShuoWen.el (SW-JIGUGE5-29603): Add "𣷜" as a target of
 	`<-Small-Seal@shuowen'.
 	(SW-JIGUGE4-29103): Ditto.
