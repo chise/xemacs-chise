@@ -24108,8 +24108,8 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((==>ucs@bucs	  . #x5944)	; &BUCS+5944;
-      (=>ucs@component	  . #x5944)	; &BUCS+5944;
+     ((=>ucs@iwds-1	  . #x5944)	; &A-IWDSU+5944;
+      (=>iwds-1		  .  0172)	; &A-IWDSU+5944;
       ))
     (=ucs		. #x5535)	; 唵
     ))
