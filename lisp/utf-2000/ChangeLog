@@ -1,3 +1,53 @@
+2018-11-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R109-Eye.el (U+76EE): Add `sound@ja/on/{kan|go}'; add
+	some relations for other characters.
+	(U-000250E6): Apply new conventions for glyph granularity.
+	(U-00025115): Add `<-denotational@component' for A-IWDSU+82DC; add
+	some relations for other characters; add representative nodes.
+	(MJ046348): Add `<-same' for U-00025115.
+	(A-cgnU+2511B): New abstract node.
+	(M-23203): Add `<-denotational' for A-cgnU+2511B; add
+	`ideographic-structure'; unify MJ042211 and KOSEKI-259510.
+	(U-0002511B): Add `<-denotational' for A-cgnU+2511B; add
+	representative nodes.
+	(U-0002511A): New character.
+	(U+7736): Apply new conventions for glyph granularity.
+	(U-000251A4): Add `ideographic-structure'; add `sound@ja/on'; add
+	`<-ancient' for U+76EE; add representative nodes.
+	(U+7792): Apply new conventions for glyph granularity.
+	(U+779E): Likewise.
+	(U+407E): Add `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(C4-636F): Unify CU+407E; add `ideographic-structure'; add some
+	relations for other characters; add representative nodes.
+
+	* Ideograph-R098-Tile.el (U+00024B90): Use `->denotational' and
+	`->subsumptive'.
+
+	* Ideograph-R086-Fire.el (A-IWDSU+718F): New abstract node.
+	(U-000242F1): Add `<-denotational' for A-IWDSU+718F; add
+	`sound@ja/on'; add `<-simplified@misc' and `<-vulgar' for U+718F;
+	apply new conventions for glyph granularity.
+	(U+718F): Add `<-denotational' for A-IWDSU+718F.
+
+	* Ideograph-R073-Say.el (U+7535): Add `<-denotational' for
+	A-IWDSU+7535.
+	(UU+7535): Add `<-denotational@component' for IWDS1-0171.
+	(A-IWDSU+7535): New abstract node.
+	(IWDS1-0171): New abstract node; add `<-denotational' for
+	A-IWDSU+7535.
+
+	* Ideograph-R046-Mountain.el (U-00021F00): New character.
+
+	* Ideograph-R037-Big.el (BUCS+5944): Separate A-compU+5944 and
+	IWDS1-0172.
+	(IWDS1-01729: Separate BUCS+5944; unify A-IWDSU+5944 instead of
+	A-compU+5944; add `<-denotational' for BUCS+5944.
+	(U+5944): Use A-IWDSU+5944 instead of BUCS+5944 as its mother;
+	apply new conventions for glyph granularity.
+	(U-00021639): Use A-IWDSU+5944 instead of BUCS+5944 as its mother;
+	add `ideographic-structure'; add `sound@ja/on'.
+
 2018-11-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R058-Snout.el (U-0002244F): New character.
