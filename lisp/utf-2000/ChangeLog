@@ -1,3 +1,12 @@
+2018-11-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R121-Jar.el (U+434D): Apply new conventions for glyph
+	granularity.
+	(U+7F47): Add `ideographic-structure'; add `sound@ja/on'.
+	(JU+7F47): Add `ideographic-structure'; add some relations for
+	other characters.
+	(UU+7F47): Add `ideographic-structure'.
+
 2018-11-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R109-Eye.el (U+76EE): Add `sound@ja/on/{kan|go}'; add
