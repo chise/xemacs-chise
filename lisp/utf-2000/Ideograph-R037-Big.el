@@ -1817,20 +1817,52 @@
 (define-char
   '((ideographic-radical . 37)	; ⼤
     (==>ucs@bucs	. #x5944)	; &BUCS+5944;
-    (=>ucs@component	. #x5944)	; &BUCS+5944;
-    (=>iwds-1		.  0172)	; &BUCS+5944;
     ))
 (define-char
   '((<-denotational
      ((==>ucs@bucs	  . #x5944)	; &BUCS+5944;
-      (=>ucs@component	  . #x5944)	; &BUCS+5944;
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (=>ucs@iwds-1	. #x5944)	; &A-IWDSU+5944;
+    (=>iwds-1		.  0172)	; &A-IWDSU+5944;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x5944)	; &A-IWDSU+5944;
+      (=>iwds-1		  .  0172)	; &A-IWDSU+5944;
       ))
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5927)	; 大
+      )
+     ((=ucs		  . #x7535)	; 电
+      ))
     (sound@ja/on	"eN")
     (=ucs		. #x5944)	; 奄
-    (=adobe-japan1-0	. 01284)	; &I-AJ1-01284;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5944)	; 奄
+      ))
+    (ideographic-radical . 37)	; ⼤
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5927)	; 大
+      )
+     ((=ucs@unicode	  . #x7535)	; &G0-3567;
+      (=gb2312		  . #x3567)	; &G0-3567; [21-71]
+      ))
+    (=ucs@unicode	. #x5944)	; &AJ1-01284;
+    (=adobe-japan1-0	. 01284)	; &AJ1-01284;
     (=jis-x0208		. #x3162)	; &I-J90-3162; [17-66]
     (=gb2312		. #x5159)	; &I-G0-5159; [49-57]
     (=ks-x1001		. #x6572)	; &I-K0-6572; [69-82]
@@ -1841,7 +1873,7 @@
     (=gt-k		. 03633)	; &I-GT-K03633;
     (=gt-pj-1		. #x3162)	; &I-GT-07418; [17-66]
     (=daikanwa		. 05881)	; &I-M-05881;
-    (=shinjigen		.  1567)	; 奄
+    (=shinjigen		.  1567)	; &AJ1-01284;
     (->subsumptive
      ((=decomposition@cid
        ((=ucs		    . #x5944)	; 奄
@@ -4235,10 +4267,19 @@
     ))
 (define-char
   '((<-denotational
-     ((==>ucs@bucs	  . #x5944)	; &BUCS+5944;
-      (=>ucs@component	  . #x5944)	; &BUCS+5944;
+     ((=>ucs@iwds-1	  . #x5944)	; &A-IWDSU+5944;
+      (=>iwds-1		  .  0172)	; &A-IWDSU+5944;
       ))
     (ideographic-radical . 37)	; ⼤
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5927)	; 大
+      )
+     ((=>big5-cdp	  . #x88E5)	; &A-CDP-88E5;
+      ))
+    (sound@ja/on	"eN")
     (=ucs		. #x21639)	; 𡘹
     ))
 (define-char
@@ -4263,7 +4304,8 @@
     (=gt-pj-2		. #x6751)	; &I-GT-07492; [71-49]
     (=daikanwa		. 05949)	; &I-M-05949;
     (<-original
-     ((=ucs		  . #x5944)	; 奄
+     ((=ucs@unicode	  . #x5944)	; &AJ1-01284;
+      (=adobe-japan1-0	  . 01284)	; &AJ1-01284;
       (=daikanwa	  . 05881)	; &I-M-05881;
       ))
     (<-original*sources
