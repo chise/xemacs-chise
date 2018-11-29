@@ -69,7 +69,11 @@
     (=daikanwa		. 14279)	; &I-M-14279;
     ))
 (define-char
-  '((ideographic-radical . 73)	; ⽈
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x7535)	; &A-IWDSU+7535;
+      (=>iwds-1		  .  17197)	; &A-IWDSU+7535;
+      ))
+    (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (=ucs		. #x7535)	; 电
@@ -78,6 +82,10 @@
 (define-char
   '((<-denotational
      ((=ucs		  . #x7535)	; 电
+      ))
+    (<-denotational@component
+     ((=>ucs@component	  . #x7535)	; &A-compU+7535;
+      (=>iwds-1		  .  0171)	; &A-compU+7535;
       ))
     (ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 1)
@@ -120,6 +128,20 @@
     (->subsumptive
      ((==big5-cdp	  . #x8BE8)	; &g2-CDP-8BE8;
       ))
+    ))
+(define-char
+  '((ideographic-radical . 73)	; ⽈
+    (=>ucs@iwds-1	. #x7535)	; &A-IWDSU+7535;
+    (=>iwds-1		.  17197)	; &A-IWDSU+7535;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x7535)	; &A-IWDSU+7535;
+      (=>iwds-1		  .  17197)	; &A-IWDSU+7535;
+      ))
+    (ideographic-radical . 73)	; ⽈
+    (=>ucs@component	. #x7535)	; &A-compU+7535;
+    (=>iwds-1		.  0171)	; &A-compU+7535;
     ))
 (define-char
   '((ideographic-radical . 73)	; ⽈
