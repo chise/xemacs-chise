@@ -44744,7 +44744,8 @@
     (<-same*sources
      jiyun daikanwa)
     (->formed
-     ((=daikanwa	  . 26612)	; &M-26612;
+     ((=mj		  . 019718)	; &MJ019718;
+      (=daikanwa	  . 26612)	; &I-M-26612;
       ))
     (->formed$_1*sources
      guangyun daikanwa)
