@@ -93,6 +93,22 @@
 	(U-00021639): Use A-IWDSU+5944 instead of BUCS+5944 as its mother;
 	add `ideographic-structure'; add `sound@ja/on'.
 
+	* ShuoWen.el (SW-JIGUGE5-29115): Add "㝵" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-28615): Ditto.
+	(SW-JIGUGE5-30709): Use "𢑏" instead of "⿰𠂎彐" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-30209): Ditto.
+	(SW-JIGUGE5-31401): Add "巌" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-30901): Ditto.
+	(SW-JIGUGE5-31405): Add "峼" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-30905): Ditto.
+	(SW-JIGUGE5-31407): Add "嵳" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-30907): Ditto.
+
 2018-11-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R058-Snout.el (U-0002244F): New character.
