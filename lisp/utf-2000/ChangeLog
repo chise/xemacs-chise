@@ -1,3 +1,11 @@
+2018-12-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R082-Fur.el (U+3C8E): Use `->subsumptive'.
+	(U+6BF3): Add `ideographic-structure'; add some relations for
+	other characters.
+	(U-00023BE3): New character.
+	(U-00023BF7): Apply new conventions for glyph granularity.
+
 2018-11-29  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R118-Bamboo.el (U-00025B30): Apply new conventions for
