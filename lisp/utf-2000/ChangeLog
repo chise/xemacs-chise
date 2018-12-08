@@ -1,3 +1,19 @@
+2018-12-04  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R104-Sickness.el (U+3F78): Unify M-22049.
+	(U-00024D3F): Apply new conventions for glyph granularity.
+	(IU+24D3F): Unify M-22060.
+	(U-00024D54): Unify M-22079.
+	(A-IWDSU+24D67): New abstract node.
+	(U-00024D67): Add `<-denotational' for A-IWDSU+24D67; unify
+	M-22080.
+	(U-00024D53): New character; use `<-denotational' for
+	A-IWDSU+24D67.
+	(U+760E): Apply new conventions for glyph granularity.
+
+	* Ideograph-R030-Mouth.el (UU+55C0): Use IU+23AA5 instead of
+	U-00023AA5 as a target of `->formed'.
+
 2018-12-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R082-Fur.el (U+3C8E): Use `->subsumptive'.
