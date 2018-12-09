@@ -265,10 +265,16 @@
   '((ideographic-radical . 23)	; ⼖
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (=ucs		. #x533A)	; 区
-    (<-simplified@ucs
-     ((=ucs		  . #x5340)	; 區
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (=ucs		  . #x2FF7)	; ⿷
+      )
+     ((=>ucs@component	  . #x531A)	; &A-compU+531A;
+      (=>iwds-1		  .  0209)	; &A-compU+531A;
+      )
+     ((=ucs		  . #x3405)	; 㐅
       ))
+    (=ucs		. #x533A)	; 区
     ))
 (define-char
   '((<-denotational
