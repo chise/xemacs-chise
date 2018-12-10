@@ -101,6 +101,23 @@
   '((ideographic-radical . 99)	; ⽢
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
+    (=>ucs@cognate	. #x751A)	; &A-cgnU+751A;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x751A)	; &A-cgnU+751A;
+      ))
+    (ideographic-radical . 99)	; ⽢
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x88C8)	; &CDP-88C8;
+      )
+     ((=ucs		  . #x5339)	; 匹
+      ))
     (=ucs		. #x751A)	; 甚
     ))
 (define-char
@@ -110,7 +127,15 @@
     (ideographic-radical . 99)	; ⽢
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
-    (=>ucs@iwds-1	. #x751A)	; &AJ1-02585;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x88C8)	; &CDP-88C8;
+      )
+     ((=ucs@cns		  . #x5339)	; &MJ007817;
+      (=mj		  . 007817)	; &MJ007817;
+      ))
     (=ucs@unicode	. #x751A)	; &AJ1-02585;
     (=adobe-japan1-0	. 02585)	; &AJ1-02585;
     (=jis-x0208		. #x3F53)	; &I-J90-3F53; [31-51]
@@ -160,7 +185,24 @@
     ))
 (define-char
   '((<-denotational
-     ((=ucs		  . #x751A)	; 甚
+     ((=>ucs@cognate	  . #x751A)	; &A-cgnU+751A;
+      ))
+    (ideographic-radical . 99)	; ⽢
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x88C8)	; &CDP-88C8;
+      )
+     ((=ucs		  . #x533A)	; 区
+      ))
+    (=ucs		. #x2B7AA)	; 𫞪
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x751A)	; &A-cgnU+751A;
       ))
     (ideographic-radical . 99)	; ⽢
     (ideographic-strokes . 4)
@@ -176,6 +218,62 @@
     (=ucs-itaiji-004	. #x751A)	; &U-i004+751A;
     (->subsumptive
      ((===hng-kar	  . 10780)	; &HNG018-10780;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2B7AA)	; 𫞪
+      ))
+    (ideographic-radical . 99)	; ⽢
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=big5-cdp	  . #x88C8)	; &CDP-88C8;
+      )
+     ((=ucs@cns		  . #x533A)	; &GT-03428;
+      (=cns11643-3	  . #x2157)	; &GT-03428; [01-55]
+      (=daikanwa	  . 02674)	; &I-M-02674;
+      ))
+    (=ucs@JP/hanazono	. #x2B7AA)	; &MJ058076;
+    (=mj		. 058076)	; &MJ058076;
+    (=koseki		. 242800)	; &MJ058076;
+    (<-formed
+     ((=ucs@unicode	  . #x751A)	; &AJ1-02585;
+      (=adobe-japan1-0	  . 02585)	; &AJ1-02585;
+      ))
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2B7AA)	; &g2-MJ058076;
+      (==mj		  . 058076)	; &g2-MJ058076;
+      (==koseki		  . 242800)	; &g2-MJ058076;
+      ))
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@cognate	  . #x751A)	; &A-cgnU+751A;
+      ))
+    (ideographic-radical . 99)	; ⽢
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (=mj		. 058077)	; &MJ058077;
+    (=koseki		. 242810)	; &MJ058077;
+    (<-formed
+     ((=ucs@unicode	  . #x751A)	; &AJ1-02585;
+      (=adobe-japan1-0	  . 02585)	; &AJ1-02585;
+      ))
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==mj		  . 058077)	; &g2-MJ058077;
+      (==koseki		  . 242810)	; &g2-MJ058077;
+      )
+     ((===hng-khm	  . 04360)	; &HNG011-04360;
+      )
+     ((===hng-khi	  . 04880)	; &HNG010-04880;
       ))
     ))
 (define-char
@@ -201,24 +299,6 @@
     (=ucs		. #x24BC4)	; 𤯄
     (=daikanwa		. 21651)	; &I-M-21651;
     (=hanziku-6		. #xF2F7)	; &I-HZK06-F2F7;
-    ))
-(define-char
-  '((ideographic-radical . 99)	; ⽢
-    (ideographic-strokes . 4)
-    (total-strokes	 . 9)
-    (=mj		. 058077)	; &MJ058077;
-    (=koseki		. 242810)	; &MJ058077;
-    (<-formed
-     ((=ucs		  . #x751A)	; 甚
-      ))
-    (->subsumptive
-     ((==mj		  . 058077)	; &g2-MJ058077;
-      (==koseki		  . 242810)	; &g2-MJ058077;
-      )
-     ((===hng-khm	  . 04360)	; &HNG011-04360;
-      )
-     ((===hng-khi	  . 04880)	; &HNG010-04880;
-      ))
     ))
 (define-char
   '((ideographic-radical . 99)	; ⽢

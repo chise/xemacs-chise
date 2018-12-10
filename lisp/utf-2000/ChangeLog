@@ -1,3 +1,39 @@
+2018-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R099-Sweet.el (A-cgnU+751A): New abstract node.
+	(U+751A): Add `<-denotational' for A-cgnU+751A; add
+	`ideographic-structure'.
+	(UU+751A): Delete `=>ucs@iwds-1'; add `ideographic-structure'.
+	(U-0002B7AA): New character; use `<-denotational' for A-cgnU+751A.
+	(U+751A-itaiji-004): Use A-cgnU+751A instead of U+751A as its
+	mother.
+	(MJ058077): Add `<-denotational' for A-cgnU+751A.
+
+2018-12-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R123-Sheep.el (U+7F90): Apply new conventions for
+	glyph granularity.
+	(U+7F91): Likewise.
+	(A-cgnU+7FB8): New abstract node.
+	(A-IWDSU+7FB8): New abstract node; use `<-denotational' for
+	A-cgnU+7FB8.
+	(U+7FB8): Add `<-denotational' for A-IWDSU+7FB8; add
+	ideographic-structure.
+	(A-U+263DE-itaiji-001): New abstract node; use `<-denotational'
+	for A-cgnU+7FB8; unify A-U+263DE-itaiji-002.
+	(U+263DE-itaiji-002): New character; use `<-denotational' for
+	A-U+263DE-itaiji-001.
+	(U+263DE-itaiji-001): Likewise.
+	(U-000263DE): Add `<-denotational' for A-IWDSU+7FB8; add
+	`ideographic-structure'; add `sound@ja/on'.
+	(M-49514): Unify MJ045072 and KOSEKI-319360.
+	(U-0002E2B5): New character.
+
+2018-12-07  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R023-Hiding-Enclosure.el (U+533A): Add
+	`ideographic-structure'; omit `<-simplified@ucs'.
+
 2018-12-04  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R104-Sickness.el (U+3F78): Unify M-22049.
