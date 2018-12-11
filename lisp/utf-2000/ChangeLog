@@ -1,5 +1,10 @@
 2018-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R102-Field.el (U+3F62): Apply new conventions for
+	glyph granularity.
+
+2018-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R099-Sweet.el (A-cgnU+751A): New abstract node.
 	(U+751A): Add `<-denotational' for A-cgnU+751A; add
 	`ideographic-structure'.
