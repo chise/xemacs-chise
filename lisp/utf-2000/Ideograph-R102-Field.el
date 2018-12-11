@@ -5499,15 +5499,64 @@
     ))
 (define-char
   '((ideographic-radical . 102)	; ⽥
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7530)	; 田
+      )
+     ((=>ucs@iwds-1	  . #x5944)	; &A-IWDSU+5944;
+      (=>iwds-1		  .  0172)	; &A-IWDSU+5944;
+      ))
+    (=ucs		. #x3F62)	; 㽢
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x3F62)	; 㽢
+      ))
+    (ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
-    (=ucs		. #x3F62)	; 㽢
-    (->subsumptive
-     ((=ucs@unicode	  . #x3F62)	; &M-21883;
-      (=daikanwa	  . 21883)	; &M-21883;
-      (=hanziku-7	  . #xB84E)	; &I-HZK07-B84E;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-3	  . #x4279)	; &C3-4279; [34-89]
+     ((=ucs		  . #x7530)	; 田
+      )
+     ((=ucs@unicode	  . #x5944)	; &AJ1-01284;
+      (=adobe-japan1-0	  . 01284)	; &AJ1-01284;
+      ))
+    (=ucs@unicode	. #x3F62)	; &C3-4279;
+    (=cns11643-3	. #x4279)	; &C3-4279; [34-89]
+    (=daikanwa		. 21883)	; &I-M-21883;
+    (->formed
+     ((=ucs@cns		  . #x43A8)	; &C4-462F;
+      (=cns11643-4	  . #x462F)	; &C4-462F; [38-15]
+      (=daikanwa	  . 28939)	; &I-M-28939;
+      )
+     ((=ucs@unicode	  . #x4156)	; &C4-3F4D;
+      (=cns11643-4	  . #x3F4D)	; &C4-3F4D; [31-45]
+      (=daikanwa	  . 25104)	; &I-M-25104;
+      ))
+    (->formed$_1*sources
+     jiyun daikanwa)
+    (->formed$_2*sources
+     jiyun daikanwa)
+    (->formed*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@unicode	  . #x3F62)	; &g2-M-21883;
+      (==daikanwa	  . 21883)	; &g2-M-21883;
+      (->subsumptive
+       ((===daikanwa	    . 21883)	; &R-M-21883;
+	)
+       ((===ucs@unicode	    . #x3F62)	; &R-UU+3F62;
+	)
+       ((=hanziku-7	    . #xB84E)	; &HZK07-B84E;
+	))
+      )
+     ((==ucs@cns	  . #x3F62)	; &g2-CU+3F62;
+      (==cns11643-3	  . #x4279)	; &g2-CU+3F62; [34-89]
       ))
     ))
 (define-char
