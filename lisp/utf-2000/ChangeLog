@@ -1,5 +1,10 @@
 2018-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R127-Plow.el (U+43A8): Apply new conventions for glyph
+	granularity.
+
+2018-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
 	* Ideograph-R125-Old.el (A-cgnU+8001): New abstract node.
 	(U+8001): Add `<-denotational' for A-cgnU+8001; add
 	`ideographic-structure'.
