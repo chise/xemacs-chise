@@ -1,3 +1,42 @@
+2018-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R125-Old.el (A-cgnU+8001): New abstract node.
+	(U+8001): Add `<-denotational' for A-cgnU+8001; add
+	`ideographic-structure'.
+	(UU+8001): Delete `=>ucs@iwds-1'.
+	(HNG-KHI0145-0): Use A-cgnU+8001 instead of U+8001 as its mother.
+	(A-IWDSU+264C6): New abstract node.
+	(U-000264C6): New character; use `<-denotational' for
+	A-IWDSU+264C6.
+	(M-28865): Unify U-000264C6; use `<-denotational' for
+	A-IWDSU+264C6 instead of `<-subsumptive' for U-000264C3.
+	(U-000264C3): Apply new conventions for glyph granularity.
+	(U-000264C4): Apply new conventions for glyph granularity.
+
+2018-12-10  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R115-Grain.el (U+4140): Unify M-25036.
+	(U-000257AF): Apply new conventions for glyph granularity.
+	(IU+257AF): Unify M-25049.
+	(U-000257B1): Apply new conventions for glyph granularity.
+	(IU+257B1): Unify M-25051.
+	(U+412F): Add `ideographic-structure'.
+	(U-0002F958): Likewise; add `<-formed' for U-0002219E; add
+	representative nodes.
+	(UU+412F): Add `ideographic-structure'; add representative nodes.
+	(U-000257A5): New character.
+	(U+4150): Unify M-25076.
+	(U+4156): Apply new conventions for glyph granularity.
+	(UU+4156): Unify M-25104.
+	(U+7A21): Add `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(U-000257F8): Unify M-25146.
+	(A-cgnU+4165): New abstract node.
+	(U+4165): Apply new conventions for glyph granularity.
+	(UU+4165): Unify M-25172.
+	(CB09390): New character; use `<-denotational' for U+4165.
+	(U-0002581B): New character.
+	(U-000258ED): Apply new conventions for glyph granularity.
+
 2018-12-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R102-Field.el (U+3F62): Apply new conventions for
