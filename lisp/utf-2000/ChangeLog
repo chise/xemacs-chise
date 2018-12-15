@@ -1,3 +1,53 @@
+2018-12-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R120-Silk.el (U+7D2B): Apply new conventions for glyph
+	granularity.
+	(U+7D3F): Add `ideographic-structure'; add some relations for
+	other characters.
+	(U-00025FDC): Apply new conventions for glyph granularity.
+	(U+7DD0): New character.
+	(A-IWDSU+7DFC): New abstract node; unify BU+7E15 and B-EAD5.
+	(U+7DFC): Add `<-denotational' for A-IWDSU+7DFC; add
+	`ideographic-structure'; add `sound@ja/on'; add `<-same' for
+	U+7E15.
+	(U+7DFF): Apply new conventions for glyph granularity.
+	(U+7E15): Add `<-denotational' for A-IWDSU+7DFC; add
+	`ideographic-structure'; add `sound@ja/on'; move B-EAD5 to
+	A-IWDSU+7DFC; add some relations for other characters.
+	(JU+7E47): Add `<-vulgar' for UU+431B.
+	(U+4316): Apply new conventions for glyph granularity.
+	(U+7E81): Likewise.
+	(U+4331): Likewise.
+	(U+4332): Likewise.
+	(U+4334): Add `<-denotational' for A-cgnU+4334; add
+	`ideographic-structure'; add `sound@ja/on'.
+	(A-UU+4334): Add `ideographic-structure'.
+	(A-cgnU+4334): New abstract node.
+	(M-28096): Unify HD-IA4134; add `ideographic-structure'; add
+	`sound@ja/on'; add some relations for other characters; add
+	representative nodes.
+	(UU+4334): Add `ideographic-structure'; add representative nodes.
+	(C4-6C7B): Unify CU+4334; add `ideographic-structure'; add
+	representative nodes.
+	(U-000261FD): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+4334.
+	(U-0002F971): Apply new conventions for glyph granularity.
+
+	* Ideograph-R013-Down-Box.el (U+5184): Add `=>iwds-1*note'; add
+	`sound@ja/on'; unify IWDS1-7879.
+	(IWDS1-0079): New abstract node; use `<-denotational' for U+5184;
+	unify o-UU+5184, o-AJ1-19173, o-BC-8A79 and o-GT-01981.
+	(UU+5184): Use o-UU+5184 instead of U+5184 as its mother; separate
+	IWDS1-0079; add `<-same' and `->formed' for MJ007307; add
+	representative nodes.
+	(IWDS1-0078): New abstract node; unify A-BC-89FA; use
+	`<-denotational' for U+5184.
+	(BC-87F0): Add representative node.
+	(GT-K00688): Likewise; Use `<-denotational' for IWDS1-0078 instead
+	of UU+5184; use `<-denotational@component' for o-UU+5184.
+	(U+5189): Add `sound@ja/on/{kan|go}'.
+	(MJ007307): Add some relations for other characters.
+
 2018-12-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R127-Plow.el (U+43A8): Apply new conventions for glyph
