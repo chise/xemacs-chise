@@ -4809,8 +4809,8 @@
       (=daikanwa	  . 41698)	; &I-M-41698;
       )
      ((=ucs@unicode	  . #x5875)	; &AJ1-02582;
-      (=adobe-japan1-0	  . 02582)	; &AJ1-02582;
-      (=daikanwa	  . 05388)	; &I-M-05388;
+      (=adobe-japan1-0	  . 02582)	; &I-AJ1-02582;
+      (=daikanwa	  . 05388)	; &AJ1-02582;
       ))
     (->interchangeable$_1*sources
      jiyun daikanwa)
