@@ -3576,13 +3576,78 @@
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5143)	; 元
+      )
+     ((=>ucs@iwds-1	  . #x7535)	; &A-IWDSU+7535;
+      (=>iwds-1		  .  17197)	; &A-IWDSU+7535;
+      ))
+    (=>ucs@iwds-1	. #x2049E)	; &A-IWDSU+2049E;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x2049E)	; &A-IWDSU+2049E;
+      ))
+    (ideographic-radical . 10)	; ⼉
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5143)	; 元
+      )
+     ((=ucs		  . #x7535)	; 电
+      ))
+    (sound@ja/on	"geN")
+    (=ucs		. #x2003B)	; 𠀻
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2003B)	; 𠀻
+      ))
+    (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (hanyu-dazidian	8 7 5)
-    (=ucs		. #x2003B)	; 𠀻
-    (=cns11643-6	. #x2E66)	; &I-C6-2E66; [14-70]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5143)	; 元
+      )
+     ((=ucs@unicode	  . #x7535)	; &G0-3567;
+      (=gb2312		  . #x3567)	; &G0-3567; [21-71]
+      ))
+    (=ucs@iso		. #x2003B)	; &C6-2E66;
+    (=cns11643-6	. #x2E66)	; &C6-2E66; [14-70]
     (=daikanwa		. 48927)	; &I-M-48927;
-    (=hanziku-12	. #xEB44)	; &I-HZK12-EB44;
+    (<-same
+     ((=ucs@unicode	  . #x9EFF)	; &JX2-7E5E;
+      (=jis-x0212	  . #x6D22)	; &JX2-7E5E; [77-02]
+      (=cns11643-2	  . #x613D)	; &I-C2-613D; [65-29]
+      (=jis-x0213-2	  . #x7E5E)	; &I-JX2-7E5E; [94-62]
+      (=daikanwa	  . 48261)	; &I-M-48261;
+      ))
+    (<-same*sources
+     daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x2003B)	; &g2-M-48927;
+      (==cns11643-6	  . #x2E66)	; &g2-M-48927; [14-70]
+      (==daikanwa	  . 48927)	; &g2-M-48927;
+      (->subsumptive
+       ((===daikanwa	    . 48927)	; &R-M-48927;
+	)
+       ((===cns11643-6	    . #x2E66)	; &R-C6-2E66; [14-70]
+	)
+       ((===ucs@iso	    . #x2003B)	; &R-U-0002003B;
+	)
+       ((=hanziku-12	    . #xEB44)	; &HZK12-EB44;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 10)	; ⼉
@@ -4178,12 +4243,60 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 10)	; ⼉
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x2049E)	; &A-IWDSU+2049E;
+      ))
+    (ideographic-radical . 10)	; ⼉
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5143)	; 元
+      )
+     ((=>big5-cdp	  . #x88E5)	; &A-CDP-88E5;
+      ))
+    (sound@ja/on	"geN")
+    (=ucs		. #x2049E)	; 𠒞
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2049E)	; 𠒞
+      ))
+    (ideographic-radical . 10)	; ⼉
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (=ucs		. #x2049E)	; 𠒞
-    (=cns11643-6	. #x4659)	; &I-C6-4659; [38-57]
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5143)	; 元
+      )
+     ((=big5-cdp	  . #x88E5)	; &CDP-88E5;
+      ))
+    (=ucs@iso		. #x2049E)	; &C6-4659;
+    (=cns11643-6	. #x4659)	; &C6-4659; [38-57]
     (=daikanwa		. 48928)	; &I-M-48928;
+    (<-same
+     ((=ucs@unicode	  . #x9EFF)	; &JX2-7E5E;
+      (=jis-x0212	  . #x6D22)	; &JX2-7E5E; [77-02]
+      (=cns11643-2	  . #x613D)	; &I-C2-613D; [65-29]
+      (=jis-x0213-2	  . #x7E5E)	; &I-JX2-7E5E; [94-62]
+      (=daikanwa	  . 48261)	; &I-M-48261;
+      ))
+    (<-same*sources
+     daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x2049E)	; &g2-M-48928;
+      (==cns11643-6	  . #x4659)	; &g2-M-48928; [38-57]
+      (==daikanwa	  . 48928)	; &g2-M-48928;
+      (->subsumptive
+       ((===daikanwa	    . 48928)	; &R-M-48928;
+	)
+       ((===cns11643-6	    . #x4659)	; &R-C6-4659; [38-57]
+	)
+       ((===ucs@iso	    . #x2049E)	; &R-U-0002049E;
+	))
+      ))
     ))
 (define-char
   '((<-denotational
