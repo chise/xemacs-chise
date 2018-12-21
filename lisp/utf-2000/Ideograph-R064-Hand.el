@@ -15717,9 +15717,9 @@
      ((=ucs		  . #x22C1A)	; 𢰚
       (=daikanwa	  . 12372)	; &I-M-12372;
       ))
+    (->formed$_1*note	"M-12390 seems typo.")
     (->formed$_1*sources
      jiyun daikanwa)
-    (->formed$_1*sources*note "M-12390 seems typo.")
     (->formed*sources
      daikanwa)
     (->subsumptive

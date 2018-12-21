@@ -1,3 +1,55 @@
+2018-12-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen.el (SW-JIGUGE5-10804): Add "𭍞" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-10504): Ditto.
+	(SW-JIGUGE5-30818): Add "𠣹" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-30318): Ditto.
+	(SW-JIGUGE5-31019): Add "𩴓" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-30519): Ditto.
+	(SW-JIGUGE5-31307): Add "嶭" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-30807): Ditto.
+	(SW-JIGUGE5-31408): Add "峩" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-30908): Ditto.
+	(SW-JIGUGE5-31508): Add "崕" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-31008): Ditto.
+	(SW-JIGUGE5-31610): Add "厨" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-31110): Ditto.
+	(SW-JIGUGE5-31616): Add "広" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-31116): Ditto.
+	(SW-JIGUGE5-31620): Add "厠" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-31120): Ditto.
+	(SW-JIGUGE5-31708): Add "廃" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-31208): Ditto.
+
+2018-12-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R064-Hand.el (U+63E3): Use `->formed$_1*note' instead
+	of `->formed$_1*sources*note'.
+
+2018-12-17  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R010-Legs.el (A-IWDSU+2049E): New abstract node.
+	(U-0002003B): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+2049E.
+	(U-0002049E): Likewise.
+
+	* Ideograph-R006-Hook.el (U-00020110): New character.
+	(A-cgnU+4E88): Changed from U+4E88.
+	(AJ1-03879): Unify U+4E88 instead of A-IWDSU+4E88 and UU+4E88; use
+	A-cgnU+4E88 instead of U+4E88 as its mother.
+	(HNG-TZS0005-0): Use A-cgnU+4E88 instead of U+4E88 as its mother.
+	(GT-K00846): New character; use `<-denotational' for A-cgnU+4E88.
+
 2018-12-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R120-Silk.el (U+7D2B): Apply new conventions for glyph
