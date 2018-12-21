@@ -1,3 +1,36 @@
+2018-12-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* ShuoWen.el (SW-JIGUGE5-10804): Add "𭍞" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-10504): Ditto.
+	(SW-JIGUGE5-30818): Add "𠣹" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-30318): Ditto.
+	(SW-JIGUGE5-31019): Add "𩴓" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-30519): Ditto.
+	(SW-JIGUGE5-31307): Add "嶭" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-30807): Ditto.
+	(SW-JIGUGE5-31408): Add "峩" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-30908): Ditto.
+	(SW-JIGUGE5-31508): Add "崕" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-31008): Ditto.
+	(SW-JIGUGE5-31610): Add "厨" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-31110): Ditto.
+	(SW-JIGUGE5-31616): Add "広" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-31116): Ditto.
+	(SW-JIGUGE5-31620): Add "厠" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-31120): Ditto.
+	(SW-JIGUGE5-31708): Add "廃" as a target of
+	`<-Small-Seal@shuowen'.
+	(SW-JIGUGE4-31208): Ditto.
+
 2018-12-17  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R064-Hand.el (U+63E3): Use `->formed$_1*note' instead
