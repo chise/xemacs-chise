@@ -1,5 +1,25 @@
 2018-12-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R108-Dish.el (A-cgnU+76E3): New abstract node.
+	(U+76E3): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-cgnU+76E3.
+	(MJ018104): Use A-cgnU+76E3 instead of U+76E3 as its mother.
+	(U-000250C7): Add `ideographic-structure'; add `sound@ja/on'; add
+	`<-formed' and `<-same' for U+6AD1; add representative nodes.
+
+2018-12-19  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R046-Mountain.el (U-00021D39): New character.
+	(U+5D6E): Apply new conventions for glyph granularity.
+
+	* Ideograph-R031-Enclosure.el (U-000211E1): Apply new conventions
+	for glyph granularity.
+	(U-0002D360): New character; use `<-denotational' for
+	A-IWDSU+2D360.
+	(A-IWDSU+2D360): New abstract node.
+	(U-0002D365): New character; use `<-denotational' for
+	A-IWDSU+2D360.
+
 	* ShuoWen.el (SW-JIGUGE5-10804): Add "𭍞" as a target of
 	`<-Small-Seal@shuowen'.
 	(SW-JIGUGE4-10504): Ditto.
