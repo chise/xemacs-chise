@@ -1,3 +1,8 @@
+2018-12-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R058-Snout.el (IU+2246C): Use UU+4F86 instead of
+	U+4F86 as a component.
+
 2018-12-19  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R108-Dish.el (A-cgnU+76E3): New abstract node.
