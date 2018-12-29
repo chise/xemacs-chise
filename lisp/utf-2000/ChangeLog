@@ -1,4 +1,26 @@
+2018-12-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R060-Step.el (U+5FA0): Apply new conventions for glyph
+	granularity.
+
+2018-12-27  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R019-Power.el (U+52C5): Add UU+52D1 as a target of
+	`->interchangeable'.
+	(U+52D1): Apply new conventions for glyph granularity.
+
 2018-12-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R109-Eye.el (A-compU+250E6): New abstract node.
+	(A-IWDSU+250E6): New abstract node.
+	(C6-286A): Unify U-000250E6 instead of IU+250E6; add
+	`<-denotational' for A-compU+250E6; add `<-denotational@component'
+	for A-IWDSU+250E6; add `sound@ja/on'; unify GT-29617 and
+	GT-K03313.
+	(U+250E6-itaiji-001): New character; use `<-denotational' for
+	A-compU+250E6.
+	(U-000250EE): Add `<-denotational@component' for A-IWDSU+250E6;
+	add `sound@ja/on'.
 
 	* Ideograph-R058-Snout.el (IU+2246C): Use UU+4F86 instead of
 	U+4F86 as a component.

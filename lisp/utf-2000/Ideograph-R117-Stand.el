@@ -2787,7 +2787,8 @@
     (=koseki		. 288960)	; &MJ019362;
     (=daikanwa		. 25825)	; &I-M-25825;
     (->vulgar
-     ((=ucs		  . #x6B6A)	; 歪
+     ((=ucs@unicode	  . #x6B6A)	; &AJ1-04074;
+      (=adobe-japan1-0	  . 04074)	; &AJ1-04074;
       (=daikanwa	  . 16286)	; &I-M-16286;
       ))
     (->vulgar*sources
