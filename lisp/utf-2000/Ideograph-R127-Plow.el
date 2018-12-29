@@ -81,9 +81,10 @@
     (=hanyo-denshi/ft	. #x384C)	; &I-HD-FT-384C; [24-44]
     (=shinjigen		.  0243)	; &HD-FT-384C;
     (<-vulgar
-     ((=ucs		  . #x4F86)	; 來
+     ((=ucs@unicode	  . #x4F86)	; &AJ1-04141;
+      (=adobe-japan1-0	  . 04141)	; &AJ1-04141;
       (=jis-x0208	  . #x5054)	; &I-J90-5054; [48-52]
-      (=shinjigen	  .  0241)	; 來
+      (=shinjigen	  .  0241)	; &AJ1-04141;
       ))
     (<-vulgar*sources
      shinjigen)
