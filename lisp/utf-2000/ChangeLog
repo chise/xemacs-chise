@@ -1,3 +1,15 @@
+2018-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R077-Stop.el (A-cgnU+6B63): Changed from U+6B63.
+	(U+6B63): Changed from A-IWDSU+6B63; use A-cgnU+6B63 instead of
+	U+6B63 as its mother.
+	(UU+6B63): Use U+6B63 instead of A-IWDSU+6B63 as its mother; add
+	representative nodes.
+	(GT-K00455): Use U+6B63 instead of A-IWDSU+6B63 as its mother.
+	(HNG-KHM0398-0): Use A-cgnU+6B63 instead of U+6B63 as its mother.
+	(U+6B6A): Apply new conventions for glyph granularity; add
+	`<-same' and `<-vulgar' for MJ019362; add representative nodes.
+
 2018-12-27  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R060-Step.el (U+5FA0): Apply new conventions for glyph
