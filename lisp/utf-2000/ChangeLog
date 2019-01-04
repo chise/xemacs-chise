@@ -1,3 +1,11 @@
+2018-12-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R009-Man.el (U+4F86): Apply new conventions for glyph
+	granularity.
+	(U+5008): Likewise.
+	(U-00020399): Likewise.
+	(U-000203B8): Likewise.
+
 2018-12-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R077-Stop.el (A-cgnU+6B63): Changed from U+6B63.
