@@ -3,7 +3,7 @@
 ;; Copyright (C) 1995,1999 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1997, 1999, 2000, 2002, 2003, 2004, 2005, 2006, 2008,
-;;   2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018
+;;   2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019
 ;;   MORIOKA Tomohiko
 
 ;; Keywords: mule, multilingual, character set, coding system
@@ -5758,6 +5758,22 @@
 	       mother ==ucs@JP/hanazono
 	       min-code #x2E00
                max-code #x9FCC
+	       ;; max-code #xA4CF
+	       ))
+  (make-charset
+   '=>>ucs-bmp-cjk@unicode
+   "Unicode representative detailed-glyphs of CJK Unified Ideographs in BMP"
+   '(long-name "Unicode-BMP-CJK detailed-glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-zh-.*-ucs-0"
+	       mother =>>ucs@unicode
+	       min-code #x2E00
+               max-code #x9FA5
+	       ;; max-code #x9FCC
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
