@@ -615,7 +615,7 @@ DESCRIPTION (string) is the description string of the charset."
           =+>ucs-bmp-cjk-compat@jis
 	  =+>jis-x0213-2
 	  =+>jis-x0213-1@2004
-	  ;; =>>ucs@unicode
+	  =>>ucs-bmp-cjk@unicode
 	  =adobe-japan1-base
 	  =>jis-x0208@1997
 	  =>>hanyo-denshi/ft
