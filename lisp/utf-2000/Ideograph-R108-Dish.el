@@ -2406,33 +2406,41 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=>big5-cdp	  . #x8CC9)	; &A-CDP-8CC9;
+     ((=big5-cdp	  . #x8CC9)	; &CDP-8CC9;
       )
      ((=ucs		  . #x76BF)	; 皿
       ))
     (=ucs		. #x76E3)	; 監
+    (=adobe-japan1-0	. 01538)	; &I-AJ1-01538;
+    (=jis-x0208		. #x3446)	; &I-J90-3446; [20-38]
+    (=ks-x1001		. #x4A78)	; &I-K0-4A78; [42-88]
+    (=cns11643-1	. #x6971)	; &I-C1-6971; [73-81]
+    (=jis-x0213-1	. #x3446)	; &I-JX1-3446; [20-38]
+    (=gb12345		. #x3C60)	; 監 [28-64]
     (=big5		. #xBACA)	; &I-B-BACA;
+    (=gt		. 29504)	; &I-GT-29504;
+    (=gt-k		. 11107)	; &I-GT-K11107;
+    (=gt-pj-1		. #x3446)	; &I-GT-29504; [20-38]
+    (=daikanwa		. 23032)	; &I-M-23032;
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=big5-cdp	    . #x8CC9)	; &CDP-8CC9;
+       ((=>>big5-cdp	    . #x8CC9)	; &G-CDP-8CC9;
 	)
        ((=ucs		    . #x76BF)	; 皿
 	))
-      (=ucs@cns		  . #x76E3)	; &AJ1-01538;
-      (=ucs@jis		  . #x76E3)	; &AJ1-01538;
-      (=ucs@ks		  . #x76E3)	; &AJ1-01538;
-      (=adobe-japan1-0	  . 01538)	; &AJ1-01538;
-      (=jis-x0208	  . #x3446)	; &I-J90-3446; [20-38]
-      (=ks-x1001	  . #x4A78)	; &I-K0-4A78; [42-88]
-      (=cns11643-1	  . #x6971)	; &I-C1-6971; [73-81]
-      (=jis-x0213-1	  . #x3446)	; &I-JX1-3446; [20-38]
-      (=gt		  . 29504)	; &I-GT-29504;
-      (=gt-k		  . 11107)	; &I-GT-K11107;
-      (=gt-pj-1		  . #x3446)	; &I-GT-29504; [20-38]
-      (=daikanwa	  . 23032)	; &I-M-23032;
+      (=>>ucs@jis	  . #x76E3)	; &G-AJ1-01538;
+      (=>>ucs@ks	  . #x76E3)	; &G-AJ1-01538;
+      (=>>ucs@cns	  . #x76E3)	; &G-AJ1-01538;
+      (=>>adobe-japan1-0  . 01538)	; &G-AJ1-01538;
+      (=>>jis-x0208	  . #x3446)	; &G-AJ1-01538; [20-38]
+      (=>>cns11643-1	  . #x6971)	; &G-AJ1-01538; [73-81]
+      (=>>jis-x0213-1	  . #x3446)	; &G-AJ1-01538; [20-38]
+      (=>>gt		  . 29504)	; &G-AJ1-01538;
+      (=>>gt-k		  . 11107)	; &G-AJ1-01538;
+      (=>>daikanwa	  . 23032)	; &G-AJ1-01538;
       (->subsumptive
        ((==ucs@cns	    . #x76E3)	; &g2-AJ1-01538;
 	(==ucs@jis	    . #x76E3)	; &g2-AJ1-01538;
@@ -2465,9 +2473,7 @@
 	  ))
 	))
       )
-     ((=ucs@unicode	  . #x76E3)	; &UU+76E3;
-      (=ucs@JP/hanazono	  . nil)
-      (=gb12345		  . #x3C60)	; &UU+76E3; [28-64]
+     ((=>>ucs@unicode	  . #x76E3)	; &G-UU+76E3;
       (->subsumptive
        ((==ucs@unicode	    . #x76E3)	; &g2-UU+76E3;
 	(==ucs@JP/hanazono  . nil)
