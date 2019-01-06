@@ -5761,6 +5761,22 @@
 	       ;; max-code #xA4CF
 	       ))
   (make-charset
+   '=>>ucs-bmp-cjk@unicode
+   "Unicode representative detailed-glyphs of CJK Unified Ideographs in BMP"
+   '(long-name "Unicode-BMP-CJK detailed-glyphs"
+	       chars 256
+	       dimension 2
+	       columns 2
+	       graphic 2
+	       direction l2r
+	       registry "-zh-.*-ucs-0"
+	       mother =>>ucs@unicode
+	       min-code #x2E00
+               max-code #x9FA5
+	       ;; max-code #x9FCC
+	       ;; max-code #xA4CF
+	       ))
+  (make-charset
    '=+>ucs-bmp-cjk@unicode
    "Unicode representative characters of CJK Unified Ideographs in BMP"
    '(long-name "Unicode-BMP-CJK unified abstract glyphs"
