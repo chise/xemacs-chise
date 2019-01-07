@@ -3262,6 +3262,10 @@
       )
      ((=ucs		  . #x52C5)	; 勅
       ))
+    (<-wrong
+     ((=ucs@unicode	  . #x52D1)	; &AJ1-17326;
+      (=adobe-japan1-5	  . 17326)	; &AJ1-17326;
+      ))
     (->formed
      ((=ucs		  . #x52C5)	; 勅
       ))
@@ -9100,12 +9104,75 @@
       )
      ((=ucs		  . #x4F86)	; 來
       ))
+    (sound@ja/on	"ri" "rai" "tai")
     (=ucs		. #x6584)	; 斄
-    (=adobe-japan1-5	. 17723)	; &I-AJ1-17723;
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x6584)	; 斄
+      ))
+    (ideographic-radical . 66)	; ⽁
+    (ideographic-strokes . 15)
+    (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x20A7A)	; 𠩺
+      )
+     ((=ucs@unicode	  . #x4F86)	; &AJ1-04141;
+      (=adobe-japan1-0	  . 04141)	; &AJ1-04141;
+      ))
+    (=ucs@unicode	. #x6584)	; &AJ1-17723;
+    (=adobe-japan1-5	. 17723)	; &AJ1-17723;
     (=cns11643-2	. #x6553)	; &I-C2-6553; [69-51]
     (=jis-x0213-2	. #x2D67)	; &I-JX2-2D67; [13-71]
     (=big5		. #xF248)	; &I-B-F248;
     (=daikanwa		. 13427)	; &I-M-13427;
+    (<-interchangeable
+     ((=ucs@unicode	  . #x729B)	; &AJ1-16969;
+      (=adobe-japan1-5	  . 16969)	; &AJ1-16969;
+      (=daikanwa	  . 20154)	; &I-M-20154;
+      )
+     ((=ucs		  . #x90B0)	; 邰
+      (=daikanwa	  . 39332)	; &I-M-39332;
+      ))
+    (<-interchangeable$_1*sources
+     shuowen-tongxun-dingsheng daikanwa)
+    (<-interchangeable$_2*sources
+     jiyun daikanwa)
+    (<-interchangeable*sources
+     daikanwa)
+    (->ancient
+     ((=ucs@iso		  . #x20A6C)	; &MJ031892;
+      (=mj		  . 031892)	; &MJ031892;
+      (=daikanwa	  . 02969)	; &I-M-02969;
+      ))
+    (->ancient$_1*sources
+     shuowen jiyun daikanwa)
+    (->ancient*sources
+     shuowen jiyun daikanwa)
+    (->formed
+     ((=ucs@iso		  . #x23B89)	; &C4-384D;
+      (=cns11643-4	  . #x384D)	; &C4-384D; [24-45]
+      (=daikanwa	  . 16861)	; &I-M-16861;
+      )
+     ((=ucs@unicode	  . #x42F1)	; &C5-4854;
+      (=cns11643-5	  . #x4854)	; &C5-4854; [40-52]
+      (=daikanwa	  . 27574)	; &I-M-27574;
+      ))
+    (->formed$_1*sources
+     jiyun)
+    (->formed$_2*sources
+     jiyun)
+    (->formed*sources
+     jiyun)
+    (->mistakable
+     ((=ucs		  . #x6F26)	; 漦
+      (=daikanwa	  . 18160)	; &I-M-18160;
+      ))
+    (->mistakable*sources
+     zihui-biansi-2char daikanwa)
     (->subsumptive
      ((==ucs@unicode	  . #x6584)	; &g2-AJ1-17723;
       (==adobe-japan1-5	  . 17723)	; &g2-AJ1-17723;

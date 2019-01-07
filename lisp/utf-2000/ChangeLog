@@ -1,3 +1,40 @@
+2019-01-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R066-Rap.el (UU+6555): Add `<-wrong' for UU+52D1.
+	(U+6584): Apply new conventions for glyph granularity.
+
+	* Ideograph-R031-Enclosure.el (A-U+342D-itaiji-003): New abstract
+	node.
+	(U+342D-itaiji-003): New character; use `<-denotational' for
+	A-U+342D-itaiji-003.
+
+	* Ideograph-R030-Mouth.el (U+553B): Apply new conventions for
+	glyph granularity.
+	(U+556C): Likewise.
+	(A-IWDSU+55C7): New abstract node.
+	(U+55C7): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+55C7.
+	(U+55C7-itaiji-002): New character; use `<-denotational' for
+	U+55C7.
+	(U-00020E6B): Apply new conventions for glyph granularity; add
+	`<-denotational' for A-IWDSU+55C7.
+	(U-00020EEE): Apply new conventions for glyph granularity.
+	(U-00020F82): Likewise.
+	(A-U+55C7-itaiji-001): New abstract node.
+	(U+55C7-itaiji-001): New character; use `<-denotational' for
+	A-U+55C7-itaiji-001.
+
+	* Ideograph-R027-Cliff.el (U-00020A6C): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R009-Man.el (o-BC-8C74): New abstract node.
+	(BC-89BC): New character; use `<-denotational' for o-BC-8C74.
+	(BC-8C74): Ditto.
+	(A-BC-85B0): New abstract node.
+	(BC-85B0): New character; use `<-denotational' for A-BC-85B0.
+	(A-BC-85AF): New abstract node.
+	(BC-85AF): New character; use `<-denotational' for A-BC-85AF.
+
 2019-01-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R108-Dish.el (U+76E3): Apply new conventions for glyph
