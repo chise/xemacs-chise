@@ -2262,11 +2262,72 @@
   '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (hanyu-dazidian	1 73 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs		  . #x4F86)	; 來
+      ))
+    (sound@ja/on	"tai")
     (=ucs		. #x20A6C)	; 𠩬
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x20A6C)	; 𠩬
+      ))
+    (ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (hanyu-dazidian	1 73 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5382)	; 厂
+      )
+     ((=ucs@unicode	  . #x4F86)	; &AJ1-04141;
+      (=adobe-japan1-0	  . 04141)	; &AJ1-04141;
+      ))
+    (=ucs@iso		. #x20A6C)	; &MJ031892;
+    (=mj		. 031892)	; &MJ031892;
     (=cns11643-6	. #x356F)	; &I-C6-356F; [21-79]
+    (=koseki		. 034300)	; &MJ031892;
     (=daikanwa		. 02969)	; &I-M-02969;
-    (=hanziku-1		. #xB2F6)	; &I-HZK01-B2F6;
+    (<-ancient
+     ((=ucs@unicode	  . #x6584)	; &AJ1-17723;
+      (=adobe-japan1-5	  . 17723)	; &AJ1-17723;
+      (=daikanwa	  . 13427)	; &I-M-13427;
+      ))
+    (<-ancient*sources
+     shuowen jiyun daikanwa)
+    (<-formed
+     ((=ucs@unicode	  . #x6584)	; &AJ1-17723;
+      (=adobe-japan1-5	  . 17723)	; &AJ1-17723;
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==ucs@iso	  . #x20A6C)	; &g2-MJ031892;
+      (==mj		  . 031892)	; &g2-MJ031892;
+      (==cns11643-6	  . #x356F)	; &g2-MJ031892; [21-79]
+      (==koseki		  . 034300)	; &g2-MJ031892;
+      (==daikanwa	  . 02969)	; &g2-MJ031892;
+      (->subsumptive
+       ((===daikanwa	    . 02969)	; &R-M-02969;
+	)
+       ((===mj		    . 031892)	; &R-MJ031892;
+	)
+       ((===ucs@iso	    . #x20A6C)	; &R-U-00020A6C;
+	)
+       ((=hanziku-1	    . #xB2F6)	; &HZK01-B2F6;
+	)
+       ((===cns11643-6	    . #x356F)	; &R-C6-356F; [21-79]
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
