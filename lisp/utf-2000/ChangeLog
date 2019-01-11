@@ -1,3 +1,9 @@
+2019-01-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R040-Roof.el (U+5BD8): Add `sound@ja/on'.
+	(JU+5BD8): Add some relations for other characters.
+	(U-00021AC6): Use `->denotational' and `->subsumptive'.
+
 2019-01-08  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R053-Dotted-Cliff.el (U-00022282): Apply new
