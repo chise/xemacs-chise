@@ -1,3 +1,17 @@
+2019-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R086-Fire.el (g2-UU+7157): Omit
+	`ideographic-structure'.
+	(g2-CU+7157): Likewise.
+
+2019-01-09  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R090-Half-Tree-Trunk.el (U+7246): Apply new
+	conventions for glyph granularity.
+	(U-000245A0): Use `->denotational' and `->subsumptive'.
+	(U-000245A3): Likewise.
+	(U-000245A7): Likewise.
+
 2019-01-09  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R040-Roof.el (U+5BD8): Add `sound@ja/on'.
