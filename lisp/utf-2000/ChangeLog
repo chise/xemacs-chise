@@ -1,3 +1,21 @@
+2019-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (U+67D3): Add `<-denotational' for
+	A-cgnU+67D3; add `ideographic-structure'; add
+	`sound@ja/on/{kan|go|conventional}'; add some relations for other
+	characters.
+	(U-0002353F): Apply new conventions for glyph granularity.
+	(U+3BE4): Likewise.
+	(U+6ABB): Likewise.
+	(U+3BFA): Likewise.
+
+2019-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (A-U+55C7-itaiji-003): New abstract
+	node.
+	(U+55C7-itaiji-003): New character; use `<-denotational' for
+	A-U+55C7-itaiji-003.
+
 2019-01-11  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R086-Fire.el (g2-UU+7157): Omit
