@@ -1,3 +1,19 @@
+2019-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R131-Minister.el (A-cgnBC-8CC9): Changed from
+	A-BC-8CC9.
+	(BC-8CC9-itaiji-001): Use A-cgnBC-8CC9 instead of A-BC-8CC9 as its
+	mother.
+	(BC-8CC9): Likewise; apply new conventions for glyph granularity.
+	(BC-8CC9-var-002): New character; use `<-subsumptive' for BC-8CC9.
+	(BC-8CC9-itaiji-002): Use A-cgnBC-8CC9 instead of A-BC-8CC9 as its
+	mother.
+
+2019-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R093-Cow.el (U+729B): Apply new conventions for glyph
+	granularity.
+
 2019-01-13  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R075-Tree.el (U+67D3): Add `<-denotational' for
