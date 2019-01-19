@@ -330,13 +330,11 @@
     ))
 (define-char
   '((ideographic-radical . 131)	; ⾂
-    (ideographic-strokes . 3)
-    (total-strokes	 . 9)
-    (=>big5-cdp		. #x8CC9)	; &A-CDP-8CC9;
+    (=>big5-cdp@cognate . #x8CC9)	; &A-cgnCDP-8CC9;
     ))
 (define-char
   '((<-denotational
-     ((=>big5-cdp	  . #x8CC9)	; &A-CDP-8CC9;
+     ((=>big5-cdp@cognate . #x8CC9)	; &A-cgnCDP-8CC9;
       ))
     (ideographic-radical . 131)	; ⾂
     (ideographic-strokes . 3)
@@ -361,7 +359,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>big5-cdp	  . #x8CC9)	; &A-CDP-8CC9;
+     ((=>big5-cdp@cognate . #x8CC9)	; &A-cgnCDP-8CC9;
       ))
     (ideographic-radical . 131)	; ⾂
     (ideographic-strokes . 3)
@@ -372,11 +370,32 @@
       )
      ((=ucs		  . #x81E3)	; 臣
       )
-     ((=big5-cdp	  . #x8C74)	; &CDP-8C74;
+     ((=+>big5-cdp	  . #x8C74)	; &o-CDP-8C74;
       ))
     (=big5-cdp		. #x8CC9)	; &CDP-8CC9;
     (->subsumptive
-     ((==big5-cdp	  . #x8CC9)	; &g2-CDP-8CC9;
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x81E3)	; 臣
+	)
+       ((=big5-cdp	    . #x8C74)	; &CDP-8C74;
+	))
+      (=>>big5-cdp	  . #x8CC9)	; &G-CDP-8CC9;
+      (->subsumptive
+       ((==big5-cdp	    . #x8CC9)	; &g2-CDP-8CC9;
+	))
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x81E3)	; 臣
+	)
+       ((=big5-cdp	    . #x89BC)	; &CDP-89BC;
+	))
+      (=big5-cdp-var-002  . #x8CC9)	; &CDP-v002-8CC9;
       ))
     ))
 (define-char
@@ -433,7 +452,7 @@
     ))
 (define-char
   '((<-denotational
-     ((=>big5-cdp	  . #x8CC9)	; &A-CDP-8CC9;
+     ((=>big5-cdp@cognate . #x8CC9)	; &A-cgnCDP-8CC9;
       ))
     (ideographic-radical . 131)	; ⾂
     (ideographic-strokes . 4)
@@ -674,7 +693,10 @@
      ((=ucs		  . #x76E3)	; 監
       ))
     (->subsumptive
-     ((==big5-cdp	  . #x8D50)	; &g2-CDP-8D50;
+     ((=>>big5-cdp	  . #x8D50)	; &G-CDP-8D50;
+      (->subsumptive
+       ((==big5-cdp	    . #x8D50)	; &g2-CDP-8D50;
+	))
       ))
     ))
 (define-char
