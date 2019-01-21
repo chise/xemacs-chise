@@ -1,3 +1,26 @@
+2019-01-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R120-Silk.el (U+42F1): Apply new conventions for glyph
+	granularity.
+
+	* Ideograph-R115-Grain.el (U+4158): Apply new conventions for
+	glyph granularity.
+	(UU+4158): Unify M-25109; add some relations for other characters.
+	(U-000258BA): Apply new conventions for glyph granularity.
+	(U+7A61): Likewise.
+	(HD-KS283930): New character; use `<-denotational' for U+7A61;
+	unify S-5675.
+
+	* Ideograph-R082-Fur.el (U-00023B89): Apply new conventions for
+	glyph granularity.
+	(IU+23B89): Unify M-16861 and CB08429; add some relations for
+	other characters.
+	(U+6C02): Apply new conventions for glyph granularity.
+
+2019-01-18  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R021-Spoon.el (U-0002B9C7): New character.
+
 2019-01-14  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R131-Minister.el (A-cgnBC-8CC9): Changed from
