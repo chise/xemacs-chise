@@ -1247,8 +1247,7 @@
     (->same*sources
      guangyun)
     (->vulgar
-     ((=ucs@unicode	  . #x58BB)	; &AJ1-04519;
-      (=adobe-japan1-0	  . 04519)	; &AJ1-04519;
+     ((=ucs		  . #x58BB)	; 墻
       (=daikanwa	  . 05505)	; &I-M-05505;
       ))
     (->vulgar$_1*sources
