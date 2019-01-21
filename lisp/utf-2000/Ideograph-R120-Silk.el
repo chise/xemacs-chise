@@ -11676,12 +11676,65 @@
   '((ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
-    (=ucs		. #x42F1)	; 䋱
-    (->subsumptive
-     ((=daikanwa	  . 27574)	; &M-27574;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x42F1)	; &C5-4854;
-      (=cns11643-5	  . #x4854)	; &C5-4854; [40-52]
+     ((=ucs		  . #x7CF8)	; 糸
+      )
+     ((=ucs		  . #x4F86)	; 來
+      ))
+    (sound@ja/on	"rai" "ri")
+    (=ucs		. #x42F1)	; 䋱
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x42F1)	; 䋱
+      ))
+    (ideographic-radical . 120)	; ⽷
+    (ideographic-strokes . 8)
+    (total-strokes	 . 14)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x7CF8)	; 糸
+      )
+     ((=ucs@unicode	  . #x4F86)	; &AJ1-04141;
+      (=adobe-japan1-0	  . 04141)	; &AJ1-04141;
+      ))
+    (=ucs@unicode	. #x42F1)	; &C5-4854;
+    (=cns11643-5	. #x4854)	; &C5-4854; [40-52]
+    (=daikanwa		. 27574)	; &I-M-27574;
+    (<-formed
+     ((=ucs@unicode	  . #x6584)	; &AJ1-17723;
+      (=adobe-japan1-5	  . 17723)	; &AJ1-17723;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-same
+     ((=ucs@unicode	  . #x6584)	; &AJ1-17723;
+      (=adobe-japan1-5	  . 17723)	; &AJ1-17723;
+      (=daikanwa	  . 13427)	; &I-M-13427;
+      )
+     ((=ucs@iso		  . #x23B89)	; &C4-384D;
+      (=cns11643-4	  . #x384D)	; &C4-384D; [24-45]
+      (=daikanwa	  . 16861)	; &I-M-16861;
+      ))
+    (<-same$_1*sources
+     jiyun daikanwa)
+    (<-same$_2*sources
+     guangyun daikanwa)
+    (<-same*sources
+     daikanwa)
+    (->subsumptive
+     ((==daikanwa	  . 27574)	; &g2-M-27574;
+      )
+     ((==ucs@cns	  . #x42F1)	; &g2-CU+42F1;
+      (==cns11643-5	  . #x4854)	; &g2-CU+42F1; [40-52]
+      )
+     ((==ucs@unicode	  . #x42F1)	; &g2-UU+42F1;
+      (==ucs@JP/hanazono  . nil)
       ))
     ))
 (define-char
