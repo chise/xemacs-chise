@@ -344,6 +344,42 @@
     ))
 (define-char
   '((ideographic-radical . 21)	; ⼔
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=>ucs@iwds-1	  . #x5315)	; &J97-5238;
+      (=>jis-x0208	  . #x5238)	; &J97-5238; [50-24]
+      )
+     ((=>ucs@iwds-1	  . #x5315)	; &J97-5238;
+      (=>jis-x0208	  . #x5238)	; &J97-5238; [50-24]
+      ))
+    (=ucs		. #x2B9C7)	; 𫧇
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x2B9C7)	; 𫧇
+      ))
+    (ideographic-radical . 21)	; ⼔
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x5315)	; 匕
+      )
+     ((=ucs		  . #x5315)	; 匕
+      ))
+    (=ucs@JP/hanazono	. #x2B9C7)	; &hanaJU+2B9C7;
+    (->subsumptive
+     ((==ucs@JP/hanazono  . #x2B9C7)	; &g2-hanaJU+2B9C7;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 262 4)
