@@ -1,3 +1,9 @@
+2019-01-22  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R038-Woman.el (U+5B19): Apply new conventions for
+	glyph granularity.
+	(U-000218F0): Use `->denotational' and `->subsumptive'.
+
 2019-01-21  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R032-Earth.el (A-BC-8A65): New abstract node.
