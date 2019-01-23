@@ -1,3 +1,69 @@
+2019-01-21  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R032-Earth.el (A-BC-8A65): New abstract node.
+	(BC-8A65): New character; use `<-denotational' for A-BC-8A65.
+	(U-00021249): New character.
+	(U+21249-var-001): New character; use `<-denotational' for
+	U-00021249.
+	(U+5738): Add `sound@ja/kun'.
+	(U+3628): Add `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(CU+3628): Add `ideographic-structure'; unify MJ000474 and
+	KOSEKI-056190.
+	(UU+3628): Add `ideographic-structure'.
+	(BC-8D5B-var-003): New character; use `<-denotational' for
+	A-BC-8D5B.
+	(A-GT-K02936): New abstract node; unify A-U+21249-itaiji-001.
+	(GT-K02936): New character; use `<-denotational' for A-GT-K02936;
+	unify U+21249-itaiji-001.
+	(U+3631): Add `ideographic-structure'; add `sound@ja/on'.
+	(C3-2827): Unify CU+3631; add `ideographic-structure'.
+	(UU+3631): Add `ideographic-structure'.
+	(U+579B): Apply new conventions for glyph granularity.
+	(U+57D0): Add `ideographic-structure'; add `sound@ja/on'.
+	(CU+57D0): Add `ideographic-structure'; add `<-formed@shuowen' and
+	`<-same' for IU+213B9; add representative nodes.
+	(UU+57D0): Add `ideographic-structure'; add representative node.
+	(U+57E9): Apply new conventions for glyph granularity.
+	(U+3659): Likewise.
+	(UU+5861): Add some relations for other characters.
+	(U+5863): Add `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(CU+5863): Add `ideographic-structure'; add representative nodes.
+	(UU+5863): Likewise.
+	(U-000213B9): Use `->denotational' and `->subsumptive'.
+	(A-cgnU+5875): New abstract node.
+	(U+5875): Add `<-denotational' for A-cgnU+5875; add
+	`ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(UU+5875): Delete `=>ucs@iwds-1'; add some relations for other
+	characters.
+	(HNG-KHM0262-1): Use A-cgnU+5875 instead of U+5875 as its mother.
+	(U+5899): Apply new conventions for glyph granularity.
+	(U-0002142A): Use `->denotational' and `->subsumptive'.
+	(U+58B6): Add `ideographic-structure'.
+	(UU+58B6): Add `ideographic-structure'; add representative node.
+	(A-IWDSU+58BB): New abstract node.
+	(U+58BB): Add `<-denotational' for A-IWDSU+58BB; add
+	`ideographic-structure'; add `sound@ja/on'; add `<-same' and
+	`<-vulgar' for UU+7246.
+	(U-0002BBB0): New character; use `<-denotational' for
+	A-IWDSU+58BB.
+	(CU+3671): Add `ideographic-structure'; add `<-formed' and
+	`<-same' for IU+271FC.
+	(UU+3671): Add `ideographic-structure'; add representative node.
+	(U-00021485): Apply new conventions for glyph granularity.
+	(U+58CF): Likewise.
+	(U+3679): Add `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(C3-544A): Unify CU+3679; add `ideographic-structure'; add
+	representative nodes.
+	(UU+3679): Add `ideographic-structure'.
+	(U+58DD): Apply new conventions for glyph granularity.
+	(A-MH-0109): Unify A-cgnU+2150C.
+	(U-0002150C): Add representative node.
+	(U+58E7): Add `ideographic-structure'; add `sound@ja/on/{kan|go}'.
+	(CU+58E7): Add `ideographic-structure'; add representative nodes.
+	(UU+58E7): Likewise.
+	(U-00021518): Add `ideographic-structure'; add `sound@ja/on'; add
+	`<-Zhouwen' for IU+2A2FB.
+
 2019-01-18  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R120-Silk.el (U+42F1): Apply new conventions for glyph

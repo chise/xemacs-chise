@@ -1321,7 +1321,8 @@
       (=jis-x0208	  . #x674A)	; &I-J90-674A; [71-42]
       ))
     (->formed
-     ((=ucs		  . #x80FD)	; 能
+     ((=ucs@unicode	  . #x80FD)	; &AJ1-03315;
+      (=adobe-japan1-0	  . 03315)	; &AJ1-03315;
       (=daikanwa	  . 29454)	; &I-M-29454;
       ))
     (->formed$_1*sources
