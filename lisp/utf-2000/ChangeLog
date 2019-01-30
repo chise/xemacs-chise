@@ -1,3 +1,22 @@
+2019-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R064-Hand.el (U+39EB): Add `ideographic-structure';
+	add some relations for other characters.
+	(U+633C): Add `ideographic-structure'.
+	(JU+633C): Likewise; add some relations for other characters.
+	(U+6370): Add `ideographic-structure'; add `sound@ja/on'; add
+	`->formed' for JU+633C; add representative nodes.
+	(U+637C): Apply new conventions for glyph granularity.
+	(U+3A0E): Likewise.
+	(U+648B): Likewise.
+	(U+64E9): Likewise.
+
+	* Ideograph-R018-Knife.el (U-0002A7C4): Add
+	`ideographic-structure'; add representative nodes.
+	(A-U+2A7C4-itaiji-001): New abstract node.
+	(U+2A7C4-itaiji-001): New character; use `<-denotational' for
+	A-U+2A7C4-itaiji-001.
+
 2019-01-22  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R038-Woman.el (U+5B19): Apply new conventions for
