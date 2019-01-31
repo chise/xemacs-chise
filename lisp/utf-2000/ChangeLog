@@ -1,3 +1,20 @@
+2019-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R029-Again.el (U-00020B7C): Apply new conventions for
+	glyph granularity.
+
+2019-01-29  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R012-Eight.el (A-U+5173-itaiji-001): New abstract
+	node.
+	(U+5173-itaiji-001): New character; use `<-denotational' for
+	A-U+5173-itaiji-001.
+
+	* Ideograph-R009-Man.el (U+3431): Apply new conventions for glyph
+	granularity.
+	(U+5044): Likewise.
+	(U+3477): Likewise.
+
 2019-01-28  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R064-Hand.el (U+39EB): Add `ideographic-structure';
