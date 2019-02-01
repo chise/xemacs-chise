@@ -11698,21 +11698,74 @@
     (=hanziku-2		. #xCF7E)	; &I-HZK02-CF7E;
     ))
 (define-char
-  '((=>ucs		. #x20C0E)	; 𠰎
-    (ideographic-radical . 30)	; ⼝
-    (ideographic-strokes . 5)
-    (total-strokes	 . 8)
-    (=daikanwa		. 03464)	; &M-03464;
+  '((ideographic-radical . 30)	; ⼝
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=>ucs@iwds-1	  . #x378B)	; &A-IWDSU+378B;
+      (=>iwds-1		  .  0125)	; &A-IWDSU+378B;
+      ))
+    (=ucs		. #x20C0E)	; 𠰎
     ))
 (define-char
-  '((morohashi-daikanwa	3464 0 0)
+  '((<-denotational
+     ((=ucs		  . #x20C0E)	; 𠰎
+      ))
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 609 5)
-    (=ucs		. #x20C0E)	; 𠰎
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x53E3)	; 口
+      )
+     ((=ucs		  . #x378B)	; 㞋
+      ))
+    (=ucs@iso		. #x20C0E)	; &MJ032182;
+    (=mj		. 032182)	; &MJ032182;
     (=cns11643-6	. #x2A34)	; &I-C6-2A34; [10-20]
-    (=hanziku-2		. #xCFC2)	; &I-HZK02-CFC2;
+    (=koseki		. 040000)	; &MJ032182;
+    (=daikanwa		. 03464)	; &I-M-03464;
+    (<-Zhouwen
+     ((=ucs		  . #x76AE)	; 皮
+      (=daikanwa	  . 22823)	; &I-M-22823;
+      ))
+    (<-Zhouwen*sources
+     shuowen jiyun daikanwa)
+    (<-ancient
+     ((=ucs		  . #x76AE)	; 皮
+      ))
+    (<-ancient$_1*sources
+     jiyun)
+    (<-formed
+     ((=ucs		  . #x76AE)	; 皮
+      ))
+    (<-formed$_1*sources
+     koseki mj)
+    (<-formed*sources
+     koseki mj)
+    (->subsumptive
+     ((==koseki		  . 040000)	; &g2-M-03464;
+      (==daikanwa	  . 03464)	; &g2-M-03464;
+      )
+     ((==ucs@iso	  . #x20C0E)	; &g2-MJ032182;
+      (==mj		  . 032182)	; &g2-MJ032182;
+      (==cns11643-6	  . #x2A34)	; &g2-MJ032182; [10-20]
+      (->subsumptive
+       ((===mj		    . 032182)	; &R-MJ032182;
+	)
+       ((===cns11643-6	    . #x2A34)	; &R-C6-2A34; [10-20]
+	)
+       ((===ucs@iso	    . #x20C0E)	; &R-U-00020C0E;
+	)
+       ((=hanziku-2	    . #xCFC2)	; &HZK02-CFC2;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
