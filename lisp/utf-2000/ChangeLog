@@ -1,5 +1,11 @@
 2019-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R044-Corpse.el (U+378B): Unify CB07131.
+	(U-00021C2B): Apply new conventions for glyph granularity.
+
+	* Ideograph-R030-Mouth.el (U-00020C0E): Use `->denotational' and
+	`->subsumptive'.
+
 	* Ideograph-R029-Again.el (U-00020B7C): Apply new conventions for
 	glyph granularity.
 
