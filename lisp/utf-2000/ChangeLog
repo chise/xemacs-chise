@@ -1,3 +1,15 @@
+2019-01-31  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R075-Tree.el (U+6A2F): Apply new conventions for glyph
+	granularity.
+	(UU+3BE4): Add `<-formed' for UU+4158.
+	(U+6AA3): Apply new conventions for glyph granularity.
+	(U-0002378B): Likewise.
+	(IU+2378B): Unify M-15781.
+
+	* Ideograph-R008-Lid.el (U+4EB7): Apply new conventions for glyph
+	granularity; use A-IWDSU+5EC9 instead of BUCS+5EC9 as its mother.
+
 2019-01-30  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R044-Corpse.el (U+378B): Unify CB07131.
