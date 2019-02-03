@@ -1,3 +1,14 @@
+2019-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R053-Dotted-Cliff.el (BUCS+5EC9): Separate
+	A-compU+5EC9 and IWDS1-0337.
+	(IWDS1-0337): Separate BUCS+5EC9; unify A-IWDSU+5EC9 instead of
+	A-compU+5EC9; use `<-denotational' for BUCS+5EC9.
+	(U+5EC9): Use A-IWDSU+5EC9 instead of BUCS+5EC9 as its mother; add
+	`ideographic-structure'.
+	(KU+5EC9): Add `ideographic-structure'.
+	(UU+5EC9): Likewise.
+
 2019-01-31  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R075-Tree.el (U+6A2F): Apply new conventions for glyph
