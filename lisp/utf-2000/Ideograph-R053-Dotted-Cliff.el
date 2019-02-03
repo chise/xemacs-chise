@@ -5789,20 +5789,35 @@
     ))
 (define-char
   '((ideographic-radical . 53)	; ⼴
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
     (==>ucs@bucs	. #x5EC9)	; &BUCS+5EC9;
-    (=>ucs@component	. #x5EC9)	; &BUCS+5EC9;
-    (=>iwds-1		.  0337)	; &BUCS+5EC9;
     ))
 (define-char
   '((<-denotational
      ((==>ucs@bucs	  . #x5EC9)	; &BUCS+5EC9;
-      (=>ucs@component	  . #x5EC9)	; &BUCS+5EC9;
       ))
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (=>iwds-1*note	"337+133+9+23")
+    (=>ucs@iwds-1	. #x5EC9)	; &A-IWDSU+5EC9;
+    (=>iwds-1		.  0337)	; &A-IWDSU+5EC9;
+    ))
+(define-char
+  '((<-denotational
+     ((=>ucs@iwds-1	  . #x5EC9)	; &A-IWDSU+5EC9;
+      (=>iwds-1		  .  0337)	; &A-IWDSU+5EC9;
+      ))
+    (ideographic-radical . 53)	; ⼴
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=ucs		  . #x517C)	; 兼
+      ))
     (=ucs		. #x5EC9)	; 廉
     (=big5		. #xB747)	; &I-B-B747;
     ))
@@ -5813,6 +5828,14 @@
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=mj		  . 056985)	; &MJ056985;
+      ))
     (=ucs@ks		. #x5EC9)	; &MJ011038;
     (=mj		. 011038)	; &MJ011038;
     (=adobe-japan1-4	. 14095)	; &I-AJ1-14095;
@@ -5866,6 +5889,15 @@
     (ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (=ucs		  . #x2FF8)	; ⿸
+      )
+     ((=ucs		  . #x5E7F)	; 广
+      )
+     ((=ucs@unicode	  . #x517C)	; &MJ007297;
+      (=mj		  . 007297)	; &MJ007297;
+      ))
     (=ucs@unicode	. #x5EC9)	; &MJ011039;
     (=mj		. 011039)	; &MJ011039;
     (=adobe-japan1-0	. 04031)	; &I-AJ1-04031;
