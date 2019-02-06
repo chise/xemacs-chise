@@ -1,3 +1,8 @@
+2019-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R001-One.el (MJ059294): New character; use
+	`<-denotational' for U+5140.
+
 2019-02-01  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R053-Dotted-Cliff.el (BUCS+5EC9): Separate

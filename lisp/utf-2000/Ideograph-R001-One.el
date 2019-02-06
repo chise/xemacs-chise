@@ -1149,6 +1149,27 @@
       ))
     ))
 (define-char
+  '((<-denotational
+     ((=ucs		  . #x5140)	; 兀
+      ))
+    (ideographic-radical . 1)	; ⼀
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((=ucs		  . #x4E00)	; 一
+      )
+     ((=ucs		  . #x51E0)	; 几
+      ))
+    (sound@ja/kun	"taka")
+    (=mj		. 059294)	; &MJ059294;
+    (->subsumptive
+     ((==mj		  . 059294)	; &g2-MJ059294;
+      ))
+    ))
+(define-char
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
