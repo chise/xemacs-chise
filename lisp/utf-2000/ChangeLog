@@ -1,5 +1,24 @@
 2019-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
+	* Ideograph-R126-And.el (U+800E): Apply new conventions for glyph
+	granularity.
+	(U+8010): Add `sound@ja/on/{kan|go|conventional}; add `<-ancient',
+	`<-same' and `<-formed' for UU+80FD; add `<-formed' and `<-same'
+	for U+800F.
+	(CU+43A0): Add `<-formed' and `<-same' for UU+611E.
+
+	* Ideograph-R094-Dog.el (U-00024817): Use `->denotational' and
+	`->subsumptive'.
+
+2019-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R042-Small.el (U+5C18): Apply new conventions for
+	glyph granularity.
+
+	* Ideograph-R003-Dot.el (IWDS1-0022): Add
+	`<-denotational@component' for A-IWDSU+4E37.
+	(A-IWDSU+4E37): New abstract node.
+
 	* Ideograph-R001-One.el (MJ059294): New character; use
 	`<-denotational' for U+5140.
 
