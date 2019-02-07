@@ -10,8 +10,8 @@
   '((<-denotational@component
      ((=>iwds-1		  .  0072)	; &IWDS1-072;
       )
-     ((=>ucs@component	  . #x571F)	; &A-compU+571F;
-      (=>iwds-1		  .  0312)	; &A-compU+571F;
+     ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
+      (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
       ))
     (ideographic-radical . 33)	; ⼠
     (ideographic-strokes . 0)
@@ -2279,8 +2279,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=>ucs@component	  . #x571F)	; &A-compU+571F;
-      (=>iwds-1		  .  0312)	; &A-compU+571F;
+     ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
+      (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
       )
      ((=ucs		  . #x5C0A)	; 尊
       ))
