@@ -742,14 +742,66 @@
   '((ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (=ucs		. #x5C18)	; 尘
-    (->subsumptive
-     ((=daikanwa	  . 07484)	; &M-07484;
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=ucs@unicode	  . #x5C18)	; &C3-2352;
-      (=gb2312		  . #x333E)	; &C3-2352; [19-30]
-      (=cns11643-3	  . #x2352)	; &I-C3-2352; [03-50]
-      (=jef-china3	  . #x81D4)	; &I-JC3-81D4;
+     ((=>ucs@iwds-1	  . #x5C0F)	; &A-IWDSU+5C0F;
+      (=>iwds-1		  .  0028)	; &A-IWDSU+5C0F;
+      )
+     ((=ucs		  . #x571F)	; 土
+      ))
+    (sound@ja/on	"diN")
+    (=ucs		. #x5C18)	; 尘
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x5C18)	; 尘
+      ))
+    (ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x5C0F)	; 小
+      )
+     ((=ucs		  . #x571F)	; 土
+      ))
+    (=ucs@unicode	. #x5C18)	; &C3-2352;
+    (=gb2312		. #x333E)	; &C3-2352; [19-30]
+    (=cns11643-3	. #x2352)	; &I-C3-2352; [03-50]
+    (=daikanwa		. 07484)	; &I-M-07484;
+    (=jef-china3	. #x81D4)	; &I-JC3-81D4;
+    (<-ancient
+     ((=ucs@unicode	  . #x5875)	; &AJ1-02582;
+      (=adobe-japan1-0	  . 02582)	; &AJ1-02582;
+      (=daikanwa	  . 05388)	; &I-M-05388;
+      ))
+    (<-ancient$_1*sources
+     zihui-bu daikanwa)
+    (<-ancient*sources
+     zihui-bu daikanwa)
+    (<-vulgar
+     ((=ucs@iso		  . #x2A2FB)	; &C7-6647;
+      (=cns11643-7	  . #x6647)	; &C7-6647; [70-39]
+      (=daikanwa	  . 47716)	; &I-M-47716;
+      ))
+    (->subsumptive
+     ((==daikanwa	  . 07484)	; &g2-M-07484;
+      )
+     ((==ucs@unicode	  . #x5C18)	; &g2-UU+5C18;
+      (==gb2312		  . #x333E)	; &g2-UU+5C18; [19-30]
+      (==cns11643-3	  . #x2352)	; &g2-UU+5C18; [03-50]
+      (==jef-china3	  . #x81D4)	; &g2-UU+5C18;
+      (->subsumptive
+       ((===cns11643-3	    . #x2352)	; &R-C3-2352; [03-50]
+	)
+       ((===jef-china3	    . #x81D4)	; &R-JC3-81D4;
+	)
+       ((===ucs@unicode	    . #x5C18)	; &R-UU+5C18;
+	))
       ))
     ))
 (define-char

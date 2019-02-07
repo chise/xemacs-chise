@@ -8142,18 +8142,61 @@
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x72AD)	; 犭
+      )
+     ((=ucs		  . #x80FD)	; 能
+      ))
+    (sound@ja/on	"kyuu")
     (=ucs		. #x24817)	; 𤠗
-    (=daikanwa		. 20589)	; &I-M-20589;
     ))
 (define-char
-  '((=>ucs		. #x24817)	; 𤠗
-    (morohashi-daikanwa	20589 0 0)
+  '((<-denotational
+     ((=ucs		  . #x24817)	; 𤠗
+      ))
     (ideographic-radical . 94)	; ⽝
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; ⿰
+      )
+     ((=ucs		  . #x72AD)	; 犭
+      )
+     ((=ucs@unicode	  . #x80FD)	; &AJ1-03315;
+      (=adobe-japan1-0	  . 03315)	; &AJ1-03315;
+      ))
+    (=ucs@iso		. #x24817)	; &C6-5526;
     (=cns11643-6	. #x5526)	; &C6-5526; [53-06]
+    (=daikanwa		. 20589)	; &I-M-20589;
+    (<-formed
+     ((=ucs@unicode	  . #x718A)	; &AJ1-01789;
+      (=adobe-japan1-0	  . 01789)	; &AJ1-01789;
+      ))
+    (<-formed$_1*sources
+     jiyun)
+    (<-same
+     ((=ucs@unicode	  . #x718A)	; &AJ1-01789;
+      (=adobe-japan1-0	  . 01789)	; &AJ1-01789;
+      (=daikanwa	  . 19294)	; &I-M-19294;
+      ))
+    (<-same*sources
+     jiyun daikanwa)
+    (->subsumptive
+     ((==ucs@iso	  . #x24817)	; &g2-M-20589;
+      (==daikanwa	  . 20589)	; &g2-M-20589;
+      (->subsumptive
+       ((===daikanwa	    . 20589)	; &R-M-20589;
+	)
+       ((===ucs@iso	    . #x24817)	; &R-U-00024817;
+	))
+      )
+     ((==ucs@cns	  . #x24817)	; &g2-CU+24817;
+      (==cns11643-6	  . #x5526)	; &g2-CU+24817; [53-06]
+      ))
     ))
 (define-char
   '((ideographic-radical . 94)	; ⽝
