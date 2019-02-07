@@ -299,8 +299,8 @@
       )
      ((=ucs		  . #x51F5)	; 凵
       )
-     ((=>ucs@component	  . #x571F)	; &A-compU+571F;
-      (=>iwds-1		  .  0312)	; &A-compU+571F;
+     ((=>ucs@iwds-1	  . #x571F)	; &A-IWDSU+571F;
+      (=>iwds-1		  .  0312)	; &A-IWDSU+571F;
       ))
     (=>ucs@iwds-1	. #x51F7)	; &A-IWDSU+51F7;
     ))
