@@ -479,8 +479,8 @@
     (=mj		. 030314)	; &I-MJ030314;
     (=big5-cdp		. #x88CC)	; &I-CDP-88CC;
     (=koseki		. 000090)	; 𠀁
-    (=gt		. 00005)	; &GT-00005;
-    (=gt-pj-2		. #x3026)	; &GT-00005; [16-06]
+    (=gt		. 00005)	; &I-GT-00005;
+    (=gt-pj-2		. #x3026)	; &I-GT-00005; [16-06]
     (=daikanwa		. 00009)	; &I-M-00009;
     (<-Small-Seal
      ((=ucs		  . #x4E03)	; 七
@@ -1122,9 +1122,6 @@
     (=gt		. 00015)	; &I-GT-00015;
     (=gt-pj-2		. #x3028)	; &I-GT-00015; [16-08]
     (=daikanwa		. 00015)	; &I-M-00015;
-    (<-mistakable@component
-     ((=gt-k		  . 00264)	; &GT-K00264;
-      ))
     (->subsumptive
      ((==ucs@unicode	  . #x4E0C)	; &g2-AJ1-19140;
       (==adobe-japan1-5	  . 19140)	; &g2-AJ1-19140;
