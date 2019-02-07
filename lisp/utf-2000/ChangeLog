@@ -1,3 +1,10 @@
+2019-02-06  MORIOKA Tomohiko  <tomo.git@chise.org>
+
+	* Ideograph-R030-Mouth.el (U-00020EF3): New character.
+
+	* Ideograph-R001-One.el (U+4E0C): Omit `<-mistakable@component'
+	for GT-K00264.
+
 2019-02-05  MORIOKA Tomohiko  <tomo.git@chise.org>
 
 	* Ideograph-R126-And.el (U+800E): Apply new conventions for glyph
